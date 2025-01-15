@@ -4,75 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56B77C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 05:30:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD77CC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 05:34:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Xm7yo3/9XHh56lprlYmpc/Yefc/eA46G6+YDkimM6ss=; b=LGckjO9jKnjip0mNkCQ23XN2AV
-	ON76g81mMeYLWHWFmi0Bpigazx4QtWXS5snR/04H1TT5CHmYYTxTH0Bl5GR3K+1zASqltC5SZ3JRE
-	+OKY1yZ0Bil/Cq+ne6pR3LN1+5RKKIBQOOoAMGc+KXBsa4dCwbRhMsGRH3Xbcq5pM8tdM0dEuD2JI
-	4H9cHyYgmNgyLhjHGBfHF0PKG3C97aGNYaNrTI557D5TDWM2k/gCBNj9CbvemyxgkgxYstxunz/g5
-	uK0oA3efpm3Nz43YXvOh7Qxc04TD8ANwav1iCBIfHqZQpE1GFsp1YS3RYgog3J/5MbkV7SHKEgCzX
-	uaiAqL4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l2T1YcxHlZZfNUsk7hl2T25n7FwLvU7/hC5IaBmCswg=; b=NScdSOEPXzuEGKsQ7AGCj4Pmf3
+	OJziIWAmNxSXc0oda42Lo2Dx+bEJXoyGgx0YaMNRuJ4howCnpRxAes/PYA41EgmGsvc0pgYl2oQN9
+	jRXmNYyk7j0J8lV3JYHa68ydFtvn+0MoCjilloZG7+24CRxV6/cz3qzp+5oOsKumHeNjrL49mSXXs
+	2q+0UvttlEEb3s8j2A+UC4CxPU7OcJ4JHyR5oSEwEGd3TnVnt8F6hhmq5BoLEljao7xzizeKWtSOO
+	pha395jkgpYXX0FpbsKsKa2p7GoCWIqL/NSeI9kn3LQRw6itJoOq2pmEraAvCOxr8KRXUZkaoM8Ie
+	mARs04zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXvz8-0000000Aggd-1a9s;
-	Wed, 15 Jan 2025 05:30:34 +0000
-Received: from esa4.hc1455-7.c3s2.iphmx.com ([68.232.139.117])
+	id 1tXw2W-0000000AhCq-0vUZ;
+	Wed, 15 Jan 2025 05:34:04 +0000
+Received: from mail-bn8nam12on20602.outbound.protection.outlook.com ([2a01:111:f403:2418::602] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXvxt-0000000AgVI-0A8r
+	id 1tXw1G-0000000AgxR-1QkL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 05:29:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1736918957; x=1768454957;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=15vISLEFmhZT5eZz3ZWj8X7kjiMs2WR2CnqANRurGpQ=;
-  b=GqW20JDOCh5c7NkdEGJ6GWBtYm7xQpeaZeuww4As/dpMREtlbSySzFJB
-   BY/T/H/AnJR5fcqt8v2Ihsh6OINJ+tvTV2b1kz8nUs0mCb7eVlnbH+JjF
-   TZBZCWfNLVxdgpfbvHPSX2cxGvUTkqEuxic8SB7mWM4bLXAd3YmOprqLN
-   Jr11xvPuxfTLHCM/sGFc2eqjstMxTRqd8Wt5qkSUCEW5dVYu9vSBwQ//K
-   tMbPCpLyrrE/j2uCEWhrxwa3ZlY9vgE70BqWGJu5mYiYCfCgR5o8xb7qU
-   HC7meeiACbdmqSDzWvIfsoSrwIDouiInzSEgKiZnoiIwhJScMPJive5wO
-   A==;
-X-CSE-ConnectionGUID: jSNlg2vZR/+YeEMl/BdsXg==
-X-CSE-MsgGUID: HsBSRhTtT/iVoviXk7bQSg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11315"; a="186820628"
-X-IronPort-AV: E=Sophos;i="6.12,316,1728918000"; 
-   d="scan'208";a="186820628"
-Received: from unknown (HELO yto-r3.gw.nic.fujitsu.com) ([218.44.52.219])
-  by esa4.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jan 2025 14:29:10 +0900
-Received: from yto-m2.gw.nic.fujitsu.com (yto-nat-yto-m2.gw.nic.fujitsu.com [192.168.83.65])
-	by yto-r3.gw.nic.fujitsu.com (Postfix) with ESMTP id 63D2CE852B
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 14:29:08 +0900 (JST)
-Received: from yto-om1.fujitsu.com (yto-om1.o.css.fujitsu.com [10.128.89.162])
-	by yto-m2.gw.nic.fujitsu.com (Postfix) with ESMTP id 3E5BDD504A
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 14:29:08 +0900 (JST)
-Received: from sm-x86-mem01.ssoft.mng.com (sm-x86-stp01.soft.fujitsu.com [10.124.178.20])
-	by yto-om1.fujitsu.com (Postfix) with ESMTP id D5E794005AA38;
-	Wed, 15 Jan 2025 14:29:07 +0900 (JST)
-From: Toshiyuki Sato <fj6611ie@aa.jp.fujitsu.com>
-To: Russell King <linux@armlinux.org.uk>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>
-Cc: linux-kernel@vger.kernel.org,
-	linux-serial@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	fj6611ie@aa.jp.fujitsu.com
-Subject: [PATCH v2] serial: amba-pl011: Implement nbcon console
-Date: Wed, 15 Jan 2025 05:27:48 +0000
-Message-Id: <20250115052749.3205675-1-fj6611ie@aa.jp.fujitsu.com>
-X-Mailer: git-send-email 2.34.1
+	Wed, 15 Jan 2025 05:32:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=w8ld8sgsBxzK7PaMkI8lXnvAJgwTfpKP2IQxIHRBJgwINico0SznC0uNe46I4XOlyJd8ipfDLPwwI0NCR/Jz+Nu8qECDabgFIhlE23PSvkfKuXuAFfCdMjR61S+S09/Nwathzwwch542pFGsp/zkn0IMreyo7qkFFX19yKCdNtDg5boJf2/UA9LFC2YRfb7SEAyfMGnp/B6uHzR/lSsrbtxNFGt518mmcGPoJncdy//BGs+sTNxRbdZ3uZMiUlxzPR9/7nfQLjZ/3baFILHOad2WumhRGpoIATCP1TIGc8dFmJJufsmOVLLl+gzO/FM8uSVi+4++p+UcMS1IRImmCQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=l2T1YcxHlZZfNUsk7hl2T25n7FwLvU7/hC5IaBmCswg=;
+ b=NvnxEAVsRV468NyN7/g3oQWtAMeTpv1RpLr8pqK76gn77mcv0nT0pUXU0FpaHh0hYdyPJNZeemcDbYGHzUPS9EFfDOwY8TTXgC6X8uNGixNTpufhMYRK+joCymnwfkbOEoWPP+bCNt1zvlpBdGU/wDYgIPauLt2bT+2T5m5get1DXo5idrMb2kAbL2ui/OBAUdyloXJHeB2D9xKsyi4E2lS8KRPV/qG3pYLnw8onNqG/F+rgLcqNoQd1/1by6FS3mU4q8f27D4fwouI6XhHUB7i0ScMt1Glb4Kq34CKLdhXyP+yAyx1xg3rj0drTILqvK09uUUnuqaFf0u756eKl6g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=l2T1YcxHlZZfNUsk7hl2T25n7FwLvU7/hC5IaBmCswg=;
+ b=PVN/j+L5YmQ1MnoI6sVJHnHyaFgOCwbJZ2yV91zrLwG0NdUYnqnndZSmjo1SV9v7nKbfFOpPuy/Cqu+RdRUEu9RLfk3q8tZhv+2a9qmlHnMkB/Fr7tagW112hc2B2arpbB0vhCqila2IUJnrlgqx8DV/5WRKuhS/IR8m3QFg1pCUpWyViJEMbyUIqqBOS+zHJJppNXdfh9csbuiwqqNqsTdjnt2qaodpsf/VsDhzsQExacrdH7oAsRvw8YIYqPQqQt7qwnf4ProBiKaXSwYgXYuYnaLb4YezoUL+dktJGvnhJuaFbIaNHt+Ejhv82I0iOGPfhVsfv1Tevsl0JmbAgQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS0PR12MB7726.namprd12.prod.outlook.com (2603:10b6:8:130::6) by
+ CH3PR12MB9022.namprd12.prod.outlook.com (2603:10b6:610:171::8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8335.18; Wed, 15 Jan 2025 05:32:37 +0000
+Received: from DS0PR12MB7726.namprd12.prod.outlook.com
+ ([fe80::953f:2f80:90c5:67fe]) by DS0PR12MB7726.namprd12.prod.outlook.com
+ ([fe80::953f:2f80:90c5:67fe%7]) with mapi id 15.20.8335.017; Wed, 15 Jan 2025
+ 05:32:37 +0000
+Date: Wed, 15 Jan 2025 16:32:30 +1100
+From: Alistair Popple <apopple@nvidia.com>
+To: Dan Williams <dan.j.williams@intel.com>
+Cc: akpm@linux-foundation.org, linux-mm@kvack.org, 
+	alison.schofield@intel.com, lina@asahilina.net, zhang.lyra@gmail.com, 
+	gerald.schaefer@linux.ibm.com, vishal.l.verma@intel.com, dave.jiang@intel.com, 
+	logang@deltatee.com, bhelgaas@google.com, jack@suse.cz, jgg@ziepe.ca, 
+	catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au, npiggin@gmail.com, 
+	dave.hansen@linux.intel.com, ira.weiny@intel.com, willy@infradead.org, djwong@kernel.org, 
+	tytso@mit.edu, linmiaohe@huawei.com, david@redhat.com, peterx@redhat.com, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, nvdimm@lists.linux.dev, 
+	linux-cxl@vger.kernel.org, linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org, 
+	linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de, david@fromorbit.com, 
+	chenhuacai@kernel.org, kernel@xen0n.name, loongarch@lists.linux.dev
+Subject: Re: [PATCH v6 08/26] fs/dax: Remove PAGE_MAPPING_DAX_SHARED mapping
+ flag
+Message-ID: <pxpog7xsknwpaqh44vjkg5anegfwxizn6sgpdipntsljx5jg2s@rwqa5zfxooag>
+References: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
+ <b8b39849e171c120442963d3fd81c49a8f005bf0.1736488799.git-series.apopple@nvidia.com>
+ <6785b5525dd93_20fa294f2@dwillia2-xfh.jf.intel.com.notmuch>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <6785b5525dd93_20fa294f2@dwillia2-xfh.jf.intel.com.notmuch>
+X-ClientProxiedBy: SY5P282CA0086.AUSP282.PROD.OUTLOOK.COM
+ (2603:10c6:10:201::7) To DS0PR12MB7726.namprd12.prod.outlook.com
+ (2603:10b6:8:130::6)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB7726:EE_|CH3PR12MB9022:EE_
+X-MS-Office365-Filtering-Correlation-Id: edcd0d5e-0d60-41fa-c707-08dd3526053f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?L7vT40tU0ds1HQ91nng0Cl2YPBtkLrDMEkfU4FswtOL+PwPk1SA5jFVUqO3e?=
+ =?us-ascii?Q?K2G1KjUusOY7EURW+oTPGSeJNlFmlNJbt3P3SnCWMrSFBmHLe5S/AUG9I2r/?=
+ =?us-ascii?Q?wlj0rRBMEGdXKfE4EEA+Ihs80tLDAHEsyMY1RvBE5t7nfE/0D4yfoIFT6LTm?=
+ =?us-ascii?Q?LIAWamangLI2HRmGxIoZ5+I5kVHzKGNpFfLO47nkPMp+rxepucX8/b0eANZE?=
+ =?us-ascii?Q?pNE/COCMYRx0d3hYdsnnZgwRWNK0LrpiXEhDiAwhsXGvfu82kV3EV0c/TwJ4?=
+ =?us-ascii?Q?yXPvUzxvm2ZszAOxnaCk7H9MIkXQt9zwYVOtKYVQoQy0Pv37ryafRCG0RtOP?=
+ =?us-ascii?Q?6+fpzFV9qQZeCXdoSkW3DTCZ5uh42doyHXKExv1FrBQ1EHLfuGiFei6QggS6?=
+ =?us-ascii?Q?AcPz7q9erFPuMLqh1nT7GrhYVyA4sTdDkZqAdwQGSUiveafRflr/hjqf7Xlk?=
+ =?us-ascii?Q?TGx88wG0nZFj3Y10mn6JdaijhnGTfyoCdBN6ymsJLiM2Grse1tZ776GOVJj7?=
+ =?us-ascii?Q?WNW9EN5Mu++3ngjAGOST3OXJ9ZAS7s0MTeiqNJLA67wvU+j9fvSDQ52WQtWj?=
+ =?us-ascii?Q?a0xd4IArAhq2wN6+Vexkrr2SwRCGEpRN2M1Zjxo8NVgiESV/lptyZLe4AL+P?=
+ =?us-ascii?Q?+DQ44RKimiBF5c/CYrHB48qqtH3hUTvUNdoVN6iWCV67D0ltk6DVG16SW9zz?=
+ =?us-ascii?Q?bBg1UM8EvoiFrOdgJo6PkyA/dMUxlJwM24P213N7iVtFJRs87thOpInHX/AR?=
+ =?us-ascii?Q?34LYxFQJ3vaOsvRKBuf2txdNA+YTuyAUnAsw53uIeTvFmXycamxZBV7ExzxG?=
+ =?us-ascii?Q?ByZOExPzehPxDwGaYPBIRX+fU1Pq8zfOJTg68oLSydxf+/oRE/89GiUeFEQ8?=
+ =?us-ascii?Q?JxC1qSBwsgiYkgxqrDnIeyEiQst85JUMwyX8UJH4ovPNkj2eiFxc5ma1j2TF?=
+ =?us-ascii?Q?+xp/yJJwWe2R6IE0/6b8pdEdflkzdG/tE2KsXeRtuZrVtK8hbEjP4JaR46g3?=
+ =?us-ascii?Q?dSVpBCUUb6a7nxMhdnlsWWc7QVz2u/89HG3+uTorubiRz+pkhQS29yu5aJej?=
+ =?us-ascii?Q?PCZOL7AcXnAHyhHslpDhpXBYQM/3rUwG1NKygJwroKzJjQXOJsfG2WUpCksz?=
+ =?us-ascii?Q?kXyjaY8vQAgqN0tnvcIWCKJ10MlStEo0H4cYByfUE4rPZrZLkxRWVTCXAEMT?=
+ =?us-ascii?Q?+WbI55q07PC33EroOU43PUbSkiWGK/+lXXfZJPew4qjspoN4XQVnAVCWVFYn?=
+ =?us-ascii?Q?Jr6KEnHEVhL7IVeLzIkbimBywOIdh6A0ORx5h1g7/Y+OHeFPEN/TyMkkwKuJ?=
+ =?us-ascii?Q?L4lH2l6dcy/7aw8T3FTAUxiNC9OeMVokyTnUBL64/i+w69affJmAL6ahgrHZ?=
+ =?us-ascii?Q?9OxA3kOWavRQMSzs9FLv+2UrVFsk?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7726.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+3fzRW6b710jDGz6CdZJjk+7d2dV1LF63nh6JTFu8Sr21YG3O9SR7zJhaZFh?=
+ =?us-ascii?Q?INdAZxE3ZbeUN0orpZ7FOE2aCNPBukS2UXsvGo9A0tDaq/vxHKDarD1ud5wR?=
+ =?us-ascii?Q?myB8V1EyZuZeUEaTvoi0WqgGK4LWz1OnVpq00XmumMQPK1j8CsFJAyN5Polt?=
+ =?us-ascii?Q?i9DlA0mY8IkJZIxZOebF1DprWUhcfcw/CwnN56pf0z7gZgTOMvPVGEAJ6JUa?=
+ =?us-ascii?Q?E66Whvnawfm9zDLS8if6qLbkV+S2KhIFrwAP1hXyqXMm64WitGSl/uP3MCYp?=
+ =?us-ascii?Q?wWuI8D0IZO5Nu+htJFE5TQipDmzeeqbmrgFA5w9DlNYANhUcGuEEu5UDBdUy?=
+ =?us-ascii?Q?XfrfLt98xRwyvjLFgyDi1GBOdKB00sCZkGfVGMbwIAUg0KviqkmeZzDpWtni?=
+ =?us-ascii?Q?crFU0yuwwD0jxpV6gyLYQnFXU4Yi9arRyohrsQrZLPstS6ydFUu1kcfFpS7f?=
+ =?us-ascii?Q?0Q0i0CIkLNBrc1mFBPi0/NbGxKG5LDRfYmHRyboYdp4OdaDlUg1A5q+9MUg0?=
+ =?us-ascii?Q?lNhdOtAH0VbWoSGaD97sokXrw0Mr37DBraiwGefzD2vrz5z86uY8ti3tf41x?=
+ =?us-ascii?Q?OMvVH+gTinmHKhVPRWnJSGXCgQCVw1YqqxpyiyBe09pXWRl0mmQdj53qPxy9?=
+ =?us-ascii?Q?CxcreOXV7Zp2F1f2DQ1jc+JOeIeG/RY4qYQYmQm4PWbirxyrNqjHZrydk/Sy?=
+ =?us-ascii?Q?RPYOtdCnLA9udxYNjCngqb545g85sDHBBqsWeOiylSZ0VvDdeMb0gNVOubps?=
+ =?us-ascii?Q?ObXwzY+kQd7EvBIxabEzFjILpoO8+wf3c/+UJJGZzrjk9lierBixENDJJlfb?=
+ =?us-ascii?Q?2ir3dGz8ZOl+eEOFIDBP/F19FaGBxd2jV95vxKD2L9YAWjA9AWvJAmPUmE2q?=
+ =?us-ascii?Q?PtB1LzmI5KJnMs6bfMmkPECYudpwiLk4blINScVa4mJJRik8OcI+QkeD68gJ?=
+ =?us-ascii?Q?ExY3bjWQZytyG5LLalt0BJwRNXi4OejYLaAOCyDXIDfx9gkR5jvPb5122kR1?=
+ =?us-ascii?Q?GA1bfb86OCGLp1JPoKKvP8/q66tYPF/AfV1++gXswX/QQc6Eu31vMMIHTy2c?=
+ =?us-ascii?Q?Dl+Hyi4eqokbnTR3NvYTa/1fcmNs0y4sR6g7TjJpgKf5dQZ3k8Xi9l2ytC/8?=
+ =?us-ascii?Q?EqO2aW/FcySErA/1vmNuFluL9SOEJ5I68Rs7mtPAYwih2KsDO9foiJUTnB6K?=
+ =?us-ascii?Q?LLLG9dX36n5rg+1RI3hs0qREAiTjfyeqbyAAvLc6WDeiUdHgRnnrvYjpowxX?=
+ =?us-ascii?Q?t6jJbLv7+d853pf4yvgkgYTFAoYV2XxKsegRLmfzYKEAWrQI/Fi6TN9l62nc?=
+ =?us-ascii?Q?iFDzEIS1FGJSDICet6ejPW5qfNm/zqRQlYweT65MSr+AmMTWrSil8/UepgJG?=
+ =?us-ascii?Q?R974VaNASAVL9ORjdEC65YzRzeTX7bpypoXjbmjAaX3LRUD5COMw5bJkkq0w?=
+ =?us-ascii?Q?OGYlwCt06f87DoWCIXERMKhH3qN/b+10hCewzQMF+YCunJfVWxJfBUeHwOsB?=
+ =?us-ascii?Q?y8JfNTlAE1Lg0SKWnoolnn8PdGzuzB5L4OVcItZ1iGH98SXbSf7L+PVuOJBi?=
+ =?us-ascii?Q?eX2f8CRbSCHViPDKhq1/BegLcG8nWQxhZbjMipuD?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: edcd0d5e-0d60-41fa-c707-08dd3526053f
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB7726.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jan 2025 05:32:37.3304
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: XeRTJx1yGFydjn9bIrFO9Qb23Z1h1wrOAk/kPpJHrm+HEma6aXtDa0zpudE+sDO2MB3Lc+/KgRBZi9g/ofauOw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9022
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_212917_430577_E22DFB26 
-X-CRM114-Status: GOOD (  22.61  )
+X-CRM114-CacheID: sfid-20250114_213246_478014_1E53C398 
+X-CRM114-Status: GOOD (  49.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,231 +167,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement the callbacks required for an NBCON console [0] on the 
-amba-pl011 console driver.
+On Mon, Jan 13, 2025 at 04:52:34PM -0800, Dan Williams wrote:
+> Alistair Popple wrote:
+> > PAGE_MAPPING_DAX_SHARED is the same as PAGE_MAPPING_ANON. 
+> 
+> I think a bit a bit more detail is warranted, how about?
+> 
+> The page ->mapping pointer can have magic values like
+> PAGE_MAPPING_DAX_SHARED and PAGE_MAPPING_ANON for page owner specific
+> usage. In fact, PAGE_MAPPING_DAX_SHARED and PAGE_MAPPING_ANON alias the
+> same value.
 
-Referred to the NBCON implementation work for 8250 [1] and imx [2].
+Massaged it slightly but sounds good.
 
-The normal-priority write_thread checks for console ownership
-each time a character is printed.
-write_atomic holds the console ownership until the entire string
-is printed.
+> > This isn't currently a problem because FS DAX pages are treated
+> > specially.
+> 
+> s/are treated specially/are never seen by the anonymous mapping code and
+> vice versa/
+> 
+> > However a future change will make FS DAX pages more like
+> > normal pages, so folio_test_anon() must not return true for a FS DAX
+> > page.
+> > 
+> > We could explicitly test for a FS DAX page in folio_test_anon(),
+> > etc. however the PAGE_MAPPING_DAX_SHARED flag isn't actually
+> > needed. Instead we can use the page->mapping field to implicitly track
+> > the first mapping of a page. If page->mapping is non-NULL it implies
+> > the page is associated with a single mapping at page->index. If the
+> > page is associated with a second mapping clear page->mapping and set
+> > page->share to 1.
+> > 
+> > This is possible because a shared mapping implies the file-system
+> > implements dax_holder_operations which makes the ->mapping and
+> > ->index, which is a union with ->share, unused.
+> > 
+> > The page is considered shared when page->mapping == NULL and
+> > page->share > 0 or page->mapping != NULL, implying it is present in at
+> > least one address space. This also makes it easier for a future change
+> > to detect when a page is first mapped into an address space which
+> > requires special handling.
+> > 
+> > Signed-off-by: Alistair Popple <apopple@nvidia.com>
+> > ---
+> >  fs/dax.c                   | 45 +++++++++++++++++++++++++--------------
+> >  include/linux/page-flags.h |  6 +-----
+> >  2 files changed, 29 insertions(+), 22 deletions(-)
+> > 
+> > diff --git a/fs/dax.c b/fs/dax.c
+> > index 4e49cc4..d35dbe1 100644
+> > --- a/fs/dax.c
+> > +++ b/fs/dax.c
+> > @@ -351,38 +351,41 @@ static unsigned long dax_end_pfn(void *entry)
+> >  	for (pfn = dax_to_pfn(entry); \
+> >  			pfn < dax_end_pfn(entry); pfn++)
+> >  
+> > +/*
+> > + * A DAX page is considered shared if it has no mapping set and ->share (which
+> > + * shares the ->index field) is non-zero. Note this may return false even if the
+> > + * page is shared between multiple files but has not yet actually been mapped
+> > + * into multiple address spaces.
+> > + */
+> >  static inline bool dax_page_is_shared(struct page *page)
+> >  {
+> > -	return page->mapping == PAGE_MAPPING_DAX_SHARED;
+> > +	return !page->mapping && page->share;
+> >  }
+> >  
+> >  /*
+> > - * Set the page->mapping with PAGE_MAPPING_DAX_SHARED flag, increase the
+> > - * refcount.
+> > + * Increase the page share refcount, warning if the page is not marked as shared.
+> >   */
+> >  static inline void dax_page_share_get(struct page *page)
+> >  {
+> > -	if (page->mapping != PAGE_MAPPING_DAX_SHARED) {
+> > -		/*
+> > -		 * Reset the index if the page was already mapped
+> > -		 * regularly before.
+> > -		 */
+> > -		if (page->mapping)
+> > -			page->share = 1;
+> > -		page->mapping = PAGE_MAPPING_DAX_SHARED;
+> > -	}
+> > +	WARN_ON_ONCE(!page->share);
+> > +	WARN_ON_ONCE(page->mapping);
+> 
+> Given the only caller of this function is dax_associate_entry() it seems
+> like overkill to check that a function only a few lines away manipulated
+> ->mapping correctly.
 
-UART register operations are protected from other contexts by 
-uart_port_lock, except for a final flush(nbcon_atomic_flush_unsafe) 
-on panic.
+Good call.
 
-The patch has been verified to correctly handle the output and
-competition of messages with different priorities and flushing
-panic message to console after nmi panic using ARM64 QEMU and
-a physical machine(A64FX).
+> I don't see much reason for dax_page_share_get() to exist after your
+> changes.
+> 
+> Perhaps all that is needed is a dax_make_shared() helper that does the
+> initial fiddling of '->mapping = NULL' and '->share = 1'?
 
-[0] https://lore.kernel.org/all/ZuRRTbapH0DCj334@pathway.suse.cz/
-[1] https://lore.kernel.org/all/20240913140538.221708-1-john.ogness@linutronix.de/T/
-[2] https://lore.kernel.org/linux-arm-kernel/20240913-serial-imx-nbcon-v3-1-4c627302335b@geanix.com/T/
+Ok. I was going to make the argument that dax_make_shared() was overkill as
+well, but as noted below it's a good place to put the comment describing how
+this all works so have done that.
 
-Signed-off-by: Toshiyuki Sato <fj6611ie@aa.jp.fujitsu.com>
----
-This patch removes the legacy console code.
-Please comment if you have any concerns.
+> >  	page->share++;
+> >  }
+> >  
+> >  static inline unsigned long dax_page_share_put(struct page *page)
+> >  {
+> > +	WARN_ON_ONCE(!page->share);
+> >  	return --page->share;
+> >  }
+> >  
+> >  /*
+> > - * When it is called in dax_insert_entry(), the shared flag will indicate that
+> > - * whether this entry is shared by multiple files.  If so, set the page->mapping
+> > - * PAGE_MAPPING_DAX_SHARED, and use page->share as refcount.
+> > + * When it is called in dax_insert_entry(), the shared flag will indicate
+> > + * whether this entry is shared by multiple files. If the page has not
+> > + * previously been associated with any mappings the ->mapping and ->index
+> > + * fields will be set. If it has already been associated with a mapping
+> > + * the mapping will be cleared and the share count set. It's then up to the
+> > + * file-system to track which mappings contain which pages, ie. by implementing
+> > + * dax_holder_operations.
+> 
+> This feels like a good comment for a new dax_make_shared() not
+> dax_associate_entry().
+> 
+> I would also:
+> 
+> s/up to the file-system to track which mappings contain which pages, ie. by implementing
+>  dax_holder_operations/up to reverse map users like memory_failure() to
+> call back into the filesystem to recover ->mapping and ->index
+> information/
 
-I plan to try a stress test, referencing the work for 8250.
-https://lore.kernel.org/lkml/ZsdoD6PomBRsB-ow@debarbos-thinkpadt14sgen2i.remote.csb/#t
+Sounds good, although I left a reference to dax_holder_operations in the comment
+because it's not immediately obvious how file-systems do this currently and I
+had to relearn that more times than I'd care to admit :-)
 
-Changes in v2:
-- Remove the module parameter used to switch between legacy and nbcon.
-- Remove codes for legacy console.
-- Fix build errors detected by the test robot.
-- based on 6.13-rc7
-v1: https://lore.kernel.org/all/20250108004730.2302996-1-fj6611ie@aa.jp.fujitsu.com/
+> >   */
+> >  static void dax_associate_entry(void *entry, struct address_space *mapping,
+> >  		struct vm_area_struct *vma, unsigned long address, bool shared)
+> > @@ -397,7 +400,17 @@ static void dax_associate_entry(void *entry, struct address_space *mapping,
+> >  	for_each_mapped_pfn(entry, pfn) {
+> >  		struct page *page = pfn_to_page(pfn);
+> >  
+> > -		if (shared) {
+> > +		if (shared && page->mapping && page->share) {
+> 
+> How does this case happen? I don't think any page would ever enter with
+> both ->mapping and ->share set, right?
 
-Thanks Greg for the advice & comment.
----
- drivers/tty/serial/amba-pl011.c | 143 ++++++++++++++++++++++----------
- 1 file changed, 97 insertions(+), 46 deletions(-)
+Sigh. You're right - it can't. This patch series is getting a litte bit large
+and unweildy with all the prerequisite bugfixes and cleanups. Obviously I fixed
+this when developing the main fs dax count fixup but forgot to rebase the fix
+further back in the series.
 
-diff --git a/drivers/tty/serial/amba-pl011.c b/drivers/tty/serial/amba-pl011.c
-index 69b7a3e1e..577fd3258 100644
---- a/drivers/tty/serial/amba-pl011.c
-+++ b/drivers/tty/serial/amba-pl011.c
-@@ -263,6 +263,7 @@ struct uart_amba_port {
- 	char			type[12];
- 	bool			rs485_tx_started;
- 	unsigned int		rs485_tx_drain_interval; /* usecs */
-+	bool			console_line_ended;
- #ifdef CONFIG_DMA_ENGINE
- 	/* DMA stuff */
- 	unsigned int		dmacr;		/* dma control reg */
-@@ -2305,50 +2306,7 @@ static void pl011_console_putchar(struct uart_port *port, unsigned char ch)
- 	while (pl011_read(uap, REG_FR) & UART01x_FR_TXFF)
- 		cpu_relax();
- 	pl011_write(ch, uap, REG_DR);
--}
--
--static void
--pl011_console_write(struct console *co, const char *s, unsigned int count)
--{
--	struct uart_amba_port *uap = amba_ports[co->index];
--	unsigned int old_cr = 0, new_cr;
--	unsigned long flags;
--	int locked = 1;
--
--	clk_enable(uap->clk);
--
--	if (oops_in_progress)
--		locked = uart_port_trylock_irqsave(&uap->port, &flags);
--	else
--		uart_port_lock_irqsave(&uap->port, &flags);
--
--	/*
--	 *	First save the CR then disable the interrupts
--	 */
--	if (!uap->vendor->always_enabled) {
--		old_cr = pl011_read(uap, REG_CR);
--		new_cr = old_cr & ~UART011_CR_CTSEN;
--		new_cr |= UART01x_CR_UARTEN | UART011_CR_TXE;
--		pl011_write(new_cr, uap, REG_CR);
--	}
--
--	uart_console_write(&uap->port, s, count, pl011_console_putchar);
--
--	/*
--	 *	Finally, wait for transmitter to become empty and restore the
--	 *	TCR. Allow feature register bits to be inverted to work around
--	 *	errata.
--	 */
--	while ((pl011_read(uap, REG_FR) ^ uap->vendor->inv_fr)
--						& uap->vendor->fr_busy)
--		cpu_relax();
--	if (!uap->vendor->always_enabled)
--		pl011_write(old_cr, uap, REG_CR);
--
--	if (locked)
--		uart_port_unlock_irqrestore(&uap->port, flags);
--
--	clk_disable(uap->clk);
-+	uap->console_line_ended = (ch == '\n');
- }
- 
- static void pl011_console_get_options(struct uart_amba_port *uap, int *baud,
-@@ -2411,6 +2369,8 @@ static int pl011_console_setup(struct console *co, char *options)
- 	if (ret)
- 		return ret;
- 
-+	uap->console_line_ended = true;
-+
- 	if (dev_get_platdata(uap->port.dev)) {
- 		struct amba_pl011_data *plat;
- 
-@@ -2494,14 +2454,105 @@ static int pl011_console_match(struct console *co, char *name, int idx,
- 	return -ENODEV;
- }
- 
-+static void
-+pl011_console_write_atomic(struct console *co, struct nbcon_write_context *wctxt)
-+{
-+	struct uart_amba_port *uap = amba_ports[co->index];
-+	unsigned int old_cr = 0;
-+
-+	if (!nbcon_enter_unsafe(wctxt))
-+		return;
-+
-+	clk_enable(uap->clk);
-+
-+	if (!uap->vendor->always_enabled) {
-+		old_cr = pl011_read(uap, REG_CR);
-+		pl011_write((old_cr & ~UART011_CR_CTSEN) | (UART01x_CR_UARTEN | UART011_CR_TXE),
-+				uap, REG_CR);
-+	}
-+
-+	if (!uap->console_line_ended)
-+		uart_console_write(&uap->port, "\n", 1, pl011_console_putchar);
-+	uart_console_write(&uap->port, wctxt->outbuf, wctxt->len, pl011_console_putchar);
-+
-+	while ((pl011_read(uap, REG_FR) ^ uap->vendor->inv_fr) & uap->vendor->fr_busy)
-+		cpu_relax();
-+
-+	if (!uap->vendor->always_enabled)
-+		pl011_write(old_cr, uap, REG_CR);
-+
-+	clk_disable(uap->clk);
-+
-+	nbcon_exit_unsafe(wctxt);
-+}
-+
-+static void
-+pl011_console_write_thread(struct console *co, struct nbcon_write_context *wctxt)
-+{
-+	struct uart_amba_port *uap = amba_ports[co->index];
-+	unsigned int old_cr = 0;
-+
-+	if (!nbcon_enter_unsafe(wctxt))
-+		return;
-+
-+	clk_enable(uap->clk);
-+
-+	if (!uap->vendor->always_enabled) {
-+		old_cr = pl011_read(uap, REG_CR);
-+		pl011_write((old_cr & ~UART011_CR_CTSEN) | (UART01x_CR_UARTEN | UART011_CR_TXE),
-+				uap, REG_CR);
-+	}
-+
-+	if (nbcon_exit_unsafe(wctxt)) {
-+		int i;
-+		unsigned int len = READ_ONCE(wctxt->len);
-+
-+		for (i = 0; i < len; i++) {
-+			if (!nbcon_enter_unsafe(wctxt))
-+				break;
-+			uart_console_write(&uap->port, wctxt->outbuf + i, 1, pl011_console_putchar);
-+			if (!nbcon_exit_unsafe(wctxt))
-+				break;
-+		}
-+	}
-+
-+	while (!nbcon_enter_unsafe(wctxt))
-+		nbcon_reacquire_nobuf(wctxt);
-+
-+	while ((pl011_read(uap, REG_FR) ^ uap->vendor->inv_fr) & uap->vendor->fr_busy)
-+		cpu_relax();
-+
-+	if (!uap->vendor->always_enabled)
-+		pl011_write(old_cr, uap, REG_CR);
-+
-+	clk_disable(uap->clk);
-+
-+	nbcon_exit_unsafe(wctxt);
-+}
-+
-+static void
-+pl011_console_device_lock(struct console *co, unsigned long *flags)
-+{
-+	__uart_port_lock_irqsave(&amba_ports[co->index]->port, flags);
-+}
-+
-+static void
-+pl011_console_device_unlock(struct console *co, unsigned long flags)
-+{
-+	__uart_port_unlock_irqrestore(&amba_ports[co->index]->port, flags);
-+}
-+
- static struct uart_driver amba_reg;
- static struct console amba_console = {
- 	.name		= "ttyAMA",
--	.write		= pl011_console_write,
- 	.device		= uart_console_device,
- 	.setup		= pl011_console_setup,
- 	.match		= pl011_console_match,
--	.flags		= CON_PRINTBUFFER | CON_ANYTIME,
-+	.write_atomic	= pl011_console_write_atomic,
-+	.write_thread	= pl011_console_write_thread,
-+	.device_lock	= pl011_console_device_lock,
-+	.device_unlock	= pl011_console_device_unlock,
-+	.flags		= CON_PRINTBUFFER | CON_ANYTIME | CON_NBCON,
- 	.index		= -1,
- 	.data		= &amba_reg,
- };
--- 
-2.34.1
+Anyway I have fixed that now, thanks.
 
+> If the file was mapped then reflinked then ->share should be zero at the
+> first mapping attempt. It might not be zero because it is aliased with
+> index until it is converted to a shared page.
 
