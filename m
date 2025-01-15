@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC7FCC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 11:19:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30210C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 11:21:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sz8qYCut2vMXxqWmWVOJ5WSfbE/dmnJ2d6EiHkz1mpE=; b=ErMvB9h1ob6M6xCr11ARl9PxJq
-	ZHs+5RrDQ8oJCI3qHIkwOcU8Xvv9n3JReEX5oEV1ZUlRZnH1MmcoIwTyxIT6VX5Mviqf2YpJ/4ge0
-	9OcOWG1ZXb6iKPFwslfnRqBVs5ON0M3XizR6k+KCy/Sc2Ey0IPdn2uMCrKvQGtVIMji3wQoTwYpT/
-	FGEteynSmgFrWKJReMIMCVOJ9838zXYgnxkSW/c6AFG0eOfHjXXjXs3E9Yv2LS0zQ5yTG+03Fu+Ho
-	kRteuIiXO+KaS3I50v4QQxufU82CHqX4gzcK7i8Fk9jthUGEX2gN3ySxmHXqYpo+2bGhrb4MfWl05
-	0BJc9xOw==;
+	bh=0Kw67OIBBLmEStPVTyogH0wxEiR1fl+xyxzlDKAemyc=; b=lxj5E56gYZbjzP5+fT9Fb6gOMr
+	agZGxOh2I5qLG+m7BOHFPO9H6iX8usgD9q+7hqKzlhOgLJHTv6SXFl2XMVPxH9GES7GXd92cAf1lm
+	TH5K5PKFthzckzRcPGN7FzuJF6jGh2elaOusyVmmiSygwvogjc11ulQAZ79l4W0fGdqaj6VenHiW7
+	QSovrlIrakeEeliLBgRw6dkS0y2N9kKKe+ceVLPwMQwlAsTVB5ps24/aEp6wDFc0cf8ofhnqGZzOd
+	tRepAltaXKOedPGe9QDDhbo/58Hhu+0MbnNLAcsGmclT8A114gXnUdiKdOFwBF6rp31T7xPfHE/jl
+	jTfkV41Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY1R2-0000000BeXL-1fIN;
-	Wed, 15 Jan 2025 11:19:44 +0000
-Received: from mail-pl1-f181.google.com ([209.85.214.181])
+	id 1tY1SG-0000000BehS-07RG;
+	Wed, 15 Jan 2025 11:21:00 +0000
+Received: from mail-pl1-f170.google.com ([209.85.214.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY1M9-0000000BdPI-2sXD;
-	Wed, 15 Jan 2025 11:14:43 +0000
-Received: by mail-pl1-f181.google.com with SMTP id d9443c01a7336-2163dc5155fso119917935ad.0;
-        Wed, 15 Jan 2025 03:14:41 -0800 (PST)
+	id 1tY1Nc-0000000Bdlz-2DiY;
+	Wed, 15 Jan 2025 11:16:13 +0000
+Received: by mail-pl1-f170.google.com with SMTP id d9443c01a7336-21634338cfdso113626585ad.2;
+        Wed, 15 Jan 2025 03:16:12 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736939681; x=1737544481;
+        d=1e100.net; s=20230601; t=1736939772; x=1737544572;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=sz8qYCut2vMXxqWmWVOJ5WSfbE/dmnJ2d6EiHkz1mpE=;
-        b=eaHCwciVKfHCs9H1oV+gQAlLYqrNb50dE0DBYMpEO/46LzO6jTqB0PGd70dhqld7YU
-         tUpA1Dl0fwmpbEAt+2Smq/y69pccNzOKyoD/Yy9TMTA84OeG4+3Vd2bE/BafnQoJVfQO
-         NQ2693Za02pZRAf1AmtTh1PwVAijfudWvJhgmJ100TF3qii0WmmJklsIILtxOzlbUn67
-         xiQkiwae5tYSsCHn3rSh5grzrt45xuLHXSJHAuj3aGUv5olhRUNcNsIsHnQWVqjkTt7i
-         Ajm+FNmZ2w5TqZUCrHojomAVfB7tt1WVnVsaYWUIUybJEJkYqOCY46UQjvjEGvkBWQtE
-         B/GQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUjq1atxP7emMcaKxOWQbT4PLLTSrGM7PCdcs5IrvaaaM1TCu3584AR7VLNl6vqByFeG1LC0R6O0JiCWZW6OT9l@lists.infradead.org, AJvYcCWT1S8zNa57lnHLhQ5CZsu6FsOmj+akmAgxd4EwMQsr9jwnF43CmLVMegv5R0fIxpHduTPFIJgayN8O3kVBpC8=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzgQxW2v6XsXGwZikbs7GSvJh8vodvvFfBGpg2g73OkFVVm9KZS
-	QqvTsob8gzPm+Tm7XeCbdGo7/nDNXgHpghDKvM5ovRw4Je2LybBX
-X-Gm-Gg: ASbGncvQP6UxUqdYWbEfnoN8HPQIyr873HWr4V9/q8M7vjC6qSO39WtnsuoUqQ/hUQd
-	dFl6cE9ORWuKHaupmA0xA3GId4dlOHp6dAhymUhL2GEQ2zngJRZ94IYE4S3SCktQTPbsWUxDVgf
-	YVs9Fifz1cWZeJ/TYW70RA2uFWzpo4yFWek0IiFzxkoRprMGjsYtdQTt4Wh/tDeLSMtlnpiB3Si
-	rbHMCeERSJQ1xlnzv1AaKHlc0TXjSMU7wB7vwwo473V5WsP4KBJIDRjLXT5UYGmF0ZmSbjcd7G7
-	pt8nBdIpNe515Ig=
-X-Google-Smtp-Source: AGHT+IHBi1TpzbH8P/aWhdgwF4SFs6U00POoo7gCP6dZ7wsv46DHk24a0naYWm/T9JwxKv4fWUwHVA==
-X-Received: by 2002:a17:90b:3bc3:b0:2ee:bbd8:2b9d with SMTP id 98e67ed59e1d1-2f548f75de6mr34988834a91.34.1736939680740;
-        Wed, 15 Jan 2025 03:14:40 -0800 (PST)
+        bh=0Kw67OIBBLmEStPVTyogH0wxEiR1fl+xyxzlDKAemyc=;
+        b=VSVvUrt/zxaklMoj+B/J4mCXXgOFwi1c6YnYwmfwUFPKzMGK+1TX4BwfV7ZfBHoP+Q
+         dlwt0VSR56tWdFNiB+hVBq4Zmm/6tExAbP6qtu8+9ci70PclnVZccjDeBbpafD47FmOB
+         FjinbrcXEp5L+a7HYAM0Lmnmw/Fs4p/0K7t4wIUi5O4BFNCDrq3QUrmedZn5LAx3FLZk
+         s8Xd1DU+3QwrhnHUmEJq2/w5JL1cioJTFsvDHb/HDGiHWw5+xs2cTrmMQ5xixAbBCMau
+         xzULaG6EmI+bi8CgX7ft37NnWMLJ3Iirfm76x4AKm3nCfCIm6n383R4lP+SEVlGYF3q+
+         v/zw==
+X-Forwarded-Encrypted: i=1; AJvYcCVClY+mXDSNWefNlCqWApwbe9BUnphRjB7mFw1a4krxiQCCUhZ5mLr/HuHeEPq6droZeD2tLvwo/E5MaGIQnII=@lists.infradead.org, AJvYcCW0uOEqPlDOR4jxqMngmOPmNo6XiF6Y4VMCPXg2EZB1729L8mnL9sYhVELS65QMyAnc1ElzYratN6RfJ4wipCPt@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx4fEXbfSo54dwsk84UKYxNdxbWDwhs/rRcChTl4ZdPLKwEvPdv
+	w+3iYrubXPHdVBsPJl7S67alTmCQDAXrRpn2r8RhvPFUMo9oc/zM
+X-Gm-Gg: ASbGnctnOtWHlrqeI6C79e7PWz9XuprGVB47eRVqJUejRduOglbz+QGJ+WS2K8Z4Ag8
+	l/PrDpQmycfukdY4f6qSRYdHiEkE+D8pOHmq3tjt5ItIhTb12BMOymDMcdw/nKjtYgttmFv0+hb
+	+7KOT4aDb8sgVUwha64/tzCM4YcTpIMmi0ShX9z2YKRK/TGHA1RZzZsh1zk7M6KnWwGUl7TL3qO
+	fQvuenf5RjWhLpdca3gIXAhAhKY8pNrL76fgnlKyHlFAmwy4KVMs1UX9juiWmtm1VKJVAk3u+xs
+	bWTm+hv/V3reHTM=
+X-Google-Smtp-Source: AGHT+IH5OAsVS2PlRnMNk7lD8elaMdkqgDDfyGz9mjd0ExeYOdTBcE2chmXF3h2Tj1xi3fzo5sfr5w==
+X-Received: by 2002:a17:903:191:b0:215:a964:e680 with SMTP id d9443c01a7336-21a83f65330mr424297155ad.25.1736939771781;
+        Wed, 15 Jan 2025 03:16:11 -0800 (PST)
 Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f7085261dcsm1908286a91.0.2025.01.15.03.14.39
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21bb316b825sm51658385ad.237.2025.01.15.03.16.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jan 2025 03:14:40 -0800 (PST)
-Date: Wed, 15 Jan 2025 20:14:38 +0900
+        Wed, 15 Jan 2025 03:16:11 -0800 (PST)
+Date: Wed, 15 Jan 2025 20:16:09 +0900
 From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Douglas Anderson <dianders@chromium.org>
 Cc: Ryder Lee <ryder.lee@mediatek.com>,
 	Jianjun Wang <jianjun.wang@mediatek.com>,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, Hui Ma <hui.ma@airoha.com>
-Subject: Re: [PATCH v4] PCI: mediatek-gen3: Avoid PCIe resetting via PERST#
- for Airoha EN7581 SoC
-Message-ID: <20250115111438.GB4176564@rocinante>
-References: <20250109-pcie-en7581-rst-fix-v4-1-4a45c89fb143@kernel.org>
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Rob Herring <robh@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	linux-pci@vger.kernel.org
+Subject: Re: [PATCH] PCI: mediatek-gen3: Enable async probe by default
+Message-ID: <20250115111609.GC4176564@rocinante>
+References: <20241220145205.1.Ibf2563896c3b1fc133bb46d3fc96ad0041763922@changeid>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250109-pcie-en7581-rst-fix-v4-1-4a45c89fb143@kernel.org>
+In-Reply-To: <20241220145205.1.Ibf2563896c3b1fc133bb46d3fc96ad0041763922@changeid>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_031441_872757_BD5F4A27 
-X-CRM114-Status: UNSURE (   9.03  )
+X-CRM114-CacheID: sfid-20250115_031612_568644_963C6D8B 
+X-CRM114-Status: UNSURE (   8.20  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,14 +95,9 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hello,
 
-> Airoha EN7581 has a hw bug asserting/releasing PERST# signal causing
-> occasional PCIe link down issues. In order to overcome the problem,
-> PERST# signal is not asserted/released during device probe or
-> suspend/resume phase and the PCIe block is reset using
-> en7523_reset_assert() and en7581_pci_enable().
-> 
-> Introduce flags field in the mtk_gen3_pcie_pdata struct in order to
-> specify per-SoC capabilities.
+> Like other PCIe drivers, the mediatek-gen3 driver has a fairly slow
+> probe. Turn on async probe since there's no reason to block the rest
+> of the system.
 
 Applied to controller/mediatek for v6.14, thank you!
 
