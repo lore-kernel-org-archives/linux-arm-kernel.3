@@ -4,67 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 513CFC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 15:28:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 740B8C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 15:30:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7bCIHgIFygbExYXirHkKUHfCah32fYZzoHwMVj1rFO0=; b=Lha1EnchLPe594WKlMZsE9JWT4
-	EXiE4yAbCEJm78EwDtaikFBkcuO63BUXWZhF7akLmYa3fZfiZY5OTTQpL7EmPy7+++8itETW4B0lX
-	Wmm04BBCzC/GgH2+6z4514NBcZunBOqwWqD7EehngLmi7w0qGhrAToPlDYcLoVaSgRjJLrLeEg3aG
-	hvn2GE8Y+iU7iWcLg6M2FzlMXkWmDw7aiFTRPZBdbrR9H4x4bSsbRr1/tNLpsE2bCjkpBCa2bjDlQ
-	VPHtmD8rSsg6kPv2mL+g2UL9MlrFn/XnPSTCol1Yq4n42TPG9rcJsJfbBHbBAskKuyhc9VhlV/JFp
-	rrIP4SAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EtisqT7/3AV1gkaVn9oJgIVv9XDKMTf4Sf2L0X1bovo=; b=gHHP2TV3oeI+v8DqDvPoeg07Mb
+	z0dlIBE17ija/2Hp0/zmWJvAz7Klqi/j5/mSsmispPAM/LjSoWQm9+MQ0rCrFyp314awaGekfwqE/
+	FIA0kqUfg27pg99SoBxcg1cGQ6YxV8o/evKEkBfRRlp15lgvOc87B97Z+UY5szvG9LgV6/1K3/tGs
+	YXO6f3/rD9W+zpVBl2h/j+NJuE7Ql9E4tV7VpiPzm53CtjDlAoS9qP7xxDx4r24kfaw+lss+i9kT1
+	eVxFnVFPdKXzT+JnRgxNvFOOLOzSlAIcDhshT+WTU2y3Dh97A6ykHXLZ3QiP4rZOzXMs/P9Ls0GOp
+	xLPDccjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY5JP-0000000CGxj-0ADK;
-	Wed, 15 Jan 2025 15:28:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY5I6-0000000CGkp-2UL9;
-	Wed, 15 Jan 2025 15:26:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AE6FF11FB;
-	Wed, 15 Jan 2025 07:27:11 -0800 (PST)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2FF323F73F;
-	Wed, 15 Jan 2025 07:26:39 -0800 (PST)
-Date: Wed, 15 Jan 2025 15:26:35 +0000
-From: Andre Przywara <andre.przywara@arm.com>
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Andras Szemzo <szemzo.andras@gmail.com>, Michael Turquette
- <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Philipp
- Zabel <p.zabel@pengutronix.de>, Maxime Ripard <mripard@kernel.org>, Vinod
- Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Ulf
- Hansson <ulf.hansson@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Uwe
- =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <u.kleine-koenig@baylibre.com>, Florian
- Fainelli <florian.fainelli@broadcom.com>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 03/12] pinctrl: sunxi: add driver for Allwinner V853.
-Message-ID: <20250115152635.1b89e7f4@donnerap.manchester.arm.com>
-In-Reply-To: <CACRpkda0nx3SQtdjmXdCEbVJSWM10TM=p-6JbDjbiYcOSF5PxQ@mail.gmail.com>
-References: <20250110123923.270626-1-szemzo.andras@gmail.com>
-	<20250110123923.270626-4-szemzo.andras@gmail.com>
-	<20250114141954.2785879a@donnerap.manchester.arm.com>
-	<CACRpkda0nx3SQtdjmXdCEbVJSWM10TM=p-6JbDjbiYcOSF5PxQ@mail.gmail.com>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	id 1tY5LD-0000000CHLE-2Gco;
+	Wed, 15 Jan 2025 15:29:59 +0000
+Received: from mail-db5eur02on2060d.outbound.protection.outlook.com ([2a01:111:f403:2608::60d] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tY5Jw-0000000CH8b-00rn
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Jan 2025 15:28:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vtMUyOr990qHNdDEEX7RLAFgFSKvKC2j/VT5hHKsDySqw+xKsXl1k0Fhg6aZQjeDgsza8O9h1bij1FN/dX1NvPXuqU1JP2jGig4X3j+MAz8p95JpJGxLbcJ0BBqhkLLMttVnlZRWwjElRuBfbqYFnvhHigW0ICFOBWF2dRtfeDHJJj9rsguIxQLazS3lk5FxnAv1Bc1Mz5y4t6EUlUC1EA4HEREOajsIRodE7JjuLC/8CeMVGEuPwe80+uRP8oJv/MtMUpdN/ZhJYW1mThnjVb5i7oZvTmH9f1rcOoPpLx/qOH1RKPXdbLpB6iFBwQIcPYKRtZlLNE5AZNAKrwHC4A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EtisqT7/3AV1gkaVn9oJgIVv9XDKMTf4Sf2L0X1bovo=;
+ b=An3qJbEU8ojgGn4nOpI2z8MTgMzqkz9W/aLsOn04G5vhEomzHmmN5OPHiD6Z2gF51imBI6OKT2BIeFnmAihm2xvjJRTWZU3EJRICuIojh7df/TZTO73gJ1RMD76LPWl3KfJZP9tEGpkrG8LrwxPFAZInE5snMsTHgxCfViCZZOnYzmTJY+/YAFhleI9836dVuajOdxpLgLhTg3SnNs8jTJnCT1QnsgKSDOrKoRIlpofJv5QCZpxVBoiWge+M26zSj11bce3iLPFKU6KLbrR9UQPMFFrpM2h99d0Wr7agIxs+V+cuYkgboNEVi2fv2S8KZmH88sNHsjhki+Xz/fYH+Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EtisqT7/3AV1gkaVn9oJgIVv9XDKMTf4Sf2L0X1bovo=;
+ b=eVpLsQ2xDpzUa+eAd2cn0HjcG0FsA1stSwcdRAolVAYWhxUoxX/fnw0eVDj+Sl1Ao/kzcG7YZBEbkj6WRMapjZwq1QqZgcqDh+aPAqwlg6+P9HvUHhyy/dZ3IqQ9oMlLAukRgGj/4IwvqpxFcMQsE9hBDuuAhItHBemn4nYzePN2m8jLsj+wI3n5y1jOUvyz8jWZUIwFXm9ttRAK/jpijBINjl13MnoReJeYK7nc9D3ci5sv3WG6vHMskxy9FRX3I1xy4+mzQZEToN0zs1Zw9pODTgGardisKo8DlG1LRqjWMdl7ua+SloEGG/lSbb66B0tPRgxCq97DGJD4qqV24Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DU0PR04MB9393.eurprd04.prod.outlook.com (2603:10a6:10:358::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.12; Wed, 15 Jan
+ 2025 15:28:35 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8335.017; Wed, 15 Jan 2025
+ 15:28:35 +0000
+Date: Wed, 15 Jan 2025 10:28:26 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
+Cc: Chester Lin <chester62515@gmail.com>,
+	Matthias Brugger <mbrugger@suse.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	NXP S32 Linux <s32@nxp.com>, Christophe Lizzi <clizzi@redhat.com>,
+	Alberto Ruiz <aruizrui@redhat.com>,
+	Enric Balletbo <eballetb@redhat.com>
+Subject: Re: [PATCH v5 1/3] arm64: dts: s32g: add I2C[0..2] support for s32g2
+ and s32g3
+Message-ID: <Z4fUGoC4COf0S6Ru@lizhi-Precision-Tower-5810>
+References: <20250113110512.506007-1-ciprianmarian.costea@oss.nxp.com>
+ <20250113110512.506007-2-ciprianmarian.costea@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250113110512.506007-2-ciprianmarian.costea@oss.nxp.com>
+X-ClientProxiedBy: SJ0PR05CA0044.namprd05.prod.outlook.com
+ (2603:10b6:a03:33f::19) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DU0PR04MB9393:EE_
+X-MS-Office365-Filtering-Correlation-Id: d61c0538-1e36-4041-2c0c-08dd357946fc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|52116014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?g2fjrPw3ATMJM+mAHrW9dQ0VinJLMkjVNcnwR0TkxCxzgM88xyv+3OZrGcMx?=
+ =?us-ascii?Q?v3BEwMYdQNayDQ7kz1HU918sTZ2KT1hrD/oE3EKtKoYvsU+WawmgyV8kWtUq?=
+ =?us-ascii?Q?zbsJmkLRQUsKBTc0JFVpgFqKg68p4Edb76teC+PYoDK2xIEtuEG/pYBuP3HP?=
+ =?us-ascii?Q?JEa74jea/0AJaL74XiDe+U81M9ZZPg+yvrqoV98YpDkRMkkBwKcc9hnXlvsT?=
+ =?us-ascii?Q?Z7ZFPdBIqN/984s+1ZY+aOyBuFrH05SCZRkf6qww0MUhGbQb90cmsr4DB7vI?=
+ =?us-ascii?Q?irwn32xn0AqzopeYKQGy7R+OlPXWLcYqgF6gWMN+4iLpZf9VADIMdgQJalRo?=
+ =?us-ascii?Q?rtlTtnxYUd48f/IbSzMK9Y7eOlkW0QwaOnYQ0oyaZsjsMCfPiQ1byPPorOZq?=
+ =?us-ascii?Q?bhHlv/SRhx4gGu7zKjpbtKqhWfuluQv5PMKQskl7nCxRf4guFcULxJ2s+xk2?=
+ =?us-ascii?Q?P2BqsIEPHbUcVb+OHZfKa4KTYAgzezBp8r1JCeymdZF0PsMjch0JGcZ0Mhy6?=
+ =?us-ascii?Q?+EUAeoqOUAytuFmKpYa3P5YAnXzE3LNUZqAAHOfG4ALufv1ANR1UTA/No9Rj?=
+ =?us-ascii?Q?Lctv9JptGsfTN0onZIHwbbtl74UMvA1gvQpfVhsVhA4Whb13sLpgvEb5v97E?=
+ =?us-ascii?Q?8Ec1U3FExqUPo3t78oVlIsoiSK06V0u7SAWNjlO7wi729XZWrx442VAegXWP?=
+ =?us-ascii?Q?W7de6z/S5aNdACzOg1kuGNUaBqBMZ/dxyDkzEksuZMZmdexONvPs+D0jbfSK?=
+ =?us-ascii?Q?jVa3KyQS1mseDXEkVZ0ay9tNg+cQVl+tQyM4SqYDuIpRR9fxjilFQlmA/OBp?=
+ =?us-ascii?Q?j7bCvun+pGsLVdw9HbV1aoVK79Xz8YKxyI5u84lhJsx8UOq+x8Z5O0sEh8v/?=
+ =?us-ascii?Q?TX+Gf6LRlixq8fwoW75Fc6HuYfZNtfXeAm2qapb0YxuI/1mw4bdg8yWV5bB9?=
+ =?us-ascii?Q?LbBjFzS7fcP2QgGMqyDP6AvB/mw9/LpnjhKPpBSnh6VV0XZMNwRHjXLXJiiK?=
+ =?us-ascii?Q?Q/c8frhLPer4SqTN3Ql4QkoCgjlGtCL2nbcMtQIu2UtAl4LH7W4bGHJTH7JP?=
+ =?us-ascii?Q?cbwJ6M3LtwDrchLwHZc9WzmTFBc2Bs35Gu3+JJYYICSHYD4JNUXAHRTLuN5Z?=
+ =?us-ascii?Q?ceYn5bTIq44o/AotTAjv90g71ORffLf3PuBE+yRtUhjaNm+QHu4ciHBHdet3?=
+ =?us-ascii?Q?kYhBqgS75SobVHZeTMFejECbNR0eS8DZbReEa75y3zWh3YLiBwxY4k8QVxo6?=
+ =?us-ascii?Q?cccHIxqwIjJ583cCHRu3Appl+lzt5f1ArxgHEyhzz6QogaDEpLluR/0Wfbkr?=
+ =?us-ascii?Q?8Hx5EIpDfuA6TZHQEB9sJeaeGaRpJmEELNCKyV88VxPCFQZOkwsh/j/p79HT?=
+ =?us-ascii?Q?WnzC0m4dqdGsogzdyLBPwkvfwcKMJpZsoXIz5I0ElucoVyMYd7taCau8tetm?=
+ =?us-ascii?Q?vNe6zeoAq3rBFmbBXeZ141lYP5N9QhHG?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(52116014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Zb2n5uQvrVNsRtx1y6s7HD3h+h3Lqg9obJU2ac0z79fLmNVBLofXT2nt0hn1?=
+ =?us-ascii?Q?Doj0qhdlqubAELwXuBXgnQqEdZd8xas2y4pMSa41yshNqwVdEZNZJFpj/X8Z?=
+ =?us-ascii?Q?pUte1iqSG9/O2cU2i2+wxBzou5C9KTbhuUkJNkUpz6MjA1uTTnsLhefkdI49?=
+ =?us-ascii?Q?n6K1Sc2Pm1mNiefJP9ctJOPreGCkHhNvkrvsVNL/3a5LwkKPBL2MeVGdmSly?=
+ =?us-ascii?Q?smWcSZj1X7p/TbnDE02094z1z+vvUWMVBSu5AYF185BTUhr4KGUkHjXk3WsO?=
+ =?us-ascii?Q?JU6Yee5WURBsJJhn3CEWxfY1nN0Mx35Ve/wd+yeMzshpDslHIxgmnOAlX7da?=
+ =?us-ascii?Q?ljFNONvAfT1ckRaqCTvol4W2+shr40nn9KNxPhh8ET1dvuLKXuRy0t6AdXp1?=
+ =?us-ascii?Q?iyDXR8mba/gHPUahIxpSrx2ZrJ7O/2cYCyLIj7RockHHU7SMhZcRjFwQdJME?=
+ =?us-ascii?Q?CQAJmAVtxxdZ5rfQeLSTgxuGk+rybnp2A+h1jineeEHV2oRQVSDI+bp1vqRG?=
+ =?us-ascii?Q?c38Mz91jWYtMV0mQdyNcYW9cpHgCExejBEEKsip5XynO2O2xzLt4DMj0a55Z?=
+ =?us-ascii?Q?wkG7itDWaJNERFIbLc2i6Nxj2jIxq4iLhXRBWW8AhooHKtSbNa/ias6ilwDT?=
+ =?us-ascii?Q?X3RtLp4TMzklsrNcKkWJNyp8Ckjv+TiyM3HaYrmdgzQ/JgjNdqV0/oyF/Odg?=
+ =?us-ascii?Q?wheAfsNOy8pyP+1f7pJ9jkYLTa6K4MMEyTY4UsXy/y4RIDOwns4hG11CLOQG?=
+ =?us-ascii?Q?XrwNVRldkWI7uX8aiB3KjsW3DmfyU+OxtupJQ2i2AgmGvt57fVpXd/7Ost/S?=
+ =?us-ascii?Q?mtmEXlTiqs4N0ogqaxgRtSR/lN4Hww4utgoTBC1A5eKeDTVz897b7M2D77bT?=
+ =?us-ascii?Q?wfibrZUP4mvgxiIbbdo8TeMKg9cWheVzgv9D3jv5krm6UVsCdF6FcrXUoZ0C?=
+ =?us-ascii?Q?dAJkCpJeF3Vuqbu9+fQB2e+sIJfvk7vJOvJHFI91Ld+4yM9ZWO+eTpM2yOY3?=
+ =?us-ascii?Q?o1y2aMWQ+1ntJ/4wv1sHkeEQpeo1uTsaDVtlraKcrTZrWjb+TGbhAgWcCFnV?=
+ =?us-ascii?Q?XTc2XjtComvro0EFBsc6jt2PMKCsp54xytcOhuYcA9H5tk4gmKfqayKDE8iy?=
+ =?us-ascii?Q?0v4X+h8MjF2OPFlMgn+mdBz6mvirB9MJKUa1lxyjKTlHBIsV1gKVA+5tlZJ3?=
+ =?us-ascii?Q?+czTvV+Ey2BXvVa1nHXYfU3PfFPvz1iXNmxervC0qRJ7npLWEsZEDafTBJ3m?=
+ =?us-ascii?Q?NN7DZsKvhoAbRFEgkw5yMCWL1TJAmu9++DjA78+rOUdM96cszULWH68ToBlZ?=
+ =?us-ascii?Q?kT6b+EIcKZwj7VT3uzHeaJHBWArpy9GjxIg6UPSlW7eEgc/1GMzTOCsZIZTC?=
+ =?us-ascii?Q?X59nuT65r6hWkvgw7vWP1my0W0uqfqe4WkbQVYNavET6jwHvYK0BYCm8FJC1?=
+ =?us-ascii?Q?QklZCSSAk/oHR0KBrPvidz4Hsnl+ads8Q30M2b3/BTt7uof4EsEi0X1gX1VM?=
+ =?us-ascii?Q?Y9gsFpv4s8KjJdFjQO00K4SHeUzmUEoAIv02t+n+tZWz0X0Zav8CF/VyU81s?=
+ =?us-ascii?Q?a+1MOvnsq/VTM2uFHs0fqstfgkh2QRNSoR2INZMW?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d61c0538-1e36-4041-2c0c-08dd357946fc
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jan 2025 15:28:35.7318
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: azy4Wn4PbZHrajnjdAuB/zeEui5KfDO/9vwVed4uU5I6p3DnOcIiuAhh7YyULw7RhsgJh9Qe23bY6fKdbET1ZQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9393
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_072646_724771_3E949F78 
-X-CRM114-Status: GOOD (  45.14  )
+X-CRM114-CacheID: sfid-20250115_072840_049635_D9285940 
+X-CRM114-Status: GOOD (  15.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,149 +169,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 15 Jan 2025 11:23:50 +0100
-Linus Walleij <linus.walleij@linaro.org> wrote:
+On Mon, Jan 13, 2025 at 01:05:10PM +0200, Ciprian Costea wrote:
+> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+>
+> Add I2C[0..2] for S32G2 and S32G3 SoCs.
+>
+> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+> ---
 
-Hi Linus,
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-thanks for the reply, I was hoping to get some insight and discuss this!
-
-> On Tue, Jan 14, 2025 at 3:20=E2=80=AFPM Andre Przywara <andre.przywara@ar=
-m.com> wrote:
-> > Andras Szemzo <szemzo.andras@gmail.com> wrote: =20
->=20
-> > > The V853 family has multiple package variants, from BGA to QFN88.
-> > > The latter has co-packaged DRAM and fewer pins, and less features (pi=
-n muxes).
-> > > All family members can be supported by a single driver, as the availa=
-ble pins
-> > > with allowed muxes is the same across the devices. =20
-> >
-> > It depends a bit on the outcome of the discussion on the A523 pinctrl
-> > driver [1], but I think we should use the same approach here (and for
-> > every "new" Allwinner SoC coming up, really): put the pinmux value in t=
-he
-> > DT, and get rid of this entire table altogether:
-> > [1]
-> >
-> > The SoC specific pinctrl driver would then be very small ([2]), so this
-> > pinctrl support patch here would actually become much smaller.
-> >
-> > Just feel a bit sorry for you having created this table, in a tedious a=
-nd
-> > eye-straining exercise - been there, done that ;-) =20
->=20
-> It's pretty stressful for the pin control maintainer as well.
->=20
-> From the subsystems point of view, groups matches to functions by
-> strings is the best. ("fun1") + ("group1", "group2"):
->=20
-> pio: pinctrl@1c20800 {
->                         compatible =3D "allwinner,sun8i-r40-pinctrl";
-> (...)
->                         i2c0_pins: i2c0-pins {
->                                 pins =3D "PB0", "PB1";
->                                 function =3D "i2c0";
->                         };
->=20
-> abstract, strings, nice. The driver handles the particulars.
-
-What bugs me about this it that this has quite some seemingly redundant
-information (Who would have thought that the i2c0 pins use function
-"i2c0"?), but misses out on the actual 4 bits(!) of information.
-So the A523 version [1] just *adds* this one property:
-		allwinner,pinmux =3D <2>;
-
-[1]https://lore.kernel.org/linux-sunxi/20241111005750.13071-5-andre.przywar=
-a@arm.com/
-
-And we keep all your beloved strings ;-)
-
-> That is like so because we are designing for users which are
-> let's say customization engineers. If these engineers jump from
-> project to project matching function strings to group strings will
-> be a common way to set up pins, and easy to understand and
-> grasp, and it makes the DTS very readable.
-
-That's an interesting view, and I see the point of it being easy to read,
-but this is partly because it doesn't convey too much actual information,
-does it, as it requires another lookup or two.
-And the pinctrl group nodes are actually in the .dtsi file, which are
-typically written once during the initial SoC enablement, and new board
-.dts files normally just reference the existing pingroup nodes. So anyone
-dealing with just a new board is not bothered by this.
-Also in my experience most people have no problems in understanding the
-concept of pinmuxing and that there is a selector number, also where to
-find this.
-
-> Then there are the engineers creating the pin control drivers,
-> and they want everything to be convinient for *them*, and they
-> think an opaque hex digit in the DTS is perfect at times, thus
-> pinmux =3D <0xdeadbeef>;
->=20
-> Mediatek and STM32 made a compromise by using pinmux
-> and adding some macros to define them so it looks more
-> pleasant:
->=20
->       i2c0_pins_a: i2c0-default {
->                 pins-i2c0 {
->                         pinmux =3D <MT7623_PIN_75_SDA0_FUNC_SDA0>,
->                                  <MT7623_PIN_76_SCL0_FUNC_SCL0>;
-
-Well, I don't really get why they don't use the (MTK_PIN_NO(75) | 1)
-definition directly, seems to be more telling to me?
-So the plan for sunxi would be: <SUNXI_PINMUX(PORTC, 23, MUX_1)>, ...
-And this would not be really "opaque", since it has a fixed known mapping:
-	(port << 16) | (pin << 8) | (mux << 0))
-I find this both technically elegant, because it combines all the
-information into just one compact cell, but also readable by outsiders,
-thanks to the macro.
-
-But please note that using the generic pinmux is just an idea at this
-point, last time I checked this would require significant rework in the
-sunxi pinctrl driver.
-Just adding the "allwinner,pinmux" property on the other hand is a
-comparably easy addition, hence my patch, as a compromise.
-
->                         bias-disable;
->                 };
->         };
->=20
-> At least the bias control is using strings, this is nice.
->=20
-> So I'm mostly fine with that as well, but it can be pretty
-> heavy on people coming from the outside, asking us questions
-> like "on MT7689 how do you mux pin nnnn to function yyy"???
-> Well I don't know? Some MT7689_PIN* macro I guess?
-
-MTK_PIN_NO(nnn, yyy)?
-
-> If it was just strings I would know what the
-> expected behaviour and looks would be at least, then the driver
-> could be buggy or missing things but that's clearly cut. That's
-> why I prefer the strings.
-
-My main arguments against the current (string-based) approach:
-- They require the mapping table to be in every DT user, so not only the
-  Linux kernel, but also U-Boot, FreeBSD, you name it...
-https://source.denx.de/u-boot/u-boot/-/blob/master/drivers/pinctrl/sunxi/pi=
-nctrl-sunxi.c?ref_type=3Dheads#L236-768
-https://cgit.freebsd.org/src/tree/sys/arm/allwinner/h6/h6_padconf.c
-- The tables are getting quite large, and they pollute the single image
-  Linux kernel, with tons of very specific information for a number of very
-  pitiful Allwinner SoCs. At the moment the tally is at 145KB of code+data
-  for the existing arm64 SoCs, with the newer SoCs ever growing (H616 alone
-  is 27KB, A523 would be quite larger even, I guess 40K). The new A523
-  specific pinctrl support adds 872 Bytes.
-- Most of the mappings are untested at pinctrl driver commit time, since we
-  don't have the device drivers ready yet - by a margin. The new approach
-  would add the pinmux values when we need them and can test them.
-- The comments in the table give away that something is not quite right:
-                  SUNXI_FUNCTION(0x2, "i2c0")),         /* SDA */
-  This is just a comment, so has no relevance for the code, but it's not
-  meant for humans either. Yet we try to make this correct and maintain
-  it. Odd.
-
-Cheers,
-Andre
+>  arch/arm64/boot/dts/freescale/s32g2.dtsi | 55 ++++++++++++++++++++++
+>  arch/arm64/boot/dts/freescale/s32g3.dtsi | 60 ++++++++++++++++++++++++
+>  2 files changed, 115 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/s32g2.dtsi b/arch/arm64/boot/dts/freescale/s32g2.dtsi
+> index 7be430b78c83..beae4d5cf54e 100644
+> --- a/arch/arm64/boot/dts/freescale/s32g2.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/s32g2.dtsi
+> @@ -333,6 +333,39 @@ uart1: serial@401cc000 {
+>  			status = "disabled";
+>  		};
+>
+> +		i2c0: i2c@401e4000 {
+> +			compatible = "nxp,s32g2-i2c";
+> +			reg = <0x401e4000 0x1000>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			interrupts = <GIC_SPI 92 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clks 40>;
+> +			clock-names = "ipg";
+> +			status = "disabled";
+> +		};
+> +
+> +		i2c1: i2c@401e8000 {
+> +			compatible = "nxp,s32g2-i2c";
+> +			reg = <0x401e8000 0x1000>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			interrupts = <GIC_SPI 93 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clks 40>;
+> +			clock-names = "ipg";
+> +			status = "disabled";
+> +		};
+> +
+> +		i2c2: i2c@401ec000 {
+> +			compatible = "nxp,s32g2-i2c";
+> +			reg = <0x401ec000 0x1000>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			interrupts = <GIC_SPI 94 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clks 40>;
+> +			clock-names = "ipg";
+> +			status = "disabled";
+> +		};
+> +
+>  		uart2: serial@402bc000 {
+>  			compatible = "nxp,s32g2-linflexuart",
+>  				     "fsl,s32v234-linflexuart";
+> @@ -341,6 +374,28 @@ uart2: serial@402bc000 {
+>  			status = "disabled";
+>  		};
+>
+> +		i2c3: i2c@402d8000 {
+> +			compatible = "nxp,s32g2-i2c";
+> +			reg = <0x402d8000 0x1000>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			interrupts = <GIC_SPI 95 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clks 40>;
+> +			clock-names = "ipg";
+> +			status = "disabled";
+> +		};
+> +
+> +		i2c4: i2c@402dc000 {
+> +			compatible = "nxp,s32g2-i2c";
+> +			reg = <0x402dc000 0x1000>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			interrupts = <GIC_SPI 96 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clks 40>;
+> +			clock-names = "ipg";
+> +			status = "disabled";
+> +		};
+> +
+>  		usdhc0: mmc@402f0000 {
+>  			compatible = "nxp,s32g2-usdhc";
+>  			reg = <0x402f0000 0x1000>;
+> diff --git a/arch/arm64/boot/dts/freescale/s32g3.dtsi b/arch/arm64/boot/dts/freescale/s32g3.dtsi
+> index 6c572ffe37ca..79b38cd8b142 100644
+> --- a/arch/arm64/boot/dts/freescale/s32g3.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/s32g3.dtsi
+> @@ -390,6 +390,42 @@ uart1: serial@401cc000 {
+>  			status = "disabled";
+>  		};
+>
+> +		i2c0: i2c@401e4000 {
+> +			compatible = "nxp,s32g3-i2c",
+> +				     "nxp,s32g2-i2c";
+> +			reg = <0x401e4000 0x1000>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			interrupts = <GIC_SPI 92 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clks 40>;
+> +			clock-names = "ipg";
+> +			status = "disabled";
+> +		};
+> +
+> +		i2c1: i2c@401e8000 {
+> +			compatible = "nxp,s32g3-i2c",
+> +				     "nxp,s32g2-i2c";
+> +			reg = <0x401e8000 0x1000>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			interrupts = <GIC_SPI 93 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clks 40>;
+> +			clock-names = "ipg";
+> +			status = "disabled";
+> +		};
+> +
+> +		i2c2: i2c@401ec000 {
+> +			compatible = "nxp,s32g3-i2c",
+> +				     "nxp,s32g2-i2c";
+> +			reg = <0x401ec000 0x1000>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			interrupts = <GIC_SPI 94 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clks 40>;
+> +			clock-names = "ipg";
+> +			status = "disabled";
+> +		};
+> +
+>  		uart2: serial@402bc000 {
+>  			compatible = "nxp,s32g3-linflexuart",
+>  				     "fsl,s32v234-linflexuart";
+> @@ -398,6 +434,30 @@ uart2: serial@402bc000 {
+>  			status = "disabled";
+>  		};
+>
+> +		i2c3: i2c@402d8000 {
+> +			compatible = "nxp,s32g3-i2c",
+> +				     "nxp,s32g2-i2c";
+> +			reg = <0x402d8000 0x1000>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			interrupts = <GIC_SPI 95 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clks 40>;
+> +			clock-names = "ipg";
+> +			status = "disabled";
+> +		};
+> +
+> +		i2c4: i2c@402dc000 {
+> +			compatible = "nxp,s32g3-i2c",
+> +				     "nxp,s32g2-i2c";
+> +			reg = <0x402dc000 0x1000>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			interrupts = <GIC_SPI 96 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clks 40>;
+> +			clock-names = "ipg";
+> +			status = "disabled";
+> +		};
+> +
+>  		usdhc0: mmc@402f0000 {
+>  			compatible = "nxp,s32g3-usdhc",
+>  				     "nxp,s32g2-usdhc";
+> --
+> 2.45.2
+>
 
