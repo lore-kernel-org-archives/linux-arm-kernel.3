@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34B85C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 09:20:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 504D5C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 09:21:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ssZI86T0A6XNN8hCXgMuMZMsnzteKeFLGvw1TpMOAQU=; b=AVPn9kUVQNERIizKds0nR8NpzC
-	IPpnbXIdFyKzLyzGXmFGtn2b6tOTQ3PW6NX+pQR0/lHhCgs4Qehy8/QEdcroZKJiWU2jhGwEF0i6f
-	nxewQHfyBAl+Cv/uK1b8kkz5CapF6lmCwbfwfMcnEr6HU3Yt2XJtxGlDfFV2Y/+9zrxuiXgjpzrwY
-	fgiK8xNEZ9dBkI+yrYTAfvd5FqJ2/x/8ishxU5e2JTprlB7/ftkwXruq1c0buekbt8usUD3j9YSq/
-	dUjowtbb/N2v+Dt957ZcD4+SBQmvsbID1ezv2nVBHcOo6MP5RLf1DvgvZvmnMMsXzZEeE2F/Fj/vQ
-	SXbWqUqQ==;
+	bh=CEHa30YI/D4TB5d5TCkCAkeAxF1mnHvfzhEDix3qPkY=; b=rgo9WcaqO5i8AIhocW2Aeou7h+
+	qeqH2ppBmihuqS8+sfCCXtn/FIfvk/Bec19gostsQ9OPkrjGhrlEStg/UJ3/P1tnkn+WFdhAfJASd
+	9d6wDQ86apprhT3sHKxosbrOlQjzEYAkPFTGlzpCvtpNgN1fs87xBmQ6/O8z3Pu4KFxyRllqqeyxl
+	m8fUaujI497+NX12C9zuLBRDdj3eRywnwyLt360OqsHGOywYlZze/P/W5OLu6XbyzU9UOtKIk/byP
+	AJJBCO0FeTgeKtKODnEG+X++X44ZJwEDg25MTxsnys2OCZWdrPVOYzMfLG3I8FfdF34rcHZ5UMmB4
+	XzSZpPzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXzZb-0000000BHfY-1gCp;
-	Wed, 15 Jan 2025 09:20:27 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1tXzaq-0000000BI7d-21Dn;
+	Wed, 15 Jan 2025 09:21:44 +0000
+Received: from mail-il1-x12f.google.com ([2607:f8b0:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXzOm-0000000BEuu-0Mt3;
-	Wed, 15 Jan 2025 09:09:17 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 4F1A8A0A27;
-	Wed, 15 Jan 2025 10:09:12 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=ssZI86T0A6XNN8hCXgMu
-	MZMsnzteKeFLGvw1TpMOAQU=; b=YwUsiqL+mnfGUW9j8eGYD/GWnYrYU4Lh23/R
-	Gk2lpKqoAoqRGyrHg00ogMYZOT6rBU2nNA0yllC476j3q3fUoYLJVNemN00UpP4s
-	RNSd3MN5utnVTVpVHhRiW7g18Rxvg6cg5Mbi0igsJ8aqMJi2LKMdPOWddsY+ja2X
-	HdVuwqmRkFUNTRYG+1vhShK2qKRzlVSPpPbLn1PZT3aeK6GviuuaHTod48xGpBct
-	xITp7DWK5gH6WgPA0466Hq4INt9RjJ3g9jWgF2DO4HcsvCXLUtYqm6VEJSF6skO4
-	QKwbsuC4d9czkpAnsIVGSJP89jgtxCsPE33/NZJaQbojtYFP5lBO/LYuskWxvMgF
-	L+IEVCzwQZ8fR5S7OdoyPZNYIudOpxHv82EgdF5wm/maN/qVoKiD6Jtr/4cSHgyp
-	A0d/IluO1KZddaESPZPCepvmVGSG8fa7b68lneLzG4o93UIraCbzM6rDLsfYHMtg
-	lpWj8ZVDnG6zZDLoLifMkms32GIpx/DhARP/Z8rZ3YYdqa0ClqgGgmZVhYHHRiLK
-	Xglikd9s9lg4opobT3B+ruWbtNC7nBY7dr1DfKu4PDOZqXWX80G3xcgPLCmXTtq1
-	pl4P9NrgOy1MtsywyJ4vVaQqbvy1t76OTxyKF32tbGpRU0vliKNBQ5DbgD/jZTwO
-	3/JuGtg=
-Message-ID: <81cbb273-a4b4-424c-9d25-f53ebc8ea82a@prolan.hu>
-Date: Wed, 15 Jan 2025 10:09:09 +0100
+	id 1tXzTj-0000000BFeh-2Lvt
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Jan 2025 09:14:24 +0000
+Received: by mail-il1-x12f.google.com with SMTP id e9e14a558f8ab-3a7d7db4d89so17707655ab.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 01:14:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1736932462; x=1737537262; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CEHa30YI/D4TB5d5TCkCAkeAxF1mnHvfzhEDix3qPkY=;
+        b=Ph/FzgMCz6adp1BO5+7AeZC9ImIp2eFP9t9BzdGafmivAxulO5EXMO8rO+VLb8prHA
+         44JJ/xTP4dPUwjPNunNrUrHXGpC9Q3LihnR4VZOWH2mcwmO6Uc15DXJf33GskzHZQGrs
+         /iiVAtIG4C2wC5snLMjsiFp0HGEjyHEBif161KfjhryfJoN2iMFFJkfN+2Vs4fMQOXly
+         lflwh63y2LeunA7uBcn+240rEZWCFWRzBRRvdEurThc71atJxnycTTJfM6SbYWgxU94c
+         44SZpUoQIdvun5E46RBiwtP38u7SC7F7Z07+IWsnRv8wMC9HJy4evcDggu3I6s3rfp5D
+         PQgw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736932462; x=1737537262;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=CEHa30YI/D4TB5d5TCkCAkeAxF1mnHvfzhEDix3qPkY=;
+        b=HX9iHtEOQLbIfp8ppT7Ll/lPUXw4BZFfdp/eVKXXk+Wuc6+IBQv1pDAKZyN2RBPwCM
+         tbl5CpQObR1x+NkLhoMWBIFeo7Lpr+2f88Sxs1s/35cUKD99cMEbGbBaWdJFSJkGSBYa
+         YZPN17ykHPmK4E517zjcMvhV5WkV9Z/dkFCcMfKFKf+dKL7kpFlL6T94jhDam5DQ6cW1
+         p2dG4rjujhWj6YKVXq8MgJbBRt8fEZXoBYR+2amI51Tesu1UEQxz+V7qXaqXqXObLCxm
+         U1j3cxtip301pzG09GP3VSfs420texMl5cutH6DY+UTWlPEJvfx/E0VcODR1KxWpk8uS
+         r/yg==
+X-Forwarded-Encrypted: i=1; AJvYcCWHPxFhT4/DmRbuLZQzCyTDBIDIEVbnjcWTT4HOVNyi1gcRFmJwAfbaJik9s2YC+ry0y5Ybvy8HdcsD4tMLY/3e@lists.infradead.org
+X-Gm-Message-State: AOJu0YzK8kp0lx3uvntbLPZZBuRwzHrC0Bwo81rYWYQhlfVyFNlg3+uE
+	rMmbAGR8ikOBzxGWjhTr1zXVxVS89UNDhFZfwmUy6M7PKSozBgFWTdt2DJ187acFqUQrlXadZIt
+	addEjYIcWOwQ7uaNmfMjwIHuN4A2YNHhLqDY=
+X-Gm-Gg: ASbGncsreFdDo+0JOuLFtuNj256WSOEkfSmR8HhbykYUgI2FcMlsAxJCKuwvWvS2iVA
+	8BuhbrU07rirPIPeuiK5jtAtlSAN9rmhr44VK8Q==
+X-Google-Smtp-Source: AGHT+IHp2yxisjfC0hLM91sJ5IJ902hsppuSwXi035/jhixqUZj488OZUhs3oen2jZMSUhBJ8zUTJKPr8r3rc8NuV+M=
+X-Received: by 2002:a05:6e02:1388:b0:3ce:7b61:588 with SMTP id
+ e9e14a558f8ab-3ce7b6105admr42289285ab.14.1736932462018; Wed, 15 Jan 2025
+ 01:14:22 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 12/12] ARM: dts: sun8i: add DTSI file for V853
-To: Krzysztof Kozlowski <krzk@kernel.org>, Andras Szemzo
-	<szemzo.andras@gmail.com>, Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Chen-Yu
- Tsai" <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, "Samuel
- Holland" <samuel@sholland.org>, Linus Walleij <linus.walleij@linaro.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>, Maxime Ripard <mripard@kernel.org>
-CC: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
-	<u.kleine-koenig@baylibre.com>, Florian Fainelli
-	<florian.fainelli@broadcom.com>, <linux-clk@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-phy@lists.infradead.org>, <linux-gpio@vger.kernel.org>,
-	<linux-pm@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-References: <20250110123923.270626-1-szemzo.andras@gmail.com>
- <20250110123923.270626-13-szemzo.andras@gmail.com>
- <ff57cf8d-626e-4d35-a18f-1a89b4d9fa3e@kernel.org>
-Content-Language: en-US
-From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
-In-Reply-To: <ff57cf8d-626e-4d35-a18f-1a89b4d9fa3e@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.254.7.14]
-X-ClientProxiedBy: ATLAS.intranet.prolan.hu (10.254.0.229) To
- ATLAS.intranet.prolan.hu (10.254.0.229)
-X-EsetResult: clean, is OK
-X-EsetId: 37303A2980D94852647063
+References: <20250113094654.12998-1-eichest@gmail.com> <CAA+D8ANvKQKJhn6qKbPhQeXPD5kxUo3Hg-FBLkDMOaWLTA8vVg@mail.gmail.com>
+ <Z4ZRYMf_uJW4poW9@eichest-laptop> <Z4dy3LiEAQ_gkQGG@eichest-laptop>
+In-Reply-To: <Z4dy3LiEAQ_gkQGG@eichest-laptop>
+From: Shengjiu Wang <shengjiu.wang@gmail.com>
+Date: Wed, 15 Jan 2025 17:14:09 +0800
+X-Gm-Features: AbW1kvbGmYmFi47HyTpnehrf6vLaFKFPTfU5SSwIThsPUsGc6UrAlSPVPKgHKy4
+Message-ID: <CAA+D8AO75MLyP5AWDJoogw8ae4GRtZfSR-HT+S26bXoaVs8saQ@mail.gmail.com>
+Subject: Re: [PATCH v1] clk: imx: imx8-acm: fix flags for acm clocks
+To: Stefan Eichenberger <eichest@gmail.com>
+Cc: abelvesa@kernel.org, peng.fan@nxp.com, mturquette@baylibre.com, 
+	sboyd@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, shengjiu.wang@nxp.com, 
+	francesco.dolcini@toradex.com, linux-clk@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Stefan Eichenberger <stefan.eichenberger@toradex.com>, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_010916_590009_870FA38E 
-X-CRM114-Status: UNSURE (   6.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250115_011423_597981_CA7103EB 
+X-CRM114-Status: GOOD (  40.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,33 +98,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, Jan 15, 2025 at 4:33=E2=80=AFPM Stefan Eichenberger <eichest@gmail.=
+com> wrote:
+>
+> Hi Shengjiu Wang,
+>
+> On Tue, Jan 14, 2025 at 12:58:24PM +0100, Stefan Eichenberger wrote:
+> > Hi Shengjiu Wang,
+> >
+> > On Tue, Jan 14, 2025 at 03:49:10PM +0800, Shengjiu Wang wrote:
+> > > On Mon, Jan 13, 2025 at 5:54=E2=80=AFPM Stefan Eichenberger <eichest@=
+gmail.com> wrote:
+> > > >
+> > > > From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+> > > >
+> > > > Currently, the flags for the ACM clocks are set to 0. This configur=
+ation
+> > > > causes the fsl-sai audio driver to fail when attempting to set the
+> > > > sysclk, returning an EINVAL error. The following error messages
+> > > > highlight the issue:
+> > > > fsl-sai 59090000.sai: ASoC: error at snd_soc_dai_set_sysclk on 5909=
+0000.sai: -22
+> > > > imx-hdmi sound-hdmi: failed to set cpu sysclk: -22
+> > >
+> > > The reason for this error is that the current clock parent can't
+> > > support the rate
+> > > you require (I think you want 11289600).
+> > >
+> > > We can configure the dts to provide such source, for example:
+> > >
+> > >  &sai5 {
+> > > +       assigned-clocks =3D <&acm IMX_ADMA_ACM_SAI5_MCLK_SEL>,
+> > > +                       <&acm IMX_ADMA_ACM_AUD_CLK1_SEL>,
+> > > +                       <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_PLL>=
+,
+> > > +                       <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_SLV_=
+BUS>,
+> > > +                       <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_MST_=
+BUS>,
+> > > +                       <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_PLL>=
+,
+> > > +                       <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_SLV_=
+BUS>,
+> > > +                       <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_MST_=
+BUS>,
+> > > +                       <&sai5_lpcg 0>;
+> > > +       assigned-clock-parents =3D <&aud_pll_div0_lpcg 0>, <&aud_rec1=
+_lpcg 0>;
+> > > +       assigned-clock-rates =3D <0>, <0>, <786432000>, <49152000>, <=
+12288000>,
+> > > +                                <722534400>, <45158400>, <11289600>,
+> > > +                               <49152000>;
+> > >         status =3D "okay";
+> > >  };
+> > >
+> > > Then your case should work.
+> > >
+> > > >
+> > > > By setting the flag CLK_SET_RATE_NO_REPARENT, we signal that the AC=
+M
+> > >
+> > > I don't think CLK_SET_RATE_NO_REPARENT is a good choice. which will c=
+ause
+> > > the driver don't get an error from clk_set_rate().
+> >
+> > Thanks for the proposal, I will try it out tomorrow. Isn't this a
+> > problem if other SAIs use the same clock source but with different
+> > rates?
+> >
+> > If we have to define fixed rates in the DTS or else the clock driver
+> > will return an error, isn't that a problem? Maybe I should change the
+> > sai driver so that it ignores the failure and just takes the rate
+> > configured? In the end audio works, even if it can't set the requested
+> > rate.
+>
+> The following clock tree change would allow the driver to work
+> in our scenario:
+> &sai5 {
+>         assigned-clocks =3D <&acm IMX_ADMA_ACM_SAI5_MCLK_SEL>,
+>                           <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_PLL>;
+>         assigned-clock-parents =3D <&aud_pll_div1_lpcg 0>;
+>         assigned-clock-rates =3D <0>, <11289600>;
+> };
 
-On 2025. 01. 10. 14:58, Krzysztof Kozlowski wrote:
-> On 10/01/2025 13:39, Andras Szemzo wrote:
->> +// Copyright (C) 2024 Andras Szemzo <szemzo.andras@gmail.com>
->> +
->> +#include <dt-bindings/clock/sun6i-rtc.h>
->> +#include <dt-bindings/clock/sun8i-v853-r-ccu.h>
->> +#include <dt-bindings/reset/sun8i-v853-r-ccu.h>
->> +#include <dt-bindings/clock/sun8i-v853-ccu.h>
->> +#include <dt-bindings/reset/sun8i-v853-ccu.h>
->> +#include <dt-bindings/interrupt-controller/arm-gic.h>
->> +#include <dt-bindings/power/allwinner,sun8i-v853-ppu.h>
->> +
->> +/ {
->> +	#address-cells = <1>;
->> +	#size-cells = <1>;
->> +
->> +	osc24M: osc24M-clk {
-> 
-> Only lowercase node names.
+In which we configure PLL_0 for 48KHz series (8kHz/16kHz/32kHz/48kHz),
+PLL_1 for 44kHz series (11kHz/22kHz/44kHz),
+which should fit for most audio requirements.
 
-I don't agree. It is customary to write oscillator names with casing in 
-line with the SI prefixes of their frequency, i.e. lowercase k, 
-uppercase M/G/etc. (even though a millihertz oscillator rarely makes 
-sense, it is best to stay consistent).
+>
+> However, this means we have to switch the parent clock to the audio pll
+> 1. For the simple setup with two SAIs, one for analog audio and one for
+> HDMI this wouldn't be a problem. But I'm not sure if this is a good
+> solution if a customer would add a third SAI which requires again a
+> different parent clock rate.
 
-Bence
+We won't change the PLL's rate in the driver,  so as PLL_0 for 48kHz,
+PLL_1 for 44kHz,  even with a third SAI or more,  they should work.
 
+>
+> One potential solution could be that the SAI driver tries to first
+> derive the clock from the current parent and only if this fails it tries
+> to modify its parent clock. What do you think about this solution?
+>
+
+It's better to avoid modifying parent rate, as drivers don't know if the pa=
+rent
+is used by another instance.
+
+Best regards
+Shengjiu Wang
 
