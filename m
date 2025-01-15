@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50763C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 10:32:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C25CAC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 10:33:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mWDLtelO8iglPcJwW9OsJzifr99fH6CJM/aWB7cDGS8=; b=WU86SJnvPbdFlnE3kY36jh94lJ
-	3b/rKpejXGOZc2NOxPdIOATvjoS5U2PEAHWSLVIavNovRRgqGKy2TaWmAennUu0VrL5XYx94UWN7H
-	QhkPvdYmxgg47Slwu6T6oEGJ0xdZqbylxnpvxlMkdlXdthHdOskqH7+puyyHRa185omnRx1ZBwoPy
-	gI/J+lnaPu49AvZv9XKpAC/GF5e0k+sr7cRNE+p6qB92ykhHlfIWIdSN5Z+p3KRyzSxkU4n1slSki
-	VuiRQ0yi0boqFgIXCke4Ee63Q4iMNLZ/1u7XX7bYgPRooGWmG3QAzMljLLCs65KiLNzXaiOM8+4co
-	eGCNDMdg==;
+	bh=oM65+GlC6+z/e9jP7mV9vvUo3YK0VtdyxRJqS5T+RLY=; b=oarh7uT1zn5+9DLgpQQt6wnDCi
+	wzumrlGC3f9sl8pbtpzPAeWGdW8zbE9WcfaTN32V0aJ1fLKk9Z8E8agxoWVDVULVaaw7UuEFLeQ8P
+	777qDZluztTSKDLM48LA6U8QTyNAYK/ijI5omJP2WvXhg94zPkGhO+mO4F4HisFTevkeO+/BAOI5s
+	Ek/6MaUEcwGt+BrlpbTjgxzkO1IGcEBIZy/ixY6JpIsrJUC99pEnQZL5W/jpavBnPqiQyqgMaj6Ty
+	rsF0QpwLi/3fYjAGLzw2BsrjsBjyzdy8/Waxju0vhsn8AEGFSk0Y42/jmAyiyfDVCbwvk6MtzxAkT
+	+ZEmCJbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY0h3-0000000BVSr-48fm;
-	Wed, 15 Jan 2025 10:32:13 +0000
+	id 1tY0iL-0000000BVvT-1Hji;
+	Wed, 15 Jan 2025 10:33:33 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY0eb-0000000BUct-0nms;
-	Wed, 15 Jan 2025 10:29:42 +0000
+	id 1tY0ec-0000000BUdf-22Oh;
+	Wed, 15 Jan 2025 10:29:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1736936979;
-	bh=bZB8wY5GPpQ6Ij8HzLPuECw1iQfeE2kH9xQl80QDmWw=;
+	s=mail; t=1736936981;
+	bh=s2hudm/9G24yMYWoXmUzYddQItAemdzK4MaLW2IhpwA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Oco2YgeL+qWZvjGiMDbeH+vhFy9m+1/KGipT5dMXfldHcfVtUWRxaclBoyOrflVXG
-	 hQOrftU4tM2SzgbN66XaooXMN3K2vj0CyHhIGGFB0PUeHDuqT3bj3wpxpoTRlrnc4h
-	 mT8IyCYQTVKKIfT8OF3YBO2xTVAOndw0yGyOLLwHbZVMjrDNTulzpKoCMUxwwC0Zt4
-	 I/UM4tTmbd9449MKDvw3m7s7vnut2h5Wcx5oM4RHnecTtSQn3hRm82ORKUF+IswmNK
-	 5Oz/1ZdLgceOsgj8Xrz9dvyekPnSDhdPQHMtkffzDPAzjnfZqTMxs+wP46LNsunzlf
-	 fnHre0P9Fl1Aw==
+	b=EYza1LZPJrixGBPSfKLn/aYZtHSczrtUTFbL6gPIOFZpN3RHZdrmtH0Prg/kneLs/
+	 MVW0vClLtjN/9Trkn4ivR721MQ5A9KAOhFylbi3pvK2Osn2CrSP6chjv4E4sR/4nNz
+	 6UZL6yQgjH26Zre9LBNCyzPRGhG0LozCgQS/QGxDvQmKZhALHPVzMmjGHzWVksZTUZ
+	 jT/GU5aammM6grGOHkbzkagpzYbtEm5HcWPyFGFax1t8r0RJwUKjZoh8DvBSWn2vwB
+	 gELWgPQmUrHTch5K+pYdEwqZ+HnPf7T/0XuBeEwfGHj3lfHt5ycDOCZPNQVf6nPLHw
+	 CyWAsmlvEIsdQ==
 Received: from fedora.home (lfbn-tou-1-1147-231.w90-76.abo.wanadoo.fr [90.76.208.231])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 936FA17E0DD8;
-	Wed, 15 Jan 2025 11:29:37 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id BE9CB17E0DE6;
+	Wed, 15 Jan 2025 11:29:39 +0100 (CET)
 From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Wed, 15 Jan 2025 11:29:02 +0100
-Subject: [PATCH v2 1/4] dt-bindings: arm: mediatek: add mt8370-evk board
+Date: Wed, 15 Jan 2025 11:29:03 +0100
+Subject: [PATCH v2 2/4] arm64: dts: mediatek: add support for MT8370 SoC
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250115-dts_mt8370-genio-510-v2-1-fc9b01d08834@collabora.com>
+Message-Id: <20250115-dts_mt8370-genio-510-v2-2-fc9b01d08834@collabora.com>
 References: <20250115-dts_mt8370-genio-510-v2-0-fc9b01d08834@collabora.com>
 In-Reply-To: <20250115-dts_mt8370-genio-510-v2-0-fc9b01d08834@collabora.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -62,17 +62,16 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  kernel@collabora.com, 
  Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1736936976; l=1347;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1736936976; l=4097;
  i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=bZB8wY5GPpQ6Ij8HzLPuECw1iQfeE2kH9xQl80QDmWw=;
- b=k5DqrUoLPzbQjqBNU6/bRAXRTjdcXKgZrSGjgRhO1GbvE8zRVY2LkBtInkEjx2Vn7LZB5LJMO
- f19lst/PGYXChoXB7cjooK45VkwqNElF8/Tr0qo3fpo9F7wCFYvk9ZU
+ bh=s2hudm/9G24yMYWoXmUzYddQItAemdzK4MaLW2IhpwA=;
+ b=/hQGoMzTN/tilwsBGwhVJrvyaWrGV45/WGTeFhhPRaaEFcjM63YtYK4ZjdRK8EJi3usrmLaY4
+ VWqB874OvYJCskGR3xrC1+DRxEHMyzRdOdZ7l8M2RQj3UqvKJrkKpS9
 X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
  pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_022941_376148_F26C075B 
-X-CRM114-Status: UNSURE (   8.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250115_022942_690760_89F19DAF 
+X-CRM114-Status: GOOD (  13.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,40 +86,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-1. Add compatible for MT8370.
-2. Add bindings for the MediaTek mt8370-evk board, also known
-as the "Genio 510-EVK".
-
-The MT8370, MT8390 and MT8188 belong to the same SoC family.
-It is a less powerful variant of MT8390 SoC and their main
-differences are:
- - Arm Cortex-A55 cores number (4 vs 6)
- - Arm Cortex-A78 core speed (2.0 GHz vs 2.2 Ghz)
- - Arm Mali-G57 GPU core number (2 vs 3)
+This commit adds the support of the Mediatek MT8370 SoC.
+It is a less powerful variant of MT8390 SoC and their
+main differences are:
+- Arm Cortex-A55 cores number (4 vs 6)
+- Arm Cortex-A78 core speed (2.0 GHz vs 2.2 Ghz)
+- Arm Mali-G57 GPU core number (2 vs 3)
 
 Like MT8390, MT8370 hardware register maps are identical to MT8188.
 
+Note:
+In this commit, the mt8370.dtsi does not contain the needed overrides
+to support the Mali GPU (to be done in a future commit).
+
 Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- Documentation/devicetree/bindings/arm/mediatek.yaml | 5 +++++
- 1 file changed, 5 insertions(+)
+ arch/arm64/boot/dts/mediatek/mt8188.dtsi |  8 ++--
+ arch/arm64/boot/dts/mediatek/mt8370.dtsi | 64 ++++++++++++++++++++++++++++++++
+ 2 files changed, 68 insertions(+), 4 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/arm/mediatek.yaml b/Documentation/devicetree/bindings/arm/mediatek.yaml
-index 3ce34d68c213acae44c27bdee3a9bb0b9dbcd1fd..108ae5e0185d93976556a03768595961961bcc33 100644
---- a/Documentation/devicetree/bindings/arm/mediatek.yaml
-+++ b/Documentation/devicetree/bindings/arm/mediatek.yaml
-@@ -412,6 +412,11 @@ properties:
-           - enum:
-               - mediatek,mt8365-evk
-           - const: mediatek,mt8365
-+      - items:
-+          - enum:
-+              - mediatek,mt8370-evk
-+          - const: mediatek,mt8370
-+          - const: mediatek,mt8188
-       - items:
-           - enum:
-               - mediatek,mt8390-evk
+diff --git a/arch/arm64/boot/dts/mediatek/mt8188.dtsi b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
+index 338120930b819645662465fa7b3c6be6491764ff..5d78f51c6183c15018986df2c76e6fdc1f9f43b4 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8188.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
+@@ -492,7 +492,7 @@ cpu_little0_crit: trip-crit {
+ 			};
+ 
+ 			cooling-maps {
+-				map0 {
++				cpu_little0_cooling_map0: map0 {
+ 					trip = <&cpu_little0_alert0>;
+ 					cooling-device = <&cpu0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
+ 							 <&cpu1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
+@@ -530,7 +530,7 @@ cpu_little1_crit: trip-crit {
+ 			};
+ 
+ 			cooling-maps {
+-				map0 {
++				cpu_little1_cooling_map0: map0 {
+ 					trip = <&cpu_little1_alert0>;
+ 					cooling-device = <&cpu0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
+ 							 <&cpu1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
+@@ -568,7 +568,7 @@ cpu_little2_crit: trip-crit {
+ 			};
+ 
+ 			cooling-maps {
+-				map0 {
++				cpu_little2_cooling_map0: map0 {
+ 					trip = <&cpu_little2_alert0>;
+ 					cooling-device = <&cpu0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
+ 							 <&cpu1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
+@@ -606,7 +606,7 @@ cpu_little3_crit: trip-crit {
+ 			};
+ 
+ 			cooling-maps {
+-				map0 {
++				cpu_little3_cooling_map0: map0 {
+ 					trip = <&cpu_little3_alert0>;
+ 					cooling-device = <&cpu0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
+ 							 <&cpu1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
+diff --git a/arch/arm64/boot/dts/mediatek/mt8370.dtsi b/arch/arm64/boot/dts/mediatek/mt8370.dtsi
+new file mode 100644
+index 0000000000000000000000000000000000000000..cf1a3759451ff899ce9e63e5a00f192fb483f6e5
+--- /dev/null
++++ b/arch/arm64/boot/dts/mediatek/mt8370.dtsi
+@@ -0,0 +1,64 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Copyright (c) 2025 Collabora Ltd.
++ * Author: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
++ */
++
++/dts-v1/;
++#include "mt8188.dtsi"
++
++/ {
++	compatible = "mediatek,mt8370";
++
++	cpus {
++		/delete-node/ cpu@400;
++		/delete-node/ cpu@500;
++
++		cpu-map {
++			cluster0 {
++				/delete-node/ core4;
++				/delete-node/ core5;
++			};
++		};
++	};
++};
++
++&cpu6 {
++	clock-frequency = <2200000000>;
++};
++
++&cpu7 {
++	clock-frequency = <2200000000>;
++};
++
++&cpu_little0_cooling_map0 {
++	cooling-device = <&cpu0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
++				<&cpu1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
++				<&cpu2 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
++				<&cpu3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
++};
++
++&cpu_little1_cooling_map0 {
++	cooling-device = <&cpu0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
++				<&cpu1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
++				<&cpu2 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
++				<&cpu3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
++};
++
++&cpu_little2_cooling_map0 {
++	cooling-device = <&cpu0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
++				<&cpu1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
++				<&cpu2 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
++				<&cpu3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
++};
++
++&cpu_little3_cooling_map0 {
++	cooling-device = <&cpu0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
++				<&cpu1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
++				<&cpu2 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
++				<&cpu3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
++};
++
++&ppi_cluster0 {
++	affinity = <&cpu0 &cpu1 &cpu2 &cpu3>;
++};
 
 -- 
 2.48.0
