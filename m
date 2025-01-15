@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33144C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 09:51:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59694C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 09:53:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ahtk6KEr+1ICj0GfTtqVUyOgNdrJMw8vqfEIQ6685zQ=; b=DGOAfTw11vzcsPSDC6IidK/+Fu
-	DEPwCbZ4kE6Uu3qv8vICjLRenT1jDECtDmsKACUZy5vbtaM2VSKkrS+Y+De3MbR4kmnsor3Vqnv74
-	X2YIan1a1ZdNmk9/jAIbsuHtJI0uKdvILYwX/Q7hq7RGvLVKllcH1I1QDisJKlMz/t5AavPFiJs0i
-	8TWM98qBwiv6FhwhVo+3CjbXo6eWH+34h3uAiKVreo1g06QV/S+SlrGUvurNJY0zOrDgMNywtycZ5
-	4bzlAXtD5va241xbtW3+wPb2eoAuD3s+v0OtVawK+l4Zpo0T/uO7kEEnR+bkNHJ7OwjlQfihfR/M+
-	KP1UkjyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MhzeunR8rJgrZ00XQVoPh7HS7sUwFQAgiu34BTjBQ7E=; b=ZWJedLEPT52aTlH8ZTcYz0aVPW
+	/4TYJ1StPIDdU7YBftN2vHweQ3yS9gGBNjCql4f6wL/Yi/wVP7JvBKq812SkE2zmGzlMU8FyvIGMC
+	0+zkQ69vQlks+weT7lVUcKpWvLu5lkhMDA13qcfY6xeqULXmrqQn2XGtpNifafvLGh5aEWTptac73
+	DwuOBJM4VR3MyYF3W/STkcaHYWusF+ei6hGNs8dWT1S5fxUo3pF9Ug/0lw4QfANzimLMVYICjn2bD
+	nMFwfrcHZ/iUkYoDcRG+f0oJePHN64pqRmVAFNrr1oyazTk5rlImLFIh75PGSTUe3AnlLvO5uyfwh
+	GEOqdRFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY03g-0000000BPbn-0VO2;
-	Wed, 15 Jan 2025 09:51:32 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tY05R-0000000BPqa-0GxI;
+	Wed, 15 Jan 2025 09:53:21 +0000
+Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY02Q-0000000BPOs-1GXT;
-	Wed, 15 Jan 2025 09:50:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 63D13A41A62;
-	Wed, 15 Jan 2025 09:48:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A693C4CEE1;
-	Wed, 15 Jan 2025 09:50:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736934613;
-	bh=FAroUXyBDLBEfp+R9giXYoiTywuzUZWagD49ZuybGCI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DImkJAVvNmB4HstzP6QyZuwro7ZkhI2z7+UN/VI+l4a53L1EiD7SlRf2B5GDtl0c7
-	 28gPdouUlyGvnv2eVpRRjaD8ImWpK0C8W5Cxw47OM7yjjOWfZ4lhDlZ5jkUt71a55j
-	 LD+ONvpoPXR5ZYd/GYr1/3TqSVKll2Mq9SJKuoFzubYGHhlBjZThjYrYD3QVCbVIf2
-	 MFOIVbBpBxUaAqqL0Chf3SxqbMQA0aKgmhFZ95iVyVFadd+g1hYBq5eemjSR1Xktwt
-	 hQ0U3rvJUG0FcPoi3L1CLsHB1I9pzk0PfTL15FKgqik8v6xJsp44WjTJLEKyrcURQW
-	 jiouujojobUUQ==
-Date: Wed, 15 Jan 2025 10:50:09 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Cathy Xu <ot_cathy.xu@mediatek.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sean Wang <sean.wang@kernel.org>, Lei Xue <lei.xue@mediatek.com>, 
-	wenbin.mei@mediatek.com, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, Guodong Liu <guodong.liu@mediatek.com>
-Subject: Re: [PATCH v3 1/2] dt-bindings: pinctrl: mediatek: add support for
- mt8196
-Message-ID: <nmyxygrya6cpalmirsunvkx32uox3kjxd4l5ggdhjtj7edyizz@yodolm5ktboo>
-References: <20250115063555.32492-1-ot_cathy.xu@mediatek.com>
- <20250115063555.32492-2-ot_cathy.xu@mediatek.com>
+	id 1tY04B-0000000BPiE-0Jvb;
+	Wed, 15 Jan 2025 09:52:04 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250115063555.32492-2-ot_cathy.xu@mediatek.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1736934718;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MhzeunR8rJgrZ00XQVoPh7HS7sUwFQAgiu34BTjBQ7E=;
+	b=g9Hmqxqt5W9Fcav3vjfAskxGSrwwUjqsZjenEBNE4dOTvaRg81qCWb95ztMh2IzQH+4Gzk
+	FaiMX/gLzaDOL66pL0m2Io/R015jLWkH6l2vkCuVq4qoxrah2fHGiSG2H+lL9OSNAvGcej
+	rK2dCgXVU/rO5V/YQP0jcP0BzFXL2jyiD8+x398nq73UyMeiIvk4buaYSC0T5cFklaeZ6k
+	/mfSf9nWS1c0vbGlDN4fIrP2f1vcxiShzSmw4WsPlWx+k2KOmWfg4OBvtdVjl/b90cQ2TI
+	ReIbSYuClhAgVltlKK3ADzzbHafZ9YjJ3+5dbfBe3CF8yIegOi3eELWbcm7vsg==
+Date: Wed, 15 Jan 2025 10:51:57 +0100
+From: Dragan Simic <dsimic@manjaro.org>
+To: linux-rockchip@lists.infradead.org
+Cc: heiko@sntech.de, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, didi.debian@cknow.org,
+ marcin.juszkiewicz@linaro.org
+Subject: Re: [PATCH] arm64: dts: rockchip: Describe why is HWRNG disabled in
+ RK356x base dtsi
+In-Reply-To: <6b272e2f8f916c04b05db50df621659a5a7f29ab.1733149874.git.dsimic@manjaro.org>
+References: <6b272e2f8f916c04b05db50df621659a5a7f29ab.1733149874.git.dsimic@manjaro.org>
+Message-ID: <b1f97e555e57e6593251bb1ef1353423@manjaro.org>
+X-Sender: dsimic@manjaro.org
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_015014_471926_A620E713 
-X-CRM114-Status: GOOD (  18.89  )
+X-CRM114-CacheID: sfid-20250115_015203_280455_84FFF308 
+X-CRM114-Status: GOOD (  17.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,78 +74,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 15, 2025 at 02:35:38PM +0800, Cathy Xu wrote:
-> +
-> +        properties:
-> +          pinmux:
-> +            description:
-> +              Integer array, represents gpio pin number and mux setting.
-> +              Supported pin number and mux varies for different SoCs, and are
-> +              defined as macros in dt-bindings/pinctrl/mt8196-pinfunc.h
-> +              directly, for this SoC.
-> +
-> +          drive-strength:
-> +            enum: [2, 4, 6, 8, 10, 12, 14, 16]
-> +
-> +          bias-pull-down:
-> +            oneOf:
-> +              - type: boolean
-> +              - enum: [100, 101, 102, 103]
-> +                description: mt8196 pull down PUPD/R0/R1 type define value.
-> +              - enum: [200, 201, 202, 203, 204, 205, 206, 207]
-> +                description: mt8196 pull down RSEL type define value.
+Just a brief reminder about this patch...
 
-Not much improved.
-
-
-> +            description: |
-> +              For pull down type is normal, it doesn't need add RSEL & R1R0.
-> +              For pull down type is PUPD/R0/R1 type, it can add R1R0 define to
-> +              set different resistance. It can support "MTK_PUPD_SET_R1R0_00" &
-> +              "MTK_PUPD_SET_R1R0_01" & "MTK_PUPD_SET_R1R0_10" &
-> +              "MTK_PUPD_SET_R1R0_11" define in mt8196.
-> +              For pull down type is PD/RSEL, it can add RSEL define to set
-> +              different resistance. It can support
-> +              "MTK_PULL_SET_RSEL_000" & "MTK_PULL_SET_RSEL_001" &
-> +              "MTK_PULL_SET_RSEL_010" & "MTK_PULL_SET_RSEL_011" &
-> +              "MTK_PULL_SET_RSEL_100" & "MTK_PULL_SET_RSEL_101" &
-> +              "MTK_PULL_SET_RSEL_110" & "MTK_PULL_SET_RSEL_111" define in
-> +              mt8196.
-
-> diff --git a/include/dt-bindings/pinctrl/mt8196-pinfunc.h b/include/dt-bindings/pinctrl/mt8196-pinfunc.h
-> new file mode 100644
-> index 000000000000..bf0c8374407c
-> --- /dev/null
-> +++ b/include/dt-bindings/pinctrl/mt8196-pinfunc.h
-> @@ -0,0 +1,1572 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
-> +/*
-> + * Copyright (C) 2025 Mediatek Inc.
-> + * Author: Guodong Liu <Guodong.Liu@mediatek.com>
-> + */
-> +
-> +#ifndef __MT8196_PINFUNC_H
-> +#define __MT8196_PINFUNC_H
-> +
-> +#include <dt-bindings/pinctrl/mt65xx.h>
-> +
-> +#define PINMUX_GPIO0__FUNC_GPIO0 (MTK_PIN_NO(0) | 0)
-> +#define PINMUX_GPIO0__FUNC_DMIC1_CLK (MTK_PIN_NO(0) | 1)
-> +#define PINMUX_GPIO0__FUNC_SPI3_A_MO (MTK_PIN_NO(0) | 3)
-> +#define PINMUX_GPIO0__FUNC_FMI2S_B_LRCK (MTK_PIN_NO(0) | 4)
-> +#define PINMUX_GPIO0__FUNC_SCP_DMIC1_CLK (MTK_PIN_NO(0) | 5)
-> +#define PINMUX_GPIO0__FUNC_TP_GPIO14_AO (MTK_PIN_NO(0) | 6)
-
-I do not see how you resolved my comment from v1. In v2 I reminded about
-it, so you responded that yopu will change something, but I do not see
-any changes.
-
-So explain: how did you resolve my comment?
-
-These two examples where you claim you will change something, but send
-the same. I skipped the rest of the patch.
-
-Best regards,
-Krzysztof
-
+On 2024-12-02 15:44, Dragan Simic wrote:
+> Despite the presence of the hardware random number generator (HWRNG) in 
+> the
+> different Rockchip RK356x SoC variants, it remains disabled for the 
+> RK3566
+> SoC because testing showed [1] that it produces unacceptably low 
+> quality of
+> random data, for some yet unknown reason.  The HWRNG is enabled for the 
+> RK3568
+> SoC, on which the testing showed good quality of the generated random 
+> data.
+> 
+> To avoid possible confusion in the future, [2] let's have this 
+> described
+> briefly in the RK356x base SoC dtsi.
+> 
+> [1] 
+> https://lore.kernel.org/linux-rockchip/cover.1720969799.git.daniel@makrotopia.org/T/#u
+> [2] 
+> https://lore.kernel.org/linux-rockchip/20241201234613.52322-1-pbrobinson@gmail.com/T/#u
+> 
+> Signed-off-by: Dragan Simic <dsimic@manjaro.org>
+> ---
+>  arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
+> b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
+> index 62be06f3b863..ab8f42c0a843 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
+> @@ -1032,6 +1032,11 @@ sdhci: mmc@fe310000 {
+>  		status = "disabled";
+>  	};
+> 
+> +	/*
+> +	 * Testing showed that the HWRNG found in RK3566 produces 
+> unacceptably
+> +	 * low quality of random data, so the HWRNG isn't enabled for all 
+> RK356x
+> +	 * SoC variants despite its presence.
+> +	 */
+>  	rng: rng@fe388000 {
+>  		compatible = "rockchip,rk3568-rng";
+>  		reg = <0x0 0xfe388000 0x0 0x4000>;
+> 
+> _______________________________________________
+> Linux-rockchip mailing list
+> Linux-rockchip@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-rockchip
 
