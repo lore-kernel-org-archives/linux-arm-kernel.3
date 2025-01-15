@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27DC8C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 21:03:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FAB2C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 21:10:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=Ue2KKXpgWLBIe+28xWW+D0JlbfQ9tVX+h0LmxY1ArZA=; b=CFGCy/ZkHKCbIn
-	Qy8XR++hYpzlzcSYV0Aepd8jXFqJaznEC6zzJR2ighBoWChxAJ+036F6ZZ3nLjXmQ+OP+pc57iaTE
-	1asawqJOLCD04ODsprdEIiWjj1dcQ2sla6jiMGDFpHctxAe8LMcAeZT6XTLeQZxnLKRIIEaatp/0g
-	tlWOJW/84kpgW0PbUWpu8yJ4km5tcadVMf9xRnH4zmG4s7kH5jtThLmDwulGriSW/KOMWXtHYsZoE
-	0cM0BbAWmx2rzlDiStTQWKmSJw+01zdlR4kWU4P4u8PDWSfAAbmzkzSOFTuux+6FDu02u/D88U1ql
-	ynvRqcWl0/vCJ3sMYfZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vSJDLdc29+0dWTtYhBL/9vUuQV9ugW055P7dG3ZlZWs=; b=ReZ/0s9MrPWM6m5+zu43B7Oumb
+	lJTYLxg0DlrKr8hgc0+vZvuerDs8W2+QLBWosxqkR5p2ACFBWoy61IkIRgwjUD9WhjeZL0ut03rQH
+	eL7qSdw2Tnium5akCReo9uRKOZLQq+kMoXGxhgRWPrNjqPmlszIkmitCr9+NDSuIDJWbHVF5A4FoE
+	TMUpIpMc6nZpMGmB8C+bzHICgDTijlFaZHb0f9BwFgDprBFDDXKWjlnaVSL7LI0knjEUsH305yN3A
+	HbD3FML/NIBaDgunWXXjMwjgTuR1Ll9P+3dXybJit7JcQ8W97l1UG3ILuIWU3dVoDUnD0hIxJ61FL
+	6Fg91pYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYAXY-0000000D57i-1Y9X;
-	Wed, 15 Jan 2025 21:03:04 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tYAeX-0000000D6px-2O2Q;
+	Wed, 15 Jan 2025 21:10:17 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYAVd-0000000D4mj-0QB9
+	id 1tYAdF-0000000D6UD-2Cr4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 21:01:06 +0000
+	Wed, 15 Jan 2025 21:08:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3EDFCA424F8;
-	Wed, 15 Jan 2025 20:59:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7620C4CED1;
-	Wed, 15 Jan 2025 21:01:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736974864;
-	bh=xk8w/Hm5T7hq0bK1cULse3KqEqZPAlwxboMPLxitLa8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=bAkqFTwyGWq1JZNUw1vqjc13lXgIrUHbWnNpPKMFJL1Z/xPhai054sfv1kJYE6rWK
-	 Nxct+kmuSHfJyXzcW78+TlOSHqOcV86o0Xyp/qD1LhYO/Z1PaHLUsjLl1a/z0VgbxN
-	 OYJNMmdJnj3fY6nVn0SCeAFzTgbSVG2NPoYzhxPjt+zPC0SZsBy4FB32OYVokg5ToD
-	 fhMyEm0NgxHafeWF13Q8apb0ltiBu6qU/c8UMDuFx2Cn2GwIJ3DvBi/SFh1XHUbnb8
-	 iR/RauLdHb6wNw35k6tx4us/WGSa4nqNn3+zYZsbIRdyi0tV7F+wwakRtzuQXLgJAJ
-	 ucxPKLZJBgHkg==
-Date: Wed, 15 Jan 2025 15:01:02 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH 0/2] PCI: Convert the Apple controller to host bridge
- hooks
-Message-ID: <20250115210102.GA551434@bhelgaas>
+	by nyc.source.kernel.org (Postfix) with ESMTP id 39534A4258A;
+	Wed, 15 Jan 2025 21:07:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C43FC4CED1;
+	Wed, 15 Jan 2025 21:08:55 +0000 (UTC)
+Received: by mercury (Postfix, from userid 1000)
+	id 215D61060353; Wed, 15 Jan 2025 22:08:53 +0100 (CET)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Hans de Goede <hdegoede@redhat.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, 
+ Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>, 
+ Purism Kernel Team <kernel@puri.sm>, Sebastian Reichel <sre@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>, 
+ Dzmitry Sankouski <dsankouski@gmail.com>
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-msm@vger.kernel.org
+In-Reply-To: <20250107-b4-max17042-v6-0-3d0104ad5bc7@gmail.com>
+References: <20250107-b4-max17042-v6-0-3d0104ad5bc7@gmail.com>
+Subject: Re: [PATCH v6 0/2] power: supply: max17042: cleanup and more
+ features
+Message-Id: <173697533312.451358.11039936801510899973.b4-ty@collabora.com>
+Date: Wed, 15 Jan 2025 22:08:53 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241204150145.800408-1-maz@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_130105_203354_E9B81746 
-X-CRM114-Status: GOOD (  15.83  )
+X-CRM114-CacheID: sfid-20250115_130857_634362_C7EFE81B 
+X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,35 +79,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 04, 2024 at 03:01:43PM +0000, Marc Zyngier wrote:
-> The Apple PCIe controller requires some additional attention when
-> enabling an endpoint device, so that the RID gets correctly mapped to
-> a SID on its way to the IOMMU.
-> 
-> So far, we have need relying on a custom bus notifier to perform this
-> task, but Frank Li's series [1] is a better approach as it puts the
-> complexity in the core code instead of the host controller driver, and
-> this series builds on that:
-> 
-> - allow the new {en,dis}able_device() to be provided via pci_ecam_ops
-> 
-> - convert the Apple PCIe driver to that infrastructure
-> 
-> Patches on top of 6.13-rc1, plus Frank's v7 series.
-> 
-> [1] https://lore.kernel.org/r/20241203-imx95_lut-v7-0-d0cd6293225e@nxp.com
-> 
-> Marc Zyngier (2):
->   PCI: host-generic: Allow {en,dis}able_device() to be provided via
->     pci_ecam_ops
->   PCI: apple: Convert to {en,dis}able_device() callbacks
-> 
->  drivers/pci/controller/pci-host-common.c |  2 +
->  drivers/pci/controller/pcie-apple.c      | 75 +++++-------------------
->  include/linux/pci-ecam.h                 |  4 ++
->  3 files changed, 21 insertions(+), 60 deletions(-)
 
-Applied to pci/controller/iommu-map for v6.14, thank you!
+On Tue, 07 Jan 2025 12:31:29 +0300, Dzmitry Sankouski wrote:
+> Fuelgauge blocks often are incorporated in bigger chip,
+> which may use only 1 line for interrupts. Shared-irq
+> handles that case by requesting irq as shared.
+> 
+> Maxim PMICs may include fuel gauge with additional features, which is
+> out of single Linux power supply driver scope.
+> 
+> [...]
 
-Bjorn
+Applied, thanks!
+
+[1/2] power: supply: max17042: make interrupt shared
+      commit: bed41f08e222efb6f77a3a68e847b7a1ad994e62
+[2/2] power: supply: max17042: add platform driver variant
+      commit: 0cd4f1f77ad4f021cd56aad00c1914583c3ddf3c
+
+Best regards,
+-- 
+Sebastian Reichel <sebastian.reichel@collabora.com>
+
 
