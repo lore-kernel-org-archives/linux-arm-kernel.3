@@ -4,94 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24A56C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 12:13:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E10FC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 12:14:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bH+qFIkzfP2ZdF0jKFR3toN5QXpPpNWnsi9wML2k+Rs=; b=da06CnPKhEsodF/CAteaa2OIIa
-	adQBV8LpRKMh1KHj3XaP+H2Wql3eRp6csB6RGBOUxre7fiJAA/tmfdUdfpYYm9Q6UVDZrKBbLfzGE
-	FEH318bMsP/4kJPYW9u9VvVsKeooprL4rSt0YMVv4rYvNunw123RcrvRuDxUzqaWLdMybVxpGxCLn
-	Mc0QdR6H0ehm69wxeJznarg1ca3jFGmgSvXd/dgxprGY59gPl7oVng2mDMnqJqlnMVkQR5ygreHdl
-	1uVzD53l01y5HULZ0N/mo956shhnIYTauiagXypy8uN6PyksZUrgajnDydwNL5eCK83QTJ5b9Q7IL
-	qJtoCuZQ==;
+	bh=BbBzvdLfvfKGgobnTVPYBiKZV2xAWAljRqWTLqfCHFI=; b=psbhRJYXltUrRaNl8n3342cMA3
+	5WN/ESp5b1RuQd0cOwrQa8+W8/f1nTvyT0OjOZ/xmFbDbD9eqcRMchmPeKUNvhSzRY9Frxl24kK5C
+	6l1ODXqipzoiRK3+A1I94TXW/DHVWa40fr9AHOlU8TTKFvW5klqIULP18SpUXAKEOCjxbtV1dxB9a
+	mfI9tR4fnmMOCyZqXKkZyDNSfGsz0SkFLOcp0QDGNllyFQb+VoW0ZnlLZmY/pbC4btSX6en02swi1
+	qBqLatTjms3V2m3rN6HjClgJ0MAYbUEIwefjHdqhamifUjaBh/gkdkoWf9yE6i33znbuByVbBuyJB
+	7ZPtKZgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY2GQ-0000000BoEr-3XQE;
-	Wed, 15 Jan 2025 12:12:50 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1tY2Hd-0000000BoQh-20nz;
+	Wed, 15 Jan 2025 12:14:05 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY2FA-0000000Bo2f-1rnN
+	id 1tY2FK-0000000Bo3a-1sdU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 12:11:33 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-436326dcb1cso47084775e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 04:11:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736943091; x=1737547891; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=bH+qFIkzfP2ZdF0jKFR3toN5QXpPpNWnsi9wML2k+Rs=;
-        b=jNGNm0jek0EeHxASxGaP/CiaFwF7DeavbsFM2iEMBetr2GaawhZGKndyMVZJkOHo5+
-         xRp0ag68sQWE0/LDl23FwqED+90ioigxxj/RU8ijjFTTdVkmtV2TgSHN0I94wo9nMXE6
-         ahSSHAB+DOOZLD+X3b8BqvLTuqwaoTgBB+99BzlSuf2yOv+VBEwroTiowehCIdwtfX8j
-         HkdQ2MF7+E5diJpJ6xuu5Rg+p6cSEk28DJKQczyxG2WdXFNNl7FLf/I9geqsZNZUM2qT
-         Tw7uyUWqOx/5G9AxhvXUg7uQdBBUMqklE/TzN2xZD+uPTLrno5mhZfZkqd3gjud/a8U+
-         R8qw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736943091; x=1737547891;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=bH+qFIkzfP2ZdF0jKFR3toN5QXpPpNWnsi9wML2k+Rs=;
-        b=gaGbQ+F99pGDbKgMdkoZ0SouQaG/iqIuKc1+uT8JhPcCKWxC+WqUtk8EqY32iDhULM
-         VykumaW+4lBaPmvyUD2MA8dukkrumW+2EyVGrXxcSzB1hzOH+nd/0pNWiZZs/CPhhefs
-         FgEC9rZJ5rohXfhUAFiV4YGoC9jeOGt0tVc6V1/d7MAhs/WoyTp8UI4xTEGdSmxaeTPQ
-         3K/z86ERan/RdE3OzN2oQAlhIUH+AQhO4JVYGNr3rZ4mlzexbWXeuntfWNa055bZZNJD
-         BKcwtd+vw2aB78F8zcaG/D3OwZ9fJbVQ2yHUNdnLJfOsGzGjzK3rnSajXHHDSwDeEh3M
-         Y00A==
-X-Forwarded-Encrypted: i=1; AJvYcCUo5qE/6ik18AFSwo2+kzSGOALPon1htwn7Cug6dqDI4f170ALavzOPGd5vtV1Rm5zh/NiJVN0KR9eG7wkG8HKB@lists.infradead.org
-X-Gm-Message-State: AOJu0Yztha4phbLePPUUyBdczr85o9clojvC8JpXL8R8Owv+rUmKbehD
-	urHrm9CoLMXVKFpLhM0Ojkz2Mysp4cUQzQ8ilVPrRIgg/MQabxKCGn5xxuYMM4U=
-X-Gm-Gg: ASbGncvus7zcEmNfyIT4vfb9kdWm3Z3w3xELzTUoMEUvnzKHvOEB6MmmOooRxE1tts9
-	ots09MswY3BTVx7xUon0rQ+ijFP3Df5K7JPSLFeZY96M+/rN+sd/hP1JFIcQMDYyVUDCnJvg8sx
-	E4D6bnzK/2C7Srhf+cqXhNN2UZkpShgNf6mynjErlETeGX141BsSlF+TU+r5f2lDj1vVzl9UAYH
-	m/xGtuPZD9PsLRyAsW/WYAUi7Tl2alzE8qwe4v1KgGnNwwr6O1R6tuioBowZTkZVw==
-X-Google-Smtp-Source: AGHT+IF67pKs8kpi+olSNlNu50s1yq8/8pWrqcBOcbOQ7vJkysvgsGhycYNComXSpVL3sZaZf36tsw==
-X-Received: by 2002:a05:600c:3593:b0:431:6083:cd38 with SMTP id 5b1f17b1804b1-436e2696e93mr232743555e9.6.1736943090907;
-        Wed, 15 Jan 2025 04:11:30 -0800 (PST)
-Received: from [192.168.0.14] ([188.26.60.120])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-437c7499558sm21582055e9.8.2025.01.15.04.11.29
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 15 Jan 2025 04:11:30 -0800 (PST)
-Message-ID: <41430496-14e9-4b17-9884-0e44e1731135@linaro.org>
-Date: Wed, 15 Jan 2025 12:11:28 +0000
+	Wed, 15 Jan 2025 12:11:43 +0000
+Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 9B0FF526;
+	Wed, 15 Jan 2025 13:10:42 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1736943043;
+	bh=UJTkBSL59nkg3ZPsDW9CPBhEJtzlUh3WXK7gkW/lYuE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=F2GSJ095yFJ4qh84HTpqnlRnoXhCQQU7gJ7Z8smpm4JOU5XJW88fYMgLnKr7VlRWR
+	 Zt0NCEpef0a4SE2S5NeGgYZ98HzA2rdRr70W8giq9y+pJRY/Fr3HxOnX/yNYqx/G2+
+	 YqYRPqs4VyeTI5Ra5/BoRMh4ak9eSqig+Debaqqs=
+Message-ID: <968b8fc2-cc8a-4531-bf24-3c4aceda28c2@ideasonboard.com>
+Date: Wed, 15 Jan 2025 14:11:38 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 2/5] dt-bindings: mailbox: add google,gs101-mbox
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- andre.draszik@linaro.org, peter.griffin@linaro.org, kernel-team@android.com,
- willmcvicker@google.com, daniel.lezcano@linaro.org,
- vincent.guittot@linaro.org, ulf.hansson@linaro.org, arnd@arndb.de
-References: <20241220-acpm-v4-upstream-mbox-v6-0-a6942806e52a@linaro.org>
- <20241220-acpm-v4-upstream-mbox-v6-2-a6942806e52a@linaro.org>
- <uo4zvw4sl6uxsj2ewvoue7l3obugivq5z74ukwnd4sj3ndtwhu@hxxque3r4nvb>
+Subject: Re: [PATCH v2 00/10] drm: Add new pixel formats for Xilinx Zynqmp
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: Vishal Sagar <vishal.sagar@amd.com>,
+ Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Michal Simek <michal.simek@amd.com>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Sean Anderson <sean.anderson@linux.dev>
+References: <20250115-xilinx-formats-v2-0-160327ca652a@ideasonboard.com>
+ <r6mwhzcrab75ireqdqm335ayzf6n6nqnytmdnpuhlgcqkiudz5@alqr5ep5ub7m>
 Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <uo4zvw4sl6uxsj2ewvoue7l3obugivq5z74ukwnd4sj3ndtwhu@hxxque3r4nvb>
-Content-Type: text/plain; charset=UTF-8
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
+ 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
+In-Reply-To: <r6mwhzcrab75ireqdqm335ayzf6n6nqnytmdnpuhlgcqkiudz5@alqr5ep5ub7m>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_041132_498033_33D5773B 
-X-CRM114-Status: GOOD (  13.62  )
+X-CRM114-CacheID: sfid-20250115_041142_634958_8560F0A9 
+X-CRM114-Status: GOOD (  12.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,48 +119,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Krzysztof,
+Hi,
 
-Will send a new version soon, replying to confirm that I address the
-feedback received.
-
-On 12/22/24 8:44 AM, Krzysztof Kozlowski wrote:
-> On Fri, Dec 20, 2024 at 01:49:57PM +0000, Tudor Ambarus wrote:
->> Add bindings for the Samsung Exynos Mailbox Controller.
+On 15/01/2025 13:13, Dmitry Baryshkov wrote:
+> On Wed, Jan 15, 2025 at 11:03:29AM +0200, Tomi Valkeinen wrote:
+>> Add new DRM pixel formats and add support for those in the Xilinx zynqmp
+>> display driver.
 >>
->> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
->> ---
->>  .../bindings/mailbox/google,gs101-mbox.yaml        | 70 ++++++++++++++++++++++
->>  include/dt-bindings/mailbox/google,gs101.h         | 14 +++++
-> 
-> Drop the header, not used.
-
-not yet used in device tree indeed, will drop. I'll use driver
-definitions for specifying channel types.
-> 
->>  2 files changed, 84 insertions(+)
+>> All of these formats are already supported in upstream gstreamer, except
+>> in the gstreamer kmssink, which obviously cannot support the formats
+>> without kernel having the formats.
 >>
->> diff --git a/Documentation/devicetree/bindings/mailbox/google,gs101-mbox.yaml b/Documentation/devicetree/bindings/mailbox/google,gs101-mbox.yaml
->> new file mode 100644
->> index 000000000000..a1fbc3b2b9de
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/mailbox/google,gs101-mbox.yaml
->> @@ -0,0 +1,70 @@
-
-cut
-
->> +description: |
+>> Xilinx has support for these formats in their BSP kernel, and Xilinx has
+>> a branch here, adding the support to gstreamer kmssink:
+>>
+>> https://github.com/Xilinx/gst-plugins-bad.git xlnx-rebase-v1.18.5
+>>
+>> New formats added:
+>>
+>> DRM_FORMAT_Y8
+>> - 8-bit Y-only
+>> - fourcc: "GREY"
+>> - gstreamer: GRAY8
+>>
+>> DRM_FORMAT_Y10_LE32
+>> - 10-bit Y-only
+>> - fourcc: "YPA4"
+>> - gstreamer: GRAY10_LE32
+>>
+>> DRM_FORMAT_XV15
+>> - Like NV12, but with 10-bit components
+>> - fourcc: "XV15"
+>> - gstreamer: NV12_10LE32
+>>
+>> DRM_FORMAT_XV20
+>> - Like NV16, but with 10-bit components
+>> - fourcc: "XV20"
+>> - gstreamer: NV16_10LE32
+>>
+>> DRM_FORMAT_X403
+>> - 10-bit 4:4:4
+>> - fourcc: "X403"
+>> - gstreamer: Y444_10LE32
 > 
-> Drop |
+> Could you possibly add support for those formats to the modetest util?
 
-okay
+Yes, I can do that.
 
-cut
+I was mainly using https://github.com/tomba/pykms for testing, and 
+sometimes gstreamer. Adding support to modetest is (hopefully) not too 
+complex (the XV15 and XV20 are a bit annoying formats).
 
->> +examples:
->> +  # Doorbell mode.
-> 
-> Drop comment, not applicable now, I think.
+  Tomi
 
-okay. Thanks!
 
