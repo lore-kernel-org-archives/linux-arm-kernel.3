@@ -4,107 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E10FC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 12:14:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CC1DC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 12:15:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BbBzvdLfvfKGgobnTVPYBiKZV2xAWAljRqWTLqfCHFI=; b=psbhRJYXltUrRaNl8n3342cMA3
-	5WN/ESp5b1RuQd0cOwrQa8+W8/f1nTvyT0OjOZ/xmFbDbD9eqcRMchmPeKUNvhSzRY9Frxl24kK5C
-	6l1ODXqipzoiRK3+A1I94TXW/DHVWa40fr9AHOlU8TTKFvW5klqIULP18SpUXAKEOCjxbtV1dxB9a
-	mfI9tR4fnmMOCyZqXKkZyDNSfGsz0SkFLOcp0QDGNllyFQb+VoW0ZnlLZmY/pbC4btSX6en02swi1
-	qBqLatTjms3V2m3rN6HjClgJ0MAYbUEIwefjHdqhamifUjaBh/gkdkoWf9yE6i33znbuByVbBuyJB
-	7ZPtKZgA==;
+	bh=cFKwmVwiS7IFaxPoXvsho9KfAcIhxJ1ZRpPv8inn8w8=; b=gVf6qKN+i7NUTklzBc2sOsfIrD
+	AhwBN44caA2Ue2ylLZdYGoeiZiChKxa+LjEXSqnDVcnZO2UwSQUI0ijwy3duH9SxL7+1jiPg77Wej
+	KkXp+IwYKdFw9fiAsXYEqJq3cJkfKyqBjVbKN7cdEtHrda21ZuKkmpbJjKZwb3CJxiv5wOxbDFuBu
+	EjCTOlcCjj86buiLYGiloNAsWBdvW/OS1tmkkpa3jxc6auF1GcRBOG6oLV9KFn+QD5m+kJDW3aZd7
+	YiAMu2dU9snZv+NTANkG2AXXyHTFXsnT+O03fTBLuCW38OGt0sU8U+LhjUbC+tGA8MVNvpCrP1DJU
+	QkT43mnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY2Hd-0000000BoQh-20nz;
-	Wed, 15 Jan 2025 12:14:05 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1tY2Ir-0000000BoaX-1m5E;
+	Wed, 15 Jan 2025 12:15:21 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY2FK-0000000Bo3a-1sdU
+	id 1tY2G8-0000000BoBS-3RAk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 12:11:43 +0000
-Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 9B0FF526;
-	Wed, 15 Jan 2025 13:10:42 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1736943043;
-	bh=UJTkBSL59nkg3ZPsDW9CPBhEJtzlUh3WXK7gkW/lYuE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=F2GSJ095yFJ4qh84HTpqnlRnoXhCQQU7gJ7Z8smpm4JOU5XJW88fYMgLnKr7VlRWR
-	 Zt0NCEpef0a4SE2S5NeGgYZ98HzA2rdRr70W8giq9y+pJRY/Fr3HxOnX/yNYqx/G2+
-	 YqYRPqs4VyeTI5Ra5/BoRMh4ak9eSqig+Debaqqs=
-Message-ID: <968b8fc2-cc8a-4531-bf24-3c4aceda28c2@ideasonboard.com>
-Date: Wed, 15 Jan 2025 14:11:38 +0200
+	Wed, 15 Jan 2025 12:12:35 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4361f796586so69474615e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 04:12:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1736943151; x=1737547951; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=cFKwmVwiS7IFaxPoXvsho9KfAcIhxJ1ZRpPv8inn8w8=;
+        b=g/9CcHD83KbzonczWCpRB4i4AWH8MqF8SrXFmfaSwKG13CoE4Otz1FuDGtifVlMd7K
+         hk7QAXQg3mH7ObP0Z3bk0HjyJH0k3yNyLUU6C73a46/8U1VaNCsVQkVbLqvnWotTAKjR
+         0SnvsHukJPoscEFyeHJ7X8vTWbFI+kRkEbZ/ytfp6AbhSuMDkztUzcPGAsQ8dJt4rDi/
+         Aq9ME29DHushH37n1nDAjPQfLSHUEuxCSgP3PselU+5CU6pWf/4bLMyLr5ybVzXNCyMI
+         aXpafcsefttGYRgWLfdar6nml6utUWABmfl+9cyVsHsuQTNLe+o+TuM6tkpx4TzuzEMZ
+         qexw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736943151; x=1737547951;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=cFKwmVwiS7IFaxPoXvsho9KfAcIhxJ1ZRpPv8inn8w8=;
+        b=a+TxORQhvNVCBboYtPAzG94/TUxViHqfyHlHkqXZqkZ+k11pDO67c8L+CLs70N6xOw
+         nuhn5NFCFNjnb92zFRo7EV7v+51omGmQVpl3R/k5Uc5CTubWfIjryXib4ShlAR/fpfTu
+         AxRcEXgTAXl90bNIO8REBaIo1VyKrGDCxnL53WO99Hh6td2OBQ78DzqEbIdMNcwNbmhf
+         mKLl2QioAJm8rp3jsMdt6nWI0zfRJmJjYqgcbBF3j0kX+wLVRVVeONoTIGNcb5q+9GnK
+         VZ+cferZR6rMAASxGTZy4Fc5QnM86aSU00pgiKMocdqprbt72vJ2DwpC+lWlpmOlMG+E
+         x+HA==
+X-Forwarded-Encrypted: i=1; AJvYcCWUkDRlc9JOgqv+BCPNGnViVg423nbbOYdKWvQqHsJq+2ypML/s4pg+UVPfT9ai4ZKOMI2LLp6CGgOWzzeTOwqZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxJKl0C/G4PVQyUrfRLJ7TNSpDRUP675ryhrr2QLuQQGqoc7LVv
+	/vU52GPw9X2d177pQXQlIbd3X3FneKf+0NyBT/OdUDopXgX/bdTACMjC5hJQTJw=
+X-Gm-Gg: ASbGncuMrXAxlvdmW2HuwwEO3BL90q8fOcp+ljP5oOuInQoEK7liKnHvJjYKZu1fkqW
+	ZButFzesFY1WyrB6Dbi6lBNSmq6ejIRTUDWur8OCQ3DYeVflMvDQI/RiLsV47QuZ04qSm/cTZp7
+	nY+fdtHZPDrLSPDEwaVQnoYbey4dj/fKzpPfUe4OuJ67yqRJdGAvPwphDyoNk+MMpC4L8qJk+tc
+	+C1IspnDZ5olvEnLr6sfF3FWBiVJFkAd1LXUWCvfrXDcXxG7WHvbtIrChb2XodhG3DuFHHHgQ4A
+	sHJQ+vBmuTQl2Vbs+NOJ04NcmTqT
+X-Google-Smtp-Source: AGHT+IEnq6vo1E5LSI2Qrhm/y3n3Xe++W2QNQ6RQqz61y+rXMn7THrldWxmRVHgfkDHSnoXO9oEzlg==
+X-Received: by 2002:a05:6000:4802:b0:385:e877:c037 with SMTP id ffacd0b85a97d-38a87338d79mr24645826f8f.42.1736943150788;
+        Wed, 15 Jan 2025 04:12:30 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:5ee:79d0:cf13:bc18:6c34:e11a? ([2a01:e0a:5ee:79d0:cf13:bc18:6c34:e11a])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a8e4c1c01sm17722217f8f.97.2025.01.15.04.12.29
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 15 Jan 2025 04:12:30 -0800 (PST)
+Message-ID: <fda131d9-50bf-4049-9e6a-f9cea61846c9@baylibre.com>
+Date: Wed, 15 Jan 2025 13:12:29 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 00/10] drm: Add new pixel formats for Xilinx Zynqmp
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: Vishal Sagar <vishal.sagar@amd.com>,
- Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Michal Simek <michal.simek@amd.com>, dri-devel@lists.freedesktop.org,
+Subject: Re: [PATCH] arm64: dts: mediatek: add mmc2 support for mt8365-evk
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ macpaul.Lin@mediatek.com
+Cc: vsatoes@baylibre.com, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Sean Anderson <sean.anderson@linux.dev>
-References: <20250115-xilinx-formats-v2-0-160327ca652a@ideasonboard.com>
- <r6mwhzcrab75ireqdqm335ayzf6n6nqnytmdnpuhlgcqkiudz5@alqr5ep5ub7m>
+ linux-mediatek@lists.infradead.org, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>
+References: <20250109-mmc2-support-v1-1-9b9d1b1ae35d@baylibre.com>
+ <91ac34bf-e184-486d-9af7-f9ddaf8f26ed@collabora.com>
 Content-Language: en-US
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
- 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
-In-Reply-To: <r6mwhzcrab75ireqdqm335ayzf6n6nqnytmdnpuhlgcqkiudz5@alqr5ep5ub7m>
+From: Alexandre Mergnat <amergnat@baylibre.com>
+In-Reply-To: <91ac34bf-e184-486d-9af7-f9ddaf8f26ed@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_041142_634958_8560F0A9 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20250115_041233_067223_9C64BDE9 
+X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,57 +104,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On 15/01/2025 13:13, Dmitry Baryshkov wrote:
-> On Wed, Jan 15, 2025 at 11:03:29AM +0200, Tomi Valkeinen wrote:
->> Add new DRM pixel formats and add support for those in the Xilinx zynqmp
->> display driver.
->>
->> All of these formats are already supported in upstream gstreamer, except
->> in the gstreamer kmssink, which obviously cannot support the formats
->> without kernel having the formats.
->>
->> Xilinx has support for these formats in their BSP kernel, and Xilinx has
->> a branch here, adding the support to gstreamer kmssink:
->>
->> https://github.com/Xilinx/gst-plugins-bad.git xlnx-rebase-v1.18.5
->>
->> New formats added:
->>
->> DRM_FORMAT_Y8
->> - 8-bit Y-only
->> - fourcc: "GREY"
->> - gstreamer: GRAY8
->>
->> DRM_FORMAT_Y10_LE32
->> - 10-bit Y-only
->> - fourcc: "YPA4"
->> - gstreamer: GRAY10_LE32
->>
->> DRM_FORMAT_XV15
->> - Like NV12, but with 10-bit components
->> - fourcc: "XV15"
->> - gstreamer: NV12_10LE32
->>
->> DRM_FORMAT_XV20
->> - Like NV16, but with 10-bit components
->> - fourcc: "XV20"
->> - gstreamer: NV16_10LE32
->>
->> DRM_FORMAT_X403
->> - 10-bit 4:4:4
->> - fourcc: "X403"
->> - gstreamer: Y444_10LE32
+
+On 14/01/2025 11:38, AngeloGioacchino Del Regno wrote:
+>> +&mmc2 {
+>> +    assigned-clock-parents = <&topckgen CLK_TOP_MSDCPLL>;
+>> +    assigned-clocks = <&topckgen CLK_TOP_MSDC50_2_SEL>;
+>> +    bus-width = <4>;
+>> +    cap-sd-highspeed;
+>> +    cap-sdio-irq;
+>> +    hs400-ds-delay = <0x12012>;
+>> +    keep-power-in-suspend;
 > 
-> Could you possibly add support for those formats to the modetest util?
+> Why keep-power-in-suspend?
 
-Yes, I can do that.
+This slot is mainly used for WiFi / BT / GPS chip, which need to keep powered on.
+I guess this is to avoid to do full re-init, re-load firmware, lose context, wake-up from it...
+TBH, I didn't work on it, all I know is MTK need it.
 
-I was mainly using https://github.com/tomba/pykms for testing, and 
-sometimes gstreamer. Adding support to modetest is (hopefully) not too 
-complex (the XV15 and XV20 are a bit annoying formats).
-
-  Tomi
-
+-- 
+Regards,
+Alexandre
 
