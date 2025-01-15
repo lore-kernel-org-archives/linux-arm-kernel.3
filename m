@@ -4,68 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 224C1C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 23:06:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70341C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 23:17:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=+eI3xSTFkFziV5uiRDczRoC2ZPpW6ascy6sv67GeeVA=; b=uJd27eaWSQPHQT
-	X8ReqNOiyp/pIfNgHlkMxlSV7kTwuxkkChmKNoNtGd+KkLIaVJ2ob7s9UTQsddFwcO3q6vAzGR8u6
-	/t2PIWX15oOrbTVsVHy48tcTQi9tUMYJrkCvZLZC7CT9th6Jtiimlti9gbDZg6ddYiPKW73UTdZVh
-	R8qzuYE/eArOIn5Jwz6hGGo7CwbRo0VlYsJF2S/Ovkp6mJlfJXAQgskxG9p1TAx1S1mH/4QA0Xh0v
-	48pDHsU0H/qeWbPKfGPfzsxBeFhj1l5C7qnoArJbSfyI2+d9iJDCeEhvJmkbn1kCzLhqRpNDe4z+q
-	qm0J1l+ndSE8z/oBMzqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:
+	References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:Content-Type:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+v6KUQgir/lgW530jnyh5w9zw2n5D+uMgB/N437EbSI=; b=ejiW2VrtZc0TLW0RlgvAnfUwNY
+	l7XiF/f2/pp4HIBcHkotwAgbpNhzEH4p497z34HG9Omjll5Oqj4E9tSytds5TjN1uaJHVPUxJnn3l
+	V/3b9OPj7kwZ/eOKlQCXgtRxi6jbv6QQg1yI9vWe3q2DDSU/Xn74INGVJHPUg4dsm5u6M2xCY57MC
+	3fIJ1XKy9OSwFfWaX3iQMAHYWlAQNAFEB8tIT9j10aig/YIdaH2yvNfmj5nSrRN5J3GQhZPd97qN2
+	INsRH0R4XEuMG7PbD0euiiWqGlHg3W0OnizQMBGEc3FQGXocMR6uh0wzBxINpDaWOa+Dcm7oIXjqa
+	chojsXDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYCSP-0000000DJys-3oyT;
-	Wed, 15 Jan 2025 23:05:53 +0000
+	id 1tYCdh-0000000DKcJ-1HcY;
+	Wed, 15 Jan 2025 23:17:33 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYCR7-0000000DJpt-2qub
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 23:04:34 +0000
+	id 1tYCcQ-0000000DKVB-2Dmx;
+	Wed, 15 Jan 2025 23:16:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5B91DA42639;
-	Wed, 15 Jan 2025 23:02:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2EF6C4CED1;
-	Wed, 15 Jan 2025 23:04:31 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8580FA42643;
+	Wed, 15 Jan 2025 23:14:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26B33C4CED1;
+	Wed, 15 Jan 2025 23:16:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736982272;
-	bh=wXuBoyyk9ETcMFkcjs1CAzvucCe5P+ktEzNq56RKFKc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=ndMSRS4aPOQkcBRM8NZ8koAU62dLa6PMuBifPbWPnqACBtNUs7AkyKfx3Ng/ZaVHa
-	 b/TPH3VpMkqnRFVnjBO9OfxflS9K7ZA9gYYrMy8V0YbO4mTbrf6x8whUPSok08TE64
-	 E1qG2kySB8p3WLmzqXPakm9gS4SF6cI3x1FRKAxd4z6ovPSwnsh1ZHoTo2Kw67J/U9
-	 UWHXiZBMXR/buiJsuaNEWw3/vRb/KFCKk/XbzAMDL3YN4eFDGZTYjPP8pdAahioTw1
-	 8KzQdBlCVlpgm83ybNQPfdNWrjE147p9LYRlSPmZXEa3pKZsjTq74/r3ZYZfZJgSJ6
-	 4e3/DcgTV8OkQ==
-Date: Wed, 15 Jan 2025 17:04:30 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>,
-	Siddharth Vadapalli <s-vadapalli@ti.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Minghuan Lian <minghuan.Lian@nxp.com>,
-	Mingkai Hu <mingkai.hu@nxp.com>, Roy Zang <roy.zang@nxp.com>,
-	linux-omap@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, imx@lists.linux.dev
-Subject: Re: [PATCH 1/2] PCI: dwc: dra7xx: Use
- syscon_regmap_lookup_by_phandle_args
-Message-ID: <20250115230430.GA560547@bhelgaas>
+	s=k20201202; t=1736982973;
+	bh=3zIKod6x6p/3kPY13t63j93xA6NahssLaW2A/NKgW4I=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=iHehGmGFX02DEW3nQTnGkhXM3MgDB5BxaPXg/ZluMx1nwHpBdHNp7iK2MZSo2+G/h
+	 fCmL/jNkHgrnqULTGDoiVwSZlH80YJhYETrtmNkpcxAkjl4xdsJxVkhq+wQEDNe0EV
+	 6PYXvXBZKgB/LGGvnqQFA7y+TNGQpf/k0EPywX68pHReUY6FkjYGIAAgPNHanXDGSY
+	 +yPJR7WV2E6d0NCaNXSf6dCPS07vGkeLyoweLNZ19XvqV1qF+MTyT9+hy30jloN4Vp
+	 ZdpQvMRPaDnHexGYDqqfv44uLBzYQxfYlC2dsdpw2+fz8A7RSo519PFSaHSP3fOFOy
+	 GwkUA7NphGP4g==
+Message-ID: <848b4dad4f38dc6545b97f7c5007e514.sboyd@kernel.org>
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250112-syscon-phandle-args-pci-v1-1-fcb6ebcc0afc@linaro.org>
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <91e2bd5b-71fa-402a-82cb-e68d3295804a@gmail.com>
+References: <20250113-topic-spmi_node_breakage-v2-1-dd35a3a6daa6@oss.qualcomm.com> <5b139af8d639e20a14c8bd00e8e03a4a.sboyd@kernel.org> <58cb6c37-0ea0-4866-a2b1-92cb0f0391a7@gmail.com> <305d7cf5f0a66efc01181f24d3a288d3.sboyd@kernel.org> <91e2bd5b-71fa-402a-82cb-e68d3295804a@gmail.com>
+Subject: Re: [PATCH v2] spmi: Fix controller->node != parent->node breakage
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: Marijn Suijten <marijn.suijten@somainline.org>, linux-kernel@vger.kernel.org, Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>, Abel Vesa <abel.vesa@linaro.org>, Johan Hovold <johan+linaro@kernel.org>, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>, Konrad Dybcio <konradybcio@gmail.com>, Konrad Dybcio <konradybcio@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+Date: Wed, 15 Jan 2025 15:16:10 -0800
+User-Agent: alot/0.12.dev1+gaa8c22fdeedb
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_150433_862448_055CA2D3 
-X-CRM114-Status: GOOD (  20.04  )
+X-CRM114-CacheID: sfid-20250115_151614_639010_ABFFF771 
+X-CRM114-Status: GOOD (  15.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,90 +70,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jan 12, 2025 at 02:39:02PM +0100, Krzysztof Kozlowski wrote:
-> Use syscon_regmap_lookup_by_phandle_args() which is a wrapper over
-> syscon_regmap_lookup_by_phandle() combined with getting the syscon
-> argument.  Except simpler code this annotates within one line that given
-> phandle has arguments, so grepping for code would be easier.
-> 
-> There is also no real benefit in printing errors on missing syscon
-> argument, because this is done just too late: runtime check on
-> static/build-time data.  Dtschema and Devicetree bindings offer the
-> static/build-time check for this already.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> ---
->  drivers/pci/controller/dwc/pci-dra7xx.c | 27 ++++++---------------------
->  1 file changed, 6 insertions(+), 21 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pci-dra7xx.c b/drivers/pci/controller/dwc/pci-dra7xx.c
-> index 5c62e1a3ba52919afe96fbcbc6edaf70775a69cb..33d6bf460ffe5bb724a061558dd93ec7bdadc336 100644
-> --- a/drivers/pci/controller/dwc/pci-dra7xx.c
-> +++ b/drivers/pci/controller/dwc/pci-dra7xx.c
-> @@ -635,30 +635,20 @@ static int dra7xx_pcie_unaligned_memaccess(struct device *dev)
->  {
->  	int ret;
->  	struct device_node *np = dev->of_node;
-> -	struct of_phandle_args args;
-> +	unsigned int args[2];
->  	struct regmap *regmap;
->  
-> -	regmap = syscon_regmap_lookup_by_phandle(np,
-> -						 "ti,syscon-unaligned-access");
-> +	regmap = syscon_regmap_lookup_by_phandle_args(np, "ti,syscon-unaligned-access",
-> +						      2, args);
->  	if (IS_ERR(regmap)) {
->  		dev_dbg(dev, "can't get ti,syscon-unaligned-access\n");
->  		return -EINVAL;
->  	}
->  
-> -	ret = of_parse_phandle_with_fixed_args(np, "ti,syscon-unaligned-access",
-> -					       2, 0, &args);
-> -	if (ret) {
-> -		dev_err(dev, "failed to parse ti,syscon-unaligned-access\n");
-> -		return ret;
-> -	}
-> -
-> -	ret = regmap_update_bits(regmap, args.args[0], args.args[1],
-> -				 args.args[1]);
-> +	ret = regmap_update_bits(regmap, args[0], args[1], args[1]);
->  	if (ret)
->  		dev_err(dev, "failed to enable unaligned access\n");
->  
-> -	of_node_put(args.np);
-> -
->  	return ret;
->  }
->  
-> @@ -671,18 +661,13 @@ static int dra7xx_pcie_configure_two_lane(struct device *dev,
->  	u32 mask;
->  	u32 val;
->  
-> -	pcie_syscon = syscon_regmap_lookup_by_phandle(np, "ti,syscon-lane-sel");
-> +	pcie_syscon = syscon_regmap_lookup_by_phandle_args(np, "ti,syscon-lane-sel",
-> +							   1, &pcie_reg);
->  	if (IS_ERR(pcie_syscon)) {
->  		dev_err(dev, "unable to get ti,syscon-lane-sel\n");
->  		return -EINVAL;
->  	}
->  
-> -	if (of_property_read_u32_index(np, "ti,syscon-lane-sel", 1,
-> -				       &pcie_reg)) {
-> -		dev_err(dev, "couldn't get lane selection reg offset\n");
-> -		return -EINVAL;
-> -	}
+Quoting Konrad Dybcio (2025-01-14 12:37:20)
+> On 1/14/25 19:30, Stephen Boyd wrote:
+> >=20
+> > Ok, I see that I was reading the already reverted state of the tree
+> > where the 'ctrl->dev.of_node =3D node' assignment came back. So there's
+> > nothing to do besides drop the patch in fixes, which I already did. We
+> > can then apply this patch to drop the duplicate assignment as a cleanup
+> > and to avoid a refcount bump on the of_node that isn't needed.
+> >=20
+> > ----8<---
+> > diff --git a/drivers/spmi/hisi-spmi-controller.c b/drivers/spmi/hisi-sp=
+mi-controller.c
+> > index 3cafdf22c909..122140b97579 100644
+> > --- a/drivers/spmi/hisi-spmi-controller.c
+> > +++ b/drivers/spmi/hisi-spmi-controller.c
+> > @@ -300,9 +300,6 @@ static int spmi_controller_probe(struct platform_de=
+vice *pdev)
+> >  =20
+> >       spin_lock_init(&spmi_controller->lock);
+> >  =20
+> > -     ctrl->dev.parent =3D pdev->dev.parent;
+> > -     ctrl->dev.of_node =3D of_node_get(pdev->dev.of_node);
+> > -
+> >       /* Callbacks */
+> >       ctrl->read_cmd =3D spmi_read_cmd;
+> >       ctrl->write_cmd =3D spmi_write_cmd;
+>=20
+> That works for me, thank you
+>=20
 
-Wow.  I believe you that syscon_regmap_lookup_by_phandle_args() is
-equivalent to both:
-
-  - syscon_regmap_lookup_by_phandle() followed by
-    of_parse_phandle_with_fixed_args(), and
-
-  - syscon_regmap_lookup_by_phandle() followed by
-    of_property_read_u32_index()
-
-but I can't say it's obvious to this syscon- and OF-naive reviewer,
-even after tracing a few layers in :)
-
-Bjorn
+Joe, care to send this patch to replace the one you sent previously?
 
