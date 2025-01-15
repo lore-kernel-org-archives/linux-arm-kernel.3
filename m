@@ -4,99 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E70FC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 11:07:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64739C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 11:12:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DZhmJVX2Z/1on+VLI7mM1RgJuJ/QDUUV3rq29Mr1CH4=; b=WfZpWg3t3RPvZt3d3EB+HhVlLP
-	wG/afd88pC7IqngyLFKvsOlFHauOOWvvn3JHcs5W6FHFu7aMoBRVt4YLRT9XszFZ+c3LGQKc7y0yg
-	3cFctPyWe3WOVlxkafhLYIJzoii8ptKrR3IshImoQKU3HaXbvYQp0kSpJ/By/2NITF/7EnpvR0W07
-	Jqyq1SpwoMw1ZoqfwS4Cb+lp2w+CPSMfuLcSvN90U2ab3taqT2vZ4fqmMg2auEmeRDN9FkLdPw9hJ
-	3UH8j+IVynJtpLNMFh5OQOe4ugLXlG+xFc3GpxUMJNGMLUpk6EQ5KbdZkDblBLDa9m7Jt+jB9aga/
-	MZqdapmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9cPqL3pvjwpbD7K2B2dA/s4JEktG/HsuL2/Ywhworts=; b=slTq7IwDqXQzq8FnYCW+5pjZ9v
+	1OCkJIzF1oZGfZ2lagAdTto5f7iLPs18hH/ArQhtW/RTMeZn2ZV7iPgsDyR/yHMPjCbw+kBpSr9+h
+	QtFeWI7VTzvmVQMQkQHbG7T6ozymvfgEws6A2buSfdlC0+b+HDZOVoUMJ+DAbea2dggiuCZ763le5
+	q2VWOBVdVMYFBIUBtwBKfQxKzKFYTJ5Itom3jXOkLOyzJaPl40CCp4DC9JOY0wz5/ZmSUgocLFH8j
+	5j0wHFQInzPkH6GFpE8ovfLftiXbtqF4AS6jaMnRqt302NMvAsbx0//ap7uLKgGKPVLkZM+8hPYvH
+	l+dOhLRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY1EY-0000000Bbyn-3W0i;
-	Wed, 15 Jan 2025 11:06:50 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1tY1Ji-0000000BcSo-19b0;
+	Wed, 15 Jan 2025 11:12:10 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY1DI-0000000Bbkp-3Uyx
+	id 1tY1IS-0000000BcLa-0aZH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 11:05:33 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-2f43d17b0e3so11271245a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 03:05:32 -0800 (PST)
+	Wed, 15 Jan 2025 11:10:53 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-53e3c47434eso6186703e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 03:10:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736939132; x=1737543932; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=DZhmJVX2Z/1on+VLI7mM1RgJuJ/QDUUV3rq29Mr1CH4=;
-        b=fXgQETXdQVA9AYLv+aIVX+WWRJYXdG0FzY8YLG6D4k2lsjEYnyhjjCeE3QOTluY+QK
-         8mk2z2oHbqb88PaOTiyfkRKh0Tj225W0bQ/dKBT7wsoOqyQIpNQ4/72NQo2rR2s2wFuD
-         L5K2pgwieCABIAWCH0BwORCm3nyw5Ns+TY9yqDP105jV6OSWNncXKmtTTzIM3XFPIY/3
-         VqsUkaKYhqxSI1+mi5Ea6q/iRMfGJW7c+Ku/lLyQToJPCG+nQu5HOKpeEI7cXcRrLCg5
-         FSZJEM4UnTbtToYj8Hyxbe6MckvFJfKfIn4k4kGrnsoiBRGRqONwIE7tqnuHwW46vSr1
-         MpAw==
+        d=linaro.org; s=google; t=1736939450; x=1737544250; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9cPqL3pvjwpbD7K2B2dA/s4JEktG/HsuL2/Ywhworts=;
+        b=dipbRZKDU2ik1kx0zfMtSl4zalEU4z2/fb7qYW2QSk1PZjDRr2el5/3byrQ2c8e6xI
+         06OhGZS7ZbNcCRKyR2czRSlowpeIyN5tuPhqj29KNonspwBSyOlLjrGc8WFy41ELsjIo
+         dpKIOLQeAWEZOJunvTC4np5syrriUNMsCn5+GTp7AZvfsvgqYiTxbWbQRaHB1ovmLVkB
+         IFFweeWSho1LNE/OzZZG+JkmO9+T0GBTQELleop8vE6WyWC3ue9HaMQBIJBx2yV+Bl6D
+         G+p+WDT96P1BXosWGqst2PkGPl91NZ3l+/Q1dK2ssveAf6jCVbvCQHuKxhhi2fjuTnHo
+         nPkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736939132; x=1737543932;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=DZhmJVX2Z/1on+VLI7mM1RgJuJ/QDUUV3rq29Mr1CH4=;
-        b=sdlymI0ykmLjWUrQgPro2Dz14Gic4KvZA8NG/9rsAKmqZ0s+FxCpf8CVCD0RC9F0H9
-         9rouZIJGvSzLHWBkWpF547nGRszvV8JNehYV5a7PNv6GvgoyQZyzjUzwXZrMHk9uSuyp
-         W4f8k/iqz4G8x5i04oL/z9mM96bznwZpr/3uV4KpXxhPE3msPjnyrn7oHEzEoyZGbzYQ
-         d/U6q0g3dclMIkAn6JiWnjfA0fe+C82+PLTvg8wF+HXHtkNlAkNiAhv/kPvug95GdXav
-         UrbTSGkBBpT54mUIfXrJj9spXL+pBBKzXg3AdNwCKW3UC+RZAtncytihsGg4bg2LUWEJ
-         rWpQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU1VsfE2z29rRU1DmWi8WnHbtWjgI+ViaTj7OkfwGiqfAsg02+D1kXYQa7J2MfKL4XD1DucNxDhzWQDJHVQnBWU@lists.infradead.org
-X-Gm-Message-State: AOJu0YyI/HJOmZZVFU8ByfitohCUxKpfv7DAY+OLxLKDlV+1ItmvQ5Kw
-	X1aGM/pytDK+JwHBm4m+llOtmLZdliDSU9CvO3X1VDXt/VyGfWIi
-X-Gm-Gg: ASbGncvadVCWHSLd2lJDGpurySFC3VDqErkoXTH/yM6S/TApp8aQlwLmmW0OrJWps7W
-	jslwPJe6Tlij8XGsj1NOdzeenYlENS+YtfXoQHXDdpIEav2NrxnfaNObElQfPiB15dAG1+auvON
-	bKgV8k022ogTm25jDeL2SNLaKHBydyhwOQqovr+2eNQJK5iSy/8xSzRJGCp5Uk4esLlZpT37K+7
-	ql4tkIzWBnI8oy0UJwM8pxlQYAHwgKhwQchkoHtivKWhRTfykzUZrNtki0QOAfUFE5aA6hIpI0K
-	uMNuSynXDo0havdS3mcwUsg6RuTJPqIqlSQ=
-X-Google-Smtp-Source: AGHT+IEIUJ161wQLQ7M7tzPplUbCNDBmqlqWnABZRELuVW2sGY23Vkufmemaywh2bkhh0gVhD2Yq9A==
-X-Received: by 2002:a17:90b:264c:b0:2ee:9b2c:3253 with SMTP id 98e67ed59e1d1-2f5490c20e7mr40326717a91.30.1736939131935;
-        Wed, 15 Jan 2025 03:05:31 -0800 (PST)
-Received: from [192.168.0.100] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f72c22b474sm1111164a91.44.2025.01.15.03.05.27
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 15 Jan 2025 03:05:31 -0800 (PST)
-Message-ID: <da332a44-8fbe-40c3-8053-c4c9fdfc8746@gmail.com>
-Date: Wed, 15 Jan 2025 19:05:22 +0800
+        d=1e100.net; s=20230601; t=1736939450; x=1737544250;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9cPqL3pvjwpbD7K2B2dA/s4JEktG/HsuL2/Ywhworts=;
+        b=eEvGIlKGPQuh/HVs8SXB2v5x/irj+PzOJp02tGZ/f6AIQR+XQgj2DC2jYFx5IehWtY
+         nZhfE5rF8kbSLnsbEd3WseCmPGOxb5yILJYtUHe1nZ9xm+o/vGW6V9J67UzOrOw7BkSX
+         ssDJJ0oW07iTZ8AuTNBhdPyvPtpbA3wY5t0WZwnx0pzDJI2xMeu2HOsuQYlBglnTX/7y
+         /4GLLhsCWokpzp5B3UzN9P43h3wxJQgILmqj303oWj4Qi2FfKQkIF0VrpXISEOz0FuGm
+         E9YBUSAAA/HGD+LK2qAYztR/hujs73019Isrs/IqmSAxQvhML9a+9KBMGLUlaEsYpuz0
+         4tvA==
+X-Forwarded-Encrypted: i=1; AJvYcCUH6AEJyJVJXXN45x7CjMmfr6a5DeATdzlD0kV7Oyjf7EAcA7oyJH+NkYB0gIlp3p+7rgfvo5Ew3znUF3QYqXUj@lists.infradead.org
+X-Gm-Message-State: AOJu0YyiqQW7gRZmfJne6kGFR4oDbxXK1RhCXCdXctoWdHDE3f7rs3L2
+	xtcS3wqSLulv54mvzsY7PXjSCW5dXe9QhdW5kszaa9hjJHZmnR7uNfCBvqLGAl4=
+X-Gm-Gg: ASbGncs428sGCZxW6MGZ2wDMgxrKVPa75xWzWciJk7BX8DDFnbWx6ImcTdzXmQ3jP8g
+	xxrMNgBdYorjKgyWl4gxb3yzNnCyODt9XbiepUrNPeE+W9zMU0cbsmWcUSEint/pYZyKwRUk4hY
+	kIom+wFyywMnIYX8HhVtkpjJGyLgdXUvXVnTjTsqVdnl8+U3Um1IGCo3za9mxL9z0nGk8FJ+K/D
+	oHECAgudl/EcyWZ3zcINjCG3Esu8WzpJfW7I0xJEibPuvcxnxadmc6kR6Bnmu+U
+X-Google-Smtp-Source: AGHT+IG85kgXOk/y+PGUU9aSW1rfAywF6FZXYhKzLssLnSoDT+9VsjVq+V6QFAGhJAZqkiike4pUTA==
+X-Received: by 2002:a05:6512:1081:b0:541:1c49:523 with SMTP id 2adb3069b0e04-54284816f73mr9507707e87.48.1736939450343;
+        Wed, 15 Jan 2025 03:10:50 -0800 (PST)
+Received: from umbar.lan ([192.130.178.90])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5428be49692sm2009084e87.16.2025.01.15.03.10.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Jan 2025 03:10:49 -0800 (PST)
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Date: Wed, 15 Jan 2025 13:10:49 +0200
+Subject: [PATCH] ARM: cacheinfo fix format field mask
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v7 3/3] net: stmmac: dwmac-nuvoton: Add dwmac
- glue for Nuvoton MA35 family
-To: Paul Menzel <pmenzel@molgen.mpg.de>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, mcoquelin.stm32@gmail.com, richardcochran@gmail.com,
- devicetree@vger.kernel.org, ychuang3@nuvoton.com, netdev@vger.kernel.org,
- openbmc@lists.ozlabs.org, alexandre.torgue@foss.st.com,
- linux-kernel@vger.kernel.org, joabreu@synopsys.com,
- Andrew Lunn <andrew@lunn.ch>, schung@nuvoton.com, peppe.cavallaro@st.com,
- yclu4@nuvoton.com, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20250113055434.3377508-1-a0987203069@gmail.com>
- <20250113055434.3377508-4-a0987203069@gmail.com>
- <a30b338f-0a6f-47e7-922b-c637a6648a6d@molgen.mpg.de>
- <2cf758f2-529e-4ccd-9dc1-18fc29ad5ac0@gmail.com>
- <990a3fc9-7fd6-49b6-8918-d5bf4ae48953@molgen.mpg.de>
-Content-Language: en-US
-From: Joey Lu <a0987203069@gmail.com>
-In-Reply-To: <990a3fc9-7fd6-49b6-8918-d5bf4ae48953@molgen.mpg.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250115-arm-cacheinfo-fix-v1-1-5f30eeb4e463@linaro.org>
+X-B4-Tracking: v=1; b=H4sIALiXh2cC/x2MOwqAMBAFryJbu5CPKfQqYhHii25hIgmIIN7dY
+ DkDMw9VFEGlqXuo4JIqOTXQfUdh92kDy9qYjDJOae3Yl4ODDzskxcxRbh4Ba6L1Dnag1p0FTf/
+ PeXnfDxqi6kRjAAAA
+X-Change-ID: 20250115-arm-cacheinfo-fix-9ee32f3a5e34
+To: Russell King <linux@armlinux.org.uk>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Sudeep Holla <sudeep.holla@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
+ "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Arnd Bergmann <arnd@arndb.de>, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Marek Szyprowski <m.szyprowski@samsung.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1187;
+ i=dmitry.baryshkov@linaro.org; h=from:subject:message-id;
+ bh=Dt8d1C/tljuHwCYE9rqB9mV99qR1IwA31kMWM8oW5ys=;
+ b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBnh5e5bVtlXo43+ur9ZmjVXRM38owhcLp66/0P/
+ 3imQJL3v1iJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCZ4eXuQAKCRCLPIo+Aiko
+ 1eGACACSCS9TEYuK7peyrjK8tniNVAB6t+KYUw+pzBOFimWNqyFNHEUbE2NyhIItTO3hUjmAa9A
+ +aaL8HtMbRTwNf74A8MI1AGnEzYmc+chnIgDMO17jjAdpOqZrcoKqAahQC30eu7hkTgWyULad+O
+ s9xmvRtr0Yd93LFs7pvflaqFcpBk0NmibgCh0DC211VjKq9ka5S1wFkrIhYdIEcMxp2GIZjJX2O
+ f8Zhwfl5CHApOncr0wYBSMGx0BqLodP27M97P7W8Cs35CTbY+qnNMTphkzZjEwGkhQfu0hRswte
+ X7xGLnxVgBocaKqQ35BM4T4yYK5BF/sstqu69VSR1sQJ6GIi
+X-Developer-Key: i=dmitry.baryshkov@linaro.org; a=openpgp;
+ fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_030532_872970_9601F160 
-X-CRM114-Status: GOOD (  24.94  )
+X-CRM114-CacheID: sfid-20250115_031052_196783_40C6F9DA 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,107 +114,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear Paul,
+Fix C&P error left unnoticed during the reviews. The FORMAT field spans
+over bits 29-31, not 24-27 of the CTR register.
 
-Thank you for your kind reply.
+Fixes: a9ff94477836 ("ARM: 9433/2: implement cacheinfo support")
+Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
+Closes: https://lore.kernel.org/linux-arm-msm/01515ea0-c6f0-479f-9da5-764d9ee79ed6@samsung.com/
+Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+---
+ arch/arm/kernel/cacheinfo.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Paul Menzel 於 1/15/2025 5:22 PM 寫道:
-> Dear Joey,
->
->
-> Thank you for your prompt reply.
->
->
-> Am 15.01.25 um 10:03 schrieb Joey Lu:
->
->> Paul Menzel 於 1/14/2025 9:49 AM 寫道:
->
-> […]
->
->>> Am 13.01.25 um 00:54 schrieb Joey Lu:
->>>> Add support for Gigabit Ethernet on Nuvoton MA35 series using dwmac 
->>>> driver.
->
-> […]
->
->>> Also, please document how tested the driver. Maybe even paste new 
->>> log messages.
->>
->> These are the kernel configurations for testing the MA35D1 GMAC 
->> driver: ARCH_MA35, STMMAC_PLATFORM, DWMAC_NUVOTON.
->>
->> I'm not sure if this information is sufficient, so please provide 
->> some guidance on what else I should include to meet your requirements.
->
-> I’d be interested on what hardware you tested it. Probably some 
-> evaluation or customer reference board.
-The driver has been validated on our development boards, 
-NuMaker-IoT-MA35D1-A1 and NuMaker-HMI-MA35D1-S1.
->
->> I will include the log messages at the end of the email.
->
-> Awesome. Thank you. Personally, I also like to see those in the commit 
-> message.
-Understood. I will include in the commit message in the next patch.
->
->>>> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
->>>> Signed-off-by: Joey Lu <a0987203069@gmail.com>
->>>
->>> As you use your company email address in the AUTHOR line below, 
->>> please also add that email address to the commit message (and maybe 
->>> even as the author).
->>
->> I will update the AUTHOR to use my personal email address instead of 
->> the company email.
->
-> Understood. (yclu4@nuvoton.com is also personal, but the Gmail address 
-> is private, I guess. ;-)).
-Oops, I meant to say "private" instead.
->
-> For statistics, how companies contribute to the Linux kernel, having 
-> the company address somewhere would be nice though, as you are doing 
-> this as your work at Nuvoton, right?
-I will keep the company information in the driver header as you mentioned.
->
->>>> ---
->>>>   drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 ++
->>>>   drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
->>>>   .../ethernet/stmicro/stmmac/dwmac-nuvoton.c   | 179 
->>>> ++++++++++++++++++
->>>>   3 files changed, 191 insertions(+)
->>>>   create mode 100644 
->>>> drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c
->
-> […]
->
->> log:
->>
->> [    T0] Booting Linux on physical CPU 0x0000000000 [0x411fd040]
->
-> Out of curiosity, how do you get these timestamps T0, T1, …?
->
-> […]
->
->
-> Thank you and kind regards,
->
-> Paul
+diff --git a/arch/arm/kernel/cacheinfo.c b/arch/arm/kernel/cacheinfo.c
+index a8eabcaa18d8941ce31ad267ce0d369b8d53886a..e1469b6417804d2802e847031950cb99b7b4e1d2 100644
+--- a/arch/arm/kernel/cacheinfo.c
++++ b/arch/arm/kernel/cacheinfo.c
+@@ -23,7 +23,7 @@
+ 
+ #define MAX_CACHE_LEVEL			7	/* Max 7 level supported */
+ 
+-#define CTR_FORMAT_MASK	GENMASK(27, 24)
++#define CTR_FORMAT_MASK	GENMASK(31, 29)
+ #define CTR_FORMAT_ARMV6 0
+ #define CTR_FORMAT_ARMV7 4
+ #define CTR_CWG_MASK	GENMASK(27, 24)
 
-I simply forgot to enable CONFIG_PRINTK_TIME. Here is what the log looks 
-like after enabling it.
+---
+base-commit: e7bb221a638962d487231ac45a6699fb9bb8f9fa
+change-id: 20250115-arm-cacheinfo-fix-9ee32f3a5e34
 
-[    1.886100] nuvoton-dwmac 40120000.ethernet: TX Checksum insertion 
-supported
-[    1.893104] nuvoton-dwmac 40120000.ethernet: Enhanced/Alternate 
-descriptors
-[    1.900048] nuvoton-dwmac 40120000.ethernet: Enabled extended descriptors
-[    1.906806] nuvoton-dwmac 40120000.ethernet: Ring mode enabled
-[    1.912611] nuvoton-dwmac 40120000.ethernet: Enable RX Mitigation via 
-HW Watchdog Timer
-
-BR,
-
-Joey
-
+Best regards,
+-- 
+Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 
 
