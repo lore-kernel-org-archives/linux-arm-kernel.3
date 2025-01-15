@@ -4,58 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70341C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 23:17:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A062C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 23:23:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:
-	References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:Content-Type:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+v6KUQgir/lgW530jnyh5w9zw2n5D+uMgB/N437EbSI=; b=ejiW2VrtZc0TLW0RlgvAnfUwNY
-	l7XiF/f2/pp4HIBcHkotwAgbpNhzEH4p497z34HG9Omjll5Oqj4E9tSytds5TjN1uaJHVPUxJnn3l
-	V/3b9OPj7kwZ/eOKlQCXgtRxi6jbv6QQg1yI9vWe3q2DDSU/Xn74INGVJHPUg4dsm5u6M2xCY57MC
-	3fIJ1XKy9OSwFfWaX3iQMAHYWlAQNAFEB8tIT9j10aig/YIdaH2yvNfmj5nSrRN5J3GQhZPd97qN2
-	INsRH0R4XEuMG7PbD0euiiWqGlHg3W0OnizQMBGEc3FQGXocMR6uh0wzBxINpDaWOa+Dcm7oIXjqa
-	chojsXDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PWwbiMBvDkXBwegeV2Eg+Gv/y8zGnbE04ATb5NSR/cE=; b=5FfU9LOlCe1EkNMrvbcSpGAeYP
+	XdOVd4qJNLFVBOr+hvhVbq57zSmUBoBS3szReBwZmC1+e4P3pQx7HItN+YHSyK3B9xOKzviXI9fpq
+	hWuqsu3suyKqHlpXTTvhpEzbPbDGVRRpmsxEYWd4fiiv8IuMQ7MAJxl08M4b7bD4LMhGXAMgjJ7yK
+	lYSCcjdB0rcLGMsjL1UbeOQfM1qB6/yByiXQAXJQOzCrkHmg3UzAKclX68qfhIG3obe472uHEEfsp
+	3QUWjPW4dhjvs8n1FcidzszIJJvSLeyD8HMqTLGljbBPOr/uIyw2VHFHG4BogM7evbWLQf0jBJt83
+	zuFDrqEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYCdh-0000000DKcJ-1HcY;
-	Wed, 15 Jan 2025 23:17:33 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tYCjb-0000000DLIS-1Z2R;
+	Wed, 15 Jan 2025 23:23:39 +0000
+Received: from gandalf.ozlabs.org ([150.107.74.76] helo=mail.ozlabs.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYCcQ-0000000DKVB-2Dmx;
-	Wed, 15 Jan 2025 23:16:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8580FA42643;
-	Wed, 15 Jan 2025 23:14:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26B33C4CED1;
-	Wed, 15 Jan 2025 23:16:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736982973;
-	bh=3zIKod6x6p/3kPY13t63j93xA6NahssLaW2A/NKgW4I=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=iHehGmGFX02DEW3nQTnGkhXM3MgDB5BxaPXg/ZluMx1nwHpBdHNp7iK2MZSo2+G/h
-	 fCmL/jNkHgrnqULTGDoiVwSZlH80YJhYETrtmNkpcxAkjl4xdsJxVkhq+wQEDNe0EV
-	 6PYXvXBZKgB/LGGvnqQFA7y+TNGQpf/k0EPywX68pHReUY6FkjYGIAAgPNHanXDGSY
-	 +yPJR7WV2E6d0NCaNXSf6dCPS07vGkeLyoweLNZ19XvqV1qF+MTyT9+hy30jloN4Vp
-	 ZdpQvMRPaDnHexGYDqqfv44uLBzYQxfYlC2dsdpw2+fz8A7RSo519PFSaHSP3fOFOy
-	 GwkUA7NphGP4g==
-Message-ID: <848b4dad4f38dc6545b97f7c5007e514.sboyd@kernel.org>
-Content-Type: text/plain; charset="utf-8"
+	id 1tYCiI-0000000DKzK-25qc
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Jan 2025 23:22:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canb.auug.org.au;
+	s=201702; t=1736983322;
+	bh=PWwbiMBvDkXBwegeV2Eg+Gv/y8zGnbE04ATb5NSR/cE=;
+	h=Date:From:To:Cc:Subject:From;
+	b=PgVGDPUJkVxIMbBu5k+ZEWpQMo4aAvyFMaV4o2uqeaBOPFAL8WmvI/G4bo5oKCq2a
+	 Tq6K+vNRJCAsfjbwr1//ZMYcMZfvenF5oeYytr7Y9qeaM6gdi9eCCPcw7MzScZqtDE
+	 Y17JK7oZS6CbepEoQCMFhlUYUm5vW0S4snWCZXEaZQeFs4ix5N2xXvMjsvhze+r85q
+	 ROlppy+WJ9gdQVH6Hlu8dtCJWWdW1yFaUUITj9jrvkAjQpVZmS55707+PqKMhf0qed
+	 ZC6qecTGrv356Bef5shvu32SOeOr+DLX/Eao32DJlWMDMKNMoks+z+BSKkGlKcFU/u
+	 FkcMweQFYnB4Q==
+Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	by mail.ozlabs.org (Postfix) with ESMTPSA id 4YYMTP2PCJz4wcl;
+	Thu, 16 Jan 2025 10:22:00 +1100 (AEDT)
+Date: Thu, 16 Jan 2025 10:21:49 +1100
+From: Stephen Rothwell <sfr@canb.auug.org.au>
+To: Philipp Zabel <p.zabel@pengutronix.de>, Arnd Bergmann <arnd@arndb.de>
+Cc: ARM <linux-arm-kernel@lists.infradead.org>, Linux Kernel Mailing List
+ <linux-kernel@vger.kernel.org>, Linux Next Mailing List
+ <linux-next@vger.kernel.org>
+Subject: linux-next: duplicate patch in the reset-fixes tree
+Message-ID: <20250116102149.0b0feb88@canb.auug.org.au>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <91e2bd5b-71fa-402a-82cb-e68d3295804a@gmail.com>
-References: <20250113-topic-spmi_node_breakage-v2-1-dd35a3a6daa6@oss.qualcomm.com> <5b139af8d639e20a14c8bd00e8e03a4a.sboyd@kernel.org> <58cb6c37-0ea0-4866-a2b1-92cb0f0391a7@gmail.com> <305d7cf5f0a66efc01181f24d3a288d3.sboyd@kernel.org> <91e2bd5b-71fa-402a-82cb-e68d3295804a@gmail.com>
-Subject: Re: [PATCH v2] spmi: Fix controller->node != parent->node breakage
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: Marijn Suijten <marijn.suijten@somainline.org>, linux-kernel@vger.kernel.org, Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>, Abel Vesa <abel.vesa@linaro.org>, Johan Hovold <johan+linaro@kernel.org>, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>, Konrad Dybcio <konradybcio@gmail.com>, Konrad Dybcio <konradybcio@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-Date: Wed, 15 Jan 2025 15:16:10 -0800
-User-Agent: alot/0.12.dev1+gaa8c22fdeedb
+Content-Type: multipart/signed; boundary="Sig_/C.PfM.EaT+k9g/6xtglaZ3B";
+ protocol="application/pgp-signature"; micalg=pgp-sha256
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_151614_639010_ABFFF771 
-X-CRM114-Status: GOOD (  15.56  )
+X-CRM114-CacheID: sfid-20250115_152218_801831_216100E2 
+X-CRM114-Status: UNSURE (   9.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,35 +72,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Konrad Dybcio (2025-01-14 12:37:20)
-> On 1/14/25 19:30, Stephen Boyd wrote:
-> >=20
-> > Ok, I see that I was reading the already reverted state of the tree
-> > where the 'ctrl->dev.of_node =3D node' assignment came back. So there's
-> > nothing to do besides drop the patch in fixes, which I already did. We
-> > can then apply this patch to drop the duplicate assignment as a cleanup
-> > and to avoid a refcount bump on the of_node that isn't needed.
-> >=20
-> > ----8<---
-> > diff --git a/drivers/spmi/hisi-spmi-controller.c b/drivers/spmi/hisi-sp=
-mi-controller.c
-> > index 3cafdf22c909..122140b97579 100644
-> > --- a/drivers/spmi/hisi-spmi-controller.c
-> > +++ b/drivers/spmi/hisi-spmi-controller.c
-> > @@ -300,9 +300,6 @@ static int spmi_controller_probe(struct platform_de=
-vice *pdev)
-> >  =20
-> >       spin_lock_init(&spmi_controller->lock);
-> >  =20
-> > -     ctrl->dev.parent =3D pdev->dev.parent;
-> > -     ctrl->dev.of_node =3D of_node_get(pdev->dev.of_node);
-> > -
-> >       /* Callbacks */
-> >       ctrl->read_cmd =3D spmi_read_cmd;
-> >       ctrl->write_cmd =3D spmi_write_cmd;
->=20
-> That works for me, thank you
->=20
+--Sig_/C.PfM.EaT+k9g/6xtglaZ3B
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-Joe, care to send this patch to replace the one you sent previously?
+Hi all,
+
+The following commit is also in the arm-soc-fixes tree as a different
+commit (but the same patch):
+
+  055884c45d5f ("reset: rzg2l-usbphy-ctrl: Assign proper of node to the all=
+ocated device")
+
+This is commit
+
+  1f8af9712413 ("reset: rzg2l-usbphy-ctrl: Assign proper of node to the all=
+ocated device")
+
+in the arm-soc-fixes tree.
+
+--=20
+Cheers,
+Stephen Rothwell
+
+--Sig_/C.PfM.EaT+k9g/6xtglaZ3B
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCAAdFiEENIC96giZ81tWdLgKAVBC80lX0GwFAmeIQw0ACgkQAVBC80lX
+0GyXSAf9Fq9c622mulz6lj6m3+w028dMOhYiEzY0NG/b0d2Oep7AqZwXgZVy40Ij
+9l0y5hsQyLkAmr3gTWrI3g3k8cGfPSPMFmbO+XzVluP+1ySYaSU1OLrt6ErOMmR2
+duPp/9VQ53HW/Mh+JElWRrX9hp2RPgaXfHQTTsLXlVgFH+h3Me6/4w1lbtgc4n4U
+cH+XU03rqFT/Zgh8Q+sJLEuliHXR/1+52ifRIkH6dirvBTj1K9t2tbHUMN1cbgML
+TxkqmAd1GuPLt5b9azUJ5oHFqr+TAIPWkjAOID2Ppo1xTD+YMkaF33/vjm0NE026
+6CMNPO/i90cuiC7t2DCBUNeX12d9zA==
+=hTkW
+-----END PGP SIGNATURE-----
+
+--Sig_/C.PfM.EaT+k9g/6xtglaZ3B--
 
