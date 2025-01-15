@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9277FC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 20:47:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFA8CC02185
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 20:48:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=i99JrEwvVL6vZ28JyF12/j0Oq/JzEnb/KviOot0d0XM=; b=ZZNueOQq1u5QMAeFXewIz/NMRL
-	CV5+A3AUVhA8P7ZnMKzC93oeL0Ghn9Ivrll/AwJAWxpCkbZYwtEIHlQljidMYV8FI4A/I+Vpo1k/c
-	Mo0LdML/4DKJfWSPFO1JmmDMyA15Y4K/NRgtrMh5IXZQ5LCcRkcx6mWLnfmazGMYv3/p8454BhSZa
-	S6eCFh8dtCr6ZMHFuhGdWVcQblqnilVhjiObduS2tHrlAgZzGxQHmmUB0GEOWAIwxIt+jn8HEKeon
-	nlFpaGUW+Ze8LHUEHOzifZA/RVb76eJvrG640UUajFZKzAskeFzdKP8Y8MSkYCqPwQUdYwY4Bp3wq
-	GIPmp+Fw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yqNVbj3MVpY+7D9FsZ5FX3gjtvbIvX8GZPT80w1IszY=; b=CPUldvoiSvHQmQEUNB6OVzbcmC
+	AglNIESskmidGeGt3wCNskGCvRzOkRQSTpNlVhBfr+6sWHs56QCdhspB2HxR+Y3U406JXaM0qjGPW
+	o6+Z9R9zDR9onKB6LEdHJykfIuyF0ObbhNJzBmFWdn5M4zcxf4qFUlNOzyTp79Y5yIN2sFr6zMsrv
+	20oFvT79CJFHAX2wOoWQYAAcCIfhFT4ie2waTZseXYZDGEKzaF9ioGijX8QUez/mrbnRMCWIuutMR
+	GXrt1nTzE5hZnhjkIPtkftLXcjQY152gzuRvfZ0+2h2+pVHRRl8yApmcYj5QenanwchfmTPxaOoja
+	3/gfwfRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYAIU-0000000D2Pi-3pzz;
-	Wed, 15 Jan 2025 20:47:30 +0000
+	id 1tYAJk-0000000D2mF-2Qj4;
+	Wed, 15 Jan 2025 20:48:48 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYADn-0000000D1hW-0Vwf
+	id 1tYAE1-0000000D1jC-0sv7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 20:42:40 +0000
+	Wed, 15 Jan 2025 20:42:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=i99JrEwvVL6vZ28JyF12/j0Oq/JzEnb/KviOot0d0XM=; b=Yf/i3LX0LboP0eiOYuh54qyiIB
-	0zqiJ5iJEDXjO+ofCI0Axrb+gMWGHL59zLCdnWGKAcqXADAue7Frf1odUnuIcLDzwhusuSOdWoV8X
-	LKKXXwPHr26c14wi8jfrgM9zkdNY+pftU2Hy0G5rDqlHOPNQInyDzgHWFHiNkWVNz6NNzAmoO7uvK
-	2aDIo3a4Ztx6HX/G5ru1ZsldrYRJAEl++0pYhKoVBxqteiOTcmmDwMqoZZI7DLoTDkN7+9WR2+q9s
-	HRHO7LxDY1HdMdXINBLyejEUvawFaPT/c9ae5kI6uPD4tFPz7wAN0TKAd3FqBeNBmd2pPswJ2llnV
-	IfSsD1EQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:53790)
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=yqNVbj3MVpY+7D9FsZ5FX3gjtvbIvX8GZPT80w1IszY=; b=xCN7L5XJ6uub0u6KMFY1SWhBIs
+	6s8VwiAooMvZHkNqlFBdKZ71XEWRVPTcsP55BGfBn+BDYCf70+KgiCCDUmfl0fVzFNFXgztKlGhZJ
+	UrHRHSDnFjnaL9kWsba1jiGRAdn7r+aco9UuY6UlwlCiWq7WlqZ/8KrPebvHS3NiPLHO+gFd9Nfqy
+	aEg+4akv1FVWcCTX3QljcAAEiS8EMTI24I++dScnsFKGz3/MjxIN4+iI5nxUz+7zK8aNzN56BL2Uk
+	3A0dM0CdhphEnLuwhKau1R0sXIb85KDpEHbRv9JTbsLUi6h074G7kuBrqXQJ3rTuxIEy9b6hGKT94
+	2yXQhmEg==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:59884 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tYADe-0001hw-3D;
-	Wed, 15 Jan 2025 20:42:31 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tYADc-0006UU-1C;
-	Wed, 15 Jan 2025 20:42:28 +0000
-Date: Wed, 15 Jan 2025 20:42:28 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1tYADu-0001iD-0k;
+	Wed, 15 Jan 2025 20:42:46 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1tYADb-0014PV-6T; Wed, 15 Jan 2025 20:42:27 +0000
+In-Reply-To: <Z4gdtOaGsBhQCZXn@shell.armlinux.org.uk>
+References: <Z4gdtOaGsBhQCZXn@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
 Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
 	Bryan Whitehead <bryan.whitehead@microchip.com>,
@@ -61,16 +62,22 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	Marcin Wojtas <marcin.s.wojtas@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, UNGLinuxDriver@microchip.com
-Subject: [PATCH net-next 0/9] net: add phylink managed EEE support
-Message-ID: <Z4gdtOaGsBhQCZXn@shell.armlinux.org.uk>
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	UNGLinuxDriver@microchip.com
+Subject: [PATCH net-next 1/9] net: mdio: add definition for clock stop capable
+ bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1tYADb-0014PV-6T@rmk-PC.armlinux.org.uk>
+Date: Wed, 15 Jan 2025 20:42:27 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_124239_164586_9C841539 
-X-CRM114-Status: GOOD (  16.23  )
+X-CRM114-CacheID: sfid-20250115_124253_241518_D7589693 
+X-CRM114-Status: UNSURE (   9.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,61 +92,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Add a definition for the clock stop capable bit in the PCS MMD. This
+bit indicates whether the MAC is able to stop the transmit xMII clock
+while it is signalling LPI.
 
-Adding managed EEE support to phylink has been on the cards ever since
-the idea in phylib was mooted. This overly large series attempts to do
-so. I've included all the patches as it's important to get the driver
-patches out there.
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ include/uapi/linux/mdio.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-Patch 1 adds a definition for the clock stop capable bit in the PCS
-MMD status register.
-
-Patch 2 adds a phylib API to query whether the PHY allows the transmit
-xMII clock to be stopped while in LPI mode. This capability is for MAC
-drivers to save power when LPI is active, to allow them to stop their
-transmit clock.
-
-Patch 3 extracts a phylink internal helper for determining whether the
-link is up.
-
-Patch 4 adds basic phylink managed EEE support. Two new MAC APIs are
-added, to enable and disable LPI. The enable method is passed the LPI
-timer setting which it is expected to program into the hardware, and
-also a flag ehther the transmit clock should be stopped.
-
-I have taken the decision to make enable_tx_lpi() to return an error
-code, but not do much with it other than report it - the intention
-being that we can later use it to extend functionality if needed
-without reworking loads of drivers.
-
-I have also dropped the validation/limitation of the LPI timer, and
-left that in the driver code prior to calling phylink_ethtool_set_eee().
-
-The remainder of the patches convert mvneta, lan743x and stmmac, and
-add support for mvneta.
-
-Since yesterday's RFC:
-- fixed the mvpp2 GENMASK()
-- dropped the DSA patch
-- changed how phylink restricts EEE advertisement, and the EEE support
-  reported to userspace which fixes a bug.
-
- drivers/net/ethernet/marvell/mvneta.c             | 107 ++++++++++------
- drivers/net/ethernet/marvell/mvpp2/mvpp2.h        |   5 +
- drivers/net/ethernet/marvell/mvpp2/mvpp2_main.c   |  86 +++++++++++++
- drivers/net/ethernet/microchip/lan743x_ethtool.c  |  21 ---
- drivers/net/ethernet/microchip/lan743x_main.c     |  46 ++++++-
- drivers/net/ethernet/microchip/lan743x_main.h     |   1 -
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c |  57 +++++++--
- drivers/net/phy/phy.c                             |  20 +++
- drivers/net/phy/phylink.c                         | 149 ++++++++++++++++++++--
- include/linux/phy.h                               |   1 +
- include/linux/phylink.h                           |  45 +++++++
- include/uapi/linux/mdio.h                         |   1 +
- 12 files changed, 446 insertions(+), 93 deletions(-)
-
+diff --git a/include/uapi/linux/mdio.h b/include/uapi/linux/mdio.h
+index f0d3f268240d..6975f182b22c 100644
+--- a/include/uapi/linux/mdio.h
++++ b/include/uapi/linux/mdio.h
+@@ -125,6 +125,7 @@
+ #define MDIO_STAT1_LPOWERABLE		0x0002	/* Low-power ability */
+ #define MDIO_STAT1_LSTATUS		BMSR_LSTATUS
+ #define MDIO_STAT1_FAULT		0x0080	/* Fault */
++#define MDIO_PCS_STAT1_CLKSTOP_CAP	0x0040
+ #define MDIO_AN_STAT1_LPABLE		0x0001	/* Link partner AN ability */
+ #define MDIO_AN_STAT1_ABLE		BMSR_ANEGCAPABLE
+ #define MDIO_AN_STAT1_RFAULT		BMSR_RFAULT
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.30.2
+
 
