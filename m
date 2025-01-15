@@ -4,86 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ADE8C02185
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 10:38:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BA99C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 10:40:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zL/VhawMqdkK0mqwrQDIuo0f3MoKOJdYdsbaS2CXGCQ=; b=tL8YVTWMdIXGSFKkK+Fmci8dmg
-	cfbViSRszYLY+mc5cqME/FCpDZjm/u6ZwNB1UEtWXYpeTXffwpsx147mbE4B6qEhDEp7N3cWjxf5+
-	GbCtk+gyO1Fr0fnrx8Bczg1odgvkBCXUOGQTEKySutY4cYsIEZGuBOPWHOomlAUb2twnmlySVs5bW
-	VQXVcTLchAkxzi4oTsxR9G4GB0SeZNQ1Vgzppe6ovx6YNsewQ2JbZMNGScbQl0n412j9mTL2izM8/
-	NKwDXWG515D4QRLzzL3nkMXxDqmiLsqRB9Tvx6GZnK+pFVEb+GZlKtc9b1qoOHkukrguxPRdt1NuY
-	ku+cFrWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vECBGBrtSiXwmZmow9g+w++aMVZcE3pjeKiqZi31PRQ=; b=rGIFsJYlEKcOKYorg7OID9jRpZ
+	wX3IFDaso8GtTkEwJkkCEhvbI8z0PGgZWucgP/cWHtEB2uTHeYTGpIxzJMCyB/jlOMuVg3hfrJpuM
+	4bdOVw+aqJgBBYC1nQ0SaNKD56sRhScPoB6KhsmDTGVuVI3MLUvOh4qYXCsJaP8fxCNyAk9eHZzAS
+	fYnDVVsz7ROT/4Q2asgDatb2wXQNIged5a9dzT+Aji8qIGa2j8/y+5f44X19Vq4+efl3IC/1yhNKc
+	xwDFAtwfcfXjM+fHp3RixGD7+5WD0VrvVn9lpTiawPcWaTTWEyIiXJjVFV7p0CqQIMjgbcIDfa8ux
+	znjV2TgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY0nE-0000000BXLh-1Z8d;
-	Wed, 15 Jan 2025 10:38:36 +0000
-Received: from mail-vk1-f172.google.com ([209.85.221.172])
+	id 1tY0oS-0000000BXcm-0LDj;
+	Wed, 15 Jan 2025 10:39:52 +0000
+Received: from mail.alien8.de ([2a01:4f9:3051:3f93::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY0iM-0000000BVwQ-2zeO
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 10:33:35 +0000
-Received: by mail-vk1-f172.google.com with SMTP id 71dfb90a1353d-51c68d851feso2264878e0c.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 02:33:34 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736937213; x=1737542013;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zL/VhawMqdkK0mqwrQDIuo0f3MoKOJdYdsbaS2CXGCQ=;
-        b=uv2svlZp9jf69TsWBY7nNXRboc3uKg824OeQ6Nx5rb5mR6T8Yc3xoyYV2T9u8vLl/2
-         O4H+Unpa57uI8/MN4jRWXu/gklc3momn6n90/EzSXxC8zKqKu+s1enGPDJaRKX81qAl8
-         HD5Avud5OdZKmU5iUJYyXrjmUBgw3EqFSipVyFh8XIQP9i7rl4NA4+QokjKf3/gYOUM8
-         2jE6Z2wyC4z3Ng7tY9NIiS5kM9NZ+I5SsDziu3vUExojkKu/3VyxI49xlOcGqB+EVcHo
-         W5rrElq6S0EX9pRTCxo3SSCkcG8cqFxULVwLHoS78AKt7SweWaTePT59rKEeQxRIZWUc
-         zHvw==
-X-Forwarded-Encrypted: i=1; AJvYcCXoszhLRHogWs31CxEIgPqlgvLemiUSttCJmyedYZ+oDgsIg340sf8nkz1dQ38KUVI9UA3ICNT2ElAT96faOgli@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzm2fKaAxFhUdEWR2r28dfNGufiFDNMRzTKuZx7dMhpP+O00xrC
-	MNwqicS2SiJb6SqJIb6tWv3Jb9WeLHHEjc5OaxIflXvcv2OytbGoSEhCXA5S
-X-Gm-Gg: ASbGncujwng2sVZANMTcnmrU4swlAJnbSN621mk4bM4VghGLioCtEVvUG1SYYtiQLDI
-	e+EX+qvoMthSC3Yq4u1+h2DlLpSsLBJTjq2/gNfjU6IM4xF+ccxmFXIkSLU33hbEU1enbHf8umN
-	gxlySbhSykmm2C40jgshSwdMh0Rjuce8nxYJUQ7aLUvXokmXM7DL/Qm3EpXk27dlQj42g4LjOAw
-	bLeCmahodSWyEtJgEgcM+OECBbFHvH4l0mST6sVC6jjI2M2rwgPqCfspZKvWkvsIXWZsvqiH2p1
-	A+2DW/K/ULhREphhazZ3xXs=
-X-Google-Smtp-Source: AGHT+IHIBH8CbbARMLc3xilwZiZ+x4oUa43TWTV4SzAxnw7SSTHEMOVVpas3RbnPyG39fBI0L5pJpA==
-X-Received: by 2002:a05:6122:1d15:b0:517:83d1:d438 with SMTP id 71dfb90a1353d-51c6c437bd7mr23493143e0c.3.1736937213077;
-        Wed, 15 Jan 2025 02:33:33 -0800 (PST)
-Received: from mail-vk1-f179.google.com (mail-vk1-f179.google.com. [209.85.221.179])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-51ce28f0b67sm13358e0c.25.2025.01.15.02.33.32
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 15 Jan 2025 02:33:32 -0800 (PST)
-Received: by mail-vk1-f179.google.com with SMTP id 71dfb90a1353d-51c68d851feso2264871e0c.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 02:33:32 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXv5p9Aj0+R/t+ZZNWfODYtVLWk2uTARN96eqxq21dgabdCDN+sxwulnzJLrfjwObBnnjeTM8Tx68J0Ou7hXkdx@lists.infradead.org
-X-Received: by 2002:a05:6102:b09:b0:4b2:cca7:7d51 with SMTP id
- ada2fe7eead31-4b3d10482d8mr25112112137.19.1736937212681; Wed, 15 Jan 2025
- 02:33:32 -0800 (PST)
+	id 1tY0k7-0000000BWcl-20qk;
+	Wed, 15 Jan 2025 10:35:25 +0000
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 7679340E0269;
+	Wed, 15 Jan 2025 10:35:19 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
+Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
+	header.d=alien8.de
+Received: from mail.alien8.de ([127.0.0.1])
+	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id orokJiHTn_GF; Wed, 15 Jan 2025 10:35:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
+	t=1736937315; bh=vECBGBrtSiXwmZmow9g+w++aMVZcE3pjeKiqZi31PRQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Z4g2mKad2fZrWCjActVoq2ERvnYQFqD/BaixngsGolITK4xuPzu12M7ErZi8XJ/Uu
+	 +/aj8TH4RtcgYB237YCfCtm2oEdgCgEQO/Kl+AKfQBa3OES1VpsvDHEwCYcP3f/HyG
+	 KmE1xrbBl8Fak2jZbYAHTsG/ddh8V4bM1NExXaOdQXFUiaiZBmye78B60Yv4MXg1OJ
+	 Nv/LlbZic7RwEUzKyGSBp2+6Wv0/PPE57ksv05mZ+ooIiJPDGtqr94103jSDdt/riO
+	 VUoTZI86StQnuAq5tGnhkjgFrNGw8aObJGxNCfR61BrArI27uB7CD4K+cU2c2WgFCA
+	 ENG2GdrX4cKYC86YIA5pFjDchoDmiuqSbLyI27qdcTPJpLppEySPONaDDX6k979oXB
+	 nX07XFKETMdZQFe3Td5eejPuNAzD+y1MGbH99O4kbZTHhgjmNNYRoz+iHUOK4nNB2J
+	 KXh71yx8BOM/0LpxwetonPkvEK/VjHAkh2wsDSsQFjAWskLa7U5K3GXw8MQvxPJXqQ
+	 FPtVsmDmr0yb3CECWFFsHYLH92tWUIqwKwgnIchvH1sCpZOMbb2e920L5Z0ShPwvd6
+	 +5zdyaO0VkU/e5AFTwKsxgscW4mWh65aPHSJB+kvS5kUHKd49aMyT2HBp2uyC0ZrDq
+	 /poj4GRNbAEsBfsNrHYQ6BQU=
+Received: from zn.tnic (p200300EA971F93A7329C23FfFeA6a903.dip0.t-ipconnect.de [IPv6:2003:ea:971f:93a7:329c:23ff:fea6:a903])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
+	(No client certificate requested)
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 104C440E0277;
+	Wed, 15 Jan 2025 10:34:45 +0000 (UTC)
+Date: Wed, 15 Jan 2025 11:34:38 +0100
+From: Borislav Petkov <bp@alien8.de>
+To: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+Cc: Tom Lendacky <thomas.lendacky@amd.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrea Parri <parri.andrea@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Eric Chan <ericchancf@google.com>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Kai Huang <kai.huang@intel.com>,
+	Kefeng Wang <wangkefeng.wang@huawei.com>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Yuntao Wang <ytcoode@gmail.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, stable@vger.kernel.org,
+	Ashish Kalra <ashish.kalra@amd.com>,
+	"Maciej W. Rozycki" <macro@orcam.me.uk>
+Subject: Re: [PATCHv3 2/2] x86/mm: Make memremap(MEMREMAP_WB) map memory as
+ encrypted by default
+Message-ID: <20250115103438.GAZ4ePPs5pxvLLOmIO@fat_crate.local>
+References: <ff8daeb1-4839-b070-dd94-a7692ac94008@amd.com>
+ <mvosqsybplnqfh6wadw5ue7u3plqnfo5ojusvaq6htzzhtfce2@bbgogdund3ho>
 MIME-Version: 1.0
-References: <20250115-xilinx-formats-v2-0-160327ca652a@ideasonboard.com> <20250115-xilinx-formats-v2-4-160327ca652a@ideasonboard.com>
-In-Reply-To: <20250115-xilinx-formats-v2-4-160327ca652a@ideasonboard.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 15 Jan 2025 11:33:21 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdXwsdP3_3b_OWFZ8J=kuNCga0h5Vo+wR0fdquQjZNuzEw@mail.gmail.com>
-X-Gm-Features: AbW1kvb1Mw4yh70skw6jyTVk4uvwGUIHSALmg8qZGE_Zuk6TjwfomZ94w4ClmYw
-Message-ID: <CAMuHMdXwsdP3_3b_OWFZ8J=kuNCga0h5Vo+wR0fdquQjZNuzEw@mail.gmail.com>
-Subject: Re: [PATCH v2 04/10] drm/fourcc: Add DRM_FORMAT_Y10_LE32
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Cc: Vishal Sagar <vishal.sagar@amd.com>, Anatoliy Klymenko <anatoliy.klymenko@amd.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Michal Simek <michal.simek@amd.com>, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <mvosqsybplnqfh6wadw5ue7u3plqnfo5ojusvaq6htzzhtfce2@bbgogdund3ho>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_023334_748891_16C43F59 
-X-CRM114-Status: GOOD (  17.65  )
+X-CRM114-CacheID: sfid-20250115_023523_664615_B5687B52 
+X-CRM114-Status: UNSURE (   8.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,43 +109,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Tomi,
+On Wed, Jan 15, 2025 at 12:23:54PM +0200, Kirill A. Shutemov wrote:
+> I am okay with the change above. Borislav, is it acceptable direction for
+> you?
 
-On Wed, Jan 15, 2025 at 10:04=E2=80=AFAM Tomi Valkeinen
-<tomi.valkeinen@ideasonboard.com> wrote:
-> Add Y10_LE32, a 10 bit greyscale format, with 3 pixels packed into
-> 32-bit container.
->
-> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Yes, Tom and I have been talking offlist about making the *map code figure out
+itself what type of encryption setting it should use, based on the platform.
+It'll need a proper analysis, though, what all the possible usages are to see
+whether that scheme would be adequeate.
 
-Thanks for your patch!
+Something to experiment with after the merge window.
 
-> --- a/include/uapi/drm/drm_fourcc.h
-> +++ b/include/uapi/drm/drm_fourcc.h
-> @@ -408,6 +408,7 @@ extern "C" {
->  /* Greyscale formats */
->
->  #define DRM_FORMAT_Y8          fourcc_code('G', 'R', 'E', 'Y')  /* 8-bit=
- Y-only */
-> +#define DRM_FORMAT_Y10_LE32    fourcc_code('Y', 'P', 'A', '4')  /* [31:0=
-] x:Y2:Y1:Y0 2:10:10:10 little endian */
+Thx.
 
-R10_LE32? Or R10_PA4?
+-- 
+Regards/Gruss,
+    Boris.
 
-Does LE32 have a meaning?  My first guess just reading the subject
-was wrong ("little endian  32-bit" ;-)
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
---=20
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
-
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
+https://people.kernel.org/tglx/notes-about-netiquette
 
