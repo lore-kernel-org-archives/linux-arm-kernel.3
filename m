@@ -4,89 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58240C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 06:54:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D0C2C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 06:57:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1jHKviSWbOJnThNL+BRNc29xaYnK5sB8qfkKjQ020pY=; b=riFbnodJBVeqE+ouEUYwCKoeqY
-	X1IDO1BiOY5scgXWlU0NFwGV0wV9i4/DOLUhH99OmuxFP/AWCkA9paCZ0rmiPfFzipNZMKAC6fxZ8
-	ocn+sQic35l8wNwpc4Y6iUGqmiDGjrGUmQ3z5qcE+nJXuvmvBO6sxSqYlYm/aWQFh3FMuS0GB69kX
-	gVmVfKJyjMukXPKXQRZTBfiwwKK7mWCrLfnz+WRWjPfe/JgIvhk2S3AZ3ro6VwkAeykILKgf8t8jk
-	xb/avVcCejGy5LHOs8v7RJbtxfd0hawj/4yH5HJ5+wXlOCUQyx0NDb9EdsMSSblQi0d4gApujQsix
-	7GgEyYIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NZWScfnhG5GpViQRhxbdTtAg65z7x4RzTUF+ZyOs9oE=; b=cXT14lgjUsb8iWIYirN4lkZS0f
+	rmm3c9CZyiLSylEO1XMogq5/RtuXA/FcAmgxORPE424lFLJjEgCPMsW0m91F/kD8QywWEWnmysWRw
+	oKVcijEyW77pA3khyYyXwQ3yi6pjSGQPQazQBeolJjTzh52BXdFxb6AyjnHDcPLS3GsqGZKUX9iXa
+	017GnKXWG1L+ttHOTkoC0a+1O0Hkg1gE9KP2jhXOs8hciGX7R4BnfLUPg1f9fjlD4DtarbRhqyDJr
+	2Q9tkaB9SWmInVaLMyZTYexmJS5jS9tFpbRXQxVaUM40+1kxhMGlQYBvb21x3UQVrHZMv1TObLNAq
+	QIDnOAcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXxIV-0000000ArpY-3Otp;
-	Wed, 15 Jan 2025 06:54:39 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1tXxLF-0000000AsCV-09Fo;
+	Wed, 15 Jan 2025 06:57:29 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXxHG-0000000Arf7-30n1
+	id 1tXxJy-0000000As1x-3bvG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 06:53:23 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5d96944401dso10609154a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 22:53:21 -0800 (PST)
+	Wed, 15 Jan 2025 06:56:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736924000; x=1737528800; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=1jHKviSWbOJnThNL+BRNc29xaYnK5sB8qfkKjQ020pY=;
-        b=HrF+rjOL44vYhZ007+e8VeAOEn7RQgCQEru1DXDewAiMFXkZ5prB2iTIgpGHCwoGBc
-         3ciOxEbbT0SwGzp7ZK4JLRUV9ixsmaKUZxCQUUtUPuk3s+MrS7tiw7a37L2Djqh8VQe2
-         Bskt94neRyIlLqvd1rvxelEtFyGt1CbkjW58MvN7bB3CRS1dmRAPPAPch7tsBhYhro9R
-         O24mNxExiN5V9sGnSjeTBFPfpL44oSLdjGXXBUdEaq+gJQlVqCJjx2j1kjAsAS8+3YmA
-         noUc0Imh4IxNkYO8+7uwKnuTkbMCgmdmLLwRjFG8uFanFGc0YS0WPE16gEPQCeXA/TVu
-         z3TA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736924000; x=1737528800;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=1jHKviSWbOJnThNL+BRNc29xaYnK5sB8qfkKjQ020pY=;
-        b=hD+2MvH8INL8VSE5rARS/+Dzxhbbt9vfq6WQQ9OGW8vlhrlDYtlRpOADIhFwfVaZnN
-         V1WwKYW8wCBGqdRTXyKXlhO8gpb9jL7pMW9XFtgBx5ZKoWk9S+YwKcn91ZqkEpUgNxTk
-         eqoYzSxQHjwbNJcgdLAmZxCs0X2bET1ueEnXcn4VhLYAzHky6reA8pXdpDz8TWkJ0yf8
-         wuuBdDvjsyXxkZcxKrn4nmdyVKoPeodzo+SwIAIBCoYpwXUbdJsUtN0TvLxzyxXDZKvS
-         O0yLz+lpAq+h9QTjPlSL39bbeKglDZ2hGwDilOR55e9qjlryifDvUZ/3aAfDBiGdaS5J
-         5gEw==
-X-Forwarded-Encrypted: i=1; AJvYcCU7VEBvpoAWwknmVJ6TxWoXYc0n1Qht5w9Bmd9QAjw63u6cGA0q5jYPJR7I6U+79lSkL/SQOZWtLkCNvzN2FHlG@lists.infradead.org
-X-Gm-Message-State: AOJu0YxbrArNTQttgvyyFpMDbipZDiNlfc78NWY95j+4tzv5wkLxnisK
-	RfJ/3LARSuF/1wPz0ZoQrojwYg5EBlmeSzR2fydQ30Kme/mQCV7uDiSv0xb24HM=
-X-Gm-Gg: ASbGncswNIQ1H5evnC0cQ3modKtT9pFU10AdLjJrSfQ8r19OAblTfKp/brYnzRYmS/K
-	LvysmboCx0hhiaNwe9t264hjxGb8mi+QhrRenwkr1a5cthDzVUgo15FdU/rJOTkkg+lTm19f9n8
-	B2j/CkURU+cnveRJBCUqguGUe8uUKe+5+eVbs4SRXuKzVla3h4zVfl9EWRnGj3VIsJL8pMk/lGs
-	2e9CSrUOo1dr42UF9LggUPc2LQ03fzqvxLmX+TxH8BfBGK1fcFNB6HZxebThQ==
-X-Google-Smtp-Source: AGHT+IE9P5PDtBvyWPxhRNEsLiyx/nfhdVfXbwMkWhpN/F7zwvZlvMv1+220NOQBetuNrhffj43vww==
-X-Received: by 2002:a05:6402:518b:b0:5d3:baa3:29f with SMTP id 4fb4d7f45d1cf-5d972e06740mr26199332a12.9.1736924000495;
-        Tue, 14 Jan 2025 22:53:20 -0800 (PST)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d99008c371sm7145838a12.11.2025.01.14.22.53.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jan 2025 22:53:20 -0800 (PST)
-Date: Wed, 15 Jan 2025 09:53:16 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Anand Moon <linux.amoon@gmail.com>
-Cc: Shawn Lin <shawn.lin@rock-chips.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel-janitors@vger.kernel.org
-Subject: [PATCH next] PCI: rockchip: Clean up on error in
- rockchip_pcie_init_port()
-Message-ID: <7da6ac56-af55-4436-9597-6af24df8122c@stanley.mountain>
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1736924170; x=1768460170;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=NZWScfnhG5GpViQRhxbdTtAg65z7x4RzTUF+ZyOs9oE=;
+  b=g7SNL867obHYVORxm7cu47iyxao3wUXZyaZ6GZ4yUnUBlpMUgo7ExpEE
+   r1ecartrEQP8I0mb7kd0V4HoRJJZs3ehlSO6QQFggn3+oabHbQz7JbSWq
+   pd7BN7Svn/wFm7MQICn4fKxjWlzpUZutnQIqsluhmK/0fCrqk+RD/KDRq
+   Hxit0mh+s93fw9qnzAlGwzjpV9IMZXufi+LJJzPxGHL6lk55SHbC+sGWA
+   dYwZXywvk140YACoYhq8AvTq/ky2nUiJzmqrTvJrufE1KGvxueTgY1dkH
+   LQp5mmPTRsgT7lg04++bpBosyK/MY/KgW6KeYnxqVZnWLuqipChEEI9ij
+   Q==;
+X-CSE-ConnectionGUID: gsu/clicSM+xgQm8P2XkNw==
+X-CSE-MsgGUID: /xlyy+hpQRu21QT+U+Ca/g==
+X-IronPort-AV: E=Sophos;i="6.12,316,1728943200"; 
+   d="scan'208";a="41055623"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 15 Jan 2025 07:56:08 +0100
+X-CheckPoint: {67875C08-2A-3C670366-E45AD810}
+X-MAIL-CPID: 4DCA0B359B8F2B8B5BAA414B640255C3_4
+X-Control-Analysis: str=0001.0A682F28.67875C08.009C,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DE05516A656;
+	Wed, 15 Jan 2025 07:56:02 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1736924164;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=NZWScfnhG5GpViQRhxbdTtAg65z7x4RzTUF+ZyOs9oE=;
+	b=rRaUt3r4mq0n3eb7lakp4IuWL8VHI5lLgQFtofeKLZDIi1fAcaaTZ8JIyAlDw5Us6wSQ0M
+	xYYjkvmdGBCha/mkYW6snO2AY0f8xOYD0d4lNGon0ALqk+YPaCmXl+XWUEmP4Wp5xgS5TC
+	XbYPn/PJGbavKZbz7kEp0oiJpEt3sAmegaDAZmydMLBH+AjMi3VOtpjk/ju5gB8ICgOT4k
+	inRn5+MkpDdUx/JGMj5VSnuD4aIobLqC89rzX+rydW1EH4rB9/8Pnk04kW5AtmUmurtIMQ
+	AyER144bIk1+4EKeu0xef4TWFv/uY+Jf8WONTsc+odM0AM1u9iJ9RbhdY9GmYw==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Peng Fan <peng.fan@nxp.com>
+Cc: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v5 2/2] nvmem: imx-ocotp-ele: Support accessing controller for i.MX9
+Date: Wed, 15 Jan 2025 07:56:03 +0100
+Message-ID: <6018578.MhkbZ0Pkbq@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <PAXPR04MB84598515572A669E5856379F88182@PAXPR04MB8459.eurprd04.prod.outlook.com>
+References: <20250108-imx-ocotp-v5-0-a6d90e18ebe9@nxp.com> <4956524.GXAFRqVoOG@steina-w> <PAXPR04MB84598515572A669E5856379F88182@PAXPR04MB8459.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-X-Mailer: git-send-email haha only kidding
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_225322_750076_D045181D 
-X-CRM114-Status: GOOD (  11.51  )
+X-CRM114-CacheID: sfid-20250114_225611_203052_46B0F6E2 
+X-CRM114-Status: GOOD (  31.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,32 +93,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Call phy_exit() before returning on this error path.
+Hi,
 
-Fixes: 853c711e2caf ("PCI: rockchip: Simplify reset control handling by using reset_control_bulk*() function")
-Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
----
- drivers/pci/controller/pcie-rockchip.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+Am Dienstag, 14. Januar 2025, 09:35:41 CET schrieb Peng Fan:
+> > Subject: Re: [PATCH v5 2/2] nvmem: imx-ocotp-ele: Support accessing
+> > controller for i.MX9
+> >=20
+> > Hi,
+> >=20
+> > Am Samstag, 11. Januar 2025, 13:41:58 CET schrieb Peng Fan:
+> > > > Subject: Re: [PATCH v5 2/2] nvmem: imx-ocotp-ele: Support
+> > accessing
+> > > > controller for i.MX9
+> > > >
+> > > > Hi,
+> > > >
+> > > > Am Donnerstag, 9. Januar 2025, 04:34:18 CET schrieb Peng Fan:
+> > > > > On Wed, Jan 08, 2025 at 11:15:40AM +0100, Alexander Stein
+> > wrote:
+> > > > > >Hi Peng,
+> > > > > >
+> > > > > >Am Mittwoch, 8. Januar 2025, 08:00:18 CET schrieb Peng Fan
+> > (OSS):
+> > > > > >> From: Peng Fan <peng.fan@nxp.com>
+> > > > > >>
+> > > > > >> i.MX9 OCOTP supports a specific peripheral or function being
+> > > > fused
+> > > > > >> which means disabled, so
+> > > > > >>  - Introduce ocotp_access_gates to be container of efuse gate
+> > > > > >> info
+> > > > > >>  - Iterate all nodes to check accessing permission. If not
+> > > > > >>    allowed to be accessed, detach the node
+> > > > > >>
+> > > > > >> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> > > > > >> ---
+> > > > > >>  drivers/nvmem/imx-ocotp-ele.c | 172
+> > > > > >> +++++++++++++++++++++++++++++++++++++++++-
+> > > > > >>  1 file changed, 171 insertions(+), 1 deletion(-)
+> > > > > >>
+> > > > > [....]
+> > > > > >> +
+> > > > > >> +	return imx_ele_ocotp_access_control(priv);
+> > > > > >
+> > > > > >In [1] you mentioned devlink should solve the probe order. How
+> > > > does
+> > > > > >this play when the driver is compiled in (e.g. ethernet for NFS
+> > > > > >boot) but this OCOTP driver is just a module?
+> > > > >
+> > > > > OCOTP needs to built in for using devlink. Or the users needs to
+> > > > > be built as module.
+> > > >
+> > > > I don't like this kind of assumption. Would it make more sense to
+> > > > make CONFIG_NVMEM_IMX_OCOTP_ELE as bool instead of tristate?
+> > >
+> > > No. Users could setup their own system with this driver build in or
+> > > built related drivers as modules.
+> >=20
+> > Sure, but if the kernel locks/fails/panics while accessing peripherals =
+just
+> > because of the kernel config seems at east very unfortunate to me.
+> > How is someone supposed to analyze/debug this?
+> >=20
+> > > At least for Android GKI, this driver needs to be as module.
+> >=20
+> > Any particular reason this needs to be a module?
+>=20
+> Android has a minimal kernel which is controlled by Google.
+> Vendors could only built modules based on Google's Image.
+>=20
+> Updating this to y in upstream, means we need to change
+> it back to m in NXP downstream android kernel.
 
-diff --git a/drivers/pci/controller/pcie-rockchip.c b/drivers/pci/controller/pcie-rockchip.c
-index fea867c24f75..35bfdf3e17a3 100644
---- a/drivers/pci/controller/pcie-rockchip.c
-+++ b/drivers/pci/controller/pcie-rockchip.c
-@@ -132,8 +132,10 @@ int rockchip_pcie_init_port(struct rockchip_pcie *rockchip)
- 
- 	err = reset_control_bulk_assert(ROCKCHIP_NUM_CORE_RSTS,
- 					rockchip->core_rsts);
--	if (err)
--		return dev_err_probe(dev, err, "Couldn't assert Core resets\n");
-+	if (err) {
-+		dev_err_probe(dev, err, "Couldn't assert Core resets\n");
-+		goto err_exit_phy;
-+	}
- 
- 	udelay(10);
- 
--- 
-2.45.2
+Ok, that's an Android thing.
+
+> If you need it built in, you could modify your downstream
+> config, right?
+
+I'm not saying I need a built-in. My concern is that a wrong Kconfig will
+result in silent errors/lockups.
+
+Best regards,
+Alexander
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+
 
 
