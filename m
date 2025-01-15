@@ -4,92 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC70FC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 15:19:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5D2CC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 15:20:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uww07cUdp7duxGiMrR7iOp8DgfbxO1hObNoJqUTt4uE=; b=HE+QM7pOEkqnwb0HjLQuQWudgo
-	WehiBqKgwx0bdOoIZ8yIvYYK0pW2DIqSbLFrcqP3g2D+ee6Tb1vRuKgOLh6yKVPuhBqDEQ0vNi8jS
-	B8xVSWgwARNSTnsGTcImVyeA/wKRHC6x04KSKOrlH+cy4BDKc/jjNHYNoJTDyUnI4q2HDkORulXDJ
-	/heeb1pL3cW0V/2emvM6ZKKjJzHCHh73gjK03CEDEqwxxKCkp1ylGwAiM7xJyaptt4HA890A+CB7v
-	T0akDIqWHj8RcszHHedu02UZ/U0HUNnf8HYZq5VgxRCBsYfpb4HWwc/7lvPVe96wfFTyUhY9FcXUa
-	kqlS4obg==;
+	bh=A7WzHPt/cWpfOHApvRgjD4QZNtPcP64L7GIPpO/klVU=; b=Jrnobcy5pbKkeVpPTZIFVsRQDk
+	RzRilBQTU/NQ1g+85c1wFtgRJ30Fd9OpQoUgIWa7lLnRIXXa+ImAWogKngBFSNcK00p+Xg84zMzH2
+	DdL85oLeNrvpIsinuY84pDVGrWaMYAe+ymqO3nIz94R8ocwqudnH61gzxIcIaIv8AAcPHoZk5wsfr
+	hZ0bVzS5O131slSoQijS00gVLkrZanLknS2UmxZ1LB3hfRJHwt/z89eyMGXc3QBYC+sIn3Ht/BKO2
+	BL667pXPXImD4WNmUJPgWYz0yIZEEBx+cN9kHJ1C5o7qxZclWPocuYia0ixg9CvkQzAPiRl6y+aZr
+	mSAfqqxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY5AS-0000000CFHe-10mR;
-	Wed, 15 Jan 2025 15:18:52 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1tY5Bg-0000000CFRn-3mWC;
+	Wed, 15 Jan 2025 15:20:08 +0000
+Received: from mail-qv1-xf32.google.com ([2607:f8b0:4864:20::f32])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY59A-0000000CF2V-0ZwN
+	id 1tY59D-0000000CF2t-42io
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 15:17:33 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-5401e6efffcso7063582e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 07:17:31 -0800 (PST)
+	Wed, 15 Jan 2025 15:17:37 +0000
+Received: by mail-qv1-xf32.google.com with SMTP id 6a1803df08f44-6d8f75b31bfso59575186d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 07:17:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736954250; x=1737559050; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1736954254; x=1737559054; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=uww07cUdp7duxGiMrR7iOp8DgfbxO1hObNoJqUTt4uE=;
-        b=YiPdy3qaGB061fdlLpJouojEWoYH0hU/LyDKmL0UmO5hfjIYKnfRwsVcavgnO/+PI2
-         s4/sahPk4KAT8ECbkyrmcUX3ltO1+Rfc5p2KiWzlGSQtwPqOIfvVaqjOXff6w6nY+vLQ
-         Bm9dtlBnkkepjYT9exntCn7Nf3vpeJGHI63lKKFMQ6hG9fVxgcwTkYCdfJIg+8riRG7B
-         kJ4Y6vEZdagzsn0cyaWUFFJBzYhfm2vtuldSZifVLzTawf4sdnmR6R+Icw0XY7scbXAP
-         QDRD06WmxqtqEQoEMmeIGxvazuhLDnw1HKcnp/XgtgkDkaxtLBURi+JhmBmo5ClzXokn
-         0NSw==
+        bh=A7WzHPt/cWpfOHApvRgjD4QZNtPcP64L7GIPpO/klVU=;
+        b=iORMseqIPSAbTfaLMF7BzY9J03aBO2GDg5hqnXvuCJ3qN5atzNrKqj9fm8X9eRQ0cI
+         ENdTqB4t3FC99z5N1pEVYlzfwM3aAXKAJV057aZ/UKrg6CKdkTa4vCY/nCEU8MSX6p0j
+         429yFQj/ffxpK8cg326t2zRLaKCNvUWGX12hIUg4UXMasRQMq2OIziZuuDHtXetBkr2I
+         V3bGdwqwb8L4RwzRxlAQqid96ZFsmmh8a1c2aPV2JQFw7KySgQw8fDysf+p3QGSF4f4/
+         CqqX+5hRQIlfJcqJnP2jk9ds1omBz20ImSSskLI+9J+AYY0Hrxm2M4VT4gajPGCgFDcC
+         rcsQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736954250; x=1737559050;
+        d=1e100.net; s=20230601; t=1736954254; x=1737559054;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=uww07cUdp7duxGiMrR7iOp8DgfbxO1hObNoJqUTt4uE=;
-        b=F6d5QP+UNOLqzIMlH5gcLEQhH1CPHgh8SAbT/DiWzn5ZWkpaM/x9BMurBFMC387dgc
-         tujI9/KxR9mHuVqkBY5sC+SGdZz/AKajmJwWZQNuIvfff8hS+6+1CEowoa4tbYokMaCN
-         J4DExV7SSrUOTFiZ4zOcoAWiC5yPW7F8WAFkRoYk0Y8AsL/Pk1fhkg86jV4B2iasarvJ
-         AGFNDPFnQW8DHMH7skcNMyIwowibA19Bi8b/ybIxU18gj21S1JeyKWU9Ij2eZklpb4sb
-         JdV6trBmuXv12R1/Fc0+xFd83jKkb/CAxanLD7mbIuKO4uAKVKFoVT/jxq0GaiDUff/+
-         2Suw==
-X-Forwarded-Encrypted: i=1; AJvYcCWZqKmIVJPpATwVxQg9cmQvwuzE3tMI1/FgT8EoSk335Df+lHZAgn98lZSrw2Bx8TMnCq7T/RwT+5ZBwX6qDx6g@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywjs/inHzRoPZ8tslK7VhHmo5bKgGm5GhmrnztwMZJ0vdUr74V5
-	alY74MjiV3HIN9pgkvW4p9jYPcv1ENtldIiuwoInsm39TcBaKrF4OoJBdmCS66rkkMYiPSplH79
-	xUW3C0rGsr9EJFphSmk6vRQ1rAzGPxZLX
-X-Gm-Gg: ASbGncsr11Jtux/DqamC0f6PXXObY29tCRaB4rABAXMj9OFqyrIpG1oHwz6rIhlVvbP
-	RAHfd2XORZ0AUa+EWe4ofC2vYrNY5vo1M/li+lMtI
-X-Google-Smtp-Source: AGHT+IHGJenQer00L8FQdCDyLhA9ljuwUu/NbZxKPmPHZwEXGy2YYYib0yUljfuUi7FMmKfhxtEzdPm1wl4o71fhPWE=
-X-Received: by 2002:a05:6512:4029:b0:53e:2900:89b4 with SMTP id
- 2adb3069b0e04-54284820222mr11108397e87.49.1736954249510; Wed, 15 Jan 2025
- 07:17:29 -0800 (PST)
+        bh=A7WzHPt/cWpfOHApvRgjD4QZNtPcP64L7GIPpO/klVU=;
+        b=lUvED33K/0o/n0h0CuLQZ9l4KRwWZZGNYyMHuxCe+nKQzpdByG1hCpXjE0GPoarqdC
+         9MiwgGVLeZK0XniyT6PYuY3KqiIMaJANenBEtsNA7owX140cM/OeGNwKVhUP6PJChknM
+         gi/9MzHiJN29MduBMFBSeZ/VYQLw/uLiewiya4k7Wqee3tk7j2qKwrm4xbTP1v+ge7mH
+         9smgVtCvcHMIkrWwjYDAx4zJ0hKwVmFKNrvOOkEom75zxEIklBs+Hy0u9uQBrLear5EH
+         /YrgR+sUtjFim5Q8CzyFXdN+1XVKSYKzLtbVYprCSb4j/icZbuXNJwxvEu98JPe65c/+
+         z9UQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVH2fGDmetwDfoDI4Oru6BmpauGCwHIWLY4QEwc0RMizG6nFcEYOi1EUe5FyeT92NJ5qxZa2hV3K2MLOkt7VehA@lists.infradead.org
+X-Gm-Message-State: AOJu0YwgTGdG67dCWEAEA8lwrkSUxK42u2J8cf3B93dp21ao1w5MYzok
+	kVjufBWze41hKSe9VmL/PfSHqwfRva9YJCyqlWcniaXP0pTlwkdaYJUQD7qFbEoksASGXTxX5sY
+	p91pcuzT8Q72SJLpoxvIUkbTCvwSpsmICDBSp
+X-Gm-Gg: ASbGncvWKLF1g02akbjLtVgHE0Dp9FNH+SPbzK18j9qTfc/CkqOLKCEaAtXxofvfUdY
+	AGvBB9lXTJDlZddCTOxCr7Qc7dRqX6B0IUIdMUE5NYg43nm9s1Fs417ShotAr+fPiaMyi
+X-Google-Smtp-Source: AGHT+IExamaQV69QfDT6mt7pi4rOTIShHeVotAi3fypa8T+VZtB/JGqy31OBdOOudK5fsyrNV0iaD1BO6s7Tv7OYVl4=
+X-Received: by 2002:a05:6214:2f8e:b0:6df:ba24:2af2 with SMTP id
+ 6a1803df08f44-6dfba242b5bmr334969386d6.25.1736954253788; Wed, 15 Jan 2025
+ 07:17:33 -0800 (PST)
 MIME-Version: 1.0
-References: <20250113-b4-imx-gpio-base-warning-v1-0-0a28731a5cf6@pengutronix.de>
- <CAHp75Ve8d96Uw1obJVwRPyRE5E0eC8qU7uXe-UKuZeB-3XLPcA@mail.gmail.com>
- <528b6695-387e-436d-98fc-6f576636d16f@pengutronix.de> <CAHp75VfOhAmkpB_nhQE8m25p=3P2wvTfOnQFEsLR5KEktLy4vQ@mail.gmail.com>
- <43ecfb45-d96b-46e5-95e1-2ece32532e74@pengutronix.de>
-In-Reply-To: <43ecfb45-d96b-46e5-95e1-2ece32532e74@pengutronix.de>
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Wed, 15 Jan 2025 17:16:53 +0200
-X-Gm-Features: AbW1kvaECDnmeWgZSodqxxBJzlN_QPL7YCb8AhABJXAcNlpFGDGQ5vdnnE27s7o
-Message-ID: <CAHp75VfZHZ7Xx1SnryBX683B=gm70SE_bvhivn+ecUePebQLdA@mail.gmail.com>
-Subject: Re: [PATCH 0/4] gpio: mxc: silence warning about GPIO base being
- statically allocated
-To: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, 
-	Andy Whitcroft <apw@canonical.com>, Joe Perches <joe@perches.com>, 
-	Dwaipayan Ray <dwaipayanray1@gmail.com>, Lukas Bulwahn <lukas.bulwahn@gmail.com>, 
-	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>, Haibo Chen <haibo.chen@nxp.com>, 
-	Catalin Popescu <catalin.popescu@leica-geosystems.com>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
+References: <20250114-kcov-v1-0-004294b931a2@quicinc.com> <CANpmjNPUFnxvY-dnEAv09-qB5d0LY_vmyxhb3ZPJV-T9V9Q6fg@mail.gmail.com>
+ <Z4ZfzoqhrJA0jeQI@hu-jiangenj-sha.qualcomm.com>
+In-Reply-To: <Z4ZfzoqhrJA0jeQI@hu-jiangenj-sha.qualcomm.com>
+From: Alexander Potapenko <glider@google.com>
+Date: Wed, 15 Jan 2025 16:16:57 +0100
+X-Gm-Features: AbW1kvYef5mtP3iXS_rQEHTfWGlWNRIExvdT9bNMIFnqNFmmY6UipxblFzMqMNY
+Message-ID: <CAG_fn=XFkNVkT3EmB99SdEBAwkGq3EUdM9xR4rzH_HatrJw8rQ@mail.gmail.com>
+Subject: Re: [PATCH 0/7] kcov: Introduce New Unique PC|EDGE|CMP Modes
+To: Joey Jiao <quic_jiangenj@quicinc.com>
+Cc: Marco Elver <elver@google.com>, Dmitry Vyukov <dvyukov@google.com>, 
+	Andrey Konovalov <andreyknvl@gmail.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Andrew Morton <akpm@linux-foundation.org>, Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>, 
+	Christoph Lameter <cl@linux.com>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	kasan-dev@googlegroups.com, linux-kernel@vger.kernel.org, 
+	workflows@vger.kernel.org, linux-doc@vger.kernel.org, linux-mm@kvack.org, 
+	linux-arm-kernel@lists.infradead.org, kernel@quicinc.com
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_071732_177503_06F97EA1 
-X-CRM114-Status: GOOD (  39.80  )
+X-CRM114-CacheID: sfid-20250115_071736_003193_E1AD7993 
+X-CRM114-Status: GOOD (  22.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,117 +99,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 15, 2025 at 9:03=E2=80=AFAM Ahmad Fatoum <a.fatoum@pengutronix.=
-de> wrote:
-> On 14.01.25 20:43, Andy Shevchenko wrote:
-> > On Tue, Jan 14, 2025 at 11:55=E2=80=AFAM Ahmad Fatoum <a.fatoum@pengutr=
-onix.de> wrote:
-> >> On 14.01.25 10:46, Andy Shevchenko wrote:
-> >>> On Tue, Jan 14, 2025 at 12:19=E2=80=AFAM Ahmad Fatoum <a.fatoum@pengu=
-tronix.de> wrote:
-> >>>>
-> >>>> The i.MX GPIO driver has had deterministic numbering for the GPIOs
-> >>>> for more than 12 years.
-> >>>>
-> >>>> Reverting this to dynamically numbered will break existing setups in=
- the
-> >>>> worst manner possible: The build will succeed, the kernel will not p=
-rint
-> >>>> warnings, but users will find their devices essentially toggling GPI=
-Os
-> >>>> at random with the potential of permanent damage. We thus want to ke=
-ep
-> >>>> the numbering as-is until the SysFS API is removed and script fail
-> >>>> instead of toggling GPIOs dependent on probe order.
+On Tue, Jan 14, 2025 at 2:00=E2=80=AFPM Joey Jiao <quic_jiangenj@quicinc.co=
+m> wrote:
 >
-> Please read my cover letter / commit messages. I do nowhere object to dep=
-recation
-> and removal of the sysfs interface. But I strongly disagree that a necess=
-ary step
-> towards that is having Linux start toggling random GPIOs after an update =
-on
-> platforms that behaved consistently for >10 years.
->
-> Can you explain why we can't remove the hardcoded base at the same time t=
-hat
-> sysfs support is removed for good?
+> On Tue, Jan 14, 2025 at 11:43:08AM +0100, Marco Elver wrote:
+> > On Tue, 14 Jan 2025 at 06:35, Jiao, Joey <quic_jiangenj@quicinc.com> wr=
+ote:
+> > >
+> > > Hi,
+> > >
+> > > This patch series introduces new kcov unique modes:
+> > > `KCOV_TRACE_UNIQ_[PC|EDGE|CMP]`, which are used to collect unique PC,=
+ EDGE,
+> > > CMP information.
+> > >
+> > > Background
+> > > ----------
+> > >
+> > > In the current kcov implementation, when `__sanitizer_cov_trace_pc` i=
+s hit,
+> > > the instruction pointer (IP) is stored sequentially in an area. Users=
+pace
+> > > programs then read this area to record covered PCs and calculate cove=
+red
+> > > edges.  However, recent syzkaller runs show that many syscalls likely=
+ have
+> > > `pos > t->kcov_size`, leading to kcov overflow. To address this issue=
+, we
+> > > introduce new kcov unique modes.
 
-Because (if follow your logic!) it won't ever happen until all the
-platforms that are using the non-dynamic bases are being removed as
-well.
+Hi Joey,
 
-Otherwise this situation isn't anyhow different to the broken platform
-as you described.
+Sorry for not responding earlier, I thought I'd come with a working
+proposal, but it is taking a while.
+You are right that kcov is prone to overflows, and we might be missing
+interesting coverage because of that.
 
-> >>> While I understand the issue this tends to get never fixed until the
-> >>> entire support of iMX boards will be dropped.
-> >>
-> >> i.MX is an actively developed and widely used platform. Why should sup=
-port
-> >> be dropped?
-> >
-> > Exactly, Which means "tend to get never fixed".
->
-> Imagine ReiserFS deprecation strategy involved shipping an update that
-> just corrupted your existing file system and developers insisted on calli=
-ng
-> it a fix, as ReiserFS is going to be removed anyway.
+Recently we've been discussing the applicability of
+-fsanitize-coverage=3Dtrace-pc-guard to this problem, and it is almost
+working already.
+The idea is as follows:
+- -fsanitize-coverage=3Dtrace-pc-guard instruments basic blocks with
+calls to `__sanitizer_cov_trace_pc_guard(u32 *guard)`, each taking a
+unique 32-bit global in the __sancov_guards section;
+- these globals are zero-initialized, but upon the first call to
+__sanitizer_cov_trace_pc_guard() from each callsite, the corresponding
+global will receive a unique consequent number;
+- now we have a mapping of PCs into indices, which can we use to
+deduplicate the coverage:
+-- storing PCs by their index taken from *guard directly in the
+user-supplied buffer (which size will not exceed several megabytes in
+practice);
+-- using a per-task bitmap (at most hundreds of kilobytes) to mark
+visited basic blocks, and appending newly encountered PCs to the
+user-supplied buffer like it's done now.
 
-It's not the same. If you still want to compare, then it means that
-what I suggest is to move from Reiser to say XFS.
+I think this approach is more promising than using hashmaps in kcov:
+- direct mapping should be way faster than a hashmap (and the overhead
+of index allocation is amortized, because they are persistent between
+program runs);
+- there cannot be collisions;
+- no additional complexity from pool allocations, RCU synchronization.
 
-> >>> Personally I do not like
-> >>> this series at all. Rather let's try to go the hard way and understan=
-d
-> >>> what's going on to fix the current issues.
-> >>
-> >> /sys/class/gpio is deprecated and when it is finally removed, this ser=
-ies can
-> >> be reverted again. The alternatives are either do nothing and live wit=
-h 6 kernel
-> >> warnings cluttering every boot or show users the finger as described i=
-n
-> >> the cover letter.
-> >>
-> >> Do you see a different path forward?
-> >
-> > Yes, try to write your scripts based on the libgpiod or the tools
-> > provided by the project. I.o.w. follow the warning that SYSFS will be
-> > removed at some point and prepare yourself for that. If some kernel
-> > work needs to be done, contribute.
->
-> I have been using libgpiod for many years, but have in the past used sysf=
-s
-> or been involved with projects using sysfs. I agree that these projects
-> need to switch to the GPIO character device and that they will be eventua=
-lly
-> broken. Yet, I still get warnings despite doing everything correctly IMO =
-and no,
-> I don't want to fix a warning by doing negligent stuff like jumble GPIO n=
-umbers,
-> with the reason that it's going to be broken for good in the future anywa=
-y.
->
-> To reiterate, my issue is with the manner of breakage:
->
->   - broken, because /sys/class/gpio doesn't exist: good
->   - broken, because script executes successfully, but toggles arbitrary p=
-ins: bad
+The above approach will naturally break edge coverage, as there will
+be no notion of a program trace anymore.
+But it is still a question whether edges are helping the fuzzer, and
+correctly deduplicating them may not be worth the effort.
 
-I understand that, but what the series is trying to do is to put on
-hold _any_ sysfs removal activity along with reducing test coverage
-and motivation to fix the certain platform to work with dynamic base.
+If you don't object, I would like to finish prototyping coverage
+guards for kcov before proceeding with this review.
 
-So, prepare your scripts not to toggle arbitrary numbers then and use libgp=
-iod.
+Alex
 
-P.S. I think this discussion goes nowhere. Talk to the GPIO
-maintainers for the matter, I'm not preventing you to put on hold GPIO
-development for _this_ platform, but I'm strongly against that because
-of your platform others should also be on hold, hence my NAK for that
-gpiolib patch.
+> > > 2. [P 2-3] Introduce `KCOV_TRACE_UNIQ_EDGE` Mode:
+> > >    - Save `prev_pc` to calculate edges with the current IP.
+> > >    - Add unique edges to the hashmap.
+> > >    - Use a lower 12-bit mask to make hash independent of module offse=
+ts.
 
---=20
-With Best Regards,
-Andy Shevchenko
+Note that on ARM64 this will be effectively using bits 11:2, so if I
+am understanding correctly more than a million coverage callbacks will
+be mapped into one of 1024 buckets.
 
