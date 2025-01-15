@@ -4,52 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78AECC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 16:55:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6E8DC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 16:57:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gNjrSd8dndcZ0lYvAGstUTEdyHmZD24YQOCp3Ef4JJA=; b=HjLAdHbm090JfhPJ9kEX6fBc+v
-	oU49vGAvi8uozNeoDGz3RFNFQpjaZgzWFolCzbypAepmZvCdvkAnFAUAGDbhfjUZVe3ft4GfEuq8P
-	PrmRqSwV8HvXOw2tfWfM53jH+9I2c1//HzSbhU4UOkiVrxo8azUQGB2qBrQ1ICFIHUIs882zoxiqq
-	xLexA1v5xO78FxOChK+FN5fAU55xexh/zRR5L/FJNUnQXxvgNwRno9Cqh3ORsMBoZwDeRHuQxMTLE
-	Y9wZI/HasrcmBX98CjgPM0lRJMOdyUuCVYMts4HxAS5maGs5TnogC4EyYO4zEbOuJvgo9caLtWheY
-	vD/H1cZg==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xdDOl+2ekFWaRdVJqcysp5umnfHOOWv97QkbmEKnRbk=; b=ImnUrgopG8QYNm/Bm3thrcbvKU
+	ag3Bn5vHLi9Mzl3gb9/NIEWaytqgI9ino8nlG1umIcwi2fUpBhktzmit3H8KrpQF5z/i/WHmMhqHm
+	G2pA2XlQTMaCozh5l2VxqoQtg30osTeMn2n4zGULGWekMakT6598+uGBA8OkM4uN2D/qoe1/uPHmP
+	pybPQr0KdeWfHmq6aCt94MB7TXdsOQoEF/cqIfN/v9ne6IQVtzccB4Xv+RCN/cMBJDETBS0bnNOr3
+	qeZas/MyhmjYO4i1EervZzvvw7RzvlLikq20cd85LTcho8GJtE437npvgtvcIL7L4j/OT0U8nkdmw
+	dXKFjweA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY6fy-0000000CVtU-3lwQ;
-	Wed, 15 Jan 2025 16:55:30 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tY6hn-0000000CWBG-3fTz;
+	Wed, 15 Jan 2025 16:57:23 +0000
+Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY6ee-0000000CVig-2tPj
+	id 1tY6gV-0000000CW0M-3dQt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 16:54:11 +0000
-Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tY6ea-0005nU-Sx; Wed, 15 Jan 2025 17:54:04 +0100
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: soc@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	kernel@pengutronix.de,
-	Philipp Zabel <p.zabel@pengutronix.de>
-Subject: [GIT PULL] Reset controller fixes for v6.13
-Date: Wed, 15 Jan 2025 17:54:04 +0100
-Message-Id: <20250115165404.1269500-1-p.zabel@pengutronix.de>
-X-Mailer: git-send-email 2.39.5
+	Wed, 15 Jan 2025 16:56:04 +0000
+Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-303489e8775so63649621fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 08:56:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1736960162; x=1737564962; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xdDOl+2ekFWaRdVJqcysp5umnfHOOWv97QkbmEKnRbk=;
+        b=ungdyJ0Sg5DxuVakwCWUk7rtYSruVRgmJNVRsYAjj/H6Bf5Em7L+iuvH1gU4GBTvFy
+         WEPgg98kjO006i3L9PoEpj6uqBFo/lsf+r/dQ+/IjlJUo5fxdlubNGRSCx9CWuWou+u3
+         1D75VWTp1sqwarC7B/f0eP3wu8fuehDkeCE560o46EYuYbLM1/KSviCrLlWFlXlOdG+s
+         5v1ugM5J/yf/e/ujarWOG+80fOcK3JCojh+BrW6ZjK82RaicvzZGS2o505gCKd6Yb/IK
+         0+a5fDOcrJsqMTCBYLW1b81XlOmp1rn/zVRyGCG3G8QOsc5iIwM6adPkFiWFnWgQPdRs
+         K2rA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736960162; x=1737564962;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=xdDOl+2ekFWaRdVJqcysp5umnfHOOWv97QkbmEKnRbk=;
+        b=wBfrsB9IfVcd6/3bcTDFGkmISyJAvUmTHCWqzd5rpxcKqUTHIY1g1Vt4wP2hznJFPs
+         2ezznd8cTzUvuSiNUNXithtoZcdE097/pP33Tlp7wsnkLVGTmuYy8GvFmzA61eni5Nw0
+         S36mPKtPCPsji12uv4dEF1xuB9qyww2rHkuBJ8b1ieAHohockiK53YUEMsEM2z/i+OXm
+         hhQu7rjk62EL2ReLapvKSf8JbkSIeX3tGawyZ2fGFeSMPp7GnBHm9baaC7v+r+Ounk7i
+         /AIR1YaWnfNrbpSxlsLuXFekcsB4EMt5yO10pPhPM5+RmLdd7cLsLWyrEpbngFiXj0A0
+         Zbzg==
+X-Forwarded-Encrypted: i=1; AJvYcCVDjC46rospU0SuNxSoTi2eeG4xSsA7FDLg3Ar2scjqYEo8sCA1q0kDce2kb/tY5cIcDW1ewVa0GR8byj/PjT8S@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRMDtCBeWdrhJsj1MOblMDOxT2PL6l41T1GzCZZi2Dvalg3vHc
+	FneWNpXjHzfynKBn8icMnQ57Be+XEIMiLfSrX1aie97F7CEtrilLO4/rNTRacbqniuniqiQIgFB
+	V4EpwBG4pyg/t6Ylq5yRZ7UwQjszMNQnGUWtJIA==
+X-Gm-Gg: ASbGnctZ1VxxvSB5Hih/FNL+IUu4GDxJWVEK1SvViYlRUYVi3tJkAKaJFmTbsjUMS1v
+	JkP5I7Ka2v5k1aSRrLe3OAgo2SO/3XzhOyoCi+uwiaWUqmixOayFY53ytknEKxP7NYY+stQ==
+X-Google-Smtp-Source: AGHT+IGVCtsxu4Nxc8II+Al+gawBhAtzB4MYz+9Ecl8oqi13xJMRfbsu1WNLIppYV5ME9m0nmbvdoGhE02xkVmEh7JE=
+X-Received: by 2002:a05:651c:508:b0:302:2cdf:7fbb with SMTP id
+ 38308e7fff4ca-305f4531690mr91529781fa.6.1736960161839; Wed, 15 Jan 2025
+ 08:56:01 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::54
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+References: <20250113-b4-imx-gpio-base-warning-v1-0-0a28731a5cf6@pengutronix.de>
+ <20250113-b4-imx-gpio-base-warning-v1-3-0a28731a5cf6@pengutronix.de>
+In-Reply-To: <20250113-b4-imx-gpio-base-warning-v1-3-0a28731a5cf6@pengutronix.de>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Wed, 15 Jan 2025 17:55:51 +0100
+X-Gm-Features: AbW1kvYbGBKWyTqAigHygOqZRSa-0z8NaBAPzFESViEk5Er4NeXPKYxQ6sb6LgU
+Message-ID: <CAMRc=MfZncRy_Qx_Yi_QjqX2cszv9X9st5Yk87Q7R3Hug2S9KQ@mail.gmail.com>
+Subject: Re: [PATCH 3/4] gpio: mxc: remove dead code after switch to DT-only
+To: Ahmad Fatoum <a.fatoum@pengutronix.de>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Andy Whitcroft <apw@canonical.com>, 
+	Joe Perches <joe@perches.com>, Dwaipayan Ray <dwaipayanray1@gmail.com>, 
+	Lukas Bulwahn <lukas.bulwahn@gmail.com>, Fabio Estevam <festevam@gmail.com>, 
+	Andy Shevchenko <andy.shevchenko@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>, Haibo Chen <haibo.chen@nxp.com>, 
+	Catalin Popescu <catalin.popescu@leica-geosystems.com>, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_085408_732885_77A2C0E6 
-X-CRM114-Status: UNSURE (   6.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250115_085603_901734_B11F870D 
+X-CRM114-Status: GOOD (  17.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,30 +101,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear arm-soc maintainers,
+On Mon, Jan 13, 2025 at 11:19=E2=80=AFPM Ahmad Fatoum <a.fatoum@pengutronix=
+.de> wrote:
+>
+> struct platform_device::id was only set by board code, but since i.MX
+> became a devicetree-only platform, this will always be -1
+> (PLATFORM_DEVID_NONE).
+>
+> Note: of_alias_get_id() returns a negative number on error and base
+> treats all negative errors the same, so we need not add any additional
+> error handling.
+>
+> Fixes: 0f2c7af45d7e ("gpio: mxc: Convert the driver to DT-only")
+> Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
+> ---
+>  drivers/gpio/gpio-mxc.c | 3 +--
+>  1 file changed, 1 insertion(+), 2 deletions(-)
+>
+> diff --git a/drivers/gpio/gpio-mxc.c b/drivers/gpio/gpio-mxc.c
+> index 4cb455b2bdee71ba4eb20c93567c3b8db100dbb2..619b6fb9d833a4bb94a93b420=
+9f01b49ad1cbdb0 100644
+> --- a/drivers/gpio/gpio-mxc.c
+> +++ b/drivers/gpio/gpio-mxc.c
+> @@ -490,8 +490,7 @@ static int mxc_gpio_probe(struct platform_device *pde=
+v)
+>         port->gc.request =3D mxc_gpio_request;
+>         port->gc.free =3D mxc_gpio_free;
+>         port->gc.to_irq =3D mxc_gpio_to_irq;
+> -       port->gc.base =3D (pdev->id < 0) ? of_alias_get_id(np, "gpio") * =
+32 :
+> -                                            pdev->id * 32;
+> +       port->gc.base =3D of_alias_get_id(np, "gpio") * 32;
+>
+>         err =3D devm_gpiochip_add_data(&pdev->dev, &port->gc, port);
+>         if (err)
+>
+> --
+> 2.39.5
+>
 
-The following changes since commit 5ae1a43486fb3febd5ce78da13eb354f16d049e0:
+This looks like I can pick it up separately from the rest? Is that right?
 
-  clk: amlogic: axg-audio: revert reset implementation (2024-12-02 17:21:03 -0800)
-
-are available in the Git repository at:
-
-  git://git.pengutronix.de/pza/linux.git tags/reset-fixes-for-v6.13-2
-
-for you to fetch changes up to 055884c45d5f56e34fe56b173b43bbb8f0cd9640:
-
-  reset: rzg2l-usbphy-ctrl: Assign proper of node to the allocated device (2025-01-15 17:47:52 +0100)
-
-----------------------------------------------------------------
-Reset controller fixes for v6.13
-
-* Fix rzg2l-usb-vbus-regulator lookup by assigning the proper of node
-  to the allocated platform device in the rzg2l-usbphy-ctrl driver.
-
-----------------------------------------------------------------
-Claudiu Beznea (1):
-      reset: rzg2l-usbphy-ctrl: Assign proper of node to the allocated device
-
- drivers/reset/reset-rzg2l-usbphy-ctrl.c | 1 +
- 1 file changed, 1 insertion(+)
+Bart
 
