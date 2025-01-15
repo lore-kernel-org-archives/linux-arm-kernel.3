@@ -4,95 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83DA1C02185
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 10:29:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9759FC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 10:31:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BwBSIk74OQkD8K05wGC9E85ouIOUoZbue+TY8sE50NU=; b=3PWIm15XB8rICuOA6PzsvE0BLO
-	D90oD97jb2/Rdb8i0y8vY5+TSr9Q4M0vJejH1QW7orH2VRnCz3/4/qKwd2bubGMOD3M8IIR3uv9h4
-	djC9ospCNj6IeEm3vlPlw6WNVD3t3/7jK9N0tdXD2tR2Lx1S9nLvf/ooWLu/e8+ZTOZcXs7qqmLvn
-	CpYdiEGcu673lwP/R3ArZ5CI3vZXl44VvM30mxXlglCMCQDUiGZWVhSMG8+5BZuhwx23uqlTp4iDV
-	EKfk+dGs13ifLFwzDrGXvFK12+CfbV3UoCvL6mtswVTKjznHHwNgFH+Nxa/GVA5xnHE1Rr9/N8LyW
-	5ZBIRAfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=NhawSsJmf+tcZBsrtYeiYtBZu62hlVfI9ZFOy+kIXOA=; b=ieVpKjyPA2E+4n
+	0TiNBHsNh/tntkXwNOnBrq9cZpNhX3xmZlvljwxlAtsQfeU0LoTA/S5czf+KTyn6O/CUF0QXLJNXz
+	4BlKKGjhx2/MMvorKkTLZpY8QT+W4aBv+uLi9/d3NlVnuP59W/k3L/SfnYIhqe+6hjjs6B6YX2uNC
+	jt1sVVSKYOG95bnaH9/bFRUO6UdodT0rDKVLimpLLqo1GiIVU31I6Ng10WfkqYyZXCEGzYGrhFdxl
+	N9SuX2S/NUQvq9BIJCyv1SVdTBFMp2I23zXAnufx2WljKSul76lJ+wn0NLQqMMhSei4pjdBQO/DH3
+	s1ke1/sNHaYLNmYyXY+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY0e5-0000000BUSj-31RV;
-	Wed, 15 Jan 2025 10:29:09 +0000
-Received: from mx0a-001ae601.pphosted.com ([67.231.149.25] helo=mx0b-001ae601.pphosted.com)
+	id 1tY0fq-0000000BV2R-031j;
+	Wed, 15 Jan 2025 10:30:58 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY0aY-0000000BTcm-2I8Q
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 10:25:31 +0000
-Received: from pps.filterd (m0077473.ppops.net [127.0.0.1])
-	by mx0a-001ae601.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50F10new023378;
-	Wed, 15 Jan 2025 04:25:19 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirrus.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=PODMain02222019; bh=BwBSIk74OQkD8K05wG
-	C9E85ouIOUoZbue+TY8sE50NU=; b=OTC7Rn79ZlLG9B6zXwTbutpaqqWA5IYAZn
-	xXOLqPfR3tldRuqMPbOI7fq7BjmpnwPaU+s0XEHdzBs7Poy/5JcAplJ2HK4VoQD/
-	lawzjifOmRqHrqi4CPSCnC9YOSGzjsL6YxcwgPMs3x58LugwlRY2vP7KAckUXpbh
-	XnBwWsihA3xhZKWygMp4HX18UA7J7mNqFdDPLQTgaD3l5gp2DFVTETQh1a1GX7AJ
-	ObbVJYVR7akDB55uE9ZQXxegH6MJqRzPxgp6+S5HUZqATiElf7Zcr3FqIrABeUkX
-	TzDWisNVbYg+bNwoDgaisDzutYegcuwfXoAVNprXbZkckt5OU3Wg==
-Received: from ediex02.ad.cirrus.com ([84.19.233.68])
-	by mx0a-001ae601.pphosted.com (PPS) with ESMTPS id 443px4mfaa-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 15 Jan 2025 04:25:19 -0600 (CST)
-Received: from ediex01.ad.cirrus.com (198.61.84.80) by ediex02.ad.cirrus.com
- (198.61.84.81) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.13; Wed, 15 Jan
- 2025 10:25:17 +0000
-Received: from ediswmail9.ad.cirrus.com (198.61.86.93) by
- anon-ediex01.ad.cirrus.com (198.61.84.80) with Microsoft SMTP Server id
- 15.2.1544.13 via Frontend Transport; Wed, 15 Jan 2025 10:25:17 +0000
-Received: from opensource.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
-	by ediswmail9.ad.cirrus.com (Postfix) with ESMTPS id E85FA82026C;
-	Wed, 15 Jan 2025 10:25:16 +0000 (UTC)
-Date: Wed, 15 Jan 2025 10:25:15 +0000
-From: Charles Keepax <ckeepax@opensource.cirrus.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-CC: Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-        Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-        Linus Walleij <linus.walleij@linaro.org>,
-        Richard Fitzgerald
-	<rf@opensource.cirrus.com>,
-        Basavaraj Natikar <Basavaraj.Natikar@amd.com>,
-        Shyam Sundar S K <Shyam-sundar.S-k@amd.com>,
-        Hans Ulli Kroll
-	<ulli.kroll@googlemail.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Bjorn Andersson
-	<andersson@kernel.org>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        "Sylwester
- Nawrocki" <s.nawrocki@samsung.com>,
-        Alim Akhtar <alim.akhtar@samsung.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-gpio@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <patches@opensource.cirrus.com>,
-        <linux-sound@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-msm@vger.kernel.org>, <linux-samsung-soc@vger.kernel.org>
-Subject: Re: [PATCH] pinctrl: Use str_enable_disable-like helpers
-Message-ID: <Z4eNC/wWsW5mxkmN@opensource.cirrus.com>
-References: <20250114203602.1013275-1-krzysztof.kozlowski@linaro.org>
+	id 1tY0eZ-0000000BUc5-10kB;
+	Wed, 15 Jan 2025 10:29:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1736936976;
+	bh=YIB7/pe8IoyRD/tOiWEIqXFd8eI6nhsg4+pzvvXcD7s=;
+	h=From:Subject:Date:To:Cc:From;
+	b=oUp+Ui/qSc2BI4/itKcvmIVNHAl+AvQQHK8Eyj+9sKQ16h0CB9FQInPn1GepBywnU
+	 Ybja6791B3q26OdYp1GZoKlf5XitgYOZSuNSUee2Ez3rKj33pfBQlL7SYWvKyc47cR
+	 WKQLJ8S+bIe0KS9pujwPUehX6xlWX8xuCoBHPwFlQIheSv+bZnt/MxNeAd5QwtmqxS
+	 7fHCKz+dcIXURbszn90pnLydCDHbksonnVwdmrmaH2S2xvaz9xPmHWKbNw4yUq5yhR
+	 h0HVOUlHQO2VV5JqujhfwOkvY7lS2PIQXyQpRZvJlmh6jUsd+E6tfcDxvY9i+GH99u
+	 nYO2cirMwXhbg==
+Received: from fedora.home (lfbn-tou-1-1147-231.w90-76.abo.wanadoo.fr [90.76.208.231])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 367FA17E0CD2;
+	Wed, 15 Jan 2025 11:29:36 +0100 (CET)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Subject: [PATCH v2 0/4] Add support for Mediatek Genio 510 EVK board
+Date: Wed, 15 Jan 2025 11:29:01 +0100
+Message-Id: <20250115-dts_mt8370-genio-510-v2-0-fc9b01d08834@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250114203602.1013275-1-krzysztof.kozlowski@linaro.org>
-X-Proofpoint-ORIG-GUID: JgCM6RfomLyrgsV5M_Ad-wIhmpzVbKEd
-X-Proofpoint-GUID: JgCM6RfomLyrgsV5M_Ad-wIhmpzVbKEd
-X-Authority-Analysis: v=2.4 cv=XdhzzJ55 c=1 sm=1 tr=0 ts=67878d0f cx=c_pps a=uGhh+3tQvKmCLpEUO+DX4w==:117 a=uGhh+3tQvKmCLpEUO+DX4w==:17 a=kj9zAlcOel0A:10 a=VdSt8ZQiCzkA:10 a=KKAkSRfTAAAA:8 a=w1d2syhTAAAA:8 a=4kLLQdw-iMVuSiU5jB4A:9 a=CjuIK1q_8ugA:10
- a=cvBusfyB2V15izCimMoJ:22 a=YXXWInSmI4Sqt1AkVdoW:22
-X-Proofpoint-Spam-Reason: safe
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAO2Nh2cC/22NQQ6CMBBFr0Jm7ZgpWKmuvIchpoUBJgFqWkI0h
+ LtbSdy5fC/5768QOQhHuGYrBF4kip8S5IcM6t5OHaM0iSGnXJNSBTZzfIyzKUrCjifxqBVhoc/
+ kDCly9gJp+gzcymvP3qvEvcTZh/f+sqiv/QVP/4OLQkKjVclMbePY3Go/DNb5YI+1H6Hatu0Df
+ B+buLwAAAA=
+X-Change-ID: 20250113-dts_mt8370-genio-510-3560b8010ba9
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Sean Wang <sean.wang@mediatek.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ kernel@collabora.com, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1736936976; l=2802;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=YIB7/pe8IoyRD/tOiWEIqXFd8eI6nhsg4+pzvvXcD7s=;
+ b=MXsGbBpsiG+taXT8aiinljSa2LSmQvrn+r6MtlcaIlH/lvZG3HZBr8N6UKI2PE9P4vQZeQGce
+ SBPptf1ZtFXCGszA+/qufCrIAR+YDqqdCsJwxVyrWlb1/ARZfuo3ICi
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_022530_587517_4D270402 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20250115_022939_435936_CE2A6417 
+X-CRM114-Status: GOOD (  11.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,24 +89,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 14, 2025 at 09:36:02PM +0100, Krzysztof Kozlowski wrote:
-> Replace ternary (condition ? "enable" : "disable") syntax with helpers
-> from string_choices.h because:
-> 1. Simple function call with one argument is easier to read.  Ternary
->    operator has three arguments and with wrapping might lead to quite
->    long code.
-> 2. Is slightly shorter thus also easier to read.
-> 3. It brings uniformity in the text - same string.
-> 4. Allows deduping by the linker, which results in a smaller binary
->    file.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> ---
+This patchset adds the basic support of the Mediatek Genio 510 EVK
+board, based on the Mediatek MT8370 SoC.
 
-For the Lochnagar bits:
+It adds a device-tree file for the board (mt8370-genio-510-evk.dtb) 
+and an include file for the SoC (mt8370.dtsi), in order to be able to
+boot. As the board is very close to the Genio 700 EVK board, an include file
+(mt8390-genio-common.dtsi) is also created to factorize the common
+definitions.
 
-Reviewed-by: Charles Keepax <ckeepax@opensource.cirrus.com>
+The Genio 510 EVK has following features:
+- MT8370 SoC
+- MT6365 PMIC
+- MT6319 Buck IC
+- 4GB LPDDR4X
+- 64GB eMMC 5.1
+- 12V DC Jack
+- Micro SD card slot
+- Push Button x 4 (Power, Reset, Download and Home Key)
+- LED x 4 (Power, Reset, System on and Charging Status)
+- USB Device Port x 1 (Micro USB Connector)
+- USB Host Port x 1 (Type-C USB Connector)
+- 3.5mm Earphone Jack x 1 (with Microphone Input)
+- 3.5mm Line Out Audio Jack x 1
+- Analog Microphone x 1
+- Digital Microphone x 2
+- Gigabit Ethernet with RJ45 connector
+- HDMI 2.0 TX port with Type A HDMI connector
+- eDP port
+- 3x UART with serial-to-usb converters and micro USB connectors
+- M.2 Slot x 2
+- I2C Capacitive Touch Pad
+- 4-Lane DSI x 2
+- 4-Data Lane CSI x 2
+- I2S Pin header
+- 40-Pin 2.54mm Pin Header x 1 
 
-Thanks,
-Charles
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+Changes in v2:
+- Reword "dt-bindings: arm: mediatek: add mt8370-evk board" commit
+  message to add details on MT8370 SoC and links to MT8188 and MT8390 
+- Add note about gpu support in "arm64: dts: mediatek: add support for
+  MT8370 SoC" commit message
+- Split "arm64: dts: mediatek: add device-tree for Genio 510 EVK board"
+  commit in two, as requested by AngeloGioacchino Del Regno
+- Link to v1: https://lore.kernel.org/r/20250114-dts_mt8370-genio-510-v1-0-8517ee0fdbe8@collabora.com
+
+---
+Louis-Alexis Eyraud (4):
+      dt-bindings: arm: mediatek: add mt8370-evk board
+      arm64: dts: mediatek: add support for MT8370 SoC
+      arm64: dts: mediatek: mt8390-genio-700-evk: Move common parts to dtsi
+      arm64: dts: mediatek: add device-tree for Genio 510 EVK board
+
+ .../devicetree/bindings/arm/mediatek.yaml          |    5 +
+ arch/arm64/boot/dts/mediatek/Makefile              |    1 +
+ arch/arm64/boot/dts/mediatek/mt8188.dtsi           |    8 +-
+ .../boot/dts/mediatek/mt8370-genio-510-evk.dts     |   19 +
+ arch/arm64/boot/dts/mediatek/mt8370.dtsi           |   64 ++
+ .../boot/dts/mediatek/mt8390-genio-700-evk.dts     | 1033 +------------------
+ .../boot/dts/mediatek/mt8390-genio-common.dtsi     | 1040 ++++++++++++++++++++
+ 7 files changed, 1134 insertions(+), 1036 deletions(-)
+---
+base-commit: 37136bf5c3a6f6b686d74f41837a6406bec6b7bc
+change-id: 20250113-dts_mt8370-genio-510-3560b8010ba9
+
+Best regards,
+-- 
+Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+
 
