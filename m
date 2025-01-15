@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED370C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 16:32:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90C3BC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 16:33:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zjd4L+skRjDfREyt5/l20Z/nbYutI6PIQ0sn5+CJWLE=; b=vYKd7DxgQEN0yx7mCvRAeZsCh/
-	BxW8Tkz3c+09BRd67qeR6+L1kUg0HVacBHsVhYbsdeUokkAsJ84ZffFKjsq9RxDcisgY8f9O5ABgq
-	ZL2Vn0Bmf9d0mc+i6NHF4hyp8fWMn5W+2sPVttdjE5hkWgFJ1SzEoPIsx+1HHsSPb6vKdzo9aX1LF
-	QsyGXiBePFnKBQbvjkX3e4Fi5vrttYWkHevhyFOnPGwjGf1iUisJPnYeKCsALiB7RTgMbcszqXTWQ
-	iXh0/T5tuLEKbYafk+QQaQix7LRUcqbwWCRcCu2cg3W7ncV/FwtGydMcEbL4WxffrJAfQRJBIYwMe
-	xFlRUNJg==;
+	bh=m5TepKu0SZ93QxY0JjOwIhgH9C4Czywub5gafQUMdfE=; b=Bjf0Vi/09z0INenVxSXIOaqHWC
+	rJVDsYLLIb0ncFe2HRm6wtwb4JBT3S6LByR9p4tAAfAqeWcWA0J/pDwxs0zIUsly+TRtIZxrmRfdx
+	wVFpCFxCes+Ex0/WboPsCVl5pPqKA62EVPwBoK0zh1VcSAVpxA+b8CehZMHZkwg0glesp1I/GX6Y3
+	rFEZa0TYvvNfYQ1L6h+5PW1/0WbztDJT9WV2gA4bo02NgRYlFm17cCRnI/P76FzmEhIzXr3kZfrQh
+	y6eEAZ6h/dTtRTSPla9uaWYUyuxyaJ7MLOVSHhdOOe/L7EV4zG/8m44eXg3uPkUEwPFIbqyebUhLy
+	3YSyquTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY6JR-0000000CSQP-1WDB;
-	Wed, 15 Jan 2025 16:32:13 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1tY6Kg-0000000CSaU-4BOE;
+	Wed, 15 Jan 2025 16:33:31 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY6Fj-0000000CRcv-3ve5
+	id 1tY6Fn-0000000CRdq-46W1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 16:28:25 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-436202dd730so49901855e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 08:28:23 -0800 (PST)
+	Wed, 15 Jan 2025 16:28:29 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-43624b2d453so73560455e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 08:28:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736958502; x=1737563302; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1736958506; x=1737563306; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Zjd4L+skRjDfREyt5/l20Z/nbYutI6PIQ0sn5+CJWLE=;
-        b=nF0uEUEZDJGyPe4Dm6Ijmr5Yq2Ix/ThNCwSS19SfGoNy0w89ylkCEDd0cM4VFy1bE1
-         WOFSeD0NuCH1+DmfUh4SgrBJ2K+Rg8texNOG5GZ0ambR0zQcgC5X7JGp21e4ZjitaXVd
-         aTzeqXGs1xJxaJ5TKO8Jpd4G/inmHxJb/hFxXzIMRDLlVcvrC5pWW86FN1uMcCmz/ojO
-         njE2GClYllvGdf9hbkpoAeWGTGdHAokNVgiB0hviRw53ZPmsrnvE8Q7bwMMizU4IwUGz
-         Ysnmu8vbQeE+gvHf1woUIb5tbosxCejnTfSKX7+jmpbMpyINswQAVYjUhixqrg8+PEo7
-         HTGQ==
+        bh=m5TepKu0SZ93QxY0JjOwIhgH9C4Czywub5gafQUMdfE=;
+        b=KqjB+96Z/IksvfPMfreZJuureywQExIZzrI4jEpjw+gl6CgmtMZ2Y8jxmGq/F2tlEa
+         Vk3tEqgEH1LIC5vbtY3cM4mXxLn8RQ8qJP4zaQO55LqAC+dp/od0bUWgYmgoc9GeDONN
+         e1ZavXJCajPXRFb2ySqlf8VrFy3sbRk1kgGAkMfJ8BbdPMR7L/dV3iI/Rdt9iTU6Dese
+         hT8b9kioTLeSGXqoEZvudfyhKSBMwB3bn2vmeGszX+CDHbfVL4ZwcLyYkAgZSu9mUjbL
+         /VSiw06vj14dPxb5JN5LHMgKC2c5sZXbf9kIHymlOuGiGzmRmyJ0cDgaI75QiRICIGnn
+         AuzA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736958502; x=1737563302;
+        d=1e100.net; s=20230601; t=1736958506; x=1737563306;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Zjd4L+skRjDfREyt5/l20Z/nbYutI6PIQ0sn5+CJWLE=;
-        b=xPYYQ2rbxqp0X0ZxzFH0rzUdht4f5zevSRUnzU1X52t+qg//ccrIxy6MWVppK67+18
-         oOYBv4vVTPwVxq3+XK6u9etE/B+gzQpNa/MYWJGqFcMMupiaanUdL0N1KSRUkpzqcLjd
-         J8+TMcy3WJ4+eFoKCJ3Tofe+O5iUAj61xvujtB8eMRFaOKUl3/MjE/dBM1yliguUJZnb
-         pemWcAtw4tX71lLmwTODCxx9Xjb3apBDRXEEEO0JhHwwJFB8HtDxhWENefchTEsdbyNl
-         wYyx5BGrBI+WGdWZVsz+I9zZeXb3mV3Eskr+M1kmRdiCw/P2u6P9IJozml0RgK6fWQif
-         Ffcg==
-X-Gm-Message-State: AOJu0YwOvGiz6CzlkrXHmJvjvUiYQhik0QjedERq7EvhdxUbGn1cGq6s
-	S4I43deGsVrqdIk3ss+KN8KWugZPtrzxCalobPUEqp2TwnPATR/C9LhSZe+Euc3Ksbgf93Og30A
-	1
-X-Gm-Gg: ASbGnctYl4McMPGRm2ivJz1Wa2WnccOvMybnCeXxZOW/Idtl6AsMIvSKhdWvDFDsVhL
-	7mf3R/+EtHbaShPP+c47EUzTHnuh/6k3L5aidcOyLnL8mRksrMEpZ5D2AAAckqOgQJsxhRw/WK7
-	wIKtxwJ5vwCkvHWRJcSn4GPPuhCc3kOLQ7eklmNZtu3G0CAuHqGMn8Xj1jA7a9ullQbb9/Ob73E
-	OpejHTtFg0Rz900AXoehDkvPPa81SC1Civrjmqws4aaRxA+U6kC3Ss=
-X-Google-Smtp-Source: AGHT+IFVNgnOJAPAG8manRzHjKDMqVJZ+LeOnlwimnKFOP7HxazUcQ5ElmsH3VOpcllswC4C2+OiCA==
-X-Received: by 2002:a05:600c:3485:b0:436:fbe0:cebe with SMTP id 5b1f17b1804b1-436fbe0d10cmr129899845e9.30.1736958502328;
-        Wed, 15 Jan 2025 08:28:22 -0800 (PST)
+        bh=m5TepKu0SZ93QxY0JjOwIhgH9C4Czywub5gafQUMdfE=;
+        b=ElYHkLE/No0Gh1TGA/ILkloxaqpAGh7E4QHZKmTAjJAPNZRCWfvOoJXArLE5hCLGxq
+         Z+NR8SwrUOn3yJfFQRWJ4ad/xmK/gA3cd/u8hiUspcURO9g2CoTk6RG25O9wfcFyGYIQ
+         /qq/GoEKjzLMg5t81GHkJb/ZQ1gGiJCKHVSJYmrjGILdt0Em95yV8IppsfbtP5JDv32f
+         VkCYSHtFLDCT0ugC8na6HOYiB5gyyzgtR1GDS85ho8Itjpwqyxi/51plIYcNQCD84JES
+         MeJt4KG+j7Owt/Tp5uhxUR4M4SOeaq36oBEcmhy4pczDosfsMoSqEBfhVbkp3FiNQewN
+         sC9g==
+X-Gm-Message-State: AOJu0Ywl1BbheKkjTXm9HEem7jgspFPW/0iAQoLABZ8qqa4fMFjgy9w2
+	Ebb90rlv0DTl6ekDOTsQFKKo/2JCeSS6i+tGLIu4qzPUULw/tmKBXNxWdrTQnZw7OfpcqkM2wiA
+	U
+X-Gm-Gg: ASbGncsvAfk12fJEL7HIFEbXrzTx2BHmt8uZzS3Kn5nDGzoFo7Zs5w1HLKT9JRIzVAp
+	n3f4E2aWY8XGy5LSL4/4guuOYRo56GCWkbHmLu3011BtJjZHw5OH2xz6HSUTyBFiPscie+muYH5
+	VfCE0jrhEVugoJ3KMOLh+VsqAkm36X6StFWS7HGmWOEHiV5Y0unCd0Ta20SMrn8TRN1517SsVhi
+	8co/arSpL0YgKau0RZ4fVS5qeeXzsxO41vkx9zb/Dcj6EL2AnOnRYk=
+X-Google-Smtp-Source: AGHT+IFaCBSMwfPP2MvgCkPvhIdkphT0/28HrknSzwZG6Swnc2L/m58YlMbiBJqTUF3GDoO51w9mUw==
+X-Received: by 2002:a05:600c:6004:b0:436:e751:e436 with SMTP id 5b1f17b1804b1-436e751e59cmr237269845e9.19.1736958505934;
+        Wed, 15 Jan 2025 08:28:25 -0800 (PST)
 Received: from pop-os.. ([145.224.90.10])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-437c74ac61csm28620115e9.14.2025.01.15.08.28.21
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-437c74ac61csm28620115e9.14.2025.01.15.08.28.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jan 2025 08:28:22 -0800 (PST)
+        Wed, 15 Jan 2025 08:28:25 -0800 (PST)
 From: James Clark <james.clark@linaro.org>
 To: linux-arm-kernel@lists.infradead.org,
 	robh@kernel.org,
@@ -80,17 +80,17 @@ Cc: James Clark <james.clark@linaro.org>,
 	Anshuman Khandual <anshuman.khandual@arm.com>,
 	James Morse <james.morse@arm.com>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/4] arm64/sysreg: Enforce whole word match for open/close tokens
-Date: Wed, 15 Jan 2025 16:25:56 +0000
-Message-Id: <20250115162600.2153226-3-james.clark@linaro.org>
+Subject: [PATCH v2 3/4] arm64/sysreg: Sort sysreg by encoding
+Date: Wed, 15 Jan 2025 16:25:57 +0000
+Message-Id: <20250115162600.2153226-4-james.clark@linaro.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250115162600.2153226-1-james.clark@linaro.org>
 References: <20250115162600.2153226-1-james.clark@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_082823_973609_76B7A9A8 
-X-CRM114-Status: GOOD (  12.58  )
+X-CRM114-CacheID: sfid-20250115_082828_014816_45B38C86 
+X-CRM114-Status: GOOD (  13.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,152 +105,1206 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Opening and closing tokens can also match on words with common prefixes
-like "Endsysreg" vs "EndsysregFields". This could potentially make the
-script go wrong in weird ways so make it fall through to the fatal
-unhandled statement catcher if it doesn't fully match the current
-block.
+It's mostly been sorted by sysreg encoding, but not 100%. Sort it so
+new entries can be added without wondering where to put them.
 
-Closing ones also get expect_fields(1) to ensure nothing other than
-whitespace follows.
+The following python script was used to sort, keeping the top level
+SysregFields and comments next to their current Sysreg entries by
+splitting on "EndSysreg":
+
+  # cat arch/arm64/tools/sysreg | python3 sort.py > sorted-sysreg
+  import sys, re
+  def key(block):
+          reg = r"\w+\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)"
+          match = re.search(reg, block)
+          sort_val = ''.join(f"{int(n):02d}" for n in match.groups())
+          return (sort_val, block)
+  sysreg = sys.stdin.read().split("\nEndSysreg\n")[:-1]
+  sysreg = sorted(sysreg, key=key)
+  print("\nEndSysreg\n".join(sysreg) + "\nEndSysreg")
+
+Tested by diffing sorted outputs:
+
+  $ diff <(sort arch/arm64/include/generated/asm/sysreg-defs.h)  \
+         <(sort before-sysreg-defs.h) -s
+
+  Files /dev/fd/63 and /dev/fd/62 are identical
 
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- arch/arm64/tools/gen-sysreg.awk | 31 +++++++++++++++++--------------
- 1 file changed, 17 insertions(+), 14 deletions(-)
+ arch/arm64/tools/sysreg | 1006 +++++++++++++++++++--------------------
+ 1 file changed, 503 insertions(+), 503 deletions(-)
 
-diff --git a/arch/arm64/tools/gen-sysreg.awk b/arch/arm64/tools/gen-sysreg.awk
-index 1a2afc9fdd42..f2a1732cb1f6 100755
---- a/arch/arm64/tools/gen-sysreg.awk
-+++ b/arch/arm64/tools/gen-sysreg.awk
-@@ -111,7 +111,7 @@ END {
- /^$/ { next }
- /^[\t ]*#/ { next }
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index bbe7df69da9c..fe1c58367ceb 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -661,71 +661,71 @@ UnsignedEnum	3:0	SEVL
+ EndEnum
+ EndSysreg
  
--/^SysregFields/ && block_current() == "Root" {
-+$1 == "SysregFields" && block_current() == "Root" {
- 	block_push("SysregFields")
+-Sysreg ID_ISAR6_EL1	3	0	0	2	7
+-Res0	63:28
+-UnsignedEnum	27:24	I8MM
++Sysreg ID_MMFR4_EL1	3	0	0	2	6
++Res0	63:32
++UnsignedEnum	31:28	EVT
+ 	0b0000	NI
+-	0b0001	IMP
++	0b0001	NO_TLBIS
++	0b0010	TLBIS
+ EndEnum
+-UnsignedEnum	23:20	BF16
++UnsignedEnum	27:24	CCIDX
+ 	0b0000	NI
+ 	0b0001	IMP
+ EndEnum
+-UnsignedEnum	19:16	SPECRES
++UnsignedEnum	23:20	LSM
+ 	0b0000	NI
+ 	0b0001	IMP
+ EndEnum
+-UnsignedEnum	15:12	SB
++UnsignedEnum	19:16	HPDS
++	0b0000	NI
++	0b0001	AA32HPD
++	0b0010	HPDS2
++EndEnum
++UnsignedEnum	15:12	CnP
+ 	0b0000	NI
+ 	0b0001	IMP
+ EndEnum
+-UnsignedEnum	11:8	FHM
++UnsignedEnum	11:8	XNX
+ 	0b0000	NI
+ 	0b0001	IMP
+ EndEnum
+-UnsignedEnum	7:4	DP
++UnsignedEnum	7:4	AC2
+ 	0b0000	NI
+ 	0b0001	IMP
+ EndEnum
+-UnsignedEnum	3:0	JSCVT
++UnsignedEnum	3:0	SpecSEI
+ 	0b0000	NI
+ 	0b0001	IMP
+ EndEnum
+ EndSysreg
  
- 	expect_fields(2)
-@@ -127,7 +127,8 @@ END {
- 	next
- }
+-Sysreg ID_MMFR4_EL1	3	0	0	2	6
+-Res0	63:32
+-UnsignedEnum	31:28	EVT
+-	0b0000	NI
+-	0b0001	NO_TLBIS
+-	0b0010	TLBIS
+-EndEnum
+-UnsignedEnum	27:24	CCIDX
++Sysreg ID_ISAR6_EL1	3	0	0	2	7
++Res0	63:28
++UnsignedEnum	27:24	I8MM
+ 	0b0000	NI
+ 	0b0001	IMP
+ EndEnum
+-UnsignedEnum	23:20	LSM
++UnsignedEnum	23:20	BF16
+ 	0b0000	NI
+ 	0b0001	IMP
+ EndEnum
+-UnsignedEnum	19:16	HPDS
++UnsignedEnum	19:16	SPECRES
+ 	0b0000	NI
+-	0b0001	AA32HPD
+-	0b0010	HPDS2
++	0b0001	IMP
+ EndEnum
+-UnsignedEnum	15:12	CnP
++UnsignedEnum	15:12	SB
+ 	0b0000	NI
+ 	0b0001	IMP
+ EndEnum
+-UnsignedEnum	11:8	XNX
++UnsignedEnum	11:8	FHM
+ 	0b0000	NI
+ 	0b0001	IMP
+ EndEnum
+-UnsignedEnum	7:4	AC2
++UnsignedEnum	7:4	DP
+ 	0b0000	NI
+ 	0b0001	IMP
+ EndEnum
+-UnsignedEnum	3:0	SpecSEI
++UnsignedEnum	3:0	JSCVT
+ 	0b0000	NI
+ 	0b0001	IMP
+ EndEnum
+@@ -2064,6 +2064,16 @@ Field	17:16	ZEN
+ Res0	15:0
+ EndSysreg
  
--/^EndSysregFields/ && block_current() == "SysregFields" {
-+$1 == "EndSysregFields" && block_current() == "SysregFields" {
-+	expect_fields(1)
- 	if (next_bit > 0)
- 		fatal("Unspecified bits in " reg)
++SysregFields	ZCR_ELx
++Res0	63:9
++Raz	8:4
++Field	3:0	LEN
++EndSysregFields
++
++Sysreg ZCR_EL1	3	0	1	2	0
++Fields ZCR_ELx
++EndSysreg
++
+ Sysreg	TRFCR_EL1	3	0	1	2	1
+ Res0	63:7
+ UnsignedEnum	6:5	TS
+@@ -2081,16 +2091,6 @@ Res0	63:4
+ Field	3:0	PRIORITY
+ EndSysreg
  
-@@ -145,7 +146,7 @@ END {
- 	next
- }
+-SysregFields	ZCR_ELx
+-Res0	63:9
+-Raz	8:4
+-Field	3:0	LEN
+-EndSysregFields
+-
+-Sysreg ZCR_EL1	3	0	1	2	0
+-Fields ZCR_ELx
+-EndSysreg
+-
+ SysregFields	SMCR_ELx
+ Res0	63:32
+ Field	31	FA64
+@@ -2104,6 +2104,36 @@ Sysreg	SMCR_EL1	3	0	1	2	6
+ Fields	SMCR_ELx
+ EndSysreg
  
--/^Sysreg/ && block_current() == "Root" {
-+$1 == "Sysreg" && block_current() == "Root" {
- 	block_push("Sysreg")
++SysregFields TTBRx_EL1
++Field	63:48	ASID
++Field	47:1	BADDR
++Field	0	CnP
++EndSysregFields
++
++Sysreg	TTBR0_EL1	3	0	2	0	0
++Fields	TTBRx_EL1
++EndSysreg
++
++Sysreg	TTBR1_EL1	3	0	2	0	1
++Fields	TTBRx_EL1
++EndSysreg
++
++Sysreg	TCR2_EL1	3	0	2	0	3
++Res0	63:16
++Field	15	DisCH1
++Field	14	DisCH0
++Res0	13:12
++Field	11	HAFT
++Field	10	PTTWI
++Res0	9:6
++Field	5	D128
++Field	4	AIE
++Field	3	POE
++Field	2	E0POE
++Field	1	PIE
++Field	0	PnCH
++EndSysreg
++
+ SysregFields	GCSCR_ELx
+ Res0	63:10
+ Field	9	STREn
+@@ -2149,31 +2179,6 @@ Sysreg	FAR_EL1	3	0	6	0	0
+ Field	63:0	ADDR
+ EndSysreg
  
- 	expect_fields(7)
-@@ -177,7 +178,8 @@ END {
- 	next
- }
+-Sysreg	PMICNTR_EL0	3	3	9	4	0
+-Field	63:0	ICNT
+-EndSysreg
+-
+-Sysreg	PMICFILTR_EL0	3	3	9	6	0
+-Res0	63:59
+-Field	58	SYNC
+-Field	57:56	VS
+-Res0	55:32
+-Field	31	P
+-Field	30	U
+-Field	29	NSK
+-Field	28	NSU
+-Field	27	NSH
+-Field	26	M
+-Res0	25
+-Field	24	SH
+-Field	23	T
+-Field	22	RLK
+-Field	21	RLU
+-Field	20	RLH
+-Res0	19:16
+-Field	15:0	evtCount
+-EndSysreg
+-
+ Sysreg	PMSCR_EL1	3	0	9	9	0
+ Res0	63:8
+ Field	7:6	PCT
+@@ -2298,72 +2303,283 @@ Field	4	P
+ Field	3:0	ALIGN
+ EndSysreg
  
--/^EndSysreg/ && block_current() == "Sysreg" {
-+$1 == "EndSysreg" && block_current() == "Sysreg" {
-+	expect_fields(1)
- 	if (next_bit > 0)
- 		fatal("Unspecified bits in " reg)
+-Sysreg	PMUACR_EL1	3	0	9	14	4
+-Res0	63:33
+-Field	32	F0
+-Field	31	C
+-Field	30:0	P
++Sysreg	TRBLIMITR_EL1	3	0	9	11	0
++Field	63:12	LIMIT
++Res0	11:7
++Field	6	XE
++Field	5	nVM
++Enum	4:3	TM
++	0b00	STOP
++	0b01	IRQ
++	0b11	IGNR
++EndEnum
++Enum	2:1	FM
++	0b00	FILL
++	0b01	WRAP
++	0b11	CBUF
++EndEnum
++Field	0	E
+ EndSysreg
  
-@@ -206,7 +208,7 @@ END {
+-Sysreg	PMSELR_EL0	3	3	9	12	5
+-Res0	63:5
+-Field	4:0	SEL
++Sysreg	TRBPTR_EL1	3	0	9	11	1
++Field	63:0	PTR
+ EndSysreg
  
- # Currently this is effectivey a comment, in future we may want to emit
- # defines for the fields.
--(/^Fields/ || /^Mapping/) && block_current() == "Sysreg" {
-+($1 == "Fields" || $1 == "Mapping") && block_current() == "Sysreg" {
- 	expect_fields(2)
+-SysregFields	CONTEXTIDR_ELx
+-Res0	63:32
+-Field	31:0	PROCID
+-EndSysregFields
+-
+-Sysreg	CONTEXTIDR_EL1	3	0	13	0	1
+-Fields	CONTEXTIDR_ELx
++Sysreg	TRBBASER_EL1	3	0	9	11	2
++Field	63:12	BASE
++Res0	11:0
+ EndSysreg
  
- 	if (next_bit != 63)
-@@ -224,7 +226,7 @@ END {
- }
+-Sysreg	RCWSMASK_EL1	3	0	13	0	3
+-Field	63:0	RCWSMASK
++Sysreg	TRBSR_EL1	3	0	9	11	3
++Res0	63:56
++Field	55:32	MSS2
++Field	31:26	EC
++Res0	25:24
++Field	23	DAT
++Field	22	IRQ
++Field	21	TRG
++Field	20	WRAP
++Res0	19
++Field	18	EA
++Field	17	S
++Res0	16
++Field	15:0	MSS
+ EndSysreg
  
+-Sysreg	TPIDR_EL1	3	0	13	0	4
+-Field	63:0	ThreadID
++Sysreg	TRBMAR_EL1	3	0	9	11	4
++Res0	63:12
++Enum	11:10	PAS
++	0b00	SECURE
++	0b01	NON_SECURE
++	0b10	ROOT
++	0b11	REALM
++EndEnum
++Enum	9:8	SH
++	0b00	NON_SHAREABLE
++	0b10	OUTER_SHAREABLE
++	0b11	INNER_SHAREABLE
++EndEnum
++Field	7:0	Attr
+ EndSysreg
  
--/^Res0/ && (block_current() == "Sysreg" || block_current() == "SysregFields") {
-+$1 == "Res0" && (block_current() == "Sysreg" || block_current() == "SysregFields") {
- 	expect_fields(2)
- 	parse_bitdef(reg, "RES0", $2)
- 	field = "RES0_" msb "_" lsb
-@@ -234,7 +236,7 @@ END {
- 	next
- }
+-Sysreg	RCWMASK_EL1	3	0	13	0	6
+-Field	63:0	RCWMASK
++Sysreg	TRBTRG_EL1	3	0	9	11	6
++Res0	63:32
++Field	31:0	TRG
+ EndSysreg
  
--/^Res1/ && (block_current() == "Sysreg" || block_current() == "SysregFields") {
-+$1 == "Res1" && (block_current() == "Sysreg" || block_current() == "SysregFields") {
- 	expect_fields(2)
- 	parse_bitdef(reg, "RES1", $2)
- 	field = "RES1_" msb "_" lsb
-@@ -244,7 +246,7 @@ END {
- 	next
- }
+-Sysreg	SCXTNUM_EL1	3	0	13	0	7
+-Field	63:0	SoftwareContextNumber
++Sysreg	TRBIDR_EL1	3	0	9	11	7
++Res0	63:12
++Enum	11:8	EA
++	0b0000	NON_DESC
++	0b0001	IGNORE
++	0b0010	SERROR
++EndEnum
++Res0	7:6
++Field	5	F
++Field	4	P
++Field	3:0	Align
+ EndSysreg
  
--/^Unkn/ && (block_current() == "Sysreg" || block_current() == "SysregFields") {
-+$1 == "Unkn" && (block_current() == "Sysreg" || block_current() == "SysregFields") {
- 	expect_fields(2)
- 	parse_bitdef(reg, "UNKN", $2)
- 	field = "UNKN_" msb "_" lsb
-@@ -254,7 +256,7 @@ END {
- 	next
- }
+-# The bit layout for CCSIDR_EL1 depends on whether FEAT_CCIDX is implemented.
+-# The following is for case when FEAT_CCIDX is not implemented.
+-Sysreg	CCSIDR_EL1	3	1	0	0	0
+-Res0	63:32
+-Unkn	31:28
+-Field	27:13	NumSets
+-Field	12:3	Associativity
+-Field	2:0	LineSize
++Sysreg	PMUACR_EL1	3	0	9	14	4
++Res0	63:33
++Field	32	F0
++Field	31	C
++Field	30:0	P
+ EndSysreg
  
--/^Field/ && (block_current() == "Sysreg" || block_current() == "SysregFields") {
-+$1 == "Field" && (block_current() == "Sysreg" || block_current() == "SysregFields") {
- 	expect_fields(3)
- 	field = $3
- 	parse_bitdef(reg, field, $2)
-@@ -265,14 +267,14 @@ END {
- 	next
- }
+-Sysreg	CLIDR_EL1	3	1	0	0	1
+-Res0	63:47
+-Field	46:33	Ttypen
+-Field	32:30	ICB
+-Field	29:27	LoUU
+-Field	26:24	LoC
+-Field	23:21	LoUIS
+-Field	20:18	Ctype7
+-Field	17:15	Ctype6
+-Field	14:12	Ctype5
+-Field	11:9	Ctype4
+-Field	8:6	Ctype3
+-Field	5:3	Ctype2
+-Field	2:0	Ctype1
+-EndSysreg
++SysregFields MAIR2_ELx
++Field	63:56	Attr7
++Field	55:48	Attr6
++Field	47:40	Attr5
++Field	39:32	Attr4
++Field	31:24	Attr3
++Field	23:16	Attr2
++Field	15:8	Attr1
++Field	7:0	Attr0
++EndSysregFields
  
--/^Raz/ && (block_current() == "Sysreg" || block_current() == "SysregFields") {
-+$1 == "Raz" && (block_current() == "Sysreg" || block_current() == "SysregFields") {
- 	expect_fields(2)
- 	parse_bitdef(reg, field, $2)
+-Sysreg	CCSIDR2_EL1	3	1	0	0	2
+-Res0	63:24
+-Field	23:0	NumSets
++Sysreg	MAIR2_EL1	3	0	10	2	1
++Fields	MAIR2_ELx
++EndSysreg
++
++SysregFields PIRx_ELx
++Field	63:60	Perm15
++Field	59:56	Perm14
++Field	55:52	Perm13
++Field	51:48	Perm12
++Field	47:44	Perm11
++Field	43:40	Perm10
++Field	39:36	Perm9
++Field	35:32	Perm8
++Field	31:28	Perm7
++Field	27:24	Perm6
++Field	23:20	Perm5
++Field	19:16	Perm4
++Field	15:12	Perm3
++Field	11:8	Perm2
++Field	7:4	Perm1
++Field	3:0	Perm0
++EndSysregFields
++
++Sysreg	PIRE0_EL1	3	0	10	2	2
++Fields	PIRx_ELx
++EndSysreg
++
++Sysreg	PIR_EL1		3	0	10	2	3
++Fields	PIRx_ELx
++EndSysreg
++
++Sysreg	POR_EL1		3	0	10	2	4
++Fields	PIRx_ELx
++EndSysreg
++
++Sysreg	S2POR_EL1	3	0	10	2	5
++Fields	PIRx_ELx
++EndSysreg
++
++Sysreg	AMAIR2_EL1	3	0	10	3	1
++Field	63:0	ImpDef
++EndSysreg
++
++Sysreg	LORSA_EL1	3	0	10	4	0
++Res0	63:52
++Field	51:16	SA
++Res0	15:1
++Field	0	Valid
++EndSysreg
++
++Sysreg	LOREA_EL1	3	0	10	4	1
++Res0	63:52
++Field	51:48	EA_51_48
++Field	47:16	EA_47_16
++Res0	15:0
++EndSysreg
++
++Sysreg	LORN_EL1	3	0	10	4	2
++Res0	63:8
++Field	7:0	Num
++EndSysreg
++
++Sysreg	LORC_EL1	3	0	10	4	3
++Res0	63:10
++Field	9:2	DS
++Res0	1
++Field	0	EN
++EndSysreg
++
++Sysreg	MPAMIDR_EL1	3	0	10	4	4
++Res0	63:62
++Field	61	HAS_SDEFLT
++Field	60	HAS_FORCE_NS
++Field	59	SP4
++Field	58	HAS_TIDR
++Field	57	HAS_ALTSP
++Res0	56:40
++Field	39:32	PMG_MAX
++Res0	31:21
++Field	20:18	VPMR_MAX
++Field	17	HAS_HCR
++Res0	16
++Field	15:0	PARTID_MAX
++EndSysreg
++
++Sysreg	LORID_EL1	3	0	10	4	7
++Res0	63:24
++Field	23:16	LD
++Res0	15:8
++Field	7:0	LR
++EndSysreg
++
++Sysreg	MPAM1_EL1	3	0	10	5	0
++Field	63	MPAMEN
++Res0	62:61
++Field	60 FORCED_NS
++Res0	59:55
++Field	54	ALTSP_FRCD
++Res0	53:48
++Field	47:40	PMG_D
++Field	39:32	PMG_I
++Field	31:16	PARTID_D
++Field	15:0	PARTID_I
++EndSysreg
++
++Sysreg	MPAM0_EL1	3	0	10	5	1
++Res0	63:48
++Field	47:40	PMG_D
++Field	39:32	PMG_I
++Field	31:16	PARTID_D
++Field	15:0	PARTID_I
++EndSysreg
++
++Sysreg	ISR_EL1	3	0	12	1	0
++Res0	63:11
++Field	10	IS
++Field	9	FS
++Field	8	A
++Field	7	I
++Field	6	F
++Res0	5:0
++EndSysreg
++
++Sysreg	ICC_NMIAR1_EL1	3	0	12	9	5
++Res0	63:24
++Field	23:0	INTID
++EndSysreg
++
++SysregFields	CONTEXTIDR_ELx
++Res0	63:32
++Field	31:0	PROCID
++EndSysregFields
++
++Sysreg	CONTEXTIDR_EL1	3	0	13	0	1
++Fields	CONTEXTIDR_ELx
++EndSysreg
++
++Sysreg	RCWSMASK_EL1	3	0	13	0	3
++Field	63:0	RCWSMASK
++EndSysreg
++
++Sysreg	TPIDR_EL1	3	0	13	0	4
++Field	63:0	ThreadID
++EndSysreg
++
++Sysreg	RCWMASK_EL1	3	0	13	0	6
++Field	63:0	RCWMASK
++EndSysreg
++
++Sysreg	SCXTNUM_EL1	3	0	13	0	7
++Field	63:0	SoftwareContextNumber
++EndSysreg
++
++# The bit layout for CCSIDR_EL1 depends on whether FEAT_CCIDX is implemented.
++# The following is for case when FEAT_CCIDX is not implemented.
++Sysreg	CCSIDR_EL1	3	1	0	0	0
++Res0	63:32
++Unkn	31:28
++Field	27:13	NumSets
++Field	12:3	Associativity
++Field	2:0	LineSize
++EndSysreg
++
++Sysreg	CLIDR_EL1	3	1	0	0	1
++Res0	63:47
++Field	46:33	Ttypen
++Field	32:30	ICB
++Field	29:27	LoUU
++Field	26:24	LoC
++Field	23:21	LoUIS
++Field	20:18	Ctype7
++Field	17:15	Ctype6
++Field	14:12	Ctype5
++Field	11:9	Ctype4
++Field	8:6	Ctype3
++Field	5:3	Ctype2
++Field	2:0	Ctype1
++EndSysreg
++
++Sysreg	CCSIDR2_EL1	3	1	0	0	2
++Res0	63:24
++Field	23:0	NumSets
+ EndSysreg
  
- 	next
- }
+ Sysreg	GMID_EL1	3	1	0	0	4
+@@ -2448,6 +2664,40 @@ UnsignedEnum	2:0	F8S1
+ EndEnum
+ EndSysreg
  
--/^SignedEnum/ && (block_current() == "Sysreg" || block_current() == "SysregFields") {
-+$1 == "SignedEnum" && (block_current() == "Sysreg" || block_current() == "SysregFields") {
- 	block_push("Enum")
++Sysreg	PMICNTR_EL0	3	3	9	4	0
++Field	63:0	ICNT
++EndSysreg
++
++Sysreg	PMICFILTR_EL0	3	3	9	6	0
++Res0	63:59
++Field	58	SYNC
++Field	57:56	VS
++Res0	55:32
++Field	31	P
++Field	30	U
++Field	29	NSK
++Field	28	NSU
++Field	27	NSH
++Field	26	M
++Res0	25
++Field	24	SH
++Field	23	T
++Field	22	RLK
++Field	21	RLU
++Field	20	RLH
++Res0	19:16
++Field	15:0	evtCount
++EndSysreg
++
++Sysreg	PMSELR_EL0	3	3	9	12	5
++Res0	63:5
++Field	4:0	SEL
++EndSysreg
++
++Sysreg	POR_EL0		3	3	10	2	4
++Fields	PIRx_ELx
++EndSysreg
++
+ SysregFields	HFGxTR_EL2
+ Field	63	nAMAIR2_EL1
+ Field	62	nMAIR2_EL1
+@@ -2625,6 +2875,10 @@ Field	1	ICIALLU
+ Field	0	ICIALLUIS
+ EndSysreg
  
- 	expect_fields(3)
-@@ -285,7 +287,7 @@ END {
- 	next
- }
++Sysreg	ZCR_EL2	3	4	1	2	0
++Fields	ZCR_ELx
++EndSysreg
++
+ Sysreg TRFCR_EL2	3	4	1	2	1
+ Res0	63:7
+ UnsignedEnum	6:5	TS
+@@ -2640,18 +2894,114 @@ Field	1	E2TRE
+ Field	0	E0HTRE
+ EndSysreg
  
--/^UnsignedEnum/ && (block_current() == "Sysreg" || block_current() == "SysregFields") {
-+$1 == "UnsignedEnum" && (block_current() == "Sysreg" || block_current() == "SysregFields") {
- 	block_push("Enum")
++Sysreg	HCRX_EL2	3	4	1	2	2
++Res0	63:25
++Field	24	PACMEn
++Field	23	EnFPM
++Field	22	GCSEn
++Field	21	EnIDCP128
++Field	20	EnSDERR
++Field	19	TMEA
++Field	18	EnSNERR
++Field	17	D128En
++Field	16	PTTWI
++Field	15	SCTLR2En
++Field	14	TCR2En
++Res0	13:12
++Field	11	MSCEn
++Field	10	MCE2
++Field	9	CMOW
++Field	8	VFNMI
++Field	7	VINMI
++Field	6	TALLINT
++Field	5	SMPME
++Field	4	FGTnXS
++Field	3	FnXS
++Field	2	EnASR
++Field	1	EnALS
++Field	0	EnAS0
++EndSysreg
  
- 	expect_fields(3)
-@@ -298,7 +300,7 @@ END {
- 	next
- }
+-Sysreg HDFGRTR_EL2	3	4	3	1	4
+-Field	63	PMBIDR_EL1
+-Field	62	nPMSNEVFR_EL1
+-Field	61	nBRBDATA
+-Field	60	nBRBCTL
+-Field	59	nBRBIDR
+-Field	58	PMCEIDn_EL0
+-Field	57	PMUSERENR_EL0
+-Field	56	TRBTRG_EL1
+-Field	55	TRBSR_EL1
+-Field	54	TRBPTR_EL1
++Sysreg	SMPRIMAP_EL2	3	4	1	2	5
++Field	63:60	P15
++Field	59:56	P14
++Field	55:52	P13
++Field	51:48	P12
++Field	47:44	P11
++Field	43:40	P10
++Field	39:36	F9
++Field	35:32	P8
++Field	31:28	P7
++Field	27:24	P6
++Field	23:20	P5
++Field	19:16	P4
++Field	15:12	P3
++Field	11:8	P2
++Field	7:4	P1
++Field	3:0	P0
++EndSysreg
++
++Sysreg	SMCR_EL2	3	4	1	2	6
++Fields	SMCR_ELx
++EndSysreg
++
++Sysreg	TCR2_EL2	3	4	2	0	3
++Res0	63:16
++Field	15	DisCH1
++Field	14	DisCH0
++Field	13	AMEC1
++Field	12	AMEC0
++Field	11	HAFT
++Field	10	PTTWI
++Res0	9:6
++Field	5	D128
++Field	4	AIE
++Field	3	POE
++Field	2	E0POE
++Field	1	PIE
++Field	0	PnCH
++EndSysreg
++
++Sysreg	GCSCR_EL2	3	4	2	5	0
++Fields	GCSCR_ELx
++EndSysreg
++
++Sysreg	GCSPR_EL2	3	4	2	5	1
++Fields	GCSPR_ELx
++EndSysreg
++
++Sysreg	DACR32_EL2	3	4	3	0	0
++Res0	63:32
++Field	31:30	D15
++Field	29:28	D14
++Field	27:26	D13
++Field	25:24	D12
++Field	23:22	D11
++Field	21:20	D10
++Field	19:18	D9
++Field	17:16	D8
++Field	15:14	D7
++Field	13:12	D6
++Field	11:10	D5
++Field	9:8	D4
++Field	7:6	D3
++Field	5:4	D2
++Field	3:2	D1
++Field	1:0	D0
++EndSysreg
++
++
++Sysreg HDFGRTR_EL2	3	4	3	1	4
++Field	63	PMBIDR_EL1
++Field	62	nPMSNEVFR_EL1
++Field	61	nBRBDATA
++Field	60	nBRBCTL
++Field	59	nBRBIDR
++Field	58	PMCEIDn_EL0
++Field	57	PMUSERENR_EL0
++Field	56	TRBTRG_EL1
++Field	55	TRBSR_EL1
++Field	54	TRBPTR_EL1
+ Field	53	TRBMAR_EL1
+ Field	52	TRBLIMITR_EL1
+ Field	51	TRBIDR_EL1
+@@ -2813,89 +3163,6 @@ Field	1	AMEVCNTR00_EL0
+ Field	0	AMCNTEN0
+ EndSysreg
  
--/^Enum/ && (block_current() == "Sysreg" || block_current() == "SysregFields") {
-+$1 == "Enum" && (block_current() == "Sysreg" || block_current() == "SysregFields") {
- 	block_push("Enum")
+-Sysreg	ZCR_EL2	3	4	1	2	0
+-Fields	ZCR_ELx
+-EndSysreg
+-
+-Sysreg	HCRX_EL2	3	4	1	2	2
+-Res0	63:25
+-Field	24	PACMEn
+-Field	23	EnFPM
+-Field	22	GCSEn
+-Field	21	EnIDCP128
+-Field	20	EnSDERR
+-Field	19	TMEA
+-Field	18	EnSNERR
+-Field	17	D128En
+-Field	16	PTTWI
+-Field	15	SCTLR2En
+-Field	14	TCR2En
+-Res0	13:12
+-Field	11	MSCEn
+-Field	10	MCE2
+-Field	9	CMOW
+-Field	8	VFNMI
+-Field	7	VINMI
+-Field	6	TALLINT
+-Field	5	SMPME
+-Field	4	FGTnXS
+-Field	3	FnXS
+-Field	2	EnASR
+-Field	1	EnALS
+-Field	0	EnAS0
+-EndSysreg
+-
+-Sysreg	SMPRIMAP_EL2	3	4	1	2	5
+-Field	63:60	P15
+-Field	59:56	P14
+-Field	55:52	P13
+-Field	51:48	P12
+-Field	47:44	P11
+-Field	43:40	P10
+-Field	39:36	F9
+-Field	35:32	P8
+-Field	31:28	P7
+-Field	27:24	P6
+-Field	23:20	P5
+-Field	19:16	P4
+-Field	15:12	P3
+-Field	11:8	P2
+-Field	7:4	P1
+-Field	3:0	P0
+-EndSysreg
+-
+-Sysreg	SMCR_EL2	3	4	1	2	6
+-Fields	SMCR_ELx
+-EndSysreg
+-
+-Sysreg	GCSCR_EL2	3	4	2	5	0
+-Fields	GCSCR_ELx
+-EndSysreg
+-
+-Sysreg	GCSPR_EL2	3	4	2	5	1
+-Fields	GCSPR_ELx
+-EndSysreg
+-
+-Sysreg	DACR32_EL2	3	4	3	0	0
+-Res0	63:32
+-Field	31:30	D15
+-Field	29:28	D14
+-Field	27:26	D13
+-Field	25:24	D12
+-Field	23:22	D11
+-Field	21:20	D10
+-Field	19:18	D9
+-Field	17:16	D8
+-Field	15:14	D7
+-Field	13:12	D6
+-Field	11:10	D5
+-Field	9:8	D4
+-Field	7:6	D3
+-Field	5:4	D2
+-Field	3:2	D1
+-Field	1:0	D0
+-EndSysreg
+-
+ Sysreg	FAR_EL2	3	4	6	0	0
+ Field	63:0	ADDR
+ EndSysreg
+@@ -2915,6 +3182,30 @@ Field	1	E2SPE
+ Field	0	E0HSPE
+ EndSysreg
  
- 	expect_fields(3)
-@@ -310,7 +312,8 @@ END {
- 	next
- }
++Sysreg	MAIR2_EL2	3	4	10	1	1
++Fields	MAIR2_ELx
++EndSysreg
++
++Sysreg	PIRE0_EL2	3	4	10	2	2
++Fields	PIRx_ELx
++EndSysreg
++
++Sysreg	PIR_EL2		3	4	10	2	3
++Fields	PIRx_ELx
++EndSysreg
++
++Sysreg	POR_EL2		3	4	10	2	4
++Fields	PIRx_ELx
++EndSysreg
++
++Sysreg	S2PIR_EL2	3	4	10	2	5
++Fields	PIRx_ELx
++EndSysreg
++
++Sysreg	AMAIR2_EL2	3	4	10	3	1
++Field	63:0	ImpDef
++EndSysreg
++
+ Sysreg	MPAMHCR_EL2	3	4	10	4	0
+ Res0	63:32
+ Field	31	TRAP_MPAMIDR_EL1
+@@ -3059,6 +3350,10 @@ Sysreg	SMCR_EL12	3	5	1	2	6
+ Mapping	SMCR_EL1
+ EndSysreg
  
--/^EndEnum/ && block_current() == "Enum" {
-+$1 == "EndEnum" && block_current() == "Enum" {
-+	expect_fields(1)
++Sysreg	TCR2_EL12	3	5	2	0	3
++Mapping	TCR2_EL1
++EndSysreg
++
+ Sysreg	GCSCR_EL12	3	5	2	5	0
+ Mapping	GCSCR_EL1
+ EndSysreg
+@@ -3071,317 +3366,22 @@ Sysreg	FAR_EL12	3	5	6	0	0
+ Field	63:0	ADDR
+ EndSysreg
  
- 	field = null
- 	msb = null
+-Sysreg	MPAM1_EL12	3	5	10	5	0
+-Fields	MPAM1_ELx
+-EndSysreg
+-
+-Sysreg	CONTEXTIDR_EL12	3	5	13	0	1
+-Mapping	CONTEXTIDR_EL1
+-EndSysreg
+-
+-SysregFields TTBRx_EL1
+-Field	63:48	ASID
+-Field	47:1	BADDR
+-Field	0	CnP
+-EndSysregFields
+-
+-Sysreg	TTBR0_EL1	3	0	2	0	0
+-Fields	TTBRx_EL1
+-EndSysreg
+-
+-Sysreg	TTBR1_EL1	3	0	2	0	1
+-Fields	TTBRx_EL1
+-EndSysreg
+-
+-Sysreg	TCR2_EL1	3	0	2	0	3
+-Res0	63:16
+-Field	15	DisCH1
+-Field	14	DisCH0
+-Res0	13:12
+-Field	11	HAFT
+-Field	10	PTTWI
+-Res0	9:6
+-Field	5	D128
+-Field	4	AIE
+-Field	3	POE
+-Field	2	E0POE
+-Field	1	PIE
+-Field	0	PnCH
+-EndSysreg
+-
+-Sysreg	TCR2_EL12	3	5	2	0	3
+-Mapping	TCR2_EL1
+-EndSysreg
+-
+-Sysreg	TCR2_EL2	3	4	2	0	3
+-Res0	63:16
+-Field	15	DisCH1
+-Field	14	DisCH0
+-Field	13	AMEC1
+-Field	12	AMEC0
+-Field	11	HAFT
+-Field	10	PTTWI
+-Res0	9:6
+-Field	5	D128
+-Field	4	AIE
+-Field	3	POE
+-Field	2	E0POE
+-Field	1	PIE
+-Field	0	PnCH
+-EndSysreg
+-
+-SysregFields MAIR2_ELx
+-Field	63:56	Attr7
+-Field	55:48	Attr6
+-Field	47:40	Attr5
+-Field	39:32	Attr4
+-Field	31:24	Attr3
+-Field	23:16	Attr2
+-Field	15:8	Attr1
+-Field	7:0	Attr0
+-EndSysregFields
+-
+-Sysreg	MAIR2_EL1	3	0	10	2	1
+-Fields	MAIR2_ELx
+-EndSysreg
+-
+-Sysreg	MAIR2_EL2	3	4	10	1	1
+-Fields	MAIR2_ELx
+-EndSysreg
+-
+-Sysreg	AMAIR2_EL1	3	0	10	3	1
+-Field	63:0	ImpDef
+-EndSysreg
+-
+-Sysreg	AMAIR2_EL2	3	4	10	3	1
+-Field	63:0	ImpDef
+-EndSysreg
+-
+-SysregFields PIRx_ELx
+-Field	63:60	Perm15
+-Field	59:56	Perm14
+-Field	55:52	Perm13
+-Field	51:48	Perm12
+-Field	47:44	Perm11
+-Field	43:40	Perm10
+-Field	39:36	Perm9
+-Field	35:32	Perm8
+-Field	31:28	Perm7
+-Field	27:24	Perm6
+-Field	23:20	Perm5
+-Field	19:16	Perm4
+-Field	15:12	Perm3
+-Field	11:8	Perm2
+-Field	7:4	Perm1
+-Field	3:0	Perm0
+-EndSysregFields
+-
+-Sysreg	PIRE0_EL1	3	0	10	2	2
+-Fields	PIRx_ELx
+-EndSysreg
+-
+ Sysreg	PIRE0_EL12	3	5	10	2	2
+ Mapping	PIRE0_EL1
+ EndSysreg
+ 
+-Sysreg	PIRE0_EL2	3	4	10	2	2
+-Fields	PIRx_ELx
+-EndSysreg
+-
+-Sysreg	PIR_EL1		3	0	10	2	3
+-Fields	PIRx_ELx
+-EndSysreg
+-
+ Sysreg	PIR_EL12	3	5	10	2	3
+ Mapping	PIR_EL1
+ EndSysreg
+ 
+-Sysreg	PIR_EL2		3	4	10	2	3
+-Fields	PIRx_ELx
+-EndSysreg
+-
+-Sysreg	POR_EL0		3	3	10	2	4
+-Fields	PIRx_ELx
+-EndSysreg
+-
+-Sysreg	POR_EL1		3	0	10	2	4
+-Fields	PIRx_ELx
+-EndSysreg
+-
+-Sysreg	POR_EL2		3	4	10	2	4
+-Fields	PIRx_ELx
+-EndSysreg
+-
+ Sysreg	POR_EL12	3	5	10	2	4
+ Mapping	POR_EL1
+ EndSysreg
+ 
+-Sysreg	S2POR_EL1	3	0	10	2	5
+-Fields	PIRx_ELx
+-EndSysreg
+-
+-Sysreg	S2PIR_EL2	3	4	10	2	5
+-Fields	PIRx_ELx
+-EndSysreg
+-
+-Sysreg	LORSA_EL1	3	0	10	4	0
+-Res0	63:52
+-Field	51:16	SA
+-Res0	15:1
+-Field	0	Valid
+-EndSysreg
+-
+-Sysreg	LOREA_EL1	3	0	10	4	1
+-Res0	63:52
+-Field	51:48	EA_51_48
+-Field	47:16	EA_47_16
+-Res0	15:0
+-EndSysreg
+-
+-Sysreg	LORN_EL1	3	0	10	4	2
+-Res0	63:8
+-Field	7:0	Num
+-EndSysreg
+-
+-Sysreg	LORC_EL1	3	0	10	4	3
+-Res0	63:10
+-Field	9:2	DS
+-Res0	1
+-Field	0	EN
+-EndSysreg
+-
+-Sysreg	MPAMIDR_EL1	3	0	10	4	4
+-Res0	63:62
+-Field	61	HAS_SDEFLT
+-Field	60	HAS_FORCE_NS
+-Field	59	SP4
+-Field	58	HAS_TIDR
+-Field	57	HAS_ALTSP
+-Res0	56:40
+-Field	39:32	PMG_MAX
+-Res0	31:21
+-Field	20:18	VPMR_MAX
+-Field	17	HAS_HCR
+-Res0	16
+-Field	15:0	PARTID_MAX
+-EndSysreg
+-
+-Sysreg	LORID_EL1	3	0	10	4	7
+-Res0	63:24
+-Field	23:16	LD
+-Res0	15:8
+-Field	7:0	LR
+-EndSysreg
+-
+-Sysreg	MPAM1_EL1	3	0	10	5	0
+-Field	63	MPAMEN
+-Res0	62:61
+-Field	60 FORCED_NS
+-Res0	59:55
+-Field	54	ALTSP_FRCD
+-Res0	53:48
+-Field	47:40	PMG_D
+-Field	39:32	PMG_I
+-Field	31:16	PARTID_D
+-Field	15:0	PARTID_I
+-EndSysreg
+-
+-Sysreg	MPAM0_EL1	3	0	10	5	1
+-Res0	63:48
+-Field	47:40	PMG_D
+-Field	39:32	PMG_I
+-Field	31:16	PARTID_D
+-Field	15:0	PARTID_I
+-EndSysreg
+-
+-Sysreg	ISR_EL1	3	0	12	1	0
+-Res0	63:11
+-Field	10	IS
+-Field	9	FS
+-Field	8	A
+-Field	7	I
+-Field	6	F
+-Res0	5:0
+-EndSysreg
+-
+-Sysreg	ICC_NMIAR1_EL1	3	0	12	9	5
+-Res0	63:24
+-Field	23:0	INTID
+-EndSysreg
+-
+-Sysreg	TRBLIMITR_EL1	3	0	9	11	0
+-Field	63:12	LIMIT
+-Res0	11:7
+-Field	6	XE
+-Field	5	nVM
+-Enum	4:3	TM
+-	0b00	STOP
+-	0b01	IRQ
+-	0b11	IGNR
+-EndEnum
+-Enum	2:1	FM
+-	0b00	FILL
+-	0b01	WRAP
+-	0b11	CBUF
+-EndEnum
+-Field	0	E
+-EndSysreg
+-
+-Sysreg	TRBPTR_EL1	3	0	9	11	1
+-Field	63:0	PTR
+-EndSysreg
+-
+-Sysreg	TRBBASER_EL1	3	0	9	11	2
+-Field	63:12	BASE
+-Res0	11:0
+-EndSysreg
+-
+-Sysreg	TRBSR_EL1	3	0	9	11	3
+-Res0	63:56
+-Field	55:32	MSS2
+-Field	31:26	EC
+-Res0	25:24
+-Field	23	DAT
+-Field	22	IRQ
+-Field	21	TRG
+-Field	20	WRAP
+-Res0	19
+-Field	18	EA
+-Field	17	S
+-Res0	16
+-Field	15:0	MSS
+-EndSysreg
+-
+-Sysreg	TRBMAR_EL1	3	0	9	11	4
+-Res0	63:12
+-Enum	11:10	PAS
+-	0b00	SECURE
+-	0b01	NON_SECURE
+-	0b10	ROOT
+-	0b11	REALM
+-EndEnum
+-Enum	9:8	SH
+-	0b00	NON_SHAREABLE
+-	0b10	OUTER_SHAREABLE
+-	0b11	INNER_SHAREABLE
+-EndEnum
+-Field	7:0	Attr
+-EndSysreg
+-
+-Sysreg	TRBTRG_EL1	3	0	9	11	6
+-Res0	63:32
+-Field	31:0	TRG
++Sysreg	MPAM1_EL12	3	5	10	5	0
++Fields	MPAM1_ELx
+ EndSysreg
+ 
+-Sysreg	TRBIDR_EL1	3	0	9	11	7
+-Res0	63:12
+-Enum	11:8	EA
+-	0b0000	NON_DESC
+-	0b0001	IGNORE
+-	0b0010	SERROR
+-EndEnum
+-Res0	7:6
+-Field	5	F
+-Field	4	P
+-Field	3:0	Align
++Sysreg	CONTEXTIDR_EL12	3	5	13	0	1
++Mapping	CONTEXTIDR_EL1
+ EndSysreg
 -- 
 2.34.1
 
