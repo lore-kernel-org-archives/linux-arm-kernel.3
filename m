@@ -4,52 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C568BC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 17:04:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94E98C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 17:06:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zUrFIh4qB3rck4ItuBzZG7I7WaPpmbgHQAFBRILUF/Q=; b=UOMNHFKvyF1a8TJc+XryEfpp6j
-	fcSJAvhNH0ZitBAmZCmtcTDHb5ckCSDH4cGqQNcrxuq7Ke3YiPBOlhnF4AHulVzQhnC479iD29yuS
-	i11uJpsKqIglfXEYgTvOW/hGbEMdxAODSGqT30u1pB5KC1XcEWP6TwBxVStt2Ycaug93E0kz8/q7k
-	86JI/2+g50Pfdjh9viv6Sg+SR9uVICGDTli9NOhdBxcJctem2N+C7/eurImWyPQq1PktFCofAIuRC
-	4CLXLHbOtviDZ8rSTCFqgekzba6LI0giGB2Q3hpZytcJyBH7OMw/Tn1vcM3bBmCQH3+VBn7H1Pfcf
-	xBVqDKqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kVYiiUSBFVxJv3jcKfITgrG3WpKoAvNGRjJXqVjjOH8=; b=308d4sPPCEUnn4i9ZKouSvHzhN
+	lbwxc5+o6HoGwCgCrsT+SWMxvicF0kkyRy6b2Kl10XQmwGUshaMpJGVERGqy/hz8a7eMD89z1sXyC
+	VC5HUWDmFx5Nm1m3Uw4zOaL4EP/FdN/7Zd0nxrDB14Cb4DsoJdKftB9eaMfAKtbqVWCrj5m3cyd4f
+	3jpH/sQogW1d8BAD4OmNChICw4Z/iQrF4AR53yQr2Ip6ze8LE8qfS6EnLnX+YfrKTu1+oCL56l62b
+	56+eBWelZrxbDJgueKN25G3FzRqe8IISLZFA44eAMBmQ0M6/CBZEpQzI+287FMpcTsFzBWu0rSrcl
+	ZK3i7Hng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY6oL-0000000CXAv-0obW;
-	Wed, 15 Jan 2025 17:04:09 +0000
+	id 1tY6qQ-0000000CXW3-3fxE;
+	Wed, 15 Jan 2025 17:06:18 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY6n2-0000000CX1o-3r2V
+	id 1tY6p8-0000000CXIa-1PID
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 17:02:49 +0000
-Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	Wed, 15 Jan 2025 17:04:59 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
 	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tY6n1-0006zS-JN; Wed, 15 Jan 2025 18:02:47 +0100
+	id 1tY6p5-0007Nq-0n; Wed, 15 Jan 2025 18:04:55 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tY6p4-000770-23;
+	Wed, 15 Jan 2025 18:04:54 +0100
+Received: from pza by lupine with local (Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tY6p4-000OaN-1o;
+	Wed, 15 Jan 2025 18:04:54 +0100
+Message-ID: <d369dbc38c38a7cb5b2ae2af4aeb8470250c9c77.camel@pengutronix.de>
+Subject: Re: [GIT PULL] Reset controller updates for v6.14
 From: Philipp Zabel <p.zabel@pengutronix.de>
-To: soc@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	kernel@pengutronix.de,
-	Philipp Zabel <p.zabel@pengutronix.de>
-Subject: [GIT PULL] Reset controller updates for v6.14 (v2)
-Date: Wed, 15 Jan 2025 18:02:47 +0100
-Message-Id: <20250115170247.1303656-1-p.zabel@pengutronix.de>
-X-Mailer: git-send-email 2.39.5
+To: Arnd Bergmann <arnd@arndb.de>, soc@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, Pengutronix Kernel Team
+	 <kernel@pengutronix.de>, Jerome Brunet <jbrunet@baylibre.com>
+Date: Wed, 15 Jan 2025 18:04:54 +0100
+In-Reply-To: <d265b2ad8d04c8e37b6fae2a312d0d1c9a3366a9.camel@pengutronix.de>
+References: <20250113163648.1757178-1-p.zabel@pengutronix.de>
+	 <d0e58f29-4e12-445f-b110-49dfbacf5b74@app.fastmail.com>
+	 <d265b2ad8d04c8e37b6fae2a312d0d1c9a3366a9.camel@pengutronix.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::54
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
 X-SA-Exim-Mail-From: p.zabel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_090248_956603_7700AB4C 
-X-CRM114-Status: UNSURE (   7.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250115_090458_372347_ADAD8312 
+X-CRM114-Status: GOOD (  18.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,39 +78,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear arm-soc maintainers,
+On Mi, 2025-01-15 at 17:58 +0100, Philipp Zabel wrote:
+> Hi Arnd,
+>=20
+> On Mi, 2025-01-15 at 17:13 +0100, Arnd Bergmann wrote:
+> > On Mon, Jan 13, 2025, at 17:36, Philipp Zabel wrote:
+> > > Dear arm-soc maintainers,
+> > >=20
+> > > The following changes since commit 78d4f34e2115b517bcbfe7ec0d018bbbb6=
+f9b0b8:
+> > >=20
+> > >   Linux 6.13-rc3 (2024-12-15 15:58:23 -0800)
+> > >=20
+> > > are available in the Git repository at:
+> >=20
+> > Hi Philipp,
+> >=20
+> > I have no objections to the contents, but it would be good to
+> > avoid the back-merge of rc3 into my current branch that
+> > is based on -rc2.
+> >=20
+> > I see that the two patches for the reset driver depend on
+> > commit 5ae1a43486fb ("clk: amlogic: axg-audio: revert reset
+> > implementation"), which went into rc3, and this was clearly
+> > the reason for using that as the base.
+> >=20
+> > Would it be possible to rebase your branch directly on that
+> > 5ae1a43486fb commit from upstream?
+>=20
+> I've rebased=C2=A0and sent a PR for a new tag reset-fixes-for-v6.13-2.
 
-The following changes since commit 5ae1a43486fb3febd5ce78da13eb354f16d049e0:
+Sorry, it's late. Same for reset-for-v6.14-2 instead.
 
-  clk: amlogic: axg-audio: revert reset implementation (2024-12-02 17:21:03 -0800)
-
-are available in the Git repository at:
-
-  git://git.pengutronix.de/pza/linux.git tags/reset-for-v6.14-2
-
-for you to fetch changes up to 72bb8275a3b0784a817e0371c49c0110d68bb7fb:
-
-  reset: amlogic: aux: drop aux registration helper (2025-01-15 17:59:31 +0100)
-
-----------------------------------------------------------------
-Reset controller updates for v6.14 (v2)
-
-* Add support for A1 SoC in amlogic reset driver.
-* Drop aux registration helper from amlogic reset driver.
-
-----------------------------------------------------------------
-Jan Dakinevich (2):
-      dt-bindings: reset: add bindings for A1 SoC audio reset controller
-      reset: amlogic: add support for A1 SoC in auxiliary reset driver
-
-Jerome Brunet (2):
-      reset: amlogic: aux: get regmap through parent device
-      reset: amlogic: aux: drop aux registration helper
-
- drivers/reset/amlogic/reset-meson-aux.c            | 97 +++++-----------------
- .../reset/amlogic,meson-a1-audio-reset.h           | 36 ++++++++
- include/soc/amlogic/reset-meson-aux.h              | 23 -----
- 3 files changed, 57 insertions(+), 99 deletions(-)
- create mode 100644 include/dt-bindings/reset/amlogic,meson-a1-audio-reset.h
- delete mode 100644 include/soc/amlogic/reset-meson-aux.h
+regards
+Philipp
 
