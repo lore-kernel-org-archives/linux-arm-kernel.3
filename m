@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAA08C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 00:59:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 591EAE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 01:00:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aRF9rZSTdHM5OGWpBWd+/1CPUKTpvVfF1qITQHrszBk=; b=ZlPHRyvnnhXZiI1y8t0LUGOeLq
-	MBafq825VeNx+mzcSDgWa0j60kdrXO4DOcoviYykFl+xr7FjHy2CXZHz3U50zsjeWgHWW4xb0iOnh
-	Fyl/YGGleeAUTv3kuK0cvyPGBa80CwNrbqh2rNB5AKE7k/rr+tu18Uip75UYThA5KwVYZsW2jsmfa
-	fJq1pwonLjdz4JFZZMrlxRwCQ9MwsZ9B9qFjHhmdQ16e9FizX+kSpuT2kUl7U4wG+XYiTy8Z8vIkT
-	n86DabOVMgduvK5g3uJl+Q4ARWJMSdPQioVhUzosM2oX+m3ETk7oV4zcUkt2ucaxZdAdYerJwzVbe
-	1t0oUcjA==;
+	bh=6lgQGG/R5hjMl/ZKQkzNlORM+4weN/hrL2R2yFWaPFE=; b=lqA4qI/mv7vQNu3fIhe/MVXFi7
+	xk0OqqbDFJg22qTFaKnvXN7waQHcsnfGBtLxxFrijgR0X9AqjbWdOqz+3a1e+TsfXnbvuzCb1csEB
+	KjaNbK/KZbPiWR0+CHc5g/8gqeVuWEqB8/J2U8QOuZyRZdSiW2Amgo6z0C3Nieqs5WKzRZjIzXu3w
+	6IA91kZ/Dc35pkkEuaGeybgaVFaIfhKe0OOkxrOh+fZIOHaCT3ul0o2QSrqdCh3YIC7FPfv9OlMBc
+	o1dhZJw7hT/6kQGnRwOIBV/kCRaEp5EjMPTdIFoHtUat25i0sAdi4wLY58ITNydgzt4GqwKaJhLD3
+	bHIc96ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXrkB-0000000AFWk-01Fy;
-	Wed, 15 Jan 2025 00:58:51 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tXrlP-0000000AFhu-2CKx;
+	Wed, 15 Jan 2025 01:00:07 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXriv-0000000AFE3-10o8;
-	Wed, 15 Jan 2025 00:57:34 +0000
+	id 1tXriw-0000000AFEM-2cRx;
+	Wed, 15 Jan 2025 00:57:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B7DE65C4877;
-	Wed, 15 Jan 2025 00:56:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9063C4CEDD;
-	Wed, 15 Jan 2025 00:57:31 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 18C675C5705;
+	Wed, 15 Jan 2025 00:56:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64D69C4CEDD;
+	Wed, 15 Jan 2025 00:57:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736902652;
-	bh=KGGNDzoaWvSUYYvzmYVu6FGehnU8B6otZzhgT9PcGl0=;
+	s=k20201202; t=1736902653;
+	bh=E5F1TruT3qFWIpE0gZRapnmjQqlLtDzwzVIONB+NJTE=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=dfybK6JS3Et6WBGW9KdBFspT/KTVKi3djXQeQQ+vCsdquH0oxKA8TAiL2RBIHBQy3
-	 qmvwqwUtlrFqOqAZDdiPT08X8XYi1ie6B4A7FIYnMtKbn66rkP4YHX3YrZuBmpTwyW
-	 kvsPO6uwsv8Z6jpY2ht9krItPCPlEyVN2TaI0fTtoUtwKXGnZ0fXTP8dMxFQgZxigQ
-	 09hHjXAJqFq/BF4e/FVLDH8UXVwJwOVHlMgiMFPsTr+YPtae310NzwKabz2CeZyAoF
-	 Bd+CQUnkbufQIIAnLutb7IzJOpl4UK04alZfDJlsCw0seeI1zn2TfhBlDGH+CDEXu1
-	 9Pi4ObO/0FpRw==
-Date: Tue, 14 Jan 2025 18:57:31 -0600
+	b=E8ZC0HYh+oK/S/g901Rmeb7kofhXSeYcTgsyYLyVs01V883b8eg+oCadnzsZvyeHp
+	 BBbx2G2QIX9txI1ZtB+hGYcFwvr/WDeGaNyPWrvJyOOo/YH2pRBGt43opN+oZ8yq1U
+	 qwx2J0scKU3mRlexxp5YzcFLMdMW5EtJKiVAc1ZM8kXrKNOeFmm7A4uGUgIobo4SZX
+	 ikraH3oUGbksFIpGx2qcBZ8cX59cEqLtYtIR2r/FABlpSbkEp1WBX0B/MjAEi6snUx
+	 YJv4kW7KwjO99j2P0HfBeK9q6LRNZU0Y/NJRo/nc2CXdPxEFtRIYEVHwcSTQoQUFHx
+	 fWa8rEKKXtaog==
+Date: Tue, 14 Jan 2025 18:57:32 -0600
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- linux-arm-kernel@lists.infradead.org, Anup Patel <anup@brainfault.org>, 
- Will Deacon <will@kernel.org>, weilin.wang@intel.com, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, kvm-riscv@lists.infradead.org, 
+Cc: Palmer Dabbelt <palmer@sifive.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Peter Zijlstra <peterz@infradead.org>, Will Deacon <will@kernel.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>, 
+ linux-riscv@lists.infradead.org, Atish Patra <atishp@atishpatra.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup@brainfault.org>, 
+ Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org, 
+ Ingo Molnar <mingo@redhat.com>, kvm-riscv@lists.infradead.org, 
+ linux-perf-users@vger.kernel.org, weilin.wang@intel.com, 
+ Conor Dooley <conor@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
  Arnaldo Carvalho de Melo <acme@kernel.org>, kvm@vger.kernel.org, 
- Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
- Conor Dooley <conor@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ linux-arm-kernel@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>, 
  Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, 
- Namhyung Kim <namhyung@kernel.org>, Palmer Dabbelt <palmer@sifive.com>, 
- linux-perf-users@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>, 
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
- Ingo Molnar <mingo@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Ian Rogers <irogers@google.com>
+ linux-kernel@vger.kernel.org
 To: Atish Patra <atishp@rivosinc.com>
-In-Reply-To: <20250114-counter_delegation-v2-4-8ba74cdb851b@rivosinc.com>
+In-Reply-To: <20250114-counter_delegation-v2-8-8ba74cdb851b@rivosinc.com>
 References: <20250114-counter_delegation-v2-0-8ba74cdb851b@rivosinc.com>
- <20250114-counter_delegation-v2-4-8ba74cdb851b@rivosinc.com>
-Message-Id: <173690237126.2063459.986002304235117552.robh@kernel.org>
-Subject: Re: [PATCH v2 04/21] dt-bindings: riscv: add Sxcsrind ISA
- extension description
+ <20250114-counter_delegation-v2-8-8ba74cdb851b@rivosinc.com>
+Message-Id: <173690251211.2066548.13200770896119335906.robh@kernel.org>
+Subject: Re: [PATCH v2 08/21] dt-bindings: riscv: add Ssccfg ISA extension
+ description
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_165733_373910_4DF85801 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20250114_165734_705484_E4AA1EC5 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,61 +86,27 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 14 Jan 2025 14:57:29 -0800, Atish Patra wrote:
-> Add the S[m|s]csrind ISA extension description.
+On Tue, 14 Jan 2025 14:57:33 -0800, Atish Patra wrote:
+> Add description for the Ssccfg extension.
 > 
 > Signed-off-by: Atish Patra <atishp@rivosinc.com>
 > ---
->  Documentation/devicetree/bindings/riscv/extensions.yaml | 14 ++++++++++++++
->  1 file changed, 14 insertions(+)
+>  Documentation/devicetree/bindings/riscv/extensions.yaml | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
 > 
 
 My bot found errors running 'make dt_binding_check' on your patch:
 
 yamllint warnings/errors:
-./Documentation/devicetree/bindings/riscv/extensions.yaml:149:1: [error] syntax error: found character '\t' that cannot start any token (syntax)
+./Documentation/devicetree/bindings/riscv/extensions.yaml:131:1: [error] syntax error: found character '\t' that cannot start any token (syntax)
 
 dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/riscv/extensions.yaml: ignoring, error parsing file
-./Documentation/devicetree/bindings/riscv/extensions.yaml:149:1: found character '\t' that cannot start any token
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpu/idle-states.example.dtb: cpu@0: False schema does not allow {'device_type': ['cpu'], 'compatible': ['riscv'], 'reg': [[0]], 'riscv,isa': ['rv64imafdc'], 'mmu-type': ['riscv,sv48'], 'cpu-idle-states': [[13], [14], [15], [16]], 'interrupt-controller': {'#interrupt-cells': 1, 'compatible': ['riscv,cpu-intc'], 'interrupt-controller': True}, '$nodename': ['cpu@0']}
-	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpu/idle-states.example.dtb: cpu@0: Unevaluated properties are not allowed ('riscv,isa' was unexpected)
-	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpu/idle-states.example.dtb: cpu@1: False schema does not allow {'device_type': ['cpu'], 'compatible': ['riscv'], 'reg': [[1]], 'riscv,isa': ['rv64imafdc'], 'mmu-type': ['riscv,sv48'], 'cpu-idle-states': [[13], [14], [15], [16]], 'interrupt-controller': {'#interrupt-cells': 1, 'compatible': ['riscv,cpu-intc'], 'interrupt-controller': True}, '$nodename': ['cpu@1']}
-	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpu/idle-states.example.dtb: cpu@1: Unevaluated properties are not allowed ('riscv,isa' was unexpected)
-	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpu/idle-states.example.dtb: cpu@10: False schema does not allow {'device_type': ['cpu'], 'compatible': ['riscv'], 'reg': [[16]], 'riscv,isa': ['rv64imafdc'], 'mmu-type': ['riscv,sv48'], 'cpu-idle-states': [[17], [18], [19], [20]], 'interrupt-controller': {'#interrupt-cells': 1, 'compatible': ['riscv,cpu-intc'], 'interrupt-controller': True}, '$nodename': ['cpu@10']}
-	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpu/idle-states.example.dtb: cpu@10: Unevaluated properties are not allowed ('riscv,isa' was unexpected)
-	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpu/idle-states.example.dtb: cpu@11: False schema does not allow {'device_type': ['cpu'], 'compatible': ['riscv'], 'reg': [[17]], 'riscv,isa': ['rv64imafdc'], 'mmu-type': ['riscv,sv48'], 'cpu-idle-states': [[17], [18], [19], [20]], 'interrupt-controller': {'#interrupt-cells': 1, 'compatible': ['riscv,cpu-intc'], 'interrupt-controller': True}, '$nodename': ['cpu@11']}
-	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpu/idle-states.example.dtb: cpu@11: Unevaluated properties are not allowed ('riscv,isa' was unexpected)
-	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml#
-make[2]: *** Deleting file 'Documentation/devicetree/bindings/riscv/extensions.example.dts'
-Documentation/devicetree/bindings/riscv/extensions.yaml:149:1: found character '\t' that cannot start any token
-make[2]: *** [Documentation/devicetree/bindings/Makefile:26: Documentation/devicetree/bindings/riscv/extensions.example.dts] Error 1
-make[2]: *** Waiting for unfinished jobs....
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/riscv/cpus.example.dtb: cpu@0: False schema does not allow {'clock-frequency': 0, 'compatible': ['sifive,rocket0', 'riscv'], 'device_type': ['cpu'], 'i-cache-block-size': 64, 'i-cache-sets': 128, 'i-cache-size': 16384, 'reg': [[0]], 'riscv,isa-base': ['rv64i'], 'riscv,isa-extensions': [1761635584, 1627415296], 'interrupt-controller': {'#interrupt-cells': 1, 'compatible': ['riscv,cpu-intc'], 'interrupt-controller': True}, '$nodename': ['cpu@0']}
-	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/riscv/cpus.example.dtb: cpu@0: Unevaluated properties are not allowed ('riscv,isa-base', 'riscv,isa-extensions' were unexpected)
-	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/riscv/cpus.example.dtb: cpu@1: False schema does not allow {'clock-frequency': 0, 'compatible': ['sifive,rocket0', 'riscv'], 'd-cache-block-size': 64, 'd-cache-sets': 64, 'd-cache-size': 32768, 'd-tlb-sets': 1, 'd-tlb-size': 32, 'device_type': ['cpu'], 'i-cache-block-size': 64, 'i-cache-sets': 64, 'i-cache-size': 32768, 'i-tlb-sets': 1, 'i-tlb-size': 32, 'mmu-type': ['riscv,sv39'], 'reg': [[1]], 'tlb-split': True, 'riscv,isa-base': ['rv64i'], 'riscv,isa-extensions': [1761635584, 1627416064, 1677746944], 'interrupt-controller': {'#interrupt-cells': 1, 'compatible': ['riscv,cpu-intc'], 'interrupt-controller': True}, '$nodename': ['cpu@1']}
-	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/riscv/cpus.example.dtb: cpu@1: Unevaluated properties are not allowed ('riscv,isa-base', 'riscv,isa-extensions' were unexpected)
-	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/riscv/cpus.example.dtb: cpu@0: False schema does not allow {'device_type': ['cpu'], 'reg': [[0]], 'compatible': ['riscv'], 'mmu-type': ['riscv,sv48'], 'riscv,isa-base': ['rv64i'], 'riscv,isa-extensions': [1761635584, 1627416064, 1677746944], 'interrupt-controller': {'#interrupt-cells': 1, 'interrupt-controller': True, 'compatible': ['riscv,cpu-intc']}, '$nodename': ['cpu@0']}
-	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/riscv/cpus.example.dtb: cpu@0: Unevaluated properties are not allowed ('riscv,isa-base', 'riscv,isa-extensions' were unexpected)
-	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml#
-make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1506: dt_binding_check] Error 2
-make: *** [Makefile:251: __sub-make] Error 2
+./Documentation/devicetree/bindings/riscv/extensions.yaml:131:1: found character '\t' that cannot start any token
+Documentation/devicetree/bindings/riscv/extensions.yaml:131:1: found character '\t' that cannot start any token
 
 doc reference errors (make refcheckdocs):
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250114-counter_delegation-v2-4-8ba74cdb851b@rivosinc.com
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250114-counter_delegation-v2-8-8ba74cdb851b@rivosinc.com
 
 The base for the series is generally the latest rc1. A different dependency
 should be noted in *this* patch.
