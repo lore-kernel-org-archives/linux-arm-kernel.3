@@ -4,91 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6621DC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 14:10:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A6C4C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 14:14:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=58Hs7ujjh5IWuk6tWQ5BGXRroK3g4h67KngS4jQYbOk=; b=sF3vhu+NlPYssrRbD9ohYVE1th
-	fbpo5psqSAXluse0F5sf7GWyDq5yfkqhB8iUQkwc8I8c/4YUJCi6SkFfJMFBCWNEvDp1TQu26kCtD
-	kkEf+YTOCpPJtYvRLo0na7X0bk3BoaQAUNET0PBqqCnR48NToHzH0etWbzVUAU+YHJqYG+p2lSFwt
-	g9zpmiGS1hLV2us5tcwYyBB6hjHIgl7EYq/K2fiaFEsStSWS4hU3UfBff5xviexoTV1moYmQKdq4A
-	Yf2N2j/yyW+oDEzzPFU7MIxlr1Wltzy8O3q6x/51K0AJxtdAgWTfvRP+Rf95D23NvLG1iaU/u0Ka8
-	7P/+S44Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HwWG4QVQ1mZL+ZKPudmUC2gYE7RFuNS4P6G2TDdyrvg=; b=aNit0zLgr8aEdV6y/MetstJYpo
+	QDLtsbvpTMxHht/qAxAwHLUHBbSBYFQwSZ83TY4R4bk8+GvX/YGa9BmGqh7X5fKbflK7xeSBcvhrr
+	HACqBT6jtLE6Wn/lNeIFF7j+Icr0KuhvGU1/vb4pfdf/g5vcwgLU3vjUa9cCQYxpF6n/0b1DgCjFP
+	jxJXOmYW9f+nr0WTTh0qJnRZeJwJTQTcrlAPQUh+lDwm9QqxIxZnj7aw3HTr0+IVVrUvPYZGuw2Eq
+	BwAmXwagIEM+Wb+tOr4i4X+7IjJzddyVDgAKFd04NcP9j4yZMZKWct/MT4buMbN0dG8RQXoq6tXnM
+	3XF8U7Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY46D-0000000C4xw-0lLD;
-	Wed, 15 Jan 2025 14:10:25 +0000
-Received: from mail-qt1-f169.google.com ([209.85.160.169])
+	id 1tY4A2-0000000C5IK-0T4W;
+	Wed, 15 Jan 2025 14:14:22 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY44Q-0000000C4gA-2KMH
+	id 1tY48l-0000000C59e-3JnK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 14:08:35 +0000
-Received: by mail-qt1-f169.google.com with SMTP id d75a77b69052e-467a1ee7ff2so62548021cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 06:08:34 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736950112; x=1737554912;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=58Hs7ujjh5IWuk6tWQ5BGXRroK3g4h67KngS4jQYbOk=;
-        b=A6DdiabrX274jwbrR93QkpGGF2lloUB/dvlIJEBLl+lQk5eSxOgLxIF+9VkYsS31Ei
-         0s+6tqQFbr2XoW2quaw+9ia5tvtHye1DRzUud3ZcVq4Yv1bmiOZNfwUSjEqoHkyj3qk8
-         OBZvGKBA3tUVDd6QXRqj1aHcJ6YiLHS8KCMl5kmFBdWqa7Tf1GoMB0YWU8ltwfjbOIQZ
-         haT2uYhQQ/yGiWISbE4G3gjyL+fWgDieBQnuC/exT3gtHsTBHJyUihg5lg+51Nbv3Y0X
-         op1NtQesyFGqA7zOEmlmJJM6uSnd7F35PAoc81KJ+FPeJYHluR41Hs7PVuD2C8qYH9ph
-         cI1g==
-X-Forwarded-Encrypted: i=1; AJvYcCXglzgMvUCMHprv/FOOwhqhgcYbtTQfLWjwWtDCOKNBTDo/HghOE1ouFSAojUI04PWNaaB/6/WYhNOb4hHKZP6v@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHlAEP+bGfO9izeKmSPRqttRwKQJQqy4yuN38sMA6m0qqpXQqU
-	HKGiiWLH+oKJhNyAhwH+ZLd3RnvUcTVkORlYEuUx08ZHK4O0Wy/uC03Ki4oinb0=
-X-Gm-Gg: ASbGnctKo6ag6MhQ8nTbsMshWHokZCt7sR2YdzFpMkr9ptppj+P9Qwdq6GUSXmNIHV6
-	HgDeDK1iiy5VtjOHq0D0hJJotq4nTwzsmLlhG9veb61jdtKFIfNw1MsUPi38YeuJqt5sDJw2u+t
-	FEX2cQ03jJz96j8Ky/w8L3zLIhNdwgwZPUn9K3tKobcXEBU9IAQNbj8BC7t+4x7if2DEK/vr4dN
-	TtBfOTcOinWlxG86uc2hdBUQkDNS1f0ozpIBfhaA1ZqNuFqk/rLYIKd6kW1utG69tevrcNM8BA5
-	pTo5cko9T0ximXAQanU=
-X-Google-Smtp-Source: AGHT+IE20Poi5yS+wJpEPYgEXYn52St28fBAJvlPy5q4l6oofVoQ3vj7nwM05ViW9CrF0BDehyJ4MQ==
-X-Received: by 2002:ac8:5fd1:0:b0:466:9f89:3d6b with SMTP id d75a77b69052e-46c7101d9e4mr382030781cf.24.1736950111955;
-        Wed, 15 Jan 2025 06:08:31 -0800 (PST)
-Received: from mail-vs1-f49.google.com (mail-vs1-f49.google.com. [209.85.217.49])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-8623154b104sm5739414241.28.2025.01.15.06.08.31
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 15 Jan 2025 06:08:31 -0800 (PST)
-Received: by mail-vs1-f49.google.com with SMTP id ada2fe7eead31-4b1279ca1d2so1978892137.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 06:08:31 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVleZXbcWQ/VfxqrSPGGewnjOc++EthudO5nVrgxa1X1SsEmJf8cdcMwSp/CGaDkL8lDDdjF7NcVqle8GXZoma2@lists.infradead.org
-X-Received: by 2002:a05:6102:2b81:b0:4b2:48ef:3cf2 with SMTP id
- ada2fe7eead31-4b3d0fe7048mr26300112137.25.1736950111112; Wed, 15 Jan 2025
- 06:08:31 -0800 (PST)
+	Wed, 15 Jan 2025 14:13:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7928D5C5B36;
+	Wed, 15 Jan 2025 14:12:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3B09C4CED1;
+	Wed, 15 Jan 2025 14:13:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736950383;
+	bh=HwWG4QVQ1mZL+ZKPudmUC2gYE7RFuNS4P6G2TDdyrvg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=er4h4L75gfhJbai/B02+qfp7tdfAQeXzkFyqSaaX5lMEczdWI1z/TkOfH4rJ3AagS
+	 yhsp/Byww+1Zc3A3AY89UPDdromE2VWkpSd84eJ9isaYpbMIxAmBBQuJCjBD8iwmBl
+	 03ktVtOOhjlpgpaR030tEHcA/WEVBAgkmB7SJ9EdV+gjwcnyAZSpp7p5xWssgdDYLn
+	 +qvAUUGDDN0ZFalzhpQqJ18SOKaSFwbkvxUAYiztN9JkhXeykxEr4Ycts8u7sPsdEf
+	 BOzEUILtVE/jMIdm1q3PhPXcMlyipz2vm1G6B2JrS+BlnzNWpDJsuD2QZRmEg3/ulc
+	 a3l4oTGRgja2g==
+Date: Wed, 15 Jan 2025 14:12:58 +0000
+From: Mark Brown <broonie@kernel.org>
+To: James Clark <james.clark@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, robh@kernel.org, maz@kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 5/5] arm64/sysreg: Enforce sorting
+Message-ID: <e2ce2707-89dc-4668-80d9-513cea80de75@sirena.org.uk>
+References: <20250115134259.1864060-1-james.clark@linaro.org>
+ <20250115134259.1864060-6-james.clark@linaro.org>
 MIME-Version: 1.0
-References: <20250115-xilinx-formats-v2-0-160327ca652a@ideasonboard.com>
- <20250115-xilinx-formats-v2-4-160327ca652a@ideasonboard.com>
- <CAMuHMdXwsdP3_3b_OWFZ8J=kuNCga0h5Vo+wR0fdquQjZNuzEw@mail.gmail.com>
- <b7b8cdde-c189-4b9f-8423-c8ab4797b2f0@ideasonboard.com> <CAMuHMdVnDBt9QbR2bPdKHWgQ7i-OYYJ14ndc270z-hejY=bUdA@mail.gmail.com>
- <6b084e2c-100f-4563-8797-9fd6c862ed0c@ideasonboard.com> <CAMuHMdX8EeKnV8et81i3UdOexhO3Ry5TTKqp18OvCpJpWT2CtQ@mail.gmail.com>
- <0b0decd1-6f19-424a-84e5-fc71dceb983c@ideasonboard.com>
-In-Reply-To: <0b0decd1-6f19-424a-84e5-fc71dceb983c@ideasonboard.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 15 Jan 2025 15:08:19 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdXrdV4YRo1nMCVMTga=M+16GT8GkWe+Rk1DkgDZ=abGag@mail.gmail.com>
-X-Gm-Features: AbW1kvbfHY4o6YUlFdSWBdaxCXiUM6a4Ff7ECBd3ODRgMUDlTT_h_eEcP0lG6gE
-Message-ID: <CAMuHMdXrdV4YRo1nMCVMTga=M+16GT8GkWe+Rk1DkgDZ=abGag@mail.gmail.com>
-Subject: Re: [PATCH v2 04/10] drm/fourcc: Add DRM_FORMAT_Y10_LE32
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Cc: Vishal Sagar <vishal.sagar@amd.com>, Anatoliy Klymenko <anatoliy.klymenko@amd.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Michal Simek <michal.simek@amd.com>, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="q8eJHwiE91loMLYF"
+Content-Disposition: inline
+In-Reply-To: <20250115134259.1864060-6-james.clark@linaro.org>
+X-Cookie: Phasers locked on target, Captain.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_060834_593822_00BD921F 
-X-CRM114-Status: GOOD (  36.61  )
+X-CRM114-CacheID: sfid-20250115_061303_876667_03FDFF81 
+X-CRM114-Status: UNSURE (   9.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,122 +79,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Tomi,
 
-On Wed, Jan 15, 2025 at 2:46=E2=80=AFPM Tomi Valkeinen
-<tomi.valkeinen@ideasonboard.com> wrote:
-> On 15/01/2025 14:52, Geert Uytterhoeven wrote:
-> > On Wed, Jan 15, 2025 at 1:42=E2=80=AFPM Tomi Valkeinen
-> > <tomi.valkeinen@ideasonboard.com> wrote:
-> >> On 15/01/2025 14:33, Geert Uytterhoeven wrote:
-> >>> On Wed, Jan 15, 2025 at 12:11=E2=80=AFPM Tomi Valkeinen
-> >>> <tomi.valkeinen@ideasonboard.com> wrote:
-> >>>> On 15/01/2025 12:33, Geert Uytterhoeven wrote:
-> >>>>> On Wed, Jan 15, 2025 at 10:04=E2=80=AFAM Tomi Valkeinen
-> >>>>> <tomi.valkeinen@ideasonboard.com> wrote:
-> >>>>>> Add Y10_LE32, a 10 bit greyscale format, with 3 pixels packed into
-> >>>>>> 32-bit container.
-> >>>>>>
-> >>>>>> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-> >>>>>
-> >>>>> Thanks for your patch!
-> >>>>>
-> >>>>>> --- a/include/uapi/drm/drm_fourcc.h
-> >>>>>> +++ b/include/uapi/drm/drm_fourcc.h
-> >>>>>> @@ -408,6 +408,7 @@ extern "C" {
-> >>>>>>     /* Greyscale formats */
-> >>>>>>
-> >>>>>>     #define DRM_FORMAT_Y8          fourcc_code('G', 'R', 'E', 'Y')=
-  /* 8-bit Y-only */
-> >>>>>> +#define DRM_FORMAT_Y10_LE32    fourcc_code('Y', 'P', 'A', '4')  /=
-* [31:0] x:Y2:Y1:Y0 2:10:10:10 little endian */
-> >>>>>
-> >>>>> R10_LE32? Or R10_PA4?
-> >>>>
-> >>>> Can we discuss the "R" vs "Y" question under the cover letter? There=
-'s
-> >>>> some more context about it in there.
-> >>>
-> >>> Sorry, hadn't read the cover letter. I got attracted by "Y8" and "Y10=
-".
-> >>>
-> >>>> I took the "LE32" from Gstreamer's format. Maybe it's a bit pointles=
-s.
-> >>>>
-> >>>> I don't know if it makes sense to add the fourcc to the DRM format n=
-ame.
-> >>>> The fourcc is very limited. Rather, we could, say, have
-> >>>> DRM_FORMAT_Y10_PACKED_32 (or "R", if you insist =3D).
-> >>>>
-> >>>>> Does LE32 have a meaning?  My first guess just reading the subject
-> >>>>> was wrong ("little endian  32-bit" ;-)
-> >>>>
-> >>>> I'm not sure I follow. It's little-endian. The pixel group/unit is a
-> >>>> 32-bit number, where the leftmost pixel on the screen is in bits 9-0=
-,
-> >>>> and the padding is in bits 31-30, and stored in memory as little-end=
-ian.
-> >>>
-> >>> Ah, the "LE" applies to the pixels inside each word.
-> >>
-> >> No, to the 32-bit container.
-> >>
-> >>> DRM formats stored in memory are always little-endian, unless the
-> >>> DRM_FORMAT_BIG_ENDIAN bit is set, which is what I was hinting
-> >>> at...
-> >>
-> >> Indeed you're right. The "LE" is pointless. So back to the bike-sheddi=
-ng
-> >> about the name =3D).
-> >
-> > As the order inside the container is Y2:Y1:Y0, it _is_ little endian.
-> > Cfr.
-> >
-> > #define DRM_FORMAT_YUYV  fourcc_code('Y', 'U', 'Y', 'V') /* [31:0]
-> > Cr0:Y1:Cb0:Y0 8:8:8:8 little endian */
->
-> Hmm, I see. I hadn't thought LE in that context, but I think it makes
-> sense when there are multiple pixels in one container. So the "little
-> endian" above would refer to the order of Y1 and Y0. So is Y1 the
-> least-significant-pixel? =3D)
+--q8eJHwiE91loMLYF
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-No, Y0 is the least-significant member of the container, which
-corresponds to the first pixel ("little end first").
+On Wed, Jan 15, 2025 at 01:42:57PM +0000, James Clark wrote:
+> Make an unsorted sysreg file a build error so it stays sorted.
 
-> But, say, in
->
-> #define DRM_FORMAT_RG88         fourcc_code('R', 'G', '8', '8') /* [15:0]=
- R:G
-> 8:8 little endian */
->
-> the "little endian" refers to the 16-bit value itself? Which is not
-> necessary, as the default assumption is little endian.
+Reviewed-by: Mark Brown <broonie@kernel.org>
 
-I think so.
+--q8eJHwiE91loMLYF
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> In any case, when considering your latest point... "LE" in the name
-> makes sense? But with a quick look I didn't find any formats that would
-> have "big endian pixel order", so maybe we can just assume little endian
-> pixel order too.
+-----BEGIN PGP SIGNATURE-----
 
-[CDR][124] have. See the descriptions of the commits that introduced
-them for the rationale behind this:
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmeHwmkACgkQJNaLcl1U
+h9DXCAf+KsRn7OzcqbfuT+TgSNkJ+oG1eWWSvPmnQ7hsN2ogCl9PlZa88IkgLMxe
+nCiTOm756h2r2Wh6eP6Ov2Duj2eFGz+pXWAubGuGaDQnELmjstIfTTCJpvI1xqlx
+VmxpkD+dTb2IumBn+5fsFFrnWJx7KrkqB2DYTtK5QyHWSO2v5lyZ/8qLyyFF0P/k
++CscY+lQHPQ3ta0bMpkmlQevV5rBsod/3t01EsZOSFOHbYsHY73e+YybluGW11HJ
+Hd1cqLkUm7GrAkG1ELQOGu4jUNOykoqyp/EBIL+uKP6LMGvRssb/fDOnCRgRCMXn
+9nCo/xqhb2gtHafsBJfnwf3PTNE69w==
+=k6pg
+-----END PGP SIGNATURE-----
 
-b92db7e4fe740daa drm/fourcc: Add DRM_FORMAT_D[1248]
-d093100b425df6fe drm/fourcc: Add DRM_FORMAT_R[124]
-e5bd7e3e4a68f0be drm/fourcc: Add DRM_FORMAT_C[124]
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
---=20
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
-
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
+--q8eJHwiE91loMLYF--
 
