@@ -4,86 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9792C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 05:10:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56B77C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 05:30:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7fbYeVovEpQNPEsVr+R1bXLYLSrZasFYAhkIJyzquyg=; b=XIp/7XsztOCSzc9G6kc9lUq4LX
-	ceOXUice8A2l+1EhhthnVyZE8QFwHZ8XvKQ8gJYanHb2YZskrZTniC47O9lw9g4pb3wyOROajg+9s
-	3MYllbTcqPBzlDN7yieq0OHz7LFOLTgB88EzXUr6C0REyKXXjZHCdEhyCIB838+WOqPmM4kAVhQaf
-	xvB91XT7bTrvpaMUUwBxdEa6F39cmoWtqHpYpIyJ9P0ulP9BlSDrfbP8xiNkH+JXk2jP0SuFKeVue
-	wgwZbsokv68luVCqETzg/MunmNuMyC+xh68Jd2H9FEd6VSDrkra3+ElHkqRFyGV2yWiokzlpelbQK
-	I8Ly+7QA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Xm7yo3/9XHh56lprlYmpc/Yefc/eA46G6+YDkimM6ss=; b=LGckjO9jKnjip0mNkCQ23XN2AV
+	ON76g81mMeYLWHWFmi0Bpigazx4QtWXS5snR/04H1TT5CHmYYTxTH0Bl5GR3K+1zASqltC5SZ3JRE
+	+OKY1yZ0Bil/Cq+ne6pR3LN1+5RKKIBQOOoAMGc+KXBsa4dCwbRhMsGRH3Xbcq5pM8tdM0dEuD2JI
+	4H9cHyYgmNgyLhjHGBfHF0PKG3C97aGNYaNrTI557D5TDWM2k/gCBNj9CbvemyxgkgxYstxunz/g5
+	uK0oA3efpm3Nz43YXvOh7Qxc04TD8ANwav1iCBIfHqZQpE1GFsp1YS3RYgog3J/5MbkV7SHKEgCzX
+	uaiAqL4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXvfp-0000000AfAx-0Hgz;
-	Wed, 15 Jan 2025 05:10:37 +0000
-Received: from mail-vk1-xa2e.google.com ([2607:f8b0:4864:20::a2e])
+	id 1tXvz8-0000000Aggd-1a9s;
+	Wed, 15 Jan 2025 05:30:34 +0000
+Received: from esa4.hc1455-7.c3s2.iphmx.com ([68.232.139.117])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXveY-0000000Af27-3ImE;
-	Wed, 15 Jan 2025 05:09:20 +0000
-Received: by mail-vk1-xa2e.google.com with SMTP id 71dfb90a1353d-5189a440a65so3736735e0c.1;
-        Tue, 14 Jan 2025 21:09:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736917757; x=1737522557; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7fbYeVovEpQNPEsVr+R1bXLYLSrZasFYAhkIJyzquyg=;
-        b=Ab5Yaqdh543xmw4QQV0wTnLgQH/mBWzxAAIJnzeXyqTJQCsJrsJrU+nm3Ldig6QLiw
-         cUiEQKzOe3Iq4PqaIoLSmYjjEWgeSzJApVwgySnoSn08IulLdzY32QdOKo0RhD56jaR4
-         087cCHBc9S64TEhQexjStYS3TX22YDvKErkjWiuEVRBoSgJMkx6xy9HuZUYrRt6fDWKZ
-         88Ycxm9FYRfTKsj2idrzxIK7feZPSBDnTqw8sgJ82SXnmeAmDBDTUmMol1ItW9iz5TNa
-         +YOcaLOrrmdv5z0brmMYFNehYy2POg7FTwZ9zLtbYtW/5BtdYKdjAhkz7GWSP0WFht+C
-         lHuA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736917757; x=1737522557;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7fbYeVovEpQNPEsVr+R1bXLYLSrZasFYAhkIJyzquyg=;
-        b=LAB8daJZzymhIQTds5++Lnq4xYLaajRrKBFj510V32ryHo8+bMLSIK5/hpoD888Ukb
-         7J7rXZvbCsW2rE3Hy1jTIlmbazpFQ9Pyx0g8VGfbIbuDW0Np4pvwRpUXV2xE2W8dl4Ta
-         zof08BgAiPlI8gT5ukvc+aOxUGhjUwVKOY3CcnH1//46nY66/AHc9cMpTa7qDYkjiOIn
-         dLYcOh4mM/sO+WmuAKunp70mYlcK46u0JlWExUmj/RyiTLlmD4au5MC3aA9LrzenkPkM
-         /ceyNuF1nYhVs+ANJBnVq7HOaPOsX5cwN6lwSVYqf8uuVAnvfmo95ZmWN7Jp4Q5nm6Ke
-         Sv8A==
-X-Forwarded-Encrypted: i=1; AJvYcCVI9Sr3NpuHFwM1eUjLBIEWwNfDJAV+RCGKGoX+1db3IEaCC+J4MX78yOjcMZqydZ3MG7sYZpQUxkEAJ+A=@lists.infradead.org, AJvYcCXiVAoBhcDYltlflsvTM0RNwqRT+b+wQ9gSDGSBcbq1/03+Z6udFbGjDO3Dl1uSoF8pHzQ9dc+J6kr3wrMRUvHy@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6gtnERwGb2JOWCmoM5UuUGhDzdMQev+U69X1oIwdxclDHAIEp
-	rm5ZV5qg6zBzEX1T4Whe7a37xMtcUgSLWe82C3TEL+X+m9KvOn4afbXS8Bp2nrAG1tmsrefMUS9
-	qZa3a1l3QCUMnqDAZQvtwRnx//NA=
-X-Gm-Gg: ASbGncvdlxCgRihfAhzxnuplJcV8kPZizjzXhisBUvuGp4pso38O/VaQYDYOcRbSKP2
-	8WMGnwLoKe+fhJu9V+WhhJVimfh8S2u0zhihdC84e0gN6jcjuSdGbRefBCdGPFicEaUhxaLZ/
-X-Google-Smtp-Source: AGHT+IFmGID4K5/mSLF+58XoWNncJOLjS/s8UHg4Zw0rlCGx0x3SqpLH1MDphU6XepLnS3F8aO89CUrWhzG2ruK/a3M=
-X-Received: by 2002:a05:6102:2b85:b0:4b1:f3e:882f with SMTP id
- ada2fe7eead31-4b3d0d76129mr25986421137.1.1736917757021; Tue, 14 Jan 2025
- 21:09:17 -0800 (PST)
+	id 1tXvxt-0000000AgVI-0A8r
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Jan 2025 05:29:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1736918957; x=1768454957;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=15vISLEFmhZT5eZz3ZWj8X7kjiMs2WR2CnqANRurGpQ=;
+  b=GqW20JDOCh5c7NkdEGJ6GWBtYm7xQpeaZeuww4As/dpMREtlbSySzFJB
+   BY/T/H/AnJR5fcqt8v2Ihsh6OINJ+tvTV2b1kz8nUs0mCb7eVlnbH+JjF
+   TZBZCWfNLVxdgpfbvHPSX2cxGvUTkqEuxic8SB7mWM4bLXAd3YmOprqLN
+   Jr11xvPuxfTLHCM/sGFc2eqjstMxTRqd8Wt5qkSUCEW5dVYu9vSBwQ//K
+   tMbPCpLyrrE/j2uCEWhrxwa3ZlY9vgE70BqWGJu5mYiYCfCgR5o8xb7qU
+   HC7meeiACbdmqSDzWvIfsoSrwIDouiInzSEgKiZnoiIwhJScMPJive5wO
+   A==;
+X-CSE-ConnectionGUID: jSNlg2vZR/+YeEMl/BdsXg==
+X-CSE-MsgGUID: HsBSRhTtT/iVoviXk7bQSg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11315"; a="186820628"
+X-IronPort-AV: E=Sophos;i="6.12,316,1728918000"; 
+   d="scan'208";a="186820628"
+Received: from unknown (HELO yto-r3.gw.nic.fujitsu.com) ([218.44.52.219])
+  by esa4.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jan 2025 14:29:10 +0900
+Received: from yto-m2.gw.nic.fujitsu.com (yto-nat-yto-m2.gw.nic.fujitsu.com [192.168.83.65])
+	by yto-r3.gw.nic.fujitsu.com (Postfix) with ESMTP id 63D2CE852B
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 14:29:08 +0900 (JST)
+Received: from yto-om1.fujitsu.com (yto-om1.o.css.fujitsu.com [10.128.89.162])
+	by yto-m2.gw.nic.fujitsu.com (Postfix) with ESMTP id 3E5BDD504A
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 14:29:08 +0900 (JST)
+Received: from sm-x86-mem01.ssoft.mng.com (sm-x86-stp01.soft.fujitsu.com [10.124.178.20])
+	by yto-om1.fujitsu.com (Postfix) with ESMTP id D5E794005AA38;
+	Wed, 15 Jan 2025 14:29:07 +0900 (JST)
+From: Toshiyuki Sato <fj6611ie@aa.jp.fujitsu.com>
+To: Russell King <linux@armlinux.org.uk>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>
+Cc: linux-kernel@vger.kernel.org,
+	linux-serial@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	fj6611ie@aa.jp.fujitsu.com
+Subject: [PATCH v2] serial: amba-pl011: Implement nbcon console
+Date: Wed, 15 Jan 2025 05:27:48 +0000
+Message-Id: <20250115052749.3205675-1-fj6611ie@aa.jp.fujitsu.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20250115033808.40641-1-21cnbao@gmail.com> <20250115033808.40641-5-21cnbao@gmail.com>
- <CAK1f24=3LmQMzgosB0o9OKV-P8f6cPO2ZCPBA64QXQqZYPk=ww@mail.gmail.com>
-In-Reply-To: <CAK1f24=3LmQMzgosB0o9OKV-P8f6cPO2ZCPBA64QXQqZYPk=ww@mail.gmail.com>
-From: Barry Song <21cnbao@gmail.com>
-Date: Wed, 15 Jan 2025 18:09:06 +1300
-X-Gm-Features: AbW1kva4ytoolAfPhuEb-stEXQYisWCWfd6yD_9BD8lvXUvBT6PE0IiICJf-Oqs
-Message-ID: <CAGsJ_4xwHVmnKENYV6M6yMSUzeeR8tM7F8mbkAUd4eVHhfN_BA@mail.gmail.com>
-Subject: Re: [PATCH v3 4/4] mm: Avoid splitting pmd for lazyfree pmd-mapped
- THP in try_to_unmap
-To: Lance Yang <ioworker0@gmail.com>
-Cc: akpm@linux-foundation.org, linux-mm@kvack.org, 
-	baolin.wang@linux.alibaba.com, chrisl@kernel.org, david@redhat.com, 
-	kasong@tencent.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, v-songbaohua@oppo.com, 
-	x86@kernel.org, ying.huang@intel.com, zhengtangquan@oppo.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_210918_832106_220584BC 
-X-CRM114-Status: GOOD (  28.10  )
+X-CRM114-CacheID: sfid-20250114_212917_430577_E22DFB26 
+X-CRM114-Status: GOOD (  22.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,225 +87,231 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 15, 2025 at 6:01=E2=80=AFPM Lance Yang <ioworker0@gmail.com> wr=
-ote:
->
-> On Wed, Jan 15, 2025 at 11:38=E2=80=AFAM Barry Song <21cnbao@gmail.com> w=
-rote:
-> >
-> > From: Barry Song <v-songbaohua@oppo.com>
-> >
-> > The try_to_unmap_one() function currently handles PMD-mapped THPs
-> > inefficiently. It first splits the PMD into PTEs, copies the dirty
-> > state from the PMD to the PTEs, iterates over the PTEs to locate
-> > the dirty state, and then marks the THP as swap-backed. This process
-> > involves unnecessary PMD splitting and redundant iteration. Instead,
-> > this functionality can be efficiently managed in
-> > __discard_anon_folio_pmd_locked(), avoiding the extra steps and
-> > improving performance.
-> >
-> > The following microbenchmark redirties folios after invoking MADV_FREE,
-> > then measures the time taken to perform memory reclamation (actually
-> > set those folios swapbacked again) on the redirtied folios.
-> >
-> >  #include <stdio.h>
-> >  #include <sys/mman.h>
-> >  #include <string.h>
-> >  #include <time.h>
-> >
-> >  #define SIZE 128*1024*1024  // 128 MB
-> >
-> >  int main(int argc, char *argv[])
-> >  {
-> >         while(1) {
-> >                 volatile int *p =3D mmap(0, SIZE, PROT_READ | PROT_WRIT=
-E,
-> >                                 MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
-> >
-> >                 memset((void *)p, 1, SIZE);
-> >                 madvise((void *)p, SIZE, MADV_FREE);
-> >                 /* redirty after MADV_FREE */
-> >                 memset((void *)p, 1, SIZE);
-> >
-> >                 clock_t start_time =3D clock();
-> >                 madvise((void *)p, SIZE, MADV_PAGEOUT);
-> >                 clock_t end_time =3D clock();
-> >
-> >                 double elapsed_time =3D (double)(end_time - start_time)=
- / CLOCKS_PER_SEC;
-> >                 printf("Time taken by reclamation: %f seconds\n", elaps=
-ed_time);
-> >
-> >                 munmap((void *)p, SIZE);
-> >         }
-> >         return 0;
-> >  }
-> >
-> > Testing results are as below,
-> > w/o patch:
-> > ~ # ./a.out
-> > Time taken by reclamation: 0.007300 seconds
-> > Time taken by reclamation: 0.007226 seconds
-> > Time taken by reclamation: 0.007295 seconds
-> > Time taken by reclamation: 0.007731 seconds
-> > Time taken by reclamation: 0.007134 seconds
-> > Time taken by reclamation: 0.007285 seconds
-> > Time taken by reclamation: 0.007720 seconds
-> > Time taken by reclamation: 0.007128 seconds
-> > Time taken by reclamation: 0.007710 seconds
-> > Time taken by reclamation: 0.007712 seconds
-> > Time taken by reclamation: 0.007236 seconds
-> > Time taken by reclamation: 0.007690 seconds
-> > Time taken by reclamation: 0.007174 seconds
-> > Time taken by reclamation: 0.007670 seconds
-> > Time taken by reclamation: 0.007169 seconds
-> > Time taken by reclamation: 0.007305 seconds
-> > Time taken by reclamation: 0.007432 seconds
-> > Time taken by reclamation: 0.007158 seconds
-> > Time taken by reclamation: 0.007133 seconds
-> > =E2=80=A6
-> >
-> > w/ patch
-> >
-> > ~ # ./a.out
-> > Time taken by reclamation: 0.002124 seconds
-> > Time taken by reclamation: 0.002116 seconds
-> > Time taken by reclamation: 0.002150 seconds
-> > Time taken by reclamation: 0.002261 seconds
-> > Time taken by reclamation: 0.002137 seconds
-> > Time taken by reclamation: 0.002173 seconds
-> > Time taken by reclamation: 0.002063 seconds
-> > Time taken by reclamation: 0.002088 seconds
-> > Time taken by reclamation: 0.002169 seconds
-> > Time taken by reclamation: 0.002124 seconds
-> > Time taken by reclamation: 0.002111 seconds
-> > Time taken by reclamation: 0.002224 seconds
-> > Time taken by reclamation: 0.002297 seconds
-> > Time taken by reclamation: 0.002260 seconds
-> > Time taken by reclamation: 0.002246 seconds
-> > Time taken by reclamation: 0.002272 seconds
-> > Time taken by reclamation: 0.002277 seconds
-> > Time taken by reclamation: 0.002462 seconds
-> > =E2=80=A6
-> >
-> > This patch significantly speeds up try_to_unmap_one() by allowing it
-> > to skip redirtied THPs without splitting the PMD.
-> >
-> > Suggested-by: Baolin Wang <baolin.wang@linux.alibaba.com>
-> > Suggested-by: Lance Yang <ioworker0@gmail.com>
-> > Signed-off-by: Barry Song <v-songbaohua@oppo.com>
-> > ---
-> >  mm/huge_memory.c | 24 +++++++++++++++++-------
-> >  mm/rmap.c        | 13 ++++++++++---
-> >  2 files changed, 27 insertions(+), 10 deletions(-)
-> >
-> > diff --git a/mm/huge_memory.c b/mm/huge_memory.c
-> > index 3d3ebdc002d5..47cc8c3f8f80 100644
-> > --- a/mm/huge_memory.c
-> > +++ b/mm/huge_memory.c
-> > @@ -3070,8 +3070,12 @@ static bool __discard_anon_folio_pmd_locked(stru=
-ct vm_area_struct *vma,
-> >         int ref_count, map_count;
-> >         pmd_t orig_pmd =3D *pmdp;
-> >
-> > -       if (folio_test_dirty(folio) || pmd_dirty(orig_pmd))
-> > +       if (pmd_dirty(orig_pmd))
-> > +               folio_set_dirty(folio);
-> > +       if (folio_test_dirty(folio) && !(vma->vm_flags & VM_DROPPABLE))=
- {
-> > +               folio_set_swapbacked(folio);
-> >                 return false;
-> > +       }
->
-> If either the PMD or the folio is dirty, should we just return false righ=
-t away,
-> regardless of VM_DROPPABLE? There=E2=80=99s no need to proceed further in=
- that
-> case, IMHO ;)
+Implement the callbacks required for an NBCON console [0] on the 
+amba-pl011 console driver.
 
-I don't quite understand you, but we need to proceed to clear pmd entry.
-if vm_droppable is true, even if the folio is dirty, we still drop the foli=
-o.
+Referred to the NBCON implementation work for 8250 [1] and imx [2].
 
->
-> Thanks,
-> Lance
->
-> >
-> >         orig_pmd =3D pmdp_huge_clear_flush(vma, addr, pmdp);
-> >
-> > @@ -3098,8 +3102,15 @@ static bool __discard_anon_folio_pmd_locked(stru=
-ct vm_area_struct *vma,
-> >          *
-> >          * The only folio refs must be one from isolation plus the rmap=
-(s).
-> >          */
-> > -       if (folio_test_dirty(folio) || pmd_dirty(orig_pmd) ||
-> > -           ref_count !=3D map_count + 1) {
-> > +       if (pmd_dirty(orig_pmd))
-> > +               folio_set_dirty(folio);
-> > +       if (folio_test_dirty(folio) && !(vma->vm_flags & VM_DROPPABLE))=
- {
-> > +               folio_set_swapbacked(folio);
-> > +               set_pmd_at(mm, addr, pmdp, orig_pmd);
-> > +               return false;
-> > +       }
-> > +
-> > +       if (ref_count !=3D map_count + 1) {
-> >                 set_pmd_at(mm, addr, pmdp, orig_pmd);
-> >                 return false;
-> >         }
-> > @@ -3119,12 +3130,11 @@ bool unmap_huge_pmd_locked(struct vm_area_struc=
-t *vma, unsigned long addr,
-> >  {
-> >         VM_WARN_ON_FOLIO(!folio_test_pmd_mappable(folio), folio);
-> >         VM_WARN_ON_FOLIO(!folio_test_locked(folio), folio);
-> > +       VM_WARN_ON_FOLIO(!folio_test_anon(folio), folio);
-> > +       VM_WARN_ON_FOLIO(folio_test_swapbacked(folio), folio);
-> >         VM_WARN_ON_ONCE(!IS_ALIGNED(addr, HPAGE_PMD_SIZE));
-> >
-> > -       if (folio_test_anon(folio) && !folio_test_swapbacked(folio))
-> > -               return __discard_anon_folio_pmd_locked(vma, addr, pmdp,=
- folio);
-> > -
-> > -       return false;
-> > +       return __discard_anon_folio_pmd_locked(vma, addr, pmdp, folio);
-> >  }
-> >
-> >  static void remap_page(struct folio *folio, unsigned long nr, int flag=
-s)
-> > diff --git a/mm/rmap.c b/mm/rmap.c
-> > index be1978d2712d..a859c399ec7c 100644
-> > --- a/mm/rmap.c
-> > +++ b/mm/rmap.c
-> > @@ -1724,9 +1724,16 @@ static bool try_to_unmap_one(struct folio *folio=
-, struct vm_area_struct *vma,
-> >                 }
-> >
-> >                 if (!pvmw.pte) {
-> > -                       if (unmap_huge_pmd_locked(vma, pvmw.address, pv=
-mw.pmd,
-> > -                                                 folio))
-> > -                               goto walk_done;
-> > +                       if (folio_test_anon(folio) && !folio_test_swapb=
-acked(folio)) {
-> > +                               if (unmap_huge_pmd_locked(vma, pvmw.add=
-ress, pvmw.pmd, folio))
-> > +                                       goto walk_done;
-> > +                               /*
-> > +                                * unmap_huge_pmd_locked has either alr=
-eady marked
-> > +                                * the folio as swap-backed or decided =
-to retain it
-> > +                                * due to GUP or speculative references=
-.
-> > +                                */
-> > +                               goto walk_abort;
-> > +                       }
-> >
-> >                         if (flags & TTU_SPLIT_HUGE_PMD) {
-> >                                 /*
-> > --
-> > 2.39.3 (Apple Git-146)
-> >
+The normal-priority write_thread checks for console ownership
+each time a character is printed.
+write_atomic holds the console ownership until the entire string
+is printed.
+
+UART register operations are protected from other contexts by 
+uart_port_lock, except for a final flush(nbcon_atomic_flush_unsafe) 
+on panic.
+
+The patch has been verified to correctly handle the output and
+competition of messages with different priorities and flushing
+panic message to console after nmi panic using ARM64 QEMU and
+a physical machine(A64FX).
+
+[0] https://lore.kernel.org/all/ZuRRTbapH0DCj334@pathway.suse.cz/
+[1] https://lore.kernel.org/all/20240913140538.221708-1-john.ogness@linutronix.de/T/
+[2] https://lore.kernel.org/linux-arm-kernel/20240913-serial-imx-nbcon-v3-1-4c627302335b@geanix.com/T/
+
+Signed-off-by: Toshiyuki Sato <fj6611ie@aa.jp.fujitsu.com>
+---
+This patch removes the legacy console code.
+Please comment if you have any concerns.
+
+I plan to try a stress test, referencing the work for 8250.
+https://lore.kernel.org/lkml/ZsdoD6PomBRsB-ow@debarbos-thinkpadt14sgen2i.remote.csb/#t
+
+Changes in v2:
+- Remove the module parameter used to switch between legacy and nbcon.
+- Remove codes for legacy console.
+- Fix build errors detected by the test robot.
+- based on 6.13-rc7
+v1: https://lore.kernel.org/all/20250108004730.2302996-1-fj6611ie@aa.jp.fujitsu.com/
+
+Thanks Greg for the advice & comment.
+---
+ drivers/tty/serial/amba-pl011.c | 143 ++++++++++++++++++++++----------
+ 1 file changed, 97 insertions(+), 46 deletions(-)
+
+diff --git a/drivers/tty/serial/amba-pl011.c b/drivers/tty/serial/amba-pl011.c
+index 69b7a3e1e..577fd3258 100644
+--- a/drivers/tty/serial/amba-pl011.c
++++ b/drivers/tty/serial/amba-pl011.c
+@@ -263,6 +263,7 @@ struct uart_amba_port {
+ 	char			type[12];
+ 	bool			rs485_tx_started;
+ 	unsigned int		rs485_tx_drain_interval; /* usecs */
++	bool			console_line_ended;
+ #ifdef CONFIG_DMA_ENGINE
+ 	/* DMA stuff */
+ 	unsigned int		dmacr;		/* dma control reg */
+@@ -2305,50 +2306,7 @@ static void pl011_console_putchar(struct uart_port *port, unsigned char ch)
+ 	while (pl011_read(uap, REG_FR) & UART01x_FR_TXFF)
+ 		cpu_relax();
+ 	pl011_write(ch, uap, REG_DR);
+-}
+-
+-static void
+-pl011_console_write(struct console *co, const char *s, unsigned int count)
+-{
+-	struct uart_amba_port *uap = amba_ports[co->index];
+-	unsigned int old_cr = 0, new_cr;
+-	unsigned long flags;
+-	int locked = 1;
+-
+-	clk_enable(uap->clk);
+-
+-	if (oops_in_progress)
+-		locked = uart_port_trylock_irqsave(&uap->port, &flags);
+-	else
+-		uart_port_lock_irqsave(&uap->port, &flags);
+-
+-	/*
+-	 *	First save the CR then disable the interrupts
+-	 */
+-	if (!uap->vendor->always_enabled) {
+-		old_cr = pl011_read(uap, REG_CR);
+-		new_cr = old_cr & ~UART011_CR_CTSEN;
+-		new_cr |= UART01x_CR_UARTEN | UART011_CR_TXE;
+-		pl011_write(new_cr, uap, REG_CR);
+-	}
+-
+-	uart_console_write(&uap->port, s, count, pl011_console_putchar);
+-
+-	/*
+-	 *	Finally, wait for transmitter to become empty and restore the
+-	 *	TCR. Allow feature register bits to be inverted to work around
+-	 *	errata.
+-	 */
+-	while ((pl011_read(uap, REG_FR) ^ uap->vendor->inv_fr)
+-						& uap->vendor->fr_busy)
+-		cpu_relax();
+-	if (!uap->vendor->always_enabled)
+-		pl011_write(old_cr, uap, REG_CR);
+-
+-	if (locked)
+-		uart_port_unlock_irqrestore(&uap->port, flags);
+-
+-	clk_disable(uap->clk);
++	uap->console_line_ended = (ch == '\n');
+ }
+ 
+ static void pl011_console_get_options(struct uart_amba_port *uap, int *baud,
+@@ -2411,6 +2369,8 @@ static int pl011_console_setup(struct console *co, char *options)
+ 	if (ret)
+ 		return ret;
+ 
++	uap->console_line_ended = true;
++
+ 	if (dev_get_platdata(uap->port.dev)) {
+ 		struct amba_pl011_data *plat;
+ 
+@@ -2494,14 +2454,105 @@ static int pl011_console_match(struct console *co, char *name, int idx,
+ 	return -ENODEV;
+ }
+ 
++static void
++pl011_console_write_atomic(struct console *co, struct nbcon_write_context *wctxt)
++{
++	struct uart_amba_port *uap = amba_ports[co->index];
++	unsigned int old_cr = 0;
++
++	if (!nbcon_enter_unsafe(wctxt))
++		return;
++
++	clk_enable(uap->clk);
++
++	if (!uap->vendor->always_enabled) {
++		old_cr = pl011_read(uap, REG_CR);
++		pl011_write((old_cr & ~UART011_CR_CTSEN) | (UART01x_CR_UARTEN | UART011_CR_TXE),
++				uap, REG_CR);
++	}
++
++	if (!uap->console_line_ended)
++		uart_console_write(&uap->port, "\n", 1, pl011_console_putchar);
++	uart_console_write(&uap->port, wctxt->outbuf, wctxt->len, pl011_console_putchar);
++
++	while ((pl011_read(uap, REG_FR) ^ uap->vendor->inv_fr) & uap->vendor->fr_busy)
++		cpu_relax();
++
++	if (!uap->vendor->always_enabled)
++		pl011_write(old_cr, uap, REG_CR);
++
++	clk_disable(uap->clk);
++
++	nbcon_exit_unsafe(wctxt);
++}
++
++static void
++pl011_console_write_thread(struct console *co, struct nbcon_write_context *wctxt)
++{
++	struct uart_amba_port *uap = amba_ports[co->index];
++	unsigned int old_cr = 0;
++
++	if (!nbcon_enter_unsafe(wctxt))
++		return;
++
++	clk_enable(uap->clk);
++
++	if (!uap->vendor->always_enabled) {
++		old_cr = pl011_read(uap, REG_CR);
++		pl011_write((old_cr & ~UART011_CR_CTSEN) | (UART01x_CR_UARTEN | UART011_CR_TXE),
++				uap, REG_CR);
++	}
++
++	if (nbcon_exit_unsafe(wctxt)) {
++		int i;
++		unsigned int len = READ_ONCE(wctxt->len);
++
++		for (i = 0; i < len; i++) {
++			if (!nbcon_enter_unsafe(wctxt))
++				break;
++			uart_console_write(&uap->port, wctxt->outbuf + i, 1, pl011_console_putchar);
++			if (!nbcon_exit_unsafe(wctxt))
++				break;
++		}
++	}
++
++	while (!nbcon_enter_unsafe(wctxt))
++		nbcon_reacquire_nobuf(wctxt);
++
++	while ((pl011_read(uap, REG_FR) ^ uap->vendor->inv_fr) & uap->vendor->fr_busy)
++		cpu_relax();
++
++	if (!uap->vendor->always_enabled)
++		pl011_write(old_cr, uap, REG_CR);
++
++	clk_disable(uap->clk);
++
++	nbcon_exit_unsafe(wctxt);
++}
++
++static void
++pl011_console_device_lock(struct console *co, unsigned long *flags)
++{
++	__uart_port_lock_irqsave(&amba_ports[co->index]->port, flags);
++}
++
++static void
++pl011_console_device_unlock(struct console *co, unsigned long flags)
++{
++	__uart_port_unlock_irqrestore(&amba_ports[co->index]->port, flags);
++}
++
+ static struct uart_driver amba_reg;
+ static struct console amba_console = {
+ 	.name		= "ttyAMA",
+-	.write		= pl011_console_write,
+ 	.device		= uart_console_device,
+ 	.setup		= pl011_console_setup,
+ 	.match		= pl011_console_match,
+-	.flags		= CON_PRINTBUFFER | CON_ANYTIME,
++	.write_atomic	= pl011_console_write_atomic,
++	.write_thread	= pl011_console_write_thread,
++	.device_lock	= pl011_console_device_lock,
++	.device_unlock	= pl011_console_device_unlock,
++	.flags		= CON_PRINTBUFFER | CON_ANYTIME | CON_NBCON,
+ 	.index		= -1,
+ 	.data		= &amba_reg,
+ };
+-- 
+2.34.1
+
 
