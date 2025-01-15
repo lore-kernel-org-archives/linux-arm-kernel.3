@@ -4,72 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B119C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 18:51:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F0AEC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 19:14:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XrE+TT5CMysUYi6uOrS9D9UYzezaxTPWZXRKKi9heC8=; b=a59sr4s4OfC0QG5j5H52dYCy8k
-	RSWA8v6Z1eW7Z6hf5FF12F5ox18N5j8T5nHr00Lm/pVzQ8GFqadmhP1CLmIAnQwX+Txp/zmG3mnaf
-	h/AZcWYqNoNedTN/jKMKNWHWseQ+bspO5LlUPqiKr4OMvI4V2icBqiNj0HicY8X3yC30gK1CGlGV3
-	5BVIWOQTsioaSRD1v3++BQAURiBYwr8wa2C9fAsWTJuy+iv6f+rkR98HIRQYnqUSz0FUZF5L1vdVG
-	uA5V8s17MsNhvAv47DcPz0th2+bb7+a1PcuINMagsx6PXi1Xle0BORortPpvrDITvBJVVrZj0uBmH
-	zlxySjCA==;
+	bh=/4oGFxCwPaJgAdqTBVjzj8myjSC006R3VVcxomH2jWc=; b=h7kRoLt90UOSDe41VidC5DyXNp
+	VTyEGm+iQer7xWqm9mlDkWOtz6aj5h2F5+Y5cF9A+2UJIuM/wfG4ie9grPExY1VNm7LfRTofhbxMm
+	wiJXPS/KEywYchpDbKwxG/QMJZo6zRd1uKxHix7E+EgSbwwMsLLkdZ4fUk+yvIs3qZMqIci9UztWw
+	oOPJNbw9DjD9H1RHMpnSF9JuB+P254bZwO6jjeKuf94WnmL1ht0WPEnfSQhObvEftWrChRuQtyBhk
+	+7MjA9AyOCIOmRQfzszAY+D/iz3/Outwr51h7DHyFMJYwefStIpVF8LEvXZmVUQqF3gDx39Y5twOE
+	+tB2ElCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY8UT-0000000CpKD-3rrW;
-	Wed, 15 Jan 2025 18:51:45 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tY8q3-0000000CrpZ-3qod;
+	Wed, 15 Jan 2025 19:14:03 +0000
+Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY8NM-0000000CoIL-0Fg3;
-	Wed, 15 Jan 2025 18:44:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id DD2EFA42064;
-	Wed, 15 Jan 2025 18:42:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D768C4CED1;
-	Wed, 15 Jan 2025 18:44:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736966662;
-	bh=G4PzYBU8G9Uar4bPlnrhRRps7QPD3CQ7Vc8IyR3W9OM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LugFm7/95m0CLhvMD/7uWtivH5QpL+9k0pqN+JjWvb3Z2IQZ4mukW8/TzB40NF1a7
-	 9DHfE1gVk5X9+b0ogSrhsvRxQE5urfgmti2EcbpRHJKvHE1XBCHzbFUQ49xTOb5OuI
-	 DgMuZ9eRVFndwnIHklT0WqHIBrqXbtqTXDT70vsPt/hWFk3Iz3WKAuDMBKWOChH/IX
-	 bRGLotsQE7RksHsd/TVpwapJ9oBzvFr45J1YZXwLLwCXLqDC/zHHJ/1qHe2a+4KPC2
-	 xuyGF1B4x8zTCKS2og7mKnR0gSSDhKlIV9zmtUc+6/4CQ3LIPRqRGdvZragFR9qdPY
-	 +SsaQ5ZXGd73Q==
-Date: Wed, 15 Jan 2025 18:44:17 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
+	id 1tY8ol-0000000Cree-1Xbq
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Jan 2025 19:12:45 +0000
+Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-467a8d2d7f1so1292681cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 11:12:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1736968362; x=1737573162; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=/4oGFxCwPaJgAdqTBVjzj8myjSC006R3VVcxomH2jWc=;
+        b=CxhZXIdDBGbvOk3LpFKKptyg7++mxW2jK/f4l919X8cn/GqdWwWbLPdgfc0s1Yo3ML
+         yvE6LE51F4g71XfO1z/prc3qJMsvovuRG+xUHvNi/7WFJxC6TNynrgJqVYRvENPyFch1
+         1YMgzY6btbUp7ML4DkG3hjcOk3PWguf2F/P4CAFRE43uyBUph2xg9CpEdNCxvt2Y+k/i
+         mehxWNJQHEjySZtRYsgvp7s3jrDm9A+wb9CM4XCIlQUNLd3bp0sorI7Wt9MIXDkTrTjb
+         LaggSmihdIEuRGVWQIba7mqs62w2Icendr5EDNjg4oJunnkfiwskUjTfGAMv4xhz90Ud
+         PKgg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736968362; x=1737573162;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/4oGFxCwPaJgAdqTBVjzj8myjSC006R3VVcxomH2jWc=;
+        b=DJJtL8kcVVcWJax9DpRufazUVnm76WB/mQ3ZojKQ1kcnZjUBA2w0iGF7Qgk18OK7bI
+         1vHl83pjqtOVjTfRp7TXHV659Y7FJn7X0xd7SQ1IvzZfRCw6r+tHBkQm3Kc/2gcxS9bG
+         TeaT/GFEIYus+R4oHFxjL9knz/SsQmCi7jg6gOb9e6Zx6YiDRWfF4IWbhbCkGXi+SRH2
+         WsluZgYLXAsSN5nD2MSvfq//QFgaLA6mDCNE6QTmdP9e+wUGf7+jyLf0kVxAEYf6WGsx
+         wXw+0xJQShCTQZ3ekQeufFbZzcYPxTxjES8Sg0nbOMEniP22Un+O6sOCogniqb5LMeJH
+         dEzw==
+X-Forwarded-Encrypted: i=1; AJvYcCW5M2nxuaoFcEBPybePkcLeVySOz9fip1Z2auaGHNkaaOaIBq4FMFwYIeeci01yjZqMnZA7KrK+Nbh3HdeqVbf3@lists.infradead.org
+X-Gm-Message-State: AOJu0YwnbxrMOSrrkx7BZpk1cH/d124RJzUnMbDJR4FD15hy1TuupoED
+	p1emAaYm9NRKkjGczlRz3+Vnn1hprWps+b9xOai/MY5BxVGKPzyuKCp/7KREOzE=
+X-Gm-Gg: ASbGncvNhVvw5rfKV1PR0RiSDxsS/dtFXIhlyjGoydSp6jnKpsHogE3ofgxVHewzdpE
+	L4FPb9lZczbtgFmSdOC8HTkTNoXCMd7oXJDw1h1zon1r6COnRu1Elxr7z2B8+RK2RkJmrasKyr3
+	36Lwwjx0xxjF5htFSp6Kw8KzjKXtJYl6jWMl7FFSByJvV3/O4ql4Kh6eQNvJwyQyUbhdjiwrSuT
+	zdWFoy9+aMzA4k7iZ98AOsIOJhgtTAB97yF3WI+JVYJbSfRjLsz2dtz/kt57OhZc7T3SmPNVh3s
+	O127YFv/eQReKjxbWAHPNUAawtlQHw==
+X-Google-Smtp-Source: AGHT+IGLgsr87VLlZ/6vxEgew2f6ev8/p69ziLEOON6TEwqWnOVVTirBJBkB/bFj8Dm/enP76kSGnA==
+X-Received: by 2002:a05:622a:1a96:b0:462:ea22:33bb with SMTP id d75a77b69052e-46c7107aa17mr104417681cf.38.1736968361749;
+        Wed, 15 Jan 2025 11:12:41 -0800 (PST)
+Received: from ziepe.ca (hlfxns017vw-142-68-128-5.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.68.128.5])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-46c873de559sm67648981cf.78.2025.01.15.11.12.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Jan 2025 11:12:41 -0800 (PST)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1tY8oi-00000002pPE-1jhH;
+	Wed, 15 Jan 2025 15:12:40 -0400
+Date: Wed, 15 Jan 2025 15:12:40 -0400
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>, Yong Wu <yong.wu@mediatek.com>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	devicetree <devicetree@vger.kernel.org>,
-	linux-kernel <linux-kernel@vger.kernel.org>,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-	linux-mediatek <linux-mediatek@lists.infradead.org>,
-	kernel <kernel@collabora.com>
-Subject: Re: [PATCH 1/3] dt-bindings: arm: mediatek: add mt8370-evk board
-Message-ID: <20250115-preformed-lilac-15ccb03e7119@spud>
-References: <20250114-dts_mt8370-genio-510-v1-0-8517ee0fdbe8@collabora.com>
- <20250114-dts_mt8370-genio-510-v1-1-8517ee0fdbe8@collabora.com>
- <ef8bbe7a-64fa-4e51-86f3-4f7fc0bb3760@collabora.com>
- <20250114-lily-defensive-3383449a7945@spud>
- <19469767d9c.d70b2edd1099115.3136795565203045474@collabora.com>
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH] iommu: Use str_enable_disable-like helpers
+Message-ID: <20250115191240.GA650389@ziepe.ca>
+References: <20250114192642.912331-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="vpJ7qZAU57snQZoU"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <19469767d9c.d70b2edd1099115.3136795565203045474@collabora.com>
+In-Reply-To: <20250114192642.912331-1-krzysztof.kozlowski@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_104424_163979_BF077CA1 
-X-CRM114-Status: GOOD (  15.78  )
+X-CRM114-CacheID: sfid-20250115_111243_571779_0C07DDC0 
+X-CRM114-Status: GOOD (  13.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,50 +106,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jan 14, 2025 at 08:26:42PM +0100, Krzysztof Kozlowski wrote:
+> Replace ternary (condition ? "enable" : "disable") syntax with helpers
+> from string_choices.h because:
+> 1. Simple function call with one argument is easier to read.  Ternary
+>    operator has three arguments and with wrapping might lead to quite
+>    long code.
+> 2. Is slightly shorter thus also easier to read.
+> 3. It brings uniformity in the text - same string.
+> 4. Allows deduping by the linker, which results in a smaller binary
+>    file.
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> ---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 3 ++-
+>  drivers/iommu/arm/arm-smmu/arm-smmu.c       | 3 ++-
+>  drivers/iommu/mtk_iommu.c                   | 9 +++++----
+>  drivers/iommu/mtk_iommu_v1.c                | 3 ++-
+>  drivers/iommu/rockchip-iommu.c              | 3 ++-
+>  5 files changed, 13 insertions(+), 8 deletions(-)
 
---vpJ7qZAU57snQZoU
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
-On Wed, Jan 15, 2025 at 11:16:00AM +0100, Louis-Alexis Eyraud wrote:
->  ---- On Tue, 14 Jan 2025 18:54:54 +0100  Conor Dooley  wrote ---=20
->  > On Tue, Jan 14, 2025 at 11:32:47AM +0100, AngeloGioacchino Del Regno w=
-rote:
->  > > Il 14/01/25 08:38, Louis-Alexis Eyraud ha scritto:
->  > > > Add bindings for the MediaTek mt8370-evk board, also known
->  > > > as the "Genio 510-EVK".
->  > > >=20
->  > > > Signed-off-by: Louis-Alexis Eyraud louisalexis.eyraud@collabora.co=
-m>
->  > >=20
->  > > Reviewed-by: AngeloGioacchino Del Regno angelogioacchino.delregno@co=
-llabora.com>
->  >=20
->  > Can either of you explain why there's a fallback here to the mt8188?
->  >=20
->=20
-> The mt8370 SoC belongs to the same family as the mt8188 and mt8390.
->=20
-> It is a less powerful variant of mt8390, with less A55 and Mali G57 cores=
- as main differences, and like the mt8390, its hardware register maps are i=
-dentical to mt8188.
-> That is why I added a fallback on mt8188.
-
-Seems fine then,
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
-
---vpJ7qZAU57snQZoU
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ4gCAQAKCRB4tDGHoIJi
-0vNJAP9hRxZkfQhseHe1QQ9f6Z5WQKGw1EgiIuWo5Aq35jBUZwD/S+nJx4NxwpUN
-ZvVMB0l5bDODSLpz1FaMo24PT6XN0Ac=
-=UM9R
------END PGP SIGNATURE-----
-
---vpJ7qZAU57snQZoU--
+Jason
 
