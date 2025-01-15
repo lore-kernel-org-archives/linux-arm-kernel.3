@@ -4,86 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 325AEC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 05:44:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 687ADC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 06:08:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DuBzISU5VFPAjsRkdsiFIlUcNiX/+1PtQJcrEZX9csg=; b=g/7//QYVgh8AE2i7B0c1bowSYZ
-	drqZQgmPn1ijJ1rHfc7WGs7OVhQgCN0iIpq+UkeTr6jV7aWuzRjXLr3hdzWei7v+eEKJyxak9ZIOg
-	7B+qcP2VdMSemknj6SISLBQw5+TbTkJWu2KdzrKqf+e+Ke4+eHVAqslO8i6XOSacfnFesKFk9bAMh
-	k32gF5ikM9TbbGTMJkp5bedAKzlJkaVLOYC3i6xAHxoKLUBcRjx1I3n0l9AENqzMCm4TnwgAHPQE5
-	9M47VS985GaTPZ60qWIDEG9dk3IexbJJNo7Z0NanDOrOJspWWeb1/DW+QpSy1N2u1diG+1TsU0+q1
-	vw6ISAZA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GlYDf9TuPMftHL65Pp0mEEBTPUobO25B2ymChcy4WEM=; b=ZU1aGBoskjL09grnQLVPJH46vT
+	WQoovJWQX2i3Dd2Q+P497VmEif6AFHKE458PfHFOD3PplLim3Q4EkPK0eZ2vexKKI9/7BeuEWIldE
+	WOvtTuiRVcv69mAVAKxNYyDu+hh7gxStUWVLIFQKFLTtuC4SVZ4F/MA1vOXfjMgxLkT6kZwQFge7u
+	upzlIfFD5WU/5ESzJMCp4rE0gqxs5qXwQ5tVo0xL82Tgo1Yyfg9R5VBx/OWDL3glz9FzBJSFPVWd3
+	iXCVu9C+E5WEGR94hMMspBMI2ImFYDEQH7EqW9hJLc5NY5LQz/UcLJ1fUTYNa7qgbzVJ0HrHtvyiF
+	TCABUyGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXwC0-0000000Ai8L-0RCm;
-	Wed, 15 Jan 2025 05:43:52 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1tXwZy-0000000Akor-1PSl;
+	Wed, 15 Jan 2025 06:08:38 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXwAk-0000000Ai3A-1a5w;
-	Wed, 15 Jan 2025 05:42:35 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-aa6c0dbce1fso906633966b.2;
-        Tue, 14 Jan 2025 21:42:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736919753; x=1737524553; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DuBzISU5VFPAjsRkdsiFIlUcNiX/+1PtQJcrEZX9csg=;
-        b=ed1YRSqgRaWZJzIisPRdx11i0pbxCCHaVddaoSZ347H0ORUHelvwI2BXlhgY6pyGvz
-         bY9kdjtZSn/i0m/GdEnaraNwK6HBDbs/ArC4igW38jwpwK2ZJ7d90/EtOYK2F2qzLFov
-         D02cCHeyRy0HpncHWxa/yQQVtPG9eE1AcVuOHzcnacPRgLP2u1VgiDiKlcbm9nNtGAE9
-         9rBe5pJppM3YjaudPfM+wj/Ib1OKf2bikPzwdgRuvrSjtoA44kfP8PsBhJvRnKY/GTpp
-         f/2o0IIOHS/+GwzKZdvlaYb9zeLlidmfHAzt9t8KxUwfuPuovbp8nnAJB3j0yehN+ZZ2
-         DlPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736919753; x=1737524553;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=DuBzISU5VFPAjsRkdsiFIlUcNiX/+1PtQJcrEZX9csg=;
-        b=hgMK/L6yomRfDRitHUBiWsrnQgkO3t+8HashUynMvOqQfxYCvhNOiRq/Ek/DTuOfHY
-         nQWchi5fIl8jxA64ZidI0JMFo6Bt3kpK5rRZinNJBqFxf3AiPcvjJwN0FxqwBWxU54bk
-         lFvTDCZrEvOuUwc286e0Iya6nyHs0o147kLaeUEdWGXldqHdS60DYFQuoBWl59bpkygG
-         YpzK/oC/Gwhw9zCbObVIRpOsyMNuaX/FemCxu2EO+2nTsYl5Y4VdzGs8xItqHUHdC9Zd
-         fx409wSagkcne4KWpt2j1idxLodUyQ9tMLkwNQYToxY+U4hQETY7Jf1+siyO9wzcipd3
-         yvOw==
-X-Forwarded-Encrypted: i=1; AJvYcCUbvkbudpHki/8o2VNUExlPLnYyoWNu068J8/KnR6dMzzc2dV9uFusIwKJXZOdyIvYBLQF3SQ4FaPJpIrg=@lists.infradead.org, AJvYcCWHCKkCp85vkvPElxfq7oh/GNTw+e+0qERxjs9fCHwrPlWQwP8pwqtjPczDQkU8/Kmck0kDj7Uh9kFzHzB078oq@lists.infradead.org
-X-Gm-Message-State: AOJu0Yys6emLu6q/ey0wG5TdkON8h3gvoqk+cpBOSfFFlLfxLgUK3NqO
-	J6NY3EKsR7zhVCtydOv9+G42MVfEHlrOXR9LHjSYLdv4WOb4xG4CQWZo7T05mmu2y2nFfhkkrKa
-	Zqcc96bO/YNrhlCTGZsFPBJMLVVQ=
-X-Gm-Gg: ASbGncv5ZsYFGqZd5wGBu6/ybrSWxKB7/eBSlU/oF0zTcdwFmWaEwioimF5yurZ30QQ
-	F/H1ZEIJh1vSRqkSnLKjNTnr5K6/RT4rNAzi+vg==
-X-Google-Smtp-Source: AGHT+IFPndA0UnHuFvKNHji3gtntOaWwA5e+Fc7f8rILAQ7wRnmjAYYDRlAaokCLMY9u4f9Tm0Y1CgsH6jrpedhqsmg=
-X-Received: by 2002:a05:6402:35ca:b0:5d0:d818:559d with SMTP id
- 4fb4d7f45d1cf-5d972e0b954mr70203434a12.11.1736919752505; Tue, 14 Jan 2025
- 21:42:32 -0800 (PST)
+	id 1tXwYi-0000000AkkU-43E2
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Jan 2025 06:07:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E12045C55E0;
+	Wed, 15 Jan 2025 06:06:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 5B7E2C4CEDF;
+	Wed, 15 Jan 2025 06:07:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736921239;
+	bh=G3pI6qrl347DsNrfhtfFcgfX1IdLc/pFN8Nj/vWwpR8=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=klriy1REuwnjgEjUpd4kQzTmN/IFdWD+qqyndBOME7ligMCRkrPtUMr+RLQrpM/Y/
+	 AKSMT9e41yvkSB512aR+U/Xc+5f3ZVT98rP9LdyqEGfXCZ/4zZ3krXWlbMQv62RPsc
+	 9aKFu0LtNnh2sgqvzvrNFf77jWoGiP14yK3FmmO5FYuGwpnY5aBKOcujxZJI8YQVyl
+	 zvhBcX6eqgOTC2dhi9ouVGMx8cgaEQkPjREc0UmOmGEuO2ZYLxqxs9o8t2f6DyZ8bw
+	 tfjFE8a34M+OQxCe+10E6j4wC8zo/GE/8fNXVxOHH0cVfd82KgUwmqNRNMduBFBJ7r
+	 XYYVcZYA+aj2Q==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4C0DEC02180;
+	Wed, 15 Jan 2025 06:07:19 +0000 (UTC)
+From: Nayab Sayed via B4 Relay <devnull+nayabbasha.sayed.microchip.com@kernel.org>
+Date: Wed, 15 Jan 2025 11:37:04 +0530
+Subject: [PATCH v2] iio: adc: at91-sama5d2_adc: fix sama7g5 realbits value
 MIME-Version: 1.0
-References: <20250115033808.40641-1-21cnbao@gmail.com> <20250115033808.40641-5-21cnbao@gmail.com>
- <CAK1f24=3LmQMzgosB0o9OKV-P8f6cPO2ZCPBA64QXQqZYPk=ww@mail.gmail.com> <CAGsJ_4xwHVmnKENYV6M6yMSUzeeR8tM7F8mbkAUd4eVHhfN_BA@mail.gmail.com>
-In-Reply-To: <CAGsJ_4xwHVmnKENYV6M6yMSUzeeR8tM7F8mbkAUd4eVHhfN_BA@mail.gmail.com>
-From: Lance Yang <ioworker0@gmail.com>
-Date: Wed, 15 Jan 2025 13:41:56 +0800
-X-Gm-Features: AbW1kvbgJbBDZ9E1MWxWALOwnicXwxZfzPZ7oAIJcXasjZxKMd8HDROy6TEL6hE
-Message-ID: <CAK1f24=9P7uz5q4GiB9Az4xebMLzqw_+YVX2Z9rG8fLVozcrQg@mail.gmail.com>
-Subject: Re: [PATCH v3 4/4] mm: Avoid splitting pmd for lazyfree pmd-mapped
- THP in try_to_unmap
-To: Barry Song <21cnbao@gmail.com>
-Cc: akpm@linux-foundation.org, linux-mm@kvack.org, 
-	baolin.wang@linux.alibaba.com, chrisl@kernel.org, david@redhat.com, 
-	kasong@tencent.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, v-songbaohua@oppo.com, 
-	x86@kernel.org, ying.huang@intel.com, zhengtangquan@oppo.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250115-fix-sama7g5-adc-realbits-v2-1-58a6e4087584@microchip.com>
+X-B4-Tracking: v=1; b=H4sIAIdQh2cC/42NTQ7CIBCFr9LM2jF0CEVdeQ/TBQJtJ5HSQEM0T
+ e8u9gTmrb6X97NB9ol9hluzQfKFM8e5Ap0asJOZR4/sKgMJUqIVEgd+YzbB6FGhcRaTN68nrxm
+ lHjoaLldSTkOtL8nX7DH96CtPnNeYPsdTaX/uH6OlxSotyVGnrOzMPbBN0U68nG0M0O/7/gXV7
+ YAwxAAAAA==
+To: Eugen Hristev <eugen.hristev@linaro.org>, 
+ Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ Jonathan Cameron <Jonathan.Cameron@huawei.com>, 
+ Nayab Sayed <nayabbasha.sayed@microchip.com>
+X-Mailer: b4 0.14.1
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5233;
+ i=nayabbasha.sayed@microchip.com; h=from:subject:message-id;
+ bh=akVlIDY4JEv/jdH/CBhdCc65c1LeP0Vt27jvi+Wz5GY=;
+ b=owGbwMvMwCEmfMj/xNz7ei8ZT6slMaS3B0ztTL3+/4ne+5WfzKxz1uR8cRVatqDx6tM5NQ4Xf
+ 6QoZlz43FHKwiDGwSArpsjSvXn+bMOiP52ZPzlXwMxhZQIZwsDFKQATCcpnZLi+d2a14iT/0BXJ
+ Ygetert3/pn4Ud7br0Hn3d2WXL+8S0EM/0wCK3JU26IZYuV1Hjubn467ILAm/u6Ue3qZZ4MyGgR
+ ucgEA
+X-Developer-Key: i=nayabbasha.sayed@microchip.com; a=openpgp;
+ fpr=E108A58C09FB2280B0AB41DAE24318EF3B3861A3
+X-Endpoint-Received: by B4 Relay for nayabbasha.sayed@microchip.com/default
+ with auth_id=304
+X-Original-From: Nayab Sayed <nayabbasha.sayed@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_214234_418250_8387803F 
-X-CRM114-Status: GOOD (  31.00  )
+X-CRM114-CacheID: sfid-20250114_220721_099216_EBDC479B 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,239 +92,147 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: nayabbasha.sayed@microchip.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 15, 2025 at 1:09=E2=80=AFPM Barry Song <21cnbao@gmail.com> wrot=
-e:
->
-> On Wed, Jan 15, 2025 at 6:01=E2=80=AFPM Lance Yang <ioworker0@gmail.com> =
-wrote:
-> >
-> > On Wed, Jan 15, 2025 at 11:38=E2=80=AFAM Barry Song <21cnbao@gmail.com>=
- wrote:
-> > >
-> > > From: Barry Song <v-songbaohua@oppo.com>
-> > >
-> > > The try_to_unmap_one() function currently handles PMD-mapped THPs
-> > > inefficiently. It first splits the PMD into PTEs, copies the dirty
-> > > state from the PMD to the PTEs, iterates over the PTEs to locate
-> > > the dirty state, and then marks the THP as swap-backed. This process
-> > > involves unnecessary PMD splitting and redundant iteration. Instead,
-> > > this functionality can be efficiently managed in
-> > > __discard_anon_folio_pmd_locked(), avoiding the extra steps and
-> > > improving performance.
-> > >
-> > > The following microbenchmark redirties folios after invoking MADV_FRE=
-E,
-> > > then measures the time taken to perform memory reclamation (actually
-> > > set those folios swapbacked again) on the redirtied folios.
-> > >
-> > >  #include <stdio.h>
-> > >  #include <sys/mman.h>
-> > >  #include <string.h>
-> > >  #include <time.h>
-> > >
-> > >  #define SIZE 128*1024*1024  // 128 MB
-> > >
-> > >  int main(int argc, char *argv[])
-> > >  {
-> > >         while(1) {
-> > >                 volatile int *p =3D mmap(0, SIZE, PROT_READ | PROT_WR=
-ITE,
-> > >                                 MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
-> > >
-> > >                 memset((void *)p, 1, SIZE);
-> > >                 madvise((void *)p, SIZE, MADV_FREE);
-> > >                 /* redirty after MADV_FREE */
-> > >                 memset((void *)p, 1, SIZE);
-> > >
-> > >                 clock_t start_time =3D clock();
-> > >                 madvise((void *)p, SIZE, MADV_PAGEOUT);
-> > >                 clock_t end_time =3D clock();
-> > >
-> > >                 double elapsed_time =3D (double)(end_time - start_tim=
-e) / CLOCKS_PER_SEC;
-> > >                 printf("Time taken by reclamation: %f seconds\n", ela=
-psed_time);
-> > >
-> > >                 munmap((void *)p, SIZE);
-> > >         }
-> > >         return 0;
-> > >  }
-> > >
-> > > Testing results are as below,
-> > > w/o patch:
-> > > ~ # ./a.out
-> > > Time taken by reclamation: 0.007300 seconds
-> > > Time taken by reclamation: 0.007226 seconds
-> > > Time taken by reclamation: 0.007295 seconds
-> > > Time taken by reclamation: 0.007731 seconds
-> > > Time taken by reclamation: 0.007134 seconds
-> > > Time taken by reclamation: 0.007285 seconds
-> > > Time taken by reclamation: 0.007720 seconds
-> > > Time taken by reclamation: 0.007128 seconds
-> > > Time taken by reclamation: 0.007710 seconds
-> > > Time taken by reclamation: 0.007712 seconds
-> > > Time taken by reclamation: 0.007236 seconds
-> > > Time taken by reclamation: 0.007690 seconds
-> > > Time taken by reclamation: 0.007174 seconds
-> > > Time taken by reclamation: 0.007670 seconds
-> > > Time taken by reclamation: 0.007169 seconds
-> > > Time taken by reclamation: 0.007305 seconds
-> > > Time taken by reclamation: 0.007432 seconds
-> > > Time taken by reclamation: 0.007158 seconds
-> > > Time taken by reclamation: 0.007133 seconds
-> > > =E2=80=A6
-> > >
-> > > w/ patch
-> > >
-> > > ~ # ./a.out
-> > > Time taken by reclamation: 0.002124 seconds
-> > > Time taken by reclamation: 0.002116 seconds
-> > > Time taken by reclamation: 0.002150 seconds
-> > > Time taken by reclamation: 0.002261 seconds
-> > > Time taken by reclamation: 0.002137 seconds
-> > > Time taken by reclamation: 0.002173 seconds
-> > > Time taken by reclamation: 0.002063 seconds
-> > > Time taken by reclamation: 0.002088 seconds
-> > > Time taken by reclamation: 0.002169 seconds
-> > > Time taken by reclamation: 0.002124 seconds
-> > > Time taken by reclamation: 0.002111 seconds
-> > > Time taken by reclamation: 0.002224 seconds
-> > > Time taken by reclamation: 0.002297 seconds
-> > > Time taken by reclamation: 0.002260 seconds
-> > > Time taken by reclamation: 0.002246 seconds
-> > > Time taken by reclamation: 0.002272 seconds
-> > > Time taken by reclamation: 0.002277 seconds
-> > > Time taken by reclamation: 0.002462 seconds
-> > > =E2=80=A6
-> > >
-> > > This patch significantly speeds up try_to_unmap_one() by allowing it
-> > > to skip redirtied THPs without splitting the PMD.
-> > >
-> > > Suggested-by: Baolin Wang <baolin.wang@linux.alibaba.com>
-> > > Suggested-by: Lance Yang <ioworker0@gmail.com>
-> > > Signed-off-by: Barry Song <v-songbaohua@oppo.com>
-> > > ---
-> > >  mm/huge_memory.c | 24 +++++++++++++++++-------
-> > >  mm/rmap.c        | 13 ++++++++++---
-> > >  2 files changed, 27 insertions(+), 10 deletions(-)
-> > >
-> > > diff --git a/mm/huge_memory.c b/mm/huge_memory.c
-> > > index 3d3ebdc002d5..47cc8c3f8f80 100644
-> > > --- a/mm/huge_memory.c
-> > > +++ b/mm/huge_memory.c
-> > > @@ -3070,8 +3070,12 @@ static bool __discard_anon_folio_pmd_locked(st=
-ruct vm_area_struct *vma,
-> > >         int ref_count, map_count;
-> > >         pmd_t orig_pmd =3D *pmdp;
-> > >
-> > > -       if (folio_test_dirty(folio) || pmd_dirty(orig_pmd))
-> > > +       if (pmd_dirty(orig_pmd))
-> > > +               folio_set_dirty(folio);
-> > > +       if (folio_test_dirty(folio) && !(vma->vm_flags & VM_DROPPABLE=
-)) {
-> > > +               folio_set_swapbacked(folio);
-> > >                 return false;
-> > > +       }
-> >
-> > If either the PMD or the folio is dirty, should we just return false ri=
-ght away,
-> > regardless of VM_DROPPABLE? There=E2=80=99s no need to proceed further =
-in that
-> > case, IMHO ;)
->
-> I don't quite understand you, but we need to proceed to clear pmd entry.
-> if vm_droppable is true, even if the folio is dirty, we still drop the fo=
-lio.
+From: Nayab Sayed <nayabbasha.sayed@microchip.com>
 
-Ah, you're right, and I completely got it wrong ;(
+The number of valid bits in SAMA7G5 ADC channel data register are 16.
+Hence changing the realbits value to 16
 
-Thanks,
-Lance
+Fixes: 840bf6cb983f ("iio: adc: at91-sama5d2_adc: add support for sama7g5 device")
+Signed-off-by: Nayab Sayed <nayabbasha.sayed@microchip.com>
+---
+Changes in v2:
+- Add `Fixes:` tag in commit message.
+- Link to v1: https://lore.kernel.org/r/20250103-fix-sama7g5-adc-realbits-v1-1-1732d265c36a@microchip.com
+---
+ drivers/iio/adc/at91-sama5d2_adc.c | 68 ++++++++++++++++++++++----------------
+ 1 file changed, 40 insertions(+), 28 deletions(-)
 
->
-> >
-> > Thanks,
-> > Lance
-> >
-> > >
-> > >         orig_pmd =3D pmdp_huge_clear_flush(vma, addr, pmdp);
-> > >
-> > > @@ -3098,8 +3102,15 @@ static bool __discard_anon_folio_pmd_locked(st=
-ruct vm_area_struct *vma,
-> > >          *
-> > >          * The only folio refs must be one from isolation plus the rm=
-ap(s).
-> > >          */
-> > > -       if (folio_test_dirty(folio) || pmd_dirty(orig_pmd) ||
-> > > -           ref_count !=3D map_count + 1) {
-> > > +       if (pmd_dirty(orig_pmd))
-> > > +               folio_set_dirty(folio);
-> > > +       if (folio_test_dirty(folio) && !(vma->vm_flags & VM_DROPPABLE=
-)) {
-> > > +               folio_set_swapbacked(folio);
-> > > +               set_pmd_at(mm, addr, pmdp, orig_pmd);
-> > > +               return false;
-> > > +       }
-> > > +
-> > > +       if (ref_count !=3D map_count + 1) {
-> > >                 set_pmd_at(mm, addr, pmdp, orig_pmd);
-> > >                 return false;
-> > >         }
-> > > @@ -3119,12 +3130,11 @@ bool unmap_huge_pmd_locked(struct vm_area_str=
-uct *vma, unsigned long addr,
-> > >  {
-> > >         VM_WARN_ON_FOLIO(!folio_test_pmd_mappable(folio), folio);
-> > >         VM_WARN_ON_FOLIO(!folio_test_locked(folio), folio);
-> > > +       VM_WARN_ON_FOLIO(!folio_test_anon(folio), folio);
-> > > +       VM_WARN_ON_FOLIO(folio_test_swapbacked(folio), folio);
-> > >         VM_WARN_ON_ONCE(!IS_ALIGNED(addr, HPAGE_PMD_SIZE));
-> > >
-> > > -       if (folio_test_anon(folio) && !folio_test_swapbacked(folio))
-> > > -               return __discard_anon_folio_pmd_locked(vma, addr, pmd=
-p, folio);
-> > > -
-> > > -       return false;
-> > > +       return __discard_anon_folio_pmd_locked(vma, addr, pmdp, folio=
-);
-> > >  }
-> > >
-> > >  static void remap_page(struct folio *folio, unsigned long nr, int fl=
-ags)
-> > > diff --git a/mm/rmap.c b/mm/rmap.c
-> > > index be1978d2712d..a859c399ec7c 100644
-> > > --- a/mm/rmap.c
-> > > +++ b/mm/rmap.c
-> > > @@ -1724,9 +1724,16 @@ static bool try_to_unmap_one(struct folio *fol=
-io, struct vm_area_struct *vma,
-> > >                 }
-> > >
-> > >                 if (!pvmw.pte) {
-> > > -                       if (unmap_huge_pmd_locked(vma, pvmw.address, =
-pvmw.pmd,
-> > > -                                                 folio))
-> > > -                               goto walk_done;
-> > > +                       if (folio_test_anon(folio) && !folio_test_swa=
-pbacked(folio)) {
-> > > +                               if (unmap_huge_pmd_locked(vma, pvmw.a=
-ddress, pvmw.pmd, folio))
-> > > +                                       goto walk_done;
-> > > +                               /*
-> > > +                                * unmap_huge_pmd_locked has either a=
-lready marked
-> > > +                                * the folio as swap-backed or decide=
-d to retain it
-> > > +                                * due to GUP or speculative referenc=
-es.
-> > > +                                */
-> > > +                               goto walk_abort;
-> > > +                       }
-> > >
-> > >                         if (flags & TTU_SPLIT_HUGE_PMD) {
-> > >                                 /*
-> > > --
-> > > 2.39.3 (Apple Git-146)
-> > >
+diff --git a/drivers/iio/adc/at91-sama5d2_adc.c b/drivers/iio/adc/at91-sama5d2_adc.c
+index 8e5aaf15a921..c3a1dea2aa82 100644
+--- a/drivers/iio/adc/at91-sama5d2_adc.c
++++ b/drivers/iio/adc/at91-sama5d2_adc.c
+@@ -329,7 +329,7 @@ static const struct at91_adc_reg_layout sama7g5_layout = {
+ #define AT91_HWFIFO_MAX_SIZE_STR	"128"
+ #define AT91_HWFIFO_MAX_SIZE		128
+ 
+-#define AT91_SAMA5D2_CHAN_SINGLE(index, num, addr)			\
++#define AT91_SAMA_CHAN_SINGLE(index, num, addr, rbits)			\
+ 	{								\
+ 		.type = IIO_VOLTAGE,					\
+ 		.channel = num,						\
+@@ -337,7 +337,7 @@ static const struct at91_adc_reg_layout sama7g5_layout = {
+ 		.scan_index = index,					\
+ 		.scan_type = {						\
+ 			.sign = 'u',					\
+-			.realbits = 14,					\
++			.realbits = rbits,				\
+ 			.storagebits = 16,				\
+ 		},							\
+ 		.info_mask_separate = BIT(IIO_CHAN_INFO_RAW),		\
+@@ -350,7 +350,13 @@ static const struct at91_adc_reg_layout sama7g5_layout = {
+ 		.indexed = 1,						\
+ 	}
+ 
+-#define AT91_SAMA5D2_CHAN_DIFF(index, num, num2, addr)			\
++#define AT91_SAMA5D2_CHAN_SINGLE(index, num, addr)			\
++	AT91_SAMA_CHAN_SINGLE(index, num, addr, 14)
++
++#define AT91_SAMA7G5_CHAN_SINGLE(index, num, addr)			\
++	AT91_SAMA_CHAN_SINGLE(index, num, addr, 16)
++
++#define AT91_SAMA_CHAN_DIFF(index, num, num2, addr, rbits)		\
+ 	{								\
+ 		.type = IIO_VOLTAGE,					\
+ 		.differential = 1,					\
+@@ -360,7 +366,7 @@ static const struct at91_adc_reg_layout sama7g5_layout = {
+ 		.scan_index = index,					\
+ 		.scan_type = {						\
+ 			.sign = 's',					\
+-			.realbits = 14,					\
++			.realbits = rbits,				\
+ 			.storagebits = 16,				\
+ 		},							\
+ 		.info_mask_separate = BIT(IIO_CHAN_INFO_RAW),		\
+@@ -373,6 +379,12 @@ static const struct at91_adc_reg_layout sama7g5_layout = {
+ 		.indexed = 1,						\
+ 	}
+ 
++#define AT91_SAMA5D2_CHAN_DIFF(index, num, num2, addr)			\
++	AT91_SAMA_CHAN_DIFF(index, num, num2, addr, 14)
++
++#define AT91_SAMA7G5_CHAN_DIFF(index, num, num2, addr)			\
++	AT91_SAMA_CHAN_DIFF(index, num, num2, addr, 16)
++
+ #define AT91_SAMA5D2_CHAN_TOUCH(num, name, mod)				\
+ 	{								\
+ 		.type = IIO_POSITIONRELATIVE,				\
+@@ -666,30 +678,30 @@ static const struct iio_chan_spec at91_sama5d2_adc_channels[] = {
+ };
+ 
+ static const struct iio_chan_spec at91_sama7g5_adc_channels[] = {
+-	AT91_SAMA5D2_CHAN_SINGLE(0, 0, 0x60),
+-	AT91_SAMA5D2_CHAN_SINGLE(1, 1, 0x64),
+-	AT91_SAMA5D2_CHAN_SINGLE(2, 2, 0x68),
+-	AT91_SAMA5D2_CHAN_SINGLE(3, 3, 0x6c),
+-	AT91_SAMA5D2_CHAN_SINGLE(4, 4, 0x70),
+-	AT91_SAMA5D2_CHAN_SINGLE(5, 5, 0x74),
+-	AT91_SAMA5D2_CHAN_SINGLE(6, 6, 0x78),
+-	AT91_SAMA5D2_CHAN_SINGLE(7, 7, 0x7c),
+-	AT91_SAMA5D2_CHAN_SINGLE(8, 8, 0x80),
+-	AT91_SAMA5D2_CHAN_SINGLE(9, 9, 0x84),
+-	AT91_SAMA5D2_CHAN_SINGLE(10, 10, 0x88),
+-	AT91_SAMA5D2_CHAN_SINGLE(11, 11, 0x8c),
+-	AT91_SAMA5D2_CHAN_SINGLE(12, 12, 0x90),
+-	AT91_SAMA5D2_CHAN_SINGLE(13, 13, 0x94),
+-	AT91_SAMA5D2_CHAN_SINGLE(14, 14, 0x98),
+-	AT91_SAMA5D2_CHAN_SINGLE(15, 15, 0x9c),
+-	AT91_SAMA5D2_CHAN_DIFF(16, 0, 1, 0x60),
+-	AT91_SAMA5D2_CHAN_DIFF(17, 2, 3, 0x68),
+-	AT91_SAMA5D2_CHAN_DIFF(18, 4, 5, 0x70),
+-	AT91_SAMA5D2_CHAN_DIFF(19, 6, 7, 0x78),
+-	AT91_SAMA5D2_CHAN_DIFF(20, 8, 9, 0x80),
+-	AT91_SAMA5D2_CHAN_DIFF(21, 10, 11, 0x88),
+-	AT91_SAMA5D2_CHAN_DIFF(22, 12, 13, 0x90),
+-	AT91_SAMA5D2_CHAN_DIFF(23, 14, 15, 0x98),
++	AT91_SAMA7G5_CHAN_SINGLE(0, 0, 0x60),
++	AT91_SAMA7G5_CHAN_SINGLE(1, 1, 0x64),
++	AT91_SAMA7G5_CHAN_SINGLE(2, 2, 0x68),
++	AT91_SAMA7G5_CHAN_SINGLE(3, 3, 0x6c),
++	AT91_SAMA7G5_CHAN_SINGLE(4, 4, 0x70),
++	AT91_SAMA7G5_CHAN_SINGLE(5, 5, 0x74),
++	AT91_SAMA7G5_CHAN_SINGLE(6, 6, 0x78),
++	AT91_SAMA7G5_CHAN_SINGLE(7, 7, 0x7c),
++	AT91_SAMA7G5_CHAN_SINGLE(8, 8, 0x80),
++	AT91_SAMA7G5_CHAN_SINGLE(9, 9, 0x84),
++	AT91_SAMA7G5_CHAN_SINGLE(10, 10, 0x88),
++	AT91_SAMA7G5_CHAN_SINGLE(11, 11, 0x8c),
++	AT91_SAMA7G5_CHAN_SINGLE(12, 12, 0x90),
++	AT91_SAMA7G5_CHAN_SINGLE(13, 13, 0x94),
++	AT91_SAMA7G5_CHAN_SINGLE(14, 14, 0x98),
++	AT91_SAMA7G5_CHAN_SINGLE(15, 15, 0x9c),
++	AT91_SAMA7G5_CHAN_DIFF(16, 0, 1, 0x60),
++	AT91_SAMA7G5_CHAN_DIFF(17, 2, 3, 0x68),
++	AT91_SAMA7G5_CHAN_DIFF(18, 4, 5, 0x70),
++	AT91_SAMA7G5_CHAN_DIFF(19, 6, 7, 0x78),
++	AT91_SAMA7G5_CHAN_DIFF(20, 8, 9, 0x80),
++	AT91_SAMA7G5_CHAN_DIFF(21, 10, 11, 0x88),
++	AT91_SAMA7G5_CHAN_DIFF(22, 12, 13, 0x90),
++	AT91_SAMA7G5_CHAN_DIFF(23, 14, 15, 0x98),
+ 	IIO_CHAN_SOFT_TIMESTAMP(24),
+ 	AT91_SAMA5D2_CHAN_TEMP(AT91_SAMA7G5_ADC_TEMP_CHANNEL, "temp", 0xdc),
+ };
+
+---
+base-commit: 619f0b6fad524f08d493a98d55bac9ab8895e3a6
+change-id: 20250103-fix-sama7g5-adc-realbits-37f62f8925d7
+
+Best regards,
+-- 
+Nayab Sayed <nayabbasha.sayed@microchip.com>
+
+
 
