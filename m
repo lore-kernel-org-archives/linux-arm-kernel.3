@@ -4,107 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7243C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 11:14:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C6BAC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 11:16:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YmFKTV1Vzh8yiIHQtVmbTa4qbAdP7OUb/3X/5PViSqc=; b=owe4LJQldtZSHZgKOdtN0sr0Pc
-	9mKpOOLAcE9CWuSR6EQv2cZZIBj8jkRxOzJEUDt1C4j2eknd0ocy3NSbaHPo3pbeE0U2cmP8VeRcO
-	rdvQlgl7wgSy9zk2xMjDOGdwhJquoE1JD/HVj6ZUj2TiryVro5+l/nIvnEU9iq2Xx5zNZQMAELT95
-	jKOKXzb75mclHbk/KjlEGRoOdfwgpVoPtAbl08zqkwteDs+6vmO4TgH/60onumIaL7pBstwMv7Nw1
-	F+SREvNW1OJtMidi5cMS4XbmKvYIo69y/aJhvS2GzRTuPcRwwfjpZpCqA+uV62tVTZwG5pp1VRwi+
-	WrFJ/f6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YWwH1bDPMW4sIvL8kmJCxcSzCH8Ejrs1sg9Vv46J164=; b=sGm+uXB3qUEtZdVdzZHA/cS5bF
+	YbGX9KjVNOzO/TO76zzplKqBJS2gkbdiFsfBNOktycTwpehQZdB+e1nns5BckiLMwq6w8NqC0CY3B
+	IZTA3DmtMikQtTpJJKVQBddXpvZWFVApdmzzG82MNi40Wo4vtZcSXl6Nis1yu4KdofU4MiT1YiyFj
+	7lgi6K2VC1zAHB6z13dJp7r9nWMk0THUR4mdFW2XobDHDT6rsieRzaOOw0WhrvKpIFxeI2ghD5l70
+	JT7ziNRy1WNxm/ft9vJBUG9w5cfPBViKT9k00blt48ADUZRWTQJch7O2qkTS29nhjdu2oNaOvcaNH
+	Fu6z1Svg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY1MA-0000000BdPh-2Ftn;
-	Wed, 15 Jan 2025 11:14:42 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1tY1NO-0000000Bdjj-1s2a;
+	Wed, 15 Jan 2025 11:15:58 +0000
+Received: from mail-pl1-f182.google.com ([209.85.214.182])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY1JW-0000000BcQY-2mLQ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 11:11:59 +0000
-Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id AC0E14AD;
-	Wed, 15 Jan 2025 12:10:58 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1736939459;
-	bh=kWmByKKrK7Xu9tnl8VAbPLeyhynqUtnjbWqA4h0alJs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gtaZJRXs97FXDg/PCerue2t0zj4wrZoJyYrlBEsFvl7jH+tpcvZdAmngIR5StL3It
-	 P0kchAOQGf7MoV2yqF49j0UNkZu7TI1Ut5y3/0NK0Dn9k7rKWITZaUa+eMMx3fs6qD
-	 HQUKMdvbzkPM7oEXas47W92aA9IgOH3Wkfr9cgpw=
-Message-ID: <b7b8cdde-c189-4b9f-8423-c8ab4797b2f0@ideasonboard.com>
-Date: Wed, 15 Jan 2025 13:11:53 +0200
+	id 1tY1Jw-0000000BcWz-1J6z;
+	Wed, 15 Jan 2025 11:12:25 +0000
+Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-21669fd5c7cso119710035ad.3;
+        Wed, 15 Jan 2025 03:12:23 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736939543; x=1737544343;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YWwH1bDPMW4sIvL8kmJCxcSzCH8Ejrs1sg9Vv46J164=;
+        b=tyd0GR5CuMV4P/ZdCdSRVO2E2H5m/9KCjge2AF/nO+sHQHMmR9gS0fmDZsX4hZP72j
+         L8Si1MLklDnpRAQsy2WBKs9jXt2HfN0iX4Fgew7r5XU+r30VJ8yw5Id9bCR93dzQf7KP
+         g7eaNovCbF7FVMaWF0iLQkSxYX4TFM4BYpX6SwaDH7H9uLOFoqmnU0KZooOW053n1alc
+         EAusKP0SCpxA304sR615w2kAzWLAABJ+fnT1oAFG1CpRAcqPuGbts53wimUEdlzmU4G9
+         cNlkeR1bGkyDFW4yEZ5LgXSGWySjaqssjNXjz/xgzmZnbeetAvP5ebwr97GA6DhodlTe
+         WorQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU8ARiWmnFsnb8o5OpAVWg3TdLnV4St3tm0zczze279s1UBT8phvp8Hl1d5s/vARCwr3hY5IdMI2Lb2TGl9FnM=@lists.infradead.org, AJvYcCVf4PsvqOJsAgPeGsGsiXH5fexEQXXh3d8fbJ0M1IxyrtfeoNU4BgLsHqiD2tzRm+OueM6sVQHwKvcnZHQaqFFo@lists.infradead.org
+X-Gm-Message-State: AOJu0YxTYAuhMFih/lT5MjmcH+0rLdZ492Nno4q9keGwIN0Jbebtv66S
+	eMjepyjJwiBhx8RvN0jX91zMAsTg+Xs8/TeQPCueMRogHVzNOy1g
+X-Gm-Gg: ASbGncubXYgdiroKY5SGJu7L+CvwZKXgnsm0pijyguH8vcjWPSqleTfcA/S8WFNscuW
+	BS/Eb5a+eahN7gTFc8Hb9j4IGPYVMVUzENYKXNM2WL01VcOxPef4//zhI3VjJTBYOhvNGJUosI1
+	9xGDgbaf+8cdAMRUDT7W9w94zWrtYJk/96l6M/ENTMbhWZvj7HOjm3wERZzYJ02Yd4IlxDmJpzH
+	tnLw95DMYRH3KkwGjWMAORJTN8NYZgf28CuI2aT6LZznnjXfUlz3nkiyiinw1Jv0ZPys4X9qj9x
+	FyHA+M2HMC43iT0=
+X-Google-Smtp-Source: AGHT+IHFoca7ZCISTDX0mGzInAWIQ58L8qkZmkBMA3Zf+oFefoTlL/1UC9F+En3y5YImzKRbiXnU4Q==
+X-Received: by 2002:a05:6a21:a4a:b0:1e1:c8f5:19ee with SMTP id adf61e73a8af0-1e88cfe2ce4mr44391726637.25.1736939543365;
+        Wed, 15 Jan 2025 03:12:23 -0800 (PST)
+Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-a31902b137bsm9540020a12.35.2025.01.15.03.12.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Jan 2025 03:12:22 -0800 (PST)
+Date: Wed, 15 Jan 2025 20:12:20 +0900
+From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, linux-pci@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
+Subject: Re: [PATCH v6 0/5] PCI: mediatek-gen3: mtk_pcie_en7581_power_up()
+ code
+Message-ID: <20250115111220.GA4176564@rocinante>
+References: <20250108-pcie-en7581-fixes-v6-0-21ac939a3b9b@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 04/10] drm/fourcc: Add DRM_FORMAT_Y10_LE32
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Vishal Sagar <vishal.sagar@amd.com>,
- Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Michal Simek <michal.simek@amd.com>, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20250115-xilinx-formats-v2-0-160327ca652a@ideasonboard.com>
- <20250115-xilinx-formats-v2-4-160327ca652a@ideasonboard.com>
- <CAMuHMdXwsdP3_3b_OWFZ8J=kuNCga0h5Vo+wR0fdquQjZNuzEw@mail.gmail.com>
-Content-Language: en-US
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
- 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
-In-Reply-To: <CAMuHMdXwsdP3_3b_OWFZ8J=kuNCga0h5Vo+wR0fdquQjZNuzEw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250108-pcie-en7581-fixes-v6-0-21ac939a3b9b@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_031158_837946_2117A99C 
-X-CRM114-Status: GOOD (  15.52  )
+X-CRM114-CacheID: sfid-20250115_031224_345228_F6CDB7CC 
+X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,47 +96,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hello,
 
-On 15/01/2025 12:33, Geert Uytterhoeven wrote:
-> Hi Tomi,
+> Minor fixes and code refactoring in mtk_pcie_en7581_power_up() routine
 > 
-> On Wed, Jan 15, 2025 at 10:04 AM Tomi Valkeinen
-> <tomi.valkeinen@ideasonboard.com> wrote:
->> Add Y10_LE32, a 10 bit greyscale format, with 3 pixels packed into
->> 32-bit container.
->>
->> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-> 
-> Thanks for your patch!
-> 
->> --- a/include/uapi/drm/drm_fourcc.h
->> +++ b/include/uapi/drm/drm_fourcc.h
->> @@ -408,6 +408,7 @@ extern "C" {
->>   /* Greyscale formats */
->>
->>   #define DRM_FORMAT_Y8          fourcc_code('G', 'R', 'E', 'Y')  /* 8-bit Y-only */
->> +#define DRM_FORMAT_Y10_LE32    fourcc_code('Y', 'P', 'A', '4')  /* [31:0] x:Y2:Y1:Y0 2:10:10:10 little endian */
-> 
-> R10_LE32? Or R10_PA4?
+> Changes in v6:
+> - remove mac_rst support for EN7581 since it is not needed by the SoC
+> - fix typos
+> - Link to v5: https://lore.kernel.org/r/20241130-pcie-en7581-fixes-v5-0-dbffe41566b3@kernel.org
 
-Can we discuss the "R" vs "Y" question under the cover letter? There's 
-some more context about it in there.
+Applied to controller/mediatek for v6.14, thank you!
 
-I took the "LE32" from Gstreamer's format. Maybe it's a bit pointless.
-
-I don't know if it makes sense to add the fourcc to the DRM format name. 
-The fourcc is very limited. Rather, we could, say, have 
-DRM_FORMAT_Y10_PACKED_32 (or "R", if you insist =).
-
-> 
-> Does LE32 have a meaning?  My first guess just reading the subject
-> was wrong ("little endian  32-bit" ;-)
-
-I'm not sure I follow. It's little-endian. The pixel group/unit is a 
-32-bit number, where the leftmost pixel on the screen is in bits 9-0, 
-and the padding is in bits 31-30, and stored in memory as little-endian.
-
-  Tomi
-
+	Krzysztof
 
