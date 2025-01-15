@@ -4,94 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71972C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 08:35:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB89EC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 08:38:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jRbGA5hfKNQNoBMn6E9hxMPXAsQYQxuMoAfdDX+Ku3E=; b=RSSah/UiiUjmvc60EJZPPsyEzV
-	muwBr+ExFZfxCy3Uksaz8wkPq0am33Hj5jtfzMLs48vCbGadt9Px6lFu0iDpkcWHX3yhJzUwAc5/r
-	ltV/lSvJvIUtBwpEnmy5XIXzDo6SI1oeZfe9qBh4IypR+HNwC6pOsTdtuflDffQfDtyhoOodcG0Lt
-	uGIVADfGSSeB4O5aoYEOCvBlafvKSFDHz/gyGY9j0WCRf9jifrbs/LKcC0smGCN6lVBW5s4hCYySj
-	YBdrJim8Fhk0L3yO5pWEIRDZN5JgyipQVQCWDCrvT0hQ/BcBO/dUv6QCh+mf34/9ca/7XpI6Lc0qw
-	hIRl6tuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lB3rHXjrUs5AJYYMIbdtSlreS8MQ74B9bY+rKil3MA8=; b=40KXZ5GhNjQMtiSj1VGWiUMHXd
+	FIMxCfwYDrR2SXPGjXRUA4ZonBFutdeVunxcuxEve9fOgQ/K4hQP9sj+49WpnlXTnw1rEah+ANyQZ
+	hbdA10KhxS88gxOLZGq7c6WlKLbSjcCMJaFZX7SEQ26SdJzbklWgt5Z1BfjcNjoysZF4HQ2e1R1Wk
+	3bIep3ZU6N6JSEBx31MPmBMVt7pJlcZ0WLehj8lkHumj2nkOqASkUXJdUfxrqBiZaE9GCa8113pBq
+	myHoZ/DljzSMOVyhVWoRQ/Na7A7n54DYrOHyRaY8gndhrZl2xvqkLQmIRHbWSXwTj8qewMIQqXCbG
+	w14MTZlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXyrW-0000000B74Z-2mGJ;
-	Wed, 15 Jan 2025 08:34:54 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1tXyuO-0000000B7Xb-03JB;
+	Wed, 15 Jan 2025 08:37:52 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXyqG-0000000B6ir-1nWj
+	id 1tXyt7-0000000B7N2-3aDA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 08:33:37 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-436a39e4891so44243385e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 00:33:36 -0800 (PST)
+	Wed, 15 Jan 2025 08:36:35 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4361dc6322fso45107915e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 00:36:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736930015; x=1737534815; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=jRbGA5hfKNQNoBMn6E9hxMPXAsQYQxuMoAfdDX+Ku3E=;
-        b=hCMp0CBT9UyTa6OP9ynZ/RIk6QLRBGtofCUZNVifSmirnwfSoYejUiB08zvhI4xHAM
-         2d3aOvN1hzX8q/oiQGhTyYSi8qSFspDYGoctxlV+tt9OCo+i8jVU20iuPc1MQpGkcnty
-         /gxgOv/fFHUNpCAZ5r6Q0OKNTT7/L+KI76mwYHKNjiUy4fuPp6KGdqJVeW/gPqFyTYg9
-         HKrzcvyy45mVO4fYDS8BB28nqh/4BZjOtpD8mU1fmbE8uKI0yeN1JO61LuXS10A31zbG
-         udNoQqMev+Se2MIr18Lg+D/D48wrnCK0pMuarvFi8PdCEP4sm5jUG4uM6XOFiTpH6qTc
-         QBiw==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1736930192; x=1737534992; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:user-agent
+         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lB3rHXjrUs5AJYYMIbdtSlreS8MQ74B9bY+rKil3MA8=;
+        b=rK5ITrOdXqBKDLHq4/HDJB1NPIr1c2vjRN76MwSXAA+KArTwOQrL6QVETLgNEXpUEh
+         rOcfcHOD5+hCeCCjdZcvLWZxP+CPaU3Fk64WudhBoZu1Lvf9soii6jhNq108Kowlelik
+         ybWc6VinNdt2nMQp0wXD5Vm+LFKpwNqkszxhdeI09UPQOXipynQDbEEiNn9JO/6VGx+5
+         G4tmFUlTZWv3Gn41CN/LfpuEJR1K6UvGUaD9O3wMeyk3JFiwTaJ1hck6L6ae/r0Hpmiu
+         ON2fEAhHD/ZNYtdBLAXlqTrwvOALiLwLcEKHO+bTUh9oNLFdd6h+2lwsE0quiH2WOnvm
+         UQCw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736930015; x=1737534815;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=jRbGA5hfKNQNoBMn6E9hxMPXAsQYQxuMoAfdDX+Ku3E=;
-        b=NdzDB1ukGqxFITISIS0h5Ut+w5rfs2V/FdtYxx0YhAcIO5R2eppbZgx1IBjus1mNpP
-         3eY+wM04ddIc1e17XIa3THOj58GY38e4G44lu2EGClHPpUOG2wl0eFwg4T+AxfNxnm2S
-         Cdv/osCdhsE+dxtcLixplUHHYNToOeyJDaaK3gUrqDCquVFCOMCbxPi7HT6GWf+SQmc9
-         2lSom9KQDFwOA1jMWh07TQuQ+KAGz6cZ39vfVtytqy7QAAxOR5tLrLBAAPAWIqujLN/1
-         w1Ph/Lyp/Zoj42O9HaqxeEbc1uYWuwgr6scrHmLa6ZGsmtbCVnvjG3avz/vVkN4kVhPF
-         +yAg==
-X-Forwarded-Encrypted: i=1; AJvYcCW5oI1078PW6ick4TcYxAtNPrrUdLD6vUMmmX4aB5xhesaYaLpfj9rCO4BSphfC3f5yn5mDkaiW8HSzJ7gBfdHT@lists.infradead.org
-X-Gm-Message-State: AOJu0YyotieCYTvMpQhhsmnCE4oj57HyX7TsA8VLgvyHV8JCgZJzV0L9
-	PLRDSj04nb5K64UW1Ncg4El4E53+uURUUw1jJjeZ3DZBaJ+35L0A
-X-Gm-Gg: ASbGncunw2jz4ZUa+BCP0cKOKCnHiIVSb/6x+5KQL1y6oZ+CSpa68+Mjcgu1TK+NHBc
-	GkQuu9oz0+yAj/LPEeghpCoHEDQGiMv5Qw6zKoFmsxx3qCMy791jSh0fL4nrb89gYRuCXyeKj/Y
-	6E54IDEGzU9LgVEZlw2w6yN6bQPMP1DwkUnC61uDYikoob3jOgCgvcCtUlS7OWJVhaWVBI0kJhz
-	3Dsb76h3Dn2NROT4YH1U6+aimRUjHmRFoh1clklKAyx9YAXbE9lcr502jXtvL3n4Gqfop2m9jYG
-	l1YftdEX
-X-Google-Smtp-Source: AGHT+IF7Dra5d6ki8O3COk+SLqWcJq2xaGIUHP116tcbjhTFS3reuK1GgRmhqIcUq60sOxi9rfERQw==
-X-Received: by 2002:a05:600c:3b99:b0:434:f925:f5c9 with SMTP id 5b1f17b1804b1-436e266dfe9mr223940145e9.6.1736930014457;
-        Wed, 15 Jan 2025 00:33:34 -0800 (PST)
-Received: from eichest-laptop (31-10-206-125.static.upc.ch. [31.10.206.125])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-437c749a127sm15360785e9.7.2025.01.15.00.33.33
+        d=1e100.net; s=20230601; t=1736930192; x=1737534992;
+        h=content-transfer-encoding:mime-version:message-id:date:user-agent
+         :references:in-reply-to:subject:cc:to:from:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=lB3rHXjrUs5AJYYMIbdtSlreS8MQ74B9bY+rKil3MA8=;
+        b=xTBIvyhquF9J6Mo2KjnVruNtmFMjAiVlmMek/fzaooGAZ/lag2lyDkgUvj2bzKDBkk
+         YxGbP2NpZ7lP1xDYeDieS2nskE+1HOABd/aR4EGPP1wO7D/pB55xdqq7Rhi3f0MVJaXH
+         GMRthDAQx0Qdxug2I/1/7UrlleLCxrFUdorMDTw6kkYktPiUAoCra6cnzsdGStKh1pf0
+         x8/IyO3XQOoSuZWsW2H1VegP871Z+v5Kf3XHLhP8mJmNeh4YAp4HCiLNHCTcF543uhxf
+         fkqkZSY+QPm8jEZTHeg1Rh0p0jhTTZpaVaQjivTjIX4J42epANiqQFZhJNQGRzFBABN3
+         +o2Q==
+X-Forwarded-Encrypted: i=1; AJvYcCW0oSeOLNtlBr4qCKeiZBagfCj+95W/ZfS43jb5EfnyB71sEO6JboO9YBioTp8ZWithx7iaeQviaEoeH8jZuR14@lists.infradead.org
+X-Gm-Message-State: AOJu0YzKjvFNL9I7wYo8sLxS6GmenpidtK4iiWDRW04c+ujo/LVNSFP8
+	FPsbEDNlYGNfEx74C4hvf/LQiOJ9cq9TuCLL0dG2bC5AV/m5IYdORsFycgN7v6k=
+X-Gm-Gg: ASbGnctqoVnUiwnKLJ9jyKWwBP7M/s2UnRRPlul5VtUsJhoteosucAN07FFk0fFR3VB
+	Z724SnhSwzMqjyut6LfXqfFSWEZ6tx+gLHMkiKRCNmpaT7tExirZtv57d6EtfCtIvVaQw5S3Q9S
+	9+WrYCIp6q7K39AifX3/lomJtE32w7GBK/VDXgQJn1oOwaRDjzLb9tZTqT6nOM1ND8D/wmWsZGG
+	l/99SMZU0GYdUuUJAO4WDTbrpi+gOuPV5/vpA60YqzK1s1Oyy84J9ND
+X-Google-Smtp-Source: AGHT+IGHLV3oniHk2tCYLxFndHHL9KG5RVtJRTDpiO1CMzyqcEywc4SzfBdAV2UjsP92dEf3xkAv9g==
+X-Received: by 2002:a05:600c:3554:b0:436:1be4:c9b4 with SMTP id 5b1f17b1804b1-436e26ff1b2mr227264435e9.27.1736930192380;
+        Wed, 15 Jan 2025 00:36:32 -0800 (PST)
+Received: from localhost ([2a01:e0a:3c5:5fb1:e7b8:6186:fc23:f678])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a8e37d447sm16644404f8f.4.2025.01.15.00.36.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jan 2025 00:33:34 -0800 (PST)
-Date: Wed, 15 Jan 2025 09:33:32 +0100
-From: Stefan Eichenberger <eichest@gmail.com>
-To: Shengjiu Wang <shengjiu.wang@gmail.com>
-Cc: abelvesa@kernel.org, peng.fan@nxp.com, mturquette@baylibre.com,
-	sboyd@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com, shengjiu.wang@nxp.com,
-	francesco.dolcini@toradex.com, linux-clk@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Stefan Eichenberger <stefan.eichenberger@toradex.com>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v1] clk: imx: imx8-acm: fix flags for acm clocks
-Message-ID: <Z4dy3LiEAQ_gkQGG@eichest-laptop>
-References: <20250113094654.12998-1-eichest@gmail.com>
- <CAA+D8ANvKQKJhn6qKbPhQeXPD5kxUo3Hg-FBLkDMOaWLTA8vVg@mail.gmail.com>
- <Z4ZRYMf_uJW4poW9@eichest-laptop>
+        Wed, 15 Jan 2025 00:36:31 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Jiebing Chen <jiebing.chen@amlogic.com>
+Cc: jiebing chen via B4 Relay <devnull+jiebing.chen.amlogic.com@kernel.org>,
+  Liam Girdwood <lgirdwood@gmail.com>,  Mark Brown <broonie@kernel.org>,
+  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,
+  Conor Dooley <conor+dt@kernel.org>,  Jaroslav Kysela <perex@perex.cz>,
+  Takashi Iwai <tiwai@suse.com>,  Neil Armstrong
+ <neil.armstrong@linaro.org>,  Kevin Hilman <khilman@baylibre.com>,  Martin
+ Blumenstingl <martin.blumenstingl@googlemail.com>,
+  linux-sound@vger.kernel.org,  devicetree@vger.kernel.org,
+  linux-kernel@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
+  linux-amlogic@lists.infradead.org
+Subject: Re: [PATCH 2/3] ASoC: meson: s4:support for the on-chip audio
+In-Reply-To: <e5055b4d-7a10-4a5e-ad85-d94c1f64eb03@amlogic.com> (Jiebing
+	Chen's message of "Wed, 15 Jan 2025 10:56:17 +0800")
+References: <20250113-audio_drvier-v1-0-8c14770f38a0@amlogic.com>
+	<20250113-audio_drvier-v1-2-8c14770f38a0@amlogic.com>
+	<1jwmey9451.fsf@starbuckisacylon.baylibre.com>
+	<e2f26ca2-4c38-4b07-bf17-95544588a2f2@amlogic.com>
+	<e69cd38e-898c-4cbc-a327-14148a71c764@amlogic.com>
+	<1j8qrd7aor.fsf@starbuckisacylon.baylibre.com>
+	<e5055b4d-7a10-4a5e-ad85-d94c1f64eb03@amlogic.com>
+User-Agent: mu4e 1.12.7; emacs 29.4
+Date: Wed, 15 Jan 2025 09:36:31 +0100
+Message-ID: <1jr0545v8w.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <Z4ZRYMf_uJW4poW9@eichest-laptop>
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_003336_471296_2739C5ED 
-X-CRM114-Status: GOOD (  35.88  )
+X-CRM114-CacheID: sfid-20250115_003633_893920_FBE62AD0 
+X-CRM114-Status: GOOD (  32.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,84 +112,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shengjiu Wang,
+On Wed 15 Jan 2025 at 10:56, Jiebing Chen <jiebing.chen@amlogic.com> wrote:
 
-On Tue, Jan 14, 2025 at 12:58:24PM +0100, Stefan Eichenberger wrote:
-> Hi Shengjiu Wang,
-> 
-> On Tue, Jan 14, 2025 at 03:49:10PM +0800, Shengjiu Wang wrote:
-> > On Mon, Jan 13, 2025 at 5:54 PM Stefan Eichenberger <eichest@gmail.com> wrote:
-> > >
-> > > From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
-> > >
-> > > Currently, the flags for the ACM clocks are set to 0. This configuration
-> > > causes the fsl-sai audio driver to fail when attempting to set the
-> > > sysclk, returning an EINVAL error. The following error messages
-> > > highlight the issue:
-> > > fsl-sai 59090000.sai: ASoC: error at snd_soc_dai_set_sysclk on 59090000.sai: -22
-> > > imx-hdmi sound-hdmi: failed to set cpu sysclk: -22
-> > 
-> > The reason for this error is that the current clock parent can't
-> > support the rate
-> > you require (I think you want 11289600).
-> > 
-> > We can configure the dts to provide such source, for example:
-> > 
-> >  &sai5 {
-> > +       assigned-clocks = <&acm IMX_ADMA_ACM_SAI5_MCLK_SEL>,
-> > +                       <&acm IMX_ADMA_ACM_AUD_CLK1_SEL>,
-> > +                       <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_PLL>,
-> > +                       <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_SLV_BUS>,
-> > +                       <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_MST_BUS>,
-> > +                       <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_PLL>,
-> > +                       <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_SLV_BUS>,
-> > +                       <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_MST_BUS>,
-> > +                       <&sai5_lpcg 0>;
-> > +       assigned-clock-parents = <&aud_pll_div0_lpcg 0>, <&aud_rec1_lpcg 0>;
-> > +       assigned-clock-rates = <0>, <0>, <786432000>, <49152000>, <12288000>,
-> > +                                <722534400>, <45158400>, <11289600>,
-> > +                               <49152000>;
-> >         status = "okay";
-> >  };
-> > 
-> > Then your case should work.
-> > 
-> > >
-> > > By setting the flag CLK_SET_RATE_NO_REPARENT, we signal that the ACM
-> > 
-> > I don't think CLK_SET_RATE_NO_REPARENT is a good choice. which will cause
-> > the driver don't get an error from clk_set_rate().
-> 
-> Thanks for the proposal, I will try it out tomorrow. Isn't this a
-> problem if other SAIs use the same clock source but with different
-> rates? 
-> 
-> If we have to define fixed rates in the DTS or else the clock driver
-> will return an error, isn't that a problem? Maybe I should change the
-> sai driver so that it ignores the failure and just takes the rate
-> configured? In the end audio works, even if it can't set the requested
-> rate.
+> =E5=9C=A8 2025/1/14 22:05, Jerome Brunet =E5=86=99=E9=81=93:
+>> [ EXTERNAL EMAIL ]
+>>
+>> On Tue 14 Jan 2025 at 19:20, Jiebing Chen <jiebing.chen@amlogic.com> wro=
+te:
+>>
+>>>>>> +
+>>>>>> +MODULE_DESCRIPTION("Amlogic to codec driver");
+>>>>>> +MODULE_AUTHOR("jiebing.chen@amlogic.com");
+>>>>>> +MODULE_LICENSE("GPL");
+>>>>>> diff --git a/sound/soc/meson/t9015.c b/sound/soc/meson/t9015.c
+>>>>>> index
+>>>>>> 571f65788c592050abdca264f5656d4d1a9d99f6..2db1cd18cf2cea507f3d728205=
+4e03d953586648
+>>>>>> 100644
+>>>>>> --- a/sound/soc/meson/t9015.c
+>>>>>> +++ b/sound/soc/meson/t9015.c
+>>>>>> @@ -89,10 +89,7 @@ static struct snd_soc_dai_driver t9015_dai =3D {
+>>>>>>                 .channels_min =3D 1,
+>>>>>>                 .channels_max =3D 2,
+>>>>>>                 .rates =3D SNDRV_PCM_RATE_8000_96000,
+>>>>>> -             .formats =3D (SNDRV_PCM_FMTBIT_S8 |
+>>>>>> -                         SNDRV_PCM_FMTBIT_S16_LE |
+>>>>>> -                         SNDRV_PCM_FMTBIT_S20_LE |
+>>>>>> -                         SNDRV_PCM_FMTBIT_S24_LE),
+>>>>>> +             .formats =3D (SNDRV_PCM_FMTBIT_S16_LE |
+>>>>>> SNDRV_PCM_FMTBIT_S32_LE),
+>>>>> Again, mixed up changes with zero justification.
+>>>>>
+>>>>> This drops S8 and S16 format support for the existing SoCs (such as G=
+XL)
+>>>>> which is known to work and add S32 support on an HW documented as 24b=
+its
+>>>>> only. Can you explain ?
+>>> for g12a, sm1 etc, it is use new audio ip, GXL is old ip,
+>> If there are chips difference we did not know about, then you should
+>> introduce those difference, without breaking existing support -
+>> including for GXL, which is what you did IIUC.
+>>
+>>> the new ip not support 24 bit,
+>> Are sure about that ? that code has been there for a while.
+>>
+>> If sm1 does not support SNDRV_PCM_FMTBIT_S24_LE, you should a fix up pat=
+ch for
+>> that, with the proper "Fixes:" tag, how to reproduce the problem and
+>> explaining the fix.
+>
+> maybe there are some gap , we support SNDRV_PCM_FMTBIT_S24, not support t=
+he
+>
+> SNDRV_PCM_FMTBIT_S24_3LE,=C2=A0 for SNDRV_PCM_FMTBIT_S24
+>
+> it is=C2=A0 Signed, 24-bit (32-bit in memory), little endian , the audio =
+dma
+> busrt is 64bit
 
-The following clock tree change would allow the driver to work
-in our scenario:
-&sai5 {
-	assigned-clocks = <&acm IMX_ADMA_ACM_SAI5_MCLK_SEL>,
-			  <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_PLL>;
-	assigned-clock-parents = <&aud_pll_div1_lpcg 0>;
-	assigned-clock-rates = <0>, <11289600>;
-};
+It makes absolutely no sense to discuss memory layout for the codec.
 
-However, this means we have to switch the parent clock to the audio pll
-1. For the simple setup with two SAIs, one for analog audio and one for
-HDMI this wouldn't be a problem. But I'm not sure if this is a good
-solution if a customer would add a third SAI which requires again a
-different parent clock rate.
+>
+> it can get the full data. we send the 32 bit data=C2=A0 mclk =3D 32bit* 4=
+8k *4,=C2=A0
+> use the clk to send
+>
+> the=C2=A0 SNDRV_PCM_FMTBIT_S24,=C2=A0=C2=A0 the hadware always send the 3=
+2bit data
 
-One potential solution could be that the SAI driver tries to first
-derive the clock from the current parent and only if this fails it tries
-to modify its parent clock. What do you think about this solution?
+No it does not. It send 24 bits of data over a 32 bits physical word with
+8 bits ignored.
 
-Regards,
-Stefan
+>
+> so, i think we only add the SNDRV_PCM_FMTBIT_S32 base on it
 
+That's wrong if the codec does not actually use the full 32bits ... and
+I have clear indication that's what the codec is doing, on GXL at least.
+
+>
+> we think the 24 bit is the SNDRV_PCM_FMTBIT_S24_3LE, it is 24bit in memro=
+y,
+>
+> due to the dma busrt 64 bit limit, it can't align the sample bit, if it is
+> 24 bit
+
+Again, memory layout makes no sense here.
+
+>
+> so the clock configure can't 24bit clock,
+
+I disagree and this has been tested. If you have a test case showing
+otherwise please share it.
+
+> by the way, We discuss internally for gxl,
+>
+> it also support the SNDRV_PCM_FMTBIT_S32
+>
+
+Does it really ? If it is just to ignore the 8bits LSB, that not a support.
+
+>
+>>
+>>> usually support 16/32 bit for new audio ip , for SNDRV_PCM_FMTBIT_S24_L=
+E,
+>>> it width =3D24, phy =3D32
+>> Yes physical of SNDRV_PCM_FMTBIT_S24_LE, so most chip supporting 32 bits
+>> width would support this S24_LE, unless there is something odd.
+>>
+>>> it was  treated as 32 bit to send for tdm, so we can only add the S32LE
+>>> base on it , right ?
+>> You are asking me ? How am I suppose to know ?
+>>
+>>> but if the gxl not support the 32bit
+>> I don't see a problem with a DAC taking input on 32bits physical
+>> interface and ignoring some bit on processing.
+>>
+>> If that's not the case, please send a proper fix change with some explan=
+ation
+>>
+>>> we need add new snd_soc_dai_driver t9015_dai_s4 ?
+>>>
+>> If I understood correctly format depends on the chip and needs to
+>> adjusted including for sm1.
+>>
+>>>>>>         },
+>>>>>>         .ops =3D &t9015_dai_ops,
+>>>>>>    };
+>>>>> -- Jerome
+>> --
+>> Jerome
+
+--=20
+Jerome
 
