@@ -4,91 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9D9BC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 13:31:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CF76C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 13:33:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:In-reply-to:Date:Subject:Cc:To:From:
-	References:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7Se+wWjKIJoaEi2lwJRboAVHWUDI/GKAKI+okl83Jtg=; b=x21P0O2zGzWNkLfSeMkkPnHpI8
-	p7GEx7lu4KklJTuv2NQAF4CURLKkA6LGYbVbHJ6RqqwdEE3qDd8yUboqSNUndAQIpx+D3nc9REp5s
-	Fw2MPE+VRFy2oQDe2NlN+ImBzFfIsKgZheRuyFM5EDVn5rF+uNHddX1sZFWhqfImZ08IOC8WHrOvO
-	X9h/SBf+M0uKrNHgzKbauHWL7hG2c14Xhuw9TZSu9QXxlc6R5MWHTGVscX84Qkl6zojrtR6NTxWC3
-	EYkxipXl34iFE1Nr15tDeHhK0PCy3Jj7SN2swY1LM9e4Tn8yYXFv438SO4YQO2CUFAXx6Rdpiq9dE
-	uYA61rIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7Jxfu41iCy3/Xl/2SlMHlq/E6+bEJVMK0dEbie6RGZA=; b=xF1A5RwFHZ+4m7BvulTjSo/7eY
+	DInk9tHvuanN4vxAqZIFjc2BYQB9dA1fNruDLI5WGpgtt2CNlrq8MQB89jWBV7wv+BwDnaCQffgI6
+	1+onnjLy8+PF5w9qW+rhv45uuIkcTKZ73Qvm44GZ7g9kSHgzwZ1TMBuCzSMBRGoYSrtZ7gt57RSKZ
+	KFNfZYektrtXw8jcyu3bGehoCC+yAhJAoj79S5Mb9ypLXHu/xjfWIrpB+mjrBQAGiaBTLz9HBuevM
+	xwNOh1PrVOx6T5ced8obzDAz4mKmUCRPIk2OpsphsrcR4NNu1O3ip8B6WMCRG4KU31i+/VePVjvHJ
+	2FoY14iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY3UZ-0000000Byui-3HI3;
-	Wed, 15 Jan 2025 13:31:31 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1tY3Vn-0000000Bz9x-34vu;
+	Wed, 15 Jan 2025 13:32:47 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY3TK-0000000ByfX-0Epl;
-	Wed, 15 Jan 2025 13:30:15 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-540215984f0so7395740e87.1;
-        Wed, 15 Jan 2025 05:30:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736947812; x=1737552612; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:in-reply-to:date
-         :subject:cc:to:from:user-agent:references:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7Se+wWjKIJoaEi2lwJRboAVHWUDI/GKAKI+okl83Jtg=;
-        b=RlDFJFhdG38TpO1kGDQy08BwU7D4tZeK9EYm8xnOvqnPm1CfOQG8p3NQzvrtb9M1MW
-         895HhCq+N4eXyPRADhoFdT+XsiO6h5nnZxo8SCylP+aT2rpLLt0M51FPTzyQsaAw5jLG
-         uIeetGwbMstl102lmCRlzao7rY5Qu6u1SQJorUkfQ0dUyvbxfeYFthPeD1nx+p23aOu7
-         iZB+gwshcu6olURr1ETjZ8DTBtN6KEPNGucRepoDSD3QDVKyqLyxujr4DGKts+o1Lv+x
-         pZ8utBkj23rHnzu9CJh9RWahw8VJdn/A5TAV0wiyDGCRcYyPNx5pUV2bk/wjymrHV6V7
-         OGOQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736947812; x=1737552612;
-        h=content-transfer-encoding:mime-version:message-id:in-reply-to:date
-         :subject:cc:to:from:user-agent:references:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=7Se+wWjKIJoaEi2lwJRboAVHWUDI/GKAKI+okl83Jtg=;
-        b=FBO8HExrI0PS+gZMCn0aNjxvnluESJBzv/H4a1GUVABdIfg2m/iK1unig4xAnC7iTD
-         xdQPXZx0wD4IjmjwlRIRLrTfAnQvtQM9Fq36JjjjCtu4BhBCzwppXidp7vnMytW79LrD
-         Fq37c+rCy+PzdwBm7eK3q1ZmBy4mPzhah5c2M2C/whFwI4LC7MHHsE6x0Deu00XkVXqY
-         elXFexWcnzXe2JEO7mJS8XoBIViARti7tBjgENCwk7cLMTRWdHCFW1PylGKqhDXNnmpU
-         NsHytxk7WZgNZqmL3JVmCN3ZxcQV+cK4GpoCiVU/dw3wH34UxAFL6JQq1oujD17SVP9B
-         sWYA==
-X-Forwarded-Encrypted: i=1; AJvYcCUmiFUrOH7wWvwWsy7fVN2wPihZas2fol/9IBZKaLeCfTKKexUpOCa/f49BLBZmigkZRuQgxehznmmMU5Krcg0=@lists.infradead.org, AJvYcCWUr8RGIk7MD5kuH6tKwOAxJXYjcS7qgSkBChERXRrmghI51vZKD5LjbHf8Y2I5oydS53VKM68vH7AhDauVtok2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+iZqNXErI7iH+H17FMdQfVmbBhEOV4pVumDwj2su2p5xcN1rW
-	rFCM2cYT9za8IKVEmAcf9p3sGw7ovmp4wKUgW4kGgFWRGkYdQiLQ
-X-Gm-Gg: ASbGncvBmpgHCyj3kKq0bZg8R393E1RD0eISuv5G1zFx2Em3mrAKZLpc8W7eEdbRT5j
-	EDzvZFnHV4oQV6IlTXyWyNqUzaG1MJ2Lyt9SmazGu2wTw5AQ8Pr7yiG+wP+HizITfAl37umAUnA
-	Sg0S0uq729s7C1r74dZkqq0pwWSAXcDb2muIpNY1k+7xa2YTa4VPUf+A9OOWXN+ljB2Xr3VaI/9
-	ycqwpqbs/b9IC10Hw1aLiWwVhc71PKP4P+6Iydv5VNWXtmRH7oR0D6QYgosLZHSAfpJHy4hp8e+
-	4HdO9EwpAYsoXo8ZxvHnvJzt3s+wfvcNuepNDWx/hVCH
-X-Google-Smtp-Source: AGHT+IE9z+a9dcE8SStrZJMI4+H/Sxq/mNyV61u5lE4XZzuS1iMzAADr7X2mm8/UuZWGBbfmqP84Bg==
-X-Received: by 2002:a05:6512:3da9:b0:53f:f074:801c with SMTP id 2adb3069b0e04-54284815c7dmr10284744e87.41.1736947811750;
-        Wed, 15 Jan 2025 05:30:11 -0800 (PST)
-Received: from razdolb (static.248.157.217.95.clients.your-server.de. [95.217.157.248])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5428be49df1sm1994330e87.57.2025.01.15.05.30.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jan 2025 05:30:11 -0800 (PST)
-References: <20250102-b4-rkisp-noncoherent-v1-1-bba164f7132c@gmail.com>
- <20250103152326.GP554@pendragon.ideasonboard.com>
- <87bjw9s4s3.fsf@gmail.com>
- <CAAFQd5ACseSBg4WZnUnbtwh+i63xcKMBFKnfc4_Aqfmnz0s=7A@mail.gmail.com>
-User-agent: mu4e 1.10.9; emacs 29.4.50
-From: Mikhail Rudenko <mike.rudenko@gmail.com>
-To: Tomasz Figa <tfiga@chromium.org>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Dafna Hirschfeld
- <dafna@fastmail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko
- Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] media: rkisp1: allow non-coherent video capture buffers
-Date: Wed, 15 Jan 2025 16:24:36 +0300
-In-reply-to: <CAAFQd5ACseSBg4WZnUnbtwh+i63xcKMBFKnfc4_Aqfmnz0s=7A@mail.gmail.com>
-Message-ID: <877c6wryqn.fsf@gmail.com>
+	id 1tY3TT-0000000Bygz-1mp5
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Jan 2025 13:30:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=7Jxfu41iCy3/Xl/2SlMHlq/E6+bEJVMK0dEbie6RGZA=; b=Ij3Sj/Txb2dxOJgo3P6GgArB+/
+	dEwiCa+37ZNiUwU0vMWkSRkhXvTogV3InoFtWWh2wqagd9Zjs5v4p5SaaJBMjx4HbDjyeWCYxm17j
+	gkhD2tSn1E2sWqOKsblQoPD7u3iP/onq5igWETBEd8eJ9Cp0Wr9GQFrhWHjEi4xkdokI=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tY3TA-004nPe-5A; Wed, 15 Jan 2025 14:30:04 +0100
+Date: Wed, 15 Jan 2025 14:30:04 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Jacky Chou <jacky_chou@aspeedtech.com>
+Cc: Ninad Palsule <ninad@linux.ibm.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
+	"andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"davem@davemloft.net" <davem@davemloft.net>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"eajames@linux.ibm.com" <eajames@linux.ibm.com>,
+	"edumazet@google.com" <edumazet@google.com>,
+	"joel@jms.id.au" <joel@jms.id.au>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"kuba@kernel.org" <kuba@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"minyard@acm.org" <minyard@acm.org>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"openipmi-developer@lists.sourceforge.net" <openipmi-developer@lists.sourceforge.net>,
+	"pabeni@redhat.com" <pabeni@redhat.com>,
+	"ratbert@faraday-tech.com" <ratbert@faraday-tech.com>,
+	"robh@kernel.org" <robh@kernel.org>
+Subject: Re: =?utf-8?B?5Zue6KaGOiDlm57opoY6IOWbng==?=
+ =?utf-8?B?6KaGOiDlm57opoY6IOWbnuimhjogW1BBVEM=?= =?utf-8?Q?H?= v2 05/10]
+ ARM: dts: aspeed: system1: Add RGMII support
+Message-ID: <f28736b5-f4e4-488e-8c9b-55afc7316c5e@lunn.ch>
+References: <c0b653ea-3fe0-4bdb-9681-bf4e3ef1364a@linux.ibm.com>
+ <c05c0476-c8bd-42f4-81da-7fe96e8e503b@lunn.ch>
+ <SEYPR06MB5134A63DBE28AA1305967A0C9D1C2@SEYPR06MB5134.apcprd06.prod.outlook.com>
+ <d80f5916-4918-4849-bf4e-2ef608ece09d@linux.ibm.com>
+ <SEYPR06MB51340579A53502150F67ADEC9D1F2@SEYPR06MB5134.apcprd06.prod.outlook.com>
+ <bcebe5ed-6080-4642-b6a5-5007d97fac71@linux.ibm.com>
+ <26dec4b7-0c6d-4e8e-9df6-d644191e767f@lunn.ch>
+ <SEYPR06MB5134DD6F514225EA8607DC979D192@SEYPR06MB5134.apcprd06.prod.outlook.com>
+ <e5178acd-0b6f-4580-9892-0cca48b6898a@lunn.ch>
+ <SEYPR06MB513402FD4735C602C5531F499D192@SEYPR06MB5134.apcprd06.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <SEYPR06MB513402FD4735C602C5531F499D192@SEYPR06MB5134.apcprd06.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_053014_094143_409C2F41 
-X-CRM114-Status: GOOD (  25.34  )
+X-CRM114-CacheID: sfid-20250115_053023_460836_67A05748 
+X-CRM114-Status: GOOD (  12.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,87 +96,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Tomasz,
+> > I already explain how this works once. Please read this thread again.... The
+> > MAC can apply the delays, but it must mask the phy-mode it passes to the PHY.
+> 
+> Yes. I have read these mails.
+> 
+> I understand what you mean.
+> "rgmii": delay on PCB, not MAC or PHY.
+> "rgmii-id": delay on MAC or PHY, not PCB.
+> 
+> ftgmac100 driver gets phy driver handle from of_phy_get_and_connect(), it will pass the phy-mode to
+> phy driver from the node of mac dts.
+> Therefore, I use "rgmii-id" and the phy will enable tx/rx internal delay.
+> If I use "rgmii-id" and configure the RGMII delay in ftgmac100 driver, I cannot pass the phy-mode to 
+> phy driver.
 
-On 2025-01-15 at 17:31 +09, Tomasz Figa <tfiga@chromium.org> wrote:
+Quoting myself, yet again:
 
-> Hi Mikhail and Laurent,
->
-> On Wed, Jan 15, 2025 at 2:07=E2=80=AFAM Mikhail Rudenko <mike.rudenko@gma=
-il.com> wrote:
->>
->>
->> Hi Laurent,
->>
->> On 2025-01-03 at 17:23 +02, Laurent Pinchart <laurent.pinchart@ideasonbo=
-ard.com> wrote:
->>
->> > On Thu, Jan 02, 2025 at 06:35:00PM +0300, Mikhail Rudenko wrote:
->> >> Currently, the rkisp1 driver always uses coherent DMA allocations for
->> >> video capture buffers. However, on some platforms, using non-coherent
->> >> buffers can improve performance, especially when CPU processing of
->> >> MMAP'ed video buffers is required.
->> >>
->> >> For example, on the Rockchip RK3399 running at maximum CPU frequency,
->> >> the time to memcpy a frame from a 1280x720 XRGB32 MMAP'ed buffer to a
->> >> malloc'ed userspace buffer decreases from 7.7 ms to 1.1 ms when using
->> >> non-coherent DMA allocation. CPU usage also decreases accordingly.
->> >
->> > What's the time taken by the cache management operations ?
->>
->> Sorry for the late reply, your question turned out a little more
->> interesting than I expected initially. :)
->>
->> When capturing using Yavta with MMAP buffers under the conditions mentio=
-ned
->> in the commit message, ftrace gives 437.6 +- 1.1 us for
->> dma_sync_sgtable_for_cpu and 409 +- 14 us for
->> dma_sync_sgtable_for_device. Thus, it looks like using non-coherent
->> buffers in this case is more CPU-efficient even when considering cache
->> management overhead.
->>
->> When trying to do the same measurements with libcamera, I failed. In a
->> typical libcamera use case when MMAP buffers are allocated from a
->> device, exported as dmabufs and then used for capture on the same device
->> with DMABUF memory type, cache management in kernel is skipped [1]
->> [2]. Also, vb2_dc_dmabuf_ops_{begin,end}_cpu_access are no-ops [3], so
->> DMA_BUF_IOCTL_SYNC from userspace does not work either.
->
-> Oops, so I believe this is a bug. When an MMAP buffer is allocated in
-> the non-coherent mode, those ops should perform proper cache
-> maintenance.
+> > MAC can apply the delays, but it must mask the phy-mode it passes to the PHY.
 
-Thanks for pointing this out!
+If you decide the MAC does the RX clock delay, it needs to mask that
+from the phy-mode, otherwise the PHY will also do it. If you decide
+the MAC does the TX clock delay, its needs to mask that from the
+phy-mode.
 
-> Let me send a patch to fix this in a couple of days unless someone
-> does it earlier.
-
-Now that we know that this is a bug, not an API misuse from my side, I
-can fix this myself and send a v2. Would this be okay for you?
-
-> Best regards,
-> Tomasz
->
->>
->> So it looks like to make this change really useful, the above issue of
->> cache management for libcamera/DMABUF/videobuf2-dma-contig has to be
->> solved. I'm not an expert in this area, so any advice is kindly welcome.=
- :)
->>
->> [1] https://git.linuxtv.org/media.git/tree/drivers/media/common/videobuf=
-2/videobuf2-core.c?id=3D94794b5ce4d90ab134b0b101a02fddf6e74c437d#n411
->> [2] https://git.linuxtv.org/media.git/tree/drivers/media/common/videobuf=
-2/videobuf2-core.c?id=3D94794b5ce4d90ab134b0b101a02fddf6e74c437d#n829
->> [3] https://git.linuxtv.org/media.git/tree/drivers/media/common/videobuf=
-2/videobuf2-dma-contig.c?id=3D94794b5ce4d90ab134b0b101a02fddf6e74c437d#n426
->>
->> --
->> Best regards,
->> Mikhail Rudenko
->>
-
-
---
-Best regards,
-Mikhail Rudenko
+	Andrew
 
