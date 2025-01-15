@@ -4,96 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78A36C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 10:43:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A712BC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 10:45:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dMGwxkrNU4EuX7kCK3KWCsT3+R0q8TNNOAL9QCORoDs=; b=A3ToFvhzfbxVP669l8zv48zMwI
-	BnkuSM8L6svLKRKkzXJmtQK0uo7mzTUMqlddTz1x63t2LRZbACLgy3cX63FthsH51jsTib2NNas7l
-	a0HZvmiRKzgEHB5QqXqpQEUkOeVWnjuxUvOUqefhvkNd/OuEmromt2vwtG0H+/pZim104yjn3AutL
-	vVpavur9Ye7R1p9br44Rka7lyMNZqufAIO3EIGp9syex9aUJi/6/5mTAkGtNnudJ2uhbSNRjuwOcE
-	6gNx7B0x7sAZIm7VcsAgBQnlF49cMBY5KV4khyxWqATMOepSIzTaJ4zhIvKseALbaVgPaPlLKu7NF
-	tO2K212Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OX/Tra+iC1Y8QVUgMsncLLlp+FGKhTu9wrEl8cIWaXc=; b=n8xugYf+1sevIBvI0ByMvSD8Hb
+	6f15CsVFMa8UY9MgVvBqglqrhqJpKg0TH7sNLz8J22z8ZULpjEmJFgHDY1du71JCF+ciWN5Z+gtt7
+	RWEP7JHJpb6VaYMzKN0x/zFA0J0zN9ZyjgAJg5iI5fsZOFaPn7vIyhS+PjXtOwIh2MZstpIbkM629
+	XybeGJp8kyx+leKbX8QhPadzM6isieCzHWEW6V1vvAHSftOU/o0ztGVmEhNUcDsyBqpbse+eRm0+A
+	US243yVPDB+gdzYzfWNCc3cb2iCF8iJNd1ymjGBmM8UmT0tdKcpWvP5m3VwioHe/Y5ygIx5l0kUdP
+	ro7ulSqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY0s7-0000000BYDd-0eb5;
-	Wed, 15 Jan 2025 10:43:39 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1tY0tK-0000000BYWh-1PqM;
+	Wed, 15 Jan 2025 10:44:54 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY0o8-0000000BXXb-0QYt
+	id 1tY0oU-0000000BXdC-18LG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 10:39:33 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-38be3bfb045so412741f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 02:39:31 -0800 (PST)
+	Wed, 15 Jan 2025 10:39:55 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-2ef714374c0so1104707a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 02:39:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736937570; x=1737542370; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=dMGwxkrNU4EuX7kCK3KWCsT3+R0q8TNNOAL9QCORoDs=;
-        b=RSi4ozivdjA7m8p6hMwpMToLeGebMqaHE94j4ncngniBLS9GyJ5vT+AvtiRxSLBEZT
-         YNuoCRZ63mcC2xhoWHJwLVaLiwCDbpSPZ4HFr+Nsoocalnh5+8TgrMdb4FrZrJr1YFFD
-         QJ3NqokjUf8cSoxt2OhH9VYrVW+vtsRbja6lfQrE5uAv1/GgUXb3G2YLVr003m975nxD
-         XWAom6Dy+Dr+LzXnx3DQ/h6ima1mzFXovXPKsoSmpOHhxChgmsk/mLLJy4ztFg1lBdoJ
-         o6Yi9yCKAPM+KL00w6mwzItUQQ/1oKPj41P9viS2tVqtL6JrPkvpVYHmV1EJYzpKaAuR
-         z8hA==
+        d=gmail.com; s=20230601; t=1736937593; x=1737542393; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=OX/Tra+iC1Y8QVUgMsncLLlp+FGKhTu9wrEl8cIWaXc=;
+        b=O7jhabW89CL72OIRPscDXTkJV6dSrBvY3iTaTThaFkWw2LlAzZgQg63lDUTEXvk9tE
+         VSKoGBepbWAT1jJcSuMH8fs8sA2laKhf/u0/R+9TdX5eVGayzsG/h7vavDpjeLXDMNAP
+         2ZP/WV1WfIWNCiJRcOGH4+bK5t9dEo4lbVIEYqWo3pQJuyRjdW7hnm5tTeoY2/3W4/g3
+         cpDCDuDz5nKj87ccWPIZ0YS7blawV/fOysaMT/BrisJiJJFjVANeOKNvTbIiyVan/N+H
+         PmdHOks0E1hXDjDnSTc5/ujM8zBG7jlA/iUxse2Yp6vMyqsVNTPNt7NjDfVyPMgGoa9w
+         QH3w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736937570; x=1737542370;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=dMGwxkrNU4EuX7kCK3KWCsT3+R0q8TNNOAL9QCORoDs=;
-        b=IBvlIefkOlajS+IaLRHQ2/TBd7xB8JLKfwMbd16c23ylTXM9Wc/XUtY2yY1dfuibH1
-         pRSrXgwjqTka5nHQMkgoR5XkRrRf8oLtDVcoQQfS1+i2kE9EAUXt3hdmEh9DRnc/o4DH
-         44HR4vPFFGfD8EIpuM3IbTIwvBl6RIRgthdNcVuSxe/1Rce/nS1i9bYB/5RMlxwF+jJb
-         8nUY5/4L6p4OYWX9BaK/HOt/natOGtEqyLRjTbEcFLQRKA1yNjs0EcOaw0mpU7RFiybq
-         zTi/FD0L8vgZ9e1n4HrtkLY8P60ASPiKzp2KupHhKA+JLAugNfqQYZq9OoVWXpNlMEcn
-         F2iw==
-X-Forwarded-Encrypted: i=1; AJvYcCXCaF4cQSRnqvPk0UMrCLbgXUScCMDXPiFKIyGQuWrGo9eh7mFqYszz3RDAtLUONX19NZL40LIHfoHHVfoa5xwF@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy41lNBXP08Bm7sDBC4hzcsdBCbvPGGNImdl1OX0W9a/UQiRkZ9
-	OENrfhCdHcEUqKej+17z+jE0h2Y2auigd9LBPvUMVhMPci7HiH6O96lr2QFm
-X-Gm-Gg: ASbGncupopbhbmObSQ6U/PaqYU7dqEieZgAc0os1W4S8MMmbbndjZjgraFV3iR5Tkdj
-	MLJxw8wjTJjxWKj3ZYX7zB0M41MQTj45fEk/xZSq0n/SDZjx/qsGAWXL746pGRJ+NFER01wMbQv
-	W19TtcxS++AQhR0utXRmrFGawZmH4Vn2CWpvyz5W/RsuxZKnYB1PrSjnZaGKivX2ZhUOV6ed/uM
-	XxaHf1ciCcRX3qaFMoMk3zMR4a8eKuZ0ljVjqO+bc0oqxarZ8PtbF+GThoMr+5+mYOODx5P+DOa
-	GpwAiRxW
-X-Google-Smtp-Source: AGHT+IHOFTU9f4+9ieGESD+g8VrC92IkwfrseF/N43WFilUY2QDiHeaeuJlBZap4xY1mATLjrY8KLg==
-X-Received: by 2002:a05:6000:2c1:b0:386:374b:e8bc with SMTP id ffacd0b85a97d-38a8b0d3425mr21291410f8f.15.1736937570162;
-        Wed, 15 Jan 2025 02:39:30 -0800 (PST)
-Received: from eichest-laptop (31-10-206-125.static.upc.ch. [31.10.206.125])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-437c74e5e69sm18287335e9.37.2025.01.15.02.39.29
+        d=1e100.net; s=20230601; t=1736937593; x=1737542393;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:sender:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OX/Tra+iC1Y8QVUgMsncLLlp+FGKhTu9wrEl8cIWaXc=;
+        b=JtcrZw0YpCfH2d8nYAQyrS3MKA0zG2a5VMwGSmmPFRJSOBJGHQk3dZG43hGbl1MgWF
+         IXzYygDgn/ILsYiRf1qtEXN57Mr5KgR6xeG8jZp42AjPM7MQXWSq/kC7IVXfunApqGq/
+         l/8a1y+S+5AWdWGjyGuRzv9kcBU6NCSYTj1TA4GBgM3W+zs7Rapnc/B1BOBQsXKHzdh+
+         35Vw2rPn26AbFKUNwzcoNB3fP5xQWU08NPNcpJrJReAEgQLo6zPmzDcPqMfe6iDYNzHa
+         /Zu3p5XCWOYjrQNIW+FYiBaXkG3cGLKDsz3kvb0hK7nT0pt/rpCJkE671azmTMKCbE7j
+         WJpA==
+X-Gm-Message-State: AOJu0YzWJAlwJBN1RLv4LrHOGQfj8p5Pt9JE+MxaWA+sbXn2pd5qsjwG
+	Jzt4SXCqtDdHYXR6Lm0+LL9lsI3CCTwF7wYyO08qjojXFkckEv3KG7bn7w==
+X-Gm-Gg: ASbGncuek3qUILIG5wCM9pIX8M3Q3O5krxIzaA2sMZTOG7HDwhF1/tFHVBC2+CzYq32
+	y3RMrE7QNaDSFSi/mbFD3qtNdZNjoKbyyVuKZlbpdj2omG9cyTSSrzf86tpYO+VwFm415Lyz7/G
+	xnXzjqXza169Z2ahA/CrRxs/3YDZWSFS2eWxWD1Ab4flqcqCAYauLA8lem3x8PNW4up8fsEeaq+
+	NQicyNCbXIwaYeyU6x3gUiJPMY+7gi2g37j6FaBOwTx35GM9vIj
+X-Google-Smtp-Source: AGHT+IEKVN7WGT9GPcFhfkZNlMUXgmym0EXxg2Shkuwydza/uh70p46Sq7eJrL7kL3M/TYHp1jIa+g==
+X-Received: by 2002:a17:90b:534c:b0:2ee:c30f:33c9 with SMTP id 98e67ed59e1d1-2f728e1cedemr3692871a91.14.1736937593001;
+        Wed, 15 Jan 2025 02:39:53 -0800 (PST)
+Received: from prometheus.lan ([45.124.203.18])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f72c20a9bdsm1168040a91.31.2025.01.15.02.39.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jan 2025 02:39:29 -0800 (PST)
-Date: Wed, 15 Jan 2025 11:39:27 +0100
-From: Stefan Eichenberger <eichest@gmail.com>
-To: Shengjiu Wang <shengjiu.wang@gmail.com>
-Cc: abelvesa@kernel.org, peng.fan@nxp.com, mturquette@baylibre.com,
-	sboyd@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com, shengjiu.wang@nxp.com,
-	francesco.dolcini@toradex.com, linux-clk@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Stefan Eichenberger <stefan.eichenberger@toradex.com>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v1] clk: imx: imx8-acm: fix flags for acm clocks
-Message-ID: <Z4eQX_VnBEVqxT_r@eichest-laptop>
-References: <20250113094654.12998-1-eichest@gmail.com>
- <CAA+D8ANvKQKJhn6qKbPhQeXPD5kxUo3Hg-FBLkDMOaWLTA8vVg@mail.gmail.com>
- <Z4ZRYMf_uJW4poW9@eichest-laptop>
- <Z4dy3LiEAQ_gkQGG@eichest-laptop>
- <CAA+D8AO75MLyP5AWDJoogw8ae4GRtZfSR-HT+S26bXoaVs8saQ@mail.gmail.com>
+        Wed, 15 Jan 2025 02:39:52 -0800 (PST)
+From: Joel Stanley <joel@jms.id.au>
+To: Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org
+Subject: [PATCH] ARM: aspeed: Don't select SRAM
+Date: Wed, 15 Jan 2025 21:09:40 +1030
+Message-ID: <20250115103942.421429-1-joel@jms.id.au>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAA+D8AO75MLyP5AWDJoogw8ae4GRtZfSR-HT+S26bXoaVs8saQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_023932_159481_638B9FBD 
-X-CRM114-Status: GOOD (  51.09  )
+X-CRM114-CacheID: sfid-20250115_023954_306701_03BEF24C 
+X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,135 +93,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 15, 2025 at 05:14:09PM +0800, Shengjiu Wang wrote:
-> On Wed, Jan 15, 2025 at 4:33 PM Stefan Eichenberger <eichest@gmail.com> wrote:
-> >
-> > Hi Shengjiu Wang,
-> >
-> > On Tue, Jan 14, 2025 at 12:58:24PM +0100, Stefan Eichenberger wrote:
-> > > Hi Shengjiu Wang,
-> > >
-> > > On Tue, Jan 14, 2025 at 03:49:10PM +0800, Shengjiu Wang wrote:
-> > > > On Mon, Jan 13, 2025 at 5:54 PM Stefan Eichenberger <eichest@gmail.com> wrote:
-> > > > >
-> > > > > From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
-> > > > >
-> > > > > Currently, the flags for the ACM clocks are set to 0. This configuration
-> > > > > causes the fsl-sai audio driver to fail when attempting to set the
-> > > > > sysclk, returning an EINVAL error. The following error messages
-> > > > > highlight the issue:
-> > > > > fsl-sai 59090000.sai: ASoC: error at snd_soc_dai_set_sysclk on 59090000.sai: -22
-> > > > > imx-hdmi sound-hdmi: failed to set cpu sysclk: -22
-> > > >
-> > > > The reason for this error is that the current clock parent can't
-> > > > support the rate
-> > > > you require (I think you want 11289600).
-> > > >
-> > > > We can configure the dts to provide such source, for example:
-> > > >
-> > > >  &sai5 {
-> > > > +       assigned-clocks = <&acm IMX_ADMA_ACM_SAI5_MCLK_SEL>,
-> > > > +                       <&acm IMX_ADMA_ACM_AUD_CLK1_SEL>,
-> > > > +                       <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_PLL>,
-> > > > +                       <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_SLV_BUS>,
-> > > > +                       <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_MST_BUS>,
-> > > > +                       <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_PLL>,
-> > > > +                       <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_SLV_BUS>,
-> > > > +                       <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_MST_BUS>,
-> > > > +                       <&sai5_lpcg 0>;
-> > > > +       assigned-clock-parents = <&aud_pll_div0_lpcg 0>, <&aud_rec1_lpcg 0>;
-> > > > +       assigned-clock-rates = <0>, <0>, <786432000>, <49152000>, <12288000>,
-> > > > +                                <722534400>, <45158400>, <11289600>,
-> > > > +                               <49152000>;
-> > > >         status = "okay";
-> > > >  };
-> > > >
-> > > > Then your case should work.
-> > > >
-> > > > >
-> > > > > By setting the flag CLK_SET_RATE_NO_REPARENT, we signal that the ACM
-> > > >
-> > > > I don't think CLK_SET_RATE_NO_REPARENT is a good choice. which will cause
-> > > > the driver don't get an error from clk_set_rate().
-> > >
-> > > Thanks for the proposal, I will try it out tomorrow. Isn't this a
-> > > problem if other SAIs use the same clock source but with different
-> > > rates?
-> > >
-> > > If we have to define fixed rates in the DTS or else the clock driver
-> > > will return an error, isn't that a problem? Maybe I should change the
-> > > sai driver so that it ignores the failure and just takes the rate
-> > > configured? In the end audio works, even if it can't set the requested
-> > > rate.
-> >
-> > The following clock tree change would allow the driver to work
-> > in our scenario:
-> > &sai5 {
-> >         assigned-clocks = <&acm IMX_ADMA_ACM_SAI5_MCLK_SEL>,
-> >                           <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_PLL>;
-> >         assigned-clock-parents = <&aud_pll_div1_lpcg 0>;
-> >         assigned-clock-rates = <0>, <11289600>;
-> > };
-> 
-> In which we configure PLL_0 for 48KHz series (8kHz/16kHz/32kHz/48kHz),
-> PLL_1 for 44kHz series (11kHz/22kHz/44kHz),
-> which should fit for most audio requirements.
-> 
-> >
-> > However, this means we have to switch the parent clock to the audio pll
-> > 1. For the simple setup with two SAIs, one for analog audio and one for
-> > HDMI this wouldn't be a problem. But I'm not sure if this is a good
-> > solution if a customer would add a third SAI which requires again a
-> > different parent clock rate.
-> 
-> We won't change the PLL's rate in the driver,  so as PLL_0 for 48kHz,
-> PLL_1 for 44kHz,  even with a third SAI or more,  they should work.
-> 
-> >
-> > One potential solution could be that the SAI driver tries to first
-> > derive the clock from the current parent and only if this fails it tries
-> > to modify its parent clock. What do you think about this solution?
-> >
+The ASPEED devices have SRAM, but don't require it for basic function
+(or any function; there's no known users of the driver).
 
-I did some more testing and I'm still not happy with the current
-solution. The problem is that if we change the SAI5 mclk clock parent it
-can either support the 44kHz series or the 48kHz series. However, in the
-case of HDMI we do not know in advance what the user wants.
+Fixes: 8c2ed9bcfbeb ("arm: Add Aspeed machine")
+Signed-off-by: Joel Stanley <joel@jms.id.au>
+---
+ arch/arm/mach-aspeed/Kconfig | 1 -
+ 1 file changed, 1 deletion(-)
 
-This means when testing either this works:
-speaker-test -D hw:2,0 -r 48000 -c 2
-or this works:
-speaker-test -D hw:2,0 -r 44100 -c 2
-With:
-card 2: imxaudiohdmitx [imx-audio-hdmi-tx], device 0: i.MX HDMI i2s-hifi-0 [i.MX HDMI i2s-hifi-0]
-
-If I on the other hand avoid that fsl_sai_set_mclk_rate is called by
-patching imx-hdmi.c. I can make both rates work with the standard clock
-settings. So I wonder if calling snd_soc_dai_set_sysclk is really
-necessary for the i.MX8?
-diff --git a/sound/soc/fsl/imx-hdmi.c b/sound/soc/fsl/imx-hdmi.c
-index f9cec6f0aecd..7d8aa58645b7 100644
---- a/sound/soc/fsl/imx-hdmi.c
-+++ b/sound/soc/fsl/imx-hdmi.c
-@@ -92,15 +92,6 @@ static int imx_hdmi_hw_params(struct snd_pcm_substream *substream,
-        u32 slot_width = data->cpu_priv.slot_width;
-        int ret;
-
--       /* MCLK always is (256 or 192) * rate. */
--       ret = snd_soc_dai_set_sysclk(cpu_dai, data->cpu_priv.sysclk_id[tx],
--                                    8 * slot_width * params_rate(params),
--                                    tx ? SND_SOC_CLOCK_OUT : SND_SOC_CLOCK_IN);
--       if (ret && ret != -ENOTSUPP) {
--               dev_err(dev, "failed to set cpu sysclk: %d\n", ret);
--               return ret;
--       }
--
-        ret = snd_soc_dai_set_tdm_slot(cpu_dai, 0, 0, 2, slot_width);
-        if (ret && ret != -ENOTSUPP) {
-                dev_err(dev, "failed to set cpu dai tdm slot: %d\n", ret);
-
-Regards,
-Stefan
-
+diff --git a/arch/arm/mach-aspeed/Kconfig b/arch/arm/mach-aspeed/Kconfig
+index 080019aa6fcd..fcf287edd0e5 100644
+--- a/arch/arm/mach-aspeed/Kconfig
++++ b/arch/arm/mach-aspeed/Kconfig
+@@ -2,7 +2,6 @@
+ menuconfig ARCH_ASPEED
+ 	bool "Aspeed BMC architectures"
+ 	depends on (CPU_LITTLE_ENDIAN && ARCH_MULTI_V5) || ARCH_MULTI_V6 || ARCH_MULTI_V7
+-	select SRAM
+ 	select WATCHDOG
+ 	select ASPEED_WATCHDOG
+ 	select MFD_SYSCON
+-- 
+2.45.2
 
 
