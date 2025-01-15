@@ -4,182 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CA65C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 14:33:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 956B4C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 14:35:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FTZWUHEg7kapikEV3OD4+6pUyKOPZAmqKx63gxMawb8=; b=4zMrrS1gwp2sybDYvkKvkYzXQP
-	vjXvGtnTwYOs4KAOlXtrTi03HE1llnhqlG38LRCdwzWRDxgppoRfuViTxQY6u0bfyxhoWjHvAJVZh
-	GIZqOP1RPynUjqK18EXN6J0WN5pNhYj1jClDVVW651XaL/fiQkuiVxxeA6P7zlqdndt5z5fywirH4
-	B6gtIfzikEk8Mq5O/2jXBuhjxe9WWRXZVkGzmmlxCMq7qBR6X1pILbSEgWGsvD7AGKNE0nFwOBIeE
-	mlcWM0vWgv0s4Zacm+adOrPsKBNJcwAoSu3iJ3WD/mWHXaE5fvdHuL5wy1p4P7qM3wLZEY2O+iAVN
-	ONGmvgWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gEFPMYvRydkRqR/hqUKe7cAaRAtRZbtTTuYNxp09Msg=; b=Da6e2lQuWf/sBKz5abE+TH2TVI
+	iD/A0c+7PsNiJHXSYcM9Uo7alrakjNu9lCfAjT1njWRFp/qWpJRg58wvJfKt6IJWHpHM7t0du2OBr
+	cPKOdaWEdeiyf2guAUOZhgzm/gjKZgrwEfUUcw043BGyGUh+Cx9Lv0jKkIUJr1f3IO5o2DO9qBgTb
+	29t8xN8ec/qScuv8tTN1bQVozimt65NqB8bUK8iqqxNDU16x4A09EQqsSJyU7q28cmCGGM/FIuJj5
+	vX2LgzojxvdlnxEyVaD9hXZxIG7Kz3zNtRdhh4P/1ByS9IpxC0fZvxyeI1qqN65d7iJrkz868UaKu
+	ilWXTqSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY4Sm-0000000C8Mb-3QNu;
-	Wed, 15 Jan 2025 14:33:44 +0000
-Received: from mail-bn1nam02on20616.outbound.protection.outlook.com ([2a01:111:f403:2407::616] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
+	id 1tY4UX-0000000C8fB-1tMd;
+	Wed, 15 Jan 2025 14:35:33 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY4RX-0000000C8Cz-1K9U
+	id 1tY4TI-0000000C8Ty-0rIi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 14:32:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dJeHYq7ws21JU5Muo5jMC2diHH66qS9ovdSc0fuRlaDPHHfhX9HKmJXFToVXO23uqAn5I316lhDX7ZR9bcWKrsMMutvtPagFPlHGGfdL7TDyvX4MMgMgHfvqnW/roFpyFcme5ZgUHW0hUKyRM2E4zYERikN5A7LIvqGQ2aSwiPbX9zvdSHB/GFHKyh5cSFJDcg9/LwL59kvzW217sMZ2pgl/DsJ68Zg+HGdEjMVERWIN1CfRaww2C5PMwmr4/87mozsOoKwWzlLRGxCKOdqVZpnly1oYuAFP5X2c/HE3ZjuQy2nIMPNfw8w+v/RF+ewO331FV2Fp2BpHYtDe9iD7yw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FTZWUHEg7kapikEV3OD4+6pUyKOPZAmqKx63gxMawb8=;
- b=g+7I/MFClr+rZa9NTnAr4dE4XfJ2tsExGVmgBy36xJ/ODrnHk5Zx6eZXZwKI8jvRcd+hYij67qrMjedsTm60t4ZjDppU0rX42cNWogsBdH5CHRHi1j3cQeMo9gzs5sOCZoZZqnMEERchDEpZbR8UStAdKImpdVWIL3L+ROLkVWCW8KX7qkyS+GiOu1PrX1P93DyovoWn7ih5koSmUJaeqUoBVaO0sk7gswzRVGBdz8m02bXuj+QBUYitemiSbDTeAhlHQEjNMaTclv/9q0JoJ70aynYMmWE7S2TRc91FF/9bMydSokejdjf1VI/X2ZoS4/GEA8yKbHEQAsL2oFLZwg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FTZWUHEg7kapikEV3OD4+6pUyKOPZAmqKx63gxMawb8=;
- b=X+qNOf+UmQa+WvLyLS4313dnEMZuzLnJePcLmuJLOrEztQByrbLPC8cZU24OV1ua+3lhvIPcbF5E5GgothHAjLSh37bA+qywBzL+U/1TbBKGzKiZx3y1u4u4gjFwJ6nXHix69N6FUj+vQ9BaY6bNGvhzzMrdrhc9pU5WlBFbkx8e7dd4vDNxvYSI3X/0ZgdiNwPrcA47p1Whl0IUI2voK7DViTy+Bh4EJD03zkX5nb7nkdIlcf23k6wMQGTwvyuz8gv/Rl4Kzo2hm6p+M27Mt/ejTSKqk7B5Cnsl65jg4lIn7O5DQeSC3NKnAJFciyrGA3RVu8LNj2aRw9iSHGMsDA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by CY5PR12MB6550.namprd12.prod.outlook.com (2603:10b6:930:42::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.19; Wed, 15 Jan
- 2025 14:32:15 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%5]) with mapi id 15.20.8335.017; Wed, 15 Jan 2025
- 14:32:15 +0000
-Date: Wed, 15 Jan 2025 10:32:13 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Ankit Agrawal <ankita@nvidia.com>
-Cc: David Hildenbrand <david@redhat.com>, "maz@kernel.org" <maz@kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	"joey.gouly@arm.com" <joey.gouly@arm.com>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"ryan.roberts@arm.com" <ryan.roberts@arm.com>,
-	"shahuang@redhat.com" <shahuang@redhat.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Aniket Agashe <aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>,
-	Kirti Wankhede <kwankhede@nvidia.com>,
-	"Tarun Gupta (SW-GPU)" <targupta@nvidia.com>,
-	Vikram Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>,
-	Alistair Popple <apopple@nvidia.com>,
-	John Hubbard <jhubbard@nvidia.com>, Dan Williams <danw@nvidia.com>,
-	Zhi Wang <zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>,
-	Uday Dhoke <udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
-	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
-	"sebastianene@google.com" <sebastianene@google.com>,
-	"coltonlewis@google.com" <coltonlewis@google.com>,
-	"kevin.tian@intel.com" <kevin.tian@intel.com>,
-	"yi.l.liu@intel.com" <yi.l.liu@intel.com>,
-	"ardb@kernel.org" <ardb@kernel.org>,
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"gshan@redhat.com" <gshan@redhat.com>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v2 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
- VMA flags
-Message-ID: <20250115143213.GQ5556@nvidia.com>
-References: <20241118131958.4609-1-ankita@nvidia.com>
- <20241118131958.4609-2-ankita@nvidia.com>
- <a2d95399-62ad-46d3-9e48-6fa90fd2c2f3@redhat.com>
- <20250106165159.GJ5556@nvidia.com>
- <f13622a2-6955-48d0-9793-fba6cea97a60@redhat.com>
- <SA1PR12MB7199E3C81FDC017820773DE0B01C2@SA1PR12MB7199.namprd12.prod.outlook.com>
- <20250113162749.GN5556@nvidia.com>
- <0743193c-80a0-4ef8-9cd7-cb732f3761ab@redhat.com>
- <20250114133145.GA5556@nvidia.com>
- <SA1PR12MB71998E1E70F3A03D5E30DE40B0182@SA1PR12MB7199.namprd12.prod.outlook.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <SA1PR12MB71998E1E70F3A03D5E30DE40B0182@SA1PR12MB7199.namprd12.prod.outlook.com>
-X-ClientProxiedBy: MN2PR04CA0029.namprd04.prod.outlook.com
- (2603:10b6:208:d4::42) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	Wed, 15 Jan 2025 14:34:17 +0000
+Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 0EDDC526;
+	Wed, 15 Jan 2025 15:33:14 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1736951595;
+	bh=+BwkqpgMdP4nryge8XAwlr3ocnpSp93kPfK5dvvQhJ0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=QnVZ92ktu9XV19uGghR+pXIGNZHKmpNfERPTx2PF0SFcdW2V4R70TgSYAhSJVQzgk
+	 ilP1mAtlbiYM18tY7IHgyLvryoIIAW2bhlY+EQurqMEtd/FPj/iEHsI2HATgodbh3a
+	 76PagALDfywQFrskQsb5P96lsmEx5hyKdm8Uh7BM=
+Message-ID: <0004c685-b8c6-4df1-acb4-7c80a9d3255e@ideasonboard.com>
+Date: Wed, 15 Jan 2025 16:34:09 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CY5PR12MB6550:EE_
-X-MS-Office365-Filtering-Correlation-Id: 955a662e-121a-4d25-4dae-08dd357167f1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?91tyu0ZZQXLDhVOyrR+6ehjApfyOtdxAA6okSacZg5VJqTJED7xQZA7qv1N8?=
- =?us-ascii?Q?bYBSoLsse1dj7jC6Pzlggk+hwS0bX6D9AendI0J+mzUq6MkJON4+siamn07W?=
- =?us-ascii?Q?PENW9u2AUYRVDTKe+QoW+rYDJ4bRzqwlN/DfXOG8dSWWs9zjnta3v32+bJAS?=
- =?us-ascii?Q?rBdQrsYKeADe6VHaAFWTVirsCFIwVMlMLQjkBz5tuXNFDQDGiFOv44S8T9ZF?=
- =?us-ascii?Q?js3WL4hKriFRwypdQil5XjqTwzkMv0Mkc0IgwF2GBtnrUvOmCBFROo62hhsG?=
- =?us-ascii?Q?imKBRmD9gTXqWtUVqvUMEwqSASAzN6ZEYzY9wmGmcQ7kNEePQ306Stax1Ut6?=
- =?us-ascii?Q?5u+DazpsoyBc3clFm4SKxvENyU/BuHGhCHwd92xKP1MNAN9KP0WTWzYSSJs9?=
- =?us-ascii?Q?omwjx6z8Rcon823wJZr+c50Ws+Ty6eWO5WNQOlncwVlLZPNBOa4/pVmXhJCg?=
- =?us-ascii?Q?2TWzgOLu7F9B4//2Lg+LFQfHqvCG5G4/jIjSPxtvAMSjMndb9iSZajzmM7FS?=
- =?us-ascii?Q?zYptBUv9hwvrYqeq9bKNFEM8ThdWdA7AzNBkJfUCY65BkXXsoGBwkFJ6BsEH?=
- =?us-ascii?Q?35iEErNUcL3sKK83qG2WV5OX0/TW2fxdPJGtlfaphpGUHmiHlat7uB2UcEOs?=
- =?us-ascii?Q?qTKPYfi+6BvJoVxP/zNy4F/yOAUpSp/Dl+1vF5LK1lPX/AEmm3NAbfHYoI58?=
- =?us-ascii?Q?Uv5qQhVKSzCF25mFIkSkeuROa2IOCrpOWeDGS1Q0r65hvQd9BLOFrnu0FLGQ?=
- =?us-ascii?Q?97EL7/sFTi8wTg8hZ7lFd1JwDlVVFZuB3rGZVLig1Oz9GmjSOZfQC2Pg45DQ?=
- =?us-ascii?Q?tx5M8XTT44W7dtlfVAHaXjfKP4p2TW68RAJE4QxS3CyI5kttgNeMeeXJ9F7n?=
- =?us-ascii?Q?quHkOEIkEGvLRtDll5hRARCy28Mmj0NMiworQGy7DptP4Xlj3VJQkD+ayQ1E?=
- =?us-ascii?Q?YrIAslWt8JxTA5ldpWzzvelQqM1a6WzcNcTcBggmpzn2HaopqloG9J3Wi9ZM?=
- =?us-ascii?Q?UtpOm/MehG+9mVgdnJsaxL7ciI+oQd6kiQR+o7zLwIMICrVXleVnAL4BiaOK?=
- =?us-ascii?Q?YoYqZHdE+19+WDng/F1N7TU36nTBnbWEfIzlNP9m0XqjV2l5cJEK+kSPZGhe?=
- =?us-ascii?Q?nL2/JyRzYKGXXtRFk+1/2WpcTuqNXI4dpgNeLrNRUy/zydCY1N6TLiJA1mk/?=
- =?us-ascii?Q?QOk4NmfTFhBoTQDBGgill3W9cMME6uKHJyX8zaFeftEohWlKKE135wHDYzM6?=
- =?us-ascii?Q?nO0d6ds3HiKYQnU0cFVGgf9ivguxzSn4QqMk3BMWBHT/REcMziYHb1L8E6dm?=
- =?us-ascii?Q?5qDPBmeh1cUvV5CcFMV4/CamJaTctjT3SraSGv6gZNTM3x8uIqsOXH4vvic5?=
- =?us-ascii?Q?8H0zdAMb33qsSLc1jXCgAner/LU4?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LhrYivRhPhSt+g3hmtLUdngY126atKc3bY4+IqQm1VtuYoM3DCTIdB6RiVJn?=
- =?us-ascii?Q?wIxFkWNsBurcdSG2GyXUQWppUeUbYH0ygT9Ei9ME9DMA6HY29Ps5i3E3BeQm?=
- =?us-ascii?Q?70G35pq4k/V7rZSQE4X0R/nTB93lDEKgVsG0hTNGjhnqHdZvLYRWI/X5H5ip?=
- =?us-ascii?Q?JvwnrOuYu5ZZPBc/VZjYii2Ub4a7j0aGJvYokNOtgzT+NE1tLgEyNe3i5zwt?=
- =?us-ascii?Q?qJFrF+JAHzdEcMIjHeW0LYVX6MEgVfyzU6aTw/oTYXEnnMj8IWXKTat8Y5eG?=
- =?us-ascii?Q?z1MDhlFwsYhTGw93bNlncopQJfA1BJ6GGAuq3TTMtzqlA83ug7LfcgSTDJnM?=
- =?us-ascii?Q?2O6jaFtmQCos/9vu0e6TGJTxBS6/ApVVKg9LHKJB54gSipj+D4axHP434eW4?=
- =?us-ascii?Q?g4CwQc7Rzws+9B5aUOmQIPLFqaPlKD4kHtmBrEvXD/B23fT39o+TlpGyCobJ?=
- =?us-ascii?Q?dJLDP6JpE2hwnMomC7u0qvB92cKicwbtNzAXZrCFdXnp9WOZ/wIgRNzYkBYw?=
- =?us-ascii?Q?lzgPipG+y53lzPgWdJcp6+2DkvvVa3V+URUh1gDVlkimQM4GMVH9YLXDajtF?=
- =?us-ascii?Q?zzS88P8RopmLyxTEX2JuVMABHjNYy4jfExJSRiHEDMTZFt7eM9f66d/g4k9B?=
- =?us-ascii?Q?U8MQCUWDq14ZcRpFV1TKWLA6GkAZnYVOwF+KheDwH6ibRVKVxK4VOpBNSf58?=
- =?us-ascii?Q?urxo807v4CMGh0ESQMJ+C3C4W+tkbG8aJXGfT0GnUp98v1ElLIrFqnfB1Fsh?=
- =?us-ascii?Q?8Mg5REeyeYcvTmpnKaLAfMJpEzz7Td/GMOon4MKPfjaSlYzY7NYNI4aomueh?=
- =?us-ascii?Q?6jqCQSO8sbJL51hLz26p9pRV4iwEtEC1jrPS+w39is33kvCDUcnvfFB33Ggb?=
- =?us-ascii?Q?loPZEHFxTGuENCY651fHqaBZGSxx3u3OwKLMKqsiyqt1oDepYHT+FhHToAkL?=
- =?us-ascii?Q?oApFgtiDIut9/A6gT24eQGPEGQF/XkugSOTPZ1KLhAwcZbrx0IU7rvFrW7Up?=
- =?us-ascii?Q?FYpgYBbhtG3VMGyzM0/5WHxMr+ulatX2cTOU0YJi3m7vwQBsSaMgznuX+4a/?=
- =?us-ascii?Q?LmGtQS1nO0nP5SWxoR3sLslw9WrjMYH7MWkQdqXdgBjOeUfEdDzObFxlsRdE?=
- =?us-ascii?Q?d1z1nOkxSopUmDEWoEWMn04d5lR1l1TskpLcSu3od47bs+cvcCMPjEOvA8Zh?=
- =?us-ascii?Q?/JiI276kbE76Usl2cbbs06Zzstay6EZOaAx5qGeX8qm8retmtX4lJk5E2yFG?=
- =?us-ascii?Q?bTmcDMYRfxXRXJHPLegKmwQ6aF5ZdPWE8gAfOJWjphas0dpoNNwksHzh9jq4?=
- =?us-ascii?Q?WO+Y6+JbxfaBD3s6sK+ITgpEsN4OvjsqgXNg5y9OP/28BAa8Jzpdh8X8YXks?=
- =?us-ascii?Q?Pi5NiQ22kkejHocTJUixv+uRkOcrYyg3oUJog737Tj/nsVMJw80ablnUNBHQ?=
- =?us-ascii?Q?8W5On33MTshmdQRWrbwLuzRWuiOHaF9ukJs6dglACug0dM/vHA2MrUCX46EJ?=
- =?us-ascii?Q?ZlwJYChkufLsf1jVUfuqJAH2KB7WTEHLz2wYuZbX5mClY3fOZSjSqjYbUqE6?=
- =?us-ascii?Q?zu7jtrl4wSthumDqiuCH/J0q6ZfAzSwnaq3DhPHx?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 955a662e-121a-4d25-4dae-08dd357167f1
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jan 2025 14:32:15.0265
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3C4E4o8GfCu71HvYyG+vZJeriqwLidcxyqc0x5zwyFfRPzYE2r1TObKYPMAGrtDk
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6550
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 04/10] drm/fourcc: Add DRM_FORMAT_Y10_LE32
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Vishal Sagar <vishal.sagar@amd.com>,
+ Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Michal Simek <michal.simek@amd.com>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20250115-xilinx-formats-v2-0-160327ca652a@ideasonboard.com>
+ <20250115-xilinx-formats-v2-4-160327ca652a@ideasonboard.com>
+ <CAMuHMdXwsdP3_3b_OWFZ8J=kuNCga0h5Vo+wR0fdquQjZNuzEw@mail.gmail.com>
+ <b7b8cdde-c189-4b9f-8423-c8ab4797b2f0@ideasonboard.com>
+ <CAMuHMdVnDBt9QbR2bPdKHWgQ7i-OYYJ14ndc270z-hejY=bUdA@mail.gmail.com>
+ <6b084e2c-100f-4563-8797-9fd6c862ed0c@ideasonboard.com>
+ <CAMuHMdX8EeKnV8et81i3UdOexhO3Ry5TTKqp18OvCpJpWT2CtQ@mail.gmail.com>
+ <0b0decd1-6f19-424a-84e5-fc71dceb983c@ideasonboard.com>
+ <CAMuHMdXrdV4YRo1nMCVMTga=M+16GT8GkWe+Rk1DkgDZ=abGag@mail.gmail.com>
+Content-Language: en-US
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
+ 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
+In-Reply-To: <CAMuHMdXrdV4YRo1nMCVMTga=M+16GT8GkWe+Rk1DkgDZ=abGag@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_063227_358133_4F7F57A6 
-X-CRM114-Status: GOOD (  20.76  )
+X-CRM114-CacheID: sfid-20250115_063416_383736_C94D2970 
+X-CRM114-Status: GOOD (  24.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,40 +125,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 14, 2025 at 11:13:48PM +0000, Ankit Agrawal wrote:
-> > Do we really want another weirdly defined VMA flag? I'd really like to
-> > avoid this.. 
+On 15/01/2025 16:08, Geert Uytterhoeven wrote:
+> Hi Tomi,
 > 
-> I'd let Catalin chime in on this. My take of the reason for his suggestion is
-> that we want to reduce the affected configs to only the NVIDIA grace based
-> systems. The nvgrace-gpu module would be setting the flag and the
-> new codepath will only be applicable there. Or am I missing something here?
-
-We cannot add VMA flags that are not clearly defined. The rules for
-when the VMA creater should set the flag need to be extermely clear
-and well defined.
-
-> > Can't we do a "this is a weird VM_PFNMAP thing, let's consult the VMA
-> > prot + whatever PFN information to find out if it is weird-device and
-> > how we could safely map it?"
+> On Wed, Jan 15, 2025 at 2:46 PM Tomi Valkeinen
+> <tomi.valkeinen@ideasonboard.com> wrote:
+>> On 15/01/2025 14:52, Geert Uytterhoeven wrote:
+>>> On Wed, Jan 15, 2025 at 1:42 PM Tomi Valkeinen
+>>> <tomi.valkeinen@ideasonboard.com> wrote:
+>>>> On 15/01/2025 14:33, Geert Uytterhoeven wrote:
+>>>>> On Wed, Jan 15, 2025 at 12:11 PM Tomi Valkeinen
+>>>>> <tomi.valkeinen@ideasonboard.com> wrote:
+>>>>>> On 15/01/2025 12:33, Geert Uytterhoeven wrote:
+>>>>>>> On Wed, Jan 15, 2025 at 10:04 AM Tomi Valkeinen
+>>>>>>> <tomi.valkeinen@ideasonboard.com> wrote:
+>>>>>>>> Add Y10_LE32, a 10 bit greyscale format, with 3 pixels packed into
+>>>>>>>> 32-bit container.
+>>>>>>>>
+>>>>>>>> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+>>>>>>>
+>>>>>>> Thanks for your patch!
+>>>>>>>
+>>>>>>>> --- a/include/uapi/drm/drm_fourcc.h
+>>>>>>>> +++ b/include/uapi/drm/drm_fourcc.h
+>>>>>>>> @@ -408,6 +408,7 @@ extern "C" {
+>>>>>>>>      /* Greyscale formats */
+>>>>>>>>
+>>>>>>>>      #define DRM_FORMAT_Y8          fourcc_code('G', 'R', 'E', 'Y')  /* 8-bit Y-only */
+>>>>>>>> +#define DRM_FORMAT_Y10_LE32    fourcc_code('Y', 'P', 'A', '4')  /* [31:0] x:Y2:Y1:Y0 2:10:10:10 little endian */
+>>>>>>>
+>>>>>>> R10_LE32? Or R10_PA4?
+>>>>>>
+>>>>>> Can we discuss the "R" vs "Y" question under the cover letter? There's
+>>>>>> some more context about it in there.
+>>>>>
+>>>>> Sorry, hadn't read the cover letter. I got attracted by "Y8" and "Y10".
+>>>>>
+>>>>>> I took the "LE32" from Gstreamer's format. Maybe it's a bit pointless.
+>>>>>>
+>>>>>> I don't know if it makes sense to add the fourcc to the DRM format name.
+>>>>>> The fourcc is very limited. Rather, we could, say, have
+>>>>>> DRM_FORMAT_Y10_PACKED_32 (or "R", if you insist =).
+>>>>>>
+>>>>>>> Does LE32 have a meaning?  My first guess just reading the subject
+>>>>>>> was wrong ("little endian  32-bit" ;-)
+>>>>>>
+>>>>>> I'm not sure I follow. It's little-endian. The pixel group/unit is a
+>>>>>> 32-bit number, where the leftmost pixel on the screen is in bits 9-0,
+>>>>>> and the padding is in bits 31-30, and stored in memory as little-endian.
+>>>>>
+>>>>> Ah, the "LE" applies to the pixels inside each word.
+>>>>
+>>>> No, to the 32-bit container.
+>>>>
+>>>>> DRM formats stored in memory are always little-endian, unless the
+>>>>> DRM_FORMAT_BIG_ENDIAN bit is set, which is what I was hinting
+>>>>> at...
+>>>>
+>>>> Indeed you're right. The "LE" is pointless. So back to the bike-shedding
+>>>> about the name =).
+>>>
+>>> As the order inside the container is Y2:Y1:Y0, it _is_ little endian.
+>>> Cfr.
+>>>
+>>> #define DRM_FORMAT_YUYV  fourcc_code('Y', 'U', 'Y', 'V') /* [31:0]
+>>> Cr0:Y1:Cb0:Y0 8:8:8:8 little endian */
+>>
+>> Hmm, I see. I hadn't thought LE in that context, but I think it makes
+>> sense when there are multiple pixels in one container. So the "little
+>> endian" above would refer to the order of Y1 and Y0. So is Y1 the
+>> least-significant-pixel? =)
 > 
-> My understanding was that the new suggested flag VM_FORCE_CACHED
-> was essentially to represent "whatever PFN information to find out if it is
-> weird-device". Is there an alternate reliable check to figure this out?
+> No, Y0 is the least-significant member of the container, which
+> corresponds to the first pixel ("little end first").
 
-For instance FORCE_CACHED makes no sense, how will the VMA creator
-know it should set this flag?
+In the number 0x1234, 0x34 is the least-significant byte, and stored 
+first in memory in little endian.
 
-> Currently in the patch we check the following. So Jason, is the suggestion that
-> we simply return error to forbid such condition if VM_PFNMAP is set?
-> +	else if (!mte_allowed && kvm_has_mte(kvm))
+So, similarly, with Y0:Y1, Y1 is stored first in little-endian order, so 
+it's the least-significant-pixel =).
 
-I really don't know enought about mte, but I would take the position
-that VM_PFNMAP does not support MTE, and maybe it is even any VMA
-without VM_MTE/_ALLOWED does not support MTE?
+>> But, say, in
+>>
+>> #define DRM_FORMAT_RG88         fourcc_code('R', 'G', '8', '8') /* [15:0] R:G
+>> 8:8 little endian */
+>>
+>> the "little endian" refers to the 16-bit value itself? Which is not
+>> necessary, as the default assumption is little endian.
+> 
+> I think so.
+> 
+>> In any case, when considering your latest point... "LE" in the name
+>> makes sense? But with a quick look I didn't find any formats that would
+>> have "big endian pixel order", so maybe we can just assume little endian
+>> pixel order too.
+> 
+> [CDR][124] have. See the descriptions of the commits that introduced
+> them for the rationale behind this:
+> 
+> b92db7e4fe740daa drm/fourcc: Add DRM_FORMAT_D[1248]
+> d093100b425df6fe drm/fourcc: Add DRM_FORMAT_R[124]
+> e5bd7e3e4a68f0be drm/fourcc: Add DRM_FORMAT_C[124]
 
-At least it makes alost more sense for the VMA creator to indicate
-positively that the underlying HW supports MTE.
+Ah, I see. But they don't call the pixel ordering "big endian".
 
-Jason
+Well, this is all somewhat beside the point. So is "_Y10_32" (or 
+"_R10_32" if we use R) fine?
+
+  Tomi
+
 
