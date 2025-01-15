@@ -4,60 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C706C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 21:32:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36579C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 21:33:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:
-	References:Date:Message-Id:From:Subject:Content-Transfer-Encoding:
-	MIME-Version:Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IkLcnhql8a96A60BHSfkKs2E6DaIk53/sc0MbOHAsjI=; b=0zu6buugucqG2JX0pZbRnOkyzp
-	O3qKwTW2C7ICwNWjGfkLiyLmVbXJHXwmuMDHK4jt/gBAFioRHPy08ODt3DUSct8I+y9LhC0CVlfe6
-	uaCzKbiIN7Ch5BQTabDTMqrRcSo8Ohk57iBoxEADonbsviAj9C12XHBLKOMLQYY5+jJUXYJ6aEhlb
-	uGdgVqQlmYJ990NDa/3chvQReyjepfJN8LL6f52oshFac9fyk2086vtuJ7wwQuVmVxu4GpnkfLNdJ
-	8/lHWkFfDL+6b326paFSljvTyHjV5+Ti4NEsVjpktr3o2fcSujieKAkZQhkuPCCF3RP7r6uarq3w1
-	0JjuArnQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=44yBoEaBN9BUqiayzCJKrONcQRlrzsyZDx1UtPfWWvc=; b=j5vQygTNu+PCnyTO68jBRVayDT
+	yYbmf9WtjkyQ5wyMUsHqTHbKFZMEYUEGGCRtfaLt+39oqR1tUPqA19Rlts8aZs4BcgPrcp/QfrfUd
+	jo00NLQcZlWSFEmMKsHjHia6ziOLPVTugTY7DBNNyMHQmPz7RnL1DbKHkUhanqIUkKvJ6Bani7XtI
+	n51+4h3c4RLCDItg3zUgs3/ZihIspQxUfmthAKv3L2yUCpUVzt47a9cfWZdAmEnxWwsfhOvoibwC8
+	lxVHbpAf4E83VrEhJJm65RuQJ+sW/1ocqXrcU1VgEMKD76z7glahvbd9LfY6tImBg9owll2+Xrx1f
+	+g0pZWdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYAzM-0000000DAOw-24VG;
-	Wed, 15 Jan 2025 21:31:48 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tYB0e-0000000DAcY-22tD;
+	Wed, 15 Jan 2025 21:33:08 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYAy3-0000000DA9F-0UgK;
-	Wed, 15 Jan 2025 21:30:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 601BA5C5DDD;
-	Wed, 15 Jan 2025 21:29:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9D10C4CED1;
-	Wed, 15 Jan 2025 21:30:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736976625;
-	bh=LE8fA2hAMhhDI5KwgEq05/0LGmnaeWzG7l9oulZaTgk=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=P8yxRWF12yA+CipCEyGIzKRv4g5Vac+F7zE50cg22snFi5j0Jzw+R0LlAaq7GM8xs
-	 0hu70OOCza20MDg9Of2KKGaLlUIACrqeaG3dSmH8T2fUWUgdGI2Iy6pw44BjTcpQbC
-	 7ake8LkLQaVusqCkJ9FjYGLYm+II0P9kFKI8qIk0FDtqcTEB1JByFtJvyhl2RM3aJS
-	 Y4auUQTxemzxvGUjmo1AvO7xaIlxNxhcfWTgyNML3LK3Y/DPZJF0XSyw8Wg9bHPKwC
-	 qTSmNipXmZ7rIe0Lr1a6A1zv13pgAW+vwBoqI0MFRmJbcS9kG4N7KFtV7Un/8Bi+MU
-	 q9j2EyvkM0Mmg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAEB7380AA5F;
-	Wed, 15 Jan 2025 21:30:49 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1tYAy6-0000000DA9C-2K8T
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Jan 2025 21:30:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1736976622; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=SE5c+9QEd23cengqfVBIxvKi1XlVmqPNd6ZxKiUvOfowwOTkS1jv4mJrrZJlXVM6aPN4Z4/G8nVxwyY5xamCcxWiyu8fiTbeZxIWujaYUP/0o1U9qDNOz6xDEj0kyBDrSx7UUuX3t8VGbRY3uKuXXlu3olABywxGoHFloIsungA=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1736976622; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=44yBoEaBN9BUqiayzCJKrONcQRlrzsyZDx1UtPfWWvc=; 
+	b=MYGT+w+2dDZCwN9Kljm62tsiSjpLgQlABLvDpGygj06DFpCrnMlttSSDADBWTMPRELc7pVGPyRVRueCuqA8s85iIhX/6KCSrjvdNHrxttcK/CrAyQXt1Vc/rme30TT6/3zgO2PGM2qlsZnHzfOiabEnuHqeY8ggY2ET19bWVkjo=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1736976622;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=44yBoEaBN9BUqiayzCJKrONcQRlrzsyZDx1UtPfWWvc=;
+	b=jJNd7Ms5UGIFw5cUCEDDTr5D+pS2J3XEkdHQHSj92ICil7Fm59YPsKJnEYHBP0hS
+	160pFHTnC7b6F4s6qaH6nTh4TX9OjxOrFPydPQx8HWLl/Vi646/DeMzgcq2uSwrYtrT
+	bwV3F61ygnsxkzKm5O4MJtDaXIxg3uYO9Xsj5iBU=
+Received: by mx.zohomail.com with SMTPS id 1736976620687410.3754694103633;
+	Wed, 15 Jan 2025 13:30:20 -0800 (PST)
+Received: by mercury (Postfix, from userid 1000)
+	id 2A79A1060346; Wed, 15 Jan 2025 22:30:16 +0100 (CET)
+Date: Wed, 15 Jan 2025 22:30:16 +0100
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: t.antoine@uclouvain.be
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Dimitri Fedrau <dima.fedrau@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, =?utf-8?B?QW5kcsOp?= Draszik <andre.draszik@linaro.org>, 
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
+Subject: Re: [PATCH v2 1/4] power: supply: add support for max77759 fuel gauge
+Message-ID: <ocx5n42h25ztwo5twlir5zoajavpcxce2ra5jjyl6ae4qg6c3e@akhc3dylsprm>
+References: <20250102-b4-gs101_max77759_fg-v2-0-87959abeb7ff@uclouvain.be>
+ <20250102-b4-gs101_max77759_fg-v2-1-87959abeb7ff@uclouvain.be>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v2 0/5] net: phylink: fix PCS without autoneg
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <173697664846.885620.3750328889492102157.git-patchwork-notify@kernel.org>
-Date: Wed, 15 Jan 2025 21:30:48 +0000
-References: <Z4TbR93B-X8A8iHe@shell.armlinux.org.uk>
-In-Reply-To: <Z4TbR93B-X8A8iHe@shell.armlinux.org.uk>
-To: Russell King (Oracle) <linux@armlinux.org.uk>
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="vjczpwchn3jh5lgv"
+Content-Disposition: inline
+In-Reply-To: <20250102-b4-gs101_max77759_fg-v2-1-87959abeb7ff@uclouvain.be>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-1.4.1/234.845.73
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_133027_203863_1E6E434B 
-X-CRM114-Status: UNSURE (   9.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250115_133030_650919_A92FB5C7 
+X-CRM114-Status: GOOD (  19.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,41 +85,90 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: taras.chornyi@plvision.eu, andrew@lunn.ch, marcin.s.wojtas@gmail.com, madalin.bucur@nxp.com, alexanderduyck@fb.com, daniel@makrotopia.org, edumazet@google.com, ioana.ciornei@nxp.com, horatiu.vultur@microchip.com, radhey.shyam.pandey@amd.com, florian.fainelli@broadcom.com, sean.anderson@seco.com, Steen.Hegelund@microchip.com, lars.povlsen@microchip.com, kuba@kernel.org, pabeni@redhat.com, Jose.Abreu@synopsys.com, sean.wang@mediatek.com, daniel.machon@microchip.com, kernel-team@meta.com, dqfext@gmail.com, lynxis@fe80.eu, matthias.bgg@gmail.com, michal.simek@amd.com, linux-arm-kernel@lists.infradead.org, angelogioacchino.delregno@collabora.com, arinc.unal@arinc9.com, netdev@vger.kernel.org, claudiu.beznea@tuxon.dev, UNGLinuxDriver@microchip.com, andrew+netdev@lunn.ch, ericwouds@gmail.com, linux-mediatek@lists.infradead.org, olteanv@gmail.com, davem@davemloft.net, hkallweit1@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+--vjczpwchn3jh5lgv
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2 1/4] power: supply: add support for max77759 fuel gauge
+MIME-Version: 1.0
 
-On Mon, 13 Jan 2025 09:22:15 +0000 you wrote:
-> Hi,
-> 
-> Eric Woudstra reported that a PCS attached using 2500base-X does not
-> see link when phylink is using in-band mode, but autoneg is disabled,
-> despite there being a valid 2500base-X signal being received. We have
-> these settings:
-> 
-> [...]
+Hi,
 
-Here is the summary with links:
-  - [net-next,v2,1/5] net: phylink: use pcs_neg_mode in phylink_mac_pcs_get_state()
-    https://git.kernel.org/netdev/net-next/c/0f1396d24658
-  - [net-next,v2,2/5] net: phylink: pass neg_mode into .pcs_get_state() method
-    https://git.kernel.org/netdev/net-next/c/c6739623c91b
-  - [net-next,v2,3/5] net: phylink: pass neg_mode into c22 state decoder
-    https://git.kernel.org/netdev/net-next/c/7e3cb4e874ab
-  - [net-next,v2,4/5] net: phylink: use neg_mode in phylink_mii_c22_pcs_decode_state()
-    https://git.kernel.org/netdev/net-next/c/60a331fff5e8
-  - [net-next,v2,5/5] net: phylink: provide fixed state for 1000base-X and 2500base-X
-    https://git.kernel.org/netdev/net-next/c/e432ffc14b17
+On Thu, Jan 02, 2025 at 12:15:03PM +0100, Thomas Antoine via B4 Relay wrote:
+> From: Thomas Antoine <t.antoine@uclouvain.be>
+>=20
+> The interface of the Maxim max77759 fuel gauge has a lot of common with t=
+he
+> Maxim max1720x. The major difference is the lack of non-volatile memory
+> slave address. No slave is available at address 0xb of the i2c bus, which
+> is coherent with the following driver from google: line 5836 disables
+> non-volatile memory for m5 gauge.
+>=20
+> Link: https://android.googlesource.com/kernel/google-modules/bms/+/1a68c3=
+6bef474573cc8629cc1d121eb6a81ab68c/max1720x_battery.c
+>=20
+> Other differences include the lack of V_BATT register to read the battery
+> level and a difference in the way to identify the chip (the same register
+> is used but not the same mask).
+>=20
+> Add support for the max77759 by allowing to use the non-volatile
+> memory or not based on the chip. Also add the V_CELL regsister as a
+> fallback to read voltage value in the case where read of V_BATT fails.
+>=20
+> The cast is necessary to avoid an overflow when the value of the register
+> is above 54975 (equivalent to a voltage around 4.29 V).
+>=20
+> The regmap of the max77759 will lead the read to fail for V_BATT and to
+> correctly use V_CELL instead. This regmap was proposed by Andr=E9 Draszik=
+ in
+>=20
+> Link: https://lore.kernel.org/all/d1bade77b5281c1de6b2ddcb4dbbd033e455a11=
+6.camel@linaro.org/
+>=20
+> Signed-off-by: Thomas Antoine <t.antoine@uclouvain.be>
+> ---
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+Please add output from to the cover letter to allow easily verifying
+that all values are correctly scaled.
 
+=2E/tools/testing/selftests/power_supply/test_power_supply_properties.sh
 
+> +static const struct regmap_access_table max77759_write_table =3D {
+> +	.yes_ranges =3D max77759_registers,
+> +	.n_yes_ranges =3D ARRAY_SIZE(max77759_registers),
+> +	.no_ranges =3D max77759_ro_registers,
+> +	.n_no_ranges =3D ARRAY_SIZE(max77759_ro_registers),
+> +};
+
+Drop the yes_range from the write table. It is wrong and confusing.
+
+Greetings,
+
+-- Sebastian
+
+--vjczpwchn3jh5lgv
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmeIKOQACgkQ2O7X88g7
++poemg/7BYKpgndddd6KOyNkHh1f7/mS1SrEz1rSArQasRTtCaXiMgBvA1wRxh1R
+RLDCrfuUsmbgw3iO6bwMOXIxz+YdjJsaiSgLrM4mOrDPILOyWLmmv0rSPVEdVpFj
+S7KksQTPj003J/3xHzVaJtBApMhPDZW2vjbgK4GkL23Gj7fOC4PEyI+5A6tU2Ejo
+WsvcViBfCbQrOKD9N0Mub9pS5xztIhVllEdYMqbSRuyq4r0Uj00UqVBkrc6mx8zQ
+Hicb5UJsB8cARvRz+gnWqAYGvtgI/NO9LaoNb5jHO3NtyGjpYyivwUqUnkN6Y/F3
+38pyNM4dgSZG443aPNM1c+IyBYPXubSDFk0T4cOtR4SQdPIr7c2njf6+n/7O3YkO
+tbFGhYHqpHKN3M1tTOEhY8wQi5LFojGQw3n3QcN/TKCRUkoUXQh8//GFWlSU8vIq
+5Y1iBGTcURolyOtrhkXCaqs/6aBzV7TBa0XIO3P5E01h6kS4PjUzYSKzO7mekwKR
+BSXXUPDr2MniTUSqQ1tTjQrl6+LwI4Xg5PS/+eR+Eu71TZXdqB/CYtfNjrnXMR2k
+ryHOn+JwYxptH5KlAApF9c7N0Bvzvqnkv6x6ti4DyU6IaYpQUE/s/jPrBbKyfcng
+/ogbZww2lQZhhqfYHRf4MneuwRIUKKTY4aytf8zMg80rGjJIxvk=
+=6QDh
+-----END PGP SIGNATURE-----
+
+--vjczpwchn3jh5lgv--
 
