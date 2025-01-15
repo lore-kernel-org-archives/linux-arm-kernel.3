@@ -4,75 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AAE7C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 02:47:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDCEEE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 02:51:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OmZkHxZgYszr9OJLzBc7+VLA9WrD/JWMgUvE0CavqbY=; b=na2pWOPyjT6Qv4dmQA7xv7qkZG
-	CGas069GMlZ6yCDB8TungHIbObhhQ+p2eNuBZcnrlg4FMDNVwbh4JWtKKFyELRXLHiBH6ZQ/5lVDx
-	ZPNM+NCC+cRt+BevpHZHaZf7G9Lk8z+22RmxJJ4IV3YpTRpklzAGX3LSroeobt7lYHOAqS703GMZ5
-	rWCc3P3huO04vYtHaWIZp8XpAXEoH1GvL5tf9DPgEjODc+8vS0tkQnfm70cF4edXkG8JteLayGtGg
-	7P1hCUH7Al5hRimK0hmRkANXXqSPoik44NDF15hZPRWJng414S+HEuyszFbRRCekf0b3DcE88j7uC
-	+qfyi5NA==;
+	bh=DKP8RrHIeCMFJb5QdSHbhibyRrdg1c0FCpT82YibogY=; b=zJ+TuSXmP/3DhdNFTUGPHCNXXH
+	KW8CRVZplmPCwDMCSEP8J0Sfr4DGTsePgzLtUpRuBYGYov3NYPFYsafMgA7Nn8Vc6DkQ90aLxblRr
+	Bf+btLZObtPmYutvE0iWNeC0JvclfwH+IrW0VtLZ38hWp01sfFQOMQcSvb6/HxDQB+su1MtcLV2Q9
+	wJ3/OQApN8X3pGSG3CFeodwXbi075OwQminPHX++9tkwK45NSCqndJUASzkU+pQDHArIUwhwZH7d/
+	jRMk0O5NxVIV7BqA/hNhBxxDJJXVHa0LBTGhtdtNx0kMUD9utkhy8wI/zWzGP9Bl/jVSLT0bIYlVM
+	4vg5YZhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXtRK-0000000ARl8-2wjS;
-	Wed, 15 Jan 2025 02:47:30 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tXtVF-0000000ASJG-0uxi;
+	Wed, 15 Jan 2025 02:51:33 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXsEX-0000000AIiT-3xQD;
-	Wed, 15 Jan 2025 01:30:15 +0000
+	id 1tXtTx-0000000AS6I-3NmX
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Jan 2025 02:50:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 789F35C5A8A;
-	Wed, 15 Jan 2025 01:29:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBF51C4CEDD;
-	Wed, 15 Jan 2025 01:30:12 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9FC6BA416E6;
+	Wed, 15 Jan 2025 02:48:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C91EC4CEDD;
+	Wed, 15 Jan 2025 02:50:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736904613;
-	bh=JGayQbeENovujuBJWgRZ/GamXKwMqxtIrxDsX3uD4PM=;
+	s=k20201202; t=1736909412;
+	bh=XZnxBk+FcFoHxx191qImvZNg7w+IyFMnBMHTXx6L5ZE=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=poCMdomjGUuv1enZWrMvQBGikq7XqoWdPgtThSf6VzWj1cHh6JoKhVxbdVGVV5Ikg
-	 5oizYvsuhFMUEDjOVaFAvsIREsVuQIWJI17F0inIkQrpxtB2W8hS/8kMDKB4r2bHQA
-	 jC/kW3Joug10ioV5ozO8enrCq6Ybc5t92fwjCG+rGoArewA56P0xfQFTuDtPSK4ewu
-	 0wgZiobEWDpWuaU3zbC/xzlXm7UFuoPY6xjkWL0On2mGgWwzv1T0sB+WqsPqTGDpWx
-	 cprgUbxTRDIRj9yv6OcZAm8QfTHoSmIH1Yye3D9IUgvo3u3nxqkSdxITZWNGMEbRFa
-	 qk6GtI/rG+6zA==
+	b=ro8Q5VSGF3ozPz8UtYtwIDdO3bUq+DZXh2zvyVFoMzBbsLYiAfm0Vhyg06qEZ6YAm
+	 hUU7XtQe6frBDOBahLq5YkoW0eCCXPnnQrKvt9HrlyJ7sADGmfRjJyL84Y7sVoDhEY
+	 xyeLkf5MwkMqaeLR2neatqE0uO95H+6LLQotiMElQEwL2hd20j4CxXyRxVq6b1CFhv
+	 1BDnko5EJzTjyqnD38D9cijquhOAfRudMIUk62JMZc55P0HJvHJCJ95c4bshAwlSYQ
+	 YWsmpNQDzQyrO8HcMLjOlVmpNMEoRPRe0QH71rBohz9nhmnTjuCtVBYevmCab+XFwS
+	 c5TgBbBqAT9Ng==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB9DF380AA5F;
-	Wed, 15 Jan 2025 01:30:36 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 34A5F380AA5F;
+	Wed, 15 Jan 2025 02:50:36 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next] net: phy: Constify struct mdio_device_id
+Subject: Re: [PATCH net-next 0/9] net: stmmac: further EEE cleanups (and one fix!)
 From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <173690463579.211072.4197459392952353174.git-patchwork-notify@kernel.org>
-Date: Wed, 15 Jan 2025 01:30:35 +0000
-References: <403c381b7d9156b67ad68ffc44b8eee70c5e86a9.1736691226.git.christophe.jaillet@wanadoo.fr>
-In-Reply-To: <403c381b7d9156b67ad68ffc44b8eee70c5e86a9.1736691226.git.christophe.jaillet@wanadoo.fr>
-To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Cc: michael.hennerich@analog.com, andrew@lunn.ch, hkallweit1@gmail.com,
- linux@armlinux.org.uk, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, florian.fainelli@broadcom.com,
- bcm-kernel-feedback-list@broadcom.com, rjui@broadcom.com,
- sbranden@broadcom.com, richardcochran@gmail.com, kabel@kernel.org,
- daniel@makrotopia.org, dqfext@gmail.com, SkyLake.Huang@mediatek.com,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
- neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com,
- martin.blumenstingl@googlemail.com, arun.ramadoss@microchip.com,
- UNGLinuxDriver@microchip.com, lxu@maxlinear.com,
- piergiorgio.beruto@gmail.com, andrei.botila@oss.nxp.com, heiko@sntech.de,
- linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-arm-msm@vger.kernel.org, linux-rockchip@lists.infradead.org
+Message-Id: <173690943498.230797.5869251402223823826.git-patchwork-notify@kernel.org>
+Date: Wed, 15 Jan 2025 02:50:34 +0000
+References: <Z4T84SbaC4D-fN5y@shell.armlinux.org.uk>
+In-Reply-To: <Z4T84SbaC4D-fN5y@shell.armlinux.org.uk>
+To: Russell King (Oracle) <linux@armlinux.org.uk>
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ ericwouds@gmail.com, kuba@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, mcoquelin.stm32@gmail.com,
+ netdev@vger.kernel.org, pabeni@redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_173014_021832_F075BC14 
-X-CRM114-Status: UNSURE (   8.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250114_185013_916333_E82A47B7 
+X-CRM114-Status: GOOD (  11.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,26 +79,42 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hello:
 
-This patch was applied to netdev/net-next.git (main)
+This series was applied to netdev/net-next.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Sun, 12 Jan 2025 15:14:50 +0100 you wrote:
-> 'struct mdio_device_id' is not modified in these drivers.
+On Mon, 13 Jan 2025 11:45:37 +0000 you wrote:
+> Hi,
 > 
-> Constifying these structures moves some data to a read-only section, so
-> increase overall security.
+> This series continues the EEE cleanup of the stmmac driver, and
+> includes one fix.
 > 
-> On a x86_64, with allmodconfig, as an example:
-> Before:
-> ======
->    text	   data	    bss	    dec	    hex	filename
->   27014	  12792	      0	  39806	   9b7e	drivers/net/phy/broadcom.o
+> As mentioned in the previous series, I wasn't entirely happy with the
+> "stmmac_disable_sw_eee_mode" name, so the first patch renames this to
+> "stmmac_stop_sw_lpi" instead, which I think better describes what this
+> function is doing - stopping the transmit of the LPI state because we
+> have a packet ot send.
 > 
 > [...]
 
 Here is the summary with links:
-  - [net-next] net: phy: Constify struct mdio_device_id
-    https://git.kernel.org/netdev/net-next/c/b01b59a4fa87
+  - [net-next,1/9] net: stmmac: rename stmmac_disable_sw_eee_mode()
+    https://git.kernel.org/netdev/net-next/c/900782a029e5
+  - [net-next,2/9] net: stmmac: correct priv->eee_sw_timer_en setting
+    https://git.kernel.org/netdev/net-next/c/4fe09a0d64d5
+  - [net-next,3/9] net: stmmac: simplify TX cleanup decision for ending sw LPI mode
+    https://git.kernel.org/netdev/net-next/c/bfa9e131c9b2
+  - [net-next,4/9] net: stmmac: check priv->eee_sw_timer_en in suspend path
+    https://git.kernel.org/netdev/net-next/c/c920e6402523
+  - [net-next,5/9] net: stmmac: add stmmac_try_to_start_sw_lpi()
+    https://git.kernel.org/netdev/net-next/c/0cf44bd0c118
+  - [net-next,6/9] net: stmmac: provide stmmac_eee_tx_busy()
+    https://git.kernel.org/netdev/net-next/c/82f2025dda76
+  - [net-next,7/9] net: stmmac: provide function for restarting sw LPI timer
+    https://git.kernel.org/netdev/net-next/c/af5dc22bdb5f
+  - [net-next,8/9] net: stmmac: combine stmmac_enable_eee_mode()
+    https://git.kernel.org/netdev/net-next/c/ec8553673b1f
+  - [net-next,9/9] net: stmmac: restart LPI timer after cleaning transmit descriptors
+    https://git.kernel.org/netdev/net-next/c/d28e89244978
 
 You are awesome, thank you!
 -- 
