@@ -4,85 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13CF7C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 10:26:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54E85C02185
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 10:28:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uih6Mm4WhPDvLdwAv6reFJlC+wDDvlFzzNRYJIheL1s=; b=WegTQcTEq2/lURNoQO2L5Tn45e
-	1NcEjAL72jrXzXeetgvTFwv/Jn4FmpGcc59IzRVjFU0kCD8P0WUbGJYHFMJovjVNICTQV6tXM0EQR
-	9+RD5ryVsqYFucOAMHVj97KN6yrfWqeb4HxGfzvEehOOvAtu9JwXNhHBtbPgE/uMZ6bf/QAkuQqML
-	ZPh99hv7d+vSL47FA2UoDrg2ez35YWrtrRYbnop6GCDjy1ndoMims3KT+xgHdJY0AyCU6OehpnrSg
-	I32qu+2shWvybRAEaL9YiRLX3OCeyTldxQECojGtDxLrN4cD3mu3sO4y3gp4saDHOsGkL4oKl8m2F
-	znPwU9Mw==;
+	bh=F8fT8Kv+j/S2D4pOQnUFqbh6MfyYIrUfOk0KiOX87Jc=; b=PSlxz4HUPsVhgZ3FLnB72PTqjW
+	K0ZH3OyCL6Q3nON1p0L0jLqjLAF5GdTeW7lhQblFDnFLxrLHKn/I6Xf+6GTcywYVCjZW8S+vTRitY
+	gi2ezNIjOxRgVM6B8iD77ZTYnTAmMpMpsSlOOQ/PfAEUU9i2g7u67TCfzp4r237ZZmRPXDj19uVpT
+	K+O0rndaZxMk92SY4UOYbhZJZ6q9Haz6olaY1Rqn/d7OukJJxvKEmQDqnGczdMBLEuloNHLv2wIN5
+	nyPH/34K77JkFtfNqHW+PLBcs5UgW5uk4uTF7gY/bkuGhkZ2Y0/DJM8g0qKwPh6ZDci+jmR+f5mc2
+	lW5RwLfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY0bd-0000000BTuK-46OS;
-	Wed, 15 Jan 2025 10:26:37 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1tY0cs-0000000BUHF-0kRg;
+	Wed, 15 Jan 2025 10:27:54 +0000
+Received: from mx0a-001ae601.pphosted.com ([67.231.149.25] helo=mx0b-001ae601.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY0ZE-0000000BTHd-3dqb;
-	Wed, 15 Jan 2025 10:24:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736936648; x=1768472648;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=mrQ1OaXlc6bMXEK7JY3n2o9PU+VRgTF8F5mJ7Od9uCc=;
-  b=DsC0+g7YaecssPyiqH6B33KDH6Ql2mSefDFn2raA7mjsd3qe8iVNXgXV
-   zZC6/U0jN/7gtcoJZ1/g//J9KpQd+9UugTRBfdhtJMPRGHFHgyqnCqrTK
-   07wnQXdXTn1jPqiZfFRZUfcWi+bdjesy50/pcPTPc+R0KXKOcWLNitTLg
-   ri3jbiPJkplrzbI8iZ4TUtWEzzqA/GS5vOh43k1J+1YOCTJnoUI0Uc2gi
-   VNSRhrmrqentonZL6/EaN54Sd1XQPw4yjra1EYlM1ZD1WD7KMSRyvTWtO
-   omYyWjWw1oBriabOwTELSMeIy13f78kalAySHX03mvPByhMiWOZjqgJS0
-   w==;
-X-CSE-ConnectionGUID: Z6a6yT27TR6oqbGZmLu/Hw==
-X-CSE-MsgGUID: 3MtzdEzIQTig/CMZleXv6Q==
-X-IronPort-AV: E=McAfee;i="6700,10204,11315"; a="37145737"
-X-IronPort-AV: E=Sophos;i="6.12,317,1728975600"; 
-   d="scan'208";a="37145737"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jan 2025 02:24:02 -0800
-X-CSE-ConnectionGUID: GxpqY8wrS2qpNAwLOm9Oyg==
-X-CSE-MsgGUID: eM68aTCeRJitcfICEUNamQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="135949783"
-Received: from black.fi.intel.com ([10.237.72.28])
-  by fmviesa001.fm.intel.com with ESMTP; 15 Jan 2025 02:23:56 -0800
-Received: by black.fi.intel.com (Postfix, from userid 1000)
-	id E2AA740B; Wed, 15 Jan 2025 12:23:54 +0200 (EET)
-Date: Wed, 15 Jan 2025 12:23:54 +0200
-From: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
-To: Tom Lendacky <thomas.lendacky@amd.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
-	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexei Starovoitov <ast@kernel.org>, 
-	Andrea Parri <parri.andrea@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Eric Chan <ericchancf@google.com>, 
-	Jason Gunthorpe <jgg@ziepe.ca>, Kai Huang <kai.huang@intel.com>, 
-	Kefeng Wang <wangkefeng.wang@huawei.com>, Kent Overstreet <kent.overstreet@linux.dev>, 
-	Palmer Dabbelt <palmer@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Russell King <linux@armlinux.org.uk>, Samuel Holland <samuel.holland@sifive.com>, 
-	Suren Baghdasaryan <surenb@google.com>, Yuntao Wang <ytcoode@gmail.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	stable@vger.kernel.org, Ashish Kalra <ashish.kalra@amd.com>, 
-	"Maciej W. Rozycki" <macro@orcam.me.uk>
-Subject: Re: [PATCHv3 2/2] x86/mm: Make memremap(MEMREMAP_WB) map memory as
- encrypted by default
-Message-ID: <mvosqsybplnqfh6wadw5ue7u3plqnfo5ojusvaq6htzzhtfce2@bbgogdund3ho>
-References: <ff8daeb1-4839-b070-dd94-a7692ac94008@amd.com>
+	id 1tY0Zi-0000000BTPH-1pPm
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Jan 2025 10:24:40 +0000
+Received: from pps.filterd (m0077473.ppops.net [127.0.0.1])
+	by mx0a-001ae601.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50F7sWRc014640;
+	Wed, 15 Jan 2025 04:24:18 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirrus.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=PODMain02222019; bh=F8fT8Kv+j/S2D4pOQn
+	UFqbh6MfyYIrUfOk0KiOX87Jc=; b=VW1JPJwireF63R+LkAf1nvgCd4OhgbgcGo
+	o9oqRq48//099FlqQg+hrWuLh26NjzJb4IumNFVQH0UApd/L8xoncuZ18dAoyk9e
+	trJGUbZqhYvD/HMldUm3uONz+tCg74wGl53NBjMxBJVqLXXTNDNdEx3+BslIHULB
+	XQn+wO1wI17r1fGEme0bWM+tIeOWC/j4etAsl2901S62Gq42kFccnhsfuAEUNiNn
+	B6tQD0hORaBy/LPaDTgEHFuhvjEuDhiZTumorTk0lhtwEWodOs8UfDBdR5OdbYsd
+	wgG+wx4ScyMZkWekMPAtIP0pp8zJnUhRxbRcwhFVeWW7m+uB2VNw==
+Received: from ediex01.ad.cirrus.com ([84.19.233.68])
+	by mx0a-001ae601.pphosted.com (PPS) with ESMTPS id 443px4mf9c-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 15 Jan 2025 04:24:18 -0600 (CST)
+Received: from ediex02.ad.cirrus.com (198.61.84.81) by ediex01.ad.cirrus.com
+ (198.61.84.80) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.13; Wed, 15 Jan
+ 2025 10:24:16 +0000
+Received: from ediswmail9.ad.cirrus.com (198.61.86.93) by
+ anon-ediex02.ad.cirrus.com (198.61.84.81) with Microsoft SMTP Server id
+ 15.2.1544.13 via Frontend Transport; Wed, 15 Jan 2025 10:24:16 +0000
+Received: from opensource.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
+	by ediswmail9.ad.cirrus.com (Postfix) with ESMTPS id 1508882026C;
+	Wed, 15 Jan 2025 10:24:16 +0000 (UTC)
+Date: Wed, 15 Jan 2025 10:24:15 +0000
+From: Charles Keepax <ckeepax@opensource.cirrus.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+CC: Doug Berger <opendmb@gmail.com>,
+        Florian Fainelli
+	<florian.fainelli@broadcom.com>,
+        Broadcom internal kernel review list
+	<bcm-kernel-feedback-list@broadcom.com>,
+        Linus Walleij
+	<linus.walleij@linaro.org>,
+        Bartosz Golaszewski <brgl@bgdev.pl>,
+        "Andy
+ Shevchenko" <andy@kernel.org>,
+        Uwe =?iso-8859-1?Q?Kleine-K=F6nig?=
+	<ukleinek@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        "Alexandre Torgue" <alexandre.torgue@foss.st.com>,
+        Kuppuswamy Sathyanarayanan
+	<sathyanarayanan.kuppuswamy@linux.intel.com>,
+        Nandor Han <nandor.han@ge.com>, <linux-gpio@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-pwm@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <patches@opensource.cirrus.com>
+Subject: Re: [PATCH v2] gpio: Use str_enable_disable-like helpers
+Message-ID: <Z4eMz06gm6DPjqsR@opensource.cirrus.com>
+References: <20250114191438.857656-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <ff8daeb1-4839-b070-dd94-a7692ac94008@amd.com>
+In-Reply-To: <20250114191438.857656-1-krzysztof.kozlowski@linaro.org>
+X-Proofpoint-ORIG-GUID: g_1sQD1C5vLD-t_9ffrlstl7qSLhk8gd
+X-Proofpoint-GUID: g_1sQD1C5vLD-t_9ffrlstl7qSLhk8gd
+X-Authority-Analysis: v=2.4 cv=XdhzzJ55 c=1 sm=1 tr=0 ts=67878cd2 cx=c_pps a=uGhh+3tQvKmCLpEUO+DX4w==:117 a=uGhh+3tQvKmCLpEUO+DX4w==:17 a=kj9zAlcOel0A:10 a=VdSt8ZQiCzkA:10 a=Q-fNiiVtAAAA:8 a=KKAkSRfTAAAA:8 a=w1d2syhTAAAA:8 a=4kLLQdw-iMVuSiU5jB4A:9
+ a=CjuIK1q_8ugA:10 a=cvBusfyB2V15izCimMoJ:22 a=YXXWInSmI4Sqt1AkVdoW:22
+X-Proofpoint-Spam-Reason: safe
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_022408_961438_3E117270 
-X-CRM114-Status: GOOD (  29.14  )
+X-CRM114-CacheID: sfid-20250115_022438_534657_4BCE89A2 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,98 +106,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 14, 2025 at 10:54:53AM -0600, Tom Lendacky wrote:
-> On 1/14/25 09:06, Tom Lendacky wrote:
-> > On 1/14/25 08:44, Kirill A. Shutemov wrote:
-> >> On Tue, Jan 14, 2025 at 08:33:39AM -0600, Tom Lendacky wrote:
-> >>> On 1/14/25 01:27, Kirill A. Shutemov wrote:
-> >>>> On Mon, Jan 13, 2025 at 02:47:56PM -0600, Tom Lendacky wrote:
-> >>>>> On 1/13/25 07:14, Kirill A. Shutemov wrote:
-> >>>>>> Currently memremap(MEMREMAP_WB) can produce decrypted/shared mapping:
-> >>>>>>
-> >>>>>> memremap(MEMREMAP_WB)
-> >>>>>>   arch_memremap_wb()
-> >>>>>>     ioremap_cache()
-> >>>>>>       __ioremap_caller(.encrytped = false)
-> >>>>>>
-> >>>>>> In such cases, the IORES_MAP_ENCRYPTED flag on the memory will determine
-> >>>>>> if the resulting mapping is encrypted or decrypted.
-> >>>>>>
-> >>>>>> Creating a decrypted mapping without explicit request from the caller is
-> >>>>>> risky:
-> >>>>>>
-> >>>>>>   - It can inadvertently expose the guest's data and compromise the
-> >>>>>>     guest.
-> >>>>>>
-> >>>>>>   - Accessing private memory via shared/decrypted mapping on TDX will
-> >>>>>>     either trigger implicit conversion to shared or #VE (depending on
-> >>>>>>     VMM implementation).
-> >>>>>>
-> >>>>>>     Implicit conversion is destructive: subsequent access to the same
-> >>>>>>     memory via private mapping will trigger a hard-to-debug #VE crash.
-> >>>>>>
-> >>>>>> The kernel already provides a way to request decrypted mapping
-> >>>>>> explicitly via the MEMREMAP_DEC flag.
-> >>>>>>
-> >>>>>> Modify memremap(MEMREMAP_WB) to produce encrypted/private mapping by
-> >>>>>> default unless MEMREMAP_DEC is specified.
-> >>>>>>
-> >>>>>> Fix the crash due to #VE on kexec in TDX guests if CONFIG_EISA is enabled.
-> >>>>>
-> >>>>> This patch causes my bare-metal system to crash during boot when using
-> >>>>> mem_encrypt=on:
-> >>>>>
-> >>>>> [    2.392934] efi: memattr: Entry type should be RuntimeServiceCode/Data
-> >>>>> [    2.393731] efi: memattr: ! 0x214c42f01f1162a-0xee70ac7bd1a9c629 [type=2028324321|attr=0x6590648fa4209879]
-> >>>>
-> >>>> Could you try if this helps?
-> >>>>
-> >>>> diff --git a/drivers/firmware/efi/memattr.c b/drivers/firmware/efi/memattr.c
-> >>>> index c38b1a335590..b5051dcb7c1d 100644
-> >>>> --- a/drivers/firmware/efi/memattr.c
-> >>>> +++ b/drivers/firmware/efi/memattr.c
-> >>>> @@ -160,7 +160,7 @@ int __init efi_memattr_apply_permissions(struct mm_struct *mm,
-> >>>>  	if (WARN_ON(!efi_enabled(EFI_MEMMAP)))
-> >>>>  		return 0;
-> >>>>  
-> >>>> -	tbl = memremap(efi_mem_attr_table, tbl_size, MEMREMAP_WB);
-> >>>> +	tbl = memremap(efi_mem_attr_table, tbl_size, MEMREMAP_WB | MEMREMAP_DEC);
-> >>>
-> >>> Well that would work for SME where EFI tables/data are not encrypted,
-> >>> but will break for SEV where EFI tables/data are encrypted.
-> >>
-> >> Hm. Why would it break for SEV? It brings the situation back to what it
-> >> was before the patch.
-> > 
-> > Ah, true. I can try it and see how much further SME gets. Hopefully it
-> > doesn't turn into a whack-a-mole thing.
+On Tue, Jan 14, 2025 at 08:14:38PM +0100, Krzysztof Kozlowski wrote:
+> Replace ternary (condition ? "enable" : "disable") syntax with helpers
+> from string_choices.h because:
+> 1. Simple function call with one argument is easier to read.  Ternary
+>    operator has three arguments and with wrapping might lead to quite
+>    long code.
+> 2. Is slightly shorter thus also easier to read.
+> 3. It brings uniformity in the text - same string.
+> 4. Allows deduping by the linker, which results in a smaller binary
+>    file.
 > 
-> Unfortunately, it is turning into a whack-a-mole thing.
-> 
-> But it looks the following works for SME:
-> 
-> diff --git a/arch/x86/mm/ioremap.c b/arch/x86/mm/ioremap.c
-> index 3c36f3f5e688..ff3cd5fc8508 100644
-> --- a/arch/x86/mm/ioremap.c
-> +++ b/arch/x86/mm/ioremap.c
-> @@ -505,7 +505,7 @@ EXPORT_SYMBOL(iounmap);
->  
->  void *arch_memremap_wb(phys_addr_t phys_addr, size_t size, unsigned long flags)
->  {
-> -	if (flags & MEMREMAP_DEC)
-> +	if (flags & MEMREMAP_DEC || cc_platform_has(CC_ATTR_HOST_MEM_ENCRYPT))
->  		return (void __force *)ioremap_cache(phys_addr, size);
->  
->  	return (void __force *)ioremap_encrypted(phys_addr, size);
-> 
-> 
-> I haven't had a chance to test the series on SEV, yet.
+> Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> ---
 
-Please do.
+For the Wolfson bits:
 
-I am okay with the change above. Borislav, is it acceptable direction for
-you?
+Reviewed-by: Charles Keepax <ckeepax@opensource.cirrus.com>
 
--- 
-  Kiryl Shutsemau / Kirill A. Shutemov
+Thanks,
+Charles
 
