@@ -4,123 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CC83C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 10:21:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3CCDC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 10:26:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kvQdEoWTAFzPq6kjpuGsuF1l6Lxp7FUmHEBuENkQ6Qo=; b=0bzpiLijdGM9u55o9FVubhP44C
-	U6p6xZ1e5kpBZQfuFtV6AfX2IJbw8Xg8mntrDRDxNQTwUcqXZ5OQYt2LGBXpLmXkk3+1DfY9EIYKa
-	HNhJpxBsqYX2Nwnt6/4881QeiMF7Zo3l2GrMLthB29EUzUpY9MkWt0z6qk4nUPqqLfLFeLozaVCYl
-	ALr4hRPTP1IpjQGxLrIpXshtCJHazrw5Ya62sdVNm/5Xpfaj5/NHJxPkv2n/mqS9NXPiojtoKFwGK
-	7pYMIUf2ZQnoisFUDfcPP1EHvwnDMApENozXKRg+2q5Lqu0ca+msApncpqTfUwmM/E8zonEl9hWcq
-	HH1dbnhw==;
+	bh=LiwOgjzr0Zs7CdFBBC9wjKWud3Y5dwg9wFfYkI7dOT4=; b=STS5r2J8bWQhsxQVeWPa5KkXhU
+	nzXaScEGI9PwqXPATPo806XAD8WYZpYVWkHWiyNBfkNxeRDKRJFxkgzlQSipzJbgCuDGAZs1IbvnQ
+	IUcOW3LOMgHyFxrvB8LkmA2DjeDcH9jFR3wlmBWcmN5G4HpDF+lwTU1vIXDATK2PWh63UGyNkR9TU
+	28RHQ1PgC2HIqrdtrJLxGQd3PDskrdNxf6PKjY0ZpK/P7PvcaFfAT9KqgiyzEN99nqOPpm9mfwPls
+	M1VpS1oGreBUCbaZYBT9N43LJTQEA0iPf2pDsYhGBMwv9v0hOIoFpiT56xtXhSlUmMUaRnN/UOdmE
+	JMYhuW3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYN0L-0000000ETup-10cF;
-	Thu, 16 Jan 2025 10:21:37 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tYN5E-0000000EUwh-2ihs;
+	Thu, 16 Jan 2025 10:26:40 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYMz4-0000000ETgq-0qdf;
-	Thu, 16 Jan 2025 10:20:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 611CAA41452;
-	Thu, 16 Jan 2025 10:18:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F083DC4CED6;
-	Thu, 16 Jan 2025 10:20:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737022817;
-	bh=qqJpTXUP3GhZ0W/fxsUBOFjIJ8kNite2YItXfgc9pgc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Q74jZqpO7BdxmoOsraDvrDdRdxNZ6USgpsfyXkP36HbFERv2Ce1WYgvJNtE1Vltij
-	 /XQH1asFFuKpcYnyZsrhbf63iVwuMPCqf0CN/bQ9Z4kY4+4AAfOyfb7LY1VCVr3qdL
-	 CDCyKVIUw6jOS+7/5BAMTY1BFaxKtvGUNKdFZg4NQyxnM946ggQI76Z4g+4amLa7EU
-	 uv4sJhp7sHebnPhvWVShD1KH0NG3VbcTY+tiQBtOMjKZaLJMVk/kUkHDgbm9glKCo6
-	 MUokw9X++gicc3ie17pRq26I5uz5+BjYeWz9XxSqeMhMM0F5ExEwdS1FBPI6i0sDVE
-	 KCNJbrw9CtaHQ==
-Message-ID: <b212d05d-de3b-41b2-bc48-c6b79ae54a8b@kernel.org>
-Date: Thu, 16 Jan 2025 11:20:09 +0100
+	id 1tYN3y-0000000EUbU-1Eiv
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Jan 2025 10:25:23 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-38637614567so372804f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 02:25:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1737023120; x=1737627920; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:cc:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=LiwOgjzr0Zs7CdFBBC9wjKWud3Y5dwg9wFfYkI7dOT4=;
+        b=ulCkMLalWjgz8mT7rZlTd9f0BUw89s8+yCKDlIOTT9rHo0B6Z3YHktbmk7zqRV8pBs
+         1ljXgRXxpzjsx2sPjnGp1BtJPpn7GBeGDD/iJwhy0eaqyrOUAk2dX8XHJmffBR9uLfdP
+         2m4Fw4yJzVNzxhsIEhwBNW9MZEWeMtikwLxRkE9g3qQ8QxrHHm/dOp/D1cJXQlAKklBT
+         j9SqKht3P0DHzIKn2EUNZXklUXojdb5V96WBjAh4cG1YeMbP9T7V2a5Ah7Xy1ejWcEbV
+         qhmU4RVj0MDt3Bc9IzhY+v9cwPrlwsy0g+pV9KC4nm7YMCoas3U0u19cPkYWT/sJZWxg
+         WyDw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737023120; x=1737627920;
+        h=content-transfer-encoding:in-reply-to:from:cc:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=LiwOgjzr0Zs7CdFBBC9wjKWud3Y5dwg9wFfYkI7dOT4=;
+        b=gdq0f7w0Y/6VDgd6uyXpQW6oRiTplrhZ8IvwxgR4y9zo60eetWRxvbBDEWuvYG1cr8
+         4ZDWzVC5ngicZTnztvPTzFtnNN/UY4G6ftcF6Vesqd5N/xT+PB0FnwQDTBQPG+/NhlOT
+         tpAupir1qpVqlApJfPzEVa6tas9s+BanQZCRkBt47IbuHqr+jZ9OlhF9oHSQ6ciQqfVZ
+         cNNuYd4HVZwpkALFwUCokfQCw4jMhP2gX7H+GF2KeiCby5nCIa3Qo5P4jajiuExr78jc
+         mKXup2Nh9UgFumhvOokuTG4rcAc+pe6moJ5mABuPd3h7qlhxI623DaMhjHjSI980sOLa
+         hORg==
+X-Forwarded-Encrypted: i=1; AJvYcCUKRWIR7EsIazWsLwhyyrF59aoJGTAilV4FP51WSqgqws4epu6DSOL7LQI1snGgdQpkxgZcT3Fv9k13kZnbFgzi@lists.infradead.org
+X-Gm-Message-State: AOJu0YycUWfm51yWG3OGqSmLN7ZzP3Ewplg/jiMchU186+pA3G+DFZjf
+	4lqoWPASOb0o9In4ywhn0mrnM23d7xZGreaBXKBB3IdaiI7Z1GHJLxjS+T1VczA=
+X-Gm-Gg: ASbGncss6/GWQupqlBiWy6R8W8+RuHxjtnD2LgPp7KcXEXe1Ekq4hwVxuHjrDUeX1mT
+	OI3lZ+BswVDM3mlzR1tb9MVVgKD5pq3ZPEur9DdDm+VokAzwNAh5Q2sF++bv+YBgyBSTbepZuBI
+	SjPNHFv1GtFG+KByx+QJscKb3kpEGXYtTu1TplNWWsnowudTX5sPAa5AoGviShNXlhtAsQ8Gj1j
+	uiwW7NVnF94OXoaLh1KR5wbfSsl34PQZ/jI5f1B19K81b8te9+sxVu9DiWeL0s1eA==
+X-Google-Smtp-Source: AGHT+IHgtbt+EaNxS3u2GMo/lKqoRgdyj4oUx3R7FGdiMpBhsnBW+9JkBsCH8gDH0F7CuPh2h+lifA==
+X-Received: by 2002:a5d:64ce:0:b0:388:da10:ea7e with SMTP id ffacd0b85a97d-38a8730a4d8mr23833472f8f.24.1737023120559;
+        Thu, 16 Jan 2025 02:25:20 -0800 (PST)
+Received: from [192.168.68.163] ([145.224.65.18])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a8e38c1d6sm20394820f8f.50.2025.01.16.02.25.19
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 16 Jan 2025 02:25:20 -0800 (PST)
+Message-ID: <e50c0e5f-6142-48f7-b6ac-30d0ed8b7604@linaro.org>
+Date: Thu, 16 Jan 2025 10:25:19 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] dt-bindings: pinctrl: mediatek: add support for
- mt8196
-To: =?UTF-8?B?Q2F0aHkgWHUgKOiuuOWNjuWptyk=?= <ot_cathy.xu@mediatek.com>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- =?UTF-8?B?TGVpIFh1ZSAo6Jab56OKKQ==?= <Lei.Xue@mediatek.com>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- =?UTF-8?B?V2VuYmluIE1laSAo5qKF5paH5b2sKQ==?= <Wenbin.Mei@mediatek.com>,
- "linus.walleij@linaro.org" <linus.walleij@linaro.org>,
- =?UTF-8?B?R3VvZG9uZyBMaXUgKOWImOWbveagiyk=?= <Guodong.Liu@mediatek.com>,
- "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "robh@kernel.org" <robh@kernel.org>,
- "sean.wang@kernel.org" <sean.wang@kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-References: <20250115063555.32492-1-ot_cathy.xu@mediatek.com>
- <20250115063555.32492-2-ot_cathy.xu@mediatek.com>
- <nmyxygrya6cpalmirsunvkx32uox3kjxd4l5ggdhjtj7edyizz@yodolm5ktboo>
- <f7ba63c8afcef1d1925d51e35e4b81f0d0e773ff.camel@mediatek.com>
- <d04bc250-2104-4e02-9bf8-5785f4444c8d@kernel.org>
- <d11076d3eb2f92018fd3e26cae665a47f71ca838.camel@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH] coresight: Use str_enable_disable-like helpers
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>
+References: <20250114192730.912515-1-krzysztof.kozlowski@linaro.org>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <d11076d3eb2f92018fd3e26cae665a47f71ca838.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Cc: Mike Leach <mike.leach@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20250114192730.912515-1-krzysztof.kozlowski@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_022018_375787_B45ADDA2 
-X-CRM114-Status: GOOD (  20.59  )
+X-CRM114-CacheID: sfid-20250116_022522_355300_30D16D5A 
+X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,136 +102,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/01/2025 09:18, Cathy Xu (许华婷) wrote:
-> On Thu, 2025-01-16 at 08:28 +0100, Krzysztof Kozlowski wrote:
->> External email : Please do not click links or open attachments until
->> you have verified the sender or the content.
->>
->>
->> On 16/01/2025 03:20, Cathy Xu (许华婷) wrote:
->>>>> +          bias-pull-down:
->>>>> +            oneOf:
->>>>> +              - type: boolean
->>>>> +              - enum: [100, 101, 102, 103]
->>>>> +                description: mt8196 pull down PUPD/R0/R1 type
->>>>> define value.
->>>>> +              - enum: [200, 201, 202, 203, 204, 205, 206, 207]
->>>>> +                description: mt8196 pull down RSEL type define
->>>>> value.
->>>>
->>>> Not much improved.
->>>
->>>   I have removed the content related to 'resistance value', we use
->>> 'RSEL' instead of 'resistance value'.
->>
->> So the value in Ohms was removed? I assume above do not have known
->> value
->> in Ohms?
+
+
+On 14/01/2025 7:27 pm, Krzysztof Kozlowski wrote:
+> Replace ternary (condition ? "enable" : "disable") syntax with helpers
+> from string_choices.h because:
+> 1. Simple function call with one argument is easier to read.  Ternary
+>     operator has three arguments and with wrapping might lead to quite
+>     long code.
+> 2. Is slightly shorter thus also easier to read.
+> 3. It brings uniformity in the text - same string.
+> 4. Allows deduping by the linker, which results in a smaller binary
+>     file.
 > 
->   Yes, value in Ohns was removed, no code have knowm value.
-
-Does the hardware have known value in Ohms?
-
-
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> ---
+>   drivers/hwtracing/coresight/coresight-config.c    | 3 ++-
+>   drivers/hwtracing/coresight/coresight-cpu-debug.c | 3 ++-
+>   2 files changed, 4 insertions(+), 2 deletions(-)
 > 
->>
->>>
->>>>
->>>>
->>>>> +            description: |
->>>>> +              For pull down type is normal, it doesn't need
->>>>> add
->>>>> RSEL & R1R0.
->>>>> +              For pull down type is PUPD/R0/R1 type, it can
->>>>> add
->>>>> R1R0 define to
->>>>> +              set different resistance. It can support
->>>>> "MTK_PUPD_SET_R1R0_00" &
->>>>> +              "MTK_PUPD_SET_R1R0_01" & "MTK_PUPD_SET_R1R0_10"
->>>>> &
->>>>> +              "MTK_PUPD_SET_R1R0_11" define in mt8196.
->>>>> +              For pull down type is PD/RSEL, it can add RSEL
->>>>> define to set
->>>>> +              different resistance. It can support
->>>>> +              "MTK_PULL_SET_RSEL_000" &
->>>>> "MTK_PULL_SET_RSEL_001" &
->>>>> +              "MTK_PULL_SET_RSEL_010" &
->>>>> "MTK_PULL_SET_RSEL_011" &
->>>>> +              "MTK_PULL_SET_RSEL_100" &
->>>>> "MTK_PULL_SET_RSEL_101" &
->>>>> +              "MTK_PULL_SET_RSEL_110" &
->>>>> "MTK_PULL_SET_RSEL_111"
->>>>> define in
->>>>> +              mt8196.
->>>>> diff --git a/include/dt-bindings/pinctrl/mt8196-pinfunc.h
->>>>> b/include/dt-bindings/pinctrl/mt8196-pinfunc.h
->>>>> new file mode 100644
->>>>> index 000000000000..bf0c8374407c
->>>>> --- /dev/null
->>>>> +++ b/include/dt-bindings/pinctrl/mt8196-pinfunc.h
->>>>> @@ -0,0 +1,1572 @@
->>>>> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
->>>>> +/*
->>>>> + * Copyright (C) 2025 Mediatek Inc.
->>>>> + * Author: Guodong Liu <Guodong.Liu@mediatek.com>
->>>>> + */
->>>>> +
->>>>> +#ifndef __MT8196_PINFUNC_H
->>>>> +#define __MT8196_PINFUNC_H
->>>>> +
->>>>> +#include <dt-bindings/pinctrl/mt65xx.h>
->>>>> +
->>>>> +#define PINMUX_GPIO0__FUNC_GPIO0 (MTK_PIN_NO(0) | 0)
->>>>> +#define PINMUX_GPIO0__FUNC_DMIC1_CLK (MTK_PIN_NO(0) | 1)
->>>>> +#define PINMUX_GPIO0__FUNC_SPI3_A_MO (MTK_PIN_NO(0) | 3)
->>>>> +#define PINMUX_GPIO0__FUNC_FMI2S_B_LRCK (MTK_PIN_NO(0) | 4)
->>>>> +#define PINMUX_GPIO0__FUNC_SCP_DMIC1_CLK (MTK_PIN_NO(0) | 5)
->>>>> +#define PINMUX_GPIO0__FUNC_TP_GPIO14_AO (MTK_PIN_NO(0) | 6)
->>>>
->>>> I do not see how you resolved my comment from v1. In v2 I
->>>> reminded
->>>> about
->>>> it, so you responded that yopu will change something, but I do
->>>> not
->>>> see
->>>> any changes.
->>>>
->>>> So explain: how did you resolve my comment?
->>>>
->>>> These two examples where you claim you will change something, but
->>>> send
->>>> the same. I skipped the rest of the patch.
->>>
->>>   Thank you for your patient response, here is my explanation for
->>> you
->>> question:
->>>
->>>   In v1, I undertand that you meant I didn't sent a real binding,
->>> and
->>
->>
->> The comment is under specific lines, so I said these defines are not
->> a
->> real binding. You sent them again, but they are still not bindings,
->> because they are not used in the driver. Maybe the usage is
->> convoluted,
->> so which part of implementation are these connecting with DTS? IOW,
->> which part of driver relies on the binding?
-> 
->   I got you. This binding define many macros, which will be used for
-> 'pinmux' setting in the DTS. The usage like this:
-> 
->   adsp_uart_pins: adsp-uart-pins {
->                 pins-tx-rx {
->                         pinmux = <PINMUX_GPIO35__FUNC_O_ADSP_UTXD0>,
->                                  <PINMUX_GPIO36__FUNC_I1_ADSP_URXD0>;
->                 };
->         };
 
+Reviewed-by: James Clark <james.clark@linaro.org>
 
-That's DTS, not driver, so not a binding. Drop the header from bindings.
-
-
-Best regards,
-Krzysztof
 
