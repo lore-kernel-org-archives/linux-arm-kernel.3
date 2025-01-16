@@ -4,44 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6895C02187
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 14:50:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E07E6C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 14:52:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aZ0nMyV/ZwemyOyXabzVB4jbC8ZiSRz08G5TdRoYw9Q=; b=fINaXfyHcMbbXakRQf+a/P+a83
-	BIJoORUsTliZHlmaww9cz3bu6nqIdzomVbCzKKHNXH5+bG5k2b/cZDtG10iHTdiwxGpTkBJ1cAyOv
-	2Kp/Cl73OY556Xgkqgc/wxO4yN4lmYTlcAvwUc3x+jq7PwGEPq8MhFW5NbC8AofoouUn83WjUvn08
-	TCpR1tbOrXfgj70RWyOPt+U4LzupTeU99vmBXC1o9w8IbLmd53z9pRUi4aBGQ2TlE472kCo09fFyf
-	T+if/9JWQpKfwvoLRzkt77+1iLjQdtXKKRg0bHCbNDi3yXWRT5bP6PUzxtHRarQ8DblN+y4KJEBX+
-	3vyQuGOg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=EeLUwm6ssNt2rR98SDPDmMx+ezxDZx2W4wXzkpHdz60=; b=C7a8WaH/cpSi2N
+	WUpbNbDyR7zYXpeL0ThmsiAYzIqMsJbWF1CSqxiTIVtB8uRx49pNWnBG+uxjF4ykpDcJ5XIV85LGo
+	QyF4VGpD0HliVqs/Dex/H80ukxCRHcFptNeEJ0lsViUD9GtISSw/x5+qjuRpnvsufRoRZ1Vl/ARLh
+	THxDnxrsiZS8GKYvah6+lP36u3F2x1y7zirc4M2ves4wMeM8L7mKYre9Aqzxunu/71SoMsFbC3I4O
+	X/Lwz5srBbkyjxRSoiq1XnLSjxhflscio5M4ggWYoa9rLbCRGm+Ns1LTIRAg1YpniAnJLkFNqC6Ig
+	IQZwLGw6NGpiPrJIRuzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYRCn-0000000FEku-0Dxo;
-	Thu, 16 Jan 2025 14:50:45 +0000
-Received: from smtp-190c.mail.infomaniak.ch ([185.125.25.12])
+	id 1tYRE1-0000000FF8B-12cc;
+	Thu, 16 Jan 2025 14:52:01 +0000
+Received: from smtp-190a.mail.infomaniak.ch ([2001:1600:4:17::190a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYRA9-0000000FDsE-0nz0
+	id 1tYRAA-0000000FDsA-18na
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 14:48:03 +0000
+	Thu, 16 Jan 2025 14:48:04 +0000
 Received: from smtp-3-0001.mail.infomaniak.ch (smtp-3-0001.mail.infomaniak.ch [10.4.36.108])
-	by smtp-3-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4YYm1k0xNNz2cd;
-	Thu, 16 Jan 2025 15:47:54 +0100 (CET)
-Received: from unknown by smtp-3-0001.mail.infomaniak.ch (Postfix) with ESMTPA id 4YYm1j02mfzYwv;
+	by smtp-3-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4YYm1j07dDz91y;
+	Thu, 16 Jan 2025 15:47:53 +0100 (CET)
+Received: from unknown by smtp-3-0001.mail.infomaniak.ch (Postfix) with ESMTPA id 4YYm1h1Vhdzbd9;
 	Thu, 16 Jan 2025 15:47:52 +0100 (CET)
 From: Quentin Schulz <foss+kernel@0leil.net>
-Date: Thu, 16 Jan 2025 15:47:10 +0100
-Subject: [PATCH v2 1/3] arm64: dts: rockchip: add overlay test for Edgeble
- NCM6A
+Subject: [PATCH v2 0/3] arm64: dts: rockchip: minimal support for Pre-ICT
+ tester adapter for RK3588 Jaguar + add overlay tests
+Date: Thu, 16 Jan 2025 15:47:09 +0100
+Message-Id: <20250116-pre-ict-jaguar-v2-0-157d319004fc@cherry.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250116-pre-ict-jaguar-v2-1-157d319004fc@cherry.de>
-References: <20250116-pre-ict-jaguar-v2-0-157d319004fc@cherry.de>
-In-Reply-To: <20250116-pre-ict-jaguar-v2-0-157d319004fc@cherry.de>
+X-B4-Tracking: v=1; b=H4sIAO0biWcC/3WMOw6DMBAFr4K2zka2hYCkyj0QhT9r7BQQrYkVh
+ Hz3OPQpZ57eHJCIIyW4Nwcw5ZjiulRQlwZs0MtMGF1lUEK1UokOX1yV3fCp57dmNDfhtScajBu
+ gnurs4+cMjlPlENO28n72s/zZv6ksUWLvu04Y15pe2IcNxLxfHcFUSvkC+Q2A5qwAAAA=
+X-Change-ID: 20241206-pre-ict-jaguar-b90fafee8bd8
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
  Jagan Teki <jagan@edgeble.ai>, Niklas Cassel <cassel@kernel.org>
@@ -52,8 +54,8 @@ Cc: Michael Riesch <michael.riesch@wolfvision.net>,
 X-Mailer: b4 0.14.2
 X-Infomaniak-Routing: alpha
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_064801_387953_D63C13EA 
-X-CRM114-Status: GOOD (  10.56  )
+X-CRM114-CacheID: sfid-20250116_064802_479360_E33135B1 
+X-CRM114-Status: GOOD (  12.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,45 +70,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Quentin Schulz <quentin.schulz@cherry.de>
+This adds minimal support for the Pre-ICT tester adapter for RK3588
+Jaguar.
+GPIO3A3, GPIO3A4, GPIO3B2 and GPIO3D2 to GPIO3D5 are all routed to power
+rails and can only be used as input and their bias are important to be
+able to properly detect soldering issues.
 
-The Edgeble NCM6A can have WiFi modules connected and this is handled
-via an overlay (commit 951d6aaa37fe ("arm64: dts: rockchip: Add Edgeble
-NCM6A WiFi6 Overlay")).
+Additionally, this adds build-time overlay application tests for (some)
+Rockchip overlays to try to avoid future regressions.
 
-In order to make sure the overlay is still valid in the future, let's
-add a validation test by applying the overlay on top of the main base
-at build time.
+Notably, the Device Trees from Wolfvision PF5 aren't migrated (but
+should) as I do not own the device and couldn't figure out from the
+introducing commit logs what the possible valid combinations are.
++Cc Michael Riesch for awareness
 
-Fixes: 951d6aaa37fe ("arm64: dts: rockchip: Add Edgeble NCM6A WiFi6 Overlay")
+I'm wondering if we shouldn't backport patches 1 and 2 to stable? In
+which case, it would make sense to try to have the Wolfvision PF5
+overlay tests merged before the addition of the Pre-ICT tester adapter
+support for RK3588 Jaguar as that one won't be backported to stable and
+backporting the Wolfvision overlay test would incur an unnecessary
+(though not difficult) git conflict to resolve.
+
+I also do not know what kind of tests we should have when overlay
+combinations are possible (let's say there are A, B and C overlays that
+can all be applied, should we have base + A, base + B, base + C,
+base + A + B, base + A + C, base + B + C and base + A + B + C tests?
+maybe even base + B + A, base + C + B, base A + C + B, base + B + A + C,
+base + B + C + A, base + C + B + A and base + C + A + B tests?).
+
 Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
 ---
- arch/arm64/boot/dts/rockchip/Makefile | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+Changes in v2:
+- add overlay application tests for Edgeble NCM6A WiFi and Rock 5B PCIe
+  Endpoint+SNRS
+- add overlay application test for RK3588 Jaguar + Pre-ICT tester
+  adapter,
+- Link to v1: https://lore.kernel.org/r/20241206-pre-ict-jaguar-v1-1-7f660bd4b70c@cherry.de
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 86cc418a2255cdc22f1d503e9519d2d9572d4e9d..3f92d1a9d0b6efeee46ad4aff8c2b8ed3cb83d73 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -134,7 +134,6 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-armsom-w3.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-coolpi-cm5-evb.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-coolpi-cm5-genbook.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-edgeble-neu6a-io.dtb
--dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-edgeble-neu6a-wifi.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-edgeble-neu6b-io.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-evb1-v10.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-friendlyelec-cm3588-nas.dtb
-@@ -163,3 +162,8 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-orangepi-5.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-orangepi-5b.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-rock-5a.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-rock-5c.dtb
-+
-+# Overlays
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-edgeble-neu6a-wifi.dtb
-+
-+rk3588-edgeble-neu6a-wifi-dtbs := rk3588-edgeble-neu6a-io.dtb rk3588-edgeble-neu6a-wifi.dtbo
+---
+Quentin Schulz (3):
+      arm64: dts: rockchip: add overlay test for Edgeble NCM6A
+      arm64: dts: rockchip: add overlay tests for Rock 5B PCIe overlays
+      arm64: dts: rockchip: minimal support for Pre-ICT tester adapter for RK3588 Jaguar
 
+ arch/arm64/boot/dts/rockchip/Makefile              |  14 +-
+ .../dts/rockchip/rk3588-jaguar-pre-ict-tester.dtso | 171 +++++++++++++++++++++
+ 2 files changed, 182 insertions(+), 3 deletions(-)
+---
+base-commit: 619f0b6fad524f08d493a98d55bac9ab8895e3a6
+change-id: 20241206-pre-ict-jaguar-b90fafee8bd8
+
+Best regards,
 -- 
-2.48.0
+Quentin Schulz <quentin.schulz@cherry.de>
 
 
