@@ -4,112 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EADAAC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 20:51:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 433A0C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 21:07:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XOwUUj+9Al5+mspF1UWIyD+W6CPpDiMR74J1EVLvCzs=; b=X2aKD8C/wXjhzKy2iy2MTVSZ/R
-	ltba4Sh4+uGDQaBYAOTOhLqyXORK8R1uHgoUBlOSp1vzxYEF78oGwAyIxp/jE1KkAUxgRR7aIYzG1
-	vSvP0KPcx2zu/XVGpT8Q6J+I+0kD7L1AMaBzjH/AaT04pUedTlF/HEG+BorlVtuR98r/Ikf5b2sAn
-	5aMahzhgJhY6T6XrP8STGR/a20KVxIRA3ym0tOtDT3ZI0mndrvruegOyqglfvjVkbnrmn/+sU++9I
-	4/xmSh7zb+YAx82vlu9MrYIZlN6vlb6Qltrs9hjbQ9rS9L8v5kvqS9fAhBKAunzuXZOLJNiDOSues
-	g5cKvyOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Cq17V7TKcOXY8rkVaBXd5FKLy5zi8np6ziTknWTBm3c=; b=1sGcYwibepG6UF6dChKb/ku7El
+	I8tkg6ItIbdZXSMvvdiNz2mxAsH3ho5Hc67F0ga2BhqdA4F6JrYpo4kOeougkOHirTKHv5to12psm
+	Cp5TAwCri1qW1Il2gPY00dkUrKoz07erqPC7TL6IBIYJtofBIXjdDLqbJH4SmBYd8MSt/T/ENqTL3
+	v47ArE54Tqy5ou/w8btImiRsK4bzqvMezSDdEja/lPYwBD7Q8OTddTa0DcvzIDh+ofHQcD6amqMrg
+	mjYo3bUjdRBDkAZ6scY79DTWNjC4BlWehIaR/gT+Cvy0Fk2QqogQgPvKPjtK1ujOA1SCML8o6U/D/
+	tN1FkHEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYWph-0000000G4uN-3QzM;
-	Thu, 16 Jan 2025 20:51:17 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1tYX4m-0000000G6RQ-3DLV;
+	Thu, 16 Jan 2025 21:06:52 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYWcy-0000000G3BY-2QBc
+	id 1tYX3R-0000000G6N2-22uW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 20:38:09 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50GEN71W004842;
-	Thu, 16 Jan 2025 20:37:47 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=XOwUUj
-	+9Al5+mspF1UWIyD+W6CPpDiMR74J1EVLvCzs=; b=ek/0N0/daEP783QrNb5L2O
-	VajxIFEIdCTOl48UZCAc7XcL+4Mkjh6yRTvCUVJhAK+fQf/7JmQSaHq+daxaWeRS
-	lTk9TnZAiuiDq4ghdSRJuBI/mP92Ovc6joOGhmZLomMvRh4Sq0fL0zyiciaC5oBd
-	P2E+cl25X9GecJTjdD9+/+B1h5sGezk73se5vK9SBbSlw7roVgCcOAhjBK8HQhT0
-	l5wgAX+mih2CVThNsfeV3CKWay2nQJ9EYRgjF1oSA4h/2aV6kgbLbnFdOLeFMmXT
-	yqTiI9Q4rI+J99/VsHm1cwD/3iF2+TU6i/BSdy/jVPlHZvKvko6JdZ+nwiwgXnyg
-	==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 446tkhcqg4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 16 Jan 2025 20:37:47 +0000 (GMT)
-Received: from m0356517.ppops.net (m0356517.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 50GKXJSW010145;
-	Thu, 16 Jan 2025 20:37:46 GMT
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 446tkhcqff-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 16 Jan 2025 20:37:46 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 50GHdmgL007519;
-	Thu, 16 Jan 2025 20:37:45 GMT
-Received: from smtprelay02.wdc07v.mail.ibm.com ([172.16.1.69])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4443ynfmw7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 16 Jan 2025 20:37:45 +0000
-Received: from smtpav06.wdc07v.mail.ibm.com (smtpav06.wdc07v.mail.ibm.com [10.39.53.233])
-	by smtprelay02.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 50GKbi2L24445642
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 16 Jan 2025 20:37:44 GMT
-Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 93A3658055;
-	Thu, 16 Jan 2025 20:37:44 +0000 (GMT)
-Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 72B075804E;
-	Thu, 16 Jan 2025 20:37:39 +0000 (GMT)
-Received: from [9.61.59.21] (unknown [9.61.59.21])
-	by smtpav06.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Thu, 16 Jan 2025 20:37:39 +0000 (GMT)
-Message-ID: <c61740c8-8dd3-4d59-8553-1dea4cbd5c93@linux.ibm.com>
-Date: Thu, 16 Jan 2025 14:37:38 -0600
+	Thu, 16 Jan 2025 21:05:30 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1737061526;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Cq17V7TKcOXY8rkVaBXd5FKLy5zi8np6ziTknWTBm3c=;
+	b=xB4gYf1RlNHjYqtilfa3fbyYulReCNWkuQNzbFZbffQ/m7ZRlq5auWTy03oZy0OS3LIuHY
+	S7hCtYIy+aKzWYruSdT6xashJqQ9R0UH01cMJy52BpqGX8e3rN+k8XJqPPpMBI3isSUhrb
+	AlTLQEWhyCfPYe6BCHg92jqMMdxjJeIQUlPqpWD8NyzWTC6pLC3iOEp4lHJ43IzmBFNTNf
+	hgb2DB6LAzWm4km0eyXNV5Zpnxryiff8ku7fM0m2WV+E8saFj/XEPkYgqCgtFXk2XTcdCr
+	JTVuzQqK+zhC2IqvYHaZn7UXzfTkncB6tqQ6V9QppYD7SO1X/p1wUefERjBbQg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1737061526;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Cq17V7TKcOXY8rkVaBXd5FKLy5zi8np6ziTknWTBm3c=;
+	b=uzCaAeKQlzcGCks1boGfl0TO1bjra6w/9/WkttEJh9QKtQ++StVP0X5eHif5kjb7b7Sz4r
+	pv4ZSTpmUMT96bCA==
+To: Stefan Eichenberger <eichest@gmail.com>
+Cc: andrew@lunn.ch, gregory.clement@bootlin.com,
+ sebastian.hesselbarth@gmail.com, shivamurthy.shastri@linutronix.de,
+ anna-maria@linutronix.de, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] irqchip/irq-mvebu-icu: Fix irq_set_type for sei and nsr
+In-Reply-To: <Z4k-DkMt8XQYs_kf@eichest-laptop>
+References: <20241217111623.92625-1-eichest@gmail.com> <87frlkcx2b.ffs@tglx>
+ <Z4k-DkMt8XQYs_kf@eichest-laptop>
+Date: Thu, 16 Jan 2025 22:05:25 +0100
+Message-ID: <87tt9ya2qy.ffs@tglx>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 03/10] dt-bindings: gpio: ast2400-gpio: Add hogs
- parsing
-To: Rob Herring <robh@kernel.org>
-Cc: andrew+netdev@lunn.ch, pabeni@redhat.com,
-        linux-arm-kernel@lists.infradead.org, edumazet@google.com,
-        joel@jms.id.au, krzk+dt@kernel.org, linux-kernel@vger.kernel.org,
-        andrew@codeconstruct.com.au, devicetree@vger.kernel.org,
-        davem@davemloft.net, kuba@kernel.org,
-        openipmi-developer@lists.sourceforge.net, netdev@vger.kernel.org,
-        linux-aspeed@lists.ozlabs.org, conor+dt@kernel.org,
-        eajames@linux.ibm.com, minyard@acm.org
-References: <20250114220147.757075-1-ninad@linux.ibm.com>
- <20250114220147.757075-4-ninad@linux.ibm.com>
- <173689907575.1972841.5521973699547085746.robh@kernel.org>
- <35572405-2dd6-48c9-9113-991196c3f507@linux.ibm.com>
- <CAL_JsqK1z4w62pGX0NgM7by+QRFcmBadw=CRVrvF2vv-zgAExg@mail.gmail.com>
-Content-Language: en-US
-From: Ninad Palsule <ninad@linux.ibm.com>
-In-Reply-To: <CAL_JsqK1z4w62pGX0NgM7by+QRFcmBadw=CRVrvF2vv-zgAExg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: pDZnXta5jIEiLEPhuvleI218uMy8Px8J
-X-Proofpoint-ORIG-GUID: c5p-lEQ3kr5JODh2EUhlema0DIXGbz0H
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-01-16_09,2025-01-16_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 spamscore=0
- priorityscore=1501 impostorscore=0 adultscore=0 mlxscore=0 clxscore=1015
- bulkscore=0 lowpriorityscore=0 mlxlogscore=547 phishscore=0 suspectscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
- definitions=main-2501160151
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_123808_626528_A106F25E 
-X-CRM114-Status: GOOD (  11.66  )
+X-CRM114-CacheID: sfid-20250116_130529_695750_97FA7215 
+X-CRM114-Status: GOOD (  21.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,18 +77,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
+Hi!
 
+On Thu, Jan 16 2025 at 18:12, Stefan Eichenberger wrote:
+> On Wed, Jan 15, 2025 at 09:15:24AM +0100, Thomas Gleixner wrote:
+>> And looking at the potential platform MSI providers for MVEBU, then it
+>> turns out that GICP and SEI both have the irq_set_type() callback
+>> populated, though ODMI has not. So either this has never worked or there
+>> is something else fishy.
+>> 
+>> Can you please enable CONFIG_GENERIC_IRQ_DEBUGFS, build/boot a 6.10
+>> kernel and provide the output of
+>> 
+>> cat /sys/kernel/debug/irq/irq/$N
+>> 
+>> where $N is the interrupt number of the thermal sensor.
+>> 
+>> Then provide the same information for a current kernel with your patch
+>> applied.
+>
+> You are right I somehow didn't look back far enough. I tested once with
+> kernel 6.12.5 and my patch applied:
 
->> I am not seeing any error even after upgrading dtschema. Also this mail
->> also doesn't show any warning. Is this false negative?
-> 
-> I believe this happens when a prior patch in the series has an error.
+> root@localhost:~# uname -a
+> Linux localhost.localdomain 6.12.5+ #157 SMP PREEMPT Thu Jan 16 17:32:21 CET 2025 aarch64 GNU/Linux
+> root@localhost:~# cat /proc/interrupts |grep thermal
+>  35:          0          0          0          0    AP SEI  18 Level     f06f8000.system-controller:thermal-sensor@80
+>  90:          0          0          0          0  SEI-ICU-SEI-f21e0000.interrupt-controller:inter 116 Edge      f2400000.system-controller:thermal-sensor@70
+>  91:          0          0          0          0  SEI-ICU-SEI-f61e0000.interrupt-controller:inter 116 Edge      f6400000.system-controller:thermal-sensor@70
+> root@localhost:~# cat /sys/kernel/debug/irq/irqs/90
+> handler:  handle_edge_irq
+> device:   f21e0000.interrupt-controller:interrupt-controller@50
+> status:   0x00000000
+> istate:   0x00004000
+> ddepth:   0
+> wdepth:   0
+> dstate:   0x02400204
+>             IRQ_TYPE_LEVEL_HIGH
+>             IRQD_ACTIVATED
+>             IRQD_IRQ_STARTED
+>             IRQD_DEFAULT_TRIGGER_SET
+> node:     -1
+> affinity: 0-3
+> effectiv:
+> domain:  :cp0:config-space@f2000000:interrupt-controller@1e0000:interrupt-controller@50-16
+>  hwirq:   0x74
+>  chip:    SEI-ICU-SEI-f21e0000.interrupt-controller:inter
+>   flags:   0x80
+>              IRQCHIP_SUPPORTS_LEVEL_MSI
+>  parent:
+>     domain:  :ap807:config-space@f0000000:interrupt-controller@3f0200-2
+>      hwirq:   0x0
+>      chip:    CP SEI
 
-Thanks for the response. I have sent a next version.
+Ok. That explains it. CP SEI has:
 
--- 
-Thanks & Regards,
-Ninad
+static int mvebu_sei_cp_set_type(struct irq_data *data, unsigned int type)
+{
+        if ((type & IRQ_TYPE_SENSE_MASK) != IRQ_TYPE_EDGE_RISING)
+                return -EINVAL;
+        return 0;
+}                                                                        
 
+But the DT configuration requests:
+
+>             IRQ_TYPE_LEVEL_HIGH
+
+  IRQ_TYPE_LEVEL_HIGH     = 0x00000004,
+
+>  genirq: Setting trigger mode 4 for irq 85 failed (irq_chip_set_type_parent+0x0/0x34)
+
+which is not supported by CP SEI.
+
+With your patch the type request is just stored in the data, but no
+actual type setting happens. That's default behaviour for chips which do
+not have a set_type() callback.
+
+> root@localhost:~# cat /sys/kernel/debug/irq/irqs/90
+> handler:  handle_edge_irq
+> device:   (null)
+>
+> It seems with kernel 6.10 the controller device was not set correctly,
+> probably it was ignoring irq_set_type because of this. 
+
+No. That's not related.
+
+> Do you by chance have an idea how to properly fix this or should I do
+> some more research?
+
+It's unclear to me how the 6.10 kernel survives that. Do you have a
+different device tree for those kernels?
+
+Thanks,
+
+        tglx
 
