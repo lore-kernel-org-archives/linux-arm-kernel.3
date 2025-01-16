@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57852C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 12:12:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60340C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 12:17:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TzHMR6JF+KqE7CtWAI0Qq2+AtyXzvbuPG2xUvINM7x8=; b=EIND+HnBzpz6w9uFGThufcyyYO
-	oURncvAFJKL8/+0y7208auG8X1JhmkwCso26wGBkPZfj36h9CgoY5Q+a0EigzTrIWmUhRhE367Cur
-	0335zrWa2DLqLNdXQEDwQq9V+lxWaTxbmt3gZemnuybOfcO2S7phvh3XFLK3uGbjuq5oU3O6gxGLy
-	HudVKZZOOhx2AXeSnyWo/eyz21nC/zMYFp/ruWRktJ1LcLFzWm2lLeepliI6CBP5M60s9m6ArHVch
-	fbwnzQJ3u/QZ5wRSIIUVD6QgqkCBhji/5q2RKS7X/sa+gNcJDNEDUANG4b3lS/mU+ehCYRKTeT27f
-	dSTi0eVg==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nkDxRiSvSObKUlqJf8fSoM+oEcmAf6NnKO78a1hMnmc=; b=lIjRAHGC+NR13WkiGr0uVHVVkc
+	8F9VDu16kz1r5bgSQy/hsK7zzrrfhbkbLA2J0qcltpZm1nip+nOSPUJ4fXkxft/w35Y7k/Jk6LTFe
+	NckO1tqQ6jjGfmr8OHqKdRturUvdUtEJKrIi6YF1ubp7l+Hl2iHMCnPNX0QppY5yh41dsopRsU1hg
+	lEdPqOEv25a8U9T79JjPyThSt0839hLq5OKc33uDlXRm8MQ+oruOz7u4+NZtyNYQ2Zfspvj+FKIkD
+	fwi9MFl//km8UoyUf5Xdj/SqK2uU57KNYpXmamaD6WMQXQ7MzVCvoMSwYKYyJ1UIifCStluHB9Ehm
+	pHvE6PdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYOj3-0000000Eqj8-0Daq;
-	Thu, 16 Jan 2025 12:11:53 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tYOod-0000000Erd2-0HQF;
+	Thu, 16 Jan 2025 12:17:39 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYOhl-0000000EqXZ-2otJ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 12:10:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1737029429;
-	bh=2c8yFcJ2945jsqZAOuS5Vel5mEF7uycmdZ3MUexcKTA=;
-	h=From:To:Cc:Subject:Date:From;
-	b=MmbHzs9Uzn6x1yTitYWT6OjUu+fMkQEHv1S4BsQBDTzKowMK45iF2mwV5ukHuG7vC
-	 MKdikE4/VzCDABCdyC+hxLRCmNYrF2SPdReDQX1i7rfZBtfrK7Ga9dCIhm15ExILpT
-	 XBqttOnKgQDwav5Aq/JF9mTizQBN7wxvVCLoBsU+6SiAOaOjkFZ2FDojZT5CgZPAGV
-	 r2XeIgAviXoRSbXISXVBkmBBVl1jBid9LaK9H5Xu/vex0w0qlnIzgg75DmOopySG12
-	 Wgc4WxAAVgKTSlFbFkaEmk3UzPiXGGriBgHlPzDSN61OI7F0+qlnlnmEPYwhycajEj
-	 hJKIv2k3WoO1w==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id EBEE217E0391;
-	Thu, 16 Jan 2025 13:10:28 +0100 (CET)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: will@kernel.org
-Cc: robin.murphy@arm.com,
-	joro@8bytes.org,
-	jgg@ziepe.ca,
-	nicolinc@nvidia.com,
-	mshavit@google.com,
-	smostafa@google.com,
-	praan@google.com,
-	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	kernel@collabora.com,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Subject: [PATCH] iommu/arm-smmu-v3: Include string_choices.h header for str_read_write
-Date: Thu, 16 Jan 2025 13:10:25 +0100
-Message-ID: <20250116121025.118464-1-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.47.0
+	id 1tYOnL-0000000ErRC-3Nqc;
+	Thu, 16 Jan 2025 12:16:21 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4YYhcv2l5nz67nqN;
+	Thu, 16 Jan 2025 20:14:39 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 97C9D1409EA;
+	Thu, 16 Jan 2025 20:16:12 +0800 (CST)
+Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Thu, 16 Jan
+ 2025 13:16:11 +0100
+Date: Thu, 16 Jan 2025 12:16:10 +0000
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: kernel test robot <lkp@intel.com>
+CC: Yenchia Chen <yenchia.chen@mediatek.com>, <gregkh@linuxfoundation.org>,
+	<jirislaby@kernel.org>, <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>, <oe-kbuild-all@lists.linux.dev>,
+	<yj.chiang@mediatek.com>, <tbergstrom@nvidia.com>, <yujiaoliang@vivo.com>,
+	<u.kleine-koenig@baylibre.com>, <treapking@chromium.org>,
+	<linux-kernel@vger.kernel.org>, <linux-serial@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
+Subject: Re: [PATCH] serial: 8250_mtk: Add ACPI support
+Message-ID: <20250116121610.00004052@huawei.com>
+In-Reply-To: <202501160328.DUMWkTOc-lkp@intel.com>
+References: <20250114033324.3533292-1-yenchia.chen@mediatek.com>
+	<202501160328.DUMWkTOc-lkp@intel.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml500003.china.huawei.com (7.191.162.67) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_041033_865059_59554D93 
-X-CRM114-Status: UNSURE (   7.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250116_041619_993048_11995461 
+X-CRM114-Status: GOOD (  15.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,28 +75,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The str_read_write() helper function is defined in the missing
-string_choices.h header: include it to resolve build failures.
+On Thu, 16 Jan 2025 03:45:33 +0800
+kernel test robot <lkp@intel.com> wrote:
 
-Fixes: f2c77f6e41e6 ("iommu/arm-smmu-v3: Use str_read_write helper w/ logs")
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 1 +
- 1 file changed, 1 insertion(+)
+> Hi Yenchia,
+> 
+> kernel test robot noticed the following build warnings:
+> 
+> [auto build test WARNING on tty/tty-testing]
+> [also build test WARNING on tty/tty-next tty/tty-linus usb/usb-testing usb/usb-next usb/usb-linus linus/master v6.13-rc7 next-20250115]
+> [If your patch is applied to the wrong git tree, kindly drop us a note.
+> And when submitting patch, we suggest to use '--base' as documented in
+> https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> 
+> url:    https://github.com/intel-lab-lkp/linux/commits/Yenchia-Chen/serial-8250_mtk-Add-ACPI-support/20250114-113715
+> base:   https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/tty.git tty-testing
+> patch link:    https://lore.kernel.org/r/20250114033324.3533292-1-yenchia.chen%40mediatek.com
+> patch subject: [PATCH] serial: 8250_mtk: Add ACPI support
+> config: sh-allyesconfig (https://download.01.org/0day-ci/archive/20250116/202501160328.DUMWkTOc-lkp@intel.com/config)
+> compiler: sh4-linux-gcc (GCC) 14.2.0
+> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250116/202501160328.DUMWkTOc-lkp@intel.com/reproduce)
+> 
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202501160328.DUMWkTOc-lkp@intel.com/
+> 
+> All warnings (new ones prefixed by >>):
+> 
+> >> drivers/tty/serial/8250/8250_mtk.c:662:36: warning: 'mtk8250_acpi_match' defined but not used [-Wunused-const-variable=]  
+>      662 | static const struct acpi_device_id mtk8250_acpi_match[] = {
+>          |                                    ^~~~~~~~~~~~~~~~~~
+> 
+> 
+> vim +/mtk8250_acpi_match +662 drivers/tty/serial/8250/8250_mtk.c
+> 
+>    661	
+>  > 662	static const struct acpi_device_id mtk8250_acpi_match[] = {  
+>    663		{ "MTKI0511", 0 },
+>    664		{},
+>    665	};
+I'd drop the ACPI_PTR() use and just set it unconditionally.  This table
+is tiny so not worth complexity of doing anything else.
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 0e4cbb2c64d7..a0e395da8a88 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -26,6 +26,7 @@
- #include <linux/pci.h>
- #include <linux/pci-ats.h>
- #include <linux/platform_device.h>
-+#include <linux/string_choices.h>
- #include <kunit/visibility.h>
- #include <uapi/linux/iommufd.h>
- 
--- 
-2.47.0
+>    666	MODULE_DEVICE_TABLE(acpi, mtk8250_acpi_match);
+>    667	
+> 
 
 
