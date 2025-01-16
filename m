@@ -4,93 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E96BCC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 13:10:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8284CC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 13:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5HxNgVGZwH/KqwnSlM0sxwj6zn21A4I2jmnb/ZwvBTg=; b=BfarRgdMFY9RLRlDIcCXgiVtMs
-	jHb0uMowYsPw4QHxRqbXeCCPPC4HshFWEgyVg/CV0o1cLl0t5qbW2tpCF/UPZqKCmr7aX/tVNd78F
-	zDvvzztRp4A4CNG/s/Vg+ff2z9lA1TqzZfCovzHoF5qOUszImip1u+owNSINXrmjBgryyd8IPy3Oi
-	s0De03XrWlDqV95NrilPaFPIvAoPbZCwRzFBa/WER090eneIdaXhQP6hCDPkJ9hidIhVh14m9l30d
-	cGhD5+mZc9GoFjzUCEq9NwXMOuYlz49wpds91Tgvzustz+lHex7XB6O9M/wJagTZ2tHDaL/3SMRsl
-	yukNKLmQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h92U7psBFKvd7K/bjCwXf+xuK31ocp0YFARR9sYqrrM=; b=ToI8pAE2zcImbL5VaSuWNWmj01
+	8jTy0RyhOZZT4i5MWh7IRNGtE3TSFfuox0u7uQTPFD0INiBhRY1+heva0dFkQUqpehPewX7sv6y0+
+	4LPKbfSm8dBdtZWnvO5OlPZLr0iFHViqDMomZJ9Rxh8grcZl3qv1TWu8n5mLT98P9daWE++eW7T3P
+	57J4Cdk/d8Wnl679i4SjIycSLuV2TnxABDkpbr/xUHP/a3DREkzU+D99sSKZaahH6fCqMg8pb6axH
+	rCvmkrYmkvwTEgCDUlEXKEAiiLjcLDKbWJmKwNPfAOggUxWQxUOvPQp2ViP7gMhcFcIeyVWumZC+p
+	E4sKhmVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYPdO-0000000EyJR-1ZJI;
-	Thu, 16 Jan 2025 13:10:06 +0000
-Received: from mail-wr1-x463.google.com ([2a00:1450:4864:20::463])
+	id 1tYPeb-0000000EyUD-492a;
+	Thu, 16 Jan 2025 13:11:21 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYPbG-0000000Exue-1LVi
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 13:07:56 +0000
-Received: by mail-wr1-x463.google.com with SMTP id ffacd0b85a97d-385e06af753so486230f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 05:07:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1737032872; x=1737637672; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=5HxNgVGZwH/KqwnSlM0sxwj6zn21A4I2jmnb/ZwvBTg=;
-        b=TxCJ69BGHpE5pLOdM5WcASTcv8nBcwyQ0oIp9XzNdlWsOvoxpj1GMCd7VtmFtngdFr
-         ST07P6eC1ndZJ51bZIBjD5oOFsjfXRhpsRQOUMNUpCdr+Ij2kcff9eWQ1pPbf2y8yH9Z
-         4tWYD+4QC7GJgvnxubB49mVbg7jTmZf26QkctXYOttSY2C1g7J76MGjTm6X6uYTCkWxC
-         3MxTqY23OT8jhmJc9iJ4JgNhjKZGfe2HHeMDBZ3qrkhZJ0udaTSGQHzTja36jGhEZZbV
-         6Bb67p9OIS3Xf8dhlE5v2fn72XkWXr3GjQnX/siRlu+poIt1hQlzk2arzo31j6awJ6ab
-         TTaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737032872; x=1737637672;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=5HxNgVGZwH/KqwnSlM0sxwj6zn21A4I2jmnb/ZwvBTg=;
-        b=uLsa7smBnJQbP5nsrEyVCtsOMFLE6cBZse63jwVMWXrJHEyyzALGQDfVHpdzmUxTGZ
-         1euea1cCNZ0YNTF5kDRoMPan/AyBGstnQM4RWLj2n8BHcz8xYcxBZxklqVDQpr9u+Imj
-         D9J9MfGLGr5EtQfJHNuN0J1qZePVHeM26oCRuR6FD4yck+EQqoMEZ6xCuz4bB/Re3TrF
-         TPUUTQvbl8RS6IG9wgys7j7fdQwDY4lowDoMoQzJ/PR1RZQV1z2PrJiFfFexZpixaeud
-         YFr8qmrhtHlBc1HR06bEg8jwk3KppcCJm7Mpk7fbqL1VXaMj4/7aSrSezCqhspBOZsE5
-         HnmQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX3vQ0f6G5T+3DTMCmak1opo8tZMKcqkgNGHObK0jocYEF8T/8AK4vUXqlrUxIq10kb5UttNN1IG25NAa01+ZKF@lists.infradead.org
-X-Gm-Message-State: AOJu0YzGuB2u2MFfv/4/sIZr3IcosxRuVvHMHyVjtsNNPnbrCN37ErZg
-	L2ZHQE+IkxUOjNrDtHMBSPAc8m6aWyjVtZhq3KEnjW+GLps4gpUgi6TU8Mo2NVKhCVs3fRhqC5V
-	WmNakY5l3s8rGm5wYsS+lQr8KLgV74QEX
-X-Gm-Gg: ASbGnctiMNYpUFZyYbgY19SuiZYL9JqLyUYovwCZuH4WhEU3i4Y/V90YW3jTCBLgKlC
-	uVO12S3Qi+Ei3CWgEMo+Dt4aft5DdeO+savMsT+/VDIUTPCNg4FjtDw/smEhjDYbCu8qXlJ+zBK
-	CwO0s7YRrHQiWGD+549Qoi8YlGUoBvV0BROK9IdyMX6iw3WP9bR+x1bGrJfDxAa5Jx5rFfW3xRj
-	yb5YgOk4tcEk4xuwT5+K8M6x+6Tj10qYtgx3sCEacaxP5YTheoO80ba1t6PDtb4hTUfSJUu
-X-Google-Smtp-Source: AGHT+IHiAaTiBf25Gwr72JHYoKPV4xCSfTK59cClLVoa72fNVex51rii9yV5aQj5c6YmFQNoO2WZlXxc84Q0
-X-Received: by 2002:a5d:6da8:0:b0:38a:5ce8:df51 with SMTP id ffacd0b85a97d-38a872f7ef2mr29722324f8f.2.1737032872303;
-        Thu, 16 Jan 2025 05:07:52 -0800 (PST)
-Received: from raspberrypi.com ([93.93.133.154])
-        by smtp-relay.gmail.com with ESMTPS id 5b1f17b1804b1-437c74b94a9sm4463345e9.22.2025.01.16.05.07.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Jan 2025 05:07:52 -0800 (PST)
-X-Relaying-Domain: raspberrypi.com
-From: Naushir Patuck <naush@raspberrypi.com>
-To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>
-Cc: linux-media@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	jacopo.mondi@ideasonboard.com,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Naushir Patuck <naush@raspberrypi.com>
-Subject: [PATCH v1] media: pisp_be: Add support for YUV422 planar format
-Date: Thu, 16 Jan 2025 13:07:48 +0000
-Message-Id: <20250116130748.3426194-1-naush@raspberrypi.com>
-X-Mailer: git-send-email 2.34.1
+	id 1tYPbX-0000000Exz4-2g0E;
+	Thu, 16 Jan 2025 13:08:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6A0425C56AB;
+	Thu, 16 Jan 2025 13:07:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86669C4CED6;
+	Thu, 16 Jan 2025 13:08:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737032890;
+	bh=odvMQVbU9ufN8gBiaClCLD96/SWVckwJ41GyrRYtA5g=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=EgyCvMbKpZg4goWG4Ef+VKveLj1A/XkiLFKBUArqlRWgvFfnZVKgnoyk9t338jOxs
+	 /NOs55cOBLDFoYyejnFy94dTHcpI2ClZxZIar3UjEqyfqSmaAWSHXVPuUKuzBic6eJ
+	 2fwxw2VKkWs30yMVyj/akRdLe63ujYWzfDAiIu8mDuBtoJhYIT1eC8ahmvR9p1Rx7j
+	 Vg0wpGzB9ZbiZJCpdL1zPEhk4+Mn+o2KelVX5KVmDe55Ytiy7E9a0CPH6EGXeWULz3
+	 zTkyO4TRGdPOS+4LAMy23zEdFe7klbJKMXGhR3/CyAgwRfrhGy9KRycHmT9zpw5OyU
+	 Rqtd7moggpBCg==
+Message-ID: <fe006de3-16eb-4c20-8e8e-da5ff5531c6f@kernel.org>
+Date: Thu, 16 Jan 2025 14:08:03 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v1 2/6] dt-bindings: phy: rockchip: add rk3328 usb3
+ phy
+To: Peter Geis <pgwipeout@gmail.com>, Heiko Stuebner <heiko@sntech.de>
+Cc: zyw@rock-chips.com, kever.yang@rock-chips.com, frank.wang@rock-chips.com,
+ william.wu@rock-chips.com, wulf@rock-chips.com,
+ linux-rockchip@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ Vinod Koul <vkoul@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org
+References: <20250115012628.1035928-1-pgwipeout@gmail.com>
+ <20250115012628.1035928-3-pgwipeout@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250115012628.1035928-3-pgwipeout@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_050754_370971_9CCEC75F 
-X-CRM114-Status: GOOD (  11.12  )
+X-CRM114-CacheID: sfid-20250116_050811_772770_172CD093 
+X-CRM114-Status: GOOD (  20.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,35 +123,225 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-List V4L2_PIX_FMT_YUV422P as supported by the PiSP backend hardware.
+On 15/01/2025 02:26, Peter Geis wrote:
+> Add documentation for the usb3 phy as implemented on the rk3328 SoC.
+> 
+> Signed-off-by: Peter Geis <pgwipeout@gmail.com>
+> ---
+> 
+>  .../bindings/phy/rockchip,inno-usb3phy.yaml   | 166 ++++++++++++++++++
+>  1 file changed, 166 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/phy/rockchip,inno-usb3phy.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/phy/rockchip,inno-usb3phy.yaml b/Documentation/devicetree/bindings/phy/rockchip,inno-usb3phy.yaml
+> new file mode 100644
+> index 000000000000..cde489ca87ab
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/phy/rockchip,inno-usb3phy.yaml
+> @@ -0,0 +1,166 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
 
-Signed-off-by: Naushir Patuck <naush@raspberrypi.com>
----
- .../platform/raspberrypi/pisp_be/pisp_be_formats.h     | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+Wrong license.
 
-diff --git a/drivers/media/platform/raspberrypi/pisp_be/pisp_be_formats.h b/drivers/media/platform/raspberrypi/pisp_be/pisp_be_formats.h
-index b5cb7b8c7531..09edc2774668 100644
---- a/drivers/media/platform/raspberrypi/pisp_be/pisp_be_formats.h
-+++ b/drivers/media/platform/raspberrypi/pisp_be/pisp_be_formats.h
-@@ -129,6 +129,16 @@ static const struct pisp_be_format supported_formats[] = {
- 		.colorspace_mask    = V4L2_COLORSPACE_MASK_ALL_SRGB,
- 		.colorspace_default = V4L2_COLORSPACE_SMPTE170M,
- 	},
-+	{
-+		.fourcc		    = V4L2_PIX_FMT_YUV422P,
-+		/* 128 alignment to ensure U/V planes are 64 byte aligned. */
-+		.align		    = 128,
-+		.bit_depth	    = 8,
-+		.plane_factor	    = { P3(1), P3(0.5), P3(0.5) },
-+		.num_planes	    = 1,
-+		.colorspace_mask    = V4L2_COLORSPACE_MASK_ALL_SRGB,
-+		.colorspace_default = V4L2_COLORSPACE_SMPTE170M,
-+	},
- 	/* Multiplane YUV formats */
- 	{
- 		.fourcc		    = V4L2_PIX_FMT_YUV420M,
--- 
-2.34.1
+Please run scripts/checkpatch.pl and fix reported warnings. After that,
+run also `scripts/checkpatch.pl --strict` and (probably) fix more
+warnings. Some warnings can be ignored, especially from --strict run,
+but the code here looks like it needs a fix. Feel free to get in touch
+if the warning is not clear.
 
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/phy/rockchip,inno-usb3phy.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Rockchip USB 3.0 phy with Innosilicon IP block
+
+> +
+> +maintainers:
+> +  - Heiko Stuebner <heiko@sntech.de>
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - rockchip,rk3328-usb3phy
+
+Why is this binding entirely different than existing usb2 phy? Nothing
+in common? This looks like made for driver and both - driver and binding
+- duplicating a lot.
+
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    minItems: 3
+
+Drop
+
+> +    maxItems: 3
+> +
+> +  clock-names:
+> +    items:
+> +      - const: refclk-usb3otg
+
+ref
+
+> +      - const: usb3phy-otg
+
+otg
+
+> +      - const: usb3phy-pipe
+
+pipe
+
+> +
+> +  interrupts:
+> +    minItems: 4
+
+You code here randomly. reg has only maxItems, clocks have both and this
+have only minItems. Does not make sense. If you get it wrong, I would
+assume you repeat the same mistake but here it is like randomly chosen
+pieces. And this is making me wonder whether this was not sent too fast.
+
+Anyway: only maxItems.
+
+
+> +
+> +  interrupt-names:
+> +    items:
+> +      - const: bvalid
+> +      - const: id
+> +      - const: linestate
+> +      - const: rxdet
+> +
+> +  resets:
+> +    minItems: 6
+
+maxItems instead
+
+> +
+> +  reset-names:
+> +    items:
+> +      - const: usb3phy-u2-por
+> +      - const: usb3phy-u3-por
+> +      - const: usb3phy-pipe-mac
+> +      - const: usb3phy-utmi-mac
+> +      - const: usb3phy-utmi-apb
+> +      - const: usb3phy-pipe-apb
+> +
+> +  "#address-cells":
+> +    const: 2
+> +
+> +  "#size-cells":
+> +    const: 2
+> +
+> +  ranges: true
+> +
+> +patternProperties:
+> +
+
+Drop blank line
+
+> +  utmi-port@[0-9a-f]+$:
+
+This wasn't tested. Missing quotes, missing starting anchor.
+
+> +    type: object
+
+Explain what are the children here - description.
+
+
+> +    additionalProperties: false
+> +
+> +    properties:
+> +      compatible:
+> +        enum:
+> +          - rockchip,rk3328-usb3phy-utmi
+> +
+> +      reg:
+> +        maxItems: 1
+> +
+> +      "#phy-cells":
+> +        const: 0
+
+Does not look correct. Your parent device is the phy, not child. Why do
+you create children per each type of phy?
+
+> +
+> +      phy-supply:
+> +        description:
+> +          Phandle to a regulator that provides power to VBUS.
+> +          See ./phy-bindings.txt for details.
+> +
+> +    required:
+> +      - compatible
+> +      - reg
+> +      - "#phy-cells"
+> +
+> +  pipe-port@[0-9a-f]+$:
+> +    type: object
+> +    additionalProperties: false
+> +
+> +    properties:
+> +      compatible:
+> +        enum:
+> +          - rockchip,rk3328-usb3phy-pipe
+> +
+> +      reg:
+> +        maxItems: 1
+> +
+> +      "#phy-cells":
+> +        const: 0
+> +
+> +      phy-supply:
+> +        description:
+> +          Phandle to a regulator that provides power to VBUS.
+> +          See ./phy-bindings.txt for details.
+
+Drop "see ....".
+
+> +
+> +    required:
+> +      - compatible
+> +      - reg
+> +      - "#phy-cells"
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +  - interrupts
+> +  - interrupt-names
+> +  - resets
+> +  - reset-names
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/rk3328-cru.h>
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +    soc {
+> +      #address-cells = <2>;
+> +      #size-cells = <2>;
+> +
+> +      usb3phy: usb3-phy@ff460000 {
+> +        compatible = "rockchip,rk3328-usb3phy";
+> +        reg = <0x0 0xff460000 0x0 0x10000>;
+> +        clocks = <&cru SCLK_REF_USB3OTG>, <&cru PCLK_USB3PHY_OTG>, <&cru PCLK_USB3PHY_PIPE>;
+
+That's way over the limit. Wrapping is at 80.
+
+> +        clock-names = "refclk-usb3otg", "usb3phy-otg", "usb3phy-pipe";
+> +        interrupts = <GIC_SPI 75 IRQ_TYPE_LEVEL_HIGH>, <GIC_SPI 76 IRQ_TYPE_LEVEL_HIGH>,
+> +                     <GIC_SPI 77 IRQ_TYPE_LEVEL_HIGH>, <GIC_SPI 78 IRQ_TYPE_LEVEL_HIGH>;
+> +        interrupt-names = "bvalid", "id", "linestate", "rxdet";
+
+
+
+
+Best regards,
+Krzysztof
 
