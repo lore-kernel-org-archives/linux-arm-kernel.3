@@ -4,40 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56D18C02187
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 23:29:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B193CC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 23:30:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6Y9p6ibc/bj3AV8FXwHT1h+AI01HJG79MMwLbgeY3aY=; b=fJxZGXbtmMK2KSShXbm0BHXv9x
-	M1Iy8ZAU2n8/9kCDo9ENZGHeTXPqRuwtkxByjbtVx5Ob91Qedbhr1k60/a3cZRVELLEPDKvm9ZQ6d
-	DZ2nGSrXP4M6Op4BfUEABTkfUs9cND0AvsOS4RkAzVOfkR/mOJQ+GfmjlH7n1kolkc3tUWdnZyq0N
-	4xWqXJ9GBSriebR4iugshS+Ch4UskNhtoIPmfEJvGoG5yPArpCkjKG/AQjrb0OOVWy2+ct0YmXjbL
-	bEYuzmdh+h2qkXfCOTNb0xpG4V7ERYopNrZCpjR0Wi03YBnEuFgOGJUc8wDKyzsJQDPakEiMWsfyg
-	PO4SFD2g==;
+	bh=f3kAvIiPvuDbscly1USvzOsklcOMjk05ZoOBm2Yut2w=; b=EojkAbV0/TXRoXZQrPNi7bo2Ne
+	O46XS01LzXhVxVoJ1vDB9NFydiWC/R99uMi+eDCRt3krdoJtQNmLYhpkv3g8kCB3Lf8668+xEScAC
+	Ex/NebxdzuoaK0i84MB3h+vjlpxjoYM6BY7vo1AwFedIqJ19Z5LTgN4P2AjFwpqOVmbjY3anLIvEt
+	RBJlUdy4MpUPBE0PEmRvn5cOiZ8mBzI8QmKpnJ/YZwT2cgkYsteeUj/GQaGTPHtPIunLqN/N74MDq
+	6uj/CYAu7dgr8TRu6yPuccpQ6+1RZP3py2xhRWf6KIYkAD+tFaqfh4yY6SyDLS6gJz1IjdzDLoZf1
+	7YYHqjqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYZIa-0000000GSSq-00UO;
-	Thu, 16 Jan 2025 23:29:16 +0000
-Received: from out-170.mta1.migadu.com ([2001:41d0:203:375::aa])
+	id 1tYZJp-0000000GTHO-2yTS;
+	Thu, 16 Jan 2025 23:30:33 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYZBK-0000000GP4H-09DI
+	id 1tYZBR-0000000GP8d-1gPd
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 16 Jan 2025 23:21:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=f3kAvIiPvuDbscly1USvzOsklcOMjk05ZoOBm2Yut2w=; b=D/cim++ARxUyB7emLE2li+4UwF
+	ADujawxbBPJLXSDy+OCNId43ozIeFK/vxOCN5TPB48gRJNRGGEsBQ34SswZfXATDuOoxeBLntXOeF
+	DlUCO3CgSPYNITS52Oa/wPMcguWJ7EM+C7lF2MWbt/PtOz5IQ2eT6qy+uxlRHFeAdV3AFZq6bS6te
+	1YUCoTJOe1kdvj8/lAqGj8Uc0YU9f6WL9VL61hjFuihFDu8Q2qaxZIid3q0kaBm9lm2jg2Mcra+Uv
+	cwHzXv2ziOID/AISWyvIUnLOf1hHnkk5/VhKgON07XEmdkATh6A93TrskSlv2eTzOuzaBV4sOh9zy
+	pRq9zdqA==;
+Received: from out-189.mta1.migadu.com ([2001:41d0:203:375::bd])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tYZBL-0000000BKbm-3yM1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 23:21:47 +0000
+	Thu, 16 Jan 2025 23:21:52 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1737069703;
+	t=1737069692;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=6Y9p6ibc/bj3AV8FXwHT1h+AI01HJG79MMwLbgeY3aY=;
-	b=I5ESkJp7jccj+p7MTg/3SaqOFMdzqlC543kNhuKXyIO5ET2tSkUSKe4SclpJmgArTud0qH
-	rVfVlL921C/RGjRtFB+PYcyrGq5sPHZbegg5CffrVDVyF1PVBsKx2d5Zk19i9Sa6UGtjgy
-	8xPc/CE0qvORpLcVkAYDDRHzUhMCkZQ=
+	bh=f3kAvIiPvuDbscly1USvzOsklcOMjk05ZoOBm2Yut2w=;
+	b=OZHlBT2EInsgKHaSkHw4Zp/mu/U8KYfBsgR4roeno+oDlFuiQYLIY+Noe2l/rde4Wuidmb
+	bL9U8Dq/8IkbRrP3mXDLK1JcJyKPvpqyhSkeg0dUGrVOwPBgNw7k8EJp91Q6LVN+uVG91h
+	of0+hZ4S9RHUXh/QZ+BL20EnQoVPhQ4=
 From: Sean Anderson <sean.anderson@linux.dev>
 To: Mark Brown <broonie@kernel.org>,
 	Michal Simek <michal.simek@amd.com>,
@@ -47,23 +62,18 @@ Cc: Jinjie Ruan <ruanjinjie@huawei.com>,
 	Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>,
 	linux-kernel@vger.kernel.org,
 	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Sean Anderson <sean.anderson@linux.dev>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org
-Subject: [PATCH 7/7] ARM64: xilinx: zynqmp: Convert to split QSPI bus
-Date: Thu, 16 Jan 2025 18:21:17 -0500
-Message-Id: <20250116232118.2694169-8-sean.anderson@linux.dev>
+	Sean Anderson <sean.anderson@linux.dev>
+Subject: [PATCH 2/7] spi: zynqmp-gqspi: Pass speed/mode directly to config_op
+Date: Thu, 16 Jan 2025 18:21:12 -0500
+Message-Id: <20250116232118.2694169-3-sean.anderson@linux.dev>
 In-Reply-To: <20250116232118.2694169-1-sean.anderson@linux.dev>
 References: <20250116232118.2694169-1-sean.anderson@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_152146_213845_A2A92DC3 
-X-CRM114-Status: UNSURE (   9.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250116_232150_370964_F6EF17CB 
+X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,316 +88,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the ZynqMP devicetrees to use the split QSPI bus binding. This
-is pretty simple, since all boards use only CS0.
+In preparation for supporting transfer_one, which supplies the speed
+from the spi_transfer instead of the spi_device, convert config_op to
+take the speed and mode directly.
 
 Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
 ---
 
- arch/arm64/boot/dts/xilinx/zynqmp-sm-k26-revA.dts |  5 ++++-
- arch/arm64/boot/dts/xilinx/zynqmp-zc1232-revA.dts |  5 ++++-
- arch/arm64/boot/dts/xilinx/zynqmp-zc1254-revA.dts |  5 ++++-
- .../boot/dts/xilinx/zynqmp-zc1751-xm015-dc1.dts   |  5 ++++-
- .../boot/dts/xilinx/zynqmp-zc1751-xm018-dc4.dts   |  5 ++++-
- arch/arm64/boot/dts/xilinx/zynqmp-zcu102-revA.dts |  5 ++++-
- arch/arm64/boot/dts/xilinx/zynqmp-zcu104-revA.dts |  5 ++++-
- arch/arm64/boot/dts/xilinx/zynqmp-zcu104-revC.dts |  5 ++++-
- arch/arm64/boot/dts/xilinx/zynqmp-zcu106-revA.dts |  5 ++++-
- arch/arm64/boot/dts/xilinx/zynqmp-zcu111-revA.dts |  5 ++++-
- .../arm64/boot/dts/xilinx/zynqmp-zcu1275-revA.dts |  5 ++++-
- arch/arm64/boot/dts/xilinx/zynqmp.dtsi            | 15 +++++++++++----
- 12 files changed, 55 insertions(+), 15 deletions(-)
+ drivers/spi/spi-zynqmp-gqspi.c | 13 +++++--------
+ 1 file changed, 5 insertions(+), 8 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-sm-k26-revA.dts b/arch/arm64/boot/dts/xilinx/zynqmp-sm-k26-revA.dts
-index bfa7ea6b9224..64b90de5b4ce 100644
---- a/arch/arm64/boot/dts/xilinx/zynqmp-sm-k26-revA.dts
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp-sm-k26-revA.dts
-@@ -35,7 +35,7 @@ aliases {
- 		serial0 = &uart0;
- 		serial1 = &uart1;
- 		serial2 = &dcc;
--		spi0 = &qspi;
-+		spi0 = &qspi_lower;
- 		spi1 = &spi0;
- 		spi2 = &spi1;
- 		usb0 = &usb0;
-@@ -129,6 +129,9 @@ mux {
+diff --git a/drivers/spi/spi-zynqmp-gqspi.c b/drivers/spi/spi-zynqmp-gqspi.c
+index 95eea7d75f71..ba12adec8632 100644
+--- a/drivers/spi/spi-zynqmp-gqspi.c
++++ b/drivers/spi/spi-zynqmp-gqspi.c
+@@ -545,8 +545,8 @@ static inline u32 zynqmp_qspi_selectspimode(struct zynqmp_qspi *xqspi,
+ /**
+  * zynqmp_qspi_config_op - Configure QSPI controller for specified
+  *				transfer
+- * @xqspi:	Pointer to the zynqmp_qspi structure
+- * @qspi:	Pointer to the spi_device structure
++ * @xqspi: Pointer to the zynqmp_qspi structure
++ * @req_speed_hz: Requested frequency
+  *
+  * Sets the operational mode of QSPI controller for the next QSPI transfer and
+  * sets the requested clock frequency.
+@@ -563,13 +563,10 @@ static inline u32 zynqmp_qspi_selectspimode(struct zynqmp_qspi *xqspi,
+  *	by the QSPI controller the driver will set the highest or lowest
+  *	frequency supported by controller.
+  */
+-static int zynqmp_qspi_config_op(struct zynqmp_qspi *xqspi,
+-				 struct spi_device *qspi)
++static int zynqmp_qspi_config_op(struct zynqmp_qspi *xqspi, u32 req_speed_hz)
+ {
+ 	ulong clk_rate;
+-	u32 config_reg, req_speed_hz, baud_rate_val = 0;
+-
+-	req_speed_hz = qspi->max_speed_hz;
++	u32 config_reg, baud_rate_val = 0;
  
- &qspi { /* MIO 0-5 - U143 */
- 	status = "okay";
-+};
-+
-+&qspi_lower {
- 	spi_flash: flash@0 { /* MT25QU512A */
- 		compatible = "jedec,spi-nor"; /* 64MB */
- 		reg = <0>;
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-zc1232-revA.dts b/arch/arm64/boot/dts/xilinx/zynqmp-zc1232-revA.dts
-index 04079d1704f1..8927e0463cf4 100644
---- a/arch/arm64/boot/dts/xilinx/zynqmp-zc1232-revA.dts
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp-zc1232-revA.dts
-@@ -19,7 +19,7 @@ / {
- 	aliases {
- 		serial0 = &uart0;
- 		serial1 = &dcc;
--		spi0 = &qspi;
-+		spi0 = &qspi_lower;
- 	};
+ 	if (xqspi->speed_hz != req_speed_hz) {
+ 		xqspi->speed_hz = req_speed_hz;
+@@ -1094,7 +1091,7 @@ static int zynqmp_qspi_exec_op(struct spi_mem *mem,
+ 		op->dummy.buswidth, op->data.buswidth);
  
- 	chosen {
-@@ -39,6 +39,9 @@ &dcc {
- 
- &qspi {
- 	status = "okay";
-+};
-+
-+&qspi_lower {
- 	flash@0 {
- 		compatible = "m25p80", "jedec,spi-nor"; /* 32MB */
- 		#address-cells = <1>;
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-zc1254-revA.dts b/arch/arm64/boot/dts/xilinx/zynqmp-zc1254-revA.dts
-index 3dec57cf18be..da07b58706f0 100644
---- a/arch/arm64/boot/dts/xilinx/zynqmp-zc1254-revA.dts
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp-zc1254-revA.dts
-@@ -20,7 +20,7 @@ / {
- 	aliases {
- 		serial0 = &uart0;
- 		serial1 = &dcc;
--		spi0 = &qspi;
-+		spi0 = &qspi_lower;
- 	};
- 
- 	chosen {
-@@ -40,6 +40,9 @@ &dcc {
- 
- &qspi {
- 	status = "okay";
-+};
-+
-+&qspi_lower {
- 	flash@0 {
- 		compatible = "m25p80", "jedec,spi-nor"; /* 32MB */
- 		#address-cells = <1>;
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-zc1751-xm015-dc1.dts b/arch/arm64/boot/dts/xilinx/zynqmp-zc1751-xm015-dc1.dts
-index 6aff22d43361..ec570d68a4ae 100644
---- a/arch/arm64/boot/dts/xilinx/zynqmp-zc1751-xm015-dc1.dts
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp-zc1751-xm015-dc1.dts
-@@ -27,7 +27,7 @@ aliases {
- 		mmc1 = &sdhci1;
- 		rtc0 = &rtc;
- 		serial0 = &uart0;
--		spi0 = &qspi;
-+		spi0 = &qspi_lower;
- 		usb0 = &usb0;
- 	};
- 
-@@ -354,6 +354,9 @@ &psgtr {
- 
- &qspi {
- 	status = "okay";
-+};
-+
-+&qspi_lower {
- 	flash@0 {
- 		compatible = "m25p80", "jedec,spi-nor"; /* Micron MT25QU512ABB8ESF */
- 		#address-cells = <1>;
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-zc1751-xm018-dc4.dts b/arch/arm64/boot/dts/xilinx/zynqmp-zc1751-xm018-dc4.dts
-index 6ec1d9813973..e1cfdc0db51e 100644
---- a/arch/arm64/boot/dts/xilinx/zynqmp-zc1751-xm018-dc4.dts
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp-zc1751-xm018-dc4.dts
-@@ -26,7 +26,7 @@ aliases {
- 		rtc0 = &rtc;
- 		serial0 = &uart0;
- 		serial1 = &uart1;
--		spi0 = &qspi;
-+		spi0 = &qspi_lower;
- 	};
- 
- 	chosen {
-@@ -172,6 +172,9 @@ &i2c1 {
- 
- &qspi {
- 	status = "okay";
-+};
-+
-+&qspi_lower {
- 	flash@0 {
- 		compatible = "m25p80", "jedec,spi-nor"; /* 32MB */
- 		#address-cells = <1>;
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-zcu102-revA.dts b/arch/arm64/boot/dts/xilinx/zynqmp-zcu102-revA.dts
-index 7e26489a1539..18e323e2aad7 100644
---- a/arch/arm64/boot/dts/xilinx/zynqmp-zcu102-revA.dts
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp-zcu102-revA.dts
-@@ -31,7 +31,7 @@ aliases {
- 		serial0 = &uart0;
- 		serial1 = &uart1;
- 		serial2 = &dcc;
--		spi0 = &qspi;
-+		spi0 = &qspi_lower;
- 		usb0 = &usb0;
- 	};
- 
-@@ -953,6 +953,9 @@ &psgtr {
- 
- &qspi {
- 	status = "okay";
-+};
-+
-+&qspi_lower {
- 	flash@0 {
- 		compatible = "m25p80", "jedec,spi-nor"; /* 16MB + 16MB */
- 		#address-cells = <1>;
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-zcu104-revA.dts b/arch/arm64/boot/dts/xilinx/zynqmp-zcu104-revA.dts
-index eb2090673ec1..026053c4116a 100644
---- a/arch/arm64/boot/dts/xilinx/zynqmp-zcu104-revA.dts
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp-zcu104-revA.dts
-@@ -29,7 +29,7 @@ aliases {
- 		serial0 = &uart0;
- 		serial1 = &uart1;
- 		serial2 = &dcc;
--		spi0 = &qspi;
-+		spi0 = &qspi_lower;
- 		usb0 = &usb0;
- 	};
- 
-@@ -439,6 +439,9 @@ &psgtr {
- 
- &qspi {
- 	status = "okay";
-+};
-+
-+&qspi_lower {
- 	flash@0 {
- 		compatible = "m25p80", "jedec,spi-nor"; /* n25q512a 128MiB */
- 		#address-cells = <1>;
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-zcu104-revC.dts b/arch/arm64/boot/dts/xilinx/zynqmp-zcu104-revC.dts
-index 4694d0a841f1..da56e532dc2b 100644
---- a/arch/arm64/boot/dts/xilinx/zynqmp-zcu104-revC.dts
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp-zcu104-revC.dts
-@@ -29,7 +29,7 @@ aliases {
- 		serial0 = &uart0;
- 		serial1 = &uart1;
- 		serial2 = &dcc;
--		spi0 = &qspi;
-+		spi0 = &qspi_lower;
- 		usb0 = &usb0;
- 	};
- 
-@@ -451,6 +451,9 @@ &psgtr {
- 
- &qspi {
- 	status = "okay";
-+};
-+
-+&qspi_lower {
- 	flash@0 {
- 		compatible = "m25p80", "jedec,spi-nor"; /* n25q512a 128MiB */
- 		#address-cells = <1>;
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-zcu106-revA.dts b/arch/arm64/boot/dts/xilinx/zynqmp-zcu106-revA.dts
-index 7beedd730f94..8dd73b035969 100644
---- a/arch/arm64/boot/dts/xilinx/zynqmp-zcu106-revA.dts
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp-zcu106-revA.dts
-@@ -31,7 +31,7 @@ aliases {
- 		serial0 = &uart0;
- 		serial1 = &uart1;
- 		serial2 = &dcc;
--		spi0 = &qspi;
-+		spi0 = &qspi_lower;
- 		usb0 = &usb0;
- 	};
- 
-@@ -959,6 +959,9 @@ &psgtr {
- 
- &qspi {
- 	status = "okay";
-+};
-+
-+&qspi_lower {
- 	flash@0 {
- 		compatible = "m25p80", "jedec,spi-nor"; /* 16MB + 16MB */
- 		#address-cells = <1>;
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-zcu111-revA.dts b/arch/arm64/boot/dts/xilinx/zynqmp-zcu111-revA.dts
-index b67ff7ecf3c3..9ed7972c3b4e 100644
---- a/arch/arm64/boot/dts/xilinx/zynqmp-zcu111-revA.dts
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp-zcu111-revA.dts
-@@ -30,7 +30,7 @@ aliases {
- 		rtc0 = &rtc;
- 		serial0 = &uart0;
- 		serial1 = &dcc;
--		spi0 = &qspi;
-+		spi0 = &qspi_lower;
- 		usb0 = &usb0;
- 	};
- 
-@@ -789,6 +789,9 @@ &psgtr {
- 
- &qspi {
- 	status = "okay";
-+};
-+
-+&qspi_lower {
- 	flash@0 {
- 		compatible = "m25p80", "jedec,spi-nor"; /* 16MB + 16MB */
- 		#address-cells = <1>;
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-zcu1275-revA.dts b/arch/arm64/boot/dts/xilinx/zynqmp-zcu1275-revA.dts
-index a38c2baeba6c..99d007b3bfae 100644
---- a/arch/arm64/boot/dts/xilinx/zynqmp-zcu1275-revA.dts
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp-zcu1275-revA.dts
-@@ -20,7 +20,7 @@ / {
- 	aliases {
- 		serial0 = &uart0;
- 		serial1 = &dcc;
--		spi0 = &qspi;
-+		spi0 = &qspi_lower;
- 	};
- 
- 	chosen {
-@@ -44,6 +44,9 @@ &gpio {
- 
- &qspi {
- 	status = "okay";
-+};
-+
-+&qspi_lower {
- 	flash@0 {
- 		compatible = "m25p80", "jedec,spi-nor";
- 		reg = <0x0>;
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp.dtsi b/arch/arm64/boot/dts/xilinx/zynqmp.dtsi
-index 5dac0542a48d..470e0b90382f 100644
---- a/arch/arm64/boot/dts/xilinx/zynqmp.dtsi
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp.dtsi
-@@ -972,21 +972,28 @@ pcie_intc: legacy-interrupt-controller {
- 			};
- 		};
- 
--		qspi: spi@ff0f0000 {
-+		qspi: spi-controller@ff0f0000 {
- 			bootph-all;
- 			compatible = "xlnx,zynqmp-qspi-1.0";
- 			status = "disabled";
- 			clock-names = "ref_clk", "pclk";
- 			interrupts = <GIC_SPI 15 IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-parent = <&gic>;
--			num-cs = <1>;
- 			reg = <0x0 0xff0f0000 0x0 0x1000>,
- 			      <0x0 0xc0000000 0x0 0x8000000>;
--			#address-cells = <1>;
--			#size-cells = <0>;
- 			/* iommus = <&smmu 0x873>; */
- 			power-domains = <&zynqmp_firmware PD_QSPI>;
- 			resets = <&zynqmp_reset ZYNQMP_RESET_QSPI>;
-+
-+			qspi_lower: spi-lower {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+			};
-+
-+			qspi_upper: spi-upper {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+			};
- 		};
- 
- 		psgtr: phy@fd400000 {
+ 	mutex_lock(&xqspi->op_lock);
+-	zynqmp_qspi_config_op(xqspi, mem->spi);
++	zynqmp_qspi_config_op(xqspi, mem->spi->max_speed_hz);
+ 	zynqmp_qspi_chipselect(mem->spi, false);
+ 	genfifoentry |= xqspi->genfifocs;
+ 	genfifoentry |= xqspi->genfifobus;
 -- 
 2.35.1.1320.gc452695387.dirty
 
