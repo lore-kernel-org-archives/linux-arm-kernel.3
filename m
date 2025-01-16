@@ -4,71 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D711C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 08:31:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52278C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 08:32:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KJU6NHSPpPz6Gg8DqBJTcsC/F3EA4FbG2Cn09XAcRJg=; b=4XrGA7lqNpL0u2S8t3P9bL109Y
-	ruJQqJwUXNdxLbdEavg2sp8leJsP3yc6UygX8QGigzy1I6fi08YciLM2ADvDHMaO6FPdmpdI/nWG/
-	uu8z+fWClhwL+M8Uzy1x66wdsJS7ly6EY2JmGkdk0scVIbAMHNg1QPCedg4MdZM/j2Y52Q6klKI4W
-	uuOMHT0eZsG6SJ6JEXw4gSqM7w0nfD/XDV+hh8b6l3sgcnsB2eyC4vd1+TnR+lxg0FT6BPxWzqRoz
-	jQH03hGB1N/QtfqsdCJQDQp+N4FIZkSwH8OExyVi+MHAjqoBljYe+fYsc8TiDwzffudm8vRSipn9i
-	6CJLQYDg==;
+	bh=l3Q/pSyt6LskeOYVDS4hEOcgp09UhsuwTgGj3csJ7ZY=; b=u3wVbdB5en/MsIgFqtOPliJ1Nd
+	HZvMooaVIvSSCuMuUpjKUpXwUjsEwym6Fs4sW26iDeUNo+9ZmK3YLuHn96FHPEM3dcY+T74FKYVOm
+	aNpdlSiZQ+TXm3N8QPeUiV3PMxAN+v8dwHaY2TrG07y4xlCaaFIZjorfOXpiwhkN1mmSxP+Je1Trp
+	pPQvc2OWEYwxyJAo9E5PyOEjmr8rLetKWwqnxkrwQpynMkakovANtKciKiV9uNRnofNl11oiSk+Sd
+	4uUBaxh+Ui+YqC9m6z5xyN0WHPBg7nMqEWRrWMLYlA3IB90Q4Ikhx4PP9i1+Lra37ZQaZ+Txcr+9b
+	8brGLYmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYLH9-0000000EDXG-1qww;
-	Thu, 16 Jan 2025 08:30:51 +0000
-Received: from m16.mail.163.com ([220.197.31.4])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYLFs-0000000EDGd-0V9A;
-	Thu, 16 Jan 2025 08:29:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=Jp2pRXZexydmXCI8/gUBpp2H+ifwmmcIHVvnsMZb7WQ=; b=E
-	LQKfR9zxZAtMMzT1A2dBhZXdQx/30olE98zDgaBrKpADjtLqAQVPQ8ZgpqEcWDCg
-	sfrZJAgBSczhHm7BztA++MFtdmc30BTWE7MH/403H2owp6PCk7uj7KwOrasjG6zj
-	iVbx27CiKttvDu+MoK+/28jEyjSIHUhQ5nHlCcgGHY=
-Received: from andyshrk$163.com ( [58.22.7.114] ) by
- ajax-webmail-wmsvr-40-117 (Coremail) ; Thu, 16 Jan 2025 16:27:42 +0800
- (CST)
-X-Originating-IP: [58.22.7.114]
-Date: Thu, 16 Jan 2025 16:27:42 +0800 (CST)
-From: "Andy Yan" <andyshrk@163.com>
-To: "Krzysztof Kozlowski" <krzk@kernel.org>
-Cc: heiko@sntech.de, hjc@rock-chips.com, krzk+dt@kernel.org,
-	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, derek.foreman@collabora.com,
-	detlev.casanova@collabora.com, daniel@fooishbar.org, robh@kernel.org,
-	sebastian.reichel@collabora.com,
-	"Andy Yan" <andy.yan@rock-chips.com>
-Subject: Re:Re:Re: [PATCH v11 10/11] dt-bindings: display: vop2: Add rk3576
- support
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20240801(9da12a7b)
- Copyright (c) 2002-2025 www.mailtech.cn 163com
-In-Reply-To: <3a93b0e3.1b0c.1945a1f4dbd.Coremail.andyshrk@163.com>
-References: <20250111112614.432247-1-andyshrk@163.com>
- <20250111112614.432247-11-andyshrk@163.com>
- <i5mp7wrogfc7w3fbmvqgqxsbgcx4xnfnjik4rpd35amdwgppan@fistrhikrrmd>
- <3a93b0e3.1b0c.1945a1f4dbd.Coremail.andyshrk@163.com>
-X-NTES-SC: AL_Qu2YBfyauUgt5CecZulS/DNQ2YpmHKvs4olgqcQkZd0qqTHPyz4QZ0BuLUbI3d7Zvc2YEN/kNIz7hm45G8K9
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	id 1tYLIh-0000000EDvu-2vYF;
+	Thu, 16 Jan 2025 08:32:27 +0000
+Received: from szxga05-in.huawei.com ([45.249.212.191])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tYLHR-0000000EDeE-0nZF;
+	Thu, 16 Jan 2025 08:31:11 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.44])
+	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4YYbdq5KvLz1xmdl;
+	Thu, 16 Jan 2025 16:30:07 +0800 (CST)
+Received: from dggpemf100008.china.huawei.com (unknown [7.185.36.138])
+	by mail.maildlp.com (Postfix) with ESMTPS id 95AE81401E9;
+	Thu, 16 Jan 2025 16:31:01 +0800 (CST)
+Received: from [10.174.177.243] (10.174.177.243) by
+ dggpemf100008.china.huawei.com (7.185.36.138) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 16 Jan 2025 16:31:00 +0800
+Message-ID: <ba569e5a-0b91-4032-b8c2-3d8c236cd245@huawei.com>
+Date: Thu, 16 Jan 2025 16:30:59 +0800
 MIME-Version: 1.0
-Message-ID: <652ec3b0.6e7b.1946e39b31e.Coremail.andyshrk@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: dSgvCgD3v47+wohnYKRYAA--.37488W
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqRXWXmeIvFiXEgADs5
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/4] mm: Support tlbbatch flush for a range of PTEs
+To: Barry Song <21cnbao@gmail.com>, <akpm@linux-foundation.org>,
+	<linux-mm@kvack.org>
+CC: <baolin.wang@linux.alibaba.com>, <chrisl@kernel.org>, <david@redhat.com>,
+	<ioworker0@gmail.com>, <kasong@tencent.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <lorenzo.stoakes@oracle.com>,
+	<ryan.roberts@arm.com>, <v-songbaohua@oppo.com>, <x86@kernel.org>,
+	<ying.huang@intel.com>, <zhengtangquan@oppo.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar
+	<mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+	<dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, Anshuman
+ Khandual <anshuman.khandual@arm.com>, Shaoqin Huang <shahuang@redhat.com>,
+	Gavin Shan <gshan@redhat.com>, Mark Rutland <mark.rutland@arm.com>, "Kirill
+ A. Shutemov" <kirill.shutemov@linux.intel.com>, Yosry Ahmed
+	<yosryahmed@google.com>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Yicong Yang
+	<yangyicong@hisilicon.com>, Will Deacon <will@kernel.org>
+References: <20250115033808.40641-1-21cnbao@gmail.com>
+ <20250115033808.40641-3-21cnbao@gmail.com>
+Content-Language: en-US
+From: Kefeng Wang <wangkefeng.wang@huawei.com>
+In-Reply-To: <20250115033808.40641-3-21cnbao@gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.174.177.243]
+X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
+ dggpemf100008.china.huawei.com (7.185.36.138)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_002932_528392_837C67A3 
-X-CRM114-Status: UNSURE (   8.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250116_003109_560623_0AFD99FB 
+X-CRM114-Status: GOOD (  24.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,62 +85,244 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CkhpIEtyenlzenRvZiwKCkF0IDIwMjUtMDEtMTIgMTg6NDY6MjgsICJBbmR5IFlhbiIgPGFuZHlz
-aHJrQDE2My5jb20+IHdyb3RlOgo+Cj5IaSBLcnp5c3p0b2YsCj4KPkF0IDIwMjUtMDEtMTIgMTc6
-Mjc6MTgsICJLcnp5c3p0b2YgS296bG93c2tpIiA8a3J6a0BrZXJuZWwub3JnPiB3cm90ZToKPj5P
-biBTYXQsIEphbiAxMSwgMjAyNSBhdCAwNzoyNjowOFBNICswODAwLCBBbmR5IFlhbiB3cm90ZToK
-Pj4+ICAgICMgU2VlIGNvbXBhdGlibGUtc3BlY2lmaWMgY29uc3RyYWludHMgYmVsb3cuCj4+PiAg
-ICBjbG9ja3M6Cj4+PiBAQCAtMTIwLDQzICsxMzMsOTggQEAgYWxsT2Y6Cj4+PiAgICAgICAgcHJv
-cGVydGllczoKPj4+ICAgICAgICAgIGNvbXBhdGlibGU6Cj4+PiAgICAgICAgICAgIGNvbnRhaW5z
-Ogo+Pj4gLSAgICAgICAgICAgIGNvbnN0OiByb2NrY2hpcCxyazM1ODgtdm9wCj4+PiArICAgICAg
-ICAgICAgZW51bToKPj4+ICsgICAgICAgICAgICAgIC0gcm9ja2NoaXAscmszNTY2LXZvcAo+Pj4g
-KyAgICAgICAgICAgICAgLSByb2NrY2hpcCxyazM1Njgtdm9wCj4+PiAgICAgIHRoZW46Cj4+PiAg
-ICAgICAgcHJvcGVydGllczoKPj4+ICAgICAgICAgIGNsb2NrczoKPj4+IC0gICAgICAgICAgbWlu
-SXRlbXM6IDcKPj4+ICsgICAgICAgICAgbWluSXRlbXM6IDUKPj4KPj5UaGF0J3Mgd3JvbmcsIHdo
-eSBtYXhJdGVtcyBiZWNhbWUgbWluSXRlbXM/IEhvdyBpcyB0aGlzIHJlbGF0ZWQgdG8gcmszNTc2
-Pwo+Pgo+Pj4gKwo+Pj4gICAgICAgICAgY2xvY2stbmFtZXM6Cj4+PiAtICAgICAgICAgIG1pbkl0
-ZW1zOiA3Cj4+PiArICAgICAgICAgIG1pbkl0ZW1zOiA1Cj4+Cj4+WW91IGFyZSBkb2luZyBoZXJl
-IHdheSB0b28gbXVjaC4gWW91IG5lZWQgdG8gc3BsaXQgcmVvcmdhbml6aW5nLCBzbyB3ZQo+Pndp
-bGwgc2VlIHdoYXQgY29tZXMgbmV3Lgo+Pgo+PkFuZCBvZiBjb3Vyc2UgeW91IG5lZWQgdG8gZXhw
-bGFpbiB3aHkgeW91IGFyZSBjaGFuZ2luZyBFWElTVElORyBiaW5kaW5nCj4+KEkgYW0gbm90IHRh
-bGtpbmcgYWJvdXQgc2h1ZmZsaW5nIGFyb3VuZCAtIHlvdSBjaGFuZ2UgdGhlIGJpbmRpbmcpLgo+
-Cj5Ib3cgYWJvdXQgc3BsaXQgdGhpcyBwYXRjaCB0byB0d286IE9uZSByZXdvcmsgdGhlIGV4aXN0
-aW5nIGJpbmRpbmcsICBtYWtlIGl0Cj5tb3JlIHN1aXRhYmxlIGZvciBleHBhbmRpbmcgdG8gaW5j
-bHVkZSBuZXcgU29Dcy4KPlRoZW4gYWRkIHJrMzU3NiBpbiB0aGUgc2Vjb25kIHBhdGNoID8KCkNh
-biB5b3UgY29uZmlybSB3aGV0aGVyIHRoaXMgYXBwcm9hY2ggaXMgYWNjZXB0YWJsZT8gIEkgd2Fu
-dCB0byAgY2xhcmlmeSAgd2l0aCB5b3UKYmVmb3JlIHNlbmRpbmcgdGhlIG5leHQgdmVyc2lvbi4K
-Cgo+Cj4KPj4KPj4KPj4+ICsKPj4+ICsgICAgICAgIGludGVycnVwdHM6Cj4+PiArICAgICAgICAg
-IG1heEl0ZW1zOiAxCj4+PiArCj4+PiArICAgICAgICBpbnRlcnJ1cHQtbmFtZXM6IGZhbHNlCj4+
-PiAgCj4+PiAgICAgICAgICBwb3J0czoKPj4+ICAgICAgICAgICAgcmVxdWlyZWQ6Cj4+PiAgICAg
-ICAgICAgICAgLSBwb3J0QDAKPj4+ICAgICAgICAgICAgICAtIHBvcnRAMQo+Pj4gICAgICAgICAg
-ICAgIC0gcG9ydEAyCj4+PiAtICAgICAgICAgICAgLSBwb3J0QDMKPj4+ICsKPj4+ICsgICAgICAg
-IHJvY2tjaGlwLHZvMS1ncmY6IGZhbHNlCj4+PiArICAgICAgICByb2NrY2hpcCx2b3AtZ3JmOiBm
-YWxzZQo+Pj4gKyAgICAgICAgcm9ja2NoaXAscG11OiBmYWxzZQo+Pj4gIAo+Pj4gICAgICAgIHJl
-cXVpcmVkOgo+Pj4gICAgICAgICAgLSByb2NrY2hpcCxncmYKPj4+IC0gICAgICAgIC0gcm9ja2No
-aXAsdm8xLWdyZgo+Pj4gLSAgICAgICAgLSByb2NrY2hpcCx2b3AtZ3JmCj4+PiAtICAgICAgICAt
-IHJvY2tjaGlwLHBtdQo+Pj4gIAo+Pj4gLSAgICBlbHNlOgo+Pj4gKyAgLSBpZjoKPj4+ICsgICAg
-ICBwcm9wZXJ0aWVzOgo+Pj4gKyAgICAgICAgY29tcGF0aWJsZToKPj4+ICsgICAgICAgICAgY29u
-dGFpbnM6Cj4+PiArICAgICAgICAgICAgZW51bToKPj4+ICsgICAgICAgICAgICAgIC0gcm9ja2No
-aXAscmszNTc2LXZvcAo+Pj4gKyAgICB0aGVuOgo+Pj4gICAgICAgIHByb3BlcnRpZXM6Cj4+PiAr
-ICAgICAgICBjbG9ja3M6Cj4+PiArICAgICAgICAgIG1pbkl0ZW1zOiA1Cj4+Cj4+Cj4+V2h5IG1p
-bkl0ZW1zPyBOb3RoaW5nIGluIHRoaXMgcGF0Y2ggbWFrZXMgc2Vuc2UgZm9yIG1lLiBOZWl0aGVy
-IGNoYW5naW5nCj4+ZXhpc3RpbmcgYmluZGluZyBub3IgbmV3IGJpbmRpbmcgZm9yIHJrMzU3Ni4K
-Pj4KPj4+ICsKPj4+ICsgICAgICAgIGNsb2NrLW5hbWVzOgo+Pj4gKyAgICAgICAgICBtaW5JdGVt
-czogNQo+Pj4gKwo+Pj4gKyAgICAgICAgaW50ZXJydXB0czoKPj4+ICsgICAgICAgICAgbWluSXRl
-bXM6IDQKPj4+ICsKPj4+ICsgICAgICAgIGludGVycnVwdC1uYW1lczoKPj4+ICsgICAgICAgICAg
-bWluSXRlbXM6IDQKPj4+ICsKPj4+ICsgICAgICAgIHBvcnRzOgo+Pj4gKyAgICAgICAgICByZXF1
-aXJlZDoKPj4+ICsgICAgICAgICAgICAtIHBvcnRAMAo+Pj4gKyAgICAgICAgICAgIC0gcG9ydEAx
-Cj4+PiArICAgICAgICAgICAgLSBwb3J0QDIKPj4+ICsKPj4+ICAgICAgICAgIHJvY2tjaGlwLHZv
-MS1ncmY6IGZhbHNlCj4+PiAgICAgICAgICByb2NrY2hpcCx2b3AtZ3JmOiBmYWxzZQo+Pj4gLSAg
-ICAgICAgcm9ja2NoaXAscG11OiBmYWxzZQo+Pj4gIAo+Pj4gKyAgICAgIHJlcXVpcmVkOgo+Pj4g
-KyAgICAgICAgLSByb2NrY2hpcCxncmYKPj4+ICsgICAgICAgIC0gcm9ja2NoaXAscG11Cj4+PiAr
-Cj4+PiArICAtIGlmOgo+Pj4gKyAgICAgIHByb3BlcnRpZXM6Cj4+PiArICAgICAgICBjb21wYXRp
-YmxlOgo+Pj4gKyAgICAgICAgICBjb250YWluczoKPj4+ICsgICAgICAgICAgICBjb25zdDogcm9j
-a2NoaXAscmszNTg4LXZvcAo+Pj4gKyAgICB0aGVuOgo+Pj4gKyAgICAgIHByb3BlcnRpZXM6Cj4+
-PiAgICAgICAgICBjbG9ja3M6Cj4+PiAtICAgICAgICAgIG1heEl0ZW1zOiA1Cj4+PiArICAgICAg
-ICAgIG1pbkl0ZW1zOiA3Cj4+Cj4+QW5kIGFnYWluIHdlaXJkIGNoYW5nZSB0byB0aGUgYmluZGlu
-Zy4KPj4KPj5CZXN0IHJlZ2FyZHMsCj4+S3J6eXN6dG9mCj4+Cj4+Cj4+X19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPj5MaW51eC1yb2NrY2hpcCBtYWlsaW5n
-IGxpc3QKPj5MaW51eC1yb2NrY2hpcEBsaXN0cy5pbmZyYWRlYWQub3JnCj4+aHR0cDovL2xpc3Rz
-LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yb2NrY2hpcAo=
+
+
+On 2025/1/15 11:38, Barry Song wrote:
+> From: Barry Song <v-songbaohua@oppo.com>
+> 
+> This patch lays the groundwork for supporting batch PTE unmapping in
+> try_to_unmap_one(). It introduces range handling for TLB batch flushing,
+> with the range currently set to the size of PAGE_SIZE.
+> 
+> The function __flush_tlb_range_nosync() is architecture-specific and is
+> only used within arch/arm64. This function requires the mm structure
+> instead of the vma structure. To allow its reuse by
+> arch_tlbbatch_add_pending(), which operates with mm but not vma, this
+> patch modifies the argument of __flush_tlb_range_nosync() to take mm
+> as its parameter.
+> 
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Ingo Molnar <mingo@redhat.com>
+> Cc: Borislav Petkov <bp@alien8.de>
+> Cc: Dave Hansen <dave.hansen@linux.intel.com>
+> Cc: "H. Peter Anvin" <hpa@zytor.com>
+> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: Shaoqin Huang <shahuang@redhat.com>
+> Cc: Gavin Shan <gshan@redhat.com>
+> Cc: Kefeng Wang <wangkefeng.wang@huawei.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: David Hildenbrand <david@redhat.com>
+> Cc: Lance Yang <ioworker0@gmail.com>
+> Cc: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+> Cc: Yosry Ahmed <yosryahmed@google.com>
+> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Albert Ou <aou@eecs.berkeley.edu>
+> Cc: Yicong Yang <yangyicong@hisilicon.com>
+> Signed-off-by: Barry Song <v-songbaohua@oppo.com>
+> Acked-by: Will Deacon <will@kernel.org>
+> ---
+>   arch/arm64/include/asm/tlbflush.h | 25 +++++++++++++------------
+>   arch/arm64/mm/contpte.c           |  2 +-
+>   arch/riscv/include/asm/tlbflush.h |  5 +++--
+>   arch/riscv/mm/tlbflush.c          |  5 +++--
+>   arch/x86/include/asm/tlbflush.h   |  5 +++--
+>   mm/rmap.c                         | 12 +++++++-----
+>   6 files changed, 30 insertions(+), 24 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+> index bc94e036a26b..98fbc8df7cf3 100644
+> --- a/arch/arm64/include/asm/tlbflush.h
+> +++ b/arch/arm64/include/asm/tlbflush.h
+> @@ -322,13 +322,6 @@ static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
+>   	return true;
+>   }
+>   
+> -static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *batch,
+> -					     struct mm_struct *mm,
+> -					     unsigned long uaddr)
+> -{
+> -	__flush_tlb_page_nosync(mm, uaddr);
+> -}
+> -
+>   /*
+>    * If mprotect/munmap/etc occurs during TLB batched flushing, we need to
+>    * synchronise all the TLBI issued with a DSB to avoid the race mentioned in
+> @@ -448,7 +441,7 @@ static inline bool __flush_tlb_range_limit_excess(unsigned long start,
+>   	return false;
+>   }
+>   
+> -static inline void __flush_tlb_range_nosync(struct vm_area_struct *vma,
+> +static inline void __flush_tlb_range_nosync(struct mm_struct *mm,
+>   				     unsigned long start, unsigned long end,
+>   				     unsigned long stride, bool last_level,
+>   				     int tlb_level)
+> @@ -460,12 +453,12 @@ static inline void __flush_tlb_range_nosync(struct vm_area_struct *vma,
+>   	pages = (end - start) >> PAGE_SHIFT;
+>   
+>   	if (__flush_tlb_range_limit_excess(start, end, pages, stride)) {
+> -		flush_tlb_mm(vma->vm_mm);
+> +		flush_tlb_mm(mm);
+>   		return;
+>   	}
+>   
+>   	dsb(ishst);
+> -	asid = ASID(vma->vm_mm);
+> +	asid = ASID(mm);
+>   
+>   	if (last_level)
+>   		__flush_tlb_range_op(vale1is, start, pages, stride, asid,
+> @@ -474,7 +467,7 @@ static inline void __flush_tlb_range_nosync(struct vm_area_struct *vma,
+>   		__flush_tlb_range_op(vae1is, start, pages, stride, asid,
+>   				     tlb_level, true, lpa2_is_enabled());
+>   
+> -	mmu_notifier_arch_invalidate_secondary_tlbs(vma->vm_mm, start, end);
+> +	mmu_notifier_arch_invalidate_secondary_tlbs(mm, start, end);
+>   }
+>   
+>   static inline void __flush_tlb_range(struct vm_area_struct *vma,
+> @@ -482,7 +475,7 @@ static inline void __flush_tlb_range(struct vm_area_struct *vma,
+>   				     unsigned long stride, bool last_level,
+>   				     int tlb_level)
+>   {
+> -	__flush_tlb_range_nosync(vma, start, end, stride,
+> +	__flush_tlb_range_nosync(vma->vm_mm, start, end, stride,
+>   				 last_level, tlb_level);
+>   	dsb(ish);
+>   }
+> @@ -533,6 +526,14 @@ static inline void __flush_tlb_kernel_pgtable(unsigned long kaddr)
+>   	dsb(ish);
+>   	isb();
+>   }
+> +
+> +static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *batch,
+> +		struct mm_struct *mm,
+> +		unsigned long start,
+> +		unsigned long end)
+
+Only one line for arguments, same for other functions，
+
+Reviewed-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+
+> +{
+> +	__flush_tlb_range_nosync(mm, start, end, PAGE_SIZE, true, 3);
+> +}
+>   #endif
+>   
+>   #endif
+> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
+> index 55107d27d3f8..bcac4f55f9c1 100644
+> --- a/arch/arm64/mm/contpte.c
+> +++ b/arch/arm64/mm/contpte.c
+> @@ -335,7 +335,7 @@ int contpte_ptep_clear_flush_young(struct vm_area_struct *vma,
+>   		 * eliding the trailing DSB applies here.
+>   		 */
+>   		addr = ALIGN_DOWN(addr, CONT_PTE_SIZE);
+> -		__flush_tlb_range_nosync(vma, addr, addr + CONT_PTE_SIZE,
+> +		__flush_tlb_range_nosync(vma->vm_mm, addr, addr + CONT_PTE_SIZE,
+>   					 PAGE_SIZE, true, 3);
+>   	}
+>   
+> diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
+> index 72e559934952..e4c533691a7d 100644
+> --- a/arch/riscv/include/asm/tlbflush.h
+> +++ b/arch/riscv/include/asm/tlbflush.h
+> @@ -60,8 +60,9 @@ void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
+>   
+>   bool arch_tlbbatch_should_defer(struct mm_struct *mm);
+>   void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *batch,
+> -			       struct mm_struct *mm,
+> -			       unsigned long uaddr);
+> +		struct mm_struct *mm,
+> +		unsigned long start,
+> +		unsigned long end);
+>   void arch_flush_tlb_batched_pending(struct mm_struct *mm);
+>   void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch);
+>   
+> diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
+> index 9b6e86ce3867..6d6e8e7cc576 100644
+> --- a/arch/riscv/mm/tlbflush.c
+> +++ b/arch/riscv/mm/tlbflush.c
+> @@ -186,8 +186,9 @@ bool arch_tlbbatch_should_defer(struct mm_struct *mm)
+>   }
+>   
+>   void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *batch,
+> -			       struct mm_struct *mm,
+> -			       unsigned long uaddr)
+> +		struct mm_struct *mm,
+> +		unsigned long start,
+> +		unsigned long end)
+>   {
+>   	cpumask_or(&batch->cpumask, &batch->cpumask, mm_cpumask(mm));
+>   }
+> diff --git a/arch/x86/include/asm/tlbflush.h b/arch/x86/include/asm/tlbflush.h
+> index 69e79fff41b8..2b511972d008 100644
+> --- a/arch/x86/include/asm/tlbflush.h
+> +++ b/arch/x86/include/asm/tlbflush.h
+> @@ -278,8 +278,9 @@ static inline u64 inc_mm_tlb_gen(struct mm_struct *mm)
+>   }
+>   
+>   static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *batch,
+> -					     struct mm_struct *mm,
+> -					     unsigned long uaddr)
+> +		struct mm_struct *mm,
+> +		unsigned long start,
+> +		unsigned long end)
+>   {
+>   	inc_mm_tlb_gen(mm);
+>   	cpumask_or(&batch->cpumask, &batch->cpumask, mm_cpumask(mm));
+> diff --git a/mm/rmap.c b/mm/rmap.c
+> index de6b8c34e98c..abeb9fcec384 100644
+> --- a/mm/rmap.c
+> +++ b/mm/rmap.c
+> @@ -672,7 +672,8 @@ void try_to_unmap_flush_dirty(void)
+>   	(TLB_FLUSH_BATCH_PENDING_MASK / 2)
+>   
+>   static void set_tlb_ubc_flush_pending(struct mm_struct *mm, pte_t pteval,
+> -				      unsigned long uaddr)
+> +		unsigned long start,
+> +		unsigned long end)
+>   {
+>   	struct tlbflush_unmap_batch *tlb_ubc = &current->tlb_ubc;
+>   	int batch;
+> @@ -681,7 +682,7 @@ static void set_tlb_ubc_flush_pending(struct mm_struct *mm, pte_t pteval,
+>   	if (!pte_accessible(mm, pteval))
+>   		return;
+>   
+> -	arch_tlbbatch_add_pending(&tlb_ubc->arch, mm, uaddr);
+> +	arch_tlbbatch_add_pending(&tlb_ubc->arch, mm, start, end);
+>   	tlb_ubc->flush_required = true;
+>   
+>   	/*
+> @@ -757,7 +758,8 @@ void flush_tlb_batched_pending(struct mm_struct *mm)
+>   }
+>   #else
+>   static void set_tlb_ubc_flush_pending(struct mm_struct *mm, pte_t pteval,
+> -				      unsigned long uaddr)
+> +		unsigned long start,
+> +		unsigned long end)
+>   {
+>   }
+>   
+> @@ -1792,7 +1794,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
+>   				 */
+>   				pteval = ptep_get_and_clear(mm, address, pvmw.pte);
+>   
+> -				set_tlb_ubc_flush_pending(mm, pteval, address);
+> +				set_tlb_ubc_flush_pending(mm, pteval, address, address + PAGE_SIZE);
+>   			} else {
+>   				pteval = ptep_clear_flush(vma, address, pvmw.pte);
+>   			}
+> @@ -2164,7 +2166,7 @@ static bool try_to_migrate_one(struct folio *folio, struct vm_area_struct *vma,
+>   				 */
+>   				pteval = ptep_get_and_clear(mm, address, pvmw.pte);
+>   
+> -				set_tlb_ubc_flush_pending(mm, pteval, address);
+> +				set_tlb_ubc_flush_pending(mm, pteval, address, address + PAGE_SIZE);
+>   			} else {
+>   				pteval = ptep_clear_flush(vma, address, pvmw.pte);
+>   			}
+
 
