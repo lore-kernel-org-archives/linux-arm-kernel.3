@@ -4,89 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59FF5C02187
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 14:56:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F0A9C02187
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 14:57:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=th+KCDURk+54uiOu7vrQtTKV4wr7vJCxQzUoT2E5qpU=; b=x2/Kjhu+7fXUqlTwAN/b3h6Fav
-	WaEaA/my1Olhe5GqsZPdLZjtJAxXxAlvKZJysq/NoXcU/B0LHk0gN1e1iU93+hfkxjgDQM9RLm6od
-	cgUQr+4NBECxrO1c3KRdYM3E99T+bwzG3fa0bhO0292fvKboteu7LXhwNokcXUYPmySLfDJpSvh/C
-	CI1jFc1N3P1AKp4AGUR2/KsH2b5jrFjz2jzmx2KZ2+sOGR1ZNwCpB+7MJNy/hQ0EZ9oPCH6smwtzv
-	lUsIv7oSv/UY1XE6QEOVKxdHV0FW0F4zffCH4NFK0qLmKVy/6XmAq9M9kPClYKiDp35+/wchPln2I
-	zS7gvwhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oe+dztQDOuMvnMICfl+B+KkAhLl67BENjk4vGTljxO0=; b=KCjkiXDtIgJn8xA8qAMermNKUU
+	qBeHbKpSnHIFCNMCoLXqX7ZKLFzWND8pyHi35MEQToC9ALFhauUBq1pPuRNptjK5dZ82ZGPhL4Vgx
+	EC+cO9u7fAg1f7YAjc/R00hnvfwCptSK8BOAauCnQyd3edkARAgCjDumOvV61HFqpY8spoMSZGmk3
+	Bevm3/s6+UdLaVmZkjPivEQlQ4UwNtLEETgNpLB61qy2mY4H9LIbCBRv0Nr1ou4NQp5pZymuLmqD6
+	45ud1l+Cfj4PN2miQFVPxDeQdC5LntUnEw/cvrhmRkLbuDGSPWnFWSrPE3NdLekVMvNNqDbkoqRYv
+	wAOqQ8HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYRHi-0000000FG10-3hrp;
-	Thu, 16 Jan 2025 14:55:50 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYRCD-0000000FEbs-1ztg
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 14:50:10 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4368a290e0dso45705e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 06:50:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1737039007; x=1737643807; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=th+KCDURk+54uiOu7vrQtTKV4wr7vJCxQzUoT2E5qpU=;
-        b=mFRjkbSX1HtC0foO73Tc0R5PG2NoVoPgCUnIcJ0PFNp2Hq5ygAyT3B2qtreXUbqwQv
-         wnHFZajDkcEQdxyLrcbd0cF9W/Be3Cb6iP8PEdzaORX3etJaoDwlk7xD/4KNJO4hA/q5
-         cv9etlm6Na6Sg51jtoFcw1yGKxyuoazZMO23YJc6vfnboN4srK9iVxgp7nM1lpwTYILY
-         C4HMwXINSL+jybk1tgHejq1BOt+uZ298YLEP3wJQBQ0NfecXSyfmuGk0ehqRuu98S4Xk
-         qhvqlWMmU0wnxs7nDnQ75xj9mOIGRSAUpsTC3Tw7S8V05dRA/wIA3+TLnCXL4Ia5Rd54
-         y8Ag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737039007; x=1737643807;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=th+KCDURk+54uiOu7vrQtTKV4wr7vJCxQzUoT2E5qpU=;
-        b=o9NzAUwcfhK3Uz9X4GzbSRF9iCZ+vw46bhgY84ntePxARTNUFTv2Nx61nZFM8kDkVA
-         5ZN73liZ9u6rMTtj2pdROHB/Wrw9Wban3QOc0W9RaK+LdH3rRYBe4p4nb3M1IGCOhyUW
-         vlk/gsLbjIFwA34RS79sCYuVciZ2Rjlzzh2642vM8Tl18tb2ViT3lyC/LpOEuWKl+8wY
-         kbZRxnZW9275U5S9Ans3hrHlI0IcqJmPUsaBccl4xvVFjBwAxD9JOB/4+blFXEJozczS
-         4SdzA7Lu4y8Llt/C9wSKkw1hugz5ce83IPgWLIrgPsNt71uYvoSI0GGXyV2HKSE21l9D
-         3I3w==
-X-Forwarded-Encrypted: i=1; AJvYcCVSNjOozc1GHQ41WYJiF6I2p45IA38z5J9DUJqeijGqFzyH2yzJpMfPPx4cDSBWDLHtHhpIGgi46PPoRd4vAlXK@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw0SD6DQbY/i0ksQpiKlnk9fnWVUDls/zw6ioSxcB7YlEU0toqF
-	OyW+4c6xvRFHZ/6Xj3Wu4MZgkdXeX7yLQ5pxP4/7kMYgELWPghfc6jFdXFriFg==
-X-Gm-Gg: ASbGnctomKdXG2Nly+CxaXpInwxMNntmus9TwFIFloorKzjN7SAlO1lA/1ChTzIRz1C
-	qywXiEP36MnmBogmaSkUoIG9OR7mHf4eUrXOybbHIAkpfjWBEnKEL/2RQPoF2zq7BkpmIH4MZ1U
-	upciTkZS6WtG/CcvVIqwS42V4Fzr25h5qNESrbXBtHmKBl+1TIGdt+uYTGGf6vfUjQVzGYeFmWe
-	996lanZl0FG6z+GD5Az5w+2CLrmn1P2YA0OOBAd/Ra6jf8Sa6e8f1HdCxKs3ZZiR5YEOEI2KbfV
-	OVpm8MHxX2J3ToSt+Kbhep9r
-X-Google-Smtp-Source: AGHT+IHbW5e6FcdINOIJSuAL5IxGPUZUYCUoVAOoYMejLluSZuDbScxH72g/lWhucPA8oug2f237Bw==
-X-Received: by 2002:a05:600c:693:b0:436:1811:a79c with SMTP id 5b1f17b1804b1-4388b98b77amr1013155e9.5.1737039006638;
-        Thu, 16 Jan 2025 06:50:06 -0800 (PST)
-Received: from google.com (47.246.140.34.bc.googleusercontent.com. [34.140.246.47])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438904625e5sm1453475e9.32.2025.01.16.06.50.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Jan 2025 06:50:05 -0800 (PST)
-Date: Thu, 16 Jan 2025 14:50:03 +0000
-From: Sebastian Ene <sebastianene@google.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>,
-	catalin.marinas@arm.com, joey.gouly@arm.com, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	oliver.upton@linux.dev, will@kernel.org, Aishwarya.TCV@arm.com
-Subject: Re: [PATCH] KVM: arm64: Fix the upper limit of the walker range
-Message-ID: <Z4kcmwzoRINgTtrO@google.com>
-References: <20250114145050.563658-2-sebastianene@google.com>
- <14cce00c-29bd-4feb-b7d0-7aae6e948d1e@sirena.org.uk>
- <8634hjvxi2.wl-maz@kernel.org>
- <e79c78a7-24a3-42e6-a217-ec64f8320e91@arm.com>
+	id 1tYRIx-0000000FGLr-2GNs;
+	Thu, 16 Jan 2025 14:57:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tYRCM-0000000FEdq-1uq3;
+	Thu, 16 Jan 2025 14:50:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 294CE339;
+	Thu, 16 Jan 2025 06:50:44 -0800 (PST)
+Received: from [10.1.37.67] (e122027.cambridge.arm.com [10.1.37.67])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3606B3F673;
+	Thu, 16 Jan 2025 06:50:12 -0800 (PST)
+Message-ID: <460e6ee5-a6d1-4d93-9720-d6a5589a2434@arm.com>
+Date: Thu, 16 Jan 2025 14:50:10 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <e79c78a7-24a3-42e6-a217-ec64f8320e91@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] drm/panfrost: Add support for Mali on the MT8370 SoC
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Boris Brezillon <boris.brezillon@collabora.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20250116-mt8370-enable-gpu-v1-0-0a6b78e925c8@collabora.com>
+ <20250116-mt8370-enable-gpu-v1-2-0a6b78e925c8@collabora.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20250116-mt8370-enable-gpu-v1-2-0a6b78e925c8@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_065009_511542_9874A85B 
-X-CRM114-Status: GOOD (  24.72  )
+X-CRM114-CacheID: sfid-20250116_065018_533662_74B76734 
+X-CRM114-Status: GOOD (  16.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,62 +73,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 16, 2025 at 01:49:54PM +0000, Suzuki K Poulose wrote:
-
-Hi,
-
-> On 16/01/2025 10:55, Marc Zyngier wrote:
-> > On Thu, 16 Jan 2025 01:16:40 +0000,
-> > Mark Brown <broonie@kernel.org> wrote:
-> > > 
-> > > On Tue, Jan 14, 2025 at 02:50:51PM +0000, Sebastian Ene wrote:
-> > > 
-> > > > Prevent the walker from running into weeds when walking an
-> > > > entire address range.
-> > > 
-> > > The KVM page_fault_test selftest started failing in next-20250115 on
-> > > at least n1sdp and TX2 in VHE mode and a bisect seems to point to this
-> > > change.  The bisect only just finished, I've done no further
-> > > investigation.
-> > > 
-> > > When the test fails it generates backtraces like that below:
-> > 
-> > [...]
-> > 
-> > Thanks for the heads up.
-> > 
-> > Given how close we are to the merge window opening, I've dropped this
-> > patch from -next.
-> > 
-> > Seb: it looks this breaks a bunch of existing assumptions. Let's
-> > revisit this before -rc1, if possible.
-> In kvm_pgtable_walk() we set the walk_data.end to PAGE_ALIGNED(start +
-> size), where size is BIT(ia_size) and start = 0, for
-> kvm_pgtable_stage2_destroy().
+On 16/01/2025 14:25, Louis-Alexis Eyraud wrote:
+> This commit adds a compatible for the MediaTek MT8370 SoC, with an
+> integrated ARM Mali G57 MC2 GPU (Valhall-JM, dual core), and adds
+> platform data using the same supplies and the same power domain lists
+> as MT8186 (one regulator, two power domains).
 > 
-> And subtracting the limit in _kvm_pgtable_walk makes things go bad,
->  returning -ERANGE.
-> Given the kvm_pgtable_walk() passes the "end" as the top address (not
-> including it), and is always PAGE_ALIGNED, we should probably leave things
-> as it is in the code.
->
+> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 
-Thanks for looking into this.
-I have a fix but it is too much of a surgery so we decided not to send
-it and instead go with the removal of my change. 
+Reviewed-by: Steven Price <steven.price@arm.com>
 
+> ---
+>  drivers/gpu/drm/panfrost/panfrost_drv.c | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
 > 
-> Cheers
-> Suzuki
+> diff --git a/drivers/gpu/drm/panfrost/panfrost_drv.c b/drivers/gpu/drm/panfrost/panfrost_drv.c
+> index 0f3935556ac761adcd80197d87e8e478df436fd5..1d51b64ed0f0660cc95263a289d5dad204540cfd 100644
+> --- a/drivers/gpu/drm/panfrost/panfrost_drv.c
+> +++ b/drivers/gpu/drm/panfrost/panfrost_drv.c
+> @@ -837,6 +837,15 @@ static const struct panfrost_compatible mediatek_mt8192_data = {
+>  	.pm_features = BIT(GPU_PM_CLK_DIS) | BIT(GPU_PM_VREG_OFF),
+>  };
+>  
+> +/* MT8370 uses the same power domains and power supplies as MT8186 */
+> +static const struct panfrost_compatible mediatek_mt8370_data = {
+> +	.num_supplies = ARRAY_SIZE(mediatek_mt8183_b_supplies) - 1,
+> +	.supply_names = mediatek_mt8183_b_supplies,
+> +	.num_pm_domains = ARRAY_SIZE(mediatek_mt8186_pm_domains),
+> +	.pm_domain_names = mediatek_mt8186_pm_domains,
+> +	.pm_features = BIT(GPU_PM_CLK_DIS) | BIT(GPU_PM_VREG_OFF),
+> +};
+> +
+>  static const struct of_device_id dt_match[] = {
+>  	/* Set first to probe before the generic compatibles */
+>  	{ .compatible = "amlogic,meson-gxm-mali",
+> @@ -859,6 +868,7 @@ static const struct of_device_id dt_match[] = {
+>  	{ .compatible = "mediatek,mt8186-mali", .data = &mediatek_mt8186_data },
+>  	{ .compatible = "mediatek,mt8188-mali", .data = &mediatek_mt8188_data },
+>  	{ .compatible = "mediatek,mt8192-mali", .data = &mediatek_mt8192_data },
+> +	{ .compatible = "mediatek,mt8370-mali", .data = &mediatek_mt8370_data },
+>  	{}
+>  };
+>  MODULE_DEVICE_TABLE(of, dt_match);
 > 
-> 
-> > 
-> > Thanks,
-> > 
-> > 	M.
-> > 
->
 
-Thanks,
-Sebastian
 
