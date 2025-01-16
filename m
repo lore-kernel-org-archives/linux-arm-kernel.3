@@ -4,73 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2D77C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 17:46:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C831C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 17:47:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fbH0aNuhNBY+Qx/1k9JyF2WTMEKtKQ8nxA8sJGBpS7w=; b=4hFgId/fMUsdUWJrl8IwGrag0F
-	PGpPSeuQ+xTXFOwsE8he209W22ja/LdpPMhjqHYzin+HsaANTrfIAlFH52lAXzyn3EdHExAxx8qTP
-	2Zxvfc0gx5XO1k4yiiMKG+tMEi/C9RpsMuLJM+2lSCqqN18gS9MXF+h6TbPgTE5ccjM5JawsgHRYa
-	PTB4xKHkKlboRaN+zrwjpXGTTOi/Mp9G8y/8ftTk3OUCZFEbeR28zkop/OyHRPdB9JVaBXNb5Y7Nn
-	ZP3s+4zef7yfzMSl2jR0hOjzm7YMht1vp1aovv0lT3BMHP2NnlRtINKQHBUhwFLdLHaTbtmXWNKMB
-	tANTqF0A==;
+	bh=KdSRLH407KyVo9i2OulrASDf2FZjUK5HxCuQksYb0AU=; b=Q4IQX+ibVGuFK+CE/tr10EfSeW
+	uv6BkYRGST/dTRTsKAtjeOvndN8vkOyn9EzGiXXONaMECHlegfJaek0z8OrszRA1GffBb2tfENJoO
+	1aTyS6ojcfw+M4yTGUAbAy2UneGxQEgof+f+EYd9HJ56lM2H9bbSsH6Bw200jZTrFYoPu5NETAE5g
+	l1cMZXNcMtaEV7APMheDoByMxRgOnvSCb1jxcKL+AZHH5H2VMqpP6ZlgBRKSOT05oSB1j5fcmtIwF
+	tlAigcvbGS/JoGYwizzYDzB0Qrb01V3exTb5iXqr2A9Do4Yqyh2tBexHcR8WhuIa7qFZ+TWoUZbZd
+	oxIPa9oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYTwN-0000000Fiol-0pZT;
-	Thu, 16 Jan 2025 17:45:59 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1tYTxb-0000000Fizq-1ItT;
+	Thu, 16 Jan 2025 17:47:15 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYTv4-0000000FiU4-3UUd
+	id 1tYTvF-0000000FiWJ-2sB5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 17:44:40 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-216401de828so21609635ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 09:44:38 -0800 (PST)
+	Thu, 16 Jan 2025 17:44:50 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-2f13acbe29bso3862265a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 09:44:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1737049478; x=1737654278; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1737049489; x=1737654289; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=fbH0aNuhNBY+Qx/1k9JyF2WTMEKtKQ8nxA8sJGBpS7w=;
-        b=Wf6cs2c3qSwN+CfgfgNVC8zgH0kF7TM8jXwQV/K6Wmu3+4N9fTtwjt8L9+d6Kbo+Qb
-         SQptlHu2gcET0WCztBXEbv9K+TKLoVGS0n9r6Xn2EvDUUZEYF7mKSxrB36Mz4wRspWY3
-         rHrni48/y7hu2e/yz1V+6ZKgZYjWU6mgG/3tY=
+        bh=KdSRLH407KyVo9i2OulrASDf2FZjUK5HxCuQksYb0AU=;
+        b=LopH2bWW7y1yM99UN80Iw5fRyk62u83IaIlpxhj2xoa+cSBLzV6elMSOybjIr2yQdD
+         v2yRfmlQvyU2Bp4IPRchWBEBhLSP4cBkOzCQEUmoB+wpmRZl2jkAi0d+gUjBikCXhntc
+         /+K1wkugdvfJBZoseklf8Gpu57tF52vTQylIQ=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737049478; x=1737654278;
+        d=1e100.net; s=20230601; t=1737049489; x=1737654289;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=fbH0aNuhNBY+Qx/1k9JyF2WTMEKtKQ8nxA8sJGBpS7w=;
-        b=ltRjxoYxuSCWv4p8oajAi+sAAqmAAZtOK9T7CoyDU0H4VpsFptHpfboEL8Ur+jFDXo
-         WJFmRhTtg6dTZCePQw9GKDLxrjHDJq2A4dofdeFoN0pSBEd2DdXRvL6IwkrRHHTF3e/V
-         PkUAUF3pliKhlXw2gkWNeb1g0nSEUsHPshtKK8tv7h8LSVeDqV+UiM5Snl8PiczcQpED
-         guBwOn9jLwdjrtmfSOzQZIRKcYDvVMIMYb4/z72z6CWf2tCqTkNZjHQ4tkn+Sqz+dE0l
-         j+eZdRCjraRLDX+BWMMjWXZAF1bX1xukFtVtuBBJj1s/vooZ7q6tFpVdKa+fC6uyq5Yw
-         VkMQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVruBfoCipsSabEOmMHoTJ2KZyB4C/A/dG01joX3vunIy64qZ5+M2yVj8yL9Tb3m4AnxuTAZ86e0OrJGsnJ45GA@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVkU5AGWAHxIBdMdmGbXhKFeo2QXoie4XIOKl0MvHGOkOR1rR8
-	anu0XCbh8We74cuz8YY0bm+A416Bp37YGF4u8uCDWG0qpQOUI1RiXRPiPel07Q==
-X-Gm-Gg: ASbGnctJIa+bF5BfbI5vFJJQ1fjcZ0aXp8q3kkQNUjjOXokjyRtutrSnePU5kM8QyiA
-	CzPpM6btDDtsbde3bVFYgisU276IS+Soat9pQfAR00P0a0NedYxhjGDZhmOh2CkKkUG/DIoEe0h
-	ZV3HYSy8vvAW+B1LIgHX29VICdl5jsYBuNXP5U2vGs3ICsa5VFYl1eqQ49apdZOyDPhlMjC8r/C
-	a07xHz+ltk/xhUBOVaHbdVK8DL5B+CqWzymWpv5H8dwtqvfG9R1LuK4v0P/8zuJbDagx9mosRdt
-	honfg/xjhFHqp1ABAhpG
-X-Google-Smtp-Source: AGHT+IE0Nz5l+5zPCU039uTisaH3+lRWGSGUZOlt7zohpZP2X6Ochqj54Row1+OLzWAg1OjmZEweuA==
-X-Received: by 2002:a05:6a00:392a:b0:725:b347:c3cc with SMTP id d2e1a72fcca58-72d2200273bmr49375661b3a.23.1737049477674;
-        Thu, 16 Jan 2025 09:44:37 -0800 (PST)
+        bh=KdSRLH407KyVo9i2OulrASDf2FZjUK5HxCuQksYb0AU=;
+        b=ORfzZlXcHK1HFOlgvCKpyeigjkj8phgZ41yXKzwJHswpMSSUFlRryeXxPQHlBWEiKs
+         c9EkXiVCNU3uzInz7+YtU/ikn4nNOXKwLJf1kmraQYDSy4l3nq5yUiDLairEaY/JnpqJ
+         vUJPQaT0gDtpfFWvNc8wpnSxgvasn5LHJX2f3kaIeXaWYwBcMbdSEkRA6HW8sTDWTDwc
+         nrUJvrZMNUvRgf/KnKzfYoVSZ2JlGoGHeuy4X7nZ41RQOL7jzyE6BvK8sI+LUNnrpxIq
+         6y6qn7O/918SJ0TeKVcauekrJy0yedkpjF+LlUkFJaN7PtBhZNImr8yUWS9ZW11oaP0L
+         eVpg==
+X-Forwarded-Encrypted: i=1; AJvYcCWV/w1juRIjv3MiSH5V2fXudD83jCgqXHIkAf54/XGKImsF9biEBWU0zmHiBv+sj7Vtp+SlJdoC6khzt6LJGO8l@lists.infradead.org
+X-Gm-Message-State: AOJu0YwKHzHp6DVE8Vlxh/iGrunoE75771ho3vY1yGXQdSl/ce8MXdab
+	Sdj57/fGfNbuNzHlXoEhBVyjNC4wVRc/yU6odmT2A9csaMPfIUeIOFTRv6SvRQ==
+X-Gm-Gg: ASbGncsF6yn2aAUrbxPjOO5NKakOgXjXqdNdz50bOtPCZc6AgMbkAehUgyHYMBRYJO9
+	YTznWXCYANxahGb4j9zGmWNcgXVBagC/cH9YJgqaRJqBT7Hd6Lw+8r0UbxvUnLEckzKRyn0nHHr
+	Gz2mhwK72ViEIGUFa8bs7EgGNqM3KPGoLcurCkUBGb7+OBGK/7ePO7tuCC2vctLMg0Sb4rRrFHV
+	5RU/02A1c1GJ0gqcFCxq07w80J2bC7E9ynez9HWwxtUue7BYyQZmpPp5x1RB5kKx/kuG0ow811m
+	69kyFxxj7QssWUgbhr8h
+X-Google-Smtp-Source: AGHT+IF+4R047Qzw4YHErXGtCBTYRApVnqgB0yLlDA9wlrkzE9bOj1bHitVqKoHAvbYcAqI9I/GHDQ==
+X-Received: by 2002:a17:90b:4d0b:b0:2ee:823e:39c4 with SMTP id 98e67ed59e1d1-2f728de6649mr11843030a91.7.1737049489060;
+        Thu, 16 Jan 2025 09:44:49 -0800 (PST)
 Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72dab9c8f6dsm262871b3a.114.2025.01.16.09.44.36
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f77629bf96sm419605a91.36.2025.01.16.09.44.47
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 16 Jan 2025 09:44:36 -0800 (PST)
-Message-ID: <b3078803-973c-44eb-98b1-b4d94cbc19e5@broadcom.com>
-Date: Thu, 16 Jan 2025 09:44:35 -0800
+        Thu, 16 Jan 2025 09:44:48 -0800 (PST)
+Message-ID: <07602a85-8ac3-4538-b2a0-65d917de6ba5@broadcom.com>
+Date: Thu, 16 Jan 2025 09:44:46 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/5] clk: bcm: rpi: Add ISP to exported clocks
+Subject: Re: [PATCH 2/5] clk: bcm: rpi: Allow cpufreq driver to also adjust
+ gpu clocks
 To: Dave Stevenson <dave.stevenson@raspberrypi.com>,
  Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
  <sboyd@kernel.org>,
@@ -81,7 +82,7 @@ Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Dom Cobley <popcornmix@gmail.com>
 References: <20250116-bcm2712-clk-updates-v1-0-10bc92ffbf41@raspberrypi.com>
- <20250116-bcm2712-clk-updates-v1-1-10bc92ffbf41@raspberrypi.com>
+ <20250116-bcm2712-clk-updates-v1-2-10bc92ffbf41@raspberrypi.com>
 Content-Language: en-US
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
@@ -116,12 +117,12 @@ Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
  MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
  7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
  95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20250116-bcm2712-clk-updates-v1-1-10bc92ffbf41@raspberrypi.com>
+In-Reply-To: <20250116-bcm2712-clk-updates-v1-2-10bc92ffbf41@raspberrypi.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_094438_865008_16724C21 
-X-CRM114-Status: UNSURE (   7.84  )
+X-CRM114-CacheID: sfid-20250116_094449_732778_D72A146F 
+X-CRM114-Status: UNSURE (   7.70  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -137,11 +138,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/16/25 08:24, 'Dave Stevenson' via BCM-KERNEL-FEEDBACK-LIST,PDL wrote:
+On 1/16/25 08:24, Dave Stevenson wrote:
 > From: Dom Cobley <popcornmix@gmail.com>
 > 
-> The ISP clock can be controlled by the driver, so register it
-> with the clock subsystem.
+> For performance/power it is beneficial to adjust gpu clocks with arm clock.
+> This is how the downstream cpufreq driver works
 > 
 > Acked-by: Stephen Boyd <sboyd@kernel.org>
 > Signed-off-by: Dom Cobley <popcornmix@gmail.com>
