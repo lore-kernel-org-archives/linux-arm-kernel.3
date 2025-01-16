@@ -4,87 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97BCCC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 17:14:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 574D4C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 17:37:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cw8bDVhWC4DZ7iFBTJuoMnPRKeQXkQkpwuO4pmzE3V0=; b=dHB/c15utz6P0VRT6nT7p4t7G6
-	+77IqS1I+cxj9MnjKfM2kq+z0W2+TwVOMPB69dkwfB1PCU6XpivRiVlIcJQzjR6CYh69QHDXE3JT9
-	SmbW2leBTGDn4ILFpciQ9IChBwa+N/a9ppdzXlXiAunAs1nYl4pI5H6AjOjn85mGnYUW0GTE4sgrh
-	pnp9f2voML2VxYXrebDENUxJuYYN3SQpRbusQA7iEFv55R+mun4tReHakMsRw7H1+zGzuWY6ek9if
-	jQTcTUbJ1HN1KFWJwkJXK1YBDQuFQeRByO2yBeMk2I/6xcYtLbabxRD8aXxcPJRtabTiykyw1H0ii
-	peCli77w==;
+	bh=OXBv7mU3IUmuhGazcfTF0fMhicUzdzlonYKZ/ftM1lc=; b=zQm+ltWkOJCq4FyXk2mjDoI8t8
+	2AVqaslGd4znagoohuISQpX3lPJ27sgw5WcFyfKFQ/MohRYd2vDmEOZ6jHh6IlluNmvSDVuSPNWLg
+	Hd2lVTbS+HgUYZSjBRmPkS219WJXpbfZpH7aE7j5NhjcYf2DEwHCuluIztY2w4mOR9/Yb2NWnVfIr
+	hgJd7VK/AczS+lzj9r6Y+nLxNbkNyW3H1CFs6tNxTFKYpZm2YmzHAF92psDxWy8Gc7F5TVcFdAjsh
+	r/sZQlkq2S3LEvq2QVsz/WWkEtB4I5LiUEfC+Dq5EQ/f+s6e/nlBDi9H8YVpplMnrMFacKkgB/wvO
+	Dlw2Yozw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYTRY-0000000FeUL-1xTH;
-	Thu, 16 Jan 2025 17:14:08 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1tYTnj-0000000Fhra-3COU;
+	Thu, 16 Jan 2025 17:37:03 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYTQI-0000000FeMG-3X1a
+	id 1tYTmT-0000000Fhl6-2w7N
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 17:12:51 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-43618283d48so7854725e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 09:12:50 -0800 (PST)
+	Thu, 16 Jan 2025 17:35:46 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-43675b1155bso12728695e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 09:35:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737047568; x=1737652368; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Cw8bDVhWC4DZ7iFBTJuoMnPRKeQXkQkpwuO4pmzE3V0=;
-        b=hi87VPaw/PvJgs9vNn0RrOf/wegzPOtlTWDfw5Oj/0XXmmFdP4QrkmMVA3xHoM7GIh
-         KHwhwLCXcZ2POfribeskHOk4aqunhSX1EdocIg8AjtSkzQMpRy3AZQfBbGt9dfvxX6u8
-         0hJwZuS/Cn++9FXNXKjXXUWIyz6nnD0bOpeQN/lGDODWPc35VX1jhFyH3naUonpcD94O
-         KicddaPSY2sSj4UeRkm6bdymXMdonApTevd3TF4tn8G7qA89c7onfOmtYzUpFTapgwGH
-         DyPlmps+vpWR/kAlybXFcIPNMGRh9icwGfdIMozsTF99qjLNP1crC5dQeD2PalP5RzqW
-         NiRQ==
+        d=gmail.com; s=20230601; t=1737048943; x=1737653743; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=OXBv7mU3IUmuhGazcfTF0fMhicUzdzlonYKZ/ftM1lc=;
+        b=PEIZzCQjER6nFbgPtOjgJLCPyNYZMsh+qx2Z20AGgE4V5GgQTg2a0b+CHSi1I2EsxR
+         UndQlBkJknM7NLZbBGNKq7RVSh00cOTKKiSInY/DHsWPSVLfQiYfmnjVm1ReDYxuXigs
+         MEl86Q8gYGJuiuJwp5NSlu6YBxq+y/c37XWi/mXZVb4q4Q/Tbve33YWpDhl/FW/DRLq3
+         YfzTugo6+68wwhjhlOem9sQ1JkEWjhePQSUYp2tgpMR9n4fhdBGa4rQZpColQSOMsCjk
+         fEJz4ECrqhGCAXwDLNQ0SzIpc8z0tb8DZ7TCuZI8a/xfyTbOnofVqVoWcGm1SdD2eTJY
+         oc3w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737047568; x=1737652368;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Cw8bDVhWC4DZ7iFBTJuoMnPRKeQXkQkpwuO4pmzE3V0=;
-        b=l15fJJCSLRtuPVCQmipkJ+cVj6f8PYmH9rFkp0pDgnRFjXQaZ7hvg8C0uC3O43hHzv
-         /xI4tP4wiw1k9Lc1O98dyeCtaKDE3bjhYL0xMDw2R8Wb3l2hfeTBsXYU0pLWLPQMT1QY
-         +FzyHjmr4AWSKZaIUUFB02lM8u/k0oYI6pPTSkq2zxrZgJzfj+SnA+B6qHMdKTParpkq
-         HgFl6E3i1ZHnubtUIn7xsmpmwXx20nhtqBGQuKKUpBwayQHDslfayeZWdxk6ADUiyMp4
-         4zzltYDRZF3aYqIMP0In8V5tD5X/xj49HDSCL1uelPrgxRRklPLitjF40Yhfdv8M+03H
-         3u2A==
-X-Forwarded-Encrypted: i=1; AJvYcCWA6/4txqckHxxGlcJFsAFJKYOX/MMbmlUHtKFPlOpSRr0DMUvimoB/kv2uIJ2Bv9Loxvb6U5u9n4b+MI2mGW5k@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6AQKwXwgph+zLQ0HtBt1/Ow2Fm0euAygoR7No+02kK6BMQ+sk
-	/jamnRjGove0lJQ4NALLPdGMFW95eNcDxjinW5GXi/kuwWjdX9hGmtKm1MgV
-X-Gm-Gg: ASbGncv01cpIdcFvloZeaXV2nCBKV4TAmph2vwusFf8Ov2YlLBS7OQa3Kx+WHmISc7h
-	wmXy21DTGnlcBW9xdY2nVnZZww64QDq30F4/6A6olMCAkDXSsVkLDX/HQ9zGr2jA8kjNtFJMp1W
-	BEjcOrLGsY21jDol/K6IEmAw8oZjWXQP05BgfBMtrkm4I4GiszR3nMcIbPxUui+QIKPfcNdv84e
-	I6kLPdzivRj1WgANgzZEwo06GVTHJAsTJXCvIDxrbuLyeSdymAKTiR0
-X-Google-Smtp-Source: AGHT+IGtLGwyml6Hx0in5ut9hFjk73RQS7czX4FZAK2dgjkWdVTUUYWRBke716qnI3YVynil/kPGPA==
-X-Received: by 2002:a05:600c:138e:b0:431:55c1:f440 with SMTP id 5b1f17b1804b1-436e26f5f3fmr348174505e9.30.1737047567988;
-        Thu, 16 Jan 2025 09:12:47 -0800 (PST)
+        d=1e100.net; s=20230601; t=1737048943; x=1737653743;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=OXBv7mU3IUmuhGazcfTF0fMhicUzdzlonYKZ/ftM1lc=;
+        b=fD+Ymfx2xSwwObog/p43FCbfMT4t0zhLBAnjRUBzw8/UjLOy3LGgQW0+dfQsLC1PT2
+         8zx2PIzUDc4jUEZE1ypuf6J1nk9LoT6mgT/zFHbqApcfmsulUoi9del7mVyPi8zEeM8J
+         E8XdXwzTiOkV1omiqPVZ8H8HsBA3ztM/wYxmLCuH7nB8C8n0t4OWVhz5U+MnQgpZIcf8
+         WA5M+mPTOga9IKU2SLyN5AE950MAaZi/5sb/RBtFkRA7YDVWY4Rh/H2g6EtH8LXfMlHo
+         0kWCZc36qjVthTuAfzEc5rHNY/BfyrJh6m/r+jQHBH1wZnlsFsLQWdyrrGHm42gVUosE
+         mpjQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXIKRM1TWwRw/V06zGVXrH5dC75i/54YkSvScxzqfaUo0uJXG9zic8QinMSDJefghQFAhCrn0ddKSU4vLlySITR@lists.infradead.org
+X-Gm-Message-State: AOJu0YzKJst46DVDHFIAHQ3crrs5m2WrHag1MxGnTrSrbXug4mEkji9g
+	CnoPqvYSpE5peHgXywUtCQr9yf/sCHCCuEJYwmTksx0UDgFyoBkW
+X-Gm-Gg: ASbGncvqY5idsEIlHSP/N1a4Z1auFwsXnyWs1gNe5QNjrgHyJx/nomb7PCw7qOj+FiE
+	LuAG7D4vwdyxEJDqzSc93FqTml1W3ZSlNJheMYC1du6o6XqtbAE5sj+utwaXdXjzGEPfPCmzk7v
+	cpvu1fsUQeD6HTCbibMiaSHeOCj1CVguvmtqiWqjfy6KMFsWjNVHnEJ+1rETtDbXDAynTM+n1XT
+	Pjlevc/dSkKZfk6sfS2PY65bZtpZW6XqpdW61+DlOJ5cW/yHKHE6R+m
+X-Google-Smtp-Source: AGHT+IE4uFPItlsauRShxJdLB24OsNy/KVeIOXphx1Hzsl5WiEKLoA/vq8qTUH8Lxbx1pF338OyP/w==
+X-Received: by 2002:a05:6000:1849:b0:385:e5d8:3ec2 with SMTP id ffacd0b85a97d-38a8730b535mr32269071f8f.28.1737048942602;
+        Thu, 16 Jan 2025 09:35:42 -0800 (PST)
 Received: from eichest-laptop ([2a02:168:af72:0:6c4e:8d77:c1b7:309e])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-437c7540ae7sm64609915e9.33.2025.01.16.09.12.47
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4389046b0f5sm5619075e9.39.2025.01.16.09.35.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Jan 2025 09:12:47 -0800 (PST)
-Date: Thu, 16 Jan 2025 18:12:46 +0100
+        Thu, 16 Jan 2025 09:35:42 -0800 (PST)
+Date: Thu, 16 Jan 2025 18:35:40 +0100
 From: Stefan Eichenberger <eichest@gmail.com>
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: andrew@lunn.ch, gregory.clement@bootlin.com,
-	sebastian.hesselbarth@gmail.com, shivamurthy.shastri@linutronix.de,
-	anna-maria@linutronix.de, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] irqchip/irq-mvebu-icu: Fix irq_set_type for sei and
- nsr
-Message-ID: <Z4k-DkMt8XQYs_kf@eichest-laptop>
-References: <20241217111623.92625-1-eichest@gmail.com>
- <87frlkcx2b.ffs@tglx>
+To: Shengjiu Wang <shengjiu.wang@gmail.com>
+Cc: abelvesa@kernel.org, peng.fan@nxp.com, mturquette@baylibre.com,
+	sboyd@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com, shengjiu.wang@nxp.com,
+	francesco.dolcini@toradex.com, linux-clk@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Stefan Eichenberger <stefan.eichenberger@toradex.com>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v1] clk: imx: imx8-acm: fix flags for acm clocks
+Message-ID: <Z4lDbMqCYW2W7iyX@eichest-laptop>
+References: <20250113094654.12998-1-eichest@gmail.com>
+ <CAA+D8ANvKQKJhn6qKbPhQeXPD5kxUo3Hg-FBLkDMOaWLTA8vVg@mail.gmail.com>
+ <Z4ZRYMf_uJW4poW9@eichest-laptop>
+ <Z4dy3LiEAQ_gkQGG@eichest-laptop>
+ <CAA+D8AO75MLyP5AWDJoogw8ae4GRtZfSR-HT+S26bXoaVs8saQ@mail.gmail.com>
+ <Z4eQX_VnBEVqxT_r@eichest-laptop>
+ <CAA+D8APivJWD-AqwmQ-mtcr=ZHot5rfA8FRWF2+p-_mq5BGxHA@mail.gmail.com>
+ <Z4i0G5Tw4q0v8DTL@eichest-laptop>
+ <CAA+D8AOakQdnEe9ZrfTCrWcjHJRRU0kqFVsiu8+FMiHeMAVV_g@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <87frlkcx2b.ffs@tglx>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAA+D8AOakQdnEe9ZrfTCrWcjHJRRU0kqFVsiu8+FMiHeMAVV_g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_091250_883878_A95D4C87 
-X-CRM114-Status: GOOD (  30.88  )
+X-CRM114-CacheID: sfid-20250116_093545_747631_C50448AA 
+X-CRM114-Status: GOOD (  63.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,146 +111,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Thomas,
+Hi Shengjiu Wang,
 
-On Wed, Jan 15, 2025 at 09:15:24AM +0100, Thomas Gleixner wrote:
-> On Tue, Dec 17 2024 at 12:15, Stefan Eichenberger wrote:
-> > A regression was introduced in commit d929e4db22b6
-> > ("irqchip/irq-mvebu-icu: Prepare for real per device MSI") that causes
-> > the Armada thermal driver to fail during probe with the following error:
-> > genirq: Setting trigger mode 4 for irq 85 failed (irq_chip_set_type_parent+0x0/0x34)
-> > armada_thermal f2400000.system-controller:thermal-sensor@70: Cannot request threaded IRQ 85
-> > armada_thermal f2400000.system-controller:thermal-sensor@70: probe with driver armada_thermal failed with error -22
+On Thu, Jan 16, 2025 at 03:30:55PM +0800, Shengjiu Wang wrote:
+> On Thu, Jan 16, 2025 at 3:24 PM Stefan Eichenberger <eichest@gmail.com> wrote:
 > >
-> > The issue occurs because irq_set_type is assigned to
-> > irq_chip_set_type_parent, but the parent IRQ chip does not implement the
-> > irq_set_type operation. This causes the trigger mode configuration to
-> > fail.
+> > Hi Shengjiu Wang,
 > >
-> > This patch resolves the issue by removing the irq_set_type assignment.
-> > With no irq_set_type, __irq_set_trigger safely skips the trigger
-> > configuration, restoring functionality to the thermal driver.
+> > On Thu, Jan 16, 2025 at 12:01:13PM +0800, Shengjiu Wang wrote:
+> > > On Wed, Jan 15, 2025 at 6:39 PM Stefan Eichenberger <eichest@gmail.com> wrote:
+> > > >
+> > > > On Wed, Jan 15, 2025 at 05:14:09PM +0800, Shengjiu Wang wrote:
+> > > > > On Wed, Jan 15, 2025 at 4:33 PM Stefan Eichenberger <eichest@gmail.com> wrote:
+> > > > > >
+> > > > > > Hi Shengjiu Wang,
+> > > > > >
+> > > > > > On Tue, Jan 14, 2025 at 12:58:24PM +0100, Stefan Eichenberger wrote:
+> > > > > > > Hi Shengjiu Wang,
+> > > > > > >
+> > > > > > > On Tue, Jan 14, 2025 at 03:49:10PM +0800, Shengjiu Wang wrote:
+> > > > > > > > On Mon, Jan 13, 2025 at 5:54 PM Stefan Eichenberger <eichest@gmail.com> wrote:
+> > > > > > > > >
+> > > > > > > > > From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+> > > > > > > > >
+> > > > > > > > > Currently, the flags for the ACM clocks are set to 0. This configuration
+> > > > > > > > > causes the fsl-sai audio driver to fail when attempting to set the
+> > > > > > > > > sysclk, returning an EINVAL error. The following error messages
+> > > > > > > > > highlight the issue:
+> > > > > > > > > fsl-sai 59090000.sai: ASoC: error at snd_soc_dai_set_sysclk on 59090000.sai: -22
+> > > > > > > > > imx-hdmi sound-hdmi: failed to set cpu sysclk: -22
+> > > > > > > >
+> > > > > > > > The reason for this error is that the current clock parent can't
+> > > > > > > > support the rate
+> > > > > > > > you require (I think you want 11289600).
+> > > > > > > >
+> > > > > > > > We can configure the dts to provide such source, for example:
+> > > > > > > >
+> > > > > > > >  &sai5 {
+> > > > > > > > +       assigned-clocks = <&acm IMX_ADMA_ACM_SAI5_MCLK_SEL>,
+> > > > > > > > +                       <&acm IMX_ADMA_ACM_AUD_CLK1_SEL>,
+> > > > > > > > +                       <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_PLL>,
+> > > > > > > > +                       <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_SLV_BUS>,
+> > > > > > > > +                       <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_MST_BUS>,
+> > > > > > > > +                       <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_PLL>,
+> > > > > > > > +                       <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_SLV_BUS>,
+> > > > > > > > +                       <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_MST_BUS>,
+> > > > > > > > +                       <&sai5_lpcg 0>;
+> > > > > > > > +       assigned-clock-parents = <&aud_pll_div0_lpcg 0>, <&aud_rec1_lpcg 0>;
+> > > > > > > > +       assigned-clock-rates = <0>, <0>, <786432000>, <49152000>, <12288000>,
+> > > > > > > > +                                <722534400>, <45158400>, <11289600>,
+> > > > > > > > +                               <49152000>;
+> > > > > > > >         status = "okay";
+> > > > > > > >  };
+> > > > > > > >
+> > > > > > > > Then your case should work.
+> > > > > > > >
+> > > > > > > > >
+> > > > > > > > > By setting the flag CLK_SET_RATE_NO_REPARENT, we signal that the ACM
+> > > > > > > >
+> > > > > > > > I don't think CLK_SET_RATE_NO_REPARENT is a good choice. which will cause
+> > > > > > > > the driver don't get an error from clk_set_rate().
+> > > > > > >
+> > > > > > > Thanks for the proposal, I will try it out tomorrow. Isn't this a
+> > > > > > > problem if other SAIs use the same clock source but with different
+> > > > > > > rates?
+> > > > > > >
+> > > > > > > If we have to define fixed rates in the DTS or else the clock driver
+> > > > > > > will return an error, isn't that a problem? Maybe I should change the
+> > > > > > > sai driver so that it ignores the failure and just takes the rate
+> > > > > > > configured? In the end audio works, even if it can't set the requested
+> > > > > > > rate.
+> > > > > >
+> > > > > > The following clock tree change would allow the driver to work
+> > > > > > in our scenario:
+> > > > > > &sai5 {
+> > > > > >         assigned-clocks = <&acm IMX_ADMA_ACM_SAI5_MCLK_SEL>,
+> > > > > >                           <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_PLL>;
+> > > > > >         assigned-clock-parents = <&aud_pll_div1_lpcg 0>;
+> > > > > >         assigned-clock-rates = <0>, <11289600>;
+> > > > > > };
+> > > > >
+> > > > > In which we configure PLL_0 for 48KHz series (8kHz/16kHz/32kHz/48kHz),
+> > > > > PLL_1 for 44kHz series (11kHz/22kHz/44kHz),
+> > > > > which should fit for most audio requirements.
+> > > > >
+> > > > > >
+> > > > > > However, this means we have to switch the parent clock to the audio pll
+> > > > > > 1. For the simple setup with two SAIs, one for analog audio and one for
+> > > > > > HDMI this wouldn't be a problem. But I'm not sure if this is a good
+> > > > > > solution if a customer would add a third SAI which requires again a
+> > > > > > different parent clock rate.
+> > > > >
+> > > > > We won't change the PLL's rate in the driver,  so as PLL_0 for 48kHz,
+> > > > > PLL_1 for 44kHz,  even with a third SAI or more,  they should work.
+> > > > >
+> > > > > >
+> > > > > > One potential solution could be that the SAI driver tries to first
+> > > > > > derive the clock from the current parent and only if this fails it tries
+> > > > > > to modify its parent clock. What do you think about this solution?
+> > > > > >
+> > > >
+> > > > I did some more testing and I'm still not happy with the current
+> > > > solution. The problem is that if we change the SAI5 mclk clock parent it
+> > > > can either support the 44kHz series or the 48kHz series. However, in the
+> > > > case of HDMI we do not know in advance what the user wants.
+> > > >
+> > > > This means when testing either this works:
+> > > > speaker-test -D hw:2,0 -r 48000 -c 2
+> > > > or this works:
+> > > > speaker-test -D hw:2,0 -r 44100 -c 2
+> > > > With:
+> > > > card 2: imxaudiohdmitx [imx-audio-hdmi-tx], device 0: i.MX HDMI i2s-hifi-0 [i.MX HDMI i2s-hifi-0]
+> > >
+> > > Are you using the setting below?  then should not either,  should both works
+> > >  &sai5 {
+> > > +       assigned-clocks = <&acm IMX_ADMA_ACM_SAI5_MCLK_SEL>,
+> > > +                       <&acm IMX_ADMA_ACM_AUD_CLK1_SEL>,
+> > > +                       <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_PLL>,
+> > > +                       <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_SLV_BUS>,
+> > > +                       <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_MST_BUS>,
+> > > +                       <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_PLL>,
+> > > +                       <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_SLV_BUS>,
+> > > +                       <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_MST_BUS>,
+> > > +                       <&sai5_lpcg 0>;
+> > > +       assigned-clock-parents = <&aud_pll_div0_lpcg 0>, <&aud_rec1_lpcg 0>;
+> > > +       assigned-clock-rates = <0>, <0>, <786432000>, <49152000>, <12288000>,
+> > > +                                <722534400>, <45158400>, <11289600>,
+> > > +                               <49152000>;
+> > >         status = "okay";
+> > >  };
+> >
+> > Sorry I didn't communicate that properly. Yes I was trying with these
+> > settings but they do not work. The problem does not seem to be that the
+> > driver can not adjust the rate for the audio (so e.g. 44kHz or 48kHz)
+> > but that snd_soc_dai_set_sysclk in imx-hdmi.c fails with EINVAL. This
+> > results in a call to fsl_sai_set_mclk_rate in fsl_sai.c with clk_id 1
+> > (mclk_clk[1]) and a freq of 11289600 which causes the fail.
+> > Interestingly, in fsl_sai_set_bclk we then only use clk_get_rate on
+> > mclk_clk[0] which is set to audio_ipg_clk (rate 175000000) and we do not
+> > use mclk_clk[1] anymore at all. This is why I'm not sure if this call to
+> > snd_soc_dai_set_syclk is really necessary?
+> >
 > 
-> I'm not convinced that this is correct.
+> Could you please check if you have the below commit in your test tree?
+> 35121e9def07 clk: imx: imx8: Use clk_hw pointer for self registered
+> clock in clk_parent_data
 > 
-> The original code had irq_chip_set_type_parent() for the NSR/SEI chips
-> too and all what d929e4db22b6 does is to convert those chips over to the
-> new platform MSI mechanism. Here are the original chips:
+> if not, please cherry-pick it.
 > 
-> static struct irq_chip mvebu_icu_nsr_chip = {
-> 	.name			= "ICU-NSR",
->         ...
-> 	.irq_set_type		= irq_chip_set_type_parent,
->         ...
-> };
-> 
-> static struct irq_chip mvebu_icu_sei_chip = {
-> 	.name			= "ICU-SEI",
->         ...
-> 	.irq_set_type		= irq_chip_set_type_parent,
->         ...
-> };
-> 
-> And looking at the potential platform MSI providers for MVEBU, then it
-> turns out that GICP and SEI both have the irq_set_type() callback
-> populated, though ODMI has not. So either this has never worked or there
-> is something else fishy.
-> 
-> Can you please enable CONFIG_GENERIC_IRQ_DEBUGFS, build/boot a 6.10
-> kernel and provide the output of
-> 
-> cat /sys/kernel/debug/irq/irq/$N
-> 
-> where $N is the interrupt number of the thermal sensor.
-> 
-> Then provide the same information for a current kernel with your patch
-> applied.
+> The audio_ipg_clk can be selected if there is no other choice.
+> but the rate 175000000 is not accurate for 44kHz. what we got
+> is 44102Hz. This is the reason I don't like to use this source.
 
-You are right I somehow didn't look back far enough. I tested once with
-kernel 6.12.5 and my patch applied:
-root@localhost:~# uname -a
-Linux localhost.localdomain 6.12.5+ #157 SMP PREEMPT Thu Jan 16 17:32:21 CET 2025 aarch64 GNU/Linux
-root@localhost:~# cat /proc/interrupts |grep thermal
- 35:          0          0          0          0    AP SEI  18 Level     f06f8000.system-controller:thermal-sensor@80
- 90:          0          0          0          0  SEI-ICU-SEI-f21e0000.interrupt-controller:inter 116 Edge      f2400000.system-controller:thermal-sensor@70
- 91:          0          0          0          0  SEI-ICU-SEI-f61e0000.interrupt-controller:inter 116 Edge      f6400000.system-controller:thermal-sensor@70
-root@localhost:~# cat /sys/kernel/debug/irq/irqs/90
-handler:  handle_edge_irq
-device:   f21e0000.interrupt-controller:interrupt-controller@50
-status:   0x00000000
-istate:   0x00004000
-ddepth:   0
-wdepth:   0
-dstate:   0x02400204
-            IRQ_TYPE_LEVEL_HIGH
-            IRQD_ACTIVATED
-            IRQD_IRQ_STARTED
-            IRQD_DEFAULT_TRIGGER_SET
-node:     -1
-affinity: 0-3
-effectiv:
-domain:  :cp0:config-space@f2000000:interrupt-controller@1e0000:interrupt-controller@50-16
- hwirq:   0x74
- chip:    SEI-ICU-SEI-f21e0000.interrupt-controller:inter
-  flags:   0x80
-             IRQCHIP_SUPPORTS_LEVEL_MSI
- parent:
-    domain:  :ap807:config-space@f0000000:interrupt-controller@3f0200-2
-     hwirq:   0x0
-     chip:    CP SEI
-      flags:   0x0
-     parent:
-        domain:  :ap807:config-space@f0000000:interrupt-controller@3f0200-5
-         hwirq:   0x15
-         chip:    SEI
-          flags:   0x0
+Thanks a lot for the hint, in my test setup I indeed have not applied
+this commit. I tested it now with cherry-picking the commit and with
+applying the change to the dts. This made it work. I will do some more
+testing tomrrow and if I can't find any addtional issue I will use this
+as a solution. 
 
-And then with kernel 6.10.14 without any patches:
-root@localhost:~# uname -a
-Linux localhost.localdomain 6.10.14 #1 SMP PREEMPT Thu Jan 16 17:52:59 CET 2025 aarch64 GNU/Linux
-root@localhost:~# cat /proc/interrupts |grep thermal
- 35:          0          0          0          0    AP SEI  18 Level     f06f8000.system-controller:thermal-sensor@80
- 90:          0          0          0          0   ICU-SEI 116 Edge      f2400000.system-controller:thermal-sensor@70
- 91:          0          0          0          0   ICU-SEI 116 Edge      f6400000.system-controller:thermal-sensor@70
-root@localhost:~# cat /sys/kernel/debug/irq/irqs/90
-handler:  handle_edge_irq
-device:   (null)
-status:   0x00000001
-istate:   0x00004000
-ddepth:   0
-wdepth:   0
-dstate:   0x02400201
-            IRQ_TYPE_EDGE_RISING
-            IRQD_ACTIVATED
-            IRQD_IRQ_STARTED
-            IRQD_DEFAULT_TRIGGER_SET
-node:     -1
-affinity: 0-3
-effectiv:
-domain:  :cp0:config-space@f2000000:interrupt-controller@1e0000:interrupt-controller@50
- hwirq:   0x74
- chip:    ICU-SEI
-  flags:   0x0
- parent:
-    domain:  :ap807:config-space@f0000000:interrupt-controller@3f0200-4
-     hwirq:   0x505a
-     chip:    SEI pMSI
-      flags:   0x0
-     parent:
-        domain:  :ap807:config-space@f0000000:interrupt-controller@3f0200-2
-         hwirq:   0x0
-         chip:    CP SEI
-          flags:   0x0
-         parent:
-            domain:  :ap807:config-space@f0000000:interrupt-controller@3f0200-5
-             hwirq:   0x15
-             chip:    SEI
-              flags:   0x0
+Should I add the change to our Apalis board dtsi file or directly to
+imx8qm-ss-audio.dtsi? I think it fixes kind of a general issue or not?
 
-It seems with kernel 6.10 the controller device was not set correctly,
-probably it was ignoring irq_set_type because of this. Do you by chance
-have an idea how to properly fix this or should I do some more research?
-
-Thanks and regards,
+Thanks for your support
 Stefan
 
