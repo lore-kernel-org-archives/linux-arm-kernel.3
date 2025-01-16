@@ -4,99 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2624C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 04:55:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2BB4E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 05:01:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e4lTg0T9hFxSt/NfABOy8Ts2GGYfCa7L7ZN3BcykZak=; b=j3yR5iECoIsoZE9u1gIlBjoQiV
-	q98EVocYgs+GB255V9UPdJXnKWP1hrCuJx17ybqp5niEGXSZkn1G3WMf18imTFCjCRDRbRwnzhvdJ
-	4LblFH/M6EKZAOabkoHli2wxzEJWj4YT3sKxR0jTy822gShdZeyVQvTrB8k6Xhwxc1allJj0QAY7v
-	EQy2MaKLU5KuHKn6j77WHvBTkyi09F5vVsvv/7K9EOwcPRs26ArtRFBRQWk+LU/kSBAS+RwUSK3X+
-	eonpXusOft+utBiiquUeIbS1qE/S32ARmFqOGT7AYw6gODl+hy82mEidgkSi3iEmzSqn4pRb9XhnK
-	MQvAt9AQ==;
+	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=myLK3+vE+bT63IqM6DbxSRFiNiyxb8mWpKrlTh3FyGw=; b=xFiqxUwF9yDrxF682aVyrR3rr9
+	CyGgwkSh8dm6iYnUo5n37OMT2C4v0s8KbwptfCHg8iyS52zBC8XGLVUn1bHbUqUv4d9HPabDevma/
+	pzA/W0cWAzRlhy6uWemQ154CUwyXSUsiem8LVfU7wkYH5U2N+riSZrRK1LFXdOHaLnmzMi3pzs4/8
+	MqCojugkZZDkkLc2naHGPaoDC2B68XJlBbmA4ijsXiqRz7j4s2EPJs9ypVvLj/IJDQh9enTbX7IT5
+	XtrUbYcAX18nA6qe5jtTXXIBdjf7GDXvAjdtNwEfqHXVavXo2118gQP9cDAv7tf1nXkVo8rHbXZ1E
+	i0LoIGpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYHus-0000000DplM-193v;
-	Thu, 16 Jan 2025 04:55:38 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1tYHzt-0000000DqGd-3COV;
+	Thu, 16 Jan 2025 05:00:49 +0000
+Received: from esa1.hc1455-7.c3s2.iphmx.com ([207.54.90.47])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYHtb-0000000Dpe8-1adZ
+	id 1tYHyZ-0000000Dq3X-2f13
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 04:54:21 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-21661be2c2dso7703775ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 20:54:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=pf-is-s-u-tokyo-ac-jp.20230601.gappssmtp.com; s=20230601; t=1737003259; x=1737608059; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=e4lTg0T9hFxSt/NfABOy8Ts2GGYfCa7L7ZN3BcykZak=;
-        b=aZbhMDHIBtw5gzHl49KpCAUtFM7bCmR7CsITIGMinrx0Lcge7UEj6mkLg9kHRRTL/3
-         ulMornvRkiT9MdS70a7b6iz6xliSvi2M455pBh/vxe3FsJEqKylLQpR63Q8FuTpkdg5H
-         xUaYqikFn+gusgwu3jj/+lUXeE7lNXUm80iGvMP2DYgxraN8a+7hvASRfyIscFmkskWv
-         +dIHYLDaDEKlG4CuxS9tmB875ddbHfWzHRDSbiBoOeH6KSyCU5FiUZdcBY340PflN5RG
-         +uYFfWfvdMdEMQZQgrOjg2uTURndzj7G+PXW2UFiwfNyEiMuoKat8TrVU+ef1u017wj1
-         H8tA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737003259; x=1737608059;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=e4lTg0T9hFxSt/NfABOy8Ts2GGYfCa7L7ZN3BcykZak=;
-        b=eDD/at6HQlQOrfBtJn2QQRt1lGxPZbJUC+6hvxZaY+SnTgOX/kxxG2oD7KtlogqTlA
-         oksRF5B19KP4Ih9gcc28EXYNLsLIsEHkRxJAYxqN0s0wkIuGtcQAZDSHMMrVFD/DX3nK
-         eSjPAZVsWTgxIUkF+N0Ge/EEoOGRfQNbYUaJAZvhgwkwoTG6fg033ZD2jraeccHfVD0y
-         mbsbQN+MQMsqnzpSDnXjX0cSXyEmvLAGc6xXoKnCsE2FOf2YoFSsftgwal11+XN8dv0c
-         UiLKuzjxfsqRJut1sYlnIqNabn9b9eCHXPm8MurVLVZfk4aXsj4Yw0WO/4UnSJjiTTG+
-         MGiw==
-X-Forwarded-Encrypted: i=1; AJvYcCU9Yir6VM/98ICQMiDBcuIQfs0dxOw78sevQ00isuHiUbIAjTMnBsA4SPRcpCCsHrNWihc476pBnWxRjd1vcQnM@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz4t175Y/BMVJYa8Be6w6l8B+45xi+F5yRfzYR0JytNRYB3kXhe
-	IShHudFH9eQtzDKCseZzyNRrPOW6MwW7If+NFYLrtarra5FOWEAxUFXVtZFPV+s=
-X-Gm-Gg: ASbGncsaoNnn3fk8sCh+CSKIoPjlxgJziYIiSLBIsNJS0otn58Xen1U3vJO/ChdUhIy
-	9MY486O5++4XJwz4Zf8qRLPFBIDobeotUTJI/9nYYUeXXIoEhOzrbT1OnuVvQJur+zJSXvRafsg
-	jPeXETpL6sbZCqw2IW7qaiEY9x6MXkBcq7cO95ZXJLAqfWziVnVp9vJtJxGporQ3WyhSKK0VEYO
-	O7it6R4Ge8NhYPIhPo5z7rkN7nDyigU2FQMkLqSDlU2uW0DUA+kbp0zFuhEnXhmlXe+Qpk=
-X-Google-Smtp-Source: AGHT+IGrIee2UMyxZ1TjWISfaNWFFsUV/xQqvtny3X7oWRWZJQq5c4TtrQOvGnVq1jkMQDFxC4rirA==
-X-Received: by 2002:a05:6a21:a24b:b0:1d9:6c9c:75ea with SMTP id adf61e73a8af0-1e88d0df9efmr47653820637.5.1737003258724;
-        Wed, 15 Jan 2025 20:54:18 -0800 (PST)
-Received: from [157.82.204.145] ([157.82.204.145])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-a31857cfb2bsm10568472a12.26.2025.01.15.20.54.15
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 15 Jan 2025 20:54:18 -0800 (PST)
-Message-ID: <b864aba0-fb12-4409-ab82-a7c6ed09674a@pf.is.s.u-tokyo.ac.jp>
-Date: Thu, 16 Jan 2025 13:54:13 +0900
+	Thu, 16 Jan 2025 04:59:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1737003568; x=1768539568;
+  h=from:to:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=2mAQQo2S97LPir2JTuEGQGrwuI/BTWwVJ1Jqv9AaU5M=;
+  b=TK4l+pL6mCjkF54LnvxYTg2pk6ZAkfgkAMtnZyNZhIOBWWRldx1zocLt
+   u2BEStqWKnc3sWhCOvnfQWcniAwdAYOxFdNX2e7WERalVSEzbp6t+O4wN
+   CNE0hb0JoVyn/kjF655NRrJJMVpMScrjULAwNOY+rU7J0iOS42wWmjcfG
+   7WIUnIiUsYA5tMsBrkZ0WBdqfcQjIMtYgxcCjo/sasnnRSWFN0GkXw/1y
+   +5vMi6i/2tdhW78FUxCfRPAKkiEyiX9S0xJ3yMq40HNGQw0KCPpllvNy2
+   eEyM7X/c0zX71DA11yAi94Ku8XlckmBd9zRx6mQ2UmBoHVe7Gq3WQvOH5
+   A==;
+X-CSE-ConnectionGUID: pgKkYwxLSFC4WN+rdDGOxg==
+X-CSE-MsgGUID: /vRhYcPlTZKCdpfkYB4MYQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11316"; a="186745745"
+X-IronPort-AV: E=Sophos;i="6.13,208,1732546800"; 
+   d="scan'208";a="186745745"
+Received: from unknown (HELO yto-r4.gw.nic.fujitsu.com) ([218.44.52.220])
+  by esa1.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jan 2025 13:59:23 +0900
+Received: from yto-m2.gw.nic.fujitsu.com (yto-nat-yto-m2.gw.nic.fujitsu.com [192.168.83.65])
+	by yto-r4.gw.nic.fujitsu.com (Postfix) with ESMTP id 35726E0767
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 13:59:20 +0900 (JST)
+Received: from yto-om4.fujitsu.com (yto-om4.o.css.fujitsu.com [10.128.89.165])
+	by yto-m2.gw.nic.fujitsu.com (Postfix) with ESMTP id 0A3C6D50E2
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 13:59:20 +0900 (JST)
+Received: from sm-x86-mem01.ssoft.mng.com (sm-x86-stp01.soft.fujitsu.com [10.124.178.20])
+	by yto-om4.fujitsu.com (Postfix) with ESMTP id 0CDBB40054BA4;
+	Thu, 16 Jan 2025 13:59:19 +0900 (JST)
+From: Yoshihiro Furudera <fj5100bi@fujitsu.com>
+To: Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Bjorn Andersson <quic_bjorande@quicinc.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	=?UTF-8?q?N=C3=ADcolas=20F=2E=20R=2E=20A=2E=20Prado?= <nfraprado@collabora.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Yoshihiro Furudera <fj5100bi@fujitsu.com>
+Subject: [PATCH v4 0/2] perf: Fujitsu: Add Uncore MAC/PCI PMU driver
+Date: Thu, 16 Jan 2025 04:59:09 +0000
+Message-Id: <20250116045911.3382537-1-fj5100bi@fujitsu.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] spmi: Fix controller->node != parent->node breakage
-To: Stephen Boyd <sboyd@kernel.org>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Konrad Dybcio <konradybcio@gmail.com>, Konrad Dybcio
- <konradybcio@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-Cc: Marijn Suijten <marijn.suijten@somainline.org>,
- linux-kernel@vger.kernel.org,
- Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
- Abel Vesa <abel.vesa@linaro.org>, Johan Hovold <johan+linaro@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-References: <20250113-topic-spmi_node_breakage-v2-1-dd35a3a6daa6@oss.qualcomm.com>
- <5b139af8d639e20a14c8bd00e8e03a4a.sboyd@kernel.org>
- <58cb6c37-0ea0-4866-a2b1-92cb0f0391a7@gmail.com>
- <305d7cf5f0a66efc01181f24d3a288d3.sboyd@kernel.org>
- <91e2bd5b-71fa-402a-82cb-e68d3295804a@gmail.com>
- <848b4dad4f38dc6545b97f7c5007e514.sboyd@kernel.org>
-Content-Language: en-US
-From: Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>
-In-Reply-To: <848b4dad4f38dc6545b97f7c5007e514.sboyd@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_205419_423900_92448891 
-X-CRM114-Status: GOOD (  13.82  )
+X-CRM114-CacheID: sfid-20250115_205927_941273_C0D06E3F 
+X-CRM114-Status: GOOD (  12.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,45 +99,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This adds two new dynamic PMUs to the Perf Events framework to program
+and control the Uncore MAC/PCI PMUs in Fujitsu chips.
 
+These drivers were created with reference to drivers/perf/qcom_l3_pmu.c.
 
-On 1/16/25 08:16, Stephen Boyd wrote:
-> Quoting Konrad Dybcio (2025-01-14 12:37:20)
->> On 1/14/25 19:30, Stephen Boyd wrote:
->>>
->>> Ok, I see that I was reading the already reverted state of the tree
->>> where the 'ctrl->dev.of_node = node' assignment came back. So there's
->>> nothing to do besides drop the patch in fixes, which I already did. We
->>> can then apply this patch to drop the duplicate assignment as a cleanup
->>> and to avoid a refcount bump on the of_node that isn't needed.
->>>
->>> ----8<---
->>> diff --git a/drivers/spmi/hisi-spmi-controller.c b/drivers/spmi/hisi-spmi-controller.c
->>> index 3cafdf22c909..122140b97579 100644
->>> --- a/drivers/spmi/hisi-spmi-controller.c
->>> +++ b/drivers/spmi/hisi-spmi-controller.c
->>> @@ -300,9 +300,6 @@ static int spmi_controller_probe(struct platform_device *pdev)
->>>    
->>>        spin_lock_init(&spmi_controller->lock);
->>>    
->>> -     ctrl->dev.parent = pdev->dev.parent;
->>> -     ctrl->dev.of_node = of_node_get(pdev->dev.of_node);
->>> -
->>>        /* Callbacks */
->>>        ctrl->read_cmd = spmi_read_cmd;
->>>        ctrl->write_cmd = spmi_write_cmd;
->>
->> That works for me, thank you
->>
-> 
-> Joe, care to send this patch to replace the one you sent previously?
+These drivers export formatting and event information to sysfs so they can
+be used by the perf user space tools with the syntaxes:
 
-Thank you for the fix and the suggestion. I just sent a patch removing 
-the three lines [1].
+perf stat -e mac_iod0_mac0_ch0/ea-mac/ ls
+perf stat -e mac_iod0_mac0_ch0/event=0x80/ ls
 
-[1]: 
-https://lore.kernel.org/all/20250116044725.2946205-1-joe@pf.is.s.u-tokyo.ac.jp/
+perf stat -e pci_iod0_pci0/ea-pci/ ls
+perf stat -e pci_iod0_pci0/event=0x80/ ls
 
-Best,
-Joe
+FUJITSU-MONAKA Specification URL:
+https://github.com/fujitsu/FUJITSU-MONAKA
+
+Changes in v4:
+- Change the enablement conditions of the Kconfig option so that
+  compilation is not performed in environments other than ARM64
+  (kernel test robot)
+- Link to v3: https://lore.kernel.org/all/20250109054544.2342442-2-fj5100bi@fujitsu.com/
+
+Yoshihiro Furudera (2):
+  perf: Fujitsu: Add the Uncore MAC PMU driver
+  perf: Fujitsu: Add the Uncore PCI PMU driver
+
+ .../admin-guide/perf/fujitsu_mac_pmu.rst      |  75 +++
+ .../admin-guide/perf/fujitsu_pci_pmu.rst      |  50 ++
+ Documentation/admin-guide/perf/index.rst      |   2 +
+ drivers/perf/Kconfig                          |  18 +
+ drivers/perf/Makefile                         |   2 +
+ drivers/perf/fujitsu_mac_pmu.c                | 573 ++++++++++++++++++
+ drivers/perf/fujitsu_pci_pmu.c                | 553 +++++++++++++++++
+ 7 files changed, 1273 insertions(+)
+ create mode 100644 Documentation/admin-guide/perf/fujitsu_mac_pmu.rst
+ create mode 100644 Documentation/admin-guide/perf/fujitsu_pci_pmu.rst
+ create mode 100644 drivers/perf/fujitsu_mac_pmu.c
+ create mode 100644 drivers/perf/fujitsu_pci_pmu.c
+
+-- 
+2.34.1
+
 
