@@ -4,81 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CF69C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 15:48:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B9BAC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 15:56:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xaChV7cBaPbe1ohg9NpCLfsng9nL3w34aCRLwnxNG4k=; b=XvuBtrnOWWqw69it2HaHEtOS6R
-	Ga27eESW2NA3+R953h12fASGyZq8pVATWVItcB2V+QYK2YR9NNS9dEjyyM0IVodZbO0CQ840yGc6f
-	nim/iom8jKdan1htPWL2rSDx0c1T8K4+6Nfj1a2jQDqj9R7yArjBNJBNTp0Rjo0mWbsUrcEkbob+u
-	ynqRPN/FJ2wFS9Perk+frqp+A3drs+fGjbI2jspIIe+GhZTy2zGcdqj2GlUh0fZmMLhNd2xUuKo1Z
-	Rdy570ieSNPkUJ3RFJcdMJFjmFN6TtrNRhLxT/mhaC1BsVT900JKHQPiTsW0gWat/Jq0fFa3hFWfe
-	tzvQuRKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lamgAqJW8bHAS7ve4sXgeba+bpIMnPSaxGNvQjJ1zdc=; b=oLvkGId7iwAqHVDUbYaEbVZJhX
+	+bCGCsb78xCGDhB3558lPD2JIrYXguJy7nZOXIjjln/ZmeN3wDC+XOkUVoJuKZ6XGw8I16Jlg23oO
+	IqjEPm53UhVvjrrcNAfwvGff1vn3phJ9aHDZV0SBmZJgRmwadJtpIpZkDGTHq9ZkXZjnT+mop+wzS
+	h0rqVwjhXn3qolvBqcjTJQ28A6+p43BpAE2nT8abmZaxCC4RlgwTdT3J2GaFixwXFX6+nowrsxRyZ
+	HOD0cZISmpcMU8R6qIVCK1EU6LaqWxatUTknDamWKXxeatPsTLXGMtrHT/S8a/2oKUjv/I3TuBd0T
+	m4tQqtkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYS6o-0000000FOFp-2p1M;
-	Thu, 16 Jan 2025 15:48:38 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1tYSE9-0000000FPKU-3IHL;
+	Thu, 16 Jan 2025 15:56:13 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYS5U-0000000FO4P-3TNq
+	id 1tYSCs-0000000FOyW-28AX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 15:47:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1737042436; x=1768578436;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=xaChV7cBaPbe1ohg9NpCLfsng9nL3w34aCRLwnxNG4k=;
-  b=VKcM+Uhi31Id1dc9dLpWd0ohpNJXcbZJULj6Q3S46RUtY84vklBKUZKi
-   gEf6JoCDbbJhBEJzi6xqmwpN6BcLy0Lfk+6Sly9lsrPsNZBE6YKoF3Fiu
-   ko83YZDIvk4/0pvfZyKasAjmRT+3PQkDK0EIondr6X7ZFulmh5snCDjUj
-   Xd97BMj1Gb5dNK8nJQ4GNcmKd1pMifAeXGiMHwTY7F8qtli0a5MTYnDHz
-   VoX4AbV/nOTfZQCbXJXWnFddndDKqA91OdMHKMD53Zg2D9AoCNQF5Z+xk
-   5U72qmGclFW4jwI9QDuPRB1QtrgP2jENc92ncvX5O5Bdtyu1ow99lD39j
-   g==;
-X-CSE-ConnectionGUID: Z8Lhc84ST9Sp3IP0z04cUQ==
-X-CSE-MsgGUID: SEv8VNHrSiOJkb1NNtdBdA==
-X-IronPort-AV: E=Sophos;i="6.13,209,1732575600"; 
-   d="scan'208";a="41125076"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 16 Jan 2025 16:47:12 +0100
-X-CheckPoint: {67892A00-8-9B2B6168-EB6F31C5}
-X-MAIL-CPID: 90A1698403BD0B9F8FB62E6BA9D3AA5C_5
-X-Control-Analysis: str=0001.0A682F2A.67892A00.0070,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6A19716CA7A;
-	Thu, 16 Jan 2025 16:47:06 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1737042427;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xaChV7cBaPbe1ohg9NpCLfsng9nL3w34aCRLwnxNG4k=;
-	b=q84Hb1aXILJupHME6TrWA2bx9eU/gG8zZ86RGmnwEILXf6dARbwt0meo4wpX/q1uveY+yv
-	TYGVw5m05b2/YHgfexJmxAjFrtp0iTyq20kenibvvS3sOSFKI14GAyyEThGFxBKyHkMy0S
-	8IG2ns828l8rajwcQRpHqNwDWmZb99aRmuN557t58j/9FJyfml7ksD/7l6L130O4mRKuy8
-	Y244VHM0El07B0KfnfRRDdSpSzlGecGWvlx1zJpsq4JpS7iBJeRr6IqbDTO378qZF74Tp5
-	/ziZ2rqZS98Buy/kT7fDqAPJWqisGvJV5bUP61EWCrxpdf3OClvFArbO6c0aQQ==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Peng Fan <peng.fan@nxp.com>
-Cc: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v5 2/2] nvmem: imx-ocotp-ele: Support accessing controller for i.MX9
-Date: Thu, 16 Jan 2025 16:47:05 +0100
-Message-ID: <2768326.mvXUDI8C0e@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <PAXPR04MB8459EE43FD37732822893343881A2@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20250108-imx-ocotp-v5-0-a6d90e18ebe9@nxp.com> <6018578.MhkbZ0Pkbq@steina-w> <PAXPR04MB8459EE43FD37732822893343881A2@PAXPR04MB8459.eurprd04.prod.outlook.com>
+	Thu, 16 Jan 2025 15:54:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1737042894; x=1768578894;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=f5RR73mwhg0k7ezLHsdj8LT17ejfMGoBLLZZHGt5FF8=;
+  b=HrB2uRDhUf+CxljiuHEfrzT23V0oBu9k/vrpdE6pPIc2oyGjh6g1Ed1Y
+   ZYceJl5TrXJr4/80YdH6RMwb/TKx53480i2UQyKN6bYQ4fwLFtq+hFqhm
+   SqmfvxIwm4jr/HhWDiPYh7+FiH4oAkaxCdMlmVo3ort7b6ASZsI+Utwpe
+   8vOW4JG/k9bszt7L6y2Aw5qKrzC5PthcyZn+yNX+O3BvcHr9pMGbRmfAv
+   TRs9kASISqie0svVx1z77RkoP10RN7PKyd1gQLx0hyW4gM+zfHTdJ0hl8
+   v3kbBQihXepjfVMF9ywe/SDid2JN48IalHwFKh6HEU1lsAtIA6LxjIt1G
+   A==;
+X-CSE-ConnectionGUID: ysD1IxaJTy2Tf9yNJFrwug==
+X-CSE-MsgGUID: ZkRFAObuQp6byuFrR3Uakw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11317"; a="36715567"
+X-IronPort-AV: E=Sophos;i="6.13,209,1732608000"; 
+   d="scan'208";a="36715567"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jan 2025 07:54:12 -0800
+X-CSE-ConnectionGUID: V2Ia/zAKRYKtB7XDaRq/JA==
+X-CSE-MsgGUID: p4JL923qR62lJLCUoqsJ7g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,209,1732608000"; 
+   d="scan'208";a="106113808"
+Received: from p12ill20yoongsia.png.intel.com ([10.88.227.38])
+  by fmviesa009.fm.intel.com with ESMTP; 16 Jan 2025 07:54:02 -0800
+From: Song Yoong Siang <yoong.siang.song@intel.com>
+To: "David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Willem de Bruijn <willemb@google.com>,
+	Florian Bezdeka <florian.bezdeka@siemens.com>,
+	Donald Hunter <donald.hunter@gmail.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Bjorn Topel <bjorn@kernel.org>,
+	Magnus Karlsson <magnus.karlsson@intel.com>,
+	Maciej Fijalkowski <maciej.fijalkowski@intel.com>,
+	Jonathan Lemon <jonathan.lemon@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Joe Damato <jdamato@fastly.com>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
+	Mina Almasry <almasrymina@google.com>,
+	Daniel Jurgens <danielj@nvidia.com>,
+	Song Yoong Siang <yoong.siang.song@intel.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Mykola Lysenko <mykolal@fb.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	KP Singh <kpsingh@kernel.org>,
+	Hao Luo <haoluo@google.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Tony Nguyen <anthony.l.nguyen@intel.com>,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>
+Cc: netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	bpf@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	intel-wired-lan@lists.osuosl.org,
+	xdp-hints@xdp-project.net
+Subject: [PATCH bpf-next v6 0/4] xsk: TX metadata Launch Time support
+Date: Thu, 16 Jan 2025 23:53:46 +0800
+Message-Id: <20250116155350.555374-1-yoong.siang.song@intel.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_074717_363899_8483910D 
-X-CRM114-Status: GOOD (  37.73  )
+X-CRM114-CacheID: sfid-20250116_075454_622245_5AA8DA76 
+X-CRM114-Status: GOOD (  17.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,116 +126,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+This series expands the XDP TX metadata framework to allow user
+applications to pass per packet 64-bit launch time directly to the kernel
+driver, requesting launch time hardware offload support. The XDP TX
+metadata framework will not perform any clock conversion or packet
+reordering.
 
-Am Donnerstag, 16. Januar 2025, 03:09:02 CET schrieb Peng Fan:
-> > Subject: Re: [PATCH v5 2/2] nvmem: imx-ocotp-ele: Support accessing
-> > controller for i.MX9
-> >=20
-> > Hi,
-> >=20
-> > Am Dienstag, 14. Januar 2025, 09:35:41 CET schrieb Peng Fan:
-> > > > Subject: Re: [PATCH v5 2/2] nvmem: imx-ocotp-ele: Support
-> > accessing
-> > > > controller for i.MX9
-> > > >
-> > > > Hi,
-> > > >
-> > > > Am Samstag, 11. Januar 2025, 13:41:58 CET schrieb Peng Fan:
-> > > > > > Subject: Re: [PATCH v5 2/2] nvmem: imx-ocotp-ele: Support
-> > > > accessing
-> > > > > > controller for i.MX9
-> > > > > >
-> > > > > > Hi,
-> > > > > >
-> > > > > > Am Donnerstag, 9. Januar 2025, 04:34:18 CET schrieb Peng Fan:
-> > > > > > > On Wed, Jan 08, 2025 at 11:15:40AM +0100, Alexander Stein
-> > > > wrote:
-> > > > > > > >Hi Peng,
-> > > > > > > >
-> > > > > > > >Am Mittwoch, 8. Januar 2025, 08:00:18 CET schrieb Peng
-> > Fan
-> > > > (OSS):
-> > > > > > > >> From: Peng Fan <peng.fan@nxp.com>
-> > > > > > > >>
-> > > > > > > >> i.MX9 OCOTP supports a specific peripheral or function
-> > > > > > > >> being
-> > > > > > fused
-> > > > > > > >> which means disabled, so
-> > > > > > > >>  - Introduce ocotp_access_gates to be container of efuse
-> > > > > > > >> gate info
-> > > > > > > >>  - Iterate all nodes to check accessing permission. If not
-> > > > > > > >>    allowed to be accessed, detach the node
-> > > > > > > >>
-> > > > > > > >> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> > > > > > > >> ---
-> > > > > > > >>  drivers/nvmem/imx-ocotp-ele.c | 172
-> > > > > > > >> +++++++++++++++++++++++++++++++++++++++++-
-> > > > > > > >>  1 file changed, 171 insertions(+), 1 deletion(-)
-> > > > > > > >>
-> > > > > > > [....]
-> > > > > > > >> +
-> > > > > > > >> +	return imx_ele_ocotp_access_control(priv);
-> > > > > > > >
-> > > > > > > >In [1] you mentioned devlink should solve the probe order.
-> > > > > > > >How
-> > > > > > does
-> > > > > > > >this play when the driver is compiled in (e.g. ethernet for
-> > > > > > > >NFS
-> > > > > > > >boot) but this OCOTP driver is just a module?
-> > > > > > >
-> > > > > > > OCOTP needs to built in for using devlink. Or the users needs
-> > > > > > > to be built as module.
-> > > > > >
-> > > > > > I don't like this kind of assumption. Would it make more sense
-> > > > > > to make CONFIG_NVMEM_IMX_OCOTP_ELE as bool instead of
-> > tristate?
-> > > > >
-> > > > > No. Users could setup their own system with this driver build in
-> > > > > or built related drivers as modules.
-> > > >
-> > > > Sure, but if the kernel locks/fails/panics while accessing
-> > > > peripherals just because of the kernel config seems at east very
-> > unfortunate to me.
-> > > > How is someone supposed to analyze/debug this?
-> > > >
-> > > > > At least for Android GKI, this driver needs to be as module.
-> > > >
-> > > > Any particular reason this needs to be a module?
-> > >
-> > > Android has a minimal kernel which is controlled by Google.
-> > > Vendors could only built modules based on Google's Image.
-> > >
-> > > Updating this to y in upstream, means we need to change it back to
-> > m
-> > > in NXP downstream android kernel.
-> >=20
-> > Ok, that's an Android thing.
-> >=20
-> > > If you need it built in, you could modify your downstream config,
-> > > right?
-> >=20
-> > I'm not saying I need a built-in. My concern is that a wrong Kconfig wi=
-ll
-> > result in silent errors/lockups.
->=20
-> You wanna me to put this default y in arm64 defconfig in
-> upstream kernel?
->=20
-> If yes, this could be separate patch to Shawn if this patchset got
-> merged by Srinivas.
+Please note that the role of Tx metadata is just to pass the launch time,
+not to enable the offload feature. Users will need to enable the launch
+time hardware offload feature of the device by using the respective
+command, such as the tc-etf command.
 
-I don't know what others says about adjusting defconfig. But at least
-add a comment to the Kconfig help that if built as modules, any
-other driver relying on this also needs to be a module as well.
+Although some devices use the tc-etf command to enable their launch time
+hardware offload feature, xsk packets will not go through the etf qdisc.
+Therefore, in my opinion, the launch time should always be based on the PTP
+Hardware Clock (PHC). Thus, i did not include a clock ID to indicate the
+clock source.
 
-Best regards,
-Alexander
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
+To simplify the test steps, I modified the xdp_hw_metadata bpf self-test
+tool in such a way that it will set the launch time based on the offset
+provided by the user and the value of the Receive Hardware Timestamp, which
+is against the PHC. This will eliminate the need to discipline System Clock
+with the PHC and then use clock_gettime() to get the time.
 
+Please note that AF_XDP lacks a feedback mechanism to inform the
+application if the requested launch time is invalid. So, users are expected
+to familiar with the horizon of the launch time of the device they use and
+not request a launch time that is beyond the horizon. Otherwise, the driver
+might interpret the launch time incorrectly and react wrongly. For stmmac
+and igc, where modulo computation is used, a launch time larger than the
+horizon will cause the device to transmit the packet earlier that the
+requested launch time.
+
+Although there is no feedback mechanism for the launch time request
+for now, user still can check whether the requested launch time is
+working or not, by requesting the Transmit Completion Hardware Timestamp.
+
+Changes since v1:
+- renamed to use Earliest TxTime First (Willem)
+- renamed to use txtime (Willem)
+
+Changes since v2:
+- renamed to use launch time (Jesper & Willem)
+- changed the default launch time in xdp_hw_metadata apps from 1s to 0.1s
+  because some NICs do not support such a large future time.
+
+Changes since v3:
+- added XDP launch time support to the igc driver (Jesper & Florian)
+- added per-driver launch time limitation on xsk-tx-metadata.rst (Jesper)
+- added explanation on FIFO behavior on xsk-tx-metadata.rst (Jakub)
+- added step to enable launch time in the commit message (Jesper & Willem)
+- explicitly documented the type of launch_time and which clock source
+  it is against (Willem)
+
+Changes since v4:
+- change netdev feature name from tx-launch-time to tx-launch-time-fifo
+  to explicitly state the FIFO behaviour (Stanislav)
+- improve the looping of xdp_hw_metadata app to wait for packet tx
+  completion to be more readable by using clock_gettime() (Stanislav)
+- add launch time setup steps into xdp_hw_metadata app (Stanislav)
+
+Changes since v5:
+- fix selftest build errors by using asprintf() and  realloc() instead of
+  managing the buffer sizes manually (Daniel, Stanislav)
+
+v1: https://patchwork.kernel.org/project/netdevbpf/cover/20231130162028.852006-1-yoong.siang.song@intel.com/
+v2: https://patchwork.kernel.org/project/netdevbpf/cover/20231201062421.1074768-1-yoong.siang.song@intel.com/
+v3: https://patchwork.kernel.org/project/netdevbpf/cover/20231203165129.1740512-1-yoong.siang.song@intel.com/
+v4: https://patchwork.kernel.org/project/netdevbpf/cover/20250106135506.9687-1-yoong.siang.song@intel.com/
+v5: https://patchwork.kernel.org/project/netdevbpf/cover/20250114152718.120588-1-yoong.siang.song@intel.com/
+
+Song Yoong Siang (4):
+  xsk: Add launch time hardware offload support to XDP Tx metadata
+  selftests/bpf: Add launch time request to xdp_hw_metadata
+  net: stmmac: Add launch time support to XDP ZC
+  igc: Add launch time support to XDP ZC
+
+ Documentation/netlink/specs/netdev.yaml       |   4 +
+ Documentation/networking/xsk-tx-metadata.rst  |  62 +++++++
+ drivers/net/ethernet/intel/igc/igc_main.c     |  78 +++++---
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h  |   2 +
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c |  13 ++
+ include/net/xdp_sock.h                        |  10 ++
+ include/net/xdp_sock_drv.h                    |   1 +
+ include/uapi/linux/if_xdp.h                   |  10 ++
+ include/uapi/linux/netdev.h                   |   3 +
+ net/core/netdev-genl.c                        |   2 +
+ net/xdp/xsk.c                                 |   3 +
+ tools/include/uapi/linux/if_xdp.h             |  10 ++
+ tools/include/uapi/linux/netdev.h             |   3 +
+ tools/testing/selftests/bpf/xdp_hw_metadata.c | 168 +++++++++++++++++-
+ 14 files changed, 342 insertions(+), 27 deletions(-)
+
+-- 
+2.34.1
 
 
