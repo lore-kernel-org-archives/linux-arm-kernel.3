@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4C61C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 16:27:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F20DC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 16:28:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OVz8bC00NcJv/IZ0bhV7772W619cZqGGdaBgIBaPg8g=; b=QCqMGISnWLwQARzf4Fpr8FAuQU
-	5S8chU5MFRhQkFbhCoEhOR+o4DwCwfhqmSK78mVTNRIUAIRqHHjj1TxStOUXRDciGT8Ips3pMtJnW
-	hF5EG2+WvrmsUIElE5rtfZEvt8J32Rmy75IEbibgh6oZGDKhrUyGPCVJOJ1uB0D72d7VsX6tSL97J
-	k/4zS+XelUSg2kmWoffXjNm0SA0l0cJ3agFZ5jU4ES+aaQqNrr7cMziaMZbGvFgstAvfKTxWjgl7B
-	dzN/330RrCUjTKCBvIXi6bENYidYohX2+8KGVtq6WuSnKcZ4KafgzsDj973HucAt4RsQiKQl0yPO9
-	wbSInaOg==;
+	bh=MZrp7lu3ubP7SKqqGTTc2bgd5NE4OnqPzvBDDl400Q4=; b=r2l7ZBmfjsP8ql0hrgTfudz7cj
+	j1T0bInqXwx2J1ddFnXSuLifcBa+SBT1wb/zUOt5sGXk6lviGK//BuIN0A1befBD4JjOko1umVw+D
+	tCWYZTmXPu1z5fDweUXvb5W0fV0AnR/LL8csRwRPJNRcswb1hpf6ZNrizRC+fBKbwnFSIUJfSD3nD
+	wICo6vDhiF3lvxnnfddWwOd80Zjad0V1C2G70z+7eqbqPE83JUCXFvr8iUuMepZntX232CbJMFWhV
+	Swq8bjHzUO62Kx+SZ016MuTtrLFEKJNeu9CabNF6mynFcvL0R/ROt4LcpPc1cha+Vk9suJO3xYy7/
+	81d0SVKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYSho-0000000FW9n-3rxA;
-	Thu, 16 Jan 2025 16:26:52 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1tYSj3-0000000FWWH-2Ogd;
+	Thu, 16 Jan 2025 16:28:09 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYSfH-0000000FVRF-1EiS
+	id 1tYSfI-0000000FVSB-341e
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 16 Jan 2025 16:24:17 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-436a39e4891so7512925e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 08:24:14 -0800 (PST)
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-43634b570c1so7670635e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 08:24:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1737044653; x=1737649453; darn=lists.infradead.org;
+        d=raspberrypi.com; s=google; t=1737044655; x=1737649455; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=OVz8bC00NcJv/IZ0bhV7772W619cZqGGdaBgIBaPg8g=;
-        b=J913Avw1IMpA/8m9QV+2T9wOm/SCcOg0NdsSRc5D6Tp7eFr0cn4nJH6WeHydAzVzv6
-         gIrFh/OrrLhYeN/+7/2/OAYoaZG8bC9efpy6KQxjcRA2YuCBdHrvTd/+ytlBIr69175W
-         zJskSy3hqQAIslF9y/x2ij5JKLjVGbQmy2eNcr5SwbxEYl95AMtiCAaLGP03H/ElVV+5
-         Lwo5D/ZMmzi/engZrAcoo4+vSAM6uhZOWIHA9IjPCg6AYzFYcLR95bFATJVxhUQ8D2GQ
-         sFwKLOeUuqQUiGoaNnTxt+0AKVSJGk6z+0cQPhkiPtXeUbBeaSZSkQvHtk/rTWgojCgo
-         WQjg==
+        bh=MZrp7lu3ubP7SKqqGTTc2bgd5NE4OnqPzvBDDl400Q4=;
+        b=Jp+pTSAuR4AyzfzTvB3qIy2W00hE0gBprf26e1uFhLT2rezxrye7QCnp9njLNsUmVp
+         GU9hj1R3lSUy9J33hCpczeYjnAB+AxZGul2SaXHwM0SnhR8LvSpNqHviZ1qWUBc0ZrMS
+         3oXCM0InMvJUzOV6KN74FCi4kpQZOMfTf/nL+ytwuMs7WVclr4DPrs1ttmDJwiU6OPIB
+         Djm11XSCYsCZvOWLCBJ5LzzW/SwLy9D8ROXrRc1b9mozovo3B1dxlmq+KwbMDeC75o//
+         FgrCLGAHb8yAqa1MbQW2IK3VXg0QX6KlGJsljUznLY9PlyXSYkgHLpBVPvDVIOas2vaF
+         rAZg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737044653; x=1737649453;
+        d=1e100.net; s=20230601; t=1737044655; x=1737649455;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=OVz8bC00NcJv/IZ0bhV7772W619cZqGGdaBgIBaPg8g=;
-        b=RwvwoRr0evxJFvUOItsBLQEgYEVLZOrMyIIJm4wI8YOVc/zA8otPAz8yTQkwW7vx04
-         mWo1W84Fq0EIiOk9140C2G08AZ5zU+xoxEqUyT6LecaRQUa83AGEHvW9Km09p0uyzQ9t
-         MFS+AcGv/jY/FrwpFyhamEFDm6Da4GjggYilB9XFy9k52dU1bakPHlHNuLm7xZvK/0Rq
-         xYsF6jdXMIBmlSa9d6In1V+lcf5KF9JOLY+chg5+oXYADt5U6mhUjL0qnKIEr8qOHrb6
-         DD0Gbt6krFbzRJ30bbjbmXHH2juJxdH/TBnEfid20UVImBLpMPKgQTNbTexBd3O5CFnF
-         lBlg==
-X-Forwarded-Encrypted: i=1; AJvYcCUm/Or56GNqSrT9ypzTJH8JLVHgKKU+54ivm66SNfeRnFYIz8J/bC/m/1X44ZcfKumsXBkCVSjKFg4Ab7BGX6Bm@lists.infradead.org
-X-Gm-Message-State: AOJu0YwT+iylOquI2fHwID138/7nkOKJjoCwhb9UtR2V5rRY3sABvRYK
-	hD3qjrpZmQauS4YdTZWpbzI0Ffg6kvq2b++5N/jsczMzCqIjvxtaNZQUQJ2eKTF6V2OPm5+YAz/
-	s
-X-Gm-Gg: ASbGncuatprtkYzyQBhD+1JKd7K0aYIr7USAApRXAI2CqBTfYlfhYeoaGUq0qPCvPml
-	F7mqnYqwmMzbHTxYBj+Y/t7wVHChAiqfiVySL96TwQLGtftcXxEYtQhGaZr3h0ociOkycFcIAL9
-	2JNcBkgYPyC+BleuKOZBJ0RhhaBehpxfKcG2ZJ3bl/OCvHdPcSvlzCFY8XbyO+NJJenuqOljU7n
-	JxkOV0JMOVxobF/9F7bL/PEsYIT08y4/R4mfocbUBX3dxzp
-X-Google-Smtp-Source: AGHT+IFsOpMBJ93/MMR+dU+EaZC/TmrWLHZaiOoyuDyhD3Z2W0qeIr52x3Uzv4hcGCmCAktAv12ABA==
-X-Received: by 2002:a05:600c:468f:b0:431:52f5:f48d with SMTP id 5b1f17b1804b1-436e26ebe46mr326154805e9.31.1737044653375;
-        Thu, 16 Jan 2025 08:24:13 -0800 (PST)
+        bh=MZrp7lu3ubP7SKqqGTTc2bgd5NE4OnqPzvBDDl400Q4=;
+        b=OIa1MXWS2cMX3xV+pX20Hi1LvBSV3M8uCCf9HkSd2bH8zSTUUx6fg/VAWIsoosL+4w
+         dwboQ/K7tqv32TbHnytYnQt2zKIIeg9V6v4SqZ/hbqw9A6HKjuni42T6GwjWbCVQ0Qu7
+         UDlmP0H6goWlN/n7B6aTmDOJ0gDoqa3FN3MjCy2uclYOhWsWWobhpDV6tN8MB+lmeGhy
+         o0mSruM774q5apm5ljIVMdc3QD++wveqAK2fSuc7ecsO5Sokwj5nxXH/KTysQtoVOAcm
+         Joqwa6B1Vx6vNPfcNrg9fIaxUxUCfV/jSBbe3+OEenlnozBjaP/Vr6Z9QMXM89nNRhpX
+         Jg9w==
+X-Forwarded-Encrypted: i=1; AJvYcCW/P9iF3YC8+4H1dJRvvYq1faxV505Qajg9OrHXEFk9vI8YfjIDmQAsdsszaCip2M7e+tp+u0b16jb/vh8IKTEC@lists.infradead.org
+X-Gm-Message-State: AOJu0YxR+oeXRcvyBBNtU4tGYRlijmJD6tlMDYPdln2p+ci/XVKWJs5j
+	ER8ZbiEETQ8+VlMRV8BGXb1NcJe7n/8CbgAhT5CKoSktPv5zgA1eZlhG0YSq8shSaKT7vLwknVQ
+	9
+X-Gm-Gg: ASbGnctbrdbj7kG0jDE8k5M2qY3SwdLxKaxSzeBoFpHMeAugGpU/mCWk3HxC0ZI48Ms
+	9xBlEp4eh2Y5BmGjbtO1OjEixf+iLoXFM7mReOj2OL8JYo7kXV3nNnXcpLZYfEzEHRpUV2EJXtQ
+	+1EcDHY0rzlF7oOqmZ473GKC8qmG/iMfxaK+DzFljnUA2XMGjbKg1rZu5OcFMJ8c5iN/uMUmgLp
+	YAhz55Td3I2WgfH+5Bq/zN1tMndSD5g+WpKOzjWerAjef25
+X-Google-Smtp-Source: AGHT+IFiO4THDwrkWPkgQut59S8Z05jEzJwPXhwEqlw3rbldrlTNRXl4E+qRkkCpAywZLqr8fVkHTg==
+X-Received: by 2002:a05:600c:3584:b0:434:9dfe:20e6 with SMTP id 5b1f17b1804b1-436e26f47efmr243629215e9.23.1737044655043;
+        Thu, 16 Jan 2025 08:24:15 -0800 (PST)
 Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43890469ba8sm3715955e9.37.2025.01.16.08.24.12
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43890469ba8sm3715955e9.37.2025.01.16.08.24.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Jan 2025 08:24:12 -0800 (PST)
+        Thu, 16 Jan 2025 08:24:14 -0800 (PST)
 From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Thu, 16 Jan 2025 16:24:08 +0000
-Subject: [PATCH 1/5] clk: bcm: rpi: Add ISP to exported clocks
+Date: Thu, 16 Jan 2025 16:24:09 +0000
+Subject: [PATCH 2/5] clk: bcm: rpi: Allow cpufreq driver to also adjust gpu
+ clocks
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250116-bcm2712-clk-updates-v1-1-10bc92ffbf41@raspberrypi.com>
+Message-Id: <20250116-bcm2712-clk-updates-v1-2-10bc92ffbf41@raspberrypi.com>
 References: <20250116-bcm2712-clk-updates-v1-0-10bc92ffbf41@raspberrypi.com>
 In-Reply-To: <20250116-bcm2712-clk-updates-v1-0-10bc92ffbf41@raspberrypi.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -88,8 +89,8 @@ Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
  Dom Cobley <popcornmix@gmail.com>
 X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_082415_323923_341D1458 
-X-CRM114-Status: GOOD (  10.59  )
+X-CRM114-CacheID: sfid-20250116_082416_759754_8C470BD7 
+X-CRM114-Status: GOOD (  11.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,30 +107,28 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Dom Cobley <popcornmix@gmail.com>
 
-The ISP clock can be controlled by the driver, so register it
-with the clock subsystem.
+For performance/power it is beneficial to adjust gpu clocks with arm clock.
+This is how the downstream cpufreq driver works
 
 Acked-by: Stephen Boyd <sboyd@kernel.org>
 Signed-off-by: Dom Cobley <popcornmix@gmail.com>
 Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 ---
- drivers/clk/bcm/clk-raspberrypi.c | 3 +++
- 1 file changed, 3 insertions(+)
+ drivers/clk/bcm/clk-raspberrypi.c | 1 -
+ 1 file changed, 1 deletion(-)
 
 diff --git a/drivers/clk/bcm/clk-raspberrypi.c b/drivers/clk/bcm/clk-raspberrypi.c
-index a18a8768feb4..6d5ee1cddded 100644
+index 6d5ee1cddded..d374538e7108 100644
 --- a/drivers/clk/bcm/clk-raspberrypi.c
 +++ b/drivers/clk/bcm/clk-raspberrypi.c
-@@ -118,6 +118,9 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] = {
- 	[RPI_FIRMWARE_HEVC_CLK_ID] = {
- 		.export = true,
- 	},
-+	[RPI_FIRMWARE_ISP_CLK_ID] = {
-+		.export = true,
-+	},
- 	[RPI_FIRMWARE_PIXEL_BVB_CLK_ID] = {
- 		.export = true,
- 	},
+@@ -156,7 +156,6 @@ static int raspberrypi_clock_property(struct rpi_firmware *firmware,
+ 	struct raspberrypi_firmware_prop msg = {
+ 		.id = cpu_to_le32(data->id),
+ 		.val = cpu_to_le32(*val),
+-		.disable_turbo = cpu_to_le32(1),
+ 	};
+ 	int ret;
+ 
 
 -- 
 2.34.1
