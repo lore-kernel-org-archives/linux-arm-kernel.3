@@ -4,99 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 574D4C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 17:37:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4A7BC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 17:44:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OXBv7mU3IUmuhGazcfTF0fMhicUzdzlonYKZ/ftM1lc=; b=zQm+ltWkOJCq4FyXk2mjDoI8t8
-	2AVqaslGd4znagoohuISQpX3lPJ27sgw5WcFyfKFQ/MohRYd2vDmEOZ6jHh6IlluNmvSDVuSPNWLg
-	Hd2lVTbS+HgUYZSjBRmPkS219WJXpbfZpH7aE7j5NhjcYf2DEwHCuluIztY2w4mOR9/Yb2NWnVfIr
-	hgJd7VK/AczS+lzj9r6Y+nLxNbkNyW3H1CFs6tNxTFKYpZm2YmzHAF92psDxWy8Gc7F5TVcFdAjsh
-	r/sZQlkq2S3LEvq2QVsz/WWkEtB4I5LiUEfC+Dq5EQ/f+s6e/nlBDi9H8YVpplMnrMFacKkgB/wvO
-	Dlw2Yozw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uBtKYlWCmsTWJXAsi/P2qVR1BJEci/r4rzSkSdKkiNI=; b=Vd7/GiEgN7F37tvsToK299tq6L
+	1046m+06QzPYxxYufnYKqI6Xnz3HhepCMEwuwqgQjwz6Ufx3dV4r+qoON3TtdvVU0tUR7LX5QccTV
+	THF8KQidJoB79RvqzVh+FIyaVyDQJWIogQu1C9BxXzBBQCT/QMVmlBycSFkyI2rGd8QR9Gx5z1vI6
+	er5NORMdH+3p5mIZd4zJSXYs5bf1tC80a6D80LPh8LYghuFm7fONUmriR/BZ2yAmBIamTwNWT/i0H
+	WNJxOuuWstVmdx0SQBLR7n7kfZIj3ufmZ8b14/VCJ7sxHvDxfJpeW39k9qAznbvio421AmCEeQaZv
+	tzQBstgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYTnj-0000000Fhra-3COU;
-	Thu, 16 Jan 2025 17:37:03 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1tYTv8-0000000FiUg-2LjJ;
+	Thu, 16 Jan 2025 17:44:42 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYTmT-0000000Fhl6-2w7N
+	id 1tYTtq-0000000FiCZ-3SOy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 17:35:46 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-43675b1155bso12728695e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 09:35:44 -0800 (PST)
+	Thu, 16 Jan 2025 17:43:24 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-21628b3fe7dso22978715ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 09:43:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737048943; x=1737653743; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=OXBv7mU3IUmuhGazcfTF0fMhicUzdzlonYKZ/ftM1lc=;
-        b=PEIZzCQjER6nFbgPtOjgJLCPyNYZMsh+qx2Z20AGgE4V5GgQTg2a0b+CHSi1I2EsxR
-         UndQlBkJknM7NLZbBGNKq7RVSh00cOTKKiSInY/DHsWPSVLfQiYfmnjVm1ReDYxuXigs
-         MEl86Q8gYGJuiuJwp5NSlu6YBxq+y/c37XWi/mXZVb4q4Q/Tbve33YWpDhl/FW/DRLq3
-         YfzTugo6+68wwhjhlOem9sQ1JkEWjhePQSUYp2tgpMR9n4fhdBGa4rQZpColQSOMsCjk
-         fEJz4ECrqhGCAXwDLNQ0SzIpc8z0tb8DZ7TCuZI8a/xfyTbOnofVqVoWcGm1SdD2eTJY
-         oc3w==
+        d=chromium.org; s=google; t=1737049402; x=1737654202; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=uBtKYlWCmsTWJXAsi/P2qVR1BJEci/r4rzSkSdKkiNI=;
+        b=PAe4sUivB5LVKdBIRBb9grsil7ZbWSGlicuTors1a2idxqpQzhCs2NxU1BJlZsKEPA
+         9uFFftla+3XGuN/0dq2X0CTkp9ij+QrJh45VHuv1rszfdXYvjeO3VOprguQ176Fh5u/d
+         2hkM4g1aoaktdhMMMPak2JX3FJWpIPy2wVVuM=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737048943; x=1737653743;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=OXBv7mU3IUmuhGazcfTF0fMhicUzdzlonYKZ/ftM1lc=;
-        b=fD+Ymfx2xSwwObog/p43FCbfMT4t0zhLBAnjRUBzw8/UjLOy3LGgQW0+dfQsLC1PT2
-         8zx2PIzUDc4jUEZE1ypuf6J1nk9LoT6mgT/zFHbqApcfmsulUoi9del7mVyPi8zEeM8J
-         E8XdXwzTiOkV1omiqPVZ8H8HsBA3ztM/wYxmLCuH7nB8C8n0t4OWVhz5U+MnQgpZIcf8
-         WA5M+mPTOga9IKU2SLyN5AE950MAaZi/5sb/RBtFkRA7YDVWY4Rh/H2g6EtH8LXfMlHo
-         0kWCZc36qjVthTuAfzEc5rHNY/BfyrJh6m/r+jQHBH1wZnlsFsLQWdyrrGHm42gVUosE
-         mpjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXIKRM1TWwRw/V06zGVXrH5dC75i/54YkSvScxzqfaUo0uJXG9zic8QinMSDJefghQFAhCrn0ddKSU4vLlySITR@lists.infradead.org
-X-Gm-Message-State: AOJu0YzKJst46DVDHFIAHQ3crrs5m2WrHag1MxGnTrSrbXug4mEkji9g
-	CnoPqvYSpE5peHgXywUtCQr9yf/sCHCCuEJYwmTksx0UDgFyoBkW
-X-Gm-Gg: ASbGncvqY5idsEIlHSP/N1a4Z1auFwsXnyWs1gNe5QNjrgHyJx/nomb7PCw7qOj+FiE
-	LuAG7D4vwdyxEJDqzSc93FqTml1W3ZSlNJheMYC1du6o6XqtbAE5sj+utwaXdXjzGEPfPCmzk7v
-	cpvu1fsUQeD6HTCbibMiaSHeOCj1CVguvmtqiWqjfy6KMFsWjNVHnEJ+1rETtDbXDAynTM+n1XT
-	Pjlevc/dSkKZfk6sfS2PY65bZtpZW6XqpdW61+DlOJ5cW/yHKHE6R+m
-X-Google-Smtp-Source: AGHT+IE4uFPItlsauRShxJdLB24OsNy/KVeIOXphx1Hzsl5WiEKLoA/vq8qTUH8Lxbx1pF338OyP/w==
-X-Received: by 2002:a05:6000:1849:b0:385:e5d8:3ec2 with SMTP id ffacd0b85a97d-38a8730b535mr32269071f8f.28.1737048942602;
-        Thu, 16 Jan 2025 09:35:42 -0800 (PST)
-Received: from eichest-laptop ([2a02:168:af72:0:6c4e:8d77:c1b7:309e])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4389046b0f5sm5619075e9.39.2025.01.16.09.35.41
+        d=1e100.net; s=20230601; t=1737049402; x=1737654202;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=uBtKYlWCmsTWJXAsi/P2qVR1BJEci/r4rzSkSdKkiNI=;
+        b=CiVXz2CiepGZOwq3P3F6UvrmXYdmcq7YV+zjaPqG9Ft0rTgmC4laeda2LrxItAnJos
+         UnCoVPKlSN2MSSVDC3tN0OXFi6E+igi01UzDkN9un/pccKvnLsjGR1S0Fs9iAWAGGOav
+         3OfEZW4HWx7Pkx3LMZabl52TxeDjY8vSi1ZfTC+1ettM+y+q29xwhers21aWqkBcpE34
+         DL+jNNA1rHkXAZ9lI+zjpvlN8tmP5yoxiZAnYNhhV1hE65vJIfBFCd0yeV5IeSgUp9xJ
+         QVolqnGowVaZ9AAz8zWB3epY3t7pITqqzOUIn0R3BZK5bKcp4WSgIMTJYGO6UqadHTAe
+         keyw==
+X-Forwarded-Encrypted: i=1; AJvYcCV9XY8M37ics0YxnN5MKKnHiKvvDLIww7tP/HjyoxW8cavDN/8ZoCRGp4rkJXGpC2CN1lr4/7I35KleyzsQLylP@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQEAe/8XpxVBohbnA4PdC0UEi7Qg5jd3qnFoHJyIKTEplT9/un
+	TthoSVczrAreK2AJwqWK3WZZOlzS9aUzYUYgksGX3gsXQt+/eiXxVHTSsPzSMQ==
+X-Gm-Gg: ASbGncsTM8tOdlk/LFrAYklS564B2u14gnxbmxudKOGty1pbYvfzM0yW+8x3nQyACL0
+	IlaJJYy3vgE0sfwNorhvC2swroSX/d5Z/XUyzwc/i6SKsHL2FSDsJpG1yhinZJUvb5OZioy7/cb
+	hFvwKBmwhUVvYwe+og/+CibCua4dc+ryIw++x12yJ2o7I22CszEYuDdOQVNGNzn3QZ5LLWErq52
+	Zzdw6/VNpydS8L7Nz1yQyw+EtVUCDeCRrjGaZugBprMXOIw6OomaRpQ9ySJsiLiEXQgNoVi94ux
+X-Google-Smtp-Source: AGHT+IEoWJyIWX3XBujOXaws+wrtmniQvJSQSjRB+r+y96gKyl0M0uolS/sv8wolEPPpMrJANi3UYA==
+X-Received: by 2002:a05:6a20:2593:b0:1d9:aa1:23e3 with SMTP id adf61e73a8af0-1e88d2d5e64mr65470929637.32.1737049401836;
+        Thu, 16 Jan 2025 09:43:21 -0800 (PST)
+Received: from dianders.sjc.corp.google.com ([2620:15c:9d:2:8dc2:8743:5c90:724f])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72daba4956esm259207b3a.128.2025.01.16.09.43.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Jan 2025 09:35:42 -0800 (PST)
-Date: Thu, 16 Jan 2025 18:35:40 +0100
-From: Stefan Eichenberger <eichest@gmail.com>
-To: Shengjiu Wang <shengjiu.wang@gmail.com>
-Cc: abelvesa@kernel.org, peng.fan@nxp.com, mturquette@baylibre.com,
-	sboyd@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com, shengjiu.wang@nxp.com,
-	francesco.dolcini@toradex.com, linux-clk@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+        Thu, 16 Jan 2025 09:43:20 -0800 (PST)
+From: Douglas Anderson <dianders@chromium.org>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Douglas Anderson <dianders@chromium.org>,
+	Alexandre Mergnat <amergnat@baylibre.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	CK Hu <ck.hu@mediatek.com>,
+	David Airlie <airlied@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Stefan Eichenberger <stefan.eichenberger@toradex.com>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v1] clk: imx: imx8-acm: fix flags for acm clocks
-Message-ID: <Z4lDbMqCYW2W7iyX@eichest-laptop>
-References: <20250113094654.12998-1-eichest@gmail.com>
- <CAA+D8ANvKQKJhn6qKbPhQeXPD5kxUo3Hg-FBLkDMOaWLTA8vVg@mail.gmail.com>
- <Z4ZRYMf_uJW4poW9@eichest-laptop>
- <Z4dy3LiEAQ_gkQGG@eichest-laptop>
- <CAA+D8AO75MLyP5AWDJoogw8ae4GRtZfSR-HT+S26bXoaVs8saQ@mail.gmail.com>
- <Z4eQX_VnBEVqxT_r@eichest-laptop>
- <CAA+D8APivJWD-AqwmQ-mtcr=ZHot5rfA8FRWF2+p-_mq5BGxHA@mail.gmail.com>
- <Z4i0G5Tw4q0v8DTL@eichest-laptop>
- <CAA+D8AOakQdnEe9ZrfTCrWcjHJRRU0kqFVsiu8+FMiHeMAVV_g@mail.gmail.com>
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH] drm/mediatek: dp: drm_err => dev_err in HPD path to avoid NULL ptr
+Date: Thu, 16 Jan 2025 09:42:50 -0800
+Message-ID: <20250116094249.1.I29b0b621abb613ddc70ab4996426a3909e1aa75f@changeid>
+X-Mailer: git-send-email 2.48.0.rc2.279.g1de40edade-goog
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAA+D8AOakQdnEe9ZrfTCrWcjHJRRU0kqFVsiu8+FMiHeMAVV_g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_093545_747631_C50448AA 
-X-CRM114-Status: GOOD (  63.90  )
+X-CRM114-CacheID: sfid-20250116_094322_890719_A9F69B41 
+X-CRM114-Status: GOOD (  16.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,167 +100,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shengjiu Wang,
+The function mtk_dp_wait_hpd_asserted() may be called before the
+`mtk_dp->drm_dev` pointer is assigned in mtk_dp_bridge_attach().
+Specifically it can be called via this callpath:
+ - mtk_edp_wait_hpd_asserted
+ - [panel probe]
+ - dp_aux_ep_probe
 
-On Thu, Jan 16, 2025 at 03:30:55PM +0800, Shengjiu Wang wrote:
-> On Thu, Jan 16, 2025 at 3:24 PM Stefan Eichenberger <eichest@gmail.com> wrote:
-> >
-> > Hi Shengjiu Wang,
-> >
-> > On Thu, Jan 16, 2025 at 12:01:13PM +0800, Shengjiu Wang wrote:
-> > > On Wed, Jan 15, 2025 at 6:39 PM Stefan Eichenberger <eichest@gmail.com> wrote:
-> > > >
-> > > > On Wed, Jan 15, 2025 at 05:14:09PM +0800, Shengjiu Wang wrote:
-> > > > > On Wed, Jan 15, 2025 at 4:33 PM Stefan Eichenberger <eichest@gmail.com> wrote:
-> > > > > >
-> > > > > > Hi Shengjiu Wang,
-> > > > > >
-> > > > > > On Tue, Jan 14, 2025 at 12:58:24PM +0100, Stefan Eichenberger wrote:
-> > > > > > > Hi Shengjiu Wang,
-> > > > > > >
-> > > > > > > On Tue, Jan 14, 2025 at 03:49:10PM +0800, Shengjiu Wang wrote:
-> > > > > > > > On Mon, Jan 13, 2025 at 5:54 PM Stefan Eichenberger <eichest@gmail.com> wrote:
-> > > > > > > > >
-> > > > > > > > > From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
-> > > > > > > > >
-> > > > > > > > > Currently, the flags for the ACM clocks are set to 0. This configuration
-> > > > > > > > > causes the fsl-sai audio driver to fail when attempting to set the
-> > > > > > > > > sysclk, returning an EINVAL error. The following error messages
-> > > > > > > > > highlight the issue:
-> > > > > > > > > fsl-sai 59090000.sai: ASoC: error at snd_soc_dai_set_sysclk on 59090000.sai: -22
-> > > > > > > > > imx-hdmi sound-hdmi: failed to set cpu sysclk: -22
-> > > > > > > >
-> > > > > > > > The reason for this error is that the current clock parent can't
-> > > > > > > > support the rate
-> > > > > > > > you require (I think you want 11289600).
-> > > > > > > >
-> > > > > > > > We can configure the dts to provide such source, for example:
-> > > > > > > >
-> > > > > > > >  &sai5 {
-> > > > > > > > +       assigned-clocks = <&acm IMX_ADMA_ACM_SAI5_MCLK_SEL>,
-> > > > > > > > +                       <&acm IMX_ADMA_ACM_AUD_CLK1_SEL>,
-> > > > > > > > +                       <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_PLL>,
-> > > > > > > > +                       <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_SLV_BUS>,
-> > > > > > > > +                       <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_MST_BUS>,
-> > > > > > > > +                       <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_PLL>,
-> > > > > > > > +                       <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_SLV_BUS>,
-> > > > > > > > +                       <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_MST_BUS>,
-> > > > > > > > +                       <&sai5_lpcg 0>;
-> > > > > > > > +       assigned-clock-parents = <&aud_pll_div0_lpcg 0>, <&aud_rec1_lpcg 0>;
-> > > > > > > > +       assigned-clock-rates = <0>, <0>, <786432000>, <49152000>, <12288000>,
-> > > > > > > > +                                <722534400>, <45158400>, <11289600>,
-> > > > > > > > +                               <49152000>;
-> > > > > > > >         status = "okay";
-> > > > > > > >  };
-> > > > > > > >
-> > > > > > > > Then your case should work.
-> > > > > > > >
-> > > > > > > > >
-> > > > > > > > > By setting the flag CLK_SET_RATE_NO_REPARENT, we signal that the ACM
-> > > > > > > >
-> > > > > > > > I don't think CLK_SET_RATE_NO_REPARENT is a good choice. which will cause
-> > > > > > > > the driver don't get an error from clk_set_rate().
-> > > > > > >
-> > > > > > > Thanks for the proposal, I will try it out tomorrow. Isn't this a
-> > > > > > > problem if other SAIs use the same clock source but with different
-> > > > > > > rates?
-> > > > > > >
-> > > > > > > If we have to define fixed rates in the DTS or else the clock driver
-> > > > > > > will return an error, isn't that a problem? Maybe I should change the
-> > > > > > > sai driver so that it ignores the failure and just takes the rate
-> > > > > > > configured? In the end audio works, even if it can't set the requested
-> > > > > > > rate.
-> > > > > >
-> > > > > > The following clock tree change would allow the driver to work
-> > > > > > in our scenario:
-> > > > > > &sai5 {
-> > > > > >         assigned-clocks = <&acm IMX_ADMA_ACM_SAI5_MCLK_SEL>,
-> > > > > >                           <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_PLL>;
-> > > > > >         assigned-clock-parents = <&aud_pll_div1_lpcg 0>;
-> > > > > >         assigned-clock-rates = <0>, <11289600>;
-> > > > > > };
-> > > > >
-> > > > > In which we configure PLL_0 for 48KHz series (8kHz/16kHz/32kHz/48kHz),
-> > > > > PLL_1 for 44kHz series (11kHz/22kHz/44kHz),
-> > > > > which should fit for most audio requirements.
-> > > > >
-> > > > > >
-> > > > > > However, this means we have to switch the parent clock to the audio pll
-> > > > > > 1. For the simple setup with two SAIs, one for analog audio and one for
-> > > > > > HDMI this wouldn't be a problem. But I'm not sure if this is a good
-> > > > > > solution if a customer would add a third SAI which requires again a
-> > > > > > different parent clock rate.
-> > > > >
-> > > > > We won't change the PLL's rate in the driver,  so as PLL_0 for 48kHz,
-> > > > > PLL_1 for 44kHz,  even with a third SAI or more,  they should work.
-> > > > >
-> > > > > >
-> > > > > > One potential solution could be that the SAI driver tries to first
-> > > > > > derive the clock from the current parent and only if this fails it tries
-> > > > > > to modify its parent clock. What do you think about this solution?
-> > > > > >
-> > > >
-> > > > I did some more testing and I'm still not happy with the current
-> > > > solution. The problem is that if we change the SAI5 mclk clock parent it
-> > > > can either support the 44kHz series or the 48kHz series. However, in the
-> > > > case of HDMI we do not know in advance what the user wants.
-> > > >
-> > > > This means when testing either this works:
-> > > > speaker-test -D hw:2,0 -r 48000 -c 2
-> > > > or this works:
-> > > > speaker-test -D hw:2,0 -r 44100 -c 2
-> > > > With:
-> > > > card 2: imxaudiohdmitx [imx-audio-hdmi-tx], device 0: i.MX HDMI i2s-hifi-0 [i.MX HDMI i2s-hifi-0]
-> > >
-> > > Are you using the setting below?  then should not either,  should both works
-> > >  &sai5 {
-> > > +       assigned-clocks = <&acm IMX_ADMA_ACM_SAI5_MCLK_SEL>,
-> > > +                       <&acm IMX_ADMA_ACM_AUD_CLK1_SEL>,
-> > > +                       <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_PLL>,
-> > > +                       <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_SLV_BUS>,
-> > > +                       <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_MST_BUS>,
-> > > +                       <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_PLL>,
-> > > +                       <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_SLV_BUS>,
-> > > +                       <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_MST_BUS>,
-> > > +                       <&sai5_lpcg 0>;
-> > > +       assigned-clock-parents = <&aud_pll_div0_lpcg 0>, <&aud_rec1_lpcg 0>;
-> > > +       assigned-clock-rates = <0>, <0>, <786432000>, <49152000>, <12288000>,
-> > > +                                <722534400>, <45158400>, <11289600>,
-> > > +                               <49152000>;
-> > >         status = "okay";
-> > >  };
-> >
-> > Sorry I didn't communicate that properly. Yes I was trying with these
-> > settings but they do not work. The problem does not seem to be that the
-> > driver can not adjust the rate for the audio (so e.g. 44kHz or 48kHz)
-> > but that snd_soc_dai_set_sysclk in imx-hdmi.c fails with EINVAL. This
-> > results in a call to fsl_sai_set_mclk_rate in fsl_sai.c with clk_id 1
-> > (mclk_clk[1]) and a freq of 11289600 which causes the fail.
-> > Interestingly, in fsl_sai_set_bclk we then only use clk_get_rate on
-> > mclk_clk[0] which is set to audio_ipg_clk (rate 175000000) and we do not
-> > use mclk_clk[1] anymore at all. This is why I'm not sure if this call to
-> > snd_soc_dai_set_syclk is really necessary?
-> >
-> 
-> Could you please check if you have the below commit in your test tree?
-> 35121e9def07 clk: imx: imx8: Use clk_hw pointer for self registered
-> clock in clk_parent_data
-> 
-> if not, please cherry-pick it.
-> 
-> The audio_ipg_clk can be selected if there is no other choice.
-> but the rate 175000000 is not accurate for 44kHz. what we got
-> is 44102Hz. This is the reason I don't like to use this source.
+Using "drm" level prints anywhere in this callpath causes a NULL
+pointer dereference. Change the error message directly in
+mtk_dp_wait_hpd_asserted() to dev_err() to avoid this. Also change the
+error messages in mtk_dp_parse_capabilities(), which is called by
+mtk_dp_wait_hpd_asserted().
 
-Thanks a lot for the hint, in my test setup I indeed have not applied
-this commit. I tested it now with cherry-picking the commit and with
-applying the change to the dts. This made it work. I will do some more
-testing tomrrow and if I can't find any addtional issue I will use this
-as a solution. 
+While touching these prints, also add the error code to them to make
+future debugging easier.
 
-Should I add the change to our Apalis board dtsi file or directly to
-imx8qm-ss-audio.dtsi? I think it fixes kind of a general issue or not?
+Fixes: 7eacba9a083b ("drm/mediatek: dp: Add .wait_hpd_asserted() for AUX bus")
+Signed-off-by: Douglas Anderson <dianders@chromium.org>
+---
+Unfortunately, I have only been able to compile-time test this code. I
+hit the NULL pointer dereference on a device that's nowhere near
+upstream and it was running (sigh) a heavily modified copy of this
+code where the eDP stuff has been forked out of DP. Specifically, you
+can see <https://crrev.com/c/6073744>. It's pretty easy to understand
+that the same problem affects both codebases though, so I'm posting
+this "blind" in the hopes to at least fix upstream.
 
-Thanks for your support
-Stefan
+I'll also note that the fact that mtk_edp_wait_hpd_asserted() calls
+mtk_dp_parse_capabilities() feels weird/wrong to me based on other eDP
+code I've worked on, but I've only barely looked at the Mediatek
+driver and perhaps others have already debated this. In any case,
+that's not directly related to this patch.
+
+ drivers/gpu/drm/mediatek/mtk_dp.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek/mtk_dp.c
+index 0687672f0e52..ccd104d8851f 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dp.c
++++ b/drivers/gpu/drm/mediatek/mtk_dp.c
+@@ -1763,7 +1763,7 @@ static int mtk_dp_parse_capabilities(struct mtk_dp *mtk_dp)
+ 
+ 	ret = drm_dp_dpcd_readb(&mtk_dp->aux, DP_MSTM_CAP, &val);
+ 	if (ret < 1) {
+-		drm_err(mtk_dp->drm_dev, "Read mstm cap failed\n");
++		dev_err(mtk_dp->dev, "Read mstm cap failed: %zd\n", ret);
+ 		return ret == 0 ? -EIO : ret;
+ 	}
+ 
+@@ -1773,7 +1773,7 @@ static int mtk_dp_parse_capabilities(struct mtk_dp *mtk_dp)
+ 					DP_DEVICE_SERVICE_IRQ_VECTOR_ESI0,
+ 					&val);
+ 		if (ret < 1) {
+-			drm_err(mtk_dp->drm_dev, "Read irq vector failed\n");
++			dev_err(mtk_dp->dev, "Read irq vector failed: %zd\n", ret);
+ 			return ret == 0 ? -EIO : ret;
+ 		}
+ 
+@@ -2056,7 +2056,7 @@ static int mtk_dp_wait_hpd_asserted(struct drm_dp_aux *mtk_aux, unsigned long wa
+ 
+ 	ret = mtk_dp_parse_capabilities(mtk_dp);
+ 	if (ret) {
+-		drm_err(mtk_dp->drm_dev, "Can't parse capabilities\n");
++		dev_err(mtk_dp->dev, "Can't parse capabilities: %d\n", ret);
+ 		return ret;
+ 	}
+ 
+-- 
+2.48.0.rc2.279.g1de40edade-goog
+
 
