@@ -4,135 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFFC6C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 14:59:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C816C02187
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 15:02:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RN+lUqqXfFFnt2ftAYlgEuz6QuwjjAyaGeEfpafExi4=; b=2kCAcRYdyscYltGImjvmXtkvGE
-	oKgWdatrF0VmdCy+4v4yUUgTeHMJJPnkA6/52D7L+XzDvd20MJtqEEgAKZfZKSMXvIcOs68Y2Iexd
-	bm4NfLshqaha7pcTffbocFwuiXeRJB4N3QafoYhmt0+enXIH6V7/sOPCvk0VfOBZkWHaRonBbrVuY
-	7rXkWsymTypFNtM8OqTH4gJbS0WfnUO+dtg5aP4fWH7hFeZoAh+S1v/UaUFwSm99jNlouCa16PvL6
-	zRa24V2knNj7tpX4egEgTTEOceKWMz01eBtECir50l2yUB7xQSLyaWX6tUS8SXo77WFJWgeSU7Xsi
-	O7PPSt7g==;
+	bh=PzMe0DEoDxHffH0wfgdmeio0RFDYk9rb2EGLeTP2uJA=; b=tXaGbPqUWLiftenMmlIRoV+DuJ
+	6cPgm1nnw2H0HymOS8jRcNY4CVHIrvr+QRXcgpsRu7RJoioS0YJ1OuO6L6YjpuOOr1t6JrxTced/J
+	8JSo+moAjBJ3JJWtCIvi/RsisxHD6EKfNXHTsOKCISDU0JmwyctpEc6Y0RxsxuDlYsxOwE0SOBVIl
+	LuP/YFRIHQ/i3tYOfdhtSkNLsG2yR4RZOrJxdKkSTE8JGFc6zSMzfQYt0QAcaOT1Nxn+l4y2qOlMh
+	5cg3A5jvdQL9dyyLWqaE8Q11yy/O19ra1LOJlLllIP42wzHujBPrssHMo0tKoh3vr0zvgsHKc7n+9
+	IAfZPiTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYRLQ-0000000FGnw-0eS9;
-	Thu, 16 Jan 2025 14:59:40 +0000
-Received: from mail-dm6nam10on20630.outbound.protection.outlook.com ([2a01:111:f403:2413::630] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1tYRNt-0000000FH81-3e27;
+	Thu, 16 Jan 2025 15:02:13 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYRI4-0000000FG7y-3xcH
+	id 1tYRMd-0000000FGyb-0s7n
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 14:56:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ju1maHZVxppXMacVjVEgqU6dJ4oHfkqAMwqLb0mZ8uJhwdY5EvYpOuSQABXzxksrb/C2jRmD6HGl3CvfrGxt9Qo3hIjZKgu113FYHUiddfYncG3ranXLptWaKDiSjP21rvVkdyd5vPb/IPZ/l792R8smWRVWd5eIptt7ucS11zzbBpUIsE2+K4B2Gj8PGHhltTEDVnlKAAX30O6wwnBUgnULHnMDaG/T3kNQfurswVvGzrtxkrj+S4a2z8HZSc8V8JyVjvsXrvYqaebbv96kS7P/f836/X8/A5fFo2wSGaGMH459B6GbPGLTcaYwfpan87yophWP4WZHgXRC+yUq0Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RN+lUqqXfFFnt2ftAYlgEuz6QuwjjAyaGeEfpafExi4=;
- b=BImf54nynLKvviX9MHiKL3LVhCOQB99TftYLpzZT8IubqgVWz6l6+ioX9YgcUnXzPHQih/ZT5hOu+fJMNdgGyTd289s2g9jqZEFyvBEHyAeoNXi9mQkpHU0kZkCQpXUtruT7ymfIi7h0L7BPL45E16W6uFcbJv/Dk2AFxnq2E7U0dpHsNd+3tTrs0Hl5SmVhy8FURFHS8en85qId8nWYTZpbOZfaHAZggIhrjdtOODUzGz2ncnUxDudTKppsUdgUCtOKyJJEthEem9IvwO9RtOCQzlCNzMW49t57lIRhDk6qynV3wG4wlvUF6tsRaNLW4wczsDEKiDuBBy7MGRNSiA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RN+lUqqXfFFnt2ftAYlgEuz6QuwjjAyaGeEfpafExi4=;
- b=2zS9JG/JXaOCOSy8gJ+BBq1TKohKtYVrXowARLLaMxo7u+2xed1t1tpI3xIxq1wRFfH9FeebG9bHoxNY8HioAaYxoLHSiQkxpl5ctRpDPkDfJIQyR1PMla0Lil+ApyZKguR/50HQVbLhHsYCODDazJXZWyL4m4REKeJQHkD+DOY=
-Received: from SA0PR12CA0028.namprd12.prod.outlook.com (2603:10b6:806:6f::33)
- by DS0PR12MB8366.namprd12.prod.outlook.com (2603:10b6:8:f9::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.13; Thu, 16 Jan
- 2025 14:55:54 +0000
-Received: from SA2PEPF00003F64.namprd04.prod.outlook.com
- (2603:10b6:806:6f:cafe::98) by SA0PR12CA0028.outlook.office365.com
- (2603:10b6:806:6f::33) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8356.16 via Frontend Transport; Thu,
- 16 Jan 2025 14:55:54 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
-Received: from SATLEXMB04.amd.com (165.204.84.17) by
- SA2PEPF00003F64.mail.protection.outlook.com (10.167.248.39) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8356.11 via Frontend Transport; Thu, 16 Jan 2025 14:55:53 +0000
-Received: from localhost (10.180.168.240) by SATLEXMB04.amd.com
- (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 16 Jan
- 2025 08:55:50 -0600
-From: Michal Simek <michal.simek@amd.com>
-To: <linux-kernel@vger.kernel.org>, <monstr@monstr.eu>,
-	<michal.simek@xilinx.com>, <git@xilinx.com>
-CC: Jaroslav Kysela <perex@perex.cz>, Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, Takashi Iwai <tiwai@suse.com>, "moderated
- list:ARM/ZYNQ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, "open
- list:SOUND - SOC LAYER / DYNAMIC AUDIO POWER MANAGEM..."
-	<linux-sound@vger.kernel.org>
-Subject: [PATCH] ASoC: xilinx: xlnx_spdif: Simpify using devm_clk_get_enabled()
-Date: Thu, 16 Jan 2025 15:55:46 +0100
-Message-ID: <90075f57ceff7cdf958d0d146f46f50661335236.1737039345.git.michal.simek@amd.com>
-X-Mailer: git-send-email 2.43.0
+	Thu, 16 Jan 2025 15:00:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D6514A41F04;
+	Thu, 16 Jan 2025 14:59:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15EA6C4CEE1;
+	Thu, 16 Jan 2025 15:00:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737039653;
+	bh=LHvdWOUzqFIxMZF6cFbOtU78ShJJm3+sua0F9MDsOuA=;
+	h=From:Date:Subject:To:Cc:From;
+	b=lvAMTQDNCLiDwCXNYTs7IaWX5id398BQpszrWXASAX1QjKUmbI+Xv3i1u4EGeC7j0
+	 lJAmw66TcSOuPamgqdTiMvrKd4K2PaaSdoS14G9XHHMJ4U5dPoDxzoGSYHpZ9JbUm3
+	 u7dK4HpeQ3f3NGz4nxHjXAukKDf7mnQ3hrsXrPaR3Y7ttMCgSAnYoeTlFuZ735Fps5
+	 mohHQ9cWU9EJnm2t7QW80LbFcQxiQfgva4SymEAX2r26ItuMgmlgf5LNi7oYxLFT1C
+	 wxV0VhMoaNWSi4hRxhY8ggOFhxhlqzTmcGcXZw7gqR4McPGEZPevkkYVNEVOx19k9K
+	 TYJuZUyqEQwzg==
+From: Roger Quadros <rogerq@kernel.org>
+Date: Thu, 16 Jan 2025 17:00:46 +0200
+Subject: [PATCH] dmaengine: ti: k3-udma-glue: Drop skip_fdq argument from
+ k3_udma_glue_reset_rx_chn
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3096; i=michal.simek@amd.com; h=from:subject:message-id; bh=0Ktv+wOQ0OoxXs5ewz4zwlQPybmIngZ7R6XujmeuIBo=; b=owGbwMvMwCR4yjP1tKYXjyLjabUkhvRO2c+2/o3vM5eXZ7yq+3C/u3Pdw4DMf3+ufcqacVi40 DNpqsKCjlgWBkEmBlkxRRZpmytn9lbOmCJ88bAczBxWJpAhDFycAjARobsM872kGuwudG4y2Fu3 42jbf5Wdu+JarzHM9w742ZT8ePNeizfH+2f8e5x7w1/GFAA=
-X-Developer-Key: i=michal.simek@amd.com; a=openpgp; fpr=67350C9BF5CCEE9B5364356A377C7F21FE3D1F91
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.180.168.240]
-X-ClientProxiedBy: SATLEXMB04.amd.com (10.181.40.145) To SATLEXMB04.amd.com
- (10.181.40.145)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00003F64:EE_|DS0PR12MB8366:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1273cf12-caf2-4be2-d3d3-08dd363de002
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|82310400026|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?clvqNkrgbtGhFHMA9qSSngGD5CDp8ZjOXmVj5MyDRtznLhLKbEVRBLlUFOk5?=
- =?us-ascii?Q?DmgPgfl/udP5K8YyqT6qeGU3PEPuk21rzMh1RXnlgcIlRvftGW9Dztoh/HME?=
- =?us-ascii?Q?EUqL/GJhuLFUbVW/DqN4o8Y8D/rBG6lZJ3DOAA9QEcwckvnLUy7Pwdj0gm9q?=
- =?us-ascii?Q?SnsRwIBzChBkNxhVSXBeyIoIaR/QiI5yP8FIV9Xp9pb57Vc6WJadHC4EYCXY?=
- =?us-ascii?Q?zmNaXQER3O6PIisKL+gZcKsu3QXGjHjVqzXXLiGrWSfMtPccnneFktecdXR5?=
- =?us-ascii?Q?3koxR74o9/yIkm5OUtu1b7Se2m5RHhLitaJD8AI0EWnuxNxPnniacIDEAgwz?=
- =?us-ascii?Q?nVBm8usgGxGHlIs+76s6CL+TXkuYSpvPD4OtcSS69n33Cmx87J7Zx1n0Hr2G?=
- =?us-ascii?Q?VTiwSoCv6XxjNvRLs9h19B4oOe+i1O5+1VafVgXChwEm/u3ljZpCosTHY6Z/?=
- =?us-ascii?Q?+wYEarCugY4tZyJ6s/5BtXUN6G4w3CXqNkyKUE2awsUje7GzBIkb5mXvm7CO?=
- =?us-ascii?Q?javXZ071mrFEEZo9gufxsUfT6HcxFOx9Pbwn34h869W9IfPO+y+nPcGcFH9y?=
- =?us-ascii?Q?YqAMMAyPU3EX9LaEduaw/3LhTqhmkG1xaA2P96WXLPx8Z6m6arfFJbx2IRJC?=
- =?us-ascii?Q?WtBa3gADsYjSm686LPmw5o+A0cRnuArLAjwaqgAff7LbmMvktu8qka8HJYuH?=
- =?us-ascii?Q?EIuxoNZaQjM9Xobx60rr3ZvBB5Ca6XY4OFcW30vdZBPAHmov/KTvKOKY0xWc?=
- =?us-ascii?Q?lYC9uGgqee47Tuc2kTDPxfK+8Byio8MTZnJ2A+CY861GIfW9QTTkvIv+Q1jL?=
- =?us-ascii?Q?opqt6ngch05QBTCsOkQobQVyv2T3GrYHBqElM/QrNXJmrbx55GRi2yrvGAHW?=
- =?us-ascii?Q?J3oYfiyKzwQqO/RhbcrRF/zjuW8z6lvFIkC9sxjQ0gSRgd1ZL2hfpt6fF0Es?=
- =?us-ascii?Q?oBw0RfPsrAxpcpxEDx5ohwMlvHkngp3iVbiXFU5bdaBi9+TBMP1NbEFZYXCp?=
- =?us-ascii?Q?ga+Tgc9bY9DSgjsB4/w7G0djoFAq3PRyygYC5deLIcHjGqCmO/agGY/Y9szE?=
- =?us-ascii?Q?+N3b/aCWFIGdRKTXe1eons3sTIg9AW5H9YKsVVt3WF8YhBealbxniqU15LVX?=
- =?us-ascii?Q?CYOXjLwqsj7rSfeOMh0ibzOzzGBdckJ7tzpDfdIQAgJJUDYMxh1BxvDaFy+6?=
- =?us-ascii?Q?YxecvprzTSVsSHSwxTV+NXz8AkJcnK/zFrDfrbBRwguxnB89DLWLfsLgS4B0?=
- =?us-ascii?Q?TP/OVUNrzvuwX+wOh1g0rmN2JbmYLXHs3brJXuYyJr84ayMf2KBdcDV0YfIg?=
- =?us-ascii?Q?UYDJs08tDb1C/4bda4zUk0MGDmPSihIDjErONBLbMqz+YprLmT+64KIRwbv8?=
- =?us-ascii?Q?d6q3jqPyXxjP9qP4FMYosD1AG/foU/0mlEf3iDBoiy8VcKBsOT38iIvfRolQ?=
- =?us-ascii?Q?cYq9eqsi7E76/edGuS4ZustySv1uXWXevM9Ybxj/PXBVyiKc41AYlEUGBczj?=
- =?us-ascii?Q?xVbmrO9ZsKRHA94=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(82310400026)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jan 2025 14:55:53.4883
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1273cf12-caf2-4be2-d3d3-08dd363de002
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003F64.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8366
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250116-k3-udma-glue-single-fdq-v1-1-a0de73e36390@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAB0fiWcC/x3MQQ5AMBBA0avIrE3SoiSuIhal05qgaEMk4u4ay
+ 7f4/4FIgSlCmz0Q6OLIm0+QeQbjpL0jZJMMhSiUkLLGucTTrBrdchJG9m4htObAUQ9iUJWSjVW
+ Q6j2Q5fs/d/37fqWUBA9pAAAA
+To: Peter Ujfalusi <peter.ujfalusi@gmail.com>, 
+ Vinod Koul <vkoul@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ MD Danish Anwar <danishanwar@ti.com>, 
+ Siddharth Vadapalli <s-vadapalli@ti.com>, 
+ Vignesh Raghavendra <vigneshr@ti.com>
+Cc: srk@ti.com, dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Roger Quadros <rogerq@kernel.org>
+X-Mailer: b4 0.14.1
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9171; i=rogerq@kernel.org;
+ h=from:subject:message-id; bh=LHvdWOUzqFIxMZF6cFbOtU78ShJJm3+sua0F9MDsOuA=;
+ b=owEBbQKS/ZANAwAIAdJaa9O+djCTAcsmYgBniR8hpY/hzD/bnHMzpKCanAmOaV0J4PNaPoZlR
+ SBuGS1rYo2JAjMEAAEIAB0WIQRBIWXUTJ9SeA+rEFjSWmvTvnYwkwUCZ4kfIQAKCRDSWmvTvnYw
+ k4zAD/9Syh0M/JZY0CJkA4KjKSwbelXudJkmcceGRfpBYDJfL5Xk8z6/mqLTC/DegA8qFqeuRjm
+ 1DMKgv983gCLd5i/Zf2Sj4PKB4oDQ2KQhac/YaDzml4h6h4vTGmWngdUqNKl9Odw5BVb+fSNG8p
+ aLmkOnnOuUMkLBjU4/9HduaNInpXbwccx7KELnuqniW2n5y5dXWs5UIo6MWRKHdf564oOgUIvsC
+ DsA6m9kGP+5LnRzQ/iyZ1XN3CNOhnsm6UOsQoqvGfK5ysNL4C+fc/elTvoUVXLOx4Q/PSrmX3BT
+ LXEA1x53S41djkBaF4SbR8U7H0WX4N/Kvg6PZLe2XkFnP1nJDy5yxwjQlhx7ubzlDH8RQDCXIaj
+ g3qtMpQyga0s+CV5QVjsa7CebfZ4He/HwKBLNPOKlBspvQNhEQcJFnB9bevcUyxR0XCSpZ0jGeH
+ ++tiyynrSKPwHRiQcEN98+fg3Vsbd9xrVkdOZb2DPrQqx/+clXVwni+bjQVuDOj1ZczFc9vBdFn
+ KrngG7HGOKYsbBhyRZxXcC7qzVyKB/HFdYAO87olVDJjkY2zEoj0f7B84dyyQ5flsGxf9LKlIK8
+ BEWHDs4DBU2cytTx2/jJawbuzQmvVcRY12evmyvqAJEIx3dsXgN7XncMVe697NVu2GCK39NU8GD
+ yakrPSwfK3j5i/A==
+X-Developer-Key: i=rogerq@kernel.org; a=openpgp;
+ fpr=412165D44C9F52780FAB1058D25A6BD3BE763093
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_065612_981795_A5BF3DE2 
-X-CRM114-Status: GOOD (  15.50  )
+X-CRM114-CacheID: sfid-20250116_070055_389777_C82E5283 
+X-CRM114-Status: GOOD (  18.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,115 +97,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Clock handling can be very simlified with using devm_clk_get_enabled() as
-was done by commit 8d2aaf4382b7 ("gpio: zynq: Simplify using
-devm_clk_get_enabled()").
+The user of k3_udma_glue_reset_rx_chn() e.g. ti_am65_cpsw_nuss can
+run on multiple platforms having different DMA architectures.
+On some platforms there can be one FDQ for all flows in the RX channel
+while for others there is a separate FDQ for each flow in the RX channel.
 
-Signed-off-by: Michal Simek <michal.simek@amd.com>
+So far we have been relying on the skip_fdq argument of
+k3_udma_glue_reset_rx_chn().
+
+Instead of relying on the user to provide this information, infer it
+based on DMA architecture during k3_udma_glue_request_rx_chn() and save it
+in an internal flag 'single_fdq'. Use that flag at
+k3_udma_glue_reset_rx_chn() to deicide if the FDQ needs
+to be cleared for every flow or just for flow 0.
+
+Fixes the below issue on ti_am65_cpsw_nuss driver on AM62-SK.
+
+> ip link set eth1 down
+> ip link set eth0 down
+> ethtool -L eth0 rx 8
+> ip link set eth0 up
+> modprobe -r ti_am65_cpsw_nuss
+
+[  103.045726] ------------[ cut here ]------------
+[  103.050505] k3_knav_desc_pool size 512000 != avail 64000
+[  103.050703] WARNING: CPU: 1 PID: 450 at drivers/net/ethernet/ti/k3-cppi-desc-pool.c:33 k3_cppi_desc_pool_destroy+0xa0/0xa8 [k3_cppi_desc_pool]
+[  103.068810] Modules linked in: ti_am65_cpsw_nuss(-) k3_cppi_desc_pool snd_soc_hdmi_codec crct10dif_ce snd_soc_simple_card snd_soc_simple_card_utils display_connector rtc_ti_k3 k3_j72xx_bandgap tidss drm_client_lib snd_soc_davinci_mcas
+p drm_dma_helper tps6598x phylink snd_soc_ti_udma rti_wdt drm_display_helper snd_soc_tlv320aic3x_i2c typec at24 phy_gmii_sel snd_soc_ti_edma snd_soc_tlv320aic3x sii902x snd_soc_ti_sdma sa2ul omap_mailbox drm_kms_helper authenc cfg80211 r
+fkill fuse drm drm_panel_orientation_quirks backlight ip_tables x_tables ipv6 [last unloaded: k3_cppi_desc_pool]
+[  103.119950] CPU: 1 UID: 0 PID: 450 Comm: modprobe Not tainted 6.13.0-rc7-00001-g9c5e3435fa66 #1011
+[  103.119968] Hardware name: Texas Instruments AM625 SK (DT)
+[  103.119974] pstate: 80000005 (Nzcv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+[  103.119983] pc : k3_cppi_desc_pool_destroy+0xa0/0xa8 [k3_cppi_desc_pool]
+[  103.148007] lr : k3_cppi_desc_pool_destroy+0xa0/0xa8 [k3_cppi_desc_pool]
+[  103.154709] sp : ffff8000826ebbc0
+[  103.158015] x29: ffff8000826ebbc0 x28: ffff0000090b6300 x27: 0000000000000000
+[  103.165145] x26: 0000000000000000 x25: 0000000000000000 x24: ffff0000019df6b0
+[  103.172271] x23: ffff0000019df6b8 x22: ffff0000019df410 x21: ffff8000826ebc88
+[  103.179397] x20: 000000000007d000 x19: ffff00000a3b3000 x18: 0000000000000000
+[  103.186522] x17: 0000000000000000 x16: 0000000000000000 x15: 000001e8c35e1cde
+[  103.193647] x14: 0000000000000396 x13: 000000000000035c x12: 0000000000000000
+[  103.200772] x11: 000000000000003a x10: 00000000000009c0 x9 : ffff8000826eba20
+[  103.207897] x8 : ffff0000090b6d20 x7 : ffff00007728c180 x6 : ffff00007728c100
+[  103.215022] x5 : 0000000000000001 x4 : ffff000000508a50 x3 : ffff7ffff6146000
+[  103.222147] x2 : 0000000000000000 x1 : e300b4173ee6b200 x0 : 0000000000000000
+[  103.229274] Call trace:
+[  103.231714]  k3_cppi_desc_pool_destroy+0xa0/0xa8 [k3_cppi_desc_pool] (P)
+[  103.238408]  am65_cpsw_nuss_free_rx_chns+0x28/0x4c [ti_am65_cpsw_nuss]
+[  103.244942]  devm_action_release+0x14/0x20
+[  103.249040]  release_nodes+0x3c/0x68
+[  103.252610]  devres_release_all+0x8c/0xdc
+[  103.256614]  device_unbind_cleanup+0x18/0x60
+[  103.260876]  device_release_driver_internal+0xf8/0x178
+[  103.266004]  driver_detach+0x50/0x9c
+[  103.269571]  bus_remove_driver+0x6c/0xbc
+[  103.273485]  driver_unregister+0x30/0x60
+[  103.277401]  platform_driver_unregister+0x14/0x20
+[  103.282096]  am65_cpsw_nuss_driver_exit+0x18/0xff4 [ti_am65_cpsw_nuss]
+[  103.288620]  __arm64_sys_delete_module+0x17c/0x25c
+[  103.293404]  invoke_syscall+0x44/0x100
+[  103.297149]  el0_svc_common.constprop.0+0xc0/0xe0
+[  103.301845]  do_el0_svc+0x1c/0x28
+[  103.305155]  el0_svc+0x28/0x98
+[  103.308207]  el0t_64_sync_handler+0xc8/0xcc
+[  103.312384]  el0t_64_sync+0x198/0x19c
+[  103.316040] ---[ end trace 0000000000000000 ]---
+
+Signed-off-by: Roger Quadros <rogerq@kernel.org>
 ---
+ drivers/dma/ti/k3-udma-glue.c                | 15 +++++++++++----
+ drivers/net/ethernet/ti/am65-cpsw-nuss.c     |  6 +++---
+ drivers/net/ethernet/ti/icssg/icssg_common.c |  2 +-
+ include/linux/dma/k3-udma-glue.h             |  3 +--
+ 4 files changed, 16 insertions(+), 10 deletions(-)
 
-Compiled only.
----
- sound/soc/xilinx/xlnx_spdif.c | 38 ++++++++++-------------------------
- 1 file changed, 11 insertions(+), 27 deletions(-)
-
-diff --git a/sound/soc/xilinx/xlnx_spdif.c b/sound/soc/xilinx/xlnx_spdif.c
-index 7febb3830dc2..017a64ab9f1e 100644
---- a/sound/soc/xilinx/xlnx_spdif.c
-+++ b/sound/soc/xilinx/xlnx_spdif.c
-@@ -248,41 +248,35 @@ static int xlnx_spdif_probe(struct platform_device *pdev)
- 	if (!ctx)
- 		return -ENOMEM;
- 
--	ctx->axi_clk = devm_clk_get(dev, "s_axi_aclk");
-+	ctx->axi_clk = devm_clk_get_enabled(dev, "s_axi_aclk");
- 	if (IS_ERR(ctx->axi_clk)) {
- 		ret = PTR_ERR(ctx->axi_clk);
- 		dev_err(dev, "failed to get s_axi_aclk(%d)\n", ret);
- 		return ret;
- 	}
--	ret = clk_prepare_enable(ctx->axi_clk);
--	if (ret) {
--		dev_err(dev, "failed to enable s_axi_aclk(%d)\n", ret);
--		return ret;
--	}
- 
- 	ctx->base = devm_platform_ioremap_resource(pdev, 0);
--	if (IS_ERR(ctx->base)) {
--		ret = PTR_ERR(ctx->base);
--		goto clk_err;
--	}
-+	if (IS_ERR(ctx->base))
-+		return PTR_ERR(ctx->base);
-+
- 	ret = of_property_read_u32(node, "xlnx,spdif-mode", &ctx->mode);
- 	if (ret < 0) {
- 		dev_err(dev, "cannot get SPDIF mode\n");
--		goto clk_err;
-+		return ret;
- 	}
- 	if (ctx->mode) {
- 		dai_drv = &xlnx_spdif_tx_dai;
- 	} else {
- 		ret = platform_get_irq(pdev, 0);
- 		if (ret < 0)
--			goto clk_err;
-+			return ret;
-+
- 		ret = devm_request_irq(dev, ret,
- 				       xlnx_spdifrx_irq_handler,
- 				       0, "XLNX_SPDIF_RX", ctx);
- 		if (ret) {
- 			dev_err(dev, "spdif rx irq request failed\n");
--			ret = -ENODEV;
--			goto clk_err;
-+			return -ENODEV;
- 		}
- 
- 		init_waitqueue_head(&ctx->chsts_q);
-@@ -292,7 +286,7 @@ static int xlnx_spdif_probe(struct platform_device *pdev)
- 	ret = of_property_read_u32(node, "xlnx,aud_clk_i", &ctx->aclk);
- 	if (ret < 0) {
- 		dev_err(dev, "cannot get aud_clk_i value\n");
--		goto clk_err;
-+		return ret;
- 	}
- 
- 	dev_set_drvdata(dev, ctx);
-@@ -301,22 +295,13 @@ static int xlnx_spdif_probe(struct platform_device *pdev)
- 					      dai_drv, 1);
- 	if (ret) {
- 		dev_err(dev, "SPDIF component registration failed\n");
--		goto clk_err;
-+		return ret;
- 	}
- 
- 	writel(XSPDIF_SOFT_RESET_VALUE, ctx->base + XSPDIF_SOFT_RESET_REG);
- 	dev_info(dev, "%s DAI registered\n", dai_drv->name);
- 
--clk_err:
--	clk_disable_unprepare(ctx->axi_clk);
--	return ret;
--}
--
--static void xlnx_spdif_remove(struct platform_device *pdev)
--{
--	struct spdif_dev_data *ctx = dev_get_drvdata(&pdev->dev);
--
--	clk_disable_unprepare(ctx->axi_clk);
-+	return 0;
- }
- 
- static struct platform_driver xlnx_spdif_driver = {
-@@ -325,7 +310,6 @@ static struct platform_driver xlnx_spdif_driver = {
- 		.of_match_table = xlnx_spdif_of_match,
- 	},
- 	.probe = xlnx_spdif_probe,
--	.remove = xlnx_spdif_remove,
+diff --git a/drivers/dma/ti/k3-udma-glue.c b/drivers/dma/ti/k3-udma-glue.c
+index 7c224c3ab7a0..f87d244cc2d6 100644
+--- a/drivers/dma/ti/k3-udma-glue.c
++++ b/drivers/dma/ti/k3-udma-glue.c
+@@ -84,6 +84,7 @@ struct k3_udma_glue_rx_channel {
+ 	struct k3_udma_glue_rx_flow *flows;
+ 	u32 flow_num;
+ 	u32 flows_ready;
++	bool single_fdq;	/* one FDQ for all flows */
  };
- module_platform_driver(xlnx_spdif_driver);
  
+ static void k3_udma_chan_dev_release(struct device *dev)
+@@ -970,10 +971,13 @@ k3_udma_glue_request_rx_chn_priv(struct device *dev, const char *name,
+ 
+ 	ep_cfg = rx_chn->common.ep_config;
+ 
+-	if (xudma_is_pktdma(rx_chn->common.udmax))
++	if (xudma_is_pktdma(rx_chn->common.udmax)) {
+ 		rx_chn->udma_rchan_id = ep_cfg->mapped_channel_id;
+-	else
++		rx_chn->single_fdq = false;
++	} else {
+ 		rx_chn->udma_rchan_id = -1;
++		rx_chn->single_fdq = true;
++	}
+ 
+ 	/* request and cfg UDMAP RX channel */
+ 	rx_chn->udma_rchanx = xudma_rchan_get(rx_chn->common.udmax,
+@@ -1103,6 +1107,9 @@ k3_udma_glue_request_remote_rx_chn_common(struct k3_udma_glue_rx_channel *rx_chn
+ 		rx_chn->common.chan_dev.dma_coherent = true;
+ 		dma_coerce_mask_and_coherent(&rx_chn->common.chan_dev,
+ 					     DMA_BIT_MASK(48));
++		rx_chn->single_fdq = false;
++	} else {
++		rx_chn->single_fdq = true;
+ 	}
+ 
+ 	ret = k3_udma_glue_allocate_rx_flows(rx_chn, cfg);
+@@ -1453,7 +1460,7 @@ EXPORT_SYMBOL_GPL(k3_udma_glue_tdown_rx_chn);
+ 
+ void k3_udma_glue_reset_rx_chn(struct k3_udma_glue_rx_channel *rx_chn,
+ 		u32 flow_num, void *data,
+-		void (*cleanup)(void *data, dma_addr_t desc_dma), bool skip_fdq)
++		void (*cleanup)(void *data, dma_addr_t desc_dma))
+ {
+ 	struct k3_udma_glue_rx_flow *flow = &rx_chn->flows[flow_num];
+ 	struct device *dev = rx_chn->common.dev;
+@@ -1465,7 +1472,7 @@ void k3_udma_glue_reset_rx_chn(struct k3_udma_glue_rx_channel *rx_chn,
+ 	dev_dbg(dev, "RX reset flow %u occ_rx %u\n", flow_num, occ_rx);
+ 
+ 	/* Skip RX FDQ in case one FDQ is used for the set of flows */
+-	if (skip_fdq)
++	if (rx_chn->single_fdq && flow_num)
+ 		goto do_reset;
+ 
+ 	/*
+diff --git a/drivers/net/ethernet/ti/am65-cpsw-nuss.c b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
+index 5465bf872734..ba6af99aa2a8 100644
+--- a/drivers/net/ethernet/ti/am65-cpsw-nuss.c
++++ b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
+@@ -859,7 +859,7 @@ static int am65_cpsw_nuss_common_open(struct am65_cpsw_common *common)
+ fail_rx:
+ 	for (i = 0; i < common->rx_ch_num_flows; i++)
+ 		k3_udma_glue_reset_rx_chn(rx_chn->rx_chn, i, rx_chn,
+-					  am65_cpsw_nuss_rx_cleanup, !!i);
++					  am65_cpsw_nuss_rx_cleanup);
+ 
+ 	am65_cpsw_destroy_xdp_rxqs(common);
+ 
+@@ -915,7 +915,7 @@ static int am65_cpsw_nuss_common_stop(struct am65_cpsw_common *common)
+ 		napi_disable(&rx_chn->flows[i].napi_rx);
+ 		hrtimer_cancel(&rx_chn->flows[i].rx_hrtimer);
+ 		k3_udma_glue_reset_rx_chn(rx_chn->rx_chn, i, rx_chn,
+-					  am65_cpsw_nuss_rx_cleanup, !!i);
++					  am65_cpsw_nuss_rx_cleanup);
+ 	}
+ 
+ 	k3_udma_glue_disable_rx_chn(rx_chn->rx_chn);
+@@ -3364,7 +3364,7 @@ static int am65_cpsw_nuss_register_ndevs(struct am65_cpsw_common *common)
+ 	for (i = 0; i < common->rx_ch_num_flows; i++)
+ 		k3_udma_glue_reset_rx_chn(rx_chan->rx_chn, i,
+ 					  rx_chan,
+-					  am65_cpsw_nuss_rx_cleanup, !!i);
++					  am65_cpsw_nuss_rx_cleanup);
+ 
+ 	k3_udma_glue_disable_rx_chn(rx_chan->rx_chn);
+ 
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
+index 74f0f200a89d..62065416e886 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_common.c
++++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
+@@ -955,7 +955,7 @@ void prueth_reset_rx_chan(struct prueth_rx_chn *chn,
+ 
+ 	for (i = 0; i < num_flows; i++)
+ 		k3_udma_glue_reset_rx_chn(chn->rx_chn, i, chn,
+-					  prueth_rx_cleanup, !!i);
++					  prueth_rx_cleanup);
+ 	if (disable)
+ 		k3_udma_glue_disable_rx_chn(chn->rx_chn);
+ }
+diff --git a/include/linux/dma/k3-udma-glue.h b/include/linux/dma/k3-udma-glue.h
+index 2dea217629d0..5d43881e6fb7 100644
+--- a/include/linux/dma/k3-udma-glue.h
++++ b/include/linux/dma/k3-udma-glue.h
+@@ -138,8 +138,7 @@ int k3_udma_glue_rx_get_irq(struct k3_udma_glue_rx_channel *rx_chn,
+ 			    u32 flow_num);
+ void k3_udma_glue_reset_rx_chn(struct k3_udma_glue_rx_channel *rx_chn,
+ 		u32 flow_num, void *data,
+-		void (*cleanup)(void *data, dma_addr_t desc_dma),
+-		bool skip_fdq);
++		void (*cleanup)(void *data, dma_addr_t desc_dma));
+ int k3_udma_glue_rx_flow_enable(struct k3_udma_glue_rx_channel *rx_chn,
+ 				u32 flow_idx);
+ int k3_udma_glue_rx_flow_disable(struct k3_udma_glue_rx_channel *rx_chn,
+
+---
+base-commit: 5bc55a333a2f7316b58edc7573e8e893f7acb532
+change-id: 20250116-k3-udma-glue-single-fdq-cab0b54517f5
+
+Best regards,
 -- 
-2.43.0
+Roger Quadros <rogerq@kernel.org>
 
 
