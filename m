@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD2CFC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 13:20:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B45DC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 13:28:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pIzT8KyshMGKtJ2NX697FhOxTMTsAMC5Jw9+6iCGtKk=; b=jLLHGALtSJ+mOYK7JJObforSJi
-	mivqSOFB/tDJV5ABQGj2j3+fM5uo4aCKdK99yfhRRrZyHKB0TCu7xa40XpRYVQbGWj0XY1EWXy8Tf
-	RDusVYhKXjyV8lbbN8Fx1cDuetPrCxQo04a0KcMTXQ/drFD9QE9lKguncAJEkhqLqAkzzWtF3PdfR
-	5n6ymYCJpyc1m5AsPQPjya4+s1DOgyxUL7sMsOLBjkvz6TmWDJuSoheWWldVaYo1N/1RK/7xhcuwt
-	ftgOXMJZWvjXz2YfBCvuC/NfoC+j0Uez8lz5wH6V5+rIXJyvXvyBE61dVUEmxVwolcd7P+C+ep/UI
-	LXGHlTbg==;
+	bh=KdMneNMiWUU5nbWg4PpeDhEraN2dp4d46EBa1DqoXcs=; b=rM+pVTeV09T5mriPzguK+2tm/R
+	0nXcUGrpyFhrjjA7FV259PjrYjYOL7yBn4rd4bc4aPfEXh/6pEYGN1o+5vcJrNgjLK++O6kxZW15Y
+	QXFtfXmZBAD2dxun6fY7XvljIyjMQXAjafuSJWZ3Mkf+TdlNmsuUo01b9WJcwTRWJNu8Zojqsji5B
+	NMz+EKCDVtbD4jS44OX6WfO1oIySCEqF7xsBSdpjncXM/V5Ssmw2NWll62wZuje2I6uYjLFCce0UI
+	Fs9IYhOenqJsXGEVNzQ1z17Pv3D8m4uzvPz5kMDekp903biLzsKUCzlsQqMPAVwlj6vgT58XZdCJb
+	ey3zWyzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYPnQ-0000000Ezu6-26XW;
-	Thu, 16 Jan 2025 13:20:28 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tYPvB-0000000F0zF-16n5;
+	Thu, 16 Jan 2025 13:28:29 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYPmA-0000000Eznf-1Qra;
-	Thu, 16 Jan 2025 13:19:11 +0000
+	id 1tYPtu-0000000F0ZJ-3ci8;
+	Thu, 16 Jan 2025 13:27:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1737033547;
-	bh=BFxVXJJabloKs7r9Ax8zWdGqbl8ktI2pQICt6LoVVE8=;
+	s=mail; t=1737034029;
+	bh=CO6WZPYdeZC8+Bx0ho5URccoE4ccASaq/bcedaSPINk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=L/YsZg8aHcfPf2SBOAGkuZNb0Rd0AgPQTwR+GEt9a/NNVVFH46/KHDX4A/y1i6rGj
-	 QXg7AXFiMperBDsoFI8MxX0p+aI2hv7sMbroQzdreXz/FbBUWhdUTfgKmpOwiPiyLK
-	 tRDw3He6SieKgxXPbamDhWOMrppT6aeF2J9LDjccYLYUAUP+IB97Dl4HtpgWYF4s7o
-	 ZjO0cpn6TVnvRKmutLy22LLM8756cAfgyJJXgLgak5CQSkMalSZ/g+sfTflqqDn4bv
-	 TGx1s1Ue2kA0i5aM9I7lCdAq2awESlrYMnYPMU1sAxOxm8r6EakllcOwDZlnCurUFW
-	 AaUtoOt1ofQug==
+	b=doa6shUHNfIEHjEAqGxGeNydvwDIsM1DBvzqdtwPGDCSR34OXuitDO+D0BSeQ2Rqt
+	 W9MVXML8f3pjH7YJCaXHs65OgRAOlA3Xwu+tEKOGWrZIMb/qLbCbN0PfaNsCSIhTKS
+	 OfyB55kluekPg1CI9bdfN6AB9eqsWfqdgMHRecFtShYQDb5W+mH7D3b8d1zoHBg/Vy
+	 eN/OWG7kPrF+ditoeDRg4zC5K+JaiSZljxdOotELYC/wvbAoG1DQci3XSrOxopF67G
+	 e0UT5+nAUv00teiH5IQJS4oUGyZWqkqCtPpgYWzqTAGQScsfZfv5RqbHEt8+JQAVFX
+	 +3/Xu0o3qQ7sA==
 Received: from notapiano (unknown [IPv6:2804:14c:1a9:53ee::1001])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 142D517E0E9E;
-	Thu, 16 Jan 2025 14:19:00 +0100 (CET)
-Date: Thu, 16 Jan 2025 10:18:54 -0300
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2CAE817E0E9E;
+	Thu, 16 Jan 2025 14:27:02 +0100 (CET)
+Date: Thu, 16 Jan 2025 10:27:00 -0300
 From: =?utf-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>
 To: Daniel Lezcano <daniel.lezcano@linaro.org>
 Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
@@ -60,20 +60,20 @@ Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
 	Bernhard =?utf-8?Q?Rosenkr=C3=A4nzer?= <bero@baylibre.com>,
 	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
 	stable@vger.kernel.org
-Subject: Re: [PATCH RESEND v2 1/5] thermal/drivers/mediatek/lvts: Disable
- monitor mode during suspend
-Message-ID: <554102c6-d597-4dc8-b760-3e2b9078e471@notapiano>
+Subject: Re: [PATCH RESEND v2 2/5] thermal/drivers/mediatek/lvts: Disable
+ Stage 3 thermal threshold
+Message-ID: <a61835ca-a13d-4547-b3a2-3563688bff25@notapiano>
 References: <20250113-mt8192-lvts-filtered-suspend-fix-v2-0-07a25200c7c6@collabora.com>
- <20250113-mt8192-lvts-filtered-suspend-fix-v2-1-07a25200c7c6@collabora.com>
- <20828ba5-ecb5-46a4-8be3-9119d93c383a@linaro.org>
+ <20250113-mt8192-lvts-filtered-suspend-fix-v2-2-07a25200c7c6@collabora.com>
+ <53f3803f-c6ef-40db-9794-6c90b37659c1@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20828ba5-ecb5-46a4-8be3-9119d93c383a@linaro.org>
+In-Reply-To: <53f3803f-c6ef-40db-9794-6c90b37659c1@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_051910_538261_CD29D0EA 
-X-CRM114-Status: GOOD (  31.06  )
+X-CRM114-CacheID: sfid-20250116_052711_051421_65320011 
+X-CRM114-Status: GOOD (  22.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,86 +88,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 14, 2025 at 10:23:42AM +0100, Daniel Lezcano wrote:
-> 
-> Hi Nicolas,
-> 
+On Tue, Jan 14, 2025 at 12:54:43PM +0100, Daniel Lezcano wrote:
 > On 13/01/2025 14:27, Nícolas F. R. A. Prado wrote:
-> > When configured in filtered mode, the LVTS thermal controller will
-> > monitor the temperature from the sensors and trigger an interrupt once a
-> > thermal threshold is crossed.
+> > The Stage 3 thermal threshold is currently configured during
+> > the controller initialization to 105 Celsius. From the kernel
+> > perspective, this configuration is harmful because:
+> > * The stage 3 interrupt that gets triggered when the threshold is
+> >    crossed is not handled in any way by the IRQ handler, it just gets
+> >    cleared. Besides, the temperature used for stage 3 comes from the
+> >    sensors, and the critical thermal trip points described in the
+> >    Devicetree will already cause a shutdown when crossed (at a lower
+> >    temperature, of 100 Celsius, for all SoCs currently using this
+> >    driver).
+> > * The only effect of crossing the stage 3 threshold that has been
+> >    observed is that it causes the machine to no longer be able to enter
+> >    suspend. Even if that was a result of a momentary glitch in the
+> >    temperature reading of a sensor (as has been observed on the
+> >    MT8192-based Chromebooks).
 > > 
-> > Currently this is true even during suspend and resume. The problem with
-> > that is that when enabling the internal clock of the LVTS controller in
-> > lvts_ctrl_set_enable() during resume, the temperature reading can glitch
-> > and appear much higher than the real one, resulting in a spurious
-> > interrupt getting generated.
-> > 
-> > Disable the temperature monitoring and give some time for the signals to
-> > stabilize during suspend in order to prevent such spurious interrupts.
-> > 
-> > Cc: stable@vger.kernel.org
-> > Reported-by: Hsin-Te Yuan <yuanhsinte@chromium.org>
-> > Closes: https://lore.kernel.org/all/20241108-lvts-v1-1-eee339c6ca20@chromium.org/
-> > Fixes: 8137bb90600d ("thermal/drivers/mediatek/lvts_thermal: Add suspend and resume")
-> > Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> > Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
-> > ---
-> >   drivers/thermal/mediatek/lvts_thermal.c | 36 +++++++++++++++++++++++++++++++--
-> >   1 file changed, 34 insertions(+), 2 deletions(-)
-> > 
-> > diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/mediatek/lvts_thermal.c
-> > index 07f7f3b7a2fb569cfc300dc2126ea426e161adff..a1a438ebad33c1fff8ca9781e12ef9e278eef785 100644
-> > --- a/drivers/thermal/mediatek/lvts_thermal.c
-> > +++ b/drivers/thermal/mediatek/lvts_thermal.c
-> > @@ -860,6 +860,32 @@ static int lvts_ctrl_init(struct device *dev, struct lvts_domain *lvts_td,
-> >   	return 0;
-> >   }
-> > +static void lvts_ctrl_monitor_enable(struct device *dev, struct lvts_ctrl *lvts_ctrl, bool enable)
-> > +{
-> > +	/*
-> > +	 * Bitmaps to enable each sensor on filtered mode in the MONCTL0
-> > +	 * register.
-> > +	 */
-> > +	static const u8 sensor_filt_bitmap[] = { BIT(0), BIT(1), BIT(2), BIT(3) };
-> > +	u32 sensor_map = 0;
-> > +	int i;
-> > +
-> > +	if (lvts_ctrl->mode != LVTS_MSR_FILTERED_MODE)
-> > +		return;
-> > +
-> > +	if (enable) {
-> > +		lvts_for_each_valid_sensor(i, lvts_ctrl)
-> > +			sensor_map |= sensor_filt_bitmap[i];
-> > +	}
-> > +
-> > +	/*
-> > +	 * Bits:
-> > +	 *      9: Single point access flow
-> > +	 *    0-3: Enable sensing point 0-3
-> > +	 */
-> > +	writel(sensor_map | BIT(9), LVTS_MONCTL0(lvts_ctrl->base));
-> > +}
-> > +
-> >   /*
-> >    * At this point the configuration register is the only place in the
-> >    * driver where we write multiple values. Per hardware constraint,
-> > @@ -1381,8 +1407,11 @@ static int lvts_suspend(struct device *dev)
-> >   	lvts_td = dev_get_drvdata(dev);
-> > -	for (i = 0; i < lvts_td->num_lvts_ctrl; i++)
-> > +	for (i = 0; i < lvts_td->num_lvts_ctrl; i++) {
-> > +		lvts_ctrl_monitor_enable(dev, &lvts_td->lvts_ctrl[i], false);
-> > +		usleep_range(100, 200);
+> > For those reasons, disable the Stage 3 thermal threshold configuration.
 > 
-> From where this delay is coming from ?
+> Does this stage 3 not designed to reset the system ? So the interrupt line
+> should be attached to the reset line ? (just asking)
 
-That's empirical. I tested several times doing system suspend and resume on the
-machines hooked to our lab and that was the minimum delay I could find that
-still never resulted in the spurious readings.
-
-Unfortunately the technical documentation I have access to never even mentioned
-that this issue could arise, let alone what the timing constraints were, so this
-had to be figured out empirically.
+Yes, my guess is that the intention of stage 3 is to cause a system reset,
+however it clearly does not cause a system reset, so it is not directly
+connected to the reset line in any way. Instead it is up to the kernel to
+receive the interrupt and deal with it. But then, since there are lower thermal
+thresholds that already cause a system shutdown, it's useless to keep this
+around - it only causes suspend/resume misbehaviors in case there are spurious
+readings.
 
 Thanks,
 Nícolas
