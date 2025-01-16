@@ -4,88 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CD6DE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 03:10:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5040DE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 03:31:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0k2tjWflbKcVqC6zMuhNKy98nVj8U7DcPtvNyfmp/OM=; b=mDL6lgD0SZVmg1stqaFScOiEBp
-	xroPa2WOl3oTjKfFZIkGpb1WDOpZrj4rGk98++fXSw3hDhjenJ7gyk7YZ4o9s0fId1Zd0BVwjhobR
-	0EMJfpp3Fn78SYoknJvz331CawIvWk3tQe3nY2xSE5+KBFBFx8M9ayGGouX5Vp+VJuNDJFMUcsVBG
-	l6i9jraaQbsEbJMFIjCjXn9EfiL0NB4EjKyUFuBKme5xrrhnBM/8VKElOfppWtxJvYVYBckI/GJZi
-	lBRFTAW2tOj9/3ljB2w4LHjtiEo6RZzyRwoY/ukOA/XtzcYFjhu/gAlR7wo7rs2kFGvn1pbEQhSir
-	CoaQfKDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9lO4SV4fEBS5/b96bWFRJrbo3YeXzbwO/hDMej2RItM=; b=FPAGzSfNElN4Z31OdLHSlU6R0j
+	kmjF4qBU8vOZR/d8E6TfgOCo1ELmL0cRybZG4cFbtURP+ArfdNdMegBNjn9hfbiU+Vb+MgahbmKwl
+	TokFQuO8JOgfoa8BkwNn0i0Ejya8BlOTXdF9TPykZkkmHb9gaOENs5e7z5weugtqJmez0uChmGsCi
+	PPxp4GHjRtSKacE0k4P3Jz/n3pTqk9PEU5fNbNNaNMmnmJecskMexJcSAwQhh6KHtHUvmGE4L+6W+
+	MCXParRVGk/zS8jbmpkw0w0/+RyRDZm1HjY2IvHAXkj4e6GZLfR4ylBzSa11/2XN45xtBs/TYKS2F
+	QZ+E6+yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYGHJ-0000000Dhl8-10H8;
-	Thu, 16 Jan 2025 03:10:41 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1tYGas-0000000DjR1-1an3;
+	Thu, 16 Jan 2025 03:30:54 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYGG3-0000000Dhg9-073b
+	id 1tYGZc-0000000DjEn-1ERB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 03:09:24 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-215740b7fb8so73485ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 19:09:22 -0800 (PST)
+	Thu, 16 Jan 2025 03:29:37 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-21634338cfdso9358555ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 19:29:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1736996962; x=1737601762; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=0k2tjWflbKcVqC6zMuhNKy98nVj8U7DcPtvNyfmp/OM=;
-        b=0I+ZPxPaQhtKIQVZ7KbtTg3jBkgCxJhnaPpfkRFIlwTCjZuGKCkDSJ1dFl2ilz6uXa
-         31/ZPkWwx2jhTT2Sf+2IKeYcivf5Zm/dPg/3pUshnNbNGfb2ZVlNb/H42kVNHV5MpIAN
-         YBkl5z/KPrdz1+7rnSmdnJIPqF7PVXViNTOUC0HLhdmCpP8DOTq/QiYuNMQw9j8BW/2O
-         4UCOT4r38Jd9g8KtUHbQP0XuRo9acS8lamfx7VO4cABXeK4KXl5DtW5tyZEOiakvKSoE
-         IH9ipPQ0wC/d900ABJYtm/0TB03OEjrIMm3EMyI9tqF3bnobh0zWlTueKuwafWjON7fx
-         9vcA==
+        d=gmail.com; s=20230601; t=1736998175; x=1737602975; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9lO4SV4fEBS5/b96bWFRJrbo3YeXzbwO/hDMej2RItM=;
+        b=Semfby6LErFQIrO+ZoQxngx7veaVhzgeNfBC+dlUUQpqBITG+kPFtNvn13j21BOsBX
+         B+C062NQT0OkCZd+if/PLYsm1sS5tF8g61Kgqx3/I1Yl+Bnsh2SSgiRJPnDhFkkLKbW4
+         BtCSQ8nBNS8Wm2whG3zgO/e0n4WjtcEW9GfmLTKQWWE60Mo2TOdjdnpSkttjAGeyf1JV
+         XE9oFMCSczfBwmECxHQrHYWyeZcfd1bKPPoxzQXTd9BRzqU31A9ri3J6tkErSvSsn2dl
+         NZi2oyVrbbpOXj4qc4M1cbMuMkp4TkFqzJL5ugT7p9drEvLkYOUqrTXkn5kEvwHun8vr
+         jAQA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736996962; x=1737601762;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=0k2tjWflbKcVqC6zMuhNKy98nVj8U7DcPtvNyfmp/OM=;
-        b=B0o/i5FtoPu+Lf8zM3OF2niM3YoHtezdiq4zXG5cwykAjIK9iK3rD2JEwhrXIe9Aon
-         iwFUOKsymE8NOm5aHgzUPII+n5V8WhDHxf+/t04O2Roaosa7GLyN/GIJGzVmWaWGp0M+
-         tGrBLmo6ulJOlaRApVPd1UCN3IZy2yrvzUYwdzJfxixSakDlsNKEgf6IML0FVv4skme4
-         d8Fc3d0vTJR4n09CqzTdvVDJBFfVol8GrxWZ1XdVMCwHI65Zxz6/DSbO5/nb9AxA1hl7
-         +OQmbkHcBervJmupzuio2uA6HeWxkXpmElXFbfiCAw5+Hf3Q1W3+YWqIkBVOZ2YXPQCr
-         /DBg==
-X-Forwarded-Encrypted: i=1; AJvYcCXLI1YuMjnWygl1TwG92GgQXSdQYDz/dVO0omCcACDOf1LmaC1UzoA1wS1HKj2dQ3UiyNOEMhC79PGji00PHq7b@lists.infradead.org
-X-Gm-Message-State: AOJu0YwkNuifREYF7xsv+4xvX6l1hymQQSRFBPAGZYClcgtkLAqsYt94
-	mZ+gAbBDSeE1Bo1VDnf4AWYd24Dd3JPpWB32QFuun0cQ315KYUuljbwy5Wztlg==
-X-Gm-Gg: ASbGncsryLW+udK6V24O4kfFuduqxTEdlvfsXvnZUw+ZLvWL6WkEisnULKYMpgTAGPA
-	7pZk/dsyWkXe0Hyz6s87h/vlN2E+Am+5HKcOViqX0Eml2+6fUESfQISkNnG9mMeqqO4ESgIbYN+
-	1SF9+X01iM3HsadtbiBJIa0ONMhhXGimaUAM7K3keG0yO2vKQaoVbm/FlthHqHAsS8wSD0a7p8w
-	vcYKtEMNqheYe1kZWjWKv2Mgy+ddKy9/WoDuV/qqOWqPxFRC5ZfiEs3r6A/9kZAk7XEKyOaD+q/
-	q7Hf/86pZj+0
-X-Google-Smtp-Source: AGHT+IHZcCbVA815LPJGb0bCjcocKzrwMS8Y8KUYeVaCrLeZOxiM8S63vOxnYqo99Qw0ZPV4r1BBuA==
-X-Received: by 2002:a17:903:443:b0:21b:b3c4:7e0a with SMTP id d9443c01a7336-21c165a4395mr788135ad.13.1736996962080;
-        Wed, 15 Jan 2025 19:09:22 -0800 (PST)
-Received: from google.com (1.243.198.35.bc.googleusercontent.com. [35.198.243.1])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72d40658b71sm9879160b3a.85.2025.01.15.19.09.19
+        d=1e100.net; s=20230601; t=1736998175; x=1737602975;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=9lO4SV4fEBS5/b96bWFRJrbo3YeXzbwO/hDMej2RItM=;
+        b=v1+z5MhppuHGM3ys29c4zM4KKgO3j4wIok6Oacm+JbWsKDzz0Oe4aAeNljBnl42QcH
+         J4O/VCMcwCoo8CVeT4A4dwyTJqBfyScS7/sqYw3JEXXqJlX9EJOW5Pm1mTTnWd0eCYJa
+         offNCbCSzLByu8upgZiA5y6mcIj+l5xyBZ3Jkkod4N0FQeWKt/m4uhxNHdPd2LDn+op2
+         P1N4+nbbIwmG6/0RIbrt8ithNGToYBfxYDKBKdVAD2OVKuodpMbx7X1g/0VYMIuOp9OR
+         RNqpCe0luvubezau4vOwAuB8DN8zq/zp+RYmnh+xgboEUa2LG1TAbJv4R/vNyRILHqLB
+         Axbg==
+X-Forwarded-Encrypted: i=1; AJvYcCWUvKQ9Lv/J3E4F+RcuWarG0n8sw7gJRm3xxZ+Mih6nYbsjXl1V971DJ70qzEjUdyC8IWgK03JzPh+QnJLeopTY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3fsR1LfWyYiGH7wnxwtvao2QZ9RLobuiC2Co/X5e45k9CYQ0b
+	wFEmLFmER5XGrtzSFIAB8yQifb05XU3olo0KYO27cH/XYKbtRipr
+X-Gm-Gg: ASbGncusLOwH05hwnMI9FHhdR5jZxPYuQhMQX52DXn8A/U7LRHLbC4m76v3WjuZv3it
+	vTUb7GExTBEQfT9UlcyHNypFZMuRt6CFom0WKmIOJq16A/bUQEo9iwz0BGL3zdZ9Kg9JCIQ8XMd
+	kDimtrl+/socxTIiI4PBaThXKYCJWRDQhv8Nzh8F7EdP4pNCd8CDNg5uJzhwUXk/nbpTYbn6fUN
+	IKo+xBLW2CqecuEu/OYTPuc5eXEJvf0sFx+/OLrHUMMA8njr0K13A==
+X-Google-Smtp-Source: AGHT+IFr4zEeT47j2D8gtzZWCg1S+zmWAQ0RIesr8rmwvuje/OY6uHzv86ok/2YKYD+fA6X/sRXqeA==
+X-Received: by 2002:a17:902:e5d2:b0:216:591a:8544 with SMTP id d9443c01a7336-21a83f672f6mr499273395ad.34.1736998175008;
+        Wed, 15 Jan 2025 19:29:35 -0800 (PST)
+Received: from localhost ([129.146.253.192])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f21c49fsm88127385ad.118.2025.01.15.19.29.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jan 2025 19:09:21 -0800 (PST)
-Date: Thu, 16 Jan 2025 03:09:13 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Robert Marko <robert.marko@sartura.hr>
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jgg@ziepe.ca,
-	nicolinc@nvidia.com, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
-	luka.perkov@sartura.hr, kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH] iommu/arm-smmu-v3: add missing header
-Message-ID: <Z4h4WePiB7G0BZj-@google.com>
-References: <20250114160630.1122885-1-robert.marko@sartura.hr>
+        Wed, 15 Jan 2025 19:29:34 -0800 (PST)
+Date: Thu, 16 Jan 2025 11:28:14 +0800
+From: Furong Xu <0x1207@gmail.com>
+To: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu
+ <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
+ Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net 2/2] net: stmmac: Limit the number of MTL queues to
+ maximum value
+Message-ID: <20250116112814.00005bef@gmail.com>
+In-Reply-To: <20250116020853.2835521-2-hayashi.kunihiko@socionext.com>
+References: <20250116020853.2835521-1-hayashi.kunihiko@socionext.com>
+	<20250116020853.2835521-2-hayashi.kunihiko@socionext.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250114160630.1122885-1-robert.marko@sartura.hr>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_190923_065402_2FBFF09E 
-X-CRM114-Status: GOOD (  16.43  )
+X-CRM114-CacheID: sfid-20250115_192936_339523_B89F920B 
+X-CRM114-Status: GOOD (  19.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,46 +103,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 14, 2025 at 05:05:56PM +0100, Robert Marko wrote:
-> str_read_write is currently undeclared and thus compilation will fail with:
-> drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c:1911:25: error: implicit declaration of function ‘str_read_write’; did you mean ‘sb_end_write’? [-Wimplicit-function-declaration]
+On Thu, 16 Jan 2025 11:08:53 +0900, Kunihiko Hayashi <hayashi.kunihiko@socionext.com> wrote:
+
+> The number of MTL queues to use is specified by the parameter
+> "snps,{tx,rx}-queues-to-use" from the platform layer.
 > 
-> So include the missing linux/string_choices.h header to fix compilation.
+> However, the maximum number of queues is determined by
+> the macro MTL_MAX_{TX,RX}_QUEUES. It's appropriate to limit the
+> values not to exceed the upper limit values.
 > 
-> Fixes: f2c77f6e41e6 ("iommu/arm-smmu-v3: Use str_read_write helper w/ logs")
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202501111926.qOpnlK9J-lkp@intel.com/
-> Signed-off-by: Robert Marko <robert.marko@sartura.hr>
+
+The Fixes: tag is required too.
+
+> Signed-off-by: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
 > ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 1 +
->  1 file changed, 1 insertion(+)
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c | 4 ++++
+>  1 file changed, 4 insertions(+)
 > 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index 0e4cbb2c64d7..a0e395da8a88 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -26,6 +26,7 @@
->  #include <linux/pci.h>
->  #include <linux/pci-ats.h>
->  #include <linux/platform_device.h>
-> +#include <linux/string_choices.h>
->  #include <kunit/visibility.h>
->  #include <uapi/linux/iommufd.h>
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+> index ad868e8d195d..471eb1a99d90 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+> @@ -165,6 +165,8 @@ static int stmmac_mtl_setup(struct platform_device *pdev,
+>  	if (of_property_read_u32(rx_node, "snps,rx-queues-to-use",
+>  				 &plat->rx_queues_to_use))
+>  		plat->rx_queues_to_use = 1;
+> +	if (plat->rx_queues_to_use > MTL_MAX_RX_QUEUES)
+> +		plat->rx_queues_to_use = MTL_MAX_RX_QUEUES;
 
-Hi Robert,
+MTL_MAX_RX_QUEUES, MTL_MAX_TX_QUEUES and STMMAC_CH_MAX are defined to 8,
+this is correct for gmac4, but xgmac has 16 channels at most.
 
-This fix has already been merged to the arm/smmu/updates branch [1]
-which should appear in -next when Joerg next rebuilds the branch.
-
-Thanks,
-Praan
-
-[1]
-https://git.kernel.org/pub/scm/linux/kernel/git/iommu/linux.git/commit/?h=arm/smmu/updates
+Drop these legacy defines and always use
+priv->dma_cap.number_rx_queues,
+priv->dma_cap.number_tx_queues,
+priv->dma_cap.number_tx_channel,
+priv->dma_cap.number_rx_channel,
+seems like a good option.
 
 >  
-> -- 
-> 2.47.1
-> 
-> 
+>  	if (of_property_read_bool(rx_node, "snps,rx-sched-sp"))
+>  		plat->rx_sched_algorithm = MTL_RX_ALGORITHM_SP;
+> @@ -224,6 +226,8 @@ static int stmmac_mtl_setup(struct platform_device *pdev,
+>  	if (of_property_read_u32(tx_node, "snps,tx-queues-to-use",
+>  				 &plat->tx_queues_to_use))
+>  		plat->tx_queues_to_use = 1;
+> +	if (plat->tx_queues_to_use > MTL_MAX_TX_QUEUES)
+> +		plat->tx_queues_to_use = MTL_MAX_TX_QUEUES;
+>  
+>  	if (of_property_read_bool(tx_node, "snps,tx-sched-wrr"))
+>  		plat->tx_sched_algorithm = MTL_TX_ALGORITHM_WRR;
+
 
