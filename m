@@ -4,72 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58556C02188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 22:52:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA13FC02187
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 22:53:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=0d9uQ98G3HPnvgNch1C9/gMR5EzR33uCZpQrl5b2xO0=; b=Ie4U63D3pcqtAdoTGHHoOhaThz
-	NNtpf43rdNL8Fy5624EClpa4u71yejMdSEhzegfRCOxjTxYSIpLLrXw5neId5EfKBe6JKu1j4t7ww
-	xaFWOnc7gExik2+DmWN/+X1/S+vf2L87HEoZlvxpNzqD6mlJRa2RbWw856ra+sOgsYlQV8HMFRjIN
-	5uiYXf/SaRgSuWMrdWP9JcGzHUUzZqsHpEHFTgsVUvFpDq3Pd5kTRk/lGey55PE2hciYEEA/vwToi
-	FLbCrVDA2BqE08slkz1qHyh9LACCADCPnW/AEjaFOcY4e/qE1QUn8ayA/Ii11pXrxOWW/1qyn8c10
-	Odi7tNPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Mo8wWiVSieP36PQBtcad/p/Y6sOL31Xn/K7FaizLB00=; b=JHwIl/3Pkx1damIu8Hk/hF3WRX
+	B7UnQ+LySVQRootBpBCjRe33A0pCmFHBBLDPmaj3qP83cJizyeLbLUHPUex8UaF1ElJZijJ40FGUU
+	d7D48Uc96cjKhsvL0bWI+aM4dz925abGdrdI6Y7eVxZk12wNNyMdX+bdDiBZFdW8y0Hk7AQ8Osf2h
+	xdyS7brz1Dm/mV4oUo/dYoDhXEzoCz0hclrN+U2MEaJEnJLuurzdOtLIqc2/GqvGLPX3MF5u/L6mT
+	8pnspypVrd84khntc26jsZVeMndy34dDyke2YDJdQYZIn9mlfI+GzFjCKy0vOwzKeqN80eUXGYyIL
+	TnoRt0KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYYis-0000000GFZh-1b2H;
-	Thu, 16 Jan 2025 22:52:22 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tYYk7-0000000GFmq-0b2o;
+	Thu, 16 Jan 2025 22:53:39 +0000
+Received: from mail-yb1-xb33.google.com ([2607:f8b0:4864:20::b33])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYYfh-0000000GF2T-01xi
+	id 1tYYiL-0000000GFQd-2iwu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 22:49:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BF19A5C5E76;
-	Thu, 16 Jan 2025 22:48:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CD02C4CED6;
-	Thu, 16 Jan 2025 22:49:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737067744;
-	bh=5aThHilBPblCgfz/BgJ0mgjfS1hGQLJWECyx+bt7Wt0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=szH71zQEi99amVjmugt5JvwXVGZ+pHOC18l1Q3auVKFW/ZAPJDY42oap4KZ82aiY+
-	 gjkfq/RF3lhECK8PSywzROXubYGQyzvw2tUXdzMc3GyHx18tWlc6MoSyxouoCuqslY
-	 F6wK7L7kbao7cwJg09R+JlwmmSVBswp8QDIL8JZRybxm62s5l+ZC1Iw5hll5y86Gtm
-	 HWoIoBjPagiX5tawGzfr3aQzJbXl94B6fySIbLUIIVcez2xiSB0ktxVQ5Pg2yqbpbx
-	 wXT/lV/5PjfbUkAIYeSiogqzX03X6RU14RyyGGA9soRDPKqUTTTi711X6fAtnCf0Zt
-	 c9FqqjDAf48AA==
-Date: Thu, 16 Jan 2025 16:49:02 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
-Subject: Re: [PATCH v8 3/7] PCI: dwc: ep: Add bus_addr_base for outbound
- window
-Message-ID: <20250116224902.GA614046@bhelgaas>
+	Thu, 16 Jan 2025 22:51:50 +0000
+Received: by mail-yb1-xb33.google.com with SMTP id 3f1490d57ef6-e39779a268bso2518142276.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 14:51:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1737067908; x=1737672708; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Mo8wWiVSieP36PQBtcad/p/Y6sOL31Xn/K7FaizLB00=;
+        b=gqSHgAy8Oq6JqYZ4u/ODFTFniBH+1spRme1XOrAWL8ftAbCh7YGe0h5OIBH5ooWaMZ
+         4Dp/hnA+aBzG12NeANrH6g18HLZxKrw4MG2Vumw8uNF93tlZO8EW6+vNTdyRWHmBsxBG
+         BfJ8Qv0Y1UFgsyUJzQIxuqvA/g5THbEVxq5oMfH1VGnQs3u85me3pYGBB3/rzZeqNLLt
+         cJmA9WKkxrJTlk6fUvfdREM8RsAvxVIJczlNdgozGPyx4898KSKpW9qxLS6kQseVJ8GO
+         GNg1R+X0kLoI6N8/fvW6Cc6Y4555RG/DbyW7txr+cqTY6498lDW8Rn/UYJMesl5NM3y/
+         xo8g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737067908; x=1737672708;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Mo8wWiVSieP36PQBtcad/p/Y6sOL31Xn/K7FaizLB00=;
+        b=k8UqZIqpv/Iuqpo52FSY4aLbMaMLY5bgWByYfaKSmZSAnnhuR5FD4xDW9Hle9FUoc3
+         eCED6ZXpufdBBGNhgUfaMMnuVgL7xOFP+UM3Y4s+JT1WE5Fp/jV/VteOMbI9qr10Ltgz
+         43PC796DT/dkNh8Gfk7xGaM0h++9h7hnWV6AB3PRlQu5UHL8OXn6Uagnj4M0zFbecltz
+         pkkd6+KjDavQz32ISFVpq17RxU/+VBYVtoKcEB1WEybBwu3z1ciYK2EYDxial3DuUBEz
+         be/p2fVRI2hrE7QIxkP/4EC2+hWTZymWV/ucgIg251X7tHA5i2TXYz/+Oo2kFEH3hEiz
+         3SJQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV7sC7s+kUU11X6r4vd+uWqyD8d/1vxE+fk3pRJwaGAP/8a4iFc7x1dW5MOMyKgCbyEDKZYLCMw0qk7Az606bon@lists.infradead.org
+X-Gm-Message-State: AOJu0YwoZwGhx8SezufLM2JVJxi0RwDCPx3ddZ7VagFraTXkMHOJEKbj
+	2ruQW1wtBOyp9HbU0wraooIdk1aL+Avw1Q529BK3ZHpG60hAFu/WZryTH2U3WFF6PxnS2nLadQd
+	EqvLlGgejkhgkfgoOJ4XDo4GYuw8xXSbctTsg
+X-Gm-Gg: ASbGncsCDzOnXjZCkkKkrKpZrCsb8Wug3pdflIOvfSjA2eB+BkPxx+3NearXN0+hrix
+	ftlc1wohB8Z6VKxyzxFE5mkVdntGB+Vz204w0ohLq6fKxEzrdtqq+BiU+eLvPYFaDguHb
+X-Google-Smtp-Source: AGHT+IHDVU+IJsNlLjF83+Ds9RyEMFn3PvbsQABSjjSiGmmyVwS/zqJzA12leRcKXime5YwyEjpU/j8pOjxtozPQTYw=
+X-Received: by 2002:a05:6902:1447:b0:e54:9a7a:bce1 with SMTP id
+ 3f1490d57ef6-e57b0c833demr376797276.20.1737067907684; Thu, 16 Jan 2025
+ 14:51:47 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <Z4ll5Ktyh5kmTzsd@lizhi-Precision-Tower-5810>
+References: <20241204191349.1730936-1-jthoughton@google.com>
+ <Z2simHWeYbww90OZ@x1n> <CADrL8HUkP2ti1yWwp=1LwTX2Koit5Pk6LFcOyTpN2b+B3MfKuw@mail.gmail.com>
+ <Z4lp5QzdOX0oYGOk@x1n> <Z4lsxgFSdiqpNtdG@x1n>
+In-Reply-To: <Z4lsxgFSdiqpNtdG@x1n>
+From: James Houghton <jthoughton@google.com>
+Date: Thu, 16 Jan 2025 14:51:11 -0800
+X-Gm-Features: AbW1kvYOIA-rxNht25vJwL_NVGMkqbp_NoziG0prE60wf6DVUh2TfK28c0IaFFg
+Message-ID: <CADrL8HWRavCoZ_NtXJvcLOvjOiGDCor6ucWeEqkecA3VDY-adg@mail.gmail.com>
+Subject: Re: [PATCH v1 00/13] KVM: Introduce KVM Userfault
+To: Peter Xu <peterx@redhat.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Sean Christopherson <seanjc@google.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Yan Zhao <yan.y.zhao@intel.com>, Nikita Kalyazin <kalyazin@amazon.com>, 
+	Anish Moorthy <amoorthy@google.com>, Peter Gonda <pgonda@google.com>, 
+	David Matlack <dmatlack@google.com>, Wei W <wei.w.wang@intel.com>, kvm@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_144905_136379_61C367B0 
-X-CRM114-Status: GOOD (  29.35  )
+X-CRM114-CacheID: sfid-20250116_145149_687299_46F8B31D 
+X-CRM114-Status: GOOD (  36.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,97 +100,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 16, 2025 at 03:02:44PM -0500, Frank Li wrote:
-> On Thu, Jan 16, 2025 at 01:45:58PM -0600, Bjorn Helgaas wrote:
-> > On Thu, Jan 16, 2025 at 01:04:16PM -0500, Frank Li wrote:
-> > > On Thu, Jan 16, 2025 at 09:32:39AM -0600, Bjorn Helgaas wrote:
-> > > > On Tue, Nov 19, 2024 at 02:44:21PM -0500, Frank Li wrote:
-> > > > >                    Endpoint
-> > > > >   ┌───────────────────────────────────────────────┐
-> > > > >   │                             pcie-ep@5f010000  │
-> > > > >   │                             ┌────────────────┐│
-> > > > >   │                             │   Endpoint     ││
-> > > > >   │                             │   PCIe         ││
-> > > > >   │                             │   Controller   ││
-> > > > >   │           bus@5f000000      │                ││
-> > > > >   │           ┌──────────┐      │                ││
-> > > > >   │           │          │ Outbound Transfer     ││
-> > > > >   │┌─────┐    │  Bus     ┼─────►│ ATU  ──────────┬┬─────►
-> > > > >   ││     │    │  Fabric  │Bus   │                ││PCI Addr
-> > > > >   ││ CPU ├───►│          │Addr  │                ││0xA000_0000
-> > > > >   ││     │CPU │          │0x8000_0000            ││
-> > > > >   │└─────┘Addr└──────────┘      │                ││
-> > > > >   │       0x7000_0000           └────────────────┘│
-> > > > >   └───────────────────────────────────────────────┘
-> > > > >
-> > > > > Use 'ranges' property in DT to configure the iATU outbound window address.
-> > > > > The bus fabric generally passes the same address to the PCIe EP controller,
-> > > > > but some bus fabrics map the address before sending it to the PCIe EP
-> > > > > controller.
-> > > > >
-> > > > > Above diagram, CPU write data to outbound windows address 0x7000_0000, Bus
-> > > > > fabric map it to 0x8000_0000. ATU should use bus address 0x8000_0000 as
-> > > > > input address and map to PCI address 0xA000_0000.
-> > > > >
-> > > > > Previously, 'cpu_addr_fixup()' was used to handle address conversion. Now,
-> > > > > the device tree provides this information, preferring a common method.
-> > > > >
-> > > > > bus@5f000000 {
-> > > > > 	compatible = "simple-bus";
-> > > > > 	ranges = <0x80000000 0x0 0x70000000 0x10000000>;
-> > > > >
-> > > > > 	pcie-ep@5f010000 {
-> > > > > 		reg = <0x80000000 0x10000000>;
-> > > > > 		reg-names ="addr_space";
-> > > > > 		...
-> > > > > 	};
-> > > > > 	...
-> > > > > };
-> > > > >
-> > > > > 'ranges' in bus@5f000000 descript how address map from CPU address to bus
-> > > > > address.
-> > > >
-> > > > Shouldn't there also be a pcie-ep@5f010000 'ranges' property to
-> > > > describe the translation for the window from bus addr 0x8000_0000 to
-> > > > PCI addr 0xA000_0000?
+On Thu, Jan 16, 2025 at 12:32=E2=80=AFPM Peter Xu <peterx@redhat.com> wrote=
+:
+>
+> On Thu, Jan 16, 2025 at 03:19:49PM -0500, Peter Xu wrote:
+> > James,
+> >
+> > Sorry for a late reply.
+> >
+> > I still do have one or two pure questions, but nothing directly relevan=
+t to
+> > your series.
+> >
+> > On Thu, Jan 02, 2025 at 12:53:11PM -0500, James Houghton wrote:
+> > > So I'm not pushing for KVM Userfault to replace userfaultfd; it's not
+> > > worth the extra/duplicated complexity. And at LPC, Paolo and Sean
+> > > indicated that this direction was indeed wrong. I have another way to
+> > > make this work in mind. :)
+> >
+> > Do you still want to share it, more or less? :)
+
+I think I'm referring to how to make 4K demand fetches for 1G-backed
+guest memory work, and I kind of said what I was thinking a little
+further down:
+
+On Thu, Jan 2, 2025 at 9:53=E2=80=AFAM James Houghton <jthoughton@google.co=
+m> wrote:
+>
+> FWIW, I think userspace mapping of gmem + userfaultfd support for
+> userspace-mapped gmem + 1G page support for gmem =3D good 1G post-copy
+> for QEMU (i.e., use gmem instead of hugetlbfs after gmem supports 1G
+> pages).
+>
+> Remember the feedback I got from LSFMM a while ago? "don't use
+> hugetlbfs." gmem seems like the natural replacement.
+
+I guess this might not work if QEMU *needs* to use HugeTLB for
+whatever reason, but Google's hypervisor just needs 1G pages; it
+doesn't matter where they come from really.
+
+> > > For the gmem case, userfaultfd cannot be used, so KVM Userfault isn't
+> > > replacing it. And as of right now anyway, KVM Userfault *does* provid=
+e
+> > > a complete post-copy system for gmem.
 > > >
-> > > Needn't 'ranges' under pcie-ep@5f010000 because history reason. DWC use
-> > > reg-names "addr_space" descript outbound windows space.
+> > > When gmem pages can be mapped into userspace, for post-copy to remain
+> > > functional, userspace-mapped gmem will need userfaultfd integration.
+> > > Keep in mind that even after this integration happens, userfaultfd
+> > > alone will *not* be a complete post-copy solution, as vCPU faults
+> > > won't be resolved via the userspace page tables.
 > >
-> > If reg-name "addr_space" is used instead of 'ranges' for some
-> > historical reason, we should mention that in the commit log so people
-> > don't assume that this difference is the way it's *supposed* to be
-> > done.
-> 
-> How about add comments after
-> 
-> reg-names ="addr_space"; // Indicate EP outbound windows space instead use
-> ranges by histortical reason.
-
-OK, that seems reasonable.
-
-Where does the 0xA000_0000 PCI address come from?  I assume that's in
-DT somewhere too?
-
-Is there a binding in the tree that would take advantage of this patch
-that I can look at?  arch/arm64/boot/dts/freescale/imx8-ss-hsio.dtsi 
-has bus@5f000000 that does this translation, but I don't see any
-endpoint mode that uses it.
-
-> > > All regs need call of_property_read_reg() to get untranslated address.
-> > > ranges:  use "parent_bus_addr" in [1].
+> > Do you know in context of CoCo, whether a private page can be accessed =
+at
+> > all outside of KVM?
 > >
-> > I think we should at least use the same name ("parent_bus_addr", not
-> > "bus_addr_base") and probably also figure out a wrapper or similar way
-> > to use 'ranges' for future endpoint drivers and fall back to
-> > "addr_space" for DWC.
-> 
-> Okay for name parent_bus_addr.
-> Do you need me to respin it? Or you change it by yourself?
+> > I think I'm pretty sure now a private page can never be mapped to
+> > userspace.  However, can another module like vhost-kernel access it dur=
+ing
+> > postcopy?  My impression of that is still a yes, but then how about
+> > vhost-user?
+> >
+> > Here, the "vhost-kernel" part represents a question on whether private
+> > pages can be accessed at all outside KVM.  While "vhost-user" part
+> > represents a question on whether, if the previous vhost-kernel question
+> > answers as "yes it can", such access attempt can happen in another
+> > process/task (hence, not only does it lack KVM context, but also not
+> > sharing the same task context).
+>
+> Right after I sent it, I just recalled whenever a device needs to access
+> the page, it needs to be converted to shared pages first..
 
-I can do that.
+Yep! This is my understanding anyway. Devices will need to GUP or use
+the userspace page tables to access guest memory; both of which will
+go to userfaultfd. And userspace hasn't told KVM to make some pages
+shared, then these GUPs/faults will fail.
 
-Bjorn
+Maybe Trusted I/O changes some things here... let me reply to Sean. :)
 
-> > > > [1] https://lore.kernel.org/r/20241119-pci_fixup_addr-v8-1-c4bfa5193288@nxp.com
+> So I suppose the questions were not valid at all!  It is not about the
+> context but that the pages will be shared always whenever a device in
+> whatever form will access it..
+>
+> Fundamentally I'm thinking about whether userfaultfd must support (fd,
+> offset) tuple.  Now I suppose it's not, because vCPUs accessing
+> private/shared will all exit to userspace, while all non-vCPU / devices c=
+an
+> access shared pages only.
+>
+> In that case, looks like userfaultfd can support CoCo on device emulation=
+s
+> by sticking with virtual-address traps like before, at least from that
+> specific POV.
+
+Yeah, I don't think the userfaultfd API needs to change to support
+gmem, because it's going to be using the VMAs / user mappings of gmem.
 
