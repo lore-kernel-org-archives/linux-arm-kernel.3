@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3868C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 16:31:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B22C1C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 16:32:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uEFDRD3uDacyEzKnD/0X8FofWYQVCs9dgJI0dD/G5mY=; b=2LnvMKMd1TDp25cpcdG+nU8Ik/
-	7rho+/d0sUVv2ER2ByyYqulf3DJEH4pW+BJnvj1GyBhcIrdTqohRVCrRUq2geFNvSD8ZgCUr7ZvmN
-	0+05VKvpqcCdLr6HotoDY35k5LTZWdBTXu5EnxP6w1DNDq+lKxFLxkoJfFZQh8oZvMUX0n3lepf+l
-	j8gNNI5mAgQsMlACF/9wMKTjUv7/boiKO0StVug3yuzRyBaT2WgIcnAgrTvD8j4RP07oNqTRNR4la
-	45rECIdx3rlijwsJ2vb5wOE63lWBmeRDX3hiIAC8nnZjbpZycTeoS5HfiYIXcT780FOaYlZDDM0pU
-	U87smKlQ==;
+	bh=ZibngSwY8argeZ7qofhjDrNbekU97d1TCMP7QCVWYG0=; b=wV1vIceMEET67Mbaxb8O0IPZb3
+	EYauArwkBhgchfsn1Z+0cJFM19i6To/EB8wavbyZ35pu5ZWb2OtSksd6jiXugc+9dr5+JFe+iY4HI
+	7BuECBwS+1oiW1632hf6pzl819sOD078U7LyYvZYIzyXpcYUDlixMRg6lBxVEbU8vCI70GVW0HzrN
+	ovgiseq9E+rTjv77rqqgLxN8Y805g+OSn8ouz/O2a1X9LCLkkXdVysinK3/1qZrhmTAcHqJER1n3g
+	i4wld1r6yEtYBEMo8Uxx0iqs5VTFc5SoG8XIsJc8T7X4/JtMQC2v6FrGulhBKgAF7Ne52+v2k7ALu
+	TYeAsewQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYSlf-0000000FX4L-1hD7;
-	Thu, 16 Jan 2025 16:30:51 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1tYSmu-0000000FXN6-20be;
+	Thu, 16 Jan 2025 16:32:08 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYSfK-0000000FVTc-3t7h
+	id 1tYSfL-0000000FVU7-3LKA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 16:24:19 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-385f06d0c8eso672953f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 08:24:18 -0800 (PST)
+	Thu, 16 Jan 2025 16:24:20 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-38633b5dbcfso1264192f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 08:24:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1737044657; x=1737649457; darn=lists.infradead.org;
+        d=raspberrypi.com; s=google; t=1737044658; x=1737649458; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=uEFDRD3uDacyEzKnD/0X8FofWYQVCs9dgJI0dD/G5mY=;
-        b=UNsiGNTWjTWXYjCbE0eBEM3xogjlOp9QSUBGT7egObWPpX0wEd+1F2vDiYMgQhmckY
-         XZVyxx9zTT9VNi6DCxypNk8ndCMAkvwXV0IKTHfUteFR9yOIomXI5eWCwxORCGCdG/bQ
-         3iPXuRkiKVQH7m0XplliQwJ5lFxaB3C3PMe53vbwOYXubrXF5Sr+vnzYLkMqIhyh25WH
-         S3Z63YziCgPPpEUmK1lVzI4AOAUGPfqBf3PdE62k/gmMQSxiYlVF8M4b8z2B6+uxslG/
-         hOGXZ/WkyMaQpoY0pf3HkkXwMePv8fvFJOrSpXJGTkSE1Rj+2aNBAGcvcOxfnuOTcwbx
-         IxGw==
+        bh=ZibngSwY8argeZ7qofhjDrNbekU97d1TCMP7QCVWYG0=;
+        b=AEhIiNMZCxkNQ6YCTwpn+UL8z3+SLu2eI9cX1+YTt2JxtbbUqU7KDsvZ6d5PaAUZU9
+         BAJRhg6kalGY0YfaaWSDgUXutMS+LdYNq475iZJllaZT1DdcXJfWXb0E3Gm2HTGX62tp
+         EmaGA0G0IV+2dEQjnnZoE9245TLztV5uVGlb8WlWxvSaKbcL+9Ueui6r09HXXkitq7js
+         ZdIjz5ru2FEN87Jyece/ubRzJmyeYvGfRkuhu8yKjkTDe2qD4x+PrS5lmWQgv/Nv/T+Q
+         CYPj/A3fwiNyR6fo52rJuhvOX1p3IicjHiT88iLN1rPK/cHxeTPzBigQzICIS4/7/WKl
+         qN4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737044657; x=1737649457;
+        d=1e100.net; s=20230601; t=1737044658; x=1737649458;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=uEFDRD3uDacyEzKnD/0X8FofWYQVCs9dgJI0dD/G5mY=;
-        b=hOXgkQMKAMxL8hpTv60WbbO+cwxRcqyxi7zeqsUCPA9hKfziwaIhcSXP2Gq3k/EYZu
-         +FNGsxQHOn4wm7fDyCVxdrP2Ovs63Jz4LuArSsJq0QKL3Ua+i37lf4Helm3IaCtTxo5y
-         p+nExnk8jhHaQSANCx0YmzUlgFQt/P0z9k/Z32tHdX64ljq2Mq+plzYCRV8QTlZKwaq0
-         H8jnWNqOQazxBTtC3N7lXdU/9QrxkQpcA357j1M639z9DU7+/4O0kxDcZq+4unsQ4A+W
-         /vaSIj3UCLXHZEiEoh8J8tTMLja+BxQOBS6zZMPABNQsKwz6stxFh4uoWnZsOxfZecpp
-         Fa/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUZM9fYivy903gxgm/qvOjV3Y1LncGlkzR2da7sr/oU3FIEYMqeQOGMDtrNF4MJJ4KFgwACbu+xZJT37hc56FgG@lists.infradead.org
-X-Gm-Message-State: AOJu0YxAC0NhGj5uxxMT897gKi6J4pmfQSwf1DuK5k7jHLmGR7u693Ek
-	hB6tS+cp976tXXZs4svCBAnJbK8NWo+Zp9BejYcrLI0jzFTiapxVnjwRT7dqVGaX9IG3MFTlW5V
-	r
-X-Gm-Gg: ASbGncsxyNkap2akXKWD/UkZI/3icE44SmRARQvX2gJE+LswOn84JlyfDGNar3ZeMlT
-	kNAkDsXMHS7bQV2AUvpEclrjtYi0PpL3DIwuLETnq6kfnyzGjTKqT18m18E+0Y/5iJvAA38my8A
-	rmIQStXGP73uchQ/2SccGRssAA55RAbjMlfn9C8o0/OQYUUXR/lWJY+MhDlF8+aOCU68AqTmRS1
-	U/ZfMRXW4NUI1SU+X8mF9VRnQhZPn9EQFAURvYUQlc4F0iQ
-X-Google-Smtp-Source: AGHT+IFvRvbv+LmIOWTmcellM9NY1ElhZhfaIceOIssMpjdEdZEj6E1fUiTUX+H5C5fFTitYvcXPPQ==
-X-Received: by 2002:a05:6000:1844:b0:38b:d7d2:12f2 with SMTP id ffacd0b85a97d-38bd7d21481mr15783737f8f.54.1737044657080;
+        bh=ZibngSwY8argeZ7qofhjDrNbekU97d1TCMP7QCVWYG0=;
+        b=WOqtZNi6fF055mSBh4gOv3kYneouJPeyf1qVgcRZOeDq4W+8rPslsaIoupjki7SwpD
+         NE5LxJj61zvcLKXdpt2k9tfcufsnMMtr0LtvHpqbSFEnwg0QSILJn42ZtAcr79+UrZWp
+         Ow4QVBcDZryIvQzBBtNUy2ggKWj2nX+Itw29c8fG6/1iczLdzBZpGzDlkeFq8zNFOCC0
+         YUGsJnIkduEiP+Wm+eWCgobDI8QKyFwuWmnD4xiDmBVGyo67sIonGfi39/gwhvNqATXe
+         x6xSwclpesALcftilSCViJ6gdRKeXhWNYSc8xaen4QS6xpg/q57uF6u6raUpk0r/vTlE
+         XLHQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXkQd2dzdnf1KzRpywRZ/D1fdfa3ilaJgvzZrcQwuqhQmJnG26yJSGDAjGbw2+2qGTqcH8Sw4y0gQApkaE0kD02@lists.infradead.org
+X-Gm-Message-State: AOJu0YwvRK+uDtpQ6ba9/lyen4SWEpzETa3FGd1rSxEDg6cbcW7BMcYm
+	2n1V0sP3PrpoHYMpsfm3vhQ0yT5lYuetNlFUuaUebzYB29VZkbd4x1iPoM8Q2lZlSmBuXA7mVqt
+	A
+X-Gm-Gg: ASbGncsXnbGmA9VTRA9jBuPTFWtGcgpZfVkBcBbHLVMRXDU1+1vu9cXxrsT5K3Qzerp
+	gtgY6qD9heMgrVqjUtOBXMFZX39np3kZ1mRXY9z10erxLXFMO74JkvawSYwOeiq2j1MtAjMcK8f
+	SAlAncm19qORtZ8UVzVieEKAlRMChuCBZ2DSfwqv7UoJH6N8YgeQjx2OJt7aqzq7Y33TE8OA4q4
+	Okhay7uURaSvxpgsXcCa01vU2YpHAVKwxeap/QrpR85UmZE
+X-Google-Smtp-Source: AGHT+IFovdSUCLFl6t9Ci8wgrQdUI7v7DsdIkG9yNGdgleot+0dJp6sFALS6PaK+5Ttm99jIsf+Dng==
+X-Received: by 2002:a5d:584c:0:b0:385:f6f4:f8e with SMTP id ffacd0b85a97d-38a873573ccmr32438272f8f.50.1737044657836;
         Thu, 16 Jan 2025 08:24:17 -0800 (PST)
 Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43890469ba8sm3715955e9.37.2025.01.16.08.24.15
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43890469ba8sm3715955e9.37.2025.01.16.08.24.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Jan 2025 08:24:16 -0800 (PST)
+        Thu, 16 Jan 2025 08:24:17 -0800 (PST)
 From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Thu, 16 Jan 2025 16:24:11 +0000
-Subject: [PATCH 4/5] clk: bcm: rpi: Create helper to retrieve private data
+Date: Thu, 16 Jan 2025 16:24:12 +0000
+Subject: [PATCH 5/5] clk: bcm: rpi: Add disp clock
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250116-bcm2712-clk-updates-v1-4-10bc92ffbf41@raspberrypi.com>
+Message-Id: <20250116-bcm2712-clk-updates-v1-5-10bc92ffbf41@raspberrypi.com>
 References: <20250116-bcm2712-clk-updates-v1-0-10bc92ffbf41@raspberrypi.com>
 In-Reply-To: <20250116-bcm2712-clk-updates-v1-0-10bc92ffbf41@raspberrypi.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -88,8 +88,8 @@ Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
  Maxime Ripard <mripard@kernel.org>
 X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_082418_958374_8F51C6AA 
-X-CRM114-Status: GOOD (  13.42  )
+X-CRM114-CacheID: sfid-20250116_082419_826093_796AC540 
+X-CRM114-Status: GOOD (  12.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,75 +106,53 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Maxime Ripard <mripard@kernel.org>
 
-The RaspberryPi firmware clocks driver uses in several instances a
-container_of to retrieve the struct raspberrypi_clk_data from a pointer
-to struct clk_hw. Let's create a small function to avoid duplicating it
-all over the place.
+BCM2712 has an extra clock exposed by the firmware called DISP, and used
+by (at least) the HVS. Let's add it to the list of clocks to register in
+Linux.
 
 Acked-by: Stephen Boyd <sboyd@kernel.org>
 Signed-off-by: Maxime Ripard <mripard@kernel.org>
 Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 ---
- drivers/clk/bcm/clk-raspberrypi.c | 18 ++++++++++--------
- 1 file changed, 10 insertions(+), 8 deletions(-)
+ drivers/clk/bcm/clk-raspberrypi.c          | 5 +++++
+ include/soc/bcm2835/raspberrypi-firmware.h | 1 +
+ 2 files changed, 6 insertions(+)
 
 diff --git a/drivers/clk/bcm/clk-raspberrypi.c b/drivers/clk/bcm/clk-raspberrypi.c
-index 9f716b2223ae..b12d86720207 100644
+index b12d86720207..0e1fe3759530 100644
 --- a/drivers/clk/bcm/clk-raspberrypi.c
 +++ b/drivers/clk/bcm/clk-raspberrypi.c
-@@ -56,6 +56,12 @@ struct raspberrypi_clk_data {
- 	struct raspberrypi_clk *rpi;
+@@ -34,6 +34,7 @@ static char *rpi_firmware_clk_names[] = {
+ 	[RPI_FIRMWARE_M2MC_CLK_ID]	= "m2mc",
+ 	[RPI_FIRMWARE_PIXEL_BVB_CLK_ID]	= "pixel-bvb",
+ 	[RPI_FIRMWARE_VEC_CLK_ID]	= "vec",
++	[RPI_FIRMWARE_DISP_CLK_ID]	= "disp",
  };
  
-+static inline
-+const struct raspberrypi_clk_data *clk_hw_to_data(const struct clk_hw *hw)
-+{
-+	return container_of(hw, struct raspberrypi_clk_data, hw);
-+}
-+
- struct raspberrypi_clk_variant {
- 	bool		export;
- 	char		*clkdev;
-@@ -176,8 +182,7 @@ static int raspberrypi_clock_property(struct rpi_firmware *firmware,
+ #define RPI_FIRMWARE_STATE_ENABLE_BIT	BIT(0)
+@@ -139,6 +140,10 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] = {
+ 		.export = true,
+ 		.minimize = true,
+ 	},
++	[RPI_FIRMWARE_DISP_CLK_ID] = {
++		.export = true,
++		.minimize = true,
++	},
+ };
  
- static int raspberrypi_fw_is_prepared(struct clk_hw *hw)
- {
--	struct raspberrypi_clk_data *data =
--		container_of(hw, struct raspberrypi_clk_data, hw);
-+	const struct raspberrypi_clk_data *data = clk_hw_to_data(hw);
- 	struct raspberrypi_clk *rpi = data->rpi;
- 	u32 val = 0;
- 	int ret;
-@@ -194,8 +199,7 @@ static int raspberrypi_fw_is_prepared(struct clk_hw *hw)
- static unsigned long raspberrypi_fw_get_rate(struct clk_hw *hw,
- 					     unsigned long parent_rate)
- {
--	struct raspberrypi_clk_data *data =
--		container_of(hw, struct raspberrypi_clk_data, hw);
-+	const struct raspberrypi_clk_data *data = clk_hw_to_data(hw);
- 	struct raspberrypi_clk *rpi = data->rpi;
- 	u32 val = 0;
- 	int ret;
-@@ -211,8 +215,7 @@ static unsigned long raspberrypi_fw_get_rate(struct clk_hw *hw,
- static int raspberrypi_fw_set_rate(struct clk_hw *hw, unsigned long rate,
- 				   unsigned long parent_rate)
- {
--	struct raspberrypi_clk_data *data =
--		container_of(hw, struct raspberrypi_clk_data, hw);
-+	const struct raspberrypi_clk_data *data = clk_hw_to_data(hw);
- 	struct raspberrypi_clk *rpi = data->rpi;
- 	u32 _rate = rate;
- 	int ret;
-@@ -229,8 +232,7 @@ static int raspberrypi_fw_set_rate(struct clk_hw *hw, unsigned long rate,
- static int raspberrypi_fw_dumb_determine_rate(struct clk_hw *hw,
- 					      struct clk_rate_request *req)
- {
--	struct raspberrypi_clk_data *data =
--		container_of(hw, struct raspberrypi_clk_data, hw);
-+	const struct raspberrypi_clk_data *data = clk_hw_to_data(hw);
- 	struct raspberrypi_clk_variant *variant = data->variant;
+ /*
+diff --git a/include/soc/bcm2835/raspberrypi-firmware.h b/include/soc/bcm2835/raspberrypi-firmware.h
+index 73cac8d0287e..e1f87fbfe554 100644
+--- a/include/soc/bcm2835/raspberrypi-firmware.h
++++ b/include/soc/bcm2835/raspberrypi-firmware.h
+@@ -152,6 +152,7 @@ enum rpi_firmware_clk_id {
+ 	RPI_FIRMWARE_M2MC_CLK_ID,
+ 	RPI_FIRMWARE_PIXEL_BVB_CLK_ID,
+ 	RPI_FIRMWARE_VEC_CLK_ID,
++	RPI_FIRMWARE_DISP_CLK_ID,
+ 	RPI_FIRMWARE_NUM_CLK_ID,
+ };
  
- 	/*
 
 -- 
 2.34.1
