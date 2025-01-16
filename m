@@ -4,83 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 651D6C02187
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 16:04:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 764F9C02187
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 16:05:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xZg7i9Gkt1p2UGCmQVCKIa0P9txKm7ecHDqIrA9B8RM=; b=jLArnwmKS6yOZ1Je0oyGY2DGs4
-	YcCyk+ASrSRcbmwah+zd8pev2sqFd+xpeGSJEWPoUFtU2YlDnPwDk2r3CuT9QWkVZ/sV2GAkXtfTh
-	a8Ok07yxZkB+OKpPu07oICNSAz1wfuVoAjFVTG4O6nYpWFM+BRYLxfKU3hyRNj/T0Txtk9ItigKZ1
-	t2UAr9fD9mmr/UdOVSZjl1ZqyW6fdsdwSa/UVCOSHs+w5G0AlNtzpvrhCS0cvSbZ+RPab7ZyBLHEm
-	dfQ5l6LQW8UjOP0/3Ft9lw51OH3H71bKxhFWpoEyiVOAiXG7FSyWYk2pkCJu+xSENZFw7NL51Hm19
-	jX93QvWg==;
+	bh=QGPiUeQaDByXyGYfaiyGjoevsH3zwreWTmPpwDEUSo8=; b=pw3de7Pe3iD2AxG+eyl0Lq4cIj
+	lOslcrK5lKbBAdKc7N0GrVCZe+KmCD4vlBvcilEO2WqsVejo9dUF1KpSm3eqU7vsy13panJGglsGu
+	P2PDP4gQiwQxRvsKoZvSEGK5kKBSY+xqqgwnktVVUJXYTUgothnk9RP2N/JhAojWhX14cqv+yotIf
+	5Ufh69eDwzADI7h7u9tmztRuZMiFwxbBBiw+ne7znu/6JjxwcodaKr5QZ0hyRMkEOYgjZcBnVyV6b
+	SnWUOSOfkR34Qs9g2lHGp0Ohx4AIw3DvG/ZD0zhFPWKOkkZZnEj0mcxAqqBIlpwgCdSPryT5Rlc13
+	d99JfZkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYSLd-0000000FSE0-1ogB;
-	Thu, 16 Jan 2025 16:03:57 +0000
-Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
+	id 1tYSMs-0000000FSXa-1g2Z;
+	Thu, 16 Jan 2025 16:05:14 +0000
+Received: from mail-yb1-xb36.google.com ([2607:f8b0:4864:20::b36])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYSGQ-0000000FQ2i-1Dle
+	id 1tYSGe-0000000FQ5Z-1rlp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 15:58:35 +0000
-Received: by mail-yb1-xb2c.google.com with SMTP id 3f1490d57ef6-e5787c3fcf8so1988564276.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 07:58:33 -0800 (PST)
+	Thu, 16 Jan 2025 15:58:49 +0000
+Received: by mail-yb1-xb36.google.com with SMTP id 3f1490d57ef6-e549b0f8d57so1887295276.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 07:58:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737043113; x=1737647913; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1737043127; x=1737647927; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=xZg7i9Gkt1p2UGCmQVCKIa0P9txKm7ecHDqIrA9B8RM=;
-        b=NZfxiUCG6l+keIykCcRXAk8mp6U9cSn/oR4vOOOGIFFAOUsSDDtJaYwJo/un6Wg/vo
-         Wl9dHY5SrovSbgU1VutEZIV5fIEZ3h9Jww2MEjfHHlairLCoD/R0+ljqH3DDje4TQx6K
-         /z4w66RF4X+WoLUNAYqnhYMW/h7hACQqUFSf7jo/z25IXGPDvS33nkzUBSzk+UfFSVP9
-         YNL9e2W7w+nXt/KczpoPtP1g1yo78OJJLXV4iES3wwJhplYDtT+SUvzplVyewu58BPg2
-         9M3XawqxrLTjT+EtP7Ask23RZa7IShMwDWPjjo8so4Ox+GZB3lxSELVa+0AV5yZpqsUp
-         BU1A==
+        bh=QGPiUeQaDByXyGYfaiyGjoevsH3zwreWTmPpwDEUSo8=;
+        b=oY8+W8R6Ym7AeM8vUv7+7Eu66MVBPMA57lnzisPE4teL34ZoTzZzDBdPSC8PuJp5Fx
+         rgrURwRjsgkWSh+4mCIJZXkd+W89kv/Z7NfXL5FZuVt45vPxgXiwCo5cfAcrSV5m6NUl
+         PeevADCOUPG0Cxhkxt0axKcYZI2nPAzeG2mLKR06xyBiTkfCDvF13Vsn6+UXMZzXWYWV
+         c5rqhDbgZ6pUc1RzwRLkV7doq8OqJ2r/zQw1lHxQ9xfFSzugEKu1K0bzi+nwb381ElTP
+         DWkKgff8Bw92vxhTNQo6iFXxQqc+7/yYuS2zpHdjQued/rB/TRQFXOBgHuvA20ALG6ve
+         kFYA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737043113; x=1737647913;
+        d=1e100.net; s=20230601; t=1737043127; x=1737647927;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=xZg7i9Gkt1p2UGCmQVCKIa0P9txKm7ecHDqIrA9B8RM=;
-        b=b01EMYByIunrMH7RO7u0KqyEszRhuJ43WhmmgA3VfbEOIQQMFE/axHtkRZ3gXzsLCP
-         gOp0V0jGoGhsha34v2KDAPbKsO9rRBDHLlmRz4WpjUuAWbuQpwOqtGLljd6z+FYHeu+0
-         WVk1MlJuSDTXmMTgWAyUzjDA4HtSJS5p0N5FfX/a9yVOdloqmQZx8bFAVUHrrc9Yhvjh
-         2oShoYPchaDrlu+euKHr3TZdeql2QQFcOBqQ/gCqoUB7St6MRCFrMjMRZVsZzT2EBMvd
-         /MnwLRsELXlcfPBSCfr/q8XkJv2SwSgXY7jOvhxC+T12N7KBLzbsO57e2ne51Yelh5Do
-         OrmQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXX1UWIg8FkXNE27NjykQq5NycJTKOKZBcuDbjSePFDcol46Q89XISJXY6OTAKWofJg3dZxmMReElHEGYgIAgnB@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw8bCrWr/XkziC5S0cqUNGtaNQbPp/qyUC/i5abMvwnmvVIKlBx
-	ya8xN6UUy78TJVWzADUdhUAY1AD5f5Tyvl1K7IBBEA8+brbaDxare/0P4avdcPLGkCeSyRu/50Z
-	zB7i6Imyh3QZteIcRib2UHYIKfcQ9t/3P9yQp9A==
-X-Gm-Gg: ASbGncvA84O/x1uOiFrbZlfH+ggWMpTihVKHG2NjkeCBt4Ws+wPQLum8Jv/AZvWHyce
-	XGTj0m5kiy4pWurVqMG62fzhEyK+aIAdogrNJC3w=
-X-Google-Smtp-Source: AGHT+IG1qVTRfq3rD5NuthhfaJDGZx9itjIkE76nEv6cFISZ83dbq/vsbg+foxsWE2MrG6pQrDxrf7Opr66/DdtZa/k=
-X-Received: by 2002:a05:6902:161b:b0:e57:31f1:972e with SMTP id
- 3f1490d57ef6-e5731f1a4b2mr20182789276.29.1737043112819; Thu, 16 Jan 2025
- 07:58:32 -0800 (PST)
+        bh=QGPiUeQaDByXyGYfaiyGjoevsH3zwreWTmPpwDEUSo8=;
+        b=r/IC0D4ZTb6wIR5/hCD5oqnrkKu4HWaN2bfetHjLu7vOLFM+otxcFpVjoVKc/lU2Jt
+         jx/ZPGODQH2SkUnZH4cMg6JBxdyHdDmHEpfwlIFZ/KKj7xIBYPV+8JvKUCjm9c3t32gD
+         y+ED8S8XUt4ihZfa2pr3OxxsoN1UvR7tOlqfQO4sUd0eZ9pgbOZLulFwsOMtTY/uGnjI
+         LmNfDKSIj1fWj0nhibF9tLbPNzQmccdsuk192SGNb6aErPN3Uqh0c8KNOtMulUsVLl7t
+         QyVDUxASgqoWzQJFmZYX7KjqjI9lEF5YxafXB6iZDQOpwLz4iTtMSUzAqFLKxKz0K0KS
+         GCrg==
+X-Forwarded-Encrypted: i=1; AJvYcCWa7BuMGVBvHYsOW7P7+c/Hz85GaOsHyI2fqp1qqcfIwQp+dD9LrpewUjZiGa1umsvvVMRlKH4ao4dMlboT30AX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyly1TDV14Si1PRtUObmVevBStVfoLO3VL2nYwPB3lLci1+HGz5
+	8rUBw4AxYHOV2Y3w1sew1l5BPVrNTnfpsvA17ALiw4G47int4KhlbX7EhG8AM9kzVaBSbcBARRJ
+	o95pBgefxcZi31v70ri4Vjn+ykkUJgfEQCqOeQQ==
+X-Gm-Gg: ASbGncsTbQc+m+MbANyyqUVApdSda2098Csi//Vn2Q2mZ1yGz1nwEs2CAG12tvbh7nH
+	DEZzmgTh/f1cisFV+5iKQtqfY6cuunf9CX5/E3GU=
+X-Google-Smtp-Source: AGHT+IHzQbQYAi6FZO8GNmu8t3VQrhl2ccDWHjHOxE3SLBVC4VwnOsYtSa0UftO9WxJZ8AnPeBd+o1qUAP/ZQG8iuDk=
+X-Received: by 2002:a05:6902:18c3:b0:e57:8814:13a6 with SMTP id
+ 3f1490d57ef6-e5788141804mr6901177276.17.1737043127387; Thu, 16 Jan 2025
+ 07:58:47 -0800 (PST)
 MIME-Version: 1.0
-References: <20250115014118.4086729-1-xiaolei.wang@windriver.com>
-In-Reply-To: <20250115014118.4086729-1-xiaolei.wang@windriver.com>
+References: <20250109131313.32317-1-ansuelsmth@gmail.com> <20250116070214.vdnbyyqnciifngha@vireshk-i7>
+In-Reply-To: <20250116070214.vdnbyyqnciifngha@vireshk-i7>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Thu, 16 Jan 2025 16:57:56 +0100
-X-Gm-Features: AbW1kvYIxEEhaAOaS13it3QYjlHMEzrYgUS_q1Twane_cAE7ZLMDO-j-7TvLw_Y
-Message-ID: <CAPDyKFrpwPLjk+fzAC+1=z5rWJ0UiSTndbq2hET64KDcwsNzKw@mail.gmail.com>
-Subject: Re: [PATCH v3] pmdomain: imx8mp-blk-ctrl: add missing loop break condition
-To: Xiaolei Wang <xiaolei.wang@windriver.com>
-Cc: shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
-	festevam@gmail.com, Frank.Li@nxp.com, ping.bai@nxp.com, 
-	l.stach@pengutronix.de, marex@denx.de, aford173@gmail.com, 
-	linux-pm@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
+Date: Thu, 16 Jan 2025 16:58:11 +0100
+X-Gm-Features: AbW1kvYjzgMKu3xCJVK7F5l29WK5ilTbahAEoFI6YcNzZrqQ5wXTPLxX0mm-M2A
+Message-ID: <CAPDyKFr_z3WUyO2bTV7fPt8=ECdoHCERd=f5UN8MmNpyN=Rm_A@mail.gmail.com>
+Subject: Re: [PATCH v10 1/2] pmdomain: airoha: Add Airoha CPU PM Domain support
+To: Christian Marangi <ansuelsmth@gmail.com>, Viresh Kumar <viresh.kumar@linaro.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-kernel@vger.kernel.org, 
+	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, upstream@airoha.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_075834_327126_C132C64D 
-X-CRM114-Status: GOOD (  17.03  )
+X-CRM114-CacheID: sfid-20250116_075848_476402_B655A22C 
+X-CRM114-Status: GOOD (  14.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,81 +93,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 15 Jan 2025 at 02:41, Xiaolei Wang <xiaolei.wang@windriver.com> wrote:
+On Thu, 16 Jan 2025 at 08:02, Viresh Kumar <viresh.kumar@linaro.org> wrote:
 >
-> Currently imx8mp_blk_ctrl_remove() will continue the for loop
-> until an out-of-bounds exception occurs.
+> Ulf,
 >
-> pstate: 60000005 (nZCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> pc : dev_pm_domain_detach+0x8/0x48
-> lr : imx8mp_blk_ctrl_shutdown+0x58/0x90
-> sp : ffffffc084f8bbf0
-> x29: ffffffc084f8bbf0 x28: ffffff80daf32ac0 x27: 0000000000000000
-> x26: ffffffc081658d78 x25: 0000000000000001 x24: ffffffc08201b028
-> x23: ffffff80d0db9490 x22: ffffffc082340a78 x21: 00000000000005b0
-> x20: ffffff80d19bc180 x19: 000000000000000a x18: ffffffffffffffff
-> x17: ffffffc080a39e08 x16: ffffffc080a39c98 x15: 4f435f464f006c72
-> x14: 0000000000000004 x13: ffffff80d0172110 x12: 0000000000000000
-> x11: ffffff80d0537740 x10: ffffff80d05376c0 x9 : ffffffc0808ed2d8
-> x8 : ffffffc084f8bab0 x7 : 0000000000000000 x6 : 0000000000000000
-> x5 : ffffff80d19b9420 x4 : fffffffe03466e60 x3 : 0000000080800077
-> x2 : 0000000000000000 x1 : 0000000000000001 x0 : 0000000000000000
-> Call trace:
->  dev_pm_domain_detach+0x8/0x48
->  platform_shutdown+0x2c/0x48
->  device_shutdown+0x158/0x268
->  kernel_restart_prepare+0x40/0x58
->  kernel_kexec+0x58/0xe8
->  __do_sys_reboot+0x198/0x258
->  __arm64_sys_reboot+0x2c/0x40
->  invoke_syscall+0x5c/0x138
->  el0_svc_common.constprop.0+0x48/0xf0
->  do_el0_svc+0x24/0x38
->  el0_svc+0x38/0xc8
->  el0t_64_sync_handler+0x120/0x130
->  el0t_64_sync+0x190/0x198
-> Code: 8128c2d0 ffffffc0 aa1e03e9 d503201f
+> On 09-01-25, 14:12, Christian Marangi wrote:
+> > Add Airoha CPU PM Domain support to control frequency and power of CPU
+> > present on Airoha EN7581 SoC.
+> >
+> > Frequency and power can be controlled with the use of the SMC command by
+> > passing the performance state. The driver also expose a read-only clock
+> > that expose the current CPU frequency with SMC command.
+> >
+> > Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> > ---
+> > Changes v10:
+> > - Depends on HAVE_ARM_SMCCC
+> > Changes v9:
+> > - Fix compile error targetting wrong branch (remove_new change)
+> > Changes v8:
+> > - Add this patch
+> > - Use SMC invoke instead of 1.2
 >
-> Fixes: 556f5cf9568a ("soc: imx: add i.MX8MP HSIO blk-ctrl")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Xiaolei Wang <xiaolei.wang@windriver.com>
-> Reviewed-by: Lucas Stach <l.stach@pengutronix.de>
-> Reviewed-by: Fabio Estevam <festevam@gmail.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Any inputs on this ?
 
-Applied for fixes, thanks!
+Apologize for the delay! This looks good to me! So, applied for next
+to my pmdomain tree, thanks!
+
+I assume Viresh will take the cpufreq patch via his tree? Please let
+me know if you prefer another route.
 
 Kind regards
 Uffe
-
-
-> ---
-> v1:
->   https://patchwork.kernel.org/project/imx/patch/20250113045609.842243-1-xiaolei.wang@windriver.com/
->
-> v2:
->   Update commit subject
->
-> v3:
->   cc stable
->
->  drivers/pmdomain/imx/imx8mp-blk-ctrl.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/pmdomain/imx/imx8mp-blk-ctrl.c b/drivers/pmdomain/imx/imx8mp-blk-ctrl.c
-> index e3a0f64c144c..3668fe66b22c 100644
-> --- a/drivers/pmdomain/imx/imx8mp-blk-ctrl.c
-> +++ b/drivers/pmdomain/imx/imx8mp-blk-ctrl.c
-> @@ -770,7 +770,7 @@ static void imx8mp_blk_ctrl_remove(struct platform_device *pdev)
->
->         of_genpd_del_provider(pdev->dev.of_node);
->
-> -       for (i = 0; bc->onecell_data.num_domains; i++) {
-> +       for (i = 0; i < bc->onecell_data.num_domains; i++) {
->                 struct imx8mp_blk_ctrl_domain *domain = &bc->domains[i];
->
->                 pm_genpd_remove(&domain->genpd);
-> --
-> 2.25.1
->
 
