@@ -4,88 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4A7BC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 17:44:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2D77C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 17:46:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uBtKYlWCmsTWJXAsi/P2qVR1BJEci/r4rzSkSdKkiNI=; b=Vd7/GiEgN7F37tvsToK299tq6L
-	1046m+06QzPYxxYufnYKqI6Xnz3HhepCMEwuwqgQjwz6Ufx3dV4r+qoON3TtdvVU0tUR7LX5QccTV
-	THF8KQidJoB79RvqzVh+FIyaVyDQJWIogQu1C9BxXzBBQCT/QMVmlBycSFkyI2rGd8QR9Gx5z1vI6
-	er5NORMdH+3p5mIZd4zJSXYs5bf1tC80a6D80LPh8LYghuFm7fONUmriR/BZ2yAmBIamTwNWT/i0H
-	WNJxOuuWstVmdx0SQBLR7n7kfZIj3ufmZ8b14/VCJ7sxHvDxfJpeW39k9qAznbvio421AmCEeQaZv
-	tzQBstgg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fbH0aNuhNBY+Qx/1k9JyF2WTMEKtKQ8nxA8sJGBpS7w=; b=4hFgId/fMUsdUWJrl8IwGrag0F
+	PGpPSeuQ+xTXFOwsE8he209W22ja/LdpPMhjqHYzin+HsaANTrfIAlFH52lAXzyn3EdHExAxx8qTP
+	2Zxvfc0gx5XO1k4yiiMKG+tMEi/C9RpsMuLJM+2lSCqqN18gS9MXF+h6TbPgTE5ccjM5JawsgHRYa
+	PTB4xKHkKlboRaN+zrwjpXGTTOi/Mp9G8y/8ftTk3OUCZFEbeR28zkop/OyHRPdB9JVaBXNb5Y7Nn
+	ZP3s+4zef7yfzMSl2jR0hOjzm7YMht1vp1aovv0lT3BMHP2NnlRtINKQHBUhwFLdLHaTbtmXWNKMB
+	tANTqF0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYTv8-0000000FiUg-2LjJ;
-	Thu, 16 Jan 2025 17:44:42 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1tYTwN-0000000Fiol-0pZT;
+	Thu, 16 Jan 2025 17:45:59 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYTtq-0000000FiCZ-3SOy
+	id 1tYTv4-0000000FiU4-3UUd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 17:43:24 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-21628b3fe7dso22978715ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 09:43:22 -0800 (PST)
+	Thu, 16 Jan 2025 17:44:40 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-216401de828so21609635ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 09:44:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1737049402; x=1737654202; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=uBtKYlWCmsTWJXAsi/P2qVR1BJEci/r4rzSkSdKkiNI=;
-        b=PAe4sUivB5LVKdBIRBb9grsil7ZbWSGlicuTors1a2idxqpQzhCs2NxU1BJlZsKEPA
-         9uFFftla+3XGuN/0dq2X0CTkp9ij+QrJh45VHuv1rszfdXYvjeO3VOprguQ176Fh5u/d
-         2hkM4g1aoaktdhMMMPak2JX3FJWpIPy2wVVuM=
+        d=broadcom.com; s=google; t=1737049478; x=1737654278; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=fbH0aNuhNBY+Qx/1k9JyF2WTMEKtKQ8nxA8sJGBpS7w=;
+        b=Wf6cs2c3qSwN+CfgfgNVC8zgH0kF7TM8jXwQV/K6Wmu3+4N9fTtwjt8L9+d6Kbo+Qb
+         SQptlHu2gcET0WCztBXEbv9K+TKLoVGS0n9r6Xn2EvDUUZEYF7mKSxrB36Mz4wRspWY3
+         rHrni48/y7hu2e/yz1V+6ZKgZYjWU6mgG/3tY=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737049402; x=1737654202;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=uBtKYlWCmsTWJXAsi/P2qVR1BJEci/r4rzSkSdKkiNI=;
-        b=CiVXz2CiepGZOwq3P3F6UvrmXYdmcq7YV+zjaPqG9Ft0rTgmC4laeda2LrxItAnJos
-         UnCoVPKlSN2MSSVDC3tN0OXFi6E+igi01UzDkN9un/pccKvnLsjGR1S0Fs9iAWAGGOav
-         3OfEZW4HWx7Pkx3LMZabl52TxeDjY8vSi1ZfTC+1ettM+y+q29xwhers21aWqkBcpE34
-         DL+jNNA1rHkXAZ9lI+zjpvlN8tmP5yoxiZAnYNhhV1hE65vJIfBFCd0yeV5IeSgUp9xJ
-         QVolqnGowVaZ9AAz8zWB3epY3t7pITqqzOUIn0R3BZK5bKcp4WSgIMTJYGO6UqadHTAe
-         keyw==
-X-Forwarded-Encrypted: i=1; AJvYcCV9XY8M37ics0YxnN5MKKnHiKvvDLIww7tP/HjyoxW8cavDN/8ZoCRGp4rkJXGpC2CN1lr4/7I35KleyzsQLylP@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQEAe/8XpxVBohbnA4PdC0UEi7Qg5jd3qnFoHJyIKTEplT9/un
-	TthoSVczrAreK2AJwqWK3WZZOlzS9aUzYUYgksGX3gsXQt+/eiXxVHTSsPzSMQ==
-X-Gm-Gg: ASbGncsTM8tOdlk/LFrAYklS564B2u14gnxbmxudKOGty1pbYvfzM0yW+8x3nQyACL0
-	IlaJJYy3vgE0sfwNorhvC2swroSX/d5Z/XUyzwc/i6SKsHL2FSDsJpG1yhinZJUvb5OZioy7/cb
-	hFvwKBmwhUVvYwe+og/+CibCua4dc+ryIw++x12yJ2o7I22CszEYuDdOQVNGNzn3QZ5LLWErq52
-	Zzdw6/VNpydS8L7Nz1yQyw+EtVUCDeCRrjGaZugBprMXOIw6OomaRpQ9ySJsiLiEXQgNoVi94ux
-X-Google-Smtp-Source: AGHT+IEoWJyIWX3XBujOXaws+wrtmniQvJSQSjRB+r+y96gKyl0M0uolS/sv8wolEPPpMrJANi3UYA==
-X-Received: by 2002:a05:6a20:2593:b0:1d9:aa1:23e3 with SMTP id adf61e73a8af0-1e88d2d5e64mr65470929637.32.1737049401836;
-        Thu, 16 Jan 2025 09:43:21 -0800 (PST)
-Received: from dianders.sjc.corp.google.com ([2620:15c:9d:2:8dc2:8743:5c90:724f])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72daba4956esm259207b3a.128.2025.01.16.09.43.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Jan 2025 09:43:20 -0800 (PST)
-From: Douglas Anderson <dianders@chromium.org>
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Douglas Anderson <dianders@chromium.org>,
-	Alexandre Mergnat <amergnat@baylibre.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	CK Hu <ck.hu@mediatek.com>,
-	David Airlie <airlied@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH] drm/mediatek: dp: drm_err => dev_err in HPD path to avoid NULL ptr
-Date: Thu, 16 Jan 2025 09:42:50 -0800
-Message-ID: <20250116094249.1.I29b0b621abb613ddc70ab4996426a3909e1aa75f@changeid>
-X-Mailer: git-send-email 2.48.0.rc2.279.g1de40edade-goog
+        d=1e100.net; s=20230601; t=1737049478; x=1737654278;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fbH0aNuhNBY+Qx/1k9JyF2WTMEKtKQ8nxA8sJGBpS7w=;
+        b=ltRjxoYxuSCWv4p8oajAi+sAAqmAAZtOK9T7CoyDU0H4VpsFptHpfboEL8Ur+jFDXo
+         WJFmRhTtg6dTZCePQw9GKDLxrjHDJq2A4dofdeFoN0pSBEd2DdXRvL6IwkrRHHTF3e/V
+         PkUAUF3pliKhlXw2gkWNeb1g0nSEUsHPshtKK8tv7h8LSVeDqV+UiM5Snl8PiczcQpED
+         guBwOn9jLwdjrtmfSOzQZIRKcYDvVMIMYb4/z72z6CWf2tCqTkNZjHQ4tkn+Sqz+dE0l
+         j+eZdRCjraRLDX+BWMMjWXZAF1bX1xukFtVtuBBJj1s/vooZ7q6tFpVdKa+fC6uyq5Yw
+         VkMQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVruBfoCipsSabEOmMHoTJ2KZyB4C/A/dG01joX3vunIy64qZ5+M2yVj8yL9Tb3m4AnxuTAZ86e0OrJGsnJ45GA@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVkU5AGWAHxIBdMdmGbXhKFeo2QXoie4XIOKl0MvHGOkOR1rR8
+	anu0XCbh8We74cuz8YY0bm+A416Bp37YGF4u8uCDWG0qpQOUI1RiXRPiPel07Q==
+X-Gm-Gg: ASbGnctJIa+bF5BfbI5vFJJQ1fjcZ0aXp8q3kkQNUjjOXokjyRtutrSnePU5kM8QyiA
+	CzPpM6btDDtsbde3bVFYgisU276IS+Soat9pQfAR00P0a0NedYxhjGDZhmOh2CkKkUG/DIoEe0h
+	ZV3HYSy8vvAW+B1LIgHX29VICdl5jsYBuNXP5U2vGs3ICsa5VFYl1eqQ49apdZOyDPhlMjC8r/C
+	a07xHz+ltk/xhUBOVaHbdVK8DL5B+CqWzymWpv5H8dwtqvfG9R1LuK4v0P/8zuJbDagx9mosRdt
+	honfg/xjhFHqp1ABAhpG
+X-Google-Smtp-Source: AGHT+IE0Nz5l+5zPCU039uTisaH3+lRWGSGUZOlt7zohpZP2X6Ochqj54Row1+OLzWAg1OjmZEweuA==
+X-Received: by 2002:a05:6a00:392a:b0:725:b347:c3cc with SMTP id d2e1a72fcca58-72d2200273bmr49375661b3a.23.1737049477674;
+        Thu, 16 Jan 2025 09:44:37 -0800 (PST)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72dab9c8f6dsm262871b3a.114.2025.01.16.09.44.36
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 16 Jan 2025 09:44:36 -0800 (PST)
+Message-ID: <b3078803-973c-44eb-98b1-b4d94cbc19e5@broadcom.com>
+Date: Thu, 16 Jan 2025 09:44:35 -0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/5] clk: bcm: rpi: Add ISP to exported clocks
+To: Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>
+Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Dom Cobley <popcornmix@gmail.com>
+References: <20250116-bcm2712-clk-updates-v1-0-10bc92ffbf41@raspberrypi.com>
+ <20250116-bcm2712-clk-updates-v1-1-10bc92ffbf41@raspberrypi.com>
+Content-Language: en-US
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <20250116-bcm2712-clk-updates-v1-1-10bc92ffbf41@raspberrypi.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_094322_890719_A9F69B41 
-X-CRM114-Status: GOOD (  16.93  )
+X-CRM114-CacheID: sfid-20250116_094438_865008_16724C21 
+X-CRM114-Status: UNSURE (   7.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,74 +137,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The function mtk_dp_wait_hpd_asserted() may be called before the
-`mtk_dp->drm_dev` pointer is assigned in mtk_dp_bridge_attach().
-Specifically it can be called via this callpath:
- - mtk_edp_wait_hpd_asserted
- - [panel probe]
- - dp_aux_ep_probe
+On 1/16/25 08:24, 'Dave Stevenson' via BCM-KERNEL-FEEDBACK-LIST,PDL wrote:
+> From: Dom Cobley <popcornmix@gmail.com>
+> 
+> The ISP clock can be controlled by the driver, so register it
+> with the clock subsystem.
+> 
+> Acked-by: Stephen Boyd <sboyd@kernel.org>
+> Signed-off-by: Dom Cobley <popcornmix@gmail.com>
+> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 
-Using "drm" level prints anywhere in this callpath causes a NULL
-pointer dereference. Change the error message directly in
-mtk_dp_wait_hpd_asserted() to dev_err() to avoid this. Also change the
-error messages in mtk_dp_parse_capabilities(), which is called by
-mtk_dp_wait_hpd_asserted().
-
-While touching these prints, also add the error code to them to make
-future debugging easier.
-
-Fixes: 7eacba9a083b ("drm/mediatek: dp: Add .wait_hpd_asserted() for AUX bus")
-Signed-off-by: Douglas Anderson <dianders@chromium.org>
----
-Unfortunately, I have only been able to compile-time test this code. I
-hit the NULL pointer dereference on a device that's nowhere near
-upstream and it was running (sigh) a heavily modified copy of this
-code where the eDP stuff has been forked out of DP. Specifically, you
-can see <https://crrev.com/c/6073744>. It's pretty easy to understand
-that the same problem affects both codebases though, so I'm posting
-this "blind" in the hopes to at least fix upstream.
-
-I'll also note that the fact that mtk_edp_wait_hpd_asserted() calls
-mtk_dp_parse_capabilities() feels weird/wrong to me based on other eDP
-code I've worked on, but I've only barely looked at the Mediatek
-driver and perhaps others have already debated this. In any case,
-that's not directly related to this patch.
-
- drivers/gpu/drm/mediatek/mtk_dp.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek/mtk_dp.c
-index 0687672f0e52..ccd104d8851f 100644
---- a/drivers/gpu/drm/mediatek/mtk_dp.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dp.c
-@@ -1763,7 +1763,7 @@ static int mtk_dp_parse_capabilities(struct mtk_dp *mtk_dp)
- 
- 	ret = drm_dp_dpcd_readb(&mtk_dp->aux, DP_MSTM_CAP, &val);
- 	if (ret < 1) {
--		drm_err(mtk_dp->drm_dev, "Read mstm cap failed\n");
-+		dev_err(mtk_dp->dev, "Read mstm cap failed: %zd\n", ret);
- 		return ret == 0 ? -EIO : ret;
- 	}
- 
-@@ -1773,7 +1773,7 @@ static int mtk_dp_parse_capabilities(struct mtk_dp *mtk_dp)
- 					DP_DEVICE_SERVICE_IRQ_VECTOR_ESI0,
- 					&val);
- 		if (ret < 1) {
--			drm_err(mtk_dp->drm_dev, "Read irq vector failed\n");
-+			dev_err(mtk_dp->dev, "Read irq vector failed: %zd\n", ret);
- 			return ret == 0 ? -EIO : ret;
- 		}
- 
-@@ -2056,7 +2056,7 @@ static int mtk_dp_wait_hpd_asserted(struct drm_dp_aux *mtk_aux, unsigned long wa
- 
- 	ret = mtk_dp_parse_capabilities(mtk_dp);
- 	if (ret) {
--		drm_err(mtk_dp->drm_dev, "Can't parse capabilities\n");
-+		dev_err(mtk_dp->dev, "Can't parse capabilities: %d\n", ret);
- 		return ret;
- 	}
- 
+Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
 -- 
-2.48.0.rc2.279.g1de40edade-goog
-
+Florian
 
