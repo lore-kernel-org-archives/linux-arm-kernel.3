@@ -4,60 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64E24C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 01:02:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 071BAC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 01:18:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WtseQk43hPu/y1TdKZa4CykZZ0+3CnLbf+gdN5rIcio=; b=HsKF9M+nwtIWEoQ6TvPNdL5ikN
-	BA2yXAhvb8HFfx1JYqjZDt3KkBZHVoVbOcCYUgklls2tiXCmeQWaYlVzAmygx+rQzNjpyBy8MVA7k
-	HOfcw2z9YtVes/bjYLwNv9glQXKm8+LIoOcXb8/BCXqu/TzAVgOL0T4lgVauhow54iFvFxDFQN6Oz
-	Uf7wHXd5vlPo3if1Z3ShvalZHNw1whafCF4ONhciaZB8ZHkaa4kSAzHt8mNGkDkTuHv57m/+bWucE
-	XFJPp3hhrRb/93REN39Fz00hlYZipVnawdSR3t+TLmEg3KHSeToG+5idFCr4/xoRPlrYC9m5tB1Xb
-	RAfJ/IdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cPr0S5mO7P+GKPipZ1nGtlwrnrd/h5OSZtw894A+hbo=; b=GngwGPC69e7FoEPAn1qPIBXrE3
+	59SLvVmWlB+h9irvXfGPIRAzUiNjfyckR+cB4qtNrwKsltsi531GEQdtPNsteuIpjK0DkiXx2SJyb
+	rTCq2pMWDShxU2DRrBoIMYKd44QXM0oQlzOQSFz+SOpu1bKDdrzyogiPH12zgVVuYLR+Bx6tRdO3L
+	w4dTMZi6x62WnlRId9WVKxQfvd/4FP/eAmqXeg47UctGo20l97I6k0I/Kf/VodbgrYE7d3+uMxpwa
+	3jj7magZToNWYUGG8ABH5+Pi6cW3RrxcUtoZzte3qnJqo1+g6QZ+XyGPHz3+9MzhJ/VDvKA1DFPqq
+	hWpsW3HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYEHC-0000000DV6R-3wmV;
-	Thu, 16 Jan 2025 01:02:26 +0000
-Received: from gandalf.ozlabs.org ([150.107.74.76] helo=mail.ozlabs.org)
+	id 1tYEWK-0000000DWZT-1IoJ;
+	Thu, 16 Jan 2025 01:18:04 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYEFw-0000000DUwr-0JxX
+	id 1tYEV2-0000000DWId-3ujB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 01:01:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canb.auug.org.au;
-	s=201702; t=1736989256;
-	bh=WtseQk43hPu/y1TdKZa4CykZZ0+3CnLbf+gdN5rIcio=;
-	h=Date:From:To:Cc:Subject:From;
-	b=uZOZGyQsy/TxdOC4xD1p8CY0x1jezF5WncK6aWLezjDdZQdvnVn05uyLP4o1jiwnZ
-	 haFPGtby2Gw/g69tqcqGGLVEbInfZJRKRCtSuIvp8T8i8VBc/dirD1C3iYYc+ugdKg
-	 FiOeANv2fucIAwZmDEIWhx533oqz6GEznEcsj4HOokZgCBex9BS0r5zDcZ0esZqHh0
-	 bvT7134aTQyDF/ho4DT6ff91xIAvCH6WiEnkwHZZqInJUVHQv4unDjAs2ropLaYwD2
-	 Sk3Svpw2RG+wCE6LRjMiC/LBxxsURAKhYVaNdBpJNHCoVzpFvKRXAK7rUqtZs8LzcG
-	 G8EUOWg4INolA==
-Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	by mail.ozlabs.org (Postfix) with ESMTPSA id 4YYPgW6XkLz4xRj;
-	Thu, 16 Jan 2025 12:00:55 +1100 (AEDT)
-Date: Thu, 16 Jan 2025 12:01:02 +1100
-From: Stephen Rothwell <sfr@canb.auug.org.au>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Arnd Bergmann <arnd@arndb.de>
-Cc: ARM <linux-arm-kernel@lists.infradead.org>, Linux Kernel Mailing List
- <linux-kernel@vger.kernel.org>, Linux Next Mailing List
- <linux-next@vger.kernel.org>
-Subject: linux-next: duplicate patches in the samsung-krzk tree
-Message-ID: <20250116120102.6c848c63@canb.auug.org.au>
+	Thu, 16 Jan 2025 01:16:46 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50FGn6R4028621;
+	Thu, 16 Jan 2025 01:16:24 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	cPr0S5mO7P+GKPipZ1nGtlwrnrd/h5OSZtw894A+hbo=; b=Oaa9viUd6NYDjasl
+	HdJm5eVhudHWTlHsXMq9J3rzYZ3pyntf47gIVLWTwAhTHXvxEgA1W8Gl+bw4I3R8
+	lz8v5qlEPA4LV869qEEkw2HSecb9LlnCiDET1FT0LnWGDTwiHE6VYyJcGqNfTJdN
+	1coLOev/VxaA3Rg+6LcSLD5BrFpv3j3CiPXwCGm4xCSsUt7i3K7kjzrOZaOpA4D6
+	hZ1oXujsKDDUjOFEOuF5xo3tne7Ta0SUhTcb9KAw/yjC62wFqnNWUIzXImKVsxIQ
+	r4ELsey/iiNyYC/EjRS49KRNrPGbSUu5Y0d0zn1tqxaRz+xfo80VBX5j9lUZSGN/
+	27zOkA==
+Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 446fgm17yb-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 16 Jan 2025 01:16:24 +0000 (GMT)
+Received: from nasanex01c.na.qualcomm.com (nasanex01c.na.qualcomm.com [10.45.79.139])
+	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 50G1GNBM017104
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 16 Jan 2025 01:16:23 GMT
+Received: from hu-jiangenj-sha.qualcomm.com (10.80.80.8) by
+ nasanex01c.na.qualcomm.com (10.45.79.139) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Wed, 15 Jan 2025 17:16:16 -0800
+Date: Thu, 16 Jan 2025 06:46:13 +0530
+From: Joey Jiao <quic_jiangenj@quicinc.com>
+To: Alexander Potapenko <glider@google.com>
+CC: Marco Elver <elver@google.com>, Dmitry Vyukov <dvyukov@google.com>,
+        "Andrey Konovalov" <andreyknvl@gmail.com>,
+        Jonathan Corbet <corbet@lwn.net>,
+        "Andrew Morton" <akpm@linux-foundation.org>,
+        Dennis Zhou <dennis@kernel.org>, "Tejun Heo" <tj@kernel.org>,
+        Christoph Lameter <cl@linux.com>,
+        Catalin
+ Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, <kasan-dev@googlegroups.com>,
+        <linux-kernel@vger.kernel.org>, <workflows@vger.kernel.org>,
+        <linux-doc@vger.kernel.org>, <linux-mm@kvack.org>,
+        <linux-arm-kernel@lists.infradead.org>, <kernel@quicinc.com>
+Subject: Re: [PATCH 0/7] kcov: Introduce New Unique PC|EDGE|CMP Modes
+Message-ID: <Z4hd3bLA0178RxDi@hu-jiangenj-sha.qualcomm.com>
+References: <20250114-kcov-v1-0-004294b931a2@quicinc.com>
+ <CANpmjNPUFnxvY-dnEAv09-qB5d0LY_vmyxhb3ZPJV-T9V9Q6fg@mail.gmail.com>
+ <Z4ZfzoqhrJA0jeQI@hu-jiangenj-sha.qualcomm.com>
+ <CAG_fn=XFkNVkT3EmB99SdEBAwkGq3EUdM9xR4rzH_HatrJw8rQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/UIedGggCiofjb4Ab2l/UtLY";
- protocol="application/pgp-signature"; micalg=pgp-sha256
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAG_fn=XFkNVkT3EmB99SdEBAwkGq3EUdM9xR4rzH_HatrJw8rQ@mail.gmail.com>
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01c.na.qualcomm.com (10.45.79.139)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: Z_olEk4WcSq3hsN4Oww5nUKM69KgZkLL
+X-Proofpoint-ORIG-GUID: Z_olEk4WcSq3hsN4Oww5nUKM69KgZkLL
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-15_11,2025-01-15_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
+ malwarescore=0 impostorscore=0 mlxlogscore=536 bulkscore=0 suspectscore=0
+ clxscore=1015 spamscore=0 adultscore=0 priorityscore=1501 phishscore=0
+ mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501160007
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_170108_474683_2358314E 
-X-CRM114-Status: UNSURE (   8.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250115_171645_087408_7AD3213F 
+X-CRM114-Status: GOOD (  38.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,46 +110,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/UIedGggCiofjb4Ab2l/UtLY
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+On Wed, Jan 15, 2025 at 04:16:57PM +0100, Alexander Potapenko wrote:
+> On Tue, Jan 14, 2025 at 2:00 PM Joey Jiao <quic_jiangenj@quicinc.com> wrote:
+> >
+> > On Tue, Jan 14, 2025 at 11:43:08AM +0100, Marco Elver wrote:
+> > > On Tue, 14 Jan 2025 at 06:35, Jiao, Joey <quic_jiangenj@quicinc.com> wrote:
+> > > >
+> > > > Hi,
+> > > >
+> > > > This patch series introduces new kcov unique modes:
+> > > > `KCOV_TRACE_UNIQ_[PC|EDGE|CMP]`, which are used to collect unique PC, EDGE,
+> > > > CMP information.
+> > > >
+> > > > Background
+> > > > ----------
+> > > >
+> > > > In the current kcov implementation, when `__sanitizer_cov_trace_pc` is hit,
+> > > > the instruction pointer (IP) is stored sequentially in an area. Userspace
+> > > > programs then read this area to record covered PCs and calculate covered
+> > > > edges.  However, recent syzkaller runs show that many syscalls likely have
+> > > > `pos > t->kcov_size`, leading to kcov overflow. To address this issue, we
+> > > > introduce new kcov unique modes.
+> 
+> Hi Joey,
+> 
+> Sorry for not responding earlier, I thought I'd come with a working
+> proposal, but it is taking a while.
+> You are right that kcov is prone to overflows, and we might be missing
+> interesting coverage because of that.
+> 
+> Recently we've been discussing the applicability of
+> -fsanitize-coverage=trace-pc-guard to this problem, and it is almost
+> working already.
+Can you share the patch? I was tried trace-pc-guard but had the same unique 
+info problem.
+> The idea is as follows:
+> - -fsanitize-coverage=trace-pc-guard instruments basic blocks with
+> calls to `__sanitizer_cov_trace_pc_guard(u32 *guard)`, each taking a
+> unique 32-bit global in the __sancov_guards section;
+> - these globals are zero-initialized, but upon the first call to
+> __sanitizer_cov_trace_pc_guard() from each callsite, the corresponding
+> global will receive a unique consequent number;
+> - now we have a mapping of PCs into indices, which can we use to
+> deduplicate the coverage:
+> -- storing PCs by their index taken from *guard directly in the
+> user-supplied buffer (which size will not exceed several megabytes in
+> practice);
+> -- using a per-task bitmap (at most hundreds of kilobytes) to mark
+> visited basic blocks, and appending newly encountered PCs to the
+> user-supplied buffer like it's done now.
+Why at most hundreds of kilobytes? Still stored in sequence? Assume we have 2GB 
+kernel text, then bitmap will have 64MB for unique basic blocks?
+> 
+> I think this approach is more promising than using hashmaps in kcov:
+> - direct mapping should be way faster than a hashmap (and the overhead
+> of index allocation is amortized, because they are persistent between
+> program runs);
+> - there cannot be collisions;
+> - no additional complexity from pool allocations, RCU synchronization.
+> 
+> The above approach will naturally break edge coverage, as there will
+> be no notion of a program trace anymore.
+I think guard value is equavalent to the effect of edge? We can use the guard 
+value in syzkaller as edge info?
+> But it is still a question whether edges are helping the fuzzer, and
+> correctly deduplicating them may not be worth the effort.
+> 
+> If you don't object, I would like to finish prototyping coverage
+> guards for kcov before proceeding with this review.
+> 
+> Alex
+Thanks Alex, sure, please continue the guards patches.
+Also I think we can still store the covered PC inside 
+__santizer_cov_trace_pc_guard, right?
 
-Hi all,
-
-The following commits are also in the arm-soc tree as different commits
-(but the same patches):
-
-  33ebc0fb73ba ("dt-bindings: soc: samsung: exynos-pmu: Add exynos990-pmu c=
-ompatible")
-  2dbf3f19da58 ("arm64: defconfig: enable Maxim TCPCI driver")
-
-These are commits
-
-  f16d91d8febf ("dt-bindings: soc: samsung: exynos-pmu: Add exynos990-pmu c=
-ompatible")
-  d2ca319822e0 ("arm64: defconfig: enable Maxim TCPCI driver")
-
-in the arm-soc tree.
-
---=20
-Cheers,
-Stephen Rothwell
-
---Sig_/UIedGggCiofjb4Ab2l/UtLY
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCAAdFiEENIC96giZ81tWdLgKAVBC80lX0GwFAmeIWk4ACgkQAVBC80lX
-0Gws3wf+Oj+gdN2myGizUDwvWyQp2sn7eteF+icSC4QHZyTFduUKaj/OhHS6uLfZ
-Z5L++/s4ny6iMN6kf/OYu3i5ullTNSa7/N8CK3/u4H1wUXMKJ6yQQUe9oc8uPt8w
-EyZ/e6PM+3Od5A5JcYb3v9vMkGuiQKM3uSb0X6cbAunCRSBuGKwuDWXafvwGwqw6
-jAL+L3hGobqAuAC6HP+Ekh+X3ILWjf9OC8JWcPDHhncXCqa37W5c4WOPJEPFCtaF
-CqESE0Tg9SRG4Xy42jzNHWpdyWaeNomyOZnao3MZB8olj0W8hKEE0zKFoJ4z0DMO
-WgkQpIbWuudXiRj6gNwCvnivMwg73A==
-=6fl4
------END PGP SIGNATURE-----
-
---Sig_/UIedGggCiofjb4Ab2l/UtLY--
++void notrace __sanitizer_cov_trace_pc_guard(unsigned long* guard) {
++	struct task_struct *t;
++	struct kcov *kcov;
++	unsigned long ip = canonicalize_ip(_RET_IP_);
++
++	if (!*guard)
++		return;
+> 
+> > > > 2. [P 2-3] Introduce `KCOV_TRACE_UNIQ_EDGE` Mode:
+> > > >    - Save `prev_pc` to calculate edges with the current IP.
+> > > >    - Add unique edges to the hashmap.
+> > > >    - Use a lower 12-bit mask to make hash independent of module offsets.
+> 
+> Note that on ARM64 this will be effectively using bits 11:2, so if I
+> am understanding correctly more than a million coverage callbacks will
+> be mapped into one of 1024 buckets.
 
