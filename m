@@ -4,107 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45E15C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 15:18:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86CF2C02187
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 15:25:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YdlWU5uHCS6BCpki15J5p47gd8bkNXmYAGt43QgM2/c=; b=XfQIjtCekvTY5DRh/BTw7zGFvu
-	6JyUOVVZjH2omaSevW3hHdwQQziIOG29WjJsw1o2EnQXtPwFMJ6R+WjQFI2IPqi5jt5fDh2PYTN/e
-	LUHgkuMgBmmjkXnkdRsrJ1qyhz4RK6NS5ABLteLTffaU2VS/JVfqeSM4TjWYQHxNIiuyNROVhv9Zf
-	YhscUwdFaQWXZ3QxO5z/wjpY0e0AsOwy+sW2aPllLW4tznInhHUsLRyJl8XGKVKEMlzg3hPPOx0xq
-	/KDTQPEcDMabRwWp1NMLAPGhAFCFdilGGqPDQ1YDb/LQAZIEn2xNSINGOck0AAZdqaovaTZL5cqNS
-	7/8dmiYA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
+	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=mlroyb/jMU2zXy9fkhNJx0reIXqOwAkc96UjIWcJbcc=; b=tPEGaa1PThY+8B
+	E7zVt2euU4Q0QI4fvn7SdJrek/aFMMngj0BotkIFQak4IpYN2B+XBE3MT9nf7K0G4kSdsdiZjwec/
+	HJGNereVt16pG7lmPtqXGica/VQI5GDJ7GFfIJD4vXOPXJqztTdnswnsZlAoclHWEk/EcNNWHmJrP
+	rZz0xbT7jewsvjm4lptkyeiVrrmqbvHfIPb7hBjHXc8lwUO0pbU3Af2Qr7W/LX3kxqlgY40Q+Y+np
+	IKc2ntIWS5DMGISnZMsVs9DOxfh4YvpxdNwLnXQR5nsahdfreh/B73sdMacLLTGqwG+mvGvjxzgUU
+	ZIoric9Lp4thNjZCSLVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYRcz-0000000FJL8-1ncf;
-	Thu, 16 Jan 2025 15:17:49 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1tYRjl-0000000FJzL-28Th;
+	Thu, 16 Jan 2025 15:24:49 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYRbi-0000000FJ4x-39In
+	id 1tYRiV-0000000FJtX-1OYo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 15:16:32 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50G85bZm020393;
-	Thu, 16 Jan 2025 15:16:04 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=YdlWU5
-	uHCS6BCpki15J5p47gd8bkNXmYAGt43QgM2/c=; b=jJKfTCI0ZUQFfQTMFyBDSo
-	bcKiIqdOoYMz7FZs6J6mIbOTtrvPcx43H3O+GzhgikIFqKEC5xL7UIsM/YGAdw+s
-	rY7RyhbA/bwP29iGd3QQ5nbRwdED32I3/ZzBiTVoMs2DD4EF9BqZdbhO+/tHRZ9Z
-	cwg22N0MEDzJj8t09Asjy6ROnUjvIPI/LbrFQ5VsvjK1uyFfL3IjLcjqaz4NmYxL
-	IkjMbIYG8v8HXz7XcgX/EHyT0BUhf68SOYF40rhsbgnuK1DW5lKLN04O7h5q+pBF
-	C3EqJmnk/LDjv2NdY/AiYXuRGeAPjiTpihsHBRZThGimOuxbVklxgZ/XyzQdqMNQ
-	==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 446xa3a2dq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 16 Jan 2025 15:16:03 +0000 (GMT)
-Received: from m0360072.ppops.net (m0360072.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 50GEu1dE031417;
-	Thu, 16 Jan 2025 15:16:03 GMT
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 446xa3a2dm-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 16 Jan 2025 15:16:03 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 50GDn4kB017359;
-	Thu, 16 Jan 2025 15:16:02 GMT
-Received: from smtprelay05.wdc07v.mail.ibm.com ([172.16.1.72])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4444fkeaky-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 16 Jan 2025 15:16:02 +0000
-Received: from smtpav06.wdc07v.mail.ibm.com (smtpav06.wdc07v.mail.ibm.com [10.39.53.233])
-	by smtprelay05.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 50GFG21F8389282
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 16 Jan 2025 15:16:02 GMT
-Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 1235B58055;
-	Thu, 16 Jan 2025 15:16:02 +0000 (GMT)
-Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 04EF75803F;
-	Thu, 16 Jan 2025 15:15:58 +0000 (GMT)
-Received: from [9.61.59.21] (unknown [9.61.59.21])
-	by smtpav06.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Thu, 16 Jan 2025 15:15:57 +0000 (GMT)
-Message-ID: <98c24ee1-3a02-4df9-b181-22f3e6676b85@linux.ibm.com>
-Date: Thu, 16 Jan 2025 09:15:56 -0600
+	Thu, 16 Jan 2025 15:23:32 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-43621d27adeso6944765e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 07:23:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1737041009; x=1737645809; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:from:subject:reply-to:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=mlroyb/jMU2zXy9fkhNJx0reIXqOwAkc96UjIWcJbcc=;
+        b=K7YcNxEqd1cK5EEbf7YzbRPxPrGMC0HhPCyRYmD2SdaN9mUpEsROZh707kp1eoIcU1
+         Tpqqz+QHDE6Q0CDGRE0+FixJYsZ9U9l7j8n/qLweX5jpjpCZcDYlWLgqL3yM6ahjoKgm
+         LJ98YxUjGc/QtnDPynj+0pGZgS9xqzfH8S1cP8q00LxafZuUiUEPA6da/swN4SpCf9HT
+         W76wkeGMmBBeW0DoMEPPUYAjSINv/GJYLzMQpKwcJ2Mw9ndluBXqQCo+q5sv7Hgd37ev
+         zpPJpnAQmyxw9ZKbbsfku4hWksBKv+wOQbiTTkKaLlH6ehnJ3RrQ2yWaAEharvtVIlWP
+         MXXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737041009; x=1737645809;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:from:subject:reply-to:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=mlroyb/jMU2zXy9fkhNJx0reIXqOwAkc96UjIWcJbcc=;
+        b=Lf0vLlasAwQ3HxkVf1IyhrSaYdF++s8hbCn49lZV6i5uoJE+8jnOPBj4UalD7txOYP
+         I3P0xNSfJ91wwR9qnGPMG+VguUg5WBExH+eaGW5egI1WqSjY7xWGW/2534l+WH58Tpkg
+         8SPyvxY9Vmn75i6XvxwUICbHtYNdgiGkCcCy+2g26op5+selfkTa06dZGT6otCKa8xHe
+         8Mqm6lqr8lJxDZMkuDdmvKPqOZ/4Bv/gpqkMWbuVUDL5FfDSEmXp0DnfIv/jQDdwehUY
+         IsJJvTQTYKu7ibgZiY4sQeoa0AwvCsWOojMcL1UWrk7Y2RsAja8nVwXHJFPRqydeazKN
+         vP+Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVwDqzLg5+Hq2dO8GmA7k0J2v2JZG/hE9QPK7cTn6grZ3Pn2wsxva2s1ecSVOaNW3wRbwa7Juru9U59h+A4eo+V@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBhMhRKuhagxAHXLofJqouPyqzJobpFGzadokbRVybH4yvhWAW
+	EqllxViX434LWiqfiv9WR06cLpv49joyYKz2uZa80zHPrFqG+yDzzSQEUvNSM2Rbgj19fV6arSX
+	p
+X-Gm-Gg: ASbGncuCL6z4szyu6Xuh12zoTMphRcWSwzUhKoMpurfpxl50kAEt+99NF3vS360LK0G
+	+TtEpftglbswzTmx9ZIhrkT9CBYCCsO8uAJhuO0wrKt1QY2L92ukuBopJQtNZOnAadQvPKNIFxr
+	FfOcoKYjdgRFRseVk0/d9J/27rsASTnBz2oQWz1fHKUoFREW8Xyvx2g0Ls5ve+yoROyxjjCk8Hm
+	XNK6UIl/UV31zvROjvQWNagKpxJmwGv7W7nJgDJlht8EwLzTaxk+3Af47XHoQI7h+47/OfsHYUr
+	8IVNgXnK/Bq732bkQlrt7pBF81+936/nmA==
+X-Google-Smtp-Source: AGHT+IH3ev2Y3m0geQ3OUPWjCKlIaWRioGBD546DlWZImq11tIxFW9OCinJY3Zz6eI2GrZ4WeAHyFw==
+X-Received: by 2002:a05:6000:1564:b0:38a:8d32:274e with SMTP id ffacd0b85a97d-38a8d322b18mr26448297f8f.5.1737041009433;
+        Thu, 16 Jan 2025 07:23:29 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:982:cbb0:4adf:8d3f:1419:e65d? ([2a01:e0a:982:cbb0:4adf:8d3f:1419:e65d])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-437c75298adsm63384035e9.30.2025.01.16.07.23.28
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 16 Jan 2025 07:23:28 -0800 (PST)
+Message-ID: <724c4e81-184a-489c-aaaa-85c21a19b64a@linaro.org>
+Date: Thu, 16 Jan 2025 16:23:28 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 00/10] DTS updates for system1 BMC
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-kernel@vger.kernel.org, openipmi-developer@lists.sourceforge.net,
-        pabeni@redhat.com, krzk+dt@kernel.org, kuba@kernel.org, joel@jms.id.au,
-        linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
-        davem@davemloft.net, eajames@linux.ibm.com,
-        andrew@codeconstruct.com.au, andrew+netdev@lunn.ch, minyard@acm.org,
-        edumazet@google.com, conor+dt@kernel.org, netdev@vger.kernel.org,
-        devicetree@vger.kernel.org
-References: <20250114220147.757075-1-ninad@linux.ibm.com>
- <173690506198.2128017.15705512689029125898.robh@kernel.org>
-Content-Language: en-US
-From: Ninad Palsule <ninad@linux.ibm.com>
-In-Reply-To: <173690506198.2128017.15705512689029125898.robh@kernel.org>
+Subject: Re: [GIT PULL] Amlogic drivers updates for v6.14
+From: Neil Armstrong <neil.armstrong@linaro.org>
+To: soc@kernel.org, arm@kernel.org
+Cc: linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <d22513cc-c326-443c-982b-78adf755d3dc@linaro.org>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <d22513cc-c326-443c-982b-78adf755d3dc@linaro.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: pOwtUgxf4sevROlKDeyLe7g0iyYEuZGT
-X-Proofpoint-ORIG-GUID: O3vTPOgjhkVxMFnsseHc2nuO1G_oFbHE
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-01-16_06,2025-01-16_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0 mlxscore=0
- bulkscore=0 clxscore=1015 adultscore=0 mlxlogscore=839 priorityscore=1501
- suspectscore=0 spamscore=0 phishscore=0 impostorscore=0 malwarescore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
- definitions=main-2501160114
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_071630_914520_CF8FA6B2 
-X-CRM114-Status: GOOD (  10.08  )
+X-CRM114-CacheID: sfid-20250116_072331_369713_B80E54BD 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,59 +123,50 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Rob,
+Hi,
 
-On 1/14/25 19:40, Rob Herring (Arm) wrote:
-> make sure dt-schema is up to date:
->
->    pip3 install dtschema --upgrade
->
->
-> New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/aspeed/' for 20250114220147.757075-1-ninad@linux.ibm.com:
->
-> arch/arm/boot/dts/aspeed/aspeed-bmc-opp-palmetto.dtb: gpio@1e780000: 'pin_func_mode0', 'pin_func_mode1', 'pin_func_mode2', 'pin_gpio_a0', 'pin_gpio_a1', 'pin_gpio_b1', 'pin_gpio_b2', 'pin_gpio_b7', 'pin_gpio_d1', 'pin_gpio_f1', 'pin_gpio_f4', 'pin_gpio_f5', 'pin_gpio_f7', 'pin_gpio_g3', 'pin_gpio_g4', 'pin_gpio_g5', 'pin_gpio_h0', 'pin_gpio_h1', 'pin_gpio_h2', 'pin_gpio_h7' do not match any of the regexes: '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
-> 	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-delta-ahe50dc.dtb: gpio@1e780000: 'doom-guardrail' does not match any of the regexes: '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
-> 	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-opp-romulus.dtb: gpio@1e780000: 'nic_func_mode0', 'nic_func_mode1', 'seq_cont' do not match any of the regexes: '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
-> 	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-opp-lanyang.dtb: gpio@1e780000: 'pin_gpio_aa6', 'pin_gpio_aa7', 'pin_gpio_ab0', 'pin_gpio_b0', 'pin_gpio_b5', 'pin_gpio_h5', 'pin_gpio_z2' do not match any of the regexes: '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
-> 	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-bytedance-g220a.dtb: gpio@1e780000: 'pin_gpio_b6', 'pin_gpio_i3' do not match any of the regexes: '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
-> 	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-everest.dtb: gpio@1e780000: 'usb_power' does not match any of the regexes: '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
-> 	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-e3c246d4i.dtb: gpio@1e780000: 'bmc-ready' does not match any of the regexes: '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
-> 	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier.dtb: gpio@1e780000: 'i2c3_mux_oe_n', 'usb_power' do not match any of the regexes: '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
-> 	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ampere-mtjade.dtb: gpio@1e780000: 'bmc-ready' does not match any of the regexes: '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
-> 	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier-1s4u.dtb: gpio@1e780000: 'i2c3_mux_oe_n', 'usb_power' do not match any of the regexes: '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
-> 	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier-4u.dtb: gpio@1e780000: 'i2c3_mux_oe_n', 'usb_power' do not match any of the regexes: '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
-> 	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-bonnell.dtb: gpio@1e780000: 'usb_power' does not match any of the regexes: '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
-> 	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-opp-nicole.dtb: gpio@1e780000: 'func_mode0', 'func_mode1', 'func_mode2', 'ncsi_cfg', 'seq_cont' do not match any of the regexes: '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
-> 	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-lenovo-hr855xg2.dtb: gpio@1e780000: 'pin_gpio_a1', 'pin_gpio_a3', 'pin_gpio_aa0', 'pin_gpio_aa4', 'pin_gpio_ab3', 'pin_gpio_ac6', 'pin_gpio_b5', 'pin_gpio_b7', 'pin_gpio_e0', 'pin_gpio_e2', 'pin_gpio_e5', 'pin_gpio_e6', 'pin_gpio_f0', 'pin_gpio_f1', 'pin_gpio_f2', 'pin_gpio_f3', 'pin_gpio_f4', 'pin_gpio_f6', 'pin_gpio_g7', 'pin_gpio_h6', 'pin_gpio_i3', 'pin_gpio_j1', 'pin_gpio_j2', 'pin_gpio_j3', 'pin_gpio_l0', 'pin_gpio_l1', 'pin_gpio_l4', 'pin_gpio_l5', 'pin_gpio_r6', 'pin_gpio_r7', 'pin_gpio_s1', 'pin_gpio_s2', 'pin_gpio_s6', 'pin_gpio_z3' do not match any of the regexes: '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
-> 	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-lenovo-hr630.dtb: gpio@1e780000: 'pin_gpio_aa0', 'pin_gpio_aa5', 'pin_gpio_b5', 'pin_gpio_f0', 'pin_gpio_f3', 'pin_gpio_f4', 'pin_gpio_f5', 'pin_gpio_g4', 'pin_gpio_g7', 'pin_gpio_h2', 'pin_gpio_h3', 'pin_gpio_i3', 'pin_gpio_j2', 'pin_gpio_j3', 'pin_gpio_s2', 'pin_gpio_s4', 'pin_gpio_s6', 'pin_gpio_y0', 'pin_gpio_y1', 'pin_gpio_z0', 'pin_gpio_z2', 'pin_gpio_z3', 'pin_gpio_z7' do not match any of the regexes: '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
-> 	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-opp-zaius.dtb: gpio@1e780000: 'line_bmc_i2c2_sw_rst_n', 'line_bmc_i2c5_sw_rst_n', 'line_iso_u146_en', 'ncsi_mux_en_n' do not match any of the regexes: '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
-> 	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-arm-stardragon4800-rep2.dtb: gpio@1e780000: 'pin_gpio_c7', 'pin_gpio_d1' do not match any of the regexes: '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
-> 	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
+On 06/01/2025 15:25, Neil Armstrong wrote:
+> Hi,
+> 
+> Here's the final DT bindings change that will give 100% success in Amlogic
+> ARM64 & ARM64 DT Bindings checks, with the mmc-slot bindings change routed
+> via the MMC tree.
 
-This patchset fixes this issue. 
-https://lore.kernel.org/linux-kernel/20250116090009.87338-1-krzysztof.kozlowski@linaro.org/
+Gentle ping, it doesn't seem you pulled this PR.
 
-Thanks & Regards,
+Thanks,
+Neil
 
-Ninad
+> 
+> Thanks,
+> Neil
+> 
+> The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b37:
+> 
+>    Linux 6.13-rc1 (2024-12-01 14:28:56 -0800)
+> 
+> are available in the Git repository at:
+> 
+>    https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git tags/amlogic-drivers-for-v6.14
+> 
+> for you to fetch changes up to 960a4140ade8f6ba44e78dc40b80bbf272027805:
+> 
+>    dt-bindings: soc: amlogic,meson-gx-hhi-sysctrl: Document the System Control registers found on early Meson SoC (2024-12-11 09:49:49 +0100)
+> 
+> ----------------------------------------------------------------
+> Amlogic drivers changes for v6.14:
+> - Document the System Control registers found on early Meson SoC
+> 
+> ----------------------------------------------------------------
+> Neil Armstrong (1):
+>        dt-bindings: soc: amlogic,meson-gx-hhi-sysctrl: Document the System Control registers found on early Meson SoC
+> 
+>   .../bindings/soc/amlogic/amlogic,meson-gx-hhi-sysctrl.yaml | 14 ++++++++++++++
+>   1 file changed, 14 insertions(+)
+> 
 
 
