@@ -4,166 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9598FC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 16:09:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3634CC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 16:20:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7cGaWVN6b4G/1Y1kKh9JVyZas1GfqQ1AhMvE+F4Cku0=; b=QG2A/OnpVveVYfTjnv/CBEZIsz
-	PZI6ToFS90gcjexRWo8yI3dkYdvuRBFG/24CBxbsZMOv6WpOAZox5Ld/rt2DanW7Xb+zA5ZYn+YxY
-	pIdRxFsnpxoFblqyQMWqrUi3zxN7ERF2DD2OiDJLO9GnzZPAAhH/MlKTDQkFW3SV21rCaYHyu6FBv
-	cjBCXK12c9ImjZQ+Ng6B7kF2P2Wj8chsivKRc5ApXTC9lnWkQfPGDgV5ajHkbjZnzCe5ZZnPGBlOr
-	rh3+6V33YiDDiIoYDKRm64RJs5Uee7Oq4Y6/UQAu5qPCnf3+wAs6ILmucV9QHikxts0XjUmKjmdZR
-	OB1pIekw==;
+	bh=NXwKgfYfBCTaHAuVM3RwosO58FlQMP+zROi+IXHwVN0=; b=SBr/ZNIwtwE2hWddixIHW7Dkwe
+	HcoVFZvaHzXhw4NHa1iqsJTNByP3iDa8T+izfjw4i7CQ9qEu+APxAbDSdy0UXNASrr9t+sB7/G72b
+	orROrCpsFHI8cRn6YS4NcUoK48JMRqWqq9kpNIcq4RkD5QDlILQxFZl1Vvg2SSKuh64EPYdyFG2nz
+	EHFgOmsi5eYq3qyyq+h1wmSNvcgB8JEeKuZ+AaNhiWQf9fvl15kC+TWOqR2jeR0A+TDML7CfVq2j1
+	3PSz4jYO2OMQiKj0VnvepqgTB/INa2/shBzHr8royrM94NXX9QjD6UNRIC7mXT2Zn8YLRizvNPTBa
+	EoNNovKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYSR1-0000000FTVy-0urC;
-	Thu, 16 Jan 2025 16:09:31 +0000
-Received: from mail-co1nam11on20615.outbound.protection.outlook.com ([2a01:111:f403:2416::615] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYSPI-0000000FT3z-3d7a
+	id 1tYSbL-0000000FUv3-3Sy6;
+	Thu, 16 Jan 2025 16:20:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tYSa5-0000000FUjP-2xXk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 16:07:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gTB2bbt7Mc5MmVstp8nxoeeq8otrqrjY1jsBMaYMlwzQK9d8vG8HnAsdqfzbAKGaSnpMqwr+0SbzS0VQKD2HGIWy8gQ9UxgEaBTX0L/WcyXbj2LVuu4gzFC0NaGLWwaVZJqM4mQjipWmAxJR5eHsIWllk/z9BU1e9bIpOPZ414ERJZc2yQpU3MjvgRysUMXcv2oc+QIJrIsjd+RjKg3FSd2Dg2PIDQtwzI5Gq08j2SLhYtzko8LVz92v0RKp/OF4ZL2gByso0ZXkamOwXpPi2lSpL+W1+rOPcBsET7HhRgu34QCadxCTsZv6sYjcL5OOQ6nmZ3T19A+kH/F30RSy1w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7cGaWVN6b4G/1Y1kKh9JVyZas1GfqQ1AhMvE+F4Cku0=;
- b=TQPUgiVOoN+VplE0OhNCqC6rscGdyrCjoWYebw2Lw2UB0MFGS6V8cdW5tyiOyaHDoOjuWElb6OxDdBJXYUo9YnmJSWMnZaFZZJ1xMfVp8n+w7bLYRHWjj+7jZGM4ZB1ANBkdP2lZ1qUCJV3NmThOP38N6j/Ts7p2Y1Xh6ZftT9tQKbFvGPdf8VpLoaoa4SrNSaShH0jPvwpqJROqnuC7+bnEY1jXlFx/oNVHhPsdR6nhZu5VEFAAfp/i+f9z3NIdOrYN87OgiLqdC+6kmCNTYPncUwUMUtmC2ga67MtF6zzS4omusRS8yWQxoWUunpOFoKUwB9+DbGXwCueLCjr4jA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7cGaWVN6b4G/1Y1kKh9JVyZas1GfqQ1AhMvE+F4Cku0=;
- b=yeTrX9xCAk4WQ5FBtDDxTQYEDCDTST0EzuhAJE+OtJr+llPdpipqZGC5Wa61D6xUPmbHvQlbsERiQI5GYxPEG/HuSvctVKbH/F//e/Xn1gSnyx1sOPawEP4JH7gr3WHnhkCougdrqFzCAE8Ox6FSPS9czNQscKjkgOPMF7OLd8A=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from CH2PR12MB4956.namprd12.prod.outlook.com (2603:10b6:610:69::11)
- by PH0PR12MB8052.namprd12.prod.outlook.com (2603:10b6:510:28b::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.12; Thu, 16 Jan
- 2025 16:07:38 +0000
-Received: from CH2PR12MB4956.namprd12.prod.outlook.com
- ([fe80::fa2c:c4d3:e069:248d]) by CH2PR12MB4956.namprd12.prod.outlook.com
- ([fe80::fa2c:c4d3:e069:248d%5]) with mapi id 15.20.8314.015; Thu, 16 Jan 2025
- 16:07:38 +0000
-Message-ID: <ab28f8d9-266a-48ca-80cb-21ac66a97e61@amd.com>
-Date: Thu, 16 Jan 2025 10:07:35 -0600
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] mailbox: zynqmp: Remove invalid __percpu annotation in
- zynqmp_ipi_probe()
-To: Uros Bizjak <ubizjak@gmail.com>
-Cc: Michal Simek <michal.simek@amd.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org, Jassi Brar <jassisinghbrar@gmail.com>
-References: <20241214091327.4716-1-ubizjak@gmail.com>
- <25eb1e35-83b0-46f4-9a9c-138c89665e05@amd.com>
- <65a1d19e-e793-4371-a33d-e2374908d7f8@amd.com>
- <CAFULd4YKGnOwumpUeW5Yyr-G+BmC=LUSVbFWg74GC9a628VN5w@mail.gmail.com>
-Content-Language: en-US
-From: Tanmay Shah <tanmay.shah@amd.com>
-In-Reply-To: <CAFULd4YKGnOwumpUeW5Yyr-G+BmC=LUSVbFWg74GC9a628VN5w@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SA1P222CA0135.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:806:3c2::13) To CH2PR12MB4956.namprd12.prod.outlook.com
- (2603:10b6:610:69::11)
+	Thu, 16 Jan 2025 16:18:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 21FE41007;
+	Thu, 16 Jan 2025 08:19:19 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5F0813F673;
+	Thu, 16 Jan 2025 08:18:49 -0800 (PST)
+Date: Thu, 16 Jan 2025 16:18:42 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>, Peng Fan <peng.fan@nxp.com>,
+	"Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
+	"ulf.hansson@linaro.org" <ulf.hansson@linaro.org>,
+	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [EXT] Re: [PATCH] pmdomain: arm: scmi_pm_domain: Initialize
+ state as off
+Message-ID: <Z4kxYvR9XxldCpk-@pluto>
+References: <Z4TreQ5bA9qiMTgC@bogus>
+ <PAXPR04MB8459F33BCC84CCA8F49F3B60881F2@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <Z4UZ2Au7KSFMibDW@bogus>
+ <PA4PR04MB94855052830C8F4874237BA6921F2@PA4PR04MB9485.eurprd04.prod.outlook.com>
+ <Z4VLZgAWR7ugDl7W@bogus>
+ <PA4PR04MB9485E9C126E48A088D7E399B921F2@PA4PR04MB9485.eurprd04.prod.outlook.com>
+ <Z4aBkezSWOPCXcUh@bogus>
+ <PA4PR04MB9485507CCC21354B5ED55C3792182@PA4PR04MB9485.eurprd04.prod.outlook.com>
+ <Z4d8nrJy-h9EwzsJ@pluto>
+ <PA4PR04MB9485CC9D9925BB5D23EA629092192@PA4PR04MB9485.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PR12MB4956:EE_|PH0PR12MB8052:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5e47d717-c826-4d31-dcc7-08dd3647e59d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bjZpcGVGL3FCM1FOeHhkUjQvdU5tdE5zbk11QVh6dGVxeWVkblRZYXNUZ0Y1?=
- =?utf-8?B?Vk1SSW0zZk9QNE91TUVkT1dJWDlHNVozRGVIRmlhSDAzMmQ4bkwwS2hrRlJv?=
- =?utf-8?B?dEtibGh6N2dFU0llSTlIMzFUN2hoUDU4VTNPaW5FWVJCSDZPTTRnK1l6VFY5?=
- =?utf-8?B?NjlIQWZzUG85YUYrNTVWR05halFPZElyY3V0Yk5ISUUwSy8zT3JTSERHMEty?=
- =?utf-8?B?cW1VNHlwNGNtaVdBSHgyMmx4b25WVjNiVUJLcCt2bE9qV3h0MktJK3o2bVRj?=
- =?utf-8?B?QS9IeXIzYUxtWGVNc1hBUk1wRjIxV0lONUVtd0FiVHVEenkra0NZTE5zNUZW?=
- =?utf-8?B?WCsyUjdJQXB5SHhPYXVaZ3BQOTY5YjZHYlJHNjhuNG9PZG94c2wrRzNhZitK?=
- =?utf-8?B?Ti8yaXFYMVFqSEJLdDJ6VDcycE5XZXJNRVR6Yzdtbmt2SVlJWkVCdlVObElX?=
- =?utf-8?B?WjVFeEVNR1FFY095TVRnRmYxWkZSWTBFbFFUcnpHVUFhTDlCZllRNlJUTG80?=
- =?utf-8?B?b1paZlpPTG1BYkVISDY5cDl0a2pKTHZyWEhXaU9PUFphVjIwUVFiVE0vLytY?=
- =?utf-8?B?cGJ2dDNMN1JBdVVWaFFhZ1FyM3NmTFA0RUNWc3pvU3p3alNDTzF2RjdLbGJv?=
- =?utf-8?B?SGtDNkNubXZXaGxJdHZRbVc4aEFhdWk2WVdtL1E1ME1pNlZWbW51bHNGWEJl?=
- =?utf-8?B?NkVGRUFOYnJtQUhNY0dpYjJ1SmM1Q3J5L25aN0x6WXhxNDB6WXNvKzlCOUl5?=
- =?utf-8?B?Z0E0a2JtK0l0SmN0d0hSUEp5dTA5MzFwczJZM1gxYTAwNGQ2YWRVKy9sVXdW?=
- =?utf-8?B?UXM3V1Z2eHBzMk1kS0VCK3lZYUNzdVd6WGFpaTRDTFFTbDhjY0hob2hvZXdh?=
- =?utf-8?B?eXhJcHQ4UzNvYWxwcGJKd3RjcnRPdVpaQ1FoQ1VFRElVclE4WGoyL1lSckNi?=
- =?utf-8?B?amE0T2RScWpFK1NoWFVBUWh1ZFpDcjJjbVdrd1hDc202cEV4Zy9PNnBLc3VE?=
- =?utf-8?B?d2ZxejJBMHZzOGRPSXB2d3E4UjJGdHJPd3BjQnRZYnBBbWNTTE5qOTdiSXZk?=
- =?utf-8?B?UkNXb0NiNklGSHhhWGRqQ1NEd0h6OWFUWWdpYktPMXc4YlByS254cVJJSUJv?=
- =?utf-8?B?bVRTSEliaVRuTGtUdldnVFNkWWxKWVI0MG5Ub2luQUw3eHNteGFBTjFBQVhZ?=
- =?utf-8?B?d0hQbDVOdFdBU2xHYTYyOHJMUzF3cUdZOG0zZDdzaDh2OWYxcWNOZkR6K2hw?=
- =?utf-8?B?cjVCdDVGZzZRbWc5cGI2OHY2Q1ZFN1Fia085RzMwRW95U3FUNDNLbXVRSUlW?=
- =?utf-8?B?MVhGYUFCd0xLZTdGNWtPa0VnL20rY1pGTnNWR1VGUUhoNllDRE90Vlo0Y0l0?=
- =?utf-8?B?aStlQytoSHVEcmtEVnRiOURYL3VDVUNVVSs5TXpTQTdOdGE0M1dMNkdyODhV?=
- =?utf-8?B?ZVRrRkZxb1VSTEdDb0swY0gvYU9DZnRSWDhDaG03eWdLbUEvb3J5K1lQaVZC?=
- =?utf-8?B?VE1yYlhkMGFhTHpQVzR2bDFWbUNVSUZscFFUYTRpazZzZWlkUWRYS0RTa2dt?=
- =?utf-8?B?bVZlY29zSFBRcGlZM2JHZy9YNlV6MTdJSXk5dkQyZEhqV3lGVm80SkErYkd4?=
- =?utf-8?B?NFg1ZUQxRjFFTVU1STB0Q1Y2dWsyL05pQ09HVG5CY29YVUVvOTE3Ri90dXV6?=
- =?utf-8?B?eXp3bWJTa0VJYmRteFJobDhTR2YzcnlTT2JtbGowMGd4V2xtUVl3Vms3OU5T?=
- =?utf-8?B?bXlkRDFnTm1GTzlkaHcrMXNEbnNKZVBFSitJbk5KUDhQTHZkL2ZUaWpyWXhm?=
- =?utf-8?B?cW8vUlBXUi9IWTZaMFVKRzRkaGw1Q2tGVlZkelc5ajF3TFM3cXppRk00b3Zm?=
- =?utf-8?Q?wyga6zGZWpN4b?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH2PR12MB4956.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RXNqem1NT05pSURDUThlOE10cGdMa29CeUVScjd6MUgzZjYzclVkdS8rcFNz?=
- =?utf-8?B?VjVKckFoSG1HNWFFNFZuTVdIbmIxbktsRFRtUVNZbGU4TmdwaGI3QktnaytE?=
- =?utf-8?B?SFROS3Z0VkdSckt2MWtzV3hIaDVxR3JLVkdSRXBFeDdNODQzelFKejZUdlJN?=
- =?utf-8?B?UE9hemlZaGg0ZlJRSjNSNWRSYVRUTFk1dEpORDlTbnRlZmdua2xWUVlKOFVl?=
- =?utf-8?B?bFVBTmF4ZWpqLzU2RW5PbURZVndUTC9ETC85SUlmeTY0cjNMbU04YVVxTmZ1?=
- =?utf-8?B?OGNpVWZjazlBazRjUU5uTXVuK00zRjVmWnhqVGkrcUFUYlVEcURmeGJyT2hz?=
- =?utf-8?B?VUREWmVCUis3V2RCUFlRS0ZQZnVsV1JoS0dyMWViRTV5bmVzZzJTL0hvaHBR?=
- =?utf-8?B?eWRySFNobDZYejFQSHh5NUNMaGtVZkpDVzgzbEk1aVY0d3R5Qmc5b0FoNGJO?=
- =?utf-8?B?c1lTWWRZRkYrR3dNUVR0TGFEL2JDcURsR01iY2kwWk90MUNTek5ORUEvR0E0?=
- =?utf-8?B?TEFHRTB3eTVBNVpNczg4WlU0MldCbnRLSmtzb21XMDI2VDRnWHlRVjBQd0xa?=
- =?utf-8?B?WEprcFIzbXIxcWw3VUNwTXdJUDVvckI1NWdKaVJyNmVFaEZPalBiSHlhUzJl?=
- =?utf-8?B?dThZTEUrQUswbmF3aFlNQ05EWVliUnFWV2RGY0JFZHFUUnVtUE55WHpiV3BN?=
- =?utf-8?B?ZDQ2MU5WdlVnTmlBb0FPaytVUEU3Um5XRjkvRGY3VS90TmJORGZjbXZzQXIy?=
- =?utf-8?B?YStvRW9mVXV3emo3LzZ1NGtKN0p5ZlZEMWRYMVpjVGFkdHdQcGFRZW5icVhS?=
- =?utf-8?B?WVlKb2NXaVhIZ0YycDBtMVdaV1hZMUNRaWhFM0l6Tm9aeElOaGVTRGgxbzNG?=
- =?utf-8?B?R3pIYUFqZGdvV29pcTd4cHZzSSttSE9QaGZlbENncU1FR0xveVBkelk2UEd1?=
- =?utf-8?B?ay96bmVLQ2FvdE11eU1WUlQ4Z3V0dlgxanltQ1RIcmhZWVg1RzlwQmZBbWY5?=
- =?utf-8?B?QUVsWTVqT0FPNHRKQjdSd1QxNFZ5U2RSUkVmUmxYU3FnZ0ZVZm8vMjVQUGN0?=
- =?utf-8?B?aDQyZVFudm42WmhTekJSa3JSZkJ6bWJ2NDVXNktuYzU0SVE2N2JMVVk1VjMr?=
- =?utf-8?B?TW5nSlF0K0tjMHpzUFFCVUc0U1VKN1Nvc3BMM3EwSXQ2dkdscjVoVFFxK2VL?=
- =?utf-8?B?NytLRHZTRSsxOEsyMXhST0NmckVDcm5GMmIyNzdGOEFWRERWWDJBUkRxaHJY?=
- =?utf-8?B?NGcvcUdJTzUxVVU3aXUxQm42dnpodis1NWhGSkZOWWRmSk02Yzh5WE5OSEEv?=
- =?utf-8?B?dkhjTCtGSTFXYzV6VEs0Tk9sL29zSWxIeEYvaUJBMXI2dUtXWDR2Z3J0Ykpy?=
- =?utf-8?B?VDdPaHc1YkVrQmg0NG50OTdWWGtTb0RIelZvZ2ZFdlJOOGZEaHpFRlYvKzJF?=
- =?utf-8?B?MGIzaDA5dmFRYmxNQVNoL0lrVENBUTVGMGRCNmF1bE1nR0x2dGk4dDhsMWNk?=
- =?utf-8?B?QkRVZkM2Y3Nqb0cvMUtLWXRnS2lEQjZQdzVoS0dqV2pLODc0bEJCUHNNaHVZ?=
- =?utf-8?B?TU9LZW82YUVUcGdxZVNOWE1yd2Y2ZDFzM3lzUHBoLzZ1VDIzT08xSXdnMjNE?=
- =?utf-8?B?bXE4djUwdDAzanl2YlprdlBNVy9DUzZpQk5rY3pnTFArdzdVeGpNMmdtMy82?=
- =?utf-8?B?UlpBWkl4QkJPakRNTkhOckN3QlJJQVVtUWFJUnJTSFdLWVA3MGlBdVpWaGty?=
- =?utf-8?B?L0xGbEVvZzZ3c1NCUUsyV3ZYZmQ1M0ZjL002QjU4RlM2RHFXd0FMcWlvVjNS?=
- =?utf-8?B?LzNBUXBnNkFtOHNUWjZJOVdvMDlDRGJNb0lNT1JOUVluamxGUE9uYVQrb25G?=
- =?utf-8?B?K1pFaWF3bjRVVVNuVmdkWEdKVGxyeHZ6OVpud2RYMjVuOEZuREozMlZEb3A3?=
- =?utf-8?B?NW1icUY1RjljZlRJellLZUxUT1l1OUlGT0d0cFh1RUpyRVVpVzFJUUNvWlUy?=
- =?utf-8?B?QWJxNDh6L2Q5TmsweVlhR3dlVjhkeDJwbm01ektYK0dMN2prM3ZaL3QwNkNM?=
- =?utf-8?B?V1pGV3B4Qm4wUkR0N0VVUm5LeDlPM2N5T3k3NHozd3BxcEtIY2YrdERwSWRT?=
- =?utf-8?Q?CfajANKU72CCKUVvLe/Qw7NKJ?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5e47d717-c826-4d31-dcc7-08dd3647e59d
-X-MS-Exchange-CrossTenant-AuthSource: CH2PR12MB4956.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jan 2025 16:07:38.0990
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: z6JRVaEVHHOk9e9RZQKR0ifuXN11cYm8Tg/N0BDPYXgU2ZZGPIFJ/h+1HApbkWR2
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB8052
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <PA4PR04MB9485CC9D9925BB5D23EA629092192@PA4PR04MB9485.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_080744_902530_878DB3EC 
-X-CRM114-Status: GOOD (  18.03  )
+X-CRM114-CacheID: sfid-20250116_081853_837691_426D77B4 
+X-CRM114-Status: GOOD (  49.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,98 +75,117 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: tanmay.shah@amd.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 1/16/25 2:52 AM, Uros Bizjak wrote:
-> On Mon, Dec 16, 2024 at 6:47 PM Tanmay Shah <tanmay.shah@amd.com> wrote:
->>
->> Reviewed-by: Tanmay Shah <tanmay.shah@amd.com>
+On Wed, Jan 15, 2025 at 06:42:46PM +0000, Ranjani Vaidyanathan wrote:
+> Hi Cristian,
 > 
-> Is there anything else expected from me to move this patch forward?
+> Regards,
+> Ranjani Vaidyanathan
 > 
-> Uros.
+> -----Original Message-----
+> From: Cristian Marussi [mailto:cristian.marussi@arm.com] 
+> Sent: Wednesday, January 15, 2025 3:15 AM
+> To: Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>
+> Cc: Sudeep Holla <sudeep.holla@arm.com>; Peng Fan <peng.fan@nxp.com>; Peng Fan (OSS) <peng.fan@oss.nxp.com>; cristian.marussi@arm.com; ulf.hansson@linaro.org; arm-scmi@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-pm@vger.kernel.org; linux-kernel@vger.kernel.org
+> Subject: Re: [EXT] Re: [PATCH] pmdomain: arm: scmi_pm_domain: Initialize state as off
+> 
+> Caution: This is an external email. Please take care when clicking links or opening attachments. When in doubt, report the message using the 'Report this email' button
+> 
+> 
+> On Tue, Jan 14, 2025 at 04:09:13PM +0000, Ranjani Vaidyanathan wrote:
+> > Hello Sudeep,
+> >
+> > Comments below.
+> >
+> > Regards,
+> > Ranjani Vaidyanathan
+> >
+> > -----Original Message-----
+> > From: Sudeep Holla [mailto:sudeep.holla@arm.com]
+> > Sent: Tuesday, January 14, 2025 9:24 AM
+> > To: Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>
+> > Cc: Peng Fan <peng.fan@nxp.com>; Peng Fan (OSS) 
+> > <peng.fan@oss.nxp.com>; cristian.marussi@arm.com; Sudeep Holla 
+> > <sudeep.holla@arm.com>; ulf.hansson@linaro.org; 
+> > arm-scmi@vger.kernel.org; linux-arm-kernel@lists.infradead.org; 
+> > linux-pm@vger.kernel.org; linux-kernel@vger.kernel.org
+> > Subject: Re: [EXT] Re: [PATCH] pmdomain: arm: scmi_pm_domain: 
+> > Initialize state as off
+> >
+> > Caution: This is an external email. Please take care when clicking 
+> > links or opening attachments. When in doubt, report the message using 
+> > the 'Report this email' button
+> >
+> >
+> > Hi Ranjani,
+> >
+> > On Mon, Jan 13, 2025 at 07:54:06PM +0000, Ranjani Vaidyanathan wrote:
+> > > Hello Sudeep,
+> > >
+> > > Will try to explain the situation we are facing.
+> > > 1. We have multiple agents running, Agent-A is booted up first 
+> > > before Linux is booted and powers up a shared power domain PD-X.
+> > > 2. Linux boots and gets the power state of PD-X. And its already ON.
+> > > And then PD -X is initialized with a default ON state.
+> > > 3. When the driver that needs PD-X  is probed, Linux sees that the 
+> > > power domain status is ON and never makes an SCMI call to power up 
+> > > the PD-X for Linux Agent.
+> > > 4. Agent-A now is shutdown/suspends. Linux will crash because the 
+> > > platform disables PD-X because it has no other requests for PD-X.
+> > >
+> >
+> > Thanks for the detailed explanation. I understand the issue now.
+> >
+> > I would like to discuss if the below alternative approach works for you.
+> > We can debate the pros and cons. I see with the approach in this patch proposed by Peng we would avoid querying and setting genpd all together during the genpd initialisation which is good. But if there are any genpd left on by the platform or bootloader(same agent), it will not get turned off when Linux tries to turn off the unused genpds(IIRC this could be the reason for the current state of code). While your platform may find sending those commands unnecessary, there was some usecase where SCMI platform kept all resources ON by default for faster boot and expects OSPM to turn off unused resources. So we need to support both the cases. I hope my below patch should suffice.
+> >
+> > [RV] Linux can still make the call to disable unused power domains, even if it never explicitly made a request to power it on. The platform will aggregate the request from all agents and will power off the resource if no other agent has enabled it. From Linux point of view it has disabled all unused power domains.
+> > Your patch below may also work, but feels like a workaround to artificially (for lack of a better word) enable a resource. And also makes unnecessary SCMI calls (expensive) for every resource immaterial of it power state (maybe can be improved by a conditional check).
+> >
+> 
+> ...sincerely, both of these solutions seem to me hacks/workarounds to counteract the fundamental issue that derives from having allowed (IMPDEF) to implement the get operations to return the real physical state of a resource instead of its virtual per-agent state as maintained by the platform, while, at the same time, having allowed to implement the set-operations to operate in a 'virtual-fashion'...
+> 
+> ...so, when Peng's patch forcibly set the state to OFF on genpd init, you are indeed artificially forcing the kernel internal state to align with what would have been the virtual-per-agent state of the resource in your specific particular configuration....
+> [RV] Perhaps it's a hack. But at boot the state should look like OFF, the agent should explicitly request those it needs to be ON. 
 > 
 
-Not from my side. I am not sure workflow for this subsystem but, I 
-believe this needs RB from Jassi. (subsystem maintainer).
+Yes it is what I am saying, it should see it OFF in this system config, and
+that would be the case on a platform that returns virtual per-agent states:
+forcing GENPD to see as it as off just mimics the same, but breaks other
+cases as I mentioned.
 
->>
->> On 12/16/24 1:16 AM, Michal Simek wrote:
->>>
->>>
->>> On 12/14/24 10:12, Uros Bizjak wrote:
->>>> struct zynqmp_ipi_pdata __percpu *pdata is not a per-cpu variable,
->>>> so it should not be annotated with __percpu annotation.
->>>>
->>>> Remove invalid __percpu annotation to fix several
->>>>
->>>> zynqmp-ipi-mailbox.c:920:15: warning: incorrect type in assignment
->>>> (different address spaces)
->>>> zynqmp-ipi-mailbox.c:920:15:    expected struct zynqmp_ipi_pdata
->>>> [noderef] __percpu *pdata
->>>> zynqmp-ipi-mailbox.c:920:15:    got void *
->>>> zynqmp-ipi-mailbox.c:927:56: warning: incorrect type in argument 3
->>>> (different address spaces)
->>>> zynqmp-ipi-mailbox.c:927:56:    expected unsigned int [usertype]
->>>> *out_value
->>>> zynqmp-ipi-mailbox.c:927:56:    got unsigned int [noderef] __percpu *
->>>> ...
->>>>
->>>> and several
->>>>
->>>> drivers/mailbox/zynqmp-ipi-mailbox.c:924:9: warning: dereference of
->>>> noderef expression
->>>> ...
->>>>
->>>> sparse warnings.
->>>>
->>>> There were no changes in the resulting object file.
->>>>
->>>> Cc: stable@vger.kernel.org
->>>> Fixes: 6ffb1635341b ("mailbox: zynqmp: handle SGI for shared IPI")
->>>> Signed-off-by: Uros Bizjak <ubizjak@gmail.com>
->>>> Cc: Jassi Brar <jassisinghbrar@gmail.com>
->>>> Cc: Michal Simek <michal.simek@amd.com>
->>>> Cc: Tanmay Shah <tanmay.shah@amd.com>
->>>> ---
->>>> v2: - Fix typo in commit message
->>>>       - Add Fixes and Cc: stable.
->>>> ---
->>>>    drivers/mailbox/zynqmp-ipi-mailbox.c | 2 +-
->>>>    1 file changed, 1 insertion(+), 1 deletion(-)
->>>>
->>>> diff --git a/drivers/mailbox/zynqmp-ipi-mailbox.c b/drivers/mailbox/
->>>> zynqmp-ipi-mailbox.c
->>>> index aa5249da59b2..0c143beaafda 100644
->>>> --- a/drivers/mailbox/zynqmp-ipi-mailbox.c
->>>> +++ b/drivers/mailbox/zynqmp-ipi-mailbox.c
->>>> @@ -905,7 +905,7 @@ static int zynqmp_ipi_probe(struct platform_device
->>>> *pdev)
->>>>    {
->>>>        struct device *dev = &pdev->dev;
->>>>        struct device_node *nc, *np = pdev->dev.of_node;
->>>> -    struct zynqmp_ipi_pdata __percpu *pdata;
->>>> +    struct zynqmp_ipi_pdata *pdata;
->>>>        struct of_phandle_args out_irq;
->>>>        struct zynqmp_ipi_mbox *mbox;
->>>>        int num_mboxes, ret = -EINVAL;
->>>
->>> Tanmay: Please take a look
->>>
->>> I think this patch is correct. Pdata structure is allocated only once
->>> not for every CPU and marking here is not correct. Information from
->>> zynqmp_ipi_pdata are likely fixed and the same for every CPU. Only IRQ
->>> handling is done per cpu basis but that's it.
->>>
->>> Reviewed-by: Michal Simek <michal.simek@amd.com>
->>>
->>> Thanks,
->>> Michal
->>>
->>
+> ...on the other side Sudeep's proposed patch tries really to play the same trick, just on the other way around, by instead forcibly/artificially aligning the state on the platform side by issuing a redundant ON request to bump the refcount and take hold of that resource from the Kernel agent point of view...
+> 
+> ... but Peng's proposed patch will broke immediately the moment you have instead a system with an SCMI-capable bootloader that instead left the resource ON for the Kernel to inherit, since the kernel will now forcibly see this anyway as OFF, and so you wont be ever be able to switch that resource REALLY OFF in the future, if ever needed, because the bootloader/Kernel agent will never see it as ON in genPD, since, at least in the genPD case, AFAICS correct me if wrong, there is no callback to peek at the real state later on:
+> so, after the initialization value has been chosen at genpd_init time, genPd subsystem maintains the PD state on its own based on the issued ON/OFF genPD requests, so your forced-initial-OFF-state will be, in this specific alternative scenario, wrong and forever.
+> [
+> [RV] SCMI-capable bootloader and Linux should be the same logical machine (different agents). And the platform maintains the state per logical machine. So if Linux tries to power off a state that was left powered ON by the bootloader it should bbe able to.
 
+In the SCMI world there are agents, i.e. clients issuing requests to the
+platform AND the platform identifies such agents from the channel they
+speak from. Not sure what you mean by logical machine.
+
+In the case of an SCMI-aware bootloader like UBoot, that dies and relinquishes
+all the resources to the Kernel during the boot, that means that the Kernel
+should be configured to simply re-use the same SCMI channels as UBoot, so that
+it will be seen as the same agent (transparently) from the platform: in such a
+scenario the Kernel will transparently inherit all the per-agent current
+interrnal state...
+
+...IOW if an SCMI/Uboot was holding res_X, the Kernel will result as holding the
+same res_X "by inheritance" from the platform point of view, since the Kernel
+would have assumed the role of the UBoot agent from the platfom point of
+view, since it is using the same channels as UBoot.
+
+Why you should consider Uboot a diffrent agent, if it runs in NS-world
+too and does not survive the Kernel boot ?
+
+This, at least, is my understannding after bunch of past talk with ATG.
+
+And this is the scenario that I fear would fail with Peng's patch.
+
+Thanks,
+Cristian
 
