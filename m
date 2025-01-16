@@ -4,124 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26759C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 14:36:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11E7DC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 14:48:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+McQPymEmOdhf0WLe0EFmpoE0UjFeiDotGFY4kS0D0g=; b=HaPuANO0hkSxUwMLvHRjaV3Blj
-	hp4cVhTpzqF8SKMPYaztkanUus3Wdphub1USwwWkPilVWDWq3B9H3seCpnaB3lPyOhpH/yssToaZy
-	RWFGZEGe93nRD0XpnpUJZO+wIdxKillhZR/t9b9RHQurcibra0IL7YehHot1rjbIcghaTWgB0itrs
-	eE4iP12c6iuzNbcGN1USMx9sFmZRzjxMS9fPWqc8xzEGzU+r6VNHHKQh4CG91eqcl6CLrcr2yvVyl
-	CyxwgQ8Q1fGPoExFjuxZfFfGuZ8agoqsJ7jIn4HSY2d+KW4VWkgVFheg4MXoLYgkfRb+rzkmPbjZy
-	AoIUBi2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+m1G7PofLTIXji56NSz1j24b2b2T3MuG3/CntqxLBBw=; b=YvTG0tAYt4KRme5GM8+tIAiBBu
+	Z98Xla6r12HIc4RVu4jF3LbXMzFZ0Cm1pjqjKNmS87LaWkOIs/DS2TQr7Z/6nsFK9NpWDbSuWXyMZ
+	GWoBMoqRcFQn2DgraTgV5NtyuW5GAcSzbx8Ej1eEWJx71S8GCoYXptEgvYA26Ch89jTyq7j+1fJH9
+	trvfEdeeUQzl4KjWeN3oBRR4fb97qkt03qpeNHO3M0/uWBWDTfVGoiHTYql8jsGd8VMCuhCbvANaD
+	1nWXeIGysChljbuRMy9BquYbEgGWtbByc6PKtM+W8llRn4WNammEC0BAq/j/zb6uo9SKGfB3GzHLO
+	LA8lxKVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYQzE-0000000FC2A-3RNw;
-	Thu, 16 Jan 2025 14:36:44 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1tYRAJ-0000000FDyX-1gng;
+	Thu, 16 Jan 2025 14:48:11 +0000
+Received: from mail-yb1-xb31.google.com ([2607:f8b0:4864:20::b31])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYQxy-0000000FBho-1o8g;
-	Thu, 16 Jan 2025 14:35:27 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-5d9b6b034easo2091411a12.3;
-        Thu, 16 Jan 2025 06:35:25 -0800 (PST)
+	id 1tYR93-0000000FDl2-1C0p
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Jan 2025 14:46:54 +0000
+Received: by mail-yb1-xb31.google.com with SMTP id 3f1490d57ef6-e46c6547266so1460075276.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 06:46:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737038124; x=1737642924; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+McQPymEmOdhf0WLe0EFmpoE0UjFeiDotGFY4kS0D0g=;
-        b=IfU+EIDx6xWwgvngb/uhO2iNKbpXX5Fq5IfrY5fLUfUGeGu0YbSoDbFIUcnTo1gKa6
-         itk8b5z9SfNAs6dMh1N20+r6qNDYSp6Q7kA8er4sOMjZgyVOzf40qMo+7RJSFET0kWqs
-         wFUaedsiB7yot9e8nJT3O3ekcoIP1dvAlthulKppLsh6eRFc4T2D/Xr/3P+ukkSdILhO
-         sEy9FdG+IbBwqsutnxG/8fgdTDUcWotzVtEKCHxdS3bOskUKjZ6CE8qZZa/1OVr4fA35
-         ZNrWSq9gKoWQDwWZzGwH0LS70l5gjdSOvyoKSxVwgJzTnxQK6y6vkEmF6ZCYnp4JBYLK
-         KHuA==
+        d=linaro.org; s=google; t=1737038812; x=1737643612; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=+m1G7PofLTIXji56NSz1j24b2b2T3MuG3/CntqxLBBw=;
+        b=EiGGEymabOEsk6Y15F+uHzMe6ZUiylM+016+khoOR6EHpvYL6dKZFL/7wKtBvC21pN
+         GZYwn0POG508kY1oKwx/Vt7Mqe+Pgwpq0Gt1bSFwW73se3jbByN/iiGpcrb1qsIWzNtT
+         xXDtfdqt2lt+ACZ9dyQTZvG2NuG4imrb2xDzBkTDnnhQIDcbFvMBvm/GNuJrZO45WHUr
+         J5bweJvwl+BPUyjIhBMEFdWswzZmOxCEVW0Sono+wQKMKuBshRMMF8P+F9Ys//ZZKbo8
+         gglhIF/IfyOSgK7tyoslNh7VNwSSfRBisEGnTTU8wSMunpkojRmqiEaUb+jnA1KrF96x
+         jpYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737038124; x=1737642924;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+McQPymEmOdhf0WLe0EFmpoE0UjFeiDotGFY4kS0D0g=;
-        b=kV+e2hCb1DGeHiHU0Bray68dcGIa+dRrPteAWMbnqX9RHJ9NYzyy3G6kgPSlNToFlX
-         6bzCgizw/kBoyRk+Egls7ZxhiAiviCYIRchpFlTIFooQE6nUwo0Q3ZS+OLHcroHTaXqC
-         Aq6IN8Hlr9xnXPmWP/1vDodbXvksCtpyHRcwrMJenJD3mekYkf67D7lyo0P/ew3M7kDX
-         t7PaEyUys0WYqlfp2K2VosUPA7DbiRzrnc+blaz0FU/+Vw2wl74l81IiojKrWLjDGIZS
-         rUsg1IBqHi+auZqKm2NhgfIFH29SleowCmCQkzO6mk5FlceCfvExLr11ZcWAZy7qfwRU
-         CYMw==
-X-Forwarded-Encrypted: i=1; AJvYcCUSiQUV7nhXhCC/c4MJ7MKdL6u/3a+BkIKi8nYXpxRiT+ltWYmTNxgTj9Nd3l4viE0opujFXpk9lsgzKjTiMlk=@lists.infradead.org, AJvYcCVDi2ZcB7N2DDTbaztWC+o61Iyfx/Q55Lkxd3CDgiTiiOFes2hq1CBDorDutpKeCQO/0yc5iolUGuwb@lists.infradead.org, AJvYcCXiIGIWZdPGjjBT3O56Ai7JaJ5ppR8PdOfhIgzxtYHZ7HIteV4fa2ey+358ThG5nu4UQuAlSSpTpTTIYxWzUN64@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+kdiNmq9KWFl4OPxZtnPa8lUjjP9j28u6oTEcMxtLscUrPHEN
-	hWNIKLlQSNk2OLgaa5VhbbBrAcuwWp68qL4m10AJcSUm6tm3j1/Z
-X-Gm-Gg: ASbGncs4AwQ/+c/kZMHCrNVqVQsWcIqNKX8XaKYDUPREc3PAgHh5Zl6+udVVvdCRTqQ
-	0jKNi0TpBsuYmjWqHP3ZxGVY83KTIk7d34FhRgPkfHGm0sBRJRua2I7Dq/b/NIbRbcgNHiCYDVz
-	Ygc/kMEs4hhEKyfXX7C14yhU5KxCgeaQbc4I9c5zKLfy2z87Gik5RZf4Hf9ZWJH8Eam4Uof7qQm
-	6nJXJDaNEubQrlomQGNQFTqqcPk9/eqIoZzlkKbiefMaEhbnrxaGXfkgXT17UoVoLg6agCIqDUS
-	Zva4aJXHE4mgXYYaGOGWhSMTzxRDJkELkBcrqQ==
-X-Google-Smtp-Source: AGHT+IF22GYVRQI+1Y1KzRsqCWEDA0Rkne28OZTlDzi7yq1Grymd0Rj0WG4k8w+WrzsYR8ss+QgyYw==
-X-Received: by 2002:a05:6402:2695:b0:5d9:f70a:47ec with SMTP id 4fb4d7f45d1cf-5d9f70a4a74mr10793460a12.15.1737038124352;
-        Thu, 16 Jan 2025 06:35:24 -0800 (PST)
-Received: from smtpclient.apple (89-66-237-154.dynamic.chello.pl. [89.66.237.154])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5db7364272esm19585a12.12.2025.01.16.06.35.20
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 16 Jan 2025 06:35:23 -0800 (PST)
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.300.87.4.3\))
-Subject: Re: [RFC PATCH v1 0/6] rockchip: add a functional usb3 phy driver for
- rk3328
-From: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
-In-Reply-To: <CAMdYzYoCj9FsyHdTQAOV4DFpD7OdMDaJ0R=BBxXG-SLguy512Q@mail.gmail.com>
-Date: Thu, 16 Jan 2025 15:35:08 +0100
-Cc: Heiko Stuebner <heiko@sntech.de>,
- Algea Cao <algea.cao@rock-chips.com>,
- Michael Turquette <mturquette@baylibre.com>,
- kever.yang@rock-chips.com,
- linux-phy@lists.infradead.org,
- wulf@rock-chips.com,
- zyw@rock-chips.com,
- Dragan Simic <dsimic@manjaro.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>,
- Rob Herring <robh@kernel.org>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- linux-clk@vger.kernel.org,
- linux-rockchip@lists.infradead.org,
- devicetree@vger.kernel.org,
- Conor Dooley <conor+dt@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Arnd Bergmann <arnd@arndb.de>,
- Jonas Karlman <jonas@kwiboo.se>,
- frank.wang@rock-chips.com,
- Elaine Zhang <zhangqing@rock-chips.com>,
- Alex Bee <knaerzche@gmail.com>,
- william.wu@rock-chips.com,
- Zhang Yubing <yubing.zhang@rock-chips.com>,
- Johan Jonker <jbx6244@gmail.com>,
- linux-arm-kernel@lists.infradead.org,
- Trevor Woerner <twoerner@gmail.com>,
- Stephen Boyd <sboyd@kernel.org>,
- linux-kernel@vger.kernel.org,
- Vinod Koul <vkoul@kernel.org>,
- FUKAUMI Naoki <naoki@radxa.com>,
- Diederik de Haas <didi.debian@cknow.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <F69CE715-C0E4-4FCD-943C-89CC1D3E848D@gmail.com>
-References: <20250115012628.1035928-1-pgwipeout@gmail.com>
- <2EEA8028-8E4A-4588-A480-E5FF0F7BE82E@gmail.com>
- <CAMdYzYo2W1hLgiH697AdRSUbhBU4rU2uB=N6EMWMD2-0R+VLBA@mail.gmail.com>
- <B1C9DA16-F285-4AD0-AE4E-AF1A5CA20932@gmail.com>
- <CAMdYzYrxX=RsSZja-3+zLZUSpyLoRz8Zm0w0hTfL3RQ9cjqgOw@mail.gmail.com>
- <3536B507-8658-4377-A1AC-2C5D9093BDEB@gmail.com>
- <CAMdYzYoCj9FsyHdTQAOV4DFpD7OdMDaJ0R=BBxXG-SLguy512Q@mail.gmail.com>
-To: Peter Geis <pgwipeout@gmail.com>
-X-Mailer: Apple Mail (2.3826.300.87.4.3)
+        d=1e100.net; s=20230601; t=1737038812; x=1737643612;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+m1G7PofLTIXji56NSz1j24b2b2T3MuG3/CntqxLBBw=;
+        b=ryndhbZTgUNrfLtLbAeQDMZ2cD9SCEH52ZIM9tM0kVpKQFZHnmeg23Z2XQg8DPpsI4
+         GPRCLl9dYE27k5gwVhTxhtwaUujipOp8Qsgcmx1qGuDyD5b3s0cR/xFQEwrE0hqdNWxS
+         r6mpWJpirXVuZWWjD5XyMiZHNgx6Nd161YoLWGuX+o5gFwlwKggbIU/GeU2V1S9ag1+T
+         I8yhBubVVFvRFS7BGtktqIqGHtne3f7o0KjXjlJah6P4bfjiqJRqBZ52EvXo6wfGKxOI
+         su+Bu0UAG39Hr5dOs3dv2TKWrzBiTQKWZ6pGGXX7uXilf4ecDUspBhY1uDT7KR9Ltm+a
+         R5lg==
+X-Forwarded-Encrypted: i=1; AJvYcCWQRk9Y2MdHqtIUzBTTQeFmyxW3W3VYf61AMC6AKmRMgsrh3iMb4JwkvA7MriA9o1844WoRMkncohk4wS3JI8ex@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywaq7Qqsvuv9SCeKuPAMmGds0mVuk31BIxzal+0G5GJB4q68wE8
+	B4mRw81Yavlaud7ckHieyL0s95WymusOFAZwPnUm52nSuJ8vsTG4vS7tduHB1MbygyQfywJmZqr
+	NPG2ey2uZ6Um0+9N99y+2qwNyWAnoviYTQ6XsUg==
+X-Gm-Gg: ASbGnctSAKKfoxOw1wCOVrZif1qlUizh/OtKNB3hX1KeL7wHkTDM4vxtV2TaBS6AjXs
+	C678jRLJjpHFD4Y1U5C8mv4ZzIS1ORNvJwxz0V64=
+X-Google-Smtp-Source: AGHT+IEgtTusJYrVZnLJqpkMnaQW6PKvqXaBdJ1qWB4u4sYFRvuNXZZiCbeAuzNh5mb57/Q5o/7WHYssJXuaOMTG558=
+X-Received: by 2002:a05:690c:4d81:b0:6ef:7f34:fe08 with SMTP id
+ 00721157ae682-6f531224a36mr294371267b3.18.1737038812063; Thu, 16 Jan 2025
+ 06:46:52 -0800 (PST)
+MIME-Version: 1.0
+References: <20241224093920.3816071-1-kever.yang@rock-chips.com> <20241224093920.3816071-2-kever.yang@rock-chips.com>
+In-Reply-To: <20241224093920.3816071-2-kever.yang@rock-chips.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Thu, 16 Jan 2025 15:46:16 +0100
+X-Gm-Features: AbW1kvahorrlWkjwCiv7wkTLlUP8_JyQ26Uq7qZus2JotVO1Pyr02DSo-fK3yF0
+Message-ID: <CAPDyKFqYjTsWsqf-C+iHJz3x-RKdsm2-2cPm-HMeH=WBNzcSLw@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] soc: rockchip: power-domain: add power domain
+ support for rk3562
+To: Kever Yang <kever.yang@rock-chips.com>
+Cc: heiko@sntech.de, linux-rockchip@lists.infradead.org, 
+	Finley Xiao <finley.xiao@rock-chips.com>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, linux-pm@vger.kernel.org, 
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>, 
+	Detlev Casanova <detlev.casanova@collabora.com>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_063526_470454_708155BB 
-X-CRM114-Status: UNSURE (   7.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250116_064653_323789_11CA7D27 
+X-CRM114-Status: GOOD (  22.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,17 +96,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, 24 Dec 2024 at 10:39, Kever Yang <kever.yang@rock-chips.com> wrote:
+>
+> This driver is modified to support RK3562 SoC.
+> Add support to ungate clk.
+> Add support to shut down memory for rk3562.
+>
+> Signed-off-by: Finley Xiao <finley.xiao@rock-chips.com>
+> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
+> ---
+>
+> Changes in v2:
+> - update the header after rename
+>
+>  drivers/pmdomain/rockchip/pm-domains.c | 48 +++++++++++++++++++++++++-
+>  1 file changed, 47 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/pmdomain/rockchip/pm-domains.c b/drivers/pmdomain/rockchip/pm-domains.c
+> index cb0f93800138..d05ec0a009a0 100644
+> --- a/drivers/pmdomain/rockchip/pm-domains.c
+> +++ b/drivers/pmdomain/rockchip/pm-domains.c
+> @@ -2,7 +2,7 @@
+>  /*
+>   * Rockchip Generic power domain support.
+>   *
+> - * Copyright (c) 2015 ROCKCHIP, Co. Ltd.
+> + * Copyright (c) 2015 Rockchip Electronics Co., Ltd.
+>   */
+>
+>  #include <linux/io.h>
+> @@ -32,6 +32,7 @@
+>  #include <dt-bindings/power/rk3366-power.h>
+>  #include <dt-bindings/power/rk3368-power.h>
+>  #include <dt-bindings/power/rk3399-power.h>
+> +#include <dt-bindings/power/rockchip,rk3562-power.h>
+>  #include <dt-bindings/power/rk3568-power.h>
+>  #include <dt-bindings/power/rockchip,rk3576-power.h>
+>  #include <dt-bindings/power/rk3588-power.h>
+> @@ -129,6 +130,20 @@ struct rockchip_pmu {
+>         .active_wakeup = wakeup,                        \
+>  }
+>
+> +#define DOMAIN_M_G_SD(_name, pwr, status, req, idle, ack, g_mask, mem, wakeup, keepon) \
+> +{                                                      \
+> +       .name = _name,                                  \
+> +       .pwr_w_mask = (pwr) << 16,                      \
+> +       .pwr_mask = (pwr),                              \
+> +       .status_mask = (status),                        \
+> +       .req_w_mask = (req) << 16,                      \
+> +       .req_mask = (req),                              \
+> +       .idle_mask = (idle),                            \
+> +       .ack_mask = (ack),                              \
+> +       .clk_ungate_mask = (g_mask),                    \
+> +       .active_wakeup = wakeup,                        \
+> +}
+> +
+>  #define DOMAIN_M_O_R(_name, p_offset, pwr, status, m_offset, m_status, r_status, r_offset, req, idle, ack, wakeup)     \
+>  {                                                      \
+>         .name = _name,                                  \
+> @@ -194,6 +209,9 @@ struct rockchip_pmu {
+>  #define DOMAIN_RK3399(name, pwr, status, req, wakeup)          \
+>         DOMAIN(name, pwr, status, req, req, req, wakeup)
+>
+> +#define DOMAIN_RK3562(name, pwr, req, g_mask, mem, wakeup)             \
+> +       DOMAIN_M_G_SD(name, pwr, pwr, req, req, req, g_mask, mem, wakeup, false)
+> +
+>  #define DOMAIN_RK3568(name, pwr, req, wakeup)          \
+>         DOMAIN_M(name, pwr, pwr, req, req, req, wakeup)
+>
+> @@ -1130,6 +1148,18 @@ static const struct rockchip_domain_info rk3399_pm_domains[] = {
+>         [RK3399_PD_SDIOAUDIO]   = DOMAIN_RK3399("sdioaudio", BIT(31), BIT(31), BIT(29), true),
+>  };
+>
+> +static const struct rockchip_domain_info rk3562_pm_domains[] = {
+> +                                            /* name           pwr     req     g_mask  mem wakeup */
+> +       [RK3562_PD_GPU]         = DOMAIN_RK3562("gpu",         BIT(0), BIT(1), BIT(1), 0, false),
+> +       [RK3562_PD_NPU]         = DOMAIN_RK3562("npu",         BIT(1), BIT(2), BIT(2), 0, false),
+> +       [RK3562_PD_VDPU]        = DOMAIN_RK3562("vdpu",        BIT(2), BIT(6), BIT(6), 0, false),
+> +       [RK3562_PD_VEPU]        = DOMAIN_RK3562("vepu",        BIT(3), BIT(7), BIT(7) | BIT(3), 0, false),
+> +       [RK3562_PD_RGA]         = DOMAIN_RK3562("rga",         BIT(4), BIT(5), BIT(5) | BIT(4), 0, false),
+> +       [RK3562_PD_VI]          = DOMAIN_RK3562("vi",          BIT(5), BIT(3), BIT(3), 0, false),
+> +       [RK3562_PD_VO]          = DOMAIN_RK3562("vo",  BIT(6), BIT(4), BIT(4), 16, false),
+> +       [RK3562_PD_PHP]         = DOMAIN_RK3562("php",         BIT(7), BIT(8), BIT(8), 0, false),
+> +};
+> +
+>  static const struct rockchip_domain_info rk3568_pm_domains[] = {
+>         [RK3568_PD_NPU]         = DOMAIN_RK3568("npu",  BIT(1), BIT(2),  false),
+>         [RK3568_PD_GPU]         = DOMAIN_RK3568("gpu",  BIT(0), BIT(1),  false),
+> @@ -1331,6 +1361,18 @@ static const struct rockchip_pmu_info rk3399_pmu = {
+>         .domain_info = rk3399_pm_domains,
+>  };
+>
+> +static const struct rockchip_pmu_info rk3562_pmu = {
+> +       .pwr_offset = 0x210,
+> +       .status_offset = 0x230,
+> +       .req_offset = 0x110,
+> +       .idle_offset = 0x128,
+> +       .ack_offset = 0x120,
+> +       .clk_ungate_offset = 0x140,
+> +
+> +       .num_domains = ARRAY_SIZE(rk3562_pm_domains),
+> +       .domain_info = rk3562_pm_domains,
+> +};
+> +
+>  static const struct rockchip_pmu_info rk3568_pmu = {
+>         .pwr_offset = 0xa0,
+>         .status_offset = 0x98,
+> @@ -1429,6 +1471,10 @@ static const struct of_device_id rockchip_pm_domain_dt_match[] = {
+>                 .compatible = "rockchip,rk3399-power-controller",
+>                 .data = (void *)&rk3399_pmu,
+>         },
+> +       {
+> +               .compatible = "rockchip,rk3562-power-controller",
 
+I couldn't find the corresponding DT patch where this compatible is
+being documented. Can you please re-send and keep me posted for both
+the DT and pmdomain patch?
 
-> Wiadomo=C5=9B=C4=87 napisana przez Peter Geis <pgwipeout@gmail.com> w =
-dniu 16 sty 2025, o godz. 15:02:
->=20
->>=20
->=20
-> I'm at a loss here, I applied the patches to a clean 6.9 tree and even
->>=20
+> +               .data = (void *)&rk3562_pmu,
+> +       },
+>         {
+>                 .compatible = "rockchip,rk3568-power-controller",
+>                 .data = (void *)&rk3568_pmu,
+> --
+> 2.25.1
+>
 
-oh maybe issue is in kernel age?
-6.9 seems a bit quite old.
-i=E2=80=99m on 6.12.9=E2=80=A6.=
+Kind regards
+Uffe
 
