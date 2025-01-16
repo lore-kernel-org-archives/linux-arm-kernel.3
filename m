@@ -4,107 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B488C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 20:33:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 154C1C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 20:37:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cBjXp+Q0kBMQo93pn9/JG/mDdpOMWtXcKEJJB7g0DX0=; b=xp56JrVTvAzW8SwdJAqk/sQOgP
-	X0yXrE5/txyIektsuxdcobhrKa00FzHC/0KaV+8AJjFCCZE4zr2+1vge5rMTNEYfUVGP3UrogUywv
-	NBRYqTtvG7/C7yaNu+9h4ZkRhu7jYkTO0O3Gc5QFpKmrAGK4eHt1VzA9Zg3YFeqr5WRc1iPLhbWaU
-	nQbWnt8By9kxIjiI77Yn5srtcm3+573KVa/EuQSbYtxsPat8I3S5eBpIjHn2b3OtUCThYVlYe1B/U
-	X1+SSg1sT82/gt+sd1ulV6I9y+t7vSRXlstcbMhcQ6jUcFeLt4evO/yEFDIlaHZVQNmiks7sydtCX
-	y6bxeyig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zcXYfq7y3Ykx9nkv3r9zTbWUpugtYvbNec4z//sgjIQ=; b=ocj8/xYwMMCGQzzmokDCNSoHFu
+	f8V0JSqYMakREGQDpBpav0K7D90NDW7kjpYloKeP+UNhzEc48lAC72zTfMqhWHxYMKD/1E+ODtsOE
+	MOpym/9htcb5sQ7Rtbs11KAcfE+Q5y1pzdvaq82oSoziWTemAVwyJZMRASfi9DmYQREGi74VhH/fH
+	ksjWED3Lnav9K95bx+UF8xoF4qXDAYeZ6vPHXfVmJ8TZy/nCWBYXxY6cugbYXbVT51QnnMzaRHPnB
+	1wdk1ASD1rkmSgWaN3YNuepPNs8cr5UuNI17HurvJxTeNw2nl7yhICy2U8VNgSW3yOW8I97PjfRhI
+	DvBx1YLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYWYZ-0000000G2XR-2dPN;
-	Thu, 16 Jan 2025 20:33:35 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tYWcA-0000000G2xJ-1oqP;
+	Thu, 16 Jan 2025 20:37:18 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYWXJ-0000000G2Mi-1HSv
+	id 1tYWau-0000000G2i6-0SOL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 20:32:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1737059535;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cBjXp+Q0kBMQo93pn9/JG/mDdpOMWtXcKEJJB7g0DX0=;
-	b=FqCqi3TWOb2BbweNIeGvtX21i/va1/7tyuDXVuTXQy6wqsb7dk+cpt+jSU3hJNIXripBJf
-	CCNsU//XFkXZkAOLuAx/XRtC2A523VDAA5EVg12pWxTVxYjn7Rgh8SNnbmdhH+n8HVUR7H
-	x5rcK0h7NRu3KnjGimrI4igaIBsODWM=
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
- [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-532-vH8YJ6_eO2moT9n4zV3hhA-1; Thu, 16 Jan 2025 15:32:13 -0500
-X-MC-Unique: vH8YJ6_eO2moT9n4zV3hhA-1
-X-Mimecast-MFC-AGG-ID: vH8YJ6_eO2moT9n4zV3hhA
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-216311faa51so23093725ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 12:32:13 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737059532; x=1737664332;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cBjXp+Q0kBMQo93pn9/JG/mDdpOMWtXcKEJJB7g0DX0=;
-        b=ooSdXlE93eAt/xeahNENtPcjoVSV2kfGtYfA5JUeMdPPIkqbz7okLj3MBrdQ+lsOOf
-         vGqLuBhY6SC4PisErqbi0WJSprYbwUmU416vCAKfiyt7k0scOTwFY11Ogw0laWjUvf0j
-         fItZ8QT8XFL7x+mxObl8NwQ1ZVRbdjoW8z0kQVZXQ3FALfDh8pZ3p0dUINE9n4jK6uHh
-         LlIOwA18o3KzzvvtSs516KjhRJrpdF9eNzUAdAtcbA/SZCP8ENF4F5XJciZ32i8KQr+k
-         KMmfj9+p1VLWru2G944rPwwS+9G/gNDBFRLvw8m2gyR08N0zt1ig9HTW5C9HKlbnwvnL
-         vybA==
-X-Forwarded-Encrypted: i=1; AJvYcCVQtEpFxg1MUFoF3q0UH3myRK4VlHsblKqjNbRExHPl20udHccdwK1bdhP0m0B3nGE9yfwftCAYH5vAep0Z6WWm@lists.infradead.org
-X-Gm-Message-State: AOJu0YzfZ/8mhUPUoL0Dl0ij5/uQH2QlLBwH1AyJSQPIHvnNwpwNGaCj
-	4SeSgs9L8Zf6zj6yl1eUDCeJGyrlmDUxlJmrvAMnFJ7R2VvajMZFOIt23RApO0f78+uA+KdYejU
-	dG0tR3yS2r7a7wIllPS81FoqrdUQFey1SQEsRdfmJEDYDjoA7wYbxarFeCu7tLl+xmHn6kQ0X
-X-Gm-Gg: ASbGncs2L0vIYFcR3BPSGrxFRlEoPIeWe2C5cOedEnU10xlpDOXZizUO0puweOlI4lW
-	xMFyij94cXezwFrgEa5U1JnH36s/0Ru3gwUsFULp4lV0i/2cNi+DFYg0mhnVnuxOUTuQfdA0SqT
-	ZFv47dNKcjYTBR0lh7tDC/rQm+Yk3aJMd3R6bAjhW6C+xOCbjVWoOF6qZlORpTM+7arerrNNSfp
-	l5PUaHHIRWmO0v9j6Dr/lH3gbnJj9MgbRVa9MpRwZ1Q9ch9CBDae98ND9EnBkfQ3LuO6A7OIueY
-	qRXqaUh6Vz0F5fwkwg==
-X-Received: by 2002:a17:903:238e:b0:216:311e:b1c4 with SMTP id d9443c01a7336-21bf029e049mr110709305ad.4.1737059532478;
-        Thu, 16 Jan 2025 12:32:12 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEKxzy3YKG0/4peNFIGTyI8M6fxHbUDzV/T0Dy6Fv99Nr5xuebiMcqfPD2o4c5t4sCUc/gI8A==
-X-Received: by 2002:a17:903:238e:b0:216:311e:b1c4 with SMTP id d9443c01a7336-21bf029e049mr110708925ad.4.1737059532113;
-        Thu, 16 Jan 2025 12:32:12 -0800 (PST)
-Received: from x1n (pool-99-254-114-190.cpe.net.cable.rogers.com. [99.254.114.190])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-a9bdd30e9adsm444712a12.62.2025.01.16.12.32.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Jan 2025 12:32:11 -0800 (PST)
-Date: Thu, 16 Jan 2025 15:32:06 -0500
-From: Peter Xu <peterx@redhat.com>
-To: James Houghton <jthoughton@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Yan Zhao <yan.y.zhao@intel.com>,
-	Nikita Kalyazin <kalyazin@amazon.com>,
-	Anish Moorthy <amoorthy@google.com>,
-	Peter Gonda <pgonda@google.com>,
-	David Matlack <dmatlack@google.com>, Wei W <wei.w.wang@intel.com>,
-	kvm@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v1 00/13] KVM: Introduce KVM Userfault
-Message-ID: <Z4lsxgFSdiqpNtdG@x1n>
-References: <20241204191349.1730936-1-jthoughton@google.com>
- <Z2simHWeYbww90OZ@x1n>
- <CADrL8HUkP2ti1yWwp=1LwTX2Koit5Pk6LFcOyTpN2b+B3MfKuw@mail.gmail.com>
- <Z4lp5QzdOX0oYGOk@x1n>
+	Thu, 16 Jan 2025 20:36:01 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50GESRLC007667;
+	Thu, 16 Jan 2025 20:35:36 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=zcXYfq7y3Ykx9nkv3
+	r9zTbWUpugtYvbNec4z//sgjIQ=; b=Z1udj7xsccEMJyAqV9xuj1MZHH+TOGL79
+	cOMrg+yrPJUEUMCr1C1b1RbYRsNrXxMKTVvNUddfIxZRI+PbYlJq1bgVDQnERQuu
+	U1QIgi3Zani6kzheUSk91VB2+OdvZPjNVRsa7BvI2R0/ahGhuikR+o0FSO2u0aee
+	JhabYhGwjRFEF4jVrojVPbY5a261SuVVabdxCGhjIuXRXAcmuhrlH+0qEk1YhRZW
+	/H0qwghVzPgZQFrVMAyaI03ZlWjqdVXyIinVP2veAVLutDv2UsTbintOTRspuEXi
+	kw30Nie+V501zuxwmm2RZyOArSKcMz+62U7VfKUxnwRkaWj/+xNqw==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 446tkcmnvd-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 16 Jan 2025 20:35:36 +0000 (GMT)
+Received: from m0360083.ppops.net (m0360083.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 50GKYF07013070;
+	Thu, 16 Jan 2025 20:35:36 GMT
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 446tkcmnvb-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 16 Jan 2025 20:35:36 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 50GHOwPU007364;
+	Thu, 16 Jan 2025 20:35:34 GMT
+Received: from smtprelay01.wdc07v.mail.ibm.com ([172.16.1.68])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4443ynfmgt-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 16 Jan 2025 20:35:34 +0000
+Received: from smtpav02.wdc07v.mail.ibm.com (smtpav02.wdc07v.mail.ibm.com [10.39.53.229])
+	by smtprelay01.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 50GKZXQr12124554
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 16 Jan 2025 20:35:33 GMT
+Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 8122E58059;
+	Thu, 16 Jan 2025 20:35:33 +0000 (GMT)
+Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 6D10958058;
+	Thu, 16 Jan 2025 20:35:32 +0000 (GMT)
+Received: from gfwa153.aus.stglabs.ibm.com (unknown [9.3.84.127])
+	by smtpav02.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Thu, 16 Jan 2025 20:35:32 +0000 (GMT)
+From: Ninad Palsule <ninad@linux.ibm.com>
+To: minyard@acm.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+        andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+        kuba@kernel.org, pabeni@redhat.com,
+        openipmi-developer@lists.sourceforge.net, netdev@vger.kernel.org,
+        joel@jms.id.au, andrew@codeconstruct.com.au,
+        devicetree@vger.kernel.org, eajames@linux.ibm.com,
+        linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+        linux-kernel@vger.kernel.org
+Cc: Ninad Palsule <ninad@linux.ibm.com>
+Subject: [PATCH v6 01/10] dt-bindings: net: faraday,ftgmac100: Add phys mode
+Date: Thu, 16 Jan 2025 14:35:16 -0600
+Message-ID: <20250116203527.2102742-2-ninad@linux.ibm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250116203527.2102742-1-ninad@linux.ibm.com>
+References: <20250116203527.2102742-1-ninad@linux.ibm.com>
 MIME-Version: 1.0
-In-Reply-To: <Z4lp5QzdOX0oYGOk@x1n>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: _onPaCbMsOF5CLfO9SowLJjmiUOF9Xz2w_XCBGOKboY_1737059532
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: Upf2eS7rTwO2GUArfiLsvKzpNki0PdwK
+X-Proofpoint-GUID: ErUzenTtv79y361SWL-C2FyTPHA6IFP0
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-16_09,2025-01-16_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 malwarescore=0
+ impostorscore=0 mlxscore=0 spamscore=0 priorityscore=1501
+ lowpriorityscore=0 bulkscore=0 suspectscore=0 clxscore=1015
+ mlxlogscore=946 phishscore=0 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.19.0-2411120000 definitions=main-2501160151
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_123217_418796_09FE9B85 
-X-CRM114-Status: GOOD (  29.39  )
+X-CRM114-CacheID: sfid-20250116_123600_160452_8716FCCE 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,65 +116,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 16, 2025 at 03:19:49PM -0500, Peter Xu wrote:
-> James,
-> 
-> Sorry for a late reply.
-> 
-> I still do have one or two pure questions, but nothing directly relevant to
-> your series.
-> 
-> On Thu, Jan 02, 2025 at 12:53:11PM -0500, James Houghton wrote:
-> > So I'm not pushing for KVM Userfault to replace userfaultfd; it's not
-> > worth the extra/duplicated complexity. And at LPC, Paolo and Sean
-> > indicated that this direction was indeed wrong. I have another way to
-> > make this work in mind. :)
-> 
-> Do you still want to share it, more or less? :)
-> 
-> > 
-> > For the gmem case, userfaultfd cannot be used, so KVM Userfault isn't
-> > replacing it. And as of right now anyway, KVM Userfault *does* provide
-> > a complete post-copy system for gmem.
-> > 
-> > When gmem pages can be mapped into userspace, for post-copy to remain
-> > functional, userspace-mapped gmem will need userfaultfd integration.
-> > Keep in mind that even after this integration happens, userfaultfd
-> > alone will *not* be a complete post-copy solution, as vCPU faults
-> > won't be resolved via the userspace page tables.
-> 
-> Do you know in context of CoCo, whether a private page can be accessed at
-> all outside of KVM?
-> 
-> I think I'm pretty sure now a private page can never be mapped to
-> userspace.  However, can another module like vhost-kernel access it during
-> postcopy?  My impression of that is still a yes, but then how about
-> vhost-user?
-> 
-> Here, the "vhost-kernel" part represents a question on whether private
-> pages can be accessed at all outside KVM.  While "vhost-user" part
-> represents a question on whether, if the previous vhost-kernel question
-> answers as "yes it can", such access attempt can happen in another
-> process/task (hence, not only does it lack KVM context, but also not
-> sharing the same task context).
+Aspeed device supports rgmii, rgmii-id, rgmii-rxid, rgmii-txid so
+document them.
 
-Right after I sent it, I just recalled whenever a device needs to access
-the page, it needs to be converted to shared pages first..
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
+---
+ Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml | 3 +++
+ 1 file changed, 3 insertions(+)
 
-So I suppose the questions were not valid at all!  It is not about the
-context but that the pages will be shared always whenever a device in
-whatever form will access it..
-
-Fundamentally I'm thinking about whether userfaultfd must support (fd,
-offset) tuple.  Now I suppose it's not, because vCPUs accessing
-private/shared will all exit to userspace, while all non-vCPU / devices can
-access shared pages only.
-
-In that case, looks like userfaultfd can support CoCo on device emulations
-by sticking with virtual-address traps like before, at least from that
-specific POV.
-
+diff --git a/Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml b/Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml
+index 9bcbacb6640d..55d6a8379025 100644
+--- a/Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml
++++ b/Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml
+@@ -44,6 +44,9 @@ properties:
+   phy-mode:
+     enum:
+       - rgmii
++      - rgmii-id
++      - rgmii-rxid
++      - rgmii-txid
+       - rmii
+ 
+   phy-handle: true
 -- 
-Peter Xu
+2.43.0
 
 
