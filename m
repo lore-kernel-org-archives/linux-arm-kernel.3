@@ -4,64 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73923C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 14:07:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEB79C02188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 14:09:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dt4akRYpJ8BSUKrQsVEmrISvSMla1kJVahmLeEK1kYs=; b=2Zhkcl/KlJhdXSC3i3CnrYRyHp
-	SnWURsYS3Jx6hPc63PQ6R42Lyv9dGpev+o5SCCyugczjR9mRGxhb9XZzitUY6kdPjYRTghvi6+qRC
-	ljg3oIt6BDXux+++m+U3QBp3q0Il9EAEqo2P9Ve23lqMW8s7RmE+bQ9HrfymsZfhvkxRKeSDypS1g
-	8Bxk1BZXFdEt6L5zoKFJJu2y9E15LndePtZKkglbg8Eu6UgmUkVbbbKQLP5+84Oa9yx72JtkLUVkn
-	PGucs5Rcfn6xeJzTh07zwz+i2RIa1Y5zP/+EeiSM9nM2s+O+4KTxUQyZpgecxfjvj5u+5picLiRIY
-	pDqtFHhw==;
+	bh=beiN8g61mHK6eMbjmO7b//LxJm56XQTCFTjizTCwVq8=; b=Z2fKncq/oUPEK7ZYpKzPftkmL+
+	MrwbAmj02ED9CoVlIZf2ThIll2p528wudlvR0IEUYC1nKO2tTl/r+pZE4lC3j1EgdcsZLYReS71Ae
+	0S+Ihs8dn4RmqZt4CUCu4kPxxwQkclkQytU1t4yjYdZyzTkpKH3LKHviEaeFs8cGoHq8SqSqKOv5r
+	I+Kht1Jw0ObRD4UTn1dwdd05xSuXFsoJ5ld0+EpoHoQhR9XWtuMN8gUjHJdDRUEaMfKsbpxRkOjQv
+	POxqC7VdBK2FdQGmMQDaipInXnIYXiGOFYF/lRUlOBnw7AMoc/jQQuVTGGWOu90j4MWU18LNBdsso
+	3C9twE9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYQWx-0000000F5xJ-2Ccd;
-	Thu, 16 Jan 2025 14:07:31 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tYQYB-0000000F6F4-0dh2;
+	Thu, 16 Jan 2025 14:08:47 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYQSJ-0000000F57T-24rr
+	id 1tYQSK-0000000F57v-3sZh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 14:02:44 +0000
+	Thu, 16 Jan 2025 14:02:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3272B5C5638;
-	Thu, 16 Jan 2025 14:02:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DA21C4CED6;
-	Thu, 16 Jan 2025 14:02:42 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9BACA5C5D1A;
+	Thu, 16 Jan 2025 14:02:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC95EC4CEE3;
+	Thu, 16 Jan 2025 14:02:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737036162;
-	bh=wJrO+Q8EPmWTWEDEscnqryBax+dyoWT6ih/Muil3oRQ=;
+	s=k20201202; t=1737036164;
+	bh=PmFba4RYVXDvUWV5l0Nlrao2Ocm6v9m0J0x5OmOAdLY=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=fclMM7e56VHQ2r9bULazK8CMPJ1XZfDgv04ymOKVGJGitnFYdqpATIvgORP3J+ClU
-	 Uj3AFpk7Qb/y1Xaqw9rfF6eKkyr+61ZwqH1riDSscuPwjOLdG6CrltW8udBUneSRME
-	 i1w4TRfoz+g0yPiTYyOVUfl5aokfISDGCzQsRFqonZPfGCMhhlWyGcE7o3NL/TCd9b
-	 LgVENTk14SOFo13Ixj3Q/ObCK3fx8vlgDZQYLCe1wVU4hyDr7XELpzpFsCg9X/Kktk
-	 T2gg0r6QxaLKSyPzKmgQ5xeFT5vQO0ipCfPNMwpgxQ4/vyOsasKtChioGFM8e/NVR3
-	 m7/usmgtcNnSw==
-Date: Thu, 16 Jan 2025 08:02:41 -0600
+	b=Fz8qOJVhialhHvFZDZq7dYvy1qXJQIyljTo3BefZ1IT4FZNJmq/rJIqfjIDyN0BcH
+	 MQXj90v2+xQ31H0mZL5sjGKbFancWObD1CmWU/3qz9XpB/MIyUkLm7p+c9jvQZiXVd
+	 DIOFp9DhZRuPSm93m0RHr7+LPy5MPmwF04w//SCmZn1DNO5bx0yXQ6izq2CNNHj1jM
+	 i+3IcnHY0dfsKcnJVv7slIq+Qe60M4TZWLhpCDJxV8YgdhTUZG7sr+GmBaCYiE55Zw
+	 bFJo4DZ5JrX+GHAjROqSfR/ZB2MSgi5sh4/YxGea5eim+HktzAXucwhppFTug0H2Gk
+	 lsdncCjGt42/A==
+Date: Thu, 16 Jan 2025 08:02:42 -0600
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Peter Griffin <peter.griffin@linaro.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, devicetree@vger.kernel.org, 
- Alim Akhtar <alim.akhtar@samsung.com>
-To: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-In-Reply-To: <20250115-gs101-simplefb-v3-0-52eca3a582b7@linaro.org>
-References: <20250115-gs101-simplefb-v3-0-52eca3a582b7@linaro.org>
-Message-Id: <173703609099.1976411.4033971019635742956.robh@kernel.org>
-Subject: Re: [PATCH v3 0/4] Google Pixel 6 (simple) framebuffer support
+Cc: Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
+ David Wronek <david@mainlining.org>, Kees Cook <kees@kernel.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
+ Will Deacon <will@kernel.org>, Karel Balej <balejk@matfyz.cz>, 
+ devicetree@vger.kernel.org, Lubomir Rintel <lkundrak@v3.sk>, 
+ phone-devel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+ ~postmarketos/upstreaming@lists.sr.ht, linux-hardening@vger.kernel.org, 
+ "Guilherme G. Piccoli" <gpiccoli@igalia.com>, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Gregory Clement <gregory.clement@bootlin.com>, 
+ Tony Luck <tony.luck@intel.com>
+To: =?utf-8?q?Duje_Mihanovi=C4=87?= <duje.mihanovic@skole.hr>
+In-Reply-To: <20250115-pxa1908-lkml-v14-0-847d24f3665a@skole.hr>
+References: <20250115-pxa1908-lkml-v14-0-847d24f3665a@skole.hr>
+Message-Id: <173703609255.1976431.15890435935753695270.robh@kernel.org>
+Subject: Re: [PATCH v14 0/4] Initial Marvell PXA1908 support
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_060243_628532_D1D8269B 
-X-CRM114-Status: GOOD (  34.75  )
+X-CRM114-CacheID: sfid-20250116_060245_055276_AD3EFC4B 
+X-CRM114-Status: GOOD (  31.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,93 +84,175 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 15 Jan 2025 16:11:08 +0000, André Draszik wrote:
-> Hi,
+On Wed, 15 Jan 2025 21:35:53 +0100, Duje Mihanović wrote:
+> Hello,
 > 
-> This series enables simple framebuffer support on Google Pixel 6 and
-> Pixel 6 Pro.
+> This series adds initial support for the Marvell PXA1908 SoC and
+> "samsung,coreprimevelte", a smartphone using the SoC.
 > 
-> Even if simple-framebuffer is deprecated and DRM should be used
-> instead, having it available in DT is beneficial for several reasons at
-> this point in time (the phone uses an OLED display):
-> * energy consumption goes down significantly, as it changes from white
->   (as left by bootloader) to black (linux console), and we generally
->   don't run out of battery anymore when plugged into a USB port
-> * less of a burn-in effect I assume
-> * phone stays cooler due to reduced energy consumption by display
+> USB works and the phone can boot a rootfs from an SD card, but there are
+> some warnings in the dmesg:
 > 
-> Since Pixel 6 and Pixel 6 Pro use a different resolution display, this
-> is the time to separate them into their respective DTs, and provide one
-> for each of them. There are other differences between the two, like
-> battery design capacity, but they don't matter at this stage due to
-> incomplete upstream support.
+> During SMP initialization:
+> [    0.006519] CPU features: SANITY CHECK: Unexpected variation in SYS_CNTFRQ_EL0. Boot CPU: 0x000000018cba80, CPU1: 0x00000000000000
+> [    0.006542] CPU features: Unsupported CPU feature variation detected.
+> [    0.006589] CPU1: Booted secondary processor 0x0000000001 [0x410fd032]
+> [    0.010710] Detected VIPT I-cache on CPU2
+> [    0.010716] CPU features: SANITY CHECK: Unexpected variation in SYS_CNTFRQ_EL0. Boot CPU: 0x000000018cba80, CPU2: 0x00000000000000
+> [    0.010758] CPU2: Booted secondary processor 0x0000000002 [0x410fd032]
+> [    0.014849] Detected VIPT I-cache on CPU3
+> [    0.014855] CPU features: SANITY CHECK: Unexpected variation in SYS_CNTFRQ_EL0. Boot CPU: 0x000000018cba80, CPU3: 0x00000000000000
+> [    0.014895] CPU3: Booted secondary processor 0x0000000003 [0x410fd032]
 > 
-> * dependency note *
+> SMMU probing fails:
+> [    0.101798] arm-smmu c0010000.iommu: probing hardware configuration...
+> [    0.101809] arm-smmu c0010000.iommu: SMMUv1 with:
+> [    0.101816] arm-smmu c0010000.iommu:         no translation support!
 > 
-> None (anymore) - earlier versions of this series had dependencies, but
-> those are all part of linux-next already, so none remain.
+> A 3.14 based Marvell tree is available on GitHub
+> acorn-marvell/brillo_pxa_kernel, and a Samsung one on GitHub
+> CoderCharmander/g361f-kernel.
 > 
-> * dependency note end *
+> Andreas Färber attempted to upstream support for this SoC in 2017:
+> https://lore.kernel.org/lkml/20170222022929.10540-1-afaerber@suse.de/
 > 
-> For those who want to try this out:
-> The stock bootloader disables the decon hardware trigger before jumping
-> to Linux, preventing framebuffer updates from reaching the display. We
-> have added a work-around in our Yocto BSP layer for the time being
-> (until a proper display exists upstream). An alternative might be to
-> port and use uniLoader from https://github.com/ivoszbg/uniLoader, as
-> seems to be done for some other Exynos platforms.
-> 
-> Signed-off-by: André Draszik <andre.draszik@linaro.org>
+> Signed-off-by: Duje Mihanović <duje.mihanovic@skole.hr>
 > ---
+> Changes in v14:
+> - Rebase on v6.13-rc7, dropping everything except DT
+> - Link to v13: https://lore.kernel.org/r/20241001-pxa1908-lkml-v13-0-6b9a7f64f9ae@skole.hr
+> 
+> Changes in v13:
+> - Better describe the hardware in bindings/arm commit message
+> - Rebase on v6.12-rc1
+> - Link to v12: https://lore.kernel.org/r/20240823-pxa1908-lkml-v12-0-cc3ada51beb0@skole.hr
+> 
+> Changes in v12:
+> - Rebase on v6.11-rc4
+> - Fix schmitt properties in accordance with 78d8815031fb ("dt-bindings: pinctrl: pinctrl-single: fix schmitt related properties")
+> - Drop a few redundant includes in clock drivers
+> - Link to v11: https://lore.kernel.org/r/20240730-pxa1908-lkml-v11-0-21dbb3e28793@skole.hr
+> 
+> Changes in v11:
+> - Rebase on v6.11-rc1 (conflict with DTS Makefile), no changes
+> - Link to v10: https://lore.kernel.org/r/20240424-pxa1908-lkml-v10-0-36cdfb5841f9@skole.hr
+> 
+> Changes in v10:
+> - Update trailers
+> - Rebase on v6.9-rc5
+> - Clock driver changes:
+>   - Add a couple of forgotten clocks in APBC
+>     - The clocks are thermal_clk, ipc_clk, ssp0_clk, ssp2_clk and swjtag
+>     - The IDs and register offsets were already present, but I forgot to
+>       actually register them
+>   - Split each controller block into own file
+>   - Drop unneeded -of in clock driver filenames
+>   - Simplify struct pxa1908_clk_unit
+>   - Convert to platform driver
+>   - Add module metadata
+> - DTS changes:
+>   - Properly name pinctrl nodes
+>   - Drop pinctrl #size-cells, #address-cells, ranges and #gpio-size-cells
+>   - Fix pinctrl input-schmitt configuration
+> - Link to v9: https://lore.kernel.org/20240402-pxa1908-lkml-v9-0-25a003e83c6f@skole.hr
+> 
+> Changes in v9:
+> - Update trailers and rebase on v6.9-rc2, no changes
+> - Link to v8: https://lore.kernel.org/20240110-pxa1908-lkml-v8-0-fea768a59474@skole.hr
+> 
+> Changes in v8:
+> - Drop SSPA patch
+> - Drop broken-cd from eMMC node
+> - Specify S-Boot hardcoded initramfs location in device tree
+> - Add ARM PMU node
+> - Correct inverted modem memory base and size
+> - Update trailers
+> - Rebase on next-20240110
+> - Link to v7: https://lore.kernel.org/20231102-pxa1908-lkml-v7-0-cabb1a0cb52b@skole.hr
+>   and https://lore.kernel.org/20231102152033.5511-1-duje.mihanovic@skole.hr
+> 
+> Changes in v7:
+> - Suppress SND_MMP_SOC_SSPA on ARM64
+> - Update trailers
+> - Rebase on v6.6-rc7
+> - Link to v6: https://lore.kernel.org/r/20231010-pxa1908-lkml-v6-0-b2fe09240cf8@skole.hr
+> 
+> Changes in v6:
+> - Address maintainer comments:
+>   - Add "marvell,pxa1908-padconf" binding to pinctrl-single driver
+> - Drop GPIO patch as it's been pulled
+> - Update trailers
+> - Rebase on v6.6-rc5
+> - Link to v5: https://lore.kernel.org/r/20230812-pxa1908-lkml-v5-0-a5d51937ee34@skole.hr
+> 
+> Changes in v5:
+> - Address maintainer comments:
+>   - Move *_NR_CLKS to clock driver from dt binding file
+> - Allocate correct number of clocks for each block instead of blindly
+>   allocating 50 for each
+> - Link to v4: https://lore.kernel.org/r/20230807-pxa1908-lkml-v4-0-cb387d73b452@skole.hr
+> 
+> Changes in v4:
+> - Address maintainer comments:
+>   - Relicense clock binding file to BSD-2
+> - Add pinctrl-names to SD card node
+> - Add vgic registers to GIC node
+> - Rebase on v6.5-rc5
+> - Link to v3: https://lore.kernel.org/r/20230804-pxa1908-lkml-v3-0-8e48fca37099@skole.hr
+> 
 > Changes in v3:
-> - back to using separate DTBs for Pixel 6 and Pixel 6 Pro (Krzysztof)
-> - update name of common dtsi file (Krzysztof)
-> - use 'memory-region' property from the start in patch 2, don't
->   introduce it as change in patch 3 (Krzysztof)
-> - Link to v2: https://lore.kernel.org/r/20241220-gs101-simplefb-v2-0-c10a8f9e490b@linaro.org
->   and https://lore.kernel.org/r/20241220-gs101-simplefb-oriole-v2-1-df60e566932a@linaro.org
+> - Address maintainer comments:
+>   - Drop GPIO dynamic allocation patch
+>   - Move clock register offsets into driver (instead of bindings file)
+>   - Add missing Tested-by trailer to u32_fract patch
+>   - Move SoC binding to arm/mrvl/mrvl.yaml
+> - Add serial0 alias and stdout-path to board dts to enable UART
+>   debugging
+> - Rebase on v6.5-rc4
+> - Link to v2: https://lore.kernel.org/r/20230727162909.6031-1-duje.mihanovic@skole.hr
 > 
 > Changes in v2:
-> - We now have a generic gs101-based Pixel board DT, which can work on
->   any Pixel 6 / 6 Pro / 6a
-> - Pixel 6 (Pro) are overlays onto that one.
->   This has the advantage that all boards can be supported without
->   having to have a full copy of the DT for each of them. We still
->   instruct kbuild to create merged DTBs (in addition to the DTBOs) so
->   that existing scripts can keep working while giving the option to
->   just apply the overlay before boot (e.g. by the bootloader).
-> - The binding has been updated according to the above points
-> - I've changed the simple-framebuffer node to specify the memory via
->   memory-region instead of reg, as that avoids unnecessary duplication
->   (of the size), and it avoids having to specify #address-cells
->   and #size-cells in the chosen node (and duplicating this in the
->   DTSO), which is otherwise necessary to keep dt_binding_check happy
->   and DT validation working in general.
-> - sort overriding/extending nodes ordered by label name (Krzysztof)
-> - format patches with diff.renames=copies (Krzysztof)
-> - dependencies have been updated, see below
-> - Link to v1: https://lore.kernel.org/r/20241216-gs101-simplefb-v1-0-8ccad1830281@linaro.org
+> - Remove earlycon patch as it's been merged into tty-next
+> - Address maintainer comments:
+>   - Clarify GPIO regressions on older PXA platforms
+>   - Add Fixes tag to commit disabling GPIO pinctrl calls for this SoC
+>   - Add missing includes to clock driver
+>   - Clock driver uses HZ_PER_MHZ, u32_fract and GENMASK
+>   - Dual license clock bindings
+>   - Change clock IDs to decimal
+>   - Fix underscores in dt node names
+>   - Move chosen node to top of board dts
+>   - Clean up documentation
+>   - Reorder commits
+>   - Drop pxa,rev-id
+> - Rename muic-i2c to i2c-muic
+> - Reword some commits
+> - Move framebuffer node to chosen
+> - Add aliases for mmc nodes
+> - Rebase on v6.5-rc3
+> - Link to v1: https://lore.kernel.org/r/20230721210042.21535-1-duje.mihanovic@skole.hr
 > 
 > ---
-> André Draszik (4):
->       dt-bindings: arm: google: add gs101-raven
->       arm64: dts: exynos: gs101-oriole: configure simple-framebuffer
->       arm64: dts: exynos: gs101-oriole: move common Pixel6 & 6Pro parts into a .dtsi
->       arm64: dts: exynos: gs101-raven: add new board file
+> Duje Mihanović (4):
+>       dt-bindings: marvell: Document PXA1908 SoC and samsung,coreprimevelte
+>       arm64: Kconfig.platforms: Add config for Marvell PXA1908 platform
+>       arm64: dts: Add DTS for Marvell PXA1908 and samsung,coreprimevelte
+>       MAINTAINERS: add myself as Marvell PXA1908 maintainer
 > 
->  Documentation/devicetree/bindings/arm/google.yaml  |   3 +-
->  arch/arm64/boot/dts/exynos/google/Makefile         |   1 +
->  arch/arm64/boot/dts/exynos/google/gs101-oriole.dts | 267 +--------------------
->  .../{gs101-oriole.dts => gs101-pixel-common.dtsi}  |  22 +-
->  arch/arm64/boot/dts/exynos/google/gs101-raven.dts  |  29 +++
->  5 files changed, 58 insertions(+), 264 deletions(-)
+>  .../devicetree/bindings/arm/mrvl/mrvl.yaml         |   5 +
+>  MAINTAINERS                                        |   9 +
+>  arch/arm64/Kconfig.platforms                       |   8 +
+>  arch/arm64/boot/dts/marvell/Makefile               |   3 +
+>  .../dts/marvell/pxa1908-samsung-coreprimevelte.dts | 336 +++++++++++++++++++++
+>  arch/arm64/boot/dts/marvell/pxa1908.dtsi           | 300 ++++++++++++++++++
+>  6 files changed, 661 insertions(+)
 > ---
-> base-commit: 4e16367cfe0ce395f29d0482b78970cce8e1db73
-> change-id: 20241216-gs101-simplefb-8aae80278ed7
+> base-commit: 5bc55a333a2f7316b58edc7573e8e893f7acb532
+> change-id: 20230803-pxa1908-lkml-6830e8da45c7
 > 
 > Best regards,
 > --
-> André Draszik <andre.draszik@linaro.org>
+> Duje Mihanović <duje.mihanovic@skole.hr>
 > 
 > 
 
@@ -182,10 +271,14 @@ make sure dt-schema is up to date:
   pip3 install dtschema --upgrade
 
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/exynos/' for 20250115-gs101-simplefb-v3-0-52eca3a582b7@linaro.org:
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/marvell/' for 20250115-pxa1908-lkml-v14-0-847d24f3665a@skole.hr:
 
-arch/arm64/boot/dts/exynos/google/gs101-raven.dtb: phy@11100000: 'orientation-switch' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/phy/samsung,usb3-drd-phy.yaml#
+arch/arm64/boot/dts/marvell/pxa1908-samsung-coreprimevelte.dtb: /: memory: False schema does not allow {'device_type': ['memory'], 'reg': [[0, 0, 0, 0]]}
+	from schema $id: http://devicetree.org/schemas/root-node.yaml#
+arch/arm64/boot/dts/marvell/pxa1908-samsung-coreprimevelte.dtb: mmc@80000: pinctrl-names: ['default'] is too short
+	from schema $id: http://devicetree.org/schemas/mmc/sdhci-pxa.yaml#
+arch/arm64/boot/dts/marvell/pxa1908-samsung-coreprimevelte.dtb: mmc@80000: Unevaluated properties are not allowed ('pinctrl-names' was unexpected)
+	from schema $id: http://devicetree.org/schemas/mmc/sdhci-pxa.yaml#
 
 
 
