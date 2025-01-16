@@ -4,105 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B520C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 10:19:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CC83C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 10:21:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WuQdHH0jX5HS9LnYEzhRAPhytiR+nfy/IFpv5ExISg8=; b=lJVSF/+0GY++qPfKkSgpfm085P
-	45JDedI6c50RvInUATlRkGW7AnXyv4vZ9qpF1OzIuQklVmbHi8oQ3lghcKQUH5QBFr1WnTNQaqRjU
-	WhEOTX6twExYoK1qftTV0QYFPEM4W5oqtdK47462hp55jKBcYtlv9W740wH1RuP/fjiWMHoHb/4Dl
-	hMTdmatRWmm7nmgOUCz7l++Fhh/gPwiZRhM2ZkAqadOVmDx6QKwywFPgICYSPPqXRMYjOiVTQ2sq8
-	54xEn77e/GH87gFy7p7A1Faqbe2dUflktbgI5gjQLIbq/VzMq2roH6Wy38dIy4T7zkxbJIpepnc8M
-	QWGBb1Yw==;
+	bh=kvQdEoWTAFzPq6kjpuGsuF1l6Lxp7FUmHEBuENkQ6Qo=; b=0bzpiLijdGM9u55o9FVubhP44C
+	U6p6xZ1e5kpBZQfuFtV6AfX2IJbw8Xg8mntrDRDxNQTwUcqXZ5OQYt2LGBXpLmXkk3+1DfY9EIYKa
+	HNhJpxBsqYX2Nwnt6/4881QeiMF7Zo3l2GrMLthB29EUzUpY9MkWt0z6qk4nUPqqLfLFeLozaVCYl
+	ALr4hRPTP1IpjQGxLrIpXshtCJHazrw5Ya62sdVNm/5Xpfaj5/NHJxPkv2n/mqS9NXPiojtoKFwGK
+	7pYMIUf2ZQnoisFUDfcPP1EHvwnDMApENozXKRg+2q5Lqu0ca+msApncpqTfUwmM/E8zonEl9hWcq
+	HH1dbnhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYMxi-0000000ETYd-1n4l;
-	Thu, 16 Jan 2025 10:18:54 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1tYN0L-0000000ETup-10cF;
+	Thu, 16 Jan 2025 10:21:37 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYMwP-0000000ETQw-1woL
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 10:17:34 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43634b570c1so4307465e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 02:17:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737022652; x=1737627452; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=WuQdHH0jX5HS9LnYEzhRAPhytiR+nfy/IFpv5ExISg8=;
-        b=KffuL+9H/QzJTN3B2SqfvXUI/NCHYNI/Lpf2czp8/Ibz0G1W9nNRf86ywDMJVUmKs3
-         KMfAbaRHyhh7nDP0Q+3k1gULKMeuMRy72Bq1wmKQk3W0t77CWe5aygtipAjJ8iLbX3UX
-         uU/pbJCMSc98iw7xvZgVkQ5/2sEojsgITdznI4xeBY8g71JLpq1NC1Tx1YnjcotpybcR
-         JRvO+J9FiF0KMbea1uy0NioBet03dqKja74RoMnvD5dXgVER835op+mutkERbjpCCL1Q
-         gfZIKf854zInYAQpKkXF27QdHFr+ACFlHxfb9mZk57Pi4HbG+sV19I/jHG63n3nufT3f
-         y5HA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737022652; x=1737627452;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=WuQdHH0jX5HS9LnYEzhRAPhytiR+nfy/IFpv5ExISg8=;
-        b=NzcQEagkbAwlbsEw9LuJvfHyFfRj/P/8QCwdCIB7lXnL7W6GAa8A7SNhmMaegAa5jU
-         YailFwDPtvKlTBBgTxupgkqV9IDSPWIK9RYbsZHZUHW7oLt85F6Dx9XnNcnUzbtPk2m0
-         jgQNpxhNzpZ/hU9tHsKzXIYZ/4/I2EpBiQj78DeWktIMd6tAUKymkyVeTJvh7fnpNLys
-         po/GdhPvcMGSn1wuP9CC2Cs4WKIuBBKf0AHsFVmPuFT9VhOm3ot0hn0fy37l91/QH0qb
-         4pSCUDkaD1oE8Jjmz77oxD0N//NIHEK/EMAwr3XBJH+v+yz8hgPY6iXxTBNkpgx6as7h
-         z8AQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV/j2RPn5zAY0JZev52TO+YBMRQxed80Mfmiw4Bg43w9kCAeqSTiYSdejTABQZ6E/PVg/pr6UmKew4XqeGsP4MT@lists.infradead.org
-X-Gm-Message-State: AOJu0YxEryEW2uzgoD2gQDahxqVXLdKuFZe2/TGrlawimIdyvbs05Mzs
-	XJKAE+cW6s1B4APVuZcuLNmfQ9jmMTwXJ9OXlE1WSwjh5AhErIM0eyKG5IULnKixGsqiad99clP
-	U
-X-Gm-Gg: ASbGncskTYIf0FjEDwjbmSepaBd4RbmXgTaY8OEKjV8ydpHtQZgo9ztaPANJUJchO/Z
-	OF9SF408+gs/nAjup8lW4OgJv8tjrQZJveRsx6j/TCacJdHgsiEFsCXO+yci0OoUsZYOX1Ace/M
-	SL4Se4rdCX97oYwL1Tn54oEZVPHhRT9a317EfAcyEQlhezxp3bGTQCZuA9wTn2ivPcupZQz9yGv
-	Hf252+LgIgD36tY0e+wMb82NyJTJxQ8nzX4h0ovxhnjpgxZ2cXOjqMcDKHOn0j9pQ==
-X-Google-Smtp-Source: AGHT+IHkjH80GQTqq34oQO8qDVtyYgt1GSoj40Mv1uGkahK/UBb6cgj2XQHwoTsX/bBBE4uM6KJFbg==
-X-Received: by 2002:a05:600c:1e1b:b0:434:fa55:eb56 with SMTP id 5b1f17b1804b1-436e2686279mr310262785e9.7.1737022651778;
-        Thu, 16 Jan 2025 02:17:31 -0800 (PST)
-Received: from [192.168.68.163] ([145.224.65.18])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-437c73e370fsm54756825e9.0.2025.01.16.02.17.30
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 16 Jan 2025 02:17:31 -0800 (PST)
-Message-ID: <49f6619d-f042-42b9-9359-b7d78783a32e@linaro.org>
-Date: Thu, 16 Jan 2025 10:17:30 +0000
+	id 1tYMz4-0000000ETgq-0qdf;
+	Thu, 16 Jan 2025 10:20:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 611CAA41452;
+	Thu, 16 Jan 2025 10:18:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F083DC4CED6;
+	Thu, 16 Jan 2025 10:20:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737022817;
+	bh=qqJpTXUP3GhZ0W/fxsUBOFjIJ8kNite2YItXfgc9pgc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Q74jZqpO7BdxmoOsraDvrDdRdxNZ6USgpsfyXkP36HbFERv2Ce1WYgvJNtE1Vltij
+	 /XQH1asFFuKpcYnyZsrhbf63iVwuMPCqf0CN/bQ9Z4kY4+4AAfOyfb7LY1VCVr3qdL
+	 CDCyKVIUw6jOS+7/5BAMTY1BFaxKtvGUNKdFZg4NQyxnM946ggQI76Z4g+4amLa7EU
+	 uv4sJhp7sHebnPhvWVShD1KH0NG3VbcTY+tiQBtOMjKZaLJMVk/kUkHDgbm9glKCo6
+	 MUokw9X++gicc3ie17pRq26I5uz5+BjYeWz9XxSqeMhMM0F5ExEwdS1FBPI6i0sDVE
+	 KCNJbrw9CtaHQ==
+Message-ID: <b212d05d-de3b-41b2-bc48-c6b79ae54a8b@kernel.org>
+Date: Thu, 16 Jan 2025 11:20:09 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 2/5] Coresight: Add trace_id function to retrieving the
- trace ID
-To: Jie Gan <quic_jiegan@quicinc.com>
-Cc: Jinlong Mao <quic_jinlmao@quicinc.com>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, Tingwei Zhang <quic_tingweiz@quicinc.com>,
- linux-arm-msm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>
-References: <20241226011022.1477160-1-quic_jiegan@quicinc.com>
- <20241226011022.1477160-3-quic_jiegan@quicinc.com>
- <64731493-4bd1-4707-9452-5ca86744875b@linaro.org>
- <a2d995bc-02ff-4374-968e-2fa6d8f921dd@quicinc.com>
- <02f114b7-8654-4402-b105-7aef41d487f0@linaro.org>
- <e3a29406-075d-41f6-888c-ebe168162134@quicinc.com>
- <b8fd3d5a-fc61-4ab0-8fb1-7cacf4cab9f5@linaro.org>
- <5c0827ce-cf25-43d0-a160-5f99e82f582c@quicinc.com>
+Subject: Re: [PATCH v3 1/2] dt-bindings: pinctrl: mediatek: add support for
+ mt8196
+To: =?UTF-8?B?Q2F0aHkgWHUgKOiuuOWNjuWptyk=?= <ot_cathy.xu@mediatek.com>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ =?UTF-8?B?TGVpIFh1ZSAo6Jab56OKKQ==?= <Lei.Xue@mediatek.com>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ =?UTF-8?B?V2VuYmluIE1laSAo5qKF5paH5b2sKQ==?= <Wenbin.Mei@mediatek.com>,
+ "linus.walleij@linaro.org" <linus.walleij@linaro.org>,
+ =?UTF-8?B?R3VvZG9uZyBMaXUgKOWImOWbveagiyk=?= <Guodong.Liu@mediatek.com>,
+ "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "robh@kernel.org" <robh@kernel.org>,
+ "sean.wang@kernel.org" <sean.wang@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+References: <20250115063555.32492-1-ot_cathy.xu@mediatek.com>
+ <20250115063555.32492-2-ot_cathy.xu@mediatek.com>
+ <nmyxygrya6cpalmirsunvkx32uox3kjxd4l5ggdhjtj7edyizz@yodolm5ktboo>
+ <f7ba63c8afcef1d1925d51e35e4b81f0d0e773ff.camel@mediatek.com>
+ <d04bc250-2104-4e02-9bf8-5785f4444c8d@kernel.org>
+ <d11076d3eb2f92018fd3e26cae665a47f71ca838.camel@mediatek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <5c0827ce-cf25-43d0-a160-5f99e82f582c@quicinc.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <d11076d3eb2f92018fd3e26cae665a47f71ca838.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_021733_513974_7367B503 
-X-CRM114-Status: GOOD (  43.17  )
+X-CRM114-CacheID: sfid-20250116_022018_375787_B45ADDA2 
+X-CRM114-Status: GOOD (  20.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,266 +135,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 16/01/2025 3:01 am, Jie Gan wrote:
-> 
-> 
-> On 1/15/2025 8:29 PM, James Clark wrote:
+On 16/01/2025 09:18, Cathy Xu (许华婷) wrote:
+> On Thu, 2025-01-16 at 08:28 +0100, Krzysztof Kozlowski wrote:
+>> External email : Please do not click links or open attachments until
+>> you have verified the sender or the content.
 >>
 >>
->> On 15/01/2025 1:44 am, Jie Gan wrote:
->>>
->>>
->>> On 1/14/2025 6:07 PM, James Clark wrote:
+>> On 16/01/2025 03:20, Cathy Xu (许华婷) wrote:
+>>>>> +          bias-pull-down:
+>>>>> +            oneOf:
+>>>>> +              - type: boolean
+>>>>> +              - enum: [100, 101, 102, 103]
+>>>>> +                description: mt8196 pull down PUPD/R0/R1 type
+>>>>> define value.
+>>>>> +              - enum: [200, 201, 202, 203, 204, 205, 206, 207]
+>>>>> +                description: mt8196 pull down RSEL type define
+>>>>> value.
 >>>>
->>>>
->>>> On 14/01/2025 2:51 am, Jie Gan wrote:
->>>>>
->>>>>
->>>>> On 1/13/2025 8:02 PM, James Clark wrote:
->>>>>>
->>>>>>
->>>>>> On 26/12/2024 1:10 am, Jie Gan wrote:
->>>>>>> Add 'trace_id' function pointer in ops. It's responsible for
->>>>>>> retrieving the device's trace ID.
->>>>>>>
->>>>>>> Add 'struct cs_sink_data' to store the data that is needed by
->>>>>>> coresight_enable_path/coresight_disable_path. The structure
->>>>>>> will be transmitted to the helper and sink device to enable
->>>>>>> related funcationalities.
->>>>>>>
->>>>>>
->>>>>> The new cs_sink_data struct is quite specific to this change. Can 
->>>>>> we start passing the path around to enable/disable functions, that 
->>>>>> will allow devices to gather anything they want in the future. 
->>>>>> Because we already have coresight_get_sink(path), 
->>>>>> coresight_get_source(path) etc.
->>>>>>
->>>>>> And see below, but for this case we can also change the path 
->>>>>> struct to contain the trace ID. Then all the new functions, 
->>>>>> allocations and searches for the trace ID are unecessary. The CTCU 
->>>>>> will have access to the path, and by the time its enable function 
->>>>>> is called the trace ID is already assigned.
->>>>>>
->>>>>> It's also easier to understand at which point a trace ID is 
->>>>>> allocated, rather than adding the trace_id() callbacks from 
->>>>>> everywhere which could potentially either read or allocate. I 
->>>>>> suppose that's "safer" because maybe it's not allocated, but I 
->>>>>> can't see what case it would happen in reverse.
->>>>>>
->>>>> Thank you for comment. I will try this solution.
->>>>> The biggest challenge for the patch is how to correctly read 
->>>>> trace_id from source device and passthrough it to helper device as 
->>>>> the source device always the last one to enable. I believe your 
->>>>> proposed solution is better than mine and has minimal impact on the 
->>>>> basic framework, but I think we still need read_trace in source_ops 
->>>>> and link_ops. Then we can read the trace_id in coresight_build_path 
->>>>> function and save it to the coresight_path to avoid redundant 
->>>>> searching?
->>>>>
->>>>>
->>>>>>> Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
->>>>>>> ---
->>>>>>>   drivers/hwtracing/coresight/coresight-core.c  | 59 ++++++++++++ 
->>>>>>> + + +----
->>>>>>>   drivers/hwtracing/coresight/coresight-etb10.c |  3 +-
->>>>>>>   .../hwtracing/coresight/coresight-etm-perf.c  | 37 ++++++++++--
->>>>>>>   .../coresight/coresight-etm3x-core.c          | 30 ++++++++++
->>>>>>>   .../coresight/coresight-etm4x-core.c          | 29 +++++++++
->>>>>>>   drivers/hwtracing/coresight/coresight-priv.h  | 13 +++-
->>>>>>>   drivers/hwtracing/coresight/coresight-stm.c   | 22 +++++++
->>>>>>>   drivers/hwtracing/coresight/coresight-sysfs.c | 24 +++++++-
->>>>>>>   .../hwtracing/coresight/coresight-tmc-etf.c   |  3 +-
->>>>>>>   .../hwtracing/coresight/coresight-tmc-etr.c   |  6 +-
->>>>>>>   drivers/hwtracing/coresight/coresight-tpda.c  | 20 +++++++
->>>>>>>   drivers/hwtracing/coresight/coresight-trbe.c  |  4 +-
->>>>>>>   drivers/hwtracing/coresight/ultrasoc-smb.c    |  3 +-
->>>>>>>   include/linux/coresight.h                     |  6 ++
->>>>>>>   14 files changed, 234 insertions(+), 25 deletions(-)
->>>>>>>
->>>>>>> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/ 
->>>>>>> drivers/ hwtracing/coresight/coresight-core.c
->>>>>>> index 0a9380350fb5..2e560b425fd4 100644
->>>>>>> --- a/drivers/hwtracing/coresight/coresight-core.c
->>>>>>> +++ b/drivers/hwtracing/coresight/coresight-core.c
->>>>>>> @@ -23,6 +23,7 @@
->>>>>>>   #include "coresight-etm-perf.h"
->>>>>>>   #include "coresight-priv.h"
->>>>>>>   #include "coresight-syscfg.h"
->>>>>>> +#include "coresight-trace-id.h"
->>>>>>>   /*
->>>>>>>    * Mutex used to lock all sysfs enable and disable actions and 
->>>>>>> loading and
->>>>>>> @@ -331,12 +332,12 @@ static int coresight_enable_helper(struct 
->>>>>>> coresight_device *csdev,
->>>>>>>       return helper_ops(csdev)->enable(csdev, mode, data);
->>>>>>>   }
->>>>>>> -static void coresight_disable_helper(struct coresight_device 
->>>>>>> *csdev)
->>>>>>> +static void coresight_disable_helper(struct coresight_device 
->>>>>>> *csdev, void *data)
->>>>>>>   {
->>>>>>> -    helper_ops(csdev)->disable(csdev, NULL);
->>>>>>> +    helper_ops(csdev)->disable(csdev, data);
->>>>>>>   }
->>>>>>> -static void coresight_disable_helpers(struct coresight_device 
->>>>>>> *csdev)
->>>>>>> +static void coresight_disable_helpers(struct coresight_device 
->>>>>>> *csdev, void *data)
->>>>>>>   {
->>>>>>>       int i;
->>>>>>>       struct coresight_device *helper;
->>>>>>> @@ -344,7 +345,7 @@ static void coresight_disable_helpers(struct 
->>>>>>> coresight_device *csdev)
->>>>>>>       for (i = 0; i < csdev->pdata->nr_outconns; ++i) {
->>>>>>>           helper = csdev->pdata->out_conns[i]->dest_dev;
->>>>>>>           if (helper && coresight_is_helper(helper))
->>>>>>> -            coresight_disable_helper(helper);
->>>>>>> +            coresight_disable_helper(helper, data);
->>>>>>>       }
->>>>>>>   }
->>>>>>> @@ -361,7 +362,7 @@ static void coresight_disable_helpers(struct 
->>>>>>> coresight_device *csdev)
->>>>>>>   void coresight_disable_source(struct coresight_device *csdev, 
->>>>>>> void *data)
->>>>>>>   {
->>>>>>>       source_ops(csdev)->disable(csdev, data);
->>>>>>> -    coresight_disable_helpers(csdev);
->>>>>>> +    coresight_disable_helpers(csdev, NULL);
->>>>>>>   }
->>>>>>>   EXPORT_SYMBOL_GPL(coresight_disable_source);
->>>>>>> @@ -371,7 +372,8 @@ EXPORT_SYMBOL_GPL(coresight_disable_source);
->>>>>>>    * disabled.
->>>>>>>    */
->>>>>>>   static void coresight_disable_path_from(struct list_head *path,
->>>>>>> -                    struct coresight_node *nd)
->>>>>>> +                    struct coresight_node *nd,
->>>>>>> +                    void *sink_data)
->>>>>>>   {
->>>>>>>       u32 type;
->>>>>>>       struct coresight_device *csdev, *parent, *child;
->>>>>>> @@ -417,13 +419,13 @@ static void 
->>>>>>> coresight_disable_path_from(struct list_head *path,
->>>>>>>           }
->>>>>>>           /* Disable all helpers adjacent along the path last */
->>>>>>> -        coresight_disable_helpers(csdev);
->>>>>>> +        coresight_disable_helpers(csdev, sink_data);
->>>>>>>       }
->>>>>>>   }
->>>>>>> -void coresight_disable_path(struct list_head *path)
->>>>>>> +void coresight_disable_path(struct list_head *path, void 
->>>>>>> *sink_data)
->>>>>>>   {
->>>>>>> -    coresight_disable_path_from(path, NULL);
->>>>>>> +    coresight_disable_path_from(path, NULL, sink_data);
->>>>>>>   }
->>>>>>>   EXPORT_SYMBOL_GPL(coresight_disable_path);
->>>>>>> @@ -505,10 +507,47 @@ int coresight_enable_path(struct list_head 
->>>>>>> *path, enum cs_mode mode,
->>>>>>>   out:
->>>>>>>       return ret;
->>>>>>>   err:
->>>>>>> -    coresight_disable_path_from(path, nd);
->>>>>>> +    coresight_disable_path_from(path, nd, sink_data);
->>>>>>>       goto out;
->>>>>>>   }
->>>>>>> +int coresight_read_traceid(struct list_head *path, enum cs_mode 
->>>>>>> mode,
->>>>>>> +               struct coresight_trace_id_map *id_map)
->>>>>>> +{
->>>>>>> +    int trace_id, type;
->>>>>>> +    struct coresight_device *csdev;
->>>>>>> +    struct coresight_node *nd;
->>>>>>> +
->>>>>>> +    list_for_each_entry(nd, path, link) {
->>>>>>
->>>>>> What do you think about also changing the path to this:
->>>>>>
->>>>>>   struct coresight_path {
->>>>>>     struct list_head *path,
->>>>>>     u8 trace_id
->>>>>>   };
->>>>>>
->>>>> That's better, I can simplify the coresight_read_traceid function 
->>>>> without traverse the path.
->>>>>
->>>>> But we still need to check the type of the coresight device, 
->>>>> because the TPDM does not have traceid and we use the trace_id from 
->>>>> the TPDA device that the TPDM connected. That's why I added 
->>>>> trace_id to link_ops.
->>>>>
->>>>
->>>> But if any device that allocates a trace ID saves it into the path, 
->>>> then as long as any other device that needs the ID is enabled after 
->>>> that it just reads it from the path directly. Assuming we pass the 
->>>> path to every enable and disable function.
->>>>
->>>> We wouldn't need coresight_read_traceid() if it always happens that 
->>>> way around, which I think it currently does?
->>>>
->>> I got your point here. You are right. If we passed path to the helper 
->>> device, just use coresight_get_source to obtain the source device, 
->>> then call the source_ops->trace_id to obtain the trace_id. So we 
->>> definitely dont need a standalone function, coresight_read_traceid().
+>>>> Not much improved.
 >>>
->>> Besides, I still need a function to retrive the trace_id of the TPDA 
->>> device if the source device is TPDM, right?
->>>
->>>
->>> Thanks,
->>> Jie
->>>
+>>>   I have removed the content related to 'resistance value', we use
+>>> 'RSEL' instead of 'resistance value'.
 >>
->> Yes, and that would require a search as the TPDA not always at one end 
->> of the path like coresight_get_source() and coresight_get_sink(). 
->> Which is why I was thinking it might be good to save the trace ID in 
->> the path struct to avoid it.
+>> So the value in Ohms was removed? I assume above do not have known
+>> value
+>> in Ohms?
+> 
+>   Yes, value in Ohns was removed, no code have knowm value.
+
+Does the hardware have known value in Ohms?
+
+
+> 
 >>
-> As you proposed, I created coresight_path structure as below:
-> struct coresight_path {
->      struct perf_output_handle       *handle;
+>>>
+>>>>
+>>>>
+>>>>> +            description: |
+>>>>> +              For pull down type is normal, it doesn't need
+>>>>> add
+>>>>> RSEL & R1R0.
+>>>>> +              For pull down type is PUPD/R0/R1 type, it can
+>>>>> add
+>>>>> R1R0 define to
+>>>>> +              set different resistance. It can support
+>>>>> "MTK_PUPD_SET_R1R0_00" &
+>>>>> +              "MTK_PUPD_SET_R1R0_01" & "MTK_PUPD_SET_R1R0_10"
+>>>>> &
+>>>>> +              "MTK_PUPD_SET_R1R0_11" define in mt8196.
+>>>>> +              For pull down type is PD/RSEL, it can add RSEL
+>>>>> define to set
+>>>>> +              different resistance. It can support
+>>>>> +              "MTK_PULL_SET_RSEL_000" &
+>>>>> "MTK_PULL_SET_RSEL_001" &
+>>>>> +              "MTK_PULL_SET_RSEL_010" &
+>>>>> "MTK_PULL_SET_RSEL_011" &
+>>>>> +              "MTK_PULL_SET_RSEL_100" &
+>>>>> "MTK_PULL_SET_RSEL_101" &
+>>>>> +              "MTK_PULL_SET_RSEL_110" &
+>>>>> "MTK_PULL_SET_RSEL_111"
+>>>>> define in
+>>>>> +              mt8196.
+>>>>> diff --git a/include/dt-bindings/pinctrl/mt8196-pinfunc.h
+>>>>> b/include/dt-bindings/pinctrl/mt8196-pinfunc.h
+>>>>> new file mode 100644
+>>>>> index 000000000000..bf0c8374407c
+>>>>> --- /dev/null
+>>>>> +++ b/include/dt-bindings/pinctrl/mt8196-pinfunc.h
+>>>>> @@ -0,0 +1,1572 @@
+>>>>> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
+>>>>> +/*
+>>>>> + * Copyright (C) 2025 Mediatek Inc.
+>>>>> + * Author: Guodong Liu <Guodong.Liu@mediatek.com>
+>>>>> + */
+>>>>> +
+>>>>> +#ifndef __MT8196_PINFUNC_H
+>>>>> +#define __MT8196_PINFUNC_H
+>>>>> +
+>>>>> +#include <dt-bindings/pinctrl/mt65xx.h>
+>>>>> +
+>>>>> +#define PINMUX_GPIO0__FUNC_GPIO0 (MTK_PIN_NO(0) | 0)
+>>>>> +#define PINMUX_GPIO0__FUNC_DMIC1_CLK (MTK_PIN_NO(0) | 1)
+>>>>> +#define PINMUX_GPIO0__FUNC_SPI3_A_MO (MTK_PIN_NO(0) | 3)
+>>>>> +#define PINMUX_GPIO0__FUNC_FMI2S_B_LRCK (MTK_PIN_NO(0) | 4)
+>>>>> +#define PINMUX_GPIO0__FUNC_SCP_DMIC1_CLK (MTK_PIN_NO(0) | 5)
+>>>>> +#define PINMUX_GPIO0__FUNC_TP_GPIO14_AO (MTK_PIN_NO(0) | 6)
+>>>>
+>>>> I do not see how you resolved my comment from v1. In v2 I
+>>>> reminded
+>>>> about
+>>>> it, so you responded that yopu will change something, but I do
+>>>> not
+>>>> see
+>>>> any changes.
+>>>>
+>>>> So explain: how did you resolve my comment?
+>>>>
+>>>> These two examples where you claim you will change something, but
+>>>> send
+>>>> the same. I skipped the rest of the patch.
+>>>
+>>>   Thank you for your patient response, here is my explanation for
+>>> you
+>>> question:
+>>>
+>>>   In v1, I undertand that you meant I didn't sent a real binding,
+>>> and
+>>
+>>
+>> The comment is under specific lines, so I said these defines are not
+>> a
+>> real binding. You sent them again, but they are still not bindings,
+>> because they are not used in the driver. Maybe the usage is
+>> convoluted,
+>> so which part of implementation are these connecting with DTS? IOW,
+>> which part of driver relies on the binding?
+> 
+>   I got you. This binding define many macros, which will be used for
+> 'pinmux' setting in the DTS. The usage like this:
+> 
+>   adsp_uart_pins: adsp-uart-pins {
+>                 pins-tx-rx {
+>                         pinmux = <PINMUX_GPIO35__FUNC_O_ADSP_UTXD0>,
+>                                  <PINMUX_GPIO36__FUNC_I1_ADSP_URXD0>;
+>                 };
+>         };
 
-What's the perf handle for? Seems like this change for the CTCU only 
-requires access to the trace_id which is added below.
 
->      struct list_head                *path;
->      u8                trace_id;
-> };
-> 
-> In coresight_enable_path, I modified the parameters that transmitted to 
-> helper device:
-> struct coresight_path *cs_path;
-> 
-> coresight_enable_helpers(csdev, mode, sink_data) ->
-> coresight_enable_helpers(csdev, mode, cs_path)
-> 
-> The cs_path will be constructed and initialized in coresight_build_path 
-> function.
-> 
-> For perf mode, the trace_id is collected within etm_setup_aux and stored 
-> in cs_path->trace_id to avoid extra cost of retrieving the trace_id;
-> 
+That's DTS, not driver, so not a binding. Drop the header from bindings.
 
-Looks good.
 
-> For sysfs mode, I let the CTCU device to retrieving the trace_id with 
-> path. The TPDA device is located close to the TPDM, making the cost of 
-> searching for the TPDA device acceptable.
-> 
-> The cs_path will be stored in the same manner as the previous path.
-> 
-> How do you think about this solution?
-> 
-
-Can it not be done the same way as Perf, at least for consistency? If 
-the enable helper function already gets access to the path, and the path 
-already has the trace ID, why is any search required?
-
-> Thanks,
-> Jie
-> 
-> [...]
-> 
-
+Best regards,
+Krzysztof
 
