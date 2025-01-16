@@ -4,71 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CB23C02187
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 18:23:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF873C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 18:26:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SeAQnoOD31qaESps8bJFkY4L4pabIEG6GYqfL68BMSg=; b=QC0HZIp+FXxwT8mHahkWzGWFk9
-	9hJhY4VYCfNb4wr2VFUDDlU3DFIkqWTX8qQ2ciuZt9BGbhQJeZRWAiPcgFuBfe1beVEzgWDA2txaq
-	HPcz6+XfGfFGoM5/7xB7Es2yVBmNzhe9coBvHfTNqIERKCLof1HjawqqSNOhRe9HsZOKfn6dNlMph
-	1H5XLM4ojCsOS8zyPv7U4aFrwNWvDfBYupbFEKHBC6NH6je06gITKvyUaGvA2JuBL8DvG2FRy5YJJ
-	F7BUDPqH4+kDVJDDYXuzM+6jIfoFjdohszUkrw44yquYyUY+c33M+cYf2FwuWbYL/9PHCJpKgCd/a
-	6xO7Bg6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=buVL1pnLerOPjtoyrSCfIwa/AuSVYZWCin/1ItG4RPg=; b=xgnuF7auyKhhO07noz+axoLrs+
+	srCDuioHuwC7dDEbFcAQR6vVjcP94RMHgizfN+B2YB86Kc97vLl2R6Cb6tcLAHWGQz5Jc5M3Uxsec
+	OXB3JJt9vVyqYv0fFutEIfbrUejtKMGxRPfFI5c5gm9AerMfalLiu0GjoN+/a/6ouGOf6qLKxfMns
+	D80JanG0djJ9TnPzgwcYEhwKbE5sqpkU33zGrgCnuuPwqxtuH5KaJXUqwCrXGej7cuEgXZJDhB9jT
+	QwC/y43SSnVpcNwkpI9az4c5yekE2s3NTmmQCgAgJDjDjPyoM/IyjZ/RzC/0YasfqPuoPtAAx4bF6
+	Sg2WwSnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYUWS-0000000FmnI-2osn;
-	Thu, 16 Jan 2025 18:23:16 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1tYUZa-0000000FnFg-24kf;
+	Thu, 16 Jan 2025 18:26:30 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYUUv-0000000FmdA-0Ywy
+	id 1tYUYJ-0000000FnAf-3Yjb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 18:21:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1737051701; x=1768587701;
-  h=date:from:to:cc:subject:message-id;
-  bh=QsaMUkrjDDYSbM23chQN/TuI48QUKnKwBFKULjywNRk=;
-  b=K8k6i3K50ZZbVa1fp6q0XDY/mkk8KAPOwIs30TqwReY+3KhhTK0VUqkD
-   3w1hRGiUi3FWlxklHOqo3M/usHZg6lUIWYDj3865DlnpfhLUzl8TzOJxU
-   IAYyHYYgB4znhE5MI6TGZKTIgb04by1B45BUdugBcFTjYf3eQh1R2BKlg
-   Pd/gtNomF/DRlmybZW2uD2pzvhRnmX82XOjpA82zNK8B/lITsNfQlMkqj
-   9L+WINsbGYUa7uFgOi0zJ0wBhdLizb3qHXoKy+aLyGv0KhTvyjU5qVnmO
-   RllkAXad2mJm3wQ6dmWMqmvLe4lMGeSgCUYDZ++MKmV8xyrtW5FFvPk8S
-   g==;
-X-CSE-ConnectionGUID: owtWj6AfRcCCI/scyNbgsg==
-X-CSE-MsgGUID: SMFrp+kbQtOruWugUJC55g==
-X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="48870452"
-X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
-   d="scan'208";a="48870452"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jan 2025 10:21:40 -0800
-X-CSE-ConnectionGUID: D/40QAycSfCoow6Vd/YBww==
-X-CSE-MsgGUID: 4rjgi6xDTyWyflzXd/kLMA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="106042690"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by orviesa007.jf.intel.com with ESMTP; 16 Jan 2025 10:21:39 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tYUUq-000SFd-2W;
-	Thu, 16 Jan 2025 18:21:36 +0000
-Date: Fri, 17 Jan 2025 02:21:27 +0800
-From: kernel test robot <lkp@intel.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:drivers/reset] BUILD SUCCESS
- 72bb8275a3b0784a817e0371c49c0110d68bb7fb
-Message-ID: <202501170221.D2TZCSpM-lkp@intel.com>
-User-Agent: s-nail v14.9.24
+	Thu, 16 Jan 2025 18:25:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id E5812A42713;
+	Thu, 16 Jan 2025 18:23:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BE3DC4CED6;
+	Thu, 16 Jan 2025 18:25:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737051910;
+	bh=EU6PpibWHJM3Ka80rEEuKYaqyZV32Fze3gQ66ir92js=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ROeKW+OP4EH5DkODSpECUPpm8Svwv/fb32oDFq0mI2VBnKLZPkQ8nnBLW6znVJQ3o
+	 lIadpEdHBBXVGeHuvpO8FZ55/SrGpAe+qk6BWWJbf1PfwA/reaxZlC+7daqb1qyYUt
+	 5Tx/apO4rclvAG06WImqKoRaBXdCDwzxWn2Bkvni7E/n5xvdCXK311poaaEnY5U6/w
+	 dK9cyIEjWf/LQd0kWbAsF+his8CYxaexOPlIMvQ+m9QIo7+OoHFXhkqWeolzj8m8iE
+	 0rsPj4/wwox2adU1BGUTvKgTwNKxW6947Dvt9MVZecnHxlFLJOCa8Svjqpk6dis/f6
+	 FXeqI4slrj7IQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tYUYG-00Ct9M-CZ;
+	Thu, 16 Jan 2025 18:25:08 +0000
+Date: Thu, 16 Jan 2025 18:25:07 +0000
+Message-ID: <86y0zavcos.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Eric Auger <eauger@redhat.com>
+Cc: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	kvmarm <kvmarm@lists.linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	oliver.upton@linux.dev,
+	christoffer.dall@arm.com,
+	suzuki.poulose@arm.com,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	coltonlewis@google.com,
+	joey.gouly@arm.com,
+	yuzenghui@huawei.com,
+	darren@os.amperecomputing.com,
+	vishnu@os.amperecomputing.com
+Subject: Re: [PATCH] KVM: arm64: nv: Set ISTATUS for emulated timers, If timer expired
+In-Reply-To: <b22d5916-8b55-43bc-a256-2136d66ad25f@redhat.com>
+References: <20241209053201.339939-1-gankulkarni@os.amperecomputing.com>
+	<867c89tc4q.wl-maz@kernel.org>
+	<c5b1c3d7-56ca-4afc-a831-045dba4beffa@os.amperecomputing.com>
+	<865xntt2kv.wl-maz@kernel.org>
+	<8be59ff3-6a68-48e1-8181-0ce4b2e7180f@os.amperecomputing.com>
+	<bcb4289b-507c-4ea1-afc7-6febd34d88db@redhat.com>
+	<86y10osr19.wl-maz@kernel.org>
+	<4d443db1-85b1-4071-acd5-3187deb9cb17@redhat.com>
+	<2f6b2cb1-3d32-480a-9801-9b993ae74e2d@os.amperecomputing.com>
+	<152d262e-641d-4bb1-9656-a13e049d62c4@redhat.com>
+	<86h661wje4.wl-maz@kernel.org>
+	<4a9fbdd9-ad23-44bc-8ba5-399f08068db4@redhat.com>
+	<86cygpwfy0.wl-maz@kernel.org>
+	<b22d5916-8b55-43bc-a256-2136d66ad25f@redhat.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: eauger@redhat.com, gankulkarni@os.amperecomputing.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, oliver.upton@linux.dev, christoffer.dall@arm.com, suzuki.poulose@arm.com, will@kernel.org, catalin.marinas@arm.com, coltonlewis@google.com, joey.gouly@arm.com, yuzenghui@huawei.com, darren@os.amperecomputing.com, vishnu@os.amperecomputing.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_102141_183390_D412DF5B 
-X-CRM114-Status: UNSURE (   5.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250116_102512_017833_98AFB003 
+X-CRM114-Status: GOOD (  15.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,86 +108,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git drivers/reset
-branch HEAD: 72bb8275a3b0784a817e0371c49c0110d68bb7fb  reset: amlogic: aux: drop aux registration helper
+Hi Eric,
 
-elapsed time: 1444m
+On Thu, 16 Jan 2025 17:52:10 +0000,
+Eric Auger <eauger@redhat.com> wrote:
+> 
+> >>>> I tested on AmpereOne and Grace-Hopper systems
+> >>>
+> >>> Thanks for the confirmation. I haven't had a chance to try QEMU yet,
+> >>> but I expect that save/restore will not work. Something to look into,
+> >> I have not tested this yet.I will give it a try.
+> > 
+> > Thanks, that'd be super helpful.
+> 
+> I confirm the migration fails when putting some registers on the dest
+> side. I will further investigate.
 
-configs tested: 66
-configs skipped: 1
+Thanks for confirming.
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+I suspect that the kernel visibility bits are not exactly correct (or
+depend on some odd ordering). If you can point me to a register that
+fails to restore correctly, that'd be useful. Hopefully, most
+EL2-specific registers suffer from the same defect.
 
-tested configs:
-alpha                            allnoconfig    gcc-14.2.0
-arc                             allmodconfig    gcc-13.2.0
-arc                              allnoconfig    gcc-13.2.0
-arc                             allyesconfig    gcc-13.2.0
-arc                  randconfig-001-20250116    gcc-13.2.0
-arc                  randconfig-002-20250116    gcc-13.2.0
-arm                              allnoconfig    clang-17
-arm                  randconfig-001-20250116    gcc-14.2.0
-arm                  randconfig-002-20250116    clang-15
-arm                  randconfig-003-20250116    gcc-14.2.0
-arm                  randconfig-004-20250116    gcc-14.2.0
-arm64                            allnoconfig    gcc-14.2.0
-arm64                randconfig-001-20250116    gcc-14.2.0
-arm64                randconfig-002-20250116    gcc-14.2.0
-arm64                randconfig-003-20250116    clang-15
-arm64                randconfig-004-20250116    clang-20
-csky                             allnoconfig    gcc-14.2.0
-csky                 randconfig-001-20250116    gcc-14.2.0
-csky                 randconfig-002-20250116    gcc-14.2.0
-hexagon                          allnoconfig    clang-20
-hexagon              randconfig-001-20250116    clang-20
-hexagon              randconfig-002-20250116    clang-20
-i386       buildonly-randconfig-001-20250116    clang-19
-i386       buildonly-randconfig-002-20250116    clang-19
-i386       buildonly-randconfig-003-20250116    clang-19
-i386       buildonly-randconfig-004-20250116    clang-19
-i386       buildonly-randconfig-005-20250116    clang-19
-i386       buildonly-randconfig-006-20250116    clang-19
-loongarch                        allnoconfig    gcc-14.2.0
-loongarch            randconfig-001-20250116    gcc-14.2.0
-loongarch            randconfig-002-20250116    gcc-14.2.0
-nios2                randconfig-001-20250116    gcc-14.2.0
-nios2                randconfig-002-20250116    gcc-14.2.0
-parisc               randconfig-001-20250116    gcc-14.2.0
-parisc               randconfig-002-20250116    gcc-14.2.0
-powerpc              randconfig-001-20250116    clang-20
-powerpc              randconfig-002-20250116    gcc-14.2.0
-powerpc              randconfig-003-20250116    clang-20
-powerpc64            randconfig-001-20250116    clang-19
-powerpc64            randconfig-002-20250116    clang-20
-powerpc64            randconfig-003-20250116    clang-15
-riscv                randconfig-001-20250116    gcc-14.2.0
-riscv                randconfig-002-20250116    gcc-14.2.0
-s390                            allmodconfig    clang-19
-s390                            allyesconfig    gcc-14.2.0
-s390                 randconfig-001-20250116    gcc-14.2.0
-s390                 randconfig-002-20250116    clang-18
-sh                              allmodconfig    gcc-14.2.0
-sh                              allyesconfig    gcc-14.2.0
-sh                   randconfig-001-20250116    gcc-14.2.0
-sh                   randconfig-002-20250116    gcc-14.2.0
-sparc                           allmodconfig    gcc-14.2.0
-sparc                randconfig-001-20250116    gcc-14.2.0
-sparc                randconfig-002-20250116    gcc-14.2.0
-sparc64              randconfig-001-20250116    gcc-14.2.0
-sparc64              randconfig-002-20250116    gcc-14.2.0
-um                   randconfig-001-20250116    clang-19
-um                   randconfig-002-20250116    gcc-12
-x86_64     buildonly-randconfig-001-20250116    gcc-12
-x86_64     buildonly-randconfig-002-20250116    gcc-12
-x86_64     buildonly-randconfig-003-20250116    gcc-12
-x86_64     buildonly-randconfig-004-20250116    clang-19
-x86_64     buildonly-randconfig-005-20250116    clang-19
-x86_64     buildonly-randconfig-006-20250116    clang-19
-xtensa               randconfig-001-20250116    gcc-14.2.0
-xtensa               randconfig-002-20250116    gcc-14.2.0
+Cheers,
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
