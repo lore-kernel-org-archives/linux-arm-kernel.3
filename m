@@ -4,69 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4039BC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 18:06:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D830DC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 18:07:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:Cc:To:From:References:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C8lyvdil+OAHd9BneEih8vko6Ln4alGLZIq1J3kePtk=; b=u5G791KL6+Bz70y4HGtSIv1USZ
-	GkAQnbWgec4m0BUnJR0NiQH+Am0JgP2mwQw6KGiYEh4/98LMPXkmOBTcKkg7Lz37U4B0dNa5LgMeO
-	7UoaxeEvr84ZGvKlWVyX2ZcnCzAI9kbu0+ESXtEzeiOIXhOD2/YbTRJZ3bdJzGsjbAqaume6AGXPL
-	vPaiR+q4uH8DBSwTNJPOIROmIYJgpIYRIDrtN8F9cDi5pYp5iLEUi6StUknGVT5808t6vhw4kMPFL
-	Fc+lVJpxhSXgdRgye6qClwSzsH5p2I32OTXGnpmNGIQk4t+qerW0x8QEaxKQ5u+r1067aumZBF2Zu
-	2aVRVBfQ==;
+	bh=4Wd1oeWyHI9gXwuqG0xZ0ivGODmZaK+fUcpqdzaY6Nw=; b=QRbdTxVOZRofN+O04Veobr9Yrl
+	FnWcCI/1wbOYTair4I+0TbnTfqgyknPkTB4eDz0qQqPP4zDSA4WGWHMPfVd5yn5oZoNtJS+A6jJXJ
+	lbRam3M3rlcT7SOmGELoRuzGBJGVccXz8eTBxR1+iftImQFgTnBYe4pSuxCei35T8tORoL1mMz/7x
+	e3wAG1A8BR+0bcr3ZTA1pDr/oTC4rm5oAInZmul78Xzei3f3JWiFP6fqdU4OicyIJlzkMA0v+K1/d
+	DV9yDxSzY4q0yeAte5KfyQhbb4OX5DVUNzlLqwdQ4XxtJ0K1zdxbLXGZVeTYvDwEKJBaxeA4z7frV
+	M6GxitSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYUFU-0000000Fl9r-1ID9;
-	Thu, 16 Jan 2025 18:05:44 +0000
-Received: from smtp-69.smtpout.orange.fr ([80.12.242.69] helo=smtp.smtpout.orange.fr)
+	id 1tYUGi-0000000FlOr-409A;
+	Thu, 16 Jan 2025 18:07:00 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYUDO-0000000FklD-2QHi
+	id 1tYUEA-0000000FktY-1a6N
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 18:03:38 +0000
-Received: from [192.168.1.37] ([90.11.132.44])
-	by smtp.orange.fr with ESMTPA
-	id YUD3tq3Ijhk1BYUD6t9tt8; Thu, 16 Jan 2025 19:03:26 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1737050606;
-	bh=C8lyvdil+OAHd9BneEih8vko6Ln4alGLZIq1J3kePtk=;
-	h=Message-ID:Date:MIME-Version:Subject:From:To;
-	b=FB4JL7P/BdyTXG7TvkfEKwzz7VWZNzs5aATrG78Z1bEvy2qDJ7Vmi8xiD9/A8YCXR
-	 4G38/XoW3PILjyG2BfmODtiWAX0Rhoos+uaOIskD4FxQK8ktHOfUxoJIz+eDhYhM6S
-	 Oanp0BLTzLNm4zJhPcbKXTs8MT5hO+2bM/m9D+9Sh2EBsnodjCTd1ILjcKlG4I0Kgg
-	 KGyVCR5tHhR3y9I+5qu+wlbtkjYVxEUYX/6PpzVRnRsjjuT6hroFCFG3n6EjT4LFku
-	 4AI3+i6MpBq8orXqR93xIJlGBiXsUtCTRfzaIkLt4qh3z6YD7IWK/E4R8NNfw/WYfv
-	 9+EPrTWXo0rBQ==
-X-ME-Helo: [192.168.1.37]
-X-ME-Auth: bWFyaW9uLmphaWxsZXRAd2FuYWRvby5mcg==
-X-ME-Date: Thu, 16 Jan 2025 19:03:26 +0100
-X-ME-IP: 90.11.132.44
-Message-ID: <3991ab78-d1a2-4cae-bea5-fb4dfa58aba3@wanadoo.fr>
-Date: Thu, 16 Jan 2025 19:03:13 +0100
+	Thu, 16 Jan 2025 18:04:25 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2164b1f05caso23585535ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 10:04:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1737050661; x=1737655461; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=4Wd1oeWyHI9gXwuqG0xZ0ivGODmZaK+fUcpqdzaY6Nw=;
+        b=VDaEQ06JmmAO0NDfrsaVRhRFilFTVKjqtfR61FFSMd92h+UO+3rslBq6ZkSd6G8a8H
+         Jc31WNzRxOgUZvm9krB53jdCU0FGYYJwzkAwRQyQhgtrquEZ99s5c6q+TZiXk+jOikOs
+         8Uaokh8W3+ogAe3WJSa6Q+MxUyv4bxOqHglQ8=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737050661; x=1737655461;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4Wd1oeWyHI9gXwuqG0xZ0ivGODmZaK+fUcpqdzaY6Nw=;
+        b=WDImBO3iXuoZ83iiCzCM27MjMvC7GzsxmNT7IHsqSosl8PnB98qyeMkCEMEbxGn0PV
+         qYVxagFPWMnhFqwKqgjYmwUsf9I16WcxZk9VDyUrGvIXF4rWhwm8NGF8l+HmZuI7fKOl
+         uWvBCu3LxH6FgRgkHmctKed80UYWu52Hkf9lhyotflIQSndX+b8Sk+tsSi3SJc7kZnXd
+         dqhA7jErzpDnQu4OeZrO8aoGfngmhr15ykKvunPvUkraHwr5oUIaZCeFDyTnHbgteZa3
+         lxuxiKln6/+uIgEpKpTiemyN2QZUJxQ/H/JmXKDvPJgpP4EqqGnHagoIQw+t/Ywy+tgt
+         sMrQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUJOZ+RMRKDS76HIC9zxUL+clhmHFn8K85iBWRDb2HXnauR4u7dw02z+Uduzarj6RbsJfCOwMAryVhvm3JUR3Wy@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXqBF7+V+qJ+W6BSkqY3Clh2q+q2jlgNZbagw5f9HPiXLVlQy0
+	Y6P9oY+qPTrjEFexBfHSRgyy71DUXoAMmUyooxMJP5UxTVORp02EMa1g0LyY3w==
+X-Gm-Gg: ASbGnctJ/ytFru8I5fvn5fPMUJJnwJj+6oQmgVWmeYa03yYJ7O+AwYga8W3NTDc6zsM
+	6G5QMQlKn130TLRECqne2Q3NHr01Oas6IDaYSuZHr3rF8HMwGZ6Grn4HXdyJBNTGXn06hK8bpJQ
+	SstSaOUDK2DVMGbNPAmPwn6fsjQMzF3qmX91CVuoNN6UwQ1oCc8fUISvUndq4Tu4TfFr/BruPba
+	MY0LPp7uCyJIY8hEuGvoVVKXOrV6s7JXQe7R3jqeFJKI8r0//cl/dEQB/YFt0yej3z4a2fxTxml
+	WbsyfElp6nT+XlwV9NlC
+X-Google-Smtp-Source: AGHT+IHdMjYWYUPWi30MlBFs8sU8F6TlSjCCIdRcJHouC8fvOgy8yNmIwKVXpO733Awqz9ZjlbG2TQ==
+X-Received: by 2002:a17:903:1245:b0:21a:82b7:fea2 with SMTP id d9443c01a7336-21a83f592edmr479108815ad.15.1737050659554;
+        Thu, 16 Jan 2025 10:04:19 -0800 (PST)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21c2ceb9b3asm3086255ad.75.2025.01.16.10.04.15
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 16 Jan 2025 10:04:18 -0800 (PST)
+Message-ID: <967278a1-a2e9-44c3-90ee-ae9a57a54421@broadcom.com>
+Date: Thu, 16 Jan 2025 10:04:14 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/4] input: apple_z2: Add a driver for Apple Z2
- touchscreens
-References: <20250115-z2-v4-0-d7361ab16ba0@gmail.com>
- <20250115-z2-v4-2-d7361ab16ba0@gmail.com>
-Content-Language: en-US, fr-FR
-From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-To: devnull+fnkl.kernel.gmail.com@kernel.org
-Cc: alyssa@rosenzweig.io, asahi@lists.linux.dev, conor+dt@kernel.org,
- devicetree@vger.kernel.org, dmitry.torokhov@gmail.com,
- fnkl.kernel@gmail.com, j@jannau.net, krzk+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-input@vger.kernel.org,
- linux-kernel@vger.kernel.org, marcan@marcan.st, neal@gompa.dev,
- robh@kernel.org, rydberg@bitmath.org, sven@svenpeter.dev
-In-Reply-To: <20250115-z2-v4-2-d7361ab16ba0@gmail.com>
+Subject: Re: [PATCH v4 4/4] arm: defconfig: drop RT_GROUP_SCHED=y from
+ bcm2835/tegra/omap2plus
+To: Celeste Liu <uwu@coelacanthus.name>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Guo Ren <guoren@kernel.org>, Anup Patel <anup@brainfault.org>,
+ Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+ Russell King <linux@armlinux.org.uk>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>, Tony Lindgren <tony@atomide.com>,
+ Thierry Reding <thierry.reding@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>, Aaro Koskinen
+ <aaro.koskinen@iki.fi>, Andreas Kemnade <andreas@kemnade.info>,
+ Kevin Hilman <khilman@baylibre.com>, Roger Quadros <rogerq@kernel.org>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-sh@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rpi-kernel@lists.infradead.org, linux-omap@vger.kernel.org,
+ linux-tegra@vger.kernel.org, Stefan Wahren <wahrenst@gmx.net>,
+ Thierry Reding <treding@nvidia.com>
+References: <20250115-fix-riscv-rt_group_sched-v4-0-607606fe73a5@coelacanthus.name>
+ <20250115-fix-riscv-rt_group_sched-v4-4-607606fe73a5@coelacanthus.name>
+Content-Language: en-US
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <20250115-fix-riscv-rt_group_sched-v4-4-607606fe73a5@coelacanthus.name>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_100334_890442_8587CB32 
-X-CRM114-Status: GOOD (  21.77  )
+X-CRM114-CacheID: sfid-20250116_100422_414791_34D1D7C9 
+X-CRM114-Status: GOOD (  14.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,231 +150,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le 15/01/2025 à 23:46, Sasha Finkelstein via B4 Relay a écrit :
-> From: Sasha Finkelstein <fnkl.kernel-Re5JQEeQqe8AvxtiuMwx3w@public.gmane.org>
+On 1/14/25 12:41, Celeste Liu wrote:
+> Commit 673ce00c5d6c ("ARM: omap2plus_defconfig: Add support for distros
+> with systemd") said it's because of recommendation from systemd. But
+> systemd changed their recommendation later.[1]
 > 
-> Adds a driver for Apple touchscreens using the Z2 protocol.
+> For cgroup v1, if turned on, and there's any cgroup in the "cpu" hierarchy it
+> needs an RT budget assigned, otherwise the processes in it will not be able to
+> get RT at all. The problem with RT group scheduling is that it requires the
+> budget assigned but there's no way we could assign a default budget, since the
+> values to assign are both upper and lower time limits, are absolute, and need to
+> be sum up to < 1 for each individal cgroup. That means we cannot really come up
+> with values that would work by default in the general case.[2]
 > 
-...
+> For cgroup v2, it's almost unusable as well. If it turned on, the cpu controller
+> can only be enabled when all RT processes are in the root cgroup. But it will
+> lose the benefits of cgroup v2 if all RT process were placed in the same cgroup.
+> 
+> Red Hat, Gentoo, Arch Linux and Debian all disable it. systemd also doesn't
+> support it.
+> 
+> [1]: https://github.com/systemd/systemd/commit/f4e74be1856b3ac058acbf1be321c31d5299f69f
+> [2]: https://bugzilla.redhat.com/show_bug.cgi?id=1229700
+> 
+> Tested-by: Stefan Wahren <wahrenst@gmx.net>
+> Acked-by: Kevin Hilman <khilman@baylibre.com>
+> Acked-by: Thierry Reding <treding@nvidia.com>
+> Signed-off-by: Celeste Liu <uwu@coelacanthus.name>
+> ---
+>   arch/arm/configs/bcm2835_defconfig   | 1 -
 
-> +static int apple_z2_upload_firmware(struct apple_z2 *z2)
-> +{
-> +	const struct apple_z2_fw_hdr *fw_hdr;
-> +	size_t fw_idx = sizeof(struct apple_z2_fw_hdr);
-> +	int error;
-> +	u32 load_cmd;
-> +	u32 size;
-> +	u32 address;
-> +	char *data;
-> +	bool init;
-> +	size_t cal_size;
-> +
-> +	const struct firmware *fw __free(firmware) = NULL;
-> +	error = request_firmware(&fw, z2->fw_name, &z2->spidev->dev);
-> +	if (error) {
-> +		dev_err(&z2->spidev->dev, "unable to load firmware");
-> +		return error;
-> +	}
-> +
-> +	fw_hdr = (const struct apple_z2_fw_hdr *)fw->data;
-> +	if (le32_to_cpu(fw_hdr->magic) != APPLE_Z2_FW_MAGIC || le32_to_cpu(fw_hdr->version) != 1) {
-> +		dev_err(&z2->spidev->dev, "invalid firmware header");
-> +		return -EINVAL;
-> +	}
-> +
-> +	/*
-> +	 * This will interrupt the upload half-way if the file is malformed
-> +	 * As the device has no non-volatile storage to corrupt, and gets reset
-> +	 * on boot anyway, this is fine.
-> +	 */
-> +	while (fw_idx < fw->size) {
-> +		if (fw->size - fw_idx < 8) {
-> +			dev_err(&z2->spidev->dev, "firmware malformed");
-> +			return -EINVAL;
-> +		}
-> +
-> +		load_cmd = le32_to_cpu(*(__le32 *)(fw->data + fw_idx));
-> +		fw_idx += sizeof(u32);
-> +		if (load_cmd == LOAD_COMMAND_INIT_PAYLOAD || load_cmd == LOAD_COMMAND_SEND_BLOB) {
-> +			size = le32_to_cpu(*(__le32 *)(fw->data + fw_idx));
-> +			fw_idx += sizeof(u32);
-> +			if (fw->size - fw_idx < size) {
-> +				dev_err(&z2->spidev->dev, "firmware malformed");
-> +				return -EINVAL;
-> +			}
-> +			init = load_cmd == LOAD_COMMAND_INIT_PAYLOAD;
-> +			error = apple_z2_send_firmware_blob(z2, fw->data + fw_idx,
-> +							    size, init);
-> +			if (error)
-> +				return error;
-> +			fw_idx += size;
-> +		} else if (load_cmd == LOAD_COMMAND_SEND_CALIBRATION) {
-> +			address = le32_to_cpu(*(u32 *)(fw->data + fw_idx));
-> +			fw_idx += sizeof(u32);
-> +			cal_size = device_property_count_u8(&z2->spidev->dev, CAL_PROP_NAME);
-> +			if (cal_size != 0) {
-> +				size = cal_size + sizeof(struct apple_z2_hbpp_blob_hdr) + 4;
-> +				data = kzalloc(size, GFP_KERNEL);
-> +				error = apple_z2_build_cal_blob(z2, address, cal_size, data);
-> +				if (!error)
-> +					error = apple_z2_send_firmware_blob(z2, data, size, 16);
-> +				kfree(data);
-> +				if (error)
-> +					return error;
-> +			}
-> +		} else {
-> +			dev_err(&z2->spidev->dev, "firmware malformed");
-
-Missing \n.
-
-> +			return -EINVAL;
-> +		}
-> +		if (fw_idx % 4 != 0)
-> +			fw_idx += 4 - (fw_idx % 4);
-> +	}
-> +
-> +
-> +	z2->booted = true;
-> +	apple_z2_read_packet(z2);
-> +	return 0;
-> +}
-
-...
-
-> +static int apple_z2_probe(struct spi_device *spi)
-> +{
-> +	struct device *dev = &spi->dev;
-> +	struct apple_z2 *z2;
-> +	int error;
-> +
-> +	z2 = devm_kzalloc(dev, sizeof(*z2), GFP_KERNEL);
-> +	if (!z2)
-> +		return -ENOMEM;
-> +
-> +	z2->tx_buf = devm_kzalloc(dev, sizeof(struct apple_z2_read_interrupt_cmd), GFP_KERNEL);
-> +	z2->rx_buf = devm_kzalloc(dev, 4096, GFP_KERNEL);
-
-This will allocate 8192 bytes because of the way the allocator works.
-It needs around 40 bytes for the devm stuff + 4096 requested. So 
-rounding rules will allocate 8192 bytes.
-
-So either you could allocate "for free" much more space, or you could 
-allocate (and document...)
-	z2->rx_buf = devm_kzalloc(dev, 4096 - sizeof(struct devres), GFP_KERNEL);
-
-or have an explicit devm_add_action_or_reset() that would require less 
-memory, but would add some LoC.
-
-
-See 
-https://elixir.bootlin.com/linux/v6.13-rc3/source/drivers/base/devres.c#L97
-
-> +	if (!z2->tx_buf || !z2->rx_buf)
-> +		return -ENOMEM;
-> +
-> +	z2->spidev = spi;
-> +	init_completion(&z2->boot_irq);
-> +	spi_set_drvdata(spi, z2);
-> +
-> +	/* Reset the device on boot */
-> +	z2->reset_gpio = devm_gpiod_get(dev, "reset", GPIOD_OUT_HIGH);
-> +	if (IS_ERR(z2->reset_gpio))
-> +		return dev_err_probe(dev, PTR_ERR(z2->reset_gpio), "unable to get reset");
-> +
-> +	error = devm_request_threaded_irq(dev, z2->spidev->irq, NULL,
-> +					apple_z2_irq, IRQF_ONESHOT | IRQF_NO_AUTOEN,
-> +					"apple-z2-irq", spi);
-> +	if (error)
-> +		return dev_err_probe(dev, z2->spidev->irq, "unable to request irq");
-
-Missing \n.
-
-s/z2->spidev->irq/error/ ?
-
-or maybe:
-	return dev_err_probe(dev, error, "unable to request irq %d\n", 
-z2->spidev->irq);
-
-> +
-> +	error = device_property_read_string(dev, "firmware-name", &z2->fw_name);
-> +	if (error)
-> +		return dev_err_probe(dev, error, "unable to get firmware name");
-
-Missing \n.
-
-> +
-> +	z2->input_dev = devm_input_allocate_device(dev);
-> +	if (!z2->input_dev)
-> +		return -ENOMEM;
-> +	z2->input_dev->name = (char *)spi_get_device_id(spi)->driver_data;
-> +	z2->input_dev->phys = "apple_z2";
-> +	z2->input_dev->id.bustype = BUS_SPI;
-> +
-> +	/* Allocate the axes before setting from DT */
-> +	input_set_abs_params(z2->input_dev, ABS_MT_POSITION_X, 0, 0, 0, 0);
-> +	input_set_abs_params(z2->input_dev, ABS_MT_POSITION_Y, 0, 0, 0, 0);
-> +	touchscreen_parse_properties(z2->input_dev, true, &z2->props);
-> +	input_abs_set_res(z2->input_dev, ABS_MT_POSITION_X, 100);
-> +	input_abs_set_res(z2->input_dev, ABS_MT_POSITION_Y, 100);
-> +	input_set_abs_params(z2->input_dev, ABS_MT_WIDTH_MAJOR, 0, 65535, 0, 0);
-> +	input_set_abs_params(z2->input_dev, ABS_MT_WIDTH_MINOR, 0, 65535, 0, 0);
-> +	input_set_abs_params(z2->input_dev, ABS_MT_TOUCH_MAJOR, 0, 65535, 0, 0);
-> +	input_set_abs_params(z2->input_dev, ABS_MT_TOUCH_MINOR, 0, 65535, 0, 0);
-> +	input_set_abs_params(z2->input_dev, ABS_MT_ORIENTATION, -32768, 32767, 0, 0);
-> +
-> +	input_set_drvdata(z2->input_dev, z2);
-
-Is it needed? (there is no input_get_drvdata())
-
-> +
-> +	error = input_mt_init_slots(z2->input_dev, 256, INPUT_MT_DIRECT);
-> +	if (error)
-> +		return dev_err_probe(dev, error, "unable to initialize multitouch slots");
-
-Missing \n.
-
-> +
-> +	error = input_register_device(z2->input_dev);
-> +	if (error)
-> +		return dev_err_probe(dev, error, "unable to register input device");
-
-Missing \n.
-
-> +
-> +	/* Wait for device reset to finish */
-> +	usleep_range(5000, 10000);
-> +	error = apple_z2_boot(z2);
-> +	if (error)
-> +		return error;
-> +	return 0;
-
-Nitpick: These 4 lines could be just:
-	return apple_z2_boot(z2);
-
-> +}
-
-...
-
-> +static DEFINE_SIMPLE_DEV_PM_OPS(apple_z2_pm, apple_z2_suspend, apple_z2_resume);
-> +
-> +static const struct of_device_id apple_z2_of_match[] = {
-> +	{ .compatible = "apple,j293-touchbar" },
-> +	{ .compatible = "apple,j493-touchbar" },
-> +	{},
-
-Nitpick: Ending comma is not needed after a terminator.
-
-> +};
-> +MODULE_DEVICE_TABLE(of, apple_z2_of_match);
-> +
-> +static struct spi_device_id apple_z2_of_id[] = {
-> +	{ .name = "j293-touchbar", .driver_data = (kernel_ulong_t)"MacBookPro17,1 Touch Bar" },
-> +	{ .name = "j493-touchbar", .driver_data = (kernel_ulong_t)"Mac14,7 Touch Bar" },
-> +	{}
-> +};
-> +MODULE_DEVICE_TABLE(spi, apple_z2_of_id);
-
-...
-
-CJ
+Acked-by: Florian Fainelli <florian.fainelli@broadcom.com> # 
+bcm2835_defconfig
+-- 
+Florian
 
