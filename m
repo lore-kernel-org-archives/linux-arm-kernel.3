@@ -4,87 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0AACC02188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 14:11:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9711DC02187
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 14:20:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XqCy3rFK9mYiF7YXYWkWppZnJhU8WX1CY6XMJH834T0=; b=0taoR/UyPKhkrxPwjr+4/KkUXv
-	6BG5LCq+mSsh1d3duOI7vKx+OecX7qmQb2EXf9iy3Vzlr0XYYxZ+++rz4YMMM4C9kUYeCP5xy6Wv2
-	0Ym9d7ORh3BtvukVKZaWf4gRGzG9Q4PByMK1mE+gLDRX7+YsgBxyH7cKDl1FYvbakpUTSPs9QLrWr
-	MduXNzcb6CwR8d0TnTNuOnp1Mcw9K+8De7ZQxGcfPJAy89nUYlkrio9NVB6xiMgxdjU13drN5YSvo
-	21aNbrFBR/42dQR6jYV7G2mG3xV6xw+Np//9X8XP4twBGdZ9VKHgvaBWyt7gUvPWJIUVa30pP5LIp
-	PEUoUZ3Q==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=07jjf75yKRqp1BG2/QKnRU2R3t9+MLXLq39yHvoj0rc=; b=NY7BfDpwsFz0Lw/CM592GkUshr
+	1GCZpznO1eh4W6FyDIgMKjezIiXBvTILsCAGRIpVdlNyJE0asLihZvXBAbO0TWkORYveFq/M75Pkt
+	GHyJfcLj6EwrPGQ8/yGHf2XfT8xly+XBpKi1nC9baseXOoEeLeYHKnf9BOaHyLGdhV+D4T0iXaPJ5
+	l0c5tGk0vEcdiLZo0TcPhvh/E2P6HkteQbqrqjxVuFumPL14Q80S+P2N7c2wF7P515G+gYzH8c3sQ
+	E7SMy28+CzZUDe0yuNeTrdOHdRkJY52HyyFgdhD5YjQAZsQCkZF1o9FckLFOurk3hVyXTQ+ji7KJy
+	CD9/rHew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYQb0-0000000F7Qi-2H5i;
-	Thu, 16 Jan 2025 14:11:42 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1tYQit-0000000F8Yp-1Y6i;
+	Thu, 16 Jan 2025 14:19:51 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYQZ9-0000000F6aX-3clM;
-	Thu, 16 Jan 2025 14:09:49 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-5d3e6f6cf69so1561507a12.1;
-        Thu, 16 Jan 2025 06:09:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737036586; x=1737641386; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XqCy3rFK9mYiF7YXYWkWppZnJhU8WX1CY6XMJH834T0=;
-        b=ZpuDqD6sQnGlGzDYZshyQA1IwBWpKlgm52ZYnr/HkzSg08ebgKg/N5zrtWZBUxvQ/d
-         j2PAzb89snh2I25k1GMhHQQJ73TBhBfuMpjk9X2qGWl0QIlm9j7Z44gNNHoG0tctlAkg
-         0bxbBtayPVfJuZR81K7YPObedk9o7/A/ZJQqDy7SIhUtKXdYyP9902rOdOy7Q87rybte
-         8NezYl/L8aVgzAJJdqNW9EZtpxGW5Np0q/fjlKc2jIgA99qCgOBKUJh2YfuNYGbqinmv
-         bDzi7jYrV4GfsrCeCMBkgcJERMD59bWM3nHFmeOdoD1UIcQ834DtGsfwFYRP10Uril3P
-         nyjQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737036586; x=1737641386;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=XqCy3rFK9mYiF7YXYWkWppZnJhU8WX1CY6XMJH834T0=;
-        b=RGkLiLJ4gsrBDW024WKIiyh6JJZUkKoY/FJdB75TRY1bRv1yy0ekp6y76tFGeGAty3
-         rwXxnrZ4QBYTQ6xLQHlL00h6AdilGvWZLCSWrxyR2GfMHJAwE6KHOD6Z9PDX56nZB6Hi
-         p/QYw+g48ijTy72CElykmT3UlDPNVlveAl8vRnILfXtNInvxb4+nH9Ktz+t1XB6EiBSN
-         6So9vfi7OLvbUOX5JJqVoZEjcPjK8ny5kP3NKenDtLFNyNOQjGMpWdOMn+aqlOhvWRUn
-         sRh3X9SdscLznxvrF3ocL5pBcOVA5j8szUm9WG8xgTLg2OoSv7MKf7FJx/W2JFJsKAGm
-         4vNA==
-X-Forwarded-Encrypted: i=1; AJvYcCVue80wcnjPccQ3wsEkleFxaYyItq2TYwjWCp5oUAnCxoweizX94b5N3yalPT/SVDHEWuW7CsZILh0AN8f/Nn0=@lists.infradead.org, AJvYcCWinIB6M7rpbSgltkAKT8a03TieH8aD0/VDuDsIN3nzbFQDQu1MYtm2+JRYaTYYEw7SYP2H64Q15xSy@lists.infradead.org, AJvYcCXDddFYPVoeRLWpXsOhwWTaKhNI2vEWk+RcvJXqwfOuizaMh50m/qX0dHOljf2ndUFXr99YrVKcfvJ2VGoFaMpc@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxi1msa90xitNkJuDwSvezQMKfmt5jaP4/pFy8/jHoyQNTUUp3X
-	hUrHBnfOuk33xNrVivZ9GENgknbg9JR8aJD+10F1bHbn4ySpnmuslC31EcWyco+ql8eS7kJgns8
-	wZWaA4nMU9aO5VXALAZLSpolAqCQ=
-X-Gm-Gg: ASbGnctBHZuNsMYrnHQlftivKMg1UczbGxjxZ/8ebJAjhVOGiRmISWHFhKDbC5fw6Vg
-	MJZlZZwMO50ukkeKAGtJHzykfi9PkK/a+DZl1iHI=
-X-Google-Smtp-Source: AGHT+IFbAlS28Zz6b8rwiCATa/yYn7ouoHXuQOvyFA+9wdhTNUDpPnttIopgzgW27ToNWcarhz5bxQXzQcBdXUONRLg=
-X-Received: by 2002:a05:6402:3494:b0:5db:6177:4458 with SMTP id
- 4fb4d7f45d1cf-5db61774477mr3535456a12.25.1737036585514; Thu, 16 Jan 2025
- 06:09:45 -0800 (PST)
+	id 1tYQhd-0000000F8ST-2ueP
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Jan 2025 14:18:34 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50G3r31G004713;
+	Thu, 16 Jan 2025 14:18:17 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=
+	content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=07jjf7
+	5yKRqp1BG2/QKnRU2R3t9+MLXLq39yHvoj0rc=; b=i/MWWIODz2A0GoMRfXwNwm
+	Gz/juAd9/9p+gBSS39rC3oxGVZjFI6EBosNYzyHIKoOTaI4VWqyRbPiV4BSmFz7R
+	BgE1kTuvNCBP+v41le7q/nzY9B5wxQeh3vW/rJgyHrk9Sp5VXz5yqKEsWU0SkcM/
+	C4QLw2XPSYsM/VTtnRX240c2872zsAcSvC2nHTvJPPyFxvHbINZhdUPHTe/L+ArP
+	p/TLwmO1mkNLwG/Ry+ZAi8nj/m+UW4X28o/FwBBvyVYl+WFSfr8JUFqHq2791gq9
+	ageRXGOeuWHnuXamWqswvDJdpJVseb56IenPAeH+857XcSbTYQp5qeXnav4wu5sA
+	==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 446tkhatm1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 16 Jan 2025 14:18:16 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 50GE5GwN000874;
+	Thu, 16 Jan 2025 14:18:16 GMT
+Received: from smtprelay03.dal12v.mail.ibm.com ([172.16.1.5])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 44456k5wn7-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 16 Jan 2025 14:18:16 +0000
+Received: from smtpav06.wdc07v.mail.ibm.com (smtpav06.wdc07v.mail.ibm.com [10.39.53.233])
+	by smtprelay03.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 50GEIFUS14484142
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 16 Jan 2025 14:18:15 GMT
+Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 301A65806A;
+	Thu, 16 Jan 2025 14:18:15 +0000 (GMT)
+Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id C4EB85803F;
+	Thu, 16 Jan 2025 14:18:13 +0000 (GMT)
+Received: from [9.61.59.21] (unknown [9.61.59.21])
+	by smtpav06.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Thu, 16 Jan 2025 14:18:13 +0000 (GMT)
+Message-ID: <cba3c5e0-624b-40a2-8b52-8d07604676a1@linux.ibm.com>
+Date: Thu, 16 Jan 2025 08:18:12 -0600
 MIME-Version: 1.0
-References: <20250115012628.1035928-1-pgwipeout@gmail.com> <20250115012628.1035928-4-pgwipeout@gmail.com>
- <EC1F504A-54A2-4FD7-806A-0F086686CBAB@gmail.com>
-In-Reply-To: <EC1F504A-54A2-4FD7-806A-0F086686CBAB@gmail.com>
-From: Peter Geis <pgwipeout@gmail.com>
-Date: Thu, 16 Jan 2025 09:09:32 -0500
-X-Gm-Features: AbW1kvan73LDpw8sotl6AoIuMgpBW0lnOJRtNUNNc9mzQvX1LuFyMtL3c9CM-Js
-Message-ID: <CAMdYzYrS71u-_WCW=M15xPMpLSuwa61Yr=Q6o1HVvbwH6GvAug@mail.gmail.com>
-Subject: Re: [RFC PATCH v1 3/6] phy: rockchip: add driver for rk3328 usb3 phy
-To: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
-Cc: Heiko Stuebner <heiko@sntech.de>, Kishon Vijay Abraham I <kishon@kernel.org>, 
-	Algea Cao <algea.cao@rock-chips.com>, linux-kernel@vger.kernel.org, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Arnd Bergmann <arnd@arndb.de>, frank.wang@rock-chips.com, 
-	william.wu@rock-chips.com, kever.yang@rock-chips.com, 
-	linux-phy@lists.infradead.org, 
-	Sebastian Reichel <sebastian.reichel@collabora.com>, linux-rockchip@lists.infradead.org, 
-	Vinod Koul <vkoul@kernel.org>, Zhang Yubing <yubing.zhang@rock-chips.com>, zyw@rock-chips.com, 
-	wulf@rock-chips.com, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ARM: dts: aspeed: Align GPIO hog name with bindings
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+        Andrew Jeffery <andrew@codeconstruct.com.au>,
+        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+References: <20250116090009.87338-1-krzysztof.kozlowski@linaro.org>
+Content-Language: en-US
+From: Ninad Palsule <ninad@linux.ibm.com>
+In-Reply-To: <20250116090009.87338-1-krzysztof.kozlowski@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: N0r0N1OdzpF-ONAwsi6owq0ymllf1MDm
+X-Proofpoint-ORIG-GUID: N0r0N1OdzpF-ONAwsi6owq0ymllf1MDm
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-16_06,2025-01-16_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 spamscore=0
+ priorityscore=1501 impostorscore=0 adultscore=0 mlxscore=0 clxscore=1015
+ bulkscore=0 lowpriorityscore=0 mlxlogscore=999 phishscore=0 suspectscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
+ definitions=main-2501160106
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_060947_916499_B3CE42B0 
-X-CRM114-Status: GOOD (  30.39  )
+X-CRM114-CacheID: sfid-20250116_061833_760999_573875A6 
+X-CRM114-Status: GOOD (  18.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,1039 +110,946 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 15, 2025 at 6:24=E2=80=AFAM Piotr Oniszczuk
-<piotr.oniszczuk@gmail.com> wrote:
->
->
->
-> > Wiadomo=C5=9B=C4=87 napisana przez Peter Geis <pgwipeout@gmail.com> w d=
-niu 15 sty 2025, o godz. 02:26:
-> >
-> > The rk3328 has a combined usb2 and usb3 phy block for the usb3 dwc
-> > interface. The implementation up until now has been bugged, with
-> > multiple issues ranging from disconnect detection failures to low
-> > performance. This driver fixes the majority of the original issues and
-> > allows better performance for the rk3328 usb3 port.
-> >
-> > This driver sources data from multiple sources, including the rk3328
-> > trm, the rk3228h trm, emails from Rockchip, and both the 4.4 and 5.10
-> > downstream drivers. The current implementation allows for basic bring u=
-p
-> > of the phy block and fixes the detection issues. Interrupts are enabled=
-,
-> > but currently only used for debugging. Features missing currently are
-> > power management, OTG handling, board specific tuning, regulator contro=
-l,
-> >
-> > Currently the only known bugs are a AX88179 usb3 gigabit adapter crashe=
-s
-> > when operating at usb3 speeds and transmitting large amounts of data an=
-d
-> > full disconnection detections may be slower than expected (~5-10 second=
-s).
-> >
-> > Signed-off-by: Peter Geis <pgwipeout@gmail.com>
-> > ---
-> >
-> > drivers/phy/rockchip/Kconfig                  |  10 +
-> > drivers/phy/rockchip/Makefile                 |   1 +
-> > drivers/phy/rockchip/phy-rockchip-inno-usb3.c | 869 ++++++++++++++++++
-> > 3 files changed, 880 insertions(+)
-> > create mode 100644 drivers/phy/rockchip/phy-rockchip-inno-usb3.c
-> >
-> > diff --git a/drivers/phy/rockchip/Kconfig b/drivers/phy/rockchip/Kconfi=
-g
-> > index 2f7a05f21dc5..aac623e84f96 100644
-> > --- a/drivers/phy/rockchip/Kconfig
-> > +++ b/drivers/phy/rockchip/Kconfig
-> > @@ -48,6 +48,16 @@ config PHY_ROCKCHIP_INNO_USB2
-> > help
-> >  Support for Rockchip USB2.0 PHY with Innosilicon IP block.
-> >
-> > +config PHY_ROCKCHIP_INNO_USB3
-> > + tristate "Rockchip INNO USB3PHY Driver"
-> > + depends on (ARCH_ROCKCHIP || COMPILE_TEST) && OF
-> > + depends on COMMON_CLK
-> > + depends on USB_SUPPORT
-> > + select GENERIC_PHY
-> > + select USB_COMMON
-> > + help
-> > +  Support for Rockchip USB3.0 PHY with Innosilicon IP block.
-> > +
-> > config PHY_ROCKCHIP_INNO_CSIDPHY
-> > tristate "Rockchip Innosilicon MIPI CSI PHY driver"
-> > depends on (ARCH_ROCKCHIP || COMPILE_TEST) && OF
-> > diff --git a/drivers/phy/rockchip/Makefile b/drivers/phy/rockchip/Makef=
-ile
-> > index 010a824e32ce..ec15dcf37fba 100644
-> > --- a/drivers/phy/rockchip/Makefile
-> > +++ b/drivers/phy/rockchip/Makefile
-> > @@ -6,6 +6,7 @@ obj-$(CONFIG_PHY_ROCKCHIP_INNO_CSIDPHY) +=3D phy-rockch=
-ip-inno-csidphy.o
-> > obj-$(CONFIG_PHY_ROCKCHIP_INNO_DSIDPHY) +=3D phy-rockchip-inno-dsidphy.=
-o
-> > obj-$(CONFIG_PHY_ROCKCHIP_INNO_HDMI) +=3D phy-rockchip-inno-hdmi.o
-> > obj-$(CONFIG_PHY_ROCKCHIP_INNO_USB2) +=3D phy-rockchip-inno-usb2.o
-> > +obj-$(CONFIG_PHY_ROCKCHIP_INNO_USB3) +=3D phy-rockchip-inno-usb3.o
-> > obj-$(CONFIG_PHY_ROCKCHIP_NANENG_COMBO_PHY) +=3D phy-rockchip-naneng-co=
-mbphy.o
-> > obj-$(CONFIG_PHY_ROCKCHIP_PCIE) +=3D phy-rockchip-pcie.o
-> > obj-$(CONFIG_PHY_ROCKCHIP_SAMSUNG_HDPTX) +=3D phy-rockchip-samsung-hdpt=
-x.o
-> > diff --git a/drivers/phy/rockchip/phy-rockchip-inno-usb3.c b/drivers/ph=
-y/rockchip/phy-rockchip-inno-usb3.c
-> > new file mode 100644
-> > index 000000000000..51b9f3b7fbfa
-> > --- /dev/null
-> > +++ b/drivers/phy/rockchip/phy-rockchip-inno-usb3.c
-> > @@ -0,0 +1,869 @@
-> > +// SPDX-License-Identifier: GPL-2.0+
-> > +
-> > +/*
-> > + * phy-rockchip-inno-usb3.c - USB3 PHY based on Innosilicon IP as
-> > + * implemented on Rockchip rk3328. Tuning data magic bits are taken as=
- is
-> > + * from the downstream driver. Downstream driver is located at:
-> > + * https://github.com/rockchip-linux/kernel/blob/240a5660d7c23841ccf7b=
-7cc489078bf521b9802/drivers/phy/rockchip/phy-rockchip-inno-usb3.c
-> > + *
-> > + * Author: Peter Geis <pgwipeout@gmail.com>
-> > + * TODO:
-> > + * - Find the rest of the register names / definitions.
-> > + * - Implement pm functions.
-> > + * - Implement board specific tuning from dts.
-> > + * - Implement regulator control.
-> > + */
-> > +
-> > +#include <linux/clk.h>
-> > +#include <linux/delay.h>
-> > +#include <linux/interrupt.h>
-> > +#include <linux/io.h>
-> > +#include <linux/kernel.h>
-> > +#include <linux/module.h>
-> > +#include <linux/of.h>
-> > +#include <linux/of_address.h>
-> > +#include <linux/of_device.h>
-> > +#include <linux/of_irq.h>
-> > +#include <linux/of_platform.h>
-> > +#include <linux/phy/phy.h>
-> > +#include <linux/platform_device.h>
-> > +#include <linux/regmap.h>
-> > +#include <linux/reset.h>
-> > +#include <linux/mfd/syscon.h>
-> > +#include <linux/usb/of.h>
-> > +
-> > +#define REG_WRITE_MASK GENMASK(31, 16)
-> > +#define REG_WRITE_SHIFT 16
-> > +#define DISABLE_BITS 0x0
-> > +
-> > +/* USB3PHY GRF Registers */
-> > +#define USB3PHY_WAKEUP_CON_REG 0x40
-> > +#define USB3PHY_WAKEUP_STAT_REG 0x44
-> > +#define USB3_LINESTATE_IRQ_EN BIT(0)
-> > +#define USB3_RXDET_IRQ_EN BIT(1)
-> > +#define USB3_BVALID_RISE_IRQ_EN BIT(2)
-> > +#define USB3_BVALID_FALL_IRQ_EN BIT(3)
-> > +#define USB3_BVALID_CLEAR_MASK GENMASK(3, 2)
-> > +#define USB3_ID_RISE_IRQ_EN BIT(4)
-> > +#define USB3_ID_FALL_IRQ_EN BIT(5)
-> > +#define USB3_ID_CLEAR_MASK GENMASK(5, 4)
-> > +#define USB3_RXDET_EN BIT(6)
-> > +
-> > +/* PIPE registers */
-> > +/* 0x08 for SSC, default 0x0e */
-> > +#define UNKNOWN_PIPE_REG_000 0x000
-> > +#define UNKNOWN_SSC_000_MASK GENMASK(2, 1)
-> > +#define UNKNOWN_SSC_000_ENABLE (0x00 << 1)
-> > +
-> > +/* 0x83 for 24m, 0x01 for 25m, default 0x86 */
-> > +#define PIPE_REG_020 0x020
-> > +/* RX CDR multiplier high bits [7:6], as P, default 0x2, RX data rate =
-=3D (2*refclk*P)/Q */
-> > +#define PIPE_RX_CDR_MULT_HIGH_MASK GENMASK(7, 6)
-> > +/* TX PLL divider bits [4:0], as N, default 0x6, TX data rate =3D (2*r=
-efclk*M)/N */
-> > +#define PIPE_TX_PLL_DIV_MASK GENMASK(4, 0)
-> > +
-> > +/* 0x71 for 24m, 0x64 for 25m, default 0x71 */
-> > +#define PIPE_REG_028 0x028
-> > +/* RX CDR multiplier low bits [7:0], as P, default 0x71, RX data rate =
-=3D (2*refclk*P)/Q */
-> > +#define PIPE_RX_CDR_MULT_LOW_MASK GENMASK(7, 0)
-> > +
-> > +/* 0x26 for 24m?, 0x21 for 25m, default 0x26 */
-> > +#define PIPE_REG_030 0x030
-> > +/* RX CDR divider bits [4:0], as Q, default 0x6, RX data rate =3D (2*r=
-efclk*P)/Q */
-> > +#define PIPE_RX_CDR_DIV_MASK GENMASK(4, 0)
-> > +
-> > +/* 1'b1 Disable bandgap power, default 0x00 */
-> > +#define PIPE_REG_044 0x044
-> > +#define BANDGAP_POWER_DISABLE BIT(4)
-> > +
-> > +/* 0xe0 for rx tune?, default 0xe1 */
-> > +#define PIPE_REG_060 0x060
-> > +#define PIPE_TX_DETECT_BYPASS_DEBUG BIT(4) /* enable to always force d=
-etection */
-> > +/* RX CTLE frequency bandwidth response tuning bits [1:0], default 0x1=
- */
-> > +#define PIPE_RX_CTLE_FREQ_BW_MASK GENMASK(1, 0)
-> > +#define PIPE_RX_CTLE_FREQ_BW_TUNE 0x0
-> > +
-> > +/* default 0x49 */
-> > +#define PIPE_REG_064 0x064
-> > +/* RX equalizer tail current control bits [6:4], default 0x4 */
-> > +#define PIPE_RX_EQ_TAIL_CURR_MASK GENMASK(6, 4)
-> > +
-> > +/* 0x08 for rx tune?, default 0x07 */
-> > +#define PIPE_REG_068 0x068
-> > +/* RX equalizer low frequency gain control bits [7:4], default 0x0 */
-> > +#define PIPE_RX_EQ_LOW_GAIN_MASK GENMASK(7, 4)
-> > +#define PIPE_RX_EQ_LOW_GAIN_TUNE (0x1 << 4)
-> > +/* RX CTLE gain tuning bits [3:0], higher =3D more gain default 0x7 */
-> > +#define PIPE_RX_CTLE_GAIN_MASK GENMASK(3, 0)
-> > +#define PIPE_RX_CTLE_GAIN_TUNE 0x7 /* 0x5 lowest functional value, 0xf=
- highest */
-> > +
-> > +/* RX ODT manual resistance config, higher =3D less resistance, depend=
-s on REG_1C4 BIT(5) set */
-> > +#define PIPE_REG_06C 0x06c
-> > +/* RX ODT manual resistance high bits [3:0], default 0x0 */
-> > +#define PIPE_RX_ODT_RES_HIGH_MASK GENMASK(3, 0)
-> > +#define PIPE_RX_ODT_RES_HIGH_TUNE 0xf
-> > +
-> > +#define PIPE_REG_070 0x070
-> > +/* RX ODT manual resistance mid bits [7:0], default 0x03 */
-> > +#define PIPE_RX_ODT_RES_MID_MASK GENMASK(7, 0)
-> > +#define PIPE_RX_ODT_RES_MID_TUNE 0xff
-> > +
-> > +#define PIPE_REG_074 0x074
-> > +/* RX ODT manual resistance low bits [7:0], default 0xff */
-> > +#define PIPE_RX_ODT_RES_LOW_MASK GENMASK(7, 0)
-> > +#define PIPE_RX_ODT_RES_LOW_TUNE 0xff
-> > +
-> > +/* default 0x08 */
-> > +#define PIPE_REG_080 0x080
-> > +#define PIPE_TX_COMMON_MODE_DIS BIT(2) /* 1'b1 disable TX common type =
-*/
-> > +
-> > +/* default 0x33 */
-> > +#define PIPE_REG_088 0x088
-> > +#define PIPE_TX_DRIVER_PREEMP_EN BIT(4) /* 1'b1 enable pre-emphasis */
-> > +
-> > +/* default 0x18 */
-> > +#define PIPE_REG_0C0 0x0c0
-> > +#define PIPE_RX_CM_EN BIT(3) /* 1'b1 enable RX CM */
-> > +#define PIPE_TX_OBS_EN BIT(4) /* 1'b1 enable TX OBS */
-> > +
-> > +/* 0x12 for rx tune?, default 0x14 */
-> > +#define PIPE_REG_0C8 0x0c8
-> > +/* RX CDR charge pump current bits [3:1], default 0x2 */
-> > +#define PIPE_RX_CDR_CHG_PUMP_MASK GENMASK(3, 1)
-> > +#define PIPE_RX_CDR_CHG_PUMP_TUNE (0x2 << 1)
-> > +
-> > +/* 0x02 for 24m, 0x06 for 25m, default 0x06 */
-> > +#define UNKNOWN_PIPE_REG_108 0x108
-> > +#define UNKNOWN_REFCLK_108_24M 0x02
-> > +
-> > +/* 0x80 for 24m, default 0x00 */
-> > +#define UNKNOWN_PIPE_REG_10C 0x10c
-> > +#define UNKNOWN_REFCLK_10C_24M BIT(7)
-> > +
-> > +/* 0x01 for 24m, 0x00 for 25m, default 0x02 */
-> > +#define PIPE_REG_118 0x118
-> > +/* TX PLL multiplier high bits [3:0], as M, default 0x2, TX data rate =
-=3D (2*refclk*M)/N */
-> > +#define PIPE_TX_PLL_MUL_HIGH_MASK GENMASK(3, 0)
-> > +
-> > +/* 0x38 for 24m, 0x64 for 25m, default 0x71 */
-> > +#define PIPE_REG_11C 0x11c
-> > +/* TX PLL multiplier low bits [7:0], as M, default 0x71, TX data rate =
-=3D (2*refclk*M)/N */
-> > +#define PIPE_TX_PLL_MUL_LOW_MASK GENMASK(7, 0)
-> > +
-> > +/* 0x0c for SSC, default 0x1c */
-> > +#define UNKNOWN_PIPE_REG_120 0x120
-> > +#define UNKNOWN_SSC_120_MASK BIT(4)
-> > +#define UNKNOWN_SSC_120_ENABLE (0x0 << 4)
-> > +
-> > +/* default 0x40 */
-> > +#define PIPE_REG_12C 0x12c
-> > +#define PIPE_TX_PLL_ALWAYS_ON BIT(0) /* disable for PLL control by pip=
-e_pd */
-> > +
-> > +/* 0x05 for rx tune, default 0x01 */
-> > +#define PIPE_REG_148 0x148
-> > +#define PIPE_RX_CHG_PUMP_DIV_2 BIT(2) /* RX CDR charge pump div/2, def=
-ault 0 */
-> > +
-> > +/* 0x70 for rx tune, default 0x72 */
-> > +#define PIPE_REG_150 0x150
-> > +#define PIPE_TX_BIAS_EN BIT(6) /* 1'b1 Enable TX Bias */
-> > +/* RX CDR phase tracking speed bits [3:0], default 0x2 */
-> > +#define PIPE_RX_CDR_SPEED_MASK GENMASK(3, 0)
-> > +#define PIPE_RX_CDR_SPEED_TUNE 0x00
-> > +
-> > +/* default 0xd4 */
-> > +#define PIPE_REG_160
-> > +/* RX common mode voltage strength bits [5:4], default 0x1 */
-> > +#define PIPE_RX_CDR_COM_VOLT_MASK GENMASK(5, 4)
-> > +#define PIPE_RX_CDR_COM_VOLT_TUNE (0x1 << 4)
-> > +
-> > +/* default 0x00 */
-> > +#define PIPE_REG_180 0x180
-> > +/* TX driver bias reference voltage bits [3:2], in mv */
-> > +#define PIPE_TX_BIAS_REF_VOLT_MASK GENMASK(3, 2)
-> > +#define PIPE_TX_BIAS_REF_VOLT_200 (0x0 << 2)
-> > +#define PIPE_TX_BIAS_REF_VOLT_175 (0x1 << 2)
-> > +#define PIPE_TX_BIAS_REF_VOLT_225 (0x2 << 2) /* downstream 5.10 driver=
- setting */
-> > +#define PIPE_TX_BIAS_REF_VOLT_250 (0x3 << 2)
-> > +
-> > +/* default 0x01 */
-> > +#define PIPE_REG_1A8 0x1a8
-> > +#define PIPE_LDO_POWER_DIS BIT(4) /* 1'b1 Disable LDO Power */
-> > +
-> > +/* default 0x07 */
-> > +#define PIPE_REG_1AC 0x1ac
-> > +/* TX driver output common voltage bits [5:4], in mv */
-> > +#define PIPE_TX_COMMON_VOLT_MASK GENMASK(5, 4)
-> > +#define PIPE_TX_COMMON_VOLT_800 (0x0 << 4)
-> > +#define PIPE_TX_COMMON_VOLT_750 (0x1 << 4)
-> > +#define PIPE_TX_COMMON_VOLT_950 (0x2 << 4)
-> > +#define PIPE_TX_COMMON_VOLT_1100 (0x3 << 4)
-> > +
-> > +/* default 0xfb */
-> > +#define PIPE_REG_1B8 0x1b8
-> > +/* TX driver swing strength bits [7:4], range 0x0 to 0xf */
-> > +#define PIPE_TX_DRIVER_SWING_MASK GENMASK(7, 4) /* 0x2 lowest function=
-al value */
-> > +/* TX driver pre-emphasis strength bits [1:0], default 0x3, enabled by=
- REG 088 */
-> > +#define PIPE_TX_DRIVER_PREEMP_STR_MASK GENMASK(1, 0)
-> > +
-> > +/* set to 0xf0 for rx tune?, default 0xd0 */
-> > +#define PIPE_REG_1C4 0x1c4
-> > +#define PIPE_RX_ODT_AUTO_DIS BIT(5) /* Disable RX ODT auto compensatio=
-n */
-> > +#define PIPE_TX_ODT_AUTO_DIS BIT(3) /* Disable TX ODT auto compensatio=
-n */
-> > +
-> > +/* UTMI registers */
-> > +/* 0x0f for utmi tune, default 0x09*/
-> > +#define UTMI_REG_030 0x030
-> > +/* {bits[2:0]=3D111}: always enable pre-emphasis */
-> > +#define UTMI_ENABLE_PRE_EMPH_MASK GENMASK(2, 0)
-> > +#define UTMI_ENABLE_PRE_EMPH 0x07
-> > +
-> > +/* 0x41 for utmi tune, default 0x49 */
-> > +#define UTMI_REG_040 0x040
-> > +/* TX HS pre-emphasis strength bits [5:3], default 0x1*/
-> > +#define UTMI_TX_PRE_EMPH_STR_MASK GENMASK(5, 3)
-> > +#define UTMI_TX_PRE_EMPH_WEAKEST (0x0 << 3)
-> > +
-> > +/* set to 0xb5 for utmi tune, default 0xb5 */
-> > +#define UTMI_REG_11C 0x11c
-> > +/* {bits[4:0]=3D10101}: odt 45ohm tuning */
-> > +#define UTMI_ODT_45_OHM_MASK GENMASK(4, 0)
-> > +#define UTMI_ODT_45_OHM_TUNE 0x15
-> > +
-> > +enum rockchip_usb3phy_type {
-> > + USB3PHY_TYPE_USB2,
-> > + USB3PHY_TYPE_USB3,
-> > + USB3PHY_TYPE_MAX,
-> > +};
-> > +
-> > +/**
-> > + * struct rockchip_usb3phy_port - usb-phy port data.
-> > + * @phy: port usb phy struct.
-> > + * @regmap: port regmap.
-> > + * @type: port usb phy type.
-> > + */
-> > +struct rockchip_usb3phy_port {
-> > + struct phy *phy;
-> > + struct regmap *regmap;
-> > + enum rockchip_usb3phy_type type;
-> > +};
-> > +
-> > +struct rockchip_usb3phy {
-> > + struct device *dev;
-> > + struct regmap *regmap;
-> > + struct clk *clk_pipe;
-> > + struct clk *clk_otg;
-> > + struct clk *clk_ref;
-> > + struct reset_control *u3por_rst;
-> > + struct reset_control *u2por_rst;
-> > + struct reset_control *pipe_rst;
-> > + struct reset_control *utmi_rst;
-> > + struct reset_control *pipe_apb_rst;
-> > + struct reset_control *utmi_apb_rst;
-> > + struct rockchip_usb3phy_port ports[USB3PHY_TYPE_MAX];
-> > + int bvalid_irq;
-> > + int id_irq;
-> > + int ls_irq;
-> > + int rxdet_irq;
-> > +};
-> > +
-> > +struct usb3phy_config {
-> > + unsigned int reg;
-> > + unsigned int mask;
-> > + u8 def;
-> > +};
-> > +
-> > +static const struct usb3phy_config rk3328_rx_config[] =3D {
-> > + { PIPE_REG_150, PIPE_RX_CDR_SPEED_MASK, PIPE_RX_CDR_SPEED_TUNE },
-> > + { PIPE_REG_0C8, PIPE_RX_CDR_CHG_PUMP_MASK, PIPE_RX_CDR_CHG_PUMP_TUNE =
-},
-> > + { PIPE_REG_148, PIPE_RX_CHG_PUMP_DIV_2, PIPE_RX_CHG_PUMP_DIV_2 },
-> > + { PIPE_REG_068, PIPE_RX_CTLE_GAIN_MASK, PIPE_RX_CTLE_GAIN_TUNE },
-> > +// { PIPE_REG_1C4, PIPE_RX_ODT_AUTO_DIS, PIPE_RX_ODT_AUTO_DIS },
-> > + { PIPE_REG_070, PIPE_RX_ODT_RES_MID_MASK, PIPE_RX_ODT_RES_MID_TUNE },
-> > + { PIPE_REG_06C, PIPE_RX_ODT_RES_HIGH_MASK, PIPE_RX_ODT_RES_HIGH_TUNE =
-},
-> > + { PIPE_REG_060, PIPE_RX_CTLE_FREQ_BW_MASK, PIPE_RX_CTLE_FREQ_BW_TUNE =
-},
-> > + { UNKNOWN_PIPE_REG_10C, UNKNOWN_REFCLK_10C_24M, UNKNOWN_REFCLK_10C_24=
-M },
-> > + { PIPE_REG_060, PIPE_RX_CTLE_FREQ_BW_MASK, PIPE_RX_CTLE_FREQ_BW_TUNE =
-},
-> > + { PIPE_REG_068, PIPE_RX_EQ_LOW_GAIN_MASK, PIPE_RX_EQ_LOW_GAIN_TUNE },
-> > +};
-> > +
-> > +static const struct usb3phy_config rk3328_tx_config[] =3D {
-> > + { PIPE_REG_180, PIPE_TX_BIAS_REF_VOLT_MASK, PIPE_TX_BIAS_REF_VOLT_250=
- },
-> > +};
-> > +
-> > +static const struct usb3phy_config rk3328_ssc_config[] =3D {
-> > + { UNKNOWN_PIPE_REG_000, UNKNOWN_SSC_000_MASK, UNKNOWN_SSC_000_ENABLE =
-},
-> > + { UNKNOWN_PIPE_REG_120, UNKNOWN_SSC_120_MASK, UNKNOWN_SSC_120_ENABLE =
-},
-> > +};
-> > +
-> > +static const struct usb3phy_config rk3328_utmi_config[] =3D {
-> > + { UTMI_REG_030, UTMI_ENABLE_PRE_EMPH_MASK, UTMI_ENABLE_PRE_EMPH },
-> > + { UTMI_REG_040, UTMI_TX_PRE_EMPH_STR_MASK, UTMI_TX_PRE_EMPH_WEAKEST }=
-,
-> > + { UTMI_REG_11C, UTMI_ODT_45_OHM_MASK, UTMI_ODT_45_OHM_TUNE },
-> > +};
-> > +
-> > +static const struct usb3phy_config rk3328_pipe_pwr_en_config[] =3D {
-> > + { PIPE_REG_1A8, PIPE_LDO_POWER_DIS, DISABLE_BITS },
-> > + { PIPE_REG_044, BANDGAP_POWER_DISABLE, DISABLE_BITS },
-> > + { PIPE_REG_150, PIPE_TX_BIAS_EN, PIPE_TX_BIAS_EN },
-> > + { PIPE_REG_080, PIPE_TX_COMMON_MODE_DIS, DISABLE_BITS },
-> > + { PIPE_REG_0C0, PIPE_TX_OBS_EN, PIPE_TX_OBS_EN },
-> > + { PIPE_REG_0C0, PIPE_RX_CM_EN, PIPE_RX_CM_EN },
-> > +};
-> > +
-> > +static int rockchip_usb3phy_reset(struct rockchip_usb3phy *usb3phy,
-> > +  bool reset, enum rockchip_usb3phy_type type)
-> > +{
-> > + if (reset) {
-> > + if (type =3D=3D USB3PHY_TYPE_USB2) {
-> > + clk_disable_unprepare(usb3phy->clk_otg);
-> > + reset_control_assert(usb3phy->utmi_rst);
-> > + reset_control_assert(usb3phy->u2por_rst);
-> > + }
-> > + if (type =3D=3D USB3PHY_TYPE_USB3) {
-> > + clk_disable_unprepare(usb3phy->clk_pipe);
-> > + reset_control_assert(usb3phy->pipe_rst);
-> > + reset_control_assert(usb3phy->u3por_rst);
-> > + }
-> > + } else {
-> > + if (type =3D=3D USB3PHY_TYPE_USB2) {
-> > + reset_control_deassert(usb3phy->u2por_rst);
-> > + fsleep(1000);
-> > + clk_prepare_enable(usb3phy->clk_otg);
-> > + fsleep(500);
-> > + reset_control_deassert(usb3phy->utmi_rst);
-> > + fsleep(100);
-> > + }
-> > + if (type =3D=3D USB3PHY_TYPE_USB3) {
-> > + reset_control_deassert(usb3phy->u3por_rst);
-> > + fsleep(500);
-> > + clk_prepare_enable(usb3phy->clk_pipe);
-> > + fsleep(1000);
-> > + reset_control_deassert(usb3phy->pipe_rst);
-> > + fsleep(100);
-> > + }
-> > + }
-> > + return 0;
-> > +}
-> > +
-> > +static irqreturn_t rockchip_usb3phy_linestate_irq(int irq, void *data)
-> > +{
-> > + struct rockchip_usb3phy *usb3phy =3D data;
-> > + int tmp;
-> > +
-> > + /* check if the interrupt is enabled */
-> > + regmap_read(usb3phy->regmap, USB3PHY_WAKEUP_CON_REG, &tmp);
-> > + if (!(tmp & USB3_LINESTATE_IRQ_EN)) {
-> > + dev_warn(usb3phy->dev, "invalid linestate irq received\n");
-> > + return IRQ_NONE;
-> > + }
-> > +
-> > + regmap_read(usb3phy->regmap, USB3PHY_WAKEUP_STAT_REG, &tmp);
-> > + if (tmp & USB3_LINESTATE_IRQ_EN)
-> > + dev_dbg_ratelimited(usb3phy->dev, "linestate irq received\n");
-> > +
-> > + /* clear the interrupt */
-> > + regmap_write(usb3phy->regmap, USB3PHY_WAKEUP_STAT_REG, USB3_LINESTATE=
-_IRQ_EN);
-> > +
-> > + return IRQ_HANDLED;
-> > +}
-> > +
-> > +static irqreturn_t rockchip_usb3phy_bvalid_irq(int irq, void *data)
-> > +{
-> > + struct rockchip_usb3phy *usb3phy =3D data;
-> > + int tmp;
-> > +
-> > + /* check if the interrupt is enabled */
-> > + regmap_read(usb3phy->regmap, USB3PHY_WAKEUP_CON_REG, &tmp);
-> > + if (!((tmp & USB3_BVALID_FALL_IRQ_EN) | (tmp & USB3_BVALID_RISE_IRQ_E=
-N))) {
-> > + dev_warn_ratelimited(usb3phy->dev, "invalid bvalid irq received\n");
-> > + return IRQ_NONE;
-> > + }
-> > +
-> > + regmap_read(usb3phy->regmap, USB3PHY_WAKEUP_STAT_REG, &tmp);
-> > + if (tmp & USB3_BVALID_FALL_IRQ_EN)
-> > + dev_dbg(usb3phy->dev, "bvalid falling irq received\n");
-> > + if (tmp & USB3_BVALID_RISE_IRQ_EN)
-> > + dev_dbg(usb3phy->dev, "bvalid rising irq received\n");
-> > +
-> > + /* clear the interrupt */
-> > + regmap_write(usb3phy->regmap, USB3PHY_WAKEUP_STAT_REG, USB3_BVALID_CL=
-EAR_MASK);
-> > +
-> > + return IRQ_HANDLED;
-> > +}
-> > +
-> > +static irqreturn_t rockchip_usb3phy_id_irq(int irq, void *data)
-> > +{
-> > + struct rockchip_usb3phy *usb3phy =3D data;
-> > + int tmp;
-> > +
-> > + /* check if the interrupt is enabled */
-> > + regmap_read(usb3phy->regmap, USB3PHY_WAKEUP_CON_REG, &tmp);
-> > + if (!((tmp & USB3_ID_FALL_IRQ_EN) | (tmp & USB3_ID_RISE_IRQ_EN))) {
-> > + dev_warn(usb3phy->dev, "invalid id irq received\n");
-> > + return IRQ_NONE;
-> > + }
-> > +
-> > + regmap_read(usb3phy->regmap, USB3PHY_WAKEUP_STAT_REG, &tmp);
-> > + if (tmp & USB3_ID_FALL_IRQ_EN)
-> > + dev_dbg(usb3phy->dev, "id falling irq received\n");
-> > + if (tmp & USB3_ID_RISE_IRQ_EN)
-> > + dev_dbg(usb3phy->dev, "id rising irq received\n");
-> > +
-> > + /* clear the interrupt */
-> > + regmap_write(usb3phy->regmap, USB3PHY_WAKEUP_STAT_REG, USB3_ID_CLEAR_=
-MASK);
-> > +
-> > + return IRQ_HANDLED;
-> > +}
-> > +
-> > +static irqreturn_t rockchip_usb3phy_rxdet_irq(int irq, void *data)
-> > +{
-> > + struct rockchip_usb3phy *usb3phy =3D data;
-> > + int tmp;
-> > +
-> > + /* check if the interrupt is enabled */
-> > + regmap_read(usb3phy->regmap, USB3PHY_WAKEUP_CON_REG, &tmp);
-> > + if (!(tmp & USB3_RXDET_IRQ_EN)) {
-> > + dev_warn(usb3phy->dev, "invalid rxdet irq received\n");
-> > + return IRQ_NONE;
-> > + }
-> > +
-> > + regmap_read(usb3phy->regmap, USB3PHY_WAKEUP_STAT_REG, &tmp);
-> > + if (tmp & USB3_RXDET_IRQ_EN)
-> > + dev_dbg_ratelimited(usb3phy->dev, "rxdet irq received\n");
-> > +
-> > + /* clear the interrupt */
-> > + regmap_write(usb3phy->regmap, USB3PHY_WAKEUP_STAT_REG, USB3_RXDET_IRQ=
-_EN);
-> > +
-> > + return IRQ_HANDLED;
-> > +}
-> > +
-> > +static int rockchip_usb3phy_bulk_update(struct rockchip_usb3phy *usb3p=
-hy, struct regmap *regmap,
-> > + const struct usb3phy_config *config, unsigned int size)
-> > +{
-> > + unsigned int i, val, tmp;
-> > + int ret =3D 0;
-> > +
-> > + for (i =3D 0; i < size; i++) {
-> > + ret =3D regmap_read(regmap, config[i].reg, &val);
-> > + if (ret < 0) {
-> > + dev_err(usb3phy->dev, "failed to read addr: 0x%02x\n", config[i].reg)=
-;
-> > + return ret;
-> > + }
-> > + tmp =3D val & ~config[i].mask;
-> > + tmp |=3D config[i].def;
-> > + dev_dbg(usb3phy->dev, "write: 0x%03x old: 0x%02x new: 0x%02x\n",
-> > + config[i].reg, val, tmp);
-> > + ret =3D regmap_write(regmap, config[i].reg, tmp);
-> > + if (ret < 0) {
-> > + dev_err(usb3phy->dev, "failed to write addr: 0x%02x\n", config[i].reg=
-);
-> > + return ret;
-> > + }
-> > + }
-> > +
-> > + return ret;
-> > +}
-> > +
-> > +static int rockchip_usb3phy_calc_rate(struct rockchip_usb3phy *usb3phy=
-, struct regmap *regmap)
-> > +{
-> > + long rate;
-> > + unsigned int mul, div, target =3D (5000000000 / 100000);
-> > +
-> > + rate =3D clk_get_rate(usb3phy->clk_ref) / 100000;
-> > + if (rate < 0) {
-> > + dev_err(usb3phy->dev, "failed to get refclk, %ld\n", rate);
-> > + return rate;
-> > + /* lowest possible supported clock is 4.8MHZ, highest rk3328 can do i=
-s 1.6GHZ */
-> > + } else if ((rate < 48) | (rate > 16000)) {
-> > + goto error;
-> > + }
-> > +
-> > + for (div =3D 1; div < 32; div++) {
-> > + for (mul =3D 1; mul < 1024; mul++) {
-> > + if (((2 * rate * mul) / div) =3D=3D target)
-> > + goto done;
-> > + if (((2 * rate * mul) / div) > target)
-> > + break;
-> > + }
-> > + }
-> > +
-> > +error:
-> > + dev_err(usb3phy->dev, "invalid refclock rate, %ld\n", rate * 100000);
-> > + return -EINVAL;
-> > +
-> > +done:
-> > + dev_dbg(usb3phy->dev, "refclk rate mul: %x div: %x rate: %ld\n", mul,=
- div, (rate * 100000));
-> > +
-> > + regmap_write(regmap, PIPE_REG_020, (mul >> 2) & PIPE_RX_CDR_MULT_HIGH=
-_MASK);
-> > + regmap_write(regmap, PIPE_REG_020, div & PIPE_TX_PLL_DIV_MASK);
-> > + regmap_write(regmap, PIPE_REG_028, mul & PIPE_RX_CDR_MULT_LOW_MASK);
-> > + regmap_write(regmap, PIPE_REG_030, div & PIPE_RX_CDR_DIV_MASK);
-> > + regmap_write(regmap, PIPE_REG_118, (mul >> 8) & PIPE_TX_PLL_MUL_HIGH_=
-MASK);
-> > + regmap_write(regmap, PIPE_REG_11C, mul & PIPE_TX_PLL_MUL_LOW_MASK);
-> > +
-> > + return 0;
-> > +}
-> > +
-> > +static int rockchip_usb3phy_init(struct phy *phy)
-> > +{
-> > + struct rockchip_usb3phy_port *port =3D phy_get_drvdata(phy);
-> > + struct rockchip_usb3phy *usb3phy =3D dev_get_drvdata(phy->dev.parent)=
-;
-> > + int tmp, ret;
-> > +
-> > + dev_warn(usb3phy->dev, "usb3phy_init %s\n", dev_name(&phy->dev));
-> > + clk_prepare_enable(usb3phy->clk_ref);
-> > + rockchip_usb3phy_reset(usb3phy, false, port->type);
-> > +
-> > + if (port->type =3D=3D USB3PHY_TYPE_USB2) {
-> > + /*
-> > + * "For RK3328 SoC, pre-emphasis and pre-emphasis strength must be
-> > + * written as one fixed value. The ODT 45ohm value should be tuned
-> > + * for different boards to adjust HS eye height."
-> > + */
-> > + dev_dbg(usb3phy->dev, "tuning UTMI\n");
-> > + ret =3D rockchip_usb3phy_bulk_update(usb3phy, port->regmap, rk3328_ut=
-mi_config,
-> > +   ARRAY_SIZE(rk3328_utmi_config));
-> > + }
-> > +
-> > + if (port->type =3D=3D USB3PHY_TYPE_USB3) {
-> > + /* Enable interrupts */
-> > + tmp =3D (USB3_LINESTATE_IRQ_EN | USB3_ID_FALL_IRQ_EN | USB3_ID_RISE_I=
-RQ_EN |
-> > + USB3_RXDET_IRQ_EN | USB3_BVALID_RISE_IRQ_EN | USB3_BVALID_FALL_IRQ_EN=
-);
-> > + tmp |=3D (tmp << REG_WRITE_SHIFT);
-> > +
-> > + ret =3D regmap_write(usb3phy->regmap, USB3PHY_WAKEUP_CON_REG, tmp);
-> > + if (ret < 0) {
-> > + /* interrupt write determines if we have write access */
-> > + dev_err(usb3phy->dev, "failed to write interrupts\n");
-> > + return ret;
-> > + }
-> > +
-> > + /* Configure for 24M ref clk */
-> > + dev_dbg(usb3phy->dev, "setting pipe for 24M refclk\n");
-> > + if (rockchip_usb3phy_calc_rate(usb3phy, usb3phy->regmap))
-> > + return -EINVAL;
-> > +
-> > + /* Enable SSC */
-> > + udelay(3);
-> > + dev_dbg(usb3phy->dev, "setting pipe for SSC\n");
-> > + ret =3D rockchip_usb3phy_bulk_update(usb3phy, port->regmap, rk3328_ss=
-c_config,
-> > +   ARRAY_SIZE(rk3328_ssc_config));
-> > +
-> > + /* "Tuning RX for compliance RJTL test" */
-> > + dev_dbg(usb3phy->dev, "setting pipe for RX tuning\n");
-> > + ret =3D rockchip_usb3phy_bulk_update(usb3phy, port->regmap, rk3328_rx=
-_config,
-> > +   ARRAY_SIZE(rk3328_rx_config));
-> > + if (ret)
-> > + return ret;
-> > +
-> > + /*
-> > + * "Tuning TX to increase the bias current used in TX driver and RX EQ=
-,
-> > + * it can also increase the voltage of LFPS."
-> > + */
-> > + dev_dbg(usb3phy->dev, "setting pipe for TX tuning\n");
-> > + ret =3D rockchip_usb3phy_bulk_update(usb3phy, port->regmap,
-> > +   rk3328_tx_config, ARRAY_SIZE(rk3328_tx_config));
-> > +
-> > + /* Power up the pipe */
-> > + dev_dbg(usb3phy->dev, "setting pipe power on\n");
-> > + ret =3D rockchip_usb3phy_bulk_update(usb3phy, port->regmap, rk3328_pi=
-pe_pwr_en_config,
-> > +   ARRAY_SIZE(rk3328_pipe_pwr_en_config));
-> > + }
-> > +
-> > + return 0;
-> > +}
-> > +
-> > +static int rockchip_usb3phy_parse_dt(struct rockchip_usb3phy *usb3phy,=
- struct device *dev)
-> > +{
-> > + int ret;
-> > +
-> > + usb3phy->clk_pipe =3D devm_clk_get(dev, "usb3phy-pipe");
-> > + if (IS_ERR(usb3phy->clk_pipe)) {
-> > + dev_err(dev, "could not get usb3phy pipe clock\n");
-> > + return PTR_ERR(usb3phy->clk_pipe);
-> > + }
-> > +
-> > + usb3phy->clk_otg =3D devm_clk_get(dev, "usb3phy-otg");
-> > + if (IS_ERR(usb3phy->clk_otg)) {
-> > + dev_err(dev, "could not get usb3phy otg clock\n");
-> > + return PTR_ERR(usb3phy->clk_otg);
-> > + }
-> > +
-> > + usb3phy->clk_ref =3D devm_clk_get(dev, "refclk-usb3otg");
-> > + if (IS_ERR(usb3phy->clk_ref)) {
-> > + dev_err(dev, "could not get usb3phy ref clock\n");
-> > + return PTR_ERR(usb3phy->clk_ref);
-> > + }
-> > +
-> > + usb3phy->u2por_rst =3D devm_reset_control_get(dev, "usb3phy-u2-por");
-> > + if (IS_ERR(usb3phy->u2por_rst)) {
-> > + dev_err(dev, "no usb3phy-u2-por reset control found\n");
-> > + return PTR_ERR(usb3phy->u2por_rst);
-> > + }
-> > +
-> > + usb3phy->u3por_rst =3D devm_reset_control_get(dev, "usb3phy-u3-por");
-> > + if (IS_ERR(usb3phy->u3por_rst)) {
-> > + dev_err(dev, "no usb3phy-u3-por reset control found\n");
-> > + return PTR_ERR(usb3phy->u3por_rst);
-> > + }
-> > +
-> > + usb3phy->pipe_rst =3D devm_reset_control_get(dev, "usb3phy-pipe-mac")=
-;
-> > + if (IS_ERR(usb3phy->pipe_rst)) {
-> > + dev_err(dev, "no usb3phy_pipe_mac reset control found\n");
-> > + return PTR_ERR(usb3phy->pipe_rst);
-> > + }
-> > +
-> > + usb3phy->utmi_rst =3D devm_reset_control_get(dev, "usb3phy-utmi-mac")=
-;
-> > + if (IS_ERR(usb3phy->utmi_rst)) {
-> > + dev_err(dev, "no usb3phy-utmi-mac reset control found\n");
-> > + return PTR_ERR(usb3phy->utmi_rst);
-> > + }
-> > +
-> > + usb3phy->pipe_apb_rst =3D devm_reset_control_get(dev, "usb3phy-pipe-a=
-pb");
-> > + if (IS_ERR(usb3phy->pipe_apb_rst)) {
-> > + dev_err(dev, "no usb3phy-pipe-apb reset control found\n");
-> > + return PTR_ERR(usb3phy->pipe_apb_rst);
-> > + }
-> > +
-> > + usb3phy->utmi_apb_rst =3D devm_reset_control_get(dev, "usb3phy-utmi-a=
-pb");
-> > + if (IS_ERR(usb3phy->utmi_apb_rst)) {
-> > + dev_err(dev, "no usb3phy-utmi-apb reset control found\n");
-> > + return PTR_ERR(usb3phy->utmi_apb_rst);
-> > + }
-> > +
-> > + usb3phy->ls_irq =3D of_irq_get_byname(dev->of_node, "linestate");
-> > + if (usb3phy->ls_irq < 0) {
-> > + dev_err(dev, "no linestate irq provided\n");
-> > + return usb3phy->ls_irq;
-> > + }
-> > +
-> > + ret =3D devm_request_threaded_irq(dev, usb3phy->ls_irq, NULL, rockchi=
-p_usb3phy_linestate_irq,
-> > + IRQF_ONESHOT, "rockchip_usb3phy_ls", usb3phy);
-> > + if (ret) {
-> > + dev_err(dev, "failed to request linestate irq handle\n");
-> > + return ret;
-> > + }
-> > +
-> > + usb3phy->bvalid_irq =3D of_irq_get_byname(dev->of_node, "bvalid");
-> > + if (usb3phy->bvalid_irq < 0) {
-> > + dev_err(dev, "no bvalid irq provided\n");
-> > + return usb3phy->bvalid_irq;
-> > + }
-> > +
-> > + ret =3D devm_request_threaded_irq(dev, usb3phy->bvalid_irq, NULL, roc=
-kchip_usb3phy_bvalid_irq,
-> > + IRQF_ONESHOT, "rockchip_usb3phy_bvalid", usb3phy);
-> > + if (ret) {
-> > + dev_err(dev, "failed to request bvalid irq handle\n");
-> > + return ret;
-> > + }
-> > +
-> > + usb3phy->id_irq =3D of_irq_get_byname(dev->of_node, "id");
-> > + if (usb3phy->id_irq < 0) {
-> > + dev_err(dev, "no id irq provided\n");
-> > + return usb3phy->id_irq;
-> > + }
-> > +
-> > + ret =3D devm_request_threaded_irq(dev, usb3phy->id_irq, NULL, rockchi=
-p_usb3phy_id_irq,
-> > + IRQF_ONESHOT, "rockchip_usb3phy-id", usb3phy);
-> > + if (ret) {
-> > + dev_err(dev, "failed to request id irq handle\n");
-> > + return ret;
-> > + }
-> > +
-> > + usb3phy->rxdet_irq =3D of_irq_get_byname(dev->of_node, "rxdet");
-> > + if (usb3phy->rxdet_irq < 0) {
-> > + dev_err(dev, "no rxdet irq provided\n");
-> > + return usb3phy->rxdet_irq;
-> > + }
-> > +
-> > + ret =3D devm_request_threaded_irq(dev, usb3phy->rxdet_irq, NULL, rock=
-chip_usb3phy_rxdet_irq,
-> > + IRQF_ONESHOT, "rockchip_usb3phy-rxdet", usb3phy);
-> > + if (ret) {
-> > + dev_err(dev, "failed to request rxdet irq handle\n");
-> > + return ret;
-> > + }
-> > +
-> > + return 0;
-> > +}
-> > +
-> > +static int rockchip_usb3phy_exit(struct phy *phy)
-> > +{
-> > + struct rockchip_usb3phy_port *port =3D phy_get_drvdata(phy);
-> > + struct rockchip_usb3phy *usb3phy =3D dev_get_drvdata(phy->dev.parent)=
-;
-> > +
-> > + dev_dbg(usb3phy->dev, "usb3phy_shutdown\n");
-> > + rockchip_usb3phy_reset(usb3phy, true, port->type);
-> > +
-> > + return 0;
-> > +}
-> > +
-> > +static const struct phy_ops rockchip_usb3phy_ops =3D {
-> > + .init =3D rockchip_usb3phy_init,
-> > + .exit =3D rockchip_usb3phy_exit,
-> > + .owner =3D THIS_MODULE,
-> > +};
-> > +
-> > +static const struct regmap_config rockchip_usb3phy_utmi_port_regmap_co=
-nfig =3D {
-> > + .reg_bits =3D 32,
-> > + .val_bits =3D 32,
-> > + .reg_stride =3D 4,
-> > + .max_register =3D 0x400,
-> > + .cache_type =3D REGCACHE_NONE,
-> > + .fast_io =3D true,
-> > + .name =3D "utmi-port",
-> > +};
-> > +
-> > +static const struct regmap_config rockchip_usb3phy_pipe_port_regmap_co=
-nfig =3D {
-> > + .reg_bits =3D 32,
-> > + .val_bits =3D 32,
-> > + .reg_stride =3D 4,
-> > + .max_register =3D 0x400,
-> > + .cache_type =3D REGCACHE_NONE,
-> > + .fast_io =3D true,
-> > + .name =3D "pipe-port",
-> > +};
-> > +
-> > +static const struct regmap_config rockchip_usb3phy_regmap_config =3D {
-> > + .reg_bits =3D 32,
-> > + .val_bits =3D 32,
-> > + .reg_stride =3D 4,
-> > + .max_register =3D 0x400,
-> > + .write_flag_mask =3D REG_WRITE_MASK,
-> > + .cache_type =3D REGCACHE_NONE,
-> > + .fast_io =3D true,
-> > +};
-> > +
-> > +static int rockchip_usb3phy_probe(struct platform_device *pdev)
-> > +{
-> > + struct device *dev =3D &pdev->dev;
-> > + struct device_node *np =3D dev->of_node;
-> > + struct device_node *child_np;
-> > + struct phy_provider *provider;
-> > + struct rockchip_usb3phy *usb3phy;
-> > + const struct regmap_config regmap_config =3D rockchip_usb3phy_regmap_=
-config;
-> > + void __iomem *base;
-> > + int i, ret;
-> > +
-> > + dev_dbg(dev, "Probe usb3phy main block\n");
-> > + usb3phy =3D devm_kzalloc(dev, sizeof(*usb3phy), GFP_KERNEL);
-> > + if (!usb3phy)
-> > + return -ENOMEM;
-> > +
-> > + ret =3D rockchip_usb3phy_parse_dt(usb3phy, dev);
-> > + if (ret) {
-> > + dev_err(dev, "parse dt failed %i\n", ret);
-> > + return ret;
-> > + }
-> > +
-> > + base =3D devm_of_iomap(dev, np, 0, NULL);
-> > + if (IS_ERR(base)) {
-> > + dev_err(dev, "failed port ioremap\n");
-> > + return PTR_ERR(base);
-> > + }
-> > +
-> > + usb3phy->regmap =3D devm_regmap_init_mmio(dev, base, &regmap_config);
-> > + if (IS_ERR(usb3phy->regmap)) {
-> > + dev_err(dev, "regmap init failed\n");
-> > + return PTR_ERR(usb3phy->regmap);
-> > + }
-> > +
-> > + usb3phy->dev =3D dev;
-> > + platform_set_drvdata(pdev, usb3phy);
-> > +
-> > + /* place block in reset */
-> > + reset_control_assert(usb3phy->pipe_rst);
-> > + reset_control_assert(usb3phy->utmi_rst);
-> > + reset_control_assert(usb3phy->u3por_rst);
-> > + reset_control_assert(usb3phy->u2por_rst);
-> > + reset_control_assert(usb3phy->pipe_apb_rst);
-> > + reset_control_assert(usb3phy->utmi_apb_rst);
-> > +
-> > + fsleep(20);
-> > +
-> > + /* take apb interface out of reset */
-> > + reset_control_deassert(usb3phy->utmi_apb_rst);
-> > + reset_control_deassert(usb3phy->pipe_apb_rst);
-> > +
-> > + /* enable usb3phy rx detection to fix disconnection issues */
-> > + regmap_write(usb3phy->regmap, USB3PHY_WAKEUP_CON_REG,
-> > +     (USB3_RXDET_EN | (USB3_RXDET_EN << REG_WRITE_SHIFT)));
-> > +
-> > + dev_dbg(dev, "Completed usb3phy core probe\n");
-> > +
-> > + /* probe the actual ports */
-> > + i =3D 0;
-> > + for_each_available_child_of_node(np, child_np) {
-> > + const struct regmap_config *regmap_port_config;
-> > + struct rockchip_usb3phy_port *port =3D &usb3phy->ports[i];
-> > + struct phy *phy;
-> > +
-> > + if (of_node_name_eq(child_np, "utmi-port")) {
-> > + port->type =3D USB3PHY_TYPE_USB2;
-> > + regmap_port_config =3D &rockchip_usb3phy_utmi_port_regmap_config;
-> > + } else if (of_node_name_eq(child_np, "pipe-port")) {
-> > + port->type =3D USB3PHY_TYPE_USB3;
-> > + regmap_port_config =3D &rockchip_usb3phy_pipe_port_regmap_config;
-> > + } else {
-> > + dev_err(dev, "unknown child node port type %s\n", child_np->name);
-> > + goto err_port;
-> > + }
-> > +
-> > + base =3D devm_of_iomap(dev, child_np, 0, NULL);
-> > + if (IS_ERR(base)) {
-> > + dev_err(dev, "failed port ioremap\n");
-> > + ret =3D PTR_ERR(base);
-> > + goto err_port;
-> > + }
-> > +
-> > + port->regmap =3D devm_regmap_init_mmio(dev, base, regmap_port_config)=
-;
-> > + if (IS_ERR(port->regmap)) {
-> > + dev_err(dev, "regmap init failed\n");
-> > + ret =3D PTR_ERR(port->regmap);
-> > + goto err_port;
-> > + }
-> > +
-> > + phy =3D devm_phy_create(dev, child_np, &rockchip_usb3phy_ops);
-> > + if (IS_ERR(phy)) {
-> > + dev_err_probe(dev, PTR_ERR(phy), "failed to create phy\n");
-> > + ret =3D PTR_ERR(phy);
-> > + goto err_port;
-> > + }
-> > +
-> > + port->phy =3D phy;
-> > + phy_set_drvdata(port->phy, port);
-> > +
-> > + /* to prevent out of boundary */
-> > + if (++i >=3D USB3PHY_TYPE_MAX) {
-> > + of_node_put(child_np);
-> > + break;
-> > + }
-> > +
-> > + dev_info(dev, "Completed usb3phy %s port init\n", child_np->name);
-> > + }
-> > +
-> > + provider =3D devm_of_phy_provider_register(dev, of_phy_simple_xlate);
-> > + return PTR_ERR_OR_ZERO(provider);
-> > +
-> > +err_port:
-> > + of_node_put(child_np);
-> > + return ret;
-> > +}
-> > +
-> > +static const struct of_device_id rockchip_usb3phy_dt_ids[] =3D {
-> > + { .compatible =3D "rockchip,rk3328-usb3phy", },
-> > +};
->
-> isn=E2=80=99t { /* sentinel */ } missing here?
 
-Yes, there should be.  Thank you.
-
+On 1/16/25 03:00, Krzysztof Kozlowski wrote:
+> Bindings expect GPIO hog names to end with 'hog' suffix, so correct it
+> to fix dtbs_check warnings like:
 >
+>    aspeed-bmc-lenovo-hr630.dtb: pin_gpio_b5: $nodename:0: 'pin_gpio_b5' does not match '^.+-hog(-[0-9]+)?$'
 >
-> > +
-> > +MODULE_DEVICE_TABLE(of, rockchip_usb3phy_dt_ids);
-> > +
-> > +static struct platform_driver rockchip_usb3phy_driver =3D {
-> > + .probe =3D rockchip_usb3phy_probe,
-> > + .driver =3D {
-> > + .name =3D "rockchip-usb3-phy",
-> > + .of_match_table =3D rockchip_usb3phy_dt_ids,
-> > + },
-> > +};
-> > +
-> > +module_platform_driver(rockchip_usb3phy_driver);
-> > +
-> > +MODULE_AUTHOR("Peter Geis <pgwipeout@gmail.com>");
-> > +MODULE_DESCRIPTION("Rockchip Innosilicon USB3PHY driver");
-> > +MODULE_LICENSE("GPL");
-> > --
-> > 2.39.5
-> >
-> >
-> > _______________________________________________
-> > Linux-rockchip mailing list
-> > Linux-rockchip@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-rockchip
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> ---
+>   .../dts/aspeed/aspeed-bmc-ampere-mtjade.dts   |  2 +-
+>   .../aspeed-bmc-arm-stardragon4800-rep2.dts    |  4 +-
+>   .../aspeed/aspeed-bmc-asrock-e3c246d4i.dts    |  2 +-
+>   .../dts/aspeed/aspeed-bmc-bytedance-g220a.dts |  4 +-
+>   .../dts/aspeed/aspeed-bmc-delta-ahe50dc.dts   |  2 +-
+>   .../dts/aspeed/aspeed-bmc-ibm-bonnell.dts     |  2 +-
+>   .../dts/aspeed/aspeed-bmc-ibm-everest.dts     |  2 +-
+>   .../dts/aspeed/aspeed-bmc-ibm-rainier.dts     |  4 +-
+>   .../dts/aspeed/aspeed-bmc-lenovo-hr630.dts    | 46 ++++++-------
+>   .../dts/aspeed/aspeed-bmc-lenovo-hr855xg2.dts | 68 +++++++++----------
+>   .../dts/aspeed/aspeed-bmc-opp-lanyang.dts     | 14 ++--
+>   .../boot/dts/aspeed/aspeed-bmc-opp-nicole.dts | 10 +--
+>   .../dts/aspeed/aspeed-bmc-opp-palmetto.dts    | 40 +++++------
+>   .../dts/aspeed/aspeed-bmc-opp-romulus.dts     |  6 +-
+>   .../boot/dts/aspeed/aspeed-bmc-opp-zaius.dts  |  8 +--
+>   15 files changed, 107 insertions(+), 107 deletions(-)
 >
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-ampere-mtjade.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-ampere-mtjade.dts
+> index 31c5d319aa0a..263702599767 100644
+> --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-ampere-mtjade.dts
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-ampere-mtjade.dts
+> @@ -825,7 +825,7 @@ ocp-aux-pwren-hog {
+>   		line-name = "ocp-aux-pwren";
+>   	};
+>   
+> -	bmc-ready {
+> +	bmc-ready-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(AC, 5) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-arm-stardragon4800-rep2.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-arm-stardragon4800-rep2.dts
+> index 29c68c37e7f5..9605ccade155 100644
+> --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-arm-stardragon4800-rep2.dts
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-arm-stardragon4800-rep2.dts
+> @@ -201,13 +201,13 @@ &gfx {
+>   };
+>   
+>   &gpio {
+> -	pin_gpio_c7 {
+> +	pin-gpio-c7-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(C, 7) GPIO_ACTIVE_HIGH>;
+>   		output-low;
+>   		line-name = "BIOS_SPI_MUX_S";
+>   	};
+> -	pin_gpio_d1 {
+> +	pin-gpio-d1-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(D, 1) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-e3c246d4i.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-e3c246d4i.dts
+> index bb2e6ef609af..93190f4e696c 100644
+> --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-e3c246d4i.dts
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-e3c246d4i.dts
+> @@ -182,7 +182,7 @@ &gpio {
+>   			"CK_33M_BMC", "LFRAME", "SERIRQ", "S_PLTRST";
+>   
+>   	/* Assert BMC_READY so BIOS doesn't sit around waiting for it */
+> -	bmc-ready {
+> +	bmc-ready-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(J, 0) GPIO_ACTIVE_LOW>;
+>   		output-high;
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-bytedance-g220a.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-bytedance-g220a.dts
+> index 3f03a198a1a8..54a5509b04f1 100644
+> --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-bytedance-g220a.dts
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-bytedance-g220a.dts
+> @@ -915,14 +915,14 @@ fan@5 {
+>   };
+>   
+>   &gpio {
+> -	pin_gpio_i3 {
+> +	pin-gpio-i3-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(I, 3) GPIO_ACTIVE_HIGH>;
+>   		output-low;
+>   		line-name = "NCSI_BMC_R_SEL";
+>   	};
+>   
+> -	pin_gpio_b6 {
+> +	pin-gpio-b6-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(B, 6) GPIO_ACTIVE_HIGH>;
+>   		output-low;
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-delta-ahe50dc.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-delta-ahe50dc.dts
+> index b6bfdaea08e6..cce8d0416dc8 100644
+> --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-delta-ahe50dc.dts
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-delta-ahe50dc.dts
+> @@ -395,7 +395,7 @@ &gpio {
+>   	 * back to one causes a power output glitch, so install a hog to keep
+>   	 * it at one as a failsafe to ensure nothing accidentally touches it.
+>   	 */
+> -	doom-guardrail {
+> +	doom-guardrail-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(E, 0) GPIO_ACTIVE_LOW>;
+>   		output-low;
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-bonnell.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-bonnell.dts
+> index 7364adc6b80d..2f5d4075a64a 100644
+> --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-bonnell.dts
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-bonnell.dts
+> @@ -155,7 +155,7 @@ &gpio0 {
+>   		/*Y0-Y7*/	"","","","","","","","",
+>   		/*Z0-Z7*/	"","","","","","","","";
+>   
+> -	usb_power {
+> +	usb-power-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(O, 3) GPIO_ACTIVE_LOW>;
+>   		output-high;
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-everest.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-everest.dts
+> index 9961508ee872..4d9e2cd11f44 100644
+> --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-everest.dts
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-everest.dts
+> @@ -312,7 +312,7 @@ &gpio0 {
+>   	/*Y0-Y7*/	"","","","","","","","",
+>   	/*Z0-Z7*/   "","","","","","","","";
+>   
+> -	usb_power {
+> +	usb-power-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(O, 3) GPIO_ACTIVE_LOW>;
+>   		output-high;
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier.dts
+> index a4aec3010456..836b90dc7014 100644
+> --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier.dts
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier.dts
+> @@ -224,14 +224,14 @@ &gpio0 {
+>   	/*Y0-Y7*/	"","","","","","","","",
+>   	/*Z0-Z7*/	"","","","","","","","";
+>   
+> -	i2c3_mux_oe_n {
+> +	i2c3-mux-oe-n-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(G, 6) GPIO_ACTIVE_LOW>;
+>   		output-high;
+>   		line-name = "I2C3_MUX_OE_N";
+>   	};
+>   
+> -	usb_power {
+> +	usb-power-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(O, 3) GPIO_ACTIVE_LOW>;
+>   		output-high;
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-lenovo-hr630.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-lenovo-hr630.dts
+> index ddbcbc64e235..4ad0f44af1ab 100644
+> --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-lenovo-hr630.dts
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-lenovo-hr630.dts
+> @@ -405,161 +405,161 @@ fan@13 {
+>   
+>   &gpio {
+>   
+> -	pin_gpio_b5 {
+> +	pin-gpio-b5-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(B, 5) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "IRQ_BMC_PCH_SMI_LPC_N";
+>   	};
+>   
+> -	pin_gpio_f0 {
+> +	pin-gpio-f0-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(F, 0) GPIO_ACTIVE_HIGH>;
+>   		output-low;
+>   		line-name = "IRQ_BMC_PCH_NMI_R";
+>   	};
+>   
+> -	pin_gpio_f3 {
+> +	pin-gpio-f3-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(F, 3) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "I2C_BUS0_RST_OUT_N";
+>   	};
+>   
+> -	pin_gpio_f4 {
+> +	pin-gpio-f4-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(F, 4) GPIO_ACTIVE_HIGH>;
+>   		output-low;
+>   		line-name = "FM_SKT0_FAULT_LED";
+>   	};
+>   
+> -	pin_gpio_f5 {
+> +	pin-gpio-f5-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(F, 5) GPIO_ACTIVE_HIGH>;
+>   		output-low;
+>   		line-name = "FM_SKT1_FAULT_LED";
+>   	};
+>   
+> -	pin_gpio_g4 {
+> +	pin-gpio-g4-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(G, 4) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "FAN_PWR_CTL_N";
+>   	};
+>   
+> -	pin_gpio_g7 {
+> +	pin-gpio-g7-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(G, 7) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "RST_BMC_PCIE_I2CMUX_N";
+>   	};
+>   
+> -	pin_gpio_h2 {
+> +	pin-gpio-h2-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(H, 2) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "PSU1_FFS_N_R";
+>   	};
+>   
+> -	pin_gpio_h3 {
+> +	pin-gpio-h3-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(H, 3) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "PSU2_FFS_N_R";
+>   	};
+>   
+> -	pin_gpio_i3 {
+> +	pin-gpio-i3-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(I, 3) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "BMC_INTRUDED_COVER";
+>   	};
+>   
+> -	pin_gpio_j2 {
+> +	pin-gpio-j2-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(J, 2) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "BMC_BIOS_UPDATE_N";
+>   	};
+>   
+> -	pin_gpio_j3 {
+> +	pin-gpio-j3-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(J, 3) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "RST_BMC_HDD_I2CMUX_N";
+>   	};
+>   
+> -	pin_gpio_s2 {
+> +	pin-gpio-s2-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(S, 2) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "BMC_VGA_SW";
+>   	};
+>   
+> -	pin_gpio_s4 {
+> +	pin-gpio-s4-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(S, 4) GPIO_ACTIVE_HIGH>;
+>   		output;
+>   		line-name = "VBAT_EN_N";
+>   	};
+>   
+> -	pin_gpio_s6 {
+> +	pin-gpio-s6-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(S, 6) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "PU_BMC_GPIOS6";
+>   	};
+>   
+> -	pin_gpio_y0 {
+> +	pin-gpio-y0-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(Y, 0) GPIO_ACTIVE_HIGH>;
+>   		output-low;
+>   		line-name = "BMC_NCSI_MUX_CTL_S0";
+>   	};
+>   
+> -	pin_gpio_y1 {
+> +	pin-gpio-y1-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(Y, 1) GPIO_ACTIVE_HIGH>;
+>   		output-low;
+>   		line-name = "BMC_NCSI_MUX_CTL_S1";
+>   	};
+>   
+> -	pin_gpio_z0 {
+> +	pin-gpio-z0-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(Z, 0) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "I2C_RISER2_INT_N";
+>   	};
+>   
+> -	pin_gpio_z2 {
+> +	pin-gpio-z2-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(Z, 2) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "I2C_RISER2_RESET_N";
+>   	};
+>   
+> -	pin_gpio_z3 {
+> +	pin-gpio-z3-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(Z, 3) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "FM_BMC_PCH_SCI_LPC_N";
+>   	};
+>   
+> -	pin_gpio_z7 {
+> +	pin-gpio-z7-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(Z, 7) GPIO_ACTIVE_HIGH>;
+>   		output-low;
+>   		line-name = "BMC_POST_CMPLT_N";
+>   	};
+>   
+> -	pin_gpio_aa0 {
+> +	pin-gpio-aa0-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(AA, 0) GPIO_ACTIVE_HIGH>;
+>   		output-low;
+>   		line-name = "HOST_BMC_USB_SEL";
+>   	};
+>   
+> -	pin_gpio_aa5 {
+> +	pin-gpio-aa5-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(AA, 5) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-lenovo-hr855xg2.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-lenovo-hr855xg2.dts
+> index 6045b60b80da..de61eac54585 100644
+> --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-lenovo-hr855xg2.dts
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-lenovo-hr855xg2.dts
+> @@ -425,238 +425,238 @@ fan@16 {
+>   
+>   &gpio {
+>   
+> -	pin_gpio_a1 {
+> +	pin-gpio-a1-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(A, 1) GPIO_ACTIVE_LOW>;
+>   		output-high;
+>   		line-name = "BMC_EMMC_RST_N";
+>   	};
+>   
+> -	pin_gpio_a3 {
+> +	pin-gpio-a3-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(A, 3) GPIO_ACTIVE_LOW>;
+>   		output-high;
+>   		line-name = "PCH_PWROK_BMC_FPGA";
+>   	};
+>   
+> -	pin_gpio_b5 {
+> +	pin-gpio-b5-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(B, 5) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "IRQ_BMC_PCH_SMI_LPC_N";
+>   	};
+>   
+> -	pin_gpio_b7 {
+> +	pin-gpio-b7-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(B, 7) GPIO_ACTIVE_LOW>;
+>   		output-low;
+>   		line-name = "CPU_SM_WP";
+>   	};
+>   
+> -	pin_gpio_e0 {
+> +	pin-gpio-e0-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(E, 0) GPIO_ACTIVE_HIGH>;
+>   		input;
+>   		line-name = "PDB_PSU_SEL";
+>   	};
+>   
+> -	pin_gpio_e2 {
+> +	pin-gpio-e2-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(E, 2) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "LOCATOR_LED_N";
+>   	};
+>   
+> -	pin_gpio_e5 {
+> +	pin-gpio-e5-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(E, 5) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "FM_BMC_DBP_PRESENT_R1_N";
+>   	};
+>   
+> -	pin_gpio_e6 {
+> +	pin-gpio-e6-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(E, 6) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "BMC_ME_SECURITY_OVERRIDE_N";
+>   	};
+>   
+> -	pin_gpio_f0 {
+> +	pin-gpio-f0-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(F, 0) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "IRQ_BMC_PCH_NMI_R";
+>   	};
+>   
+> -	pin_gpio_f1 {
+> +	pin-gpio-f1-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(F, 1) GPIO_ACTIVE_HIGH>;
+>   		input;
+>   		line-name = "CPU2_PROCDIS_BMC_N";
+>   	};
+>   
+> -	pin_gpio_f2 {
+> +	pin-gpio-f2-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(F, 2) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "RM_THROTTLE_EN_N";
+>   	};
+>   
+> -	pin_gpio_f3 {
+> +	pin-gpio-f3-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(F, 3) GPIO_ACTIVE_HIGH>;
+>   		output-low;
+>   		line-name = "FM_PMBUS_ALERT_B_EN";
+>   	};
+>   
+> -	pin_gpio_f4 {
+> +	pin-gpio-f4-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(F, 4) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "BMC_FORCE_NM_THROTTLE_N";
+>   	};
+>   
+> -	pin_gpio_f6 {
+> +	pin-gpio-f6-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(F, 6) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "FM_BMC_CPU_PWR_DEBUG_N";
+>   	};
+>   
+> -	pin_gpio_g7 {
+> +	pin-gpio-g7-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(G, 7) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "BMC_PCIE_I2C_MUX_RST_N";
+>   	};
+>   
+> -	pin_gpio_h6 {
+> +	pin-gpio-h6-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(H, 6) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "FM_BMC_DBP_PRESENT_R2_N";
+>   	};
+>   
+> -	pin_gpio_i3 {
+> +	pin-gpio-i3-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(I, 3) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "SPI_BMC_BIOS_WP_N";
+>   	};
+>   
+> -	pin_gpio_j1 {
+> +	pin-gpio-j1-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(J, 1) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "BMC_USB_SEL";
+>   	};
+>   
+> -	pin_gpio_j2 {
+> +	pin-gpio-j2-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(J, 2) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "PDB_SMB_RST_N";
+>   	};
+>   
+> -	pin_gpio_j3 {
+> +	pin-gpio-j3-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(J, 3) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "SPI_BMC_BIOS_HOLD_N";
+>   	};
+>   
+> -	pin_gpio_l0 {
+> +	pin-gpio-l0-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(L, 0) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "PDB_FAN_TACH_SEL";
+>   	};
+>   
+> -	pin_gpio_l1 {
+> +	pin-gpio-l1-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(L, 1) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "SYS_RESET_BMC_FPGA_N";
+>   	};
+>   
+> -	pin_gpio_l4 {
+> +	pin-gpio-l4-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(L, 4) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "FM_EFUSE_FAN_G1_EN";
+>   	};
+>   
+> -	pin_gpio_l5 {
+> +	pin-gpio-l5-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(L, 5) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "FM_EFUSE_FAN_G2_EN";
+>   	};
+>   
+> -	pin_gpio_r6 {
+> +	pin-gpio-r6-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(R, 6) GPIO_ACTIVE_HIGH>;
+>   		input;
+>   		line-name = "CPU3_PROCDIS_BMC_N";
+>   	};
+>   
+> -	pin_gpio_r7 {
+> +	pin-gpio-r7-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(R, 7) GPIO_ACTIVE_HIGH>;
+>   		input;
+>   		line-name = "CPU4_PROCDIS_BMC_N";
+>   	};
+>   
+> -	pin_gpio_s1 {
+> +	pin-gpio-s1-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(S, 1) GPIO_ACTIVE_HIGH>;
+>   		output-low;
+>   		line-name = "DBP_SYSPWROK_BMC";
+>   	};
+>   
+> -	pin_gpio_s2 {
+> +	pin-gpio-s2-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(S, 2) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "PCH_RST_RSMRST_N";
+>   	};
+>   
+> -	pin_gpio_s6 {
+> +	pin-gpio-s6-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(S, 6) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "BMC_HW_STRAP_5";
+>   	};
+>   
+> -	pin_gpio_z3 {
+> +	pin-gpio-z3-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(Z, 3) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "FM_BMC_PCH_SCI_LPC_N";
+>   	};
+>   
+> -	pin_gpio_aa0 {
+> +	pin-gpio-aa0-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(AA, 0) GPIO_ACTIVE_HIGH>;
+>   		output-low;
+>   		line-name = "FW_PSU_ALERT_EN_N";
+>   	};
+>   
+> -	pin_gpio_aa4 {
+> +	pin-gpio-aa4-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(AA, 4) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "DBP_CPU_PREQ_N";
+>   	};
+>   
+> -	pin_gpio_ab3 {
+> +	pin-gpio-ab3-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(AB, 3) GPIO_ACTIVE_HIGH>;
+>   		output-low;
+>   		line-name = "BMC_WDTRST";
+>   	};
+>   
+> -	pin_gpio_ac6 {
+> +	pin-gpio-ac6-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(AC, 6) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-lanyang.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-lanyang.dts
+> index 370738572a55..b875b6b45083 100644
+> --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-lanyang.dts
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-lanyang.dts
+> @@ -264,49 +264,49 @@ &gfx {
+>   };
+>   
+>   &gpio {
+> -	pin_gpio_b0 {
+> +	pin-gpio-b0-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(B, 0) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "BMC_HDD1_PWR_EN";
+>   	};
+>   
+> -	pin_gpio_b5 {
+> +	pin-gpio-b5-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(B, 5) GPIO_ACTIVE_HIGH>;
+>   		input;
+>   		line-name = "BMC_USB1_OCI2";
+>   	};
+>   
+> -	pin_gpio_h5 {
+> +	pin-gpio-h5-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(H, 5) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "BMC_CP0_PERST_ENABLE_R";
+>   	};
+>   
+> -	pin_gpio_z2 {
+> +	pin-gpio-z2-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(Z, 2) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "RST_PCA9546_U177_N";
+>   	};
+>   
+> -	pin_gpio_aa6 {
+> +	pin-gpio-aa6-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(AA, 6) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "BMC_CP0_RESET_N";
+>   	};
+>   
+> -	pin_gpio_aa7 {
+> +	pin-gpio-aa7-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(AA, 7) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "BMC_TPM_RESET_N";
+>   	};
+>   
+> -	pin_gpio_ab0 {
+> +	pin-gpio-ab0-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(AB, 0) GPIO_ACTIVE_LOW>;
+>   		output-high;
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-nicole.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-nicole.dts
+> index b1d0ff85d397..1a7c61750d0d 100644
+> --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-nicole.dts
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-nicole.dts
+> @@ -248,27 +248,27 @@ &gpio {
+>   	/*AB0-AB7*/	"","","","","","","","",
+>   	/*AC0-AC7*/	"","","","","","","","";
+>   
+> -	func_mode0 {
+> +	func-mode0-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(D, 3) GPIO_ACTIVE_HIGH>;
+>   		output-low;
+>   	};
+> -	func_mode1 {
+> +	func-mode1-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(D, 4) GPIO_ACTIVE_HIGH>;
+>   		output-low;
+>   	};
+> -	func_mode2 {
+> +	func-mode2-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(D, 5) GPIO_ACTIVE_HIGH>;
+>   		output-low;
+>   	};
+> -	seq_cont {
+> +	seq-cont-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(S, 7) GPIO_ACTIVE_HIGH>;
+>   		output-low;
+>   	};
+> -	ncsi_cfg {
+> +	ncsi-cfg-hog {
+>   		gpio-hog;
+>   		input;
+>   		gpios = <ASPEED_GPIO(E, 1) GPIO_ACTIVE_HIGH>;
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-palmetto.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-palmetto.dts
+> index 45631b47a7b3..123da82c04d5 100644
+> --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-palmetto.dts
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-palmetto.dts
+> @@ -209,140 +209,140 @@ &lpc_ctrl {
+>   };
+>   
+>   &gpio {
+> -	pin_func_mode0 {
+> +	pin-func-mode0-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(C, 4) GPIO_ACTIVE_HIGH>;
+>   		output-low;
+>   		line-name = "func_mode0";
+>   	};
+>   
+> -	pin_func_mode1 {
+> +	pin-func-mode1-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(C, 5)  GPIO_ACTIVE_HIGH>;
+>   		output-low;
+>   		line-name = "func_mode1";
+>   	};
+>   
+> -	pin_func_mode2 {
+> +	pin-func-mode2-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(C, 6) GPIO_ACTIVE_HIGH>;
+>   		output-low;
+>   		line-name = "func_mode2";
+>   	};
+>   
+> -	pin_gpio_a0 {
+> +	pin-gpio-a0-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(A, 0) GPIO_ACTIVE_HIGH>;
+>   		input;
+>   		line-name = "BMC_FAN_RESERVED_N";
+>   	};
+>   
+> -	pin_gpio_a1 {
+> +	pin-gpio-a1-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(A, 1) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "APSS_WDT_N";
+>   	};
+>   
+> -	pin_gpio_b1 {
+> +	pin-gpio-b1-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(B, 1) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "APSS_BOOT_MODE";
+>   	};
+>   
+> -	pin_gpio_b2 {
+> +	pin-gpio-b2-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(B, 2) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "APSS_RESET_N";
+>   	};
+>   
+> -	pin_gpio_b7 {
+> +	pin-gpio-b7-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(B, 7) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "SPIVID_STBY_RESET_N";
+>   	};
+>   
+> -	pin_gpio_d1 {
+> +	pin-gpio-d1-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(D, 1) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "BMC_POWER_UP";
+>   	};
+>   
+> -	pin_gpio_f1 {
+> +	pin-gpio-f1-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(F, 1) GPIO_ACTIVE_HIGH>;
+>   		input;
+>   		line-name = "BMC_BATTERY_TEST";
+>   	};
+>   
+> -	pin_gpio_f4 {
+> +	pin-gpio-f4-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(F, 4) GPIO_ACTIVE_HIGH>;
+>   		input;
+>   		line-name = "AST_HW_FAULT_N";
+>   	};
+>   
+> -	pin_gpio_f5 {
+> +	pin-gpio-f5-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(F, 5) GPIO_ACTIVE_HIGH>;
+>   		input;
+>   		line-name = "AST_SYS_FAULT_N";
+>   	};
+>   
+> -	pin_gpio_f7 {
+> +	pin-gpio-f7-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(F, 7) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "BMC_FULL_SPEED_N";
+>   	};
+>   
+> -	pin_gpio_g3 {
+> +	pin-gpio-g3-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(G, 3) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "BMC_FAN_ERROR_N";
+>   	};
+>   
+> -	pin_gpio_g4 {
+> +	pin-gpio-g4-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(G, 4) GPIO_ACTIVE_HIGH>;
+>   		input;
+>   		line-name = "BMC_WDT_RST1_P";
+>   	};
+>   
+> -	pin_gpio_g5 {
+> +	pin-gpio-g5-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(G, 5) GPIO_ACTIVE_HIGH>;
+>   		input;
+>   		line-name = "BMC_WDT_RST2_P";
+>   	};
+>   
+> -	pin_gpio_h0 {
+> +	pin-gpio-h0-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(H, 0) GPIO_ACTIVE_HIGH>;
+>   		input;
+>   		line-name = "PE_SLOT_TEST_EN_N";
+>   	};
+>   
+> -	pin_gpio_h1 {
+> +	pin-gpio-h1-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(H, 1) GPIO_ACTIVE_HIGH>;
+>   		input;
+>   		line-name = "BMC_RTCRST_N";
+>   	};
+>   
+> -	pin_gpio_h2 {
+> +	pin-gpio-h2-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(H, 2) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   		line-name = "SYS_PWROK_BMC";
+>   	};
+>   
+> -	pin_gpio_h7 {
+> +	pin-gpio-h7-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(H, 7) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-romulus.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-romulus.dts
+> index 24df24ad9c80..e6b383f6e977 100644
+> --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-romulus.dts
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-romulus.dts
+> @@ -263,17 +263,17 @@ &gpio {
+>   	/*AB0-AB7*/	"","","","","","","","",
+>   	/*AC0-AC7*/	"","","","","","","","";
+>   
+> -	nic_func_mode0 {
+> +	nic-func-mode0-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(D, 3) GPIO_ACTIVE_HIGH>;
+>   		output-low;
+>   	};
+> -	nic_func_mode1 {
+> +	nic-func-mode1-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(D, 4) GPIO_ACTIVE_HIGH>;
+>   		output-low;
+>   	};
+> -	seq_cont {
+> +	seq-cont-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(S, 7) GPIO_ACTIVE_HIGH>;
+>   		output-low;
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-zaius.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-zaius.dts
+> index 9904f0a58cfa..6ac7b0aa6e54 100644
+> --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-zaius.dts
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-zaius.dts
+> @@ -509,25 +509,25 @@ &gpio {
+>   	/*AB0-AB7*/	"","","","","","","","",
+>   	/*AC0-AC7*/	"","","","","","","","";
+>   
+> -	line_iso_u146_en {
+> +	line-iso-u146-en-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(O, 4) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   	};
+>   
+> -	ncsi_mux_en_n {
+> +	ncsi-mux-en-n-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(P, 0) GPIO_ACTIVE_HIGH>;
+>   		output-low;
+>   	};
+>   
+> -	line_bmc_i2c2_sw_rst_n {
+> +	line-bmc-i2c2-sw-rst-n-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(P, 1) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+>   	};
+>   
+> -	line_bmc_i2c5_sw_rst_n {
+> +	line-bmc-i2c5-sw-rst-n-hog {
+>   		gpio-hog;
+>   		gpios = <ASPEED_GPIO(P, 3) GPIO_ACTIVE_HIGH>;
+>   		output-high;
+Reviewed-by: Ninad Palsule <ninad@linux.ibm.com>
 
