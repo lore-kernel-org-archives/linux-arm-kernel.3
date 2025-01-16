@@ -4,97 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCC15E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 07:25:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5941E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 07:30:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IgVDZJK/ujB65O5I2vwx4J+q5AFipQItIeJr4iAC6iA=; b=KXGmZPDCVjydM9+JrEcmvqrXiC
-	UKsIfJxfLzxlR3tuWKsOjxmRY4snzrsgDycFzi2ckJ8J9hND+iOIZMpzrB1G3BgqRqmnILfLVm46D
-	2ti3bUZdxbPQzs7qEfQuyoT9Jz+EuLHppyx6ZOAf3gyZSlfJbmXL/8UQkYSKGzmwc6DRmr+zeqEsu
-	2b5HfciSgPaj8RDG9Q3r1ZPJM1Qz1w9auRfeIAb7RTFe2HUha1MQshyFM/6OW+JrDUx1eurd1steK
-	5/jw1nNm8Co/2JgJVqHlFbjPA+2jMs/I3ZMoJ9LS54TIbbKE4HqERiT657fJDpZYtUMNF3dfJ8+Im
-	uxyPEK/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rQAC6kCDdEI6iOII1wHqk8tAdoIl8H2yE4YFJdgv50Y=; b=Iqgl8eHreKHO0T8pYQ2IjE4hXN
+	zcr8QlqevBEuxfNvkLUwOHV0j072yYIOtlih7piT6/JS9Z34UZnTVX+2YtI9E9NdBoAY3dATLuY7t
+	FuWtkEQAKDd4atlu0rGqXNvuzvEa18C7lSI7Lm4wvUy6BJdfOQjOW0Y8c//lxbXO2S1+5S1UMdXvi
+	l6lZdEDWh7DDzTYj2WcaB6GyKdKLdG3XfLL+In95hffuvEYMJ2FTg6gKaIvcY9XSJQz8vii6n9/48
+	RMEHlS4oibz6sI35kKbDTu8a68kA8pAHZSs0pIM5BB1fuZgFwJCKZauNlA7niYNZ+LyEdIy46pUWb
+	cJm57ZLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYKFy-0000000E1pW-2GGp;
-	Thu, 16 Jan 2025 07:25:34 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1tYKKe-0000000E30B-1mVC;
+	Thu, 16 Jan 2025 07:30:24 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYKEi-0000000E1jn-2qib
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 07:24:18 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4363dc916ceso10222795e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 23:24:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737012254; x=1737617054; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=IgVDZJK/ujB65O5I2vwx4J+q5AFipQItIeJr4iAC6iA=;
-        b=Gp+d1zbWXZjs3Y3smorrVC4omD9127unIsI7DlsBptIrVfvQuklq5r9+OE5tNhdvtk
-         edPZuet37iuA7FXBaTFLz8laze9RmspcJ5GGjqoOdc1qJ376OfYDRtJODn3CHv8O7Qyp
-         BjJVvhnUxwZREqGxVjFAIijdAXJ6hRhG3JlVuaa/6ge7Swe/yENx9LVTAl6FUebOMCXY
-         DeSovPiLet/zDPI2hYvkN8/z+WQjMaodS6Aj0INHbc9WdBtdseDFQwU+4803RpMdHts2
-         wO9H8RvfzF8AT5lFuiBm+HwzYpWxE2dkaJ9mBrr8Vb1JgrsCXq408YNBsobrsqZZukpC
-         EdbA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737012254; x=1737617054;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=IgVDZJK/ujB65O5I2vwx4J+q5AFipQItIeJr4iAC6iA=;
-        b=HOlDyrJATGKXBeSBqq9sFHoxySx1TudZ0m//aLOGK9hwalaWzBs7D2I5gTVNcCVLLD
-         cZKLtEIg0Bs3zJxvQpikodv/6PTyZTGhGJjy/S8955NgHhdYE58hQj4Xty72064ohZ1y
-         lFaJcrz89W8AlY9TKuIMIPbdLNRnlIQ4Ba1ISz06Xd9UdX7QuZjIV/wmFZB4CfFJtL11
-         UD3nOymaIn7m2CL2so0KVRWYTfJ6XiuxJFPeALZnGkYUbeIRJJ4oObI+hvcoCLAPngWN
-         ggozq8NEPRXxex8rSkLOG9VzFbRbHfURZb8/ncY8QCSHDKdbhiej+o4I2bPTXM569tMV
-         QYIQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXZ3O8E3nigFxCGwi/wDtFiStPc/m3/f/uGWvHa5cWe3/9PrwLDAS9mVIcz4O8grikGllnmjTOgppcSlZGVZQ81@lists.infradead.org
-X-Gm-Message-State: AOJu0YyH93jALSgtIA7K3OhxNagDGfap0xitsa0z34rVoxt8qNaJ61eW
-	TYdKLza6narJq1Hm8UBMfurpm4yQgbULrpdyLEHbGieTouHxdxrN
-X-Gm-Gg: ASbGncuze1qLJO2zW0yGsPu5LOdplRBXWmi/sbsyrBtWhL/ivR/ukYoXLJJ0gQcZynU
-	9gvUGr1Ja9dXG68pyc+JqOQ+mfV+BI9BkK/qlhjwFIA+L6C1Mr9DF6euhP8asj2sjPGyxXIpsTx
-	hKIJcL06sUR0m2UktwI/KZ612QZjPGVKVEtEvEm6BNWxnCZJD90P1HScABXXWYkPhuey9D+la0W
-	QRYbSEQgATE2TFI6SGHVXhNZC9RvRXGxsKnpAA25F1EnpxpaP6cLPyM
-X-Google-Smtp-Source: AGHT+IEoUDQBvRyW1rj5PdvWwHSZrTwh0+MhedH5EL9nzscjOPcqJoxU9CPjQ5ErDBkS7bIkez2gdQ==
-X-Received: by 2002:a05:600c:c06:b0:434:fe3c:c662 with SMTP id 5b1f17b1804b1-437c6b26e74mr45097105e9.12.1737012254194;
-        Wed, 15 Jan 2025 23:24:14 -0800 (PST)
-Received: from eichest-laptop ([2a02:168:af72:0:6c4e:8d77:c1b7:309e])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-437c74bf061sm48499725e9.17.2025.01.15.23.24.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jan 2025 23:24:13 -0800 (PST)
-Date: Thu, 16 Jan 2025 08:24:11 +0100
-From: Stefan Eichenberger <eichest@gmail.com>
-To: Shengjiu Wang <shengjiu.wang@gmail.com>
-Cc: abelvesa@kernel.org, peng.fan@nxp.com, mturquette@baylibre.com,
-	sboyd@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com, shengjiu.wang@nxp.com,
-	francesco.dolcini@toradex.com, linux-clk@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Stefan Eichenberger <stefan.eichenberger@toradex.com>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v1] clk: imx: imx8-acm: fix flags for acm clocks
-Message-ID: <Z4i0G5Tw4q0v8DTL@eichest-laptop>
-References: <20250113094654.12998-1-eichest@gmail.com>
- <CAA+D8ANvKQKJhn6qKbPhQeXPD5kxUo3Hg-FBLkDMOaWLTA8vVg@mail.gmail.com>
- <Z4ZRYMf_uJW4poW9@eichest-laptop>
- <Z4dy3LiEAQ_gkQGG@eichest-laptop>
- <CAA+D8AO75MLyP5AWDJoogw8ae4GRtZfSR-HT+S26bXoaVs8saQ@mail.gmail.com>
- <Z4eQX_VnBEVqxT_r@eichest-laptop>
- <CAA+D8APivJWD-AqwmQ-mtcr=ZHot5rfA8FRWF2+p-_mq5BGxHA@mail.gmail.com>
+	id 1tYKJO-0000000E2hj-0gOA;
+	Thu, 16 Jan 2025 07:29:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 567B6A4086D;
+	Thu, 16 Jan 2025 07:27:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8831DC4CED6;
+	Thu, 16 Jan 2025 07:29:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737012545;
+	bh=I80ogNUmSoIctG6ONpKiNo6HZ4UauiCnTHsIxxGNjNM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=DSVVfmGeGo50uvx1iR1+zuD4GZH/KUEs3SnyVF2/ETu7ac8C0OjvfVVA8d2BMV0d2
+	 fpjfDDcWO8Ste7vrxmabwbjy5PdPDgQxEqUCJ9GnYCwykhUwM37tsXQtPJWDv8zlUA
+	 8SIdnXUGvOUEX2048h4kYIqG4zzfRYPsH0dBWYOfg/DAXWiu60PEeifpAg2aHGkuso
+	 lOTEwUfOgLw8agZp331WibpK5NEG56FAXbMRR1sBkbiGr9V5ZuC40S+2aYaALlMroH
+	 Fnjfz7HhiuDHCwjNYEmXW28OZOwa3nhjpvped0ECXkiEArziIYNZfTPnvaSuJQ2/bb
+	 ipvysAZo/ZMSg==
+Message-ID: <d04bc250-2104-4e02-9bf8-5785f4444c8d@kernel.org>
+Date: Thu, 16 Jan 2025 08:28:58 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/2] dt-bindings: pinctrl: mediatek: add support for
+ mt8196
+To: =?UTF-8?B?Q2F0aHkgWHUgKOiuuOWNjuWptyk=?= <ot_cathy.xu@mediatek.com>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ =?UTF-8?B?TGVpIFh1ZSAo6Jab56OKKQ==?= <Lei.Xue@mediatek.com>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ =?UTF-8?B?V2VuYmluIE1laSAo5qKF5paH5b2sKQ==?= <Wenbin.Mei@mediatek.com>,
+ "linus.walleij@linaro.org" <linus.walleij@linaro.org>,
+ =?UTF-8?B?R3VvZG9uZyBMaXUgKOWImOWbveagiyk=?= <Guodong.Liu@mediatek.com>,
+ "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "robh@kernel.org" <robh@kernel.org>,
+ "sean.wang@kernel.org" <sean.wang@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+References: <20250115063555.32492-1-ot_cathy.xu@mediatek.com>
+ <20250115063555.32492-2-ot_cathy.xu@mediatek.com>
+ <nmyxygrya6cpalmirsunvkx32uox3kjxd4l5ggdhjtj7edyizz@yodolm5ktboo>
+ <f7ba63c8afcef1d1925d51e35e4b81f0d0e773ff.camel@mediatek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <f7ba63c8afcef1d1925d51e35e4b81f0d0e773ff.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAA+D8APivJWD-AqwmQ-mtcr=ZHot5rfA8FRWF2+p-_mq5BGxHA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_232416_719777_B9A011C8 
-X-CRM114-Status: GOOD (  54.03  )
+X-CRM114-CacheID: sfid-20250115_232906_326753_B781F2E0 
+X-CRM114-Status: GOOD (  23.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,142 +133,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shengjiu Wang,
+On 16/01/2025 03:20, Cathy Xu (许华婷) wrote:
+>>> +          bias-pull-down:
+>>> +            oneOf:
+>>> +              - type: boolean
+>>> +              - enum: [100, 101, 102, 103]
+>>> +                description: mt8196 pull down PUPD/R0/R1 type
+>>> define value.
+>>> +              - enum: [200, 201, 202, 203, 204, 205, 206, 207]
+>>> +                description: mt8196 pull down RSEL type define
+>>> value.
+>>
+>> Not much improved.
+>   I have removed the content related to 'resistance value', we use
+> 'RSEL' instead of 'resistance value'.
 
-On Thu, Jan 16, 2025 at 12:01:13PM +0800, Shengjiu Wang wrote:
-> On Wed, Jan 15, 2025 at 6:39 PM Stefan Eichenberger <eichest@gmail.com> wrote:
-> >
-> > On Wed, Jan 15, 2025 at 05:14:09PM +0800, Shengjiu Wang wrote:
-> > > On Wed, Jan 15, 2025 at 4:33 PM Stefan Eichenberger <eichest@gmail.com> wrote:
-> > > >
-> > > > Hi Shengjiu Wang,
-> > > >
-> > > > On Tue, Jan 14, 2025 at 12:58:24PM +0100, Stefan Eichenberger wrote:
-> > > > > Hi Shengjiu Wang,
-> > > > >
-> > > > > On Tue, Jan 14, 2025 at 03:49:10PM +0800, Shengjiu Wang wrote:
-> > > > > > On Mon, Jan 13, 2025 at 5:54 PM Stefan Eichenberger <eichest@gmail.com> wrote:
-> > > > > > >
-> > > > > > > From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
-> > > > > > >
-> > > > > > > Currently, the flags for the ACM clocks are set to 0. This configuration
-> > > > > > > causes the fsl-sai audio driver to fail when attempting to set the
-> > > > > > > sysclk, returning an EINVAL error. The following error messages
-> > > > > > > highlight the issue:
-> > > > > > > fsl-sai 59090000.sai: ASoC: error at snd_soc_dai_set_sysclk on 59090000.sai: -22
-> > > > > > > imx-hdmi sound-hdmi: failed to set cpu sysclk: -22
-> > > > > >
-> > > > > > The reason for this error is that the current clock parent can't
-> > > > > > support the rate
-> > > > > > you require (I think you want 11289600).
-> > > > > >
-> > > > > > We can configure the dts to provide such source, for example:
-> > > > > >
-> > > > > >  &sai5 {
-> > > > > > +       assigned-clocks = <&acm IMX_ADMA_ACM_SAI5_MCLK_SEL>,
-> > > > > > +                       <&acm IMX_ADMA_ACM_AUD_CLK1_SEL>,
-> > > > > > +                       <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_PLL>,
-> > > > > > +                       <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_SLV_BUS>,
-> > > > > > +                       <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_MST_BUS>,
-> > > > > > +                       <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_PLL>,
-> > > > > > +                       <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_SLV_BUS>,
-> > > > > > +                       <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_MST_BUS>,
-> > > > > > +                       <&sai5_lpcg 0>;
-> > > > > > +       assigned-clock-parents = <&aud_pll_div0_lpcg 0>, <&aud_rec1_lpcg 0>;
-> > > > > > +       assigned-clock-rates = <0>, <0>, <786432000>, <49152000>, <12288000>,
-> > > > > > +                                <722534400>, <45158400>, <11289600>,
-> > > > > > +                               <49152000>;
-> > > > > >         status = "okay";
-> > > > > >  };
-> > > > > >
-> > > > > > Then your case should work.
-> > > > > >
-> > > > > > >
-> > > > > > > By setting the flag CLK_SET_RATE_NO_REPARENT, we signal that the ACM
-> > > > > >
-> > > > > > I don't think CLK_SET_RATE_NO_REPARENT is a good choice. which will cause
-> > > > > > the driver don't get an error from clk_set_rate().
-> > > > >
-> > > > > Thanks for the proposal, I will try it out tomorrow. Isn't this a
-> > > > > problem if other SAIs use the same clock source but with different
-> > > > > rates?
-> > > > >
-> > > > > If we have to define fixed rates in the DTS or else the clock driver
-> > > > > will return an error, isn't that a problem? Maybe I should change the
-> > > > > sai driver so that it ignores the failure and just takes the rate
-> > > > > configured? In the end audio works, even if it can't set the requested
-> > > > > rate.
-> > > >
-> > > > The following clock tree change would allow the driver to work
-> > > > in our scenario:
-> > > > &sai5 {
-> > > >         assigned-clocks = <&acm IMX_ADMA_ACM_SAI5_MCLK_SEL>,
-> > > >                           <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_PLL>;
-> > > >         assigned-clock-parents = <&aud_pll_div1_lpcg 0>;
-> > > >         assigned-clock-rates = <0>, <11289600>;
-> > > > };
-> > >
-> > > In which we configure PLL_0 for 48KHz series (8kHz/16kHz/32kHz/48kHz),
-> > > PLL_1 for 44kHz series (11kHz/22kHz/44kHz),
-> > > which should fit for most audio requirements.
-> > >
-> > > >
-> > > > However, this means we have to switch the parent clock to the audio pll
-> > > > 1. For the simple setup with two SAIs, one for analog audio and one for
-> > > > HDMI this wouldn't be a problem. But I'm not sure if this is a good
-> > > > solution if a customer would add a third SAI which requires again a
-> > > > different parent clock rate.
-> > >
-> > > We won't change the PLL's rate in the driver,  so as PLL_0 for 48kHz,
-> > > PLL_1 for 44kHz,  even with a third SAI or more,  they should work.
-> > >
-> > > >
-> > > > One potential solution could be that the SAI driver tries to first
-> > > > derive the clock from the current parent and only if this fails it tries
-> > > > to modify its parent clock. What do you think about this solution?
-> > > >
-> >
-> > I did some more testing and I'm still not happy with the current
-> > solution. The problem is that if we change the SAI5 mclk clock parent it
-> > can either support the 44kHz series or the 48kHz series. However, in the
-> > case of HDMI we do not know in advance what the user wants.
-> >
-> > This means when testing either this works:
-> > speaker-test -D hw:2,0 -r 48000 -c 2
-> > or this works:
-> > speaker-test -D hw:2,0 -r 44100 -c 2
-> > With:
-> > card 2: imxaudiohdmitx [imx-audio-hdmi-tx], device 0: i.MX HDMI i2s-hifi-0 [i.MX HDMI i2s-hifi-0]
+So the value in Ohms was removed? I assume above do not have known value
+in Ohms?
+
 > 
-> Are you using the setting below?  then should not either,  should both works
->  &sai5 {
-> +       assigned-clocks = <&acm IMX_ADMA_ACM_SAI5_MCLK_SEL>,
-> +                       <&acm IMX_ADMA_ACM_AUD_CLK1_SEL>,
-> +                       <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_PLL>,
-> +                       <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_SLV_BUS>,
-> +                       <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_MST_BUS>,
-> +                       <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_PLL>,
-> +                       <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_SLV_BUS>,
-> +                       <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_MST_BUS>,
-> +                       <&sai5_lpcg 0>;
-> +       assigned-clock-parents = <&aud_pll_div0_lpcg 0>, <&aud_rec1_lpcg 0>;
-> +       assigned-clock-rates = <0>, <0>, <786432000>, <49152000>, <12288000>,
-> +                                <722534400>, <45158400>, <11289600>,
-> +                               <49152000>;
->         status = "okay";
->  };
+>>
+>>
+>>> +            description: |
+>>> +              For pull down type is normal, it doesn't need add
+>>> RSEL & R1R0.
+>>> +              For pull down type is PUPD/R0/R1 type, it can add
+>>> R1R0 define to
+>>> +              set different resistance. It can support
+>>> "MTK_PUPD_SET_R1R0_00" &
+>>> +              "MTK_PUPD_SET_R1R0_01" & "MTK_PUPD_SET_R1R0_10" &
+>>> +              "MTK_PUPD_SET_R1R0_11" define in mt8196.
+>>> +              For pull down type is PD/RSEL, it can add RSEL
+>>> define to set
+>>> +              different resistance. It can support
+>>> +              "MTK_PULL_SET_RSEL_000" & "MTK_PULL_SET_RSEL_001" &
+>>> +              "MTK_PULL_SET_RSEL_010" & "MTK_PULL_SET_RSEL_011" &
+>>> +              "MTK_PULL_SET_RSEL_100" & "MTK_PULL_SET_RSEL_101" &
+>>> +              "MTK_PULL_SET_RSEL_110" & "MTK_PULL_SET_RSEL_111"
+>>> define in
+>>> +              mt8196.
+>>> diff --git a/include/dt-bindings/pinctrl/mt8196-pinfunc.h
+>>> b/include/dt-bindings/pinctrl/mt8196-pinfunc.h
+>>> new file mode 100644
+>>> index 000000000000..bf0c8374407c
+>>> --- /dev/null
+>>> +++ b/include/dt-bindings/pinctrl/mt8196-pinfunc.h
+>>> @@ -0,0 +1,1572 @@
+>>> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
+>>> +/*
+>>> + * Copyright (C) 2025 Mediatek Inc.
+>>> + * Author: Guodong Liu <Guodong.Liu@mediatek.com>
+>>> + */
+>>> +
+>>> +#ifndef __MT8196_PINFUNC_H
+>>> +#define __MT8196_PINFUNC_H
+>>> +
+>>> +#include <dt-bindings/pinctrl/mt65xx.h>
+>>> +
+>>> +#define PINMUX_GPIO0__FUNC_GPIO0 (MTK_PIN_NO(0) | 0)
+>>> +#define PINMUX_GPIO0__FUNC_DMIC1_CLK (MTK_PIN_NO(0) | 1)
+>>> +#define PINMUX_GPIO0__FUNC_SPI3_A_MO (MTK_PIN_NO(0) | 3)
+>>> +#define PINMUX_GPIO0__FUNC_FMI2S_B_LRCK (MTK_PIN_NO(0) | 4)
+>>> +#define PINMUX_GPIO0__FUNC_SCP_DMIC1_CLK (MTK_PIN_NO(0) | 5)
+>>> +#define PINMUX_GPIO0__FUNC_TP_GPIO14_AO (MTK_PIN_NO(0) | 6)
+>>
+>> I do not see how you resolved my comment from v1. In v2 I reminded
+>> about
+>> it, so you responded that yopu will change something, but I do not
+>> see
+>> any changes.
+>>
+>> So explain: how did you resolve my comment?
+>>
+>> These two examples where you claim you will change something, but
+>> send
+>> the same. I skipped the rest of the patch.
+> 
+>   Thank you for your patient response, here is my explanation for you
+> question:
+> 
+>   In v1, I undertand that you meant I didn't sent a real binding, and
 
-Sorry I didn't communicate that properly. Yes I was trying with these
-settings but they do not work. The problem does not seem to be that the
-driver can not adjust the rate for the audio (so e.g. 44kHz or 48kHz)
-but that snd_soc_dai_set_sysclk in imx-hdmi.c fails with EINVAL. This
-results in a call to fsl_sai_set_mclk_rate in fsl_sai.c with clk_id 1
-(mclk_clk[1]) and a freq of 11289600 which causes the fail.
-Interestingly, in fsl_sai_set_bclk we then only use clk_get_rate on
-mclk_clk[0] which is set to audio_ipg_clk (rate 175000000) and we do not
-use mclk_clk[1] anymore at all. This is why I'm not sure if this call to
-snd_soc_dai_set_syclk is really necessary?
 
-Regards,
-Stefan
+The comment is under specific lines, so I said these defines are not a
+real binding. You sent them again, but they are still not bindings,
+because they are not used in the driver. Maybe the usage is convoluted,
+so which part of implementation are these connecting with DTS? IOW,
+which part of driver relies on the binding?
+
+
+
+> the bindings should be separated from driver. In addition, I should
+> run scripts/checkpatch.pl and scripts/get_maintainers.pl. So in v2, I
+> sent a real binding(mediatek,mt8196-pinctrl.yaml), and sent two
+> separate patches, one for driver and one for bindings, also ran
+> scripts/get_maintainers.pl get necessary people and sent to them.
+> 
+>   In v2, I understand that I need refer to git history to modify the
+> commit msgs, so I made the changes in v3. Then you asked me about the
+> difference between 'RSEL' and 'resistance value'. I replied that the
+> 'resistance value' method is no longer use, so in v3, I removed all
+> content about it(include entire 'rsel-resistance-in-si-unit' property
+> and the parts mentioned in bias-pull-up/down).
+
+Yes, thank you this I saw, the comments appear under specific places, so
+only these places are discussed.
+
+
+
+Best regards,
+Krzysztof
 
