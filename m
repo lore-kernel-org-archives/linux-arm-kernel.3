@@ -4,83 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54AFCC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 09:18:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBFACC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 09:30:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TV0FE2GNI/NjTuPPZBCSl4b/181TO/jsYtqVMyKlwQY=; b=0TjF+ZHZfVfQry0hNj6hRM4jxz
-	w08EBSxJT8CLY/Ni7NvXgrSaEAr7aQ2QBC+9Px3OL19va+AehE54L/s4GvcQzEwZCEmjHgf3ENuMA
-	wTh7PgGlbf0CHd5ED7fm4LBq4tzyAvsqiPMf4h1DWR40VECr/Plk7kKx+GCbJqnXri1b8t8+nN4Fw
-	kCU/WcHeaO3iCwpijBB/SC24htBQRVj34SsNERaUTsC29SDD1YJSApiRGY4s2CY/TrHiLwiB7Pyb5
-	ZMHL+I16rtsJUg8gUY2LFDlqxjlbLZflpd/WGgmQKzUEQAuptCbtfXyP8CSy4DMvmV+C9xUaFsSgV
-	z2jz1HNA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=z2ao+rKhy2rrFNzC5Hk6CZpJrkvTuzh6Wda4P8nTqpU=; b=QjztmD3V+6hxm7
+	JW6hwt5uWLXlCZnaUUmqEM4rMnaemBM/rT43JVw9ZgNnXyns1n+oUD5j760Q5tUnocuTRCa1YFaVS
+	gwHRg1z1Ar9bkgScJetoQHspdsMyHccv5aYHhHvDGj3WaSM/JCdSzbGEUaNKCV7iq6BvfX4s2znXY
+	YFCFtDDzaecvPFY4JfLutI7+M8P4P6M2JFMULzlFrlA90dozLLo2JCSj46PYC1oMdwRRDc5WYjz18
+	vLmsHCa5+CY4Ofu35m7pyW2SQMsDCp/OAU5CZooVOc+ittbSptjTBKs1az2mBGz9SLz0nREoa2YTk
+	DJh5VTQpuOv+FiVR6QPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYM0t-0000000ELQE-3IVl;
-	Thu, 16 Jan 2025 09:18:07 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1tYMCf-0000000EN0V-1Srq;
+	Thu, 16 Jan 2025 09:30:17 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYLwy-0000000EKhr-0eRw
+	id 1tYMBP-0000000EMji-03v8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 09:14:05 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-218c8aca5f1so15283395ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 01:14:03 -0800 (PST)
+	Thu, 16 Jan 2025 09:29:00 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4361e89b6daso3701665e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 01:28:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sartura.hr; s=sartura; t=1737018843; x=1737623643; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TV0FE2GNI/NjTuPPZBCSl4b/181TO/jsYtqVMyKlwQY=;
-        b=a1H+ZgV/Z0Bp1ObnBA7rjjrlgpOgqdHbEh4QijqohspzwQhRZfPXSSWnv4fvxK1l/f
-         7+TJwiZ3Zhnvehxz9uMaKYw8KfN88/GggMf3VbuGpOKbOdOuVpa7s4jIupZ/jARiy8gF
-         JEJh+oTgmoFRgCWvuLq720/ySzofYvm/kg0qCvdjsfaJZiKgyxihYyGydyNwtCu8Ku57
-         JMoWVu4EFl7/5AUe6XFlXiC7NmP8uUvJISyhHCM2p+/qiVwhwpJPjrrL3CiDM58DOh6E
-         EN0S7ikg/qqvZk3ga0JZUTiYPC6LeYTCyJQyIOROP1L0xUcyRaTh/xl/AQajrBWG5ld9
-         bZFA==
+        d=linaro.org; s=google; t=1737019737; x=1737624537; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt:from
+         :reply-to:content-language:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=z2ao+rKhy2rrFNzC5Hk6CZpJrkvTuzh6Wda4P8nTqpU=;
+        b=W48f2hOAns40Jzdo7f/0t8JUox823gXYXFGQ0wUZnN3EHVV7Axti6e1RRnX7Cb3cGS
+         AaLNPKoQdHSf19evGrKWdv6qYNWtFboaUsiBaziWCe+TOPHJ3WdIZKm1Wox0aTPV/LUi
+         oCCP3skhnqnLOLHpzFGJv4JIX0tA+yAkMAT+pEL5H6yeNrPrem77+CkrNO/m71xefN0n
+         TDBj/Mc8gkSGUu7no8EgiITG4/G6guVUoahciONgSq4gzt2IrLQKx0BNgjmgYxnrQGvq
+         NuuMfffBVSeC7QPv16HihdfHU14Lvh2J5FLLXlvTdsZmYxM2tKE7WA5Hy9EFQNRvn1Xa
+         a6+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737018843; x=1737623643;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TV0FE2GNI/NjTuPPZBCSl4b/181TO/jsYtqVMyKlwQY=;
-        b=vzBWfxf6gbwUkVTO9KxIoUqssY2nuZ+/r9mtKFi8CDLJ9JCqD+ZppPJ1LSS0ezVlb4
-         bkV5rXHDP9QCMMRhuanLHeDucne/ZuBpBSUZBd6FNXYzc/bhUDzPY+vsVegZVrBY2yDt
-         IzYeTUV/X2NqtrW0Tu3YpjVmbZSXKvSMIo3OQILbVthVWpZ1/23SO6QVEPi2+wQk34Bs
-         bLyOsuQex6afoi7RZYSurK3q8GHt/Ku8+ncS57iXUqwFHBC3r3G/b2QC1BJCzRHMDiwN
-         LpNr5XXYf+YKVZ+SHZbtO63J9q0KRmpZlPbux5+arhMEZdNRYUPIW4R1DiRToN9LZlUZ
-         3MUw==
-X-Forwarded-Encrypted: i=1; AJvYcCUtfCPamOSYbQZr7N6qGqSi/RangtdcM929tURz0ZwNZMp8V0IfcQHgB1ySjtZMCPluKfCQTfBELNo6W26VA9kM@lists.infradead.org
-X-Gm-Message-State: AOJu0YyOBFk/LL1RhjQ8LJwOWtn17E0aa3wL+4Tm7aeL5pNxqWj75o7/
-	V3lAdLNrTIM0OSvuzpiHrKAp8LUy2GmewpHiHCdCd0A11Z/luNq3qTVrEifDjS102Y/xj3dlgeK
-	oEX/c8ZQkFUqhif51c4ElkfL819DiIUVSADF2FiDL3Ppzwh0Ac9I=
-X-Gm-Gg: ASbGncvlPe2w9NotUI2qI+QtReSQxGtRUcypIO7WKhHlag9wPep6gpsRmyukYeHKCRe
-	DKHze9arHFvBw9M7VOOpZWQcG3md/ILkzfd6UUig=
-X-Google-Smtp-Source: AGHT+IEjZmLnlSrM2c9tJMzrCQEX+VT7/9poFZl5CaNTLm4Gep2OpQ9AnG0xm/tqxK9P21RK1G0vXhdV9Pjz15wyMWA=
-X-Received: by 2002:a17:90b:248b:b0:2f6:f32e:90ac with SMTP id
- 98e67ed59e1d1-2f6f32e9102mr18527641a91.11.1737018843058; Thu, 16 Jan 2025
- 01:14:03 -0800 (PST)
+        d=1e100.net; s=20230601; t=1737019737; x=1737624537;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt:from
+         :reply-to:content-language:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=z2ao+rKhy2rrFNzC5Hk6CZpJrkvTuzh6Wda4P8nTqpU=;
+        b=BC0Qy7FnhFzP8kzQkRXTErz4Fy4THW8oBLson4CBs1tbT8OHPXtogvuwlPE9E4YCzp
+         jQmgP6gweTcALGJHhor24cdgxkg5UAnBmOvxO/SW7mFm83UzsyGi3LeTkNu5VZtuQe5W
+         pqhHRXLH/cIsvd9vgqO8xQDpKzggLOnFFOBC9Eo2PDy+BZn4+dDtUuVef1RcBR7jMnwr
+         R3G37+YDgbC0K2Y+EwYq5u9EoRtEYrdXtXWlusQZugng5M25Izkm5V4FKyMl68PDukT4
+         GthRTe0RuY1P298JnVKSgJgQDhaawsVeNcKjvUaihu06gAmm6CQgXtps7UZBrlKiyejC
+         0+lw==
+X-Forwarded-Encrypted: i=1; AJvYcCXdGah9F4DqHWo5Pv6EPyVs8GhgPaZf0uLXty8+srnk+h4N1yXH22PNqkkjXjcOxqVkGJRn5qwA61PeqZ9Vd+Hq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3Qz5T1XCJw5dtDAqcCtqxoejiM7ALEn7qU+MYusuWkceMS3x9
+	ly8deV65jeCgtHk2fkgaHn/rd9pqIQ60cia7NFF8sCH6TtTkZTzs59ObqOdKlq4=
+X-Gm-Gg: ASbGnctAG1BktackCGrMWlLoqDzs8gzDV9x8bmBtu69fCLp1SUqlOxN6zw5jf2Baqdv
+	Cv/GOO8EX41O2xVOQf/NVtJYYO3/Z4zWjueMn+YwfU2OZ9p41TLwkNyV7djW+NFBZZrkOhw6MUn
+	v96WJzvyCU1AW1VWEdflwP3K4fUYBCXRFyBv53sFNGaRPNwqVczJnCARpRzkGP7XTnEPi0R4g15
+	PH4V0o/N7oJKF4xysRi4nnm274uMf13dE4GoBvOD+r0XEZ8FxF7vuhpDfuZ2uzZwseuRRRDbudj
+	/JmgbNc1ddZOm839aa+MvFySmpnlVJw=
+X-Google-Smtp-Source: AGHT+IHdmWN7Oeq0S+zEiZuKe5KeBcQ85jvcioqfybqbDRFTq5jmeJjyGwdZonKpDmR4f3lwPMFpRg==
+X-Received: by 2002:a05:600c:a08b:b0:431:5863:4240 with SMTP id 5b1f17b1804b1-436e26dda73mr251928715e9.24.1737019737060;
+        Thu, 16 Jan 2025 01:28:57 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:982:cbb0:69b:c51f:3072:d4f5? ([2a01:e0a:982:cbb0:69b:c51f:3072:d4f5])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-437c74e5e69sm51988535e9.37.2025.01.16.01.28.56
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 16 Jan 2025 01:28:56 -0800 (PST)
+Message-ID: <92b2f271-34dc-4560-a96c-bdd372d5e3d6@linaro.org>
+Date: Thu, 16 Jan 2025 10:28:55 +0100
 MIME-Version: 1.0
-References: <20250114160630.1122885-1-robert.marko@sartura.hr> <Z4h4WePiB7G0BZj-@google.com>
-In-Reply-To: <Z4h4WePiB7G0BZj-@google.com>
-From: Robert Marko <robert.marko@sartura.hr>
-Date: Thu, 16 Jan 2025 10:13:52 +0100
-X-Gm-Features: AbW1kvb6Wbch-_SDtQBSBmayQ1PiWkForCyaBaSp3jeUes4jaRjU4HfPWWZB49o
-Message-ID: <CA+HBbNHia9X+9LcR2oOJ+q9RhCaknTH+EZOu44FNo1TS9o9VhQ@mail.gmail.com>
-Subject: Re: [PATCH] iommu/arm-smmu-v3: add missing header
-To: Pranjal Shrivastava <praan@google.com>
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jgg@ziepe.ca, 
-	nicolinc@nvidia.com, linux-arm-kernel@lists.infradead.org, 
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org, luka.perkov@sartura.hr, 
-	kernel test robot <lkp@intel.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/8] Support Multi-frequency scale for UFS
+To: Ziqi Chen <quic_ziqichen@quicinc.com>, quic_cang@quicinc.com,
+ bvanassche@acm.org, mani@kernel.org, beanhuo@micron.com,
+ avri.altman@wdc.com, junwoo80.lee@samsung.com, martin.petersen@oracle.com,
+ quic_nguyenb@quicinc.com, quic_nitirawa@quicinc.com,
+ quic_rampraka@quicinc.com
+Cc: linux-scsi@vger.kernel.org, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ "open list:ARM/Mediatek SoC support:Keyword:mediatek"
+ <linux-kernel@vger.kernel.org>,
+ "moderated list:ARM/Mediatek SoC support:Keyword:mediatek"
+ <linux-arm-kernel@lists.infradead.org>,
+ "moderated list:ARM/Mediatek SoC support:Keyword:mediatek"
+ <linux-mediatek@lists.infradead.org>
+References: <20250116091150.1167739-1-quic_ziqichen@quicinc.com>
+Content-Language: en-US, fr
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20250116091150.1167739-1-quic_ziqichen@quicinc.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_011404_198638_2311647C 
-X-CRM114-Status: GOOD (  18.93  )
+X-CRM114-CacheID: sfid-20250116_012859_052705_6D853FDA 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,78 +133,59 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 16, 2025 at 4:09=E2=80=AFAM Pranjal Shrivastava <praan@google.c=
-om> wrote:
->
-> On Tue, Jan 14, 2025 at 05:05:56PM +0100, Robert Marko wrote:
-> > str_read_write is currently undeclared and thus compilation will fail w=
-ith:
-> > drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c:1911:25: error: implicit de=
-claration of function =E2=80=98str_read_write=E2=80=99; did you mean =E2=80=
-=98sb_end_write=E2=80=99? [-Wimplicit-function-declaration]
-> >
-> > So include the missing linux/string_choices.h header to fix compilation=
-.
-> >
-> > Fixes: f2c77f6e41e6 ("iommu/arm-smmu-v3: Use str_read_write helper w/ l=
-ogs")
-> > Reported-by: kernel test robot <lkp@intel.com>
-> > Closes: https://lore.kernel.org/oe-kbuild-all/202501111926.qOpnlK9J-lkp=
-@intel.com/
-> > Signed-off-by: Robert Marko <robert.marko@sartura.hr>
-> > ---
-> >  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 1 +
-> >  1 file changed, 1 insertion(+)
-> >
-> > diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iomm=
-u/arm/arm-smmu-v3/arm-smmu-v3.c
-> > index 0e4cbb2c64d7..a0e395da8a88 100644
-> > --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> > +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> > @@ -26,6 +26,7 @@
-> >  #include <linux/pci.h>
-> >  #include <linux/pci-ats.h>
-> >  #include <linux/platform_device.h>
-> > +#include <linux/string_choices.h>
-> >  #include <kunit/visibility.h>
-> >  #include <uapi/linux/iommufd.h>
->
-> Hi Robert,
->
-> This fix has already been merged to the arm/smmu/updates branch [1]
-> which should appear in -next when Joerg next rebuilds the branch.
+Hi,
 
-Hi Praan,
-I looked for an existing fix but couldn't find it before sending it.
-Glad that it was already fixed, please ignore this patch then.
+[+linux-arm-msm@vger.kernel.org]
 
-Regards,
-Robert
->
-> Thanks,
-> Praan
->
-> [1]
-> https://git.kernel.org/pub/scm/linux/kernel/git/iommu/linux.git/commit/?h=
-=3Darm/smmu/updates
->
-> >
-> > --
-> > 2.47.1
-> >
-> >
+On 16/01/2025 10:11, Ziqi Chen wrote:
+> With OPP V2 enabled, devfreq can scale clocks amongst multiple frequency
+> plans. However, the gear speed is only toggled between min and max during
+> clock scaling. Enable multi-level gear scaling by mapping clock frequencies
+> to gear speeds, so that when devfreq scales clock frequencies we can put
+> the UFS link at the appropraite gear speeds accordingly.
+> 
+> This series has been tested on below platforms -
+> SM8650 + UFS3.1
 
+Which board did you use ? the MTP ?
 
+> SM8750 + UFS4.0
 
---=20
-Robert Marko
-Staff Embedded Linux Engineer
-Sartura d.d.
-Lendavska ulica 16a
-10000 Zagreb, Croatia
-Email: robert.marko@sartura.hr
-Web: www.sartura.hr
+Did you alse test it on SM8550 ? this platform is also concerned.
+And perhaps SM8450 should be also converted to the OPP table & tested.
+
+Please Cc linux-arm-msm on all patches since we're directly concerned by
+the whole changeset.
+
+Thanks,
+Neil
+
+> 
+> 
+> Can Guo (6):
+>    scsi: ufs: core: Pass target_freq to clk_scale_notify() vops
+>    scsi: ufs: qcom: Pass target_freq to clk scale pre and post change
+>    scsi: ufs: core: Add a vops to map clock frequency to gear speed
+>    scsi: ufs: qcom: Implement the freq_to_gear_speed() vops
+>    scsi: ufs: core: Enable multi-level gear scaling
+>    scsi: ufs: core: Toggle Write Booster during clock scaling base on
+>      gear speed
+> 
+> Ziqi Chen (2):
+>    scsi: ufs: core: Check if scaling up is required when disable clkscale
+>    ARM: dts: msm: Use Operation Points V2 for UFS on SM8650
+> 
+>   arch/arm64/boot/dts/qcom/sm8650.dtsi | 51 ++++++++++++++++----
+>   drivers/ufs/core/ufshcd-priv.h       | 17 +++++--
+>   drivers/ufs/core/ufshcd.c            | 71 +++++++++++++++++++++-------
+>   drivers/ufs/host/ufs-mediatek.c      |  1 +
+>   drivers/ufs/host/ufs-qcom.c          | 60 ++++++++++++++++++-----
+>   include/ufs/ufshcd.h                 |  8 +++-
+>   6 files changed, 166 insertions(+), 42 deletions(-)
+> 
+
 
