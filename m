@@ -4,66 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3634CC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 16:20:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52FE0C02187
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 16:22:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NXwKgfYfBCTaHAuVM3RwosO58FlQMP+zROi+IXHwVN0=; b=SBr/ZNIwtwE2hWddixIHW7Dkwe
-	HcoVFZvaHzXhw4NHa1iqsJTNByP3iDa8T+izfjw4i7CQ9qEu+APxAbDSdy0UXNASrr9t+sB7/G72b
-	orROrCpsFHI8cRn6YS4NcUoK48JMRqWqq9kpNIcq4RkD5QDlILQxFZl1Vvg2SSKuh64EPYdyFG2nz
-	EHFgOmsi5eYq3qyyq+h1wmSNvcgB8JEeKuZ+AaNhiWQf9fvl15kC+TWOqR2jeR0A+TDML7CfVq2j1
-	3PSz4jYO2OMQiKj0VnvepqgTB/INa2/shBzHr8royrM94NXX9QjD6UNRIC7mXT2Zn8YLRizvNPTBa
-	EoNNovKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AHsM/xZpI8A/qMMPV/jCRPz3k6aqqfjRJq3WCyku5yc=; b=VIAP31RAtclXN/ki7fj0pw+LEb
+	x1kI7/pZvcvEbl6svqnVNroEpOV41pzQdp5BvuqkhQdr3M6pxaDIh87wMbEeBugwgWFT2+ORgfVK/
+	bqhy1m06RwwYCZbEDd3p6GglzfadJaLHkWFDJ1AG6EHJ2RlMY3AiE+CqyfK1I+Dg6lJr7swXpPfUm
+	pY94zxwmMpG9uslDGsZ9x0FQsPUpzvKDWrlp0oTERCBpvCSR94+kcNWEB0zB7poO8G+jJvwQWzqE7
+	GvgtxTbbFIWBmSk4x+ODdr46S1Wm4S8iH6InLp4UiA/t7i2O93Ic2u+3dzcXmNmCJCgF01aLzrdhw
+	IZ42VCIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYSbL-0000000FUv3-3Sy6;
-	Thu, 16 Jan 2025 16:20:11 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYSa5-0000000FUjP-2xXk
+	id 1tYSdd-0000000FVG2-26fD;
+	Thu, 16 Jan 2025 16:22:33 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tYScN-0000000FV1W-0krE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 16:18:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 21FE41007;
-	Thu, 16 Jan 2025 08:19:19 -0800 (PST)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5F0813F673;
-	Thu, 16 Jan 2025 08:18:49 -0800 (PST)
-Date: Thu, 16 Jan 2025 16:18:42 +0000
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>, Peng Fan <peng.fan@nxp.com>,
-	"Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
-	"ulf.hansson@linaro.org" <ulf.hansson@linaro.org>,
-	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [EXT] Re: [PATCH] pmdomain: arm: scmi_pm_domain: Initialize
- state as off
-Message-ID: <Z4kxYvR9XxldCpk-@pluto>
-References: <Z4TreQ5bA9qiMTgC@bogus>
- <PAXPR04MB8459F33BCC84CCA8F49F3B60881F2@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <Z4UZ2Au7KSFMibDW@bogus>
- <PA4PR04MB94855052830C8F4874237BA6921F2@PA4PR04MB9485.eurprd04.prod.outlook.com>
- <Z4VLZgAWR7ugDl7W@bogus>
- <PA4PR04MB9485E9C126E48A088D7E399B921F2@PA4PR04MB9485.eurprd04.prod.outlook.com>
- <Z4aBkezSWOPCXcUh@bogus>
- <PA4PR04MB9485507CCC21354B5ED55C3792182@PA4PR04MB9485.eurprd04.prod.outlook.com>
- <Z4d8nrJy-h9EwzsJ@pluto>
- <PA4PR04MB9485CC9D9925BB5D23EA629092192@PA4PR04MB9485.eurprd04.prod.outlook.com>
+	Thu, 16 Jan 2025 16:21:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1737044475; x=1768580475;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=2on8qZ4VjcAt0taSdQR59mTjZSUShqi/XYwJ4lDPBWY=;
+  b=b/kMIvHabC2bEqx1INmFioqmJe2ppzlLgsIGRJdyL/tURYJoOW5FWRt9
+   tbLLZuo8TBJBA3Je+Tua66iKdqYlBUh5xssotk9o0V3DhW1Dz3df2SdQ1
+   htoUKGwNo9o5Lq7iAaDf/g9frfUaPcj8/mt94C7Shcxc/MplIq9jgSzhh
+   KB5nQW4ny/SO1Wsx0W9ecpTO4NbsA/YFubJvdKUaLAgU/A7o8nMUJNfLy
+   4pb15c6pFNBWlRgiJkTFeCVvf7V4vDnQxwfl0z+YjdNONS1hcuNf2k3v+
+   BNeQIzVMv6T5IVaRl2wMeuPnIQT+z0+NjiX1RF40IIryWYtCVRBFAjd2m
+   Q==;
+X-CSE-ConnectionGUID: O4ETQPn4TOOM7zIg+krIBA==
+X-CSE-MsgGUID: +9QeeGXeQKy0DRoe83roAg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11317"; a="48030973"
+X-IronPort-AV: E=Sophos;i="6.13,209,1732608000"; 
+   d="scan'208";a="48030973"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jan 2025 08:21:13 -0800
+X-CSE-ConnectionGUID: 1H0zFeM9TMK7M/oHeAhUaA==
+X-CSE-MsgGUID: C4jbOm2SRpy8YOUom+Ib/Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="110164712"
+Received: from black.fi.intel.com ([10.237.72.28])
+  by fmviesa005.fm.intel.com with ESMTP; 16 Jan 2025 08:21:11 -0800
+Received: by black.fi.intel.com (Postfix, from userid 1003)
+	id 2DFAD39C; Thu, 16 Jan 2025 18:21:10 +0200 (EET)
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Mark Brown <broonie@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>
+Subject: [PATCH v1 1/1] spi: pxa2xx: Introduce __lpss_ssp_update_priv() helper
+Date: Thu, 16 Jan 2025 18:21:09 +0200
+Message-ID: <20250116162109.263081-1-andriy.shevchenko@linux.intel.com>
+X-Mailer: git-send-email 2.43.0.rc1.1336.g36b5255a03ac
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <PA4PR04MB9485CC9D9925BB5D23EA629092192@PA4PR04MB9485.eurprd04.prod.outlook.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_081853_837691_426D77B4 
-X-CRM114-Status: GOOD (  49.95  )
+X-CRM114-CacheID: sfid-20250116_082115_234698_B7FAFD32 
+X-CRM114-Status: GOOD (  17.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,114 +88,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 15, 2025 at 06:42:46PM +0000, Ranjani Vaidyanathan wrote:
-> Hi Cristian,
-> 
-> Regards,
-> Ranjani Vaidyanathan
-> 
-> -----Original Message-----
-> From: Cristian Marussi [mailto:cristian.marussi@arm.com] 
-> Sent: Wednesday, January 15, 2025 3:15 AM
-> To: Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>
-> Cc: Sudeep Holla <sudeep.holla@arm.com>; Peng Fan <peng.fan@nxp.com>; Peng Fan (OSS) <peng.fan@oss.nxp.com>; cristian.marussi@arm.com; ulf.hansson@linaro.org; arm-scmi@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-pm@vger.kernel.org; linux-kernel@vger.kernel.org
-> Subject: Re: [EXT] Re: [PATCH] pmdomain: arm: scmi_pm_domain: Initialize state as off
-> 
-> Caution: This is an external email. Please take care when clicking links or opening attachments. When in doubt, report the message using the 'Report this email' button
-> 
-> 
-> On Tue, Jan 14, 2025 at 04:09:13PM +0000, Ranjani Vaidyanathan wrote:
-> > Hello Sudeep,
-> >
-> > Comments below.
-> >
-> > Regards,
-> > Ranjani Vaidyanathan
-> >
-> > -----Original Message-----
-> > From: Sudeep Holla [mailto:sudeep.holla@arm.com]
-> > Sent: Tuesday, January 14, 2025 9:24 AM
-> > To: Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>
-> > Cc: Peng Fan <peng.fan@nxp.com>; Peng Fan (OSS) 
-> > <peng.fan@oss.nxp.com>; cristian.marussi@arm.com; Sudeep Holla 
-> > <sudeep.holla@arm.com>; ulf.hansson@linaro.org; 
-> > arm-scmi@vger.kernel.org; linux-arm-kernel@lists.infradead.org; 
-> > linux-pm@vger.kernel.org; linux-kernel@vger.kernel.org
-> > Subject: Re: [EXT] Re: [PATCH] pmdomain: arm: scmi_pm_domain: 
-> > Initialize state as off
-> >
-> > Caution: This is an external email. Please take care when clicking 
-> > links or opening attachments. When in doubt, report the message using 
-> > the 'Report this email' button
-> >
-> >
-> > Hi Ranjani,
-> >
-> > On Mon, Jan 13, 2025 at 07:54:06PM +0000, Ranjani Vaidyanathan wrote:
-> > > Hello Sudeep,
-> > >
-> > > Will try to explain the situation we are facing.
-> > > 1. We have multiple agents running, Agent-A is booted up first 
-> > > before Linux is booted and powers up a shared power domain PD-X.
-> > > 2. Linux boots and gets the power state of PD-X. And its already ON.
-> > > And then PD -X is initialized with a default ON state.
-> > > 3. When the driver that needs PD-X  is probed, Linux sees that the 
-> > > power domain status is ON and never makes an SCMI call to power up 
-> > > the PD-X for Linux Agent.
-> > > 4. Agent-A now is shutdown/suspends. Linux will crash because the 
-> > > platform disables PD-X because it has no other requests for PD-X.
-> > >
-> >
-> > Thanks for the detailed explanation. I understand the issue now.
-> >
-> > I would like to discuss if the below alternative approach works for you.
-> > We can debate the pros and cons. I see with the approach in this patch proposed by Peng we would avoid querying and setting genpd all together during the genpd initialisation which is good. But if there are any genpd left on by the platform or bootloader(same agent), it will not get turned off when Linux tries to turn off the unused genpds(IIRC this could be the reason for the current state of code). While your platform may find sending those commands unnecessary, there was some usecase where SCMI platform kept all resources ON by default for faster boot and expects OSPM to turn off unused resources. So we need to support both the cases. I hope my below patch should suffice.
-> >
-> > [RV] Linux can still make the call to disable unused power domains, even if it never explicitly made a request to power it on. The platform will aggregate the request from all agents and will power off the resource if no other agent has enabled it. From Linux point of view it has disabled all unused power domains.
-> > Your patch below may also work, but feels like a workaround to artificially (for lack of a better word) enable a resource. And also makes unnecessary SCMI calls (expensive) for every resource immaterial of it power state (maybe can be improved by a conditional check).
-> >
-> 
-> ...sincerely, both of these solutions seem to me hacks/workarounds to counteract the fundamental issue that derives from having allowed (IMPDEF) to implement the get operations to return the real physical state of a resource instead of its virtual per-agent state as maintained by the platform, while, at the same time, having allowed to implement the set-operations to operate in a 'virtual-fashion'...
-> 
-> ...so, when Peng's patch forcibly set the state to OFF on genpd init, you are indeed artificially forcing the kernel internal state to align with what would have been the virtual-per-agent state of the resource in your specific particular configuration....
-> [RV] Perhaps it's a hack. But at boot the state should look like OFF, the agent should explicitly request those it needs to be ON. 
-> 
+In a few places we repeat RMW IO operations on LPSS private
+registers. Let's introduce a helper to make the code better
+to read and maintain.
 
-Yes it is what I am saying, it should see it OFF in this system config, and
-that would be the case on a platform that returns virtual per-agent states:
-forcing GENPD to see as it as off just mimics the same, but breaks other
-cases as I mentioned.
+Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+---
+ drivers/spi/spi-pxa2xx.c | 88 ++++++++++++++++++----------------------
+ 1 file changed, 40 insertions(+), 48 deletions(-)
 
-> ...on the other side Sudeep's proposed patch tries really to play the same trick, just on the other way around, by instead forcibly/artificially aligning the state on the platform side by issuing a redundant ON request to bump the refcount and take hold of that resource from the Kernel agent point of view...
-> 
-> ... but Peng's proposed patch will broke immediately the moment you have instead a system with an SCMI-capable bootloader that instead left the resource ON for the Kernel to inherit, since the kernel will now forcibly see this anyway as OFF, and so you wont be ever be able to switch that resource REALLY OFF in the future, if ever needed, because the bootloader/Kernel agent will never see it as ON in genPD, since, at least in the genPD case, AFAICS correct me if wrong, there is no callback to peek at the real state later on:
-> so, after the initialization value has been chosen at genpd_init time, genPd subsystem maintains the PD state on its own based on the issued ON/OFF genPD requests, so your forced-initial-OFF-state will be, in this specific alternative scenario, wrong and forever.
-> [
-> [RV] SCMI-capable bootloader and Linux should be the same logical machine (different agents). And the platform maintains the state per logical machine. So if Linux tries to power off a state that was left powered ON by the bootloader it should bbe able to.
+diff --git a/drivers/spi/spi-pxa2xx.c b/drivers/spi/spi-pxa2xx.c
+index 903d76145272..5f9cac41baff 100644
+--- a/drivers/spi/spi-pxa2xx.c
++++ b/drivers/spi/spi-pxa2xx.c
+@@ -73,8 +73,9 @@ struct chip_data {
+ #define LPSS_CAPS_CS_EN_MASK			(0xf << LPSS_CAPS_CS_EN_SHIFT)
+ 
+ #define LPSS_PRIV_CLOCK_GATE 0x38
+-#define LPSS_PRIV_CLOCK_GATE_CLK_CTL_MASK 0x3
+-#define LPSS_PRIV_CLOCK_GATE_CLK_CTL_FORCE_ON 0x3
++#define LPSS_PRIV_CLOCK_GATE_CLK_CTL_MASK	0x3
++#define LPSS_PRIV_CLOCK_GATE_CLK_CTL_FORCE_ON	0x3
++#define LPSS_PRIV_CLOCK_GATE_CLK_CTL_FORCE_OFF	0x0
+ 
+ struct lpss_config {
+ 	/* LPSS offset from drv_data->ioaddr */
+@@ -321,6 +322,20 @@ static void __lpss_ssp_write_priv(struct driver_data *drv_data,
+ 	writel(value, drv_data->lpss_base + offset);
+ }
+ 
++static bool __lpss_ssp_update_priv(struct driver_data *drv_data, unsigned int offset,
++				   u32 mask, u32 value)
++{
++	u32 new, curr;
++
++	curr = __lpss_ssp_read_priv(drv_data, offset);
++	new = (curr & ~mask) | (value & mask);
++	if (new == curr)
++		return false;
++
++	__lpss_ssp_write_priv(drv_data, offset, new);
++	return true;
++}
++
+ /*
+  * lpss_ssp_setup - perform LPSS SSP specific setup
+  * @drv_data: pointer to the driver private data
+@@ -337,21 +352,16 @@ static void lpss_ssp_setup(struct driver_data *drv_data)
+ 	drv_data->lpss_base = drv_data->ssp->mmio_base + config->offset;
+ 
+ 	/* Enable software chip select control */
+-	value = __lpss_ssp_read_priv(drv_data, config->reg_cs_ctrl);
+-	value &= ~(LPSS_CS_CONTROL_SW_MODE | LPSS_CS_CONTROL_CS_HIGH);
+-	value |= LPSS_CS_CONTROL_SW_MODE | LPSS_CS_CONTROL_CS_HIGH;
+-	__lpss_ssp_write_priv(drv_data, config->reg_cs_ctrl, value);
++	value = LPSS_CS_CONTROL_SW_MODE | LPSS_CS_CONTROL_CS_HIGH;
++	__lpss_ssp_update_priv(drv_data, config->reg_cs_ctrl, value, value);
+ 
+ 	/* Enable multiblock DMA transfers */
+ 	if (drv_data->controller_info->enable_dma) {
+-		__lpss_ssp_write_priv(drv_data, config->reg_ssp, 1);
++		__lpss_ssp_update_priv(drv_data, config->reg_ssp, BIT(0), BIT(0));
+ 
+ 		if (config->reg_general >= 0) {
+-			value = __lpss_ssp_read_priv(drv_data,
+-						     config->reg_general);
+-			value |= LPSS_GENERAL_REG_RXTO_HOLDOFF_DISABLE;
+-			__lpss_ssp_write_priv(drv_data,
+-					      config->reg_general, value);
++			value = LPSS_GENERAL_REG_RXTO_HOLDOFF_DISABLE;
++			__lpss_ssp_update_priv(drv_data, config->reg_general, value, value);
+ 		}
+ 	}
+ }
+@@ -361,30 +371,19 @@ static void lpss_ssp_select_cs(struct spi_device *spi,
+ {
+ 	struct driver_data *drv_data =
+ 		spi_controller_get_devdata(spi->controller);
+-	u32 value, cs;
++	u32 cs;
+ 
+-	if (!config->cs_sel_mask)
++	cs = spi_get_chipselect(spi, 0) << config->cs_sel_shift;
++	if (!__lpss_ssp_update_priv(drv_data, config->reg_cs_ctrl, config->cs_sel_mask, cs))
+ 		return;
+ 
+-	value = __lpss_ssp_read_priv(drv_data, config->reg_cs_ctrl);
+-
+-	cs = spi_get_chipselect(spi, 0);
+-	cs <<= config->cs_sel_shift;
+-	if (cs != (value & config->cs_sel_mask)) {
+-		/*
+-		 * When switching another chip select output active the
+-		 * output must be selected first and wait 2 ssp_clk cycles
+-		 * before changing state to active. Otherwise a short
+-		 * glitch will occur on the previous chip select since
+-		 * output select is latched but state control is not.
+-		 */
+-		value &= ~config->cs_sel_mask;
+-		value |= cs;
+-		__lpss_ssp_write_priv(drv_data,
+-				      config->reg_cs_ctrl, value);
+-		ndelay(1000000000 /
+-		       (drv_data->controller->max_speed_hz / 2));
+-	}
++	/*
++	 * When switching another chip select output active the output must be
++	 * selected first and wait 2 ssp_clk cycles before changing state to
++	 * active. Otherwise a short glitch will occur on the previous chip
++	 * select since output select is latched but state control is not.
++	 */
++	ndelay(1000000000 / (drv_data->controller->max_speed_hz / 2));
+ }
+ 
+ static void lpss_ssp_cs_control(struct spi_device *spi, bool enable)
+@@ -392,34 +391,27 @@ static void lpss_ssp_cs_control(struct spi_device *spi, bool enable)
+ 	struct driver_data *drv_data =
+ 		spi_controller_get_devdata(spi->controller);
+ 	const struct lpss_config *config;
+-	u32 value;
++	u32 mask;
+ 
+ 	config = lpss_get_config(drv_data);
+ 
+ 	if (enable)
+ 		lpss_ssp_select_cs(spi, config);
+ 
+-	value = __lpss_ssp_read_priv(drv_data, config->reg_cs_ctrl);
+-	if (enable)
+-		value &= ~LPSS_CS_CONTROL_CS_HIGH;
+-	else
+-		value |= LPSS_CS_CONTROL_CS_HIGH;
+-	__lpss_ssp_write_priv(drv_data, config->reg_cs_ctrl, value);
++	mask = LPSS_CS_CONTROL_CS_HIGH;
++	__lpss_ssp_update_priv(drv_data, config->reg_cs_ctrl, mask, enable ? mask : 0);
+ 	if (config->cs_clk_stays_gated) {
+-		u32 clkgate;
+-
+ 		/*
+ 		 * Changing CS alone when dynamic clock gating is on won't
+ 		 * actually flip CS at that time. This ruins SPI transfers
+ 		 * that specify delays, or have no data. Toggle the clock mode
+ 		 * to force on briefly to poke the CS pin to move.
+ 		 */
+-		clkgate = __lpss_ssp_read_priv(drv_data, LPSS_PRIV_CLOCK_GATE);
+-		value = (clkgate & ~LPSS_PRIV_CLOCK_GATE_CLK_CTL_MASK) |
+-			LPSS_PRIV_CLOCK_GATE_CLK_CTL_FORCE_ON;
+-
+-		__lpss_ssp_write_priv(drv_data, LPSS_PRIV_CLOCK_GATE, value);
+-		__lpss_ssp_write_priv(drv_data, LPSS_PRIV_CLOCK_GATE, clkgate);
++		mask = LPSS_PRIV_CLOCK_GATE_CLK_CTL_MASK;
++		if (__lpss_ssp_update_priv(drv_data, LPSS_PRIV_CLOCK_GATE, mask,
++					   LPSS_PRIV_CLOCK_GATE_CLK_CTL_FORCE_ON))
++			__lpss_ssp_update_priv(drv_data, LPSS_PRIV_CLOCK_GATE, mask,
++					       LPSS_PRIV_CLOCK_GATE_CLK_CTL_FORCE_OFF);
+ 	}
+ }
+ 
+-- 
+2.43.0.rc1.1336.g36b5255a03ac
 
-In the SCMI world there are agents, i.e. clients issuing requests to the
-platform AND the platform identifies such agents from the channel they
-speak from. Not sure what you mean by logical machine.
-
-In the case of an SCMI-aware bootloader like UBoot, that dies and relinquishes
-all the resources to the Kernel during the boot, that means that the Kernel
-should be configured to simply re-use the same SCMI channels as UBoot, so that
-it will be seen as the same agent (transparently) from the platform: in such a
-scenario the Kernel will transparently inherit all the per-agent current
-interrnal state...
-
-...IOW if an SCMI/Uboot was holding res_X, the Kernel will result as holding the
-same res_X "by inheritance" from the platform point of view, since the Kernel
-would have assumed the role of the UBoot agent from the platfom point of
-view, since it is using the same channels as UBoot.
-
-Why you should consider Uboot a diffrent agent, if it runs in NS-world
-too and does not survive the Kernel boot ?
-
-This, at least, is my understannding after bunch of past talk with ATG.
-
-And this is the scenario that I fear would fail with Peng's patch.
-
-Thanks,
-Cristian
 
