@@ -4,107 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3249CC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 11:22:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89448C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 11:32:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E61C2hyK/7ob0CpyEXfk7kwCIZ3nTm0ISMkuSWToG+A=; b=JNQJVrtLY+2NsgCXBnPuUK/azN
-	CPE7RQBMIZFjFLYFW7svunLnaPMsqG2V8HHaR/DDQ/2gd+P6hKVf2vLbToyznuDqUkiLXGNPKHbJg
-	ZxRjFtP2FZEFKQL6xlEDSxLqReRxgncQkUE5Yb/xCPfKOFKX9wc7q1A/SSCzSP4CtqF7++gmACL6B
-	y1Uh0fjikCRJ7EK3gGafPLhRp3D6LtCmUr+ne86ctz1tsHUXpUM43X1PeONyJzrm67OzI4QrGdC4t
-	iqpAHf15yOuHkaWTOqzU6eyKmOQbHA1DhdSnY3W0uLpzl0XS414a2X0LMBiyR629jH0OSGfZZ2LE/
-	/eWQS2wg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kzDN9dmdAK48wXWx0awduq7CrBP6vYP35O8PwR+e9qk=; b=TP0aYwnIm2XWfHn0b5jXdjr7HW
+	YpYQvQZrc7vrgIYcbxdItD4V1iDIyHluYIlAoQGr5OHzTEpvdKggjJahRAnCcW1BwYq4gM1/N4OEs
+	4pcWBk1qke+Ai9FwXwggu57rrWwxNrYxGNENbC+nv0ZkYcepT3VXAHE6LcAUH0NpTHTloylTmaUR0
+	puC/m3TKVNjCoed12WuXHrDbwypNas2YLib7ug825BXfklyuUCrRNq7AZQ3hq/sYzCzjsCb4iRjKk
+	ZS/xT2fK1oQ5Dm//eBvRt+0XG3CMNunGOpqgJ+zXyRG1NtAjjs9t0cWGwZ5waknx6p5pXWtz2yK28
+	6aWH+ZZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYNx6-0000000EiuA-1wlG;
-	Thu, 16 Jan 2025 11:22:20 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tYO6X-0000000EkPf-27i3;
+	Thu, 16 Jan 2025 11:32:05 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYNvr-0000000Eij8-1ITr;
-	Thu, 16 Jan 2025 11:21:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 772B2A416F2;
-	Thu, 16 Jan 2025 11:19:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7084C4CED6;
-	Thu, 16 Jan 2025 11:20:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737026462;
-	bh=B9VfjXdPnuWtdN1gOJ/q5/IiAtvGWv5tPMnatRawPyo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jKROTj9B2IoK6l09ow4mIfCWqhzO+rab9VakKCirs9MTF/P83OkTlLbF9zZD7GoI4
-	 RhLkDm4Cg/Q1BnsCJOYGYHxxdmFWrzJvzZKoRG4PZfBPP8mKwqakY+0TCGWgN20iOq
-	 w+AdJJae/BmDE7aIPkGKKakyatPFQmt1t5ZbkBKy0YZH1h6lQOq/xIjU/InRZJZE1X
-	 56cpcx1+gIIECj8js5P48wzkhvtWCvnV+AZWDtMKIrZfHwjjk0zcS/l0zlquNQxSgQ
-	 bOmqXDPfF9dDaG2ck9NY0LHJwXx/0dNbATl0IUu/EJyAQoIRdht5O4vI0M7OWujD4V
-	 US6RSsaLv3iUg==
-Message-ID: <b89a7dab-bc36-409e-a989-85a5f0afb832@kernel.org>
-Date: Thu, 16 Jan 2025 12:20:56 +0100
+	id 1tYO5H-0000000Ek9J-0609
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Jan 2025 11:30:48 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-38789e5b6a7so454768f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 03:30:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1737027045; x=1737631845; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=kzDN9dmdAK48wXWx0awduq7CrBP6vYP35O8PwR+e9qk=;
+        b=VEQKyhb11jr0jW1hbUfdd/KIj5asR9z3BUdBgmY+0TWXNM3HXq3gxOn4snKJEEeDPf
+         sL0Mx/W1sjdY6w5i6es+s1oJMaEWMnXpCnFuuOr9t+6rt5bb6+KtW4EaY9Muxb0RgXiS
+         P4rBJejpvrnWEPTPeW0TNSxRK/lDPpUIkEmOEAvrDgoz17YMZ+78ZMd+uz0dCh83UWFU
+         zgjbefwzZwlp+DCJVYuwjFF6r+grH3UQ6PW7gBf+YBnFM/XE3U/5NJlujySMyIJ6v+y5
+         m3QCCjcmUsuk/j3JG4dyHl+zJZvzjsPEavQhg8qry7lTP2si9WRRa0oCki/QGqKQ5KiD
+         XFTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737027045; x=1737631845;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=kzDN9dmdAK48wXWx0awduq7CrBP6vYP35O8PwR+e9qk=;
+        b=wpoVnzfmdfj4gWaqiutnoVUqRVAIxync6LN5NDFTeCfiPgYhD4oWZfspRVm6yV3j2Z
+         4QWmLlXBuUk/RFM8MAQU+KwyZcYfGHc+QJNLJvPHLfk/IKcTNmsJvFIb1UN7Z/O4hTQb
+         1enNkhKBuD5zp9RZ46tv27clKmuePhV2zSnRyFfMJwnTS1kdacglyg5TK+TF/siWQh0z
+         h+pz9nvQb/FRXpTABXQJ8/uPz4gXCpxptxSEf9LGKBJvTJVRMa41OtQ9CCSggUNQWLtk
+         OeLGYJo64InPMSVVbS6kzgQo3QhjCw9km9OsYh39FFy0chKPmG8F8jbx5NZ+LUr5Lu4+
+         biwg==
+X-Forwarded-Encrypted: i=1; AJvYcCW4yelN5rnUZFIxEVwRFdgAUm+MhG32XLZD0ac+Zfwkbr/j6DkG5P3WVcaDVqhoZ8Ir9aqGV1RkYZbZWuR5OP6g@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3fFABRut/hY7Lbze70+GcIEFtD6Ve8cpwU5qV4Oh4SU7GSh2i
+	YLmAstXb2dkF9lBnFZeodMYYrmJRfhOkaszEU1so0uHY7p8Dcw3B2S2+oAD+Ixo=
+X-Gm-Gg: ASbGncu73ESPep72x4C49bUA/S2jr8kvV6un6HLfr3jz4dGFNFTyDRQfaFKU6VHiny1
+	fpxK7oLUAD5d+yfdeChZtBOUPsIY6JzpwMDsldaupWloUaqCR0fPqL1OozbdsJxROmlQWE0Ojwu
+	JVipEsSwbdzEKa/Esnh8JDvzsWe/ZY+CVn+CYxg6hhxEq/SU+upIOtzZiAgDFvcrZfsnfoLE3wB
+	N98PPNAAtps56UYDU+t2c79puyUM/k8s4eU5Zz7YA/pR0EKUWLviNI9Odmcgg==
+X-Google-Smtp-Source: AGHT+IGsW7R8SXZiI21rLVry2LB3/IZkmamq2Z2hj3KPYHeT5ENtm5n56n32F1wCYQ4Tz4sR0OmrNQ==
+X-Received: by 2002:a5d:648b:0:b0:386:3e3c:ef1 with SMTP id ffacd0b85a97d-38a87312f36mr34852486f8f.35.1737027045345;
+        Thu, 16 Jan 2025 03:30:45 -0800 (PST)
+Received: from [10.1.1.109] ([80.111.64.44])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-437c74ac707sm55516355e9.15.2025.01.16.03.30.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 16 Jan 2025 03:30:44 -0800 (PST)
+Message-ID: <941c7920a7d07496222e6e93cb338ca6df38dc33.camel@linaro.org>
+Subject: Re: [PATCH v3] scsi: ufs: fix use-after free in init error and
+ remove paths
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Alim Akhtar <alim.akhtar@samsung.com>, Avri Altman
+ <avri.altman@wdc.com>,  Bart Van Assche <bvanassche@acm.org>, "James E.J.
+ Bottomley" <James.Bottomley@HansenPartnership.com>, "Martin K. Petersen"
+ <martin.petersen@oracle.com>, Peter Griffin <peter.griffin@linaro.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Manivannan Sadhasivam
+ <manivannan.sadhasivam@linaro.org>,  Mike Snitzer <snitzer@redhat.com>,
+ Jens Axboe <axboe@kernel.dk>, Ulf Hansson <ulf.hansson@linaro.org>,  Eric
+ Biggers <ebiggers@google.com>
+Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, Will McVicker
+ <willmcvicker@google.com>, kernel-team@android.com,
+ linux-scsi@vger.kernel.org,  linux-kernel@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
+ linux-arm-msm@vger.kernel.org,  stable@vger.kernel.org
+Date: Thu, 16 Jan 2025 11:30:43 +0000
+In-Reply-To: <20250116-ufshcd-fix-v3-1-6a83004ea85c@linaro.org>
+References: <20250116-ufshcd-fix-v3-1-6a83004ea85c@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.1-4 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: rockchip: minimal support for Pre-ICT tester
- adapter for RK3588 Jaguar
-To: Quentin Schulz <foss+kernel@0leil.net>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Quentin Schulz <quentin.schulz@cherry.de>
-References: <20241206-pre-ict-jaguar-v1-1-7f660bd4b70c@cherry.de>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20241206-pre-ict-jaguar-v1-1-7f660bd4b70c@cherry.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_032103_478252_104816EC 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20250116_033047_063410_8CBFE7E5 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,24 +108,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/12/2024 16:46, Quentin Schulz wrote:
-> ---
->  arch/arm64/boot/dts/rockchip/Makefile              |   1 +
->  .../dts/rockchip/rk3588-jaguar-pre-ict-tester.dtso | 171 +++++++++++++++++++++
->  2 files changed, 172 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-> index 86cc418a2255cdc22f1d503e9519d2d9572d4e9d..60074d21d92b4800bdc555648a9360e13d19febc 100644
-> --- a/arch/arm64/boot/dts/rockchip/Makefile
-> +++ b/arch/arm64/boot/dts/rockchip/Makefile
-> @@ -139,6 +139,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-edgeble-neu6b-io.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-evb1-v10.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-friendlyelec-cm3588-nas.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-jaguar.dtb
-> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-jaguar-pre-ict-tester.dtbo
+On Thu, 2025-01-16 at 11:18 +0000, Andr=C3=A9 Draszik wrote:
+> Changes in v2:
+> - completely new approach using devres action for Scsi_host cleanup, to
+> =C2=A0 ensure ordering
 
-You miss target applying the DTBO on the actual DTB for verification.
+Just repeating this again due to updated recipients list:
 
-Best regards,
-Krzysztof
+This new approach now means that Scsi_host cleanup (scsi_host_put)
+happens after ufshcd's hba->dev cleanup and I am not sure if this
+approach has wider implications (in particular if there is any
+underlying assumption or requirement for the Scsi_host device to
+clean up before the ufshcd device).
+
+Simple testing using a few iteration of manual module bind/unbind
+worked, as did the error handling / cleanup during init. But I'm
+not sure if that is sufficient testing for the changed release
+ordering.
+
+Cheers,
+Andre'
+
 
