@@ -4,46 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E07E6C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 14:52:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9EBAC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 14:53:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=EeLUwm6ssNt2rR98SDPDmMx+ezxDZx2W4wXzkpHdz60=; b=C7a8WaH/cpSi2N
-	WUpbNbDyR7zYXpeL0ThmsiAYzIqMsJbWF1CSqxiTIVtB8uRx49pNWnBG+uxjF4ykpDcJ5XIV85LGo
-	QyF4VGpD0HliVqs/Dex/H80ukxCRHcFptNeEJ0lsViUD9GtISSw/x5+qjuRpnvsufRoRZ1Vl/ARLh
-	THxDnxrsiZS8GKYvah6+lP36u3F2x1y7zirc4M2ves4wMeM8L7mKYre9Aqzxunu/71SoMsFbC3I4O
-	X/Lwz5srBbkyjxRSoiq1XnLSjxhflscio5M4ggWYoa9rLbCRGm+Ns1LTIRAg1YpniAnJLkFNqC6Ig
-	IQZwLGw6NGpiPrJIRuzQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r7sqGys7nvKOPvERPDHxZGh/399RltTubDkuslGcOGw=; b=Gtmr1teXVVkEWWjHFYIIYbWC2S
+	9moghjnZlELpUDLnTAz9Jza3V1KCkBUX60PE1JdPZogZCt/uuEQ2VaKzIiE6wfJqGl25FxYeoxPMJ
+	Okrm0K+6Eoif2Qd2YGTRzxJYOeSWVlq/6CVajqCi5ucD1rTrJl5yGQWwoAHl+Q99e2k2BiFla8spB
+	wuHNTajDVI2I5QhMFVPdB86cBuv6G8EwRjgN9cVGIgQkATMxdWM8gPOGzBkoRJuEIpnDDNA1nb/em
+	s8jWAr+pKGfyI2nlKt+oSzRfkKW2MQNxsq2UjPugH4KLknJf+EoZYYddEAsMH0m86qnBORzT70mW9
+	tAFMaG8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYRE1-0000000FF8B-12cc;
-	Thu, 16 Jan 2025 14:52:01 +0000
-Received: from smtp-190a.mail.infomaniak.ch ([2001:1600:4:17::190a])
+	id 1tYRFF-0000000FFOn-1Gtv;
+	Thu, 16 Jan 2025 14:53:17 +0000
+Received: from smtp-190a.mail.infomaniak.ch ([185.125.25.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYRAA-0000000FDsA-18na
+	id 1tYRAC-0000000FDsc-0lcQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 14:48:04 +0000
+	Thu, 16 Jan 2025 14:48:05 +0000
 Received: from smtp-3-0001.mail.infomaniak.ch (smtp-3-0001.mail.infomaniak.ch [10.4.36.108])
-	by smtp-3-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4YYm1j07dDz91y;
-	Thu, 16 Jan 2025 15:47:53 +0100 (CET)
-Received: from unknown by smtp-3-0001.mail.infomaniak.ch (Postfix) with ESMTPA id 4YYm1h1Vhdzbd9;
-	Thu, 16 Jan 2025 15:47:52 +0100 (CET)
+	by smtp-3-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4YYm1m1T7jzBHW;
+	Thu, 16 Jan 2025 15:47:56 +0100 (CET)
+Received: from unknown by smtp-3-0001.mail.infomaniak.ch (Postfix) with ESMTPA id 4YYm1k6M7czZGk;
+	Thu, 16 Jan 2025 15:47:54 +0100 (CET)
 From: Quentin Schulz <foss+kernel@0leil.net>
-Subject: [PATCH v2 0/3] arm64: dts: rockchip: minimal support for Pre-ICT
- tester adapter for RK3588 Jaguar + add overlay tests
-Date: Thu, 16 Jan 2025 15:47:09 +0100
-Message-Id: <20250116-pre-ict-jaguar-v2-0-157d319004fc@cherry.de>
+Date: Thu, 16 Jan 2025 15:47:12 +0100
+Subject: [PATCH v2 3/3] arm64: dts: rockchip: minimal support for Pre-ICT
+ tester adapter for RK3588 Jaguar
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAO0biWcC/3WMOw6DMBAFr4K2zka2hYCkyj0QhT9r7BQQrYkVh
- Hz3OPQpZ57eHJCIIyW4Nwcw5ZjiulRQlwZs0MtMGF1lUEK1UokOX1yV3fCp57dmNDfhtScajBu
- gnurs4+cMjlPlENO28n72s/zZv6ksUWLvu04Y15pe2IcNxLxfHcFUSvkC+Q2A5qwAAAA=
-X-Change-ID: 20241206-pre-ict-jaguar-b90fafee8bd8
+Message-Id: <20250116-pre-ict-jaguar-v2-3-157d319004fc@cherry.de>
+References: <20250116-pre-ict-jaguar-v2-0-157d319004fc@cherry.de>
+In-Reply-To: <20250116-pre-ict-jaguar-v2-0-157d319004fc@cherry.de>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
  Jagan Teki <jagan@edgeble.ai>, Niklas Cassel <cassel@kernel.org>
@@ -54,8 +52,8 @@ Cc: Michael Riesch <michael.riesch@wolfvision.net>,
 X-Mailer: b4 0.14.2
 X-Infomaniak-Routing: alpha
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_064802_479360_E33135B1 
-X-CRM114-Status: GOOD (  12.49  )
+X-CRM114-CacheID: sfid-20250116_064804_361267_53464912 
+X-CRM114-Status: GOOD (  20.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,58 +68,222 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds minimal support for the Pre-ICT tester adapter for RK3588
-Jaguar.
-GPIO3A3, GPIO3A4, GPIO3B2 and GPIO3D2 to GPIO3D5 are all routed to power
-rails and can only be used as input and their bias are important to be
-able to properly detect soldering issues.
+From: Quentin Schulz <quentin.schulz@cherry.de>
 
-Additionally, this adds build-time overlay application tests for (some)
-Rockchip overlays to try to avoid future regressions.
+The Pre-ICT tester adapter connects to RK3588 Jaguar SBC through its
+proprietary Mezzanine connector.
 
-Notably, the Device Trees from Wolfvision PF5 aren't migrated (but
-should) as I do not own the device and couldn't figure out from the
-introducing commit logs what the possible valid combinations are.
-+Cc Michael Riesch for awareness
+It exposes a PCIe Gen2 1x M.2 connector and two proprietary camera
+connectors. Support for the latter will come once the rest of the camera
+stack is supported.
 
-I'm wondering if we shouldn't backport patches 1 and 2 to stable? In
-which case, it would make sense to try to have the Wolfvision PF5
-overlay tests merged before the addition of the Pre-ICT tester adapter
-support for RK3588 Jaguar as that one won't be backported to stable and
-backporting the Wolfvision overlay test would incur an unnecessary
-(though not difficult) git conflict to resolve.
+Additionally, the adapter loops some GPIOs together as well as route
+some GPIOs to power rails.
 
-I also do not know what kind of tests we should have when overlay
-combinations are possible (let's say there are A, B and C overlays that
-can all be applied, should we have base + A, base + B, base + C,
-base + A + B, base + A + C, base + B + C and base + A + B + C tests?
-maybe even base + B + A, base + C + B, base A + C + B, base + B + A + C,
-base + B + C + A, base + C + B + A and base + C + A + B tests?).
+This adapter is used for manufacturing RK3588 Jaguar to be able to test
+the Mezzanine connector is properly soldered.
 
 Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
 ---
-Changes in v2:
-- add overlay application tests for Edgeble NCM6A WiFi and Rock 5B PCIe
-  Endpoint+SNRS
-- add overlay application test for RK3588 Jaguar + Pre-ICT tester
-  adapter,
-- Link to v1: https://lore.kernel.org/r/20241206-pre-ict-jaguar-v1-1-7f660bd4b70c@cherry.de
-
----
-Quentin Schulz (3):
-      arm64: dts: rockchip: add overlay test for Edgeble NCM6A
-      arm64: dts: rockchip: add overlay tests for Rock 5B PCIe overlays
-      arm64: dts: rockchip: minimal support for Pre-ICT tester adapter for RK3588 Jaguar
-
- arch/arm64/boot/dts/rockchip/Makefile              |  14 +-
+ arch/arm64/boot/dts/rockchip/Makefile              |   2 +
  .../dts/rockchip/rk3588-jaguar-pre-ict-tester.dtso | 171 +++++++++++++++++++++
- 2 files changed, 182 insertions(+), 3 deletions(-)
----
-base-commit: 619f0b6fad524f08d493a98d55bac9ab8895e3a6
-change-id: 20241206-pre-ict-jaguar-b90fafee8bd8
+ 2 files changed, 173 insertions(+)
 
-Best regards,
+diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
+index 72f8666b42400a2f462421f5db6b3cb0cf369611..deeb96609461847d4039e144beb36522333ca398 100644
+--- a/arch/arm64/boot/dts/rockchip/Makefile
++++ b/arch/arm64/boot/dts/rockchip/Makefile
+@@ -163,9 +163,11 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-rock-5c.dtb
+ 
+ # Overlays
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-edgeble-neu6a-wifi.dtb
++dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-jaguar-pre-ict-tester.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-ep.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-srns.dtb
+ 
+ rk3588-edgeble-neu6a-wifi-dtbs := rk3588-edgeble-neu6a-io.dtb rk3588-edgeble-neu6a-wifi.dtbo
++rk3588-jaguar-pre-ict-tester-dtbs     := rk3588-jaguar.dtb rk3588-jaguar-pre-ict-tester.dtbo
+ rk3588-rock-5b-pcie-ep-dtbs := rk3588-rock-5b.dtb rk3588-rock-5b-pcie-ep.dtbo
+ rk3588-rock-5b-pcie-srns-dtbs := rk3588-rock-5b.dtb rk3588-rock-5b-pcie-srns.dtbo
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-jaguar-pre-ict-tester.dtso b/arch/arm64/boot/dts/rockchip/rk3588-jaguar-pre-ict-tester.dtso
+new file mode 100644
+index 0000000000000000000000000000000000000000..9d44dfe2f30d793accb994a230c58038f0c3daad
+--- /dev/null
++++ b/arch/arm64/boot/dts/rockchip/rk3588-jaguar-pre-ict-tester.dtso
+@@ -0,0 +1,171 @@
++// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
++/*
++ * Copyright (c) 2024 Cherry Embedded Solutions GmbH
++ *
++ * Device Tree Overlay for the Pre-ICT tester adapter for the Mezzanine
++ * connector on RK3588 Jaguar.
++ *
++ * This adapter has a PCIe Gen2 x1 M.2 M-Key connector and two proprietary
++ * camera connectors (each their own I2C bus, clock, reset and PWM lines as well
++ * as 2-lane CSI).
++ *
++ * This adapter routes some GPIOs to power rails and loops together some other
++ * GPIOs.
++ *
++ * This adapter is used during manufacturing for validating proper soldering of
++ * the mezzanine connector.
++ */
++
++/dts-v1/;
++/plugin/;
++
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/pinctrl/rockchip.h>
++
++&{/} {
++	pre_ict_tester_vcc_1v2: regulator-pre-ict-tester-vcc-1v2 {
++		compatible = "regulator-fixed";
++		regulator-name = "pre_ict_tester_vcc_1v2";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <1200000>;
++		regulator-max-microvolt = <1200000>;
++		vin-supply = <&vcc_3v3_s3>;
++	};
++
++	pre_ict_tester_vcc_2v8: regulator-pre-ict-tester-vcc-2v8 {
++		compatible = "regulator-fixed";
++		regulator-name = "pre_ict_tester_vcc_2v8";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <2800000>;
++		regulator-max-microvolt = <2800000>;
++		vin-supply = <&vcc_3v3_s3>;
++	};
++};
++
++&combphy0_ps {
++	status = "okay";
++};
++
++&gpio3 {
++	pinctrl-0 = <&pre_ict_pwr2gpio>;
++	pinctrl-names = "default";
++};
++
++&pcie2x1l2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pcie2x1l2_perstn_m0>;
++	reset-gpios = <&gpio3 RK_PD1 GPIO_ACTIVE_HIGH>; /* PCIE20X1_2_PERSTN_M0 */
++	vpcie3v3-supply = <&vcc_3v3_s3>;
++	status = "okay";
++};
++
++&pinctrl {
++	pcie2x1l2 {
++		pcie2x1l2_perstn_m0: pcie2x1l2-perstn-m0 {
++			rockchip,pins = <3 RK_PD1 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
++	pre-ict-tester {
++		pre_ict_pwr2gpio: pre-ict-pwr2gpio-pins {
++			rockchip,pins =
++			/*
++			 * GPIO3_A3 requires two power rails to be properly
++			 * routed to the mezzanine connector to report a proper
++			 * value: VCC_1V8_S0_1 and VCC_IN_2. It may report an
++			 * incorrect value if VCC_1V8_S0_1 isn't properly routed,
++			 * but GPIO3_C6 would catch this HW soldering issue.
++			 * If VCC_IN_2 is properly routed, GPIO3_A3 should be
++			 * LOW. The signal shall not read HIGH in the event
++			 * GPIO3_A3 isn't properly routed due to soldering
++			 * issue. Therefore, let's enforce a pull-up (which is
++			 * the SoC default for this pin).
++			 */
++				<3 RK_PA3 RK_FUNC_GPIO &pcfg_pull_up>,
++			/*
++			 * GPIO3_A4 is directly routed to VCC_1V8_S0_2 power
++			 * rail. It should be HIGH if all is properly soldered.
++			 * To guarantee that, a pull-down is enforced (which is
++			 * the SoC default for this pin) so that LOW is read if
++			 * the loop doesn't exist on HW (soldering issue on
++			 * either signals).
++			 */
++				<3 RK_PA4 RK_FUNC_GPIO &pcfg_pull_down>,
++			/*
++			 * GPIO3_B2 requires two power rails to be properly
++			 * routed to the mezzanine connector to report a proper
++			 * value: VCC_1V8_S0_1 and VCC_IN_1. It may report an
++			 * incorrect value if VCC_1V8_S0_1 isn't properly routed,
++			 * but GPIO3_C6 would catch this HW soldering issue.
++			 * If VCC_IN_1 is properly routed, GPIO3_B2 should be
++			 * LOW. This is an issue if GPIO3_B2 isn't properly
++			 * routed due to soldering issue, because GPIO3_B2
++			 * default bias is pull-down therefore being LOW. So
++			 * the worst case scenario and the pass scenario expect
++			 * the same value. Make GPIO3_B2 a pull-up so that a
++			 * soldering issue on GPIO3_B2 reports HIGH but proper
++			 * soldering reports LOW.
++			 */
++				<3 RK_PB2 RK_FUNC_GPIO &pcfg_pull_up>,
++			/*
++			 * GPIO3_C6 is directly routed to VCC_1V8_S0_1 power
++			 * rail. It should be HIGH if all is properly soldered.
++			 * This is an issue if GPIO3_C6 or VCC_1V8_S0_1 isn't
++			 * properly routed due to soldering issue, because
++			 * GPIO3_C6 default bias is pull-up therefore being HIGH
++			 * in all cases:
++			 *  - GPIO3_C6 is floating (so HIGH) if GPIO3_C6 is not
++			 *    routed properly,
++			 *  - GPIO3_C6 is floating (so HIGH) if VCC_1V8_S0_1 is
++			 *    not routed properly,
++			 *  - GPIO3_C6 is HIGH if everything is proper,
++			 * Make GPIO3_C6 a pull-down so that a soldering issue
++			 * on GPIO3_C6 or VCC_1V8_S0_1 reports LOW but proper
++			 * soldering reports HIGH.
++			 */
++				<3 RK_PC6 RK_FUNC_GPIO &pcfg_pull_down>,
++			/*
++			 * GPIO3_D2 is routed to VCC_5V0_1 power rail through a
++			 * voltage divider on the adapter.
++			 * It should be HIGH if all is properly soldered.
++			 * To guarantee that, a pull-down is enforced (which is
++			 * the SoC default for this pin) so that LOW is read if
++			 * the loop doesn't exist on HW (soldering issue on
++			 * either signals).
++			 */
++				<3 RK_PD2 RK_FUNC_GPIO &pcfg_pull_down>,
++			/*
++			 * GPIO3_D3 is routed to VCC_5V0_2 power rail through a
++			 * voltage divider on the adapter.
++			 * It should be HIGH if all is properly soldered.
++			 * To guarantee that, a pull-down is enforced (which is
++			 * the SoC default for this pin) so that LOW is read if
++			 * the loop doesn't exist on HW (soldering issue on
++			 * either signals).
++			 */
++				<3 RK_PD3 RK_FUNC_GPIO &pcfg_pull_down>,
++			/*
++			 * GPIO3_D4 is routed to VCC_3V3_S3_1 power rail through
++			 * a voltage divider on the adapter.
++			 * It should be HIGH if all is properly soldered.
++			 * To guarantee that, a pull-down is enforced (which is
++			 * the SoC default for this pin) so that LOW is read if
++			 * the loop doesn't exist on HW (soldering issue on
++			 * either signals).
++			 */
++				<3 RK_PD4 RK_FUNC_GPIO &pcfg_pull_down>,
++			/*
++			 * GPIO3_D5 is routed to VCC_3V3_S3_2 power rail through
++			 * a voltage divider on the adapter.
++			 * It should be HIGH if all is properly soldered.
++			 * To guarantee that, a pull-down is enforced (which is
++			 * the SoC default for this pin) so that LOW is read if
++			 * the loop doesn't exist on HW (soldering issue on
++			 * either signals).
++			 */
++				<3 RK_PD5 RK_FUNC_GPIO &pcfg_pull_down>;
++		};
++	};
++};
+
 -- 
-Quentin Schulz <quentin.schulz@cherry.de>
+2.48.0
 
 
