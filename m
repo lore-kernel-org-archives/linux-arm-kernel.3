@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F037C02187
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 20:42:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 900B6C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 20:43:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FvwpfrEgGuj6O2Lps8W2ZtH+Fx+MCupa6IfkENeBymw=; b=tEMZ6uWcQWuF9PALWHMaSXuXV1
-	ZT/hMiHeY4+jY0ZAnSd5+uCKJXREu55VNvORoc97xhWGLEE0P0hV2RZKtVDYL6L02ABLR9U+dUoKD
-	7WkRpil4apW/tfx58VVmIX1ca1D6DZoitIBCnqxK8sVNQIBKnR6YSMQwPmNzgcgWQ3c2VOyf0CDwd
-	CTv3huKXeWcAjKMb6FPB7iP6gTDhO++speEDAWPUS3cUxN2gbv/Ah8sQAzbgqSSQPk5ezoAfnhKoZ
-	QplpJ9wCJlj5bvIEq4TcDF/iPM1fZmizM6n5Ff0jur+NWrhxpLyKIscbSQZq3qIc3EyD25PJsCYn5
-	V3dUPTVw==;
+	bh=zJ3XITMWT7pMwbAprF2XAaRfRk4pBMPEr9iYYHQbiEo=; b=blKqSgPkTQp3ofecsucacV4HLc
+	0yZIP07JM0YWNgVSRnabizGyIsnZJTvQJLmMO1H0NJn/MY8CkDe0+PLLNZAZb6s/0LUnUMXJf7Z1H
+	1SABYcbs8N2yl91FkdQg3SnR9eQ6W+ZppjHF9f9p/Avswki/B1ZfPVbr/XsW9ufa7eT1KHeNyPChJ
+	bf6gjj21OPaGa07jKkHtS0KIWtF0nXqJJZFlfv+vaURjTaf43DhaES1xcn/My6XUATnsN0Mnu5ZhA
+	+vHgJl/fbchqA16ldLDPXEbUyp6Ef42e7rcih9hMTBfLwMSGi2qUYbLHgFbuhG/My4LbLqbTQTC3T
+	sSxGou9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYWh5-0000000G3r1-02Y4;
-	Thu, 16 Jan 2025 20:42:23 +0000
+	id 1tYWiJ-0000000G48e-2y9K;
+	Thu, 16 Jan 2025 20:43:39 +0000
 Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYWax-0000000G2jJ-3ZT1
+	id 1tYWaz-0000000G2ji-1iBv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 20:36:04 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50GDqcEt004780;
-	Thu, 16 Jan 2025 20:35:40 GMT
+	Thu, 16 Jan 2025 20:36:06 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50GDHjuf008117;
+	Thu, 16 Jan 2025 20:35:44 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=FvwpfrEgGuj6O2Lps
-	8W2ZtH+Fx+MCupa6IfkENeBymw=; b=KM2Z5k3naj7KK/fR4N9ojfmoOD8O5CVD2
-	uiZ+XUiHxgQMU2rBL4qA3wjc7lsLtZsey56nNGQx9vB06B5KCkdHQBpc8WRKOnNx
-	Sd5lYEyPrs6qX6SjnFKJ5OlriOgMi1H2j7gfhJzI9u/JRr8lSElLBPoudco7voxS
-	WMQmfMDfT1dX8nlg2B4aBG97qOPqZJnhFHiaBrZrCeRAjoe0Ii2qC1nkX49Eyp+N
-	V6M+mBEiIbMu7WWQaqCqaoZ8N6w724F5KpjE6cmvmsfKEBWvv62vDHC7W2B6FQbs
-	P0VRR9pI+VDG6uwiRL+yh5t6aT/4FibEwd0tN2vAcV/sFyKfV3DfA==
+	:mime-version:references:subject:to; s=pp1; bh=zJ3XITMWT7pMwbApr
+	F2XAaRfRk4pBMPEr9iYYHQbiEo=; b=DzTAD3OCRQwBIFWuY7+zUCSexCDOcbNBD
+	7Q4TWXvNpHNiY/GEuh3R4jA+IsBc/0VJq873jAgRqSsgPPIFQzaWjkW37fIpum7q
+	Ct6tfSoUbkzJ82gurGa7raKzIqTLA9DjaKtqEpNr9K7ev3ED4S7QVvLDPST9QHG9
+	KJWmBygOuCiuXVfSJSuCw12EyZvc8ZSSyd7kNMgBqpmtF/fEYqNXdklozEbVhuRL
+	zr/bN4UQkH+mBnWp1By+z4SK1qH2pAa5LMHXJlNvTRaHAmore27lr2LvoXYRuRHO
+	Jf64eHZlPy8sBbZGe0VGlF7vRxsM9+AqvQWRvvoSOE3jMsHWnAN6Q==
 Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 446tkhcq25-1
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 446tkcmnvx-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 16 Jan 2025 20:35:40 +0000 (GMT)
-Received: from m0356517.ppops.net (m0356517.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 50GKNbOm024414;
-	Thu, 16 Jan 2025 20:35:39 GMT
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 446tkhcq22-1
+	Thu, 16 Jan 2025 20:35:44 +0000 (GMT)
+Received: from m0360083.ppops.net (m0360083.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 50GKU7kx005798;
+	Thu, 16 Jan 2025 20:35:44 GMT
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 446tkcmnvu-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 16 Jan 2025 20:35:39 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 50GKNQPY002738;
-	Thu, 16 Jan 2025 20:35:38 GMT
-Received: from smtprelay05.wdc07v.mail.ibm.com ([172.16.1.72])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4443byfrmm-1
+	Thu, 16 Jan 2025 20:35:43 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 50GIZBlN001330;
+	Thu, 16 Jan 2025 20:35:42 GMT
+Received: from smtprelay03.dal12v.mail.ibm.com ([172.16.1.5])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 44456k7cj1-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 16 Jan 2025 20:35:38 +0000
+	Thu, 16 Jan 2025 20:35:42 +0000
 Received: from smtpav02.wdc07v.mail.ibm.com (smtpav02.wdc07v.mail.ibm.com [10.39.53.229])
-	by smtprelay05.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 50GKZbkh28836436
+	by smtprelay03.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 50GKZfbG22872578
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 16 Jan 2025 20:35:37 GMT
+	Thu, 16 Jan 2025 20:35:42 GMT
 Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 0BCF958059;
-	Thu, 16 Jan 2025 20:35:37 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id AF4FA58058;
+	Thu, 16 Jan 2025 20:35:41 +0000 (GMT)
 Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id ED0D858058;
-	Thu, 16 Jan 2025 20:35:35 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id A486B5806A;
+	Thu, 16 Jan 2025 20:35:40 +0000 (GMT)
 Received: from gfwa153.aus.stglabs.ibm.com (unknown [9.3.84.127])
 	by smtpav02.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Thu, 16 Jan 2025 20:35:35 +0000 (GMT)
+	Thu, 16 Jan 2025 20:35:40 +0000 (GMT)
 From: Ninad Palsule <ninad@linux.ibm.com>
 To: minyard@acm.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
         andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
@@ -80,28 +80,28 @@ To: minyard@acm.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
         linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
         linux-kernel@vger.kernel.org
 Cc: Ninad Palsule <ninad@linux.ibm.com>
-Subject: [PATCH v6 04/10] ARM: dts: aspeed: system1: Add IPMB device
-Date: Thu, 16 Jan 2025 14:35:19 -0600
-Message-ID: <20250116203527.2102742-5-ninad@linux.ibm.com>
+Subject: [PATCH v6 08/10] ARM: dts: aspeed: system1: Remove VRs max8952
+Date: Thu, 16 Jan 2025 14:35:23 -0600
+Message-ID: <20250116203527.2102742-9-ninad@linux.ibm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250116203527.2102742-1-ninad@linux.ibm.com>
 References: <20250116203527.2102742-1-ninad@linux.ibm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: S8WwkITe6m0Pzfp6hufPxTHftuV3X1cx
-X-Proofpoint-ORIG-GUID: _N5BI1Wvs9Q3wEzAB4AbIVOL0jqWRj0M
+X-Proofpoint-ORIG-GUID: 1TdSZ0NEH9sD8TREnFdr8q3KbfuG67vK
+X-Proofpoint-GUID: dD_j97hYHUTJm20Z02SChyH1S6QgTULz
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-01-16_09,2025-01-16_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 spamscore=0
- priorityscore=1501 impostorscore=0 adultscore=0 mlxscore=0 clxscore=1015
- bulkscore=0 lowpriorityscore=0 mlxlogscore=743 phishscore=0 suspectscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
- definitions=main-2501160151
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 malwarescore=0
+ impostorscore=0 mlxscore=0 spamscore=0 priorityscore=1501
+ lowpriorityscore=0 bulkscore=0 suspectscore=0 clxscore=1015
+ mlxlogscore=999 phishscore=0 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.19.0-2411120000 definitions=main-2501160151
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_123603_890557_7FCA06FF 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20250116_123605_450669_BABEE732 
+X-CRM114-Status: GOOD (  11.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,33 +116,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add IPMB device sitting behind PCH module
+Removing voltage regulators max8952 from device tree. Those are fully
+controlled by hardware and firmware should not touch them.
 
 Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
 ---
- arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ .../dts/aspeed/aspeed-bmc-ibm-system1.dts     | 34 -------------------
+ 1 file changed, 34 deletions(-)
 
 diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-index 8f77bc9e860c..0d16987cfc80 100644
+index 1e0b1111ea9a..089a8315753a 100644
 --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
 +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-@@ -763,6 +763,15 @@ i2c3mux0chn7: i2c@7 {
- 
- &i2c4 {
- 	status = "okay";
-+	multi-master;
-+	bus-frequency = <1000000>;
-+
-+	ipmb@10 {
-+		compatible = "ipmb-dev";
-+		reg = <(0x10 | I2C_OWN_SLAVE_ADDRESS)>;
-+
-+		i2c-protocol;
-+	};
+@@ -486,23 +486,6 @@ eeprom@50 {
+ 		compatible = "atmel,24c64";
+ 		reg = <0x50>;
+ 	};
+-
+-	regulator@60 {
+-		compatible = "maxim,max8952";
+-		reg = <0x60>;
+-
+-		max8952,default-mode = <0>;
+-		max8952,dvs-mode-microvolt = <1250000>, <1200000>,
+-						<1050000>, <950000>;
+-		max8952,sync-freq = <0>;
+-		max8952,ramp-speed = <0>;
+-
+-		regulator-name = "VR_v77_1v4";
+-		regulator-min-microvolt = <770000>;
+-		regulator-max-microvolt = <1400000>;
+-		regulator-always-on;
+-		regulator-boot-on;
+-	};
  };
  
- &i2c5 {
+ &i2c1 {
+@@ -1198,23 +1181,6 @@ eeprom@50 {
+ 		compatible = "atmel,24c64";
+ 		reg = <0x50>;
+ 	};
+-
+-	regulator@60 {
+-		compatible = "maxim,max8952";
+-		reg = <0x60>;
+-
+-		max8952,default-mode = <0>;
+-		max8952,dvs-mode-microvolt = <1250000>, <1200000>,
+-						<1050000>, <950000>;
+-		max8952,sync-freq = <0>;
+-		max8952,ramp-speed = <0>;
+-
+-		regulator-name = "VR_v77_1v4";
+-		regulator-min-microvolt = <770000>;
+-		regulator-max-microvolt = <1400000>;
+-		regulator-always-on;
+-		regulator-boot-on;
+-	};
+ };
+ 
+ &i2c11 {
 -- 
 2.43.0
 
