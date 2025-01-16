@@ -4,91 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 115C0E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 04:50:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05A07E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 04:53:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+oUEeSVLxJyACe9zcGnIcrOr/UNqBupfY9WFzURq6nE=; b=ZJjcqqh/ZKUNE2GImZ03ctCUmg
-	zMhBbaRq012UMvfcRm7cRlsmXasoVQ4mZa+dL6xgbXAFIAEu+dtr7PWkCX67t4W1WgY6jnB9b3yYf
-	p+0AumSQNE6ffdxkvdXlDy+YQfSdmBesofK8/NNLIFx2WggPiAbF3Kp5ZCvklMD7AxfphQYeOlmxD
-	VlwA/os4ZIe4GswKDDThF8xvkXLgfAvuhSq6ieY60pno1oqHAyc4tV/fH+TqccuZz38TMJeUlMs87
-	lgfFESqNGv/Bg410tpnpxxD+u1TMzpOdnM03IJrolZnB1e7ceeynyfWL+chNaVQJGwYkMz2NC90Sf
-	+KX/S9Aw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AOWmyxksIGQ0wwOhQFWR2aE2r3LuQkCrmyY8eIZP3Dc=; b=KYZziJXPz7hS+ffDsh9KOgLvDL
+	2dhOque18FlmXNUsAdCS2DZ+HKS9B3jeBmE7LeK2K1D7KqW8DwtDAi5B7jYhbZ5D/aOL12vnzaJfe
+	AP5ZUyIZqwkPuC7hILZY5y+mI8ruwVjhAfmORW9fNZieYnse0VQefzOAX9cTwQAKwg81rJTKPTCjN
+	XSoiy9z5d9TFUdQdf2/oQQ81vngjRXchvF4xLjq0G31sNkoRH4SVBVhiS2XpK5ClCWGLn2bjVuAiZ
+	K6K7vkMZPpiSCWfHVPtIMIDXPd7Y9chnLflMUp2FgVj7s3mmyVNNUmmMumrsg/F1B55RurNd6jlKw
+	LsF/rXvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYHpx-0000000DpJ8-2d0f;
-	Thu, 16 Jan 2025 04:50:33 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1tYHsn-0000000Dpa7-1EeS;
+	Thu, 16 Jan 2025 04:53:29 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYHoh-0000000DpBc-0Odt
+	id 1tYHrX-0000000DpUN-1WT7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 04:49:16 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2163b0c09afso7408785ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 20:49:14 -0800 (PST)
+	Thu, 16 Jan 2025 04:52:12 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2165cb60719so7328395ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 20:52:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=pf-is-s-u-tokyo-ac-jp.20230601.gappssmtp.com; s=20230601; t=1737002954; x=1737607754; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=+oUEeSVLxJyACe9zcGnIcrOr/UNqBupfY9WFzURq6nE=;
-        b=IsqYYMiPqrl2GsPTVgp+GJDrkcrnFskkCT4MzHEiBJpsgTxqleBflUbO2ud6KHn58l
-         KJfMH9c8jPtg9BdIHq/n0G4o/iEbRR4gReJJanuIRmob+FCYwfTMBgPULtqUgvz3N4JD
-         FdnjX7g2EiF2K32Jjn/pgQHtrqdDgpsI8RlpS8dwhhL3M9m6FneJIcpY4txo7ICjhFHf
-         eUPtUsxhRaVXkgopc/4sDzqiZKX1+5/UJHyYPgDARrBHp5Acbc9a0N+m/ueIMCQKtTUG
-         8dQ74WDGuljoA4tR93hmDuc93u3Yf1uZBPJIbs4zlSKoe+/9oPb3lIN0vqdYKQ5fjKqV
-         Hqfg==
+        d=pf-is-s-u-tokyo-ac-jp.20230601.gappssmtp.com; s=20230601; t=1737003130; x=1737607930; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=AOWmyxksIGQ0wwOhQFWR2aE2r3LuQkCrmyY8eIZP3Dc=;
+        b=NeItmDZFlDmCCTgAqAwdyOF9CjmPnHJHUEH2ls9tYxpWdSVB5x5mxGVA9Bd71o217X
+         oUKLrimZjPxaFFcqtQulpAFV+EEophbi2V9s4Bahy3unxF+uGKQA8B/W/EREL173SFHd
+         4eoVFJXnRadxO1MRTU9lxpX91S6y006KxAel9aTUUIlEg/y+lQbe/fFrto15KSMUvSWY
+         4L7Zkku/ao2z/3huZVrNEmPy0Xyxap2nHDHU8XUucM6hDv+KKqFcq1cxHl/Wiyg2REGL
+         LyQPS5eaKSh/WOgfMhZqk2sB8TKyPz2C3BRhdem8WMx/2ilKgS97voWN+r1n8Pd4lSeQ
+         46sA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737002954; x=1737607754;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+oUEeSVLxJyACe9zcGnIcrOr/UNqBupfY9WFzURq6nE=;
-        b=fBAV0N7fNP7FmVgnlHO/6b2DDFIEhZoNBskGyHCLGYgHxVmgPQkVd8roE1i4MlF8yv
-         10EcnzH6cDeDm+z8eliX0/KMbanPG0P9iOs4WjRuiJarlJGzKgzENDRCRkrvak60c1bs
-         qjEEy//Zv2ggn5F3KQEJWyt0E72d8nCepWezF4Wzf9t4wFhxXnC0fOgUhx/q5wxdN7RA
-         I7XxV7Nj+D44blI7SGXqNR2P3rm8a8OuJ0+0vSp32PWbpQGtIzdSmh8DXOhrpP8Djd9E
-         UTmt46lvm/zVys0m8BlEcJ2z2FV+MvROXnGzhrL4wpJEazxOhm6vkZrodkLG/PB+41pX
-         q3wg==
-X-Forwarded-Encrypted: i=1; AJvYcCVdZghqYXOOO73Q76fNGTau5AC/KayWHuvQEBh1xeso6Zqq9XCiwrxNJHPBjITsL4rCLFCYSEwBIdsKDTy3zgd+@lists.infradead.org
-X-Gm-Message-State: AOJu0YyuLwoki5Y0DsfZwm/WfDGb37PNFep7OoTzF2scX27AByMrtVoo
-	GIpOuvtr0m29R7xCdVmbx0DEd38SM37CVz/E3UGLtsUIzXwFHKRBk5FLEAY443E=
-X-Gm-Gg: ASbGncset7NiKobBuGi3od50t9TO0dcOBCTvtvTw0GJr36lJsqmvnk7Z3B+U9fHPiTP
-	+yPmJwQly0q6XNzaT4s4K0aNrLy7CuNgueDDMNI+X7cylD05UpS/xTH6p+qW8eKjhNxmo9RaIIY
-	cgG8vf5Dp44ruxwckYBtwyLwMwAwhizFtUBZGndNToPT+txKAVqj2uZG4Bk3i3TvyDXZ6xeiPDG
-	7f8n995c4VvMscVMyiJN6f7tYBM5Xu57lLgHa940jj5whjJHPGzr1VoSwOdBi3FfPwQboBYAkf1
-	+Q==
-X-Google-Smtp-Source: AGHT+IFf9Yb/lV1fMPHGdH6ntBNzqtAAdZrv1z6KXUln4z+2PgGQ1VQ45kPdIH3rvofp3kGQ/N/b7g==
-X-Received: by 2002:a17:902:e552:b0:215:b5c6:9ee8 with SMTP id d9443c01a7336-21a83f33a44mr397009725ad.7.1737002954438;
-        Wed, 15 Jan 2025 20:49:14 -0800 (PST)
-Received: from localhost.localdomain ([157.82.204.145])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f21ada1sm90516235ad.138.2025.01.15.20.49.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jan 2025 20:49:14 -0800 (PST)
-From: Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>
-To: mchehab+huawei@kernel.org,
-	sboyd@kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	konradybcio@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	marijn.suijten@somainline.org,
-	bjorn.andersson@oss.qualcomm.com,
-	abel.vesa@linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>
-Subject: [PATCH] spmi: hisi-spmi-controller: Drop duplicated OF node assignment in spmi_controller_probe()
-Date: Thu, 16 Jan 2025 13:49:07 +0900
-Message-Id: <20250116044907.2947218-1-joe@pf.is.s.u-tokyo.ac.jp>
-X-Mailer: git-send-email 2.34.1
+        d=1e100.net; s=20230601; t=1737003130; x=1737607930;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=AOWmyxksIGQ0wwOhQFWR2aE2r3LuQkCrmyY8eIZP3Dc=;
+        b=Hj/QoArlWjXMo3wdxectSf0IkUmHa7Q16prNgHpFolJVXpNGpKhvy9muJnZvyW9XB4
+         D3j2U7sgPOnnF2pUkaObdhmcpLntIVHeOrbp5sWrR++f1VWOArjIxpb/PRtcAZ6akWmn
+         zo+oR626/oa73HpyLb478IJlyoLbTLqnW5Y+mzEv11LD6VZrDz6eQUepCzhwJwKrJOba
+         ee5oVxy2zUniu2HDsO0nYpqtE9B/ARWCZ0G+rzYIpcMlRJgeiqB+zvnQxzYOxBsKoz41
+         Y3+yNkh4trtixv+nXTY07M7pBSOthASu9hPQhBSwNvVxVsqnZrmDNJjD96fXx84eF09W
+         JlXQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUiWwu2hFoUYHmhay1/lbar2IBfw9xoX6qbDX1b8IGoNOn/Q22JcIIXhDJ8ER28OWtWy7RclupPblKI7cDZDXMp@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxq9UlfURYd7NKgmRvxSQQYM9LiPdCAd+Rbf2yXUbBZJRfbbFzg
+	dloNpW1F2ZLahg8HLZaLQ6tACiWHUQ4efgritHQFim7TFxhQkkwwzZ58Pii82nk=
+X-Gm-Gg: ASbGncuD++E0vqy7VBHQGE5mkKYqIE8IIGNS4kquUq4a7NQYjS02vfYF53WuT16iS7b
+	Pzp9kT9DxR8ZrHB2wgb9BACWnb/D3oSOENh+6d4rfmjsNSrLYisQyIpdD23KPpTCd5Jg320TGNS
+	2zTMDXrVp8rXbmx9LpppVatBoiI2rDnYxue2p54+D9Zfm7xt7X3HSMsbhqmlii4OlxoUXQYQ0ti
+	jxQGLgA6TJq/zEeJKQEUDsc8AAozwi5AU/Ybfv+gufEc0swuVdB3ZEOUlJyl8Fde3P00Nk=
+X-Google-Smtp-Source: AGHT+IFdClh55M2sh3NGGkRxPih7LhmCsVDPwH4rFFOPzqgi1cC12kO5lb+ICakqsGCKRHcDhEzKVA==
+X-Received: by 2002:a17:902:c411:b0:216:2bd7:1c49 with SMTP id d9443c01a7336-21a83f64abemr481766055ad.29.1737003130537;
+        Wed, 15 Jan 2025 20:52:10 -0800 (PST)
+Received: from [157.82.204.145] ([157.82.204.145])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f13c92dsm89358035ad.97.2025.01.15.20.52.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 15 Jan 2025 20:52:10 -0800 (PST)
+Message-ID: <05f32e33-8cf7-4c23-bbcd-aaed0c7aa02b@pf.is.s.u-tokyo.ac.jp>
+Date: Thu, 16 Jan 2025 13:52:06 +0900
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] spmi: hisi-spmi-controller: Drop duplicated OF node
+ assignment in spmi_controller_probe()
+To: mchehab+huawei@kernel.org, sboyd@kernel.org
+Cc: konradybcio@kernel.org, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, marijn.suijten@somainline.org,
+ bjorn.andersson@oss.qualcomm.com, abel.vesa@linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20250116044725.2946205-1-joe@pf.is.s.u-tokyo.ac.jp>
+Content-Language: en-US
+From: Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>
+In-Reply-To: <20250116044725.2946205-1-joe@pf.is.s.u-tokyo.ac.jp>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_204915_131285_4DFAACEA 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20250115_205211_393503_1B3008E8 
+X-CRM114-Status: GOOD (  15.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,33 +101,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-spmi_controller_probe() assigns a parent device and an OF node to an
-SPMI controller. However, the operations are not needed as they are
-already assigned in spmi_controller_alloc(). Thus, remove the duplicated
-assignments. An unnecessary OF node reference acquisition is also
-dropped by this patch.
 
-Signed-off-by: Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>
-Suggested-by: Stephen Boyd <sboyd@kernel.org>
----
- drivers/spmi/hisi-spmi-controller.c | 3 ---
- 1 file changed, 3 deletions(-)
 
-diff --git a/drivers/spmi/hisi-spmi-controller.c b/drivers/spmi/hisi-spmi-controller.c
-index 3cafdf22c909..122140b97579 100644
---- a/drivers/spmi/hisi-spmi-controller.c
-+++ b/drivers/spmi/hisi-spmi-controller.c
-@@ -300,9 +300,6 @@ static int spmi_controller_probe(struct platform_device *pdev)
- 
- 	spin_lock_init(&spmi_controller->lock);
- 
--	ctrl->dev.parent = pdev->dev.parent;
--	ctrl->dev.of_node = of_node_get(pdev->dev.of_node);
--
- 	/* Callbacks */
- 	ctrl->read_cmd = spmi_read_cmd;
- 	ctrl->write_cmd = spmi_write_cmd;
--- 
-2.34.1
+On 1/16/25 13:47, Joe Hattori wrote:
+> spmi_controller_probe() assigns a parent device and an OF node to an
+> SPMI controller. However, the operations are not needed as they are
+> already assigned in spmi_controller_alloc(). Thus, remove the duplicated
+> assignments. An unnecessary OF node reference acquisition is also
+> dropped by this patch.
+> 
+> Signed-off-by: Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>est,
+> Suggested-by: Stephen Boyd <sboyd@kernel.org>
+> ---
+>   drivers/spmi/hisi-spmi-controller.c | 3 ---
+>   1 file changed, 3 deletions(-)
+> 
+> diff --git a/drivers/spmi/hisi-spmi-controller.c b/drivers/spmi/hisi-spmi-controller.c
+> index 3cafdf22c909..122140b97579 100644
+> --- a/drivers/spmi/hisi-spmi-controller.c
+> +++ b/drivers/spmi/hisi-spmi-controller.c
+> @@ -300,9 +300,6 @@ static int spmi_controller_probe(struct platform_device *pdev)
+>   
+>   	spin_lock_init(&spmi_controller->lock);
+>   
+> -	ctrl->dev.parent = pdev->dev.parent;
+> -	ctrl->dev.of_node = of_node_get(pdev->dev.of_node);
+> -
+>   	/* Callbacks */
+>   	ctrl->read_cmd = spmi_read_cmd;
+>   	ctrl->write_cmd = spmi_write_cmd;
 
+Kindly disregard this patch since I forgot to CC 
+linux-kernel@vger.kernel.org. The new patch can be found at
+https://lore.kernel.org/all/20250116044725.2946205-1-joe@pf.is.s.u-tokyo.ac.jp/
+
+Best,
+Joe
 
