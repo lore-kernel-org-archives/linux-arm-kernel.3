@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26B6CC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 01:01:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64E24C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 01:02:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NEACNtD9AMp/3i2ugMhnbog8OjzcHTOvl7Vh5dzlVDI=; b=tWe2yhcMb8mLnS2u6jI4DfVWPb
-	2+sduYesR6ZxHaeS7qi1Rw+A2KQ9iF2mQf2X81aU63UXQSKA7AEwsJCSMhVjXdpbC+dE/CqOpDTry
-	jUTQscyzkFojZPIv28/thNISPtTJS8KyaXEChnX6P82yCWIfT2u3gWRtLu56SYfh4taVI2TzRJEZA
-	vxOD4KJYSfId6Vwgyxiftb7eCWrqHWFNu9i6ofq07fTN40Sk9rbcGb2L8nzGQbU7aiWoCoOkkHbNW
-	l7G44fObZokggaJ3u8oBOYMqbLoSo+P+3oK/7C4sXkWpZNLXq5i3brUd9mSCQrOIarGS2rx646uIN
-	XWL/hAkg==;
+	bh=WtseQk43hPu/y1TdKZa4CykZZ0+3CnLbf+gdN5rIcio=; b=HsKF9M+nwtIWEoQ6TvPNdL5ikN
+	BA2yXAhvb8HFfx1JYqjZDt3KkBZHVoVbOcCYUgklls2tiXCmeQWaYlVzAmygx+rQzNjpyBy8MVA7k
+	HOfcw2z9YtVes/bjYLwNv9glQXKm8+LIoOcXb8/BCXqu/TzAVgOL0T4lgVauhow54iFvFxDFQN6Oz
+	Uf7wHXd5vlPo3if1Z3ShvalZHNw1whafCF4ONhciaZB8ZHkaa4kSAzHt8mNGkDkTuHv57m/+bWucE
+	XFJPp3hhrRb/93REN39Fz00hlYZipVnawdSR3t+TLmEg3KHSeToG+5idFCr4/xoRPlrYC9m5tB1Xb
+	RAfJ/IdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYEFe-0000000DUv8-1JvA;
-	Thu, 16 Jan 2025 01:00:50 +0000
-Received: from mx.treblig.org ([2a00:1098:5b::1])
+	id 1tYEHC-0000000DV6R-3wmV;
+	Thu, 16 Jan 2025 01:02:26 +0000
+Received: from gandalf.ozlabs.org ([150.107.74.76] helo=mail.ozlabs.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYEEO-0000000DUqG-2KEL
+	id 1tYEFw-0000000DUwr-0JxX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 00:59:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=treblig.org
-	; s=bytemarkmx; h=MIME-Version:Message-ID:Date:Subject:From:Content-Type:From
-	:Subject; bh=NEACNtD9AMp/3i2ugMhnbog8OjzcHTOvl7Vh5dzlVDI=; b=RJsCC+H5frD2Hp4K
-	TA87oddvahGe8umxGnJwA6ynYtUBNhlH2N95io5HfSDqv27GcwOvQFeUoDAopPUCV3QEbn8mpdru6
-	Es7RzQ2mPYA2KEzO4XjhtwQOjBul1D4KfgEHGKher0vcGM/f3mM5zqoCR9DhOhXxZ5C1iEgkyjkk8
-	z45q7CQ6E3VHCWpC57ilJAlqupB8dxYVkyY/zNu9lqF5qN+BqLyvFAjdiQT6gKpjktMSssb5IDX1L
-	hRnYSdIwWqDYyvubBYpe/8XXFdFjMxeM+CygU/hsvDevZEa3phSmGXscYFTONTZG4ktHWIjnbmuLo
-	2wqvaP6St3GXbUTi4w==;
-Received: from localhost ([127.0.0.1] helo=dalek.home.treblig.org)
-	by mx.treblig.org with esmtp (Exim 4.96)
-	(envelope-from <linux@treblig.org>)
-	id 1tYEEC-00AW4x-31;
-	Thu, 16 Jan 2025 00:59:20 +0000
-From: linux@treblig.org
-To: florian.fainelli@broadcom.com,
-	tglx@linutronix.de
-Cc: bcm-kernel-feedback-list@broadcom.com,
-	x86@kernel.org,
-	oe-kbuild-all@lists.linux.dev,
-	linux-mips@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	"Dr. David Alan Gilbert" <linux@treblig.org>
-Subject: [PATCH v2] irqchip/irq-brcmstb-l2: Replace brcmstb_l2_mask_and_ack() by generic function
-Date: Thu, 16 Jan 2025 00:59:20 +0000
-Message-ID: <20250116005920.626822-1-linux@treblig.org>
-X-Mailer: git-send-email 2.48.0
+	Thu, 16 Jan 2025 01:01:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canb.auug.org.au;
+	s=201702; t=1736989256;
+	bh=WtseQk43hPu/y1TdKZa4CykZZ0+3CnLbf+gdN5rIcio=;
+	h=Date:From:To:Cc:Subject:From;
+	b=uZOZGyQsy/TxdOC4xD1p8CY0x1jezF5WncK6aWLezjDdZQdvnVn05uyLP4o1jiwnZ
+	 haFPGtby2Gw/g69tqcqGGLVEbInfZJRKRCtSuIvp8T8i8VBc/dirD1C3iYYc+ugdKg
+	 FiOeANv2fucIAwZmDEIWhx533oqz6GEznEcsj4HOokZgCBex9BS0r5zDcZ0esZqHh0
+	 bvT7134aTQyDF/ho4DT6ff91xIAvCH6WiEnkwHZZqInJUVHQv4unDjAs2ropLaYwD2
+	 Sk3Svpw2RG+wCE6LRjMiC/LBxxsURAKhYVaNdBpJNHCoVzpFvKRXAK7rUqtZs8LzcG
+	 G8EUOWg4INolA==
+Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	by mail.ozlabs.org (Postfix) with ESMTPSA id 4YYPgW6XkLz4xRj;
+	Thu, 16 Jan 2025 12:00:55 +1100 (AEDT)
+Date: Thu, 16 Jan 2025 12:01:02 +1100
+From: Stephen Rothwell <sfr@canb.auug.org.au>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Arnd Bergmann <arnd@arndb.de>
+Cc: ARM <linux-arm-kernel@lists.infradead.org>, Linux Kernel Mailing List
+ <linux-kernel@vger.kernel.org>, Linux Next Mailing List
+ <linux-next@vger.kernel.org>
+Subject: linux-next: duplicate patches in the samsung-krzk tree
+Message-ID: <20250116120102.6c848c63@canb.auug.org.au>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; boundary="Sig_/UIedGggCiofjb4Ab2l/UtLY";
+ protocol="application/pgp-signature"; micalg=pgp-sha256
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_165932_582664_49D08969 
-X-CRM114-Status: GOOD (  16.32  )
+X-CRM114-CacheID: sfid-20250115_170108_474683_2358314E 
+X-CRM114-Status: UNSURE (   8.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,92 +72,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Dr. David Alan Gilbert" <linux@treblig.org>
+--Sig_/UIedGggCiofjb4Ab2l/UtLY
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-Replace brcmstb_l2_mask_and_ack() by the generic
-irq_gc_mask_disable_and_ack_set().
+Hi all,
 
-brcmstb_l2_mask_and_ack() was added in commit 49aa6ef0b439
-("irqchip/brcmstb-l2: Remove some processing from the handler") in
-September 2017 with a comment saying it was actually generic and someone
-should add it to the generic code.
+The following commits are also in the arm-soc tree as different commits
+(but the same patches):
 
-commit 20608924cc2e ("genirq: generic chip: Add
-irq_gc_mask_disable_and_ack_set()") did that a few weeks later, however no
-one went back and took the brcmstb variant out.
+  33ebc0fb73ba ("dt-bindings: soc: samsung: exynos-pmu: Add exynos990-pmu c=
+ompatible")
+  2dbf3f19da58 ("arm64: defconfig: enable Maxim TCPCI driver")
 
-Signed-off-by: Dr. David Alan Gilbert <linux@treblig.org>
-Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
-Link: https://lore.kernel.org/all/20241224001727.149337-1-linux@treblig.org
----
-v2
-  Add EXPORT_SYMBOL_GPL as spotted by kernel test robot and
-  fix suggested by Florian
+These are commits
 
- drivers/irqchip/irq-brcmstb-l2.c | 28 +---------------------------
- kernel/irq/generic-chip.c        |  1 +
- 2 files changed, 2 insertions(+), 27 deletions(-)
+  f16d91d8febf ("dt-bindings: soc: samsung: exynos-pmu: Add exynos990-pmu c=
+ompatible")
+  d2ca319822e0 ("arm64: defconfig: enable Maxim TCPCI driver")
 
-diff --git a/drivers/irqchip/irq-brcmstb-l2.c b/drivers/irqchip/irq-brcmstb-l2.c
-index c988886917f7..db4c9721fcf2 100644
---- a/drivers/irqchip/irq-brcmstb-l2.c
-+++ b/drivers/irqchip/irq-brcmstb-l2.c
-@@ -61,32 +61,6 @@ struct brcmstb_l2_intc_data {
- 	u32 saved_mask; /* for suspend/resume */
- };
- 
--/**
-- * brcmstb_l2_mask_and_ack - Mask and ack pending interrupt
-- * @d: irq_data
-- *
-- * Chip has separate enable/disable registers instead of a single mask
-- * register and pending interrupt is acknowledged by setting a bit.
-- *
-- * Note: This function is generic and could easily be added to the
-- * generic irqchip implementation if there ever becomes a will to do so.
-- * Perhaps with a name like irq_gc_mask_disable_and_ack_set().
-- *
-- * e.g.: https://patchwork.kernel.org/patch/9831047/
-- */
--static void brcmstb_l2_mask_and_ack(struct irq_data *d)
--{
--	struct irq_chip_generic *gc = irq_data_get_irq_chip_data(d);
--	struct irq_chip_type *ct = irq_data_get_chip_type(d);
--	u32 mask = d->mask;
--
--	irq_gc_lock(gc);
--	irq_reg_writel(gc, mask, ct->regs.disable);
--	*ct->mask_cache &= ~mask;
--	irq_reg_writel(gc, mask, ct->regs.ack);
--	irq_gc_unlock(gc);
--}
--
- static void brcmstb_l2_intc_irq_handle(struct irq_desc *desc)
- {
- 	struct brcmstb_l2_intc_data *b = irq_desc_get_handler_data(desc);
-@@ -248,7 +222,7 @@ static int __init brcmstb_l2_intc_of_init(struct device_node *np,
- 	if (init_params->cpu_clear >= 0) {
- 		ct->regs.ack = init_params->cpu_clear;
- 		ct->chip.irq_ack = irq_gc_ack_set_bit;
--		ct->chip.irq_mask_ack = brcmstb_l2_mask_and_ack;
-+		ct->chip.irq_mask_ack = irq_gc_mask_disable_and_ack_set;
- 	} else {
- 		/* No Ack - but still slightly more efficient to define this */
- 		ct->chip.irq_mask_ack = irq_gc_mask_disable_reg;
-diff --git a/kernel/irq/generic-chip.c b/kernel/irq/generic-chip.c
-index 32ffcbb87fa1..c4a8bca5f2b0 100644
---- a/kernel/irq/generic-chip.c
-+++ b/kernel/irq/generic-chip.c
-@@ -162,6 +162,7 @@ void irq_gc_mask_disable_and_ack_set(struct irq_data *d)
- 	irq_reg_writel(gc, mask, ct->regs.ack);
- 	irq_gc_unlock(gc);
- }
-+EXPORT_SYMBOL_GPL(irq_gc_mask_disable_and_ack_set);
- 
- /**
-  * irq_gc_eoi - EOI interrupt
--- 
-2.48.0
+in the arm-soc tree.
 
+--=20
+Cheers,
+Stephen Rothwell
+
+--Sig_/UIedGggCiofjb4Ab2l/UtLY
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCAAdFiEENIC96giZ81tWdLgKAVBC80lX0GwFAmeIWk4ACgkQAVBC80lX
+0Gws3wf+Oj+gdN2myGizUDwvWyQp2sn7eteF+icSC4QHZyTFduUKaj/OhHS6uLfZ
+Z5L++/s4ny6iMN6kf/OYu3i5ullTNSa7/N8CK3/u4H1wUXMKJ6yQQUe9oc8uPt8w
+EyZ/e6PM+3Od5A5JcYb3v9vMkGuiQKM3uSb0X6cbAunCRSBuGKwuDWXafvwGwqw6
+jAL+L3hGobqAuAC6HP+Ekh+X3ILWjf9OC8JWcPDHhncXCqa37W5c4WOPJEPFCtaF
+CqESE0Tg9SRG4Xy42jzNHWpdyWaeNomyOZnao3MZB8olj0W8hKEE0zKFoJ4z0DMO
+WgkQpIbWuudXiRj6gNwCvnivMwg73A==
+=6fl4
+-----END PGP SIGNATURE-----
+
+--Sig_/UIedGggCiofjb4Ab2l/UtLY--
 
