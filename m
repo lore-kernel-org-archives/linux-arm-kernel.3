@@ -4,68 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7CB5C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 10:39:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DB44C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 10:42:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hFH2QkUAPYArHwVFoe8AUQOmWzIhaJml0s+bthS7xaI=; b=uKcQspep9KO2/hmYwHEtXAak+P
-	mnmgULLXTRcf8Oh+MZMzsmqf5vuO63EfaAXSTqcg1P8DkJP7wvu4GqjAmSoiqawMioAkWri7jo0tC
-	g+1SOyQrB5UpoGkfq0IxqQAiuk7pK0grN+3lTOj8VllycD41b+2QlwRRXJQzaVuQK0MqTzSyawpmT
-	Uo5cPn1jc05VTKM6LruCbmX5JAw2+1x/j00oXMclILERNJcpI7TrW2bO+7GeMKcOKosVW0TPZXlXI
-	HvZnVE4GhVAlmOTiUZMejDWSqpirIAxEQCju56gziFNJc+yvwJ7HWzn6csgbEFNnOrvw9m/uxPC53
-	g9sHQB3A==;
+	bh=/zHa5RDJ7BFPeEG5s9a0NaxFKa9A3kGBHIDCocirrLQ=; b=JPRFIA4n/2nJnprfAFxY7lMiM/
+	1pitakzEEmC7MnNkzj5UqQdBaOAD4BEvucMWurmCGxiDvNouXJGRPSkIXQeasZMxBtuMggwex1NrE
+	uYBUw3yh912xL1C7vP0Ro9nCqsxEN8O/UkJTQxfzLdjyOP1BtMvSGAc+rQKhHnRekpIEjBOZlVI9p
+	wQiMb8v4psqjTANJXU9EsM2Uzs7phLDVV8VgXUZXKuRaSFU7VRXUhidUTNIIqV949uPtEEmQriFyd
+	6ptFjp97YLzM/yusA73o5/2AwdC744XPgZqBPzaKChlVQgNwVigtbb07gq47XrCSJIPa+Xk17/9Dh
+	p/DbpZGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYNHr-0000000EYUK-0eLo;
-	Thu, 16 Jan 2025 10:39:43 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYNGa-0000000EY1h-0kbF
+	id 1tYNKd-0000000EZRm-026A;
+	Thu, 16 Jan 2025 10:42:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tYNJK-0000000EYxc-3dW4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 10:38:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D95AF5C5D20;
-	Thu, 16 Jan 2025 10:37:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1225C4CED6;
-	Thu, 16 Jan 2025 10:38:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737023903;
-	bh=FxvjYb2DWjhqzHI2LNTmYl5TuYZ4ikMl0bpGCml6Q1c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=vCw1Hb3JaeryBSelmXm/W7aZWkrxne1V6qJTMbT5wzUB0FLJb1HDVSxQs7L3Adk/J
-	 h1jIgU3u8NtUtpMZzt59EKG6jWvD0UFM2aGmmMBywcxN0mvUC+SXnoaH6zwC9Y8ixV
-	 0N4sgYOyBEb+mBtiV6qFripiT9i0WVcjWmKyFdexG6GtbzLRzdX7pr3N2gw3m2GYKm
-	 KUjby//nop8j6RYVyZYzhQPJKQF5s/6tiY5a33mt3i5ohcQ1sJcIIXpLXXXJ7TjgDw
-	 0tf+1KC5DkK6Yirs9t9kyDLWGwGJtBzwIga4CdNopnGWlom31Q/lmyG4CVS+r875GW
-	 56144sKuxFylA==
-Date: Thu, 16 Jan 2025 11:38:20 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Ninad Palsule <ninad@linux.ibm.com>
-Cc: Rob Herring <robh@kernel.org>, minyard@acm.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, 
-	kuba@kernel.org, pabeni@redhat.com, openipmi-developer@lists.sourceforge.net, 
-	netdev@vger.kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au, 
-	devicetree@vger.kernel.org, eajames@linux.ibm.com, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 03/10] dt-bindings: gpio: ast2400-gpio: Add hogs
- parsing
-Message-ID: <oezohwamtm47adreexlgan6t76cdhpjitog52yjek3bkr44yks@oojstup2uqkb>
-References: <20250114220147.757075-1-ninad@linux.ibm.com>
- <20250114220147.757075-4-ninad@linux.ibm.com>
- <mbtwdqpalfr2xkhnjc5c5jcjk4w5brrxmgfeydjj5j2jfze4mj@smyyogplpxss>
- <20250115142457.GA3859772-robh@kernel.org>
- <a164ab0e-1cdf-427e-bfb7-f5614be5b0fa@linux.ibm.com>
+	Thu, 16 Jan 2025 10:41:16 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7C98111FB;
+	Thu, 16 Jan 2025 02:41:40 -0800 (PST)
+Received: from mazurka.cambridge.arm.com (mazurka.cambridge.arm.com [10.2.80.64])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 275473F77D;
+	Thu, 16 Jan 2025 02:41:10 -0800 (PST)
+Date: Thu, 16 Jan 2025 10:41:07 +0000
+From: =?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, ryan.roberts@arm.com,
+	catalin.marinas@arm.com, mark.rutland@arm.com, james.morse@arm.com,
+	will@kernel.org, maz@kernel.org, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com
+Subject: Re: [PATCH v1] arm64: Add TLB Conflict Abort Exception handler to KVM
+Message-ID: <20250116104107.GA17031@mazurka.cambridge.arm.com>
+References: <20250110172411.39845-3-miko.lenczewski@arm.com>
+ <Z4Fr1HkKCm9AXSIA@linux.dev>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <a164ab0e-1cdf-427e-bfb7-f5614be5b0fa@linux.ibm.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <Z4Fr1HkKCm9AXSIA@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_023824_261955_FDBBD2AC 
-X-CRM114-Status: GOOD (  14.51  )
+X-CRM114-CacheID: sfid-20250116_024114_947341_314CFA7D 
+X-CRM114-Status: GOOD (  25.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,26 +67,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 15, 2025 at 03:53:38PM -0600, Ninad Palsule wrote:
-> > > > +  "^(hog-[0-9]+|.+-hog(-[0-9]+)?)$":
-> > > Choose one - suffix or prefix. More popular is suffix.
-> > I was about to say that, but this matches what gpio-hog.yaml defines.
-> > Why we did both, I don't remember. We could probably eliminate
-> > 'hog-[0-9]+' as that doesn't appear to be used much.
-> > 
-> > Long term, I want to make all gpio controllers reference a gpio
-> > controller schema and put the hog stuff there. Then we have the node
-> > names defined in 1 place.
+On Fri, Jan 10, 2025 at 10:49:56AM -0800, Oliver Upton wrote:
+> On Fri, Jan 10, 2025 at 05:24:07PM +0000, Mikołaj Lenczewski wrote:
+> > Currently, KVM does not handle the case of a stage 2 TLB conflict abort
+> > exception. This can legitimately occurs when the guest is eliding full
+> > BBM semantics as permitted by BBM level 2. In this case it is possible
+> > for a confclit abort to be delivered to EL2. We handle that by
+> > invalidating the full TLB.
 > 
-> Which one of the following are you suggesting?
+> typo: conflict
 > 
-> "^(.+-hog(-[0-9]+)?)$"
+> Also, a bit of a nitpick, but mentioning that TLB conflict abort routing
+> is implementation defined when S2 is enabled is valuable information.
+> 
+> > @@ -1756,6 +1756,19 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+> >  	ipa = fault_ipa = kvm_vcpu_get_fault_ipa(vcpu);
+> >  	is_iabt = kvm_vcpu_trap_is_iabt(vcpu);
+> >  
+> > +	if (esr_fsc_is_tlb_conflict_abort(esr)) {
+> > +
+> > +		/* Architecturely, at this stage 2 tlb conflict abort, we must
+> > +		 * either perform a `tlbi vmalls12e1`, or a `tlbi alle1`. Due
+> > +		 * to nesting of VMs, we would have to iterate all flattened
+> > +		 * VMIDs to clean out a single guest, so we perform a `tlbi alle1`
+> > +		 * instead to save time.
+> > +		 */
+> 
+> I'm not sure I follow this.
+> 
+> At this point we've taken a TLB conflict abort out of a specific
+> hardware MMU context, and it's unclear to me why a conflict abort in one
+> stage-2 MMU has any bearing on the other stage-2 MMUs that could be
+> associated with this guest.
+> 
+> Even in NV, KVM is always responsible for the maintenance of hardware
+> stage-2 MMUs. So stage-2 TLBI elision in the guest hypervisor should
+> not lead to a stage-2 TLB conflict abort.
+> 
+> TLBI ALLE1 is a larger hammer than what's actually necessary here. Could
+> you perhaps introduce a new invalidation routine,
+> __kvm_tlb_flush_vmid_nsh(), that does a TLBI VMALLS12E1 behind the
+> scenes?
+> 
+> If an NV guest is playing games at stage-1 across VMIDs then it gets to
+> suffer the consequences (additional TLB conflict aborts).
+> 
+> -- 
+> Thanks,
+> Oliver
 
-This. The second part of pattern.
+Apologies for the very late reply. Thank you for taking the time to
+review my patch. Will fix the type, and work on fixing the logic there
+to use a TLBI VMALLS12E1.
 
-I'll send a patch for dtschema to drop the prefix version.
-
-Best regards,
-Krzysztof
-
+-- 
+Kind regards,
+Mikołaj Lenczewski
 
