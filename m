@@ -4,110 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 249DFC02187
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 15:06:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A32B0C02187
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 15:11:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YqyfQxOJ5oYKECoyFJ2sTY8rhlGKLhZCB19orskKgkE=; b=A3UxoHJpGPrjImU/N40kj4bKwp
-	523qqxhn0aynwWnZJwC/+neCwQN48YLEHoIl0YJKiycQLJDbstRIvr6imxHapJ4WoFoTKp2aZvrus
-	QtmT/zI/8c8jXXZUiOqEg7OKqrTj+ShZiafqFFz3z9pzMnyu5AovGskJlF0NUIqUlcuZGxgWA1UD3
-	hLTpTdhQ1b9tar7nQTHQ3SMSf9PJvl16tbiIuc4nicTXlRb3klq0d5vk/iZw1+Cdz0uo/ysQ+aJz1
-	CaQIPyp4jPemRsynsYj33UVhBzsl970dlOwCGjt8TyZQoFOcEWup79UqHBUrwAotUgxFTWOTYqeKc
-	2q1Mgw8A==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zWMvMluQUPZ+9ElDul1fOD8Cr99Y9VpWtLpDJgMStSI=; b=cEGanIyE4qU9bwUxsjXScjFfdl
+	/Y19fNo3Xnwy/S6ntJv4hcvlovUsHKP73GrgQDR8Rdcw/eoTe2oWFY13etPvbwkqVDvaJl24Vpkn8
+	g9SHqABjG/+IiVN+V/VLiNYfp+Gh6KuRSAizkxgNOhpuwqJ+iV8+o5RnBu4kUA/g/1e+EgeFB1ao4
+	izAbwhiECyUi/dspEu/+vejKqyOpJi8GwMvkgW/8619rJRBM6t0PoQ45DzugkdnjgxGdH9lWCl8T1
+	+D/Cw6BbOPJQyA2u8wbmNIhX2bjg9I3k/LPzqz4k3RXjabsUSl7WtNGek4132cyhHduFwUvTKtp1y
+	4CD0woSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYRRp-0000000FHjQ-3DTz;
-	Thu, 16 Jan 2025 15:06:17 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1tYRWh-0000000FIMc-31ST;
+	Thu, 16 Jan 2025 15:11:19 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYRQY-0000000FHXk-3x61
+	id 1tYRVR-0000000FI9f-3JMt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 15:05:00 +0000
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50GE6dxf024817;
-	Thu, 16 Jan 2025 15:04:32 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=YqyfQx
-	OJ5oYKECoyFJ2sTY8rhlGKLhZCB19orskKgkE=; b=UxP66y8y9OT9RWoBkaJAU3
-	GfkhR0rxzN94Sk3KjZdvONvMmx4MlGUauBsmpyNtxtfo9KsmiQ/vlL4sTwTu0PUp
-	vSgHgFEUTdaYxWr5udXMn5OuCFAKUgZmhgqqdZXmhSbRgbyIL/niU4TL3c2jdvNf
-	JKm9g5qc1RNZhAlhCgqZZfTUt1wUqEkOtTjEW+RtI7hw42FNfOhojmhcvNdT9Ghf
-	NRClsrSRmKedtjTt3g/a7plBN2KUb96ivAzsTUh9yeLcs/N7aqaQhcLDZSgCdMpN
-	OCTYiaxdVGb8OFOq3q1Ybs0ULTgnYv9RIYl1MuLXe/id0QVac65LfSSLwk/XfFgg
-	==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4473k58ar8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 16 Jan 2025 15:04:31 +0000 (GMT)
-Received: from m0353725.ppops.net (m0353725.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 50GERMrc012914;
-	Thu, 16 Jan 2025 15:04:31 GMT
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4473k58ar1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 16 Jan 2025 15:04:31 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 50GE6SP6017400;
-	Thu, 16 Jan 2025 15:04:30 GMT
-Received: from smtprelay02.wdc07v.mail.ibm.com ([172.16.1.69])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4444fke98p-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 16 Jan 2025 15:04:30 +0000
-Received: from smtpav06.wdc07v.mail.ibm.com (smtpav06.wdc07v.mail.ibm.com [10.39.53.233])
-	by smtprelay02.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 50GF4URL28246688
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 16 Jan 2025 15:04:30 GMT
-Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id EA8CC5803F;
-	Thu, 16 Jan 2025 15:04:29 +0000 (GMT)
-Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 5565C58056;
-	Thu, 16 Jan 2025 15:04:23 +0000 (GMT)
-Received: from [9.61.59.21] (unknown [9.61.59.21])
-	by smtpav06.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Thu, 16 Jan 2025 15:04:22 +0000 (GMT)
-Message-ID: <35572405-2dd6-48c9-9113-991196c3f507@linux.ibm.com>
-Date: Thu, 16 Jan 2025 09:04:21 -0600
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 03/10] dt-bindings: gpio: ast2400-gpio: Add hogs
- parsing
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: andrew+netdev@lunn.ch, pabeni@redhat.com,
-        linux-arm-kernel@lists.infradead.org, edumazet@google.com,
-        joel@jms.id.au, krzk+dt@kernel.org, linux-kernel@vger.kernel.org,
-        andrew@codeconstruct.com.au, devicetree@vger.kernel.org,
-        davem@davemloft.net, kuba@kernel.org,
-        openipmi-developer@lists.sourceforge.net, netdev@vger.kernel.org,
-        linux-aspeed@lists.ozlabs.org, conor+dt@kernel.org,
-        eajames@linux.ibm.com, minyard@acm.org
-References: <20250114220147.757075-1-ninad@linux.ibm.com>
- <20250114220147.757075-4-ninad@linux.ibm.com>
- <173689907575.1972841.5521973699547085746.robh@kernel.org>
-Content-Language: en-US
-From: Ninad Palsule <ninad@linux.ibm.com>
-In-Reply-To: <173689907575.1972841.5521973699547085746.robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: owqPtG7sXawqZszVtmUCKpylao6OtTOR
-X-Proofpoint-ORIG-GUID: y3OZyjeOsP0uNqLC9wmfkr7B2_zgRWNG
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-01-16_06,2025-01-16_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 spamscore=0
- adultscore=0 malwarescore=0 suspectscore=0 priorityscore=1501
- lowpriorityscore=0 bulkscore=0 mlxlogscore=666 impostorscore=0
- clxscore=1015 mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2501160114
+	Thu, 16 Jan 2025 15:10:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 946955C5CE8;
+	Thu, 16 Jan 2025 15:09:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05D6BC4CED6;
+	Thu, 16 Jan 2025 15:10:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737040201;
+	bh=L3LKFN888pCcYtXfi2qM4Z727c0oTzkfgjaKEUCtMv4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Cu9mO6noCnsX6IAbFrKrerNkGnSmMXPBnJ1iZVTY1jaco0pl3ntQIwUNnZnh6uPuG
+	 znTOS1tt+8zyN3gm144ex4xcCs4dfeI6pyd9nL2OkTvAGyhCQzu1++QY+Xg2t4e07a
+	 +ToB1XKf1jo6si4+XiJXFxPAi1kW3n2GWnVpFxlUmSN6eVO+AZAht0mvGZp3DjWeuu
+	 /UzkFCzFIVyLR1rfAI8EBNOFQu/7MJzc/FVuspekd5DufguCxOSu/qhbyOH9a1q20a
+	 QU3mB/0CcCwo1LYZ5eqDiEG3MznPGbqkc2f0+FtolDRrBBYAsOOUrqwAcyj6xm9uux
+	 I9E2DU8IUFnAg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tYRVO-00Cpqo-JN;
+	Thu, 16 Jan 2025 15:09:58 +0000
+Date: Thu, 16 Jan 2025 15:09:57 +0000
+Message-ID: <861px2x0ai.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Uros Bizjak <ubizjak@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH 1/3] KVM: arm64: timers: Fix percpu address space issues in kvm_timer_hyp_init()
+In-Reply-To: <CAFULd4Zf4=bh6X+xg+0i5jE8doyD_ffpaWOhsdHciVHRrQj+9A@mail.gmail.com>
+References: <20241213145809.2918-1-ubizjak@gmail.com>
+	<86bjxfsdw0.wl-maz@kernel.org>
+	<CAFULd4Zf4=bh6X+xg+0i5jE8doyD_ffpaWOhsdHciVHRrQj+9A@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ubizjak@gmail.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_070459_104699_86D059A0 
-X-CRM114-Status: GOOD (  11.25  )
+X-CRM114-CacheID: sfid-20250116_071001_921082_C247EF1F 
+X-CRM114-Status: GOOD (  33.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,40 +93,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
+On Thu, 16 Jan 2025 14:25:09 +0000,
+Uros Bizjak <ubizjak@gmail.com> wrote:
+>=20
+> On Fri, Dec 13, 2024 at 6:15=E2=80=AFPM Marc Zyngier <maz@kernel.org> wro=
+te:
+> >
+> > On Fri, 13 Dec 2024 14:57:52 +0000,
+> > Uros Bizjak <ubizjak@gmail.com> wrote:
+> > >
+> > > Cast return value from kvm_get_running_vcpus() in the __percpu
+> > > address space to the generic address space via uintptr_t [1]
+> > > to fix a couple of:
+> > >
+> > > arch_timer.c:1395:66: warning: incorrect type in argument 2 (differen=
+t address spaces)
+> > > arch_timer.c:1395:66:    expected void *vcpu_info
+> > > arch_timer.c:1395:66:    got struct kvm_vcpu *[noderef] __percpu *
+> > >
+> > > sparse warnings.
+> > >
+> > > There were no changes in the resulting object files.
+> > >
+> > > [1] https://sparse.docs.kernel.org/en/latest/annotations.html#address=
+-space-name
+> > >
+> > > Signed-off-by: Uros Bizjak <ubizjak@gmail.com>
+> > > Cc: Marc Zyngier <maz@kernel.org>
+> > > Cc: Oliver Upton <oliver.upton@linux.dev>
+> > > Cc: Joey Gouly <joey.gouly@arm.com>
+> > > Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
+> > > Cc: Zenghui Yu <yuzenghui@huawei.com>
+> > > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > > Cc: Will Deacon <will@kernel.org>
+> > > ---
+> > >  arch/arm64/kvm/arch_timer.c | 4 ++--
+> > >  1 file changed, 2 insertions(+), 2 deletions(-)
+> > >
+> > > diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+> > > index 1215df590418..a13bb9e8dc19 100644
+> > > --- a/arch/arm64/kvm/arch_timer.c
+> > > +++ b/arch/arm64/kvm/arch_timer.c
+> > > @@ -1392,7 +1392,7 @@ int __init kvm_timer_hyp_init(bool has_gic)
+> > >
+> > >       if (has_gic) {
+> > >               err =3D irq_set_vcpu_affinity(host_vtimer_irq,
+> > > -                                         kvm_get_running_vcpus());
+> > > +                                         (void *)(uintptr_t)kvm_get_=
+running_vcpus());
+> > >               if (err) {
+> > >                       kvm_err("kvm_arch_timer: error setting vcpu aff=
+inity\n");
+> > >                       goto out_free_vtimer_irq;
+> > > @@ -1416,7 +1416,7 @@ int __init kvm_timer_hyp_init(bool has_gic)
+> > >
+> > >               if (has_gic) {
+> > >                       err =3D irq_set_vcpu_affinity(host_ptimer_irq,
+> > > -                                                 kvm_get_running_vcp=
+us());
+> > > +                                                 (void *)(uintptr_t)=
+kvm_get_running_vcpus());
+> > >                       if (err) {
+> > >                               kvm_err("kvm_arch_timer: error setting =
+vcpu affinity\n");
+> > >                               goto out_free_ptimer_irq;
+> >
+> > I think the fix is worse than the current code, because there is no
+> > real semantics behind the pointer being passed to
+> > irq_set_vcpu_affinity(). All that is required is that it is a non-NULL
+> > pointer.
+>=20
+> If this is the case, we can just remove dependence on the pointer in
+> the called function.
 
-On 1/14/25 17:57, Rob Herring (Arm) wrote:
-> On Tue, 14 Jan 2025 16:01:37 -0600, Ninad Palsule wrote:
->> Allow parsing GPIO controller children nodes with GPIO hogs.
->>
->> Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
->> ---
->>   .../devicetree/bindings/gpio/aspeed,ast2400-gpio.yaml       | 6 ++++++
->>   1 file changed, 6 insertions(+)
->>
-> My bot found errors running 'make dt_binding_check' on your patch:
->
-> yamllint warnings/errors:
->
-> dtschema/dtc warnings/errors:
->
->
-> doc reference errors (make refcheckdocs):
+No, we can't.
 
-I am not seeing any error even after upgrading dtschema. Also this mail 
-also doesn't show any warning. Is this false negative?
+>=20
+> Something like in the attached patch.
 
-   HOSTLD  scripts/dtc/fdtoverlay
-   CHKDT   ./Documentation/devicetree/bindings
-   LINT    ./Documentation/devicetree/bindings
-   DTEX 
-Documentation/devicetree/bindings/gpio/aspeed,ast2400-gpio.example.dts
-   DTC [C] 
-Documentation/devicetree/bindings/gpio/aspeed,ast2400-gpio.example.dtb
+[...]
 
-Regards,
+> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+> index 1215df590418..10c293c2d2f5 100644
+> --- a/arch/arm64/kvm/arch_timer.c
+> +++ b/arch/arm64/kvm/arch_timer.c
+> @@ -1238,12 +1238,10 @@ void kvm_arm_timer_write_sysreg(struct kvm_vcpu *=
+vcpu,
+>  	}
+>  }
+> =20
+> -static int timer_irq_set_vcpu_affinity(struct irq_data *d, void *vcpu)
+> +static int timer_irq_set_vcpu_affinity(struct irq_data *d,
+> +				       void __always_unused *vcpu)
+>  {
+> -	if (vcpu)
+> -		irqd_set_forwarded_to_vcpu(d);
+> -	else
+> -		irqd_clr_forwarded_to_vcpu(d);
+> +	irqd_set_forwarded_to_vcpu(d);
+> =20
+>  	return 0;
+>  }
+> @@ -1391,8 +1389,7 @@ int __init kvm_timer_hyp_init(bool has_gic)
+>  	}
+> =20
+>  	if (has_gic) {
+> -		err =3D irq_set_vcpu_affinity(host_vtimer_irq,
+> -					    kvm_get_running_vcpus());
+> +		err =3D irq_set_vcpu_affinity(host_vtimer_irq, NULL);
+>  		if (err) {
+>  			kvm_err("kvm_arch_timer: error setting vcpu affinity\n");
+>  			goto out_free_vtimer_irq;
+> @@ -1415,8 +1412,7 @@ int __init kvm_timer_hyp_init(bool has_gic)
+>  		}
+> =20
+>  		if (has_gic) {
+> -			err =3D irq_set_vcpu_affinity(host_ptimer_irq,
+> -						    kvm_get_running_vcpus());
+> +			err =3D irq_set_vcpu_affinity(host_ptimer_irq, NULL);
 
-Ninad
+And now you breaking everything by ignoring the semantics of
+irq_set_vcpu_affinity(), which uses a NULL pointer to *stop* the
+forwarding.
 
->
+Congratulations, KVM doesn't work anymore, except on systems such as
+the Apple stuff (which are the only systems requiring the
+timer_irq_set_vcpu_affinity() hack). Just look at what the irqchips
+are implementing to convince yourself.
+
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
