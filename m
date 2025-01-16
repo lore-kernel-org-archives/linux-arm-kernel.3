@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 202BCC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 18:31:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94B92C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 18:34:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j9oYM2nhbNGXRPuJiBbUWz5fz1jwLD1jTEG4VwkIdxQ=; b=Yljn8/yus2Fv1v1OFGsOCe7HrZ
-	rMj4l6W9fG97MW6csP/Yc4p9lHr1txHvmC+u8rysh7D2AFPiP5Bv8iL/EDXKZTRaRC6Rf+MuPeM3k
-	10BCbCSIt5/QGn8FG4F+iNe70nvpSqSXzbImDiQftHQuQRiZgpd9hQr1eQHtsJoJgyJN8SxthWeQc
-	JVjmkrzbN4X6EENvSYE7bUPrOJVOHia45u2FyMRXaMqL06V/kLGxqB2wf8jxs+lKvICB1e0UA5fEb
-	cPWPjQR2FKZrW8tJruSyn2JNQpuVjJQG3oegNmvb8TW5mbvBgEwDRF2CHwTgLb9Epu94jCI+Lr/gX
-	1Ls0gajw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SLdPMW3xH8KkoLPxK1kHgTgSsusSJpiSzKC/jMfU26w=; b=LFRSZdUA5U1oiA4XEVCVbam5Ig
+	bPl1NZ5n1xwe2Aq7sky9bWtaFUks8rg3L6RbPCUYYo6NcK0RS6n9YZZen9xauUYfwJNcqSEXmtauH
+	ppD8ZYDKSWJjs68UgGFH6JYaE1xO7jUAASrm+fK8uI5JseDI7A00iZBAx4G7FMP0YDYajMUBUPshQ
+	n5/iuy5/Y8U34cMocnorubF+UNxrUxEA426VW/pH4ECyKFNvbsE4klYhs00XWo0jiXL+1kVnkAIyH
+	Zev2izjcIh/BuY/tmY6XcOx9ggkTjCvEfQF4U6uumXBVbA0CAy54O0gCUkgT0IUJ1HS1gUZRvlt0H
+	GXK66WLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYUdp-0000000FnnS-1dyt;
-	Thu, 16 Jan 2025 18:30:53 +0000
-Received: from smtp-80.smtpout.orange.fr ([80.12.242.80] helo=smtp.smtpout.orange.fr)
+	id 1tYUgr-0000000Fo6E-0X84;
+	Thu, 16 Jan 2025 18:34:01 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYUcZ-0000000FnaR-0bcV
+	id 1tYUfb-0000000Fnz3-2yw7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 18:29:36 +0000
-Received: from [192.168.1.37] ([90.11.132.44])
-	by smtp.orange.fr with ESMTPA
-	id YUcMt4fhDca4eYUcPt1pRr; Thu, 16 Jan 2025 19:29:32 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1737052172;
-	bh=j9oYM2nhbNGXRPuJiBbUWz5fz1jwLD1jTEG4VwkIdxQ=;
-	h=Message-ID:Date:MIME-Version:Subject:From:To;
-	b=Y6PQ3FvnW+AjZ1qS4Dw87U3Xkm1gObPNfFPCDBKm1bSd/CfbHSPO24P+07jzIFknI
-	 CSZ9Qs5PO8hSkkjJCE1d1UBWShEeICLDZ6Wbe0Cv/nO/Gjlt9NyykteQrWWvUmg+NW
-	 YTV2G1VJVBugXY7+TMrxtJUuhUZ/+1xtfm0SSzLufu9zO7Ma40h77kI69HKUAR78ma
-	 bPKytJYiQuquFZTR4IDGYG7+H676kQ2I57lSqg1d7bytdKSN5ml8v+hXnenVwUVUM+
-	 k20PLelLwwqXZQXB3iU6OCM3rEzU35dQ3lKPQAw/yTqQkKafhy5ksBzrFe/3ars1Ub
-	 /qa//Z7hiwVGg==
-X-ME-Helo: [192.168.1.37]
-X-ME-Auth: Y2hyaXN0b3BoZS5qYWlsbGV0QHdhbmFkb28uZnI=
-X-ME-Date: Thu, 16 Jan 2025 19:29:32 +0100
-X-ME-IP: 90.11.132.44
-Message-ID: <fbfea2a1-71e7-4572-ada2-0d4315c97e91@wanadoo.fr>
-Date: Thu, 16 Jan 2025 19:29:22 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/4] input: apple_z2: Add a driver for Apple Z2
- touchscreens
-From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-To: devnull+fnkl.kernel.gmail.com@kernel.org
-Cc: alyssa@rosenzweig.io, asahi@lists.linux.dev, conor+dt@kernel.org,
- devicetree@vger.kernel.org, dmitry.torokhov@gmail.com,
- fnkl.kernel@gmail.com, j@jannau.net, krzk+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-input@vger.kernel.org,
- linux-kernel@vger.kernel.org, marcan@marcan.st, neal@gompa.dev,
- robh@kernel.org, rydberg@bitmath.org, sven@svenpeter.dev
-References: <20250115-z2-v4-0-d7361ab16ba0@gmail.com>
- <20250115-z2-v4-2-d7361ab16ba0@gmail.com>
- <3991ab78-d1a2-4cae-bea5-fb4dfa58aba3@wanadoo.fr>
-Content-Language: en-US, fr-FR
-In-Reply-To: <3991ab78-d1a2-4cae-bea5-fb4dfa58aba3@wanadoo.fr>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+	Thu, 16 Jan 2025 18:32:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1737052363; x=1768588363;
+  h=date:from:to:cc:subject:message-id;
+  bh=IXA+cxxVHU9/QmoeoHl/m8LSmY4BSRUrYO1HL1+Y+TI=;
+  b=J/PwdoHD9/r+Yk/mAw+kLogGxWDhJQYg2CzDLBua6QB6c2NWDhAdql0M
+   6MLR6LgjWlDC0txU3D23uQa520ZVkdKyGIQ67+l0gHSO89f48To1CXu6t
+   25XBUpNftR+3Fd5571jGyUfhH2ScmVLdOWcOJzvVumSrIEgQ4XP5sg+Xb
+   RpymEpf3vOVcPg9BRYiql3rlLrurg0e8BKUWdqw17vkiQs2/l+4IfxXoi
+   d/ZJckKdVCusi+ulhGYSeu/V4YL7Gov/mWSB638j2vEuB58WBjLB3hhs8
+   MVk8jwWoJM1k40nQMSlKjUuW4DuyD5kvtQZLNbSrxQ03KsActiOInn4Fo
+   g==;
+X-CSE-ConnectionGUID: 2/1om0NlQ8O+0OpBHG9dgw==
+X-CSE-MsgGUID: 8wX13y69THCnFZQbvLHt5g==
+X-IronPort-AV: E=McAfee;i="6700,10204,11317"; a="59934551"
+X-IronPort-AV: E=Sophos;i="6.13,210,1732608000"; 
+   d="scan'208";a="59934551"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jan 2025 10:32:43 -0800
+X-CSE-ConnectionGUID: VQDU/BPTRuOQGfariHaVIw==
+X-CSE-MsgGUID: rhzszQ1DTYirBbfbdS4U/w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,210,1732608000"; 
+   d="scan'208";a="110555068"
+Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
+  by fmviesa004.fm.intel.com with ESMTP; 16 Jan 2025 10:32:40 -0800
+Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tYUfW-000SGi-0y;
+	Thu, 16 Jan 2025 18:32:38 +0000
+Date: Fri, 17 Jan 2025 02:32:15 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:soc/defconfig] BUILD SUCCESS
+ fa8592f24944faf552c9a553ed64a3d5fe4e2cd9
+Message-ID: <202501170209.I1AmZB6v-lkp@intel.com>
+User-Agent: s-nail v14.9.24
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_102935_316887_9F05FC93 
-X-CRM114-Status: GOOD (  11.01  )
+X-CRM114-CacheID: sfid-20250116_103243_791938_30838297 
+X-CRM114-Status: UNSURE (   5.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,39 +83,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->> +static int apple_z2_probe(struct spi_device *spi)
->> +{
->> +    struct device *dev = &spi->dev;
->> +    struct apple_z2 *z2;
->> +    int error;
->> +
->> +    z2 = devm_kzalloc(dev, sizeof(*z2), GFP_KERNEL);
->> +    if (!z2)
->> +        return -ENOMEM;
->> +
->> +    z2->tx_buf = devm_kzalloc(dev, sizeof(struct 
->> apple_z2_read_interrupt_cmd), GFP_KERNEL);
->> +    z2->rx_buf = devm_kzalloc(dev, 4096, GFP_KERNEL);
-> 
-> This will allocate 8192 bytes because of the way the allocator works.
-> It needs around 40 bytes for the devm stuff + 4096 requested. So 
-> rounding rules will allocate 8192 bytes.
-> 
-> So either you could allocate "for free" much more space, or you could 
-> allocate (and document...)
->      z2->rx_buf = devm_kzalloc(dev, 4096 - sizeof(struct devres), 
-> GFP_KERNEL);
-> 
-> or have an explicit devm_add_action_or_reset() that would require less 
-> memory, but would add some LoC.
-> 
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/defconfig
+branch HEAD: fa8592f24944faf552c9a553ed64a3d5fe4e2cd9  Merge tag 'riscv-config-for-v6.14' of https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux into soc/defconfig
 
-or leave it as-is, of course ;-)
+elapsed time: 1454m
 
-> 
-> See https://elixir.bootlin.com/linux/v6.13-rc3/source/drivers/base/ 
-> devres.c#L97
-> 
+configs tested: 75
+configs skipped: 2
 
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
+tested configs:
+alpha                            allnoconfig    gcc-14.2.0
+alpha                           allyesconfig    gcc-14.2.0
+arc                              allnoconfig    gcc-13.2.0
+arc                  randconfig-001-20250116    gcc-13.2.0
+arc                  randconfig-002-20250116    gcc-13.2.0
+arm                              allnoconfig    clang-17
+arm                  randconfig-001-20250116    gcc-14.2.0
+arm                  randconfig-002-20250116    clang-15
+arm                  randconfig-003-20250116    gcc-14.2.0
+arm                  randconfig-004-20250116    gcc-14.2.0
+arm64                            allnoconfig    gcc-14.2.0
+arm64                randconfig-001-20250116    gcc-14.2.0
+arm64                randconfig-002-20250116    gcc-14.2.0
+arm64                randconfig-003-20250116    clang-15
+arm64                randconfig-004-20250116    clang-20
+csky                             allnoconfig    gcc-14.2.0
+csky                 randconfig-001-20250116    gcc-14.2.0
+csky                 randconfig-002-20250116    gcc-14.2.0
+hexagon                          allnoconfig    clang-20
+hexagon              randconfig-001-20250116    clang-20
+hexagon              randconfig-002-20250116    clang-20
+i386       buildonly-randconfig-001-20250116    clang-19
+i386       buildonly-randconfig-002-20250116    clang-19
+i386       buildonly-randconfig-003-20250116    clang-19
+i386       buildonly-randconfig-004-20250116    clang-19
+i386       buildonly-randconfig-005-20250116    clang-19
+i386       buildonly-randconfig-006-20250116    clang-19
+loongarch                        allnoconfig    gcc-14.2.0
+loongarch            randconfig-001-20250116    gcc-14.2.0
+loongarch            randconfig-002-20250116    gcc-14.2.0
+nios2                randconfig-001-20250116    gcc-14.2.0
+nios2                randconfig-002-20250116    gcc-14.2.0
+openrisc                         allnoconfig    gcc-14.2.0
+openrisc                           defconfig    gcc-14.2.0
+parisc                           allnoconfig    gcc-14.2.0
+parisc                             defconfig    gcc-14.2.0
+parisc               randconfig-001-20250116    gcc-14.2.0
+parisc               randconfig-002-20250116    gcc-14.2.0
+powerpc                          allnoconfig    gcc-14.2.0
+powerpc              randconfig-001-20250116    clang-20
+powerpc              randconfig-002-20250116    gcc-14.2.0
+powerpc              randconfig-003-20250116    clang-20
+powerpc64            randconfig-001-20250116    clang-19
+powerpc64            randconfig-002-20250116    clang-20
+powerpc64            randconfig-003-20250116    clang-15
+riscv                            allnoconfig    gcc-14.2.0
+riscv                randconfig-001-20250116    gcc-14.2.0
+riscv                randconfig-002-20250116    gcc-14.2.0
+s390                            allmodconfig    clang-19
+s390                             allnoconfig    clang-20
+s390                            allyesconfig    gcc-14.2.0
+s390                 randconfig-001-20250116    gcc-14.2.0
+s390                 randconfig-002-20250116    clang-18
+sh                              allmodconfig    gcc-14.2.0
+sh                              allyesconfig    gcc-14.2.0
+sh                   randconfig-001-20250116    gcc-14.2.0
+sh                   randconfig-002-20250116    gcc-14.2.0
+sparc                           allmodconfig    gcc-14.2.0
+sparc                randconfig-001-20250116    gcc-14.2.0
+sparc                randconfig-002-20250116    gcc-14.2.0
+sparc64              randconfig-001-20250116    gcc-14.2.0
+sparc64              randconfig-002-20250116    gcc-14.2.0
+um                               allnoconfig    clang-18
+um                   randconfig-001-20250116    clang-19
+um                   randconfig-002-20250116    gcc-12
+x86_64                           allnoconfig    clang-19
+x86_64     buildonly-randconfig-001-20250116    gcc-12
+x86_64     buildonly-randconfig-002-20250116    gcc-12
+x86_64     buildonly-randconfig-003-20250116    gcc-12
+x86_64     buildonly-randconfig-004-20250116    clang-19
+x86_64     buildonly-randconfig-005-20250116    clang-19
+x86_64     buildonly-randconfig-006-20250116    clang-19
+x86_64                             defconfig    gcc-11
+xtensa               randconfig-001-20250116    gcc-14.2.0
+xtensa               randconfig-002-20250116    gcc-14.2.0
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
