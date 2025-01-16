@@ -4,129 +4,204 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A860C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 00:32:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E4DDC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 00:41:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nbDhewnz6sF7NAjuh/IG2morMwwWY78lrdk+Dwk6HUA=; b=BaDhi6OcNls4vF7eE9XIjZqO8u
-	Y/xcBsA8+ou4Geee0uI7J/tyG9cTau4dLUKNnvsmN8t9+bFd5n47aycl9fMlJQWwYuiQcfB3hInl6
-	aOls5dhHD7bdxBdcHxdidGOcgHuCSR1TrNpLBi1tXRjhxryAz299Q9y6kGl8YbOUDfAtBk4G3M/du
-	mtwW6oot/DfrRUAZqIUJCn/VBog5IKOZc8wbkyqjJTf0adh0Fs7Ho1M+pp8A+Tv14u2L78rHm71Po
-	Ns6/mB+ex3qkMUWQ2ewG8EMrLXYQLERWSd100ceb3p7e7FAhikX7U2KwueSZ1uta/G6cURdcX7XXP
-	DB9Pj9Zw==;
+	bh=GOQjj1GcoRZq+tYJKmtIWEuKEDoi0nv24+6Buj82dV4=; b=Vw3nLrrE9KzMLAs+IFsENEqjhn
+	PIvwhfBHsMrfwmGo0MStoETkrHttxXxoB6Cgx+ZmEEJG3FcQQByo+QIWRaTsE+iZeSU5ANNWYW5RS
+	a4X5iZ1jQh/9+/AEeXrDJqsVyBbIy6xFYuvb4mZp4mGfAUg2EUm2wB+yHh6EvscvIa4yMiD1m5cFN
+	+0ZlogxyNLc/UGjHnCO6Y2m5qpXxtG6wfF+YVmOoFJx1yQOapsp6jLyaASfKpeZpfas1m3tgzfvuJ
+	WExDtQ99mBrQwPlJzHBgljwXn/rC3Mxlr+LDUivdFxHVZC68E17uu+P6JxLLVdKYPqnGfVavBfXKj
+	BIUlnuXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYDnv-0000000DSjH-3IBL;
-	Thu, 16 Jan 2025 00:32:11 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1tYDwu-0000000DTjC-1jF6;
+	Thu, 16 Jan 2025 00:41:28 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYDmg-0000000DSQR-0uHn
+	id 1tYDve-0000000DTeR-3c1b
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 00:30:55 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-216395e151bso5853025ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 16:30:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736987453; x=1737592253; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=nbDhewnz6sF7NAjuh/IG2morMwwWY78lrdk+Dwk6HUA=;
-        b=MxftZwuUJSxbtTOiVe8dEBdg8zjOcWKWlzSUxLbaD1oASjYgWwBe/oF/MCumqVoSl3
-         orLEDa8Yo2XNitMxCgYpg7I7kiMejMqE0dUPn0iNmmaCZ4cPJU0JvyjjjIYXkJFuxNl9
-         piksDedxD5jy+P1Xv19KyeO3oTrW5RNHir4cS/Q1GZ+rL9IXh8mXDAUb5M1cW/48vMdv
-         iL31wsE1zCBQQeEBx74isEtHHqrWkLFYFlzZwVxj3BJlsmHWSaIPvCwHXhMEjtoqISxv
-         QDPLn/ap8PA1WadeO6AV+g+NB27ifbvPkC3vptiW75BAzqi1sbaM3A+meRzwbS+KDpUk
-         uXLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736987453; x=1737592253;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=nbDhewnz6sF7NAjuh/IG2morMwwWY78lrdk+Dwk6HUA=;
-        b=CXAvTYdRt9YYii+EeIjB8ZoSZBeuMfkFDWjhou32djb4M+pS5aoInpPXDMmSiNQwN8
-         gtQIs8Ax7niR37sIl1mnwCNKBPhUHugOLHwozI91NsNlUjFidwUzUd6H8uxpRlV2Yp8n
-         zZOU4LyJgWlR17E5xez5ymRlFdJpK3BK6CrhxTYi5ATPzenbpnqQ1dOAEN1qfJ1I7BoL
-         QRqBBnxvNudMDiq2bBMuGOU72WF5ybT7wMuvlCDlxlFF1p2poM/nBMyp8x+RpyEP14sf
-         bcarNViSSvelu/cdeVKs9FH0AYDNuYhawWqnpaaFLbOXyMasZS9y0o9AqF0boAnbv5Ii
-         WKbw==
-X-Forwarded-Encrypted: i=1; AJvYcCVZtKMEcx4o+XjaQNLbr8h3rw3UM2/tFB7bZCRAx3I6OU0JDaNM9iTbVppz7TFv1V2DQNhMF/vsBrGTbcFnqpii@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7B73XWh+kRZgT10a0z3o08JSNPpr1sURvzvnDOHhgd9/DsNXe
-	DcPK0tOUNV2fyDZ+W/uhKKlrIV6olA0BNNgZKzgOdjoxCjnyONo=
-X-Gm-Gg: ASbGncs85D9f5PBiEAPpIk2Qx8P0tkxn9WDQ4YLl6tAq7vk/ty+YO33PYQp/QsFI1Ua
-	E6AyY8sNKEtStZRPGYzvNDvOZIccK4ghxHevy54cOkYcuTkBzkVl+PxSl4dbhw7nuTI15zR4VkK
-	XAlW+YAi8kbyZdea7FzNKGAiiKGYXXXtqZly0NP4ebfLyjDc5ZKhQvUgR9qp8LJhKBYd8djhjme
-	8TFqPu7bSXlIISEUGYRb6CuzhU6DR3YCkeScRnDyDN6afjhWr7k9Mp5
-X-Google-Smtp-Source: AGHT+IHL2kbDL71i52Tl5thJXHFKE0VJJEHYy6lN0jWJKKjChbh+K9Wolj1lEqEzzNUmnYNfgO9FbQ==
-X-Received: by 2002:a17:903:2410:b0:216:2aec:2d54 with SMTP id d9443c01a7336-21bf077dbc9mr79922565ad.8.1736987453496;
-        Wed, 15 Jan 2025 16:30:53 -0800 (PST)
-Received: from localhost ([2601:646:9e00:f56e:123b:cea3:439a:b3e3])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f10f6d7sm88927685ad.52.2025.01.15.16.30.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jan 2025 16:30:53 -0800 (PST)
-Date: Wed, 15 Jan 2025 16:30:52 -0800
-From: Stanislav Fomichev <stfomichev@gmail.com>
-To: "Song, Yoong Siang" <yoong.siang.song@intel.com>
-Cc: Daniel Borkmann <daniel@iogearbox.net>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Willem de Bruijn <willemb@google.com>,
-	"Bezdeka, Florian" <florian.bezdeka@siemens.com>,
-	Donald Hunter <donald.hunter@gmail.com>,
-	Jonathan Corbet <corbet@lwn.net>, Bjorn Topel <bjorn@kernel.org>,
-	"Karlsson, Magnus" <magnus.karlsson@intel.com>,
-	"Fijalkowski, Maciej" <maciej.fijalkowski@intel.com>,
-	Jonathan Lemon <jonathan.lemon@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	"Damato, Joe" <jdamato@fastly.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
-	Mina Almasry <almasrymina@google.com>,
-	Daniel Jurgens <danielj@nvidia.com>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Mykola Lysenko <mykolal@fb.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	KP Singh <kpsingh@kernel.org>, Hao Luo <haoluo@google.com>,
-	Jiri Olsa <jolsa@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	"Nguyen, Anthony L" <anthony.l.nguyen@intel.com>,
-	"Kitszel, Przemyslaw" <przemyslaw.kitszel@intel.com>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"bpf@vger.kernel.org" <bpf@vger.kernel.org>,
-	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
-	"linux-stm32@st-md-mailman.stormreply.com" <linux-stm32@st-md-mailman.stormreply.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"intel-wired-lan@lists.osuosl.org" <intel-wired-lan@lists.osuosl.org>,
-	"xdp-hints@xdp-project.net" <xdp-hints@xdp-project.net>
-Subject: Re: [PATCH bpf-next v5 2/4] selftests/bpf: Add launch time request
- to xdp_hw_metadata
-Message-ID: <Z4hTPNEGreEo6igW@mini-arch>
-References: <20250114152718.120588-1-yoong.siang.song@intel.com>
- <20250114152718.120588-3-yoong.siang.song@intel.com>
- <e273b1f1-868f-440e-b226-84b493ef7ee2@iogearbox.net>
- <PH0PR11MB58300DA3845D1E3F788C4FC8D8192@PH0PR11MB5830.namprd11.prod.outlook.com>
+	Thu, 16 Jan 2025 00:40:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1736988010; x=1768524010;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=fldl1K2uHS3tsStGwOyK6faLfUx0ub7xch57KWHs/hA=;
+  b=kozAZu4T/Z0W03bKu8NaFfDQRfu8pjdDVWO4+28sXGe3p60OPJ93eEyp
+   XuS19CcXsDZycDJhOCOUD7F54FDBTfxSrRDT09V2szp3FtNpnRrIpP+sk
+   K5kVZJf1Ww0y3QeHJIc/vpEanFT8wSHu/2W50PTxY4nSE6vMwCsDEw+JA
+   prURLdIbp3rhtBsXj5mDHIL6S8+OZQDa7GGxlfV77/x2y4OUsr8d1Phpz
+   lToq6do97FpyP2kTMWKhkU3XXWYK39KxcE5Onfi1VGpprr9eSe4crzriq
+   QPiuCqEgilsjdSN2Q/OfUcq5Jj339kS3b5+RlxZDGgxuk2YCxTglt9/R4
+   w==;
+X-CSE-ConnectionGUID: VOeloQA+RC64gcZs3DUnxQ==
+X-CSE-MsgGUID: 5OBEB4D1TlmK2UdfLk5FVA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11316"; a="62717267"
+X-IronPort-AV: E=Sophos;i="6.13,207,1732608000"; 
+   d="scan'208";a="62717267"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jan 2025 16:40:08 -0800
+X-CSE-ConnectionGUID: LspXktj9SmeC2M/MP72Zhg==
+X-CSE-MsgGUID: /Pkk0GEIQzuYGAZDDotTrw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,207,1732608000"; 
+   d="scan'208";a="136149801"
+Received: from orsmsx601.amr.corp.intel.com ([10.22.229.14])
+  by orviesa002.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 15 Jan 2025 16:40:08 -0800
+Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
+ ORSMSX601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Wed, 15 Jan 2025 16:40:07 -0800
+Received: from ORSEDG602.ED.cps.intel.com (10.7.248.7) by
+ orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44 via Frontend Transport; Wed, 15 Jan 2025 16:40:07 -0800
+Received: from NAM12-BN8-obe.outbound.protection.outlook.com (104.47.55.174)
+ by edgegateway.intel.com (134.134.137.103) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.44; Wed, 15 Jan 2025 16:40:07 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EiqLpPU2MkD9iMRmOivE+JZt7l2H6JaQ9Sb3KKdY4CbAM8sPfsSBUfLZOBXITdIzQGibooQSywioCO05L9SBw4ZyS6Lbof+QMnVKU5Awh/hE0IHmZbh8iTPwfIf5ntmwsSK1hSsutMWugv1vHZ+GthsVmpPwkgIZMBhg+9EszHd4ho8iZLD9ky9nvaFGSFhLbLN7KU/CBB40GOdp3+crZxQb5pmuBAMJA+Pu+30eJkw1kZ+kYVhz8VAmI5QUHx+3z8D0DML5bSfhVzT8JalA0h7v7xaN4dUPjjSAwc7VHnjzc6wcQARipDXBYTiWNFgJzsghne5zW7XT5OCbPbnHdA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GOQjj1GcoRZq+tYJKmtIWEuKEDoi0nv24+6Buj82dV4=;
+ b=JbNNHAGH6CDty3Kj8VYRssRVUn7Rx6LuIa2Wq6HBiD8Po7mrGX1YbXlES5Br9jVP213PDeqI/CKrWyWxj3NVgPnoqaYSAJ3qazlOJKiMPyOARsevSoNkaArOx5tpAIooTrspkmroK8ngAmkHcqwAoFsFBYRBOXXUPPq2cru4S5b2L/sjIKhC4D/KgXCRmKkis5ykqxsXW4mFwvKExW2Ax+304aTELusnhTwz3I4Zz9R7SOwGMvUZ8KZlSB3VNQdfdDjINkSXOhHmBH1yovSTZc8I1bCZi8RXEz9N0cFxm6tpVX0hCmzs/fePT/tsRRKJdJhn8kGmjjCNFCu4vMMtrA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from CO1PR11MB5089.namprd11.prod.outlook.com (2603:10b6:303:9b::16)
+ by MN0PR11MB6136.namprd11.prod.outlook.com (2603:10b6:208:3c8::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.18; Thu, 16 Jan
+ 2025 00:40:05 +0000
+Received: from CO1PR11MB5089.namprd11.prod.outlook.com
+ ([fe80::7de8:e1b1:a3b:b8a8]) by CO1PR11MB5089.namprd11.prod.outlook.com
+ ([fe80::7de8:e1b1:a3b:b8a8%5]) with mapi id 15.20.8356.010; Thu, 16 Jan 2025
+ 00:40:05 +0000
+Message-ID: <59827630-a2a2-4c3f-80d2-04f9dc100654@intel.com>
+Date: Wed, 15 Jan 2025 16:40:04 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 0/9] net: add phylink managed EEE support
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>, Andrew Lunn
+	<andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+CC: Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn
+	<andrew+netdev@lunn.ch>, Bryan Whitehead <bryan.whitehead@microchip.com>,
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>, Marcin Wojtas
+	<marcin.s.wojtas@gmail.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	<netdev@vger.kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	<UNGLinuxDriver@microchip.com>
+References: <Z4gdtOaGsBhQCZXn@shell.armlinux.org.uk>
+Content-Language: en-US
+From: Jacob Keller <jacob.e.keller@intel.com>
+In-Reply-To: <Z4gdtOaGsBhQCZXn@shell.armlinux.org.uk>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MW3PR05CA0003.namprd05.prod.outlook.com
+ (2603:10b6:303:2b::8) To CO1PR11MB5089.namprd11.prod.outlook.com
+ (2603:10b6:303:9b::16)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <PH0PR11MB58300DA3845D1E3F788C4FC8D8192@PH0PR11MB5830.namprd11.prod.outlook.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PR11MB5089:EE_|MN0PR11MB6136:EE_
+X-MS-Office365-Filtering-Correlation-Id: a9dc06a6-4aca-4430-342f-08dd35c651ee
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Y2xFRUpoeU5TYmdVdzdvbXRQOTRidzhab0dOY3FKbDZHbXcrcE5oYzk5UVhN?=
+ =?utf-8?B?ek1JbXFvMWhoN3NoTmlYZUFKWTU3RDM3Sk5BRWwydDNyTkJiYWhRYitua08y?=
+ =?utf-8?B?bWxuUUU0SUtKTmpsSE80UHlHaE1xejdDakk2WVFrTUdYSGNVZmtQU1lBN2o3?=
+ =?utf-8?B?TDlZdUVRLy90S0Urb2xQRWlVTjlRQTdsbnFEM0dDMW5UWGZXWTYraHZ4NWc3?=
+ =?utf-8?B?U1BNYmJBby9YK0FoWHFVL3lSQkx2aGNqb1BmNzk2bHo0cVhJTVN0T1dUb2Rt?=
+ =?utf-8?B?cm1Vay9ObnVRRVRRNDR2amV0TmxiK0Uxc2pIMDdhOW1VMmdET090YVhZUWpx?=
+ =?utf-8?B?bkVxN1NBNkNiTDAvWGlDV1dlamw0LzVmZmhsdnhPTTMreGo1ek5MYURuR2ZZ?=
+ =?utf-8?B?RjE0SnRMZGVhRzFlbjFPa3NoaExYc252SHM5NVhTNkNJcUtWMnhxT0NibThS?=
+ =?utf-8?B?TWNzYkVPTlNJRmNqQ1hIdjJCRCtsSXpFUHdkK1h2ZGlXR0lNM25vS3pPaW0z?=
+ =?utf-8?B?SiszTXdBbHllOG01bFVpZFJTZms5czEyN09RMGpZeEc1Z0s0K1oxb2ExWDBB?=
+ =?utf-8?B?RUFNWnc1NEdZUWU2R2pRZHFRdTFjMlV4K3lrdHhNdFJudzlHS2xxbDEzcnNw?=
+ =?utf-8?B?MkxuMHIxT042c0IrUFpza1dwZlBOVk1aaWV4d3pjQk9makpxOGlmNG5XQzZV?=
+ =?utf-8?B?dE1ERFozRXB5UGlIZlF3Zm9JdmsrMGd6M3M1dkRpNTdXQUNPSUpyaDlJNTZo?=
+ =?utf-8?B?UGN4dmk3RU1QZ0dkdk1EdWtEb1A2QWZwRkxlSDd1aWxjZU9nR3FvSFdCU3RI?=
+ =?utf-8?B?Y2dRaVVLY3cvOWdVcWdkbXZ4WXJJc1RZL3VoOWhkU3hJNG5mbjg0YURIWTVq?=
+ =?utf-8?B?ZVFVS2FqRHdPaU1ibTRUYlhqYUxjU1MvNDJDaWowaks2VXNGeWYwVjZsdTlu?=
+ =?utf-8?B?Q3dvZGVXTmJtM2tpM3ZwbXNwTzFscVJ6TVVlMjZtdGNaM1pzcEpQcGxqeGcy?=
+ =?utf-8?B?ak5ZM3BOWGd6ODNMdnNnZXVObS8xK0JwcnhtbndOTm9kYW83ZStIVTRjY3ov?=
+ =?utf-8?B?L1JqRjhOdTBraktXZzUxYmRSSGFpQmhLYWZmaW9qNUluUjRBV0FYRFdxanlj?=
+ =?utf-8?B?M1lKbVpZNDZXaW1vVFRRU3NveFY1UXZSR0ZLUXFncXZJNHVLZUFPZjZWbWtV?=
+ =?utf-8?B?VmN0aFdtZlBsWW1HUkVXZWJ4V01RMVpkWlV6aSthUXVhVEIyWmlmWXNia0F0?=
+ =?utf-8?B?NGQ3THJHc201Ym83a2dsV3ZveXBMaElucHl2ZEVtR2kvWFV1ZjlWcHo0YmpH?=
+ =?utf-8?B?Zklta2RPVkpuZ2xXQnIrS3N3OVVTT3M1ajdMSWZ5aVkyTHlPRmJWU3ZHRElx?=
+ =?utf-8?B?dEhSU2RFUjVLRDdQZ24wRlBuSC82QkdweWNGekJIOWZWT0NrZ1JzWnM0MkZw?=
+ =?utf-8?B?RnNaZWxXZUFWMVdEWS9RTjVPeWNGVnUrTzVqRVExNms4ZHNoVlZEbWhxNmRm?=
+ =?utf-8?B?b2tBVjJkSkRnK2JKRHhEVmFqbVpZaTBUZFI3dk5YOUhHejRSZFVhK3Q3U0ly?=
+ =?utf-8?B?WUR4K2plVG1GcDV3cHVjdmZqdmtjRlpmT3RiMHF0U25Wd1lWcGs5MFBZdHdk?=
+ =?utf-8?B?djg2YjlQQjZuR2NDVnpoMU9wbTNKbzFBQ2hBRnZpUzVnZ05rMm9kazh0L1J1?=
+ =?utf-8?B?ckxReTdJSjJwQUM0Uzl4SUFCSlNNTnhKOWNMOHpKYkJZMlp0cGhNZTNTQjBJ?=
+ =?utf-8?B?a2xUZGM2TzlGTEloU292eFIralFBeTBuNmJKZlhwTDJCYUhBZ2lBR1J1NlYr?=
+ =?utf-8?B?YU9rV3NpYWJ0RlhXb25vNW5xSDdKUzRYUWlkV0lLOHZmRHRxWUNGVDllRlNq?=
+ =?utf-8?Q?1doVkvlstlm/g?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5089.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TXhMZ2k0NFFiakJ6VXdVS3BwV21GMXNPdFM4QWxJN0ViWnIyT0V6bXFJbjdB?=
+ =?utf-8?B?UVVFbFJwWmo4dHlTejFTaTc1RWJGdjhFTmR1dUNPa2V0OUw2SWNKbnNqczB4?=
+ =?utf-8?B?bnN3ZUZHQWhMbkpKbDY4K01vWGcvdk9jaHJmbHNLbWljSTd0KzI1MVpxSXAv?=
+ =?utf-8?B?dlFaR21sWHNJMnRxbHVTbDNaVDhGaElxMk4wQTJuQStNNi9yZ3U4cThuVU42?=
+ =?utf-8?B?VjZvWkwwN1FXMExLQTI3QnpOdzgzWTNmdFZDTktyR2hhSVc1dXZKVFVEdFRZ?=
+ =?utf-8?B?SXRKUzhaR0ZNcDVLcUFZZzBxbTFhdGUyQkd2TVlNQ1JTV3Y4NGM3NlFoQ0pO?=
+ =?utf-8?B?a0VoMTgzNkVVWG01by9YUFZIS3VHYlJsSEd4b3Z0cm8vTEQ0cllvQWxEb1NK?=
+ =?utf-8?B?Ylp2RmMzck0xRTFpcFhKaFFUelRrOVc1OW1lc2NOczVldWRkaU9wNmFRZmln?=
+ =?utf-8?B?a3lqSk5MUjVBbVNKYkZST1JBLzYwdDltd2dEcTRpbFYvNHhrdGU1QmpMY1NJ?=
+ =?utf-8?B?U2pIZjliUi9KcC9hRGtRa21LSDdaNTNsVC9ON2lEOTMyV1lLVUFBQlc3bVQ5?=
+ =?utf-8?B?TXRubUFnL3prOTRDTFY2S1FSWUtGZWZwOEhIam82aG5jRTcwZmFvc0dSbjBJ?=
+ =?utf-8?B?WDNJSkRTNXBmcFY0bmI1RE1PemlYT3Q1VThPemhDelNvWEV2VFV5Z1NnSHN1?=
+ =?utf-8?B?aGlocngvVjBxeVJ5aWxlUVdVUGtzOGNQWWV3UnBNWmFPeEZONC9iZmdGd0JN?=
+ =?utf-8?B?MFFISFBpRktSQzB3MURCeEFFalQwZnZHZElsKzdmRG42SEJUaGtRcGV3QmMw?=
+ =?utf-8?B?UVJYRmUyZjQraFJrbUY4amFXMFdWNzZRdWhES1ZzUVVEZXVVb0lRaTR5NkFU?=
+ =?utf-8?B?aHBTOXRPMzJTcVRlRjZGR0dZNFhzQ29xWUs4Z29UTHFqbnAwYTNQdk11QWw2?=
+ =?utf-8?B?ZGhvSDM2OFFBZThreGVOQy8zV3AxYnNRTmJLWlBEQ29uL0JGL2ZsOXZIRllY?=
+ =?utf-8?B?N2dsRmtMVEgwSXhGcitJcnNBL08wQTlWdDdEaG9WTVRZKzZ0RHRKYk52dUxp?=
+ =?utf-8?B?NTFCendma3QyNS9WN3hlc1AvVjVQeTBid0Q3Uzd5MXFWWSthbjV0R1ZsQ29J?=
+ =?utf-8?B?UGY0U3U4M0dSTUdOc3JTcy9wdTVTZmZDTXVON1ZkaktDV2htM1dEWFRXd285?=
+ =?utf-8?B?S2xNRGtDQWd5L0xJZG5FcW1QeXJGNzRIdVZBUW1mQ3NwbXlmRUJwZUlqRXdk?=
+ =?utf-8?B?b0pVT0NpcDZIL0dyeXZpQ3dWSXVydEN5RVVMSWdEVUx0WGQzZm5VanhEclJz?=
+ =?utf-8?B?UkdCZENMRmZLb1gvaHZPbjM5L3RlcUlWOHBEanNWOVBUM1ZmNHNRQVRGR2R6?=
+ =?utf-8?B?bGhQaDE2Yk5icll2dkhKcTdaT2Y4Ty9Md1YrQnJqV1oyZWhMWVJpNXRydHow?=
+ =?utf-8?B?aDhjT2pqQmtXbERWeC8wS1F2NEdUVllaVHhKRTBFekNVR0pBM3J0Q0F6TVA0?=
+ =?utf-8?B?alh3U0wzaFRiY2k0Ujhka29iNDlxUVdXYkZhSXkwVFRkTFdncnA3eFV2N1Rr?=
+ =?utf-8?B?ZVlGNlVPdy9nekthLy9EUkdLMGgzRGNQQXA3YTBqZUJRNWpKc0VsYVFRd1dG?=
+ =?utf-8?B?bkN2dk9tdU1VSGhPUTJaaFBxYTQvTjEwUHVRNWE0L1FZMTVKS0hVYTJKNHNF?=
+ =?utf-8?B?K1hqY1Z5TlNPL3lZUzVNMDJGaXh5NGtEWGwwWklIYVd6djYrWlZMdlEvQzNw?=
+ =?utf-8?B?MTFpSTlQTkdOazhxRUNUbGwwVTRhQ0JJSXc0RkNOK2hkTjNQU0FDNXk3K003?=
+ =?utf-8?B?MlNyMWl1WXlKQjhHeFc1MTNRdWdDbE5xN21UTzFQVWkyVmhnNFhVY2tXNkll?=
+ =?utf-8?B?Sk43VUdTaENxbVZqMVV6c3Y3aW1OYlNrNTRiTE54VW5zRno4cDhqdnFtVjcz?=
+ =?utf-8?B?aGw2Q3hXK1ZlWlV2L3RJSXlTRlZjUG1YaFNDMUFYa0VMVmx6aGFZcVdONWU2?=
+ =?utf-8?B?K20veGFlRDhRUDE4MlhkTWtKRzNWVFJ6cUgrY05iZVBPTnNDMGkrSC9JVkxy?=
+ =?utf-8?B?VU9GQURTYlRDSDVwVWowNFNIWDFTVmhDUURMejEvblNlWHMxU3prV1ZTTWFJ?=
+ =?utf-8?B?UldmS2NrM2hMZ0hRcVNBdU04cUFtODExZUVxdUJSSWc5bG1EeU94U2V6VG14?=
+ =?utf-8?B?R2c9PQ==?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: a9dc06a6-4aca-4430-342f-08dd35c651ee
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5089.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jan 2025 00:40:05.1768
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: fuUP8Kx6t+wTXDx0MiNcSM2mhv+okeoCQhZbm3igP0UBw7BwDqZcsBmlrywB6wS6dUP3kwfbv03R0emfVz65CUEUixgooTYHjr021ls04VA=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR11MB6136
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_163054_255839_FDD813A8 
-X-CRM114-Status: GOOD (  18.83  )
+X-CRM114-CacheID: sfid-20250115_164010_957962_39C088F7 
+X-CRM114-Status: GOOD (  22.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,70 +216,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/15, Song, Yoong Siang wrote:
-> On Wednesday, January 15, 2025 10:57 PM, Daniel Borkmann <daniel@iogearbox.net> wrote:
-> >On 1/14/25 4:27 PM, Song Yoong Siang wrote:
-> >[...]
-> >> +	/* Add mqprio qdisc with TC and hardware queue one-to-one mapping */
-> >> +	char map[256] = {0};
-> >> +	char queues[256] = {0};
-> >> +
-> >> +	for (i = 0; i < rxq; i++) {
-> >> +		char buf[8];
-> >> +
-> >> +		snprintf(buf, sizeof(buf), "%d ", i);
-> >> +		strcat(map, buf);
-> >> +
-> >> +		snprintf(buf, sizeof(buf), "1@%d ", i);
-> >> +		strcat(queues, buf);
-> >> +	}
-> >> +	run_command("sudo tc qdisc add dev %s handle 8001: parent root mqprio
-> >num_tc %d map %s queues %s hw 0",
-> >> +		    ifname, rxq, map, queues);
-> >
-> >Fyi, above triggers selftest build errors:
-> >
-> >   xdp_hw_metadata.c: In function ‘main’:
-> >   xdp_hw_metadata.c:763:45: error: ‘%d’ directive output may be truncated
-> >writing between 1 and 10 bytes into a region of size 8 [-Werror=format-
-> >truncation=]
-> >     763 |                 snprintf(buf, sizeof(buf), "%d ", i);
-> >         |                                             ^~
-> >     TEST-OBJ [test_progs] arg_parsing.test.o
-> >   xdp_hw_metadata.c:763:44: note: directive argument in the range [0,
-> >2147483646]
-> >     763 |                 snprintf(buf, sizeof(buf), "%d ", i);
-> >         |                                            ^~~~~
-> >   xdp_hw_metadata.c:763:17: note: ‘snprintf’ output between 3 and 12 bytes into
-> >a destination of size 8
-> >     763 |                 snprintf(buf, sizeof(buf), "%d ", i);
-> >         |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> >   xdp_hw_metadata.c:766:47: error: ‘%d’ directive output may be truncated
-> >writing between 1 and 10 bytes into a region of size 6 [-Werror=format-
-> >truncation=]
-> >     766 |                 snprintf(buf, sizeof(buf), "1@%d ", i);
-> >         |                                               ^~
-> >   xdp_hw_metadata.c:766:44: note: directive argument in the range [0,
-> >2147483646]
-> >     766 |                 snprintf(buf, sizeof(buf), "1@%d ", i);
-> >         |                                            ^~~~~~~
-> >   xdp_hw_metadata.c:766:17: note: ‘snprintf’ output between 5 and 14 bytes into
-> >a destination of size 8
-> >     766 |                 snprintf(buf, sizeof(buf), "1@%d ", i);
-> >         |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+On 1/15/2025 12:42 PM, Russell King (Oracle) wrote:
+> Hi,
 > 
-> Thanks for pointing this out.
-> Btw, do you know which build command will trigger these errors?
-> I am using "make -C tools/testing/selftests/bpf" but cannot
-> reproduce the build error.
+> Adding managed EEE support to phylink has been on the cards ever since
+> the idea in phylib was mooted. This overly large series attempts to do
+> so. I've included all the patches as it's important to get the driver
+> patches out there.
 > 
-> Thanks & Regards
-> Siang
+> Patch 1 adds a definition for the clock stop capable bit in the PCS
+> MMD status register.
+> 
+> Patch 2 adds a phylib API to query whether the PHY allows the transmit
+> xMII clock to be stopped while in LPI mode. This capability is for MAC
+> drivers to save power when LPI is active, to allow them to stop their
+> transmit clock.
+> 
+> Patch 3 extracts a phylink internal helper for determining whether the
+> link is up.
+> 
+> Patch 4 adds basic phylink managed EEE support. Two new MAC APIs are
+> added, to enable and disable LPI. The enable method is passed the LPI
+> timer setting which it is expected to program into the hardware, and
+> also a flag ehther the transmit clock should be stopped.
+> 
+> I have taken the decision to make enable_tx_lpi() to return an error
+> code, but not do much with it other than report it - the intention
+> being that we can later use it to extend functionality if needed
+> without reworking loads of drivers.
+> 
+> I have also dropped the validation/limitation of the LPI timer, and
+> left that in the driver code prior to calling phylink_ethtool_set_eee().
+> 
+> The remainder of the patches convert mvneta, lan743x and stmmac, and
+> add support for mvneta.
+> 
+> Since yesterday's RFC:
+> - fixed the mvpp2 GENMASK()
+> - dropped the DSA patch
+> - changed how phylink restricts EEE advertisement, and the EEE support
+>   reported to userspace which fixes a bug.
+> 
 
-Last time I used the following to reproduce similar issues on my side:
+Everything in this series looks good to me.
 
-make -C tools/testing/selftests TARGETS="bpf" LLVM=1 USERCFLAGS="-Wformat-truncation"
-
-You can also try to use something like asprintf instead of managing the buffer
-sizes manually.
+Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
 
