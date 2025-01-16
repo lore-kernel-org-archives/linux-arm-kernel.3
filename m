@@ -4,76 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 037CBC02187
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 18:04:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4039BC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 18:06:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:Cc:To:From:References:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T/ueRQzMQN/S+kB1tovVzhUu17r+Mocepb7YVFoxlgE=; b=u9/GF9BGerj46jqjlod2LR1rac
-	yUvEIUw11XRHakHWQQgk6ldJB+bpNmKzMLTAUBD24e+CKPZwi0MsCbjlJsZgO0c4YPEDFg7s13fEq
-	PBv26cyO6rypF/rLL6Ls46IvNhs6XT1Hsy5slhD1HQaBCalloPM0uDNAFZPvFZmAYIYfrrnDtyXBq
-	qJmxzLs7knha81PxaBNI/EL83mpa7bX2NL2b2tdj0+j22zBv6xdtqJorOCC4YtJ+1GK/PK5x42C3x
-	B3hsqP+elFYzjLEv++AY5jeG6x7XMTH1faeEXp7MoEkEA4svWwxnPibk44mIeusq/nGu76LYMbNlL
-	NI/nn3bA==;
+	bh=C8lyvdil+OAHd9BneEih8vko6Ln4alGLZIq1J3kePtk=; b=u5G791KL6+Bz70y4HGtSIv1USZ
+	GkAQnbWgec4m0BUnJR0NiQH+Am0JgP2mwQw6KGiYEh4/98LMPXkmOBTcKkg7Lz37U4B0dNa5LgMeO
+	7UoaxeEvr84ZGvKlWVyX2ZcnCzAI9kbu0+ESXtEzeiOIXhOD2/YbTRJZ3bdJzGsjbAqaume6AGXPL
+	vPaiR+q4uH8DBSwTNJPOIROmIYJgpIYRIDrtN8F9cDi5pYp5iLEUi6StUknGVT5808t6vhw4kMPFL
+	Fc+lVJpxhSXgdRgye6qClwSzsH5p2I32OTXGnpmNGIQk4t+qerW0x8QEaxKQ5u+r1067aumZBF2Zu
+	2aVRVBfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYUEG-0000000Fkva-1Z9U;
-	Thu, 16 Jan 2025 18:04:28 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tYUFU-0000000Fl9r-1ID9;
+	Thu, 16 Jan 2025 18:05:44 +0000
+Received: from smtp-69.smtpout.orange.fr ([80.12.242.69] helo=smtp.smtpout.orange.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYUCz-0000000FkeQ-0D1c;
-	Thu, 16 Jan 2025 18:03:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8DC1BA4252A;
-	Thu, 16 Jan 2025 18:01:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E65FAC4CED6;
-	Thu, 16 Jan 2025 18:03:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737050587;
-	bh=NJ3mCKVaerTWKdIY3yecqSXXrLTSZSkqHQ/cdTJWkEI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JeJd3zInKgbOG12tOr+M4tKEbxueUw/GyR+YtZoFsftDzz0NwbDdOaZmqF5FjYFUW
-	 fq6OXxaf+kc1UKQI2xkfNOn0SjTKJnNQ6aXrCf7yXLUanwJgEZH991A6sCCJnotDSa
-	 45KUpiLVVf0vfVmDz6J+L0vQgxFwLj175YRjmd52cG4KnnH6aZEz/BDLoa+3C2t4i0
-	 kFtpeTJZdQUiafVv1ZfytHfbDixLf90R7zdAKIEem/f2ynVZGfoZoC/U9Zb8dAxh/z
-	 MRQBfGJg4zbVKAH1DtDFnZUofqYFq86ctZEd5OYqGxAaLB1XT8L0cfy+QG3chLi3AZ
-	 KqN2d3gF1mAPw==
-Message-ID: <f558df7a-d983-4fc5-8358-faf251994d23@kernel.org>
-Date: Thu, 16 Jan 2025 19:02:59 +0100
+	id 1tYUDO-0000000FklD-2QHi
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Jan 2025 18:03:38 +0000
+Received: from [192.168.1.37] ([90.11.132.44])
+	by smtp.orange.fr with ESMTPA
+	id YUD3tq3Ijhk1BYUD6t9tt8; Thu, 16 Jan 2025 19:03:26 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
+	s=t20230301; t=1737050606;
+	bh=C8lyvdil+OAHd9BneEih8vko6Ln4alGLZIq1J3kePtk=;
+	h=Message-ID:Date:MIME-Version:Subject:From:To;
+	b=FB4JL7P/BdyTXG7TvkfEKwzz7VWZNzs5aATrG78Z1bEvy2qDJ7Vmi8xiD9/A8YCXR
+	 4G38/XoW3PILjyG2BfmODtiWAX0Rhoos+uaOIskD4FxQK8ktHOfUxoJIz+eDhYhM6S
+	 Oanp0BLTzLNm4zJhPcbKXTs8MT5hO+2bM/m9D+9Sh2EBsnodjCTd1ILjcKlG4I0Kgg
+	 KGyVCR5tHhR3y9I+5qu+wlbtkjYVxEUYX/6PpzVRnRsjjuT6hroFCFG3n6EjT4LFku
+	 4AI3+i6MpBq8orXqR93xIJlGBiXsUtCTRfzaIkLt4qh3z6YD7IWK/E4R8NNfw/WYfv
+	 9+EPrTWXo0rBQ==
+X-ME-Helo: [192.168.1.37]
+X-ME-Auth: bWFyaW9uLmphaWxsZXRAd2FuYWRvby5mcg==
+X-ME-Date: Thu, 16 Jan 2025 19:03:26 +0100
+X-ME-IP: 90.11.132.44
+Message-ID: <3991ab78-d1a2-4cae-bea5-fb4dfa58aba3@wanadoo.fr>
+Date: Thu, 16 Jan 2025 19:03:13 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v7 0/8] fix two bugs related to page_pool
-To: Yunsheng Lin <linyunsheng@huawei.com>, davem@davemloft.net,
- kuba@kernel.org, pabeni@redhat.com
-Cc: zhangkun09@huawei.com, liuyonglong@huawei.com, fanghaiqing@huawei.com,
- Alexander Lobakin <aleksander.lobakin@intel.com>,
- Robin Murphy <robin.murphy@arm.com>,
- Alexander Duyck <alexander.duyck@gmail.com>,
- Andrew Morton <akpm@linux-foundation.org>, IOMMU <iommu@lists.linux.dev>,
- MM <linux-mm@kvack.org>, Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>,
- John Fastabend <john.fastabend@gmail.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- netdev@vger.kernel.org, intel-wired-lan@lists.osuosl.org,
- bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20250110130703.3814407-1-linyunsheng@huawei.com>
- <3c8e4f86-87e2-470d-84d8-86c70b3e2fcc@kernel.org>
- <c02e856e-6ec5-49d0-8527-2647695a0174@huawei.com>
- <3a853e1b-b5bf-4709-b8f6-e466e3e7375e@kernel.org>
- <1bef4a35-efaa-4083-8ed5-8818fe285db5@huawei.com>
-Content-Language: en-US
-From: Jesper Dangaard Brouer <hawk@kernel.org>
-In-Reply-To: <1bef4a35-efaa-4083-8ed5-8818fe285db5@huawei.com>
+Subject: Re: [PATCH v4 2/4] input: apple_z2: Add a driver for Apple Z2
+ touchscreens
+References: <20250115-z2-v4-0-d7361ab16ba0@gmail.com>
+ <20250115-z2-v4-2-d7361ab16ba0@gmail.com>
+Content-Language: en-US, fr-FR
+From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+To: devnull+fnkl.kernel.gmail.com@kernel.org
+Cc: alyssa@rosenzweig.io, asahi@lists.linux.dev, conor+dt@kernel.org,
+ devicetree@vger.kernel.org, dmitry.torokhov@gmail.com,
+ fnkl.kernel@gmail.com, j@jannau.net, krzk+dt@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-input@vger.kernel.org,
+ linux-kernel@vger.kernel.org, marcan@marcan.st, neal@gompa.dev,
+ robh@kernel.org, rydberg@bitmath.org, sven@svenpeter.dev
+In-Reply-To: <20250115-z2-v4-2-d7361ab16ba0@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_100309_231292_FC93ACEC 
-X-CRM114-Status: GOOD (  18.77  )
+X-CRM114-CacheID: sfid-20250116_100334_890442_8587CB32 
+X-CRM114-Status: GOOD (  21.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,157 +81,231 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 16/01/2025 13.52, Yunsheng Lin wrote:
-> On 2025/1/16 1:40, Jesper Dangaard Brouer wrote:
->>
->>
->> On 15/01/2025 12.33, Yunsheng Lin wrote:
->>> On 2025/1/14 22:31, Jesper Dangaard Brouer wrote:
->>>>
->>>>
->>>> On 10/01/2025 14.06, Yunsheng Lin wrote:
->>>>> This patchset fix a possible time window problem for page_pool and
->>>>> the dma API misuse problem as mentioned in [1], and try to avoid the
->>>>> overhead of the fixing using some optimization.
->>>>>
->>>>>    From the below performance data, the overhead is not so obvious
->>>>> due to performance variations for time_bench_page_pool01_fast_path()
->>>>> and time_bench_page_pool02_ptr_ring, and there is about 20ns overhead
->>>>> for time_bench_page_pool03_slow() for fixing the bug.
->>>>>
->>>>
->>>> My benchmarking on x86_64 CPUs looks significantly different.
->>>>    - CPU: Intel(R) Xeon(R) CPU E5-1650 v4 @ 3.60GHz
->>>>
->>>> Benchmark (bench_page_pool_simple) results from before and after patchset:
->>>>
->>>> | Test name  | Cycles |       |    |Nanosec |        |       |      % |
->>>> | (tasklet_*)| Before | After |diff| Before |  After |  diff | change |
->>>> |------------+--------+-------+----+--------+--------+-------+--------|
->>>> | fast_path  |     19 |    24 |   5|  5.399 |  6.928 | 1.529 |   28.3 |
->>>> | ptr_ring   |     54 |    79 |  25| 15.090 | 21.976 | 6.886 |   45.6 |
->>>> | slow       |    238 |   299 |  61| 66.134 | 83.298 |17.164 |   26.0 |
->>>> #+TBLFM: $4=$3-$2::$7=$6-$5::$8=(($7/$5)*100);%.1f
->>>>
->>>> My above testing show a clear performance regressions across three
->>>> different page_pool operating modes.
->>>
->>> I retested it on arm64 server patch by patch as the raw performance
->>> data in the attachment, it seems the result seemed similar as before.
->>>
->>> Before this patchset:
->>>               fast_path              ptr_ring            slow
->>> 1.         31.171 ns               60.980 ns          164.917 ns
->>> 2.         28.824 ns               60.891 ns          170.241 ns
->>> 3.         14.236 ns               60.583 ns          164.355 ns
->>>
->>> With patch 1-4:
->>> 4.         31.443 ns               53.242 ns          210.148 ns
->>> 5.         31.406 ns               53.270 ns          210.189 ns
->>>
->>> With patch 1-5:
->>> 6.         26.163 ns               53.781 ns          189.450 ns
->>> 7.         26.189 ns               53.798 ns          189.466 ns
->>>
->>> With patch 1-8:
->>> 8.         28.108 ns               68.199 ns          202.516 ns
->>> 9.         16.128 ns               55.904 ns          202.711 ns
->>>
->>> I am not able to get hold of a x86 server yet, I might be able
->>> to get one during weekend.
->>>
->>> Theoretically, patch 1-4 or 1-5 should not have much performance
->>> impact for fast_path and ptr_ring except for the rcu_lock mentioned
->>> in page_pool_napi_local(), so it would be good if patch 1-5 is also
->>> tested in your testlab with the rcu_lock removing in
->>> page_pool_napi_local().
->>>
->>
->> What are you saying?
->>   - (1) test patch 1-5
->>   - or (2) test patch 1-5 but revert patch 2 with page_pool_napi_local()
+Le 15/01/2025 à 23:46, Sasha Finkelstein via B4 Relay a écrit :
+> From: Sasha Finkelstein <fnkl.kernel-Re5JQEeQqe8AvxtiuMwx3w@public.gmane.org>
 > 
-> patch 1-5 with below applied.
+> Adds a driver for Apple touchscreens using the Z2 protocol.
 > 
-> --- a/net/core/page_pool.c
-> +++ b/net/core/page_pool.c
-> @@ -1207,10 +1207,8 @@ static bool page_pool_napi_local(const struct page_pool *pool)
->          /* Synchronizated with page_pool_destory() to avoid use-after-free
->           * for 'napi'.
->           */
-> -       rcu_read_lock();
->          napi = READ_ONCE(pool->p.napi);
->          napi_local = napi && READ_ONCE(napi->list_owner) == cpuid;
-> -       rcu_read_unlock();
-> 
->          return napi_local;
->   }
-> 
+...
 
-Benchmark (bench_page_pool_simple) results from before and after
-patchset with patches 1-5m and rcu lock removal as requested.
+> +static int apple_z2_upload_firmware(struct apple_z2 *z2)
+> +{
+> +	const struct apple_z2_fw_hdr *fw_hdr;
+> +	size_t fw_idx = sizeof(struct apple_z2_fw_hdr);
+> +	int error;
+> +	u32 load_cmd;
+> +	u32 size;
+> +	u32 address;
+> +	char *data;
+> +	bool init;
+> +	size_t cal_size;
+> +
+> +	const struct firmware *fw __free(firmware) = NULL;
+> +	error = request_firmware(&fw, z2->fw_name, &z2->spidev->dev);
+> +	if (error) {
+> +		dev_err(&z2->spidev->dev, "unable to load firmware");
+> +		return error;
+> +	}
+> +
+> +	fw_hdr = (const struct apple_z2_fw_hdr *)fw->data;
+> +	if (le32_to_cpu(fw_hdr->magic) != APPLE_Z2_FW_MAGIC || le32_to_cpu(fw_hdr->version) != 1) {
+> +		dev_err(&z2->spidev->dev, "invalid firmware header");
+> +		return -EINVAL;
+> +	}
+> +
+> +	/*
+> +	 * This will interrupt the upload half-way if the file is malformed
+> +	 * As the device has no non-volatile storage to corrupt, and gets reset
+> +	 * on boot anyway, this is fine.
+> +	 */
+> +	while (fw_idx < fw->size) {
+> +		if (fw->size - fw_idx < 8) {
+> +			dev_err(&z2->spidev->dev, "firmware malformed");
+> +			return -EINVAL;
+> +		}
+> +
+> +		load_cmd = le32_to_cpu(*(__le32 *)(fw->data + fw_idx));
+> +		fw_idx += sizeof(u32);
+> +		if (load_cmd == LOAD_COMMAND_INIT_PAYLOAD || load_cmd == LOAD_COMMAND_SEND_BLOB) {
+> +			size = le32_to_cpu(*(__le32 *)(fw->data + fw_idx));
+> +			fw_idx += sizeof(u32);
+> +			if (fw->size - fw_idx < size) {
+> +				dev_err(&z2->spidev->dev, "firmware malformed");
+> +				return -EINVAL;
+> +			}
+> +			init = load_cmd == LOAD_COMMAND_INIT_PAYLOAD;
+> +			error = apple_z2_send_firmware_blob(z2, fw->data + fw_idx,
+> +							    size, init);
+> +			if (error)
+> +				return error;
+> +			fw_idx += size;
+> +		} else if (load_cmd == LOAD_COMMAND_SEND_CALIBRATION) {
+> +			address = le32_to_cpu(*(u32 *)(fw->data + fw_idx));
+> +			fw_idx += sizeof(u32);
+> +			cal_size = device_property_count_u8(&z2->spidev->dev, CAL_PROP_NAME);
+> +			if (cal_size != 0) {
+> +				size = cal_size + sizeof(struct apple_z2_hbpp_blob_hdr) + 4;
+> +				data = kzalloc(size, GFP_KERNEL);
+> +				error = apple_z2_build_cal_blob(z2, address, cal_size, data);
+> +				if (!error)
+> +					error = apple_z2_send_firmware_blob(z2, data, size, 16);
+> +				kfree(data);
+> +				if (error)
+> +					return error;
+> +			}
+> +		} else {
+> +			dev_err(&z2->spidev->dev, "firmware malformed");
 
-| Test name  |Cycles |   1-5 |    | Nanosec |    1-5 |        |      % |
-| (tasklet_*)|Before | After |diff|  Before |  After |   diff | change |
-|------------+-------+-------+----+---------+--------+--------+--------|
-| fast_path  |    19 |    19 |   0|   5.399 |  5.492 |  0.093 |    1.7 |
-| ptr_ring   |    54 |    57 |   3|  15.090 | 15.849 |  0.759 |    5.0 |
-| slow       |   238 |   284 |  46|  66.134 | 78.909 | 12.775 |   19.3 |
-#+TBLFM: $4=$3-$2::$7=$6-$5::$8=(($7/$5)*100);%.1f
+Missing \n.
 
-This test with patches 1-5 looks much better regarding performance.
+> +			return -EINVAL;
+> +		}
+> +		if (fw_idx % 4 != 0)
+> +			fw_idx += 4 - (fw_idx % 4);
+> +	}
+> +
+> +
+> +	z2->booted = true;
+> +	apple_z2_read_packet(z2);
+> +	return 0;
+> +}
 
---Jesper
+...
 
-https://github.com/xdp-project/xdp-project/blob/main/areas/mem/page_pool07_bench_DMA_fix.org#e5-1650-pp01-dma-fix-v7-p1-5
+> +static int apple_z2_probe(struct spi_device *spi)
+> +{
+> +	struct device *dev = &spi->dev;
+> +	struct apple_z2 *z2;
+> +	int error;
+> +
+> +	z2 = devm_kzalloc(dev, sizeof(*z2), GFP_KERNEL);
+> +	if (!z2)
+> +		return -ENOMEM;
+> +
+> +	z2->tx_buf = devm_kzalloc(dev, sizeof(struct apple_z2_read_interrupt_cmd), GFP_KERNEL);
+> +	z2->rx_buf = devm_kzalloc(dev, 4096, GFP_KERNEL);
 
-Kernel:
-  - 6.13.0-rc6-pp01-DMA-fix-v7-p1-5+ #5 SMP PREEMPT_DYNAMIC Thu Jan 16 
-18:06:53 CET 2025 x86_64 GNU/Linux
+This will allocate 8192 bytes because of the way the allocator works.
+It needs around 40 bytes for the devm stuff + 4096 requested. So 
+rounding rules will allocate 8192 bytes.
 
-Machine: Intel(R) Xeon(R) CPU E5-1650 v4 @ 3.60GHz
+So either you could allocate "for free" much more space, or you could 
+allocate (and document...)
+	z2->rx_buf = devm_kzalloc(dev, 4096 - sizeof(struct devres), GFP_KERNEL);
 
-modprobe bench_page_pool_simple loops=100000000
+or have an explicit devm_add_action_or_reset() that would require less 
+memory, but would add some LoC.
 
-Raw data:
-[  187.309423] bench_page_pool_simple: 
-time_bench_page_pool01_fast_path(): Cannot use page_pool fast-path
-[  187.872849] time_bench: Type:no-softirq-page_pool01 Per elem: 19 
-cycles(tsc) 5.539 ns (step:0) - (measurement period time:0.553906443 sec 
-time_interval:553906443) - (invoke count:100000000 tsc_interval:1994123064)
-[  187.892023] bench_page_pool_simple: 
-time_bench_page_pool02_ptr_ring(): Cannot use page_pool fast-path
-[  189.611070] time_bench: Type:no-softirq-page_pool02 Per elem: 61 
-cycles(tsc) 17.095 ns (step:0) - (measurement period time:1.709580367 
-sec time_interval:1709580367) - (invoke count:100000000 
-tsc_interval:6154679394)
-[  189.630414] bench_page_pool_simple: time_bench_page_pool03_slow(): 
-Cannot use page_pool fast-path
-[  197.222387] time_bench: Type:no-softirq-page_pool03 Per elem: 272 
-cycles(tsc) 75.826 ns (step:0) - (measurement period time:7.582681388 
-sec time_interval:7582681388) - (invoke count:100000000 
-tsc_interval:27298499214)
-[  197.241926] bench_page_pool_simple: pp_tasklet_handler(): 
-in_serving_softirq fast-path
-[  197.249968] bench_page_pool_simple: 
-time_bench_page_pool01_fast_path(): in_serving_softirq fast-path
-[  197.808470] time_bench: Type:tasklet_page_pool01_fast_path Per elem: 
-19 cycles(tsc) 5.492 ns (step:0) - (measurement period time:0.549225541 
-sec time_interval:549225541) - (invoke count:100000000 
-tsc_interval:1977272238)
-[  197.828174] bench_page_pool_simple: 
-time_bench_page_pool02_ptr_ring(): in_serving_softirq fast-path
-[  199.422305] time_bench: Type:tasklet_page_pool02_ptr_ring Per elem: 
-57 cycles(tsc) 15.849 ns (step:0) - (measurement period time:1.584920736 
-sec time_interval:1584920736) - (invoke count:100000000 
-tsc_interval:5705890830)
-[  199.442087] bench_page_pool_simple: time_bench_page_pool03_slow(): 
-in_serving_softirq fast-path
-[  207.342120] time_bench: Type:tasklet_page_pool03_slow Per elem: 284 
-cycles(tsc) 78.909 ns (step:0) - (measurement period time:7.890955151 
-sec time_interval:7890955151) - (invoke count:100000000 
-tsc_interval:28408319289)
 
+See 
+https://elixir.bootlin.com/linux/v6.13-rc3/source/drivers/base/devres.c#L97
+
+> +	if (!z2->tx_buf || !z2->rx_buf)
+> +		return -ENOMEM;
+> +
+> +	z2->spidev = spi;
+> +	init_completion(&z2->boot_irq);
+> +	spi_set_drvdata(spi, z2);
+> +
+> +	/* Reset the device on boot */
+> +	z2->reset_gpio = devm_gpiod_get(dev, "reset", GPIOD_OUT_HIGH);
+> +	if (IS_ERR(z2->reset_gpio))
+> +		return dev_err_probe(dev, PTR_ERR(z2->reset_gpio), "unable to get reset");
+> +
+> +	error = devm_request_threaded_irq(dev, z2->spidev->irq, NULL,
+> +					apple_z2_irq, IRQF_ONESHOT | IRQF_NO_AUTOEN,
+> +					"apple-z2-irq", spi);
+> +	if (error)
+> +		return dev_err_probe(dev, z2->spidev->irq, "unable to request irq");
+
+Missing \n.
+
+s/z2->spidev->irq/error/ ?
+
+or maybe:
+	return dev_err_probe(dev, error, "unable to request irq %d\n", 
+z2->spidev->irq);
+
+> +
+> +	error = device_property_read_string(dev, "firmware-name", &z2->fw_name);
+> +	if (error)
+> +		return dev_err_probe(dev, error, "unable to get firmware name");
+
+Missing \n.
+
+> +
+> +	z2->input_dev = devm_input_allocate_device(dev);
+> +	if (!z2->input_dev)
+> +		return -ENOMEM;
+> +	z2->input_dev->name = (char *)spi_get_device_id(spi)->driver_data;
+> +	z2->input_dev->phys = "apple_z2";
+> +	z2->input_dev->id.bustype = BUS_SPI;
+> +
+> +	/* Allocate the axes before setting from DT */
+> +	input_set_abs_params(z2->input_dev, ABS_MT_POSITION_X, 0, 0, 0, 0);
+> +	input_set_abs_params(z2->input_dev, ABS_MT_POSITION_Y, 0, 0, 0, 0);
+> +	touchscreen_parse_properties(z2->input_dev, true, &z2->props);
+> +	input_abs_set_res(z2->input_dev, ABS_MT_POSITION_X, 100);
+> +	input_abs_set_res(z2->input_dev, ABS_MT_POSITION_Y, 100);
+> +	input_set_abs_params(z2->input_dev, ABS_MT_WIDTH_MAJOR, 0, 65535, 0, 0);
+> +	input_set_abs_params(z2->input_dev, ABS_MT_WIDTH_MINOR, 0, 65535, 0, 0);
+> +	input_set_abs_params(z2->input_dev, ABS_MT_TOUCH_MAJOR, 0, 65535, 0, 0);
+> +	input_set_abs_params(z2->input_dev, ABS_MT_TOUCH_MINOR, 0, 65535, 0, 0);
+> +	input_set_abs_params(z2->input_dev, ABS_MT_ORIENTATION, -32768, 32767, 0, 0);
+> +
+> +	input_set_drvdata(z2->input_dev, z2);
+
+Is it needed? (there is no input_get_drvdata())
+
+> +
+> +	error = input_mt_init_slots(z2->input_dev, 256, INPUT_MT_DIRECT);
+> +	if (error)
+> +		return dev_err_probe(dev, error, "unable to initialize multitouch slots");
+
+Missing \n.
+
+> +
+> +	error = input_register_device(z2->input_dev);
+> +	if (error)
+> +		return dev_err_probe(dev, error, "unable to register input device");
+
+Missing \n.
+
+> +
+> +	/* Wait for device reset to finish */
+> +	usleep_range(5000, 10000);
+> +	error = apple_z2_boot(z2);
+> +	if (error)
+> +		return error;
+> +	return 0;
+
+Nitpick: These 4 lines could be just:
+	return apple_z2_boot(z2);
+
+> +}
+
+...
+
+> +static DEFINE_SIMPLE_DEV_PM_OPS(apple_z2_pm, apple_z2_suspend, apple_z2_resume);
+> +
+> +static const struct of_device_id apple_z2_of_match[] = {
+> +	{ .compatible = "apple,j293-touchbar" },
+> +	{ .compatible = "apple,j493-touchbar" },
+> +	{},
+
+Nitpick: Ending comma is not needed after a terminator.
+
+> +};
+> +MODULE_DEVICE_TABLE(of, apple_z2_of_match);
+> +
+> +static struct spi_device_id apple_z2_of_id[] = {
+> +	{ .name = "j293-touchbar", .driver_data = (kernel_ulong_t)"MacBookPro17,1 Touch Bar" },
+> +	{ .name = "j493-touchbar", .driver_data = (kernel_ulong_t)"Mac14,7 Touch Bar" },
+> +	{}
+> +};
+> +MODULE_DEVICE_TABLE(spi, apple_z2_of_id);
+
+...
+
+CJ
 
