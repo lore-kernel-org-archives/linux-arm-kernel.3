@@ -4,100 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A0B7C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 19:21:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0600EC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 19:32:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bChrpxoXYLOi2YUup3iemrrMhFmpTodAygOPpJhId9Y=; b=2jauBMRkjRVRL6toq5pTZX7hJN
-	K1hHbsKrjJYG2Fc9FIfJscC4ZfpUVmHF3aw32K2p2EcI2kQyf3qwuF92lrDAYq7uevCZopENNFJE7
-	TOU43lM7H8qQhbpsEaxuWKw4R+Ph10O1tUTrHq08FUhyx9xP5fohKweGNbaFuu7cecXIIZ/7fFIdr
-	Mb/pIdSpOI+4eCmAaP8PrGEeMPpCbkFQAd1iHx2pZLuVfPpnOA5+TopMgveUuA3KD4qCyJWl1SbcQ
-	AHv2Z2+U2Ce4zDNZfQlXjIjMV3/qb+rS1LsS/ud2p4FrmQT3QWyOXpI4BTi0PN24DVJrBIvnwsFjl
-	Uc9QbhkQ==;
+	bh=K9yGTD2yu84mlddSkREi20uhDyFHI2hi1pRd4d7s9yk=; b=yEAy7L+pEoiyKjvKT76JibSU0O
+	GIoNrOkIXF8913qdfRLySdMsGUrJ4xmABZsOgqYT9YhvtIh9qTu1u7AafuPKZT2K0hESGz02Xgc5v
+	6gkpnB/Di1vq3SV/+McUhVuMKb0zelRiKLaA7Rnw6OeMa5GeoYh/L+v9LdkAfrd3RrJiH2n/lEigi
+	Bnu7afvJHi309Fv0BzhFTv7+zL7KuKu6ncG+T8TJfNlXyNdllJnc734JGVgqG9+WxwuuocuzrKHr/
+	yhjJ7BOD1k0zzLG6D2yuprk3fyRZCf4uVxx5LyzhqRQsDkbbVWKfugx3XoH3VucAvJEPjwdsXV2x1
+	fcKLMpSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYVQW-0000000FsaT-3qPq;
-	Thu, 16 Jan 2025 19:21:12 +0000
-Received: from mail-qk1-x733.google.com ([2607:f8b0:4864:20::733])
+	id 1tYVao-0000000Fu8Y-0v4Y;
+	Thu, 16 Jan 2025 19:31:50 +0000
+Received: from mail-yb1-xb35.google.com ([2607:f8b0:4864:20::b35])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYVPG-0000000FsTJ-1Cn1
+	id 1tYVZX-0000000Ftmg-1Ndh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 19:19:55 +0000
-Received: by mail-qk1-x733.google.com with SMTP id af79cd13be357-7b6f0afda3fso138713985a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 11:19:53 -0800 (PST)
+	Thu, 16 Jan 2025 19:30:32 +0000
+Received: by mail-yb1-xb35.google.com with SMTP id 3f1490d57ef6-e46ac799015so1887349276.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 11:30:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1737055193; x=1737659993; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=bChrpxoXYLOi2YUup3iemrrMhFmpTodAygOPpJhId9Y=;
-        b=dPwy8Za8iTxtNBSj5vEmfx2p8+pKRZCYewA/15ujoz1dXt0y19O9GqMbNHdX1n2RrR
-         LjVd0Ru1XAhYSLf5Yx0hKnJ0sIg2zZUFtw7T6RB2WjIXrNdPCAouJIjF2MEVKjMvIOoa
-         2vnirafInEBaEv63OWvjrft8uGI/Gv6anwTD+Q8k95eFE75bvl+HWeW99E1vqJPKUqlV
-         QsKMDgmzk0N76agrBRx5jX+H/8sjPro4Zd5McXlRcTLKArnf5Xs7YTwtXunT1lyj/gTW
-         Ohqg4aCunEH8cW2L4AxqCFT9P5T7nW9BXTQoVbud/JzhcTSSNEl8erQJI2edq74gYFOs
-         Riug==
+        d=raspberrypi.com; s=google; t=1737055830; x=1737660630; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=K9yGTD2yu84mlddSkREi20uhDyFHI2hi1pRd4d7s9yk=;
+        b=KQqfDx/XubzYFTTFxmo2Cb7OLbbHJ11qmcGDqIO/yzCP9/oY0lvaQnFgJZyogJq5cZ
+         ygcnmcnncHC9uQiqGuZ7w+Djdu67zZw+SRHyIFZhfjyZG5u5pd1GH6pd3mF91+E5QXxq
+         Nx1peCXAV/OPKzdTh6drANso6x+xwoZfC/fXU/r19eHhxmtxC7ZHrejUpFEcBifbtHET
+         eG30k3qBaoga7d/RSYWB3mda+CZ3lAFa9Q9EkKwxIJsdmlkVnFf6lUC2L8AsBF1CjWJw
+         lHV/wn0CPMjYG1nCnWpIozUAv703mZxG8t53dsE0/7B8olWhUVUwPFOWbPJYdur3ExmS
+         W8Iw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737055193; x=1737659993;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=bChrpxoXYLOi2YUup3iemrrMhFmpTodAygOPpJhId9Y=;
-        b=hgPsEc/Fh0gvk4yGRIOMzBgYFTs/3TXV8Aeh5hW/3IbkhQFgCcnpNkKbzYESzdGfcr
-         Tb3VNIqPT+e4rg/E8K10Y0zyfGKKtpYg2ua3mkzangt1YC2aKbt2kmVAJMxBAqE/KNcY
-         KPXEVt5XKqi4vcRh5oz4jPzyJpDmycmo+k0ePHlMnPOjuS4rGQ+/JlWmzavH+64oWLG0
-         5J3luxIwZl6V0T1asICJYmT/FJvhborzEfwrV3k16km3Vop7BURenTKfWLJB8GxnpcRu
-         H/9jgXXmrQ+WZwB+vbRtxbnoMTYDr8TI5akxxn5BBqnQYwmQ4Xy0n/BoTqeUHRlPuu4d
-         QG2g==
-X-Forwarded-Encrypted: i=1; AJvYcCULmEM1oWITjGv/5z8V1oQ7eJnkKirODQvrIBQlRoXwdrdLHBrv+uccVQBtpTwCMViOzd1wcRp7D4PWJB/8QR0w@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw2xMRZXHJUDq6XcirZYs6OKq2qDBSeDNrIVUp/oc69Q8ZRZRAQ
-	fMW09pxocFjPj2g92q/p59vIL+bLSg1nPEVsQ6aoNojsQgl+yO7C7euSr1iW4AQ=
-X-Gm-Gg: ASbGncts2Fz3V1VcuednWpc1kAENsYFgrysMO+qhqk7kEAZFUrlgPGBf8XkekMKyrSx
-	dKZwVOhaNanLvu8S8exHAVblTxTLZNZ3SdcUhXNhG2f95HyygL37hgn3+Ii3iTeB9JTq/q9gt6/
-	tirtwy0D44HIIJPlVcU2TO4KkQME4qRfSAHMyqM4Xx+SUve4fNpgCl1zCtldtFzuCILoYVoyY5n
-	2Y/6TU3C9pQd/U/6LnDtBq99Nrc2XHXzTViO9i5eFQuvyOnkk/3wpg/8vDPfbCEKVEa/aJ7YK80
-	XSj8+AWY+fNc+RcSaxgKXPG1WmZGjw==
-X-Google-Smtp-Source: AGHT+IGTm4bFEwhL8GqLcY8z3nt0mSjwsh1Z+7KfLW6eIDlz0sFoLhtw28pz+YDUvgq5sFx2TdqJnA==
-X-Received: by 2002:a05:620a:2a13:b0:7b6:d8aa:7ef9 with SMTP id af79cd13be357-7be6320c0f9mr4896085a.32.1737055193220;
-        Thu, 16 Jan 2025 11:19:53 -0800 (PST)
-Received: from ziepe.ca (hlfxns017vw-142-68-128-5.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.68.128.5])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7be6147f2e7sm33743585a.32.2025.01.16.11.19.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Jan 2025 11:19:52 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1tYVPE-00000002xf3-0us0;
-	Thu, 16 Jan 2025 15:19:52 -0400
-Date: Thu, 16 Jan 2025 15:19:52 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: iommu@lists.linux.dev, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, robdclark@gmail.com, joro@8bytes.org,
-	robin.murphy@arm.com, jean-philippe@linaro.org, nicolinc@nvidia.com,
-	vdonnefort@google.com, qperret@google.com, tabba@google.com,
-	danielmentz@google.com, tzukui@google.com
-Subject: Re: [RFC PATCH v2 00/58] KVM: Arm SMMUv3 driver for pKVM
-Message-ID: <20250116191952.GD674319@ziepe.ca>
-References: <20241212180423.1578358-1-smostafa@google.com>
- <20241212194119.GA4679@ziepe.ca>
- <Z1yNWI9lBNIZg6Le@google.com>
- <20250102201614.GA26854@ziepe.ca>
- <Z35rEeSVwfZVA9IF@google.com>
+        d=1e100.net; s=20230601; t=1737055830; x=1737660630;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=K9yGTD2yu84mlddSkREi20uhDyFHI2hi1pRd4d7s9yk=;
+        b=iq6WNdPNa4S6g+pdA+pnbFVX/vUm8FjARFgEqrDFLJ9CbpDCNKcaVBhIai6NsBasSF
+         5mUyV8VgKTfBlAhQBoN0NyLfW+n6IZyecFt3+FkkNbsZrFwNdGAxHtbnzqF3jXcOvuQE
+         8sW9bfLwP9LrTSrAUE3WAqvckjtO9LGKEidUPhbQdC8ko+v1XdWu2YcwlQ87vpJuUt3M
+         mF2x6r9GkqjcbLmririb9JdqMZO4R94/P8E+BR2HVhjlfj/KDf4fqQjEnnUEdo3hZP+8
+         0qsTvs1knk4yrxHO1DPyQHbJSyBj0L3eKKIrwOW50rHIaJZ3gHrWobSKi/E/gNg3PNu8
+         d8IQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXMhYSLCaK6ybfpgYEfo2SJRQHw5nhDa/Gz3Hvw5EwBR9y8iZN2Zphvnh55PIlo7wcwz0NymTe3mNGe9iNKmlyj@lists.infradead.org
+X-Gm-Message-State: AOJu0YzCyBLL+qlBWNUdlM0BjGxl7aj6owQ/ROHTCYXZbt4YmxTSS+ph
+	fpRW81U2QSE39YC7FMGPHec+kT/71YgyzAjqZHtSDR+mNbZE8pocCYDczg0VS2hKavLH0qhu9CU
+	jKM6xyF+aaupsP16t4oBs2T9KPSZo8gYSjjUX8g==
+X-Gm-Gg: ASbGncsBru5ZCImLnCFiQlFAHs8OMkTXsWgmfp5VT9GXV+EgGsY0f81QFnC4Cew1HZ4
+	4aPau44EEg7josP4Vx69+jXul0/+1HAn79A5R5p4BTd1lACYtpXCCiMfcv46LRCOmem1jFA==
+X-Google-Smtp-Source: AGHT+IFXG849W4uNWpc4bFNrizPOkptByt52u9hfJ+BJR1wUhWUYNlnui+HfcnnpuS0n6WGsOedCv9P+RnA/p78YhBw=
+X-Received: by 2002:a05:690c:113:b0:6ee:4ce9:b33e with SMTP id
+ 00721157ae682-6f5312252eamr304823777b3.12.1737055830258; Thu, 16 Jan 2025
+ 11:30:30 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <Z35rEeSVwfZVA9IF@google.com>
+References: <20250116-bcm2712-clk-updates-v1-0-10bc92ffbf41@raspberrypi.com> <974a3030-0531-4c4d-9769-af752ae4898d@gmx.net>
+In-Reply-To: <974a3030-0531-4c4d-9769-af752ae4898d@gmx.net>
+From: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Date: Thu, 16 Jan 2025 19:30:12 +0000
+X-Gm-Features: AbW1kvb0Im_xVBsOKkzTFauIDT67Sx1H5TzizuoNDn6oj7mq0-uOqt38-I9PFmk
+Message-ID: <CAPY8ntAP2EhXsVDRgK9723feWrS5M9z5=vgN4SjuAmAF3wQNGw@mail.gmail.com>
+Subject: Re: [PATCH 0/5] clk: bcm: rpi: Add additional clocks for 2712.
+To: Stefan Wahren <wahrenst@gmx.net>
+Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, linux-clk@vger.kernel.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Dom Cobley <popcornmix@gmail.com>, 
+	Maxime Ripard <mripard@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_111954_321561_A855ECDC 
-X-CRM114-Status: GOOD (  11.93  )
+X-CRM114-CacheID: sfid-20250116_113031_588404_2E02C1E9 
+X-CRM114-Status: GOOD (  22.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,25 +96,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 08, 2025 at 12:09:53PM +0000, Mostafa Saleh wrote:
+Hi Stefan
 
-> I am open to gradually upstream this as you mentioned where as a first
-> step pKVM would establish DMA isolation without translation for host,
-> that should be enough to have functional pKVM and run protected workloads.
+On Thu, 16 Jan 2025 at 19:11, Stefan Wahren <wahrenst@gmx.net> wrote:
+>
+> Hi Dave,
+>
+> Am 16.01.25 um 17:24 schrieb Dave Stevenson:
+> > These patches were Acked by Stephen as patches 30-34 of
+> > https://lore.kernel.org/all/20241023-drm-vc4-2712-support-v1-0-1cc2d5594907@raspberrypi.com/
+> > with v2 at
+> > https://lore.kernel.org/all/20241025-drm-vc4-2712-support-v2-0-35efa83c8fc0@raspberrypi.com/
+> >
+> > I'm a newbie on kernel processes and where the patches should be merged.
+> >
+> > I'd asked Stephen on the v1 thread as to what needed to happen to get
+> > them merged, and he asked me to resend the clk patches for the next merge
+> > window.
+> > I must confess to it having slipped my mind, but resending them now to
+> > hopefully be merged in time.
+> from my understanding, not all of these patches are specific to BCM2712
+> (Raspberry Pi 5).
+>
+> Could you please clarify (no need to send a new version)?
 
-Personally I hate these giant patch series, you should strip it down
-to small meaningful steps and try to stay below 20 per series.
+You're right that they aren't all specific to 2712.
 
-I think getting pkvm to own the SMMU HW is a great first step that
-everything else can build on
+The patches were all part of the series adding 2712 DRM support, and I
+didn't check the details of exactly what was changed in each when
+writing this cover letter. Sorry.
 
-> But although that might be usable on some systems, I don’t think that’s
-> practical in the long term as it limits the amount of HW that can run pKVM.
+  Dave
 
-I suspect you will end up doing everything. Old HW needs paravirt, new
-HW will want nesting and its performance. Users other than mobile will
-come. If we were to use pKVM on server workloads we need nesting for
-performance.
-
-Jason
+> Best regards
+> >
+> > Thanks.
+> >    Dave
+> >
+> > Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+> > ---
+> > Dom Cobley (3):
+> >        clk: bcm: rpi: Add ISP to exported clocks
+> >        clk: bcm: rpi: Allow cpufreq driver to also adjust gpu clocks
+> >        clk: bcm: rpi: Enable minimize for all firmware clocks
+> >
+> > Maxime Ripard (2):
+> >        clk: bcm: rpi: Create helper to retrieve private data
+> >        clk: bcm: rpi: Add disp clock
+> >
+> >   drivers/clk/bcm/clk-raspberrypi.c          | 33 ++++++++++++++++++++++--------
+> >   include/soc/bcm2835/raspberrypi-firmware.h |  1 +
+> >   2 files changed, 25 insertions(+), 9 deletions(-)
+> > ---
+> > base-commit: 40384c840ea1944d7c5a392e8975ed088ecf0b37
+> > change-id: 20250115-bcm2712-clk-updates-98a47f32116d
+> >
+> > Best regards,
+>
 
