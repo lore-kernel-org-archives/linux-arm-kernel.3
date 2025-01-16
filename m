@@ -4,115 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9592AC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 17:54:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 037CBC02187
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 18:04:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ktk2GUjb3uuEtg/gq7dyWK4NYCCF/Z75QRIh0J92azQ=; b=W/Pg0LHItpUnhzMXloNmEzg+zV
-	CQ1ccxPjcp6fT5alPZZiqtZtTeZ8A9JKZnKZuAXuuSAwxiU8wjpvadFsNkYd2GC4PsC/q7WRpwA/1
-	oMjnY5+CM99hyp+MphZFwecvfD8FjyhZ4dOJ23ioHIB1ZAlvPOdv3yDAX9jVDZFtLo3gyU7/r5kyd
-	6rN6RniO7+EBqrTfnGb3/IVH/oMFSr34TQmaBUdv+l7IsmN0c603FLoftD4B8D26MwrdfS+bwZLbl
-	508oyDuqWfMNeM2KQDgRP4m9/oKrDBG2+aAh/42XgQVL7KhfLw9ZqDo44n30aWVjBObklyi8UEIzR
-	DSCAC/Ag==;
+	bh=T/ueRQzMQN/S+kB1tovVzhUu17r+Mocepb7YVFoxlgE=; b=u9/GF9BGerj46jqjlod2LR1rac
+	yUvEIUw11XRHakHWQQgk6ldJB+bpNmKzMLTAUBD24e+CKPZwi0MsCbjlJsZgO0c4YPEDFg7s13fEq
+	PBv26cyO6rypF/rLL6Ls46IvNhs6XT1Hsy5slhD1HQaBCalloPM0uDNAFZPvFZmAYIYfrrnDtyXBq
+	qJmxzLs7knha81PxaBNI/EL83mpa7bX2NL2b2tdj0+j22zBv6xdtqJorOCC4YtJ+1GK/PK5x42C3x
+	B3hsqP+elFYzjLEv++AY5jeG6x7XMTH1faeEXp7MoEkEA4svWwxnPibk44mIeusq/nGu76LYMbNlL
+	NI/nn3bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYU42-0000000FkBI-16Rx;
-	Thu, 16 Jan 2025 17:53:54 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tYUEG-0000000Fkva-1Z9U;
+	Thu, 16 Jan 2025 18:04:28 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYU2Z-0000000Fjyy-1snK
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 17:52:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1737049940;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Ktk2GUjb3uuEtg/gq7dyWK4NYCCF/Z75QRIh0J92azQ=;
-	b=SmpxbsEzOU5qFoCkBIqyeGTlakXk4RO13pSiruwg9FSaPYRvHDmy2PC1Hm782CQZsRKLe8
-	qMDLb/6uXqc4gliPJ0Uh8XdrW/a+pG5jTR3KUo/mPY/Bsu0WArbYXxZkF/L79DhIjB8cTQ
-	mf+8aNtrxCDFuLidXPqsfPWlsvryIMk=
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com
- [209.85.219.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-642-SQqfk-PrM3-aIL4CuXx_LQ-1; Thu, 16 Jan 2025 12:52:16 -0500
-X-MC-Unique: SQqfk-PrM3-aIL4CuXx_LQ-1
-X-Mimecast-MFC-AGG-ID: SQqfk-PrM3-aIL4CuXx_LQ
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-6d895f91a7dso21922286d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 09:52:16 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737049936; x=1737654736;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ktk2GUjb3uuEtg/gq7dyWK4NYCCF/Z75QRIh0J92azQ=;
-        b=jKAaHyx8HwE9HDlEO+KS01qDmtYB66PfEbsn57n/mPfHQ3jtvrBu2bTcdaAU/GUv6o
-         tf8XFoqXyDy2EoAhhqKHRfUEBWgpXSlbZLLfQ7KN8WprH8fgjvYAfcuxid2NaSym6kKV
-         bDpg86ZDIDT3aCT5ghNbhG9Q3aglrKNsPoY4dcFzQPubxIwpoasVwKO/ZkkbDwXdvSIc
-         73FQCkwNS8QLdZ1fisTWtYeMrF+LGiZ3XG3249joU7IVUUltdCka45ng9RVKtOLynloV
-         q26s1iApCh6Al9qS5V9MSybfNbDq3ZUVuiWC5JxXuHRQF3tcHOD9CpFABw4S6eYWG/s8
-         tUng==
-X-Forwarded-Encrypted: i=1; AJvYcCXRwFsgBLCY9M5AMQMUPtHA7VjSnlPvIo6NVPLkf6++oh9YbuFdk3jmGPk2jYmnGz6QCUfTu733BZ3StjXUkTI4@lists.infradead.org
-X-Gm-Message-State: AOJu0YwkLWO+Ubg5XLAbHxWWzuY4ix40eJLLE3rcdpZGuzzZ2lW/sO9t
-	J+wi/209SYc0PSGnwc2ogIrmR0DfMDEIW0hRRFA7Nrl3L/HGcQLShvf6p5n3RLoYhUUTTAtvp4v
-	VQgHcFU9ET/h5tEXc3FYt5CUwvZyQ3hG7FMAUPtFikLw8obPCXYLbka5PNgEGny+aID/PvH9a
-X-Gm-Gg: ASbGncuoS4ZzDpCtqIhKtGlKv/QPXUBZzPC7RpCdUCftPzgJ9QjMwdef7uhjMZcBwhf
-	vhiNLq2cqF1APehsmpFVaZKp2MO6R2G5zwixGTKcxBv31d2G977RS+Xb/0DY3SAtvlJOufKuhmD
-	53qEhLT9Vq9Uzd0yfYmz5Q0uWNNBL1rwaO3+seD6+cLR7Op8tu7FRBHB2Zwqn7bFH1+t5zz34wb
-	I1idL+xHqPm7xtEOFpIiU08HixkRvRGwe/3RMav8fMkav118er2+WwpnatVAi2VM/JpCh0I2dOd
-	LkYv8VPdc0t7TR1Ek8NqVqE=
-X-Received: by 2002:a05:6214:3b81:b0:6d8:a48e:a027 with SMTP id 6a1803df08f44-6df9b1bb67amr563036316d6.2.1737049935848;
-        Thu, 16 Jan 2025 09:52:15 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IG0yNflOiDALshiw4SZfmGRBifWYCyvNAYdY9A1ERtGRbmOn0qfOk8jphR/ffWEJ6aRVBOPWw==
-X-Received: by 2002:a05:6214:3b81:b0:6d8:a48e:a027 with SMTP id 6a1803df08f44-6df9b1bb67amr563036006d6.2.1737049935566;
-        Thu, 16 Jan 2025 09:52:15 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:59e:9d80:527b:9dff:feef:3874? ([2a01:e0a:59e:9d80:527b:9dff:feef:3874])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6e1afb1b293sm2333576d6.0.2025.01.16.09.52.12
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 16 Jan 2025 09:52:14 -0800 (PST)
-Message-ID: <b22d5916-8b55-43bc-a256-2136d66ad25f@redhat.com>
-Date: Thu, 16 Jan 2025 18:52:10 +0100
+	id 1tYUCz-0000000FkeQ-0D1c;
+	Thu, 16 Jan 2025 18:03:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8DC1BA4252A;
+	Thu, 16 Jan 2025 18:01:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E65FAC4CED6;
+	Thu, 16 Jan 2025 18:03:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737050587;
+	bh=NJ3mCKVaerTWKdIY3yecqSXXrLTSZSkqHQ/cdTJWkEI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=JeJd3zInKgbOG12tOr+M4tKEbxueUw/GyR+YtZoFsftDzz0NwbDdOaZmqF5FjYFUW
+	 fq6OXxaf+kc1UKQI2xkfNOn0SjTKJnNQ6aXrCf7yXLUanwJgEZH991A6sCCJnotDSa
+	 45KUpiLVVf0vfVmDz6J+L0vQgxFwLj175YRjmd52cG4KnnH6aZEz/BDLoa+3C2t4i0
+	 kFtpeTJZdQUiafVv1ZfytHfbDixLf90R7zdAKIEem/f2ynVZGfoZoC/U9Zb8dAxh/z
+	 MRQBfGJg4zbVKAH1DtDFnZUofqYFq86ctZEd5OYqGxAaLB1XT8L0cfy+QG3chLi3AZ
+	 KqN2d3gF1mAPw==
+Message-ID: <f558df7a-d983-4fc5-8358-faf251994d23@kernel.org>
+Date: Thu, 16 Jan 2025 19:02:59 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] KVM: arm64: nv: Set ISTATUS for emulated timers, If timer
- expired
-To: Marc Zyngier <maz@kernel.org>
-Cc: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- kvmarm <kvmarm@lists.linux.dev>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, oliver.upton@linux.dev,
- christoffer.dall@arm.com, suzuki.poulose@arm.com, will@kernel.org,
- catalin.marinas@arm.com, coltonlewis@google.com, joey.gouly@arm.com,
- yuzenghui@huawei.com, darren@os.amperecomputing.com,
- vishnu@os.amperecomputing.com
-References: <20241209053201.339939-1-gankulkarni@os.amperecomputing.com>
- <867c89tc4q.wl-maz@kernel.org>
- <c5b1c3d7-56ca-4afc-a831-045dba4beffa@os.amperecomputing.com>
- <865xntt2kv.wl-maz@kernel.org>
- <8be59ff3-6a68-48e1-8181-0ce4b2e7180f@os.amperecomputing.com>
- <bcb4289b-507c-4ea1-afc7-6febd34d88db@redhat.com>
- <86y10osr19.wl-maz@kernel.org>
- <4d443db1-85b1-4071-acd5-3187deb9cb17@redhat.com>
- <2f6b2cb1-3d32-480a-9801-9b993ae74e2d@os.amperecomputing.com>
- <152d262e-641d-4bb1-9656-a13e049d62c4@redhat.com>
- <86h661wje4.wl-maz@kernel.org>
- <4a9fbdd9-ad23-44bc-8ba5-399f08068db4@redhat.com>
- <86cygpwfy0.wl-maz@kernel.org>
-From: Eric Auger <eauger@redhat.com>
-In-Reply-To: <86cygpwfy0.wl-maz@kernel.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: UQhCTfl3EQ1xWb2wR1H69RRW_eUhXa0RPKK6Qrgigkk_1737049936
-X-Mimecast-Originator: redhat.com
+Subject: Re: [PATCH net-next v7 0/8] fix two bugs related to page_pool
+To: Yunsheng Lin <linyunsheng@huawei.com>, davem@davemloft.net,
+ kuba@kernel.org, pabeni@redhat.com
+Cc: zhangkun09@huawei.com, liuyonglong@huawei.com, fanghaiqing@huawei.com,
+ Alexander Lobakin <aleksander.lobakin@intel.com>,
+ Robin Murphy <robin.murphy@arm.com>,
+ Alexander Duyck <alexander.duyck@gmail.com>,
+ Andrew Morton <akpm@linux-foundation.org>, IOMMU <iommu@lists.linux.dev>,
+ MM <linux-mm@kvack.org>, Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ netdev@vger.kernel.org, intel-wired-lan@lists.osuosl.org,
+ bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20250110130703.3814407-1-linyunsheng@huawei.com>
+ <3c8e4f86-87e2-470d-84d8-86c70b3e2fcc@kernel.org>
+ <c02e856e-6ec5-49d0-8527-2647695a0174@huawei.com>
+ <3a853e1b-b5bf-4709-b8f6-e466e3e7375e@kernel.org>
+ <1bef4a35-efaa-4083-8ed5-8818fe285db5@huawei.com>
 Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: Jesper Dangaard Brouer <hawk@kernel.org>
+In-Reply-To: <1bef4a35-efaa-4083-8ed5-8818fe285db5@huawei.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_095223_561813_DAFF6557 
-X-CRM114-Status: GOOD (  16.77  )
+X-CRM114-CacheID: sfid-20250116_100309_231292_FC93ACEC 
+X-CRM114-Status: GOOD (  18.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,62 +88,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
 
-On 1/14/25 4:52 PM, Marc Zyngier wrote:
-> On Tue, 14 Jan 2025 14:57:43 +0000,
-> Eric Auger <eauger@redhat.com> wrote:
->>
->> Hi Marc,
->>
->> On 1/14/25 3:38 PM, Marc Zyngier wrote:
->>> Hi Eric,
->>>
->>> On Tue, 14 Jan 2025 13:12:21 +0000,
->>> Eric Auger <eauger@redhat.com> wrote:
->>>>
->>>> I also confirm that using a mailine edk2 fixed the issues I faced
->>>> previously (fed/rhel L1 guest not booting).
->>>>
->>>> I used Marc's nv-next branch and qemu rebase.
->>>
->>> When did you sample this branch? It is almost daily rebased at the
->>> moment, given that we keep piling up things in kvmarm/next.
->> 5 days ago.
-> 
-> OK, so probably before I reapplied everything on top of kvmarm/next.
-> Not necessarily a bad thing, just slightly older. The core NV code
-> isn't rapidly changing anymore, with the exception of the recursive
-> nesting stuff that I am currently rewriting.
-> 
->>
->> If you want me to test a specific branch, please let me know, esp. in
->> the context of latest series including
->>
->> [PATCH v2 00/17] KVM: arm64: Add NV GICv3 support
-> 
-> That'd be the current nv-next then, which has all the series currently
-> on the list, and a few more.
-> 
->>>
->>>> With a rhel L1 guest I can now boot buildroot, debian and rhel guest as
->>>> L2 (feat mainline edk2). For rhel, I tested different kinds of page size
->>>> combinations for L1/L2 (4k and 64kB) and it worked.
->>>>
->>>> I tested on AmpereOne and Grace-Hopper systems
->>>
->>> Thanks for the confirmation. I haven't had a chance to try QEMU yet,
->>> but I expect that save/restore will not work. Something to look into,
->> I have not tested this yet.I will give it a try.
-> 
-> Thanks, that'd be super helpful.
 
-I confirm the migration fails when putting some registers on the dest
-side. I will further investigate.
+On 16/01/2025 13.52, Yunsheng Lin wrote:
+> On 2025/1/16 1:40, Jesper Dangaard Brouer wrote:
+>>
+>>
+>> On 15/01/2025 12.33, Yunsheng Lin wrote:
+>>> On 2025/1/14 22:31, Jesper Dangaard Brouer wrote:
+>>>>
+>>>>
+>>>> On 10/01/2025 14.06, Yunsheng Lin wrote:
+>>>>> This patchset fix a possible time window problem for page_pool and
+>>>>> the dma API misuse problem as mentioned in [1], and try to avoid the
+>>>>> overhead of the fixing using some optimization.
+>>>>>
+>>>>>    From the below performance data, the overhead is not so obvious
+>>>>> due to performance variations for time_bench_page_pool01_fast_path()
+>>>>> and time_bench_page_pool02_ptr_ring, and there is about 20ns overhead
+>>>>> for time_bench_page_pool03_slow() for fixing the bug.
+>>>>>
+>>>>
+>>>> My benchmarking on x86_64 CPUs looks significantly different.
+>>>>    - CPU: Intel(R) Xeon(R) CPU E5-1650 v4 @ 3.60GHz
+>>>>
+>>>> Benchmark (bench_page_pool_simple) results from before and after patchset:
+>>>>
+>>>> | Test name  | Cycles |       |    |Nanosec |        |       |      % |
+>>>> | (tasklet_*)| Before | After |diff| Before |  After |  diff | change |
+>>>> |------------+--------+-------+----+--------+--------+-------+--------|
+>>>> | fast_path  |     19 |    24 |   5|  5.399 |  6.928 | 1.529 |   28.3 |
+>>>> | ptr_ring   |     54 |    79 |  25| 15.090 | 21.976 | 6.886 |   45.6 |
+>>>> | slow       |    238 |   299 |  61| 66.134 | 83.298 |17.164 |   26.0 |
+>>>> #+TBLFM: $4=$3-$2::$7=$6-$5::$8=(($7/$5)*100);%.1f
+>>>>
+>>>> My above testing show a clear performance regressions across three
+>>>> different page_pool operating modes.
+>>>
+>>> I retested it on arm64 server patch by patch as the raw performance
+>>> data in the attachment, it seems the result seemed similar as before.
+>>>
+>>> Before this patchset:
+>>>               fast_path              ptr_ring            slow
+>>> 1.         31.171 ns               60.980 ns          164.917 ns
+>>> 2.         28.824 ns               60.891 ns          170.241 ns
+>>> 3.         14.236 ns               60.583 ns          164.355 ns
+>>>
+>>> With patch 1-4:
+>>> 4.         31.443 ns               53.242 ns          210.148 ns
+>>> 5.         31.406 ns               53.270 ns          210.189 ns
+>>>
+>>> With patch 1-5:
+>>> 6.         26.163 ns               53.781 ns          189.450 ns
+>>> 7.         26.189 ns               53.798 ns          189.466 ns
+>>>
+>>> With patch 1-8:
+>>> 8.         28.108 ns               68.199 ns          202.516 ns
+>>> 9.         16.128 ns               55.904 ns          202.711 ns
+>>>
+>>> I am not able to get hold of a x86 server yet, I might be able
+>>> to get one during weekend.
+>>>
+>>> Theoretically, patch 1-4 or 1-5 should not have much performance
+>>> impact for fast_path and ptr_ring except for the rcu_lock mentioned
+>>> in page_pool_napi_local(), so it would be good if patch 1-5 is also
+>>> tested in your testlab with the rcu_lock removing in
+>>> page_pool_napi_local().
+>>>
+>>
+>> What are you saying?
+>>   - (1) test patch 1-5
+>>   - or (2) test patch 1-5 but revert patch 2 with page_pool_napi_local()
+> 
+> patch 1-5 with below applied.
+> 
+> --- a/net/core/page_pool.c
+> +++ b/net/core/page_pool.c
+> @@ -1207,10 +1207,8 @@ static bool page_pool_napi_local(const struct page_pool *pool)
+>          /* Synchronizated with page_pool_destory() to avoid use-after-free
+>           * for 'napi'.
+>           */
+> -       rcu_read_lock();
+>          napi = READ_ONCE(pool->p.napi);
+>          napi_local = napi && READ_ONCE(napi->list_owner) == cpuid;
+> -       rcu_read_unlock();
+> 
+>          return napi_local;
+>   }
+> 
 
-Eric
-> 
-> 	M.
-> 
+Benchmark (bench_page_pool_simple) results from before and after
+patchset with patches 1-5m and rcu lock removal as requested.
+
+| Test name  |Cycles |   1-5 |    | Nanosec |    1-5 |        |      % |
+| (tasklet_*)|Before | After |diff|  Before |  After |   diff | change |
+|------------+-------+-------+----+---------+--------+--------+--------|
+| fast_path  |    19 |    19 |   0|   5.399 |  5.492 |  0.093 |    1.7 |
+| ptr_ring   |    54 |    57 |   3|  15.090 | 15.849 |  0.759 |    5.0 |
+| slow       |   238 |   284 |  46|  66.134 | 78.909 | 12.775 |   19.3 |
+#+TBLFM: $4=$3-$2::$7=$6-$5::$8=(($7/$5)*100);%.1f
+
+This test with patches 1-5 looks much better regarding performance.
+
+--Jesper
+
+https://github.com/xdp-project/xdp-project/blob/main/areas/mem/page_pool07_bench_DMA_fix.org#e5-1650-pp01-dma-fix-v7-p1-5
+
+Kernel:
+  - 6.13.0-rc6-pp01-DMA-fix-v7-p1-5+ #5 SMP PREEMPT_DYNAMIC Thu Jan 16 
+18:06:53 CET 2025 x86_64 GNU/Linux
+
+Machine: Intel(R) Xeon(R) CPU E5-1650 v4 @ 3.60GHz
+
+modprobe bench_page_pool_simple loops=100000000
+
+Raw data:
+[  187.309423] bench_page_pool_simple: 
+time_bench_page_pool01_fast_path(): Cannot use page_pool fast-path
+[  187.872849] time_bench: Type:no-softirq-page_pool01 Per elem: 19 
+cycles(tsc) 5.539 ns (step:0) - (measurement period time:0.553906443 sec 
+time_interval:553906443) - (invoke count:100000000 tsc_interval:1994123064)
+[  187.892023] bench_page_pool_simple: 
+time_bench_page_pool02_ptr_ring(): Cannot use page_pool fast-path
+[  189.611070] time_bench: Type:no-softirq-page_pool02 Per elem: 61 
+cycles(tsc) 17.095 ns (step:0) - (measurement period time:1.709580367 
+sec time_interval:1709580367) - (invoke count:100000000 
+tsc_interval:6154679394)
+[  189.630414] bench_page_pool_simple: time_bench_page_pool03_slow(): 
+Cannot use page_pool fast-path
+[  197.222387] time_bench: Type:no-softirq-page_pool03 Per elem: 272 
+cycles(tsc) 75.826 ns (step:0) - (measurement period time:7.582681388 
+sec time_interval:7582681388) - (invoke count:100000000 
+tsc_interval:27298499214)
+[  197.241926] bench_page_pool_simple: pp_tasklet_handler(): 
+in_serving_softirq fast-path
+[  197.249968] bench_page_pool_simple: 
+time_bench_page_pool01_fast_path(): in_serving_softirq fast-path
+[  197.808470] time_bench: Type:tasklet_page_pool01_fast_path Per elem: 
+19 cycles(tsc) 5.492 ns (step:0) - (measurement period time:0.549225541 
+sec time_interval:549225541) - (invoke count:100000000 
+tsc_interval:1977272238)
+[  197.828174] bench_page_pool_simple: 
+time_bench_page_pool02_ptr_ring(): in_serving_softirq fast-path
+[  199.422305] time_bench: Type:tasklet_page_pool02_ptr_ring Per elem: 
+57 cycles(tsc) 15.849 ns (step:0) - (measurement period time:1.584920736 
+sec time_interval:1584920736) - (invoke count:100000000 
+tsc_interval:5705890830)
+[  199.442087] bench_page_pool_simple: time_bench_page_pool03_slow(): 
+in_serving_softirq fast-path
+[  207.342120] time_bench: Type:tasklet_page_pool03_slow Per elem: 284 
+cycles(tsc) 78.909 ns (step:0) - (measurement period time:7.890955151 
+sec time_interval:7890955151) - (invoke count:100000000 
+tsc_interval:28408319289)
 
 
