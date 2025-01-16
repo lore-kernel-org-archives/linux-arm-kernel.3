@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29EF0C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 01:49:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9043AC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 01:57:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+QNPVQXecLokCMBNU0Zpch+WkI0Q+RjsM7OPeRvuUd8=; b=OBUtDI6JCqqF810FMzG4GBVpgA
-	euFhuSAkWsFMetanFP+d1w5DGnA+Ib/ain+RHsYZfy9SLa/KRn0Qdbtcc2jLA/V27H7tWZuN78O9A
-	XvAZ+jxftdzZP3fJT7iCdhutIWZkIOkhCpnjOdIOrse9DZdCy7alnMeHP7qJMiQNps85C3jsIfyam
-	rWeRdLH52ynoX0ZSdV4OPT6pHck2agfiEZjE3iRp9AxBsoNovlKZikCBoiQ+HhzENQF/BZUSWFzOv
-	auV2cnEV2j7nuSYOzA+SiqDlhbAa1BF+f3dYhY5JVzmTAEBe01EWpobErBNhuIn77gsKJ2MCiv6no
-	LeSlV6EA==;
+	bh=mPT7HO0uKhENdBsBoDbMFzCNa+LMh6a1srxsA8S0Gko=; b=hLV5elakujercWD0aY3+tzI5wT
+	m0jTAo9a9HqIUJBtJv8f6H6aBsESVtUGg5nCf/4teJY3rasaONsuPq6AlstXQ0Hl6ZIp6/UlCJuLO
+	mRb2McoeTYhlaTAYZsb/g8XLwGAElLVIzctOpaofZ0vVQwVk/fT2qpk4PEojiTVuEwvbL3atoDpEl
+	o5GE77B2iMfI2bvtG772pQVrZ8ZBEktTE/HvnXuHFjk8f8F6pL2/jrCR/itRGOILv+JfMQ77PVha+
+	opkGj6BQ+nKGyZcaTfnYwg1PQiHVR1y5kjuCeldBI9J9f3ukQMxyMJpgUJ1zjt6VleGxEgUQjW9fw
+	061xUPJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYF0N-0000000DZsq-42h9;
-	Thu, 16 Jan 2025 01:49:07 +0000
-Received: from mail-pj1-f54.google.com ([209.85.216.54])
+	id 1tYF8X-0000000DaMi-0cEZ;
+	Thu, 16 Jan 2025 01:57:33 +0000
+Received: from mail-pj1-f52.google.com ([209.85.216.52])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYEz8-0000000DZly-1IM0
+	id 1tYF7H-0000000DaDS-2SG5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 01:47:51 +0000
-Received: by mail-pj1-f54.google.com with SMTP id 98e67ed59e1d1-2ef28f07dbaso635710a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 17:47:49 -0800 (PST)
+	Thu, 16 Jan 2025 01:56:16 +0000
+Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-2ef760a1001so826850a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 17:56:15 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736992069; x=1737596869;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+QNPVQXecLokCMBNU0Zpch+WkI0Q+RjsM7OPeRvuUd8=;
-        b=mP1VTEdWB/EZJzFp9XlgVkTMQu+bc19gP4YpPFgzDih77hv7EIzEzGOGDnUJKhRawe
-         EZl3zskUGKttmtfoq3fPLXHZtuH867c+T07r6mB6xbeWK1C6t6RkNsm8++g7xWoviKwA
-         Q8tklzisGXDZZI+2PlMWxkwdtJfRUjzOXS+AZds1Y1ZzcDEDshWGFuMSk1nEkcB+h66e
-         CEwU5D7s9d0nNAuAKxh/6YVDDZTTZ2VXVEUTifJnm5RIP/BUpXZha8OKNC2fU4kynobv
-         Qp8MvuDcegU389sZovEARvy8vFy+PmI8cX0gJ56PbVfsDGbpbQG0/gGl21e9l35nkhVV
-         qlGQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWbVzxi7zYDVZKl3NoHtPNW3z3oK5piqN2ZnHsR49ej//PR6hP+t8g1poDVGpra9iOD2XmoTRDRhNnoqfhGGDUT@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywc5WA7Gxh8stxotj4bvj5nWOHjrTD9NtbB1MJfqN6WzJlfPvzh
-	P8f6nZxCdROYvfU8S1R5FmyLj8PYw6ZgrSfx5amyR76FVc6wBtQE
-X-Gm-Gg: ASbGncuwahmd1YgX7o2/hq93aDapnL8KTF48hlcJgHxtrAAOQzIEMrgyTABIgEBFIw9
-	jmTv5B7Q9PXxpg8vdvzgCISe4qF76+k3d2TYlHVH2F/WKi3lFvl9PxsoPGXzzZ76dIZIZ/205/J
-	VqCFOWmVRFfG4S2WxeucLU0M9Hl7Q5K7uKJYXMfzCWZrMOm516Gb1Bn1eDYShUWo8xiquKrFz3J
-	EPHpes5OQufiTu7KZO1Id9VdKwlLnMtc6f/sI743ojFCXU9cSwyKGto/chGs0J9Z643ejDB+IBP
-	PBs2IyHF0VhsqSM=
-X-Google-Smtp-Source: AGHT+IHIPg+1+HCTsuijQC+DWu9OaoAsxoCVaqGsJ9zBPENZpCBH7mo8AWX3+7KImg14FW/XnuOBQg==
-X-Received: by 2002:a17:90b:2642:b0:2ea:aa56:499 with SMTP id 98e67ed59e1d1-2f548e9aed3mr41058488a91.1.1736992069406;
-        Wed, 15 Jan 2025 17:47:49 -0800 (PST)
+        d=1e100.net; s=20230601; t=1736992575; x=1737597375;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=mPT7HO0uKhENdBsBoDbMFzCNa+LMh6a1srxsA8S0Gko=;
+        b=UfSjV7Cqrl/ApDt35loZOJDBO3qa0NlKUhVFUnrxlDY4xOZNWi2qAQXo3087k+1ylc
+         2efirYZQ1r8UR1vsSyD9l+PrAybLXXFiUJu8mRyuflvH01kXFxvX5NryT7U1K5Y+bo4z
+         or7cQhERpVZlAmUmDi7RU50DanAhH4h8cfzYvhi09Zj5CtRp7UOpVP9yPxqFgSXwkXsk
+         kh4QuEYwWALns9C16nifLfkmIiwQ97wN6pZ2UweSfCtFeuXh2Jos9R79KFALfv/86UaK
+         l0ugB7NQ2h5qOG07JV11q/yy40SJ2xPYTTCtQq2QlcyPGEuEj69BdaAxaK+wv1DucDzU
+         kFDw==
+X-Forwarded-Encrypted: i=1; AJvYcCWbMeHSQvnnETGL6AdCTimbvpoT09BxBp7bITWPe2V1GmMHlXatd+uNjLYw0bxkDUUlT40V+8+zNAiFwyTZNxXM@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1OHeIjDyGsRexcqfCDWBBAqUyl16+kdJUdAyyLOsYf0pKyRCJ
+	LkdSNr9Fsdr3NcMi3ouWUZxfgKHiiK32mg0PppTUVkNHzksxpE29
+X-Gm-Gg: ASbGnct7fxoB7yNOrNiKSlcFlMc1R6T3/HCnqF3eGs0NdKRJqgMFN0w0hZhUOJ0Yo4g
+	FLdkS7NxaEdHGBwdagW4+HUVReXUAv46TmYBNRVdEONLyecRt7sgABL9JMQsa4F9YorgGRSLKSS
+	YGXM5IRSlhKL64YRoyvRFayzYKcLpfgNv80y+v4K5DulyWkNNSBbEu6e703jCQsj1S6+GB/7L4v
+	IqvRFKX/Ya5pPjvJAKJCU46xeoj1HbUGFSnl7+pGLd7EQLQBBcs7iTeJ5i1li1N6xZRFExWAiDj
+	gROP35rRvkgYw/0=
+X-Google-Smtp-Source: AGHT+IFLaJYooeBDIow3d6P4KJcawUwpbKu9ceRFklBWxLItU2fkeooWGqXZ3z89KdMiKUuR60q/Sg==
+X-Received: by 2002:a17:90b:6c6:b0:2ea:8d1e:a85f with SMTP id 98e67ed59e1d1-2f548f44771mr51223268a91.17.1736992574668;
+        Wed, 15 Jan 2025 17:56:14 -0800 (PST)
 Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f72c1ccf46sm2071655a91.22.2025.01.15.17.47.48
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f72c1cec9dsm2087075a91.29.2025.01.15.17.56.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jan 2025 17:47:48 -0800 (PST)
-Date: Thu, 16 Jan 2025 10:47:47 +0900
+        Wed, 15 Jan 2025 17:56:14 -0800 (PST)
+Date: Thu, 16 Jan 2025 10:56:12 +0900
 From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Cc: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>,
+To: Frank Li <Frank.li@nxp.com>
+Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>,
 	Saravana Kannan <saravanak@google.com>,
 	Jingoo Han <jingoohan1@gmail.com>,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
@@ -71,21 +72,23 @@ Cc: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
-Subject: Re: [PATCH v8 2/7] PCI: dwc: Use devicetree 'ranges' property to get
- rid of cpu_addr_fixup() callback
-Message-ID: <20250116014747.GB2111792@rocinante>
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v8 0/7] PCI: dwc: opitimaze RC Host/EP pci_fixup_addr()
+Message-ID: <20250116015612.GC2111792@rocinante>
 References: <20241119-pci_fixup_addr-v8-0-c4bfa5193288@nxp.com>
- <20241119-pci_fixup_addr-v8-2-c4bfa5193288@nxp.com>
- <20241124143327.6cuxrw76pr6olfor@thinkpad>
+ <20241124143839.hg2yj462h22rftqa@thinkpad>
+ <Z1i9uEGvsVACsF2r@lizhi-Precision-Tower-5810>
+ <Z2R6HET6FZEO+uwi@lizhi-Precision-Tower-5810>
+ <Z3wPX1F4VrQZhICG@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241124143327.6cuxrw76pr6olfor@thinkpad>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <Z3wPX1F4VrQZhICG@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_174750_347385_7D1FCD1D 
-X-CRM114-Status: UNSURE (   9.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250115_175615_622452_328A33BF 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,16 +105,29 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hello,
 
-> The newly added warning should be mentioned in the commit message. But no need
-> to respin just for this. I hope Krzysztof can add it while applying.
+> > > > Series looks good to me. Thanks a lot for your persistence! But it missed 6.13
+> > > > cycle. So let's get it merged early once 6.13-rc1 is out.
+> > >
+> > > Krzysztof Wilczyński:
+> > >
+> > > 	Could you please pick these? all reviewed by mani? It pave the
+> > > road to clean up ugle cpu_fixup_addr().
+> >
+> > Krzysztof Wilczyński and Bjorn Helgaas
+> >
+> > 	Any update for this? All already reviewed by mani.
+> 
+> Krzysztof Wilczyński and Bjorn Helgaas:
+> 
+> 	Happy new year!, could you please take care this patches?
 
-The commit message will include the following:
+Happy New Year 2025 to you, too!
 
-  To expedite deprecation of the cpu_addr_fixup() callback, warn its users
-  if the 'ranges' property is missing from the Devicetree or the address
-  translation information is somewhat incorrect.
-
-Let me know if anything needs to be changed.
+I apologise for the delay, especially given you chasing few times.
+  
+However, we should be good to get the series out for the v6.14 release.
+ 
+Again, sorry for the delay. 
 
 	Krzysztof
 
