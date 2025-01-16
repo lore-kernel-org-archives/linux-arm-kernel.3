@@ -4,62 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7F2DC02187
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 15:35:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 168C9C02187
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 15:36:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jlJ8pqY5C0bNjM+wMnYgJsyguzdkh4Eg/hpzks6Zipw=; b=2hd/cRG8eNv5+Vr4dAOEUbLR4W
-	zI/S1JRUk2B4wU/33mMv2i+4x1MeBOM9daFcwXT7jpTTgQKTDaEPN7deiClFvxFBHBJmMHmW4QOqM
-	mhyqLosgASWBUjzWbi2bN7tNrkyo/SsNm5cc652+LMc8WqvmLXBdS+OXrEBuR5XH5+ls5S/PvfJjd
-	7BCme0ALGz+uPj/72zqNIAYFcbRJppeODmb4ukY/yjs6bvR34aU0jp3RQRr5TK7eU92IGfzWV98su
-	Ac/IEDGxE8hCQOC2gRgTSO72je+u6Cov+XeVl0lUOaP9HqO36G3K/nhqMk7E25Btl/tqLnl/epzRw
-	T0Yeya8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4sLZtsQqiXOx6MVDhhpvktftzSq2Eg0fdZh/iken748=; b=k6y0iAOWQoUHkhA87pSOJgCYdS
+	/UFLP2P3sf1C8nOd97KtHUNPGxE+3eOczx7sFG1CIf7YADe4IsnerxWCODVH4x8/c/YvVShTJA4ax
+	TCsTwIQqXG6vTpZUUd5o92nUAUe9J1sB3GB//exs+I5YLyv1aCMstI6BwWL7B2l6YkrUxHRfMJyBn
+	VVwCBq4N0nkp2lpS1LZNjy0crdsdaXFHswOoofREcAi/5b5ptR7vfNssoz38OWvWbFpj7eVWtTD1i
+	cMJZh9H0oKAAAqfzmVhhmcWvmkT+tltJtDGuHFSef9bBqnelea70YWVBdLCQFe897edWVFNigK2ex
+	XYuPYKBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYRtt-0000000FLgb-1nie;
-	Thu, 16 Jan 2025 15:35:17 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tYRv8-0000000FLwu-0EBF;
+	Thu, 16 Jan 2025 15:36:34 +0000
+Received: from fhigh-a8-smtp.messagingengine.com ([103.168.172.159])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYRrQ-0000000FLLr-47zE
+	id 1tYRro-0000000FLRu-0C4f
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 15:32:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D7E7DA42056;
-	Thu, 16 Jan 2025 15:30:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4B50C4CED6;
-	Thu, 16 Jan 2025 15:32:40 +0000 (UTC)
-Date: Thu, 16 Jan 2025 15:32:38 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Rob Herring <robh@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Eric Auger <eric.auger@redhat.com>, kvmarm@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/7] arm64/boot: Enable EL2 requirements for FEAT_PMUv3p9
-Message-ID: <Z4kmlhnlpKjS_MII@arm.com>
-References: <20241220072240.1003352-1-anshuman.khandual@arm.com>
- <20250102160402.GB3990035-robh@kernel.org>
- <Z30adHnQ7ZFaU9UR@arm.com>
- <CAL_JsqLLnh1o4L1=PpNt5brBwZZCgp7mOygByOYakchrzc29Ow@mail.gmail.com>
- <86wmf5wo8u.wl-maz@kernel.org>
- <CAL_JsqKKiEOj=a1k6U-bB0F6-ht7QokDnh3bspHupp-QG=haSg@mail.gmail.com>
+	Thu, 16 Jan 2025 15:33:10 +0000
+Received: from phl-compute-01.internal (phl-compute-01.phl.internal [10.202.2.41])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 6175E11400C6;
+	Thu, 16 Jan 2025 10:33:04 -0500 (EST)
+Received: from phl-mailfrontend-01 ([10.202.2.162])
+  by phl-compute-01.internal (MEProxy); Thu, 16 Jan 2025 10:33:04 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:message-id:mime-version:reply-to
+	:subject:subject:to:to; s=fm1; t=1737041584; x=1737127984; bh=4s
+	LZtsQqiXOx6MVDhhpvktftzSq2Eg0fdZh/iken748=; b=ItnRXkQ6fhD1p/N+wi
+	kwlSf5OB9blDL/dwtXsECwasixa+LQGmOvQlYqv1Sv17P5nzKYCsYEwSMxnG15fW
+	GekFwPQ/C9mi3GHjPU6VkCQTzhTphFeYDZM5l9ZPdffcqdmMWPaakoUvQyHidv1/
+	3jflXvuboKK9T1T65Fdq5fnmh2K5JPv41AqZ7ugD7EQ2xECk9TUdGxSOEXaspLWM
+	S62xgGPeuDD3+5uWGRNutYzoiRG6I2MlsUdSZpnwszAYxT7K+IlUFo6eb1u8pUUs
+	5n4ulvk5wKk/VlQfomvLrnyrgaUqJROwCrOyt91BKiD98lSIeTc6cNH2B6B3BgJc
+	MtXA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm2; t=1737041584; x=1737127984; bh=4sLZtsQqiXOx6MVDhhpvktftzSq2
+	Eg0fdZh/iken748=; b=Wgp+Zr19SyZfYxQAl3SU5e1lLFKH/94nLnMje0cornqU
+	ZzYyea7SyTFK2d7Yf98lYe+jsatrKi6l/lF+ph3+Wqv6knBDMopqLmQh+63+byIw
+	q4GGMukW7oHYEYZ4+p1tudaHPz+WLkR/mKw8RgV1ie9e99EDFHIpZsqrgKtpwmhZ
+	TKE2kUQ0gPhI/0ejJ7C2H0ANHw+DMqzkWFoHzI2B4zKPgKwSHsNWv15r+vkZiLOO
+	YdarQpQXB87Kqa5fZSHpsNK7vaY1ZYFw4oE0QKL4N+rQqGGzkUVwjaiqU8xurcva
+	gsJX7sgJRgOvS+fRQkY99MmB9kNCSpu9DfY72DTIYQ==
+X-ME-Sender: <xms:ryaJZwMKV2ppAtSaIqZdm8OigQQF-xzWOlY-eIhexUz3XD9l5n5akw>
+    <xme:ryaJZ28RyJaqv_Z32KYaLQdJXEP-3dV66DQMOtJIMuIPZ_sYMSTJFCMs8gnGmOeGj
+    N7SMW9gzW_h3LOTu7E>
+X-ME-Received: <xmr:ryaJZ3R-jT5bsU9I-faEx9HpWvuNpBuyXMt8byiNruJ1ENDnIxOL8KRKkdOoD1OsPk-GsTqizCX_HLTvweC82kPfdA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrudeiuddgjeehucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
+    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucenucfjughrpefhvfevuf
+    ffkffogggtgfesthekredtredtjeenucfhrhhomheppfhikhhlrghsucfunpguvghrlhhu
+    nhguuceonhhikhhlrghsrdhsohguvghrlhhunhguodhrvghnvghsrghssehrrghgnhgrth
+    gvtghhrdhsvgeqnecuggftrfgrthhtvghrnhepheduleetteekgffffedufeeuvdejiedv
+    kefhveeifeegffehledtvdevhfefteegnecuvehluhhsthgvrhfuihiivgeptdenucfrrg
+    hrrghmpehmrghilhhfrhhomhepnhhikhhlrghsrdhsohguvghrlhhunhgusehrrghgnhgr
+    thgvtghhrdhsvgdpnhgspghrtghpthhtohephedpmhhouggvpehsmhhtphhouhhtpdhrtg
+    hpthhtohepghgvvghrthdorhgvnhgvshgrshesghhlihguvghrrdgsvgdprhgtphhtthho
+    pehlihhnuhigsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtoheplhhinhhugi
+    dqrhgvnhgvshgrshdqshhotgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthho
+    pehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdroh
+    hrghdprhgtphhtthhopehnihhklhgrshdrshhouggvrhhluhhnugdorhgvnhgvshgrshes
+    rhgrghhnrghtvggthhdrshgv
+X-ME-Proxy: <xmx:ryaJZ4t7rjGEIgypr_8ep-sY2T5FoxVFZlcpGszF_TohH0W3oKw8ww>
+    <xmx:ryaJZ4dAsZTGtkG_pBPOZheZgRsL0lTbhULfRUgs2WC8uJRdb_fjKw>
+    <xmx:ryaJZ81fzJ5wJiansACb83OH9Vg6g-wm_U1JNvcW7-Jg8EmChreIIA>
+    <xmx:ryaJZ8-JsMQ1RWzTjmVtj8U02ifaokMywhr_f4FFT3SSjtFGA0ppuQ>
+    <xmx:sCaJZ9EGxq6283vsz2s4QmBDF9iO7ZIoffYY8NAfInuwnJZxoFgeD3eN>
+Feedback-ID: i80c9496c:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 16 Jan 2025 10:33:03 -0500 (EST)
+From: =?UTF-8?q?Niklas=20S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>
+To: Geert Uytterhoeven <geert+renesas@glider.be>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: =?UTF-8?q?Niklas=20S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>
+Subject: [PATCH] ARM: shmobile: defconfig: Supplement DTB with ATAG information
+Date: Thu, 16 Jan 2025 16:32:04 +0100
+Message-ID: <20250116153204.615736-1-niklas.soderlund+renesas@ragnatech.se>
+X-Mailer: git-send-email 2.48.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAL_JsqKKiEOj=a1k6U-bB0F6-ht7QokDnh3bspHupp-QG=haSg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_073245_086555_45AACD0B 
-X-CRM114-Status: GOOD (  16.69  )
+X-CRM114-CacheID: sfid-20250116_073308_557112_253F2132 
+X-CRM114-Status: UNSURE (   8.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,30 +113,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 08, 2025 at 07:47:16AM -0600, Rob Herring wrote:
-> On Wed, Jan 8, 2025 at 5:15 AM Marc Zyngier <maz@kernel.org> wrote:
-> > On Tue, 07 Jan 2025 22:13:47 +0000,
-> > Rob Herring <robh@kernel.org> wrote:
-> > > On Tue, Jan 7, 2025 at 6:13 AM Catalin Marinas <catalin.marinas@arm.com> wrote:
-> > > > But does KVM actually expose the feature to EL1 in ID_AA64DFR1_EL1 and
-> > > > than traps it at EL2?
-> > >
-> > > As Marc pointed out KVM only advertises PMUv3.8. Regardless, guest
-> > > accesses to these registers are trapped with or without this series.
-> >
-> > And most probably generates a nice splat in the kernel log, as nobody
-> > updated KVM to handle *correctly* PMICNTR_EL0 traps, let alone deal
-> > with the FGT2 registers.
-> 
-> Isn't that this series[1]? Should that have come first, I guess I know
-> that *now*.
-[...]
-> [1] https://lore.kernel.org/all/20241210055311.780688-1-anshuman.khandual@arm.com/
+Enable CONFIG_ARM_ATAG_DTB_COMPAT to allow u-boot to override kernel
+command line from DTB using the bootargs argument. This is needed at
+lest on H1 Marzen to control the command line from u-boot.
 
-It's not any clearer to me. Does this series depend on the 46-patch one?
-Or, if we had the other, is this no longer needed? Or none of these,
-they are independent.
+Signed-off-by: Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
+---
+ arch/arm/configs/shmobile_defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
+diff --git a/arch/arm/configs/shmobile_defconfig b/arch/arm/configs/shmobile_defconfig
+index a8afbd338de7..0030225dbc34 100644
+--- a/arch/arm/configs/shmobile_defconfig
++++ b/arch/arm/configs/shmobile_defconfig
+@@ -15,6 +15,7 @@ CONFIG_SCHED_MC=y
+ CONFIG_NR_CPUS=8
+ CONFIG_HIGHMEM=y
+ CONFIG_ARM_APPENDED_DTB=y
++CONFIG_ARM_ATAG_DTB_COMPAT=y
+ CONFIG_CPU_FREQ=y
+ CONFIG_CPU_FREQ_STAT=y
+ CONFIG_CPU_FREQ_GOV_POWERSAVE=y
 -- 
-Catalin
+2.48.0
+
 
