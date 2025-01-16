@@ -4,119 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD3D5C02187
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 15:47:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CF69C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 15:48:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rHP3H+DXo55aDFvfWrhth+BNDFmsU1/D3D5mS0BL6vk=; b=qFaIBUhW4vopPuPS0t6ocbB+s2
-	kIF+kHoE54xbX5vwdghvfv1CH5/PV8At2dgZCMoWS9536IxoK15wWLp8ZaKP3dTbjSt/8tYzapClC
-	yjbPszRQmFL/reifT1WM4ihBZlamCLte1QjFEL5QnOFyCMxaAB06/19rhniR2K7pH0HStibdzsMhy
-	7l6d4kCEA0gVRIUiWR0/cMF6Kcpkd7tC3CX0RPOEnuVRrqzsDZ8ueLjbnFFjLZljK7PG079poRPtz
-	apMdjtVzqX5gOuey+1IRPWlemCoxih2uVtXdZzPmd+dWSIB5f3gg49OAUHA/1jLeWBAr5km0K1pmg
-	3RnwZj9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xaChV7cBaPbe1ohg9NpCLfsng9nL3w34aCRLwnxNG4k=; b=XvuBtrnOWWqw69it2HaHEtOS6R
+	Ga27eESW2NA3+R953h12fASGyZq8pVATWVItcB2V+QYK2YR9NNS9dEjyyM0IVodZbO0CQ840yGc6f
+	nim/iom8jKdan1htPWL2rSDx0c1T8K4+6Nfj1a2jQDqj9R7yArjBNJBNTp0Rjo0mWbsUrcEkbob+u
+	ynqRPN/FJ2wFS9Perk+frqp+A3drs+fGjbI2jspIIe+GhZTy2zGcdqj2GlUh0fZmMLhNd2xUuKo1Z
+	Rdy570ieSNPkUJ3RFJcdMJFjmFN6TtrNRhLxT/mhaC1BsVT900JKHQPiTsW0gWat/Jq0fFa3hFWfe
+	tzvQuRKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYS5a-0000000FO4z-4BXw;
-	Thu, 16 Jan 2025 15:47:23 +0000
-Received: from vern.gendns.com ([98.142.107.122])
+	id 1tYS6o-0000000FOFp-2p1M;
+	Thu, 16 Jan 2025 15:48:38 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYS4I-0000000FNmw-0PdN
+	id 1tYS5U-0000000FO4P-3TNq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 15:46:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lechnology.com; s=default; h=Content-Transfer-Encoding:Content-Type:
-	In-Reply-To:From:References:To:Subject:MIME-Version:Date:Message-ID:Sender:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=rHP3H+DXo55aDFvfWrhth+BNDFmsU1/D3D5mS0BL6vk=; b=D2C/M1/0chubfC086kckGY/yxQ
-	3wDPIfN9Vjj9F0cu+4pxewS5sa7uh7Uzpq6WdCJ4AZRyX2rTS8pYafw6UZMIsdFVUQ/efF/+qT/x1
-	F1P7yEUeRtAQBLasv4rUJJbAKmVARyE+v9U2EAjuRtCnZ7GFLQwXjk8txlYJp8YVUCIliKMImjyvy
-	X0Y6km7I1ErlvruWAlVHYsp6vfe49cCsOKPdzAKIlfzWLwChmqVWOwdc75SIAbRMAoS0QOQYH2uf9
-	2dOb6/lPDj11kv3hZdAXYedMrFTlBqWzwBpkj0/qYwCQ56nZ2IsmB419WPNM2weotd5GTs/ZjpB0L
-	RBp9wupQ==;
-Received: from ip98-183-112-25.ok.ok.cox.net ([98.183.112.25]:47804 helo=[192.168.0.142])
-	by vern.gendns.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.96.2)
-	(envelope-from <david@lechnology.com>)
-	id 1tYS3v-0008EP-03;
-	Thu, 16 Jan 2025 10:45:18 -0500
-Message-ID: <42c5653b-812a-49d2-9bae-c51c19d7b731@lechnology.com>
-Date: Thu, 16 Jan 2025 09:45:17 -0600
+	Thu, 16 Jan 2025 15:47:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1737042436; x=1768578436;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=xaChV7cBaPbe1ohg9NpCLfsng9nL3w34aCRLwnxNG4k=;
+  b=VKcM+Uhi31Id1dc9dLpWd0ohpNJXcbZJULj6Q3S46RUtY84vklBKUZKi
+   gEf6JoCDbbJhBEJzi6xqmwpN6BcLy0Lfk+6Sly9lsrPsNZBE6YKoF3Fiu
+   ko83YZDIvk4/0pvfZyKasAjmRT+3PQkDK0EIondr6X7ZFulmh5snCDjUj
+   Xd97BMj1Gb5dNK8nJQ4GNcmKd1pMifAeXGiMHwTY7F8qtli0a5MTYnDHz
+   VoX4AbV/nOTfZQCbXJXWnFddndDKqA91OdMHKMD53Zg2D9AoCNQF5Z+xk
+   5U72qmGclFW4jwI9QDuPRB1QtrgP2jENc92ncvX5O5Bdtyu1ow99lD39j
+   g==;
+X-CSE-ConnectionGUID: Z8Lhc84ST9Sp3IP0z04cUQ==
+X-CSE-MsgGUID: SEv8VNHrSiOJkb1NNtdBdA==
+X-IronPort-AV: E=Sophos;i="6.13,209,1732575600"; 
+   d="scan'208";a="41125076"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 16 Jan 2025 16:47:12 +0100
+X-CheckPoint: {67892A00-8-9B2B6168-EB6F31C5}
+X-MAIL-CPID: 90A1698403BD0B9F8FB62E6BA9D3AA5C_5
+X-Control-Analysis: str=0001.0A682F2A.67892A00.0070,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6A19716CA7A;
+	Thu, 16 Jan 2025 16:47:06 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1737042427;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=xaChV7cBaPbe1ohg9NpCLfsng9nL3w34aCRLwnxNG4k=;
+	b=q84Hb1aXILJupHME6TrWA2bx9eU/gG8zZ86RGmnwEILXf6dARbwt0meo4wpX/q1uveY+yv
+	TYGVw5m05b2/YHgfexJmxAjFrtp0iTyq20kenibvvS3sOSFKI14GAyyEThGFxBKyHkMy0S
+	8IG2ns828l8rajwcQRpHqNwDWmZb99aRmuN557t58j/9FJyfml7ksD/7l6L130O4mRKuy8
+	Y244VHM0El07B0KfnfRRDdSpSzlGecGWvlx1zJpsq4JpS7iBJeRr6IqbDTO378qZF74Tp5
+	/ziZ2rqZS98Buy/kT7fDqAPJWqisGvJV5bUP61EWCrxpdf3OClvFArbO6c0aQQ==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Peng Fan <peng.fan@nxp.com>
+Cc: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v5 2/2] nvmem: imx-ocotp-ele: Support accessing controller for i.MX9
+Date: Thu, 16 Jan 2025 16:47:05 +0100
+Message-ID: <2768326.mvXUDI8C0e@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <PAXPR04MB8459EE43FD37732822893343881A2@PAXPR04MB8459.eurprd04.prod.outlook.com>
+References: <20250108-imx-ocotp-v5-0-a6d90e18ebe9@nxp.com> <6018578.MhkbZ0Pkbq@steina-w> <PAXPR04MB8459EE43FD37732822893343881A2@PAXPR04MB8459.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: dts: ti: davinci: Align GPIO hog name with bindings
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250116090030.87452-1-krzysztof.kozlowski@linaro.org>
-From: David Lechner <david@lechnology.com>
-Content-Language: en-US
-Autocrypt: addr=david@lechnology.com; keydata=
- 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
-In-Reply-To: <20250116090030.87452-1-krzysztof.kozlowski@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - vern.gendns.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - lechnology.com
-X-Get-Message-Sender-Via: vern.gendns.com: authenticated_id: davidmain+lechnology.com/only user confirmed/virtual account not confirmed
-X-Authenticated-Sender: vern.gendns.com: davidmain@lechnology.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_074602_382010_BC646883 
-X-CRM114-Status: UNSURE (   3.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250116_074717_363899_8483910D 
+X-CRM114-Status: GOOD (  37.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,14 +93,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/16/25 3:00 AM, Krzysztof Kozlowski wrote:
-> Bindings expect GPIO hog names to end with 'hog' suffix, so correct it
-> to fix dtbs_check warnings like:
-> 
->   da850-lego-ev3.dtb: batt_volt_en: $nodename:0: 'batt_volt_en' does not match '^.+-hog(-[0-9]+)?$'
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> ---
-Acked-by: David Lechner <david@lechnology.com>
+Hi,
+
+Am Donnerstag, 16. Januar 2025, 03:09:02 CET schrieb Peng Fan:
+> > Subject: Re: [PATCH v5 2/2] nvmem: imx-ocotp-ele: Support accessing
+> > controller for i.MX9
+> >=20
+> > Hi,
+> >=20
+> > Am Dienstag, 14. Januar 2025, 09:35:41 CET schrieb Peng Fan:
+> > > > Subject: Re: [PATCH v5 2/2] nvmem: imx-ocotp-ele: Support
+> > accessing
+> > > > controller for i.MX9
+> > > >
+> > > > Hi,
+> > > >
+> > > > Am Samstag, 11. Januar 2025, 13:41:58 CET schrieb Peng Fan:
+> > > > > > Subject: Re: [PATCH v5 2/2] nvmem: imx-ocotp-ele: Support
+> > > > accessing
+> > > > > > controller for i.MX9
+> > > > > >
+> > > > > > Hi,
+> > > > > >
+> > > > > > Am Donnerstag, 9. Januar 2025, 04:34:18 CET schrieb Peng Fan:
+> > > > > > > On Wed, Jan 08, 2025 at 11:15:40AM +0100, Alexander Stein
+> > > > wrote:
+> > > > > > > >Hi Peng,
+> > > > > > > >
+> > > > > > > >Am Mittwoch, 8. Januar 2025, 08:00:18 CET schrieb Peng
+> > Fan
+> > > > (OSS):
+> > > > > > > >> From: Peng Fan <peng.fan@nxp.com>
+> > > > > > > >>
+> > > > > > > >> i.MX9 OCOTP supports a specific peripheral or function
+> > > > > > > >> being
+> > > > > > fused
+> > > > > > > >> which means disabled, so
+> > > > > > > >>  - Introduce ocotp_access_gates to be container of efuse
+> > > > > > > >> gate info
+> > > > > > > >>  - Iterate all nodes to check accessing permission. If not
+> > > > > > > >>    allowed to be accessed, detach the node
+> > > > > > > >>
+> > > > > > > >> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> > > > > > > >> ---
+> > > > > > > >>  drivers/nvmem/imx-ocotp-ele.c | 172
+> > > > > > > >> +++++++++++++++++++++++++++++++++++++++++-
+> > > > > > > >>  1 file changed, 171 insertions(+), 1 deletion(-)
+> > > > > > > >>
+> > > > > > > [....]
+> > > > > > > >> +
+> > > > > > > >> +	return imx_ele_ocotp_access_control(priv);
+> > > > > > > >
+> > > > > > > >In [1] you mentioned devlink should solve the probe order.
+> > > > > > > >How
+> > > > > > does
+> > > > > > > >this play when the driver is compiled in (e.g. ethernet for
+> > > > > > > >NFS
+> > > > > > > >boot) but this OCOTP driver is just a module?
+> > > > > > >
+> > > > > > > OCOTP needs to built in for using devlink. Or the users needs
+> > > > > > > to be built as module.
+> > > > > >
+> > > > > > I don't like this kind of assumption. Would it make more sense
+> > > > > > to make CONFIG_NVMEM_IMX_OCOTP_ELE as bool instead of
+> > tristate?
+> > > > >
+> > > > > No. Users could setup their own system with this driver build in
+> > > > > or built related drivers as modules.
+> > > >
+> > > > Sure, but if the kernel locks/fails/panics while accessing
+> > > > peripherals just because of the kernel config seems at east very
+> > unfortunate to me.
+> > > > How is someone supposed to analyze/debug this?
+> > > >
+> > > > > At least for Android GKI, this driver needs to be as module.
+> > > >
+> > > > Any particular reason this needs to be a module?
+> > >
+> > > Android has a minimal kernel which is controlled by Google.
+> > > Vendors could only built modules based on Google's Image.
+> > >
+> > > Updating this to y in upstream, means we need to change it back to
+> > m
+> > > in NXP downstream android kernel.
+> >=20
+> > Ok, that's an Android thing.
+> >=20
+> > > If you need it built in, you could modify your downstream config,
+> > > right?
+> >=20
+> > I'm not saying I need a built-in. My concern is that a wrong Kconfig wi=
+ll
+> > result in silent errors/lockups.
+>=20
+> You wanna me to put this default y in arm64 defconfig in
+> upstream kernel?
+>=20
+> If yes, this could be separate patch to Shawn if this patchset got
+> merged by Srinivas.
+
+I don't know what others says about adjusting defconfig. But at least
+add a comment to the Kconfig help that if built as modules, any
+other driver relying on this also needs to be a module as well.
+
+Best regards,
+Alexander
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+
 
 
