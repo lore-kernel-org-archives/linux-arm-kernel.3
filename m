@@ -4,116 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 034D1C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 16:01:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DB65C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 16:02:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wCpv+py7rKuyeKoZl334k1Y8KvzYXaPU2BD2UI5awSE=; b=eS2KjuSSpeyIVtna8uAP1UegWo
-	pAXiH2U2j2gcimPLH/VxJ+L6erwWyTz4WvgkY0jtYFCbU8am8IP/xb8hwNj9JJCDA8dlcIDpF9H+m
-	8Wm8RC+1LrdWSRE5GBI7lTVdrkQpOlKlpiMxsjk7xIjJkyQhqjSDmv2D1FbnIKnWBZTSdgmOinw97
-	teKm+kOooc/GtPg1B9YgDERcNYDI4FyL4gxJfCcw+JEcr3Lq0A4Gy1AlAhjM6WaDqBLzd8/De0pHp
-	RTDcMX49KtDAWISEcDnoY3EjX/5FlGcS9bk9FKc5l6Ems9N9xm+aTBmJsH/Ac2Df5F31Sb06nxbCU
-	788tdO7Q==;
+	bh=AKBitB2sJtACt8fbBDO2i16EuaNYnZtmuWY5Ex3ISmY=; b=ZZceVauSZmxE8OycyY0D6qtpeR
+	svutkCvr6Alvopm+vBt/d16SEMRUjzBszNn5Dq7XA9rHT4eQrSzpvHj4DkDh+QRgUD+flLuTLCpUv
+	TZOv+fqnOQgqyZLYdSJA14bdjJ8Qf644Yc97Jfg9k+M0sHIoEQ38CBDnCGunXm2Ko1zZngCKVJ0Na
+	5JlGZR3x2Y7yw3G9iqMzX8ee6qW+vlHyKpQvRuPz4zPILYf29I0vd4uuc1/p6IUIDfWbufaN0kGzK
+	8GDyO3Od4I3+OPlftlrKiBuvaUQMDDY2yQFr/WC9W4nYXckkjbe26oCBxCFVj8FbeBEH5sglUnR99
+	Hm4FAURA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYSJ8-0000000FR7i-0I1Y;
-	Thu, 16 Jan 2025 16:01:22 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1tYSKP-0000000FRyp-3Nqp;
+	Thu, 16 Jan 2025 16:02:41 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYSD4-0000000FOyW-0HDY
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 15:55:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1737042906; x=1768578906;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=obYy7duPHYvIurVcQ1b2tc4S9JxTXListwajIQv1jJc=;
-  b=JOXzhROtAFEM4Ypn7z3HOQ8+DomltiOvuMi66PUAkGy99UMz6k4vLnW8
-   nKd6Nd6INOK6vc9NKz/ddghW3QkcdOYO6sluHDBBbMNhmC5VWxuukZjAE
-   whe2FSRM7KQMLLUJq2gYLxAvP2ZTxJ4PjSQi1BiBMrjcSIZYnj1cRD/3k
-   7RuKjKW3haq+KwSV0tGwAukyBCznHEJwIIVbEU02cabJgfD1drtf0aeYz
-   359NeSP0C0iVMiuNUTNlzL+BHImY0mWZ2viR7O62NWYqITC4P0v4A1Dfv
-   RrZUcsDDgSZphpwZigWLbcMKeqf+aJFAzT89hLVc0a+CpLmrWLm370Qkp
-   w==;
-X-CSE-ConnectionGUID: f8kKEQubRYuREcFwY0YebA==
-X-CSE-MsgGUID: bgEO460fTGyo9fcn8cehpQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11317"; a="36715729"
-X-IronPort-AV: E=Sophos;i="6.13,209,1732608000"; 
-   d="scan'208";a="36715729"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jan 2025 07:54:54 -0800
-X-CSE-ConnectionGUID: 2SOb9qA2RguSbXEBKF8uLA==
-X-CSE-MsgGUID: 3lQTy/WQTh+nLA/aU0nmuA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,209,1732608000"; 
-   d="scan'208";a="106113883"
-Received: from p12ill20yoongsia.png.intel.com ([10.88.227.38])
-  by fmviesa009.fm.intel.com with ESMTP; 16 Jan 2025 07:54:44 -0800
-From: Song Yoong Siang <yoong.siang.song@intel.com>
-To: "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Willem de Bruijn <willemb@google.com>,
-	Florian Bezdeka <florian.bezdeka@siemens.com>,
-	Donald Hunter <donald.hunter@gmail.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Bjorn Topel <bjorn@kernel.org>,
-	Magnus Karlsson <magnus.karlsson@intel.com>,
-	Maciej Fijalkowski <maciej.fijalkowski@intel.com>,
-	Jonathan Lemon <jonathan.lemon@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Joe Damato <jdamato@fastly.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
-	Mina Almasry <almasrymina@google.com>,
-	Daniel Jurgens <danielj@nvidia.com>,
-	Song Yoong Siang <yoong.siang.song@intel.com>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Mykola Lysenko <mykolal@fb.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	KP Singh <kpsingh@kernel.org>,
-	Hao Luo <haoluo@google.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	bpf@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	intel-wired-lan@lists.osuosl.org,
-	xdp-hints@xdp-project.net
-Subject: [PATCH bpf-next v6 4/4] igc: Add launch time support to XDP ZC
-Date: Thu, 16 Jan 2025 23:53:50 +0800
-Message-Id: <20250116155350.555374-5-yoong.siang.song@intel.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250116155350.555374-1-yoong.siang.song@intel.com>
-References: <20250116155350.555374-1-yoong.siang.song@intel.com>
+	id 1tYSFz-0000000FPvt-2HLc;
+	Thu, 16 Jan 2025 15:58:08 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-5d414b8af7bso1934104a12.0;
+        Thu, 16 Jan 2025 07:58:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1737043086; x=1737647886; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AKBitB2sJtACt8fbBDO2i16EuaNYnZtmuWY5Ex3ISmY=;
+        b=cNzPDrpQe9D246hy1xxB01IlKweVEX/hRYDWdTZI79YIdiMZtylmCeGcG7pjP91zdt
+         R1LBGJ9s56H1vsB0iRINVCP+mnN6brVD8Do3SX+WOssv//ht6SKC31hxkKG3EtlaLOlF
+         BVsSLR8WYGMY4vLrUc4MIcgQrKj/5ZAhifKxSGAVf3uOY9UoJg/L68SrQIYw8ZwIdlpX
+         oyy2M1OBfuiYWyUmDmpGkDh5vR970KflDE5o3idsqlD7tgFpxhF3HrflfquzPBKomByx
+         He3kHOv+Cac61cZA0DVWQTgXKTS4EkWPB2kncJ+Qrf1gvAv/nuxpy/VvoQJKiDV3rFZf
+         me7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737043086; x=1737647886;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=AKBitB2sJtACt8fbBDO2i16EuaNYnZtmuWY5Ex3ISmY=;
+        b=XDtI8GfT+sW/61NEWKppZe9LiJfLQ5kbwIAnCwEGeLzzboUWPQSIWVsTpsIyLYabD/
+         kiqJ+fRQJOtKOwrCP+z5lzrSYHIzmeKuG8RK+qUJeVA0/BCTiUzWdVjWv18wsdqV9gYn
+         /5N+v++ISaiWVH5UbvbXKCN2s24j1dOqRurM81cvJwwsp0U0Db54Ls/1ps69l226TX8l
+         7qidpaCBrnpfrM9wYgv3l92PM8oHidM6TNa16Sm1AYe42YYB6OMOIoB20bYk6sG5vKgy
+         TAMpTOobM8ylaihGNnhS4f34dQvrScqsJqgDxV3RsuLryOKNirKvejyavy648YPK3bk/
+         QLcw==
+X-Forwarded-Encrypted: i=1; AJvYcCUdJqGUzd9LFLUIwoQy7wTGoOx0t6EpkgsDy5LfNw9e8o67awff/eLUoGWY6VUSzMcl9XSDvVaM7q/q3ekP4fUy@lists.infradead.org, AJvYcCVTZ4KwElSGBbrUkQVuPeghUQQA9yquZLCzn5Cu3+/vC4dpOnPSxRT2CEV/oqiBAVovyJ8HZd0k73RKMcOITfk=@lists.infradead.org, AJvYcCVzuv3UrQroEK7Pkdfkr/317kkkBhM+33CuH68CKHBlxlh4P0t44J5MoUuglGif4A9AGlWIETMq2lFC@lists.infradead.org
+X-Gm-Message-State: AOJu0YyRcZe9vAoBn9m4ejzE6pBRKyUo5WITuHB+RxyGJvHcKkBqOrPg
+	MuEBTsBTKfO83epF9kFovHflodE5zHxWrMDrEIYdHTclDNAw0YEjd3oEy2LjVZvajBHwY3r3suP
+	uwA2Qs4r4qcu7fNHYm6SenmPCBFzb02Ol
+X-Gm-Gg: ASbGncvjQ20FiZOWE20tH0d9XSaKBBZEAYoGou1gmPjKbOBmps4Q8lktAFPzBRAB5cF
+	6k+MsZmbDyxqj6CEVll4QMHMhBymKELoUFS4H7UU=
+X-Google-Smtp-Source: AGHT+IF6kdfwrwD2Gw5N7j4+mAfHkKXddC2MFGV3l/RFiEW+P7+9drJlkCV9fN+OboiVtb7ErE9EHd4tztg4oLmMeZ0=
+X-Received: by 2002:a05:6402:26c7:b0:5da:a78:4c8b with SMTP id
+ 4fb4d7f45d1cf-5da0a784f3amr6866036a12.2.1737043085695; Thu, 16 Jan 2025
+ 07:58:05 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250115012628.1035928-1-pgwipeout@gmail.com> <20250115012628.1035928-4-pgwipeout@gmail.com>
+ <D73LPTRK7A74.38A4OEKK37ZGV@cknow.org>
+In-Reply-To: <D73LPTRK7A74.38A4OEKK37ZGV@cknow.org>
+From: Peter Geis <pgwipeout@gmail.com>
+Date: Thu, 16 Jan 2025 10:57:54 -0500
+X-Gm-Features: AbW1kvbxmLOaQEaG1tWAxdSbHKoJpeY4I9dA6pBmv7t79CjzRmlwQWxOajhxE00
+Message-ID: <CAMdYzYpTU2YfNJTa3+sRe5hWgnR3pGOb_kmK_P85Ea_w2P9cRQ@mail.gmail.com>
+Subject: Re: [RFC PATCH v1 3/6] phy: rockchip: add driver for rk3328 usb3 phy
+To: Diederik de Haas <didi.debian@cknow.org>
+Cc: Heiko Stuebner <heiko@sntech.de>, Kishon Vijay Abraham I <kishon@kernel.org>, 
+	Algea Cao <algea.cao@rock-chips.com>, linux-kernel@vger.kernel.org, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Arnd Bergmann <arnd@arndb.de>, frank.wang@rock-chips.com, 
+	william.wu@rock-chips.com, kever.yang@rock-chips.com, 
+	linux-phy@lists.infradead.org, 
+	Sebastian Reichel <sebastian.reichel@collabora.com>, linux-rockchip@lists.infradead.org, 
+	Vinod Koul <vkoul@kernel.org>, Zhang Yubing <yubing.zhang@rock-chips.com>, zyw@rock-chips.com, 
+	wulf@rock-chips.com, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_075506_128063_884501C4 
-X-CRM114-Status: GOOD (  16.64  )
+X-CRM114-CacheID: sfid-20250116_075807_608879_934E1756 
+X-CRM114-Status: GOOD (  31.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,171 +99,323 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable Launch Time Control (LTC) support to XDP zero copy via XDP Tx
-metadata framework.
+On Thu, Jan 16, 2025 at 10:27=E2=80=AFAM Diederik de Haas <didi.debian@ckno=
+w.org> wrote:
+>
+> Hi Peter,
+>
+> Thanks for working on this :-)
+>
+> On Wed Jan 15, 2025 at 2:26 AM CET, Peter Geis wrote:
+> > The rk3328 has a combined usb2 and usb3 phy block for the usb3 dwc
+> > interface. The implementation up until now has been bugged, with
+> > multiple issues ranging from disconnect detection failures to low
+> > performance. This driver fixes the majority of the original issues and
+> > allows better performance for the rk3328 usb3 port.
+> >
+> > This driver sources data from multiple sources, including the rk3328
+> > trm, the rk3228h trm, emails from Rockchip, and both the 4.4 and 5.10
+> > downstream drivers. The current implementation allows for basic bring u=
+p
+> > of the phy block and fixes the detection issues. Interrupts are enabled=
+,
+> > but currently only used for debugging. Features missing currently are
+> > power management, OTG handling, board specific tuning, regulator contro=
+l,
+> >
+> > Currently the only known bugs are a AX88179 usb3 gigabit adapter crashe=
+s
+> > when operating at usb3 speeds and transmitting large amounts of data an=
+d
+> > full disconnection detections may be slower than expected (~5-10 second=
+s).
+> >
+> > Signed-off-by: Peter Geis <pgwipeout@gmail.com>
+> > ---
+> >
+> >  drivers/phy/rockchip/Kconfig                  |  10 +
+> >  drivers/phy/rockchip/Makefile                 |   1 +
+> >  drivers/phy/rockchip/phy-rockchip-inno-usb3.c | 869 ++++++++++++++++++
+> >  3 files changed, 880 insertions(+)
+> >  create mode 100644 drivers/phy/rockchip/phy-rockchip-inno-usb3.c
+> >
+> > diff --git a/drivers/phy/rockchip/Kconfig b/drivers/phy/rockchip/Kconfi=
+g
+> > index 2f7a05f21dc5..aac623e84f96 100644
+> > --- a/drivers/phy/rockchip/Kconfig
+> > +++ b/drivers/phy/rockchip/Kconfig
+> > @@ -48,6 +48,16 @@ config PHY_ROCKCHIP_INNO_USB2
+> >       help
+> >         Support for Rockchip USB2.0 PHY with Innosilicon IP block.
+> >
+> > +config PHY_ROCKCHIP_INNO_USB3
+> > +     tristate "Rockchip INNO USB3PHY Driver"
+> > +     depends on (ARCH_ROCKCHIP || COMPILE_TEST) && OF
+> > +     depends on COMMON_CLK
+> > +     depends on USB_SUPPORT
+> > +     select GENERIC_PHY
+> > +     select USB_COMMON
+> > +     help
+> > +       Support for Rockchip USB3.0 PHY with Innosilicon IP block.
+> > +
+> >  config PHY_ROCKCHIP_INNO_CSIDPHY
+> >       tristate "Rockchip Innosilicon MIPI CSI PHY driver"
+> >       depends on (ARCH_ROCKCHIP || COMPILE_TEST) && OF
+> > diff --git a/drivers/phy/rockchip/Makefile b/drivers/phy/rockchip/Makef=
+ile
+> > index 010a824e32ce..ec15dcf37fba 100644
+> > --- a/drivers/phy/rockchip/Makefile
+> > +++ b/drivers/phy/rockchip/Makefile
+> > @@ -6,6 +6,7 @@ obj-$(CONFIG_PHY_ROCKCHIP_INNO_CSIDPHY)       +=3D phy-=
+rockchip-inno-csidphy.o
+> >  obj-$(CONFIG_PHY_ROCKCHIP_INNO_DSIDPHY)      +=3D phy-rockchip-inno-ds=
+idphy.o
+> >  obj-$(CONFIG_PHY_ROCKCHIP_INNO_HDMI) +=3D phy-rockchip-inno-hdmi.o
+> >  obj-$(CONFIG_PHY_ROCKCHIP_INNO_USB2) +=3D phy-rockchip-inno-usb2.o
+> > +obj-$(CONFIG_PHY_ROCKCHIP_INNO_USB3) +=3D phy-rockchip-inno-usb3.o
+> >  obj-$(CONFIG_PHY_ROCKCHIP_NANENG_COMBO_PHY)  +=3D phy-rockchip-naneng-=
+combphy.o
+> >  obj-$(CONFIG_PHY_ROCKCHIP_PCIE)              +=3D phy-rockchip-pcie.o
+> >  obj-$(CONFIG_PHY_ROCKCHIP_SAMSUNG_HDPTX)     +=3D phy-rockchip-samsung=
+-hdptx.o
+> > diff --git a/drivers/phy/rockchip/phy-rockchip-inno-usb3.c b/drivers/ph=
+y/rockchip/phy-rockchip-inno-usb3.c
+> > new file mode 100644
+> > index 000000000000..51b9f3b7fbfa
+> > --- /dev/null
+> > +++ b/drivers/phy/rockchip/phy-rockchip-inno-usb3.c
+> > @@ -0,0 +1,869 @@
+> > +// SPDX-License-Identifier: GPL-2.0+
+> > +
+> > +/*
+> > + * phy-rockchip-inno-usb3.c - USB3 PHY based on Innosilicon IP as
+> > + * implemented on Rockchip rk3328. Tuning data magic bits are taken as=
+ is
+> > + * from the downstream driver. Downstream driver is located at:
+> > + * https://github.com/rockchip-linux/kernel/blob/240a5660d7c23841ccf7b=
+7cc489078bf521b9802/drivers/phy/rockchip/phy-rockchip-inno-usb3.c
+> > + *
+> > + * Author: Peter Geis <pgwipeout@gmail.com>
+> > + * TODO:
+> > + * - Find the rest of the register names / definitions.
+> > + * - Implement pm functions.
+> > + * - Implement board specific tuning from dts.
+> > + * - Implement regulator control.
+> > + */
+> > +
+> > +#include <linux/clk.h>
+> > +#include <linux/delay.h>
+> > +#include <linux/interrupt.h>
+> > +#include <linux/io.h>
+> > +#include <linux/kernel.h>
+> > +#include <linux/module.h>
+> > +#include <linux/of.h>
+> > +#include <linux/of_address.h>
+> > +#include <linux/of_device.h>
+> > +#include <linux/of_irq.h>
+> > +#include <linux/of_platform.h>
+> > +#include <linux/phy/phy.h>
+> > +#include <linux/platform_device.h>
+> > +#include <linux/regmap.h>
+> > +#include <linux/reset.h>
+> > +#include <linux/mfd/syscon.h>
+> > +#include <linux/usb/of.h>
+> > +
+> > +#define REG_WRITE_MASK               GENMASK(31, 16)
+> > +#define REG_WRITE_SHIFT              16
+> > +#define DISABLE_BITS         0x0
+> > +
+> > +/* USB3PHY GRF Registers */
+> > +#define USB3PHY_WAKEUP_CON_REG       0x40
+> > +#define USB3PHY_WAKEUP_STAT_REG      0x44
+> > +#define USB3_LINESTATE_IRQ_EN        BIT(0)
+> > +#define USB3_RXDET_IRQ_EN            BIT(1)
+> > +#define USB3_BVALID_RISE_IRQ_EN      BIT(2)
+> > +#define USB3_BVALID_FALL_IRQ_EN      BIT(3)
+> > +#define USB3_BVALID_CLEAR_MASK       GENMASK(3, 2)
+> > +#define USB3_ID_RISE_IRQ_EN          BIT(4)
+> > +#define USB3_ID_FALL_IRQ_EN          BIT(5)
+> > +#define USB3_ID_CLEAR_MASK           GENMASK(5, 4)
+> > +#define USB3_RXDET_EN                        BIT(6)
+> > +
+> > +/* PIPE registers */
+> > +/* 0x08 for SSC, default 0x0e */
+> > +#define UNKNOWN_PIPE_REG_000                 0x000
+> > +#define UNKNOWN_SSC_000_MASK                 GENMASK(2, 1)
+> > +#define UNKNOWN_SSC_000_ENABLE                       (0x00 << 1)
+> > +
+> > +/* 0x83 for 24m, 0x01 for 25m, default 0x86 */
+> > +#define PIPE_REG_020                                 0x020
+> > +/* RX CDR multiplier high bits [7:6], as P, default 0x2, RX data rate =
+=3D (2*refclk*P)/Q */
+> > +#define PIPE_RX_CDR_MULT_HIGH_MASK           GENMASK(7, 6)
+> > +/* TX PLL divider bits [4:0], as N, default 0x6, TX data rate =3D (2*r=
+efclk*M)/N */
+> > +#define PIPE_TX_PLL_DIV_MASK                 GENMASK(4, 0)
+> > +
+> > +/* 0x71 for 24m, 0x64 for 25m, default 0x71 */
+> > +#define PIPE_REG_028                                 0x028
+> > +/* RX CDR multiplier low bits [7:0], as P, default 0x71, RX data rate =
+=3D (2*refclk*P)/Q */
+> > +#define PIPE_RX_CDR_MULT_LOW_MASK            GENMASK(7, 0)
+> > +
+> > +/* 0x26 for 24m?, 0x21 for 25m, default 0x26 */
+> > +#define PIPE_REG_030                                 0x030
+> > +/* RX CDR divider bits [4:0], as Q, default 0x6, RX data rate =3D (2*r=
+efclk*P)/Q */
+> > +#define PIPE_RX_CDR_DIV_MASK                 GENMASK(4, 0)
+> > +
+> > +/* 1'b1 Disable bandgap power, default 0x00 */
+> > +#define PIPE_REG_044                                 0x044
+> > +#define BANDGAP_POWER_DISABLE                        BIT(4)
+> > +
+> > +/* 0xe0 for rx tune?, default 0xe1 */
+> > +#define PIPE_REG_060                                 0x060
+> > +#define PIPE_TX_DETECT_BYPASS_DEBUG          BIT(4) /* enable to alway=
+s force detection */
+> > +/* RX CTLE frequency bandwidth response tuning bits [1:0], default 0x1=
+ */
+> > +#define PIPE_RX_CTLE_FREQ_BW_MASK            GENMASK(1, 0)
+> > +#define PIPE_RX_CTLE_FREQ_BW_TUNE            0x0
+> > +
+> > +/* default 0x49 */
+> > +#define PIPE_REG_064                                 0x064
+> > +/* RX equalizer tail current control bits [6:4], default 0x4 */
+> > +#define PIPE_RX_EQ_TAIL_CURR_MASK            GENMASK(6, 4)
+> > +
+> > +/* 0x08 for rx tune?, default 0x07 */
+> > +#define PIPE_REG_068                                 0x068
+> > +/* RX equalizer low frequency gain control bits [7:4], default 0x0 */
+> > +#define PIPE_RX_EQ_LOW_GAIN_MASK             GENMASK(7, 4)
+> > +#define PIPE_RX_EQ_LOW_GAIN_TUNE             (0x1 << 4)
+> > +/* RX CTLE gain tuning bits [3:0], higher =3D more gain default 0x7 */
+> > +#define PIPE_RX_CTLE_GAIN_MASK                       GENMASK(3, 0)
+> > +#define PIPE_RX_CTLE_GAIN_TUNE                       0x7 /* 0x5 lowest=
+ functional value, 0xf highest */
+> > +
+> > +/* RX ODT manual resistance config, higher =3D less resistance, depend=
+s on REG_1C4 BIT(5) set */
+> > +#define PIPE_REG_06C                                 0x06c
+> > +/* RX ODT manual resistance high bits [3:0], default 0x0 */
+> > +#define PIPE_RX_ODT_RES_HIGH_MASK            GENMASK(3, 0)
+> > +#define PIPE_RX_ODT_RES_HIGH_TUNE            0xf
+> > +
+> > +#define PIPE_REG_070                                 0x070
+> > +/* RX ODT manual resistance mid bits [7:0], default 0x03 */
+> > +#define PIPE_RX_ODT_RES_MID_MASK             GENMASK(7, 0)
+> > +#define PIPE_RX_ODT_RES_MID_TUNE             0xff
+> > +
+> > +#define PIPE_REG_074                                 0x074
+> > +/* RX ODT manual resistance low bits [7:0], default 0xff */
+> > +#define PIPE_RX_ODT_RES_LOW_MASK             GENMASK(7, 0)
+> > +#define PIPE_RX_ODT_RES_LOW_TUNE             0xff
+> > +
+> > +/* default 0x08 */
+> > +#define PIPE_REG_080                                 0x080
+> > +#define PIPE_TX_COMMON_MODE_DIS                      BIT(2)  /* 1'b1 d=
+isable TX common type */
+> > +
+> > +/* default 0x33 */
+> > +#define PIPE_REG_088                                 0x088
+> > +#define PIPE_TX_DRIVER_PREEMP_EN             BIT(4)  /* 1'b1 enable pr=
+e-emphasis */
+> > +
+> > +/* default 0x18 */
+> > +#define PIPE_REG_0C0                                 0x0c0
+> > +#define PIPE_RX_CM_EN                                        BIT(3)  /=
+* 1'b1 enable RX CM */
+> > +#define PIPE_TX_OBS_EN                                       BIT(4)  /=
+* 1'b1 enable TX OBS */
+> > +
+> > +/* 0x12 for rx tune?, default 0x14 */
+> > +#define PIPE_REG_0C8                                 0x0c8
+> > +/* RX CDR charge pump current bits [3:1], default 0x2 */
+> > +#define PIPE_RX_CDR_CHG_PUMP_MASK            GENMASK(3, 1)
+> > +#define PIPE_RX_CDR_CHG_PUMP_TUNE            (0x2 << 1)
+> > +
+> > +/* 0x02 for 24m, 0x06 for 25m, default 0x06 */
+> > +#define UNKNOWN_PIPE_REG_108                 0x108
+> > +#define UNKNOWN_REFCLK_108_24M                       0x02
+> > +
+> > +/* 0x80 for 24m, default 0x00 */
+> > +#define UNKNOWN_PIPE_REG_10C                 0x10c
+> > +#define UNKNOWN_REFCLK_10C_24M                       BIT(7)
+> > +
+> > +/* 0x01 for 24m, 0x00 for 25m, default 0x02 */
+> > +#define PIPE_REG_118                                 0x118
+> > +/* TX PLL multiplier high bits [3:0], as M, default 0x2, TX data rate =
+=3D (2*refclk*M)/N */
+> > +#define PIPE_TX_PLL_MUL_HIGH_MASK            GENMASK(3, 0)
+> > +
+> > +/* 0x38 for 24m, 0x64 for 25m, default 0x71 */
+> > +#define PIPE_REG_11C                                 0x11c
+> > +/* TX PLL multiplier low bits [7:0], as M, default 0x71, TX data rate =
+=3D (2*refclk*M)/N */
+> > +#define PIPE_TX_PLL_MUL_LOW_MASK             GENMASK(7, 0)
+> > +
+> > +/* 0x0c for SSC, default 0x1c */
+> > +#define UNKNOWN_PIPE_REG_120                 0x120
+> > +#define UNKNOWN_SSC_120_MASK                 BIT(4)
+> > +#define UNKNOWN_SSC_120_ENABLE                       (0x0 << 4)
+> > +
+> > +/* default 0x40 */
+> > +#define PIPE_REG_12C                                 0x12c
+> > +#define PIPE_TX_PLL_ALWAYS_ON                        BIT(0) /* disable=
+ for PLL control by pipe_pd */
+> > +
+> > +/* 0x05 for rx tune, default 0x01 */
+> > +#define PIPE_REG_148                                 0x148
+> > +#define PIPE_RX_CHG_PUMP_DIV_2                       BIT(2) /* RX CDR =
+charge pump div/2, default 0 */
+> > +
+> > +/* 0x70 for rx tune, default 0x72 */
+> > +#define PIPE_REG_150                                 0x150
+> > +#define PIPE_TX_BIAS_EN                                      BIT(6)  /=
+* 1'b1 Enable TX Bias */
+> > +/* RX CDR phase tracking speed bits [3:0], default 0x2 */
+> > +#define PIPE_RX_CDR_SPEED_MASK                       GENMASK(3, 0)
+> > +#define PIPE_RX_CDR_SPEED_TUNE                       0x00
+> > +
+> > +/* default 0xd4 */
+> > +#define PIPE_REG_160
+> > +/* RX common mode voltage strength bits [5:4], default 0x1 */
+> > +#define PIPE_RX_CDR_COM_VOLT_MASK            GENMASK(5, 4)
+> > +#define PIPE_RX_CDR_COM_VOLT_TUNE            (0x1 << 4)
+> > +
+> > +/* default 0x00 */
+> > +#define PIPE_REG_180                                 0x180
+> > +/* TX driver bias reference voltage bits [3:2], in mv */
+> > +#define PIPE_TX_BIAS_REF_VOLT_MASK           GENMASK(3, 2)
+> > +#define PIPE_TX_BIAS_REF_VOLT_200            (0x0 << 2)
+> > +#define PIPE_TX_BIAS_REF_VOLT_175            (0x1 << 2)
+> > +#define PIPE_TX_BIAS_REF_VOLT_225            (0x2 << 2) /* downstream =
+5.10 driver setting */
+> > +#define PIPE_TX_BIAS_REF_VOLT_250            (0x3 << 2)
+> > +
+> > +/* default 0x01 */
+> > +#define PIPE_REG_1A8                 0x1a8
+> > +#define PIPE_LDO_POWER_DIS                           BIT(4)  /* 1'b1 D=
+isable LDO Power */
+> > +
+> > +/* default 0x07 */
+> > +#define PIPE_REG_1AC                 0x1ac
+> > +/* TX driver output common voltage bits [5:4], in mv */
+> > +#define PIPE_TX_COMMON_VOLT_MASK             GENMASK(5, 4)
+> > +#define PIPE_TX_COMMON_VOLT_800                      (0x0 << 4)
+> > +#define PIPE_TX_COMMON_VOLT_750                      (0x1 << 4)
+> > +#define PIPE_TX_COMMON_VOLT_950                      (0x2 << 4)
+> > +#define PIPE_TX_COMMON_VOLT_1100             (0x3 << 4)
+>
+> Just a question:
+> In this list as well as the one above it (PIPE_TX_BIAS_xyz) I noticed
+> the values are not sequential (800, 750, 950, 1100) and (200, 175, 225,
+> 250). Is that correct?
 
-This patch is tested with tools/testing/selftests/bpf/xdp_hw_metadata on
-Intel I225-LM Ethernet controller. Below are the test steps and result.
+According to the rk3228h trm, that's accurate. I'm hoping someone with
+access to Innosilicon's IP can confirm the registers I've found and
+provide insight to the rest.
 
-Test Steps:
-1. At DUT, start xdp_hw_metadata selftest application:
-   $ sudo ./xdp_hw_metadata enp2s0 -l 1000000000 -L 1
-
-2. At Link Partner, send an UDP packet with VLAN priority 1 to port 9091 of
-   DUT.
-
-When launch time is set to 1s in the future, the delta between launch time
-and transmit hardware timestamp is equal to 0.016us, as shown in result
-below:
-  0x562ff5dc8880: rx_desc[4]->addr=84110 addr=84110 comp_addr=84110 EoP
-  rx_hash: 0xE343384 with RSS type:0x1
-  HW RX-time:   1734578015467548904 (sec:1734578015.4675) delta to User RX-time sec:0.0002 (183.103 usec)
-  XDP RX-time:   1734578015467651698 (sec:1734578015.4677) delta to User RX-time sec:0.0001 (80.309 usec)
-  No rx_vlan_tci or rx_vlan_proto, err=-95
-  0x562ff5dc8880: ping-pong with csum=561c (want c7dd) csum_start=34 csum_offset=6
-  HW RX-time:   1734578015467548904 (sec:1734578015.4675) delta to HW Launch-time sec:1.0000 (1000000.000 usec)
-  0x562ff5dc8880: complete tx idx=4 addr=4018
-  HW Launch-time:   1734578016467548904 (sec:1734578016.4675) delta to HW TX-complete-time sec:0.0000 (0.016 usec)
-  HW TX-complete-time:   1734578016467548920 (sec:1734578016.4675) delta to User TX-complete-time sec:0.0000 (32.546 usec)
-  XDP RX-time:   1734578015467651698 (sec:1734578015.4677) delta to User TX-complete-time sec:0.9999 (999929.768 usec)
-  HW RX-time:   1734578015467548904 (sec:1734578015.4675) delta to HW TX-complete-time sec:1.0000 (1000000.016 usec)
-  0x562ff5dc8880: complete rx idx=132 addr=84110
-
-Signed-off-by: Song Yoong Siang <yoong.siang.song@intel.com>
----
- drivers/net/ethernet/intel/igc/igc_main.c | 78 ++++++++++++++++-------
- 1 file changed, 56 insertions(+), 22 deletions(-)
-
-diff --git a/drivers/net/ethernet/intel/igc/igc_main.c b/drivers/net/ethernet/intel/igc/igc_main.c
-index 27872bdea9bd..6857f5f5b4b2 100644
---- a/drivers/net/ethernet/intel/igc/igc_main.c
-+++ b/drivers/net/ethernet/intel/igc/igc_main.c
-@@ -1566,6 +1566,26 @@ static bool igc_request_tx_tstamp(struct igc_adapter *adapter, struct sk_buff *s
- 	return false;
- }
- 
-+static void igc_insert_empty_packet(struct igc_ring *tx_ring)
-+{
-+	struct igc_tx_buffer *empty_info;
-+	struct sk_buff *empty;
-+	void *data;
-+
-+	empty_info = &tx_ring->tx_buffer_info[tx_ring->next_to_use];
-+	empty = alloc_skb(IGC_EMPTY_FRAME_SIZE, GFP_ATOMIC);
-+	if (!empty)
-+		return;
-+
-+	data = skb_put(empty, IGC_EMPTY_FRAME_SIZE);
-+	memset(data, 0, IGC_EMPTY_FRAME_SIZE);
-+
-+	igc_tx_ctxtdesc(tx_ring, 0, false, 0, 0, 0);
-+
-+	if (igc_init_tx_empty_descriptor(tx_ring, empty, empty_info) < 0)
-+		dev_kfree_skb_any(empty);
-+}
-+
- static netdev_tx_t igc_xmit_frame_ring(struct sk_buff *skb,
- 				       struct igc_ring *tx_ring)
- {
-@@ -1603,26 +1623,8 @@ static netdev_tx_t igc_xmit_frame_ring(struct sk_buff *skb,
- 	skb->tstamp = ktime_set(0, 0);
- 	launch_time = igc_tx_launchtime(tx_ring, txtime, &first_flag, &insert_empty);
- 
--	if (insert_empty) {
--		struct igc_tx_buffer *empty_info;
--		struct sk_buff *empty;
--		void *data;
--
--		empty_info = &tx_ring->tx_buffer_info[tx_ring->next_to_use];
--		empty = alloc_skb(IGC_EMPTY_FRAME_SIZE, GFP_ATOMIC);
--		if (!empty)
--			goto done;
--
--		data = skb_put(empty, IGC_EMPTY_FRAME_SIZE);
--		memset(data, 0, IGC_EMPTY_FRAME_SIZE);
--
--		igc_tx_ctxtdesc(tx_ring, 0, false, 0, 0, 0);
--
--		if (igc_init_tx_empty_descriptor(tx_ring,
--						 empty,
--						 empty_info) < 0)
--			dev_kfree_skb_any(empty);
--	}
-+	if (insert_empty)
-+		igc_insert_empty_packet(tx_ring);
- 
- done:
- 	/* record the location of the first descriptor for this packet */
-@@ -2955,9 +2957,33 @@ static u64 igc_xsk_fill_timestamp(void *_priv)
- 	return *(u64 *)_priv;
- }
- 
-+static void igc_xsk_request_launch_time(u64 launch_time, void *_priv)
-+{
-+	struct igc_metadata_request *meta_req = _priv;
-+	struct igc_ring *tx_ring = meta_req->tx_ring;
-+	__le32 launch_time_offset;
-+	bool insert_empty = false;
-+	bool first_flag = false;
-+
-+	if (!tx_ring->launchtime_enable)
-+		return;
-+
-+	launch_time_offset = igc_tx_launchtime(tx_ring,
-+					       ns_to_ktime(launch_time),
-+					       &first_flag, &insert_empty);
-+	if (insert_empty) {
-+		igc_insert_empty_packet(tx_ring);
-+		meta_req->tx_buffer =
-+			&tx_ring->tx_buffer_info[tx_ring->next_to_use];
-+	}
-+
-+	igc_tx_ctxtdesc(tx_ring, launch_time_offset, first_flag, 0, 0, 0);
-+}
-+
- const struct xsk_tx_metadata_ops igc_xsk_tx_metadata_ops = {
- 	.tmo_request_timestamp		= igc_xsk_request_timestamp,
- 	.tmo_fill_timestamp		= igc_xsk_fill_timestamp,
-+	.tmo_request_launch_time	= igc_xsk_request_launch_time,
- };
- 
- static void igc_xdp_xmit_zc(struct igc_ring *ring)
-@@ -2980,7 +3006,7 @@ static void igc_xdp_xmit_zc(struct igc_ring *ring)
- 	ntu = ring->next_to_use;
- 	budget = igc_desc_unused(ring);
- 
--	while (xsk_tx_peek_desc(pool, &xdp_desc) && budget--) {
-+	while (xsk_tx_peek_desc(pool, &xdp_desc) && budget >= 4) {
- 		struct igc_metadata_request meta_req;
- 		struct xsk_tx_metadata *meta = NULL;
- 		struct igc_tx_buffer *bi;
-@@ -3004,6 +3030,12 @@ static void igc_xdp_xmit_zc(struct igc_ring *ring)
- 		xsk_tx_metadata_request(meta, &igc_xsk_tx_metadata_ops,
- 					&meta_req);
- 
-+		/* xsk_tx_metadata_request() may have updated next_to_use */
-+		ntu = ring->next_to_use;
-+
-+		/* xsk_tx_metadata_request() may have updated Tx buffer info */
-+		bi = meta_req.tx_buffer;
-+
- 		tx_desc = IGC_TX_DESC(ring, ntu);
- 		tx_desc->read.cmd_type_len = cpu_to_le32(meta_req.cmd_type);
- 		tx_desc->read.olinfo_status = cpu_to_le32(olinfo_status);
-@@ -3021,9 +3053,11 @@ static void igc_xdp_xmit_zc(struct igc_ring *ring)
- 		ntu++;
- 		if (ntu == ring->count)
- 			ntu = 0;
-+
-+		ring->next_to_use = ntu;
-+		budget = igc_desc_unused(ring);
- 	}
- 
--	ring->next_to_use = ntu;
- 	if (tx_desc) {
- 		igc_flush_tx_descriptors(ring);
- 		xsk_tx_release(pool);
--- 
-2.34.1
-
+>
+> Cheers,
+>   Diederik
 
