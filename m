@@ -4,71 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A62D7C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 12:55:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F3C3C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 12:57:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jz3dClXI71MMrwUsh1CJm6zD9rsxqlFQltgra5HhGkk=; b=uoIbOCrHzqdI8yz7AqdR8C3xdV
-	ywk5sApW/+UXJBBquDh7d5tiHy9dOdSVnArpsDJHuABc5cmyJCVC4Im93Y/yPPZHaO0JoWbeNhtW/
-	Nwi1AavKMLu0a/w9JmsnIYCRDlnetwUw7leX9vIJMHXgOduj1W+oM425sBjk8T+ouGMlBmGVA1P5U
-	JHBvoWztkOD4jukoLX+TJ0c1zTR9rkrQa3FrkOahHo5O5DKIADOYBQ2JYdOJrbUBrfQge2VjRQ7xm
-	NaRBUFSPIQCbxUAmqTrq4mcUxMZjGieO/3Er8l+x3ubJzcK4Q01oPvSTpkRLgeRYzM2I6HmuI8+e+
-	Kx4Mof5A==;
+	bh=QiSxusJpOnQ/jeMIugTd0yDgezKDfo8uVDclk9o6fco=; b=b4p6SYy6bxO932A/FuNc9QzPIm
+	hPcF6n6avLaUz7r0m50G3QJ5VFj/nm5yN4NDL/Ws7VqjiYLqe7XoXhranIzZD39lz5UlHtQR6lf+p
+	ijHlG/Oi9V6uLObGZDJhsCnk8xU11fbkt+7iPrY8ovrbOPJ6nXa9fbvImvVoAZJ0AI1yue3lQPx1G
+	1Q7xX9b3nONXM7f5KiESWbjLZQ1vicunrisTX/UnfT4UDM2c0V33JQsM/Zx2aOtDyYkHvfE2VJxwv
+	3N3iFq8ufG48rGih4o9icYaNGPQkq7ZFo08qJiMfstClQcIAAjk25IujqDDfpIMcftWBQKbilAx0X
+	F17v3zug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYPPV-0000000EwBN-3PZ5;
-	Thu, 16 Jan 2025 12:55:45 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1tYPQj-0000000EwIk-36et;
+	Thu, 16 Jan 2025 12:57:01 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYPM7-0000000EvZc-11BH;
-	Thu, 16 Jan 2025 12:52:17 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.214])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4YYjR348srz1xmTj;
-	Thu, 16 Jan 2025 20:51:11 +0800 (CST)
-Received: from dggpemf200006.china.huawei.com (unknown [7.185.36.61])
-	by mail.maildlp.com (Postfix) with ESMTPS id 9D57C1A016C;
-	Thu, 16 Jan 2025 20:52:05 +0800 (CST)
-Received: from [10.67.120.129] (10.67.120.129) by
- dggpemf200006.china.huawei.com (7.185.36.61) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 16 Jan 2025 20:52:05 +0800
-Message-ID: <1bef4a35-efaa-4083-8ed5-8818fe285db5@huawei.com>
-Date: Thu, 16 Jan 2025 20:52:04 +0800
+	id 1tYPOv-0000000Ew5d-1Za8;
+	Thu, 16 Jan 2025 12:55:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 82E16A41995;
+	Thu, 16 Jan 2025 12:53:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 616E7C4CED6;
+	Thu, 16 Jan 2025 12:55:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737032108;
+	bh=SDsYWVDFHCtqpRTEcvKkftdq9j3Hd9+XjId4g7OHfUM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Bf+f8Sec3xyMf+ALBGpV/fbi8Ii2Ar9XyUxBuKmJ78D8Lr5zLUPqxb50l7v8AtMBb
+	 KdovV+etbpcTM/GHpYSdVF/QM6UuFCjOExrZNU/krS7ndK+RCDAlk1ayJcwFnrHr5v
+	 ClhboGABvq6Va7YFo4FQszvti1pNNSiLZXyXxWQUpOokc+1uebEc4vI4k019Kho8NI
+	 9D1OGI4MKWyLCmWl5yOTQu12Gb4o/zpnqDrRx158I3nibr5NDnXPf5qgDd/hLDGP+F
+	 FUMHlMeEQgeTJXhQcLXABblsczT7kCLC1ALOkwFBHDo9BwF8FMEEP8D8PGypme9P4a
+	 7iaa8Ung0gN1Q==
+Message-ID: <fa77f4e0-aa5c-4ac6-8223-29b20374dd01@kernel.org>
+Date: Thu, 16 Jan 2025 13:55:00 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v7 0/8] fix two bugs related to page_pool
-To: Jesper Dangaard Brouer <hawk@kernel.org>, <davem@davemloft.net>,
-	<kuba@kernel.org>, <pabeni@redhat.com>
-CC: <zhangkun09@huawei.com>, <liuyonglong@huawei.com>,
-	<fanghaiqing@huawei.com>, Alexander Lobakin <aleksander.lobakin@intel.com>,
-	Robin Murphy <robin.murphy@arm.com>, Alexander Duyck
-	<alexander.duyck@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, IOMMU
-	<iommu@lists.linux.dev>, MM <linux-mm@kvack.org>, Alexei Starovoitov
-	<ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, John Fastabend
-	<john.fastabend@gmail.com>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	<netdev@vger.kernel.org>, <intel-wired-lan@lists.osuosl.org>,
-	<bpf@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-References: <20250110130703.3814407-1-linyunsheng@huawei.com>
- <3c8e4f86-87e2-470d-84d8-86c70b3e2fcc@kernel.org>
- <c02e856e-6ec5-49d0-8527-2647695a0174@huawei.com>
- <3a853e1b-b5bf-4709-b8f6-e466e3e7375e@kernel.org>
+Subject: Re: [PATCH net-next 1/3] net: phy: mediatek: Add token ring access
+ helper functions in mtk-phy-lib
+To: Sky Huang <SkyLake.Huang@mediatek.com>, Andrew Lunn <andrew@lunn.ch>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Russell King
+ <linux@armlinux.org.uk>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Daniel Golle <daniel@makrotopia.org>,
+ Qingfang Deng <dqfext@gmail.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Simon Horman <horms@kernel.org>, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Cc: Steven Liu <Steven.Liu@mediatek.com>,
+ "paul-pl.chen" <paul-pl.chen@mediatek.com>, Fei Shao <fshao@chromium.org>
+References: <20250116012159.3816135-1-SkyLake.Huang@mediatek.com>
+ <20250116012159.3816135-2-SkyLake.Huang@mediatek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Yunsheng Lin <linyunsheng@huawei.com>
-In-Reply-To: <3a853e1b-b5bf-4709-b8f6-e466e3e7375e@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.120.129]
-X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
- dggpemf200006.china.huawei.com (7.185.36.61)
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250116012159.3816135-2-SkyLake.Huang@mediatek.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_045215_649123_5ED65A5B 
-X-CRM114-Status: GOOD (  16.96  )
+X-CRM114-CacheID: sfid-20250116_045509_551482_AC44EFE6 
+X-CRM114-Status: GOOD (  12.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,89 +126,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/1/16 1:40, Jesper Dangaard Brouer wrote:
+On 16/01/2025 02:21, Sky Huang wrote:
+> From: "SkyLake.Huang" <skylake.huang@mediatek.com>
 > 
+> This patch adds TR(token ring) manipulations and adds correct
+> macro names for those magic numbers. TR is a way to access
+> proprietary registers on page 52b5. Use these helper functions
+> so we can see which fields we're going to modify/set/clear.
 > 
-> On 15/01/2025 12.33, Yunsheng Lin wrote:
->> On 2025/1/14 22:31, Jesper Dangaard Brouer wrote:
->>>
->>>
->>> On 10/01/2025 14.06, Yunsheng Lin wrote:
->>>> This patchset fix a possible time window problem for page_pool and
->>>> the dma API misuse problem as mentioned in [1], and try to avoid the
->>>> overhead of the fixing using some optimization.
->>>>
->>>>   From the below performance data, the overhead is not so obvious
->>>> due to performance variations for time_bench_page_pool01_fast_path()
->>>> and time_bench_page_pool02_ptr_ring, and there is about 20ns overhead
->>>> for time_bench_page_pool03_slow() for fixing the bug.
->>>>
->>>
->>> My benchmarking on x86_64 CPUs looks significantly different.
->>>   - CPU: Intel(R) Xeon(R) CPU E5-1650 v4 @ 3.60GHz
->>>
->>> Benchmark (bench_page_pool_simple) results from before and after patchset:
->>>
->>> | Test name  | Cycles |       |    |Nanosec |        |       |      % |
->>> | (tasklet_*)| Before | After |diff| Before |  After |  diff | change |
->>> |------------+--------+-------+----+--------+--------+-------+--------|
->>> | fast_path  |     19 |    24 |   5|  5.399 |  6.928 | 1.529 |   28.3 |
->>> | ptr_ring   |     54 |    79 |  25| 15.090 | 21.976 | 6.886 |   45.6 |
->>> | slow       |    238 |   299 |  61| 66.134 | 83.298 |17.164 |   26.0 |
->>> #+TBLFM: $4=$3-$2::$7=$6-$5::$8=(($7/$5)*100);%.1f
->>>
->>> My above testing show a clear performance regressions across three
->>> different page_pool operating modes.
->>
->> I retested it on arm64 server patch by patch as the raw performance
->> data in the attachment, it seems the result seemed similar as before.
->>
->> Before this patchset:
->>              fast_path              ptr_ring            slow
->> 1.         31.171 ns               60.980 ns          164.917 ns
->> 2.         28.824 ns               60.891 ns          170.241 ns
->> 3.         14.236 ns               60.583 ns          164.355 ns
->>
->> With patch 1-4:
->> 4.         31.443 ns               53.242 ns          210.148 ns
->> 5.         31.406 ns               53.270 ns          210.189 ns
->>
->> With patch 1-5:
->> 6.         26.163 ns               53.781 ns          189.450 ns
->> 7.         26.189 ns               53.798 ns          189.466 ns
->>
->> With patch 1-8:
->> 8.         28.108 ns               68.199 ns          202.516 ns
->> 9.         16.128 ns               55.904 ns          202.711 ns
->>
->> I am not able to get hold of a x86 server yet, I might be able
->> to get one during weekend.
->>
->> Theoretically, patch 1-4 or 1-5 should not have much performance
->> impact for fast_path and ptr_ring except for the rcu_lock mentioned
->> in page_pool_napi_local(), so it would be good if patch 1-5 is also
->> tested in your testlab with the rcu_lock removing in
->> page_pool_napi_local().
->>
+> This patch doesn't really change registers' settings but just
+> enhances readability and maintainability.
 > 
-> What are you saying?
->  - (1) test patch 1-5
->  - or (2) test patch 1-5 but revert patch 2 with page_pool_napi_local()
+> Signed-off-by: SkyLake.Huang <skylake.huang@mediatek.com>
+Few days ago I complained the Mediatek too frequent uses login as full
+name. Several different Mediatek contributors repeat the same mistake,
+so I asked to fix this internally with some sort of
+guideline/checklist/internal reviews.
 
-patch 1-5 with below applied.
+Other patches here look OK, so there is some progress, but not complete
+- please fix here as well.
 
---- a/net/core/page_pool.c
-+++ b/net/core/page_pool.c
-@@ -1207,10 +1207,8 @@ static bool page_pool_napi_local(const struct page_pool *pool)
-        /* Synchronizated with page_pool_destory() to avoid use-after-free
-         * for 'napi'.
-         */
--       rcu_read_lock();
-        napi = READ_ONCE(pool->p.napi);
-        napi_local = napi && READ_ONCE(napi->list_owner) == cpuid;
--       rcu_read_unlock();
-
-        return napi_local;
- }
-
+Best regards,
+Krzysztof
 
