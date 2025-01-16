@@ -4,92 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF29DC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 09:11:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFF1AC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 09:13:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6oElNuHGnh2SndiJKSmzP3b2+Y0n7fF/o6Bw/SCWA8s=; b=AahiUUK8hgXGcvq7ot0SChVZ7l
-	ALEjqYNeBLAG6I9tBG7h8mFzHEMC0JVdVoWpP7JueZPS+i2DrhIP6vkunRjcZcaqsp6ejcF6AQ8zN
-	cRESTgssCY8+/1uEulAxABlfy6ZHTOU2ZildTF7OB8D8dVGrYeCsKPCY+G9DZhH7tyo0m+AE6mKPx
-	FlwPKWB7j0P6TyTZz29LL91TeTD+Q/5dNlC0ydXvfgLE7V0c0vah1UvMEtzI7OETbbPvU3snKZgMM
-	eAhKxbBDFkyjdQ1L0vjo/AwN1dT1dyuGm8WXmc3vjwpZZFyGRaSJwO0KzYeTsGy80tM8SMo7gNI/p
-	puc3DU8Q==;
+	bh=ikLFmXKsca9wmfydpauFYhkGfc0pmf34aJ8RvveDKb8=; b=2NVd4hgwPJDjH8VWRCAvfvjJ2f
+	RGG4P/4xAHOHBU0DOk8zCKFODnz0yA2VoP8b7jexeMeEcEWAJeGN3KmCzluXGAGPtdtmjNAOvtnhN
+	LT33Atx+aj23RsFqtl7ANr2BwH4BSwjDTbEVzLrMmbQR0EDw7hMt76YCU7E5d+b0aINWM7rSVcmpW
+	fkTubjYS7bgzyXfrjXQssa+sJmRXMsI5X0SKRpyXACiKYTTrBGuUAgZ7NVc7bkresM+1kNHcxUEby
+	AsJ6hNBaXeVoZ1bhnsxAjRnThHTyZAtvIEY5Tg7cZE4kXEAtz8hajcKm8qHGncHCzfmn6ddI2el7w
+	QQvjOf/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYLu1-0000000EK4p-09yS;
-	Thu, 16 Jan 2025 09:11:01 +0000
-Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
+	id 1tYLvx-0000000EKNg-3Ppt;
+	Thu, 16 Jan 2025 09:13:01 +0000
+Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYLs9-0000000EJkk-2E9B
+	id 1tYLui-0000000EKDa-0zD9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 09:09:07 +0000
-Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-30613037309so6863461fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 01:09:04 -0800 (PST)
+	Thu, 16 Jan 2025 09:11:45 +0000
+Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-3003c0c43c0so7395971fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 01:11:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737018543; x=1737623343; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1737018702; x=1737623502; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=6oElNuHGnh2SndiJKSmzP3b2+Y0n7fF/o6Bw/SCWA8s=;
-        b=uz+fjU0dabGsk+/N6g4WQz2CQyA5/nDp7+Wgf6KuUrmfrk6R66UMenHE5N3AFcZqIY
-         qbZHcuIkyvxUeMla11aNBeW803HI2U+QYW/u+4KI0yYg4hvULOIs8tc0RTY0wK104QEm
-         HkHoRVisho2S8oK/u5FL9LkglMn1OGoGtF/aEqj+eUPt2HUCfXc1sIMUlxaARCc2SLDA
-         t1vLS925ZcXHCjhdg37wrgXhSF3cr3rstREQcz4F7zxvo7enBrSMQmIprNSYIS1v7qRe
-         81rVOlzQRiRhzPkRlF7UlgaVq/dDcgJXmCfUGFOXzTI0kOjPePcNsukNwzqsTXbPM3UG
-         pMZA==
+        bh=ikLFmXKsca9wmfydpauFYhkGfc0pmf34aJ8RvveDKb8=;
+        b=Nx2eDjk9XOlPVrLQo54U17xRI3hVwYWBo2zISAYT9f7nbqIv3b2//dJiFEYmxc6XY3
+         ygxYRnBPkHDJ2dCMw24+snNuYI4GYbpg4t5/Gvv9HfWSN9Q/iI+Cl5PBK7AczPTSbL7S
+         4Bv1OuWvd2yeG+Q9f8804VAykv7WxCYTiQE1DEn9aZ7Wq0A3Cz209wl9SLaNlTpJP1jI
+         qzQ8ncYuWan2vHL7rf2dugcp7vRrsYS4r6RX6OyC4QQUkpC0E26+0WoBfdKhhHuaPjOa
+         kEGlPHJgVsv0veNwKevX6Qfn/1lBeTbf/7sm4ByXNVDVHoP27vKfsMirvgnrwWHh5Den
+         VXVw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737018543; x=1737623343;
+        d=1e100.net; s=20230601; t=1737018702; x=1737623502;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=6oElNuHGnh2SndiJKSmzP3b2+Y0n7fF/o6Bw/SCWA8s=;
-        b=Fdgkg49JkVU9iqqJRjVTQt1zSHDnl8gRGOrhWX3AbAVUNTTV9bJJTDFnYmonE1Slrl
-         S++2EpgLNCTIXYWD6gZwOwoAfHem4lAyCMeKQGlLTeVxdwv3Se3bx8g59jtJ7fwKAaIT
-         bNhEDV7dKc18fAv05Kh5kF41IPpGHjoPaLdojED9SuWWvvrWDhuyafB7hbhQ6pNbbYLz
-         3YmGeO/gRAuuZ8jdvzRuKg4aiEIh/sfxK950GwuY+03cu1V6NRA+IJwzo7zq2TAxJ6R6
-         AkKVosmVsRh8N2F0RdyFCW87ZFSsixduqPcQeSCJoXgKpBNLD1xRQR5AWXH47OXVySxM
-         DjIg==
-X-Forwarded-Encrypted: i=1; AJvYcCU0v/c8erFCJaBPTaMqmtJ0i62okyU+PnmjVQi2aiqL0KhpSfH4vkQG5ErPvitBEUFzjzTLN41e2D3MeP7BCbrN@lists.infradead.org
-X-Gm-Message-State: AOJu0YzX9jQKdMv4RMpMdxtXfiWGCU1UUThvcU7J+O3LbTnAXHz9aaka
-	iKv2rb/yWwHnCH/coiH/T5lQpd6Hrj+GVONQ0b6H1CzhbmJrSNFVaofv2MNXQDgpgRI4HDouIvg
-	ZfiocybQE+FNtYw1NiL2iR3pVsf4z8hYvX0dIyg==
-X-Gm-Gg: ASbGncs77LHM2gCHI06i6kDJzIGDh6LFE8irfrAthEqY5/k4SSfYfZLvG7Lk4pW5tWT
-	bav2pHgrXZ1n2rXmbwYaX4PZ/3FZCdJ3mi2QP
-X-Google-Smtp-Source: AGHT+IGshDnah7yTVkge7frSzXP6u6YQ9EMlI5n0k71zbBXiVfkDniOTr0RXn5mT0CNZhOwwkIPYxH+G4Ml04S4rkI8=
-X-Received: by 2002:a05:651c:221a:b0:302:1e65:f2ab with SMTP id
- 38308e7fff4ca-305f45dcb78mr119399301fa.20.1737018543217; Thu, 16 Jan 2025
- 01:09:03 -0800 (PST)
+        bh=ikLFmXKsca9wmfydpauFYhkGfc0pmf34aJ8RvveDKb8=;
+        b=oDx45uFs7Nx8CMi0+MCwayhjHEQvn3sWweJwtN29exKJ9d2KpjxR+J3KSyY25F5zRb
+         AWpPjGLh5BFT1owNM1xepyj7E9ZIcPRAFGjh3vc9dF2Z3md1+OE8RNetLVAIZ9uz3zgf
+         5tpqb1QltwlLlAPkSPRhxiDkxod8sHgkDDS9kGvRqaHGO2n5fcKQDucgM4JFtWEn1YTy
+         1K1VItlIuqbRQxtnU1aBxvB+gXXijSf/wjiGSEKZFk3hXOjZhciFcxqA0ov9VPZhT/No
+         Xy+Qbo8AmdBLX4s6ia76cMq1jVpbCimqzNYL/JwkD1lDsektLCgd7Gxu5G++As5Zjjr9
+         IEGQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUFs4+/FPajmp8MxUvmNU0X10CfW2VeRPD6WV05X6DvmbbbC7wUm87cJ19Ak1aNt58DfzhOhT96eXVNeIvlN4Bl@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyu8F7SQog6AqynwwfXvu3D/WeV0Z8Eiszt0tejsau7tz9aB5hD
+	G9NK8Ekm85lRw7S+uRmNOkKReNAssrz+BVZNvFMS0c0ByjumhQWcsBOlsJf0LMBEtaIbMDAN97v
+	kH4Zm7CXz1Oa4b5BiDQEBSjQhM/5XU8yVy2gxxQ==
+X-Gm-Gg: ASbGncv7xgBdPElCFY1laWV/4nRwQYNu69mIFMuoalIiRVVwX3YJk3h143s9UFOuNKt
+	38Hyb5g7X2TVL+yknI1mg+47cVPb0hbsvJhFQ
+X-Google-Smtp-Source: AGHT+IGrNyL4WuedbnIHfohMmLOiMsDyLxHxYKbUmK1MCT79/SM2AYsIeC1T5ua5wPDqXM+fDCZ6Rn/6qrHw9NOkVng=
+X-Received: by 2002:a05:651c:b0d:b0:306:10d6:28ad with SMTP id
+ 38308e7fff4ca-30610d62ae0mr55983181fa.8.1737018702223; Thu, 16 Jan 2025
+ 01:11:42 -0800 (PST)
 MIME-Version: 1.0
-References: <20250110123923.270626-1-szemzo.andras@gmail.com> <20250110123923.270626-3-szemzo.andras@gmail.com>
-In-Reply-To: <20250110123923.270626-3-szemzo.andras@gmail.com>
+References: <20250115-arm-cacheinfo-fix-v1-1-5f30eeb4e463@linaro.org>
+In-Reply-To: <20250115-arm-cacheinfo-fix-v1-1-5f30eeb4e463@linaro.org>
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Thu, 16 Jan 2025 10:08:52 +0100
-X-Gm-Features: AbW1kvZEtDtDDV1b-JCy06VodlCu92OcKCF4KhRqyAArlBqTeeutEPgAkUkNoec
-Message-ID: <CACRpkdZ6yNvtqjYHaWC6ynP4CdkGSdt5AH9ZrZDqYq=wTehu-g@mail.gmail.com>
-Subject: Re: [PATCH 02/12] dt-bindings: pinctrl: sunxi: add compatible for V853
-To: Andras Szemzo <szemzo.andras@gmail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Maxime Ripard <mripard@kernel.org>, Vinod Koul <vkoul@kernel.org>, 
-	Kishon Vijay Abraham I <kishon@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-phy@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org
+Date: Thu, 16 Jan 2025 10:11:31 +0100
+X-Gm-Features: AbW1kvY2Bex2g7NRizUNo-TeBXpa3h2hnqoTmMGAWm_LgIWygats90STWMenwAs
+Message-ID: <CACRpkdaEyC_aOLkJDUPw7=0FhBFN4rRfBU4rghm4RfjZhJFP-Q@mail.gmail.com>
+Subject: Re: [PATCH] ARM: cacheinfo fix format field mask
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: Russell King <linux@armlinux.org.uk>, Sudeep Holla <sudeep.holla@arm.com>, 
+	Ard Biesheuvel <ardb@kernel.org>, "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, 
+	Arnd Bergmann <arnd@arndb.de>, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Marek Szyprowski <m.szyprowski@samsung.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_010905_582899_CCBA9635 
-X-CRM114-Status: UNSURE (   7.75  )
+X-CRM114-CacheID: sfid-20250116_011144_272684_C8D49704 
+X-CRM114-Status: UNSURE (   9.25  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,14 +97,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 10, 2025 at 1:39=E2=80=AFPM Andras Szemzo <szemzo.andras@gmail.=
-com> wrote:
+On Wed, Jan 15, 2025 at 12:10=E2=80=AFPM Dmitry Baryshkov
+<dmitry.baryshkov@linaro.org> wrote:
 
-> Add compatible strings for V853 family pinctrl.
+> Fix C&P error left unnoticed during the reviews. The FORMAT field spans
+> over bits 29-31, not 24-27 of the CTR register.
 >
-> Signed-off-by: Andras Szemzo <szemzo.andras@gmail.com>
+> Fixes: a9ff94477836 ("ARM: 9433/2: implement cacheinfo support")
+> Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
+> Closes: https://lore.kernel.org/linux-arm-msm/01515ea0-c6f0-479f-9da5-764=
+d9ee79ed6@samsung.com/
+> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 
-Patch applied because stand-alone, clear cut and reviewed.
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 
 Yours,
 Linus Walleij
