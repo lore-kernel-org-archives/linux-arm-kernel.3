@@ -4,99 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0981AC02188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 14:34:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26759C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 14:36:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pHS0Fn61rhNPulYZt6CO+SM6wBYoyMhn/IvaB4skFsQ=; b=pdfOTpLzV6HCpQtfl/SUJU56IZ
-	+KvImV/EWVn9RxUTNqKKfHuEjk1kv1ee5EYJmsZM63imhRsL1+lfg6ZcRLdckz0vWvuwAnCbMRlNA
-	MHbTFbkZyT9JEwU2bD38URJ5M14ienRHrvHYRaXP/s/m2R8zQfo7CwJkP7l14RG6O2+PBCiFoCcdj
-	lfW14R9rqtJNtKOCMTG8szLLJ4LaKj6+3sm/pAD7hoEBC45ja6nrzCz1Q/6ng7rwR1lnKUmQZbW9P
-	ldZi3OmFHa1K7eZK+DYgcsQQDZBmAdry6fH/AnWpdEFjOVoD4P6CjhGpLZ0upnurtYXij6yAE9Rnr
-	SL8IjNog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+McQPymEmOdhf0WLe0EFmpoE0UjFeiDotGFY4kS0D0g=; b=HaPuANO0hkSxUwMLvHRjaV3Blj
+	hp4cVhTpzqF8SKMPYaztkanUus3Wdphub1USwwWkPilVWDWq3B9H3seCpnaB3lPyOhpH/yssToaZy
+	RWFGZEGe93nRD0XpnpUJZO+wIdxKillhZR/t9b9RHQurcibra0IL7YehHot1rjbIcghaTWgB0itrs
+	eE4iP12c6iuzNbcGN1USMx9sFmZRzjxMS9fPWqc8xzEGzU+r6VNHHKQh4CG91eqcl6CLrcr2yvVyl
+	CyxwgQ8Q1fGPoExFjuxZfFfGuZ8agoqsJ7jIn4HSY2d+KW4VWkgVFheg4MXoLYgkfRb+rzkmPbjZy
+	AoIUBi2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYQww-0000000FBTt-3mQO;
-	Thu, 16 Jan 2025 14:34:22 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1tYQzE-0000000FC2A-3RNw;
+	Thu, 16 Jan 2025 14:36:44 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYQtB-0000000FAfW-2XJ6
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 14:30:30 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50GCMPgY022802;
-	Thu, 16 Jan 2025 14:30:16 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=
-	content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=pHS0Fn
-	61rhNPulYZt6CO+SM6wBYoyMhn/IvaB4skFsQ=; b=tiUus4CQ5KOVLwSSpt3KQv
-	CGxavg6M6mrjTVc7bcMNJ6tcQrm3z7feowhOwYn6P4awZtD/QgouqNGCW4S8yIUK
-	e3RjO21Kbw87oyye2EoNwS/rcduQQw5ZabENsZo5eMnZTGC7hz9At+f+tbALyUSd
-	CoqjWEyTe5wMgbRqZ4ddrs/7W2MhH/9fMd4xHbzdKV7yF/31NkTTnEgeH304q3sg
-	luEcvJCBPcdo2gbzixy4Svok+huIP3/cBLMebu/GDPbZ0dOV16q3SSOopqZwlydo
-	FEGtNMoOulQRG5x4aua/N+7Xfi7GFRl+tPH8Vknh1kJ2oDw8i0ML3Zff4sEnIreQ
-	==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 446pub3j3w-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 16 Jan 2025 14:30:15 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 50GB4bAl016490;
-	Thu, 16 Jan 2025 14:30:15 GMT
-Received: from smtprelay07.dal12v.mail.ibm.com ([172.16.1.9])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4445p1wux1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 16 Jan 2025 14:30:15 +0000
-Received: from smtpav06.wdc07v.mail.ibm.com (smtpav06.wdc07v.mail.ibm.com [10.39.53.233])
-	by smtprelay07.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 50GEUEeH29688478
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 16 Jan 2025 14:30:14 GMT
-Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 8523158062;
-	Thu, 16 Jan 2025 14:30:14 +0000 (GMT)
-Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id D161458055;
-	Thu, 16 Jan 2025 14:30:12 +0000 (GMT)
-Received: from [9.61.59.21] (unknown [9.61.59.21])
-	by smtpav06.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Thu, 16 Jan 2025 14:30:12 +0000 (GMT)
-Message-ID: <ae14daf4-c7fe-4fcc-89cd-5d1d8b320193@linux.ibm.com>
-Date: Thu, 16 Jan 2025 08:30:12 -0600
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: dts: aspeed: Align GPIO hog name with bindings
-From: Ninad Palsule <ninad@linux.ibm.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-        Andrew Jeffery <andrew@codeconstruct.com.au>,
-        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-References: <20250116090009.87338-1-krzysztof.kozlowski@linaro.org>
- <cba3c5e0-624b-40a2-8b52-8d07604676a1@linux.ibm.com>
-Content-Language: en-US
-In-Reply-To: <cba3c5e0-624b-40a2-8b52-8d07604676a1@linux.ibm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: rJ3dDbNz14S5BMjlPMGQE_49alAp4k4J
-X-Proofpoint-ORIG-GUID: rJ3dDbNz14S5BMjlPMGQE_49alAp4k4J
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-01-16_06,2025-01-16_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 impostorscore=0
- spamscore=0 malwarescore=0 lowpriorityscore=0 mlxscore=0 suspectscore=0
- priorityscore=1501 bulkscore=0 mlxlogscore=726 clxscore=1015 adultscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
- definitions=main-2501160110
+	id 1tYQxy-0000000FBho-1o8g;
+	Thu, 16 Jan 2025 14:35:27 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-5d9b6b034easo2091411a12.3;
+        Thu, 16 Jan 2025 06:35:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1737038124; x=1737642924; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+McQPymEmOdhf0WLe0EFmpoE0UjFeiDotGFY4kS0D0g=;
+        b=IfU+EIDx6xWwgvngb/uhO2iNKbpXX5Fq5IfrY5fLUfUGeGu0YbSoDbFIUcnTo1gKa6
+         itk8b5z9SfNAs6dMh1N20+r6qNDYSp6Q7kA8er4sOMjZgyVOzf40qMo+7RJSFET0kWqs
+         wFUaedsiB7yot9e8nJT3O3ekcoIP1dvAlthulKppLsh6eRFc4T2D/Xr/3P+ukkSdILhO
+         sEy9FdG+IbBwqsutnxG/8fgdTDUcWotzVtEKCHxdS3bOskUKjZ6CE8qZZa/1OVr4fA35
+         ZNrWSq9gKoWQDwWZzGwH0LS70l5gjdSOvyoKSxVwgJzTnxQK6y6vkEmF6ZCYnp4JBYLK
+         KHuA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737038124; x=1737642924;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+McQPymEmOdhf0WLe0EFmpoE0UjFeiDotGFY4kS0D0g=;
+        b=kV+e2hCb1DGeHiHU0Bray68dcGIa+dRrPteAWMbnqX9RHJ9NYzyy3G6kgPSlNToFlX
+         6bzCgizw/kBoyRk+Egls7ZxhiAiviCYIRchpFlTIFooQE6nUwo0Q3ZS+OLHcroHTaXqC
+         Aq6IN8Hlr9xnXPmWP/1vDodbXvksCtpyHRcwrMJenJD3mekYkf67D7lyo0P/ew3M7kDX
+         t7PaEyUys0WYqlfp2K2VosUPA7DbiRzrnc+blaz0FU/+Vw2wl74l81IiojKrWLjDGIZS
+         rUsg1IBqHi+auZqKm2NhgfIFH29SleowCmCQkzO6mk5FlceCfvExLr11ZcWAZy7qfwRU
+         CYMw==
+X-Forwarded-Encrypted: i=1; AJvYcCUSiQUV7nhXhCC/c4MJ7MKdL6u/3a+BkIKi8nYXpxRiT+ltWYmTNxgTj9Nd3l4viE0opujFXpk9lsgzKjTiMlk=@lists.infradead.org, AJvYcCVDi2ZcB7N2DDTbaztWC+o61Iyfx/Q55Lkxd3CDgiTiiOFes2hq1CBDorDutpKeCQO/0yc5iolUGuwb@lists.infradead.org, AJvYcCXiIGIWZdPGjjBT3O56Ai7JaJ5ppR8PdOfhIgzxtYHZ7HIteV4fa2ey+358ThG5nu4UQuAlSSpTpTTIYxWzUN64@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy+kdiNmq9KWFl4OPxZtnPa8lUjjP9j28u6oTEcMxtLscUrPHEN
+	hWNIKLlQSNk2OLgaa5VhbbBrAcuwWp68qL4m10AJcSUm6tm3j1/Z
+X-Gm-Gg: ASbGncs4AwQ/+c/kZMHCrNVqVQsWcIqNKX8XaKYDUPREc3PAgHh5Zl6+udVVvdCRTqQ
+	0jKNi0TpBsuYmjWqHP3ZxGVY83KTIk7d34FhRgPkfHGm0sBRJRua2I7Dq/b/NIbRbcgNHiCYDVz
+	Ygc/kMEs4hhEKyfXX7C14yhU5KxCgeaQbc4I9c5zKLfy2z87Gik5RZf4Hf9ZWJH8Eam4Uof7qQm
+	6nJXJDaNEubQrlomQGNQFTqqcPk9/eqIoZzlkKbiefMaEhbnrxaGXfkgXT17UoVoLg6agCIqDUS
+	Zva4aJXHE4mgXYYaGOGWhSMTzxRDJkELkBcrqQ==
+X-Google-Smtp-Source: AGHT+IF22GYVRQI+1Y1KzRsqCWEDA0Rkne28OZTlDzi7yq1Grymd0Rj0WG4k8w+WrzsYR8ss+QgyYw==
+X-Received: by 2002:a05:6402:2695:b0:5d9:f70a:47ec with SMTP id 4fb4d7f45d1cf-5d9f70a4a74mr10793460a12.15.1737038124352;
+        Thu, 16 Jan 2025 06:35:24 -0800 (PST)
+Received: from smtpclient.apple (89-66-237-154.dynamic.chello.pl. [89.66.237.154])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5db7364272esm19585a12.12.2025.01.16.06.35.20
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 16 Jan 2025 06:35:23 -0800 (PST)
+Content-Type: text/plain;
+	charset=utf-8
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.300.87.4.3\))
+Subject: Re: [RFC PATCH v1 0/6] rockchip: add a functional usb3 phy driver for
+ rk3328
+From: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
+In-Reply-To: <CAMdYzYoCj9FsyHdTQAOV4DFpD7OdMDaJ0R=BBxXG-SLguy512Q@mail.gmail.com>
+Date: Thu, 16 Jan 2025 15:35:08 +0100
+Cc: Heiko Stuebner <heiko@sntech.de>,
+ Algea Cao <algea.cao@rock-chips.com>,
+ Michael Turquette <mturquette@baylibre.com>,
+ kever.yang@rock-chips.com,
+ linux-phy@lists.infradead.org,
+ wulf@rock-chips.com,
+ zyw@rock-chips.com,
+ Dragan Simic <dsimic@manjaro.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>,
+ Rob Herring <robh@kernel.org>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ linux-clk@vger.kernel.org,
+ linux-rockchip@lists.infradead.org,
+ devicetree@vger.kernel.org,
+ Conor Dooley <conor+dt@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Arnd Bergmann <arnd@arndb.de>,
+ Jonas Karlman <jonas@kwiboo.se>,
+ frank.wang@rock-chips.com,
+ Elaine Zhang <zhangqing@rock-chips.com>,
+ Alex Bee <knaerzche@gmail.com>,
+ william.wu@rock-chips.com,
+ Zhang Yubing <yubing.zhang@rock-chips.com>,
+ Johan Jonker <jbx6244@gmail.com>,
+ linux-arm-kernel@lists.infradead.org,
+ Trevor Woerner <twoerner@gmail.com>,
+ Stephen Boyd <sboyd@kernel.org>,
+ linux-kernel@vger.kernel.org,
+ Vinod Koul <vkoul@kernel.org>,
+ FUKAUMI Naoki <naoki@radxa.com>,
+ Diederik de Haas <didi.debian@cknow.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <F69CE715-C0E4-4FCD-943C-89CC1D3E848D@gmail.com>
+References: <20250115012628.1035928-1-pgwipeout@gmail.com>
+ <2EEA8028-8E4A-4588-A480-E5FF0F7BE82E@gmail.com>
+ <CAMdYzYo2W1hLgiH697AdRSUbhBU4rU2uB=N6EMWMD2-0R+VLBA@mail.gmail.com>
+ <B1C9DA16-F285-4AD0-AE4E-AF1A5CA20932@gmail.com>
+ <CAMdYzYrxX=RsSZja-3+zLZUSpyLoRz8Zm0w0hTfL3RQ9cjqgOw@mail.gmail.com>
+ <3536B507-8658-4377-A1AC-2C5D9093BDEB@gmail.com>
+ <CAMdYzYoCj9FsyHdTQAOV4DFpD7OdMDaJ0R=BBxXG-SLguy512Q@mail.gmail.com>
+To: Peter Geis <pgwipeout@gmail.com>
+X-Mailer: Apple Mail (2.3826.300.87.4.3)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_063029_768666_88080D4F 
-X-CRM114-Status: GOOD (  11.17  )
+X-CRM114-CacheID: sfid-20250116_063526_470454_708155BB 
+X-CRM114-Status: UNSURE (   7.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,33 +137,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On 1/16/25 08:18, Ninad Palsule wrote:
->
-> On 1/16/25 03:00, Krzysztof Kozlowski wrote:
->> Bindings expect GPIO hog names to end with 'hog' suffix, so correct it
->> to fix dtbs_check warnings like:
->>
->>    aspeed-bmc-lenovo-hr630.dtb: pin_gpio_b5: $nodename:0: 
->> 'pin_gpio_b5' does not match '^.+-hog(-[0-9]+)?$'
->>
->> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->> ---
->>   .../dts/aspeed/aspeed-bmc-ampere-mtjade.dts   |  2 +-
->>   .../aspeed-bmc-arm-stardragon4800-rep2.dts    |  4 +-
->>   .../aspeed/aspeed-bmc-asrock-e3c246d4i.dts    |  2 +-
->>   .../dts/aspeed/aspeed-bmc-bytedance-g220a.dts |  4 +-
->>   .../dts/aspeed/aspeed-bmc-delta-ahe50dc.dts   |  2 +-
->>   .../dts/aspeed/aspeed-bmc-ibm-bonnell.dts     |  2 +-
->>   .../dts/aspeed/aspeed-bmc-ibm-everest.dts     |  2 +-
->>   .../dts/aspeed/aspeed-bmc-ibm-rainier.dts     |  4 +-
->>   .../dts/aspeed/aspeed-bmc-lenovo-hr630.dts    | 46 ++++++-------
->>   .../dts/aspeed/aspeed-bmc-lenovo-hr855xg2.dts | 68 +++++++++----------
->>   .../dts/aspeed/aspeed-bmc-opp-lanyang.dts     | 14 ++--
->>   .../boot/dts/aspeed/aspeed-bmc-opp-nicole.dts | 10 +--
->>   .../dts/aspeed/aspeed-bmc-opp-palmetto.dts    | 40 +++++------
->>   .../dts/aspeed/aspeed-bmc-opp-romulus.dts     |  6 +-
->>   .../boot/dts/aspeed/aspeed-bmc-opp-zaius.dts  |  8 +--
->>   15 files changed, 107 insertions(+), 107 deletions(-)
->>
-Reviewed-by: Ninad Palsule <ninad@linux.ibm.com>
+
+> Wiadomo=C5=9B=C4=87 napisana przez Peter Geis <pgwipeout@gmail.com> w =
+dniu 16 sty 2025, o godz. 15:02:
+>=20
+>>=20
+>=20
+> I'm at a loss here, I applied the patches to a clean 6.9 tree and even
+>>=20
+
+oh maybe issue is in kernel age?
+6.9 seems a bit quite old.
+i=E2=80=99m on 6.12.9=E2=80=A6.=
 
