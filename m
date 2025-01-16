@@ -4,84 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0600EC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 19:32:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79694C02187
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 19:33:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K9yGTD2yu84mlddSkREi20uhDyFHI2hi1pRd4d7s9yk=; b=yEAy7L+pEoiyKjvKT76JibSU0O
-	GIoNrOkIXF8913qdfRLySdMsGUrJ4xmABZsOgqYT9YhvtIh9qTu1u7AafuPKZT2K0hESGz02Xgc5v
-	6gkpnB/Di1vq3SV/+McUhVuMKb0zelRiKLaA7Rnw6OeMa5GeoYh/L+v9LdkAfrd3RrJiH2n/lEigi
-	Bnu7afvJHi309Fv0BzhFTv7+zL7KuKu6ncG+T8TJfNlXyNdllJnc734JGVgqG9+WxwuuocuzrKHr/
-	yhjJ7BOD1k0zzLG6D2yuprk3fyRZCf4uVxx5LyzhqRQsDkbbVWKfugx3XoH3VucAvJEPjwdsXV2x1
-	fcKLMpSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p2oCQTDyFtzOd9uDuk0k/6IADn8jCTnEtRWIODY/B3s=; b=ocgYFJFur5vqcSR2GddanerX35
+	qMUJ++0Z5e8efowojeBdkdzaxQZrNLK/yDO0uDP0Bj6a1ASeEQOkZFLFKiKTl/vh9+iHEx8sbMQfZ
+	gyaxrmf405gpJ285d98ZJ4rmX/ZLnV57MXClwbuK/vjcD66WPPXecDdS93EahELyOL9SpBBo8gDSm
+	OKr/nbyX+irg511IMq1Vfe3qNuYbu/lUBufWJK5m2FgDuW6+xwvB4JP9vO6OiYO/jfhFhcw231fhO
+	4NE1Ij2b/WjFJ4XIibruihHjzNbP/sEBP7uriWVhh9w/qWOS4MncykkliKvA3jci6757p4j/N95Ji
+	JwOkdtsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYVao-0000000Fu8Y-0v4Y;
-	Thu, 16 Jan 2025 19:31:50 +0000
-Received: from mail-yb1-xb35.google.com ([2607:f8b0:4864:20::b35])
+	id 1tYVc5-0000000FuRL-3Yeh;
+	Thu, 16 Jan 2025 19:33:09 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYVZX-0000000Ftmg-1Ndh
+	id 1tYVaG-0000000Fu0B-3KOn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 19:30:32 +0000
-Received: by mail-yb1-xb35.google.com with SMTP id 3f1490d57ef6-e46ac799015so1887349276.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 11:30:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1737055830; x=1737660630; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=K9yGTD2yu84mlddSkREi20uhDyFHI2hi1pRd4d7s9yk=;
-        b=KQqfDx/XubzYFTTFxmo2Cb7OLbbHJ11qmcGDqIO/yzCP9/oY0lvaQnFgJZyogJq5cZ
-         ygcnmcnncHC9uQiqGuZ7w+Djdu67zZw+SRHyIFZhfjyZG5u5pd1GH6pd3mF91+E5QXxq
-         Nx1peCXAV/OPKzdTh6drANso6x+xwoZfC/fXU/r19eHhxmtxC7ZHrejUpFEcBifbtHET
-         eG30k3qBaoga7d/RSYWB3mda+CZ3lAFa9Q9EkKwxIJsdmlkVnFf6lUC2L8AsBF1CjWJw
-         lHV/wn0CPMjYG1nCnWpIozUAv703mZxG8t53dsE0/7B8olWhUVUwPFOWbPJYdur3ExmS
-         W8Iw==
+	Thu, 16 Jan 2025 19:31:18 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50GEJeSO006599
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 19:31:16 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	p2oCQTDyFtzOd9uDuk0k/6IADn8jCTnEtRWIODY/B3s=; b=MXJQZwt5zFu72kpv
+	RCn27+pG1vgqfm1+XSm4qU6C1/n2lf0zo8jeOY2xQ8jHveJ83l4BqhAgMkXFr+nF
+	e/9CAjpd9GGjd5cXO/TLxq+pr9WRn007Pwq17aFm8yCyiHKGeuceKZdeDjyPstkC
+	o2ne3SEcT/X1Jfdp6mVbpiawhx0UJtFA7a4fUHgsT0mWmp//uHPYl1AOn5szZF37
+	oq6Fxka8W4IL7KhkDuNd1Vmx96slz9T8ASJBl3uU3SArVYIq4lBZf5Hjc1exmBSX
+	/3aO33DY+ZEL9VaLwl1J4xpt0FKi2WDa1v+/fLPpbSfc/1/c0lw51N2Li6l4oAsK
+	FKKnSg==
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4473se0sf9-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 19:31:15 +0000 (GMT)
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-6d880eea0a1so3237746d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 11:31:15 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737055830; x=1737660630;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=K9yGTD2yu84mlddSkREi20uhDyFHI2hi1pRd4d7s9yk=;
-        b=iq6WNdPNa4S6g+pdA+pnbFVX/vUm8FjARFgEqrDFLJ9CbpDCNKcaVBhIai6NsBasSF
-         5mUyV8VgKTfBlAhQBoN0NyLfW+n6IZyecFt3+FkkNbsZrFwNdGAxHtbnzqF3jXcOvuQE
-         8sW9bfLwP9LrTSrAUE3WAqvckjtO9LGKEidUPhbQdC8ko+v1XdWu2YcwlQ87vpJuUt3M
-         mF2x6r9GkqjcbLmririb9JdqMZO4R94/P8E+BR2HVhjlfj/KDf4fqQjEnnUEdo3hZP+8
-         0qsTvs1knk4yrxHO1DPyQHbJSyBj0L3eKKIrwOW50rHIaJZ3gHrWobSKi/E/gNg3PNu8
-         d8IQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXMhYSLCaK6ybfpgYEfo2SJRQHw5nhDa/Gz3Hvw5EwBR9y8iZN2Zphvnh55PIlo7wcwz0NymTe3mNGe9iNKmlyj@lists.infradead.org
-X-Gm-Message-State: AOJu0YzCyBLL+qlBWNUdlM0BjGxl7aj6owQ/ROHTCYXZbt4YmxTSS+ph
-	fpRW81U2QSE39YC7FMGPHec+kT/71YgyzAjqZHtSDR+mNbZE8pocCYDczg0VS2hKavLH0qhu9CU
-	jKM6xyF+aaupsP16t4oBs2T9KPSZo8gYSjjUX8g==
-X-Gm-Gg: ASbGncsBru5ZCImLnCFiQlFAHs8OMkTXsWgmfp5VT9GXV+EgGsY0f81QFnC4Cew1HZ4
-	4aPau44EEg7josP4Vx69+jXul0/+1HAn79A5R5p4BTd1lACYtpXCCiMfcv46LRCOmem1jFA==
-X-Google-Smtp-Source: AGHT+IFXG849W4uNWpc4bFNrizPOkptByt52u9hfJ+BJR1wUhWUYNlnui+HfcnnpuS0n6WGsOedCv9P+RnA/p78YhBw=
-X-Received: by 2002:a05:690c:113:b0:6ee:4ce9:b33e with SMTP id
- 00721157ae682-6f5312252eamr304823777b3.12.1737055830258; Thu, 16 Jan 2025
- 11:30:30 -0800 (PST)
+        d=1e100.net; s=20230601; t=1737055863; x=1737660663;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=p2oCQTDyFtzOd9uDuk0k/6IADn8jCTnEtRWIODY/B3s=;
+        b=bJE03jn3TK3MDP51InZbKiWEQkBEysyPUvYjzcYU7vKUJjHuY8Mt3IU0U9oFuiA2BE
+         VdtMo6yv/1x/4ai1mFgNkC+Kd8fHIdfPFK8gE9dLFhKBn6ORBsLf3eRRxv5vRTNWJ1kq
+         oOOAhFK44+aAiXmVjicioiUncf1Ro7SX5FMDQv3bxWBLMyeg6hI9k4cGVXWWhRkZEOYZ
+         Ih4eYa01Jk/cG2Xmf0U/VVscGBeeYuyuaITWcVwOfuPBKPxv3x3MvsVSkXaDVQIwqP89
+         ZpqVVLZHIMeFsOkV5vsUV14zhyaHuqzsCQxFRNI62f7Xxl7rSEFaZ4rfo08asB6sKIlH
+         cFKQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUE7c+iBvmK0WWwkwiJ4crtQXc9HA/aT0H/gVertCfJ+mk9zOKwFDK1ZrNqX7tJ4n0WC04/zL9YKG9u5D5ur9jc@lists.infradead.org
+X-Gm-Message-State: AOJu0YxjOlTWRnVW+foJzhbpnIlGRUI/y61TkzUJ7A1NXH3Qu0SAlaa6
+	XByjiaP/AFYZ3cV3odS9CQVFxUpEWJVpxD9aID+cBowqpMx8sp3Kong0gc572ro+geh1WJQCKjH
+	m2XLlWQFSN4XZGyad6QrYu8ztztw6+lOaJJNzrIiEp1KAyOgeeOUv/vfhMVrYMBqydY1K6BpgCw
+	==
+X-Gm-Gg: ASbGncvXDn6wboxkQ07bvMl3WqRcsMvSJ7GCAGv3tZLA63DXoipgVIsLZ99h21+t/RE
+	owgDtsUhbquQtpasORpoK9icHED4OztSQMzE7D+VwTvFsqV9rJW3VstYJTIa8eaBbu9G0XlDA4U
+	6HBIrAKlDa981wKlQcACigYb+n0o2UdaJ/AnNHZZRvwK2gwihr3J9YLHf2+LowN87f5RPRrd/V9
+	5nDSlOc1KAbZwz+bwezLXWgnqvyJDCLYDGnyRtAH7syvewkHB2dti+qUJWo520fK2DeQXzCQM2J
+	vJBUQ7oY/vZVCjl4Y9AL1ImnpyGaJn0hM3M=
+X-Received: by 2002:a05:6214:3016:b0:6d4:1f85:3975 with SMTP id 6a1803df08f44-6e1b21f207cmr237126d6.8.1737055863098;
+        Thu, 16 Jan 2025 11:31:03 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEoEvs3dPfn98G/nJY/KiQsPoGomSjcKF4fvgXzqrXcQPhHh0k0bJ4l0NVlAcPX0Z3NeGEoWQ==
+X-Received: by 2002:a05:6214:3016:b0:6d4:1f85:3975 with SMTP id 6a1803df08f44-6e1b21f207cmr237046d6.8.1737055862745;
+        Thu, 16 Jan 2025 11:31:02 -0800 (PST)
+Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab384f86265sm37902466b.130.2025.01.16.11.30.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 16 Jan 2025 11:31:01 -0800 (PST)
+Message-ID: <e08535c5-33e4-4f9e-a234-deae4f179371@oss.qualcomm.com>
+Date: Thu, 16 Jan 2025 20:30:58 +0100
 MIME-Version: 1.0
-References: <20250116-bcm2712-clk-updates-v1-0-10bc92ffbf41@raspberrypi.com> <974a3030-0531-4c4d-9769-af752ae4898d@gmx.net>
-In-Reply-To: <974a3030-0531-4c4d-9769-af752ae4898d@gmx.net>
-From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Thu, 16 Jan 2025 19:30:12 +0000
-X-Gm-Features: AbW1kvb0Im_xVBsOKkzTFauIDT67Sx1H5TzizuoNDn6oj7mq0-uOqt38-I9PFmk
-Message-ID: <CAPY8ntAP2EhXsVDRgK9723feWrS5M9z5=vgN4SjuAmAF3wQNGw@mail.gmail.com>
-Subject: Re: [PATCH 0/5] clk: bcm: rpi: Add additional clocks for 2712.
-To: Stefan Wahren <wahrenst@gmx.net>
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, linux-clk@vger.kernel.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Dom Cobley <popcornmix@gmail.com>, 
-	Maxime Ripard <mripard@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/7] dt-bindings: phy: Add the M31 based eUSB2 PHY
+ bindings
+To: Melody Olvera <quic_molvera@quicinc.com>, Vinod Koul <vkoul@kernel.org>,
+        Kishon Vijay Abraham I <kishon@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Wesley Cheng <quic_wcheng@quicinc.com>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Satya Durga Srinivasu Prabhala <quic_satyap@quicinc.com>,
+        Trilok Soni <quic_tsoni@quicinc.com>
+Cc: linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20250113-sm8750_usb_master-v1-0-09afe1dc2524@quicinc.com>
+ <20250113-sm8750_usb_master-v1-2-09afe1dc2524@quicinc.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20250113-sm8750_usb_master-v1-2-09afe1dc2524@quicinc.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: xPgatqrUu54rdEVK_GTJs7GgSfjP7hEM
+X-Proofpoint-ORIG-GUID: xPgatqrUu54rdEVK_GTJs7GgSfjP7hEM
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-16_08,2025-01-16_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
+ spamscore=0 adultscore=0 mlxscore=0 bulkscore=0 impostorscore=0
+ malwarescore=0 suspectscore=0 mlxlogscore=763 lowpriorityscore=0
+ clxscore=1015 phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501160144
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_113031_588404_2E02C1E9 
-X-CRM114-Status: GOOD (  22.19  )
+X-CRM114-CacheID: sfid-20250116_113116_947911_ACC5D346 
+X-CRM114-Status: GOOD (  13.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,61 +134,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stefan
+On 13.01.2025 10:52 PM, Melody Olvera wrote:
+> From: Wesley Cheng <quic_wcheng@quicinc.com>
+> 
+> On SM8750, the M31 eUSB2 PHY is being used to support USB2. Add the
+> binding definition for the PHY driver.
+> 
+> Signed-off-by: Wesley Cheng <quic_wcheng@quicinc.com>
+> Signed-off-by: Melody Olvera <quic_molvera@quicinc.com>
+> ---
 
-On Thu, 16 Jan 2025 at 19:11, Stefan Wahren <wahrenst@gmx.net> wrote:
->
-> Hi Dave,
->
-> Am 16.01.25 um 17:24 schrieb Dave Stevenson:
-> > These patches were Acked by Stephen as patches 30-34 of
-> > https://lore.kernel.org/all/20241023-drm-vc4-2712-support-v1-0-1cc2d5594907@raspberrypi.com/
-> > with v2 at
-> > https://lore.kernel.org/all/20241025-drm-vc4-2712-support-v2-0-35efa83c8fc0@raspberrypi.com/
-> >
-> > I'm a newbie on kernel processes and where the patches should be merged.
-> >
-> > I'd asked Stephen on the v1 thread as to what needed to happen to get
-> > them merged, and he asked me to resend the clk patches for the next merge
-> > window.
-> > I must confess to it having slipped my mind, but resending them now to
-> > hopefully be merged in time.
-> from my understanding, not all of these patches are specific to BCM2712
-> (Raspberry Pi 5).
->
-> Could you please clarify (no need to send a new version)?
+[...]
 
-You're right that they aren't all specific to 2712.
 
-The patches were all part of the series adding 2712 DRM support, and I
-didn't check the details of exactly what was changed in each when
-writing this cover letter. Sorry.
+BCR>;
+> +
+> +        #phy-cells = <0>;
+> +
+> +        vdd-supply = <&vreg_l2d_0p88>;
+> +        vdda12-supply = <&vreg_l3g_1p2>;
+> +
 
-  Dave
+stray newline
 
-> Best regards
-> >
-> > Thanks.
-> >    Dave
-> >
-> > Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
-> > ---
-> > Dom Cobley (3):
-> >        clk: bcm: rpi: Add ISP to exported clocks
-> >        clk: bcm: rpi: Allow cpufreq driver to also adjust gpu clocks
-> >        clk: bcm: rpi: Enable minimize for all firmware clocks
-> >
-> > Maxime Ripard (2):
-> >        clk: bcm: rpi: Create helper to retrieve private data
-> >        clk: bcm: rpi: Add disp clock
-> >
-> >   drivers/clk/bcm/clk-raspberrypi.c          | 33 ++++++++++++++++++++++--------
-> >   include/soc/bcm2835/raspberrypi-firmware.h |  1 +
-> >   2 files changed, 25 insertions(+), 9 deletions(-)
-> > ---
-> > base-commit: 40384c840ea1944d7c5a392e8975ed088ecf0b37
-> > change-id: 20250115-bcm2712-clk-updates-98a47f32116d
-> >
-> > Best regards,
->
+Konrad
+
+> +    };
+> 
 
