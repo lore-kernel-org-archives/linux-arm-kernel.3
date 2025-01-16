@@ -4,91 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80924C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 14:58:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFFC6C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jan 2025 14:59:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+40RmltfMANyPY+1QTgar9RnRnjYDGniubr9OVcwfG4=; b=WHFpKl99Ci/ChURg+VelFock/W
-	40v5RvlAKtoF2NOLr2BLJTRXoJh08iQ13Tbt4upLo8V8CSGR78l0VCuV/qTXFCOwTdzVFK0eZ0/tV
-	uQvw0cpa4w3JB0FbEDnJg+saw5NnxO5f4eene3sP61VAz0v8iC6x+pYtZJkoUoIxHhcrg7WevLhpE
-	AkqD0ZYgEyI/83JyOs18j5WuczS5JpAsaE1kDpOv43lWrOwvxtOX2sLd/wgGJlu+khscpFPzAJOmZ
-	CvDcGHjlliOIfXyVqroctWRvXnHgwo3VQ83cZCtOdiPT86JBtgZlwPCJzgPisKoNXjIFrHw1BVNGU
-	jScP9g4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RN+lUqqXfFFnt2ftAYlgEuz6QuwjjAyaGeEfpafExi4=; b=2kCAcRYdyscYltGImjvmXtkvGE
+	oKgWdatrF0VmdCy+4v4yUUgTeHMJJPnkA6/52D7L+XzDvd20MJtqEEgAKZfZKSMXvIcOs68Y2Iexd
+	bm4NfLshqaha7pcTffbocFwuiXeRJB4N3QafoYhmt0+enXIH6V7/sOPCvk0VfOBZkWHaRonBbrVuY
+	7rXkWsymTypFNtM8OqTH4gJbS0WfnUO+dtg5aP4fWH7hFeZoAh+S1v/UaUFwSm99jNlouCa16PvL6
+	zRa24V2knNj7tpX4egEgTTEOceKWMz01eBtECir50l2yUB7xQSLyaWX6tUS8SXo77WFJWgeSU7Xsi
+	O7PPSt7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYRKB-0000000FGXi-2GMq;
-	Thu, 16 Jan 2025 14:58:23 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1tYRLQ-0000000FGnw-0eS9;
+	Thu, 16 Jan 2025 14:59:40 +0000
+Received: from mail-dm6nam10on20630.outbound.protection.outlook.com ([2a01:111:f403:2413::630] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYRFr-0000000FFbX-0KSq
+	id 1tYRI4-0000000FG7y-3xcH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jan 2025 14:53:56 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43690d4605dso6706295e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 06:53:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737039233; x=1737644033; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=+40RmltfMANyPY+1QTgar9RnRnjYDGniubr9OVcwfG4=;
-        b=uN19FOfc8mBfwAUX/OTHcCRAlaegatqPeBqfYbwV33/C2UCtBOKs4LRIOWELbTlX7m
-         l8Wa7n6wvaXPy0qEZ7pDia9bo/S90+yJGHaT9tkkeyUzG4fYshzvmD4XEof57ECODpCh
-         YdzDZt+FQXqwyDPyogJpD5L4Df/0QuVB6qjdpbLuxDWQSaD+BKcHz8RzU546gCCozgkN
-         Ap6aCoJPsLw46ahsuqKNTKsnP1jyfREKpVuiNCC6CPz/aFtqcWcYdwsK1tghUH1bf0Oo
-         Ns3Lo7c6bqQCK9/PcBG4G0vn7jtzZaRli7sqU13yZgtKu6c5cosjeNiuRf7Yoqqo8o1P
-         Bmsw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737039233; x=1737644033;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=+40RmltfMANyPY+1QTgar9RnRnjYDGniubr9OVcwfG4=;
-        b=QFp2Ldpd9v6/M0LL7i2Y3aDzjIUUlajnUIz0xVci7P8EmpKxzSrmFNWDmvAHGh88gJ
-         55fl6+420RksQU/6LYWz+FBWXgApSm7rkmIUiLTLuhhytsSgRZ81Gt2vgUu/4iP/Dx/g
-         mWTRuPACvqOl8rJzt/1Mdhn1NR0kzXoPRNW5lsmvWojADbpl1eplUQ21b3U6/jYuxy3S
-         rrFqgiRdVULYI5E1c9Ehi45jaz+lQnrxMzCCYGhzml/FH+zibzLu8imRJfr1G3NCmCIX
-         eUnAeri46TsbmFmF0mTBWfUDsaoTbTj9/SCooXJRakbc8RD5L9CD2l3kIKjD0ZcOmXRM
-         cJ4w==
-X-Forwarded-Encrypted: i=1; AJvYcCVlHDkDHIDBvtRpqWlEoSffNoKP66L3SSdDBWSuLFhIeHyM7hEA43t/+fjB1L5WzjGZmTy6i2JYdsyF/uu4ETJ1@lists.infradead.org
-X-Gm-Message-State: AOJu0YwO3D//ndbLF6USwJ5tdEao9EMaXcAdbFG/+0MIMQ0XknrUeozX
-	DvA0n7ACEWHxWs/jg1btso15xfxJoAI67jRpNDyz17V8SX0m7XSgnjGX2UuqdHA=
-X-Gm-Gg: ASbGncv6ymrKpIwtl1idjw5cYMIDThNlGyRArNvtFJVy8NGqAOnT5z0q6t1NRW46c99
-	3sCwOVyuZgqFnN4Vn5f+QHwf29Ja1SEAAZhjYajsECxjxghq1QL8uJ2a/tj8wpgy3JPEQICLBAJ
-	jccEtE4CCPkBT2QhtznOKqzlkf8zEsyD4BU177bSe230Te/7rfMGaBB+t1ztaFtezwd2u6rIIlX
-	t7vAXTBp6G6M2XOIET5mCZulTNBossfNhBwkZ4WJ+SvOxFW1KwutmMj0I0=
-X-Google-Smtp-Source: AGHT+IE3zET7LUBf5Xl5nUv66mL3sWpnOxRP3nAF8WgDEzvt7rB31XYs3LBWYqwaS9CKz65z3GQHAw==
-X-Received: by 2002:a05:6000:4612:b0:38a:39ad:3e2f with SMTP id ffacd0b85a97d-38a872cb1e1mr29373964f8f.2.1737039233420;
-        Thu, 16 Jan 2025 06:53:53 -0800 (PST)
-Received: from salami.lan ([80.111.64.44])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38bf3221b5asm74199f8f.21.2025.01.16.06.53.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Jan 2025 06:53:53 -0800 (PST)
-Message-ID: <3be2a6e263f127bbc3331b6aeb533fc0ba636772.camel@linaro.org>
-Subject: Re: [PATCH v3 0/4] Google Pixel 6 (simple) framebuffer support
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, Will McVicker	
- <willmcvicker@google.com>, kernel-team@android.com, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Peter Griffin <peter.griffin@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, 	devicetree@vger.kernel.org, Alim Akhtar
- <alim.akhtar@samsung.com>
-Date: Thu, 16 Jan 2025 14:53:46 +0000
-In-Reply-To: <173703609099.1976411.4033971019635742956.robh@kernel.org>
-References: <20250115-gs101-simplefb-v3-0-52eca3a582b7@linaro.org>
-	 <173703609099.1976411.4033971019635742956.robh@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.54.3-1 
+	Thu, 16 Jan 2025 14:56:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Ju1maHZVxppXMacVjVEgqU6dJ4oHfkqAMwqLb0mZ8uJhwdY5EvYpOuSQABXzxksrb/C2jRmD6HGl3CvfrGxt9Qo3hIjZKgu113FYHUiddfYncG3ranXLptWaKDiSjP21rvVkdyd5vPb/IPZ/l792R8smWRVWd5eIptt7ucS11zzbBpUIsE2+K4B2Gj8PGHhltTEDVnlKAAX30O6wwnBUgnULHnMDaG/T3kNQfurswVvGzrtxkrj+S4a2z8HZSc8V8JyVjvsXrvYqaebbv96kS7P/f836/X8/A5fFo2wSGaGMH459B6GbPGLTcaYwfpan87yophWP4WZHgXRC+yUq0Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RN+lUqqXfFFnt2ftAYlgEuz6QuwjjAyaGeEfpafExi4=;
+ b=BImf54nynLKvviX9MHiKL3LVhCOQB99TftYLpzZT8IubqgVWz6l6+ioX9YgcUnXzPHQih/ZT5hOu+fJMNdgGyTd289s2g9jqZEFyvBEHyAeoNXi9mQkpHU0kZkCQpXUtruT7ymfIi7h0L7BPL45E16W6uFcbJv/Dk2AFxnq2E7U0dpHsNd+3tTrs0Hl5SmVhy8FURFHS8en85qId8nWYTZpbOZfaHAZggIhrjdtOODUzGz2ncnUxDudTKppsUdgUCtOKyJJEthEem9IvwO9RtOCQzlCNzMW49t57lIRhDk6qynV3wG4wlvUF6tsRaNLW4wczsDEKiDuBBy7MGRNSiA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RN+lUqqXfFFnt2ftAYlgEuz6QuwjjAyaGeEfpafExi4=;
+ b=2zS9JG/JXaOCOSy8gJ+BBq1TKohKtYVrXowARLLaMxo7u+2xed1t1tpI3xIxq1wRFfH9FeebG9bHoxNY8HioAaYxoLHSiQkxpl5ctRpDPkDfJIQyR1PMla0Lil+ApyZKguR/50HQVbLhHsYCODDazJXZWyL4m4REKeJQHkD+DOY=
+Received: from SA0PR12CA0028.namprd12.prod.outlook.com (2603:10b6:806:6f::33)
+ by DS0PR12MB8366.namprd12.prod.outlook.com (2603:10b6:8:f9::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.13; Thu, 16 Jan
+ 2025 14:55:54 +0000
+Received: from SA2PEPF00003F64.namprd04.prod.outlook.com
+ (2603:10b6:806:6f:cafe::98) by SA0PR12CA0028.outlook.office365.com
+ (2603:10b6:806:6f::33) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8356.16 via Frontend Transport; Thu,
+ 16 Jan 2025 14:55:54 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
+Received: from SATLEXMB04.amd.com (165.204.84.17) by
+ SA2PEPF00003F64.mail.protection.outlook.com (10.167.248.39) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.8356.11 via Frontend Transport; Thu, 16 Jan 2025 14:55:53 +0000
+Received: from localhost (10.180.168.240) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 16 Jan
+ 2025 08:55:50 -0600
+From: Michal Simek <michal.simek@amd.com>
+To: <linux-kernel@vger.kernel.org>, <monstr@monstr.eu>,
+	<michal.simek@xilinx.com>, <git@xilinx.com>
+CC: Jaroslav Kysela <perex@perex.cz>, Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Takashi Iwai <tiwai@suse.com>, "moderated
+ list:ARM/ZYNQ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, "open
+ list:SOUND - SOC LAYER / DYNAMIC AUDIO POWER MANAGEM..."
+	<linux-sound@vger.kernel.org>
+Subject: [PATCH] ASoC: xilinx: xlnx_spdif: Simpify using devm_clk_get_enabled()
+Date: Thu, 16 Jan 2025 15:55:46 +0100
+Message-ID: <90075f57ceff7cdf958d0d146f46f50661335236.1737039345.git.michal.simek@amd.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3096; i=michal.simek@amd.com; h=from:subject:message-id; bh=0Ktv+wOQ0OoxXs5ewz4zwlQPybmIngZ7R6XujmeuIBo=; b=owGbwMvMwCR4yjP1tKYXjyLjabUkhvRO2c+2/o3vM5eXZ7yq+3C/u3Pdw4DMf3+ufcqacVi40 DNpqsKCjlgWBkEmBlkxRRZpmytn9lbOmCJ88bAczBxWJpAhDFycAjARobsM872kGuwudG4y2Fu3 42jbf5Wdu+JarzHM9w742ZT8ePNeizfH+2f8e5x7w1/GFAA=
+X-Developer-Key: i=michal.simek@amd.com; a=openpgp; fpr=67350C9BF5CCEE9B5364356A377C7F21FE3D1F91
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.180.168.240]
+X-ClientProxiedBy: SATLEXMB04.amd.com (10.181.40.145) To SATLEXMB04.amd.com
+ (10.181.40.145)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA2PEPF00003F64:EE_|DS0PR12MB8366:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1273cf12-caf2-4be2-d3d3-08dd363de002
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|82310400026|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?clvqNkrgbtGhFHMA9qSSngGD5CDp8ZjOXmVj5MyDRtznLhLKbEVRBLlUFOk5?=
+ =?us-ascii?Q?DmgPgfl/udP5K8YyqT6qeGU3PEPuk21rzMh1RXnlgcIlRvftGW9Dztoh/HME?=
+ =?us-ascii?Q?EUqL/GJhuLFUbVW/DqN4o8Y8D/rBG6lZJ3DOAA9QEcwckvnLUy7Pwdj0gm9q?=
+ =?us-ascii?Q?SnsRwIBzChBkNxhVSXBeyIoIaR/QiI5yP8FIV9Xp9pb57Vc6WJadHC4EYCXY?=
+ =?us-ascii?Q?zmNaXQER3O6PIisKL+gZcKsu3QXGjHjVqzXXLiGrWSfMtPccnneFktecdXR5?=
+ =?us-ascii?Q?3koxR74o9/yIkm5OUtu1b7Se2m5RHhLitaJD8AI0EWnuxNxPnniacIDEAgwz?=
+ =?us-ascii?Q?nVBm8usgGxGHlIs+76s6CL+TXkuYSpvPD4OtcSS69n33Cmx87J7Zx1n0Hr2G?=
+ =?us-ascii?Q?VTiwSoCv6XxjNvRLs9h19B4oOe+i1O5+1VafVgXChwEm/u3ljZpCosTHY6Z/?=
+ =?us-ascii?Q?+wYEarCugY4tZyJ6s/5BtXUN6G4w3CXqNkyKUE2awsUje7GzBIkb5mXvm7CO?=
+ =?us-ascii?Q?javXZ071mrFEEZo9gufxsUfT6HcxFOx9Pbwn34h869W9IfPO+y+nPcGcFH9y?=
+ =?us-ascii?Q?YqAMMAyPU3EX9LaEduaw/3LhTqhmkG1xaA2P96WXLPx8Z6m6arfFJbx2IRJC?=
+ =?us-ascii?Q?WtBa3gADsYjSm686LPmw5o+A0cRnuArLAjwaqgAff7LbmMvktu8qka8HJYuH?=
+ =?us-ascii?Q?EIuxoNZaQjM9Xobx60rr3ZvBB5Ca6XY4OFcW30vdZBPAHmov/KTvKOKY0xWc?=
+ =?us-ascii?Q?lYC9uGgqee47Tuc2kTDPxfK+8Byio8MTZnJ2A+CY861GIfW9QTTkvIv+Q1jL?=
+ =?us-ascii?Q?opqt6ngch05QBTCsOkQobQVyv2T3GrYHBqElM/QrNXJmrbx55GRi2yrvGAHW?=
+ =?us-ascii?Q?J3oYfiyKzwQqO/RhbcrRF/zjuW8z6lvFIkC9sxjQ0gSRgd1ZL2hfpt6fF0Es?=
+ =?us-ascii?Q?oBw0RfPsrAxpcpxEDx5ohwMlvHkngp3iVbiXFU5bdaBi9+TBMP1NbEFZYXCp?=
+ =?us-ascii?Q?ga+Tgc9bY9DSgjsB4/w7G0djoFAq3PRyygYC5deLIcHjGqCmO/agGY/Y9szE?=
+ =?us-ascii?Q?+N3b/aCWFIGdRKTXe1eons3sTIg9AW5H9YKsVVt3WF8YhBealbxniqU15LVX?=
+ =?us-ascii?Q?CYOXjLwqsj7rSfeOMh0ibzOzzGBdckJ7tzpDfdIQAgJJUDYMxh1BxvDaFy+6?=
+ =?us-ascii?Q?YxecvprzTSVsSHSwxTV+NXz8AkJcnK/zFrDfrbBRwguxnB89DLWLfsLgS4B0?=
+ =?us-ascii?Q?TP/OVUNrzvuwX+wOh1g0rmN2JbmYLXHs3brJXuYyJr84ayMf2KBdcDV0YfIg?=
+ =?us-ascii?Q?UYDJs08tDb1C/4bda4zUk0MGDmPSihIDjErONBLbMqz+YprLmT+64KIRwbv8?=
+ =?us-ascii?Q?d6q3jqPyXxjP9qP4FMYosD1AG/foU/0mlEf3iDBoiy8VcKBsOT38iIvfRolQ?=
+ =?us-ascii?Q?cYq9eqsi7E76/edGuS4ZustySv1uXWXevM9Ybxj/PXBVyiKc41AYlEUGBczj?=
+ =?us-ascii?Q?xVbmrO9ZsKRHA94=3D?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(82310400026)(376014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jan 2025 14:55:53.4883
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1273cf12-caf2-4be2-d3d3-08dd363de002
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003F64.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8366
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_065355_119336_76AC52E9 
-X-CRM114-Status: GOOD (  42.25  )
+X-CRM114-CacheID: sfid-20250116_065612_981795_A5BF3DE2 
+X-CRM114-Status: GOOD (  15.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,144 +147,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2025-01-16 at 08:02 -0600, Rob Herring (Arm) wrote:
->=20
-> On Wed, 15 Jan 2025 16:11:08 +0000, Andr=C3=A9 Draszik wrote:
-> > Hi,
-> >=20
-> > This series enables simple framebuffer support on Google Pixel 6 and
-> > Pixel 6 Pro.
-> >=20
-> > Even if simple-framebuffer is deprecated and DRM should be used
-> > instead, having it available in DT is beneficial for several reasons at
-> > this point in time (the phone uses an OLED display):
-> > * energy consumption goes down significantly, as it changes from white
-> > =C2=A0 (as left by bootloader) to black (linux console), and we general=
-ly
-> > =C2=A0 don't run out of battery anymore when plugged into a USB port
-> > * less of a burn-in effect I assume
-> > * phone stays cooler due to reduced energy consumption by display
-> >=20
-> > Since Pixel 6 and Pixel 6 Pro use a different resolution display, this
-> > is the time to separate them into their respective DTs, and provide one
-> > for each of them. There are other differences between the two, like
-> > battery design capacity, but they don't matter at this stage due to
-> > incomplete upstream support.
-> >=20
-> > * dependency note *
-> >=20
-> > None (anymore) - earlier versions of this series had dependencies, but
-> > those are all part of linux-next already, so none remain.
-> >=20
-> > * dependency note end *
-> >=20
-> > For those who want to try this out:
-> > The stock bootloader disables the decon hardware trigger before jumping
-> > to Linux, preventing framebuffer updates from reaching the display. We
-> > have added a work-around in our Yocto BSP layer for the time being
-> > (until a proper display exists upstream). An alternative might be to
-> > port and use uniLoader from https://github.com/ivoszbg/uniLoader, as
-> > seems to be done for some other Exynos platforms.
-> >=20
-> > Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
-> > ---
-> > Changes in v3:
-> > - back to using separate DTBs for Pixel 6 and Pixel 6 Pro (Krzysztof)
-> > - update name of common dtsi file (Krzysztof)
-> > - use 'memory-region' property from the start in patch 2, don't
-> > =C2=A0 introduce it as change in patch 3 (Krzysztof)
-> > - Link to v2: https://lore.kernel.org/r/20241220-gs101-simplefb-v2-0-c1=
-0a8f9e490b@linaro.org
-> > =C2=A0 and https://lore.kernel.org/r/20241220-gs101-simplefb-oriole-v2-=
-1-df60e566932a@linaro.org
-> >=20
-> > Changes in v2:
-> > - We now have a generic gs101-based Pixel board DT, which can work on
-> > =C2=A0 any Pixel 6 / 6 Pro / 6a
-> > - Pixel 6 (Pro) are overlays onto that one.
-> > =C2=A0 This has the advantage that all boards can be supported without
-> > =C2=A0 having to have a full copy of the DT for each of them. We still
-> > =C2=A0 instruct kbuild to create merged DTBs (in addition to the DTBOs)=
- so
-> > =C2=A0 that existing scripts can keep working while giving the option t=
-o
-> > =C2=A0 just apply the overlay before boot (e.g. by the bootloader).
-> > - The binding has been updated according to the above points
-> > - I've changed the simple-framebuffer node to specify the memory via
-> > =C2=A0 memory-region instead of reg, as that avoids unnecessary duplica=
-tion
-> > =C2=A0 (of the size), and it avoids having to specify #address-cells
-> > =C2=A0 and #size-cells in the chosen node (and duplicating this in the
-> > =C2=A0 DTSO), which is otherwise necessary to keep dt_binding_check hap=
-py
-> > =C2=A0 and DT validation working in general.
-> > - sort overriding/extending nodes ordered by label name (Krzysztof)
-> > - format patches with diff.renames=3Dcopies (Krzysztof)
-> > - dependencies have been updated, see below
-> > - Link to v1: https://lore.kernel.org/r/20241216-gs101-simplefb-v1-0-8c=
-cad1830281@linaro.org
-> >=20
-> > ---
-> > Andr=C3=A9 Draszik (4):
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 dt-bindings: arm: google: add gs101-rave=
-n
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 arm64: dts: exynos: gs101-oriole: config=
-ure simple-framebuffer
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 arm64: dts: exynos: gs101-oriole: move c=
-ommon Pixel6 & 6Pro parts into a .dtsi
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 arm64: dts: exynos: gs101-raven: add new=
- board file
-> >=20
-> > =C2=A0Documentation/devicetree/bindings/arm/google.yaml=C2=A0 |=C2=A0=
-=C2=A0 3 +-
-> > =C2=A0arch/arm64/boot/dts/exynos/google/Makefile=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 1 +
-> > =C2=A0arch/arm64/boot/dts/exynos/google/gs101-oriole.dts | 267 +-------=
--------------
-> > =C2=A0.../{gs101-oriole.dts =3D> gs101-pixel-common.dtsi}=C2=A0 |=C2=A0=
- 22 +-
-> > =C2=A0arch/arm64/boot/dts/exynos/google/gs101-raven.dts=C2=A0 |=C2=A0 2=
-9 +++
-> > =C2=A05 files changed, 58 insertions(+), 264 deletions(-)
-> > ---
-> > base-commit: 4e16367cfe0ce395f29d0482b78970cce8e1db73
-> > change-id: 20241216-gs101-simplefb-8aae80278ed7
-> >=20
-> > Best regards,
-> > --
-> > Andr=C3=A9 Draszik <andre.draszik@linaro.org>
-> >=20
-> >=20
->=20
->=20
-> My bot found new DTB warnings on the .dts files added or changed in this
-> series.
->=20
-> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-> are fixed by another series. Ultimately, it is up to the platform
-> maintainer whether these warnings are acceptable or not. No need to reply
-> unless the platform maintainer has comments.
->=20
-> If you already ran DT checks and didn't see these error(s), then
-> make sure dt-schema is up to date:
->=20
-> =C2=A0 pip3 install dtschema --upgrade
->=20
->=20
-> New warnings running 'make CHECK_DTBS=3Dy for arch/arm64/boot/dts/exynos/=
-' for 20250115-gs101-simplefb-v3-0-52eca3a582b7@linaro.org:
->=20
-> arch/arm64/boot/dts/exynos/google/gs101-raven.dtb: phy@11100000: 'orienta=
-tion-switch' does not match any of the regexes: 'pinctrl-[0-9]+'
-> 	from schema $id: http://devicetree.org/schemas/phy/samsung,usb3-drd-phy.=
-yaml#
+Clock handling can be very simlified with using devm_clk_get_enabled() as
+was done by commit 8d2aaf4382b7 ("gpio: zynq: Simplify using
+devm_clk_get_enabled()").
 
-These are emitted because
-https://lore.kernel.org/all/20241206-gs101-phy-lanes-orientation-phy-v4-0-f=
-5961268b149@linaro.org/
-hasn't been merged yet.
+Signed-off-by: Michal Simek <michal.simek@amd.com>
+---
 
-Cheers,
-Andre'
+Compiled only.
+---
+ sound/soc/xilinx/xlnx_spdif.c | 38 ++++++++++-------------------------
+ 1 file changed, 11 insertions(+), 27 deletions(-)
+
+diff --git a/sound/soc/xilinx/xlnx_spdif.c b/sound/soc/xilinx/xlnx_spdif.c
+index 7febb3830dc2..017a64ab9f1e 100644
+--- a/sound/soc/xilinx/xlnx_spdif.c
++++ b/sound/soc/xilinx/xlnx_spdif.c
+@@ -248,41 +248,35 @@ static int xlnx_spdif_probe(struct platform_device *pdev)
+ 	if (!ctx)
+ 		return -ENOMEM;
+ 
+-	ctx->axi_clk = devm_clk_get(dev, "s_axi_aclk");
++	ctx->axi_clk = devm_clk_get_enabled(dev, "s_axi_aclk");
+ 	if (IS_ERR(ctx->axi_clk)) {
+ 		ret = PTR_ERR(ctx->axi_clk);
+ 		dev_err(dev, "failed to get s_axi_aclk(%d)\n", ret);
+ 		return ret;
+ 	}
+-	ret = clk_prepare_enable(ctx->axi_clk);
+-	if (ret) {
+-		dev_err(dev, "failed to enable s_axi_aclk(%d)\n", ret);
+-		return ret;
+-	}
+ 
+ 	ctx->base = devm_platform_ioremap_resource(pdev, 0);
+-	if (IS_ERR(ctx->base)) {
+-		ret = PTR_ERR(ctx->base);
+-		goto clk_err;
+-	}
++	if (IS_ERR(ctx->base))
++		return PTR_ERR(ctx->base);
++
+ 	ret = of_property_read_u32(node, "xlnx,spdif-mode", &ctx->mode);
+ 	if (ret < 0) {
+ 		dev_err(dev, "cannot get SPDIF mode\n");
+-		goto clk_err;
++		return ret;
+ 	}
+ 	if (ctx->mode) {
+ 		dai_drv = &xlnx_spdif_tx_dai;
+ 	} else {
+ 		ret = platform_get_irq(pdev, 0);
+ 		if (ret < 0)
+-			goto clk_err;
++			return ret;
++
+ 		ret = devm_request_irq(dev, ret,
+ 				       xlnx_spdifrx_irq_handler,
+ 				       0, "XLNX_SPDIF_RX", ctx);
+ 		if (ret) {
+ 			dev_err(dev, "spdif rx irq request failed\n");
+-			ret = -ENODEV;
+-			goto clk_err;
++			return -ENODEV;
+ 		}
+ 
+ 		init_waitqueue_head(&ctx->chsts_q);
+@@ -292,7 +286,7 @@ static int xlnx_spdif_probe(struct platform_device *pdev)
+ 	ret = of_property_read_u32(node, "xlnx,aud_clk_i", &ctx->aclk);
+ 	if (ret < 0) {
+ 		dev_err(dev, "cannot get aud_clk_i value\n");
+-		goto clk_err;
++		return ret;
+ 	}
+ 
+ 	dev_set_drvdata(dev, ctx);
+@@ -301,22 +295,13 @@ static int xlnx_spdif_probe(struct platform_device *pdev)
+ 					      dai_drv, 1);
+ 	if (ret) {
+ 		dev_err(dev, "SPDIF component registration failed\n");
+-		goto clk_err;
++		return ret;
+ 	}
+ 
+ 	writel(XSPDIF_SOFT_RESET_VALUE, ctx->base + XSPDIF_SOFT_RESET_REG);
+ 	dev_info(dev, "%s DAI registered\n", dai_drv->name);
+ 
+-clk_err:
+-	clk_disable_unprepare(ctx->axi_clk);
+-	return ret;
+-}
+-
+-static void xlnx_spdif_remove(struct platform_device *pdev)
+-{
+-	struct spdif_dev_data *ctx = dev_get_drvdata(&pdev->dev);
+-
+-	clk_disable_unprepare(ctx->axi_clk);
++	return 0;
+ }
+ 
+ static struct platform_driver xlnx_spdif_driver = {
+@@ -325,7 +310,6 @@ static struct platform_driver xlnx_spdif_driver = {
+ 		.of_match_table = xlnx_spdif_of_match,
+ 	},
+ 	.probe = xlnx_spdif_probe,
+-	.remove = xlnx_spdif_remove,
+ };
+ module_platform_driver(xlnx_spdif_driver);
+ 
+-- 
+2.43.0
 
 
