@@ -4,59 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D823EC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 19:35:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1574C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 21:39:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/qLTKEzLVFUNkWNaAJQnrrHBlQYG271ULej79zJnwE4=; b=o8GcL282G2CuJqxrKCEvBR+PVN
-	X55z5diaKaKcbOMZRlXHU0sKk/vTmftsbCVs9W7wxqG91bwMShIkscGuqHXweE1yqQmP366RcnhWl
-	LnwtH3PYkgRkhttWMGwxaIOkbZyicTIiTHOs0+MITNAQqbYsL7vObLM1ovA9PNftHCVW6O161goHU
-	RyDtNA5QCw+VT+v8S9UvWIxkRSxtPzS8rDjx1CS8wUVpYxaGrgs08k6h1yU//zAfsQb1mVE6Ppokr
-	ocBV8c67lkEiOh75Y9NFgNOJswvRgpoLHO0U5dbEg5qC9PruW+Zmes6/EIlVjjTkIKklqPARG4lX4
-	KuCG6dxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=xJond9/AMaPD2lJUBcD0GN/ohHQIrKYDVHQ1utL3UZ8=; b=jKY+zNORxR5yBz
+	MEHEROhaAHXaOPBTcfUHkjuBn7kkAsecya18O0QM/cL6AgEoAaj/zBebu5oldjw7RpHfsU+X0yz58
+	0x8Y64UZRp0bgVWqLP0pBWHNg0oJTJnpiXAYJBgT+jxanhh7iplPzr6XDq1GwWJE/PZR4OQXRYvY5
+	6h7TM/hNeNdbYRTCGzCFP1+P5smJAQsOYcNntmdAtHy2omM7R/yU97pJ+0u9uzW5Oc9/TDkgFDMAZ
+	sgWHKMxxBNPPWOsto3Z6PThmbayfSAWAu6ZUDz9dKLT+g6oc00j5AdzD1UCcjYYWNu6sDsrqqVIyj
+	7RJvkJlNStPfG065h7fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYs8A-00000001Fxn-2OSU;
-	Fri, 17 Jan 2025 19:35:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYs6s-00000001Fi1-3n21
+	id 1tYu3w-00000001Pqk-0H8o;
+	Fri, 17 Jan 2025 21:39:32 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tYu2f-00000001Plf-3PX4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jan 2025 19:34:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D32A01476;
-	Fri, 17 Jan 2025 11:34:53 -0800 (PST)
-Received: from [10.57.7.182] (unknown [10.57.7.182])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 485B63F73F;
-	Fri, 17 Jan 2025 11:34:23 -0800 (PST)
-Message-ID: <64ab28fc-adba-4193-beac-4af482b12699@arm.com>
-Date: Fri, 17 Jan 2025 19:34:20 +0000
+	Fri, 17 Jan 2025 21:38:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 825805C64BD;
+	Fri, 17 Jan 2025 21:37:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 979E6C4CEDD;
+	Fri, 17 Jan 2025 21:38:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737149892;
+	bh=HFQNhfd47610NSNP8MfcXIi0KpUPmKVTLUViSqR9iOQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=Q4CfQ94O2VZh4MeIwIt9KG+/zBOncA/41aDOsSSdnZ1m3cDwbQ56kg6GxLGNw20Cq
+	 FARj4j83qiPiJvoUViFVpmuBSPwTnn/lwdAzIBnN7/xJie8etNOrrsDpczP4A3xUr3
+	 qyBt0/FTF737KV8YO6de7MhEOVZEH0OAcUTmWUZM/ZhGUkIceK75OJhRX5hbRuOhok
+	 RJKfvZoQf6k3tNQkoL3WhmnCdbNuaq/csmoPZ1EuvRpigwDey53ykTOck6v25lx4Lc
+	 phiKD3gJGzAeL2Tfp9WeDupNHScVUHqLwLZWMgbGCXIFvLdGlyJ8UWuNzG3FOgW5eS
+	 QoIp1tWR+4JNA==
+Date: Fri, 17 Jan 2025 15:38:10 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"open list:PCI DRIVER FOR IMX6" <linux-pci@vger.kernel.org>,
+	"moderated list:PCI DRIVER FOR IMX6" <linux-arm-kernel@lists.infradead.org>,
+	"open list:PCI DRIVER FOR IMX6" <imx@lists.linux.dev>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 1/1] PCI: imx6: Add CONFIG_PCIE_DW_HOST check for
+ suspend/resume
+Message-ID: <20250117213810.GA656803@bhelgaas>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] iommu/arm-smmu: Fix spurious interrupts with
- stall-on-fault
-To: Connor Abbott <cwabbott0@gmail.com>, Rob Clark <robdclark@gmail.com>,
- Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
- Sean Paul <sean@poorly.run>, Konrad Dybcio <konradybcio@kernel.org>,
- Abhinav Kumar <quic_abhinavk@quicinc.com>,
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
- Marijn Suijten <marijn.suijten@somainline.org>
-Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, freedreno@lists.freedesktop.org
-References: <20250117-msm-gpu-fault-fixes-next-v1-0-bc9b332b5d0b@gmail.com>
- <20250117-msm-gpu-fault-fixes-next-v1-1-bc9b332b5d0b@gmail.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20250117-msm-gpu-fault-fixes-next-v1-1-bc9b332b5d0b@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250117180722.2354290-1-Frank.Li@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_113427_036627_809F5599 
-X-CRM114-Status: GOOD (  33.62  )
+X-CRM114-CacheID: sfid-20250117_133813_944663_86FEEAF7 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,149 +83,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-01-17 6:47 pm, Connor Abbott wrote:
-> On some SMMUv2 implementations, including MMU-500, SMMU_CBn_FSR.SS
-> asserts an interrupt. The only way to clear that bit is to resume the
-> transaction by writing SMMU_CBn_RESUME, but typically resuming the
-> transaction requires complex operations (copying in pages, etc.) that
-> can't be done in IRQ context. drm/msm already has a problem, because
-> its fault handler sometimes schedules a job to dump the GPU state and
-> doesn't resume translation until this is complete.
+On Fri, Jan 17, 2025 at 01:07:22PM -0500, Frank Li wrote:
+> Add CONFIG_PCIE_DW_HOST check for suspend/resume to avoid build issue
+> when CONFIG_PCIE_DW_HOST is not defined but CONFIG_PCIE_DW_EP defined.
 > 
-> Work around this by disabling context fault interrupts until after the
-> transaction is resumed. Because other context banks can share an IRQ
-> line, we may still get an interrupt intended for another context bank,
-> but in this case only SMMU_CBn_FSR.SS will be asserted and we can skip
-> it assuming that interrupts are disabled which is accomplished by
-> removing the bit from ARM_SMMU_CB_FSR_FAULT.
-> 
-> Signed-off-by: Connor Abbott <cwabbott0@gmail.com>
-> ---
->   drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 15 +++++++++++++-
->   drivers/iommu/arm/arm-smmu/arm-smmu.c      | 32 ++++++++++++++++++++++++++++++
->   drivers/iommu/arm/arm-smmu/arm-smmu.h      |  2 +-
->   3 files changed, 47 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> index 59d02687280e8d37b5e944619fcfe4ebd1bd6926..ee2fdf7e79a6d04bc2700e454253c96b573c5569 100644
-> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> @@ -125,12 +125,25 @@ static void qcom_adreno_smmu_resume_translation(const void *cookie, bool termina
->   	struct arm_smmu_domain *smmu_domain = (void *)cookie;
->   	struct arm_smmu_cfg *cfg = &smmu_domain->cfg;
->   	struct arm_smmu_device *smmu = smmu_domain->smmu;
-> -	u32 reg = 0;
-> +	u32 reg = 0, sctlr;
-> +	unsigned long flags;
->   
->   	if (terminate)
->   		reg |= ARM_SMMU_RESUME_TERMINATE;
->   
-> +	spin_lock_irqsave(&smmu_domain->stall_lock, flags);
-> +
->   	arm_smmu_cb_write(smmu, cfg->cbndx, ARM_SMMU_CB_RESUME, reg);
-> +
-> +	/*
-> +	 * Re-enable interrupts after they were disabled by
-> +	 * arm_smmu_context_fault().
-> +	 */
-> +	sctlr = arm_smmu_cb_read(smmu, cfg->cbndx, ARM_SMMU_CB_SCTLR);
-> +	sctlr |= ARM_SMMU_SCTLR_CFIE;
-> +	arm_smmu_cb_write(smmu, cfg->cbndx, ARM_SMMU_CB_SCTLR, sctlr);
-> +
-> +	spin_unlock_irqrestore(&smmu_domain->stall_lock, flags);
->   }
->   
->   static void qcom_adreno_smmu_set_prr_bit(const void *cookie, bool set)
-> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> index 79afc92e1d8b984dd35c469a3f283ad0c78f3d26..c92de760940ee2872f22dbe1b2519e02766aa143 100644
-> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> @@ -457,12 +457,43 @@ static irqreturn_t arm_smmu_context_fault(int irq, void *dev)
->   				      DEFAULT_RATELIMIT_BURST);
->   	int idx = smmu_domain->cfg.cbndx;
->   	int ret;
-> +	unsigned long flags;
->   
->   	arm_smmu_read_context_fault_info(smmu, idx, &cfi);
->   
->   	if (!(cfi.fsr & ARM_SMMU_CB_FSR_FAULT))
->   		return IRQ_NONE;
->   
-> +	/*
-> +	 * On some implementations FSR.SS asserts a context fault
-> +	 * interrupt. We do not want this behavior, because resolving the
-> +	 * original context fault typically requires operations that cannot be
-> +	 * performed in IRQ context but leaving the stall unacknowledged will
-> +	 * immediately lead to another spurious interrupt as FSR.SS is still
-> +	 * set. Work around this by disabling interrupts for this context bank.
-> +	 * It's expected that interrupts are re-enabled after resuming the
-> +	 * translation.
-> +	 *
-> +	 * We have to do this before report_iommu_fault() so that we don't
-> +	 * leave interrupts disabled in case the downstream user decides the
-> +	 * fault can be resolved inside its fault handler.
-> +	 *
-> +	 * There is a possible race if there are multiple context banks sharing
-> +	 * the same interrupt and both signal an interrupt in between writing
-> +	 * RESUME and SCTLR. We could disable interrupts here before we
-> +	 * re-enable them in the resume handler, leaving interrupts enabled.
-> +	 * Lock the write to serialize it with the resume handler.
-> +	 */
-> +	if (cfi.fsr & ARM_SMMU_CB_FSR_SS) {
-> +		u32 val;
-> +
-> +		spin_lock_irqsave(&smmu_domain->stall_lock, flags);
+> Only host support suspend/resume at i.MX chips.
 
-No need for _irqsave - if this IRQ handler could preempt itself, locking 
-would be the least of our worries ;)
+What would you think of inserting the following patch before
+"[PATCH v7 08/10] PCI: imx6: Use dwc common suspend resume method"?
 
-Also I'd be inclined to just use cb_lock for this rather than add a new 
-one. I guess there's an argument for granularity, but there's also an 
-argument that CFIE manipulation is just another context bank operation 
-which needs serialising against itself, and significantly rarer than the 
-others we have already.
+Then we wouldn't need to add #ifdefs in every driver that supports
+both RC and EP mode and also supports power management for RC mode.
 
-Cheers,
-Robin.
+Bjorn
 
-> +		val = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_SCTLR);
-> +		val &= ~ARM_SMMU_SCTLR_CFIE;
-> +		arm_smmu_cb_write(smmu, idx, ARM_SMMU_CB_SCTLR, val);
-> +		spin_unlock_irqrestore(&smmu_domain->stall_lock, flags);
-> +	}
-> +
->   	ret = report_iommu_fault(&smmu_domain->domain, NULL, cfi.iova,
->   		cfi.fsynr & ARM_SMMU_CB_FSYNR0_WNR ? IOMMU_FAULT_WRITE : IOMMU_FAULT_READ);
->   
-> @@ -921,6 +952,7 @@ static struct iommu_domain *arm_smmu_domain_alloc_paging(struct device *dev)
->   
->   	mutex_init(&smmu_domain->init_mutex);
->   	spin_lock_init(&smmu_domain->cb_lock);
-> +	spin_lock_init(&smmu_domain->stall_lock);
->   
->   	return &smmu_domain->domain;
->   }
-> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.h b/drivers/iommu/arm/arm-smmu/arm-smmu.h
-> index 2dbf3243b5ad2db01e17fb26c26c838942a491be..153fac131b2484d468fd482ffbf130efc8cfb8f6 100644
-> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.h
-> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.h
-> @@ -216,7 +216,6 @@ enum arm_smmu_cbar_type {
->   					 ARM_SMMU_CB_FSR_TLBLKF)
->   
->   #define ARM_SMMU_CB_FSR_FAULT		(ARM_SMMU_CB_FSR_MULTI |	\
-> -					 ARM_SMMU_CB_FSR_SS |		\
->   					 ARM_SMMU_CB_FSR_UUT |		\
->   					 ARM_SMMU_CB_FSR_EF |		\
->   					 ARM_SMMU_CB_FSR_PF |		\
-> @@ -384,6 +383,7 @@ struct arm_smmu_domain {
->   	enum arm_smmu_domain_stage	stage;
->   	struct mutex			init_mutex; /* Protects smmu pointer */
->   	spinlock_t			cb_lock; /* Serialises ATS1* ops and TLB syncs */
-> +	spinlock_t                      stall_lock;
->   	struct iommu_domain		domain;
->   };
->   
-> 
 
+commit d3b04bf25988 ("PCI: dwc: Add dw_pcie_suspend_noirq(), dw_pcie_resume_noirq() stubs for !CONFIG_PCIE_DW_HOST")
+Author: Bjorn Helgaas <bhelgaas@google.com>
+Date:   Fri Jan 17 15:03:04 2025 -0600
+
+    PCI: dwc: Add dw_pcie_suspend_noirq(), dw_pcie_resume_noirq() stubs for !CONFIG_PCIE_DW_HOST
+    
+    Previously pcie-designware.h declared dw_pcie_suspend_noirq() and
+    dw_pcie_resume_noirq() unconditionally, even though they were only
+    implemented when CONFIG_PCIE_DW_HOST was defined.
+    
+    Add no-op stubs for them when CONFIG_PCIE_DW_HOST is not defined so
+    drivers that support both Root Complex and Endpoint modes don't need
+    
+    Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
+
+
+diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
+index 8c0222f019d7..f400f562700e 100644
+--- a/drivers/pci/controller/dwc/pcie-designware.h
++++ b/drivers/pci/controller/dwc/pcie-designware.h
+@@ -500,9 +500,6 @@ void dw_pcie_iatu_detect(struct dw_pcie *pci);
+ int dw_pcie_edma_detect(struct dw_pcie *pci);
+ void dw_pcie_edma_remove(struct dw_pcie *pci);
+ 
+-int dw_pcie_suspend_noirq(struct dw_pcie *pci);
+-int dw_pcie_resume_noirq(struct dw_pcie *pci);
+-
+ static inline void dw_pcie_writel_dbi(struct dw_pcie *pci, u32 reg, u32 val)
+ {
+ 	dw_pcie_write_dbi(pci, reg, 0x4, val);
+@@ -680,6 +677,8 @@ static inline enum dw_pcie_ltssm dw_pcie_get_ltssm(struct dw_pcie *pci)
+ }
+ 
+ #ifdef CONFIG_PCIE_DW_HOST
++int dw_pcie_suspend_noirq(struct dw_pcie *pci);
++int dw_pcie_resume_noirq(struct dw_pcie *pci);
+ irqreturn_t dw_handle_msi_irq(struct dw_pcie_rp *pp);
+ int dw_pcie_setup_rc(struct dw_pcie_rp *pp);
+ int dw_pcie_host_init(struct dw_pcie_rp *pp);
+@@ -688,6 +687,16 @@ int dw_pcie_allocate_domains(struct dw_pcie_rp *pp);
+ void __iomem *dw_pcie_own_conf_map_bus(struct pci_bus *bus, unsigned int devfn,
+ 				       int where);
+ #else
++static inline int dw_pcie_suspend_noirq(struct dw_pcie *pci)
++{
++	return 0;
++}
++
++static inline int dw_pcie_resume_noirq(struct dw_pcie *pci)
++{
++	return 0;
++}
++
+ static inline irqreturn_t dw_handle_msi_irq(struct dw_pcie_rp *pp)
+ {
+ 	return IRQ_NONE;
 
