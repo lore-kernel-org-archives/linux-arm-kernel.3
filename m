@@ -4,156 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED1C3C02187
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 01:06:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47C2CC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 01:24:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LCK7BCW5IdPxxlAn6VgHOLVA8DtcwOpat6zYaS1v/X8=; b=eqpsTOiKizE5hnNMGQaB0MVaIF
-	7bc0tUDaau1RNCTdVSUE9dm7AuDYE5mKJDDb42zlpK8eIry0Z5G7ykQyMLYftl4ns5uluwUXnmwHD
-	D/+hxUTYzmOfgblWJ+I2xKAIYPCBP0LA8XWnxPlcK2G8Lyb7+Vod2yioAKjW/YosHGis8sT0VTNEb
-	KBGLkm20uRy0q+rsj/h/UHRHmWru0nquoTtQBR42r6/7ovhOGBG09wKgeojRhv1qarAoXdNDidfzX
-	3wUD50fEOjBUQQNlyIURS1qQTLsqjrG/jVSUA6cLvmWp0TuxRA0BWW9aN80awWyIau7q/15BUHa41
-	eCK1ykxg==;
+	bh=vz9GPEy5qE3nVcHJwYbF8UoBRO+4CTUgGX0dFJtwQUM=; b=ER8hIhu9qhD/7tvlpG+I+Ev9Jm
+	MxaP2OFC++k4qbCCJ20/pbnNi3YbEXU0/KM/Z2ZE3D4FkYHiy4WIi/uZWxiW8gE07xqDfO8Ngr6Xs
+	RfCpr/KSdgXhDqrf+henR9lUgFcGOIRPV2Skcwnmjt7PqNJtJ9fISoapvGbUEZhhJgd3xJnFJFpEI
+	QfwoVfiS0/hFGDn5dUuxwbnM/Ag0V8BZiXnviYCv/HCSBBQ+d37CST5TqKZ5QRHqMwswTxPVTeAE+
+	LnELybKKiKYhKpnFvf26/UNUCE1Whxc7+1PVXemsOPnxd97W3y8XHUo84PrutHZH5oUfV/rs2JhxA
+	E6v92Bgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYaot-0000000GkFO-0R2A;
-	Fri, 17 Jan 2025 01:06:43 +0000
-Received: from mail-co1nam11on20630.outbound.protection.outlook.com ([2a01:111:f403:2416::630] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
+	id 1tYb5c-0000000GltK-3c4y;
+	Fri, 17 Jan 2025 01:24:00 +0000
+Received: from mail-northeuropeazlp170110001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYanc-0000000Gk4G-0LA6
+	id 1tYb4M-0000000Glm3-3Ymi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jan 2025 01:05:25 +0000
+	Fri, 17 Jan 2025 01:22:44 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LkoTUfu87XxDak6qWUwxNl1DRIbdKw3BTzgh1v4jx9CcN6cXYdeWBfot6QiZNX5kF68usv2QXCEBje4swneOG8HZLnwTzN5WUimM2f118s25I4bj4GRUJCA+hE8NhGlFzIL85JrIverWqHh3UCfRhmNr9QN8ErwpundNjd3Uu5T7s5jc5ugMWdCcpzPRnKQ1DralxxsZO/TP1JON97Tencwzp8lAP6q1o2mHwInh9CrvVkDYeh/tLgPyMs1hgTzyJt0OeGI247Y8uShh+iTRtjFRkshFNkSh54zVJR50IvJXPTHMMtgWzNQVAextljtiONNa0Dty8wVU74rwyxJL7w==
+ b=fslgZs1LFEWtW0XFO47B15ZDpHBmWYFz+rX1X07Zzm+gYHi/1IbTp7lG8RaGKaNwTgeR1+TJIxhwqEmofJ0L+VF9Ledn+ysKPBwUxRCaUjtqwSANy7jYipAa5goY2AE3hZAX7ChOIT+g4TIPKKiiBQ5VPDSPyfsYAPspWKe7KxkhjG8o1a5MyrAvnlDfIIVXJFYS/WVo1viIKqZQMtApL6avh7jT5ytz1FXyxaVm/pkbOZKSdlAFpgnEwDTwnnzFiJU2ngd8mbIE/F1kt1fQloUub5Ej8fDGg2XesCrsIIQujBhfp+xVIMsEbVxBbfb7ZTMFeFafYr+sXUyjOulSrw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LCK7BCW5IdPxxlAn6VgHOLVA8DtcwOpat6zYaS1v/X8=;
- b=qa2PiaiOgy/abRjGAqTOHdPHDnioZR/VbXgetriKFgPOqq1xeNcwIVyx3cn3nmLHVx3ch3LUlc5z8mMnH/KAaAL6wvIBSH/LEqFN8iUQWRMJYaO8mx8LwJz4S9FrY5Fl+7zuTLeHX1V1AucAc3h7zk0RS9T/zAVQS0lHnCCHfOKkc8kd5L72tZvlOdVIH7go8InU8k9H/riZshFCU5WHnzfewIXF47gy/Zh/ODYDxBlg1pm3SK+A/GDrHqBT+3Qz8a6hMBowda99hEXp+JEZijecy/tFQDtR23JHEnFMXoqx+UiqXQZStxtGL7KiNfrRLOJ7fsPmpZPGeAoRWuIaOA==
+ bh=vz9GPEy5qE3nVcHJwYbF8UoBRO+4CTUgGX0dFJtwQUM=;
+ b=AnxcLKIxL0VedxUvz44YddrysKjuGu7OKNqLPG1knRavLeDVDPNbg7vp+B2aLylNlGBEzLb+Z4GG279PMVgjdjKOTy2cFAHwRjp04MQQVIxwxO7tlw2/MKSaerDx+LrNOGXfLlvhbvc+jif5sOkHt9zi9hvKjHaiEPlwbitIhFTfQpvNIT72ADp0/gJekg2aw0TBAZgTru1ReouDm0Ab5++9YlBJ7G0rmGzC+WP7I3Oij3DEB6YyolGknWZgkIVSZST/AASDgE+RqAnRQBsptaDB4E08BAjggyEa/KF4ig1MOEIEZkPQ7BnztC56UgSROWIzkZEyM/8YjiAml3M6tA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LCK7BCW5IdPxxlAn6VgHOLVA8DtcwOpat6zYaS1v/X8=;
- b=XasCY+YJGMQqnhkLegUA4mH9Vgh+S3V06KzbT12Vx2+5y65viS0ZoYhG6Wx2nxznEA2CbvXpu3pN6ESUbHYfnEWu8hajKwXipjB+XXafqWm95++6UFefOrP+MpFpufw9vR07bcqahrXH4eXv2byJwgG6h8Cjrl4tDLiWMYFM+0n4+XyD6WLdpG8mtudbz8snMg0usHCkGDpvzSr6IDRfrvtVoRJFJYr3OrfEIc86zkpaklzvoERiedizGlArMvuxBukX+NsEiPrKwZfpsXnNUePZN6NudSjNEtgbWo0h6zK65RkN5AJArhmPgRzcy+riJO4aVBuq40a7nFM9D3l0IQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DS0PR12MB7726.namprd12.prod.outlook.com (2603:10b6:8:130::6) by
- PH7PR12MB7164.namprd12.prod.outlook.com (2603:10b6:510:203::13) with
+ bh=vz9GPEy5qE3nVcHJwYbF8UoBRO+4CTUgGX0dFJtwQUM=;
+ b=QrvlXRzrsAixvLsveQfFKFmQ6j8laQPs5zVG+FWOg87rvb0OrOUKZjEeyADBs3sxfn7fYG3f2Z8L5yUBtOjP+J31G3wOfdJRatNVzqpHNko+zt1yTMKhsY5jvra48oApHn02CFVGroRgX3ouNVmt4aA0OdgUwHZ/y8mA+TIMo5+hx+h0ZfkjI17Y/ZzrBWCTGmpFJ+oFxVIb+XeDPQR9ngfwrvT4PG3j0ZP37jKDOnbhANeCQKCbRsp794euM9PKiPFVQk+H1uy2zI7Ww26cpzptblQTg0d/Ej8EG2qWS7CB+DXfIa/XO+yqaDv8CHriWxu1WjEUhuY2qk2kclknKQ==
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AS8PR04MB8675.eurprd04.prod.outlook.com (2603:10a6:20b:42a::18) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.14; Fri, 17 Jan
- 2025 01:05:17 +0000
-Received: from DS0PR12MB7726.namprd12.prod.outlook.com
- ([fe80::953f:2f80:90c5:67fe]) by DS0PR12MB7726.namprd12.prod.outlook.com
- ([fe80::953f:2f80:90c5:67fe%7]) with mapi id 15.20.8356.010; Fri, 17 Jan 2025
- 01:05:17 +0000
-Date: Fri, 17 Jan 2025 12:05:13 +1100
-From: Alistair Popple <apopple@nvidia.com>
-To: David Hildenbrand <david@redhat.com>
-Cc: akpm@linux-foundation.org, dan.j.williams@intel.com, 
-	linux-mm@kvack.org, alison.schofield@intel.com, lina@asahilina.net, 
-	zhang.lyra@gmail.com, gerald.schaefer@linux.ibm.com, vishal.l.verma@intel.com, 
-	dave.jiang@intel.com, logang@deltatee.com, bhelgaas@google.com, jack@suse.cz, 
-	jgg@ziepe.ca, catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au, 
-	npiggin@gmail.com, dave.hansen@linux.intel.com, ira.weiny@intel.com, 
-	willy@infradead.org, djwong@kernel.org, tytso@mit.edu, linmiaohe@huawei.com, 
-	peterx@redhat.com, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, nvdimm@lists.linux.dev, 
-	linux-cxl@vger.kernel.org, linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org, 
-	linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de, david@fromorbit.com, 
-	chenhuacai@kernel.org, kernel@xen0n.name, loongarch@lists.linux.dev, 
-	Jason Gunthorpe <jgg@nvidia.com>
-Subject: Re: [PATCH v6 11/26] mm: Allow compound zone device pages
-Message-ID: <hqiotgf3h26yqqlhg5rhotikswzjsouf4ihadgrfhhmnt4qqzz@csvdojr6ttjd>
-References: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
- <9210f90866fef17b54884130fb3e55ab410dd015.1736488799.git-series.apopple@nvidia.com>
- <927f9cef-3f97-4bef-b6d8-53e6ef1b78a8@redhat.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <927f9cef-3f97-4bef-b6d8-53e6ef1b78a8@redhat.com>
-X-ClientProxiedBy: SY5PR01CA0052.ausprd01.prod.outlook.com
- (2603:10c6:10:1fc::12) To DS0PR12MB7726.namprd12.prod.outlook.com
- (2603:10b6:8:130::6)
+ 2025 01:22:34 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8356.014; Fri, 17 Jan 2025
+ 01:22:34 +0000
+From: Peng Fan <peng.fan@nxp.com>
+To: Cristian Marussi <cristian.marussi@arm.com>, Ranjani Vaidyanathan
+	<ranjani.vaidyanathan@nxp.com>
+CC: Sudeep Holla <sudeep.holla@arm.com>, "Peng Fan (OSS)"
+	<peng.fan@oss.nxp.com>, "ulf.hansson@linaro.org" <ulf.hansson@linaro.org>,
+	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-pm@vger.kernel.org"
+	<linux-pm@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [EXT] Re: [PATCH] pmdomain: arm: scmi_pm_domain: Initialize state
+ as off
+Thread-Topic: [EXT] Re: [PATCH] pmdomain: arm: scmi_pm_domain: Initialize
+ state as off
+Thread-Index: AQHbYybo8rOmeh/en0qIMyX2XTiTxLMUhkWAgAARnlCAACWpAIAAHG8AgAAepACAACrhAIABRt+AgAAMoYCAAR6lAIAAnpYAgAFqFQCAAJa0MA==
+Date: Fri, 17 Jan 2025 01:22:33 +0000
+Message-ID: <PAXPR04MB84592FD305C1B0B29B526E7C881B2@PAXPR04MB8459.eurprd04.prod.outlook.com>
+References: <Z4TreQ5bA9qiMTgC@bogus>
+ <PAXPR04MB8459F33BCC84CCA8F49F3B60881F2@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <Z4UZ2Au7KSFMibDW@bogus>
+ <PA4PR04MB94855052830C8F4874237BA6921F2@PA4PR04MB9485.eurprd04.prod.outlook.com>
+ <Z4VLZgAWR7ugDl7W@bogus>
+ <PA4PR04MB9485E9C126E48A088D7E399B921F2@PA4PR04MB9485.eurprd04.prod.outlook.com>
+ <Z4aBkezSWOPCXcUh@bogus>
+ <PA4PR04MB9485507CCC21354B5ED55C3792182@PA4PR04MB9485.eurprd04.prod.outlook.com>
+ <Z4d8nrJy-h9EwzsJ@pluto>
+ <PA4PR04MB9485CC9D9925BB5D23EA629092192@PA4PR04MB9485.eurprd04.prod.outlook.com>
+ <Z4kxYvR9XxldCpk-@pluto>
+In-Reply-To: <Z4kxYvR9XxldCpk-@pluto>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|AS8PR04MB8675:EE_
+x-ms-office365-filtering-correlation-id: f2e0ee2c-26d0-42ba-0f4f-08dd36956b97
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|366016|7053199007|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?1URtf66tcb50MojO+KcZ0qUVlYF8ClR2T33AQkQWcnXKUmJ7wU43tzJBitPY?=
+ =?us-ascii?Q?ivrGNnYinDk8/EV0PQxEEnRsGdmy+O/RWW7vRu+olPtcMt4b0BLwEMfXB6vY?=
+ =?us-ascii?Q?eek5cO4NMNjXKxDWjGHvRkggLNDnYaAimZrw/MaR05U8SSqIY65AbmqCBOzp?=
+ =?us-ascii?Q?I3qBGq13iwdJD5E9i3avOpfLtOddo4nx8pofOYPtwLybFABVPzXzPUk6Np06?=
+ =?us-ascii?Q?a5tjP8FZmBK823c5O6aHU0NN4EL0dkNSeEoz7jpJiP9ArhDKE7DRQbihmp45?=
+ =?us-ascii?Q?DP51hNqO3FKFxuqLhwi30wStdmSDzPXrV0WqY6hd11DgnEfvmEvTJ61TTPuO?=
+ =?us-ascii?Q?8gv09qAwuLtb/C6rXG8Srgn4axAynDIhr/bV8MB33uIh1lVRdEZlHSRVwJwM?=
+ =?us-ascii?Q?3grrFFz7O4dVO+gjwOosWSd2UAKXwnM7gkf5RPwGejh7hdCtqMP/wCpgMUOe?=
+ =?us-ascii?Q?mSPidemeV6j6ELrIg/VNTbsHoZvfJLlTIfQK0Yr55mpd0ls28RlE4cxa/Ba4?=
+ =?us-ascii?Q?p9rMCQ1wnE6y12EGcfnI8WW0aiIVQoeOztSRVctUJHl4gl2cOvSrWKlXhMw2?=
+ =?us-ascii?Q?DFtJHYdyvhkFsvUmPxvEEexQWUN51eyRHXVpiEL6Du4plyL5tLvVLHUQ0l/x?=
+ =?us-ascii?Q?R9pZX2GfPyjQgtvCu3XUUkviTCZuyRExsS0hwn7nWXlZywF59nr8fT3Z02CM?=
+ =?us-ascii?Q?yF5wGP6QVmmKjafid4bZqT3/FkSBcKe7QzJxKFrArZ42zW0LnPfWEIYiga0Q?=
+ =?us-ascii?Q?RD3zW/9Napa8ExyHnK3xmav7F4dhgouHmBQGdzCDducNIO3h2XTXbKMKWn1m?=
+ =?us-ascii?Q?RwIYlKCF6POyzTWEIJR3VPOYDypVstNoR5IKdo+GN93gzNrXAfz5GBYcntnt?=
+ =?us-ascii?Q?ywWAF/VJKJ6oo2j2rprs7wsCCnVeqLvUHpgg3MLUxhKpHhWByWTLzUL2TUJ0?=
+ =?us-ascii?Q?Jr+R+I0xBbK7JfJb+3nqv5wteVi3IbGN6Btle8E44GBwQ4xBotSpk/Iu7eIc?=
+ =?us-ascii?Q?TBpHnL2FtLtKnlGfJn2Cea1JFrU1QLGqAssyLmhEUqhrptmHh+Qs3jx/42W0?=
+ =?us-ascii?Q?ihkV0d1iN+8e/14uPO1EgmxtkA9vKs3EJJR0tWSpvP7/ssGo732cgkn1F+OF?=
+ =?us-ascii?Q?1pFWnHWExa15uVtT6XWIxwINIRijUmJNlS47Wajzbo9rhNOcYode3pb60HTF?=
+ =?us-ascii?Q?ZzKmTtIorU2NKCwQXNFU3rzq0RyxzjCBv1h9d7tF7iphjogE3sk/eb0uzgGy?=
+ =?us-ascii?Q?mU1+psleHlxEjJ9Gf2BcRjaV1cUJlEXISq0PEeYS1UVqrOTjWE47UUQp68p+?=
+ =?us-ascii?Q?ARZylIHf2gOh/077fcRMi5oRGrQNNdtVJv2nsruzFDgUp7nLyb5CZkV+wK3Z?=
+ =?us-ascii?Q?KvIEe8WDdCAbv6+Vr9vRMDc4eRPgiQARk7iTesrJopTYLgwVVJ52ZKJgo2zN?=
+ =?us-ascii?Q?REY2Z7QdNi9woV1qa31lztbRphKnsifZ?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7053199007)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?EOZuO3KmiieZbQrenxSoLdPIqvlMkBEqz9LfKao2/utWrqAYCArhIRMEXgwu?=
+ =?us-ascii?Q?qXZx6BX42MO9oTCRPKgl3C+dw785cv2bq6BBZa/fd5glAX/pdMQMXW1/f120?=
+ =?us-ascii?Q?6Xk5NdJtkdqLSM0sBDAxlqV4LZ06jmU6o9wOIo5uItnkw3MrBWzCTMkRpUeb?=
+ =?us-ascii?Q?ZZTrkVOeBmSTkMWneGDpV5C/PVBtWkGnVmpHnJQD1JSb70WpFTZD+A9mspnP?=
+ =?us-ascii?Q?fP7SV8P8pljed2J1ZS58oNtK11fPd6cUvlBMx0qbpKaRSlPPWG9w3QXMhAVr?=
+ =?us-ascii?Q?qsiQaqvB4SO/ZuZVDdmykJWnTFSHm6wrUDDgW2FX/hNcTJtFAR/jMCkCUZfl?=
+ =?us-ascii?Q?t36oUvm2364baB4CcaKiJFE+pddBE7H2DrhZ6iDeLSdrM8MLp31p1mXHWtjk?=
+ =?us-ascii?Q?yIfs/XB/Bgc34dLHkxF2yMs/gDsKPukh+NIHJx/tTVYGX0ypLbw3N3hT6H+J?=
+ =?us-ascii?Q?41qD8U/rahrd4ECpAHRyX2srahdAfEISkhRwGwdEt2gy68OYIsEMnHQ2gej/?=
+ =?us-ascii?Q?iN5v9AcYkPf8BZ2iZxlyIyc8Sz+roIEqHMzuDmquo2nBD4Jz2kcqff0BhQ/9?=
+ =?us-ascii?Q?VGem+HlRCyq+unsi5m8InIbULvM7a2txNTDhZA+A1UBlmF53Jau3juuA52fx?=
+ =?us-ascii?Q?r99TWhlZ9JedrCBnSnDylkPSTrdAcQTGTTEkneBB7qZudxmPfbVXNpui6/Bd?=
+ =?us-ascii?Q?cGiR6x+zPqtkqUtpEi12JdOV89qDP0zqEY4wEmHnnwOgu14m2QHHf09czXuJ?=
+ =?us-ascii?Q?FUzqOLwbMIeQkdRDI+hCLR0cB5tofvE0ESV7M4JZ3jg6RzvRel6Zg1jtQoLI?=
+ =?us-ascii?Q?uprNxnjk+HsQWkqzHVSa8tdWsfSIrUDL7iFuiu6K7NhN+9nHBxMIvThPeQl9?=
+ =?us-ascii?Q?ACoIIWN5u4WTYVEVsSOApgCNbJWsZbFwrjAZqj4YoHE1o5jYrsViUC5LamUo?=
+ =?us-ascii?Q?HZvqFmRMFYUTgwzNMqtKJUdJziMZZcy48NS0XUk6p1o4Ohww8hLYJdbPn7nF?=
+ =?us-ascii?Q?SfBkCG7NbLbzaNjCInpVRotB+cKL6hY/Oh9DvOn28Y8wZDlnDJYOkoMoqT0f?=
+ =?us-ascii?Q?T6AUnlLzS41VYAtGboJPVfmQ9hKCNScKb4StjHJptaTjbqnxHLfJ1BDO2OLa?=
+ =?us-ascii?Q?Ev/LEq9LAm7cthdCCF9/s+p3Gq31SqvKe9TZkrGVMRu5Y90cYr2OJqtJcrBV?=
+ =?us-ascii?Q?iAll+HSP6u0BK17qr+nnfmHZ1MIzuBsKjyij3vXnd4rxeGQHhTtIbq4Dvmqu?=
+ =?us-ascii?Q?b5R0LWxwoQM2lJAAEMyi3PqRntDX4GW5mN5UC9Hwf1KGvZvYszuGdH8jiahC?=
+ =?us-ascii?Q?s8FR3Eb3PqAyZ3XMRO+EprY8sVdnApYzpGC87YdY9QbdgiA27FEtexqlroYH?=
+ =?us-ascii?Q?dmdeRdAbhQ11gOBqJALoLBSF3ZLUgw6zNKUfDhJwvbfY4eMQtS4cRx/EhQD4?=
+ =?us-ascii?Q?bHc2zXjprJUQZOi8vALR5D6Dau3pRsy/2XgjEkazHivC2DhVhi2qtaW26M3F?=
+ =?us-ascii?Q?7UDjEXgqchV6hsLDz6S/zIe/wqeaZRaN2n/OiBoTNFd2Pa+PeKwOtB9Q4WhX?=
+ =?us-ascii?Q?qrShBQvT4kyCCWDBBBs=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR12MB7726:EE_|PH7PR12MB7164:EE_
-X-MS-Office365-Filtering-Correlation-Id: ed05b6c0-10e5-4339-8ad7-08dd369301c9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?TbPgcvZaGehYfi4B35hAu5X2CYeFUK4J36Dj+ajYNDT31zPu22mnBB/DH09s?=
- =?us-ascii?Q?gJ3/1YsvkQfASi/SkVKkv1OsYbFJ/gfXsoEZRBYEVFE7tGC6VoGRp+2YuBy3?=
- =?us-ascii?Q?vBiwYEA+9rF2+AQlQNy7tx/ofAPSLSn0SgWY9YsEf01B8diXsF4/nQDR8u4c?=
- =?us-ascii?Q?lg0F62s3WrxfD5nOgPe3ByRAlEogKoJAVlR0YESonUlLjfU83Dr3mVCCCI/x?=
- =?us-ascii?Q?Z+Uld5ZBmY8SgOx9rMmdjP5HNe4rR6ptovBPBrK2NFuqi7IyxArF+v2tLY9I?=
- =?us-ascii?Q?rpx6diIpofh5YvODw7JnyllXxv/XSFWenqp6LybgObccVenthLgj9JGWTxBo?=
- =?us-ascii?Q?ETJDnODJkpMw8AK6GYeWqpmY6MLID5IZT2Cicn/6wfoxOkUgl1JnoepUnbLd?=
- =?us-ascii?Q?8A/3MXo8NrCz0y8L9AADldnUbQO/SIN1RU0KHxV2GO7KCLF7fNGXH+0gCEYm?=
- =?us-ascii?Q?QpB84wze3gwV6ckEKHOQJQh28hhXciSPwEBb+bfBOLvEO4RqPCqMRNgDX6vv?=
- =?us-ascii?Q?jbNee1t79TV8MPCHI3EULG5fH85/qZpsO7ludhMaSzPEm5SLRR0A1dn5mbhz?=
- =?us-ascii?Q?vwgEMMxt2YwPAnyzDAq+uHulktBwhfUIgYbLgg4ZFybH070lUWgvy9YPyvYA?=
- =?us-ascii?Q?sUxEQYRH06HE2pqSyAtpHd0O0JOBJWvrkMPdz4mCx72K8IaOj3SZ+ltPqspE?=
- =?us-ascii?Q?gA21XdQIINK/xwrK6qKllZEeQUpWI341sogGFAQNcMYpcPYVaqIzWSRoBnoS?=
- =?us-ascii?Q?NezKa732JZz0hRtd3+9QDQMxbBUxwkz2RG6tPDAigPiYccuu7el1YFXowfyz?=
- =?us-ascii?Q?ZkfWsnocUVBaQpJl5Ieqdhb5oeV5i972UsvqXbcG3uWrwDX72ACU1AVVZu8W?=
- =?us-ascii?Q?UkLevVBryZFYoLHK9vOLHxzbGuhbj6x1cicpVYrwcP22Rnw7/hVZyxtd6UYh?=
- =?us-ascii?Q?MCtfd+V/Wi4wTPYqVDAKKAPo6eBlMRnA2780OrwrraFQTa9cPLtGamf7i+ce?=
- =?us-ascii?Q?Sw+igM8YouGfJ4NtWlqqo5341WLWpUR1Y2w5qnSdZ4WTKprStA6qHTTISIr+?=
- =?us-ascii?Q?fBpcY3qcDK+vkzx3QgptSrq7xJGd1Pw7uKab+eJOT+xAEe/9jkh5QU6ZugX8?=
- =?us-ascii?Q?Ag1BO26KjzC45bmsdATm6Px6WyTWs/x7vtKfMlamteQjaqojItbQIXnJ9aCn?=
- =?us-ascii?Q?sC4Pq1XCpsjytVfxbTNGV4rHaI7Rlydchq7931ZnJuT/+R/LWM1yztIHHe2G?=
- =?us-ascii?Q?EY1g/jW23xBHOVpxo2LJ5nMnapRkQKJbOB2pw9XdWl44T8xE/flOKEVr+vRS?=
- =?us-ascii?Q?AsaKQEWMU82FLO2o3sRyMlIH2t6SaTSt1kT8Lp3ON0l9mzhqrY86u5B799Iu?=
- =?us-ascii?Q?pCh140W93RrJy/QeGifRJmpc3Qup?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7726.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7AtOpA48OWOV64WOtNJeoR96Mw68phE52o8NsfYOSuUcEvffpaqdcbQ4Uz9m?=
- =?us-ascii?Q?gkem3ZabvC2q/bWsvtlyJihI8bIwm3LAlrgQXWeq0teAW0d/2Id3KALRG+/8?=
- =?us-ascii?Q?0JJOu9ocWIlv/impc1aku8DLl+/yF2BIa6WLPNMgSLM94my0F42ywB8vrdhN?=
- =?us-ascii?Q?bdRvak7mZPoIBAmckexn0rlUpGXcR8kEz7dWbjSqRN2Vk7VmvvZhgRWRWRpj?=
- =?us-ascii?Q?5iRSjSrfpr9IxXr/kz/roMMVhYeBfBXw/8UDRnTUBYW27heLAWOXYlUMzamN?=
- =?us-ascii?Q?0MXb8AA3Iub61+E7ngYf/ar3UIoyuCRv1EiRZmMaTr+FQ2NDrRL2ECm06svm?=
- =?us-ascii?Q?jlPi+DetUQYOcRoHhUkM3GD4BnRHWe2Ocst5R/fiRgXuionVeMNpRqb2V050?=
- =?us-ascii?Q?HG7gtjIbF6YRxRVz31l0s+rRjn5gUe6IGMR8qG13HFM4ghXUblgdByhrzmik?=
- =?us-ascii?Q?H3H1JXVDpIrgmckwWm/GsnQz5Bn4iPctF78dNha+zMbpJFCNPg31nf/djMdW?=
- =?us-ascii?Q?zt8hL+tIef1WSLa0OUL94M/f3xjw0EV1BGf/kN3tbdHzRoBiDuhU2QlsKKF2?=
- =?us-ascii?Q?b4GJILwlx9lIVqSVIVhduvOUgVD4i1/hOyat7YoXcAP/W4CfhTbPfYSXp7gC?=
- =?us-ascii?Q?fkWaFsoFQcGLV2HXBpKX8nFVTQIJzrEwodf9gh64GOJeAOg6w03WBd04zaNS?=
- =?us-ascii?Q?jL4ktZE5Y7Iqwxe3Yv//6P5n6b/MYp7Ded1df9ayYMTFk7fCoy0XvUw1PMqb?=
- =?us-ascii?Q?TAVdjRJR1XO1U06FzGlnzKzuzhfx/lmZ0HPCM8BjNVN0aIiiIbLZ3vORtJpB?=
- =?us-ascii?Q?KrwILfPPKWhcHleCNIcCBsqT/nyCu/MkBCPnHRJ5Zl8O3GYRBUqVvD9HozUG?=
- =?us-ascii?Q?4RcBeexa+lvr/8SEAGHF41879PAVOlFgjmz8fefp4/vHxwqvUquARk7EnzuW?=
- =?us-ascii?Q?zekTKc20jb7qyIefagaUG3IKGAMLrfxXLzEmMhJEvLbJUDzwWf9ZOZpfIY7C?=
- =?us-ascii?Q?K+UooVHqcBKKcUcydiwyKMp0c19SaKlzPJ3EMn7FsNxdt5MF6iBj4BO50Yae?=
- =?us-ascii?Q?4kntJKNqD9n0A8SgE4M0SNTAyTMKAniVl7LmgW2u0NfrV9gOpOZljbDqI3Iu?=
- =?us-ascii?Q?aUCmIKPfvF+ghstQBLb72X8nWYAcOJrQWhZ0i1m4eEX52DrxcysMIXI7Cwba?=
- =?us-ascii?Q?poo06265CYw0x6gYT2+E7GTZPxDp271+Kez1FJjzeK0tyatYpSDwUIHyoU9Z?=
- =?us-ascii?Q?+4olODk2g7mo5PqBro4jQK1ApeZQprTASgNnuAiYV7kK/DYdfqCtmUFQDs4z?=
- =?us-ascii?Q?poOqTblmCL7vY08OjpKJhKD25oGTakHwYsDdA35SjDDuVhr604lMvaH9Byf4?=
- =?us-ascii?Q?4AOS8f6emYlM11BjSGhcUCB8VcSJMtQunX3qDulALACyUBcSTiZu9j37Xs/P?=
- =?us-ascii?Q?1Yuh5PKBygSJ24NyZbmGhBP84sdat5EY2eCddn87Z9clAw1YvXkwsMHy60Aj?=
- =?us-ascii?Q?QhAe01GXl/2J7mml1nbva46XlYghy9rCy0/3SBOhhWh0AsyVG21QlQHW+fPd?=
- =?us-ascii?Q?5SW696qqN4i6eZ7kMlxUzB+bKT7VRDUR5ZiL1Sgg?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ed05b6c0-10e5-4339-8ad7-08dd369301c9
-X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB7726.namprd12.prod.outlook.com
+X-OriginatorOrg: nxp.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jan 2025 01:05:17.5943
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f2e0ee2c-26d0-42ba-0f4f-08dd36956b97
+X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Jan 2025 01:22:33.9319
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: WVKkXsXz/AYhNEjzfUSmaa4LVYUijwFfMTraYvxNupSaFYPwtQUnrRKE334EsJWnzgl45TKL/VjBjvoFQsUROQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7164
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: XPAyorikhBbjLdDIHfpM8umgKvq8LP4fXRj8IEDV0iyOe+nCkemPv2B3uaFAaZg2GSDnhXR+82vrJZ0Yla3iEA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8675
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_170524_116595_DC8AD764 
-X-CRM114-Status: GOOD (  37.77  )
+X-CRM114-CacheID: sfid-20250116_172243_053959_FD0DDAD9 
+X-CRM114-Status: GOOD (  50.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,118 +176,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 14, 2025 at 03:59:31PM +0100, David Hildenbrand wrote:
-> On 10.01.25 07:00, Alistair Popple wrote:
-> > Zone device pages are used to represent various type of device memory
-> > managed by device drivers. Currently compound zone device pages are
-> > not supported. This is because MEMORY_DEVICE_FS_DAX pages are the only
-> > user of higher order zone device pages and have their own page
-> > reference counting.
-> > 
-> > A future change will unify FS DAX reference counting with normal page
-> > reference counting rules and remove the special FS DAX reference
-> > counting. Supporting that requires compound zone device pages.
-> > 
-> > Supporting compound zone device pages requires compound_head() to
-> > distinguish between head and tail pages whilst still preserving the
-> > special struct page fields that are specific to zone device pages.
-> > 
-> > A tail page is distinguished by having bit zero being set in
-> > page->compound_head, with the remaining bits pointing to the head
-> > page. For zone device pages page->compound_head is shared with
-> > page->pgmap.
-> > 
-> > The page->pgmap field is common to all pages within a memory section.
-> > Therefore pgmap is the same for both head and tail pages and can be
-> > moved into the folio and we can use the standard scheme to find
-> > compound_head from a tail page.
-> 
-> The more relevant thing is that the pgmap field must be common to all pages
-> in a folio, even if a folio exceeds memory sections (e.g., 128 MiB on x86_64
-> where we have 1 GiB folios).
+> Subject: Re: [EXT] Re: [PATCH] pmdomain: arm: scmi_pm_domain:
+> Initialize state as off
+>=20
+> On Wed, Jan 15, 2025 at 06:42:46PM +0000, Ranjani Vaidyanathan
+> wrote:
+> > Hi Cristian,
+> >
+> > Regards,
+> > Ranjani Vaidyanathan
+> >
+> > -----Original Message-----
+> > From: Cristian Marussi [mailto:cristian.marussi@arm.com]
+> > Sent: Wednesday, January 15, 2025 3:15 AM
+> > To: Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>
+> > Cc: Sudeep Holla <sudeep.holla@arm.com>; Peng Fan
+> <peng.fan@nxp.com>;
+> > Peng Fan (OSS) <peng.fan@oss.nxp.com>; cristian.marussi@arm.com;
+> > ulf.hansson@linaro.org; arm-scmi@vger.kernel.org;
+> > linux-arm-kernel@lists.infradead.org; linux-pm@vger.kernel.org;
+> > linux-kernel@vger.kernel.org
+> > Subject: Re: [EXT] Re: [PATCH] pmdomain: arm: scmi_pm_domain:
+> > Initialize state as off
+> >
+> > Caution: This is an external email. Please take care when clicking
+> > links or opening attachments. When in doubt, report the message
+> using
+> > the 'Report this email' button
+> >
+> >
+> > On Tue, Jan 14, 2025 at 04:09:13PM +0000, Ranjani Vaidyanathan
+> wrote:
+> > > Hello Sudeep,
+> > >
+> > > Comments below.
+> > >
+> > > Regards,
+> > > Ranjani Vaidyanathan
+> > >
+> > > -----Original Message-----
+> > > From: Sudeep Holla [mailto:sudeep.holla@arm.com]
+> > > Sent: Tuesday, January 14, 2025 9:24 AM
+> > > To: Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>
+> > > Cc: Peng Fan <peng.fan@nxp.com>; Peng Fan (OSS)
+> > > <peng.fan@oss.nxp.com>; cristian.marussi@arm.com; Sudeep
+> Holla
+> > > <sudeep.holla@arm.com>; ulf.hansson@linaro.org;
+> > > arm-scmi@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
+> > > linux-pm@vger.kernel.org; linux-kernel@vger.kernel.org
+> > > Subject: Re: [EXT] Re: [PATCH] pmdomain: arm: scmi_pm_domain:
+> > > Initialize state as off
+> > >
+> > > Caution: This is an external email. Please take care when clicking
+> > > links or opening attachments. When in doubt, report the message
+> > > using the 'Report this email' button
+> > >
+> > >
+> > > Hi Ranjani,
+> > >
+> > > On Mon, Jan 13, 2025 at 07:54:06PM +0000, Ranjani Vaidyanathan
+> wrote:
+> > > > Hello Sudeep,
+> > > >
+> > > > Will try to explain the situation we are facing.
+> > > > 1. We have multiple agents running, Agent-A is booted up first
+> > > > before Linux is booted and powers up a shared power domain PD-
+> X.
+> > > > 2. Linux boots and gets the power state of PD-X. And its already
+> ON.
+> > > > And then PD -X is initialized with a default ON state.
+> > > > 3. When the driver that needs PD-X  is probed, Linux sees that the
+> > > > power domain status is ON and never makes an SCMI call to
+> power up
+> > > > the PD-X for Linux Agent.
+> > > > 4. Agent-A now is shutdown/suspends. Linux will crash because
+> the
+> > > > platform disables PD-X because it has no other requests for PD-X.
+> > > >
+> > >
+> > > Thanks for the detailed explanation. I understand the issue now.
+> > >
+> > > I would like to discuss if the below alternative approach works for
+> you.
+> > > We can debate the pros and cons. I see with the approach in this
+> patch proposed by Peng we would avoid querying and setting genpd all
+> together during the genpd initialisation which is good. But if there are
+> any genpd left on by the platform or bootloader(same agent), it will
+> not get turned off when Linux tries to turn off the unused genpds(IIRC
+> this could be the reason for the current state of code). While your
+> platform may find sending those commands unnecessary, there was
+> some usecase where SCMI platform kept all resources ON by default
+> for faster boot and expects OSPM to turn off unused resources. So we
+> need to support both the cases. I hope my below patch should suffice.
+> > >
+> > > [RV] Linux can still make the call to disable unused power domains,
+> even if it never explicitly made a request to power it on. The platform
+> will aggregate the request from all agents and will power off the
+> resource if no other agent has enabled it. From Linux point of view it
+> has disabled all unused power domains.
+> > > Your patch below may also work, but feels like a workaround to
+> artificially (for lack of a better word) enable a resource. And also make=
+s
+> unnecessary SCMI calls (expensive) for every resource immaterial of it
+> power state (maybe can be improved by a conditional check).
+> > >
+> >
+> > ...sincerely, both of these solutions seem to me hacks/workarounds
+> to counteract the fundamental issue that derives from having allowed
+> (IMPDEF) to implement the get operations to return the real physical
+> state of a resource instead of its virtual per-agent state as maintained
+> by the platform, while, at the same time, having allowed to implement
+> the set-operations to operate in a 'virtual-fashion'...
+> >
+> > ...so, when Peng's patch forcibly set the state to OFF on genpd init,
+> you are indeed artificially forcing the kernel internal state to align wi=
+th
+> what would have been the virtual-per-agent state of the resource in
+> your specific particular configuration....
+> > [RV] Perhaps it's a hack. But at boot the state should look like OFF,
+> the agent should explicitly request those it needs to be ON.
+> >
+>=20
+> Yes it is what I am saying, it should see it OFF in this system config, a=
+nd
+> that would be the case on a platform that returns virtual per-agent
+> states:
+> forcing GENPD to see as it as off just mimics the same, but breaks other
+> cases as I mentioned.
+>=20
+> > ...on the other side Sudeep's proposed patch tries really to play the
+> same trick, just on the other way around, by instead forcibly/artificiall=
+y
+> aligning the state on the platform side by issuing a redundant ON
+> request to bump the refcount and take hold of that resource from the
+> Kernel agent point of view...
+> >
+> > ... but Peng's proposed patch will broke immediately the moment
+> you have instead a system with an SCMI-capable bootloader that
+> instead left the resource ON for the Kernel to inherit, since the kernel
+> will now forcibly see this anyway as OFF, and so you wont be ever be
+> able to switch that resource REALLY OFF in the future, if ever needed,
+> because the bootloader/Kernel agent will never see it as ON in genPD,
+> since, at least in the genPD case, AFAICS correct me if wrong, there is
+> no callback to peek at the real state later on:
+> > so, after the initialization value has been chosen at genpd_init time,
+> genPd subsystem maintains the PD state on its own based on the
+> issued ON/OFF genPD requests, so your forced-initial-OFF-state will be,
+> in this specific alternative scenario, wrong and forever.
+> > [
+> > [RV] SCMI-capable bootloader and Linux should be the same logical
+> machine (different agents). And the platform maintains the state per
+> logical machine. So if Linux tries to power off a state that was left
+> powered ON by the bootloader it should bbe able to.
+>=20
+> In the SCMI world there are agents, i.e. clients issuing requests to the
+> platform AND the platform identifies such agents from the channel
+> they speak from. Not sure what you mean by logical machine.
+>=20
+> In the case of an SCMI-aware bootloader like UBoot, that dies and
+> relinquishes all the resources to the Kernel during the boot, that means
+> that the Kernel should be configured to simply re-use the same SCMI
+> channels as UBoot, so that it will be seen as the same agent
+> (transparently) from the platform: in such a scenario the Kernel will
+> transparently inherit all the per-agent current interrnal state...
+>=20
+> ...IOW if an SCMI/Uboot was holding res_X, the Kernel will result as
+> holding the same res_X "by inheritance" from the platform point of
+> view, since the Kernel would have assumed the role of the UBoot agent
+> from the platfom point of view, since it is using the same channels as
+> UBoot.
+>=20
+> Why you should consider Uboot a diffrent agent, if it runs in NS-world
+> too and does not survive the Kernel boot ?
 
-Thanks for pointing that out. I had assumed folios couldn't cross a memory
-section. Obviously that is wrong so I've updated the commit message accordingly.
+Per my understanding, Kernel itself should not count on bootloader
+settings, kernel should try to configure all it could do as much as
+possible, kernel is not aware what bootloader might be used or
+what settings bootloader could set or run in what state.
 
- - Alistair
- 
-> > > Signed-off-by: Alistair Popple <apopple@nvidia.com>
-> > Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> > Reviewed-by: Dan Williams <dan.j.williams@intel.com>
-> > 
-> > ---
-> > 
-> > Changes for v4:
-> >   - Fix build breakages reported by kernel test robot
-> > 
-> > Changes since v2:
-> > 
-> >   - Indentation fix
-> >   - Rename page_dev_pagemap() to page_pgmap()
-> >   - Rename folio _unused field to _unused_pgmap_compound_head
-> >   - s/WARN_ON/VM_WARN_ON_ONCE_PAGE/
-> > 
-> > Changes since v1:
-> > 
-> >   - Move pgmap to the folio as suggested by Matthew Wilcox
-> > ---
-> 
-> [...]
-> 
-> >   static inline bool folio_is_device_coherent(const struct folio *folio)
-> > diff --git a/include/linux/migrate.h b/include/linux/migrate.h
-> > index 29919fa..61899ec 100644
-> > --- a/include/linux/migrate.h
-> > +++ b/include/linux/migrate.h
-> > @@ -205,8 +205,8 @@ struct migrate_vma {
-> >   	unsigned long		end;
-> >   	/*
-> > -	 * Set to the owner value also stored in page->pgmap->owner for
-> > -	 * migrating out of device private memory. The flags also need to
-> > +	 * Set to the owner value also stored in page_pgmap(page)->owner
-> > +	 * for migrating out of device private memory. The flags also need to
-> >   	 * be set to MIGRATE_VMA_SELECT_DEVICE_PRIVATE.
-> >   	 * The caller should always set this field when using mmu notifier
-> >   	 * callbacks to avoid device MMU invalidations for device private
-> > diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
-> > index df8f515..54b59b8 100644
-> > --- a/include/linux/mm_types.h
-> > +++ b/include/linux/mm_types.h
-> > @@ -129,8 +129,11 @@ struct page {
-> >   			unsigned long compound_head;	/* Bit zero is set */
-> >   		};
-> >   		struct {	/* ZONE_DEVICE pages */
-> > -			/** @pgmap: Points to the hosting device page map. */
-> > -			struct dev_pagemap *pgmap;
-> > +			/*
-> > +			 * The first word is used for compound_head or folio
-> > +			 * pgmap
-> > +			 */
-> > +			void *_unused_pgmap_compound_head;
-> >   			void *zone_device_data;
-> >   			/*
-> >   			 * ZONE_DEVICE private pages are counted as being
-> > @@ -299,6 +302,7 @@ typedef struct {
-> >    * @_refcount: Do not access this member directly.  Use folio_ref_count()
-> >    *    to find how many references there are to this folio.
-> >    * @memcg_data: Memory Control Group data.
-> > + * @pgmap: Metadata for ZONE_DEVICE mappings
-> >    * @virtual: Virtual address in the kernel direct map.
-> >    * @_last_cpupid: IDs of last CPU and last process that accessed the folio.
-> >    * @_entire_mapcount: Do not use directly, call folio_entire_mapcount().
-> > @@ -337,6 +341,7 @@ struct folio {
-> >   	/* private: */
-> >   				};
-> >   	/* public: */
-> > +				struct dev_pagemap *pgmap;
-> 
-> Agreed, that should work.
-> 
-> Acked-by: David Hildenbrand <david@redhat.com>
-> 
-> -- 
-> Cheers,
-> 
-> David / dhildenb
-> 
+Regards,
+Peng.
+
+>=20
+> This, at least, is my understannding after bunch of past talk with ATG.
+>=20
+> And this is the scenario that I fear would fail with Peng's patch.
+>=20
+> Thanks,
+> Cristian
 
