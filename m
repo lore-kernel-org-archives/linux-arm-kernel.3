@@ -4,59 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67DDBC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 11:35:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B960C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 11:37:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qxXG2nSAixngfJOrNLM/WWkZ3dv+U5vIpCi9vuBV4X8=; b=XRZq7zm5EVBWQKw7I9hvT3TCuD
-	SgOuXH9iqn7/AZ8k7lQop+2d1xySm9izIbrRS4uR/gfPY8ZHqPQimm/FdBsH07ipy24S74PvDpdDf
-	lhngQy1p0SaNJLSacq/MuArIRDA5PgnYU8YD827K9STaYQe+p9qc1duvGlzQfJRlojvx5zydG+Ggs
-	IDrQlSTBkNrprFW/6uHgQSA0axD2GojWKFHC/H+tEjr23YZhMcyC6TxywdqJz40aMKnQPV+5g32OK
-	6coB03vv3jjr86QzCdiM5Yglf16O2Q9hUC8wD6fysfMu2SCRsMudtf3Bas8XeMayoW91HZLmDesph
-	/COM+rdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Nw3/DrLiwmOZMrf3Bo9q5a7A+MBqjyNFVfEpa7H6w6U=; b=xrwMRYwlR5lYT0R9VGkrTH7BI+
+	L7u11wfLS1vygSCIwyHH7nDrq0RBFUam6YWUD+eMCn6BV3jL/P/+L5J7o8+Jb2ecjvMO6WwIkRy5U
+	fm7AoBuxIhZTgcu1AtbW/NHlDycJ32X4RaEoEQeMCVl6AC2CkHK1oxe/XG3eb5UBS1fCfFhivqFEP
+	eTlwOt1nOPh23YiGnfW4dPSJmkbz9TIiVMS4VzSpUTjo4836ESWdAUUsjn2HfWzgFLOoHdjjMQG7g
+	7rZc1Lfhow0cXA7wgsCHelZug/K/RdEuP7+OIbvAFzM2n+w4lIkliDk4CpusnR3l3HJ4ThC5jsJyM
+	YfGv0FrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYkda-000000009o1-3Jm7;
+	id 1tYket-000000009zB-1mLC;
+	Fri, 17 Jan 2025 11:37:03 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tYkdX-000000009nZ-3rw9;
 	Fri, 17 Jan 2025 11:35:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYkcI-000000009fr-1zhI
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jan 2025 11:34:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4919C1476;
-	Fri, 17 Jan 2025 03:34:48 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 82BEA3F73F;
-	Fri, 17 Jan 2025 03:34:16 -0800 (PST)
-Date: Fri, 17 Jan 2025 11:34:09 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Mark Brown <broonie@kernel.org>, Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH RFC v3 09/27] KVM: arm64: Factor SVE guest exit handling
- out into a function
-Message-ID: <Z4pAMaEYvdLpmbg2@J2N7QTR9R3>
-References: <20241220-kvm-arm64-sme-v3-0-05b018c1ffeb@kernel.org>
- <20241220-kvm-arm64-sme-v3-9-05b018c1ffeb@kernel.org>
+Received: from mail.maildlp.com (unknown [172.19.162.254])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4YZHcq34sJzjYBg;
+	Fri, 17 Jan 2025 19:31:39 +0800 (CST)
+Received: from dggpemf200006.china.huawei.com (unknown [7.185.36.61])
+	by mail.maildlp.com (Postfix) with ESMTPS id 2DBB1180101;
+	Fri, 17 Jan 2025 19:35:33 +0800 (CST)
+Received: from [10.67.120.129] (10.67.120.129) by
+ dggpemf200006.china.huawei.com (7.185.36.61) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 17 Jan 2025 19:35:32 +0800
+Message-ID: <304b542d-514d-4269-ae11-b2e214659483@huawei.com>
+Date: Fri, 17 Jan 2025 19:35:32 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241220-kvm-arm64-sme-v3-9-05b018c1ffeb@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v7 0/8] fix two bugs related to page_pool
+To: Jesper Dangaard Brouer <hawk@kernel.org>, <davem@davemloft.net>,
+	<kuba@kernel.org>, <pabeni@redhat.com>
+CC: <zhangkun09@huawei.com>, <liuyonglong@huawei.com>,
+	<fanghaiqing@huawei.com>, Alexander Lobakin <aleksander.lobakin@intel.com>,
+	Robin Murphy <robin.murphy@arm.com>, Alexander Duyck
+	<alexander.duyck@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, IOMMU
+	<iommu@lists.linux.dev>, MM <linux-mm@kvack.org>, Alexei Starovoitov
+	<ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, John Fastabend
+	<john.fastabend@gmail.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	<netdev@vger.kernel.org>, <intel-wired-lan@lists.osuosl.org>,
+	<bpf@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
+References: <20250110130703.3814407-1-linyunsheng@huawei.com>
+ <3c8e4f86-87e2-470d-84d8-86c70b3e2fcc@kernel.org>
+ <c02e856e-6ec5-49d0-8527-2647695a0174@huawei.com>
+ <3a853e1b-b5bf-4709-b8f6-e466e3e7375e@kernel.org>
+ <1bef4a35-efaa-4083-8ed5-8818fe285db5@huawei.com>
+ <f558df7a-d983-4fc5-8358-faf251994d23@kernel.org>
+Content-Language: en-US
+From: Yunsheng Lin <linyunsheng@huawei.com>
+In-Reply-To: <f558df7a-d983-4fc5-8358-faf251994d23@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.120.129]
+X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
+ dggpemf200006.china.huawei.com (7.185.36.61)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_033422_602736_CA71272F 
-X-CRM114-Status: GOOD (  40.10  )
+X-CRM114-CacheID: sfid-20250117_033540_274696_6206FE14 
+X-CRM114-Status: UNSURE (   8.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,187 +86,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 20, 2024 at 04:46:34PM +0000, Mark Brown wrote:
-> The SVE portion of kvm_vcpu_put() is quite large, especially given the
-> comments required.  When we add similar handling for SME the function
-> will get even larger, in order to keep things managable factor the SVE
-> portion out of the main kvm_vcpu_put().
+On 2025/1/17 2:02, Jesper Dangaard Brouer wrote:
 
-While investigating some problems with SVE I spotted a latent bug in
-this area where I suspect the fix will conflict with / supersede this
-rework. Details below; IIUC the bug was introduced in commit:
-
-  8c8010d69c132273 ("KVM: arm64: Save/restore SVE state for nVHE")
-
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> ---
->  arch/arm64/kvm/fpsimd.c | 67 +++++++++++++++++++++++++++----------------------
->  1 file changed, 37 insertions(+), 30 deletions(-)
 > 
-> diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
-> index 09b65abaf9db60cc57dbc554ad2108a80c2dc46b..3c2e0b96877ac5b4f3b9d8dfa38975f11b74b60d 100644
-> --- a/arch/arm64/kvm/fpsimd.c
-> +++ b/arch/arm64/kvm/fpsimd.c
-> @@ -151,6 +151,41 @@ void kvm_arch_vcpu_ctxsync_fp(struct kvm_vcpu *vcpu)
->  	}
->  }
->  
-> +static void kvm_vcpu_put_sve(struct kvm_vcpu *vcpu)
-> +{
-> +	u64 zcr;
-> +
-> +	if (!vcpu_has_sve(vcpu))
-> +		return;
-> +
-> +	zcr = read_sysreg_el1(SYS_ZCR);
-> +
-> +	/*
-> +	 * If the vCPU is in the hyp context then ZCR_EL1 is loaded
-> +	 * with its vEL2 counterpart.
-> +	 */
-> +	__vcpu_sys_reg(vcpu, vcpu_sve_zcr_elx(vcpu)) = zcr;
-> +
-> +	/*
-> +	 * Restore the VL that was saved when bound to the CPU, which
-> +	 * is the maximum VL for the guest. Because the layout of the
-> +	 * data when saving the sve state depends on the VL, we need
-> +	 * to use a consistent (i.e., the maximum) VL.  Note that this
-> +	 * means that at guest exit ZCR_EL1 is not necessarily the
-> +	 * same as on guest entry.
-> +	 *
-> +	 * ZCR_EL2 holds the guest hypervisor's VL when running a
-> +	 * nested guest, which could be smaller than the max for the
-> +	 * vCPU. Similar to above, we first need to switch to a VL
-> +	 * consistent with the layout of the vCPU's SVE state. KVM
-> +	 * support for NV implies VHE, so using the ZCR_EL1 alias is
-> +	 * safe.
-> +	 */
-> +	if (!has_vhe() || (vcpu_has_nv(vcpu) && !is_hyp_ctxt(vcpu)))
-> +		sve_cond_update_zcr_vq(vcpu_sve_max_vq(vcpu) - 1,
-> +				       SYS_ZCR_EL1);
-> +}
-> +
->  /*
->   * Write back the vcpu FPSIMD regs if they are dirty, and invalidate the
->   * cpu FPSIMD regs so that they can't be spuriously reused if this vcpu
-> @@ -179,38 +214,10 @@ void kvm_arch_vcpu_put_fp(struct kvm_vcpu *vcpu)
->  	}
-
-A little before this context, kvm_arch_vcpu_put_fp() calls
-local_irq_save(), which indicates that IRQs can be taken before this
-point, which is deeply suspicious.
-
-If IRQs are enabled, then it's possible to take an IRQ and potentially
-run a softirq handler which uses kernel-mode NEON. That means
-kernel_neon_begin() will try to save the live FPSIMD/SVE/SME state via
-fpsimd_save_user_state(), using the live value of ZCR_ELx.LEN, which would not
-be correct per the comment.
-
-Looking at kvm_arch_vcpu_ioctl_run(), the relevant logic is:
-
-	vcpu_load(vcpu); // calls kvm_arch_vcpu_load_fp()
-
-	while (ret > 0) {
-		preempt_disable();
-		local_irq_disable();
-
-		kvm_arch_vcpu_ctxflush_fp();
-		ret = kvm_arm_vcpu_enter_exit(vcpu);
-		kvm_arch_vcpu_ctxsync_fp(vcpu);
-
-		local_irq_enable();
-		preempt_enable();
-	}
-
-	vcpu_put(vcpu); // calls kvm_arch_vcpu_put_fp()
-
-... and the problem can occur at any point after the vCPU has run where IRQs
-are enabled, i.e, between local_irq_enable() and either local_irq_disable() or
-vcpu_put()'s call to kvm_arch_vcpu_put_fp().
-
-Note that kernel_neon_begin() calls:
-
-	fpsimd_save_user_state();
-	...
-	fpsimd_flush_cpu_state();
-
-... and fpsimd_save_user_state() will see that the SVE VL is wrong:
-
-	if (WARN_ON(sve_get_vl() != vl)) {
-		force_signal_inject(SIGKILL, SI_KERNEL, 0, 0);
-		return;
-	}
-
-... pending a SIGKILL for the VMM thread without saving the vCPU's state
-before unbinding the live state via fpsimd_flush_cpu_state(), which'll
-set TIF_FOREIGN_FPSTATE.
-
-AFAICT it's possible to re-enter the vCPU after that happens, whereupon
-stale vCPU FPSIMD/SVE state will be restored. Upon return to userspace
-the SIGKILL will be delivered, killing the VMM.
-
-As above, it looks like that's been broken since the nVHE SVE
-save/restore was introduced in commit:
-
-  8c8010d69c132273 ("KVM: arm64: Save/restore SVE state for nVHE")
-
-The TL;DR summary is that it's not sufficient for kvm_arch_vcpu_put_fp()
-to fix up ZCR_ELx. Either:
-
-* That needs to be fixed up while IRQs are masked, e.g. by
-  saving/restoring the host and guest ZCR_EL1 and/or ZCR_ELx values in
-  kvm_arch_vcpu_ctxflush_fp() and kvm_arch_vcpu_ctxsync_fp()
-
-* The lazy save logic in fpsimd_save_user_state() needs to handle KVM
-  explicitly, saving the guest's ZCR_EL1 and restoring the host's
-  ZCR_ELx.
-
-I think we need to fix that before we extend this logic for SME.
-
-Mark.
-
->  
->  	if (guest_owns_fp_regs()) {
-> -		if (vcpu_has_sve(vcpu)) {
-> -			u64 zcr = read_sysreg_el1(SYS_ZCR);
-> -
-> -			/*
-> -			 * If the vCPU is in the hyp context then ZCR_EL1 is
-> -			 * loaded with its vEL2 counterpart.
-> -			 */
-> -			__vcpu_sys_reg(vcpu, vcpu_sve_zcr_elx(vcpu)) = zcr;
-> -
-> -			/*
-> -			 * Restore the VL that was saved when bound to the CPU,
-> -			 * which is the maximum VL for the guest. Because the
-> -			 * layout of the data when saving the sve state depends
-> -			 * on the VL, we need to use a consistent (i.e., the
-> -			 * maximum) VL.
-> -			 * Note that this means that at guest exit ZCR_EL1 is
-> -			 * not necessarily the same as on guest entry.
-> -			 *
-> -			 * ZCR_EL2 holds the guest hypervisor's VL when running
-> -			 * a nested guest, which could be smaller than the
-> -			 * max for the vCPU. Similar to above, we first need to
-> -			 * switch to a VL consistent with the layout of the
-> -			 * vCPU's SVE state. KVM support for NV implies VHE, so
-> -			 * using the ZCR_EL1 alias is safe.
-> -			 */
-> -			if (!has_vhe() || (vcpu_has_nv(vcpu) && !is_hyp_ctxt(vcpu)))
-> -				sve_cond_update_zcr_vq(vcpu_sve_max_vq(vcpu) - 1,
-> -						       SYS_ZCR_EL1);
-> -		}
-> +		kvm_vcpu_put_sve(vcpu);
->  
->  		/*
-> -		 * Flush (save and invalidate) the fpsimd/sve state so that if
-> +		 * Flush (save and invalidate) the FP state so that if
->  		 * the host tries to use fpsimd/sve, it's not using stale data
->  		 * from the guest.
->  		 *
+> Benchmark (bench_page_pool_simple) results from before and after
+> patchset with patches 1-5m and rcu lock removal as requested.
 > 
-> -- 
-> 2.39.5
+> | Test name  |Cycles |   1-5 |    | Nanosec |    1-5 |        |      % |
+> | (tasklet_*)|Before | After |diff|  Before |  After |   diff | change |
+> |------------+-------+-------+----+---------+--------+--------+--------|
+> | fast_path  |    19 |    19 |   0|   5.399 |  5.492 |  0.093 |    1.7 |
+> | ptr_ring   |    54 |    57 |   3|  15.090 | 15.849 |  0.759 |    5.0 |
+> | slow       |   238 |   284 |  46|  66.134 | 78.909 | 12.775 |   19.3 |
+> #+TBLFM: $4=$3-$2::$7=$6-$5::$8=(($7/$5)*100);%.1f
 > 
+> This test with patches 1-5 looks much better regarding performance.
+
+Thanks for the testing.
+
+Is there any notiable performance variation during different test running
+for the same built kernel in your machine?
+
+> 
+> --Jesper
+> 
+> https://github.com/xdp-project/xdp-project/blob/main/areas/mem/page_pool07_bench_DMA_fix.org#e5-1650-pp01-dma-fix-v7-p1-5
+> 
+> Kernel:
+>  - 6.13.0-rc6-pp01-DMA-fix-v7-p1-5+ #5 SMP PREEMPT_DYNAMIC Thu Jan 16 18:06:53 CET 2025 x86_64 GNU/Linux
+> 
+> Machine: Intel(R) Xeon(R) CPU E5-1650 v4 @ 3.60GHz
+> 
+> modprobe bench_page_pool_simple loops=100000000
+> 
+> Raw data:
+> [  187.309423] bench_page_pool_simple: time_bench_page_pool01_fast_path(): Cannot use page_pool fast-path
+> [  187.872849] time_bench: Type:no-softirq-page_pool01 Per elem: 19 cycles(tsc) 5.539 ns (step:0) - (measurement period time:0.553906443 sec time_interval:553906443) - (invoke count:100000000 tsc_interval:1994123064)
+> [  187.892023] bench_page_pool_simple: time_bench_page_pool02_ptr_ring(): Cannot use page_pool fast-path
+> [  189.611070] time_bench: Type:no-softirq-page_pool02 Per elem: 61 cycles(tsc) 17.095 ns (step:0) - (measurement period time:1.709580367 sec time_interval:1709580367) - (invoke count:100000000 tsc_interval:6154679394)
+> [  189.630414] bench_page_pool_simple: time_bench_page_pool03_slow(): Cannot use page_pool fast-path
+> [  197.222387] time_bench: Type:no-softirq-page_pool03 Per elem: 272 cycles(tsc) 75.826 ns (step:0) - (measurement period time:7.582681388 sec time_interval:7582681388) - (invoke count:100000000 tsc_interval:27298499214)
+> [  197.241926] bench_page_pool_simple: pp_tasklet_handler(): in_serving_softirq fast-path
+> [  197.249968] bench_page_pool_simple: time_bench_page_pool01_fast_path(): in_serving_softirq fast-path
+> [  197.808470] time_bench: Type:tasklet_page_pool01_fast_path Per elem: 19 cycles(tsc) 5.492 ns (step:0) - (measurement period time:0.549225541 sec time_interval:549225541) - (invoke count:100000000 tsc_interval:1977272238)
+> [  197.828174] bench_page_pool_simple: time_bench_page_pool02_ptr_ring(): in_serving_softirq fast-path
+> [  199.422305] time_bench: Type:tasklet_page_pool02_ptr_ring Per elem: 57 cycles(tsc) 15.849 ns (step:0) - (measurement period time:1.584920736 sec time_interval:1584920736) - (invoke count:100000000 tsc_interval:5705890830)
+> [  199.442087] bench_page_pool_simple: time_bench_page_pool03_slow(): in_serving_softirq fast-path
+> [  207.342120] time_bench: Type:tasklet_page_pool03_slow Per elem: 284 cycles(tsc) 78.909 ns (step:0) - (measurement period time:7.890955151 sec time_interval:7890955151) - (invoke count:100000000 tsc_interval:28408319289)
 > 
 
