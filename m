@@ -4,169 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 856E7C02188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 11:53:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74A16C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 11:54:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RRQnj/lHBFrmYuuU3eby7P399YaM59MHNc6+oTkKOUw=; b=LltYxiBlTApttOTsb0FtK8n3S2
-	rWBFvjax4P8yvlEeqTaCQvjZgO/FPHw8sKSVuuTEdo12dZBtpHLux/z5+xjGHCqE70ialEwB75KaB
-	iRRZ+5OcMB9dkRbszCE9Mqd3P0rJGGzvrIjTYoGa1/YmYKBW1MjwlBbZV5qWixGBTOF8NlJCrjm4r
-	15zwN5GsKaCGd/ekxnJnwqQRap6MMEINMQWCA2UISrdFLNx22b5d8cw6vJy5GavxXbnDzBsUThlvo
-	OGTQLWuTK+u6oTHVZCajfkCxxdoR+1OfLpccMqOh3i/J+qDeCSunCI5HBwiJhNuP9Z7J4Jrq/5AlD
-	vsi8CMWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UwqR52kE3dZt0x01brqi5XcrlZ6Uh3zoB1F9n4lBtyE=; b=xjSt3l1Pjah7MZixx1iwLaGJA3
+	+6a+hVeG5MOEwvAjUQ8CBYDZNFKYMUfDRVAq1JIhr9djwEjrWb9jrNtW4jnZV/iXY0Aeav2jQCOk0
+	avvbKviS+gv3D2KA5XxIix9K0ppzzLhNaMMYCbjGaZMDd9jxWJMcbTiwbEhogKw+F902kDVcgg/zz
+	CFkIa73viChWRfagvh5H6qr9puO2E7QvEnsqyVkMZZLfzm3frpdH9YcRqfsv4aUipuu+b91udOzWv
+	fv0FggeyvC/9dz85/Y1Lp8hIGXRmLA2F7aPADLZbKmUUn7lUqd+p2+fDg9b7eTzIaY4ZnNZ7f4Gv6
+	CMxOL1bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYkuP-00000000Bce-16rf;
-	Fri, 17 Jan 2025 11:53:05 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1tYkvd-00000000Br0-2ocB;
+	Fri, 17 Jan 2025 11:54:21 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYksQ-00000000BLj-3skX;
-	Fri, 17 Jan 2025 11:51:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=U4FG/P+OKrETInCvthRFOS8N5d0HbSppN91p+SThc1j4sVXeZqPoiXgFYGupxzzfNQ48Yhnu3vewrDgy8cifxcwGai5t5sTbEYLdO9sxhp7Afb3L2bD/V5ORfn4nlN9T4WWvRa7TJadOq7LiYZCAYrlfAEZn1Q99UfMW5eWJS3h4UE4jp4V7Wh42BqNPl3CC0lXvXRY/i2SnqghkyMFG9dcHpB3k4dTXBpwGMxhd/+TUsQsTwUhfeJXdTMOAregr+I1wUoYg5sZSzS0jWyDuOoCcJMMcRQsMyPacaXF8m0rMMZScpduyCTl+pdTV71/rgu6nalYq9oohedYo6CwpkA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RRQnj/lHBFrmYuuU3eby7P399YaM59MHNc6+oTkKOUw=;
- b=I4G8m265EtBc0j37EiH7IxSFTn3YeRemU16nRaxBNqjR2rzpY/Abe7jwE2cyBw0zotOZbFbOHhDURysEPcspD5A475VyEgtoEzKBOnV8s077kju6zoKFAzDYNL3V5oP9k1R9i2CSBjKOTq6mUcOrzCPC5VUZjx5l87UlQUZntyBQHgraOuzK0qotecbuVJH+wvjTqUR6FewIqu46sdwqfZd35Lqo5ngfHobOUrZPskQ7nmkVnCXuivY1MTZ5yH/atJzWiQkzLG91e9IeaaRLif7nGKVTeKloMvu+V2HjrXa1SHBeC95lOmFQ+sAuMcpsLN/kh/gu737/UcEgLiQWaQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RRQnj/lHBFrmYuuU3eby7P399YaM59MHNc6+oTkKOUw=;
- b=UGOFSElyh95w4jL1kZhnJAZMk24f4Tn7PFg9yVBlfPV4GIeNt6rkvI77ruE9ptboLcuSxYKJD5Gm7QEAcPTp2AG7Nio2l1PfxSdrWA+JAbFXjI1lZ6foOUBduOkUVtXrJW+PRAGC2dpLj/Axv8H+639lnjf32k91IUqJq3d2B/A=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
- by PA4PR04MB9319.eurprd04.prod.outlook.com (2603:10a6:102:2a6::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.16; Fri, 17 Jan
- 2025 11:50:53 +0000
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a%3]) with mapi id 15.20.8335.015; Fri, 17 Jan 2025
- 11:50:53 +0000
-Message-ID: <4985c21b-56b8-45b3-a96d-1427ca905c6c@cherry.de>
-Date: Fri, 17 Jan 2025 12:50:52 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] arm64: dts: rockchip: add overlay tests for Rock
- 5B PCIe overlays
-To: Niklas Cassel <cassel@kernel.org>, Quentin Schulz <foss+kernel@0leil.net>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Jagan Teki <jagan@edgeble.ai>, Michael Riesch
- <michael.riesch@wolfvision.net>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250116-pre-ict-jaguar-v2-0-157d319004fc@cherry.de>
- <20250116-pre-ict-jaguar-v2-2-157d319004fc@cherry.de>
- <Z4o2_0yX-hq-DfCs@ryzen>
-Content-Language: en-US
-From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <Z4o2_0yX-hq-DfCs@ryzen>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR4P281CA0070.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:ce::12) To AS8PR04MB8897.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::20)
+	id 1tYktt-00000000BZJ-1vgX
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Jan 2025 11:52:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 93BD25C5412;
+	Fri, 17 Jan 2025 11:51:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B701C4CEDD;
+	Fri, 17 Jan 2025 11:52:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737114752;
+	bh=PpuF3wGZW6giaZR2WJGnt6vMMbjdOGwgsGvo41HpJQo=;
+	h=From:To:Cc:Subject:Date:From;
+	b=NUR3fOnCZh4leiHXsUcNKy/NeIgaO07hAAuewfN12h/WJna4aEVM7UAsKxC800eCD
+	 SkieHmz4v0IMD0TKXFg+ljua+2D17nhDXSF50G+bNkjNifLKsOftbTuOLGKD9nKI5i
+	 tFPX8dDn813MMGL+uws3ClU2mZVRs0PotEQWNUfLkmJgjcO9mU6QuM+1t7CpUETlG8
+	 2XGjS5jYAweW3xEXXwAAYasCg/pl+WpdRWAlSr2PoT286DLUIO1vPT3JPubGwdBPP2
+	 /KXIiJWJdb2r1qypODkRZ8wdzggP7zFbL3WEUWC1ZZMvxOs+kQtKZw+r4JTFgUD/3d
+	 7zNmCCMz/d55g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tYkto-00D70p-R4;
+	Fri, 17 Jan 2025 11:52:28 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Chase Conklin <chase.conklin@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
+	Fuad Tabba <tabba@google.com>,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Hardevsinh Palaniya <hardevsinh.palaniya@siliconsignals.io>,
+	James Clark <james.clark@linaro.org>,
+	Joey Gouly <Joey.Gouly@arm.com>,
+	Kalesh Singh <kaleshsingh@google.com>,
+	Mark Brown <broonie@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Quentin Perret <qperret@google.com>,
+	Rob Herring <robh@kernel.org>,
+	Stephen Rothwell <sfr@canb.auug.org.au>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Thorsten Blum <thorsten.blum@linux.dev>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Vladimir Murzin <vladimir.murzin@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org
+Subject: [GIT PULL] KVM/arm64 updates for 6.14
+Date: Fri, 17 Jan 2025 11:52:08 +0000
+Message-Id: <20250117115208.1616503-1-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|PA4PR04MB9319:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2cc65bf6-3936-4f31-9647-08dd36ed31ee
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Y2RQdHQwZjdSTTBhM0lDSFJBVXE1UFNTVnZZZkNNVmtwb0JOaVdTZzNmTlZU?=
- =?utf-8?B?WDRpU1dhakd5Mzg3alJnR3dGWDBBa1FNVCtCd01ud0VpLzJ6bkkwaDlNTkQ2?=
- =?utf-8?B?Z3F2ZGRONUhlZ0NVYTBlV3h4Ync5TjI2aUpkd2pZVlpvd3pDSlhRekpBT09q?=
- =?utf-8?B?elhVMXJjZlZwWFFwd2lYUEtYZW4veEhWMlVVbTNtOGRQd2JobWFLZFI0aFF1?=
- =?utf-8?B?ank3dUQvN1d4NVJ0ZkZRSVZhY2ZIM3ZwQVFzNCtZKytldWxubFhlcWNJMHVk?=
- =?utf-8?B?S3YyUXBKa3h5cHZpeS81NmkzSzl6cyswNFl0WEdkWHc4ZDliQnBDMThFTWF4?=
- =?utf-8?B?bVJIOG9NWXFjeE5PSHVwYlozMFFCbk5tcUg5REJNTE1MS0lDa1hiZWp0Zmxr?=
- =?utf-8?B?YjhDbDR1Mm1qZjZoWktNVStoNStsdUJObng1VUVPaEtBeDkwa1JDWTVQQUc2?=
- =?utf-8?B?bks0M1FYUTlacnJlcGIyZWVaL0t1QUJwb3J5eHlDWjUySkk3dnkySjZ3eDB5?=
- =?utf-8?B?QXZCdnV2T0FIaGRhL3lRMFpLcFlhU3BxZGViRkRSL01yU2RReU5aeXQvNXNZ?=
- =?utf-8?B?TkRNRzhzUERrMDRVYnpmdjV2dVFSd0JuVVl3Q1g2NktWbGlhSVdreTM2UjhC?=
- =?utf-8?B?Y2Y2YnpBUWZQNUJuQ0dCQWtsSDR4ZXozNXk3Q0dSbWZhVjVBLzFOa21jWDUz?=
- =?utf-8?B?UTVXL2lwSmlLdCtDR0t0eEtzU2JuMFNKZGlQa3gvS3NQZmFwVDV5clZWV05k?=
- =?utf-8?B?SXRqMmZ3aEFZZ0loR1hHcVdTdEIxbFFPenEyV0hlUTh3Vy9raEV6enA3cmtV?=
- =?utf-8?B?L0lNejBxYytBVHVJdWthK2NzU1BZdmo1TUN4dk5pbUVzSDVJNmVMWTlTUEE4?=
- =?utf-8?B?bTBxS242TkRZVVovUTFtSTFvNE1nWjhTQ1RnZzkxWXA1MXJHaXgycWs3TE44?=
- =?utf-8?B?WlV1bm9vQk02aVBpZUVEZTNSOFhKaTErOGNjWDBkRENUcmxvQlVvMktRdDJa?=
- =?utf-8?B?ZHRrNlR0aUFmUGlDVmZQSytmcTdObG1md0NtUUtza0E0TE9sVG9ESStDanEy?=
- =?utf-8?B?K1UxaStRRVpTTkd6MytkRXlGSW14eFpxaXFFb2NmUEE3eFNYNnlIMmNWTmJS?=
- =?utf-8?B?L2ZHTUFka1hWbjQ0d2grQStUWGUwZEpkaVZuWGRITGVzVkhZS1hqd2hDYWxo?=
- =?utf-8?B?bDdUclVPajZLVG5WdXNVMERUN3J4UUxyb0p6VGFsbmtKTkNXOWVNNlRSbE1P?=
- =?utf-8?B?ZkNJR3pJZmIzVHBHRldxOVdTUi9rSGh3UmhVMHBreDlIWWNzMVhsRGYyTlgx?=
- =?utf-8?B?ZUhaeVFKS1E2a3MzZ29LTnpwd0VURUVGUmVCd09KZG5vZDI3RVVRM3hVam9o?=
- =?utf-8?B?NFBSM3kxQS9hOVRHRWJhZjdWdWpQVkZJQnRoMndQZ25oZ29wZnoydEIxZXZY?=
- =?utf-8?B?Z2F2QStUblM3dXdtUXB4TzA5bUgvWVRjRE8xUEdYRjR5RHMrMkVHVDdXQm1Q?=
- =?utf-8?B?ekdMeWJXbldFMmRUY1FVNjZNbzdpS1dkbU5DdXJXRHR3TEFiRWtSdzA3Tk1w?=
- =?utf-8?B?NDFQYms2cEJwZlNKTXNKYTZUYVRETjVjeEdWdVlEZ2ZsZzZzdzJvS1BIVHJW?=
- =?utf-8?B?S2lZT095YkVYOXZLV0RreW9kRWEzOUJPVUxTWWhPayswVHJGWVBXbHVudlVx?=
- =?utf-8?B?QVh0R0tHVEtVVldXa3ZKZ2hSeEVqZ2c0azc2emlXN3ZLcGFPNGMrM1VRa3oz?=
- =?utf-8?B?bzlHZ0NMMlNDTmcyT1hxdVlYdFFxU21jNlpkY3BvYzl0MmhLMGpmNlErMlpx?=
- =?utf-8?B?REY3eFpzRDBQZUs5aFkwTlNDU0N3aktFb3d5RFN2OWJXZnVyZGc1K25KSzly?=
- =?utf-8?Q?xdZ6dnVyxRIwP?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cm9PSFhXUGdsc0dTdDVQWnFFdDJJbFU5NXB0SUhaS1lHYTJjbmpFZXkwRjcx?=
- =?utf-8?B?YnNNY0p4eE9MSk1FM0hiZ1luaTNUOVNCSlJNdWdFTlYvTU1SVjBGRDltbWRx?=
- =?utf-8?B?cVhsVDZVZ0RUOUU1bUlKcmZaNGdNQTFQVjljTVpPalNWVDhXaHR5OVFXSnBQ?=
- =?utf-8?B?OENiWnpuOFg2c3pjWmw2SlkrME1STlp3WUZrYUxVUEVGQ3ZzdWlxT0JJeVlP?=
- =?utf-8?B?bHNQZ01Tb1FxYXpMbEwvVUZTT2wwS0ZMRmdzUWZFVFMxWDFvQVRHYmNaanJ3?=
- =?utf-8?B?aTN3MjU3ZzBrL2FlNW5tNUFRRm9JODlhckRIY1dSbDFWSmFQL3JDbFpRYkdq?=
- =?utf-8?B?RVM2SGdyb3VSM2JKMlhCajBYMXZ4MzZhRUlVRzM1UVVGblhPbXB0dWhvanc4?=
- =?utf-8?B?UGROQzZWOEFtVHk3VEhobkxNYWZPYWxEMDVkbUp1TFdWVzNXNXVSY1NJcU10?=
- =?utf-8?B?c2VJUUg5Z0ttRGhSbGVubXhQYlpaelVpWUFJeW1ibFNyWS80ZXZQZXludXFS?=
- =?utf-8?B?M24xbnBVaUlxVk1GRkY2M2R6TkhEQ3FBZGpNQ2x4aG83S2FWQ0w4RzNnYnZL?=
- =?utf-8?B?T3lWTDYzODVTcDNxRHVGVXJKNG84UXJnQ0cvYkJOZlZEWVhHd1cwUFY1SS80?=
- =?utf-8?B?T3duOU1GaVllNU5rWXR1QVZuZlR0VURuNytLaml3R1JBRDUzc1ZLRmhtYllI?=
- =?utf-8?B?N1cramV3bk80MnJTdkprRTBNWTJ0a2l5L3BleVZLQllWNmdJYVIrZkZ4TjhK?=
- =?utf-8?B?bXludkhjM3hRUUlCU29ocUpjNmJydDZxbFl5THFIeXdQTU00RC9LVTAveHlD?=
- =?utf-8?B?d3lZTlliaVd4bjQyOS92TDk2ZTRCVG1lcFRHd1g3MVBTVWpQbkpHanZFQnJ6?=
- =?utf-8?B?SzdvVXNWRFdpY2JteVJ4YktQRTVORTNsQ0F3OHlYbEs1SU1Vd3RWdFZGcUxD?=
- =?utf-8?B?VHRFZjhYaHFnakJVNldjYXVkWmRWUWVtYTlhdFFLZjBId1hnVmZzaXlWV2Uz?=
- =?utf-8?B?Vmd4OHJSVjVySzFzcjAraUdQaU1YS1ZlWkcybXJ1N2pMVGkvRDVnWkYvb1Ux?=
- =?utf-8?B?K2JSWmdYT2M0ekc5SlhiVEJtQ3BGSnVUSm9pdjFXTjcwblBFVGhsck9KaUJC?=
- =?utf-8?B?TXIxMHRKMjl6WjlXblpKVWJ1SVVFeUhqMXpvUERPT1BVSENrVlhDWDJyamVQ?=
- =?utf-8?B?S05ZVExPckY0WjVYYkFlSVkxZmVEU2RuaWFKbnlDUmpWUWRpR1VlbXpDUDRy?=
- =?utf-8?B?cmxFUEJxL2hmMHh2NE8rQnRObmhtTUFjL0RjS0Z4YW5DK205ZHlXZEJjb1lE?=
- =?utf-8?B?c3NJdnoyVjFJa2NreUVmeWRoWEVIcWd3clNidjZaaEhCVVVZcEw1M05pcTM1?=
- =?utf-8?B?YmVObWxpK0laUmZJUGJLV0M0R1U4VmxvV0orRFp2NW9mbmdFZ2xCMUZJRG5v?=
- =?utf-8?B?WjJKZ0RRUXF6amorazhVZnJVWUZCUEVVTVVzd3JUQmU4YTh5Q2psMlJTWXU4?=
- =?utf-8?B?V3ZFWDVjMUxhWWdwY2kxbjhUWi9mNUFYaGpLZFRET0lVK0lqRmc1NXJDSjJa?=
- =?utf-8?B?bUp5NmU1dDRVT3VJWTBQZk5BcW9mbHhKRm9BTk9WVUtwWnJPWTdueFFzU2xU?=
- =?utf-8?B?ZlhpcG9hNlMxdzE3Y3NybDZwM1RJcE1TQVkrWmFZR0JCNGNKaHVxakZYbUx2?=
- =?utf-8?B?d0lwYmUyc25CSXlnb2NQZkh1ZU1HUzlMSG14Tng1KzVzQkdyWXJReWZqUEo1?=
- =?utf-8?B?NFhvWUxQelpmYU45WjU4dDFvMUs4bFdNb1RCUGtsWVByUWpSTjkvQW1scmlM?=
- =?utf-8?B?NkFXMXQ5N2tFZ25DZkRPK1hHTDJGMEdjZFM4S0V6VlIyZCtXVFhIWkx5VXR4?=
- =?utf-8?B?a1RIVDVONFpmbCt1N0xSV00zczFuZFBUZjN2eUpYdm5XVlIrWjBDWjhydTFT?=
- =?utf-8?B?QktJRnN0S2RHUlN1ejRHOC9ENWVRMitvVEhmVDl3Mlg2d3dkRTNZb251OG1h?=
- =?utf-8?B?YnA2SStXUnhHdkxTeW5IZ09YbWVGa21oeExpeldqNDVFM2pnY25DWm9zcjFK?=
- =?utf-8?B?MWtLUmRGL2wxS3d0M0FGZnRYc09ucndtcXZNSm1ubGpmMXF0Qlk2dWNlcUpp?=
- =?utf-8?B?TUsxNWkzTmFjQ01ORHR3dWZoS083MzhWb0R5NWQyZkpYM2pvYUR1dHdEL0Nr?=
- =?utf-8?B?U1E9PQ==?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2cc65bf6-3936-4f31-9647-08dd36ed31ee
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jan 2025 11:50:53.0608
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7511EWJw8GnG1923s917IVcvJyPygfija0ehFVddcY6wZAg0Sf1rRMur9sLKwMV/GKkzWesssQSfDP2GYYrgLWGp7X8tpk2I2cU4zbCqPUs=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9319
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: pbonzini@redhat.com, anshuman.khandual@arm.com, catalin.marinas@arm.com, chase.conklin@arm.com, christoffer.dall@arm.com, christophe.jaillet@wanadoo.fr, tabba@google.com, gankulkarni@os.amperecomputing.com, hardevsinh.palaniya@siliconsignals.io, james.clark@linaro.org, Joey.Gouly@arm.com, kaleshsingh@google.com, broonie@kernel.org, mark.rutland@arm.com, smostafa@google.com, oliver.upton@linux.dev, qperret@google.com, robh@kernel.org, sfr@canb.auug.org.au, suzuki.poulose@arm.com, thorsten.blum@linux.dev, vdonnefort@google.com, vladimir.murzin@arm.com, will@kernel.org, joey.gouly@arm.com, yuzenghui@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_035103_116595_BFDFBBA0 
-X-CRM114-Status: GOOD (  25.31  )
+X-CRM114-CacheID: sfid-20250117_035233_587267_15F1B357 
+X-CRM114-Status: GOOD (  19.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,80 +105,295 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Niklas,
+Paolo,
 
-On 1/17/25 11:54 AM, Niklas Cassel wrote:
-> On Thu, Jan 16, 2025 at 03:47:11PM +0100, Quentin Schulz wrote:
->> From: Quentin Schulz <quentin.schulz@cherry.de>
->>
->> According to commit 40658534756f ("arm64: dts: rockchip: Add rock5b
->> overlays for PCIe endpoint mode"), Rock 5B can operate in PCIe endpoint
->> mode. For that to work, the rk3588-rock-5b-pcie-ep.dtbo overlay needs to
->> be applied on Rock 5B base Device Tree. If that Rock 5B is connected to
->> another Rock 5B, the latter needs to apply the
->> rk3588-rock-5b-pcie-srns.dtbo overlay.
->>
->> In order to make sure the overlays are still valid in the future, let's
->> add a validation test by applying the overlays on top of the main base
->> at build time.
->>
->> Fixes: 40658534756f ("arm64: dts: rockchip: Add rock5b overlays for PCIe endpoint mode")
-> 
-> Not sure if I agree with the Fixes-tag.
-> I don't think there is anything broken with that commit, but I definitely
-> think that it is a good idea make sure that they don't break in the future.
-> 
+Here's the initial set of KVM/arm64 changes for 6.14. The bulk of the
+changes are around debug and protect mode, both of which are being
+radically cleaned up. On the feature side, we gain support for
+non-protected guests in protected mode, EL2 timer support, and some
+better CoreSight support.
 
-That's fair. I actually think it'd be a good idea to backport this to 
-stable releases. It could be possible for stable right now to somehow 
-only backport changes to the base DT without modifying the DTO (or 
-vice-versa) and then break the overlay unknowingly.
+The rest is the usual mix of cleanups and bug fixes. Note that this
+drags two other branches:
 
-I added the Fixes to make it a bit simpler to know up to when to 
-backport it, though I still haven't decided if I should have added Cc: 
-stable there.
+- arm64's for-next/cpufeature to resolve conflicts that were not
+  trivial to resolve
 
-So 1) what's your opinion on backporting this to stable
-2) if backporting, shouldn't I still remove the Fixes?
+- kvmarm-fixes-6.13-3 which was only merged in 6.13-rc7, while this
+  branch is firmly based on -rc3, and we had some dependencies with
+  it.
 
-> 
->> @@ -145,8 +145,6 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-orangepi-5-plus.dtb
->>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-quartzpro64.dtb
->>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5-itx.dtb
->>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b.dtb
->> -dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-ep.dtbo
->> -dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-srns.dtbo
->>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-haikou.dtb
->>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-toybrick-x0.dtb
->>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-turing-rk1.dtb
->> @@ -165,5 +163,9 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-rock-5c.dtb
->>   
->>   # Overlays
->>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-edgeble-neu6a-wifi.dtb
->> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-ep.dtb
->> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-srns.dtb
-> 
-> You moved these lines further down, but you changed the suffix from
-> .dtbo to .dtb, why? It seems a little confusing, is that really needed?
-> 
+As usual, gory details in the tag below.
 
-That was also confusing to me, but that's actually how it works.
+Please pull,
 
-rk3588-rock-5b-pcie-ep.dtb somehow points at rk3588-rock-5b-pcie-ep-dtbs 
-which is the overlay application test of rk3588-rock-5b-pcie-ep.dtbo 
-onto rk3588-rock-5b.dtb. For that to work, the .dtbo needs to be 
-compiled. The target must be auto-generated somewhere because that still 
-works. You can remove all *.dtb* from the tree, apply this patch and 
-compile with make dtbs and you'll see that the DTBO is generated and the 
-build time test of overlay application done as well (the log line starts 
-with OVL).
+	M.
 
-Not sure exactly how to make this a bit less confusing in the commit 
-log, as I myself do not really know why that is necessary or how it is 
-working. But "it works" (tm).
+The following changes since commit 78d4f34e2115b517bcbfe7ec0d018bbbb6f9b0b8:
 
-This matches what was done for ti/ as well.
+  Linux 6.13-rc3 (2024-12-15 15:58:23 -0800)
 
-Cheers,
-Quentin
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git tags/kvmarm-6.14
+
+for you to fetch changes up to 01009b06a6b52d8439c55b530633a971c13b6cb2:
+
+  arm64/sysreg: Get rid of TRFCR_ELx SysregFields (2025-01-17 11:07:55 +0000)
+
+----------------------------------------------------------------
+KVM/arm64 updates for 6.14
+
+* New features:
+
+  - Support for non-protected guest in protected mode, achieving near
+    feature parity with the non-protected mode
+
+  - Support for the EL2 timers as part of the ongoing NV support
+
+  - Allow control of hardware tracing for nVHE/hVHE
+
+* Improvements, fixes and cleanups:
+
+  - Massive cleanup of the debug infrastructure, making it a bit less
+    awkward and definitely easier to maintain. This should pave the
+    way for further optimisations
+
+  - Complete rewrite of pKVM's fixed-feature infrastructure, aligning
+    it with the rest of KVM and making the code easier to follow
+
+  - Large simplification of pKVM's memory protection infrastructure
+
+  - Better handling of RES0/RES1 fields for memory-backed system
+    registers
+
+  - Add a workaround for Qualcomm's Snapdragon X CPUs, which suffer
+    from a pretty nasty timer bug
+
+  - Small collection of cleanups and low-impact fixes
+
+* Dependencies
+
+  - Merge arm64/for-next/cpufeature to resolve conflicts
+
+  - Merge kvmarm-fixes-6.13-3 on which the non-protected memory
+    management depends
+
+----------------------------------------------------------------
+Fuad Tabba (16):
+      KVM: arm64: Group setting traps for protected VMs by control register
+      KVM: arm64: Move checking protected vcpu features to a separate function
+      KVM: arm64: Remove KVM_ARM_VCPU_POWER_OFF from protected VMs allowed features in pKVM
+      KVM: arm64: Use KVM extension checks for allowed protected VM capabilities
+      KVM: arm64: Initialize feature id registers for protected VMs
+      KVM: arm64: Fix RAS trapping in pKVM for protected VMs
+      KVM: arm64: Set protected VM traps based on its view of feature registers
+      KVM: arm64: Rework specifying restricted features for protected VMs
+      KVM: arm64: Remove fixed_config.h header
+      KVM: arm64: Remove redundant setting of HCR_EL2 trap bit
+      KVM: arm64: Calculate cptr_el2 traps on activating traps
+      KVM: arm64: Refactor kvm_reset_cptr_el2()
+      KVM: arm64: Fix the value of the CPTR_EL2 RES1 bitmask for nVHE
+      KVM: arm64: Remove PtrAuth guest vcpu flag
+      KVM: arm64: Convert the SVE guest vcpu flag to a vm flag
+      KVM: arm64: Use kvm_vcpu_has_feature() directly for struct kvm
+
+Hardevsinh Palaniya (1):
+      arm64/cpufeature: Refactor conditional logic in init_cpu_ftr_reg()
+
+James Clark (6):
+      tools: arm64: Update sysreg.h header files
+      arm64/sysreg/tools: Move TRFCR definitions to sysreg
+      coresight: trbe: Remove redundant disable call
+      KVM: arm64: coresight: Give TRBE enabled state to KVM
+      KVM: arm64: Support trace filtering for guests
+      coresight: Pass guest TRFCR value to KVM
+
+Kalesh Singh (1):
+      arm64: kvm: Introduce nvhe stack size constants
+
+Marc Zyngier (35):
+      arm64/sysreg: Allow a 'Mapping' descriptor for system registers
+      arm64/sysreg: Get rid of the TCR2_EL1x SysregFields
+      arm64/sysreg: Convert *_EL12 accessors to Mapping
+      arm64/sysreg: Get rid of CPACR_ELx SysregFields
+      KVM: arm64: Manage software step state at load/put
+      KVM: arm64: Introduce __pkvm_vcpu_{load,put}()
+      KVM: arm64: Consolidate allowed and restricted VM feature checks
+      KVM: arm64: nv: Advertise the lack of AArch32 EL0 support
+      KVM: arm64: nv: Add handling of EL2-specific timer registers
+      KVM: arm64: nv: Sync nested timer state with FEAT_NV2
+      KVM: arm64: nv: Publish emulated timer interrupt state in the in-memory state
+      KVM: arm64: nv: Use FEAT_ECV to trap access to EL0 timers
+      KVM: arm64: nv: Accelerate EL0 timer read accesses when FEAT_ECV in use
+      KVM: arm64: nv: Accelerate EL0 counter accesses from hypervisor context
+      KVM: arm64: Handle counter access early in non-HYP context
+      KVM: arm64: nv: Add trap routing for CNTHCTL_EL2.EL1{NVPCT,NVVCT,TVT,TVCT}
+      KVM: arm64: nv: Propagate CNTHCTL_EL2.EL1NV{P,V}CT bits
+      KVM: arm64: nv: Sanitise CNTHCTL_EL2
+      KVM: arm64: Work around x1e's CNTVOFF_EL2 bogosity
+      KVM: arm64: nv: Document EL2 timer API
+      Merge remote-tracking branch 'arm64/for-next/cpufeature' into kvm-arm64/pkvm-fixed-features-6.14
+      Merge branch kvm-arm64/debug-6.14 into kvmarm-master/next
+      Merge branch kvm-arm64/pkvm-np-guest into kvmarm-master/next
+      Merge branch kvm-arm64/pkvm-fixed-features-6.14 into kvmarm-master/next
+      Merge branch 'kvmarm-fixes-6.13-3'
+      KVM: arm64: Fix selftests after sysreg field name update
+      KVM: arm64: nv: Always evaluate HCR_EL2 using sanitising accessors
+      KVM: arm64: nv: Apply RESx settings to sysreg reset values
+      KVM: arm64: nv: Fix doc header layout for timers
+      Merge branch kvm-arm64/nv-timers into kvmarm-master/next
+      Merge branch kvm-arm64/pkvm-memshare-declutter into kvmarm-master/next
+      Merge branch kvm-arm64/coresight-6.14 into kvmarm-master/next
+      Merge branch kvm-arm64/nv-resx-fixes-6.14 into kvmarm-master/next
+      Merge branch kvm-arm64/misc-6.14 into kvmarm-master/next
+      arm64/sysreg: Get rid of TRFCR_ELx SysregFields
+
+Mark Brown (1):
+      KVM: arm64: Fix set_id_regs selftest for ASIDBITS becoming unwritable
+
+Mark Rutland (2):
+      arm64: cpufeature: Add HAFT to cpucap_is_possible()
+      KVM: arm64: Explicitly handle BRBE traps as UNDEFINED
+
+Mostafa Saleh (1):
+      Documentation: Update the behaviour of "kvm-arm.mode"
+
+Oliver Upton (22):
+      KVM: arm64: Add unified helper for reprogramming counters by mask
+      KVM: arm64: Use KVM_REQ_RELOAD_PMU to handle PMCR_EL0.E change
+      KVM: arm64: nv: Reload PMU events upon MDCR_EL2.HPME change
+      KVM: arm64: Only apply PMCR_EL0.P to the guest range of counters
+      KVM: arm64: Drop MDSCR_EL1_DEBUG_MASK
+      KVM: arm64: Get rid of __kvm_get_mdcr_el2() and related warts
+      KVM: arm64: Track presence of SPE/TRBE in kvm_host_data instead of vCPU
+      KVM: arm64: Move host SME/SVE tracking flags to host data
+      KVM: arm64: Write MDCR_EL2 directly from kvm_arm_setup_mdcr_el2()
+      KVM: arm64: Evaluate debug owner at vcpu_load()
+      KVM: arm64: Clean up KVM_SET_GUEST_DEBUG handler
+      KVM: arm64: Select debug state to save/restore based on debug owner
+      KVM: arm64: Remove debug tracepoints
+      KVM: arm64: Remove vestiges of debug_ptr
+      KVM: arm64: Use debug_owner to track if debug regs need save/restore
+      KVM: arm64: Reload vCPU for accesses to OSLAR_EL1
+      KVM: arm64: Compute MDCR_EL2 at vcpu_load()
+      KVM: arm64: Don't hijack guest context MDSCR_EL1
+      KVM: arm64: nv: Honor MDCR_EL2.TDE routing for debug exceptions
+      KVM: arm64: Avoid reading ID_AA64DFR0_EL1 for debug save/restore
+      KVM: arm64: Fold DBGxVR/DBGxCR accessors into common set
+      KVM: arm64: Promote guest ownership for DBGxVR/DBGxCR reads
+
+Quentin Perret (21):
+      KVM: arm64: Always check the state from hyp_ack_unshare()
+      KVM: arm64: Change the layout of enum pkvm_page_state
+      KVM: arm64: Move enum pkvm_page_state to memory.h
+      KVM: arm64: Make hyp_page::order a u8
+      KVM: arm64: Move host page ownership tracking to the hyp vmemmap
+      KVM: arm64: Pass walk flags to kvm_pgtable_stage2_mkyoung
+      KVM: arm64: Pass walk flags to kvm_pgtable_stage2_relax_perms
+      KVM: arm64: Make kvm_pgtable_stage2_init() a static inline function
+      KVM: arm64: Add {get,put}_pkvm_hyp_vm() helpers
+      KVM: arm64: Introduce __pkvm_host_share_guest()
+      KVM: arm64: Introduce __pkvm_host_unshare_guest()
+      KVM: arm64: Introduce __pkvm_host_relax_guest_perms()
+      KVM: arm64: Introduce __pkvm_host_wrprotect_guest()
+      KVM: arm64: Introduce __pkvm_host_test_clear_young_guest()
+      KVM: arm64: Introduce __pkvm_host_mkyoung_guest()
+      KVM: arm64: Introduce __pkvm_tlb_flush_vmid()
+      KVM: arm64: Introduce the EL1 pKVM MMU
+      KVM: arm64: Plumb the pKVM MMU in KVM
+      KVM: arm64: Drop pkvm_mem_transition for FF-A
+      KVM: arm64: Drop pkvm_mem_transition for host/hyp sharing
+      KVM: arm64: Drop pkvm_mem_transition for host/hyp donations
+
+Thorsten Blum (1):
+      KVM: arm64: vgic: Use str_enabled_disabled() in vgic_v3_probe()
+
+Vincent Donnefort (1):
+      KVM: arm64: Fix nVHE stacktrace VA bits mask
+
+Vladimir Murzin (1):
+      KVM: arm64: Fix FEAT_MTE in pKVM
+
+ Documentation/admin-guide/kernel-parameters.txt    |  16 +-
+ Documentation/virt/kvm/devices/vcpu.rst            |  14 +-
+ arch/arm64/include/asm/cpucaps.h                   |   2 +
+ arch/arm64/include/asm/cpufeature.h                |   3 +-
+ arch/arm64/include/asm/cputype.h                   |   2 +
+ arch/arm64/include/asm/el2_setup.h                 |   6 +-
+ arch/arm64/include/asm/kvm_arm.h                   |   4 +-
+ arch/arm64/include/asm/kvm_asm.h                   |  14 +-
+ arch/arm64/include/asm/kvm_emulate.h               | 105 ++-
+ arch/arm64/include/asm/kvm_host.h                  | 136 ++--
+ arch/arm64/include/asm/kvm_mmu.h                   |  18 +
+ arch/arm64/include/asm/kvm_nested.h                |  11 +-
+ arch/arm64/include/asm/kvm_pgtable.h               |  38 +-
+ arch/arm64/include/asm/kvm_pkvm.h                  |  51 ++
+ arch/arm64/include/asm/memory.h                    |   5 +-
+ arch/arm64/include/asm/stacktrace/nvhe.h           |   2 +-
+ arch/arm64/include/asm/sysreg.h                    |  16 +-
+ arch/arm64/kernel/cpu_errata.c                     |   8 +
+ arch/arm64/kernel/cpufeature.c                     |  17 +-
+ arch/arm64/kernel/image-vars.h                     |   3 +
+ arch/arm64/kvm/arch_timer.c                        | 179 ++++-
+ arch/arm64/kvm/arm.c                               |  86 +-
+ arch/arm64/kvm/at.c                                |   6 +-
+ arch/arm64/kvm/debug.c                             | 416 ++++------
+ arch/arm64/kvm/emulate-nested.c                    |  83 +-
+ arch/arm64/kvm/fpsimd.c                            |  14 +-
+ arch/arm64/kvm/guest.c                             |  31 +-
+ arch/arm64/kvm/handle_exit.c                       |   5 +-
+ arch/arm64/kvm/hyp/include/hyp/debug-sr.h          |  42 +-
+ arch/arm64/kvm/hyp/include/hyp/switch.h            |  43 +-
+ arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h         |  43 +-
+ arch/arm64/kvm/hyp/include/nvhe/fixed_config.h     | 223 ------
+ arch/arm64/kvm/hyp/include/nvhe/gfp.h              |   6 +-
+ arch/arm64/kvm/hyp/include/nvhe/mem_protect.h      |  39 +-
+ arch/arm64/kvm/hyp/include/nvhe/memory.h           |  50 +-
+ arch/arm64/kvm/hyp/include/nvhe/pkvm.h             |  23 +
+ arch/arm64/kvm/hyp/nvhe/debug-sr.c                 |  72 +-
+ arch/arm64/kvm/hyp/nvhe/host.S                     |   4 +-
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c                 | 213 ++++-
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c              | 887 ++++++++-------------
+ arch/arm64/kvm/hyp/nvhe/mm.c                       |  12 +-
+ arch/arm64/kvm/hyp/nvhe/page_alloc.c               |  14 +-
+ arch/arm64/kvm/hyp/nvhe/pkvm.c                     | 410 +++++-----
+ arch/arm64/kvm/hyp/nvhe/setup.c                    |   8 +-
+ arch/arm64/kvm/hyp/nvhe/stacktrace.c               |   4 +-
+ arch/arm64/kvm/hyp/nvhe/switch.c                   |  54 +-
+ arch/arm64/kvm/hyp/nvhe/sys_regs.c                 | 404 ++++++----
+ arch/arm64/kvm/hyp/nvhe/timer-sr.c                 |  16 +-
+ arch/arm64/kvm/hyp/pgtable.c                       |  13 +-
+ arch/arm64/kvm/hyp/vhe/debug-sr.c                  |   5 -
+ arch/arm64/kvm/hyp/vhe/switch.c                    | 123 ++-
+ arch/arm64/kvm/hyp/vhe/sysreg-sr.c                 |   4 +-
+ arch/arm64/kvm/mmu.c                               | 108 ++-
+ arch/arm64/kvm/nested.c                            |  38 +-
+ arch/arm64/kvm/pkvm.c                              | 201 +++++
+ arch/arm64/kvm/pmu-emul.c                          |  89 +--
+ arch/arm64/kvm/reset.c                             |   6 +-
+ arch/arm64/kvm/stacktrace.c                        |   9 +-
+ arch/arm64/kvm/sys_regs.c                          | 443 +++++-----
+ arch/arm64/kvm/trace_handle_exit.h                 |  75 --
+ arch/arm64/kvm/vgic/vgic-v3.c                      |  11 +-
+ arch/arm64/mm/proc.S                               |   5 +-
+ arch/arm64/tools/cpucaps                           |   1 +
+ arch/arm64/tools/gen-sysreg.awk                    |   2 +-
+ arch/arm64/tools/sysreg                            |  76 +-
+ drivers/hwtracing/coresight/coresight-etm4x-core.c |  55 +-
+ .../hwtracing/coresight/coresight-etm4x-sysfs.c    |  10 +-
+ drivers/hwtracing/coresight/coresight-etm4x.h      |   2 +-
+ drivers/hwtracing/coresight/coresight-priv.h       |   3 +
+ .../coresight/coresight-self-hosted-trace.h        |   9 -
+ drivers/hwtracing/coresight/coresight-trbe.c       |  15 +-
+ include/clocksource/arm_arch_timer.h               |   6 +
+ include/kvm/arm_arch_timer.h                       |  23 +
+ include/kvm/arm_pmu.h                              |   6 +-
+ tools/arch/arm64/include/asm/sysreg.h              | 410 +++++++++-
+ tools/include/linux/kasan-tags.h                   |  15 +
+ .../selftests/kvm/aarch64/aarch32_id_regs.c        |   2 +-
+ tools/testing/selftests/kvm/aarch64/set_id_regs.c  |   3 +-
+ 78 files changed, 3256 insertions(+), 2370 deletions(-)
+ delete mode 100644 arch/arm64/kvm/hyp/include/nvhe/fixed_config.h
+ create mode 100644 tools/include/linux/kasan-tags.h
 
