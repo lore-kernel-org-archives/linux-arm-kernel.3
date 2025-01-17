@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92C2FC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 14:33:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CE13C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 14:35:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6E97du1jBIpiCRokeFFeyg45GmkKa5zK/LBIBtq9IvI=; b=pbGiPor46MGfeXDVUTYsQ2Redu
-	mKWrddeH63tsQsNL1FUjPTx+VyUvz1TlB1NF1K9TDeWfka9ffNnGUCrgnYhOGbg111UD8ZnURn9Hz
-	7GZNWL4VnqrcIen4eLYX09GMnMW6r7GlolopkM/T5xesHzalTpKXDMxVzPfPxB3x2BsUtg1mtuySg
-	c6/aGMdbS5fByAQzVw3k2AYA0lIMRp1rklV4oCyYU1FC0Dg56V7zeZ+MyfNbAOhqasQ/19OFO1S7Q
-	KHz0JwUYIendlpBOQojUfvobzMdTPBSHyfJIh28KS/S7ZgwO6g7ea8v8qY/u5PiQfxBkETIXtJ3J0
-	WInCuTSg==;
+	bh=xF35FINQElsy1qdcgfme4GKcxejSMS17SkPxLhrDAO8=; b=q9EVgqU5W7+13ReWo07H+KJQBb
+	bjf6RYWNCjxG5U+fUeqoltaYsCOcBdzQ9v/A3xUSAMSsSBpNKQxPSBxHuxazNJIabIxP1Bma0CW4r
+	ap5p6znqLKlpoN+GvRZ9aoJkG/9glOw5aPF1+Nd2eyyRbOqE5X/gfd1f5BULiw/k+bL5JO8a9d4KS
+	NAzhXa9J5n3FW0lE8tePGOPQZchDcsp50q67d8dixsQ2PPpP8Q0mxbvgAS/GAtpr69wEn3qxX/Qxw
+	cPe9gNWGLgQcufB7mVrSSqSXPc1536n8RNDThmBEAxtddBXQ/hRwHN6FaUwWr1vM13rNhEp181U2X
+	QOW0cIyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYnPh-00000000Uwj-0KgS;
-	Fri, 17 Jan 2025 14:33:33 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tYnQy-00000000V3L-498r;
+	Fri, 17 Jan 2025 14:34:52 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYnOQ-00000000Uj9-1iZs;
-	Fri, 17 Jan 2025 14:32:15 +0000
+	id 1tYnOT-00000000UjY-0Emi;
+	Fri, 17 Jan 2025 14:32:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id AE9F8A42BCA;
-	Fri, 17 Jan 2025 14:30:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15454C4CEE2;
-	Fri, 17 Jan 2025 14:32:13 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id F37C3A42BCA;
+	Fri, 17 Jan 2025 14:30:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E66EC4CEDD;
+	Fri, 17 Jan 2025 14:32:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737124333;
-	bh=T8PZajPEts8hiVvPkTDdvWpLe1pkhFePBotfq454ChY=;
+	s=k20201202; t=1737124335;
+	bh=0QzG2CTtuEAlF3DE/XbMOfWpPhdvkjgAMBiTKD9IiBs=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=LFqFrkFEVNscEv0YeH/sYXrvxMdJfFMAieYNA9i6pmPXd5QRzY9yu4XZfaN3AGxs8
-	 G+iNr6qE6o1sRfc5gCjwUPkIwye8trsk/Cs9NUNL9XNCKcb3xzrfdVhF46tOXU3W41
-	 6pLgLP2VN4QJCFsdjup8taPy0yvUFkfC1q7XOIwp2yLqAYCv9kSzg1yWiFos0170cQ
-	 53U/W3W0Wan8pQOT1+o9rtr4NrzsUwCpXNdQ4x7+Esv8Amj3gt2vXRrKfj49xGNJau
-	 jwIZo8tlX2NASe3CQYA6uSF/ohvcX5tz90ixxEhcnZlXXQw+fyXOnMHOOE3abk0ydD
-	 bh+SYtZ9nE+Fw==
-Date: Fri, 17 Jan 2025 08:32:12 -0600
+	b=YZGtD/txLzXSylWTTWa9HUopa1qjTdX/3tNILgC3V+DBX705/JYia7Pim6SBCR2C7
+	 /DIDpMnJQCKY04OAcT3GEY8p/s6aJBn0uaYM0uvIc4Tp3PA6cGseo1nklxjJTIVkyc
+	 dNlHR3MEjvVrJ4ckZ8d/BKPRb3qdfsw6KTU+pByWU0mrrWwV3Ppn8IpcA/hS5SJ/iG
+	 qDmmk0QHZeVPi9KXFNhQB/kfXoP+ROr6FaW+pHkSbAsYas+9DrgOsg540PgP9LuwZi
+	 F7OWfqtO7gdq8J5OvRUnJotYloHvA7tiuzhs2pUXaJCNrMUvgdps/5rWqezH+2XPCJ
+	 9E9J14jLHznVA==
+Date: Fri, 17 Jan 2025 08:32:13 -0600
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: David Airlie <airlied@gmail.com>, linux-mediatek@lists.infradead.org, 
- Thomas Zimmermann <tzimmermann@suse.de>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Simona Vetter <simona@ffwll.ch>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Boris Brezillon <boris.brezillon@collabora.com>, kernel@collabora.com, 
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Steven Price <steven.price@arm.com>, 
- linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- Conor Dooley <conor+dt@kernel.org>
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-In-Reply-To: <20250116-mt8370-enable-gpu-v1-0-0a6b78e925c8@collabora.com>
-References: <20250116-mt8370-enable-gpu-v1-0-0a6b78e925c8@collabora.com>
-Message-Id: <173712392224.809745.9286641261845067078.robh@kernel.org>
-Subject: Re: [PATCH 0/3] Add Mali GPU support for Mediatek MT8370 SoC
+Cc: Bjorn Helgaas <bhelgaas@google.com>, Simon Xue <xxm@rock-chips.com>, 
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-pci@vger.kernel.org, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Shawn Lin <shawn.lin@rock-chips.com>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ heiko@sntech.de
+To: Kever Yang <kever.yang@rock-chips.com>
+In-Reply-To: <20250117032742.2990779-1-kever.yang@rock-chips.com>
+References: <20250117032742.2990779-1-kever.yang@rock-chips.com>
+Message-Id: <173712392444.809947.13861859181056356292.robh@kernel.org>
+Subject: Re: [PATCH v5 1/2] dt-bindings: PCI: dw: rockchip: Add rk3576
+ support
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_063214_590941_61BFC509 
-X-CRM114-Status: GOOD (  18.89  )
+X-CRM114-CacheID: sfid-20250117_063217_300306_481458ED 
+X-CRM114-Status: GOOD (  15.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,53 +80,33 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 16 Jan 2025 15:25:56 +0100, Louis-Alexis Eyraud wrote:
-> This patchset adds the support of the ARM Mali G57 MC2 GPU (Valhall-JM,
-> dual core), integrated in the Mediatek MT8370 SoC, to the panfrost driver
-> and to the mt8370.dtsi include file.
+On Fri, 17 Jan 2025 11:27:41 +0800, Kever Yang wrote:
+> rk3576 is using dwc controller, with msi interrupt directly to gic instead
+> of to gic its, so
+> - no its support is required and the 'msi-map' is not need anymore,
+> - a new 'msi' interrupt is needed.
 > 
-> I've testing this patchset on a Mediatek Genio 510 EVK board,
-> with a kernel based on linux-next (tag: next-20250113) plus [1] patchset.
-> 
-> The panfrost driver probed with the following messages:
-> ```
-> panfrost 13000000.gpu: clock rate = 390000000
-> panfrost 13000000.gpu: mali-g57 id 0x9093 major 0x0 minor 0x0 status 0x0
-> panfrost 13000000.gpu: features: 00000000,000019f7, issues: 00000003,
->   80000400
-> panfrost 13000000.gpu: Features: L2:0x08130206 Shader:0x00000000
->   Tiler:0x00000809 Mem:0x1 MMU:0x00002830 AS:0xff JS:0x7
-> panfrost 13000000.gpu: shader_present=0x5 l2_present=0x1
-> [drm] Initialized panfrost 1.3.0 for 13000000.gpu on minor 0
-> ```
-> 
-> [1] https://lore.kernel.org/linux-mediatek/20250115-dts_mt8370-genio-510-v2-0-fc9b01d08834@collabora.com/
-> 
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
 > ---
-> Louis-Alexis Eyraud (3):
->       dt-bindings: gpu: mali-bifrost: Add compatible for MT8370 SoC
->       drm/panfrost: Add support for Mali on the MT8370 SoC
->       arm64: dts: mediatek: mt8370: Enable gpu support
 > 
->  Documentation/devicetree/bindings/gpu/arm,mali-bifrost.yaml |  5 ++++-
->  arch/arm64/boot/dts/mediatek/mt8370.dtsi                    |  9 +++++++++
->  drivers/gpu/drm/panfrost/panfrost_drv.c                     | 10 ++++++++++
->  3 files changed, 23 insertions(+), 1 deletion(-)
-> ---
-> base-commit: 37136bf5c3a6f6b686d74f41837a6406bec6b7bc
-> change-id: 20250115-mt8370-enable-gpu-3b6f595fa63d
-> prerequisite-change-id: 20250113-dts_mt8370-genio-510-3560b8010ba9:v2
-> prerequisite-patch-id: af53ae39240467340ac4c9cdbc8fdd949c5457a2
-> prerequisite-patch-id: ca07485956f81c1a40029b48d2b4bcf00d74fc13
-> prerequisite-patch-id: c34d9870b2c61d87ad8a6facba13d8970682e679
-> prerequisite-patch-id: 48784acdcdd8b886fdec9f21c9cb88abb327e2e1
+> Changes in v5:
+> - Add constraints per device for interrupt-names due to the interrupt is
+> different from rk3588.
 > 
-> Best regards,
-> --
-> Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> Changes in v4:
+> - Fix wrong indentation in dt_binding_check report by Rob
 > 
+> Changes in v3:
+> - Fix dtb check broken on rk3588
+> - Update commit message
 > 
+> Changes in v2:
+> - remove required 'msi-map'
+> - add interrupt name 'msi'
+> 
+>  .../bindings/pci/rockchip-dw-pcie-common.yaml | 53 +++++++++++++++----
+>  .../bindings/pci/rockchip-dw-pcie.yaml        |  4 +-
+>  2 files changed, 44 insertions(+), 13 deletions(-)
 > 
 
 
@@ -144,20 +124,634 @@ make sure dt-schema is up to date:
   pip3 install dtschema --upgrade
 
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/mediatek/' for 20250116-mt8370-enable-gpu-v1-0-0a6b78e925c8@collabora.com:
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/rockchip/' for 20250117032742.2990779-1-kever.yang@rock-chips.com:
 
-arch/arm64/boot/dts/mediatek/mt8370-genio-510-evk.dtb: pinctrl@10005000: 'pcie-default' does not match any of the regexes: '-pins$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/pinctrl/mediatek,mt8188-pinctrl.yaml#
-arch/arm64/boot/dts/mediatek/mt8370-genio-510-evk.dtb: pmic: regulators: 'compatible' is a required property
-	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
-arch/arm64/boot/dts/mediatek/mt8370-genio-510-evk.dtb: pmic: '#sound-dai-cells', 'mt6359codec', 'mt6359rtc' do not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
-arch/arm64/boot/dts/mediatek/mt8370-genio-510-evk.dtb: mailbox@10320000: 'clock-names' is a required property
-	from schema $id: http://devicetree.org/schemas/mailbox/mediatek,gce-mailbox.yaml#
-arch/arm64/boot/dts/mediatek/mt8370-genio-510-evk.dtb: mailbox@10330000: 'clock-names' is a required property
-	from schema $id: http://devicetree.org/schemas/mailbox/mediatek,gce-mailbox.yaml#
-arch/arm64/boot/dts/mediatek/mt8370-genio-510-evk.dtb: jpeg-decoder@1a040000: iommus: [[123, 685], [123, 686], [123, 690], [123, 691], [123, 692], [123, 693]] is too long
-	from schema $id: http://devicetree.org/schemas/media/mediatek-jpeg-decoder.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-pinetab2-v2.0.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-pinetab2-v2.0.dtb: pcie@fe260000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-genbook.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dtb: pcie@fe190000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-genbook.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-genbook.dtb: pcie@fe150000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-genbook.dtb: pcie@fe150000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-genbook.dtb: pcie@fe160000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-genbook.dtb: pcie@fe170000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-genbook.dtb: pcie@fe170000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5b.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5b.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-soquartz-cm4.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-soquartz-cm4.dtb: pcie@fe260000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-armsom-w3.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-armsom-w3.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-armsom-w3.dtb: pcie@fe190000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-orangepi-3b-v2.1.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-orangepi-3b-v2.1.dtb: pcie@fe260000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-armsom-w3.dtb: pcie@fe150000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-armsom-w3.dtb: pcie@fe150000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-armsom-w3.dtb: pcie@fe160000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-armsom-w3.dtb: pcie@fe170000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-armsom-w3.dtb: pcie@fe170000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6b-io.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6b-io.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-jaguar.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-jaguar.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-powkiddy-rgb10max3.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-ok3588-c.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-ok3588-c.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-ok3588-c.dtb: pcie@fe190000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-gameforce-ace.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-gameforce-ace.dtb: pcie@fe180000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-gameforce-ace.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6b-io.dtb: pcie@fe150000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6b-io.dtb: pcie@fe150000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6b-io.dtb: pcie@fe160000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6b-io.dtb: pcie@fe160000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6b-io.dtb: pcie@fe170000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6b-io.dtb: pcie@fe170000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-jaguar.dtb: pcie@fe150000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-jaguar.dtb: pcie@fe150000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-jaguar.dtb: pcie@fe160000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-jaguar.dtb: pcie@fe170000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-jaguar.dtb: pcie@fe170000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-bpi-r2-pro.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-ok3588-c.dtb: pcie@fe150000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-ok3588-c.dtb: pcie@fe150000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-ok3588-c.dtb: pcie@fe160000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-ok3588-c.dtb: pcie@fe170000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-radxa-e25.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-ok3588-c.dtb: pcie@fe170000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-radxa-e25.dtb: pcie@fe260000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-bpi-r2-pro.dtb: pcie@fe270000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-bpi-r2-pro.dtb: pcie@fe270000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-bpi-r2-pro.dtb: pcie@fe280000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-bpi-r2-pro.dtb: pcie@fe280000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtb: pcie@fe190000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-anbernic-rg-arc-s.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dtb: pcie@fe150000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dtb: pcie@fe150000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dtb: pcie@fe160000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dtb: pcie@fe170000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-radxa-e25.dtb: pcie@fe270000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-radxa-e25.dtb: pcie@fe270000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-radxa-e25.dtb: pcie@fe280000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-radxa-e25.dtb: pcie@fe280000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-qnap-ts433.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dtb: pcie@fe190000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-qnap-ts433.dtb: pcie@fe270000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-qnap-ts433.dtb: pcie@fe270000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-qnap-ts433.dtb: pcie@fe280000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-qnap-ts433.dtb: pcie@fe280000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5c.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5c.dtb: pcie@fe260000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-toybrick-x0.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-toybrick-x0.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dtb: pcie@fe190000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5c.dtb: pcie@fe270000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5c.dtb: pcie@fe270000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5c.dtb: pcie@fe280000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5c.dtb: pcie@fe280000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-lckfb-tspi.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-toybrick-x0.dtb: pcie@fe150000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-toybrick-x0.dtb: pcie@fe160000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-toybrick-x0.dtb: pcie@fe170000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dtb: pcie@fe180000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dtb: pcie@fe190000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-fastrhino-r68s.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-anbernic-rg353ps.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6a-io.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6a-io.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dtb: pcie@fe180000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dtb: pcie@fe150000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dtb: pcie@fe150000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dtb: pcie@fe160000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dtb: pcie@fe160000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dtb: pcie@fe190000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dtb: pcie@fe170000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dtb: pcie@fe170000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-fastrhino-r68s.dtb: pcie@fe270000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-fastrhino-r68s.dtb: pcie@fe270000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-fastrhino-r68s.dtb: pcie@fe280000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-fastrhino-r68s.dtb: pcie@fe280000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dtb: pcie@fe190000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6a-io.dtb: pcie@fe150000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6a-io.dtb: pcie@fe150000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-fastrhino-r66s.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6a-io.dtb: pcie@fe160000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6a-io.dtb: pcie@fe160000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6a-io.dtb: pcie@fe170000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6a-io.dtb: pcie@fe170000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dtb: pcie@2a200000: interrupt-names:5: 'dma0' was expected
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dtb: pcie@2a200000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err', 'msi'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dtb: pcie@2a210000: interrupt-names:5: 'dma0' was expected
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dtb: pcie@2a210000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err', 'msi'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dtb: pcie@fe150000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dtb: pcie@fe150000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dtb: pcie@fe160000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dtb: pcie@fe160000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dtb: pcie@fe170000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dtb: pcie@fe170000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-fastrhino-r66s.dtb: pcie@fe270000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-fastrhino-r66s.dtb: pcie@fe270000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-fastrhino-r66s.dtb: pcie@fe280000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-wolfvision-pf5.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-fastrhino-r66s.dtb: pcie@fe280000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dtb: pcie@fe260000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dtb: pcie@fe180000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dtb: pcie@fe190000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-wolfvision-pf5.dtb: pcie@fe270000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-wolfvision-pf5.dtb: pcie@fe280000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-powkiddy-rgb30.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-anbernic-rg353vs.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-powkiddy-x55.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dtb: pcie@fe270000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dtb: pcie@fe270000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dtb: pcie@fe280000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dtb: pcie@fe280000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dtb: pcie@fe260000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dtb: pcie@fe270000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dtb: pcie@fe280000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dtb: pcie@fe280000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-soquartz-model-a.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-soquartz-model-a.dtb: pcie@fe260000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtb: pcie@fe190000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-evb1-v10.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtb: pcie@fe150000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtb: pcie@fe150000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtb: pcie@fe160000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtb: pcie@fe170000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtb: pcie@fe170000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-powkiddy-rgb20sx.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dtb: pcie@fe270000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dtb: pcie@fe280000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dtb: pcie@fe280000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-evb1-v10.dtb: pcie@fe270000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-evb1-v10.dtb: pcie@fe280000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-roc-pc.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-roc-pc.dtb: pcie@fe270000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-roc-pc.dtb: pcie@fe280000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-roc-pc.dtb: pcie@fe280000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-quartzpro64.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-quartzpro64.dtb: pcie@fe180000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-quartzpro64.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-radxa-cm3-io.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-radxa-zero-3e.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-turing-rk1.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-turing-rk1.dtb: pcie@fe180000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-turing-rk1.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-lts.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-lts.dtb: pcie@fe180000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-lts.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-lts.dtb: pcie@fe190000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-quartzpro64.dtb: pcie@fe150000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-quartzpro64.dtb: pcie@fe150000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-quartzpro64.dtb: pcie@fe160000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-quartzpro64.dtb: pcie@fe170000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-quartzpro64.dtb: pcie@fe170000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dtb: pcie@fe180000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dtb: pcie@fe190000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-turing-rk1.dtb: pcie@fe150000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-turing-rk1.dtb: pcie@fe150000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-turing-rk1.dtb: pcie@fe160000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-turing-rk1.dtb: pcie@fe170000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-mecsbc.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-mecsbc.dtb: pcie@fe260000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-odroid-m1s.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-odroid-m1s.dtb: pcie@fe260000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-lts.dtb: pcie@fe150000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-lts.dtb: pcie@fe150000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-lts.dtb: pcie@fe160000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-lts.dtb: pcie@fe170000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-lts.dtb: pcie@fe170000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6c.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6c.dtb: pcie@fe180000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6c.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6c.dtb: pcie@fe190000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dtb: pcie@fe150000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dtb: pcie@fe150000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dtb: pcie@fe160000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dtb: pcie@fe170000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dtb: pcie@fe170000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-mecsbc.dtb: pcie@fe270000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-mecsbc.dtb: pcie@fe280000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-mecsbc.dtb: pcie@fe280000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-radxa-zero-3w.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-quartz64-b.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-quartz64-b.dtb: pcie@fe260000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dtb: pcie@fe180000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dtb: pcie@fe190000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtb: pcie@fe180000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtb: pcie@fe190000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dtb: pcie@fe190000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-anbernic-rg353v.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dtb: pcie@fe150000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dtb: pcie@fe150000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dtb: pcie@fe160000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dtb: pcie@fe170000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dtb: pcie@fe170000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-orangepi-3b-v1.1.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-orangepi-3b-v1.1.dtb: pcie@fe260000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtb: pcie@fe150000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtb: pcie@fe150000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtb: pcie@fe160000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtb: pcie@fe170000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtb: pcie@fe170000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6s.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6s.dtb: pcie@fe180000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6s.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6s.dtb: pcie@fe190000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-box-demo.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-powkiddy-rk2023.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-rock-3c.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-rock-3c.dtb: pcie@fe260000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-lubancat-2.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-lubancat-2.dtb: pcie@fe260000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dtb: pcie@fe180000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-lubancat-2.dtb: pcie@fe270000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-lubancat-2.dtb: pcie@fe280000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-lubancat-2.dtb: pcie@fe280000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-pinenote-v1.1.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-anbernic-rg503.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dtb: pcie@fe150000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dtb: pcie@fe150000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dtb: pcie@fe160000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dtb: pcie@fe170000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-soquartz-blade.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-soquartz-blade.dtb: pcie@fe260000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-nanopi-r3s.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-nanopi-r3s.dtb: pcie@fe260000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-pinenote-v1.2.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dtb: pcie@fe190000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-lubancat-1.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-lubancat-1.dtb: pcie@fe260000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dtb: pcie@fe180000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dtb: pcie@fe180000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dtb: pcie@fe190000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dtb: pcie@fe190000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dtb: pcie@fe150000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dtb: pcie@fe150000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dtb: pcie@fe160000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dtb: pcie@fe160000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dtb: pcie@fe170000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-anbernic-rg353p.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dtb: pcie@fe260000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-quartz64-a.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-roc-pc.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-quartz64-a.dtb: pcie@fe260000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-roc-pc.dtb: pcie@fe260000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-anbernic-rg-arc-d.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dtb: pcie@fe270000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dtb: pcie@fe280000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dtb: pcie@fe280000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-pinetab2-v0.1.dtb: pcie@fe260000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-pinetab2-v0.1.dtb: pcie@fe260000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
 
 
 
