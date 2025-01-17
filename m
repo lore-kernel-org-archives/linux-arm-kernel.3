@@ -4,154 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A612C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 22:13:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9388FC02185
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 23:46:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MyjqdsR7Vkbet2Z3z4TmkcOwrd14EAUzrjt8t8Aqvmw=; b=lflIL5ocOKqvkxLprvRgh9k59L
-	jtE9VZDjPFo3wlTNxP1ZuE1GPcAbtZsFP9fMrmnF2Ebt8MhKC9KFF7EXYCvY+4uxAGEAgetvmcJwq
-	zIL6DMaEW0Oc1m+pRhn7FhKIVQMHRFH2IrNgb3WAk8hVol4Pqu05cEqrsN9LcV/d0KKeUHxvaS1lQ
-	CQtr7jRyIu+PzkNRgArgHWrbVB1SEzlqgfJQRAdNzXXeaz5pjChkodSOETqPZZN9VTLeEs5YWNvPs
-	cxZIXLj6Q10l7Z9312vBr1rRNdBaJvM4fqGv5SU7ELeWBs2OAVEMDtwfYpBInji1qaEtqvOMRZcp5
-	EXxTDrfA==;
+	bh=mVtZF2j9pEgt8vk1pFbHevtLdHtX6lbucujZU8Z4HvI=; b=i8R8g+8leugcIV2D9/A/fjNDRo
+	4jMSIhRHZ7CTrra6DRZS+EYTGNkV4WY8IN8bsmx3o0KaBjVnpuQhD4DZSqkUHjJ9Kx6eAehU4lq7j
+	3KVba0GgahZ/ZJ/k9mhlbpEqcdrGbDx5xryWLYivhrl2PBvn9CcPBOTRFfdXDMg8TffFtlCx+kmA3
+	pfC+9/rOI+qluTCu6atfWCm5wM/buX5w5D+b0aQnIXyRjO7M1bOrRxYtSbWFp781Ia69yAvL+nhtF
+	zPRysm9vbF5N8qsggpiQowgdnIUHfwJWeFMBhUvf7s8yMCyzPLxRNrmLDD0+EkVd66rSUdeOpT9aB
+	tLFHRynA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYuaO-00000001Sh7-1irc;
-	Fri, 17 Jan 2025 22:13:04 +0000
-Received: from mail-mw2nam12on2062e.outbound.protection.outlook.com ([2a01:111:f403:200a::62e] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1tYw2R-00000001ZPM-1eqp;
+	Fri, 17 Jan 2025 23:46:07 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYuZ6-00000001SZq-1D62
+	id 1tYw19-00000001ZAd-33TO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jan 2025 22:11:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BE/zV0V94ZAfFiVPMkt85EcLV3VDnwd9ESyB+zadMb9HTlPcuB3uVGRTfEq07p+5O+w9Ftff1vg3Pgzxt0XFTD7XYXFRjUoMxwrI99Bzg3Q1ZsdAdTWjyrQJld1VtrcLNCdzNbWbGGbZzV2zHBy6JDetgS4t84+OY3Af8j1So7XcMSHP4QgXfuzDAwedfTt9mSjdRv1sXTr+JZKBu8sNtpNZ+PQU8oF9mfG+eMXSjQ3qHD+Xff0fxgLBPVEXf9zBJEpuHw5HQV0ZEn3uAQ33+V/Dt0pQnNQdr375/E2VeBYzyzWV+Wvmt1WaMdKNCuyXapK1/3iVP5miYGcc7SEXVQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MyjqdsR7Vkbet2Z3z4TmkcOwrd14EAUzrjt8t8Aqvmw=;
- b=OVTLhXdlSYI6Bzsk9zg5nMNnXSZV9yDrYgJZ8P6Yj7wc7NdKWQeFnIpyFwUEOYIs/ct8xNEae/rkpVGvzqLnQoSwvYGG6+/OiEu+C8ES2a9Wa5FE06g7b32S1eLQPDfk+c/W/ffkyS+/RnhUlx5fkqoNcTADUfHJn1Zr+gV6Utyc4LzH8TbMsbz+h+DJxF+8AboQAwie+Cm9AbqsA0bIktwhlO5Zh24zydSd+2oqwzqePEQCEqM0AAA0ZR3FunlzLV/vJJHpZUWrWm/pZf7XSZUl9E2teHCr531GTRWNm1CRfAl9I8C3xRaQZtE6Z6jFW87a/qFtU8uEIFDIITaECQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=redhat.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MyjqdsR7Vkbet2Z3z4TmkcOwrd14EAUzrjt8t8Aqvmw=;
- b=Z+3jGdGO+bGl9tYV+ffUmlAhbk8zabTLl4vNUb2r2/Y+xDujk9rlNHLCB2H0ewTbsaWEE45/gAf0UXkn/UqIM8axcAWPJ/ZUKiWjMB2akqOwQrlzgjIsiGdTO5cEf/TxVxgQcDaEmL9CGiFcVHaMGv6WNFLe24bpgXv+QEBTeuGS+PqsOizY5eVgW+bMTlVuvjB/8nVb/wuG1TOAx1C21hX0hq5Pw+DbYn+YjoDTsv980SdIfmmTMg/Hhh0kIbS/RraEONicZbZs+pam3zPt9cEtlBUPZFD5Afiy62jKf7q1Zou1OcN3HCB7aTQ+e0Mez/lJA/OMHcWRtlBeW9YjgA==
-Received: from SJ0PR03CA0004.namprd03.prod.outlook.com (2603:10b6:a03:33a::9)
- by MW5PR12MB5650.namprd12.prod.outlook.com (2603:10b6:303:19e::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.13; Fri, 17 Jan
- 2025 22:11:39 +0000
-Received: from MWH0EPF000989E8.namprd02.prod.outlook.com
- (2603:10b6:a03:33a:cafe::73) by SJ0PR03CA0004.outlook.office365.com
- (2603:10b6:a03:33a::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8356.14 via Frontend Transport; Fri,
- 17 Jan 2025 22:11:39 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- MWH0EPF000989E8.mail.protection.outlook.com (10.167.241.135) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8356.11 via Frontend Transport; Fri, 17 Jan 2025 22:11:39 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Fri, 17 Jan
- 2025 14:11:20 -0800
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Fri, 17 Jan
- 2025 14:11:19 -0800
-Received: from nvidia.com (10.127.8.14) by mail.nvidia.com (10.129.68.9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
- Transport; Fri, 17 Jan 2025 14:11:15 -0800
-Date: Fri, 17 Jan 2025 14:11:15 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>, <kevin.tian@intel.com>
-CC: <corbet@lwn.net>, <will@kernel.org>, <joro@8bytes.org>,
-	<suravee.suthikulpanit@amd.com>, <robin.murphy@arm.com>,
-	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>, <shuah@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <eric.auger@redhat.com>,
-	<jean-philippe@linaro.org>, <mdf@kernel.org>, <mshavit@google.com>,
-	<shameerali.kolothum.thodi@huawei.com>, <smostafa@google.com>,
-	<ddutile@redhat.com>, <yi.l.liu@intel.com>, <patches@lists.linux.dev>
-Subject: Re: [PATCH v5 08/14] iommufd/viommu: Add iommufd_viommu_report_event
- helper
-Message-ID: <Z4rVg1Xg5TCiFlSb@nvidia.com>
-References: <b9b4f3df990934cb80b2f5e1e49e555e50c1c857.1736237481.git.nicolinc@nvidia.com>
- <20250110174132.GH396083@nvidia.com>
- <Z4FpMs4qx3NdwrnZ@Asurada-Nvidia>
- <20250110195114.GJ5556@nvidia.com>
- <Z4Smpeb4k4UF3Qso@Asurada-Nvidia>
- <20250113192144.GT5556@nvidia.com>
- <Z4Vt6DAMDfEv6tb5@Asurada-Nvidia>
- <20250113195433.GV5556@nvidia.com>
- <Z4V7NbxGyYoQN0yV@Asurada-Nvidia>
- <20250114134158.GC5556@nvidia.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250114134158.GC5556@nvidia.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000989E8:EE_|MW5PR12MB5650:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2554ccde-1bf1-4506-02a1-08dd3743ea68
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|7416014|1800799024|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Rn81pYGpVcZ4Ggrjp41b1ESbTkQ94nLJtuWGVlNH8kHkS+de3kXvBK/la0kS?=
- =?us-ascii?Q?AY20pm36Go04/kIQoALvF8pJHCrictG04blpxIA3Td3vhBgU8S72Q042e7Dl?=
- =?us-ascii?Q?3NyST7bKGDcgUtCf6WM7jJ6D9T0PJJcQ5lBddKSFKhgFc9QswquCicXeLWxE?=
- =?us-ascii?Q?eY0oGnm79JoduZIXVukQ5eiq32huIwvUJDtEW4d1iP8cz10U477LIztvmnee?=
- =?us-ascii?Q?U+3OfQ0y8OJDt85b067T5Gw5/TAmVSr4Tli9s0MOvoB1lAmgV9RIwqlD1ufS?=
- =?us-ascii?Q?tPFDf2RPfAn5VZActTAmu2twGnmNYOdwsc3bKmxQkbTjNlptTmkjlgjYECMa?=
- =?us-ascii?Q?w4C014fqu6xfpirlOnyFz3Pmk43+VaK+TOclW5Jvp1qln3h5rAoWuKw5Zbgw?=
- =?us-ascii?Q?Z/Pc7sPZLkagGUwQkefRMrSwQz5uRn3BzQW+JVNTEyT81YMgsJXuseKyJSxU?=
- =?us-ascii?Q?PQTRiYAcdqvLh5CQds5MOyxjMlGSfXHqGekTQadLnThyUIRvZSyLcdacelRq?=
- =?us-ascii?Q?X6uOMyzBel3EQe7Fx6Z8ANlheg+oc8kdf2tanIrYFrWfd0UFMOJPxfrzE0QG?=
- =?us-ascii?Q?7I91KyFySJlInnXZSo7qnV7hecHD2PaXxrlEYYEbL5Y5zQOK/BRAiCYAA8Jw?=
- =?us-ascii?Q?RaiVDXdcywpTgr3fVJ2xK2jed3Hc7A3oTWcEWOdYS5pHjEQ2ZjEOVk/9k6zV?=
- =?us-ascii?Q?1G5o6eBV8HkwWLXo69B6HQCG+Mr7G0+f+G39y7vqLtmaGgXy8fqKIme3+yXb?=
- =?us-ascii?Q?5xU1Anhss0b1biGzItBganglkrE9K/u4b8iOTBk3pFxEm2EUshpwbpCktLBF?=
- =?us-ascii?Q?gtPAdfZMdDQ6Ps31x7aIpu6NYSPNPc3Tp8PtF0NBgd5pn9K0KXvfo3XAbDKW?=
- =?us-ascii?Q?M4Y46I+NfYe5++7NCM9cUFzpv4gvSlW58U1kpsTrfKkOgXjAgt0C8Gi1ygaA?=
- =?us-ascii?Q?BjSt8tZA8OuNiL3iZ2o0XaD0Tg6MpN1/krkKVuWDQzDepv6TAq1TEJ9beNyf?=
- =?us-ascii?Q?Gs4fP76lXd4UJfrL5KGDloNTbo0ABI9dG/GdwOiR897aoQhuAy0kJvlGXROo?=
- =?us-ascii?Q?Gt7YqVwZmnh7sPLG9ilqSkQomizcZBrTDKI7m7xfcd9OdRbckY2XB9JnDKVX?=
- =?us-ascii?Q?nbp36RlJYsxclVn/xDJt3eaL0fdZjW/l5blxwSJdWsGb0Ecoda7AhC6Tl2iK?=
- =?us-ascii?Q?M1k9Ae//p15aDia0smCMs5sbpoiGfIi1Ul2A7CP0v0i3vdjb9fNdcM0ZCxBq?=
- =?us-ascii?Q?uPq9SIF6a7aU5AV79BWKv5Z1JmVll49YprD0V6XMOvuvtJPLHNdY8mNfhleC?=
- =?us-ascii?Q?yLoqHcqVQNlFD7qppLDmJBb2hKKceVc6TKMIqfwP/46F+KjU01t92sBrho6L?=
- =?us-ascii?Q?AqEat20U4+db2sJWt9o7VGMEpUdf6jI8f2X5bQpZpJ5UMb6GOU6x/kOyf4d/?=
- =?us-ascii?Q?3+PPA8Fzzn0ZqJVBYbPPdVi+nCrPN8yjZbL5BhniamdJQbyME5PgmRcuhZ6j?=
- =?us-ascii?Q?S6aNK9t2eL4imy0=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(7416014)(1800799024)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jan 2025 22:11:39.0718
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2554ccde-1bf1-4506-02a1-08dd3743ea68
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000989E8.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW5PR12MB5650
+	Fri, 17 Jan 2025 23:44:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 86007A434E9;
+	Fri, 17 Jan 2025 23:42:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18A51C4CEDD;
+	Fri, 17 Jan 2025 23:44:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737157486;
+	bh=8dSUKblfap4Zb+tgdq45FLILJMcyqgtpVOvFFYvkdDc=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=O8zPiXyArCyo3MI5ua4pUBijNguGwZSSMLja15tVxoXXQ0aFV0G+buSLneNzJPAeA
+	 uaPfB0kxS2Ss+FrMkFR+ugdUmQjC/mQlbuPsWMtJH6Td5WRJ5bnaja3gVrP5qdFh3/
+	 Iqc9TZCi7WufIGpH+Z080LwLyJNg7YTDYGeKiGo8zn8XoQyWwHYVFfQvmg7nkBv2lG
+	 WDVqfNp3Jz2TPdw3bTF+sfYkP2wTdy60gsXH/Xz+r4d1R1ZN78tlTNlsPFGbU/m6lb
+	 s4l/S5GlikQocGkK0U7GoGpCh1qhDFq8eeh1ia09hHCMnYU8wgc4OJJhSiOh9RdxKB
+	 teK/n+fDvg2tg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id AE84F380AA62;
+	Fri, 17 Jan 2025 23:45:10 +0000 (UTC)
+Subject: Re: [GIT PULL] soc: fixes for 6.13, part 4
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <99e7cf2a-2578-4b10-819a-16321a7739c7@app.fastmail.com>
+References: <99e7cf2a-2578-4b10-819a-16321a7739c7@app.fastmail.com>
+X-PR-Tracked-List-Id: <soc.lists.linux.dev>
+X-PR-Tracked-Message-Id: <99e7cf2a-2578-4b10-819a-16321a7739c7@app.fastmail.com>
+X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-6.13-4
+X-PR-Tracked-Commit-Id: 352bba6c19cdeac107e7fc1684548269e6b0f111
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: ed9add2b32253b73d4909cc5cd4e7abcfdc0568b
+Message-Id: <173715750924.2291664.11872474582835471287.pr-tracker-bot@kernel.org>
+Date: Fri, 17 Jan 2025 23:45:09 +0000
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, soc@lists.linux.dev, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_141144_332541_D1A9C838 
-X-CRM114-Status: GOOD (  15.88  )
+X-CRM114-CacheID: sfid-20250117_154447_833466_BC86A4D4 
+X-CRM114-Status: UNSURE (   4.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,67 +78,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 14, 2025 at 09:41:58AM -0400, Jason Gunthorpe wrote:
-> On Mon, Jan 13, 2025 at 12:44:37PM -0800, Nicolin Chen wrote:
-> > 	IOMMU_VEVENT_HEADER_FLAGS_OVERFLOW = (1 << 0),
-> > };
-> > 
-> > struct iommufd_vevent_header_v1 {
-> > 	__u64 flags;
-> > 	__u32 num_events;
-> > 	__u32 num_overflows; // valid if flag_overflow is set
-> > };
-> 
-> num_overflows is hard, I'd just keep a counter.
+The pull request you sent on Fri, 17 Jan 2025 17:47:32 +0100:
 
-Ack. How does this look overall?
+> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-6.13-4
 
-@@ -1013,6 +1013,33 @@ struct iommu_ioas_change_process {
- #define IOMMU_IOAS_CHANGE_PROCESS \
-        _IO(IOMMUFD_TYPE, IOMMUFD_CMD_IOAS_CHANGE_PROCESS)
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/ed9add2b32253b73d4909cc5cd4e7abcfdc0568b
 
-+/**
-+ * enum iommu_veventq_state - state for struct iommufd_vevent_header
-+ * @IOMMU_VEVENTQ_STATE_OK: vEVENTQ is running
-+ * @IOMMU_VEVENTQ_STATE_OVERFLOW: vEVENTQ is overflowed
-+ */
-+enum iommu_veventq_state {
-+       IOMMU_VEVENTQ_STATE_OK = (1 << 0),
-+       IOMMU_VEVENTQ_STATE_OVERFLOW = (1 << 1),
-+};
-+
-+/**
-+ * struct iommufd_vevent_header - Virtual Event Header for a vEVENTQ Status
-+ * @state: One of enum iommu_veventq_state
-+ * @counter: A counter reflecting the state of the vEVENTQ
-+ *
-+ * ----------------------------------------------------------------------------
-+ * | @state                       | @counter                                  |
-+ * ----------------------------------------------------------------------------
-+ * | IOMMU_VEVENTQ_STATE_OK       | number of readable vEVENTs in the vEVENTQ |
-+ * | IOMMU_VEVENTQ_STATE_OVERFLOW | number of missed vEVENTs since overflow   |
-+ * ----------------------------------------------------------------------------
-+ */
-+struct iommufd_vevent_header {
-+       __u32 state;
-+       __u32 counter;
-+};
-+
- /**
-  * enum iommu_veventq_type - Virtual Event Queue Type
-  * @IOMMU_VEVENTQ_TYPE_DEFAULT: Reserved for future use
-@@ -1050,6 +1077,13 @@ struct iommu_vevent_arm_smmuv3 {
-  *
-  * Explicitly allocate a virtual event queue interface for a vIOMMU. A vIOMMU
-  * can have multiple FDs for different types, but is confined to one per @type.
-+ * User space should open the @out_veventq_fd to read vEVENTs out of a vEVENTQ,
-+ * if there are vEVENTs available. A vEVENTQ will overflow if the number of the
-+ * vEVENTs hits @veventq_depth.
-+ *
-+ * Each vEVENT in a vEVENTQ encloses a struct iommufd_vevent_header followed by
-+ * a type-specific data structure. The iommufd_vevent_header reports the status
-+ * of the vEVENTQ when the vEVENT is added to the vEVENTQ.
-  */
- struct iommu_veventq_alloc {
-        __u32 size;
+Thank you!
+
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
