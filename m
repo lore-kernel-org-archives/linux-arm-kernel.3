@@ -4,64 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CFD3C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 08:50:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75588C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 09:00:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TVDp1lFFfsuHmJ4qD47ArN/EdDiChaOWcVP/1fGzoa8=; b=spcjdQ5Gtv60KzxNHbtlkryUDM
-	mvVv89mFz20zNhQ/Mv2XZXvOEfmyAPFHAU0CJcug7tMIshQ2cJt/E5/ZdCkF06LzoJhncGMHePnWD
-	omT5n/hSJv9Oxb/m426VXnmZP9X9QDJtj086pyjHjnF81Jiz4HMwe8dwlUAiqvFJZyNwM0ssl49HW
-	7z/QUFeeN1oLaROvoEU8lgIOML0uYQAHZq5GfCt6iwpEEilQUaUCdIXKRBc5mwdTdtgulnwtj19PA
-	rOWfOMgUYxviSrbIaQ7xLxeCqcG8clbDa93fDlPSjnFoGeAOXxUz4lPT08FlYkBPIT5s89EtkIvgw
-	pggVSIaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:In-Reply-To:References:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5iKiuSrkfFW1vOqMips4NeNAs+6pdJP9BoxIMXarcY4=; b=fja5zQIFCYejWaixr9Vt6cpFdg
+	TIKpuu9z2KUMAem6j3sBSHiHfXW78AUWDVhSJ9aZn/tkImWtY8htinj3chNg0aNAuHk0KbMF8+4Ve
+	fJ7uwGwAZ8i+7DFYmKfHA0z6iIdf7BKA+SVnNXsfpdkMFLw9uulQPcMLcUPPT6N8+Z/Ahv5VOV/yA
+	8mQUNjEIMwT6R3s5ij/3ZonohqVDYSl+ynYLabFvEV/uUK7bd6rGMbJX5thLs5qOsY7+KuYXTyTP1
+	WGskJLuLT4Xh/536ajigfQBxtNIu0ZvesLwiWXHuAUakP2uOX9BgUtXtOBxKkr3XgGsnB5GSkflnC
+	1luM0u8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYi3Z-0000000HNQr-1Hr0;
-	Fri, 17 Jan 2025 08:50:21 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tYiCg-0000000HOQU-2W8S;
+	Fri, 17 Jan 2025 08:59:46 +0000
+Received: from smtpbgbr2.qq.com ([54.207.22.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYi2J-0000000HNCc-0CPV;
-	Fri, 17 Jan 2025 08:49:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5278CA42A01;
-	Fri, 17 Jan 2025 08:47:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B432C4CEDD;
-	Fri, 17 Jan 2025 08:49:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737103741;
-	bh=cQc0hGk7FmLHCcBWPKPQA14Ij0b8LuFcpjJiNw1Al5c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NbxWSK2dXtW/eIQj7Jp2UZaUEQ5m2cq0XzCoNalsUP/cs8UOjJIFtRKn4GXgjIVc2
-	 cVHPBZHe1m6gPhu9dhqWsjWzchuJxQ5Z4gzWiRtjeVHD0V7eEGyQm8rKf4NpMhYBIr
-	 FePfAT3Ct/y8zT99TRC7+18AuIWun55wpfgatDdn9jeUIMWcJ3/zW9miSzifTEEiJ6
-	 TCz114oXKXvNWRqEY9l/7uC1ixWI8VbBnWwBlZIB2bCFUMNw9tTt6erxuRDLdXNCD3
-	 noIQucuR7dgo/xV8TFHSl6/CqhZPx41qr6vOrchadt9VRanW+bNO+9eSPKC0BtiTHU
-	 y3UqzrSERrkaQ==
-Date: Fri, 17 Jan 2025 09:48:58 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Xianwei Zhao <xianwei.zhao@amlogic.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
-Subject: Re: [PATCH v3 1/5] dt-bindings: pinctrl: Add support for Amlogic SoCs
-Message-ID: <20250117-intrepid-nano-horse-98e817@krzk-bin>
-References: <20250115-amlogic-pinctrl-v3-0-2b8536457aba@amlogic.com>
- <20250115-amlogic-pinctrl-v3-1-2b8536457aba@amlogic.com>
+	id 1tYiBI-0000000HODo-47sb
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Jan 2025 08:58:24 +0000
+X-QQ-mid: Yeas8t1737104195t105t50410
+Received: from 3DB253DBDE8942B29385B9DFB0B7E889 (jiawenwu@trustnetic.com [36.24.187.167])
+X-QQ-SSF: 0000000000000000000000000000000
+From: =?utf-8?b?Smlhd2VuIFd1?= <jiawenwu@trustnetic.com>
+X-BIZMAIL-ID: 13642672395322382177
+To: "'Russell King \(Oracle\)'" <linux@armlinux.org.uk>,
+	"'Andrew Lunn'" <andrew@lunn.ch>,
+	"'Heiner Kallweit'" <hkallweit1@gmail.com>,
+	<mengyuanlou@net-swift.com>
+Cc: "'Alexandre Torgue'" <alexandre.torgue@foss.st.com>,
+	"'Andrew Lunn'" <andrew+netdev@lunn.ch>,
+	"'Bryan Whitehead'" <bryan.whitehead@microchip.com>,
+	"'David S. Miller'" <davem@davemloft.net>,
+	"'Eric Dumazet'" <edumazet@google.com>,
+	"'Jakub Kicinski'" <kuba@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	"'Marcin Wojtas'" <marcin.s.wojtas@gmail.com>,
+	"'Maxime Coquelin'" <mcoquelin.stm32@gmail.com>,
+	<netdev@vger.kernel.org>,
+	"'Paolo Abeni'" <pabeni@redhat.com>,
+	<UNGLinuxDriver@microchip.com>
+References: <Z4gdtOaGsBhQCZXn@shell.armlinux.org.uk>
+In-Reply-To: <Z4gdtOaGsBhQCZXn@shell.armlinux.org.uk>
+Subject: RE: [PATCH net-next 0/9] net: add phylink managed EEE support
+Date: Fri, 17 Jan 2025 16:56:34 +0800
+Message-ID: <06d301db68bd$b59d3c90$20d7b5b0$@trustnetic.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250115-amlogic-pinctrl-v3-1-2b8536457aba@amlogic.com>
+Content-Type: text/plain;
+	charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+X-Mailer: Microsoft Outlook 16.0
+Content-Language: zh-cn
+Thread-Index: AQJuuL6961zeRYLpn6fcQniPsxo8VLH0BglA
+X-QQ-SENDSIZE: 520
+Feedback-ID: Yeas:trustnetic.com:qybglogicsvrgz:qybglogicsvrgz8a-1
+X-QQ-XMAILINFO: MfWa+adQHcquLmZRJwDoXE8Ue6YA3vC/4W6ziW+MDCRi4Pfd9dSQWLio
+	Podm3GN7YNzzipmJI6CmnykVAe7xd8vRRaVp7vBmXfqy+cUwxyGrXlSOqbvNL9ZLaaqwOEi
+	veZadcT48AQEjE1Xdeykj3EAlmD58M28QxXQ+lQJXo0ZwOo8WhigAOqY856zZoEAew3enQd
+	ms22YLHwvO1GuBsEvU9USVr6G0WEkA7RN3gqI/kiOQaoOFUa5vlE/zirdzdbZqGtkGjSN3L
+	IOoOt9ELmZvHIEMQLrN1uWDq/zKt/p6S6TKnDjfjVzVpOkZIuWEO4x7U0KDpAy/nZlZvB5J
+	9oxgYb1drRG5I4uTXFOlaVdrUtFM1LJHletlojH8cgcd9VUEQawKPFAKGNqlW3nzH29BXEF
+	tN8Ilw6rVt+LKVDGAUUfZBlphCDa2LS7EJCdR+4lok3yVyDF681X5S9FMglKNCCHS7U8Yw0
+	oUWmUJGRhCm4d9OBxRWq9eKX9LHrVA5BRS9iTWHy1GMWnP6e5fhDZ5DxkfERsiMutEOZABH
+	2XWvMCEJZ0MgNSBjBNG338oF2G9eQZCM1qIbMkJUOfBPZpDVbAXfU96UOfwWgI4OmEgpYP7
+	MJ6argvuV2xInrw6D6Do6Ljz1nBAuo7I8Bnjb91qxm2ZYKJQkRewxtuPvet0yzH8KH9cLPz
+	8FkkczTXA0YyuFMYJD4c82G1zmctA0ru8Pw0+3AMFDBDb5K8eXP7McIqLc8qRtl6qn/Ny/A
+	F9NVQHH61tDzhlv5ywoBmHnsY7tH1Cm3QoSIgxazFnpVdaWmwQbg28ADB1VD5aocdhb3Pvc
+	SFt/drIa/kNx+8sGijd2A4JF2MinwgawgkXfMMV3rM4kK0f9NM43mA6g/Nz5wtdai/BEcdh
+	K3l7aoQwUk4ZwUyoFilRVAPmVlw+KWf4Tf6uYdjajrSIUGOHz5Ff+imcJR4owkFamdAeKVl
+	o5VB8RIRH3AV06ifXS6N94sbSsGg/ZVgsZ60TkNWzRS0XXDZnfHR/5UmmpvJ5P00pGQo=
+X-QQ-XMRINFO: M/715EihBoGSf6IYSX1iLFg=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_004903_215455_42A810AA 
-X-CRM114-Status: GOOD (  10.22  )
+X-CRM114-CacheID: sfid-20250117_005821_887684_E4159320 
+X-CRM114-Status: GOOD (  24.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,122 +97,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 15, 2025 at 02:41:59PM +0800, Xianwei Zhao wrote:
-> +properties:
-> +  compatible:
-> +    const: amlogic,pinctrl-a4
-> +
-> +  "#address-cells":
-> +    const: 2
-> +
-> +  "#size-cells":
-> +    const: 2
+> Hi,
+> 
+> Adding managed EEE support to phylink has been on the cards ever since
+> the idea in phylib was mooted. This overly large series attempts to do
+> so. I've included all the patches as it's important to get the driver
+> patches out there.
+> 
+> Patch 1 adds a definition for the clock stop capable bit in the PCS
+> MMD status register.
+> 
+> Patch 2 adds a phylib API to query whether the PHY allows the transmit
+> xMII clock to be stopped while in LPI mode. This capability is for MAC
+> drivers to save power when LPI is active, to allow them to stop their
+> transmit clock.
+> 
+> Patch 3 extracts a phylink internal helper for determining whether the
+> link is up.
+> 
+> Patch 4 adds basic phylink managed EEE support. Two new MAC APIs are
+> added, to enable and disable LPI. The enable method is passed the LPI
+> timer setting which it is expected to program into the hardware, and
+> also a flag ehther the transmit clock should be stopped.
+> 
+> I have taken the decision to make enable_tx_lpi() to return an error
+> code, but not do much with it other than report it - the intention
+> being that we can later use it to extend functionality if needed
+> without reworking loads of drivers.
+> 
+> I have also dropped the validation/limitation of the LPI timer, and
+> left that in the driver code prior to calling phylink_ethtool_set_eee().
+> 
+> The remainder of the patches convert mvneta, lan743x and stmmac, and
+> add support for mvneta.
+> 
+> Since yesterday's RFC:
+> - fixed the mvpp2 GENMASK()
+> - dropped the DSA patch
+> - changed how phylink restricts EEE advertisement, and the EEE support
+>   reported to userspace which fixes a bug.
+> 
+>  drivers/net/ethernet/marvell/mvneta.c             | 107 ++++++++++------
+>  drivers/net/ethernet/marvell/mvpp2/mvpp2.h        |   5 +
+>  drivers/net/ethernet/marvell/mvpp2/mvpp2_main.c   |  86 +++++++++++++
+>  drivers/net/ethernet/microchip/lan743x_ethtool.c  |  21 ---
+>  drivers/net/ethernet/microchip/lan743x_main.c     |  46 ++++++-
+>  drivers/net/ethernet/microchip/lan743x_main.h     |   1 -
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c |  57 +++++++--
+>  drivers/net/phy/phy.c                             |  20 +++
+>  drivers/net/phy/phylink.c                         | 149 ++++++++++++++++++++--
+>  include/linux/phy.h                               |   1 +
+>  include/linux/phylink.h                           |  45 +++++++
+>  include/uapi/linux/mdio.h                         |   1 +
+>  12 files changed, 446 insertions(+), 93 deletions(-)
 
-Why this moved to '2'? 32-bit was not enough?
+Hi Russell,
 
-> +
-> +  ranges: true
-> +
-> +required:
-> +  - compatible
-> +  - "#address-cells"
-> +  - "#size-cells"
+Since merging these patches, phylink_connect_phy() can no longer be
+invoked correctly in ngbe_open(). The error is returned from the function
+phy_eee_rx_clock_stop(). Since EEE is not supported on our NGBE hardware.
 
-Keep required after patternProperties
+How should I modify the ngbe driver to meet this change?
 
-> +
-> +patternProperties:
-> +  "^gpio@[0-9a-f]+$":
-> +    type: object
-> +
-> +    properties:
-> +      reg:
-> +        minItems: 1
-> +        items:
-> +          - description: pin config register
-> +          - description: pin mux setting register (some special pin fixed function)
-> +          - description: pin drive strength register (optionanl)
+Thanks.
 
-typo: optional
 
-> +
-> +      reg-names:
-> +        minItems: 1
-> +        items:
-> +          - const: gpio
-> +          - const: mux
-> +          - const: ds
-> +
-> +      gpio-controller: true
-> +
-> +      "#gpio-cells":
-> +        const: 2
-> +
-> +      gpio-ranges:
-> +        maxItems: 1
-> +
-> +      bank-number:
-> +        description: |
-> +          bank-number are provided by the pin controller header file at:
-> +          <include/dt-bindings/pinctrl/amlogic,pinctrl.h>
-> +        $ref: /schemas/types.yaml#/definitions/uint32
-
-gpio-ranges tell you that, don't they?
-
-Anyway, you would need here minimum and maximum.
-
-> +
-> +    required:
-> +      - reg
-> +      - reg-names
-> +      - gpio-controller
-> +      - "#gpio-cells"
-> +      - gpio-ranges
-> +      - bank-number
-> +
-> +    additionalProperties: false
-> +
-> +  "^func-[0-9a-z-]+$":
-> +    type: object
-> +    patternProperties:
-> +      "^group-[0-9a-z-]+$":
-> +        type: object
-> +        allOf:
-> +          - $ref: /schemas/pinctrl/pincfg-node.yaml
-> +          - $ref: /schemas/pinctrl/pinmux-node.yaml
-
-Missing required pinmux and maybe other properties.
-
-> +    additionalProperties: false
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/pinctrl/amlogic,pinctrl.h>
-> +    apb {
-> +      #address-cells = <2>;
-> +      #size-cells = <2>;
-> +      periphs_pinctrl: pinctrl {
-> +        compatible = "amlogic,pinctrl-a4";
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +        ranges;
-> +
-> +        gpio@14 {
-> +          reg = <0 0x14 0 0x10>,
-> +                <0 0x14 0 0x10>;
-
-One line.
-
-> +          reg-names = "gpio", "mux";
-> +          gpio-controller;
-> +          #gpio-cells = <2>;
-> +          bank-number = <AMLOGIC_GPIO_B>;
-> +          gpio-ranges = <&periphs_pinctrl 0 8 10>;
-> +        };
-
-Best regards,
-Krzysztof
 
 
