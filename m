@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EECDBC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 17:00:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A77FC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 17:01:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SkhdPwR+i8G4KznbeuRGEbuhMQKkED+QsjQdmytH0d8=; b=4RvUHjrJix/qF7TLMt0wdDJgvn
-	LEc8DnN4lkJiZOim0BDAcFV5gm92zMR1+Wd+a2p03kZ+rCkUQx3WJKb3Q6MBWn7rnCORhCZh0F1MH
-	wUfv50GfGBANRX0hP5nA4MHFlm2dAL9U4Amwkdnf4VIX+LusAIaf0RzMU9BGTBvm1KwRIiYtOv1K/
-	JMJ/PvkdTlBdgoKk9hKXM/xKhRVfiKlS6n2Gu6i9YScUvinPVwNJUUlOJfg4IHtYA6DCFsZNrmbaO
-	aUmUOPSN3xdsoa/ZhC6PbKcHPgKTora6hbpP1mD66uDl0E3VLF9Qf1wZhoBHRyg9u+DLrOS6stXcq
-	3FCLeImg==;
+	bh=gbPn385nmxgkLr2JTs9xLHKsJGuOpLTuKBJgMVB8y7A=; b=HpeY2cQS7PPnyeR7Lq4Tlv7z8q
+	+yIsUphsDgBy7Ii6y4YfsYsq844DZU/7zef9LPkY1bgKxjRSAaHqABb4KanzHEXqN8OxzmlfC+yeH
+	LMgpSrLaNixd88Vy+yhiqq8zWwB+7n8kTKsDEVuqLu58kBdZ4gD4Lx2/S2GzVZ2drlNtQG3XVdrbO
+	Mj0HJrXJcobDaLBIJmquzvUfOW7beUvw5TXH0oRDtAJ5tTAbyPSye3F03RFF+OtgHpZTTMME6JmqH
+	tJVpGMv09b143cGGtKCQeIKR20w67HjfLXr32AKycE1+8jue7rv528rG6BR6b0dL1owTB3XekymWw
+	jNzx4PEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYphG-00000000sp3-4Bga;
-	Fri, 17 Jan 2025 16:59:51 +0000
-Received: from mail-ot1-x330.google.com ([2607:f8b0:4864:20::330])
+	id 1tYpix-00000000tBL-0XBY;
+	Fri, 17 Jan 2025 17:01:35 +0000
+Received: from mail-oa1-x31.google.com ([2001:4860:4864:20::31])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYpYn-00000000r0i-0aRt
+	id 1tYpa5-00000000rJB-204u
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jan 2025 16:51:06 +0000
-Received: by mail-ot1-x330.google.com with SMTP id 46e09a7af769-724a5d042c0so69632a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jan 2025 08:51:05 -0800 (PST)
+	Fri, 17 Jan 2025 16:52:26 +0000
+Received: by mail-oa1-x31.google.com with SMTP id 586e51a60fabf-29fcbf3d709so848936fac.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jan 2025 08:52:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1737132664; x=1737737464; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1737132744; x=1737737544; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:to:subject:user-agent:mime-version:date
          :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=SkhdPwR+i8G4KznbeuRGEbuhMQKkED+QsjQdmytH0d8=;
-        b=fzAONFVuDlt3GbHdQmqk3akOu/CiViIr3U+7Jedbj7+3cIzOevR0nEqMoAs2Tq50m6
-         WNZFA9IvOsGQSfOMrQ6Bh2NAjf4sUJMnP1AHTxxCzqJsAeUgB6nXwRmrLSmkz1Q7Xqrs
-         Omq/3t/blajwECJ3d344D/qA+nhKGn6Yq1ako=
+        bh=gbPn385nmxgkLr2JTs9xLHKsJGuOpLTuKBJgMVB8y7A=;
+        b=Dd5dKFAIwqIkceyXlwLGRvFSh8UCxkhsruA03TIMYQvbuSdInSLR3VRQLX7DFiO+MW
+         1JQ86O4UtOvAIAn3yc0FHhur26sLVV4LKk1N9vPE9+d5nL0lQP0bP+BFtmenQfk26fwN
+         2sb8a7Ds07O3cbovde8r4+zVmYUt3V1EArwMM=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737132664; x=1737737464;
+        d=1e100.net; s=20230601; t=1737132744; x=1737737544;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:to:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=SkhdPwR+i8G4KznbeuRGEbuhMQKkED+QsjQdmytH0d8=;
-        b=nDYSzvM/zPR/QqndwBcGZFSrrvIfSUyQ/yL+O9MoSSDrk+k4z72MoCw2RxBqPx9vtT
-         Y2dB81x/zcorUewqwaVbi0sF/XPpMTp/bSsJ1RJJLJK5OryTx898h0eKNxbQW2sZt4R+
-         ISWtG/Wyt2rpVPvYhd4BFv9GFQc0kSIoLahDSbgsEJazrP39OhATEKxt4gICFMG5gCnX
-         VceexAZDffOxsfa68sd0VKEixP4wthMAra4Q3044S03RkZ489j7sfdwGmbK4qNRKgIJF
-         0RlzC1orbZez8I/l3jzija6+lrVztWzrtHYurUksmEE+vhighOCUFA2kQiGE8/OjIibR
-         5m1w==
-X-Forwarded-Encrypted: i=1; AJvYcCVXjgd3N842jgzhaEeQPttWWTU99xLBKDKwDlu9TJczb6ZOsveJCqMnIAXu92cumEECPAit9kNEDiUbSdpk8o7C@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz36ZnrSq66o+fLhPYc4OyGTeSKKa9DkmlKwEXoBo27b73clFf0
-	xNHdW0ILiaDJdEUW0How4ICaCPwIXp0bm1zbfMyjzLmJ+eFXiZX0HLq00hZRcw==
-X-Gm-Gg: ASbGncu/I8kJ7m32rPH8Ly2SdwxIvJ/m1twaQ+pyUELRq2Za/4TWDel1ljg0Sn3PF9l
-	7+0EVMB24pVkAA1m7PEFcOmRrwXSmHUJJkvjv6J23VBkf9TKUIQ8PL+wphC8CA3yw3TcjqKy1wM
-	K9kR2D4Gzn4qf29x0SGynmOjHn9ZZUEzMHRn+229e5UuU1OoTeR6vJvkOmR+U+CurI/GP8b1aMp
-	zsV+cf5zSbhoNwIiBXhRvYNFOFn9sE1dIPTrw8G1dZN1GlEFMNYGWUa8vglYz3/3W0g/WWikUSw
-	vbEwphZgzm8uSVd1k7YA0Iyzl6Ahj9o=
-X-Google-Smtp-Source: AGHT+IFKbDhEyNtGWlN2yc2R755sLxWqKLsveQjo/EwG8YGMpFOe5bAas7SyegTZ4OtUkrD6juv5rg==
-X-Received: by 2002:a05:6830:6713:b0:71d:5b70:41bd with SMTP id 46e09a7af769-7249da7191dmr2187325a34.12.1737132664380;
-        Fri, 17 Jan 2025 08:51:04 -0800 (PST)
+        bh=gbPn385nmxgkLr2JTs9xLHKsJGuOpLTuKBJgMVB8y7A=;
+        b=e2q6O3IXAY7TLpVpM3d4P46wCEzVL0lH+gEpEbNiPrRop8PUanLiKDOgb4788OJgMm
+         gE3gRHSuifKEoIgPCrQ/g11jpAn+K8EGaAx4dE9+cKXMKJXpKlh+uSL8E9BM5ULCFiiF
+         ELEQSdPT/o09ZWEkRnQxCuNnfuuGvzlGePNQ5WkrmGllby08vuG76dONGuvZHve/wKqW
+         i63+GSgSgiHrXJv9ZA7cT3+lRUanQc9761yIe63s8AaroAG3bX4e98z0TgXkxCujzXY0
+         HFRjk+sgNKpPGTjj8zw2R2BIuLa/PT8RBfr7cspgxJyR1N6DYwPLlKUFfwuFG2m30B0W
+         RYsA==
+X-Forwarded-Encrypted: i=1; AJvYcCV1Li3RSYXROmJWnpTicyErMAoC2Ct0L3iWyDyzqR8JAucdm1mpGw5/qO/EilAjRfCOuB3Fzvs64F+1VmYc+Mu+@lists.infradead.org
+X-Gm-Message-State: AOJu0YzoKBW9ez1zwv50fLxTPL36sXh2H6C9LXj8/BSoFH/DMMPofJXZ
+	YoSX1Ur/Pmzd+oUWgN21Ph3m9IcCN6vKF7LGeNYqRxB2SflmaSELKt4wJXIdpg==
+X-Gm-Gg: ASbGncv62Er50O7YaGCvALrNvUpEkGLCKS7dZog8cY+mmtiD/omR0NsNFz37COPeJWx
+	q6HA8JXLFYlGyw7UMd4iN0dYcr5U80825DnWlIPCy4xJZ3PbQI1jDnzf6agetpiYMITLCbWzZAv
+	4FXBHy2ufQBBLJ4mdw4y+Y42uYqYxbyFrfNFL5YNouDqCVyu/+rql8X1rcPdWeVmy9rE7RI9KkV
+	Ra2eMZmRWCFHjpNUhT3qwDJYODYBCLn9swCCbYXSWZocRrydnPznrNsvEQWJiOzSkzsZvci55WS
+	y4Dvn777Or5QGcUiNMo5GR2vluh4MrQ=
+X-Google-Smtp-Source: AGHT+IEPQ2tZri6LlF68yq4mtGcTHaoltWas3irZkTK8fHqf2B06a/y/jkJBQakfa1Dd4rkmWpYZuw==
+X-Received: by 2002:a05:6870:4e0d:b0:29e:2f3a:761a with SMTP id 586e51a60fabf-2b1c0a349f5mr2131118fac.20.1737132744451;
+        Fri, 17 Jan 2025 08:52:24 -0800 (PST)
 Received: from [192.168.1.3] (ip68-4-215-93.oc.oc.cox.net. [68.4.215.93])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-5fa35f07ebbsm846110eaf.14.2025.01.17.08.51.01
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2b1b8d4b3c9sm1131584fac.25.2025.01.17.08.52.19
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 17 Jan 2025 08:51:03 -0800 (PST)
-Message-ID: <7c154b5c-e745-45a9-8939-b0d429299b31@broadcom.com>
-Date: Fri, 17 Jan 2025 08:51:01 -0800
+        Fri, 17 Jan 2025 08:52:23 -0800 (PST)
+Message-ID: <339e2337-850c-4201-83ea-eca59e297396@broadcom.com>
+Date: Fri, 17 Jan 2025 08:52:20 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 09/10] arm64: dts: bcm2712: Add external clock for RP1
- chipset on Rpi5
+Subject: Re: [PATCH v6 04/10] dt-bindings: misc: Add device specific bindings
+ for RaspberryPi RP1
 To: Andrea della Porta <andrea.porta@suse.com>,
  Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
  <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -97,7 +97,7 @@ To: Andrea della Porta <andrea.porta@suse.com>,
  Luca Ceresoli <luca.ceresoli@bootlin.com>,
  Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Andrew Lunn <andrew@lunn.ch>
 References: <cover.1736776658.git.andrea.porta@suse.com>
- <bb69c32871d162a06dfdd26ba958ea0a74b592d5.1736776658.git.andrea.porta@suse.com>
+ <c22fa1e06926cf946ea3cb6647e9e27441f26398.1736776658.git.andrea.porta@suse.com>
 Content-Language: en-US
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
@@ -132,12 +132,12 @@ Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
  MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
  7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
  95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <bb69c32871d162a06dfdd26ba958ea0a74b592d5.1736776658.git.andrea.porta@suse.com>
+In-Reply-To: <c22fa1e06926cf946ea3cb6647e9e27441f26398.1736776658.git.andrea.porta@suse.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_085105_181609_71B02E33 
-X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-CacheID: sfid-20250117_085225_512971_6B415DA7 
+X-CRM114-Status: UNSURE (   8.40  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -156,15 +156,14 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 1/13/2025 6:58 AM, Andrea della Porta wrote:
-> The RP1 found on Raspberry Pi 5 board needs an external crystal at 50MHz.
-> Add clk_rp1_xosc node to provide that.
+> The RP1 is a MFD that exposes its peripherals through PCI BARs. This
+> schema is intended as minimal support for the clock generator and
+> gpio controller peripherals which are accessible through BAR1.
 > 
 > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
 Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
-
-I don't expect conflicts so this could go through the tree that will 
-merge the misc driver (Greg?).
 -- 
 Florian
 
