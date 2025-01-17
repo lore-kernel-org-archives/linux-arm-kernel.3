@@ -4,66 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 417B6C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 21:48:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48416C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 22:06:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PAf0cQEhbeq9uQn2HgBxJwToemXIDO+RTwUH+VMF7LE=; b=CbfL8xz/SyteROB6QHEPmksXuW
-	cvoGI7IpdRX8EgcC5lu6+wvdCSddXLYkEwRYPCMzYxa86A8rSKVN1YuiKEMLYbR/3tYHYwNXQfGjH
-	yKyWwPkJNsx4s0P0mX6tbPTI+JVmZ8WQtm5LWldjVr8aRyj6TO2FGMDu/TarE70aVXBd+7MZPFMlw
-	NBIS2tMfBvYsrVyuJFJ356fMjjo3UYYq0K2PkKn3ZWRYBcEn18fYwzk8pANBVplSw1is6+2uIq8dR
-	qmTwGOHpaTTnkvjOFAmUM1495ux8j7WgSfd6Pr5dLrWnbfn7H3y4BHTwTadAROAkjwK5RcK8NORLQ
-	6vcXgcyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2TIdJpx2GEb0Ct+7wgADBcHQuEploDDCvUCj5C766G0=; b=Lsl6mlTu4DB821Yr/xZCQd/C4b
+	BLjD2pHuGmOLVrJUae2JMfZlDLazYia/C2rS+ioLQscRAUcw/kI+APhTA2nv+ROLNxjMdvpPw7jv9
+	1mRJNBWFPTm12uLQxlBwBmck6MNLmtpksdPyaRwA09XMzLV2cI9rX7vsthwUiLqGFTWB2i/gvduBt
+	+yohe5+bIaYX2zYfHf2QnNhpyKpYa9gksVHmhvahnyAbh2HFphlIib+MX1Sr57NyJ4DqWL5UER6Yq
+	GXUVKelj0ehzXKVS5TLT/UIERDne7a6eDuWSQo8QZyy9dMctKcI8hUmTdOtDrB89ylJIbh7Gc2O3Y
+	G63JADeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYuBz-00000001QQv-3B2e;
-	Fri, 17 Jan 2025 21:47:51 +0000
-Received: from out-188.mta1.migadu.com ([2001:41d0:203:375::bc])
+	id 1tYuTg-00000001RtS-0Vvz;
+	Fri, 17 Jan 2025 22:06:08 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYuAi-00000001QLJ-3TeJ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jan 2025 21:46:34 +0000
-Message-ID: <8c9e6a12-e64f-4658-94e8-77469f393a0e@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1737150389;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=PAf0cQEhbeq9uQn2HgBxJwToemXIDO+RTwUH+VMF7LE=;
-	b=uK1wSFOoJ9c+9g/m/XG1HVsnP6alX8ieCy4PrcuxpIKWs5YnuxnT64mQ2qBUqvi8DkmqyD
-	VK0P2Nl5SczZOcYUF+vTT93a/jtrPPypdcz/ErkE/9hf6uPZpCakuUJWwx2xi6yIDmbM/q
-	zwu8IHvKLes80K/irnBdxtm32rStltU=
-Date: Fri, 17 Jan 2025 16:46:23 -0500
+	id 1tYuSM-00000001Rfc-2UGP;
+	Fri, 17 Jan 2025 22:04:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1737151486; x=1768687486;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=0XZfrcqbblf6skoLJGR4rVZli6Qmk9tbEtvNmO1ngbw=;
+  b=I3SwKIvIY/bUstUlc5KCMSVp/n5F/SYWNY+eL4NYyRNxuA26ZorpLkSp
+   oKKkFZ1DjQbyuPXezH/z2VIQfG2Aq1bNHhVwm4gmi3BRjCjwL6P0rm1+L
+   TtZ/2cItQ0pCLrpDRViY2X7S9nDklu5l0/Xkqo1lfKdq0hkztc6IrUZCq
+   tktDQEP69uO/PXXLhwxKGlHpDkHm61HHZh85KhKeMfb8K8H2VKYieT+1k
+   1lW3IFiyxRx6ik0pRCrqdg3LNtL7NVdJE+IgS+EhC4kb+fSBD4fUS3Efk
+   Fk4qQZMNwe6E1w7BZ51uvggNEqM2jRAF+PtH0oPdQ6uX1r4OUlDy02Alo
+   g==;
+X-CSE-ConnectionGUID: zp2KofLQS6e9n17nhCKepA==
+X-CSE-MsgGUID: ATnZPp78RPiMVPRzbOiunw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="49014986"
+X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
+   d="scan'208";a="49014986"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jan 2025 14:04:45 -0800
+X-CSE-ConnectionGUID: UbYDsmjDQEOkdHMv79hGow==
+X-CSE-MsgGUID: sMqe5D/qQliPcMUqQsuFKw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,213,1732608000"; 
+   d="scan'208";a="105774286"
+Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
+  by fmviesa006.fm.intel.com with ESMTP; 17 Jan 2025 14:04:40 -0800
+Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tYuSD-000Tkx-20;
+	Fri, 17 Jan 2025 22:04:37 +0000
+Date: Sat, 18 Jan 2025 06:04:18 +0800
+From: kernel test robot <lkp@intel.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	chunkuang.hu@kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, p.zabel@pengutronix.de,
+	airlied@gmail.com, simona@ffwll.ch,
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com, ck.hu@mediatek.com,
+	jitao.shi@mediatek.com, jie.qiu@mediatek.com,
+	junzhi.zhao@mediatek.com, dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kernel@collabora.com, dmitry.baryshkov@linaro.org,
+	lewis.liao@mediatek.com, ives.chenjh@mediatek.com,
+	tommyyl.chen@mediatek.com, jason-jh.lin@mediatek.com
+Subject: Re: [PATCH v5 32/34] drm/mediatek: Introduce HDMI/DDC v2 for
+ MT8195/MT8188
+Message-ID: <202501180524.qKnNpITh-lkp@intel.com>
+References: <20250113145232.227674-33-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH 0/5] spi: zynqmp-gqspi: Improve error recovery by
- resetting
-To: Mark Brown <broonie@kernel.org>, Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: Michal Simek <michal.simek@amd.com>, linux-spi@vger.kernel.org,
- linux-kernel@vger.kernel.org, Jinjie Ruan <ruanjinjie@huawei.com>,
- linux-arm-kernel@lists.infradead.org,
- Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- devicetree@vger.kernel.org
-References: <20250116225521.2688224-1-sean.anderson@linux.dev>
- <5942e111-24ba-4d1b-bd4f-6b81dcc6c5dc@sirena.org.uk>
- <87h65xi977.fsf@bootlin.com>
- <1026d44b-0907-4835-bc95-32f9bbcf4831@sirena.org.uk>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <1026d44b-0907-4835-bc95-32f9bbcf4831@sirena.org.uk>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250113145232.227674-33-angelogioacchino.delregno@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_134633_156681_0C6CE6B9 
-X-CRM114-Status: GOOD (  14.38  )
+X-CRM114-CacheID: sfid-20250117_140446_650858_06316AB9 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,33 +99,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/17/25 13:41, Mark Brown wrote:
-> On Fri, Jan 17, 2025 at 07:31:08PM +0100, Miquel Raynal wrote:
->> On 17/01/2025 at 13:21:58 GMT, Mark Brown <broonie@kernel.org> wrote:
-> 
->> > If you're hitting a timeout that tends to indicate there's already a
->> > serious stability problem...
-> 
->> Yes, unless the timeout is reached for "good reasons", ie. you request
->> substantial amounts of data (typically from a memory device) and the
->> timeout is too short compared to the theoretical time spent in the
->> transfer. A loaded machine can also increase the number of false
->> positives I guess.
-> 
-> I'd argue that all of those are bad reasons, I'd only expect us to time
-> out when there's a bug - choosing too low a timeout or doing things in a
-> way that generates timeouts under load is a problem.
+Hi AngeloGioacchino,
 
-There's no transmit DMA for this device. So if you are under high load
-and make a long transfer, it's possible to time out. I don't know if
-it's possible to fix that very easily. The timeout calculation assumes
-that data is being transferred at the SPI bus rate.
+kernel test robot noticed the following build warnings:
 
-That said, in the common case (NOR flash) writes don't work like that.
-To write a flash, we make a short transfer (such as an eraseblock) and
-then poll the status register before making another transfer. With short
-transfers there is less probability of timing out because the extra time
-makes up more of the duration.
+[auto build test WARNING on next-20250113]
+[cannot apply to robh/for-next pza/reset/next linus/master pza/imx-drm/next drm-misc/drm-misc-next v6.13-rc7 v6.13-rc6 v6.13-rc5 v6.13-rc7]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
---Sean
+url:    https://github.com/intel-lab-lkp/linux/commits/AngeloGioacchino-Del-Regno/dt-bindings-display-mediatek-dpi-Add-MT8195-and-MT8188-compat/20250113-225554
+base:   next-20250113
+patch link:    https://lore.kernel.org/r/20250113145232.227674-33-angelogioacchino.delregno%40collabora.com
+patch subject: [PATCH v5 32/34] drm/mediatek: Introduce HDMI/DDC v2 for MT8195/MT8188
+config: openrisc-allyesconfig (https://download.01.org/0day-ci/archive/20250118/202501180524.qKnNpITh-lkp@intel.com/config)
+compiler: or1k-linux-gcc (GCC) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250118/202501180524.qKnNpITh-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202501180524.qKnNpITh-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c: In function 'mtk_ddc_check_and_rise_low_bus':
+   drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c:59:36: error: implicit declaration of function 'FIELD_PREP' [-Wimplicit-function-declaration]
+      59 |                                    FIELD_PREP(DDC_CTRL_CMD, DDC_CMD_CLOCK_SCL));
+         |                                    ^~~~~~~~~~
+   In file included from ./arch/openrisc/include/generated/asm/div64.h:1,
+                    from include/linux/math.h:6,
+                    from include/linux/kernel.h:27,
+                    from include/linux/clk.h:13,
+                    from drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c:11:
+   drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c: In function 'mtk_ddcm_read_hdmi':
+>> include/asm-generic/div64.h:183:35: warning: comparison of distinct pointer types lacks a cast [-Wcompare-distinct-pointer-types]
+     183 |         (void)(((typeof((n)) *)0) == ((uint64_t *)0));  \
+         |                                   ^~
+   drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c:139:23: note: in expansion of macro 'do_div'
+     139 |                 rem = do_div(loop_counter, temp_length);
+         |                       ^~~~~~
+   In file included from include/linux/err.h:5,
+                    from include/linux/clk.h:12:
+>> include/asm-generic/div64.h:195:32: warning: right shift count >= width of type [-Wshift-count-overflow]
+     195 |         } else if (likely(((n) >> 32) == 0)) {          \
+         |                                ^~
+   include/linux/compiler.h:76:45: note: in definition of macro 'likely'
+      76 | # define likely(x)      __builtin_expect(!!(x), 1)
+         |                                             ^
+   drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c:139:23: note: in expansion of macro 'do_div'
+     139 |                 rem = do_div(loop_counter, temp_length);
+         |                       ^~~~~~
+   include/asm-generic/div64.h:199:36: error: passing argument 1 of '__div64_32' from incompatible pointer type [-Wincompatible-pointer-types]
+     199 |                 __rem = __div64_32(&(n), __base);       \
+         |                                    ^~~~
+         |                                    |
+         |                                    u16 * {aka short unsigned int *}
+   drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c:139:23: note: in expansion of macro 'do_div'
+     139 |                 rem = do_div(loop_counter, temp_length);
+         |                       ^~~~~~
+   include/asm-generic/div64.h:174:38: note: expected 'uint64_t *' {aka 'long long unsigned int *'} but argument is of type 'u16 *' {aka 'short unsigned int *'}
+     174 | extern uint32_t __div64_32(uint64_t *dividend, uint32_t divisor);
+         |                            ~~~~~~~~~~^~~~~~~~
+   drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c:207:47: error: implicit declaration of function 'FIELD_GET' [-Wimplicit-function-declaration]
+     207 |                         puc_value[read_idx] = FIELD_GET(DDC_DATA_OUT, val);
+         |                                               ^~~~~~~~~
+
+
+vim +183 include/asm-generic/div64.h
+
+^1da177e4c3f41 Linus Torvalds     2005-04-16  176  
+^1da177e4c3f41 Linus Torvalds     2005-04-16  177  /* The unnecessary pointer compare is there
+^1da177e4c3f41 Linus Torvalds     2005-04-16  178   * to check for type safety (n must be 64bit)
+^1da177e4c3f41 Linus Torvalds     2005-04-16  179   */
+^1da177e4c3f41 Linus Torvalds     2005-04-16  180  # define do_div(n,base) ({				\
+^1da177e4c3f41 Linus Torvalds     2005-04-16  181  	uint32_t __base = (base);			\
+^1da177e4c3f41 Linus Torvalds     2005-04-16  182  	uint32_t __rem;					\
+^1da177e4c3f41 Linus Torvalds     2005-04-16 @183  	(void)(((typeof((n)) *)0) == ((uint64_t *)0));	\
+911918aa7ef6f8 Nicolas Pitre      2015-11-02  184  	if (__builtin_constant_p(__base) &&		\
+911918aa7ef6f8 Nicolas Pitre      2015-11-02  185  	    is_power_of_2(__base)) {			\
+911918aa7ef6f8 Nicolas Pitre      2015-11-02  186  		__rem = (n) & (__base - 1);		\
+911918aa7ef6f8 Nicolas Pitre      2015-11-02  187  		(n) >>= ilog2(__base);			\
+c747ce4706190e Geert Uytterhoeven 2021-08-11  188  	} else if (__builtin_constant_p(__base) &&	\
+461a5e51060c93 Nicolas Pitre      2015-10-30  189  		   __base != 0) {			\
+461a5e51060c93 Nicolas Pitre      2015-10-30  190  		uint32_t __res_lo, __n_lo = (n);	\
+461a5e51060c93 Nicolas Pitre      2015-10-30  191  		(n) = __div64_const32(n, __base);	\
+461a5e51060c93 Nicolas Pitre      2015-10-30  192  		/* the remainder can be computed with 32-bit regs */ \
+461a5e51060c93 Nicolas Pitre      2015-10-30  193  		__res_lo = (n);				\
+461a5e51060c93 Nicolas Pitre      2015-10-30  194  		__rem = __n_lo - __res_lo * __base;	\
+911918aa7ef6f8 Nicolas Pitre      2015-11-02 @195  	} else if (likely(((n) >> 32) == 0)) {		\
+^1da177e4c3f41 Linus Torvalds     2005-04-16  196  		__rem = (uint32_t)(n) % __base;		\
+^1da177e4c3f41 Linus Torvalds     2005-04-16  197  		(n) = (uint32_t)(n) / __base;		\
+c747ce4706190e Geert Uytterhoeven 2021-08-11  198  	} else {					\
+^1da177e4c3f41 Linus Torvalds     2005-04-16  199  		__rem = __div64_32(&(n), __base);	\
+c747ce4706190e Geert Uytterhoeven 2021-08-11  200  	}						\
+^1da177e4c3f41 Linus Torvalds     2005-04-16  201  	__rem;						\
+^1da177e4c3f41 Linus Torvalds     2005-04-16  202   })
+^1da177e4c3f41 Linus Torvalds     2005-04-16  203  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
