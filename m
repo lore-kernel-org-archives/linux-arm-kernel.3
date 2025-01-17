@@ -4,81 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9784AC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 17:14:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE2DDC02185
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 17:15:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=VpofVFRqOOEG6qf6RBN58H/+7B1FAaQ0YrVaEqz5D7g=; b=guLcVzjRFE7b7L
-	pPAoqQBookrIntNt3s6Vc4rjuA+eCMfGRXiCvzH4B3VgPUDDaAimzh+M72RH89TMTAfcj+HvHCRON
-	rYFT6RsO7Vd2YsGvX4TZXcw2NKkZ/6W1fVnvLeahcOODk4V2IQAHGO/952IoNZmUiTBWCGAtUAV3c
-	KpwRkkP5X9HkXbpxctxzwoO2DWuNi6G5v2tqGueV6cSHH/xpHl1BGajiKvXGYomsdEY/pQvr8AiOE
-	5XBUkGMtcDCO0ogY+5nLuHsqLUObjZq4q3PKhGdR5NqWwlkmjVQDB3YdsQ9lrJFyFjpAcAOt/avgA
-	AxDSYqz5sT/+bYkU1Gig==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zWj3M8A+8QkmZTCPt7r4bM5zsk4erApcDBVhUj+B4N8=; b=MJ86StK8SSXEIxxQwW90NhufQd
+	EgAn6gIoV3n0TUaR0LzJUrw2avvERB9b/n/IBhlGvguCDTyULSiSzrGXUn0IZNUTpXK09FwLt94Ai
+	XFMx0YBAfJ6VusPKWwoxQywhF2ZTgU29YfLK//ia4rtZjrdSUV6EzNoDUPviutgcf5pJKjc6S/5wv
+	DkYDeJr6//B+YCvLW+U0A3nRyKNExuaE1vOatY7jMMeTHER9lFFO7DRPjE/tCzhjnZT40/kgOUpYg
+	dLJjiE1xsuzeGhUsrH3s6UPbGyu+JDm/9r0DANPRGCPFY7di17WQpYl59z/gmgS6WUTw6R6Y26UW5
+	oXVKNdyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYpvK-00000000vu7-1HjX;
-	Fri, 17 Jan 2025 17:14:22 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1tYpwZ-00000000w98-3r7C;
+	Fri, 17 Jan 2025 17:15:39 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYpr5-00000000uWs-20v5
+	id 1tYpr5-00000000uWv-34NF
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 17 Jan 2025 17:10:00 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-5d3f65844deso3796764a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jan 2025 09:09:58 -0800 (PST)
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-aaee2c5ee6eso406775066b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jan 2025 09:09:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737133797; x=1737738597; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=VpofVFRqOOEG6qf6RBN58H/+7B1FAaQ0YrVaEqz5D7g=;
-        b=jpfdFCoyTF1RqQ3bu4Yiy8qLMrtASO/91rErDIyyz7lJ6VoTlbMCZAWtMgj6BrRkwR
-         mGAAWemIjuZmlgTZviBRpLr8ymubIAjnDi/CVLwmOytgdVTa9RbOrq/3ZqWm85kSB3CB
-         7+iZq8hVzTAN9Bw+8l1ZWuqWu3SvFxiGi2sU3/6yvcw+bJRFs/mUoEX5TdWrL+p+xWcD
-         AR72blIWif7WjylpVWvOXfctMNtheJNmhFJLkY8VeZJhYafkIfrSQIPEfUlytvPHp9Cw
-         ndzZZgDlXAl8a5yJJIL25tGhKeCP2TV3bHV6BLTDHLjWTJqUZgnbb9yQoLNFdGLDe90U
-         7ofw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737133797; x=1737738597;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=linaro.org; s=google; t=1737133798; x=1737738598; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=VpofVFRqOOEG6qf6RBN58H/+7B1FAaQ0YrVaEqz5D7g=;
-        b=Fqxv+k02ckyvDWMohqWPd2Y19nGGkAaKzTbOmVvXn1YLsbEhqptE/nfHcUz3wAK+C4
-         bXO5aywOxBM+bQY8sExr9SOqVgDcTIeiGLkuzkassZFxbaPUJcdQ5jCO+cn8aRTfe9gT
-         KBUxFjXetPkjZ5kWiLluOqg+YiwGqMbqe8aV0RZJOZleaE9FW2UpfDns0szI7W0YPeQ6
-         W91SCG50UycD1KjTP5fO/8AGGs8IC/MF7zspB/f5iKGYt8o+PASBskzh8AGYaQya5Hed
-         bgZusZpRmcspnzl5qGMn0ThnavtyzQjSQ9s7JOCj2UPcC3GWSErEQ96BVDkfgpvVLbgz
-         Rt1A==
-X-Forwarded-Encrypted: i=1; AJvYcCVv+swce8ubBlSeZ7NSFFsS5KaSj79KyASNja7uV0WmARooEHAKOwTQypEPgudWWRHLxkqoK+pZVTOMPaMuVhe5@lists.infradead.org
-X-Gm-Message-State: AOJu0YxNYUVW5mDkxBcjzWvh/TiYnJUlI6sEaeVWZ7juw4roTBtrwRwP
-	TIgN2wMdSwkLzj8DouUhFfDIU6inNSwCSDulLrSLPTVcMOnCXZOcYbpUMuYwhuyGOEL4seEfFnT
-	ieio=
-X-Gm-Gg: ASbGnctSdjtSfrPuoJeYTUbigVsRH6xXqwscWaEq8JnKr+VIenBqKnTdrtY7RQbM47+
-	OjmPBPREpweMv7K1tVvAm9YcT9iNA3hk2qkHbU7NMIrV37Mge/sC7yRcjzHrZ5Ffe4/3g+NPxSq
-	k1CVr8gh5OT7HDtoq96a2zwhbokpOU8+UzqVztEtNZuaUVRASmKzaA8A8IVYQDXiszNXUp3dVPi
-	1POF3gNk/KRZGNfEzPDPBly3hreUDV8p6ZOHy0vfx2PQnAZueyTFrhUEZmG54iYY2r/0GywnY66
-	hRwxI44vXHYnpx8+Cyl+heQBSVZDMiZy0TEl6rLV
-X-Google-Smtp-Source: AGHT+IFs8RJ3NO2OT33SRqFUyUB/tvu/B+LNlrcE6krOU8A6UpaUH6OiJazjufKRn27kaO1pthKstw==
-X-Received: by 2002:a17:907:72ce:b0:aa6:7df0:b17a with SMTP id a640c23a62f3a-ab38b29b08dmr459543766b.34.1737133797425;
+        bh=zWj3M8A+8QkmZTCPt7r4bM5zsk4erApcDBVhUj+B4N8=;
+        b=KSZ5M1+WzFkgxS+TY573iO50Pl06Q5uGctXewl9xFIF8bOJdnc5em5JWt1kHqWdcMz
+         OBGg2Z9FXblU7nt13hc8jkhFYuaqwzzernEtt0WrZDb2zOMvweFOKoXeH21nkim/m4vW
+         Di/IGKV+SrzazBryRQpl3RdFsM90N4Zr8fyM6vvF96cyd/DuAvFWA4QJ8SpBWW1/c7FK
+         8D/Cl2ZHF3NXeM4RVpvu8UoCRtxAOOlnE8jgq6qmgf95OyHimwdpuOEmI+Vrs7rgLuUn
+         bmQgh5od0lD4CNebdHGafPQmVpFyCCYa6wRxhSfDvjg4KjOFmArs+dI/wy9/L8YyX0/v
+         q4pw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737133798; x=1737738598;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=zWj3M8A+8QkmZTCPt7r4bM5zsk4erApcDBVhUj+B4N8=;
+        b=NIQmkAUI58eydc0MDiDPpjuOAvDc2xPuwDL0wTGhwPKVFVZeNLJV1Lo4ji7HTabRKN
+         f7dj3W4Wnmu3EDk0Wr2Tos0sO0EegM9pQs2XHg61FManUyyIpEIPH9WaJtJ3KBZEag4r
+         SW+FWHZmp7Cv/LRno2Af1AYXK6ov4tNK7N8XSXWPgmaCKIn4mR8vKRh8/M6E5uc9ffAC
+         M6qi5a6Ej0vwMrigzN/cT5oJSS2NxP1MzdTex7MecVD84ojqDJmy2FM/zRBK/vtJBos5
+         EQm4O0Azm5aML9gvNFguOjIYbJFClFyNYjmD7p1w7SLKN+NNY2fLUgCWR8F3CDUvFsy8
+         mDCg==
+X-Forwarded-Encrypted: i=1; AJvYcCWCatfe/3ASVaVS7L/08K5K7rKNueuh76Q4o/0+CcaXO8dB8BeFoaNSatOceyph2nAV5KQx8J0v1TzE/djYUUKh@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzd4j/RiuA3/Bm+55cUWT8i78GHuSNmkipRSKooPJl9h4nALOIj
+	ttbXysnGKRPxJe/IFZUnd9B3ByFQm2T7adyW0sp296As9atZmNpc/NRfZS8/PL8=
+X-Gm-Gg: ASbGnct+WslXgcXi1YqJD2XvgKSyMzKhNCUfgiq+QcQsp/nZsY2we1mb2hqn27/KXmN
+	MOGoJ8fvpv9Li2joP3Jw6OFbE+3H5ldsbYzysGj8rFXxY9lQ/aHAnhbjmN9mjlfdOWqwl6ev2tS
+	BZTUBfgEWyfJipIWW30iXvaAhpo8XfkLieSY6EhvE988BIlsNd7pkIMWE3B5vpGzC+28WkXeB6K
+	wBUY8Ksv1NMgdxrdfoUtivkPNK0NfmtfjBk6vF48iIvemWXrdgJxgKtihbkgfesYpE2V1c6Eb17
+	QgBO3kBnOuykqGpUje3zoTRD27ft0GUE5pJQOHW2
+X-Google-Smtp-Source: AGHT+IF0L7i4EpVSgd88RVC/tmSVBf4b8zhHMKBwJVkEIlZvmd5oRM2kNs+UPF0xzIQ5t2bc6BiNnw==
+X-Received: by 2002:a17:906:c143:b0:aa6:8cbc:8d15 with SMTP id a640c23a62f3a-ab38b10bacemr299713366b.14.1737133797895;
         Fri, 17 Jan 2025 09:09:57 -0800 (PST)
 Received: from puffmais.c.googlers.com (140.20.91.34.bc.googleusercontent.com. [34.91.20.140])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab384f87065sm199197966b.133.2025.01.17.09.09.56
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab384f87065sm199197966b.133.2025.01.17.09.09.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Jan 2025 09:09:56 -0800 (PST)
+        Fri, 17 Jan 2025 09:09:57 -0800 (PST)
 From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Subject: [PATCH v4 0/4] Google Pixel 6 (simple) framebuffer support
-Date: Fri, 17 Jan 2025 17:09:53 +0000
-Message-Id: <20250117-gs101-simplefb-v4-0-a5b90ca2f917@linaro.org>
+Date: Fri, 17 Jan 2025 17:09:54 +0000
+Subject: [PATCH v4 1/4] dt-bindings: arm: google: add gs101-raven
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAOKOimcC/3XM0QqCMBTG8VeRXbc456g5u+o9oos5jzowJ1tII
- b57UwgK6fL74PefRWBvOYhzMgvPkw3WDXFkh0SYTg8tS1vHLQgoQ8KTbAMCymDvY89NJZXWrIA
- KxXUhIho9N/a5Ba+3uDsbHs6/tv6E6/s3NaEEqYzRNaoUSOGlt4P27uh8K9bWRF+eYOcpeoOgV
- VNyVkK18+nH54CY73wafU5sdKpzRVXx45dleQNfaq6rLQEAAA==
+Message-Id: <20250117-gs101-simplefb-v4-1-a5b90ca2f917@linaro.org>
+References: <20250117-gs101-simplefb-v4-0-a5b90ca2f917@linaro.org>
+In-Reply-To: <20250117-gs101-simplefb-v4-0-a5b90ca2f917@linaro.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
  Peter Griffin <peter.griffin@linaro.org>, 
@@ -90,8 +88,9 @@ Cc: Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
  =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
 X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_090959_523220_9E9B50CE 
-X-CRM114-Status: GOOD (  20.67  )
+X-CRM114-CacheID: sfid-20250117_090959_774058_7C33A6F7 
+X-CRM114-Status: UNSURE (   9.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,95 +105,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Raven is Google's code name for Pixel 6 Pro. Since there are
+differences compared to Pixel 6 (Oriole), we need to add a separate
+compatible for it.
 
-This series enables simple framebuffer support on Google Pixel 6 and
-Pixel 6 Pro.
-
-Even if simple-framebuffer is deprecated and DRM should be used
-instead, having it available in DT is beneficial for several reasons at
-this point in time (the phone uses an OLED display):
-* energy consumption goes down significantly, as it changes from white
-  (as left by bootloader) to black (linux console), and we generally
-  don't run out of battery anymore when plugged into a USB port
-* less of a burn-in effect I assume
-* phone stays cooler due to reduced energy consumption by display
-
-Since Pixel 6 and Pixel 6 Pro use a different resolution display, this
-is the time to separate them into their respective DTs, and provide one
-for each of them. There are other differences between the two, like
-battery design capacity, but they don't matter at this stage due to
-incomplete upstream support.
-
-* dependency note *
-
-None (anymore) - earlier versions of this series had dependencies, but
-those are all part of linux-next already, so none remain.
-
-* dependency note end *
-
-For those who want to try this out:
-The stock bootloader disables the decon hardware trigger before jumping
-to Linux, preventing framebuffer updates from reaching the display. We
-have added a work-around in our Yocto BSP layer for the time being
-(until a proper display exists upstream). An alternative might be to
-port and use uniLoader from https://github.com/ivoszbg/uniLoader, as
-seems to be done for some other Exynos platforms.
-
+Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: André Draszik <andre.draszik@linaro.org>
 ---
-Changes in v4:
-- fix an unintended whitespace error introduced in patch 4 in v3
-- Link to v3: https://lore.kernel.org/r/20250115-gs101-simplefb-v3-0-52eca3a582b7@linaro.org
+ Documentation/devicetree/bindings/arm/google.yaml | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-Changes in v3:
-- back to using separate DTBs for Pixel 6 and Pixel 6 Pro (Krzysztof)
-- update name of common dtsi file (Krzysztof)
-- use 'memory-region' property from the start in patch 2, don't
-  introduce it as change in patch 3 (Krzysztof)
-- Link to v2: https://lore.kernel.org/r/20241220-gs101-simplefb-v2-0-c10a8f9e490b@linaro.org
-  and https://lore.kernel.org/r/20241220-gs101-simplefb-oriole-v2-1-df60e566932a@linaro.org
+diff --git a/Documentation/devicetree/bindings/arm/google.yaml b/Documentation/devicetree/bindings/arm/google.yaml
+index e20b5c9b16bc..99961e5282e5 100644
+--- a/Documentation/devicetree/bindings/arm/google.yaml
++++ b/Documentation/devicetree/bindings/arm/google.yaml
+@@ -34,10 +34,11 @@ properties:
+     const: '/'
+   compatible:
+     oneOf:
+-      - description: Google Pixel 6 / Oriole
++      - description: Google Pixel 6 or 6 Pro (Oriole or Raven)
+         items:
+           - enum:
+               - google,gs101-oriole
++              - google,gs101-raven
+           - const: google,gs101
+ 
+   # Bootloader requires empty ect node to be present
 
-Changes in v2:
-- We now have a generic gs101-based Pixel board DT, which can work on
-  any Pixel 6 / 6 Pro / 6a
-- Pixel 6 (Pro) are overlays onto that one.
-  This has the advantage that all boards can be supported without
-  having to have a full copy of the DT for each of them. We still
-  instruct kbuild to create merged DTBs (in addition to the DTBOs) so
-  that existing scripts can keep working while giving the option to
-  just apply the overlay before boot (e.g. by the bootloader).
-- The binding has been updated according to the above points
-- I've changed the simple-framebuffer node to specify the memory via
-  memory-region instead of reg, as that avoids unnecessary duplication
-  (of the size), and it avoids having to specify #address-cells
-  and #size-cells in the chosen node (and duplicating this in the
-  DTSO), which is otherwise necessary to keep dt_binding_check happy
-  and DT validation working in general.
-- sort overriding/extending nodes ordered by label name (Krzysztof)
-- format patches with diff.renames=copies (Krzysztof)
-- dependencies have been updated, see below
-- Link to v1: https://lore.kernel.org/r/20241216-gs101-simplefb-v1-0-8ccad1830281@linaro.org
-
----
-André Draszik (4):
-      dt-bindings: arm: google: add gs101-raven
-      arm64: dts: exynos: gs101-oriole: configure simple-framebuffer
-      arm64: dts: exynos: gs101-oriole: move common Pixel6 & 6Pro parts into a .dtsi
-      arm64: dts: exynos: gs101-raven: add new board file
-
- Documentation/devicetree/bindings/arm/google.yaml  |   3 +-
- arch/arm64/boot/dts/exynos/google/Makefile         |   1 +
- arch/arm64/boot/dts/exynos/google/gs101-oriole.dts | 267 +--------------------
- .../{gs101-oriole.dts => gs101-pixel-common.dtsi}  |  22 +-
- arch/arm64/boot/dts/exynos/google/gs101-raven.dts  |  29 +++
- 5 files changed, 58 insertions(+), 264 deletions(-)
----
-base-commit: 4e16367cfe0ce395f29d0482b78970cce8e1db73
-change-id: 20241216-gs101-simplefb-8aae80278ed7
-
-Best regards,
 -- 
-André Draszik <andre.draszik@linaro.org>
+2.48.0.rc2.279.g1de40edade-goog
 
 
