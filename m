@@ -4,88 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1632C02185
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 17:11:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20103C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 17:13:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=X4kDojqUMiIFkZnyNMg3tExxWOhbTs+aQLMwWb7s2ao=; b=xuy5VGmPFSyFGnho4ZsD45p0DX
-	lH5VpbJ773rzj2wOyHVJokUb/YSmiRVRWTQXRccvpBM/aRCSDSftK1JbXsWsxe9C+zN0jCvhg5Ki/
-	hUxMueAhnmA/BzOzHoccZ6w2sMoog/3/ZaJUODDbCsK0Y35tdjJFLNcSu1ezvfTAoRKvYegp4kzlf
-	7/QS7t990IUWhyPPDeM1iNvRUZyuQO9f/k+kxkwsfPa01F6Gh2vEa61AJRzNK5ux9pdlRNzdODxUN
-	GqiRecgs/MlsXJawFk9DCmnPokqjeCTbCsMvGBfwabsn/XUP/adqhcPyeE2SVFgD58vzJ8J3szNe2
-	NidzG2Fw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wjwQpODvobkfiZASFrGVqsRrnXdcuv2VPJLKEtXc4oU=; b=NHJutjl/R+ZqlSQJ7/wDrUB/fl
+	OMaD9mWNrBlVld9WVxdlcd2q5Pwv+oqo3VWxftxXsCe7dDh5Lx6IZ9oBOjdJDpiBmeWcCk5Yynjm9
+	r/fuIl3cmi9eaGG49Q7Ppzbm/oPZMZ1IT18c+fp7ZwW9h5ePxCCC97WOQNAzkLw/iBgFaGar4y9Io
+	VJvfzBmloAT5+RRp0OSDRYVDDTD1d9McqsYMoQDRJ6hb25MmL3aKzcHsveAo+xBanIAhs4womq7oQ
+	wMTaer4F2OfyHLmRuzvlTsoq5rpAMpPEKOEpB/egJNXO4ZgBVmWPVwijWlQ7Vk2HtJWTSGuy0VxWK
+	uT8NoPUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYpsr-00000000vAj-0fEB;
-	Fri, 17 Jan 2025 17:11:49 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1tYpu5-00000000vcV-3JbR;
+	Fri, 17 Jan 2025 17:13:05 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYpkA-00000000tQY-2vKX
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jan 2025 17:02:51 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2efb17478adso4111143a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jan 2025 09:02:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737133369; x=1737738169; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=X4kDojqUMiIFkZnyNMg3tExxWOhbTs+aQLMwWb7s2ao=;
-        b=mlw299ymotwluSeItH3RbKKRur2ft4IDoUcosTnsww67tstdUydZK8SgiJM4b4VkFl
-         McDHnnqP1GCh2rcbLnnnMC8+vfQUzxdgvMO02Ew0x46rqfQyUa1rmFZpY/HENYfvmpiY
-         sodGatPQHCV9QVwssAxwVStN12E/WEXSTmnTdcA1W9Nr5l25n+1EGlcl2DkK0V6CzSBW
-         bsxv5ZyacPL4aHKxugwoZfgYBjtS1v4OZQ/LhZ2VZGplonz+gJTE0XlwVeMwSsKf+Uix
-         Gi4O04Nn6uoiR2KrdcZ8dTys+cr87iUtvf3LSVQGJtzL33NpBGePeE9hOiumEGSZs7l1
-         htxg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737133369; x=1737738169;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=X4kDojqUMiIFkZnyNMg3tExxWOhbTs+aQLMwWb7s2ao=;
-        b=sjGDydfJLtwcbGyp3eM+at1IXm1AHNVYvEF7/Gpcr6lTYH6tKg2uDqkDjoiqL85Mou
-         TGezE1e58IjIBEvOyp2mhCLbuPHl1qU+XHL9ZmSVgQ5A8eOfFgTmjDITxVvcPOOd0PLi
-         UkItF5rnM+91h2PSe4zny74DgBC/ZkJzXZORfwI+KPwErVRfNAe2ujGY6cy5PJd0BNyB
-         f1QH4kNB9YySom7djHoYRL9v5GLmI/GGzZk+AVE/p75vtSLH0Gsz62v1gYQiN4+O+UxK
-         /5nKl/gu5skNE2v0uQ+JC3F+8DEybJudHidM8LlWnPLnSrgtXIcfKe7ziyplpXWDgDKS
-         5N7A==
-X-Forwarded-Encrypted: i=1; AJvYcCXSTmJHixXs8BUse7Zrw70CtS6x4fjTYuiLrhaXs1vaLF0MbArBLIFqNRCyNb9o99Z/V7E2HTwdUDgR6WA61VCT@lists.infradead.org
-X-Gm-Message-State: AOJu0YzZftZeiQZZwO39fNVAWTLk4y53YrR2uglBKjmee4Z8JdHtGlYF
-	ZpPsjBvbrS65q4mmMvP8xkO+YyGn18ib4Zf87eHFssUi0xiR20Dk
-X-Gm-Gg: ASbGncu52Ij5zLBDYvor5Duj1sBVxczl8mjpWXtyvqdSX39iMeJ1qnCTj+ZFOmLf95z
-	CglIqpOxhYc6te4+muJgaZUk552IF97nN5d+XKO+EZpFyIAR3sHLxNMjoCx6it10XfU0axWTdaA
-	sHv2uy60i6Vb/irUyeyJd1uHnCLt0YPUv5iko/ArslTLzFSU9JZbvFidohPUdOArEs1B1kTRvk6
-	znM+MQrJ80gs7e54NNAuN1Ebzao7ce4n4v4yOoRIhMb6gJNU876LU2/xg==
-X-Google-Smtp-Source: AGHT+IFSKYz5MJBYL73PaQgH4rfTufNnsapr7Rut4pl5xrZYZx9FoXciCNIkw1AxE63eVLgrgYPDDw==
-X-Received: by 2002:a17:90b:2f50:b0:2ee:fdf3:38ea with SMTP id 98e67ed59e1d1-2f782d32c45mr4034054a91.23.1737133369113;
-        Fri, 17 Jan 2025 09:02:49 -0800 (PST)
-Received: from nick-mbp.. ([59.188.211.160])
-        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-2f72c1ccf46sm5544422a91.22.2025.01.17.09.02.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Jan 2025 09:02:48 -0800 (PST)
-From: Nick Chan <towinchenmi@gmail.com>
-To: Hector Martin <marcan@marcan.st>,
-	Sven Peter <sven@svenpeter.dev>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Marc Zyngier <maz@kernel.org>,
-	asahi@lists.linux.dev,
+	id 1tYpkr-00000000teT-1JOB;
+	Fri, 17 Jan 2025 17:03:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4E738A4327D;
+	Fri, 17 Jan 2025 17:01:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BAE4C4CEDD;
+	Fri, 17 Jan 2025 17:03:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737133411;
+	bh=7+7jqSST9DXKAARHg+D99JW6DXAhw6kqu5zZwJaCdA0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kJJbfjFa60XiZ4VAGecLla1hbgUb65SMy6TIOGVyF5tJSyQeauVWNKrNjy/T7bYyy
+	 K1T0nkgFCn2ErUYFkyx3JrEa4tdOCLmK13CZa/I0/PXk1J+CyYAur6WoFHk0UTYt/f
+	 1U0V+ZHS7IGMxcJ4gihPHVLalHEfcFxXgXQhkusdT8PDouxUODx6ZLt//DFWtalmBw
+	 Uw+eMw1BtR8ARe8h+qKukUYKcT5E1vKa1NtRn2sVlcOJphox5oqcDiZ8mdirLpvt5p
+	 wfjJ9u6gztvti5Q4ZiMqw9/BszLDYvBlDA7flt4qmqsXBbzhZkixdu1REnmtGqniPE
+	 9mgu4A/E2zLxg==
+Date: Fri, 17 Jan 2025 18:03:28 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Nick Chan <towinchenmi@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] irqchip/apple-aic: Only handle PMC interrupt as FIQ when configured to fire FIQ
-Date: Sat, 18 Jan 2025 01:02:27 +0800
-Message-ID: <20250117170227.45243-1-towinchenmi@gmail.com>
-X-Mailer: git-send-email 2.48.1
+	linux-mediatek@lists.infradead.org, upstream@airoha.com
+Subject: Re: [net PATCH] net: airoha: Fix wrong GDM4 register definition
+Message-ID: <Z4qNYBWBFn-Adbli@lore-desk>
+References: <20250117155257.19263-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="dDHGaHO6hPydbGRy"
+Content-Disposition: inline
+In-Reply-To: <20250117155257.19263-1-ansuelsmth@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_090250_735770_0C33EACF 
-X-CRM114-Status: GOOD (  11.12  )
+X-CRM114-CacheID: sfid-20250117_090333_485022_CC08A6AE 
+X-CRM114-Status: GOOD (  18.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,35 +79,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The CPU PMU in Apple SoCs can be configured to fire its interrupt in one
-of several ways, and since Apple A11 one of the method is FIQ. Only handle
-the PMC interrupt as a FIQ when the CPU PMU has been configured to fire
-FIQs.
 
-Cc: stable@vger.kernel.org
-Fixes: c7708816c944 ("irqchip/apple-aic: Wire PMU interrupts")
-Signed-off-by: Nick Chan <towinchenmi@gmail.com>
----
- drivers/irqchip/irq-apple-aic.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+--dDHGaHO6hPydbGRy
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/drivers/irqchip/irq-apple-aic.c b/drivers/irqchip/irq-apple-aic.c
-index da5250f0155c..c3d435103d6d 100644
---- a/drivers/irqchip/irq-apple-aic.c
-+++ b/drivers/irqchip/irq-apple-aic.c
-@@ -577,7 +577,8 @@ static void __exception_irq_entry aic_handle_fiq(struct pt_regs *regs)
- 						  AIC_FIQ_HWIRQ(AIC_TMR_EL02_VIRT));
- 	}
- 
--	if (read_sysreg_s(SYS_IMP_APL_PMCR0_EL1) & PMCR0_IACT) {
-+	if (read_sysreg_s(SYS_IMP_APL_PMCR0_EL1) &
-+	    (FIELD_PREP(PMCR0_IMODE, PMCR0_IMODE_FIQ) | PMCR0_IACT)) {
- 		int irq;
- 		if (cpumask_test_cpu(smp_processor_id(),
- 				     &aic_irqc->fiq_aff[AIC_CPU_PMU_P]->aff))
+On Jan 17, Christian Marangi wrote:
+> Fix wrong GDM4 register definition, in Airoha SDK GDM4 is defined at
+> offset 0x2400 but this doesn't make sense as it does conflict with the
+> CDM4 that is in the same location.
+>=20
+> Following the pattern where each GDM base is at the FWD_CFG, currently
+> GDM4 base offset is set to 0x2500. This is correct but REG_GDM4_FWD_CFG
+> and REG_GDM4_SRC_PORT_SET are still using the SDK reference with the
+> 0x2400 offset. Fix these 2 define by subtracting 0x100 to each register
+> to reflect the real address location.
 
-base-commit: 40384c840ea1944d7c5a392e8975ed088ecf0b37
--- 
-2.48.1
+Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
+>=20
+> Fixes: 23020f049327 ("net: airoha: Introduce ethernet support for EN7581 =
+SoC")
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> ---
+>  drivers/net/ethernet/mediatek/airoha_regs.h | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/mediatek/airoha_regs.h b/drivers/net/et=
+hernet/mediatek/airoha_regs.h
+> index e448b66b5334..30c96f679735 100644
+> --- a/drivers/net/ethernet/mediatek/airoha_regs.h
+> +++ b/drivers/net/ethernet/mediatek/airoha_regs.h
+> @@ -249,11 +249,11 @@
+>  #define REG_GDM3_FWD_CFG		GDM3_BASE
+>  #define GDM3_PAD_EN_MASK		BIT(28)
+> =20
+> -#define REG_GDM4_FWD_CFG		(GDM4_BASE + 0x100)
+> +#define REG_GDM4_FWD_CFG		GDM4_BASE
+>  #define GDM4_PAD_EN_MASK		BIT(28)
+>  #define GDM4_SPORT_OFFSET0_MASK		GENMASK(11, 8)
+> =20
+> -#define REG_GDM4_SRC_PORT_SET		(GDM4_BASE + 0x33c)
+> +#define REG_GDM4_SRC_PORT_SET		(GDM4_BASE + 0x23c)
+>  #define GDM4_SPORT_OFF2_MASK		GENMASK(19, 16)
+>  #define GDM4_SPORT_OFF1_MASK		GENMASK(15, 12)
+>  #define GDM4_SPORT_OFF0_MASK		GENMASK(11, 8)
+> --=20
+> 2.47.1
+>=20
+
+--dDHGaHO6hPydbGRy
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ4qNYAAKCRA6cBh0uS2t
+rKM9AP9qxIC+KDo4D2c6L+3TtapTrfantCgjpRZKdGBE3AW47QEAxqhGFldb4QF/
+WgB/p4rDxSN9ukHVhmmzMDKo0ICFTAY=
+=QQSQ
+-----END PGP SIGNATURE-----
+
+--dDHGaHO6hPydbGRy--
 
