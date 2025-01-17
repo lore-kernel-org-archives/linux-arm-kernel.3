@@ -4,87 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0C24C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 18:44:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90041C02188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 18:49:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mt4YQ5I0aOBm8Wx8Ld+bzp8XQiHDr9QBnfewQyVv7Vc=; b=lti3k2aMgwCHIdhynNZTJu1Ymw
-	65smTPJ9YojyqBcLl+IyVT+D/IXKwxl3FUR35Gt5sRn2tM7Pq4rHvgqhLpqXz1pQSmaZZkgEud2jh
-	lmMtLD2h589/cfMblm4uadREv2CLxC11AIyOj48nBB092ZUiI04RN2P1u/yw9AC+bFwbcPgB7dKzB
-	f5BuBiTy8X9ZZdraHkC7bcghZm5/+L2Nf9AvGkB7ztKY10Jpv9oD1LxVM1LN2GpHiat7e76N5ySHq
-	bJroDRsZRtaknXqI0z3DGg0qQ2wTplg1eBQaEoNdQDCCcM6bmPNpsNS5JHSMD3pKMM6Y1/sCoOeaa
-	PcNwrYaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+ra6/FwxtS9APR+DM5MjQWhKeuNW85TPSbzZLBgVdyU=; b=bxH0+nq91IZFgO
+	LsnCY3TOANaJ7kNKUqTH9kDCG6vgLspyBsIYPinzsSImAkQaY7Ld/BoKohCGBqBog5fZfro5jfr2H
+	6BuYcCp3qCRxf/01UqbqrWx9RuP0Z6I9sDBC+KzcgQGqaqW36aSdScgmvMmSlzWujSSNP0Dd9tE+J
+	Vt0lLaa4BZ/IHW/gdDimPkFfJYNFz/ph/TbINZU8PqbCcf4Ov3oUG8EfpEqGc3z0V5Kj2RzF0dpcu
+	xSHvaG1CTJkb2MVyf2ziu8fohCklmyf/wIlwLeh8fPssdKQfPh2EI147V7XJaWofUgnWc3kMnrR7n
+	v8EJ02knfwYZD7nveA9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYrKD-0000000180J-2ZDM;
-	Fri, 17 Jan 2025 18:44:09 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1tYrOr-000000019B8-31S3;
+	Fri, 17 Jan 2025 18:48:57 +0000
+Received: from mail-qv1-xf33.google.com ([2607:f8b0:4864:20::f33])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYrIb-000000017Tj-0DwK;
-	Fri, 17 Jan 2025 18:42:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1737139349; x=1768675349;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=+2nmW2NKMU28nyZzdx1UxlGMW1MKoytc0yORwfK08tI=;
-  b=Hl5pFcF/ayFkfikjvYwMWvfSlq1OMMepjqWf8BXM1hxM50S95kTn48Gv
-   8HrULS/MQd0pGHDa4YGU36Y+kXneR5/wMgNNG0FSgtqmTp8I6+zDE08Qc
-   KUEe3/4nWqiY7piRy+No492i93J5VenyOFxQR/e+JVbeI0Br6M/3KM0i7
-   5xkIpPzD90OBAvbZXW++TLvrK6PTRsPo7J9DlDJNgybaOMhTtM3e/ZsQR
-   u2QAcgH+7NDB98rznD01gkl66fbGHxNDbZrMBNIMaT0TOLaw7/xZ9MSvk
-   0kOXbYRtLxgOPYaQ3e/3cEg2K1baELI/f4LTg361OZf0FpAipejWaDbDL
-   A==;
-X-CSE-ConnectionGUID: 7NS4nzqASgCmb1xXPFoBlQ==
-X-CSE-MsgGUID: HUTvdIEpQW++gY4fpXQMHw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11318"; a="48244887"
-X-IronPort-AV: E=Sophos;i="6.13,212,1732608000"; 
-   d="scan'208";a="48244887"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jan 2025 10:42:27 -0800
-X-CSE-ConnectionGUID: DFlZGaCrRF+VTsoFUySQWw==
-X-CSE-MsgGUID: sC6n3vS5Tt2eoHcile/hHA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,212,1732608000"; 
-   d="scan'208";a="110871489"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by fmviesa004.fm.intel.com with ESMTP; 17 Jan 2025 10:42:21 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tYrIQ-000TaB-2o;
-	Fri, 17 Jan 2025 18:42:18 +0000
-Date: Sat, 18 Jan 2025 02:41:24 +0800
-From: kernel test robot <lkp@intel.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	chunkuang.hu@kernel.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	p.zabel@pengutronix.de, airlied@gmail.com, simona@ffwll.ch,
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
-	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com, ck.hu@mediatek.com,
-	jitao.shi@mediatek.com, jie.qiu@mediatek.com,
-	junzhi.zhao@mediatek.com, dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com, dmitry.baryshkov@linaro.org,
-	lewis.liao@mediatek.com, ives.chenjh@mediatek.com,
-	tommyyl.chen@mediatek.com, jason-jh.lin@mediatek.com
-Subject: Re: [PATCH v5 32/34] drm/mediatek: Introduce HDMI/DDC v2 for
- MT8195/MT8188
-Message-ID: <202501180257.A2Og8gLK-lkp@intel.com>
-References: <20250113145232.227674-33-angelogioacchino.delregno@collabora.com>
+	id 1tYrNa-000000018sp-2iFu
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Jan 2025 18:47:39 +0000
+Received: by mail-qv1-xf33.google.com with SMTP id 6a1803df08f44-6d8f9494312so3212436d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jan 2025 10:47:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1737139657; x=1737744457; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=+ra6/FwxtS9APR+DM5MjQWhKeuNW85TPSbzZLBgVdyU=;
+        b=Uaw1nuNH+1790XBfXzPcLXmXzA4Cc4A77hWxWnFom8LHeiSvDg6F88WBM8dI7UUXAV
+         OhN+F23EBdtsyb80p/umvUrmTWf+HCHhUt2IymSw7V10ynpaYdNPQ7wmQiCEHlV4VOMK
+         WtqUJeGQ//xO2jatYJrYv3VZIfEfn+mNSxVAEGdEtReN6gLwPUgSBdwXDyww5WDdJpyv
+         aVFPIiFfHD5slr+bt8V0JjAyopQ3mI/qrrTD5qGPid6ko2k+IRUistR6sg1Rpj5YObxT
+         WkQ3A0XHHUYBI+hmA+k4Q6EcZIEh6j81qV9E5GPAaR5thlDFa+P5+9uVUplLmLOc34HR
+         cLyQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737139657; x=1737744457;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+ra6/FwxtS9APR+DM5MjQWhKeuNW85TPSbzZLBgVdyU=;
+        b=egamYaG/HzhTy8YkKvsr+8WudQXWmk7Y3kcvpOpp6uoS60WAvgoLl9QgnVxzJdRXCm
+         6wJygqzGkYvUzvv57qm2h2xRnu441rAXLe9EKBj4BxeMoSf/7RZe646qqhQJuopXtCKs
+         MaFDr5eWaezMHNlbUJAf3JXStJ922rZi6HaGPm2RfXNRTSOHcz7tDFBnKW3BOtnHuU3f
+         F8gKZWJt0PB5/qzGdpX0tVFvLv+VGaradVnbDh5bVz6/zbdH+kAMh8g2wmHWpCjbzDxs
+         0d4Ra8mNQ47Ev//sKl2PrmAwzbpvaqKwO6z/moJFV0nR/CtOaBrhQKaUTQmeav/osWiJ
+         NI1A==
+X-Forwarded-Encrypted: i=1; AJvYcCV6PFHVWMi7kTpb9h+lDNepIZJ8wWVS+RmaYMRUMtCHz/bLNuLWrz6d2f/Ipp+pJ9FD7uNL7m0CORBvAu+QPPXe@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz7XgcI7dSyGOwIrBqzqvMOGJbkgYc5Q6wgNkgso6a05wXORrjK
+	tr/G/6jxuuKIDi2MaobT8QTRvCSW82uc+tnm7FqGeTi4IytAlzuM
+X-Gm-Gg: ASbGncuDx0qBw0vNuXAIB82GaqHHXpcLSqzta8wMFOFQ2xHh532aKELug71Ti8Q9x7K
+	VzIk/+pTeSd8fYsYia0wDRMq3gsbWpcdBZG0JNVFKUxuG0XTPDDW/TSoL/7jUPl6sWy1LmlUIJI
+	lvJxfl3g42tN54yRDEsgtdet4+UziwzItOzxH+wlqNO1XbGu8MlHIIqUI+R+JuYUlHig7sWVJei
+	OD41aDQFgp2qFNyNCEdqf3uUk4G+gPcAdoLygrqPY2S4k0gomN+w7xpgGVPN9gO3zsIz+RbXNws
+	ur21yxp856L2MZM=
+X-Google-Smtp-Source: AGHT+IHEGS3WMZchQKb6AiaCl+4ohD5OQ+8Gq4AMLYPZ/+pdqcNLdTJ3oItGfaDD1AJRyHaTYAAAVQ==
+X-Received: by 2002:a05:6214:c82:b0:6d9:2fe3:bf0c with SMTP id 6a1803df08f44-6e1b2158965mr20166666d6.4.1737139657265;
+        Fri, 17 Jan 2025 10:47:37 -0800 (PST)
+Received: from [192.168.1.99] (ool-4355b0da.dyn.optonline.net. [67.85.176.218])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6e1afcd3859sm13992176d6.74.2025.01.17.10.47.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 17 Jan 2025 10:47:36 -0800 (PST)
+From: Connor Abbott <cwabbott0@gmail.com>
+Subject: [PATCH 0/3] iommu/arm-smmu, drm/msm: Fixes for stall-on-fault
+Date: Fri, 17 Jan 2025 13:47:06 -0500
+Message-Id: <20250117-msm-gpu-fault-fixes-next-v1-0-bc9b332b5d0b@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250113145232.227674-33-angelogioacchino.delregno@collabora.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAKqlimcC/x3LSwqEMBBF0a1IjS1IIn63Ij0QfWqBRklpI4h7N
+ zg8XO5NiiBQapKbAv6isvkImybUz52fwDJEkzMuN9aWvOrK037y2J3LwaNcUPa4Dq4LZKaujMt
+ gKe57wFfj3f6e5wViwNJ/agAAAA==
+X-Change-ID: 20250117-msm-gpu-fault-fixes-next-96e3098023e1
+To: Rob Clark <robdclark@gmail.com>, Will Deacon <will@kernel.org>, 
+ Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, 
+ Sean Paul <sean@poorly.run>, Konrad Dybcio <konradybcio@kernel.org>, 
+ Abhinav Kumar <quic_abhinavk@quicinc.com>, 
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+ Marijn Suijten <marijn.suijten@somainline.org>
+Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, freedreno@lists.freedesktop.org, 
+ Connor Abbott <cwabbott0@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1737139656; l=2214;
+ i=cwabbott0@gmail.com; s=20240426; h=from:subject:message-id;
+ bh=wufxwIG7SZVGT+NpZWvu5eUyVT71GkroNC9AubeD6sU=;
+ b=RzjUDIZzgJrcKPPHCBVN/rS1IQljrG9wOjACFFGTOV2ahU8dMokrXTl3UGiT9YmU29Wrd+Hio
+ +pb1RkanhupDPC3GvaEwsdahnKSFbIIkGWx35my0A19lFaiS/f1vahd
+X-Developer-Key: i=cwabbott0@gmail.com; a=ed25519;
+ pk=dkpOeRSXLzVgqhy0Idr3nsBr4ranyERLMnoAgR4cHmY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_104229_137973_2F891023 
-X-CRM114-Status: GOOD (  12.89  )
+X-CRM114-CacheID: sfid-20250117_104738_707877_478D4C62 
+X-CRM114-Status: GOOD (  15.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,120 +112,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi AngeloGioacchino,
+drm/msm uses the stall-on-fault model to record the GPU state on the
+first GPU page fault to help debugging. On systems where the GPU is
+paired with a MMU-500, there were two problems:
 
-kernel test robot noticed the following build errors:
+1. The MMU-500 doesn't de-assert its interrupt line until the fault is
+   resumed, which led to a storm of interrupts until the fault handler
+   was called. If we got unlucky and the fault handler was on the same
+   CPU as the interrupt, there was a deadlock.
+2. The GPU is capable of generating page faults much faster than we can
+   resume them. GMU (GPU Management Unit) shares the same context bank
+   as the GPU, so if there was a sudden spurt of page faults it would be
+   effectively starved and would trigger a watchdog reset, made even
+   worse because the GPU cannot be reset while there's a pending
+   transaction leaving the GPU permanently wedged.
 
-[auto build test ERROR on next-20250113]
-[cannot apply to robh/for-next pza/reset/next linus/master pza/imx-drm/next drm-misc/drm-misc-next v6.13-rc7 v6.13-rc6 v6.13-rc5 v6.13-rc7]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Patch 1 fixes the first problem and is independent of the rest of the
+series. Patch 3 fixes the second problem and is dependent on patch 2, so
+there will have to be some cross-tree coordination.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/AngeloGioacchino-Del-Regno/dt-bindings-display-mediatek-dpi-Add-MT8195-and-MT8188-compat/20250113-225554
-base:   next-20250113
-patch link:    https://lore.kernel.org/r/20250113145232.227674-33-angelogioacchino.delregno%40collabora.com
-patch subject: [PATCH v5 32/34] drm/mediatek: Introduce HDMI/DDC v2 for MT8195/MT8188
-config: hexagon-allmodconfig (https://download.01.org/0day-ci/archive/20250118/202501180257.A2Og8gLK-lkp@intel.com/config)
-compiler: clang version 20.0.0git (https://github.com/llvm/llvm-project c23f2417dc5f6dc371afb07af5627ec2a9d373a0)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250118/202501180257.A2Og8gLK-lkp@intel.com/reproduce)
+I've rebased this series on the latest linux-next to avoid rebase
+troubles.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202501180257.A2Og8gLK-lkp@intel.com/
+Signed-off-by: Connor Abbott <cwabbott0@gmail.com>
+---
+Connor Abbott (3):
+      iommu/arm-smmu: Fix spurious interrupts with stall-on-fault
+      iommu/arm-smmu-qcom: Make set_stall work when the device is on
+      drm/msm: Temporarily disable stall-on-fault after a page fault
 
-All errors (new ones prefixed by >>):
+ drivers/gpu/drm/msm/adreno/a5xx_gpu.c      |  2 ++
+ drivers/gpu/drm/msm/adreno/a6xx_gpu.c      |  4 +++
+ drivers/gpu/drm/msm/adreno/adreno_gpu.c    | 56 +++++++++++++++++++++++++++++-
+ drivers/gpu/drm/msm/adreno/adreno_gpu.h    | 21 +++++++++++
+ drivers/gpu/drm/msm/msm_iommu.c            |  9 +++++
+ drivers/gpu/drm/msm/msm_mmu.h              |  1 +
+ drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 46 +++++++++++++++++++++---
+ drivers/iommu/arm/arm-smmu/arm-smmu.c      | 32 +++++++++++++++++
+ drivers/iommu/arm/arm-smmu/arm-smmu.h      |  2 +-
+ 9 files changed, 167 insertions(+), 6 deletions(-)
+---
+base-commit: 0907e7fb35756464aa34c35d6abb02998418164b
+change-id: 20250117-msm-gpu-fault-fixes-next-96e3098023e1
 
->> drivers/gpu/drm/mediatek/mtk_hdmi_v2.c:345:8: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     345 |         val = FIELD_PREP(SD0_MAP, sd0) | FIELD_PREP(SD1_MAP, sd1);
-         |               ^
-   drivers/gpu/drm/mediatek/mtk_hdmi_v2.c:378:51: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     378 |         regmap_update_bits(hdmi->regs, AIP_CTRL, I2S_EN, FIELD_PREP(I2S_EN, chnum));
-         |                                                          ^
-   drivers/gpu/drm/mediatek/mtk_hdmi_v2.c:410:13: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     410 |         fifo_map = FIELD_PREP(FIFO0_MAP, 0) | FIELD_PREP(FIFO1_MAP, 1);
-         |                    ^
-   drivers/gpu/drm/mediatek/mtk_hdmi_v2.c:477:53: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     477 |         regmap_update_bits(hdmi->regs, AIP_CTRL, SPDIF_EN, FIELD_PREP(SPDIF_EN, spdif_i2s));
-         |                                                            ^
-   drivers/gpu/drm/mediatek/mtk_hdmi_v2.c:554:7: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     554 |                            FIELD_PREP(MAX_2UI_I2S_HI_WRITE, swapbit));
-         |                            ^
-   drivers/gpu/drm/mediatek/mtk_hdmi_v2.c:579:7: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     579 |                            FIELD_PREP(MAX_1UI_WRITE, 4));
-         |                            ^
-   drivers/gpu/drm/mediatek/mtk_hdmi_v2.c:715:7: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     715 |                            FIELD_PREP(TMDS_PACK_MODE, TMDS_PACK_MODE_8BPP));
-         |                            ^
->> drivers/gpu/drm/mediatek/mtk_hdmi_v2.c:812:16: error: call to undeclared function 'FIELD_GET'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     812 |         hpd_pin_sta = FIELD_GET(HPD_PIN_STA, hpd_status);
-         |                       ^
-   8 errors generated.
---
->> drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c:59:8: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-      59 |                                    FIELD_PREP(DDC_CTRL_CMD, DDC_CMD_CLOCK_SCL));
-         |                                    ^
-   drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c:87:7: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-      87 |                            FIELD_PREP(HPD_DDC_DELAY_CNT, DDC2_DLY_CNT));
-         |                            ^
-   drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c:133:7: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     133 |                            FIELD_PREP(DDC_CTRL_CMD, DDC_CMD_CLEAR_FIFO));
-         |                            ^
-   drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c:139:9: warning: comparison of distinct pointer types ('typeof ((loop_counter)) *' (aka 'unsigned short *') and 'uint64_t *' (aka 'unsigned long long *')) [-Wcompare-distinct-pointer-types]
-     139 |                 rem = do_div(loop_counter, temp_length);
-         |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/asm-generic/div64.h:183:28: note: expanded from macro 'do_div'
-     183 |         (void)(((typeof((n)) *)0) == ((uint64_t *)0));  \
-         |                ~~~~~~~~~~~~~~~~~~ ^  ~~~~~~~~~~~~~~~
->> drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c:139:9: error: incompatible pointer types passing 'u16 *' (aka 'unsigned short *') to parameter of type 'uint64_t *' (aka 'unsigned long long *') [-Werror,-Wincompatible-pointer-types]
-     139 |                 rem = do_div(loop_counter, temp_length);
-         |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/asm-generic/div64.h:199:22: note: expanded from macro 'do_div'
-     199 |                 __rem = __div64_32(&(n), __base);       \
-         |                                    ^~~~
-   include/asm-generic/div64.h:174:38: note: passing argument to parameter 'dividend' here
-     174 | extern uint32_t __div64_32(uint64_t *dividend, uint32_t divisor);
-         |                                      ^
->> drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c:207:26: error: call to undeclared function 'FIELD_GET'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     207 |                         puc_value[read_idx] = FIELD_GET(DDC_DATA_OUT, val);
-         |                                               ^
-   drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c:139:9: warning: shift count >= width of type [-Wshift-count-overflow]
-     139 |                 rem = do_div(loop_counter, temp_length);
-         |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/asm-generic/div64.h:195:25: note: expanded from macro 'do_div'
-     195 |         } else if (likely(((n) >> 32) == 0)) {          \
-         |                                ^  ~~
-   include/linux/compiler.h:76:40: note: expanded from macro 'likely'
-      76 | # define likely(x)      __builtin_expect(!!(x), 1)
-         |                                             ^
-   2 warnings and 5 errors generated.
-
-
-vim +/FIELD_PREP +345 drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
-
-   333	
-   334	static u32 mtk_hdmi_v2_aud_output_channel_map(u8 sd0, u8 sd1, u8 sd2, u8 sd3,
-   335						      u8 sd4, u8 sd5, u8 sd6, u8 sd7)
-   336	{
-   337		u32 val;
-   338	
-   339		/*
-   340		 * Each of the Output Channels (0-7) can be mapped to get their input
-   341		 * from any of the available Input Channels (0-7): this function
-   342		 * takes input channel numbers and formats a value that must then
-   343		 * be written to the TOP_AUD_MAP hardware register by the caller.
-   344		 */
- > 345		val = FIELD_PREP(SD0_MAP, sd0) | FIELD_PREP(SD1_MAP, sd1);
-   346		val |= FIELD_PREP(SD2_MAP, sd2) | FIELD_PREP(SD3_MAP, sd3);
-   347		val |= FIELD_PREP(SD4_MAP, sd4) | FIELD_PREP(SD5_MAP, sd5);
-   348		val |= FIELD_PREP(SD6_MAP, sd6) | FIELD_PREP(SD7_MAP, sd7);
-   349	
-   350		return val;
-   351	}
-   352	
-
+Best regards,
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Connor Abbott <cwabbott0@gmail.com>
+
 
