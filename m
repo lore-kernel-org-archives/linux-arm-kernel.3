@@ -4,66 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C8E8C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 01:41:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F509C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 01:56:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D1PmMsNXCgWxHKbBTBoMMfqQdfRp/EhkEhppZ2BFbTA=; b=InwTr2QZw/D2mwtgkNwJFuNUC0
-	CYU1Vao2ZGeKTK82caqyeUse9JYhTrExrbUaeA50z+EYZEq1M3IPB+yJGyTO0XGKa1hjkfgIXv/rd
-	pG3e0WnrkeSDcyCUxV6D0IEc0/hpKzFMzw3o9wJweix0I6oRG5TJrpkXRHoPaf8rNRRvIn787ZLTL
-	/TKvoIQsa7Y1/apKGVnAIEv54f4oZBQgwHKnfzUR6NkSI42Mo9r1HBHO3eHZg0dGOXj8A2boijDrS
-	atvwChKSV8xKR1mPdxXKHqx+gAs0AK6PY8CxHbL7kWMKPJUXRLAShX9J88oRc/i1N09YsH9ayG44g
-	qLuLINOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hpQhF1Eu3o5/dVcEBvFi4uqy64IBZ4EGdR7QRq2M8j0=; b=iKljwRXIKWXev9mynqxOy7BAaS
+	dVtVN0EIkLUx8MnDNirLTXRm9dFBEhq9ZIx40YZdaSmV5SscC5GDNfsRXlWVRr9kKRql2leT4DPKd
+	wW2l27FraiN+kjSrWiJfHsMT7noypnyZRMIej7c3efXr55xNGXLjUomlkw+SqyOl9/EcGhnPd32pO
+	a9e2eIi7J65h4lFkCsTkdAY07uAZtTv68Qw9OCHMcKL0BJnwhFTsL5feBIF6Yt+3pmbHB6iBbJNL1
+	j2VUmvNMpyYzExARZPynRNVQbTWjrXEJiMhLr4X6i3kjtAHIHsf6WS8YusE3tgkYXmImx6NKzlzZC
+	3vAsbqZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYbMZ-0000000GnfY-1HuY;
-	Fri, 17 Jan 2025 01:41:31 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tYbal-0000000GolK-3cbP;
+	Fri, 17 Jan 2025 01:56:11 +0000
+Received: from mail-dm6nam11on20613.outbound.protection.outlook.com ([2a01:111:f403:2415::613] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYbLI-0000000GnUM-1dLz
+	id 1tYbZV-0000000GoaU-2hH5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jan 2025 01:40:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A2C2C5C60BB;
-	Fri, 17 Jan 2025 01:39:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 079B4C4CED6;
-	Fri, 17 Jan 2025 01:40:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737078010;
-	bh=nUDkxS+SGF5HsEiC9K3lpphe6D0MmMbjsns/C57QoOA=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=t4Lwg1q08IwDzcCM3K+0chPwYs1wTXYjeypEtV2YcfEhdETnhRlSAmurTALOmHnBS
-	 R77blJDNzrHegRhLVCCDuoXUqeAq2csQt0xx/kEj5Ovn7RALPe6M5NLpZqUBdgXr9G
-	 lapL2Vb6+Zw28lAGQxO60RFgsPhQ/a6d1haPXSxWiuBoyVjRkMA6rDMcC6qOADFbUF
-	 19usKybJhWNMosmDHStEWxsrWO4j5nVS/ueGSaogdMOXdquT/BHnsm6qLPYalct3UQ
-	 i0Dz4bhHKy6UZpJAvVPPRgNrCoWLZ3cYTRcX3BzBXe//jBSfdVxm3RjyYAKjvYqxIH
-	 HOK00wjfH06Eg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70E66380AA63;
-	Fri, 17 Jan 2025 01:40:34 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Fri, 17 Jan 2025 01:54:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=p0Ndik2jUJLLqNfyDZDeLNl0yWLbsxxOHUlriBEB06QDE/IY/XeEYPywChj79cZiPLeeR739wTHdhuXQ5Gw1pjs/X+rqbMW/0QZc9+uplc+Mc5+tvANDto7jlrNoYJW818Rt16/IPpSnvKPArDJ4uB6JPrPJA9dLiKZBmnyo7cGZ55rW0m/Cl9YHC/vWQNzfTSRx0ikGLmbyrQYqjKDzHxfFE0lcWS5cxp3vjSKnp1FHsv0KPZy3We+OfLKpsY8mkB9Of+gUDMe2+nJ4LJLrkFKs+v+4B4vrLMGN0hZibwcFzgmD5UM2fFhKUMTo+QY5MrWGEinlw1NPNHpYv+NJBA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hpQhF1Eu3o5/dVcEBvFi4uqy64IBZ4EGdR7QRq2M8j0=;
+ b=IVSCvIVGZLKTUl3fFU4IN83os37u9e4oqQ+5wsZGJ6In+mLN7hOdNiPcIFmvYzBdLywWf12kNP/sEkBTTyrocd82yS3kYucLN8B6gBV9zo3KhUo8XbWflLXgngUTyFEQzoUHIjpvkQsjfGUKdtXYrq37UhyP5a2mkfhPO9pzYdBIFoKrs2TtisAZheLCeUJxaerV8aB4cyLauKNEhkTrvzYTpnUblRyCCn04mCd0t+YOu8F5fiVIu41oh8lvaiXaSYlpB4QfYgiPQW5ie9L/ko5BUaHkxfF02+RpUj8s9wIDzLxXrbmqRUXZjMgmZUM49RL08X1gZ13yO/FWPn1pMw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hpQhF1Eu3o5/dVcEBvFi4uqy64IBZ4EGdR7QRq2M8j0=;
+ b=kcReJsJhU7OvOX+s02NrSJrEIy8pDI8zLOE3MnXnlPKiGn2ldR/cS69jj9AiVXJZc/pEVfEUuYAzvTEqQ7ReDo9yGFTCshtTddiWCm5eakx1+K+j+xCgR+zpT+kjdO/J3bTVvcuE5cAARiW5xtlBU1HcIdAeTfv48RffJyUcUXhut4r/kaDujDgwCWnCHpmsDEbjXT4xeKIqIDaXfp80iSZz6Mha/eBA6tzco7fyCEvEyqSdbQWGTzKzIfZJpruxZXoG1QniHubLHx0WKUf0gox6c8C2oNihuBk7RQ/F7V4XRwMQOmPdckNCvEl2SIayMC6fPGyTm7xsXnOcr6sJzg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS0PR12MB7726.namprd12.prod.outlook.com (2603:10b6:8:130::6) by
+ DS0PR12MB8272.namprd12.prod.outlook.com (2603:10b6:8:fc::7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8356.13; Fri, 17 Jan 2025 01:54:46 +0000
+Received: from DS0PR12MB7726.namprd12.prod.outlook.com
+ ([fe80::953f:2f80:90c5:67fe]) by DS0PR12MB7726.namprd12.prod.outlook.com
+ ([fe80::953f:2f80:90c5:67fe%7]) with mapi id 15.20.8356.010; Fri, 17 Jan 2025
+ 01:54:46 +0000
+Date: Fri, 17 Jan 2025 12:54:42 +1100
+From: Alistair Popple <apopple@nvidia.com>
+To: Dan Williams <dan.j.williams@intel.com>, a@nvdebian.thelocal
+Cc: akpm@linux-foundation.org, linux-mm@kvack.org, 
+	alison.schofield@intel.com, lina@asahilina.net, zhang.lyra@gmail.com, 
+	gerald.schaefer@linux.ibm.com, vishal.l.verma@intel.com, dave.jiang@intel.com, 
+	logang@deltatee.com, bhelgaas@google.com, jack@suse.cz, jgg@ziepe.ca, 
+	catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au, npiggin@gmail.com, 
+	dave.hansen@linux.intel.com, ira.weiny@intel.com, willy@infradead.org, djwong@kernel.org, 
+	tytso@mit.edu, linmiaohe@huawei.com, david@redhat.com, peterx@redhat.com, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, nvdimm@lists.linux.dev, 
+	linux-cxl@vger.kernel.org, linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org, 
+	linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de, david@fromorbit.com, 
+	chenhuacai@kernel.org, kernel@xen0n.name, loongarch@lists.linux.dev
+Subject: Re: [PATCH v6 20/26] mm/mlock: Skip ZONE_DEVICE PMDs during mlock
+Message-ID: <2oqithhbrzugwdyucy44ehcl3oumly65oml2ozi5x5cbuj3pxp@empgh6q3buzy>
+References: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
+ <e08dfe5ec6a654e8cb48f9203d7406326368f5a6.1736488799.git-series.apopple@nvidia.com>
+ <6785cf266ea89_20fa29487@dwillia2-xfh.jf.intel.com.notmuch>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <6785cf266ea89_20fa29487@dwillia2-xfh.jf.intel.com.notmuch>
+X-ClientProxiedBy: SY2PR01CA0020.ausprd01.prod.outlook.com
+ (2603:10c6:1:14::32) To DS0PR12MB7726.namprd12.prod.outlook.com
+ (2603:10b6:8:130::6)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next 0/9] net: add phylink managed EEE support
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <173707803298.1652211.8068749856450177077.git-patchwork-notify@kernel.org>
-Date: Fri, 17 Jan 2025 01:40:32 +0000
-References: <Z4gdtOaGsBhQCZXn@shell.armlinux.org.uk>
-In-Reply-To: <Z4gdtOaGsBhQCZXn@shell.armlinux.org.uk>
-To: Russell King (Oracle) <linux@armlinux.org.uk>
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
- andrew+netdev@lunn.ch, bryan.whitehead@microchip.com, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, marcin.s.wojtas@gmail.com,
- mcoquelin.stm32@gmail.com, netdev@vger.kernel.org, pabeni@redhat.com,
- UNGLinuxDriver@microchip.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB7726:EE_|DS0PR12MB8272:EE_
+X-MS-Office365-Filtering-Correlation-Id: 10aebc8a-4fc3-4fd5-4fc5-08dd3699eb60
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?MWXGs+NOUhX/MZLeCteINhkZxXMkzzQnns/R0OOpV9ii0xc4W/kMuOPdsLQU?=
+ =?us-ascii?Q?ZkwAFpc9PaRKZWlelNDKpVvSOyE/2qvw0Inc8O6sXvIKYJ2jyMBFdZ0MX83v?=
+ =?us-ascii?Q?5aPmFNheu/C3l2IRpc2U1z4ekxdbXdGJlQha8Gy/uHTpTEX1tO8ynSiihRwv?=
+ =?us-ascii?Q?gr3FsEHACSFqTd2Fy3vTgO3tnfqS1M80+vkdWXuRa97vPv+flacKNkP5QHPo?=
+ =?us-ascii?Q?rDFZAywmFVbb8eiUOVvM3rOC4+hbQWQk8bxrbGwM0Gn37pcv1/8Ua6QOBGro?=
+ =?us-ascii?Q?ANGi8gUuPNZscHQsqqjULvvdjb273COGhOTbWAMaxRE5Pmym6Wc2nEObNKMr?=
+ =?us-ascii?Q?j3MjFNdf5T9gctwpY6ZRjXH225oiWwLB3ta0hbkE+fTA2mtroTf/DQDMh0hs?=
+ =?us-ascii?Q?yvGu73TYjuMOSa4uVKKZFe3xPLTb/aDhTvRnpUr9JtuJQC65Z3DeBFpjhrJ7?=
+ =?us-ascii?Q?3QYTGT4TI4PrtCXXXE2pWb5Ar21xyOoIm8jOv3GRykNVBgPSQ5mx0sl5JjKC?=
+ =?us-ascii?Q?DmVMOGbWkpI6N8oBWt592eSEJY1eKM63v8JZwnE9je0IMttKsn93Y97lYfXZ?=
+ =?us-ascii?Q?tBoFXSZ2YV1vSWClxU0yGEENzOCiwBTqOLG/LHfTD10jR3atKXUanR3UcVIG?=
+ =?us-ascii?Q?+JkjBzxf7I2AryeVw0qvYTJ3tKGGEw4Passf2oItn/84cFOGJYyp/BlXvByc?=
+ =?us-ascii?Q?/tfdrUfbeX4w5w++8B0TmBOcjKOMRnYy9U/mEV1DxtGz7fqvz74r5bcrwjNa?=
+ =?us-ascii?Q?/z3vBtvO71W2ZbtnUwqXOMKip51mdnwCuzAh3bQgvzg4iQnKKDy5f4t6W579?=
+ =?us-ascii?Q?/oVdt1AVKLIAGQfTHDcFugDbDM9+KoNagMq5YqP4hNlcx9Kporr5jdJOp3gT?=
+ =?us-ascii?Q?0o+5oGl1fdOtxRVNXKJW0srHxvSlgaHTIyFA7DuCivgnLGdyYIrhRgGwNCZi?=
+ =?us-ascii?Q?lSiqKQXbdIrutN1sS4bQ5hwGneOCEa4gsUabr4RI37ISjZHqkt/sv+L1sO77?=
+ =?us-ascii?Q?E2NbOp0qFje1RcpDzPWSkkp6InPxHfdwTyRYj2vPBLUUm+bOjnXXTuf91SZi?=
+ =?us-ascii?Q?mdGf0LQzQaHBqLBhafnsmBZL5pQOJpDX+IXsM/yU3X6jkAvR8L/o01D1THoH?=
+ =?us-ascii?Q?094ooYW7NZAL7dMgwVURv8EA40gWsvQkDckjARmHR5y+9XorS9N816ebi2b8?=
+ =?us-ascii?Q?D79Ej1wqCfDFb8QO471k1Yemfdk25K3ULOV2kH42o+m7bWigHEx9s3uehGLk?=
+ =?us-ascii?Q?ODbC8qGmY3v7RtOD8RQdLqhfzluKKAQ2uLYmebk7nfCruF9YX4V3OnkNpw/k?=
+ =?us-ascii?Q?OB3dQs/2fJACpJtDsWB3hTRxLm7yxLonBt9EXArde44ErT4TS6dqKfUJvDRx?=
+ =?us-ascii?Q?fj5/GkrQx8NswsPwbSTpgepLvZ9N?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7726.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7bsvSXwgl/uWpGvhqsCMERpnYm39nGUpRpNvQgR5DvP9vze5FM9N8lk7YHwd?=
+ =?us-ascii?Q?1mtVrQQJd3UKGZwscXnE5oo53WeHRhtA5YHCxRFDuFqVeSg4wqgEsFwg57fF?=
+ =?us-ascii?Q?D64R5n09sr0WyR10Rod7+hSuHKHQ7zdoqnL9377Be7Eu31OgKYzLcwe4xpTy?=
+ =?us-ascii?Q?nz6nFMgUdq6XCIRV48dcB1wxY2yRvf6DIK18evmKivq10eXNFWFb0IE88B+5?=
+ =?us-ascii?Q?7gUYU03ooK2AyL4sqCmFYTxp8XTe445GGO6lahSY+O3i9Q6zRbu1eIlkVYdV?=
+ =?us-ascii?Q?WjijLKm4XJWBUZLmNgE0f3D9VaLkUtulUTZdv+w+vtXeZfecn1+zsVABwp/Y?=
+ =?us-ascii?Q?v3msX7dnBzUHyh9hS81wPSQhxgRbzdobh4KVyh4s5rSVh8h8hPn8KnTWm4vQ?=
+ =?us-ascii?Q?aZJtfr+OE40HdxBTjXR+HyKOw16rt3HxmLDzV6fv+lCbe12JNGm/1X2qYSfQ?=
+ =?us-ascii?Q?8LXFG1F89uAddG85AQkxnAFDTCu9k6a1EQlDa4rehQ5D6tGfRw0/HmNpvMVs?=
+ =?us-ascii?Q?V47e3JYPXqPBz9sX2wyzQn4+frYAryj3MCe9bOnPhdKt44UYchy3gDXYgeUo?=
+ =?us-ascii?Q?3EHtBTTQyvn2GzYgZWTvrojpJHSh3cWgFJZDUYAIaPmrbDd2BMIlikYOuDpd?=
+ =?us-ascii?Q?Qar1s08RnHzMB7+STU58VM/7RaaS4MFAVX/xVBohaBtnpodsq1iTUF6Vqol/?=
+ =?us-ascii?Q?RpzUVSleIAdDxC+dmcRCMaMOCkyiBNgi5/UflPh+n4t8E+rN2uHylf4HngGu?=
+ =?us-ascii?Q?/xos9CTAKRBA+t0AGtmPz5Vg8Um7kZc8/ILVCpuIbF08ICUGrPOH3lbWte66?=
+ =?us-ascii?Q?OMUVQEzkUpohVMEd/yoFDxGBpm0T2ehD4WFpMLzZg1JqirGEdQOAx6ufMF8t?=
+ =?us-ascii?Q?luM3kiwMTSc6949WIy9LKjJyty+EHJ0wNnoxXVVCbexTfkWhxhLVHICQW5xI?=
+ =?us-ascii?Q?Pd1qK2Jf5Cl/besoB/tLO3PGLd/jirn/LjGVyUFrI15pb0XbU29YBGmn3Qqy?=
+ =?us-ascii?Q?wZbfhYE9soVRmXnAJY/ACEnAtzH1GOC+QfzB4G+FXvtFFaWjG9eRPz1gDAhr?=
+ =?us-ascii?Q?D6vyfkJGE2KytuU3oN3llp83yn2HSoGYtybcEGxbvj0q1MqBnsDXogpoBXOz?=
+ =?us-ascii?Q?tBTlXBe+ifWyxByb2XJuduIFrrVjvaZP+Zqz2Uot7tTWnDGX250nIPlCJUUC?=
+ =?us-ascii?Q?N7EIk7N+hYk+KBygpI9z5v+0TIPij1WiIzDMsWgWE8IEsyY8BwHRIxdhjkfM?=
+ =?us-ascii?Q?YgWCMhHPKwuvTMVdX2rH6Cb74QJNhQhJHaLXajWPmGxXJEDDcGgN22gGNb5B?=
+ =?us-ascii?Q?MXsnkxOM7DmJQpiCfwGBZUn4A/b/oDt4kW5ZOPZ6WaNn6FBBBDctrQfBF6R9?=
+ =?us-ascii?Q?BE/DQoz//AGrhJJARXsdudK1q5SCALRKvzgK2vbj+qbnxOuA3KqYJkaFW+GZ?=
+ =?us-ascii?Q?MyMMwiky9dgOnur4u1D8hWFgDP97pQbDU3PJqled32EYw6gVnqxEHW2uGBXn?=
+ =?us-ascii?Q?ixZZg8NWJWRh2TnDTOn5kmc3Till+Ngu6HVq5w3meIKH9tZKsfKzL4oRRWPr?=
+ =?us-ascii?Q?z19xTE8wEyR+enOliTUYqPB6ddWnld7hdv0VeSjo?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 10aebc8a-4fc3-4fd5-4fc5-08dd3699eb60
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB7726.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jan 2025 01:54:46.4350
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: QdZzbjUSCPneQxQX95jdT2oBpKGz2zQRBy1cLVLGwzHqwn5Wg8cbRkBm6Of1DZSOe3pG/bI3z1XzV1f7ERvuDA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8272
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_174012_474573_E7286DFB 
-X-CRM114-Status: GOOD (  10.40  )
+X-CRM114-CacheID: sfid-20250116_175453_676474_D3F736E3 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,45 +166,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Wed, 15 Jan 2025 20:42:28 +0000 you wrote:
-> Hi,
+On Mon, Jan 13, 2025 at 06:42:46PM -0800, Dan Williams wrote:
+> Alistair Popple wrote:
+> > At present mlock skips ptes mapping ZONE_DEVICE pages. A future change
+> > to remove pmd_devmap will allow pmd_trans_huge_lock() to return
+> > ZONE_DEVICE folios so make sure we continue to skip those.
+> > 
+> > Signed-off-by: Alistair Popple <apopple@nvidia.com>
+> > Acked-by: David Hildenbrand <david@redhat.com>
 > 
-> Adding managed EEE support to phylink has been on the cards ever since
-> the idea in phylib was mooted. This overly large series attempts to do
-> so. I've included all the patches as it's important to get the driver
-> patches out there.
+> This looks like a fix in that mlock_pte_range() *does* call mlock_folio() 
+> when pmd_trans_huge_lock() returns a non-NULL @ptl.
 > 
-> [...]
+> So it is not in preparation for a future change it is making the pte and
+> pmd cases behave the same to drop mlock requests.
+> 
+> The code change looks good, but do add a Fixes tag and reword the
+> changelog a bit before adding:
 
-Here is the summary with links:
-  - [net-next,1/9] net: mdio: add definition for clock stop capable bit
-    https://git.kernel.org/netdev/net-next/c/3ba0262a8fed
-  - [net-next,2/9] net: phy: add support for querying PHY clock stop capability
-    https://git.kernel.org/netdev/net-next/c/a00e0d34c036
-  - [net-next,3/9] net: phylink: add phylink_link_is_up() helper
-    https://git.kernel.org/netdev/net-next/c/a17ceec62f81
-  - [net-next,4/9] net: phylink: add EEE management
-    https://git.kernel.org/netdev/net-next/c/03abf2a7c654
-  - [net-next,5/9] net: mvneta: convert to phylink EEE implementation
-    https://git.kernel.org/netdev/net-next/c/ac79927dc84f
-  - [net-next,6/9] net: mvpp2: add EEE implementation
-    https://git.kernel.org/netdev/net-next/c/b53b14786ed8
-  - [net-next,7/9] net: lan743x: use netdev in lan743x_phylink_mac_link_down()
-    https://git.kernel.org/netdev/net-next/c/a66447966f03
-  - [net-next,8/9] net: lan743x: convert to phylink managed EEE
-    https://git.kernel.org/netdev/net-next/c/bd691d5ca918
-  - [net-next,9/9] net: stmmac: convert to phylink managed EEE support
-    https://git.kernel.org/netdev/net-next/c/4218647d4556
+Yeah, that changelog is a bit whacked. In fact it's not a fix - because
+mlock_fixup() (the only caller) already filters dax VMAs. So this is really
+about fixing a possible future bug when we start having PMDs for other types of
+ZONE_DEVICE pages (ie. private, coherent, etc).
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+So probably I should just roll this into "mm: Allow compound zone device pages".
 
-
+> Reviewed-by: Dan Williams <dan.j.williams@intel.com>
 
