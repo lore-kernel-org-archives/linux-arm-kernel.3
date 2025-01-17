@@ -4,94 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6596C02185
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 15:55:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D83DEC02188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 16:00:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pWEO4mXmrgX9A+rahUTkZPxpsEQKDRWEFh1XmmPE8bg=; b=f9ImrBkPi7TAwZe9H4/kpJPHBd
-	wzKc+fd8JJldBdIvs2lIu5upSGsIi9tee3e+n5lNCL1L2plNI8bEu7NeB9/AWLtxq3GGZyH7ZxfzW
-	SsymNhJ2H9TxDXkEWc8CdEg0ry1N9mWi5KsmDx3/bsuG1oJDdZRV66TqCth6R97GXsOKghs3BCD4m
-	nf8Xe7B/K33Zt8owQoZR2Bxos/lcTEOh4B5JoyrF3ErENlXdtLfV23cCvUqnGs9DCQMm3Eh9T8QjH
-	5ploSv6JWuAyg3rlLzx8ECVxoRDR+VVTShXPh2LtXQi8A+14wFIpLHuNZYuqafTtUwMuvZBKxn0Lt
-	GVe41X9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9g6Vyc9mOB7lyi/aQRjsa7BERTyMx1iof60RQwC2Xw0=; b=4xyUjK9vfTLeJs
+	baC5Y6LS6IzFjX+KX/HClmmwyghetAs+m7oC+QTSeg9PCFcSwrLtopiuqrNFZWmfZocL8eA2FZ+8c
+	IsedRUsznLnhusESgz5eQQdEuFYvGpq9yOa176Z7Nd9gYI154X0ZPCiXkC9lkB9AkD1tOeZJ+IKwS
+	bjBXj3eoI7N29QmfwCcCoItysHp7QjOAd7cGyztmK5DmrnYwbY/Inhk//Wv4CX5YfjaJ15Oyk84Si
+	pC17hT7QkuQFBBTnJ6c5CC3b6YfA+aatBkSdbYxQMUs3NvyDinpHPcCD4MS9wP5WaM7oRdLwST1/0
+	KbUdfD2sMKjx0UBz1wuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYogR-00000000gfJ-3pu3;
-	Fri, 17 Jan 2025 15:54:55 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1tYolb-00000000hM2-1tYB;
+	Fri, 17 Jan 2025 16:00:15 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYofA-00000000gSO-3BzD;
-	Fri, 17 Jan 2025 15:53:37 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-3863494591bso1206774f8f.1;
-        Fri, 17 Jan 2025 07:53:36 -0800 (PST)
+	id 1tYokK-00000000h0i-0RAv
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Jan 2025 15:58:57 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-3862f32a33eso1060275f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jan 2025 07:58:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737129215; x=1737734015; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=pWEO4mXmrgX9A+rahUTkZPxpsEQKDRWEFh1XmmPE8bg=;
-        b=lfPDSvMpRzOJlhzzewDIKHuhAQ5yslRACtnuUe6TOTFmQYqXLe85bm8ULaRdKlxsDz
-         coRoSQMbUpG5W4MlQN7PpzC0F/i2SJBtxMlEhZLI+TZFV/hGQEGxhKyRlx5ThSbPKl6M
-         rvfsQvt/VgbqszMUmocmo6iNPzsOs4FmUDVIAd6QMFqDlyYzvTDRjpFPOm2WiesVg+p+
-         zj75ECcPvgi/WkPLDP5Wq1YtPRabtUc4N/bKLEyqcfgNX1U+tKo683Sq3WeriDasHLYI
-         3PZEUoEUB7eDFFXwp7ALN1zyDXNSwHiDEvq4oXpwk5fFIN1opoPQE3Glt/lVSVQljiCH
-         99uQ==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1737129534; x=1737734334; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9g6Vyc9mOB7lyi/aQRjsa7BERTyMx1iof60RQwC2Xw0=;
+        b=c5psHssT6jO8hXW/1Dd9exIemi1nnhagVftYR9PwtjKB1+aZFFyFgp/jdtH1B6miL+
+         EarcCEkbGIfZkUguvKXGerMlFxSBW8oDaT1owvInokd+gwo1VJCT0q+rJ8T09hIXM4FV
+         OmNMlcA/U347k6y02NPdFNO++WqDZofJrXkCW7DPyeBW5l12oqRyc7CFEafPXAK9l14w
+         F2PXyWoZ6kMk2gdQb/iK5Mx79SsYygfLCmGWGLrJgOFp9vtqiicmQHGD5L7oCQihY83M
+         o+8pIfS4PkYvAh7JzL2T8hyjGrbiJeYb8gUHkHsXkow55zsAZ+lrBcoHXIJqrFIgG8ZV
+         7qTA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737129215; x=1737734015;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1737129534; x=1737734334;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=pWEO4mXmrgX9A+rahUTkZPxpsEQKDRWEFh1XmmPE8bg=;
-        b=W0vstfRjcG1xG112DwX8DI4eSYLk5tVokOpgby6kE438ihh1Oz+Kqsy2QdeUzBdixn
-         VolEah46FiBchkxSy0gweWXX0441EOeUpnFXiPBVWV4VjWGT8dBNUl4rF+X/8vgmwbC1
-         fNKD9AKtDADYR9TI0ZU7f6wBH1bQg43szP9sUbpdooWkjI55bj/DoJWGCHuENxYiw2rC
-         vURHEW6akUeLJ6DJHIH5qYgPnNKuL64YKRnu2vFhLCeNFSB86ZK7+gYSIQSShXO6+0w5
-         zUzzMDWsKK8mYG5QO/2/j1EbZI2C5i/Ca6HxdIHp+A86yoBoR4NXtT0pcZXpFiv5LsMl
-         DJ8w==
-X-Forwarded-Encrypted: i=1; AJvYcCUhcYgAQL+hwYDVntVBgYUPSzPY0x0RUMcrlY6N7l1tbxXsQBo9TWm/ZEZjH3g6cP91eFGmkHNJrSH6dQeKqbBU@lists.infradead.org, AJvYcCV/GYucbZCcVMy+BTYxgwO4kbg/q33ePdYQDgquUbFpa/+0nriGiLRDwlxYC4LyeLOMWmPRGLKgWZaoiWKeHKo=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzgNs1K1icIA5wIhF0ImWM6ZajYYxbVnWOVZSw8ekOWUvYhnuHh
-	ynSO6SoNl9GMxdrKOI9H7P6z81KD4CJW5Sj3qqzYWRs1FMrY+m/h
-X-Gm-Gg: ASbGncsUYzij0kdGtuekpxFabfkeXtX9uOwuIm/KBhyuLdKGIIS34Eq+fVvA4wQkNQ6
-	dslzPRLRb9n/5yoRKCbZ5mEsYYiMoYH/U9VSRv6j2Pfv3aZ1m1gbuNDSpZJ6pJ3MW6kOv2JRFIv
-	4sLrMxJ4lEt18rmo7/7v/nSskb7q8VT3yvdy4u4SAfvfLGAcs4ySWg06P+mF6zzSpUykyPRhz4d
-	lAoSuS/u/EufH8JMwHuoMW7el143llN+vZ3eDmIZNpdRMybSN9/slXN6+8Oqi3yzEnPfNWaVO95
-	nQyZ8zxgBt0dLOX8Ng3OUkpIgg==
-X-Google-Smtp-Source: AGHT+IGNGiONpxV+GF6eyRmRWscmpLkuIBdAedL5zi2YGx6prpKmmwhZLampYCznTsZBL5ObecUgjg==
-X-Received: by 2002:a5d:5848:0:b0:38b:dbf0:34f2 with SMTP id ffacd0b85a97d-38bf59f03c7mr3119509f8f.52.1737129214512;
-        Fri, 17 Jan 2025 07:53:34 -0800 (PST)
-Received: from localhost.localdomain (93-34-91-161.ip49.fastwebnet.it. [93.34.91.161])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38bf32758dbsm2854779f8f.64.2025.01.17.07.53.33
+        bh=9g6Vyc9mOB7lyi/aQRjsa7BERTyMx1iof60RQwC2Xw0=;
+        b=B/CgZ2V8BtWCcN72pDnaF7d2kqNPE6ksy+wrpkBBB1h/2u+q/73by4SpNn5xHkQvyP
+         MklQ9XYBPfDmHwAfcGCFFWS2VNh989RnRuP6QIFKfEuOOvFITpr87vzl3riue2Wbta11
+         329SYNhBRecD3eMXYWUkwHqDRwDG+APZMNpZ2TaQ+pAzlHCnOJyCEPMlT7jX9apKbET+
+         +MOzPcYfapNkJq+DG8PHFf2cmgzCgIAm6upItnXZ/EqQbjt1gOJXNCF4EcA7g+6x511r
+         nFpH6ogZ7Cba47Z0IhB8cWEIG+nKKSPfeHRIWBgXCPMeRiH3P64DyKLbKvZ2Ox4K07Zx
+         me9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWsQT4GgPCz2gkMwsbDVRHFJ7ApHn9660ktiEKMb/RXvZFD7VuiibVdeRAvEGvBUY62ZiFJI0GzqCjK5Z5q2hpR@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzl4tLpAoxmFY6xq2Th1oyEGXfRbXpTOXJlor0FNQLh+9xv7o3m
+	LGom/6GLpcmP1iaJ1QRUzKhlb/eYMSYPiI55W0GzkS9o9A8FP5xh/RflccK5duA=
+X-Gm-Gg: ASbGnctabB6PtcBBI6OjdManSOjZLVZZ4HedhInkQgYyCAEPLpraMSkat5ymqGtjNRy
+	EEYMmmJ8mjfIMZIczqoJH4rFbeHY+vyvKdqiBZiHWKQ5BVzAz9oBwQvgiLSIxs1zRS7GPl4Id3E
+	1H0ZGQIdUK+JTTaPANKeRxs2tqEi/M2O0B0dghgrLQ2AiQHSNB8Lb7ncc6/8dIWIA7TE60UUrpB
+	VU34uV3wD1zncCDg5c/xFbFwV2bQezy7azW6rZJcHFpc7wIOv6d40KEEyvsT7wJDnJ7dmU=
+X-Google-Smtp-Source: AGHT+IEFctnhDoaU9MlqplgOMTYAM82vSV45AUZja9u72PfPs4/igV3EGZ+h0AvIYK+a+WQ9znx4wQ==
+X-Received: by 2002:a5d:5f8c:0:b0:385:ef2f:92ad with SMTP id ffacd0b85a97d-38bf564d5e7mr3579724f8f.10.1737129533948;
+        Fri, 17 Jan 2025 07:58:53 -0800 (PST)
+Received: from toaster.baylibre.com ([2a01:e0a:3c5:5fb1:b019:599d:2d51:f3c7])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-437c7528076sm99382195e9.25.2025.01.17.07.58.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Jan 2025 07:53:34 -0800 (PST)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Felix Fietkau <nbd@nbd.name>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	upstream@airoha.com
-Cc: Christian Marangi <ansuelsmth@gmail.com>
-Subject: [net PATCH] net: airoha: Fix wrong GDM4 register definition
-Date: Fri, 17 Jan 2025 16:52:39 +0100
-Message-ID: <20250117155257.19263-1-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.47.1
+        Fri, 17 Jan 2025 07:58:53 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+Subject: [PATCH v2 0/4] clk: amlogic: drop clk_regmap tables
+Date: Fri, 17 Jan 2025 16:58:29 +0100
+Message-Id: <20250117-amlogic-clk-drop-clk-regmap-tables-v2-0-d1f77cb0773e@baylibre.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIACV+imcC/5WNTQ6CMBBGr0K6dgytFtSV9zAs+jPAxELJlBAJ4
+ e5WbuDue9/ivU0kZMIkHsUmGBdKFMcM6lQI15uxQyCfWahSXaVSJZghxI4cuPAGz3E6BmM3mAl
+ mYwMmkDfUrtW1uuhKZNHE2NLniLyazD2lOfJ6NBf5e//SLxJKuFfeV7p2trX+ac0ayDKeXRxEs
+ +/7F+6SzzTXAAAA
+X-Change-ID: 20241220-amlogic-clk-drop-clk-regmap-tables-18e5cf572356
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ Jerome Brunet <jbrunet@baylibre.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3163; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=5GBtK/Zufm73VK+pUpHd8niOXTdAdy+WcFTCquXSAPQ=;
+ b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBnin44kKraKDYPejH2n7CpehSMnuaRgAfHt2jiF
+ VRluJQV/haJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCZ4p+OAAKCRDm/A8cN/La
+ hUAmD/9ervITo4Mtbw0X+1dsHMEeAK0MuNr7/AUtzXrn+UneQnOMd2wUL5CBYI2AiUrAjlmwLX+
+ sUibYfTZwQ3MAgJ/HfDaAE9j12xOvRRfUuZWZVtR8/OmgbKGp3N390VEInxxXQFW8lyoqGCi8a2
+ Pg60h4jUq51hu3c169X6IHmEm1Q2ILokgQ7V40UJjAndaOckZALQXjBJGaD67T6rdLm0fK35+OA
+ EmqPYYz1Ih27N3R3n7wEfxIW89oTWewHzc6ITqZQsVnvwyVUC7jHn8CsZyPtsH3Co4PFQ9wkYr2
+ U0sLKsxHBQFzdzDFBz7AnIUO6hH4DZ9bWASttBcCmt9hW/xgwwSSkmj23v3SsuUU/vgsVI1A0vi
+ e1i5ZYJpi6sm+Z8yUE15+SEYA5IKBE/RfNdwNYQPdOC/omsFWLbF2dR3hRDTV+x+2hwpAw5q3i4
+ 7kZk+b+RJbsbeSAxsXSEu8TzCPtdbu8FWfXOwoI8PbWWjTqxDYD7eyyuSVPbn5yvO7VvYiS0N1k
+ ddJM2nCbBH3igOzA3CYEVH2y2i59ob/T+HAgUG5qoO9BDwBrLZb+7HM0RqB3GbDS4b2v1ilePoV
+ JE6er0pTarMGAq+Pz1+mrnt8VNBuhOvFEqPDye+b0Hvw8WcGPfxvcVEX+YLRbbTpPCboPwXAgsL
+ IeEf1U8GFpubr0w==
+X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
+ fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_075336_796176_3D846B7E 
-X-CRM114-Status: GOOD (  13.17  )
+X-CRM114-CacheID: sfid-20250117_075856_148253_DE73BDD2 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,41 +119,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix wrong GDM4 register definition, in Airoha SDK GDM4 is defined at
-offset 0x2400 but this doesn't make sense as it does conflict with the
-CDM4 that is in the same location.
+This patchset removes the needs for clk_regmap tables in each clock
+controller driver. Those were used to populate regmap with in the regmap
+based clocks.
 
-Following the pattern where each GDM base is at the FWD_CFG, currently
-GDM4 base offset is set to 0x2500. This is correct but REG_GDM4_FWD_CFG
-and REG_GDM4_SRC_PORT_SET are still using the SDK reference with the
-0x2400 offset. Fix these 2 define by subtracting 0x100 to each register
-to reflect the real address location.
+This saves memory and ease maintenance a bit.
 
-Fixes: 23020f049327 ("net: airoha: Introduce ethernet support for EN7581 SoC")
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+This is the 1st step in a series of rework of Amlogic clocks, to clean-up,
+increase code re-use and ease future maintenance.
+
+Changes in v2:
+- Add clk_hw_get_of_node and kunit tests for the new helpers
+- Split patch adding the .init() and the dropping the table
+- Drop devres based solution and something temporary but simple
+  while a more generic solution to hook controller init is discussed.
+- Link to v1: https://lore.kernel.org/r/20241220-amlogic-clk-drop-clk-regmap-tables-v1-0-96dd657cbfbd@baylibre.com
+
+Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
 ---
- drivers/net/ethernet/mediatek/airoha_regs.h | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Jerome Brunet (4):
+      clk: add a clk_hw helpers to get the clock device or device_node
+      clk: amlogic: get regmap with clk_regmap_init
+      clk: amlogic: drop clk_regmap tables
+      clk: amlogic: s4: remove unused data
 
-diff --git a/drivers/net/ethernet/mediatek/airoha_regs.h b/drivers/net/ethernet/mediatek/airoha_regs.h
-index e448b66b5334..30c96f679735 100644
---- a/drivers/net/ethernet/mediatek/airoha_regs.h
-+++ b/drivers/net/ethernet/mediatek/airoha_regs.h
-@@ -249,11 +249,11 @@
- #define REG_GDM3_FWD_CFG		GDM3_BASE
- #define GDM3_PAD_EN_MASK		BIT(28)
- 
--#define REG_GDM4_FWD_CFG		(GDM4_BASE + 0x100)
-+#define REG_GDM4_FWD_CFG		GDM4_BASE
- #define GDM4_PAD_EN_MASK		BIT(28)
- #define GDM4_SPORT_OFFSET0_MASK		GENMASK(11, 8)
- 
--#define REG_GDM4_SRC_PORT_SET		(GDM4_BASE + 0x33c)
-+#define REG_GDM4_SRC_PORT_SET		(GDM4_BASE + 0x23c)
- #define GDM4_SPORT_OFF2_MASK		GENMASK(19, 16)
- #define GDM4_SPORT_OFF1_MASK		GENMASK(15, 12)
- #define GDM4_SPORT_OFF0_MASK		GENMASK(11, 8)
+ drivers/clk/Makefile                    |   1 +
+ drivers/clk/clk.c                       |  33 +++
+ drivers/clk/clk_test.c                  | 116 +++++++--
+ drivers/clk/kunit_clk_dummy_device.dtso |  10 +
+ drivers/clk/meson/Kconfig               |   1 +
+ drivers/clk/meson/a1-peripherals.c      | 163 +-----------
+ drivers/clk/meson/a1-pll.c              |  16 +-
+ drivers/clk/meson/axg-aoclk.c           |  22 --
+ drivers/clk/meson/axg-audio.c           | 433 --------------------------------
+ drivers/clk/meson/axg.c                 | 131 ----------
+ drivers/clk/meson/c3-peripherals.c      | 210 +---------------
+ drivers/clk/meson/c3-pll.c              |  32 +--
+ drivers/clk/meson/clk-cpu-dyndiv.c      |   1 +
+ drivers/clk/meson/clk-dualdiv.c         |   2 +
+ drivers/clk/meson/clk-mpll.c            |   6 +
+ drivers/clk/meson/clk-phase.c           |  11 +
+ drivers/clk/meson/clk-pll.c             |   7 +
+ drivers/clk/meson/clk-regmap.c          |  49 ++++
+ drivers/clk/meson/clk-regmap.h          |   4 +
+ drivers/clk/meson/g12a-aoclk.c          |  34 ---
+ drivers/clk/meson/g12a.c                | 261 -------------------
+ drivers/clk/meson/gxbb-aoclk.c          |  19 --
+ drivers/clk/meson/gxbb.c                | 393 -----------------------------
+ drivers/clk/meson/meson-aoclk.c         |   5 +-
+ drivers/clk/meson/meson-aoclk.h         |   2 -
+ drivers/clk/meson/meson-eeclk.c         |   4 -
+ drivers/clk/meson/meson-eeclk.h         |   2 -
+ drivers/clk/meson/meson8-ddr.c          |   9 -
+ drivers/clk/meson/meson8b.c             | 200 ---------------
+ drivers/clk/meson/s4-peripherals.c      | 341 -------------------------
+ drivers/clk/meson/s4-pll.c              |  31 ---
+ drivers/clk/meson/sclk-div.c            |   5 +
+ drivers/clk/meson/vclk.c                |   2 +
+ drivers/clk/meson/vid-pll-div.c         |   1 +
+ include/linux/clk-provider.h            |   2 +
+ 35 files changed, 239 insertions(+), 2320 deletions(-)
+---
+base-commit: 1909d0d351ed98fdb9f5cbe377213ba0154bf2e0
+change-id: 20241220-amlogic-clk-drop-clk-regmap-tables-18e5cf572356
+
+Best regards,
 -- 
-2.47.1
+Jerome
 
 
