@@ -4,86 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF065C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 10:20:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA0B1C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 10:25:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:In-Reply-To:References:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=disdJJLVJor4H1FoWQdlYlI4wsvgR73dhH5ZuRqkDtY=; b=vTNOJGEzqFczy2lPRziBb1XxD3
-	De8Q+hCp96gWhhrFYiwTZu7yeITuhAO/xBGTP+7a5xDncoZwXe9CBou/XTStmikiCLpsFT+qiUVau
-	wGrfY8DietVMUuAwlUrL+IFKqKo2FVbf9+xEHwLkT96LD5KMpB7e7b+6VmBrctIHeQgclfJ0s6LP5
-	4yaLm1qEem24o0PjSLmKT6COoW7VsXRBPBGvItD1/EQBveSHg1kUK4wQY+zTd8KpUAxplWbnozPlb
-	1mkUoyfC2penTyhLHAU/bTnvs3aLhtnYlNhadP/3yDsPmV0aVBY7L2Jfx93K7htLc0Au58ayU3iXF
-	w3VMo+ZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sdd9FskK2DzWXXfImvVIL79pWZVrNZLfYKely27sceU=; b=wno6P7iTIkfTFvdOleiqNMEi7/
+	6H8jGPqeyh7Pai9STGC6D2qYcVpYkBC7wsnagUvVBSu//Om46jcAwmq+TSLk/xRf/TMQrwLLfYiJ9
+	XNzC9W4L7pHI69sl0LRCjr0tfWG8ctLgpvlSxTLcmyKGevoV28ZS6CXRy/DD9YhcahIUOCaNOPlZh
+	2uNwYDzulKEcZtkjb8NcSwfRd/dQzTtTF+l85L6OJ9b3149jvCYnhJ3cLcrkRqTNymBSNJ9t4hdmy
+	1Wdv1deERE6pbk/+Y/rqkCLi488MnINanYYyfZ27vLyqHH7brVX+E09oCDqRkeRxhNEXkoPiHJzTs
+	rCNH+AVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYjSC-000000000Wt-3khK;
-	Fri, 17 Jan 2025 10:19:52 +0000
-Received: from smtpbguseast3.qq.com ([54.243.244.52])
+	id 1tYjXB-000000000uG-3hXr;
+	Fri, 17 Jan 2025 10:25:01 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYjQu-000000000RZ-3kjd
+	id 1tYjVu-000000000kc-3ORY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jan 2025 10:18:35 +0000
-X-QQ-mid: Yeas8t1737109026t788t53021
-Received: from 3DB253DBDE8942B29385B9DFB0B7E889 (jiawenwu@trustnetic.com [36.24.187.167])
-X-QQ-SSF: 0000000000000000000000000000000
-From: =?utf-8?b?Smlhd2VuIFd1?= <jiawenwu@trustnetic.com>
-X-BIZMAIL-ID: 5973032802346409785
-To: "'Russell King \(Oracle\)'" <linux@armlinux.org.uk>
-Cc: "'Andrew Lunn'" <andrew@lunn.ch>,
-	"'Heiner Kallweit'" <hkallweit1@gmail.com>,
-	<mengyuanlou@net-swift.com>,
-	"'Alexandre Torgue'" <alexandre.torgue@foss.st.com>,
-	"'Andrew Lunn'" <andrew+netdev@lunn.ch>,
-	"'Bryan Whitehead'" <bryan.whitehead@microchip.com>,
-	"'David S. Miller'" <davem@davemloft.net>,
-	"'Eric Dumazet'" <edumazet@google.com>,
-	"'Jakub Kicinski'" <kuba@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>,
-	"'Marcin Wojtas'" <marcin.s.wojtas@gmail.com>,
-	"'Maxime Coquelin'" <mcoquelin.stm32@gmail.com>,
-	<netdev@vger.kernel.org>,
-	"'Paolo Abeni'" <pabeni@redhat.com>,
-	<UNGLinuxDriver@microchip.com>
-References: <Z4gdtOaGsBhQCZXn@shell.armlinux.org.uk> <06d301db68bd$b59d3c90$20d7b5b0$@trustnetic.com> <Z4odUIWmYb8TelZS@shell.armlinux.org.uk>
-In-Reply-To: <Z4odUIWmYb8TelZS@shell.armlinux.org.uk>
-Subject: RE: [PATCH net-next 0/9] net: add phylink managed EEE support
-Date: Fri, 17 Jan 2025 18:17:05 +0800
-Message-ID: <06dc01db68c8$f5853fa0$e08fbee0$@trustnetic.com>
+	Fri, 17 Jan 2025 10:23:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0F2BAA41F5F;
+	Fri, 17 Jan 2025 10:21:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D95DC4CEDF;
+	Fri, 17 Jan 2025 10:23:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737109421;
+	bh=jSwb2wZFFYhuuFvDBoxLHK554RSrZreFZDxgoQ2J7R8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Ujh/o19S6Vqu1kuMTO8hRnxKfWHi4+Xct04NzVhA2lyP8EBYpayiCnvepWWIIzt5N
+	 XqBYEop5QaigJC4ZfkfwgIuvUi4i7JrUR7AY+1ZwHpXJeiypf0o1vHCr/4G3Vu+m3m
+	 08q8EY6HSrsuqj5hZjGHsLZHfVHOY4b43+04aliZldi2eyjB+vnhNMaumEd8B/0cZO
+	 Fu739I247+6CnJMcp8fjXJs9DlZ5HEEt08tgKqBJ0amk1Zqq4aslWWIkAumO7NaM1R
+	 htvBgb3IgzW7E0P2ebA3gk9MZv85IzCElOoKc27DR4+uFybMQQJvc9IVwXdP+nyijO
+	 dyij3wJUF0/qw==
+Date: Fri, 17 Jan 2025 11:23:38 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Sasha Finkelstein <fnkl.kernel@gmail.com>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+	Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Alyssa Ross <hi@alyssa.is>, Janne Grunau <j@jannau.net>
+Subject: Re: [PATCH v4 2/5] drm: adp: Add Apple Display Pipe driver
+Message-ID: <20250117-bright-passionate-ibis-804a8a@houat>
+References: <20250114-adpdrm-v4-0-e9b5260a39f1@gmail.com>
+ <20250114-adpdrm-v4-2-e9b5260a39f1@gmail.com>
+ <mu7qiybhj7tu5hauk7izfxqlookc3awpknhjk74zwpkbznei4m@kewap6vivzoa>
+ <CAMT+MTT+_ER+mFP1yUY+L-47-sZfNmtHUp09rqpPG174OKMJKA@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain;
-	charset="us-ascii"
-Content-Transfer-Encoding: 7bit
-X-Mailer: Microsoft Outlook 16.0
-Content-Language: zh-cn
-Thread-Index: AQJuuL6961zeRYLpn6fcQniPsxo8VAIOTZqlAVk2ssyx2OG8AA==
-X-QQ-SENDSIZE: 520
-Feedback-ID: Yeas:trustnetic.com:qybglogicsvrgz:qybglogicsvrgz8a-1
-X-QQ-XMAILINFO: NRkWGnbnkwTm+3wKgnyuuRTtwb/kgnqiV2BXkTG4ItlE8YpipApasYNg
-	P9P56E2XRpUUBNPuFYxMp6dI3pom77b/6N8Q+DzS2ZBh7XgDFsE6YwKIFiS8x4MFEjlvQgg
-	ACaV5qimYbsGASSJ0SXTLrXrQE/Eab8gpWhow6gTRC4J+A5lcUPvSr5PBQ8Syi1UCNIiirI
-	4vinBdvuWqcw8sH0g5on3iuJXIy+Vwmc9fkslnbSeWUJjveH/9vTWEDzpv1ZztBnzVaMB47
-	rI5zRNZ5dvNb7Im2tgr6rIDZcED6rV86UZyW0uIWo38CcTMtsCh9XhZdWiHNpPVUu0NNChI
-	W205rDiMGK7nUhwpyukswegMQiRsqAbaMONwwlQNe8GB2tjFe2mznLMuJrYNSTvjt0QyOlG
-	PpHwFZCbi8Ii6vtwRxaEFhPxCpRJ93NZ8JLdqlJ90Iq42P/Ph9/ZD2D4Fll2Cktk/MGIvpA
-	fdtV/WzLYayJa4DAmM+Bd1dvJHlFfN58qyIUCYaBSCy4GkyNWEpYvC/xSPLD5XSpTf5keK2
-	91ZN+JLMKknYEfsqVzgyTZFEfqB4Kih/0iyxiuSeuN5PH2Uxez4WqUsq/zBn/J0pHPvMLJQ
-	dyX6WHBdAp3o7GHdrcp2XokpQ9lryQBUW7gpnEejxmvtHIM66GMadHaWrSOuQ3uPk8wywRu
-	k6qOx2gHCdQZn3n4OcbfqqA4sXj9z2we64xl3B0+s8UNyIA1nKPB2pBaelqiC3husmJ8v+w
-	vLe2iGtruIS9gPnGGUAkBfrRjIEM05f4AP2Hr8vy5h3MErkUfZU6MLCSMKbZlsJpZKHTPi5
-	K4yw4MIP0RQZG9A/gv1OJRlQQPi7J6fFOS8z1c0ySywAM4fWBheRkV1V/NuXxhs4obQmfl8
-	7iwtxZFNkpRb2lUXab4OqsQAgRMdt3D62dMi3OhSA3AnMj7fRj2Fu9mW0xIOakwS24nXgcB
-	4awXoewxIvp8GM0+n74ARb48a8K0rsrJXhXUcuZZW5cYZV7vKNymm4iTsKc8SxWLPkad9kc
-	rpf6Hr/cx24JxH0qlXmUePFn6JFzxm7tZydmJwkS8CWK9Vf1Sj
-X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
-X-QQ-RECHKSPAM: 0
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="zxxlu2wrbjxf7qrg"
+Content-Disposition: inline
+In-Reply-To: <CAMT+MTT+_ER+mFP1yUY+L-47-sZfNmtHUp09rqpPG174OKMJKA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_021833_483444_523DC7C3 
-X-CRM114-Status: UNSURE (   7.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250117_022342_984138_F7DFE9E2 
+X-CRM114-Status: GOOD (  20.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,20 +82,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > Since merging these patches, phylink_connect_phy() can no longer be
-> > invoked correctly in ngbe_open(). The error is returned from the function
-> > phy_eee_rx_clock_stop(). Since EEE is not supported on our NGBE hardware.
-> 
-> That would mean phy_modify_mmd() is failing, but the question is why
-> that is. Please investigate. Thanks.
 
-Yes, phy_modify_mmd() returns -EOPNOTSUPP. Since .read/write_mmd are
-implemented in the PHY driver, but it's not supported to read/write the
-register field (devnum=MDIO_MMD_PCS, regnum= MDIO_CTRL1).
+--zxxlu2wrbjxf7qrg
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v4 2/5] drm: adp: Add Apple Display Pipe driver
+MIME-Version: 1.0
 
-So the error occurs on  __phy_read_mmd():
-	if (phydev->drv && phydev->drv->read_mmd)
-		return phydev->drv->read_mmd(phydev, devad, regnum);
+Hi,
 
+On Thu, Jan 16, 2025 at 07:52:30PM +0100, Sasha Finkelstein wrote:
+> On Wed, 15 Jan 2025 at 11:21, Dmitry Baryshkov
+> <dmitry.baryshkov@linaro.org> wrote:
+> > > +     ret =3D drm_simple_encoder_init(drm, &adp->encoder, DRM_MODE_EN=
+CODER_DSI);
+> >
+> > This is being deprecated, please use drm_encoder_init() /
+> > drmm_encoder_init() instead.
+>=20
+> I seem to be unable to find any documentation or a mailing list post
+> to this effect. If you are referring to this patchset:
+> https://patchwork.kernel.org/project/linux-samsung-soc/patch/202003132017=
+44.19773-3-sam@ravnborg.org/
+> according to my understanding, it has not been applied.
+> In this case, the simple encoder api provides all functionality i need,
+> and a replacement would just be a simple encoder, except copied and pasted
+> into this driver.
 
+a drmm_encoder_(alloc|init)'d encoder with a NULL funcs pointer is
+strictly equivalent and doesn't require any extra infrastructure or work
+on your side compared to what you have here.
+
+> > > +static void adp_remove(struct platform_device *pdev)
+> > > +{
+> > > +     struct device *dev =3D &pdev->dev;
+> > > +     struct drm_device *drm =3D dev_get_drvdata(dev);
+> > > +     struct adp_drv_private *adp =3D to_adp(drm);
+> > > +
+> > > +     adp_disable_vblank(adp);
+> >
+> > Isn't it being helped by the DRM itself? Anyway, I'd suggest moving it
+> > after DRM device unregistration and shutdown.
+>=20
+> Not sure i follow, as this call disables generation of vblank interrupts,
+> shouldn't it be done before all drm structures are torn down, to prevent
+> the interrupt handler from potentially operating on objects that are in
+> an invalid state?
+
+Your adp_crtc_atomic_disable() function calls drm_crtc_vblank_off()
+already. drm_atomic_helper_shutdown() will call the CRTC disable hook if
+relevant, so you're effectively disabling vblank twice here.
+
+Maxime
+
+--zxxlu2wrbjxf7qrg
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ4ovpgAKCRAnX84Zoj2+
+dl/PAYCi6eiO7nJHixv6cIn7PybRAsm1pSznLtuB/wQE6J2GK7apdsfDdL8u9qWw
+Mda3RRsBgIBwNFvsUc+ukeNozHhxEQcjinnckbPigAQcK0ltVOYGaD+kpoiteW0y
+yiwJc/mqQg==
+=Uyb0
+-----END PGP SIGNATURE-----
+
+--zxxlu2wrbjxf7qrg--
 
