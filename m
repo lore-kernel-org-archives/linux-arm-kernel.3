@@ -4,93 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 899EDC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 03:45:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88322C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 04:02:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i4+rc7zr12NkY8+R4W4XzHgtWfwIjKXfUvC4zjsYnME=; b=MAxqQYNE6vna+8LrRYOqAG12w8
-	y6g44G+wKax7rnheBKSoKl64dCAz25ZlWLlEL9nLAhNP9N5PQwISsV2ASYk2d0f02o2+Tm3T58Zv0
-	YR/aaJWZC640223b+ratkQdKt3rRE5QVNEIIzL0qKbsZQkIfERtR3aeI4xZmVij45/PGMpFFNCoqb
-	qRheZFYv25AHgt6Yu0IvOB0eRH8qwozOCz7GpH5n5aX8wY2YByTI4KddOl2n7LLgPRxse0NoaruNi
-	ulUWB2rgjL6C+gWU9GN01+o/TY3MqBEMX+R6hb+6B18vQSOgpxBihpm1sOcXYwcQMxY4p5DWkIvlm
-	y4gZa9bQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/+rtWKcCLn/Cu93OBLz7j1Rt6rH+SNavHX1FpALhJSY=; b=QmY4j0t4+FT5jPAyb0DWteI6Z/
+	d0w3sQ89O6D2Ei7SZqWkcwod57EpL74ELBBK+F5a/fGdl7TplDZ6ZsxBIxxejS+vUtwt69kUhWtCs
+	/OM0x53j1negiguZuKaZ2nHVcpgrvZ+hSbAEFnD+CFF9IASsbskyw3i6N2hcp4EBr42kn1noM94Qb
+	eZH4ewPGJdUAQjfzqr55TM/BFQuDdNK4+3SAoEXgHq76qMBCmh1dwZ9agyivo/a3WwkhJoHgpljV5
+	76nGmtz4rKS+DZ9HylKeykerQNsNwfoujGqll1B0UnLQMlDnfNnktFjrq3o9lit+CPsxf8jxJnO30
+	C2iWsmcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYdIR-0000000GwNB-3lOH;
-	Fri, 17 Jan 2025 03:45:23 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1tYdYj-0000000GxNl-2TvF;
+	Fri, 17 Jan 2025 04:02:13 +0000
+Received: from out162-62-63-194.mail.qq.com ([162.62.63.194])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYdH9-0000000GwF9-0uh7
+	id 1tYdXR-0000000GxEA-3WJK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jan 2025 03:44:04 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-542af38ecd6so1842541e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 19:44:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737085441; x=1737690241; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=i4+rc7zr12NkY8+R4W4XzHgtWfwIjKXfUvC4zjsYnME=;
-        b=OjOJbkYxtmKRRZMXVb9xHarObJYGlLklA5Q5pe4Ya8f93EDvP/d9oHAj1HnINpeU0U
-         hmsBQR96Ypra+7y/EJVXmi3GRsRQuR8sukq3YFI+qwOjBtY8q/v0DnzzEGQioY+iS5cf
-         cNxUq6SFuC7yTpmfmZgb29zzxmjGjmlRk1p2EenxLljxbwGhj04pZ9ddpnkaetKrVqj6
-         AySY+blma6kAWMRCIK4dmjQ5/fh1vF15Eolsl6epxvSdM51VBOFGwutvApzf+t4CPD7k
-         ptWDPXeHaDFxr/uf/q0wCT9eyTl2zNMESF4mVpdYperBaWBXlAF+OuSU8QlgLBetcynj
-         P/PA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737085441; x=1737690241;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=i4+rc7zr12NkY8+R4W4XzHgtWfwIjKXfUvC4zjsYnME=;
-        b=G9bHvQwoODFfHCD92AcbYUqI+61MLFpqN+1XDJSjyX3N/X9rKeqMbqn+3Yi0V7ZzJ7
-         B8QgICBl8x2Y6xlwfE3Uk3Tmpa3KHt+skZJcb+yZk/uIPjSucWQTh6CQ3z7cO2He6Hzj
-         fPSf7uc03qk93Y/+Fsvy7Ko1siWl1Zy2qCgLlZcpCs0KDeaimllJ6t3JbBFwWyRREYEZ
-         X5EXMl+aDNLCp1NeiwfQNaZ3BXOrT09id7CHG10mjpninFtxTK2UysZwbrTKxhtS+H+V
-         kIUMH3pCuebC7yIWLOXliu7OKRJpdTLvGM0QBJSCAOberg68zmZrzQeVtaJKBEM+D3X0
-         ctSA==
-X-Forwarded-Encrypted: i=1; AJvYcCUZvBIv2Uz7I6hr1lpXln990n+VIeyGFSH2qkWx4DEND9FxavNNB1Vk87ZXa5uGuJzOzMuavz3UHAGdYOP3BErk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3EgtMjVqvLKXSazFfNJ10Nb+icocgC/C0zVz05PU5wIvq/ztP
-	WYsKuf76fy/YWW/foGH90HVZNtyUVdGP62Mo8UXWgN+xh4DyRmPqTSZ6JU52jIc=
-X-Gm-Gg: ASbGncsW7veqlN6wU72ts91Q6Ra18J43w7o3m8JneZXyVImgGGppplbO+L1kStovU0b
-	cPVlqrxgEB8vGAN9cQU6Vo0s8YEzf+ufCF8bt/51IEkdkQLhXWzm1K9w4kdn5iau0NYdNIQBWXA
-	fccUK/z1big3lWhx31E3sDIKEAsTVyUYRFtS32C87au6a7mFdnSjXsVPQhRe1QERTIinOCdv9qx
-	iA/zfOsHa+rF64SMW5jb4IQ8IBJmGUq1KFuWKMrUTOjoUzZK8hdWXCPah1e5DgDrzyIs3EMz6dh
-	wC9xak5MAci3TOBaOw1LhFUVQr77EkDzADQe
-X-Google-Smtp-Source: AGHT+IGz5ay7LtZ6+rSD2XP9rxWv/jABbs6ebwXD/MzQJbyjd0oZnFaAjrC0FEJz70e5w3SHfSay0A==
-X-Received: by 2002:a19:5518:0:b0:53f:231e:6fa2 with SMTP id 2adb3069b0e04-5439c253a05mr197064e87.26.1737085441361;
-        Thu, 16 Jan 2025 19:44:01 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5439af78d57sm190046e87.232.2025.01.16.19.43.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Jan 2025 19:43:59 -0800 (PST)
-Date: Fri, 17 Jan 2025 05:43:57 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: fnkl.kernel@gmail.com, Hector Martin <marcan@marcan.st>, 
-	Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Alyssa Ross <hi@alyssa.is>, Janne Grunau <j@jannau.net>
-Subject: Re: [PATCH v4 2/5] drm: adp: Add Apple Display Pipe driver
-Message-ID: <2alm7gds4k2lnbk36gjdw6yhzhpls3ce5baycdiv7lsigxsbzn@rhwdgnphwwp6>
-References: <20250114-adpdrm-v4-0-e9b5260a39f1@gmail.com>
- <20250114-adpdrm-v4-2-e9b5260a39f1@gmail.com>
- <mu7qiybhj7tu5hauk7izfxqlookc3awpknhjk74zwpkbznei4m@kewap6vivzoa>
- <20250116-vivacious-congenial-nightingale-cb2f6d@houat>
+	Fri, 17 Jan 2025 04:00:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1737086434; bh=/+rtWKcCLn/Cu93OBLz7j1Rt6rH+SNavHX1FpALhJSY=;
+	h=From:To:Cc:Subject:Date;
+	b=COF+b5FnAgbVPrE3jXG0ubqb6CdH0oaRvrfOe43d9kKxK0WA0a3FOyk7BJLXKJ5uw
+	 3c0irAOEzcHqwKrZZY1vqPJPUNutANRDPcGtVf0ec7i0P26nzED94yL47WmRLKOzuz
+	 j4529YRJGXFmhFboCB3K1AEp7LLRSprXvT3qJ1RE=
+Received: from localhost.localdomain ([116.237.13.216])
+	by newxmesmtplogicsvrszgpua8-1.qq.com (NewEsmtp) with SMTP
+	id 1F8EE19; Fri, 17 Jan 2025 12:00:31 +0800
+X-QQ-mid: xmsmtpt1737086431tkpe6do49
+Message-ID: <tencent_9DCAEBDF4D9BCDB4687B502DB6B608E4FB0A@qq.com>
+X-QQ-XMAILINFO: N2T7jyym4eG7X9LX5KZWWl5V7vOxB2YQG9jMMQ7T61G3EQmbo/ibpbelN0eq2I
+	 a/KlrK5GiETi+6ZJTO9C2ZP1nLYorrlz9OfJASzDZdDaBU6I3xpMHuv2+ND4ocXIexYyUMpzNTnW
+	 QjE78JGFh6dTsHuEVtK5H+IIIgh+63kYwMgQAP6ZcWK0JQFKSc7BP7TDxsq2Cb3xuthGrNj1DNi8
+	 cr7XTqncXkU56D9v1SKwPc07vUYP0kH1UG4/BaKXRynv+b8up+s+ZAJsKxMQxFtmL2jhxT6zfZMn
+	 1bijXBd6IDAIR9NrWsTX01wBiKrPyPUoOQmn+WsujG1hnZqgO84L3yjGRSWJoHohB4aQJQtu56V8
+	 1f4wsB0Nw0XPHOYJsXxPBerPs03XVXnkSBkTx8E8A1m/UB0+tUHuYr1o7nXNTrWxOTonnI7V+x4i
+	 0CleXEQ4BM14fM5/dkAc4Yzy86EamoRJ7Nd8fWkfv0BFZjAB/6nelLS3WYLm6CyGyyKFi0HNNdu1
+	 7dR30dYLCDl4AuLkmD3yTn9ABWEKjPfitaNzuPG6nGabpGWYvP94/V+i70iAKWqxrCUqhyeSGYdd
+	 L/yuECc4X0Utd25pAd4TkC5Hwd+foNYnaq1LN8wZCfki0G8dVwxHLIAoDH+whECgtl9y3GVzopKb
+	 1Y4QYQzoz5jV7z0BY2gkGsyz99RL1wPtwdbCK9Vv9Fh7Qn24Vtky34K8Ii6ChPvxgkRTQpD+cUwt
+	 vRzgu9+Q3JcViU+IsS39UFtEpiF7eqR2gU3Ut6B/v3lw8OygeWqFtqVj5jdrzWzXzVdwv0b3AP6l
+	 ysSOSLa1MRqjTm3tSYH8w6ehNh1bOjmIiUgqfM80t5wPVVwuaKal03T4EU4LvR3PRj4j1CtBO1Sc
+	 iTi78GTcbRfS1ZDO3v39pCISOGCpGWtSxFwHTKK112brXOMxmTeJ1+a51n0L+9z0FRgKVGRMe8O7
+	 tobKZU14s=
+X-QQ-XMRINFO: M/715EihBoGSf6IYSX1iLFg=
+From: 1534428646@qq.com
+To: catalin.marinas@arm.com,
+	will@kernel.org
+Cc: mark.rutland@arm.com,
+	kristina.martsenko@arm.com,
+	liaochang1@huawei.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	yeoreum.yun@arm.com,
+	"Yiren Xie" <1534428646@qq.com>
+Subject: [PATCH] arm64: kprobe: fix an error in single stepping support
+Date: Fri, 17 Jan 2025 12:00:28 +0800
+X-OQ-MSGID: <20250117040028.763587-1-1534428646@qq.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250116-vivacious-congenial-nightingale-cb2f6d@houat>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_194403_256384_9401268C 
-X-CRM114-Status: GOOD (  19.33  )
+X-CRM114-CacheID: sfid-20250116_200054_460398_4FAF3A12 
+X-CRM114-Status: GOOD (  15.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,32 +87,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 16, 2025 at 05:01:03PM +0100, Maxime Ripard wrote:
-> Hi Dmitry,
-> 
-> On Wed, Jan 15, 2025 at 12:21:39PM +0200, Dmitry Baryshkov wrote:
-> > On Tue, Jan 14, 2025 at 10:38:53PM +0100, Sasha Finkelstein via B4 Relay wrote:
-> > > +static int adp_dsi_host_attach(struct mipi_dsi_host *host,
-> > > +			       struct mipi_dsi_device *dev)
-> > > +{
-> > > +	struct adp_mipi_drv_private *adp = mipi_to_adp(host);
-> > > +	struct drm_bridge *next;
-> > > +
-> > > +	next = devm_drm_of_get_bridge(adp->dsi.dev, adp->dsi.dev->of_node, 1, 0);
-> > 
-> > select DRM_PANEL_BRIDGE for this API to be available.
-> > Also there is an issue of lifetimes. The bridge will be destroyed only
-> > when MIPI driver is unbound, however the panel can be attached and
-> > detached several times.
-> 
-> Can you expand on that one a bit more? AFAIK, it's always been unsafe
-> and we don't have a good mitigation at the moment, so it's unclear to me
-> what change you want here.
+From: "Yiren Xie" <1534428646@qq.com>
 
-I was thinking about using drmm_ here, as the DRM device is also created
-and destroyed each time. But I might be mistaken here.
+It is obvious a conflict between the code and the comment.
+The function aarch64_insn_is_steppable is used to check if a mrs
+instruction can be safe in single-stepping environment, in the
+comment it says only reading DAIF bits by mrs is safe in 
+single-stepping environment, and other mrs instructions are not. So 
+aarch64_insn_is_steppable should returen "TRUE" if the mrs instruction
+being single stepped is reading DAIF bits.
 
+And have verified using a kprobe kernel module which reads the DAIF bits by
+function arch_local_irq_save with offset setting to 0x4, confirmed that
+without this modification, it encounters
+"kprobe_init: register_kprobe failed, returned -22" error while inserting
+the kprobe kernel module. and with this modification, it can read the DAIF
+bits in single-stepping environment.
+
+Fixes: 2dd0e8d2d2a1 ("arm64: Kprobes with single stepping support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Yiren Xie <1534428646@qq.com>
+---
+ arch/arm64/kernel/probes/decode-insn.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/kernel/probes/decode-insn.c b/arch/arm64/kernel/probes/decode-insn.c
+index 6438bf62e753..22383eb1c22c 100644
+--- a/arch/arm64/kernel/probes/decode-insn.c
++++ b/arch/arm64/kernel/probes/decode-insn.c
+@@ -40,7 +40,7 @@ static bool __kprobes aarch64_insn_is_steppable(u32 insn)
+ 		 */
+ 		if (aarch64_insn_is_mrs(insn))
+ 			return aarch64_insn_extract_system_reg(insn)
+-			     != AARCH64_INSN_SPCLREG_DAIF;
++			     == AARCH64_INSN_SPCLREG_DAIF;
+ 
+ 		/*
+ 		 * The HINT instruction is steppable only if it is in whitelist
 -- 
-With best wishes
-Dmitry
+2.34.1
+
 
