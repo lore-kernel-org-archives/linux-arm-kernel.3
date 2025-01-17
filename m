@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D1D0C02185
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 08:42:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F739C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 08:43:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2hn4WqnCnOAaJEqM9ANt1xzctkgUmGPZUZcypgc4DlI=; b=WsTIl36CCe1di9cIuirvrGYml3
-	HxAb0bTvhu+6SjC/Uup8nE8zPXMYTAVM0SZNYoo0ciSOAf1Zb4TjNAjsG6URgRC13/Mp45YzOB0jy
-	VwO8KBQ8mx2JG1tnizz4GL/FYRPBX9Na41a8aMLSsfqOoSjU2R9kw7l+sLxJ60lktb39pYLOyX3rt
-	kY89xweA2bkyw77uhL8YqgLv4MDeq4f8Fr5nXNA5WLDXlN8oeXtnozX0ugmaEqoC3w6op8LLBU9yz
-	dL3samH9zN0MecDyobFBFeXlbgAlGFypmkZcl/ywqKMzKjVhZdAUBwnJKhmaiG12TjVPYSIC8LPum
-	pQTTQ4Bg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Kcl5enqdMRs2CcCUSEWlMdhrMLxz2lYAT03H+4IXJe0=; b=d3VF4bmnL+VT4Nsa3qyP57Mlht
+	Jhthanqnc44jvTStcHY1E1EBmrq3mI4Blvdio30JSwUYrPK4jkW33isICIfB+gGxt33gtji9+rKUa
+	tloI2cvpKxC9uxjX2+KceXgdePw1jDCQzJD2gdGHsyDV5zvFDMzLEuQsHDkHs47mBOcqcVZD4joxh
+	otORhr3BvZpBTe4FDio3r5kR2Fh04i3DVCFhJccuKZpvYLVxhKVONb9QKPCNcOkmcDsfqxeUVxegz
+	nZk30arCoFS3lQaEYXGxVY3IfbHRfh2gAW35AS9M37ppXVGm13axXxzC1fAUpBUVX82GqxNjLVO3X
+	qVLDFY+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYhvx-0000000HMWY-3Laq;
-	Fri, 17 Jan 2025 08:42:29 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tYhxC-0000000HMl5-25sX;
+	Fri, 17 Jan 2025 08:43:46 +0000
+Received: from relay7-d.mail.gandi.net ([217.70.183.200])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYhuh-0000000HMM1-0ElO;
-	Fri, 17 Jan 2025 08:41:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C16625C5B7B;
-	Fri, 17 Jan 2025 08:40:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85B44C4CEDD;
-	Fri, 17 Jan 2025 08:41:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737103270;
-	bh=kGwC5vFFwzp3w+dyxaz6e/ANo3uETs7cf9+OazoI00A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=n3Gr3JTF8hmWPXIiNSO1Avv80+CZsRG+ZZdaKq+av8p12+FcomDCLDZJnEZ6KOSul
-	 7S7Y4XKsiK9ATHyhow6VsigSFfS2WIOTRVlbuuoAXRxSmTgPr4XJR1J8XuPkkp5nlL
-	 Yiv+1424bVYMLa8qgXrZDlb/ogzSIhEblC4Azmzmh6CohwGAnDRt21jHVHZnMeLqQo
-	 QMqpi7MX+uggyXaGmZ3Y3ODNPv0UGPq4Srh3LlO8P/KKGxlvAD/2qmEU37GSixr8lj
-	 wiclioW1A1FmJ589KM53EHUR7FK/v3c+KnHS5A3wi51R8J1tqrxNPtywdZd05wKUY9
-	 ENIBGMAEE2VeA==
-Date: Fri, 17 Jan 2025 09:41:07 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Xianwei Zhao <xianwei.zhao@amlogic.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
-Subject: Re: [PATCH v3 4/5] arm64: dts: amlogic: a4: add pinctrl node
-Message-ID: <20250117-fascinating-ape-of-upgrade-0c298b@krzk-bin>
-References: <20250115-amlogic-pinctrl-v3-0-2b8536457aba@amlogic.com>
- <20250115-amlogic-pinctrl-v3-4-2b8536457aba@amlogic.com>
+	id 1tYhvT-0000000HMRW-0C3W
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Jan 2025 08:42:00 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 0DC8720007;
+	Fri, 17 Jan 2025 08:41:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1737103314;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Kcl5enqdMRs2CcCUSEWlMdhrMLxz2lYAT03H+4IXJe0=;
+	b=bD1mE7xWSpji0DUI9yntuT2z/rWkqL5VDZiXqzQ6jsFebAR5dFYsvPSLLXV2ehXF0+9a0p
+	uNNu/0gWp2qWm6Z3Rm7Q0moY+mfd1g9wHLDIC1yAZ7kpJfrssbDvNLiB51KYvrHMW0wlzE
+	njP/UoLCmpskUNh478LQPRZHazsvjPifIK6FbMg+y47p10QnaZCBQgbEjGQRWLb0SbhCg+
+	cWrrexKofbFlZ1TJr94q7lDO936lyd5tX9zHotLNOOQqWEyj7HF0wCDAEFL9nusgOhh0Kk
+	O/3w03fTK1TrPAM2Fhdvcva0+kYICDtoxj+YuHDIetnVh3eeczZVPEaCr/IO+Q==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Sean Anderson <sean.anderson@linux.dev>
+Cc: Mark Brown <broonie@kernel.org>,  Michal Simek <michal.simek@amd.com>,
+  linux-spi@vger.kernel.org,  linux-kernel@vger.kernel.org,  Jinjie Ruan
+ <ruanjinjie@huawei.com>,  linux-arm-kernel@lists.infradead.org,  Amit
+ Kumar Mahapatra <amit.kumar-mahapatra@amd.com>
+Subject: Re: [PATCH 4/5] spi: zynqmp-gqspi: Allow interrupting operations
+In-Reply-To: <20250116225521.2688224-5-sean.anderson@linux.dev> (Sean
+	Anderson's message of "Thu, 16 Jan 2025 17:55:20 -0500")
+References: <20250116225521.2688224-1-sean.anderson@linux.dev>
+	<20250116225521.2688224-5-sean.anderson@linux.dev>
+User-Agent: mu4e 1.12.7; emacs 29.4
+Date: Fri, 17 Jan 2025 09:41:53 +0100
+Message-ID: <87y0z9j0ha.fsf@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250115-amlogic-pinctrl-v3-4-2b8536457aba@amlogic.com>
+Content-Transfer-Encoding: quoted-printable
+X-GND-Sasl: miquel.raynal@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_004111_182992_5F0D5A49 
-X-CRM114-Status: GOOD (  13.87  )
+X-CRM114-CacheID: sfid-20250117_004159_214500_73C649C1 
+X-CRM114-Status: UNSURE (   7.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,117 +77,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 15, 2025 at 02:42:02PM +0800, Xianwei Zhao wrote:
-> Add pinctrl device to support Amlogic A4 and add uart pinconf.
-> 
-> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
-> ---
->  arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi | 133 ++++++++++++++++++++++++++++
->  1 file changed, 133 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
-> index de10e7aebf21..8eb95580d64a 100644
-> --- a/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
-> +++ b/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
-> @@ -5,6 +5,7 @@
->  
->  #include "amlogic-a4-common.dtsi"
->  #include <dt-bindings/power/amlogic,a4-pwrc.h>
-> +#include <dt-bindings/pinctrl/amlogic,pinctrl.h>
->  / {
->  	cpus {
->  		#address-cells = <2>;
-> @@ -48,3 +49,135 @@ pwrc: power-controller {
->  		};
->  	};
->  };
-> +
-> +&apb {
-> +	periphs_pinctrl: pinctrl {
-> +		compatible = "amlogic,pinctrl-a4";
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		ranges;
-> +
-> +		gpiox: gpio@4100 {
-> +			reg = <0 0x4100 0 0x40>,
-> +			      <0 0x400c 0 0xc>;
+Hello Sean,
 
-One line
+On 16/01/2025 at 17:55:20 -05, Sean Anderson <sean.anderson@linux.dev> wrot=
+e:
 
-> +			reg-names = "gpio", "mux";
-> +			gpio-controller;
-> +			#gpio-cells = <2>;
-> +			bank-number = <AMLOGIC_GPIO_X>;
-> +			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_X<<8) 18>;
-> +		};
-> +
-> +		gpiot: gpio@4140 {
-> +			reg = <0 0x4140 0 0x40>,
-> +			      <0 0x402c 0 0xc>;
-> +			reg-names = "gpio", "mux";
-> +			gpio-controller;
-> +			#gpio-cells = <2>;
-> +			bank-number = <AMLOGIC_GPIO_T>;
-> +			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_T<<8) 23>;
-> +		};
-> +
-> +		gpiod: gpio@4180 {
-> +			reg = <0 0x4180 0 0x40>,
-> +			      <0 0x4040 0 0x8>;
-> +			reg-names = "gpio", "mux";
-> +			gpio-controller;
-> +			#gpio-cells = <2>;
-> +			bank-number = <AMLOGIC_GPIO_D>;
-> +			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_D<<8) 16>;
-> +		};
-> +
-> +		gpioe: gpio@41c0 {
-> +			reg = <0 0x41c0 0 0x40>,
-> +			      <0 0x4048 0 0x4>;
-> +			reg-names = "gpio", "mux";
-> +			gpio-controller;
-> +			#gpio-cells = <2>;
-> +			bank-number = <AMLOGIC_GPIO_E>;
-> +			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_E<<8) 2>;
-> +		};
-> +
-> +		gpiob: gpio@4240 {
-> +			reg = <0 0x4240 0 0x40>,
-> +			      <0 0x4000 0 0x8>;
-> +			reg-names = "gpio", "mux";
-> +			gpio-controller;
-> +			#gpio-cells = <2>;
-> +			bank-number = <AMLOGIC_GPIO_B>;
-> +			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_B<<8) 14>;
-> +		};
-> +
-> +		gpioao: gpio@8e704 {
-> +			reg = <0 0x8e704 0 0x16>,
-> +			      <0 0x8e700 0 0x4>;
-> +			reg-names = "gpio", "mux";
-> +			gpio-controller;
-> +			#gpio-cells = <2>;
-> +			bank-number = <AMLOGIC_GPIO_AO>;
-> +			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_AO<<8) 7>;
-> +		};
-> +
-> +		test_n: gpio@8e744 {
-> +			reg = <0 0x8e744 0 0x20>;
-> +			reg-names = "gpio";
-> +			gpio-controller;
-> +			#gpio-cells = <2>;
-> +			bank-number = <AMLOGIC_GPIO_TEST_N>;
-> +			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_TEST_N<<8) 1>;
-> +		};
-> +
-> +		func-uart-a {
-> +			uart_a_default: group-uart-a-pins1 {
-> +				pinmux= <AML_PINMUX(AMLOGIC_GPIO_X, 11, 1)>,
+> Some operations (such as reading several megabytes of data from a flash)
+> can take several seconds or more. Users may want to cancel such
+> operations. Allow them to do so now that we have a way to recover.
 
-Missing space before '='. Follow DTS coding style.
+I fully agree with the observation, I tried myself interrupting too long
+transfers with another spi controller:
 
-Best regards,
-Krzysztof
+e0205d6203c2c ("spi: atmel: Prevent false timeouts on long transfers")
 
+But there were issues reported, so we limited the signals to SIGKILLs:
+
+1ca2761a77349 ("spi: atmel: Do not cancel a transfer upon any signal")
+
+But jffs2 plays with sigkills, so for spi memories it does not work
+well, we had to revert:
+
+890188d2d7e4a ("spi: atmel: Prevent spi transfers from being killed")
+
+Same thing was also observed on Zynq7000:
+
+26cfc0dbe43aa ("spi: spi-zynq-qspi: use wait_for_completion_timeout to make=
+ zynq_qspi_exec_mem_op not interruptible")
+
+I would however hint to use a specific helper for deriving your timeouts
+if you play with spi memories, because it is interesting to adapt the
+values nevertheless:
+
+d8e4ebf870187 ("spi: Create a helper to derive adaptive timeouts")
+
+Thanks,
+Miqu=C3=A8l
 
