@@ -4,170 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 213FAC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 08:16:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21729C02185
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 08:27:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=px5PE0i/CIFts+ZmwyzRpSbvZIIVcymCY0QY9Wd+oBI=; b=G9t26ktD1SX9oG4VSB5kXgiPZ6
-	QKxxO997MQRRxWzrPl4qDnTM7gi2B8HJpqFdRVPo55RW//DFYGluDiKR0Ay4gaCwA9pozkxBiw1WR
-	dcgeMW5xoDo7ubKDlxlQBSsY4GxUvr/DZE9/AuaABVjGCpNye9QuD1pikA5R2JdOHdOva3PVug20Y
-	YpMlH6vGFje4KB3t4CcMozwxhoHAGUwNrsHAwDr1ftUxPAafOsShIGhUAHk4i3eI8QDD1RMWFOD9C
-	7LkyH8rmVcgt20l29rr18DP43sA1YMdj7kpfo6l+3GjlpjjCBD3h/ntzkkQfa7WIoFthhTSA9htRS
-	grHsuuSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TCDbXpqYM8nhmhb87vm0V5SADenvt0EOWS1eWZ/zgx4=; b=1fhNdCZRf9n3uUOBWMGfxnmGts
+	Jt38Ky4dwxkN9b3keDmjCrOeHLoQuwEPB1/+GlTBqlS6ky5k33vlJyIC+lQTl3V0RdbB9l4I5al7Y
+	YjoD0qlfSatCa1xnWoWPV1xIoL1s3IqsbstC04tBqTdaJOeaFUoffBV7v2UcVznabd3GE4bmUrNBO
+	3fY1sn8AKTiJuSnPDD+mrXhm61xRoR3Gxd7GFU4PBpbYgsBWpQkmREdE3GIO+n+TteQlKitsTcHrk
+	fdA86thSc2g8x63AB+FLf4BgmYus0rERCKo601KtQ9kVPxCHQOvYNzVoveNf0XR3fGv+X+8ft9PEp
+	yvFK1MLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYhWa-0000000HJ7E-1E39;
-	Fri, 17 Jan 2025 08:16:16 +0000
-Received: from mail-psaapc01on20702.outbound.protection.outlook.com ([2a01:111:f403:200e::702] helo=APC01-PSA-obe.outbound.protection.outlook.com)
+	id 1tYhhc-0000000HKGc-38AC;
+	Fri, 17 Jan 2025 08:27:40 +0000
+Received: from mx0b-0064b401.pphosted.com ([205.220.178.238])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYhVF-0000000HIpS-260L;
-	Fri, 17 Jan 2025 08:14:54 +0000
+	id 1tYhgL-0000000HK7z-1RvP
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Jan 2025 08:26:22 +0000
+Received: from pps.filterd (m0250812.ppops.net [127.0.0.1])
+	by mx0a-0064b401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50H7nrF5011256;
+	Fri, 17 Jan 2025 08:26:09 GMT
+Received: from nam10-mw2-obe.outbound.protection.outlook.com (mail-mw2nam10lp2048.outbound.protection.outlook.com [104.47.55.48])
+	by mx0a-0064b401.pphosted.com (PPS) with ESMTPS id 446wf7ha7e-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 17 Jan 2025 08:26:08 +0000 (GMT)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LlbvH3xdIGF16tw8DbbrtTkzzrokjl8vfTRYH8xgOqQiSQ4/enxvmSnnLaWngGwH3TDUJbze+DCd3ZIhjPx1Q8nyHiXI37+50Iy1oGTxDv+nWDedPZVaz3StMQkatgRv2O/dsCLUo9uCunQLzspJTix1GNyw5hFgaesMKBIfJFlYMfkXPhLtuuzLJ561gC5vxZaXgVy4CXOchluDi4I+r0TBa/Mdxq8qmFnFHHAw3e4MJhH/Gg9BGI/55rl3uK9T0aWOdUO4Q40VRw3PsvjcAPxM184r2lwRkZdouqj/HMBjxllc6+ylrVY5QGcstzw7qPw8/pbTBNBK6lOm6cH5Lg==
+ b=rzpcz4O9r5rAGRa3DMtvPuJzFLj1XEqzGsXRK2jY+xAf+wRYIB4J99+262wZ/6P55QDBqGSPHqZnxSPOXmW2seZzFAD3nRuMqIZx+CThbla4mp7+ikOP9HHENUOV0C3o5yxCWx5tBk6SU7wOTGfqNV1pYndTzM8M+HTtMqJdtaUMJei4G+/FrQdBwDrEdPYtZJZmjWuxl09WRD9RTwMmggpqsdo0vtVqKFqL6PoA0t5LuPz/LftMjeqKOy+Y2leYloWhInDnqpn102Cl3+YwYVqj92C682kW49JGgYJh40Qr8TFM3AkwPOgoGy3yjXemmjor6+Cd7+8p1GmZrRFKeA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=px5PE0i/CIFts+ZmwyzRpSbvZIIVcymCY0QY9Wd+oBI=;
- b=sl8W6FmwRxCenxqnvA20yuLsUItjFRKq0UU/rJ2ej8mAxtaCzyJxe7ed3zTIPMa0FxJSJ/mdVvsGjZo4gWDTB4v3PmZ+Hy0geDV1+DefJMDq6O9OZEOi/Ijilylyw7/VPPQ76feeWBve+dsOAr5qw6XDl8yhatfzsDChCNjbC1x3zGnE6VJeUMPtX+gRvv6r/Tjik/9sN4VG/dIQm/X7YGJhJB6RXuLVuQE8Ul1tKnFkTJ0SYWew+lfB7ZB+bHrpgc7GX+vnunvl1Aac1zuKyeys8LqAoWVo17GXnC5fAoi4QQVaCxHfYIgJSKFANMtWYLwX42x2qrFXYmzX8YwWAg==
+ bh=TCDbXpqYM8nhmhb87vm0V5SADenvt0EOWS1eWZ/zgx4=;
+ b=EnjY9htA5XK4Xf3U/oCKSVLPEAgXn/d9EqI1AP1q63EnWgeD69oTOQi7BmmAHlENCk7EKyUdYc8wxOFfBZvdOLDpm94E82Xx6paxRbIBflgub2myGoFGhmltwt0NEYUnvuw4i/7c02xDJUEb+UlMThpw5UzKsbCOzqaqhGktUsuKqAaYE0Ck+30/C95jChT2Fj8Y7J8BVly2dUASIlayql0IlCzns8fGKsLqktNeloYg+xTq/6uP1dOelUZHdiHgTD5cMracJs0Xa85rMIHdLvB0hgEavbip3z/bGHUb/PGX2FgkomsOj7XN5D6F5Qm7SQOoCUSgUeJaCf5Yo3j3dA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=px5PE0i/CIFts+ZmwyzRpSbvZIIVcymCY0QY9Wd+oBI=;
- b=GBarq1VztISmLD9Hm3XW5pdS5B/FIQXgZx8/31Kb4DIUffqGODi+Aa8fefibAR3b0g81sdjfE5q18xIvnRgYb2bQSJjyt4R5xfvsHJ0sN1jrgf4uSUnJWiWDQa8a1yLCaTLhE0hrqMD0Kv9t0JXBpYFYm4FhAvHluBTPLywPtHoi+ZMNB9K5AsYSZzDmTCIjND5Ng88X1C44Xo4JXmOdNyaC1TEPUN1GKjNIbdNCCjIbcnXQg9OOYAGNhQLx9yMPgfvku4e8h+tURH+xIzmKJad3QRPB+dQfwp0QMA2HBIvFVMcXC6vDsKMVFVB4sImQVXVpU+s+HQruIBMrWVK4ag==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from KL1PR03MB7149.apcprd03.prod.outlook.com (2603:1096:820:ca::7)
- by TYSPR03MB8590.apcprd03.prod.outlook.com (2603:1096:405:88::11) with
+ smtp.mailfrom=windriver.com; dmarc=pass action=none
+ header.from=windriver.com; dkim=pass header.d=windriver.com; arc=none
+Received: from SJ0PR11MB5866.namprd11.prod.outlook.com (2603:10b6:a03:429::10)
+ by SN7PR11MB7707.namprd11.prod.outlook.com (2603:10b6:806:322::17) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.13; Fri, 17 Jan
- 2025 08:14:30 +0000
-Received: from KL1PR03MB7149.apcprd03.prod.outlook.com
- ([fe80::a311:33f6:519d:73bf]) by KL1PR03MB7149.apcprd03.prod.outlook.com
- ([fe80::a311:33f6:519d:73bf%6]) with mapi id 15.20.8356.010; Fri, 17 Jan 2025
- 08:14:30 +0000
-Message-ID: <dc89a609-5b2b-4cf0-a40d-6c3597d7536b@amlogic.com>
-Date: Fri, 17 Jan 2025 16:14:28 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/5] clk: meson: t7: add support for the T7 SoC PLL
- clock
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Xianwei Zhao <xianwei.zhao@amlogic.com>, Chuan Liu
- <chuan.liu@amlogic.com>, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Dmitry Rokosov <ddrokosov@sberdevices.ru>, robh+dt <robh+dt@kernel.org>,
- Rob Herring <robh@kernel.org>, devicetree <devicetree@vger.kernel.org>,
- linux-clk <linux-clk@vger.kernel.org>,
- linux-amlogic <linux-amlogic@lists.infradead.org>,
- linux-kernel <linux-kernel@vger.kernel.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
-References: <20250108094025.2664201-1-jian.hu@amlogic.com>
- <20250108094025.2664201-5-jian.hu@amlogic.com>
- <1jy0ze7fne.fsf@starbuckisacylon.baylibre.com>
-From: Jian Hu <jian.hu@amlogic.com>
-In-Reply-To: <1jy0ze7fne.fsf@starbuckisacylon.baylibre.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.18; Fri, 17 Jan
+ 2025 08:26:06 +0000
+Received: from SJ0PR11MB5866.namprd11.prod.outlook.com
+ ([fe80::265f:31c0:f775:c25b]) by SJ0PR11MB5866.namprd11.prod.outlook.com
+ ([fe80::265f:31c0:f775:c25b%7]) with mapi id 15.20.8356.014; Fri, 17 Jan 2025
+ 08:26:05 +0000
+From: Bo Sun <Bo.Sun.CN@windriver.com>
+To: Kexin.Hao@windriver.com
+Cc: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+        Will Deacon <will@kernel.org>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        =?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+        Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+        Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+        Vidya Sagar <vidyas@nvidia.com>, Bo Sun <bo.sun.cn@windriver.com>
+Subject: [PATCH] PCI: controller: Restore PCI_REASSIGN_ALL_BUS when PCI_PROBE_ONLY is enabled
+Date: Fri, 17 Jan 2025 16:24:14 +0800
+Message-ID: <20250117082428.129353-1-Bo.Sun.CN@windriver.com>
+X-Mailer: git-send-email 2.48.1
 Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SGBP274CA0010.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b0::22)
- To KL1PR03MB7149.apcprd03.prod.outlook.com (2603:1096:820:ca::7)
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR01CA0008.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:191::10) To SJ0PR11MB5866.namprd11.prod.outlook.com
+ (2603:10b6:a03:429::10)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: KL1PR03MB7149:EE_|TYSPR03MB8590:EE_
-X-MS-Office365-Filtering-Correlation-Id: e7f6f3b1-d64d-4902-6a7e-08dd36cef7a6
+X-MS-TrafficTypeDiagnostic: SJ0PR11MB5866:EE_|SN7PR11MB7707:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6d9ed0b1-1b3a-4f36-1dbe-08dd36d06446
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|7416014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?QTdpbW5xUWZvUW9wOGpnNmNlL1NCQTVuVis1UStRV2pONnAySkg0ZUJJa1A2?=
- =?utf-8?B?OTllcEhsckNBMjcxWEkyOFRnNXcrVERoelVuMnl2UkFiU1B3THk4WkoxVkpH?=
- =?utf-8?B?a3JzbU41ODdRUzhieEdIU2FHWjU5VHlvQkVFQXFNS0IrRTNkajJicDZhc2dG?=
- =?utf-8?B?WnREZURRZFA5ZzgreGp5MWVWZHFncVo1dHhhK0MvT2xBV1JmYWxsTktKWFQx?=
- =?utf-8?B?dFNnWlRpaVpCNEJPRnBsQnh2OEduZVFWQW5ockdVYVZFaDk0TWxwOUFSTlY5?=
- =?utf-8?B?MURsc1VGWHNaeHRzOEVuaU9QME5mTFhkQ2JPTk84eXFscm9qcVJIRE9BeHFQ?=
- =?utf-8?B?VXRFY1MxQ0lkYXhQMkVjbWF3Y05hajJUcWZRcGtJclFiUCtkSG8vTDA3cnZp?=
- =?utf-8?B?RUxyNzJXeWNVWkdrQlVpNFo5WUszcVR5SG5iMkM3WUxnQXBJc1hXckpYdG1X?=
- =?utf-8?B?cVJtcHZuM2NKSHZlTTZpa1hta20vckozOGduY1YvUEs3MUFsNnc4cDRmUFBG?=
- =?utf-8?B?V2pLeHlOS3cxaUJUS011UVJvRDJHU2xIR21VU3BRYS80MERBclZYd2pjbFJZ?=
- =?utf-8?B?YVBIQWlwdkJ4Wk9QcTRReVA1VVFQNkUvRFRZQS81eU1PTGRVSGRpMGw0Sm9R?=
- =?utf-8?B?OE9GSFhyNjRpc0NTTDJLMFJQRVo3Y0N1Sng4TXRZNkYxSEEyazBvUTIwYUow?=
- =?utf-8?B?dUVOSWs3YkNQMTQ1MTBLNFYvZ1VJbGxHaXdMNnBPWGNPNTlSTDRmYVYwQzMx?=
- =?utf-8?B?K1V0WWdkLzdNVDI3cExoOGFoQ2c0VytYZS9qaUhxSFA5bjBLcGgxZ0kreE40?=
- =?utf-8?B?S3k0VzdCekFObFJrL05DZmwrMjFiNzkwSHF0bGp0QmhNbWlHY2s0V0dWYUU1?=
- =?utf-8?B?L0RmYXM3RzhMVDM4ZzdsT05FaDJ0c1VjNTJFdEdEbHRxZm5wWVpmZHNrYTFN?=
- =?utf-8?B?ZFU0dkRIL2dKakxxdERvTmtNVytFQnVNV0xuMGRlOEZ6eG14dWMxWjNmRlpC?=
- =?utf-8?B?Ulc4UHZnRjF5WkwwNGVkOFE0eVJYcEp2MmRpZjg4RlJDSStWelNEb0VkaDls?=
- =?utf-8?B?anIwQ2ZjbGJGY212RGdKWEdnMjNscHU0djB1TDh2SWVZa0lHNVQrejY4RGR3?=
- =?utf-8?B?dnNmRWYwYjlKelhla0FvVk1tOXhmeW9YSG9MUlJZZWxLcHNMSGk4amREOXBJ?=
- =?utf-8?B?ZUlQODJRQmJEb2FCMTE2RmtzOUlSaGtOQXhJSHo5MmxuSVdGNWF4UVlRTHhB?=
- =?utf-8?B?ampja0lFU0pDT1VnWlJ3ZzBCMktjMkVxZzk5RWh4RGhCakdNcldMU1pKcmlm?=
- =?utf-8?B?T055QnN6YytrQXYzVzRHaWhYYWVyZFBQaFdLU3AxOUhDK2pPZjFHbVdRWlI1?=
- =?utf-8?B?RjBCUFhNdzVudFBOelZpWnpJNW9BbDY0Ykd3dFROa0l6anErNkVKT2V0eGk1?=
- =?utf-8?B?cXNnRjM0S29hWnZwM0x2R3NqOXBEeDA0RHNmd0hGa3QrWXcrb1NoZGYrOTdL?=
- =?utf-8?B?VHFrcXN2c3RVRGRueWdBRmk5Tk1ycFFLNURYY1JvYkFtVkIyZnViZXU4cXlt?=
- =?utf-8?B?WlBsMlJVZCtNVTBzVm93N3AwL3draUUzRnY3blJlU0FZejJtZUdlWHhPaUZT?=
- =?utf-8?B?cUNqQTlmTGhUeS9teEwremMrU08ySkZPcWpoamxZKzdrRDdyUmVVNVlGVERx?=
- =?utf-8?B?WXFoSUszV3BEekYxcFBJWGZydWpZQXM4ckVxY2FzRWpDTVBCYVN6dVBpNHBW?=
- =?utf-8?B?eng5SitKZm9Jb2ZISUE2aVRmcXlSbEVkQmNCVlQ1NlNhOUNUMUZ0VFU1bS9B?=
- =?utf-8?B?Zks2M1NMYnhOanJpUDVoT3ZBdy9oRXNwQzEwNnpGaTZsaDRiTGFpZW80SXM1?=
- =?utf-8?Q?KkXegCrkfVuDG?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB7149.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|52116014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?KI2S12yS+LqHceY7PhldDtWXz9R/ReAYmh+OI38s03tMRTEtpydoRelGz8/u?=
+ =?us-ascii?Q?hxCUGnUfnaSFTaX0K37rBgRAUzoFSlKZbK7Ru2Xs+3ZMiU7MzMNf+M2YxfPt?=
+ =?us-ascii?Q?IaZu8Q9QjR0fbWXOs56Vjj1THa9F0DUOVFHbBjzAevVUVwWFf0dZD1AHsKz+?=
+ =?us-ascii?Q?oLn8duEC3wOuKe6oFch6amXfRXFPLdQvJVg5fDGHOZEMcwZdBazHK8l5B4j/?=
+ =?us-ascii?Q?cEFBD7VAE/9VE+CPwXizceDvqScRZ944QuljFqPIG0Lu1BQhexVuXHkgsAkj?=
+ =?us-ascii?Q?P91yM21+rur6WlF0OW3Kbn35tvoIFNK2WnkHJIUQTsS7vQ7zGAwzV6sWjQtm?=
+ =?us-ascii?Q?aocKxk4lprQCj/iTKP7nxz+/RgaBRo8Ppp0T9ArZ/5tjv84/o8jAQCwQbYlN?=
+ =?us-ascii?Q?l6hCBacnvlW94zn6iiZP+zQVkh5cILVbK0LGT1RrTEgLQS18wj/Qo24iKcar?=
+ =?us-ascii?Q?H/F9C/Us0K2s/tv+UIR6mkD/CEpPVPR7LYRbETrRkCXxFV6TXxsazgLwCTX7?=
+ =?us-ascii?Q?2c3At63Vpka+kQRL+nYmp0DPziJNjyrN0UZw6QuFhaUBAb1nQQXORloIACqG?=
+ =?us-ascii?Q?Es51w2AzvcjCLNFI/14TQqBgOJlwf2VhWoSzGX2j8ndo9C3M04fo10Rol3hU?=
+ =?us-ascii?Q?yQGYWHvvnCgC3oox9HBdsa5/nEySK0fFy4AugEsAArJj+p1gMcdq2iaSkWpP?=
+ =?us-ascii?Q?nC90cf8ZQAehAHqdjl0yqbwJHSRy5Pjq4VBcyn30gHNhnFNEYKg32OTx2XWE?=
+ =?us-ascii?Q?PuQ7jczqeLRS47S9NAO3VTvhO5sGZzrpPgSCiGyI2Cf6+1FA3VgMwTagxOzp?=
+ =?us-ascii?Q?+y+fEKzdloriaTQEKY6dV7oaLMGQrjQhjIXqPq8QCRQHcuNFAE1IjTaknw9D?=
+ =?us-ascii?Q?dRW+n3l0lslQ0tW6hsQQeaIemb7mdqGsPHd7rbiBgY5Rf43WNEBcwn+GBIn0?=
+ =?us-ascii?Q?e/tWZOkje57zgamKclRRRe+XIIGaiwgdwLbj6dK704IL0Diad9X9YpclE/7V?=
+ =?us-ascii?Q?3FvY89fs3o8+0inwSD/XjoazHAbXDXpSwB14fWSLi8Q7Oc3l9dfIEj28VFwC?=
+ =?us-ascii?Q?TOYQCPq9bL+8U7HumWYLQVcPUHFed7cLcMwbTrv7spV83klFRLZV3TAhcv+G?=
+ =?us-ascii?Q?rhPcEBGGMg3KeowvsEcqQW62xb/c9w9mRnUvWaIHdVvM7fzZ3BT3jn/P5Uq4?=
+ =?us-ascii?Q?lqHhYfRORW7TXG87yKwWZ40bdKfMVX2QoMG5r0w5aBgwsf0DUIbc8tvxfc2I?=
+ =?us-ascii?Q?nh/bi8Sj0eARlTiRgnolkiwKtyXDMkElnwT1PoDOGVSVWbVBv9THLptR6cR9?=
+ =?us-ascii?Q?471jJKNRZ1uSNjGLmLN836xfMAl3gn1UJl2TgnOLj3CF+sQXHlGodmVPQL/O?=
+ =?us-ascii?Q?1QsibE7Z9t6z97xFAs0Q08eqjMTVHYItbDb6r/UZKUJXQ/6Bbz6bzhqukRi8?=
+ =?us-ascii?Q?oQBh3I1ezz1WO3FXLyjL1XfxOnXfI6Gi?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR11MB5866.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(52116014)(376014)(38350700014);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?R2NLZHZMVVJPQWFUczFVeExsM0hZamdsRVBhZGtabkhCK050ak9HUEN6Unp0?=
- =?utf-8?B?MVZYNmhpZ3I4c3Bmc21sZzFXejR2Y2J6SElqK1BsQ1pDcjh6eHVSUVZUWW4w?=
- =?utf-8?B?VDlpeDdUVnN5b2RFT3ZvU3VxWUVJVG1IdFpWbXlLeFhGRE5iK2RjZi83MVdH?=
- =?utf-8?B?YkhVVTFleDFvaXNJdngxMXU5TnZHVTIyZG9GSTdVL2ZJRVROKzMzTjhXQ2xL?=
- =?utf-8?B?cksvVVYzNzRxTzhpNVFBR3J0ZEFINXhIU2JnbHFZRDl3VEp6UHhvdUhwU3Mw?=
- =?utf-8?B?WkJ6cjhWcW1GdFlmWTlodG12N3R5MXlIcG9lb0hDU2V1Q0RzTThXbi9BN1pF?=
- =?utf-8?B?TmJzTUVIS1lOclY2bm5IT3BvNzA1L1NsVmtHcEd0MVRGWCtvWXBmUmxaQisx?=
- =?utf-8?B?a1hHbjdmNlQzZDUvRnB0S2l0QWhIUkxocFBkcGE3N0p5ZTgvdWNKZ3lVMlhp?=
- =?utf-8?B?QXdkUE1EenJwUG1OOTBFalczNVBRUFRWN3pHL041QnNVZkptMmM2TGkvY1F4?=
- =?utf-8?B?VmJETkhFNWYrdEE0U0lkc3k2ZHlXWFlsb2JOdDNkQkdYNmFvQ3VHMWdKQ0tJ?=
- =?utf-8?B?RlkxK3Q1UEp4bHlraDBvVDZmWDRYaDJOdGlWTUpxMGZuSUZWcDF0S2JXVitk?=
- =?utf-8?B?Q2ZZTFZmNjFpZlRrQXRkZkJwTkIzN3pYakJCbFZEbjZsaklwTzMzdzcrN3N1?=
- =?utf-8?B?TExUOHorQ0pPU2pHWEE5UGNIcUZEMHV4SXgzYUREajlNcTZkNkJKNnFmN0Yr?=
- =?utf-8?B?N1Vic3VsenVPVm41US9yb0xjS04rcXk4NW55MS9kaUNITHEyRnBsT2dFVUh6?=
- =?utf-8?B?bFZ6WDQ3cUx1Q2s3WUp2eFh0OGQzNENUakdWNGpKVDN2OHhxNjFoaFdaSDdS?=
- =?utf-8?B?NnVTdlFnU1VlKytrS3VoKzBYWFNOUWtYTkxVSWdJamd4UkxLaGhuVlRZQVdB?=
- =?utf-8?B?dGRrS2FBUmhVdVZ3NlBSdGRaYTFoTEJDK3c3WXRaVzZoclg0bVQ5Z1puSktV?=
- =?utf-8?B?dklmRWFmWnBwZ3EvMTl0TkpZMm9QUkVzY1EyMWpuWHVUb01uTm1HUVNUbGZS?=
- =?utf-8?B?czlBa21Zb20xNGIyU0NsN0h5M1NIK2Fpc2xGT244eUJtZExNbHNlOW1wd2xm?=
- =?utf-8?B?bGFFc2l0R0ZTbjFQL2xYQ1RjQ2dieUl6VXNjRGRwMVhKVTZ5Z045ZGUwR1ZW?=
- =?utf-8?B?cjhYTHFpYzBtTS9wZzVkQ1F6TGRoRldLelo4a0wxSHhoeXA3RjkvOXR0NU5W?=
- =?utf-8?B?VmpTTTNYUHpTVnM0SmVjdUcrK2lJaW45K3hadjByTTRXVlNGNWdxczYwSlla?=
- =?utf-8?B?SFhQTjJIaUw4SEdSSjBwTUc1eXBsdE0rcG5pRlFQdEdpMitrdjNzWHYvbFBt?=
- =?utf-8?B?R0trSW8xc0RxdTNremt4dWhwSUN4SUhrOVVaY2N0Um4rVnJiUmhpcjAybThu?=
- =?utf-8?B?SkJLemJxZ3FUcWFpajArQnR6dS9GZGJoR00zYTNWM2Rzb1lhaDFuRi9FWmVZ?=
- =?utf-8?B?RkkzR2JsMGZ5c0hldis3YkV6RXQ2cHhqUjFvbW1hRnlRRnBxSWRnTnkwc0t3?=
- =?utf-8?B?RDBiNWJBYVZEdnZjN053OEF5TVJnR3NsUHFDazNOQStsVG9DOStjTTJybjZX?=
- =?utf-8?B?cG45ZlZHY1JRY0F4OGJqZ3RETEJqTDFvOUtkKytYVWtrNEcxN2J5Sk5iQ2FH?=
- =?utf-8?B?eWlVcEFNOHdBaUp5dUh1dmJvL0tiTURWUktvd0x5U3ZoTE9FU2haYXhxY1RZ?=
- =?utf-8?B?Z0NoV3BMeVNnZU1BNmMrTk1CZkh6VWM4bmFjbjl2Y2h0V1QxdjEzMTEvWlJs?=
- =?utf-8?B?aEVpR3M4bEhudTAvaHl3b0JuNDh2dWFpSnZ1RlJjTWxDT3A2QXJDR1p5QVgw?=
- =?utf-8?B?Zkh1eFMzdVFkVFQ0cDJ4RGpHeDNPTmkreVhkb085clY5clJjbHBibTUvRG45?=
- =?utf-8?B?STBNR01kaVZJaHJhdGVyMm5weW9HdDBjUnYvK21rOC8wb29XcjBBc1Z3R0I1?=
- =?utf-8?B?RjZDZVI3YUk2a1Z6STNJT2phNFNxTWkyRHNGOXhwUGdlUkhBNUR4aFUxblNY?=
- =?utf-8?B?QmR6a2xKQ1ByK0RCd21VOXlhclNuN1NGQWl1MThwVkRvdGJtbkYxVEdjM2Fk?=
- =?utf-8?Q?peOnrXf4PU8ommCbLRq1ipwds?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e7f6f3b1-d64d-4902-6a7e-08dd36cef7a6
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB7149.apcprd03.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ci8hxaAl1RsgTapEEu0eAz4huqFocNwn6wLZChsfAKvLTu5Sije4pQXmXwsb?=
+ =?us-ascii?Q?gNGhGqGVR8JMVEBS6ysE++WUr1PqEWYIOkIyHRSw7yRFRDXzn4/ffaX8sMch?=
+ =?us-ascii?Q?vWEwmUNBqsOWVRP5cp5VeRVvPqNIKsWTDI4aX2HvDyFy6iOJv15eZrUiziU4?=
+ =?us-ascii?Q?SmE/UrCFgG0ou3Gb5G3Gpxc9AVr3toqIXaMrLLrTTUSN1flLMKwl9PPvihEd?=
+ =?us-ascii?Q?E5bH5TP0cuvaptEvfI/pRvdwwgsnKDUhllzXIAL65pTaPt9AIPynyOYhDLMZ?=
+ =?us-ascii?Q?iKYOH678SRZENi5VIHVZB3Lfq/7/yKKEtX0KFaAb4UiESAwF1N7JZqi3YRQt?=
+ =?us-ascii?Q?+MKwpGx87bRKwAISJbrtGHkpl8xFwkw8jtSZbZ7ahwV6IBBEYYLpVTRb7ZPu?=
+ =?us-ascii?Q?fVSdXhDpUuvXxyPCmGQq4hsAk1IBT0sWZfOz9x9EIPlFpLCa6quXP0qFmJhA?=
+ =?us-ascii?Q?yF9MZg04QfQmny/h3BDR6gBdW7WjECVwAAa4PQIXgCiXJWQ8F+qwQPS7pkJK?=
+ =?us-ascii?Q?wH9zpPY0v91X+RxA2h2rx85RCY7YquLOqULg6lpHAXEC8lxsc/WXftaY0MeW?=
+ =?us-ascii?Q?VEWiG1hi7kj7UznXolQIdtFMk5XGX9Rb5N+tIsB/yInegrG4jnCkmozCJ5NJ?=
+ =?us-ascii?Q?miDjmNSHhRdFVCpqQVYiMxyjbTi+oqHtqmIxcRTkA2INPY/JvEVTPFqredBO?=
+ =?us-ascii?Q?vW3dq2RcDKn7PInXCLvo4xitwOEewvGqEo1UBX/pfa4Q7yg6TLNzi4Sb1raP?=
+ =?us-ascii?Q?5wW9Uf4ugTwQdk8qR8UjASHEQwHquq0r8p8obMtuAvH4VS/wEkpuq4CmXzL3?=
+ =?us-ascii?Q?R7Lqz69mwcnQYHbgW3Xs0U2m/9pf3nyFtS//Kb4tFTzEU3GtMZ8LGj9JVQ+8?=
+ =?us-ascii?Q?+QGryH+ZRq0cT755qb0Ua5rhlcUlTu8Petp648kEDMusq89GYSFPnabfOgu/?=
+ =?us-ascii?Q?cnLGl06ngYGeXHh2pq3IQ3ltxDYtNjYhAAiUH5fkHjCSDz7v1luINB43yhap?=
+ =?us-ascii?Q?psPQ//qaq/ynU+GrBX8uzjHHUByVBzuK6UTFwKkEhVzNlp8Myr7EUg5BbiZF?=
+ =?us-ascii?Q?ICgDC3GCb2+WVAUlxLyXmHlF224vqSx4JsUCBT1dSbRD56K1OPSWu/Bd3V3a?=
+ =?us-ascii?Q?RzflYVVOY60gLrU5LNwZCpLaczi2ET4VztjtShzS9uY+1BNrtSXW4urFhQJs?=
+ =?us-ascii?Q?2+gkb4FAD0ZUqnmWoBzvXSV8UWeW9n76DDmpLcnP01M4IbtWblRdDRk2Uo3P?=
+ =?us-ascii?Q?/MTnx8wwLUUzGDEv+Fjn8Th32ngrZBZBXRO/b8gokiSqFVYeHbcHWH26pX8W?=
+ =?us-ascii?Q?4GpEFKhwnin2C8FsvP/8BajlnoqUeQ/ticQNk8vl2oNy+JyOEB8IOCGuJMLn?=
+ =?us-ascii?Q?oFs/jAER/gDVpwWLtwts/eAww1lOkvE4r2pPfXM44EsN9iX4TuS4l0FyHxTY?=
+ =?us-ascii?Q?AuDBTaWeYKZvuzvrEgbqsMOWAvMOLB7SofrrUlbqX+KdRktrF0D7y9vM1znL?=
+ =?us-ascii?Q?aUEIIAopOKzx2iUD63U/qpyUJF3ZMY+iYevQFIexntgfCsOKQwcYqdHX4gSV?=
+ =?us-ascii?Q?DclBqp/9cFLOjkOwOuBceZKF18oUF4nlv/fc1oqfPobn8Tleq3Sn6fqUgdqk?=
+ =?us-ascii?Q?BA=3D=3D?=
+X-OriginatorOrg: windriver.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6d9ed0b1-1b3a-4f36-1dbe-08dd36d06446
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR11MB5866.namprd11.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jan 2025 08:14:30.3357
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jan 2025 08:26:05.7914
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-Id: 8ddb2873-a1ad-4a18-ae4e-4644631433be
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: OHPHU5bL/yMIS59zf1OgtDLRpfHOii2Syc7CiTlJ1MDlETiMVMpGjU9rP9TjG8xqMQrmR0+uu6utTmmBqEHkng==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR03MB8590
+X-MS-Exchange-CrossTenant-UserPrincipalName: zZWsLnlx89suzhkM5m5p+Uo1GlQGXsSnGdU/Ee0YR9FnW3jSaYkvCzkdtWevBl89HQyVngaOXz+4RzqV9ZWOBQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR11MB7707
+X-Proofpoint-ORIG-GUID: GsYV8nRlNHnYQkhirI9Cy64LFEHqaMWN
+X-Authority-Analysis: v=2.4 cv=X8moKHTe c=1 sm=1 tr=0 ts=678a1420 cx=c_pps a=+hq7TYb7Jqj0EztKBnUMzg==:117 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=VdSt8ZQiCzkA:10 a=bRTqI5nwn0kA:10 a=VwQbUJbxAAAA:8
+ a=t7CeM3EgAAAA:8 a=OQzckKujYBuisFixx9sA:9 a=FdTzh2GWekK77mhwV6Dw:22
+X-Proofpoint-GUID: GsYV8nRlNHnYQkhirI9Cy64LFEHqaMWN
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-17_03,2025-01-16_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 clxscore=1011
+ bulkscore=0 lowpriorityscore=0 priorityscore=1501 adultscore=0 mlxscore=0
+ malwarescore=0 impostorscore=0 spamscore=0 mlxlogscore=999 suspectscore=0
+ classifier=spam authscore=0 adjust=0 reason=mlx scancount=1
+ engine=8.21.0-2411120000 definitions=main-2501170066
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_001453_670768_5D4E3326 
-X-CRM114-Status: GOOD (  17.06  )
+X-CRM114-CacheID: sfid-20250117_002621_514568_19CDE3E6 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,254 +174,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On our Marvell OCTEON CN96XX board, we observed the following panic on
+the latest kernel:
+Unable to handle kernel NULL pointer dereference at virtual address 0000000000000080
+Mem abort info:
+  ESR = 0x0000000096000005
+  EC = 0x25: DABT (current EL), IL = 32 bits
+  SET = 0, FnV = 0
+  EA = 0, S1PTW = 0
+  FSC = 0x05: level 1 translation fault
+Data abort info:
+  ISV = 0, ISS = 0x00000005, ISS2 = 0x00000000
+  CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+  GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+[0000000000000080] user address but active_mm is swapper
+Internal error: Oops: 0000000096000005 [#1] PREEMPT SMP
+Modules linked in:
+CPU: 9 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.13.0-rc7-00149-g9bffa1ad25b8 #1
+Hardware name: Marvell OcteonTX CN96XX board (DT)
+pstate: 60400009 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+pc : of_pci_add_properties+0x278/0x4c8
+lr : of_pci_add_properties+0x258/0x4c8
+sp : ffff8000822ef9b0
+x29: ffff8000822ef9b0 x28: ffff000106dd8000 x27: ffff800081bc3b30
+x26: ffff800081540118 x25: ffff8000813d2be0 x24: 0000000000000000
+x23: ffff00010528a800 x22: ffff000107c50000 x21: ffff0001039c2630
+x20: ffff0001039c2630 x19: 0000000000000000 x18: ffffffffffffffff
+x17: 00000000a49c1b85 x16: 0000000084c07b58 x15: ffff000103a10f98
+x14: ffffffffffffffff x13: ffff000103a10f96 x12: 0000000000000003
+x11: 0101010101010101 x10: 000000000000002c x9 : ffff800080ca7acc
+x8 : ffff0001038fd900 x7 : 0000000000000000 x6 : 0000000000696370
+x5 : 0000000000000000 x4 : 0000000000000002 x3 : ffff8000822efa40
+x2 : ffff800081341000 x1 : ffff000107c50000 x0 : 0000000000000000
+Call trace:
+ of_pci_add_properties+0x278/0x4c8 (P)
+ of_pci_make_dev_node+0xe0/0x158
+ pci_bus_add_device+0x158/0x210
+ pci_bus_add_devices+0x40/0x98
+ pci_host_probe+0x94/0x118
+ pci_host_common_probe+0x120/0x1a0
+ platform_probe+0x70/0xf0
+ really_probe+0xb4/0x2a8
+ __driver_probe_device+0x80/0x140
+ driver_probe_device+0x48/0x170
+ __driver_attach+0x9c/0x1b0
+ bus_for_each_dev+0x7c/0xe8
+ driver_attach+0x2c/0x40
+ bus_add_driver+0xec/0x218
+ driver_register+0x68/0x138
+ __platform_driver_register+0x2c/0x40
+ gen_pci_driver_init+0x24/0x38
+ do_one_initcall+0x4c/0x278
+ kernel_init_freeable+0x1f4/0x3d0
+ kernel_init+0x28/0x1f0
+ ret_from_fork+0x10/0x20
+Code: aa1603e1 f0005522 d2800044 91000042 (f94040a0)
 
-On 2025/1/14 2:05, Jerome Brunet wrote:
-> [ EXTERNAL EMAIL ]
->
-> On Wed 08 Jan 2025 at 17:40, Jian Hu <jian.hu@amlogic.com> wrote:
->
->> Add PLL clock controller driver for the Amlogic T7 SoC family.
->>
->> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
->> ---
->>   drivers/clk/meson/Kconfig  |   14 +
->>   drivers/clk/meson/Makefile |    1 +
->>   drivers/clk/meson/t7-pll.c | 1193 ++++++++++++++++++++++++++++++++++++
->>   3 files changed, 1208 insertions(+)
->>   create mode 100644 drivers/clk/meson/t7-pll.c
->>
->> diff --git a/drivers/clk/meson/Kconfig b/drivers/clk/meson/Kconfig
->> index 78f648c9c97d..6878b035a7ac 100644
->> --- a/drivers/clk/meson/Kconfig
->> +++ b/drivers/clk/meson/Kconfig
->> @@ -201,4 +201,18 @@ config COMMON_CLK_S4_PERIPHERALS
->>        help
->>          Support for the peripherals clock controller on Amlogic S805X2 and S905Y4
->>          devices, AKA S4. Say Y if you want S4 peripherals clock controller to work.
->> +
->> +config COMMON_CLK_T7_PLL
->> +     tristate "Amlogic T7 SoC PLL controller support"
->> +     depends on ARM64
->> +     default y
->> +     select COMMON_CLK_MESON_REGMAP
->> +     select COMMON_CLK_MESON_CLKC_UTILS
->> +     select COMMON_CLK_MESON_PLL
->> +     imply COMMON_CLK_SCMI
->> +     help
->> +       Support for the PLL clock controller on Amlogic A311D2 based
->> +       device, AKA T7. PLLs are required by most peripheral to operate
->> +       Say Y if you are a T7 based device.
->> +
->>   endmenu
->> diff --git a/drivers/clk/meson/Makefile b/drivers/clk/meson/Makefile
->> index bc56a47931c1..646257694c34 100644
->> --- a/drivers/clk/meson/Makefile
->> +++ b/drivers/clk/meson/Makefile
->> @@ -27,3 +27,4 @@ obj-$(CONFIG_COMMON_CLK_G12A) += g12a.o g12a-aoclk.o
->>   obj-$(CONFIG_COMMON_CLK_MESON8B) += meson8b.o meson8-ddr.o
->>   obj-$(CONFIG_COMMON_CLK_S4_PLL) += s4-pll.o
->>   obj-$(CONFIG_COMMON_CLK_S4_PERIPHERALS) += s4-peripherals.o
->> +obj-$(CONFIG_COMMON_CLK_T7_PLL) += t7-pll.o
->> diff --git a/drivers/clk/meson/t7-pll.c b/drivers/clk/meson/t7-pll.c
->> new file mode 100644
->> index 000000000000..a6113b7dfe11
->> --- /dev/null
->> +++ b/drivers/clk/meson/t7-pll.c
->> @@ -0,0 +1,1193 @@
->> +// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
->> +/*
->> + * Copyright (c) 2024 Amlogic, Inc. All rights reserved.
->> + * Author: Jian Hu <jian.hu@amlogic.com>
->> + */
->> +
->> +#include <linux/clk-provider.h>
->> +#include <linux/platform_device.h>
->> +#include "clk-regmap.h"
->> +#include "clk-pll.h"
->> +#include "clk-mpll.h"
->> +#include "meson-clkc-utils.h"
->> +#include "meson-eeclk.h"
->> +#include <dt-bindings/clock/amlogic,t7-pll-clkc.h>
->> +
->> +#define ANACTRL_GP0PLL_CTRL0         0x00
->> +#define ANACTRL_GP0PLL_CTRL1         0x04
->> +#define ANACTRL_GP0PLL_CTRL2         0x08
->> +#define ANACTRL_GP0PLL_CTRL3         0x0c
->> +#define ANACTRL_GP0PLL_CTRL4         0x10
->> +#define ANACTRL_GP0PLL_CTRL5         0x14
->> +#define ANACTRL_GP0PLL_CTRL6         0x18
->> +#define ANACTRL_GP0PLL_STS           0x1c
->> +
->> +#define ANACTRL_GP1PLL_CTRL0         0x00
->> +#define ANACTRL_GP1PLL_CTRL1         0x04
->> +#define ANACTRL_GP1PLL_CTRL2         0x08
->> +#define ANACTRL_GP1PLL_CTRL3         0x0c
->> +#define ANACTRL_GP1PLL_STS           0x1c
->> +
->> +#define ANACTRL_HIFIPLL_CTRL0                0x00
->> +#define ANACTRL_HIFIPLL_CTRL1                0x04
->> +#define ANACTRL_HIFIPLL_CTRL2                0x08
->> +#define ANACTRL_HIFIPLL_CTRL3                0x0c
->> +#define ANACTRL_HIFIPLL_CTRL4                0x10
->> +#define ANACTRL_HIFIPLL_CTRL5                0x14
->> +#define ANACTRL_HIFIPLL_CTRL6                0x18
->> +#define ANACTRL_HIFIPLL_STS          0x1c
->> +
->> +#define ANACTRL_PCIEPLL_CTRL0                0x00
->> +#define ANACTRL_PCIEPLL_CTRL1                0x04
->> +#define ANACTRL_PCIEPLL_CTRL2                0x08
->> +#define ANACTRL_PCIEPLL_CTRL3                0x0c
->> +#define ANACTRL_PCIEPLL_CTRL4                0x10
->> +#define ANACTRL_PCIEPLL_CTRL5                0x14
->> +#define ANACTRL_PCIEPLL_STS          0x18
->> +
->> +#define ANACTRL_MPLL_CTRL0           0x00
->> +#define ANACTRL_MPLL_CTRL1           0x04
->> +#define ANACTRL_MPLL_CTRL2           0x08
->> +#define ANACTRL_MPLL_CTRL3           0x0c
->> +#define ANACTRL_MPLL_CTRL4           0x10
->> +#define ANACTRL_MPLL_CTRL5           0x14
->> +#define ANACTRL_MPLL_CTRL6           0x18
->> +#define ANACTRL_MPLL_CTRL7           0x1c
->> +#define ANACTRL_MPLL_CTRL8           0x20
->> +#define ANACTRL_MPLL_STS             0x24
->> +
->> +#define ANACTRL_HDMIPLL_CTRL0                0x00
->> +#define ANACTRL_HDMIPLL_CTRL1                0x04
->> +#define ANACTRL_HDMIPLL_CTRL2                0x08
->> +#define ANACTRL_HDMIPLL_CTRL3                0x0c
->> +#define ANACTRL_HDMIPLL_CTRL4                0x10
->> +#define ANACTRL_HDMIPLL_CTRL5                0x14
->> +#define ANACTRL_HDMIPLL_CTRL6                0x18
->> +#define ANACTRL_HDMIPLL_STS          0x1c
->> +
->> +#define ANACTRL_MCLK_PLL_CNTL0               0x00
->> +#define ANACTRL_MCLK_PLL_CNTL1               0x04
->> +#define ANACTRL_MCLK_PLL_CNTL2               0x08
->> +#define ANACTRL_MCLK_PLL_CNTL3               0x0c
->> +#define ANACTRL_MCLK_PLL_CNTL4               0x10
->> +#define ANACTRL_MCLK_PLL_STS         0x14
->> +
->> +static const struct pll_mult_range media_pll_mult_range = {
->> +     .min = 125,
->> +     .max = 250,
->> +};
->  From now on I expect naming to be more predictable.
-> This is part of an ongoing clean-up to be able to more easily share
-> common part between SoC. The convention will be based on what's
-> the most the rest of drivers/clk/meson to minimize the alignnment diff
->
-> In the general, clk names, ID name and variable as much as possible,
-> variables soc id prefixed
+This regression was introduced by commit 7246a4520b4b ("PCI: Use
+preserve_config in place of pci_flags"). On our board, the 002:00:07.0
+bridge is misconfigured by the bootloader. Both its secondary and
+subordinate bus numbers are initialized to 0, while its fixed secondary
+bus number is set to 8. However, bus number 8 is also assigned to another
+bridge (0002:00:0f.0). Although this is a bootloader issue, before the
+change in commit 7246a4520b4b, the PCI_REASSIGN_ALL_BUS flag was
+set by default when PCI_PROBE_ONLY was enabled, ensuing that all the
+bus number for these bridges were reassigned, avoiding any conflicts.
 
+After the change introduced in commit 7246a4520b4b, the bus numbers
+assigned by the bootloader are reused by all other bridges, except
+the misconfigured 002:00:07.0 bridge. The kernel attempt to reconfigure
+002:00:07.0 by reusing the fixed secondary bus number 8 assigned by
+bootloader. However, since a pci_bus has already been allocated for
+bus 8 due to the probe of 0002:00:0f.0, no new pci_bus allocated for
+002:00:07.0. This results in a pci bridge device without a pci_bus
+attached (pdev->subordinate == NULL). Consequently, accessing
+pdev->subordinate in of_pci_prop_bus_range() leads to a NULL pointer
+dereference.
 
-Agreed with you.
+To summarize, we need to restore the PCI_REASSIGN_ALL_BUS flag when
+PCI_PROBE_ONLY is enabled in order to work around issue like the one
+described above.
 
->> +
->> +static const struct reg_sequence gp0_init_regs[] = {
-> t7_gp0_pll_init_regs
+Cc: stable@vger.kernel.org
+Fixes: 7246a4520b4b ("PCI: Use preserve_config in place of pci_flags")
+Signed-off-by: Bo Sun <Bo.Sun.CN@windriver.com>
+---
+ drivers/pci/controller/pci-host-common.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
+diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
+index cf5f59a745b3..615923acbc3e 100644
+--- a/drivers/pci/controller/pci-host-common.c
++++ b/drivers/pci/controller/pci-host-common.c
+@@ -73,6 +73,10 @@ int pci_host_common_probe(struct platform_device *pdev)
+ 	if (IS_ERR(cfg))
+ 		return PTR_ERR(cfg);
+ 
++	/* Do not reassign resources if probe only */
++	if (!pci_has_flag(PCI_PROBE_ONLY))
++		pci_add_flags(PCI_REASSIGN_ALL_BUS);
++
+ 	bridge->sysdata = cfg;
+ 	bridge->ops = (struct pci_ops *)&ops->pci_ops;
+ 	bridge->msi_domain = true;
+-- 
+2.48.1
 
-Ok.
-
->
->> +     { .reg = ANACTRL_GP0PLL_CTRL1,  .def = 0x00000000 },
->> +     { .reg = ANACTRL_GP0PLL_CTRL2,  .def = 0x00000000 },
->> +     { .reg = ANACTRL_GP0PLL_CTRL3,  .def = 0x48681c00 },
->> +     { .reg = ANACTRL_GP0PLL_CTRL4,  .def = 0x88770290 },
->> +     { .reg = ANACTRL_GP0PLL_CTRL5,  .def = 0x3927200a },
->> +     { .reg = ANACTRL_GP0PLL_CTRL6,  .def = 0x56540000 },
->> +};
->> +
->> +static struct clk_regmap gp0_pll_dco = {
-> t7_gp0_pll_dco
-
-
-Ok.
-
->
->> +     .data = &(struct meson_clk_pll_data){
->> +             .en = {
->> +                     .reg_off = ANACTRL_GP0PLL_CTRL0,
->> +                     .shift   = 28,
->> +                     .width   = 1,
->> +             },
->> +             .m = {
->> +                     .reg_off = ANACTRL_GP0PLL_CTRL0,
->> +                     .shift   = 0,
->> +                     .width   = 8,
->> +             },
->> +             .n = {
->> +                     .reg_off = ANACTRL_GP0PLL_CTRL0,
->> +                     .shift   = 10,
->> +                     .width   = 5,
->> +             },
->> +             .l = {
->> +                     .reg_off = ANACTRL_GP0PLL_STS,
->> +                     .shift   = 31,
->> +                     .width   = 1,
->> +             },
->> +             .rst = {
->> +                     .reg_off = ANACTRL_GP0PLL_CTRL0,
->> +                     .shift   = 29,
->> +                     .width   = 1,
->> +             },
->> +             .range = &media_pll_mult_range,
->> +             .init_regs = gp0_init_regs,
->> +             .init_count = ARRAY_SIZE(gp0_init_regs),
->> +     },
->> +     .hw.init = &(struct clk_init_data){
->> +             .name = "gp0_pll_dco",
->> +             .ops = &meson_clk_pll_ops,
->> +             .parent_data = &(const struct clk_parent_data) {
->> +                     .fw_name = "input",
->> +             },
->> +             .num_parents = 1,
->> +     },
->> +};
->> +
->> +static struct clk_regmap gp0_pll = {
-> t7_gp0_pll ... and so on.
-
-
-Ok, I will add t7_ prefix for the varibles and names.
-
-
-Also apply for t7-peripherals.c.
-
->> +     .data = &(struct clk_regmap_div_data){
->> +             .offset = ANACTRL_GP0PLL_CTRL0,
->> +             .shift = 16,
->> +             .width = 3,
->> +             .flags = CLK_DIVIDER_POWER_OF_TWO,
->> +     },
->> +     .hw.init = &(struct clk_init_data) {
->> +             .name = "gp0_pll",
->> +             .ops = &clk_regmap_divider_ops,
->> +             .parent_hws = (const struct clk_hw *[]) {
->> +                     &gp0_pll_dco.hw
->> +             },
->> +             .num_parents = 1,
->> +             .flags = CLK_SET_RATE_PARENT,
->> +     },
->> +};
->> ......
->> +
->> +static struct clk_hw *t7_gp0_hw_clks[] = {
->> +     [CLKID_GP0_PLL_DCO]             = &gp0_pll_dco.hw,
->> +     [CLKID_GP0_PLL]                 = &gp0_pll.hw,
->> +};
->> +
->> +static struct clk_hw *t7_gp1_hw_clks[] = {
->> +     [CLKID_GP1_PLL_DCO]             = &gp1_pll_dco.hw,
->> +     [CLKID_GP0_PLL]                 = &gp1_pll.hw,
->                  ^
-> This won't go well ...
-
-
-Ok,  I will fix it in next verion.
-
-> ......
-> --
-> Jerome
 
