@@ -4,71 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A2E9C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 17:56:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F24E4C02185
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 18:01:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fxU9CD7AEL7DsxPgdOBnQcaQoJw6EsEU9GDHeVBapzk=; b=uMdUetDn4SbxwQrCdFOgblVBM7
-	UTlnVmfh/pSqU30Z9PiNE6XcNnMkyRBvDTvHgadmi2DaHoSnuuF8Ba/fzZFAdH0/pBjuo36b3DWHF
-	cT3dk+d/yNX/VIfwIm5yuPjIvCDAlaP8mb59Eu/qdX4lXNu5j2+DAoiCKbMFf3+6sb1AQr0NjZ6zQ
-	nMuTrwoBry0Wa36iDPqXlB9rg0K4DxjBfVpyN1e3cpWG1EaVWU641PHJYUGAJLcQgAEXmjjBMfk/F
-	vBDo7TrqVQRAholsl39BjPgUnJOdiHes/u2spOJgymm2fLI0DiQgPrNEmZuJDL52isvV8dIFate1H
-	OsLTk0Kg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RimRJhO8mN/0VIbcekX4TIH+fDhZfzDhpoNRBIHOHSI=; b=x8VdWUb8n2I9YGx+IbDQJVin2R
+	so1uOoh8kKQWbYxY0YVURmniCXzqRzR7EPDrUkStGQL2QVBC1j0el5hqB+0PccN8nipes7eQijSfb
+	daiLU5WZhuGsNWpGQ1tsxANaDgcE0UKnUvRcEfJJrgQjJQ6Mxi+puovFcY+nykJSHBWHpnk0l878f
+	E9OGRl3urkk7WX1rXwXlYZxBe0nfiW0qvUwZLPDe4Agy1eJpdgYNaS3hK5yUvps0ABpWd5FVV2hj8
+	f0HHmKTf8PaJW5S/CDgLCg4E6tECcTuFJLAo1A8lNaCriiYL0tz/mYkZ/UqlbefKne92QN2Lqs/Um
+	nVtJLNQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYqZl-000000010hw-31w6;
-	Fri, 17 Jan 2025 17:56:09 +0000
+	id 1tYqei-000000011Pn-2pc2;
+	Fri, 17 Jan 2025 18:01:16 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYqYU-000000010N0-2UNN
+	id 1tYqdQ-0000000113n-0JhX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jan 2025 17:54:51 +0000
+	Fri, 17 Jan 2025 17:59:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E7A6A5C5A44;
-	Fri, 17 Jan 2025 17:54:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5346C4CEDD;
-	Fri, 17 Jan 2025 17:54:48 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id D7AC25C63C8;
+	Fri, 17 Jan 2025 17:59:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7FDAC4CEE2;
+	Fri, 17 Jan 2025 17:59:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737136489;
-	bh=IkLn0NUjJr3fRLkhhx+GSKLsB9SD/Hl6TVgxBLGOA2M=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=eOc9ta3gkWAn3Ou50TPzvcaoJhumR/Y01YqIRNTO2bAnW7UeGUm6HfpQuFm1YAVwe
-	 kmyQOkzNy1wsFqf48iDAbBRYQD3XK6B1rUg7mbsDezinfKYy/Iowp2W/LETxZIqto9
-	 //a90tMic8n6QZYc/+i1h/eTmeJvEte/2IDNOSJfqVMX8KskdfNf3TcLm6ta4FsgLJ
-	 xWXwrprfpfo5KV61zofv0te2fQgPKIO5R6Tf4gZss5aw5lzbFaGmKaGH5bOhkAyreQ
-	 Y6Zvj4zS5WJRPgTxW6/TkUSaJVw/rWXl1SjC3brpXFzWuz6to+BLZ0B5HTRTokCdbE
-	 4ISTMvjNukxZA==
-From: Namhyung Kim <namhyung@kernel.org>
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
- Charlie Jenkins <charlie@rivosinc.com>
-Cc: linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- Arnaldo Carvalho de Melo <acme@redhat.com>
-In-Reply-To: <20250114-perf_make_test-v1-1-decc1c517b11@rivosinc.com>
-References: <20250114-perf_make_test-v1-1-decc1c517b11@rivosinc.com>
-Subject: Re: [PATCH FOR-NEXT] perf tools: Expose quiet/verbose variables in
- Makefile.perf
-Message-Id: <173713648876.2190713.3137931166483000893.b4-ty@kernel.org>
-Date: Fri, 17 Jan 2025 09:54:48 -0800
+	s=k20201202; t=1737136795;
+	bh=GbqeT7eeAHIjJRdLRDZggAAJcM/bUobSgiiZNrAeh2s=;
+	h=From:To:Cc:Subject:Date:From;
+	b=UJ4BLVfBc5CgoQgarhyz8frZd3QYr1vcDc2Q23SSXR+RqDZQtU/odh+ZiYIU39zNC
+	 4Goye5M2FBfXHDElyZQ7t1tD2NWBMpzpZmfcf9XIpBWH4maYz2EhpE7hLxjaKdW9Ti
+	 Dm3xEBD0kdXOMipbvNS5HVNC1tSBM0ufLIFAeVkQf6CBKC3EtCxwJNQyfEKeoKXOY5
+	 7CEBYMrCHsZabraQCo0XylISR1P8O2ATNSp57I8fO0WzV5AIvXNB89q4L/mh8J4zPB
+	 cZVttfxstovxydmK5i+zItsh6M/7UCwzlpHwCX1pueQUgv2Awf3n4imiO0Oj2vRDAY
+	 6+sBgdQWecUsQ==
+Received: from mchehab by mail.kernel.org with local (Exim 4.98)
+	(envelope-from <mchehab+huawei@kernel.org>)
+	id 1tYqdM-00000006AjU-1Ray;
+	Fri, 17 Jan 2025 18:59:52 +0100
+From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+To: Linux Doc Mailing List <linux-doc@vger.kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+	Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	Chao Yu <mchehab+huawei@kernel.org>,
+	Jaegeuk Kim <mchehab+huawei@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Mike Leach <mike.leach@linaro.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-f2fs-devel@lists.sourceforge.net,
+	linux-wireless@vger.kernel.org
+Subject: [PATCH RFC 00/10] Improve ABI documentation generation
+Date: Fri, 17 Jan 2025 18:59:29 +0100
+Message-ID: <cover.1737135484.git.mchehab+huawei@kernel.org>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-c04d2
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_095450_678924_C4DE1BEE 
-X-CRM114-Status: UNSURE (   6.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250117_095956_196718_F50E860D 
+X-CRM114-Status: GOOD (  20.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,34 +86,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 14 Jan 2025 11:35:44 -0800, Charlie Jenkins wrote:
+Hi Jon/Greg,
 
-> The variables to make builds silent/verbose live inside
-> tools/build/Makefile.build. Move those variables to the top-level
-> Makefile.perf to be generally available.
-> 
-> Committer testing:
-> 
-> See the SYSCALL lines, now they are consistent with the other
-> operations in other lines:
->   SYSTBL  /tmp/build/perf-tools-next/arch/x86/include/generated/asm/syscalls_32.h
->   SYSTBL  /tmp/build/perf-tools-next/arch/x86/include/generated/asm/syscalls_64.h
->   GEN     /tmp/build/perf-tools-next/common-cmds.h
->   GEN     /tmp/build/perf-tools-next/arch/arm64/include/generated/asm/sysreg-defs.h
->   PERF_VERSION = 6.13.rc2.g3d94bb6ed1d0
->   GEN     perf-archive
->   MKDIR   /tmp/build/perf-tools-next/jvmti/
->   MKDIR   /tmp/build/perf-tools-next/jvmti/
->   MKDIR   /tmp/build/perf-tools-next/jvmti/
->   MKDIR   /tmp/build/perf-tools-next/jvmti/
->   GEN     perf-iostat
->   CC      /tmp/build/perf-tools-next/jvmti/libjvmti.o
-> 
-> [...]
+The main goal of this RFC is to give a heads up of a work I've been doing to
+replace the get_abi.pl script with a python version.
 
-Applied to perf-tools-next, thanks!
+Patches 1-6 are OK to be applied:
+- Patch 1 changes the sort criteria of the ABI generation to use alphabetic order:
+  currently, it is *almost* alphabetic, but, on some cases, it orders on a different
+  way. No changes at the content, just at the order. 
+  I wrote it mainly to use the same sort criteria as the new tool, but IMO it is
+  worth applying even before we switch to the python version.
 
-Best regards,
-Namhyung
+- Patches 2-6 fix some ABI tag problems. They're independent of the rest and
+  can also be applied without  other patches on this series.
+
+The remaining patches (7-10) are RFC for a new tool.
+
+The new tool uses a cleaned-up version of the same algorithms I wrote in Perl,
+re-writen in Python. While doing the conversion, I got rid of some stuff that aren't
+needed anymore.
+
+The new tool has two additional changes:
+- the validate tool now detects a duplicate definition when files with the same name
+  exists on different parts of the ABI documentation (if one asks to build them altogether);
+- it fixes a bug on one of the files whose "what" keys weren't properly parsed.
+
+Patches 7 and 8 are already in good shape (IMHO).
+
+Patch 9 replaces "get_abi.pl" by "get_abi.py" exec for htmldocs/pdfdocs targets.
+It is not on its final shape, as my end goal is to do a python include and use the
+class directly there instead of calling an exec file, but such change will require
+some work (I'll likely implement an interactor at the class instead of just returning
+a big amount of text).
+
+Patch 10 is just a boilerplate to one additional functionality of the perl script that
+would require a lot of work to implement: check undefined/bad defined symbols
+at the local machine's sysfs and compare with ABI.
+
+Before getting patches 7-10 merged, I'd like to implement patch 10. This may
+take some time, as the ABI check there is not the simplest code I wrote.
+
+Yet, I'd like to get some feedback about patches 7-9 while I'm working on 
+patch 10, so, let me send what I have so far as a RFC.
+
+I hope this would make more people look at the code, as right now, we had only
+6 persons/6 patches besides me that touched the code.
+
+Mauro Carvalho Chehab (10):
+  scripts/get_abi.pl use label to better sort ABI symbols and files
+  ABI: sysfs-class-rfkill: fix kernelversion tags
+  ABI: sysfs-bus-coresight-*: fix kernelversion tags
+  ABI: sysfs-driver-dma-idxd: fix date tags
+  ABI: sysfs-fs-f2fs: fix date tags
+  ABI: sysfs-power: fix a what tag
+  [RFC] scripts: add a get_abi.py tool to generate ReST output
+  [RFC] scripts/get_abi.py: add support for symbol search
+  [RFC] docs: use get_abi.py for ABI generation
+  [RFC BOILERPLATE] scripts/get_abi.py: add support for undefined ABIs
+
+ Documentation/ABI/removed/sysfs-class-rfkill  |   2 +-
+ Documentation/ABI/stable/sysfs-class-rfkill   |  12 +-
+ .../ABI/stable/sysfs-driver-dma-idxd          |   4 +-
+ .../testing/sysfs-bus-coresight-devices-cti   |  78 +-
+ .../testing/sysfs-bus-coresight-devices-tpdm  |  52 +-
+ Documentation/ABI/testing/sysfs-fs-f2fs       |   4 +-
+ Documentation/ABI/testing/sysfs-power         |   2 +-
+ Documentation/admin-guide/abi-obsolete.rst    |   1 -
+ Documentation/admin-guide/abi-removed.rst     |   1 -
+ Documentation/admin-guide/abi-stable.rst      |   1 -
+ Documentation/admin-guide/abi-testing.rst     |   1 -
+ Documentation/sphinx/kernel_abi.py            |  10 +-
+ scripts/get_abi.pl                            |   3 +-
+ scripts/get_abi.py                            | 678 ++++++++++++++++++
+ 14 files changed, 760 insertions(+), 89 deletions(-)
+ create mode 100755 scripts/get_abi.py
+
+-- 
+2.47.1
+
 
 
