@@ -4,53 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8193EC02185
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 15:30:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DFADC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 15:31:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y7L9yMmJ5aTCZdUcF/ir4P0mH3+A1/6Rg2eTmdlssCI=; b=q/sCghTyMLycoDqfkYcdFhciWf
-	MGjKj/OysLt8Mmsaqti8UoHp9pWpmbIJPMquK5yA3ykHZyET5wOtRNAA11CdxGdYNnh31BNmdkc90
-	QLMYXb7z7yUjl/Cm2Ld3XkxZxlg0GMPXC6BCZ7E5/NLaMfgL8NEJhHNiMkhyMomGLavQEhMaVrX2+
-	u9E0OYmmu9PsXUOv6/Q5DtWPOku+sBo9hl/FNQREyUafCR7eSwNmhnsoSUwKD+ajmthi1kGldS9RQ
-	4kduvDGGv4AofjsB5jF3T96RREyQU2f17Y3zGOCsIT5tYR4wAZ9+Gbjuu3/yYr+Z6dUwmxsIkpGQk
-	XZUr4u7w==;
+	bh=88/Y1T86Rk9OCGox63BDiUo9lCggyBG2Z+INGajj/wg=; b=kX/ovLQLbW0du2Elr5CJUBJ9UR
+	ZsEUFPJUpInqBt3EgOCfgUKdfbEKQq8xXjNvf6CYyUSODoK2m7ociJgmB2wWdRmlm/f6XpWGpxcDh
+	383A45W8loJYKIWmpwrZqiLD9WgXwtWqk/IMtp6IGleT+eAQuiU5zNYP4SJOg3IZSc4Va+MAm8CRw
+	Z9Bs5fHSZV4g5qt5RsmrBe3wl3pxTJ5Ap9m7tvSOT9YLrBoPEz2jCIBbNmvL/Vbb9MCerhwY2Gvlw
+	T5tftDxYqs0CxiROrMsc7g4oeSvUtEEkDL3eMlkQjXy6ua0a3HGp066IZJX5R6t1jjqMW+5kN9p00
+	2nq49osA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYoIP-00000000d0L-1LLT;
-	Fri, 17 Jan 2025 15:30:05 +0000
+	id 1tYoJd-00000000dDa-3oX7;
+	Fri, 17 Jan 2025 15:31:21 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYo01-00000000ZFe-3wTB
+	id 1tYo02-00000000ZGb-3puo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jan 2025 15:11:07 +0000
+	Fri, 17 Jan 2025 15:11:08 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2DA841476;
-	Fri, 17 Jan 2025 07:11:34 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 24AA31691;
+	Fri, 17 Jan 2025 07:11:35 -0800 (PST)
 Received: from e133380.cambridge.arm.com (e133380.arm.com [10.1.197.43])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0F5863F73F;
-	Fri, 17 Jan 2025 07:11:04 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 061A83F73F;
+	Fri, 17 Jan 2025 07:11:05 -0800 (PST)
 From: Dave Martin <Dave.Martin@arm.com>
 To: linux-kernel@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org,
 	Zeng Heng <zengheng4@huawei.com>,
 	Shaopeng Tan <tan.shaopeng@fujitsu.com>,
 	James Morse <james.morse@arm.com>
-Subject: [RFC PATCH v2 02/11] arm_mpam: Delete unused function resctrl_arch_set_rmid()
-Date: Fri, 17 Jan 2025 15:10:24 +0000
-Message-Id: <20250117151033.1517882-15-Dave.Martin@arm.com>
+Subject: [RFC PATCH v2 03/11] arm_mpam: Set INTERNAL as needed when setting MSC controls
+Date: Fri, 17 Jan 2025 15:10:25 +0000
+Message-Id: <20250117151033.1517882-16-Dave.Martin@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250117151033.1517882-1-Dave.Martin@arm.com>
 References: <20250117151033.1517882-1-Dave.Martin@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_071106_011246_7DC2E79B 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250117_071106_988492_2543D6D7 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,56 +64,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The function resctrl_arch_set_rmid() appears to have been left
-behind after earlier refactoring and is now unused.
+Currently, when an MSC implements PARTID narrowing, MPAMCFG_PART_SEL is
+left set to the reqPARTID while programming resource controls in
+an MSC.
 
-To avoid needing to answer awkward questions about how this
-function should apply partition ID namespace remappings, just get
-rid of it.
+The MPAM architecture does not guarantee that any particular resource
+controls will be updated correctly in this scenario.  Instead,
+MPAMCFG_PART_SEL must be written with the corresponding intPARTID and
+with the INTERNAL bit set before attempting to program resource controls.
+Only the PARTID->intPARTID mappings can be written without the INTERNAL
+bit set in MPAMCFG_PART_SEL.
 
-No functional change.
+Fix it, by rewriting MPAMCFG_PART_SEL appropriately after setting the
+intPARTID mapping.
+
+The MPAMCFG_INTPARTID_INTERNAL flag is not currently accepted as
+input to the __mpam_part_sel() helper.  In the interest of keeping
+the code clean, break this helper up.
 
 Signed-off-by: Dave Martin <Dave.Martin@arm.com>
-
+Signed-off-by: James Morse <james.morse@arm.com>
 ---
+ drivers/platform/arm64/mpam/mpam_devices.c | 26 +++++++++++++++++-----
+ 1 file changed, 20 insertions(+), 6 deletions(-)
 
-I'm assuming here that there are no pending branches that implement /
-use this function.
-
-When moving tasks between monitoring groups, resctrlfs currently
-extracts the CLOSID from struct rdtgroup and passes it explicitly
-to resctrl_arch_set_closid_rmid(), so there seems to be no need for
-a separate helper that doesn't overwrite the arch's control
-partition identifier.
----
- arch/arm64/include/asm/mpam.h | 14 --------------
- 1 file changed, 14 deletions(-)
-
-diff --git a/arch/arm64/include/asm/mpam.h b/arch/arm64/include/asm/mpam.h
-index e5f385767174..df725d2d9d05 100644
---- a/arch/arm64/include/asm/mpam.h
-+++ b/arch/arm64/include/asm/mpam.h
-@@ -93,20 +93,6 @@ static inline u64 mpam_get_regval(struct task_struct *tsk)
- #endif
+diff --git a/drivers/platform/arm64/mpam/mpam_devices.c b/drivers/platform/arm64/mpam/mpam_devices.c
+index 9463045c0011..f965e6639e0d 100644
+--- a/drivers/platform/arm64/mpam/mpam_devices.c
++++ b/drivers/platform/arm64/mpam/mpam_devices.c
+@@ -204,15 +204,27 @@ static u64 mpam_msc_read_esr(struct mpam_msc *msc)
+ 	return (esr_high << 32) | esr_low;
  }
  
--static inline void resctrl_arch_set_rmid(struct task_struct *tsk, u32 rmid)
--{
--#ifdef CONFIG_ARM64_MPAM
--	u64 regval = mpam_get_regval(tsk);
--
--	regval &= ~MPAM1_EL1_PMG_D;
--	regval &= ~MPAM1_EL1_PMG_I;
--	regval |= FIELD_PREP(MPAM1_EL1_PMG_D, rmid);
--	regval |= FIELD_PREP(MPAM1_EL1_PMG_I, rmid);
--
--	WRITE_ONCE(task_thread_info(tsk)->mpam_partid_pmg, regval);
--#endif
--}
--
- static inline void mpam_thread_switch(struct task_struct *tsk)
++static void __mpam_part_sel_raw(u32 partsel, struct mpam_msc *msc)
++{
++	lockdep_assert_held(&msc->part_sel_lock);
++	mpam_write_partsel_reg(msc, PART_SEL, partsel);
++}
++
+ static void __mpam_part_sel(u8 ris_idx, u16 partid, struct mpam_msc *msc)
  {
- 	u64 oldregval;
+-	u32 partsel;
++	u32 partsel = FIELD_PREP(MPAMCFG_PART_SEL_RIS, ris_idx) |
++		      FIELD_PREP(MPAMCFG_PART_SEL_PARTID_SEL, partid);
+ 
+-	lockdep_assert_held(&msc->part_sel_lock);
++	__mpam_part_sel_raw(partsel, msc);
++}
+ 
+-	partsel = FIELD_PREP(MPAMCFG_PART_SEL_RIS, ris_idx) |
+-		  FIELD_PREP(MPAMCFG_PART_SEL_PARTID_SEL, partid);
+-	mpam_write_partsel_reg(msc, PART_SEL, partsel);
++static void __mpam_intpart_sel(u8 ris_idx, u16 intpartid, struct mpam_msc *msc)
++{
++	u32 partsel = FIELD_PREP(MPAMCFG_PART_SEL_RIS, ris_idx) |
++		      FIELD_PREP(MPAMCFG_PART_SEL_PARTID_SEL, intpartid) |
++		      MPAMCFG_PART_SEL_INTERNAL;
++
++	__mpam_part_sel_raw(partsel, msc);
+ }
+ 
+ int mpam_register_requestor(u16 partid_max, u8 pmg_max)
+@@ -1530,9 +1542,11 @@ static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
+ 	mutex_lock(&msc->part_sel_lock);
+ 	__mpam_part_sel(ris->ris_idx, partid, msc);
+ 
+-	if (mpam_has_feature(mpam_feat_partid_nrw, rprops))
++	if (mpam_has_feature(mpam_feat_partid_nrw, rprops)) {
+ 		mpam_write_partsel_reg(msc, INTPARTID,
+ 				       MPAMCFG_INTPARTID_INTERNAL | partid);
++		__mpam_intpart_sel(ris->ris_idx, partid, msc);
++	}
+ 
+ 	if (mpam_has_feature(mpam_feat_cpor_part, rprops)) {
+ 		if (mpam_has_feature(mpam_feat_cpor_part, cfg))
 -- 
 2.34.1
 
