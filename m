@@ -4,87 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48416C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 22:06:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6B08C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 22:09:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2TIdJpx2GEb0Ct+7wgADBcHQuEploDDCvUCj5C766G0=; b=Lsl6mlTu4DB821Yr/xZCQd/C4b
-	BLjD2pHuGmOLVrJUae2JMfZlDLazYia/C2rS+ioLQscRAUcw/kI+APhTA2nv+ROLNxjMdvpPw7jv9
-	1mRJNBWFPTm12uLQxlBwBmck6MNLmtpksdPyaRwA09XMzLV2cI9rX7vsthwUiLqGFTWB2i/gvduBt
-	+yohe5+bIaYX2zYfHf2QnNhpyKpYa9gksVHmhvahnyAbh2HFphlIib+MX1Sr57NyJ4DqWL5UER6Yq
-	GXUVKelj0ehzXKVS5TLT/UIERDne7a6eDuWSQo8QZyy9dMctKcI8hUmTdOtDrB89ylJIbh7Gc2O3Y
-	G63JADeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6eMskAXrsKj+yPhrh5gsUKk0GeOs6CV2lDoAzrqp+eY=; b=qtJO0Cw73xlXtYWAy3DlteDFUH
+	yzR402tkFXQZ8mrernULrOHxkHgtYsX05ucoT81vQk6Ez1/Yu1UxazHQySKYRgYOSxrddElrZ4AFV
+	tkQ3JbTfUE7k9Hya9HC+61U80/499DcF9Ur0uawa5LFqwqKIBfTtpHyNrsm1I+8q23Irg4WPM+vm5
+	SzDuAIDlD+kvxo3uClSXHX3jYW/Qoa/yhdoa9yKDG0L3ju0MW1Hj9HGYO27vjqaf0at8AN3kCAW8U
+	MbSpTal6CgeUHzfNge0HnhVxlrTv5J3t785k/ul8izezeq9l32N2utETJpKk2bAuaYaVMRIMYPne5
+	jBGE3h7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYuTg-00000001RtS-0Vvz;
-	Fri, 17 Jan 2025 22:06:08 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1tYuWx-00000001SK1-2XiY;
+	Fri, 17 Jan 2025 22:09:31 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYuSM-00000001Rfc-2UGP;
-	Fri, 17 Jan 2025 22:04:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1737151486; x=1768687486;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=0XZfrcqbblf6skoLJGR4rVZli6Qmk9tbEtvNmO1ngbw=;
-  b=I3SwKIvIY/bUstUlc5KCMSVp/n5F/SYWNY+eL4NYyRNxuA26ZorpLkSp
-   oKKkFZ1DjQbyuPXezH/z2VIQfG2Aq1bNHhVwm4gmi3BRjCjwL6P0rm1+L
-   TtZ/2cItQ0pCLrpDRViY2X7S9nDklu5l0/Xkqo1lfKdq0hkztc6IrUZCq
-   tktDQEP69uO/PXXLhwxKGlHpDkHm61HHZh85KhKeMfb8K8H2VKYieT+1k
-   1lW3IFiyxRx6ik0pRCrqdg3LNtL7NVdJE+IgS+EhC4kb+fSBD4fUS3Efk
-   Fk4qQZMNwe6E1w7BZ51uvggNEqM2jRAF+PtH0oPdQ6uX1r4OUlDy02Alo
-   g==;
-X-CSE-ConnectionGUID: zp2KofLQS6e9n17nhCKepA==
-X-CSE-MsgGUID: ATnZPp78RPiMVPRzbOiunw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="49014986"
-X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
-   d="scan'208";a="49014986"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jan 2025 14:04:45 -0800
-X-CSE-ConnectionGUID: UbYDsmjDQEOkdHMv79hGow==
-X-CSE-MsgGUID: sMqe5D/qQliPcMUqQsuFKw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,213,1732608000"; 
-   d="scan'208";a="105774286"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by fmviesa006.fm.intel.com with ESMTP; 17 Jan 2025 14:04:40 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tYuSD-000Tkx-20;
-	Fri, 17 Jan 2025 22:04:37 +0000
-Date: Sat, 18 Jan 2025 06:04:18 +0800
-From: kernel test robot <lkp@intel.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	chunkuang.hu@kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, p.zabel@pengutronix.de,
-	airlied@gmail.com, simona@ffwll.ch,
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
-	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com, ck.hu@mediatek.com,
-	jitao.shi@mediatek.com, jie.qiu@mediatek.com,
-	junzhi.zhao@mediatek.com, dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com, dmitry.baryshkov@linaro.org,
-	lewis.liao@mediatek.com, ives.chenjh@mediatek.com,
-	tommyyl.chen@mediatek.com, jason-jh.lin@mediatek.com
-Subject: Re: [PATCH v5 32/34] drm/mediatek: Introduce HDMI/DDC v2 for
- MT8195/MT8188
-Message-ID: <202501180524.qKnNpITh-lkp@intel.com>
-References: <20250113145232.227674-33-angelogioacchino.delregno@collabora.com>
+	id 1tYuVf-00000001S7d-1ROL
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Jan 2025 22:08:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BAF4A5C64DC
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jan 2025 22:07:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23B57C4AF09
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jan 2025 22:08:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737151690;
+	bh=6eMskAXrsKj+yPhrh5gsUKk0GeOs6CV2lDoAzrqp+eY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=N8l/Kqq4V9SaA8CdBa8HP/4dyleSc4jRLHY3fUjNNqrDC49X/8nR9ba78yxKm50IE
+	 2YAYZvWnjmBQMedzs2D+N2qO6dU/4ZN2mymr36Tq2zXCASZlR8/Y5a2rMV47fZTF5W
+	 A9RVRJgy8Z+h2pYIt0Vvn/gdcVUn4L1kpG8odH298sEC5lB1TLJ+6mNUVhPif2xJam
+	 3QorP8g1IWh9kh1D0S04nU99sSjlJFiZGN3Nl8p2Ott05e0L8qcg0ia1Shvk3MA++V
+	 Hezt16+AhWEcSveUT59qU/5t34dRsrqF33ZP22yU6/X+JnPiqfylInUjEQCIitpWNX
+	 IEX16esO2G8aQ==
+Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-53e3778bffdso2822970e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jan 2025 14:08:10 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWBsFmPxHW1VKcLSnPAod5xcZ/YqygKuTkLjGBY8vIgL/OoW6Bxp7TvLVv/on7qpokbNHdvGRweSzd3t2rRcv5T@lists.infradead.org
+X-Gm-Message-State: AOJu0Yznw2MHXfsAW8p0jJFxFi6IIgt5WYJLruQSM+k9gzeqUDA+UPzq
+	pzb1EI/OLrfyXUOwC/ikz4IrdcMsVrZRo9p3IVT70plta1/fvE9+61R193CtsVIj3XWj1kULeyC
+	o54VjJmbPPqsA/uT/f2B+4c1oyA==
+X-Google-Smtp-Source: AGHT+IEgpKi5iU2Ry8bgcFk3ypohPNuQOcWdD3eLZQ0Yrk230Xh+rHDMCHRK1H7BAsvHETXiMfMqJ+pcY/x3PQ0wC54=
+X-Received: by 2002:a05:6512:12ca:b0:540:1fec:f321 with SMTP id
+ 2adb3069b0e04-5439c285412mr1386422e87.41.1737151688439; Fri, 17 Jan 2025
+ 14:08:08 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250113145232.227674-33-angelogioacchino.delregno@collabora.com>
+References: <20241220072240.1003352-1-anshuman.khandual@arm.com>
+ <20250102160402.GB3990035-robh@kernel.org> <Z30adHnQ7ZFaU9UR@arm.com>
+ <CAL_JsqLLnh1o4L1=PpNt5brBwZZCgp7mOygByOYakchrzc29Ow@mail.gmail.com>
+ <86wmf5wo8u.wl-maz@kernel.org> <CAL_JsqKKiEOj=a1k6U-bB0F6-ht7QokDnh3bspHupp-QG=haSg@mail.gmail.com>
+ <Z4kmlhnlpKjS_MII@arm.com>
+In-Reply-To: <Z4kmlhnlpKjS_MII@arm.com>
+From: Rob Herring <robh@kernel.org>
+Date: Fri, 17 Jan 2025 16:07:56 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqK1k7fG=yDZSbTbV63yRP5U9=GpuAiv=NWZJWdppUtRwA@mail.gmail.com>
+X-Gm-Features: AbW1kvZCaGPAdTzQQUI5Q5j42V1TeAoCQ3yfC8Cjc8iBuIXUrThvrm6lQVxJhg4
+Message-ID: <CAL_JsqK1k7fG=yDZSbTbV63yRP5U9=GpuAiv=NWZJWdppUtRwA@mail.gmail.com>
+Subject: Re: [PATCH 0/7] arm64/boot: Enable EL2 requirements for FEAT_PMUv3p9
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>, Anshuman Khandual <anshuman.khandual@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Oliver Upton <oliver.upton@linux.dev>, Jonathan Corbet <corbet@lwn.net>, 
+	Eric Auger <eric.auger@redhat.com>, kvmarm@lists.linux.dev, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_140446_650858_06316AB9 
-X-CRM114-Status: GOOD (  14.50  )
+X-CRM114-CacheID: sfid-20250117_140811_470389_915B6ED9 
+X-CRM114-Status: GOOD (  19.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,106 +91,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi AngeloGioacchino,
+On Thu, Jan 16, 2025 at 9:32=E2=80=AFAM Catalin Marinas <catalin.marinas@ar=
+m.com> wrote:
+>
+> On Wed, Jan 08, 2025 at 07:47:16AM -0600, Rob Herring wrote:
+> > On Wed, Jan 8, 2025 at 5:15=E2=80=AFAM Marc Zyngier <maz@kernel.org> wr=
+ote:
+> > > On Tue, 07 Jan 2025 22:13:47 +0000,
+> > > Rob Herring <robh@kernel.org> wrote:
+> > > > On Tue, Jan 7, 2025 at 6:13=E2=80=AFAM Catalin Marinas <catalin.mar=
+inas@arm.com> wrote:
+> > > > > But does KVM actually expose the feature to EL1 in ID_AA64DFR1_EL=
+1 and
+> > > > > than traps it at EL2?
+> > > >
+> > > > As Marc pointed out KVM only advertises PMUv3.8. Regardless, guest
+> > > > accesses to these registers are trapped with or without this series=
+.
+> > >
+> > > And most probably generates a nice splat in the kernel log, as nobody
+> > > updated KVM to handle *correctly* PMICNTR_EL0 traps, let alone deal
+> > > with the FGT2 registers.
+> >
+> > Isn't that this series[1]? Should that have come first, I guess I know
+> > that *now*.
+> [...]
+> > [1] https://lore.kernel.org/all/20241210055311.780688-1-anshuman.khandu=
+al@arm.com/
+>
+> It's not any clearer to me. Does this series depend on the 46-patch one?
+> Or, if we had the other, is this no longer needed? Or none of these,
+> they are independent.
 
-kernel test robot noticed the following build warnings:
+They are independent. I think ideally we'd want everything landing at
+the same time, but we're past ideal at this point. Without this
+series, if someone uses PMU on v8.9 and firmware enabled FGT2, then
+the kernel will crash. Without the above series, KVM will have
+warnings in the kernel log, but otherwise function.
 
-[auto build test WARNING on next-20250113]
-[cannot apply to robh/for-next pza/reset/next linus/master pza/imx-drm/next drm-misc/drm-misc-next v6.13-rc7 v6.13-rc6 v6.13-rc5 v6.13-rc7]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/AngeloGioacchino-Del-Regno/dt-bindings-display-mediatek-dpi-Add-MT8195-and-MT8188-compat/20250113-225554
-base:   next-20250113
-patch link:    https://lore.kernel.org/r/20250113145232.227674-33-angelogioacchino.delregno%40collabora.com
-patch subject: [PATCH v5 32/34] drm/mediatek: Introduce HDMI/DDC v2 for MT8195/MT8188
-config: openrisc-allyesconfig (https://download.01.org/0day-ci/archive/20250118/202501180524.qKnNpITh-lkp@intel.com/config)
-compiler: or1k-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250118/202501180524.qKnNpITh-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202501180524.qKnNpITh-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c: In function 'mtk_ddc_check_and_rise_low_bus':
-   drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c:59:36: error: implicit declaration of function 'FIELD_PREP' [-Wimplicit-function-declaration]
-      59 |                                    FIELD_PREP(DDC_CTRL_CMD, DDC_CMD_CLOCK_SCL));
-         |                                    ^~~~~~~~~~
-   In file included from ./arch/openrisc/include/generated/asm/div64.h:1,
-                    from include/linux/math.h:6,
-                    from include/linux/kernel.h:27,
-                    from include/linux/clk.h:13,
-                    from drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c:11:
-   drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c: In function 'mtk_ddcm_read_hdmi':
->> include/asm-generic/div64.h:183:35: warning: comparison of distinct pointer types lacks a cast [-Wcompare-distinct-pointer-types]
-     183 |         (void)(((typeof((n)) *)0) == ((uint64_t *)0));  \
-         |                                   ^~
-   drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c:139:23: note: in expansion of macro 'do_div'
-     139 |                 rem = do_div(loop_counter, temp_length);
-         |                       ^~~~~~
-   In file included from include/linux/err.h:5,
-                    from include/linux/clk.h:12:
->> include/asm-generic/div64.h:195:32: warning: right shift count >= width of type [-Wshift-count-overflow]
-     195 |         } else if (likely(((n) >> 32) == 0)) {          \
-         |                                ^~
-   include/linux/compiler.h:76:45: note: in definition of macro 'likely'
-      76 | # define likely(x)      __builtin_expect(!!(x), 1)
-         |                                             ^
-   drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c:139:23: note: in expansion of macro 'do_div'
-     139 |                 rem = do_div(loop_counter, temp_length);
-         |                       ^~~~~~
-   include/asm-generic/div64.h:199:36: error: passing argument 1 of '__div64_32' from incompatible pointer type [-Wincompatible-pointer-types]
-     199 |                 __rem = __div64_32(&(n), __base);       \
-         |                                    ^~~~
-         |                                    |
-         |                                    u16 * {aka short unsigned int *}
-   drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c:139:23: note: in expansion of macro 'do_div'
-     139 |                 rem = do_div(loop_counter, temp_length);
-         |                       ^~~~~~
-   include/asm-generic/div64.h:174:38: note: expected 'uint64_t *' {aka 'long long unsigned int *'} but argument is of type 'u16 *' {aka 'short unsigned int *'}
-     174 | extern uint32_t __div64_32(uint64_t *dividend, uint32_t divisor);
-         |                            ~~~~~~~~~~^~~~~~~~
-   drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c:207:47: error: implicit declaration of function 'FIELD_GET' [-Wimplicit-function-declaration]
-     207 |                         puc_value[read_idx] = FIELD_GET(DDC_DATA_OUT, val);
-         |                                               ^~~~~~~~~
-
-
-vim +183 include/asm-generic/div64.h
-
-^1da177e4c3f41 Linus Torvalds     2005-04-16  176  
-^1da177e4c3f41 Linus Torvalds     2005-04-16  177  /* The unnecessary pointer compare is there
-^1da177e4c3f41 Linus Torvalds     2005-04-16  178   * to check for type safety (n must be 64bit)
-^1da177e4c3f41 Linus Torvalds     2005-04-16  179   */
-^1da177e4c3f41 Linus Torvalds     2005-04-16  180  # define do_div(n,base) ({				\
-^1da177e4c3f41 Linus Torvalds     2005-04-16  181  	uint32_t __base = (base);			\
-^1da177e4c3f41 Linus Torvalds     2005-04-16  182  	uint32_t __rem;					\
-^1da177e4c3f41 Linus Torvalds     2005-04-16 @183  	(void)(((typeof((n)) *)0) == ((uint64_t *)0));	\
-911918aa7ef6f8 Nicolas Pitre      2015-11-02  184  	if (__builtin_constant_p(__base) &&		\
-911918aa7ef6f8 Nicolas Pitre      2015-11-02  185  	    is_power_of_2(__base)) {			\
-911918aa7ef6f8 Nicolas Pitre      2015-11-02  186  		__rem = (n) & (__base - 1);		\
-911918aa7ef6f8 Nicolas Pitre      2015-11-02  187  		(n) >>= ilog2(__base);			\
-c747ce4706190e Geert Uytterhoeven 2021-08-11  188  	} else if (__builtin_constant_p(__base) &&	\
-461a5e51060c93 Nicolas Pitre      2015-10-30  189  		   __base != 0) {			\
-461a5e51060c93 Nicolas Pitre      2015-10-30  190  		uint32_t __res_lo, __n_lo = (n);	\
-461a5e51060c93 Nicolas Pitre      2015-10-30  191  		(n) = __div64_const32(n, __base);	\
-461a5e51060c93 Nicolas Pitre      2015-10-30  192  		/* the remainder can be computed with 32-bit regs */ \
-461a5e51060c93 Nicolas Pitre      2015-10-30  193  		__res_lo = (n);				\
-461a5e51060c93 Nicolas Pitre      2015-10-30  194  		__rem = __n_lo - __res_lo * __base;	\
-911918aa7ef6f8 Nicolas Pitre      2015-11-02 @195  	} else if (likely(((n) >> 32) == 0)) {		\
-^1da177e4c3f41 Linus Torvalds     2005-04-16  196  		__rem = (uint32_t)(n) % __base;		\
-^1da177e4c3f41 Linus Torvalds     2005-04-16  197  		(n) = (uint32_t)(n) / __base;		\
-c747ce4706190e Geert Uytterhoeven 2021-08-11  198  	} else {					\
-^1da177e4c3f41 Linus Torvalds     2005-04-16  199  		__rem = __div64_32(&(n), __base);	\
-c747ce4706190e Geert Uytterhoeven 2021-08-11  200  	}						\
-^1da177e4c3f41 Linus Torvalds     2005-04-16  201  	__rem;						\
-^1da177e4c3f41 Linus Torvalds     2005-04-16  202   })
-^1da177e4c3f41 Linus Torvalds     2005-04-16  203  
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Rob
 
