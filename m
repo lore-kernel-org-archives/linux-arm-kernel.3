@@ -4,91 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EABE2C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 03:37:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 899EDC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 03:45:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wCiz+sabDeeau8SEKk5GsN1jfadMcq+hi9aKPPfDvcI=; b=bPXzw/4kYTXof+3AuXeZW2IHb7
-	dHSFdCcZu00w3oaWMXmzoMEmGlW5daWUQbrQnP6/IvTKR6EtAflza0TfyFyslf0hcPmEK0TVEW/EJ
-	bWKQQHQjFqywSvZcnhA3af54AJur24MISuQV6r03lte6wS01jqCYbGB1XeYOQ0De3Wp4Vnq8xOumr
-	yNWFNU+n+GyO8mz+64//6ltjz8L4Z1SPxiPUvHwAlrumndElSfItGNZkxrlF9cHFCPbaoWiSlRdN9
-	yrcaqM+PP+QUZPuDaH9TvLDw2IK0xX7yn7UXr04RMIi92bS+7J05KpVUMKBpLITLvxVkvE1sL+97l
-	ErkJEVRA==;
+	bh=i4+rc7zr12NkY8+R4W4XzHgtWfwIjKXfUvC4zjsYnME=; b=MAxqQYNE6vna+8LrRYOqAG12w8
+	y6g44G+wKax7rnheBKSoKl64dCAz25ZlWLlEL9nLAhNP9N5PQwISsV2ASYk2d0f02o2+Tm3T58Zv0
+	YR/aaJWZC640223b+ratkQdKt3rRE5QVNEIIzL0qKbsZQkIfERtR3aeI4xZmVij45/PGMpFFNCoqb
+	qRheZFYv25AHgt6Yu0IvOB0eRH8qwozOCz7GpH5n5aX8wY2YByTI4KddOl2n7LLgPRxse0NoaruNi
+	ulUWB2rgjL6C+gWU9GN01+o/TY3MqBEMX+R6hb+6B18vQSOgpxBihpm1sOcXYwcQMxY4p5DWkIvlm
+	y4gZa9bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYdAN-0000000GvfE-0Cyv;
-	Fri, 17 Jan 2025 03:37:03 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1tYdIR-0000000GwNB-3lOH;
+	Fri, 17 Jan 2025 03:45:23 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYd96-0000000Gva1-2qQS
+	id 1tYdH9-0000000GwF9-0uh7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jan 2025 03:35:45 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-21634338cfdso40965645ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 19:35:44 -0800 (PST)
+	Fri, 17 Jan 2025 03:44:04 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-542af38ecd6so1842541e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jan 2025 19:44:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737084944; x=1737689744; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1737085441; x=1737690241; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=wCiz+sabDeeau8SEKk5GsN1jfadMcq+hi9aKPPfDvcI=;
-        b=cTab1qWfvt848fCrkYFgb1keEVemV7mhOFRuG96tqNBahVaKtAbJszFdQ8+zQHU1RS
-         xTQLs1l1Npp/+pf8XkjCxszSavsxfPXFFkcVzyzqSD4uM4EdG4Tr1HQTjLxLOM1dplqg
-         S+r8Vo+N1xD1Af9fdr1LcUJTqhxD+aTtjuvUhwq2wW6/iuxtlXIaP5StxMAlvh5fSsFk
-         W7PtavtI4K616k7oIqtOAD6krx5mm7WfDROwWPL3EgR4MXIiVfEPwgulLdjLCw5WevLm
-         J3gfupN3mLliOvMQVf9tjiwMIxnLVN0aFkQs1JzjpXLfTolk7wJBcNifInqP1H/zEmGH
-         Ej6A==
+        bh=i4+rc7zr12NkY8+R4W4XzHgtWfwIjKXfUvC4zjsYnME=;
+        b=OjOJbkYxtmKRRZMXVb9xHarObJYGlLklA5Q5pe4Ya8f93EDvP/d9oHAj1HnINpeU0U
+         hmsBQR96Ypra+7y/EJVXmi3GRsRQuR8sukq3YFI+qwOjBtY8q/v0DnzzEGQioY+iS5cf
+         cNxUq6SFuC7yTpmfmZgb29zzxmjGjmlRk1p2EenxLljxbwGhj04pZ9ddpnkaetKrVqj6
+         AySY+blma6kAWMRCIK4dmjQ5/fh1vF15Eolsl6epxvSdM51VBOFGwutvApzf+t4CPD7k
+         ptWDPXeHaDFxr/uf/q0wCT9eyTl2zNMESF4mVpdYperBaWBXlAF+OuSU8QlgLBetcynj
+         P/PA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737084944; x=1737689744;
+        d=1e100.net; s=20230601; t=1737085441; x=1737690241;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=wCiz+sabDeeau8SEKk5GsN1jfadMcq+hi9aKPPfDvcI=;
-        b=d5ghSSrfKuvK9YmBp3mqUuxRBxlAXgOqsBbHwsLB3/fkctFdGBnbXAeL5vsugHOAOB
-         lInTonWr3DgXGop1QwSXc6OSVTcke7PFnYrbbrWBwc0vXjHRKn4W6w+rwJAeoBBuKTqe
-         qHJdKT0mFYprPkNxcwlVeBMkf6XD/1gI/CRMo+SzPj6KE1bZt1Yx5OnFamq6BZGLWfm9
-         O3qZaEdWSJd6fAO7ieBPpE9CVIj1rxq5lMrs1pYJeKC4K11T13OcDIeDJA82b5ZhMC1I
-         v/pq87yI16D/51jWD59Ig1mS525gonQE0VZsLg9FcoDQdOzMh0zQRtvEHpJKqvG68hJp
-         9ahA==
-X-Forwarded-Encrypted: i=1; AJvYcCVh4VUAw+zmCinWWv5FTBxSVQAxoIaIYGZJz0XEyEpZrphWo0XGtTuI1OM5rxOL1MgIXjGKulazRw7U8ZFrtgH4@lists.infradead.org
-X-Gm-Message-State: AOJu0YwC8rvhH/6qlqSlbq09VXT4/mcae7Wrxp+EanzRBFhrDiSD4L1m
-	1yU1geHc8TUQa9xqhnimrDMjgoNueIn6NyuTpks2FVn/AyTfVvsOmAcdiNrzaik=
-X-Gm-Gg: ASbGncuoONpIKwr8B9RRfGddkwYJozUm3FhwrXLN7ujR+clmG10rQWF/jH1oE06g8Xk
-	4CXI3CI3sDxn4W1fi5sFXb5KrzUsxhlK/K/6ooLkxqs+Slz9TFhFnzHwInT3ju/h8JdEmYdxQQw
-	J2X6hcP1p7OxSy/oYk2flLy4g6RAvnNqssY9nO/ts1tu1Ue8vVIys1z7JHBtrtblhRGEsI6Iw0m
-	e4ztjp3wHYIWCRk85NaXVWctXul6ZfOzNOtmcPRbjoomNZahm2isG/I1AM=
-X-Google-Smtp-Source: AGHT+IF5Ygdj23ZD7GuKZPa9QsTHhprHgm42ulCzwj5UoaKE1u+8zqF+SlF34qHYFtOsB+w9cQjK2Q==
-X-Received: by 2002:a17:902:ea05:b0:216:3d72:1712 with SMTP id d9443c01a7336-21c3579359cmr18630745ad.48.1737084943861;
-        Thu, 16 Jan 2025 19:35:43 -0800 (PST)
-Received: from localhost ([122.172.84.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21c2cea1fe9sm7100525ad.2.2025.01.16.19.35.42
+        bh=i4+rc7zr12NkY8+R4W4XzHgtWfwIjKXfUvC4zjsYnME=;
+        b=G9bHvQwoODFfHCD92AcbYUqI+61MLFpqN+1XDJSjyX3N/X9rKeqMbqn+3Yi0V7ZzJ7
+         B8QgICBl8x2Y6xlwfE3Uk3Tmpa3KHt+skZJcb+yZk/uIPjSucWQTh6CQ3z7cO2He6Hzj
+         fPSf7uc03qk93Y/+Fsvy7Ko1siWl1Zy2qCgLlZcpCs0KDeaimllJ6t3JbBFwWyRREYEZ
+         X5EXMl+aDNLCp1NeiwfQNaZ3BXOrT09id7CHG10mjpninFtxTK2UysZwbrTKxhtS+H+V
+         kIUMH3pCuebC7yIWLOXliu7OKRJpdTLvGM0QBJSCAOberg68zmZrzQeVtaJKBEM+D3X0
+         ctSA==
+X-Forwarded-Encrypted: i=1; AJvYcCUZvBIv2Uz7I6hr1lpXln990n+VIeyGFSH2qkWx4DEND9FxavNNB1Vk87ZXa5uGuJzOzMuavz3UHAGdYOP3BErk@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3EgtMjVqvLKXSazFfNJ10Nb+icocgC/C0zVz05PU5wIvq/ztP
+	WYsKuf76fy/YWW/foGH90HVZNtyUVdGP62Mo8UXWgN+xh4DyRmPqTSZ6JU52jIc=
+X-Gm-Gg: ASbGncsW7veqlN6wU72ts91Q6Ra18J43w7o3m8JneZXyVImgGGppplbO+L1kStovU0b
+	cPVlqrxgEB8vGAN9cQU6Vo0s8YEzf+ufCF8bt/51IEkdkQLhXWzm1K9w4kdn5iau0NYdNIQBWXA
+	fccUK/z1big3lWhx31E3sDIKEAsTVyUYRFtS32C87au6a7mFdnSjXsVPQhRe1QERTIinOCdv9qx
+	iA/zfOsHa+rF64SMW5jb4IQ8IBJmGUq1KFuWKMrUTOjoUzZK8hdWXCPah1e5DgDrzyIs3EMz6dh
+	wC9xak5MAci3TOBaOw1LhFUVQr77EkDzADQe
+X-Google-Smtp-Source: AGHT+IGz5ay7LtZ6+rSD2XP9rxWv/jABbs6ebwXD/MzQJbyjd0oZnFaAjrC0FEJz70e5w3SHfSay0A==
+X-Received: by 2002:a19:5518:0:b0:53f:231e:6fa2 with SMTP id 2adb3069b0e04-5439c253a05mr197064e87.26.1737085441361;
+        Thu, 16 Jan 2025 19:44:01 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5439af78d57sm190046e87.232.2025.01.16.19.43.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Jan 2025 19:35:43 -0800 (PST)
-Date: Fri, 17 Jan 2025 09:05:38 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Christian Marangi <ansuelsmth@gmail.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, upstream@airoha.com
-Subject: Re: [PATCH v10 1/2] pmdomain: airoha: Add Airoha CPU PM Domain
- support
-Message-ID: <20250117033538.pnh52c7qd2bb7h2z@vireshk-i7>
-References: <20250109131313.32317-1-ansuelsmth@gmail.com>
- <20250116070214.vdnbyyqnciifngha@vireshk-i7>
- <CAPDyKFr_z3WUyO2bTV7fPt8=ECdoHCERd=f5UN8MmNpyN=Rm_A@mail.gmail.com>
+        Thu, 16 Jan 2025 19:43:59 -0800 (PST)
+Date: Fri, 17 Jan 2025 05:43:57 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Maxime Ripard <mripard@kernel.org>
+Cc: fnkl.kernel@gmail.com, Hector Martin <marcan@marcan.st>, 
+	Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Alyssa Ross <hi@alyssa.is>, Janne Grunau <j@jannau.net>
+Subject: Re: [PATCH v4 2/5] drm: adp: Add Apple Display Pipe driver
+Message-ID: <2alm7gds4k2lnbk36gjdw6yhzhpls3ce5baycdiv7lsigxsbzn@rhwdgnphwwp6>
+References: <20250114-adpdrm-v4-0-e9b5260a39f1@gmail.com>
+ <20250114-adpdrm-v4-2-e9b5260a39f1@gmail.com>
+ <mu7qiybhj7tu5hauk7izfxqlookc3awpknhjk74zwpkbznei4m@kewap6vivzoa>
+ <20250116-vivacious-congenial-nightingale-cb2f6d@houat>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAPDyKFr_z3WUyO2bTV7fPt8=ECdoHCERd=f5UN8MmNpyN=Rm_A@mail.gmail.com>
+In-Reply-To: <20250116-vivacious-congenial-nightingale-cb2f6d@houat>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_193544_730600_5E708B8A 
-X-CRM114-Status: GOOD (  18.34  )
+X-CRM114-CacheID: sfid-20250116_194403_256384_9401268C 
+X-CRM114-Status: GOOD (  19.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,39 +105,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16-01-25, 16:58, Ulf Hansson wrote:
-> On Thu, 16 Jan 2025 at 08:02, Viresh Kumar <viresh.kumar@linaro.org> wrote:
-> >
-> > Ulf,
-> >
-> > On 09-01-25, 14:12, Christian Marangi wrote:
-> > > Add Airoha CPU PM Domain support to control frequency and power of CPU
-> > > present on Airoha EN7581 SoC.
-> > >
-> > > Frequency and power can be controlled with the use of the SMC command by
-> > > passing the performance state. The driver also expose a read-only clock
-> > > that expose the current CPU frequency with SMC command.
-> > >
-> > > Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> > > ---
-> > > Changes v10:
-> > > - Depends on HAVE_ARM_SMCCC
-> > > Changes v9:
-> > > - Fix compile error targetting wrong branch (remove_new change)
-> > > Changes v8:
-> > > - Add this patch
-> > > - Use SMC invoke instead of 1.2
-> >
-> > Any inputs on this ?
+On Thu, Jan 16, 2025 at 05:01:03PM +0100, Maxime Ripard wrote:
+> Hi Dmitry,
 > 
-> Apologize for the delay! This looks good to me! So, applied for next
-> to my pmdomain tree, thanks!
+> On Wed, Jan 15, 2025 at 12:21:39PM +0200, Dmitry Baryshkov wrote:
+> > On Tue, Jan 14, 2025 at 10:38:53PM +0100, Sasha Finkelstein via B4 Relay wrote:
+> > > +static int adp_dsi_host_attach(struct mipi_dsi_host *host,
+> > > +			       struct mipi_dsi_device *dev)
+> > > +{
+> > > +	struct adp_mipi_drv_private *adp = mipi_to_adp(host);
+> > > +	struct drm_bridge *next;
+> > > +
+> > > +	next = devm_drm_of_get_bridge(adp->dsi.dev, adp->dsi.dev->of_node, 1, 0);
+> > 
+> > select DRM_PANEL_BRIDGE for this API to be available.
+> > Also there is an issue of lifetimes. The bridge will be destroyed only
+> > when MIPI driver is unbound, however the panel can be attached and
+> > detached several times.
 > 
-> I assume Viresh will take the cpufreq patch via his tree? Please let
-> me know if you prefer another route.
+> Can you expand on that one a bit more? AFAIK, it's always been unsafe
+> and we don't have a good mitigation at the moment, so it's unclear to me
+> what change you want here.
 
-Applied 2/2. Thanks.
+I was thinking about using drmm_ here, as the DRM device is also created
+and destroyed each time. But I might be mistaken here.
 
 -- 
-viresh
+With best wishes
+Dmitry
 
