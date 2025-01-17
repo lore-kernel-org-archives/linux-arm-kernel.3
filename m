@@ -4,59 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9902C02187
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 01:32:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C8E8C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 01:41:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TsqFKuMiLwMIWqbIsmre8PDwSTy200zBboCltX5otHE=; b=du433vacuofrYsPHiJ2coDkE8P
-	dODQwrHufUYaXKWk3gocmBHo6HVrT80BFEGYlHleyHhJiSzf7BfzvQf3F11QhJ0ZS6/yFKZyhdLhV
-	GqiV5b42fUxfD4fc9MiYqw3uJbFuHpfCJ7Cowz4fWXVp41E+dMiYlnayOetqNFiGmyOubcQemSszW
-	02XWydezQwJd3hIE/EH+U51ZEuuCPt4lKRegHnmiZKXpOxjusKHeeH/YqtwfzEpBKveO7m3qW/yoF
-	AnHtrHraz/4ZJecJHmN5E3Ob4+mixLFrKR62fHInPZwMGdCFdLRTeh919rYvVbmxP6HR5wqFhbUj6
-	MonCxnmw==;
+	bh=D1PmMsNXCgWxHKbBTBoMMfqQdfRp/EhkEhppZ2BFbTA=; b=InwTr2QZw/D2mwtgkNwJFuNUC0
+	CYU1Vao2ZGeKTK82caqyeUse9JYhTrExrbUaeA50z+EYZEq1M3IPB+yJGyTO0XGKa1hjkfgIXv/rd
+	pG3e0WnrkeSDcyCUxV6D0IEc0/hpKzFMzw3o9wJweix0I6oRG5TJrpkXRHoPaf8rNRRvIn787ZLTL
+	/TKvoIQsa7Y1/apKGVnAIEv54f4oZBQgwHKnfzUR6NkSI42Mo9r1HBHO3eHZg0dGOXj8A2boijDrS
+	atvwChKSV8xKR1mPdxXKHqx+gAs0AK6PY8CxHbL7kWMKPJUXRLAShX9J88oRc/i1N09YsH9ayG44g
+	qLuLINOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYbDR-0000000GmwP-2Ecx;
-	Fri, 17 Jan 2025 01:32:05 +0000
-Received: from out30-99.freemail.mail.aliyun.com ([115.124.30.99])
+	id 1tYbMZ-0000000GnfY-1HuY;
+	Fri, 17 Jan 2025 01:41:31 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYbC9-0000000GmfJ-22o4;
-	Fri, 17 Jan 2025 01:30:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1737077439; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=TsqFKuMiLwMIWqbIsmre8PDwSTy200zBboCltX5otHE=;
-	b=ejHDnCo94L03gkQR4tsWPG2L6zFGYksVaS+pDg7jgDrE193R1xX+LDKF09UVuiPW37eZEUl1HBhcG6fRN/nLSY9tsntU2sAg61902sG4b2YZzXYFS8QZdm6CMFbzwZizkWyOt39N0PpqlyLCN/nMIsWfpLDH3AfF9hW5aJIrkBY=
-Received: from 30.74.144.128(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0WNmu3tq_1737077435 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Fri, 17 Jan 2025 09:30:36 +0800
-Message-ID: <ef266df5-46dc-43d2-8bb3-df28223b7149@linux.alibaba.com>
-Date: Fri, 17 Jan 2025 09:30:33 +0800
+	id 1tYbLI-0000000GnUM-1dLz
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Jan 2025 01:40:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A2C2C5C60BB;
+	Fri, 17 Jan 2025 01:39:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 079B4C4CED6;
+	Fri, 17 Jan 2025 01:40:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737078010;
+	bh=nUDkxS+SGF5HsEiC9K3lpphe6D0MmMbjsns/C57QoOA=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=t4Lwg1q08IwDzcCM3K+0chPwYs1wTXYjeypEtV2YcfEhdETnhRlSAmurTALOmHnBS
+	 R77blJDNzrHegRhLVCCDuoXUqeAq2csQt0xx/kEj5Ovn7RALPe6M5NLpZqUBdgXr9G
+	 lapL2Vb6+Zw28lAGQxO60RFgsPhQ/a6d1haPXSxWiuBoyVjRkMA6rDMcC6qOADFbUF
+	 19usKybJhWNMosmDHStEWxsrWO4j5nVS/ueGSaogdMOXdquT/BHnsm6qLPYalct3UQ
+	 i0Dz4bhHKy6UZpJAvVPPRgNrCoWLZ3cYTRcX3BzBXe//jBSfdVxm3RjyYAKjvYqxIH
+	 HOK00wjfH06Eg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70E66380AA63;
+	Fri, 17 Jan 2025 01:40:34 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/4] mm: Avoid splitting pmd for lazyfree pmd-mapped
- THP in try_to_unmap
-To: Barry Song <21cnbao@gmail.com>, akpm@linux-foundation.org,
- linux-mm@kvack.org
-Cc: chrisl@kernel.org, david@redhat.com, ioworker0@gmail.com,
- kasong@tencent.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, v-songbaohua@oppo.com,
- x86@kernel.org, ying.huang@intel.com, zhengtangquan@oppo.com
-References: <20250115033808.40641-1-21cnbao@gmail.com>
- <20250115033808.40641-5-21cnbao@gmail.com>
-From: Baolin Wang <baolin.wang@linux.alibaba.com>
-In-Reply-To: <20250115033808.40641-5-21cnbao@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next 0/9] net: add phylink managed EEE support
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <173707803298.1652211.8068749856450177077.git-patchwork-notify@kernel.org>
+Date: Fri, 17 Jan 2025 01:40:32 +0000
+References: <Z4gdtOaGsBhQCZXn@shell.armlinux.org.uk>
+In-Reply-To: <Z4gdtOaGsBhQCZXn@shell.armlinux.org.uk>
+To: Russell King (Oracle) <linux@armlinux.org.uk>
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
+ andrew+netdev@lunn.ch, bryan.whitehead@microchip.com, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, marcin.s.wojtas@gmail.com,
+ mcoquelin.stm32@gmail.com, netdev@vger.kernel.org, pabeni@redhat.com,
+ UNGLinuxDriver@microchip.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_173045_825143_D2B12EC7 
-X-CRM114-Status: UNSURE (   8.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250116_174012_474573_E7286DFB 
+X-CRM114-Status: GOOD (  10.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,109 +78,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello:
+
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Wed, 15 Jan 2025 20:42:28 +0000 you wrote:
+> Hi,
+> 
+> Adding managed EEE support to phylink has been on the cards ever since
+> the idea in phylib was mooted. This overly large series attempts to do
+> so. I've included all the patches as it's important to get the driver
+> patches out there.
+> 
+> [...]
+
+Here is the summary with links:
+  - [net-next,1/9] net: mdio: add definition for clock stop capable bit
+    https://git.kernel.org/netdev/net-next/c/3ba0262a8fed
+  - [net-next,2/9] net: phy: add support for querying PHY clock stop capability
+    https://git.kernel.org/netdev/net-next/c/a00e0d34c036
+  - [net-next,3/9] net: phylink: add phylink_link_is_up() helper
+    https://git.kernel.org/netdev/net-next/c/a17ceec62f81
+  - [net-next,4/9] net: phylink: add EEE management
+    https://git.kernel.org/netdev/net-next/c/03abf2a7c654
+  - [net-next,5/9] net: mvneta: convert to phylink EEE implementation
+    https://git.kernel.org/netdev/net-next/c/ac79927dc84f
+  - [net-next,6/9] net: mvpp2: add EEE implementation
+    https://git.kernel.org/netdev/net-next/c/b53b14786ed8
+  - [net-next,7/9] net: lan743x: use netdev in lan743x_phylink_mac_link_down()
+    https://git.kernel.org/netdev/net-next/c/a66447966f03
+  - [net-next,8/9] net: lan743x: convert to phylink managed EEE
+    https://git.kernel.org/netdev/net-next/c/bd691d5ca918
+  - [net-next,9/9] net: stmmac: convert to phylink managed EEE support
+    https://git.kernel.org/netdev/net-next/c/4218647d4556
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
-On 2025/1/15 11:38, Barry Song wrote:
-> From: Barry Song <v-songbaohua@oppo.com>
-> 
-> The try_to_unmap_one() function currently handles PMD-mapped THPs
-> inefficiently. It first splits the PMD into PTEs, copies the dirty
-> state from the PMD to the PTEs, iterates over the PTEs to locate
-> the dirty state, and then marks the THP as swap-backed. This process
-> involves unnecessary PMD splitting and redundant iteration. Instead,
-> this functionality can be efficiently managed in
-> __discard_anon_folio_pmd_locked(), avoiding the extra steps and
-> improving performance.
-> 
-> The following microbenchmark redirties folios after invoking MADV_FREE,
-> then measures the time taken to perform memory reclamation (actually
-> set those folios swapbacked again) on the redirtied folios.
-> 
->   #include <stdio.h>
->   #include <sys/mman.h>
->   #include <string.h>
->   #include <time.h>
-> 
->   #define SIZE 128*1024*1024  // 128 MB
-> 
->   int main(int argc, char *argv[])
->   {
->   	while(1) {
->   		volatile int *p = mmap(0, SIZE, PROT_READ | PROT_WRITE,
->   				MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
-> 
->   		memset((void *)p, 1, SIZE);
->   		madvise((void *)p, SIZE, MADV_FREE);
->   		/* redirty after MADV_FREE */
->   		memset((void *)p, 1, SIZE);
-> 
-> 		clock_t start_time = clock();
->   		madvise((void *)p, SIZE, MADV_PAGEOUT);
->   		clock_t end_time = clock();
-> 
->   		double elapsed_time = (double)(end_time - start_time) / CLOCKS_PER_SEC;
->   		printf("Time taken by reclamation: %f seconds\n", elapsed_time);
-> 
->   		munmap((void *)p, SIZE);
->   	}
->   	return 0;
->   }
-> 
-> Testing results are as below,
-> w/o patch:
-> ~ # ./a.out
-> Time taken by reclamation: 0.007300 seconds
-> Time taken by reclamation: 0.007226 seconds
-> Time taken by reclamation: 0.007295 seconds
-> Time taken by reclamation: 0.007731 seconds
-> Time taken by reclamation: 0.007134 seconds
-> Time taken by reclamation: 0.007285 seconds
-> Time taken by reclamation: 0.007720 seconds
-> Time taken by reclamation: 0.007128 seconds
-> Time taken by reclamation: 0.007710 seconds
-> Time taken by reclamation: 0.007712 seconds
-> Time taken by reclamation: 0.007236 seconds
-> Time taken by reclamation: 0.007690 seconds
-> Time taken by reclamation: 0.007174 seconds
-> Time taken by reclamation: 0.007670 seconds
-> Time taken by reclamation: 0.007169 seconds
-> Time taken by reclamation: 0.007305 seconds
-> Time taken by reclamation: 0.007432 seconds
-> Time taken by reclamation: 0.007158 seconds
-> Time taken by reclamation: 0.007133 seconds
-> …
-> 
-> w/ patch
-> 
-> ~ # ./a.out
-> Time taken by reclamation: 0.002124 seconds
-> Time taken by reclamation: 0.002116 seconds
-> Time taken by reclamation: 0.002150 seconds
-> Time taken by reclamation: 0.002261 seconds
-> Time taken by reclamation: 0.002137 seconds
-> Time taken by reclamation: 0.002173 seconds
-> Time taken by reclamation: 0.002063 seconds
-> Time taken by reclamation: 0.002088 seconds
-> Time taken by reclamation: 0.002169 seconds
-> Time taken by reclamation: 0.002124 seconds
-> Time taken by reclamation: 0.002111 seconds
-> Time taken by reclamation: 0.002224 seconds
-> Time taken by reclamation: 0.002297 seconds
-> Time taken by reclamation: 0.002260 seconds
-> Time taken by reclamation: 0.002246 seconds
-> Time taken by reclamation: 0.002272 seconds
-> Time taken by reclamation: 0.002277 seconds
-> Time taken by reclamation: 0.002462 seconds
-
-Good result.
-
-> This patch significantly speeds up try_to_unmap_one() by allowing it
-> to skip redirtied THPs without splitting the PMD.
-> 
-> Suggested-by: Baolin Wang <baolin.wang@linux.alibaba.com>
-> Suggested-by: Lance Yang <ioworker0@gmail.com>
-> Signed-off-by: Barry Song <v-songbaohua@oppo.com>
-
-LGTM.
-Reviewed-by: Baolin Wang <baolin.wang@linux.alibaba.com>
 
