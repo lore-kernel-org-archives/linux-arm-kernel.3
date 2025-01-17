@@ -4,95 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09C96C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 15:48:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 664B4C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 15:52:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H2N+AWy70jywn4CRmdsXKEKKnKrL7LoujnGhrXs380U=; b=ooFum78YVUyeqd
-	BVYiZAZVfeNTYva8dYoP2trdmExrpHJrr8LqmBkPosNOwZLleDfx3TmfLeUmKlBi4a3h7ZHnqFrHt
-	nnv5XWCTPjtC9ttx+t5K/bW4QK+9Gq0/bUii8P/G73rQi9soSIikS+jyIFGKgCNaMc8l8Ny/s2dcR
-	AZifNIBUHCwXBnaiApRIWCPfajnU2s2q2bwCA7H8ev+jSmZLdp+lz9dK+vk1bZrpzQVnJUgn+YNpS
-	kmCWGDnJkA3xa8NKvteXqB0WrstDD8SfOT0XNFKaPzZctm6QySrqOGJ3CmsRr3Ivc6nQSWrrx1RiZ
-	1mJPzB8YA9LRzJVRFAiw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u/lM8znxHXOlY6wJyzONddSNEi/Vo1JstekSz+pVaJs=; b=VSGTIz65MDMOdSBYyd8hDnHPs7
+	pAx2TZiO92AcajOulP8CB0nGwlmnSnrmXMwLbiyOsC9ycQ5pJ0fXSKEdb5Q3iX/lPndarDouLlzGi
+	r/HsiZIOl3liGK0RMI1uh9AlEtygoZSZwbjz7wwsC6q50R0ITL5j1PhKkPzSRUhnQTjVBYHg4j0Di
+	RaPs8p0SOh206YQE3cfVmXQzyESYg/7QsK2mXGoTZf/oSlgRV9JIsYrKPuQyIjFeihe1hUdjdm4y6
+	nODvTxbRRglkpiWDn/4pj0BsnTofLGSPECM1OP2jK3/pgF68inow3Pd2I5cBWt9T9ddX1/S/CVJtt
+	n8TghR3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYoZm-00000000fDE-3f7W;
-	Fri, 17 Jan 2025 15:48:02 +0000
-Received: from mail-lf1-f45.google.com ([209.85.167.45])
+	id 1tYodd-00000000g0r-1Fr1;
+	Fri, 17 Jan 2025 15:52:01 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYoVL-00000000eVx-35Go;
-	Fri, 17 Jan 2025 15:43:29 +0000
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-53e389d8dc7so2316632e87.0;
-        Fri, 17 Jan 2025 07:43:26 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737128600; x=1737733400;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=H2N+AWy70jywn4CRmdsXKEKKnKrL7LoujnGhrXs380U=;
-        b=Co2rLrxv/r9EUWtbCSl39m4qLIbJ8sexYP1rClFQB8xp7f4/tSaVcV7bqQ5Zed2pmk
-         7JztJKhmRK78Qg3SaEMx2A7Um+ygg9vkwLcmmZ8izZdu6WzVKgpmDQoFZjLkyLqBKQSm
-         zKaoAkVCKg29XDjR8+sCggrhGFunbcA6vIEMwwqm0f8WeAfi6KbZtU0/r9Os7H2EGdap
-         7Xt7YSXjah+a23AEJjsfOwRfa9KitP7fl5TIviaHG8lSZ+0/XuUOwLAxYjomCqfbch2e
-         NKsoyEz+tHpiwxBpMmSWAkl/DlklE9wfLYj7ZrUPie+LpouKE2rw9uvqgYOfwxfkzX4Q
-         At8A==
-X-Forwarded-Encrypted: i=1; AJvYcCVAYatc6h2lkfZEg8WsgLN4E9taiZF/e8Nf2Wadw/HS+FVKa9DcKckj+Lt7f2KgIchy+RiUiLWkgN0pCCM=@lists.infradead.org, AJvYcCWRFnoAWVTeH1gaqMwlssEdJyj39Fu0tfqfHX9CDRd0jmg4DAzl2ZkSJwy80D06gytJsB/4Rpd1fWPM@lists.infradead.org, AJvYcCX5x8dBIr0eIGBLUVjz+mQDcC1DJzPAda6KgfqHsE6xmISLV2UJLqeD6TPiE4IBFFpgGo9LJ4kqVem/SDLW/LZn@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXSZUSRiIs+puf/MqMx4PEs+zyvARGOxKMevdN3eBIZIh7LC4+
-	xD/U6yB/s6/8vD6GrmA9SSoQ7l2I73ToaWD8fmjVffNwOD+mO92VBwOjnYeE
-X-Gm-Gg: ASbGnctykONBffjb5sU/jV4/Ye1TESgi5wOzLutIEFwoooLLyRVvOgi1qZ/VXe1BtGR
-	VjGEVqlgNDoAKhJlRSKFtM0TGzTIBQEb8AH2p9J71MsIBwA+7dyWaI44M0igXTbdER4BwnMGzmG
-	65o+x/xn0D+/3guyC/4PosY0f+t5EQo6kz67bhhPQlLek7CiCn44mBx2TBVkTFqNoCnAojgYHBF
-	kc7s/OQW1wMVx3CM0mNMDmTKxq2m/zd/LO5INeeL0tLkzi19HbCUcSvHn1wWRedHYgoVdyseK49
-	uc0WmUsFkL7cmQ==
-X-Google-Smtp-Source: AGHT+IGcXVJhPhcX/aFXkWTksXvN6A+3OKN5OXHf8ztE4jRFq60tzwJxrWy9RuiAU7F1nk6iD3wNPw==
-X-Received: by 2002:a05:6512:1092:b0:53a:1a81:f006 with SMTP id 2adb3069b0e04-5439c241918mr1264467e87.31.1737128599944;
-        Fri, 17 Jan 2025 07:43:19 -0800 (PST)
-Received: from mail-lj1-f180.google.com (mail-lj1-f180.google.com. [209.85.208.180])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5439af0e8f2sm401144e87.90.2025.01.17.07.43.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 17 Jan 2025 07:43:18 -0800 (PST)
-Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-30227c56b11so22746171fa.3;
-        Fri, 17 Jan 2025 07:43:17 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUfoKm64KgIpE/LFXFaVHQ/UZMXryJCDHqiteZocwYVpmUEo53wA+rqBFexM6NGEB5ur7Cql3RaJ4Mf@lists.infradead.org, AJvYcCVUONnMNu3KbEkS64KwaEpnLZP1MEucAEtJhqs4+Kt9EbhLbw9GZ3EWesEKWacOUjm6OWNhhCzjgK208StnILoA@lists.infradead.org, AJvYcCW55fzn1zsAGQBMCYOKNy4WqXyTAXcK7R0QfxAvwVULtrras7dAxB7tlUg5Y7jsMjeumGMDdG+yjvbROhM=@lists.infradead.org
-X-Received: by 2002:a05:651c:2c7:b0:2fb:58b1:3731 with SMTP id
- 38308e7fff4ca-3072ca60bd0mr8406481fa.6.1737128597473; Fri, 17 Jan 2025
- 07:43:17 -0800 (PST)
+	id 1tYocL-00000000flk-31wl
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Jan 2025 15:50:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BZBNWjc6gdaF4ZSYK8Mx+igCQxct2oJnvQHjIejDEww5aEb9hvrSGZhlnXrbi1T3YAQI0XSpkD3Pi+oQdXXTuGIdcTjbpRzU1/i2Lu03F7e6bLuOelyDf3KIb/T+KiqXA1CQnRToTAoyd8hiRsII3PK7FNluSjrWKUpOJsedQF324qDMK4Q/wzfnHWpWcpttB6fPL6XjaUSjjV1FTcABPi/9qo8WXP51tDnz87BOI1QM/oJU2AqC87EqkZdrVRUtuR+CVtedtiAcUYqw22U/nB0oUnyKMWDJGANJ/gGvI18Y7mIPHAvwxINfgK5vcmI8/5L79G/tDbkN17MIR3C4Iw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=u/lM8znxHXOlY6wJyzONddSNEi/Vo1JstekSz+pVaJs=;
+ b=oPsfJOjZcDuiIvJiL+UFbADV1P5r8fGGyQKzP4FxI5gmuEYzeX022SuHpfOTg1aRWrAcy+ejoURjMDdR7ZmQkiGInjzWK9C0RaAhuff6eENz6PL+fDSVLhTA4gLad9nviS0g7UGSXFEkgEyOdhIisWlbbWNGF9a0EcAMi3JLsCfAz/fI2NpuBP8+bnrW9v2SzXJbuCsg6GnfRIxs18pDux/ChDexJtEnyyw846Ji5rUmcIxljeXVi6B2A2SyyLJE6AgqZreFIBx7uvDVrLdjSA8DbxwkX45mW3XmJmrpGw/QPTYQNGc57F2t1pb6NyHCCD64bxejdrCIsLIZ0aM1ag==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=u/lM8znxHXOlY6wJyzONddSNEi/Vo1JstekSz+pVaJs=;
+ b=epIIGPjxr7DLw5vDqf7fHYKqv6YeDrEsJVc/+r86VKqkVwNYu+AFaEhsqUQirnL3YRaZXfiLM9+fNrg/MPN5diyVVxV5D0nqaPO+TdcL+6Z+sCQF4iPwN3BWv0GsG0xHka7PyZ5sKkuo/u0daRos4Qqt8i6nRiLLtzObhzqiSSQViYbuk4AG2UnpQXEWQktDEaw2nXOFInRx/1HTj79L+InAkusKBtoSdkCKdu+Oq9mAYBblldV4y/WsDS57lh/NunD1Ykp0BCkAJrSM6BKukQaRNjDoQdM1znIDYgnIxlSzXnA7u1/o0fdBd8jQ/fUeD9C0ZX+nees325MTmds4lA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AM7PR04MB7125.eurprd04.prod.outlook.com (2603:10a6:20b:121::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.16; Fri, 17 Jan
+ 2025 15:50:36 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8356.014; Fri, 17 Jan 2025
+ 15:50:36 +0000
+Date: Fri, 17 Jan 2025 10:50:26 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
+Subject: Re: [PATCH v8 2/7] PCI: dwc: Use devicetree 'ranges' property to get
+ rid of cpu_addr_fixup() callback
+Message-ID: <Z4p8QqvWPOhab/XQ@lizhi-Precision-Tower-5810>
+References: <20241119-pci_fixup_addr-v8-2-c4bfa5193288@nxp.com>
+ <20250116231358.GA616783@bhelgaas>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250116231358.GA616783@bhelgaas>
+X-ClientProxiedBy: SJ0PR03CA0028.namprd03.prod.outlook.com
+ (2603:10b6:a03:33a::33) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-References: <20250110123923.270626-1-szemzo.andras@gmail.com>
- <20250110123923.270626-4-szemzo.andras@gmail.com> <20250114141954.2785879a@donnerap.manchester.arm.com>
- <CACRpkda0nx3SQtdjmXdCEbVJSWM10TM=p-6JbDjbiYcOSF5PxQ@mail.gmail.com>
- <20250115152635.1b89e7f4@donnerap.manchester.arm.com> <CACRpkdYVTedEon0X-izvaDTGF6yRhD2s=Z6NEM=zBf4vD-T0Pg@mail.gmail.com>
-In-Reply-To: <CACRpkdYVTedEon0X-izvaDTGF6yRhD2s=Z6NEM=zBf4vD-T0Pg@mail.gmail.com>
-From: Chen-Yu Tsai <wens@csie.org>
-Date: Fri, 17 Jan 2025 23:43:05 +0800
-X-Gmail-Original-Message-ID: <CAGb2v64sNfytUPbyBFjiZCU+jLkXOH1r9iH=Z_E0PjwVxkMCWg@mail.gmail.com>
-X-Gm-Features: AbW1kvbzoziWjm4-jxBgu7nAEK51uWx6aYENBjR409HEBu5PP3az-MNoew5mtV4
-Message-ID: <CAGb2v64sNfytUPbyBFjiZCU+jLkXOH1r9iH=Z_E0PjwVxkMCWg@mail.gmail.com>
-Subject: Re: [PATCH 03/12] pinctrl: sunxi: add driver for Allwinner V853.
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Andre Przywara <andre.przywara@arm.com>, Andras Szemzo <szemzo.andras@gmail.com>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Maxime Ripard <mripard@kernel.org>, 
-	Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
-	Ulf Hansson <ulf.hansson@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-phy@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM7PR04MB7125:EE_
+X-MS-Office365-Filtering-Correlation-Id: d0989532-4621-49fc-250d-08dd370eaeda
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?MVhPdExUMllldXNjN0FhRDE4Zlk3VjZGOWE0ODgzVWpPMXJLcEtPZDAyMmtm?=
+ =?utf-8?B?eTFtRjRvdlE2cHJYT3lXVnFCMHpWcW51RzJVcjhpcFBhYzNya3BLeEJvbVJn?=
+ =?utf-8?B?d0JhTEx4OUY1SWhDdlVGdFo4WWdRVHoyNlBwTDFpcTZ4dzljUDBMT0IvNkVm?=
+ =?utf-8?B?RU91dERPd29hOXdoYjFCdEgrT3NTV3FmbTdUckdRb0F6VFVRM24xU0RFQmlD?=
+ =?utf-8?B?clh3bkROVnMwMDVpN3hoeTcyRlROL1NJc2wrVmt3ekczL05kQ0NUUFhUcHN5?=
+ =?utf-8?B?VDhsZURYVWlIYm14eWQ5U0hoalFkNlF2aVl3eVZNK1pNdzdUNXMxQ1hIa3FZ?=
+ =?utf-8?B?L0ZsY0NkRVdWYms4a3U3alUyZGNWL1pPaEpZNXlkWjlGQ0o4S2tleW1maUJP?=
+ =?utf-8?B?VWVqaTRmVzZlREphMWF1MVUxZzd3MzRuRWtjRXJWWnJiRWVaYWt5UEFDR1ND?=
+ =?utf-8?B?bCswRGtKTlpRaXAyQjkrQW02My9DSTZJSmZ5QjhEOXhFZ3BNV21Gd2FBbjZp?=
+ =?utf-8?B?ZHpNSGRqaEJlMlJ2ZkJlUDZ4ZVh6dlhDbC9HYU10aU9DczFqUkw4QlY2d081?=
+ =?utf-8?B?WUtGRktrcWMveUZWZHEzMXRhTEhpWWllb1pLZlJBMG5IVngvYlExTzNndWdW?=
+ =?utf-8?B?Y1h4dGxCU0w0T0pFbitpOFBST2xSa3lqV2w5YWVFNVU1UEVUYXVPMTZyRnlL?=
+ =?utf-8?B?UEE5REoyekM2Ykh4Y1pEV1VMZ2RlVnVTMWxYS1NrcGNna1lmOWV5T1lXN2lw?=
+ =?utf-8?B?MnlQOUsrSG1zYWtkOVRONlJGa09LOGtRUnBUU2J3WUsyNTN1dEtBK3l3b3h5?=
+ =?utf-8?B?cDdkYlZMR2tNU3plM3dqWEIrL0kwYWduaTlodmgzQzZML1RML2M2bXhmVElj?=
+ =?utf-8?B?N1JGK2VlQlZwb1A0SGJWMmFqTHkrbHlsRXRpMGJ0eU0zWmdaOGZmb0V3cnZl?=
+ =?utf-8?B?Znp4cjl5YUk4Vk1wOFFKVHQwbWVkVFZ1eFJqT09PR29saXhKQWxMdjlDVlZP?=
+ =?utf-8?B?VFIwZnlUajRTL2x5MWNRc2txanJrejBqcmN1bG5IWkF4YVpVTWJhQWE4clBs?=
+ =?utf-8?B?bXRWZkRFLzl0SzN2dHBuelRPdEJ2UTlOeHdHMHUzNlNxMEttWlM3Wk0za2tZ?=
+ =?utf-8?B?VUVvaTYvaXVOazBPV2xIdzZDMVJCNjViMVB3VnRQQ3pIRWM3TTUyaXQ4YnZZ?=
+ =?utf-8?B?ZktoOEJtcFNiT01VM3lOeXNBbWd5SWdmcHl6UllEOEtvUjhWRm9GRFQ1MVM4?=
+ =?utf-8?B?enpESlRzb0x0YURZb3dJaXlLSFE1TnZNYmQ3SWZqV1BEWGpGOVlsc1NUTEgr?=
+ =?utf-8?B?amtobmxxTEY2azk1TUZnd0FDbkkrcHZQN21ZT1l3aGw1c1ZkVTRZbjZSN0Vr?=
+ =?utf-8?B?SnJ2NUpFc3NHeHpWTVJncCtMdTNLOHcwZ3pxUEcvZis4cGVMYjNTdkpvRVpo?=
+ =?utf-8?B?TjdFcDFTUHpqc1NRYk9rSGVBWjQwRjMveXBIL0FuNDVoZnJUK0Q1RmgyVEVQ?=
+ =?utf-8?B?R3J6M25nTCtUZUZjVlk4Uk9iaFNobXA2MkYzTDIvVGoyTEJZeU43eTFXOHNa?=
+ =?utf-8?B?SmVOb1B4dDhsNldCNTZ2TDFTVGg1M21nOHpINkwySWFxekNkSnNuS0VrMnNJ?=
+ =?utf-8?B?S29RTkdqcW13K1pzUWR5YjBOZ0JnUFRVYXhyU2UwSUp0N1VlRGx3QTZ3Y0lu?=
+ =?utf-8?B?QjRQQy9Ha3YwUWFIQ3dDdFB6SktBbmRUT2JycmtKSjBpZ2c2Tmp4RGRrVUg3?=
+ =?utf-8?B?ZkJVd2tkN3F0ck1Fd3lzY2V5UXRSQ25VZ1NORWtVeXRaNXg0d2tVMHMyMVk2?=
+ =?utf-8?B?L1dZamZWOUkvUEhDNjFVOXpQWE00UlFmdFAyc2doL2tsdzhuMkZWVWtyVi95?=
+ =?utf-8?B?MU9ETkE2Mi9PcSs3VlpCYTErdStEVGFCMkgxVmFNS0FrVXU4eFlDalBKV3dL?=
+ =?utf-8?Q?se2701OhvO633YT7EvdwLP9P4Dg7KinH?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bERhbVBCRk5WM3o4WWREbXZjOUpyU25FMjQwZzlJRU1qR0tRVFgvSUxUUHpk?=
+ =?utf-8?B?N1Rubmo0SmkzT05SbG40UG82SVE0Q2ZYYS9jOER4YzZDb3VhdngrZ2ZXeXA3?=
+ =?utf-8?B?dyszYjgvSnp3M3JlRUNrdGRiMzVrZkpYVFAxM013aERsbW5FODFNR0ZwMStm?=
+ =?utf-8?B?VTRzb0dQM08welhQdkFUYXk3ZlJxQW5CYzV4c3pLM0NSSmF2WmtvZkFPQzl0?=
+ =?utf-8?B?R1RURDJDSjNmVUNaMG80alBBeFoyOVQyMXZqeUh1dnZycjlUNnFxZURtakxZ?=
+ =?utf-8?B?WFAzVXBwaURGUnZqMmhEai9MdGlaMnVPRHI1ZlRXY3hjQzl1VUF2TzVqTHI3?=
+ =?utf-8?B?c0RqRGkyVkJ1d3ZodEFnbTVoSnc0NWVsVjlVbitEUEJqQXZCemIxc0EzbHBl?=
+ =?utf-8?B?YkQvcXRVVzdkNDlMaytjVkVmVW5oY3hzd0NUaFRBcXpOZTZ4SGVQa3c3NnQ0?=
+ =?utf-8?B?dTVOaDJvanQyYy9hVnlScy9kTzM0YWVEcC9jLzA2aXlxSExVb0diN2N6WGFt?=
+ =?utf-8?B?UTZpQVhQdHR2NGRmNTdDNkd5ODJoZi9qQmV3Q1dIOEx6aE1kMzI3MVdHMk5Q?=
+ =?utf-8?B?Wm5iOG1DcjZyZHpwRHZxaDVYZ3grZHV5OGUvS0k0MEd0Y1RyUmpYdlhpVXUy?=
+ =?utf-8?B?WEk3emQzRzZ4N011cU9RZmlXd0VKTStWT3pPSG9oRlhNd1d1Vk5OejBrYjNH?=
+ =?utf-8?B?dUxRUTZkbWJtZGJ0SEd2OXd5czFQajlBSEgvKzQzdC9HaWlVK0ozQmNsVnhi?=
+ =?utf-8?B?QnFQdGFsR1dXUzVkRHFPdUlxdTZLUXpKdDBVNjUrMWthWFVSdnNZK2ZmY2JD?=
+ =?utf-8?B?THo4bmM2MnlaSEJTZjFXdGl1WVRXOXJUS0piekp2Vzh6NkhkdVdETG10My9m?=
+ =?utf-8?B?NVZFQzE4NlExT3MydlZiVzVMMDYzMkpsQ2dPU0RKaGh6T3VvaFdhWFhGNnl3?=
+ =?utf-8?B?SEZNTnMwem1FalFUbEJmd1Vvb3dVZkxvRm5EbWxvNmFhWFVqdG5zdktQbXhM?=
+ =?utf-8?B?YjQ1dEtqUkFVV21vVkJSVHplZnY2MEwwamdsVzNNNFdYVmNYTzZtTDBMelcv?=
+ =?utf-8?B?bWZNdWkvTC9wbnpsMWNINEJnOU1UdDBLSzllVzJ3ZGFmdXBIcmNRazZEcTM0?=
+ =?utf-8?B?R253Q1JUaWg3VzBhRUN4T2lhNlVsZFZsY29UR1NnUVZEa0RHcjgwbmdjNUVK?=
+ =?utf-8?B?VUQ1WlcrcWk3UFllSzVBVXZ5bzF5WXNRWm0vajRUczZhZDQ1eGRuOEVKVDZJ?=
+ =?utf-8?B?R0hiYnVLaXowb2tCbU5xT2RDclhhWk44SC9XbHV3V0J6RHJlN1FUV2FVUjFN?=
+ =?utf-8?B?UmpEeFd4N1pQTGpQYS9NdFlxb0lRdEd2TEVINTdWVWphOXBEWmpBQWZiMmRK?=
+ =?utf-8?B?RXlFbm9peU5TVG1Wc0pmN1hxYWZNOGRQNDVVbTFjdzVXZXpEMzJIdDZlK3Fo?=
+ =?utf-8?B?T0NHR2NjRlFXdnE0bnpBK3JKNlE4MEJQbHJSYlpPaFRWUUw5cVNycHEvZXVK?=
+ =?utf-8?B?eFlhRm00d2FHZS83UnRiQ0lUREhoRmNWa1p6OEwvSHRXOVdoc3NLR3RDSW5K?=
+ =?utf-8?B?dlBzWmNod0xvR2hwbmhyTVFuS3JRbDdBOW91SFlwd0NJd1VReE1XQW45cGtt?=
+ =?utf-8?B?ZGg5L09teVY4RDBFc1lBaG1lcXVDNFBWbWhIdjgwUm45SXJMTXFqYm1uY2hh?=
+ =?utf-8?B?eXZpM2FLTWFQNnVkYytkN0lWa0RTZzVsYkZDSW5kbDV5RDFqaitJaXNkOXp2?=
+ =?utf-8?B?c0dnSnpzcjV3cTdZb1Z5Ukp4OEN2SXJVcnRKenhlcDNNNFNUVUdMTC8xQjll?=
+ =?utf-8?B?TzhlT0UrMDlxeERwQmZrc25RVVNBYm1uVFhid085blJieDZyZEE4Ty9pMmo1?=
+ =?utf-8?B?eHIrOGZ4Y08reGlPa0JVa2lPOHVhMkl0UC9oZ2dDckR6emdtWkJyOXovaW9r?=
+ =?utf-8?B?Y2kvWUZ6RXRQM2pMbEtKdTdRaGowSGlqTDRLd0s5V0FyWmtNNkFkV3QyeG1L?=
+ =?utf-8?B?QzB0ZXVSZVozTnY0bCtuR3BWemFRSzA3cHova1NVWlJ6R1dHbDZjMmJJSFNX?=
+ =?utf-8?B?TjE2VDFUSisrQXFvMUsxWVplQnMvbGU4VkFuNXlwRmJ0c3VmQkN5L3NBZUxR?=
+ =?utf-8?Q?ecHXSUF6h6Yu/iZsXlYdH8zsU?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d0989532-4621-49fc-250d-08dd370eaeda
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jan 2025 15:50:36.0555
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 66cN1LDjyZZ2P7HN//MvLRyLef9ENif+gjJf6FXm1fXTLlr5wgmk2borFLEiakylIT6BrhqTrn4GHK6RYHY0AQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB7125
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_074327_775901_0F2C7787 
-X-CRM114-Status: GOOD (  59.38  )
+X-CRM114-CacheID: sfid-20250117_075041_919887_025F4E12 
+X-CRM114-Status: GOOD (  24.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,176 +184,103 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 16, 2025 at 5:34=E2=80=AFPM Linus Walleij <linus.walleij@linaro=
-.org> wrote:
->
-> Hi Andre,
->
-> some nice talk here, actually the following is just opinions, I will
-> be likely happy with whatever approach is taken eventually.
->
-> On Wed, Jan 15, 2025 at 4:26=E2=80=AFPM Andre Przywara <andre.przywara@ar=
-m.com> wrote:
->
-> > > pio: pinctrl@1c20800 {
-> > >                         compatible =3D "allwinner,sun8i-r40-pinctrl";
-> > > (...)
-> > >                         i2c0_pins: i2c0-pins {
-> > >                                 pins =3D "PB0", "PB1";
-> > >                                 function =3D "i2c0";
-> > >                         };
-> > >
-> > > abstract, strings, nice. The driver handles the particulars.
+On Thu, Jan 16, 2025 at 05:13:58PM -0600, Bjorn Helgaas wrote:
+> On Tue, Nov 19, 2024 at 02:44:20PM -0500, Frank Li wrote:
+> > parent_bus_addr in struct of_range can indicate address information just
+> > ahead of PCIe controller. Most system's bus fabric use 1:1 map between
+> > input and output address. but some hardware like i.MX8QXP doesn't use 1:1
+> > map. See below diagram:
 > >
-> > What bugs me about this it that this has quite some seemingly redundant
-> > information (Who would have thought that the i2c0 pins use function
-> > "i2c0"?), but misses out on the actual 4 bits(!) of information.
->
-> the pins in this example are called PB0 and PB1 though. The designation
-> on the package. And often pins actually named "i2c0_1" "i2c0_2" are
-> for that primary function, but muxable to a few other functions,
-> at least GPIO in most cases. So it's just some name for the pin
-> really.
-
-No. Allwinner actually names their pins like this, kind of like Rockchip
-which provides standardized names such as "GPIO0_B2", but unlike MediaTek
-which just names the pins after their designated primary function such as
-"EINT22" or "TDM_BCLK". The ball names are a separate thing.
-
-Even though the pin names seem a bit random, there's actually a grouping
-logic underneath:
-
-- PC pins are always for the bootable internal storage (NAND, SPI-NOR, eMMC=
-)
-- PF pins are always the external SD card / debug UART / JTAG
-
-> > > That is like so because we are designing for users which are
-> > > let's say customization engineers. If these engineers jump from
-> > > project to project matching function strings to group strings will
-> > > be a common way to set up pins, and easy to understand and
-> > > grasp, and it makes the DTS very readable.
+> >             ┌─────────┐                    ┌────────────┐
+> >  ┌─────┐    │         │ IA: 0x8ff8_0000    │            │
+> >  │ CPU ├───►│   ┌────►├─────────────────┐  │ PCI        │
+> >  └─────┘    │   │     │ IA: 0x8ff0_0000 │  │            │
+> >   CPU Addr  │   │  ┌─►├─────────────┐   │  │ Controller │
+> > 0x7ff8_0000─┼───┘  │  │             │   │  │            │
+> >             │      │  │             │   │  │            │   PCI Addr
+> > 0x7ff0_0000─┼──────┘  │             │   └──► IOSpace   ─┼────────────►
+> >             │         │             │      │            │    0
+> > 0x7000_0000─┼────────►├─────────┐   │      │            │
+> >             └─────────┘         │   └──────► CfgSpace  ─┼────────────►
+> >              BUS Fabric         │          │            │    0
+> >                                 │          │            │
+> >                                 └──────────► MemSpace  ─┼────────────►
+> >                         IA: 0x8000_0000    │            │  0x8000_0000
+> >                                            └────────────┘
 > >
-> > That's an interesting view, and I see the point of it being easy to rea=
-d,
-> > but this is partly because it doesn't convey too much actual informatio=
-n,
-> > does it, as it requires another lookup or two.
-> > And the pinctrl group nodes are actually in the .dtsi file, which are
-> > typically written once during the initial SoC enablement, and new board
-> > .dts files normally just reference the existing pingroup nodes. So anyo=
-ne
-> > dealing with just a new board is not bothered by this.
->
-> You have a point, and when working with a system the application
-> engineer often finds bugs in the pin control driver, and has to go
-> and fix the actual driver and then all the information hiding and
-> simplification is moot.
->
-> This can become an expensive lesson for the current attempts
-> to push pin control into firmware where the configuration is
-> mostly "dead simple" (and just using strings) - the bugs will be
-> in the firmware instead, and impossible or really hard to fix.
->
-> > Also in my experience most people have no problems in understanding the
-> > concept of pinmuxing and that there is a selector number, also where to
-> > find this.
->
-> Yeah the ambition with the strings was to avoid forcing application
-> engineers to know all about that. If they do, they are then
-> developing the driver, not just using it.
->
-> > > Mediatek and STM32 made a compromise by using pinmux
-> > > and adding some macros to define them so it looks more
-> > > pleasant:
-> > >
-> > >       i2c0_pins_a: i2c0-default {
-> > >                 pins-i2c0 {
-> > >                         pinmux =3D <MT7623_PIN_75_SDA0_FUNC_SDA0>,
-> > >                                  <MT7623_PIN_76_SCL0_FUNC_SCL0>;
+> > bus@5f000000 {
+> > 	compatible = "simple-bus";
+> > 	#address-cells = <1>;
+> > 	#size-cells = <1>;
+> > 	ranges = <0x80000000 0x0 0x70000000 0x10000000>;
 > >
-> > Well, I don't really get why they don't use the (MTK_PIN_NO(75) | 1)
-> > definition directly, seems to be more telling to me?
+> > 	pcie@5f010000 {
+> > 		compatible = "fsl,imx8q-pcie";
+> > 		reg = <0x5f010000 0x10000>, <0x8ff00000 0x80000>;
+> > 		reg-names = "dbi", "config";
+> > 		#address-cells = <3>;
+> > 		#size-cells = <2>;
+> > 		device_type = "pci";
+> > 		bus-range = <0x00 0xff>;
+> > 		ranges = <0x81000000 0 0x00000000 0x8ff80000 0 0x00010000>,
+> > 			 <0x82000000 0 0x80000000 0x80000000 0 0x0ff00000>;
+> > 	...
+> > 	};
+> > };
+> >
+> > Term internal address (IA) here means the address just before PCIe
+> > controller. After ATU use this IA instead CPU address, cpu_addr_fixup() can
+> > be removed.
 >
-> That's what STM32 does as well and it's usable.
+> > @@ -730,9 +779,15 @@ static int dw_pcie_iatu_setup(struct dw_pcie_rp *pp)
+> >
+> >  		atu.index = i;
+> >  		atu.type = PCIE_ATU_TYPE_MEM;
+> > -		atu.cpu_addr = entry->res->start;
+> > +		parent_bus_addr = entry->res->start;
+> >  		atu.pci_addr = entry->res->start - entry->offset;
+> >
+> > +		ret = dw_pcie_get_parent_addr(pci, entry->res->start, &parent_bus_addr);
+> > +		if (ret)
+> > +			return ret;
+> > +
+> > +		atu.cpu_addr = parent_bus_addr;
 >
-> But of course it drives a truck through the initial ambition that pins
-> on all systems be configured the same way, with strings. So now
-> there are some families of drivers all "necessarily different" which
-> is not so nice for people jumping between different SoCs, but
-> very compelling for people focusing on just one SoC.
+> Here you set atu.cpu_addr to the intermediate bus address instead
+> of the CPU physical address before calling
+> dw_pcie_prog_outbound_atu().
 >
-> Well, unless this way of doing things becomes so prevalent that
-> it's the new black.
->
-> > So the plan for sunxi would be: <SUNXI_PINMUX(PORTC, 23, MUX_1)>, ...
-> > And this would not be really "opaque", since it has a fixed known mappi=
-ng:
-> >         (port << 16) | (pin << 8) | (mux << 0))
-> > I find this both technically elegant, because it combines all the
-> > information into just one compact cell, but also readable by outsiders,
-> > thanks to the macro.
->
-> And a new standard, to add to the other standards, so that
-> is my problem as maintainer. It makes sense on its own, and it
-> complicates the bigger picture.
->
-> > My main arguments against the current (string-based) approach:
-> > - They require the mapping table to be in every DT user, so not only th=
-e
-> >   Linux kernel, but also U-Boot, FreeBSD, you name it...
->
-> That's true.
->
-> This comes from the DT ambition to describe hardware and config,
-> but not *define* hardware, i.e. to stop device tree to turn into
-> Verilog or SystemC, which is what will happen if we take the
-> 1:1 reflection of hardware to device tree too far.
->
-> I don't think anyone really knows where to cut the line.
->
-> > - The tables are getting quite large, and they pollute the single image
-> >   Linux kernel, with tons of very specific information for a number of =
-very
-> >   pitiful Allwinner SoCs. At the moment the tally is at 145KB of code+d=
-ata
-> >   for the existing arm64 SoCs, with the newer SoCs ever growing (H616 a=
-lone
-> >   is 27KB, A523 would be quite larger even, I guess 40K). The new A523
-> >   specific pinctrl support adds 872 Bytes.
->
-> This is a generic problem though, look at GPU drivers.
->
-> The community (especially Android) seem set on fixing this by using
-> modules.
->
-> > - Most of the mappings are untested at pinctrl driver commit time, sinc=
-e we
-> >   don't have the device drivers ready yet - by a margin. The new approa=
-ch
-> >   would add the pinmux values when we need them and can test them.
->
-> I like this argument the best.
->
-> However this also reads "upfront firmware to handle pin control is a
-> dead end" yet there are people dedicatedly working on exactly that.
-> (Not that its' the Allwinner developers' problem...)
->
-> > - The comments in the table give away that something is not quite right=
-:
-> >                   SUNXI_FUNCTION(0x2, "i2c0")),         /* SDA */
-> >   This is just a comment, so has no relevance for the code, but it's no=
-t
-> >   meant for humans either. Yet we try to make this correct and maintain
-> >   it. Odd.
->
-> So i2c0 is SDA and i2c1 is SCL or something?
-> It seems common, but yeah it can be confusing.
+> But what about other callers of dw_pcie_prog_outbound_atu()?  Don't
+> all of them need to use the intermediate bus address?
 
-No. i2c0 is the actual peripheral that gets muxed in. The SDA / SCL
-comments are simply denoting which signal from the peripheral this
-pin & mux value carry.
+EP side change in follow patches. RC side only here call
+dw_pcie_prog_outbound_atu()
+
+>
+> Maybe struct dw_pcie_ob_atu_cfg.cpu_addr should be renamed since it is
+> not necessarily a CPU physical address?
+
+Yes, we can improve it later.
+
+>
+> > +	if (pci->ops && pci->ops->cpu_addr_fixup) {
+> > +		/*
+> > +		 * If the parent 'ranges' property in DT correctly describes
+> > +		 * the address translation, cpu_addr_fixup() callback is not
+> > +		 * needed.
+> > +		 */
+> > +		dev_warn_once(pci->dev, "cpu_addr_fixup() usage detected. Please fix DT!\n");
+> > +	}
+>
+> I kinda wish this warning were in a separate patch because it will be
+> a little cleaner if we ever want to revert or remove the warning.
+
+I don't think it is possible to only revert one print warning patch in
+future. I think only two path: one revert whole solution, the other is fix
+all dts and remove whole cpu_addr_fixup.
+
+Frank
 
