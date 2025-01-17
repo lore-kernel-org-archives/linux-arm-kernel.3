@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1B1FC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 13:10:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63FA6C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 13:23:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bz4bfto8vNr+S8FhLtgO/a38HrKDD0UrOPKdT1o0KoI=; b=l/r05A4UW99VrAgI84QCwufmWm
-	co25sjhFkFJ9/+7/Qt47fifJkNivDgxV/VhAIDYAcnBUBMpJ4gO5NXF+f/H9WB9AzusL7PBl9DNkH
-	PV9GfTGkZURSjUTPIuH7KEj4GVGR1b1StQKqQT1qjJgEjtKuHy/Uw9Z3tEzRg1+3n7c4cepx6Spay
-	jcEyqtroy7t6XR5W8m9FXkThPPYNCuvS5vTuKYtojS+joa6XW3/Q1QuzzCMFA5rsrAOyrOrfJ314p
-	VoWPWAtjRy4MLHFnCzF95F9SYXldNSCgofncTsP+jR8pIfsvClyX3oNh6+UEsWy0oMmYET+lu5eaD
-	TNAnMGiw==;
+	bh=fSFd7Zpved/J9ARzkNxskvv0MDGbMGB15yiCNUdlcSs=; b=Vum6VDEaMzC7PJHjjlWlGs1e0h
+	DTrMalXS8SKK53yaT8xoqPo6lyHVNViQjJYGMK8cQ/MoC+66IyJedDzRNlyGGEeeAag3rfLvOeqEj
+	2RxTsoREaTtJ8YSmIInVb799S8/kY6xL8ML8u1q4uW/eVNrrWX4dSN0E+2tmJSwMZ0NqvoZSEKvrp
+	oI+AbYNObP1NrzVwlTgiY48QZ+x+MyeOyvsT8yW7tV1dKSXefF9o1AE7yazDU5tEGhjmJMS0FcUj9
+	yqNv+Pd1J+o0eoGQUOxoiAHz4ubBeT3dGF203W/ORWfv4Lg/2bkxBU8d/MdH5thDNmXelYGBCmvj9
+	gyCu1lDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYm7b-00000000KJp-2oxk;
-	Fri, 17 Jan 2025 13:10:47 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tYmJm-00000000LEl-1PqG;
+	Fri, 17 Jan 2025 13:23:22 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYm5G-00000000Jsp-0spn;
-	Fri, 17 Jan 2025 13:08:23 +0000
+	id 1tYmIW-00000000L7M-1Xnk
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Jan 2025 13:22:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 10C175C6248;
-	Fri, 17 Jan 2025 13:07:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9C6FC4CEDD;
-	Fri, 17 Jan 2025 13:08:18 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1A45F5C6234;
+	Fri, 17 Jan 2025 13:21:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFC1BC4CEDD;
+	Fri, 17 Jan 2025 13:22:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737119301;
-	bh=/kk8bIeoOoF50IA37ReTObbO23keBjpVXrnfW1WhScE=;
+	s=k20201202; t=1737120123;
+	bh=fSFd7Zpved/J9ARzkNxskvv0MDGbMGB15yiCNUdlcSs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ArSSsMdMGrKvpMUgYcQ5C5cT8SjvXZh4xU7bKU38XbtIr+deczFTG71Qw7VNtvp+z
-	 Jqo3CFIVE6CxRpDgzSNGla7yie1mb2aeso59Kt0IvKzZvBN4rGlhy6iNr84A4Xomci
-	 FDJktPq77s74T9sn98BK/avlpveVh5vEo5MczOqwdk/pNkf+5V33Rl3fvm9mUN3EkS
-	 ZL8Sv+sWCMHJNRq/p8Hdknqc+YktPac951GU/Bys/+zVnaoqVtTK7CKUNNkjjIrBpY
-	 W5pToys8AMFesQ8IRwAZ+6fCs1K8Lry4zkphlWmBfyJ1CEl5IMxL6ubjg27p08+y6X
-	 IDlykEU9i8p0Q==
-Date: Fri, 17 Jan 2025 14:08:16 +0100
-From: Niklas Cassel <cassel@kernel.org>
-To: Quentin Schulz <foss+kernel@0leil.net>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	b=RVAj7slWnimgq+K/qg63qK7az4/Vws1Vv8xbnNjPCVvcrp1GVjjJjYpUZaeC6cdbN
+	 t0aTP+pi9UOlSGw0/1Uj9vBlAd9+vezH4C26sGtZmTvfj34KU6rKrMHypAah7uiJAo
+	 ycHcRABpMoxkeMeKch7MRzDilZt08iWYzx6vqir0XKbot3F0eq3Gxkkd5ibemEW1rz
+	 TZBe9m1pdpIHbPMi8Jlkc19JP5Y6glI+jNulChUh7IJmBrdj5hER39rGDFyIxUKV8l
+	 lFnDh7Hn/d52+UhhRghZyxCHa4X7qBsUSRmD2Px5oy9EJSTmNz7nI6qr9/xgl4MHoW
+	 tKkaQ3JNUsilg==
+Date: Fri, 17 Jan 2025 13:21:58 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Sean Anderson <sean.anderson@linux.dev>
+Cc: Michal Simek <michal.simek@amd.com>, linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Jinjie Ruan <ruanjinjie@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, Jagan Teki <jagan@edgeble.ai>,
-	Michael Riesch <michael.riesch@wolfvision.net>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Quentin Schulz <quentin.schulz@cherry.de>
-Subject: Re: [PATCH v2 2/3] arm64: dts: rockchip: add overlay tests for Rock
- 5B PCIe overlays
-Message-ID: <Z4pWQKRjgEkFAi3W@ryzen>
-References: <20250116-pre-ict-jaguar-v2-0-157d319004fc@cherry.de>
- <20250116-pre-ict-jaguar-v2-2-157d319004fc@cherry.de>
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org
+Subject: Re: [PATCH 0/5] spi: zynqmp-gqspi: Improve error recovery by
+ resetting
+Message-ID: <5942e111-24ba-4d1b-bd4f-6b81dcc6c5dc@sirena.org.uk>
+References: <20250116225521.2688224-1-sean.anderson@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="9LaKOexVYp/mUJYS"
 Content-Disposition: inline
-In-Reply-To: <20250116-pre-ict-jaguar-v2-2-157d319004fc@cherry.de>
+In-Reply-To: <20250116225521.2688224-1-sean.anderson@linux.dev>
+X-Cookie: Q:	Are we not men?
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_050822_287552_BCBE1128 
-X-CRM114-Status: GOOD (  13.53  )
+X-CRM114-CacheID: sfid-20250117_052204_447812_627AC3BB 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,23 +80,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 16, 2025 at 03:47:11PM +0100, Quentin Schulz wrote:
-> From: Quentin Schulz <quentin.schulz@cherry.de>
-> 
-> According to commit 40658534756f ("arm64: dts: rockchip: Add rock5b
-> overlays for PCIe endpoint mode"), Rock 5B can operate in PCIe endpoint
-> mode. For that to work, the rk3588-rock-5b-pcie-ep.dtbo overlay needs to
-> be applied on Rock 5B base Device Tree. If that Rock 5B is connected to
-> another Rock 5B, the latter needs to apply the
-> rk3588-rock-5b-pcie-srns.dtbo overlay.
-> 
-> In order to make sure the overlays are still valid in the future, let's
-> add a validation test by applying the overlays on top of the main base
-> at build time.
-> 
-> Fixes: 40658534756f ("arm64: dts: rockchip: Add rock5b overlays for PCIe endpoint mode")
-> Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
-> ---
 
-Reviewed-by: Niklas Cassel <cassel@kernel.org>
+--9LaKOexVYp/mUJYS
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Thu, Jan 16, 2025 at 05:55:16PM -0500, Sean Anderson wrote:
+> This series adds support for resetting the QSPI controller if we have a
+> timeout. I find this greatly improves the stability of the device, which
+> would tend to break after any timeout.
+
+If you're hitting a timeout that tends to indicate there's already a
+serious stability problem...
+
+--9LaKOexVYp/mUJYS
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmeKWXUACgkQJNaLcl1U
+h9CpZAf/Wk3o1MAlJ9TGR6o+nwTpH4hHPLa3QLO78QLJo5xgPC8mTkGIg/FmONxC
+lPPbIYeRT0sRBmIvct3xfbvWNjpsDa0elpSM4UzX578IEx2i7Hj+rWiLl7NUE/bM
+reFUV23KdVcTYv/CfP0fmC5SpvoY788WnnP60xSbsf2M5H+IAoyWovHE+WvHEJSx
+6Oyh+jLUWTdKkYJqADmTKytyZGHlJFujVq6IBUT4C0bEXYphv8BUmSaC1KvdxWfc
+22h6JtGfKU7jYrALUaTABxweqaJle4lbbpd5WNYxdnD5xh2NlDfOswz5QF4DE4FW
+HuF+P5Nkc9GMGbuJh5uWIwAagvlQ/g==
+=Et2M
+-----END PGP SIGNATURE-----
+
+--9LaKOexVYp/mUJYS--
 
