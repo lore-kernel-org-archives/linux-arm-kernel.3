@@ -4,67 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0455CC02185
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 10:41:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCDE5C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 10:42:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=375PxtuNhKhIUiKVOdE0Wn3eI4/dPpRPh0oPXKgnr9Q=; b=gzai+xlT2p4ASfULCwbJgIiI0A
-	OGcOtXhFEYZMyTt5y1K5olOJKwLonopRliCwOB+EXDJBl2TdzURBkIQ86uLari5T1COfNNPeMXIAH
-	lkGaKC1nZFkwt4V06kBOXpK77KYCSRdNNPz1X4KdiEpR7bGu/cc1Xe3o+Ge/GqNKY1ox/z2AXhSpw
-	kR9IW40sUp7o8dIwhW5MR6iSjxouVhecxIRPm243/nOCCK5QOJ7RIy217CqQanCvnZXd4JlO253Uu
-	96rn1cMm20kMbx5ItergsWjAqXZY6Yx4LHJN4qnFn2FztS9z4X7C1N/vBSExk9j+6IB3Eo5piWmpR
-	W5S3XhMg==;
+	bh=06aS2Ac6K0MfEQxdFAWcIS6kyt4ZaC+Qa5XpQwP/t6w=; b=bexVeGo5Jg8PwLXyZdsDa2TjZ7
+	ylWKhnM0rQPc9ZlURb8wbbDd0hVjGAul7d471zJoJf/WVvceAkVKEYGBoUxXfkkayD5hLF60DllJI
+	r+r54vbAy9zPCLAghj6CQRwgFfCy6KlF/6F2TAZWZ8FIRX9HcDAJ8Kxj6Ra5qQe4D8FgneOlyYfny
+	Kh5u33OO5QbQGlus3fc7kgz5G3BeyVyIgqZ9Gesn+lA1pkNox/Sc59a9OyH3WcoR5KtHCuhQyj06v
+	ze9K0j3YXCeOxtoJrWC3FA+8PtBpck5QQMAQYfYAIz+TxBo5zIKtCozLY4Ackbi/6lSbuZWT8UCXG
+	pVpig6Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYjms-000000003Ql-2177;
-	Fri, 17 Jan 2025 10:41:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYjlb-000000003Cn-12w3;
-	Fri, 17 Jan 2025 10:39:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3403D1476;
-	Fri, 17 Jan 2025 02:40:21 -0800 (PST)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3D2753F7B4;
-	Fri, 17 Jan 2025 02:39:49 -0800 (PST)
-Date: Fri, 17 Jan 2025 10:39:41 +0000
-From: Andre Przywara <andre.przywara@arm.com>
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Andras Szemzo <szemzo.andras@gmail.com>, Michael Turquette
- <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Linus
- Walleij <linus.walleij@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Maxime Ripard <mripard@kernel.org>, Kishon Vijay Abraham I
- <kishon@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?=
- <u.kleine-koenig@baylibre.com>, Florian Fainelli
- <florian.fainelli@broadcom.com>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 10/12] dt-bindings: phy: allwinner: add v853 usb phy
-Message-ID: <20250117103941.7f9bda7b@donnerap.manchester.arm.com>
-In-Reply-To: <Z4dpFqffMJ31ml2y@vaman>
-References: <20250110123923.270626-1-szemzo.andras@gmail.com>
-	<20250110123923.270626-11-szemzo.andras@gmail.com>
-	<Z4dpFqffMJ31ml2y@vaman>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	id 1tYjo8-000000003aj-046G;
+	Fri, 17 Jan 2025 10:42:32 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tYjlg-000000003DO-27Bs
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Jan 2025 10:40:01 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 45F961F37C;
+	Fri, 17 Jan 2025 10:39:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1737110397; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=06aS2Ac6K0MfEQxdFAWcIS6kyt4ZaC+Qa5XpQwP/t6w=;
+	b=UE3Z/4K7bC9R9jxsQBYzuskm//hKGGvrr+TitM4t6PB2Jng2QI77+VWUIP5SNMSnsqW1kY
+	QspSOxaqI1GZEChYbLXM8opMpRg3kvyeMr7kAniallhUyrLdIuUrRQArawl/bNBvPW3Fcg
+	uvtWGS0z7DlcKLh3H70ipp1KotIClBQ=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1737110397;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=06aS2Ac6K0MfEQxdFAWcIS6kyt4ZaC+Qa5XpQwP/t6w=;
+	b=HhOb0ymK+vIXKyMynBO2s7vFatvZRoKhzP9iQeXvZ9VBmqS76f/4re1ZnMUaWOkXCFKufO
+	GRW/wdbPFhoZIDBw==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1737110397; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=06aS2Ac6K0MfEQxdFAWcIS6kyt4ZaC+Qa5XpQwP/t6w=;
+	b=UE3Z/4K7bC9R9jxsQBYzuskm//hKGGvrr+TitM4t6PB2Jng2QI77+VWUIP5SNMSnsqW1kY
+	QspSOxaqI1GZEChYbLXM8opMpRg3kvyeMr7kAniallhUyrLdIuUrRQArawl/bNBvPW3Fcg
+	uvtWGS0z7DlcKLh3H70ipp1KotIClBQ=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1737110397;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=06aS2Ac6K0MfEQxdFAWcIS6kyt4ZaC+Qa5XpQwP/t6w=;
+	b=HhOb0ymK+vIXKyMynBO2s7vFatvZRoKhzP9iQeXvZ9VBmqS76f/4re1ZnMUaWOkXCFKufO
+	GRW/wdbPFhoZIDBw==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id C0B0713332;
+	Fri, 17 Jan 2025 10:39:56 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id bzXELXwzimdxCwAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Fri, 17 Jan 2025 10:39:56 +0000
+Message-ID: <c4a90873-d209-4c87-8875-9344d533fd9e@suse.de>
+Date: Fri, 17 Jan 2025 11:39:56 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/5] drm: adp: Add Apple Display Pipe driver
+To: fnkl.kernel@gmail.com, Hector Martin <marcan@marcan.st>,
+ Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Alyssa Ross <hi@alyssa.is>, Janne Grunau <j@jannau.net>
+References: <20250114-adpdrm-v4-0-e9b5260a39f1@gmail.com>
+ <20250114-adpdrm-v4-2-e9b5260a39f1@gmail.com>
+Content-Language: en-US
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <20250114-adpdrm-v4-2-e9b5260a39f1@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Spamd-Result: default: False [-2.80 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	FREEMAIL_TO(0.00)[gmail.com,marcan.st,svenpeter.dev,rosenzweig.io,linux.intel.com,kernel.org,ffwll.ch,linaro.org,quicinc.com,lists.linux.dev];
+	TAGGED_RCPT(0.00)[dt];
+	MIME_TRACE(0.00)[0:+];
+	RCPT_COUNT_TWELVE(0.00)[20];
+	ARC_NA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:mid]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_023955_338308_96E54E01 
-X-CRM114-Status: GOOD (  16.63  )
+X-CRM114-CacheID: sfid-20250117_024000_846966_1F5144DB 
+X-CRM114-Status: GOOD (  25.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,55 +168,229 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 15 Jan 2025 07:51:50 +0000
-Vinod Koul <vkoul@kernel.org> wrote:
+Hi
 
-> On 10-01-25, 13:39, Andras Szemzo wrote:
-> > Document Allwinner v853 USB phy.
-> > 
-> > Signed-off-by: Andras Szemzo <szemzo.andras@gmail.com>
-> > ---
-> >  .../phy/allwinner,sun8i-v853-usb-phy.yaml     | 89 +++++++++++++++++++
-> >  1 file changed, 89 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/phy/allwinner,sun8i-v853-usb-phy.yaml
-> > 
-> > diff --git a/Documentation/devicetree/bindings/phy/allwinner,sun8i-v853-usb-phy.yaml b/Documentation/devicetree/bindings/phy/allwinner,sun8i-v853-usb-phy.yaml
-> > new file mode 100644
-> > index 000000000000..773c3f476db8
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/phy/allwinner,sun8i-v853-usb-phy.yaml
-> > @@ -0,0 +1,89 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/phy/allwinner,sun8i-v853-usb-phy.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: Allwinner V853 USB PHY
-> > +
-> > +maintainers:
-> > +  - Chen-Yu Tsai <wens@csie.org>
-> > +  - Maxime Ripard <mripard@kernel.org>
-> > +
-> > +properties:
-> > +  "#phy-cells":
-> > +    const: 1
-> > +
-> > +  compatible:
-> > +    const:
-> > +	- allwinner,sun8i-v853-usb-phy  
-> 
-> Does this really need a new binding document, if so why... Cant this be
-> added to one of the existing docs which driver uses?
 
-The USB-PHY bindings don't differ too much on a first glance, but still
-enough in nasty details (number of PHYs supported, number of clocks
-required, etc.) to make a joint binding basically unreadable (we tried
-that). That's why we opted to have separate bindings.
-Now I believe it's worth to look for the closest existing binding, and
-just put the compatible in there, in the hope we don't need much else, and
-that it still stays readable.
+Am 14.01.25 um 22:38 schrieb Sasha Finkelstein via B4 Relay:
+[...]
+> +
+> +static int adp_setup_mode_config(struct adp_drv_private *adp)
+> +{
+> +	struct drm_device *drm = &adp->drm;
+> +	int ret;
+> +	u32 size;
+> +
+> +	ret = drmm_mode_config_init(drm);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/*
+> +	 * Query screen size restrict the frame buffer size to the screen size
+> +	 * aligned to the next multiple of 64. This is not necessary but can be
+> +	 * used as simple check for non-desktop devices.
+> +	 * Xorg's modesetting driver does not care about the connector
+> +	 * "non-desktop" property. The max frame buffer width or height can be
+> +	 * easily checked and a device can be reject if the max width/height is
+> +	 * smaller than 120 for example.
+> +	 * Any touchbar daemon is not limited by this small framebuffer size.
+> +	 */
+> +	size = readl(adp->fe + ADP_SCREEN_SIZE);
+> +
+> +	drm->mode_config.min_width = 32;
+> +	drm->mode_config.min_height = 32;
+> +	drm->mode_config.max_width = ALIGN(FIELD_GET(ADP_SCREEN_HSIZE, size), 64);
+> +	drm->mode_config.max_height = ALIGN(FIELD_GET(ADP_SCREEN_VSIZE, size), 64);
+> +	drm->mode_config.preferred_depth = 24;
+> +	drm->mode_config.prefer_shadow = 0;
+> +	drm->mode_config.funcs = &adp_mode_config_funcs;
+> +
+> +	ret = adp_setup_crtc(adp);
+> +	if (ret) {
+> +		drm_err(drm, "failed to create crtc");
+> +		return ret;
+> +	}
+> +
+> +	adp->encoder.possible_crtcs = ALL_CRTCS;
+> +	ret = drm_simple_encoder_init(drm, &adp->encoder, DRM_MODE_ENCODER_DSI);
 
-Cheers,
-Andre
+Please do not use drm_simple_encoder_init(). It was a bad idea and is 
+deprecated. Open coding it in your driver should resolve the problem.
+
+Best regards
+Thomas
+
+> +	if (ret) {
+> +		drm_err(drm, "failed to init encoder");
+> +		return ret;
+> +	}
+> +
+> +	ret = drm_bridge_attach(&adp->encoder, adp->next_bridge, NULL,
+> +				DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+> +	if (ret) {
+> +		drm_err(drm, "failed to init bridge chain");
+> +		return ret;
+> +	}
+> +
+> +	adp->connector = drm_bridge_connector_init(drm, &adp->encoder);
+> +	if (IS_ERR(adp->connector))
+> +		return PTR_ERR(adp->connector);
+> +
+> +	drm_connector_attach_encoder(adp->connector, &adp->encoder);
+> +
+> +	ret = drm_vblank_init(drm, drm->mode_config.num_crtc);
+> +	if (ret < 0) {
+> +		drm_err(drm, "failed to initialize vblank");
+> +		return ret;
+> +	}
+> +
+> +	drm_mode_config_reset(drm);
+> +
+> +	return 0;
+> +}
+> +
+> +static int adp_parse_of(struct platform_device *pdev, struct adp_drv_private *adp)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +
+> +	adp->be = devm_platform_ioremap_resource_byname(pdev, "be");
+> +	if (IS_ERR(adp->be)) {
+> +		dev_err(dev, "failed to map display backend mmio");
+> +		return PTR_ERR(adp->be);
+> +	}
+> +
+> +	adp->fe = devm_platform_ioremap_resource_byname(pdev, "fe");
+> +	if (IS_ERR(adp->fe)) {
+> +		dev_err(dev, "failed to map display pipe mmio");
+> +		return PTR_ERR(adp->fe);
+> +	}
+> +
+> +	adp->be_irq = platform_get_irq_byname(pdev, "be");
+> +	if (adp->be_irq < 0) {
+> +		dev_err(dev, "failed to find be irq");
+> +		return adp->be_irq;
+> +	}
+> +
+> +	adp->fe_irq = platform_get_irq_byname(pdev, "fe");
+> +	if (adp->fe_irq < 0) {
+> +		dev_err(dev, "failed to find fe irq");
+> +		return adp->fe_irq;
+> +	}
+> +
+> +	adp->next_bridge = devm_drm_of_get_bridge(dev, dev->of_node, 0, 0);
+> +	if (IS_ERR(adp->next_bridge)) {
+> +		if (PTR_ERR(adp->next_bridge) != EPROBE_DEFER)
+> +			dev_err(dev, "failed to find next bridge");
+> +		return PTR_ERR(adp->next_bridge);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static irqreturn_t adp_fe_irq(int irq, void *arg)
+> +{
+> +	struct adp_drv_private *adp = (struct adp_drv_private *)arg;
+> +	u32 int_status;
+> +	u32 int_ctl;
+> +
+> +	spin_lock(&adp->irq_lock);
+> +
+> +	int_status = readl(adp->fe + ADP_INT_STATUS);
+> +	if (int_status & ADP_INT_STATUS_VBLANK) {
+> +		drm_crtc_handle_vblank(&adp->crtc);
+> +		spin_lock(&adp->crtc.dev->event_lock);
+> +		if (adp->event) {
+> +			int_ctl = readl(adp->fe + ADP_CTRL);
+> +			if ((int_ctl & 0xF00) == 0x600) {
+> +				drm_crtc_send_vblank_event(&adp->crtc, adp->event);
+> +				adp->event = NULL;
+> +				drm_crtc_vblank_put(&adp->crtc);
+> +			}
+> +		}
+> +		spin_unlock(&adp->crtc.dev->event_lock);
+> +	}
+> +
+> +	writel(int_status, adp->fe + ADP_INT_STATUS);
+> +
+> +	spin_unlock(&adp->irq_lock);
+> +
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +static int adp_probe(struct platform_device *pdev)
+> +{
+> +	struct adp_drv_private *adp;
+> +	int err;
+> +
+> +	adp = devm_drm_dev_alloc(&pdev->dev, &adp_driver, struct adp_drv_private, drm);
+> +	if (IS_ERR(adp))
+> +		return PTR_ERR(adp);
+> +
+> +	spin_lock_init(&adp->irq_lock);
+> +
+> +	dev_set_drvdata(&pdev->dev, &adp->drm);
+> +
+> +	err = adp_parse_of(pdev, adp);
+> +	if (err < 0)
+> +		return err;
+> +
+> +	adp_disable_vblank(adp);
+> +	writel(ADP_CTRL_FIFO_ON | ADP_CTRL_VBLANK_ON, adp->fe + ADP_CTRL);
+> +
+> +	err = adp_setup_mode_config(adp);
+> +	if (err < 0)
+> +		return err;
+> +
+> +	err = devm_request_irq(&pdev->dev, adp->fe_irq, adp_fe_irq, 0,
+> +			       "adp-fe", adp);
+> +	if (err)
+> +		return err;
+> +
+> +	err = drm_dev_register(&adp->drm, 0);
+> +	if (err)
+> +		return err;
+> +	return 0;
+> +}
+> +
+> +static void adp_remove(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct drm_device *drm = dev_get_drvdata(dev);
+> +	struct adp_drv_private *adp = to_adp(drm);
+> +
+> +	adp_disable_vblank(adp);
+> +	drm_dev_unregister(drm);
+> +	dev_set_drvdata(dev, NULL);
+> +	drm_atomic_helper_shutdown(drm);
+> +}
+> +
+> +static const struct of_device_id adp_of_match[] = {
+> +	{ .compatible = "apple,h7-display-pipe", },
+> +	{ },
+> +};
+> +MODULE_DEVICE_TABLE(of, adp_of_match);
+> +
+> +static struct platform_driver adp_platform_driver = {
+> +	.driver = {
+> +		.name = "adp",
+> +		.of_match_table = adp_of_match,
+> +	},
+> +	.probe = adp_probe,
+> +	.remove = adp_remove,
+> +};
+> +
+> +module_platform_driver(adp_platform_driver);
+> +
+> +MODULE_DESCRIPTION("Apple Display Pipe DRM driver");
+> +MODULE_LICENSE("GPL");
+>
+
+-- 
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstrasse 146, 90461 Nuernberg, Germany
+GF: Ivo Totev, Andrew Myers, Andrew McDonald, Boudien Moerman
+HRB 36809 (AG Nuernberg)
+
 
