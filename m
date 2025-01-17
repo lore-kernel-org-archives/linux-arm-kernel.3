@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 788C7C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 15:40:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A48FC02188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 15:41:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7/ysBhP73KBKKeuY3njuqxvc7WsSQpiMxy9XgBQloPo=; b=UdQRZq662dVf/XQHrEQ+NWyBun
-	/U/ZkNRTw3M7sysZGT+2vGkI5mHXLf4hsBJ1w7wD26JrlwJTVEXRP8eAFV550N5cmHJpXszhHNxbP
-	DdsqNwxCAgwsrr+kGY/jS/qnOndAe+VFg72I6D6BGjDkgb85PBvSFezh1xXTu77llhWPzA4ZUAAbz
-	eUATHPgTl/DpfN+4SPecDjV4f0v53e1VxkCCEhbqJL8HDlLA5dV/vBLa1s6w8a//eXYT6qU0F83xl
-	0GJWGkTrp0WL1F7n5EG93XS4xGeVUwPLTPOviKUxtn8kZwonpiN9SggTnKH4Dg/1nrY4UslSSp3Pv
-	3+NwwCGQ==;
+	bh=Ti7z7aGxgyNg3NP1KGOazGTJTj9oL5Ii72aBNEkeHYA=; b=agaySthjkq1mP4DQ33CMVHCbxG
+	3Gg/NPebg+j3wHLxMiL5Eq+oljp5V0Kgg+Fe9ANf5eNEOeaCfMGtkrKW+HJKwvsqsIUhgk/d7I2mq
+	+37fF96zfFqSnD+6PyJ2iopbLcR9WWwdoaewC0j8fNNGFEowzzGai/i2MALuLTJL6jrHLQZzfbDVS
+	eTlG7C1+SNGAX8tdHQGr5FDPfCO49qAPHvOmo6FcLE44XW9Neko79R4q0yJZ7ekB6eByvMSc5xO2t
+	iVfH8+t48hLrTVG9ZkBr5qtr9WNoZDOGqKn5OrzfbSpvqez30c4za/rRSzaPVkrtUH07Gx2pabgv/
+	vFenEM0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYoSO-00000000e4E-21VE;
-	Fri, 17 Jan 2025 15:40:24 +0000
+	id 1tYoTc-00000000eBe-0JNn;
+	Fri, 17 Jan 2025 15:41:40 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYo09-00000000ZFe-2hPN
+	id 1tYo0A-00000000ZGb-2YtY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jan 2025 15:11:14 +0000
+	Fri, 17 Jan 2025 15:11:15 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D932D1476;
-	Fri, 17 Jan 2025 07:11:41 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D03F122C7;
+	Fri, 17 Jan 2025 07:11:42 -0800 (PST)
 Received: from e133380.cambridge.arm.com (e133380.arm.com [10.1.197.43])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BAF443F73F;
-	Fri, 17 Jan 2025 07:11:12 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B1EB53F73F;
+	Fri, 17 Jan 2025 07:11:13 -0800 (PST)
 From: Dave Martin <Dave.Martin@arm.com>
 To: linux-kernel@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org,
 	Zeng Heng <zengheng4@huawei.com>,
 	Shaopeng Tan <tan.shaopeng@fujitsu.com>,
 	James Morse <james.morse@arm.com>
-Subject: [RFC PATCH v2 10/11] arm_mpam: Skip inapplicable cases when reprogramming a resctrl domain
-Date: Fri, 17 Jan 2025 15:10:32 +0000
-Message-Id: <20250117151033.1517882-23-Dave.Martin@arm.com>
+Subject: [RFC PATCH v2 11/11] arm_mpam: Detect whether the system can alias PARTIDs
+Date: Fri, 17 Jan 2025 15:10:33 +0000
+Message-Id: <20250117151033.1517882-24-Dave.Martin@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250117151033.1517882-1-Dave.Martin@arm.com>
 References: <20250117151033.1517882-1-Dave.Martin@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_071113_717507_CFF8FA71 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20250117_071114_731262_93CDB181 
+X-CRM114-Status: GOOD (  22.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,43 +64,214 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The implementation of resctrl_arch_update_domains() currently
-iterates over all types of staged configuration changes passed from
-resctrl, irrespective of whether a given type (CDP_CODE, CDP_DATA
-or CDP_NONE) makes sense for the affected MPAM resource.  Since
-resctrl will not stage any updates of inappropriate type for the
-resource, this is mostly harmless.
+In order to be able to assign multiple PARTIDs freely to resource
+control groups, it is necessary that all MSCs that are used by resctrl
+either implement PARTID Narrowing (so that PARTIDs can be remapped
+explicitly) or otherwise only have controls whose resource regulation
+is stateless and so whose behaviour would not be affected by splitting
+a control group across multiple PARTIDs.
 
-When doing a forced update as a result of a call via
-resctrl_arch_init_domains() however, there is a need to update the
-cpartid (intPARTID) even if no staged configuration changes are
-supplied.  This can result in intPARTID being repeatedly
-reprogrammed with different values.  As well as being inefficient,
-the final value may not be the correct one.
+Detect this property at the RIS level and merge it up the MPAM devices
+tree.
 
-To program just once with the correct intPARTID, only apply the
-update types that actually make sense for the resource.
+Export the common global result as mpam_partid_aliasing, and apply
+it to the PARTIDs-per-CLOSID configuration.
 
 Signed-off-by: Dave Martin <Dave.Martin@arm.com>
----
- drivers/platform/arm64/mpam/mpam_resctrl.c | 4 ++++
- 1 file changed, 4 insertions(+)
 
+---
+
+Currently, this the logic is simple and may forbid PARTID aliasing
+on some systems that can support it as a result of the precise set
+of MSCs and controls that are exposed through resctrl.
+
+The aim is to make this logic more flexible later.
+---
+ drivers/platform/arm64/mpam/mpam_devices.c  | 48 ++++++++++++++++++---
+ drivers/platform/arm64/mpam/mpam_internal.h |  2 +
+ drivers/platform/arm64/mpam/mpam_resctrl.c  | 12 +++++-
+ 3 files changed, 53 insertions(+), 9 deletions(-)
+
+diff --git a/drivers/platform/arm64/mpam/mpam_devices.c b/drivers/platform/arm64/mpam/mpam_devices.c
+index 4b43dfef1cdc..0182c922638f 100644
+--- a/drivers/platform/arm64/mpam/mpam_devices.c
++++ b/drivers/platform/arm64/mpam/mpam_devices.c
+@@ -68,6 +68,7 @@ static DEFINE_MUTEX(mpam_cpuhp_state_lock);
+  */
+ u16 mpam_partid_max;
+ u8 mpam_pmg_max;
++bool mpam_partid_aliasing; /* PARTID aliasing supported */
+ static bool partid_max_init, partid_max_published;
+ static DEFINE_SPINLOCK(partid_max_lock);
+ 
+@@ -828,6 +829,7 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+ 	struct mpam_msc *msc = ris->vmsc->msc;
+ 	struct mpam_props *props = &ris->props;
+ 	struct mpam_class *class = ris->vmsc->comp->class;
++	bool partid_can_alias = true;
+ 
+ 	lockdep_assert_held(&msc->probe_lock);
+ 	lockdep_assert_held(&msc->part_sel_lock);
+@@ -836,6 +838,8 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+ 
+ 	/* Cache Capacity Partitioning */
+ 	if (FIELD_GET(MPAMF_IDR_HAS_CCAP_PART, ris->idr)) {
++		partid_can_alias = false;
++
+ 		ris->ccap_idr = mpam_read_partsel_reg(msc, CCAP_IDR);
+ 
+ 		props->cmax_wd = FIELD_GET(MPAMF_CCAP_IDR_CMAX_WD, ris->ccap_idr);
+@@ -884,14 +888,20 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+ 		 */
+ 		props->bwa_wd = min(props->bwa_wd, 16);
+ 
+-		if (props->bwa_wd && FIELD_GET(MPAMF_MBW_IDR_HAS_MAX, mbw_features))
++		if (props->bwa_wd && FIELD_GET(MPAMF_MBW_IDR_HAS_MAX, mbw_features)) {
+ 			mpam_set_feature(mpam_feat_mbw_max, props);
++			partid_can_alias = false;
++		}
+ 
+-		if (props->bwa_wd && FIELD_GET(MPAMF_MBW_IDR_HAS_MIN, mbw_features))
++		if (props->bwa_wd && FIELD_GET(MPAMF_MBW_IDR_HAS_MIN, mbw_features)) {
+ 			mpam_set_feature(mpam_feat_mbw_min, props);
++			partid_can_alias = false;
++		}
+ 
+-		if (props->bwa_wd && FIELD_GET(MPAMF_MBW_IDR_HAS_PROP, mbw_features))
++		if (props->bwa_wd && FIELD_GET(MPAMF_MBW_IDR_HAS_PROP, mbw_features)) {
+ 			mpam_set_feature(mpam_feat_mbw_prop, props);
++			partid_can_alias = false;
++		}
+ 	}
+ 
+ 	/* Priority partitioning */
+@@ -988,17 +998,26 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+ 	 * RIS with PARTID narrowing don't have enough storage for one
+ 	 * configuration per PARTID. If these are in a class we could use,
+ 	 * reduce the supported partid_max to match the numer of intpartid.
+-	 * If the class is unknown, just ignore it.
++	 * If the MSC won't be used for anything or implements PARTID
++	 * Narrowing then PARTIDs can be assigned freely, so PARTID
++	 * aliasing can be supported regardless of the resource
++	 * controls present.
+ 	 */
+-	if (FIELD_GET(MPAMF_IDR_HAS_PARTID_NRW, ris->idr) &&
+-	    class->type != MPAM_CLASS_UNKNOWN) {
++	if (class->type == MPAM_CLASS_UNKNOWN)
++		partid_can_alias = true;
++	else if (FIELD_GET(MPAMF_IDR_HAS_PARTID_NRW, ris->idr)) {
+ 		u32 nrwidr = mpam_read_partsel_reg(msc, PARTID_NRW_IDR);
+ 		u16 partid_max = FIELD_GET(MPAMF_PARTID_NRW_IDR_INTPARTID_MAX, nrwidr);
+ 
+ 		mpam_set_feature(mpam_feat_partid_nrw, props);
+ 		msc->partid_max = min(msc->partid_max, partid_max);
++
++		partid_can_alias = true;
+ 	}
+ 
++	if (partid_can_alias)
++		mpam_set_feature(mpam_feat_partid_aliasing, props);
++
+ 	mpam_mon_sel_outer_unlock(msc);
+ }
+ 
+@@ -2368,6 +2387,10 @@ static void __props_mismatch(struct mpam_props *parent,
+ 		mpam_clear_feature(mpam_feat_dspri_part_0_low, &parent->features);
+ 	}
+ 
++	/* PARTID aliasing must be supported everywhere, or not at all: */
++	if (!mpam_has_feature(mpam_feat_partid_aliasing, parent))
++		mpam_clear_feature(mpam_feat_partid_aliasing, &parent->features);
++
+ 	if (alias) {
+ 		/* Merge features for aliased resources */
+ 		parent->features |= child->features;
+@@ -2486,6 +2509,7 @@ static void mpam_enable_merge_features(struct list_head *all_classes_list)
+ {
+ 	struct mpam_class *class;
+ 	struct mpam_component *comp;
++	bool partid_can_alias = true, comp_partid_aliasing;
+ 
+ 	lockdep_assert_held(&mpam_list_lock);
+ 
+@@ -2495,9 +2519,19 @@ static void mpam_enable_merge_features(struct list_head *all_classes_list)
+ 
+ 		mpam_enable_init_class_features(class);
+ 
+-		list_for_each_entry(comp, &class->components, class_list)
++		list_for_each_entry(comp, &class->components, class_list) {
+ 			mpam_enable_merge_class_features(comp);
++
++			comp_partid_aliasing = mpam_has_feature(
++				mpam_feat_partid_aliasing, &class->props);
++			partid_can_alias = partid_can_alias &&
++				comp_partid_aliasing;
++		}
+ 	}
++
++	spin_lock(&partid_max_lock);
++	mpam_partid_aliasing = partid_can_alias;
++	spin_unlock(&partid_max_lock);
+ }
+ 
+ static char *mpam_errcode_names[16] = {
+diff --git a/drivers/platform/arm64/mpam/mpam_internal.h b/drivers/platform/arm64/mpam/mpam_internal.h
+index 965f4fea3012..6e10e4789506 100644
+--- a/drivers/platform/arm64/mpam/mpam_internal.h
++++ b/drivers/platform/arm64/mpam/mpam_internal.h
+@@ -215,6 +215,7 @@ enum mpam_device_features {
+ 	mpam_feat_msmon_mbwu_hw_nrdy,
+ 	mpam_feat_msmon_capt,
+ 	mpam_feat_partid_nrw,
++	mpam_feat_partid_aliasing, /* derived feature */
+ 	MPAM_FEATURE_LAST,
+ };
+ #define MPAM_ALL_FEATURES      ((1<<MPAM_FEATURE_LAST) - 1)
+@@ -474,6 +475,7 @@ static inline void mpam_assert_srcu_read_lock_held(void)
+ /* System wide partid/pmg values */
+ extern u16 mpam_partid_max;
+ extern u8 mpam_pmg_max;
++extern bool mpam_partid_aliasing;
+ 
+ /* Scheduled work callback to enable mpam once all MSC have been probed */
+ void mpam_enable(struct work_struct *work);
 diff --git a/drivers/platform/arm64/mpam/mpam_resctrl.c b/drivers/platform/arm64/mpam/mpam_resctrl.c
-index f1d0d9f59771..1f31b1455f66 100644
+index 1f31b1455f66..5b296e3e27c2 100644
 --- a/drivers/platform/arm64/mpam/mpam_resctrl.c
 +++ b/drivers/platform/arm64/mpam/mpam_resctrl.c
-@@ -1263,6 +1263,10 @@ static int __resctrl_arch_update_domains(struct rdt_resource *r, u32 closid,
+@@ -160,7 +160,8 @@ static bool mpam_resctrl_hide_cdp(enum resctrl_res_level rid)
+ 	return cdp_enabled && !resctrl_arch_get_cdp_enabled(rid);
+ }
  
- 	list_for_each_entry(d, &r->ctrl_domains, hdr.list) {
- 		for (t = 0; t < CDP_NUM_TYPES; t++) {
-+			if ((t == CDP_NONE) !=
-+			    (!cdp_enabled || mpam_resctrl_hide_cdp(r->rid)))
-+				continue;
+-static unsigned int partid_per_closid = 1;
++static unsigned int bootparam_partid_per_closid = 1;
++static unsigned int partid_per_closid;
+ 
+ static int mpam_resctrl_partid_per_closid_set(const char *val,
+ 					      const struct kernel_param *kp)
+@@ -178,7 +179,7 @@ static const struct kernel_param_ops mpam_resctrl_partid_per_closid_ops  = {
+ };
+ 
+ device_param_cb(partid_per_closid, &mpam_resctrl_partid_per_closid_ops,
+-		&partid_per_closid, 0444);
++		&bootparam_partid_per_closid, 0444);
+ 
+ static unsigned int mpam_num_pmg(void)
+ {
+@@ -1113,6 +1114,13 @@ int mpam_resctrl_setup(void)
+ 	if (!err && !exposed_alloc_capable && !exposed_mon_capable)
+ 		err = -EOPNOTSUPP;
+ 
++	partid_per_closid = bootparam_partid_per_closid;
++	if ((!mpam_partid_aliasing && bootparam_partid_per_closid > 1) ||
++	    resctrl_arch_get_num_closid(NULL) < 1) {
++		pr_warn("Hardware incompatible with PARTID aliasing, limiting monitoring groups\n");
++		partid_per_closid = 1;
++	}
 +
- 			cfg = &d->staged_config[t];
- 			if (!force && !cfg->have_new_ctrl)
- 				continue;
+ 	if (!err) {
+ 		err = resctrl_init();
+ 		if (!err)
 -- 
 2.34.1
 
