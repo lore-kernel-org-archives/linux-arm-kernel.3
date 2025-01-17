@@ -4,110 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA9C4C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 11:23:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67DDBC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 11:35:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nl/CbvuIBnREQqKmYyPtcdSb/vAF8vxwOJoK81KeDLE=; b=yyYS8ofSeRW1ZffsRgKnxMf5+N
-	DSbrdbn4MOZcfgJRRZ7CETjdxiyi4SOCbIxYGIQQqt9iauKX3ua2E2MPn8w1RVjOqKLUJ8SGlpmnz
-	ja+ENjxnhnVu9FSO4UDUqKecmTDTlcMKfdh8jv2k9LCiP82BXgF7BiTLdTXgDYhw8SBI9KpVRBnkw
-	NZgXLxK+BccfsXUgyJxrDSbN0XW4suh5NqQhlLDeR/0i5Nujp/blYCQ49R5Sy/YLHrNcVawoD/xCo
-	zhNZ6cFXrYrp6DVnuBKoXJ3+QE2C33gcGFT41X+Iky8k6i4CxacpRKgsj3sqQfd9ruJ5Bi5f8n6dE
-	HcOOu6/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qxXG2nSAixngfJOrNLM/WWkZ3dv+U5vIpCi9vuBV4X8=; b=XRZq7zm5EVBWQKw7I9hvT3TCuD
+	SgOuXH9iqn7/AZ8k7lQop+2d1xySm9izIbrRS4uR/gfPY8ZHqPQimm/FdBsH07ipy24S74PvDpdDf
+	lhngQy1p0SaNJLSacq/MuArIRDA5PgnYU8YD827K9STaYQe+p9qc1duvGlzQfJRlojvx5zydG+Ggs
+	IDrQlSTBkNrprFW/6uHgQSA0axD2GojWKFHC/H+tEjr23YZhMcyC6TxywdqJz40aMKnQPV+5g32OK
+	6coB03vv3jjr86QzCdiM5Yglf16O2Q9hUC8wD6fysfMu2SCRsMudtf3Bas8XeMayoW91HZLmDesph
+	/COM+rdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYkRG-000000008Up-46Gd;
-	Fri, 17 Jan 2025 11:22:58 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYkOJ-0000000084V-3oaV;
-	Fri, 17 Jan 2025 11:19:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B42D55C60AD;
-	Fri, 17 Jan 2025 11:19:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CED61C4CEDD;
-	Fri, 17 Jan 2025 11:19:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737112795;
-	bh=nn/YPbBgxQaLeLKHHiW3VJjyNg35Jodr40EuPpJJ+Ms=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TCjpvyy40SDa7o7dtQix99N3be6UlOmsxbKi2ZsOsmtnVOB15inyFPrdKs9Fti1ZM
-	 WFjrdtdm/RQeIFzUQl0Q9x57cxRsG2ozoOzJxveCsO2P1yfILjET+Ii25z+QS5Z1f+
-	 SDPIrhevuZyCm8jOtJIu21U2UtMNBisw8IpizOb67VneKvKsMmqJwN5S6yTbuLLHk6
-	 /VBaOoHatP6ehTWGtdgfYXz8NCpDaIKxbxGfZAtzTfJvpTilLvfBmOe5iJXS1OcSMI
-	 u8gBKP0WsCjDpsGeomDZmoeB5qO6b8EkMWg6U2gOcuM1mSNR8etztmXt8X2Vajf8Xy
-	 VY44gmcPA0WLw==
-Message-ID: <7f6dbf14-f4b8-4359-8d6a-c0dd51c5623a@kernel.org>
-Date: Fri, 17 Jan 2025 12:19:49 +0100
+	id 1tYkda-000000009o1-3Jm7;
+	Fri, 17 Jan 2025 11:35:42 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tYkcI-000000009fr-1zhI
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Jan 2025 11:34:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4919C1476;
+	Fri, 17 Jan 2025 03:34:48 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 82BEA3F73F;
+	Fri, 17 Jan 2025 03:34:16 -0800 (PST)
+Date: Fri, 17 Jan 2025 11:34:09 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Mark Brown <broonie@kernel.org>, Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH RFC v3 09/27] KVM: arm64: Factor SVE guest exit handling
+ out into a function
+Message-ID: <Z4pAMaEYvdLpmbg2@J2N7QTR9R3>
+References: <20241220-kvm-arm64-sme-v3-0-05b018c1ffeb@kernel.org>
+ <20241220-kvm-arm64-sme-v3-9-05b018c1ffeb@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] arm64: dts: rockchip: minimal support for Pre-ICT
- tester adapter for RK3588 Jaguar
-To: Quentin Schulz <foss+kernel@0leil.net>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Jagan Teki <jagan@edgeble.ai>, Niklas Cassel <cassel@kernel.org>
-Cc: Michael Riesch <michael.riesch@wolfvision.net>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Quentin Schulz <quentin.schulz@cherry.de>
-References: <20250116-pre-ict-jaguar-v2-0-157d319004fc@cherry.de>
- <20250116-pre-ict-jaguar-v2-3-157d319004fc@cherry.de>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250116-pre-ict-jaguar-v2-3-157d319004fc@cherry.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241220-kvm-arm64-sme-v3-9-05b018c1ffeb@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_031956_035971_319B7011 
-X-CRM114-Status: GOOD (  10.46  )
+X-CRM114-CacheID: sfid-20250117_033422_602736_CA71272F 
+X-CRM114-Status: GOOD (  40.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,26 +71,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/01/2025 15:47, Quentin Schulz wrote:
-> From: Quentin Schulz <quentin.schulz@cherry.de>
-> 
-> The Pre-ICT tester adapter connects to RK3588 Jaguar SBC through its
-> proprietary Mezzanine connector.
-> 
-> It exposes a PCIe Gen2 1x M.2 connector and two proprietary camera
-> connectors. Support for the latter will come once the rest of the camera
-> stack is supported.
-> 
-> Additionally, the adapter loops some GPIOs together as well as route
-> some GPIOs to power rails.
-> 
-> This adapter is used for manufacturing RK3588 Jaguar to be able to test
-> the Mezzanine connector is properly soldered.
-> 
-> Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
+On Fri, Dec 20, 2024 at 04:46:34PM +0000, Mark Brown wrote:
+> The SVE portion of kvm_vcpu_put() is quite large, especially given the
+> comments required.  When we add similar handling for SME the function
+> will get even larger, in order to keep things managable factor the SVE
+> portion out of the main kvm_vcpu_put().
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+While investigating some problems with SVE I spotted a latent bug in
+this area where I suspect the fix will conflict with / supersede this
+rework. Details below; IIUC the bug was introduced in commit:
 
-Best regards,
-Krzysztof
+  8c8010d69c132273 ("KVM: arm64: Save/restore SVE state for nVHE")
+
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> ---
+>  arch/arm64/kvm/fpsimd.c | 67 +++++++++++++++++++++++++++----------------------
+>  1 file changed, 37 insertions(+), 30 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
+> index 09b65abaf9db60cc57dbc554ad2108a80c2dc46b..3c2e0b96877ac5b4f3b9d8dfa38975f11b74b60d 100644
+> --- a/arch/arm64/kvm/fpsimd.c
+> +++ b/arch/arm64/kvm/fpsimd.c
+> @@ -151,6 +151,41 @@ void kvm_arch_vcpu_ctxsync_fp(struct kvm_vcpu *vcpu)
+>  	}
+>  }
+>  
+> +static void kvm_vcpu_put_sve(struct kvm_vcpu *vcpu)
+> +{
+> +	u64 zcr;
+> +
+> +	if (!vcpu_has_sve(vcpu))
+> +		return;
+> +
+> +	zcr = read_sysreg_el1(SYS_ZCR);
+> +
+> +	/*
+> +	 * If the vCPU is in the hyp context then ZCR_EL1 is loaded
+> +	 * with its vEL2 counterpart.
+> +	 */
+> +	__vcpu_sys_reg(vcpu, vcpu_sve_zcr_elx(vcpu)) = zcr;
+> +
+> +	/*
+> +	 * Restore the VL that was saved when bound to the CPU, which
+> +	 * is the maximum VL for the guest. Because the layout of the
+> +	 * data when saving the sve state depends on the VL, we need
+> +	 * to use a consistent (i.e., the maximum) VL.  Note that this
+> +	 * means that at guest exit ZCR_EL1 is not necessarily the
+> +	 * same as on guest entry.
+> +	 *
+> +	 * ZCR_EL2 holds the guest hypervisor's VL when running a
+> +	 * nested guest, which could be smaller than the max for the
+> +	 * vCPU. Similar to above, we first need to switch to a VL
+> +	 * consistent with the layout of the vCPU's SVE state. KVM
+> +	 * support for NV implies VHE, so using the ZCR_EL1 alias is
+> +	 * safe.
+> +	 */
+> +	if (!has_vhe() || (vcpu_has_nv(vcpu) && !is_hyp_ctxt(vcpu)))
+> +		sve_cond_update_zcr_vq(vcpu_sve_max_vq(vcpu) - 1,
+> +				       SYS_ZCR_EL1);
+> +}
+> +
+>  /*
+>   * Write back the vcpu FPSIMD regs if they are dirty, and invalidate the
+>   * cpu FPSIMD regs so that they can't be spuriously reused if this vcpu
+> @@ -179,38 +214,10 @@ void kvm_arch_vcpu_put_fp(struct kvm_vcpu *vcpu)
+>  	}
+
+A little before this context, kvm_arch_vcpu_put_fp() calls
+local_irq_save(), which indicates that IRQs can be taken before this
+point, which is deeply suspicious.
+
+If IRQs are enabled, then it's possible to take an IRQ and potentially
+run a softirq handler which uses kernel-mode NEON. That means
+kernel_neon_begin() will try to save the live FPSIMD/SVE/SME state via
+fpsimd_save_user_state(), using the live value of ZCR_ELx.LEN, which would not
+be correct per the comment.
+
+Looking at kvm_arch_vcpu_ioctl_run(), the relevant logic is:
+
+	vcpu_load(vcpu); // calls kvm_arch_vcpu_load_fp()
+
+	while (ret > 0) {
+		preempt_disable();
+		local_irq_disable();
+
+		kvm_arch_vcpu_ctxflush_fp();
+		ret = kvm_arm_vcpu_enter_exit(vcpu);
+		kvm_arch_vcpu_ctxsync_fp(vcpu);
+
+		local_irq_enable();
+		preempt_enable();
+	}
+
+	vcpu_put(vcpu); // calls kvm_arch_vcpu_put_fp()
+
+... and the problem can occur at any point after the vCPU has run where IRQs
+are enabled, i.e, between local_irq_enable() and either local_irq_disable() or
+vcpu_put()'s call to kvm_arch_vcpu_put_fp().
+
+Note that kernel_neon_begin() calls:
+
+	fpsimd_save_user_state();
+	...
+	fpsimd_flush_cpu_state();
+
+... and fpsimd_save_user_state() will see that the SVE VL is wrong:
+
+	if (WARN_ON(sve_get_vl() != vl)) {
+		force_signal_inject(SIGKILL, SI_KERNEL, 0, 0);
+		return;
+	}
+
+... pending a SIGKILL for the VMM thread without saving the vCPU's state
+before unbinding the live state via fpsimd_flush_cpu_state(), which'll
+set TIF_FOREIGN_FPSTATE.
+
+AFAICT it's possible to re-enter the vCPU after that happens, whereupon
+stale vCPU FPSIMD/SVE state will be restored. Upon return to userspace
+the SIGKILL will be delivered, killing the VMM.
+
+As above, it looks like that's been broken since the nVHE SVE
+save/restore was introduced in commit:
+
+  8c8010d69c132273 ("KVM: arm64: Save/restore SVE state for nVHE")
+
+The TL;DR summary is that it's not sufficient for kvm_arch_vcpu_put_fp()
+to fix up ZCR_ELx. Either:
+
+* That needs to be fixed up while IRQs are masked, e.g. by
+  saving/restoring the host and guest ZCR_EL1 and/or ZCR_ELx values in
+  kvm_arch_vcpu_ctxflush_fp() and kvm_arch_vcpu_ctxsync_fp()
+
+* The lazy save logic in fpsimd_save_user_state() needs to handle KVM
+  explicitly, saving the guest's ZCR_EL1 and restoring the host's
+  ZCR_ELx.
+
+I think we need to fix that before we extend this logic for SME.
+
+Mark.
+
+>  
+>  	if (guest_owns_fp_regs()) {
+> -		if (vcpu_has_sve(vcpu)) {
+> -			u64 zcr = read_sysreg_el1(SYS_ZCR);
+> -
+> -			/*
+> -			 * If the vCPU is in the hyp context then ZCR_EL1 is
+> -			 * loaded with its vEL2 counterpart.
+> -			 */
+> -			__vcpu_sys_reg(vcpu, vcpu_sve_zcr_elx(vcpu)) = zcr;
+> -
+> -			/*
+> -			 * Restore the VL that was saved when bound to the CPU,
+> -			 * which is the maximum VL for the guest. Because the
+> -			 * layout of the data when saving the sve state depends
+> -			 * on the VL, we need to use a consistent (i.e., the
+> -			 * maximum) VL.
+> -			 * Note that this means that at guest exit ZCR_EL1 is
+> -			 * not necessarily the same as on guest entry.
+> -			 *
+> -			 * ZCR_EL2 holds the guest hypervisor's VL when running
+> -			 * a nested guest, which could be smaller than the
+> -			 * max for the vCPU. Similar to above, we first need to
+> -			 * switch to a VL consistent with the layout of the
+> -			 * vCPU's SVE state. KVM support for NV implies VHE, so
+> -			 * using the ZCR_EL1 alias is safe.
+> -			 */
+> -			if (!has_vhe() || (vcpu_has_nv(vcpu) && !is_hyp_ctxt(vcpu)))
+> -				sve_cond_update_zcr_vq(vcpu_sve_max_vq(vcpu) - 1,
+> -						       SYS_ZCR_EL1);
+> -		}
+> +		kvm_vcpu_put_sve(vcpu);
+>  
+>  		/*
+> -		 * Flush (save and invalidate) the fpsimd/sve state so that if
+> +		 * Flush (save and invalidate) the FP state so that if
+>  		 * the host tries to use fpsimd/sve, it's not using stale data
+>  		 * from the guest.
+>  		 *
+> 
+> -- 
+> 2.39.5
+> 
+> 
 
