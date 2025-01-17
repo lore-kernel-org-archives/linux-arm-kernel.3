@@ -4,156 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 389EAC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 01:30:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9902C02187
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 01:32:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VsHTPUwwBH9IlsLVs8S1LgQjHlaiMATljTdmqBjc7cM=; b=xTJn/F0tVhgDMIf52153BiCyyG
-	449VMavXI0kPIzktXPnnkDr/iZdEIr8xVWdTt0X9kj1Ftyf0kxx6ss+SnsCvncFOxUlVD4qfdoMV8
-	QYU5k+tm2wJOlAWzuFbdjX1hRzHmNQMLvU8QRLwZAH2l4a9keMEbu93PN+hK7EMJeExyCvi7bpMes
-	57pZGufXZkK6w8DCSKmA8NgbdXiU3GHQZfGdk07fpXa9kQY/FMH8kjOfFXol0HRd/XEFlhka/Ao2m
-	zWVs5lWm2xqnajaH+1RsX7Lo7DjsfqYtdgpW9DKgRHUzSc7lToVF7Jon3RUObPQU2fv7fdJRfC8sL
-	z6X3ALUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TsqFKuMiLwMIWqbIsmre8PDwSTy200zBboCltX5otHE=; b=du433vacuofrYsPHiJ2coDkE8P
+	dODQwrHufUYaXKWk3gocmBHo6HVrT80BFEGYlHleyHhJiSzf7BfzvQf3F11QhJ0ZS6/yFKZyhdLhV
+	GqiV5b42fUxfD4fc9MiYqw3uJbFuHpfCJ7Cowz4fWXVp41E+dMiYlnayOetqNFiGmyOubcQemSszW
+	02XWydezQwJd3hIE/EH+U51ZEuuCPt4lKRegHnmiZKXpOxjusKHeeH/YqtwfzEpBKveO7m3qW/yoF
+	AnHtrHraz/4ZJecJHmN5E3Ob4+mixLFrKR62fHInPZwMGdCFdLRTeh919rYvVbmxP6HR5wqFhbUj6
+	MonCxnmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYbBI-0000000GmX1-3dZR;
-	Fri, 17 Jan 2025 01:29:52 +0000
-Received: from mail-co1nam11on20609.outbound.protection.outlook.com ([2a01:111:f403:2416::609] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
+	id 1tYbDR-0000000GmwP-2Ecx;
+	Fri, 17 Jan 2025 01:32:05 +0000
+Received: from out30-99.freemail.mail.aliyun.com ([115.124.30.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYbA2-0000000GmFJ-12bf
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jan 2025 01:28:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wL2gVHiRNgR/N8cqelv8qOQv3bfqzsOGoD+wt0K5uJJmTsnIcy/VvJm5RUxiNP/OQZMteIjUklb5CKHD1GQGX6Mq4nuFNUzkkaozx3MJUIjsTpendjkXqiFSf7/OXYJ5QdZCzmsEmCnWLxcdedgu9acIpvJBQDk7p2ltC5cP1lTral8aSo5XJ7rbEQtacebDqJpaVPIYD3XKKlUTFq5baDn/s/jQJ0X/WJMkC2tjzQ6N3X9MrXSP8JfOpJjeFlfE23RzUQs8OaTWigQPxIeRtc5Ry73NCGxu0XZFfGUN9dVqn90yNtZpAbap3dZx7x6nvD25zlaR1EEKbudhZP3bgA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VsHTPUwwBH9IlsLVs8S1LgQjHlaiMATljTdmqBjc7cM=;
- b=hujRJ8U4x6ISd0SkszQ23yPgX28Y/4QeA7GYtwFyxsG1vZWoODW5sjBxGS4BZxRGrKrwVeS0so3mWbF/cCb2sYqu2Bu7tMCeVPGzqNh4ce4FGNOYzbJMJI3JTV380MBqXFPvUYGIq3IV8ShGRLBxraDXU+H00K2/H0Cuh6y6EBuck7gsIaSxpEBaktYsI2xf3DW6dPbGwHowz1fBbEWPqnaSmDjAJWqDthUwrY7pHaj6owmsqmfb/KeJdDctXPiSA5H6hviZH23hK3UN74kPdwfuhY35n7WtLhp1tri1ksMqbCFeti2+vAsfkfLtDRbG96hItBTosvw3nFyKIsoMfQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VsHTPUwwBH9IlsLVs8S1LgQjHlaiMATljTdmqBjc7cM=;
- b=Qt32DNzxGCIHGtP6WYlW0zuQhwEyRovsQ8u+sdU9TkpD2KOeQkAi1Sp0Ahs9HnrFOMM/5mmbuwCK6gl9336p+F9T+BStw2KccLGq9BMukX7ghcsicxu3sDp8cx+JWdNzKm+tNuddDN89D7q3kzdUjVZ3XO+X5raezZVY7gV/BsE/Zpg2vfyewG/6J4dhBH7t2myWWNpAQEMktD1YCS6INpXOr2bgPfg1oIhiXx5a2NWstCPoZA5VKCYNa+OidOyDu90oUhws3RZm8F+Kt9grH9jht0RcmBCZXaiNoNZqxR/+DqXplmoXm3NKhnWeNY+N9hpPW1w+8XepyemNsmU6mg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DS0PR12MB7726.namprd12.prod.outlook.com (2603:10b6:8:130::6) by
- MW3PR12MB4489.namprd12.prod.outlook.com (2603:10b6:303:5e::8) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8356.16; Fri, 17 Jan 2025 01:28:29 +0000
-Received: from DS0PR12MB7726.namprd12.prod.outlook.com
- ([fe80::953f:2f80:90c5:67fe]) by DS0PR12MB7726.namprd12.prod.outlook.com
- ([fe80::953f:2f80:90c5:67fe%7]) with mapi id 15.20.8356.010; Fri, 17 Jan 2025
- 01:28:29 +0000
-Date: Fri, 17 Jan 2025 12:28:25 +1100
-From: Alistair Popple <apopple@nvidia.com>
-To: David Hildenbrand <david@redhat.com>
-Cc: Dan Williams <dan.j.williams@intel.com>, akpm@linux-foundation.org, 
-	linux-mm@kvack.org, alison.schofield@intel.com, lina@asahilina.net, 
-	zhang.lyra@gmail.com, gerald.schaefer@linux.ibm.com, vishal.l.verma@intel.com, 
-	dave.jiang@intel.com, logang@deltatee.com, bhelgaas@google.com, jack@suse.cz, 
-	jgg@ziepe.ca, catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au, 
-	npiggin@gmail.com, dave.hansen@linux.intel.com, ira.weiny@intel.com, 
-	willy@infradead.org, djwong@kernel.org, tytso@mit.edu, linmiaohe@huawei.com, 
-	peterx@redhat.com, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, nvdimm@lists.linux.dev, 
-	linux-cxl@vger.kernel.org, linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org, 
-	linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de, david@fromorbit.com, 
-	chenhuacai@kernel.org, kernel@xen0n.name, loongarch@lists.linux.dev
-Subject: Re: [PATCH v6 19/26] proc/task_mmu: Mark devdax and fsdax pages as
- always unpinned
-Message-ID: <wojgk4ecfertc6zrb7diptbwmzruno72dq5c3xhl5ec4e2idl6@vkvhdkqr6hvi>
-References: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
- <d7a6c9822ddc945daaf4f9db34d3f2b1c0454447.1736488799.git-series.apopple@nvidia.com>
- <6785cbb7125bf_20fa29418@dwillia2-xfh.jf.intel.com.notmuch>
- <86efded9-c1d9-4efb-bf41-f67faa49bf69@redhat.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86efded9-c1d9-4efb-bf41-f67faa49bf69@redhat.com>
-X-ClientProxiedBy: SYBPR01CA0194.ausprd01.prod.outlook.com
- (2603:10c6:10:16::14) To DS0PR12MB7726.namprd12.prod.outlook.com
- (2603:10b6:8:130::6)
+	id 1tYbC9-0000000GmfJ-22o4;
+	Fri, 17 Jan 2025 01:30:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1737077439; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=TsqFKuMiLwMIWqbIsmre8PDwSTy200zBboCltX5otHE=;
+	b=ejHDnCo94L03gkQR4tsWPG2L6zFGYksVaS+pDg7jgDrE193R1xX+LDKF09UVuiPW37eZEUl1HBhcG6fRN/nLSY9tsntU2sAg61902sG4b2YZzXYFS8QZdm6CMFbzwZizkWyOt39N0PpqlyLCN/nMIsWfpLDH3AfF9hW5aJIrkBY=
+Received: from 30.74.144.128(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0WNmu3tq_1737077435 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Fri, 17 Jan 2025 09:30:36 +0800
+Message-ID: <ef266df5-46dc-43d2-8bb3-df28223b7149@linux.alibaba.com>
+Date: Fri, 17 Jan 2025 09:30:33 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR12MB7726:EE_|MW3PR12MB4489:EE_
-X-MS-Office365-Filtering-Correlation-Id: f15ca299-6d8b-46a4-dde0-08dd36963f4b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?oHOxNJXXFhhsxbl/av3A8k4Dz96xcVXs3xZ67M5bbF7uoUmA+9QJjd2929Sw?=
- =?us-ascii?Q?J2NJYmqEUSQGFXWUoq7v2aG9dgpmOJXB5MVoZDFMsdmn11KI9l5RXUh0T/Nb?=
- =?us-ascii?Q?mKAXYqUe6foLY/g0qoF2aPmPiRM8kE3i4fFBMJWrPwhbwfm93HFCBW7d8LFY?=
- =?us-ascii?Q?jrmGNnJDa9f1Z7SwbGh4nzzP8DUdIupj6xegqbyQZak5ZFc1B/qjKApfgKa/?=
- =?us-ascii?Q?Yl3ygR2GauIIl59CuR085EsWjE+CdFKyOD8CArYWbZTbPx8yS83SfY5DYGNw?=
- =?us-ascii?Q?RuQ+1O2gVM2Kyo6xo+mLdVULplw6WgohK1mxyUPF4+8WpBCUJ/RCHi6G8ppX?=
- =?us-ascii?Q?rHJjY3kkgWAXiGd6gjoz0DbphxL83n68psEPmmMS66ha02BFsMyAtCnmDKDG?=
- =?us-ascii?Q?1Vcv0RA7TacNuMU5e8KmvcG3T5xftHvLSUm8bAa0RyzG02gPBRpMr5NyGm/o?=
- =?us-ascii?Q?+1rZU8CRd0wenExCJAyPYDSS5Opu1VYHOouVsd/g3q4eqq0TnjTAQUYLrRPW?=
- =?us-ascii?Q?eV/2IPxLHvXYPnM/izQx3L8oop1R+SO4O/xe0V1uLtow25J3VStGNOuybm8S?=
- =?us-ascii?Q?g78YvvtEBC5IJLfYLISGoCg0mU56y7IEdwz9QN2neORG3Nyn7ndQHqoyluRk?=
- =?us-ascii?Q?vT7YWw/CpEOkbYRZoFnXtor6wAreF4HFLlFb0CHl3/KLjaCq3BDqMttYkxAt?=
- =?us-ascii?Q?CmQH/sjivqH8pNM+GJqETcSI23Xi3R4HupPU18JgYbjju0/4VHeZpn6rRaIs?=
- =?us-ascii?Q?donJdirfTv2cJBc1V0Ye+/mdhst9PVfCVH3a4L2zRc6UeUFwY6zYS6injhED?=
- =?us-ascii?Q?G76aIGqiBz4I/b4J2NxV3JreYYcNA6fdlHz6XpBmjByUbe9DFJFivSmi5zbF?=
- =?us-ascii?Q?Ufp8QA/IcIuPP5utgt4xhLwRffjvK7HPon99pP5uyfVrZOQCtN+i+ToJ8sEn?=
- =?us-ascii?Q?s/J3MCh690PieI2PyPy9MSYWmNIU4L1fKcSg61+lDa8VUqBO+LiKJyMVVGGI?=
- =?us-ascii?Q?OlzrVI1glxo+jQJK9x6wtajFxzNpf9MQMHmw1mbcrqI/BYEXzEVGSaAmYOF9?=
- =?us-ascii?Q?yTHccIl/H+F7qvJjAmpDZrYtDWzRmCWTaSi2DpCp9PjCH7jiZx4ZqlaJtXft?=
- =?us-ascii?Q?coVUf/T+rvGn+IWZ5P4TR4W2ozTUo4LaIuym6GZDbICCl+BL7wzE85CqfdJ7?=
- =?us-ascii?Q?JuI08s1Uzx1ADjTrJ74PdfNlSv21ZPwWfIfYb83pKp35AHjtCeTZf0wkh+M/?=
- =?us-ascii?Q?5lsNxTMZCASZhA5BHQ4QLCTA4Rj+XFN2Yop2JbMMYLSgyXZwY5fFA5RJl/pV?=
- =?us-ascii?Q?ERfOhD5J7V5lp7uk0daO2gEzOqkRxYEpLtTp7D57suxDzMHS+I0Mur4vmSyn?=
- =?us-ascii?Q?DMaqmUwNGp2WFY+wUDVD5sQVJaPV?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7726.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4HrK7AlAa6wIUVseKybwYgmcGZETrDy20LG6MbQu6MdePO9x1GlPe7jwzimD?=
- =?us-ascii?Q?2zZi3ct+raverXzZ90LLf+BQ2LX3BZgjo/JWw5bwUaWteAg4z6d7g8TV37EW?=
- =?us-ascii?Q?DmUnGgWDcKz4dX3JfVAlTN25265rmW2Yhi8Kb9xA9buSwnUINzjmCA7STaSg?=
- =?us-ascii?Q?L4MWr81BXYFWMeKTEI/z0ri5TBJj2VdNNUnooIrtSL7cd4CcxuduL95MzFMz?=
- =?us-ascii?Q?0CNMBMS5gQOVY/pCx4mYQJY/zTjG0/R0MFan9ys53fWptxtQEHVM37o6t5l8?=
- =?us-ascii?Q?ae2Xgo7fKEy0zoCSOKStkGYtA7jnNtY5eoyftxRqU4yKWwD7AUIUljNFYrng?=
- =?us-ascii?Q?QGyF7mdpE2Su5pQjMoPP4JfD2d2I/tCgcwee6WoEoZZA1OKHxggm05jZnVzX?=
- =?us-ascii?Q?MvficE9b/P3FrcXkjstvOuwFK3G6HuUEhG8kORgNWSF+vJ7+Qod49DNlF6pl?=
- =?us-ascii?Q?6LubGZXM9Qw0KQibeuiDDzdvl0W9kDnVqlIxqPLUwivJ4dGjI2lHsO7RkH3W?=
- =?us-ascii?Q?7mKDhrfEfFPHt9hGms2ObgzjauBezRK+3667ZsmB4USU/SpwJpf5Y2BKMOkJ?=
- =?us-ascii?Q?UIljDgbjXJtQU1DBGDXWfF5tDVV3DBp5UpngqGc8Fy0jSsuVEUizxmZV0qtv?=
- =?us-ascii?Q?s5SzxzVGvgbKiRiZulA9A95Sd8CN2PxEAlQIFJdMBeDhy0kBrBpw/RoNhFup?=
- =?us-ascii?Q?kuHF8G3Em/C5v8qYn+XlrQcQ6XBWKCSAOYj7YvNLhJPHWaGw/DbuZFX7yuMI?=
- =?us-ascii?Q?dl6o+VJ4RlkV8nnaGxLjOFkHpepfatxkB266YrAXKGUHxSM6GsJZIQNRcX7h?=
- =?us-ascii?Q?WCsivsRdNhOXJ9Sq0PU8RpS/8UWd2pi81zq61GF4AqXBfNUmVCONow3eohKv?=
- =?us-ascii?Q?Lb3Q7ql+CFXGFvQKpYfz571pSSPZ+rtHEfTGd9Szzv53z8ULqxT+V4Y7+q21?=
- =?us-ascii?Q?JRG4fROl1cqdW7kV3+685DIj88Cu4Z2Y55K7wfPZZdmrHjxaHJU0p0tXSK5L?=
- =?us-ascii?Q?9c4SgYwIfWsQyI5mKmp2L+8N9rOhSL2awbP0iX3yw4sXgr4u9nBA24frA0ks?=
- =?us-ascii?Q?GHgI+mkroMxzw2xjgfPwJLeAcy8GyBkCkDEkUZgE1tY2vGSdNQJYbp+VX5V8?=
- =?us-ascii?Q?9vqlORxnvTcrMksii+hJMZkNXDQjDuINy7RrFboQ6kSdFpCNS8N1PY6CFJ+N?=
- =?us-ascii?Q?zaTqkerppN4u6I3ILMInczXkSw5Z0Mkpa1YQ1UYGTJlDrPa4sWlWpMudJIlv?=
- =?us-ascii?Q?p6bGc6Ye1czivXoO/CGnu7LrpJ+2JhGC4ZUFhUzteMLIU0UMeVLXk3ILx1/b?=
- =?us-ascii?Q?C2v4AFBqvfoMT+bb8YlRJAyV4j8cJ0qkzbRoN49wmwgCVh4l4ZHKSuyvZ23S?=
- =?us-ascii?Q?mwJYc7qk0019KxsWJ9pQvlTyIy5XT34DplEsDEXAXFJJWn1KGIq0sFpy25JR?=
- =?us-ascii?Q?TSsaNyBMpwzdr24s+//Vkp8Zdsgwzu40yeqZE6jkcs+ew/lsoc8/82wZANfL?=
- =?us-ascii?Q?Z3cel+egI908dyZ6v1c5PynC9ceuwDnTHlHNVyeN8kN/YPEieDKiLZ7sJHuV?=
- =?us-ascii?Q?E8P4mF/IKJ+QsGus8E/oore78AXwYyVSMBKcrNkz?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f15ca299-6d8b-46a4-dde0-08dd36963f4b
-X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB7726.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jan 2025 01:28:29.2649
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: aSo5l0Mf9nttmlAaVitgmWssd5uXTYQwGahXVMZMewVAMShAj5t9rCPiwmGT/E6quexpOmQyKMK3it9HGs2P+w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW3PR12MB4489
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 4/4] mm: Avoid splitting pmd for lazyfree pmd-mapped
+ THP in try_to_unmap
+To: Barry Song <21cnbao@gmail.com>, akpm@linux-foundation.org,
+ linux-mm@kvack.org
+Cc: chrisl@kernel.org, david@redhat.com, ioworker0@gmail.com,
+ kasong@tencent.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, v-songbaohua@oppo.com,
+ x86@kernel.org, ying.huang@intel.com, zhengtangquan@oppo.com
+References: <20250115033808.40641-1-21cnbao@gmail.com>
+ <20250115033808.40641-5-21cnbao@gmail.com>
+From: Baolin Wang <baolin.wang@linux.alibaba.com>
+In-Reply-To: <20250115033808.40641-5-21cnbao@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_172834_288531_925F981E 
-X-CRM114-Status: GOOD (  26.60  )
+X-CRM114-CacheID: sfid-20250116_173045_825143_D2B12EC7 
+X-CRM114-Status: UNSURE (   8.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,57 +71,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 14, 2025 at 05:45:46PM +0100, David Hildenbrand wrote:
-> On 14.01.25 03:28, Dan Williams wrote:
-> > Alistair Popple wrote:
-> > > The procfs mmu files such as smaps and pagemap currently ignore devdax and
-> > > fsdax pages because these pages are considered special. A future change
-> > > will start treating these as normal pages, meaning they can be exposed via
-> > > smaps and pagemap.
-> > > 
-> > > The only difference is that devdax and fsdax pages can never be pinned for
-> > > DMA via FOLL_LONGTERM, so add an explicit check in pte_is_pinned() to
-> > > reflect that.
-> > 
-> > I don't understand this patch.
-> 
-> 
-> This whole pte_is_pinned() should likely be ripped out (and I have a patch
-> here to do that for a long time).
 
-Agreed.
- 
-> But that's a different discussion.
-> 
-> > 
-> > pin_user_pages() is also used for Direct-I/O page pinning, so the
-> > comment about FOLL_LONGTERM is wrong, and I otherwise do not understand
-> > what goes wrong if the only pte_is_pinned() user correctly detects the
-> > pin state?
-> 
-> Yes, this patch should likely just be dropped.
 
-Yeah, I think I was just being overly cautious about the change to
-vm_normal_page(). Agree this can be dropped. Looking at task_mmu.c there is one
-other user of vm_normal_page() - clear_refs_pte_range().
+On 2025/1/15 11:38, Barry Song wrote:
+> From: Barry Song <v-songbaohua@oppo.com>
+> 
+> The try_to_unmap_one() function currently handles PMD-mapped THPs
+> inefficiently. It first splits the PMD into PTEs, copies the dirty
+> state from the PMD to the PTEs, iterates over the PTEs to locate
+> the dirty state, and then marks the THP as swap-backed. This process
+> involves unnecessary PMD splitting and redundant iteration. Instead,
+> this functionality can be efficiently managed in
+> __discard_anon_folio_pmd_locked(), avoiding the extra steps and
+> improving performance.
+> 
+> The following microbenchmark redirties folios after invoking MADV_FREE,
+> then measures the time taken to perform memory reclamation (actually
+> set those folios swapbacked again) on the redirtied folios.
+> 
+>   #include <stdio.h>
+>   #include <sys/mman.h>
+>   #include <string.h>
+>   #include <time.h>
+> 
+>   #define SIZE 128*1024*1024  // 128 MB
+> 
+>   int main(int argc, char *argv[])
+>   {
+>   	while(1) {
+>   		volatile int *p = mmap(0, SIZE, PROT_READ | PROT_WRITE,
+>   				MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+> 
+>   		memset((void *)p, 1, SIZE);
+>   		madvise((void *)p, SIZE, MADV_FREE);
+>   		/* redirty after MADV_FREE */
+>   		memset((void *)p, 1, SIZE);
+> 
+> 		clock_t start_time = clock();
+>   		madvise((void *)p, SIZE, MADV_PAGEOUT);
+>   		clock_t end_time = clock();
+> 
+>   		double elapsed_time = (double)(end_time - start_time) / CLOCKS_PER_SEC;
+>   		printf("Time taken by reclamation: %f seconds\n", elapsed_time);
+> 
+>   		munmap((void *)p, SIZE);
+>   	}
+>   	return 0;
+>   }
+> 
+> Testing results are as below,
+> w/o patch:
+> ~ # ./a.out
+> Time taken by reclamation: 0.007300 seconds
+> Time taken by reclamation: 0.007226 seconds
+> Time taken by reclamation: 0.007295 seconds
+> Time taken by reclamation: 0.007731 seconds
+> Time taken by reclamation: 0.007134 seconds
+> Time taken by reclamation: 0.007285 seconds
+> Time taken by reclamation: 0.007720 seconds
+> Time taken by reclamation: 0.007128 seconds
+> Time taken by reclamation: 0.007710 seconds
+> Time taken by reclamation: 0.007712 seconds
+> Time taken by reclamation: 0.007236 seconds
+> Time taken by reclamation: 0.007690 seconds
+> Time taken by reclamation: 0.007174 seconds
+> Time taken by reclamation: 0.007670 seconds
+> Time taken by reclamation: 0.007169 seconds
+> Time taken by reclamation: 0.007305 seconds
+> Time taken by reclamation: 0.007432 seconds
+> Time taken by reclamation: 0.007158 seconds
+> Time taken by reclamation: 0.007133 seconds
+> …
+> 
+> w/ patch
+> 
+> ~ # ./a.out
+> Time taken by reclamation: 0.002124 seconds
+> Time taken by reclamation: 0.002116 seconds
+> Time taken by reclamation: 0.002150 seconds
+> Time taken by reclamation: 0.002261 seconds
+> Time taken by reclamation: 0.002137 seconds
+> Time taken by reclamation: 0.002173 seconds
+> Time taken by reclamation: 0.002063 seconds
+> Time taken by reclamation: 0.002088 seconds
+> Time taken by reclamation: 0.002169 seconds
+> Time taken by reclamation: 0.002124 seconds
+> Time taken by reclamation: 0.002111 seconds
+> Time taken by reclamation: 0.002224 seconds
+> Time taken by reclamation: 0.002297 seconds
+> Time taken by reclamation: 0.002260 seconds
+> Time taken by reclamation: 0.002246 seconds
+> Time taken by reclamation: 0.002272 seconds
+> Time taken by reclamation: 0.002277 seconds
+> Time taken by reclamation: 0.002462 seconds
 
-We will start clearing access/referenced bits on DAX PTEs there. But I think
-that's actually the right thing to do given we do currently clear them for PMD
-mapped DAX pages.
+Good result.
 
-> Even if folio_maybe_dma_pinned() == true because of "false positives", it
-> will behave just like other order-0 pages with false positives, and only
-> affect soft-dirty tracking ... which nobody should be caring about here at
-> all.
+> This patch significantly speeds up try_to_unmap_one() by allowing it
+> to skip redirtied THPs without splitting the PMD.
 > 
-> We would always detect the PTE as soft-dirty because we we never
-> 	pte_wrprotect(old_pte)
-> 
-> Yes, nobody should care.
-> 
-> -- 
-> Cheers,
-> 
-> David / dhildenb
-> 
+> Suggested-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+> Suggested-by: Lance Yang <ioworker0@gmail.com>
+> Signed-off-by: Barry Song <v-songbaohua@oppo.com>
+
+LGTM.
+Reviewed-by: Baolin Wang <baolin.wang@linux.alibaba.com>
 
