@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECC3BC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 11:21:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA9C4C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 11:23:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=orwSw3BIbGT4cFibdWo2PaLCYbflaHyeadAQNQvG+kU=; b=hpr/L0AwiZofp11BlUKo873boJ
-	1LKzoM1Uq0gV5/U+UXn/BvuP4vdACymoZYR24LHQPdUGCS3iHGePwbdmL21mVuf5+sfDbntFz2j+b
-	gL7y0zTgN8le8Vwdmkns3SCGDMdFB6KQ555LcHx9GFR/nwDk/nGLC9bNwSJgx7CPWYWDDEPNaw1/b
-	hLiq3fUxeZMAts0nF6H9Y7fFXUVTellvT+C7Qvei6vpQEjlARWwixiKyjgtVVVdOjlNusCqHKH6ok
-	d3QzfQy93zLU9OkHrdZiWbkzQ7BL/d1qdkhsQ5OVdyn5yE6bvLnvhfVLPnCNYLFDASwfDKTrv7OEE
-	NDOn8N6w==;
+	bh=nl/CbvuIBnREQqKmYyPtcdSb/vAF8vxwOJoK81KeDLE=; b=yyYS8ofSeRW1ZffsRgKnxMf5+N
+	DSbrdbn4MOZcfgJRRZ7CETjdxiyi4SOCbIxYGIQQqt9iauKX3ua2E2MPn8w1RVjOqKLUJ8SGlpmnz
+	ja+ENjxnhnVu9FSO4UDUqKecmTDTlcMKfdh8jv2k9LCiP82BXgF7BiTLdTXgDYhw8SBI9KpVRBnkw
+	NZgXLxK+BccfsXUgyJxrDSbN0XW4suh5NqQhlLDeR/0i5Nujp/blYCQ49R5Sy/YLHrNcVawoD/xCo
+	zhNZ6cFXrYrp6DVnuBKoXJ3+QE2C33gcGFT41X+Iky8k6i4CxacpRKgsj3sqQfd9ruJ5Bi5f8n6dE
+	HcOOu6/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYkPz-000000008JZ-48ZT;
-	Fri, 17 Jan 2025 11:21:39 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tYkRG-000000008Up-46Gd;
+	Fri, 17 Jan 2025 11:22:58 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYkNf-000000007xx-4A0n;
-	Fri, 17 Jan 2025 11:19:18 +0000
+	id 1tYkOJ-0000000084V-3oaV;
+	Fri, 17 Jan 2025 11:19:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BDA305C5FB2;
-	Fri, 17 Jan 2025 11:18:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D99C4C4CEDD;
-	Fri, 17 Jan 2025 11:19:10 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B42D55C60AD;
+	Fri, 17 Jan 2025 11:19:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CED61C4CEDD;
+	Fri, 17 Jan 2025 11:19:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737112755;
-	bh=GOplDAuqpzB69GzKtUb6aSRYnm72cwIYrA5tNSUiinI=;
+	s=k20201202; t=1737112795;
+	bh=nn/YPbBgxQaLeLKHHiW3VJjyNg35Jodr40EuPpJJ+Ms=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=X1QcsBtMqFsqaleLKoJEY1Xx8tys61T+cwKEh8CvbxwursXJYTe1th7PxK9agKiA8
-	 UIMoT4plTf8k0J2lFc3rkVOMR/oUr45lG2NXY9fFDsnxcN0zS4ce7ydJ30eoIMLFmy
-	 U2FUz7wwP6cujy9QlJMYAHyxASSVTGyy75Vgit9mNpNb57GlKTgMMlYkCFTB40J8OK
-	 LIVKht45rXZUjVUU0S+oyidgMReD8fqY/uKHsrHUgplxf8Waf7H7kLj8GZJqwfO2aZ
-	 lVVHrkMFZ2MqYH2qTs55dcH9Z+MGxccD9s1L9osOVsTPzbf+Nb3tiXXTtrh4SVNVQx
-	 rgSQNG9xpU73Q==
-Message-ID: <2dfd2368-0924-40a2-af6b-53d60fa5254a@kernel.org>
-Date: Fri, 17 Jan 2025 12:19:09 +0100
+	b=TCjpvyy40SDa7o7dtQix99N3be6UlOmsxbKi2ZsOsmtnVOB15inyFPrdKs9Fti1ZM
+	 WFjrdtdm/RQeIFzUQl0Q9x57cxRsG2ozoOzJxveCsO2P1yfILjET+Ii25z+QS5Z1f+
+	 SDPIrhevuZyCm8jOtJIu21U2UtMNBisw8IpizOb67VneKvKsMmqJwN5S6yTbuLLHk6
+	 /VBaOoHatP6ehTWGtdgfYXz8NCpDaIKxbxGfZAtzTfJvpTilLvfBmOe5iJXS1OcSMI
+	 u8gBKP0WsCjDpsGeomDZmoeB5qO6b8EkMWg6U2gOcuM1mSNR8etztmXt8X2Vajf8Xy
+	 VY44gmcPA0WLw==
+Message-ID: <7f6dbf14-f4b8-4359-8d6a-c0dd51c5623a@kernel.org>
+Date: Fri, 17 Jan 2025 12:19:49 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] arm64: dts: rockchip: add overlay tests for Rock
- 5B PCIe overlays
+Subject: Re: [PATCH v2 3/3] arm64: dts: rockchip: minimal support for Pre-ICT
+ tester adapter for RK3588 Jaguar
 To: Quentin Schulz <foss+kernel@0leil.net>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
@@ -56,7 +56,7 @@ Cc: Michael Riesch <michael.riesch@wolfvision.net>,
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
  Quentin Schulz <quentin.schulz@cherry.de>
 References: <20250116-pre-ict-jaguar-v2-0-157d319004fc@cherry.de>
- <20250116-pre-ict-jaguar-v2-2-157d319004fc@cherry.de>
+ <20250116-pre-ict-jaguar-v2-3-157d319004fc@cherry.de>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,13 +102,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250116-pre-ict-jaguar-v2-2-157d319004fc@cherry.de>
+In-Reply-To: <20250116-pre-ict-jaguar-v2-3-157d319004fc@cherry.de>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_031916_154230_B4A2B41F 
-X-CRM114-Status: UNSURE (   8.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250117_031956_035971_319B7011 
+X-CRM114-Status: GOOD (  10.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,14 +125,22 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 16/01/2025 15:47, Quentin Schulz wrote:
 > From: Quentin Schulz <quentin.schulz@cherry.de>
 > 
-> According to commit 40658534756f ("arm64: dts: rockchip: Add rock5b
-> overlays for PCIe endpoint mode"), Rock 5B can operate in PCIe endpoint
-> mode. For that to work, the rk3588-rock-5b-pcie-ep.dtbo overlay needs to
-> be applied on Rock 5B base Device Tree. If that Rock 5B is connected to
-> another Rock 5B, the latter needs to apply the
-> rk3588-rock-5b-pcie-srns.dtbo overlay.
+> The Pre-ICT tester adapter connects to RK3588 Jaguar SBC through its
+> proprietary Mezzanine connector.
+> 
+> It exposes a PCIe Gen2 1x M.2 connector and two proprietary camera
+> connectors. Support for the latter will come once the rest of the camera
+> stack is supported.
+> 
+> Additionally, the adapter loops some GPIOs together as well as route
+> some GPIOs to power rails.
+> 
+> This adapter is used for manufacturing RK3588 Jaguar to be able to test
+> the Mezzanine connector is properly soldered.
+> 
+> Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
