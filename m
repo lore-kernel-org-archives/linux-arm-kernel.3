@@ -4,182 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBAD6C02185
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 19:17:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73699C02185
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 19:23:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lrk+t7ZzXKchyFnpxjbkC4mMOcUe99HxqMCMXa+rRN0=; b=GbdyxPf0ukDutmKe/7rq1sq98H
-	q6miZRJG/8ts1fdCmRvQQaUAbJP+m0y/HfImJSxHEoc6SmzWugilPoUfsCp0RDuNsdAyzZto/lHsA
-	AQXUp3GqTs8CuraV00bw7PzSejqLuIYuvQpmBG65BNXaZn4mkkohCTAdro7YackN7/nZkVud3Dq82
-	tqFZYlceBXqU9WRWRzawZbzUJk/Qoq6nllDNjDtRlCmHpD4eyPcg7GKVD9kRiEbZXJYICIyk6hdqn
-	DgGHQzkZvUFrqXHCqmMb9KeT7RgYMWxeonJQm/weU9SXt86hfsMyJgJwTqJlyPT/kOp5XnOwyaspF
-	N4RXZ4Ig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nBxx/eE2e9gfrwmO3yu3EADPs8hhLPS0IhAa6Hmjx6o=; b=a7I0JiQf3/PUTIi0iqu7BAhHRV
+	2VQpCrFbcigoUQUmnuShA1qYdwJ5VjTqNt9YbNilPKcxFwyV/C2hZ1hGsP7xua7jNli5KQUs1kyss
+	HI3/jxdHJKaVa/iOzYg5o/kfajF1I6E21tvTxI9K6IQFyzo8MKUdH+hduKTyBYeLzZPOwURUepuM1
+	+QKlFrFwcO8vWLlvTkagwshOl6G+uvyzL8w8F0hjTJgL8ucf9tEFSdJdAi6poZ5j5Npd1k2s/lQET
+	fpz8ghMhdI5cjCQKSNUO19kBOifeB73I1DuDIx7N7tHOlNXaoVG0ECIZWhrJ1mzeT/Z1VsgXbOKCE
+	vMZM301A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYrqU-00000001Dfu-1cB4;
-	Fri, 17 Jan 2025 19:17:30 +0000
-Received: from mail-dm6nam11on20623.outbound.protection.outlook.com ([2a01:111:f403:2415::623] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	id 1tYrwI-00000001EF1-1YAX;
+	Fri, 17 Jan 2025 19:23:30 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYrpD-00000001DYr-2rB9
+	id 1tYrv2-00000001E96-00lO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jan 2025 19:16:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Mi14bFlNGQ9o9TEZ12kndYWzpkTVEwNPTC4t2lR7HZSOiTw+7cfOXULFRPF/2oStMKxfDBtCrfHamKow2uTIBaeuF9Qz4Uu8QPtt6DmJAfJF02fXXXH33yPNKPZ1G6g+BLloJZ+ZtMe4RlJ2CNtTClA4ZoD5j1puHnq0nxmYUX1BY1mTxm2bAA2mlJ91yzhkWs+PiVpED+hLlKwUUrYV0GDYoWh9f8wMgPzltKOILv5mqKMq0BWE81Iwoi0bBefjGeH6qqZgURWQ9cHnyuLSh++6iKobz87Isj/a+9NT5Fg/ULThIZcapSvKXbwEC4QnGMleyXGFlJiK9p2RdjcuBg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lrk+t7ZzXKchyFnpxjbkC4mMOcUe99HxqMCMXa+rRN0=;
- b=TZzEv6N+9GEM2/FORsPzhB6RAazZnEvvzM2c3rrWxT0tgkW6FAL/whul7EQPZDXa4tU64yT0H5VQnjD6dPwGgvyP/u+9nnJLe3T5LWJZg9AFu0Uds7zY1vSCGNB7rqbwg4tzeDoNvFC9FTFvBDlhFjYd3ujBZy0jVWxUCImosf1yhrpCEgis+xV4hPwjuHqnttgsYwEXQLwsfhBNP6pJi7U9htTqEIV3PZ3l0+d7LGEvOpOLl7GV3wXJy3WQzwCUSTUfrv8tLHMaqn2BelmCvwY294WP7y7WE22vJnebCNfEgTx82dKpPBfebs45A8RQNIuxo/bQT4gPcKNXfHBuIA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lrk+t7ZzXKchyFnpxjbkC4mMOcUe99HxqMCMXa+rRN0=;
- b=EiXbBvrDsEzn21BmBT6hn3ZzckDZo2PNKKn0uL/CvLgTgO4KFIO3zH2F4StRborZEtEB+SKHvltxaxYuatwaJggF7FywkguWOKdL+AdQ3uustmudiQ3uOWleJcZUg8Pq3s8Znh7HHXTd30MQaumTQqTUF5o5UWHr9ztG8BSIbuJyvrtE6CjQxfQjKhHM/KZhOwWZZDMdQ38q3HKTHHyqhInCLQ8YUf15aymhReIjYYQWXrZkSZbz7Gg9FkRLUsWL5dAsYBovRmqv2vv8ARdmwReDe++GxEQNneAwhTFakHOYBRg7x4ObNKCSIR2PCC5yjilG6o2GgQen+xswm673vw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by CY8PR12MB7684.namprd12.prod.outlook.com (2603:10b6:930:87::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.15; Fri, 17 Jan
- 2025 19:16:06 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%5]) with mapi id 15.20.8356.010; Fri, 17 Jan 2025
- 19:16:06 +0000
-Date: Fri, 17 Jan 2025 15:16:04 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Ankit Agrawal <ankita@nvidia.com>, David Hildenbrand <david@redhat.com>,
-	"maz@kernel.org" <maz@kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	"joey.gouly@arm.com" <joey.gouly@arm.com>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"ryan.roberts@arm.com" <ryan.roberts@arm.com>,
-	"shahuang@redhat.com" <shahuang@redhat.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Aniket Agashe <aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>,
-	Kirti Wankhede <kwankhede@nvidia.com>,
-	"Tarun Gupta (SW-GPU)" <targupta@nvidia.com>,
-	Vikram Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>,
-	Alistair Popple <apopple@nvidia.com>,
-	John Hubbard <jhubbard@nvidia.com>, Dan Williams <danw@nvidia.com>,
-	Zhi Wang <zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>,
-	Uday Dhoke <udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
-	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
-	"sebastianene@google.com" <sebastianene@google.com>,
-	"coltonlewis@google.com" <coltonlewis@google.com>,
-	"kevin.tian@intel.com" <kevin.tian@intel.com>,
-	"yi.l.liu@intel.com" <yi.l.liu@intel.com>,
-	"ardb@kernel.org" <ardb@kernel.org>,
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"gshan@redhat.com" <gshan@redhat.com>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v2 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
- VMA flags
-Message-ID: <20250117191604.GF5556@nvidia.com>
-References: <f13622a2-6955-48d0-9793-fba6cea97a60@redhat.com>
- <SA1PR12MB7199E3C81FDC017820773DE0B01C2@SA1PR12MB7199.namprd12.prod.outlook.com>
- <20250113162749.GN5556@nvidia.com>
- <0743193c-80a0-4ef8-9cd7-cb732f3761ab@redhat.com>
- <20250114133145.GA5556@nvidia.com>
- <SA1PR12MB71998E1E70F3A03D5E30DE40B0182@SA1PR12MB7199.namprd12.prod.outlook.com>
- <20250115143213.GQ5556@nvidia.com>
- <Z4mIIA5UuFcHNUwL@arm.com>
- <20250117140050.GC5556@nvidia.com>
- <Z4qm95LRizWiBPpT@arm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z4qm95LRizWiBPpT@arm.com>
-X-ClientProxiedBy: BN0PR07CA0022.namprd07.prod.outlook.com
- (2603:10b6:408:141::14) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	Fri, 17 Jan 2025 19:22:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1737141729;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=nBxx/eE2e9gfrwmO3yu3EADPs8hhLPS0IhAa6Hmjx6o=;
+	b=TFIDQTHFbPMdweRz30+aCNi7n7nZMEGk3PJ+GfO7g0ioYM3ABop8HTNmB3KVgj9QqfM+/i
+	YsRu3ZZaDTy1P91GNToJknenIyq0u/BqSR8PShuIXmuv/NwKBv9PHY1enTPmYCCIx7+8E2
+	kNE2ri2z8mUaDhRWHrWKU1XeL1EkxMk=
+Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-568-83ybM9gTPsSHlND6Q3y3Bg-1; Fri,
+ 17 Jan 2025 14:22:06 -0500
+X-MC-Unique: 83ybM9gTPsSHlND6Q3y3Bg-1
+X-Mimecast-MFC-AGG-ID: 83ybM9gTPsSHlND6Q3y3Bg
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 66B381955DA0;
+	Fri, 17 Jan 2025 19:22:05 +0000 (UTC)
+Received: from [172.64.12.20] (unknown [10.30.33.24])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id AB0C630001BE;
+	Fri, 17 Jan 2025 19:22:04 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4p2M?= FAIL: Test report for for-kernelci (6.13.0-rc7,
+ upstream-arm-next, 1950a0af)
+Date: Fri, 17 Jan 2025 19:22:04 -0000
+To: catalin.marinas@arm.com, yoyang@redhat.com, will@kernel.org,
+ linux-arm-kernel@lists.infradead.org
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CY8PR12MB7684:EE_
-X-MS-Office365-Filtering-Correlation-Id: b99145df-3f79-4054-a0f7-08dd372b641b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?6SeT8zSYn9QARflPZz9FF4mWhNq7/HSigPhL0ODYmAkf4kwVjoCHqxT+/VAd?=
- =?us-ascii?Q?WzUeHqOqzF6W+colnXcOBsZI+XpjfQWWUs2RLT1SBb1LcMob8kZZzIqunwwc?=
- =?us-ascii?Q?aQKMLVWKw5dqv/VFmkyTHpcRpDQq9zlGNZ6JaIp1Pff1UM3eQIqddlbsBoaJ?=
- =?us-ascii?Q?ci7SKFgKbWqPUAzZ4BpA9BtyNfXUdSxQuSRrCSwqKxBQZsIrQxmp1oWJf4q4?=
- =?us-ascii?Q?Dvt06z37BFmlLSoTJrVhLBBO+g0spyRIejrAmP8VwxABjdmZ5hT34HqgBW5z?=
- =?us-ascii?Q?HMAV2P4NrjgLGXsWP2SfkZZx+JpD+trTHqgCB58xT1qZyEUA9d++lwtqiBXg?=
- =?us-ascii?Q?R07zq8uU0iw4zEZe7+q8zBhKkJOKMGWm60S95zWuetIKz4EOhWaOzEZygVM+?=
- =?us-ascii?Q?w7JgfgY1+MC1xae7eOxTEHg0H+iynoGG+OieTaz3exRxFLWdIq4JYA9qkneJ?=
- =?us-ascii?Q?C8f6AYEH+Rsqw0N8L4G8yHBF42sX25fpq1TlOZ35XsUFq2FDMrkb9NUqYb3N?=
- =?us-ascii?Q?fcgt3zcAFDdCJgLGeWQIARqDhpq7xs014pyRnM5fP/rnydHZLTIJ0KijZTJx?=
- =?us-ascii?Q?yWcx2iAQ9YJNkPO/ZdWrGivmhxQJ+7Fcf/1GSLRsRRMXS2CiEA3XMPX46S0I?=
- =?us-ascii?Q?BxXEZ8GIURtm4J/CLSE+ju7Cda3xAm9eYTIqh4XDjC/KwiAMQCpUyVZUZ/qQ?=
- =?us-ascii?Q?EcGPJe0AWWKqiRrd9DbPSPMxYXAWk6nzvJzFE8iRQbczRkwIz6XFgjA2vICe?=
- =?us-ascii?Q?3oZSApPRtARk0htwUBv1cRts3VyT3fFQm7TOVyzC83JYLusw30QlgAQE8xyq?=
- =?us-ascii?Q?5coEjlg0SK3Ju+5GF0Qe0uccbYEmt0ireIKwp8uNBAa3areWUzMeMqvdEqLU?=
- =?us-ascii?Q?3+JFE4yO1HmvUaYlafz+c0rmnoYcPnKeUBpWw4XavExO80iyfN6eccftet+Z?=
- =?us-ascii?Q?P6gWcdmT6aWrYF9yTCA2vyXU71x8MMMcWG6qpfM9bOoPxTdVB9CrhkS75j8Z?=
- =?us-ascii?Q?DfmPV/fZENEZlnkbDHSV6kX+tGD9c06Qs4QaX5edaYglApEKW5DkB4Y0Mfus?=
- =?us-ascii?Q?p3HcVdzfih3bZM+1F2W1iFoKKINX8Omty9c8aJuV2xBp7ROy7gIMO7hwwetG?=
- =?us-ascii?Q?bKhuebE8DAAAbctmAKpn/BP11p7hQQGzmDf1elDz9FK8UyfeCudaRTkrXoKZ?=
- =?us-ascii?Q?LWFCtCZGuqQi6wOywdMwzuWtZp86SIwm7DGgivDIuZxX2ZIfP31r+zfMMP/t?=
- =?us-ascii?Q?wwz8XhalVDxtIRDmpzLdU40UUyWLhDg13RpB/kV1UsiTo5+frX76/C3JIgBn?=
- =?us-ascii?Q?sO0avtKDB5BkJFyZLS7MaffLab/h/8nJTNVJXQzoqqbxSG/xynWjU5Zd/D3n?=
- =?us-ascii?Q?tK3h8kE6nLUpDCeypvONZPiFpUMY?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?93iZGv0RULOf5i0c6MQtp3+Dd6U5Z7j52sG+m9o0CZ94FKcJNRiRkrtcMLX8?=
- =?us-ascii?Q?JK4gLwwwaUg7VvURtgK9zl8EiBEv3t2wksMAwus/wshSuWp0ajm9UgXIA6yi?=
- =?us-ascii?Q?oFyNtfTyYEOsUZF63SM2DskWfTNbuTj7EoMS8JnzNae5dzXP97jaCICbNtp0?=
- =?us-ascii?Q?Ch2dqEhdrmFLKzQGlgjgYXCyb7Pkk8qFt0v/MerWG3sXS1ZTzAwXILNaAHuR?=
- =?us-ascii?Q?qym494hoB+AN5WvyReKvqqXvQ8orsQi8wCj/ZhwBY4203HKRcAZFWCvJ1L9n?=
- =?us-ascii?Q?S/MDN0+7VMGSqqAtuyD5PMMzzDbhep/tzvtfcOTgT6FbooBswK0jaZGS5Lkl?=
- =?us-ascii?Q?XAlDSAlcBH+EJjd+t0rGNrxXVtFrVRecHcxAo7KfDEDai70XNESu/iYbpXPi?=
- =?us-ascii?Q?D6cgJkhUnlGqnV6Fa2IUoQSx6iN9xvQFFTn6/cX9TwKGzfMydnImod/8ZXgQ?=
- =?us-ascii?Q?evUSs0WmNHO0FTiYHuISwnvxAv7GBVBHMaIpz9IfR0aaURG7jvFt5HrK3XXx?=
- =?us-ascii?Q?PjPgLpFhpqBgcRF0I5pZrTRTXfVGysPLLlGEQ1IhiFXvJzEH26zyXVFiCIOW?=
- =?us-ascii?Q?s9vG/Nt0uFP0EG3rXV1oG9mSrbXk/R/j8la/l4O1hxwXD6F+Y2IkUdySHWVR?=
- =?us-ascii?Q?a5muy+HgvQmqZazjykIu1dlrs73pjirZb9laCJLr3lkY11qCpz24urOvHYkE?=
- =?us-ascii?Q?t2/+WtR23XpJdHoZxzeQj+8Ujl39hbCafaH9KMqGj3nRwRzHfgQV39xHqhRO?=
- =?us-ascii?Q?Gf5I5SRD8Qt+pRYKcwxt+RGWy95BrTpH/oOhgsdGtsIs4vXPxfqRcqgxiBRW?=
- =?us-ascii?Q?NATS6ivPIkM2ypWdw8fQWMXq/7h7UqW+GXRhkSsaBiSrFVcunfcy+bSWt+JP?=
- =?us-ascii?Q?qgklGckpBCAX3/Vk4LrPbRrPzDh9V16GJNeOuh36gEw9U8B2bNOHPPGgN8Xf?=
- =?us-ascii?Q?gstzJ090bac1hcXWsNMYukUWGtC53/ahmEBXAaUCyXaDA/kkOqIdiQTP+4uV?=
- =?us-ascii?Q?gde/H4N65jKxjLl2ZN9+bpZMgven7ZWN66re2pQOTIruPsOZafaOg4LY4Dya?=
- =?us-ascii?Q?Z4KQ/CFd68HL3njuOdWBYGo1nqk/e4P/Xj3X67TvVIgu2cF0mhVGG6kZsIoB?=
- =?us-ascii?Q?ytu8Fc1LNIYjyZfjhINGxfgVvPChDBwhY++ZbErHLSYzHJZD1mhifcChHhn1?=
- =?us-ascii?Q?hAAX8LH8SFty8rQZCuTC7cc9krBBFdwR5MU9R7d+pA+EMKluO/tAYLpBfv6/?=
- =?us-ascii?Q?oLrLWWGVbrMJ7gsDqe7x3juUU7OAzRJCbwJx2Q/R+PRh1DB2jh5HfIJPDBYg?=
- =?us-ascii?Q?waoxMe998SHNKrDg26x7WJxYOkzniwNVhqzO6V8y0NxiPAVRlECATkGsDpGt?=
- =?us-ascii?Q?49bMpiu05kcnUq2k24NxV5liFtihU+cFmD0a+pi155HkG2av4VcndQNJCJlv?=
- =?us-ascii?Q?QHD8KcTkxmAldpRcgsMy3rKrjMjyfLhCoRpWrz0WrVM89S02Y9mzioLGhfgl?=
- =?us-ascii?Q?DeMXv6iZi2XKf8XUSd/kqVgRKhzQKUoZuzn0Zh3Hr6TYx8WpwNMsvn4i8lfe?=
- =?us-ascii?Q?46j5sgcT/43RwPCBrsqNUg+/kHPt0fApWEyeIbDP?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b99145df-3f79-4054-a0f7-08dd372b641b
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jan 2025 19:16:06.2078
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DYqE2bAgK5LbIJjPWQcbc8Lyjj+lIJILlaeQzd8Dl4Tb1DpkZVENIFLVG27E+IEv
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7684
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+Message-Id: <45567.125011714220601212@us-mta-568.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: LO8sA0OZ27oB7s6s7AhXY5Qc-dLd7jNzBlXwdnVnoEo_1737141725
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_111611_730740_6A296A08 
-X-CRM114-Status: GOOD (  21.59  )
+X-CRM114-CacheID: sfid-20250117_112212_110196_8F30AD44 
+X-CRM114-Status: UNSURE (   7.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,48 +84,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 17, 2025 at 06:52:39PM +0000, Catalin Marinas wrote:
-> On Fri, Jan 17, 2025 at 10:00:50AM -0400, Jason Gunthorpe wrote:
-> > On Thu, Jan 16, 2025 at 10:28:48PM +0000, Catalin Marinas wrote:
-> > > with FEAT_MTE_PERM (patches from Aneesh on the list). Or, a bigger
-> > > happen, disable MTE in guests (well, not that big, not many platforms
-> > > supporting MTE, especially in the enterprise space).
-> > 
-> > As above, it seems we already effectively disable MTE in guests to use
-> > VFIO.
-> 
-> That's fine. Once the NoTagAccess feature gets in, we could allow MTE
-> here as well.
+Hi, we tested your kernel and here are the results:
 
-Yes, we can eventually mark these pages as NoTagAccess and maybe
-someday consume a VMA flag from VFIO indicating that MTE works and
-NoTagAccess is not required.
+    Overall result: FAILED
+             Merge: OK
+           Compile: OK
+              Test: FAILED
 
-> I agree this is safe. My point was more generic about not allowing
-> cacheable mappings without some sanity check. Ankit's patch relies on
-> the pgprot used on the S1 mapping to make this decision. Presumably the
-> pgprot is set by the host driver.
 
-Yes, pgprot is set only by vfio, and pgprot == Normal is the sanity
-check for KVM.
+Kernel information:
+    Commit message: Merge tag 'arm64-upstream' into for-kernelci
 
-> > For this series it is only about mapping VMAs. Some future FD based
-> > mapping for CC is going to also need similar metadata.. I have another
-> > thread about that :)
-> 
-> How soon would you need that and if you come up with a different
-> mechanism, shouldn't we unify them early rather than having two methods?
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1629927092
 
-Looks to me like a year and half or more to negotiate this and
-complete the required preperation patches. It is big and complex and
-consensus is not obviously converging..
+One or more kernel tests failed:
+    Unrecognized or new issues:
+        xfstests - btrfs
+             aarch64
+                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
+redhat:1629927092-aarch64-kernel_upt_56
+                   Non-passing ran subtests:
+                       =E2=9D=8C FAIL btrfs:install_xfstests
+                       =E2=9D=8C FAIL exit_code
+             aarch64
+                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
+redhat:1629927092-aarch64-kernel_upt_64
+                   Non-passing ran subtests:
+                       =E2=9D=8C FAIL btrfs:install_xfstests
+                       =E2=9D=8C FAIL exit_code
+        xfstests - ext4
+             aarch64
+                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
+redhat:1629927092-aarch64-kernel_upt_54
+                   Non-passing ran subtests:
+                       =E2=9D=8C FAIL ext4:install_xfstests
+                       =E2=9D=8C FAIL exit_code
+             aarch64
+                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
+redhat:1629927092-aarch64-kernel_upt_62
+                   Non-passing ran subtests:
+                       =E2=9D=8C FAIL ext4:install_xfstests
+                       =E2=9D=8C FAIL exit_code
+        xfstests - xfs
+             aarch64
+                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
+redhat:1629927092-aarch64-kernel_upt_55
+                   Non-passing ran subtests:
+                       =E2=9D=8C FAIL xfs:install_xfstests
+                       =E2=9D=8C FAIL exit_code
+             aarch64
+                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
+redhat:1629927092-aarch64-kernel_upt_63
+                   Non-passing ran subtests:
+                       =E2=9D=8C FAIL xfs:install_xfstests
+                       =E2=9D=8C FAIL exit_code
 
-If we had a FD flow now I'd prefer to use it than going through the
-VMA :(
+    We also see the following known issues which are not related to your ch=
+anges:
+        Issue: kdump - kexec-file-load: Kexec boot failed as fileloadoption=
+ is not seen in kernel boot options
+            URL: https://issues.redhat.com/browse/RHELTEST-44
+            Affected tests:
+                kdump - kexec-file-load [aarch64]
 
-I have a vauge hope that perhaps KVM could see the VMA when it creates
-the memslot and then transparently pick up the FD under the VMA and
-switch to a singular FD based mode inside KVM.
 
-Jason
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
+
 
