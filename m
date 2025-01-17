@@ -4,100 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95DC5C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 18:53:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 622D8C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 18:54:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7cXS8jZh32k3xn1O/NOhZ8hhmDw8Y92QQ/WTT5FTNxU=; b=EMCLKl+NsKZQknKEiyAAUorVpf
-	RFrjMH4hpU/qfKsJbVQBmKCSIXe02LU4tEyg4No8UtE4UwVOUzvoDt1bZwYHCoDhlYA8bZLdy9hIl
-	vMC8O+1XtpEc/fFhtFn4nueoh7Xc9vYcIVAGkJHPh8Y4aamgVGHLL88D4EcRVzz3U4XYUcgXx1Rpo
-	NBOQkWstVS7z2ACcIHbX6nHyW+2FMo/GKsRCApUolC7lEKhWop9aeHdt2haf7lvwsCc+fPYOyPSAb
-	OXf1P383bFwR33QTfyuUwWJRU/CgxRBiloY22/jPnSTuOEsoV67qNLkeJJvPE+S/uBS/hzjZp5BRv
-	cvr9moDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=axSv5eQmu0+CzEeU5AIUA3KSzkm385159mlYc9MVdbg=; b=d7J04fgtplJ+IIkUY0jlGG/ZwK
+	3uN4kUKtN0nvjx6uQPIVYZqVX68upV7dM71P48yH3HUNAXpC5LSq8169lANyZ23rGlXTVI8WnHfij
+	vCOFtNj1ySIjICmQE3qjD34IdBK9BXw3joS4eV7WU7AXOZasTOM8DjN19SZC8upbd4dlsp1XHoyNL
+	dXOuk4oaoKV6oLLK0aYczn5rVOrtny7GIEt6yk/m7XkMxxMv983cvvKuHf3eLLE5PmehnNgFlnEK2
+	xkfKFCZl5r81iDa5wHpprbaT6Ves+zvmOyxtxNi1/EJ152HU7pGnRpuubXhRnQzjmduUqhFDhcBbw
+	FjI8bXJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYrSl-00000001ATZ-1jKX;
-	Fri, 17 Jan 2025 18:52:59 +0000
-Received: from mail-qv1-xf2b.google.com ([2607:f8b0:4864:20::f2b])
+	id 1tYrTv-00000001Ap7-0iiI;
+	Fri, 17 Jan 2025 18:54:11 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYrNe-000000018ua-00q1
+	id 1tYrSa-00000001ABe-2p1D
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jan 2025 18:47:43 +0000
-Received: by mail-qv1-xf2b.google.com with SMTP id 6a1803df08f44-6d8de4407f3so3525296d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jan 2025 10:47:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737139661; x=1737744461; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=7cXS8jZh32k3xn1O/NOhZ8hhmDw8Y92QQ/WTT5FTNxU=;
-        b=MgY8mNTxbYA628H1kEN41GaxaD5nkYh9Q5eibVEh/AtqPQOD9LYdPl9wQ7gMaiGXQn
-         P31QQBnvlacQevlRZLgBuAom6YllNIofwP/NI6WIERNX45tp8XgXWth7wVWVgbT5HPFz
-         DoZPofeSAiC6v8jjk5iHuv70B+0HNA4KhlPeFhiZVmKyPAb1AqivglmgcyNVk3HcszVj
-         Guthb1KcGkFMDshwDxgR+bz9rlNeezp7PC+dFc3aI6Gz8KpQpiLyUgqady8c4jE9/LEv
-         5IFmeQSCWOI1AoIN1Wd4WWIChC7MYnGhT1qsXZW/CIjWqsYHHbuGpzDPoOUs6noIKlDt
-         aW5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737139661; x=1737744461;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7cXS8jZh32k3xn1O/NOhZ8hhmDw8Y92QQ/WTT5FTNxU=;
-        b=sMGaGie7LvxuN8Ah8McXl3Jdh41JpM2w6eeX6pnV7SH0niNyhyHgamtyxyApALLIOB
-         wgx7gNFCxRwv2o2wQTN6uWygWx7b9di1qPCSIIWThkiaZShwQ3CwVNCIdGqxC5c7l8aL
-         ++jjEU5vzaTXKUig3txslE9C2q0tnMHUDjp/iLqcDqJk1k3p4PTGNZwQIqMShIv3cPN0
-         e1F501PeQabFzHh+wH1s0eZpvKIMNK0n0cSOAW5wYKuMaX2xhdURaCRh7tqni7iN5cTJ
-         rvbKaepUsBpNbi/4ZLmEn+QYRWHek7RK/YOhWEQy2H0JcVbwUViEuqN7iJYuqSOTkVao
-         PXPw==
-X-Forwarded-Encrypted: i=1; AJvYcCVaOLZpN5upVjSM1jPnEpMkmG1/vcnWDOhEwXEKXKRj0qrTYlW/yeoZT9phl5+THimJBfqg+sMOT/dT5gsDTu3z@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFg87GdrF3XQs+lwCxUsaLkhm2om11d+F5405A4YbbiNvikHkr
-	mWnpH3zI6+auHG4LleWK2SD/iLVZZewoXXkDlxjf1K4LXbx3sq9CGFIssw==
-X-Gm-Gg: ASbGncteMawDB+j2NBEptcZuG4X9KgVP+FGmhG7W0Zuh7ucj/iq77qxq2t2qZsCMncM
-	sRx+82wJM+HXfRrwwjFh2D8LcIgUegR79xtX4/dvTdeC1K6x6J+tWcpA7P36jPPvvD862QkbWzT
-	e//t6q1RC36XRkwMCd72A35MpmLPGQaO6d15lqe5TtddoZzzJhZUcS6UC9KHDMEWvZBbWHwIp1k
-	2YoGo9dbAiJ1VCHOy74WTcCIWPgFhUNiDcNUzCCBke8rZijzxMyXn7jFQCSm/RBxMnIXoWsW+p/
-	LbH4XdWgq+te3b8=
-X-Google-Smtp-Source: AGHT+IFkED0JQTC0Xpd5G1Q8mAnhBtwFYNMO1jthK556QYFx0lYcOPWbJ2YYI/wogCp8QUtnRASS4Q==
-X-Received: by 2002:a05:6214:528b:b0:6d8:7d84:a514 with SMTP id 6a1803df08f44-6e1b2175b9dmr23314216d6.5.1737139659256;
-        Fri, 17 Jan 2025 10:47:39 -0800 (PST)
-Received: from [192.168.1.99] (ool-4355b0da.dyn.optonline.net. [67.85.176.218])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6e1afcd3859sm13992176d6.74.2025.01.17.10.47.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Jan 2025 10:47:38 -0800 (PST)
-From: Connor Abbott <cwabbott0@gmail.com>
-Date: Fri, 17 Jan 2025 13:47:08 -0500
-Subject: [PATCH 2/3] iommu/arm-smmu-qcom: Make set_stall work when the
- device is on
+	Fri, 17 Jan 2025 18:52:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id ACEA6A4337F;
+	Fri, 17 Jan 2025 18:50:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55C46C4CEDD;
+	Fri, 17 Jan 2025 18:52:41 +0000 (UTC)
+Date: Fri, 17 Jan 2025 18:52:39 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Ankit Agrawal <ankita@nvidia.com>, David Hildenbrand <david@redhat.com>,
+	"maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	"joey.gouly@arm.com" <joey.gouly@arm.com>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"ryan.roberts@arm.com" <ryan.roberts@arm.com>,
+	"shahuang@redhat.com" <shahuang@redhat.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Aniket Agashe <aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>,
+	Kirti Wankhede <kwankhede@nvidia.com>,
+	"Tarun Gupta (SW-GPU)" <targupta@nvidia.com>,
+	Vikram Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>,
+	Alistair Popple <apopple@nvidia.com>,
+	John Hubbard <jhubbard@nvidia.com>, Dan Williams <danw@nvidia.com>,
+	Zhi Wang <zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>,
+	Uday Dhoke <udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
+	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
+	"sebastianene@google.com" <sebastianene@google.com>,
+	"coltonlewis@google.com" <coltonlewis@google.com>,
+	"kevin.tian@intel.com" <kevin.tian@intel.com>,
+	"yi.l.liu@intel.com" <yi.l.liu@intel.com>,
+	"ardb@kernel.org" <ardb@kernel.org>,
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"gshan@redhat.com" <gshan@redhat.com>,
+	"linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v2 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
+ VMA flags
+Message-ID: <Z4qm95LRizWiBPpT@arm.com>
+References: <20250106165159.GJ5556@nvidia.com>
+ <f13622a2-6955-48d0-9793-fba6cea97a60@redhat.com>
+ <SA1PR12MB7199E3C81FDC017820773DE0B01C2@SA1PR12MB7199.namprd12.prod.outlook.com>
+ <20250113162749.GN5556@nvidia.com>
+ <0743193c-80a0-4ef8-9cd7-cb732f3761ab@redhat.com>
+ <20250114133145.GA5556@nvidia.com>
+ <SA1PR12MB71998E1E70F3A03D5E30DE40B0182@SA1PR12MB7199.namprd12.prod.outlook.com>
+ <20250115143213.GQ5556@nvidia.com>
+ <Z4mIIA5UuFcHNUwL@arm.com>
+ <20250117140050.GC5556@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250117-msm-gpu-fault-fixes-next-v1-2-bc9b332b5d0b@gmail.com>
-References: <20250117-msm-gpu-fault-fixes-next-v1-0-bc9b332b5d0b@gmail.com>
-In-Reply-To: <20250117-msm-gpu-fault-fixes-next-v1-0-bc9b332b5d0b@gmail.com>
-To: Rob Clark <robdclark@gmail.com>, Will Deacon <will@kernel.org>, 
- Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, 
- Sean Paul <sean@poorly.run>, Konrad Dybcio <konradybcio@kernel.org>, 
- Abhinav Kumar <quic_abhinavk@quicinc.com>, 
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
- Marijn Suijten <marijn.suijten@somainline.org>
-Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, freedreno@lists.freedesktop.org, 
- Connor Abbott <cwabbott0@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1737139656; l=2114;
- i=cwabbott0@gmail.com; s=20240426; h=from:subject:message-id;
- bh=JyOLVh0gEkcPnnA/qjt0Kfj3pqe9UFDopPZk8F1e/x0=;
- b=Z8mukskVxG/5911ObuOE8aZjxBMyoMMxQL49HUEn1UzKTTkKUCl1YqM1Kdm1q24jL47h7A9xL
- sQTHHPy79i0CWIRIUNZjb06P1taEZ4QbjZs13mX8cjDTJoodH+OmmrC
-X-Developer-Key: i=cwabbott0@gmail.com; a=ed25519;
- pk=dkpOeRSXLzVgqhy0Idr3nsBr4ranyERLMnoAgR4cHmY=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250117140050.GC5556@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_104742_045606_058B2FE9 
-X-CRM114-Status: GOOD (  13.45  )
+X-CRM114-CacheID: sfid-20250117_105248_840365_1D9F5868 
+X-CRM114-Status: GOOD (  30.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,63 +100,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Up until now we have only called the set_stall callback during
-initialization when the device is off. But we will soon start calling it
-to temporarily disable stall-on-fault when the device is on, so handle
-that by checking if the device is on and writing SCTLR.
+On Fri, Jan 17, 2025 at 10:00:50AM -0400, Jason Gunthorpe wrote:
+> On Thu, Jan 16, 2025 at 10:28:48PM +0000, Catalin Marinas wrote:
+> > with FEAT_MTE_PERM (patches from Aneesh on the list). Or, a bigger
+> > happen, disable MTE in guests (well, not that big, not many platforms
+> > supporting MTE, especially in the enterprise space).
+> 
+> As above, it seems we already effectively disable MTE in guests to use
+> VFIO.
 
-Signed-off-by: Connor Abbott <cwabbott0@gmail.com>
----
- drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 31 +++++++++++++++++++++++++++---
- 1 file changed, 28 insertions(+), 3 deletions(-)
+That's fine. Once the NoTagAccess feature gets in, we could allow MTE
+here as well.
 
-diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-index ee2fdf7e79a6d04bc2700e454253c96b573c5569..54be27f7b49d78b7542fd714d6aade2b23c65fc0 100644
---- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-+++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-@@ -112,12 +112,37 @@ static void qcom_adreno_smmu_set_stall(const void *cookie, bool enabled)
- {
- 	struct arm_smmu_domain *smmu_domain = (void *)cookie;
- 	struct arm_smmu_cfg *cfg = &smmu_domain->cfg;
--	struct qcom_smmu *qsmmu = to_qcom_smmu(smmu_domain->smmu);
-+	struct arm_smmu_device *smmu = smmu_domain->smmu;
-+	struct qcom_smmu *qsmmu = to_qcom_smmu(smmu);
-+	u32 mask = BIT(cfg->cbndx);
-+	bool stall_changed = !!(qsmmu->stall_enabled & mask) != enabled;
- 
- 	if (enabled)
--		qsmmu->stall_enabled |= BIT(cfg->cbndx);
-+		qsmmu->stall_enabled |= mask;
- 	else
--		qsmmu->stall_enabled &= ~BIT(cfg->cbndx);
-+		qsmmu->stall_enabled &= ~mask;
-+
-+	/*
-+	 * If the device is on and we changed the setting, update the register.
-+	 */
-+	if (stall_changed && pm_runtime_get_if_active(smmu->dev) > 0) {
-+		u32 reg = arm_smmu_cb_read(smmu, cfg->cbndx, ARM_SMMU_CB_SCTLR);
-+
-+		if (enabled)
-+			reg |= ARM_SMMU_SCTLR_CFCFG;
-+		else
-+			reg &= ~ARM_SMMU_SCTLR_CFCFG;
-+
-+		arm_smmu_cb_write(smmu, cfg->cbndx, ARM_SMMU_CB_SCTLR, reg);
-+
-+		/*
-+		 * If doing this in the context fault handler, make sure the
-+		 * update lands before we acknowledge the fault.
-+		 */
-+		wmb();
-+
-+		pm_runtime_put_autosuspend(smmu->dev);
-+	}
- }
- 
- static void qcom_adreno_smmu_resume_translation(const void *cookie, bool terminate)
+> > A second problem, similar to relaxing to Normal NC we merged last year,
+> > we can't tell what allowing Stage 2 cacheable means (SError etc).
+> 
+> That was a very different argument. On that series KVM was upgrading a
+> VM with pgprot noncached to Normal NC, that upgrade was what triggered
+> the discussions about SError.
+> 
+> For this case the VMA is already pgprot cache. KVM is not changing
+> anything. The KVM S2 will have the same Normal NC memory type as the
+> VMA has in the S1.  Thus KVM has no additional responsibility for
+> safety here.
+
+I agree this is safe. My point was more generic about not allowing
+cacheable mappings without some sanity check. Ankit's patch relies on
+the pgprot used on the S1 mapping to make this decision. Presumably the
+pgprot is set by the host driver.
+
+> > information. Checking vm_page_prot instead of a VM_* flag may work if
+> > it's mapped in user space but this might not always be the case. 
+> 
+> For this series it is only about mapping VMAs. Some future FD based
+> mapping for CC is going to also need similar metadata.. I have another
+> thread about that :)
+
+How soon would you need that and if you come up with a different
+mechanism, shouldn't we unify them early rather than having two methods?
+
+> > I don't see how VM_PFNMAP alone can tell us anything about the
+> > access properties supported by a device address range. Either way,
+> > it's the driver setting vm_page_prot or some VM_* flag. KVM has no
+> > clue, it's just a memory slot.
+> 
+> I think David's point about VM_PFNMAP was to avoid some of the
+> pfn_valid() logic. If we get VM_PFNMAP we just assume it is non-struct
+> page and follow the VMA's pgprot.
+
+Ah, ok, thanks for the clarification.
+
+> > A third aspect, more of a simplification when reasoning about this, was
+> > to use FWB at Stage 2 to force cacheability and not care about cache
+> > maintenance, especially when such range might be mapped both in user
+> > space and in the guest.
+> 
+> Yes, I thought we needed this anyhow as KVM can't cache invalidate
+> non-struct page memory..
+
+Looks good. I think Ankit should post a new series factoring out the
+exec handling in a separate patch, dropping some of the pfn_valid()
+assumptions and we take it from there.
+
+I also think some sanity check should be done early in
+kvm_arch_prepare_memory_region() like rejecting the slot if it's
+cacheable and we don't have FWB. But I'll leave this decision to the KVM
+maintainers. We are trying to relax some stuff here as well (see the
+NoTagAccess thread).
 
 -- 
-2.47.1
-
+Catalin
 
