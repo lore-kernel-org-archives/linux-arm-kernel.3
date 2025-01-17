@@ -4,52 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C518C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 15:36:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66B5CC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 15:38:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ONJgNMzxClMztzX9/gp9gMBjGA6j/fpzTGTPGO/ELgc=; b=3SiMPl+UgPiOuGRtGtuXEVmB0N
-	j7uBn2fjsuBcM5MB5aehNi3TsYzq4rF9Hse9mkTizjB/FQCBfSqh1Ma2WH2ymddc9RxVUcsWXHd0c
-	DaP2JBd62Q7KHoNwTVkMYJ68+IjmY9Xf1U2oSpBs5jFNPaAlOqTqA/BcDtojmCGZsYHgh2ZjxKv9c
-	rbSLiYznSVCvouNlbjMSl/vXoXw5dlwIvc+iPNrZgFHYBI5Iilax10c4IDcFhRkt6Ur663MCxMMOO
-	NlI4dwHRgXleIuGizJ1DMicTia4L/1DY5MNifI7jvrZ2hMoSsAfShPBP47kZ2/tiQUUjBX7e6btXp
-	rt7s+1gA==;
+	bh=1tBjEEqLvWWoIr6bLTxyaV5TCWMZaIId035SXrAuM/8=; b=ZNhpvw2pSxMIIPSF+kTHcq2M0G
+	95YtIh0x5ECKIHRwKF7qmOKNiElnJ2FsT0thaMw0Zq10Gk3yBhxOZKlbkw/tyPTnPTqkBRg5BjrEi
+	xQzYL9X09+sBbvwck+x0hMqpEp6fDNr7FREv7oiLGoW8jvlGiWk/rO4bmzmM11RFChvYv+cKi82lF
+	2eEEvIYFzv9Zw8Ihbnm3Y+k3wrW8PjJqnGc0Mev60w9zoTcLxzd50M1zyZ+XiM3Ceym9JKcUuIGk+
+	YXXqk0FxamfDxoVerS+zLxd7Zzbt0uZm9BpbNbrqKVQb2WiL/jpD4Cojg6nDrFSNmpa49hZWMKWYa
+	4EWgIleA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYoOg-00000000dg8-2Olg;
-	Fri, 17 Jan 2025 15:36:34 +0000
+	id 1tYoPv-00000000dmN-0nKI;
+	Fri, 17 Jan 2025 15:37:51 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYo06-00000000ZGb-3Cdp
+	id 1tYo07-00000000ZFe-30xx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jan 2025 15:11:11 +0000
+	Fri, 17 Jan 2025 15:11:12 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 00CCA1476;
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EBD9922BE;
 	Fri, 17 Jan 2025 07:11:39 -0800 (PST)
 Received: from e133380.cambridge.arm.com (e133380.arm.com [10.1.197.43])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D65A23F73F;
-	Fri, 17 Jan 2025 07:11:09 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CD4773F73F;
+	Fri, 17 Jan 2025 07:11:10 -0800 (PST)
 From: Dave Martin <Dave.Martin@arm.com>
 To: linux-kernel@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org,
 	Zeng Heng <zengheng4@huawei.com>,
 	Shaopeng Tan <tan.shaopeng@fujitsu.com>,
 	James Morse <james.morse@arm.com>
-Subject: [RFC PATCH v2 07/11] arm_mpam: [NFU] Rework ID remapping to use a kernel command-line argument
-Date: Fri, 17 Jan 2025 15:10:29 +0000
-Message-Id: <20250117151033.1517882-20-Dave.Martin@arm.com>
+Subject: [RFC PATCH v2 08/11] arm_mpam: [NFU] Development diagnostics for MPAM ID assignments
+Date: Fri, 17 Jan 2025 15:10:30 +0000
+Message-Id: <20250117151033.1517882-21-Dave.Martin@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250117151033.1517882-1-Dave.Martin@arm.com>
 References: <20250117151033.1517882-1-Dave.Martin@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_071110_835362_B09829AD 
-X-CRM114-Status: GOOD (  12.12  )
+X-CRM114-CacheID: sfid-20250117_071111_792671_0651D43B 
+X-CRM114-Status: UNSURE (   8.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,67 +65,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hacking the source is an acceptable interface for experimentation,
-but not very convenient.
+Purely for development purposes, add some printks to show what MPAM
+IDs actually get assigned and configured.
 
-Instead, add a kernel command-line parameter
-mpam_partid_per_closid=<n> to specify how many PARTIDs are used to
-provide monitoring groups for each resctrl CLOSID.
+This would otherwise be observable only though statistical
+measurements of performance (or not observable at all).
 
 This change is not intended for upstream.
 
 Signed-off-by: Dave Martin <Dave.Martin@arm.com>
 ---
- drivers/platform/arm64/mpam/mpam_resctrl.c | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+ arch/arm64/include/asm/mpam.h              | 7 +++++++
+ drivers/platform/arm64/mpam/mpam_devices.c | 6 ++++++
+ 2 files changed, 13 insertions(+)
 
-diff --git a/drivers/platform/arm64/mpam/mpam_resctrl.c b/drivers/platform/arm64/mpam/mpam_resctrl.c
-index f834753a3274..eb1ef5d2bc57 100644
---- a/drivers/platform/arm64/mpam/mpam_resctrl.c
-+++ b/drivers/platform/arm64/mpam/mpam_resctrl.c
-@@ -3,6 +3,9 @@
+diff --git a/arch/arm64/include/asm/mpam.h b/arch/arm64/include/asm/mpam.h
+index df725d2d9d05..4ae2e635e261 100644
+--- a/arch/arm64/include/asm/mpam.h
++++ b/arch/arm64/include/asm/mpam.h
+@@ -66,6 +66,9 @@ static inline void mpam_set_cpu_defaults(int cpu, u16 partid_d, u16 partid_i,
+ 	default_val |= FIELD_PREP(MPAM1_EL1_PMG_I, pmg_i);
  
- #define pr_fmt(fmt) "mpam: resctrl: " fmt
+ 	WRITE_ONCE(per_cpu(arm64_mpam_default, cpu), default_val);
++
++	pr_info("MPAM: CPU%d -> (D=%d:%d, I=%d:%d)\n",
++		cpu, partid_d, pmg_d, partid_i, pmg_i);
+ }
  
-+#undef KBUILD_MODNAME
-+#define KBUILD_MODNAME "mpam"
-+
- #include <linux/arm_mpam.h>
- #include <linux/cacheinfo.h>
- #include <linux/cpu.h>
-@@ -10,6 +13,7 @@
- #include <linux/errno.h>
- #include <linux/limits.h>
- #include <linux/list.h>
-+#include <linux/moduleparam.h>
- #include <linux/printk.h>
- #include <linux/rculist.h>
- #include <linux/resctrl.h>
-@@ -158,6 +162,24 @@ static bool mpam_resctrl_hide_cdp(enum resctrl_res_level rid)
+ static inline void mpam_set_task_partid_pmg(struct task_struct *tsk,
+@@ -81,6 +84,10 @@ static inline void mpam_set_task_partid_pmg(struct task_struct *tsk,
+ 	regval |= FIELD_PREP(MPAM1_EL1_PMG_I, pmg_i);
  
- static unsigned int partid_per_closid = 1;
+ 	WRITE_ONCE(task_thread_info(tsk)->mpam_partid_pmg, regval);
++
++	pr_info("MPAM: task %s[%d/%d] -> (D=%d:%d, I=%d:%d)\n",
++		current->comm, current->pid, current->tgid,
++		partid_d, pmg_d, partid_i, pmg_i);
+ #endif
+ }
  
-+static int mpam_resctrl_partid_per_closid_set(const char *val,
-+					      const struct kernel_param *kp)
-+{
-+	/*
-+	 * 16 in an arbitrary maximum, sufficient for experimentation
-+	 * but not ridiculously large:
-+	 */
-+	return param_set_uint_minmax(val, kp, 1, 16);
-+}
+diff --git a/drivers/platform/arm64/mpam/mpam_devices.c b/drivers/platform/arm64/mpam/mpam_devices.c
+index f965e6639e0d..6b326506c359 100644
+--- a/drivers/platform/arm64/mpam/mpam_devices.c
++++ b/drivers/platform/arm64/mpam/mpam_devices.c
+@@ -3149,6 +3149,12 @@ int mpam_apply_config(struct mpam_component *comp, u16 partid,
+ 
+ 	mpam_extend_config(comp->class, cfg);
+ 
++	pr_info("mpam_apply_config(): comp %d partid %d cfg={0x%x: 0x%lx, 0x%lx, %u, %u}\n",
++		comp->comp_id, partid, cfg->features,
++		(unsigned long)cfg->cpbm,
++		(unsigned long)cfg->mbw_pbm,
++		cfg->mbw_min, cfg->mbw_max);
 +
-+static const struct kernel_param_ops mpam_resctrl_partid_per_closid_ops  = {
-+	.set = mpam_resctrl_partid_per_closid_set,
-+	.get = param_get_uint,
-+};
-+
-+device_param_cb(partid_per_closid, &mpam_resctrl_partid_per_closid_ops,
-+		&partid_per_closid, 0444);
-+
- static unsigned int mpam_num_pmg(void)
- {
- 	return mpam_pmg_max + 1;
+ 	if (!mpam_update_config(&comp->cfg[partid], cfg))
+ 		return 0;
+ 
 -- 
 2.34.1
 
