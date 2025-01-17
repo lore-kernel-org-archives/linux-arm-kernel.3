@@ -4,87 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15B89C02185
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 08:36:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2397CC02185
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 08:39:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=84rMYzUqq4y85KkEDWY3HmzD2Qa5Sp+w6owgX1xBktY=; b=OlyWIvHMIGNgYfP9dGF6xlGRm6
-	wtLOSzIFJ/jFgtRD7dOhHd3kHwY1tw7T6jrfldEJggfAhh8s2BMEvWuwtMF0HktbuXg1ZcVpOqWLO
-	ZYDdUOHRD4HZitulw1fssyGOfoBIhE3G5z742CnAq3FGRxA4xk8H0cF/42HDzRjkoVxDl52Ke4cME
-	gd7iCH7IOrS2amiZ9Q1fWuxGV0iE9fzjf2cQWa3Uu6xmud7m0gUMuf9QACXmmmCObRei6hHM3ekcx
-	2WC95quNCR+xmhZ4UgdxqZ2Nbcr1I1+21GEGhFO/rCetSfqwP5dT26obVEJjRzrdkh0BRVx+3qQLX
-	mUDqJD3w==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=eJ1ei5cf4bIYP2dhBSNsW7gRWvtxXhyGMsyM2uckNOk=; b=XOkB+5Z8p0YNEH
+	SjAV982+suz479V1f271qjLstTZ8v+Ohmu2bBrxXI3VIM0bbhQZMVw433PvhwCmDkmK8lTrS+g8jr
+	LD1hJAMwDMMtdtTY8VHIVGlwJKCVTdPjS3kyF39nesvPjLwWtruRzSCaJM+hy89UzUwg6TDTG09a9
+	tlh7J5Jl4/WPWEkdbo+L3OkMKaHF0v3h2+2SH1yAxItf9XZiSM9OAWgf8xb6OakwckXxmVqyQUqlh
+	MR19TjdWxW9RPPjzOYG6o79ATTHKUtLFMT17eeQeASqrvTQ0mwB1Stqwv8LnRd/u7ea/QehJF/oqF
+	8kZxPA4W039tGXWclvuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYhpV-0000000HLdt-3a7x;
-	Fri, 17 Jan 2025 08:35:49 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1tYhtD-0000000HM6H-02wZ;
+	Fri, 17 Jan 2025 08:39:39 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYhoE-0000000HLTb-3bZp
+	id 1tYhrv-0000000HLu7-3UCA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jan 2025 08:34:32 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-21625b4f978so80035ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jan 2025 00:34:29 -0800 (PST)
+	Fri, 17 Jan 2025 08:38:21 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-436ce2ab251so11732075e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jan 2025 00:38:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1737102869; x=1737707669; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=84rMYzUqq4y85KkEDWY3HmzD2Qa5Sp+w6owgX1xBktY=;
-        b=sbjtbJ9GmiB+2yIpP8gI+7vC2isaMG/YA28zU9hM0uyBmZc0lYKTTuzo9+RiLSPHr+
-         u0gM8JEfKhd2iXRcT6yWfkxuAQ/89XVFwOyTv0nHSpIYH956QHy74Hb6F4o6vzJFSzLu
-         aZhDhe1sLYeVa1tcppoc3NJEVCIkG0twat/03j3Jo/PfOWP4SFq2lbx+PJUllijGeOQ8
-         vWYuvBXLFNAEJx2BjwoohH5DgKvQQ4WRi0b4ihg+1zwj6ybzMH9vcPNfs/SvFYDGY8aS
-         jy68CwV9AOjK9ge3JpIUseqeTBB5Vax60Ej3FjC3fNQaSdRQnLkum0afN0FpSncEv+Rj
-         NPpA==
+        d=linaro.org; s=google; t=1737103098; x=1737707898; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
+         :to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=eJ1ei5cf4bIYP2dhBSNsW7gRWvtxXhyGMsyM2uckNOk=;
+        b=NCimhMNgdajhefldRoYvkft0pyqIsUYsFa+k8qdz3ity+5f/GReSV3BTQslOFuESj0
+         Nlw9NzdJpIYyACMzZea2s7TdGRFYRXV+mQ9b5y/6BMUUOAJL151kNa3bgMetH9oFxz/c
+         b98M55sMasAa/supbRnT+PotzMf1mKYn1/3txadefwL+x7PYGUB0peTvJltMJCLC95sy
+         yYWnsAaIozGuTUNsktHws6/nrwDI4LIdrNp9kDdEDkOwMQwOLcl+AC62FVSnHwquMxOW
+         cegN0KbKbt4soPd5xFtnxBLX40Sv17+aOXYaEDUJnflgt83AXW3efXtpaOIgCD1kdups
+         DKlQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737102869; x=1737707669;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=84rMYzUqq4y85KkEDWY3HmzD2Qa5Sp+w6owgX1xBktY=;
-        b=dMwmOva+jktwXtjJLT8L68+ApoB2fnaQEP1/xHH5kqzpGHKSMnlWUDO3jr2jzHo+h5
-         sm4EDiZrWcJ8G9QXxW4dn4K1VFKzpwO2VbaLT6uNLLGwt93Av/C5tdgUxDY7dr2RdyjM
-         +F5n4x/MPEGLA/RjfaL6G9JtLV9Cns45L+xcHmEiGJj3oGK9DgLBiASaVE7cglI8n1Zz
-         3iZk6pR5Oc83CxblN5Y1O1icZKnGkxgXOjbvMNJJmBMyBAMJAuT8YvgEdcIrFKwVEPWF
-         KVsQqfqq4OpEwW2Rq+9hLrChijLwzKsGq4+sWpBNyt8M+n9IQekOw21yTEUYhb21KZul
-         /atg==
-X-Forwarded-Encrypted: i=1; AJvYcCWcqEihPlSRJYohswNFTs+7WNoYrQphrht/0UL6/EOHVRcYHOC9TwmpDwaFtpYP3ZGNh2105L5ztc+fe9ZCNHR9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz49nk6aes0hLQNMFQFXrCZo/BuQbB0HpZb0+Nz1zmDRaja7PTD
-	OkvD9QCF31X2UVjripQnP8K4TOFkI74yJ7Gxj74M67zPF4qWK1qHlKUxzFlKFg==
-X-Gm-Gg: ASbGncuP6fgqm0gECavnzoJGlqI4aWwTl6amF8T9JvviG7YiomPjgADGMdV+LwyaDz/
-	LmuGsq8thw6C6EFbO3kLKlLQZIG9T0qpnhNCutOpQRTRJkPEMZef/oE9pCu5uxM/tDRiLDhttz6
-	trrOiIiHFFxxx96WZld59eOhf5PYgzX+y8VikmKs0AVfbAB4XMYSm46JI+jAgYF5qscJ2bZhf2l
-	+CAAPtbH00hQeNsMGxA0W1mOQ1PvNfbnEwYWq14LizG9XQa33bTzhtD6KMXc0VSJsS0MUGP64Jc
-	Xcp3+yy3IqDE
-X-Google-Smtp-Source: AGHT+IE7mqIl7gVi27tsigpFfH+LHplATJtz4D0uDOw0zsnmgSdBynTa28sifGUpSwSM2ArpqhIfWA==
-X-Received: by 2002:a17:903:3285:b0:215:884a:e8d1 with SMTP id d9443c01a7336-21c33430be1mr1851675ad.24.1737102869074;
-        Fri, 17 Jan 2025 00:34:29 -0800 (PST)
-Received: from google.com (1.243.198.35.bc.googleusercontent.com. [35.198.243.1])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f7761a713fsm1422341a91.25.2025.01.17.00.34.26
+        d=1e100.net; s=20230601; t=1737103098; x=1737707898;
+        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
+         :to:from:date:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=eJ1ei5cf4bIYP2dhBSNsW7gRWvtxXhyGMsyM2uckNOk=;
+        b=BOplCO1fG5eQSVOocPbA+yj9ynoehWRtUbQdOGUFMBBgrXwQL43eah8TFDE8KrnWtb
+         ViAi33ZATH68uTZc3I8UYF85RUcTPwmR0LohtL19xhh+hc6i49MhLKw1wQuHv7nhYIaI
+         t+m5lbWvKe8S+6A+KQfCGr+HIHWHffGhgi+aww9nv3umRKYSvYabz5gvbsG5NG8K4jQU
+         9Xy2jBU6JZV0E/6rvblupITOeyH1vY7R+MGvf5lPu1CGvxvRTFDmp7N8OlnZUlJylv6P
+         cK7HLuMWmJPRru27l0Ah/MMGRn5owULdTxnD9V3W+xpwLHTt8MZNH+BjbbdDpTDo1UgT
+         7YCg==
+X-Forwarded-Encrypted: i=1; AJvYcCVxCzK8pLCfCVqF9jfgEx8Gscj7EIaDsbVUiYkVqUgoK9z0ogTINhZ1jNmKuymnZdZ4mrajlmbXSgs/ae+5ql8g@lists.infradead.org
+X-Gm-Message-State: AOJu0YxAEL4G/J38ERcg6Uu/ogzLIiSvATS+O1M6l4yHvly+bOUjSZcv
+	YVAagHvTMMT5a6ac4iCaZCL5s993hMMNTFSEVoqzmdaNWUJSADp9Op17dzj6img=
+X-Gm-Gg: ASbGncuZOhlFHs9ikkY42JriiFJLiYMW7ySKa8KBC0BReB7bvivWFm10Avtmdk0Mn5i
+	IayvEbcut1dHmyL4Aj11+9rP+j9x7+yR9y4MaM0MX4o8ANxWOWNcRrwbZRcQFBI02ok9xpHR48m
+	zYy4xCdkupWcQQTJPwUihLvEsp2IMfy7a+xhPVgMeKwv1NQ9O1uZ6d3ptE5sTmmZNGjRe82+SMm
+	Bm8PnuFCQaEoXCd1Tigtu+KY7YvVQ0nb7y0IUbnY7buAHF04M70p8IVahykcw==
+X-Google-Smtp-Source: AGHT+IHHCRSsCNB3Pr//Zs9JSCQC5BMsN2QD0gja4Pnf4e3R/D/iBTCkc6sIgLA7rH4i2gWt+Va7zw==
+X-Received: by 2002:a05:600c:138a:b0:434:9d62:aa23 with SMTP id 5b1f17b1804b1-4389142e88dmr14685205e9.20.1737103098043;
+        Fri, 17 Jan 2025 00:38:18 -0800 (PST)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-437c0f03984sm81066365e9.0.2025.01.17.00.38.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Jan 2025 00:34:28 -0800 (PST)
-Date: Fri, 17 Jan 2025 08:34:20 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jgg@ziepe.ca,
-	nicolinc@nvidia.com, mshavit@google.com, smostafa@google.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, kernel@collabora.com
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Include string_choices.h header for
- str_read_write
-Message-ID: <Z4oWDGaXpY-PPkqr@google.com>
-References: <20250116121025.118464-1-angelogioacchino.delregno@collabora.com>
+        Fri, 17 Jan 2025 00:38:17 -0800 (PST)
+Date: Fri, 17 Jan 2025 11:38:14 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: oe-kbuild@lists.linux.dev,
+	Christian Bruel <christian.bruel@foss.st.com>, vkoul@kernel.org,
+	kishon@kernel.org, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, p.zabel@pengutronix.de,
+	linux-phy@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	fabrice.gasnier@foss.st.com
+Cc: lkp@intel.com, oe-kbuild-all@lists.linux.dev,
+	Christian Bruel <christian.bruel@foss.st.com>
+Subject: Re: [PATCH v2] phy: stm32: Optimize tuning values from DT.
+Message-ID: <d40db5ae-5db8-4541-8d20-e7bacef4ecf2@stanley.mountain>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250116121025.118464-1-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20250113092001.1344151-1-christian.bruel@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_003430_901962_FFFEB98D 
-X-CRM114-Status: GOOD (  15.65  )
+X-CRM114-CacheID: sfid-20250117_003819_878510_63EDEE17 
+X-CRM114-Status: UNSURE (   9.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,33 +102,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 16, 2025 at 01:10:25PM +0100, AngeloGioacchino Del Regno wrote:
-> The str_read_write() helper function is defined in the missing
-> string_choices.h header: include it to resolve build failures.
-> 
-> Fixes: f2c77f6e41e6 ("iommu/arm-smmu-v3: Use str_read_write helper w/ logs")
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index 0e4cbb2c64d7..a0e395da8a88 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -26,6 +26,7 @@
->  #include <linux/pci.h>
->  #include <linux/pci-ats.h>
->  #include <linux/platform_device.h>
-> +#include <linux/string_choices.h>
->  #include <kunit/visibility.h>
->  #include <uapi/linux/iommufd.h>
->  
-Hi Angelo,
+Hi Christian,
 
-This change has been applied to the arm/smmu/updates branch and should
-be available in the -next when the maintainers rebuild the branch.
+kernel test robot noticed the following build warnings:
 
-Thanks,
-Praan
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Christian-Bruel/phy-stm32-Optimize-tuning-values-from-DT/20250113-172435
+base:   v6.13-rc7
+patch link:    https://lore.kernel.org/r/20250113092001.1344151-1-christian.bruel%40foss.st.com
+patch subject: [PATCH v2] phy: stm32: Optimize tuning values from DT.
+config: arm-randconfig-r071-20250117 (https://download.01.org/0day-ci/archive/20250117/202501171619.0XDYDyBZ-lkp@intel.com/config)
+compiler: arm-linux-gnueabi-gcc (GCC) 14.2.0
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
+| Closes: https://lore.kernel.org/r/202501171619.0XDYDyBZ-lkp@intel.com/
+
+New smatch warnings:
+drivers/phy/st/phy-stm32-combophy.c:147 stm32_impedance_tune() error: buffer overflow 'imp_lookup' 8 <= 8 (assuming for loop doesn't break)
+drivers/phy/st/phy-stm32-combophy.c:564 stm32_combophy_probe() warn: passing zero to 'dev_err_probe'
+
+vim +147 drivers/phy/st/phy-stm32-combophy.c
+
+31219ca5436f01 Christian Bruel 2025-01-13  119  static void stm32_impedance_tune(struct stm32_combophy *combophy)
+47e1bb6b4ba098 Christian Bruel 2024-09-30  120  {
+47e1bb6b4ba098 Christian Bruel 2024-09-30  121  	u8 imp_of, vswing_of;
+2de679ecd724b8 Arnd Bergmann   2024-11-11  122  	u32 regval;
+47e1bb6b4ba098 Christian Bruel 2024-09-30  123  
+31219ca5436f01 Christian Bruel 2025-01-13  124  	if (combophy->microohm) {
+2de679ecd724b8 Arnd Bergmann   2024-11-11  125  		regval = 0;
+2de679ecd724b8 Arnd Bergmann   2024-11-11  126  		for (imp_of = 0; imp_of < ARRAY_SIZE(imp_lookup); imp_of++) {
+31219ca5436f01 Christian Bruel 2025-01-13  127  			if (imp_lookup[imp_of].microohm <= combophy->microohm) {
+2de679ecd724b8 Arnd Bergmann   2024-11-11  128  				regval = FIELD_PREP(STM32MP25_PCIEPRG_IMPCTRL_OHM, imp_of);
+47e1bb6b4ba098 Christian Bruel 2024-09-30  129  				break;
+2de679ecd724b8 Arnd Bergmann   2024-11-11  130  			}
+2de679ecd724b8 Arnd Bergmann   2024-11-11  131  		}
+
+If we don't hit the break sttaement above
+
+47e1bb6b4ba098 Christian Bruel 2024-09-30  132  
+47e1bb6b4ba098 Christian Bruel 2024-09-30  133  		dev_dbg(combophy->dev, "Set %u micro-ohms output impedance\n",
+47e1bb6b4ba098 Christian Bruel 2024-09-30  134  			imp_lookup[imp_of].microohm);
+                                                                                   ^^^^^^
+Then this is an out of bounds access.
+
+47e1bb6b4ba098 Christian Bruel 2024-09-30  135  
+47e1bb6b4ba098 Christian Bruel 2024-09-30  136  		regmap_update_bits(combophy->regmap, SYSCFG_PCIEPRGCR,
+47e1bb6b4ba098 Christian Bruel 2024-09-30  137  				   STM32MP25_PCIEPRG_IMPCTRL_OHM,
+2de679ecd724b8 Arnd Bergmann   2024-11-11  138  				   regval);
+47e1bb6b4ba098 Christian Bruel 2024-09-30  139  	} else {
+31219ca5436f01 Christian Bruel 2025-01-13  140  		/* default is 50 ohm */
+31219ca5436f01 Christian Bruel 2025-01-13  141  		imp_of = 3;
+47e1bb6b4ba098 Christian Bruel 2024-09-30  142  	}
+47e1bb6b4ba098 Christian Bruel 2024-09-30  143  
+31219ca5436f01 Christian Bruel 2025-01-13  144  	if (combophy->microvolt) {
+2de679ecd724b8 Arnd Bergmann   2024-11-11  145  		regval = 0;
+2de679ecd724b8 Arnd Bergmann   2024-11-11  146  		for (vswing_of = 0; vswing_of < ARRAY_SIZE(imp_lookup[imp_of].vswing); vswing_of++) {
+31219ca5436f01 Christian Bruel 2025-01-13 @147  			if (imp_lookup[imp_of].vswing[vswing_of] >= combophy->microvolt) {
+2de679ecd724b8 Arnd Bergmann   2024-11-11  148  				regval = FIELD_PREP(STM32MP25_PCIEPRG_IMPCTRL_VSWING, vswing_of);
+47e1bb6b4ba098 Christian Bruel 2024-09-30  149  				break;
+2de679ecd724b8 Arnd Bergmann   2024-11-11  150  			}
+2de679ecd724b8 Arnd Bergmann   2024-11-11  151  		}
+47e1bb6b4ba098 Christian Bruel 2024-09-30  152  
+47e1bb6b4ba098 Christian Bruel 2024-09-30  153  		dev_dbg(combophy->dev, "Set %u microvolt swing\n",
+47e1bb6b4ba098 Christian Bruel 2024-09-30  154  			 imp_lookup[imp_of].vswing[vswing_of]);
+47e1bb6b4ba098 Christian Bruel 2024-09-30  155  
+47e1bb6b4ba098 Christian Bruel 2024-09-30  156  		regmap_update_bits(combophy->regmap, SYSCFG_PCIEPRGCR,
+47e1bb6b4ba098 Christian Bruel 2024-09-30  157  				   STM32MP25_PCIEPRG_IMPCTRL_VSWING,
+2de679ecd724b8 Arnd Bergmann   2024-11-11  158  				   regval);
+47e1bb6b4ba098 Christian Bruel 2024-09-30  159  	}
+47e1bb6b4ba098 Christian Bruel 2024-09-30  160  }
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
+
 
