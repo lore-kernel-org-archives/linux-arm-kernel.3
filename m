@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DBDEC02185
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 14:54:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6735C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 15:01:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lMqpmp1O4101DvFmcALTjKTLSkoLnbYkEaaZzKI+2xQ=; b=PZz8+i5sHr0bA0jePpYPUNkm+E
-	Y5hKrK9J+r+evJ9qyzHwYCSBasPfa2+fMMwzEJc5tscNVVKljY7omZj/OqnTASIY1JedYuUVPTQRB
-	ULuLflWDxD+WpflElsFz+988WKGMxCQv6lRm/2XqIpiMuqjHy9OSxer369w/AmrD3wrLOsNkW4RP4
-	TGD3QtPeULW6Y6/HRA/WoDKljCZCc+HBIjrZnbBCIlxtzZ9ISWUtpKvBvQjK9J8/c/46RcHRAoBPl
-	YaniSMH8YAcmprxAldzGpIqIKYCmwcVXF7ZsUI0FCpaFfP7Q6F6tRpZPSIm14nhpfAAXYFqna4plK
-	+rfRlZJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RCs6jYL50ZTyaIsaRrcOt9TiyXp8vt35lNPm97nVCIQ=; b=orcRliNh+R5zVWpqyQ7I0dSS3G
+	oW5llRWyBD3hormgB0SMzN6CpkJTvzbltlSIkPqHz0Q+1FGWGauXiC5E+exUecvXTC994oxLuHsH5
+	SGYw3sJcw8yq2E7/6wNb3rap2V5LfJ3hqaFIlW5MthAZ8L2jDfFxqnwUSIzBSDjc8q+5aJ1gZ03vd
+	uj380s6gxZghXhjMi5UJ6Elbxyjs5CW3SOiO3exQRguAl4ZwYOSO9nQHY08bhTO2Z0afThHAdZyiX
+	OgpYeH/7qy11Q5ElWuGV7DOQ8ucpVV2/O8JzBsvSH8nY5KhsbJ8Gyrx6Ojtg+8gc6zKARrwHvVkYr
+	b8xDULgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYnk3-00000000XVV-02Se;
-	Fri, 17 Jan 2025 14:54:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYni8-00000000X2g-2iFk;
-	Fri, 17 Jan 2025 14:52:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6A7931476;
-	Fri, 17 Jan 2025 06:53:03 -0800 (PST)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D21683F73F;
-	Fri, 17 Jan 2025 06:52:30 -0800 (PST)
-Date: Fri, 17 Jan 2025 14:52:28 +0000
-From: Andre Przywara <andre.przywara@arm.com>
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Andras Szemzo <szemzo.andras@gmail.com>, Michael Turquette
- <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Philipp
- Zabel <p.zabel@pengutronix.de>, Maxime Ripard <mripard@kernel.org>, Vinod
- Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Ulf
- Hansson <ulf.hansson@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Uwe
- =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <u.kleine-koenig@baylibre.com>, Florian
- Fainelli <florian.fainelli@broadcom.com>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 03/12] pinctrl: sunxi: add driver for Allwinner V853.
-Message-ID: <20250117145228.2fc8a64e@donnerap.manchester.arm.com>
-In-Reply-To: <CACRpkdYVTedEon0X-izvaDTGF6yRhD2s=Z6NEM=zBf4vD-T0Pg@mail.gmail.com>
-References: <20250110123923.270626-1-szemzo.andras@gmail.com>
-	<20250110123923.270626-4-szemzo.andras@gmail.com>
-	<20250114141954.2785879a@donnerap.manchester.arm.com>
-	<CACRpkda0nx3SQtdjmXdCEbVJSWM10TM=p-6JbDjbiYcOSF5PxQ@mail.gmail.com>
-	<20250115152635.1b89e7f4@donnerap.manchester.arm.com>
-	<CACRpkdYVTedEon0X-izvaDTGF6yRhD2s=Z6NEM=zBf4vD-T0Pg@mail.gmail.com>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+	id 1tYnqV-00000000YOA-3ODo;
+	Fri, 17 Jan 2025 15:01:15 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tYnpD-00000000Y4N-17dl
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Jan 2025 14:59:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1737125995; x=1768661995;
+  h=date:from:to:cc:subject:message-id;
+  bh=6uSUmqCHDhkhic8m0DmaqpH3vFNCotDg0/XRso2xU3c=;
+  b=bFMPaQD+doc/jNu8y7ud98ofwiW/SUNJpB6M8iN4j0huIU8Z2E3+1YM4
+   t6P0c+MfsLJxLnCdU2qI/YaWMW+g185ezcQBH8cI+ZCdoYBnCI9E/Sz9a
+   BfPWP4J8nxZU18SnFofL1evd/80u+CSM/CVPsQUzjsyq3L/cn72EROvfk
+   ZpPQqfrQs33peA38D+Pewx7hhWZlLWFGulBPsFznnIl17xe67R5yHk8t4
+   vGa+Po3EkKdFs6ueWjAEJbpemfo7pPuZDkhLHYdk6UKrJ8EqGuq7ShOd0
+   BjGBPN5jRYYErN+hxPif2/aQiakdYQBcV1yFnQBm3u8SoEQvZyR0glTjG
+   Q==;
+X-CSE-ConnectionGUID: MoS40mQFQKyPxSuE7OSyRg==
+X-CSE-MsgGUID: yMX7tg5fQpeD6jdT4/sg3A==
+X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="48976192"
+X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
+   d="scan'208";a="48976192"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jan 2025 06:59:55 -0800
+X-CSE-ConnectionGUID: otQFb2QYSsiSDh2bRXvnPg==
+X-CSE-MsgGUID: gFSItnA3Rwy5FfdVVNBqKA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,212,1732608000"; 
+   d="scan'208";a="105875235"
+Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
+  by orviesa006.jf.intel.com with ESMTP; 17 Jan 2025 06:59:53 -0800
+Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tYnp9-000TLk-0a;
+	Fri, 17 Jan 2025 14:59:51 +0000
+Date: Fri, 17 Jan 2025 22:59:47 +0800
+From: kernel test robot <lkp@intel.com>
+To: Nishanth Menon <nm@ti.com>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:ti/dt] BUILD SUCCESS
+ 5532b8a9ce0e80514e37a1e082824934663580a3
+Message-ID: <202501172241.xkcFH4FB-lkp@intel.com>
+User-Agent: s-nail v14.9.24
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_065236_777119_9553E68D 
-X-CRM114-Status: GOOD (  77.38  )
+X-CRM114-CacheID: sfid-20250117_065955_344865_42137044 
+X-CRM114-Status: UNSURE (   5.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,247 +83,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 16 Jan 2025 10:34:26 +0100
-Linus Walleij <linus.walleij@linaro.org> wrote:
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git ti/dt
+branch HEAD: 5532b8a9ce0e80514e37a1e082824934663580a3  arm64: dts: ti: k3-am62a-wakeup: Configure ti-sysc for wkup_uart0
 
-Hi Linus,
+elapsed time: 1449m
 
-> some nice talk here, actually the following is just opinions, I will
-> be likely happy with whatever approach is taken eventually.
+configs tested: 93
+configs skipped: 1
 
-it's indeed an intriguing discussion, made me think a bit ...
-And thanks for describing your maintainer's view, that's definitely
-helpful.
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-> On Wed, Jan 15, 2025 at 4:26=E2=80=AFPM Andre Przywara <andre.przywara@ar=
-m.com> wrote:
->=20
-> > > pio: pinctrl@1c20800 {
-> > >                         compatible =3D "allwinner,sun8i-r40-pinctrl";
-> > > (...)
-> > >                         i2c0_pins: i2c0-pins {
-> > >                                 pins =3D "PB0", "PB1";
-> > >                                 function =3D "i2c0";
-> > >                         };
-> > >
-> > > abstract, strings, nice. The driver handles the particulars. =20
-> >
-> > What bugs me about this it that this has quite some seemingly redundant
-> > information (Who would have thought that the i2c0 pins use function
-> > "i2c0"?), but misses out on the actual 4 bits(!) of information. =20
->=20
-> the pins in this example are called PB0 and PB1 though. The designation
-> on the package. And often pins actually named "i2c0_1" "i2c0_2" are
-> for that primary function, but muxable to a few other functions,
-> at least GPIO in most cases. So it's just some name for the pin
-> really.
+tested configs:
+alpha                             allnoconfig    gcc-14.2.0
+arc                              allmodconfig    gcc-13.2.0
+arc                               allnoconfig    gcc-13.2.0
+arc                               allnoconfig    gcc-14.2.0
+arc                              allyesconfig    gcc-13.2.0
+arc                   randconfig-001-20250117    gcc-13.2.0
+arc                   randconfig-002-20250117    gcc-13.2.0
+arm                              allmodconfig    gcc-14.2.0
+arm                               allnoconfig    clang-17
+arm                               allnoconfig    gcc-14.2.0
+arm                              allyesconfig    gcc-14.2.0
+arm                            mps2_defconfig    clang-15
+arm                   randconfig-001-20250117    clang-18
+arm                   randconfig-002-20250117    gcc-14.2.0
+arm                   randconfig-003-20250117    gcc-14.2.0
+arm                   randconfig-004-20250117    clang-16
+arm64                             allnoconfig    gcc-14.2.0
+arm64                 randconfig-001-20250117    gcc-14.2.0
+arm64                 randconfig-002-20250117    clang-18
+arm64                 randconfig-003-20250117    clang-20
+arm64                 randconfig-004-20250117    gcc-14.2.0
+csky                              allnoconfig    gcc-14.2.0
+csky                  randconfig-001-20250116    gcc-14.2.0
+csky                  randconfig-002-20250116    gcc-14.2.0
+hexagon                           allnoconfig    clang-20
+hexagon                           allnoconfig    gcc-14.2.0
+hexagon               randconfig-001-20250116    clang-20
+hexagon               randconfig-002-20250116    clang-20
+i386                             alldefconfig    gcc-12
+i386        buildonly-randconfig-001-20250116    clang-19
+i386        buildonly-randconfig-002-20250116    clang-19
+i386        buildonly-randconfig-003-20250116    clang-19
+i386        buildonly-randconfig-004-20250116    clang-19
+i386        buildonly-randconfig-005-20250116    clang-19
+i386        buildonly-randconfig-006-20250116    clang-19
+loongarch                         allnoconfig    gcc-14.2.0
+loongarch             randconfig-001-20250116    gcc-14.2.0
+loongarch             randconfig-002-20250116    gcc-14.2.0
+m68k                              allnoconfig    gcc-14.2.0
+microblaze                        allnoconfig    gcc-14.2.0
+mips                              allnoconfig    gcc-14.2.0
+nios2                            alldefconfig    gcc-14.2.0
+nios2                             allnoconfig    gcc-14.2.0
+nios2                 randconfig-001-20250116    gcc-14.2.0
+nios2                 randconfig-002-20250116    gcc-14.2.0
+openrisc                          allnoconfig    gcc-14.2.0
+openrisc                         allyesconfig    gcc-14.2.0
+parisc                           allmodconfig    gcc-14.2.0
+parisc                            allnoconfig    gcc-14.2.0
+parisc                           allyesconfig    gcc-14.2.0
+parisc                randconfig-001-20250116    gcc-14.2.0
+parisc                randconfig-002-20250116    gcc-14.2.0
+powerpc                          allmodconfig    gcc-14.2.0
+powerpc                           allnoconfig    gcc-14.2.0
+powerpc               randconfig-001-20250116    clang-20
+powerpc               randconfig-002-20250116    gcc-14.2.0
+powerpc               randconfig-003-20250116    clang-20
+powerpc64             randconfig-001-20250116    clang-19
+powerpc64             randconfig-002-20250116    clang-20
+powerpc64             randconfig-003-20250116    clang-15
+riscv                             allnoconfig    gcc-14.2.0
+riscv                 randconfig-001-20250117    gcc-14.2.0
+riscv                 randconfig-002-20250117    gcc-14.2.0
+s390                             allmodconfig    clang-19
+s390                              allnoconfig    clang-20
+s390                             allyesconfig    gcc-14.2.0
+s390                  randconfig-001-20250117    gcc-14.2.0
+s390                  randconfig-002-20250117    clang-20
+sh                               allmodconfig    gcc-14.2.0
+sh                                allnoconfig    gcc-14.2.0
+sh                               allyesconfig    gcc-14.2.0
+sh                    randconfig-001-20250117    gcc-14.2.0
+sh                    randconfig-002-20250117    gcc-14.2.0
+sparc                            allmodconfig    gcc-14.2.0
+sparc                             allnoconfig    gcc-14.2.0
+sparc                 randconfig-001-20250117    gcc-14.2.0
+sparc                 randconfig-002-20250117    gcc-14.2.0
+sparc64               randconfig-001-20250117    gcc-14.2.0
+sparc64               randconfig-002-20250117    gcc-14.2.0
+um                                allnoconfig    clang-18
+um                    randconfig-001-20250117    clang-20
+um                    randconfig-002-20250117    gcc-12
+x86_64                            allnoconfig    clang-19
+x86_64      buildonly-randconfig-001-20250117    gcc-12
+x86_64      buildonly-randconfig-002-20250117    gcc-12
+x86_64      buildonly-randconfig-003-20250117    gcc-12
+x86_64      buildonly-randconfig-004-20250117    gcc-12
+x86_64      buildonly-randconfig-005-20250117    gcc-12
+x86_64      buildonly-randconfig-006-20250117    clang-19
+x86_64                              defconfig    gcc-11
+xtensa                            allnoconfig    gcc-14.2.0
+xtensa                randconfig-001-20250117    gcc-14.2.0
+xtensa                randconfig-002-20250117    gcc-14.2.0
 
-Sure, there is information in the form that marks those two pins for
-being usable as I2C pins. But I feel like the function parameter is not
-living up to its promise (see below).
-
-> > > That is like so because we are designing for users which are
-> > > let's say customization engineers. If these engineers jump from
-> > > project to project matching function strings to group strings will
-> > > be a common way to set up pins, and easy to understand and
-> > > grasp, and it makes the DTS very readable. =20
-> >
-> > That's an interesting view, and I see the point of it being easy to rea=
-d,
-> > but this is partly because it doesn't convey too much actual informatio=
-n,
-> > does it, as it requires another lookup or two.
-> > And the pinctrl group nodes are actually in the .dtsi file, which are
-> > typically written once during the initial SoC enablement, and new board
-> > .dts files normally just reference the existing pingroup nodes. So anyo=
-ne
-> > dealing with just a new board is not bothered by this. =20
->=20
-> You have a point, and when working with a system the application
-> engineer often finds bugs in the pin control driver, and has to go
-> and fix the actual driver and then all the information hiding and
-> simplification is moot.
->=20
-> This can become an expensive lesson for the current attempts
-> to push pin control into firmware where the configuration is
-> mostly "dead simple" (and just using strings) - the bugs will be
-> in the firmware instead, and impossible or really hard to fix.
-
-... in that old embedded world where firmware is an opaque closed source
-unfixable blob. Mainline Allwinner is all "organic": we have upstreamed
-U-Boot and TF-A support, actively maintained, plus an Open Source
-management firmware. Updating the firmware is a matter of "dd" or
-"flashcp" - at least in theory. And I'd rather think of the kernel being
-not easy to change - think Debian installer image, or getting it upstream
-first, then backported, then picked up by a distro.
-But I think this discussion slightly digresses here - at least following it
-would double the length of this email ;-)
-
-> > Also in my experience most people have no problems in understanding the
-> > concept of pinmuxing and that there is a selector number, also where to
-> > find this. =20
->=20
-> Yeah the ambition with the strings was to avoid forcing application
-> engineers to know all about that. If they do, they are then
-> developing the driver, not just using it.
-
-I'd argue that an application engineer just has to choose the right
-pingroup DT node:
-	pinctrl-0 =3D <&i2c2_pb_pins>;
-In the worst case they go ahead and ask their hardware buddy, and create
-a new pingroup node. In my experience the typical Allwinner users are more
-on the hardware side, so are no strangers to looking up data sheets.
-
-> > > Mediatek and STM32 made a compromise by using pinmux
-> > > and adding some macros to define them so it looks more
-> > > pleasant:
-> > >
-> > >       i2c0_pins_a: i2c0-default {
-> > >                 pins-i2c0 {
-> > >                         pinmux =3D <MT7623_PIN_75_SDA0_FUNC_SDA0>,
-> > >                                  <MT7623_PIN_76_SCL0_FUNC_SCL0>; =20
-> >
-> > Well, I don't really get why they don't use the (MTK_PIN_NO(75) | 1)
-> > definition directly, seems to be more telling to me? =20
->=20
-> That's what STM32 does as well and it's usable.
->=20
-> But of course it drives a truck through the initial ambition that pins
-> on all systems be configured the same way, with strings. So now
-> there are some families of drivers all "necessarily different" which
-> is not so nice for people jumping between different SoCs, but
-> very compelling for people focusing on just one SoC.
-
-Ah, I think I get your point.
-
-> Well, unless this way of doing things becomes so prevalent that
-> it's the new black.
-
-That is actually a good argument: At the moment I am happy with my
-proposal (the allwinner,pinmux =3D <number>; property), but that seems like
-standard #15 then.
-So would biting the bullet and adopting the Apple/STM32 way then be more
-sustainable?
-On the other hand: the allwinner,pinmux solution has the advantage of being
-already written and proven working, also it stays very close to the
-existing description/binding - so implementations like U-Boot could just
-keep on using the "function" string.
-
-I am a bit torn here... I don't think I will find the solitude to
-implement this "Apple" approach in the next few weeks.
-
-> > So the plan for sunxi would be: <SUNXI_PINMUX(PORTC, 23, MUX_1)>, ...
-> > And this would not be really "opaque", since it has a fixed known mappi=
-ng:
-> >         (port << 16) | (pin << 8) | (mux << 0))
-> > I find this both technically elegant, because it combines all the
-> > information into just one compact cell, but also readable by outsiders,
-> > thanks to the macro. =20
->=20
-> And a new standard, to add to the other standards, so that
-> is my problem as maintainer. It makes sense on its own, and it
-> complicates the bigger picture.
-
-I see your point - xkcd 927.
-
-> > My main arguments against the current (string-based) approach:
-> > - They require the mapping table to be in every DT user, so not only the
-> >   Linux kernel, but also U-Boot, FreeBSD, you name it... =20
->=20
-> That's true.
->=20
-> This comes from the DT ambition to describe hardware and config,
-> but not *define* hardware, i.e. to stop device tree to turn into
-> Verilog or SystemC, which is what will happen if we take the
-> 1:1 reflection of hardware to device tree too far.
->=20
-> I don't think anyone really knows where to cut the line.
-
-That's true, and I learned to step back from this ambition - it's
-tempting, but indeed out of scope.
-One thing to consider, though: the function names are effectively part of
-the binding, since they must match exactly between the driver and DT - it's
-not just a name. But they are documented nowhere. Names like "i2c0" or
-"uart2" seem obvious, but there are ambiguities like "twi" vs "i2c" (the
-former used in the vendor BSP), or "owa" vs "spdif" (same situation).
-Also, is it "emac" or "emac0"? For some SoCs we discover a second
-interface later: A523 just exposes one EMAC, but the A527 package (same
-die) provides the pins for the second MAC as well. So I am afraid strings
-are not as unique or straight-forward as we hope for.
-
-So for creating a new pingroup, an application engineer would need to
-check the Linux driver (or U-Boot? Or FreeBSD?) for the name to use - that
-sounds somewhat wrong to me.
-In the new model they just create a unique function name and enter the
-pinmux from the datasheet - I think that's not too much to ask?
-
-> > - The tables are getting quite large, and they pollute the single image
-> >   Linux kernel, with tons of very specific information for a number of =
-very
-> >   pitiful Allwinner SoCs. At the moment the tally is at 145KB of code+d=
-ata
-> >   for the existing arm64 SoCs, with the newer SoCs ever growing (H616 a=
-lone
-> >   is 27KB, A523 would be quite larger even, I guess 40K). The new A523
-> >   specific pinctrl support adds 872 Bytes. =20
->=20
-> This is a generic problem though, look at GPU drivers.
-
-Yes, but for GPUs there is good rationale (because they are big
-complicated pieces of hardware), and they are easily put into modules.
-Pinctrl on the other hand is essential for *any* device to come up
-(UART!), so having them in the image makes things much easier. Also
-Allwinner pinctrl devices are not nearly as sexy as a Radeon or Geforce ;-)
-
-> The community (especially Android) seem set on fixing this by using
-> modules.
->=20
-> > - Most of the mappings are untested at pinctrl driver commit time, sinc=
-e we
-> >   don't have the device drivers ready yet - by a margin. The new approa=
-ch
-> >   would add the pinmux values when we need them and can test them. =20
->=20
-> I like this argument the best.
->=20
-> However this also reads "upfront firmware to handle pin control is a
-> dead end" yet there are people dedicatedly working on exactly that.
-> (Not that its' the Allwinner developers' problem...)
-
-I see, but I feel it's an orthogonal problem, and relies on the a
-pessimistic firmware view (see above).
-Having those gory SoC specific details in firmware (which is by
-definition device specific) solves one big problem, though: there is a
-chance that existing kernels would already run on new SoCs/boards.
-But again: different discussion thread, I guess, and not what I ask for.
-
-> > - The comments in the table give away that something is not quite right:
-> >                   SUNXI_FUNCTION(0x2, "i2c0")),         /* SDA */
-> >   This is just a comment, so has no relevance for the code, but it's not
-> >   meant for humans either. Yet we try to make this correct and maintain
-> >   it. Odd. =20
->=20
-> So i2c0 is SDA and i2c1 is SCL or something?
-
-No, sorry, I cut out too much, it looks like this:
-
-	SUNXI_PIN(SUNXI_PINCTRL_PIN(I, 5),
-		  SUNXI_FUNCTION(0x5, "i2c0"),		/* SCK */
-		...
-        SUNXI_PIN(SUNXI_PINCTRL_PIN(I, 6),
-		  SUNXI_FUNCTION(0x5, "i2c0"),		/* SDA */
-		...
-        SUNXI_PIN(SUNXI_PINCTRL_PIN(I, 7),
-		  SUNXI_FUNCTION(0x5, "i2c1"),		/* SCK */
-		...
-        SUNXI_PIN(SUNXI_PINCTRL_PIN(I, 8),
-		  SUNXI_FUNCTION(0x5, "i2c1"),		/* SDA */
-
-So the function just selects the group, and the actual pin name is
-completely irrelevant to the software side - hence the comment.
-But this "put something not meant for the human reader into a comment"
-typically points to something not being quite right.
-
-Cheers,
-Andre
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
