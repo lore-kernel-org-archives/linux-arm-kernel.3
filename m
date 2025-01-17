@@ -4,154 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F509C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 01:56:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AE74C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 02:33:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hpQhF1Eu3o5/dVcEBvFi4uqy64IBZ4EGdR7QRq2M8j0=; b=iKljwRXIKWXev9mynqxOy7BAaS
-	dVtVN0EIkLUx8MnDNirLTXRm9dFBEhq9ZIx40YZdaSmV5SscC5GDNfsRXlWVRr9kKRql2leT4DPKd
-	wW2l27FraiN+kjSrWiJfHsMT7noypnyZRMIej7c3efXr55xNGXLjUomlkw+SqyOl9/EcGhnPd32pO
-	a9e2eIi7J65h4lFkCsTkdAY07uAZtTv68Qw9OCHMcKL0BJnwhFTsL5feBIF6Yt+3pmbHB6iBbJNL1
-	j2VUmvNMpyYzExARZPynRNVQbTWjrXEJiMhLr4X6i3kjtAHIHsf6WS8YusE3tgkYXmImx6NKzlzZC
-	3vAsbqZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UziHbSF8WfndcUms+/PlZrK9Xuka7vaeBvfuVNRCKfk=; b=ckhL8ncBYz2Iw9C1oA8lHSTv0e
+	EaljIzX9QaEAvI9GnPLy36XoQhQEmzDgvZyou6PkBv55NCporH0LqULBqAItNpr051PGA0ZFdzEVi
+	YXyBMJEzfTyfuQPXRXxPoGOMTKT5+0Rc+HAhL+9nXq30qf6/1eenj1NCyzH3+kymhGn7bPqfQqj+J
+	QKolTKWdeUKKDEbFB/jlzKCBCG3DvRW/ASqL7rflE0TCBlHVTNOjkQieRfZdRbtkTaV4UYCUwmTeM
+	sLx7V5wcdKvRLRvtIyBUFoEUVopb4U9bDGW8N4otJCA2dYXIII/4GmeNMVgWe0G11SbbyUMMxOxZB
+	wkZDQ9hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYbal-0000000GolK-3cbP;
-	Fri, 17 Jan 2025 01:56:11 +0000
-Received: from mail-dm6nam11on20613.outbound.protection.outlook.com ([2a01:111:f403:2415::613] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	id 1tYcB2-0000000Grdc-2eNT;
+	Fri, 17 Jan 2025 02:33:40 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYbZV-0000000GoaU-2hH5
+	id 1tYc9l-0000000GrVs-0A6q
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jan 2025 01:54:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=p0Ndik2jUJLLqNfyDZDeLNl0yWLbsxxOHUlriBEB06QDE/IY/XeEYPywChj79cZiPLeeR739wTHdhuXQ5Gw1pjs/X+rqbMW/0QZc9+uplc+Mc5+tvANDto7jlrNoYJW818Rt16/IPpSnvKPArDJ4uB6JPrPJA9dLiKZBmnyo7cGZ55rW0m/Cl9YHC/vWQNzfTSRx0ikGLmbyrQYqjKDzHxfFE0lcWS5cxp3vjSKnp1FHsv0KPZy3We+OfLKpsY8mkB9Of+gUDMe2+nJ4LJLrkFKs+v+4B4vrLMGN0hZibwcFzgmD5UM2fFhKUMTo+QY5MrWGEinlw1NPNHpYv+NJBA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hpQhF1Eu3o5/dVcEBvFi4uqy64IBZ4EGdR7QRq2M8j0=;
- b=IVSCvIVGZLKTUl3fFU4IN83os37u9e4oqQ+5wsZGJ6In+mLN7hOdNiPcIFmvYzBdLywWf12kNP/sEkBTTyrocd82yS3kYucLN8B6gBV9zo3KhUo8XbWflLXgngUTyFEQzoUHIjpvkQsjfGUKdtXYrq37UhyP5a2mkfhPO9pzYdBIFoKrs2TtisAZheLCeUJxaerV8aB4cyLauKNEhkTrvzYTpnUblRyCCn04mCd0t+YOu8F5fiVIu41oh8lvaiXaSYlpB4QfYgiPQW5ie9L/ko5BUaHkxfF02+RpUj8s9wIDzLxXrbmqRUXZjMgmZUM49RL08X1gZ13yO/FWPn1pMw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hpQhF1Eu3o5/dVcEBvFi4uqy64IBZ4EGdR7QRq2M8j0=;
- b=kcReJsJhU7OvOX+s02NrSJrEIy8pDI8zLOE3MnXnlPKiGn2ldR/cS69jj9AiVXJZc/pEVfEUuYAzvTEqQ7ReDo9yGFTCshtTddiWCm5eakx1+K+j+xCgR+zpT+kjdO/J3bTVvcuE5cAARiW5xtlBU1HcIdAeTfv48RffJyUcUXhut4r/kaDujDgwCWnCHpmsDEbjXT4xeKIqIDaXfp80iSZz6Mha/eBA6tzco7fyCEvEyqSdbQWGTzKzIfZJpruxZXoG1QniHubLHx0WKUf0gox6c8C2oNihuBk7RQ/F7V4XRwMQOmPdckNCvEl2SIayMC6fPGyTm7xsXnOcr6sJzg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DS0PR12MB7726.namprd12.prod.outlook.com (2603:10b6:8:130::6) by
- DS0PR12MB8272.namprd12.prod.outlook.com (2603:10b6:8:fc::7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8356.13; Fri, 17 Jan 2025 01:54:46 +0000
-Received: from DS0PR12MB7726.namprd12.prod.outlook.com
- ([fe80::953f:2f80:90c5:67fe]) by DS0PR12MB7726.namprd12.prod.outlook.com
- ([fe80::953f:2f80:90c5:67fe%7]) with mapi id 15.20.8356.010; Fri, 17 Jan 2025
- 01:54:46 +0000
-Date: Fri, 17 Jan 2025 12:54:42 +1100
-From: Alistair Popple <apopple@nvidia.com>
-To: Dan Williams <dan.j.williams@intel.com>, a@nvdebian.thelocal
-Cc: akpm@linux-foundation.org, linux-mm@kvack.org, 
-	alison.schofield@intel.com, lina@asahilina.net, zhang.lyra@gmail.com, 
-	gerald.schaefer@linux.ibm.com, vishal.l.verma@intel.com, dave.jiang@intel.com, 
-	logang@deltatee.com, bhelgaas@google.com, jack@suse.cz, jgg@ziepe.ca, 
-	catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au, npiggin@gmail.com, 
-	dave.hansen@linux.intel.com, ira.weiny@intel.com, willy@infradead.org, djwong@kernel.org, 
-	tytso@mit.edu, linmiaohe@huawei.com, david@redhat.com, peterx@redhat.com, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, nvdimm@lists.linux.dev, 
-	linux-cxl@vger.kernel.org, linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org, 
-	linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de, david@fromorbit.com, 
-	chenhuacai@kernel.org, kernel@xen0n.name, loongarch@lists.linux.dev
-Subject: Re: [PATCH v6 20/26] mm/mlock: Skip ZONE_DEVICE PMDs during mlock
-Message-ID: <2oqithhbrzugwdyucy44ehcl3oumly65oml2ozi5x5cbuj3pxp@empgh6q3buzy>
-References: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
- <e08dfe5ec6a654e8cb48f9203d7406326368f5a6.1736488799.git-series.apopple@nvidia.com>
- <6785cf266ea89_20fa29487@dwillia2-xfh.jf.intel.com.notmuch>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <6785cf266ea89_20fa29487@dwillia2-xfh.jf.intel.com.notmuch>
-X-ClientProxiedBy: SY2PR01CA0020.ausprd01.prod.outlook.com
- (2603:10c6:1:14::32) To DS0PR12MB7726.namprd12.prod.outlook.com
- (2603:10b6:8:130::6)
+	Fri, 17 Jan 2025 02:32:22 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50H2S2Wv030122;
+	Fri, 17 Jan 2025 02:32:06 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	UziHbSF8WfndcUms+/PlZrK9Xuka7vaeBvfuVNRCKfk=; b=D7RUCdgeKaqQ5R3X
+	FdvfveFs1FjldoxLQts0WOXRrF5ZXqWltC7SESvv3F06AMIcv8PuQisJCqcmA52v
+	qj1PXJV/OLqmQqrGsac2uR3g63rS6Sk7xF6Uw2VdZV3t7HQyt7hRFGXBSGBvHjmn
+	enQdGQaVuD/CApkPK97BsKBS/rfxJDxwTb9sDJq/T7ggB2T22rYpzudz4OAYnDhx
+	ENQjxlv6b69UdrOf3sKkFZZmqEspdBbC944zZ8J/25tpRctZ24H9kC+5lMDFrXiS
+	mttzBjJJ91GGcgv78UqO3GZUn1U/Hj9lKbTq/w+bQ4HSOF+b5lwLYn4LkK1n5d/B
+	OfJyxw==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 447eemr0ad-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 17 Jan 2025 02:32:06 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 50H2W57i017865
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 17 Jan 2025 02:32:05 GMT
+Received: from [10.64.68.153] (10.80.80.8) by nalasex01c.na.qualcomm.com
+ (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 16 Jan
+ 2025 18:32:00 -0800
+Message-ID: <31a9a84e-c22d-446e-9082-12b74a1c82e0@quicinc.com>
+Date: Fri, 17 Jan 2025 10:31:57 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR12MB7726:EE_|DS0PR12MB8272:EE_
-X-MS-Office365-Filtering-Correlation-Id: 10aebc8a-4fc3-4fd5-4fc5-08dd3699eb60
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?MWXGs+NOUhX/MZLeCteINhkZxXMkzzQnns/R0OOpV9ii0xc4W/kMuOPdsLQU?=
- =?us-ascii?Q?ZkwAFpc9PaRKZWlelNDKpVvSOyE/2qvw0Inc8O6sXvIKYJ2jyMBFdZ0MX83v?=
- =?us-ascii?Q?5aPmFNheu/C3l2IRpc2U1z4ekxdbXdGJlQha8Gy/uHTpTEX1tO8ynSiihRwv?=
- =?us-ascii?Q?gr3FsEHACSFqTd2Fy3vTgO3tnfqS1M80+vkdWXuRa97vPv+flacKNkP5QHPo?=
- =?us-ascii?Q?rDFZAywmFVbb8eiUOVvM3rOC4+hbQWQk8bxrbGwM0Gn37pcv1/8Ua6QOBGro?=
- =?us-ascii?Q?ANGi8gUuPNZscHQsqqjULvvdjb273COGhOTbWAMaxRE5Pmym6Wc2nEObNKMr?=
- =?us-ascii?Q?j3MjFNdf5T9gctwpY6ZRjXH225oiWwLB3ta0hbkE+fTA2mtroTf/DQDMh0hs?=
- =?us-ascii?Q?yvGu73TYjuMOSa4uVKKZFe3xPLTb/aDhTvRnpUr9JtuJQC65Z3DeBFpjhrJ7?=
- =?us-ascii?Q?3QYTGT4TI4PrtCXXXE2pWb5Ar21xyOoIm8jOv3GRykNVBgPSQ5mx0sl5JjKC?=
- =?us-ascii?Q?DmVMOGbWkpI6N8oBWt592eSEJY1eKM63v8JZwnE9je0IMttKsn93Y97lYfXZ?=
- =?us-ascii?Q?tBoFXSZ2YV1vSWClxU0yGEENzOCiwBTqOLG/LHfTD10jR3atKXUanR3UcVIG?=
- =?us-ascii?Q?+JkjBzxf7I2AryeVw0qvYTJ3tKGGEw4Passf2oItn/84cFOGJYyp/BlXvByc?=
- =?us-ascii?Q?/tfdrUfbeX4w5w++8B0TmBOcjKOMRnYy9U/mEV1DxtGz7fqvz74r5bcrwjNa?=
- =?us-ascii?Q?/z3vBtvO71W2ZbtnUwqXOMKip51mdnwCuzAh3bQgvzg4iQnKKDy5f4t6W579?=
- =?us-ascii?Q?/oVdt1AVKLIAGQfTHDcFugDbDM9+KoNagMq5YqP4hNlcx9Kporr5jdJOp3gT?=
- =?us-ascii?Q?0o+5oGl1fdOtxRVNXKJW0srHxvSlgaHTIyFA7DuCivgnLGdyYIrhRgGwNCZi?=
- =?us-ascii?Q?lSiqKQXbdIrutN1sS4bQ5hwGneOCEa4gsUabr4RI37ISjZHqkt/sv+L1sO77?=
- =?us-ascii?Q?E2NbOp0qFje1RcpDzPWSkkp6InPxHfdwTyRYj2vPBLUUm+bOjnXXTuf91SZi?=
- =?us-ascii?Q?mdGf0LQzQaHBqLBhafnsmBZL5pQOJpDX+IXsM/yU3X6jkAvR8L/o01D1THoH?=
- =?us-ascii?Q?094ooYW7NZAL7dMgwVURv8EA40gWsvQkDckjARmHR5y+9XorS9N816ebi2b8?=
- =?us-ascii?Q?D79Ej1wqCfDFb8QO471k1Yemfdk25K3ULOV2kH42o+m7bWigHEx9s3uehGLk?=
- =?us-ascii?Q?ODbC8qGmY3v7RtOD8RQdLqhfzluKKAQ2uLYmebk7nfCruF9YX4V3OnkNpw/k?=
- =?us-ascii?Q?OB3dQs/2fJACpJtDsWB3hTRxLm7yxLonBt9EXArde44ErT4TS6dqKfUJvDRx?=
- =?us-ascii?Q?fj5/GkrQx8NswsPwbSTpgepLvZ9N?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7726.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7bsvSXwgl/uWpGvhqsCMERpnYm39nGUpRpNvQgR5DvP9vze5FM9N8lk7YHwd?=
- =?us-ascii?Q?1mtVrQQJd3UKGZwscXnE5oo53WeHRhtA5YHCxRFDuFqVeSg4wqgEsFwg57fF?=
- =?us-ascii?Q?D64R5n09sr0WyR10Rod7+hSuHKHQ7zdoqnL9377Be7Eu31OgKYzLcwe4xpTy?=
- =?us-ascii?Q?nz6nFMgUdq6XCIRV48dcB1wxY2yRvf6DIK18evmKivq10eXNFWFb0IE88B+5?=
- =?us-ascii?Q?7gUYU03ooK2AyL4sqCmFYTxp8XTe445GGO6lahSY+O3i9Q6zRbu1eIlkVYdV?=
- =?us-ascii?Q?WjijLKm4XJWBUZLmNgE0f3D9VaLkUtulUTZdv+w+vtXeZfecn1+zsVABwp/Y?=
- =?us-ascii?Q?v3msX7dnBzUHyh9hS81wPSQhxgRbzdobh4KVyh4s5rSVh8h8hPn8KnTWm4vQ?=
- =?us-ascii?Q?aZJtfr+OE40HdxBTjXR+HyKOw16rt3HxmLDzV6fv+lCbe12JNGm/1X2qYSfQ?=
- =?us-ascii?Q?8LXFG1F89uAddG85AQkxnAFDTCu9k6a1EQlDa4rehQ5D6tGfRw0/HmNpvMVs?=
- =?us-ascii?Q?V47e3JYPXqPBz9sX2wyzQn4+frYAryj3MCe9bOnPhdKt44UYchy3gDXYgeUo?=
- =?us-ascii?Q?3EHtBTTQyvn2GzYgZWTvrojpJHSh3cWgFJZDUYAIaPmrbDd2BMIlikYOuDpd?=
- =?us-ascii?Q?Qar1s08RnHzMB7+STU58VM/7RaaS4MFAVX/xVBohaBtnpodsq1iTUF6Vqol/?=
- =?us-ascii?Q?RpzUVSleIAdDxC+dmcRCMaMOCkyiBNgi5/UflPh+n4t8E+rN2uHylf4HngGu?=
- =?us-ascii?Q?/xos9CTAKRBA+t0AGtmPz5Vg8Um7kZc8/ILVCpuIbF08ICUGrPOH3lbWte66?=
- =?us-ascii?Q?OMUVQEzkUpohVMEd/yoFDxGBpm0T2ehD4WFpMLzZg1JqirGEdQOAx6ufMF8t?=
- =?us-ascii?Q?luM3kiwMTSc6949WIy9LKjJyty+EHJ0wNnoxXVVCbexTfkWhxhLVHICQW5xI?=
- =?us-ascii?Q?Pd1qK2Jf5Cl/besoB/tLO3PGLd/jirn/LjGVyUFrI15pb0XbU29YBGmn3Qqy?=
- =?us-ascii?Q?wZbfhYE9soVRmXnAJY/ACEnAtzH1GOC+QfzB4G+FXvtFFaWjG9eRPz1gDAhr?=
- =?us-ascii?Q?D6vyfkJGE2KytuU3oN3llp83yn2HSoGYtybcEGxbvj0q1MqBnsDXogpoBXOz?=
- =?us-ascii?Q?tBTlXBe+ifWyxByb2XJuduIFrrVjvaZP+Zqz2Uot7tTWnDGX250nIPlCJUUC?=
- =?us-ascii?Q?N7EIk7N+hYk+KBygpI9z5v+0TIPij1WiIzDMsWgWE8IEsyY8BwHRIxdhjkfM?=
- =?us-ascii?Q?YgWCMhHPKwuvTMVdX2rH6Cb74QJNhQhJHaLXajWPmGxXJEDDcGgN22gGNb5B?=
- =?us-ascii?Q?MXsnkxOM7DmJQpiCfwGBZUn4A/b/oDt4kW5ZOPZ6WaNn6FBBBDctrQfBF6R9?=
- =?us-ascii?Q?BE/DQoz//AGrhJJARXsdudK1q5SCALRKvzgK2vbj+qbnxOuA3KqYJkaFW+GZ?=
- =?us-ascii?Q?MyMMwiky9dgOnur4u1D8hWFgDP97pQbDU3PJqled32EYw6gVnqxEHW2uGBXn?=
- =?us-ascii?Q?ixZZg8NWJWRh2TnDTOn5kmc3Till+Ngu6HVq5w3meIKH9tZKsfKzL4oRRWPr?=
- =?us-ascii?Q?z19xTE8wEyR+enOliTUYqPB6ddWnld7hdv0VeSjo?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 10aebc8a-4fc3-4fd5-4fc5-08dd3699eb60
-X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB7726.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jan 2025 01:54:46.4350
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: QdZzbjUSCPneQxQX95jdT2oBpKGz2zQRBy1cLVLGwzHqwn5Wg8cbRkBm6Of1DZSOe3pG/bI3z1XzV1f7ERvuDA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8272
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 2/5] Coresight: Add trace_id function to retrieving the
+ trace ID
+To: James Clark <james.clark@linaro.org>
+CC: Jinlong Mao <quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        Tingwei Zhang <quic_tingweiz@quicinc.com>,
+        <linux-arm-msm@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+References: <20241226011022.1477160-1-quic_jiegan@quicinc.com>
+ <20241226011022.1477160-3-quic_jiegan@quicinc.com>
+ <64731493-4bd1-4707-9452-5ca86744875b@linaro.org>
+ <a2d995bc-02ff-4374-968e-2fa6d8f921dd@quicinc.com>
+ <02f114b7-8654-4402-b105-7aef41d487f0@linaro.org>
+ <e3a29406-075d-41f6-888c-ebe168162134@quicinc.com>
+ <b8fd3d5a-fc61-4ab0-8fb1-7cacf4cab9f5@linaro.org>
+ <5c0827ce-cf25-43d0-a160-5f99e82f582c@quicinc.com>
+ <49f6619d-f042-42b9-9359-b7d78783a32e@linaro.org>
+Content-Language: en-US
+From: Jie Gan <quic_jiegan@quicinc.com>
+In-Reply-To: <49f6619d-f042-42b9-9359-b7d78783a32e@linaro.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: UEKC4_a0uBSOjTLVWUoGlfHiA-hWqM3K
+X-Proofpoint-ORIG-GUID: UEKC4_a0uBSOjTLVWUoGlfHiA-hWqM3K
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-16_11,2025-01-16_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=999 adultscore=0
+ priorityscore=1501 mlxscore=0 lowpriorityscore=0 malwarescore=0
+ bulkscore=0 clxscore=1015 spamscore=0 phishscore=0 impostorscore=0
+ suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501170018
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_175453_676474_D3F736E3 
-X-CRM114-Status: GOOD (  13.28  )
+X-CRM114-CacheID: sfid-20250116_183221_091168_8858282B 
+X-CRM114-Status: GOOD (  37.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,30 +124,314 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 13, 2025 at 06:42:46PM -0800, Dan Williams wrote:
-> Alistair Popple wrote:
-> > At present mlock skips ptes mapping ZONE_DEVICE pages. A future change
-> > to remove pmd_devmap will allow pmd_trans_huge_lock() to return
-> > ZONE_DEVICE folios so make sure we continue to skip those.
-> > 
-> > Signed-off-by: Alistair Popple <apopple@nvidia.com>
-> > Acked-by: David Hildenbrand <david@redhat.com>
-> 
-> This looks like a fix in that mlock_pte_range() *does* call mlock_folio() 
-> when pmd_trans_huge_lock() returns a non-NULL @ptl.
-> 
-> So it is not in preparation for a future change it is making the pte and
-> pmd cases behave the same to drop mlock requests.
-> 
-> The code change looks good, but do add a Fixes tag and reword the
-> changelog a bit before adding:
 
-Yeah, that changelog is a bit whacked. In fact it's not a fix - because
-mlock_fixup() (the only caller) already filters dax VMAs. So this is really
-about fixing a possible future bug when we start having PMDs for other types of
-ZONE_DEVICE pages (ie. private, coherent, etc).
 
-So probably I should just roll this into "mm: Allow compound zone device pages".
+On 1/16/2025 6:17 PM, James Clark wrote:
+> 
+> 
+> On 16/01/2025 3:01 am, Jie Gan wrote:
+>>
+>>
+>> On 1/15/2025 8:29 PM, James Clark wrote:
+>>>
+>>>
+>>> On 15/01/2025 1:44 am, Jie Gan wrote:
+>>>>
+>>>>
+>>>> On 1/14/2025 6:07 PM, James Clark wrote:
+>>>>>
+>>>>>
+>>>>> On 14/01/2025 2:51 am, Jie Gan wrote:
+>>>>>>
+>>>>>>
+>>>>>> On 1/13/2025 8:02 PM, James Clark wrote:
+>>>>>>>
+>>>>>>>
+>>>>>>> On 26/12/2024 1:10 am, Jie Gan wrote:
+>>>>>>>> Add 'trace_id' function pointer in ops. It's responsible for
+>>>>>>>> retrieving the device's trace ID.
+>>>>>>>>
+>>>>>>>> Add 'struct cs_sink_data' to store the data that is needed by
+>>>>>>>> coresight_enable_path/coresight_disable_path. The structure
+>>>>>>>> will be transmitted to the helper and sink device to enable
+>>>>>>>> related funcationalities.
+>>>>>>>>
+>>>>>>>
+>>>>>>> The new cs_sink_data struct is quite specific to this change. Can 
+>>>>>>> we start passing the path around to enable/disable functions, 
+>>>>>>> that will allow devices to gather anything they want in the 
+>>>>>>> future. Because we already have coresight_get_sink(path), 
+>>>>>>> coresight_get_source(path) etc.
+>>>>>>>
+>>>>>>> And see below, but for this case we can also change the path 
+>>>>>>> struct to contain the trace ID. Then all the new functions, 
+>>>>>>> allocations and searches for the trace ID are unecessary. The 
+>>>>>>> CTCU will have access to the path, and by the time its enable 
+>>>>>>> function is called the trace ID is already assigned.
+>>>>>>>
+>>>>>>> It's also easier to understand at which point a trace ID is 
+>>>>>>> allocated, rather than adding the trace_id() callbacks from 
+>>>>>>> everywhere which could potentially either read or allocate. I 
+>>>>>>> suppose that's "safer" because maybe it's not allocated, but I 
+>>>>>>> can't see what case it would happen in reverse.
+>>>>>>>
+>>>>>> Thank you for comment. I will try this solution.
+>>>>>> The biggest challenge for the patch is how to correctly read 
+>>>>>> trace_id from source device and passthrough it to helper device as 
+>>>>>> the source device always the last one to enable. I believe your 
+>>>>>> proposed solution is better than mine and has minimal impact on 
+>>>>>> the basic framework, but I think we still need read_trace in 
+>>>>>> source_ops and link_ops. Then we can read the trace_id in 
+>>>>>> coresight_build_path function and save it to the coresight_path to 
+>>>>>> avoid redundant searching?
+>>>>>>
+>>>>>>
+>>>>>>>> Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
+>>>>>>>> ---
+>>>>>>>>   drivers/hwtracing/coresight/coresight-core.c  | 59 +++++++++++ 
+>>>>>>>> + + + +----
+>>>>>>>>   drivers/hwtracing/coresight/coresight-etb10.c |  3 +-
+>>>>>>>>   .../hwtracing/coresight/coresight-etm-perf.c  | 37 ++++++++++--
+>>>>>>>>   .../coresight/coresight-etm3x-core.c          | 30 ++++++++++
+>>>>>>>>   .../coresight/coresight-etm4x-core.c          | 29 +++++++++
+>>>>>>>>   drivers/hwtracing/coresight/coresight-priv.h  | 13 +++-
+>>>>>>>>   drivers/hwtracing/coresight/coresight-stm.c   | 22 +++++++
+>>>>>>>>   drivers/hwtracing/coresight/coresight-sysfs.c | 24 +++++++-
+>>>>>>>>   .../hwtracing/coresight/coresight-tmc-etf.c   |  3 +-
+>>>>>>>>   .../hwtracing/coresight/coresight-tmc-etr.c   |  6 +-
+>>>>>>>>   drivers/hwtracing/coresight/coresight-tpda.c  | 20 +++++++
+>>>>>>>>   drivers/hwtracing/coresight/coresight-trbe.c  |  4 +-
+>>>>>>>>   drivers/hwtracing/coresight/ultrasoc-smb.c    |  3 +-
+>>>>>>>>   include/linux/coresight.h                     |  6 ++
+>>>>>>>>   14 files changed, 234 insertions(+), 25 deletions(-)
+>>>>>>>>
+>>>>>>>> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/ 
+>>>>>>>> drivers/ hwtracing/coresight/coresight-core.c
+>>>>>>>> index 0a9380350fb5..2e560b425fd4 100644
+>>>>>>>> --- a/drivers/hwtracing/coresight/coresight-core.c
+>>>>>>>> +++ b/drivers/hwtracing/coresight/coresight-core.c
+>>>>>>>> @@ -23,6 +23,7 @@
+>>>>>>>>   #include "coresight-etm-perf.h"
+>>>>>>>>   #include "coresight-priv.h"
+>>>>>>>>   #include "coresight-syscfg.h"
+>>>>>>>> +#include "coresight-trace-id.h"
+>>>>>>>>   /*
+>>>>>>>>    * Mutex used to lock all sysfs enable and disable actions and 
+>>>>>>>> loading and
+>>>>>>>> @@ -331,12 +332,12 @@ static int coresight_enable_helper(struct 
+>>>>>>>> coresight_device *csdev,
+>>>>>>>>       return helper_ops(csdev)->enable(csdev, mode, data);
+>>>>>>>>   }
+>>>>>>>> -static void coresight_disable_helper(struct coresight_device 
+>>>>>>>> *csdev)
+>>>>>>>> +static void coresight_disable_helper(struct coresight_device 
+>>>>>>>> *csdev, void *data)
+>>>>>>>>   {
+>>>>>>>> -    helper_ops(csdev)->disable(csdev, NULL);
+>>>>>>>> +    helper_ops(csdev)->disable(csdev, data);
+>>>>>>>>   }
+>>>>>>>> -static void coresight_disable_helpers(struct coresight_device 
+>>>>>>>> *csdev)
+>>>>>>>> +static void coresight_disable_helpers(struct coresight_device 
+>>>>>>>> *csdev, void *data)
+>>>>>>>>   {
+>>>>>>>>       int i;
+>>>>>>>>       struct coresight_device *helper;
+>>>>>>>> @@ -344,7 +345,7 @@ static void coresight_disable_helpers(struct 
+>>>>>>>> coresight_device *csdev)
+>>>>>>>>       for (i = 0; i < csdev->pdata->nr_outconns; ++i) {
+>>>>>>>>           helper = csdev->pdata->out_conns[i]->dest_dev;
+>>>>>>>>           if (helper && coresight_is_helper(helper))
+>>>>>>>> -            coresight_disable_helper(helper);
+>>>>>>>> +            coresight_disable_helper(helper, data);
+>>>>>>>>       }
+>>>>>>>>   }
+>>>>>>>> @@ -361,7 +362,7 @@ static void coresight_disable_helpers(struct 
+>>>>>>>> coresight_device *csdev)
+>>>>>>>>   void coresight_disable_source(struct coresight_device *csdev, 
+>>>>>>>> void *data)
+>>>>>>>>   {
+>>>>>>>>       source_ops(csdev)->disable(csdev, data);
+>>>>>>>> -    coresight_disable_helpers(csdev);
+>>>>>>>> +    coresight_disable_helpers(csdev, NULL);
+>>>>>>>>   }
+>>>>>>>>   EXPORT_SYMBOL_GPL(coresight_disable_source);
+>>>>>>>> @@ -371,7 +372,8 @@ EXPORT_SYMBOL_GPL(coresight_disable_source);
+>>>>>>>>    * disabled.
+>>>>>>>>    */
+>>>>>>>>   static void coresight_disable_path_from(struct list_head *path,
+>>>>>>>> -                    struct coresight_node *nd)
+>>>>>>>> +                    struct coresight_node *nd,
+>>>>>>>> +                    void *sink_data)
+>>>>>>>>   {
+>>>>>>>>       u32 type;
+>>>>>>>>       struct coresight_device *csdev, *parent, *child;
+>>>>>>>> @@ -417,13 +419,13 @@ static void 
+>>>>>>>> coresight_disable_path_from(struct list_head *path,
+>>>>>>>>           }
+>>>>>>>>           /* Disable all helpers adjacent along the path last */
+>>>>>>>> -        coresight_disable_helpers(csdev);
+>>>>>>>> +        coresight_disable_helpers(csdev, sink_data);
+>>>>>>>>       }
+>>>>>>>>   }
+>>>>>>>> -void coresight_disable_path(struct list_head *path)
+>>>>>>>> +void coresight_disable_path(struct list_head *path, void 
+>>>>>>>> *sink_data)
+>>>>>>>>   {
+>>>>>>>> -    coresight_disable_path_from(path, NULL);
+>>>>>>>> +    coresight_disable_path_from(path, NULL, sink_data);
+>>>>>>>>   }
+>>>>>>>>   EXPORT_SYMBOL_GPL(coresight_disable_path);
+>>>>>>>> @@ -505,10 +507,47 @@ int coresight_enable_path(struct list_head 
+>>>>>>>> *path, enum cs_mode mode,
+>>>>>>>>   out:
+>>>>>>>>       return ret;
+>>>>>>>>   err:
+>>>>>>>> -    coresight_disable_path_from(path, nd);
+>>>>>>>> +    coresight_disable_path_from(path, nd, sink_data);
+>>>>>>>>       goto out;
+>>>>>>>>   }
+>>>>>>>> +int coresight_read_traceid(struct list_head *path, enum cs_mode 
+>>>>>>>> mode,
+>>>>>>>> +               struct coresight_trace_id_map *id_map)
+>>>>>>>> +{
+>>>>>>>> +    int trace_id, type;
+>>>>>>>> +    struct coresight_device *csdev;
+>>>>>>>> +    struct coresight_node *nd;
+>>>>>>>> +
+>>>>>>>> +    list_for_each_entry(nd, path, link) {
+>>>>>>>
+>>>>>>> What do you think about also changing the path to this:
+>>>>>>>
+>>>>>>>   struct coresight_path {
+>>>>>>>     struct list_head *path,
+>>>>>>>     u8 trace_id
+>>>>>>>   };
+>>>>>>>
+>>>>>> That's better, I can simplify the coresight_read_traceid function 
+>>>>>> without traverse the path.
+>>>>>>
+>>>>>> But we still need to check the type of the coresight device, 
+>>>>>> because the TPDM does not have traceid and we use the trace_id 
+>>>>>> from the TPDA device that the TPDM connected. That's why I added 
+>>>>>> trace_id to link_ops.
+>>>>>>
+>>>>>
+>>>>> But if any device that allocates a trace ID saves it into the path, 
+>>>>> then as long as any other device that needs the ID is enabled after 
+>>>>> that it just reads it from the path directly. Assuming we pass the 
+>>>>> path to every enable and disable function.
+>>>>>
+>>>>> We wouldn't need coresight_read_traceid() if it always happens that 
+>>>>> way around, which I think it currently does?
+>>>>>
+>>>> I got your point here. You are right. If we passed path to the 
+>>>> helper device, just use coresight_get_source to obtain the source 
+>>>> device, then call the source_ops->trace_id to obtain the trace_id. 
+>>>> So we definitely dont need a standalone function, 
+>>>> coresight_read_traceid().
+>>>>
+>>>> Besides, I still need a function to retrive the trace_id of the TPDA 
+>>>> device if the source device is TPDM, right?
+>>>>
+>>>>
+>>>> Thanks,
+>>>> Jie
+>>>>
+>>>
+>>> Yes, and that would require a search as the TPDA not always at one 
+>>> end of the path like coresight_get_source() and coresight_get_sink(). 
+>>> Which is why I was thinking it might be good to save the trace ID in 
+>>> the path struct to avoid it.
+>>>
+>> As you proposed, I created coresight_path structure as below:
+>> struct coresight_path {
+>>      struct perf_output_handle       *handle;
+> 
+> What's the perf handle for? Seems like this change for the CTCU only 
+> requires access to the trace_id which is added below.
+In perf mode, the handle as the "sink_data" has been transmitted to 
+coresight_enable_path function.
 
-> Reviewed-by: Dan Williams <dan.j.williams@intel.com>
+etm_event_start:
+struct etm_ctxt *ctxt = this_cpu_ptr(&etm_ctxt);
+struct perf_output_handle *handle = &ctxt->handle;
+
+...
+
+if (coresight_enable_path(cs_path, CS_MODE_PERF, handle))
+
+...
+
+Then, the handle as the "sink_data", it will be transmitted to 
+coresight_enable_helpers and coresight_enable_sink.
+
+As I mentioned before, I modified following codes in coresight_enable_path:
+coresight_enable_helpers(csdev, mode, sink_data) ->
+coresight_enable_helpers(csdev, mode, cs_path)
+
+So, I need to consider how to correctly to handle the "handle" 
+parameter! That's why I added it to the coresight_path, ensure the 
+'handle' is correctly referenced wherever necessary.
+
+> 
+>>      struct list_head                *path;
+>>      u8                trace_id;
+>> };
+>>
+>> In coresight_enable_path, I modified the parameters that transmitted 
+>> to helper device:
+>> struct coresight_path *cs_path;
+>>
+>> coresight_enable_helpers(csdev, mode, sink_data) ->
+>> coresight_enable_helpers(csdev, mode, cs_path)
+>>
+>> The cs_path will be constructed and initialized in 
+>> coresight_build_path function.
+>>
+>> For perf mode, the trace_id is collected within etm_setup_aux and 
+>> stored in cs_path->trace_id to avoid extra cost of retrieving the 
+>> trace_id;
+>>
+> 
+> Looks good.
+> 
+>> For sysfs mode, I let the CTCU device to retrieving the trace_id with 
+>> path. The TPDA device is located close to the TPDM, making the cost of 
+>> searching for the TPDA device acceptable.
+>>
+>> The cs_path will be stored in the same manner as the previous path.
+>>
+>> How do you think about this solution?
+>>
+> 
+> Can it not be done the same way as Perf, at least for consistency? If 
+> the enable helper function already gets access to the path, and the path 
+> already has the trace ID, why is any search required?
+Hi, James
+
+For sysfs mode, We need to retrieve the trace_id once within the enable 
+function, then cache it to coresight_path. (As discussed before, there 
+is a special case of the source device is TPDM!)
+
+Consider the CTCU is the helper device of the TMC ETR device, not all 
+path need the trace_id(other sink, etf), so I put the retrieving logic 
+in the CTCU driver(within CTCU enable).
+
+For the disable function, we just use the cached trace_id in 
+coresight_path to disable the trace_id filter functionality.
+
+Or I was thinking another solution in coresight_build_path, We assume 
+only the sysfs mode needs to retrieve the trace_id when construct path. 
+So we can call source_ops(csdev)->trace_id once, hopefully the source 
+device is not TPDM! If not, we will try to locate the TPDA device, then 
+call link_ops(csdev)->trace_id to read the trace_id. And for perf mode, 
+we still use the solution I mentioned before.
+
+How do you think about it, which one do you prefer? Or any other proposal?
+
+Thanks,
+Jie
+
+
 
