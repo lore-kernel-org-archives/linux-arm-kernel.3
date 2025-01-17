@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BBC9C02185
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 16:58:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EECDBC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 17:00:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CbR8kLFTS4yK7aY/EmxJd5Q7gBcao7ndUZr1nGBUT5c=; b=cUaz/KIfEkS0lcKNv+YP4qYNeb
-	W+sPBmF0ypVg7x9MBN/9GZ5hQcpTWXoqb1ejV4N2rW0iMA9YWFAohOVqkv/Zmu673EVMrKy41em1h
-	B0Fnx/6E7SOxeW+pF20pmpzKwvoyYiuOBxCiJstm+foDZaxo4CWSDr5+42hzvcZwxnVcT919D0Fc0
-	dNivtijc2NtewK/slDi/yKvIkBF8vcANrdpu8qnw3HrudeqcqrEe+pE/Vlw/8uqGR0pbZSfPEvFw4
-	1chhpXWqbtUwRwvyy5D4beBp6Sdbh0xpbyLj5hcRjuDDivhW8hraWuaEPpmuqbn51R/k2G+Vb8ffq
-	Lc466B3A==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SkhdPwR+i8G4KznbeuRGEbuhMQKkED+QsjQdmytH0d8=; b=4RvUHjrJix/qF7TLMt0wdDJgvn
+	LEc8DnN4lkJiZOim0BDAcFV5gm92zMR1+Wd+a2p03kZ+rCkUQx3WJKb3Q6MBWn7rnCORhCZh0F1MH
+	wUfv50GfGBANRX0hP5nA4MHFlm2dAL9U4Amwkdnf4VIX+LusAIaf0RzMU9BGTBvm1KwRIiYtOv1K/
+	JMJ/PvkdTlBdgoKk9hKXM/xKhRVfiKlS6n2Gu6i9YScUvinPVwNJUUlOJfg4IHtYA6DCFsZNrmbaO
+	aUmUOPSN3xdsoa/ZhC6PbKcHPgKTora6hbpP1mD66uDl0E3VLF9Qf1wZhoBHRyg9u+DLrOS6stXcq
+	3FCLeImg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYpg2-00000000sYq-1cnn;
-	Fri, 17 Jan 2025 16:58:34 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1tYphG-00000000sp3-4Bga;
+	Fri, 17 Jan 2025 16:59:51 +0000
+Received: from mail-ot1-x330.google.com ([2607:f8b0:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYpXk-00000000qhT-3MW5
+	id 1tYpYn-00000000r0i-0aRt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jan 2025 16:50:02 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-21a7ed0155cso38131295ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jan 2025 08:50:00 -0800 (PST)
+	Fri, 17 Jan 2025 16:51:06 +0000
+Received: by mail-ot1-x330.google.com with SMTP id 46e09a7af769-724a5d042c0so69632a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jan 2025 08:51:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1737132600; x=1737737400; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1737132664; x=1737737464; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=CbR8kLFTS4yK7aY/EmxJd5Q7gBcao7ndUZr1nGBUT5c=;
-        b=Ji5IKitWD9GNamEj3irXh0uxVewRCooQQZiTEEC8ReAY3a0DQwiYWXaN5nmxAar60m
-         I7LEa5JyG1AFrkYwjBvny9pIYlwFYHBdspuDRsubmHH6w/jWD3hHicGMKLu97toPdAXc
-         Aw6tcbQVYMhv/g8rzesTG/s6NSKpzxQEREPL0=
+         :content-language:references:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=SkhdPwR+i8G4KznbeuRGEbuhMQKkED+QsjQdmytH0d8=;
+        b=fzAONFVuDlt3GbHdQmqk3akOu/CiViIr3U+7Jedbj7+3cIzOevR0nEqMoAs2Tq50m6
+         WNZFA9IvOsGQSfOMrQ6Bh2NAjf4sUJMnP1AHTxxCzqJsAeUgB6nXwRmrLSmkz1Q7Xqrs
+         Omq/3t/blajwECJ3d344D/qA+nhKGn6Yq1ako=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737132600; x=1737737400;
+        d=1e100.net; s=20230601; t=1737132664; x=1737737464;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CbR8kLFTS4yK7aY/EmxJd5Q7gBcao7ndUZr1nGBUT5c=;
-        b=B/thFndZU9nAUX6oD34ZhljaxCYSpbVVeuKmrwR4ltEdXNoeKiu1AjAIVSxQO+3rL0
-         CAcDXqX+kdzSTMJDD54t4sqOWRuz0ITMI3ZfWGPTLXxkQzoJAzRjv0XFVs9ET743LX4H
-         vn6uvKGepAyBTe5a0E48wWzSUazsqEPSjTBcRprY7gqI8BSv8d6piE+Yr1LwbIK+xt2Z
-         fzNfk3JdPq/RB+rBJtQvzrdqpZuXaaOHIteZvmK30QvAJFCRDnrtDDWr7y1J3p97d8Qy
-         UbI9v4rsF/GTkfEeB23a2E3vHeikKWbTIHm6NMMwzsLN+wSP2I0WciJgKoXxJjr7Jqk1
-         xbFA==
-X-Forwarded-Encrypted: i=1; AJvYcCVI7arPKt7R04XpTyGpqM8QWwh8X5/qFhTlOL6iJlSPsR3HasZmJskDZM3DjeS65mad7olTx+R26wFSQpSkU588@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJPLkyUfhOtWA0qArf9KMZ4erlRpTcVUuJXIsGRE8D0RkfYNOQ
-	G18bCpv3LGzDicvLtl3tf4vE2K9fwZa9sYMO9iyNVefcvj6wf6r+e5gwHL/dwg==
-X-Gm-Gg: ASbGnctlGZbe2Xh/XV6NRoWCLDIYDkx7QyKpPpI+6r+XQMiLIUZtnkhnee2XL041Pzk
-	WJcl2RkQfifYcWRN/AbZRaYqmWAJb1MdO0YoEHTg3GFD6GTxk4shJiW2KqDW9G6SAdmhY93XTWj
-	bJ3enYJQs65kt5xAeG1tE2nc0iJ0tsBkOM0N3gFtfB2YI5uA7OAmoigRr+rtWXzEk0DTc3MlS1G
-	AJDsjHF7wNfz9tzG4kKwBKW8DwVKHl8o6oGlzxInbkfnYE8fdVczMX9Oiep1YGE6dHG9ziSYuXM
-	D0Tv133fFjnmJOePVvmpxjoZ1IfzQHs=
-X-Google-Smtp-Source: AGHT+IFaKYsJ5THFTqoF+Nj6i6KUhfHBV6KaSHY9X55z10j/BSWwcRP/2s3vh+3Yy/A7L88yCp2qCg==
-X-Received: by 2002:a17:902:d48a:b0:212:67a5:ab2d with SMTP id d9443c01a7336-21c35604a08mr63652045ad.44.1737132599690;
-        Fri, 17 Jan 2025 08:49:59 -0800 (PST)
+         :content-language:references:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=SkhdPwR+i8G4KznbeuRGEbuhMQKkED+QsjQdmytH0d8=;
+        b=nDYSzvM/zPR/QqndwBcGZFSrrvIfSUyQ/yL+O9MoSSDrk+k4z72MoCw2RxBqPx9vtT
+         Y2dB81x/zcorUewqwaVbi0sF/XPpMTp/bSsJ1RJJLJK5OryTx898h0eKNxbQW2sZt4R+
+         ISWtG/Wyt2rpVPvYhd4BFv9GFQc0kSIoLahDSbgsEJazrP39OhATEKxt4gICFMG5gCnX
+         VceexAZDffOxsfa68sd0VKEixP4wthMAra4Q3044S03RkZ489j7sfdwGmbK4qNRKgIJF
+         0RlzC1orbZez8I/l3jzija6+lrVztWzrtHYurUksmEE+vhighOCUFA2kQiGE8/OjIibR
+         5m1w==
+X-Forwarded-Encrypted: i=1; AJvYcCVXjgd3N842jgzhaEeQPttWWTU99xLBKDKwDlu9TJczb6ZOsveJCqMnIAXu92cumEECPAit9kNEDiUbSdpk8o7C@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz36ZnrSq66o+fLhPYc4OyGTeSKKa9DkmlKwEXoBo27b73clFf0
+	xNHdW0ILiaDJdEUW0How4ICaCPwIXp0bm1zbfMyjzLmJ+eFXiZX0HLq00hZRcw==
+X-Gm-Gg: ASbGncu/I8kJ7m32rPH8Ly2SdwxIvJ/m1twaQ+pyUELRq2Za/4TWDel1ljg0Sn3PF9l
+	7+0EVMB24pVkAA1m7PEFcOmRrwXSmHUJJkvjv6J23VBkf9TKUIQ8PL+wphC8CA3yw3TcjqKy1wM
+	K9kR2D4Gzn4qf29x0SGynmOjHn9ZZUEzMHRn+229e5UuU1OoTeR6vJvkOmR+U+CurI/GP8b1aMp
+	zsV+cf5zSbhoNwIiBXhRvYNFOFn9sE1dIPTrw8G1dZN1GlEFMNYGWUa8vglYz3/3W0g/WWikUSw
+	vbEwphZgzm8uSVd1k7YA0Iyzl6Ahj9o=
+X-Google-Smtp-Source: AGHT+IFKbDhEyNtGWlN2yc2R755sLxWqKLsveQjo/EwG8YGMpFOe5bAas7SyegTZ4OtUkrD6juv5rg==
+X-Received: by 2002:a05:6830:6713:b0:71d:5b70:41bd with SMTP id 46e09a7af769-7249da7191dmr2187325a34.12.1737132664380;
+        Fri, 17 Jan 2025 08:51:04 -0800 (PST)
 Received: from [192.168.1.3] (ip68-4-215-93.oc.oc.cox.net. [68.4.215.93])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21c2d3aca04sm18337615ad.135.2025.01.17.08.49.56
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-5fa35f07ebbsm846110eaf.14.2025.01.17.08.51.01
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 17 Jan 2025 08:49:58 -0800 (PST)
-Message-ID: <a70e8c45-97a8-4fb6-9b27-4f9ed020211c@broadcom.com>
-Date: Fri, 17 Jan 2025 08:49:56 -0800
+        Fri, 17 Jan 2025 08:51:03 -0800 (PST)
+Message-ID: <7c154b5c-e745-45a9-8939-b0d429299b31@broadcom.com>
+Date: Fri, 17 Jan 2025 08:51:01 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 01/10] dt-bindings: clock: Add RaspberryPi RP1 clock
- bindings
+Subject: Re: [PATCH v6 09/10] arm64: dts: bcm2712: Add external clock for RP1
+ chipset on Rpi5
 To: Andrea della Porta <andrea.porta@suse.com>,
  Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
  <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -96,9 +96,8 @@ To: Andrea della Porta <andrea.porta@suse.com>,
  Herve Codina <herve.codina@bootlin.com>,
  Luca Ceresoli <luca.ceresoli@bootlin.com>,
  Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Andrew Lunn <andrew@lunn.ch>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 References: <cover.1736776658.git.andrea.porta@suse.com>
- <ae94e78443099cb6c48528ac8b18daaaae41419a.1736776658.git.andrea.porta@suse.com>
+ <bb69c32871d162a06dfdd26ba958ea0a74b592d5.1736776658.git.andrea.porta@suse.com>
 Content-Language: en-US
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
@@ -133,12 +132,13 @@ Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
  MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
  7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
  95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <ae94e78443099cb6c48528ac8b18daaaae41419a.1736776658.git.andrea.porta@suse.com>
+In-Reply-To: <bb69c32871d162a06dfdd26ba958ea0a74b592d5.1736776658.git.andrea.porta@suse.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_085000_846861_7C27F535 
-X-CRM114-Status: GOOD (  14.99  )
+X-CRM114-CacheID: sfid-20250117_085105_181609_71B02E33 
+X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,44 +156,15 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 1/13/2025 6:58 AM, Andrea della Porta wrote:
-> Add device tree bindings for the clock generator found in RP1 multi
-> function device, and relative entries in MAINTAINERS file.
+> The RP1 found on Raspberry Pi 5 board needs an external crystal at 50MHz.
+> Add clk_rp1_xosc node to provide that.
 > 
 > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> ---
->   .../clock/raspberrypi,rp1-clocks.yaml         | 58 ++++++++++++++++++
->   MAINTAINERS                                   |  6 ++
->   .../clock/raspberrypi,rp1-clocks.h            | 61 +++++++++++++++++++
->   3 files changed, 125 insertions(+)
->   create mode 100644 Documentation/devicetree/bindings/clock/raspberrypi,rp1-clocks.yaml
->   create mode 100644 include/dt-bindings/clock/raspberrypi,rp1-clocks.h
-> 
-> diff --git a/Documentation/devicetree/bindings/clock/raspberrypi,rp1-clocks.yaml b/Documentation/devicetree/bindings/clock/raspberrypi,rp1-clocks.yaml
-> new file mode 100644
-> index 000000000000..b2670cf7403a
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/clock/raspberrypi,rp1-clocks.yaml
-> @@ -0,0 +1,58 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/clock/raspberrypi,rp1-clocks.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: RaspberryPi RP1 clock generator
-> +
-> +maintainers:
-> +  - Andrea della Porta <andrea.porta@suse.com>
-> +
-> +description: |
-> +  The RP1 contains a clock generator designed as three PLLs (CORE, AUDIO,
-> +  VIDEO), and each PLL output can be programmed though dividers to generate
-> +  the clocks to drive the sub-peripherals embedded inside the chipset.
-
-typo: though -> through
 
 Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+
+I don't expect conflicts so this could go through the tree that will 
+merge the misc driver (Greg?).
 -- 
 Florian
 
