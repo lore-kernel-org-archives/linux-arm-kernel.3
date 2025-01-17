@@ -4,209 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED1E8C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 07:17:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B85B7C02188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jan 2025 07:26:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LDcet1WV7uaGVBG3ET6Gool2GwxGnpwW/nsTC/ywDVM=; b=vUzo2c5cOzOqq64CS3AOjHN+7R
-	V6Px3sG+XReGHMcaz5iImBAI0jca987oArM7mE9o72QI/AHp4XR8y+nScCYaDgHiM1nmpcgu0dahe
-	fv+Uur6eyCZM0wpnPANbDmB0ziDS4OYqzbWKv4BZ7m3htcdFotNNtTZyZAnQqCPpgUBNckj0Qv/kc
-	bPcCU5rBmLjS9cx5Wdp1hmu2+yLQH81EQVgO/Uy+jdw8SjyFf4JXhpymJXucGELP0l3z9TbEdGQyp
-	AllmStsQ4HiZK5yJD6FaSyq9e57gUymy+XL7If1p3TCvwJkJUtJlGVnquGtUE1T5YKinN45D+6eqd
-	D+dmjiHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=acBUeSMeLcUwdvAPh7XnIMxupIQjS7s3gcf5z1wzyRw=; b=ez+uwNwVGLfX2XK8iavRKhesIz
+	+0AhJoeNFN5E/fufF1Pwp5FqJ+6ubDbekcy7FijX/lnIpDCgZDdP6HmeKUDMO9ui60yltyZ6CZhMJ
+	9MpmZ4qEV+PL5NkimZASxIFHLmTx32TPiIwoyNew0ptSmZI5PYjyLH+xXz6ICqW/mFFrU/imMZwLi
+	DHMdfQktSdAQOSTTXopIoq9KyHuwJA3+xPNnkGogQTEKvk6GxRaE1RDpTd2DJFtraHnQgNm6EineT
+	hMhKddaEVXDb2J4BpArpFWGN/CMmPdzgI724hxqQDYj/OktzTHNDNINecpu1HMnAS1vhlGrN/MAne
+	BDppKqOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYgbf-0000000HBMZ-0FCU;
-	Fri, 17 Jan 2025 07:17:27 +0000
-Received: from mail-mw2nam12on2060b.outbound.protection.outlook.com ([2a01:111:f403:200a::60b] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1tYgkZ-0000000HCEo-1uLn;
+	Fri, 17 Jan 2025 07:26:39 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYgZu-0000000HBCF-0rhE
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jan 2025 07:15:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QboAJKVw8y529pQQ9lDVhTH1FtM5nCSxNHZx8SjBAIvS7GPr8P7XVJEzWSpLZVMHaZF85EibXDNb86bgkWF4RrrGlGshlgsp/Typ7Ydk8jhelyLasoGoOlX4RdYWu7Jw+3Yr8OPdsr5x+mUQ9g7f4FLV8dJtUliz16Y/8Exz3gQAOlDV7rzQyVFS5O32ILYzeuJySpVQ06SNLwV9oOH5R10MNO/g+Tas3YtxdlyZtSpaXdOPJWqX5sJYopmY8Kmwp8oOG1aEDJigoInFkHoSJSUf+jLHZmP5VOiw1ipbVvAGB2+GXI+hPhFEWG77JVFH7vbJZjW6SsRvNOHICwah9w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LDcet1WV7uaGVBG3ET6Gool2GwxGnpwW/nsTC/ywDVM=;
- b=Ps8i0gUB6TgeXWklyJKiE1IziqecKAPzSJ4+EdP8gb1BRsOhA8cGuBO4h7Eu1xMZBDcw+mldmTlRhiPAIvjWfbAfyS8KtiHzHX+P0g0sklwxLyjhgSfiynH0b8UFU7lNoBFpY/qUFqC4q0aLMMggQQLSknjP4C6RkRddfqRJ92PtIL1dbrwbA0FKsgt937pE9rdIiZHTRHSwzg3ErWo4WqOvE3t1pjcoPQSFfJ1plFBdHA8nKh0qa4AhqJqPAp38FbfeEmEr8zubX9lJp0LPB6rYO7GJRgjvCW8gMWGPVJkkUAaaIojfKwUdnKPEDzqNDrKbNNJUsuUihlTGxeIzBQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LDcet1WV7uaGVBG3ET6Gool2GwxGnpwW/nsTC/ywDVM=;
- b=5p2YpQawAje7DN2UM/dWTRmllRa+5DnSoABP1DagKweetNj/2TqoR8V6sPhjl2qYz0pryOfw+/9edItZqi2U0nRft2JGmK6bct3wWEi0bzldX4+bAcf1cKBDIQu9rOuY37UYBGp+kevH6qr2wPCpdIKPQJzKX3DX3mV4LDjjxx0=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from SJ2PR12MB8109.namprd12.prod.outlook.com (2603:10b6:a03:4f5::8)
- by SA1PR12MB7296.namprd12.prod.outlook.com (2603:10b6:806:2ba::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.14; Fri, 17 Jan
- 2025 07:15:30 +0000
-Received: from SJ2PR12MB8109.namprd12.prod.outlook.com
- ([fe80::7f35:efe7:5e82:5e30]) by SJ2PR12MB8109.namprd12.prod.outlook.com
- ([fe80::7f35:efe7:5e82:5e30%6]) with mapi id 15.20.8356.014; Fri, 17 Jan 2025
- 07:15:30 +0000
-Message-ID: <93c9d615-b9c5-40eb-b206-443243dee01f@amd.com>
-Date: Fri, 17 Jan 2025 08:15:19 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/5] spi: zynqmp-gqspi: Abort operations on timeout
-To: Sean Anderson <sean.anderson@linux.dev>, Mark Brown <broonie@kernel.org>,
- linux-spi@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org, Jinjie Ruan <ruanjinjie@huawei.com>,
+	id 1tYgjH-0000000HC8G-3LRv;
+	Fri, 17 Jan 2025 07:25:20 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-5d3d479b1e6so2620239a12.2;
+        Thu, 16 Jan 2025 23:25:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1737098717; x=1737703517; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=acBUeSMeLcUwdvAPh7XnIMxupIQjS7s3gcf5z1wzyRw=;
+        b=ODjuDfJR2bFefoG8R5v3cqFRN1mdzXlSOm9cJiz2XjVkYXix5o1PYcAfSKMz7/ejOM
+         k+l8h7EAlPvAQgkidZJKBrYUM0yxGhv3txwTZQbJTDqyrpIwgJAF0GbW09d6U/EQoozu
+         SfD9+97zJrBaeSFB8sIA0R3qaMtP5utS3JdJRS73/yabGlYDQVmysfDCgX8JM816Qcz0
+         8tofuaYFvfkIIXps1RLfhplYFeOFycTrmRlYq/QU6FVQOaSosujQ1ncgV6fZUHsp6Eih
+         +s5M4699F4hdbhwtlpvqRzTy820z6CiXUJjJqeY4tCbLbLXFpP0W8+oOMLMR4s6cWagz
+         se9A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737098717; x=1737703517;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=acBUeSMeLcUwdvAPh7XnIMxupIQjS7s3gcf5z1wzyRw=;
+        b=q+s6jlBwiHRau9O83pK49iPFZltplbe1FmJdjPiBXyh3JgK+VSZ8B5Cj6mpnfzbozR
+         wP8ANFluSAz4L8TTIwmo3JFV2f9MYCi7pU1cseVCnp22/IOZWOCmDtb/U9rT2EQsB4tI
+         U7Q/f83Q30POdWxai7r3cvJuKmCOut8QWkAIrWCdmeji7ZypR+zw4cIFTNCxsnHhJpfv
+         bL4qDU5Lqrr0k1baLxi6GaZl5LZrkKqE87BX/cRuH/m4gZlFduUfMgNwZ18f7KVgfon3
+         v83p3vmfN2yDUzIUVCY5vnVLX9AfpXY87Y2EHxRffESKdH9c/jqSplxGij6FW/jdO4BH
+         wFQA==
+X-Forwarded-Encrypted: i=1; AJvYcCUoIQu5bRQ6YcJUZzgRo/cY8pSz/OU688o0rhJQYWC8AjDCRew0boUnSdcx0OnhzYyP0tML0T5PgxVZ7JQ=@lists.infradead.org, AJvYcCVcXBdxVgVEWAWgyv3PsAvUAQvXiEybnPA/gK/8R5LCZQVQUzexI42crZSlD2YBvRVS0oPLgcg9kUyBsfkoVsLL@lists.infradead.org, AJvYcCW2JE8hL/QKz3YAj+SZJUGVokjEAS4UjyFJsKr1Q9ADGralxbiC6MDO7SVifHhuXg0z7Z4Ozh6cs/2x@lists.infradead.org
+X-Gm-Message-State: AOJu0YyVjegepCTU2XvxEUudj49sklhpjjmL4Iv51M6IeHn9djHbF5Lf
+	edIaNlGJuCVeVxziXxqtc5n4Cg+qhJtZz/Cm3usz3JrB8LRLA/7L
+X-Gm-Gg: ASbGnctbHXfuLG1j+ujwC6LK6trsr8YUQfkWtJW7JbQ2zWJXBimCirty5pHzcn8MdqG
+	TWT1dvHYyNGQu24FbXYnr2q4zvuRoxyPkmI93FyJygR0r67WKHGqF/56Mp6u0eQtLApJaAfQ4e9
+	uz2+AkskT1lCLLbiFP0+TagXvlhVKgvL3BGyJUztQHsbDi0hgtsVMHBDS6vBCEFhqXI7qwfjGCB
+	xP3TkMwP6gy1wF5YPKcU/uyJ+/I6S5ou2FXfPLgPbZRU+j5wbOQKNsGfR37n8HISAsgt51Seb/R
+	2MiIbaDo6Y7mASOxIpQ=
+X-Google-Smtp-Source: AGHT+IGePGJHVWxw4XwLV4zxZAGfulFMMCFa6UxYk4nNAptBEBklprrxVwXwqCG4Gi/JEQo6iRnv6g==
+X-Received: by 2002:a05:6402:2745:b0:5d0:bf5e:eb8 with SMTP id 4fb4d7f45d1cf-5db7db07846mr3557485a12.23.1737098717190;
+        Thu, 16 Jan 2025 23:25:17 -0800 (PST)
+Received: from smtpclient.apple (185.174.17.62.zt.hu. [185.174.17.62])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab384ce1a49sm124381366b.46.2025.01.16.23.25.15
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 16 Jan 2025 23:25:16 -0800 (PST)
+Content-Type: text/plain;
+	charset=utf-8
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3776.700.51\))
+Subject: Re: [PATCH 03/12] pinctrl: sunxi: add driver for Allwinner V853.
+From: =?utf-8?B?QW5kcsOhcyBTemVtesWR?= <szemzo.andras@gmail.com>
+In-Reply-To: <CACRpkdYVTedEon0X-izvaDTGF6yRhD2s=Z6NEM=zBf4vD-T0Pg@mail.gmail.com>
+Date: Fri, 17 Jan 2025 08:25:04 +0100
+Cc: Andre Przywara <andre.przywara@arm.com>,
+ Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Maxime Ripard <mripard@kernel.org>,
+ Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>,
+ Ulf Hansson <ulf.hansson@linaro.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ =?utf-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org,
- Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>,
- Miquel Raynal <miquel.raynal@bootlin.com>
-References: <20250116225521.2688224-1-sean.anderson@linux.dev>
- <20250116225521.2688224-4-sean.anderson@linux.dev>
-Content-Language: en-US
-From: Michal Simek <michal.simek@amd.com>
-Autocrypt: addr=michal.simek@amd.com; keydata=
- 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
- 3i3l5DA=
-In-Reply-To: <20250116225521.2688224-4-sean.anderson@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: VI1PR08CA0253.eurprd08.prod.outlook.com
- (2603:10a6:803:dc::26) To SJ2PR12MB8109.namprd12.prod.outlook.com
- (2603:10b6:a03:4f5::8)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR12MB8109:EE_|SA1PR12MB7296:EE_
-X-MS-Office365-Filtering-Correlation-Id: 66eefb51-b7b9-47a0-38cd-08dd36c6b999
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?eDlqZG12UUdnM3JtVUs5WDVFa2NPTXhLQkdHM2RIY1Y1U2h6YzJneitqd3RT?=
- =?utf-8?B?MFp6MXUvbUxodVNHV3NuWExrRkdUbE01OWFaNGd1ZmhwNWRtUjYycVRaNlRV?=
- =?utf-8?B?cmtIcnh0a0czWGVMV016T2JJTVZGcFZqOWlMbDIxTHNnMWplRkk2Vmt6RTRC?=
- =?utf-8?B?TnBXYVltUzVDZEt6Sm1WQVg5U0RDQitYN3lPSDFLcm1ONGhQVWZZR1RIK1Jx?=
- =?utf-8?B?UG5ZbnViRlBTZDZORXdVbUcwVTlDdTZzblp2R2lsdmI2Yk80eDBZWGxzdmFR?=
- =?utf-8?B?U2srNkFiRUp3czUra1BZVGJYR2dXRmUzUFJ6NGFBTHJTdHEzdHFmTDVranNR?=
- =?utf-8?B?WkNQS0swTXV1bG9hNEhpcm9IdWthcDNCd05UUElMOGtkYnpXUldKbHRRVjQy?=
- =?utf-8?B?NDBTMEhQekFiWDFzVnJDb3dhYWxCU25jRzVrNjJhRUJ1NHhGTEJPaVY5Q3Vm?=
- =?utf-8?B?VC9DMFlYNDlIejJQOEhIYThoZkxVemZnOVZLcGFDeC9xcmlta1NOaTJyTndS?=
- =?utf-8?B?aDQ2emV4K1A3T1hRTnlRN0oza1hUc1hRUjFoZ1pkUDRCUWszRDQrOEFyOUhk?=
- =?utf-8?B?Tk1VWEU5RzRZNE1kb2wxZk15SGthZWpOTGlJVGVVaDdPdGt2dUkrcXFqeFN2?=
- =?utf-8?B?Zm1RNmRjTm1uV0xCdjFQKzd3TmZDSGhVQzU5OHd5eTNBeHhyMFh0TTQxZk00?=
- =?utf-8?B?Uko2SG1LeDQ1VlhIV1o5RWcvNnZNajZkRDg1dSt6K0I3eCtUblZWZFpHU1d3?=
- =?utf-8?B?aTRTRUE0aU5TSVR2UitSa0pjeHRTSTBZbGhBbjZtcXcrL1lMdWpZNGV2bXhZ?=
- =?utf-8?B?YXFGdklSbXh0N1Fvck9yUmJQbmtEbzlHcHVhR1QyODErcEtaT20vMjl5Y3dG?=
- =?utf-8?B?d0g3S0ppdGFNcE9iTFFoOEVydm9BdGZpWTY5T0RoNEJXVUhOYyttck40dVJC?=
- =?utf-8?B?bzF5Zm4vVGlkWlpQNWZ2WStZaHhzcmM0Ujl5aUNGQWM4Sll5Q3UwYkpYMHFw?=
- =?utf-8?B?cStsMXJIZnJxajVkK1VXOW94VVgzTFd6MnpIK1BycjZuQmlxRGpJQUViZXlt?=
- =?utf-8?B?bVhHNzNQd2QrOHMwY1F1dG5Wd1NmUHQxcHc4U3kvYWJTSnVwYi9PTFpiSm9S?=
- =?utf-8?B?YmpDNUVQWDdkaDVFZndScHFRdDFQUkZOSG9XU1pMdlpJdVl6K1hjWkNXejFZ?=
- =?utf-8?B?QllJcjF3OWI1SDNJamIyNjJnMm5UTXdWNlpxYW5USjhOVHYvZTI1Y2NyMWtK?=
- =?utf-8?B?ZkhsOG5icFJoYlVVTmxWTTlRcWhrMWlIOEM3SkhsSzRXOXJnNHdOZzVYQU5l?=
- =?utf-8?B?NVArOFUzS2l3WTZReDQwekFVbi9VckppMWZwa0tXUHBhallVcUpMQndnUytm?=
- =?utf-8?B?VHJLWUNBOWoyM2NhRjQ3RU5aYlovMGt0QWlLSUJmdGg3QkU3YWFQZCthZGVW?=
- =?utf-8?B?QXFzYlV2bVBZQkFISU9Mb2VhOHBNc0tLUXJ3NEZhc25RYzZEUnVWUUo3MFl4?=
- =?utf-8?B?M09FNWZUQXlyKy9MamVYUGgzT2ZDdm1vYmRiRHRGaVRwWnR3c0ZlWWFGSk5C?=
- =?utf-8?B?bWM2VDNGRk1CSWZ3Z3A0OGtuTVhNcmdyRUxKUFBkU0RNeXB1N0lnY1hmc0xX?=
- =?utf-8?B?dUNPeVM0dE51WHJYK0pwWExaV2p0YTgrRE9MaVBUYUp4Y0pWamc3bzNBS3hn?=
- =?utf-8?B?SjREU2xTb0pzbWlGMzR5L25lbGJxa3NwaXR2Yks5OHlJZTZmQjlaZmlZMkJl?=
- =?utf-8?B?aDhpQlVVeWFNTi9OTnNoTUlyUG9CVnZoUkZlVzdZZ1c1N2tHNmtORTRRU1JN?=
- =?utf-8?B?TkNVQ21pMmh3a21LL3VxSDlrbVoybkNRbW5ZdFVhY1ZMRlF3NWIyNFdIRVU0?=
- =?utf-8?Q?lwUm4MQoC/iMc?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB8109.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bWViVFJpQW5sdEFmSVpMeXRQdnhhNmFKWktUSGN3U2xXZSt0OEV4YngwMlg1?=
- =?utf-8?B?aXFCdE0wZGZvZUQyTDh3ZkNBQldiekI1VFU1YTdFUXB2TVNzTXhDd2l1dDhQ?=
- =?utf-8?B?Q2hYR0c3RDBCQkFKWGdjVmZnSzh1TVpxSlZxK0JzVW9mWlM4bXZuVC9LSCsx?=
- =?utf-8?B?MkhTQjlZYjhvSC9USHFpR2lzeXdMWFh2eUVQSUZQU2w3akhUV003Tk81Mnl6?=
- =?utf-8?B?SnhGTkJRV0pGVnM5MDVXM0M4WmEwaG5IRURDN2F6N3JUdGtFcVNSWnBrdUZK?=
- =?utf-8?B?Q0JGUHVIa2V5dUd6aXhBV1VSbFBFTDhDQWNRdS9zLzBkc1NiNU9vWG5Ld0pH?=
- =?utf-8?B?a2UveUZBOVZ6aVV0NlVPLzBRdU80SnRZbjgzVVdnZE1NMmptb2pzK0I2OG5t?=
- =?utf-8?B?disycHVyWWV4eHlYS013MW9sRWMvTi90MGRRVm54NHNJOExnZWc5SzRXRzlG?=
- =?utf-8?B?UHdtbFVwOFdETFdYeUNOYUhPaVdISlQ4M1N6alpRNGVhUUlyR3NBYWJleERt?=
- =?utf-8?B?QUNCd1U0OFRLUHdPMHFUOFZnenRxWnJkTjZkSUtJZUhHZ0dKTkludzhnb0or?=
- =?utf-8?B?MVhDZmVSUDVOUm1hNTlyVHc1TDdxR0s1T1BHRFBEMW5JQ0JJYVZpa1dxak5I?=
- =?utf-8?B?dm9qd3JXZUsxblZCRW5Zb2ttQXIvVlN0RWQ5RktJSmlERGZ2WDkzbjZwTjV5?=
- =?utf-8?B?RUt1QWRCYlFMdUN5K2trVW9RVUU0VkpvRnNLVm1QemVSeGlnek1TMkpaNUVT?=
- =?utf-8?B?VE84blNsTzhENlVISmdlSVRHeVhMV0JDT2Frb3NvZlBqdWszWDBHUEs5Z0ZB?=
- =?utf-8?B?N3pucUFDMUFacWpualh5WjNiVzF6K3diZUpPZnY3dU1QdGtCaFl6bURqQngx?=
- =?utf-8?B?VnpnODdTb1RHdlEvSHVpYXdCcEZ3RHZRcXJ1bUdYUVBpUXZ1cmhuaTM4WDFj?=
- =?utf-8?B?K2RXUkhrKy92ajFzNVl3RUNma3dJM1R3WTlNd090Y0JWU1g3dytYN3g3d0xX?=
- =?utf-8?B?TGlycGVtQ1gzcUZiOFlKVG9JTGtZQTlZakdQc0JsN1lYT00zLzlERWx2Zzkv?=
- =?utf-8?B?MGI4U3AvZUZ6bkxNOTZXYjJUMVdoT2xna0hITEFhSFo5Z0VBWkFsc1d0a1N1?=
- =?utf-8?B?TVZjM3FBNFdNZk9aUEM5QkZVd0x4eGtMSGNNWDlUMWU1bHNJRVVCakVQd1dE?=
- =?utf-8?B?cXFIcHFWQ0RqeVJZUDZtZDR3TmxUNUl3VkY2QmNiQStmclUvZko2L2hsV2Z1?=
- =?utf-8?B?RUJEYnY5eHNzOGd6Umx0cnZ3K3FKcGhSZDlscnY0SEpUNGpNTzBwNjgyN1Fv?=
- =?utf-8?B?VU9KTmRyRnQ0RHZJamFCVjR5T2hRTW9KN1hlS09EVGpZaXpYV3JyZXgxVWJO?=
- =?utf-8?B?bEtrVkpuSys3bWZmaWZ2c3NJY3dwYXQvNE4ySTY0ZjVnTlBMdjFRdXR0WWlD?=
- =?utf-8?B?WUwvR01LL2pXYWYyOXhNT05vNFVQMkpzUjNrTDF3N1JBb2NiUG5oTmhWcElr?=
- =?utf-8?B?TjhBdDdsV0luNVRxbmxXR05Ra0JOQytWN252UmZKNGxJMDlISCtnUzJaK2ww?=
- =?utf-8?B?eGh5a2JRcXJtT1Y0eXZIOGVjeE5lZnkrZjhmeFZUZ2REcXZzWExhKzAwYUcv?=
- =?utf-8?B?WGpLWmtBWFFzMHRXWXpIRkRsOTUyaHN0azY5MTZyS3BYL2hJdFNpSVBYd0I0?=
- =?utf-8?B?V1pHSDdIcyt4Y1k2RzgzOXJsWVoyNUxnbHFRb3hCdThqVXJqaVhnSWhhcG5V?=
- =?utf-8?B?SzYvTEZyd280SWppSWhvSXhPUEwyUXU3bHZVbWFSV3ZyczljU1JqT202ZzBz?=
- =?utf-8?B?QlF1M0h6QThFdTdLSWx4em8rQTIrREkzUTZ1MWVKTFpqdFJROGhSWG1JVmFO?=
- =?utf-8?B?Q3M1MjRFT0JkZW01b0M5WDdaSEdEYmxIcHVmVmw0SnlWaEFpWVU2TjRkZHoy?=
- =?utf-8?B?bThDR3F0QUhEU1R0RWxOeFRoaXRqODg4ajB0RTE1UVlXTllrY1JiTFdHRlpk?=
- =?utf-8?B?bXFZY1FuMENVMTJnRzBKMEtpbVltU3poTjhUcFFiOUdzRHptRHUyQXA5aG1w?=
- =?utf-8?B?Z1pLZFoxZGZLcUM5dGJnNm45OUdicTI3Y29JbEVSeHVyYlo5dzh0TkJybEhS?=
- =?utf-8?Q?lD8MtC37Ux6/AhVbbekqF/7qB?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 66eefb51-b7b9-47a0-38cd-08dd36c6b999
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB8109.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jan 2025 07:15:30.4027
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 4i8ydq8Plek0CmCEaYZLF0ZRO30T92rkvRNqEiggbr/vVSarrpga9/Tu3DDJRe6P
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB7296
+ linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org,
+ linux-gpio@vger.kernel.org,
+ linux-pm@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <686A634E-147F-4D73-A909-29FC0C20472C@gmail.com>
+References: <20250110123923.270626-1-szemzo.andras@gmail.com>
+ <20250110123923.270626-4-szemzo.andras@gmail.com>
+ <20250114141954.2785879a@donnerap.manchester.arm.com>
+ <CACRpkda0nx3SQtdjmXdCEbVJSWM10TM=p-6JbDjbiYcOSF5PxQ@mail.gmail.com>
+ <20250115152635.1b89e7f4@donnerap.manchester.arm.com>
+ <CACRpkdYVTedEon0X-izvaDTGF6yRhD2s=Z6NEM=zBf4vD-T0Pg@mail.gmail.com>
+To: Linus Walleij <linus.walleij@linaro.org>
+X-Mailer: Apple Mail (2.3776.700.51)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_231538_279010_46B9E470 
-X-CRM114-Status: GOOD (  18.41  )
+X-CRM114-CacheID: sfid-20250116_232519_837685_29591624 
+X-CRM114-Status: GOOD (  49.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -221,91 +129,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+I=E2=80=99ve actually already converted the pinctrl driver to the new dt =
+based pinmux, as Andre
+suggested. It=E2=80=99s simple, get rid of those huge pinmux tables, and =
+easy to understand to
+add the mux settings to the dtsi.
 
 
-On 1/16/25 23:55, Sean Anderson wrote:
-> When an operation times out, we leave the device (and driver) in an
-> inconsistent state. This generally results in all subsequent operations
-> timing out. Attempt to address this by resetting/reinitializing the
-> device when we have a timeout. This tends to be fairly robust.
-> 
-> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
-> ---
-> 
->   drivers/spi/spi-zynqmp-gqspi.c | 30 ++++++++++++++++++++----------
->   1 file changed, 20 insertions(+), 10 deletions(-)
-> 
-> diff --git a/drivers/spi/spi-zynqmp-gqspi.c b/drivers/spi/spi-zynqmp-gqspi.c
-> index 7d138f45b692..cf47466ec982 100644
-> --- a/drivers/spi/spi-zynqmp-gqspi.c
-> +++ b/drivers/spi/spi-zynqmp-gqspi.c
-> @@ -1057,6 +1057,21 @@ static unsigned long zynqmp_qspi_timeout(struct zynqmp_qspi *xqspi, u8 bits,
->   	return msecs_to_jiffies(timeout + 100);
->   }
->   
-> +
-
-unnecessary newline here.
-
-> +static int zynqmp_qspi_wait(struct zynqmp_qspi *xqspi, unsigned long timeout)
-> +{
-> +	int ret;
-> +
-> +	ret = wait_for_completion_timeout(&xqspi->data_completion, timeout);
-> +	if (ret)
-> +		return 0;
-
-newline here please
-
-> +	dev_err(xqspi->dev, "Operation timed out\n");
-> +
-> +	/* Attempt to recover as best we can */
-> +	zynqmp_qspi_init_hw(xqspi);
-> +	return -ETIMEDOUT;
-> +}
-> +
->   /**
->    * zynqmp_qspi_exec_op() - Initiates the QSPI transfer
->    * @mem: The SPI memory
-> @@ -1104,11 +1119,9 @@ static int zynqmp_qspi_exec_op(struct spi_mem *mem,
->   				   GQSPI_IER_TXNOT_FULL_MASK);
->   		timeout = zynqmp_qspi_timeout(xqspi, op->cmd.buswidth,
->   					      op->cmd.nbytes);
-> -		if (!wait_for_completion_timeout(&xqspi->data_completion,
-> -						 timeout)) {
-> -			err = -ETIMEDOUT;
-> +		err = zynqmp_qspi_wait(xqspi, timeout);
-> +		if (err)
->   			goto return_err;
-> -		}
->   	}
->   
->   	if (op->addr.nbytes) {
-> @@ -1133,11 +1146,9 @@ static int zynqmp_qspi_exec_op(struct spi_mem *mem,
->   				   GQSPI_IER_TXNOT_FULL_MASK);
->   		timeout = zynqmp_qspi_timeout(xqspi, op->addr.buswidth,
->   					      op->addr.nbytes);
-> -		if (!wait_for_completion_timeout(&xqspi->data_completion,
-> -						 timeout)) {
-> -			err = -ETIMEDOUT;
-> +		err = zynqmp_qspi_wait(xqspi, timeout);
-> +		if (err)
->   			goto return_err;
-> -		}
->   	}
->   
->   	if (op->dummy.nbytes) {
-> @@ -1204,8 +1215,7 @@ static int zynqmp_qspi_exec_op(struct spi_mem *mem,
->   		}
->   		timeout = zynqmp_qspi_timeout(xqspi, op->data.buswidth,
->   					      op->data.nbytes);
-> -		if (!wait_for_completion_timeout(&xqspi->data_completion, timeout))
-> -			err = -ETIMEDOUT;
-> +		err = zynqmp_qspi_wait(xqspi, timeout);
->   	}
->   
->   return_err:
-
-M
+> On 16 Jan 2025, at 10:34, Linus Walleij <linus.walleij@linaro.org> =
+wrote:
+>=20
+> Hi Andre,
+>=20
+> some nice talk here, actually the following is just opinions, I will
+> be likely happy with whatever approach is taken eventually.
+>=20
+> On Wed, Jan 15, 2025 at 4:26=E2=80=AFPM Andre Przywara =
+<andre.przywara@arm.com> wrote:
+>=20
+>>> pio: pinctrl@1c20800 {
+>>>                        compatible =3D "allwinner,sun8i-r40-pinctrl";
+>>> (...)
+>>>                        i2c0_pins: i2c0-pins {
+>>>                                pins =3D "PB0", "PB1";
+>>>                                function =3D "i2c0";
+>>>                        };
+>>>=20
+>>> abstract, strings, nice. The driver handles the particulars.
+>>=20
+>> What bugs me about this it that this has quite some seemingly =
+redundant
+>> information (Who would have thought that the i2c0 pins use function
+>> "i2c0"?), but misses out on the actual 4 bits(!) of information.
+>=20
+> the pins in this example are called PB0 and PB1 though. The =
+designation
+> on the package. And often pins actually named "i2c0_1" "i2c0_2" are
+> for that primary function, but muxable to a few other functions,
+> at least GPIO in most cases. So it's just some name for the pin
+> really.
+>=20
+>>> That is like so because we are designing for users which are
+>>> let's say customization engineers. If these engineers jump from
+>>> project to project matching function strings to group strings will
+>>> be a common way to set up pins, and easy to understand and
+>>> grasp, and it makes the DTS very readable.
+>>=20
+>> That's an interesting view, and I see the point of it being easy to =
+read,
+>> but this is partly because it doesn't convey too much actual =
+information,
+>> does it, as it requires another lookup or two.
+>> And the pinctrl group nodes are actually in the .dtsi file, which are
+>> typically written once during the initial SoC enablement, and new =
+board
+>> .dts files normally just reference the existing pingroup nodes. So =
+anyone
+>> dealing with just a new board is not bothered by this.
+>=20
+> You have a point, and when working with a system the application
+> engineer often finds bugs in the pin control driver, and has to go
+> and fix the actual driver and then all the information hiding and
+> simplification is moot.
+>=20
+> This can become an expensive lesson for the current attempts
+> to push pin control into firmware where the configuration is
+> mostly "dead simple" (and just using strings) - the bugs will be
+> in the firmware instead, and impossible or really hard to fix.
+>=20
+>> Also in my experience most people have no problems in understanding =
+the
+>> concept of pinmuxing and that there is a selector number, also where =
+to
+>> find this.
+>=20
+> Yeah the ambition with the strings was to avoid forcing application
+> engineers to know all about that. If they do, they are then
+> developing the driver, not just using it.
+>=20
+>>> Mediatek and STM32 made a compromise by using pinmux
+>>> and adding some macros to define them so it looks more
+>>> pleasant:
+>>>=20
+>>>      i2c0_pins_a: i2c0-default {
+>>>                pins-i2c0 {
+>>>                        pinmux =3D <MT7623_PIN_75_SDA0_FUNC_SDA0>,
+>>>                                 <MT7623_PIN_76_SCL0_FUNC_SCL0>;
+>>=20
+>> Well, I don't really get why they don't use the (MTK_PIN_NO(75) | 1)
+>> definition directly, seems to be more telling to me?
+>=20
+> That's what STM32 does as well and it's usable.
+>=20
+> But of course it drives a truck through the initial ambition that pins
+> on all systems be configured the same way, with strings. So now
+> there are some families of drivers all "necessarily different" which
+> is not so nice for people jumping between different SoCs, but
+> very compelling for people focusing on just one SoC.
+>=20
+> Well, unless this way of doing things becomes so prevalent that
+> it's the new black.
+>=20
+>> So the plan for sunxi would be: <SUNXI_PINMUX(PORTC, 23, MUX_1)>, ...
+>> And this would not be really "opaque", since it has a fixed known =
+mapping:
+>>        (port << 16) | (pin << 8) | (mux << 0))
+>> I find this both technically elegant, because it combines all the
+>> information into just one compact cell, but also readable by =
+outsiders,
+>> thanks to the macro.
+>=20
+> And a new standard, to add to the other standards, so that
+> is my problem as maintainer. It makes sense on its own, and it
+> complicates the bigger picture.
+>=20
+>> My main arguments against the current (string-based) approach:
+>> - They require the mapping table to be in every DT user, so not only =
+the
+>>  Linux kernel, but also U-Boot, FreeBSD, you name it...
+>=20
+> That's true.
+>=20
+> This comes from the DT ambition to describe hardware and config,
+> but not *define* hardware, i.e. to stop device tree to turn into
+> Verilog or SystemC, which is what will happen if we take the
+> 1:1 reflection of hardware to device tree too far.
+>=20
+> I don't think anyone really knows where to cut the line.
+>=20
+>> - The tables are getting quite large, and they pollute the single =
+image
+>>  Linux kernel, with tons of very specific information for a number of =
+very
+>>  pitiful Allwinner SoCs. At the moment the tally is at 145KB of =
+code+data
+>>  for the existing arm64 SoCs, with the newer SoCs ever growing (H616 =
+alone
+>>  is 27KB, A523 would be quite larger even, I guess 40K). The new A523
+>>  specific pinctrl support adds 872 Bytes.
+>=20
+> This is a generic problem though, look at GPU drivers.
+>=20
+> The community (especially Android) seem set on fixing this by using
+> modules.
+>=20
+>> - Most of the mappings are untested at pinctrl driver commit time, =
+since we
+>>  don't have the device drivers ready yet - by a margin. The new =
+approach
+>>  would add the pinmux values when we need them and can test them.
+>=20
+> I like this argument the best.
+>=20
+> However this also reads "upfront firmware to handle pin control is a
+> dead end" yet there are people dedicatedly working on exactly that.
+> (Not that its' the Allwinner developers' problem...)
+>=20
+>> - The comments in the table give away that something is not quite =
+right:
+>>                  SUNXI_FUNCTION(0x2, "i2c0")),         /* SDA */
+>>  This is just a comment, so has no relevance for the code, but it's =
+not
+>>  meant for humans either. Yet we try to make this correct and =
+maintain
+>>  it. Odd.
+>=20
+> So i2c0 is SDA and i2c1 is SCL or something?
+> It seems common, but yeah it can be confusing.
+>=20
+> Yours,
+> Linus Walleij
 
 
