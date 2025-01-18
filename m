@@ -4,90 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13402C02185
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jan 2025 10:27:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8419C02187
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jan 2025 10:30:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eC562IGNdsBslKvrHku3T+cv3/NWv0Sm/Mud6kF3qcU=; b=sUsRQozBgliOKzYYDKAXg78bQX
-	F0rmsP3r8k/dky2jCS6ExQJuccZWlvjSWN2oVMWPJX2toffmHh/TEUZk7mj0ZVLHm1e9WfIPqZiZP
-	N4LBjEia/lSo283K+Ve/1CDUBEeWb9ZAlbrCdHXCTOT9J9ozPavqhWfjc1cdJfGQEYmhTaBssenLz
-	fvkU6YVFX+ybvHxzuHG2JT8m9bQXGE1MRUvAsW01/Mtg1AE4zFvtlB0ycSoQuvv2lkzHLCki16me3
-	milREjD9lRf0OYTfW1GfK08ZLBtY2iEpw724BT1sypWrVVX1UCkn8DRNxOv13lkqiioLEpAmGE7hN
-	z+uYbKqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uHTBuz2VOLIrL5AeKLZbX619K2wb91684oLDxHCY8gU=; b=YDRIy5pEX7UnsNu6QVKeAYnLeg
+	cdOVlaSMRzlLbimm40Fcd5EoayUVBpYLErOzXCXMQ0iiG9x44F04Ufu09Tvc68gOG6IN8BHiWYG76
+	4Yh425yJjsloqF8JwwxEAgyzWa9OcZZdEUvOqj36b2OJZCzQCWcc7m8PNkoj6zqETPLAviUqBy0pX
+	jCve2UKj4RCHCwoAVRxT4gNj2ftKA0dO/6K2thtUBrPxY1SS+2jxbYX1pDQd4mzhAg+sN09C3aPKQ
+	T7GK4dW/a6k64vHYlH4+7iZBVPlBve811wvHYeDLjGlTy8OHVlWfNL9smNcEwiICj4iqe+oXYDwjo
+	1EgwI6nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZ63E-00000002BkA-3CBt;
-	Sat, 18 Jan 2025 10:27:36 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1tZ666-00000002C5t-2FVs;
+	Sat, 18 Jan 2025 10:30:34 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZ5yU-00000002B6F-2clj
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Jan 2025 10:22:43 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-aa69107179cso573432366b.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Jan 2025 02:22:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737195761; x=1737800561; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=eC562IGNdsBslKvrHku3T+cv3/NWv0Sm/Mud6kF3qcU=;
-        b=ETvo2iCRR7CyDLYO0WuOV/zE9fjLp1BkSqfq6BoDjVVDQUP6iqIkm2Njb7pOOzr4kH
-         2B1FLxGbFBSxEVKQo30JFK37YqWTdr6ychUMWlEGq5oVt9NdfzU58dRL9AscQ0YG8AUI
-         isWTdYwD3UQqZleW5CuyaQdWNlVL07BAFpKhS8t40qSkVNLVvV7LIRA0IHHrycbuSeYZ
-         zFBuOWgwjWJJFwO+xF1IxTjAEsijcyBmDr3XKsv12FW9XkeZ0eA4UBS2g9rZFtda9/SB
-         kwYS5zBloEtkfxlRd2GSOl9ExmYoNxA2Qvg9DrBUPYwEuWt0qtU+RCrIPQo559a+4iFl
-         7GNw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737195761; x=1737800561;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=eC562IGNdsBslKvrHku3T+cv3/NWv0Sm/Mud6kF3qcU=;
-        b=b/sMdnRURrUp+rDfW0wBG98SC2QM0PXyW/hIYcsteVOVG6vkPPlJPVkZNlZVh1Sq4W
-         kH5J5cBhmoWaVCb0nOID8Xxnl6ua4YNKRYLbHIXhDZCD8VpM9Q4s0ZCLXAoX6ONAOUFT
-         v84SNRJatMcg2H0+0imHAJPvRuyC29jk6NoiPMrjARhtTee64S8Dy6kTPal/AE2k0m3G
-         uDJfhakq4/K6BkW5lPdNo/wWSuKV3+O1DnHVI1lMmajB7AWX0FGTSZy/LXl95XId59rR
-         y1ehER1DUZQlj1L7yezVNcyh2v8X5qSBlfn2I6vom3jYjOA1kQMUdcoeDUJ9xoa/tnaB
-         FwhA==
-X-Forwarded-Encrypted: i=1; AJvYcCWvr9JIMrWgwRFzGUVfHXt9O2BTCaxLCrC3eobpJrKuAm4Hupvsc6YJ4qESuEe8iEkbDup1pAlaoB13tKtcWCth@lists.infradead.org
-X-Gm-Message-State: AOJu0YzaUpYKsesMoRPO1/ozRMnR2dobmEuyepQCxKvdJ3qiBUseK2Wb
-	b5hFmQzE22l4f90UqV+k2MEqjwlwl6kzxcJPhrEWDeRp1qQSwlVgPKhfcA==
-X-Gm-Gg: ASbGncufWhelZTmAvOorGV7IjsHL2aVjjjnKbwaSr7ENa3WuC7Coo9IOIidN0lSaNMd
-	Ds8g79+kbGsDA8WIvX57NZd+2wvBkGTvvleOK5X1h6dJZfM0K4lGC//Qo1RKBJWINIG+zlwIBOB
-	LFI/MQ+KevPQ9pz0mkal5teYfb/UrmicU0IeOJqnRP9+G4ohRhRwNYptRAfJtEcJPVyZ5KbqQ/G
-	4sAptPqBBy5AegidegrJ7q1yiHi5n3X5oLto0LT977DobW3b7WfRUZFHJRXacGGP74Ox4MZq484
-	giYrHkFdxnSpWbI=
-X-Google-Smtp-Source: AGHT+IE+y1gp+riQD30Inb1lrysJjHeJCu6/sl+o+LPW+5g5AYkhktPoEz8aolwvSzUCLAkf/TSzCQ==
-X-Received: by 2002:a17:907:d87:b0:aa5:b1b9:5d6a with SMTP id a640c23a62f3a-ab38b3d6d1cmr587932766b.54.1737195760645;
-        Sat, 18 Jan 2025 02:22:40 -0800 (PST)
-Received: from jernej-laptop.localnet ([188.159.248.16])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab384f86206sm311092166b.134.2025.01.18.02.22.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 18 Jan 2025 02:22:40 -0800 (PST)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Thomas Gleixner <tglx@linutronix.de>, Chen-Yu Tsai <wens@csie.org>,
- Samuel Holland <samuel@sholland.org>,
- "open list:IRQCHIP DRIVERS" <linux-kernel@vger.kernel.org>,
- "moderated list:ARM/Allwinner sunXi SoC support"
- <linux-arm-kernel@lists.infradead.org>,
- "open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
- Philippe Simons <simons.philippe@gmail.com>
-Cc: Philippe Simons <simons.philippe@gmail.com>
-Subject: Re: [PATCH v2] irqchip/sunxi-nmi: add missing flag
-Date: Sat, 18 Jan 2025 11:22:39 +0100
-Message-ID: <2220251.Icojqenx9y@jernej-laptop>
-In-Reply-To: <20250112123402.388520-1-simons.philippe@gmail.com>
-References: <20250112123402.388520-1-simons.philippe@gmail.com>
+	id 1tZ64p-00000002BxT-3Jhp;
+	Sat, 18 Jan 2025 10:29:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 679F6A41572;
+	Sat, 18 Jan 2025 10:27:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 807A0C4CED1;
+	Sat, 18 Jan 2025 10:29:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737196153;
+	bh=/1NE4ttOMRcHZ8LgPWwDraq9LnyK+oI+6X4KOsqjxfc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Yf/7wl0gHcaHu+yfl9ptu8WGbVR+ezxHm6VF0AsMB33gf7eIf7Blo38JWcrXWN5bU
+	 I1NUovm7DxVXnWFcCWPt+iSFWAevB1B8lESOy7UDSxXQrxs1dOL/UW9QvjxPqjaiha
+	 Vu+lOkUtMMOf3zenmL+wbJ769ErRyAgup7fAM5bO856YOm+tRtpwtxHH0dHvNt3ZEJ
+	 6rmu2xyUB+Srv30RVi2SlH84SOXfv0nhAXt+aQ7UgwM/XLM4NbZSs3FkaQT870cM0L
+	 JKuF7xDVEJLMjs9uh1YKsoNY5wZLET4/FwKq0WpKBA4/wZqEaqaMWAIyXXKQBTFOcZ
+	 e6WwWd4KvXKrQ==
+Message-ID: <df2e466a-cdaa-4263-ae16-7bf56c0edf21@kernel.org>
+Date: Sat, 18 Jan 2025 11:29:06 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v1 4/6] arm64: dts: rockchip: add rk3328 usb3 phy node
+To: Dragan Simic <dsimic@manjaro.org>
+Cc: Diederik de Haas <didi.debian@cknow.org>, Peter Geis
+ <pgwipeout@gmail.com>, Heiko Stuebner <heiko@sntech.de>, zyw@rock-chips.com,
+ kever.yang@rock-chips.com, frank.wang@rock-chips.com,
+ william.wu@rock-chips.com, wulf@rock-chips.com,
+ linux-rockchip@lists.infradead.org, Alex Bee <knaerzche@gmail.com>,
+ Conor Dooley <conor+dt@kernel.org>, Johan Jonker <jbx6244@gmail.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250115012628.1035928-1-pgwipeout@gmail.com>
+ <20250115012628.1035928-5-pgwipeout@gmail.com>
+ <7c7ce820-8a9b-46df-b143-f77835b7e5a0@kernel.org>
+ <D73NJYSP62XH.28CVZPNUE21H3@cknow.org>
+ <1bc91b4214a1099801aaed6b3ef81ef3@manjaro.org>
+ <dcfb46e8-f29a-4eee-b8f8-1ff774f272ce@kernel.org>
+ <60ced7df829e7c10e264627cc0947762@manjaro.org>
+ <20b474be-301e-4dc3-9eb7-77e9ef075191@kernel.org>
+ <3d9ce9fd9b6309553b5669e111bc4200@manjaro.org>
+ <735d89df-9954-44bd-aca6-4bb165737626@kernel.org>
+ <7ab853de15e1c183ef184d2700a13d98@manjaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <7ab853de15e1c183ef184d2700a13d98@manjaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250118_022242_660901_34834F4A 
-X-CRM114-Status: GOOD (  16.95  )
+X-CRM114-CacheID: sfid-20250118_022915_967867_7DEE6FA0 
+X-CRM114-Status: GOOD (  28.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,53 +132,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne nedelja, 12. januar 2025 ob 13:34:02 Srednjeevropski standardni =C4=8Da=
-s je Philippe Simons napisal(a):
-> Some boards with Allwinner SoCs connect the PMIC's IRQ pin to the SoC's
-> NMI pin instead of a normal GPIO. Since the power key is connected
-> to the PMIC, and people expect to wake up a suspended system via
-> this key, the NMI IRQ controller must stay alive when the
-> system goes into suspend.
->=20
-> Add the flag to prevent the sunxi NMI controller from going to sleep,
-> so that the power key can wake up those systems.
->=20
-> Signed-off-by: Philippe Simons <simons.philippe@gmail.com>
-> ---
+On 18/01/2025 11:10, Dragan Simic wrote:
+> On 2025-01-18 10:52, Krzysztof Kozlowski wrote:
+>> On 18/01/2025 10:43, Dragan Simic wrote:
+>>>>>
+>>>>> Please see the commit bdc48fa11e46 (checkpatch/coding-style: 
+>>>>> deprecate
+>>>>> 80-column warning, 2020-05-29), which clearly shows that the 
+>>>>> 80-column
+>>>>> rule is still _preferred_, but no longer _mandatory_.
+>>>>
+>>>> I brought that commit, but nice that you also found it.
+>>>>
+>>>> Still: read the coding style, not checkpatch tool.
+>>>>
+>>>>>>> 80 columns is really not much (for the record, I've been around 
+>>>>>>> when
+>>>>>>> using 80x25 _physical_ CRT screens was the norm).
+>>>>>>
+>>>>>> You mistake agreement on dropping strong restriction in 2020 in
+>>>>>> checkpatch, which is "not for years" and even read that commit: 
+>>>>>> "Yes,
+>>>>>> staying withing 80 columns is certainly still _preferred_."
+>>>>>>
+>>>>>> Checkpatch is not coding style. Since when it would be? It's just a
+>>>>>> tool.
+>>>>>>
+>>>>>> And there were more talks and the 80-preference got relaxed yet 
+>>>>>> still
+>>>>>> "not for years" (last talk was 2022?) and sill kernel coding style 
+>>>>>> is
+>>>>>> here specific.
+>>>>>
+>>>>> It's perhaps again about the semantics, this time about the meaning
+>>>>> of "for years".  I don't think there's some strict definition of 
+>>>>> that
+>>>>> term, so perhaps different people see it differently.
+>>>>>
+>>>>> To get back to the above-mentioned commit bdc48fa11e46, the 
+>>>>> 80-column
+>>>>> limit has obviously been lifted, putting the new 100-column limit as
+>>>>
+>>>> "Lifted" on *CHECKPATCH*, not on coding style. Do you see the
+>>
+>> Repeating myself about because you are not addressing the actual 
+>> difference.
+> 
+> Please see below.
+> 
+>>>> difference? One is a helper tool which people were using blindly and
+>>>> wrapping lines without thinking, claiming that checkpatch told them 
+>>>> to
+>>>> do so. Other is the actual coding style.
+>>>>
+>>>> You claim that coding style was changed. This never happened.
+>>>
+>>> It was obviously changed in the commit bdc48fa11e46, by making the
+>>> 80-column width preferred, instead of if being mandatory.  The way
+>>> I read the changes to the coding style introduced in that commit,
+>>> it's now possible to go over 80 columns, up to 100 columns, _if_
+>>> that actually improves the readability of the source code.
+>>
+>> The commit is for checkpatch. Point to the change in coding style. You
+>> are bringing argument for checkpatch, so only a tool, as argument for
+>> coding style. Again, coding style did not change since years.
+> 
+> Commit bdc48fa11e46 obviously addresses 
+> Documentation/process/coding-style.rst
+> as well, as visible in the quotation from the commit below:
 
-Please provide changelog here.
+Yes.
 
->  drivers/irqchip/irq-sunxi-nmi.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/irqchip/irq-sunxi-nmi.c b/drivers/irqchip/irq-sunxi-=
-nmi.c
-> index bb92fd85e..8dda0a85e 100644
-> --- a/drivers/irqchip/irq-sunxi-nmi.c
-> +++ b/drivers/irqchip/irq-sunxi-nmi.c
-> @@ -186,7 +186,9 @@ static int __init sunxi_sc_nmi_irq_init(struct device=
-_node *node,
->  	gc->chip_types[0].chip.irq_unmask	=3D irq_gc_mask_set_bit;
->  	gc->chip_types[0].chip.irq_eoi		=3D irq_gc_ack_set_bit;
->  	gc->chip_types[0].chip.irq_set_type	=3D sunxi_sc_nmi_set_type;
-> -	gc->chip_types[0].chip.flags		=3D IRQCHIP_EOI_THREADED | IRQCHIP_EOI_IF=
-_HANDLED;
-> +	gc->chip_types[0].chip.flags		=3D IRQCHIP_EOI_THREADED |
-> +											IRQCHIP_EOI_IF_HANDLED |
-> +											IRQCHIP_SKIP_SET_WAKE;
+> 
+>    -The limit on the length of lines is 80 columns and this is a strongly
 
-Alignment seems off. With that fixed:
-Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com
+80 is here...
+
+>    -preferred limit.
+>    -
+>    -Statements longer than 80 columns will be broken into sensible 
+> chunks, unless
+>    -exceeding 80 columns significantly increases readability and does not 
+> hide
+>    -information. Descendants are always substantially shorter than the 
+> parent and
+>    -are placed substantially to the right. The same applies to function 
+> headers
+>    -with a long argument list. However, never break user-visible strings 
+> such as
+>    -printk messages, because that breaks the ability to grep for them.
+>    +The preferred limit on the length of a single line is 80 columns.
+>    +
+>    +Statements longer than 80 columns should be broken into sensible 
+
+80 is here as well.
+
+So now to your original statement:
+" but the 100-column limit
+for the kernel code has been in effect for years."
+
+Where is 100? Only in checkpatch. There is no 100 limit in kernel coding
+style.
+
+The change in coding style and checkpatch was partially done because of
+your understanding: reading checkpatch output as a rule. But this was
+never a correct approach and still is not. So whatever checkpatch is
+telling you, e.g. "100 column limit", is not coding style. It's only
+checkpatch, a tool trying to help you.
+
+> chunks,
+>    +unless exceeding 80 columns significantly increases readability and 
+> does
+>    +not hide information.
+>    +
+>    +Descendants are always substantially shorter than the parent and are
+>    +are placed substantially to the right.  A very commonly used style
+>    +is to align descendants to a function open parenthesis.
+>    +
+>    +These same rules are applied to function headers with a long argument 
+> list.
+>    +
+>    +However, never break user-visible strings such as printk messages 
+> because
+>    +that breaks the ability to grep for them.
+> 
+> I think it's obvious that the 80-column width is no longer _strongly_
+> preferred, but has been demoted to some kind of a bit weaker preference.
+
+Yes, but this is not what you said before and this is not what I questioned.
+
+> 
+> Also, please note that the coding style explicitly says that the 80-
+> column rule is to be followed "unless exceeding 80 columns significantly
+> increases readability and does not hide information".
+
+I already said it earlier... so yeah, we keep repeating ourselves while
+discussing original point claiming now something else than we actually
+discuss.
 
 Best regards,
-Jernej
-
->  	gc->chip_types[0].regs.ack		=3D reg_offs->pend;
->  	gc->chip_types[0].regs.mask		=3D reg_offs->enable;
->  	gc->chip_types[0].regs.type		=3D reg_offs->ctrl;
->=20
-
-
-
-
+Krzysztof
 
