@@ -4,55 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68526C02185
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jan 2025 08:26:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A95B5C02185
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jan 2025 08:39:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yHHOsjczkVFUY6E2hS+Jh4/Pa4zvDuuQuUVaZE+j9m0=; b=Ut8kBYj9MsFXL9oDEBs5R3c6ca
-	y95qpzNZjDMZ8B1S0Om9p31XP7RI+BDfd7uZycvc2a/9Uh3DrtPLj24RmUW8mndUQNdTJox0IwVGC
-	wxtm5b9NZho3xItaspsud7y7qGj14X+M1d4uJ35o/9PLbYVhX/t88br9BL11rmWdlfYsFxh1WjFXB
-	Os2EZuaOfUU/gNsVw3vkglfpf9pxkyabSSeQrv844LswgKCUiBjBEOOJdeU57vMsDeKO0pk6cjG1q
-	9bCnanQqgwsxYCkKmKKNjPh6cZlmNHdrAxfM44o8TH3/9G8E8FCostptrYqeytGG4g93Ev0mwNgmR
-	53S2aHAg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zKuPDlOMPDO5oGq08bHFWi7TOK0868onJ3Gwccm4HFo=; b=rgMIQDxnhw9wrkpHEYt4efg1gL
+	UcwHHXwLAafVQ3PPqZpFhd1Zq/O9IP615mo1GcJFupMxrtlwtUS69yLXVVYudGr5Bk29JkxpjH9Il
+	I11k564kp48xIoNvTdS0AoAdFPukTQy8hmeG93B9/lwN5Q1k9LvBJOm9TX4VVxugHkfZNRIwYpyxi
+	TW2ptraN4S5V1ehfM4JB0BvD8Me6HNzjEi9iGo9cmFefJEottNrDlsjx3CdjQ5jQpzVBKqgsDWB/B
+	YMel/NOVZbwmqJa9fmYHqiP0CC4pJZlqW4eisITGYIjQnK8fXPctTReaVLFnXh5nSaPtZ+Rpsoqap
+	1gTs1PAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZ49f-000000021Kw-3oLC;
-	Sat, 18 Jan 2025 08:26:07 +0000
+	id 1tZ4Lu-000000022Yv-2lc1;
+	Sat, 18 Jan 2025 08:38:46 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZ48P-000000021CL-0CRT
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Jan 2025 08:24:50 +0000
+	id 1tZ4Kd-000000022SY-3Qna;
+	Sat, 18 Jan 2025 08:37:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3E3A4A414A1;
-	Sat, 18 Jan 2025 08:23:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D798C4CEE1;
-	Sat, 18 Jan 2025 08:24:44 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 21E89A41462;
+	Sat, 18 Jan 2025 08:35:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E47F9C4CED1;
+	Sat, 18 Jan 2025 08:37:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737188687;
-	bh=oT6x1/UPbJU0IyP7WL9HBzTJXPcBfOdY3PxFK3Y7jGo=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=tJYPEAJd0AGZe8PocR92lVmtXO3/z5Iez6qnLEopHkNaG9mysET1wN6YK64J2A54L
-	 hXezxApN+kM5tULa7KBXq85CYpGNAHOQ3ee5mth3wu+rprISgVfYd6tmachMo1zN9Q
-	 qoPtrFiM8xG5fB1BpYtZEsgcPGImq7imDTXiIxkgJ8aS8lco4NplDhNkk8iG5nZ+sE
-	 tkP6I1FZayrPVW/VdYAn7IoYj5hiBiCjkrP1KAui2St1/erl1EW/MbJPQebFQgEOuU
-	 T9gq+nQPuyOkqLEF+fV8x2xi0dXscw8YbIiDUY6ehlyebRH32ZwjRuEo/TszKbef9V
-	 k3JDJBx2tLuGQ==
-Message-ID: <907dade8-0e11-4d99-acb5-2d35ba729932@kernel.org>
-Date: Sat, 18 Jan 2025 09:24:42 +0100
+	s=k20201202; t=1737189446;
+	bh=tvFTbNI16dWEiQ0a1DxdbCn/gVCZieFS78UcbDryCxo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Vt5NL/gKLDm/Wrkb8SUMOQwwRjr3aRNsqTWpIaF7cbZFBb+1wBA2Wg0AIVfoKm9Yc
+	 0rKfOW0O3zSXXRm0tNacj4hNeS26RZs6mtzWuqRs6O0all5P+x6RuvTP0SjFkgpN94
+	 HKFr21WH7OBJaH87vQ4BVs6yE9SHgbd9cnFKygRWCtOO9a5mVIf0EI83Geh4NNWuzx
+	 tDKNXIw3SQG3UMPWDv9zWTSh2AeLIT7yVBLrlaOVqtRwXD+8m0480YI49CEl2k1SKN
+	 u+yA07OjzyiIyG+4kLTM84IDJsviaBsh3fJN6o5pNljCFhmQ5ymSeeMDD/ROcGwVLd
+	 G+MMTBLmFywvg==
+Message-ID: <cc043dcd-b46e-4b4b-9b80-0450efde86eb@kernel.org>
+Date: Sat, 18 Jan 2025 09:37:17 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v0 3/3] soc: aspeed: lpc-pcc: Add PCC controller support
-To: Kevin Chen <kevin_chen@aspeedtech.com>, joel@jms.id.au,
- andrew@codeconstruct.com.au, linux-arm-kernel@lists.infradead.org,
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- elbadrym@google.com
-References: <20250117095217.661070-1-kevin_chen@aspeedtech.com>
- <20250117095217.661070-4-kevin_chen@aspeedtech.com>
+Subject: Re: [PATCH 03/12] dt-bindings: display: mediatek: add EXDMA yaml for
+ MT8196
+To: =?UTF-8?B?UGF1bC1wbCBDaGVuICjpmbPmn4/pnJYp?= <Paul-pl.Chen@mediatek.com>,
+ "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+ <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: =?UTF-8?B?U3VubnkgU2hlbiAo5rKI5aeN5aeNKQ==?= <Sunny.Shen@mediatek.com>,
+ =?UTF-8?B?U2lyaXVzIFdhbmcgKOeOi+eak+aYsSk=?= <Sirius.Wang@mediatek.com>,
+ =?UTF-8?B?TmFuY3kgTGluICjmnpfmrKPonqIp?= <Nancy.Lin@mediatek.com>,
+ =?UTF-8?B?WGlhbmRvbmcgV2FuZyAo546L5YWI5YasKQ==?=
+ <Xiandong.Wang@mediatek.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ Project_Global_Chrome_Upstream_Group
+ <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ =?UTF-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "fshao@chromium.org" <fshao@chromium.org>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ =?UTF-8?B?U2luZ28gQ2hhbmcgKOW8teiIiOWciyk=?= <Singo.Chang@mediatek.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "treapking@chromium.org" <treapking@chromium.org>
+References: <20250110123835.2719824-1-paul-pl.chen@mediatek.com>
+ <20250110123835.2719824-4-paul-pl.chen@mediatek.com>
+ <abadfae8-56f7-499c-83ff-7d79e3fe1f52@kernel.org>
+ <c1440608060e4b2fabf07ff5ac0a7fe49201ba9d.camel@mediatek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -98,12 +120,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250117095217.661070-4-kevin_chen@aspeedtech.com>
+In-Reply-To: <c1440608060e4b2fabf07ff5ac0a7fe49201ba9d.camel@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250118_002449_224181_4855B990 
-X-CRM114-Status: GOOD (  22.68  )
+X-CRM114-CacheID: sfid-20250118_003727_981100_8BF2BDDF 
+X-CRM114-Status: GOOD (  16.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,278 +140,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/01/2025 10:52, Kevin Chen wrote:
-> Add LPC PCC controller driver to support POST code capture.
+On 17/01/2025 11:36, Paul-pl Chen (陳柏霖) wrote:
+>>> b/Documentation/devicetree/bindings/display/mediatek/mediatek,exdma
+>>> .yaml
+>>
+>> Filename matching compatible.
+>>
+>> Why is this in display? DMA goes to dma.
 > 
-> Signed-off-by: Kevin Chen <kevin_chen@aspeedtech.com>
-> ---
+> Hi Krzysztof ,
+> 
+> Regarding the issue of the EXDMA driver, we have conducted an internal
+> survey of drivers under the DMA subsystem. We found that EXDMA operates
 
 
-This patch was never tested with your DTS and bindings. Please do not
-send untested code.
+I did not talk about driver. I talked about this patch. Look at patch
+title - it starts with dt-bindings. Is here anything about driver? No.
+Why do we talk about driver?
 
-> +
-> +/*
-> + * A2600-15 AP note
-> + *
-> + * SW workaround to prevent generating Non-Fatal-Error (NFE)
-> + * eSPI response when PCC is used for port I/O byte snooping
-> + * over eSPI.
-> + */
-> +static int aspeed_a2600_15(struct aspeed_pcc *pcc, struct device *dev)
-> +{
-> +	struct device_node *np;
-> +	u32 hicrb_en;
-> +
-> +	/* abort if snoop is enabled */
-> +	np = of_find_compatible_node(dev->parent->of_node, NULL, "aspeed,ast2600-lpc-snoop");
+> differently from typical DMA drivers, and therefore we believe that the
+> EXDMA driver may not be suitable to be placed under the
+> driver/mediatek/drm directory. The main reasons are as follows:
+> 
+> (1)No Memory Allocation within EXDMA Engine:
+> The EXDMA engine does not perform memory allocation operations itself.
+> Instead, it relies on GEM (Graphics Execution Manager) to allocate
+> memory.Traditional DMA drivers often handle their own memory
+> allocations, but in the case of EXDMA, memory management is delegated
+> to GEM.
+> 
+> (2)Primary Task of EXDMA:
+> The main function of EXDMA is to transfer buffers allocated by GEM to
+> the subsequent display pipeline.
+> EXDMA serves as a bridge between memory allocated by GEM and the
+> display components, rather than acting as a general-purpose DMA engine.
+> Based on the points above, we have decided to place the EXDMA driver
+> under the DRM display subsystem rather than under the DMA subsystem.
 
-No, don't sprinkle compatible to epxress relationship. Use proper
-phandles or parent-child relationship.
 
-> +	if (np) {
-> +		if (of_device_is_available(np)) {
-> +			dev_err(dev, "A2600-15 should be applied with snoop disabled\n");
-> +			return -EPERM;
-> +		}
-> +	}
-> +
-> +	/* abort if port is not 4-bytes continuous range */
-> +	if (pcc->port_xbits != 0x3) {
-> +		dev_err(dev, "A2600-15 should be applied on 4-bytes continuous I/O address range\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	/* set SNPWADR of snoop device */
-> +	regmap_write(pcc->regmap, SNPWADR, pcc->port | ((pcc->port + 2) << 16));
-> +
-> +	/* set HICRB[15:14]=11b to enable ACCEPT response for SNPWADR */
-> +	hicrb_en = HICRB_ENSNP0D | HICRB_ENSNP1D;
-> +	regmap_update_bits(pcc->regmap, HICRB, hicrb_en, hicrb_en);
-> +
-> +	/* set HICR6[19] to extend SNPWADR to 2x range */
-> +	regmap_update_bits(pcc->regmap, HICR6, HICR6_EN2BMODE, HICR6_EN2BMODE);
-> +
-> +	return 0;
-> +}
-> +
-> +static int aspeed_pcc_enable(struct aspeed_pcc *pcc, struct device *dev)
-> +{
-> +	int rc;
-> +
-> +	if (pcc->a2600_15) {
-> +		rc = aspeed_a2600_15(pcc, dev);
-> +		if (rc)
-> +			return rc;
-> +	}
-> +
-> +	/* record mode */
-> +	regmap_update_bits(pcc->regmap, PCCR0,
-> +			   PCCR0_MODE_SEL_MASK,
-> +			   pcc->rec_mode << PCCR0_MODE_SEL_SHIFT);
-> +
-> +	/* port address */
-> +	regmap_update_bits(pcc->regmap, PCCR1,
-> +			   PCCR1_BASE_ADDR_MASK,
-> +			   pcc->port << PCCR1_BASE_ADDR_SHIFT);
-> +
-> +	/* port address high bits selection or parser control */
-> +	regmap_update_bits(pcc->regmap, PCCR0,
-> +			   PCCR0_ADDR_SEL_MASK,
-> +			   pcc->port_hbits_select << PCCR0_ADDR_SEL_SHIFT);
-> +
-> +	/* port address dont care bits */
-> +	regmap_update_bits(pcc->regmap, PCCR1,
-> +			   PCCR1_DONT_CARE_BITS_MASK,
-> +			   pcc->port_xbits << PCCR1_DONT_CARE_BITS_SHIFT);
-> +
-> +	/* set DMA ring buffer size and enable interrupts */
-> +	if (pcc->dma_mode) {
-> +		regmap_write(pcc->regmap, PCCR4, pcc->dma.addr & 0xffffffff);
-> +		regmap_update_bits(pcc->regmap, PCCR5, PCCR5_DMA_ADDRH_MASK,
-> +				   (pcc->dma.addr >> 32) << PCCR5_DMA_ADDRH_SHIFT);
-> +		regmap_update_bits(pcc->regmap, PCCR5, PCCR5_DMA_LEN_MASK,
-> +				   (pcc->dma.size / 4) << PCCR5_DMA_LEN_SHIFT);
-> +		regmap_update_bits(pcc->regmap, PCCR0,
-> +				   PCCR0_EN_DMA_INT | PCCR0_EN_DMA_MODE,
-> +				   PCCR0_EN_DMA_INT | PCCR0_EN_DMA_MODE);
-> +	} else {
-> +		regmap_update_bits(pcc->regmap, PCCR0, PCCR0_RX_TRIG_LVL_MASK,
-> +				   PCC_FIFO_THR_4_EIGHTH << PCCR0_RX_TRIG_LVL_SHIFT);
-> +		regmap_update_bits(pcc->regmap, PCCR0,
-> +				   PCCR0_EN_RX_TMOUT_INT | PCCR0_EN_RX_AVAIL_INT,
-> +				   PCCR0_EN_RX_TMOUT_INT | PCCR0_EN_RX_AVAIL_INT);
-> +	}
-> +
-> +	regmap_update_bits(pcc->regmap, PCCR0, PCCR0_EN, PCCR0_EN);
-> +
-> +	return 0;
-> +}
-> +
-> +static int aspeed_pcc_probe(struct platform_device *pdev)
-> +{
-> +	int rc;
-> +	struct aspeed_pcc *pcc;
-> +	struct device *dev = &pdev->dev;
-> +	uint32_t fifo_size = PAGE_SIZE;
-> +
-> +	pcc = devm_kzalloc(&pdev->dev, sizeof(*pcc), GFP_KERNEL);
+I don't care if it uses GEM or kernel allocator or even 3rd party
+allocator. The question is: what is this device? If it is performing
+DMA, then it should be placed in "dma" directory. The rdma was placed
+differently but as you can easily check: it was never acked/reviewed, so
+don't use it as an example.
 
-Why not dev?
-
-> +	if (!pcc)
-> +		return -ENOMEM;
-> +
-> +	pcc->dev = dev;
-> +	rc = of_property_read_u32(dev->of_node, "port-addr", &pcc->port);
-
-Nope
-
-> +	if (rc) {
-> +		dev_err(dev, "cannot get port address\n");
-> +		return -ENODEV;
-> +	}
-> +
-> +	/* optional, by default: 0 -> 1-Byte mode */
-> +	of_property_read_u32(dev->of_node, "rec-mode", &pcc->rec_mode);
-
-Nope
-
-> +	if (!is_valid_rec_mode(pcc->rec_mode)) {
-> +		dev_err(dev, "invalid record mode: %u\n",
-> +			pcc->rec_mode);
-> +		return -EINVAL;
-> +	}
-> +
-> +	/* optional, by default: 0 -> no don't care bits */
-> +	of_property_read_u32(dev->of_node, "port-addr-xbits", &pcc->port_xbits);
-
-Nope
-
-> +
-> +	/*
-> +	 * optional, by default: 0 -> no high address bits
-> +	 *
-> +	 * Note that when record mode is set to 1-Byte, this
-> +	 * property is ignored and the corresponding HW bits
-> +	 * behave as read/write cycle parser control with the
-> +	 * value set to 0b11
-> +	 */
-> +	if (pcc->rec_mode) {
-> +		of_property_read_u32(dev->of_node, "port-addr-hbits-select",
-
-Nope, none of these properties exist.
-
-> +				     &pcc->port_hbits_select);
-> +		if (!is_valid_high_bits_select(pcc->port_hbits_select)) {
-> +			dev_err(dev, "invalid high address bits selection: %u\n",
-> +				pcc->port_hbits_select);
-> +			return -EINVAL;
-> +		}
-> +	} else {
-> +		pcc->port_hbits_select = 0x3;
-> +	}
-> +
-> +	/* AP note A2600-15 */
-> +	pcc->a2600_15 = of_property_read_bool(dev->of_node, "A2600-15");
-
-NAK even more.
-
-> +	if (pcc->a2600_15)
-> +		dev_info(dev, "A2600-15 AP note patch is selected\n");
-> +> +	rc = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(64));
-> +	if (rc) {
-> +		dev_err(dev, "cannot set 64-bits DMA mask\n");
-> +		return rc;
-> +	}
-> +
-> +	pcc->dma_mode = of_property_read_bool(dev->of_node, "dma-mode");
-
-NAK, drop
-
-> +	if (pcc->dma_mode) {
-> +		pcc->dma.size = PCC_DMA_BUFSZ;
-> +		pcc->dma.virt = dmam_alloc_coherent(dev,
-> +						    pcc->dma.size,
-> +						    &pcc->dma.addr,
-> +						    GFP_KERNEL);
-> +		if (!pcc->dma.virt) {
-> +			dev_err(dev, "cannot allocate DMA buffer\n");
-> +			return -ENOMEM;
-> +		}
-> +
-> +		fifo_size = roundup(pcc->dma.size, PAGE_SIZE);
-> +	}
-> +
-> +	rc = kfifo_alloc(&pcc->fifo, fifo_size, GFP_KERNEL);
-> +	if (rc) {
-> +		dev_err(dev, "cannot allocate kFIFO\n");
-
-Run coccinelle on your code first.
-
-> +		return -ENOMEM;
-> +	}
-> +
-> +	pcc->regmap = syscon_node_to_regmap(pdev->dev.parent->of_node);
-> +	if (IS_ERR(pcc->regmap)) {
-> +		dev_err(dev, "cannot map register\n");
-> +		return -ENODEV;
-> +	}
-> +
-> +	/* Disable PCC and DMA Mode for safety */
-> +	regmap_update_bits(pcc->regmap, PCCR0, PCCR0_EN |  PCCR0_EN_DMA_MODE, 0);
-> +
-> +	/* Clear Rx FIFO. */
-> +	regmap_update_bits(pcc->regmap, PCCR0, PCCR0_CLR_RX_FIFO, 1);
-> +
-> +	/* Clear All interrupts status. */
-> +	regmap_write(pcc->regmap, PCCR2,
-> +		     PCCR2_INT_STATUS_RX_OVER | PCCR2_INT_STATUS_DMA_DONE |
-> +		     PCCR2_INT_STATUS_PATTERN_A | PCCR2_INT_STATUS_PATTERN_B);
-> +
-> +	pcc->irq = platform_get_irq(pdev, 0);
-> +	if (pcc->irq < 0) {
-> +		dev_err(dev, "cannot get IRQ\n");
-> +		rc = -ENODEV;
-> +		goto err_free_kfifo;
-> +	}
-> +
-> +	rc = devm_request_irq(dev, pcc->irq, aspeed_pcc_isr, 0, DEVICE_NAME, pcc);
-> +	if (rc < 0) {
-> +		dev_err(dev, "cannot request IRQ handler\n");
-> +		goto err_free_kfifo;
-> +	}
-> +
-> +	init_waitqueue_head(&pcc->wq);
-> +
-> +	pcc->mdev_id = ida_alloc(&aspeed_pcc_ida, GFP_KERNEL);
-> +	if (pcc->mdev_id < 0) {
-> +		dev_err(dev, "cannot allocate ID\n");
-> +		return pcc->mdev_id;
-> +	}
-> +
-> +	pcc->mdev.parent = dev;
-> +	pcc->mdev.minor = MISC_DYNAMIC_MINOR;
-> +	pcc->mdev.name = devm_kasprintf(dev, GFP_KERNEL, "%s%d", DEVICE_NAME,
-> +					pcc->mdev_id);
-> +	pcc->mdev.fops = &pcc_fops;
-> +	rc = misc_register(&pcc->mdev);
-> +	if (rc) {
-> +		dev_err(dev, "cannot register misc device\n");
-> +		goto err_free_kfifo;
-> +	}
-> +
-> +	rc = aspeed_pcc_enable(pcc, dev);
-> +	if (rc) {
-> +		dev_err(dev, "cannot enable PCC\n");
-> +		goto err_dereg_mdev;
-> +	}
-> +
-> +	dev_set_drvdata(&pdev->dev, pcc);
-> +
-> +	dev_info(dev, "module loaded\n");
-
-Drop such function success messages, everywhere.
+Of course if it does not perform DMA, then it should not be in dma, but
+then I don't agree on using dma-cells here and anything like that in the
+driver.
 
 Best regards,
 Krzysztof
