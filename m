@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08858C02187
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jan 2025 09:10:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75777C02185
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jan 2025 09:14:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hj1yNpIRdtMfAilNiDhvaFefFhk3XitQDl2tijqEi5Q=; b=BX13KZ7CYfUmtn9Sr7aw+OfVZD
-	MiDil1U4yJvdprMMtwNEzWHnTg2osUABvmXIo7oC5gl95beZQMKGiNQmFszhUesox7VnWBOBLXhVa
-	HafOTRek21iL5OrZT0YDWIKpX3fCeLIJ8mu62d8sGuoDxNLzaGxFN1Hh08kAHHu7cIx2Bb5fK5aPe
-	z2mbcBopZcF27xoth77Id/Ooi7NdTuFzkv7yQ3IuScLQztAwWW4wyXAT7S59SebVxLg7W9jAm340B
-	5aiOYjvdOxPciDCzFD16HlcZr/l0wz4JhmPlsGy0iW73qFfdhJ1XXpL2pFr6oFf5zzlC96WNWhXLl
-	31pO7WWw==;
+	bh=NZMXgDSbnWZHpGzpPRtNfl4EmQSfseJ3TepsemcClTg=; b=CJ+q2NGZRcHXufHszvQfrywaDM
+	3+Ck2ug0656py/Kv4t4glb0w7TZHb6qsI8ljTrlyUUE93eaPRf3+l4ERbjDC8QmihGPSjq6eg4zyI
+	z6GdiG+H2uf8jtj5sGk6DyZY2FCFpz7Pjc/L2iGQF0Uk4My8Oho6P4PjM1uj7Qu58mw4flFn74bLU
+	Wdr3ENVZxVrla3TicBYytS0kHJQMPyN0SPXTGDrCN2cyXxS+JJeP79CCUfCXH9WwUXo5C9uIk5jDj
+	nFNgpfT5jJPrT62BHMZF6r0F+Ypn8xaRFj9tETXHtWDhW8avbCXagntZcLLJQsysoKfgerFZpCqVG
+	iYTbZNag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZ4qA-000000025JK-3m2b;
-	Sat, 18 Jan 2025 09:10:02 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tZ4uX-000000025cw-1mO3;
+	Sat, 18 Jan 2025 09:14:33 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZ4os-000000024sU-38wy;
-	Sat, 18 Jan 2025 09:08:43 +0000
+	id 1tZ4tG-000000025YI-3JO2;
+	Sat, 18 Jan 2025 09:13:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 571005C4A8D;
-	Sat, 18 Jan 2025 09:08:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C60ABC4CED1;
-	Sat, 18 Jan 2025 09:08:30 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 876A05C4982;
+	Sat, 18 Jan 2025 09:12:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 376C1C4CED1;
+	Sat, 18 Jan 2025 09:13:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737191321;
-	bh=fnQFZ7OW3e3AUF0ttwPf2f3WYHTq7BE+uUVTG5XL8WI=;
+	s=k20201202; t=1737191593;
+	bh=MUQ5voLVemt+kelhaaFIJwaMgdhz0IGii3dF1Sgvl/4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=MmtRGLPQEM5RgnSVRclg7ZXw7yokBT3Q3ibM34xXEti6/JZM2kxNXURa2lWH1wnFd
-	 tIQxxeh4A1BoizR28ibVKsLy4SUnfvvXey6tsSYXIT680H/bJKqH6WxL2U1A+5e24L
-	 oNKw9Rtu2JtmJZ4mNu6hRppfo1fC6dV0SrCWYgsq35lCkNxmS40R5tWkFoorojwQlX
-	 v4ZYX2CPPrroNexqQD6ywPyzRyoPPVK1aOnXGJTh0quZBciiYh2ecEXeYTzSRFIJ06
-	 C36UPd/BU/WTeJzYQXCkWbUc6+ZUp3iFz/sBVx8kjiioxUuDq9BDRLpZw3suRgjwij
-	 t633+6zjK12CA==
-Message-ID: <00cbc2a1-b4c1-46a2-8234-f66edc19fac9@kernel.org>
-Date: Sat, 18 Jan 2025 10:08:28 +0100
+	b=SH+nbyF5pfP92lYbAZViosCRfe7m0iFRe41lx1vaCB/jhLDZZfxXCWExWGRjP6Tt1
+	 QjbcNFNuHMQH8PToGCoKQqszn4kDKxXSIrGdSxDMO2fI+EsmLNuBJ76SEILgtc6JHv
+	 0orsSQ7Dqh1vnWe8m+mUaUHyIatpIMWbptRZldVSjhFccFzi+tzM9hhkyFptHrQxaZ
+	 kYaCuZ5Ei0jd5nLt19HaTDQd34JqE9+XCXL1mLQc8Vy0qMBy2XxptrYdmwDOckJkYH
+	 J0L6a1tSil/RDsl9URsnB12IjSI6GwHAFpXvh0nfgqm6dB8atpQ1t2EWlgsxsRRsUD
+	 1F1IclRR/HriA==
+Message-ID: <76ab492e-ae9c-46eb-bf2e-d794863baf8d@kernel.org>
+Date: Sat, 18 Jan 2025 10:13:06 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v1 0/6] rockchip: add a functional usb3 phy driver for
- rk3328
-To: Peter Geis <pgwipeout@gmail.com>, Heiko Stuebner <heiko@sntech.de>
-Cc: zyw@rock-chips.com, kever.yang@rock-chips.com, frank.wang@rock-chips.com,
- william.wu@rock-chips.com, wulf@rock-chips.com,
- linux-rockchip@lists.infradead.org, Alex Bee <knaerzche@gmail.com>,
- Algea Cao <algea.cao@rock-chips.com>, Arnd Bergmann <arnd@arndb.de>,
- Conor Dooley <conor+dt@kernel.org>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Diederik de Haas <didi.debian@cknow.org>, Dragan Simic <dsimic@manjaro.org>,
- Elaine Zhang <zhangqing@rock-chips.com>, FUKAUMI Naoki <naoki@radxa.com>,
- Johan Jonker <jbx6244@gmail.com>, Jonas Karlman <jonas@kwiboo.se>,
- Kishon Vijay Abraham I <kishon@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Stephen Boyd <sboyd@kernel.org>, Trevor Woerner <twoerner@gmail.com>,
- Vinod Koul <vkoul@kernel.org>, Zhang Yubing <yubing.zhang@rock-chips.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org
-References: <20250115012628.1035928-1-pgwipeout@gmail.com>
-Content-Language: en-US
+Subject: Re: [PATCH v2 1/2] dt-bindings: pinctrl: mediatek: add support for
+ mt8196
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Cathy Xu <ot_cathy.xu@mediatek.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Sean Wang <sean.wang@kernel.org>, Lei Xue <lei.xue@mediatek.com>,
+ wenbin.mei@mediatek.com, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Guodong Liu <guodong.liu@mediatek.com>
+References: <20250110104703.13625-1-ot_cathy.xu@mediatek.com>
+ <20250110104703.13625-2-ot_cathy.xu@mediatek.com>
+ <dnjtaapqbn6zy55k5ky7zltswkbg7cjh2xwlnrmqdiz7tfm6rc@wbepc5koem6e>
+ <66218a3c-04c5-42ea-ba9c-e0fbc72ed16f@collabora.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
@@ -113,13 +106,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250115012628.1035928-1-pgwipeout@gmail.com>
+In-Reply-To: <66218a3c-04c5-42ea-ba9c-e0fbc72ed16f@collabora.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250118_010842_880187_23D0E727 
-X-CRM114-Status: UNSURE (   9.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250118_011314_937474_48FDCE2D 
+X-CRM114-Status: GOOD (  17.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,22 +126,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/01/2025 02:26, Peter Geis wrote:
+On 13/01/2025 14:20, AngeloGioacchino Del Regno wrote:
+>>> +
+>>> +        properties:
+>>> +          pinmux:
+>>> +            description:
+>>> +              Integer array, represents gpio pin number and mux setting.
+>>> +              Supported pin number and mux varies for different SoCs, and are
+>>> +              defined as macros in dt-bindings/pinctrl/mt8196-pinfunc.h
+>>> +              directly, for this SoC.
+>>> +
+>>> +          drive-strength:
+>>> +            enum: [2, 4, 6, 8, 10, 12, 14, 16]
+>>> +
+>>> +          drive-strength-microamp:
+>>> +            enum: [125, 250, 500, 1000]
+>>
+>> Why duplicating properties? No, use only one.
+>>
 > 
-> This is my newly reworked phy driver for the rk3328 usb3 phy. It is
-> based loosely on my original version, but as of now almost nothing of
-> the original driver remains. The main fix here is the discovery of
-> BIT(6) in the interrupt enable grf register fixes the usb3 disconnection
-> detection (mostly). On occasion an unpopulated usb3 hub will take
-> several seconds to disconnect. However this means all of the hack around
-> work to reset the usb core manually is no longer required.
+> The problem here is not entirely about duplicating properties, and I'm not
+> sure that the reason is actually acceptable (but being this a special case
+> the `description` field would be mandatory to have IMO!!).
 > 
-BTW, RFC for some maintainers means "do not review, work-in-progress".
-For some means "review, but low priority" or "review, but for sure I
-have bugs here". I usually review and then someone responds: "it is not
-for review, it is just RFC", so to avoid my wasted time please always
-mention in cover letter why this is RFC. What do you expect here or why
-this is not ready for review as normal patch.
+> So, the reason for this separation is that the drive-strength-microamp does
+> activate a special feature in the controller called "advanced drive strength
+> mode", which is switching to different shunts that will decrease the power
+> efficiency of the chip (by an ignorable amount, if that's one pin - but if
+> that goes to something like 100 pins, it's not ignorable anymore).
+> 
+> I'd be happy if we could let them retain both properties after putting a
+> clear description of what's happening and why there are two of them.
+It would be fine then, but please add some sort of description to these
+fields documenting that difference.
 
 Best regards,
 Krzysztof
