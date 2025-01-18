@@ -4,85 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5099CC02185
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jan 2025 14:02:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF40BC02185
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jan 2025 14:24:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A5Ncz7Bxl1wX7x3ew3KillHOsMDgvXJZ57rbyfOomAo=; b=On3Pm5ZubX7TtzmDnenEDZnbuQ
-	geaxedTzEDyhJ28JHLpFOE4fLBG2kDnEmkRnyh+E94KoZ1ijtYKp73wn4/bVQu81OaHe23+r3hEpg
-	RLIRE7mcv69VehcEqxauZf3FhoJGFUQ5rhsJJOvS/xdW2Sa6O6Jc7g1bfaukikjhwcdCc8vW2p5KK
-	Byxzl90cuIDAQcRSptC3TlsEsdk9ydlx9hI15pG4QxP5ErwZFxIeu4F1BNCH3h6pPlIKCx5TR00QG
-	X3btYKzQlIOaK4m47FmrHPbgvXdrADxAp+AOWHJM9FbkvozdTwNQTPb9iHoNheuUr1Ino7o8eXQvl
-	9a67qqew==;
+	bh=c1hO8Av0Prvv+mSmsQTFT06Ds8pT2IeI8pcHdJToW/w=; b=hMHgu+CEGFVVAGAuPlO3NgqyAz
+	JBkZYkE3N6lAQAVQhUPzjdRDkvzvDTEsim3AmirUQ3OdLy0KNnWwB/7VelXfB/OAcFZCmk49Vw0iB
+	9cdzIAsF8JNcT16CT73WVe2BL0zfOyXqTj1jJZ4riLF6lR2JDUVxe52uBRua0VIICTipbab9C8xT5
+	lbahHXkLKSGgHpQfg1OPb/2LcVlrB1uw6F91X/l/vhxIVa04JjPq7mGYQQHi+WS5775qj5//77LWh
+	J4z17NgyYlT5SzoORrPCZlPFXUb/DR+bvbDi+avAczySfah9riKsX9gq5qxhl/69cD2lhHBZt9q+F
+	+EIy3JGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZ9P7-00000002V9t-4BZV;
-	Sat, 18 Jan 2025 14:02:26 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1tZ9k3-00000002WKs-49BG;
+	Sat, 18 Jan 2025 14:24:03 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZ9Nm-00000002V2q-3mgv;
-	Sat, 18 Jan 2025 14:01:07 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-5d90a5581fcso5265005a12.1;
-        Sat, 18 Jan 2025 06:01:01 -0800 (PST)
+	id 1tZ9im-00000002WBf-1WXW;
+	Sat, 18 Jan 2025 14:22:45 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5da135d3162so5095205a12.3;
+        Sat, 18 Jan 2025 06:22:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737208860; x=1737813660; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1737210162; x=1737814962; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=A5Ncz7Bxl1wX7x3ew3KillHOsMDgvXJZ57rbyfOomAo=;
-        b=LuNSUy8Zp1irr0EUs78lUJTp3RUKPmOhnt3OdV93xioqZhmlpbxfwUjLKzq1oiM0tl
-         WB/TpTHj0xivyeqZx8D7wzBVLtaqm+ERROEWYuiYZZuwbD/Usbntmfq3CayHSDv/CQmE
-         h1Q3Hfk2AdmN96R5bPakkYJTMVZrn3cgXxKmFePeUdqXp9/223qwMm4pmw+W+kJdZAAQ
-         u0Ir+vFzv0g9R1Hq1DHLKv68PqRcSvZf4n8dTMFpzx1eyrPPa+3ckyME8n7dCk1sxQ8j
-         pREqhsfk5ePF2N5Ql1tzQF/o49+d0MkxUjpsbcpXxRUXfP///KQCVBp7z6TbynbJL2qs
-         0VTw==
+        bh=c1hO8Av0Prvv+mSmsQTFT06Ds8pT2IeI8pcHdJToW/w=;
+        b=bXSoTwXSrzVLNhNXfYpflz1oz42P3TaiFEXtWCT5gOJU+8kf94nj478x+OWMm9S8ZB
+         MDGcct6NugF3f3rR5FSaIy3lEoaIpQUvewvBMCT1IRvL7ER4lH8ZyjLklv8eO75fQsve
+         MiDyH06UPn9pGjEqq/2Dn6YkZh2FtvNUppGxC0xkNWboFOiRozmBQvz7l1apcosskBFv
+         v6ju7RgBK7qi0fv2HcQmH+euDZp7RJPZYz2qO4GEDSfpsO//xF8Lc0mRNv2mMYa5mzfa
+         PsagSCZPBzCp/WrBbm5zT3s5RkTkxbEcIgRvRulDZ91HEEUfh3Vb6hWkpQ6nkOOkVyHv
+         94kg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737208860; x=1737813660;
+        d=1e100.net; s=20230601; t=1737210162; x=1737814962;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=A5Ncz7Bxl1wX7x3ew3KillHOsMDgvXJZ57rbyfOomAo=;
-        b=cLZWQDy5Ym3KuBnc1nttQsFXh/L64NDSZyD9T0orPBBqR4x2945w44hSxPDEt3w455
-         kmErmIPR4hOuwqz7tshiB63za8d7RxkmBrVNGqkTrl13JMx7hIqz5POwyYwdlKTDJL0x
-         xoTDSVfUzmAaKGuToq0889GZRr06+G/BVOGhmfKKbCJBnXcWiQxRLEsPd9w9Q8O5PpjT
-         eGFpoT3r1qnZ9vZD+HSeelbYfli3SjtxDnBFdm2h3RJj26FaECqsrIgZ255gBoyklhrh
-         rtREeOCTywbjFy2CA2Jc7R18uF0aPn0Lxtz0iGBEawl6VSitSZlEdRBKRcPKtxx37LnT
-         kFwA==
-X-Forwarded-Encrypted: i=1; AJvYcCUqOdtg02umnTOjJCm8MzKPlbDRPAFq0Z98UlBHWazXmnFD2jYNL2sRvncMuRV/HPzpAyQT838zX+ZhFoA=@lists.infradead.org, AJvYcCWUNOkMliF3tKii+ePyhVJEatxekj8KR2MSsiIEkMtw3Jnd7ErElbW4rYIwMum6oMJUjY6/ulsPDNtfCcjSDwFr@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+eH4wpDNId8Trit42SRGktiR0E7B0Hr7UYXfzEeo8k4nzWeAR
-	okZz9Y6fcfxNtXKotB4I85NJyR9EC2JoexrlNyeUubBwytRyb9zIm0HgxgHNT6qgvXDNr+LMgtv
-	sw3qCx5xQaPXPCTVkDzjOaHF2/iI=
-X-Gm-Gg: ASbGncsg0wmabrNHLxEKfRsw7W+mohU50x7Achv8KkuXzrNdtBOgfQnnqS0UNcYc5/P
-	PnZie/0USULZxfRU4FvI9vMRv3zhXTWJQGlp0lzDTRgMq284AplY=
-X-Google-Smtp-Source: AGHT+IHNAfuAK8994nkwhg6Wt99bPeGNvNepOjVlWh8x98JZEznSvYFUgVX4sYBVi65KoRqUZ9KIDlTqBtnF2d5qFyU=
-X-Received: by 2002:a05:6402:524b:b0:5da:ba6:3a3e with SMTP id
- 4fb4d7f45d1cf-5db7d2e2824mr6191678a12.7.1737208859349; Sat, 18 Jan 2025
- 06:00:59 -0800 (PST)
+        bh=c1hO8Av0Prvv+mSmsQTFT06Ds8pT2IeI8pcHdJToW/w=;
+        b=ccqXXKVOSWW+cbcEras/hG87DkicwptZYPeHoHmuAd3beCTwlfd6Hec+pMjU2PXMQF
+         E7DhMQme/N804OF52IcEi7lV8eAIZOO1eihaD3oYw4hEjbqA1pw6MsNy33T2lyz9uVhd
+         zThZxw3NV5w26Z6hHFO2jhBGb+pWHl+0DAxEnQWyz/B7H3kRsV1pHMVzMdjWbrEZimlw
+         AMvWNcaWAAp74z6jdmd/uYeHwjISNWXAizCnrVwPsuW/uv9ceCnz389QcEM1ONY1Xlpq
+         Dth2KvAV6sOCf1X+uZ4cPIVEsAAHGDHCFpC/wB2wguS1pXWPbyRJowNyK9i0YylEjXRV
+         XDew==
+X-Forwarded-Encrypted: i=1; AJvYcCUNweikNWZK8PCQU16Gi4zRYhp8PozFwvKPfMCqTY8eVVMWZuSrSrgbeu2kx+0ceblpcXXIENjWtuT26etOyys=@lists.infradead.org, AJvYcCUeaDhYz/Ac3bZEFJHSI2a2oObcZwTSFWUE60xujwy2NIWif90q1TA4HOSU+KoHHfBUwqPK967g/K3nWaNjBNS5@lists.infradead.org
+X-Gm-Message-State: AOJu0YwGJncH+iV4fBDMYQksA0IpedVR74zNBYgcqCrnGUyztU+lRLKA
+	L82LVJYy2xl5lqAPjMZi6gYMnCUTWt3n5gTZhHis1rSiUSkuNl5D1olCl5e1ldoBdPAZ5RIKcMj
+	uxEpm/VsIOZRmCrgOrdOgGMmTtHo=
+X-Gm-Gg: ASbGncuR3SOa/FdR37CR8uzAoqtPNCewuuKsXn/5JJ6aR9pJr1/Rrq65heZEJ3o3Yee
+	V0kDZeK0ts2k4z4WqGDSX9eJc9YuTa3KxZx6Ggw9K2pSZY4LSNukZ
+X-Google-Smtp-Source: AGHT+IGLL45byqpbtcLY0ncWpmTsQggsOXGlEPKO1ncdAy05bHozMgobraeG+t4IuqfVynnkyLGDLBuv/oWB1vGYnJI=
+X-Received: by 2002:a05:6402:1ed4:b0:5d2:7199:ae6 with SMTP id
+ 4fb4d7f45d1cf-5db7d2f591emr5966574a12.9.1737210161654; Sat, 18 Jan 2025
+ 06:22:41 -0800 (PST)
 MIME-Version: 1.0
-References: <20250115033808.40641-1-21cnbao@gmail.com> <20250115033808.40641-5-21cnbao@gmail.com>
-In-Reply-To: <20250115033808.40641-5-21cnbao@gmail.com>
-From: Lance Yang <ioworker0@gmail.com>
-Date: Sat, 18 Jan 2025 22:00:23 +0800
-X-Gm-Features: AbW1kvYjQCDr-u2COSl7npp1goqlYdnZjBQY9OgGXZ_qkX7FxgvyjF0NuNi-6mg
-Message-ID: <CAK1f24kcsxO8HrAGYxcWFpQ-uX04LUs6tmsuKC_Pb_TJJj=vtA@mail.gmail.com>
-Subject: Re: [PATCH v3 4/4] mm: Avoid splitting pmd for lazyfree pmd-mapped
- THP in try_to_unmap
-To: Barry Song <21cnbao@gmail.com>
-Cc: akpm@linux-foundation.org, linux-mm@kvack.org, 
-	baolin.wang@linux.alibaba.com, chrisl@kernel.org, david@redhat.com, 
-	kasong@tencent.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, v-songbaohua@oppo.com, 
-	x86@kernel.org, ying.huang@intel.com, zhengtangquan@oppo.com
+References: <20250115012628.1035928-1-pgwipeout@gmail.com> <20250115012628.1035928-5-pgwipeout@gmail.com>
+ <7c7ce820-8a9b-46df-b143-f77835b7e5a0@kernel.org> <D73NJYSP62XH.28CVZPNUE21H3@cknow.org>
+ <1bc91b4214a1099801aaed6b3ef81ef3@manjaro.org> <dcfb46e8-f29a-4eee-b8f8-1ff774f272ce@kernel.org>
+ <60ced7df829e7c10e264627cc0947762@manjaro.org> <20b474be-301e-4dc3-9eb7-77e9ef075191@kernel.org>
+ <3d9ce9fd9b6309553b5669e111bc4200@manjaro.org> <735d89df-9954-44bd-aca6-4bb165737626@kernel.org>
+ <7ab853de15e1c183ef184d2700a13d98@manjaro.org> <df2e466a-cdaa-4263-ae16-7bf56c0edf21@kernel.org>
+ <f54375ebd12e8741d8da8a6bdbf40a80@manjaro.org>
+In-Reply-To: <f54375ebd12e8741d8da8a6bdbf40a80@manjaro.org>
+From: Peter Geis <pgwipeout@gmail.com>
+Date: Sat, 18 Jan 2025 09:22:28 -0500
+X-Gm-Features: AbW1kvb61bOALz4Ew8jQ2cOtmtpTFEbsHfgnIGuykWKPRpLnyKSgO4zvlfTRTz0
+Message-ID: <CAMdYzYq3AbdEJJRV4N52p9Mn56V047wteZDnQH+KQRdo7wMJ=g@mail.gmail.com>
+Subject: Re: [RFC PATCH v1 4/6] arm64: dts: rockchip: add rk3328 usb3 phy node
+To: Dragan Simic <dsimic@manjaro.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Diederik de Haas <didi.debian@cknow.org>, 
+	Heiko Stuebner <heiko@sntech.de>, zyw@rock-chips.com, kever.yang@rock-chips.com, 
+	frank.wang@rock-chips.com, william.wu@rock-chips.com, wulf@rock-chips.com, 
+	linux-rockchip@lists.infradead.org, Alex Bee <knaerzche@gmail.com>, 
+	Conor Dooley <conor+dt@kernel.org>, Johan Jonker <jbx6244@gmail.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250118_060102_965403_4D23E38C 
-X-CRM114-Status: GOOD (  21.94  )
+X-CRM114-CacheID: sfid-20250118_062244_405335_2F88D395 
+X-CRM114-Status: GOOD (  51.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,211 +103,204 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 15, 2025 at 11:38=E2=80=AFAM Barry Song <21cnbao@gmail.com> wro=
-te:
+On Sat, Jan 18, 2025 at 5:45=E2=80=AFAM Dragan Simic <dsimic@manjaro.org> w=
+rote:
 >
-> From: Barry Song <v-songbaohua@oppo.com>
+> On 2025-01-18 11:29, Krzysztof Kozlowski wrote:
+> > On 18/01/2025 11:10, Dragan Simic wrote:
+> >> On 2025-01-18 10:52, Krzysztof Kozlowski wrote:
+> >>> On 18/01/2025 10:43, Dragan Simic wrote:
+> >>>>>>
+> >>>>>> Please see the commit bdc48fa11e46 (checkpatch/coding-style:
+> >>>>>> deprecate
+> >>>>>> 80-column warning, 2020-05-29), which clearly shows that the
+> >>>>>> 80-column
+> >>>>>> rule is still _preferred_, but no longer _mandatory_.
+> >>>>>
+> >>>>> I brought that commit, but nice that you also found it.
+> >>>>>
+> >>>>> Still: read the coding style, not checkpatch tool.
+> >>>>>
+> >>>>>>>> 80 columns is really not much (for the record, I've been around
+> >>>>>>>> when
+> >>>>>>>> using 80x25 _physical_ CRT screens was the norm).
+> >>>>>>>
+> >>>>>>> You mistake agreement on dropping strong restriction in 2020 in
+> >>>>>>> checkpatch, which is "not for years" and even read that commit:
+> >>>>>>> "Yes,
+> >>>>>>> staying withing 80 columns is certainly still _preferred_."
+> >>>>>>>
+> >>>>>>> Checkpatch is not coding style. Since when it would be? It's just
+> >>>>>>> a
+> >>>>>>> tool.
+> >>>>>>>
+> >>>>>>> And there were more talks and the 80-preference got relaxed yet
+> >>>>>>> still
+> >>>>>>> "not for years" (last talk was 2022?) and sill kernel coding
+> >>>>>>> style
+> >>>>>>> is
+> >>>>>>> here specific.
+> >>>>>>
+> >>>>>> It's perhaps again about the semantics, this time about the
+> >>>>>> meaning
+> >>>>>> of "for years".  I don't think there's some strict definition of
+> >>>>>> that
+> >>>>>> term, so perhaps different people see it differently.
+> >>>>>>
+> >>>>>> To get back to the above-mentioned commit bdc48fa11e46, the
+> >>>>>> 80-column
+> >>>>>> limit has obviously been lifted, putting the new 100-column limit
+> >>>>>> as
+> >>>>>
+> >>>>> "Lifted" on *CHECKPATCH*, not on coding style. Do you see the
+> >>>
+> >>> Repeating myself about because you are not addressing the actual
+> >>> difference.
+> >>
+> >> Please see below.
+> >>
+> >>>>> difference? One is a helper tool which people were using blindly
+> >>>>> and
+> >>>>> wrapping lines without thinking, claiming that checkpatch told them
+> >>>>> to
+> >>>>> do so. Other is the actual coding style.
+> >>>>>
+> >>>>> You claim that coding style was changed. This never happened.
+> >>>>
+> >>>> It was obviously changed in the commit bdc48fa11e46, by making the
+> >>>> 80-column width preferred, instead of if being mandatory.  The way
+> >>>> I read the changes to the coding style introduced in that commit,
+> >>>> it's now possible to go over 80 columns, up to 100 columns, _if_
+> >>>> that actually improves the readability of the source code.
+> >>>
+> >>> The commit is for checkpatch. Point to the change in coding style.
+> >>> You
+> >>> are bringing argument for checkpatch, so only a tool, as argument for
+> >>> coding style. Again, coding style did not change since years.
+> >>
+> >> Commit bdc48fa11e46 obviously addresses
+> >> Documentation/process/coding-style.rst
+> >> as well, as visible in the quotation from the commit below:
+> >
+> > Yes.
+> >
+> >>
+> >>    -The limit on the length of lines is 80 columns and this is a
+> >> strongly
+> >
+> > 80 is here...
+> >
+> >>    -preferred limit.
+> >>    -
+> >>    -Statements longer than 80 columns will be broken into sensible
+> >> chunks, unless
+> >>    -exceeding 80 columns significantly increases readability and does
+> >> not
+> >> hide
+> >>    -information. Descendants are always substantially shorter than the
+> >> parent and
+> >>    -are placed substantially to the right. The same applies to
+> >> function
+> >> headers
+> >>    -with a long argument list. However, never break user-visible
+> >> strings
+> >> such as
+> >>    -printk messages, because that breaks the ability to grep for them.
+> >>    +The preferred limit on the length of a single line is 80 columns.
+> >>    +
+> >>    +Statements longer than 80 columns should be broken into sensible
+> >
+> > 80 is here as well.
+> >
+> > So now to your original statement:
+> > " but the 100-column limit
+> > for the kernel code has been in effect for years."
+> >
+> > Where is 100? Only in checkpatch. There is no 100 limit in kernel
+> > coding
+> > style.
 >
-> The try_to_unmap_one() function currently handles PMD-mapped THPs
-> inefficiently. It first splits the PMD into PTEs, copies the dirty
-> state from the PMD to the PTEs, iterates over the PTEs to locate
-> the dirty state, and then marks the THP as swap-backed. This process
-> involves unnecessary PMD splitting and redundant iteration. Instead,
-> this functionality can be efficiently managed in
-> __discard_anon_folio_pmd_locked(), avoiding the extra steps and
-> improving performance.
+> Yes, "100" is in checkpatch only, but the coding style explicitly
+> says that going over the 80-column limit it fine if it improves
+> the readability.  Thus, going over the 80 columns has been allowed
+> "for years", whatever one finds that term to mean, or more precisely
+> since mid-2020, and having "100" present in checkpatch establishes
+> "100" as the effective "hard" limit.
 >
-> The following microbenchmark redirties folios after invoking MADV_FREE,
-> then measures the time taken to perform memory reclamation (actually
-> set those folios swapbacked again) on the redirtied folios.
+> > The change in coding style and checkpatch was partially done because of
+> > your understanding: reading checkpatch output as a rule. But this was
+> > never a correct approach and still is not. So whatever checkpatch is
+> > telling you, e.g. "100 column limit", is not coding style. It's only
+> > checkpatch, a tool trying to help you.
 >
->  #include <stdio.h>
->  #include <sys/mman.h>
->  #include <string.h>
->  #include <time.h>
+> No, that isn't my understanding.  I don't take checkpatch's output
+> as some kind of mandatory rules; however, what checkpatch does and
+> suggests should be based on the coding style, and if checkpatch
+> advises wrongly, it should be fixed instead of being accused to be
+> invalid and pointless.
 >
->  #define SIZE 128*1024*1024  // 128 MB
+> Though, in this particular case, checkpatch does it right.  The
+> coding style explicitly says that going over the 80-column limit
+> is fine if that improves the readability, and checkpatch follows
+> that by allowing up to 100 columns.
 >
->  int main(int argc, char *argv[])
->  {
->         while(1) {
->                 volatile int *p =3D mmap(0, SIZE, PROT_READ | PROT_WRITE,
->                                 MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+> >> chunks,
+> >>    +unless exceeding 80 columns significantly increases readability
+> >> and
+> >> does
+> >>    +not hide information.
+> >>    +
+> >>    +Descendants are always substantially shorter than the parent and
+> >> are
+> >>    +are placed substantially to the right.  A very commonly used style
+> >>    +is to align descendants to a function open parenthesis.
+> >>    +
+> >>    +These same rules are applied to function headers with a long
+> >> argument
+> >> list.
+> >>    +
+> >>    +However, never break user-visible strings such as printk messages
+> >> because
+> >>    +that breaks the ability to grep for them.
+> >>
+> >> I think it's obvious that the 80-column width is no longer _strongly_
+> >> preferred, but has been demoted to some kind of a bit weaker
+> >> preference.
+> >
+> > Yes, but this is not what you said before and this is not what I
+> > questioned.
 >
->                 memset((void *)p, 1, SIZE);
->                 madvise((void *)p, SIZE, MADV_FREE);
->                 /* redirty after MADV_FREE */
->                 memset((void *)p, 1, SIZE);
->
->                 clock_t start_time =3D clock();
->                 madvise((void *)p, SIZE, MADV_PAGEOUT);
->                 clock_t end_time =3D clock();
->
->                 double elapsed_time =3D (double)(end_time - start_time) /=
- CLOCKS_PER_SEC;
->                 printf("Time taken by reclamation: %f seconds\n", elapsed=
-_time);
->
->                 munmap((void *)p, SIZE);
->         }
->         return 0;
->  }
->
-> Testing results are as below,
-> w/o patch:
-> ~ # ./a.out
-> Time taken by reclamation: 0.007300 seconds
-> Time taken by reclamation: 0.007226 seconds
-> Time taken by reclamation: 0.007295 seconds
-> Time taken by reclamation: 0.007731 seconds
-> Time taken by reclamation: 0.007134 seconds
-> Time taken by reclamation: 0.007285 seconds
-> Time taken by reclamation: 0.007720 seconds
-> Time taken by reclamation: 0.007128 seconds
-> Time taken by reclamation: 0.007710 seconds
-> Time taken by reclamation: 0.007712 seconds
-> Time taken by reclamation: 0.007236 seconds
-> Time taken by reclamation: 0.007690 seconds
-> Time taken by reclamation: 0.007174 seconds
-> Time taken by reclamation: 0.007670 seconds
-> Time taken by reclamation: 0.007169 seconds
-> Time taken by reclamation: 0.007305 seconds
-> Time taken by reclamation: 0.007432 seconds
-> Time taken by reclamation: 0.007158 seconds
-> Time taken by reclamation: 0.007133 seconds
-> =E2=80=A6
->
-> w/ patch
->
-> ~ # ./a.out
-> Time taken by reclamation: 0.002124 seconds
-> Time taken by reclamation: 0.002116 seconds
-> Time taken by reclamation: 0.002150 seconds
-> Time taken by reclamation: 0.002261 seconds
-> Time taken by reclamation: 0.002137 seconds
-> Time taken by reclamation: 0.002173 seconds
-> Time taken by reclamation: 0.002063 seconds
-> Time taken by reclamation: 0.002088 seconds
-> Time taken by reclamation: 0.002169 seconds
-> Time taken by reclamation: 0.002124 seconds
-> Time taken by reclamation: 0.002111 seconds
-> Time taken by reclamation: 0.002224 seconds
-> Time taken by reclamation: 0.002297 seconds
-> Time taken by reclamation: 0.002260 seconds
-> Time taken by reclamation: 0.002246 seconds
-> Time taken by reclamation: 0.002272 seconds
-> Time taken by reclamation: 0.002277 seconds
-> Time taken by reclamation: 0.002462 seconds
-> =E2=80=A6
->
-> This patch significantly speeds up try_to_unmap_one() by allowing it
-> to skip redirtied THPs without splitting the PMD.
->
-> Suggested-by: Baolin Wang <baolin.wang@linux.alibaba.com>
-> Suggested-by: Lance Yang <ioworker0@gmail.com>
-> Signed-off-by: Barry Song <v-songbaohua@oppo.com>
+> It is, if you read what I wrote above carefully.  The 100-column
+> width limit has been in effect "for years", and has been defined
+> by the combination of the coding style and checkpatch.  The former
+> says that going over 80 columns is fine, and the latter limits that
+> to 100 columns, to prevent some very long lines.
 
-Nothing jumps at me ;)
+I'd like to say I appreciate the 80 / 100 limit on code, as it pushed
+me to separate out my driver code write operations into a separate
+function and significantly clean up the code.
 
-LGTM. Feel free to add:
-Reviewed-by: Lance Yang <ioworker0@gmail.com>
+I apologize if my submissions aren't perfect the first time around. I
+admit I'm still a baby developer, this is not my day job (although I'd
+probably love it if it was). This is only the second driver I've
+written from scratch (first, if you consider this is the second
+iteration of a driver I wrote before my motorcomm driver). I depend
+heavily on checkpatch and the feedback from maintainers, as well as
+the coding style from similar drivers. The style and coding policies
+that employed kernel maintainers and developers have committed to
+heart I need to look up every time I submit something.
 
-Thanks,
-Lance
+So, thank you for your feedback.
 
-> ---
->  mm/huge_memory.c | 24 +++++++++++++++++-------
->  mm/rmap.c        | 13 ++++++++++---
->  2 files changed, 27 insertions(+), 10 deletions(-)
 >
-> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
-> index 3d3ebdc002d5..47cc8c3f8f80 100644
-> --- a/mm/huge_memory.c
-> +++ b/mm/huge_memory.c
-> @@ -3070,8 +3070,12 @@ static bool __discard_anon_folio_pmd_locked(struct=
- vm_area_struct *vma,
->         int ref_count, map_count;
->         pmd_t orig_pmd =3D *pmdp;
+> >> Also, please note that the coding style explicitly says that the 80-
+> >> column rule is to be followed "unless exceeding 80 columns
+> >> significantly
+> >> increases readability and does not hide information".
+> >
+> > I already said it earlier... so yeah, we keep repeating ourselves while
+> > discussing original point claiming now something else than we actually
+> > discuss.
 >
-> -       if (folio_test_dirty(folio) || pmd_dirty(orig_pmd))
-> +       if (pmd_dirty(orig_pmd))
-> +               folio_set_dirty(folio);
-> +       if (folio_test_dirty(folio) && !(vma->vm_flags & VM_DROPPABLE)) {
-> +               folio_set_swapbacked(folio);
->                 return false;
-> +       }
->
->         orig_pmd =3D pmdp_huge_clear_flush(vma, addr, pmdp);
->
-> @@ -3098,8 +3102,15 @@ static bool __discard_anon_folio_pmd_locked(struct=
- vm_area_struct *vma,
->          *
->          * The only folio refs must be one from isolation plus the rmap(s=
-).
->          */
-> -       if (folio_test_dirty(folio) || pmd_dirty(orig_pmd) ||
-> -           ref_count !=3D map_count + 1) {
-> +       if (pmd_dirty(orig_pmd))
-> +               folio_set_dirty(folio);
-> +       if (folio_test_dirty(folio) && !(vma->vm_flags & VM_DROPPABLE)) {
-> +               folio_set_swapbacked(folio);
-> +               set_pmd_at(mm, addr, pmdp, orig_pmd);
-> +               return false;
-> +       }
-> +
-> +       if (ref_count !=3D map_count + 1) {
->                 set_pmd_at(mm, addr, pmdp, orig_pmd);
->                 return false;
->         }
-> @@ -3119,12 +3130,11 @@ bool unmap_huge_pmd_locked(struct vm_area_struct =
-*vma, unsigned long addr,
->  {
->         VM_WARN_ON_FOLIO(!folio_test_pmd_mappable(folio), folio);
->         VM_WARN_ON_FOLIO(!folio_test_locked(folio), folio);
-> +       VM_WARN_ON_FOLIO(!folio_test_anon(folio), folio);
-> +       VM_WARN_ON_FOLIO(folio_test_swapbacked(folio), folio);
->         VM_WARN_ON_ONCE(!IS_ALIGNED(addr, HPAGE_PMD_SIZE));
->
-> -       if (folio_test_anon(folio) && !folio_test_swapbacked(folio))
-> -               return __discard_anon_folio_pmd_locked(vma, addr, pmdp, f=
-olio);
-> -
-> -       return false;
-> +       return __discard_anon_folio_pmd_locked(vma, addr, pmdp, folio);
->  }
->
->  static void remap_page(struct folio *folio, unsigned long nr, int flags)
-> diff --git a/mm/rmap.c b/mm/rmap.c
-> index be1978d2712d..a859c399ec7c 100644
-> --- a/mm/rmap.c
-> +++ b/mm/rmap.c
-> @@ -1724,9 +1724,16 @@ static bool try_to_unmap_one(struct folio *folio, =
-struct vm_area_struct *vma,
->                 }
->
->                 if (!pvmw.pte) {
-> -                       if (unmap_huge_pmd_locked(vma, pvmw.address, pvmw=
-.pmd,
-> -                                                 folio))
-> -                               goto walk_done;
-> +                       if (folio_test_anon(folio) && !folio_test_swapbac=
-ked(folio)) {
-> +                               if (unmap_huge_pmd_locked(vma, pvmw.addre=
-ss, pvmw.pmd, folio))
-> +                                       goto walk_done;
-> +                               /*
-> +                                * unmap_huge_pmd_locked has either alrea=
-dy marked
-> +                                * the folio as swap-backed or decided to=
- retain it
-> +                                * due to GUP or speculative references.
-> +                                */
-> +                               goto walk_abort;
-> +                       }
->
->                         if (flags & TTU_SPLIT_HUGE_PMD) {
->                                 /*
-> --
-> 2.39.3 (Apple Git-146)
->
+> I think it's again about the semantics. :)  Please see above.
 
