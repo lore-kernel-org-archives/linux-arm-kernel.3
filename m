@@ -4,75 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D57FC02187
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jan 2025 10:11:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE998C02187
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jan 2025 10:23:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6ZZx2BEkDx4mW0pQwg2HX+RFPltv1/ykO1ohHF0qpcs=; b=2Mufj1ToevdHQlR6md1YnYMws1
-	lgNnBl6ivhtU7B7RKjJh1wNtjYyw2c/Zt/fWjPwSZndW3/p6LHmWmSo/82HKnAiGyT46LYLEDGstP
-	UrTp/yxzmkScm7CRTP7eJoQkK0zY0QNDGogWxzzz5IEEqKtq7z3l6NE+o603by0QRCq3BjYTVkF3y
-	zohT7QqH/E/O3useRRPQLYpjY6eFdoJkOT/xCbROETzJ8c9vQqjQBvZD+hAy+Pm/sG30YGtlfEOVM
-	grJVyMohAC28eP2hFiZ27dhC1wAWaxiyQtb+nFAFbPUVvugWBtxgs1eAOp6jMMRJBSAqd8WFsLmuV
-	q0uCAjbw==;
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=g7KYYLVYAzSjQ+OOEOBYCeT9uSdwa/8OaOS+anJ2pbk=; b=wD2f7I4wO7tn5eaSsoOskuP5Kg
+	Jgy3yhubrlo9ntIlXFHrvd2tNmcnLldPxdjOUuxGLh2MF7mvdfaaIdLSmKwTfBQ/i2Jfd05uQEF92
+	UL2EA/Imz5I3Ohj5NGHRa58RtlNtdOS9bpTFwNI3rRTADzwYInA/PjfruTjaB7Bpf9JbyTUmEwgaJ
+	RCA+23RDnMVS1EzbiYkKs6S6kZrth7UgTJLHS4VcAQE9y3DK6BSFrmIbRBHmq9woGlRnHvasvDp6y
+	VBUEnx/yqE8ffWdIqai3VRtRO00kcI73Iodsqx20wn4mthzZMDX32mZBP4BuxWAvs0uzhx2lOfxOK
+	HbRUU2PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZ5ns-00000002ANq-0BNe;
-	Sat, 18 Jan 2025 10:11:44 +0000
-Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
+	id 1tZ5zW-00000002BIZ-2Qhl;
+	Sat, 18 Jan 2025 10:23:46 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZ5mb-00000002AGb-1aHD;
-	Sat, 18 Jan 2025 10:10:26 +0000
+	id 1tZ5yF-00000002B2G-21YZ;
+	Sat, 18 Jan 2025 10:22:28 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-436326dcb1cso19450865e9.0;
+        Sat, 18 Jan 2025 02:22:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1737195745; x=1737800545; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=g7KYYLVYAzSjQ+OOEOBYCeT9uSdwa/8OaOS+anJ2pbk=;
+        b=XrAR79iG2V6nkQYCiarSmznvkLE72SaPFg3lrNyoF0fpsJw4F2RsEKBOtrJUjU4Rzz
+         0zVVUZk9JWBZO28nIxREcJqQinK/yhxkDONrPEd6xihPR5atX2qNGJACSU8u+T5ALqrD
+         kmiGWIbHlp6Bfv3AGT2f8vLW6DoeAaL2Ky1wFiL8Zi1on+GwRIPJoyAJtOyPYZAZpd9d
+         h1UGIz4n+kq2iRg4XwDwXvcUel9K7fseBBCrfN1hhfZuPZacsqiTVSDKeeagCE4UNQRy
+         gmi0BscpHY47Dxhq4tTQmnH3xdq+0b5TGKqxClHr94/Otf6r2QCO3QDCP6XhMJHzdeKR
+         fQzg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737195745; x=1737800545;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=g7KYYLVYAzSjQ+OOEOBYCeT9uSdwa/8OaOS+anJ2pbk=;
+        b=dUGYkaoieYtibOVqDQYKec5DsITbIK8nh+BtNSVjGNWtVW9zlWGLaNAsElP1oRDL+D
+         lzYmRbhyYtm+pu0T5lNXkhB8Hll8pfMQS9vWi2FejYKDUywDXze/rK1i/ZHddlWknlIs
+         gIJjIDgX0tUOXDkQG4DYM6W0dRmdtG07ITAShBdHSHly+LeHbO9DYhkVKR2KpJNXd3fX
+         ajKX2KvIOBcci+5DVhpOxcTVmGaanCnPMgMuHuMnDiHJ8GfH6cQ7K1FQBtRnHVk49fXw
+         COsAKRiuVm/ark0d2oXWR+UjEfzFCJDFpjIZkF6oz18lzTZIyef+L3cwdL4g4u0Rtr9/
+         IliQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUAQcUyucieoXzBK316KBecz6xpcVJ8zw9CGPXmu5IulqcGF1y4gzPSEhoTA1KCC85B6CHNbuW+fV0q@lists.infradead.org, AJvYcCWztO1IXPaZsmNyhzO/PK+IDnBVyR3PjiK0HBiynNgcKRXj36SZOYydsy7/NKyLau7A29mCZSjwzkWgoxCWCKGQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzPJOkUDuGHny4i05e6/RdzpOXM/NcnkeV09kVJhIRW+5gnvZ5e
+	6BYD3+EeyzA2GMR019OU8CFVj7q1UsMWAuuRmlfP/8RxvtOoK0ke
+X-Gm-Gg: ASbGncudmuhOEQk1oZNGF4xDcwjqTmtK75PQIoAuguwfqQWu1pSRGFNJxp9rLf1I9Fh
+	bOz8eAA1jYv2uh+JQyRcVt2PkGAjdZKGRLf9y/BHRRGGMrqFZkGj/0VTZh5IYQEYg1jbGEslaUD
+	Ml19k2p9Zkk9KMncFRErziX/9LsZeUvFnI8a6SsCb3u5kvJ1lvVOodaC4FL0b37taGwDjhnGrVB
+	8Gfbn73W2tsP4uW5RmN+i1KwbWw9L6ROZIDx1cy2iaAmZuXj1hnOa4ObKIqGgrBU9Ny83UkgAgT
+	IPM56XscoR8EK3l4P5UxnY5uJguHS4YNpD4eSqBaKbm1Clf5Lj72gIdY
+X-Google-Smtp-Source: AGHT+IEC8wg+03HMOeCQYRjaEL4hVw0Oam/RePsv5fuRPjO3sBxgUEwi9m+wMgy/eMHl2a2vGkenKA==
+X-Received: by 2002:a7b:c8c9:0:b0:436:fb02:e68 with SMTP id 5b1f17b1804b1-438913bdd6cmr55694025e9.2.1737195744926;
+        Sat, 18 Jan 2025 02:22:24 -0800 (PST)
+Received: from localhost.localdomain (146.10-240-81.adsl-dyn.isp.belgacom.be. [81.240.10.146])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438904625f5sm64954515e9.28.2025.01.18.02.22.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 18 Jan 2025 02:22:24 -0800 (PST)
+From: Philippe Simons <simons.philippe@gmail.com>
+To: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Philippe Simons <simons.philippe@gmail.com>,
+	linux-phy@lists.infradead.org (open list:GENERIC PHY FRAMEWORK),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Allwinner sunXi SoC support),
+	linux-sunxi@lists.linux.dev (open list:ARM/Allwinner sunXi SoC support),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [RFC PATCH 1/3] phy: don't let controllers change vbus reg
+Date: Sat, 18 Jan 2025 11:22:04 +0100
+Message-ID: <20250118102207.9339-1-simons.philippe@gmail.com>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1737195023;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=6ZZx2BEkDx4mW0pQwg2HX+RFPltv1/ykO1ohHF0qpcs=;
-	b=n47w4SEL5hoTEv9QUimAbbvOHXB2hSIap+8T0tpBPE1pkKAzl7r4Cw/6a1/1fxRKFQT6it
-	EpDgzKTAEzg7+tNCetXsdRE5vDHd8Y5O7Zh5A9dyFyNNo6HXSqkKJKOQ98PnXKtIQvbX8W
-	tCWpzKDOSw6Lzq61QqxO1dlVKVlJrivMlU/kEu2Xwl7eUWHuoK35q/D+3PHV5kH97GevNl
-	JBBS/FGOd38HRmaHOPGqxjOSuFKHK1j8alFGuDLn/xil1sONSz3eIvL/r3u7b7jcax2CM7
-	TOdDl39oyi09pGnSb5s7FB4fePyG+WWdRLdyV9NRLSsLujiqJ9RfaxY3NPz6Mw==
-Date: Sat, 18 Jan 2025 11:10:22 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Diederik de Haas <didi.debian@cknow.org>, Peter Geis
- <pgwipeout@gmail.com>, Heiko Stuebner <heiko@sntech.de>, zyw@rock-chips.com,
- kever.yang@rock-chips.com, frank.wang@rock-chips.com,
- william.wu@rock-chips.com, wulf@rock-chips.com,
- linux-rockchip@lists.infradead.org, Alex Bee <knaerzche@gmail.com>, Conor
- Dooley <conor+dt@kernel.org>, Johan Jonker <jbx6244@gmail.com>, Jonas
- Karlman <jonas@kwiboo.se>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob
- Herring <robh@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v1 4/6] arm64: dts: rockchip: add rk3328 usb3 phy node
-In-Reply-To: <735d89df-9954-44bd-aca6-4bb165737626@kernel.org>
-References: <20250115012628.1035928-1-pgwipeout@gmail.com>
- <20250115012628.1035928-5-pgwipeout@gmail.com>
- <7c7ce820-8a9b-46df-b143-f77835b7e5a0@kernel.org>
- <D73NJYSP62XH.28CVZPNUE21H3@cknow.org>
- <1bc91b4214a1099801aaed6b3ef81ef3@manjaro.org>
- <dcfb46e8-f29a-4eee-b8f8-1ff774f272ce@kernel.org>
- <60ced7df829e7c10e264627cc0947762@manjaro.org>
- <20b474be-301e-4dc3-9eb7-77e9ef075191@kernel.org>
- <3d9ce9fd9b6309553b5669e111bc4200@manjaro.org>
- <735d89df-9954-44bd-aca6-4bb165737626@kernel.org>
-Message-ID: <7ab853de15e1c183ef184d2700a13d98@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250118_021025_736021_1A8CBEAF 
-X-CRM114-Status: GOOD (  18.71  )
+X-CRM114-CacheID: sfid-20250118_022227_541357_20A9012A 
+X-CRM114-Status: GOOD (  13.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,116 +99,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-01-18 10:52, Krzysztof Kozlowski wrote:
-> On 18/01/2025 10:43, Dragan Simic wrote:
->>>> 
->>>> Please see the commit bdc48fa11e46 (checkpatch/coding-style: 
->>>> deprecate
->>>> 80-column warning, 2020-05-29), which clearly shows that the 
->>>> 80-column
->>>> rule is still _preferred_, but no longer _mandatory_.
->>> 
->>> I brought that commit, but nice that you also found it.
->>> 
->>> Still: read the coding style, not checkpatch tool.
->>> 
->>>>>> 80 columns is really not much (for the record, I've been around 
->>>>>> when
->>>>>> using 80x25 _physical_ CRT screens was the norm).
->>>>> 
->>>>> You mistake agreement on dropping strong restriction in 2020 in
->>>>> checkpatch, which is "not for years" and even read that commit: 
->>>>> "Yes,
->>>>> staying withing 80 columns is certainly still _preferred_."
->>>>> 
->>>>> Checkpatch is not coding style. Since when it would be? It's just a
->>>>> tool.
->>>>> 
->>>>> And there were more talks and the 80-preference got relaxed yet 
->>>>> still
->>>>> "not for years" (last talk was 2022?) and sill kernel coding style 
->>>>> is
->>>>> here specific.
->>>> 
->>>> It's perhaps again about the semantics, this time about the meaning
->>>> of "for years".  I don't think there's some strict definition of 
->>>> that
->>>> term, so perhaps different people see it differently.
->>>> 
->>>> To get back to the above-mentioned commit bdc48fa11e46, the 
->>>> 80-column
->>>> limit has obviously been lifted, putting the new 100-column limit as
->>> 
->>> "Lifted" on *CHECKPATCH*, not on coding style. Do you see the
-> 
-> Repeating myself about because you are not addressing the actual 
-> difference.
+Allwinners SoCs share phy0 between the MUSB controller and HCI controller.
+If we let these controllers independently power on the vbus on that phy,
+peripheral mode is dangerous because HCI never power down the phy, resulting
+in 5v being applied against the host 5v.
 
-Please see below.
+Override power_on/off for phy0 in that case, and let regulator be enabled/disabled
+based on id_det only.
 
->>> difference? One is a helper tool which people were using blindly and
->>> wrapping lines without thinking, claiming that checkpatch told them 
->>> to
->>> do so. Other is the actual coding style.
->>> 
->>> You claim that coding style was changed. This never happened.
->> 
->> It was obviously changed in the commit bdc48fa11e46, by making the
->> 80-column width preferred, instead of if being mandatory.  The way
->> I read the changes to the coding style introduced in that commit,
->> it's now possible to go over 80 columns, up to 100 columns, _if_
->> that actually improves the readability of the source code.
-> 
-> The commit is for checkpatch. Point to the change in coding style. You
-> are bringing argument for checkpatch, so only a tool, as argument for
-> coding style. Again, coding style did not change since years.
+Signed-off-by: Philippe Simons <simons.philippe@gmail.com>
+---
+ drivers/phy/allwinner/phy-sun4i-usb.c | 26 ++++++++++++++++++++++++++
+ 1 file changed, 26 insertions(+)
 
-Commit bdc48fa11e46 obviously addresses 
-Documentation/process/coding-style.rst
-as well, as visible in the quotation from the commit below:
+diff --git a/drivers/phy/allwinner/phy-sun4i-usb.c b/drivers/phy/allwinner/phy-sun4i-usb.c
+index b0f19e950..24fbabe7a 100644
+--- a/drivers/phy/allwinner/phy-sun4i-usb.c
++++ b/drivers/phy/allwinner/phy-sun4i-usb.c
+@@ -465,6 +465,10 @@ static int sun4i_usb_phy_power_on(struct phy *_phy)
+ 	struct sun4i_usb_phy_data *data = to_sun4i_usb_phy_data(phy);
+ 	int ret;
+ 
++	/* phy0 power is controlled by sun4i_usb_phy0_reroute and id_det state */
++	if (phy->index == 0 && data->cfg->phy0_dual_route)
++		return 0;
++
+ 	if (!phy->vbus || phy->regulator_on)
+ 		return 0;
+ 
+@@ -493,6 +497,10 @@ static int sun4i_usb_phy_power_off(struct phy *_phy)
+ 	struct sun4i_usb_phy *phy = phy_get_drvdata(_phy);
+ 	struct sun4i_usb_phy_data *data = to_sun4i_usb_phy_data(phy);
+ 
++	/* phy0 power is controlled by sun4i_usb_phy0_reroute and id_det state */
++	if (phy->index == 0 && data->cfg->phy0_dual_route)
++		return 0;
++
+ 	if (!phy->vbus || !phy->regulator_on)
+ 		return 0;
+ 
+@@ -573,9 +581,21 @@ static void sun4i_usb_phy0_reroute(struct sun4i_usb_phy_data *data, int id_det)
+ 	if (id_det == 0) {
+ 		/* Host mode. Route phy0 to EHCI/OHCI */
+ 		regval &= ~OTGCTL_ROUTE_MUSB;
++
++		/* Enable VBUS reg */
++		if (phy->vbus && !phy->regulator_on) {
++			regulator_enable(phy->vbus);
++			phy->regulator_on = true;
++		}
+ 	} else {
+ 		/* Peripheral mode. Route phy0 to MUSB */
+ 		regval |= OTGCTL_ROUTE_MUSB;
++		
++		/* Disable VBUS reg */
++		if (phy->vbus && phy->regulator_on) {
++			regulator_disable(phy->vbus);
++			phy->regulator_on = false;
++		}
+ 	}
+ 	writel(regval, data->base + REG_PHY_OTGCTL);
+ }
+@@ -603,6 +623,12 @@ static void sun4i_usb_phy0_id_vbus_det_scan(struct work_struct *work)
+ 		return;
+ 	}
+ 
++	/* Disable internal VBUS reg if there is an external VBUS */
++	if (vbus_det != 0 && phy->vbus && phy->regulator_on) {
++		regulator_disable(phy->vbus);
++		phy->regulator_on = false;
++	}
++
+ 	force_session_end = data->force_session_end;
+ 	data->force_session_end = false;
+ 
+-- 
+2.47.1
 
-   -The limit on the length of lines is 80 columns and this is a strongly
-   -preferred limit.
-   -
-   -Statements longer than 80 columns will be broken into sensible 
-chunks, unless
-   -exceeding 80 columns significantly increases readability and does not 
-hide
-   -information. Descendants are always substantially shorter than the 
-parent and
-   -are placed substantially to the right. The same applies to function 
-headers
-   -with a long argument list. However, never break user-visible strings 
-such as
-   -printk messages, because that breaks the ability to grep for them.
-   +The preferred limit on the length of a single line is 80 columns.
-   +
-   +Statements longer than 80 columns should be broken into sensible 
-chunks,
-   +unless exceeding 80 columns significantly increases readability and 
-does
-   +not hide information.
-   +
-   +Descendants are always substantially shorter than the parent and are
-   +are placed substantially to the right.  A very commonly used style
-   +is to align descendants to a function open parenthesis.
-   +
-   +These same rules are applied to function headers with a long argument 
-list.
-   +
-   +However, never break user-visible strings such as printk messages 
-because
-   +that breaks the ability to grep for them.
-
-I think it's obvious that the 80-column width is no longer _strongly_
-preferred, but has been demoted to some kind of a bit weaker preference.
-
-Also, please note that the coding style explicitly says that the 80-
-column rule is to be followed "unless exceeding 80 columns significantly
-increases readability and does not hide information".
-
-This just reinforces my opinion that the readability is what matters
-most when deciding on the column width, instead of following the rules
-blindly, both when deciding whether to wrap some lines at column 50,
-for example, or to wrap them at column 98.
 
