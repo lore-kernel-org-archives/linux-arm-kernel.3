@@ -4,93 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A8A3C02187
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jan 2025 14:36:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 350EEC02185
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jan 2025 14:40:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X8S9ixEcY8abMh6hBNRFz4AKcSH2mJNqJhoZUq3Q+OU=; b=sznWFB5wBZNKkzuQ507+N+u7OJ
-	wJxBSkWRGmkFxySfMFPspzjJ+B9MadODj6teFhNHkgf7ow96Gmqt+EVJZoE8bYRiDmO1YwWgCw826
-	05YU97WnLGGNQm41G4TXUQXlcfVvBBIY+x73YFmtWrlKQzprefgKUSOA0tN/gfYXcKlvlQA3bXity
-	sh7b8PBaC2i+Sy0H/s7asUGFVYSUneZ3sDNX6bhqYnmeZyO7Mnil/Y5Fb8Osp23vUhpF7g8cXYG4U
-	rTMLjycdH8UpieshwINCDK0RwqD7MGlMhxM0qxM+IBgnQmDBmM3GSf1ZCGXWdLRijrrrZv/u+ylbh
-	K1Kf6X4g==;
+	bh=8DKH120hIelNwj0rSdHKDYtGkboMj1pgTCFw2K5/B9U=; b=ZmyxzbkFPpFF4BbHXWaFR5hMLn
+	2IPIz4qQ/Uwrf//RpJtjaUD4ApEzQ8zkNsxBc8MkRMymLY1dGa16z6ScgHIzE8otLi7+5bgAC26Co
+	h2lgo93grUP7GItW6srQelZUg8ZHZPKczEmewv3X8IwafpfLyTpaNtgCXaN06O3bexk2lmwazBjtR
+	Pr6eeT+uarwzYcCCEk7zPsixe0HvdU4FvZXIKOOBe2nL8ImMrfPvHiUH5f9GtSbqYnOZYhKeGn9qM
+	aj+Coz4LxB/hfXJh5YyiQjE6O4oJEAy/9nHDEo2QD9pyJZESUJNL9a6q/j8LhBjorzTvsoK5etq6m
+	SMzKxfrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZ9wI-00000002XdJ-3h0e;
-	Sat, 18 Jan 2025 14:36:42 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1tZ9zR-00000002Y1o-3zNW;
+	Sat, 18 Jan 2025 14:39:57 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZ9v1-00000002XTQ-2t7m;
-	Sat, 18 Jan 2025 14:35:24 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5d96944401dso5418271a12.0;
-        Sat, 18 Jan 2025 06:35:23 -0800 (PST)
+	id 1tZ9y9-00000002XsT-3NIA
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 18 Jan 2025 14:38:39 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4361c705434so20548085e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Jan 2025 06:38:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737210922; x=1737815722; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=X8S9ixEcY8abMh6hBNRFz4AKcSH2mJNqJhoZUq3Q+OU=;
-        b=GzEXY4XwKtV2cnR2WLhd5TAWbUi3LC0yzgvI9sKqDQ5pmC6zNSNZ9sQKzUkjI4FLnG
-         o9DzReCk4VtSXAy8TkftGAMRhtD8wHH2iNQji8ZI1ZXCfh9kGExXsXpT9vqhww9gfYPE
-         nn4aX70d/boZse+eHNIvMQXQPupyBduAOKWeXybHXedff+2y/e8bK6/SGlFhD1RjGpES
-         qKrzux8MeWxhYzGT5lxblvCE+tAq9Sdbdfan+IN1ta1Gvn4UotOT+DtGPtCDKXwXfGSk
-         MBNhJtBmF9smsYr+L1pspoo9jhcaO+UZcXBwdYifGoPGAJRuRGTkxqFZdN3RS7J5KogA
-         SsqA==
+        d=tuxon.dev; s=google; t=1737211115; x=1737815915; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=8DKH120hIelNwj0rSdHKDYtGkboMj1pgTCFw2K5/B9U=;
+        b=jHbBQokPofGbNjotuklBNeWVLldoIjXxUQWXEiiGBHpQgtk0M45lw/f03TRhdIJEbR
+         6SrhVMY7FZxaQQqgK6FRFubIG6kglXCFNL8yS1i0Jk5VZgfI3Z2ef3JG5TUe8+fa3Zd6
+         g/TP8qBeij632KtwO+bizntUQg6NO5akoutwCxI2DUwlC9uLNvz8twQzOBWgZpVyfLUs
+         inB0+PVus4rz1qroMz9kNPWa5bOkGuyro0wd8x+0x0dbDMuywTROWmWlUT/p/t2pmTnF
+         QOit4FYaC79eKOceP9A+JorT402N+1qHq0YmKQDSy+QG1M6mwI2XGpb+Wa6vmpAXu+9k
+         7fAw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737210922; x=1737815722;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=X8S9ixEcY8abMh6hBNRFz4AKcSH2mJNqJhoZUq3Q+OU=;
-        b=EuuRVmcnpbjUmfmtaNzDa7zcbVyURrrnfScMAmEiLfCtYQR/qe/p0Xy/PIDbLGF7Hq
-         r8WxN8R2XwuECFgphpF4C5nkS8FTTpOOXAENuaPx6hV4R8gv6IzTp5OBNXnJDdseqkg+
-         oqBRmVRo3lEQ5Lwav+a9Mqsa6nabcAURpOgyQa+U3LbKQwsYRZoFkzCsIbrTyTtNZplt
-         5lSYwa5pzlkj1gnCMwquKBr6JJr4fmmGQLwAZLVGHUKny4e/Ijf/cgVJ13lrbMMT5IyG
-         mKkTYciHQaKzRCgA3fp6zbLJ7hj2vNo3W6hN7mnmUEUGHCovGxOjBt9TR8JbarjP6I1d
-         EPqA==
-X-Forwarded-Encrypted: i=1; AJvYcCUpJDN/0VTGMw1Gb2iP1gSrZDmiUUJnkjcHB56yRXrmRpy2qgnRqaMMbmKz2RO4bXBbGLLY2bVZ647j@lists.infradead.org, AJvYcCVMXAwGjj35gT+ISQfePCg5XX6TWrWcXwDtzI7I6VNMpfT+hNR5z79Napxm0rwZg7S94uMLOzXZe00MJAiJkdqp@lists.infradead.org, AJvYcCXobEtq0iti50AI+lCu+LIYmWujhFPmSP8QMVHt/Tzc/6mN52/8jStYd0+Y4Ab30ky84EOj4NOYez6XencfaLI=@lists.infradead.org
-X-Gm-Message-State: AOJu0YyxiFVnXaYLwi4Br0NpvsAZoXujajC45K6ApJMFiwFyMqYW3yKe
-	XIUYkRgbqWW2OfQHwi75wOq1YHKedRH2lD5WP4wJf53g7x3P2Pnmhs1ewx4QDKvzNvkK6c6uCci
-	BSAAVeL4D1Ch39AEnGjKTP8ss5sI=
-X-Gm-Gg: ASbGncvjj9RJ5EHUIl5U5VVuul3aew3InkkJap86ftVNp2msqWZ+c7hcLol/FM4xP6P
-	gecSYvBC5D11Owj1ckx2Hmbmh2mrsnVDVwazwSAsUb1vrGq+BVyUy
-X-Google-Smtp-Source: AGHT+IFDZpftdKqBFqBjBkAeeMYE15CR2JHURmc/olRPtILwjDfNNssQSQSY8GDDreU8V095+cJIkrJgg1PZfxTj8hY=
-X-Received: by 2002:a50:8d17:0:b0:5d1:22d2:8965 with SMTP id
- 4fb4d7f45d1cf-5db7db2bff6mr5038044a12.30.1737210921703; Sat, 18 Jan 2025
- 06:35:21 -0800 (PST)
+        d=1e100.net; s=20230601; t=1737211115; x=1737815915;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=8DKH120hIelNwj0rSdHKDYtGkboMj1pgTCFw2K5/B9U=;
+        b=H4rucTgYL1SydJlDge1YYxf8N+q1oF1ERFT3Ndr2g9VSvldVSBn3abqpplMebrotAD
+         a67svoiRZSe+YSoXYsn3cLBFU5QiRTW8sCJkCM8H5BE+ZArQwxVosau0G+UrJ3Tl9UI6
+         cclGO9z23SmYyiEDYXlfoSVLxSHJGUfeQeX4PnnzANG6fwG+pHtnDtd2YtFBQwAyVEHP
+         xYUTZEEKjyFbU1823/LSVovW8qjoQvT0tgRXYIb9hMaC+KyLPtZ8aHmvzCFW+3+cgXAx
+         OOGDw3DQf57Qkd7z3uSG8MZ+ATOyS0HVQ1eNrrQM4a9w5xQCT8AdSnMS7exYAEMTm4Q+
+         iPzA==
+X-Forwarded-Encrypted: i=1; AJvYcCVrsNhYp/vSXGTWXc0kXbMLaIqriWT4TUSsE3ls285/S8TFmJNv9opw11ZSBCXEf5FHtTzWqGXyo9SjyEsL9mLU@lists.infradead.org
+X-Gm-Message-State: AOJu0YxCK9axhrOkUbanR2O0VKRqMBh4bAg3y+NN6enh3JEXZII/EvQv
+	PHoum9SeOSe6G3Twd+CpkKjUQ+T8UCLOO50kB5sDcere4I7xw0lzgzwn+cSjQ+A=
+X-Gm-Gg: ASbGnctP5Zh/10zDL7DhX40z7i5H/LQaCjwrqzfFn3HBobYYS8yFy8W/BzYerOtalCo
+	dSHn4tvgFWNsHOr2FgJCrjxtOh5WbsUC9CT/EKoO+PzJ1DUES56N1fxXByn7Lkhx7uisd1JNnRv
+	xaayoLljNOCrcD8ok4dLkE+FpgZBk9LfwPFE+dVhXVqC/1kfTdu6v98DKZw91ZFaq3H42ex2Y3A
+	20rzpFS0iI4PK7XsMTjkVqx6nyMHYf4BwwNlZlQ724BcZWpHLGw0Yg0SqkfWbAPtvSgDXSlM7//
+	2A==
+X-Google-Smtp-Source: AGHT+IFsJ3fdDCkUOB2Vev0Ey4B0aW+LUFAbHeIOXX3oCb5jfpBSdolr5fI/Pzhd7a/wQiVhk1QHQg==
+X-Received: by 2002:a05:600c:3b94:b0:434:9934:575 with SMTP id 5b1f17b1804b1-438913e02f8mr77090705e9.16.1737211115420;
+        Sat, 18 Jan 2025 06:38:35 -0800 (PST)
+Received: from [192.168.50.4] ([82.78.167.35])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38bf3214fc9sm5250124f8f.6.2025.01.18.06.38.33
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 18 Jan 2025 06:38:34 -0800 (PST)
+Message-ID: <1c92e4ad-3aef-4eec-8f90-989884262415@tuxon.dev>
+Date: Sat, 18 Jan 2025 16:38:33 +0200
 MIME-Version: 1.0
-References: <20250115012628.1035928-1-pgwipeout@gmail.com> <00cbc2a1-b4c1-46a2-8234-f66edc19fac9@kernel.org>
-In-Reply-To: <00cbc2a1-b4c1-46a2-8234-f66edc19fac9@kernel.org>
-From: Peter Geis <pgwipeout@gmail.com>
-Date: Sat, 18 Jan 2025 09:35:08 -0500
-X-Gm-Features: AbW1kva6DFr1RzjQp9KXMYYlhacM2koJu0uBfxOzcSRq7CyYw1cACxFrw_KEa_w
-Message-ID: <CAMdYzYoE54PSdTH9JPBFLggDy9CZsj47N6qFKJFZz4xe3VVbBw@mail.gmail.com>
-Subject: Re: [RFC PATCH v1 0/6] rockchip: add a functional usb3 phy driver for rk3328
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Heiko Stuebner <heiko@sntech.de>, zyw@rock-chips.com, kever.yang@rock-chips.com, 
-	frank.wang@rock-chips.com, william.wu@rock-chips.com, wulf@rock-chips.com, 
-	linux-rockchip@lists.infradead.org, Alex Bee <knaerzche@gmail.com>, 
-	Algea Cao <algea.cao@rock-chips.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Conor Dooley <conor+dt@kernel.org>, Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
-	Diederik de Haas <didi.debian@cknow.org>, Dragan Simic <dsimic@manjaro.org>, 
-	Elaine Zhang <zhangqing@rock-chips.com>, FUKAUMI Naoki <naoki@radxa.com>, 
-	Johan Jonker <jbx6244@gmail.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Kishon Vijay Abraham I <kishon@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Rob Herring <robh@kernel.org>, Sebastian Reichel <sebastian.reichel@collabora.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Trevor Woerner <twoerner@gmail.com>, Vinod Koul <vkoul@kernel.org>, 
-	Zhang Yubing <yubing.zhang@rock-chips.com>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ARM: dts: microchip: at91-sam9x75_curiosity: Add PMIC
+ suspend voltage configuration
+To: Andrei Simion <andrei.simion@microchip.com>, nicolas.ferre@microchip.com,
+ alexandre.belloni@bootlin.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250113071710.40821-1-andrei.simion@microchip.com>
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Content-Language: en-US
+In-Reply-To: <20250113071710.40821-1-andrei.simion@microchip.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250118_063523_729479_2E395B83 
-X-CRM114-Status: GOOD (  16.99  )
+X-CRM114-CacheID: sfid-20250118_063838_008271_00F6587F 
+X-CRM114-Status: GOOD (  21.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,39 +102,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jan 18, 2025 at 4:08=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
->
-> On 15/01/2025 02:26, Peter Geis wrote:
-> >
-> > This is my newly reworked phy driver for the rk3328 usb3 phy. It is
-> > based loosely on my original version, but as of now almost nothing of
-> > the original driver remains. The main fix here is the discovery of
-> > BIT(6) in the interrupt enable grf register fixes the usb3 disconnectio=
-n
-> > detection (mostly). On occasion an unpopulated usb3 hub will take
-> > several seconds to disconnect. However this means all of the hack aroun=
-d
-> > work to reset the usb core manually is no longer required.
-> >
-> BTW, RFC for some maintainers means "do not review, work-in-progress".
-> For some means "review, but low priority" or "review, but for sure I
-> have bugs here". I usually review and then someone responds: "it is not
-> for review, it is just RFC", so to avoid my wasted time please always
-> mention in cover letter why this is RFC. What do you expect here or why
-> this is not ready for review as normal patch.
+Hi, Andrei,
 
-Thank you, that makes sense. I marked it as RFC as I'm aware it isn't
-a perfect solution and there's a lot of undefined values. What I was
-looking for here was:
-- Review for code quality, so if I'm completely off track I can get to
-work fixing it. (Thank you so far)
-- Sanity testing from others struggling with the issues it fixes.
-- Feedback from USB engineers about the issues remaining.
-- Hopefully someone with access to the IP can provide insight into the
-magic registers.
+On 13.01.2025 09:17, Andrei Simion wrote:
+> Add missing essential configuration for the PMIC rails, which is necessary
+> for proper low-power mode operation. This patch adds the required settings
+> to ensure that the regulators behave correctly during Suspend-to-RAM and
+> Standby states. Otherwise, after resuming, it receives: "No configuration"
+> message.
+> 
+> Our driver implements the set_suspend_voltage and set_suspend_mode
+> callbacks, which require the `regulator-suspend-microvolt` property to be
+> specified in the device tree for each regulator node. This property defines
+> the voltage level that the regulator should maintain during suspend mode.
+> 
+> Additionally, according to the datasheet, some regulators need to be turned
+> on or off during suspend mode. This patch addresses these requirements by
+> adding the `regulator-on-in-suspend` and `regulator-off-in-suspend`
+> properties where appropriate.
+> 
+> Fixes: 371a47c9a58a ("ARM: dts: microchip: sam9x75_curiosity: add sam9x75 curiosity board")
+> Signed-off-by: Andrei Simion <andrei.simion@microchip.com>
+> ---
+>  .../dts/microchip/at91-sam9x75_curiosity.dts   | 18 ++++++++++++++++++
+>  1 file changed, 18 insertions(+)
+> 
+> diff --git a/arch/arm/boot/dts/microchip/at91-sam9x75_curiosity.dts b/arch/arm/boot/dts/microchip/at91-sam9x75_curiosity.dts
+> index 1a6a909a5043..5514ad10cda5 100644
+> --- a/arch/arm/boot/dts/microchip/at91-sam9x75_curiosity.dts
+> +++ b/arch/arm/boot/dts/microchip/at91-sam9x75_curiosity.dts
+> @@ -110,10 +110,12 @@ vdd_3v3: VDD_IO {
+>  
+>  				regulator-state-standby {
+>  					regulator-on-in-suspend;
+> +					regulator-suspend-microvolt = <3300000>;
+>  					regulator-mode = <4>;
+>  				};
+>  
+>  				regulator-state-mem {
+> +					regulator-off-in-suspend;
+>  					regulator-mode = <4>;
+>  				};
+>  			};
+> @@ -128,11 +130,13 @@ vddioddr: VDD_DDR {
+>  
+>  				regulator-state-standby {
+>  					regulator-on-in-suspend;
+> +					regulator-suspend-microvolt = <1350000>;
+>  					regulator-mode = <4>;
+>  				};
+>  
+>  				regulator-state-mem {
+>  					regulator-on-in-suspend;
+> +					regulator-suspend-microvolt = <1350000>;
+>  					regulator-mode = <4>;
+>  				};
+>  			};
+> @@ -147,10 +151,12 @@ vddcore: VDD_CORE {
+>  
+>  				regulator-state-standby {
+>  					regulator-on-in-suspend;
+> +					regulator-suspend-microvolt = <1150000>;
+>  					regulator-mode = <4>;
+>  				};
+>  
+>  				regulator-state-mem {
+> +					regulator-off-in-suspend;
 
->
-> Best regards,
-> Krzysztof
+Is this correct? In the upstream kernel the SAM9X7 supports only standby
+and ULP0 (see sam9x7_pm_init()). I don't think it is correct to turn off
+the CPU while in ULP0.
+
+Moreover, AFAICT, the MCP16502 will not transition out of active state
+according to the FIGURE 4-2: Finite State Machine (FSM) States Diagram for
+MCP16502AC from [1] and the schematics from Figure 3-6. Power Management
+Integrated Circuit described in [2]. The LPM, HPM are tied to the ground
+and SHDN is currently controlled (in the upstream kernel) only for backup
+and self-refresh mode (see at91_backup_mode). Am I wrong?
+
+Thank you,
+Claudiu
+
+[1]
+https://ww1.microchip.com/downloads/aemDocuments/documents/APID/ProductDocuments/DataSheets/MCP16502-Data-Sheet-DS20006275.pdf
+[2]
+https://ww1.microchip.com/downloads/aemDocuments/documents/MPU32/ProductDocuments/UserGuides/SAM9X75-Curiosity-User-Guide-DS60001859.pdf
+
+>  					regulator-mode = <4>;
+>  				};
+>  			};
+> @@ -166,10 +172,12 @@ dcdc4: VDD_OTHER {
+>  
+>  				regulator-state-standby {
+>  					regulator-on-in-suspend;
+> +					regulator-suspend-microvolt = <1150000>;
+>  					regulator-mode = <4>;
+>  				};
+>  
+>  				regulator-state-mem {
+> +					regulator-off-in-suspend;
+>  					regulator-mode = <4>;
+>  				};
+>  			};
+> @@ -182,6 +190,11 @@ vldo1: LDO1 {
+>  
+>  				regulator-state-standby {
+>  					regulator-on-in-suspend;
+> +					regulator-suspend-microvolt = <3300000>;
+> +				};
+> +
+> +				regulator-state-mem {
+> +					regulator-off-in-suspend;
+>  				};
+>  			};
+>  
+> @@ -192,6 +205,11 @@ vldo2: LDO2 {
+>  
+>  				regulator-state-standby {
+>  					regulator-on-in-suspend;
+> +					regulator-suspend-microvolt = <1800000>;
+> +				};
+> +
+> +				regulator-state-mem {
+> +					regulator-off-in-suspend;
+>  				};
+>  			};
+>  		};
+> 
+> base-commit: 37136bf5c3a6f6b686d74f41837a6406bec6b7bc
+
 
