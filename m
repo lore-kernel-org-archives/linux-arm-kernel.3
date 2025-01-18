@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30198C02185
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jan 2025 10:46:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5906C02185
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jan 2025 11:15:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=606ILteB7IisYDccr+k/oifxwQd4pmlbPg2zqcDE8Qo=; b=kmfpmNdPlL69VbnNfihy0kdnjx
-	mPN9rnH62ARbQubvD7SBM/rMabQo/daLaSdwfAbj9TXCf9qs1hEWu6TdryiOJRky4Z/UOytGGYBgJ
-	dZDjjOZ8toZiUtbgYB280rU29W0UFUnNtll9nSHikcY737l0EWTBI/kW2f/k+CIpsnkxl9S1rB7TA
-	pOxRnY/NExr1Of56xhz7eJ+AJliqQ3TTodY/RQVUbk31RIhp6O75yIssnNLISNJ6a3mCWIIz3qDLg
-	zeObLFvPQDeBmQGOqu1CYtaYlcljo1C5yzk20EA3bNaIjJ642Tl+R8Tgb4EoF2APSr8mA/g3LtIDT
-	cFc8B9XQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=b8Motikz+/X+Nha5DRlA0aqs4LCHAeWCteypUl9PyKQ=; b=dZ9zkrLVVd5y4xE7Lm9ri1wUpw
+	kEULmW+HxqZTU1hP+82DW7NYyr5Po8a7lmnGTlMp59Zdb8x3Mk/EpoBiwTvI7DkyTbQGs3SKxLWJr
+	Dmrf8jp9qtJe2NpMXmTnydaSL9UwxNE23tfaVLGnytAyl2rj8kfo7l45ygRGIIfU7teuJW/0oSkwE
+	GBMG8qrC79PVRdHzKNqcpCU2GLAlgJVqcpGTHGBt58JzH6zXQH0Pfiv8xnaQZevC0dffoG4REOrSL
+	v9m6xJU9hBzdJ7K5fsAIQkNkhKIC/J9N/t3aqzwFY3q6L1Fksz33sh/8YRfKiwK5GwFiK/rxoS2L3
+	Tdwzs4Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZ6LW-00000002Dd0-2nN1;
-	Sat, 18 Jan 2025 10:46:30 +0000
-Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
+	id 1tZ6nk-00000002FTi-2UlL;
+	Sat, 18 Jan 2025 11:15:40 +0000
+Received: from mout-p-102.mailbox.org ([80.241.56.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZ6KF-00000002DVM-3AiS;
-	Sat, 18 Jan 2025 10:45:13 +0000
-MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1737197109;
+	id 1tZ6mT-00000002FLN-1hqm
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 18 Jan 2025 11:14:22 +0000
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4YZvBD4tK9z9t1n;
+	Sat, 18 Jan 2025 12:14:12 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1737198852;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=606ILteB7IisYDccr+k/oifxwQd4pmlbPg2zqcDE8Qo=;
-	b=WbQcZrzAc+4M+XXOz2uL+sEWs4m5CWvK0XUhsbNu09C5GFW1/1ncBkqIgmr2mS4BbmHcc8
-	1bPbKFTVEw3TRzffajLD4Co+nXSwswUI5c/vguSdFbhBNb/mXtSKX82ynsZq3Dmycz9cUO
-	CGMdVLwuBYPxry6SEhCNzFgXYSfx1UkjxwNqg+yj0FEbTL/9TkX+Vwoa0qhLC4mdRskbHr
-	5Y1EfLkt+VlIYPmzOTWcW84y9J9GbW6kzbuPq8e/iEdsXJcnahEv0uiRcU+A05Tu8PuZJ3
-	S6uMBF/RGk5W8r0yAae9GEHMdmTKbTEnfjPDS5VzW30MSWFeZyk07eihpxYOpQ==
-Date: Sat, 18 Jan 2025 11:45:08 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Diederik de Haas <didi.debian@cknow.org>, Peter Geis
- <pgwipeout@gmail.com>, Heiko Stuebner <heiko@sntech.de>, zyw@rock-chips.com,
- kever.yang@rock-chips.com, frank.wang@rock-chips.com,
- william.wu@rock-chips.com, wulf@rock-chips.com,
- linux-rockchip@lists.infradead.org, Alex Bee <knaerzche@gmail.com>, Conor
- Dooley <conor+dt@kernel.org>, Johan Jonker <jbx6244@gmail.com>, Jonas
- Karlman <jonas@kwiboo.se>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob
- Herring <robh@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v1 4/6] arm64: dts: rockchip: add rk3328 usb3 phy node
-In-Reply-To: <df2e466a-cdaa-4263-ae16-7bf56c0edf21@kernel.org>
-References: <20250115012628.1035928-1-pgwipeout@gmail.com>
- <20250115012628.1035928-5-pgwipeout@gmail.com>
- <7c7ce820-8a9b-46df-b143-f77835b7e5a0@kernel.org>
- <D73NJYSP62XH.28CVZPNUE21H3@cknow.org>
- <1bc91b4214a1099801aaed6b3ef81ef3@manjaro.org>
- <dcfb46e8-f29a-4eee-b8f8-1ff774f272ce@kernel.org>
- <60ced7df829e7c10e264627cc0947762@manjaro.org>
- <20b474be-301e-4dc3-9eb7-77e9ef075191@kernel.org>
- <3d9ce9fd9b6309553b5669e111bc4200@manjaro.org>
- <735d89df-9954-44bd-aca6-4bb165737626@kernel.org>
- <7ab853de15e1c183ef184d2700a13d98@manjaro.org>
- <df2e466a-cdaa-4263-ae16-7bf56c0edf21@kernel.org>
-Message-ID: <f54375ebd12e8741d8da8a6bdbf40a80@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=b8Motikz+/X+Nha5DRlA0aqs4LCHAeWCteypUl9PyKQ=;
+	b=adIzxWPVl0hwY2ZTFkXacuqBfzFVHK0gnfaAVFkSKBr8DCfhV03GzJ8XJ5PBWelR67orw5
+	Jqey7oqQPJ90fwQ2JOSg1rtR12Fq5FAwPcIaqwGOvsE774CYJG/V6dsjr1wQwTQHhywf1T
+	+VSK7TTCtVNkBtu0AC9eVdO23j429Qki56t4X52VhToGLfHCG4YX9TF/oC+wXP7aGDOzf1
+	2qSmGfBwa2585ZIDN4yyTvAybEd6s4hxvhM27nf2CrWy9kNKl7y1U9Wkks5d/8ONBMeSwn
+	zpjfBqrQ1r6LUdCjRyHcmuQ0YFRwpvw6gA3JX77/GV8UR0+js8k1BIyrePUX0A==
+From: Marek Vasut <marek.vasut+renesas@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1737198850;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=b8Motikz+/X+Nha5DRlA0aqs4LCHAeWCteypUl9PyKQ=;
+	b=AuuW46MPW5r5/aehtph4vVa5//QpSZqVHE6ISAVtbXfPP8osRxNprilD6QsjUoBYqEceSn
+	MfVUjgupsUkIicWNu36XsJ4Krblzblpaa1yFcjcsop1JwN8XxtuRiy+OqCMxx6BDfUrp6Y
+	i+PAEgg+ti9WsXW1JDgqTc2ks07Q3ouFnr7n0P4sIfO22Dg3ONybAhMc/Z8Sl/7fgKw/0H
+	GMzyoUbKJpXZ5AEmA5kcGhim+MChLEBp9h7YR+TRDD1+D8qHnOXXxiAckfX+eCBlwNHJMU
+	NyLLABRyqaazhHkWnQRXuPjq0IoAJ5bbe6KTzsjtfVSh70xtc3+dRGDENSPDwg==
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH 1/5] arm64: dts: renesas: r8a779f0: Add labels for rswitch ports
+Date: Sat, 18 Jan 2025 12:13:08 +0100
+Message-ID: <20250118111344.361617-1-marek.vasut+renesas@mailbox.org>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-ID: b55d575ec4bd2907d2c
+X-MBO-RS-META: gip67yn96u3zt9bcyrwgscr7pk15mehr
+X-Rspamd-Queue-Id: 4YZvBD4tK9z9t1n
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250118_024512_116874_EAB3AF98 
-X-CRM114-Status: GOOD (  31.58  )
+X-CRM114-CacheID: sfid-20250118_031421_588015_0EEA0952 
+X-CRM114-Status: GOOD (  10.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,184 +89,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-01-18 11:29, Krzysztof Kozlowski wrote:
-> On 18/01/2025 11:10, Dragan Simic wrote:
->> On 2025-01-18 10:52, Krzysztof Kozlowski wrote:
->>> On 18/01/2025 10:43, Dragan Simic wrote:
->>>>>> 
->>>>>> Please see the commit bdc48fa11e46 (checkpatch/coding-style:
->>>>>> deprecate
->>>>>> 80-column warning, 2020-05-29), which clearly shows that the
->>>>>> 80-column
->>>>>> rule is still _preferred_, but no longer _mandatory_.
->>>>> 
->>>>> I brought that commit, but nice that you also found it.
->>>>> 
->>>>> Still: read the coding style, not checkpatch tool.
->>>>> 
->>>>>>>> 80 columns is really not much (for the record, I've been around
->>>>>>>> when
->>>>>>>> using 80x25 _physical_ CRT screens was the norm).
->>>>>>> 
->>>>>>> You mistake agreement on dropping strong restriction in 2020 in
->>>>>>> checkpatch, which is "not for years" and even read that commit:
->>>>>>> "Yes,
->>>>>>> staying withing 80 columns is certainly still _preferred_."
->>>>>>> 
->>>>>>> Checkpatch is not coding style. Since when it would be? It's just 
->>>>>>> a
->>>>>>> tool.
->>>>>>> 
->>>>>>> And there were more talks and the 80-preference got relaxed yet
->>>>>>> still
->>>>>>> "not for years" (last talk was 2022?) and sill kernel coding 
->>>>>>> style
->>>>>>> is
->>>>>>> here specific.
->>>>>> 
->>>>>> It's perhaps again about the semantics, this time about the 
->>>>>> meaning
->>>>>> of "for years".  I don't think there's some strict definition of
->>>>>> that
->>>>>> term, so perhaps different people see it differently.
->>>>>> 
->>>>>> To get back to the above-mentioned commit bdc48fa11e46, the
->>>>>> 80-column
->>>>>> limit has obviously been lifted, putting the new 100-column limit 
->>>>>> as
->>>>> 
->>>>> "Lifted" on *CHECKPATCH*, not on coding style. Do you see the
->>> 
->>> Repeating myself about because you are not addressing the actual
->>> difference.
->> 
->> Please see below.
->> 
->>>>> difference? One is a helper tool which people were using blindly 
->>>>> and
->>>>> wrapping lines without thinking, claiming that checkpatch told them
->>>>> to
->>>>> do so. Other is the actual coding style.
->>>>> 
->>>>> You claim that coding style was changed. This never happened.
->>>> 
->>>> It was obviously changed in the commit bdc48fa11e46, by making the
->>>> 80-column width preferred, instead of if being mandatory.  The way
->>>> I read the changes to the coding style introduced in that commit,
->>>> it's now possible to go over 80 columns, up to 100 columns, _if_
->>>> that actually improves the readability of the source code.
->>> 
->>> The commit is for checkpatch. Point to the change in coding style. 
->>> You
->>> are bringing argument for checkpatch, so only a tool, as argument for
->>> coding style. Again, coding style did not change since years.
->> 
->> Commit bdc48fa11e46 obviously addresses
->> Documentation/process/coding-style.rst
->> as well, as visible in the quotation from the commit below:
-> 
-> Yes.
-> 
->> 
->>    -The limit on the length of lines is 80 columns and this is a 
->> strongly
-> 
-> 80 is here...
-> 
->>    -preferred limit.
->>    -
->>    -Statements longer than 80 columns will be broken into sensible
->> chunks, unless
->>    -exceeding 80 columns significantly increases readability and does 
->> not
->> hide
->>    -information. Descendants are always substantially shorter than the
->> parent and
->>    -are placed substantially to the right. The same applies to 
->> function
->> headers
->>    -with a long argument list. However, never break user-visible 
->> strings
->> such as
->>    -printk messages, because that breaks the ability to grep for them.
->>    +The preferred limit on the length of a single line is 80 columns.
->>    +
->>    +Statements longer than 80 columns should be broken into sensible
-> 
-> 80 is here as well.
-> 
-> So now to your original statement:
-> " but the 100-column limit
-> for the kernel code has been in effect for years."
-> 
-> Where is 100? Only in checkpatch. There is no 100 limit in kernel 
-> coding
-> style.
+Introduce labels for each rswitch port in the form 'rswitchportN'.
+Those can be used to access rswitch port nodes directly, which is
+going to be useful in reducing DT indentation slightly as well as
+in DT /aliases node to reference the rswitch ports as ethernetN
+interfaces. No functional change.
 
-Yes, "100" is in checkpatch only, but the coding style explicitly
-says that going over the 80-column limit it fine if it improves
-the readability.  Thus, going over the 80 columns has been allowed
-"for years", whatever one finds that term to mean, or more precisely
-since mid-2020, and having "100" present in checkpatch establishes
-"100" as the effective "hard" limit.
+Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+---
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Rob Herring <robh@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: linux-renesas-soc@vger.kernel.org
+---
+ arch/arm64/boot/dts/renesas/r8a779f0.dtsi | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-> The change in coding style and checkpatch was partially done because of
-> your understanding: reading checkpatch output as a rule. But this was
-> never a correct approach and still is not. So whatever checkpatch is
-> telling you, e.g. "100 column limit", is not coding style. It's only
-> checkpatch, a tool trying to help you.
+diff --git a/arch/arm64/boot/dts/renesas/r8a779f0.dtsi b/arch/arm64/boot/dts/renesas/r8a779f0.dtsi
+index 054498e54730b..8d296d0ebdfdc 100644
+--- a/arch/arm64/boot/dts/renesas/r8a779f0.dtsi
++++ b/arch/arm64/boot/dts/renesas/r8a779f0.dtsi
+@@ -974,15 +974,15 @@ ethernet-ports {
+ 				#address-cells = <1>;
+ 				#size-cells = <0>;
+ 
+-				port@0 {
++				rswitchport0: port@0 {
+ 					reg = <0>;
+ 					phys = <&eth_serdes 0>;
+ 				};
+-				port@1 {
++				rswitchport1: port@1 {
+ 					reg = <1>;
+ 					phys = <&eth_serdes 1>;
+ 				};
+-				port@2 {
++				rswitchport2: port@2 {
+ 					reg = <2>;
+ 					phys = <&eth_serdes 2>;
+ 				};
+-- 
+2.45.2
 
-No, that isn't my understanding.  I don't take checkpatch's output
-as some kind of mandatory rules; however, what checkpatch does and
-suggests should be based on the coding style, and if checkpatch
-advises wrongly, it should be fixed instead of being accused to be
-invalid and pointless.
-
-Though, in this particular case, checkpatch does it right.  The
-coding style explicitly says that going over the 80-column limit
-is fine if that improves the readability, and checkpatch follows
-that by allowing up to 100 columns.
-
->> chunks,
->>    +unless exceeding 80 columns significantly increases readability 
->> and
->> does
->>    +not hide information.
->>    +
->>    +Descendants are always substantially shorter than the parent and 
->> are
->>    +are placed substantially to the right.  A very commonly used style
->>    +is to align descendants to a function open parenthesis.
->>    +
->>    +These same rules are applied to function headers with a long 
->> argument
->> list.
->>    +
->>    +However, never break user-visible strings such as printk messages
->> because
->>    +that breaks the ability to grep for them.
->> 
->> I think it's obvious that the 80-column width is no longer _strongly_
->> preferred, but has been demoted to some kind of a bit weaker 
->> preference.
-> 
-> Yes, but this is not what you said before and this is not what I 
-> questioned.
-
-It is, if you read what I wrote above carefully.  The 100-column
-width limit has been in effect "for years", and has been defined
-by the combination of the coding style and checkpatch.  The former
-says that going over 80 columns is fine, and the latter limits that
-to 100 columns, to prevent some very long lines.
-
->> Also, please note that the coding style explicitly says that the 80-
->> column rule is to be followed "unless exceeding 80 columns 
->> significantly
->> increases readability and does not hide information".
-> 
-> I already said it earlier... so yeah, we keep repeating ourselves while
-> discussing original point claiming now something else than we actually
-> discuss.
-
-I think it's again about the semantics. :)  Please see above.
 
