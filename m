@@ -4,96 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8CDDC02185
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jan 2025 21:36:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07D68C02185
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jan 2025 22:45:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4pAHJkXoFZdgHisVUkzvL4I/Edqgv9mE3mnJ+Lw62oI=; b=y4cXuNkSbHomiAw01T7qV/hpZH
-	2U18djHOgGAwPyEQiLyZBH5ZBHBEyE/9AW88M0nYc7qTNbgbQdAo5t6xVCKmdKnc9NMqiHlCom3Kc
-	YSPq0ORaqvSvDYDndT27AEaDx+3AtKIaFoMxO96QfyF6MUfYGciFgsZx4n8KrMwpVmUpQjg+nv7J8
-	yOdY8Rzop082IVhUHp4KXh19DFQoYOx5WlpMactu0tI1Lc9Hz8KK9PSbFK1cEz0VszzAKHmHCWSOT
-	gQw/bL4GrX0hVqXTDXrjg45jhTrWSHmN72G6UJ4nL0X33vD2ACtZnchOrjuNncJSaWVuutIayhfnq
-	1imSowNA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VEHWAMvPt7izhfUf3AfgbgxD4iwL2K0nVeFBsEYoUHU=; b=3irunfZWulq05ukwMMPGpy9LEh
+	76Hq/hwlxMkqVTZ9eI0JSDX9GUudKwd4fYmj77Wqwt+4TpR0qUDwWNN2Za9t5QY0XFwx/7Kth3rd8
+	D5JKpwsqSB88Q9AS5l/hhBFDlvbBcrKenfrKJQezq44hIgGzA2Cu9fAt+Sb1fklTKS9HKzWGScgA8
+	xk8gkUEepKsL4nR1Rzf5wZjq1pCuJ675lJG78Al55jihCw2hhuQqQbGHvnKdKKZRpQag6mhQUt30c
+	sRl9kFDY5TnS/Os6NH8LbdenuIcSRk0M7xX7itelJR3f4CpIWff8J0YEFFQdx05IKi6r6Kc72zDxR
+	xtT+3Wxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZGUl-00000002xsj-48X8;
-	Sat, 18 Jan 2025 21:36:44 +0000
-Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
+	id 1tZHZ4-0000000325O-0cWw;
+	Sat, 18 Jan 2025 22:45:14 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZGTU-00000002xmf-2trN
+	id 1tZHXm-000000031o0-3csp
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Jan 2025 21:35:26 +0000
-Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-305d843d925so27789581fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Jan 2025 13:35:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737236122; x=1737840922; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=4pAHJkXoFZdgHisVUkzvL4I/Edqgv9mE3mnJ+Lw62oI=;
-        b=RtuMu7YfqfBzyK/ohfZD01lU/nyMRcWbgIBfr8mdL3SnEZVz34ND1BM1CRfAUofv+r
-         T3r/OtZZALFZGC5BoUfz70Ng165fQ2kMjBIXzW6DXiySkC3kTrfqxVFZG57pHE5Td5ZI
-         CcRgY5x8a2UcdrfJmi6PXWmqZKLeA2SlTz+2gHI2kbHBz2GO75QRMZtGFKJWOizo4D4U
-         R/gH6aYjKKXWUX6/D+KmE1iIQa87+h4ILH6wdD6qLrVlK3X9/C63152rD9NPIviTyNcM
-         09OjQ5acB4pZB7eDRdAv4BpprhONdqpoUaFTu+EZgHaJGJ0uFK0PFxm9UtFaq5D1ioik
-         kBow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737236122; x=1737840922;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4pAHJkXoFZdgHisVUkzvL4I/Edqgv9mE3mnJ+Lw62oI=;
-        b=ruaY5L0AthEsaRys95PeGxeNZShVSI42h4jw6jQkfCXafuGlXwZNIpDNLNOc1n81mv
-         TOUgZYA9o2hpjgx1pJ+nZmZAdlsOLn/EQikJNyDkIHmmIxqVLnZPh8hV4bt7p6pJ84s/
-         7+9QZFaU9qo7s1+vuxWnidT1cl+C3b0cW5j97yeWqW43D/3/iK2eyJQspw4hi+zpu3na
-         Nu3VHGJOFSIxgk4wQ60/NNlG6HSdXZ2chyNUBT/4eXb4FbGY/mqIDzS9UUqstVMJ6GvG
-         3YLaaaAHjHv8eUeGNQQbQS4hvPNrZCGPHHVCmSUQPwTw29YvkQ3ftnRIAXVMPVJP8O0W
-         gzOQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVHt0xyqQX5YoBQLKicVS5RPQjWe9eYVUvcrzNWtGwylKVAjKqP1VwDh/fK2hmbLaGhELoJgZmpPQOFcjYeNf0j@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzm0kJ1aO+r34740JvjcZ4E9GwX/EP+1sCn36DmL+Qw889s6eTq
-	q+Y2docoLVd4PWgY9ZJ7US4BdkAb8pqtTid7t4/V//2dmBT6s1D7ZNeE2Q2bc6Y=
-X-Gm-Gg: ASbGnctInylkfikMv1cXa6QrAR1DnNGcEGe9twN94ooo8naItjF4FsMfvMXbMANC59t
-	hGLnVUMnP6N3GURS3Jya7QTmFiOQ5shtet5W/a2LLNdcxjzlqGBggNWOLL+h0uEl464KWrT+5lA
-	4AtforwEloUd8FJRcsLCB3qFdTvU/k6lXL4XmbTxnkHxablEdAI+emshiDf1E7Ec5fktuuAZ3sU
-	g2jzhVpQBkH0wGSd4S6uQFcfP6MSMfcRHSOET//m0sVy2BxC7PEpTTjGUVPnEBB3UozmZTcDIWC
-	7ok1TUNmsVs0d01iVZ0uSlFwuTMvL75ADxS/6WEwMf4i6xy7bA==
-X-Google-Smtp-Source: AGHT+IEe70NKsSNS6vODeZanfRqTTZhK/r5j+Z3Dmevq5/rL+i3YM7BD6wYBdurTwDfOej9kcBleRw==
-X-Received: by 2002:a05:651c:896:b0:300:1d45:871f with SMTP id 38308e7fff4ca-3072ca5bce5mr25037041fa.5.1737236122551;
-        Sat, 18 Jan 2025 13:35:22 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3072a3308edsm9034701fa.4.2025.01.18.13.35.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 18 Jan 2025 13:35:21 -0800 (PST)
-Date: Sat, 18 Jan 2025 23:35:18 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Sasha Finkelstein <fnkl.kernel@gmail.com>
-Cc: Maxime Ripard <mripard@kernel.org>, Hector Martin <marcan@marcan.st>, 
-	Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Alyssa Ross <hi@alyssa.is>, Janne Grunau <j@jannau.net>
-Subject: Re: [PATCH v4 2/5] drm: adp: Add Apple Display Pipe driver
-Message-ID: <r56ycfx6eeampdduxy65v7tczwyfzgh6z64wmvivlxzt6ww2nk@6y7otqj5hoy5>
-References: <20250114-adpdrm-v4-0-e9b5260a39f1@gmail.com>
- <20250114-adpdrm-v4-2-e9b5260a39f1@gmail.com>
- <mu7qiybhj7tu5hauk7izfxqlookc3awpknhjk74zwpkbznei4m@kewap6vivzoa>
- <20250116-vivacious-congenial-nightingale-cb2f6d@houat>
- <2alm7gds4k2lnbk36gjdw6yhzhpls3ce5baycdiv7lsigxsbzn@rhwdgnphwwp6>
- <20250117-neon-unicorn-of-plenty-bbe639@houat>
- <CAMT+MTTrvXsYONQj0V5U+dPJtCBOAQ-Lfg7NONMB6onMvJ+3QA@mail.gmail.com>
+	Sat, 18 Jan 2025 22:43:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 746B5A416A2;
+	Sat, 18 Jan 2025 22:42:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 97BDBC4CED1;
+	Sat, 18 Jan 2025 22:43:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737240232;
+	bh=jtDQgJ5TMUog4z+ig7qpmfLNG/e1jX7Y27yVt6nn77Q=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=X2+AHIqAIUl9aH/438WpvCtjvIymg4e+u2A/s8Ep7VuaUdQ3jb/a15UEVz/PoqkZW
+	 L3ZstjtqVk0+Epy20X9EAyE8jJLhFKcl1q8qTUcay/oZBRX399mfvTAAGW1MHWiRk4
+	 00CSGn+oWpQ39W40Lber6ONDU9/LMHUnD1vrycOx1YiZbK03eHHVucROlb3S6RAl9r
+	 QKEdF5cOrQLN0zr7GwHkZGeLOm2Sy0ERRhEc2RfbBPGEzFqqRQOCKlzSqvWBMjWj6z
+	 AIPQCz48HDrYAfBl7Wvb+B2oHFrWtOI2H01iJej/YhornZyCFfDLYkLQVbFQQBYLHo
+	 p3gnbKcYND9Qg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7FF86C02185;
+	Sat, 18 Jan 2025 22:43:52 +0000 (UTC)
+From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
+Subject: [PATCH v5 0/4] Driver for Apple Z2 touchscreens.
+Date: Sat, 18 Jan 2025 23:42:21 +0100
+Message-Id: <20250118-z2-v5-0-6d38b2582169@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMT+MTTrvXsYONQj0V5U+dPJtCBOAQ-Lfg7NONMB6onMvJ+3QA@mail.gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAE0ujGcC/13MwYrCMBDG8VeRnI3MTDKpetr3kD0kk1QDaqVdi
+ mvpu5sGhOLxP8zvm9SQ+pwGddxMqk9jHnJ3L8HbjZKLv5+TzrG0IiCLSFa/SAsgBaZ98hBVeXz
+ 0qc3POnL6LX3Jw1/X/9fNEZfrh7uFj6hBizViRRwBxJ/zzefrTrqbWvhIa7KvhAppnAgfQmgRm
+ 29iPoShmEpMISyQmDma2OI3sWvCldhCYmMc+oAueFiTeZ7fn1i9Py0BAAA=
+X-Change-ID: 20241124-z2-c012b528ea0d
+To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Henrik Rydberg <rydberg@bitmath.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Sasha Finkelstein <fnkl.kernel@gmail.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+ Neal Gompa <neal@gompa.dev>, Janne Grunau <j@jannau.net>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1737240231; l=2420;
+ i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
+ bh=jtDQgJ5TMUog4z+ig7qpmfLNG/e1jX7Y27yVt6nn77Q=;
+ b=p8J9xoOLyfzSthaCkOiGJsgHqONtjwG0HEvv0Z+jBE2awomYf00IkK67eejWTz5/ccu6VvySk
+ cwuSBI+mlk5A9/L3mZKi8S8+oMdLFsK7ZfY8k1NJ0KdaXI4dhSp//NK
+X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
+ pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
+X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
+ auth_id=283
+X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250118_133524_856084_48C21065 
-X-CRM114-Status: GOOD (  15.58  )
+X-CRM114-CacheID: sfid-20250118_144355_049476_97AA8465 
+X-CRM114-Status: GOOD (  12.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,29 +92,63 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: fnkl.kernel@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 17, 2025 at 03:17:32PM +0100, Sasha Finkelstein wrote:
-> On Fri, 17 Jan 2025 at 11:24, Maxime Ripard <mripard@kernel.org> wrote:
-> > >
-> > > I was thinking about using drmm_ here, as the DRM device is also created
-> > > and destroyed each time. But I might be mistaken here.
-> >
-> > Ah, right, it makes sense then, thanks!
-> > Maxime
-> 
-> Not sure i understand. The drm device is created in probe(), and is
-> destroyed by devm.
+Hi.
 
-devm on which device? The bridge's lifecycle is tied to the mipi-dsi
-host lifecycle, while the drm device is managed by the display device.
+This series adds support for Apple touchscreens using the Z2 protocol.
+Those are used as the primary touchscreen on mobile Apple devices, and for the
+touchbar on laptops using the M-series chips. (T1/T2 laptops have a coprocessor
+in charge of speaking Z2 to the touchbar).
 
-> I do not see a path where it can be created/destroyed without a trip
-> via probe/remove,
-> and so tying the lifetime of the bridge in question to devm seems correct?
+Originally sent as a RFC at https://lore.kernel.org/all/20230223-z2-for-ml-v1-0-028f2b85dc15@gmail.com/
+The changes since then mostly address the review feedback, but also
+add another machine that has this specific controller.
 
--- 
-With best wishes
-Dmitry
+Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
+---
+Changes in v5:
+- Added missing \ns, removed 4kb-ish of wasted ram
+- Link to v4: https://lore.kernel.org/r/20250115-z2-v4-0-d7361ab16ba0@gmail.com
+
+Changes in v4:
+- Dropped another allocation, other fixes.
+- Link to v3: https://lore.kernel.org/r/20250112-z2-v3-0-5c0e555d3df1@gmail.com
+
+Changes in v3:
+- Tx/Rx buffers used in interrupt handler are now allocated in probe and reused
+- Other various style fixes
+- Link to v2: https://lore.kernel.org/r/20241128-z2-v2-0-76cc59bbf117@gmail.com
+
+Changes in v2:
+- In a separate patch, fixed an issue that prevented the SPI controller
+  from using GPIO CS, and as such, moved the hardware quirk to there
+- Went back to uploading the firmware in probe() instad of open()
+- Other changes addressing the review feedback
+- Link to v1: https://lore.kernel.org/r/20241126-z2-v1-0-c43c4cc6200d@gmail.com
+
+---
+Sasha Finkelstein (4):
+      dt-bindings: input: touchscreen: Add Z2 controller
+      input: apple_z2: Add a driver for Apple Z2 touchscreens
+      arm64: dts: apple: Add touchbar digitizer nodes
+      MAINTAINERS: Add entries for Apple Z2 touchscreen driver
+
+ .../input/touchscreen/apple,z2-multitouch.yaml     |  70 ++++
+ MAINTAINERS                                        |   2 +
+ arch/arm64/boot/dts/apple/t8103-j293.dts           |  27 ++
+ arch/arm64/boot/dts/apple/t8103.dtsi               |  19 +
+ arch/arm64/boot/dts/apple/t8112-j493.dts           |  23 ++
+ arch/arm64/boot/dts/apple/t8112.dtsi               |  14 +
+ drivers/input/touchscreen/Kconfig                  |  13 +
+ drivers/input/touchscreen/Makefile                 |   1 +
+ drivers/input/touchscreen/apple_z2.c               | 453 +++++++++++++++++++++
+ 9 files changed, 622 insertions(+)
+---
+base-commit: b62cef9a5c673f1b8083159f5dc03c1c5daced2f
+change-id: 20241124-z2-c012b528ea0d
+
+
 
