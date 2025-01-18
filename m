@@ -4,64 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C532C02187
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jan 2025 09:21:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AC27C02185
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jan 2025 09:24:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M/9l94GmBxXwvfENnF4uNN8De/jyEpPgHBorK0ADUVc=; b=eoHpeZg28yHHGYccTQiF3bGHMy
-	hk9obcGulFzgKIhk26QYEA6Lf731OiTsELpnhIX3wF/sVl4d96AIc5pCWuPrlPMjcqIHllGw9QHQ0
-	6Nk9cEDhexaL9w3m4l0/hsAmkW/xuvgiwzTXHfq6jBFSNKPnz3MonWauRQChKqEKcpRCrCMuOrsLf
-	wnfe5NefQzSIpi7Osjd1mcg9QJpe+tHCV3C4W983l72J0BC5FxtII13+X/ePbvtb/I8KWkSjizU3D
-	RKtJUC5r7sNZ2Poc7/s4OMNqlA+ubyR77uD/JiKaYHNK5sfE59kyVXPmC/PFKF5jpdkFGkKNKdMuo
-	aQ9wRXIQ==;
+	bh=iFzZcMaZb9ckXICcukQ4D4HdB9qQ5Vb2KslJUxlV42s=; b=IgB2fQnUhdH+/siWFbmHrMO7oo
+	WRla8kBIhGghoSjZ3QD49iWnKLR5bwgrjNV9z2NGOtq53hCQ3ov03MrHOQssqM7NsXV/IZPTzfdVL
+	9XxlABrb7JTLuehcuGBJIYmjtfpg+aUL3jTtEXyBF4mNEak4y9gaCL60+bqyk/VifI2H9+lDhZk/i
+	PEYCdysaIOaYhdgiDsiqH5HlH3HHJhfUkNGA9/NO2o/YJFwAQA43WzWdCFUZuRb7TfWdGpJVov2ZZ
+	gAhH9Ga5CnxWZBDOrcX0529RSbbhRzLD5B+u/HOsn/PPeqZ8RSS4oHqJFjRw8TPH++51mmuCJoy+1
+	2gJFTmhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZ518-000000025zz-3I1T;
-	Sat, 18 Jan 2025 09:21:22 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tZ546-000000026Cy-0Urj;
+	Sat, 18 Jan 2025 09:24:26 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZ4zq-000000025rn-2uDE;
-	Sat, 18 Jan 2025 09:20:04 +0000
+	id 1tZ52p-0000000268D-075Q;
+	Sat, 18 Jan 2025 09:23:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 67B63A414D8;
-	Sat, 18 Jan 2025 09:18:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6033C4CED1;
-	Sat, 18 Jan 2025 09:19:54 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1E1E7A40FE4;
+	Sat, 18 Jan 2025 09:21:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E467DC4CED1;
+	Sat, 18 Jan 2025 09:22:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737192000;
-	bh=JUEliZBo7/CjvZ8kETdFp4BYykF5r5B2KqwI5KLLyqU=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=EeXE91Rw7cDz/o7uoVMY53DBvZLpkgIQKvclt+XnhV3F4BM0HNMlGul16jUAw/gPJ
-	 6hTvdcfndFGDEU3LbMnrniDr4vUXuDagtH4ONG42u3aFaf7zSQU425JFwqSjJPfPz1
-	 TphFNRotExEp0Oor0kyc18ii9mJFyRnznxq+pb5YHFyH8r95g50R7ayUmsAPR+zq9c
-	 1HXP8fsy3nfe9Ajs8OcBrcgVuX0gp2t6a9WmpNd+dZx6yw8ZoVTe7oSkyohYZBRz3r
-	 nJSB1uOkaLgtcCyjjM9pW/SOcNxgvV1D/MqVZN1HOip/uYJKF4JHJRu4oVZssS6L/G
-	 iA9TEWM08WniQ==
-Message-ID: <ea651368-bcfc-4f24-8ed6-1c558707ffda@kernel.org>
-Date: Sat, 18 Jan 2025 10:19:53 +0100
+	s=k20201202; t=1737192185;
+	bh=JNO4AtFnhefCCioa2iS6EMqb2clG0iuuvwbLgnxmwFE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=gC4ugii0PIzagQzEdaBRAD+Pg6YG2OXAhWzIENbuV28lyFoiCh/Gd+VDW4kXohGVg
+	 ZDnIKgket3wZnuW4e1VZ+llg1r80ESZhbDMZIyXtAY6HxttnltjPPlsRkOq+NijlPR
+	 Livq0V0R9UiRhVXtwTwqkCKL1SM420Tue/LCGDDpsppb7DiWHUr2uL28HXw5Ml2IZK
+	 X5UUJIicjQDjn+8jfGwh0pozQ/VSUp3ITF1a6gRWvADMUY0LAejkJTGVCT4LXI3VBT
+	 uqtU0Upl1Af1yKsF9Vwvomq0HSp2AFx0GzKJkRqamjeYy8I9t6axY7UFs32UWVqFxu
+	 8oPCAZFoBZ3PQ==
+Message-ID: <d116e180-a056-4595-851c-ed1bb6f24cef@kernel.org>
+Date: Sat, 18 Jan 2025 10:22:57 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v1 4/6] arm64: dts: rockchip: add rk3328 usb3 phy node
+Subject: Re: [PATCH 03/12] dt-bindings: display: mediatek: add EXDMA yaml for
+ MT8196
+To: =?UTF-8?B?UGF1bC1wbCBDaGVuICjpmbPmn4/pnJYp?= <Paul-pl.Chen@mediatek.com>,
+ "Rob Herring (Arm)" <robh@kernel.org>
+Cc: "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ =?UTF-8?B?U2luZ28gQ2hhbmcgKOW8teiIiOWciyk=?= <Singo.Chang@mediatek.com>,
+ =?UTF-8?B?U3VubnkgU2hlbiAo5rKI5aeN5aeNKQ==?= <Sunny.Shen@mediatek.com>,
+ "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>,
+ Project_Global_Chrome_Upstream_Group
+ <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+ "fshao@chromium.org" <fshao@chromium.org>,
+ =?UTF-8?B?U2lyaXVzIFdhbmcgKOeOi+eak+aYsSk=?= <Sirius.Wang@mediatek.com>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ =?UTF-8?B?WGlhbmRvbmcgV2FuZyAo546L5YWI5YasKQ==?=
+ <Xiandong.Wang@mediatek.com>, "treapking@chromium.org"
+ <treapking@chromium.org>, =?UTF-8?B?TmFuY3kgTGluICjmnpfmrKPonqIp?=
+ <Nancy.Lin@mediatek.com>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ =?UTF-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>
+References: <20250110123835.2719824-1-paul-pl.chen@mediatek.com>
+ <20250110123835.2719824-5-paul-pl.chen@mediatek.com>
+ <173651725269.2671643.2891127782637834272.robh@kernel.org>
+ <SG2PR03MB66367B4A9DBCC971F55DB326BC182@SG2PR03MB6636.apcprd03.prod.outlook.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Diederik de Haas <didi.debian@cknow.org>, Peter Geis
- <pgwipeout@gmail.com>, Heiko Stuebner <heiko@sntech.de>
-Cc: zyw@rock-chips.com, kever.yang@rock-chips.com, frank.wang@rock-chips.com,
- william.wu@rock-chips.com, wulf@rock-chips.com,
- linux-rockchip@lists.infradead.org, Alex Bee <knaerzche@gmail.com>,
- Conor Dooley <conor+dt@kernel.org>, Dragan Simic <dsimic@manjaro.org>,
- Johan Jonker <jbx6244@gmail.com>, Jonas Karlman <jonas@kwiboo.se>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250115012628.1035928-1-pgwipeout@gmail.com>
- <20250115012628.1035928-5-pgwipeout@gmail.com>
- <7c7ce820-8a9b-46df-b143-f77835b7e5a0@kernel.org>
- <D73NJYSP62XH.28CVZPNUE21H3@cknow.org>
- <e1097f84-e40f-45ff-8b8d-125f7159ec1e@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -106,12 +121,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <e1097f84-e40f-45ff-8b8d-125f7159ec1e@kernel.org>
+In-Reply-To: <SG2PR03MB66367B4A9DBCC971F55DB326BC182@SG2PR03MB6636.apcprd03.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250118_012002_886251_FDEE1B48 
-X-CRM114-Status: GOOD (  23.12  )
+X-CRM114-CacheID: sfid-20250118_012307_199017_D9423032 
+X-CRM114-Status: UNSURE (   6.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,89 +142,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/01/2025 09:41, Krzysztof Kozlowski wrote:
-> On 16/01/2025 17:53, Diederik de Haas wrote:
->> On Thu Jan 16, 2025 at 2:01 PM CET, Krzysztof Kozlowski wrote:
->>> On 15/01/2025 02:26, Peter Geis wrote:
->>>> Add the node for the rk3328 usb3 phy. This node provides a combined usb2
->>>> and usb3 phy which are permenantly tied to the dwc3 usb3 controller.
->>>>
->>>> Signed-off-by: Peter Geis <pgwipeout@gmail.com>
->>>> ---
->>>>
->>>>  arch/arm64/boot/dts/rockchip/rk3328.dtsi | 39 ++++++++++++++++++++++++
->>>>  1 file changed, 39 insertions(+)
->>>>
->>>> diff --git a/arch/arm64/boot/dts/rockchip/rk3328.dtsi b/arch/arm64/boot/dts/rockchip/rk3328.dtsi
->>>> index 7d992c3c01ce..181a900d41f9 100644
->>>> --- a/arch/arm64/boot/dts/rockchip/rk3328.dtsi
->>>> +++ b/arch/arm64/boot/dts/rockchip/rk3328.dtsi
->>>> @@ -903,6 +903,43 @@ u2phy_host: host-port {
->>>>  		};
->>>>  	};
->>>>  
->>>> +	usb3phy: usb3-phy@ff460000 {
->>>> +		compatible = "rockchip,rk3328-usb3phy";
->>>> +		reg = <0x0 0xff460000 0x0 0x10000>;
->>>> +		clocks = <&cru SCLK_REF_USB3OTG>, <&cru PCLK_USB3PHY_OTG>, <&cru PCLK_USB3PHY_PIPE>;
->>>
->>> Please wrap code according to coding style (checkpatch is not a coding
->>> style description, but only a tool), so at 80.
->>
->> I'm confused: is it 80 or 100?
->>
->> I always thought it was 80, but then I saw several patches/commits by
-> 
-> Coding style is clear: it is 80. It also has caveat about code
-> readability and several maintainers have their own preference.
-> 
->> Dragan Simic which deliberately changed code to make use of 100.
->> Being fed up with my own confusion, I submitted a PR to 
->> https://github.com/gregkh/kernel-coding-style/ which got accepted:
->> https://github.com/gregkh/kernel-coding-style/commit/5c21f99dc79883bd0efeba368193180275c9c77a
-> 
-> That's not kernel. That's Greg...
-> 
->>
->> So now both the vim plugins code and README say 100.
->> But as noted in my commit message:
->>
->>   Note that the current upstream 'Linux kernel coding style' does NOT
->>   mention the 100 char limit, but only mentions the preferred max length
->>   of 80.
->>
->> Or is it 100 for code, but 80 for DeviceTree files and bindings?
-> 
-> From where did you get 100? Checkpatch, right? Kernel coding style is
-> clear, there is no discussion, no mentioning 100:
-> 
-> "The preferred limit on the length of a single line is 80 columns. "
-> 
-> So to be clear: all DTS, all DT bindings, all code maintained by me and
-> some maintainers follows above (and further - there is caveat)
-> instruction from coding style. Some maintainers follow other rules and
-> that's fine.
+On 14/01/2025 06:49, Paul-pl Chen (陳柏霖) wrote:
+> Hi Rob
+> Thanks for the advice.
+> The root cause of the erroneous log message is due to missing power/clock dependencies.
+> Once the MTK clock/power header file is upstreamed, 
+So this cannot be merged.
 
-
-Although let me add here caveat, after looking at some other code: DTS
-due to its nature of a lot of parent-child relationships combined with
-long constants ("GIC_SPI 147 IRQ_TYPE_LEVEL_HIGH>") has the strongest
-exception or the strongest second part of the coding style:
-"...unless exceeding 80 columns significantly increases readability..."
-
-And again: that's from official coding style document (so something
-which have been for years), no matter what other people tell you they
-think exists since years as coding style.
-
-Splitting line, I commented here in this patch, did not improve readability.
-
-Quite opposite: the line there was less readable in current format thus
-it is not even about coding style anymore, but just readability style.
-Any list with more than two short entries (by number of characters in
-list item) or any list with more than one long entry should be split for
-readability. However actual ITEMS in list should not be split - but
-again coding style is here very precise since years. 80 unless
-significantly increases readability.
+Decouple dependencies or wait with your submission till depenedncy is
+applied to *LINUS* tree, not even maintainer. Otherwise this breaks
+maintainer's tree. I really suggest decoupling.
 
 Best regards,
 Krzysztof
