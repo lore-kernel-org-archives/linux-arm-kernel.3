@@ -4,90 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 350EEC02185
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jan 2025 14:40:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C28A0C02187
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jan 2025 14:50:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8DKH120hIelNwj0rSdHKDYtGkboMj1pgTCFw2K5/B9U=; b=ZmyxzbkFPpFF4BbHXWaFR5hMLn
-	2IPIz4qQ/Uwrf//RpJtjaUD4ApEzQ8zkNsxBc8MkRMymLY1dGa16z6ScgHIzE8otLi7+5bgAC26Co
-	h2lgo93grUP7GItW6srQelZUg8ZHZPKczEmewv3X8IwafpfLyTpaNtgCXaN06O3bexk2lmwazBjtR
-	Pr6eeT+uarwzYcCCEk7zPsixe0HvdU4FvZXIKOOBe2nL8ImMrfPvHiUH5f9GtSbqYnOZYhKeGn9qM
-	aj+Coz4LxB/hfXJh5YyiQjE6O4oJEAy/9nHDEo2QD9pyJZESUJNL9a6q/j8LhBjorzTvsoK5etq6m
-	SMzKxfrA==;
+	bh=ZZ5Pm7uJSWgiHbsmoxlvZ3LbzzSHeTzbUZ13dlbartc=; b=RX6p54eqf1TJnuTea/Iq9ncJDr
+	4By3TIeXuZ7JYg1waYCVD/csuR+Yhm39yIvWdxpo63dTDFtz6SxU1Udl1aKlNyLf332TEDT0S/iz7
+	lyfzAwpAadXzFlCE1u7HHzCX76jU3O/BBzwPMiYFcWH55huSTe7v9jdobIAwnsLyV1rOhOAvyKqYK
+	Et+uzz2E2MktXEV5jekmJBKw886LXC0xUlSXynQhVW5B9ep4hWd0+JdafGcfBTJ6SlD+yrQEcCDkk
+	YBN1uBClpOK3sa3MIbFpJ+Ofg6u8c+ZBe4H+hjfqiu1x2wpJJ1QoEz+1FHDEMTQQTJhLbTf8R1bwh
+	egLT6h0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZ9zR-00000002Y1o-3zNW;
-	Sat, 18 Jan 2025 14:39:57 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1tZA9K-00000002ZDh-0k60;
+	Sat, 18 Jan 2025 14:50:10 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZ9y9-00000002XsT-3NIA
+	id 1tZA82-00000002Z65-2cxs
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Jan 2025 14:38:39 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4361c705434so20548085e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Jan 2025 06:38:36 -0800 (PST)
+	Sat, 18 Jan 2025 14:48:51 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2166360285dso60729335ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Jan 2025 06:48:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1737211115; x=1737815915; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
+        d=gmail.com; s=20230601; t=1737211729; x=1737816529; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=8DKH120hIelNwj0rSdHKDYtGkboMj1pgTCFw2K5/B9U=;
-        b=jHbBQokPofGbNjotuklBNeWVLldoIjXxUQWXEiiGBHpQgtk0M45lw/f03TRhdIJEbR
-         6SrhVMY7FZxaQQqgK6FRFubIG6kglXCFNL8yS1i0Jk5VZgfI3Z2ef3JG5TUe8+fa3Zd6
-         g/TP8qBeij632KtwO+bizntUQg6NO5akoutwCxI2DUwlC9uLNvz8twQzOBWgZpVyfLUs
-         inB0+PVus4rz1qroMz9kNPWa5bOkGuyro0wd8x+0x0dbDMuywTROWmWlUT/p/t2pmTnF
-         QOit4FYaC79eKOceP9A+JorT402N+1qHq0YmKQDSy+QG1M6mwI2XGpb+Wa6vmpAXu+9k
-         7fAw==
+        bh=ZZ5Pm7uJSWgiHbsmoxlvZ3LbzzSHeTzbUZ13dlbartc=;
+        b=QWOzWB+99MK8X5mZMU2cIhWTVW16c4ImCxzE/qTwe24ktcxNE5YQQapIOCjPZ+v150
+         +CCQo+tRQrwI+salikVf/kvSo70H7AC5KW/1vXk/z0SJmPFouRD9F5jZZSLKCpHkGJ7Y
+         EcU+2Tu/l55TNxwE08CVjfMw31n0YxBSlVcM8Te1wR2R93hvZYU5cL82PQhFWqxu8+GD
+         OXxlPXZX4nLXRuDFF9nZ6p0mJjva6gqXuZFiUcB3KSP5LL4hh90UO/rsYvt0nvu2tvJa
+         wAHzMO64u15mEhKNC0BflddAIPRbH66tPeWxO/6ZAPMNIYQ9/mB7QQ18ejBOlDanTPW0
+         nhyQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737211115; x=1737815915;
-        h=content-transfer-encoding:in-reply-to:content-language:from
+        d=1e100.net; s=20230601; t=1737211729; x=1737816529;
+        h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=8DKH120hIelNwj0rSdHKDYtGkboMj1pgTCFw2K5/B9U=;
-        b=H4rucTgYL1SydJlDge1YYxf8N+q1oF1ERFT3Ndr2g9VSvldVSBn3abqpplMebrotAD
-         a67svoiRZSe+YSoXYsn3cLBFU5QiRTW8sCJkCM8H5BE+ZArQwxVosau0G+UrJ3Tl9UI6
-         cclGO9z23SmYyiEDYXlfoSVLxSHJGUfeQeX4PnnzANG6fwG+pHtnDtd2YtFBQwAyVEHP
-         xYUTZEEKjyFbU1823/LSVovW8qjoQvT0tgRXYIb9hMaC+KyLPtZ8aHmvzCFW+3+cgXAx
-         OOGDw3DQf57Qkd7z3uSG8MZ+ATOyS0HVQ1eNrrQM4a9w5xQCT8AdSnMS7exYAEMTm4Q+
-         iPzA==
-X-Forwarded-Encrypted: i=1; AJvYcCVrsNhYp/vSXGTWXc0kXbMLaIqriWT4TUSsE3ls285/S8TFmJNv9opw11ZSBCXEf5FHtTzWqGXyo9SjyEsL9mLU@lists.infradead.org
-X-Gm-Message-State: AOJu0YxCK9axhrOkUbanR2O0VKRqMBh4bAg3y+NN6enh3JEXZII/EvQv
-	PHoum9SeOSe6G3Twd+CpkKjUQ+T8UCLOO50kB5sDcere4I7xw0lzgzwn+cSjQ+A=
-X-Gm-Gg: ASbGnctP5Zh/10zDL7DhX40z7i5H/LQaCjwrqzfFn3HBobYYS8yFy8W/BzYerOtalCo
-	dSHn4tvgFWNsHOr2FgJCrjxtOh5WbsUC9CT/EKoO+PzJ1DUES56N1fxXByn7Lkhx7uisd1JNnRv
-	xaayoLljNOCrcD8ok4dLkE+FpgZBk9LfwPFE+dVhXVqC/1kfTdu6v98DKZw91ZFaq3H42ex2Y3A
-	20rzpFS0iI4PK7XsMTjkVqx6nyMHYf4BwwNlZlQ724BcZWpHLGw0Yg0SqkfWbAPtvSgDXSlM7//
-	2A==
-X-Google-Smtp-Source: AGHT+IFsJ3fdDCkUOB2Vev0Ey4B0aW+LUFAbHeIOXX3oCb5jfpBSdolr5fI/Pzhd7a/wQiVhk1QHQg==
-X-Received: by 2002:a05:600c:3b94:b0:434:9934:575 with SMTP id 5b1f17b1804b1-438913e02f8mr77090705e9.16.1737211115420;
-        Sat, 18 Jan 2025 06:38:35 -0800 (PST)
-Received: from [192.168.50.4] ([82.78.167.35])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38bf3214fc9sm5250124f8f.6.2025.01.18.06.38.33
+        bh=ZZ5Pm7uJSWgiHbsmoxlvZ3LbzzSHeTzbUZ13dlbartc=;
+        b=Ga7A7R4VF43atMewOQFZBAdE3kOhOzIrFlpei/Zu1yw+Jh6JNh8Ej7wwPikQ3XRFJ9
+         yWkpjpF1nNK8CALjgzxfh30YA5a7mcIaLasV2Vov9US22vui3CQptz8M3f2+0XMCuugw
+         hKZS9o+J/O45JJV9ID1kiyHIgRiOABzNAdv/tTkEUbna5zL8bmGPEVabs7kvG58cRhYS
+         NSL5pjVuHNsPjv6sg68U1HOSeeCgaIQadr2r2tmq6iid9sYidcWJOb7P1Hec0knWjjN2
+         VT5HlVkYlFxZ4KaW8ZJyLZsmJ1cd2KtdAmESYLD6lh6BzmcHAeST5oKitL7I40/sRYdR
+         gN2A==
+X-Forwarded-Encrypted: i=1; AJvYcCUkumQlXCnF1LdV+I6WnhwPh6yMLND8VrqRYMZNZ0Qk2VjZMGAXng8Mx7MGN4O17L3he5ziF+tyQzuK2Tnp/rHi@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6fFPIVouqFDtGgUXHJB20XekmalhU1T/xAkn02UYV5z4xBqMF
+	ETlOdVDdLlYbedMOyd85qgIlIbQLIHNTsfRqMtnSTRYMQ4Hqhr0LXhBmJmAt
+X-Gm-Gg: ASbGncsM/2NR9jct8Ijx437vezdWy4EmpyDfevY6lUoejA00ZVZvw+nR+lbbdIA+NSU
+	v1n85ST2knt6ya0drabjdQO2gsroRbMbTgTqm3IiNsjJQXRhthXw1AlIVBr3KwnowlaNs5fm19j
+	cB/jBsx+bOjshTR8vZ+pcBh1mJD72Gl9URuu8zo+q2f/aYTY58wZB4++RsXTRvWbrH3Iy42VaoV
+	8+dfPaP9CYEWi/aFZD46ssK5qcO52TfChjOK/lu5tzgd9OlSdhYWqHAw0S9yBsTKwPGsAflJVQF
+	8X8pSLHktYFk1zw0nQ==
+X-Google-Smtp-Source: AGHT+IFnrsNOUiSzk4s4t7y52klnwjzMxfS985Z5YG9DDee9EIIJ78Nl4bVqPlnBpD32vnlbMarWvw==
+X-Received: by 2002:a05:6a00:4fcb:b0:727:99a8:cd31 with SMTP id d2e1a72fcca58-72daf97b5d3mr10770196b3a.14.1737211729445;
+        Sat, 18 Jan 2025 06:48:49 -0800 (PST)
+Received: from [192.168.0.101] ([59.188.211.160])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72daba48bc5sm3922488b3a.133.2025.01.18.06.48.46
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 18 Jan 2025 06:38:34 -0800 (PST)
-Message-ID: <1c92e4ad-3aef-4eec-8f90-989884262415@tuxon.dev>
-Date: Sat, 18 Jan 2025 16:38:33 +0200
+        Sat, 18 Jan 2025 06:48:48 -0800 (PST)
+Message-ID: <89307020-cc96-41e5-b0c9-998958b9844c@gmail.com>
+Date: Sat, 18 Jan 2025 22:48:44 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: dts: microchip: at91-sam9x75_curiosity: Add PMIC
- suspend voltage configuration
-To: Andrei Simion <andrei.simion@microchip.com>, nicolas.ferre@microchip.com,
- alexandre.belloni@bootlin.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+Subject: Re: [PATCH] irqchip/apple-aic: Only handle PMC interrupt as FIQ when
+ configured to fire FIQ
+To: Sven Peter <sven@svenpeter.dev>, Hector Martin <marcan@marcan.st>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+ Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
-References: <20250113071710.40821-1-andrei.simion@microchip.com>
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: stable@vger.kernel.org
+References: <20250117170227.45243-1-towinchenmi@gmail.com>
+ <aef452c6-1e12-4510-8fb9-1dc597cf69bf@app.fastmail.com>
 Content-Language: en-US
-In-Reply-To: <20250113071710.40821-1-andrei.simion@microchip.com>
+From: Nick Chan <towinchenmi@gmail.com>
+In-Reply-To: <aef452c6-1e12-4510-8fb9-1dc597cf69bf@app.fastmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250118_063838_008271_00F6587F 
-X-CRM114-Status: GOOD (  21.50  )
+X-CRM114-CacheID: sfid-20250118_064850_666819_24C7140B 
+X-CRM114-Status: GOOD (  18.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,133 +104,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Andrei,
 
-On 13.01.2025 09:17, Andrei Simion wrote:
-> Add missing essential configuration for the PMIC rails, which is necessary
-> for proper low-power mode operation. This patch adds the required settings
-> to ensure that the regulators behave correctly during Suspend-to-RAM and
-> Standby states. Otherwise, after resuming, it receives: "No configuration"
-> message.
-> 
-> Our driver implements the set_suspend_voltage and set_suspend_mode
-> callbacks, which require the `regulator-suspend-microvolt` property to be
-> specified in the device tree for each regulator node. This property defines
-> the voltage level that the regulator should maintain during suspend mode.
-> 
-> Additionally, according to the datasheet, some regulators need to be turned
-> on or off during suspend mode. This patch addresses these requirements by
-> adding the `regulator-on-in-suspend` and `regulator-off-in-suspend`
-> properties where appropriate.
-> 
-> Fixes: 371a47c9a58a ("ARM: dts: microchip: sam9x75_curiosity: add sam9x75 curiosity board")
-> Signed-off-by: Andrei Simion <andrei.simion@microchip.com>
-> ---
->  .../dts/microchip/at91-sam9x75_curiosity.dts   | 18 ++++++++++++++++++
->  1 file changed, 18 insertions(+)
-> 
-> diff --git a/arch/arm/boot/dts/microchip/at91-sam9x75_curiosity.dts b/arch/arm/boot/dts/microchip/at91-sam9x75_curiosity.dts
-> index 1a6a909a5043..5514ad10cda5 100644
-> --- a/arch/arm/boot/dts/microchip/at91-sam9x75_curiosity.dts
-> +++ b/arch/arm/boot/dts/microchip/at91-sam9x75_curiosity.dts
-> @@ -110,10 +110,12 @@ vdd_3v3: VDD_IO {
->  
->  				regulator-state-standby {
->  					regulator-on-in-suspend;
-> +					regulator-suspend-microvolt = <3300000>;
->  					regulator-mode = <4>;
->  				};
->  
->  				regulator-state-mem {
-> +					regulator-off-in-suspend;
->  					regulator-mode = <4>;
->  				};
->  			};
-> @@ -128,11 +130,13 @@ vddioddr: VDD_DDR {
->  
->  				regulator-state-standby {
->  					regulator-on-in-suspend;
-> +					regulator-suspend-microvolt = <1350000>;
->  					regulator-mode = <4>;
->  				};
->  
->  				regulator-state-mem {
->  					regulator-on-in-suspend;
-> +					regulator-suspend-microvolt = <1350000>;
->  					regulator-mode = <4>;
->  				};
->  			};
-> @@ -147,10 +151,12 @@ vddcore: VDD_CORE {
->  
->  				regulator-state-standby {
->  					regulator-on-in-suspend;
-> +					regulator-suspend-microvolt = <1150000>;
->  					regulator-mode = <4>;
->  				};
->  
->  				regulator-state-mem {
-> +					regulator-off-in-suspend;
+Sven Peter 於 2025/1/18 夜晚8:24 寫道:
+> Hi,
+>
+>
+> On Fri, Jan 17, 2025, at 18:02, Nick Chan wrote:
+>> The CPU PMU in Apple SoCs can be configured to fire its interrupt in one
+>> of several ways, and since Apple A11 one of the method is FIQ. Only handle
+>> the PMC interrupt as a FIQ when the CPU PMU has been configured to fire
+>> FIQs.
+>>
+>> Cc: stable@vger.kernel.org
+>> Fixes: c7708816c944 ("irqchip/apple-aic: Wire PMU interrupts")
+>> Signed-off-by: Nick Chan <towinchenmi@gmail.com>
+>> ---
+>>  drivers/irqchip/irq-apple-aic.c | 3 ++-
+>>  1 file changed, 2 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/irqchip/irq-apple-aic.c 
+>> b/drivers/irqchip/irq-apple-aic.c
+>> index da5250f0155c..c3d435103d6d 100644
+>> --- a/drivers/irqchip/irq-apple-aic.c
+>> +++ b/drivers/irqchip/irq-apple-aic.c
+>> @@ -577,7 +577,8 @@ static void __exception_irq_entry 
+>> aic_handle_fiq(struct pt_regs *regs)
+>>  						  AIC_FIQ_HWIRQ(AIC_TMR_EL02_VIRT));
+>>  	}
+>>
+>> -	if (read_sysreg_s(SYS_IMP_APL_PMCR0_EL1) & PMCR0_IACT) {
+>> +	if (read_sysreg_s(SYS_IMP_APL_PMCR0_EL1) &
+>> +	    (FIELD_PREP(PMCR0_IMODE, PMCR0_IMODE_FIQ) | PMCR0_IACT)) {
+> That's a somewhat unusual way to use FIELD_PREP and I'm not sure the
+> expression even does what you want. It's true when only PMCR0_IACT is set and
+> your commit description mentions that you only when to handle these when
+> FIQ have been configured. Am I missing something here?
+On a closer look the condition will evaluate to true when imode is between 7 and 4 inclusive and
+PMCR0_IACT  is set. The intended behavior is to have it evaluate to true when imode is 4 and
+PMCR0_IACT is set. Will send a v2.
+>
+>
+> Best,
+>
+>
+> Sven
 
-Is this correct? In the upstream kernel the SAM9X7 supports only standby
-and ULP0 (see sam9x7_pm_init()). I don't think it is correct to turn off
-the CPU while in ULP0.
 
-Moreover, AFAICT, the MCP16502 will not transition out of active state
-according to the FIGURE 4-2: Finite State Machine (FSM) States Diagram for
-MCP16502AC from [1] and the schematics from Figure 3-6. Power Management
-Integrated Circuit described in [2]. The LPM, HPM are tied to the ground
-and SHDN is currently controlled (in the upstream kernel) only for backup
-and self-refresh mode (see at91_backup_mode). Am I wrong?
-
-Thank you,
-Claudiu
-
-[1]
-https://ww1.microchip.com/downloads/aemDocuments/documents/APID/ProductDocuments/DataSheets/MCP16502-Data-Sheet-DS20006275.pdf
-[2]
-https://ww1.microchip.com/downloads/aemDocuments/documents/MPU32/ProductDocuments/UserGuides/SAM9X75-Curiosity-User-Guide-DS60001859.pdf
-
->  					regulator-mode = <4>;
->  				};
->  			};
-> @@ -166,10 +172,12 @@ dcdc4: VDD_OTHER {
->  
->  				regulator-state-standby {
->  					regulator-on-in-suspend;
-> +					regulator-suspend-microvolt = <1150000>;
->  					regulator-mode = <4>;
->  				};
->  
->  				regulator-state-mem {
-> +					regulator-off-in-suspend;
->  					regulator-mode = <4>;
->  				};
->  			};
-> @@ -182,6 +190,11 @@ vldo1: LDO1 {
->  
->  				regulator-state-standby {
->  					regulator-on-in-suspend;
-> +					regulator-suspend-microvolt = <3300000>;
-> +				};
-> +
-> +				regulator-state-mem {
-> +					regulator-off-in-suspend;
->  				};
->  			};
->  
-> @@ -192,6 +205,11 @@ vldo2: LDO2 {
->  
->  				regulator-state-standby {
->  					regulator-on-in-suspend;
-> +					regulator-suspend-microvolt = <1800000>;
-> +				};
-> +
-> +				regulator-state-mem {
-> +					regulator-off-in-suspend;
->  				};
->  			};
->  		};
-> 
-> base-commit: 37136bf5c3a6f6b686d74f41837a6406bec6b7bc
+Nick Chan
 
 
