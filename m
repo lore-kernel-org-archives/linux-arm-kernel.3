@@ -4,73 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C777C02185
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jan 2025 09:45:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB053C02185
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jan 2025 09:51:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I6aDo5ka8Hz1xHnLowhFovUyBwjmCI9iuZ6RoWCFqAw=; b=e2RJTKLY0Hc68xalWiWrozYu5m
-	4iWolI0Q5/6U6VxOVhI7M7PBVajm73NyNVzrh+Q344zA51kCnhwZXGi8soNwGz2+NqqsPglxUXtc5
-	eS0wn4JVV6B7ZqCqP5ce5IXJ9XJ1SPtyKeObj9GJV5nDgJNl0fXbBaqaO4SFMqf0sui4hel6rXmns
-	3zOVu/u1iyHXd1BUw3BeGFmJ9RljqAI6YXwFEhRLAmLAwTEl+QAMT6GCan/qEbDeG3uh+zDq/jMxF
-	Znpzf+eO5gH/5B1HMmI3bHcMQVl1GJysLgsxYVAG+qK5+cv/SgIVnxecjnTmIecPGxD5q0PpBT5N+
-	sJ+HbLLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FhhPsyyyRSLm26HDZBn+CWRZFfO6+xG+OhBZMJX9T5g=; b=sq2W4uUofL9g15GW8nQOFiY6fk
+	+FIm8PtndWHvqrmyrWBEvuyOJUPC7pqxxMcfLP5t8YUss/6jSMA5BVwBGjv0ZlJ9DYiuEIwjHjRZv
+	5ZX0FGjYg9LZKPRRyCa8uSVII9985Nysc/ZTPmGna4ik+vzbxPpvVe+j3wJ8OG/Te4zl7Wm/ql3Ay
+	4swomoM56SIyk4qQqlKr8nY9ml+PMZbmEbgdxAvsm1p8UR8Mo4BWTAQ7cUBomm2tzUk7rij+R1EOh
+	cNxKn6wNd/rjcrKmUcqhxHwSZkbGFmKv9lmxVD1MylkUNTkzQvIB1/pzkBk7gn1SuRp6sC+hVUV3C
+	Se0GtdGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZ5Nk-000000027ox-1CWi;
-	Sat, 18 Jan 2025 09:44:44 +0000
-Received: from mail.manjaro.org ([116.203.91.91])
+	id 1tZ5UF-000000028Ap-2pWG;
+	Sat, 18 Jan 2025 09:51:27 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZ5MS-000000027g5-1K3R;
-	Sat, 18 Jan 2025 09:43:25 +0000
+	id 1tZ5Sx-00000002853-39t7
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 18 Jan 2025 09:50:08 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-aaec61d0f65so618743266b.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Jan 2025 01:50:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1737193806; x=1737798606; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FhhPsyyyRSLm26HDZBn+CWRZFfO6+xG+OhBZMJX9T5g=;
+        b=AHHWVda9De8HBKxCUUzED1XaNp9uvhC9SsOpcRngdqkcjjtesdvs0jG6cxpfnzvHd6
+         +tdckDq9AYRE3XxEteRhPTRnNggfxUqhp21c5W5ba/2BNoDy0hROHsj3fWmGeLhRLhzn
+         NEjd7AF3/bMUzcJIrvpT9TxgLVOqe0xA0dKA75BPcwioHONa4Q30wDuQEM2TZwI0vcDx
+         UN62FhIRUNC9IMlCk4p0yDXOWxb8vUPYwtVl9DOe3UJ7yIQ/AKplgwqhIEktGdNtGSdu
+         +OneenPWgKWXxDXtvthH+wLHmmnWCgytb5qRRx7ym9U0NccaaxAqRME8X+3vap1YWCX9
+         e1iQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737193806; x=1737798606;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=FhhPsyyyRSLm26HDZBn+CWRZFfO6+xG+OhBZMJX9T5g=;
+        b=m5g7HgelTuZGeN6Cc3+XNsB0EE1gTXgtNerImmQOG0HsS+lkyxxRSVbTOc5i4V9wDd
+         GHKX9A4irTcGPfiOlDlY+iKw9XNfSqjMsPS8UiDCFea7dHymLAR06eT/5jAbO83JmCi0
+         12ITPxvaN8q8VtfiVvnctpEBNMz+TS3HUYdfeAi3diyqg3rXRROiizbd4Qr/2Lxp0c0Q
+         9JMPXg9Bderuy+zXb8R7HFPFHrK+nmUQk5sBSYwqNKgVXb/76buy0kYaj5cfrVbB8DV1
+         ptMFq24qKsN1nNw6BqeUl1L7i0k9iNIs8uNroPzYIMH2u0Gnc8ZsdpTXm8MMGVNgYfGn
+         VXHQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWG4TDcWpU3uuitcePr9WEJ7iIRo0WuxLO/zUDPFp1Yl7xNFoeANkp8KTGfFX8uu2nxzrurP/xDCwbl/YKRt72Y@lists.infradead.org
+X-Gm-Message-State: AOJu0YzIAowWUi21pI/crPk9B/kM+wwGUYZJwp5bu1Gnqmij6hTYeG7J
+	Ez3QohlDYE9OAgFu7BUMr3xq79UhIya22H7A8yPOCKsmcoYJ8M7F
+X-Gm-Gg: ASbGncvNszcO1x4tWmtqyOEiEY2xICgvrmWkfJUImsTJHR6JP4LZYzv2DQmt2SjuoaC
+	8GLNGY2ri6YhVsY7a4u0dtdAvHtrkg/PNmdfkqvYYwrLba8OBmpKxXR2xwjRsG0+hWkrVubmSqN
+	d6JAy3WnYQ2+RiaWw0FFpANu1wvbNWEcs1/gpfdSpmf6zg1H8pdE+b1lHt8+GQ/Ax1efghDPWDY
+	Ihc2QBw04cbdztRsvmxzbRKSR0x6pyQcbuhe7CRFfvNeWe1lHzUJRQNhAIx3r06gpR+zIEpfHzQ
+	IIckcXd7WlsJTVk=
+X-Google-Smtp-Source: AGHT+IHaNlcsc4OEmrt7TiQegOYBfODCrIraAE0UV1fgtoWTxbEJfDVj44pe49R0MuM+IUWNGY0pXw==
+X-Received: by 2002:a17:906:fd85:b0:aa6:becf:b26a with SMTP id a640c23a62f3a-ab38b0a13e6mr479360966b.9.1737193805433;
+        Sat, 18 Jan 2025 01:50:05 -0800 (PST)
+Received: from jernej-laptop.localnet ([188.159.248.16])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab384d2d69fsm306520966b.79.2025.01.18.01.50.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 18 Jan 2025 01:50:05 -0800 (PST)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Bence =?UTF-8?B?Q3PDs2vDoXM=?= <csokas.bence@prolan.hu>
+Cc: Bence =?UTF-8?B?Q3PDs2vDoXM=?= <csokas.bence@prolan.hu>,
+ Chen-Yu Tsai <wens@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>
+Subject: Re: [PATCH v2] dma-engine: sun4i: Use devm functions in probe()
+Date: Sat, 18 Jan 2025 10:50:03 +0100
+Message-ID: <2217419.Mh6RI2rZIc@jernej-laptop>
+In-Reply-To: <20250114100505.799288-2-csokas.bence@prolan.hu>
+References: <20250114100505.799288-2-csokas.bence@prolan.hu>
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1737193402;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=I6aDo5ka8Hz1xHnLowhFovUyBwjmCI9iuZ6RoWCFqAw=;
-	b=EGlE9CLiPtylGhK28VPh5aMOV9VUjOj5T5jMx46gScMHzjzQgXwsFlkUzbL3+3uAJziLJO
-	5qLxdwCHXOaY0chHTMPbvXNsmHPPYDHJApMovnxCtd2e28Ffm1pMkV4FR8zFdIYNvT671U
-	4W7b/XW53zkJpEZdF/5SQOBxPbsqrnx11nCUFAVSr+WBTXpuL/diCw1ce33qdzWgO7eSkg
-	JYCcMJm768MEp5RyQG3nSJLJlsPv5nK2FZddgW9xJPtQ2LH6ImxqsMAcJQxSql5GID147s
-	09XO0gMh59icTVyWERV9lSL+Z22Q97nhxY0daJaOMTZmok1T+JtPdcRldzw6BQ==
-Date: Sat, 18 Jan 2025 10:43:21 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Diederik de Haas <didi.debian@cknow.org>, Peter Geis
- <pgwipeout@gmail.com>, Heiko Stuebner <heiko@sntech.de>, zyw@rock-chips.com,
- kever.yang@rock-chips.com, frank.wang@rock-chips.com,
- william.wu@rock-chips.com, wulf@rock-chips.com,
- linux-rockchip@lists.infradead.org, Alex Bee <knaerzche@gmail.com>, Conor
- Dooley <conor+dt@kernel.org>, Johan Jonker <jbx6244@gmail.com>, Jonas
- Karlman <jonas@kwiboo.se>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob
- Herring <robh@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v1 4/6] arm64: dts: rockchip: add rk3328 usb3 phy node
-In-Reply-To: <20b474be-301e-4dc3-9eb7-77e9ef075191@kernel.org>
-References: <20250115012628.1035928-1-pgwipeout@gmail.com>
- <20250115012628.1035928-5-pgwipeout@gmail.com>
- <7c7ce820-8a9b-46df-b143-f77835b7e5a0@kernel.org>
- <D73NJYSP62XH.28CVZPNUE21H3@cknow.org>
- <1bc91b4214a1099801aaed6b3ef81ef3@manjaro.org>
- <dcfb46e8-f29a-4eee-b8f8-1ff774f272ce@kernel.org>
- <60ced7df829e7c10e264627cc0947762@manjaro.org>
- <20b474be-301e-4dc3-9eb7-77e9ef075191@kernel.org>
-Message-ID: <3d9ce9fd9b6309553b5669e111bc4200@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250118_014324_646656_D293BD4C 
-X-CRM114-Status: GOOD (  27.11  )
+X-CRM114-CacheID: sfid-20250118_015007_795111_F4980020 
+X-CRM114-Status: UNSURE (   7.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,130 +101,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-01-18 10:31, Krzysztof Kozlowski wrote:
-> On 18/01/2025 10:25, Dragan Simic wrote:
->> On 2025-01-18 09:46, Krzysztof Kozlowski wrote:
->>> On 17/01/2025 05:10, Dragan Simic wrote:
->>>> On 2025-01-16 17:53, Diederik de Haas wrote:
->>>>> On Thu Jan 16, 2025 at 2:01 PM CET, Krzysztof Kozlowski wrote:
->>>>>> On 15/01/2025 02:26, Peter Geis wrote:
->>>>>>> Add the node for the rk3328 usb3 phy. This node provides a 
->>>>>>> combined
->>>>>>> usb2
->>>>>>> and usb3 phy which are permenantly tied to the dwc3 usb3
->>>>>>> controller.
->>>>>>> 
->>>>>>> Signed-off-by: Peter Geis <pgwipeout@gmail.com>
->>>>>>> ---
->>>>>>> 
->>>>>>>  arch/arm64/boot/dts/rockchip/rk3328.dtsi | 39
->>>>>>> ++++++++++++++++++++++++
->>>>>>>  1 file changed, 39 insertions(+)
->>>>>>> 
->>>>>>> diff --git a/arch/arm64/boot/dts/rockchip/rk3328.dtsi
->>>>>>> b/arch/arm64/boot/dts/rockchip/rk3328.dtsi
->>>>>>> index 7d992c3c01ce..181a900d41f9 100644
->>>>>>> --- a/arch/arm64/boot/dts/rockchip/rk3328.dtsi
->>>>>>> +++ b/arch/arm64/boot/dts/rockchip/rk3328.dtsi
->>>>>>> @@ -903,6 +903,43 @@ u2phy_host: host-port {
->>>>>>>  		};
->>>>>>>  	};
->>>>>>> 
->>>>>>> +	usb3phy: usb3-phy@ff460000 {
->>>>>>> +		compatible = "rockchip,rk3328-usb3phy";
->>>>>>> +		reg = <0x0 0xff460000 0x0 0x10000>;
->>>>>>> +		clocks = <&cru SCLK_REF_USB3OTG>, <&cru PCLK_USB3PHY_OTG>, 
->>>>>>> <&cru
->>>>>>> PCLK_USB3PHY_PIPE>;
->>>>>> 
->>>>>> Please wrap code according to coding style (checkpatch is not a
->>>>>> coding
->>>>>> style description, but only a tool), so at 80.
->>>>> 
->>>>> I'm confused: is it 80 or 100?
->>>>> 
->>>>> I always thought it was 80, but then I saw several patches/commits 
->>>>> by
->>>>> Dragan Simic which deliberately changed code to make use of 100.
->>>>> Being fed up with my own confusion, I submitted a PR to
->>>>> https://github.com/gregkh/kernel-coding-style/ which got accepted:
->>>>> https://github.com/gregkh/kernel-coding-style/commit/5c21f99dc79883bd0efeba368193180275c9c77a
->>>>> 
->>>>> So now both the vim plugins code and README say 100.
->>>>> But as noted in my commit message:
->>>>> 
->>>>>   Note that the current upstream 'Linux kernel coding style' does 
->>>>> NOT
->>>>>   mention the 100 char limit, but only mentions the preferred max
->>>>> length
->>>>>   of 80.
->>>>> 
->>>>> Or is it 100 for code, but 80 for DeviceTree files and bindings?
->>>> 
->>>> I don't know about the DT files and bindings, but the 100-column 
->>>> limit
->>>> for the kernel code has been in effect for years.  In this day and
->>>> age,
->>> 
->>> That's just false. It was never in effect for years. Read kernel 
->>> coding
->>> style document.
->> 
->> Perhaps it's about the semantics.
->> 
->> Please see the commit bdc48fa11e46 (checkpatch/coding-style: deprecate
->> 80-column warning, 2020-05-29), which clearly shows that the 80-column
->> rule is still _preferred_, but no longer _mandatory_.
-> 
-> I brought that commit, but nice that you also found it.
-> 
-> Still: read the coding style, not checkpatch tool.
-> 
->>>> 80 columns is really not much (for the record, I've been around when
->>>> using 80x25 _physical_ CRT screens was the norm).
->>> 
->>> You mistake agreement on dropping strong restriction in 2020 in
->>> checkpatch, which is "not for years" and even read that commit: "Yes,
->>> staying withing 80 columns is certainly still _preferred_."
->>> 
->>> Checkpatch is not coding style. Since when it would be? It's just a
->>> tool.
->>> 
->>> And there were more talks and the 80-preference got relaxed yet still
->>> "not for years" (last talk was 2022?) and sill kernel coding style is
->>> here specific.
->> 
->> It's perhaps again about the semantics, this time about the meaning
->> of "for years".  I don't think there's some strict definition of that
->> term, so perhaps different people see it differently.
->> 
->> To get back to the above-mentioned commit bdc48fa11e46, the 80-column
->> limit has obviously been lifted, putting the new 100-column limit as
-> 
-> "Lifted" on *CHECKPATCH*, not on coding style. Do you see the
-> difference? One is a helper tool which people were using blindly and
-> wrapping lines without thinking, claiming that checkpatch told them to
-> do so. Other is the actual coding style.
-> 
-> You claim that coding style was changed. This never happened.
+Dne torek, 14. januar 2025 ob 11:05:05 Srednjeevropski standardni =C4=8Das =
+je Bence Cs=C3=B3k=C3=A1s napisal(a):
+> Clean up error handling by using devm functions
+> and dev_err_probe(). This should make it easier
+> to add new code, as we can eliminate the "goto
+> ladder" in probe().
+>=20
+> Suggested-by: Chen-Yu Tsai <wens@kernel.org>
+> Signed-off-by: Bence Cs=C3=B3k=C3=A1s <csokas.bence@prolan.hu>
 
-It was obviously changed in the commit bdc48fa11e46, by making the
-80-column width preferred, instead of if being mandatory.  The way
-I read the changes to the coding style introduced in that commit,
-it's now possible to go over 80 columns, up to 100 columns, _if_
-that actually improves the readability of the source code.
+Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-Just like enforcing the 80-column blindly can make the code much
-less readable, it's also that going liberally to 100 columns can
-make the code even less readable.  To me, those rules aren't to be
-followed blindly, but the resulting readability of the code should
-be the deciding factor for pretty much each line of the code.
+Best regards,
+Jernej
 
-> And my first  - really the first - comment here was also precise
-> mentioning that difference:
-> 
-> "Please wrap code according to coding style (*checkpatch is not* a
-> coding style description, but only a tool), so at 80."
 
-Again, I think that the readability should be the deciding factor.
 
