@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5547DC02185
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jan 2025 11:19:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7FF4C02185
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jan 2025 11:20:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H28thG/7gsRTlTRsLj1+D2yQgfkc215Y94p59uZOiFE=; b=a3vIIz6VRrfaDsQc6Tj32kE+I5
-	sS1YnHkws2STngC+VNxcgUj/ZUjjEv2zFSLMELbCzpD5H8FP6sVWebi+3dUag6fA1qD09UbVrHHKe
-	7yfP/Xay6AHoWx1CW9GbyrbIwWcASAQNvDIKrUWHw96S72ezPNzPTo0DjmDayZ9oW3nbkUm2Iuj7b
-	EgO3FZ6twGuUEofnOVEr11XRECm/hXxSovUFAK27L03LtG35hJfQQCJRFQYfsWFiaM33Rppa3WBDA
-	F9Mh+R3vknh8LMF1oZaooH9sL6Xr4YtCy/f21eR9IxecvHEYTc/Gfk2RVXxK70Wub1okwV+zQOZNL
-	rtrypnTA==;
+	bh=1Bw1E7VebGu/07f+zwSP8xjgvwa8wtrXVpYgFq69OsM=; b=ndxIitXxx5XtFRtsTvKhMkRK/+
+	N6UDYqQEJBh8CQqWeBGibTLtIt+BHwS2MNgq3UdzGA9nR99XPFwvBKcg4jPbSrCzbqut4x9gUT/QU
+	M59iZNPIZbStiupCmzNy6cOxuEchMeexEpuAFqIAzf0M6UqLUJ3zvHssIWIE+dBErk4iuyTRrMMRS
+	07aFBwMasY/8diKRnfowk1MW3G7Jg5VQzfqui7c6aOFXqCiLc+YFy974sWXSOf8yvFZMP+MpzM1TL
+	4Nn5CIrLcb3znion2TMZY54K+42jnBnfG8IUf3yZmtZMMfiC52AiJxxOtA2UMJ3CdcXJLnDaBPxnd
+	dxjblj7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZ6rS-00000002FsC-2OUR;
-	Sat, 18 Jan 2025 11:19:30 +0000
-Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
+	id 1tZ6sh-00000002G0Q-1Dw7;
+	Sat, 18 Jan 2025 11:20:47 +0000
+Received: from mout-p-101.mailbox.org ([80.241.56.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZ6ma-00000002FLO-1Wyd
+	id 1tZ6ma-00000002FLW-2nFh
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Jan 2025 11:14:29 +0000
+	Sat, 18 Jan 2025 11:14:30 +0000
 Received: from smtp202.mailbox.org (smtp202.mailbox.org [10.196.197.202])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4YZvBG1sPYz9skP;
-	Sat, 18 Jan 2025 12:14:14 +0100 (CET)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4YZvBH4YDJz9sqc;
+	Sat, 18 Jan 2025 12:14:15 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1737198854;
+	t=1737198855;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=H28thG/7gsRTlTRsLj1+D2yQgfkc215Y94p59uZOiFE=;
-	b=kaTwn/fHEHGBYnp1dw9JHTRsIyTYMIgllPDUTKR5v1Q/9kLVqiVqIULOqP/kyIQTlrnkpS
-	w9YOJ7wJP+wr4Wah6ig/lV87Cio2BZ0p3VngadKPCKPfRVL6t0cM8rrpcaT2WWsBwwUHiz
-	QjGF6H1q0HFuP49AZ7IW90GO79YlNeHl8IbYWjw2S1mtIKWs8+g/m3iB0L5UZSQSDPKb70
-	ebyN5Gz6Nt/ZesN5tkp2cgXJ1hYT8fmjOYp9xnERZSYv6fqFE565lVUOClsovKD7Xymf7D
-	HkNqyiPMFqP6AdlMaD0qxqY/PuDZJDuAKDLsFZ4g6bsFOSEZqa7mdQbTvNvzFw==
+	bh=1Bw1E7VebGu/07f+zwSP8xjgvwa8wtrXVpYgFq69OsM=;
+	b=kj2DNjCPmRH532qvXtgxawm9kOFDrURMVk5LQrJiPJORbWgXAO9csNtXtcEc8mBmDe/yiV
+	nH6gKmRyYNdidyKAB+ohrzHjaHOl96jHfKlOTDmq8+sIam68VUwttQpUNcv8e2VrPZsUl+
+	mgDGQlAHJ+JGhw0bCeeMkRlSnD5scTkJLk9LtcDXEHOqQa6lM7l6SF9Gluxqc0Cnx1o/7z
+	OmC5KYnPUu2CNj+L1Io118EEkyEmzc7q+TmkZLsG0r+af4VS9XIOkfNRxjMM4nCZu/2nVi
+	vY2/uDPOw+HGinh9G4ALyMc90HPYyEt33/Sl6X2dCwGyqxPA7nJuSZjTAkUvHA==
 From: Marek Vasut <marek.vasut+renesas@mailbox.org>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1737198852;
+	t=1737198853;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=H28thG/7gsRTlTRsLj1+D2yQgfkc215Y94p59uZOiFE=;
-	b=l1BYxfzUMVMmMMk5Z+TPBG8SM5G4igr70Go53lMNYRxzqFSwJT5ERJ8keCpIpqjRJuHyVa
-	k+DhWskXAMXknYlqYzy4dkxh05fljqdzcMiAA53BJu1A8hLrPw22PjetfVQMK+S0YAtESB
-	stTG38EcR6rClow/9lj4HKMo2jZzRJrTyfIWPCuKHK+rt3RZ6dU4fdF3c2HtS6szDXLD7n
-	TBwbFe+44Idvh9DLH2IcS9r97Ks6eIBB4q48AJuk+A53vkuwNf2vKwB+EvO5wgTNfMdBlg
-	QX7onfkT87KeFC0nnYDKCXG9qVC/OsrTNJMV1dVnTwR75IL2HDHmsuyER/Z3sA==
+	bh=1Bw1E7VebGu/07f+zwSP8xjgvwa8wtrXVpYgFq69OsM=;
+	b=T3Pc+1dKX14T1/bfGwE6O9BliCPmJPyEv1HfcKagzMXDxOWkOKLesdTA9vcStmOdA3wLFZ
+	vdsQ0SwvoxF4DG1Js46SiFGrroZKLhKObgMvr+D37XXsDA0YXi6goZkL4GTtLvyhtJheJr
+	hJU9MfEioGfQcNd3VCpcEmR7ov9jZ2O1H2/E4AXIDsrJhLdpjYL06EFxNE1/Vm9IyXQS6W
+	KlrZdiIs2qC/dcwOE2QRZLUB4gsRY/yVESJDJ638mn5HL8iTN+S0TTRy8lQ170KWmi1egD
+	1pdCM8vUmfjT4rQOngHuOw6c5cyD6P99mEU4Sh8Q3XiNR695+ihit3q2K9hNXQ==
 To: linux-arm-kernel@lists.infradead.org
 Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	Conor Dooley <conor+dt@kernel.org>,
@@ -66,18 +66,18 @@ Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	Rob Herring <robh@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH 2/5] arm64: dts: renesas: spider-ethernet: Access rswitch ports via phandles
-Date: Sat, 18 Jan 2025 12:13:09 +0100
-Message-ID: <20250118111344.361617-2-marek.vasut+renesas@mailbox.org>
+Subject: [PATCH 3/5] arm64: dts: renesas: s4sk: Access rswitch ports via phandles
+Date: Sat, 18 Jan 2025 12:13:10 +0100
+Message-ID: <20250118111344.361617-3-marek.vasut+renesas@mailbox.org>
 In-Reply-To: <20250118111344.361617-1-marek.vasut+renesas@mailbox.org>
 References: <20250118111344.361617-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: 6idgtqos3ymrujijt3bpiaj3u8jemggr
-X-MBO-RS-ID: f8d397af97b6b2107a8
+X-MBO-RS-META: s78poq3c4knqny85yzo4whxmqj1pz3y7
+X-MBO-RS-ID: 9aa30760ce97dac0b11
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250118_031428_563028_5FB86314 
-X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-CacheID: sfid-20250118_031428_880877_9FD3AF6D 
+X-CRM114-Status: UNSURE (   9.76  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,22 +106,22 @@ Cc: Rob Herring <robh@kernel.org>
 Cc: devicetree@vger.kernel.org
 Cc: linux-renesas-soc@vger.kernel.org
 ---
- .../dts/renesas/r8a779f0-spider-ethernet.dtsi | 87 +++++++++----------
- 1 file changed, 42 insertions(+), 45 deletions(-)
+ arch/arm64/boot/dts/renesas/r8a779f4-s4sk.dts | 67 +++++++++----------
+ 1 file changed, 31 insertions(+), 36 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/renesas/r8a779f0-spider-ethernet.dtsi b/arch/arm64/boot/dts/renesas/r8a779f0-spider-ethernet.dtsi
-index 5d38669ed1ec3..069f36ba53a4f 100644
---- a/arch/arm64/boot/dts/renesas/r8a779f0-spider-ethernet.dtsi
-+++ b/arch/arm64/boot/dts/renesas/r8a779f0-spider-ethernet.dtsi
-@@ -42,61 +42,58 @@ &rswitch {
- 	pinctrl-0 = <&tsn0_pins>, <&tsn1_pins>, <&tsn2_pins>;
+diff --git a/arch/arm64/boot/dts/renesas/r8a779f4-s4sk.dts b/arch/arm64/boot/dts/renesas/r8a779f4-s4sk.dts
+index 5d71d52f9c654..4bf526535ee05 100644
+--- a/arch/arm64/boot/dts/renesas/r8a779f4-s4sk.dts
++++ b/arch/arm64/boot/dts/renesas/r8a779f4-s4sk.dts
+@@ -179,53 +179,48 @@ &rswitch {
+ 	pinctrl-0 = <&tsn0_pins>, <&tsn1_pins>;
  	pinctrl-names = "default";
  	status = "okay";
 +};
 +
 +&rswitchport0 {
 +	reg = <0>;
-+	phy-handle = <&u101>;
++	phy-handle = <&ic99>;
 +	phy-mode = "sgmii";
 +	phys = <&eth_serdes 0>;
  
@@ -132,7 +132,7 @@ index 5d38669ed1ec3..069f36ba53a4f 100644
  
 -		port@0 {
 -			reg = <0>;
--			phy-handle = <&u101>;
+-			phy-handle = <&ic99>;
 -			phy-mode = "sgmii";
 -			phys = <&eth_serdes 0>;
 -
@@ -140,83 +140,64 @@ index 5d38669ed1ec3..069f36ba53a4f 100644
 -				#address-cells = <1>;
 -				#size-cells = <0>;
 -
--				u101: ethernet-phy@1 {
+-				ic99: ethernet-phy@1 {
 -					reg = <1>;
 -					compatible = "ethernet-phy-ieee802.3-c45";
 -					interrupts-extended = <&gpio3 10 IRQ_TYPE_LEVEL_LOW>;
 -				};
 -			};
 -		};
+-
 -		port@1 {
-+		u101: ethernet-phy@1 {
++		ic99: ethernet-phy@1 {
  			reg = <1>;
--			phy-handle = <&u201>;
+-			phy-handle = <&ic102>;
 -			phy-mode = "sgmii";
 -			phys = <&eth_serdes 1>;
-+			compatible = "ethernet-phy-ieee802.3-c45";
-+			interrupts-extended = <&gpio3 10 IRQ_TYPE_LEVEL_LOW>;
-+		};
-+	};
-+};
- 
+-
 -			mdio {
 -				#address-cells = <1>;
 -				#size-cells = <0>;
-+&rswitchport1 {
-+	reg = <1>;
-+	phy-handle = <&u201>;
-+	phy-mode = "sgmii";
-+	phys = <&eth_serdes 1>;
- 
--				u201: ethernet-phy@2 {
+-
+-				ic102: ethernet-phy@2 {
 -					reg = <2>;
 -					compatible = "ethernet-phy-ieee802.3-c45";
 -					interrupts-extended = <&gpio3 11 IRQ_TYPE_LEVEL_LOW>;
 -				};
 -			};
--		};
--		port@2 {
-+	mdio {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		u201: ethernet-phy@2 {
- 			reg = <2>;
--			phy-handle = <&u301>;
--			phy-mode = "sgmii";
--			phys = <&eth_serdes 2>;
 +			compatible = "ethernet-phy-ieee802.3-c45";
-+			interrupts-extended = <&gpio3 11 IRQ_TYPE_LEVEL_LOW>;
-+		};
++			interrupts-extended = <&gpio3 10 IRQ_TYPE_LEVEL_LOW>;
+ 		};
 +	};
 +};
-+
-+&rswitchport2 {
-+	reg = <2>;
-+	phy-handle = <&u301>;
-+	phy-mode = "sgmii";
-+	phys = <&eth_serdes 2>;
  
--			mdio {
--				#address-cells = <1>;
--				#size-cells = <0>;
+-		port@2 {
+-			status = "disabled";
++&rswitchport1 {
++	reg = <1>;
++	phy-handle = <&ic102>;
++	phy-mode = "sgmii";
++	phys = <&eth_serdes 1>;
++
 +	mdio {
 +		#address-cells = <1>;
 +		#size-cells = <0>;
- 
--				u301: ethernet-phy@3 {
--					reg = <3>;
--					compatible = "ethernet-phy-ieee802.3-c45";
--					interrupts-extended = <&gpio3 9 IRQ_TYPE_LEVEL_LOW>;
--				};
--			};
-+		u301: ethernet-phy@3 {
-+			reg = <3>;
++
++		ic102: ethernet-phy@2 {
++			reg = <2>;
 +			compatible = "ethernet-phy-ieee802.3-c45";
-+			interrupts-extended = <&gpio3 9 IRQ_TYPE_LEVEL_LOW>;
++			interrupts-extended = <&gpio3 11 IRQ_TYPE_LEVEL_LOW>;
  		};
  	};
  };
+ 
++&rswitchport2 {
++	status = "disabled";
++};
++
+ &rwdt {
+ 	timeout-sec = <60>;
+ 	status = "okay";
 -- 
 2.45.2
 
