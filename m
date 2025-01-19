@@ -4,92 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41C6FC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jan 2025 07:04:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D725C02187
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jan 2025 07:13:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vMJ3GX6dkOYZdUXVc1wm3huqORVLg1qLuaKka3o+Bqk=; b=JWnmrAsYYcUOWo1X6KP4nHzdSD
-	P4BhChowTI1vNelKoi+zkF0iuwWsZ2C3O+i1OJ+aOn5uFGqR8HUkVnmMlOhwtU0/kSQ0Zp3xBSgLY
-	+Iy+yB+yKBBtDRA8b5B/fJUL7EbG9mfuuE93e9uMO9NipDCIRkprxWp0WrCpCz2FCbZwj3m9/Rgqo
-	tDomhXXJiKu5/SEFA2OifAyRB5f6linP05JhtcCT0Da1dBOhf6QlPsCaWrPQANaKrLUtNawgfCFgr
-	PzeYSapImskOMxicCmr+AtLbh/Aw4mqYwGoUxeKDhEShLPtSfqnOwBJDLXmfcp38p52F7eQwIY5mZ
-	ApOm5BXA==;
+	bh=GrZA9gyFgwl5RS8x7mmpkqcYG3zP1RE+XF+tDZdKqlA=; b=QN08JDOiAfRp/z8co8NkPg6Q9I
+	FSA7+E9aW72IDZBjAhMKvYxekX9+Ee5y2NreLkZMQBmc6BbdvqfDOrESWiyZZ8bCgU8MyC5VEvkTV
+	SjdhdYmcGeUgWVOql3Cgkui+jZgaQL0UIa3OOkwjxo1Y4EfYPXUL0LbQr4xWLML+YUSIyxmTwa3i4
+	AACHgYiX94LYpDkRVdstRfNqHH7oq2GyvslOZdPhw3W0DlvAoZvL1sciNda+f8QEITiQZJ7rzsxTq
+	KHszxhHnuVJZU7p9zSrSVAm/zzKLCXLFFVHWlwS5qdBXwUtFNcc7UEoq5zajakXHAG63xEFhnZ+F1
+	d6ROpAbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZPM1-00000003W2C-1EXc;
-	Sun, 19 Jan 2025 07:04:17 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1tZPUX-00000003WdJ-2NeP;
+	Sun, 19 Jan 2025 07:13:05 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZPKh-00000003VtC-05KQ
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Jan 2025 07:02:57 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2166360285dso66987875ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Jan 2025 23:02:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737270174; x=1737874974; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=vMJ3GX6dkOYZdUXVc1wm3huqORVLg1qLuaKka3o+Bqk=;
-        b=p9XtruXva6uZVkvJ2HHByt86ZhFLP2G90uWr9eqNA0dAYUprkLSMaCWLlGlGmd3oP5
-         KWFMmHe/KrPvlIE9A84XH7rDLa59R8GmAb7+9b7LiBxT8uE9nw1RPtAExzt26U3bFllJ
-         E1gv9Ovd1Q9o/No0Yz7ZJFfAp6QVEk57vClgpQ43+ou33U26vBXkH0tF9dlP30bCoDys
-         oOAjP2u2tap+r0h0N+k1od5q3TxoRbAgfZan48t+UM1Tm7sG6bQU9HoCb6opxCiy/Ua9
-         PgvqRYmaSVluQV581/P3kcRnOS8dptgl8JmmlLIMo/31naA+Jo/2aw6cVX1n+Ehy/5++
-         R9cg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737270174; x=1737874974;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=vMJ3GX6dkOYZdUXVc1wm3huqORVLg1qLuaKka3o+Bqk=;
-        b=aSsy9Atrs/yFdUr+t4O2uNwWQVzJa2q/CQ1AwXxwuW8PGjve7HmP6HKPTbOBzCasS4
-         pv8+IThuJc0z+kb1k9ZwXGymccNZnBPq3cEMCBn0nUfMp+b4syRnkl/kwGOxQ/15IUWo
-         LAoJA9gVVce4r25cQhgclOTwcNca8PzLZMdGA9VlLDW5ptcc8i4FoTvKPOHUiEWuggdp
-         JqAdzw+UHs54K2Nt2qTKDgkeofMCAPxJzPNrDZG2K3mBL1Kt8jHYa8Qb13Q7iWTXp9O8
-         DMm3/VqXgxJbuGT7SZtH0MWZEjl71zHwXFvd9cbGpQ8D1TpMRbTi3FTKNlIbywe6QPMt
-         kjDQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUs+zSnsRVwdmi8kNtZxPE+ilY8BrpP/v3qyFpN0mbaYgXJAUuig1y1MUfgJtiSjqcI54pQdut70p7l+52Ymzqx@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7unqAa4R7BPuvYCXyPYshznUll7SaH7eOPLumCMUp8eRoy9LR
-	Ieo8f3c1C3EKwBXgQ5o7TJAgn1eiak1AHAuFXLa0TuA7Y/dzU9QlTJcoYLhdWg==
-X-Gm-Gg: ASbGncv4XoMKyarPBEoB6lYY7phlY8wGRdU87w5s5IO59miRHg8m2cIl8pZWlwfDUmo
-	uZPcPHxX0ZEgt7HwweCwC/3HivD4aW3nohiQta/3inDKgIwnVv5tPeyQg0l5MbIPP7KkOtdZuia
-	8vTc6dgP7tycGcplsJAVOOItGF90zLYBJtBwNbF3EZxoQl6IFnxVaPY/a5nG2RYbm1FMlpD3j2K
-	gJyUS6mPi4ZM1PDmKYR6XS4fu9R/kJiRa5f/lqp4pIucOUlwqp2RTlWJNghIT28gshms8JulWW/
-	qW9pZw==
-X-Google-Smtp-Source: AGHT+IEeTs48whwEN7rNg39TN9hpGQKSWq0W/VdR6tyAMeUyYliEEBAyt6ics9gbcWZ/8208wLwfuw==
-X-Received: by 2002:a17:903:22cb:b0:21b:d105:26a5 with SMTP id d9443c01a7336-21c355becd3mr125597245ad.38.1737270173884;
-        Sat, 18 Jan 2025 23:02:53 -0800 (PST)
-Received: from thinkpad ([120.56.195.253])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21c2d3dd93esm40763455ad.164.2025.01.18.23.02.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 18 Jan 2025 23:02:53 -0800 (PST)
-Date: Sun, 19 Jan 2025 12:32:46 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: l.stach@pengutronix.de, bhelgaas@google.com, lpieralisi@kernel.org,
-	kw@linux.com, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, shawnguo@kernel.org, frank.li@nxp.com,
-	s.hauer@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev,
-	kernel@pengutronix.de, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 02/10] PCI: imx6: Add ref clock for i.MX95 PCIe
-Message-ID: <20250119070246.yfxogn4vv3jqfvzb@thinkpad>
-References: <20241126075702.4099164-1-hongxing.zhu@nxp.com>
- <20241126075702.4099164-3-hongxing.zhu@nxp.com>
+	id 1tZPTE-00000003WYH-32Vb;
+	Sun, 19 Jan 2025 07:11:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 799BFA40084;
+	Sun, 19 Jan 2025 07:09:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DF5AC4CED6;
+	Sun, 19 Jan 2025 07:11:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737270702;
+	bh=rcm2VwhfL9VG1j4iZLHkUBMlqKdH3x7wY84FhttghM8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BYbvbHU9ebBwBZKrpJI57XOvVEc109zi5V31RWS1F+59cYE1HtHBsH0wVb+8z11s9
+	 UOHmgTpv0xdN8QsAAnQe5kUEIsYPTTfSkXecBkUVlvvpQ54fjcqUMIWRYJg60rtLF3
+	 lP02qYIvhtQdnEAP6yrPV/OP7Bbfrmbd1maGxG5CGyygvGmz2ReO9DMtKNL0qy2AbP
+	 GzJQ3xej/hyRQaTWoP0ndssB1pBLB8CU3+9JJRtAvvwsYLNzEWvx05eKCKrOVlcSjX
+	 LZ9OVlYqXrnBmgHbLjAHjt7EEuKlBZfpo/mEvmew7JQkDVyfQoS4ziFt6p4vr1bGQS
+	 gTcCvxhjUuX3A==
+Date: Sun, 19 Jan 2025 12:41:31 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Ziqi Chen <quic_ziqichen@quicinc.com>
+Cc: quic_cang@quicinc.com, bvanassche@acm.org, beanhuo@micron.com,
+	avri.altman@wdc.com, junwoo80.lee@samsung.com,
+	martin.petersen@oracle.com, quic_nguyenb@quicinc.com,
+	quic_nitirawa@quicinc.com, quic_rampraka@quicinc.com,
+	linux-scsi@vger.kernel.org, Alim Akhtar <alim.akhtar@samsung.com>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Peter Wang <peter.wang@mediatek.com>,
+	Stanley Jhu <chu.stanley@gmail.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Andrew Halaney <ahalaney@redhat.com>,
+	Maramaina Naresh <quic_mnaresh@quicinc.com>,
+	Eric Biggers <ebiggers@google.com>,
+	Minwoo Im <minwoo.im@samsung.com>,
+	open list <linux-kernel@vger.kernel.org>,
+	"moderated list:UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER..." <linux-mediatek@lists.infradead.org>,
+	"open list:UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER..." <linux-arm-msm@vger.kernel.org>,
+	"moderated list:ARM/Mediatek SoC support:Keyword:mediatek" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH 1/8] scsi: ufs: core: Pass target_freq to
+ clk_scale_notify() vops
+Message-ID: <20250119071131.4hepn6msmh76npi7@thinkpad>
+References: <20250116091150.1167739-1-quic_ziqichen@quicinc.com>
+ <20250116091150.1167739-2-quic_ziqichen@quicinc.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241126075702.4099164-3-hongxing.zhu@nxp.com>
+In-Reply-To: <20250116091150.1167739-2-quic_ziqichen@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250118_230255_398430_B3AA503B 
-X-CRM114-Status: GOOD (  21.97  )
+X-CRM114-CacheID: sfid-20250118_231145_013305_097282C3 
+X-CRM114-Status: GOOD (  23.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,76 +90,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 26, 2024 at 03:56:54PM +0800, Richard Zhu wrote:
-> Add "ref" clock to enable reference clock. To avoid breaking DT
-> backwards compatibility, i.MX95 REF clock might be optional. Use
-> devm_clk_get_optional() to fetch i.MX95 PCIe optional clocks in driver.
+On Thu, Jan 16, 2025 at 05:11:42PM +0800, Ziqi Chen wrote:
+> From: Can Guo <quic_cang@quicinc.com>
 > 
-> If use external clock, ref clock should point to external reference.
-> 
-> If use internal clock, CREF_EN in LAST_TO_REG controls reference output,
-> which implement in drivers/clk/imx/clk-imx95-blk-ctl.c.
-> 
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> ---
->  drivers/pci/controller/dwc/pci-imx6.c | 16 +++++++++++-----
->  1 file changed, 11 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index 385f6323e3ca..f7e928e0a018 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -103,6 +103,7 @@ struct imx_pcie_drvdata {
->  	const char *gpr;
->  	const char * const *clk_names;
->  	const u32 clks_cnt;
-> +	const u32 clks_optional_cnt;
->  	const u32 ltssm_off;
->  	const u32 ltssm_mask;
->  	const u32 mode_off[IMX_PCIE_MAX_INSTANCES];
-> @@ -1306,9 +1307,8 @@ static int imx_pcie_probe(struct platform_device *pdev)
->  	struct device_node *np;
->  	struct resource *dbi_base;
->  	struct device_node *node = dev->of_node;
-> -	int ret;
-> +	int i, ret, req_cnt;
->  	u16 val;
-> -	int i;
->  
->  	imx_pcie = devm_kzalloc(dev, sizeof(*imx_pcie), GFP_KERNEL);
->  	if (!imx_pcie)
-> @@ -1358,9 +1358,13 @@ static int imx_pcie_probe(struct platform_device *pdev)
->  		imx_pcie->clks[i].id = imx_pcie->drvdata->clk_names[i];
->  
->  	/* Fetch clocks */
-> -	ret = devm_clk_bulk_get(dev, imx_pcie->drvdata->clks_cnt, imx_pcie->clks);
-> +	req_cnt = imx_pcie->drvdata->clks_cnt - imx_pcie->drvdata->clks_optional_cnt;
-> +	ret = devm_clk_bulk_get(dev, req_cnt, imx_pcie->clks);
->  	if (ret)
->  		return ret;
-> +	imx_pcie->clks[req_cnt].clk = devm_clk_get_optional(dev, "ref");
-> +	if (IS_ERR(imx_pcie->clks[req_cnt].clk))
-> +		return PTR_ERR(imx_pcie->clks[req_cnt].clk);
+> If OPP V2 is used, devfreq clock scaling may scale clock amongst more than
+> two freqs,
 
-I think you should just switch to devm_clk_bulk_get_all() instead of getting the
-clks separately. As I told previously, the DT binding should ensure that correct
-clocks for the platforms are defined in DT and the driver has no business in
-validating it. Driver should trust the DT instead (unless there is a valid
-reason to not do so).
+'amongst more than two freqs': I couldn't parse this.
 
->  
->  	if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_HAS_PHYDRV)) {
->  		imx_pcie->phy = devm_phy_get(dev, "pcie-phy");
-> @@ -1509,6 +1513,7 @@ static const char * const imx8mm_clks[] = {"pcie_bus", "pcie", "pcie_aux"};
->  static const char * const imx8mq_clks[] = {"pcie_bus", "pcie", "pcie_phy", "pcie_aux"};
->  static const char * const imx6sx_clks[] = {"pcie_bus", "pcie", "pcie_phy", "pcie_inbound_axi"};
->  static const char * const imx8q_clks[] = {"mstr", "slv", "dbi"};
-> +static const char * const imx95_clks[] = {"pcie_bus", "pcie", "pcie_phy", "pcie_aux", "ref"};
+> so just passing up/down to vops clk_scale_notify() is not enough
+> to cover the intermediate clock freqs between the min and max freqs. Hence
+> pass the target_freq to clk_scale_notify() to allow the vops to perform
+> corresponding configurations with regard to the clock freqs.
+> 
 
-And these static clock defines will go away too.
+Add a note that the 'target_freq' is not used in this commit.
+
+> Co-developed-by: Ziqi Chen <quic_ziqichen@quicinc.com>
+> Signed-off-by: Ziqi Chen <quic_ziqichen@quicinc.com>
+> Signed-off-by: Can Guo <quic_cang@quicinc.com>
+
+Signed-off-by tag order is not correct here. This implies that Ziqi originally
+worked on it, then Can took over and submitted. But it seems the reverse.
 
 - Mani
+
+> ---
+>  drivers/ufs/core/ufshcd-priv.h  | 7 ++++---
+>  drivers/ufs/core/ufshcd.c       | 4 ++--
+>  drivers/ufs/host/ufs-mediatek.c | 1 +
+>  drivers/ufs/host/ufs-qcom.c     | 5 +++--
+>  include/ufs/ufshcd.h            | 2 +-
+>  5 files changed, 11 insertions(+), 8 deletions(-)
+> 
+> diff --git a/drivers/ufs/core/ufshcd-priv.h b/drivers/ufs/core/ufshcd-priv.h
+> index 9ffd94ddf8c7..0549b65f71ed 100644
+> --- a/drivers/ufs/core/ufshcd-priv.h
+> +++ b/drivers/ufs/core/ufshcd-priv.h
+> @@ -117,11 +117,12 @@ static inline u32 ufshcd_vops_get_ufs_hci_version(struct ufs_hba *hba)
+>  	return ufshcd_readl(hba, REG_UFS_VERSION);
+>  }
+>  
+> -static inline int ufshcd_vops_clk_scale_notify(struct ufs_hba *hba,
+> -			bool up, enum ufs_notify_change_status status)
+> +static inline int ufshcd_vops_clk_scale_notify(struct ufs_hba *hba, bool up,
+> +					       unsigned long target_freq,
+> +					       enum ufs_notify_change_status status)
+>  {
+>  	if (hba->vops && hba->vops->clk_scale_notify)
+> -		return hba->vops->clk_scale_notify(hba, up, status);
+> +		return hba->vops->clk_scale_notify(hba, up, target_freq, status);
+>  	return 0;
+>  }
+>  
+> diff --git a/drivers/ufs/core/ufshcd.c b/drivers/ufs/core/ufshcd.c
+> index acc3607bbd9c..8d295cc827cc 100644
+> --- a/drivers/ufs/core/ufshcd.c
+> +++ b/drivers/ufs/core/ufshcd.c
+> @@ -1157,7 +1157,7 @@ static int ufshcd_scale_clks(struct ufs_hba *hba, unsigned long freq,
+>  	int ret = 0;
+>  	ktime_t start = ktime_get();
+>  
+> -	ret = ufshcd_vops_clk_scale_notify(hba, scale_up, PRE_CHANGE);
+> +	ret = ufshcd_vops_clk_scale_notify(hba, scale_up, freq, PRE_CHANGE);
+>  	if (ret)
+>  		goto out;
+>  
+> @@ -1168,7 +1168,7 @@ static int ufshcd_scale_clks(struct ufs_hba *hba, unsigned long freq,
+>  	if (ret)
+>  		goto out;
+>  
+> -	ret = ufshcd_vops_clk_scale_notify(hba, scale_up, POST_CHANGE);
+> +	ret = ufshcd_vops_clk_scale_notify(hba, scale_up, freq, POST_CHANGE);
+>  	if (ret) {
+>  		if (hba->use_pm_opp)
+>  			ufshcd_opp_set_rate(hba,
+> diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
+> index 135cd78109e2..977dd0caaef6 100644
+> --- a/drivers/ufs/host/ufs-mediatek.c
+> +++ b/drivers/ufs/host/ufs-mediatek.c
+> @@ -1643,6 +1643,7 @@ static void ufs_mtk_clk_scale(struct ufs_hba *hba, bool scale_up)
+>  }
+>  
+>  static int ufs_mtk_clk_scale_notify(struct ufs_hba *hba, bool scale_up,
+> +				    unsigned long target_freq,
+>  				    enum ufs_notify_change_status status)
+>  {
+>  	if (!ufshcd_is_clkscaling_supported(hba))
+> diff --git a/drivers/ufs/host/ufs-qcom.c b/drivers/ufs/host/ufs-qcom.c
+> index 68040b2ab5f8..b6eef975dc46 100644
+> --- a/drivers/ufs/host/ufs-qcom.c
+> +++ b/drivers/ufs/host/ufs-qcom.c
+> @@ -1333,8 +1333,9 @@ static int ufs_qcom_clk_scale_down_post_change(struct ufs_hba *hba)
+>  	return ufs_qcom_set_core_clk_ctrl(hba, false);
+>  }
+>  
+> -static int ufs_qcom_clk_scale_notify(struct ufs_hba *hba,
+> -		bool scale_up, enum ufs_notify_change_status status)
+> +static int ufs_qcom_clk_scale_notify(struct ufs_hba *hba, bool scale_up,
+> +				     unsigned long target_freq,
+> +				     enum ufs_notify_change_status status)
+>  {
+>  	struct ufs_qcom_host *host = ufshcd_get_variant(hba);
+>  	int err;
+> diff --git a/include/ufs/ufshcd.h b/include/ufs/ufshcd.h
+> index d7aca9e61684..a4dac897a169 100644
+> --- a/include/ufs/ufshcd.h
+> +++ b/include/ufs/ufshcd.h
+> @@ -344,7 +344,7 @@ struct ufs_hba_variant_ops {
+>  	void    (*exit)(struct ufs_hba *);
+>  	u32	(*get_ufs_hci_version)(struct ufs_hba *);
+>  	int	(*set_dma_mask)(struct ufs_hba *);
+> -	int	(*clk_scale_notify)(struct ufs_hba *, bool,
+> +	int (*clk_scale_notify)(struct ufs_hba *, bool, unsigned long,
+>  				    enum ufs_notify_change_status);
+>  	int	(*setup_clocks)(struct ufs_hba *, bool,
+>  				enum ufs_notify_change_status);
+> -- 
+> 2.34.1
+> 
 
 -- 
 மணிவண்ணன் சதாசிவம்
