@@ -4,78 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D725C02187
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jan 2025 07:13:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55E2DC02187
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jan 2025 07:59:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GrZA9gyFgwl5RS8x7mmpkqcYG3zP1RE+XF+tDZdKqlA=; b=QN08JDOiAfRp/z8co8NkPg6Q9I
-	FSA7+E9aW72IDZBjAhMKvYxekX9+Ee5y2NreLkZMQBmc6BbdvqfDOrESWiyZZ8bCgU8MyC5VEvkTV
-	SjdhdYmcGeUgWVOql3Cgkui+jZgaQL0UIa3OOkwjxo1Y4EfYPXUL0LbQr4xWLML+YUSIyxmTwa3i4
-	AACHgYiX94LYpDkRVdstRfNqHH7oq2GyvslOZdPhw3W0DlvAoZvL1sciNda+f8QEITiQZJ7rzsxTq
-	KHszxhHnuVJZU7p9zSrSVAm/zzKLCXLFFVHWlwS5qdBXwUtFNcc7UEoq5zajakXHAG63xEFhnZ+F1
-	d6ROpAbA==;
+	bh=yI8Hx2/kxoJn5UYePkuY1ZsInIkTgL3TmQ5J5xbXH/E=; b=UTTqEPdEAtSTBNL1r88SE08mN6
+	v8LWYKEJ1fDBUtQheRzLtuMJhamSBnEMPjGnfeKQUe7YnfmjjsbeNTFoCzwPo0en3nKa/Fv1+ykdk
+	bSIF6N6ZFygKgZoMYva+zLEWLbxjMnGCA16udY22ongKeViHyGDWXefjxE2KXDXpUS0lyltElePYf
+	rFiIn7U0TlZAJH/2dBOhPQc/1ICmmv8lEtJIZP0MQzgivs38CrVeERSsgSaDGYEk3wkwrc48Igm/N
+	iUaKMzdevPW1Lc5aHhvxU6yIqJ11+KMZM1z/zZ9hbC009rS2QT2Vqk7chERGjbUXHHR/Zfor6wf3r
+	ZZX46nYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZPUX-00000003WdJ-2NeP;
-	Sun, 19 Jan 2025 07:13:05 +0000
+	id 1tZQD6-00000003ZM4-31C9;
+	Sun, 19 Jan 2025 07:59:08 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZPTE-00000003WYH-32Vb;
-	Sun, 19 Jan 2025 07:11:46 +0000
+	id 1tZQBn-00000003ZBn-2J4R;
+	Sun, 19 Jan 2025 07:57:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 799BFA40084;
-	Sun, 19 Jan 2025 07:09:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DF5AC4CED6;
-	Sun, 19 Jan 2025 07:11:35 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 682C5A4024A;
+	Sun, 19 Jan 2025 07:55:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFCF3C4CED6;
+	Sun, 19 Jan 2025 07:57:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737270702;
-	bh=rcm2VwhfL9VG1j4iZLHkUBMlqKdH3x7wY84FhttghM8=;
+	s=k20201202; t=1737273465;
+	bh=WhZPPkqDkAojKGZjphwsBAaMUBDzAEWSrFqrmjWwtJs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BYbvbHU9ebBwBZKrpJI57XOvVEc109zi5V31RWS1F+59cYE1HtHBsH0wVb+8z11s9
-	 UOHmgTpv0xdN8QsAAnQe5kUEIsYPTTfSkXecBkUVlvvpQ54fjcqUMIWRYJg60rtLF3
-	 lP02qYIvhtQdnEAP6yrPV/OP7Bbfrmbd1maGxG5CGyygvGmz2ReO9DMtKNL0qy2AbP
-	 GzJQ3xej/hyRQaTWoP0ndssB1pBLB8CU3+9JJRtAvvwsYLNzEWvx05eKCKrOVlcSjX
-	 LZ9OVlYqXrnBmgHbLjAHjt7EEuKlBZfpo/mEvmew7JQkDVyfQoS4ziFt6p4vr1bGQS
-	 gTcCvxhjUuX3A==
-Date: Sun, 19 Jan 2025 12:41:31 +0530
+	b=vElZ1u7QRlkEA9UcsOaPxNbdib4xryud9IhBPaAvkYyEcWznzS9WYlLe8ZiDySkJL
+	 Jafje7xYAonrFwMc1IMvOs9xcw/yAup8rqHGkRoSOLXN4GEY36dljzY243RtN8CqXK
+	 jM19qnyVfNW9JkrVaNZOM6JWysltI/lc+QTNsjAVqLgR+U4IomxMh8LPOb+zjQoize
+	 L3y4jobUsg9/McnsAqMi1DdxNgUn0aXYoCDkIKo9lUXTBI5ZD7IkMxQxpAchleyvMJ
+	 WLmc8x4cPCIBvBF9LcXqkA84rjWtBvB10YDCriCkUvgJg1pv29/CTvLIrKqQziyjHj
+	 g4x4uYTs8k9WQ==
+Date: Sun, 19 Jan 2025 13:27:36 +0530
 From: Manivannan Sadhasivam <mani@kernel.org>
 To: Ziqi Chen <quic_ziqichen@quicinc.com>
-Cc: quic_cang@quicinc.com, bvanassche@acm.org, beanhuo@micron.com,
-	avri.altman@wdc.com, junwoo80.lee@samsung.com,
+Cc: quic_cang@quicinc.com, bvanassche@acm.org, mani@kernel.org,
+	beanhuo@micron.com, avri.altman@wdc.com, junwoo80.lee@samsung.com,
 	martin.petersen@oracle.com, quic_nguyenb@quicinc.com,
 	quic_nitirawa@quicinc.com, quic_rampraka@quicinc.com,
-	linux-scsi@vger.kernel.org, Alim Akhtar <alim.akhtar@samsung.com>,
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-	Peter Wang <peter.wang@mediatek.com>,
-	Stanley Jhu <chu.stanley@gmail.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	linux-scsi@vger.kernel.org,
 	Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Andrew Halaney <ahalaney@redhat.com>,
-	Maramaina Naresh <quic_mnaresh@quicinc.com>,
-	Eric Biggers <ebiggers@google.com>,
-	Minwoo Im <minwoo.im@samsung.com>,
-	open list <linux-kernel@vger.kernel.org>,
-	"moderated list:UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER..." <linux-mediatek@lists.infradead.org>,
-	"open list:UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER..." <linux-arm-msm@vger.kernel.org>,
-	"moderated list:ARM/Mediatek SoC support:Keyword:mediatek" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH 1/8] scsi: ufs: core: Pass target_freq to
- clk_scale_notify() vops
-Message-ID: <20250119071131.4hepn6msmh76npi7@thinkpad>
+	"open list:ARM/Mediatek SoC support:Keyword:mediatek" <linux-kernel@vger.kernel.org>,
+	"moderated list:ARM/Mediatek SoC support:Keyword:mediatek" <linux-arm-kernel@lists.infradead.org>,
+	"moderated list:ARM/Mediatek SoC support:Keyword:mediatek" <linux-mediatek@lists.infradead.org>
+Subject: Re: [PATCH 0/8] Support Multi-frequency scale for UFS
+Message-ID: <20250119075736.cyjgpglf4azrmprv@thinkpad>
 References: <20250116091150.1167739-1-quic_ziqichen@quicinc.com>
- <20250116091150.1167739-2-quic_ziqichen@quicinc.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250116091150.1167739-2-quic_ziqichen@quicinc.com>
+In-Reply-To: <20250116091150.1167739-1-quic_ziqichen@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250118_231145_013305_097282C3 
-X-CRM114-Status: GOOD (  23.84  )
+X-CRM114-CacheID: sfid-20250118_235747_742304_8175A91A 
+X-CRM114-Status: GOOD (  13.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,122 +79,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 16, 2025 at 05:11:42PM +0800, Ziqi Chen wrote:
-> From: Can Guo <quic_cang@quicinc.com>
-> 
-> If OPP V2 is used, devfreq clock scaling may scale clock amongst more than
-> two freqs,
+On Thu, Jan 16, 2025 at 05:11:41PM +0800, Ziqi Chen wrote:
 
-'amongst more than two freqs': I couldn't parse this.
+You missed CCing linux-arm-msm mailing list to the cover letter.
 
-> so just passing up/down to vops clk_scale_notify() is not enough
-> to cover the intermediate clock freqs between the min and max freqs. Hence
-> pass the target_freq to clk_scale_notify() to allow the vops to perform
-> corresponding configurations with regard to the clock freqs.
+> With OPP V2 enabled, devfreq can scale clocks amongst multiple frequency
+> plans. However, the gear speed is only toggled between min and max during
+> clock scaling. Enable multi-level gear scaling by mapping clock frequencies
+> to gear speeds, so that when devfreq scales clock frequencies we can put
+> the UFS link at the appropraite gear speeds accordingly.
 > 
 
-Add a note that the 'target_freq' is not used in this commit.
-
-> Co-developed-by: Ziqi Chen <quic_ziqichen@quicinc.com>
-> Signed-off-by: Ziqi Chen <quic_ziqichen@quicinc.com>
-> Signed-off-by: Can Guo <quic_cang@quicinc.com>
-
-Signed-off-by tag order is not correct here. This implies that Ziqi originally
-worked on it, then Can took over and submitted. But it seems the reverse.
+But the UFSHC PHY settings are not updated for each gear speed, isn't it? Then
+I'm wondering how much we get out of this 'multi-level gear scaling'.
 
 - Mani
 
-> ---
->  drivers/ufs/core/ufshcd-priv.h  | 7 ++++---
->  drivers/ufs/core/ufshcd.c       | 4 ++--
->  drivers/ufs/host/ufs-mediatek.c | 1 +
->  drivers/ufs/host/ufs-qcom.c     | 5 +++--
->  include/ufs/ufshcd.h            | 2 +-
->  5 files changed, 11 insertions(+), 8 deletions(-)
+> This series has been tested on below platforms -
+> SM8650 + UFS3.1
+> SM8750 + UFS4.0
 > 
-> diff --git a/drivers/ufs/core/ufshcd-priv.h b/drivers/ufs/core/ufshcd-priv.h
-> index 9ffd94ddf8c7..0549b65f71ed 100644
-> --- a/drivers/ufs/core/ufshcd-priv.h
-> +++ b/drivers/ufs/core/ufshcd-priv.h
-> @@ -117,11 +117,12 @@ static inline u32 ufshcd_vops_get_ufs_hci_version(struct ufs_hba *hba)
->  	return ufshcd_readl(hba, REG_UFS_VERSION);
->  }
->  
-> -static inline int ufshcd_vops_clk_scale_notify(struct ufs_hba *hba,
-> -			bool up, enum ufs_notify_change_status status)
-> +static inline int ufshcd_vops_clk_scale_notify(struct ufs_hba *hba, bool up,
-> +					       unsigned long target_freq,
-> +					       enum ufs_notify_change_status status)
->  {
->  	if (hba->vops && hba->vops->clk_scale_notify)
-> -		return hba->vops->clk_scale_notify(hba, up, status);
-> +		return hba->vops->clk_scale_notify(hba, up, target_freq, status);
->  	return 0;
->  }
->  
-> diff --git a/drivers/ufs/core/ufshcd.c b/drivers/ufs/core/ufshcd.c
-> index acc3607bbd9c..8d295cc827cc 100644
-> --- a/drivers/ufs/core/ufshcd.c
-> +++ b/drivers/ufs/core/ufshcd.c
-> @@ -1157,7 +1157,7 @@ static int ufshcd_scale_clks(struct ufs_hba *hba, unsigned long freq,
->  	int ret = 0;
->  	ktime_t start = ktime_get();
->  
-> -	ret = ufshcd_vops_clk_scale_notify(hba, scale_up, PRE_CHANGE);
-> +	ret = ufshcd_vops_clk_scale_notify(hba, scale_up, freq, PRE_CHANGE);
->  	if (ret)
->  		goto out;
->  
-> @@ -1168,7 +1168,7 @@ static int ufshcd_scale_clks(struct ufs_hba *hba, unsigned long freq,
->  	if (ret)
->  		goto out;
->  
-> -	ret = ufshcd_vops_clk_scale_notify(hba, scale_up, POST_CHANGE);
-> +	ret = ufshcd_vops_clk_scale_notify(hba, scale_up, freq, POST_CHANGE);
->  	if (ret) {
->  		if (hba->use_pm_opp)
->  			ufshcd_opp_set_rate(hba,
-> diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
-> index 135cd78109e2..977dd0caaef6 100644
-> --- a/drivers/ufs/host/ufs-mediatek.c
-> +++ b/drivers/ufs/host/ufs-mediatek.c
-> @@ -1643,6 +1643,7 @@ static void ufs_mtk_clk_scale(struct ufs_hba *hba, bool scale_up)
->  }
->  
->  static int ufs_mtk_clk_scale_notify(struct ufs_hba *hba, bool scale_up,
-> +				    unsigned long target_freq,
->  				    enum ufs_notify_change_status status)
->  {
->  	if (!ufshcd_is_clkscaling_supported(hba))
-> diff --git a/drivers/ufs/host/ufs-qcom.c b/drivers/ufs/host/ufs-qcom.c
-> index 68040b2ab5f8..b6eef975dc46 100644
-> --- a/drivers/ufs/host/ufs-qcom.c
-> +++ b/drivers/ufs/host/ufs-qcom.c
-> @@ -1333,8 +1333,9 @@ static int ufs_qcom_clk_scale_down_post_change(struct ufs_hba *hba)
->  	return ufs_qcom_set_core_clk_ctrl(hba, false);
->  }
->  
-> -static int ufs_qcom_clk_scale_notify(struct ufs_hba *hba,
-> -		bool scale_up, enum ufs_notify_change_status status)
-> +static int ufs_qcom_clk_scale_notify(struct ufs_hba *hba, bool scale_up,
-> +				     unsigned long target_freq,
-> +				     enum ufs_notify_change_status status)
->  {
->  	struct ufs_qcom_host *host = ufshcd_get_variant(hba);
->  	int err;
-> diff --git a/include/ufs/ufshcd.h b/include/ufs/ufshcd.h
-> index d7aca9e61684..a4dac897a169 100644
-> --- a/include/ufs/ufshcd.h
-> +++ b/include/ufs/ufshcd.h
-> @@ -344,7 +344,7 @@ struct ufs_hba_variant_ops {
->  	void    (*exit)(struct ufs_hba *);
->  	u32	(*get_ufs_hci_version)(struct ufs_hba *);
->  	int	(*set_dma_mask)(struct ufs_hba *);
-> -	int	(*clk_scale_notify)(struct ufs_hba *, bool,
-> +	int (*clk_scale_notify)(struct ufs_hba *, bool, unsigned long,
->  				    enum ufs_notify_change_status);
->  	int	(*setup_clocks)(struct ufs_hba *, bool,
->  				enum ufs_notify_change_status);
+> 
+> Can Guo (6):
+>   scsi: ufs: core: Pass target_freq to clk_scale_notify() vops
+>   scsi: ufs: qcom: Pass target_freq to clk scale pre and post change
+>   scsi: ufs: core: Add a vops to map clock frequency to gear speed
+>   scsi: ufs: qcom: Implement the freq_to_gear_speed() vops
+>   scsi: ufs: core: Enable multi-level gear scaling
+>   scsi: ufs: core: Toggle Write Booster during clock scaling base on
+>     gear speed
+> 
+> Ziqi Chen (2):
+>   scsi: ufs: core: Check if scaling up is required when disable clkscale
+>   ARM: dts: msm: Use Operation Points V2 for UFS on SM8650
+> 
+>  arch/arm64/boot/dts/qcom/sm8650.dtsi | 51 ++++++++++++++++----
+>  drivers/ufs/core/ufshcd-priv.h       | 17 +++++--
+>  drivers/ufs/core/ufshcd.c            | 71 +++++++++++++++++++++-------
+>  drivers/ufs/host/ufs-mediatek.c      |  1 +
+>  drivers/ufs/host/ufs-qcom.c          | 60 ++++++++++++++++++-----
+>  include/ufs/ufshcd.h                 |  8 +++-
+>  6 files changed, 166 insertions(+), 42 deletions(-)
+> 
 > -- 
 > 2.34.1
 > 
