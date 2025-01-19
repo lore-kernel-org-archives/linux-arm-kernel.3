@@ -4,95 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 696ADC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jan 2025 05:39:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53F94C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jan 2025 06:37:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4vI0iAGnzu7S5oTjzbVtlW1pPkklWEuLHOcVvGs/EI0=; b=PGERZpX6358kbSMW4kxC+47XP4
-	OMPcv4IdFHJ0SPTfWWIpfnH2T3MPLbIlNBFPHCWzxZGqaRMWLkl8NDw1p7xQIdgnLG8hYPKFDvonX
-	5QlIA7hGZ3IyVze7W+c1Tsqk4KVRtif28fHK6HgPviwuDjcSz5RMMjZwYrQ3BXA+zOpYLITOQoy4r
-	4D/TAnX325mzyJaSfL9d3Soqjyf9B7FURcsT2+Of4k13y4hAbbCWccH4tYN3Q7TScopdQt1ZhCAZ+
-	JvAN2+kauMTCuw/9VHYUzXPivnUOm8YdD2vZ9wf6u53w6m8NjB6Z78ViCqFsW32de76Lv112tbzPf
-	Y938HiFg==;
+	bh=3/6jZ01/uCCTpSq3Fao8Iix6OttLd5/bSlWLrKSb+fw=; b=FbAVRg5I3/CaufiN2TdnRUhsEB
+	9hrXLXevqx01z09BjiWJVTMZ+Zaw4L1m6f5+54A1K2/AKGjYJjFkc2GFeZluRL+N4tC60RwwcrfVg
+	Oj/ZtnbNUojXjTPoXAwAQv3HYQSwbWWgs45gM9pbl1qfBPj8MkN2bkl2yVjftWSFTAFSsMu09183Z
+	Of87pui5v1+79/P51wglLOyBHl0snljisuxrsDVYiBK3g4hOw8TMbvwqbt/GbmkvDyVR8Q9ClmCbX
+	hijO9q2o63JxJqbWR/y6fhGP7Ug+lrBLvQ8H9ZwCcuHEHuPyrRjqXhmrmyl4fGTfuSytnDLxdHDuT
+	fyyLClBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZO1L-00000003RW5-3T72;
-	Sun, 19 Jan 2025 05:38:51 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1tZOvz-00000003Ud9-1lay;
+	Sun, 19 Jan 2025 06:37:23 +0000
+Received: from flow-a5-smtp.messagingengine.com ([103.168.172.140])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZNwK-00000003RJA-3dd0
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Jan 2025 05:33:43 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-21631789fcdso56037475ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Jan 2025 21:33:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737264820; x=1737869620; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=4vI0iAGnzu7S5oTjzbVtlW1pPkklWEuLHOcVvGs/EI0=;
-        b=DFLZ3Z2aX9YXGI97Boxwr+JMbJIIhK/iOpodvGcxgCbC3AVqTl7EfFeHJSufZIfXtp
-         YpkG90MVot34axUthBYaaC4ARkfRYxZO/ysi8Oy+iZBJWV2mdnAxP0uSSg19lsuuuuRC
-         f3kQwHp1L//vFKtdkDbfjfpV32sLGA+8OkmI4xxE/qkEEKZmzxOi4v2pJtfKtQ13V75b
-         lpCFKchZcmrdYviLiWIDUHBjZztySqiQDRBYtIgUXXZctxQYqgIhCibUQSRkla30/zu3
-         LD5aw61jVEYzQ9fuvx1JoxoiCfqAGT0rNKK5sEViHJOjcdHEOSNtFyqvuna3isPlKkve
-         JUGw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737264820; x=1737869620;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=4vI0iAGnzu7S5oTjzbVtlW1pPkklWEuLHOcVvGs/EI0=;
-        b=GTK7ow6bR1DJdFhBeBioOzaa8jip0q0zBuZh9JuEcxmol1n7PLd++d+kHTl/M7jn0x
-         HIYiwygmc8qMmUp366sFm/3og6XfqdAjAXravve0FDKVLqaNmR+5+rAKUwF61/kmIV3O
-         aLGzJY76H0cb2qerjZVp9vFTtQPQANdoRhXpF8SGW5GnfZ2h0SgsXsQPzTKNmFg0F+EV
-         V4QCW4o61sniV2ybZq/sLFkCYEDlphOkYsBec03kk4AUZbkxVevalfeWMKijH5oGzBDh
-         gNA49Hn741qV9EKVh2hgtdgFSLHq4tbsjDE/L0x4IHeJWbz4C1AqLtdI9KyE38O2nBKP
-         C6UQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXf5C0gDTalfaeqi5TGQgVLqdwpvU4c0Ad4okCx5h7kbeihrNRqfR/gRHEaLvD8Uz1d9iuXgsdzVqYRy1pl5Xaf@lists.infradead.org
-X-Gm-Message-State: AOJu0YxOwCEeFQd1ibHiv7KiZlYt6yrvPlnEhynvFmYbwYnuvBYpA0rX
-	DWeETUXH+0roSVMZwhESGVjk/AZBTtciMDGR0BI0RigRm5AmUeWri1BzDNUc7w==
-X-Gm-Gg: ASbGncvlkJhD1SPm/uYOV566hgynOt5bvhpkn84hZjJknE2zvYONAEDQCF7KcAyVhle
-	qvXQsWPbpwjo1u8SoiaPhd86TEWfCIfb3NiYUQx+dDm3+42NqcllHiHadNbDA2NP76MyW/Hms/0
-	oVmUaxlU+GyHBDPEn/R+rKuGKYM969hqP2rZGwt1GR5uCwQ3WFeEkAqy8/Y0o1e5uXzBIOK4sTT
-	tJPNt73gtcyUXhFrJqivXPxfG33TY3zOPoiHd9Ogss0Euoj7sMEW4yzVGxpZUf2vJcjmRTzvbVs
-	QpyqFg==
-X-Google-Smtp-Source: AGHT+IF9G2b79a1VfoH6m4pswjFmDLBJqbv/WfnV9XujUXsWzuIF8RjvzijezxL13+j7j+Aah4HtiA==
-X-Received: by 2002:a05:6a00:3ccf:b0:728:f21b:ce4c with SMTP id d2e1a72fcca58-72db1b652e2mr14312654b3a.5.1737264819679;
-        Sat, 18 Jan 2025 21:33:39 -0800 (PST)
-Received: from thinkpad ([120.60.143.204])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72dab7f069esm4625678b3a.28.2025.01.18.21.33.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 18 Jan 2025 21:33:39 -0800 (PST)
-Date: Sun, 19 Jan 2025 11:03:34 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Niklas Cassel <cassel@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Siddharth Vadapalli <s-vadapalli@ti.com>,
-	Udit Kumar <u-kumar1@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v3 6/6] PCI: dw-rockchip: Describe resizable BARs as
- resizable BARs
-Message-ID: <20250119053334.tgp7yycky5s6ub2v@thinkpad>
-References: <20250113102730.1700963-8-cassel@kernel.org>
- <20250113102730.1700963-14-cassel@kernel.org>
+	id 1tZOuf-00000003UVt-2hJt;
+	Sun, 19 Jan 2025 06:36:04 +0000
+Received: from phl-compute-09.internal (phl-compute-09.phl.internal [10.202.2.49])
+	by mailflow.phl.internal (Postfix) with ESMTP id 8F54B2011E9;
+	Sun, 19 Jan 2025 01:35:56 -0500 (EST)
+Received: from phl-mailfrontend-02 ([10.202.2.163])
+  by phl-compute-09.internal (MEProxy); Sun, 19 Jan 2025 01:35:56 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kroah.com; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm2; t=1737268556; x=1737275756; bh=3/6jZ01/uC
+	CTpSq3Fao8Iix6OttLd5/bSlWLrKSb+fw=; b=iZsuGWik/KyLleI5OKl/f1Cl/b
+	2jXqCMbSiO4TPgJIzueKqFmJ83obVkKo2fZWO3zD0rP7b6BEmFK1YvAvdEbPxVJJ
+	ivV/vUvanl+FEKszvP0ST5VrMhS4nWPZwrrIvwLTFw5RJ/wgync0W+kIcUVshUt0
+	VdnDld+x2X0y4+PXy8bmWr29PFLd6t+K0jXCIgESRcrb260f8FZy83QxTc8hhyHs
+	kmf7bJFls/RGpIhZJFgnACt0DSdJAJHMb1V8HfwCd7rG4b544j9DqdTL3X/SXapp
+	bRQeuhEBCpuH2O1x+oTFRw3yhzDeUQUHK+1L6HA2hbz4TnjHlBObJWwse2MQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
+	1737268556; x=1737275756; bh=3/6jZ01/uCCTpSq3Fao8Iix6OttLd5/bSlW
+	LrKSb+fw=; b=L96THMoRjo13raPMbwHBAVnHjQnBXFjmtElyB+L2wc9MoZpKq4h
+	EHlgJE7WQiCtyaj7OzLiK96mowCatmyDKgJblhiaGY7y222tIy3M4RUEfJmuPlkX
+	zdhbsh38ESsY9jw4NirnBV7pN7evUFYjimRKQxLa7edE4WtOW/ocQECrY8zt4mal
+	BRl4LrL4nbcPjKfcFayBHNJ6uw/kNL6x6LrxdqttoA2Sg9OP/FuNE8pP0r9aoSu5
+	Dz6STEjj1rNzxNxPXt7fno1b4hGBE68JB+YxKl14nuPIClKJp7bWQ+uVDcK9qwSc
+	Q5/9kJM26zijNKWA3x7iJ01prwcftyTUMuQ==
+X-ME-Sender: <xms:S52MZxchzhOQkRz7tx4eT-aI68rr5TAPb2uDajfkjY_aLDiCV4rauQ>
+    <xme:S52MZ_PcqFu4BT0vI3I1KQMgpUARY_9Uq1eoJ_0BfkJn5W1-Ag5hzzncyC69SWtca
+    timTvB926Bg5Q>
+X-ME-Received: <xmr:S52MZ6i9zB6CBVkRx_1w0TL3xX5kHenQXJYi5QdJwS2hWUxj-sjQeDOUzPtXYUTtbBSBPFn8PQv-VFAD6gQ6RnKoteVkKHlQDcGvwg>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrudeiiedgleegucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
+    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
+    htshculddquddttddmnecujfgurhepfffhvfevuffkfhggtggujgesthdtredttddtvden
+    ucfhrhhomhepifhrvghgucfmjfcuoehgrhgvgheskhhrohgrhhdrtghomheqnecuggftrf
+    grthhtvghrnhepheegvdevvdeljeeugfdtudduhfekledtiefhveejkeejuefhtdeufefh
+    gfehkeetnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomh
+    epghhrvghgsehkrhhorghhrdgtohhmpdhnsggprhgtphhtthhopedviedpmhhouggvpehs
+    mhhtphhouhhtpdhrtghpthhtohephhhnshesghholhguvghlihgtohdrtghomhdprhgtph
+    htthhopehrohgshhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiihihs
+    iihtohhfrdhkohiilhhofihskhhiodgutheslhhinhgrrhhordhorhhgpdhrtghpthhtoh
+    epfhdrfhgrihhnvghllhhisehgmhgrihhlrdgtohhmpdhrtghpthhtoheprhhjuhhisegs
+    rhhorggutghomhdrtghomhdprhgtphhtthhopehssghrrghnuggvnhessghrohgruggtoh
+    hmrdgtohhmpdhrtghpthhtohepsggtmhdqkhgvrhhnvghlqdhfvggvuggsrggtkhdqlhhi
+    shhtsegsrhhorggutghomhdrtghomhdprhgtphhtthhopeguvghvihgtvghtrhgvvgesvh
+    hgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhrphhiqdhkvghr
+    nhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrgh
+X-ME-Proxy: <xmx:S52MZ68cVdsDhsSObbEKTAagf9UOnQ5jppeprDSiQGFOvpOUJnVmug>
+    <xmx:S52MZ9s0mkrBiB21dOeQNUf2nWd3fxUcd8u9V8QmcZjCvXjZvyDieg>
+    <xmx:S52MZ5Hf73Ntd_87xVVe1LjQJ2ai6E4QG8zZivP7czIdsUeRPnI1TQ>
+    <xmx:S52MZ0MISCoYZuk50m8Ynqq_y9vGwFlXMZBGOfezybrT-RO5nWQ0dw>
+    <xmx:TJ2MZ2tCFrFEuiaC-kTUUqv6ugK61ddib5_QxSGa-j4ImXLXwWX_7j5X>
+Feedback-ID: i787e41f1:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
+ 19 Jan 2025 01:35:55 -0500 (EST)
+Date: Sun, 19 Jan 2025 07:35:52 +0100
+From: Greg KH <greg@kroah.com>
+To: "H. Nikolaus Schaller" <hns@goldelico.com>
+Cc: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	letux-kernel@openphoenux.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2] Revert v6.2-rc1 and later "ARM: dts: bcm2835-rpi: Use
+ firmware clocks for display"
+Message-ID: <2025011942-basket-subsiding-8bd1@gregkh>
+References: <cb9e10dfb4f50207e33ddac16794ee6b806744da.1737217627.git.hns@goldelico.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250113102730.1700963-14-cassel@kernel.org>
+In-Reply-To: <cb9e10dfb4f50207e33ddac16794ee6b806744da.1737217627.git.hns@goldelico.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250118_213340_954342_4D2FA892 
-X-CRM114-Status: GOOD (  19.83  )
+X-CRM114-CacheID: sfid-20250118_223602_475725_1A2BDB79 
+X-CRM114-Status: GOOD (  25.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,73 +118,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 13, 2025 at 11:27:37AM +0100, Niklas Cassel wrote:
-> Looking at "11.4.4.29 USP_PCIE_RESBAR Registers Summary" in the rk3588 TRM,
-> we can see that none of the BARs are Fixed BARs, but actually Resizable
-> BARs.
+On Sat, Jan 18, 2025 at 05:27:07PM +0100, H. Nikolaus Schaller wrote:
+> This reverts commit 27ab05e1b7e5c5ec9b4f658e1b2464c0908298a6.
 > 
-> I couldn't find any reference in the rk3568 TRM, but looking at the
-> downstream PCIe endpoint driver, rk3568 and rk3588 are treated as the same,
-> so the BARs on rk3568 must also be Resizable BARs.
+> I tried to upgrade a RasPi 3B+ with Waveshare 7inch HDMI LCD
+> from 6.1.y to 6.6.y but found that the display is broken with
+> this log message:
 > 
-> Now when we actually have support for Resizable BARs, let's configure
-> these BARs as such.
+> [   17.776315] vc4-drm soc:gpu: bound 3f400000.hvs (ops vc4_drm_unregister [vc4])
+> [   17.784034] platform 3f806000.vec: deferred probe pending
 > 
-> Signed-off-by: Niklas Cassel <cassel@kernel.org>
-
-Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-
-- Mani
-
+> Some tests revealed that while 6.1.y works, 6.2-rc1 is already broken but all
+> newer kernels as well. And a bisect did lead me to this patch.
+> 
+> I could repair several versions up to 6.13-rc7 by doing
+> this revert. Newer kernels have just to take care of
+> 
+> commit f702475b839c ("ARM: dts: bcm2835-rpi: Move duplicate firmware-clocks to bcm2835-rpi.dtsi")
+> 
+> but that is straightforward.
+> 
+> Fixes: 27ab05e1b7e5 ("ARM: dts: bcm2835-rpi: Use firmware clocks for display")
+> Signed-off-by: H. Nikolaus Schaller <hns@goldelico.com>
 > ---
->  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 22 +++++++++----------
->  1 file changed, 11 insertions(+), 11 deletions(-)
+>  arch/arm/boot/dts/bcm2835-rpi-common.dtsi | 17 -----------------
+>  1 file changed, 17 deletions(-)
 > 
-> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> index ce4b511bff9b..6a307a961756 100644
-> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> @@ -273,12 +273,12 @@ static const struct pci_epc_features rockchip_pcie_epc_features_rk3568 = {
->  	.msi_capable = true,
->  	.msix_capable = true,
->  	.align = SZ_64K,
-> -	.bar[BAR_0] = { .type = BAR_FIXED, .fixed_size = SZ_1M, },
-> -	.bar[BAR_1] = { .type = BAR_FIXED, .fixed_size = SZ_1M, },
-> -	.bar[BAR_2] = { .type = BAR_FIXED, .fixed_size = SZ_1M, },
-> -	.bar[BAR_3] = { .type = BAR_FIXED, .fixed_size = SZ_1M, },
-> -	.bar[BAR_4] = { .type = BAR_FIXED, .fixed_size = SZ_1M, },
-> -	.bar[BAR_5] = { .type = BAR_FIXED, .fixed_size = SZ_1M, },
-> +	.bar[BAR_0] = { .type = BAR_RESIZABLE, },
-> +	.bar[BAR_1] = { .type = BAR_RESIZABLE, },
-> +	.bar[BAR_2] = { .type = BAR_RESIZABLE, },
-> +	.bar[BAR_3] = { .type = BAR_RESIZABLE, },
-> +	.bar[BAR_4] = { .type = BAR_RESIZABLE, },
-> +	.bar[BAR_5] = { .type = BAR_RESIZABLE, },
->  };
+> diff --git a/arch/arm/boot/dts/bcm2835-rpi-common.dtsi b/arch/arm/boot/dts/bcm2835-rpi-common.dtsi
+> index 4e7b4a592da7c..8a55b6cded592 100644
+> --- a/arch/arm/boot/dts/bcm2835-rpi-common.dtsi
+> +++ b/arch/arm/boot/dts/bcm2835-rpi-common.dtsi
+> @@ -7,23 +7,6 @@
 >  
->  /*
-> @@ -293,12 +293,12 @@ static const struct pci_epc_features rockchip_pcie_epc_features_rk3588 = {
->  	.msi_capable = true,
->  	.msix_capable = true,
->  	.align = SZ_64K,
-> -	.bar[BAR_0] = { .type = BAR_FIXED, .fixed_size = SZ_1M, },
-> -	.bar[BAR_1] = { .type = BAR_FIXED, .fixed_size = SZ_1M, },
-> -	.bar[BAR_2] = { .type = BAR_FIXED, .fixed_size = SZ_1M, },
-> -	.bar[BAR_3] = { .type = BAR_FIXED, .fixed_size = SZ_1M, },
-> +	.bar[BAR_0] = { .type = BAR_RESIZABLE, },
-> +	.bar[BAR_1] = { .type = BAR_RESIZABLE, },
-> +	.bar[BAR_2] = { .type = BAR_RESIZABLE, },
-> +	.bar[BAR_3] = { .type = BAR_RESIZABLE, },
->  	.bar[BAR_4] = { .type = BAR_RESERVED, },
-> -	.bar[BAR_5] = { .type = BAR_FIXED, .fixed_size = SZ_1M, },
-> +	.bar[BAR_5] = { .type = BAR_RESIZABLE, },
->  };
+>  #include <dt-bindings/power/raspberrypi-power.h>
 >  
->  static const struct pci_epc_features *
+> -&firmware {
+> -	firmware_clocks: clocks {
+> -		compatible = "raspberrypi,firmware-clocks";
+> -		#clock-cells = <1>;
+> -	};
+> -};
+> -
+> -&hdmi {
+> -	clocks = <&firmware_clocks 9>,
+> -		 <&firmware_clocks 13>;
+> -	clock-names = "pixel", "hdmi";
+> -};
+> -
+>  &v3d {
+>  	power-domains = <&power RPI_POWER_DOMAIN_V3D>;
+>  };
+> -
+> -&vec {
+> -	clocks = <&firmware_clocks 15>;
+> -};
 > -- 
-> 2.47.1
+> 2.47.0
+> 
 > 
 
--- 
-மணிவண்ணன் சதாசிவம்
+Hi,
+
+This is the friendly patch-bot of Greg Kroah-Hartman.  You have sent him
+a patch that has triggered this response.  He used to manually respond
+to these common problems, but in order to save his sanity (he kept
+writing the same thing over and over, yet to different people), I was
+created.  Hopefully you will not take offence and will fix the problem
+in your patch and resubmit it so that it can be accepted into the Linux
+kernel tree.
+
+You are receiving this message because of the following common error(s)
+as indicated below:
+
+- You have marked a patch with a "Fixes:" tag for a commit that is in an
+  older released kernel, yet you do not have a cc: stable line in the
+  signed-off-by area at all, which means that the patch will not be
+  applied to any older kernel releases.  To properly fix this, please
+  follow the documented rules in the
+  Documentation/process/stable-kernel-rules.rst file for how to resolve
+  this.
+
+If you wish to discuss this problem further, or you have questions about
+how to resolve this issue, please feel free to respond to this email and
+Greg will reply once he has dug out from the pending patches received
+from other developers.
+
+thanks,
+
+greg k-h's patch email bot
 
