@@ -4,92 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ADFDC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jan 2025 11:15:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A396C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jan 2025 11:17:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=farCSn9nIwDEYesATkrLZqDi4SS6wrr0tkHz+ajWl3c=; b=NlQjxBILNt3PazOHGWSTC+TLIV
-	F+xeUYCfTXg7dq5ziTHUDL9qCjBBq8r0bVWWdGJacsYfIKqvETaGnjhi9AHKrOy+PuiIz4MJ7sBJH
-	kyS9ojysG+UlFHCsSHJG80a6hF1JpBMjSSJtzAW/EEZ9ljKbI6LHclkvJS7z4vT6xcpmDwfWrnSgz
-	lXkNyXRxamWX4J/HXmoEiVz6E2Tajg3d3aK1QUcNroEeizjtAjdsJ+/E24bF1oWF3BKFoYW9h6i+/
-	LqPEcCD6c3opxTD3wjSA2po+brEN/+YDPwnOao1XVuEuf4Qci8mPtk3Lx+rs32y7kc/NpbuhP+kQU
-	w76bI+CA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jFwAN4NPK1DZJMX46y1FOD2OnkFuCtYDMQ81C7qA/Ns=; b=Adi39/4EW+TdPzFXcCsc/0erSz
+	70GsEXmqLklItj07lDnhVWsji9thvr6hFCq1mRUaTYa9VTPNtkW9/geofC2shNRtFXVu5CQkb90Yv
+	v8/Zody5MYaoILgo8+kR/XaGecNjoqNBRW+lvMPeDNKDmhSs6BbXxwVXaj9BHa62BO+v+MhffQU3k
+	4T+NtDxfN9wfgGp7dkaPrzzDA2cS6N+K5mv5fJ1oBMpL1/5vHbfgMWk6euLtxhpPgsMWWmMUzJjzv
+	3rwUTziD1Nxxk5HU4T+hCrhDV/WbfV2V83i06FHDfmSCkoiVhvUl0VfX1tbh2Gvzjtrl/3XimrNbX
+	6SGKYD7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZTH1-00000003mZ3-3Ktz;
-	Sun, 19 Jan 2025 11:15:23 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1tZTIz-00000003mmd-2HGA;
+	Sun, 19 Jan 2025 11:17:25 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZTFi-00000003mQg-3yrS;
-	Sun, 19 Jan 2025 11:14:04 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-5d9837f201aso8405495a12.0;
-        Sun, 19 Jan 2025 03:14:01 -0800 (PST)
+	id 1tZTHf-00000003meQ-0nqn;
+	Sun, 19 Jan 2025 11:16:07 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-21675fd60feso78059335ad.2;
+        Sun, 19 Jan 2025 03:16:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737285240; x=1737890040; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=farCSn9nIwDEYesATkrLZqDi4SS6wrr0tkHz+ajWl3c=;
-        b=M1+BAB0yMlBy2U+xv7F5G3hm0OixXavM8RP0YXCtgWU7gz+nZtmeUVpuuOzh4S+kLq
-         1Ti4nrihV8IOoz/wBNf0dp6nHWj+ZQuWhRj8NzlmkQUN/qiyYUSr7qqImgZNOQrb/w4d
-         tXTA2Z8s27sINSkUFG4+UyOwB6LUPrWZOgksHTX+vVAqubXC2fZ/Ehh6lgO4N+eNaFBf
-         WRMZXtciIVaMhHEStQTRg6CRxkPmTi9P7K/6CzZHijDQQM5mdXeBlq6dh9hKxG++02Fs
-         nsfwALIG6g6nb+KE1AEZKy2qZ1kkGGs6a0tshEvamF3Ikl6aVYdWTtJR34OJajNTB5Pf
-         I4Ag==
+        d=gmail.com; s=20230601; t=1737285362; x=1737890162; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jFwAN4NPK1DZJMX46y1FOD2OnkFuCtYDMQ81C7qA/Ns=;
+        b=aMROngmIHXUAv0JKVoU3oUJlkVXpMjxoXuh8koVE9bjLV6ROPvGpvUwXSFzk8o6H72
+         WsihlFCc0eQR2wNEVmQcbcIPqTm9XDeDzyJBmHxKkTzmUvI0xgcfC146EhP8KJA9gj2W
+         p8+ZNt6STzj3mMoT618MmuSIMYS85ZYck7QlfkoYR9v+v1NK9R54UVOUbR+/EsRqJy1i
+         8mBE1M9tttf8j/o+N+J3ni4Jg1tX4q7rVSiDIwNiP7Rvq1BuqIde8OVqM2lveCEja32a
+         dGzxDFLM3nBmqkjcUl4aDooGZgIUcCgz9gf7K9Djf9uSvGD5HLMYVkQ1xmbJBctGc5ZS
+         AnXQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737285240; x=1737890040;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=farCSn9nIwDEYesATkrLZqDi4SS6wrr0tkHz+ajWl3c=;
-        b=e7uCE9vkTxIF1BBXq3Zx3duzZ4FOgQRkUdGOvHxYSX86fC0ypQ4xwS9KN5yDaYYrjp
-         9w4WPrWQp3+3sBkQBpN1lKjakpLjPIjXta1dvPASHVhyMXbH6uqScHXteLt5LDcX8f1L
-         f1qwwqbm/ZnDHXS/kiMGDNI1MeQn+sVT2ADG5EVa5iq0Ta+qwfdlabpRgk/ssa1D2C16
-         VBqwccD9Un1pqYsArmf5NwVSDGrQyr20O0Ic2DqY+/oe/2JPRtsgVtIcKAo3AuNvVbLc
-         tE+2a1HFpiiR1Fp0iG+1Lzj1D0SgMapURahOmWJVsvL1T9Cc3m+ktuIibmjSo1HLvvH6
-         xl+g==
-X-Forwarded-Encrypted: i=1; AJvYcCUniuc0YjJTv0WrjIJYIDYaBFDomstTPrxDiab1FtqaHujUQI3JICeFrXAZ/sR5En/UyR1RCqwuTV81HvgkJmLJ@lists.infradead.org, AJvYcCXYz5pVNkl8HY3nd6EsSFSS9YXg8bmAVAgFgBAAIVgmjxHK+i8+520/WFDPKIqnbNSC75CIRX7OwzHYqk0=@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPp3lohL2K6SORD9YTcLgJRplcCoAWL7oXzC0u70M2oyj0E6RT
-	IyTXYv140PBN+eM4It/Uyd3kCcaZog+6AgE3Z4X1BDaXS2WeaAJY
-X-Gm-Gg: ASbGncv530Vjn7DQudr8TlhFi1Ny+i1N87R46FSv0rHY155FSYUhxzCbGEFGsftBfGM
-	SF565VSd71Y7M+TV9GGxNU5AnDN5C+VpEITi+ZvBux6QkToZrYQ/WxEYlT5Ycnn8H2qm3AvL8EV
-	JY0MHRWiw9JvCqhf1urqFMKRM5fuULR1DnF2ScqYQ1RQ/8g0EFaNH2F9klW1++hg4tV/8R4zjCP
-	QqfrFsPg/+gdWc1TqISommCZgvzHC4yVuvcNZ3wNcm38rpjodHlalGphidPP75/ovz3Y1NRjntB
-	ZBiCMl5F6BqxQQ==
-X-Google-Smtp-Source: AGHT+IEoTFLC8iiNkEfMuvLuAjGsOcPoNsCUGkRVkaCTnkI/9FAsHLtodq8RJ0LSASHuxw87IeFMAg==
-X-Received: by 2002:a17:907:9405:b0:aa5:53d4:8876 with SMTP id a640c23a62f3a-ab36e406c75mr1277119466b.20.1737285240156;
-        Sun, 19 Jan 2025 03:14:00 -0800 (PST)
-Received: from giga-mm-1.home ([2a02:1210:861b:6f00:82ee:73ff:feb8:99e3])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab384c63b5fsm475163466b.32.2025.01.19.03.13.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 19 Jan 2025 03:13:59 -0800 (PST)
-Message-ID: <acc25734b7d89b04c19ad50981e3a82a7737dac8.camel@gmail.com>
-Subject: Re: [PATCH RFC] arm64: dts: sophgo: Add initial SG2000 SoC device
- tree
-From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-  Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
- Inochi Amaoto	 <inochiama@outlook.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>, 
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org
-Date: Sun, 19 Jan 2025 12:10:58 +0100
-In-Reply-To: <20250113-aftermost-whole-18401dc54137@spud>
-References: <19bb108e93bb58eecc6a53d78ff4e75fc380f072.camel@gmail.com>
-	 <20250113-aftermost-whole-18401dc54137@spud>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.54.2 
+        d=1e100.net; s=20230601; t=1737285362; x=1737890162;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
+         :user-agent:mime-version:date:message-id:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=jFwAN4NPK1DZJMX46y1FOD2OnkFuCtYDMQ81C7qA/Ns=;
+        b=Oo8Nckcq8oLpjQfpXPZVCFCdMitZTdwiFONkVdd3mgdJ//yh4cv7vPiYTDPe7VEZY0
+         qeAsuvefpj/xM/4ptKizq3RTTTTOb1Sg2N9SMGvDy84+EWv93ACmFqCDRkd6lEqkxACb
+         I2eLiiSDIrKF18JC2MPgqTlX+9OpCqmQYj53AeSnmNTlsyPII75vXZYK1TnmxS7+ByD/
+         nGhpR/pfy67UJ6fPN329qbACQ2jtbWEnnAYkgGLmAgytKlflQxhLppC7Xy/NzOuSVfJJ
+         PaRe+PAw7VF4j6uBb4k8c5rUDTPxHeuo5h25VmK8dEOODw2kFP9oO28tHT/gVuUyD+qh
+         FCkQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWTIZDhtGdIZezN2iIDsDIyN1/7ghO6tBNxode4wYTdHHWvx3X4KSwyLtcLYPmkmr4ns+Z1CPR/wtdFqWDnZFY=@lists.infradead.org, AJvYcCXr+5tNPPF6GTSn/iXTClEyxdfNXhTIVqZeQAwmL9YfCNlflG2pWvZ94P/1PNg+AbjSw0fvRsXj9Ig/McYzwMKL@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx+20fon7LsYStcimElNyPfratFW2U9vYGtqBsstJ0+58mDYI16
+	BOVQsCo0v1BNgil7Q6crwLV+JR57QpHYR0Y9sj3dhb5pB26XsO4Y
+X-Gm-Gg: ASbGnct3n4kLUIPAEev1M10I40xVV92G7Ye6FG51xrGgfg/Cb7QsbBo1QPdavD/e39k
+	1CCADptbbYisYtQJSuuHkTa1g5ku4TO+z6xPpHm6VXweTA9kULECL+umiIxWR7fva7LS+XQWvyQ
+	UXlq6cszIR7bIpKn71tA1Y5WAKAwccC2USGNitKEMzaOQj904wlC0VeBlvW0LF5dfWW76z7ovDv
+	aQxbhCsQxW+CSv1HY8DW1o8b8zj4qoAMUy1i77mqYV22iJGGOuEiuTbfoaFhqqivUyapBThzVoP
+	eICEj+ISEHx+cuaikDGlvZXPqvKkfTpvaT+l
+X-Google-Smtp-Source: AGHT+IHaTt00aOKIg9mcDnsHrjnAg6faqbxOOHMpsfBN2LwzL1GNhhYFrCUK2KkmLZAv0vVu7zGv+Q==
+X-Received: by 2002:a17:903:186:b0:216:69ca:772a with SMTP id d9443c01a7336-21c3563ee3fmr144590885ad.53.1737285361827;
+        Sun, 19 Jan 2025 03:16:01 -0800 (PST)
+Received: from ?IPV6:2408:8362:245d:4738:bc4b:53ff:fead:2724? ([2401:b60:5:867d:3631:b7db:c3f4:aae2])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21c2d3a87e4sm43606145ad.111.2025.01.19.03.15.58
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 19 Jan 2025 03:16:01 -0800 (PST)
+Message-ID: <59893a67-18c7-4ab3-9b2a-5a17091d4b6c@gmail.com>
+Date: Sun, 19 Jan 2025 19:15:55 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: rockchip: change eth phy mode to rgmii-id for
+ orangepi r1 plus lts
+To: Dragan Simic <dsimic@manjaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Jonas Karlman <jonas@kwiboo.se>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+ Peter Geis <pgwipeout@gmail.com>
+References: <20250119091154.1110762-1-cnsztl@gmail.com>
+ <ce15f141688c4c537ac3307b6fbed283@manjaro.org>
+From: Tianling Shen <cnsztl@gmail.com>
+In-Reply-To: <ce15f141688c4c537ac3307b6fbed283@manjaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250119_031402_987828_980EA6A3 
-X-CRM114-Status: GOOD (  16.41  )
+X-CRM114-CacheID: sfid-20250119_031603_232697_E6D62B4D 
+X-CRM114-Status: GOOD (  17.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,39 +103,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks for your hints, Conor!
+Hi Dragan,
 
-On Mon, 2025-01-13 at 17:37 +0000, Conor Dooley wrote:
-> > What are your thoughts?
-> >=20
-> > =C2=A0arch/arm64/boot/dts/sophgo/sg2000.dtsi | 164 ++++++++++++++++++++=
-+++++
-> > =C2=A01 file changed, 164 insertions(+)
-> > =C2=A0create mode 100644 arch/arm64/boot/dts/sophgo/sg2000.dtsi
-> >=20
-> > diff --git a/arch/arm64/boot/dts/sophgo/sg2000.dtsi b/arch/arm64/boot/d=
-ts/sophgo/sg2000.dtsi
-> > new file mode 100644
-> > index 000000000000..96afd342bde5
-> > --- /dev/null
-> > +++ b/arch/arm64/boot/dts/sophgo/sg2000.dtsi
-> > @@ -0,0 +1,164 @@
-> > +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> > +
-> > +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> > +#include "../../../../riscv/boot/dts/sophgo/cv18xx.dtsi"
-> > +#include "../../../../riscv/boot/dts/sophgo/cv181x.dtsi"
->=20
-> FWIW, this can just be #include <riscv/sophgo/<whatever>, /should/ be a
-> symlink for that, as there is for arm64. At the very least, I did see a
-> patch adding that link in the past. Check out what the RZ/Five is doing
-> (that's the riscv renesas chip) for an example of how this already has
-> been done - I think it's doing what your "Alternatively I can..."
-> paragraph describes.
+On 2025/1/19 17:54, Dragan Simic wrote:
+> Hello Tianling,
+> 
+> Thanks for the patch.  Please, see a comment below.
+> 
+> On 2025-01-19 10:11, Tianling Shen wrote:
+>> In general the delay should be added by the PHY instead of the MAC,
+>> and this improves network stability on some boards which seem to
+>> need different delay.
+>>
+>> Fixes: 387b3bbac5ea ("arm64: dts: rockchip: Add Xunlong OrangePi R1 
+>> Plus LTS")
+>> Cc: stable@vger.kernel.org # 6.6+
+>> Signed-off-by: Tianling Shen <cnsztl@gmail.com>
+>> ---
+>>  arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus-lts.dts | 3 +--
+>>  arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dts     | 1 +
+>>  arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dtsi    | 1 -
+>>  3 files changed, 2 insertions(+), 3 deletions(-)
+>>
+>> diff --git
+>> a/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus-lts.dts
+>> b/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus-lts.dts
+>> index 67c246ad8b8c..ec2ce894da1f 100644
+>> --- a/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus-lts.dts
+>> +++ b/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus-lts.dts
+>> @@ -17,8 +17,7 @@ / {
+>>
+>>  &gmac2io {
+>>      phy-handle = <&yt8531c>;
+>> -    tx_delay = <0x19>;
+>> -    rx_delay = <0x05>;
+>> +    phy-mode = "rgmii-id";
+> 
+> Shouldn't the "tx_delay" and "rx_delay" DT parameters be converted
+> into the "tx-internal-delay-ps" and "rx-internal-delay-ps" parameters,
+> respectively, so the Motorcomm PHY driver can pick them up and
+> actually configure the internal PHY delays?
 
-That's exactly what I needed!
+The documentation[1] says "{t,r}x-internal-delay-ps" default to 1950 and 
+that value already works fine on my board.
 
---=20
-Alexander Sverdlin.
+1. 
+https://www.kernel.org/doc/Documentation/devicetree/bindings/net/motorcomm%2Cyt8xxx.yaml
+
+Thanks,
+Tianling.
+
+> 
+>>      status = "okay";
+>>
+>>      mdio {
+>> diff --git a/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dts
+>> b/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dts
+>> index 324a8e951f7e..846b931e16d2 100644
+>> --- a/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dts
+>> +++ b/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dts
+>> @@ -15,6 +15,7 @@ / {
+>>
+>>  &gmac2io {
+>>      phy-handle = <&rtl8211e>;
+>> +    phy-mode = "rgmii";
+>>      tx_delay = <0x24>;
+>>      rx_delay = <0x18>;
+>>      status = "okay";
+>> diff --git a/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dtsi
+>> b/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dtsi
+>> index 4f193704e5dc..09508e324a28 100644
+>> --- a/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dtsi
+>> +++ b/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dtsi
+>> @@ -109,7 +109,6 @@ &gmac2io {
+>>      assigned-clocks = <&cru SCLK_MAC2IO>, <&cru SCLK_MAC2IO_EXT>;
+>>      assigned-clock-parents = <&gmac_clk>, <&gmac_clk>;
+>>      clock_in_out = "input";
+>> -    phy-mode = "rgmii";
+>>      phy-supply = <&vcc_io>;
+>>      pinctrl-0 = <&rgmiim1_pins>;
+>>      pinctrl-names = "default";
 
 
