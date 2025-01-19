@@ -4,64 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C427FC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jan 2025 09:56:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D621CC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jan 2025 10:24:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7Nn8k0teNFTxka8BR1o7+iPaNbCVsXSlBEh/pZkZiuo=; b=O7g4NdZQycWdZPRIN9aa0qBDJE
-	sRvSHH4YWlYhC/0bHTlNUP0hyFLMW+dKpPx/+5q3FbgdEK0LbXEgULC7Wt2tQLQEzO9lyOAH/dYHl
-	xQ7hQzia+RnyVfPBV0AYjDxGQtBTXkNLA92YlSx1r3Zm3d+5H9MmUYj5H/POyp50vSpzyUR/AT57b
-	1R99lf23VMeyW1gR37w66eW6Q6je+yMTTW3OmbgnemqG8k0hrMYIWlyaz4WTbhuW1IFv3asSZSRKT
-	xDo43VfN6GPlyw+1Meupb+9ZPsJzb7SPNVaeFOWa6igzwsZWUI33ZXbfuSflar86UcFhcF/ql2uAQ
-	r+OEcyVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=JTdxljZ0AhFJAJTFENWNxsOvfn2PkSwXQGfR7bc/I7Q=; b=pUCTRwMzg1DXb3
+	DXpkRHCcPBJ8vYtEFjixoukWEP36WLrfRdw3Sh8QKlUICiJguhLlmgl+IHhRkzj6vN6yUFLdT/Ayy
+	Kkt5iUwv7s+xZwRR9Yo6Fxo7dpUni6cK1qxovrAcFPyCjoAtQJA+ugAuBTMTwt1ETb3cFB0PNFWZm
+	0LvCc4rib/HbuK4hPiifbRwWpCAq9e4JiSuJkzsbl907WN83TGeikVotJYtfjsGCFKhF+umzKpDBz
+	lioLNBI+dr4hYCMlStPPB2QPPePXTj4ZVXfkVKtg6yNV8BYjgb4ZQWEJ1kNjn+q5b0TqtjlU4liBF
+	G7TMSDsJMqHTRsKB17UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZS24-00000003fSP-1IHn;
-	Sun, 19 Jan 2025 09:55:52 +0000
-Received: from mail.manjaro.org ([116.203.91.91])
+	id 1tZSU3-00000003hVP-2cdt;
+	Sun, 19 Jan 2025 10:24:47 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZS0l-00000003fMf-3maj;
-	Sun, 19 Jan 2025 09:54:33 +0000
+	id 1tZSSl-00000003h42-2fpb
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 19 Jan 2025 10:23:29 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50J92Tc0028779;
+	Sun, 19 Jan 2025 10:23:13 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=JTdxljZ0AhFJAJTFENWNxs
+	Ovfn2PkSwXQGfR7bc/I7Q=; b=eBdga5WY3s4g0vt9729okVQjY86N7EsMkW4/J6
+	fXFxvuWqaaQCOcbXYXqeNE105+IiwwCH9aX8z8WIc3jb/l125HAbpNkD1//wMnEP
+	o/mEeVLse6KfU4xj3QoPeTE5opgY8vVt8pd+XQgTL2SPcKsnXZbQ7sXl0cAKjHf4
+	sRl/dBXITeqmkAWqluAOtMk8X2ZkHXQbi6FTYSwdADyR0KjcfVaMLDG4A10hGjrG
+	TU9LDq+/05n4FBTEYEuluhNlv4+L6Wfdhpxl8cuuySrckHBJX3YHS1qimhGPr3vU
+	XqruYcduEDV1LVqXn2zj4ch8FVjGiNmcR9Hqjw41n9CwqiFQ==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4484p5svpd-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sun, 19 Jan 2025 10:23:13 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 50JANC8c007352
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sun, 19 Jan 2025 10:23:12 GMT
+Received: from hu-tdas-hyd.qualcomm.com (10.80.80.8) by
+ nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Sun, 19 Jan 2025 02:23:06 -0800
+From: Taniya Das <quic_tdas@quicinc.com>
+Subject: [PATCH v4 00/10] Add support for videocc, camcc, dispcc and gpucc
+ on Qualcomm QCS615 platform
+Date: Sun, 19 Jan 2025 15:52:54 +0530
+Message-ID: <20250119-qcs615-mm-v4-clockcontroller-v4-0-5d1bdb5a140c@quicinc.com>
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1737280467;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7Nn8k0teNFTxka8BR1o7+iPaNbCVsXSlBEh/pZkZiuo=;
-	b=drMt13D0mBESnIRSdJoKIs2O0Yvux4WeblsUGg/ncC6gnX7mJagQ9HKA9F4IhaoVe66RXa
-	PPOyACc95t9F6FoFzbK5Rpp4+zK3q6zQKS7wZq8LQJ5Ao5ccS4s9n0vQG50Lbsa0DQ1vu6
-	ptx2GlRV5jP+nIvuh6OiomR24kYjgG5/Qa2FHVuUjMKpS+bwJCceBbJuAuJPAZ29icgwH2
-	JUuNdrJkFYya+hMGTZdI4FS91KqZpioJbsaINii8x3fjL/l9OlIofuSgjyc5lxb0yVqecv
-	1koxFbDt0CQgueackgTuG1GJh7rVDDoX5OykF5hHI2PQTWTmwXBsprzNcvNv6A==
-Date: Sun, 19 Jan 2025 10:54:26 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Tianling Shen <cnsztl@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Jonas
- Karlman <jonas@kwiboo.se>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org, Peter Geis
- <pgwipeout@gmail.com>
-Subject: Re: [PATCH] arm64: dts: rockchip: change eth phy mode to rgmii-id for
- orangepi r1 plus lts
-In-Reply-To: <20250119091154.1110762-1-cnsztl@gmail.com>
-References: <20250119091154.1110762-1-cnsztl@gmail.com>
-Message-ID: <ce15f141688c4c537ac3307b6fbed283@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+X-B4-Tracking: v=1; b=H4sIAH7SjGcC/x3MwQrCMAwA0F8ZORtIy+qYvyIeRkxdWNdqOoYw9
+ u8Wj+/yDqhiKhVu3QEmu1YtuaG/dMDzlF+C+mwGTz6QcyN+uF5dwHXFvUdOhRcuebOSkhhGokB
+ +ijKIg1a8TaJ+//39cZ4/4pu3RG4AAAA=
+X-Change-ID: 20250119-qcs615-mm-v4-clockcontroller-f00502afe7e1
+To: Bjorn Andersson <andersson@kernel.org>,
+        Michael Turquette
+	<mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon
+	<will@kernel.org>
+CC: Ajit Pandey <quic_ajipan@quicinc.com>,
+        Imran Shaik
+	<quic_imrashai@quicinc.com>,
+        Jagadeesh Kona <quic_jkona@quicinc.com>,
+        <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Taniya Das <quic_tdas@quicinc.com>,
+        Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+        Dmitry Baryshkov
+	<dmitry.baryshkov@linaro.org>,
+        Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+X-Mailer: b4 0.15-dev-aa3f6
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: UDJHg_M5g00S-zJ4Zs36zIvgccxcJaSs
+X-Proofpoint-GUID: UDJHg_M5g00S-zJ4Zs36zIvgccxcJaSs
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-18_10,2025-01-16_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 lowpriorityscore=0
+ adultscore=0 phishscore=0 clxscore=1015 bulkscore=0 mlxlogscore=999
+ spamscore=0 suspectscore=0 malwarescore=0 impostorscore=0
+ priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501190086
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250119_015432_246925_5D2F3F36 
-X-CRM114-Status: GOOD (  16.05  )
+X-CRM114-CacheID: sfid-20250119_022327_823295_BB4108A9 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,71 +119,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Tianling,
+Add support for multimedia clock controllers on Qualcomm QCS615 platform.
+Update the defconfig to enable these clock controllers.
 
-Thanks for the patch.  Please, see a comment below.
+Global clock controller support
+https://lore.kernel.org/all/20241022-qcs615-clock-driver-v4-0-3d716ad0d987@quicinc.com/
 
-On 2025-01-19 10:11, Tianling Shen wrote:
-> In general the delay should be added by the PHY instead of the MAC,
-> and this improves network stability on some boards which seem to
-> need different delay.
-> 
-> Fixes: 387b3bbac5ea ("arm64: dts: rockchip: Add Xunlong OrangePi R1 
-> Plus LTS")
-> Cc: stable@vger.kernel.org # 6.6+
-> Signed-off-by: Tianling Shen <cnsztl@gmail.com>
-> ---
->  arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus-lts.dts | 3 +--
->  arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dts     | 1 +
->  arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dtsi    | 1 -
->  3 files changed, 2 insertions(+), 3 deletions(-)
-> 
-> diff --git
-> a/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus-lts.dts
-> b/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus-lts.dts
-> index 67c246ad8b8c..ec2ce894da1f 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus-lts.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus-lts.dts
-> @@ -17,8 +17,7 @@ / {
-> 
->  &gmac2io {
->  	phy-handle = <&yt8531c>;
-> -	tx_delay = <0x19>;
-> -	rx_delay = <0x05>;
-> +	phy-mode = "rgmii-id";
+Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
+---
+Changes in v4:
+- Drop patch Update the support for alpha mode configuration as this
+  patch was picked - https://lore.kernel.org/all/20241021-fix-alpha-mode-config-v1-1-f32c254e02bc@gmail.com/
+- Update the bindings to include "qcom,gcc.yaml" [Dmitry]
 
-Shouldn't the "tx_delay" and "rx_delay" DT parameters be converted
-into the "tx-internal-delay-ps" and "rx-internal-delay-ps" parameters,
-respectively, so the Motorcomm PHY driver can pick them up and
-actually configure the internal PHY delays?
+Changes in v3:
+- update PLL configs to use BIT and GENMASK for vco_val and vco_mask for all CCs [Bryan O'Donoghue]
+- Link to v2: https://lore.kernel.org/r/20241101-qcs615-mm-clockcontroller-v2-0-d1a4870a4aed@quicinc.com
 
->  	status = "okay";
-> 
->  	mdio {
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dts
-> b/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dts
-> index 324a8e951f7e..846b931e16d2 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dts
-> @@ -15,6 +15,7 @@ / {
-> 
->  &gmac2io {
->  	phy-handle = <&rtl8211e>;
-> +	phy-mode = "rgmii";
->  	tx_delay = <0x24>;
->  	rx_delay = <0x18>;
->  	status = "okay";
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dtsi
-> b/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dtsi
-> index 4f193704e5dc..09508e324a28 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dtsi
-> @@ -109,7 +109,6 @@ &gmac2io {
->  	assigned-clocks = <&cru SCLK_MAC2IO>, <&cru SCLK_MAC2IO_EXT>;
->  	assigned-clock-parents = <&gmac_clk>, <&gmac_clk>;
->  	clock_in_out = "input";
-> -	phy-mode = "rgmii";
->  	phy-supply = <&vcc_io>;
->  	pinctrl-0 = <&rgmiim1_pins>;
->  	pinctrl-names = "default";
+Changes in v2:
+- cleanups in clk_alpha_pll_slew_update and clk_alpha_pll_slew_enable functions [Christophe]
+- update PLL configs for "vco_val = 0x0" shift(20)  [Bryan O'Donoghue]
+- update PLL configs to use lower case for L value  [Dmitry]
+- Link parents for IFE/IPE/BPS GDSCs as Titan Top GDSC [Bryan O'Donoghue, Dmitry]
+- Remove DT_BI_TCXO_AO from camcc-qcs615           [Dmitry]
+- Remove HW_CTRL_TRIGGER from camcc-qcs615         [Bryan O'Donoghue]
+- Update platform name for default configuration   [Dmitry]
+- Link to v1: https://lore.kernel.org/r/20241019-qcs615-mm-clockcontroller-v1-0-4cfb96d779ae@quicinc.com
+
+To: Bjorn Andersson <andersson@kernel.org>
+To: Michael Turquette <mturquette@baylibre.com>
+To: Stephen Boyd <sboyd@kernel.org>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: Ajit Pandey <quic_ajipan@quicinc.com>
+Cc: Imran Shaik <quic_imrashai@quicinc.com>
+Cc: Jagadeesh Kona <quic_jkona@quicinc.com>
+Cc: linux-arm-msm@vger.kernel.org
+Cc: linux-clk@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
+
+---
+Taniya Das (10):
+      clk: qcom: clk-alpha-pll: Add support for dynamic update for slewing PLLs
+      dt-bindings: clock: Add Qualcomm QCS615 Camera clock controller
+      clk: qcom: camcc-qcs615: Add QCS615 camera clock controller driver
+      dt-bindings: clock: Add Qualcomm QCS615 Display clock controller
+      clk: qcom: dispcc-qcs615: Add QCS615 display clock controller driver
+      dt-bindings: clock: Add Qualcomm QCS615 Graphics clock controller
+      clk: qcom: gpucc-qcs615: Add QCS615 graphics clock controller driver
+      dt-bindings: clock: Add Qualcomm QCS615 Video clock controller
+      clk: qcom: videocc-qcs615: Add QCS615 video clock controller driver
+      arm64: defconfig: Enable QCS615 clock controllers
+
+ .../bindings/clock/qcom,qcs615-camcc.yaml          |   54 +
+ .../bindings/clock/qcom,qcs615-dispcc.yaml         |   73 +
+ .../bindings/clock/qcom,qcs615-gpucc.yaml          |   66 +
+ .../bindings/clock/qcom,qcs615-videocc.yaml        |   64 +
+ arch/arm64/configs/defconfig                       |    4 +
+ drivers/clk/qcom/Kconfig                           |   35 +
+ drivers/clk/qcom/Makefile                          |    4 +
+ drivers/clk/qcom/camcc-qcs615.c                    | 1591 ++++++++++++++++++++
+ drivers/clk/qcom/clk-alpha-pll.c                   |  170 +++
+ drivers/clk/qcom/clk-alpha-pll.h                   |    1 +
+ drivers/clk/qcom/dispcc-qcs615.c                   |  786 ++++++++++
+ drivers/clk/qcom/gpucc-qcs615.c                    |  525 +++++++
+ drivers/clk/qcom/videocc-qcs615.c                  |  332 ++++
+ include/dt-bindings/clock/qcom,qcs615-camcc.h      |  110 ++
+ include/dt-bindings/clock/qcom,qcs615-dispcc.h     |   52 +
+ include/dt-bindings/clock/qcom,qcs615-gpucc.h      |   39 +
+ include/dt-bindings/clock/qcom,qcs615-videocc.h    |   30 +
+ 17 files changed, 3936 insertions(+)
+---
+base-commit: 0907e7fb35756464aa34c35d6abb02998418164b
+change-id: 20250119-qcs615-mm-v4-clockcontroller-f00502afe7e1
+
+Best regards,
+-- 
+Taniya Das <quic_tdas@quicinc.com>
+
 
