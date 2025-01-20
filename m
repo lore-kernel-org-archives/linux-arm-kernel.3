@@ -4,69 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42CC5C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 12:59:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AC75C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 13:03:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SyKvAs4M1JCBbf2bf8AVNrrZhsYbXTCiT7iPWwU+l50=; b=fGjftWjkJdrCsr6INXec28EX+n
-	Ct66xEp8Ol+gQ0vE8lt1tTF66kTv6ALTVapf3jDEyf20nGiMieRIuv1D9cLdQB9rl/LmLGNDzH8Nn
-	AtKXH8oKukUA8aFW1aXAaghpzvUPU5EiEsgJFYQrP9QzJIx6XnhVSpJSvHGuUVTnOPjelACnKnBN3
-	JwAnRbbZPf0ule+XZDhMGetE4bBzJvNgPXVm8/+N0xsMKH/1TDIDJ1kbrIimLuBglIYU2iBshOGiE
-	5eRR2qxxKVLlU1RRdj3A9pUXHq4wX8Q8XPw7kXZnYn4Cy1wEKUWF42tZy7cj5IfEuOduyBqUdngBd
-	uJ4ao0mQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W817/fpgaSkOYoTny1+DXY9ZRO2SNjoxZsOM/EDrD7o=; b=emHPo5oKchaBsLKwRhkE/JfmhZ
+	h2BFnkoP9owmboYH6vNFBXTQMrT2yQvspACAd/kgW3CAaX3KqZN7QTghHHvXSkRUtJWrjrjvbfiXP
+	0GkhQnG3+rubFJahX1LptTRqHkpHg/DC9XA0YLpOcL2NPcL2cBhSBfSImPCZplKLfZM3ubyhfcJJR
+	/g09vhKO1n/Is+28MtQCxFlkmyKZgHAOkVCGsTKVGjbYGMKYg4wp+QfHFmZKI+The/iEaFHqrrzdm
+	+TdcxtJor657W+DitvUx0KRH2VFqsxtZCaiMkvKD8omVKCwAdN7XdWMEJpBQGmmmrcn9cQa4MaEp+
+	4zhgJZKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZrNa-00000005avE-1OZU;
-	Mon, 20 Jan 2025 12:59:46 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tZrQs-00000005bPr-2GyI;
+	Mon, 20 Jan 2025 13:03:10 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZrMJ-00000005aot-1ggU;
-	Mon, 20 Jan 2025 12:58:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1737377905;
-	bh=DD53uhNj6LwdrJl6hL2eBnCsm6oKdkojK2oOswBhZrI=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=MzUKpUy6eAO9Low0cid5YvDD3L4ML3IXM5S24O4r8b6/xPEp8BF9F3Em3HVEC1+1/
-	 b0QxzWngOiybOrbuPs+oMxvmjRPwOfPpaC/VCDPvjgq71U6uZQBDxBCWtIEtL/ak9p
-	 A6cWA5G5cJYNCc8Kcpr4fswHhuRza5GTZrqeGk0FuBbAo2QH9RZi9YKpPaqUlyHjhu
-	 h/BPUh+3o6oMsG+tUpHiAp3mvft4uFFZ7G5cRxZlpqkacIx7ZsUOLFCJ80mruuYLhC
-	 KL7ajupU9cUAHZmHYk1Hio4yeD0D4EoK3qL4vH+qT4Vv57ZkfvjItlfwjrdSs+JgTW
-	 mPSc0iWf9PUFQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	id 1tZrPZ-00000005b7I-2o4u;
+	Mon, 20 Jan 2025 13:01:51 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 04FED17E0343;
-	Mon, 20 Jan 2025 13:58:24 +0100 (CET)
-Message-ID: <15006d4c-81ac-4691-b817-d6510992a14a@collabora.com>
-Date: Mon, 20 Jan 2025 13:58:24 +0100
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 1E5BE2117C;
+	Mon, 20 Jan 2025 13:01:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1737378106; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=W817/fpgaSkOYoTny1+DXY9ZRO2SNjoxZsOM/EDrD7o=;
+	b=CAgwEurVsBe+30oHvP7VUQMdQRauh9bLjssTcQhpjTEI/lR+Ze0IE12+1mirO0P0nG5das
+	lzxE/ZC/W4xV/8kRJ76qQeDpuAt0qqx1Y9jzqXqM8sreV+kCIzZ3tD/baTzRWupkW5lrS2
+	JJazjJvIQ960hLgnGGLGHZvBl1WCgWg=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1737378106;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=W817/fpgaSkOYoTny1+DXY9ZRO2SNjoxZsOM/EDrD7o=;
+	b=90TZ9QFZY6nh8RXNJLapOE9OVXC1qG3Cs09WQSxZIbGCZicD2/WM0jsbWDZduAamxYmZzs
+	s1TziVGMJVOSm4DQ==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=CAgwEurV;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=90TZ9QFZ
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1737378106; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=W817/fpgaSkOYoTny1+DXY9ZRO2SNjoxZsOM/EDrD7o=;
+	b=CAgwEurVsBe+30oHvP7VUQMdQRauh9bLjssTcQhpjTEI/lR+Ze0IE12+1mirO0P0nG5das
+	lzxE/ZC/W4xV/8kRJ76qQeDpuAt0qqx1Y9jzqXqM8sreV+kCIzZ3tD/baTzRWupkW5lrS2
+	JJazjJvIQ960hLgnGGLGHZvBl1WCgWg=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1737378106;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=W817/fpgaSkOYoTny1+DXY9ZRO2SNjoxZsOM/EDrD7o=;
+	b=90TZ9QFZY6nh8RXNJLapOE9OVXC1qG3Cs09WQSxZIbGCZicD2/WM0jsbWDZduAamxYmZzs
+	s1TziVGMJVOSm4DQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 25FC2139D2;
+	Mon, 20 Jan 2025 13:01:45 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id ENTOBjlJjmc4XQAAD6G6ig
+	(envelope-from <svarbanov@suse.de>); Mon, 20 Jan 2025 13:01:45 +0000
+From: Stanimir Varbanov <svarbanov@suse.de>
+To: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-pci@vger.kernel.org,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Jim Quinlan <jim2101024@gmail.com>,
+	Nicolas Saenz Julienne <nsaenz@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	kw@linux.com,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Andrea della Porta <andrea.porta@suse.com>,
+	Phil Elwell <phil@raspberrypi.com>,
+	Jonathan Bell <jonathan@raspberrypi.com>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	Stanimir Varbanov <svarbanov@suse.de>
+Subject: [PATCH v5 -next 01/11] dt-bindings: interrupt-controller: Add bcm2712 MSI-X DT bindings
+Date: Mon, 20 Jan 2025 15:01:09 +0200
+Message-ID: <20250120130119.671119-2-svarbanov@suse.de>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20250120130119.671119-1-svarbanov@suse.de>
+References: <20250120130119.671119-1-svarbanov@suse.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/panfrost: Drop redundant Mediatek driver data
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Boris Brezillon <boris.brezillon@collabora.com>,
- Rob Herring <robh@kernel.org>, Steven Price <steven.price@arm.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Matthias Brugger <matthias.bgg@gmail.com>, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-References: <20250118160645.78473-1-krzysztof.kozlowski@linaro.org>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250118160645.78473-1-krzysztof.kozlowski@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: 1E5BE2117C
+X-Spamd-Result: default: False [-1.51 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_MISSING_CHARSET(0.50)[];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[22];
+	ARC_NA(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	MIME_TRACE(0.00)[0:+];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	FREEMAIL_CC(0.00)[linutronix.de,kernel.org,broadcom.com,gmail.com,google.com,linux.com,pengutronix.de,suse.com,raspberrypi.com,suse.de];
+	RCVD_TLS_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,suse.de:email,suse.de:dkim,suse.de:mid];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DKIM_TRACE(0.00)[suse.de:+];
+	TAGGED_RCPT(0.00)[dt];
+	R_RATELIMIT(0.00)[to_ip_from(RLw7mkaud87zuqqztkur5718rm)];
+	ASN(0.00)[asn:25478, ipnet:::/0, country:RU];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com]
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Rspamd-Action: no action
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_045827_597239_23724527 
-X-CRM114-Status: UNSURE (   8.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250120_050149_856624_041BC2CA 
+X-CRM114-Status: GOOD (  12.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,23 +164,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 18/01/25 17:06, Krzysztof Kozlowski ha scritto:
-> mediatek_mt8192_supplies are exactly the same as
-> mediatek_mt8183_b_supplies.  mediatek_mt8188_data is exactly the same as
-> &mediatek_mt8183_b_data.  There is never point in duplicating all these
-> structures - it only raises questions or encourages bugs when someone
-> updates one variant without changing the other.  Drop duplicated code.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Adds DT bindings for bcm2712 MSI-X interrupt peripheral controller.
 
-The reason why these are different is that 8183 and 8192 have different
-GPU architectures, where the former is bifrost and the latter is valhall.
+Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+---
+v4 -> v5:
+ - No changes.
 
-Regardless, even if there actually was a reason for that, I agree about
-this deduplication here, as the architecture is anyway made clear by the
-devicetree bindings for those SoCs.
+ .../brcm,bcm2712-msix.yaml                    | 60 +++++++++++++++++++
+ 1 file changed, 60 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/brcm,bcm2712-msix.yaml
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/brcm,bcm2712-msix.yaml b/Documentation/devicetree/bindings/interrupt-controller/brcm,bcm2712-msix.yaml
+new file mode 100644
+index 000000000000..c84614663b5d
+--- /dev/null
++++ b/Documentation/devicetree/bindings/interrupt-controller/brcm,bcm2712-msix.yaml
+@@ -0,0 +1,60 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/interrupt-controller/brcm,bcm2712-msix.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Broadcom bcm2712 MSI-X Interrupt Peripheral support
++
++maintainers:
++  - Stanimir Varbanov <svarbanov@suse.de>
++
++description:
++  This interrupt controller is used to provide interrupt vectors to the
++  generic interrupt controller (GIC) on bcm2712. It will be used as
++  external MSI-X controller for PCIe root complex.
++
++allOf:
++  - $ref: /schemas/interrupt-controller/msi-controller.yaml#
++
++properties:
++  compatible:
++    const: brcm,bcm2712-mip
++
++  reg:
++    items:
++      - description: Base register address
++      - description: PCIe message address
++
++  "#msi-cells":
++    const: 0
++
++  brcm,msi-offset:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description: Shift the allocated MSI's.
++
++unevaluatedProperties: false
++
++required:
++  - compatible
++  - reg
++  - msi-controller
++  - msi-ranges
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
++    axi {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        msi-controller@1000130000 {
++            compatible = "brcm,bcm2712-mip";
++            reg = <0x10 0x00130000 0x00 0xc0>,
++                  <0xff 0xfffff000 0x00 0x1000>;
++            msi-controller;
++            #msi-cells = <0>;
++            msi-ranges = <&gicv2 GIC_SPI 128 IRQ_TYPE_EDGE_RISING 64>;
++        };
++    };
+-- 
+2.47.0
 
-Cheers!
 
