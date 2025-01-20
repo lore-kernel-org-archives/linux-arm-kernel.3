@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68653C02185
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 09:55:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8688C02185
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 09:56:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bWYLLAv9+QSl6NuL+dXUwkLvPnzxxR6x37Sw+FNFkRE=; b=eybDCFVM4EuVIUtfs0k8eyFIdC
-	9ZWxRkNnOij1sEb88GTBGcrqLXejxqrTxuVDNqrIyMgvdJIRSepgdywJ8z33Z5Z7BPkCTfdn91GX5
-	MT4Nry/c7mI0rW2vSJ6azWq5W1RjvPZ/LggfZ+c8DKhwax0CwR0PAph04t9jn1Xo0vbFmjHCLhCcP
-	FAsAjH6qGtR7x+6ktrELsZek3Hlq2cfSUZwdCEnPG7ClUviPCnga9qjXLNx2XZnhHHuW5DGIRNWNv
-	NStQtswe0VdIbL2K+IboYcoGY0uL6NfdW2Zn86zqxya7SOZTVyGZIldWLrDZubnhVpgUuC0lMBZMW
-	ftzrMpZA==;
+	bh=/txNyQu2BI0vIx5c86EaLSOS1gZfrKfoUZEaa0Exzms=; b=1pM4hjVRbBslxDNYr2IuY+hrQw
+	Jt6bNYwyP9+X5MVkB8CjjUutMBd3ypCaOxDGmcfx917WqXYrBUGXLZ8Wkp48V0oT7FjHpu/JQVAH9
+	RiLdNvNpfiAjRqiN6kEUrDC2cvR0BGTz+8BBf3GCx5S/G3vGstL8NkW5nvoC+ckzdN3BdbyaVpkKv
+	U7QKaKZ/g39TbsylZTIcrNziZ3QywbFLWpVQEU3qAdwt1ruYt46W3tyz0D50hTbQ3FhT/EG/HjAPP
+	XpcyJf2knDH0Gpniz+7iexh3tv9BzCfTsEJcN42y59IdKAYsEKov1VXzuLR1JScpVl2vLbsfyTjt+
+	dfBtZryw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZoV3-00000005Fi0-00SK;
-	Mon, 20 Jan 2025 09:55:17 +0000
-Received: from mail-oo1-xc2e.google.com ([2607:f8b0:4864:20::c2e])
+	id 1tZoWI-00000005Fu9-2MGD;
+	Mon, 20 Jan 2025 09:56:34 +0000
+Received: from mail-oo1-xc35.google.com ([2607:f8b0:4864:20::c35])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZo6Y-00000005Bbb-0De7
+	id 1tZo81-00000005CD0-3HqL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jan 2025 09:29:59 +0000
-Received: by mail-oo1-xc2e.google.com with SMTP id 006d021491bc7-5f4ce54feb8so2163933eaf.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jan 2025 01:29:57 -0800 (PST)
+	Mon, 20 Jan 2025 09:31:30 +0000
+Received: by mail-oo1-xc35.google.com with SMTP id 006d021491bc7-5f31f8f4062so2057772eaf.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jan 2025 01:31:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737365397; x=1737970197; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1737365489; x=1737970289; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=bWYLLAv9+QSl6NuL+dXUwkLvPnzxxR6x37Sw+FNFkRE=;
-        b=pNSi/brfw6ngpNFajrcfX/fCxISPkOiFnY3De3Oc69B/IgVARh/8IyhZ04wb4Qgx7E
-         ilH08Rdd4h6e1KjAlgZGmGH+7zf0ZeyBk/mBPAiZQs6EDdzwAtha47y/2MMmJAaqkrSg
-         pt9XE82yhao2vXkWHFdFLsyaP5bBr+8Ue1I0oDGhgjUzNC7XEQ0h0ikTI5NzVimCxG3Z
-         Aj8BAiRd0wah4xuyG3cg+3d7zaMBbscgrLN0LU6SHbz3j1g6DgEt/fA5Fb/xf0ZyMHUd
-         KF4Uu6K02ho4skXcke/PVqsdJ3EgaKXkLapsHc2TAn7wGfy23PHdTln06U9raSqDPRGI
-         LhTQ==
+        bh=/txNyQu2BI0vIx5c86EaLSOS1gZfrKfoUZEaa0Exzms=;
+        b=zTTepkYLW9Ub9jhbEW1G7MNNtOPXyf9vK5yptAgZmghpey+aGheBIIBVb9DXQwL01I
+         WMkeDrxwG7Wi3zHMsPsW9qp2KrLs/05JK5ZJ3z4HUA9Ua5j/DJhHevF/DRIp+xJzWKZA
+         iNvb/QPmSHvr6U6I/oHK5ncFjmDG4k02JMUhbsvIIkdKx2zIqFwxyZPoCyPl3z1Dl7d+
+         J0aj0qchJ+ZtAcYLcr28NbwvO0aoYuTaVZRSbb7pggCEQe974M5dIAyaugerKZJChje+
+         aEWnxRK34L5ekfDdCvAVwnow7wm3pK9ZqC75L2g7ULL40pJTanqMOGW32hHUEmYfuf+I
+         QZLw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737365397; x=1737970197;
+        d=1e100.net; s=20230601; t=1737365489; x=1737970289;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=bWYLLAv9+QSl6NuL+dXUwkLvPnzxxR6x37Sw+FNFkRE=;
-        b=J8kFZEEQghLLv+vscoOvzvYZJ+C5Ac3tOpWJ8WfYuL5l3mQ7y5FCPo+GxnHI1aDoDa
-         pyt4HPWfsXP6P6aR76SsoDgpUuxU5SmtiXkmfmj0eWiudRRAD7h9bg4Z+hDbgiAOTj7R
-         SdQHNY3guoWXfkDvrmTBnRZqchgG8IcY3OFBX9k+TWDcm3PoX3G7S7axWUtRg08gRboy
-         raXA1EEJvDNPaqUXq7tDcPuYPJZxFAtRT04HNGSlAyg6/Z2OvrIALjtf7hW6OOMDEmlX
-         TpQRQ2KuUPndF7azx3cLK4Gx3ZsS7MnPW3VE7yUGJcD5CG4OUeqTdCdHP3vmgraSwVng
-         cKkQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUyx3IKKbxbFQGhA6vfmyH1jOlVooiGdMTZU+M2kpgYczRynMelb0wA7ge2biE5JzfXLgsCH4ZsehShk9q9uNzZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzuUIZ6ljSjwIASr9OTDhSdygSVpF61A1YHQzW0Dypn6L5A6n/V
-	J4ZwPGs6EHvGKWKKCi36Gu3mHGGGgF4Hp5OEaxrUqfEQyDblx1PiI/FesRpf1SJFW8hE8o36+Rl
-	AyQl8xZbpBuP3m2GYuaH/vUwObXz6FUWiVmSuLQ==
-X-Gm-Gg: ASbGncuay2+SHfTmblrE6E3HNkymKEo5NUpBUamqGHs8L1q+Ab6y3IE1CC4oYnr/oOP
-	VEpixOiSHAC4fK2kVoQGrSojSTf3K1STTdEiiDTlWXAPL0ZLKrqQ=
-X-Google-Smtp-Source: AGHT+IEh5ekB+In8kM4Kzz+JbIUW1L+SJB7JNRP1EJgfAXgE427tlnK9kpmUaBC4bYJQvBbjLwfn1zxxPfPvqK+oy6k=
-X-Received: by 2002:a05:6820:2207:b0:5fa:2edd:8e65 with SMTP id
- 006d021491bc7-5fa388d0974mr6833389eaf.8.1737365397006; Mon, 20 Jan 2025
- 01:29:57 -0800 (PST)
+        bh=/txNyQu2BI0vIx5c86EaLSOS1gZfrKfoUZEaa0Exzms=;
+        b=c9UhIyfy2NOChyUPiIOqwBUBzxlyg936zfoaV1LbIRAwHS03xBnfTfXw0Tc/vN2yAi
+         7+8HjkSNQ+3jMNzwPN+ivEL8NCwssJ0RQT0A+r5r6JhEwVcsZrZP2twkFP0PJn5aLjD5
+         tdadNnhB1Mx+GPOvFbrEN/O7GPcBWiqqFZUA34s27FSSrv59p6Xdlwl79g/vgX33NO29
+         sHoKLT+hK7TqaZk4R0Y1tEz0dUfhQr477euDDEx+qWo/i6cHLsD6KISBPfEgASvK5+BX
+         yBKXK5aUaojsZkE9Q9v47ORcOxY2juWYr7a2qzIPf5dpD2fzVAlsRUt4QmJZZThAPLqY
+         wYNQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVH8mZO/AvVuo+mAxRX2xDEHkkKOP+iifnzuwIo3nYwF27TDvcjO82B07T9eFqIAPZxCr8w6ZUlRttzrK3ZbN+5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3MzLA4IU6K20rSpA430MoRj4dvTuycYU8GD/xTggH7VSVu9np
+	qCxyDXzrDWvSpdlyAOUJvt47iXmZ0wsWtYewplAdIjB8b2PvWsEHkxYAiqkpTB0Ko+QU/iRnrFV
+	b666lCHnJSLw27fpiEVxmthQfE5lfjuOcgVqzMg==
+X-Gm-Gg: ASbGncuMxeRlm76Geh4u98/ON+gLqBJFQiyTY8WOv2gdCQepkm/iP78l68aWpNEudOB
+	Xlwmg5P6/JN5AV/2rlzrI6mc6HMffkRjJZNbaqPvNbfW6077FspI=
+X-Google-Smtp-Source: AGHT+IF8len7DYYtDJAgNhF4OWjKUVOC4YIVlj3v0nrpLbI1QFEg8CYynCXmjD6obOo0TkU5UVshdOMsj5zP1TGy7io=
+X-Received: by 2002:a05:6820:20f:b0:5f9:12bb:4e22 with SMTP id
+ 006d021491bc7-5fa388a4597mr6443440eaf.5.1737365488821; Mon, 20 Jan 2025
+ 01:31:28 -0800 (PST)
 MIME-Version: 1.0
-References: <20250117-gs101-simplefb-v4-0-a5b90ca2f917@linaro.org> <20250117-gs101-simplefb-v4-3-a5b90ca2f917@linaro.org>
-In-Reply-To: <20250117-gs101-simplefb-v4-3-a5b90ca2f917@linaro.org>
+References: <20250117-gs101-simplefb-v4-0-a5b90ca2f917@linaro.org> <20250117-gs101-simplefb-v4-4-a5b90ca2f917@linaro.org>
+In-Reply-To: <20250117-gs101-simplefb-v4-4-a5b90ca2f917@linaro.org>
 From: Peter Griffin <peter.griffin@linaro.org>
-Date: Mon, 20 Jan 2025 09:29:46 +0000
-X-Gm-Features: AbW1kvZszduHDYU3xxvIKBV97BoVaqY66zb0MrVDW0JhuNR8cdHWOmCpQEtzMwA
-Message-ID: <CADrjBPoSHGqbC=8_-eWLO+E-ySMW+XNPKx3ypde=SS8-hrXqTQ@mail.gmail.com>
-Subject: Re: [PATCH v4 3/4] arm64: dts: exynos: gs101-oriole: move common
- Pixel6 & 6Pro parts into a .dtsi
+Date: Mon, 20 Jan 2025 09:31:17 +0000
+X-Gm-Features: AbW1kva-M4BHCc_hAA9pu7iTT8qDuD1HyhFEle30Ny8cn6ziU_A-M8y799oFSCw
+Message-ID: <CADrjBPr32JdfwMFWB=PB_jkXddqmq_4CDd9hqowW0tzbSXp5QA@mail.gmail.com>
+Subject: Re: [PATCH v4 4/4] arm64: dts: exynos: gs101-raven: add new board file
 To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
 	Conor Dooley <conor+dt@kernel.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
@@ -82,8 +81,8 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_012958_117749_86AAC8B2 
-X-CRM114-Status: GOOD (  12.50  )
+X-CRM114-CacheID: sfid-20250120_013129_820988_A7F24DE5 
+X-CRM114-Status: GOOD (  10.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,21 +97,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andr=C3=A9,
+Hi Andr=C3=A9
 
 On Fri, 17 Jan 2025 at 17:10, Andr=C3=A9 Draszik <andre.draszik@linaro.org>=
  wrote:
 >
-> In order to support Pixel 6 (Oriole), Pixel 6 Pro (Raven), Pixel 6a
-> (Bluejay), and all other versions correctly, we have to be able to
-> distinguish them properly as we add support for more features.
+> Raven is Google's code name for Pixel 6 Pro. Similar to Pixel 6
+> (Oriole), this is also based around its Tensor gs101 SoC.
 >
-> For example, Raven has a larger display. There are other differences,
-> like battery design capacity, etc.
+> For now, the relevant difference here is the display resolution:
+> 1440 x 3120 instead of 1080 x 2400.
 >
-> Move all the parts that are common for now into a
-> gs101-pixel-common.dtsi, and just leave the display related things in
-> gs101-oriole.dts.
+> Create a new board file to reflect this difference.
 >
 > Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
 >
