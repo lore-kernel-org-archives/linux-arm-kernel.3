@@ -4,89 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C25BC02185
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 09:59:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C8E9C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 10:02:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VM6sOkfE8iqC95N0AKyRjkMPid32wJ87nN4QCxrUuqo=; b=2JXWdbI+z75sBKRtDevr+WRRG8
-	t7cy7U3VDzepNpE6hKXtcGR5EcN1hWWTeXIP+CnQLiOXlcnV30omQHlNz7sk50R8xsLHJ3+nVkumi
-	iLx5wjlVdlu1c3B7TvSv978QNg3FOoCGXiOcCxfxqcG+3D4T3uHqR8hBvqa95ipV9IIFD7n3rlatn
-	2f/5IVa5YsnzlIDdpVL0aUW7DXhSdoweUKOAHodN0tZCFNVX6tMBRUp/r469r5Is4BN2D7CDaL577
-	JnSlx0GEaL4nG4fHngQ+Ip9aUZE+63PXE6N91ctZlGxgOaCq2lXnELCyzFMfY7aArl8HTmvlhobo7
-	zMmx6VwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J9qCCKssPFOhNE2Q6kDpYoA+uFQ9qxMGhFoj3QIqWXY=; b=veA8Ucrhvi+aFkd8MeQowJl+MK
+	ZTVe7m9P/D7O8NtAxGRQ/MQe3lD4XIpP+dzypRDqOWJQIjwNoCppTP/W4xCrnXJCSMj08lKeljHGv
+	jaG2EcxVlBs8ESSHlrnphBchgLHmMQE1G/bgvgB5NI7K4DTRNvOgb7+BaYQYTl/fEsMRN0j/cvTIx
+	R32cFAmmG2d+WhrJlJKHleKirFaEEY1Jac8WlOKDf3fP1oDcNqHzwHnfIU2iErlSeV05mPjTQpvSN
+	Ac3ZOs5GF0YaQQBRKv9w24nAFx0sVrJdeZpu007fl247iEfRUuX4TTLgyl1/Vlb6COh9Ikp29/HVh
+	EHQsxPmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZoYn-00000005GMa-08DO;
-	Mon, 20 Jan 2025 09:59:09 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1tZobV-00000005H74-3HTi;
+	Mon, 20 Jan 2025 10:01:57 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZoN6-00000005EMp-05Zw
+	id 1tZoUB-00000005FWx-36ix
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jan 2025 09:47:05 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3863c36a731so3672120f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jan 2025 01:47:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737366422; x=1737971222; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=VM6sOkfE8iqC95N0AKyRjkMPid32wJ87nN4QCxrUuqo=;
-        b=pA2iqZ52MWqZ4+HR35lBaop4SlqV3md4Wamq9SobcYhXfFVP7o7xqoXQ3Dntf15lol
-         LUsZ579QThdwuMJYsuIvBRkZwrDQqd6MjLvLwEeKwGdgaqAdR3oes+4yb5fpHSswk5c1
-         gTZ3Z2itKzv1gpZysL4tHAkfcMIf/TM5mhSSOnC9Aln1iotbAUw+V4+OaZWvGUY/kyy9
-         oPF2Kv11hV7Pe+iakxjnvySt5eBnkTW/YkPeWAadWcKH33S6WIqkITScHW+8cv2eQ5Wk
-         5GHhpK1ugXtCHjSKz8HGaRsoWRIbdocelow7SCTmsNFxs2g/9q2/1MOCeS6W5zqXdHIW
-         Gn/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737366422; x=1737971222;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=VM6sOkfE8iqC95N0AKyRjkMPid32wJ87nN4QCxrUuqo=;
-        b=U5/qdGGNYPvSvGylYK9REZIvoWs83hWp8AayWSsKPV5fNbPLvCmNIw0NOuICVoQ6/o
-         zuw0yqfgrmzBvYjHLWwqVV9KuFdU9rvJHQzD4vivX9QK84vMf7G6ZZ7NVZMttxNf9z6D
-         KnECrFOET73wn++yGRGzdWXivBDqC09Cf4ILhcUq8MQGuQXPR12UWaX37mYxXiobOo5Q
-         /Nb81+8qj7+Cc83zyRbg8Gp4jpfPAtM0HVyQvpLWdccVowuEKlOX9CCVTAXOQDHWTKpk
-         wHzMWjsxjpXF02gUCqKUTvgAMzTTPD4GGF4KEvq+99YVZfsWx2Xa6rpinEqyvUXnCxhh
-         prwQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWx4LrJp6RctGZIRz+X65DAMLRsAFwjwkuQamklsNQEDxfBdPkvbKgexKbG2TL86esKPbUHVRi9Te0AKosxWD73@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3UhLvwrErTb1azZAD3Z+zu+PzXXOqjnAt10ed+lqCqquPsNSb
-	9HzrU3TEQjt2KHCjFHUgnSE7H0YvfBXMWrWIexN9hZHOzrNy+IgGHx64kwJMiPo=
-X-Gm-Gg: ASbGncvvgPjjk+P9Ekbj8IawyuswXNQco8tw8Dvfyjz8NI5nSp0QozxNA/++vAdnTYC
-	svW8ATWEOu85DPxm/4+K0vn69UQyZNop5NTp/BSaUR50TBr/O6eT9oQpLSsI+Citx6YEhK73+ua
-	6svKTLf3GERrm8Z3EfLJZ+2I246r7yUFGu8Ggj1EhBPEoWuW3ePuDhKZUGE8SU/lgZqNIg3FqQR
-	3l0hWKaUbWQBG8pwe63HmNJl4F0+pW1hq2SZzUUn9CyJsrZk+InuIXnPu+uES/Ci4H5387MdIQ=
-X-Google-Smtp-Source: AGHT+IGPG329V2074yOYSMY1ziObuL2UZ+m5lYehxxQsiJfOBHTxj4D3R6O9lmeqMjiIW6U9yiBaRw==
-X-Received: by 2002:adf:9bca:0:b0:386:3356:f3ac with SMTP id ffacd0b85a97d-38bf57937a7mr7522401f8f.26.1737366422340;
-        Mon, 20 Jan 2025 01:47:02 -0800 (PST)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38bf32758dbsm10018595f8f.64.2025.01.20.01.47.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Jan 2025 01:47:01 -0800 (PST)
-Date: Mon, 20 Jan 2025 12:46:58 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Ming Yen Hsieh <mingyen.hsieh@mediatek.com>
-Cc: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Shayne Chen <shayne.chen@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>, Kalle Valo <kvalo@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Deren Wu <deren.wu@mediatek.com>, linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, kernel-janitors@vger.kernel.org
-Subject: [PATCH next] wifi: mt76: mt7925: fix error checking in
- mt7925_mcu_uni_rx/tx_ba()
-Message-ID: <063aafdf-3234-42ac-a4ea-3ff98e2835b6@stanley.mountain>
+	Mon, 20 Jan 2025 09:54:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=J9qCCKssPFOhNE2Q6kDpYoA+uFQ9qxMGhFoj3QIqWXY=; b=gcOAsWT6tsh6Zg0srbvfzKTGfd
+	jyL0hmH29wdmm5FcCL0Q7b7Uvm3jGaCHg5p1N3oH2HFvIXwNq+x61zL2Kau1DZUlWq4RcY0DlnN0i
+	lfxWXsKWUZxzAh8xjGiGKke/p/jYMsK8xWT/ljhwnEdLWawXonXWpH+koy5pijI9KSP3H7OtwwdKH
+	1gMspWSk8odUd3VXLc+2kBuZgG8r1GblfLoQ4/WRbNSM87noB4toSJy0LUcOFqI1tnS7eONFygrGu
+	aC9fFbAR9yhUCEsJyZy4nEx+8uPUUG7QZdLRLt8ORQa2zt+S6tXEVpN9XJCQcDqHadDo57Bu1uN3N
+	Yt0UaE4Q==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:38144)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tZoTw-0005zi-2P;
+	Mon, 20 Jan 2025 09:54:08 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tZoTq-0002lo-1n;
+	Mon, 20 Jan 2025 09:54:02 +0000
+Date: Mon, 20 Jan 2025 09:54:02 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Jiawen Wu <jiawenwu@trustnetic.com>
+Cc: 'Andrew Lunn' <andrew@lunn.ch>,
+	'Heiner Kallweit' <hkallweit1@gmail.com>, mengyuanlou@net-swift.com,
+	'Alexandre Torgue' <alexandre.torgue@foss.st.com>,
+	'Andrew Lunn' <andrew+netdev@lunn.ch>,
+	'Bryan Whitehead' <bryan.whitehead@microchip.com>,
+	"'David S. Miller'" <davem@davemloft.net>,
+	'Eric Dumazet' <edumazet@google.com>,
+	'Jakub Kicinski' <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	'Marcin Wojtas' <marcin.s.wojtas@gmail.com>,
+	'Maxime Coquelin' <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org, 'Paolo Abeni' <pabeni@redhat.com>,
+	UNGLinuxDriver@microchip.com
+Subject: Re: [PATCH net-next 0/9] net: add phylink managed EEE support
+Message-ID: <Z44dOlfRN5FmHcdS@shell.armlinux.org.uk>
+References: <Z4gdtOaGsBhQCZXn@shell.armlinux.org.uk>
+ <06d301db68bd$b59d3c90$20d7b5b0$@trustnetic.com>
+ <Z4odUIWmYb8TelZS@shell.armlinux.org.uk>
+ <06dc01db68c8$f5853fa0$e08fbee0$@trustnetic.com>
+ <Z4pL3Mn6Qe7O45D7@shell.armlinux.org.uk>
+ <073a01db6add$d308af40$791a0dc0$@trustnetic.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-X-Mailer: git-send-email haha only kidding
+In-Reply-To: <073a01db6add$d308af40$791a0dc0$@trustnetic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_014704_071896_EE51E51C 
-X-CRM114-Status: GOOD (  15.55  )
+X-CRM114-CacheID: sfid-20250120_015423_779575_76E89AAC 
+X-CRM114-Status: GOOD (  22.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,74 +94,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The "ret" variable in mt7925_mcu_uni_[rx/tx]_ba() needs to be signed for
-the if (ret < 0) condition to be true.
+On Mon, Jan 20, 2025 at 09:51:29AM +0800, Jiawen Wu wrote:
+> On Fri, Jan 17, 2025 8:24 PM, Russell King (Oracle) wrote:
+> > On Fri, Jan 17, 2025 at 06:17:05PM +0800, Jiawen Wu wrote:
+> > > > > Since merging these patches, phylink_connect_phy() can no longer be
+> > > > > invoked correctly in ngbe_open(). The error is returned from the function
+> > > > > phy_eee_rx_clock_stop(). Since EEE is not supported on our NGBE hardware.
+> > > >
+> > > > That would mean phy_modify_mmd() is failing, but the question is why
+> > > > that is. Please investigate. Thanks.
+> > >
+> > > Yes, phy_modify_mmd() returns -EOPNOTSUPP. Since .read/write_mmd are
+> > > implemented in the PHY driver, but it's not supported to read/write the
+> > > register field (devnum=MDIO_MMD_PCS, regnum= MDIO_CTRL1).
+> > >
+> > > So the error occurs on  __phy_read_mmd():
+> > > 	if (phydev->drv && phydev->drv->read_mmd)
+> > > 		return phydev->drv->read_mmd(phydev, devad, regnum);
+> > 
+> > Thanks. The patch below should fix it. Please test, meanwhile I'll
+> > prepare a proper patch.
+> > 
+> > diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+> > index 66eea3f963d3..56d411bb2547 100644
+> > --- a/drivers/net/phy/phylink.c
+> > +++ b/drivers/net/phy/phylink.c
+> > @@ -2268,7 +2268,11 @@ static int phylink_bringup_phy(struct phylink *pl, struct phy_device *phy,
+> >  	/* Explicitly configure whether the PHY is allowed to stop it's
+> >  	 * receive clock.
+> >  	 */
+> > -	return phy_eee_rx_clock_stop(phy, pl->config->eee_rx_clk_stop_enable);
+> > +	ret = phy_eee_rx_clock_stop(phy, pl->config->eee_rx_clk_stop_enable);
+> > +	if (ret == -EOPNOTSUPP)
+> > +		ret = 0;
+> > +
+> > +	return ret;
+> >  }
+> > 
+> >  static int phylink_attach_phy(struct phylink *pl, struct phy_device *phy,
+> 
+> Test pass.
+> Thanks.
 
-Also the mt7925_mcu_sta_ba() function returns positive values on success.
-The code currently returns whatever non-negative value was returned on
-the last iteration.  It would be better to return zero on success.  This
-function is called from mt7925_ampdu_action() which does not check the
-return value so the return value doesn't affect runtime.  However, it
-still makes sense to return zero even though nothing is affected in the
-current code.
+Thanks, I guess that's a tested-by then?
 
-Fixes: eb2a9a12c609 ("wifi: mt76: mt7925: Update mt7925_mcu_uni_[tx,rx]_ba for MLO")
-Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
----
- drivers/net/wireless/mediatek/mt76/mt7925/mcu.c | 14 ++++++++------
- 1 file changed, 8 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
-index 15815ad84713..b3a00964e802 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
-@@ -617,7 +617,8 @@ int mt7925_mcu_uni_tx_ba(struct mt792x_dev *dev,
- 	struct mt792x_bss_conf *mconf;
- 	unsigned long usable_links = ieee80211_vif_usable_links(vif);
- 	struct mt76_wcid *wcid;
--	u8 link_id, ret;
-+	u8 link_id;
-+	int ret;
- 
- 	for_each_set_bit(link_id, &usable_links, IEEE80211_MLD_MAX_NUM_LINKS) {
- 		mconf = mt792x_vif_to_link(mvif, link_id);
-@@ -630,10 +631,10 @@ int mt7925_mcu_uni_tx_ba(struct mt792x_dev *dev,
- 		ret = mt7925_mcu_sta_ba(&dev->mt76, &mconf->mt76, wcid, params,
- 					enable, true);
- 		if (ret < 0)
--			break;
-+			return ret;
- 	}
- 
--	return ret;
-+	return 0;
- }
- 
- int mt7925_mcu_uni_rx_ba(struct mt792x_dev *dev,
-@@ -647,7 +648,8 @@ int mt7925_mcu_uni_rx_ba(struct mt792x_dev *dev,
- 	struct mt792x_bss_conf *mconf;
- 	unsigned long usable_links = ieee80211_vif_usable_links(vif);
- 	struct mt76_wcid *wcid;
--	u8 link_id, ret;
-+	u8 link_id;
-+	int ret;
- 
- 	for_each_set_bit(link_id, &usable_links, IEEE80211_MLD_MAX_NUM_LINKS) {
- 		mconf = mt792x_vif_to_link(mvif, link_id);
-@@ -657,10 +659,10 @@ int mt7925_mcu_uni_rx_ba(struct mt792x_dev *dev,
- 		ret = mt7925_mcu_sta_ba(&dev->mt76, &mconf->mt76, wcid, params,
- 					enable, false);
- 		if (ret < 0)
--			break;
-+			return ret;
- 	}
- 
--	return ret;
-+	return 0;
- }
- 
- static int mt7925_load_clc(struct mt792x_dev *dev, const char *fw_name)
 -- 
-2.45.2
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
