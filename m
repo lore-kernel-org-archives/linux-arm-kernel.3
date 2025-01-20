@@ -4,94 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F487C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 19:27:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 741E7C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 19:45:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CerU6xvl9lcXiaDqDUt8ZKpDTAlJGqkJkLTkeLu13Uk=; b=Z4l9kC88YSgTy+WWxZbB57BDRV
-	g94rLfqvbeRJRI3Z9hGmzQ6+UAE4FaE/H6jdZFnMcPYVC/yAPT2QBSodtE2DDx7wgYnpucMmeHNfl
-	lBbDNMUiHsqn9BaIpX8Ydc3G6RwlFAoLxfGlY4z82QmUeJoMbhy6lwkygYQM5xr2UE2P/M07ouENL
-	Riyoqwt6b4R1miYyvftbasyzArcJD1X0tRq4JSGRCK9r39IMRimKrpycbXX8PZpidRmMHt2IWGYpp
-	aWcTF/9kkF4vPch8QKsU29Ak6wNf+vI7mcak7RDA90YK3+zULud/x/YS/7oDZqAqaueK5XgLIEckl
-	eUY7Iwyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sh3mT3bHbxsXFi8J23gbXty5pbdqhTtc1zefMkkFG0U=; b=3fboHA8pEHuXjAdELs/pUivdN6
+	Juqq1qt0FewwqhQJFgWDQbchFrDIBg4vwVykmHQplffsYPzYGVeESLWAHhp/Vbgn9c9r/+xYob3XS
+	FTVsoPQmlyNapv7T1tlx3F9eb0d7bnDOtYzHatDATciqdrIKQ1hQbUFrGx0D4Hsos2j9yqOuzi/z3
+	jsoLmUewgA96dIqcdqkwPpe6aGUUu7b+7QSdIKZ1VhdJs4a3fqBonG1sSCPS0cdnD3SAbD48yjJus
+	5Bd6mBox+ksRSxnDRLEldJyVjgk+PQQJIGu2cLcp2zG+8xQYrPrchPuw5K6F5WxlftUf0D5k18I7N
+	xEfKL7aQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZxQJ-00000006Jx1-01VD;
-	Mon, 20 Jan 2025 19:26:59 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1tZxi5-00000006LM9-26Vm;
+	Mon, 20 Jan 2025 19:45:21 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZxMg-00000006JU3-1xJ8;
-	Mon, 20 Jan 2025 19:23:15 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-5401d3ea5a1so4579998e87.3;
-        Mon, 20 Jan 2025 11:23:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737400992; x=1738005792; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=CerU6xvl9lcXiaDqDUt8ZKpDTAlJGqkJkLTkeLu13Uk=;
-        b=k6lvX2fmx+aP5YAeAAZ4fBOyMpLcTdzOqzvPqRtsqXo9Bk58EO+cPAupdnZ7JrJPxL
-         JHzdGkLK14XReu07jdKWEmB/lln9e9eHO+cSf+B5F59L5qMuOWGS6PqyrPlswKhh5ihV
-         3MHahwn9ScmqovHDFW4Zixq5tv+mvjXm8BvqRmCIICcfsZ77DXxHKNl0I7i+ouKFPtrm
-         uVFOETfp2zWPXspWt0zXiLKQFadARiMktxEPIel+BGEu4gB2FHqYEvhoQ+PVHAGGoYvZ
-         7X/8xx6WY36DBP6BqBZKJ/K0iuS6GOGkStpv/f+NVGIfNFTxWhFNKsKhMjlp5otjJpvO
-         Y2HA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737400992; x=1738005792;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=CerU6xvl9lcXiaDqDUt8ZKpDTAlJGqkJkLTkeLu13Uk=;
-        b=QyiJPKYGdFvIdWSJhevrlQ/XZ/aU9QOXmrmqB+bUK2m4xD7kuFOZAsQ1on5eThrUml
-         rsjdEN8W5A0zfuQlZx4oQnJByM1BT6PKf0+Kcd8lCPt7OdoXvYqI8Vev9Q4F3DciqrdQ
-         iRA97WwDabp1B7bJ5U9VkfHB/ryEEdh3y1+utKizL37tEtdIEYbCYbaV0uveJOXX/VWu
-         ii9ggdwsum52r/nts7ojY5HxCLcmkCYcEszFVRjXY9IDHnd9roD8J93gwleeyf5Y/N/x
-         tO1JjLDrEWA1MPjUxSS+m/Uy7/KmSli4Y+bEAac5mRRpgobby61YucFTSgDiJc3BV5IZ
-         aj1A==
-X-Forwarded-Encrypted: i=1; AJvYcCVtq0KXVfPEAy5bjdP15W8c1Qmv3JiHnEfLcM39DmzGbiNClwQa2s8irJ5ONd8Dm7k4Y1rt9Qkzlpzuy8yIRxw=@lists.infradead.org, AJvYcCX7tiHmwuNL23eMJ4e++kzhRzR1sgq70zEgfoZOcFjAqIRWbu60N84t8aKznt5jRxDM/CcAWEWXvl47oKpxTC61@lists.infradead.org
-X-Gm-Message-State: AOJu0YxcYbquLH4ykchua0Oi3g4/AeGIgxFvA/LLDL8bd5ZcCbw8BaKD
-	MN5BsAo2X6lmKzy09tWq9Mg29vLBVznEK8MgdBloop8ZwiRKcGX1
-X-Gm-Gg: ASbGncsm4RIrVbeHN0XCQbRrtQBjqjBrLmgMp7rIzYFvy2F7LteB9or03mZJKKE6vIS
-	lhJu12oEqSQ9y1QmDrGSBJBvG4RXH0svnAR6sF6D8B2IEyNbxBVZiwK29dzGRZJVas7AKEgwVDS
-	P/u+u6Ck7ebyWznpr0tt+uGfVp3Jd7ve5pGrn9LyrtTBoZIryRv1rirW05Pidx6MF1H4QeRo+Z7
-	1ON1uOG0IT/AZpVg+87nBNKBvpmBKmjUWq+Et3VanD+akFtbC/a2kGjZAE6UAYN+/PnUAM=
-X-Google-Smtp-Source: AGHT+IHf2PZbpFBhm6xQF3fctlNvkttb0vgzfqpVAIWgHcDB65Se341pGvnkDgcpLLDfHvKr17lOlA==
-X-Received: by 2002:ac2:511e:0:b0:542:98bb:5678 with SMTP id 2adb3069b0e04-5439c248293mr3381366e87.25.1737400992347;
-        Mon, 20 Jan 2025 11:23:12 -0800 (PST)
-Received: from [172.30.32.150] ([185.204.1.212])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5439af78fb0sm1460156e87.247.2025.01.20.11.23.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Jan 2025 11:23:11 -0800 (PST)
-From: Alexey Charkov <alchark@gmail.com>
-Date: Mon, 20 Jan 2025 23:22:47 +0400
-Subject: [PATCH 2/2] arm64: dts: rockchip: Enable automatic fan control on
- Radxa Rock 5C
+	id 1tZxgo-00000006LBc-0rTM
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Jan 2025 19:44:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1737402242; x=1768938242;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=KIwQ96tcbKsNvtTiJ7Sp5Kac727a4bUVsOQMTqS4RJg=;
+  b=YuWJlFifQmd9aOE9vnCErFLmLmc4mEg8Fc8WzMs1PhAvpRBfVEuJKJsN
+   O+gnspmzdw363mFvjadopdfsAXJQc5RfpuobmyO6CUMJLewWv1c5JkIs8
+   DeDnotaru8cW3nhQ4mDYEBwEvCpQ8WCcAMOf+si+bqa9NoggpJqip6pee
+   n7Diomi6CxGwC4urxZVekMH/zrLLzvNxuCwnXy7xMtsvQA6maN6UYeDQc
+   DGFb7QYVuYlvIQCJcNnYSetHg4pP8KVSpbbqMsm+RB+RcwAWAw/m1y4yu
+   e7qzF0v6GLN2XfMRQwDSd0gG88yJ9j01MFU7I4YN6U7llrhjyRp9jAo02
+   A==;
+X-CSE-ConnectionGUID: 0bzm1IKTTRi/qXDq7Hhtng==
+X-CSE-MsgGUID: JefHfgJRRZSNd0yM88SudA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11321"; a="37681908"
+X-IronPort-AV: E=Sophos;i="6.13,220,1732608000"; 
+   d="scan'208";a="37681908"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jan 2025 11:43:57 -0800
+X-CSE-ConnectionGUID: zmRDdNRTRJ6GTy6M+h+jzQ==
+X-CSE-MsgGUID: kPy9akuURPWUJQvFuXE8rQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,220,1732608000"; 
+   d="scan'208";a="106419830"
+Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
+  by fmviesa006.fm.intel.com with ESMTP; 20 Jan 2025 11:43:53 -0800
+Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tZxgd-000Wvf-2W;
+	Mon, 20 Jan 2025 19:43:51 +0000
+Date: Tue, 21 Jan 2025 03:43:09 +0800
+From: kernel test robot <lkp@intel.com>
+To: Pankaj Gupta <pankaj.gupta@nxp.com>, Jonathan Corbet <corbet@lwn.net>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: oe-kbuild-all@lists.linux.dev, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v12 4/5] firmware: imx: add driver for NXP EdgeLock
+ Enclave
+Message-ID: <202501210346.wYxcOI66-lkp@intel.com>
+References: <20250120-imx-se-if-v12-4-c5ec9754570c@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250120-rock-5c-fan-v1-2-5fb8446c981b@gmail.com>
-References: <20250120-rock-5c-fan-v1-0-5fb8446c981b@gmail.com>
-In-Reply-To: <20250120-rock-5c-fan-v1-0-5fb8446c981b@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Alexey Charkov <alchark@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1737400976; l=1557;
- i=alchark@gmail.com; s=20240125; h=from:subject:message-id;
- bh=//LokAOrRA/EeaT7c38MIMn9xv0OF0OdXdgFumo2L3E=;
- b=b//UblCwgSfsCubs+uRP/+gxXObDUfoo+IKG9h27aNXw/OVa7YQkqZJFdMFxG4gh+/RMZt7JV
- trcFo0mQya+A1AmnYJ1eIpQ3nvSieGqS7QJX7s7iuErEwIhD6cuvSeQ
-X-Developer-Key: i=alchark@gmail.com; a=ed25519;
- pk=xRO8VeD3J5jhwe0za0aHt2LDumQr8cm0Ls7Jz3YGimk=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250120-imx-se-if-v12-4-c5ec9754570c@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_112314_511829_AC307386 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20250120_114402_288214_2AE5B55D 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,67 +95,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the necessary cooling map to enable the kernel's thermal subsystem
-to manage the fan speed automatically depending on the overall SoC
-package temperature on Radxa Rock 5C
+Hi Pankaj,
 
-Signed-off-by: Alexey Charkov <alchark@gmail.com>
----
- arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts | 32 +++++++++++++++++++++++-
- 1 file changed, 31 insertions(+), 1 deletion(-)
+kernel test robot noticed the following build warnings:
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
-index 1b66a69cf0f8795d7305852fa7fef3d0672ada7f..6e56d7704cbe0dc06242cb39df56b2fc9d6bc774 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
-@@ -68,7 +68,7 @@ led-1 {
- 		};
- 	};
- 
--	fan {
-+	fan: fan {
- 		compatible = "pwm-fan";
- 		#cooling-cells = <2>;
- 		cooling-levels = <0 24 44 64 128 192 255>;
-@@ -417,6 +417,36 @@ rgmii_phy1: ethernet-phy@1 {
- 	};
- };
- 
-+&package_thermal {
-+	polling-delay = <1000>;
-+
-+	trips {
-+		package_fan0: package-fan0 {
-+			temperature = <55000>;
-+			hysteresis = <2000>;
-+			type = "active";
-+		};
-+
-+		package_fan1: package-fan1 {
-+			temperature = <65000>;
-+			hysteresis = <2000>;
-+			type = "active";
-+		};
-+	};
-+
-+	cooling-maps {
-+		map0 {
-+			trip = <&package_fan0>;
-+			cooling-device = <&fan THERMAL_NO_LIMIT 1>;
-+		};
-+
-+		map1 {
-+			trip = <&package_fan1>;
-+			cooling-device = <&fan 2 THERMAL_NO_LIMIT>;
-+		};
-+	};
-+};
-+
- &pcie2x1l2 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pcie20x1_2_perstn_m0>;
+[auto build test WARNING on ffd294d346d185b70e28b1a28abe367bbfe53c04]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Pankaj-Gupta/Documentation-firmware-add-imx-se-to-other_interfaces/20250120-193050
+base:   ffd294d346d185b70e28b1a28abe367bbfe53c04
+patch link:    https://lore.kernel.org/r/20250120-imx-se-if-v12-4-c5ec9754570c%40nxp.com
+patch subject: [PATCH v12 4/5] firmware: imx: add driver for NXP EdgeLock Enclave
+config: arm64-randconfig-002-20250121 (https://download.01.org/0day-ci/archive/20250121/202501210346.wYxcOI66-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250121/202501210346.wYxcOI66-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202501210346.wYxcOI66-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/firmware/imx/se_ctrl.c:505:12: warning: 'se_resume' defined but not used [-Wunused-function]
+     505 | static int se_resume(struct device *dev)
+         |            ^~~~~~~~~
+>> drivers/firmware/imx/se_ctrl.c:491:12: warning: 'se_suspend' defined but not used [-Wunused-function]
+     491 | static int se_suspend(struct device *dev)
+         |            ^~~~~~~~~~
+   drivers/firmware/imx/se_ctrl.c:228:12: warning: 'se_load_firmware' defined but not used [-Wunused-function]
+     228 | static int se_load_firmware(struct se_if_priv *priv)
+         |            ^~~~~~~~~~~~~~~~
+
+
+vim +/se_resume +505 drivers/firmware/imx/se_ctrl.c
+
+   490	
+ > 491	static int se_suspend(struct device *dev)
+   492	{
+   493		struct se_if_priv *priv = dev_get_drvdata(dev);
+   494		struct se_fw_load_info *load_fw;
+   495		int ret = 0;
+   496	
+   497		load_fw = get_load_fw_instance(priv);
+   498	
+   499		if (load_fw->imem_mgmt)
+   500			ret = se_save_imem_state(priv, &load_fw->imem);
+   501	
+   502		return ret;
+   503	}
+   504	
+ > 505	static int se_resume(struct device *dev)
+   506	{
+   507		struct se_if_priv *priv = dev_get_drvdata(dev);
+   508		struct se_fw_load_info *load_fw;
+   509	
+   510		load_fw = get_load_fw_instance(priv);
+   511	
+   512		if (load_fw->imem_mgmt)
+   513			se_restore_imem_state(priv, &load_fw->imem);
+   514	
+   515		return 0;
+   516	}
+   517	
 
 -- 
-2.48.1
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
