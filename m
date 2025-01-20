@@ -4,85 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8688C02185
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 09:56:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35736C02188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 09:58:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/txNyQu2BI0vIx5c86EaLSOS1gZfrKfoUZEaa0Exzms=; b=1pM4hjVRbBslxDNYr2IuY+hrQw
-	Jt6bNYwyP9+X5MVkB8CjjUutMBd3ypCaOxDGmcfx917WqXYrBUGXLZ8Wkp48V0oT7FjHpu/JQVAH9
-	RiLdNvNpfiAjRqiN6kEUrDC2cvR0BGTz+8BBf3GCx5S/G3vGstL8NkW5nvoC+ckzdN3BdbyaVpkKv
-	U7QKaKZ/g39TbsylZTIcrNziZ3QywbFLWpVQEU3qAdwt1ruYt46W3tyz0D50hTbQ3FhT/EG/HjAPP
-	XpcyJf2knDH0Gpniz+7iexh3tv9BzCfTsEJcN42y59IdKAYsEKov1VXzuLR1JScpVl2vLbsfyTjt+
-	dfBtZryw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KS/16UvSfEHeMPEs5zPlC9256JErSLdmqszpJR3Jvck=; b=U3BvnFqevCRJEVc4dXCluBqiNj
+	Uarq1cx4M5+38HJXu556e0V7FtP98yzUXvvEHl5jUlT0tfR3oCXRwSaorRhZujJkb52K5wJsColYJ
+	MiII1WXASZkquEYoWcmbQfta3vhqitgTbJtfCnn7H/BWHG/Z63trVQ7gHJOswsIjP8dmnr8hv7ruU
+	KGJ9d3e2F633tq/ElS0dqV8TMHNFukisX10yRLRYR2VMw8gFz2paoD2VBlLSITUccJ3Hgm7UKV4il
+	4RoW7udRTyAXyRQEaMBfaYw0wHkzd8UicsbsqZua5pdXtFOJ/7cHU0+m3CjkMILdE/DZQcGNAQntR
+	yJTgnBXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZoWI-00000005Fu9-2MGD;
-	Mon, 20 Jan 2025 09:56:34 +0000
-Received: from mail-oo1-xc35.google.com ([2607:f8b0:4864:20::c35])
+	id 1tZoXX-00000005G6E-2dXL;
+	Mon, 20 Jan 2025 09:57:51 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZo81-00000005CD0-3HqL
+	id 1tZoMj-00000005EJI-3MfQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jan 2025 09:31:30 +0000
-Received: by mail-oo1-xc35.google.com with SMTP id 006d021491bc7-5f31f8f4062so2057772eaf.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jan 2025 01:31:29 -0800 (PST)
+	Mon, 20 Jan 2025 09:46:43 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4361815b96cso28686675e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jan 2025 01:46:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737365489; x=1737970289; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/txNyQu2BI0vIx5c86EaLSOS1gZfrKfoUZEaa0Exzms=;
-        b=zTTepkYLW9Ub9jhbEW1G7MNNtOPXyf9vK5yptAgZmghpey+aGheBIIBVb9DXQwL01I
-         WMkeDrxwG7Wi3zHMsPsW9qp2KrLs/05JK5ZJ3z4HUA9Ua5j/DJhHevF/DRIp+xJzWKZA
-         iNvb/QPmSHvr6U6I/oHK5ncFjmDG4k02JMUhbsvIIkdKx2zIqFwxyZPoCyPl3z1Dl7d+
-         J0aj0qchJ+ZtAcYLcr28NbwvO0aoYuTaVZRSbb7pggCEQe974M5dIAyaugerKZJChje+
-         aEWnxRK34L5ekfDdCvAVwnow7wm3pK9ZqC75L2g7ULL40pJTanqMOGW32hHUEmYfuf+I
-         QZLw==
+        d=gmail.com; s=20230601; t=1737366400; x=1737971200; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=KS/16UvSfEHeMPEs5zPlC9256JErSLdmqszpJR3Jvck=;
+        b=eLz7XmJJaWAc0M1VEVsVGIyQMazKIe1bkEGw+Gnv4llAL2Dq0Q3hV2aAnTtv41Iy+G
+         6XnjOdJQJreopwJ8CpE4vw1x/hNm6OJTqD9f2OCuwvqqk/zGVD9TrMRdEWfytddgY0BX
+         UDBZz5emqvpfKArAizdnGsXHZ2b3mvOy0qmjgZ78Yuc9pg6Pv3KCAYEmeNbasNvah6s9
+         MRzuLWIzn+HhIiK45acsCJERLQ8ZnlUGuTPF6EvciHHUiUX8Gkm/n4Nc1IEGO8Lpozwh
+         14Y3DApdlyE9BGyUA8Mx6yC3dNIv4BrCcTHVd7Tnu51hofTYiYzifet0QoQrFqSJ8nje
+         SRVQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737365489; x=1737970289;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/txNyQu2BI0vIx5c86EaLSOS1gZfrKfoUZEaa0Exzms=;
-        b=c9UhIyfy2NOChyUPiIOqwBUBzxlyg936zfoaV1LbIRAwHS03xBnfTfXw0Tc/vN2yAi
-         7+8HjkSNQ+3jMNzwPN+ivEL8NCwssJ0RQT0A+r5r6JhEwVcsZrZP2twkFP0PJn5aLjD5
-         tdadNnhB1Mx+GPOvFbrEN/O7GPcBWiqqFZUA34s27FSSrv59p6Xdlwl79g/vgX33NO29
-         sHoKLT+hK7TqaZk4R0Y1tEz0dUfhQr477euDDEx+qWo/i6cHLsD6KISBPfEgASvK5+BX
-         yBKXK5aUaojsZkE9Q9v47ORcOxY2juWYr7a2qzIPf5dpD2fzVAlsRUt4QmJZZThAPLqY
-         wYNQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVH8mZO/AvVuo+mAxRX2xDEHkkKOP+iifnzuwIo3nYwF27TDvcjO82B07T9eFqIAPZxCr8w6ZUlRttzrK3ZbN+5@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3MzLA4IU6K20rSpA430MoRj4dvTuycYU8GD/xTggH7VSVu9np
-	qCxyDXzrDWvSpdlyAOUJvt47iXmZ0wsWtYewplAdIjB8b2PvWsEHkxYAiqkpTB0Ko+QU/iRnrFV
-	b666lCHnJSLw27fpiEVxmthQfE5lfjuOcgVqzMg==
-X-Gm-Gg: ASbGncuMxeRlm76Geh4u98/ON+gLqBJFQiyTY8WOv2gdCQepkm/iP78l68aWpNEudOB
-	Xlwmg5P6/JN5AV/2rlzrI6mc6HMffkRjJZNbaqPvNbfW6077FspI=
-X-Google-Smtp-Source: AGHT+IF8len7DYYtDJAgNhF4OWjKUVOC4YIVlj3v0nrpLbI1QFEg8CYynCXmjD6obOo0TkU5UVshdOMsj5zP1TGy7io=
-X-Received: by 2002:a05:6820:20f:b0:5f9:12bb:4e22 with SMTP id
- 006d021491bc7-5fa388a4597mr6443440eaf.5.1737365488821; Mon, 20 Jan 2025
- 01:31:28 -0800 (PST)
+        d=1e100.net; s=20230601; t=1737366400; x=1737971200;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=KS/16UvSfEHeMPEs5zPlC9256JErSLdmqszpJR3Jvck=;
+        b=VLpG081noP3bFgsdzDKyFTed418HpYD8kr8HbQi8UlGPZ+8vOsP/DhqYfp2C/nI503
+         /PcgMSa+VV166U51LySzbvUemiTeAK8UOZ/z49sd2rim8kXHAE2rHYYb901OIFJI2n6I
+         AzEGXpx5h1zPfxDdlsfKslAhXm5ejwouCEj1Nr8Q6e+NtBI4uXIlP/meCpHbdztfEBIU
+         y0zx5hFiLA5G+HsvicivfB/5O7I4oq5pziErjPKhgZc+pH886FjR9C/rHwUa7MBEpIqV
+         VSHBJF7ueX5Kmcf2lCXOE4bSvhC5SGeyG1bWUSuSi+olAwQw0YGbdzXtuLI8n3eHSTEP
+         JbZw==
+X-Forwarded-Encrypted: i=1; AJvYcCXRJaOM7ssC26gLPCWtqk5IdDlPQIfYRW8BUI8Y7gZ8Z99TUW9I77jOrZrPq358uAzxuAsPteXBCwMyi7uMJx2Y@lists.infradead.org
+X-Gm-Message-State: AOJu0YyDom1sFqM0WJTV2uL2lxagJx5oalRJcg11Qh8pdwDWf0TCnNsZ
+	r/TmydVFR2e8T13PNJqI89Forf/eHJ3d/fm19rdyb3eS9Di0DpdA
+X-Gm-Gg: ASbGncs9zT1xJvpPQzoRh/bFnR9Dc6JA402cQmkuRVbQ7zmRMLDMRdY+DNuMKBJ0vSv
+	Xcu1DUPZuCm3eMe1IDHxlLOY2pncu7Jc+bWOd6ovyAzDvWYb7R+SO4b28CtOWunm7BQDXUx3e7V
+	w3atKnW9slwYju1QrMyZBQZRubdSqBw6n5CsvwF3n7fk6I3mOa8CzDVCS1djZepxTqLWDaMlNmB
+	70Cm4bUHp4FLRGd39FdJeGqXJyhB/ZtKIon+nMKREq8oMPD90e51oi4bqLrIBlBlFkanrM0g48E
+	8OtnUFgpzQ==
+X-Google-Smtp-Source: AGHT+IE/e8Y0UzEMao6atgZUbcfEv/3tvajzHUJl3OU3gm5cGx1+LX4SFiUZ76g9wAqK/F4I8/8cRw==
+X-Received: by 2002:a05:600c:4894:b0:434:a7e7:a1ca with SMTP id 5b1f17b1804b1-43891427762mr99548035e9.20.1737366398007;
+        Mon, 20 Jan 2025 01:46:38 -0800 (PST)
+Received: from eichest-laptop.toradex.int ([2a02:168:af72:0:cc96:d269:5cab:960d])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-437c74c4e38sm191197065e9.21.2025.01.20.01.46.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 20 Jan 2025 01:46:37 -0800 (PST)
+From: Stefan Eichenberger <eichest@gmail.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	francesco.dolcini@toradex.com,
+	shengjiu.wang@gmail.com
+Cc: devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Stefan Eichenberger <stefan.eichenberger@toradex.com>
+Subject: [PATCH v1] arm64: dts: imx8-apalis: add clock configuration for 44.1 kHz hdmi audio
+Date: Mon, 20 Jan 2025 10:45:22 +0100
+Message-ID: <20250120094632.13894-1-eichest@gmail.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-References: <20250117-gs101-simplefb-v4-0-a5b90ca2f917@linaro.org> <20250117-gs101-simplefb-v4-4-a5b90ca2f917@linaro.org>
-In-Reply-To: <20250117-gs101-simplefb-v4-4-a5b90ca2f917@linaro.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Mon, 20 Jan 2025 09:31:17 +0000
-X-Gm-Features: AbW1kva-M4BHCc_hAA9pu7iTT8qDuD1HyhFEle30Ny8cn6ziU_A-M8y799oFSCw
-Message-ID: <CADrjBPr32JdfwMFWB=PB_jkXddqmq_4CDd9hqowW0tzbSXp5QA@mail.gmail.com>
-Subject: Re: [PATCH v4 4/4] arm64: dts: exynos: gs101-raven: add new board file
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Will McVicker <willmcvicker@google.com>, 
-	kernel-team@android.com, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_013129_820988_A7F24DE5 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20250120_014641_848224_22C8C31C 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,22 +105,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andr=C3=A9
+From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
 
-On Fri, 17 Jan 2025 at 17:10, Andr=C3=A9 Draszik <andre.draszik@linaro.org>=
- wrote:
->
-> Raven is Google's code name for Pixel 6 Pro. Similar to Pixel 6
-> (Oriole), this is also based around its Tensor gs101 SoC.
->
-> For now, the relevant difference here is the display resolution:
-> 1440 x 3120 instead of 1080 x 2400.
->
-> Create a new board file to reflect this difference.
->
-> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
->
-> ---
+Currently, HDMI audio cannot play sound at a 44.1 kHz sample rate due to
+a clock frequency mismatch. This update resolves the issue by allowing
+the sai driver to change the clock parent to AUDIO_PLL_1 when the sample
+rate is 44.1 kHz. It also ensures that AUDIO_PLL_1 operates at the
+correct frequency for this configuration.
 
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+Signed-off-by: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+---
+This patch is based on the following discussion:
+https://lore.kernel.org/all/20250113094654.12998-1-eichest@gmail.com/
+We use the existing mechanisms and just add the missing clock
+configuration to our device tree.
+
+ .../boot/dts/freescale/imx8-apalis-v1.1.dtsi     | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi b/arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi
+index a3fc945aea16..dbea1eefdeec 100644
+--- a/arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi
+@@ -790,6 +790,22 @@ &sai1 {
+ 	status = "okay";
+ };
+ 
++/* Apalis HDMI Audio */
++&sai5 {
++	assigned-clocks = <&acm IMX_ADMA_ACM_SAI5_MCLK_SEL>,
++			  <&acm IMX_ADMA_ACM_AUD_CLK1_SEL>,
++			  <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_PLL>,
++			  <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_SLV_BUS>,
++			  <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_MST_BUS>,
++			  <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_PLL>,
++			  <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_SLV_BUS>,
++			  <&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_MST_BUS>,
++			  <&sai5_lpcg 0>;
++	assigned-clock-parents = <&aud_pll_div0_lpcg 0>, <&aud_rec1_lpcg 0>;
++	assigned-clock-rates = <0>, <0>, <786432000>, <49152000>, <12288000>,
++			       <722534400>, <45158400>, <11289600>, <49152000>;
++};
++
+ /* TODO: Apalis SATA1 */
+ 
+ /* Apalis SPDIF1 */
+-- 
+2.45.2
+
 
