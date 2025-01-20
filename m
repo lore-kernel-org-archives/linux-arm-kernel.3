@@ -4,92 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90BCBC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 10:58:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E542C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 11:06:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZnCt5DjDOmwR4I1vAJ/enzzSs6/BjfG1IINpOsDqGQc=; b=wUI9qqFDdkmnBw0XUigxNxEprw
-	8rdGdAZ1E0PuVPM4ZDSiHsKCi7mpi6aNMYEYJmzQrhs8PvekVjaHL0iFi4sd3Y5Aat8Iez4DUVqFR
-	KrpEf1jt7z0GU0zwTxCA2Nebiu5zc0dypFoupCwu9j7fJl9bcUALpWopC2PRZfZjn1knHTx/607tP
-	3SjlqNt76cLbVDpF5bE18Chp7ZgWkulDGc5dq4TPCqIdkrFBoQZewsuX3YOT0lqdqfJdmdVx9uiaB
-	mi1xjLVzrjClGB7PQ629x+yp0RSVJvInSwwGC+YrahsV6HInblOmkT33HNgNOuxYFFaoZKhhY7pqr
-	z+zl9QEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IJHNqYMWw4G3jyIRWFyd7ysmaSfI/0yW59LUGHBiP/U=; b=e6HznFLSXRU9W3/F+P5M6r+c0i
+	id7qdpIZw89dbPRhOf182JHln6DTaanZBBb1AcuHjKnVTdJ+kRZi1fdGUKq/lcb2sLsAb6OPA2q0C
+	GukOLpdaH06PvwskLQ0BOAMJgZDLVyzeRYvT0/YHFcoh6YfMxuEF1yN6G1jdsMQMqUElCCwbVRhYz
+	2ZAJcwUVJsaYTi6vTRua9IVGD+2BJPBZLBmlTYibdlv/cKSQCNW8FPlW060lwZHUUEb6WLPHiuRRs
+	BAXY9sAQElmDEC4quRTcfejKiLk9TjVqkTf6CGH7ioAobGOPKSnTG1iOl6fcAwEr18K8f2uAP+8qR
+	B/7odQPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZpUE-00000005O1U-17IF;
-	Mon, 20 Jan 2025 10:58:30 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1tZpc5-00000005ObV-1nn1;
+	Mon, 20 Jan 2025 11:06:37 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZpSx-00000005Nut-2CoD
+	id 1tZpan-00000005OSP-3LgG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jan 2025 10:57:12 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-43625c4a50dso29566905e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jan 2025 02:57:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737370629; x=1737975429; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZnCt5DjDOmwR4I1vAJ/enzzSs6/BjfG1IINpOsDqGQc=;
-        b=lVRt6Y8n0fH5z9dLs9ayAob1UM4h6+sjx6DgPAnRi48xV3Gdya/1XC28awvL4mIELz
-         QAEzY5gvY9DdVV2h5RkWcEWf9kFk/sn73nJNzmV3cYgiJ7A+HUMZlgUaME9WtqTGbawh
-         /G8mEQkNVjGx++twYf29RjO2a4BCd/+OBHBNVqujFxf+8fZtWmeS1J4WYhYv6YCacIAt
-         JyDEudG4JWcwHad1V/YZgQ/vLVfU0uI1YBTgOseRd1ceT6fZzaWTu2UWd6UY+PO1aEe7
-         ZK8fTyWI+7RDsY92mCuXGVTZy3v6GggWXnKxOqqRNEFfjaXRR7wp9CGxe1LYGY8AlkP2
-         agsA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737370629; x=1737975429;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZnCt5DjDOmwR4I1vAJ/enzzSs6/BjfG1IINpOsDqGQc=;
-        b=otu3lP7iyeMAHDLZFlcUJS16HA+2EbIgyRY9g3eeljztNsufMZHafAVtAIhOQHtmWa
-         wvtyMWmpZs+v0mm0K4ykZkf8X5fS/taCvO+OCq6Xn2OQYt40DaKApiEoAjQjl4mMxAj3
-         AGotfVbhBh4khBGAHPG+T1keliHtdChjbG3+TWdfZlmVjybrPiE4t1D3TRcjqveH94Xh
-         NtvvglQZQyoQeODNivsAW645NDMseN/xStmRyoLVOi92PPjT18wIXllIpwG9KkJml0RE
-         Ur4Zu5FGLfLV4ZtReF6DXIRJb9SMGj7ysQvVM/rcrBnnzWZi/4Bptb53ZiQK48LFqnS3
-         YeGg==
-X-Forwarded-Encrypted: i=1; AJvYcCUKGsyn9C8GEQJDcKZ50fMnje9fxy5G1YrB5Fe7chf0TDmlSN/A847AiyxtH7rE+YuVrzrUNyt+DV19vGWtoGJ0@lists.infradead.org
-X-Gm-Message-State: AOJu0YztJTyyV0e3LOSwBHfB4QdbA+mPVNXa31q8cNwum2iJK18tWCu2
-	KvgUPmRVgpkG7DU7YzP0sqWY7zRSKAbnasWWH07o9YEj+WHsm+XH+45vmvIh4xs=
-X-Gm-Gg: ASbGncs2HPgpDS0VH8tsK7fvZHJhwoBkIgBGGIVQUV+Hmy9d81NJHAiDcgHcTPEqYJD
-	Upd6iz9Q/zCsq8wNWD0Z0K+G6tRudkw71XHZ6MRsBN+eUU8TuR4HirMDXSdQj5aQ7v1D7b06rFD
-	rsMuV8/qv26NKQqRer3alaczGdVXEeePQEVdn66zEbVgGIyCH6SKFT3eF/Tgc4lK4kG16gLbqSv
-	MTNq9YwFv0uaxnfFf1c7c5q/nBWcZXhixJDeA+C3J5+URjMw2/UkBtc903Y0e2tiQtYmxoi3ZE=
-X-Google-Smtp-Source: AGHT+IFcWdDkIWIV3+3k8GBszP8VeZU7+D+s8s4XaEHc4R+KN6tCXBGU2C0qdKTOyDm73nBXW992qw==
-X-Received: by 2002:a5d:4b48:0:b0:38a:41a3:218 with SMTP id ffacd0b85a97d-38bf57a2612mr7545183f8f.36.1737370629606;
-        Mon, 20 Jan 2025 02:57:09 -0800 (PST)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38bf3221b7fsm9969683f8f.27.2025.01.20.02.57.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Jan 2025 02:57:09 -0800 (PST)
-Date: Mon, 20 Jan 2025 13:57:05 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-rtc@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 3/4] rtc: Introduce devm_rtc_allocate_device_priv
-Message-ID: <a0403834-1c2f-42b4-81f3-ca4123fd2a4e@stanley.mountain>
-References: <20250120-rtc-v1-0-08c50830bac9@nxp.com>
- <20250120-rtc-v1-3-08c50830bac9@nxp.com>
+	Mon, 20 Jan 2025 11:05:19 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50KAB3OR021554;
+	Mon, 20 Jan 2025 11:05:09 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	IJHNqYMWw4G3jyIRWFyd7ysmaSfI/0yW59LUGHBiP/U=; b=RZWc1haiVtTdBk+O
+	adrF858NIewy4HX2uZSpYoDzteqaTTmqjCAHIi/YtXfEsHh9RXPRnMkzdFCKQvZQ
+	McX3+QD9v9LqTVX0mT9sKBWsr8FEVvIuO+3bk7OBkMuXY6D7ZPgeYKVYS2a1ZZr6
+	YwX2MEwxFVmhbIGLHDV+1KmH09wCbWxNgurZjj9o/Wtybn59lYDXIpAuXyKFcWpR
+	EBnjhkdWkirSb9eN/FY60lBup9xgUZ2pSw2sujPl2Fb5Npoj/4RwArZBeHRUbwz3
+	v7gW+yJPf/KaFiZvlOSryrjHHHWnOMvXjdpL4yaMCXdeUNRzXzXV/7bkXOLtiuFg
+	KIJI3Q==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 449mgpg46e-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 20 Jan 2025 11:05:09 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 50KB58UB017257
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 20 Jan 2025 11:05:08 GMT
+Received: from [10.217.217.81] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 20 Jan
+ 2025 03:05:03 -0800
+Message-ID: <2e4a4305-526b-4faa-9e56-3f2f11bc7365@quicinc.com>
+Date: Mon, 20 Jan 2025 16:35:00 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250120-rtc-v1-3-08c50830bac9@nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 04/10] dt-bindings: clock: Add Qualcomm QCS615 Display
+ clock controller
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+CC: "Rob Herring (Arm)" <robh@kernel.org>, Will Deacon <will@kernel.org>,
+        "Ajit Pandey" <quic_ajipan@quicinc.com>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Catalin Marinas
+	<catalin.marinas@arm.com>,
+        Stephen Boyd <sboyd@kernel.org>,
+        Michael Turquette
+	<mturquette@baylibre.com>,
+        Jagadeesh Kona <quic_jkona@quicinc.com>,
+        <linux-arm-msm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>, <linux-clk@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+        Imran Shaik <quic_imrashai@quicinc.com>,
+        Bjorn Andersson
+	<andersson@kernel.org>
+References: <20250119-qcs615-mm-v4-clockcontroller-v4-0-5d1bdb5a140c@quicinc.com>
+ <20250119-qcs615-mm-v4-clockcontroller-v4-4-5d1bdb5a140c@quicinc.com>
+ <173728731976.808036.168078560019330137.robh@kernel.org>
+ <a646b3af-9957-4720-893e-9013b2dca43a@quicinc.com>
+ <czxiikfvffnfljngec6gdwoapx2khtvltauzhezexkxxitclfn@7pfnj7jtyfil>
+Content-Language: en-US
+From: Taniya Das <quic_tdas@quicinc.com>
+In-Reply-To: <czxiikfvffnfljngec6gdwoapx2khtvltauzhezexkxxitclfn@7pfnj7jtyfil>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: dOpV_QNsSYTcD6SkUJnP5egmlknj2ULT
+X-Proofpoint-GUID: dOpV_QNsSYTcD6SkUJnP5egmlknj2ULT
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-20_02,2025-01-20_03,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0
+ impostorscore=0 phishscore=0 priorityscore=1501 mlxlogscore=878
+ lowpriorityscore=0 spamscore=0 bulkscore=0 adultscore=0 clxscore=1015
+ mlxscore=0 suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501200092
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_025711_592937_A269871D 
-X-CRM114-Status: GOOD (  13.90  )
+X-CRM114-CacheID: sfid-20250120_030517_861344_7821089F 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,32 +118,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 20, 2025 at 10:25:35AM +0800, Peng Fan (OSS) wrote:
->  int __devm_rtc_register_device(struct module *owner, struct rtc_device *rtc)
-> diff --git a/drivers/rtc/dev.c b/drivers/rtc/dev.c
-> index c4a3ab53dcd4b7280a3a2981fe842729603a1feb..e0e1a488b795645d7c9453490d6cdba510cc5db5 100644
-> --- a/drivers/rtc/dev.c
-> +++ b/drivers/rtc/dev.c
-> @@ -410,7 +410,8 @@ static long rtc_dev_ioctl(struct file *file,
->  		}
->  		default:
->  			if (rtc->ops->param_get)
-> -				err = rtc->ops->param_get(rtc->dev.parent, &param);
-> +				err = rtc->ops->param_get(rtc->priv ?
-> +							  &rtc->dev : rtc->dev.parent, &param);
 
-This seems kind of horrible...  I can't think of anywhere else which
-does something like this.
 
-It would almost be better to do something like:
+On 1/20/2025 2:22 PM, Dmitry Baryshkov wrote:
+> On Mon, Jan 20, 2025 at 10:10:11AM +0530, Taniya Das wrote:
+>>
+>>
+>> On 1/19/2025 5:23 PM, Rob Herring (Arm) wrote:
+>>> y bot found errors running 'make dt_binding_check' on your patch:
+>>>
+>>> yamllint warnings/errors:
+>>>
+>>> dtschema/dtc warnings/errors:
+>>> Documentation/devicetree/bindings/clock/qcom,qcs615-dispcc.example.dts:19:18: fatal error: dt-bindings/clock/qcom,qcs615-gcc.h: No such file or directory
+>>>      19 |         #include <dt-bindings/clock/qcom,qcs615-gcc.h>
+>>>         |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>>> compilation terminated.
+>>> make[2]: *** [scripts/Makefile.dtbs:131: Documentation/devicetree/bindings/clock/qcom,qcs615-dispcc.example.dtb] Error 1
+>>> make[2]: *** Waiting for unfinished jobs....
+>>> make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1506: dt_binding_check] Error 2
+>>> make: *** [Makefile:251: __sub-make] Error 2
+>>
+>> The code https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/include/dt-bindings/clock/qcom,qcs615-gcc.h
+>>
+>> The cover letter also has the series mentioned.
+> 
+> Please. Stop using bindings for clock controllers in DT bindings for
+> other devices. It provides no benefits and complicates merging.
+> 
 
-	err = rtc->ops->param_get(rtc->priv ? (void *)rtc : rtc->dev.parent, &param);
+Sure, I agree we should not refer the bindings, but I hope this is 
+agreed upon and I could remove such references in upcoming bindings.
 
-The advatange of this is that it looks totally horrible from the get go
-instead of only subtly wrong.  And it would immediately crash if you got
-it wrong implementing the ->param_get() function pointer.
-
-regards,
-dan carpenter
+-- 
+Thanks & Regards,
+Taniya Das.
 
 
