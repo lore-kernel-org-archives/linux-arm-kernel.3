@@ -4,105 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBB4BC02185
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 04:42:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1EEBC02185
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 04:52:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pDzxfcLXKTTPR34dL7dVIEh2Wv570/3kjjEF93qaTjU=; b=YXHk6XZRygPPnJCepA4LyBgwYC
-	ZdfZcdTvVV35GfByjCLwAdzx2Bs5lfyYidPaiAdorVxu2FYAK78MW4DQFlK8QG1wErGjoSVHwIDVi
-	WQkw8nV3yEbQPrBgM4N+iOxjsB5KxZAjEFCPIMo+C92+EtQ3W8Jtnve6+f2RyXjqP9ZzbZ9QXSQw6
-	hZUG6EvoFY3sEqdhL0/QfH1OB5OuOSlmsnjETrnkDsbcleqgvBUkND9zcQ/KXuaAuXmh8f+hYAQgG
-	/noLzCszDNKf/1lSBKFkZ6i/WuptHw26zoQ6d/7qgWSqNaHX/QXL6ceTm2dFON9jjvLcXxCY0/P9u
-	xQCl7W8Q==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FW6GDAHddcOMPFKJEakNdIWoZuUyT1szsyK8VMgB8Uk=; b=boc+dgAexHIoOwoiwgN1pbpUSM
+	9qcjoaXbYyXZ7KWWMW1PXfRywIQB+k92HDK7boXzku56d47tqcG5LdRfnPGDGNxxY3mnPNOS8yXfq
+	N9VRAAjYBkg3y40nxHyHj2jrMfxKRaZxVai09uI9n/W9FJUMDiXTApN7R653zFD4GVCPrmmkV1ED6
+	vv58FbPK4P4rxAynG2s/wysnpc8okxpocOPM8IQEy2rYlunQeroBPTsHk488Hez2gGRvN5q/V8y2c
+	22cp1FgFQvrnJ6U+ZzbdcjiaFdWV8zL41PucRTxLsh3pijO5I+ALOseo+/Y7xHJtD6QzyprPxuS1T
+	JpBu6wEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZjbi-00000004iie-0eAh;
-	Mon, 20 Jan 2025 04:41:50 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tZjlS-00000004jh0-0q0R;
+	Mon, 20 Jan 2025 04:51:54 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZjaN-00000004iZh-04CH
+	id 1tZjk9-00000004jXB-40AZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jan 2025 04:40:30 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50JMurof029946;
-	Mon, 20 Jan 2025 04:40:21 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	pDzxfcLXKTTPR34dL7dVIEh2Wv570/3kjjEF93qaTjU=; b=Yd3W0fpKmN3huMxi
-	gT8F+3KK21I9XzQ72d1E10mJaApESgLsuqwzLmfFsJfkJhSAKPlRUBg+KzwTfZZc
-	a/JNTaOVJ0GAqlYTq465Ura9cn1AglHtV2UWpNVvcGMnC9Leb7pk6Dxd1RdmO6JO
-	Mf8MXO24/L6cdfuJf07+PcJooZSc0tJia20+83hobiQt7XJyCykpiu3xwNHjQyT5
-	JN+o8pIBRuD0f2oZFsFfDnd/hOXkv3FEMrnrYei6XZNUBSnc6GbfWMa1JcNseBnt
-	vInYleJp1bfWli4/RqWTQrjDDYUZVZxNlhA5O6Lnk9+YHrhbcp7DDCegGLEHU14O
-	wRryGg==
-Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 448vv41cbv-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 20 Jan 2025 04:40:21 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 50K4eKoG021380
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 20 Jan 2025 04:40:20 GMT
-Received: from [10.217.217.81] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Sun, 19 Jan
- 2025 20:40:14 -0800
-Message-ID: <a646b3af-9957-4720-893e-9013b2dca43a@quicinc.com>
-Date: Mon, 20 Jan 2025 10:10:11 +0530
+	Mon, 20 Jan 2025 04:50:35 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-21a7ed0155cso62285255ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Jan 2025 20:50:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1737348633; x=1737953433; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=FW6GDAHddcOMPFKJEakNdIWoZuUyT1szsyK8VMgB8Uk=;
+        b=Rz/OGVwcMYQ+rv8yNt/8AMP7EoItjzkBRw16TwtLj++Wl+i4ZA5U88aWg7h5Kzyy14
+         Fp4Q7JiNEcdPS6BXFQRo4rImm8ONCe6jUs/kEDSj+R4uybSRGziAQZHT4aPg/wKOzV8g
+         je6OiLxRM6kYbAxXuS85jJQBWVIs+ewMSeonA+08iwZkkCFrlkngGMcbTgln8rCAUQL5
+         s65kXx6uy6Vao2+uvI399erJjMvon+vOJXkpMf7RXShOEnAtOGhtfTc0YYQmjD6Y8Em3
+         XezETbsaDojgK/VZGjGiwA16vr5rChdoNucIIXAgKJxkAtJ3MZ/4P4EULu5IFwoJplzt
+         WWFg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737348633; x=1737953433;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FW6GDAHddcOMPFKJEakNdIWoZuUyT1szsyK8VMgB8Uk=;
+        b=nivfZcq4Hk/eRPOb5glgprS6E8cw1hThWuW67BQS1Lh/aUA7YCPdn/uAwEOkAzTEix
+         ADleCMsZEQkSfHlrfTM5nw/aOGuY0T5Ed9DZp9JAoMkFK5RGMt2dEuKXkHpZbF0LXJO8
+         URER6yGUREVnM3Ja0IT+agkBue+46Qe3l6QjCAT3bpyO4ZEawgnMvf+bHfH9VBMfUFTz
+         XUoj4uODxGx+dyWJWv0pjZ0lIrdrE/QIBn1rw8UBcbRLo8vY6UulQT4+6vIeirsmUXJ9
+         nN6yVtAD2drZwlxJ8CoUqNewoIiHCSsBfAKTpeT6fXWeBcUlAU3QlevO1dt2t9IWkWaj
+         990A==
+X-Forwarded-Encrypted: i=1; AJvYcCUEvDn4LaXmvTB06Q+hdx9q7n7AzVCOLAvu5etixjfEyTyOBB48Q4JdVd0P0A4HgF9W+zini75eknNC8BkRt9T2@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw61QJo13UZwGs0n1jlF8hXcG4G5rKa1Ku/bii7zC86NjX243u0
+	ay3hdk8qcETqlCZdYpThkjih8UvHAXnJmVHwlIuw8icpzBQVt4KfeMR/JA8TZLQ=
+X-Gm-Gg: ASbGncu0QPlxVCYl9PY0ZM8o691OJ9wFHMU8us929mDPbzrxxW4T8W6uOATW/35PzF6
+	7nUyTTDBZ0Lw0Aqk6CS4oi5tQI+Ftk8tKIalfNNptplEr+Qihyc50UmBmsygcjkqXIBgaH8Tlmb
+	EoMCiaHHTvv4bsfGhRLAVJsKXV3O5sY9d4bbWyjZnvKa7wAp4//sTsIFITmfWjK3SRa1MDl5r9S
+	vDXs6vuppCcgXCG+ZGBVz6OFbnvOnKSu6ptAOJYkD2t8t3aIdd+Rbw/1DcjEdB7QCGiNVPP
+X-Google-Smtp-Source: AGHT+IGFk0vEdymtZTj+lLuHlMGCHpVVSzOjAS6UfJXaYfWRkrCAng+HqZSDbAH8bdLeqj6n7JsTPA==
+X-Received: by 2002:a17:902:ce8a:b0:216:32c4:f7f5 with SMTP id d9443c01a7336-21c3540c7a1mr174490975ad.19.1737348632564;
+        Sun, 19 Jan 2025 20:50:32 -0800 (PST)
+Received: from localhost ([122.172.84.139])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21c2d3a91cesm52428625ad.133.2025.01.19.20.50.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 19 Jan 2025 20:50:32 -0800 (PST)
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-pm@vger.kernel.org,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	kernel test robot <lkp@intel.com>,
+	stable@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] cpufreq: s3c64xx: Fix compilation warning
+Date: Mon, 20 Jan 2025 10:20:25 +0530
+Message-Id: <76b218721e5fd5ac2fc03e1340595c9a56c1613d.1737348588.git.viresh.kumar@linaro.org>
+X-Mailer: git-send-email 2.31.1.272.g89b43f80a514
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 04/10] dt-bindings: clock: Add Qualcomm QCS615 Display
- clock controller
-To: "Rob Herring (Arm)" <robh@kernel.org>
-CC: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-        Will Deacon
-	<will@kernel.org>, Ajit Pandey <quic_ajipan@quicinc.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Catalin Marinas
-	<catalin.marinas@arm.com>,
-        Stephen Boyd <sboyd@kernel.org>,
-        Michael Turquette
-	<mturquette@baylibre.com>,
-        Jagadeesh Kona <quic_jkona@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>, <linux-clk@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        "Imran Shaik" <quic_imrashai@quicinc.com>,
-        Bjorn Andersson
-	<andersson@kernel.org>
-References: <20250119-qcs615-mm-v4-clockcontroller-v4-0-5d1bdb5a140c@quicinc.com>
- <20250119-qcs615-mm-v4-clockcontroller-v4-4-5d1bdb5a140c@quicinc.com>
- <173728731976.808036.168078560019330137.robh@kernel.org>
-Content-Language: en-US
-From: Taniya Das <quic_tdas@quicinc.com>
-In-Reply-To: <173728731976.808036.168078560019330137.robh@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: guUQQlHCackGn1XKizPSQMZlFSYvHDnC
-X-Proofpoint-ORIG-GUID: guUQQlHCackGn1XKizPSQMZlFSYvHDnC
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-01-20_01,2025-01-16_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 suspectscore=0
- mlxscore=0 bulkscore=0 priorityscore=1501 lowpriorityscore=0
- impostorscore=0 clxscore=1015 spamscore=0 adultscore=0 mlxlogscore=924
- phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2501200035
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250119_204029_024321_9EAEF4A9 
-X-CRM114-Status: UNSURE (   9.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250119_205034_059391_BA4E0979 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,30 +101,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The driver generates following warning when regulator support isn't
+enabled in the kernel. Fix it.
 
+   drivers/cpufreq/s3c64xx-cpufreq.c: In function 's3c64xx_cpufreq_set_target':
+>> drivers/cpufreq/s3c64xx-cpufreq.c:55:22: warning: variable 'old_freq' set but not used [-Wunused-but-set-variable]
+      55 |         unsigned int old_freq, new_freq;
+         |                      ^~~~~~~~
+>> drivers/cpufreq/s3c64xx-cpufreq.c:54:30: warning: variable 'dvfs' set but not used [-Wunused-but-set-variable]
+      54 |         struct s3c64xx_dvfs *dvfs;
+         |                              ^~~~
 
-On 1/19/2025 5:23 PM, Rob Herring (Arm) wrote:
-> y bot found errors running 'make dt_binding_check' on your patch:
-> 
-> yamllint warnings/errors:
-> 
-> dtschema/dtc warnings/errors:
-> Documentation/devicetree/bindings/clock/qcom,qcs615-dispcc.example.dts:19:18: fatal error: dt-bindings/clock/qcom,qcs615-gcc.h: No such file or directory
->     19 |         #include <dt-bindings/clock/qcom,qcs615-gcc.h>
->        |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> compilation terminated.
-> make[2]: *** [scripts/Makefile.dtbs:131: Documentation/devicetree/bindings/clock/qcom,qcs615-dispcc.example.dtb] Error 1
-> make[2]: *** Waiting for unfinished jobs....
-> make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1506: dt_binding_check] Error 2
-> make: *** [Makefile:251: __sub-make] Error 2
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202501191803.CtfT7b2o-lkp@intel.com/
+Cc: <stable@vger.kernel.org> # v5.4+
+Signed-off-by: Viresh Kumar <viresh.kumar@linaro.org>
+---
+ drivers/cpufreq/s3c64xx-cpufreq.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
 
-The code 
-https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/include/dt-bindings/clock/qcom,qcs615-gcc.h
-
-The cover letter also has the series mentioned.
-
+diff --git a/drivers/cpufreq/s3c64xx-cpufreq.c b/drivers/cpufreq/s3c64xx-cpufreq.c
+index c6bdfc308e99..8fc43a74cefb 100644
+--- a/drivers/cpufreq/s3c64xx-cpufreq.c
++++ b/drivers/cpufreq/s3c64xx-cpufreq.c
+@@ -51,15 +51,16 @@ static struct cpufreq_frequency_table s3c64xx_freq_table[] = {
+ static int s3c64xx_cpufreq_set_target(struct cpufreq_policy *policy,
+ 				      unsigned int index)
+ {
+-	struct s3c64xx_dvfs *dvfs;
+-	unsigned int old_freq, new_freq;
++	unsigned int new_freq = s3c64xx_freq_table[index].frequency;
+ 	int ret;
+ 
++#ifdef CONFIG_REGULATOR
++	struct s3c64xx_dvfs *dvfs;
++	unsigned int old_freq;
++
+ 	old_freq = clk_get_rate(policy->clk) / 1000;
+-	new_freq = s3c64xx_freq_table[index].frequency;
+ 	dvfs = &s3c64xx_dvfs_table[s3c64xx_freq_table[index].driver_data];
+ 
+-#ifdef CONFIG_REGULATOR
+ 	if (vddarm && new_freq > old_freq) {
+ 		ret = regulator_set_voltage(vddarm,
+ 					    dvfs->vddarm_min,
 -- 
-Thanks & Regards,
-Taniya Das.
+2.31.1.272.g89b43f80a514
 
 
