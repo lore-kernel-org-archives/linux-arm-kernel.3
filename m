@@ -4,186 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 160D4C02185
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 07:02:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39613C02185
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 07:03:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UnfK/4+Z2e/eD3cT7ENU2d/f6IDImEgfx6YwBH4mNZg=; b=f8n8kmcEwtHderEgu3ajcMWM9U
-	513h/dLSGN2X1ypDim+Qx/Fl/UniplEQXPYtmrHKS70CoOdArs8co9PD+O4E/2GiN1dQKimwsMnBv
-	Mqb+XNtSmgfFJE1V+6LKzohSKmM4aWjZpwngyHOr7NfteUJ6ESyKARnLA/By9EcRm6RlO5TfVkS0W
-	90VO0u/2UuktSpPEPpghn4FIVHZ1hWvLAa3UTfVwMdV2KvYzVmMJQyJ2CES49X+p6LQIHzpCww1gs
-	/RHsHVEcE6HOvC7G5loVDS7EQTBrGieuUlNl/VfnoP1wy2Rrdjv3T9GcEqBt8rRWofX/q02ENNQZ4
-	NDsMjBfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=opwsPCXQn2dl1A894h/TzouZKT6y1266fbtoD7Nmf0I=; b=wBh1RaRHyci6l70M9LWJfY3sgG
+	+oldwYg9gk6XNoY0tmtfRAdzndA5xLNS+ndh5aUhP66yC/xu4/7+pMrwEGA05iOfSZF5lk1DIkbiH
+	lXDyzuNaGqpgxrlX0jXN4NpjR0ekoyUpBtmHNDbFwIWKQVQI6Kso2PbsPFoZKewlPU78uiSmYtYRx
+	GPD233mBM7LltMIKecs7fS1faGlFZ7lPWU4PSgkDvpOr8hMO4RG7CHn7H9/E9M04AliUxq97laufd
+	h/FWNihlEWbtZ2O/EP9u5dU2KlUNUK0j1GrYHS2xnd5oR6w+TV4PLQ5bEGMh2LiZegq6/FhgHlTiw
+	y8mM3viw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZlnO-00000004s5N-19qG;
-	Mon, 20 Jan 2025 07:02:02 +0000
-Received: from mail-tyzapc01on20700.outbound.protection.outlook.com ([2a01:111:f403:2011::700] helo=APC01-TYZ-obe.outbound.protection.outlook.com)
+	id 1tZlof-00000004sAz-00ZH;
+	Mon, 20 Jan 2025 07:03:21 +0000
+Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZlm2-00000004s0X-440B
+	id 1tZln2-00000004s4F-0jeV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jan 2025 07:00:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UXkCNS9lcuUVfOWn9ZWPvOM/2X7kdT6Hlu84Z8sNN12pdsDlHEWM6HMdnOy1kEkd8uMdXOEz4ho6wz9nxT1YC03jRJeLrbOt7gvgb+bsCR1mcWNOaRP/j6SlgBxKSy8e7g8d24ZnDHtOlSYcEaaESOIIeQrifGDXiJENZnTzRJxXJ+EdrZTL4DMkNn9y5ZU+lE41LFa2Oji+r82J6a7jjpRGl87YPBifao7/kRQ53RQ1eWmqzlmRBiOhWmsqjOp3CaW6o1YC26IKd5zBXCIKVMuahqn4uVKNcgHD7ENQQb01Ehuqu0gwq6CBTCjAXR4HiL8X3Z+y1wMbhen0TeI8wA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UnfK/4+Z2e/eD3cT7ENU2d/f6IDImEgfx6YwBH4mNZg=;
- b=w3QN6rRj3SU9lA43BVnmYlrnaguixPz/L8luNzHg6XnrPFwDD0jLc+cUz0o9h9jOzsF6IYKKm2cHNQhj8+Mg1fabyLY/3srqEgvqjXfpUzt1fc36K+2Vy/4ajjldnU7YMvUem2xpjTiaEsCR4z8+bZwWKR4qyOu72pJ3A3IzbN8jHwkvDJgjOjCsf1CAnd5gzf6v2qo99E5AExcnVX/cmpZquivqemkyW/cliHlKWY42LOe9jI0+kmb4FK4wW8MwXwxrStdP7tuR5F6ngf0HPdlU3ducBEpnmVM3CIj5DOylWs+FmxYPo64Mi18PXz9iPuCyqt5iMPhRByjl16Uxjw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UnfK/4+Z2e/eD3cT7ENU2d/f6IDImEgfx6YwBH4mNZg=;
- b=gqg4t7jE5+vav+Qp6niEdaTOn5FWwJVGd4wVYQwcMih6POEzHDf8BneCo+ZpHdK/fYeojkwgEQPDipq2Xu4sDyp3BRUWA9KrksN50pJbpeTBtPw8JNBoTXDMAiY90L0cjPXr+q4QzMLy8tJjx3oj6sQG1oDCRj7DmD1IzMyJ+gS5+LaYbET4t1lErFks680LvBvkASGea5uZXeBfuG05cGO41s0V1tA8o+Zf+A1ngZL4hfgIMOVFAvKP74ZOk3ZBD56VY+QTsYjarmrLxr97xgvd/9R9V0+/LPWqkS7dEqKJEEIG4uaU9yBj9NoQ4eyiLwx37fbMOcvskVLG6Rz/qA==
-Received: from SEYPR06MB5134.apcprd06.prod.outlook.com (2603:1096:101:5a::12)
- by SEYPR06MB5229.apcprd06.prod.outlook.com (2603:1096:101:88::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.12; Mon, 20 Jan
- 2025 06:59:59 +0000
-Received: from SEYPR06MB5134.apcprd06.prod.outlook.com
- ([fe80::6b58:6014:be6e:2f28]) by SEYPR06MB5134.apcprd06.prod.outlook.com
- ([fe80::6b58:6014:be6e:2f28%6]) with mapi id 15.20.8377.004; Mon, 20 Jan 2025
- 06:59:59 +0000
-From: Jacky Chou <jacky_chou@aspeedtech.com>
-To: Andrew Lunn <andrew@lunn.ch>
-CC: Ninad Palsule <ninad@linux.ibm.com>, "andrew+netdev@lunn.ch"
-	<andrew+netdev@lunn.ch>, "andrew@codeconstruct.com.au"
-	<andrew@codeconstruct.com.au>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"davem@davemloft.net" <davem@davemloft.net>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "eajames@linux.ibm.com"
-	<eajames@linux.ibm.com>, "edumazet@google.com" <edumazet@google.com>,
-	"joel@jms.id.au" <joel@jms.id.au>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"kuba@kernel.org" <kuba@kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "minyard@acm.org" <minyard@acm.org>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"openipmi-developer@lists.sourceforge.net"
-	<openipmi-developer@lists.sourceforge.net>, "pabeni@redhat.com"
-	<pabeni@redhat.com>, "ratbert@faraday-tech.com" <ratbert@faraday-tech.com>,
-	"robh@kernel.org" <robh@kernel.org>
-Subject: =?big5?B?pl7C0Dogpl7C0Dogpl7C0Dogpl7C0Dogpl7C0Dogpl7C0DogW1BBVENIIHYyIDA1?=
- =?big5?Q?/10]_ARM:_dts:_aspeed:_system1:_Add_RGMII_support?=
-Thread-Topic: =?big5?B?pl7C0Dogpl7C0Dogpl7C0Dogpl7C0Dogpl7C0DogW1BBVENIIHYyIDA1LzEwXSBB?=
- =?big5?Q?RM:_dts:_aspeed:_system1:_Add_RGMII_support?=
-Thread-Index: AQHbYX4ZqwUnoFUOykuCVX4SkD1z27MNKUAAgABN4QCAAApFgIAAvO3AgAAxcoCAABHnAIAAB/+AgAEsnXCAAFgBAIAENTRQgACHsgCAAAOEgIACXbCwgAAFSQCAAAD+YIAArYUAgAdtdVA=
-Date: Mon, 20 Jan 2025 06:59:59 +0000
-Message-ID: <SEYPR06MB51347BB3F94A09B89BD313269DE72@SEYPR06MB5134.apcprd06.prod.outlook.com>
-References: <c0b653ea-3fe0-4bdb-9681-bf4e3ef1364a@linux.ibm.com>
- <c05c0476-c8bd-42f4-81da-7fe96e8e503b@lunn.ch>
- <SEYPR06MB5134A63DBE28AA1305967A0C9D1C2@SEYPR06MB5134.apcprd06.prod.outlook.com>
- <d80f5916-4918-4849-bf4e-2ef608ece09d@linux.ibm.com>
- <SEYPR06MB51340579A53502150F67ADEC9D1F2@SEYPR06MB5134.apcprd06.prod.outlook.com>
- <bcebe5ed-6080-4642-b6a5-5007d97fac71@linux.ibm.com>
- <26dec4b7-0c6d-4e8e-9df6-d644191e767f@lunn.ch>
- <SEYPR06MB5134DD6F514225EA8607DC979D192@SEYPR06MB5134.apcprd06.prod.outlook.com>
- <e5178acd-0b6f-4580-9892-0cca48b6898a@lunn.ch>
- <SEYPR06MB513402FD4735C602C5531F499D192@SEYPR06MB5134.apcprd06.prod.outlook.com>
- <f28736b5-f4e4-488e-8c9b-55afc7316c5e@lunn.ch>
-In-Reply-To: <f28736b5-f4e4-488e-8c9b-55afc7316c5e@lunn.ch>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SEYPR06MB5134:EE_|SEYPR06MB5229:EE_
-x-ms-office365-filtering-correlation-id: 8ae2e6a9-2629-4aaa-42e9-08dd39200dea
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|38070700018;
-x-microsoft-antispam-message-info: =?big5?B?M3BYQ0dtU0FJOTBxbnFiQ0ljMUZwTnUzUmNqOUQ0WVc1Q25mVXlKb2FaOTBONzZz?=
- =?big5?B?NGQydmg2OHgxTEFXK0I3cERkaUVVUlAxakZJWFJGanVWTUt6aXBSZitvVHFsOGE5?=
- =?big5?B?enF4OEZWb2RxUkFUa2xvbnZjbmdWMFovak1RUVRnWk5PSjJ0R2MybEJOSG9HMEhh?=
- =?big5?B?RlIrVm8zSzc2dkVRZUtidmpUYTAzODFKRW5XOE1wdGRJNDlOZmM4b3VrcnBycG96?=
- =?big5?B?dm1yWUJpR0hjTERaMElVdGhGWWREY0Y2OFZsckFuNW5LcWx2VUpyNVV2Qk1wOTRL?=
- =?big5?B?WFJCNG54bDltUjBzOEFmWjhtL1lPWTNQQmhUREhIa1U2WHdCb0N6YlZzNDNUUlFl?=
- =?big5?B?aFpSeCtVWEpFQmhZaW1RdW84M3UwRFhUU2EwTUVRTkFDanNOQkI4VlQ4TkNDcnVq?=
- =?big5?B?MmRYaGVhNjRWRlBGYXBYMlRxVGFjbS9Wb0pjTy9yYTlKV1JUeXJSd2ZKVlFVNTNo?=
- =?big5?B?NnJBMGx3SUpFVHg1MDFLVTdwRDY4eEVSMHprVE5KWmUrTE9xY04wSkFkZ0dFTWxM?=
- =?big5?B?dEVuNFVzNFdIMlYraXNwZkpCS1UwbS9ybGdkVzh4TjBBV1VHdTV1UFVFSGNnMTcr?=
- =?big5?B?VUtVVUNPOGc3bnhsTTlFUjlNenFnMHZxQ2YxMDNITkVBLzJQdlZQRlRYbnhZVU9C?=
- =?big5?B?c2w0K0dGUUs5dDBoaHJtakxYT2hpRUd2UStTMElrU0RzV1N6RE0zOUhIR1BNdEwy?=
- =?big5?B?M2FkRXZVc29teWd3UFIvZldJOEFCMTdpdUtkR040djNKd2orNkhsZXc4NjBVVVln?=
- =?big5?B?enZFY1VuVm5aSGhERTQ5MUhJdG5zcGFaUmtjeFN2UzVFM2xMRFo0U2NMQndXMGhU?=
- =?big5?B?N01pN2poMHFMdHJTdEJibTB6MUM1NmxjVi9BT0owR2Nhb0xhUEdBOE1xUElPK1N0?=
- =?big5?B?a2k0enlpK2UvUUlGeStueDFvY2lxSVNYZFUwdFVhOW1mVVlDMGxNTnhLMi9DaXlW?=
- =?big5?B?RGNFSVdRYUV4a2t6UTBrNlJVam5aekY3VEJrTEIyTlJuYlBhVERVU3BDTDZWZWp4?=
- =?big5?B?dWo0YS9ibG5xYUR2V2FhNElJUGJuMWJjbm1ORk9kSllRMURydkpqanVXQnZ2L3Mv?=
- =?big5?B?R1NycEE1N0hIVGJnNm94SGVUZkZyejZMUXB1Q0htb1Q2cUZJamhkSlAvK0NpU0pM?=
- =?big5?B?NXhEZDJmU3lZb3oySmdEZUZ3a1hPM3BJZDYvLzRpcHcvbWs4TVArNndCMm1ncXF3?=
- =?big5?B?Qm12REhTQjJJeFRqYXZIcENQZE9GWEJ2Y041QmNLUUlPcXhieTdCVVR5M3NLZWZK?=
- =?big5?B?M045RVV5ZkdqNW0wZ0NxN09XZE4yQzRENXl3MlJWQk9XUTFIZHNDZldKQ1lDcDVJ?=
- =?big5?B?MVM5dTBBd01rcEkxeEoreHh0Q2V0ck13dEt0K2pqbjJlMUIxRWVjMzVLdUxETjNE?=
- =?big5?B?eHJuR3EwZXZSbHg5SmJKMkhSSHk4NmFlRlh1a2x1VlB3NlBOUnJqNWRlNDd0TDkv?=
- =?big5?B?VG1GeEdkSDNMV1lja0QzVnJ4V01nK2trYVlXVHJEWURQUjhWaFdnb3lhbEwzN3JZ?=
- =?big5?B?ZmdvSjF0RTVkN0JGUy9uOE9Ud3RKR1dOdkNQZDRJeng0RjJ1UzlxU0ZuQW5mY0VK?=
- =?big5?B?TzZVQmhhQ2Q5ZDlod090VUkvM3R2Tk5NR1pmSThwdC82RnpaSHpNWGZISCtHSXNX?=
- =?big5?B?Wk5qa3lmWFVEY0tOTUxHbHh2YkJUTWNFTDJiRGcrdVdCRDU5eDV3RGhwY25zMHdt?=
- =?big5?B?dmJwaUI3VGV2R0NKb2d2ZkV0OTNmeStFUkttVjZWOVBLODluWXY0enRKZ3RLSFRG?=
- =?big5?B?RERFc3dNdzZuSFpjWkJIbWVlSEU2VjJXWGRTU0wrWVY1TmtHUlVmZWh0Z1ZIOWEz?=
- =?big5?Q?cHQam6RkgvG4ltgPVRxCjhXP+3efH8Jp?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR06MB5134.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?big5?B?eHJIWTZYYmtXWHVTZ1gwcWMxNnA1Wm9nV0MrWTRkTFhUVElZTkF6Q3VXVkVFM3Az?=
- =?big5?B?S1dWZ1Bnais0NHpvcjZ1UWNxNmpPamtPcDVmeTgyZFFzdjZqT0ZMM2tQaXIwcndE?=
- =?big5?B?S3RVQ21XWnA4Tk5NeTFGS0hpS1p4SHkrUUtRMERWQTBoZkRjemtJeG5UaU5vZ08w?=
- =?big5?B?Zy9RQjM1MEY4SkxQbStWd2trVGYyZHZZdk96VVl1MWRCdE5DdXY4TFpxTU9nQ00x?=
- =?big5?B?Q0tpZnp0Z0FUSmVwQTNLMitINnJ1VnU1NlBleWwycmREcUgyOTF0dUhtbUlpVEZs?=
- =?big5?B?ZnBHaEZtYkJqZ0xSdFovQ1FmbnorejZJbjVYSU80TktzSGl1elZuVlpDZ3Q1ZTdq?=
- =?big5?B?OXdqTnpxbzA2aW1jdnM4dUhSa0RIUi90RmErZTNObS9kWkFGZVBLaVNmUzBxN29O?=
- =?big5?B?VWoyR1NKc3RIQjZYT0JJQkFSTHEvRzVrYy81eTNtSHhVcEMvTGRKNXlIWVlLdjdV?=
- =?big5?B?aS9hYWQwMXgybDdzclMwMXZPQzh2bGJVZllEbFRCL1hhdWlhQTgzMWlwQ1loTVdI?=
- =?big5?B?cGZMZDZmV1RQb0t1R3llS3pZRmtPM2RZcFViQ21zcmpIT2gvRDNlZzBPVHBHNzZJ?=
- =?big5?B?OTIzVXYrd2hJSXZXaVNJSnpmeHhDbEJtN0U2V1ZQUDZXTC8zMlVFNVYzTGYwSDBz?=
- =?big5?B?UW54K2pJU2dSVEZIdUhXZVQrOU53VTZtUkF3cWRMaGtmaURSbmRSUnNXM2RUd0lw?=
- =?big5?B?WGlKc3U1RjZvM0psclFKUGlLVWhTbEg2MVlhUlo3YXRlenhHbmpvVW9ndjNwSFRQ?=
- =?big5?B?cGJKMFBnQkdrdHZxNVpkd1E4dTYrcWpPSUg2cnNUMUZScGFJM21kSkMzMFdONE1M?=
- =?big5?B?YzU0RVF4b3k2cGZFNDdjV0NaNGhmZzFJbW4xaFNRQlZFU3cvczNtRWthOGtvTzJs?=
- =?big5?B?V0J4YWhLVENlWkdvS0FqWUovQzFnNW1wcVF2VW9iZUoxWklpU29EenZEQTg4Y2s2?=
- =?big5?B?bWJ2Um1XRTAvUDFsYW1BMWtJcFJmMUFGWkwzSVl0U2ZUbUR1UGxiN3crZ3I2MUtl?=
- =?big5?B?ZmhVck9hT3lwMTNsbzJGTnk0TWlKdnoxV0YyTXU3LzJ4dG9UNy82QnFRbm9ORDlI?=
- =?big5?B?VWpRakd2dGIrenhSQ3pBcENkN0Jlb0FDdTNHMnQ0a1F0SDdaSmdZTVdzQklIRUNK?=
- =?big5?B?Qld3ZU02NFdCUWxrVUFqZXRnQ2ZjM0MyV09KazFKSm9UWGlSZU41eXZibWpCbzFB?=
- =?big5?B?YzliRFFsSUh5cis0eW9CTk1mbFhHb0l1Wm55TlNoS3VnS1MvejVpVEdPbVIwdits?=
- =?big5?B?V2h0N0hqVXFIRWxHOUFrNmJPaFp0L3dpL1R4bXB3Rm1mNWlWS3ZPSnJRNWlOL0lN?=
- =?big5?B?NkxSQmZkdkl0Rm1GZzZrcXNZOHFaZU16T2ZPaHZnUUhEL2hycmoxSVV1YzVtRm1B?=
- =?big5?B?bkxpclE5VDNqSk5OaENsdTNnaUQwZHdWcm43OXpRU3FEckt5b2I1b3Z1cDJrdmxN?=
- =?big5?B?TFA4MFJVY1NzbFZYSnc4Y3ZkdVJiSVpORitjKzRTenBWbzBlZDF6Nm9PSFpXREQ4?=
- =?big5?B?ZFJpRmpmNDhVVytYK0hidVd4TnNmME9IQmptckRXRlRmOWFlR0xvbXBUL2J6Rzlz?=
- =?big5?B?eldoL09heGdsZ2tnYzdzc0VOejBJREo5bXJuMWxlMGhDU2EwYU9WOGdBWmFMaHhv?=
- =?big5?B?TDV1MmtnMUx2dnpwck9kUFIyUDAza2J0bmZiNE1OU3VwQi9SbzZoWS9uMzQ0WlZE?=
- =?big5?B?Z1dVSnI1aHFIeFYvMWs3ckF2TzZ0eS9lKzZXZDRaTGYvdHlWQXZ2d2Z5dUJGRkx1?=
- =?big5?B?UGJQYlFYZjFJUFFsUElzSjRmOGd4NnZza2g0dEJnckNBK1VpUVU5Y2VPSkpjSE5Z?=
- =?big5?B?TEliS1REZFJLNGR0RGxtUHdxNUYycmdTYXdVRTdPYzF6VlVmem1ySjN3WHZ3b3lZ?=
- =?big5?B?a2lvc3Vyb2FrdG5TZGtmSVgydlVET25Oakh0VEFxYmxUUUc3dzE0VXpoNk1pSkk2?=
- =?big5?B?bDk3R0VDVnFUM2tvd0UvSjJaL1p4T2NGYWRXTHZwQmV3dno4UlRZUGEvSXBqem1R?=
- =?big5?Q?ggxotnJhX5sAtCB4?=
-Content-Type: text/plain; charset="big5"
-Content-Transfer-Encoding: base64
+	Mon, 20 Jan 2025 07:01:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc
+	:To:From:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=opwsPCXQn2dl1A894h/TzouZKT6y1266fbtoD7Nmf0I=; b=UUKnneBuOGLaVE4DE9jKD5m7Ep
+	BzPBy4eDSFnCTRkIdgejrkLmxhRG3rNAKEi0TJG+Agulcu469iERSdDcmSPYq+VczU9cChkosXiAE
+	1zzVq8e2Gx9L36zJyf16bu9hCL54jNxXU/ccvO36cN3ia2oRqwRNPZvq7FeP3QaY/2jawh+b7Oo+6
+	5aye7q8TqDt/bhjCjENmlWM1AeivWtrkA85QN4ZqKcAjMtcntk4yDbBSVO/AnoMU6UB73aeI2mz8C
+	w3ANFFk738Leu+QlN2GmLJtG0qrnQHjKcLrWLp7hfRbCNSFBUffwbg6XwjE4qnle1GUFFiNy+y2PO
+	ZIGH2gEg==;
+Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:33680 helo=[192.168.69.52])
+	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96.2)
+	(envelope-from <andrej.picej@norik.com>)
+	id 1tZlmy-00DgMu-1L;
+	Mon, 20 Jan 2025 08:01:35 +0100
+Message-ID: <80d6e493-dd79-42e3-b064-d1feeabd7180@norik.com>
+Date: Mon, 20 Jan 2025 08:01:33 +0100
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SEYPR06MB5134.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8ae2e6a9-2629-4aaa-42e9-08dd39200dea
-X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Jan 2025 06:59:59.1199
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: fuwVMqLIMxOKRZhF/ws+v3sPnJ3rjkqzolvMp87XbCm8UV0qDqsT58veGmXMMUZSdpRQSYGMtrVtR5XjYTyluXPs/1z2OK8qRJyEhYBpmdk=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR06MB5229
+User-Agent: Mozilla Thunderbird
+Subject: Re: [Upstream] Re: [PATCH v2 13/15] arm64: dts: imx8mm-phycore-som:
+ Add overlay for rproc
+From: Andrej Picej <andrej.picej@norik.com>
+To: Shawn Guo <shawnguo2@yeah.net>, shawnguo@kernel.org
+Cc: s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ upstream@lists.phytec.de
+References: <20241202072052.2195283-1-andrej.picej@norik.com>
+ <20241202072052.2195283-14-andrej.picej@norik.com> <Z3Ie8GO/GtoSkIr3@dragon>
+ <221c8216-ce71-4ba2-9981-8612ff33ec2a@norik.com>
+Content-Language: en-US
+Autocrypt: addr=andrej.picej@norik.com; keydata=
+ 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
+ xtT/8OxBOVSHvA==
+In-Reply-To: <221c8216-ce71-4ba2-9981-8612ff33ec2a@norik.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cpanel.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: andrej.picej@norik.com
+X-Authenticated-Sender: cpanel.siel.si: andrej.picej@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250119_230039_224851_60138C74 
-X-CRM114-Status: GOOD (  16.76  )
+X-CRM114-CacheID: sfid-20250119_230140_681702_F2304888 
+X-CRM114-Status: GOOD (  21.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -198,23 +126,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgQW5kcmV3DQoNClRoYW5rIHlvdSBmb3IgeW91ciByZXBseS4NCg0KPiA+DQo+ID4gWWVzLiBJ
-IGhhdmUgcmVhZCB0aGVzZSBtYWlscy4NCj4gPg0KPiA+IEkgdW5kZXJzdGFuZCB3aGF0IHlvdSBt
-ZWFuLg0KPiA+ICJyZ21paSI6IGRlbGF5IG9uIFBDQiwgbm90IE1BQyBvciBQSFkuDQo+ID4gInJn
-bWlpLWlkIjogZGVsYXkgb24gTUFDIG9yIFBIWSwgbm90IFBDQi4NCj4gPg0KPiA+IGZ0Z21hYzEw
-MCBkcml2ZXIgZ2V0cyBwaHkgZHJpdmVyIGhhbmRsZSBmcm9tIG9mX3BoeV9nZXRfYW5kX2Nvbm5l
-Y3QoKSwNCj4gPiBpdCB3aWxsIHBhc3MgdGhlIHBoeS1tb2RlIHRvIHBoeSBkcml2ZXIgZnJvbSB0
-aGUgbm9kZSBvZiBtYWMgZHRzLg0KPiA+IFRoZXJlZm9yZSwgSSB1c2UgInJnbWlpLWlkIiBhbmQg
-dGhlIHBoeSB3aWxsIGVuYWJsZSB0eC9yeCBpbnRlcm5hbCBkZWxheS4NCj4gPiBJZiBJIHVzZSAi
-cmdtaWktaWQiIGFuZCBjb25maWd1cmUgdGhlIFJHTUlJIGRlbGF5IGluIGZ0Z21hYzEwMCBkcml2
-ZXIsDQo+ID4gSSBjYW5ub3QgcGFzcyB0aGUgcGh5LW1vZGUgdG8gcGh5IGRyaXZlci4NCj4gDQo+
-IFF1b3RpbmcgbXlzZWxmLCB5ZXQgYWdhaW46DQo+IA0KPiA+ID4gTUFDIGNhbiBhcHBseSB0aGUg
-ZGVsYXlzLCBidXQgaXQgbXVzdCBtYXNrIHRoZSBwaHktbW9kZSBpdCBwYXNzZXMgdG8gdGhlDQo+
-IFBIWS4NCj4gDQo+IElmIHlvdSBkZWNpZGUgdGhlIE1BQyBkb2VzIHRoZSBSWCBjbG9jayBkZWxh
-eSwgaXQgbmVlZHMgdG8gbWFzayB0aGF0IGZyb20gdGhlDQo+IHBoeS1tb2RlLCBvdGhlcndpc2Ug
-dGhlIFBIWSB3aWxsIGFsc28gZG8gaXQuIElmIHlvdSBkZWNpZGUgdGhlIE1BQyBkb2VzIHRoZSBU
-WA0KPiBjbG9jayBkZWxheSwgaXRzIG5lZWRzIHRvIG1hc2sgdGhhdCBmcm9tIHRoZSBwaHktbW9k
-ZS4NCg0KV2UgbmVlZCB0byBjb25maXJtIHRoZSBNQUMgYW5kIFJHTUlJIGRlc2lnbiBpbiBBU1Qy
-NjAwLA0KQW5kIHdlIHdpbGwgcmVwbGFuIHRoZSBwaHktbW9kZSBjb25maWd1cmF0aW9uIGluIGZ0
-Z21hYzEwMCBkcml2ZXIgYW5kIGRldmljZSB0cmVlLg0KDQpUaGFua3MsDQpKYWNreQ0KDQo=
+Gentle ping.
+
+Best regards,
+Andrej
+
+On 31. 12. 24 08:34, Andrej Picej wrote:
+> Hi Shawn,
+> 
+> On 30. 12. 24 05:17, Shawn Guo wrote:
+>> On Mon, Dec 02, 2024 at 08:20:50AM +0100, Andrej Picej wrote:
+>>> From: Dominik Haller <d.haller@phytec.de>
+>>>
+>>> Adds a devicetree overlay containing reserved memory regions used
+>>> for intercore communication between A53 and M4 cores.
+>>>
+>>> Signed-off-by: Dominik Haller <d.haller@phytec.de>
+>>> Signed-off-by: Andrej Picej <andrej.picej@norik.com>
+>>> ---
+>>> Changes in v2:
+>>>   - no change.
+>>> ---
+>>>   arch/arm64/boot/dts/freescale/Makefile        |  2 +
+>>>   .../dts/freescale/imx8mm-phycore-rpmsg.dtso   | 55 +++++++++++++++++++
+>>>   2 files changed, 57 insertions(+)
+>>>   create mode 100644 
+>>> arch/arm64/boot/dts/freescale/imx8mm-phycore-rpmsg.dtso
+>>>
+>>> diff --git a/arch/arm64/boot/dts/freescale/Makefile 
+>>> b/arch/arm64/boot/dts/freescale/Makefile
+>>> index 99be36a04db9..5bc083a7b778 100644
+>>> --- a/arch/arm64/boot/dts/freescale/Makefile
+>>> +++ b/arch/arm64/boot/dts/freescale/Makefile
+>>> @@ -125,9 +125,11 @@ dtb-$(CONFIG_ARCH_MXC) += 
+>>> imx8mm-phyboard-polis-rdk.dtb
+>>>   imx8mm-phyboard-polis-peb-av-10-dtbs += 
+>>> imx8mm-phyboard-polis-rdk.dtb imx8mm-phyboard-polis-peb-av-10.dtbo
+>>>   imx8mm-phyboard-polis-peb-eval-01-dtbs += 
+>>> imx8mm-phyboard-polis-rdk.dtb imx8mm-phyboard-polis-peb-eval-01.dtbo
+>>> +imx8mm-phycore-rpmsg-dtbs += imx8mm-phyboard-polis-rdk.dtb 
+>>> imx8mm-phycore-rpmsg.dtbo
+>>>   dtb-$(CONFIG_ARCH_MXC) += imx8mm-phyboard-polis-peb-av-10.dtb
+>>>   dtb-$(CONFIG_ARCH_MXC) += imx8mm-phyboard-polis-peb-eval-01.dtb
+>>> +dtb-$(CONFIG_ARCH_MXC) += imx8mm-phycore-rpmsg.dtb
+>>>   dtb-$(CONFIG_ARCH_MXC) += imx8mm-phygate-tauri-l.dtb
+>>>   dtb-$(CONFIG_ARCH_MXC) += imx8mm-prt8mm.dtb
+>>> diff --git a/arch/arm64/boot/dts/freescale/imx8mm-phycore-rpmsg.dtso 
+>>> b/arch/arm64/boot/dts/freescale/imx8mm-phycore-rpmsg.dtso
+>>> new file mode 100644
+>>> index 000000000000..0c61946f0cf8
+>>> --- /dev/null
+>>> +++ b/arch/arm64/boot/dts/freescale/imx8mm-phycore-rpmsg.dtso
+>>> @@ -0,0 +1,55 @@
+>>> +// SPDX-License-Identifier: GPL-2.0
+>>> +/*
+>>> + * Copyright (C) 2024 PHYTEC Messtechnik GmbH
+>>> + * Author: Dominik Haller <d.haller@phytec.de>
+>>> + */
+>>> +
+>>> +/dts-v1/;
+>>> +/plugin/;
+>>> +
+>>> +#include <dt-bindings/clock/imx8mm-clock.h>
+>>> +
+>>> +&{/} {
+>>> +    reserved-memory {
+>>> +        #address-cells = <2>;
+>>> +        #size-cells = <2>;
+>>> +        ranges;
+>>
+>> I'm getting this:
+>>
+>> arch/arm64/boot/dts/freescale/imx8mm-phycore-rpmsg.dtso:16.3-10: 
+>> Warning (ranges_format): 
+>> /fragment@0/__overlay__/reserved-memory:ranges: empty "ranges" 
+>> property but its #size-cells (2) differs from /fragment@0/__overlay__ (1)
+>> arch/arm64/boot/dts/freescale/imx8mm-phycore-rpmsg.dtso:13.18-43.4: 
+>> Warning (avoid_default_addr_size): 
+>> /fragment@0/__overlay__/reserved-memory: Relying on default 
+>> #address-cells value
+>> arch/arm64/boot/dts/freescale/imx8mm-phycore-rpmsg.dtso:13.18-43.4: 
+>> Warning (avoid_default_addr_size): 
+>> /fragment@0/__overlay__/reserved-memory: Relying on default 
+>> #size-cells value
+>>
+> 
+> I see, missed this before, sorry. But I have some problems fixing it.
+> I think the problem is that this is overlay, the same node put in the 
+> imx8mm-phycore-som.dtsi doesn't trigger a warning.
+> The only solution that I found is that I specify the default 
+> address-cells and size-cells in root node:
+> 
+> 
+> &{/} {
+>      #address-cells = <2>;
+>      #size-cells = <2>;
+> 
+>      reserved-memory {
+>          #address-cells = <2>;
+>          #size-cells = <2>;
+>          ranges;
+>      ...
+>      };
+> };
+> 
+> The same values are used in imx8mm.dtsi, but the checker fails to find 
+> these default values.
+> Not sure if this is the right solution, though. Your input would be 
+> helpful, thanks.
+> 
+> Best regards,
+> Andrej
+> 
+> 
+>> Shawn
+>>
+>>> +
+>>> +        m4_reserved: m4@80000000 {
+>>> +            reg = <0 0x80000000 0 0x1000000>;
+>>> +            no-map;
+>>> +        };
+>>> +
+>>> +        vdev0vring0: vdev0vring0@b8000000 {
+>>> +            reg = <0 0xb8000000 0 0x8000>;
+>>> +            no-map;
+>>> +        };
+>>> +
+>>> +        vdev0vring1: vdev0vring1@b8008000 {
+>>> +            reg = <0 0xb8008000 0 0x8000>;
+>>> +            no-map;
+>>> +        };
+>>> +
+>>> +        rsc_table: rsc_table@b80ff000 {
+>>> +            reg = <0 0xb80ff000 0 0x1000>;
+>>> +            no-map;
+>>> +        };
+>>> +
+>>> +        vdevbuffer: vdevbuffer@b8400000 {
+>>> +            compatible = "shared-dma-pool";
+>>> +            reg = <0 0xb8400000 0 0x100000>;
+>>> +            no-map;
+>>> +        };
+>>> +    };
+>>> +
+>>> +    core-m4 {
+>>> +        compatible = "fsl,imx8mm-cm4";
+>>> +        clocks = <&clk IMX8MM_CLK_M4_DIV>;
+>>> +        mboxes = <&mu 0 1
+>>> +            &mu 1 1
+>>> +            &mu 3 1>;
+>>> +        mbox-names = "tx", "rx", "rxdb";
+>>> +        memory-region = <&vdevbuffer>, <&vdev0vring0>, 
+>>> <&vdev0vring1>, <&rsc_table>;
+>>> +        syscon = <&src>;
+>>> +    };
+>>> +};
+>>> -- 
+>>> 2.34.1
+>>>
+>>
+> _______________________________________________
+> upstream mailing list -- upstream@lists.phytec.de
+> To unsubscribe send an email to upstream-leave@lists.phytec.de
 
