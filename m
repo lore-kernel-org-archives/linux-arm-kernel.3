@@ -4,77 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BB83C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 15:16:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53EADC02181
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 15:38:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4TuVoRxbmBAi8V9yz3BH7EQYWTzmh03R9kdlOoAvRf4=; b=D9zyJCGV+1A1R6Yz0opsMyxtpL
-	GbYnbsQHLA7au/4dckZKtzjwovkH+fg0ni+CpLAyVD0E8cPqW5YoEY+iV99V9H67Wl/d2Za0PleTk
-	wqEIj7nYHrk7w0HiFH/m7eVY8EeVCOrfzYp2NEUEiLE9B3axUmju0D3btyBT/hltdf4oNlSimCwOR
-	isQQIWx4oyHMekuDvRm98GxyFk2NLC7GG1M2/G0lk5378a96GeUGx3ZFWe+Uka5xNgqp2w84OYhOH
-	4kpaGIdfAuTS/d8TOxcWkB6ucz1lCSi7dd0oBmMND1v0skitqoV9cRos7OuM24GvRBYbAVYMcxXrR
-	9ohlG2hw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ANJPCSkCCb0eS2yvATOLuOGqa6XlfMQzzFOr0IfNQxY=; b=sWFT4gyn5/KmajSEHXRh8CI9k7
+	qD+6oY3sBq1k5w8jtFIMGixsbhJlCKLWjUes1YCtB5cWYbmjTdKMxjJ4ZWlXsmX+omMde1M8pMbsy
+	ltu5CLZYXZFJHwHfD40XFcE1rRUVdgUFamG5w8e5CcPV7sdpGGEcNAnTQRftfczic+eI4wqpsA/3b
+	nOF7fI40eXLF1RIaQZ0d9Guc6ljaJL+cOeVkdIfqONkvb+dkxsemE9Am/CLq8e9ELhcQ5MI5op8Lp
+	FG5Qh9QizQggg6uwhuUpl6eI6s3b/8kmU1mkY6aq3mUfxgMLaUOim50z1L3r/VMnINuGiJhbfl8zX
+	bOabVCsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZtW5-00000005s4I-39ty;
-	Mon, 20 Jan 2025 15:16:41 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1tZtqP-00000005tll-3N4f;
+	Mon, 20 Jan 2025 15:37:41 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZtUo-00000005rwe-3UL5
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jan 2025 15:15:24 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-21648c8601cso81093375ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jan 2025 07:15:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1737386121; x=1737990921; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=4TuVoRxbmBAi8V9yz3BH7EQYWTzmh03R9kdlOoAvRf4=;
-        b=w1L+VWF43RoWtXBaMO5sCG5NAb8wQg23tB/Xl9gxzRHiYLN41bGSSUWX1LVVbMlhMG
-         xRq75V53pEbDgqFCFVp05nreTsi/wGEsqQJX0HaSug0d3knupRfGQH4tiW9KDO/Ikg3q
-         O/ZszbLmwM5DHCQlLCZEZmcevl0d6b1q9i4e/hvV1pEOmAvt/4pgTWep3rKjyCe1xbSX
-         arpjihDsn7714hOdMYvhBlPna/NbtRxjEiTwzKcmseGptb2G2blpny+hVCnEHt67Mw5P
-         kXOZO4EK2eo4+x9cVMbdcofVasmX/loSThdEzlWRWXHHOJOzWRGOSTsJ2kG3o3Ni5PNf
-         rtiQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737386121; x=1737990921;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=4TuVoRxbmBAi8V9yz3BH7EQYWTzmh03R9kdlOoAvRf4=;
-        b=sQm9Dxw19SQdXPoA01uK+M8os+8rQTQGUTzb1faIPBjRpLx3elRz+8cIRzuhFSheIr
-         Z/bZSTVQ5pIeopcKw5necTuJY9zHZVi4iGKMvtevp5p0IcDThA5OFMtp45sRdlm92n7U
-         xwSChDTyG7Mlias4xLo2rXYC9cCqGA9MlW8W5ms3CbMLvasgSfs4czOkTZd+RZc+Q7qM
-         PLgQ/1dLbfIRePVOLVrQBxsKsRXa8TZZkXdhl3hfM10k3U1FMNaVPRHmC+kpgNH2QEBD
-         GfYwoDsYKOW360I6MGwnYnWMw9PtQ76D9Yo6Q7/OemDgPw3UKYkesQcNfo9MrXK5mPa5
-         1h8A==
-X-Gm-Message-State: AOJu0Yze93JIxGB6px0wTBtQ+0F2hgWu5c+ED8h6FQ6hwQJ4I6Ols9JS
-	6AfqYk+HdZ78wdb/VWAahI/5w7S/YzBOs5SOvvhCw9SnvePGIARBwQUevRqJ7SS03yfDn9kMbb1
-	cWoiPC+Q3HBD0DWgelC3xrQ==
-X-Google-Smtp-Source: AGHT+IEB6IUiwIoCs5Sc+DChuXGkEKi5mHklCEPpk0MnpLMCkgKj3oeKL3Yaotz5jBykfGlrNQfXbcL42khmPtQ73A==
-X-Received: from pgbcm6.prod.google.com ([2002:a05:6a02:a06:b0:801:d783:5f1e])
- (user=lokeshvutla job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:902:d510:b0:212:5786:7bbe with SMTP id d9443c01a7336-21c3550e908mr223507475ad.24.1737386121377;
- Mon, 20 Jan 2025 07:15:21 -0800 (PST)
-Date: Mon, 20 Jan 2025 15:15:14 +0000
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.48.0.rc2.279.g1de40edade-goog
-Message-ID: <20250120151514.1769597-1-lokeshvutla@google.com>
-Subject: [PATCH] KVM: arm64: Flush hyp bss section after initialization of
- variables in bss
-From: Lokesh Vutla <lokeshvutla@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Fuad Tabba <tabba@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	lokeshvutla@google.com, sachinparekh@google.com
-Content-Type: text/plain; charset="UTF-8"
+	id 1tZtp8-00000005td8-1nsJ;
+	Mon, 20 Jan 2025 15:36:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id DC3EF5C5B1C;
+	Mon, 20 Jan 2025 15:35:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6F9AC4CEDD;
+	Mon, 20 Jan 2025 15:36:12 +0000 (UTC)
+Date: Mon, 20 Jan 2025 21:06:02 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Ziqi Chen <quic_ziqichen@quicinc.com>
+Cc: Manivannan Sadhasivam <mani@kernel.org>, quic_cang@quicinc.com,
+	bvanassche@acm.org, beanhuo@micron.com, avri.altman@wdc.com,
+	junwoo80.lee@samsung.com, martin.petersen@oracle.com,
+	quic_nguyenb@quicinc.com, quic_nitirawa@quicinc.com,
+	quic_rampraka@quicinc.com, linux-scsi@vger.kernel.org,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Peter Wang <peter.wang@mediatek.com>,
+	Stanley Jhu <chu.stanley@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Andrew Halaney <ahalaney@redhat.com>,
+	Maramaina Naresh <quic_mnaresh@quicinc.com>,
+	Eric Biggers <ebiggers@google.com>,
+	Minwoo Im <minwoo.im@samsung.com>,
+	open list <linux-kernel@vger.kernel.org>,
+	"moderated list:UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER..." <linux-mediatek@lists.infradead.org>,
+	"open list:UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER..." <linux-arm-msm@vger.kernel.org>,
+	"moderated list:ARM/Mediatek SoC support:Keyword:mediatek" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH 1/8] scsi: ufs: core: Pass target_freq to
+ clk_scale_notify() vops
+Message-ID: <20250120153602.wij4vbodjzi24aok@thinkpad>
+References: <20250116091150.1167739-1-quic_ziqichen@quicinc.com>
+ <20250116091150.1167739-2-quic_ziqichen@quicinc.com>
+ <20250119071131.4hepn6msmh76npi7@thinkpad>
+ <57d52f72-31ec-46cf-b632-74b09e29f501@quicinc.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <57d52f72-31ec-46cf-b632-74b09e29f501@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_071522_870559_36BC44F8 
-X-CRM114-Status: GOOD (  15.26  )
+X-CRM114-CacheID: sfid-20250120_073622_559170_AD5B31BD 
+X-CRM114-Status: GOOD (  37.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,75 +82,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To determine CPU features during initialization, the NVHE hypervisor
-utilizes sanitized values of the host's CPU features registers. These
-values, stored in u64 idaa64*_el1_sys_val variables are updated by the
-kvm_hyp_init_symbols() function at EL1. To ensure EL2 visibility, the
-data cache needs to be flushed after these updates. However,
-individually flushing each variable using kvm_flush_dcache_to_poc() is
-inefficient.
+On Mon, Jan 20, 2025 at 08:01:03PM +0800, Ziqi Chen wrote:
+> Hi Mani,
+> 
+> Thanks for you review~
+> 
+> On 1/19/2025 3:11 PM, Manivannan Sadhasivam wrote:
+> > On Thu, Jan 16, 2025 at 05:11:42PM +0800, Ziqi Chen wrote:
+> > > From: Can Guo <quic_cang@quicinc.com>
+> > > 
+> > > If OPP V2 is used, devfreq clock scaling may scale clock amongst more than
+> > > two freqs,
+> > 
+> > 'amongst more than two freqs': I couldn't parse this.
+> > 
+> 
+> It means that the devfreq framework will tell UFS core driver the devfreq
+> freq, then UFS core driver will find the recommended freq from our freq
+> table based on the devfreq freq. For legacy mode , we can only have 2
+> frequencies in the table. But if the OPP V2 is used, we can have 3 , 4 or
+> more freq tables. You can refer to my PATCH 8/8.
+> 
 
-These cpu feature variables would be part of the bss section of
-the hypervisor. Hence, flush the entire bss section of hypervisor
-once the initialization is complete.
+I got the motive, but the wording is not correct.
 
-Motivation for this change:
-* Since the existing variables are not flushed from EL1, the
-  id_aa64pfr0_el1_sys_val is seen as 0 from EL2.
-* based on this value check_override macro in hypervisor skips
-  updating the sve (cpacr_el1) at finalise_el2_state.
-* The default value for cpacr_el1 enables the sve traps to EL2.
-* With sve enabled, during the context switch from EL0 -> EL1 (which is
-  much later in the boot process), the sve registers are saved/restored.
-* Since sve traps are enabled, accessing sve registers at EL1 caused a
-  trap to EL2.
-* However, hypervisor is not ready to handle sve traps at this stage
-  causing the below kernel crash during the boot:
+> > > so just passing up/down to vops clk_scale_notify() is not enough
+> > > to cover the intermediate clock freqs between the min and max freqs. Hence
+> > > pass the target_freq to clk_scale_notify() to allow the vops to perform
+> > > corresponding configurations with regard to the clock freqs.
+> > > 
+> > 
+> > Add a note that the 'target_freq' is not used in this commit.
+> > 
+> 
+> Sorry, I don't very understand this comment, I mentioned the "target_freq"
+> in the commit message,  Could you let me know what note you want me do add?
+> 
 
-[    0.320850][    T1] Run /init as init process
-[    0.321392][    T1] kvm [1]: nVHE hyp BUG at: [<ffffffc08112ee8c>] __kvm_nvhe_$x.24+0x254/0x254!
-[    0.321522][    T1] kvm [1]: Cannot dump pKVM nVHE stacktrace: !CONFIG_PROTECTED_NVHE_STACKTRACE
-[    0.321635][    T1] kvm [1]: Hyp Offset: 0xffffff6e60000000
-[    0.321710][    T1] Kernel panic - not syncing: HYP panic:
-[    0.321710][    T1] PS:634023c9 PC:000000522112ee8c ESR:00000000f2000800
-[    0.321710][    T1] FAR:0000000000000000 CPACR:0000000000310000 PAR:0000000000000800
-[    0.321710][    T1] VCPU:0000000000000000
-[...]
-[    0.322251][    T1] Call trace:
-[    0.322292][    T1]  dump_backtrace+0x100/0x180
-[    0.322355][    T1]  show_stack+0x20/0x30
-[    0.322410][    T1]  dump_stack_lvl+0x40/0x88
-[    0.322471][    T1]  dump_stack+0x18/0x24
-[    0.322523][    T1]  panic+0x13c/0x364
-[    0.322578][    T1]  nvhe_hyp_panic_handler+0x148/0x1cc
-[    0.322646][    T1]  do_sve_acc+0xec/0x260
-[    0.322706][    T1]  el0_sve_acc+0x34/0x68
+This patch is introducing 'target_freq' as a parameter, but it is not used. I
+was asking you to mention that it will be used in successive commits.
 
-Fixes: 6c30bfb18d0b ("KVM: arm64: Add handlers for protected VM System Registers")
-Suggested-by: Fuad Tabba <tabba@google.com>
-Signed-off-by: Lokesh Vutla <lokeshvutla@google.com>
----
- arch/arm64/kvm/arm.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+> > > Co-developed-by: Ziqi Chen <quic_ziqichen@quicinc.com>
+> > > Signed-off-by: Ziqi Chen <quic_ziqichen@quicinc.com>
+> > > Signed-off-by: Can Guo <quic_cang@quicinc.com>
+> > 
+> > Signed-off-by tag order is not correct here. This implies that Ziqi originally
+> > worked on it, then Can took over and submitted. But it seems the reverse.
+> 
+> Thanks for your reminder. Is below tag order OK ?
+>     Signed-off-by: Can Guo <quic_cang@quicinc.com>
+>     Co-developed-by: Ziqi Chen <quic_ziqichen@quicinc.com>
+>     Signed-off-by: Ziqi Chen <quic_ziqichen@quicinc.com>
+> > 
+> > - Mani
+> 
+> -Ziqi
+> 
+> > 
+> > > ---
+> > >   drivers/ufs/core/ufshcd-priv.h  | 7 ++++---
+> > >   drivers/ufs/core/ufshcd.c       | 4 ++--
+> > >   drivers/ufs/host/ufs-mediatek.c | 1 +
+> > >   drivers/ufs/host/ufs-qcom.c     | 5 +++--
+> > >   include/ufs/ufshcd.h            | 2 +-
+> > >   5 files changed, 11 insertions(+), 8 deletions(-)
+> > > 
+> > > diff --git a/drivers/ufs/core/ufshcd-priv.h b/drivers/ufs/core/ufshcd-priv.h
+> > > index 9ffd94ddf8c7..0549b65f71ed 100644
+> > > --- a/drivers/ufs/core/ufshcd-priv.h
+> > > +++ b/drivers/ufs/core/ufshcd-priv.h
+> > > @@ -117,11 +117,12 @@ static inline u32 ufshcd_vops_get_ufs_hci_version(struct ufs_hba *hba)
+> > >   	return ufshcd_readl(hba, REG_UFS_VERSION);
+> > >   }
+> > > -static inline int ufshcd_vops_clk_scale_notify(struct ufs_hba *hba,
+> > > -			bool up, enum ufs_notify_change_status status)
+> > > +static inline int ufshcd_vops_clk_scale_notify(struct ufs_hba *hba, bool up,
+> > > +					       unsigned long target_freq,
+> > > +					       enum ufs_notify_change_status status)
+> > >   {
+> > >   	if (hba->vops && hba->vops->clk_scale_notify)
+> > > -		return hba->vops->clk_scale_notify(hba, up, status);
+> > > +		return hba->vops->clk_scale_notify(hba, up, target_freq, status);
+> > >   	return 0;
+> > >   }
+> > > diff --git a/drivers/ufs/core/ufshcd.c b/drivers/ufs/core/ufshcd.c
+> > > index acc3607bbd9c..8d295cc827cc 100644
+> > > --- a/drivers/ufs/core/ufshcd.c
+> > > +++ b/drivers/ufs/core/ufshcd.c
+> > > @@ -1157,7 +1157,7 @@ static int ufshcd_scale_clks(struct ufs_hba *hba, unsigned long freq,
+> > >   	int ret = 0;
+> > >   	ktime_t start = ktime_get();
+> > > -	ret = ufshcd_vops_clk_scale_notify(hba, scale_up, PRE_CHANGE);
+> > > +	ret = ufshcd_vops_clk_scale_notify(hba, scale_up, freq, PRE_CHANGE);
+> > >   	if (ret)
+> > >   		goto out;
+> > > @@ -1168,7 +1168,7 @@ static int ufshcd_scale_clks(struct ufs_hba *hba, unsigned long freq,
+> > >   	if (ret)
+> > >   		goto out;
+> > > -	ret = ufshcd_vops_clk_scale_notify(hba, scale_up, POST_CHANGE);
+> > > +	ret = ufshcd_vops_clk_scale_notify(hba, scale_up, freq, POST_CHANGE);
+> > >   	if (ret) {
+> > >   		if (hba->use_pm_opp)
+> > >   			ufshcd_opp_set_rate(hba,
+> > > diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
+> > > index 135cd78109e2..977dd0caaef6 100644
+> > > --- a/drivers/ufs/host/ufs-mediatek.c
+> > > +++ b/drivers/ufs/host/ufs-mediatek.c
+> > > @@ -1643,6 +1643,7 @@ static void ufs_mtk_clk_scale(struct ufs_hba *hba, bool scale_up)
+> > >   }
+> > >   static int ufs_mtk_clk_scale_notify(struct ufs_hba *hba, bool scale_up,
+> > > +				    unsigned long target_freq,
+> > >   				    enum ufs_notify_change_status status)
+> > >   {
+> > >   	if (!ufshcd_is_clkscaling_supported(hba))
+> > > diff --git a/drivers/ufs/host/ufs-qcom.c b/drivers/ufs/host/ufs-qcom.c
+> > > index 68040b2ab5f8..b6eef975dc46 100644
+> > > --- a/drivers/ufs/host/ufs-qcom.c
+> > > +++ b/drivers/ufs/host/ufs-qcom.c
+> > > @@ -1333,8 +1333,9 @@ static int ufs_qcom_clk_scale_down_post_change(struct ufs_hba *hba)
+> > >   	return ufs_qcom_set_core_clk_ctrl(hba, false);
+> > >   }
+> > > -static int ufs_qcom_clk_scale_notify(struct ufs_hba *hba,
+> > > -		bool scale_up, enum ufs_notify_change_status status)
+> > > +static int ufs_qcom_clk_scale_notify(struct ufs_hba *hba, bool scale_up,
+> > > +				     unsigned long target_freq,
+> > > +				     enum ufs_notify_change_status status)
+> > >   {
+> > >   	struct ufs_qcom_host *host = ufshcd_get_variant(hba);
+> > >   	int err;
+> > > diff --git a/include/ufs/ufshcd.h b/include/ufs/ufshcd.h
+> > > index d7aca9e61684..a4dac897a169 100644
+> > > --- a/include/ufs/ufshcd.h
+> > > +++ b/include/ufs/ufshcd.h
+> > > @@ -344,7 +344,7 @@ struct ufs_hba_variant_ops {
+> > >   	void    (*exit)(struct ufs_hba *);
+> > >   	u32	(*get_ufs_hci_version)(struct ufs_hba *);
+> > >   	int	(*set_dma_mask)(struct ufs_hba *);
+> > > -	int	(*clk_scale_notify)(struct ufs_hba *, bool,
+> > > +	int (*clk_scale_notify)(struct ufs_hba *, bool, unsigned long,
+> > >   				    enum ufs_notify_change_status);
+> > >   	int	(*setup_clocks)(struct ufs_hba *, bool,
+> > >   				enum ufs_notify_change_status);
+> > > -- 
+> > > 2.34.1
+> > > 
+> > 
 
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index a102c3aebdbc..5d3b2069a2d5 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -2661,6 +2661,12 @@ static int __init init_hyp_mode(void)
- 		}
- 	}
- 
-+	/*
-+	 * Flush entire BSS since part of its data is read while the MMU is off.
-+	 */
-+	kvm_flush_dcache_to_poc(kvm_ksym_ref(__hyp_bss_start),
-+				kvm_ksym_ref(__hyp_bss_end) - kvm_ksym_ref(__hyp_bss_start));
-+
- 	return 0;
- 
- out_err:
 -- 
-2.48.0.rc2.279.g1de40edade-goog
-
+மணிவண்ணன் சதாசிவம்
 
