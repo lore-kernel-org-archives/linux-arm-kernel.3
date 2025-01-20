@@ -4,66 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE56CC02185
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 07:24:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BD4BC02185
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 07:25:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=feTvaT3iQflJSaxGQZeTwsO6NJDX5cSoX84ga0y8Bt8=; b=wtgfmsVwdqJTdPNX1qAY1cQDF6
-	88/rO0ghJ9HX5hpBspHgUpwBjNzgDInwhIR6Np+Mi6UIb7WcMOsaRc8HoT+dIFCZuw6mWd3iFlz/O
-	IfPi0mvzEQRv2N0RXfjeQP8QZgCPSyhOYUOA2KQwW8L5bz2hRF00IkNzDYu3fXk0d7kn+VU1UvlLe
-	z8zyQDttIgb9Z3dfTFEbN0sKmZNJMifBXkJHejVuHxjPOm2mr/lJzA/+aidJdIfAylWFmRtByPu8R
-	Wx0/dZ74YEwpt1+zdreJr4NeIqe5zluCwvJcAPfxOWomsIDuGCytZ0d7aeIXT+i6hgtqa6NegbqH4
-	85UT5YAg==;
+	bh=LSfjn3OHrmZqHat9YEZPVOtXGgMrCu3NvImmlZkzQgU=; b=vvCFK68UtpznpX6Qkyf9/pACVD
+	bZrHhtYGgcvAMvf/SqSPnuusVP0XAMfJmAlY38b23S3jKRWavT0UT25NC7Z+6AZ3C3YpihjoywYDD
+	ZbzCkmfQyuWkWiO/CbO4/T+Uc/sOtMlvyiq916bSK1DhLtPNaAMfn1IfwDQ0EODWKj5IwJCqbCdCn
+	A7kTy6GFWHJFDJlUL++aqRsziYfxtIYMsjmIIi2dUwfd32FFsR1NZGmAGxUx+FewxkY+mXGNgskTA
+	qnjlFi3JIAgBOgoZ69dIkpsINJyZlgFGHztxeWs2G+z2pi0PWJ/dVRmZwMgqFzhIkPHVQgJ6yjav5
+	KmczPRaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZm8g-00000004uqD-188Y;
-	Mon, 20 Jan 2025 07:24:02 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tZm9x-00000004uyK-1HEV;
+	Mon, 20 Jan 2025 07:25:23 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZm2t-00000004ttw-16j0
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jan 2025 07:18:04 +0000
+	id 1tZm6e-00000004uU6-2ZiL;
+	Mon, 20 Jan 2025 07:21:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EA2215C4A94;
-	Mon, 20 Jan 2025 07:17:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABE20C4CEDD;
-	Mon, 20 Jan 2025 07:17:57 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 19374A407FA;
+	Mon, 20 Jan 2025 07:20:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AB89C4CEDD;
+	Mon, 20 Jan 2025 07:21:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737357482;
-	bh=V8tRj4wxF6WY5P5NGz3HaOq0ntuT+G45qoGbh62cfug=;
+	s=k20201202; t=1737357715;
+	bh=pjqMLlfqyg8zcx6+WPm5XC91WISB3E6+EacWxK+mNIg=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hK7k6X8F2vKT0kUpUdomr7aacwvQMR9NrEfDqFN9nn84o2ytKGh+0V0eQpH+fNvbR
-	 VS1t07G3OYUzqwoqSG5ePH7jmxNPYu6I3NdTlEE+2syk34/28kxTgHRsrD+YPKnEMY
-	 OGMfJ9MLT0g82XoRFamscO3ED22qEC2NGl2xA3X5zdsSjhgGGgqIhLVwVhsLH/J3TN
-	 n0YfEF7iv3PLBKfrNJ6zlDeGJLZXzcwffUNkv3GmvsdF8Ie6sRXn/ATUBPFe/fOaV0
-	 xyssnCC+np6b6ovIalmAIxpGqC0/trB5SwKNlY90gVG5HhvLC1QUrx227vpkABZEOu
-	 xRh4bwmzB+ANQ==
-Message-ID: <f0101c5b-e8c2-408e-9d4b-0ed7d9b7bad6@kernel.org>
-Date: Mon, 20 Jan 2025 08:17:55 +0100
+	b=M1N4OIozFq8mlhMeFXOlqmgiZ1HUHvNEenHpJ1bLVc0tH6NuM3l0Wvm4Ofupd4SRW
+	 jW7bEFQolcvYWaUlZr70qC5x7w3qsCnr2rTh9iJ8BRMFeYpdRMcKiDNcbZp6xb4oGf
+	 icOMlmS0hwUi5TMGozKDon0mMJOg+j30HZUSvCb1doW3kd3jbuk9gFY5DOM38CR0WV
+	 gJ7G9Ry3JY9gCSa0mBWB//SGrGEeCF/t+7alNG+c5AwgrGXy2kaC2kYuh7Lky+YTBn
+	 D+LZ7KZ3QVWhLtmVRyVK2VeBytg1+Bv+6d07Yso/MeR3XkzGECXAz81KW+Ia5axLH/
+	 ONFxbFYGMkKbg==
+Message-ID: <d08136ac-e08f-4e5d-b562-78529f34d86f@kernel.org>
+Date: Mon, 20 Jan 2025 08:21:49 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 04/10] dt-bindings: clock: Add Qualcomm QCS615 Display
- clock controller
-To: Taniya Das <quic_tdas@quicinc.com>, "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
- Will Deacon <will@kernel.org>, Ajit Pandey <quic_ajipan@quicinc.com>,
- linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>, Stephen Boyd <sboyd@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Jagadeesh Kona <quic_jkona@quicinc.com>, linux-arm-msm@vger.kernel.org,
- linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Imran Shaik <quic_imrashai@quicinc.com>,
- Bjorn Andersson <andersson@kernel.org>
-References: <20250119-qcs615-mm-v4-clockcontroller-v4-0-5d1bdb5a140c@quicinc.com>
- <20250119-qcs615-mm-v4-clockcontroller-v4-4-5d1bdb5a140c@quicinc.com>
- <173728731976.808036.168078560019330137.robh@kernel.org>
- <a646b3af-9957-4720-893e-9013b2dca43a@quicinc.com>
+Subject: Re: [PATCH v3 1/5] dt-bindings: pinctrl: Add support for Amlogic SoCs
+To: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
+References: <20250115-amlogic-pinctrl-v3-0-2b8536457aba@amlogic.com>
+ <20250115-amlogic-pinctrl-v3-1-2b8536457aba@amlogic.com>
+ <20250117-intrepid-nano-horse-98e817@krzk-bin>
+ <012cfaca-e8f5-4614-9393-a4a46a797adb@amlogic.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,13 +104,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <a646b3af-9957-4720-893e-9013b2dca43a@quicinc.com>
+In-Reply-To: <012cfaca-e8f5-4614-9393-a4a46a797adb@amlogic.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250119_231803_394731_37054589 
-X-CRM114-Status: UNSURE (   8.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250119_232156_785595_06C8E67D 
+X-CRM114-Status: GOOD (  11.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,31 +124,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/01/2025 05:40, Taniya Das wrote:
+On 20/01/2025 06:57, Xianwei Zhao wrote:
+> Hi Krzysztof,
+>     Thanks for reply.
 > 
-> 
-> On 1/19/2025 5:23 PM, Rob Herring (Arm) wrote:
->> y bot found errors running 'make dt_binding_check' on your patch:
+> On 2025/1/17 16:48, Krzysztof Kozlowski wrote:
+>> [ EXTERNAL EMAIL ]
 >>
->> yamllint warnings/errors:
+>> On Wed, Jan 15, 2025 at 02:41:59PM +0800, Xianwei Zhao wrote:
+>>> +properties:
+>>> +  compatible:
+>>> +    const: amlogic,pinctrl-a4
+>>> +
+>>> +  "#address-cells":
+>>> +    const: 2
+>>> +
+>>> +  "#size-cells":
+>>> +    const: 2
 >>
->> dtschema/dtc warnings/errors:
->> Documentation/devicetree/bindings/clock/qcom,qcs615-dispcc.example.dts:19:18: fatal error: dt-bindings/clock/qcom,qcs615-gcc.h: No such file or directory
->>     19 |         #include <dt-bindings/clock/qcom,qcs615-gcc.h>
->>        |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->> compilation terminated.
->> make[2]: *** [scripts/Makefile.dtbs:131: Documentation/devicetree/bindings/clock/qcom,qcs615-dispcc.example.dtb] Error 1
->> make[2]: *** Waiting for unfinished jobs....
->> make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1506: dt_binding_check] Error 2
->> make: *** [Makefile:251: __sub-make] Error 2
-> 
-> The code 
-> https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/include/dt-bindings/clock/qcom,qcs615-gcc.h
-> 
-> The cover letter also has the series mentioned.
+>> Why this moved to '2'? 32-bit was not enough?
+>>
+> Previously only represented a register address offset value, now 
+> directly represents a register, through 'ranges" which to represent. 
+> 32-bit is enough, but since APB bus is defined as 64-bit, here is 
+
+Changelog was silent on this.
+
+> following. I increase support for 32-bit. Like the following values:
+
+No, just keep one of these.
 
 
-Rather read entire message...
 
 Best regards,
 Krzysztof
