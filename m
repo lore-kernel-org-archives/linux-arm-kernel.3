@@ -4,96 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 357DDC02181
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 18:51:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72EEFC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 19:01:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DqV/FjhJj9DUjcirvqGcRVZyK8YP06tY6pUQMoRMhuw=; b=wVz9H3MvN8ZzvtL+zu7gK5P3Gb
-	YRA6S0ZQ7PwLqmJIjCVmf7HmVfc5OZdMWtl3W2VcogFYqrRcFnHb/nazNvj/0Tw687TGa2Q50q4P3
-	KfOPorvKGrhYXlHKttG1zpEHIzZQcwlAqTKJgwOHM2uMs65Ursj1OVWSjaUX1ww8Hw4AcO6OtwKpb
-	L9cOqn4pijVU6rJG2QWlZuTtvXGeFemkgHty74OMRRUOeqA3p0vgGx0x2v+3P3JONktJOc0TTW2C6
-	ZS7xuynuJpa6zWUYidIw89hhiNPexmIi49bEzCZzeZIIUVZ5n9ades02aeywc3bm6fp+qHpLhEFaP
-	R5KQweSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jbUzLvYct+Q3q8p52u/0I7k70W6cky67gUKpAkP5rNY=; b=Q0IbwzZiAsSwdYimP71Gndb7Hg
+	HkeSfxX5EwS0FOx1CK3slAJlg0qsIos11xYs5Wtaxqj20cmZf41zqHcLlld5xJsfWkyB01S4dosZs
+	FLthPIzO/GaXbYfhg4FExjQrF0V/zQphtHEwATYyF2SwOjp6GWfkzR9AnNSbdUkL+6tjrQh8AycG3
+	LDd+YNh2KSUmN6k1som91aPx0zrXIu/E4uXcakViKb0dq3vLsVleOiTxb4ZHlQFzXnIGBSrx5alHk
+	bR3PNbkOi+jzT+wXNX7ERM9+N6qqpj2UDrGImrLvjMum0AvHSiwAIFsYbOXfyoQpeSKGOaFn2yL+g
+	WvCbOVXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZwrO-00000006GyG-3pml;
-	Mon, 20 Jan 2025 18:50:54 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1tZx1S-00000006IAC-41Pr;
+	Mon, 20 Jan 2025 19:01:18 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZwos-00000006GZo-08yZ;
-	Mon, 20 Jan 2025 18:48:19 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-3863494591bso2597145f8f.1;
-        Mon, 20 Jan 2025 10:48:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737398896; x=1738003696; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DqV/FjhJj9DUjcirvqGcRVZyK8YP06tY6pUQMoRMhuw=;
-        b=clKQVeRbefqSw6tJS+q7t1ba2aSPpCLVoISr9C+ADoNIZPaEcbiMOdm9Jv6dHs5rFO
-         SummAMAcVFpb0vGROOH7V2Nzr/wrmEoS/Dz7JwopFiZ1H+E1UdOcR6Ai5ojD/VIWYTJB
-         VSAJ22t/P+Um6VKUVGw0kDUuC7b0fxReKbge+6kievfmv1+pcND4+c3L+1hEqo3bHsZm
-         gGpDvWljvkBSCuQ7BX+nreleLq49Rg2u7ZNe6TRs8qTL6ezal+bDQf1KbGAGNh4ZjxO7
-         uIo9StuLrNPCPpXRk+Vt3gJh0zp9gWY7vyseSD//huUwwqJU6Wm90SQJ7hK8vG7I37aC
-         j/Ow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737398896; x=1738003696;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=DqV/FjhJj9DUjcirvqGcRVZyK8YP06tY6pUQMoRMhuw=;
-        b=LR4g+5JUE0rbtuqkXm7PpJ9GtQVYnW9hfEHydsZNN+mZhVUwK/L9JwTOZtySbH41i+
-         HqZF6phDXQb8XOTsfLFVjvbmjm6ytUPKneyeVDhxhlB3y0D2XbOKgn6rrlBhA3uTLi0I
-         dKmMXxa0QosD1iMIXV13QU/as29gcZCCyv1PBKPZzJwqqKD5ieY14oU3kIFjYKLAZjim
-         zb1CouttB8Bsh5OpSBSWMWlYymIy3fhTTFqmDu9Id3Imq1qJJ7NIig31YIXuulb9DGGM
-         HDCpoMrkbeaTxju3OgLgKCgqqaRsX+jmAKfcYxUryKmihUsoKC+jneIGMpioHI2X9cO2
-         41GA==
-X-Forwarded-Encrypted: i=1; AJvYcCU/KzQo1PkASajs4uji5sdxQzD4/4if0hyJ8TI1O3+P8we53JqvwCGS6xhE25uj5bVHQah1mLZVAzw63rq7jp8r@lists.infradead.org, AJvYcCVxM6oZ/aHtQhUn2RblAXm/xUbGQIkQznzPXKpGRsDYsakbBc7D+gClgfjmYsF57Z9uwnSgc7FfjzfXDcUe5hk=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6iypQ5H/TvPfaMnZo7kuq/p+5QC+K7cdGtOHQuKTiD+u2gPp3
-	NdxkOMSjbh+dniNS9YD7CFWuIsSobnogLPeOVTVC4QucBgWSTQU+
-X-Gm-Gg: ASbGncsUFyZ9GeKzVyauI6uFEDO8edcK7xDB4d7gvZS8JYnGJpkzyOcIOZX1/RRwnf7
-	CS1To3nEOfXlvMS83NoIXERzZEg/VOqM2aE2CPJzAJdWIQvAK71sodu3XshlSKI0iSxpvJI27bm
-	wDnXqX+rGB8lQyukkEErdfTGcFwyogvVEf7fHdBHxYlWIYl4hGQUNsnTXhb1JujrIsK0aA9svlw
-	qT58d48S83RjQ8Ldoje8unttKgLsZlPEU+b+BqHwAeymJPjVm5tGYlAo1tk+5G+Z8u6zXIhlnHV
-	v2KOdMaTN7VJjllW5Y5iwUeEXpRqEvFdmLeso/U=
-X-Google-Smtp-Source: AGHT+IH9PM2GibsFcQmyWQQGrxcXpJ+kncPmt3vY8dQwqwdzD60YCwZnKsd2BQmHXXaTAhz6p7SP5A==
-X-Received: by 2002:a05:6000:1f85:b0:38b:e32a:109d with SMTP id ffacd0b85a97d-38bf59e1d83mr11668430f8f.34.1737398896238;
-        Mon, 20 Jan 2025 10:48:16 -0800 (PST)
-Received: from localhost.localdomain (93-34-91-161.ip49.fastwebnet.it. [93.34.91.161])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38bf3215023sm11095390f8f.9.2025.01.20.10.48.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Jan 2025 10:48:15 -0800 (PST)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Chaotian Jing <chaotian.jing@mediatek.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Wenbin Mei <wenbin.mei@mediatek.com>,
-	linux-mmc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	upstream@airoha.com
-Cc: Christian Marangi <ansuelsmth@gmail.com>
-Subject: [PATCH v2 2/2] mmc: mtk-sd: add support for AN7581 MMC Host
-Date: Mon, 20 Jan 2025 19:47:02 +0100
-Message-ID: <20250120184728.18325-2-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20250120184728.18325-1-ansuelsmth@gmail.com>
-References: <20250120184728.18325-1-ansuelsmth@gmail.com>
+	id 1tZx09-00000006Hq9-36Yy
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Jan 2025 18:59:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 96A665C062A;
+	Mon, 20 Jan 2025 18:59:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2918C4CEE5;
+	Mon, 20 Jan 2025 18:59:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737399595;
+	bh=iAkZKKpWubMSTuScI3FYxu+r0DGBwTxBUrbrQVlqlgA=;
+	h=Date:From:To:Cc:Subject:From;
+	b=T5BUe+fv4J3//JbiGkJXeRnjvS4R8ca4751Gkd7no7Qk0sYVFVEpiMJThJuDpMJrz
+	 t7+BG4Ui4pcQHvTyfG8WhSgoP4DPo5g/qi3C6GLxFFf2EaJprXg155kF+ggPJUTmtW
+	 rPUEwgHjQAv8lHXfUwBpjqjF5P9J5L0TomKt+Rkdejt6JjucNdWFy1b/+S/aGEKY0X
+	 wHeEA0nFEX9KAklIhMOL3ioOeNzwHv9guhcXTyyUm4eo2FLmEFNOVGip7PH3BmvlAC
+	 3zVPJfM9tYH7gVQPS2nhx02BiRm2C+UCiWR/6TPArPCFwmyGCJu4rn3kniHA7yOtow
+	 hUGbWEfEb3TpA==
+Date: Mon, 20 Jan 2025 18:59:51 +0000
+From: Will Deacon <will@kernel.org>
+To: torvalds@linux-foundation.org
+Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kernel-team@android.com
+Subject: [GIT PULL] arm64 updates for 6.14
+Message-ID: <20250120185950.GA20356@willie-the-truck>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_104818_078780_7BA6D181 
-X-CRM114-Status: GOOD (  19.13  )
+X-CRM114-CacheID: sfid-20250120_105957_871225_C56CCE54 
+X-CRM114-Status: GOOD (  23.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,136 +70,270 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for AN7581 MMC Host. The MMC Host controller is based on
-mt7622 with the difference of not having regulator supply and state_uhs
-pins and hclk clock.
+Hi Linus,
 
-Some minor fixes are applied to check if the state_uhs pins are defined
-and make hclk optional for the new airoha compatible.
+Please pull these arm64 updates for 6.14.
 
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
----
-Changes v2:
-- Drop redundant if condition where regulator is not supported
-- Correctly set pin in msdc_ops_switch_volt
+We've got a little less than normal thanks to the holidays in December,
+but there's the usual summary in the tag. The highlight is probably the
+52-bit physical addressing (LPA2) clean-up from Ard.
 
- drivers/mmc/host/mtk-sd.c | 59 +++++++++++++++++++++++++++++----------
- 1 file changed, 45 insertions(+), 14 deletions(-)
+Please note that the cpufeature branch will also make an appearance
+via the KVM tree.
 
-diff --git a/drivers/mmc/host/mtk-sd.c b/drivers/mmc/host/mtk-sd.c
-index efb0d2d5716b..f76f20502409 100644
---- a/drivers/mmc/host/mtk-sd.c
-+++ b/drivers/mmc/host/mtk-sd.c
-@@ -666,6 +666,20 @@ static const struct mtk_mmc_compatible mt8196_compat = {
- 	.support_new_rx = true,
- };
- 
-+static const struct mtk_mmc_compatible an7581_compat = {
-+	.clk_div_bits = 12,
-+	.recheck_sdio_irq = true,
-+	.hs400_tune = false,
-+	.pad_tune_reg = MSDC_PAD_TUNE0,
-+	.async_fifo = true,
-+	.data_tune = true,
-+	.busy_check = true,
-+	.stop_clk_fix = true,
-+	.stop_dly_sel = 3,
-+	.enhance_rx = true,
-+	.support_64g = false,
-+};
-+
- static const struct of_device_id msdc_of_ids[] = {
- 	{ .compatible = "mediatek,mt2701-mmc", .data = &mt2701_compat},
- 	{ .compatible = "mediatek,mt2712-mmc", .data = &mt2712_compat},
-@@ -680,7 +694,7 @@ static const struct of_device_id msdc_of_ids[] = {
- 	{ .compatible = "mediatek,mt8183-mmc", .data = &mt8183_compat},
- 	{ .compatible = "mediatek,mt8196-mmc", .data = &mt8196_compat},
- 	{ .compatible = "mediatek,mt8516-mmc", .data = &mt8516_compat},
--
-+	{ .compatible = "airoha,an7581-mmc", .data = &an7581_compat},
- 	{}
- };
- MODULE_DEVICE_TABLE(of, msdc_of_ids);
-@@ -1614,12 +1628,15 @@ static int msdc_ops_switch_volt(struct mmc_host *mmc, struct mmc_ios *ios)
- 			return ret;
- 		}
- 
--		/* Apply different pinctrl settings for different signal voltage */
--		if (ios->signal_voltage == MMC_SIGNAL_VOLTAGE_180)
--			pinctrl_select_state(host->pinctrl, host->pins_uhs);
--		else
--			pinctrl_select_state(host->pinctrl, host->pins_default);
- 	}
-+
-+	/* Apply different pinctrl settings for different signal voltage */
-+	if (!IS_ERR(mmc->supply.vqmmc) &&
-+	    ios->signal_voltage == MMC_SIGNAL_VOLTAGE_180)
-+		pinctrl_select_state(host->pinctrl, host->pins_uhs);
-+	else
-+		pinctrl_select_state(host->pinctrl, host->pins_default);
-+
- 	return 0;
- }
- 
-@@ -1699,7 +1716,9 @@ static void msdc_enable_sdio_irq(struct mmc_host *mmc, int enb)
- 				dev_dbg(host->dev, "SDIO eint irq: %d!\n", host->eint_irq);
- 			}
- 
--			pinctrl_select_state(host->pinctrl, host->pins_uhs);
-+			/* Skip setting uhs pins if not supported */
-+			if (host->pins_uhs)
-+				pinctrl_select_state(host->pinctrl, host->pins_uhs);
- 		} else {
- 			dev_pm_clear_wake_irq(host->dev);
- 		}
-@@ -2816,9 +2835,12 @@ static int msdc_of_clock_parse(struct platform_device *pdev,
- 	if (IS_ERR(host->src_clk))
- 		return PTR_ERR(host->src_clk);
- 
--	host->h_clk = devm_clk_get(&pdev->dev, "hclk");
--	if (IS_ERR(host->h_clk))
--		return PTR_ERR(host->h_clk);
-+	/* AN7581 SoC doesn't have hclk */
-+	if (!device_is_compatible(&pdev->dev, "airoha,an7581-mmc")) {
-+		host->h_clk = devm_clk_get(&pdev->dev, "hclk");
-+		if (IS_ERR(host->h_clk))
-+			return PTR_ERR(host->h_clk);
-+	}
- 
- 	host->bus_clk = devm_clk_get_optional(&pdev->dev, "bus_clk");
- 	if (IS_ERR(host->bus_clk))
-@@ -2926,10 +2948,13 @@ static int msdc_drv_probe(struct platform_device *pdev)
- 		return PTR_ERR(host->pins_default);
- 	}
- 
--	host->pins_uhs = pinctrl_lookup_state(host->pinctrl, "state_uhs");
--	if (IS_ERR(host->pins_uhs)) {
--		dev_err(&pdev->dev, "Cannot find pinctrl uhs!\n");
--		return PTR_ERR(host->pins_uhs);
-+	/* AN7581 doesn't have state_uhs pins */
-+	if (!device_is_compatible(&pdev->dev, "airoha,an7581-mmc")) {
-+		host->pins_uhs = pinctrl_lookup_state(host->pinctrl, "state_uhs");
-+		if (IS_ERR(host->pins_uhs)) {
-+			dev_err(&pdev->dev, "Cannot find pinctrl uhs!\n");
-+			return PTR_ERR(host->pins_uhs);
-+		}
- 	}
- 
- 	/* Support for SDIO eint irq ? */
-@@ -3010,6 +3035,12 @@ static int msdc_drv_probe(struct platform_device *pdev)
- 		dev_err(&pdev->dev, "Cannot ungate clocks!\n");
- 		goto release_clk;
- 	}
-+
-+	/* AN7581 without regulator require tune to OCR values */
-+	if (device_is_compatible(&pdev->dev, "airoha,an7581-mmc") &&
-+	    !mmc->ocr_avail)
-+		mmc->ocr_avail = MMC_VDD_32_33 | MMC_VDD_33_34;
-+
- 	msdc_init_hw(host);
- 
- 	if (mmc->caps2 & MMC_CAP2_CQE) {
--- 
-2.47.1
+Cheers,
+
+Will
+
+--->8
+
+
+The following changes since commit fac04efc5c793dccbd07e2d59af9f90b7fc0dca4:
+
+  Linux 6.13-rc2 (2024-12-08 14:03:39 -0800)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-upstream
+
+for you to fetch changes up to 1dd3393696efba1598aa7692939bba99d0cffae3:
+
+  Merge branch 'for-next/perf' into for-next/core (2025-01-17 13:52:37 +0000)
+
+----------------------------------------------------------------
+arm64 updates for 6.14
+
+Confidential Computing:
+* Register a platform device when running in CCA realm mode to enable
+  automatic loading of dependent modules.
+
+CPU Features:
+* Update a bunch of system register definitions to pick up new field
+  encodings from the architectural documentation.
+
+* Add hwcaps and selftests for the new (2024) dpISA extensions.
+
+Documentation:
+* Update EL3 (firmware) requirements for booting Linux on modern arm64
+  designs.
+
+* Remove stale information about the kernel virtual memory map.
+
+Miscellaneous:
+* Minor cleanups and typo fixes.
+
+Memory management:
+* Fix vmemmap_check_pmd() to look at the PMD type bits
+
+* LPA2 (52-bit physical addressing) cleanups and minor fixes.
+
+* Adjust physical address space depending upon whether or not LPA2 is
+  enabled.
+
+Perf and PMUs:
+* Add port filtering support for NVIDIA's NVLINK-C2C Coresight PMU
+
+* Extend AXI filtering support for the DDR PMU on NXP IMX SoCs
+
+* Fix Designware PCIe PMU event numbering.
+
+* Add generic branch events for the Apple M1 CPU PMU.
+
+* Add support for Marvell Odyssey DDR and LLC-TAD PMUs.
+
+* Cleanups to the Hisilicon DDRC and Uncore PMU code.
+
+* Advertise discard mode for the SPE PMU.
+
+* Add the perf users mailing list to our MAINTAINERS entry.
+
+----------------------------------------------------------------
+Anshuman Khandual (8):
+      arm64/mm: Drop INIT_MM_CONTEXT()
+      arm64/mm: Replace open encodings with PXD_TABLE_BIT
+      arm64/mm: Ensure adequate HUGE_MAX_HSTATE
+      arm64/Kconfig: Drop EXECMEM dependency from ARCH_WANTS_EXECMEM_LATE
+      docs: arm64: Document EL3 requirements for cpu debug architecture
+      docs: arm64: Document EL3 requirements for FEAT_PMUv3
+      arm64/mm: Rename pte_mkpresent() as pte_mkvalid()
+      arm64/mm: Replace open encodings with PXD_TABLE_BIT
+
+Ard Biesheuvel (5):
+      arm64/mm: Reduce PA space to 48 bits when LPA2 is not enabled
+      arm64/mm: Override PARange for !LPA2 and use it consistently
+      arm64/kvm: Configure HYP TCR.PS/DS based on host stage1
+      arm64/kvm: Avoid invalid physical addresses to signal owner updates
+      arm64: Kconfig: force ARM64_PAN=y when enabling TTBR0 sw PAN
+
+Besar Wicaksono (4):
+      perf: arm_cspmu: nvidia: remove unsupported SCF events
+      perf: arm_cspmu: nvidia: fix sysfs path in the kernel doc
+      perf: arm_cspmu: nvidia: enable NVLINK-C2C port filtering
+      perf: arm_cspmu: nvidia: monitor all ports by default
+
+Bjorn Helgaas (1):
+      perf/dwc_pcie: Qualify RAS DES VSEC Capability by Vendor, Revision
+
+Gowthami Thiagarajan (5):
+      perf/marvell: Refactor to extract platform data
+      perf/marvell: Refactor to extract PMU operations
+      perf/marvell: Odyssey DDR Performance monitor support
+      perf/marvell: Refactor to extract platform data
+      perf/marvell: Odyssey LLC-TAD performance monitor support
+
+Hardevsinh Palaniya (1):
+      arm64/cpufeature: Refactor conditional logic in init_cpu_ftr_reg()
+
+Ilkka Koskinen (2):
+      perf/dwc_pcie: Fix the event numbers
+      Documentation: dwc_pcie_pmu: Fix the mnemonics and eventid
+
+James Clark (2):
+      perf: arm_spe: Add format option for discard mode
+      perf docs: arm_spe: Document new discard mode
+
+Jeremy Linton (1):
+      arm64: rsi: Add automatic arm-cca-guest module loading
+
+Junhao He (2):
+      drivers/perf: hisi: Fix incorrect variable name "hha_pmu" in DDRC PMU driver
+      drivers/perf: hisi: Delete redundant blank line of DDRC PMU
+
+Marc Zyngier (5):
+      arm64/sysreg: Allow a 'Mapping' descriptor for system registers
+      arm64/sysreg: Get rid of the TCR2_EL1x SysregFields
+      arm64/sysreg: Convert *_EL12 accessors to Mapping
+      arm64/sysreg: Get rid of CPACR_ELx SysregFields
+      arm64: Filter out SVE hwcaps when FEAT_SVE isn't implemented
+
+Mark Brown (10):
+      arm64/sysreg: Update ID_AA64PFR2_EL1 to DDI0601 2024-09
+      arm64/sysreg: Update ID_AA64ISAR3_EL1 to DDI0601 2024-09
+      arm64/sysreg: Update ID_AA64FPFR0_EL1 to DDI0601 2024-09
+      arm64/sysreg: Update ID_AA64ZFR0_EL1 to DDI0601 2024-09
+      arm64/sysreg: Update ID_AA64ISAR2_EL1 to DDI0601 2024-09
+      arm64/sme: Move storage of reg_smidr to __cpuinfo_store_cpu()
+      arm64/sysreg: Update ID_AA64SMFR0_EL1 to DDI0601 2024-12
+      arm64/hwcap: Describe 2024 dpISA extensions to userspace
+      KVM: arm64: Allow control of dpISA extensions in ID_AA64ISAR3_EL1
+      kselftest/arm64: Add 2024 dpISA extensions to hwcap test
+
+Mark Rutland (1):
+      arm64: cpufeature: Add HAFT to cpucap_is_possible()
+
+Oliver Upton (1):
+      drivers/perf: apple_m1: Map generic branch events
+
+Rob Herring (Arm) (1):
+      MAINTAINERS: Add perf list for drivers/perf/
+
+Robin Murphy (1):
+      perf/arm-cmn: Permit more exhaustive groups
+
+Thorsten Blum (1):
+      arm64: Remove duplicate included header
+
+Will Deacon (7):
+      Documentation: arm64: Remove stale and redundant virtual memory diagrams
+      Merge branch 'for-next/cca' into for-next/core
+      Merge branch 'for-next/cpufeature' into for-next/core
+      Merge branch 'for-next/docs' into for-next/core
+      Merge branch 'for-next/misc' into for-next/core
+      Merge branch 'for-next/mm' into for-next/core
+      Merge branch 'for-next/perf' into for-next/core
+
+Xu Yang (1):
+      perf: imx9_perf: Introduce AXI filter version to refactor the driver and better extension
+
+Yicong Yang (9):
+      drivers/perf: hisi: Define a symbol namespace for HiSilicon Uncore PMUs
+      drivers/perf: hisi: Don't update the associated_cpus on CPU offline
+      drivers/perf: hisi: Migrate to one online CPU if no associated one online
+      drivers/perf: hisi: Refactor the detection of associated CPUs
+      drivers/perf: hisi: Extract topology information to a separate structure
+      drivers/perf: hisi: Add a common function to retrieve topology from firmware
+      drivers/perf: hisi: Provide a generic implementation of cpumask/identifier
+      drivers/perf: hisi: Export associated CPUs of each PMU through sysfs
+      drivers/perf: hisi: Set correct IRQ affinity for PMUs with no association
+
+Zhenhua Huang (1):
+      arm64: mm: Test for pmd_sect() in vmemmap_check_pmd()
+
+Zhu Jun (1):
+      arm64: asm: Fix typo in pgtable.h
+
+ Documentation/admin-guide/perf/dwc_pcie_pmu.rst    |   6 +-
+ Documentation/admin-guide/perf/hisi-pmu.rst        |   5 +-
+ Documentation/admin-guide/perf/index.rst           |   2 +
+ .../admin-guide/perf/mrvl-odyssey-ddr-pmu.rst      |  80 ++++
+ .../admin-guide/perf/mrvl-odyssey-tad-pmu.rst      |  37 ++
+ Documentation/admin-guide/perf/nvidia-pmu.rst      |  52 +-
+ Documentation/arch/arm64/booting.rst               |  12 +
+ Documentation/arch/arm64/elf_hwcaps.rst            |  89 +++-
+ Documentation/arch/arm64/memory.rst                |  65 ---
+ MAINTAINERS                                        |   1 +
+ arch/arm64/Kconfig                                 |   8 +-
+ arch/arm64/include/asm/assembler.h                 |   5 +
+ arch/arm64/include/asm/cpucaps.h                   |   2 +
+ arch/arm64/include/asm/cpufeature.h                |   3 +-
+ arch/arm64/include/asm/el2_setup.h                 |   6 +-
+ arch/arm64/include/asm/hwcap.h                     |  15 +
+ arch/arm64/include/asm/kvm_arm.h                   |   2 -
+ arch/arm64/include/asm/kvm_emulate.h               |  40 +-
+ arch/arm64/include/asm/kvm_nested.h                |   8 +-
+ arch/arm64/include/asm/mmu.h                       |   3 -
+ arch/arm64/include/asm/pgtable-hwdef.h             |   6 -
+ arch/arm64/include/asm/pgtable-prot.h              |   7 +
+ arch/arm64/include/asm/pgtable.h                   |   8 +-
+ arch/arm64/include/asm/rsi.h                       |   2 +
+ arch/arm64/include/asm/seccomp.h                   |   1 -
+ arch/arm64/include/asm/sparsemem.h                 |   5 +-
+ arch/arm64/include/uapi/asm/hwcap.h                |  15 +
+ arch/arm64/kernel/cpufeature.c                     | 103 ++--
+ arch/arm64/kernel/cpuinfo.c                        |  25 +
+ arch/arm64/kernel/pi/idreg-override.c              |   9 +
+ arch/arm64/kernel/pi/map_kernel.c                  |   6 +
+ arch/arm64/kernel/rsi.c                            |  15 +
+ arch/arm64/kvm/arm.c                               |   8 +-
+ arch/arm64/kvm/at.c                                |   6 +-
+ arch/arm64/kvm/emulate-nested.c                    |   2 +-
+ arch/arm64/kvm/fpsimd.c                            |   2 +-
+ arch/arm64/kvm/hyp/include/hyp/switch.h            |   4 +-
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c                 |   4 +-
+ arch/arm64/kvm/hyp/nvhe/pkvm.c                     |   2 +-
+ arch/arm64/kvm/hyp/nvhe/switch.c                   |   6 +-
+ arch/arm64/kvm/hyp/pgtable.c                       |  33 +-
+ arch/arm64/kvm/hyp/vhe/switch.c                    |  16 +-
+ arch/arm64/kvm/sys_regs.c                          |   6 +-
+ arch/arm64/mm/hugetlbpage.c                        |  12 +
+ arch/arm64/mm/init.c                               |   7 +-
+ arch/arm64/mm/mmu.c                                |   3 +-
+ arch/arm64/mm/proc.S                               |   5 +-
+ arch/arm64/mm/trans_pgd.c                          |   2 +-
+ arch/arm64/tools/gen-sysreg.awk                    |   2 +-
+ arch/arm64/tools/sysreg                            | 125 +++--
+ drivers/perf/apple_m1_cpu_pmu.c                    |   2 +
+ drivers/perf/arm-cmn.c                             |   4 +-
+ drivers/perf/arm_cspmu/nvidia_cspmu.c              |  75 +--
+ drivers/perf/arm_spe_pmu.c                         |  22 +
+ drivers/perf/dwc_pcie_pmu.c                        |  72 +--
+ drivers/perf/fsl_imx9_ddr_perf.c                   |  33 +-
+ drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c       |  42 +-
+ drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c      |  61 +--
+ drivers/perf/hisilicon/hisi_uncore_hha_pmu.c       |  48 +-
+ drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c       |  44 +-
+ drivers/perf/hisilicon/hisi_uncore_pa_pmu.c        |  53 +--
+ drivers/perf/hisilicon/hisi_uncore_pmu.c           | 160 +++++--
+ drivers/perf/hisilicon/hisi_uncore_pmu.h           |  49 +-
+ drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c      |  43 +-
+ drivers/perf/hisilicon/hisi_uncore_uc_pmu.c        |  45 +-
+ drivers/perf/marvell_cn10k_ddr_pmu.c               | 528 ++++++++++++++++++---
+ drivers/perf/marvell_cn10k_tad_pmu.c               |  66 ++-
+ drivers/virt/coco/arm-cca-guest/arm-cca-guest.c    |   8 +
+ tools/perf/Documentation/perf-arm-spe.txt          |  26 +
+ tools/testing/selftests/arm64/abi/hwcap.c          | 235 ++++++++-
+ 70 files changed, 1754 insertions(+), 750 deletions(-)
+ create mode 100644 Documentation/admin-guide/perf/mrvl-odyssey-ddr-pmu.rst
+ create mode 100644 Documentation/admin-guide/perf/mrvl-odyssey-tad-pmu.rst
 
 
