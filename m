@@ -4,93 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA9CCC02181
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 15:43:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67562C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 15:48:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4W4c0/LuzN7tD5LrAqYqsKuJBLRBMa73Tfh2EMWw5FM=; b=mEjVvZmmDnDtRydHgfxfdm4x3V
-	prTjB1FmmtAQkb1hlpps+eeOB+Li9xKU/2sErwwLEC8xCmrd6o4M3ROeYkqIce0HwwaeYV0rV1YkJ
-	NDoZ+yetUaUrP1keYLKuwqZ2aEGo2X7VJ6oA5lkBUiz8qlrJMZuIVS2rFVnfYW53KjlfSVADcYI9r
-	R8bRTMdnNjG2vWtMRpgZ/JKkUuhm4zxFBKAx4aU2rnDQcIlYYbWodxNnR38wgQe6coHUO1ZDX4BUE
-	FK/Pyy80E1lKzXpHiyiXJ5Mpg9F2gfi2Z5F9fNQUC0Bppla86Ru0MWcDEZmcJpiq8ICCI5ffSRJcB
-	MZWrj3Nw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=jyWkEYx8l19GBLVFTRZATObQ9E8Z6bbFOrHEmmyhtMk=; b=d+GKRjCK8i7ppz
+	WQLHUjgyLI/K8OOi443+QVTxZkZFaELcmv9OvnWrHo8sXbIJs1gQ2bAdlvO6b7UZCc99/yUcmSK66
+	GO1LMLSYfdYngNB9p0kMx95MCUm0P4o/94Hz1Fjf/W0zV7CFFeW5HRLeXTIYzY0jB9n69ZxGXGo6o
+	Kf1AqXRDoCz/fT+uNrU75U57ywads+MSG/k85bimuWorZ/mPRc9s4ALIk+Lp8dTwhjKbcjtwKlB5b
+	ZDo5xepR3XJrTb6emid0KlKCWNstytNlaHDl8LwHBU8B1UtdIpyVHK6gaPRe9U/oUDS5Sv+l907OI
+	Rs7cmwU3dlEwMtmmu10w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZtwE-00000005ujb-3T0g;
-	Mon, 20 Jan 2025 15:43:42 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1tZu0X-00000005vMX-1NC3;
+	Mon, 20 Jan 2025 15:48:09 +0000
+Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZtux-00000005uZb-3xfI;
-	Mon, 20 Jan 2025 15:42:25 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-43624b2d453so50870395e9.2;
-        Mon, 20 Jan 2025 07:42:23 -0800 (PST)
+	id 1tZtzF-00000005v5M-22IJ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Jan 2025 15:46:50 +0000
+Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-4677fcf112aso7834441cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jan 2025 07:46:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737387742; x=1737992542; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=4W4c0/LuzN7tD5LrAqYqsKuJBLRBMa73Tfh2EMWw5FM=;
-        b=cFAhogmacRfKLyiwTirktQC5tk/GG5onsQFj0naPcdtifm6PuK1rEtM0lxr08ek3FT
-         R1/GLgCcLR8sZatgT+1CXKULHCqri1NDsaP9+Z9f7bchy0ccuYHfCtninTpOHEEZ+TQZ
-         let89Xf/N3qM7S/C9ANZ6KA1pUrJRK/18BAmC/OrGweOry4bd1BkZV/2I1p0f50RieG2
-         fUfPZnF7I3Pbceopl0RM8spR7lUq2dCGya7qJ7J7CmiifQwqB2EAFEKMHQUFngv/34/r
-         Ja1Bfkeh/GhF1gOBgJnAAArEfa/Qo7iuvSihSHukeEpfK8GIxO2HZiDj24DLgi/ZXMZ6
-         KORg==
+        d=gmail.com; s=20230601; t=1737388008; x=1737992808; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=jyWkEYx8l19GBLVFTRZATObQ9E8Z6bbFOrHEmmyhtMk=;
+        b=jB7JdltS7DnxE17+38uTZ7qJN5OLT0+h0RiqsHB89cu/0+DzciPsaIgGG2MQ73mXot
+         RCiCad5vqb4pS1pmnrbrSfLRyVY+F5AYaObgiPPMKUmXahcd9aKQHCpZpPEgs1hpA/h9
+         CQ9m+25SxLZpUAMxuL9ImW8mV+QPaPyuhBhyAeIFdcS5vi14zhx0oUmurOy/lVwJ8Uz3
+         zYeiNnwftZTHc3kOmwr9X8Aeir7OtbBgJxMCAn2KL28XrAxlMTiW2zIgDsbKhEMyOifw
+         fFZxTDkZNYSkkvytyXqx2kk37fUF4LcHQsN9WBz+7rwj4mIRzU3LKNmhLBGMEP8TAbwC
+         QlGw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737387742; x=1737992542;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1737388008; x=1737992808;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=4W4c0/LuzN7tD5LrAqYqsKuJBLRBMa73Tfh2EMWw5FM=;
-        b=dBLVH1ocX/ChvFT4Edp/xyVdcfMdLAbZAnX3dtqyiGDn+F03y3mS67lYSQ9wdcxoJF
-         E3FVhEk+nFFFQ9PV30ftvLGQJbu8ZUzGtFtE1ZZoEd/wQUnMmgwPNjFsJNXp4IpytM+k
-         wySipk02SJ95ro+qEQChx/wav762NhOelNJLy4/P7nH7Ui5LKpfz2tlF9lqG+ubD97kD
-         GxqIKsfM87JZsFG/yDByHYC6QiYQolkPsuvFf/r/ttwbyAi9QjnZfsDbvC7jppa5lqk+
-         awkB+Dkf4X8fnvS4uTrukCWWCJ9WXXCCtCUO2FXRLmGgMXE5qutwirOYbyFuLy1F43V0
-         mNNg==
-X-Forwarded-Encrypted: i=1; AJvYcCUme9Ru8jAOM1Yt6+/KtWNAJD+BtdCTs7eRj6ZCoKLv+T+tnhrK/cFoJI2KhQOLzRQJzq11NUlQvem6weAOYdQ=@lists.infradead.org, AJvYcCXf1ah+R0gNslqBgngnI+aCCAnx7zwlmh0pm1ngk+p0CGVgB3WR8O2zHQ29qxWoxbtKldTiO6B5kPS/rSEjvn/e@lists.infradead.org
-X-Gm-Message-State: AOJu0YxljzYBj8w1qFwU7vJQNXC5WrEXaZDXC0CrdQHODWVT6gBT1Ffg
-	khw7NegLMWfnuJrkSA7tsyJswIv/NOjZjffvXiIQ6J1gnObJcgc/
-X-Gm-Gg: ASbGnctROpTQ3icqTsXi17wipJ+fPrL3iE70UpAgzW1cAv/1D3S3Uly03gjiElsUxHQ
-	svQe1E/eW5kfPUd4ndqyxNRyqCXmjD8KE6R9VWq/FgA9SPPF/6LtW5meG3DLxxtzdTLEg6bMgOE
-	sIBwX2aGOiv1OdtpMlUUMBRQFsQ5ZcnpjAmBU+/gv3uqvpKHYTE1GyQXlvzfcwk3PqcMoGJVZF7
-	zs15mHo56jhMF311C1tGwlBl40xPpTRmNJUjEGKsPjryNIvvRjrjIRwT6hwMD6lTdegencuh55j
-	Qv+R+840G1lGebOoLcyoDLxofkk+u9gURBuVQxM=
-X-Google-Smtp-Source: AGHT+IHArWGZJYxMqqA7FIuh1RrMO/IPzuG8Jyig93HVcMwBqwDYBNOX69/XG1Nj0C8lDam+sizI7Q==
-X-Received: by 2002:a05:600c:3548:b0:434:a1d3:a321 with SMTP id 5b1f17b1804b1-438913c6150mr125730205e9.3.1737387741983;
-        Mon, 20 Jan 2025 07:42:21 -0800 (PST)
-Received: from localhost.localdomain (93-34-91-161.ip49.fastwebnet.it. [93.34.91.161])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-437c0f03984sm158637895e9.0.2025.01.20.07.42.20
+        bh=jyWkEYx8l19GBLVFTRZATObQ9E8Z6bbFOrHEmmyhtMk=;
+        b=XgwLgAyeaFzrp/ObABhyfz3Pl8riwsVQkBuUotMq0QMhP8BUVeTRBnuQdSO8ulKsdE
+         vW8dC8hQK9Vckgvy48qbc3gJRekpaDKMnzLvqSRoERauVSJMxE2QHOAGKLNQ9q3wVz5d
+         +yw53PcsDnLyzbhwmSIdu3l1AJ6DG4awx6QvOsrf38sellI/8qgygDc/jbykvWNcSCYj
+         eCZHcMH/7Kg7uuayka5ciKh1V3aWMks4lOC/sbeJpsS5pHr0AABnNBU7bLBQFNHjZ6As
+         C27NNDyv01qFoDbEiPyGPvVtRv4lFd4L3N1V++T8bcDOSp6hFlhNBjbLHSkfWM78t8xB
+         nmwA==
+X-Forwarded-Encrypted: i=1; AJvYcCXm7e6O0/s/GNKVhowQqv6zmGIexPr9IHxe0vla1rr8QeTsZzBpwUx8ZZOXpOLdfUOPmdj+VpnO3DZ3qkwlYjb/@lists.infradead.org
+X-Gm-Message-State: AOJu0YwtDuJP4/VyXcjeDt/hp+/i+Ueo/PX36GTxyJgfl1zwGLZUfcph
+	I59mcDFYx2Lm0yPkdIpnNhanvXdJ5e0VFJkqijCL/mXgtXFdmBbb
+X-Gm-Gg: ASbGncupW3yNWcEURmh/PHiNVLGDIk3SfZOWS9qLvY7cdGSpBe/QTGebICRe0WePRIO
+	OkArH1ffV6ASeK8bNco1LTHMiuhy7++cVTsSohy6pmX4d4ZPUWtNyv6UdFrK69uguRDgOiNbV3o
+	uz7A/RgfXU7AELjbJHfnU+UWTZOsj2tZ183LpaPezwavn22i/kk3fycc13NJPDWrLlJExKe485M
+	rTKrub61JpERl7YiKRWx4x3JP4zsxaZNAKl+X3wDGP7JeVAPIaJW9pmVypApMYBUshNrk+5o0fs
+	oLaiQLz4biVMc4I6wvqRbTBOAuj2
+X-Google-Smtp-Source: AGHT+IHR7cjTCixBLNtbAIMXQS0zWLEWtnuMbfw/UHe2dC10Tj90Pa0lJRvcim4eXFdZ/kNXVMOUoQ==
+X-Received: by 2002:a05:622a:4ce:b0:467:6eee:1138 with SMTP id d75a77b69052e-46e12a4a7bamr72560861cf.6.1737388007681;
+        Mon, 20 Jan 2025 07:46:47 -0800 (PST)
+Received: from [192.168.1.99] (ool-4355b0da.dyn.optonline.net. [67.85.176.218])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-46e258c82a6sm24230501cf.59.2025.01.20.07.46.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Jan 2025 07:42:21 -0800 (PST)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Lorenzo Bianconi <lorenzo@kernel.org>,
-	Felix Fietkau <nbd@nbd.name>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Christian Marangi <ansuelsmth@gmail.com>
-Subject: [net PATCH v2] net: airoha: Fix wrong GDM4 register definition
-Date: Mon, 20 Jan 2025 16:41:40 +0100
-Message-ID: <20250120154148.13424-1-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.47.1
+        Mon, 20 Jan 2025 07:46:47 -0800 (PST)
+From: Connor Abbott <cwabbott0@gmail.com>
+Subject: [PATCH v2 0/3] iommu/arm-smmu, drm/msm: Fixes for stall-on-fault
+Date: Mon, 20 Jan 2025 10:46:44 -0500
+Message-Id: <20250120-msm-gpu-fault-fixes-next-v2-0-d636c4027042@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAORvjmcC/42NTQ6CMBCFr0Jm7Zj+BBVX3sOwaMsAk1AgLRAM6
+ d2tnMDl916+9w6IFJgiPIsDAm0ceRozqEsBrjdjR8hNZlBClULKO/rosZtXbM06LNjyThFH2he
+ sbqRF9RBKk4Ssz4HONtvvOnPPcZnC53za5C/9Y3STKNC6ymqtbNkI++q84eHqJg91SukLjY83x
+ cAAAAA=
+X-Change-ID: 20250117-msm-gpu-fault-fixes-next-96e3098023e1
+To: Rob Clark <robdclark@gmail.com>, Will Deacon <will@kernel.org>, 
+ Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, 
+ Sean Paul <sean@poorly.run>, Konrad Dybcio <konradybcio@kernel.org>, 
+ Abhinav Kumar <quic_abhinavk@quicinc.com>, 
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+ Marijn Suijten <marijn.suijten@somainline.org>
+Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, freedreno@lists.freedesktop.org, 
+ Connor Abbott <cwabbott0@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1737388006; l=2714;
+ i=cwabbott0@gmail.com; s=20240426; h=from:subject:message-id;
+ bh=lKYxJxxQvusCy8B0sZYN2iP5UpseVkNuNGCfUBuNbWw=;
+ b=f7olHGP2Z1qbp+CTIun177dJ1Ntn9nRXTPCjKXceI0rQQ0OUsCtI3Md/ssDJM/frqEjSzshHy
+ hqtiuQ1+59vB8KCwoMHx8rX0iYy3xcsxCtrxJQKSpnIDad2eWBW4ik7
+X-Developer-Key: i=cwabbott0@gmail.com; a=ed25519;
+ pk=dkpOeRSXLzVgqhy0Idr3nsBr4ranyERLMnoAgR4cHmY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_074223_984458_34643D93 
-X-CRM114-Status: GOOD (  13.22  )
+X-CRM114-CacheID: sfid-20250120_074649_532144_6331B432 
+X-CRM114-Status: GOOD (  17.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,45 +113,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix wrong GDM4 register definition, in Airoha SDK GDM4 is defined at
-offset 0x2400 but this doesn't make sense as it does conflict with the
-CDM4 that is in the same location.
+drm/msm uses the stall-on-fault model to record the GPU state on the
+first GPU page fault to help debugging. On systems where the GPU is
+paired with a MMU-500, there were two problems:
 
-Following the pattern where each GDM base is at the FWD_CFG, currently
-GDM4 base offset is set to 0x2500. This is correct but REG_GDM4_FWD_CFG
-and REG_GDM4_SRC_PORT_SET are still using the SDK reference with the
-0x2400 offset. Fix these 2 define by subtracting 0x100 to each register
-to reflect the real address location.
+1. The MMU-500 doesn't de-assert its interrupt line until the fault is
+   resumed, which led to a storm of interrupts until the fault handler
+   was called. If we got unlucky and the fault handler was on the same
+   CPU as the interrupt, there was a deadlock.
+2. The GPU is capable of generating page faults much faster than we can
+   resume them. GMU (GPU Management Unit) shares the same context bank
+   as the GPU, so if there was a sudden spurt of page faults it would be
+   effectively starved and would trigger a watchdog reset, made even
+   worse because the GPU cannot be reset while there's a pending
+   transaction leaving the GPU permanently wedged.
 
-Fixes: 23020f049327 ("net: airoha: Introduce ethernet support for EN7581 SoC")
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Patch 1 fixes the first problem and is independent of the rest of the
+series. Patch 3 fixes the second problem and is dependent on patch 2, so
+there will have to be some cross-tree coordination.
+
+I've rebased this series on the latest linux-next to avoid rebase
+troubles.
+
+Signed-off-by: Connor Abbott <cwabbott0@gmail.com>
 ---
-Changes v2:
-- Target correct file (fix wrong downstream branch used)
+Changes in v2:
+- Remove unnecessary _irqsave when locking in IRQ handler (Robin)
+- Reuse existing spinlock for CFIE manipulation (Robin)
+- Lock CFCFG manipulation against concurrent CFIE manipulation
+- Don't use timer to re-enable stall-on-fault. (Rob)
+- Use more descriptive name for the function that re-enables
+  stall-on-fault if the cooldown period has ended. (Rob)
+- Link to v1: https://lore.kernel.org/r/20250117-msm-gpu-fault-fixes-next-v1-0-bc9b332b5d0b@gmail.com
 
- drivers/net/ethernet/mediatek/airoha_eth.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+---
+Connor Abbott (3):
+      iommu/arm-smmu: Fix spurious interrupts with stall-on-fault
+      iommu/arm-smmu-qcom: Make set_stall work when the device is on
+      drm/msm: Temporarily disable stall-on-fault after a page fault
 
-diff --git a/drivers/net/ethernet/mediatek/airoha_eth.c b/drivers/net/ethernet/mediatek/airoha_eth.c
-index 415d784de741..09f448f29124 100644
---- a/drivers/net/ethernet/mediatek/airoha_eth.c
-+++ b/drivers/net/ethernet/mediatek/airoha_eth.c
-@@ -266,11 +266,11 @@
- #define REG_GDM3_FWD_CFG		GDM3_BASE
- #define GDM3_PAD_EN_MASK		BIT(28)
- 
--#define REG_GDM4_FWD_CFG		(GDM4_BASE + 0x100)
-+#define REG_GDM4_FWD_CFG		GDM4_BASE
- #define GDM4_PAD_EN_MASK		BIT(28)
- #define GDM4_SPORT_OFFSET0_MASK		GENMASK(11, 8)
- 
--#define REG_GDM4_SRC_PORT_SET		(GDM4_BASE + 0x33c)
-+#define REG_GDM4_SRC_PORT_SET		(GDM4_BASE + 0x23c)
- #define GDM4_SPORT_OFF2_MASK		GENMASK(19, 16)
- #define GDM4_SPORT_OFF1_MASK		GENMASK(15, 12)
- #define GDM4_SPORT_OFF0_MASK		GENMASK(11, 8)
+ drivers/gpu/drm/msm/adreno/a5xx_gpu.c      |  2 ++
+ drivers/gpu/drm/msm/adreno/a6xx_gpu.c      |  4 +++
+ drivers/gpu/drm/msm/adreno/adreno_gpu.c    | 42 +++++++++++++++++++++++++++-
+ drivers/gpu/drm/msm/adreno/adreno_gpu.h    | 24 ++++++++++++++++
+ drivers/gpu/drm/msm/msm_iommu.c            |  9 ++++++
+ drivers/gpu/drm/msm/msm_mmu.h              |  1 +
+ drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 45 +++++++++++++++++++++++++++---
+ drivers/iommu/arm/arm-smmu/arm-smmu.c      | 30 ++++++++++++++++++++
+ drivers/iommu/arm/arm-smmu/arm-smmu.h      |  1 -
+ 9 files changed, 152 insertions(+), 6 deletions(-)
+---
+base-commit: 0907e7fb35756464aa34c35d6abb02998418164b
+change-id: 20250117-msm-gpu-fault-fixes-next-96e3098023e1
+
+Best regards,
 -- 
-2.47.1
+Connor Abbott <cwabbott0@gmail.com>
 
 
