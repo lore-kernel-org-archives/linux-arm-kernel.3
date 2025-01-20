@@ -4,67 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74850C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 20:12:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29D7AC02185
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 20:14:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9lubXMh0Pr60nLEXhdVg1KsaEsGbCfYZK4IUyxULTeI=; b=kMrSZjloX0IzJSC5CaTL/kYoLW
-	+6FjtBJ+KPkB3n+U3/ug0bhWT/FZR7fwgsutAHPA3R7MfjHvE/Y+qh32D1xp4Jn4zupmoUOgHAt2O
-	My7SqNmNXhoF6tercgUkkYDNHU39bYE4hQzt2UUxLyQxWSTFiAKVOVygwxgmiIB//O7HBCTWih4bz
-	WrlhNHTfbt/o1vccwiyFDVavu2F696a3nSdU2F2IOVwxyrtHHJXsBVxN5Nt7GDNgAqQGegAiaLp3D
-	w71lpGW8RL41l8PfMoauVsfUu6ceC7uxqrn8Lfexmp8j0Pn2yBVrmJzhpnOHXLyDHXEirbH/yobGM
-	iFMLw94Q==;
+	bh=xFmjfRIAfD/TWhtg9QJn1hbIzJmPBaW6wdlpqeT5TsY=; b=hs5/anrNTvdD1DGcX8VFC4SAGJ
+	BeQ97yIMQTH2s17e+ZdgMlZiKodWFty/2QjwdiE6immcjBice6yIQDSN9T0ydUZi+8vxEis0ghxNi
+	COSv/zD1TZzdQeBATmVNJk961h+H634CbpER+GIoRgmaPBfI/VOj0uB4kTd7DR8H/GXDQp9VIEXpx
+	qaO40YUYhz7s6+9x1tr53VJx2WwdWC5AykV73+DHmJxzSE0XAzY27h53Qy9ORBJ0qm+Gj0b1agK15
+	e8x/OpKtchjlGvT2W8TTGjWjnjSavm3bsTAgNKw31tMtcxy4td7zYabrrgCITE5Hq0L8PauRgdJ7o
+	GR2wTMLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZy7u-00000006Nfy-20Wc;
-	Mon, 20 Jan 2025 20:12:02 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tZy9v-00000006NpY-0VhY;
+	Mon, 20 Jan 2025 20:14:07 +0000
+Received: from mail.manjaro.org ([116.203.91.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZy68-00000006NJf-0Rkw
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jan 2025 20:10:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BA64D5C5A97;
-	Mon, 20 Jan 2025 20:09:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9AA3C4CEE0;
-	Mon, 20 Jan 2025 20:10:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737403811;
-	bh=xcgzJ8GUf9rqfS8dk9jTNGkkqhrZ7aqAeGSP8qPm5UE=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=nXSFI/kwDkGArDabWY40dcJWvdgFVxBAO7myQEdpbsj39T5deX/y5CZwEgi5/nB6R
-	 oVf4vGAxmPe7I8XAGTx/6SAfNrw01qDlaY/06pmboQ0RTRVoIzIKddhpboSzy31gWf
-	 okExTF6OsgKniCUUZGpkkzDivBYLNRym5r6v9qXpJxPnXoKWlxB8VgjOKfOFo1tlLw
-	 2DedVe7ryuRx+MQ6HsV8fdNb79nE3+bLb8tQS7eA5oeNCRxlfgE9K8OqUvTHGYCn69
-	 bRxrfoQNE2cHRwpOniH3WgS/kVUZcoxCm0OGEXn+22IsCUqyBTGq/mw+53h97CAnPt
-	 bBr3Du7iEOpuA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33BA9380AA62;
-	Mon, 20 Jan 2025 20:10:36 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1tZy8d-00000006NkD-2GnV;
+	Mon, 20 Jan 2025 20:12:48 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v1] net: stmmac: Drop redundant
- skb_mark_for_recycle() for SKB frags
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <173740383476.3638218.15431747804261791679.git-patchwork-notify@kernel.org>
-Date: Mon, 20 Jan 2025 20:10:34 +0000
-References: <20250117062805.192393-1-0x1207@gmail.com>
-In-Reply-To: <20250117062805.192393-1-0x1207@gmail.com>
-To: Furong Xu <0x1207@gmail.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, xfr@outlook.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1737403965;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=xFmjfRIAfD/TWhtg9QJn1hbIzJmPBaW6wdlpqeT5TsY=;
+	b=YPYYnsKAYboHxdwLOk4OYK2A1lONri4zXIFe27yH0muhHZKyomsxiVN72QkPutXZNwxeqi
+	MsnPtRcV8cj7f0Nxgfle0fYAGWXSjUPzk7rCOfQMPUdq34vLRFJF0uJd1Kq03I+26zmdHp
+	21Gjwx1wbE71sdEaHn6nY94gpjaW7ZAFL3/Gwlaz3A01anBBD7U7n6Y1yB2ZfvSfchjOeh
+	CyQIG4LZMPJTqXjSPODuKwYN6bpDL3P07qbTggo3b1WaC0bb3gXZDlUGxiB9/AXyeCzBg4
+	MrR8nLQfOkxN3oWMDSvsWal+wR9vlJ6a82cpSqgx4fzAvHtNmck6xg8Ie87fbA==
+Date: Mon, 20 Jan 2025 21:12:45 +0100
+From: Dragan Simic <dsimic@manjaro.org>
+To: Alexey Charkov <alchark@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Enable automatic fan control on
+ Radxa Rock 5C
+In-Reply-To: <20250120-rock-5c-fan-v1-2-5fb8446c981b@gmail.com>
+References: <20250120-rock-5c-fan-v1-0-5fb8446c981b@gmail.com>
+ <20250120-rock-5c-fan-v1-2-5fb8446c981b@gmail.com>
+Message-ID: <e73f651566aeab85952a4abbe23d55b8@manjaro.org>
+X-Sender: dsimic@manjaro.org
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_121012_188255_22B8E5A2 
-X-CRM114-Status: UNSURE (   9.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250120_121247_729085_D52E248E 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,29 +75,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Hello Alexey,
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Fri, 17 Jan 2025 14:28:05 +0800 you wrote:
-> After commit df542f669307 ("net: stmmac: Switch to zero-copy in
-> non-XDP RX path"), SKBs are always marked for recycle, it is redundant
-> to mark SKBs more than once when new frags are appended.
+On 2025-01-20 20:22, Alexey Charkov wrote:
+> Add the necessary cooling map to enable the kernel's thermal subsystem
+> to manage the fan speed automatically depending on the overall SoC
+> package temperature on Radxa Rock 5C
 > 
-> Signed-off-by: Furong Xu <0x1207@gmail.com>
+> Signed-off-by: Alexey Charkov <alchark@gmail.com>
 > ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 6 ------
->  1 file changed, 6 deletions(-)
+>  arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts | 32 
+> +++++++++++++++++++++++-
+>  1 file changed, 31 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
+> b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
+> index
+> 1b66a69cf0f8795d7305852fa7fef3d0672ada7f..6e56d7704cbe0dc06242cb39df56b2fc9d6bc774
+> 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
+> @@ -68,7 +68,7 @@ led-1 {
+>  		};
+>  	};
+> 
+> -	fan {
+> +	fan: fan {
+>  		compatible = "pwm-fan";
+>  		#cooling-cells = <2>;
+>  		cooling-levels = <0 24 44 64 128 192 255>;
+> @@ -417,6 +417,36 @@ rgmii_phy1: ethernet-phy@1 {
+>  	};
+>  };
+> 
+> +&package_thermal {
+> +	polling-delay = <1000>;
+> +
+> +	trips {
+> +		package_fan0: package-fan0 {
+> +			temperature = <55000>;
+> +			hysteresis = <2000>;
+> +			type = "active";
+> +		};
+> +
+> +		package_fan1: package-fan1 {
+> +			temperature = <65000>;
+> +			hysteresis = <2000>;
+> +			type = "active";
+> +		};
+> +	};
+> +
+> +	cooling-maps {
+> +		map0 {
+> +			trip = <&package_fan0>;
+> +			cooling-device = <&fan THERMAL_NO_LIMIT 1>;
+> +		};
+> +
+> +		map1 {
+> +			trip = <&package_fan1>;
+> +			cooling-device = <&fan 2 THERMAL_NO_LIMIT>;
+> +		};
+> +	};
+> +};
+> +
+>  &pcie2x1l2 {
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&pcie20x1_2_perstn_m0>;
 
-Here is the summary with links:
-  - [net-next,v1] net: stmmac: Drop redundant skb_mark_for_recycle() for SKB frags
-    https://git.kernel.org/netdev/net-next/c/ba5f78505fb4
+Thanks for the patch, it follows the usual approach for keeping
+the fan noise down, and it's looking good to me.  Please, feel
+free to include
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Reviewed-by: Dragan Simic <dsimic@manjaro.org>
 
