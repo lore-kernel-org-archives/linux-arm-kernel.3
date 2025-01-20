@@ -4,56 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D563C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 12:35:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2153BC02181
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 12:43:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uItd0SWL17PoFeICTMhNhilgJz7uTDu01p0p2n4NKBY=; b=eFyc19SSDBMnUot4I2K2Ui6hKN
-	++pRTgfpzGdH3i9HEpmdbXHmu8YpFhivByUfeusJxPcMg45wE4At5R+fFgxwQJ9r7nwm8YycAT7hH
-	Q1M86lyLAbnqzVBLvv393mZhrHWyCgNdszv1ICyHYu3pbEdJ5DxJdyQ4lU2VhinCpCVsXjkYeE+ts
-	w6V3pIcwWNOoFw7+dYI5DzhOlYxy9pAL0gxiKFAeKkGm+J2jT/BUrjqglkfe6lJ2Vz73rXr30mhnf
-	HVDDUHtPWjN0jXfRifH0QaxLqrGPM+hQxPOOV7iNFzKM4A5V9tcjCRORtc8P4u/SpvJk6GuTJXPgF
-	CYHSmlYA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8/DVdlrVoXcTUlLhGfvwAA7dr+O9VTylvZ3HNVi2N90=; b=JHONImN+vNce49pg6bpub7Ha0s
+	jo9iKaKQw3t9evBqxs6fPgA04Ff8lVdcwEzoW6y5Fkg0ZcMikMWrUIi6og+sqmQ8WGr7SvjNobIFK
+	O/frQjO3f/Ps0R4ADMkmSIzRO/l9NGSjnnCWiBvPhm5tZyVkffXe/JoSyQHZVa1AAAfcJ2N/qRpWE
+	cieSHxAF2kyc/s5oiYU/Mg+JiWkYeey8sYfjyY1EhEyzdejXIS3aZuIVg4BofChfTTLXnTwj9J3nR
+	OTg0RLD2/l0SpKyXhBUZQtdPId6+ch+bWju5/5HG8sDRWIHBZS/15RJGMBci5eQRrpFaFCPIXzEr/
+	Iz2pKSxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZqzW-00000005Yq5-1h59;
-	Mon, 20 Jan 2025 12:34:54 +0000
-Received: from laurent.telenet-ops.be ([2a02:1800:110:4::f00:19])
+	id 1tZr7r-00000005ZKG-2QYe;
+	Mon, 20 Jan 2025 12:43:31 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZqyE-00000005YlI-2TGH
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jan 2025 12:33:36 +0000
-Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed80:30c9:4dcf:fe21:4b10])
-	by laurent.telenet-ops.be with cmsmtp
-	id 3QZH2E0060raqVW01QZHyr; Mon, 20 Jan 2025 13:33:17 +0100
-Received: from rox.of.borg ([192.168.97.57])
-	by ramsan.of.borg with esmtp (Exim 4.97)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1tZqxq-0000000DgtV-2XTn;
-	Mon, 20 Jan 2025 13:33:17 +0100
-Received: from geert by rox.of.borg with local (Exim 4.97)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1tZpef-0000000CU8e-3Zp6;
-	Mon, 20 Jan 2025 12:09:17 +0100
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: Magnus Damm <magnus.damm@gmail.com>
-Cc: linux-renesas-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH] arm64: dts: renesas: r8a779g0: Restore sort order
-Date: Mon, 20 Jan 2025 12:09:12 +0100
-Message-ID: <ccd215c1146b84c085908e01966f7036be51afa8.1737370801.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.43.0
+	id 1tZr6Z-00000005ZAF-3Nxg;
+	Mon, 20 Jan 2025 12:42:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1737376928;
+	bh=4buDT01o+ogkMLuBe/lVOY9SSe5oxu1NeJw/qESAoWE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=geCnwOdjgZ1CvL2aCSZU72KpP7iYX76xdIjm45dgqCiR2nqRUzCFf442ZYJ3i8vmj
+	 ADTCelvCDXcwXyeHiY04tqxrRHrDphkMHmK0cdZ2DPYG4GHC+pwDazBRQrU4Ow+1bG
+	 qHX3xu38aWVbcFnh42zqPHphrQFEpQNjvkfeuuwXIaaW/3DLxKE+w4S3yUFHDQ+que
+	 xFFgtYX+jMZJTJj0cMNVicZd8mZslwCZEMrtPC3oBemDjhANLZ6efVAoPfcDXTH07U
+	 Qte/P6404Ye+rvePMwsOlggg7bx6MuZenkUMUlpfnGCxj9lvBePR3oJhBQgKN30KeF
+	 jBqFqelOLz31g==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7CA0A17E0FAA;
+	Mon, 20 Jan 2025 13:42:07 +0100 (CET)
+Message-ID: <e7d49bda-8aaa-4897-8117-ab889fb27be0@collabora.com>
+Date: Mon, 20 Jan 2025 13:42:06 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/2] dt-bindings: pinctrl: mediatek: add support for
+ mt8196
+To: =?UTF-8?B?Q2F0aHkgWHUgKOiuuOWNjuWptyk=?= <ot_cathy.xu@mediatek.com>,
+ "krzk@kernel.org" <krzk@kernel.org>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ =?UTF-8?B?TGVpIFh1ZSAo6Jab56OKKQ==?= <Lei.Xue@mediatek.com>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ =?UTF-8?B?V2VuYmluIE1laSAo5qKF5paH5b2sKQ==?= <Wenbin.Mei@mediatek.com>,
+ "linus.walleij@linaro.org" <linus.walleij@linaro.org>,
+ =?UTF-8?B?R3VvZG9uZyBMaXUgKOWImOWbveagiyk=?= <Guodong.Liu@mediatek.com>,
+ "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "robh@kernel.org" <robh@kernel.org>,
+ "sean.wang@kernel.org" <sean.wang@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>
+References: <20250115063555.32492-1-ot_cathy.xu@mediatek.com>
+ <20250115063555.32492-2-ot_cathy.xu@mediatek.com>
+ <nmyxygrya6cpalmirsunvkx32uox3kjxd4l5ggdhjtj7edyizz@yodolm5ktboo>
+ <f7ba63c8afcef1d1925d51e35e4b81f0d0e773ff.camel@mediatek.com>
+ <d04bc250-2104-4e02-9bf8-5785f4444c8d@kernel.org>
+ <d11076d3eb2f92018fd3e26cae665a47f71ca838.camel@mediatek.com>
+ <b212d05d-de3b-41b2-bc48-c6b79ae54a8b@kernel.org>
+ <bec17d1e215a11daa1fdede78c8070c8e1763c72.camel@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <bec17d1e215a11daa1fdede78c8070c8e1763c72.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_043334_768141_F53E8D32 
-X-CRM114-Status: UNSURE (   8.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250120_044212_026781_6A027FED 
+X-CRM114-Status: GOOD (  22.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,121 +96,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Numerical by unit address, but grouped by type.
+Il 20/01/25 10:17, Cathy Xu (许华婷) ha scritto:
+> On Thu, 2025-01-16 at 11:20 +0100, Krzysztof Kozlowski wrote:
+>> External email : Please do not click links or open attachments until
+>> you have verified the sender or the content.
+>>
+>>
+>> On 16/01/2025 09:18, Cathy Xu (许华婷) wrote:
+>>> On Thu, 2025-01-16 at 08:28 +0100, Krzysztof Kozlowski wrote:
+>>>> External email : Please do not click links or open attachments
+>>>> until
+>>>> you have verified the sender or the content.
+>>>>
+>>>>
+>>>> On 16/01/2025 03:20, Cathy Xu (许华婷) wrote:
+>>>>>>> +          bias-pull-down:
+>>>>>>> +            oneOf:
+>>>>>>> +              - type: boolean
+>>>>>>> +              - enum: [100, 101, 102, 103]
+>>>>>>> +                description: mt8196 pull down PUPD/R0/R1
+>>>>>>> type
+>>>>>>> define value.
+>>>>>>> +              - enum: [200, 201, 202, 203, 204, 205, 206,
+>>>>>>> 207]
+>>>>>>> +                description: mt8196 pull down RSEL type
+>>>>>>> define
+>>>>>>> value.
+>>>>>>
+>>>>>> Not much improved.
+>>>>>
+>>>>>    I have removed the content related to 'resistance value', we
+>>>>> use
+>>>>> 'RSEL' instead of 'resistance value'.
 
-Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
----
-To be queued in renesas-devel for v6.15.
+This is wrong.
 
- arch/arm64/boot/dts/renesas/r8a779g0.dtsi | 80 +++++++++++------------
- 1 file changed, 40 insertions(+), 40 deletions(-)
+>>>>
+>>>> So the value in Ohms was removed? I assume above do not have
+>>>> known
+>>>> value
+>>>> in Ohms?
+>>>
+>>>    Yes, value in Ohns was removed, no code have knowm value.
+>>
+>> Does the hardware have known value in Ohms?
 
-diff --git a/arch/arm64/boot/dts/renesas/r8a779g0.dtsi b/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
-index 89049e40086c2d41..cbc4680e497734d3 100644
---- a/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
-+++ b/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
-@@ -2171,6 +2171,24 @@ fcpvd1: fcp@fea11000 {
- 			iommus = <&ipmmu_vi1 7>;
- 		};
- 
-+		fcpvx0: fcp@fedb0000 {
-+			compatible = "renesas,fcpv";
-+			reg = <0 0xfedb0000 0 0x200>;
-+			clocks = <&cpg CPG_MOD 1100>;
-+			power-domains = <&sysc R8A779G0_PD_A3ISP0>;
-+			resets = <&cpg 1100>;
-+			iommus = <&ipmmu_vi1 24>;
-+		};
-+
-+		fcpvx1: fcp@fedb8000 {
-+			compatible = "renesas,fcpv";
-+			reg = <0 0xfedb8000 0 0x200>;
-+			clocks = <&cpg CPG_MOD 1101>;
-+			power-domains = <&sysc R8A779G0_PD_A3ISP1>;
-+			resets = <&cpg 1101>;
-+			iommus = <&ipmmu_vi1 25>;
-+		};
-+
- 		vspd0: vsp@fea20000 {
- 			compatible = "renesas,vsp2";
- 			reg = <0 0xfea20000 0 0x7000>;
-@@ -2193,6 +2211,28 @@ vspd1: vsp@fea28000 {
- 			renesas,fcp = <&fcpvd1>;
- 		};
- 
-+		vspx0: vsp@fedd0000 {
-+			compatible = "renesas,vsp2";
-+			reg = <0 0xfedd0000 0 0x8000>;
-+			interrupts = <GIC_SPI 556 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cpg CPG_MOD 1028>;
-+			power-domains = <&sysc R8A779G0_PD_A3ISP0>;
-+			resets = <&cpg 1028>;
-+
-+			renesas,fcp = <&fcpvx0>;
-+		};
-+
-+		vspx1: vsp@fedd8000 {
-+			compatible = "renesas,vsp2";
-+			reg = <0 0xfedd8000 0 0x8000>;
-+			interrupts = <GIC_SPI 557 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cpg CPG_MOD 1029>;
-+			power-domains = <&sysc R8A779G0_PD_A3ISP1>;
-+			resets = <&cpg 1029>;
-+
-+			renesas,fcp = <&fcpvx1>;
-+		};
-+
- 		du: display@feb00000 {
- 			compatible = "renesas,du-r8a779g0";
- 			reg = <0 0xfeb00000 0 0x40000>;
-@@ -2453,46 +2493,6 @@ port@1 {
- 			};
- 		};
- 
--		fcpvx0: fcp@fedb0000 {
--			compatible = "renesas,fcpv";
--			reg = <0 0xfedb0000 0 0x200>;
--			clocks = <&cpg CPG_MOD 1100>;
--			power-domains = <&sysc R8A779G0_PD_A3ISP0>;
--			resets = <&cpg 1100>;
--			iommus = <&ipmmu_vi1 24>;
--		};
--
--		fcpvx1: fcp@fedb8000 {
--			compatible = "renesas,fcpv";
--			reg = <0 0xfedb8000 0 0x200>;
--			clocks = <&cpg CPG_MOD 1101>;
--			power-domains = <&sysc R8A779G0_PD_A3ISP1>;
--			resets = <&cpg 1101>;
--			iommus = <&ipmmu_vi1 25>;
--		};
--
--		vspx0: vsp@fedd0000 {
--			compatible = "renesas,vsp2";
--			reg = <0 0xfedd0000 0 0x8000>;
--			interrupts = <GIC_SPI 556 IRQ_TYPE_LEVEL_HIGH>;
--			clocks = <&cpg CPG_MOD 1028>;
--			power-domains = <&sysc R8A779G0_PD_A3ISP0>;
--			resets = <&cpg 1028>;
--
--			renesas,fcp = <&fcpvx0>;
--		};
--
--		vspx1: vsp@fedd8000 {
--			compatible = "renesas,vsp2";
--			reg = <0 0xfedd8000 0 0x8000>;
--			interrupts = <GIC_SPI 557 IRQ_TYPE_LEVEL_HIGH>;
--			clocks = <&cpg CPG_MOD 1029>;
--			power-domains = <&sysc R8A779G0_PD_A3ISP1>;
--			resets = <&cpg 1029>;
--
--			renesas,fcp = <&fcpvx1>;
--		};
--
- 		prr: chipid@fff00044 {
- 			compatible = "renesas,prr";
- 			reg = <0 0xfff00044 0 4>;
--- 
-2.43.0
+It does.
 
+> 
+>    What do you mean by 'hardware'? When writing to the rsel register,
+> the value written is 0-7.
+> 
+
+Hardware means "the pin controller of the mt8196 SoC" :-)
+
+Anyway.
+
+The RSEL registers' function is to select a specific resistance value to
+pullup/down a pin, or a group of pins.
+
+Devicetree bindings require to specify values in known units, so in device tree
+you *need* to specify the RSEL resistance in Ohms.
+
+You cannot specify RSEL register value in device-tree. That's unacceptable.
+
+Regards,
+Angelo
+
+>>
+>>
+>>>
+>>>>
+>>>>>
+>>>>>>
+>>>>>>
+>>>>>>> +            description: |
+>>>>>>> +              For pull down type is normal, it doesn't
+>>>>>>> need
+>>>>>>> add
+>>>>>>> RSEL & R1R0.
+>>>>>>> +              For pull down type is PUPD/R0/R1 type, it
+>>>>>>> can
+>>>>>>> add
+>>>>>>> R1R0 define to
+>>>>>>> +              set different resistance. It can support
+>>>>>>> "MTK_PUPD_SET_R1R0_00" &
+>>>>>>> +              "MTK_PUPD_SET_R1R0_01" &
+>>>>>>> "MTK_PUPD_SET_R1R0_10"
+>>>>>>> &
+>>>>>>> +              "MTK_PUPD_SET_R1R0_11" define in mt8196.
+>>>>>>> +              For pull down type is PD/RSEL, it can add
+>>>>>>> RSEL
+>>>>>>> define to set
+>>>>>>> +              different resistance. It can support
+>>>>>>> +              "MTK_PULL_SET_RSEL_000" &
+>>>>>>> "MTK_PULL_SET_RSEL_001" &
+>>>>>>> +              "MTK_PULL_SET_RSEL_010" &
+>>>>>>> "MTK_PULL_SET_RSEL_011" &
+>>>>>>> +              "MTK_PULL_SET_RSEL_100" &
+>>>>>>> "MTK_PULL_SET_RSEL_101" &
+>>>>>>> +              "MTK_PULL_SET_RSEL_110" &
+>>>>>>> "MTK_PULL_SET_RSEL_111"
+>>>>>>> define in
+>>>>>>> +              mt8196.
+>>>>>>> diff --git a/include/dt-bindings/pinctrl/mt8196-pinfunc.h
+>>>>>>> b/include/dt-bindings/pinctrl/mt8196-pinfunc.h
+>>>>>>> new file mode 100644
+>>>>>>> index 000000000000..bf0c8374407c
+>>>>>>> --- /dev/null
+>>>>>>> +++ b/include/dt-bindings/pinctrl/mt8196-pinfunc.h
+>>>>>>> @@ -0,0 +1,1572 @@
+>>>>>>> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+>>>>>>> */
+>>>>>>> +/*
+>>>>>>> + * Copyright (C) 2025 Mediatek Inc.
+>>>>>>> + * Author: Guodong Liu <Guodong.Liu@mediatek.com>
+>>>>>>> + */
+>>>>>>> +
+>>>>>>> +#ifndef __MT8196_PINFUNC_H
+>>>>>>> +#define __MT8196_PINFUNC_H
+>>>>>>> +
+>>>>>>> +#include <dt-bindings/pinctrl/mt65xx.h>
+>>>>>>> +
+>>>>>>> +#define PINMUX_GPIO0__FUNC_GPIO0 (MTK_PIN_NO(0) | 0)
+>>>>>>> +#define PINMUX_GPIO0__FUNC_DMIC1_CLK (MTK_PIN_NO(0) | 1)
+>>>>>>> +#define PINMUX_GPIO0__FUNC_SPI3_A_MO (MTK_PIN_NO(0) | 3)
+>>>>>>> +#define PINMUX_GPIO0__FUNC_FMI2S_B_LRCK (MTK_PIN_NO(0) |
+>>>>>>> 4)
+>>>>>>> +#define PINMUX_GPIO0__FUNC_SCP_DMIC1_CLK (MTK_PIN_NO(0) |
+>>>>>>> 5)
+>>>>>>> +#define PINMUX_GPIO0__FUNC_TP_GPIO14_AO (MTK_PIN_NO(0) |
+>>>>>>> 6)
+>>>>>>
+>>>>>> I do not see how you resolved my comment from v1. In v2 I
+>>>>>> reminded
+>>>>>> about
+>>>>>> it, so you responded that yopu will change something, but I
+>>>>>> do
+>>>>>> not
+>>>>>> see
+>>>>>> any changes.
+>>>>>>
+>>>>>> So explain: how did you resolve my comment?
+>>>>>>
+>>>>>> These two examples where you claim you will change something,
+>>>>>> but
+>>>>>> send
+>>>>>> the same. I skipped the rest of the patch.
+>>>>>
+>>>>>    Thank you for your patient response, here is my explanation
+>>>>> for
+>>>>> you
+>>>>> question:
+>>>>>
+>>>>>    In v1, I undertand that you meant I didn't sent a real
+>>>>> binding,
+>>>>> and
+>>>>
+>>>>
+>>>> The comment is under specific lines, so I said these defines are
+>>>> not
+>>>> a
+>>>> real binding. You sent them again, but they are still not
+>>>> bindings,
+>>>> because they are not used in the driver. Maybe the usage is
+>>>> convoluted,
+>>>> so which part of implementation are these connecting with DTS?
+>>>> IOW,
+>>>> which part of driver relies on the binding?
+>>>
+>>>    I got you. This binding define many macros, which will be used
+>>> for
+>>> 'pinmux' setting in the DTS. The usage like this:
+>>>
+>>>    adsp_uart_pins: adsp-uart-pins {
+>>>                  pins-tx-rx {
+>>>                          pinmux =
+>>> <PINMUX_GPIO35__FUNC_O_ADSP_UTXD0>,
+>>>                                   <PINMUX_GPIO36__FUNC_I1_ADSP_URXD0
+>>>> ;
+>>>                  };
+>>>          };
+>>
+>>
+>> That's DTS, not driver, so not a binding. Drop the header from
+>> bindings.
+> 
+>    Sorry, I don't quite understand the relationship between binding and
+> driver. Driver will parse this macro to get gpio number and function.
+> 
 
