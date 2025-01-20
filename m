@@ -4,72 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61E14C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 21:26:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C296C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 21:58:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KxU3JdBAeVtqTxqK28+IsVvwnIdRSd24xGRcP1Fs0Lc=; b=pVWm4B6/Mtllsx6rERUO/ycLHT
-	se/Ng8hNfPvrHaYB6TjTmAZFTkLFN7F+TnEtp56ADXeNQ3IRfj3oyMdg+oFjwTu71EN6ZLMcsW9In
-	zmM5WyMfYCpx9tEZ+dU8dKxj3UZhs+JcSSdQJ2bPn7xzdyVVbgxyaeVTOZPsa5PKWUWIKZBOpPo/W
-	In2Rjx16jCDSm5z6Q6nSWJXbk4VfPU4BOQ0lqRmH1k6NErSvSFKGI2LnGCC1oqqfsSHJy2MnubQYI
-	AOXCxfsJNI62YZixtSX6JOsO3kK12yw+nj8fgwsIHNR4bNvqXJi5Hqbf/A6rpU5A+pWv/oGHUbyFd
-	Lz8cW9Og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3K7K/pwctkQQPOlxIR0V2TBfqxVpiAfQjlilP+qM7RA=; b=UKMC/oXwkQWPDY1bczHU6h78go
+	7hbmBR2HNdgGIVFIa0SWbUPT4D5ukh/ZoLQdly2XRGofjJ7Jz3Y41btVzO/fossQGkSKBPotCf5oY
+	tNhJkzPbXBn4FDOeCRsQXDdQdT8KMSYxZlZlirwK1IZfSYBikaQf+O+1Vrs930xoH6JD7erto4Jn3
+	FZoHn5MtFlFFnywZSDfFvKs9uVo1zieAiDO/AONRGCt6MAu+ggzITQvj96cUzfppmgZFYh9skahOJ
+	G6bm5KkxqyFdDnALYC+hi6jEoVQVxEAUg0xzft+RYwHIbLqTaS2TmQAq06FU3JYAZjVaM3H32BM4K
+	qRi+axlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZzHO-00000006SVl-1emG;
-	Mon, 20 Jan 2025 21:25:54 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tZzmp-00000006V0w-03PG;
+	Mon, 20 Jan 2025 21:58:23 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZzG6-00000006ST0-1W82
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jan 2025 21:24:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1737408272;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=KxU3JdBAeVtqTxqK28+IsVvwnIdRSd24xGRcP1Fs0Lc=;
-	b=LOY1gey3JstB13+D7jqoAIFfAPandP5iiEVBb9vW+tLgkHTb7zxCIVna16OMG3rkZgD4Xv
-	F8RKapzo2OEZoJeDqiwVjP2oI4X4nYr0Ueq7vMiCWJHwdfpAGHQeeqmT7bPmLEfkOXoGbz
-	4QfpU2CD5YsHiPyQzqoCpwinHT0TCps=
-Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-454-cn2L1q3qNBKRwObT92B8Dg-1; Mon,
- 20 Jan 2025 16:24:28 -0500
-X-MC-Unique: cn2L1q3qNBKRwObT92B8Dg-1
-X-Mimecast-MFC-AGG-ID: cn2L1q3qNBKRwObT92B8Dg
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 69B961955F2D;
-	Mon, 20 Jan 2025 21:24:27 +0000 (UTC)
-Received: from thinkpad-p1.kanata.rendec.net (unknown [10.22.65.113])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 38C5A19560B0;
-	Mon, 20 Jan 2025 21:24:26 +0000 (UTC)
-From: Radu Rendec <rrendec@redhat.com>
-To: arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [RFC PATCH] firmware: arm_scmi: Support mailbox transports with no completion IRQ
-Date: Mon, 20 Jan 2025 16:24:18 -0500
-Message-ID: <20250120212418.889385-1-rrendec@redhat.com>
+	id 1tZzlX-00000006Umm-0WNT;
+	Mon, 20 Jan 2025 21:57:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1737410223; x=1768946223;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=+EFqRv2B6bqOUlGn1H//PxFNhb+WsAIIPmOfXe+iHC8=;
+  b=V37ATh1lWVFnsqHao6c/GxdbOuWiaTb4GvJ4xPhhBAPirQvfNrOck+0V
+   oWwl0CjwekViewrAxcLOjW13cXVSS4lyeySUH59jX1egH2MUU6USHWiy3
+   tA0jfc7TnsJ1C2QOo2twOfHtN6Uy5SZ0Go/Zpjs1P5fwZf8TGK7MmmYhc
+   zBfEIIQ/ku5hTF6vf5Kd1u9VG6VyMJYqKjdpkWuJ+RR3w6+n75GWpUjev
+   Rwe86qcXShnJ5TVI8JHwUv+PtfJz4NeQE7nZN3uICnMgMdkikOjszh4+m
+   TO6pV9HPBvjiWlxwtLBM9QEwjt+haoQBR5HiB/reDW1U2qEZNFT/mes4z
+   A==;
+X-CSE-ConnectionGUID: GvedlxLBRhC95nvBeqtL0Q==
+X-CSE-MsgGUID: I4+90S/3QFSzIBZo8Ihr9A==
+X-IronPort-AV: E=McAfee;i="6700,10204,11321"; a="40629214"
+X-IronPort-AV: E=Sophos;i="6.13,220,1732608000"; 
+   d="scan'208";a="40629214"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jan 2025 13:56:58 -0800
+X-CSE-ConnectionGUID: laPeCXdRQ/G3Fm2+VJSATA==
+X-CSE-MsgGUID: ZjP2SWxcQoqHHk8fpcJepg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,220,1732608000"; 
+   d="scan'208";a="111612110"
+Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
+  by fmviesa004.fm.intel.com with ESMTP; 20 Jan 2025 13:56:54 -0800
+Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tZzlL-000XGZ-2v;
+	Mon, 20 Jan 2025 21:56:51 +0000
+Date: Tue, 21 Jan 2025 05:56:35 +0800
+From: kernel test robot <lkp@intel.com>
+To: Christian Hewitt <christianshewitt@gmail.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	dri-devel@lists.freedesktop.org, linux-amlogic@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev
+Subject: Re: [PATCH 2/2] drm/meson: vclk: fix precision in vclk calculations
+Message-ID: <202501210513.GCec6kts-lkp@intel.com>
+References: <20250110074458.3624094-3-christianshewitt@gmail.com>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: j8BjqSRau3CshJUitsadu4mRr1YT8v3m60RdVQWrOj0_1737408267
-X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 8bit
-content-type: text/plain; charset="US-ASCII"; x-default=true
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250110074458.3624094-3-christianshewitt@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_132434_469844_DFA36CC8 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20250120_135703_167326_AF8A931A 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,52 +96,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With the introduction of no_completion_irq in struct scmi_chan_info in
-commit a690b7e6e774 ("firmware: arm_scmi: Add configurable polling mode
-for transports") it became possible to enable polling mode by default
-when the transport does not support completion interrupts.
+Hi Christian,
 
-Mailbox controllers on the other hand have a similar mechanism to
-indicate if completion interrupts are available, using the txdone_irq
-flag in struct mbox_controller. This is available since the introduction
-of the mailbox framework in commit 2b6d83e2b8b7 ("mailbox: Introduce
-framework for mailbox").
+kernel test robot noticed the following build errors:
 
-Since the mailbox framework is already aware of whether the underlying
-transport supports completion interrupts or not, set the flag correctly
-in mailbox_chan_setup() to propagate the information to the SCMI core
-layer. Without this change, scmi_wait_for_reply() would end up taking
-the second branch for a mailbox transport with no completion IRQ
-support, and time out waiting for an interrupt that never comes.
+[auto build test ERROR on linus/master]
+[also build test ERROR on v6.13 next-20250120]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Signed-off-by: Radu Rendec <rrendec@redhat.com>
----
- drivers/firmware/arm_scmi/transports/mailbox.c | 4 ++++
- 1 file changed, 4 insertions(+)
+url:    https://github.com/intel-lab-lkp/linux/commits/Christian-Hewitt/Revert-drm-meson-vclk-fix-calculation-of-59-94-fractional-rates/20250110-154701
+base:   linus/master
+patch link:    https://lore.kernel.org/r/20250110074458.3624094-3-christianshewitt%40gmail.com
+patch subject: [PATCH 2/2] drm/meson: vclk: fix precision in vclk calculations
+config: arm-randconfig-r072-20250118 (https://download.01.org/0day-ci/archive/20250121/202501210513.GCec6kts-lkp@intel.com/config)
+compiler: clang version 20.0.0git (https://github.com/llvm/llvm-project c23f2417dc5f6dc371afb07af5627ec2a9d373a0)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250121/202501210513.GCec6kts-lkp@intel.com/reproduce)
 
-diff --git a/drivers/firmware/arm_scmi/transports/mailbox.c b/drivers/firmware/arm_scmi/transports/mailbox.c
-index b66df29814566..33722f2d82787 100644
---- a/drivers/firmware/arm_scmi/transports/mailbox.c
-+++ b/drivers/firmware/arm_scmi/transports/mailbox.c
-@@ -9,6 +9,7 @@
- #include <linux/err.h>
- #include <linux/device.h>
- #include <linux/mailbox_client.h>
-+#include <linux/mailbox_controller.h>
- #include <linux/of.h>
- #include <linux/of_address.h>
- #include <linux/platform_device.h>
-@@ -221,6 +222,9 @@ static int mailbox_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
- 		return ret;
- 	}
- 
-+	if (!smbox->chan->mbox->txdone_irq)
-+		cinfo->no_completion_irq = true;
-+
- 	/* Additional unidirectional channel for TX if needed */
- 	if (tx && a2p_rx_chan) {
- 		smbox->chan_receiver = mbox_request_channel(cl, a2p_rx_chan);
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202501210513.GCec6kts-lkp@intel.com/
+
+All errors (new ones prefixed by >>, old ones prefixed by <<):
+
+WARNING: modpost: missing MODULE_DESCRIPTION() in arch/arm/probes/kprobes/test-kprobes.o
+WARNING: modpost: missing MODULE_DESCRIPTION() in lib/slub_kunit.o
+WARNING: modpost: missing MODULE_DESCRIPTION() in drivers/staging/gpib/fmh_gpib/fmh_gpib.o
+>> ERROR: modpost: "__aeabi_uldivmod" [drivers/gpu/drm/meson/meson-drm.ko] undefined!
+
 -- 
-2.47.1
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
