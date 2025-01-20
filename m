@@ -4,95 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EDA2C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 19:24:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62E8DC02181
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 19:25:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=TbNRXkcRyF0tlmC6FGx5LqgTK6hjgJWXGfuNeKftOQ0=; b=3DT+w1EEvAXgeM
-	8aRKOIyw3tvT78wOyKyPVTCNx7xSyvPnjbso/vp3NZUdTaoR8k6kRpeH9M9OwQUC7MhKYVItz3RL3
-	KVaOtXEfg73uI9SE7LEbAvxnMQaPsQnq6kz2lGGRSR9WgmH+x5UmN5k6hI3Mn289uQWX32cgYsqDA
-	QGgdDwdXJJOzB8q85NFxaICoYdQkauHr5kP6ZHjCg/gnaWP/CNNlltbFcp9Pm10jkcxbOpzNtzuvU
-	AoP0Az9RsKuQPdxGfgwbeBAa6/1j1McwuN1N2i6VQuPhLh6A+JGmARu4THrp3+rl+LWLyJKZUPpYx
-	En7D2l6YY4YpJplRpaLg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I53LaBUu8Ez10WiqpcVihTs0+/nH9igaC51JF98rWw8=; b=VKJkid6U6lLD/ZI2ZOseencoYr
+	PH8991LevNihDt+mXELvYS+ALuZXWXoJ/waemiEmPORRh1wwxZgSHpmuq0jJv3gEkJ8iKMbKVlkUy
+	J00RtmpdEFhWaFX1qUrEQQcbr9Fp8kyBkXNvW1Y3kus90r/EYwoYsqIivUq7kKb7U51LKWFuclYOf
+	5lMbcjMF7dZxch1mr7gPYI3EYmMMtU0VwB3zbLc76Q6NVYQOkNByEwM7dRAspJXtUGpEmrUlgCzOT
+	TnmI4Vwi4Y2rQsN+b9fNEatgb9ODeArRc0s/MrgJgLjxjxTGQM4SJyeZKQ87yrdLMV51N0vNPMWuD
+	OJuHzvOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZxNo-00000006Jdu-0Gsx;
-	Mon, 20 Jan 2025 19:24:24 +0000
-Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
+	id 1tZxP4-00000006Jpw-0Gly;
+	Mon, 20 Jan 2025 19:25:42 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZxMW-00000006JSW-4AF9;
-	Mon, 20 Jan 2025 19:23:06 +0000
-Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-30613037309so48881011fa.3;
-        Mon, 20 Jan 2025 11:23:04 -0800 (PST)
+	id 1tZxMb-00000006JT4-1Ymf;
+	Mon, 20 Jan 2025 19:23:10 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-53e389d8dc7so4855636e87.0;
+        Mon, 20 Jan 2025 11:23:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737400983; x=1738005783; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=TbNRXkcRyF0tlmC6FGx5LqgTK6hjgJWXGfuNeKftOQ0=;
-        b=gPm1LrfSpJJ8U0Spn+KGbivewnplbVocvZAhTAa/quwPLKki5+q52pz/kBb9CJHFAE
-         lKOYaA8SG1aaV8JAW0QQvisnWBFKzdpK58Rn9ucDKBTVyf3nOMK9WE/T63jKW41CRFU8
-         eFycR+bG6GBeq2kWdz2CLEdkIoqblqmPhB7l/++I8sJ7fRW+gSMP1pfhc8UVZMi6UDST
-         RGAmAry75WwYDsgERNk2fOGHRpS9tHwWDjKu2fjo3KjuuPSmx82KKemmWSx//C9aJbLa
-         l9no8ZLNSI+m1W/81fd4gBdQ6rC1zo9rlEu3GaMkOs3/lJXslsZxLdwQOhdWp4GGBjPw
-         pYng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737400983; x=1738005783;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=gmail.com; s=20230601; t=1737400987; x=1738005787; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=TbNRXkcRyF0tlmC6FGx5LqgTK6hjgJWXGfuNeKftOQ0=;
-        b=jdtNdIO095CY7Oyq8jsbDyzwTmTnwQlduOse+F0dJ0hqIYk48QVyNhgyQ/K4cKo+Fz
-         C62519FuL7MMqed6RrI2pFggvWWwRSO0m4OHLk7n3n9M4hWuBLTfJywLF5MkXTBiwBcM
-         iUgOjjqw4QTH6iMzUKQVt4Xb5v14mRZKqq4flT5+i2rOxiipTlPbGehFV1CYRMAXM7xN
-         XMyP+RXKU/T31UTNgaWGljzdMWcG0zwTApJxCfQO9ivr/mDt5d/p1JOb72gauoIs+Z7T
-         kOv/HgoGXMke0ynvr0FzHDGeEKd+USmxDg31v3tqonRYJWp/6R6lvhBfSbj3WawJ7u0N
-         1nJw==
-X-Forwarded-Encrypted: i=1; AJvYcCV3lvYWw2wSrrQHiUlqDqBFPPbXknxsnPsaDD1zij72Eof0s+qr0vT/DLBnAQt0qbs46JCiTyPu/Rhi18HuWLY=@lists.infradead.org, AJvYcCXohDDoeW0frl+s/hMr82N+UJpWUTztFuOm68x9m9SqcqpGDGI6lbEO04o/yUDpcXE3gCFqwmUORAsGjGpdtq3m@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzx4ZKPDpKnRYEXGqZKsh9UZ3bQs3HdShL6TZiqNiYxdPJ2SU9f
-	GCDjsUgzSeFdfFLY5FQ71wfrX2uOabpuiphamWmgXnD1A9Styzv8
-X-Gm-Gg: ASbGncuD2TmjiwX/ylAuLaTjVVW/42oaZUNLoNrCXYVakoALgXTpX7fkPN3TtUActGT
-	PI35xOZRkDhqnn0FXrxh9enLsE4a+YckkgaipOtURa1EeLJpWHRLhXDeSZi9B8aHdWoVA9wjPAy
-	9wkcDt3BPhqmzljq+7lRvqBF/uDJ+3Z8vx5yfX7Epd+zR0UV+czDg70avjE1OJaUXn64PAH562a
-	ByKsC/RxY/J4Qc+o7/laKokK2MHLMMwVux59TM756uIX40pUOolUB0IUh+c5ZuIwzOoMiY=
-X-Google-Smtp-Source: AGHT+IGr49WU9BhdIDFszJomy7IZC0MsVfpvVAJ7VOlKiHTdCZ06Qn8peWJsF+uAk6nP3W4Y1Yz8hg==
-X-Received: by 2002:a05:6512:aca:b0:53e:37e4:1457 with SMTP id 2adb3069b0e04-5439c280723mr5124215e87.33.1737400982537;
-        Mon, 20 Jan 2025 11:23:02 -0800 (PST)
+        bh=I53LaBUu8Ez10WiqpcVihTs0+/nH9igaC51JF98rWw8=;
+        b=kRXnPUbnXm+hNvMu/5ULtelRWDthAyxorFjE+NCemuBqXn9uRpy41/jZFgQFmrzj0Z
+         Kq6h+oY0PWZ9cjStlosKIBUwdLg2Id3LEU7EhWcHdR+EghReSxH+IguV2d6G3vDjoNXv
+         XQ5NpAurdgapg5FhSqo9cjhUsqurWy3xJ+bfDAVYraR7QOO27b1F9fmhPx8A5OSWgcee
+         GhYxPTZ9cbHNXwwt8/lYGOp5X+vOk5L6ahljPh7KvYsfOI/pDxdnLCUYkr8Aa6QZawI7
+         xNDjXECtJITVawogyBOkXBeLZgQFLdOa3OC9HCWjyOLjurarSLZENzsCA9Gw/5svOQyU
+         oBwg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737400987; x=1738005787;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=I53LaBUu8Ez10WiqpcVihTs0+/nH9igaC51JF98rWw8=;
+        b=jdfVKk/DFT/L+W7AsFyKhYJBeoHonPrmICKTDtxSWz5B+jhWaiDM3nkG1Py0Ho6rn3
+         NEJWYxILvL3N2VIfJFExVPBMbfhl6QblogjafaHsb84Bj5xvmn4t1lHPgcSHL+yN/3AE
+         /lenvL22HjHomnkAkkwY+5UeQOI18KZC0AhxFhxsdu7rK9ZaEvGEHW0kd/8x21nkBuuD
+         yO6QfGoFEyvO2+G5aPUqWGma/oa7QAlIvShNhA3o8jQBtPvvaiifIuVXr+GzXorV3UxQ
+         TExoGSOW0Vv/saBskmqJuVbVHsgQ35vivLBBatpHsoxfcQyRTHhuoXqasUrgIyRs4OyG
+         rQsg==
+X-Forwarded-Encrypted: i=1; AJvYcCUyrfJi/MY+TZeQQypAEAW09yQ5mvDVPYebTcUDhqGVuPryCBhOmpB4AlPGbS50h196ufuCe1Yfkdd/pS2O8QQ=@lists.infradead.org, AJvYcCWi0IEvqDMtNeBa6/ouKgWSKuhTgXtzUn06soA68dl67IzVh18OQ2O3dtIoDYL26QRobKzKSacyjnyBpPwYeyfg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/a3DgVAm4bwcLDZkS6woIrLxw1zvC5NTVX0+VXNPWuEmv2BDT
+	TDj+qyZ3hZm4epm47GwqXlKSQmCOi2cq3yWQBCtktBhbGMi28LDhVLV74r03/50IMA==
+X-Gm-Gg: ASbGncsa3GTT/a91W/eDqfvoRWtD+/xFslKm3aY4wzB+/17FaTMgR2SJL11v8WnXw7X
+	9UxnfUoNDb5Pt0LzRsaT0B9LTKkVipfSUWupyd7Gq5QlRu6SRJCvR9bhQiChSzn7UM/JF6ztTxj
+	9u/9CHRn5mxXW+S1YPlvTcO0cLKhA+FFyb0P1BPsB+0/GktKJI8mhR/dAvT+xjuAHmolxpfJazR
+	XDDEbYox+ts49Wra3/VPFcRQrYljyNFTQ1fqp+RmMuvk1FTiAYPnd6PlkYhJX7quxjm8C4=
+X-Google-Smtp-Source: AGHT+IElRyKrCmUt6OC6FXnu2gsUAFzklkHyKtm/jFhDVjd/e3YzmckkNbBqhhmnxdhf9DgrgRUQ1Q==
+X-Received: by 2002:a05:6512:3989:b0:541:3182:4578 with SMTP id 2adb3069b0e04-5439c224b0amr5131344e87.15.1737400987194;
+        Mon, 20 Jan 2025 11:23:07 -0800 (PST)
 Received: from [172.30.32.150] ([185.204.1.212])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5439af78fb0sm1460156e87.247.2025.01.20.11.22.56
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5439af78fb0sm1460156e87.247.2025.01.20.11.23.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Jan 2025 11:23:00 -0800 (PST)
+        Mon, 20 Jan 2025 11:23:05 -0800 (PST)
 From: Alexey Charkov <alchark@gmail.com>
-Subject: [PATCH 0/2] arm64: dts: rockchip: Fan updates for Radxa Rock 5C
-Date: Mon, 20 Jan 2025 23:22:45 +0400
-Message-Id: <20250120-rock-5c-fan-v1-0-5fb8446c981b@gmail.com>
+Date: Mon, 20 Jan 2025 23:22:46 +0400
+Subject: [PATCH 1/2] arm64: dts: rockchip: Add finer-grained PWM states for
+ the fan on Rock 5C
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAIaijmcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1MDQyMD3aL85Gxd02TdtMQ8XUOzFAvTJOPEpKRkcyWgjoKi1LTMCrBp0bG
- 1tQAm5U7vXQAAAA==
-X-Change-ID: 20250120-rock-5c-fan-16d85b3abbc7
+Message-Id: <20250120-rock-5c-fan-v1-1-5fb8446c981b@gmail.com>
+References: <20250120-rock-5c-fan-v1-0-5fb8446c981b@gmail.com>
+In-Reply-To: <20250120-rock-5c-fan-v1-0-5fb8446c981b@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Alexey Charkov <alchark@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1737400976; l=714;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1737400976; l=1368;
  i=alchark@gmail.com; s=20240125; h=from:subject:message-id;
- bh=UQf76tNPeFw670A+FDlUpizi4uK712nfyrh8vXWuH1k=;
- b=TMyVo8vcwj2r4jcUALxh9vVoMsAPW3huM7SQAfS8P1HFA9A0nKAuIvCN78QKCOm9g3y22jqaE
- eNRUxXEEAavBTNWy2VZkXXnPNhtcO7Fa2knTgzHr8o6ubnAbWXHtAq1
+ bh=GT4q+7Oh5vTPRM/jyU6qeqv283kNMR9D4hEHBzqc+gM=;
+ b=aOYxsb0GguYiX9tTUBCfaWsXYlypAboa2Ll0IUMIBVy0nqbAZ6B6xIG8N65VHw+89tCFLiNwZ
+ kzFt+v6yAw1BDcmFu3M7dWP2vt0DhlsVNsdRi3f/oyp86Rj0Sb7H9nn
 X-Developer-Key: i=alchark@gmail.com; a=ed25519;
  pk=xRO8VeD3J5jhwe0za0aHt2LDumQr8cm0Ls7Jz3YGimk=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_112305_037646_67C4E753 
-X-CRM114-Status: UNSURE (   7.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250120_112309_414399_5171E62D 
+X-CRM114-Status: GOOD (  12.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,24 +106,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Couple of small additions to the recently added Radxa Rock 5C device tree
-to improve cooling control using the onboard PWM fan, similar to other
-Radxa boards already in mainline
+Radxa Heatsink 6540B, which is the official cooling accessory for the
+Rock 5C board, includes a small 5V fan, which in my testing spins up
+reliably at a PWM setting of 24 (out of 255). It is also quite loud
+at the current minimum setting of 64, and noticeably less so at 24.
+
+Introduce two intermediate PWM states at the lower end of the fan's
+operating range to enable better balance between noise and cooling.
+
+Note further that, in my testing, having the fan run at 44 is enough
+to keep the system from thermal throttling with sustained 100% load
+on its 8 CPU cores (in 22C ambient temperature and no case)
 
 Signed-off-by: Alexey Charkov <alchark@gmail.com>
 ---
-Alexey Charkov (2):
-      arm64: dts: rockchip: Add finer-grained PWM states for the fan on Rock 5C
-      arm64: dts: rockchip: Enable automatic fan control on Radxa Rock 5C
+ arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
- arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts | 34 ++++++++++++++++++++++--
- 1 file changed, 32 insertions(+), 2 deletions(-)
----
-base-commit: 4ec376748558ba132a2a49513acd3b08774384e3
-change-id: 20250120-rock-5c-fan-16d85b3abbc7
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
+index 9b14d5383cdc16947c955b1c6e2a32a50c5df3e6..1b66a69cf0f8795d7305852fa7fef3d0672ada7f 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
+@@ -71,7 +71,7 @@ led-1 {
+ 	fan {
+ 		compatible = "pwm-fan";
+ 		#cooling-cells = <2>;
+-		cooling-levels = <0 64 128 192 255>;
++		cooling-levels = <0 24 44 64 128 192 255>;
+ 		fan-supply = <&vcc_5v0>;
+ 		pwms = <&pwm3 0 10000 0>;
+ 	};
 
-Best regards,
 -- 
-Alexey Charkov <alchark@gmail.com>
+2.48.1
 
 
