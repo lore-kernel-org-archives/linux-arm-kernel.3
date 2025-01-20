@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62E8DC02181
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 19:25:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F487C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 19:27:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I53LaBUu8Ez10WiqpcVihTs0+/nH9igaC51JF98rWw8=; b=VKJkid6U6lLD/ZI2ZOseencoYr
-	PH8991LevNihDt+mXELvYS+ALuZXWXoJ/waemiEmPORRh1wwxZgSHpmuq0jJv3gEkJ8iKMbKVlkUy
-	J00RtmpdEFhWaFX1qUrEQQcbr9Fp8kyBkXNvW1Y3kus90r/EYwoYsqIivUq7kKb7U51LKWFuclYOf
-	5lMbcjMF7dZxch1mr7gPYI3EYmMMtU0VwB3zbLc76Q6NVYQOkNByEwM7dRAspJXtUGpEmrUlgCzOT
-	TnmI4Vwi4Y2rQsN+b9fNEatgb9ODeArRc0s/MrgJgLjxjxTGQM4SJyeZKQ87yrdLMV51N0vNPMWuD
-	OJuHzvOg==;
+	bh=CerU6xvl9lcXiaDqDUt8ZKpDTAlJGqkJkLTkeLu13Uk=; b=Z4l9kC88YSgTy+WWxZbB57BDRV
+	g94rLfqvbeRJRI3Z9hGmzQ6+UAE4FaE/H6jdZFnMcPYVC/yAPT2QBSodtE2DDx7wgYnpucMmeHNfl
+	lBbDNMUiHsqn9BaIpX8Ydc3G6RwlFAoLxfGlY4z82QmUeJoMbhy6lwkygYQM5xr2UE2P/M07ouENL
+	Riyoqwt6b4R1miYyvftbasyzArcJD1X0tRq4JSGRCK9r39IMRimKrpycbXX8PZpidRmMHt2IWGYpp
+	aWcTF/9kkF4vPch8QKsU29Ak6wNf+vI7mcak7RDA90YK3+zULud/x/YS/7oDZqAqaueK5XgLIEckl
+	eUY7Iwyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZxP4-00000006Jpw-0Gly;
-	Mon, 20 Jan 2025 19:25:42 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1tZxQJ-00000006Jx1-01VD;
+	Mon, 20 Jan 2025 19:26:59 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZxMb-00000006JT4-1Ymf;
-	Mon, 20 Jan 2025 19:23:10 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-53e389d8dc7so4855636e87.0;
-        Mon, 20 Jan 2025 11:23:08 -0800 (PST)
+	id 1tZxMg-00000006JU3-1xJ8;
+	Mon, 20 Jan 2025 19:23:15 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-5401d3ea5a1so4579998e87.3;
+        Mon, 20 Jan 2025 11:23:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737400987; x=1738005787; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1737400992; x=1738005792; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=I53LaBUu8Ez10WiqpcVihTs0+/nH9igaC51JF98rWw8=;
-        b=kRXnPUbnXm+hNvMu/5ULtelRWDthAyxorFjE+NCemuBqXn9uRpy41/jZFgQFmrzj0Z
-         Kq6h+oY0PWZ9cjStlosKIBUwdLg2Id3LEU7EhWcHdR+EghReSxH+IguV2d6G3vDjoNXv
-         XQ5NpAurdgapg5FhSqo9cjhUsqurWy3xJ+bfDAVYraR7QOO27b1F9fmhPx8A5OSWgcee
-         GhYxPTZ9cbHNXwwt8/lYGOp5X+vOk5L6ahljPh7KvYsfOI/pDxdnLCUYkr8Aa6QZawI7
-         xNDjXECtJITVawogyBOkXBeLZgQFLdOa3OC9HCWjyOLjurarSLZENzsCA9Gw/5svOQyU
-         oBwg==
+        bh=CerU6xvl9lcXiaDqDUt8ZKpDTAlJGqkJkLTkeLu13Uk=;
+        b=k6lvX2fmx+aP5YAeAAZ4fBOyMpLcTdzOqzvPqRtsqXo9Bk58EO+cPAupdnZ7JrJPxL
+         JHzdGkLK14XReu07jdKWEmB/lln9e9eHO+cSf+B5F59L5qMuOWGS6PqyrPlswKhh5ihV
+         3MHahwn9ScmqovHDFW4Zixq5tv+mvjXm8BvqRmCIICcfsZ77DXxHKNl0I7i+ouKFPtrm
+         uVFOETfp2zWPXspWt0zXiLKQFadARiMktxEPIel+BGEu4gB2FHqYEvhoQ+PVHAGGoYvZ
+         7X/8xx6WY36DBP6BqBZKJ/K0iuS6GOGkStpv/f+NVGIfNFTxWhFNKsKhMjlp5otjJpvO
+         Y2HA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737400987; x=1738005787;
+        d=1e100.net; s=20230601; t=1737400992; x=1738005792;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=I53LaBUu8Ez10WiqpcVihTs0+/nH9igaC51JF98rWw8=;
-        b=jdfVKk/DFT/L+W7AsFyKhYJBeoHonPrmICKTDtxSWz5B+jhWaiDM3nkG1Py0Ho6rn3
-         NEJWYxILvL3N2VIfJFExVPBMbfhl6QblogjafaHsb84Bj5xvmn4t1lHPgcSHL+yN/3AE
-         /lenvL22HjHomnkAkkwY+5UeQOI18KZC0AhxFhxsdu7rK9ZaEvGEHW0kd/8x21nkBuuD
-         yO6QfGoFEyvO2+G5aPUqWGma/oa7QAlIvShNhA3o8jQBtPvvaiifIuVXr+GzXorV3UxQ
-         TExoGSOW0Vv/saBskmqJuVbVHsgQ35vivLBBatpHsoxfcQyRTHhuoXqasUrgIyRs4OyG
-         rQsg==
-X-Forwarded-Encrypted: i=1; AJvYcCUyrfJi/MY+TZeQQypAEAW09yQ5mvDVPYebTcUDhqGVuPryCBhOmpB4AlPGbS50h196ufuCe1Yfkdd/pS2O8QQ=@lists.infradead.org, AJvYcCWi0IEvqDMtNeBa6/ouKgWSKuhTgXtzUn06soA68dl67IzVh18OQ2O3dtIoDYL26QRobKzKSacyjnyBpPwYeyfg@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/a3DgVAm4bwcLDZkS6woIrLxw1zvC5NTVX0+VXNPWuEmv2BDT
-	TDj+qyZ3hZm4epm47GwqXlKSQmCOi2cq3yWQBCtktBhbGMi28LDhVLV74r03/50IMA==
-X-Gm-Gg: ASbGncsa3GTT/a91W/eDqfvoRWtD+/xFslKm3aY4wzB+/17FaTMgR2SJL11v8WnXw7X
-	9UxnfUoNDb5Pt0LzRsaT0B9LTKkVipfSUWupyd7Gq5QlRu6SRJCvR9bhQiChSzn7UM/JF6ztTxj
-	9u/9CHRn5mxXW+S1YPlvTcO0cLKhA+FFyb0P1BPsB+0/GktKJI8mhR/dAvT+xjuAHmolxpfJazR
-	XDDEbYox+ts49Wra3/VPFcRQrYljyNFTQ1fqp+RmMuvk1FTiAYPnd6PlkYhJX7quxjm8C4=
-X-Google-Smtp-Source: AGHT+IElRyKrCmUt6OC6FXnu2gsUAFzklkHyKtm/jFhDVjd/e3YzmckkNbBqhhmnxdhf9DgrgRUQ1Q==
-X-Received: by 2002:a05:6512:3989:b0:541:3182:4578 with SMTP id 2adb3069b0e04-5439c224b0amr5131344e87.15.1737400987194;
-        Mon, 20 Jan 2025 11:23:07 -0800 (PST)
+        bh=CerU6xvl9lcXiaDqDUt8ZKpDTAlJGqkJkLTkeLu13Uk=;
+        b=QyiJPKYGdFvIdWSJhevrlQ/XZ/aU9QOXmrmqB+bUK2m4xD7kuFOZAsQ1on5eThrUml
+         rsjdEN8W5A0zfuQlZx4oQnJByM1BT6PKf0+Kcd8lCPt7OdoXvYqI8Vev9Q4F3DciqrdQ
+         iRA97WwDabp1B7bJ5U9VkfHB/ryEEdh3y1+utKizL37tEtdIEYbCYbaV0uveJOXX/VWu
+         ii9ggdwsum52r/nts7ojY5HxCLcmkCYcEszFVRjXY9IDHnd9roD8J93gwleeyf5Y/N/x
+         tO1JjLDrEWA1MPjUxSS+m/Uy7/KmSli4Y+bEAac5mRRpgobby61YucFTSgDiJc3BV5IZ
+         aj1A==
+X-Forwarded-Encrypted: i=1; AJvYcCVtq0KXVfPEAy5bjdP15W8c1Qmv3JiHnEfLcM39DmzGbiNClwQa2s8irJ5ONd8Dm7k4Y1rt9Qkzlpzuy8yIRxw=@lists.infradead.org, AJvYcCX7tiHmwuNL23eMJ4e++kzhRzR1sgq70zEgfoZOcFjAqIRWbu60N84t8aKznt5jRxDM/CcAWEWXvl47oKpxTC61@lists.infradead.org
+X-Gm-Message-State: AOJu0YxcYbquLH4ykchua0Oi3g4/AeGIgxFvA/LLDL8bd5ZcCbw8BaKD
+	MN5BsAo2X6lmKzy09tWq9Mg29vLBVznEK8MgdBloop8ZwiRKcGX1
+X-Gm-Gg: ASbGncsm4RIrVbeHN0XCQbRrtQBjqjBrLmgMp7rIzYFvy2F7LteB9or03mZJKKE6vIS
+	lhJu12oEqSQ9y1QmDrGSBJBvG4RXH0svnAR6sF6D8B2IEyNbxBVZiwK29dzGRZJVas7AKEgwVDS
+	P/u+u6Ck7ebyWznpr0tt+uGfVp3Jd7ve5pGrn9LyrtTBoZIryRv1rirW05Pidx6MF1H4QeRo+Z7
+	1ON1uOG0IT/AZpVg+87nBNKBvpmBKmjUWq+Et3VanD+akFtbC/a2kGjZAE6UAYN+/PnUAM=
+X-Google-Smtp-Source: AGHT+IHf2PZbpFBhm6xQF3fctlNvkttb0vgzfqpVAIWgHcDB65Se341pGvnkDgcpLLDfHvKr17lOlA==
+X-Received: by 2002:ac2:511e:0:b0:542:98bb:5678 with SMTP id 2adb3069b0e04-5439c248293mr3381366e87.25.1737400992347;
+        Mon, 20 Jan 2025 11:23:12 -0800 (PST)
 Received: from [172.30.32.150] ([185.204.1.212])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5439af78fb0sm1460156e87.247.2025.01.20.11.23.02
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5439af78fb0sm1460156e87.247.2025.01.20.11.23.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Jan 2025 11:23:05 -0800 (PST)
+        Mon, 20 Jan 2025 11:23:11 -0800 (PST)
 From: Alexey Charkov <alchark@gmail.com>
-Date: Mon, 20 Jan 2025 23:22:46 +0400
-Subject: [PATCH 1/2] arm64: dts: rockchip: Add finer-grained PWM states for
- the fan on Rock 5C
+Date: Mon, 20 Jan 2025 23:22:47 +0400
+Subject: [PATCH 2/2] arm64: dts: rockchip: Enable automatic fan control on
+ Radxa Rock 5C
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250120-rock-5c-fan-v1-1-5fb8446c981b@gmail.com>
+Message-Id: <20250120-rock-5c-fan-v1-2-5fb8446c981b@gmail.com>
 References: <20250120-rock-5c-fan-v1-0-5fb8446c981b@gmail.com>
 In-Reply-To: <20250120-rock-5c-fan-v1-0-5fb8446c981b@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -82,16 +82,16 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Alexey Charkov <alchark@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1737400976; l=1368;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1737400976; l=1557;
  i=alchark@gmail.com; s=20240125; h=from:subject:message-id;
- bh=GT4q+7Oh5vTPRM/jyU6qeqv283kNMR9D4hEHBzqc+gM=;
- b=aOYxsb0GguYiX9tTUBCfaWsXYlypAboa2Ll0IUMIBVy0nqbAZ6B6xIG8N65VHw+89tCFLiNwZ
- kzFt+v6yAw1BDcmFu3M7dWP2vt0DhlsVNsdRi3f/oyp86Rj0Sb7H9nn
+ bh=//LokAOrRA/EeaT7c38MIMn9xv0OF0OdXdgFumo2L3E=;
+ b=b//UblCwgSfsCubs+uRP/+gxXObDUfoo+IKG9h27aNXw/OVa7YQkqZJFdMFxG4gh+/RMZt7JV
+ trcFo0mQya+A1AmnYJ1eIpQ3nvSieGqS7QJX7s7iuErEwIhD6cuvSeQ
 X-Developer-Key: i=alchark@gmail.com; a=ed25519;
  pk=xRO8VeD3J5jhwe0za0aHt2LDumQr8cm0Ls7Jz3YGimk=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_112309_414399_5171E62D 
-X-CRM114-Status: GOOD (  12.16  )
+X-CRM114-CacheID: sfid-20250120_112314_511829_AC307386 
+X-CRM114-Status: GOOD (  10.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,36 +106,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Radxa Heatsink 6540B, which is the official cooling accessory for the
-Rock 5C board, includes a small 5V fan, which in my testing spins up
-reliably at a PWM setting of 24 (out of 255). It is also quite loud
-at the current minimum setting of 64, and noticeably less so at 24.
-
-Introduce two intermediate PWM states at the lower end of the fan's
-operating range to enable better balance between noise and cooling.
-
-Note further that, in my testing, having the fan run at 44 is enough
-to keep the system from thermal throttling with sustained 100% load
-on its 8 CPU cores (in 22C ambient temperature and no case)
+Add the necessary cooling map to enable the kernel's thermal subsystem
+to manage the fan speed automatically depending on the overall SoC
+package temperature on Radxa Rock 5C
 
 Signed-off-by: Alexey Charkov <alchark@gmail.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts | 32 +++++++++++++++++++++++-
+ 1 file changed, 31 insertions(+), 1 deletion(-)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
-index 9b14d5383cdc16947c955b1c6e2a32a50c5df3e6..1b66a69cf0f8795d7305852fa7fef3d0672ada7f 100644
+index 1b66a69cf0f8795d7305852fa7fef3d0672ada7f..6e56d7704cbe0dc06242cb39df56b2fc9d6bc774 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
-@@ -71,7 +71,7 @@ led-1 {
- 	fan {
+@@ -68,7 +68,7 @@ led-1 {
+ 		};
+ 	};
+ 
+-	fan {
++	fan: fan {
  		compatible = "pwm-fan";
  		#cooling-cells = <2>;
--		cooling-levels = <0 64 128 192 255>;
-+		cooling-levels = <0 24 44 64 128 192 255>;
- 		fan-supply = <&vcc_5v0>;
- 		pwms = <&pwm3 0 10000 0>;
+ 		cooling-levels = <0 24 44 64 128 192 255>;
+@@ -417,6 +417,36 @@ rgmii_phy1: ethernet-phy@1 {
  	};
+ };
+ 
++&package_thermal {
++	polling-delay = <1000>;
++
++	trips {
++		package_fan0: package-fan0 {
++			temperature = <55000>;
++			hysteresis = <2000>;
++			type = "active";
++		};
++
++		package_fan1: package-fan1 {
++			temperature = <65000>;
++			hysteresis = <2000>;
++			type = "active";
++		};
++	};
++
++	cooling-maps {
++		map0 {
++			trip = <&package_fan0>;
++			cooling-device = <&fan THERMAL_NO_LIMIT 1>;
++		};
++
++		map1 {
++			trip = <&package_fan1>;
++			cooling-device = <&fan 2 THERMAL_NO_LIMIT>;
++		};
++	};
++};
++
+ &pcie2x1l2 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pcie20x1_2_perstn_m0>;
 
 -- 
 2.48.1
