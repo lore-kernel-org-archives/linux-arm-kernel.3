@@ -4,170 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D812DC02185
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 06:01:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C868AC02188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 06:28:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pkvFTzShSg/0j0y+wwn+KqgUulb9iViyaJu9DvW3gxc=; b=acaIPN009AU1BKu6nCdPVP/5Ku
-	l1/1zjsY/IKN/hyS1JMjv8TVyrJAP1uL1xK6GklvGpX4MRcXxukPiZUxdmWYbU5RNmANh8djAR7XZ
-	DZ+Uedzzb9oz8Lmg4R1KObKDmQ5zxKEAwuiNWDxfEJKT4q1TKOnBmHXhHzbDXvQtW0Fv+2mjd+qiv
-	LVkgxDQtLYlzxlXGUBiXKeNTCGhoD8PQg6B7OLHrqWFdhV06PKgTR5Pdc9c4JWjHT6QWy8rEzcTCH
-	W4kD6PadU/BegwJGcaQiKHm3fWJy1uuVjJml03ONe6BBnmxjOY86U1MTtfM8JYuohuFmVBvkZnRfe
-	I1rGQTMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x8srBVxpY1Y2go61LooQLLm+zkt7yvzarZ1bWM91bzs=; b=AIuKH6vgUQm1DiWCfH74SiZ0/T
+	/pY2rJtcJFaVaKX1yRgIT7iNBWJm2k9z0kBy26yk+qrod49g3HPNBNVbIQPoWPmuFz8vIZ1osbrE0
+	9Yovf4lSovRxelrDwmZPZsSJQDWI+wb0zNAz1hHpQa0oEf+m9au7P8kC7uOWaWS9oxU/Sa1bjuOzL
+	8PeFU6fBlgnNFo8mNcaYOzmCQSfzorYuR9i+z9CFqNkgncSfDt+3JoBclcEnuZcI+BNCMgk4SZGwg
+	tarB6vJwf2KfcwTgq1oRrqx7Iho8jPHLHExcHoePc5v/E0IpaUblK92mp5fAJdh3loGk9y6yvOe3e
+	gUdMiFAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZkqx-00000004nLn-15EL;
-	Mon, 20 Jan 2025 06:01:39 +0000
-Received: from mail-tyzapc01on2070f.outbound.protection.outlook.com ([2a01:111:f403:2011::70f] helo=APC01-TYZ-obe.outbound.protection.outlook.com)
+	id 1tZlGI-00000004p1c-3mAZ;
+	Mon, 20 Jan 2025 06:27:50 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZkpf-00000004n9v-20m3;
-	Mon, 20 Jan 2025 06:00:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=x9r14Y4GpKAclxdbwTFQQ92oALfVdDEIM2kvjhO3Q5Ir+BioB3K4gyMsyi9L6RtQ6+CAIOf6iFiliYin9ZYbZx7M/AoAyl8s1PhFCsWQBGU4VxmcBb6sO9gAQmJlumqlchbqd3tUxQATN6ugpemK4TfyEaLBtPChP6p2IQ1UcXspFMeT4KREF8RrbJeHfE5XF+V+wx7XniJMuMDtzF6vjKplraN3p+0hPDcp39gN1SNLttJAWK+8MzI0aybbNIQXDVh1cvmdc7JzmjS87m1w+U5ZaSqpP4HsiIeOa8NJ3u7oJDdG4OQ0cdRhb7T0zZywV3hdepKpivRkTGc4gHbQsQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pkvFTzShSg/0j0y+wwn+KqgUulb9iViyaJu9DvW3gxc=;
- b=STeOBWz2W91vxxCyyhXV9tUUjnnZAWJd+1wfsbaOFJcHYynXvoEwQU0iuh+n/znCYwLoqaYMyNgJzuOWratqZLfBGfL+YoJtme0yCYKRj/uVq4wnGr4u40xcFEQPpmcEAuA0OgJMkG0gFEc9qYgmuWRrKpeRV6/O3U8lh8aJM8nnQpOCGwIxpt5FCFgSCEk362QdJsNSsLudWt18zaXTh3L6WB9J5wmyaDXyXzOKZPF2iE0gg/R56Mvwu+5KYhtL/dFX3f/2YHPirf0jD6Yq/tL1a+2GRh7sQstJynRA0HlvPkxxIPFRA4XcysBNpVziVQnGtbV44ZbHA3apPtxrmg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pkvFTzShSg/0j0y+wwn+KqgUulb9iViyaJu9DvW3gxc=;
- b=jFIdq4CnSeH63jK9cWGcyezYwCxlnVRPY3kn+haNrP4l74cIzrnvSeGz0MxBSoNMNIEpuaPsfbg7VdEh5fB9HsIfJ+Oirh7Gi0Jydi5PmMjmIP5BcKrgsbPeW0MKNCZB3KHuRASryR+UTAgFIXKMQ6WHKME3NpIlEcUhBF/HeoPGq3AwWcrAFJ+HlEwgFHZea96+jn6JQ7IiVXPbNSkY7GmsQ4GDYD/37eA/voojBX9UW8tbXSOtJNR86P8rcPgdZzvtvVb7KAQ7J0IH5SR9yh3TC9P0k0g98CevtnjYvRUFVaW8Oi9CIKr3cBC8CpaPrmhWnyXTa6nnYUosfG63gw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from TYZPR03MB6896.apcprd03.prod.outlook.com (2603:1096:400:289::14)
- by TYZPR03MB7275.apcprd03.prod.outlook.com (2603:1096:400:1f9::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.17; Mon, 20 Jan
- 2025 06:00:12 +0000
-Received: from TYZPR03MB6896.apcprd03.prod.outlook.com
- ([fe80::ac4e:718:3b03:3123]) by TYZPR03MB6896.apcprd03.prod.outlook.com
- ([fe80::ac4e:718:3b03:3123%4]) with mapi id 15.20.8356.014; Mon, 20 Jan 2025
- 06:00:12 +0000
-Message-ID: <fa2fae63-cc0b-40a8-ab7e-82358532279c@amlogic.com>
-Date: Mon, 20 Jan 2025 14:00:07 +0800
+	id 1tZlF0-00000004ooz-3Kdx
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Jan 2025 06:26:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1737354391; x=1768890391;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=tnsWXzYfmvn62Lbs810i3rTWmbN0EXhNDxrDhCk8CD8=;
+  b=Eknj5QGLXI5iwjL8OvqSBjikamPvldZYO/dZU0qvAlJJAxeh55TMzpGL
+   0C4v5xYF5gXX0T9WA2adEuVv5f2PuCOMg3DFG8AZ5qiM7G0GcNi9SMeZP
+   WbA27dn2+LdgGquDRmg3RqPoXNNoH8t3I0+vnvjdfkZzVgvdujnFT8ZEo
+   9aQoJ+RR9t9fJI7XnKR7RTEF3q731qtNImPPu3p485mkBgDc9StvL/XDJ
+   l4AV/ybx5KEWfYq/f2qbvsMRE4rpMN7Rf3XN8i2oE6A3DQ1OoyJ8SYx0I
+   58gSAvSc6savlnq0RuzIC4kxkuNJP7Ps0IRy06IR4lFyw8CU2yEEG7xff
+   A==;
+X-CSE-ConnectionGUID: +cO4scgqQciRKPsgwjHW+A==
+X-CSE-MsgGUID: BiWCRmhOTjOjWIgituDTsw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11320"; a="37622979"
+X-IronPort-AV: E=Sophos;i="6.13,218,1732608000"; 
+   d="scan'208";a="37622979"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Jan 2025 22:26:15 -0800
+X-CSE-ConnectionGUID: 2o19Sr1rR0+02sq9LFLQ2g==
+X-CSE-MsgGUID: X0kZiFOHTdmNQOkx3eVPsg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="106227294"
+Received: from mohdfai2-mobl.gar.corp.intel.com (HELO [10.247.64.131]) ([10.247.64.131])
+  by orviesa010-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Jan 2025 22:26:01 -0800
+Message-ID: <84770113-2546-4035-8bd4-bf9cedcfb00f@linux.intel.com>
+Date: Mon, 20 Jan 2025 14:25:45 +0800
+MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/5] arm64: dts: amlogic: a4: add pinctrl node
+Subject: Re: [PATCH bpf-next v6 4/4] igc: Add launch time support to XDP ZC
+To: Song Yoong Siang <yoong.siang.song@intel.com>,
+ "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ Willem de Bruijn <willemb@google.com>,
+ Florian Bezdeka <florian.bezdeka@siemens.com>,
+ Donald Hunter <donald.hunter@gmail.com>, Jonathan Corbet <corbet@lwn.net>,
+ Bjorn Topel <bjorn@kernel.org>, Magnus Karlsson <magnus.karlsson@intel.com>,
+ Maciej Fijalkowski <maciej.fijalkowski@intel.com>,
+ Jonathan Lemon <jonathan.lemon@gmail.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>,
+ Jesper Dangaard Brouer <hawk@kernel.org>,
+ John Fastabend <john.fastabend@gmail.com>, Joe Damato <jdamato@fastly.com>,
+ Stanislav Fomichev <sdf@fomichev.me>, Xuan Zhuo
+ <xuanzhuo@linux.alibaba.com>, Mina Almasry <almasrymina@google.com>,
+ Daniel Jurgens <danielj@nvidia.com>, Andrii Nakryiko <andrii@kernel.org>,
+ Eduard Zingerman <eddyz87@gmail.com>, Mykola Lysenko <mykolal@fb.com>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>, KP Singh <kpsingh@kernel.org>,
+ Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
+ Shuah Khan <shuah@kernel.org>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Tony Nguyen <anthony.l.nguyen@intel.com>,
+ Przemek Kitszel <przemyslaw.kitszel@intel.com>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org, bpf@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, intel-wired-lan@lists.osuosl.org,
+ xdp-hints@xdp-project.net
+References: <20250116155350.555374-1-yoong.siang.song@intel.com>
+ <20250116155350.555374-5-yoong.siang.song@intel.com>
 Content-Language: en-US
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
-References: <20250115-amlogic-pinctrl-v3-0-2b8536457aba@amlogic.com>
- <20250115-amlogic-pinctrl-v3-4-2b8536457aba@amlogic.com>
- <20250117-fascinating-ape-of-upgrade-0c298b@krzk-bin>
-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
-In-Reply-To: <20250117-fascinating-ape-of-upgrade-0c298b@krzk-bin>
+From: "Abdul Rahim, Faizal" <faizal.abdul.rahim@linux.intel.com>
+In-Reply-To: <20250116155350.555374-5-yoong.siang.song@intel.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SI2PR02CA0051.apcprd02.prod.outlook.com
- (2603:1096:4:196::10) To TYZPR03MB6896.apcprd03.prod.outlook.com
- (2603:1096:400:289::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TYZPR03MB6896:EE_|TYZPR03MB7275:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1bda7f21-1aea-4fcb-7a02-08dd3917b3cf
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?MEVrQVZUUXlnZ2xUQjNzRGp2blFvTS9QcXlyS0FTeWpCSG5ONlUyb1ZNRksr?=
- =?utf-8?B?MW9ZTmNkUi9uakhpTFNSaDNzaHpBSVExK25kMUVBM0h0SDhGbWpqTWgwRkZW?=
- =?utf-8?B?OE1nQndlYStSYmwxa0ZFVjRSaW5ybC9jTEpIc3BkZEl0MWhRYmZYZkVLNlVZ?=
- =?utf-8?B?OFlHaEh3b2FkOVR3VmtIN2x5alp1Y1k5N3dka3ViRklWMG5Nb3ZWSmdWNjJD?=
- =?utf-8?B?Q2xWRXhOL3FTdG9XR3o3QlpSdjdtSGlWcGdBcXA2NTlybVEvZ0lEQS9ZZ28y?=
- =?utf-8?B?R1o3Y2UwdFFRZlFKN3JwMlRaOXlVUmJTcXduMlFxWVIzemtIVEFlQ2R4UjlL?=
- =?utf-8?B?dnRYNTA3alFPWjhYSzliQjM4K2NGd1V2OTh6VlRVMkJPUFV3NEpZQnNJRkcx?=
- =?utf-8?B?S1YySG5Fc3JJd2loWjYrZVQ2T0h1bzVxNm40ZC84RmlScXRFMFc1QWVqS1d1?=
- =?utf-8?B?Rms2YzZTRnhaRHlLSDBLdW1GNDBIekFNYXh5QmJQc01ZSjZNU255dGFEZjBp?=
- =?utf-8?B?SzIrL1lRVEVTbHpUQlNRUXJ4ZERKM3Q5UFIrMlRZMmdNWlJRdm5rU05pZjJC?=
- =?utf-8?B?ME5TRENVM1VhMnZqTlRVcXdFRUhwM0cxbmlsa0xodng2cHQ4YjNXUVV5cmwz?=
- =?utf-8?B?REcrWElMOFkzS04xTnZRZXBRM2IwbHVYMVNrK0hpZ0c1TTU2TEJSVFRzRGZE?=
- =?utf-8?B?Y3UwR0VUbm9TdkJDNUhVVXJiSWh4OWJvOWtWZytQM1ViSUNWQUwreWdSNEJv?=
- =?utf-8?B?dkZIM1VhalBwVUxGQzdjc3JjRjJvVE1HcVJaOEVqN055V1FNc1hUTW5zeXh3?=
- =?utf-8?B?d0RNREc2WDdMZHg4ZXRVL3ZBbWZjNXBSdFFBMHFoUjdhUUpRenNMKzdNNFQz?=
- =?utf-8?B?akpSV05OOWZZbXFLSGpNb2dEblAvNVE0SW9lc1NJTFdwUDVkaUVnc2ZyZE56?=
- =?utf-8?B?by93YjJCZnpUUE5CSlZJUGQ5ZVA4SmZZZ3dmRDh5Y2s5QUN3UUhOdWlDTUMv?=
- =?utf-8?B?V24vV2JjdDJkQTFXci9FdXp2diswUEFyZW9wVDZveXYzQTZueE5aYzNBL0tM?=
- =?utf-8?B?MWVRTy9aUWF2R2ZhN3pVWXh5Mml0YStjbitERElYZ0xuVXNIVGVGcXBhWG9K?=
- =?utf-8?B?dFFncDYwZ0ZGZ1dNQ0RzNW5zRk8rNXkrMUtCYUk5S3N2N0w0SGp3bkNWbVpi?=
- =?utf-8?B?Rmp6YkJFM0phdk5XTUxrMG50UmtXb0s5a05zeTBIdTZQZWduOEhEZzNFWTF0?=
- =?utf-8?B?OW43R1UzTEc3S1NYdnBmTEdQQUYwZmRhOUV4KzU1bDU5bnI1eGhnaldRMGZ2?=
- =?utf-8?B?NnBNeDl0aXA2bDFscmxOSWZ0c253VFVXNFlGcHg0K21md3ZlOXlYOUxNYVds?=
- =?utf-8?B?RDhkZmdMWEY2aTlYVGJOTUxyNGNPSkhmTVo2cmE3TWYxNTd1RUlYdVFUbjNh?=
- =?utf-8?B?SytvSy9LejJxelpINTFmbndidHU3L0VseGpDSEd6MHNZN3kxZTZDZnJMY2ll?=
- =?utf-8?B?VEZRUC9SL1FNOFJDRVg5OUpyU1VPRk1KRW81UWZwQkU1ZFNoRUVNNWxlVGdl?=
- =?utf-8?B?aTBPdEYwZ0Y1K0VITXlSNXlQRE5MSUMyME56ZTNlb2FCaEVBaGpFaVc5cmZ4?=
- =?utf-8?B?S3pycFRwRVBwWHJ0SDNIS2ltMy95YkhDbTl3NW9NYjhGYVByQUhaWVB1SVBp?=
- =?utf-8?B?bnRPUlRnWTJ2eG9PRGtVbXdUMzE4RzUxRURPcU1BYlBJQmMxd0ZLUEhoNDlr?=
- =?utf-8?B?eVZQRFJuQ1FuQ2lCTTFGV0kvOEZXT296N2ExeXRUVVlyVGJOeUdFRmd4V2la?=
- =?utf-8?B?dUV6a3Z1VzBnclhxa1hsaXphVDA0Z1lEcy9HZmp6elpOQTdyOXRiVkhSb0pV?=
- =?utf-8?Q?DPC3YFw/ozpb7?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6896.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NFVyTzQ1c1JITkRUdS96SHVjUUFqaVpCN2x5NHRvdTZUOUZWd3NvSnBtYUsr?=
- =?utf-8?B?aFBBUUZaWGVlUGFPVW1iWUJCWUNwSUNORHVLZDQ2WHRXc3JyU251Q2NRbmg1?=
- =?utf-8?B?Y2lEOUdDemtxTlhOc3ZUbmJoakp5TStOWTY2citTSXJSWGNZTkM5eTIwTDVL?=
- =?utf-8?B?cEJMdXFadVNiM2dHUHppRmhWcm4rOFN6azZOQmZ4RmZYY3Blb0hzK2wxakMz?=
- =?utf-8?B?TXk4VWgzUW1tamo4SVFLSERSYjVzTFBKQXQxQzRrZ0RoemRwaVZKRC9SeGs1?=
- =?utf-8?B?ZDRRaTI4WDV0NTNJZE9WS0p0WXhXNGdLTjd5bXRnZnJqUU0xeXJ1SkZPOUR2?=
- =?utf-8?B?dnkxQkZOcFhVclZkeW13VGl0V0VGVVNDdTkwbWkzVEIvZmVIVjgwSlR6ZjF5?=
- =?utf-8?B?N2ZsKy9aUjVkMXdvTXBITkFldHNrbWJyeVAxdWQ5d0l2SjNOM0ZyOUZDaEZz?=
- =?utf-8?B?dTBnNis1eUxaNnlwRTRZa2pSZGNlc0J6TXQ3T1FXSlVGSnhmTE1VVzl2MmtR?=
- =?utf-8?B?Nnk3RDJHWEtCazdVSUxLcEJQeTZLSitaL001d3pyOXRqQW5wQVNQRTlVQng3?=
- =?utf-8?B?RUdDSzF6Y0NWQk1Qai8zdUNEVjFjSnJ3dFFZNTVMc1o5c0ppRnFmeHpIN21M?=
- =?utf-8?B?a0gyUzFuamRzNUV3M3RldGRyWE40eFB4MWZvZmVKSktFOWZRejY4WGd5anhW?=
- =?utf-8?B?aU9JdlZHTTZrUkZaVXJGSTEvNWxUVDlEMmVXWC9TZzI4T1czL1k3TVVtRkl4?=
- =?utf-8?B?blltL3FsT0h4ZU9MV0lVbmYvakowOXdtT2FScTdNdEtuNlA5Q3pKWDg4T0dw?=
- =?utf-8?B?eHBMckg2ZDZka0lNSTBTUExTVFphRHoreDJrMmY5K2wyN2EycjZZNVliQXdz?=
- =?utf-8?B?NHA4a0NrbjN4dXZKNjV6eXBMMytNZ21lZFRId1JTVEpubEFqTkVpbkVBT0Vm?=
- =?utf-8?B?RGxESndvY2tsY20xR3BaenpCS0VjTWJVa0QrYkwyd1A5KzdPakx6d1FKVGxD?=
- =?utf-8?B?OFV2UXp1elJVdU5wSDJ3RTlOSmgxUG1iVDg0aDNmUC83RXRSUjVDaEFNckt1?=
- =?utf-8?B?NHdSakpvelk1RGM3NnZ1Z20yb0prVnZ5bDhHMjNjKzY0NnF5MWt0L3B6QzNs?=
- =?utf-8?B?OU9wL2l1M2pWWldod2tKdURnVzB1bVgzV1hGUGRUL2VPM2hnR0VXTkExekUr?=
- =?utf-8?B?MU5Bd0xHdm9qN0RLanY3Qm5XMklEckFkTGJ4c1RoeEJHckFNaEZDM1QzWUFo?=
- =?utf-8?B?elZHVHArQlJEdTh1WUU4WTJOUUEyMHRWUlZRck50dit3eitFdUlFNUgxWkJI?=
- =?utf-8?B?Y2hvNnQ3NmxMVVRJVXFJZEVOQ1JxSU5reGR6OTJocUl6VG4xVnZ6a2lhb3Yr?=
- =?utf-8?B?cFRza2ZEejNna2FLUm1OZW9rOUtqbk0rdnUrSE1kTFVBdzdPc1QzSVk1b2Uz?=
- =?utf-8?B?Sk5oSkVlOUpNakxxcjRPV0xlRk5wTTd4RXNYZnh3eWRlR2hxa21kRnA5RGVC?=
- =?utf-8?B?NFFsU3R6bHVsNWxKYllYWERxcTZSTHM0ejdocnhQRFlZaWxjS1VsdnJWVXBt?=
- =?utf-8?B?MExoeFNadDBCM25wVkE0WWd5VVdGU0pLM3BobkowM2lBVnM4WjdtUXZpT2ty?=
- =?utf-8?B?QlJIRWUwNWNrOEJjd05kclZrR3p4WEgvUGxqNEtKYW5HUjFmYWY1N1BlbzMv?=
- =?utf-8?B?b3E5azJhZ0l2ZlN0S0ZVaTZQbzRUTmNsbDRjUGZtNUc0RzUxMXpVaC8xQ0Y2?=
- =?utf-8?B?WXd6NTVieU9DNjI0SDBQaE40WWQwU2VXRWUzbzRabG92L2o4bVpyZTN3SEpP?=
- =?utf-8?B?clErY3RPOHF6WFpGS0g3aUVLWWZDaW8wNTZidVc4TlVxdjg0diswN0FGa3JO?=
- =?utf-8?B?MExseGNLL2V4R0FHNGREaXdva0U1Y3pwS0pVdkFmVHpnMXFuc2lTRHRiNFpF?=
- =?utf-8?B?YTNYMVlBQytGU0pXYzhqdzRFckNoNFFWa1hKSmI5U1A4M1E0UFAvaE1qYzNI?=
- =?utf-8?B?UWNvcTJyN0kxSTBXL0JOZzF4Vm5ZNlYzaVFlSVg4RVAwc0crZWVMMzF1QUJx?=
- =?utf-8?B?ckYyYjlybWphdTVSbzF4bVNraFJtVGdRbHRoejN1bFhQOG1VT1llbHFaK2ta?=
- =?utf-8?B?Sk1Fd0RzVjE3bVBvVXd3Ylp6ZjlnWGRBcm8rRmRFTGlnQXlONjFTOVJISnU2?=
- =?utf-8?B?REE9PQ==?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1bda7f21-1aea-4fcb-7a02-08dd3917b3cf
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6896.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jan 2025 06:00:12.1933
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: RyWWuVr083TKaC6ONjzRLsyeXIflGI8ZlWbIticB1/zh5Q5/wc1lcVbBKuYs1+nhhJOtcj8b4qduZ1Yn8TkqEAxcui2kLwq1TFj0lQqA4Mo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR03MB7275
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250119_220019_541104_FC407836 
-X-CRM114-Status: GOOD (  13.34  )
+X-CRM114-CacheID: sfid-20250119_222630_839607_BF3D9B20 
+X-CRM114-Status: GOOD (  28.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,129 +115,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
-    Thanks for your reply.
 
-On 2025/1/17 16:41, Krzysztof Kozlowski wrote:
-> [ EXTERNAL EMAIL ]
-> 
-> On Wed, Jan 15, 2025 at 02:42:02PM +0800, Xianwei Zhao wrote:
->> Add pinctrl device to support Amlogic A4 and add uart pinconf.
->>
->> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
->> ---
->>   arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi | 133 ++++++++++++++++++++++++++++
->>   1 file changed, 133 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
->> index de10e7aebf21..8eb95580d64a 100644
->> --- a/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
->> +++ b/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
->> @@ -5,6 +5,7 @@
->>
->>   #include "amlogic-a4-common.dtsi"
->>   #include <dt-bindings/power/amlogic,a4-pwrc.h>
->> +#include <dt-bindings/pinctrl/amlogic,pinctrl.h>
->>   / {
->>        cpus {
->>                #address-cells = <2>;
->> @@ -48,3 +49,135 @@ pwrc: power-controller {
->>                };
->>        };
->>   };
->> +
->> +&apb {
->> +     periphs_pinctrl: pinctrl {
->> +             compatible = "amlogic,pinctrl-a4";
->> +             #address-cells = <2>;
->> +             #size-cells = <2>;
->> +             ranges;
->> +
->> +             gpiox: gpio@4100 {
->> +                     reg = <0 0x4100 0 0x40>,
->> +                           <0 0x400c 0 0xc>;
-> 
-> One line
-> 
+Hi Siang.
 
-Will do.
-
->> +                     reg-names = "gpio", "mux";
->> +                     gpio-controller;
->> +                     #gpio-cells = <2>;
->> +                     bank-number = <AMLOGIC_GPIO_X>;
->> +                     gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_X<<8) 18>;
->> +             };
->> +
->> +             gpiot: gpio@4140 {
->> +                     reg = <0 0x4140 0 0x40>,
->> +                           <0 0x402c 0 0xc>;
->> +                     reg-names = "gpio", "mux";
->> +                     gpio-controller;
->> +                     #gpio-cells = <2>;
->> +                     bank-number = <AMLOGIC_GPIO_T>;
->> +                     gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_T<<8) 23>;
->> +             };
->> +
->> +             gpiod: gpio@4180 {
->> +                     reg = <0 0x4180 0 0x40>,
->> +                           <0 0x4040 0 0x8>;
->> +                     reg-names = "gpio", "mux";
->> +                     gpio-controller;
->> +                     #gpio-cells = <2>;
->> +                     bank-number = <AMLOGIC_GPIO_D>;
->> +                     gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_D<<8) 16>;
->> +             };
->> +
->> +             gpioe: gpio@41c0 {
->> +                     reg = <0 0x41c0 0 0x40>,
->> +                           <0 0x4048 0 0x4>;
->> +                     reg-names = "gpio", "mux";
->> +                     gpio-controller;
->> +                     #gpio-cells = <2>;
->> +                     bank-number = <AMLOGIC_GPIO_E>;
->> +                     gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_E<<8) 2>;
->> +             };
->> +
->> +             gpiob: gpio@4240 {
->> +                     reg = <0 0x4240 0 0x40>,
->> +                           <0 0x4000 0 0x8>;
->> +                     reg-names = "gpio", "mux";
->> +                     gpio-controller;
->> +                     #gpio-cells = <2>;
->> +                     bank-number = <AMLOGIC_GPIO_B>;
->> +                     gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_B<<8) 14>;
->> +             };
->> +
->> +             gpioao: gpio@8e704 {
->> +                     reg = <0 0x8e704 0 0x16>,
->> +                           <0 0x8e700 0 0x4>;
->> +                     reg-names = "gpio", "mux";
->> +                     gpio-controller;
->> +                     #gpio-cells = <2>;
->> +                     bank-number = <AMLOGIC_GPIO_AO>;
->> +                     gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_AO<<8) 7>;
->> +             };
->> +
->> +             test_n: gpio@8e744 {
->> +                     reg = <0 0x8e744 0 0x20>;
->> +                     reg-names = "gpio";
->> +                     gpio-controller;
->> +                     #gpio-cells = <2>;
->> +                     bank-number = <AMLOGIC_GPIO_TEST_N>;
->> +                     gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_TEST_N<<8) 1>;
->> +             };
->> +
->> +             func-uart-a {
->> +                     uart_a_default: group-uart-a-pins1 {
->> +                             pinmux= <AML_PINMUX(AMLOGIC_GPIO_X, 11, 1)>,
+On 16/1/2025 11:53 pm, Song Yoong Siang wrote:
+> Enable Launch Time Control (LTC) support to XDP zero copy via XDP Tx
+> metadata framework.
 > 
-> Missing space before '='. Follow DTS coding style.
+> This patch is tested with tools/testing/selftests/bpf/xdp_hw_metadata on
+> Intel I225-LM Ethernet controller. Below are the test steps and result.
 > 
-
-Will fix.
-
-> Best regards,
-> Krzysztof
+> Test Steps:
+> 1. At DUT, start xdp_hw_metadata selftest application:
+>     $ sudo ./xdp_hw_metadata enp2s0 -l 1000000000 -L 1
 > 
+> 2. At Link Partner, send an UDP packet with VLAN priority 1 to port 9091 of
+>     DUT.
+> 
+> When launch time is set to 1s in the future, the delta between launch time
+> and transmit hardware timestamp is equal to 0.016us, as shown in result
+> below:
+>    0x562ff5dc8880: rx_desc[4]->addr=84110 addr=84110 comp_addr=84110 EoP
+>    rx_hash: 0xE343384 with RSS type:0x1
+>    HW RX-time:   1734578015467548904 (sec:1734578015.4675) delta to User RX-time sec:0.0002 (183.103 usec)
+>    XDP RX-time:   1734578015467651698 (sec:1734578015.4677) delta to User RX-time sec:0.0001 (80.309 usec)
+>    No rx_vlan_tci or rx_vlan_proto, err=-95
+>    0x562ff5dc8880: ping-pong with csum=561c (want c7dd) csum_start=34 csum_offset=6
+>    HW RX-time:   1734578015467548904 (sec:1734578015.4675) delta to HW Launch-time sec:1.0000 (1000000.000 usec)
+>    0x562ff5dc8880: complete tx idx=4 addr=4018
+>    HW Launch-time:   1734578016467548904 (sec:1734578016.4675) delta to HW TX-complete-time sec:0.0000 (0.016 usec)
+>    HW TX-complete-time:   1734578016467548920 (sec:1734578016.4675) delta to User TX-complete-time sec:0.0000 (32.546 usec)
+>    XDP RX-time:   1734578015467651698 (sec:1734578015.4677) delta to User TX-complete-time sec:0.9999 (999929.768 usec)
+>    HW RX-time:   1734578015467548904 (sec:1734578015.4675) delta to HW TX-complete-time sec:1.0000 (1000000.016 usec)
+>    0x562ff5dc8880: complete rx idx=132 addr=84110
+
+To be cautious, could we perform a stress test by sending a higher number 
+of packets with launch time? For example, we could send 200 packets, each 
+configured with a launch time, and verify that the driver continues to 
+function correctly afterward.
+
+> Signed-off-by: Song Yoong Siang <yoong.siang.song@intel.com>
+> ---
+>   drivers/net/ethernet/intel/igc/igc_main.c | 78 ++++++++++++++++-------
+>   1 file changed, 56 insertions(+), 22 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/intel/igc/igc_main.c b/drivers/net/ethernet/intel/igc/igc_main.c
+> index 27872bdea9bd..6857f5f5b4b2 100644
+> --- a/drivers/net/ethernet/intel/igc/igc_main.c
+> +++ b/drivers/net/ethernet/intel/igc/igc_main.c
+> @@ -1566,6 +1566,26 @@ static bool igc_request_tx_tstamp(struct igc_adapter *adapter, struct sk_buff *s
+>   	return false;
+>   }
+>   
+> +static void igc_insert_empty_packet(struct igc_ring *tx_ring)
+> +{
+> +	struct igc_tx_buffer *empty_info;
+> +	struct sk_buff *empty;
+> +	void *data;
+> +
+> +	empty_info = &tx_ring->tx_buffer_info[tx_ring->next_to_use];
+> +	empty = alloc_skb(IGC_EMPTY_FRAME_SIZE, GFP_ATOMIC);
+> +	if (!empty)
+> +		return;
+> +
+> +	data = skb_put(empty, IGC_EMPTY_FRAME_SIZE);
+> +	memset(data, 0, IGC_EMPTY_FRAME_SIZE);
+> +
+> +	igc_tx_ctxtdesc(tx_ring, 0, false, 0, 0, 0);
+> +
+> +	if (igc_init_tx_empty_descriptor(tx_ring, empty, empty_info) < 0)
+> +		dev_kfree_skb_any(empty);
+> +}
+> +
+
+The function igc_insert_empty_packet() appears to wrap existing code to 
+enhance reusability, with no new changes related to enabling launch-time 
+XDP ZC functionality. If so, could we split this into a separate commit? 
+This would make it clearer for the reader to distinguish between the 
+refactoring changes and the new changes related to enabling launch-time XDP 
+ZC support.
+
+>   static netdev_tx_t igc_xmit_frame_ring(struct sk_buff *skb,
+>   				       struct igc_ring *tx_ring)
+>   {
+> @@ -1603,26 +1623,8 @@ static netdev_tx_t igc_xmit_frame_ring(struct sk_buff *skb,
+>   	skb->tstamp = ktime_set(0, 0);
+>   	launch_time = igc_tx_launchtime(tx_ring, txtime, &first_flag, &insert_empty);
+>   
+> -	if (insert_empty) {
+> -		struct igc_tx_buffer *empty_info;
+> -		struct sk_buff *empty;
+> -		void *data;
+> -
+> -		empty_info = &tx_ring->tx_buffer_info[tx_ring->next_to_use];
+> -		empty = alloc_skb(IGC_EMPTY_FRAME_SIZE, GFP_ATOMIC);
+> -		if (!empty)
+> -			goto done;
+> -
+> -		data = skb_put(empty, IGC_EMPTY_FRAME_SIZE);
+> -		memset(data, 0, IGC_EMPTY_FRAME_SIZE);
+> -
+> -		igc_tx_ctxtdesc(tx_ring, 0, false, 0, 0, 0);
+> -
+> -		if (igc_init_tx_empty_descriptor(tx_ring,
+> -						 empty,
+> -						 empty_info) < 0)
+> -			dev_kfree_skb_any(empty);
+> -	}
+> +	if (insert_empty)
+> +		igc_insert_empty_packet(tx_ring);
+>   
+>   done:
+>   	/* record the location of the first descriptor for this packet */
+> @@ -2955,9 +2957,33 @@ static u64 igc_xsk_fill_timestamp(void *_priv)
+>   	return *(u64 *)_priv;
+>   }
+>   
+> +static void igc_xsk_request_launch_time(u64 launch_time, void *_priv)
+> +{
+> +	struct igc_metadata_request *meta_req = _priv;
+> +	struct igc_ring *tx_ring = meta_req->tx_ring;
+> +	__le32 launch_time_offset;
+> +	bool insert_empty = false;
+> +	bool first_flag = false;
+> +
+> +	if (!tx_ring->launchtime_enable)
+> +		return;
+> +
+> +	launch_time_offset = igc_tx_launchtime(tx_ring,
+> +					       ns_to_ktime(launch_time),
+> +					       &first_flag, &insert_empty);
+> +	if (insert_empty) {
+> +		igc_insert_empty_packet(tx_ring);
+> +		meta_req->tx_buffer =
+> +			&tx_ring->tx_buffer_info[tx_ring->next_to_use];
+> +	}
+> +
+> +	igc_tx_ctxtdesc(tx_ring, launch_time_offset, first_flag, 0, 0, 0);
+> +}
+> +
+>   const struct xsk_tx_metadata_ops igc_xsk_tx_metadata_ops = {
+>   	.tmo_request_timestamp		= igc_xsk_request_timestamp,
+>   	.tmo_fill_timestamp		= igc_xsk_fill_timestamp,
+> +	.tmo_request_launch_time	= igc_xsk_request_launch_time,
+>   };
+>   
+>   static void igc_xdp_xmit_zc(struct igc_ring *ring)
+> @@ -2980,7 +3006,7 @@ static void igc_xdp_xmit_zc(struct igc_ring *ring)
+>   	ntu = ring->next_to_use;
+>   	budget = igc_desc_unused(ring);
+>   
+> -	while (xsk_tx_peek_desc(pool, &xdp_desc) && budget--) {
+> +	while (xsk_tx_peek_desc(pool, &xdp_desc) && budget >= 4) {
+
+Could we add some explanation on what & why the value "4" is used ?
+
 
