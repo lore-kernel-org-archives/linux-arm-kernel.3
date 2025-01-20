@@ -4,82 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CE2AC02181
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 13:13:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A17CC02181
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 13:15:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=THo/maIKfTzgN3WYKtKcKtsOTNaYojuut9E/X8nm/F0=; b=fIfHeBib3Z26gz4cIkBZ4XMi7A
-	m5ECdK3AlDG2A8nOxLRswCds8xb4UlClerp09iTMgF5d3chyt0hY/7mOTw6S/rPGuYsXHBriKHNKC
-	rFBHU/V8zOpv12J83gTreiqpWQwwII/+62tSpfhjunvyG+gnE2DWQmdD8nMobMuTmmQDxG+xDCiN1
-	E9LZAsqvTVBUMmUVSSyUdJIKGE1vrxjmbs8vZId3m2DdhDRrMZ2DVAvwNXKhY21WHG24de0mH4Kgw
-	TBo8iEPFsK6U9JgkAet7inQUC6alXK5glP7oqIj3Zd8xYayku1Fp5Zuu4ukqf8kLZiRSSHXHNQOY3
-	wsO4nzRg==;
+	bh=sMuASHgpa8xlLCWpcGu3D5FxO0uCIpRpMtTeVpDuzaU=; b=09ua76AauatFtLu10MDno7zZ7N
+	O0azc1xtrmu2NbYfnaije46eJ23kLT3mSMTLq2h0XPtFGq2cxcI+cfGxHT8fiY1dAqLcluI42+wyI
+	rQhGc8G/0hfgQcWU/1TVQU7WNTn/Ph/qXJhk0poB2UEulk/0haQvD6XVo6Moi97T9T5Un1yXeCsO2
+	DKZ/YKAjHprhiCVTbN2YFG/SrQhgmK+eH+FqV7Z7bGmBDlJEZnU5S77cuAqYttYYjao8188ooUWcO
+	/iWgErVgwZhq3lAv6aD/4j+4bcJBIv1MRHg/CzdvrvwlMkqE8lshccM+SlTdxGRuq9Zl7hCtJ2+co
+	ppQ5dGxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZrb5-00000005dNw-3iVw;
-	Mon, 20 Jan 2025 13:13:43 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	id 1tZrcL-00000005de4-42QL;
+	Mon, 20 Jan 2025 13:15:01 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZrPe-00000005bAK-2zoB;
-	Mon, 20 Jan 2025 13:01:55 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	id 1tZrPf-00000005bAh-3gli;
+	Mon, 20 Jan 2025 13:01:57 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 64C622118F;
-	Mon, 20 Jan 2025 13:01:53 +0000 (UTC)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 769C71F7B8;
+	Mon, 20 Jan 2025 13:01:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1737378113; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1737378114; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=THo/maIKfTzgN3WYKtKcKtsOTNaYojuut9E/X8nm/F0=;
-	b=RWAXdbFnYjtveYx1Q1z2cE6V6dPR6/oy21jEHeihv5z7RlHTkejoAc8BvFJA1AS6XYkXS9
-	RcGRT4HCIZW4TIziz7YZzmCepX3UFRlz6VgNhBs7+z0prsR3BSfOoC2uc5N/5unz/PEA2V
-	8JE1xpOA9PkQuHebXWj1Cn8ERgqn9OQ=
+	bh=sMuASHgpa8xlLCWpcGu3D5FxO0uCIpRpMtTeVpDuzaU=;
+	b=r8slo6MBReEKeRECYCX41llP2LPCBAFZh6gEpi9ZdA+ITFEXQUgjKAbvKG69Za3lIZ1mKh
+	bu/64xDeNym0OKbfbL2gaN9erykjSofV7gBOgdalESsB7BA3tEbBnifw9gZgAEYevh/o2e
+	gkbkkCyJOjuUkKgUweU6YpXAdY7CoZY=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1737378113;
+	s=susede2_ed25519; t=1737378114;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=THo/maIKfTzgN3WYKtKcKtsOTNaYojuut9E/X8nm/F0=;
-	b=r4N0AN9mjMEXwSAi2AjfZhCOoaNA/DDcj6Z/t0zzUZR7EAZF2YaFfR6uXodihzPjOscISX
-	po1+Ajxaw89xK7CA==
-Authentication-Results: smtp-out1.suse.de;
-	none
+	bh=sMuASHgpa8xlLCWpcGu3D5FxO0uCIpRpMtTeVpDuzaU=;
+	b=RJNbFmPJ0+AY6R0Zb4j9DtKQlZEZrZ+FhETFHabXXh3shH/iEhvX/ac9O0CT9XUYiuzl5E
+	ue995al4MEa35NCg==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=r8slo6MB;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=RJNbFmPJ
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1737378113; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1737378114; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=THo/maIKfTzgN3WYKtKcKtsOTNaYojuut9E/X8nm/F0=;
-	b=RWAXdbFnYjtveYx1Q1z2cE6V6dPR6/oy21jEHeihv5z7RlHTkejoAc8BvFJA1AS6XYkXS9
-	RcGRT4HCIZW4TIziz7YZzmCepX3UFRlz6VgNhBs7+z0prsR3BSfOoC2uc5N/5unz/PEA2V
-	8JE1xpOA9PkQuHebXWj1Cn8ERgqn9OQ=
+	bh=sMuASHgpa8xlLCWpcGu3D5FxO0uCIpRpMtTeVpDuzaU=;
+	b=r8slo6MBReEKeRECYCX41llP2LPCBAFZh6gEpi9ZdA+ITFEXQUgjKAbvKG69Za3lIZ1mKh
+	bu/64xDeNym0OKbfbL2gaN9erykjSofV7gBOgdalESsB7BA3tEbBnifw9gZgAEYevh/o2e
+	gkbkkCyJOjuUkKgUweU6YpXAdY7CoZY=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1737378113;
+	s=susede2_ed25519; t=1737378114;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=THo/maIKfTzgN3WYKtKcKtsOTNaYojuut9E/X8nm/F0=;
-	b=r4N0AN9mjMEXwSAi2AjfZhCOoaNA/DDcj6Z/t0zzUZR7EAZF2YaFfR6uXodihzPjOscISX
-	po1+Ajxaw89xK7CA==
+	bh=sMuASHgpa8xlLCWpcGu3D5FxO0uCIpRpMtTeVpDuzaU=;
+	b=RJNbFmPJ0+AY6R0Zb4j9DtKQlZEZrZ+FhETFHabXXh3shH/iEhvX/ac9O0CT9XUYiuzl5E
+	ue995al4MEa35NCg==
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 61AC31393E;
-	Mon, 20 Jan 2025 13:01:52 +0000 (UTC)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 7344E139D2;
+	Mon, 20 Jan 2025 13:01:53 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id QH6BFUBJjmc4XQAAD6G6ig
-	(envelope-from <svarbanov@suse.de>); Mon, 20 Jan 2025 13:01:52 +0000
+	id qETRGUFJjmc4XQAAD6G6ig
+	(envelope-from <svarbanov@suse.de>); Mon, 20 Jan 2025 13:01:53 +0000
 From: Stanimir Varbanov <svarbanov@suse.de>
 To: linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org,
@@ -102,43 +103,54 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Phil Elwell <phil@raspberrypi.com>,
 	Jonathan Bell <jonathan@raspberrypi.com>,
 	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Stanimir Varbanov <svarbanov@suse.de>
-Subject: [PATCH v5 -next 08/11] PCI: brcmstb: Adding a softdep to MIP MSI-X driver
-Date: Mon, 20 Jan 2025 15:01:16 +0200
-Message-ID: <20250120130119.671119-9-svarbanov@suse.de>
+	Stanimir Varbanov <svarbanov@suse.de>,
+	stable@vger.kernel.org
+Subject: [PATCH v5 -next 09/11] PCI: brcmstb: Fix for missing of_node_put
+Date: Mon, 20 Jan 2025 15:01:17 +0200
+Message-ID: <20250120130119.671119-10-svarbanov@suse.de>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20250120130119.671119-1-svarbanov@suse.de>
 References: <20250120130119.671119-1-svarbanov@suse.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-1.30 / 50.00];
-	BAYES_HAM(-3.00)[99.99%];
+X-Rspamd-Queue-Id: 769C71F7B8
+X-Rspamd-Action: no action
+X-Spamd-Result: default: False [-1.51 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
 	SUSPICIOUS_RECIPS(1.50)[];
-	MID_CONTAINS_FROM(1.00)[];
 	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_CONTAINS_FROM(1.00)[];
 	R_MISSING_CHARSET(0.50)[];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
 	NEURAL_HAM_SHORT(-0.20)[-1.000];
 	MIME_GOOD(-0.10)[text/plain];
-	ARC_NA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TAGGED_RCPT(0.00)[dt];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:mid,suse.de:email];
-	RCPT_COUNT_TWELVE(0.00)[22];
-	MIME_TRACE(0.00)[0:+];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	FREEMAIL_CC(0.00)[linutronix.de,kernel.org,broadcom.com,gmail.com,google.com,linux.com,pengutronix.de,suse.com,raspberrypi.com,suse.de];
-	FROM_HAS_DN(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
+	MX_GOOD(-0.01)[];
 	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	R_RATELIMIT(0.00)[to_ip_from(RL7mwea5a3cdyragbzqhrtit3y)];
 	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	RCPT_COUNT_TWELVE(0.00)[23];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	FREEMAIL_CC(0.00)[linutronix.de,kernel.org,broadcom.com,gmail.com,google.com,linux.com,pengutronix.de,suse.com,raspberrypi.com,suse.de,vger.kernel.org];
+	RCVD_TLS_ALL(0.00)[];
+	DKIM_TRACE(0.00)[suse.de:+];
+	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:dkim,suse.de:mid,suse.de:email];
+	TAGGED_RCPT(0.00)[dt];
+	R_RATELIMIT(0.00)[to_ip_from(RLw7mkaud87zuqqztkur5718rm)];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	ASN(0.00)[asn:25478, ipnet:::/0, country:RU];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
 	FREEMAIL_ENVRCPT(0.00)[gmail.com]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_050154_900169_B9C44514 
-X-CRM114-Status: GOOD (  10.36  )
+X-CRM114-CacheID: sfid-20250120_050156_059353_E3E81FE1 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,28 +165,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In case brcmstb PCIe driver and MIP MSI-X interrupt controller
-drivers are built as modules there could be a race in probing.
-To avoid this add a softdep to MIP driver to guarantee that MIP
-driver will be load first.
+A call to of_parse_phandle() increments refcount, of_node_put must be
+called when done the work on it. Fix missing of_node_put() on the
+msi_np device node by using scope based of_node_put() cleanups.
 
+Cc: stable@vger.kernel.org # v5.10+
+Fixes: 40ca1bf580ef ("PCI: brcmstb: Add MSI support")
 Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
 ---
 v4 -> v5:
  - New patch in the series.
 
- drivers/pci/controller/pcie-brcmstb.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/pci/controller/pcie-brcmstb.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
-index 03396a9d97be..744fe1a4cf9c 100644
+index 744fe1a4cf9c..546056f7f0d3 100644
 --- a/drivers/pci/controller/pcie-brcmstb.c
 +++ b/drivers/pci/controller/pcie-brcmstb.c
-@@ -1997,3 +1997,4 @@ module_platform_driver(brcm_pcie_driver);
- MODULE_LICENSE("GPL");
- MODULE_DESCRIPTION("Broadcom STB PCIe RC driver");
- MODULE_AUTHOR("Broadcom");
-+MODULE_SOFTDEP("pre: irq_bcm2712_mip");
+@@ -1844,7 +1844,8 @@ static struct pci_ops brcm7425_pcie_ops = {
+ 
+ static int brcm_pcie_probe(struct platform_device *pdev)
+ {
+-	struct device_node *np = pdev->dev.of_node, *msi_np;
++	struct device_node *msi_np __free(device_node) = NULL;
++	struct device_node *np = pdev->dev.of_node;
+ 	struct pci_host_bridge *bridge;
+ 	const struct pcie_cfg_data *data;
+ 	struct brcm_pcie *pcie;
 -- 
 2.47.0
 
