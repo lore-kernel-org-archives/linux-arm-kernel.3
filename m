@@ -4,69 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69B63C02185
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 07:22:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE56CC02185
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 07:24:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LGzVX7k2FmqUfYRLqS7vwiYQh14m9/YvFN4qiCwdhQg=; b=boeBX3Goaxo26PXxgTxdKgaWG5
-	vaaNLFMvp03sQiirhwz0ejca0hcDxo55tUil7TjK0N7fBdWZRB+IEmQdgEUX7StoRMuwy+AXv94Bh
-	Z6sQko9Eu1UFSn+OXs47BCKEQbtldD805PmyjxrA+jX2fw8dmP+Ah7lTe5S/hfVX413UrcZJmpqjy
-	hDXVRS4NhXhIgmob5+8Bqs2iwoeHA6P1EIwAIJttQQztkCs/qXMTjpbnSfzqsDCzGIIkYfnaz0aeB
-	zFjyJRQB090/7pzmLaneA1+S6HuPxEp7bx4L8N8gYDepPrqtiIT8e6vFxl+uYMMSTGgRwO8tkM6Pw
-	A2WJMYAw==;
+	bh=feTvaT3iQflJSaxGQZeTwsO6NJDX5cSoX84ga0y8Bt8=; b=wtgfmsVwdqJTdPNX1qAY1cQDF6
+	88/rO0ghJ9HX5hpBspHgUpwBjNzgDInwhIR6Np+Mi6UIb7WcMOsaRc8HoT+dIFCZuw6mWd3iFlz/O
+	IfPi0mvzEQRv2N0RXfjeQP8QZgCPSyhOYUOA2KQwW8L5bz2hRF00IkNzDYu3fXk0d7kn+VU1UvlLe
+	z8zyQDttIgb9Z3dfTFEbN0sKmZNJMifBXkJHejVuHxjPOm2mr/lJzA/+aidJdIfAylWFmRtByPu8R
+	Wx0/dZ74YEwpt1+zdreJr4NeIqe5zluCwvJcAPfxOWomsIDuGCytZ0d7aeIXT+i6hgtqa6NegbqH4
+	85UT5YAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZm7K-00000004ucF-0j1X;
-	Mon, 20 Jan 2025 07:22:38 +0000
-Received: from mail-m3284.qiye.163.com ([220.197.32.84])
+	id 1tZm8g-00000004uqD-188Y;
+	Mon, 20 Jan 2025 07:24:02 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZm3B-00000004tx6-2nPJ;
-	Mon, 20 Jan 2025 07:18:23 +0000
-Received: from [172.16.12.26] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 92b0fd19;
-	Mon, 20 Jan 2025 15:18:15 +0800 (GMT+08:00)
-Message-ID: <938a27aa-74dd-4fe2-8cdb-35e70aeba7f9@rock-chips.com>
-Date: Mon, 20 Jan 2025 15:18:13 +0800
+	id 1tZm2t-00000004ttw-16j0
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Jan 2025 07:18:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id EA2215C4A94;
+	Mon, 20 Jan 2025 07:17:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABE20C4CEDD;
+	Mon, 20 Jan 2025 07:17:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737357482;
+	bh=V8tRj4wxF6WY5P5NGz3HaOq0ntuT+G45qoGbh62cfug=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=hK7k6X8F2vKT0kUpUdomr7aacwvQMR9NrEfDqFN9nn84o2ytKGh+0V0eQpH+fNvbR
+	 VS1t07G3OYUzqwoqSG5ePH7jmxNPYu6I3NdTlEE+2syk34/28kxTgHRsrD+YPKnEMY
+	 OGMfJ9MLT0g82XoRFamscO3ED22qEC2NGl2xA3X5zdsSjhgGGgqIhLVwVhsLH/J3TN
+	 n0YfEF7iv3PLBKfrNJ6zlDeGJLZXzcwffUNkv3GmvsdF8Ie6sRXn/ATUBPFe/fOaV0
+	 xyssnCC+np6b6ovIalmAIxpGqC0/trB5SwKNlY90gVG5HhvLC1QUrx227vpkABZEOu
+	 xRh4bwmzB+ANQ==
+Message-ID: <f0101c5b-e8c2-408e-9d4b-0ed7d9b7bad6@kernel.org>
+Date: Mon, 20 Jan 2025 08:17:55 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 0/6] Add eDP mode support for Rockchip Samsung HDPTX
- PHY
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, rfoss@kernel.org, vkoul@kernel.org,
- sebastian.reichel@collabora.com, cristian.ciocaltea@collabora.com,
- l.stach@pengutronix.de, andy.yan@rock-chips.com, hjc@rock-chips.com,
- algea.cao@rock-chips.com, kever.yang@rock-chips.com,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org
-References: <20250112090714.1564158-1-damon.ding@rock-chips.com>
- <ezoduel3qz5ihlhekry26cb7ace3bm4xmzsfrsqvbodtcl3gjq@xxo75h7uozei>
+Subject: Re: [PATCH v4 04/10] dt-bindings: clock: Add Qualcomm QCS615 Display
+ clock controller
+To: Taniya Das <quic_tdas@quicinc.com>, "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+ Will Deacon <will@kernel.org>, Ajit Pandey <quic_ajipan@quicinc.com>,
+ linux-arm-kernel@lists.infradead.org,
+ Catalin Marinas <catalin.marinas@arm.com>, Stephen Boyd <sboyd@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>,
+ Jagadeesh Kona <quic_jkona@quicinc.com>, linux-arm-msm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Imran Shaik <quic_imrashai@quicinc.com>,
+ Bjorn Andersson <andersson@kernel.org>
+References: <20250119-qcs615-mm-v4-clockcontroller-v4-0-5d1bdb5a140c@quicinc.com>
+ <20250119-qcs615-mm-v4-clockcontroller-v4-4-5d1bdb5a140c@quicinc.com>
+ <173728731976.808036.168078560019330137.robh@kernel.org>
+ <a646b3af-9957-4720-893e-9013b2dca43a@quicinc.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <ezoduel3qz5ihlhekry26cb7ace3bm4xmzsfrsqvbodtcl3gjq@xxo75h7uozei>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <a646b3af-9957-4720-893e-9013b2dca43a@quicinc.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQhofSVZIQ0tIHx1IQkpMGBhWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSE
-	NVSktLVUpCS0tZBg++
-X-HM-Tid: 0a9482938cc103a3kunm92b0fd19
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6MRQ6CTo*QjILGjc0Ei1KIQtW
-	T0pPCzlVSlVKTEhMSE5MT0JMSE5OVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFJSEhLNwY+
-DKIM-Signature: a=rsa-sha256;
-	b=YlMVqCemoJ5IuGFcjnoZpmTM+woLwFi2wcAc4vBGThor+N1qtfA0YzV3z3iB62D4/0lEir2z/RSlG6qZu78nUvKHmCE7MY1tLK3ql+K4BzVU5YzuM9SKIlIYPOimiJMYFRsZ8FfrfjRSPfKNVynCqgXMukhM4D8CSqMl+w3Snhg=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=LGzVX7k2FmqUfYRLqS7vwiYQh14m9/YvFN4qiCwdhQg=;
-	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250119_231822_223241_6A840D8D 
-X-CRM114-Status: GOOD (  10.33  )
+X-CRM114-CacheID: sfid-20250119_231803_394731_37054589 
+X-CRM114-Status: UNSURE (   8.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,62 +130,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dmitry,
-
-On 2025/1/13 17:10, Dmitry Baryshkov wrote:
-> On Sun, Jan 12, 2025 at 05:07:08PM +0800, Damon Ding wrote:
->> Picked from:
->> https://patchwork.kernel.org/project/linux-rockchip/list/?series=923593
+On 20/01/2025 05:40, Taniya Das wrote:
 > 
-> Then it should have been v6, not v1.
 > 
-
-I will update a patch series to fix it.
-
+> On 1/19/2025 5:23 PM, Rob Herring (Arm) wrote:
+>> y bot found errors running 'make dt_binding_check' on your patch:
 >>
->> These patchs have been tested with a 1536x2048p60 eDP panel on
->> RK3588S EVB1 board, and HDMI 1080P/4K display also has been verified
->> on RK3588 EVB1 board.
+>> yamllint warnings/errors:
 >>
->> Damon Ding (6):
->>    phy: phy-rockchip-samsung-hdptx: Swap the definitions of LCPLL_REF and
->>      ROPLL_REF
->>    phy: phy-rockchip-samsung-hdptx: Supplement some register names with
->>      their full version
->>    phy: phy-rockchip-samsung-hdptx: Add the '_MASK' suffix to all
->>      registers
->>    phy: phy-rockchip-samsung-hdptx: Add eDP mode support for RK3588
->>    dt-bindings: display: rockchip: Fix label name of hdptxphy for RK3588
->>      HDMI TX Controller
->>    arm64: dts: rockchip: Fix label name of hdptxphy for RK3588
->>
->>   .../rockchip/rockchip,rk3588-dw-hdmi-qp.yaml  |   2 +-
->>   arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |   4 +-
->>   .../dts/rockchip/rk3588-coolpi-cm5-evb.dts    |   2 +-
->>   .../rockchip/rk3588-coolpi-cm5-genbook.dts    |   2 +-
->>   .../boot/dts/rockchip/rk3588-evb1-v10.dts     |   2 +-
->>   .../rk3588-friendlyelec-cm3588-nas.dts        |   2 +-
->>   .../arm64/boot/dts/rockchip/rk3588-jaguar.dts |   2 +-
->>   .../boot/dts/rockchip/rk3588-nanopc-t6.dtsi   |   2 +-
->>   .../dts/rockchip/rk3588-orangepi-5-plus.dts   |   2 +-
->>   .../boot/dts/rockchip/rk3588-rock-5b.dts      |   2 +-
->>   .../boot/dts/rockchip/rk3588-tiger-haikou.dts |   2 +-
->>   .../boot/dts/rockchip/rk3588s-coolpi-4b.dts   |   2 +-
->>   .../dts/rockchip/rk3588s-indiedroid-nova.dts  |   2 +-
->>   .../boot/dts/rockchip/rk3588s-nanopi-r6.dtsi  |   2 +-
->>   .../boot/dts/rockchip/rk3588s-odroid-m2.dts   |   2 +-
->>   .../boot/dts/rockchip/rk3588s-orangepi-5.dtsi |   2 +-
->>   .../boot/dts/rockchip/rk3588s-rock-5a.dts     |   2 +-
->>   .../boot/dts/rockchip/rk3588s-rock-5c.dts     |   2 +-
->>   .../phy/rockchip/phy-rockchip-samsung-hdptx.c | 971 +++++++++++++++++-
->>   19 files changed, 934 insertions(+), 75 deletions(-)
->>
->> -- 
->> 2.34.1
->>
+>> dtschema/dtc warnings/errors:
+>> Documentation/devicetree/bindings/clock/qcom,qcs615-dispcc.example.dts:19:18: fatal error: dt-bindings/clock/qcom,qcs615-gcc.h: No such file or directory
+>>     19 |         #include <dt-bindings/clock/qcom,qcs615-gcc.h>
+>>        |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> compilation terminated.
+>> make[2]: *** [scripts/Makefile.dtbs:131: Documentation/devicetree/bindings/clock/qcom,qcs615-dispcc.example.dtb] Error 1
+>> make[2]: *** Waiting for unfinished jobs....
+>> make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1506: dt_binding_check] Error 2
+>> make: *** [Makefile:251: __sub-make] Error 2
 > 
+> The code 
+> https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/include/dt-bindings/clock/qcom,qcs615-gcc.h
+> 
+> The cover letter also has the series mentioned.
 
-Best regards
-Damon
 
+Rather read entire message...
+
+Best regards,
+Krzysztof
 
