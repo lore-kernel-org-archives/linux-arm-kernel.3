@@ -4,71 +4,182 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54557C02188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 07:09:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A66FFC02185
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 07:16:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d9x5PVUE1JktG04GVLVpq/qvvHEgshZnb4IAcFz1hy0=; b=ei0FJb1YdWmhcf/pS4dTp4UwEV
-	qVdM2zX0mOF5w3JZw4WgH3xV+QkfBQTBgcPlkkx8Xfk52RXagvuwiatN+zKt+++04dAuo/a26fYvU
-	BcdeDEt0P/WLIcZMPUH4hdmnTvf4/6qAcsmjBCcdvYHhQiXGVA/QLC5QYXWel8YlR5HNIcQSCtRCR
-	SSHYBj9dPn7HKsgb1vuFRq1GXb2pdH9NmKYYCfXy6yh3if1arHMPomQHg96eHd2yryuVWymelaDOU
-	JHvTMWbpdDysVE63alQAc7hQfZo0Nplnu7H8CeiPI07qGw7r6DettQmGgM0N5WcaZJMDXHBj3oirC
-	UeR6euBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AgS21H3Egr8ic3h4bMPj+WHsijaMNd9IItNr8DHZxX4=; b=rTWgoKiVV6uysSmqumX2/7hOFK
+	bIWD2VFz9SNqRQP8TV2X5XErvnB+sUoniECzpCpH66oMocWp0wFAvKVI8QdGgl/SpjaNyLk8pM+Xo
+	M9VpcVehXCfK2N6SoP3Yb8aQoB337DjfmewkH9SNPMmLvtYdlaiKuiVflBuRufHnGSfqh83b35U47
+	d6ILBCda2SRbZJP3SnuwS9EBhZom63V5rIxHyMyiTFxKHVYWHhI0gUEm23zFTs11xT6NU2b1uZddX
+	rOqpAtFemypn8Pktp4kAdOTiElqGMCUDxWWVuqdxdNXQs0LRb79+Mn2o+ySO+J1GxU9PVTVOx6abZ
+	uA0gdu2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZlup-00000004sgx-0cYy;
-	Mon, 20 Jan 2025 07:09:43 +0000
-Received: from mail-m1973186.qiye.163.com ([220.197.31.86])
+	id 1tZm0o-00000004tiJ-1PQg;
+	Mon, 20 Jan 2025 07:15:54 +0000
+Received: from mail-northeuropeazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZltT-00000004sXz-2bBP;
-	Mon, 20 Jan 2025 07:08:21 +0000
-Received: from [172.16.12.26] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 92ac8289;
-	Mon, 20 Jan 2025 15:08:08 +0800 (GMT+08:00)
-Message-ID: <d6211c5e-a38d-46aa-8d33-6dba2a71e018@rock-chips.com>
-Date: Mon, 20 Jan 2025 15:08:06 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Damon Ding <damon.ding@rock-chips.com>
-Subject: Re: [PATCH v5 13/20] dt-bindings: display: rockchip: analogix-dp: Add
- support for RK3588
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, rfoss@kernel.org, vkoul@kernel.org,
- sebastian.reichel@collabora.com, cristian.ciocaltea@collabora.com,
- l.stach@pengutronix.de, dmitry.baryshkov@linaro.org,
- andy.yan@rock-chips.com, hjc@rock-chips.com, algea.cao@rock-chips.com,
- kever.yang@rock-chips.com, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org
-References: <20250109032725.1102465-1-damon.ding@rock-chips.com>
- <20250109032725.1102465-14-damon.ding@rock-chips.com>
- <gmwmnjc4pzyzzstyozlfcdaw2ntfxg6ixofio2j746hmixhblc@sjbcvwcgitmy>
-Content-Language: en-US
-In-Reply-To: <gmwmnjc4pzyzzstyozlfcdaw2ntfxg6ixofio2j746hmixhblc@sjbcvwcgitmy>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+	id 1tZlzV-00000004tVG-0gWM
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Jan 2025 07:14:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uXLUvlCvG7KfxElDIdCCZM2OMSY7qs853mVuYu6ITVnGbnuCZ0EML46EkrG/FuZgevI3fkPM5ssAuDA2Qq1zkPSywjvKEpPnOBMYUT6s5fEZKWKxdbX+jUBYm4nXIs8gr59M0FSqbF8i7H7HtAIoqPMDFD5cfrR6IQBY1Q8oSAYJpdyaoASyCdP5BX5qhuc8RMhhGFSrRrLFTaDqj1ZsZRoI1fceT0+yV8bVNT1nb5FQ5awbDy3Xyqz8ToDH0ZbdwGSsdGoi8Bo2RGZ6x2fapfdxZGzQ+EohSsIegMqglnRPZ7OeHCV3KDQc3jp3s3lfrm/4sAqBEtSJuHRPkKNeww==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=AgS21H3Egr8ic3h4bMPj+WHsijaMNd9IItNr8DHZxX4=;
+ b=wrEED7sz2/KY+sVbArSQElXhpk3qaS63abRtzHXGPVL7vKmbpe88LHi5wSTGAbt6SDqqULUOEGQfqncwRnrxsmhkaGwzefBKkoJ3sitLdpFoleeICfytcwaIv7M3j9bDosWgHGTjCUw4MvL9Ema3BRhaXkc+/Gv5VWAcI3pT8PnHn0inV4ILNBND82AAQicW9yhC34t0e0aJXKQ0EwIcYLutQLTLxWttiYF9wU1mWNPRbKbxjYjD1kDGSyKH5yHierEUu/+gSENKyCFkY5+N1Ruf5VFusCQMrE0kDFenXmYXqXZagChJPsFRdFGJ9lCdxrItaTX2Yxu66rTfzZYIPA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=AgS21H3Egr8ic3h4bMPj+WHsijaMNd9IItNr8DHZxX4=;
+ b=LqXuNFYTbYf8xtLDNJzDPATlI8ShLMCFe/YWvz/9RQm9j8f9BMYj7+qfohiRGccbrwlLGhs41eBItql2lWZtUDdwhc/sDcoVHWpbID/GBPFMSDfykNbgN5PekbpHWu6t5uro8MFWAaPSyk6etM+kdcq5R5+LY/Vq6QAhg7nODvVSjXGsQKAmSCyuQsUaWOAj2WN55nTrOStMO9pDsfJIHYc6b4g8cex1CNnItkeR84qOr7bcT7ia0KFmFEZuSYO08OOtrAci1uVCKWYZbmQ+jsx0TvZpJUtvwVHTciQw0949/UVeQnEJRBA06GbOrXR30aBHW3XK1vENuJAm9kPCGQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AM8PR04MB7442.eurprd04.prod.outlook.com (2603:10a6:20b:1d8::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.18; Mon, 20 Jan
+ 2025 07:14:27 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8356.020; Mon, 20 Jan 2025
+ 07:14:25 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Subject: [PATCH v2 0/4] scmi: Bypass set fwnode and introduce allow/block
+ list to address devlink issue
+Date: Mon, 20 Jan 2025 15:13:28 +0800
+Message-Id: <20250120-scmi-fwdevlink-v2-0-3af2fa37dbac@nxp.com>
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGkhCHlYaHhkfTRlOQ0gaHU5WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSE
-	NVSktLVUpCS0tZBg++
-X-HM-Tid: 0a94828a484603a3kunm92ac8289
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PTI6Hgw*ITIVSzcfAx8VFAgj
-	OD5PChBVSlVKTEhMSE5NQ0NCQ0xNVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFIT0tPNwY+
-DKIM-Signature: a=rsa-sha256;
-	b=hvLcnqb6GgruYOfRwgMuBJZ5apTXhXgbcphlrkpMcxbPR5AkNTHTqVs27FdGFp2qS4UbOwsMJtceiuvVU3BYIcVm87yzf0e7mntk7p3YiHcAdCM+LrQ54/L6zU9oFUg93nqycd1I8fukZYoTuqCY5ssqkZGmSlzKRMo0UPBECpc=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=d9x5PVUE1JktG04GVLVpq/qvvHEgshZnb4IAcFz1hy0=;
-	h=date:mime-version:subject:message-id:from;
+X-B4-Tracking: v=1; b=H4sIAJj3jWcC/3XMQQ7CIBCF4as0sxbTgWJSV97DdIF0sBMtNGCwp
+ uHuYvcu/5e8b4NEkSnBudkgUubEwdeQhwbsZPydBI+1QbayQym1SHZm4d4j5Sf7hzDuplGhw54
+ M1NMSyfG6g9eh9sTpFeJn9zP+1r9URtEK6o0yWnWoTvLi1+VowwxDKeULkQVgiaoAAAA=
+X-Change-ID: 20241225-scmi-fwdevlink-afb5131f19ea
+To: Sudeep Holla <sudeep.holla@arm.com>, 
+ Cristian Marussi <cristian.marussi@arm.com>, 
+ Saravana Kannan <saravanak@google.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
+ Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Sascha Hauer <s.hauer@pengutronix.de>
+Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+ imx@lists.linux.dev, Peng Fan <peng.fan@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1737357232; l=2024;
+ i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
+ bh=F4M42WMbh39i84M01vdmMHQ6OXgp0yVAUFLDe40K1ZY=;
+ b=40mZsqC4X2XhdBkDZQQKM4ys2pQ+GCDj9IYT2BaeizyKEHWPNFKdv3yC5GCTkxgcg95RRu3lQ
+ dXxGX2DBFTTDf6h9Tta+0lrfqoHiW138pqswFcY8FcG3FOOMDSk9NYt
+X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
+ pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
+X-ClientProxiedBy: SG2PR01CA0129.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:40::33) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AM8PR04MB7442:EE_
+X-MS-Office365-Filtering-Correlation-Id: 19726693-7467-4d08-20c2-08dd39221210
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|7416014|52116014|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?SlY5Y0RWUDFhRTlTVE5mS2FqSkFNUXdpTmtvOFBqeU1GYm5WUzNBR0Zkdmlx?=
+ =?utf-8?B?aFBQRnlFVzVQd2wwSkxBNUlMcmFwdGpCSDRJK1hHc2lUejJHUlBnbWR0dEtH?=
+ =?utf-8?B?MTVXZGRGcjJOcnpIYVNEME9tODh4dXhleWZreXozZFdDSHJrTi9SU2JaK3lm?=
+ =?utf-8?B?MGZ1aENXVktSVWtRZEptckRaUGNtb28xVXNEWTloNW9kaVN1L0xTYWJPQlRy?=
+ =?utf-8?B?OWNyTVdSbUJBOTRUWDJtMk9abFZnMHNra1dFUFpIemVIZFF6OS9MSisvU29m?=
+ =?utf-8?B?RHc3aWczd01BalJYRkF6VHlGOWFKNXk3RWVJZmdFZUJJM0xYZDFEb3U4VTRY?=
+ =?utf-8?B?M1dIQUpWUTZjRzJETER2ZDByODlFRHlEdHBRQVlaa2R0RldzT1AzcElYTTBQ?=
+ =?utf-8?B?QzArNGlLRWozcFkwV1Jod25ERENobVRCVVdrN1U2QWhWeDZCTUZ4YWtPM05P?=
+ =?utf-8?B?bjQ3Q0FXSEdmMnB4T3BzNjd5ODRuUkJDdkNDL0RvaVdkdXV6bldnTEN0aHY4?=
+ =?utf-8?B?UWwvdlByY1B3aHRZRmZZMHZlUXcyR0xqODZUQmZpQXIveGwyemF2VnB0dzM1?=
+ =?utf-8?B?djBwUlV5TFF0QWFQRloralZGQlkzdkZTMVFneTZ4VDBlclBrRm4vbEhLUmNv?=
+ =?utf-8?B?VjhiZSs5OWJvam90WW01M3MvNWxqSkwvTDlXbWQvQ0t0RnNvS3JXVHZVbjlr?=
+ =?utf-8?B?NVRBZjJqQ3kzcmFwNU5odUR1ekFML2V6Z3VYR3ZDZ1g0U2FzYno1R1FkMXI3?=
+ =?utf-8?B?YXdsVlkxL2FPQlM2VFljZ3JIRFJ2dXZXdm9EeWJYTUZZeGNhdjhzd0E5S2Z0?=
+ =?utf-8?B?UDBreEoxMkVSaW5XK3VKRmF2bkFyUWVwWGtDL2Y3ZDJieVN3T2txMmNwZDVF?=
+ =?utf-8?B?d0VIaHdzSDM3VE1rUGhHZm8yUWs1VkdBRTlHdHdKRC8vOTFKa3hhVU5JUnpZ?=
+ =?utf-8?B?M05adGUvWExlOFZycHZtYzNSVUMvSUEyanJtUjBRNnpHOTRwTWJOVEYwUHNR?=
+ =?utf-8?B?cjJQYmU2YUgvcGZNUXBZdnhOcHp5NXFjYTZqZStUaEpRVEZkOGdqWWVqVExY?=
+ =?utf-8?B?Ump4d0E0eXR2UkFnMy9vWHo4aUx2cXkyaDQ1MkdQREFxTC9xVTVKVDJEWjRp?=
+ =?utf-8?B?aytGRVA5ODIzNFNpV2tHRUU5U09qQTVYZ1kzc1R5UHRSUE5MNEFRT1BjZXJE?=
+ =?utf-8?B?cFp0WUdIYTNGdW94cEpvR0p0OVFkVEpiT0dDdmpUdERaTGwrcEFUc3BVZ1Aw?=
+ =?utf-8?B?aUZjb2wxZWttYzdhVTgxbGZ3aWpDb2tydHpMWHB4QWtraVI3MG9VMzJrNXo4?=
+ =?utf-8?B?ZVhHZ2Z6UVY2RWhKelRtZ1dJRGE2bVZuMzZUQnBGRDY5YUs4cjd5ZGg5c0FO?=
+ =?utf-8?B?MXlDcnVVbm1ycTVRd29GaXptZmluTXJhOUJlZkkzVFJwdytRUXpDeXNQNmg0?=
+ =?utf-8?B?N09uVXN2eUJ1aXhzWFdMMGtOcUlzcXNFVWsxM3YwTjg1TkpOblJCRFc3MDhN?=
+ =?utf-8?B?dzRrMVhNOHZYeDA5SThFcFZsWi80Q3BITHFROFR1L2RsUXJSc05Bc1BKU1Vo?=
+ =?utf-8?B?V0JJR2tqRHBqZGIwZUlmdEd0QTJQZXdUSElNV0g3dENKcDI3eXZMbGZmaDEz?=
+ =?utf-8?B?UVl3ak9USHQ2N0YxKzJZYzI1TmVXTWFXbDV0dStLWlR6c1UrK1ArOHRxQmxx?=
+ =?utf-8?B?cDVwYjN4SGFMRHMxTkdtWnpxZmk0UUxxcDlvUzlWcE8rM203R3FQa2F0ZTFP?=
+ =?utf-8?B?U3c5SHEzQ3ZHc1YyN0FNY0lqRkxudy9kT2RQWmMrZXloWlVmWDArb3FmVm5V?=
+ =?utf-8?B?cE1COFd6SG5ZYVpvaFJYalJ3TTBqUzVuMlJ1NUJjdTZnMm9JOWtQdkltQjNs?=
+ =?utf-8?B?MGtPQzEvOXNORFRHdG5IQ08wWDVlWVN3R1lwWXlrTk40U1hrb29nNnA4YmE4?=
+ =?utf-8?Q?I2PiYZq1aAo=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7416014)(52116014)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZHlQTWxrWWcvNTZwNEx0Zm5ZS0l2eFh2OEtKcFJGNVBKclBJdkxGYlpLSjE1?=
+ =?utf-8?B?M0pGVDUxUENSQWc4cXpUa0FLUXJXWmZEM21JYzgzdnVKN3VTWURrSjYvNXNZ?=
+ =?utf-8?B?emFWbmxwWnFYTnpRN2FzMHR1bFZCY1QwWlNZN3hnL0Z2MXBTZ1JzaTVjL0FB?=
+ =?utf-8?B?bnYvLzRpak53VmZZc20ydkppSjhtK3p5dzdHNjBabDQrREJHdG5nVzBEUzJC?=
+ =?utf-8?B?dDZla0dyVHZ1dXZ3QTRBbFNvdlg2MUNjUDcwTzE1b1ZvNGlNY29WTCs5MDl2?=
+ =?utf-8?B?MGp1bzA5eGxhMm9tVFhyNEpTR3drMWdIRitzeEx5WTE4NnlNUnFOb1lqWGVv?=
+ =?utf-8?B?MEo0UFpUV1ZxUm1RaXdsKzUwK08yN20ySDFHUTU4SkdwcE5md2d0RXdXNjV0?=
+ =?utf-8?B?UVM5MytvSmdMR0JLck1tdmNzMU45anFnMVU3Q1dJQmtZTitHOFZ5NVk3M2la?=
+ =?utf-8?B?dU9TeVhoRXBzTDNYNXRlQWpNN1psV0Q2SWFpUTh5bkZJMWRONVp1Vkh5aktG?=
+ =?utf-8?B?WTIrV2FOdmx0b2hmdTI1cGFnYnUwVWRvdjViM2JUWFJWOEVaTE5kWml3cUhV?=
+ =?utf-8?B?VU9wUGc1bzZIcjk2VWJJZkxSY0FseXg2MUpncm9FZ1pjbk9uMVdVekxYdmlT?=
+ =?utf-8?B?WW15TW52UDFNblEzNlU0bFBHOWdid3ZOQ3dFUFY1T2s2dFkzaTdSaXpNbHhV?=
+ =?utf-8?B?dUJCT2pXcUw2RjBNWjVCYUN2enY0OEVJYXQ0UEpoSE9hS3RSUWJkcWt3dVRY?=
+ =?utf-8?B?RWhrWWF1YWJrbGFVNDRzK1ZjZ0pHK1hDN1VOUmM0RnA5MFVYb2p6TVMrcFpx?=
+ =?utf-8?B?UVl2L3kxeEIwMlFMTXVTY1ZDNnRRMEZWK3pRSENkZEdyZldOVjJLNW0za2hY?=
+ =?utf-8?B?MGtqeENpWEZMdWNTVm13cm9ZekFuTnRsSVIwQzBUT0I4ekk4bjNqd2hGSG1W?=
+ =?utf-8?B?TmlUM3NsRjlrQk9iREp0Q3ZDUGkyVHVYQ0F1cE9kbG1jTVdQNmdySE04c1BS?=
+ =?utf-8?B?RWZCQ3RmYnhvcDdabXNISWlOM2YwSlFDbjhMSUNWZjVKSUQrQ0FMc0hMbGJO?=
+ =?utf-8?B?RGYwdFAvdDh0aWxSLzlWTHc4ZHhDTkpWanl0RDVDUnZzUlpodkt5UVZlU2pF?=
+ =?utf-8?B?eitNVFUvNERLaEVaWlNOcVU0SEppSXM1clBMYUswYVBzY09TN1IvR1ZKRlA2?=
+ =?utf-8?B?ay9JSEJTd0xTR0pEUjBMTStCWWNZUThnb3NoMkQvSHBvZEo2THFxOTVkOW1z?=
+ =?utf-8?B?anp0dTVtbHRNNkFxWGFLMndFMGdpWGs4a2dOWkhSaWFMM2xacytkcW9nZXhY?=
+ =?utf-8?B?NFRxMHQ5TWpPTnRRd1lOdTA5dTBMODJkVFBZZG1WUWo1bmY2Z2pLUnNPWFBz?=
+ =?utf-8?B?dTNvcWp1Qmlxc3AxQmM3UG1IbUR3OTEyT2JkWUdmZ3RVVEJLL0ZOMGJYeVJN?=
+ =?utf-8?B?UUNpUFpkMGxzNFhwQ1NWVFplQ0hIVUhlRnpCbW55U1phQTVZcDBBcGhEVUUx?=
+ =?utf-8?B?U01ETXVxREFCcXlFSFByM3BwRmxscmQ2S2s3bWFzU2ZHR05DN0drRTQ5cmo5?=
+ =?utf-8?B?V2FEL0RZRUFrZTVyRW9LSWJpb0gzdVBpU1VzaWs4N2E5VU9KcjlOY2pSWGR4?=
+ =?utf-8?B?Vk5NZTJhRmUrY1IyOERrNENVbk9DMUdJZllaNVdwK3gvQXVDOXlNcUh1NnRF?=
+ =?utf-8?B?UG1wV3Z6dVhxTlhqcUFQMFhMZWw0ZkJlbjBuTEk2WHhjMW1xdFFJamJPYmdL?=
+ =?utf-8?B?TkVCWVlqWFVtVGNNdmJRL0J5VkN1WFg4YS9Lb0d0YWRRY0RkUitzU2ZOMElC?=
+ =?utf-8?B?Ny9XK0pySVg1c3E1Vnh4bmJSRjRqa1lOSVVMd0RqWkR5RXc3bytQVG5Xb2N6?=
+ =?utf-8?B?TDlFWlZzT09uL25sdmtqaktPL3dncXg1djlocnBVQUZwYkZVTE1jeFhSMHR5?=
+ =?utf-8?B?L3J2UkZZOWN2ZkFJeWl2UVEzck1HZHlJazNIYTlsbFVoNVhLTTdSblVjWU9i?=
+ =?utf-8?B?UStUVWdHUlRkcHlhc3RoL1o0dXBqaWxsdm9BdHE1TkR1YzQvdjBTejc2Sm1N?=
+ =?utf-8?B?dWZ6MXhZc2Jwc2tCeDRoWWt3bnJGbks5WjhORGFka1J0OExHMy9FZ1hMem9w?=
+ =?utf-8?Q?9Ozfz+HZblJKdAjqqfTWg+gPO?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 19726693-7467-4d08-20c2-08dd39221210
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jan 2025 07:14:25.3850
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: fLTguQMmmJ08rH1spKA0SFjAMCtjE2Xy5UcSB6JnphFS2Jl1loJr4agTXIC8yPNcGQfifWVybH0vpOANft5ZIw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7442
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250119_230819_841448_B804FF97 
-X-CRM114-Status: GOOD (  14.32  )
+X-CRM114-CacheID: sfid-20250119_231433_232483_D5EECD12 
+X-CRM114-Status: GOOD (  11.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,109 +194,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Current scmi drivers not work well with devlink. This patchset is a
+retry to address the issue in [1] which was a few months ago.
 
-On 2025/1/9 16:54, Krzysztof Kozlowski wrote:
-> On Thu, Jan 09, 2025 at 11:27:18AM +0800, Damon Ding wrote:
->> Compared with RK3288/RK3399, the HBR2 link rate support is the main
->> improvement of RK3588 eDP TX controller, and there are also two
->> independent eDP display interfaces on RK3588 Soc.
->>
->> The newly added 'apb' reset is to ensure the APB bus of eDP controller
->> works well on the RK3588 SoC.
->>
->> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
->>
->> ---
->>
->> Changes in v2:
->> - Add the main defferences of the RK3588 eDP and the previous versions
->>    in commit message
->>
->> Changes in v3:
->> - Expand the property clock-names, resets and reset-names
->>
->> Changes in v4:
->> - Remove 'spdif' clock which added in v3
->> - Add the comment of newly added 'apb' reset in commit message
->>
->> Changes in v5:
->> - Put the differences between RK3288/RK3399 and RK3588 into 'allOf'
->> ---
->>   .../rockchip/rockchip,analogix-dp.yaml        | 37 ++++++++++++++++---
->>   1 file changed, 31 insertions(+), 6 deletions(-)
->>
->> diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
->> index eaf4e67e232e..3cdea9e63522 100644
->> --- a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
->> +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
->> @@ -15,6 +15,7 @@ properties:
->>       enum:
->>         - rockchip,rk3288-dp
->>         - rockchip,rk3399-edp
->> +      - rockchip,rk3588-edp
->>   
->>     clocks:
->>       minItems: 2
->> @@ -30,12 +31,6 @@ properties:
->>     power-domains:
->>       maxItems: 1
->>   
->> -  resets:
->> -    maxItems: 1
->> -
->> -  reset-names:
->> -    const: dp
-> 
-> Widest constraints are always here. You only needed to add allOf.
-> 
-> https://elixir.bootlin.com/linux/v6.11-rc6/source/Documentation/devicetree/bindings/ufs/qcom,ufs.yaml
-> 
-> 
+Current scmi devices are not created from device tree, they are created
+from a scmi_device_id entry of each driver with the protocol matches
+with the fwnode reg value, this means there could be multiple devices created
+for one fwnode, but the fwnode only has one device pointer.
 
-I see. I will keep the widest constraints of 'resets' and 'reset-names', 
-and only add RK3588 related constraints in allOf.
+This patchset is to do more checking before setting the device fwnode.
+And Introduce machine_allowlist and machine_blocklist.
 
-And I may also need to add the 'minItems' and 'maxItems' for 'resets' 
-and 'reset-names' like the 'qcom,ufs.yaml':
+The reason to introduce machine_blocklist is for case that
+if pinctrl-scmi.c probes before pinctrl-imx-scmi.c probes on i.MX platform.
+Need to block pinctrl-scmi.c on i.MX platform.
 
-diff --git 
-a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml 
-b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
-index a4c0c3a5de5a..baee021314e7 100644
---- 
-a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
-+++ 
-b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
-@@ -32,9 +32,12 @@ properties:
-      maxItems: 1
+This may looks like hack, but seems no better way to make scmi works
+well with devlink.
 
-    resets:
--    maxItems: 1
-+    minItems: 1
-+    maxItems: 2
+[1]: https://lore.kernel.org/arm-scmi/CAGETcx8m48cy-EzP6_uoGN7KWsQw=CfZWQ-hNUzz_7LZ0voG8A@mail.gmail.com/
 
-    reset-names:
-+    minItems: 1
-+    maxItems: 2
-      const: dp
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+---
+Changes in v2:
+- Introduce machine_allowlist and machine_blocklist
+- Keep of_node for cpufreq device per Cristian
+- Patch 2 is an optimization patch when fixing the devlink issue
+- Link to v1: https://lore.kernel.org/r/20241225-scmi-fwdevlink-v1-0-e9a3a5341362@nxp.com
 
-    rockchip,grf:
+---
+Peng Fan (4):
+      firmware: arm_scmi: Bypass setting fwnode for scmi cpufreq
+      firmware: arm_scmi: Add machine_allowlist and machine_blocklist
+      pinctrl: freescale: scmi: Switch to use machine_allowlist
+      pinctrl: scmi: Switch to use machine_blocklist
 
-If not, the CHECK_DTBS will failed with the logs:
+ drivers/firmware/arm_scmi/bus.c              | 31 +++++++++++++++++++++++++++-
+ drivers/pinctrl/freescale/pinctrl-imx-scmi.c | 15 ++++++--------
+ drivers/pinctrl/pinctrl-scmi.c               | 15 ++++++--------
+ include/linux/scmi_protocol.h                |  3 +++
+ 4 files changed, 45 insertions(+), 19 deletions(-)
+---
+base-commit: 9dff7bbdd359c73f1b44ab592bbb17e1c174fe43
+change-id: 20241225-scmi-fwdevlink-afb5131f19ea
 
-/linux/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dtb: edp@fdec0000: 
-resets: [[31, 469], [31, 468]] is too long
-         from schema $id: 
-http://devicetree.org/schemas/display/rockchip/rockchip,analogix-dp.yaml#
-/linux/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dtb: edp@fdec0000: 
-reset-names: ['dp', 'apb'] is too long
-         from schema $id: 
-http://devicetree.org/schemas/display/rockchip/rockchip,analogix-dp.yaml#
-
-
-Best regards
-Damon
-
+Best regards,
+-- 
+Peng Fan <peng.fan@nxp.com>
 
 
