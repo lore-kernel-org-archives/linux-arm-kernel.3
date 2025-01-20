@@ -4,92 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2617C02185
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 12:01:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50E14C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 12:03:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pwW0v6OwhE/4U4zs5i7Z3emeDixcEJchbFgUQo3pUpc=; b=g/OiJ32Q5xpDyUOLO6z0ov5RZi
-	eIIo1AALhAcsNhwRRljmdiMFRQVeD2zmT19tFe42kailHau7pu+Qw9+yH6XEb3R7dY0qcoXPm4RyO
-	+meWHCiWTa5f/ks7VM7GvHEyNyQxr0XPAWFky9gmmjlEgPPEGHPSPzu0Fh+DcKkMhuNsfgJtz03Rs
-	C8tiGwfWH5LD8w6NqQV8RLs1TQW+HR3LTaNAhs7qZaC3KaZUhSW6S5Rs7bu1gXhuXsli/1OHZrl9B
-	qCV9k9Hly7ALnsU0kqXcwMyMBrOg2J+HMlI+B7ezErNUBBtJ5O9VqETMCu3E31ulozIZcNNrud+KE
-	CvJictEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3DQbrXOH7EBpZfQidjrwhRte3GxbuO55d8/EWNxu7J0=; b=cOX8FNjQ0DFBAL8SYHbrmTPtz9
+	KacGZ+GiadibvAO77IfqfzDQIveu558s2X8Kune7TXLVVxxMOxOGjfWq0gjHBgittqJwb+Am8Tvmg
+	Ky6yaRFDZLwyPYu1Onaekmv4ejitAcEhPhOeUo9JDFn1IJ9DEYPbTSyVWhgy15v3+Rh/96ceAEg/L
+	DxRwBjchlcb6r+D7lXnGq3KmzsKWk9wAbywwG4Go1OqxrACHGoc3uvGpFsM3vcRv556vHyYMp2LTU
+	4WkeNohb8Z+ASDGkGnVipBnSF8/RgnL2djn+qxXXH33MX/zjMlT0W13PJLdCA3AWkhYntKmdqe5su
+	JlnCWKRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZqSl-00000005Uhg-3GGT;
-	Mon, 20 Jan 2025 12:01:03 +0000
-Received: from mgamail.intel.com ([198.175.65.11])
+	id 1tZqUX-00000005V6P-0F24;
+	Mon, 20 Jan 2025 12:02:53 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZqQQ-00000005UDS-33sG
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jan 2025 11:58:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1737374319; x=1768910319;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Ud8mjZa0Vr1kKKXuf/VAUY7cuf1qu22Xddl85PI8jtU=;
-  b=Jv0KP3BBYgjAhCW66iw2DVYkaqGvVrBw8nngHRP1u4g2ej/jVUcAdEyT
-   +NjEyfTcN0aB8/l81cUbbrlKK9+ws/Ze7sIT8wtGdnXzO63MKIyD7m+jJ
-   lIvZxwKsqXZ3YOdRcIcoxP8OKh2IyzmI0llAcTty8o21qCtv/qGJhfrjB
-   AXNNj6GNYw9pn8XFLePyDnTOIdZ5BKszXzl+TVoRyh4wUtwupTV7j8FTZ
-   MjuPn6N7Ps7OD94s9dGX9WfreY8No4JNQqNP1btvuRRc8UOTK2OjGpfN3
-   b/ymr3ZBMvMTbEtL3xYbQrwKL4dPQk2M3rOj4GPHM/bdGl5WaiyPdpVnI
-   Q==;
-X-CSE-ConnectionGUID: d6Cvzse+R4mPU2QMCnjA5Q==
-X-CSE-MsgGUID: 3dCiDpi0TSORy0Gqpn+lNQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11320"; a="48254403"
-X-IronPort-AV: E=Sophos;i="6.13,219,1732608000"; 
-   d="scan'208";a="48254403"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jan 2025 03:58:33 -0800
-X-CSE-ConnectionGUID: IoA75u+HT/Cl169pA8qaCQ==
-X-CSE-MsgGUID: PE1bLa0GSDKvSWyIDztPNA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="111580540"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by orviesa005.jf.intel.com with ESMTP; 20 Jan 2025 03:58:28 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tZqQD-000WVn-1E;
-	Mon, 20 Jan 2025 11:58:25 +0000
-Date: Mon, 20 Jan 2025 19:57:22 +0800
-From: kernel test robot <lkp@intel.com>
-To: Taniya Das <quic_tdas@quicinc.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Paul Gazzillo <paul@pgazz.com>,
-	Necip Fazil Yildiran <fazilyildiran@gmail.com>,
-	oe-kbuild-all@lists.linux.dev,
-	Ajit Pandey <quic_ajipan@quicinc.com>,
-	Imran Shaik <quic_imrashai@quicinc.com>,
-	Jagadeesh Kona <quic_jkona@quicinc.com>,
-	linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Taniya Das <quic_tdas@quicinc.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Subject: Re: [PATCH v4 07/10] clk: qcom: gpucc-qcs615: Add QCS615 graphics
- clock controller driver
-Message-ID: <202501201928.ZrWmF3Kl-lkp@intel.com>
-References: <20250119-qcs615-mm-v4-clockcontroller-v4-7-5d1bdb5a140c@quicinc.com>
+	id 1tZqTF-00000005UoF-1nvN;
+	Mon, 20 Jan 2025 12:01:34 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50KAQ8Yc016868;
+	Mon, 20 Jan 2025 12:01:13 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	3DQbrXOH7EBpZfQidjrwhRte3GxbuO55d8/EWNxu7J0=; b=j/wAOhBJUjVTrdox
+	LKBT3K81inicIYwUcXICcRjcgTr8Gq48M4VuP6mJHyiV6S54Z7QNTg+2uzJsMVu+
+	Ix1bkRbSONZwNs8Nz/fSs4UsYDI4k4iU8GcRdUZ6Q/K+pG9QL9+Ndr8uB0QZcy1/
+	W6+6BLSGd61IxeEC9Ci7WcZqNkXlI3Onsg1Zn7DoP2ZHbYB9GGIp5NipkTTnciLg
+	IJW+NpNNBPOsYOpZGOvd3AdV++LfNu0oZhzH86U4ZK8MD+UhbN37mMvcUg8u1LF4
+	B7IfdsdmDyCXt5BTSQ4DkRCPj6dP0yshqO2harzyhCIO5JZvEWgpBOHSdFdULTjQ
+	e0Kr9g==
+Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 449mqpg6yp-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 20 Jan 2025 12:01:13 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 50KC1Cwb013780
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 20 Jan 2025 12:01:12 GMT
+Received: from [10.239.155.136] (10.80.80.8) by nasanex01b.na.qualcomm.com
+ (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 20 Jan
+ 2025 04:01:07 -0800
+Message-ID: <57d52f72-31ec-46cf-b632-74b09e29f501@quicinc.com>
+Date: Mon, 20 Jan 2025 20:01:03 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250119-qcs615-mm-v4-clockcontroller-v4-7-5d1bdb5a140c@quicinc.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/8] scsi: ufs: core: Pass target_freq to
+ clk_scale_notify() vops
+To: Manivannan Sadhasivam <mani@kernel.org>
+CC: <quic_cang@quicinc.com>, <bvanassche@acm.org>, <beanhuo@micron.com>,
+        <avri.altman@wdc.com>, <junwoo80.lee@samsung.com>,
+        <martin.petersen@oracle.com>, <quic_nguyenb@quicinc.com>,
+        <quic_nitirawa@quicinc.com>, <quic_rampraka@quicinc.com>,
+        <linux-scsi@vger.kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+        "James
+ E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+        Peter Wang
+	<peter.wang@mediatek.com>,
+        Stanley Jhu <chu.stanley@gmail.com>,
+        "Manivannan
+ Sadhasivam" <manivannan.sadhasivam@linaro.org>,
+        Matthias Brugger
+	<matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>,
+        Andrew Halaney
+	<ahalaney@redhat.com>,
+        Maramaina Naresh <quic_mnaresh@quicinc.com>,
+        "Eric
+ Biggers" <ebiggers@google.com>,
+        Minwoo Im <minwoo.im@samsung.com>,
+        open list
+	<linux-kernel@vger.kernel.org>,
+        "moderated list:UNIVERSAL FLASH STORAGE HOST
+ CONTROLLER DRIVER..." <linux-mediatek@lists.infradead.org>,
+        "open
+ list:UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER..."
+	<linux-arm-msm@vger.kernel.org>,
+        "moderated list:ARM/Mediatek SoC
+ support:Keyword:mediatek" <linux-arm-kernel@lists.infradead.org>
+References: <20250116091150.1167739-1-quic_ziqichen@quicinc.com>
+ <20250116091150.1167739-2-quic_ziqichen@quicinc.com>
+ <20250119071131.4hepn6msmh76npi7@thinkpad>
+Content-Language: en-US
+From: Ziqi Chen <quic_ziqichen@quicinc.com>
+In-Reply-To: <20250119071131.4hepn6msmh76npi7@thinkpad>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: VENylyuD6ARMvEn7Xktrchqo8rK9ZTdH
+X-Proofpoint-ORIG-GUID: VENylyuD6ARMvEn7Xktrchqo8rK9ZTdH
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-20_02,2025-01-20_03,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0
+ priorityscore=1501 suspectscore=0 mlxlogscore=999 adultscore=0
+ impostorscore=0 clxscore=1015 lowpriorityscore=0 malwarescore=0
+ phishscore=0 mlxscore=0 bulkscore=0 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.19.0-2411120000 definitions=main-2501200100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_035838_810472_C339C879 
-X-CRM114-Status: GOOD (  10.32  )
+X-CRM114-CacheID: sfid-20250120_040133_481704_6A41DB2A 
+X-CRM114-Status: GOOD (  26.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,32 +129,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Taniya,
+Hi Mani,
 
-kernel test robot noticed the following build warnings:
+Thanks for you review~
 
-[auto build test WARNING on 0907e7fb35756464aa34c35d6abb02998418164b]
+On 1/19/2025 3:11 PM, Manivannan Sadhasivam wrote:
+> On Thu, Jan 16, 2025 at 05:11:42PM +0800, Ziqi Chen wrote:
+>> From: Can Guo <quic_cang@quicinc.com>
+>>
+>> If OPP V2 is used, devfreq clock scaling may scale clock amongst more than
+>> two freqs,
+> 
+> 'amongst more than two freqs': I couldn't parse this.
+>
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Taniya-Das/clk-qcom-clk-alpha-pll-Add-support-for-dynamic-update-for-slewing-PLLs/20250119-182754
-base:   0907e7fb35756464aa34c35d6abb02998418164b
-patch link:    https://lore.kernel.org/r/20250119-qcs615-mm-v4-clockcontroller-v4-7-5d1bdb5a140c%40quicinc.com
-patch subject: [PATCH v4 07/10] clk: qcom: gpucc-qcs615: Add QCS615 graphics clock controller driver
-config: arm-kismet-CONFIG_QCS_GCC_615-CONFIG_QCS_GPUCC_615-0-0 (https://download.01.org/0day-ci/archive/20250120/202501201928.ZrWmF3Kl-lkp@intel.com/config)
-reproduce: (https://download.01.org/0day-ci/archive/20250120/202501201928.ZrWmF3Kl-lkp@intel.com/reproduce)
+It means that the devfreq framework will tell UFS core driver the 
+devfreq freq, then UFS core driver will find the recommended freq from 
+our freq table based on the devfreq freq. For legacy mode , we can only 
+have 2 frequencies in the table. But if the OPP V2 is used, we can have 
+3 , 4 or more freq tables. You can refer to my PATCH 8/8.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202501201928.ZrWmF3Kl-lkp@intel.com/
+>> so just passing up/down to vops clk_scale_notify() is not enough
+>> to cover the intermediate clock freqs between the min and max freqs. Hence
+>> pass the target_freq to clk_scale_notify() to allow the vops to perform
+>> corresponding configurations with regard to the clock freqs.
+>>
+> 
+> Add a note that the 'target_freq' is not used in this commit.
+>
 
-kismet warnings: (new ones prefixed by >>)
->> kismet: WARNING: unmet direct dependencies detected for QCS_GCC_615 when selected by QCS_GPUCC_615
-   WARNING: unmet direct dependencies detected for QCS_GCC_615
-     Depends on [n]: COMMON_CLK [=y] && COMMON_CLK_QCOM [=y] && (ARM64 || COMPILE_TEST [=n])
-     Selected by [y]:
-     - QCS_GPUCC_615 [=y] && COMMON_CLK [=y] && COMMON_CLK_QCOM [=y]
+Sorry, I don't very understand this comment, I mentioned the 
+"target_freq" in the commit message,  Could you let me know what note 
+you want me do add?
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+>> Co-developed-by: Ziqi Chen <quic_ziqichen@quicinc.com>
+>> Signed-off-by: Ziqi Chen <quic_ziqichen@quicinc.com>
+>> Signed-off-by: Can Guo <quic_cang@quicinc.com>
+> 
+> Signed-off-by tag order is not correct here. This implies that Ziqi originally
+> worked on it, then Can took over and submitted. But it seems the reverse.
+
+Thanks for your reminder. Is below tag order OK ?
+     Signed-off-by: Can Guo <quic_cang@quicinc.com>
+     Co-developed-by: Ziqi Chen <quic_ziqichen@quicinc.com>
+     Signed-off-by: Ziqi Chen <quic_ziqichen@quicinc.com>
+> 
+> - Mani
+
+-Ziqi
+
+> 
+>> ---
+>>   drivers/ufs/core/ufshcd-priv.h  | 7 ++++---
+>>   drivers/ufs/core/ufshcd.c       | 4 ++--
+>>   drivers/ufs/host/ufs-mediatek.c | 1 +
+>>   drivers/ufs/host/ufs-qcom.c     | 5 +++--
+>>   include/ufs/ufshcd.h            | 2 +-
+>>   5 files changed, 11 insertions(+), 8 deletions(-)
+>>
+>> diff --git a/drivers/ufs/core/ufshcd-priv.h b/drivers/ufs/core/ufshcd-priv.h
+>> index 9ffd94ddf8c7..0549b65f71ed 100644
+>> --- a/drivers/ufs/core/ufshcd-priv.h
+>> +++ b/drivers/ufs/core/ufshcd-priv.h
+>> @@ -117,11 +117,12 @@ static inline u32 ufshcd_vops_get_ufs_hci_version(struct ufs_hba *hba)
+>>   	return ufshcd_readl(hba, REG_UFS_VERSION);
+>>   }
+>>   
+>> -static inline int ufshcd_vops_clk_scale_notify(struct ufs_hba *hba,
+>> -			bool up, enum ufs_notify_change_status status)
+>> +static inline int ufshcd_vops_clk_scale_notify(struct ufs_hba *hba, bool up,
+>> +					       unsigned long target_freq,
+>> +					       enum ufs_notify_change_status status)
+>>   {
+>>   	if (hba->vops && hba->vops->clk_scale_notify)
+>> -		return hba->vops->clk_scale_notify(hba, up, status);
+>> +		return hba->vops->clk_scale_notify(hba, up, target_freq, status);
+>>   	return 0;
+>>   }
+>>   
+>> diff --git a/drivers/ufs/core/ufshcd.c b/drivers/ufs/core/ufshcd.c
+>> index acc3607bbd9c..8d295cc827cc 100644
+>> --- a/drivers/ufs/core/ufshcd.c
+>> +++ b/drivers/ufs/core/ufshcd.c
+>> @@ -1157,7 +1157,7 @@ static int ufshcd_scale_clks(struct ufs_hba *hba, unsigned long freq,
+>>   	int ret = 0;
+>>   	ktime_t start = ktime_get();
+>>   
+>> -	ret = ufshcd_vops_clk_scale_notify(hba, scale_up, PRE_CHANGE);
+>> +	ret = ufshcd_vops_clk_scale_notify(hba, scale_up, freq, PRE_CHANGE);
+>>   	if (ret)
+>>   		goto out;
+>>   
+>> @@ -1168,7 +1168,7 @@ static int ufshcd_scale_clks(struct ufs_hba *hba, unsigned long freq,
+>>   	if (ret)
+>>   		goto out;
+>>   
+>> -	ret = ufshcd_vops_clk_scale_notify(hba, scale_up, POST_CHANGE);
+>> +	ret = ufshcd_vops_clk_scale_notify(hba, scale_up, freq, POST_CHANGE);
+>>   	if (ret) {
+>>   		if (hba->use_pm_opp)
+>>   			ufshcd_opp_set_rate(hba,
+>> diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
+>> index 135cd78109e2..977dd0caaef6 100644
+>> --- a/drivers/ufs/host/ufs-mediatek.c
+>> +++ b/drivers/ufs/host/ufs-mediatek.c
+>> @@ -1643,6 +1643,7 @@ static void ufs_mtk_clk_scale(struct ufs_hba *hba, bool scale_up)
+>>   }
+>>   
+>>   static int ufs_mtk_clk_scale_notify(struct ufs_hba *hba, bool scale_up,
+>> +				    unsigned long target_freq,
+>>   				    enum ufs_notify_change_status status)
+>>   {
+>>   	if (!ufshcd_is_clkscaling_supported(hba))
+>> diff --git a/drivers/ufs/host/ufs-qcom.c b/drivers/ufs/host/ufs-qcom.c
+>> index 68040b2ab5f8..b6eef975dc46 100644
+>> --- a/drivers/ufs/host/ufs-qcom.c
+>> +++ b/drivers/ufs/host/ufs-qcom.c
+>> @@ -1333,8 +1333,9 @@ static int ufs_qcom_clk_scale_down_post_change(struct ufs_hba *hba)
+>>   	return ufs_qcom_set_core_clk_ctrl(hba, false);
+>>   }
+>>   
+>> -static int ufs_qcom_clk_scale_notify(struct ufs_hba *hba,
+>> -		bool scale_up, enum ufs_notify_change_status status)
+>> +static int ufs_qcom_clk_scale_notify(struct ufs_hba *hba, bool scale_up,
+>> +				     unsigned long target_freq,
+>> +				     enum ufs_notify_change_status status)
+>>   {
+>>   	struct ufs_qcom_host *host = ufshcd_get_variant(hba);
+>>   	int err;
+>> diff --git a/include/ufs/ufshcd.h b/include/ufs/ufshcd.h
+>> index d7aca9e61684..a4dac897a169 100644
+>> --- a/include/ufs/ufshcd.h
+>> +++ b/include/ufs/ufshcd.h
+>> @@ -344,7 +344,7 @@ struct ufs_hba_variant_ops {
+>>   	void    (*exit)(struct ufs_hba *);
+>>   	u32	(*get_ufs_hci_version)(struct ufs_hba *);
+>>   	int	(*set_dma_mask)(struct ufs_hba *);
+>> -	int	(*clk_scale_notify)(struct ufs_hba *, bool,
+>> +	int (*clk_scale_notify)(struct ufs_hba *, bool, unsigned long,
+>>   				    enum ufs_notify_change_status);
+>>   	int	(*setup_clocks)(struct ufs_hba *, bool,
+>>   				enum ufs_notify_change_status);
+>> -- 
+>> 2.34.1
+>>
+> 
 
