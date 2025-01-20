@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15F5AC02181
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 13:51:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC086C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 14:01:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ekPT5VREXyTo7IvgpNJfGqCy+Q9+hG3P3Q6HvU7wtDM=; b=BoOiZ1YZszhETXjHfUABQAYF00
-	UCvEhhNEnmf/hY4J/7n7AJJ81wFQBpXL2ciTZ7FFFumBRXrLJoxQyTm3lARhaWEgAwG2XJ23TXrNp
-	MKQ5EDM0dXuBO1oMC+L5oPbLrl5EXOd1bP5KNAVJa0vI/ZjdaLc2q32gS6tyP17L1H1F3Mis2Myzy
-	RdJt7KglFbZya/BhDLhjmOsUVF78Ix6sgtRS+EM78DkvF2Z+rZZU87ttkJSlqkCXj0+TTgD9ArtFg
-	g9NIDGfObPqqpuGLqG8WWTKlvSjovLTHxBVYxwlIkPkY/iQxCungh52T/0fR5hmzDkmncKFClL4C+
-	hgKaLbag==;
+	bh=sK/wK+1KK0THZ4S75KxQ3s4DvzzvcvDqikYguKGQ/f8=; b=BwGZdckA4DNz/d37/78l8P+sib
+	jOW9baq6SMgGX+Rzn5NYZu1oikNxSyHIOT+OcevLUOtibImugqVfROO9GO2sKhtmtRCp8A5ZpoWkn
+	ZTuPrY6EoLnL/nxAZ4dSBLV7W7PkbmiaZpLSbHQnWTOp/ufBePlVA7ENDXjATEC0NDvXBBAjECgd0
+	juxTjaG6O3msTyD48S4BKebNjWS07XURhiL34eWDasZOG5S2G5josxdUTf+H9wMFiklM9ua+JeDAd
+	NX0i7sP2K653/glB/Ycdpwb/yG0BLIGU01H7P9VOjgeCXM3RlU2qBklvN706Sw17MaMAMP3+jGNCg
+	ZYZmN9eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZsBU-00000005hyq-3Bup;
-	Mon, 20 Jan 2025 13:51:20 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tZsKy-00000005k2h-2Fvd;
+	Mon, 20 Jan 2025 14:01:08 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZsAD-00000005hl2-0sv4
+	id 1tZsJg-00000005jmu-0sst
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jan 2025 13:50:02 +0000
+	Mon, 20 Jan 2025 13:59:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0817C5C5B77;
-	Mon, 20 Jan 2025 13:49:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3E79C4CEE3;
-	Mon, 20 Jan 2025 13:49:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737380999;
-	bh=ekPT5VREXyTo7IvgpNJfGqCy+Q9+hG3P3Q6HvU7wtDM=;
+	by nyc.source.kernel.org (Postfix) with ESMTP id D4CB8A40C9B;
+	Mon, 20 Jan 2025 13:57:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A087EC4CEDD;
+	Mon, 20 Jan 2025 13:59:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1737381587;
+	bh=a6/AeNn2g3zqwiTDXTEbJ7QC16P6u39284X4lAoEtog=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZlqwG6usKeVgktDjvMgMWW+p+paYghSd0qaE9dR8dp6y15JyrWZREpXw9RPWUdfLu
-	 v+F+RQBQqUs88VHw47QMppmQvVfFIAHpMg2brKZEPJnvDkaM0++DoUjCSQITb0PwXi
-	 CQD2T5FAROtQO3+vFNBlGt1zq+AMe8Cd7m3+zDfRvOB93d7wpOaKefl4dVAallBDZ6
-	 i5jDpkCVGySyethrRbxI/BmEyvFzF08eMKkDI6LWz7UiLipq57OCMUIjz/dIlrJJsf
-	 W5FKcUa3g8zPX/43Fr2TKeCbBKLYxJyh4C6DXU6t/qwWmLTDKjXpsS0iSoGYdtxiWL
-	 gdUJ09dogpfpA==
-Date: Mon, 20 Jan 2025 13:49:53 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Sean Anderson <sean.anderson@linux.dev>
-Cc: Miquel Raynal <miquel.raynal@bootlin.com>,
-	Michal Simek <michal.simek@amd.com>, linux-spi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Jinjie Ruan <ruanjinjie@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org
-Subject: Re: [PATCH 0/5] spi: zynqmp-gqspi: Improve error recovery by
- resetting
-Message-ID: <c1a3f172-700e-4079-a501-b3f3f08b41aa@sirena.org.uk>
-References: <20250116225521.2688224-1-sean.anderson@linux.dev>
- <5942e111-24ba-4d1b-bd4f-6b81dcc6c5dc@sirena.org.uk>
- <87h65xi977.fsf@bootlin.com>
- <1026d44b-0907-4835-bc95-32f9bbcf4831@sirena.org.uk>
- <8c9e6a12-e64f-4658-94e8-77469f393a0e@linux.dev>
+	b=2MLcyzMYI9JONm6c1Gur2116gUNJAsgCEiKKY84RpZP6gkBZb11gm9p9UXYtX/s7c
+	 P9HCGU5kwWBjRYSrlmEIAQaMiccLo16sVEch//3ABkEC8U/Km4QE3aNgrTb1KVxLeJ
+	 xSfZLdVjtGpqPO+/0HhTEgNcSppIjvAsQ3LAPrxU=
+Date: Mon, 20 Jan 2025 14:59:44 +0100
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: stable@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Will Deacon <will@kernel.org>, Steven Price <steven.price@arm.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Baruch Siach <baruch@tkos.co.il>, Petr Tesarik <ptesarik@suse.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	"Mike Rapoport (IBM)" <rppt@kernel.org>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	"moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] arm64: mm: account for hotplug memory when randomizing
+ the linear region
+Message-ID: <2025012002-tactics-murky-aaab@gregkh>
+References: <20250109165419.1623683-1-florian.fainelli@broadcom.com>
+ <20250109165419.1623683-2-florian.fainelli@broadcom.com>
+ <62786457-d4a1-4861-8bec-7e478626f4db@broadcom.com>
+ <2025011247-enable-freezing-ffa2@gregkh>
+ <27bbea11-61fa-4f41-8b39-8508f2d2e385@broadcom.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="9dv0D5YciXBsjgUa"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <8c9e6a12-e64f-4658-94e8-77469f393a0e@linux.dev>
-X-Cookie: No lifeguard on duty.
+In-Reply-To: <27bbea11-61fa-4f41-8b39-8508f2d2e385@broadcom.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_055001_321478_48F3A8D0 
-X-CRM114-Status: GOOD (  17.44  )
+X-CRM114-CacheID: sfid-20250120_055948_374890_363094A3 
+X-CRM114-Status: GOOD (  26.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,50 +83,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jan 13, 2025 at 07:44:50AM -0800, Florian Fainelli wrote:
+> 
+> 
+> On 1/12/2025 3:54 AM, Greg KH wrote:
+> > On Thu, Jan 09, 2025 at 09:01:13AM -0800, Florian Fainelli wrote:
+> > > On 1/9/25 08:54, Florian Fainelli wrote:
+> > > > From: Ard Biesheuvel <ardb@kernel.org>
+> > > > 
+> > > > commit 97d6786e0669daa5c2f2d07a057f574e849dfd3e upstream
+> > > > 
+> > > > As a hardening measure, we currently randomize the placement of
+> > > > physical memory inside the linear region when KASLR is in effect.
+> > > > Since the random offset at which to place the available physical
+> > > > memory inside the linear region is chosen early at boot, it is
+> > > > based on the memblock description of memory, which does not cover
+> > > > hotplug memory. The consequence of this is that the randomization
+> > > > offset may be chosen such that any hotplugged memory located above
+> > > > memblock_end_of_DRAM() that appears later is pushed off the end of
+> > > > the linear region, where it cannot be accessed.
+> > > > 
+> > > > So let's limit this randomization of the linear region to ensure
+> > > > that this can no longer happen, by using the CPU's addressable PA
+> > > > range instead. As it is guaranteed that no hotpluggable memory will
+> > > > appear that falls outside of that range, we can safely put this PA
+> > > > range sized window anywhere in the linear region.
+> > > > 
+> > > > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> > > > Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+> > > > Cc: Will Deacon <will@kernel.org>
+> > > > Cc: Steven Price <steven.price@arm.com>
+> > > > Cc: Robin Murphy <robin.murphy@arm.com>
+> > > > Link: https://lore.kernel.org/r/20201014081857.3288-1-ardb@kernel.org
+> > > > Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+> > > > Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+> > > 
+> > > Forgot to update the patch subject, but this one is for 5.10.
+> > 
+> > You also forgot to tell us _why_ this is needed :(
+> 
+> This is explained in the second part of the first paragraph:
+> 
+> The consequence of this is that the randomization offset may be chosen such
+> that any hotplugged memory located above memblock_end_of_DRAM() that appears
+> later is pushed off the end of the linear region, where it cannot be
+> accessed.
+> 
+> We use both memory hotplug and KASLR on our systems and that's how we
+> eventually found out about the bug.
 
---9dv0D5YciXBsjgUa
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+And you still have 5.10.y ARM64 systems that need this?  Why not move to
+a newer kernel version already?
 
-On Fri, Jan 17, 2025 at 04:46:23PM -0500, Sean Anderson wrote:
-> On 1/17/25 13:41, Mark Brown wrote:
-> > On Fri, Jan 17, 2025 at 07:31:08PM +0100, Miquel Raynal wrote:
+Anyway, I need an ack from the ARM64 maintainers that this is ok to
+apply here before I can take it.
 
-> >> Yes, unless the timeout is reached for "good reasons", ie. you request
-> >> substantial amounts of data (typically from a memory device) and the
-> >> timeout is too short compared to the theoretical time spent in the
-> >> transfer. A loaded machine can also increase the number of false
-> >> positives I guess.
+thanks,
 
-> > I'd argue that all of those are bad reasons, I'd only expect us to time
-> > out when there's a bug - choosing too low a timeout or doing things in a
-> > way that generates timeouts under load is a problem.
-
-> There's no transmit DMA for this device. So if you are under high load
-> and make a long transfer, it's possible to time out. I don't know if
-> it's possible to fix that very easily. The timeout calculation assumes
-> that data is being transferred at the SPI bus rate.
-
-In that case I wouldn't expect the timeout to apply to the whole
-operation, or I'd expect a timeout applied waiting for something
-interrupt driven to not to be fired unless we stop making forward
-progress. =20
-
---9dv0D5YciXBsjgUa
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmeOVIEACgkQJNaLcl1U
-h9BBuQf/YxmGXFN3bvsT+wvdAmzRP3BLKBHbrKm6SRHibYXb0uzIv0CnmhwcxPeI
-gRPuv9X5KJUEeWBnK/uErCuisfmGB68sIo7lvvCKrwhMaXZmqfFt79QACig5QQDz
-JASKZt13yublMzZQPAxrn9q09gB43Tqt+rJMntTijfL8f6Tk0fTT8m2FFSJRAGaJ
-bfdLIgUWLDKyWDRCoJCP52A8XTf5wTJH8DV8iS+sW349p7tnfTrVNVk+jUnDz6OR
-oEUMqc3Bk2JXGLMETvnwI6pVeVS6EIsmXLcgOjNAMbBHeg2HmESlViwi9aCO7bk7
-ErHBsB+skFh4mx4GnntI2Zvoyg/tsg==
-=dRmQ
------END PGP SIGNATURE-----
-
---9dv0D5YciXBsjgUa--
+greg k-h
 
