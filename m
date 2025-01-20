@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29D7AC02185
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 20:14:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D076C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 20:31:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xFmjfRIAfD/TWhtg9QJn1hbIzJmPBaW6wdlpqeT5TsY=; b=hs5/anrNTvdD1DGcX8VFC4SAGJ
-	BeQ97yIMQTH2s17e+ZdgMlZiKodWFty/2QjwdiE6immcjBice6yIQDSN9T0ydUZi+8vxEis0ghxNi
-	COSv/zD1TZzdQeBATmVNJk961h+H634CbpER+GIoRgmaPBfI/VOj0uB4kTd7DR8H/GXDQp9VIEXpx
-	qaO40YUYhz7s6+9x1tr53VJx2WwdWC5AykV73+DHmJxzSE0XAzY27h53Qy9ORBJ0qm+Gj0b1agK15
-	e8x/OpKtchjlGvT2W8TTGjWjnjSavm3bsTAgNKw31tMtcxy4td7zYabrrgCITE5Hq0L8PauRgdJ7o
-	GR2wTMLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pm08M0duZG4a+ZLa4zK8PxczLpdU4JAEAYPjQRflnMk=; b=EG0qRfOj5fXV2xRhIAq4VlvLbL
+	JtBMtCE5Fs54OKTeRsCX3KzsCXmqhkJS3r8duQijnTS31FXz+ZS0xQU7NKyzT2s1SdCzVbo59VDn3
+	KW5RfFsDDl7IzSebgNbd5y2CB9Z5a/vGiKh6Hf8mpmGPe3DbRUWncf/kU/x2x1C+2KA9Wc2qRm9Yf
+	EynAScYz0QjzSpuzMFu2K/8GbbQ8Y4t0zfe5mYq9qEUdPzeluFHBzAT5HTyaN+FyrT2kCbQDUNzh5
+	KxPwwpXsHhXBOLFVRoD0GMXyY1LplLWGsVNyc68uy2+EW4UCtV71Ko25oU9lihZWE/AIfkPRHafnk
+	kPxMjnuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZy9v-00000006NpY-0VhY;
-	Mon, 20 Jan 2025 20:14:07 +0000
-Received: from mail.manjaro.org ([116.203.91.91])
+	id 1tZyQA-00000006P2v-0xyu;
+	Mon, 20 Jan 2025 20:30:54 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZy8d-00000006NkD-2GnV;
-	Mon, 20 Jan 2025 20:12:48 +0000
+	id 1tZyOs-00000006OuX-081E;
+	Mon, 20 Jan 2025 20:29:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id BC8C9A40234;
+	Mon, 20 Jan 2025 20:27:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9D0CC4CEDD;
+	Mon, 20 Jan 2025 20:29:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737404972;
+	bh=WDoCCA3w5eEl8wS9Gz8iLhDSYRHG+YTayG/JhkEBJGc=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=bv9KogGjcVzMKThShlLVPH5bcRAthWi7voKuzUEu9kqWn7lLzjXhryTk0BqcA/Ez/
+	 nq+4DHUN7cf1LExDN2+tfvEKmt+gaZUxSJpbfYFNKLrCi7R6EDWHzIFBa027H6Z84n
+	 rSPXd191pPpIWvXVCME8S9xMY109URyY6+ie6X9jdkfXCPK8e3AEGAiZ8cna48xnYA
+	 Gas3i4kt9YuhwZ3LZGUgfQDq0atH4FU3c+zdjvqSIphmXTAQor/z4A/kgx4QEdUpMP
+	 6jsVGaxOLq880rmSRQ2geYQRYnRs9Uff7M1Pw58Cc2xgcz/Pwohs3QBofd1ippPaiA
+	 zfI91BacpRp7Q==
+Date: Mon, 20 Jan 2025 14:29:30 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1737403965;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xFmjfRIAfD/TWhtg9QJn1hbIzJmPBaW6wdlpqeT5TsY=;
-	b=YPYYnsKAYboHxdwLOk4OYK2A1lONri4zXIFe27yH0muhHZKyomsxiVN72QkPutXZNwxeqi
-	MsnPtRcV8cj7f0Nxgfle0fYAGWXSjUPzk7rCOfQMPUdq34vLRFJF0uJd1Kq03I+26zmdHp
-	21Gjwx1wbE71sdEaHn6nY94gpjaW7ZAFL3/Gwlaz3A01anBBD7U7n6Y1yB2ZfvSfchjOeh
-	CyQIG4LZMPJTqXjSPODuKwYN6bpDL3P07qbTggo3b1WaC0bb3gXZDlUGxiB9/AXyeCzBg4
-	MrR8nLQfOkxN3oWMDSvsWal+wR9vlJ6a82cpSqgx4fzAvHtNmck6xg8Ie87fbA==
-Date: Mon, 20 Jan 2025 21:12:45 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Alexey Charkov <alchark@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Enable automatic fan control on
- Radxa Rock 5C
-In-Reply-To: <20250120-rock-5c-fan-v1-2-5fb8446c981b@gmail.com>
-References: <20250120-rock-5c-fan-v1-0-5fb8446c981b@gmail.com>
- <20250120-rock-5c-fan-v1-2-5fb8446c981b@gmail.com>
-Message-ID: <e73f651566aeab85952a4abbe23d55b8@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-mediatek@lists.infradead.org, 
+ Chaotian Jing <chaotian.jing@mediatek.com>, 
+ Wenbin Mei <wenbin.mei@mediatek.com>, linux-kernel@vger.kernel.org, 
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+ Ulf Hansson <ulf.hansson@linaro.org>, linux-mmc@vger.kernel.org, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ upstream@airoha.com, linux-arm-kernel@lists.infradead.org, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Christian Marangi <ansuelsmth@gmail.com>
+In-Reply-To: <20250120184728.18325-1-ansuelsmth@gmail.com>
+References: <20250120184728.18325-1-ansuelsmth@gmail.com>
+Message-Id: <173740497060.601130.3509016769870545640.robh@kernel.org>
+Subject: Re: [PATCH v2 1/2] dt-bindings: mmc: mtk-sd: Add eMMC for AN7581
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_121247_729085_D52E248E 
-X-CRM114-Status: GOOD (  13.74  )
+X-CRM114-CacheID: sfid-20250120_122934_136691_7D2EC982 
+X-CRM114-Status: GOOD (  15.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,76 +77,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Alexey,
 
-On 2025-01-20 20:22, Alexey Charkov wrote:
-> Add the necessary cooling map to enable the kernel's thermal subsystem
-> to manage the fan speed automatically depending on the overall SoC
-> package temperature on Radxa Rock 5C
+On Mon, 20 Jan 2025 19:47:01 +0100, Christian Marangi wrote:
+> Document eMMC compatible for AN7581. This eMMC controller doesn't have
+> regulator exposed to the system and have a single clock only for source
+> clock and only default pintctrl.
 > 
-> Signed-off-by: Alexey Charkov <alchark@gmail.com>
+> Rework the schema to permit these new requirements and make supply
+> optional only for airoha,an7581-mmc compatible.
+> 
+> Also provide an example for airoha,an7581-mmc.
+> 
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 > ---
->  arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts | 32 
-> +++++++++++++++++++++++-
->  1 file changed, 31 insertions(+), 1 deletion(-)
+> Changes v2:
+> - Drop else condition
+> - Move Required and pinctrl property to dedicated if condition
 > 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
-> b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
-> index
-> 1b66a69cf0f8795d7305852fa7fef3d0672ada7f..6e56d7704cbe0dc06242cb39df56b2fc9d6bc774
-> 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
-> @@ -68,7 +68,7 @@ led-1 {
->  		};
->  	};
+>  .../devicetree/bindings/mmc/mtk-sd.yaml       | 116 +++++++++++++++++-
+>  1 file changed, 110 insertions(+), 6 deletions(-)
 > 
-> -	fan {
-> +	fan: fan {
->  		compatible = "pwm-fan";
->  		#cooling-cells = <2>;
->  		cooling-levels = <0 24 44 64 128 192 255>;
-> @@ -417,6 +417,36 @@ rgmii_phy1: ethernet-phy@1 {
->  	};
->  };
-> 
-> +&package_thermal {
-> +	polling-delay = <1000>;
-> +
-> +	trips {
-> +		package_fan0: package-fan0 {
-> +			temperature = <55000>;
-> +			hysteresis = <2000>;
-> +			type = "active";
-> +		};
-> +
-> +		package_fan1: package-fan1 {
-> +			temperature = <65000>;
-> +			hysteresis = <2000>;
-> +			type = "active";
-> +		};
-> +	};
-> +
-> +	cooling-maps {
-> +		map0 {
-> +			trip = <&package_fan0>;
-> +			cooling-device = <&fan THERMAL_NO_LIMIT 1>;
-> +		};
-> +
-> +		map1 {
-> +			trip = <&package_fan1>;
-> +			cooling-device = <&fan 2 THERMAL_NO_LIMIT>;
-> +		};
-> +	};
-> +};
-> +
->  &pcie2x1l2 {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pcie20x1_2_perstn_m0>;
 
-Thanks for the patch, it follows the usual approach for keeping
-the fan noise down, and it's looking good to me.  Please, feel
-free to include
+My bot found errors running 'make dt_binding_check' on your patch:
 
-Reviewed-by: Dragan Simic <dsimic@manjaro.org>
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+Error: Documentation/devicetree/bindings/mmc/mtk-sd.example.dts:104.31-32 syntax error
+FATAL ERROR: Unable to parse input tree
+make[2]: *** [scripts/Makefile.dtbs:131: Documentation/devicetree/bindings/mmc/mtk-sd.example.dtb] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1506: dt_binding_check] Error 2
+make: *** [Makefile:251: __sub-make] Error 2
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250120184728.18325-1-ansuelsmth@gmail.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
