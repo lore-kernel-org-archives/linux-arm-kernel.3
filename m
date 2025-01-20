@@ -4,86 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CF23C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 15:01:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A239C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 15:03:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S+pJffbifsvMAzRQtBsX5gh9buDbEATG1BAUYCdsR04=; b=Gf8ZluIaCY0JxIhL/qI1CjL2JR
-	ch6OnNkREvDiIBrMFwrLPTT7Q/OTkbUNq0MZEiE0ZiCQ6Rm9TOB4V+ifYEm5xGtqsxNigFa1uUhKj
-	PaecQ/H4Lid1ZOrSaiLVU9anBD6DnYtj51PHIVSE5NDspqfg4Rz5NOMSH+PobqefnfNSn49aWO6eg
-	kjb4VKbXyJNtbyzWxQ5ZPYnXfdpQzzMKwkZgLtgsoTScFMFJVKGT1USYjSdkCEwgxvln/acIkXh1z
-	kvkgxOnRU6xQwEkiViwhg176KIno4fwbvB3s2YbTTZyAwClECR45cjzW8G+TJ21/cNnOFeJytvepp
-	0HQd0x+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rWVHj1TChtr3vfUDWYZQ8K05S9uI1dRSlKMgvqMF4lw=; b=CcuCVelE6GHMPcLwAiOLcUw8rT
+	xGv296NllFIyzWB6aGeFF4WZLuH7CfLMWG3TTnkhkoDOqckVw3Pb+AcXlk1D33pEYG0u+UrYfygqD
+	SAltgb0u0/K8yuTZfTQA6geFqy+IBBp1AHtVZnLLiEY6Kqlq0K5XfncYpoiS7aE7HhOYX810lEGIv
+	l3PGK642rrKFOCCO+daPzkxSF/D05HrJG30t7FviwRiKfZ7WtFo6c5f0eL8OGfNveQ1GlrL4JVGL5
+	UOpzASLVccXVbV8DbvRGhaCaEe+giz396vosJNVJlauGOe4SuTUQ60OOgOEIOsPZDOMdaNsDloSpo
+	gL6o1SYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZtGr-00000005qqM-1RJ1;
-	Mon, 20 Jan 2025 15:00:57 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1tZtIw-00000005r8M-0ycl;
+	Mon, 20 Jan 2025 15:03:06 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZtFY-00000005qkc-2kTV
+	id 1tZtHf-00000005qwM-2BsU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jan 2025 14:59:38 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43634b570c1so32812885e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jan 2025 06:59:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1737385174; x=1737989974; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=S+pJffbifsvMAzRQtBsX5gh9buDbEATG1BAUYCdsR04=;
-        b=aLp0NtrCUZBnghF8PzDlVq/W7AgZW0ATOiSDFmtGrsWZ7ccMSim86+ywIbeY4ejgxG
-         o/5JUwc2LM6lqPfFw4mebPr+Tpm13YifBhrmvhE8FcgSOOfbss3uKXJ8Wju+wqOwTnTV
-         lVN7wEc4Chc/FHz5zh+SOGhaRu4J4LlO5bXXLrYApzrxTZ655zboQoDG96dzdgkVkA3W
-         6GDCsbCv4cZNkER045LJTh+vWBZ6huUR8PyKGZG8yWnLoGfTsn4vPZOD5kdXC6mzldYg
-         hbwezMAAIW7ZNbMoh123+paYSOucYJ1SjBbTtl58AOW7diucLrcil3/LHE4t4FuMP4FS
-         9C9A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737385174; x=1737989974;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=S+pJffbifsvMAzRQtBsX5gh9buDbEATG1BAUYCdsR04=;
-        b=Yr4vOfewsBru280BlC+hBHlLJE/x5BBHKKy+gJRQVY060G2FPoTubGOnyC0kJEn90J
-         7lY7DueN9hcisTyrDAEr1u4RxNNycNFxMTzOfC57osI1aJhPRrey99li5H97+Uck6VhU
-         A7TDQmvnNA4CGQFqZwFDhXwKXcXcpYmP+fGFa6RN3mNsKF1AY0GJ6bsXanrKP6bRPAr7
-         MV/WwiN5TSp6HnDU3BPlvm/gmQLY5HgDn3ny7Zu/2+uHs2BLKfZZumidwDkyATOhh3TN
-         MoojqadBTFRPN5Xf/h9Lssk2XpMcRgRdcwQ5tBtGmZi/aZZDZspG7K3d1vREQKnYJoI7
-         7IQA==
-X-Forwarded-Encrypted: i=1; AJvYcCUwRnXpfllZdYC8iB3SWBnnlM3eMDuj2qh6fnXJuyi+llYSX3nnkwyWOA+iNu5AxbHTcYUKF0Vgz9MMwJLDVYAv@lists.infradead.org
-X-Gm-Message-State: AOJu0YxSz2eUEf8zqor+388WvCLu+CQySkhPSKBG6ksAYUg1vaflxYJW
-	QY8jwWDw7tzUY7zqnd9KdLfQfxRyTHSCkaaq7HIXmM2FXBDpLAyym11E8PS7bG0=
-X-Gm-Gg: ASbGncvsKaUpLvqPJ2fF9SQYp7y1clFPh5G5uryLBs32FUl0USn+azv4NeKZq+5fRcJ
-	+lOUFOprLTQIWgygg77ytymma1//dvMwczgz9KQA2MYbxqz1A5F5KIgv4lKwPUFS2ELXmrE9Wry
-	CaGcUnZBBtXBavxMmLyUjNVc2a83RQ9NLhdPDmyN+TvP+Jq2+YSTMIde4xyegfLTEozpkBo8tyP
-	rA9RbfT+atyY7WnIQmIxNPRLQUSUUeg1X0nyHQiOSFdWeVacmrBnQZFNix5/xFMSwbU465zD+Kx
-	p8s8n6z5nps1LR1Mka+gxnj1+kAb7shriuhv
-X-Google-Smtp-Source: AGHT+IEr94dZ4ySjzw372E3rw2zQbIsEkno+z0zLtmEBFIbcwH0Zt3FOYHkNahPtxA8LJH9IMKXDlg==
-X-Received: by 2002:a05:6000:4008:b0:385:f9db:3c4c with SMTP id ffacd0b85a97d-38bf5654f8cmr11521354f8f.9.1737385174359;
-        Mon, 20 Jan 2025 06:59:34 -0800 (PST)
-Received: from localhost (p200300f65f0afb0400000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f0a:fb04::1b9])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38bf3221bf0sm10569472f8f.28.2025.01.20.06.59.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Jan 2025 06:59:33 -0800 (PST)
-Date: Mon, 20 Jan 2025 15:59:32 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Wentao Liang <vulab@iscas.ac.cn>
-Cc: bcm-kernel-feedback-list@broadcom.com, andi.shyti@kernel.org, 
-	wsa+renesas@sang-engineering.com, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] i2c: iproc: Remove redundant error checks for
- bcm_iproc_i2c_init
-Message-ID: <ikks6sk7bi5c4xkr63kcpgokqovbcp4rpcrcdjx76ofdo3jgum@jjrv5fed5kri>
-References: <20250120090334.1705-1-vulab@iscas.ac.cn>
+	Mon, 20 Jan 2025 15:01:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7BB015C59CF;
+	Mon, 20 Jan 2025 15:01:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5B81C4CEE1;
+	Mon, 20 Jan 2025 15:01:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737385306;
+	bh=t9cJzzM752GAraX+bd6RMMK5H5I0NUGxSd1HtsC0j9o=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=gMjpF11i/xZToGsyanYZs/X4nF2TcRC8xBtQPFaJJGx/IKfwLLWMJQiIkIhUh5Hwk
+	 V56zuiuYsNDKSCQtWwDOppyM3u9mYgWojhlCXLrgqwklTMAlHC8ent/pxquZf6ahQZ
+	 TSuhCOgtagkuahppizse3RV6jY/ZzXaBfkrCOgRPCUx6FgVBwyR3jXZn7dscI2I3u8
+	 5ljmjiEkRH8V7PpP5l2Q/dIHIcy23T2BJK7vQN45OkIMNgE/IaK3x9383gVpN2cYuE
+	 LmSwucPTEmIRjB0JGkpNZHW04hJaPJ8ewObFLa7vFB14egXUcXc08RylfPKp7DQFPG
+	 RAXI4E+0OrVEQ==
+Message-ID: <000e44f1-839e-4f43-9bb1-ae53d6826ff7@kernel.org>
+Date: Mon, 20 Jan 2025 16:01:40 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="aomczayvdathuiyp"
-Content-Disposition: inline
-In-Reply-To: <20250120090334.1705-1-vulab@iscas.ac.cn>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [EXT] Re: [PATCH v12 2/5] dt-bindings: arm: fsl: add imx-se-fw
+ binding doc
+To: Pankaj Gupta <pankaj.gupta@nxp.com>, Jonathan Corbet <corbet@lwn.net>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, Conor Dooley <conor@kernel.org>
+References: <20250120-imx-se-if-v12-0-c5ec9754570c@nxp.com>
+ <20250120-imx-se-if-v12-2-c5ec9754570c@nxp.com>
+ <6110fd00-c050-4bcf-8971-674bc8c0bfc7@kernel.org>
+ <AM9PR04MB86049239156AC82F0AA4BCCA95E72@AM9PR04MB8604.eurprd04.prod.outlook.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <AM9PR04MB86049239156AC82F0AA4BCCA95E72@AM9PR04MB8604.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_065936_699251_F6F93539 
-X-CRM114-Status: GOOD (  21.10  )
+X-CRM114-CacheID: sfid-20250120_070147_652385_5B03CAF2 
+X-CRM114-Status: UNSURE (   6.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,67 +130,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 20/01/2025 14:07, Pankaj Gupta wrote:
+>> Driver configures multiple misc-device on the MU, for multiple
+>> user-space applications, to be able to communicate over single MU.
+>>
+>> It exists on some i.MX processors. e.g. i.MX8ULP, i.MX93 etc.
+>>
+>> Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
+>> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+>> Reviewed-by: Conor Dooley <conor@kernel.org>
+> 
+>> Where Conor's review tag was actually given?
+> On v6.
 
---aomczayvdathuiyp
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] i2c: iproc: Remove redundant error checks for
- bcm_iproc_i2c_init
-MIME-Version: 1.0
+I already looked there. No trace for tag. Please point to the message.
 
-On Mon, Jan 20, 2025 at 05:03:34PM +0800, Wentao Liang wrote:
-> The bcm_iproc_i2c_init() always returns 0. As a result, there
-> is no need to check its return value or handle errors.
->=20
-> This change removes the redundant error handling code after
-> calls to bcm_iproc_i2c_init() in both the bcm_iproc_i2c_probe()
-> and bcm_iproc_i2c_resume().
->=20
-> Fixes: e6e5dd3566e0 ("i2c: iproc: Add Broadcom iProc I2C Driver")
-> Fixes: 0ee04e91eacd ("i2c: iproc: Add suspend/resume support")
-
-I would drop the Fixes lines.
-
-> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
-> ---
->  drivers/i2c/busses/i2c-bcm-iproc.c | 8 ++------
->  1 file changed, 2 insertions(+), 6 deletions(-)
->=20
-> diff --git a/drivers/i2c/busses/i2c-bcm-iproc.c b/drivers/i2c/busses/i2c-=
-bcm-iproc.c
-> index 15b632a146e1..c683715093d7 100644
-> --- a/drivers/i2c/busses/i2c-bcm-iproc.c
-> +++ b/drivers/i2c/busses/i2c-bcm-iproc.c
-> @@ -1081,9 +1081,7 @@ static int bcm_iproc_i2c_probe(struct platform_devi=
-ce *pdev)
->  		bcm_iproc_algo.unreg_slave =3D NULL;
->  	}
-> =20
-> -	ret =3D bcm_iproc_i2c_init(iproc_i2c);
-> -	if (ret)
-> -		return ret;
-> +	bcm_iproc_i2c_init(iproc_i2c);
-
-If you change the prototype to also "return" void, that looks good.
-
-Best regards
-Uwe
-
---aomczayvdathuiyp
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmeOZMoACgkQj4D7WH0S
-/k6FOwf/R4270lXLYLFGFUpC3+b0T6bFYvKlCfJVUhR9qrIgeVBCTWWjAURbUfLv
-+ycAb81QcQ6cUPv61Aa4ZpqV/yuQR8SLCncES4Hwf48Bq/I6v2ODcFKn8tvTwSYe
-7s6+0ntiLgIMnZ5ZMkQ55+6KDGfAVVI4/f019zkd8QpVe2Yxc23hyub1yo4HamcZ
-8s0JVPhHMsYvLomT0j5X7C4Nj8PBYiO68aFhpZMdgE/I9TgxBcreNmcJzJPJkNVS
-wGhvZ2BXDmGcNYd1Ly0qXN1qb4r55tfrRlVfhtrkHjEXB8y/obgz0MNj5/E/kZ/6
-XPnEfQxrgsdvlvey/jZloA7m7UrT0g==
-=pH+a
------END PGP SIGNATURE-----
-
---aomczayvdathuiyp--
+Best regards,
+Krzysztof
 
