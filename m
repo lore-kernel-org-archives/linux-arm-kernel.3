@@ -4,80 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3C6BC02181
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 15:40:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64863C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 15:41:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hxDAs9qqak1APPUkWh3PHzlur/dVlkZRuIQl8TruIDk=; b=sAqBMO7qwxs0zwUWDjQGjSQBU5
-	urMAKOqanCpwgdyZ/bmSm/XWiCQ7aZVQHK7a8QHvAP/xkuUvxv45hfBs6eXNUF3nFbo1T0nhNP3/2
-	X92zZRZUi/KvZu2AqJmM3eiLFYTbNQ7V1lZ0DCa1+cttZ/Nx44212gM02PAP42sUN+pS7+/IgivjP
-	MFV8XLZmsCs/sHTKC4GcOyvYw+MOgAj+r2zMLZQi1T2V1pIESqGirkaRJGYHMrZr8lCSJh/j2bKI0
-	8nGZNr82zDJQju2qMe2jAkCpl2AZmC6D9lR7mHb6vQXPl+HP+pfvi08zPmmBzWyztVbWdPsoG5QTQ
-	515M3g8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FUNH5OV+WC/QzjXwldloXCvwJvNBFYqSY2qbuibPXTY=; b=0jtezeZnQRaRXQ08oj7ATAZ1Az
+	MqFRK66llDl2sUZq5i0xFXl5JD8LHZQe3Rha/GmkdpdPeS3Nvm9QJuQ84xyCHyI517A6wiC5+2/Gm
+	VOMo/sdNWc3AhGkPOrhDrcoMV+yMm3CWgIggBspRH+13kHwYb0cVhDM/SabylRpU68Idt8h0naSoZ
+	KAy9i2DcBcYgEQ0iWwsLGs8btR55K3h7csQnoSG4C0IRJ3EM7IuYz2svXNRyaSE4cYDMAlsIf12Sd
+	Axjw4icoAx7QApIaEbPgmETs1cedoAm87cpfrJP6jrjhrhlZxTJDEAyliwgaSh5+/QKXL5OItJiko
+	4FLVVkaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZtsd-00000005u6q-3Ktf;
-	Mon, 20 Jan 2025 15:39:59 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tZtts-00000005uJt-3LMQ;
+	Mon, 20 Jan 2025 15:41:16 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZtrL-00000005tt4-2KaA;
-	Mon, 20 Jan 2025 15:38:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E84D1A410B4;
-	Mon, 20 Jan 2025 15:36:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39C85C4CEDD;
-	Mon, 20 Jan 2025 15:38:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737387518;
-	bh=DVUvoJIHLiUYHupURPdG/3K0udtI8Y/qhWh8bnVptFM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=F3MZly8yPEL+ML9sLcHzsTD0LwexfWEiUnaTZIJU0aXwTh6GhvCCIP7W1DRx3fpil
-	 72Zff62OeO1hkHNid+0UkJU1sh2inzL0uBbLXD9WhQW3aQcEBbYAiClRp33k/D7aEu
-	 5jAZB2HlDbwg/PkNhL2zChp3iIDw2COUu4AidGcXrb2xKd4k0EDzgsD9OVCY3Ta+C5
-	 jShBIHt9Bz4TOLfku4Xt/A59RTbC0F2dfx+533svJsEZ5vW5bPLq3UkFL9Pgyp5meI
-	 oHHCHjnFXSV93lnFKAF3GL3w66oKEnIwfYADNepXHfoQxG6je+oEg/lLJFtkeGdRcB
-	 bYJ4LZ5u4sGTA==
-Date: Mon, 20 Jan 2025 21:08:21 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Ziqi Chen <quic_ziqichen@quicinc.com>
-Cc: quic_cang@quicinc.com, bvanassche@acm.org, beanhuo@micron.com,
-	avri.altman@wdc.com, junwoo80.lee@samsung.com,
-	martin.petersen@oracle.com, quic_nguyenb@quicinc.com,
-	quic_nitirawa@quicinc.com, quic_rampraka@quicinc.com,
-	linux-scsi@vger.kernel.org, Alim Akhtar <alim.akhtar@samsung.com>,
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-	Peter Wang <peter.wang@mediatek.com>,
-	Stanley Jhu <chu.stanley@gmail.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	id 1tZtra-00000005tw8-3Vrs;
+	Mon, 20 Jan 2025 15:38:56 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-436281c8a38so33064965e9.3;
+        Mon, 20 Jan 2025 07:38:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1737387533; x=1737992333; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=FUNH5OV+WC/QzjXwldloXCvwJvNBFYqSY2qbuibPXTY=;
+        b=d2FY+L6pzvDmVoa3DNz8becx6ZpDKfu3cKsCp00cFjP0Bu01l9uhOeUbSFbj396R6K
+         CAoImERvSVO2mh47dh5+LFyh904qdkpGWjoJhWhQUc8SXuvX064Pm2ZXAI23jjtq195B
+         67FRtG6XhzPZSrDktwFS4jtWMPKvUzfKDHFy/Z8OKkCNJRgIw3hqWSakK7lldTmb9UPl
+         aCZZDAONM98iIyJNnQoGrhBusy8/YZeU+KUwk6paJvQxw3KdXuNsBwQjiSvAAkzqancZ
+         tZSWF3wpsZ80TFuMIrlnx4EsvKQmiTRbf7B54tlqYDUEZoaCNl7997ksy9rUoeR1zTEY
+         UiDQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737387533; x=1737992333;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FUNH5OV+WC/QzjXwldloXCvwJvNBFYqSY2qbuibPXTY=;
+        b=bI5PQ/culMmb/VegVWFuKqtxeW+PoPBBvjrfVOmLK/DBg/CidnIySmkeIprbpoAi4o
+         AEGjQ9zp+PaNgzEgSGJyJyfkFEH58JKZ940USdX3bCzuIAWojKhMbpwdHdR1pb50baE+
+         g3JbckWJ4QB+FoDdGxpuChXHzcOTZ44wD3qk0GMOq1x1M87dDchx8rWgfsU7z66bucKo
+         gDpj5Bssa3KrskzrxnZ3my5emB42vL0Az/NrPgVcYoAxdmD9gsfNomNHG0lTrfLTGT7g
+         SqUPlLhOKf3tFatqyoeCals/+PWkWZItVAzlWOoqfdsnRT2DpJhfCQ6maZhMnqQ4jfOD
+         e/Ug==
+X-Forwarded-Encrypted: i=1; AJvYcCUMlLJQcb/Pf0Ok3kdwvu4NfLLCS7M1aa7V6CCvPa3jkXOSQL/kG2vBtypkKNkTOarjtEiy7iYQ60/BrgBPVxoF@lists.infradead.org, AJvYcCVBanPnm141dg6P1CLwYZghcZPgRfBUjzuyrRNZKckIHeA923d2bPozUHA4PVP1hSn3m4Egpd7Q8r4f/xBJUjY=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx/p4fQVgW0i+Fcrh4cyVV2NFlZdpvBEz5nxoJFK0WTTX9XzlMW
+	kiA9Z2a+Zb4DGSSRSisvlySi1iCUbhhNpSCO0GOtnbUSd5evyBZz48utsg==
+X-Gm-Gg: ASbGncvsX1peiRI2GRkHMvbckBo6rcNvGDbOA4p7FQBK+Wh7Nwj2sOVRPWJXBD74vqM
+	srkmbsCr4G/pEOEKClWrVCu53oaSpjbYLkDWHO6Z70UwkzYS9VAt+yQl9hOtq2GeK5KphUJnoLP
+	yR/hUIGAIIWqhRzzcm4oXtEluiqkvY8hwg7cKKX7NndSK7kwv+vqXTiwuJ0E+d+0gOl3bEh+4fW
+	AVfxd4BmyAomP5QDOggsG37yDSAlzeXBpt7evyNvAozl2xUb9Uy3ASUOW0oC/4rFNN5i04bCPSm
+	m8uesL+9IXY/vjIb6BhfoYh/nDPPC+kslEfWJew=
+X-Google-Smtp-Source: AGHT+IFq/N1M/Fzfqtl5Tsax6f2eFNQebWQPzXxA/LFVpMMquGf/Nb5tqY6jgvqwOtRwfXgtC13vBQ==
+X-Received: by 2002:a05:600c:4508:b0:431:547e:81d0 with SMTP id 5b1f17b1804b1-438913e1c00mr147505135e9.11.1737387532941;
+        Mon, 20 Jan 2025 07:38:52 -0800 (PST)
+Received: from localhost.localdomain (93-34-91-161.ip49.fastwebnet.it. [93.34.91.161])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-438904084e7sm144141375e9.6.2025.01.20.07.38.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 20 Jan 2025 07:38:52 -0800 (PST)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Ulf Hansson <ulf.hansson@linaro.org>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Andrew Halaney <ahalaney@redhat.com>,
-	Maramaina Naresh <quic_mnaresh@quicinc.com>,
-	Eric Biggers <ebiggers@google.com>,
-	Minwoo Im <minwoo.im@samsung.com>,
-	open list <linux-kernel@vger.kernel.org>,
-	"moderated list:UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER..." <linux-mediatek@lists.infradead.org>,
-	"open list:UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER..." <linux-arm-msm@vger.kernel.org>,
-	"moderated list:ARM/Mediatek SoC support:Keyword:mediatek" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH 1/8] scsi: ufs: core: Pass target_freq to
- clk_scale_notify() vops
-Message-ID: <20250120153821.3v3c53sc43a7yx7s@thinkpad>
-References: <20250116091150.1167739-1-quic_ziqichen@quicinc.com>
- <20250116091150.1167739-2-quic_ziqichen@quicinc.com>
- <20250119071131.4hepn6msmh76npi7@thinkpad>
- <57d52f72-31ec-46cf-b632-74b09e29f501@quicinc.com>
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	llvm@lists.linux.dev
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	kernel test robot <lkp@intel.com>
+Subject: [PATCH] pmdomain: airoha: Fix compilation error with Clang-20 and Thumb2 mode
+Date: Mon, 20 Jan 2025 16:38:09 +0100
+Message-ID: <20250120153817.11807-1-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <57d52f72-31ec-46cf-b632-74b09e29f501@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_073839_724333_53256936 
-X-CRM114-Status: GOOD (  25.34  )
+X-CRM114-CacheID: sfid-20250120_073854_876030_FE15D551 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,56 +106,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 20, 2025 at 08:01:03PM +0800, Ziqi Chen wrote:
-> Hi Mani,
-> 
-> Thanks for you review~
-> 
-> On 1/19/2025 3:11 PM, Manivannan Sadhasivam wrote:
-> > On Thu, Jan 16, 2025 at 05:11:42PM +0800, Ziqi Chen wrote:
-> > > From: Can Guo <quic_cang@quicinc.com>
-> > > 
-> > > If OPP V2 is used, devfreq clock scaling may scale clock amongst more than
-> > > two freqs,
-> > 
-> > 'amongst more than two freqs': I couldn't parse this.
-> > 
-> 
-> It means that the devfreq framework will tell UFS core driver the devfreq
-> freq, then UFS core driver will find the recommended freq from our freq
-> table based on the devfreq freq. For legacy mode , we can only have 2
-> frequencies in the table. But if the OPP V2 is used, we can have 3 , 4 or
-> more freq tables. You can refer to my PATCH 8/8.
-> 
-> > > so just passing up/down to vops clk_scale_notify() is not enough
-> > > to cover the intermediate clock freqs between the min and max freqs. Hence
-> > > pass the target_freq to clk_scale_notify() to allow the vops to perform
-> > > corresponding configurations with regard to the clock freqs.
-> > > 
-> > 
-> > Add a note that the 'target_freq' is not used in this commit.
-> > 
-> 
-> Sorry, I don't very understand this comment, I mentioned the "target_freq"
-> in the commit message,  Could you let me know what note you want me do add?
-> 
-> > > Co-developed-by: Ziqi Chen <quic_ziqichen@quicinc.com>
-> > > Signed-off-by: Ziqi Chen <quic_ziqichen@quicinc.com>
-> > > Signed-off-by: Can Guo <quic_cang@quicinc.com>
-> > 
-> > Signed-off-by tag order is not correct here. This implies that Ziqi originally
-> > worked on it, then Can took over and submitted. But it seems the reverse.
-> 
-> Thanks for your reminder. Is below tag order OK ?
->     Signed-off-by: Can Guo <quic_cang@quicinc.com>
->     Co-developed-by: Ziqi Chen <quic_ziqichen@quicinc.com>
+The use of R7 in the SMCCC conflicts with the compiler's use of R7 as a frame
+pointer in Thumb2 mode, which is forcibly enabled by Clang when profiling
+hooks are inserted via the -pg switch.
 
-'Co-developed-by' is not needed unless you also worked on the patch. I guess you
-are just sending the patch authored by Can, so you can drop this and keep your
-'Signed-off-by' tag.
+This is a known issue and similar driver workaround this with a Makefile
+ifdef. Exact workaround are applied in
+drivers/firmware/arm_scmi/transports/Makefile and other similar driver.
 
-- Mani
+Suggested-by: Sudeep Holla <sudeep.holla@arm.com>
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202501201840.XmpHXpQ4-lkp@intel.com/
+Fixes: 82e703dd438b ("pmdomain: airoha: Add Airoha CPU PM Domain support")
+Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+---
+ drivers/pmdomain/mediatek/Makefile | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
+diff --git a/drivers/pmdomain/mediatek/Makefile b/drivers/pmdomain/mediatek/Makefile
+index 0f6edce9239b..18ba92e3c418 100644
+--- a/drivers/pmdomain/mediatek/Makefile
++++ b/drivers/pmdomain/mediatek/Makefile
+@@ -2,3 +2,10 @@
+ obj-$(CONFIG_MTK_SCPSYS)		+= mtk-scpsys.o
+ obj-$(CONFIG_MTK_SCPSYS_PM_DOMAINS) 	+= mtk-pm-domains.o
+ obj-$(CONFIG_AIROHA_CPU_PM_DOMAIN) 	+= airoha-cpu-pmdomain.o
++
++ifeq ($(CONFIG_THUMB2_KERNEL)$(CONFIG_CC_IS_CLANG),yy)
++# The use of R7 in the SMCCC conflicts with the compiler's use of R7 as a frame
++# pointer in Thumb2 mode, which is forcibly enabled by Clang when profiling
++# hooks are inserted via the -pg switch.
++CFLAGS_REMOVE_airoha-cpu-pmdomain.o += $(CC_FLAGS_FTRACE)
++endif
 -- 
-மணிவண்ணன் சதாசிவம்
+2.47.1
+
 
