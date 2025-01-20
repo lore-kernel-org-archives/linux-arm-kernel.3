@@ -4,92 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CD20C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 14:28:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CF23C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 15:01:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vr2EIyCsdB5gdGa7/0WwIe6wMDGX9eJ5N6s6izoCruk=; b=FPIwJ5lzznOwAXPZ07Tc4u5Eb7
-	VVd5t05A2bAM9c4+/7xGu+2Dl8BFptdD+l8ERS7U0HwvfF2UMvTpKIdoZFCDLbMxZvDcjNCxKM8M5
-	LetHwhOLvRYTt6jW9iArObYoBGirMhktZqi6fqtu55qNAVOVFvyve2pZVYEaTigLXuSpUQssMBubJ
-	jvIAxZB7dbcQdCmjENfhecslhxZeYINnjn7np9xUOMpRfn/nhEXosrIpwPGtqx+ckljcob6E+M+yC
-	XsOsq6LopHRgflOOjtmctfX1QqSik4uNIJyHL5eDOEWsqFnOO7koHbW6zSfFJh+d3DSAVQ/SPlneG
-	rQxKPabQ==;
+	bh=S+pJffbifsvMAzRQtBsX5gh9buDbEATG1BAUYCdsR04=; b=Gf8ZluIaCY0JxIhL/qI1CjL2JR
+	ch6OnNkREvDiIBrMFwrLPTT7Q/OTkbUNq0MZEiE0ZiCQ6Rm9TOB4V+ifYEm5xGtqsxNigFa1uUhKj
+	PaecQ/H4Lid1ZOrSaiLVU9anBD6DnYtj51PHIVSE5NDspqfg4Rz5NOMSH+PobqefnfNSn49aWO6eg
+	kjb4VKbXyJNtbyzWxQ5ZPYnXfdpQzzMKwkZgLtgsoTScFMFJVKGT1USYjSdkCEwgxvln/acIkXh1z
+	kvkgxOnRU6xQwEkiViwhg176KIno4fwbvB3s2YbTTZyAwClECR45cjzW8G+TJ21/cNnOFeJytvepp
+	0HQd0x+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZsl3-00000005n1Y-3tNJ;
-	Mon, 20 Jan 2025 14:28:05 +0000
-Received: from mail-qk1-x72a.google.com ([2607:f8b0:4864:20::72a])
+	id 1tZtGr-00000005qqM-1RJ1;
+	Mon, 20 Jan 2025 15:00:57 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZsjm-00000005mwp-0ewZ
+	id 1tZtFY-00000005qkc-2kTV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jan 2025 14:26:47 +0000
-Received: by mail-qk1-x72a.google.com with SMTP id af79cd13be357-7be3f230436so421560885a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jan 2025 06:26:45 -0800 (PST)
+	Mon, 20 Jan 2025 14:59:38 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43634b570c1so32812885e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jan 2025 06:59:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1737383205; x=1737988005; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1737385174; x=1737989974; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=vr2EIyCsdB5gdGa7/0WwIe6wMDGX9eJ5N6s6izoCruk=;
-        b=YSeEoA7Y5SHVl9PZOD/7PSU8t1+sKFWmN3NpJQ3d/T/oBYIoUafAEJirmkUPm3kWPC
-         CDPUFuXSG0RbGoLh6BtZ0Edq9TIvYr3rYZcZ3Pyi+jPJy8TsJIKSm8982R01Q2ck3X0/
-         wRXoK52RMbw6Z+g+n0JfQn+GX0y7HoXceYsMAY3mICeZ5q75rV7gnzRBWDfGJd2ClYnN
-         9kHN5B8RdCLbcv3LYOhbbFaMUtGQuZGlsKmfDtRjUpXApbB/aofzeuARjg9orZm2tjBG
-         VaAwJpn0auis3SkWz/meyVGLy+wDa+ZYiEml9+wyMbQwRdKH0JtB6g0Sqirm9J0gMFU9
-         TgqQ==
+        bh=S+pJffbifsvMAzRQtBsX5gh9buDbEATG1BAUYCdsR04=;
+        b=aLp0NtrCUZBnghF8PzDlVq/W7AgZW0ATOiSDFmtGrsWZ7ccMSim86+ywIbeY4ejgxG
+         o/5JUwc2LM6lqPfFw4mebPr+Tpm13YifBhrmvhE8FcgSOOfbss3uKXJ8Wju+wqOwTnTV
+         lVN7wEc4Chc/FHz5zh+SOGhaRu4J4LlO5bXXLrYApzrxTZ655zboQoDG96dzdgkVkA3W
+         6GDCsbCv4cZNkER045LJTh+vWBZ6huUR8PyKGZG8yWnLoGfTsn4vPZOD5kdXC6mzldYg
+         hbwezMAAIW7ZNbMoh123+paYSOucYJ1SjBbTtl58AOW7diucLrcil3/LHE4t4FuMP4FS
+         9C9A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737383205; x=1737988005;
+        d=1e100.net; s=20230601; t=1737385174; x=1737989974;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=vr2EIyCsdB5gdGa7/0WwIe6wMDGX9eJ5N6s6izoCruk=;
-        b=VQtD/CBj6FD6Yt4mxoHAGat9r7/Mab6QU/UXfwz7B6GkjQWgIQLaNoJFudER4B+QiG
-         Yh4HBwhvmZJzba8elixKAxxs+4vDRg9G88wauo4Q/ZWdbb81nDjnSS4BffMzvLRBe9x0
-         62LqaYI0m5Hiqm2jn22M/LXmkqDJfmITE6EIvEZqrlVj0MHjsxdHVSfbcyvCb1J/imTk
-         xLRKp7treLRzfht6p3cVhgwh4TMADRckDZPeJASA0guDLpRHCgDXGAFgrDHbfnB1qCo+
-         bdK3sIEMZrZ03F/oELRSZ+eG8T5AUHnkTd0TyZEy42Kqhm54xf7RWbZGFE1mUpS5GPqo
-         06GA==
-X-Forwarded-Encrypted: i=1; AJvYcCWITbFpSyM3MJzZA/RhxBNWLJBLK3oB5BX10jMjnOf7TH3WkeHMi0apXA6ua9XUn38gr/i9N+t/imxnPAjInioI@lists.infradead.org
-X-Gm-Message-State: AOJu0YxObbWGYa2NtSCynZtWFonGILyWZA43E/qNsHA247osooqAKYKy
-	5cJQoRgsZdFSm9TuCuRgSbDRYlzhFfFM6yyspCFR+BTcrSkN9qfjAoowgn6xKDw=
-X-Gm-Gg: ASbGncvsTZ1rpXRYIyF45QrgNccp9un58I8DdlbqeWsZvwfdfE7VrvzS/cwSB4N27gC
-	NJO9Hoe88hoWAUlmkbaAKFAtvesUp1mDgYgdQgZZ8bV6Gt8jOiKM0z/ODHfjFfD7Lf1Q/qIxMvA
-	x9Ugc2pf/FHm0dgd2OsTCUGu9ycrxONvUc+QEP4Z1ZW+bCFb5v/4MA5eFPRAM30oJhgXhvzNHDf
-	Vd8f5bFBbmMx11G35rqY1jA213JbwLBCDCcBL65dhSHiJqbLMVf6M6XLInlF6WS1xQuPBSN/BPK
-	YKHUnL70dCGOiWvveS06bHklKiHPmqWhObIVyzckrKY=
-X-Google-Smtp-Source: AGHT+IGtvIsUesTGjb37GoPOTTbLeWODGXjdLhV2Jx7A+73Ah5xBJFQ5DKfLkBk9bBAu2jSA4Q8O9Q==
-X-Received: by 2002:a05:620a:4513:b0:7b6:c462:6b82 with SMTP id af79cd13be357-7be63288222mr2782957385a.54.1737383205075;
-        Mon, 20 Jan 2025 06:26:45 -0800 (PST)
-Received: from ziepe.ca (hlfxns017vw-142-68-128-5.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.68.128.5])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7be6148931bsm446023485a.65.2025.01.20.06.26.44
+        bh=S+pJffbifsvMAzRQtBsX5gh9buDbEATG1BAUYCdsR04=;
+        b=Yr4vOfewsBru280BlC+hBHlLJE/x5BBHKKy+gJRQVY060G2FPoTubGOnyC0kJEn90J
+         7lY7DueN9hcisTyrDAEr1u4RxNNycNFxMTzOfC57osI1aJhPRrey99li5H97+Uck6VhU
+         A7TDQmvnNA4CGQFqZwFDhXwKXcXcpYmP+fGFa6RN3mNsKF1AY0GJ6bsXanrKP6bRPAr7
+         MV/WwiN5TSp6HnDU3BPlvm/gmQLY5HgDn3ny7Zu/2+uHs2BLKfZZumidwDkyATOhh3TN
+         MoojqadBTFRPN5Xf/h9Lssk2XpMcRgRdcwQ5tBtGmZi/aZZDZspG7K3d1vREQKnYJoI7
+         7IQA==
+X-Forwarded-Encrypted: i=1; AJvYcCUwRnXpfllZdYC8iB3SWBnnlM3eMDuj2qh6fnXJuyi+llYSX3nnkwyWOA+iNu5AxbHTcYUKF0Vgz9MMwJLDVYAv@lists.infradead.org
+X-Gm-Message-State: AOJu0YxSz2eUEf8zqor+388WvCLu+CQySkhPSKBG6ksAYUg1vaflxYJW
+	QY8jwWDw7tzUY7zqnd9KdLfQfxRyTHSCkaaq7HIXmM2FXBDpLAyym11E8PS7bG0=
+X-Gm-Gg: ASbGncvsKaUpLvqPJ2fF9SQYp7y1clFPh5G5uryLBs32FUl0USn+azv4NeKZq+5fRcJ
+	+lOUFOprLTQIWgygg77ytymma1//dvMwczgz9KQA2MYbxqz1A5F5KIgv4lKwPUFS2ELXmrE9Wry
+	CaGcUnZBBtXBavxMmLyUjNVc2a83RQ9NLhdPDmyN+TvP+Jq2+YSTMIde4xyegfLTEozpkBo8tyP
+	rA9RbfT+atyY7WnIQmIxNPRLQUSUUeg1X0nyHQiOSFdWeVacmrBnQZFNix5/xFMSwbU465zD+Kx
+	p8s8n6z5nps1LR1Mka+gxnj1+kAb7shriuhv
+X-Google-Smtp-Source: AGHT+IEr94dZ4ySjzw372E3rw2zQbIsEkno+z0zLtmEBFIbcwH0Zt3FOYHkNahPtxA8LJH9IMKXDlg==
+X-Received: by 2002:a05:6000:4008:b0:385:f9db:3c4c with SMTP id ffacd0b85a97d-38bf5654f8cmr11521354f8f.9.1737385174359;
+        Mon, 20 Jan 2025 06:59:34 -0800 (PST)
+Received: from localhost (p200300f65f0afb0400000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f0a:fb04::1b9])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38bf3221bf0sm10569472f8f.28.2025.01.20.06.59.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Jan 2025 06:26:44 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1tZsjj-00000003PkA-2hgf;
-	Mon, 20 Jan 2025 10:26:43 -0400
-Date: Mon, 20 Jan 2025 10:26:43 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Shyam Saini <shyamsaini@linux.microsoft.com>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, virtualization@lists.linux.dev,
-	will@kernel.org, jacob.pan@linux.microsoft.com,
-	eric.auger@redhat.com, code@tyhicks.com,
-	eahariha@linux.microsoft.com, vijayb@linux.microsoft.com
-Subject: Re: [PATCH 0/3] make MSI IOVA base address and its length
- configurable
-Message-ID: <20250120142643.GM674319@ziepe.ca>
-References: <20250116232307.1436693-1-shyamsaini@linux.microsoft.com>
+        Mon, 20 Jan 2025 06:59:33 -0800 (PST)
+Date: Mon, 20 Jan 2025 15:59:32 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Wentao Liang <vulab@iscas.ac.cn>
+Cc: bcm-kernel-feedback-list@broadcom.com, andi.shyti@kernel.org, 
+	wsa+renesas@sang-engineering.com, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] i2c: iproc: Remove redundant error checks for
+ bcm_iproc_i2c_init
+Message-ID: <ikks6sk7bi5c4xkr63kcpgokqovbcp4rpcrcdjx76ofdo3jgum@jjrv5fed5kri>
+References: <20250120090334.1705-1-vulab@iscas.ac.cn>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="aomczayvdathuiyp"
 Content-Disposition: inline
-In-Reply-To: <20250116232307.1436693-1-shyamsaini@linux.microsoft.com>
+In-Reply-To: <20250120090334.1705-1-vulab@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_062646_198621_3222854E 
-X-CRM114-Status: GOOD (  19.43  )
+X-CRM114-CacheID: sfid-20250120_065936_699251_F6F93539 
+X-CRM114-Status: GOOD (  21.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,44 +98,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 16, 2025 at 03:23:04PM -0800, Shyam Saini wrote:
-> Hi,
-> 
-> Currently, the MSI_IOVA_BASE address is hard-coded to 0x80000000,
-> assuming that all platforms have this address available for MSI IOVA
-> reservation. However, this is not always the case, as some platforms
-> reserve this address for other purposes.
 
-Can you explain this some more? This address is in the kernel
-controlled IOVA space, there are few ways a platform can impact this.
+--aomczayvdathuiyp
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] i2c: iproc: Remove redundant error checks for
+ bcm_iproc_i2c_init
+MIME-Version: 1.0
 
-How is the platform impacting it? Is the non-functional IOVA always
-reflected in the iommu_get_resv_regions()?
+On Mon, Jan 20, 2025 at 05:03:34PM +0800, Wentao Liang wrote:
+> The bcm_iproc_i2c_init() always returns 0. As a result, there
+> is no need to check its return value or handle errors.
+>=20
+> This change removes the redundant error handling code after
+> calls to bcm_iproc_i2c_init() in both the bcm_iproc_i2c_probe()
+> and bcm_iproc_i2c_resume().
+>=20
+> Fixes: e6e5dd3566e0 ("i2c: iproc: Add Broadcom iProc I2C Driver")
+> Fixes: 0ee04e91eacd ("i2c: iproc: Add suspend/resume support")
 
-Why not avoid this conflict in your platform software?
+I would drop the Fixes lines.
 
-> There was an [1] attempt to fix this problem by passing the MSI IOVA
-> base as a kernel command line parameter. 
+> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+> ---
+>  drivers/i2c/busses/i2c-bcm-iproc.c | 8 ++------
+>  1 file changed, 2 insertions(+), 6 deletions(-)
+>=20
+> diff --git a/drivers/i2c/busses/i2c-bcm-iproc.c b/drivers/i2c/busses/i2c-=
+bcm-iproc.c
+> index 15b632a146e1..c683715093d7 100644
+> --- a/drivers/i2c/busses/i2c-bcm-iproc.c
+> +++ b/drivers/i2c/busses/i2c-bcm-iproc.c
+> @@ -1081,9 +1081,7 @@ static int bcm_iproc_i2c_probe(struct platform_devi=
+ce *pdev)
+>  		bcm_iproc_algo.unreg_slave =3D NULL;
+>  	}
+> =20
+> -	ret =3D bcm_iproc_i2c_init(iproc_i2c);
+> -	if (ret)
+> -		return ret;
+> +	bcm_iproc_i2c_init(iproc_i2c);
 
-Yuk
+If you change the prototype to also "return" void, that looks good.
 
-> In the previous attempt,
-> Will suggested reserving the MSI IOVA at runtime whenever there is a
-> conflict with the default MSI_IOVA_BASE. However, dynamically reserving
-> this address has debuggability concerns, as it becomes difficult to
-> track IOMMU mapping failures.
+Best regards
+Uwe
 
-Still, this approach seems like the best to me..
+--aomczayvdathuiyp
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> This patch series aims to address the issue by introducing a new DTS
-> property, "arm,smmu-pci-msi-iova-data". This property allows the
-> configuration of MSI IOVA with a custom MSI base address and a custom
-> length for IOMMU/SMMU drivers. It accommodates platforms that do not
-> have the default MSI base address available for MSI reservation.
+-----BEGIN PGP SIGNATURE-----
 
-My understand was using DT to set kernel configurables was frowned
-upon? Ultimately MSI_IOVA_BASE is an arbitary choice by kernel
-software.
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmeOZMoACgkQj4D7WH0S
+/k6FOwf/R4270lXLYLFGFUpC3+b0T6bFYvKlCfJVUhR9qrIgeVBCTWWjAURbUfLv
++ycAb81QcQ6cUPv61Aa4ZpqV/yuQR8SLCncES4Hwf48Bq/I6v2ODcFKn8tvTwSYe
+7s6+0ntiLgIMnZ5ZMkQ55+6KDGfAVVI4/f019zkd8QpVe2Yxc23hyub1yo4HamcZ
+8s0JVPhHMsYvLomT0j5X7C4Nj8PBYiO68aFhpZMdgE/I9TgxBcreNmcJzJPJkNVS
+wGhvZ2BXDmGcNYd1Ly0qXN1qb4r55tfrRlVfhtrkHjEXB8y/obgz0MNj5/E/kZ/6
+XPnEfQxrgsdvlvey/jZloA7m7UrT0g==
+=pH+a
+-----END PGP SIGNATURE-----
 
-Jason
+--aomczayvdathuiyp--
 
