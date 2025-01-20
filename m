@@ -4,84 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2153BC02181
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 12:43:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA3D4C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 12:49:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8/DVdlrVoXcTUlLhGfvwAA7dr+O9VTylvZ3HNVi2N90=; b=JHONImN+vNce49pg6bpub7Ha0s
-	jo9iKaKQw3t9evBqxs6fPgA04Ff8lVdcwEzoW6y5Fkg0ZcMikMWrUIi6og+sqmQ8WGr7SvjNobIFK
-	O/frQjO3f/Ps0R4ADMkmSIzRO/l9NGSjnnCWiBvPhm5tZyVkffXe/JoSyQHZVa1AAAfcJ2N/qRpWE
-	cieSHxAF2kyc/s5oiYU/Mg+JiWkYeey8sYfjyY1EhEyzdejXIS3aZuIVg4BofChfTTLXnTwj9J3nR
-	OTg0RLD2/l0SpKyXhBUZQtdPId6+ch+bWju5/5HG8sDRWIHBZS/15RJGMBci5eQRrpFaFCPIXzEr/
-	Iz2pKSxg==;
+	bh=NtGgZwZcx9qsF1HP708xbPM/P0Ti6hiRzcxuNGQlTWs=; b=Q9Kjt+T2Vvo/csA6Ku6s9NURD0
+	zNz7LGZaREGNb96+TpWL9dkf0YUAWgByPwas1w2Z5kZvnkU4Sw91oGjkAVRWfQemJkXQsy+LPpvXk
+	y8hBW0doL6n8g9XBoyVjbkfESR90UeCLBP6P5DnkRereO9t7aLMBJI8QPRE9GoPirMQ8LMThS/aC0
+	mJBbpIG2XFGuqU/9CYelWUsq7uv96YxMCpc9xh4DLX4XsvHkmgbY4kvEPV+bG9uj9YXIPykrLmoYO
+	gluP93O/VmM1nn8YXApBxEWUxLSV5cNizSK7CXbSML6R6hO7W0Tz+yQL5aGfaUwxXVMBJoe/3HgIZ
+	Us+zNUeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZr7r-00000005ZKG-2QYe;
-	Mon, 20 Jan 2025 12:43:31 +0000
+	id 1tZrDv-00000005ZpH-1joI;
+	Mon, 20 Jan 2025 12:49:47 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZr6Z-00000005ZAF-3Nxg;
-	Mon, 20 Jan 2025 12:42:13 +0000
+	id 1tZrCe-00000005ZkG-0OUs;
+	Mon, 20 Jan 2025 12:48:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1737376928;
-	bh=4buDT01o+ogkMLuBe/lVOY9SSe5oxu1NeJw/qESAoWE=;
+	s=mail; t=1737377306;
+	bh=684y5TgtzaetJ5FHig4I7kEvShgmSEw5UyHsxZrm6GY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=geCnwOdjgZ1CvL2aCSZU72KpP7iYX76xdIjm45dgqCiR2nqRUzCFf442ZYJ3i8vmj
-	 ADTCelvCDXcwXyeHiY04tqxrRHrDphkMHmK0cdZ2DPYG4GHC+pwDazBRQrU4Ow+1bG
-	 qHX3xu38aWVbcFnh42zqPHphrQFEpQNjvkfeuuwXIaaW/3DLxKE+w4S3yUFHDQ+que
-	 xFFgtYX+jMZJTJj0cMNVicZd8mZslwCZEMrtPC3oBemDjhANLZ6efVAoPfcDXTH07U
-	 Qte/P6404Ye+rvePMwsOlggg7bx6MuZenkUMUlpfnGCxj9lvBePR3oJhBQgKN30KeF
-	 jBqFqelOLz31g==
+	b=h/68vzQ2kj1u6XJAWkwkJjoqjQB58BPRUlrbonE05/VzN/Eo5n1vhdj/RtMz0TIH8
+	 VUhjxqqcTceRVmPERQ4BJ/jg992486b+2t8ehoVfdPp4hRntL5nLXA6yT7mXDK2i/Y
+	 Sjq4Q8Ob+dLN7gMEi3MOhgOLGo+//R2vCt4mzdMZ54PEjGjK2gmVMzKUDwOKmhDU55
+	 ycwxXreJT2ItP0CTC4wNZ+WjRLFKmekQ1eDeHenvzT4dY0pxJ0M5GP4b9A5gkU1Ufc
+	 Z9wxd4whMjgbzejawA4TZnpKYTN+8rUshssT8opsOg6yHGLUWHH5deZAdDlLEERrEP
+	 ScECJUAm/5sbw==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7CA0A17E0FAA;
-	Mon, 20 Jan 2025 13:42:07 +0100 (CET)
-Message-ID: <e7d49bda-8aaa-4897-8117-ab889fb27be0@collabora.com>
-Date: Mon, 20 Jan 2025 13:42:06 +0100
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B192117E0F66;
+	Mon, 20 Jan 2025 13:48:24 +0100 (CET)
+Message-ID: <0dddf0b6-e87f-4d70-be64-b6705b33466d@collabora.com>
+Date: Mon, 20 Jan 2025 13:48:23 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] dt-bindings: pinctrl: mediatek: add support for
- mt8196
-To: =?UTF-8?B?Q2F0aHkgWHUgKOiuuOWNjuWptyk=?= <ot_cathy.xu@mediatek.com>,
- "krzk@kernel.org" <krzk@kernel.org>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- =?UTF-8?B?TGVpIFh1ZSAo6Jab56OKKQ==?= <Lei.Xue@mediatek.com>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- =?UTF-8?B?V2VuYmluIE1laSAo5qKF5paH5b2sKQ==?= <Wenbin.Mei@mediatek.com>,
- "linus.walleij@linaro.org" <linus.walleij@linaro.org>,
- =?UTF-8?B?R3VvZG9uZyBMaXUgKOWImOWbveagiyk=?= <Guodong.Liu@mediatek.com>,
- "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "robh@kernel.org" <robh@kernel.org>,
- "sean.wang@kernel.org" <sean.wang@kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>
-References: <20250115063555.32492-1-ot_cathy.xu@mediatek.com>
- <20250115063555.32492-2-ot_cathy.xu@mediatek.com>
- <nmyxygrya6cpalmirsunvkx32uox3kjxd4l5ggdhjtj7edyizz@yodolm5ktboo>
- <f7ba63c8afcef1d1925d51e35e4b81f0d0e773ff.camel@mediatek.com>
- <d04bc250-2104-4e02-9bf8-5785f4444c8d@kernel.org>
- <d11076d3eb2f92018fd3e26cae665a47f71ca838.camel@mediatek.com>
- <b212d05d-de3b-41b2-bc48-c6b79ae54a8b@kernel.org>
- <bec17d1e215a11daa1fdede78c8070c8e1763c72.camel@mediatek.com>
+Subject: Re: [PATCH v5 32/34] drm/mediatek: Introduce HDMI/DDC v2 for
+ MT8195/MT8188
+To: kernel test robot <lkp@intel.com>, chunkuang.hu@kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, p.zabel@pengutronix.de, airlied@gmail.com,
+ simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+ tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, matthias.bgg@gmail.com, ck.hu@mediatek.com,
+ jitao.shi@mediatek.com, jie.qiu@mediatek.com, junzhi.zhao@mediatek.com,
+ dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
+ dmitry.baryshkov@linaro.org, lewis.liao@mediatek.com,
+ ives.chenjh@mediatek.com, tommyyl.chen@mediatek.com,
+ jason-jh.lin@mediatek.com
+References: <20250113145232.227674-33-angelogioacchino.delregno@collabora.com>
+ <202501180524.qKnNpITh-lkp@intel.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <bec17d1e215a11daa1fdede78c8070c8e1763c72.camel@mediatek.com>
+In-Reply-To: <202501180524.qKnNpITh-lkp@intel.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_044212_026781_6A027FED 
-X-CRM114-Status: GOOD (  22.34  )
+X-CRM114-CacheID: sfid-20250120_044828_288425_2EE98FF7 
+X-CRM114-Status: GOOD (  20.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,193 +85,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 20/01/25 10:17, Cathy Xu (许华婷) ha scritto:
-> On Thu, 2025-01-16 at 11:20 +0100, Krzysztof Kozlowski wrote:
->> External email : Please do not click links or open attachments until
->> you have verified the sender or the content.
->>
->>
->> On 16/01/2025 09:18, Cathy Xu (许华婷) wrote:
->>> On Thu, 2025-01-16 at 08:28 +0100, Krzysztof Kozlowski wrote:
->>>> External email : Please do not click links or open attachments
->>>> until
->>>> you have verified the sender or the content.
->>>>
->>>>
->>>> On 16/01/2025 03:20, Cathy Xu (许华婷) wrote:
->>>>>>> +          bias-pull-down:
->>>>>>> +            oneOf:
->>>>>>> +              - type: boolean
->>>>>>> +              - enum: [100, 101, 102, 103]
->>>>>>> +                description: mt8196 pull down PUPD/R0/R1
->>>>>>> type
->>>>>>> define value.
->>>>>>> +              - enum: [200, 201, 202, 203, 204, 205, 206,
->>>>>>> 207]
->>>>>>> +                description: mt8196 pull down RSEL type
->>>>>>> define
->>>>>>> value.
->>>>>>
->>>>>> Not much improved.
->>>>>
->>>>>    I have removed the content related to 'resistance value', we
->>>>> use
->>>>> 'RSEL' instead of 'resistance value'.
-
-This is wrong.
-
->>>>
->>>> So the value in Ohms was removed? I assume above do not have
->>>> known
->>>> value
->>>> in Ohms?
->>>
->>>    Yes, value in Ohns was removed, no code have knowm value.
->>
->> Does the hardware have known value in Ohms?
-
-It does.
-
+Il 17/01/25 23:04, kernel test robot ha scritto:
+> Hi AngeloGioacchino,
 > 
->    What do you mean by 'hardware'? When writing to the rsel register,
-> the value written is 0-7.
+> kernel test robot noticed the following build warnings:
 > 
 
-Hardware means "the pin controller of the mt8196 SoC" :-)
+CK, if there's no other concern about this submission, and you deem it ready to
+be applied - can you please resolve this error while applying by adding
 
-Anyway.
+`#include <linux/bitfield.h>`  before  `#include <linux/clk.h>`
 
-The RSEL registers' function is to select a specific resistance value to
-pullup/down a pin, or a group of pins.
+without me resending a 34 patches bomb for a one-line change?
 
-Devicetree bindings require to specify values in known units, so in device tree
-you *need* to specify the RSEL resistance in Ohms.
-
-You cannot specify RSEL register value in device-tree. That's unacceptable.
-
-Regards,
+Many thanks,
 Angelo
 
->>
->>
->>>
->>>>
->>>>>
->>>>>>
->>>>>>
->>>>>>> +            description: |
->>>>>>> +              For pull down type is normal, it doesn't
->>>>>>> need
->>>>>>> add
->>>>>>> RSEL & R1R0.
->>>>>>> +              For pull down type is PUPD/R0/R1 type, it
->>>>>>> can
->>>>>>> add
->>>>>>> R1R0 define to
->>>>>>> +              set different resistance. It can support
->>>>>>> "MTK_PUPD_SET_R1R0_00" &
->>>>>>> +              "MTK_PUPD_SET_R1R0_01" &
->>>>>>> "MTK_PUPD_SET_R1R0_10"
->>>>>>> &
->>>>>>> +              "MTK_PUPD_SET_R1R0_11" define in mt8196.
->>>>>>> +              For pull down type is PD/RSEL, it can add
->>>>>>> RSEL
->>>>>>> define to set
->>>>>>> +              different resistance. It can support
->>>>>>> +              "MTK_PULL_SET_RSEL_000" &
->>>>>>> "MTK_PULL_SET_RSEL_001" &
->>>>>>> +              "MTK_PULL_SET_RSEL_010" &
->>>>>>> "MTK_PULL_SET_RSEL_011" &
->>>>>>> +              "MTK_PULL_SET_RSEL_100" &
->>>>>>> "MTK_PULL_SET_RSEL_101" &
->>>>>>> +              "MTK_PULL_SET_RSEL_110" &
->>>>>>> "MTK_PULL_SET_RSEL_111"
->>>>>>> define in
->>>>>>> +              mt8196.
->>>>>>> diff --git a/include/dt-bindings/pinctrl/mt8196-pinfunc.h
->>>>>>> b/include/dt-bindings/pinctrl/mt8196-pinfunc.h
->>>>>>> new file mode 100644
->>>>>>> index 000000000000..bf0c8374407c
->>>>>>> --- /dev/null
->>>>>>> +++ b/include/dt-bindings/pinctrl/mt8196-pinfunc.h
->>>>>>> @@ -0,0 +1,1572 @@
->>>>>>> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
->>>>>>> */
->>>>>>> +/*
->>>>>>> + * Copyright (C) 2025 Mediatek Inc.
->>>>>>> + * Author: Guodong Liu <Guodong.Liu@mediatek.com>
->>>>>>> + */
->>>>>>> +
->>>>>>> +#ifndef __MT8196_PINFUNC_H
->>>>>>> +#define __MT8196_PINFUNC_H
->>>>>>> +
->>>>>>> +#include <dt-bindings/pinctrl/mt65xx.h>
->>>>>>> +
->>>>>>> +#define PINMUX_GPIO0__FUNC_GPIO0 (MTK_PIN_NO(0) | 0)
->>>>>>> +#define PINMUX_GPIO0__FUNC_DMIC1_CLK (MTK_PIN_NO(0) | 1)
->>>>>>> +#define PINMUX_GPIO0__FUNC_SPI3_A_MO (MTK_PIN_NO(0) | 3)
->>>>>>> +#define PINMUX_GPIO0__FUNC_FMI2S_B_LRCK (MTK_PIN_NO(0) |
->>>>>>> 4)
->>>>>>> +#define PINMUX_GPIO0__FUNC_SCP_DMIC1_CLK (MTK_PIN_NO(0) |
->>>>>>> 5)
->>>>>>> +#define PINMUX_GPIO0__FUNC_TP_GPIO14_AO (MTK_PIN_NO(0) |
->>>>>>> 6)
->>>>>>
->>>>>> I do not see how you resolved my comment from v1. In v2 I
->>>>>> reminded
->>>>>> about
->>>>>> it, so you responded that yopu will change something, but I
->>>>>> do
->>>>>> not
->>>>>> see
->>>>>> any changes.
->>>>>>
->>>>>> So explain: how did you resolve my comment?
->>>>>>
->>>>>> These two examples where you claim you will change something,
->>>>>> but
->>>>>> send
->>>>>> the same. I skipped the rest of the patch.
->>>>>
->>>>>    Thank you for your patient response, here is my explanation
->>>>> for
->>>>> you
->>>>> question:
->>>>>
->>>>>    In v1, I undertand that you meant I didn't sent a real
->>>>> binding,
->>>>> and
->>>>
->>>>
->>>> The comment is under specific lines, so I said these defines are
->>>> not
->>>> a
->>>> real binding. You sent them again, but they are still not
->>>> bindings,
->>>> because they are not used in the driver. Maybe the usage is
->>>> convoluted,
->>>> so which part of implementation are these connecting with DTS?
->>>> IOW,
->>>> which part of driver relies on the binding?
->>>
->>>    I got you. This binding define many macros, which will be used
->>> for
->>> 'pinmux' setting in the DTS. The usage like this:
->>>
->>>    adsp_uart_pins: adsp-uart-pins {
->>>                  pins-tx-rx {
->>>                          pinmux =
->>> <PINMUX_GPIO35__FUNC_O_ADSP_UTXD0>,
->>>                                   <PINMUX_GPIO36__FUNC_I1_ADSP_URXD0
->>>> ;
->>>                  };
->>>          };
->>
->>
->> That's DTS, not driver, so not a binding. Drop the header from
->> bindings.
+> [auto build test WARNING on next-20250113]
+> [cannot apply to robh/for-next pza/reset/next linus/master pza/imx-drm/next drm-misc/drm-misc-next v6.13-rc7 v6.13-rc6 v6.13-rc5 v6.13-rc7]
+> [If your patch is applied to the wrong git tree, kindly drop us a note.
+> And when submitting patch, we suggest to use '--base' as documented in
+> https://git-scm.com/docs/git-format-patch#_base_tree_information]
 > 
->    Sorry, I don't quite understand the relationship between binding and
-> driver. Driver will parse this macro to get gpio number and function.
+> url:    https://github.com/intel-lab-lkp/linux/commits/AngeloGioacchino-Del-Regno/dt-bindings-display-mediatek-dpi-Add-MT8195-and-MT8188-compat/20250113-225554
+> base:   next-20250113
+> patch link:    https://lore.kernel.org/r/20250113145232.227674-33-angelogioacchino.delregno%40collabora.com
+> patch subject: [PATCH v5 32/34] drm/mediatek: Introduce HDMI/DDC v2 for MT8195/MT8188
+> config: openrisc-allyesconfig (https://download.01.org/0day-ci/archive/20250118/202501180524.qKnNpITh-lkp@intel.com/config)
+> compiler: or1k-linux-gcc (GCC) 14.2.0
+> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250118/202501180524.qKnNpITh-lkp@intel.com/reproduce)
 > 
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202501180524.qKnNpITh-lkp@intel.com/
+> 
+> All warnings (new ones prefixed by >>):
+> 
+>     drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c: In function 'mtk_ddc_check_and_rise_low_bus':
+>     drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c:59:36: error: implicit declaration of function 'FIELD_PREP' [-Wimplicit-function-declaration]
+>        59 |                                    FIELD_PREP(DDC_CTRL_CMD, DDC_CMD_CLOCK_SCL));
+>           |                                    ^~~~~~~~~~
+>     In file included from ./arch/openrisc/include/generated/asm/div64.h:1,
+>                      from include/linux/math.h:6,
+>                      from include/linux/kernel.h:27,
+>                      from include/linux/clk.h:13,
+>                      from drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c:11:
+>     drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c: In function 'mtk_ddcm_read_hdmi':
+>>> include/asm-generic/div64.h:183:35: warning: comparison of distinct pointer types lacks a cast [-Wcompare-distinct-pointer-types]
+>       183 |         (void)(((typeof((n)) *)0) == ((uint64_t *)0));  \
+>           |                                   ^~
+>     drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c:139:23: note: in expansion of macro 'do_div'
+>       139 |                 rem = do_div(loop_counter, temp_length);
+>           |                       ^~~~~~
+>     In file included from include/linux/err.h:5,
+>                      from include/linux/clk.h:12:
+>>> include/asm-generic/div64.h:195:32: warning: right shift count >= width of type [-Wshift-count-overflow]
+>       195 |         } else if (likely(((n) >> 32) == 0)) {          \
+>           |                                ^~
+>     include/linux/compiler.h:76:45: note: in definition of macro 'likely'
+>        76 | # define likely(x)      __builtin_expect(!!(x), 1)
+>           |                                             ^
+>     drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c:139:23: note: in expansion of macro 'do_div'
+>       139 |                 rem = do_div(loop_counter, temp_length);
+>           |                       ^~~~~~
+>     include/asm-generic/div64.h:199:36: error: passing argument 1 of '__div64_32' from incompatible pointer type [-Wincompatible-pointer-types]
+>       199 |                 __rem = __div64_32(&(n), __base);       \
+>           |                                    ^~~~
+>           |                                    |
+>           |                                    u16 * {aka short unsigned int *}
+>     drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c:139:23: note: in expansion of macro 'do_div'
+>       139 |                 rem = do_div(loop_counter, temp_length);
+>           |                       ^~~~~~
+>     include/asm-generic/div64.h:174:38: note: expected 'uint64_t *' {aka 'long long unsigned int *'} but argument is of type 'u16 *' {aka 'short unsigned int *'}
+>       174 | extern uint32_t __div64_32(uint64_t *dividend, uint32_t divisor);
+>           |                            ~~~~~~~~~~^~~~~~~~
+>     drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c:207:47: error: implicit declaration of function 'FIELD_GET' [-Wimplicit-function-declaration]
+>       207 |                         puc_value[read_idx] = FIELD_GET(DDC_DATA_OUT, val);
+>           |                                               ^~~~~~~~~
+> 
+> 
+> vim +183 include/asm-generic/div64.h
+> 
+> ^1da177e4c3f41 Linus Torvalds     2005-04-16  176
+> ^1da177e4c3f41 Linus Torvalds     2005-04-16  177  /* The unnecessary pointer compare is there
+> ^1da177e4c3f41 Linus Torvalds     2005-04-16  178   * to check for type safety (n must be 64bit)
+> ^1da177e4c3f41 Linus Torvalds     2005-04-16  179   */
+> ^1da177e4c3f41 Linus Torvalds     2005-04-16  180  # define do_div(n,base) ({				\
+> ^1da177e4c3f41 Linus Torvalds     2005-04-16  181  	uint32_t __base = (base);			\
+> ^1da177e4c3f41 Linus Torvalds     2005-04-16  182  	uint32_t __rem;					\
+> ^1da177e4c3f41 Linus Torvalds     2005-04-16 @183  	(void)(((typeof((n)) *)0) == ((uint64_t *)0));	\
+> 911918aa7ef6f8 Nicolas Pitre      2015-11-02  184  	if (__builtin_constant_p(__base) &&		\
+> 911918aa7ef6f8 Nicolas Pitre      2015-11-02  185  	    is_power_of_2(__base)) {			\
+> 911918aa7ef6f8 Nicolas Pitre      2015-11-02  186  		__rem = (n) & (__base - 1);		\
+> 911918aa7ef6f8 Nicolas Pitre      2015-11-02  187  		(n) >>= ilog2(__base);			\
+> c747ce4706190e Geert Uytterhoeven 2021-08-11  188  	} else if (__builtin_constant_p(__base) &&	\
+> 461a5e51060c93 Nicolas Pitre      2015-10-30  189  		   __base != 0) {			\
+> 461a5e51060c93 Nicolas Pitre      2015-10-30  190  		uint32_t __res_lo, __n_lo = (n);	\
+> 461a5e51060c93 Nicolas Pitre      2015-10-30  191  		(n) = __div64_const32(n, __base);	\
+> 461a5e51060c93 Nicolas Pitre      2015-10-30  192  		/* the remainder can be computed with 32-bit regs */ \
+> 461a5e51060c93 Nicolas Pitre      2015-10-30  193  		__res_lo = (n);				\
+> 461a5e51060c93 Nicolas Pitre      2015-10-30  194  		__rem = __n_lo - __res_lo * __base;	\
+> 911918aa7ef6f8 Nicolas Pitre      2015-11-02 @195  	} else if (likely(((n) >> 32) == 0)) {		\
+> ^1da177e4c3f41 Linus Torvalds     2005-04-16  196  		__rem = (uint32_t)(n) % __base;		\
+> ^1da177e4c3f41 Linus Torvalds     2005-04-16  197  		(n) = (uint32_t)(n) / __base;		\
+> c747ce4706190e Geert Uytterhoeven 2021-08-11  198  	} else {					\
+> ^1da177e4c3f41 Linus Torvalds     2005-04-16  199  		__rem = __div64_32(&(n), __base);	\
+> c747ce4706190e Geert Uytterhoeven 2021-08-11  200  	}						\
+> ^1da177e4c3f41 Linus Torvalds     2005-04-16  201  	__rem;						\
+> ^1da177e4c3f41 Linus Torvalds     2005-04-16  202   })
+> ^1da177e4c3f41 Linus Torvalds     2005-04-16  203
+> 
+
 
