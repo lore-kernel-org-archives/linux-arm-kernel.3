@@ -4,185 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D90EFC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 21:16:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67D22C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jan 2025 21:22:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Message-ID:Date:In-reply-to:Subject:Cc:To:From:References:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TAQoZ1WKIsTuj0ZwWMhcxNVA61FgPdAcJrlWcbOlo04=; b=qqYAFjR4MpAL40KK9IO4ENZ/Gj
-	obbPCu2h9QWkY5+O64TWb0ZmjuVeFuP0YJeLoqwCqlBVapPJCyyhCaep2CQknvZT2TINDe2rf+mTo
-	L7avfbuEugl+LNeLIjgINvesNB7ZeXzdiCZfxFuOFZ3PSEIwb+OmV9paCMwixYBBLT2d6d+KLLSzP
-	ePe4o5joEwwiDqB5X7KOdLcXG/XxEn7bnB51Efam9FK7HzfwRTZiyphgPZgEma+LjS9nZstw+h2ZR
-	BIZxvbGadNcLqBGILC2GSqTRs8wZXOY1Y/ZCFb7uVAqYcouT2DPBYUbW/Xi+3YQonq3Auh3DgxCOb
-	Qfswh92A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gAssmxE3olzuhmGfiR1v0z7JE2fIlqr5C/1v379mQ7g=; b=xPnFdn2SOzEr4tQD1ZfNO+bGfH
+	qQGhklv4BFcGm3cjZ5BRP7gvTs6+7GW72dq8hgeUCg3v7DdSBDUlhmaEsqJRixd8e1+4L8uVAuE5W
+	4kLXF1issSNREBzTtAc9CFpkBPAsui8FvDXOnXlHSUbnzoig7GQKBbsjGiDTf7oFRZDRMEqzlZZeD
+	2hv97gw26Vur6kQa4/N5xSIWvbFJQpinIg7OUK9OQ5alguw96H4oU3mGhw9nG4AKIoCnKYkViwcKG
+	/UEur+W71oJi/2tncs+p7pMhQYRonpsR2DAe49dg2zhufpyCcfSzJobmVWgqN6guuoGp6Fk2QelF0
+	eD/efSlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZz7d-00000006Roa-2Bg1;
-	Mon, 20 Jan 2025 21:15:49 +0000
-Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
+	id 1tZzDj-00000006SIl-2O4J;
+	Mon, 20 Jan 2025 21:22:07 +0000
+Received: from mail-vi1eur05on2060d.outbound.protection.outlook.com ([2a01:111:f403:2613::60d] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZz6L-00000006Rh7-3PYe
+	id 1tZzCQ-00000006SBk-2vZI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jan 2025 21:14:31 +0000
-Received: from pps.filterd (m0333521.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50KGMvih001612;
-	Mon, 20 Jan 2025 21:13:45 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=corp-2023-11-20; bh=TAQoZ1WKIsTuj0ZwWM
-	hcxNVA61FgPdAcJrlWcbOlo04=; b=keYWi2ooKVZ1NGr8LWohM1o9JA579/5lIc
-	Je5Lz6fjuPBSbD3xzQPeInkETR/y8gtKTosCEEFzZc90tvfy1I1mJmMLaFwHhjR+
-	EXlql4SEyWMXWFjIiAEUSqCiCANKpQ1qP1dbl25ctISuxEMabuBnv3fsn9snn9jU
-	ThRXLyzhxmoNQ4y4RD+jo3PO+RTUobhKZies5u8u++C8mrPlvpoCcrBvH+Z8UR82
-	+ZAZ3PAlfADvg4NyDuNd2S0q8uHArmFnZ+wwqp17ah0PtwQbge8/iTEnwZ3imZHE
-	vcU36N6x2HaaBGfbpBsqzVzD9jk1FFqF+uVwPyEuGlUppHLJabdQ==
-Received: from phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta03.appoci.oracle.com [138.1.37.129])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4485tm4awd-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 20 Jan 2025 21:13:45 +0000 (GMT)
-Received: from pps.filterd (phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
-	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 50KJqHnR030442;
-	Mon, 20 Jan 2025 21:13:44 GMT
-Received: from nam10-dm6-obe.outbound.protection.outlook.com (mail-dm6nam10lp2045.outbound.protection.outlook.com [104.47.58.45])
-	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 449191r162-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 20 Jan 2025 21:13:44 +0000
+	Mon, 20 Jan 2025 21:20:48 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=G9xk5ftBSY8MQkkq3+vJjtcVCoP3xbdahY6xWoZkX/r5MyOwmLnH9UY186WluKRrJJXMIJi8UCIZ90FtnOWX2iMBe4uTBBR+rm+7Ly+6yIgsMjkaymU+3KpqOVqQItLlaEM2G56j0s9kNwmqZHlc8VD2dyKJfbsrnPsIQ6OtHfyH30WXzt/z1/xCIXv5euLKN/hTit2nFhWv6eks9pmDlpGL+fcJijUgjJ3/E/q2mZ3a/vdtGOIJbzr9ZowZurmLiYsxaeUONn4nQQFw5toY+/tqhWLfeJJTPTYAj/f32PX2Oo5+jzYaZNw/Kw1re4K+vnpuq9gruX4r0kLNnKx8lQ==
+ b=hgIjBRe0LysmtuCU2cS5erYQPeLqSYJpsr/1OgrDWkBSI3aJQLtJCdAccBX7dxWvY10Gfnj093T+REaU/TuR1E6Xg+qxWAMaBFZLyNQNfDhlxqkeypQk5t1lOwOsynmdbFzI+spnlUNrkPKvQ0NmCHcWHjAtcrjtFAHCagZfehy0DUiXmKmQrQUNc4LeOmGxDbw3PlAtRcoypdYDSQDGzUsyYNrLRu5UL6P+XBruu5+hS+/NGtpqwUC8eJwH2S6biXnAlmrBSWR1nwrkLSjgGAd1rQxM7SFaXUoAIumFD9cAulAScWLTz9rW+fK/n3WuPF8NrZ6DAln00q9Eu/2RyQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TAQoZ1WKIsTuj0ZwWMhcxNVA61FgPdAcJrlWcbOlo04=;
- b=s/zAipc287hGH8LTBWkzfCibMDcdUlNAqgk9rDw3e06qzpng8sscquwYFHoXIJIlq01LVJ7G+EkmN5oVOgULN4z81Gn+eg93JfQE4uaylqUn6ZmHgZ2esIiuLO0P4n0SDaGJcQwRykLejkvB0VK66XNJl+ZZ/7o8a/YThz3UYExSRp0CxjpfyIpinp5dkVPwzhyBKbwTXRID02eC+Ud9bfhmzVcz9J3sVdtRo++Kfv5/MZCcIk31APPwzrqBiNxbXFzkNvI0aMdBpzhZIxiKN6sQVV+RWWulIPM7iqv8V8cgNk6glMK58AunV8bYLXwARlQf4OfV13MYLwQiC+7UYg==
+ bh=gAssmxE3olzuhmGfiR1v0z7JE2fIlqr5C/1v379mQ7g=;
+ b=nPvSoDveMvfouCMQQYktXjauxL1ITm236JnBZZ/btpuDJnI7ocXw9iyMegtoEiGQxXKcQ4UgmY9czFp4+i2B2BHbP0zQD0AuVi3Nha3iVH8lqtwECuFxXC9ynQOqy+j3IwvQiJ7aHMTQ8fyArunJPEoFfOn5Z7qQurP839+TZYD2hKvshT6nWseY9G7TMYJjbRuXQyyz/pZJM2bkbFLnluH4daBbw5jDX4ZHspHfhebLimzGPOZCUGSeXS8vOutjYrAbntOAczU4pivb8qDwIeZ5rYyetTeYJyVE1OVTko/FYBD2r+c/+xLUQljNebR7ENyfxfXlNP/HGHkTMV6tYQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TAQoZ1WKIsTuj0ZwWMhcxNVA61FgPdAcJrlWcbOlo04=;
- b=nfpJ21eIW636AUoSw5eNJjT53k7RLpa2GdoQPwpI2Enjb+ptoFJ8yNvOC8a3zxgse88Yq+1PT8uCCKGM2UC+nyTcl9kRl2R0HDGHQ5PfjoqW1mSYbl26P08cC4an16STXH7BzVx4Ea2os3wmAsykKSFm0qWR7w+BdkKeKqUD5WA=
-Received: from CO6PR10MB5409.namprd10.prod.outlook.com (2603:10b6:5:357::14)
- by BY5PR10MB4164.namprd10.prod.outlook.com (2603:10b6:a03:210::15) with
+ bh=gAssmxE3olzuhmGfiR1v0z7JE2fIlqr5C/1v379mQ7g=;
+ b=HoZP1ggvg6YRXWAmLYDaRi6Uyk8RAoa+1QvhidgmGyDZj/tcQ58YoBbyWACudobM/02fNWJWYeUZYR0bK7xX5JBKJdR0L5l0rDt9A2pVsyGzJZi5idMxGVm0L5FD8V+4n40H1Z9BKVwY7s1ToNFMNnEGILy8oFwPhxXRUYJsXCMd+fVpGmqrRCqmHnlNof9SprT5HidPc36ZuiYtmXVUDyw0w9tWxox0TFIuKSe/w4H15mWyrxEtJkl5LhX7JOz2Qh6yXVJIiT6hi6cJvcJMpkhTSXEdt2+yWluxhDNRf+FrrusVJCYtVnu27A/gOfNbEj2a6yLohjy0vJsbehsJww==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by PR3PR04MB7338.eurprd04.prod.outlook.com (2603:10a6:102:80::7) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.21; Mon, 20 Jan
- 2025 21:13:27 +0000
-Received: from CO6PR10MB5409.namprd10.prod.outlook.com
- ([fe80::25a9:32c2:a7b0:de9e]) by CO6PR10MB5409.namprd10.prod.outlook.com
- ([fe80::25a9:32c2:a7b0:de9e%3]) with mapi id 15.20.8356.020; Mon, 20 Jan 2025
- 21:13:27 +0000
-References: <20241107190818.522639-1-ankur.a.arora@oracle.com>
-User-agent: mu4e 1.4.10; emacs 27.2
-From: Ankur Arora <ankur.a.arora@oracle.com>
-To: Ankur Arora <ankur.a.arora@oracle.com>
-Cc: linux-pm@vger.kernel.org, kvm@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-arch@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org,
-        tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
-        dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
-        pbonzini@redhat.com, vkuznets@redhat.com, rafael@kernel.org,
-        daniel.lezcano@linaro.org, peterz@infradead.org, arnd@arndb.de,
-        lenb@kernel.org, mark.rutland@arm.com, harisokn@amazon.com,
-        mtosatti@redhat.com, sudeep.holla@arm.com, cl@gentwo.org,
-        maz@kernel.org, misono.tomohiro@fujitsu.com, maobibo@loongson.cn,
-        zhenglifeng1@huawei.com, joao.m.martins@oracle.com,
-        boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
-Subject: Re: [PATCH v9 00/15] arm64: support poll_idle()
-In-reply-to: <20241107190818.522639-1-ankur.a.arora@oracle.com>
-Date: Mon, 20 Jan 2025 13:13:25 -0800
-Message-ID: <8734hd89ze.fsf@oracle.com>
-Content-Type: text/plain
-X-ClientProxiedBy: MW4PR03CA0057.namprd03.prod.outlook.com
- (2603:10b6:303:8e::32) To CO6PR10MB5409.namprd10.prod.outlook.com
- (2603:10b6:5:357::14)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.18; Mon, 20 Jan
+ 2025 21:20:37 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8356.017; Mon, 20 Jan 2025
+ 21:20:37 +0000
+Date: Mon, 20 Jan 2025 16:20:28 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>, Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Anup Patel <apatel@ventanamicro.com>, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, imx@lists.linux.dev,
+	Niklas Cassel <cassel@kernel.org>, dlemoal@kernel.org,
+	jdmason@kudzu.us, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v13 4/9] irqchip/gic-v3-its: Add
+ DOMAIN_BUS_DEVICE_PCI_EP_MSI support
+Message-ID: <Z46+HAvErtMPGy+4@lizhi-Precision-Tower-5810>
+References: <20241218-ep-msi-v13-0-646e2192dc24@nxp.com>
+ <20241218-ep-msi-v13-4-646e2192dc24@nxp.com>
+ <868qscq70x.wl-maz@kernel.org>
+ <Z2RRimPlT41Ru281@lizhi-Precision-Tower-5810>
+ <Z3wG6pMbjsldqU/n@lizhi-Precision-Tower-5810>
+ <861pxfq315.wl-maz@kernel.org>
+ <Z3we4QuRo5ou+r2y@lizhi-Precision-Tower-5810>
+ <Z4U7KoU1iVOlGTcw@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <Z4U7KoU1iVOlGTcw@lizhi-Precision-Tower-5810>
+X-ClientProxiedBy: SJ0PR05CA0121.namprd05.prod.outlook.com
+ (2603:10b6:a03:33d::6) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO6PR10MB5409:EE_|BY5PR10MB4164:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3e8417c4-de8c-4fcf-e4de-08dd399747f6
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PR3PR04MB7338:EE_
+X-MS-Office365-Filtering-Correlation-Id: 68d96c27-e4c8-4f89-57f6-08dd3998487f
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?JN3OB5lDIe1kqGhnjizyesMrLmg2/oV4gvIW7fUOXzQpTRqZJlc93wdyq/jP?=
- =?us-ascii?Q?z7+QckLnhH2FS66QEK+XsZkfeMyHCxidn5uVduS+O8zL85jbwUKv4OyfudCB?=
- =?us-ascii?Q?AI/6Fmd7GsNaS/I+hmGHHLmnsiZ15F64R6o2VYEAnWK+2kYWO2gpPay4ug6N?=
- =?us-ascii?Q?IdJoXmLHtR0fpMdLiyrV0NC33H2M9HySLvrwlZ8n2Xk7QbibUuHHFPH6lMXW?=
- =?us-ascii?Q?hV7rPBUevrjoamlJTRpnQKJPrSbec1yuPnP1ALb4l5Pf4j02mcQ+iQZQJg+s?=
- =?us-ascii?Q?rsPiNX6Zt3jDQMAq4sWyBD0bYJSnsb2mJwLiO4xHODKMnkSgmqsY5I8zFQKP?=
- =?us-ascii?Q?BE3r8kpU1DMG4LP4Num021l3u/7oFB8QT7BNaRHGG6CoACAPZhJ8fwA+ImRh?=
- =?us-ascii?Q?Ja/6mLUEyvY2HjJHdEH6pn/5YIVvRoJFpA1jYUDbK0f1jUAHypKmBX4LThGR?=
- =?us-ascii?Q?43zVyXysBtXIn7NcTlDuOIh1q4varaj6qwiXDLaFSTuhn78byYs8h6YqqFQC?=
- =?us-ascii?Q?TSkxAz49K9Iv+tffFTdRj+8cj2PywGLmf6n6z8BqWOaRz0V9G1UCDFlCKWuc?=
- =?us-ascii?Q?BRg9xUa2wJ0azNulmC56ALdmv+O0vRAUA2gK9qp4+wZRgKIiHxzNQ62DdcR9?=
- =?us-ascii?Q?NVNAKneb/uhLXeZZ3bCfiwBGIqA7Stri3sDAlXCfewkfCiXo9hMiGhlS22YF?=
- =?us-ascii?Q?WL0RLG/ts53wj7cEgjAiBuVPngrnY03s3Tj+DkvouZ0OtiwrmpFRw6T/58sF?=
- =?us-ascii?Q?+RpUhHY6BHcKv4th/xb3aWKp6PUmnR4Vmj5G18yTS15r4l6FGiiD1hTHdJZp?=
- =?us-ascii?Q?E40D+wiH/dDgVy1HPkBi1Emoq0AHV0dH7jeVn98mhRKl3zoluzyxYob8QwAf?=
- =?us-ascii?Q?6M5qU+GQrAg5r6Vd1tr3oy4rjMvLqW0EWpQPKkTpTJiC7ZhKLDd2aag49/VO?=
- =?us-ascii?Q?YsVhsZ76rdKnrkgyYVo8N4EX+Y9HM4FsfNZOoxd2KBVpQFOpsKzf/FsVCiFl?=
- =?us-ascii?Q?XogwsW4SjXp6NwqCL4RNiyUhZRjkURyG77lTl3iE45Lblk+U982FKo55NYAA?=
- =?us-ascii?Q?cme7eeQHZWrrI6E51TgCGISp3TmtuQcWjGk8aQkV/wbh1S0xePbTLDBsumBk?=
- =?us-ascii?Q?C0NsDSgF35yLrm9PsfZZbIjoTpaBxoIWi3tTyguyezr+8PXowKPqhU0PcOgT?=
- =?us-ascii?Q?SzI7c771nUaQ43QT+YMhpTh9V04yCGwEVRD3WvN4Lb0v7Cq46X/2MuIJogpu?=
- =?us-ascii?Q?Vqyw6MV/136+aNLrqvh5VOtttbBBcZu3ZG+W9ZmlShBNboktqQreqC9W6u8q?=
- =?us-ascii?Q?yFPR+7xKFMG/kwi3/ao1CrAs3fCRM/tik64dlB60IQxozA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR10MB5409.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|366016|1800799024|13003099007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?dThPc3Zpbi9kaEw2aDJhdUlDY3JiajdzekUyb2w2L0VkaDZtZ1ZkRk1XcHZQ?=
+ =?utf-8?B?U0VBOHFQZThIWG0vT2FDaUNjWDZoc0g2dkpjMGZWa1VLN25NdmxQSW53Mnds?=
+ =?utf-8?B?aFMyNncvV3Z6aEgvNGJRUzJMKzl5aTQzQkNKazY4emFXR1J4TDJVaThzTU9N?=
+ =?utf-8?B?cjg0Z3NyZHZsVDkycXNibXRlbldxL2trM3R0WmJIbmRFUWxhRmpCU2FZUEV5?=
+ =?utf-8?B?cllmTnBKNW9NYTV0UDQxeUNjSmNtbXRpdmVXYUJKemoyTHR0Y3pYUGwyRVl6?=
+ =?utf-8?B?V0NweVZTNXRpNTgrb2F4eVlVa0dlR0pKejR0ZTd1TWcvQzZHVmlsclpQVFpw?=
+ =?utf-8?B?YjFOVGJZVUphLzg2S3AzemVoY0NhSDRpUVYyUzM2M1ExNW9KWWc4bnNZb3dr?=
+ =?utf-8?B?R0JpOHVON3E4TlVNWVA1RzQ3TkZqZXZEREhBZzBPaGNwbGdSUDFSQkRSZ3Bn?=
+ =?utf-8?B?OGUzUEVxcEFWQjdST2VnRSs0VU4xVW0wc0xvaW1OVGc5OWhRWkdMYTNzWTZK?=
+ =?utf-8?B?NDdYMUZrOTF3R2w5a0hGNEpmSGozdU9laVgwN2RudGhCYm5LTjRHWjdqdkFk?=
+ =?utf-8?B?K09qdk11c3dna3JhZVFQbmkwZHNXZ2FOL0t4NC8yK1FBVDVvVUNlalVDL1JT?=
+ =?utf-8?B?RndxemJvZ3Fhcld1VVJFa2xDWHE5NkJjOUwrL3dyQ1ZVUlVoRFhWNEVkcjhL?=
+ =?utf-8?B?Nkl6dFRaMmNoNTRtalkvdjB1M0d0YmVZT2l6YUdjSmlYUHZ4aitFcjJJTno3?=
+ =?utf-8?B?NWU4YjRKVzhJdmpWSGxaTmZsRUVSRm1vTzZrSFJYQllNcE81UmZOSWk2N2E0?=
+ =?utf-8?B?REhBQkp0V2xoYnd6ejl0UmxLMGx3MFp2LzVvR1I0SnlYS3pJVGR4Zy9FaWpr?=
+ =?utf-8?B?YzZzRmZpVUhVQjBQc2pKdEVXc1hCQkhLT0JSTnpvc3JGaUE4bkNIOXFHMHFN?=
+ =?utf-8?B?SkdhbXFVV054aDFIcVJ0c0dhZVBXdVE2eG1ZcmpyOGVrcnpORHpOK2pocFRj?=
+ =?utf-8?B?UGxDWGoxSGxUd0NGdkFPOE8zcDk2RmxoVm9qbDBQT3NOWGxFR0FNWnFBdXBx?=
+ =?utf-8?B?MC9jaUFqeS9LbmM0NFZGTEM3dmNMMW4xd2xxdlcvSDlTcGcwTTkyaytLZFVn?=
+ =?utf-8?B?YmxSRVlXankvall1bFo5eDVOalNLN0xFdUhoclZTRkQyTHoweUZvY1ZFZFR2?=
+ =?utf-8?B?dGRVdXhKYXltYWVpcXBNUG5BQzZaazZJZVJRaXArSFVMSXpLbm1wcXVkeW1E?=
+ =?utf-8?B?TmlxZzlZYW1rWWVRTS9ieUVaaGF3WTNiNHFvUXkxUUxjeU1HZDE5YVFxRGU1?=
+ =?utf-8?B?NGhDR0lzelVuWmc5ek5MUktCbDR0S3dvUjNpdGlKRHFhWFFSTnV3TW1Ed2Rw?=
+ =?utf-8?B?Z1BQMU1NV05HNUg1cDN0MHhvbXVTUFJxRGNhRFI0VVViU1FNWHVxNUl6bFRY?=
+ =?utf-8?B?eFYybkpHN0Q1Q0lEdWp1TE1sVFV5SkpNczVPVVE1RVF2QzEyMkVpM3VjM0lh?=
+ =?utf-8?B?Y2krUGVDcFliUHhOYmZuV3czV3JmR2pnV0gzQWhtWFl6R1kyZDhmRUNIMjA3?=
+ =?utf-8?B?Q2J5ajdqT0lnb2ZzcW90b00ya3hBNkNmUmxicjZaRlVhMS9EcFJ6akFieklw?=
+ =?utf-8?B?bUxIS0M5R0Qwb2s4SVZKMzVKaDdjcExXQ05ZWEVhYUYxbGpVbDd3bWZYdUpx?=
+ =?utf-8?B?NTBWVEgyWDY5c1RQVDJJMkxZcm1uUmlQakpLVWhiRzE0d2tMMTVOaGtOZENo?=
+ =?utf-8?B?ZFlub1BOa1NSMEZMZlUweDNoTEoyTXpJb0F6bmR3bzhpUndWd2JqVzYyVS9a?=
+ =?utf-8?B?ZGdiNEdYYWM1WDBpa3VXdG8zVzMyNU5IY0hYQ3F1MitOc280MGY2Mk1LTDEv?=
+ =?utf-8?B?YTlzWFNOVzhKOStHZThCUkFySm0xbTZiWFJnWUpBUk1EOHc9PQ==?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(366016)(1800799024)(13003099007)(38350700014);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bHgSNnvGPuqgKDlqWtrO0FU6zlJq4QtVWwpQFp9qTWjL0NnboCqR1neJJsDJ?=
- =?us-ascii?Q?E/6jRkJ6P8jNN0kFsZTexE3bLxKcnBgcn0MV5k6J3YCWRqhwyREZ4QDjvxZT?=
- =?us-ascii?Q?2rd+3qP+SOohr+Axbzm9T/rgj1uB1+3crAWVjVIZL2Z/Rda7ysUN0+YOpuZS?=
- =?us-ascii?Q?BfhesqwWNg22gT4oo/sVuW0UbTjtPm+VI3dlvYo2/+Kkfv0mPlqF6JAJxXw0?=
- =?us-ascii?Q?Y+gb/aSkcd+PdakUaLTT7kz3qE/4oHH4i67a/RMkr3yzrcaBmB8BA1M4KwgI?=
- =?us-ascii?Q?BVQZ0sNXXe4Sm51sWwQOlRJ/5DuiCOW16c2gM3YfRNBHDnpAgyoa2X+ILjf6?=
- =?us-ascii?Q?+hJAOLb6cay38KnzhovLjpcj1Ynqv3qQ9eGMR41KmKBoad7yzjTiPli6r68Z?=
- =?us-ascii?Q?M+xEznqGU1OJhPy5Yo52ZZUi/S/R+MUgpfW8Ki6LJzoGioqSmeAdQFz9hPRb?=
- =?us-ascii?Q?By9SEzh5ea6/bi/kcs+D0tHdzFVo9Mj1jaRbELET1fORhiFbhDSKzvB3OAOC?=
- =?us-ascii?Q?qEI53Uaf2meUJttbj7vynx10y9A2j8Z3B4PP1bH7dn+YREWlSRQb16nzHlaM?=
- =?us-ascii?Q?wl8OkhJ8Sk8jjYAjKSIGdqUqvZvpkYfvp4hdN43ZH28Z4xx7X/uOogEH+gI/?=
- =?us-ascii?Q?YSbpIlevhRb6Ps3h4EOnjHMWjQmjHk3WuROay8XpXYh+oFfq9Z3gujzHUOuH?=
- =?us-ascii?Q?OERQYRk7t4ArOzCmYssfUYu5B5Zu1LMxnnS0tQp2JIWQ9o3usDLogNaxbSk2?=
- =?us-ascii?Q?VTVKqWD9mK/wAQotaz/T96ZeYnJpHdT+romHlB63ltx6iSQmGgTFqI+WhRHj?=
- =?us-ascii?Q?ZVnYHMe8kk7veDIKyNEXVnmVfU/LK5JgK1o1CehEMWfjyWZ8fb1My/b6hlh0?=
- =?us-ascii?Q?SRONKKWjTbIXcgyvvdaa0Tbo0+NIEiCGYh8n9xqoIZWO9uhBoRY4PhNRXUjc?=
- =?us-ascii?Q?8CxA7dXFEsdBpNeRLYr3nLSSk7e56EFM/wdUcLAlfqQctQCoTci9LYXtlCoY?=
- =?us-ascii?Q?ctitiieRIW/nxVxRxP3vef4hRnzV2RKnmH+ABbhMnnQ1aOIf5sI4MM8dCJin?=
- =?us-ascii?Q?u/f8Bliv4eUFEwFO/pj78062F1FNTXFIff3gyjcgtPMxO75VSiOUzdZQj4DJ?=
- =?us-ascii?Q?3e1Rc7bgunuZJIE9ZSSkEVWKvGLWipmpNq0Kk0K4h6dRxFvj/Xrk3IPy/rB5?=
- =?us-ascii?Q?fycAZZffxPB+mZ6hY6PsBYaJJw2cq71fY24YFS2XxipDhwgG58KCLeKclzlo?=
- =?us-ascii?Q?LvvgUBKJytw8rAXjmGS4TH9UNrEEb0IqBC46DPPBvenwtQtPjmx9mbyAa7JD?=
- =?us-ascii?Q?FZF78msUUp547vNkD9bz34riKAYtSOfzicW+zJ630XSwqRrwyyO4CwcvS3rT?=
- =?us-ascii?Q?016Au0GFQEwLzkWXB8tswpbpLkPKzATofl5o9TbB1bBPok4p2qlaxYIoha0g?=
- =?us-ascii?Q?pZfOL7g9Nz9rE34fuyKi8bYBh68Pamtuhmn1QCJm+OpcTDd7YXbFvaSyboCi?=
- =?us-ascii?Q?w7b8UmFJBnWDYePwi4oHZ0pPkIjzLEx3tZtVn4oBiZY8ImnKqdCeNUu/Hba9?=
- =?us-ascii?Q?z36aYq+53j3RTeEEvXat4/OiBqXtgyH5kcK0BJ5LX2MMrJFNp5YEPgdT1p0E?=
- =?us-ascii?Q?3A=3D=3D?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: eqnzNMzoUeaBXaJoVlicfm8/TAhuWtnkQQaWxZx07Bh5GAwxhqivLH2hlhC88loeiEzcpG/nNEdvcqIuFGTNKAycYx6jgFxQRp4McE9W1OiFmx+8EATt671vBaFN8PoHRVhGv2UAQ7bCjTMkSXuqZgbHNihPw3TR3Nj9lcuERczNHfYh5JUhZ2g2U6tVZYDMGYusQdq5ajifZmQrDsfxFfMF/Pf7MjTxE35oCY5JjxgA0Ayjb/ThwxLVZAxberpR8mIPA3uw0+g/nsipG5anRMUeR0XjIEInVzpr4d6KC45Pkq0AUDG+sL87VlzcGBx8rWXYhdGZ3snq/7wyg3zoPPv7swgGSXDTlMgxDeI54PjwMmG4k3L3wdY+Z/wlKGqDvbBix8oxbk++JaL5YeDs4oPf7t+hQm/EDmoRmyyKhk/Fpgx7IsJyREs9tt9H7SmQAOucsg2mwPWRPEy6ymwxecV1vBRrvZmnp068PqW8kRA6gSguwwJO9dcyLbNkI3OBuQa5DzO54FtGp3OadNvyvprRmA1dMjuJN+VqYE8nKnpUAeoknnyQriRUtB27P+UoN0i0+B7zMT3CFnt1qH+bKLUQ3+W3RB40fh7li/CqYF8=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3e8417c4-de8c-4fcf-e4de-08dd399747f6
-X-MS-Exchange-CrossTenant-AuthSource: CO6PR10MB5409.namprd10.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TkJWbk8rS3FFZU4zSlFqakRYUStEUVF2RHVCWFlITzV2Sm50UDlOdndQYjlP?=
+ =?utf-8?B?d3JDdU5mMmtBZWpWREtGVGllNWRCZ1NXa1M0UXVKZFcyall0MkhlbUg0VWx0?=
+ =?utf-8?B?enlxTzNCZ3dFUDh2M29hdmJEdXpPRCsxbWF2M1pqa2tINGs3TGE1TWlETVBH?=
+ =?utf-8?B?VFpPdzlScW16ejU0TW5mandKZlhwWmMyZzM5elhpNEtpaTdqRnBHb1V5ck1m?=
+ =?utf-8?B?ZlNBdWlFZlVPV0lESDZLSThqRWxlUmRIajF2V245WEp5ck11cFJyUE1pZWhE?=
+ =?utf-8?B?MEE0anR1T2FwYkJJWFNncnlwVUc3L0xiQlZxd29PYUVVdlRMa0xHWUxocjly?=
+ =?utf-8?B?R2VtKzhPRmpkVnFkaHZsMS85ODR2T3NxaHdCV1M1S0p6QlJJYVFKbHNLVzBF?=
+ =?utf-8?B?SVVXR3R2VlpnQ212YnNpREpSdnJndXFFeUVuUHA0ZVJkS2o5TU9ORTM0NnBR?=
+ =?utf-8?B?dlZTRkU0UFVJczZZQTBaMjRDekduN21VZWowVEk2NDNpM0MzdDVOOTdpQlAx?=
+ =?utf-8?B?aVNBekpxcEdTdTBQYjAvQ1kxbFBSalNUNFFuTkRSaGFQakxtQ3N3Zkh0UDdh?=
+ =?utf-8?B?cGFsaWNDVjNMN0dQMWIzaU5rREpCdjhrK1VQZ0thVVFOK2Y4YVdVMUF3emVR?=
+ =?utf-8?B?Y050OThEdnp0R0hUYXpUU1I2aG95NmNxb2NVOG5wMXBEZ01hUVQ3UTdJY043?=
+ =?utf-8?B?MjFHZ3d4Smo0MkEwVFU2bmhySy9rRCtPMWpWZS9icnVGWUlSTHd0QVFNdlpD?=
+ =?utf-8?B?ZUpZY2ovWnBmV25iZXYxV3crbjVZZCtBbkNQOS9obnZSYmIwcVZ6bVp3Y0xF?=
+ =?utf-8?B?aUYrU1pMTy84MitjTzVGRGdseERzQzk3cTZmRzJDNmVpUUJpYXNtQno4SWJs?=
+ =?utf-8?B?c0laQ2puMkdBbE9XblBZYXlZcjdkdHV1SDh4ZVZyajFIeWpORFZYOVNqOGhr?=
+ =?utf-8?B?NDRRLzNSMXhTYkx2TTZmbHNNc0w3cUV6L2lVUUpmVk5wUVBveW5POWhQRmZR?=
+ =?utf-8?B?OVJ6bEthbW9LbmxCMEdtY2c1NnlPY2RwU1JyOVR3Q0V0U2NZWW1YVWVvQlBz?=
+ =?utf-8?B?S0NWTTZ5Zk5CRFJMbWVZdXN1SE05UUlOZ1hTZmMzdEdPNndXcGlNZTlwUjRS?=
+ =?utf-8?B?NDl3dG8xZzdmWENNMlRuUUlQSTNHUCszSE9ERGVHNE9RbmMwZ3pKY3dVWDZr?=
+ =?utf-8?B?UStQK21GSkFvSVpab2dwajFDa1hWekp4eWlBNzlTZnZyd2FFdDJPSDZ3Rmps?=
+ =?utf-8?B?ZHY5ZC9XZkxPRVoydG9TeGZ3UGJsOG92TlVBTVZnQkk5bUo0NGlHUkFzSXJn?=
+ =?utf-8?B?b0I5ejkxcFdCbDRkejBaeUNzZjlCMk50QWptNHpCRkFHejFWS2NjVVp1TVUv?=
+ =?utf-8?B?d2R4ZW9iczI3cHFJVGlhUkIvQ3dCOUVqeW9PbWx2NThQcDBOK0JiZTA0dmZM?=
+ =?utf-8?B?WmRFMUgrTktyRGdPSUxQeVNYYkpKMzJYZ2xUb05HYTVFaURLYzBFcnQ0WkxX?=
+ =?utf-8?B?TndhTk1JNDZsN3NKVHZRd2JkRkQyUHZlK0dNQlNHalRGMjJNUTZreG8vcG9w?=
+ =?utf-8?B?K01XYldMVStrRXp1ZFhPSnZtcWw2bnErVUF1bjlQMko3MmpHMGFEbStwRE9u?=
+ =?utf-8?B?b2N1cGs2RFpicW5yUDYrR0NyblU1b3kyUnNRR1dlZGxSMTB5aG5qSEtISURX?=
+ =?utf-8?B?Nk9kUHRuOW9SK1FRcUM0ZHdjc284ZzNsODU2bDJTdTRYUFI1b3J2ZnZZczB1?=
+ =?utf-8?B?Ym9pZGdSVXp5M1Z2MGk1T0liam9HOWU2aVZLbFRtK2xOM2swZmh3bVdFM1pH?=
+ =?utf-8?B?YXd4YmRRVlViVXJjcXZlckk5T01ib1lGQmVpODBvemFOR0FMMkQrSGtucGk2?=
+ =?utf-8?B?enhxZWVJWlJlTS80T01FcXA0anBlM1pLdDR5cVExaWNNTFZVRnZRQ21sZEtB?=
+ =?utf-8?B?cmN1L0hjUnFXWUs3MVFlVzBPRUJNMFZvSFBZOGRBdTRXc2xtaitESEVEYm5D?=
+ =?utf-8?B?KzE1ckZQS0tqWVZqU3Q0eHBnQzNsUjFvbUxzRlUzMkZpQ1NIQ0NWbXdGNUZN?=
+ =?utf-8?B?TWZyMGhXcDlwcGRId08xeGV1cTlURDZVVEdMa2JPVTJqMHBRTmJHV1VlMGpi?=
+ =?utf-8?Q?BpFM=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 68d96c27-e4c8-4f89-57f6-08dd3998487f
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jan 2025 21:13:26.9943
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jan 2025 21:20:37.3428
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: efkNbzUfqRMvQDznKVLb5DhnVL7Uuhz62HAayGlUMEmOjlkStU3MjT7HswRozahrcvea+APhzPSq6ZIDB82dmJy5r21oHiYy8meaxM005S8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR10MB4164
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-01-20_06,2025-01-20_03,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxlogscore=999 malwarescore=0
- adultscore=0 suspectscore=0 mlxscore=0 spamscore=0 phishscore=0
- bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2411120000 definitions=main-2501200173
-X-Proofpoint-ORIG-GUID: NEJPyvhrRhTQ73SsZuZL6cGEDTIdLa5d
-X-Proofpoint-GUID: NEJPyvhrRhTQ73SsZuZL6cGEDTIdLa5d
+X-MS-Exchange-CrossTenant-UserPrincipalName: dlA1fbfZz79vg1l0K0DYO+YPLkxjZraM8hPdsxIoZj39XdBn9hGvCWBlf38Ktb9OvXGO/3fVhFW67fgQxG1nIw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7338
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_131429_858880_8A1AF885 
-X-CRM114-Status: GOOD (  24.70  )
+X-CRM114-CacheID: sfid-20250120_132046_937336_ECDAC425 
+X-CRM114-Status: GOOD (  33.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -197,234 +189,341 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jan 13, 2025 at 11:11:22AM -0500, Frank Li wrote:
+> On Mon, Jan 06, 2025 at 01:20:17PM -0500, Frank Li wrote:
+> > On Mon, Jan 06, 2025 at 05:13:10PM +0000, Marc Zyngier wrote:
+> > > On Mon, 06 Jan 2025 16:38:02 +0000,
+> > > Frank Li <Frank.li@nxp.com> wrote:
+> > > >
+> > > > On Thu, Dec 19, 2024 at 12:02:02PM -0500, Frank Li wrote:
+> > > > > On Thu, Dec 19, 2024 at 10:52:30AM +0000, Marc Zyngier wrote:
+> > > > > > On Wed, 18 Dec 2024 23:08:39 +0000,
+> > > > > > Frank Li <Frank.Li@nxp.com> wrote:
+> > > > > > >
+> > > > > > >            ┌────────────────────────────────┐
+> > > > > > >            │                                │
+> > > > > > >            │     PCI Endpoint Controller    │
+> > > > > > >            │                                │
+> > > > > > >            │   ┌─────┐  ┌─────┐     ┌─────┐ │
+> > > > > > > PCI Bus    │   │     │  │     │     │     │ │
+> > > > > > > ─────────► │   │Func1│  │Func2│ ... │Func │ │
+> > > > > > > Doorbell   │   │     │  │     │     │<n>  │ │
+> > > > > > >            │   │     │  │     │     │     │ │
+> > > > > > >            │   └──┬──┘  └──┬──┘     └──┬──┘ │
+> > > > > > >            │      │        │           │    │
+> > > > > > >            └──────┼────────┼───────────┼────┘
+> > > > > > >                   │        │           │
+> > > > > > >                   ▼        ▼           ▼
+> > > > > > >                ┌────────────────────────┐
+> > > > > > >                │    MSI Controller      │
+> > > > > > >                └────────────────────────┘
+> > > > > > >
+> > > > > > > Add domain DOMAIN_BUS_DEVICE_PCI_EP_MSI to allocate MSI domain for Endpoint
+> > > > > > > function in PCI Endpoint (EP) controller, So PCI Root Complex (RC) can
+> > > > > > > write MSI message to MSI controller to trigger doorbell IRQ for difference
+> > > > > > > EP functions.
+> > > > > > >
+> > > > > > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > > > > > > ---
+> > > > > > > change from v12 to v13
+> > > > > > > - new patch
+> > > > > >
+> > > > > > This might be v13, but after all this time, I have no idea what you
+> > > > > > are trying to do. You keep pasting this non-ASCII drawing in commit
+> > > > > > messages, but I still have no idea what this PCI Bus Doorbell
+> > > > > > represents.
+> > > > >
+> > > > > PCI Bus/Doorbell is two words. Basic over picture is a PCI EP devices (such
+> > > > > as imx95), which run linux and PCI Endpoint framework. i.MX95 connect to
+> > > > > PCI Host, such as PC (x86).
+> > > > >
+> > > > > i.MX95 can use standard PCI MSI framework to issue a irq to X86. but there
+> > > > > are not reverse direction. X86 try write some MMIO register ( mapped PCI
+> > > > > bar0). But i.MX95 don't know it have been modified. So currently solution
+> > > > > is create a polling thread to check every 10ms.
+> > > > >
+> > > > > So this patches try resolve this problem at the platform, which have MSI
+> > > > > controller such as ITS.
+> > > > >
+> > > > > after this patches, i.MX95 can create a PCI Bar1, which map to MSI
+> > > > > controller register space,  when X86 write data to Bar1 (call as doorbell),
+> > > > > a irq will be triggered at i.MX95.
+> > > > >
+> > > > > Doorbell in diagram means 'push doorbell' (write data to bar<n>).
+> > > > >
+> > > > > >
+> > > > > > I appreciate the knowledge shortage is on my end, but it would
+> > > > > > definitely help if someone would take the time to explain what this is
+> > > > > > all about.
+> > > > >
+> > > > > I am not sure if diagram in corver letter can help this, or above
+> > > > > descriptions is enough.
+> > > > >
+> > > > >
+> > > > > ┌────────────┐   ┌───────────────────────────────────┐   ┌────────────────┐
+> > > > > │            │   │                                   │   │                │
+> > > > > │            │   │ PCI Endpoint                      │   │ PCI Host       │
+> > > > > │            │   │                                   │   │                │
+> > > > > │            │◄──┤ 1.platform_msi_domain_alloc_irqs()│   │                │
+> > > > > │            │   │                                   │   │                │
+> > > > > │ MSI        ├──►│ 2.write_msi_msg()                 ├──►├─BAR<n>         │
+> > > > > │ Controller │   │   update doorbell register address│   │                │
+> > > > > │            │   │   for BAR                         │   │                │
+> > > > > │            │   │                                   │   │ 3. Write BAR<n>│
+> > > > > │            │◄──┼───────────────────────────────────┼───┤                │
+> > > > > │            │   │                                   │   │                │
+> > > > > │            ├──►│ 4.Irq Handle                      │   │                │
+> > > > > │            │   │                                   │   │                │
+> > > > > │            │   │                                   │   │                │
+> > > > > └────────────┘   └───────────────────────────────────┘   └────────────────┘
+> > > > > (* some detail have been changed and don't affect understand overall
+> > > > > picture)
+> > > > >
+> > > > > >
+> > > > > > From what I gather, the ITS is actually on an end-point, and get
+> > > > > > writes from the host, but that doesn't answer much.
+> > > > >
+> > > > > Yes, baisc it is correct. PCI RC -> PCIe Bus TLP -> PCI Endpoint Ctrl ->
+> > > > > AXI transaction -> ITS MMIO map register -> CPU IRQ.
+> > > > >
+> > > > > The major problem how to distingiush from difference PCI Endpoint function
+> > > > > driver. There are have many EP functions as much as 8, which quite similar
+> > > > > standard PCI, one PCIe device can have 8 physical functions.
+> > > > >
+> > > > > >
+> > > > > > > ---
+> > > > > > >  drivers/irqchip/irq-gic-v3-its-msi-parent.c | 19 ++++++++++++++++++-
+> > > > > > >  1 file changed, 18 insertions(+), 1 deletion(-)
+> > > > > > >
+> > > > > > > diff --git a/drivers/irqchip/irq-gic-v3-its-msi-parent.c b/drivers/irqchip/irq-gic-v3-its-msi-parent.c
+> > > > > > > index b2a4b67545b82..16e7d53f0b133 100644
+> > > > > > > --- a/drivers/irqchip/irq-gic-v3-its-msi-parent.c
+> > > > > > > +++ b/drivers/irqchip/irq-gic-v3-its-msi-parent.c
+> > > > > > > @@ -5,6 +5,7 @@
+> > > > > > >  // Copyright (C) 2022 Intel
+> > > > > > >
+> > > > > > >  #include <linux/acpi_iort.h>
+> > > > > > > +#include <linux/pci-ep-msi.h>
+> > > > > > >  #include <linux/pci.h>
+> > > > > > >
+> > > > > > >  #include "irq-gic-common.h"
+> > > > > > > @@ -173,6 +174,19 @@ static int its_pmsi_prepare(struct irq_domain *domain, struct device *dev,
+> > > > > > >  	return its_pmsi_prepare_devid(domain, dev, nvec, info, dev_id);
+> > > > > > >  }
+> > > > > > >
+> > > > > > > +static int its_pci_ep_msi_prepare(struct irq_domain *domain, struct device *dev,
+> > > > > > > +				  int nvec, msi_alloc_info_t *info)
+> > > > > > > +{
+> > > > > > > +	u32 dev_id;
+> > > > > > > +	int ret;
+> > > > > > > +
+> > > > > > > +	ret = pci_epf_msi_domain_get_msi_rid(dev, &dev_id);
+> > > > > >
+> > > > > > What this doesn't express is *how* are the writes conveyed to the ITS.
+> > > > > > Specifically, the DevID is normally sampled as sideband information at
+> > > > > > during the write transaction.
+> > > > >
+> > > > > Like PCI host, there msi-map in dts file, which descript how map PCI RID
+> > > > > to DevID, such as
+> > > > > 	msi-map = <0 $its 0x80 8>;
+> > > > >
+> > > > > This informtion should be descripted in DTS or ACPI ...
+> > > > >
+> > > > > >
+> > > > > > Obviously, you can't do that over PCI. So there is a lot of
+> > > > > > undisclosed assumption about how the ITS is integrated, and how it
+> > > > > > samples the DevID.
+> > > > >
+> > > > > Yes, it should be platform PCI endpoint ctrl driver jobs.  Platform EP
+> > > > > driver should implement this type of covert. Such as i.MX95, there are
+> > > > > hardware call LUT in PCI ctrl,  which can convert PCI' request ID to DevID
+> > > > > here.
+> > > > >
+> > > > > On going patch may help understand these
+> > > > > https://lore.kernel.org/linux-pci/20241210-imx95_lut-v8-0-2e730b2e5fde@nxp.com/
+> > > > >
+> > > > > If use latest ITS MSI64 should be simple, only need descript it at DTS
+> > > > > (I have not hardware to test this case yet).
+> > > > > pci-ep {
+> > > > > 	...
+> > > > > 	msi-map = <0 &its, 0x<8_0000, 0xff>;
+> > > > > 			      ^, ctrl ID.
+> > > > > 	msi-mask = <0xff>;
+> > > > > 	...
+> > > > > }
+> >
+> > Bookmark 1
+> >
+> > > > >
+> > > > > >
+> > > > > > My conclusion is that this is not as generic as it seems to be. It is
+> > > > > > definitely tied to implementation-specific behaviours, none of which
+> > > > > > are explained.
+> > > > >
+> > > > > Compared to standard PCI MSI, which also have implementation-specific
+> > > > > behaviours, which convert PCI request ID to DevID Or stream ID.
+> > > > > https://lore.kernel.org/linux-pci/20241210-imx95_lut-v8-0-2e730b2e5fde@nxp.com/
+> > > > > (I have struggle this for almost one year for this implementation-specific
+> > > > > part)
+> > > > >
+> > > > > Well defined and mature PCI standard, MSI still need two parts, common part
+> > > > > and "implementation-specific" part.
+> > > > >
+> > > > > Common part of standard PCI is at several place, such its driver/msi
+> > > > > libary/ kernel msi code ...
+> > > > >
+> > > > > "implementation-specific" part is in PCI host bridge driver, such as
+> > > > > drivers/pci/controller/dwc/pcie-qcom.c
+> > > > >
+> > > > > This solution already test by Tested-by: Niklas Cassel <cassel@kernel.org>
+> > > > > who use another dwc controller, which they already implemented
+> > > > > "implementation-specific" by only update dts to provide hardware
+> > > > > information.(I guest he use ITS's MSI64)
+> > > > >
+> > > > > Because it is new patches, I have not added Niklas's test-by tag. There
+> > > > > are not big functional change since Nikas test. The major change is make
+> > > > > msi part better align current MSI framework according to Thomas's
+> > > > > suggestion.
+> > > >
+> > > > Thomas Gleixner and Marc Zyngier:
+> > > >
+> > > > Happy new year! Do you have additioinal comments for this?
+> > >
+> > > I think this is pretty pointless.
+> > >
+> > > - DOMAIN_BUS_DEVICE_PCI_EP_MSI is just a reinvention of platform MSI,
+> > >   and I don't see why we need to have *two* square wheels
+> >
+> > "DOMAIN_BUS_DEVICE_PCI_EP_MSI" was purposed by Thomas Gleixner.
+> > https://lore.kernel.org/linux-pci/87o7197wbx.ffs@tglx/, the difference
+> > is
+> > - "platform MSI" only have one device id for each device. But
+> > DOMAIN_BUS_DEVICE_PCI_EP_MSI have multi child devices, which need map to
+> > difference devices id.
+> >
+> > If you like, I can try to extend "platform msi" to support msi-map. But
+> > The other problem "immutable MSI messages" need be resolve also.
+> >
+> > PCIe EP require "immutable MSI messages". address/data pair can't be change
+> > by set irq affinity.
+> >
+> > >
+> > > - The whole thing relies on IMPDEF behaviours that are not described,
+> > >   making it impossible to write a *host* driver that works
+> > >   universally.
+> >
+> > Host side need NOT know EP's side IMPDEF behaviours. Host side just know
+> > addr/data pair.  *(BAR<n> + offset) = DATA (in RC side) will trigger
+> > doorbell.
+> >
+> > "AXI user bits" concern see below book mark axi.
+> >
+> > > Specifically, you completely ignored my comment about
+> > >   *how* is the DevID sampled on the ITS side.
+> >
+> > See above "book mark 1", let me change another words, descript again,
+> >
+> > It is quite similar with PCI root complex case.
+> >
+> > In PCI RC's dts, it looks:
+> >
+> > pci {
+> > 	...
+> > 	msi-map = <0 &its, 0x<8_0000, 0xff>;
+> > 	                      ^, ctrl ID.
+> > 	...
+> > }
+> >
+> > ITS call pci_msi_domain_get_msi_rid() to get device id.
+> >
+> > static int its_pci_msi_prepare(struct irq_domain *domain, struct device *dev,
+> >                                int nvec, msi_alloc_info_t *info)
+> > {
+> > 	...
+> >         info->scratchpad[0].ul = pci_msi_domain_get_msi_rid(domain->parent, pdev);
+> > 	...
+> > }
+> >
+> > PCI msi common code call __of_msi_map_id() to convert PCI rid to stream id
+> > from dts file.  It should have similar method if device have not use DT.
+> >
+> > --- EP case (Run at EP side) ---
+> >
+> > for my patches, it do similar thing, in dts, PCI EP controller
+> >
+> > pci-ep {
+> > 	msi-map = <0 &its, 0x<8_0000, 0xff>;
+> > 	msi-mask = <0xff>;
+> > }
+> >
+> > static int its_pci_ep_msi_prepare(struct irq_domain *domain, struct device *dev,
+> > 				  int nvec, msi_alloc_info_t *info)
+> > {
+> >
+> > ....
+> > 	ret = pci_epf_msi_domain_get_msi_rid(dev, &dev_id);
+> > ....
+> > }
+> >
+> > PCIe EP common part will convert EP function device ID to difference device
+> > id according to msi-map in pci-ep node.
+> >
+> > >  How is that supposed to
+> > >   work when the DevID is carried as AXI user bits instead of data? How
+> > >   can the host provide that information?
+> >
+> > book mark AXI:
+> >
+> > Host driver needn't such information. Host write PCI TLP, such as
+> > *ADDR = DATA.
+> >
+> > PCI EP controller get such TLP, which convert to AXI write. PCI EP
+> > controller will add AXI user bits, which was descripted in PCI EP
+> > controller's dts file.
+> >
+> > pci-ep {
+> >         msi-map = <0 &its, 0x<8_0000, 0xff>;
+> > 			      ^ "8" is AXI user bits, which added when
+> > convert TLP to axi write.
+> >
+> > }
+> >
+> > >
+> > > - your "but it's been tested by..." argument doesn't carry much
+> > >   weight, as the kernel has at least one critical bug per "Tested-by"
+> > >   tag
+> >
+> > My means is this solution can cross difference platform with only dts
+> > change.
+> >
+> > >
+> > > Given that, I don't see how this series is fit for purpose.
+> >
+> > sorry for add book mark to refer to difference place in the the mail.
+> >
+> > let me know if need further description.
+> >
+>
+> Marc Zyngier:
+>
+> 	Do you have any chance to read my reply? Does it anwser your
+> question? anything missed or still unclear? How to move forward?
 
-Ankur Arora <ankur.a.arora@oracle.com> writes:
+Marc:
+	Do you have any chance to read my reply?
 
-> This patchset adds support for polling in idle via poll_idle() on
-> arm64.
->
-> There are two main changes in this version:
->
-> 1. rework the series to take Catalin Marinas' comments on the semantics
->    of smp_cond_load_relaxed() (and how earlier versions of this
->    series were abusing them) into account.
+Frank
 
-There was a recent series adding resilient spinlocks which might also have
-use for an smp_cond_load_{acquire,release}_timeout() interface.
-(https://lore.kernel.org/lkml/20250107192202.GA36003@noisy.programming.kicks-ass.net/)
-
-So, unless anybody has any objection I'm planning to split out this
-series into two parts:
-  - adding smp_cond_load_*_timeout() (with an arm64 implementation)
-  - arm64 support for poll_idle() and haltpoll
-
-
-Ankur
-
->    This also allows dropping of the somewhat strained connections
->    between haltpoll and the event-stream.
 >
-> 2. earlier versions of this series were adding support for poll_idle()
->    but only using it in the haltpoll driver. Add Lifeng's patch to
->    broaden it out by also polling in acpi-idle.
+> Frank
 >
-> The benefit of polling in idle is to reduce the cost of remote wakeups.
-> When enabled, these can be done just by setting the need-resched bit,
-> instead of sending an IPI, and incurring the cost of handling the
-> interrupt on the receiver side. When running on a VM it also saves
-> the cost of WFE trapping (when enabled.)
->
-> Comparing sched-pipe performance on a guest VM:
->
-> # perf stat -r 5 --cpu 4,5 -e task-clock,cycles,instructions,sched:sched_wake_idle_without_ipi \
->   perf bench sched pipe -l 1000000 -c 4
->
-> # no polling in idle
->
->  Performance counter stats for 'CPU(s) 4,5' (5 runs):
->
->          25,229.57 msec task-clock                       #    2.000 CPUs utilized               ( +-  7.75% )
->     45,821,250,284      cycles                           #    1.816 GHz                         ( +- 10.07% )
->     26,557,496,665      instructions                     #    0.58  insn per cycle              ( +-  0.21% )
->                  0      sched:sched_wake_idle_without_ipi #    0.000 /sec
->
->             12.615 +- 0.977 seconds time elapsed  ( +-  7.75% )
->
->
-> # polling in idle (with haltpoll):
->
->  Performance counter stats for 'CPU(s) 4,5' (5 runs):
->
->          15,131.58 msec task-clock                       #    2.000 CPUs utilized               ( +- 10.00% )
->     34,158,188,839      cycles                           #    2.257 GHz                         ( +-  6.91% )
->     20,824,950,916      instructions                     #    0.61  insn per cycle              ( +-  0.09% )
->          1,983,822      sched:sched_wake_idle_without_ipi #  131.105 K/sec                       ( +-  0.78% )
->
->              7.566 +- 0.756 seconds time elapsed  ( +- 10.00% )
->
-> Tomohiro Misono and Haris Okanovic also report similar latency
-> improvements on Grace and Graviton systems (for v7) [1] [2].
-> Lifeng also reports improved context switch latency on a bare-metal
-> machine with acpi-idle [3].
->
-> The series is in four parts:
->
->  - patches 1-4,
->
->     "asm-generic: add barrier smp_cond_load_relaxed_timeout()"
->     "cpuidle/poll_state: poll via smp_cond_load_relaxed_timeout()"
->     "cpuidle: rename ARCH_HAS_CPU_RELAX to ARCH_HAS_OPTIMIZED_POLL"
->     "Kconfig: move ARCH_HAS_OPTIMIZED_POLL to arch/Kconfig"
->
->    add smp_cond_load_relaxed_timeout() and switch poll_idle() to
->    using it. Also, do some munging of related kconfig options.
->
->  - patches 5-7,
->
->     "arm64: barrier: add support for smp_cond_relaxed_timeout()"
->     "arm64: define TIF_POLLING_NRFLAG"
->     "arm64: add support for polling in idle"
->
->    add support for the new barrier, the polling flag and enable
->    poll_idle() support.
->
->  - patches 8, 9-13,
->
->     "ACPI: processor_idle: Support polling state for LPI"
->
->     "cpuidle-haltpoll: define arch_haltpoll_want()"
->     "governors/haltpoll: drop kvm_para_available() check"
->     "cpuidle-haltpoll: condition on ARCH_CPUIDLE_HALTPOLL"
->     "arm64: idle: export arch_cpu_idle"
->     "arm64: support cpuidle-haltpoll"
->
->     add support for polling via acpi-idle, and cpuidle-haltpoll.
->
->   - patches 14, 15,
->      "arm64/delay: move some constants out to a separate header"
->      "arm64: support WFET in smp_cond_relaxed_timeout()"
->
->     are RFC patches to enable WFET support.
->
-> Changelog:
->
-> v9:
->
->  - reworked the series to address a comment from Catalin Marinas
->    about how v8 was abusing semantics of smp_cond_load_relaxed().
->  - add poll_idle() support in acpi-idle (Lifeng Zheng)
->  - dropped some earlier "Tested-by", "Reviewed-by" due to the
->    above rework.
->
-> v8: No logic changes. Largely respin of v7, with changes
-> noted below:
->
->  - move selection of ARCH_HAS_OPTIMIZED_POLL on arm64 to its
->    own patch.
->    (patch-9 "arm64: select ARCH_HAS_OPTIMIZED_POLL")
->
->  - address comments simplifying arm64 support (Will Deacon)
->    (patch-11 "arm64: support cpuidle-haltpoll")
->
-> v7: No significant logic changes. Mostly a respin of v6.
->
->  - minor cleanup in poll_idle() (Christoph Lameter)
->  - fixes conflicts due to code movement in arch/arm64/kernel/cpuidle.c
->    (Tomohiro Misono)
->
-> v6:
->
->  - reordered the patches to keep poll_idle() and ARCH_HAS_OPTIMIZED_POLL
->    changes together (comment from Christoph Lameter)
->  - threshes out the commit messages a bit more (comments from Christoph
->    Lameter, Sudeep Holla)
->  - also rework selection of cpuidle-haltpoll. Now selected based
->    on the architectural selection of ARCH_CPUIDLE_HALTPOLL.
->  - moved back to arch_haltpoll_want() (comment from Joao Martins)
->    Also, arch_haltpoll_want() now takes the force parameter and is
->    now responsible for the complete selection (or not) of haltpoll.
->  - fixes the build breakage on i386
->  - fixes the cpuidle-haltpoll module breakage on arm64 (comment from
->    Tomohiro Misono, Haris Okanovic)
->
-> v5:
->  - rework the poll_idle() loop around smp_cond_load_relaxed() (review
->    comment from Tomohiro Misono.)
->  - also rework selection of cpuidle-haltpoll. Now selected based
->    on the architectural selection of ARCH_CPUIDLE_HALTPOLL.
->  - arch_haltpoll_supported() (renamed from arch_haltpoll_want()) on
->    arm64 now depends on the event-stream being enabled.
->  - limit POLL_IDLE_RELAX_COUNT on arm64 (review comment from Haris Okanovic)
->  - ARCH_HAS_CPU_RELAX is now renamed to ARCH_HAS_OPTIMIZED_POLL.
->
-> v4 changes from v3:
->  - change 7/8 per Rafael input: drop the parens and use ret for the final check
->  - add 8/8 which renames the guard for building poll_state
->
-> v3 changes from v2:
->  - fix 1/7 per Petr Mladek - remove ARCH_HAS_CPU_RELAX from arch/x86/Kconfig
->  - add Ack-by from Rafael Wysocki on 2/7
->
-> v2 changes from v1:
->  - added patch 7 where we change cpu_relax with smp_cond_load_relaxed per PeterZ
->    (this improves by 50% at least the CPU cycles consumed in the tests above:
->    10,716,881,137 now vs 14,503,014,257 before)
->  - removed the ifdef from patch 1 per RafaelW
->
-> Please review.
->
-> [1] https://lore.kernel.org/lkml/TY3PR01MB111481E9B0AF263ACC8EA5D4AE5BA2@TY3PR01MB11148.jpnprd01.prod.outlook.com/
-> [2] https://lore.kernel.org/lkml/104d0ec31cb45477e27273e089402d4205ee4042.camel@amazon.com/
-> [3] https://lore.kernel.org/lkml/f8a1f85b-c4bf-4c38-81bf-728f72a4f2fe@huawei.com/
->
-> Ankur Arora (10):
->   asm-generic: add barrier smp_cond_load_relaxed_timeout()
->   cpuidle/poll_state: poll via smp_cond_load_relaxed_timeout()
->   cpuidle: rename ARCH_HAS_CPU_RELAX to ARCH_HAS_OPTIMIZED_POLL
->   arm64: barrier: add support for smp_cond_relaxed_timeout()
->   arm64: add support for polling in idle
->   cpuidle-haltpoll: condition on ARCH_CPUIDLE_HALTPOLL
->   arm64: idle: export arch_cpu_idle
->   arm64: support cpuidle-haltpoll
->   arm64/delay: move some constants out to a separate header
->   arm64: support WFET in smp_cond_relaxed_timeout()
->
-> Joao Martins (4):
->   Kconfig: move ARCH_HAS_OPTIMIZED_POLL to arch/Kconfig
->   arm64: define TIF_POLLING_NRFLAG
->   cpuidle-haltpoll: define arch_haltpoll_want()
->   governors/haltpoll: drop kvm_para_available() check
->
-> Lifeng Zheng (1):
->   ACPI: processor_idle: Support polling state for LPI
->
->  arch/Kconfig                              |  3 ++
->  arch/arm64/Kconfig                        |  7 +++
->  arch/arm64/include/asm/barrier.h          | 62 ++++++++++++++++++++++-
->  arch/arm64/include/asm/cmpxchg.h          | 26 ++++++----
->  arch/arm64/include/asm/cpuidle_haltpoll.h | 20 ++++++++
->  arch/arm64/include/asm/delay-const.h      | 25 +++++++++
->  arch/arm64/include/asm/thread_info.h      |  2 +
->  arch/arm64/kernel/idle.c                  |  1 +
->  arch/arm64/lib/delay.c                    | 13 ++---
->  arch/x86/Kconfig                          |  5 +-
->  arch/x86/include/asm/cpuidle_haltpoll.h   |  1 +
->  arch/x86/kernel/kvm.c                     | 13 +++++
->  drivers/acpi/processor_idle.c             | 43 +++++++++++++---
->  drivers/cpuidle/Kconfig                   |  5 +-
->  drivers/cpuidle/Makefile                  |  2 +-
->  drivers/cpuidle/cpuidle-haltpoll.c        | 12 +----
->  drivers/cpuidle/governors/haltpoll.c      |  6 +--
->  drivers/cpuidle/poll_state.c              | 27 +++-------
->  drivers/idle/Kconfig                      |  1 +
->  include/asm-generic/barrier.h             | 42 +++++++++++++++
->  include/linux/cpuidle.h                   |  2 +-
->  include/linux/cpuidle_haltpoll.h          |  5 ++
->  22 files changed, 252 insertions(+), 71 deletions(-)
->  create mode 100644 arch/arm64/include/asm/cpuidle_haltpoll.h
->  create mode 100644 arch/arm64/include/asm/delay-const.h
-
-
---
-ankur
+> > Frank
+> >
+> > >
+> > > Thanks,
+> > >
+> > > 	M.
+> > >
+> > > --
+> > > Without deviation from the norm, progress is not possible.
 
