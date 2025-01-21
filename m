@@ -4,71 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D173C0218B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 15:29:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9499C0218B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 15:30:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:From:CC:To:MIME-Version:Date:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YvSKUk5v6EFDKQLEGztTw1EfOLgqPgtPZVAGwGdWSV8=; b=4wrWbl2q3w5FqpeSzRV6j9GVWE
-	Z0+wFm1HDJPDfU2P7oWM20hiH7B2H09yzx6V5CKstxHt67DyuJxZP7U7qdpzZZK2+u/fS+kLrWUL/
-	/YhgxUWo5igZ50LzDDXccg32iHc4p6mQIRhYDeIugvIJDoeFk3WtW456+1bmuz1CZr0fygsEXezbV
-	bZTXPHIYyoDn2fJWWD0P+mlvBgm4UTwuW7z8d8qsJIczr4dbyP+I7qu2sz1KSms8DrNkfAvPDmNRA
-	61AfjqeptPW94ppVnDcRvhvkBnPycdsX1CyAM/spdoAprneB8E83tn4buTP040oLxGr1qSKrU0hFQ
-	FlXOH2gQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l4hYFP3h1arKjsKD8T0roDJ/zeXY7qh2kU6N067sKV4=; b=nfewGB/cnuQmpJIVXWDI6QamLU
+	QaAw+Dz7tCsB+nvUA9/NF1TU2GxJWNYE71h7uL8J5M7cdZQGX/xarrgbdef2+JoiFTx0xXyt0zwvk
+	5ZGhiUbq27S+KaJvX34pNG89zo0X4LL18bbQEajzvqQ6va83R6k+jT8WBOxQImiQg3WTrEugUMtEy
+	BdQ08Zs3+JxqqdbPoFjfRa9LawbAADUfioE/nH7Uss/mbclMtcPiT+49h/wPBKmnHLoU68OUseGg+
+	ygqFsD7IrwMw1S8alM3jEIf2Bniw26bSVavhqyhmKgUty8o3OTNrybPVKOqkDw/8X61BoO65F9s7/
+	nTcB4dUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taGBc-00000008DjL-1dGR;
-	Tue, 21 Jan 2025 15:29:04 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1taGCs-00000008E3X-12Q0;
+	Tue, 21 Jan 2025 15:30:22 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taG2Y-00000008CPF-2Wm9
+	id 1taG4O-00000008CkM-16Oz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 15:19:44 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 341A5A1398;
-	Tue, 21 Jan 2025 16:19:29 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:message-id:mime-version:reply-to:subject:subject:to
-	:to; s=mail; bh=YvSKUk5v6EFDKQLEGztTw1EfOLgqPgtPZVAGwGdWSV8=; b=
-	EDYM4KaCJlzn5nU9DaE4/F2L53G9QcUJe5kNRIsYjfViLqTIbit6OzIbFGniH+LF
-	Djy9tgYfH5znDGs/uz68zNkaNbcP1FHKRRnc/DYOzr7ajZWphvK+vZ3Mik3DDhFg
-	iCxjDhcmC0tL4y7QtgcuKydotWHPllcnh7IdbPDzgr3ki7tPuvBgpF3jWcC42IBe
-	UqaVatbPIVtT3pJIhlxDeXqew2mas2O4YHMpo4ahVaeOnzFJuVjlx8SINHN3aDG5
-	fIC1tOzBpkAv87Dj6C2pQzPxExAyWbppKWZRsMDBG7ZzaNu027OwXqU3885gpcuA
-	9VIE7NXepx/qdYuTRxOedmGVbfQMhllfsZcBVEl0ovkzCUU9dSytbiAGJNFO7IU7
-	QA8zbjBWySvbXhPI2cleKV7Wz3YIpEBH5N2pmmjdqLcXitjWLkeDKOuMLU6kds9l
-	Gc+DUI77fjTqcfNZBIvC3Iy6U8Gbgg0ZW1qadfMlC+aANiYqfOWiP4+lbAlPQx9e
-	cOL2rlSfNV+0BdfylzzCn9sqbpXRQHJDsVoDMyEPCxfAA68fIzxvar7LIyVnyypj
-	t8uzptbHQIjMBmFVhGHDgYet6xErA53fcjR3hj0kLs0AHBvQh//J3H7/YtqPgaSR
-	GD21DQqFvLw2T3IsR5esHk7KEEz3aGciGpU0dvRMJMc=
-Message-ID: <f2ec8a55-42ad-498a-b793-072444dcb92e@prolan.hu>
-Date: Tue, 21 Jan 2025 16:19:27 +0100
+	Tue, 21 Jan 2025 15:21:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1737472896; x=1769008896;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=l4hYFP3h1arKjsKD8T0roDJ/zeXY7qh2kU6N067sKV4=;
+  b=eK16JAMzn1MnOd4QNG6JZc8Rj66mL75NhiqdClS4NZlJDS0xl8amDMJc
+   Q3aimnBTSQfJC3aDI6RoMsh2Hz7KAu1c59KdldTRoUNp+11DumrDmPK1c
+   aCUBsdxWk98tNCEPvDNuI1iRc7TWyUcz/T+V9Iiwv3VoOY6y6pzBiXA5c
+   yYyOFsQHRW7PrLl02QQDCA4iooSuZVny+hPahl6afgs/Eq35Y5l74osBT
+   6E1yHsSMSy6fBa6wLHfxKeM7SHwX71BF4tmPmPC2yyjGAoM3K1RKmPGGn
+   QoGojyUc7gqzpnF+BblbmzBUaluVxNpaT963UZzPmw3qDUJK9AJgmCxFc
+   Q==;
+X-CSE-ConnectionGUID: idrnqf/XQxSG0q2Y7GGVLQ==
+X-CSE-MsgGUID: 8avWz3ObTRGrv5U6kV+0JQ==
+X-IronPort-AV: E=Sophos;i="6.13,222,1732575600"; 
+   d="scan'208";a="41203460"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 21 Jan 2025 16:21:32 +0100
+X-CheckPoint: {678FBB7C-3-3C670366-E45AD810}
+X-MAIL-CPID: 6F83F60AB13049F24B231DC59BAA06AE_4
+X-Control-Analysis: str=0001.0A682F28.678FBB7C.0049,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 665BA1636A2;
+	Tue, 21 Jan 2025 16:21:26 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1737472887;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=l4hYFP3h1arKjsKD8T0roDJ/zeXY7qh2kU6N067sKV4=;
+	b=rYLGUiTTKR4sqmzLaX1K1ImmcDKWQlwAgG//JEbok+dvVDPU5MrjCwzeUzM7C7WouN4G3l
+	AhWVZPipJWRYoNXuPBU0zwROLSHrERRX7QJ+MK67R5hw0x35W3kOOHG42V6xcLpybnG7nX
+	Imiy2HnPS7aWX0whI1n1knBaMNy15/xL2bAqhKdv80TKbfdntsfJh3e6pG/JsRozY41NP1
+	i7qMBILzhFxTvxALT5rlJQJlf8sry8UXzSBHktpreutj+0OUXnMYf/QrizeNB0abmeG1Lw
+	rKSHWpY3qor5OJmQYf5oct3Pkfb67ROmGcsaHrj5he880XWdfjfNJQgykphX8Q==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v6 2/2] nvmem: imx-ocotp-ele: Support accessing controller for i.MX9
+Date: Tue, 21 Jan 2025 16:21:25 +0100
+Message-ID: <8513553.T7Z3S40VBb@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20250121-imx-ocotp-v6-2-76dab40e13db@nxp.com>
+References: <20250121-imx-ocotp-v6-0-76dab40e13db@nxp.com> <20250121-imx-ocotp-v6-2-76dab40e13db@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Content-Language: en-US
-To: <linux-iio@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<timestamp@lists.linux.dev>
-CC: William Breathitt Gray <wbg@kernel.org>, Jonathan Cameron
-	<jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, Daniel Lezcano
-	<daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, "Dipen
- Patel" <dipenp@nvidia.com>
-From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
-Subject: [Q] Frequency & duty cycle measurement?
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.254.7.14]
-X-ClientProxiedBy: ATLAS.intranet.prolan.hu (10.254.0.229) To
- ATLAS.intranet.prolan.hu (10.254.0.229)
-X-EsetResult: clean, is OK
-X-EsetId: 37303A2980D9485267746B
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_071943_041427_CE062CCF 
-X-CRM114-Status: GOOD (  13.67  )
+X-CRM114-CacheID: sfid-20250121_072136_797770_3CC86FAF 
+X-CRM114-Status: GOOD (  28.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,46 +93,205 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+Hi,
 
-we want to measure the frequency and duty cycle of a signal (relating to 
-power consumption) using a hardware timer in our SoC (Microchip 
-SAMA5D2). The hardware is capable of taking a snapshot of the timer 
-value into another dedicated register pair (RA, RB) on the 
-rising/falling edges, and a small `devmem`-based userspace utility was 
-created as a working PoC. Now we want to move to a "proper" kernelspace 
-solution.
+Am Dienstag, 21. Januar 2025, 16:05:32 CET schrieb Peng Fan (OSS):
+> From: Peng Fan <peng.fan@nxp.com>
+>=20
+> i.MX9 OCOTP supports a specific peripheral or function being fused
+> which means disabled, so
+>  - Introduce ocotp_access_gates to be container of efuse gate info
+>  - Iterate all nodes to check accessing permission. If not
+>    allowed to be accessed, detach the node
+>=20
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  drivers/nvmem/Kconfig         |   3 +
+>  drivers/nvmem/imx-ocotp-ele.c | 172 ++++++++++++++++++++++++++++++++++++=
++++++-
+>  2 files changed, 174 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/nvmem/Kconfig b/drivers/nvmem/Kconfig
+> index 8671b7c974b933e147154bb40b5d41b5730518d2..77cc496fd5e0e1afd753534b5=
+6fe1f5ef3e3ec55 100644
+> --- a/drivers/nvmem/Kconfig
+> +++ b/drivers/nvmem/Kconfig
+> @@ -93,6 +93,9 @@ config NVMEM_IMX_OCOTP_ELE
+>  	  This is a driver for the On-Chip OTP Controller (OCOTP)
+>  	  available on i.MX SoCs which has ELE.
+> =20
+> +	  If built as modules, any other driver relying on this working
+> +	  as access controller also needs to be a module as well.
+> +
+>  config NVMEM_IMX_OCOTP_SCU
+>  	tristate "i.MX8 SCU On-Chip OTP Controller support"
+>  	depends on IMX_SCU
+> diff --git a/drivers/nvmem/imx-ocotp-ele.c b/drivers/nvmem/imx-ocotp-ele.c
+> index ca6dd71d8a2e29888c6e556aaea116c1a967cb5f..5ea6d959ce38760eeed44a989=
+992fb35c462c0b4 100644
+> --- a/drivers/nvmem/imx-ocotp-ele.c
+> +++ b/drivers/nvmem/imx-ocotp-ele.c
+> @@ -5,6 +5,8 @@
+>   * Copyright 2023 NXP
+>   */
+> =20
+> +#include <dt-bindings/nvmem/fsl,imx93-ocotp.h>
+> +#include <dt-bindings/nvmem/fsl,imx95-ocotp.h>
+>  #include <linux/device.h>
+>  #include <linux/io.h>
+>  #include <linux/module.h>
+> @@ -27,6 +29,7 @@ struct ocotp_map_entry {
+>  };
+> =20
+>  struct ocotp_devtype_data {
+> +	const struct ocotp_access_gates *access_gates;
+>  	u32 reg_off;
+>  	char *name;
+>  	u32 size;
+> @@ -36,6 +39,20 @@ struct ocotp_devtype_data {
+>  	struct ocotp_map_entry entry[];
+>  };
+> =20
+> +#define OCOTP_MAX_NUM_GATE_WORDS 4
+> +
+> +struct access_gate {
+> +	u32 word;
+> +	u32 mask;
+> +};
+> +
+> +struct ocotp_access_gates {
+> +	u32 num_words;
+> +	u32 words[OCOTP_MAX_NUM_GATE_WORDS];
+> +	u32 num_gates;
+> +	struct access_gate *gates;
+> +};
+> +
+>  struct imx_ocotp_priv {
+>  	struct device *dev;
+>  	void __iomem *base;
+> @@ -131,6 +148,82 @@ static void imx_ocotp_fixup_dt_cell_info(struct nvme=
+m_device *nvmem,
+>  	cell->read_post_process =3D imx_ocotp_cell_pp;
+>  }
+> =20
+> +static int imx_ele_ocotp_check_access(struct imx_ocotp_priv *priv, u32 i=
+d)
+> +{
+> +	const struct ocotp_access_gates *access_gates =3D priv->data->access_ga=
+tes;
+> +	void __iomem *reg =3D priv->base + priv->data->reg_off;
+> +	u32 word, mask, val;
+> +
+> +	if (id >=3D access_gates->num_gates) {
+> +		dev_err(priv->config.dev, "Index %d too large\n", id);
+> +		return -EACCES;
+> +	}
+> +
+> +	word =3D access_gates->gates[id].word;
+> +	mask =3D access_gates->gates[id].mask;
+> +
+> +	reg =3D priv->base + priv->data->reg_off + (word << 2);
+> +	val =3D readl(reg);
+> +
+> +	dev_dbg(priv->config.dev, "id:%d word:%d mask:0x%08x\n", id, word, mask=
+);
+> +	/* true means not allow access */
+> +	if (val & mask)
+> +		return -EACCES;
+> +
+> +	return 0;
+> +}
+> +
+> +static int imx_ele_ocotp_grant_access(struct imx_ocotp_priv *priv, struc=
+t device_node *parent)
+> +{
+> +	struct device *dev =3D priv->config.dev;
+> +
+> +	for_each_available_child_of_node_scoped(parent, child) {
+> +		struct of_phandle_args args;
+> +		u32 id, idx =3D 0;
+> +
+> +		while (!of_parse_phandle_with_args(child, "access-controllers",
+> +						   "#access-controller-cells",
+> +						   idx++, &args)) {
+> +			of_node_put(args.np);
+> +			if (args.np !=3D dev->of_node)
+> +				continue;
+> +
+> +			/* Only support one cell */
+> +			if (args.args_count !=3D 1) {
+> +				dev_err(dev, "wrong args count\n");
+> +				continue;
+> +			}
+> +
+> +			id =3D args.args[0];
+> +
+> +			dev_dbg(dev, "Checking node: %pOF gate: %d\n", child, id);
+> +
+> +			if (imx_ele_ocotp_check_access(priv, id)) {
+> +				of_detach_node(child);
+> +				dev_info(dev, "%pOF: Not granted, device driver will not be probed\n=
+",
+> +					 child);
+> +			}
+> +		}
+> +
+> +		imx_ele_ocotp_grant_access(priv, child);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int imx_ele_ocotp_access_control(struct imx_ocotp_priv *priv)
+> +{
+> +	struct device_node *root __free(device_node) =3D of_find_node_by_path("=
+/");
+> +
+> +	if (!priv->data->access_gates)
+> +		return 0;
+> +
+> +	/* This should never happen */
+> +	WARN_ON(!root);
 
-However, none of the existing drivers seem to be able to do this; the 
-closest was `drivers/counter/microchip-tcb-capture.c`, but that only 
-seems to count one type of edge (rising/falling), and cannot give us the 
-time between them, which would be needed for duty cycle calculation. The 
-only other driver I could find was 
-`drivers/clocksource/timer-atmel-tcb.c`, which again seems incapable of 
-such measurements. Therefore, a new module will probably be needed; the 
-question then becomes: which API to implement.
+Even if you warning something is wrong, aka root =3D=3D NULL, you are still
+using it on imx_ele_ocotp_grant_access(). Just return early.
 
-As `microchip-tcb-capture.c` uses the Generic Counter Interface, that 
-was obviously a first stop. However, from what I could see, you can only 
-represent (1) the number of times an edge has been encountered, and (2) 
-rotary encodings (quadrature and direction-step decoders); and not the 
-time between edges.
+if (WARN_ON(!))
+	return -EINVAL;
 
-IIO_ALTVOLTAGE and IIO_CHAN_INFO_FREQUENCY/_PHASE also seemed promising 
-(although the lack of IIO_CHAN_INFO_DUTY_CYCLE already posed a problem), 
-until I saw that all current drivers are frequency *generators*, and not 
-measurers, the latter seems to be completely unimplemented.
+Best regards
+Alexander
 
-The only other contender I could find was the Hardware Timestamping 
-Engine (HTE), but again, it's not clear whether (1) the API is even 
-capable of relaying duty cycle information to userspace and (2) if it 
-is, how would one go about implementing it.
+> +
+> +	return imx_ele_ocotp_grant_access(priv, root);
+> +}
+> +
+>  static int imx_ele_ocotp_probe(struct platform_device *pdev)
+>  {
+>  	struct device *dev =3D &pdev->dev;
+> @@ -161,14 +254,45 @@ static int imx_ele_ocotp_probe(struct platform_devi=
+ce *pdev)
+>  	priv->config.fixup_dt_cell_info =3D imx_ocotp_fixup_dt_cell_info;
+>  	mutex_init(&priv->lock);
+> =20
+> +	platform_set_drvdata(pdev, priv);
+> +
+>  	nvmem =3D devm_nvmem_register(dev, &priv->config);
+>  	if (IS_ERR(nvmem))
+>  		return PTR_ERR(nvmem);
+> =20
+> -	return 0;
+> +
+> +	return imx_ele_ocotp_access_control(priv);
+>  }
 
-It is also entirely possible I missed a driver or API that could handle 
-this better, if so, please don't keep it to yourselves.
 
-So, how could one go about implementing such a driver?
 
-Bence
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+
 
 
