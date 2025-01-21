@@ -4,69 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46CBBC0218C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 16:18:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAC0FC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 16:39:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pohg729KqjlON/Y3qVQcQ7ga5GWM9jcQEdryp7KPBOQ=; b=I5Oib+JYUsQuaKVPpdkPCRCMia
-	PJIu1aQxdOpENkJAKFcN9CvyL1CuWP+2FT9MlWzjjhg4sEdE7+qS8cWGzLShBX/SqQAebm1859LjM
-	DPq+eYcT5am+hOJcVZeuOVPLy8WzfXgEBQKvotH/hM91gHOAteiokxow7/SNMpFHdJ/UBar7Xu1zd
-	rjjZ4GiT13EZJCZ6OQEWulqmi/3zV5pixRIRK2DmZbo4dulRSFSxuWUqbeTr1YqfETd1Yqb6oeSoB
-	tQOBon7RgN/gfayqnv0PuuLN/Pclk0piiUp0eVPt8/oo8trRVP8NggVxLve8LBcoh5d3OC9lWLQWf
-	f0dpCXeg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rk7YrE6UBezqaR/fdDYkZZ8HhhiqPdu23Nnd1oC9law=; b=01lTuuz+wN3S5/c1tyd7Go5XIh
+	FHi61ZnkWKIqM2uWWwiRMV2vWf1G1wy3chKH3n4PBmCXKTSvRW4sl3WJJYDgZFTrv2Cbh+KdrhDSJ
+	vVBcNRlxLQSMfTwcXsRifB5oeMO2pGE6HbJRM84MGsiValvAGnUMJYWaddG94BhNpwOck5ub0zNnE
+	jJqJXvZpPuPPxeZkxaw0UVwwkijOLchuBFeC9OfCEWIC7LDcM8SIYK0bonGRouy4nLwLCSFFeA8pq
+	BWNQ2UMgZ9GrSqxSOtBOPgBzV+i6fm0uba4/YnWKoS/po9IAOwDjfLLq3m05hLt+lf7xo9Bolcfmq
+	XkPJjN6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taGxa-00000008LDR-0vpy;
-	Tue, 21 Jan 2025 16:18:38 +0000
-Received: from out-181.mta0.migadu.com ([91.218.175.181])
+	id 1taHHn-00000008NRZ-2sGS;
+	Tue, 21 Jan 2025 16:39:31 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taGwD-00000008KxN-2oE6
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 16:17:14 +0000
-Message-ID: <0ee72316-11e1-4930-8c49-92db8d148b8a@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1737476226;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Pohg729KqjlON/Y3qVQcQ7ga5GWM9jcQEdryp7KPBOQ=;
-	b=iCT1BKHxy6GTT5TGP9OPEs5MRsWamD58cdpjuWiozNK06H7Xhzzt6y+XTjQCUiKS2AQ5sI
-	sJTZA4n/kv8Q4XFqDqdQK1BdSl+x8ND896elX4zKQGhQxhbTJ4l+j4xvEAiLKm9KFXOhkT
-	WFwYDIsCzpvhLGkMqSqqh2ItH2plyB0=
-Date: Tue, 21 Jan 2025 11:17:03 -0500
+	id 1taHGU-00000008NEH-21Qk;
+	Tue, 21 Jan 2025 16:38:11 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50LFN5xk011302;
+	Tue, 21 Jan 2025 16:37:38 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=rk7YrE6UBezqaR/fdDYkZZ8HhhiqPd
+	u23Nnd1oC9law=; b=fz8cQTU8PvP8JVPbKU6Ynem/RjPPMY4uzRJefS9/1Tx/qT
+	LzhhVSjzTVTggodrGdoC7U7DKDLLylgyhVs2FXbeQ7/tfYw6bKUuWYwWuOif/J55
+	axSnjLRVcxlX4rVFmGjI9yaNmgps2TdyXZGRxYJBxyypnf4KKtSpIijUn0tx2sG2
+	UQkEtTDltlKN8Af1rd91bT/prAvISQdM/HX80B8iBN3U4iv/2IgONEpJfBHX5Mtz
+	927QozGW/1WX1WRlYYGSfytKSwEZp1r05DyTHoaBZJKMtMvgB8PB502t9kcSNrkN
+	9ZetdoZIDddF9W2j5/S1Aryn/L+NhiQXTESjl6tQ==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44a5d7k4jx-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 21 Jan 2025 16:37:38 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 50LCt2RB024252;
+	Tue, 21 Jan 2025 16:37:37 GMT
+Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 448q0y45w5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 21 Jan 2025 16:37:36 +0000
+Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 50LGbZEl22872488
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 21 Jan 2025 16:37:35 GMT
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id DB61420040;
+	Tue, 21 Jan 2025 16:37:34 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 3F9B220043;
+	Tue, 21 Jan 2025 16:37:34 +0000 (GMT)
+Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.155.204.135])
+	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Tue, 21 Jan 2025 16:37:34 +0000 (GMT)
+Date: Tue, 21 Jan 2025 17:37:33 +0100
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        Linus Walleij <linus.walleij@linaro.org>,
+        Andy Lutomirski <luto@kernel.org>,
+        Peter Zijlstra <peterz@infradead.org>,
+        "Mike Rapoport (IBM)" <rppt@kernel.org>,
+        Ryan Roberts <ryan.roberts@arm.com>,
+        Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+        Matthew Wilcox <willy@infradead.org>,
+        Qi Zheng <zhengqi.arch@bytedance.com>, linux-alpha@vger.kernel.org,
+        linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+        linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+        linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+        linux-s390@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+        linux-um@lists.infradead.org, loongarch@lists.linux.dev,
+        x86@kernel.org
+Subject: Re: [PATCH v2 6/6] mm: Introduce ctor/dtor at PGD level
+Message-ID: <Z4/NTRDBXEEimdvc@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+References: <20250103184415.2744423-1-kevin.brodsky@arm.com>
+ <20250103184415.2744423-7-kevin.brodsky@arm.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH 5/7] spi: zynqmp-gqspi: Split the bus
-To: Mark Brown <broonie@kernel.org>
-Cc: "Mahapatra, Amit Kumar" <amit.kumar-mahapatra@amd.com>,
- "Simek, Michal" <michal.simek@amd.com>,
- "linux-spi@vger.kernel.org" <linux-spi@vger.kernel.org>,
- Jinjie Ruan <ruanjinjie@huawei.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Miquel Raynal <miquel.raynal@bootlin.com>,
- "amitrkcian2002@gmail.com" <amitrkcian2002@gmail.com>,
- "git (AMD-Xilinx)" <git@amd.com>
-References: <20250116232118.2694169-1-sean.anderson@linux.dev>
- <20250116232118.2694169-6-sean.anderson@linux.dev>
- <DM4PR12MB76932590B9A6BB1CC17AD67FDCE62@DM4PR12MB7693.namprd12.prod.outlook.com>
- <1f7cb52d-31a4-458c-9b81-b46bf56fd8a8@linux.dev>
- <f1310bb6-48ef-4bdf-a359-f34b0d849a4d@sirena.org.uk>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <f1310bb6-48ef-4bdf-a359-f34b0d849a4d@sirena.org.uk>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250103184415.2744423-7-kevin.brodsky@arm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: _Jbv8MOWLvlsI4K8ecrKg7ZStBAwr44Z
+X-Proofpoint-ORIG-GUID: _Jbv8MOWLvlsI4K8ecrKg7ZStBAwr44Z
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-21_07,2025-01-21_03,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
+ impostorscore=0 mlxscore=0 spamscore=0 clxscore=1011 mlxlogscore=539
+ lowpriorityscore=0 phishscore=0 adultscore=0 malwarescore=0 suspectscore=0
+ bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501210134
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_081713_856970_B74F2B7B 
-X-CRM114-Status: GOOD (  13.06  )
+X-CRM114-CacheID: sfid-20250121_083810_520882_5350EF90 
+X-CRM114-Status: GOOD (  16.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,29 +120,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/21/25 11:01, Mark Brown wrote:
-> On Tue, Jan 21, 2025 at 10:53:53AM -0500, Sean Anderson wrote:
->> On 1/21/25 08:19, Mahapatra, Amit Kumar wrote:
-> 
->> > IMHO, restricting users to fixed names is not ideal. A better approach would be to 
->> > introduce a Device Tree (DT) property for the bus number and select the bus 
->> > accordingly.
-> 
->> Why? It's not an artificial restriction; it reflects the hardware. And this is how
->> SPI busses are typically represented. If you have two SPI busses, there should be
->> two devicetree nodes.
-> 
-> Perhaps the thing is more that the buses are named instead of numbered?
+On Fri, Jan 03, 2025 at 06:44:15PM +0000, Kevin Brodsky wrote:
 
-Well, we could number them, but it's not like they have different
-addresses in memory. They use all the same registers except for a bit in
-the genfifo. So it doesn't make sense to do address translation (e.g.
-with reg/ranges).
+Hi Kevin,
+...
+> diff --git a/arch/s390/include/asm/pgalloc.h b/arch/s390/include/asm/pgalloc.h
+> index 5fced6d3c36b..b19b6ed2ab53 100644
+> --- a/arch/s390/include/asm/pgalloc.h
+> +++ b/arch/s390/include/asm/pgalloc.h
+> @@ -130,11 +130,18 @@ static inline void pud_populate(struct mm_struct *mm, pud_t *pud, pmd_t *pmd)
+>  
+>  static inline pgd_t *pgd_alloc(struct mm_struct *mm)
+>  {
+> -	return (pgd_t *) crst_table_alloc(mm);
+> +	unsigned long *table = crst_table_alloc(mm);
+> +
+> +	if (!table)
+> +		return NULL;
 
-As for the names, these are the names used by the documentation, as well
-as the exising driver. There are some references to SPI0/SPI1, but there
-are more to upper/lower. If you want to bikeshed spi-0/spi-1 instead of
-spi-lower/spi-upper, be my guest.
+I do not know status of this series, but FWIW, this call is missed:
 
---Sean
+	crst_table_init(table, _REGION1_ENTRY_EMPTY); 
+
+> +	pagetable_pgd_ctor(virt_to_ptdesc(table));
+> +
+> +	return (pgd_t *) table;
+>  }
+>  
+>  static inline void pgd_free(struct mm_struct *mm, pgd_t *pgd)
+>  {
+> +	pagetable_dtor(virt_to_ptdesc(pgd));
+>  	crst_table_free(mm, (unsigned long *) pgd);
+>  }
+
+...
+
+Thanks!
 
