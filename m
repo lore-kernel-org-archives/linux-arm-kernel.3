@@ -4,78 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E3EAC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 14:57:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8B2DC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 14:58:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PEVqzPvMzV/kLBA1LjNlNLIZXxxvsAFy8f+1eXRMh3I=; b=hwFSgvAUGHj2XJO/Q9PXPQ14lm
-	95mwpufe/mTXgoPCDQ9WiVl9ROewwzTXJglfbLZZNE2TIVI1iiEg0q1Zvc/obWa08BYra57Vwk0rP
-	pecX7qhnpz4gPzPOK3WBbLseROCUC34iTVjWehXMMK6zlcSf4IUC32G7UJOEWxcpZwAl10zJsWDSU
-	L18I3n/Y+0SSKuOptQa7svW0/+PMgi6EcUcbjnf8nhh4/Wt3sl36LLOzkDJcbW/7HbjIo9jL33FV0
-	05Ee7b7hNZPtPgvbv+qDAHSoTCQ9AMqGnsbGfwJpt11AOOi/Qmb/UINl+Wt8adpb+jrQxP8vnuUVt
-	ssJOIqUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sniiGLBlwlwVQE72YbXn9tSIJ0uzVlORMQYMI+fWlc8=; b=DNaGWa7v0hn/Fr9ZEHjUnUefaj
+	qZybfoU63/cnnz3fheT5nxBnziw5m4x+ObK7ty/mwvyedIHumjZomFOmkgbqdYPgKXGLlHHIsPZ89
+	Ff8GeBXAV6QWVgpXH7jXb3fCV1Hz7xoVOt60L1ydzMaCapgCc1hLdaGtu0bjtOEKnyxJjc87nRR6I
+	daS9ecdFfB5e+UBYR1fgb3EfJb/Yj3mvXzXYHXVrPQUpqrquTwqPW4VG59uROW85NPgBDGuOGQvRl
+	lbbXiXBvLfY8YUxvvxq8WQAFekF0ptC5kY+64Amft9g7cDprG9m3jxJHsWEnlWuhuh/0vC2BT39H5
+	OUQR8d7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taFgd-000000088vk-0wLt;
-	Tue, 21 Jan 2025 14:57:03 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1taFhr-0000000893Z-3XFu;
+	Tue, 21 Jan 2025 14:58:19 +0000
+Received: from mail-yb1-xb30.google.com ([2607:f8b0:4864:20::b30])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taFaJ-000000087l6-2r06;
-	Tue, 21 Jan 2025 14:50:33 +0000
-X-UUID: 0c2c85b2d80711ef82ff63e91e7eb18c-20250121
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=PEVqzPvMzV/kLBA1LjNlNLIZXxxvsAFy8f+1eXRMh3I=;
-	b=IOjqUoiU7+ymHvqtF/sXXWTwNdPLvek8L1k17LC/M2WuXar+VZei0QJEE3JWEFvfcOn7m6RD14Gwr/9pvVeFQzFfyAE7Kbf9t+zuIXYBPrJlqOYLuZa4N530A3DUa+MyT0/X1ZSdWks0trh61XXKFDdgUE4rB9Lj5pA3MC+77Ng=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.46,REQID:5505705c-de6e-4a6d-a50c-88fa2fdbe22e,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-25
-X-CID-META: VersionHash:60aa074,CLOUDID:38553c38-e11c-4c1a-89f7-e7a032832c40,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:11|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0
-	,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-UUID: 0c2c85b2d80711ef82ff63e91e7eb18c-20250121
-Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw01.mediatek.com
-	(envelope-from <chunfeng.yun@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1196292945; Tue, 21 Jan 2025 07:50:25 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.28; Tue, 21 Jan 2025 22:50:22 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.28 via Frontend Transport; Tue, 21 Jan 2025 22:50:21 +0800
-From: Chunfeng Yun <chunfeng.yun@mediatek.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Rob Herring
-	<robh@kernel.org>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: Chunfeng Yun <chunfeng.yun@mediatek.com>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, Mathias Nyman <mathias.nyman@intel.com>,
-	<linux-usb@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v2 4/4] usb: mtu3: add support remote wakeup of mt8196
-Date: Tue, 21 Jan 2025 22:50:08 +0800
-Message-ID: <20250121145008.22936-4-chunfeng.yun@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250121145008.22936-1-chunfeng.yun@mediatek.com>
-References: <20250121145008.22936-1-chunfeng.yun@mediatek.com>
+	id 1taFc7-0000000889y-333b
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Jan 2025 14:52:25 +0000
+Received: by mail-yb1-xb30.google.com with SMTP id 3f1490d57ef6-e46c6547266so8204229276.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jan 2025 06:52:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1737471143; x=1738075943; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sniiGLBlwlwVQE72YbXn9tSIJ0uzVlORMQYMI+fWlc8=;
+        b=kL9vEWG8NfRd3DurIl+G6R3d1v3Flumi4kzXhFzYCVB4UaKd3RGJC34j/PStR4XIPI
+         sp32VyTQv1nPQbORG4do8njt4Cj8WzaHmm05Ckc/4WXOak2uQ2ICmLZysabT9/0erT1u
+         2K9/g68cmOdAaC1tfxdrkgjDZGzxklxjLNEsOXlYS5sGgDyFo0yQQPRPGOF8w78NlbKN
+         2kriQWOJ1LiwPc6M1qm20P73zxyF9svrDVhaWDPj77+cOEUEmuLHUnRB47iKc7peC6X0
+         4SyAJJiRzdb1JRr9i/FLqJx8xRq4DT2GZH789pxxn1oz3ozVbgjD/5/hA/Wc+ADjgZBu
+         0FXA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737471143; x=1738075943;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=sniiGLBlwlwVQE72YbXn9tSIJ0uzVlORMQYMI+fWlc8=;
+        b=cdjE8w6/1BWDD5ZjY1NhFVR3GH/Ep7E+xKYepYjJR6bq5KLuIInxh/fx942Me07tFt
+         /HICwDvRi9UYGOgfyhfIpaLwjXuYejRDHlXwqeJQNAP+43K0dggJXz7oLiC7n0iqF/jp
+         xb+uBqTpIWfgP4u7IXnRm5FEmFA4t1kGfZrM7JyZJbDsOKUX8hgR89EP5YIjmLaqxQQW
+         rCkQ/3LNmoCfXxq/BQiXm2JK7E7a1rPatoPz2X7OV3agzc1GJOsi4DlY2W5qTqGe/vW3
+         JOfPR2W94CzET18PLGSDYD0CgPNuAnVdFWS7oz4ZpW0cds+zRJ67UiYeE+FFPcUR1W7E
+         Qv3Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXuPJJyz9zbKi1l6y/nu7GEyHURo4hquOBXeVl45m2D3DNRygbg5qPgBfm3Kz3oLBtHd/KtmuLU4znEWzp5w5zL@lists.infradead.org
+X-Gm-Message-State: AOJu0YzzBNTgLChXBibrNYzs4JmUgFaRnuLVdTKVVX47OEPhK5xzrtqz
+	588fZ2CqDzX4UQ7AAVe6JGhYCubdswVJsrwtP+lRN0v2zlNS8AZdYDQzLMSYJ4yIz3oqX6nI9nX
+	406H5AS/6a94+yWfRSuNTcsJSG/aE4VYpOnNqwA==
+X-Gm-Gg: ASbGnct6kuZKIt7UIsOpR2w5vtjM/f8awayzQbGXr9MmpoWzVuMgWFeHUIF3Q4dKNgP
+	NmUqI3MHKtKT0EXdMMWfAAqK13Tu+H+nNPKZtce8MD6Y2lSk6jXGhOMIJUHYFFNrI9A==
+X-Google-Smtp-Source: AGHT+IHAR8Oh5IZMK/EFhUxy82Sms5gJQlwLhipbAW1ZqvwX6pE5x6pYuPH97QTlNrx+1G0xVn/kn1tGS1MQfWri5Fo=
+X-Received: by 2002:a05:690c:690d:b0:6ef:5119:6f39 with SMTP id
+ 00721157ae682-6f6eb90d631mr163457467b3.30.1737471142696; Tue, 21 Jan 2025
+ 06:52:22 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+References: <20250115-arm-cacheinfo-fix-v1-1-5f30eeb4e463@linaro.org>
+ <CAMuHMdVLvCNZtc2qYrsnMz5L0Hyr70x-Hj5NA8izYBH2tf=yFg@mail.gmail.com> <Z4-s9UHBJZx9APeE@shell.armlinux.org.uk>
+In-Reply-To: <Z4-s9UHBJZx9APeE@shell.armlinux.org.uk>
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Date: Tue, 21 Jan 2025 16:52:11 +0200
+X-Gm-Features: AbW1kvYT3J50S3fCbdFz3TPsLp6pmDCYH3eh_cCAu0j-x_otJ6Yo49o0bUKeGAI
+Message-ID: <CAA8EJprB9tBoqUaZKnGrJQVPpRA86ynB6k42dOCW7HG-VTfhbA@mail.gmail.com>
+Subject: Re: [PATCH] ARM: cacheinfo fix format field mask
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>, Linus Walleij <linus.walleij@linaro.org>, 
+	Sudeep Holla <sudeep.holla@arm.com>, Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_065031_742504_6A9D187A 
-X-CRM114-Status: GOOD (  13.56  )
+X-CRM114-CacheID: sfid-20250121_065223_766353_2365780D 
+X-CRM114-Status: GOOD (  22.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,60 +97,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There are three USB controllers on mt8196, each controller's wakeup
-control is different, add some specific versions for them.
-Here add only for dual-role controllers.
+On Tue, 21 Jan 2025 at 16:19, Russell King (Oracle)
+<linux@armlinux.org.uk> wrote:
+>
+> On Tue, Jan 21, 2025 at 03:12:13PM +0100, Geert Uytterhoeven wrote:
+> > Hi Dmitry,
+> >
+> > Thanks for your patch!
+> >
+> > On Wed, Jan 15, 2025 at 12:11=E2=80=AFPM Dmitry Baryshkov
+> > <dmitry.baryshkov@linaro.org> wrote:
+> > > Fix C&P error left unnoticed during the reviews. The FORMAT field spa=
+ns
+> > > over bits 29-31, not 24-27 of the CTR register.
+> >
+> > Please add
+> >
+> >     This causes a warning on e.g. Cortex-A8 and Cortex-A9:
+> >
+> >         WARNING: CPU: 0 PID: 0 at arch/arm/kernel/cacheinfo.c:43
+> > cache_line_size+0x84/0x94
+> >
+> > so people find this patch when looking up the warning.
+> >
+> > > Fixes: a9ff94477836 ("ARM: 9433/2: implement cacheinfo support")
+> > > Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
+> > > Closes: https://lore.kernel.org/linux-arm-msm/01515ea0-c6f0-479f-9da5=
+-764d9ee79ed6@samsung.com/
+> > > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> >
+> > This fixes the warning on Cortex-A8/A9, so
+> > Tested-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> >
+> > Note that this changes HWalign on Cortex-A9 (various Renesas SoCs,
+> > with 1, 2, or 4 CPU cores):
+> >
+> >     -SLUB: HWalign=3D64, Order=3D0-3, MinObjects=3D0, CPUs=3D<N>, Nodes=
+=3D1
+> >     +SLUB: HWalign=3D32, Order=3D0-3, MinObjects=3D0, CPUs=3D<N>, Nodes=
+=3D1
+> >
+> > On Cortex-A8 (BeagleBone Black, i.e. AM335x), it changes HWalign,
+> > and causes a warning message:
+> >
+> >     -SLUB: HWalign=3D64, Order=3D0-3, MinObjects=3D0, CPUs=3D1, Nodes=
+=3D1
+> >     +SLUB: HWalign=3D16, Order=3D0-3, MinObjects=3D0, CPUs=3D1, Nodes=
+=3D1
+> >      ...
+> >     +cacheinfo: Unable to detect cache hierarchy for CPU 0
+> >
+>
+> Also, has this been tested on CPUs that don't implement the cache type
+> register?
 
-Signed-off-by: Chunfeng Yun <chunfeng.yun@mediatek.com>
----
-v2: add wakeup for dual-role controllers
----
- drivers/usb/mtu3/mtu3_host.c | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
+It returns -EOPNOTSUPP for anything <=3D v7 (or those v7-but-really-v6).
+And those CPUs are required to implement the register.
 
-diff --git a/drivers/usb/mtu3/mtu3_host.c b/drivers/usb/mtu3/mtu3_host.c
-index 7c657ea2dabd..d65b0f318436 100644
---- a/drivers/usb/mtu3/mtu3_host.c
-+++ b/drivers/usb/mtu3/mtu3_host.c
-@@ -46,6 +46,11 @@
- #define WC1_IS_P_95		BIT(12)
- #define WC1_IS_EN_P0_95		BIT(6)
- 
-+/* mt8196 */
-+#define PERI_WK_CTRL0_8196	0x08
-+#define WC0_IS_EN_P0_96		BIT(0)
-+#define WC0_IS_EN_P1_96		BIT(7)
-+
- /* mt2712 etc */
- #define PERI_SSUSB_SPM_CTRL	0x0
- #define SSC_IP_SLEEP_EN	BIT(4)
-@@ -59,6 +64,8 @@ enum ssusb_uwk_vers {
- 	SSUSB_UWK_V1_3,		/* mt8195 IP0 */
- 	SSUSB_UWK_V1_5 = 105,	/* mt8195 IP2 */
- 	SSUSB_UWK_V1_6,		/* mt8195 IP3 */
-+	SSUSB_UWK_V1_7, 	/* mt8196 IP0 */
-+	SSUSB_UWK_V1_8, 	/* mt8196 IP1 */
- };
- 
- /*
-@@ -100,6 +107,16 @@ static void ssusb_wakeup_ip_sleep_set(struct ssusb_mtk *ssusb, bool enable)
- 		msk = WC0_IS_EN_P3_95 | WC0_IS_C_95(0x7) | WC0_IS_P_95;
- 		val = enable ? (WC0_IS_EN_P3_95 | WC0_IS_C_95(0x1)) : 0;
- 		break;
-+	case SSUSB_UWK_V1_7:
-+		reg = ssusb->uwk_reg_base + PERI_WK_CTRL0_8196;
-+		msk = WC0_IS_EN_P0_96;
-+		val = enable ? msk : 0;
-+		break;
-+	case SSUSB_UWK_V1_8:
-+		reg = ssusb->uwk_reg_base + PERI_WK_CTRL0_8196;
-+		msk = WC0_IS_EN_P1_96;
-+		val = enable ? msk : 0;
-+		break;
- 	case SSUSB_UWK_V2:
- 		reg = ssusb->uwk_reg_base + PERI_SSUSB_SPM_CTRL;
- 		msk = SSC_IP_SLEEP_EN | SSC_SPM_INT_EN;
--- 
-2.46.0
+>
+> --
+> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
+
+
+--=20
+With best wishes
+Dmitry
 
