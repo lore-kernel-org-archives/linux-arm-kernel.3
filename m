@@ -4,87 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04846C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 17:51:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA920C0218B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 18:10:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RoMhuipM8TGxsbQLw/Bc12tlRQBMBDonsLZOaD7QmI8=; b=LSrEUfNfrHU3BVtuuspVvkYlXR
-	WOFZjeJOMc9NxKBqrHhToYduhU5nXFwMnM8J70M8ZHJIk2OTsCYsbZFfy4RGGueJ9Ekm91G9PnRAR
-	cvW9AwHLBAFfGJslVdjtOyrFKqY4YXqwHBW17XTFF+YFxLSI2CTR/dAE7iAcVQuQRRlsHLXqecHM4
-	f+n2Al/Xg9GSYiodBkvUVo3xkNm/QCO5v5jwJqYkRZnvoqEX7FVeHNLL6nuZXMcabeELGE7MxaVOM
-	9ES1SDwSB4aGe1eM3077Km/J3xenoCU6cqGbdSxEB2tNB/BdU31ZJrYz4uHnEUL4GiIu3GHi1QOdc
-	w29Y2lHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=knco0MIQTXRNrrudeSCOiWyXlInlVY2HacStlFZpdsc=; b=dT8yI51sMm6F0rPhxIpNn2bMLP
+	vPAjoWCuQ1Qyx9tbvmNnXLCdBPThtTef0R6bQwI47tXe2yf977MFlwgvEScLACgDXkOYLNQTNmiG8
+	Z1CAMmxS5Ev9qRBGGAHuqJmmohh/3DZ+92dQHwh80Gs4pL5MkmcRLVUhTdN/C868Fc2WIHGDx4JS4
+	y+06vlCyGYYHtBCzEfJMscKd16CZQbcf6dxljjvsV5ERWBfQV8gZCD4jzDNwhXFN5wGi9/TQpcVLO
+	iImrwaBr2yDpOhFVknsLPLW9OYkpvwWG5sXVxE2A+oMn6HmQKkEKUv2ORlZGgZ5/Kz6PZWk8A0yvg
+	E8X68HxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taIPe-00000008WWR-01t0;
-	Tue, 21 Jan 2025 17:51:42 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1taIhF-00000008YmG-0Sd9;
+	Tue, 21 Jan 2025 18:09:53 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taIOM-00000008WSW-3xet
+	id 1taIfm-00000008Ybo-2b8a
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 17:50:24 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-43622267b2eso59201595e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jan 2025 09:50:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1737481821; x=1738086621; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=RoMhuipM8TGxsbQLw/Bc12tlRQBMBDonsLZOaD7QmI8=;
-        b=0TPH8LhfprQVu/lwoUD5EbeYxNO6iSWZEwgVSqS35zIhnAYcGeHK4YykoF3bjlBWtw
-         4C9S2EcNkFeJ3DTsyD3Qy9Xswqd0N66+TzC3oxOPHTST0HhMqFdqTHYRbzRCHeiedHcG
-         qlgis1zry3sOgUmZ/PJ7SNAalpktEM9Uc+KoaK3apjJiau+uwLpruR1F4pU9WUQMXTdi
-         2We4feA6e85GDOxiao+fW7JjjY8DPtLOaJylv9pSICBdySkyrISX93J5XBL5BxcWlht6
-         eDQSvzSG+/JqS/rs4FatjtadAMm6YcLtrbJs4zh9zV9R2xbAW7IWMdaJ5y8vp8eiQ8VG
-         qqtw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737481821; x=1738086621;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RoMhuipM8TGxsbQLw/Bc12tlRQBMBDonsLZOaD7QmI8=;
-        b=bDbGN/J+Dp0DkJ3FxRissDTnrmopDYKIDXx6KT+HnChE6998p3S+jC9ETIKIFDrSN+
-         zGwllCNRjGIvCU3nfGldrBDRyk+2rvLFlgcBi8dri4UECWeWWcyqjlwDWHhftdrUVhVK
-         cVC2HDsyGznj9sA0iGbq7AcASrfbeFuoriREfsKik7CYVibi1xu5/YDF+uStP93/26/U
-         rzgQHXYAWICig8ZxAc//XvKvR6L/BSd5N2bXODZWiUvhdJ0vFaJxrq8sbwWGQUwLDeP4
-         hoStwcUG8+l5g1g++z5TiWlx9vlFveQqZiXMYZ/WOqKo4JYfFOvFN4zpK0XzV1U08WKy
-         xrYw==
-X-Forwarded-Encrypted: i=1; AJvYcCWhs6djV46FB5VfHWn4+1F5m6mGKpn6j9Eekzk5x1FvbPRB5xhDNsSEmt+oUVsMgD2Z0CGnyraVsaZdpvXq9BHb@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXzXdpMGMkBSasFpA+h8EovpwgYrHQCd+Sfxf9WUZA0sDxTRs3
-	6JgCdeEDe9bw2hNj26thq2c1azYSEwv6ajZhFc8xHLo3dC9qBHCTXL+4NEsBZFU=
-X-Gm-Gg: ASbGncunPcXfF1NBs8plsWg8ftks7V9BuS2KeN7n2EFuWoJsdJvz9179raXidVVGer5
-	zlmSi2l7yWOypIciNk/yuhqg/OSwtFcJvSsq4mH2CitLhlfog6VBYLd31VpQpjDLEGI/vNu37J4
-	8LWwMn7Inx3Atwys+V2tmMXaTpmqlRCEZL6pL9TgXQNcpej15UCiTu8EMmUkaE6BWR2VTMtnfO8
-	L0iy/f4nNEldenPA41e08iKp59TPiplhTjfBxuOdOdXthY+ySwDHwmVuQtD7QFgktYSZTdg8tWr
-	cPgrxN66TNUs0Vf2HAzFatnpkfqD8UM/kBLO
-X-Google-Smtp-Source: AGHT+IGPbhDxMbt3iYzgXLX3wIo1AlxBNC0CatVnDX2Ryc3K1ya/vSA+XrTgwj8dmgoeD68B8Htdsg==
-X-Received: by 2002:a05:600c:9a3:b0:434:fa73:a907 with SMTP id 5b1f17b1804b1-4389191b819mr167514035e9.13.1737481820805;
-        Tue, 21 Jan 2025 09:50:20 -0800 (PST)
-Received: from localhost (p200300f65f0afb0400000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f0a:fb04::1b9])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-437c7499884sm252100635e9.5.2025.01.21.09.50.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Jan 2025 09:50:20 -0800 (PST)
-Date: Tue, 21 Jan 2025 18:50:19 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Wentao Liang <vulab@iscas.ac.cn>
-Cc: andi.shyti@kernel.org, rjui@broadcom.com, sbranden@broadcom.com, 
-	bcm-kernel-feedback-list@broadcom.com, linux-i2c@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] i2c: iproc: Refactor prototype and remove redundant
- error checks
-Message-ID: <rv3ej2tdmfff2qilnpgvef64ujrozuplu7ix54rpd25kbrbhwd@zm5sjyn2vjra>
-References: <20250121084818.2719-1-vulab@iscas.ac.cn>
+	Tue, 21 Jan 2025 18:08:34 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50LH3fwV001671;
+	Tue, 21 Jan 2025 18:08:13 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=knco0MIQTXRNrrudeSCOiW
+	yXlInlVY2HacStlFZpdsc=; b=n39phQWzrzIIytWzy1tcBvfSBLnIqCwM0mJ+pi
+	j71THLbZQ6rFMowl8HLm0KNROv+80ZmtWx2ogU+JLAUXLCCxOdfNGc0iVXBX+Na2
+	+4BU4BscVvBAXzVohn9zHWfHLfjM8XJRorL7/nisQhzDGfg0o6PH+5zQDUadrHyU
+	YkZnM7qGsMNLVgYKWGrqzI0el8NUFpBBPC40+t83v0o/frH5H146AAWuDjODfKFl
+	ONL6CySXlNknDdXpZ7qC+jTBLjq4hCDLvNH1TMXtMz1pb6uZT7vvW/z1t9pvi5ub
+	JZp/zA2XIQA2Tj11xAJC5NgWt22MauVhjqOk4sVkN0eNiDXw==
+Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44a866su5u-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 21 Jan 2025 18:08:12 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 50LI8BJf010435
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 21 Jan 2025 18:08:11 GMT
+Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
+ nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Tue, 21 Jan 2025 10:08:02 -0800
+From: Vikram Sharma <quic_vikramsa@quicinc.com>
+To: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
+        <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <akapatra@quicinc.com>, <hariramp@quicinc.com>,
+        <andersson@kernel.org>, <konradybcio@kernel.org>,
+        <hverkuil-cisco@xs4all.nl>, <cros-qcom-dts-watchers@chromium.org>,
+        <catalin.marinas@arm.com>, <will@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <quic_vikramsa@quicinc.com>,
+        <linux-media@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <kernel@quicinc.com>
+Subject: [PATCH v2 0/2] Update clocks for sc7280-camss 
+Date: Tue, 21 Jan 2025 23:37:44 +0530
+Message-ID: <20250121180746.1989996-1-quic_vikramsa@quicinc.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ug4dj3w4uiulvkrk"
-Content-Disposition: inline
-In-Reply-To: <20250121084818.2719-1-vulab@iscas.ac.cn>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: WuO4tfAZ3JTy-77qyFmNea2H5a_OkedA
+X-Proofpoint-ORIG-GUID: WuO4tfAZ3JTy-77qyFmNea2H5a_OkedA
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-21_07,2025-01-21_03,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 mlxscore=0
+ mlxlogscore=999 lowpriorityscore=0 phishscore=0 malwarescore=0 spamscore=0
+ adultscore=0 suspectscore=0 impostorscore=0 clxscore=1015
+ priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501210145
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_095022_991192_5B5560EE 
-X-CRM114-Status: GOOD (  15.05  )
+X-CRM114-CacheID: sfid-20250121_100822_774942_EFECC17F 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,49 +101,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Update clock names as follow-up change for series.
+https://lore.kernel.org/linux-arm-msm/20241206191900.2545069-1-quic_vikramsa@quicinc.com/
+We have got comments on our dtsi change to update clock names as
+- GCC_CAMERA_AHB_CLK is always enabled clock so it can be removed.
+- Change clock name from gcc_cam_hf_axi to `gcc_axi_hf` for consistency.
+- Add gcc_axi_sf as missing to enable it can have undefined hw behaviour.
 
---ug4dj3w4uiulvkrk
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2] i2c: iproc: Refactor prototype and remove redundant
- error checks
-MIME-Version: 1.0
+To handle these comments in our base series we need to update
+documentaion and driver (already merged) to work with dtsi.
 
-Hello,
+We are not breaking ABI here because the ABI hasn't been cemented yet as the dtsi
+changes are not merged yet also there are no users for this driver as of now. 
 
-On Tue, Jan 21, 2025 at 04:48:18PM +0800, Wentao Liang wrote:
-> The bcm_iproc_i2c_init() always returns 0. As a result, there
-> is no need to check its return value or handle errors.
->=20
-> This patch changes the prototype of bcm_iproc_i2c_init() to
-> return void and removes the redundant error handling code after
-> calls to bcm_iproc_i2c_init() in both the bcm_iproc_i2c_probe()
-> and bcm_iproc_i2c_resume().
->=20
-> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+Used following tools for the sanity check of these changes.
+- make CHECK_DTBS=y W=1 DT_SCHEMA_FILES=media/qcom,sc7280-camss.yaml
+- make DT_CHECKER_FLAGS=-m W=1
+DT_SCHEMA_FILES=media/qcom,sc7280-camss.yaml dt_binding_check
+- make -j32 W=1
+- ./scripts/checkpatch.pl
 
-LGTM:
+Changes in V2:
+- Updated commit text to explain the reason behind this change.
+- Updated commit text to use imperative mood.
+- Updated commit text to utilize 75 character limit properly.
+- Link to v1: https://lore.kernel.org/linux-arm-msm/20250121120901.1841142-1-quic_vikramsa@quicinc.com/
 
-Acked-by: Uwe Kleine-K=F6nig <u.kleine-koenig@baylibre.com>
+Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
 
-Best regards
-Uwe
+Vikram Sharma (2):
+  media: dt-bindings: update clocks for sc7280-camss
+  media: qcom: camss: update clock names for sc7280
 
---ug4dj3w4uiulvkrk
-Content-Type: application/pgp-signature; name="signature.asc"
+ .../bindings/media/qcom,sc7280-camss.yaml         | 10 +++++-----
+ drivers/media/platform/qcom/camss/camss.c         | 15 ++++++++++-----
+ 2 files changed, 15 insertions(+), 10 deletions(-)
 
------BEGIN PGP SIGNATURE-----
+-- 
+2.25.1
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmeP3k8ACgkQj4D7WH0S
-/k7QlggAkOfHqgXrjFpc18b6r08Yz1N73AYGtxalMar9UBjbJ4mnvejHMlCZw1S9
-iMf6fMrZCQAdZQYoPQ4xc9Ri/EMTuYoNUN6SWnS0P53f7HIzpzSEZoYwflxDDxov
-rbPlhcXoCZPQ0eywbXbev1frxH06OPwj3Rb7WoECfJY18Tb1czKjgGa9vwS+otLu
-N4ZYlUQnbS7u0PO/omVtMB1voNBJzRVqc81tjVrwIHJjzLPf5xFHfjy45vbiCH5O
-ZabwO/ZQZWtHA+zwUjJ/UCM+8Wc948R+hhzDHRhipHO19/Y6nTqACwZ3hQj/ncay
-hhKz/yQOBncrz8yjTaAC+9AJGRqRTg==
-=q30A
------END PGP SIGNATURE-----
-
---ug4dj3w4uiulvkrk--
 
