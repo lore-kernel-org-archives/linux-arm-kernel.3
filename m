@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A036C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 07:04:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF35BC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 07:05:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2uK0hQxCV/lUrfBL7T6HvDaJFOADESSQWGXpZW3WKJM=; b=uOTOP7txw0efeVy9UQU9QGWfE8
-	/ffmcLX5HhbYsxQh4FyQtHC8bhlpfZPtGLtw292MTwSyukWW366wz8BaEvS61gvANjgPXnf23eVry
-	wcPpqMY30/PnTGXj/uLmSvXkj5gyr6xoFWye89oiNhAErD6q4EhR5oNy+JPLY/WOB6LHbzJpHYY+R
-	a5DZF1d1ExNrjlUNd8GvZo6mKJrB8ECgagSHMszSvSYJ4LsQOqfbh1YUfqTc/xYaz5AsT0Kuhxk1O
-	o491aO4AW6Yl/GBVNk66ZGR3y3vBvsNXWTJY8eq0pH5fflTpqkKmxmjZRs1egAtIz0FHQDWOZt9vM
-	sTAiXvYA==;
+	bh=j8az3axt7AXKkpJ3vossJpRzzEmL/ntJ0k4Bql1X3ns=; b=qqe7CYsx0ROyCvccWZ69KSsjAT
+	Bgh9tdu4RAPkPSzBRVtCHlgXxyIhN+wjGvHHASzsBBGxWVGfxjCWzSlzQR1Jrf8H2fJWutVUgP8rX
+	TdeiBvbdzXb5EVFi7YwS1kcepEDKogZoRI3zgKP4g/JfBMT1LRyaO/vc1PrV8Eqfq9u8oAZJX2Dor
+	vIWakDu8at02RUw49b0sWF77r72uQuhyv1KqvnhsTY2H7PRyebv0VUUXBhdo+QU1bKgPx0DbwYvKw
+	QyaGS8Wh99QDDV5ZK6mo4lgIv55INLsgwCZw9jr0HQRYqBbYxEhCEz920YBXXZZPL29SoM7j04mSY
+	X8UFvPSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ta8It-000000074RY-11qk;
-	Tue, 21 Jan 2025 07:04:03 +0000
+	id 1ta8K8-000000074k7-3ehB;
+	Tue, 21 Jan 2025 07:05:20 +0000
 Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ta8Cd-000000072gN-2rmu
+	id 1ta8Cd-000000072gk-2riG
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 21 Jan 2025 06:57:37 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.112])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4YcdHq4py9z22lgZ;
-	Tue, 21 Jan 2025 14:55:03 +0800 (CST)
+Received: from mail.maildlp.com (unknown [172.19.88.234])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4YcdGv4Kbnz2FcWN;
+	Tue, 21 Jan 2025 14:54:15 +0800 (CST)
 Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 956551402C3;
-	Tue, 21 Jan 2025 14:57:32 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 5432C140361;
+	Tue, 21 Jan 2025 14:57:33 +0800 (CST)
 Received: from kwepemn100009.china.huawei.com (7.202.194.112) by
  dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 21 Jan 2025 14:57:32 +0800
+ 15.2.1544.11; Tue, 21 Jan 2025 14:57:33 +0800
 Received: from localhost.localdomain (10.28.79.22) by
  kwepemn100009.china.huawei.com (7.202.194.112) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 21 Jan 2025 14:57:22 +0800
+ 15.2.1544.11; Tue, 21 Jan 2025 14:57:26 +0800
 From: Huisong Li <lihuisong@huawei.com>
 To: <linux-hwmon@vger.kernel.org>
 CC: <linux-kernel@vger.kernel.org>, <linux-media@vger.kernel.org>,
@@ -59,9 +59,9 @@ CC: <linux-kernel@vger.kernel.org>, <linux-media@vger.kernel.org>,
 	<ilpo.jarvinen@linux.intel.com>, <alexandre.belloni@bootlin.com>,
 	<krzk@kernel.org>, <jonathan.cameron@huawei.com>, <zhanjie9@hisilicon.com>,
 	<zhenglifeng1@huawei.com>, <liuyonglong@huawei.com>, <lihuisong@huawei.com>
-Subject: [PATCH v1 03/21] net: aquantia: Use HWMON_CHANNEL_INFO macro to simplify code
-Date: Tue, 21 Jan 2025 14:45:01 +0800
-Message-ID: <20250121064519.18974-4-lihuisong@huawei.com>
+Subject: [PATCH v1 06/21] net: phy: marvell10g: Use HWMON_CHANNEL_INFO macro to simplify code
+Date: Tue, 21 Jan 2025 14:45:04 +0800
+Message-ID: <20250121064519.18974-7-lihuisong@huawei.com>
 X-Mailer: git-send-email 2.22.0
 In-Reply-To: <20250121064519.18974-1-lihuisong@huawei.com>
 References: <20250121064519.18974-1-lihuisong@huawei.com>
@@ -72,8 +72,8 @@ X-Originating-IP: [10.28.79.22]
 X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
  kwepemn100009.china.huawei.com (7.202.194.112)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_225735_948237_FAFD1EB6 
-X-CRM114-Status: UNSURE (   9.59  )
+X-CRM114-CacheID: sfid-20250120_225735_925648_E2E09C70 
+X-CRM114-Status: UNSURE (   9.48  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -93,32 +93,42 @@ Use HWMON_CHANNEL_INFO macro to simplify code.
 
 Signed-off-by: Huisong Li <lihuisong@huawei.com>
 ---
- .../net/ethernet/aquantia/atlantic/aq_drvinfo.c    | 14 ++------------
- 1 file changed, 2 insertions(+), 12 deletions(-)
+ drivers/net/phy/marvell10g.c | 24 ++----------------------
+ 1 file changed, 2 insertions(+), 22 deletions(-)
 
-diff --git a/drivers/net/ethernet/aquantia/atlantic/aq_drvinfo.c b/drivers/net/ethernet/aquantia/atlantic/aq_drvinfo.c
-index 414b2e448d59..787ea91802e7 100644
---- a/drivers/net/ethernet/aquantia/atlantic/aq_drvinfo.c
-+++ b/drivers/net/ethernet/aquantia/atlantic/aq_drvinfo.c
-@@ -113,19 +113,9 @@ static const struct hwmon_ops aq_hwmon_ops = {
- 	.read_string = aq_hwmon_read_string,
+diff --git a/drivers/net/phy/marvell10g.c b/drivers/net/phy/marvell10g.c
+index 623bdb8466b8..5354c8895163 100644
+--- a/drivers/net/phy/marvell10g.c
++++ b/drivers/net/phy/marvell10g.c
+@@ -230,29 +230,9 @@ static const struct hwmon_ops mv3310_hwmon_ops = {
+ 	.read = mv3310_hwmon_read,
  };
  
--static u32 aq_hwmon_temp_config[] = {
--	HWMON_T_INPUT | HWMON_T_LABEL,
--	HWMON_T_INPUT | HWMON_T_LABEL,
+-static u32 mv3310_hwmon_chip_config[] = {
+-	HWMON_C_REGISTER_TZ | HWMON_C_UPDATE_INTERVAL,
 -	0,
 -};
 -
--static const struct hwmon_channel_info aq_hwmon_temp = {
--	.type = hwmon_temp,
--	.config = aq_hwmon_temp_config,
+-static const struct hwmon_channel_info mv3310_hwmon_chip = {
+-	.type = hwmon_chip,
+-	.config = mv3310_hwmon_chip_config,
 -};
 -
- static const struct hwmon_channel_info * const aq_hwmon_info[] = {
--	&aq_hwmon_temp,
-+	HWMON_CHANNEL_INFO(temp, HWMON_T_INPUT | HWMON_T_LABEL,
-+			   HWMON_T_INPUT | HWMON_T_LABEL),
+-static u32 mv3310_hwmon_temp_config[] = {
+-	HWMON_T_INPUT,
+-	0,
+-};
+-
+-static const struct hwmon_channel_info mv3310_hwmon_temp = {
+-	.type = hwmon_temp,
+-	.config = mv3310_hwmon_temp_config,
+-};
+-
+ static const struct hwmon_channel_info * const mv3310_hwmon_info[] = {
+-	&mv3310_hwmon_chip,
+-	&mv3310_hwmon_temp,
++	HWMON_CHANNEL_INFO(chip, HWMON_C_REGISTER_TZ | HWMON_C_UPDATE_INTERVAL),
++	HWMON_CHANNEL_INFO(temp, HWMON_T_INPUT),
  	NULL,
  };
  
