@@ -4,78 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89CF6C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 06:33:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF8EAC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 06:34:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vCKXtzuwlhJUvr/Y/PPdwuxyKY7/Zwsu0NONuR9mcGo=; b=32Cm/8gi+JHhfbyrH8H8TTOveT
-	mDMbMFUXXA2tpsqkisH7QbiH6AE6Xj6Osf1ExEkOPVmFTIDmbOEBhZL2FNmzl6fd54wBYT8/rV1u+
-	jcay/fQ0sL4+l//9a5iAaELG871+cd9zvf/elYG7xqiNATqFNgGMX28oYo3W2DFPGQp+eAqXnBQjj
-	xwCD+ULLvPIqOQi3PiH9uNEu0kBi/hbAOc+ZYxCG7hAdqlBpiOvrBC0348z7gO9O7RHeXRWQg4HFN
-	k2rUtNjuhW9aOehuQAqjCUcKXav0s6so2ta2KVQCQspFGYnCUKvTfq+k6vfqSrMljx5EKbMIXLm3s
-	NDzBneEA==;
+	bh=RI+Bcbtp+L0lptpp/ZEocQcR61FttKONsA5FcfRE/MI=; b=G8xS8XpWuAJ2AGB3qczHIdozzZ
+	vG8BlCOjMOfND8CTRy7Q0txICyM4Rvd9gXQTuIMQo7soYqp7lpGFulKJjeilrNERU/wyZBx95D93j
+	7eDuUs53knRNp3T3HyHYmnP+fTXsjFuBqljAx0UCus4WPHE7F0AWGNHB1kEXDI4dOHFXo7SXM90lK
+	mYkD4m4T9FJ+Bnsr7trsSR1hyKR06uV17Pu68w43Lx1BAeGjNDWbtM+rugc/vRzkR+PJfQdWYxBOs
+	v77lotUfcFhUv9TgKSu/ceHIktzRd48q+KZbcI/ZF1n3fXOnli9PdZ62TLyp0YuYPMAI2RbcWle7S
+	uti+KcvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ta7ou-000000070Z8-2hJC;
-	Tue, 21 Jan 2025 06:33:04 +0000
-Received: from mail-m1973180.qiye.163.com ([220.197.31.80])
+	id 1ta7qB-000000070ef-1dU0;
+	Tue, 21 Jan 2025 06:34:23 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ta7g6-00000006z4H-3jWn;
-	Tue, 21 Jan 2025 06:24:00 +0000
-Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 9456a34d;
-	Tue, 21 Jan 2025 14:23:54 +0800 (GMT+08:00)
-From: Damon Ding <damon.ding@rock-chips.com>
-To: heiko@sntech.de
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	rfoss@kernel.org,
-	vkoul@kernel.org,
-	sebastian.reichel@collabora.com,
-	cristian.ciocaltea@collabora.com,
-	l.stach@pengutronix.de,
-	dmitry.baryshkov@linaro.org,
-	andy.yan@rock-chips.com,
-	hjc@rock-chips.com,
-	algea.cao@rock-chips.com,
-	kever.yang@rock-chips.com,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v6 6/6] arm64: dts: rockchip: Fix label name of hdptxphy for RK3588
-Date: Tue, 21 Jan 2025 14:23:24 +0800
-Message-Id: <20250121062324.309592-7-damon.ding@rock-chips.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250121062324.309592-1-damon.ding@rock-chips.com>
-References: <20250121062324.309592-1-damon.ding@rock-chips.com>
+	id 1ta7he-00000006zPk-2Zr9
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Jan 2025 06:25:35 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-21680814d42so85029565ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jan 2025 22:25:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1737440733; x=1738045533; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RI+Bcbtp+L0lptpp/ZEocQcR61FttKONsA5FcfRE/MI=;
+        b=ITtA87P8TCuAjzzND2qsmi4yidcawKcCGh8P9VqJx+BgfMqFFw9HePj36AubDbYSeS
+         zG3io3HM9WwfGcFLFnH3klybO8mIXcpwQRWayen7+9IFWhsFz80r3qdI/FWls6tZs13s
+         VZVrixmyckku0BpFUD8LJ2q2q9rNTcO0yNbxvVqfWv4jfh+zEuq74qaTzcvgSos6H8+4
+         eYHAxtl06bxfHyQP/IeEEGx2np862kP2q72ZvSEpj345A1u+PyQjETeXizU0dfInG1fh
+         FT/C4xtmYAsdt1THqTtai7VeW1NGxa4+ZbfE6bVfQvcLCWWD+NGJgwoOAvkiq+wMN3vd
+         c1OA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737440733; x=1738045533;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=RI+Bcbtp+L0lptpp/ZEocQcR61FttKONsA5FcfRE/MI=;
+        b=YlcGzlN+Ua4PrkFnkZc0QaLyYf5wwECTWBB9vK4/nwINvKEp79ebMebkE8Hu+VYvVw
+         MVpRrYp2puonKfPBWwunNCUUlOsW38s3Lb33A8BqO37IP+mvHp3KGOou3pYj+ks8ce5Z
+         goSPrsY2YOIh/mjq56DK9D7TQJQsHkVCCyeCpEDhRiaP43EBj5yQGUIG/UmNE9D0i3CZ
+         UgspW75Ks/BuqAPMNudkgOtAam0EiP3oi53YqUtjfekISH4OwlFU4V5PtC7EbL50/rzi
+         Qe5rzYlWy6Z7dLIbocySAiW0z78ggywciNAMpGHRwHE8wiezIQQdIUWWXAafC7kHIdy5
+         dFcQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWU+ylUPLSaz1df+e1kpIVL1jO34Tnk7MpfuFDzy2UUIpED2DJqJMKvj4hT2y763YFt3hzQIsWnHf0w4WO+b1TU@lists.infradead.org
+X-Gm-Message-State: AOJu0YzxuC0uRnlhktxi/TSjOy7oEHmn4Q3eERHTF/JVIvXa7xwcWIaU
+	p3q6Gui7GpwA/vmYLoUbkVsliTdtGDCQSZgjfTntl8zG34QrHhzsy4ADUQ==
+X-Gm-Gg: ASbGncuJLiiO4Oun07FEBigMNfDrX37lXnX7421ohG3cRvyX78pPw7YcK3Ri3gUvmrm
+	oGhrEWKbm8lMtm9KZ7z/ADeEE5uxq5/9NYNIX5aasHPSwAMVvMsCPlqCTUi5QsU2VnuTBVUNArr
+	Vb/LakwkKAB5Kg9GTbVAavsh2FAxxWtjw7ufofl3QtrqjTbizmDdeiDFviBCFchM3mXqS8Zy02H
+	XcMjeCvch42iC1AAEv07eh4YU1e2dnj81j+laaVhYz44etf86RpxQRhqj8tRPbsU2o=
+X-Google-Smtp-Source: AGHT+IGEqFFcFptOhYieThLnVRw8v/b9RJDK9OgDpEyPyoFWeg55gV+CqOjA626TahjU8BmR0AsirQ==
+X-Received: by 2002:a05:6a00:4c94:b0:724:e75b:22d1 with SMTP id d2e1a72fcca58-72dafa800c4mr23351770b3a.16.1737440732288;
+        Mon, 20 Jan 2025 22:25:32 -0800 (PST)
+Received: from localhost ([129.146.253.192])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72dabacdbd5sm8280003b3a.180.2025.01.20.22.25.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 20 Jan 2025 22:25:32 -0800 (PST)
+Date: Tue, 21 Jan 2025 14:25:20 +0800
+From: Furong Xu <0x1207@gmail.com>
+To: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu
+ <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
+ Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>, Joao Pinto <Joao.Pinto@synopsys.com>,
+ Vince Bridgers <vbridger@opensource.altera.com>, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v2 1/3] net: stmmac: Limit the number of MTL queues
+ to hardware capability
+Message-ID: <20250121142520.0000702e@gmail.com>
+In-Reply-To: <20250121044138.2883912-2-hayashi.kunihiko@socionext.com>
+References: <20250121044138.2883912-1-hayashi.kunihiko@socionext.com>
+	<20250121044138.2883912-2-hayashi.kunihiko@socionext.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQkxPTFZCHxkeTRhLGUJDGB5WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSE
-	NVSktLVUpCS0tZBg++
-X-HM-Tid: 0a94878826d803a3kunm9456a34d
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NUk6ESo4CjIVTzQyCRxNDjAY
-	FEIKCQpVSlVKTEhMT09LTUhNT0JNVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFDQkJKNwY+
-DKIM-Signature: a=rsa-sha256;
-	b=TZ32C3Hmymuk+1elG923gNWBz4ghv4gp2ZImp7rYeI6ZP7uZ5bMsmLzLlj7zFNgaVVSswExrDTxYJmzk5mXz4aLOzRQXzDE/0FpgE/RTEjcz3mCmEvf3/n1EFaQG0/7rO99CsrvDte2FfjS61u2M1MaEoxAASse9+TG3AcqP3I0=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=vCKXtzuwlhJUvr/Y/PPdwuxyKY7/Zwsu0NONuR9mcGo=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_222359_092099_59BB2E6C 
-X-CRM114-Status: UNSURE (   9.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250120_222534_661722_0038C266 
+X-CRM114-Status: GOOD (  20.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,262 +104,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The hdptxphy is a combo transmit-PHY for HDMI2.1 TMDS Link, FRL Link, DP
-and eDP Link. Therefore, it is better to name it hdptxphy0 other than
-hdptxphy_hdmi0, which will be referenced by both hdmi0 and edp0 nodes.
+On Tue, 21 Jan 2025 13:41:36 +0900, Kunihiko Hayashi <hayashi.kunihiko@socionext.com> wrote:
 
-Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
----
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi                 | 4 ++--
- arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dts        | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-genbook.dts    | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts              | 2 +-
- .../boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dts      | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts                | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi            | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts       | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts               | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts          | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts            | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts      | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi           | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts            | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi          | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts              | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts              | 2 +-
- 17 files changed, 18 insertions(+), 18 deletions(-)
+> The number of MTL queues to use is specified by the parameter
+> "snps,{tx,rx}-queues-to-use" from stmmac_platform layer.
+> 
+> However, the maximum numbers of queues are constrained by upper limits
+> determined by the capability of each hardware feature. It's appropriate
+> to limit the values not to exceed the upper limit values and display
+> a warning message.
+> 
+> Fixes: d976a525c371 ("net: stmmac: multiple queues dt configuration")
+> Signed-off-by: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 7bf275f127c9..251a8c15637f 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -7232,6 +7232,19 @@ static int stmmac_hw_init(struct stmmac_priv *priv)
+>  	if (priv->dma_cap.tsoen)
+>  		dev_info(priv->device, "TSO supported\n");
+>  
+> +	if (priv->plat->rx_queues_to_use > priv->dma_cap.number_rx_queues) {
+> +		dev_warn(priv->device,
+> +			 "Number of Rx queues exceeds dma capability (%d)\n",
+> +			 priv->plat->rx_queues_to_use);
+> +		priv->plat->rx_queues_to_use = priv->dma_cap.number_rx_queues;
+> +	}
+> +	if (priv->plat->tx_queues_to_use > priv->dma_cap.number_tx_queues) {
+> +		dev_warn(priv->device,
+> +			 "Number of Tx queues exceeds dma capability (%d)\n",
+> +			 priv->plat->tx_queues_to_use);
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-index a337f3fb8377..7e125897b0cd 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-@@ -1386,7 +1386,7 @@ hdmi0: hdmi@fde80000 {
- 			     <GIC_SPI 172 IRQ_TYPE_LEVEL_HIGH 0>,
- 			     <GIC_SPI 360 IRQ_TYPE_LEVEL_HIGH 0>;
- 		interrupt-names = "avp", "cec", "earc", "main", "hpd";
--		phys = <&hdptxphy_hdmi0>;
-+		phys = <&hdptxphy0>;
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&hdmim0_tx0_cec &hdmim0_tx0_hpd
- 			     &hdmim0_tx0_scl &hdmim0_tx0_sda>;
-@@ -2806,7 +2806,7 @@ dmac2: dma-controller@fed10000 {
- 		#dma-cells = <1>;
- 	};
- 
--	hdptxphy_hdmi0: phy@fed60000 {
-+	hdptxphy0: phy@fed60000 {
- 		compatible = "rockchip,rk3588-hdptx-phy";
- 		reg = <0x0 0xfed60000 0x0 0x2000>;
- 		clocks = <&cru CLK_USB2PHY_HDPTXRXPHY_REF>, <&cru PCLK_HDPTX0>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dts b/arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dts
-index 9d525c8ff725..9eda69722665 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dts
-@@ -129,7 +129,7 @@ hdmi0_out_con: endpoint {
- 	};
- };
- 
--&hdptxphy_hdmi0 {
-+&hdptxphy0 {
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-genbook.dts b/arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-genbook.dts
-index 92f0ed83c990..d1be72eb63a4 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-genbook.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-genbook.dts
-@@ -166,7 +166,7 @@ hdmi0_out_con: endpoint {
- 	};
- };
- 
--&hdptxphy_hdmi0 {
-+&hdptxphy0 {
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
-index d6e464cdc536..094235d22cd1 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
-@@ -328,7 +328,7 @@ hdmi0_out_con: endpoint {
- 	};
- };
- 
--&hdptxphy_hdmi0 {
-+&hdptxphy0 {
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dts b/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dts
-index b3a04ca370bb..8171fbfd819a 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dts
-@@ -335,7 +335,7 @@ hdmi0_out_con: endpoint {
- 	};
- };
- 
--&hdptxphy_hdmi0 {
-+&hdptxphy0 {
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts b/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
-index 90f823b2c219..ef56380530f9 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
-@@ -303,7 +303,7 @@ hdmi0_out_con: endpoint {
- 	};
- };
- 
--&hdptxphy_hdmi0 {
-+&hdptxphy0 {
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
-index cb350727d116..0d9b5020acc0 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
-@@ -360,7 +360,7 @@ hdmi0_out_con: endpoint {
- 	};
- };
- 
--&hdptxphy_hdmi0 {
-+&hdptxphy0 {
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
-index 9f5a38b290bf..f14e96d96207 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
-@@ -296,7 +296,7 @@ hdmi0_out_con: endpoint {
- 	};
- };
- 
--&hdptxphy_hdmi0 {
-+&hdptxphy0 {
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-index c44d001da169..a047c579c93d 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-@@ -220,7 +220,7 @@ hdmi0_out_con: endpoint {
- 	};
- };
- 
--&hdptxphy_hdmi0 {
-+&hdptxphy0 {
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts b/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts
-index 3187b4918a30..795d8175e654 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts
-@@ -189,7 +189,7 @@ hdmi0_out_con: endpoint {
- 	};
- };
- 
--&hdptxphy_hdmi0 {
-+&hdptxphy0 {
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts b/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
-index 9c394f733bbf..f471baca6d31 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
-@@ -236,7 +236,7 @@ hdmi0_out_con: endpoint {
- 	};
- };
- 
--&hdptxphy_hdmi0 {
-+&hdptxphy0 {
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts b/arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts
-index 4a3aa80f2226..74a4f03e05e3 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts
-@@ -278,7 +278,7 @@ hdmi0_out_con: endpoint {
- 	};
- };
- 
--&hdptxphy_hdmi0 {
-+&hdptxphy0 {
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
-index 76a6e8e517e9..482f5917043f 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
-@@ -251,7 +251,7 @@ hdmi0_out_con: endpoint {
- 	};
- };
- 
--&hdptxphy_hdmi0 {
-+&hdptxphy0 {
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts b/arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts
-index 8f034c6d494c..1463bd36b1b2 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts
-@@ -264,7 +264,7 @@ hdmi0_out_con: endpoint {
- 	};
- };
- 
--&hdptxphy_hdmi0 {
-+&hdptxphy0 {
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
-index d86aeacca238..9e16960b8705 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
-@@ -197,7 +197,7 @@ hdmi0_out_con: endpoint {
- 	};
- };
- 
--&hdptxphy_hdmi0 {
-+&hdptxphy0 {
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts
-index 70a43432bdc5..676cc4fec269 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts
-@@ -334,7 +334,7 @@ hdmi0_out_con: endpoint {
- 	};
- };
- 
--&hdptxphy_hdmi0 {
-+&hdptxphy0 {
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
-index 9b14d5383cdc..bf74789e3f51 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
-@@ -278,7 +278,7 @@ hdmi0_out_con: endpoint {
- 	};
- };
- 
--&hdptxphy_hdmi0 {
-+&hdptxphy0 {
- 	status = "okay";
- };
- 
--- 
-2.34.1
+I would prefer print these warnings like this:
 
+dev_warn(priv->device, "Number of Tx queues (%u) exceeds dma capability (%u)\n",
+priv->plat->tx_queues_to_use, priv->dma_cap.number_tx_queues);
+
+And number_tx_queues, number_rx_queues are u32, so %u would be better.
+
+This print format change is quite minor. Probably not worth a re-roll since one
+can always view DMA capabilities by reading a debugfs entry.
 
