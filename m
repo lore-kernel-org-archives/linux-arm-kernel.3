@@ -4,85 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82A89C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 12:20:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ADFBC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 12:49:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uHBvQcOQPomOZhTlSjIL1XK/6X1vKagW1sUm3IufGls=; b=x9sZsnnaR7r66W9q6RhkSeK2Yz
-	81/PsSzW3O8WauduQibxXX+D4CD9Po0175Qx8Hz3ep8nrCw5ZlLUr/cPUvAJPkGH9GhTHz9470yrn
-	EEkmzF4LimzCpXsJd36bsvIuAt58pFzm6QoEc17hoCb1Umkz7v89UHJ+6tbFv9y9NeCUYd5n7yhSX
-	AayQDp1Vz5Zq1fbfQ39YlvnlaqU7sk64AAEqURUdUKANOpKc4LUK7S/oURwslks7ujkQHhtzrPlIO
-	I+bDwucGrDUZgiVw2Wo88qHKVO0rU34+RkJMJiWVyBWaDoMvx+FOIVPSCFctqMsBWFniC2VR9EYZy
-	LYpeemIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6fOWxAkswLH+m3Yk/XX9zBojxxfZ3zWmtO7GqXmd6uM=; b=x9AcgCvPbT12sN9m8cweJrMnOL
+	6loLPreOgfGGNYvTgGyD7aVH+be7sFqa4htH7Rd7oIdcGAMxOUIvKzvuefOniUaeAvxjW1TERYdwh
+	8GXD5dRhSYZCwZ/R87dKZbRFG3gWNW8cxDn1FB2S3yoT7eJDYBNMJJpK8CcapKRcD/b7M8cmrWcfK
+	X4RvBA0ZiCKNwKQjblCVusXdVO9TGS9VLtg5GmZT5PJbkQFpE7eKNRJsMsHKpBUQc7HxqfIME/Wk4
+	e7YiB17uXWIBiUyBIiSRKAKZz6E61lmvsyqS32PHFfStFo1EHKt+/aIcM6enSMEuB/hn0gG0U1Pps
+	ysuG8/kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taDFH-00000007qrx-10Xd;
-	Tue, 21 Jan 2025 12:20:39 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1taDh7-00000007to8-0XEe;
+	Tue, 21 Jan 2025 12:49:25 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taDDz-00000007qgI-0IsF
+	id 1taDfp-00000007tgT-2L3T
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 12:19:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1737461959; x=1768997959;
-  h=from:date:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=sPesZWYC0ulEJj/gesJPmVOOyLfPgsGZKiiMssRCLcU=;
-  b=Pttwhbf9tGZYumaS81ufANHLlSyHu3jPA50qg4GQLL5p055GJr2igdO2
-   q6shjvvFzZPFQZEfOqAMezdZK4jHGp+8dROKvFZlcQrB0vENFC+HwHOql
-   WR6Je2+snL1NdRPkFpVd1F2FLo0E1qjuLh7LjI/j0p7Uq/J9fbK3TuHnk
-   m8JwwdkOc4tXPudnWwnmdlGpSn0j78BdZDmaWdMllW9zsNLKdDlRMm/U1
-   czh3rh8LHm3YfaLyYy/U/czboDWKpz63Ta62ZzfAxmbfw3mANn3hfhVsN
-   oOwBpCvbNsv75s0Vdexcrr1pPdSVGG7pv3lE9B91Fc6P8Pt/O3AGUm+qT
-   Q==;
-X-CSE-ConnectionGUID: xZz8rzzyRXecd8YmfiA1nA==
-X-CSE-MsgGUID: 6Kwb79FUT4S97x1qRyo0aA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11321"; a="38115463"
-X-IronPort-AV: E=Sophos;i="6.13,222,1732608000"; 
-   d="scan'208";a="38115463"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jan 2025 04:19:14 -0800
-X-CSE-ConnectionGUID: gH3zVvHuQEysE1CEtIUNmw==
-X-CSE-MsgGUID: XYxDmMaMQhuYGVua7yV6Ig==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,222,1732608000"; 
-   d="scan'208";a="111790831"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.188])
-  by orviesa004-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jan 2025 04:19:00 -0800
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Date: Tue, 21 Jan 2025 14:18:56 +0200 (EET)
-To: Huisong Li <lihuisong@huawei.com>
-cc: linux-hwmon@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>, 
-    linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-    arm-scmi@vger.kernel.org, Netdev <netdev@vger.kernel.org>, 
-    linux-rtc@vger.kernel.org, oss-drivers@corigine.com, 
-    linux-rdma@vger.kernel.org, platform-driver-x86@vger.kernel.org, 
-    linuxarm@huawei.com, linux@roeck-us.net, jdelvare@suse.com, 
-    kernel@maidavale.org, pauk.denis@gmail.com, james@equiv.tech, 
-    sudeep.holla@arm.com, cristian.marussi@arm.com, matt@ranostay.sg, 
-    mchehab@kernel.org, irusskikh@marvell.com, andrew+netdev@lunn.ch, 
-    davem@davemloft.net, edumazet@google.com, kuba@kernel.org, 
-    pabeni@redhat.com, saeedm@nvidia.com, leon@kernel.org, tariqt@nvidia.com, 
-    louis.peens@corigine.com, hkallweit1@gmail.com, linux@armlinux.org.uk, 
-    kabel@kernel.org, W_Armin@gmx.de, Hans de Goede <hdegoede@redhat.com>, 
-    alexandre.belloni@bootlin.com, krzk@kernel.org, 
-    jonathan.cameron@huawei.com, zhanjie9@hisilicon.com, 
-    zhenglifeng1@huawei.com, liuyonglong@huawei.com
-Subject: Re: [PATCH v1 19/21] platform/x86: dell-ddv: Fix the type of 'config'
- in struct hwmon_channel_info to u64
-In-Reply-To: <20250121064519.18974-20-lihuisong@huawei.com>
-Message-ID: <844c5097-eeb7-7275-7558-83ca4e5ee4b2@linux.intel.com>
-References: <20250121064519.18974-1-lihuisong@huawei.com> <20250121064519.18974-20-lihuisong@huawei.com>
+	Tue, 21 Jan 2025 12:48:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3DC225C55F8;
+	Tue, 21 Jan 2025 12:47:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9874C4CEDF;
+	Tue, 21 Jan 2025 12:47:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737463684;
+	bh=bZ3iAARff09ov9iRrXfGPOz8X00Oc9kE3YkguQwOw1w=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=mUFdwdFMgeRGJRzN2slQ5/dIjrzdV4DVxfeWia/RrXQ7t69QsUFj9MombPn5kJc+T
+	 +GM7G2jscsa0ymnryYfyueCBup55lk38WhVua6Y5zuye3yZsY2ac/3K/7+2eLmMvDq
+	 YqZg8yrLahqLLepvl2cH99fxmd8dfvvJyE17ZjXeAvFmRzOEZgEOdkW4cRxOaEhHzw
+	 W2lVcASVd/wanQCXNjo8Q1i6Zzmgm4dj8vGQY1yJjL++65J3sYKyiqb8cxU1yV5jj4
+	 1d3a+eyh1+FoNW8vVE+40ay76QFBIOEsExl4qOsLyggFP7dM1ag1Ht9vi7ped7IgiK
+	 MryVN5HDbJtXA==
+Message-ID: <30450f09-83d4-4ff0-96b2-9f251f0c0896@kernel.org>
+Date: Tue, 21 Jan 2025 13:47:55 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/4] net: stmmac: dwmac-qcom-ethqos: Mask PHY mode if
+ configured with rgmii-id
+To: Yijie Yang <quic_yijiyang@quicinc.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>,
+ Richard Cochran <richardcochran@gmail.com>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20250121-dts_qcs615-v3-0-fa4496950d8a@quicinc.com>
+ <20250121-dts_qcs615-v3-2-fa4496950d8a@quicinc.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
+ QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
+ gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
+ /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
+ iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
+ VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
+ 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
+ xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
+ eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
+ AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
+ MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
+ Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
+ ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
+ vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
+ oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
+ lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
+ t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
+ uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
+ 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
+ 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
+In-Reply-To: <20250121-dts_qcs615-v3-2-fa4496950d8a@quicinc.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_041919_119369_6001C6D1 
-X-CRM114-Status: GOOD (  19.21  )
+X-CRM114-CacheID: sfid-20250121_044805_689879_938673C2 
+X-CRM114-Status: GOOD (  26.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,62 +130,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 21 Jan 2025, Huisong Li wrote:
+On 21/01/2025 08:54, Yijie Yang wrote:
+> The Qualcomm board always chooses the MAC to provide the delay instead of
+> the PHY, which is completely opposite to the suggestion of the Linux
+> kernel.
 
-> The type of 'config' in struct hwmon_channel_info has been fixed to u64.
-> Modify the related code in driver to avoid compiling failure.
 
-Does this mean that after applying part of your series but not yet this 
-patch, compile would fail? If so, it's unacceptable. At no point in a 
-patch series are you allowed to cause a compile failure because it hinders 
-'git bisect' that is an important troubleshooting tool.
+How does the Linux kernel suggest it?
 
-So you might have to combine changes to drivers and API if you make an 
-API change that breaks driver build until driver too is changed. Note that 
-it will impact a lot how quickly your patches can be accepted as much 
-higher level of coordination is usually required if your patch is touching 
-things all over the place, but it cannot be avoided at times. And 
-requirement of doing minimal change only will be much much higher in such 
-a large scale change.
-
---
- i.
-
-> Signed-off-by: Huisong Li <lihuisong@huawei.com>
+> The usage of phy-mode in legacy DTS was also incorrect. Change the
+> phy_mode passed from the DTS to the driver from PHY_INTERFACE_MODE_RGMII_ID
+> to PHY_INTERFACE_MODE_RGMII to ensure correct operation and adherence to
+> the definition.
+> To address the ABI compatibility issue between the kernel and DTS caused by
+> this change, handle the compatible string 'qcom,qcs404-evb-4000' in the
+> code, as it is the only legacy board that mistakenly uses the 'rgmii'
+> phy-mode.
+> 
+> Signed-off-by: Yijie Yang <quic_yijiyang@quicinc.com>
 > ---
->  drivers/platform/x86/dell/dell-wmi-ddv.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
+>  .../net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    | 18 +++++++++++++-----
+>  1 file changed, 13 insertions(+), 5 deletions(-)
 > 
-> diff --git a/drivers/platform/x86/dell/dell-wmi-ddv.c b/drivers/platform/x86/dell/dell-wmi-ddv.c
-> index e75cd6e1efe6..efb2278aabb9 100644
-> --- a/drivers/platform/x86/dell/dell-wmi-ddv.c
-> +++ b/drivers/platform/x86/dell/dell-wmi-ddv.c
-> @@ -86,7 +86,7 @@ struct thermal_sensor_entry {
->  
->  struct combined_channel_info {
->  	struct hwmon_channel_info info;
-> -	u32 config[];
-> +	u64 config[];
->  };
->  
->  struct combined_chip_info {
-> @@ -500,7 +500,7 @@ static const struct hwmon_ops dell_wmi_ddv_ops = {
->  
->  static struct hwmon_channel_info *dell_wmi_ddv_channel_create(struct device *dev, u64 count,
->  							      enum hwmon_sensor_types type,
-> -							      u32 config)
-> +							      u64 config)
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+> index 2a5b38723635b5ef9233ca4709e99dd5ddf06b77..e228a62723e221d58d8c4f104109e0dcf682d06d 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+> @@ -401,14 +401,11 @@ static int ethqos_dll_configure(struct qcom_ethqos *ethqos)
+>  static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos)
 >  {
->  	struct combined_channel_info *cinfo;
->  	int i;
-> @@ -543,7 +543,7 @@ static struct hwmon_channel_info *dell_wmi_ddv_channel_init(struct wmi_device *w
->  							    struct dell_wmi_ddv_sensors *sensors,
->  							    size_t entry_size,
->  							    enum hwmon_sensor_types type,
-> -							    u32 config)
-> +							    u64 config)
->  {
->  	struct hwmon_channel_info *info;
->  	int ret;
-> 
+>  	struct device *dev = &ethqos->pdev->dev;
+> -	int phase_shift;
+> +	int phase_shift = 0;
+>  	int loopback;
+>  
+>  	/* Determine if the PHY adds a 2 ns TX delay or the MAC handles it */
+> -	if (ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_ID ||
+> -	    ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_TXID)
+> -		phase_shift = 0;
+> -	else
+> +	if (ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_ID)
+>  		phase_shift = RGMII_CONFIG2_TX_CLK_PHASE_SHIFT_EN;
+>  
+>  	/* Disable loopback mode */
+> @@ -810,6 +807,17 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
+>  	ret = of_get_phy_mode(np, &ethqos->phy_mode);
+>  	if (ret)
+>  		return dev_err_probe(dev, ret, "Failed to get phy mode\n");
+> +
+> +	root = of_find_node_by_path("/");
+> +	if (root && of_device_is_compatible(root, "qcom,qcs404-evb-4000"))
+
+
+First, just check if machine is compatible, don't open code it.
+
+Second, drivers should really, really not rely on the machine. I don't
+think how this resolves ABI break for other users at all.
+
+You need to check what the ABI is here and do not break it.
+
+
+Best regards,
+Krzysztof
 
