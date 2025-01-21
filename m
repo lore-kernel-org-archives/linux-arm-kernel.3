@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 537F3C02185
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 08:56:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3411BC02185
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 08:57:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1hJVdeetdMJkBWbgEBJsC8FH6rOMXk6W3kS+JEE9MtU=; b=NfFxy2Glo8VZViMUpMo+hAlwUl
-	B3GmcL/YBw2dczGr+zXXOu0CItl+zZvmW2geHkn1RUQDOjturRKKcar3WbBD7haGgpmQdnqltODAn
-	EdtWbMwKhZMYzAQsUyQXW0zi2WXyMhNJpywhmQVPO3Xy34ZacD1bR5QhdN4LuQQ2azCkcH9xoY2Af
-	advlqlxL0oTha0NgSMVDOgbS86t9Yf6Drs6Lk1l57g7PfacfZurwbQJulUB9VuPMEMVBMimmFVL7r
-	dPDYT8uawuTG/Q3RZD2WMzjJyWcjb6JISg8HqpWTC2ekM8qoTRj+hrV5ezFmxuYeRVD9DOPswReeN
-	/s05tZfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IzKU10bagC8QLYBmLhpwVe32MCxBcC146OOm5NeHEiM=; b=Otk4esesr/J99rLVNTsDurWP6K
+	ghgYGh8j7WUwSM77wL4yNmAMixIJWiQW6E/d+UoNRxehByolx7Ey4ylqA82+AnTv+Rllv/A91legX
+	A4yi28cCCgooJXEn2W86jVoerVjkLWBu/5TKbWs/5d7Km7rYrufjfRhN0MjWJCJjInZ5V7NTv4Vva
+	gZEZl1pA5tBxGZwQ8a4wOl4U7qbSgWooAma0O8InI7NU8tjyW2+FxfLF+EEq9GIo4MkbwPIIrEtTC
+	M28cb41G40lxQFFdQlrcnLZ363xu+0VDFu5zJwHMD5e9n5re7iMKcuh+ZDGxJyO0jfVkmZjDxADzc
+	Qt8pDY6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taA33-00000007KaY-3732;
-	Tue, 21 Jan 2025 08:55:49 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1taA4J-00000007Kv8-3RA0;
+	Tue, 21 Jan 2025 08:57:07 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ta9wg-00000007JAN-0XER
+	id 1taA1F-00000007K6E-0QZG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 08:49:16 +0000
-Received: from localhost.localdomain (unknown [220.197.236.33])
-	by APP-05 (Coremail) with SMTP id zQCowABXX6N4X49nDUNjCA--.9248S2;
-	Tue, 21 Jan 2025 16:49:02 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: u.kleine-koenig@baylibre.com,
-	andi.shyti@kernel.org,
-	rjui@broadcom.com,
-	sbranden@broadcom.com,
-	bcm-kernel-feedback-list@broadcom.com
-Cc: linux-i2c@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Wentao Liang <vulab@iscas.ac.cn>
-Subject: [PATCH v2] i2c: iproc: Refactor prototype and remove redundant error checks
-Date: Tue, 21 Jan 2025 16:48:18 +0800
-Message-ID: <20250121084818.2719-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.42.0.windows.2
+	Tue, 21 Jan 2025 08:53:58 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1taA14-00051k-IY; Tue, 21 Jan 2025 09:53:46 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1taA12-0014uC-2o;
+	Tue, 21 Jan 2025 09:53:44 +0100
+Received: from pza by lupine with local (Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1taA12-00026M-2Z;
+	Tue, 21 Jan 2025 09:53:44 +0100
+Message-ID: <98d064a635467dcc3937d1ec9c5b1659bd71eb91.camel@pengutronix.de>
+Subject: Re: [PATCH v3 2/2] memory: mtk-smi: mt8188: Add SMI reset and clamp
+ for MT8188
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Friday Yang <friday.yang@mediatek.com>, Yong Wu <yong.wu@mediatek.com>, 
+	Krzysztof Kozlowski
+	 <krzk@kernel.org>, Rob Herring <robh@kernel.org>, Conor Dooley
+	 <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Project_Global_Chrome_Upstream_Group@mediatek.com
+Date: Tue, 21 Jan 2025 09:53:44 +0100
+In-Reply-To: <20250121064934.13482-3-friday.yang@mediatek.com>
+References: <20250121064934.13482-1-friday.yang@mediatek.com>
+	 <20250121064934.13482-3-friday.yang@mediatek.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowABXX6N4X49nDUNjCA--.9248S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7WrWDJw1rZF4fAr1fAF4fXwb_yoW8ZF4fpF
-	4fXr98ur48GFyqqry7GrWrZ345Zr1xJFW0kr43G3WfGan5Jw40y3WrKrWYyryDJay8Jr13
-	Zrs7trWUCayjvaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkG14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1I6r4UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWU
-	tVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14
-	v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkG
-	c2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI
-	0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4U
-	MIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUd-B_UUU
-	UU=
-X-Originating-IP: [220.197.236.33]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBwsJA2ePXTAIbwAAsk
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_004914_529019_A6DC6999 
-X-CRM114-Status: GOOD (  13.63  )
+X-CRM114-CacheID: sfid-20250121_005357_138015_828BBFD7 
+X-CRM114-Status: GOOD (  23.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,64 +83,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The bcm_iproc_i2c_init() always returns 0. As a result, there
-is no need to check its return value or handle errors.
+On Di, 2025-01-21 at 14:49 +0800, Friday Yang wrote:
+> From: "friday.yang" <friday.yang@mediatek.com>
+>=20
+> To prevent handling glitch signals during MTCMOS on/off transitions,
+> SMI requires clamp and reset operations. Parse the reset settings for
+> SMI LARBs and the clamp settings for the SMI Sub-Common. Register
+> genpd callback for the SMI LARBs located in image, camera and IPE
+> subsystems, and apply reset and clamp operations within the callback.
+>=20
+> Signed-off-by: Friday Yang <friday.yang@mediatek.com>
+> ---
+>  drivers/memory/mtk-smi.c | 141 +++++++++++++++++++++++++++++++++++++--
+>  1 file changed, 137 insertions(+), 4 deletions(-)
+>=20
+> diff --git a/drivers/memory/mtk-smi.c b/drivers/memory/mtk-smi.c
+> index 5710348f72f6..aaeb80379ec1 100644
+> --- a/drivers/memory/mtk-smi.c
+> +++ b/drivers/memory/mtk-smi.c
+[...]
+> @@ -528,6 +598,53 @@ static int mtk_smi_dts_clk_init(struct device *dev, =
+struct mtk_smi *smi,
+>  	return ret;
+>  }
+>=20
+> +static int mtk_smi_larb_parse_clamp_optional(struct mtk_smi_larb *larb)
+> +{
+> +	struct device *dev =3D larb->dev;
+> +	const struct mtk_smi_larb_gen *larb_gen =3D larb->larb_gen;
+> +	u32 larb_id;
+> +	int ret;
+> +
+> +	/**
+> +	 * Only SMI LARBs in camera, image and IPE subsys need to
+> +	 * apply clamp and reset operations, others can be skipped.
+> +	 */
+> +	ret =3D of_property_read_u32(dev->of_node, "mediatek,larb-id", &larb_id=
+);
+> +	if (ret)
+> +		return -EINVAL;
+> +	if (!larb_gen->clamp_port || !larb_gen->clamp_port[larb_id])
+> +		return 0;
+> +
+> +	larb->sub_comm_inport =3D larb_gen->clamp_port[larb_id];
+> +	larb->sub_comm_syscon =3D syscon_regmap_lookup_by_phandle(dev->of_node,=
+ "mediatek,smi");
+> +	if (IS_ERR(larb->sub_comm_syscon)) {
+> +		larb->sub_comm_syscon =3D NULL;
+> +		return dev_err_probe(dev, -EINVAL,
+> +				     "Unknown clamp port for larb %d\n", larb_id);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int mtk_smi_larb_parse_reset_optional(struct mtk_smi_larb *larb)
+> +{
+> +	struct device *dev =3D larb->dev;
+> +	int ret;
+> +
+> +	larb->rst_con =3D devm_reset_control_get(dev, "larb");
 
-This patch changes the prototype of bcm_iproc_i2c_init() to
-return void and removes the redundant error handling code after
-calls to bcm_iproc_i2c_init() in both the bcm_iproc_i2c_probe()
-and bcm_iproc_i2c_resume().
+Please use devm_reset_control_get_exclusive() directly.
+Or use devm_reset_control_get_optional_exclusive(), which returns NULL
+instead of -ENOENT. That way you can ...
 
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
----
- drivers/i2c/busses/i2c-bcm-iproc.c | 12 +++---------
- 1 file changed, 3 insertions(+), 9 deletions(-)
+> +	if (IS_ERR(larb->rst_con))
+> +		return dev_err_probe(dev, PTR_ERR(larb->rst_con),
+> +				     "Failed to get larb reset controller\n");
 
-diff --git a/drivers/i2c/busses/i2c-bcm-iproc.c b/drivers/i2c/busses/i2c-bcm-iproc.c
-index 15b632a146e1..59cbf8b3b025 100644
---- a/drivers/i2c/busses/i2c-bcm-iproc.c
-+++ b/drivers/i2c/busses/i2c-bcm-iproc.c
-@@ -678,7 +678,7 @@ static irqreturn_t bcm_iproc_i2c_isr(int irq, void *data)
- 	return IRQ_HANDLED;
- }
- 
--static int bcm_iproc_i2c_init(struct bcm_iproc_i2c_dev *iproc_i2c)
-+static void bcm_iproc_i2c_init(struct bcm_iproc_i2c_dev *iproc_i2c)
- {
- 	u32 val;
- 
-@@ -706,8 +706,6 @@ static int bcm_iproc_i2c_init(struct bcm_iproc_i2c_dev *iproc_i2c)
- 
- 	/* clear all pending interrupts */
- 	iproc_i2c_wr_reg(iproc_i2c, IS_OFFSET, 0xffffffff);
--
--	return 0;
- }
- 
- static void bcm_iproc_i2c_enable_disable(struct bcm_iproc_i2c_dev *iproc_i2c,
-@@ -1081,9 +1079,7 @@ static int bcm_iproc_i2c_probe(struct platform_device *pdev)
- 		bcm_iproc_algo.unreg_slave = NULL;
- 	}
- 
--	ret = bcm_iproc_i2c_init(iproc_i2c);
--	if (ret)
--		return ret;
-+	bcm_iproc_i2c_init(iproc_i2c);
- 
- 	ret = bcm_iproc_i2c_cfg_speed(iproc_i2c);
- 	if (ret)
-@@ -1169,9 +1165,7 @@ static int bcm_iproc_i2c_resume(struct device *dev)
- 	 * Power domain could have been shut off completely in system deep
- 	 * sleep, so re-initialize the block here
- 	 */
--	ret = bcm_iproc_i2c_init(iproc_i2c);
--	if (ret)
--		return ret;
-+	bcm_iproc_i2c_init(iproc_i2c);
- 
- 	/* configure to the desired bus speed */
- 	val = iproc_i2c_rd_reg(iproc_i2c, TIM_CFG_OFFSET);
--- 
-2.42.0.windows.2
+... suppress this error message in case of -ENOENT and return with:
 
+	if (!larb->rst_con)
+		return 0;
+
+here.
+
+> +
+> +	larb->nb.notifier_call =3D mtk_smi_genpd_callback;
+> +	ret =3D dev_pm_genpd_add_notifier(dev, &larb->nb);
+> +	if (ret)
+> +		return dev_err_probe(dev, -EINVAL,
+> +				     "Failed to add genpd callback %d\n", ret);
+> +
+> +	return 0;
+> +}
+> +
+>  static int mtk_smi_larb_probe(struct platform_device *pdev)
+>  {
+>  	struct mtk_smi_larb *larb;
+> @@ -538,6 +655,7 @@ static int mtk_smi_larb_probe(struct platform_device =
+*pdev)
+>  	if (!larb)
+>  		return -ENOMEM;
+>=20
+> +	larb->dev =3D dev;
+>  	larb->larb_gen =3D of_device_get_match_data(dev);
+>  	larb->base =3D devm_platform_ioremap_resource(pdev, 0);
+>  	if (IS_ERR(larb->base))
+> @@ -554,15 +672,24 @@ static int mtk_smi_larb_probe(struct platform_devic=
+e *pdev)
+>  	if (ret < 0)
+>  		return ret;
+>=20
+> -	pm_runtime_enable(dev);
+> +	ret =3D mtk_smi_larb_parse_clamp_optional(larb);
+> +	if (ret)
+> +		goto err_link_remove;
+> +
+> +	ret =3D mtk_smi_larb_parse_reset_optional(larb);
+> +	if (ret && ret !=3D -ENOENT)
+
+The ret !=3D -ENOENT check could be dropped if you use
+devm_reset_control_get_optional_exclusive() above.
+
+
+regards
+Philipp
 
