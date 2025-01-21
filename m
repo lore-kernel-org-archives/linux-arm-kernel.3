@@ -4,71 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B5E0C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 17:23:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C439EC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 17:24:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cfxHIP2j1h5TjSDYNb52YqchEUxPxLg0EzNjEnekIY0=; b=u5kibOzNJzCuxvEiS/oe0G0btx
-	tN2IJgNzT+1Pj7XdK5M8b1uHhZwqBip6JPYszs41+I0T6iBeggRsHmeIb83xr21tDykvpfJOyJpPZ
-	sYgvt//AIPFRHMsazP9Cbru4soE4EHhKERVgc0n9SYdcY12UvdA4HVC9MFwWhxibitZrVtWv/X7E4
-	N4sD7eoCOkcc3qz8rTUCjkrjZECBCR5xX7GvvrKG8LBwaV8KkiX1npqEYHjSRxHNG1l4jsvzaLahp
-	owZ+2wz5EA3CtukKvskfwcOr3jwjdyUv+Aoy/v8FzWLY/uyIrcmUbg9RQ4J8EsKXRPnahCeIfFfpV
-	QWw3b5bQ==;
+	bh=QMQi9P7mgZSLjWYGfJaTAUWNWhaxbVZX6rSghrmmJyE=; b=1xunacxCDNMkvuVUSmCWTKD4j1
+	j9VM8nZMYIDvHUdBMEmEGJkEeswwZ3fSF9G5swiGbfwpPhfblgviKfkaQobhuozMQ0ixGHl6MtHNo
+	QqFvcpJ2nD3pa7yHRmTiJd2OxRpE5Oxlp868WXpOBiWGRW/sARK/wsQI1w/PRJm89LsKI0ll2r39w
+	Dh2HJh/q4FQwKaWh1AcETVHj/LFaaHMgZRWGxYzOnqrUxuQ4vMifTSFdUVsiqHMKxhbdvv51pZ0rv
+	UBic7YrNgzlsqUZ3CRYDI/8uFb4oEOt+Y25tm6Cr83QqeLgSFWgcWOOJulL905Sq0mgYFfp7UAUfN
+	7kcMzJnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taHxk-00000008SvH-3mTP;
-	Tue, 21 Jan 2025 17:22:52 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taHvt-00000008SZz-1vEG
+	id 1taHz0-00000008T2U-28y5;
+	Tue, 21 Jan 2025 17:24:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1taHx8-00000008Sli-2ZaC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 17:20:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=cfxHIP2j1h5TjSDYNb52YqchEUxPxLg0EzNjEnekIY0=; b=GRXxJQ4LdAcU77S49gb/McXylm
-	wGu48QsKPDJ8A3s6VtzXXKTgxQbxucgXzN7JzcOtUs9RE17Yn75khm2QFbQAAry5YXLmqLYV+PIKk
-	QdT4sOMZxW0v83+CJcFsiLPxF55e1E/elrHpvCHmimZjErMJ9ymcDd+SCNi9NSmNw1r4=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1taHvZ-006hXW-Kq; Tue, 21 Jan 2025 18:20:37 +0100
-Date: Tue, 21 Jan 2025 18:20:37 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Yijie Yang <quic_yijiyang@quicinc.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 2/4] net: stmmac: dwmac-qcom-ethqos: Mask PHY mode if
- configured with rgmii-id
-Message-ID: <717d77d1-43a4-4914-8d7d-a70c89cb1822@lunn.ch>
-References: <20250121-dts_qcs615-v3-0-fa4496950d8a@quicinc.com>
- <20250121-dts_qcs615-v3-2-fa4496950d8a@quicinc.com>
+	Tue, 21 Jan 2025 17:22:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CE6B8106F;
+	Tue, 21 Jan 2025 09:22:41 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.2.76.71])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EB3E33F66E;
+	Tue, 21 Jan 2025 09:22:12 -0800 (PST)
+Date: Tue, 21 Jan 2025 17:22:02 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: "mark.barnett@arm.com" <mark.barnett@arm.com>
+Cc: peterz@infradead.org, mingo@redhat.com, acme@kernel.org,
+	namhyung@kernel.org, irogers@google.com, ben.gainey@arm.com,
+	deepak.surti@arm.com, ak@linux.intel.com, will@kernel.org,
+	james.clark@arm.com, mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+	adrian.hunter@intel.com, linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 5/5] perf: Record sample last_period before updating
+Message-ID: <20250121172202.GB416913@e132581.arm.com>
+References: <20250106120156.227273-1-mark.barnett@arm.com>
+ <20250106120156.227273-6-mark.barnett@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250121-dts_qcs615-v3-2-fa4496950d8a@quicinc.com>
+In-Reply-To: <20250106120156.227273-6-mark.barnett@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_092057_500277_FD11C646 
-X-CRM114-Status: GOOD (  22.81  )
+X-CRM114-CacheID: sfid-20250121_092214_694375_31A8B7E5 
+X-CRM114-Status: GOOD (  16.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,38 +68,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 21, 2025 at 03:54:54PM +0800, Yijie Yang wrote:
-> The Qualcomm board always chooses the MAC to provide the delay instead of
-> the PHY, which is completely opposite to the suggestion of the Linux
-> kernel. The usage of phy-mode in legacy DTS was also incorrect. Change the
-> phy_mode passed from the DTS to the driver from PHY_INTERFACE_MODE_RGMII_ID
-> to PHY_INTERFACE_MODE_RGMII to ensure correct operation and adherence to
-> the definition.
-> To address the ABI compatibility issue between the kernel and DTS caused by
-> this change, handle the compatible string 'qcom,qcs404-evb-4000' in the
-> code, as it is the only legacy board that mistakenly uses the 'rgmii'
-> phy-mode.
+On Mon, Jan 06, 2025 at 12:01:56PM +0000, mark.barnett@arm.com wrote:
+> From: Mark Barnett <mark.barnett@arm.com>
 > 
-> Signed-off-by: Yijie Yang <quic_yijiyang@quicinc.com>
-> ---
->  .../net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    | 18 +++++++++++++-----
->  1 file changed, 13 insertions(+), 5 deletions(-)
+> This change alters the PowerPC and x86 driver implementations to record
+> the last sample period before the event is updated for the next period.
 > 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> index 2a5b38723635b5ef9233ca4709e99dd5ddf06b77..e228a62723e221d58d8c4f104109e0dcf682d06d 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> @@ -401,14 +401,11 @@ static int ethqos_dll_configure(struct qcom_ethqos *ethqos)
->  static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos)
->  {
->  	struct device *dev = &ethqos->pdev->dev;
-> -	int phase_shift;
-> +	int phase_shift = 0;
->  	int loopback;
->  
->  	/* Determine if the PHY adds a 2 ns TX delay or the MAC handles it */
+> A common pattern in PMU driver implementations is to have a
+> "*_event_set_period" function which takes care of updating the various
+> period-related fields in a perf_event structure. In most cases, the
+> drivers choose to call this function after initializing a sample data
+> structure with perf_sample_data_init. The x86 and PowerPC drivers
+> deviate from this, choosing to update the period before initializing the
+> sample data. When using an event with an alternate sample period, this
+> causes an incorrect period to be written to the sample data that gets
+> reported to userspace.
 
-Please think about this comment.
+I found conflict when I applied this patch on linux-next [1], with the
+commit below:
 
-       Andrew
+commit faac6f105ef169e2e5678c14e1ffebf2a7d780b6
+Author: Yabin Cui <yabinc@google.com>
+Date:   Wed May 15 12:36:09 2024 -0700
+
+    perf/core: Check sample_type in perf_sample_save_brstack
+
+    Check sample_type in perf_sample_save_brstack() to prevent
+    saving branch stack data when it isn't required.
+
+    Suggested-by: Namhyung Kim <namhyung@kernel.org>
+    Signed-off-by: Yabin Cui <yabinc@google.com>
+    Signed-off-by: Ingo Molnar <mingo@kernel.org>
+    Reviewed-by: Ian Rogers <irogers@google.com>
+    Acked-by: Namhyung Kim <namhyung@kernel.org>
+    Link: https://lore.kernel.org/r/20240515193610.2350456-4-yabinc@google.com
+
+
+Please consider to rebase the patch to fix conflict in next spin.
+
+Thanks,
+Leo
+
+[1] git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
 
