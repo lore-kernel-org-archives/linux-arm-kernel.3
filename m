@@ -4,114 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E2D0C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 14:00:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A33DEC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 14:01:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ndX+bS7mfcHIUz3eSPCBChEUR/+D/+QHPhUMGbWKkjw=; b=vnizzdsGer+LKX7R7bTZjsE2e3
-	+F4a2ym9yNlgUWbtVPdJfZgjkQwRsve9L31Y7X+SeggR4F/mcgyiUDvEvuC2zQOk7//CE6ESzBV8r
-	Z79ZGXyu4O+X4n4F8rKAq/Mrc9XP2AVZ10Kru/Eo0kB/vWyJy3napJMz4SW1iTU41BetiNLg8VaLQ
-	QPl0d3qjLpSmL9T9zXf6Ljac20++9LO0o9ytouLR05VWOJmzQS+vRFvBMyOikSmz3NMXVRlNFP76u
-	Zd78nP0U57HgZB0kFBnjhN31i8CJIzJ0AkDAXJeaJfktuLIrL7/vU2/8O1L43r+T3QKBFAucBGgV7
-	gOWLRfMA==;
+	bh=h83ZrXfmZQHa94r0K3tTr99WxDdHtoauNb0mXLSzghY=; b=D36IDs8+4t/tqoUV62M/d97TDc
+	N+kBtdoMhtByNbOgvXMtpVELWwztMGIFaSTf593xa6wrYai4NWExOpftPWlex1fWuKk01gHgCMlig
+	L4N2T3cN/60mlGdO0H1MXabXUFbWo2jBQPezy4RznsoawxB1OiHuKGjWgcRyvaQ+5yjKyrjDyeKkn
+	jH9ySeMtF3qWV/RriS1/nuJNY8tZHXtWOdc1tCL+KUlGUjH3D2fsI2qyDI4yVQLH2+/lvN6e1XPTx
+	LSJhsaGL/vyTEpHJG3dI4ZqPqUTOP5LB3GgiV26VgjxNykKZp0YIScoQDdBUi1Hk2wjXtPkbeHczi
+	b596bEJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taEnG-000000081Ez-3Kyt;
-	Tue, 21 Jan 2025 13:59:50 +0000
-Received: from mail-ej1-x644.google.com ([2a00:1450:4864:20::644])
+	id 1taEoc-000000081V6-2gUY;
+	Tue, 21 Jan 2025 14:01:14 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taEly-0000000817m-00CJ
+	id 1taEnJ-000000081FC-3Bfu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 13:58:32 +0000
-Received: by mail-ej1-x644.google.com with SMTP id a640c23a62f3a-aae81f4fdc4so1120775466b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jan 2025 05:58:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1737467908; x=1738072708; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ndX+bS7mfcHIUz3eSPCBChEUR/+D/+QHPhUMGbWKkjw=;
-        b=AzY5pcmpIc8LqzxYGXtEBUMH8yXMuwpl7/xYaqIlDX7woEgHxB2+uNCK1pSrjAiEIK
-         xMd946TDLtsuwZJHJjb9ZE0nbl8hxmW6yeuHJPlhL8szo/9wsZtredfoS7hrgr/S/3De
-         ZYcka/iREV/ojKjgOJ8qmVqjMMCiGVXpfFMT8V2fc9QseMX0q4D/7xyLDsjTH91ICCxP
-         ObL/jSnGsOY0GoGf8hq+6Jw4SUFP5H5vBaEeai6A3dUkVetDdJbKNcB2axM8m7+Y2dxT
-         yFYiGsuce8PF/vUCpuVXZYp4pizv9sscuwK8wKY3pFYMbR1X6RyYboSsY14uR37zuCEX
-         lCtg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737467908; x=1738072708;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ndX+bS7mfcHIUz3eSPCBChEUR/+D/+QHPhUMGbWKkjw=;
-        b=e6mbhVFVV+ggZJPE71dAf7I1UnvPhw9SmKfkjQ22Opg3YhS/4UcRl+R3RefiXxOsvf
-         tJA98bfQoAjAWua2aikAdqrsn1335YOOPXk7aKKwdyNZTrLRqDHKuSnphiNJi4yL90vm
-         8HxghlJT2yVAw4Ub6E7Wg9CVusKql3hkBYd2Zl8KCg5ZghoKHzVMuxp9UPHqyyBUcfP1
-         uSKd56GxiqUNE3ygrBCxOIIj9N5OkkiL5VAEuPM0X9/M2i/oB+xTNvFrLe+TKuVdvXKE
-         Q0YYsjhKbDhHYoCxETGDDmOTZf6gabNTOqOBiCmOjf/iG75lkEPOcUK3o0egU4h3zG5m
-         OX0g==
-X-Forwarded-Encrypted: i=1; AJvYcCXqjluH+TRJ/vIaGQ0TBkGD5t8r+e+ul5FKkmgYZq5v+u4rFPtmx1Xd6OUYLrAzXhqoSdpLPa+LXwfBuXncgZao@lists.infradead.org
-X-Gm-Message-State: AOJu0YzTaW6PfDBmtWo4ggbk2BDVFhlpGpUTyB9c+tpksRwt2FWnI9mE
-	ipFp87XA70asxRjRtFazL/JdDz0kHyrYQNIBwY8yopMCWv8ncN1oi+HHSRV6Y7g=
-X-Gm-Gg: ASbGncuu1CXFLqunjeYt1aMUKGrWKT0meGd5t0YGui69m87soo/iBv7WUb7WE1E6GBt
-	+usmRLdxPHidl5UX3eAhwXvVQtrWKvpp3iRNndEwtBfT+1NbG5iwasumREvr8BzE5KTFgmfGZTC
-	EfrWcj6KJD7NJZamLANjCaBs3HgA/7A/99kCO/QO1PposaS+stg0qdkr9H+yAgECEYZuPRzjCmY
-	JItC0pgMGi+806Z40NbjXQjqLlp0sn74DTpb5SeMqyvC1NUriFUbtLECK2+6ujYy/XfoS8xJgTv
-	PvZ0JheeSoNN8vvALH3Hipcqpatin9VHXwMzoxbN
-X-Google-Smtp-Source: AGHT+IGUuk+xvGmbiQD3bRfCbckgBF2RVH3B6tetIFWqVCQnsVutS7iL+mu2n84MUq9YEhicZgprHw==
-X-Received: by 2002:a17:906:f58e:b0:ab2:f816:c5e0 with SMTP id a640c23a62f3a-ab38b1e569cmr1477479066b.12.1737467908253;
-        Tue, 21 Jan 2025 05:58:28 -0800 (PST)
-Received: from localhost (host-87-14-236-197.retail.telecomitalia.it. [87.14.236.197])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab384c5ad98sm753624766b.28.2025.01.21.05.58.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Jan 2025 05:58:27 -0800 (PST)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Tue, 21 Jan 2025 14:59:21 +0100
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Andrea della Porta <andrea.porta@suse.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Wilczynski <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>
-Subject: Re: [PATCH v6 08/10] misc: rp1: RaspberryPi RP1 misc driver
-Message-ID: <Z4-oORWO4BgOqibB@apocalypse>
-References: <cover.1736776658.git.andrea.porta@suse.com>
- <550590a5a0b80dd8a0c655921ec0aa41a67c8148.1736776658.git.andrea.porta@suse.com>
- <2025011722-motocross-finally-e664@gregkh>
- <Z49eOdVvwknOoD3E@apocalypse>
- <2025012143-rippling-rehydrate-581b@gregkh>
+	Tue, 21 Jan 2025 13:59:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 00B98A419BF;
+	Tue, 21 Jan 2025 13:58:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D33B8C4CEDF;
+	Tue, 21 Jan 2025 13:59:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737467992;
+	bh=h83ZrXfmZQHa94r0K3tTr99WxDdHtoauNb0mXLSzghY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PTbmLs6CV+eOiE/CM2BpgwnWA+yeVqWEW1sZaEWC/AJWTW6lSe3jgJKjbavJ+NGzX
+	 90Fe/Xc15dcJ/b/9Ric1dIljzkeR+KeEd41TsxOwFX+YQCxOuROPYTITO8LkgGHBz3
+	 aLeKY30qcO0CC4LlwEveMTsmrhanS4TVJ/nk19OfcJHPw+3bdrjYT0z8zvVRuqFi3D
+	 c44Ucg3jjaA+ruFBw1dXmC7yNt00fiqzUWtmjdWkTisGbXlWIPCwJmvQo92+Bvb+35
+	 5xxX2xPggm9yW1C9EUsvWrDQKuMCnyxv8FaVpt1MZR3zEcktR53nmE6OSfkKNFr4g3
+	 oVmhPqsZGkFIw==
+Date: Tue, 21 Jan 2025 13:59:47 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
+	eauger@redhat.com, fweimer@redhat.com, jeremy.linton@arm.com,
+	maz@kernel.org, oliver.upton@linux.dev, pbonzini@redhat.com,
+	stable@vger.kernel.org, wilco.dijkstra@arm.com, will@kernel.org
+Subject: Re: [PATCH] KVM: arm64/sve: Ensure SVE is trapped after guest exit
+Message-ID: <662e4584-d8ca-4336-94de-0c0d6c793df0@sirena.org.uk>
+References: <20250121100026.3974971-1-mark.rutland@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="HxRUYpQcPqd++QH8"
 Content-Disposition: inline
-In-Reply-To: <2025012143-rippling-rehydrate-581b@gregkh>
+In-Reply-To: <20250121100026.3974971-1-mark.rutland@arm.com>
+X-Cookie: <Manoj> I *like* the chicken
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_055830_042845_ED362E7B 
-X-CRM114-Status: GOOD (  44.94  )
+X-CRM114-CacheID: sfid-20250121_055953_866903_5E7A44BB 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,125 +75,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Greg,
 
-On 09:48 Tue 21 Jan     , Greg Kroah-Hartman wrote:
-> On Tue, Jan 21, 2025 at 09:43:37AM +0100, Andrea della Porta wrote:
-> > Hi Greg,
-> > 
-> > On 12:47 Fri 17 Jan     , Greg Kroah-Hartman wrote:
-> > > On Mon, Jan 13, 2025 at 03:58:07PM +0100, Andrea della Porta wrote:
-> > > > The RaspberryPi RP1 is a PCI multi function device containing
-> > > > peripherals ranging from Ethernet to USB controller, I2C, SPI
-> > > > and others.
-> > > > 
-> > > > Implement a bare minimum driver to operate the RP1, leveraging
-> > > > actual OF based driver implementations for the on-board peripherals
-> > > > by loading a devicetree overlay during driver probe.
-> > > > 
-> > > > The peripherals are accessed by mapping MMIO registers starting
-> > > > from PCI BAR1 region.
-> > > > 
-> > > > With the overlay approach we can achieve more generic and agnostic
-> > > > approach to managing this chipset, being that it is a PCI endpoint
-> > > > and could possibly be reused in other hw implementations. The
-> > > > presented approach is also used by Bootlin's Microchip LAN966x
-> > > > patchset (see link) as well, for a similar chipset.
-> > > > 
-> > > > For reasons why this driver is contained in drivers/misc, please
-> > > > check the links.
-> > > 
-> > > Links aren't always around all the time, please document it here why
-> > > this is needed, and then links can "add to" that summary.
-> > 
-> > Ack.
-> > 
-> > > 
-> > > > This driver is heavily based on downstream code from RaspberryPi
-> > > > Foundation, and the original author is Phil Elwell.
-> > > > 
-> > > > Link: https://datasheets.raspberrypi.com/rp1/rp1-peripherals.pdf
-> > 
-> > ...
-> > 
-> > > > diff --git a/drivers/misc/rp1/rp1_pci.c b/drivers/misc/rp1/rp1_pci.c
-> > > > new file mode 100644
-> > > > index 000000000000..3e8ba3fa7fd5
-> > > > --- /dev/null
-> > > > +++ b/drivers/misc/rp1/rp1_pci.c
-> > > > @@ -0,0 +1,305 @@
-> > > > +// SPDX-License-Identifier: GPL-2.0
-> > > > +/*
-> > > > + * Copyright (c) 2018-24 Raspberry Pi Ltd.
-> > > > + * All rights reserved.
-> > > > + */
-> > > > +
-> > > > +#include <linux/err.h>
-> > > > +#include <linux/interrupt.h>
-> > > > +#include <linux/irq.h>
-> > > > +#include <linux/irqchip/chained_irq.h>
-> > > > +#include <linux/irqdomain.h>
-> > > > +#include <linux/module.h>
-> > > > +#include <linux/msi.h>
-> > > > +#include <linux/of_platform.h>
-> > > > +#include <linux/pci.h>
-> > > > +#include <linux/platform_device.h>
-> > > > +
-> > > > +#include "rp1_pci.h"
-> > > 
-> > > Why does a self-contained .c file need a .h file?  Please put it all in
-> > > here.
-> > 
-> > I agree with you. Indeed, the very first version of this patch had the header
-> > file placed inside the .c, but I received concerns about it and some advice to
-> > do it differently, as you can see here:
-> > https://lore.kernel.org/all/ZtWDpaqUG9d9yPPf@apocalypse/
-> > so I've changed it accordingly in V2. So right now I'm not sure what the
-> > acceptable behaviour should be ...
-> 
-> It's a pretty simple rule:
-> 	Only use a .h file if multiple .c files need to see the symbol.
-> 
-> So no .h file is needed here.
+--HxRUYpQcPqd++QH8
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Perfect, I'll revert back that two lines to V1 then. Please be aware
-though that this will trigger the following checkpatch warning:
+On Tue, Jan 21, 2025 at 10:00:26AM +0000, Mark Rutland wrote:
+> There is a period of time after returning from a KVM_RUN ioctl where
+> userspace may use SVE without trapping, but the kernel can unexpectedly
+> discard the live SVE state. Eric Auger has observed this causing QEMU
+> crashes where SVE is used by memmove():
 
-WARNING: externs should be avoided in .c files
+Reviewed-by: Mark Brown <broonie@kernel.org>
 
-> 
-> > > > +struct rp1_dev {
-> > > > +	struct pci_dev *pdev;
-> > > > +	struct irq_domain *domain;
-> > > > +	struct irq_data *pcie_irqds[64];
-> > > > +	void __iomem *bar1;
-> > > > +	int ovcs_id;	/* overlay changeset id */
-> > > > +	bool level_triggered_irq[RP1_INT_END];
-> > > > +};
-> > > > +
-> > > > +static void msix_cfg_set(struct rp1_dev *rp1, unsigned int hwirq, u32 value)
-> > > > +{
-> > > > +	iowrite32(value, rp1->bar1 + RP1_PCIE_APBS_BASE + REG_SET + MSIX_CFG(hwirq));
-> > > 
-> > > Do your writes need a read to flush them properly?  Or can they handle
-> > > this automatically?
-> > >
-> > 
-> > I had some thoughts with RaspberryPi foundation folks to double check it, and it
-> > seems that there should be no need to readback the value (unless we want to go
-> > really paranoid), so I would avoid that since in case of level handled interrupt
-> > we would end up reading the register on every triggering interrupts.
-> 
-> Ok, if it passes testing, that's fine, hopefully it works properly, but
-> if not, you now have a trail to go and fix it in the future :)
+--HxRUYpQcPqd++QH8
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Sure :)
+-----BEGIN PGP SIGNATURE-----
 
-Many thanks,
-Andrea
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmePqFIACgkQJNaLcl1U
+h9BmLwf9FtC83FfPPp02TX7a44DrOhYttGT5PFnE5bQLbvru4wLLjh6LLftDHiy/
+sjJJaJfThO6ojrqRr2w+Um0Li9YYJtyi4oVL3cd6qkjpIOFmiTTW1J2KeqMSHhwo
+npicPuSGu9kTv71NO9xLsjhBgadcZfy+wJWn6GcbNNX5ND+qIT9BkiPAHOQTAls1
+z16OGZiZQgGgDXAPzuV4x8mtjJMsdqrlZKbsc7x+OkPz+fU63VSzeLs5eri5kRlj
+qP9nvlDuoZZdve+Fg38LofW0kp0FpjtEGVLhecTucAWAOKYWqMbcZ+znwf7UWUaq
+mSyjvmAfk0cIP8PW9rROYu74S09RDA==
+=9RjY
+-----END PGP SIGNATURE-----
 
-> 
-> thanks,
-> 
-> greg k-h
+--HxRUYpQcPqd++QH8--
 
