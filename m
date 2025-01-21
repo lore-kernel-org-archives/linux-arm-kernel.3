@@ -4,80 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 157C0C0218B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 10:31:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EA50C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 10:32:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sr0sCOcX7uHKMssv62r3hF336fh80SYkMIuY/VEN81w=; b=VQkYR8ZOav0L0E4AFCWPL0yiUd
-	ZOi5OmLxqAoN6FXILTMs1BdZ0qFHOfgkAWw6K0aLcZAKk7tPh5XbNqMNQ7ZHYombZoCuTRdmzFwSu
-	5AciR3VGMCUMvkqsOqorZkYCGTc7UdtY2vvlOy1LVUtSLleI+9HHle0buFt4NxO/kCZXRlYzJZGX+
-	P2QPLchX3LViVIJdJXugYyCIdoJwuuLfW/U3EhN1H5fdSwaLFkin1HFLJ1mRkN1d7UJiTjIpAA4qI
-	8v8/XYj53QP5a+ekr+ZwpcgU07o9pqdZLbwloIGeUat2ip3bUi7o7rvfd1ZKln2I+0GpwbqYpuV5G
-	/MSDN8Ug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vlr5cUwPRRPdmdrxfHfnoxx2HdPSWBufIchZ2vqklZk=; b=n5OmQvrWrPbQTYC0YApL+IV8G6
+	/DzDzxgQfPub32HBQg+ByGd69qBAn5F3xkYnSZwmJOuhjw/RfEmbPDAjswXk5nySZQtaMS9HLgyQo
+	7dQH4eauxYcJMizfKDDTuk38Ko+8Zk93OR7eBOmYcGMajS79IHn60AmfZE18oVziF65V64ezhJwHW
+	mQbj1PSl/nxrsxe6P/4qVkYo91LI+9s45CVSgPy0wiW4hxLHHw5oSPB4VUrhH96kAwDM0F9jiYPrT
+	KAJ9Os7RF723yoQ8b/3HoxmCSyVpt2S5Xt3/7lDg7PgeSg0dVvHYn3TyY+qVFbgPsbiNJ1wNep/QC
+	4esA/spw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taBX6-00000007aLg-2pbw;
-	Tue, 21 Jan 2025 10:30:56 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1taBYN-00000007aow-15Af;
+	Tue, 21 Jan 2025 10:32:15 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taBV8-00000007Zop-173G
+	id 1taBWt-00000007aJ6-1VVy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 10:28:56 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-aae81f4fdc4so1082109866b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jan 2025 02:28:53 -0800 (PST)
+	Tue, 21 Jan 2025 10:30:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=thaumatec-com.20230601.gappssmtp.com; s=20230601; t=1737455332; x=1738060132; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Sr0sCOcX7uHKMssv62r3hF336fh80SYkMIuY/VEN81w=;
-        b=puGjKL1LUYqrtlCd4g9re7HjEDjXZ8sIwE9IJty/YhwFSyEvUlDbDYtt0Mm/pZkCeI
-         sIpLhA3/6J7WzRuIgxmIYA4bIw2xUhnDbYqrNO2ClcySJ7T1Q3ezS7sNvJHQ9Mih4U3P
-         vkvqCkM84m92mg8tZlXC4s5lS2sQgWHWP1fGGAs0llgxFc+3+g6I7ALbK0XikVc5kye6
-         g+igfTic/bw8pTjZ8QRruvE2I+x95GfFcT8BxkFcz+C4JMItmmVjuEl0ElyrApaOe4W6
-         qdmud53Vuk58LOw9cs/gbqdECL9BoeCR0QiEYCekiHTw8GEivqEPKp3NB6rNmnU2ktKG
-         ZidA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737455332; x=1738060132;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Sr0sCOcX7uHKMssv62r3hF336fh80SYkMIuY/VEN81w=;
-        b=uAHrNs22sZN3YTqU+4e8bXTWYb+Y141uSant2l/GehxncUS+7YG/eqt3AFdpoOGnz+
-         qg1wBcVFeB/5NnCDVe03r6JqEE1WJzyse0vftlxQ+JVPbVUyYA0IoUuv/iKCbr/gzDNq
-         x9eDoXkhXFJpNQMvkc/nBRaZUBc2c9jDZRDKAicvcmc48u7Vmiyw+Fo8mkuARH3Aemr5
-         ca0nXSHF4tvOGW2yWHACioZBTr29SQ2OMLqlZdLr0GKPqBjjLGdS7irIFa2pqjkVtbbB
-         w608OLnPK5pGZfvvD7pjm7uxRG3E8bQgNPpuzDh3Y4VlArbOojWErqnqPDbHs6LV6Ux2
-         VRHA==
-X-Gm-Message-State: AOJu0YzmOWiloOuX6s5n+3RTHYz4q6ugnxE+wAGBi1uGnX9MCnNa8ojh
-	MVr69SkbJ3oD6k1DR6/IeY1kW6UJq5gzBDArP/SfQTvl7R32rmL+cvkMUlhQagKLd5CAmllAkXi
-	K56sudld2u3D1vK47gqNvuU1MwIUNj88CNXlcDw==
-X-Gm-Gg: ASbGncuzbse5WSLMwwcNEck71xS5f2LPLuH0L0zq7KlFDkWEOv8Fv7BZjDCQc7EGMJ+
-	kuKbrL+MW2r+a2x7ClOtoGdpwnQWtiv1T7IcG/imw4bMRyDY=
-X-Google-Smtp-Source: AGHT+IEcsLPaoNoghItPAJ5Bi0M9AGwAezLgRPxEZ2srqEeLZMEDrHzM4WtrrsNk9nSAiLHw2juwxr/qVGZCXKm8D4Q=
-X-Received: by 2002:a17:906:7953:b0:aa6:6885:e2fa with SMTP id
- a640c23a62f3a-ab38b26f4acmr1382334866b.14.1737455332458; Tue, 21 Jan 2025
- 02:28:52 -0800 (PST)
-MIME-Version: 1.0
-References: <20250121092255.3108495-1-lukasz.czechowski@thaumatec.com>
- <20250121092255.3108495-3-lukasz.czechowski@thaumatec.com> <2be46f44-6c81-417b-b0b9-7325cb0f7c10@cherry.de>
-In-Reply-To: <2be46f44-6c81-417b-b0b9-7325cb0f7c10@cherry.de>
-From: =?UTF-8?Q?=C5=81ukasz_Czechowski?= <lukasz.czechowski@thaumatec.com>
-Date: Tue, 21 Jan 2025 11:28:41 +0100
-X-Gm-Features: AbW1kvbBRHTdZcGUKzENwwtfueprpEt6a9kFTwxCgS9D6yxja5shI7FMHmjn2FI
-Message-ID: <CABd623tHh07Nb7KVjS_GJ5OqfjF4kOUKsSKNKA_HcJbLG=WBiw@mail.gmail.com>
-Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Disable DMA for uart5 on px30-ringneck
-To: Quentin Schulz <quentin.schulz@cherry.de>
-Cc: linux-arm-kernel@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, heiko@sntech.de, devicetree@vger.kernel.org, 
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1737455443; x=1768991443;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=vlr5cUwPRRPdmdrxfHfnoxx2HdPSWBufIchZ2vqklZk=;
+  b=PXvXnK5u9ldo0oSDerJO1p7JS7dxyX+R1rcbGOUEC8WEfdxyt3w3ckF+
+   9/ZVptSc2d+h+RkgyTWFJ5J4JCXetntOplTBOmVWBuwqgu9ZIR2eoSbjS
+   lpy2T3ttJY0bzeBcgloyHq+P+nveQ0APSCOEsj2muTnWJlsaSDyrAnhGJ
+   LftiMJhCTIXZQyXatb4fwuhHXNHwW8YnuGGcdL7vgZ6KmvZnZcXviBrBM
+   ut7IQerB495qiyf1S1Mo+u46CcBsdn/7jnpORLqAHFo5heF+l00lz7YbA
+   AgmJ4eCHRkpBBh9GDNF+Zj4miKsyUedXxX2eMegwQQUABUK62snJHNFB6
+   A==;
+X-CSE-ConnectionGUID: VLxxD6TwSP2QjGRQNpkVoQ==
+X-CSE-MsgGUID: NOYYOwoHRY+NVxiinLL4Tg==
+X-IronPort-AV: E=Sophos;i="6.13,221,1732575600"; 
+   d="scan'208";a="41196365"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 21 Jan 2025 11:30:41 +0100
+X-CheckPoint: {678F7751-A-31397509-E321C4C4}
+X-MAIL-CPID: EA44B9009F17B461DEBA4D0C8EEB203A_0
+X-Control-Analysis: str=0001.0A682F25.678F7751.0071,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 433D2163631;
+	Tue, 21 Jan 2025 11:30:35 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1737455436;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=vlr5cUwPRRPdmdrxfHfnoxx2HdPSWBufIchZ2vqklZk=;
+	b=sx0RZGSjlZosl5kPDCZiO1SYdeThTPbiGYy06XUhzZuko/HoS5jbx6IVui/+0/PDbomMPn
+	W7Jgcx46OPYHN8x2l3T1oBKXM8FH6cOllWOn57YZgwCXE+ieTukBtb6dWyl35bnZSPZ2K3
+	n1fbLZ0miOhXbvZPdB+aK8THlLt+Aqvx5s4G3ZyDE+iHdE7clkKbBC36+BM7aieEK8RW55
+	w48q7gZ0jmJCSiGwW+CbEV8di4kZrE+x/mHFXVzuiBDdpCTugw3qIijpgB766Z00DBM0i9
+	EpaSADrkj2NMx2zS3/k0mT2/13CLSZGvI7rPG/qgWK4I0njjVzJAjUUl2YFXOA==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+	linux@ew.tq-group.com,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Subject: [PATCH 1/4] arm64: dts: freescale: tqma8mpql: Add vcc-supply for spi-nor
+Date: Tue, 21 Jan 2025 11:30:22 +0100
+Message-Id: <20250121103026.1404856-1-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_022854_564589_0D55BCEF 
-X-CRM114-Status: GOOD (  27.58  )
+X-CRM114-CacheID: sfid-20250121_023043_889551_0EA74317 
+X-CRM114-Status: UNSURE (   9.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,63 +101,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Quentin,
+(Q)SPI NOR flash is supplied by 1.8V. Add the corresponding supply.
 
-> On 1/21/25 10:41 AM, Quentin Schulz <quentin.schulz@cherry.de> wrote:
->
-> Hi Lukasz,
->
-> On 1/21/25 10:22 AM, Lukasz Czechowski wrote:
-> > UART controllers without flow control seem to behave unstable
-> > in case DMA is enabled. The issues were indicated in the message:
-> > https://lore.kernel.org/linux-arm-kernel/CAMdYzYpXtMocCtCpZLU_xuWmOp2Ja_v0Aj0e6YFNRA-yV7u14g@mail.gmail.com/
-> > In case of PX30-uQ7 Ringneck SoM, it was noticed that after couple
-> > of hours of UART communication, the CPU stall was occurring,
-> > leading to the system becoming unresponsive.
-> > After disabling the DMA, extensive UART communication tests for
-> > up to two weeks were performed, and no issues were further
-> > observed.
-> > The flow control pins for uart5 are not available on PX30-uQ7
-> > Ringneck, as configured by pinctrl-0, so the DMA nodes were
-> > removed on SoM dtsi.
-> >
->
-> Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
->
-> We should backport this to stable releases too, so please follow the
-> instructions from here:
-> https://www.kernel.org/doc/html/latest/process/submitting-patches.html#select-the-recipients-for-your-patch
->
-> Essentially:
->
-> Cc: stable@vger.kernel.org
->
-> in the commit log and we'll need a
->
-> Fixes: <commit hash>
->
-> trailer as well with the commit hash of the commit introducing the issue
-> (likely the one defining uart5 for Ringneck for us).
->
-> Considering that UART0 CTS and RTS are routed to Q7 header but only
-> usable when Haikou exposes UART0 on the DB9 connector (via the SW2
-> switch), which is NOT the default state (and in any case not supported
-> by our current device tree), I believe we should make the same change to
-> the uart0 node in haikou dts for Ringneck. What do you think? Can you
-> send another patch for that one?
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+---
+ arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
 
-It seems that in case of uart0, that is configured as kernel console, the DMA
-is not used by the kernel:
-https://lore.kernel.org/linux-serial/20200217114016.49856-7-andriy.shevchenko@linux.intel.com/
-Which is likely why the issue was not observed so far. However it might be
-good to do the same change to be on the safe side.
-Should I extend this patch series with the fix for the Haikou device tree then,
-or create a new one?
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql.dtsi
+index 2ca87d2f0b590..f00730ba4e1c0 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql.dtsi
+@@ -50,6 +50,7 @@ flash0: flash@0 {
+ 		spi-max-frequency = <80000000>;
+ 		spi-tx-bus-width = <1>;
+ 		spi-rx-bus-width = <4>;
++		vcc-supply = <&buck5_reg>;
+ 
+ 		partitions {
+ 			compatible = "fixed-partitions";
+-- 
+2.34.1
 
->
-> Thanks!
-> Quentin
-
-Best Regards,
-Lukasz
 
