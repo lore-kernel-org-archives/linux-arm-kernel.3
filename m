@@ -4,84 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06FF8C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 14:20:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA6F7C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 14:21:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z6ndi2bFRgvsg9Gj+cMOo8LM94Ak6Mrrq7zq/J8V5L4=; b=DrSXw6expOI2kWAVgWSeiKSEdp
-	NQGOs/OJg71s8kUzomUjE37kbf5ie1GJhe0xhskXrpZG6Med+kv7hD3vBe+CbyvI3Ccr7wVy+PHuv
-	siXT9gxdle7e6xVmXz4ELLkP98mlWhwB61+XowksyhyIWLxIfAenUjjSCQuczN1Gq7WZwqNJxardW
-	G8IhVQsrEHCLZlVeULM0YnVhxoYGM3ORPjpX3/M56JMIoHhJ06o97n6P12uBbbQJfPQ+3sURs6Djl
-	aYwS/liJXzxYt3eIwR19AXkqd3vvvEFZ2ntQUGK850x+sFZFfFZKF438ECrDxf0p6SVD3GDIoBWEf
-	cVVESVgQ==;
+	bh=jMdYmwmLPyDuVRsbkv93AlEBzIO1Opr34EVAtN7rIzg=; b=HMwEQcUqUdoiqvbxnAjFrFe27j
+	r4/8vl6oDag6xZppHshQMu/St2q0HI+aTUpOusecpGw0CbmaKwvgj9Mwj7p+z3k3JqxiSMID4yu/Y
+	hH2IQ3+Dy+5DhySdiaN20Okf5X8Y6X0l0/oAOpjS1ihO5KY/yaF7z6keXWrBhbU05FKWZi6uZ82Bv
+	mrhpRDKqr6POLp/Wm8axTKRVivjsxZ/fSKjEgjZvuJB7eQ1Us5G5hdak6Rf2+PlrVSnu1pJlFquR/
+	wZwKdciHpnHaRstCQ6FWYWkO+MF8PE+A4wPHC5wHqCjcoGX/lW/DlGOhySQ1oZkf1d2hbOmDi/c2f
+	O5bYu1Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taF6o-000000083AF-2P1e;
-	Tue, 21 Jan 2025 14:20:02 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1taF84-000000083Pf-1Cws;
+	Tue, 21 Jan 2025 14:21:20 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taF5W-000000082tR-1k7d;
-	Tue, 21 Jan 2025 14:18:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 86BDBA410DC;
-	Tue, 21 Jan 2025 14:16:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F920C4CEDF;
-	Tue, 21 Jan 2025 14:18:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1737469120;
-	bh=5i/X/Iz+JTYsKD4chZ95l9x8evxZABASz1O34jduQyM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=I+z6qQ2Evs42wV2TDzuc5tlgJ/P7u60q697JMC2ZKKTj7gESHiAbzkyGy29VHM+6X
-	 qmZjOt1uiBPFDO1bs5n3G4OwLGg/1t71x2AWSp880rxO1zrFvmig8Z/xS97RqVcMdn
-	 SqEHZJtLpYm2VMWN/o6CK8K2x4lvj8mYJodj9qKU=
-Date: Tue, 21 Jan 2025 15:18:37 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Andrea della Porta <andrea.porta@suse.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Wilczynski <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
+	id 1taF6W-0000000834z-4AIB
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Jan 2025 14:19:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=jMdYmwmLPyDuVRsbkv93AlEBzIO1Opr34EVAtN7rIzg=; b=kRfQF0VPZ2zh5eyHFHt9OFbw7i
+	F70eXR9dI+FP4iMiLNDozLfDCKz6XXFTtoV/GCmoYoej6vZfFQb3iXQMz1LeqsefvRTz9vuV8Vfkr
+	+u/b8Jl+YEoJAcuEO1IyAvBnKKh6A85m81xpx3A6S9pNOGxl+niZYUVK2XehbdCYthGMgjnxMhobY
+	+8Cu2GGJmcQFv0E58PvCMeYrfsokoiBK9Dgw2NRT733jii2C7dWnuYdUyFBMH6J76Xdd6/KutdmGj
+	gfTPyc9OtXK1QspBhrY4OO7NZkEBJulU3Nr7UyK/7tyHf77ssJSoyPBObP1VlpDQOgdqPZHwpDplx
+	GikDbNCQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:43796)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1taF6P-0007KN-1u;
+	Tue, 21 Jan 2025 14:19:37 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1taF6L-0003xt-29;
+	Tue, 21 Jan 2025 14:19:33 +0000
+Date: Tue, 21 Jan 2025 14:19:33 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
 	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>
-Subject: Re: [PATCH v6 08/10] misc: rp1: RaspberryPi RP1 misc driver
-Message-ID: <2025012157-bonsai-caddie-19b2@gregkh>
-References: <cover.1736776658.git.andrea.porta@suse.com>
- <550590a5a0b80dd8a0c655921ec0aa41a67c8148.1736776658.git.andrea.porta@suse.com>
- <2025011722-motocross-finally-e664@gregkh>
- <Z49eOdVvwknOoD3E@apocalypse>
- <2025012143-rippling-rehydrate-581b@gregkh>
- <Z4-oORWO4BgOqibB@apocalypse>
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
+Subject: Re: [PATCH] ARM: cacheinfo fix format field mask
+Message-ID: <Z4-s9UHBJZx9APeE@shell.armlinux.org.uk>
+References: <20250115-arm-cacheinfo-fix-v1-1-5f30eeb4e463@linaro.org>
+ <CAMuHMdVLvCNZtc2qYrsnMz5L0Hyr70x-Hj5NA8izYBH2tf=yFg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <Z4-oORWO4BgOqibB@apocalypse>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAMuHMdVLvCNZtc2qYrsnMz5L0Hyr70x-Hj5NA8izYBH2tf=yFg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_061842_585444_FAA0A5BB 
-X-CRM114-Status: GOOD (  37.11  )
+X-CRM114-CacheID: sfid-20250121_061945_027484_E1E992FD 
+X-CRM114-Status: GOOD (  18.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,97 +86,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 21, 2025 at 02:59:21PM +0100, Andrea della Porta wrote:
-> Hi Greg,
+On Tue, Jan 21, 2025 at 03:12:13PM +0100, Geert Uytterhoeven wrote:
+> Hi Dmitry,
 > 
-> On 09:48 Tue 21 Jan     , Greg Kroah-Hartman wrote:
-> > On Tue, Jan 21, 2025 at 09:43:37AM +0100, Andrea della Porta wrote:
-> > > Hi Greg,
-> > > 
-> > > On 12:47 Fri 17 Jan     , Greg Kroah-Hartman wrote:
-> > > > On Mon, Jan 13, 2025 at 03:58:07PM +0100, Andrea della Porta wrote:
-> > > > > The RaspberryPi RP1 is a PCI multi function device containing
-> > > > > peripherals ranging from Ethernet to USB controller, I2C, SPI
-> > > > > and others.
-> > > > > 
-> > > > > Implement a bare minimum driver to operate the RP1, leveraging
-> > > > > actual OF based driver implementations for the on-board peripherals
-> > > > > by loading a devicetree overlay during driver probe.
-> > > > > 
-> > > > > The peripherals are accessed by mapping MMIO registers starting
-> > > > > from PCI BAR1 region.
-> > > > > 
-> > > > > With the overlay approach we can achieve more generic and agnostic
-> > > > > approach to managing this chipset, being that it is a PCI endpoint
-> > > > > and could possibly be reused in other hw implementations. The
-> > > > > presented approach is also used by Bootlin's Microchip LAN966x
-> > > > > patchset (see link) as well, for a similar chipset.
-> > > > > 
-> > > > > For reasons why this driver is contained in drivers/misc, please
-> > > > > check the links.
-> > > > 
-> > > > Links aren't always around all the time, please document it here why
-> > > > this is needed, and then links can "add to" that summary.
-> > > 
-> > > Ack.
-> > > 
-> > > > 
-> > > > > This driver is heavily based on downstream code from RaspberryPi
-> > > > > Foundation, and the original author is Phil Elwell.
-> > > > > 
-> > > > > Link: https://datasheets.raspberrypi.com/rp1/rp1-peripherals.pdf
-> > > 
-> > > ...
-> > > 
-> > > > > diff --git a/drivers/misc/rp1/rp1_pci.c b/drivers/misc/rp1/rp1_pci.c
-> > > > > new file mode 100644
-> > > > > index 000000000000..3e8ba3fa7fd5
-> > > > > --- /dev/null
-> > > > > +++ b/drivers/misc/rp1/rp1_pci.c
-> > > > > @@ -0,0 +1,305 @@
-> > > > > +// SPDX-License-Identifier: GPL-2.0
-> > > > > +/*
-> > > > > + * Copyright (c) 2018-24 Raspberry Pi Ltd.
-> > > > > + * All rights reserved.
-> > > > > + */
-> > > > > +
-> > > > > +#include <linux/err.h>
-> > > > > +#include <linux/interrupt.h>
-> > > > > +#include <linux/irq.h>
-> > > > > +#include <linux/irqchip/chained_irq.h>
-> > > > > +#include <linux/irqdomain.h>
-> > > > > +#include <linux/module.h>
-> > > > > +#include <linux/msi.h>
-> > > > > +#include <linux/of_platform.h>
-> > > > > +#include <linux/pci.h>
-> > > > > +#include <linux/platform_device.h>
-> > > > > +
-> > > > > +#include "rp1_pci.h"
-> > > > 
-> > > > Why does a self-contained .c file need a .h file?  Please put it all in
-> > > > here.
-> > > 
-> > > I agree with you. Indeed, the very first version of this patch had the header
-> > > file placed inside the .c, but I received concerns about it and some advice to
-> > > do it differently, as you can see here:
-> > > https://lore.kernel.org/all/ZtWDpaqUG9d9yPPf@apocalypse/
-> > > so I've changed it accordingly in V2. So right now I'm not sure what the
-> > > acceptable behaviour should be ...
-> > 
-> > It's a pretty simple rule:
-> > 	Only use a .h file if multiple .c files need to see the symbol.
-> > 
-> > So no .h file is needed here.
+> Thanks for your patch!
 > 
-> Perfect, I'll revert back that two lines to V1 then. Please be aware
-> though that this will trigger the following checkpatch warning:
+> On Wed, Jan 15, 2025 at 12:11 PM Dmitry Baryshkov
+> <dmitry.baryshkov@linaro.org> wrote:
+> > Fix C&P error left unnoticed during the reviews. The FORMAT field spans
+> > over bits 29-31, not 24-27 of the CTR register.
 > 
-> WARNING: externs should be avoided in .c files
+> Please add
+> 
+>     This causes a warning on e.g. Cortex-A8 and Cortex-A9:
+> 
+>         WARNING: CPU: 0 PID: 0 at arch/arm/kernel/cacheinfo.c:43
+> cache_line_size+0x84/0x94
+> 
+> so people find this patch when looking up the warning.
+> 
+> > Fixes: a9ff94477836 ("ARM: 9433/2: implement cacheinfo support")
+> > Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
+> > Closes: https://lore.kernel.org/linux-arm-msm/01515ea0-c6f0-479f-9da5-764d9ee79ed6@samsung.com/
+> > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> 
+> This fixes the warning on Cortex-A8/A9, so
+> Tested-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> 
+> Note that this changes HWalign on Cortex-A9 (various Renesas SoCs,
+> with 1, 2, or 4 CPU cores):
+> 
+>     -SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=<N>, Nodes=1
+>     +SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=<N>, Nodes=1
+> 
+> On Cortex-A8 (BeagleBone Black, i.e. AM335x), it changes HWalign,
+> and causes a warning message:
+> 
+>     -SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+>     +SLUB: HWalign=16, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+>      ...
+>     +cacheinfo: Unable to detect cache hierarchy for CPU 0
+> 
 
-Well where are those externs defined at?  Shouldn't there be a .h file
-for them somewhere in the tree if they really are global?
+Also, has this been tested on CPUs that don't implement the cache type
+register?
 
-thanks,
-
-greg k-h
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
