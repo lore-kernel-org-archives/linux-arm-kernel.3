@@ -4,113 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FCFFC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 07:31:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D46DEC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 07:43:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h+Vn0Ug9JU6+clTGINvG6sBhseUNjSaHZCPTnYRIKIw=; b=D8x8GaJngVUEW3f1U4vvzfW9iq
-	tS9F3+YSHBZqclWYo3KWIxG22m/sBcxtFe35UkN/prS6IaigRd4QZCBslPBPNM0/PGUX+9kJgoi1D
-	eMqqQiglML6ht1h/7w49i/pdzzHpYEfMj/CJ2oJ3KXx2CLKrUeaG6w/O7EO3eF+Kt3w3zfBCVWZWH
-	+oaKwkWNV8W4Ydm9xuiqlGw/L7EIp4k0ksOV6++FM4nqOoqTe/vFa/9EzqrS+qyPduHVKapQf6dsR
-	m97l2GyoHLEhZI6Ie7rjI6SfzMG8Z7KWciyyOqRrlajrvXQbjQzYDUmHJS2bwdlbTyEybgtbiCy9v
-	KRAvafjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3Fui09+m2rxieRmUSR1nC7VxbpcmBPJkE1Wa9yjl+LQ=; b=CYHzDXYQuCkJ3PMOaASePXp6CJ
+	IGzk7K4AOQXh1Nb/qQgjfWPN7vNTWXLcseORbRDlitx4IkEGFGW8KCzufF9aL6b4G52H92j854pR8
+	10i0e7a6gQX0U6eBKF9Kwy5NQ5g4/7vz7L+vymbufS7wCY1WLXb/6XqRaF1PbUNOUQPhRBfEEIQpR
+	CaXSuApb+iAafzqrL/7SRrniMgxaF1OU/KMvKxIU6NqpGbtDCzu4/Kb9oZ1ejZ8/Eg4uYFpHLFzRb
+	v4IYoN8/ssihcIxZAAkQuOQJ1inUbkbnyAn2/BedVaFTtot5K61Hd1TIuZ6TdMJvcjeR7D3o78rpB
+	MHkge91w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ta8jC-000000078xh-1xvD;
-	Tue, 21 Jan 2025 07:31:14 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1ta8uM-000000079qb-1Y8h;
+	Tue, 21 Jan 2025 07:42:46 +0000
+Received: from mail-vi1eur02on20604.outbound.protection.outlook.com ([2a01:111:f403:2607::604] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ta8S2-000000076GZ-2OBw
+	id 1ta8t4-000000079Ya-0R6I
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 07:13:31 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50L2JZXI017914;
-	Tue, 21 Jan 2025 07:13:21 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	h+Vn0Ug9JU6+clTGINvG6sBhseUNjSaHZCPTnYRIKIw=; b=IoJjSj3zrOU02YeI
-	dSNgmNDsNogNAMS/SojlXXaRsMw0X5DSNXiFTSSWojA7F9EcbpYRMO9JhO1mSemE
-	dg8loPFmstJmsoDOoAlYlOeWv4NUc6CEk8hR1j2EwSm2Ey7RztNSP47CDrZzxPIR
-	+xUigfFBqIBP4Fy8BxfxiNzLDP2m9gN2xLDl1OqHE0Fnc2+UIKYMnmzp+BCiFyqV
-	dygKDyhZyArXiH2fyFO4flZCSMnAA7SYBOIljC5C7TiVAsQM54vTLRz+E6hN5ftv
-	a0IxHuHurJqdGBLBGsV/zSsmeKJSTy6Wc7tEQE/8TooM/S89XLgeqZrwg2Bvq9T3
-	BIK2Rw==
-Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44a2pugkjg-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 21 Jan 2025 07:13:21 +0000 (GMT)
-Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
-	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 50L7DKPc031133
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 21 Jan 2025 07:13:20 GMT
-Received: from [10.253.35.93] (10.80.80.8) by nalasex01c.na.qualcomm.com
- (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 20 Jan
- 2025 23:13:14 -0800
-Message-ID: <89d4df79-a202-407a-bcfd-6af5315c403c@quicinc.com>
-Date: Tue, 21 Jan 2025 15:13:11 +0800
+	Tue, 21 Jan 2025 07:41:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HnN7gfW/cZnrUmQyvYcYfcxsKJh/1wpt0rpiQ1xLKnPRQ4VYWJ8vSPyVP3cSF6zF6C1vXx9YhUPFZp6GMEmZYC0OqyMHba3Phl6y5yc3LWM0/6l/21snj7gCOwnToQ8xS4qp4s2A7PEtVMnCt3cciUqI32+Xwdp+Z/wuVtpWAcoa1pEtByM1uuBl5mrVxIACLtKTd8eimFjlWa86qN22k6Vh+Wh5XQQsMh++qiWH0wjQSFH1Xhjr2qE80cyxQibPKh73bQ7pKBFdoV5I+FP/QtRVipKMrRG44cqIvF+bPgA2UdlkaAb6lbcbQnPf0YGAisyA7zTumo2jMXZY3gqw/w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3Fui09+m2rxieRmUSR1nC7VxbpcmBPJkE1Wa9yjl+LQ=;
+ b=eApQJrq65871MnIGA9gGrs9K4FL1MhkH9TifgBtIWz+rg7dhjMqZEjmn41Z92Z/+Fa2CNgb6WaSerucbZSKy7PLMzPfIgmDp7UCceXaw4zu2RP+YwJt5hqmxntef4lKUZyn0JGSwsJ6al01a7oh7VK6KejRQ81SlYMRc8xQsM7dGv+rifrvfugn/YcU20tNpXCTu96POny1btkrCy3CVwwVusBODwqnfChUWA1LWELB1LOHvDnW3DMr5UgbOrBU3kEq/3SIfvXOnOBfAAtzxDPz53CJ99uwCvYiSXDn/wS3Q+3wgJT0N1dNOkZ2WUyZ6ht3e1+Yyg+OFDkN+GAr9PQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3Fui09+m2rxieRmUSR1nC7VxbpcmBPJkE1Wa9yjl+LQ=;
+ b=eJfdCFDNWwCYuVVDTmRGiOyQrico5ncfkIGKLh75Oiji83QcBtsqrZb/K6uvjiGxu+LqdP037BAJ3hp/VYa/esHyh2WgOMODEdYtQMUOZnLx1wYuwiLmZXqpNH/Ou9ztXA4LvLJpM71NgXPTMAHAzDORu0JFw7FgP1wxwBd83y05MJiwAj1RowVndcJFSYNHOXU9t31WkiI08OZsNN1WQ4aq1AQ0A9zMAE3UZxCbrMtC1x8VLrO0AoZCYbCpFF05theW6waz9kvEPgs4F/nsGkZiRZzcHRjzLl4oubNWsCYHFTZq6e59pRa0Cll0pTAGqu4rvzNiqNy6kGIphd1OLw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS4PR04MB9386.eurprd04.prod.outlook.com (2603:10a6:20b:4e9::8)
+ by PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.22; Tue, 21 Jan
+ 2025 07:41:15 +0000
+Received: from AS4PR04MB9386.eurprd04.prod.outlook.com
+ ([fe80::261e:eaf4:f429:5e1c]) by AS4PR04MB9386.eurprd04.prod.outlook.com
+ ([fe80::261e:eaf4:f429:5e1c%6]) with mapi id 15.20.8356.020; Tue, 21 Jan 2025
+ 07:41:15 +0000
+From: Joy Zou <joy.zou@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: joao.goncalves@toradex.com,
+	marex@denx.de,
+	hvilleneuve@dimonoff.com,
+	hiago.franco@toradex.com,
+	peng.fan@nxp.com,
+	frieder.schrempf@kontron.de,
+	alexander.stein@ew.tq-group.com,
+	m.othacehe@gmail.com,
+	mwalle@kernel.org,
+	Max.Merchel@ew.tq-group.com,
+	quic_bjorande@quicinc.com,
+	geert+renesas@glider.be,
+	dmitry.baryshkov@linaro.org,
+	neil.armstrong@linaro.org,
+	arnd@arndb.de,
+	nfraprado@collabora.com,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	ping.bai@nxp.com,
+	ye.li@nxp.com,
+	aisheng.dong@nxp.com,
+	frank.li@nxp.com,
+	carlos.song@nxp.com
+Subject: [PATCH v4 0/5] Add i.MX91 platform support
+Date: Tue, 21 Jan 2025 15:40:12 +0800
+Message-Id: <20250121074017.2819285-1-joy.zou@nxp.com>
+X-Mailer: git-send-email 2.37.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI1PR02CA0042.apcprd02.prod.outlook.com
+ (2603:1096:4:1f6::17) To AS4PR04MB9386.eurprd04.prod.outlook.com
+ (2603:10a6:20b:4e9::8)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] net: stmmac: qcom-ethqos: Enable RX programmable swap
- on qcs615
-To: Andrew Lunn <andrew@lunn.ch>
-CC: Krzysztof Kozlowski <krzk@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo
- Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson
-	<andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Alexandre
- Torgue <alexandre.torgue@foss.st.com>,
-        Jose Abreu <joabreu@synopsys.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>, <netdev@vger.kernel.org>,
-        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20241225-support_10m100m-v1-0-4b52ef48b488@quicinc.com>
- <20241225-support_10m100m-v1-2-4b52ef48b488@quicinc.com>
- <4b4ef1c1-a20b-4b65-ad37-b9aabe074ae1@kernel.org>
- <278de6e8-de8f-458a-a4b9-92b3eb81fa77@quicinc.com>
- <e47f3b5c-9efa-4b71-b854-3a5124af06d7@lunn.ch>
- <87a7729d-ccdd-46f0-bcfd-3915452344fd@quicinc.com>
- <7e046761-7787-4f01-b47b-9374402489ac@lunn.ch>
- <5bc3f4e0-6c3f-412c-a825-54707c70f779@quicinc.com>
- <0fe23cfd-9326-4664-9c94-cf010aec882c@lunn.ch>
-Content-Language: en-US
-From: Yijie Yang <quic_yijiyang@quicinc.com>
-In-Reply-To: <0fe23cfd-9326-4664-9c94-cf010aec882c@lunn.ch>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01c.na.qualcomm.com (10.47.97.35)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: GvL8wDOpkugmdU1D06R9_Tiw5YRakzH9
-X-Proofpoint-GUID: GvL8wDOpkugmdU1D06R9_Tiw5YRakzH9
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-01-21_03,2025-01-21_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=886 clxscore=1015
- lowpriorityscore=0 malwarescore=0 phishscore=0 impostorscore=0
- priorityscore=1501 suspectscore=0 adultscore=0 spamscore=0 mlxscore=0
- bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2501210058
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS4PR04MB9386:EE_|PAXPR04MB8459:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6763685a-31e9-4068-50d0-08dd39eefbe5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?VncUm4XhWNWK2MmHPg6OA+zf1K7zgAU4tP23zbPjt9kRV9ORsrMApJ/Sa7za?=
+ =?us-ascii?Q?2FnAUD7SXrpyIoSiMWq9FM87wi1PVk6ReV8s1nfdPWDudcxHvG9vibD2O/BV?=
+ =?us-ascii?Q?sgj9YUVjelt7DyxrfW0Fe8z1Wn6e4RKVHbP+OTYg/4NPKXNuu/SBWHRlB7C4?=
+ =?us-ascii?Q?L6OSdoB0e3KVUjFtfKifRGPifLAYzS3kAUhsmcmz/V71jSwPS4+Dd8iJ/qfZ?=
+ =?us-ascii?Q?ImBonnxJ4hqzVSUzrcBpSjlyMc1So+84SrELUDnjJvoCKj/N1NfVOyClbvrm?=
+ =?us-ascii?Q?fntUyHxab+4OjxjldzLecyGZRr8ZoKlLyZuabPlYbNKQWGkWAJf0Ea8oHtzO?=
+ =?us-ascii?Q?E0oW237mbweaUBGhaNk2paAK3SfUwDVAgu1i3dWwe2e4dfG9I7kdOT7fkM++?=
+ =?us-ascii?Q?BGCXKGZYR0qO5J6ZgUH5vNA6RhcaXKnm6t+q76Vrpxx0XgVanJcZB41BCVkQ?=
+ =?us-ascii?Q?caq0CKkbU5WEGh6OgdP75q2iLFVWWY4FajEKfhBX6z0xwt2NsQDbU+V+UFbr?=
+ =?us-ascii?Q?7ijeJMiAT+bN0IwDx4Xv/nfNVVWiOvAwtPesv7NK6OIMcjXIi9zb6k2N5wbY?=
+ =?us-ascii?Q?DMoNeUjG+FzTpX7cyoDF8UPxQVo/YA3Aydjjh0K9irTfS+b35IdT46q6MHic?=
+ =?us-ascii?Q?wnuZv726H1FpnfB8Dvi5GRSENipTdmIILsXjKLZC4MDKMVfe50cqOI0+xldM?=
+ =?us-ascii?Q?clGg8R/HlLqkxwObFR4wH3jBon0LPCeE9FCh7jUcqZQAQ73iA4fsCxebplYq?=
+ =?us-ascii?Q?1M55DYaMrov5HjVZ9ORVuAOT/SKGtD9E/Scqc8gPoi2GsU6SWTR406taGFPm?=
+ =?us-ascii?Q?j1z++F5vH2HHi2GkTKnGCQPbfF8pi8ZtgCI+zW8IYvVx16k5KJXSnRqKtH4X?=
+ =?us-ascii?Q?B8hn9B4LVzbrucLCkbQjxqXpUu2ImXQ04rDVyt33y//R69/s/FCt2CkO3QHc?=
+ =?us-ascii?Q?96L8g+GUoHGigWguGIPz3jkIXU1grnc7MdvbZgRKbmPZ9o2E4LAyt9fgzz5D?=
+ =?us-ascii?Q?rbBREAZ25CHC/AwxZKcrwyT8PTmr/GM1M/8N4z7k+ylTJDJZJfGlu5FAqELW?=
+ =?us-ascii?Q?FRUj3dzxEepY2tqm1UUqs9ph4cXZKhJ+PS3xc8ExFTrWVkgRB/i0bNxIbYyi?=
+ =?us-ascii?Q?Zv569G7cf7NiXduaeCdyNiGKI9Zirnt1cYBBAeKCNkNjHEQzwIFiK0qcl4Dh?=
+ =?us-ascii?Q?pMYMbupJxwKWascCZyljgtWTVChnSfGzUsfZTmq+WtLAjGEYbx1nfU47MMR6?=
+ =?us-ascii?Q?XNcpXBVHjN5elYkT2AzfTY4hvJGa3Rg3zOEd8HnMK+LHfR74YGqtHO6Vo/ha?=
+ =?us-ascii?Q?V0RhGp0UNVYgddYZQpM3glfPNlajGiiUXAXXI+wE6+xx3ahkGt+ITlJ4Wxws?=
+ =?us-ascii?Q?fffYWz/jg2BPspVczNeVddsfqfJCmL8JTOho1njCSzo1MvPUtlmYCySY6lER?=
+ =?us-ascii?Q?dzylI0vNsog27mfvmL8WKmxQCNLES1nn?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9386.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8H7J1EfKiPyR8NGyk6a0TZpz/c4Wyyd7LWvsHs6MJmp2OHWepyxfzEB68B/V?=
+ =?us-ascii?Q?rNFE1QgI6T4tpXS8tRQWK/RAALR1+W3q2luyvncEb6L1BljFkLqMShVzz/bA?=
+ =?us-ascii?Q?RkWImMciY2kRzIqNkELYlB7LBxz+uRN4KAe8SrEJBS0lXTIF/WTFZagl1zsZ?=
+ =?us-ascii?Q?KEQE1PBorhGTRxpfW6HKZIT/SBWBj1yProQuN5MGWMRrlYAMJBhHbLIc553d?=
+ =?us-ascii?Q?Auc352vPHSFA+yZKo4c4DTGwC3pVZlVnyj1vtIr9SfaaQ1LZflzT8cBQwVix?=
+ =?us-ascii?Q?OyQOaPiT2XBxW95KseWTdOk156YmGppVUin6OS4tzIQfbnRD1RikDKK0gB5g?=
+ =?us-ascii?Q?WXYJ91wseL3LXN3ywsR+eKTIiy+QFj8+wgSSYoahXoF9DBiXo3Uc/UCc5ht4?=
+ =?us-ascii?Q?50x6QHuoWEicy+kDD2VvrgAXDIvhcG/W4u9SvdFdhDtOLEdpiaA1cmXVgaip?=
+ =?us-ascii?Q?F9jtSCQtysqrk9Fj8JTYkqGTyLIvNQlC/WAetnf1ICZS089mzpS5af+139Jy?=
+ =?us-ascii?Q?TkV4hhrMzbSPhQB7Vw2Cul7yGyNL4CP4YfUghcxqf3xisbTo8kUzhxvkuOjH?=
+ =?us-ascii?Q?11liKgt6NZ6eofb+Kin6czpwHoQTc8a0HSy2Rh8+I5veZWd7w6a4VabXQITg?=
+ =?us-ascii?Q?Fp55vOiepU8Auh0AOUcvnWc5PxAHSwMPBTlk2kb/KV/Ke46Mxc4a4oggEVID?=
+ =?us-ascii?Q?NmObK8RJuK+q+/M1jAXTWXR8T1HXBxhcOVN+21oi/imR1B7YQaOB28e9luCb?=
+ =?us-ascii?Q?oVZrDLrKzFGvYRWZabupD8FpVmTQvvRlB4AxG6iFkQbYGG4yorBclvoBY0QJ?=
+ =?us-ascii?Q?pTupH42BKgt0BNcW3UNnaCcwFNmHeFVFZaLkRcFdau2Pi2+rIndaak3tFogC?=
+ =?us-ascii?Q?xbMUFvmC474DWoMWnWebNzDxfFolamhl8DA+YWI7MUTrQjRlLFBZXuz5K9t0?=
+ =?us-ascii?Q?cZbqpBXrYMJfoew3B3+f7kvtgrnGt8RljAx7++DuE3qzRyfbRyvexZpSOfbb?=
+ =?us-ascii?Q?m8YrJZmqCw6U+joyYJtnswhfAUJLxyCkt3mCXcpVuOwFYPHNgvTIy7qI51qE?=
+ =?us-ascii?Q?hEqWblLQAP35O2Bn52voec4o6dEowGAliC6Ncr8NMF9kmbYea4Ew2akZbhoM?=
+ =?us-ascii?Q?+UdmLEhiaxzStQlDnGEfIdEBUjlLeiysrPsKzIhCyvFlZxdZSh2rSsVGFaUU?=
+ =?us-ascii?Q?hkOQeLJI+NwyMaADwnuvyAJI0epNpX9rmS4YEBwX7Va3iy3a6ND8TXU/Q775?=
+ =?us-ascii?Q?oteHZrLrh/g4Gu+yyDf2WIcILarxbQBEz2fQByxv70GdWtcsg1RjAppvtax5?=
+ =?us-ascii?Q?TmoeZXtzJxiT6VMjArmObOSj31Mu8KFio8sfpQgKT7Lpor5h8g0Uzcm+Bxec?=
+ =?us-ascii?Q?4gVaJ8yHD+48/CetGyYbGqA5O0vlB4oqksH7JpF4xYlUpDNJVpA/LLCnE4QZ?=
+ =?us-ascii?Q?EBoFuBU6HH0bLtJz40Zsux/lduIxLhDpuRxvjD7j6ZG57Vvp1qRXnQsrgmZG?=
+ =?us-ascii?Q?5HYpyARoYqtgY74xP86kgy5ZPMF/J6DOSYi4xCvRWyz3+kfDp9OITpwufsc/?=
+ =?us-ascii?Q?COO0j6mPAKjoh0NPSsLlZ3l1EEX7suVB2XOrmld9?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6763685a-31e9-4068-50d0-08dd39eefbe5
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9386.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jan 2025 07:41:15.0639
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: sp9qlbzNqWYLX6B4j8LIkoI6C3gB4R0sHPjETiL+KdXsIW8Ta7BYq2+dceopFNo2
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8459
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_231330_623934_FDF59693 
-X-CRM114-Status: GOOD (  32.55  )
+X-CRM114-CacheID: sfid-20250120_234126_135343_209061FA 
+X-CRM114-Status: GOOD (  16.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,92 +185,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The design of the i.MX91 platform is very similar to i.MX93.
+The mainly difference between i.MX91 and i.MX93 is as follows:
+- i.MX91 removed some clocks and modified the names of some clocks.
+- i.MX91 only has one A core
+- i.MX91 has different pinmux
 
+Therefore, i.MX91 can reuse i.MX93 dtsi.
 
-On 2025-01-21 00:49, Andrew Lunn wrote:
->>> So this indicates any board might need this feature, not just this one
->>> board. Putting the board name in the driver then does not scale.
->>>
->>
->> Should I ignore this if I choose to use the following standard properties?
-> 
-> You should always follow standard properties unless they don't
-> work. And if they don't work, your commit message needs to explain why
-> they don't work forcing your to do something special.
-> 
->>>> This means the time
->>>> delay introduced by the PC board may not be zero. Therefore, it's necessary
->>>> for software developers to tune both the RX programming swap bit and the
->>>> delay to ensure correct sampling.
->>>
->>> O.K. Now look at how other boards tune their delays. There are
->>> standard properties for this:
->>>
->>>           rx-internal-delay-ps:
->>>             description:
->>>               RGMII Receive Clock Delay defined in pico seconds. This is used for
->>>               controllers that have configurable RX internal delays. If this
->>>               property is present then the MAC applies the RX delay.
->>>           tx-internal-delay-ps:
->>>             description:
->>>               RGMII Transmit Clock Delay defined in pico seconds. This is used for
->>>               controllers that have configurable TX internal delays. If this
->>>               property is present then the MAC applies the TX delay.
->>>
->>> I think you can use these properties, maybe with an additional comment
->>> in the binding. RGMII running at 1G has a clock of 125MHz. That is a
->>> period of 8ns. So a half clock cycle delay is then 4ns.
->>>
->>> So an rx-internal-delay-ps of 0-2000 means this clock invert should be
->>> disabled. A rx-internal-delay-ps of 4000-6000 means the clock invert
->>> should be enabled.
->>
->> This board was designed to operate at different speed rates, not a fixed
->> speed, and the clock rate varies for each speed. Thus, the delay introduced
->> by inverting the clock is not fixed. Additionally, I noticed that some
->> vendors apply the same routine for this property across all speeds in their
->> driver code. Can this property be used just as a flag, regardless of its
->> actual value?
-> 
-> Maybe you should go read the RGMII standard, and then think about how
-> your hardware actually works.
-> 
-> RGMII always has a variable clock, with different clock speeds for
-> 10/100/1G. So your board design is just plain normal, not
-> special. Does the standard talk about different delays for different
-> speeds? As you say, other drivers apply the same delay for all
-> speeds. Why should your hardware be special?
-> 
-> RGMII has been around for 25 years. Do you really think your RGMII
-> implementation needs something special which no other implementation
-> has needed in the last 25 years?
+---
+Change for v4:
+- Add one imx93 patch that add labels in imx93.dtsi
+- modify the references in imx91.dtsi
+- modify the code alignment
+- remove unused newline
+- delete the status property
+- align pad hex values
 
-I do not intend to violate the regulations of the RGMII standard and aim 
-to maintain the same delay across all speeds. But the RX programming 
-swap bit can only introduce a delay of 180 degrees. Should I assume the 
-1G speed clock to calculate and determine if this bit should be enabled 
-for all speeds?
+Change for v3:
+- Add Conor's ack on patch #1
+- format imx91-11x11-evk.dts with the dt-format tool
+- add lpi2c1 node
 
-> 
->>> Now, ideally, you want the PHY to add the RGMII delays, that is what i
->>> request all MAC/PHY pairs do, so we have a uniform setup across all
->>> boards. So unless the PHY does not support RGMII delays, you would
->>> expect rx-internal-delay-ps to be either just a small number of
->>> picoseconds for fine tuning, or a small number of picoseconds + 4ns
->>> for fine tuning.
->>
->> The delay for both TX and RX sides is added by the MAC in the Qualcomm
->> driver, which was introduced by the initial patch. I believe there may be a
->> refactor in the future to ensure it follows the requirements.
->   
-> You can do it in the MAC. But you probably want to clearly document
-> this, that your design is different to > 95% of systems in Linux which
-> have the PHY do the delays.
-> 
-> 	Andrew
+Change for v2:
+- change ddr node pmu comaptible
+- remove mu1 and mu2
+- change iomux node compatible and enable 91 pinctrl
+- refine commit message for patch #2
+- change hex to lowercase in pinfunc.h
+- ordering nodes with the dt-format tool
+
+Joy Zou (1):
+  arm64: dts: imx93: Add labels for the references easier
+
+Pengfei Li (4):
+  dt-bindings: arm: fsl: Add i.MX91 11x11 evk board
+  arm64: dts: freescale: Add i.MX91 dtsi support
+  arm64: dts: freescale: Add i.MX91 11x11 EVK basic support
+  arm64: defconfig: enable i.MX91 pinctrl
+
+ .../devicetree/bindings/arm/fsl.yaml          |   6 +
+ arch/arm64/boot/dts/freescale/Makefile        |   1 +
+ .../boot/dts/freescale/imx91-11x11-evk.dts    | 873 ++++++++++++++++++
+ arch/arm64/boot/dts/freescale/imx91-pinfunc.h | 770 +++++++++++++++
+ arch/arm64/boot/dts/freescale/imx91.dtsi      |  70 ++
+ arch/arm64/boot/dts/freescale/imx93.dtsi      |   4 +-
+ arch/arm64/configs/defconfig                  |   1 +
+ 7 files changed, 1723 insertions(+), 2 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx91-pinfunc.h
+ create mode 100644 arch/arm64/boot/dts/freescale/imx91.dtsi
 
 -- 
-Best Regards,
-Yijie
+2.37.1
 
 
