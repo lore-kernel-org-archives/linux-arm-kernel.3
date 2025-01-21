@@ -4,161 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0E3BC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 18:37:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D735BC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 18:42:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
 	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NZBrqwg/O122cP3g9y3vm9d3xz1mCKfE8dEqQNuFVns=; b=TWELq09uuysIC8jNSKB746QmC1
-	35/PxjlmLKSkiYA7Pb7NbmWRwWGQO7PULtIg/M+rnv492gCFwhvxMmbCY3j/qL7/l7F7babXnNhjo
-	SX4SuwsmubkcZCGdshLzdylxbfSUDp69S8kho0NwCyGYPs0J0U6VOIH2MV+zdG0FBDloTxS0FhPAI
-	TxU1zxvUYxTTjIP/d4lS1xc9NGNZPTTDaRF5yjWph6HeomdEfrNLKTB5lxTCWEDIJCknb/j1+GXg/
-	x5zwbf/IDaU21L6TlhcewDPeKbVkUcLLe4Uf1ztqMB1l+YYb3Vdswzy7yTXD8hJ9UrSLyBMq11alv
-	5BGLKTQQ==;
+	bh=flgRsytMFqr+kw4Cd88HHA8+bHmdnUtF+C03Qe9juw0=; b=X2wketfJJqtaLgKozz5wdUV47M
+	+GT8d+WfAJUvwLFgMJrTJbfIKD4VmeuABSzuFiwsKWWSdu+NlfX2lQ96nWCP7Xv+ledtY065YlAUj
+	ZObNDSfqMqwaFcfgWYj1f3p6Ku2S/DaGgvqnmDXqWOmNxDVJK8VoieDfEVvzmQNlF0kUBDM9h6nUu
+	CIipj0BkkEzhizxABdM4T2BhjhPV2PUvJ+gHlXHq5dUVliLhKV6EV+Nbjq9Iy8ghKOHtOgKvA35xI
+	lCpv5emDkguPS09YRW5eTVFb2ztpUgcXbavyzYTIl7m6jry/jskH/SP9c1DhgiD9WKaMjjtYKuWWr
+	k0Iildfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taJ84-00000008cAG-1aD1;
-	Tue, 21 Jan 2025 18:37:36 +0000
-Received: from mail-dm6nam11on20622.outbound.protection.outlook.com ([2a01:111:f403:2415::622] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	id 1taJCl-00000008cRJ-1PPU;
+	Tue, 21 Jan 2025 18:42:27 +0000
+Received: from mail-eastus2azlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c110::2] helo=BN8PR05CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taJ6n-00000008c4J-0n6y
+	id 1taJBQ-00000008cLu-1wkM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 18:36:18 +0000
+	Tue, 21 Jan 2025 18:41:08 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EVQcyra55soRz4maIO04ov/A3OiHQjzp4Z5b1ncWjGfX1Q7vyRGGTRlaR4dE5PK1C5DsGh3in6qAztgWItvJULT6NmyU2rEWw1HTb+dEm3aKPXbRcqgLiXcOp6jqQsTjSpbEzt8/0o12MGYuWuXOOQAJaS/YRKhydFPlCJiNY/rC7CtWh7fhLIaaVLX1RvNGpcaIwmzY8w4qrTpfUDQ51C/fvdSxbwis4C6I7wiHi7sp+jHAwUduWIO00eRUMg2XEyGpXMsAv1HjuCmd8QlM83/QKcv/a+rrpS0DUFIbgkOose90UPa9Fi82plnjFfH2Q02jf1h5rSHre30kyWVX8g==
+ b=rm4neEAJOHa/WzZKqf+FIAB2g+El4oPh0NNOEWhevtlvR3S+XyVbAs4DPN/wbHKEvhF1J3yReQPRLos0+o1MoYuq9RxrrV+/HmBy1TxHIu8bTTDs44fEjb/iypLophpICfvFn5gcpzB0OMS7h9DEVfNeWwri7yXkT216aCISnUCmap3rKq48tsO2aPbzuQfqhvSpcZuDmiVetRh26PvoIHJmYWbp6AKjMRXZczAwcU+Cqq7ZXOlBE6wRbBZZZD7zItU/ZI3DD9ZbXe5XIbuqmiQxPUQKeiwSXaSgbmAQGBpIgpcIIebfYAglGFWO5ox/XxAfRvu6w3FnCjFCSD2R+w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NZBrqwg/O122cP3g9y3vm9d3xz1mCKfE8dEqQNuFVns=;
- b=ve3+qQLnOGJAwUl8KBh7SCzEqtSJO7T9p6avRqDKx1in5NZaCVSvyHjBcLaIn10jEhgkhQGWq28XF1Z8ydfG/oASGJQNovHTt5L2IXA9Kfb+Q3N99wSIKnnptdpFXY2si/BC+m43GV5Pir/aE6Jfy6bjPPMVyx5o+0G92Ufkn0lupGQsRk57vg5O5GNUZ3jXr8oP7mczYaM1UT95dLA0nBFwdVWKXtrEwXzFjkvxUE53lnuEn4PmvjGFdaRRfwPJjziHlZqBTreFjB8DLwLrLIGUsv5QvpAcU51HXgBIicm3FcveGvgeyqjVe7jKfEKS5Y1FR0chOjFtQAGyg+xMyQ==
+ bh=flgRsytMFqr+kw4Cd88HHA8+bHmdnUtF+C03Qe9juw0=;
+ b=mj9Ie1tr7HGYQ0ZJfVMUTUtoM2jgYvdsnobDduNMmX3PqjGx/rB2obTfweak5R3olmIF+89XL5phM4Xc3A1Y1JT4roZFX9ya5Pi5EzG2nWc3PI0PlSFANdRO3liKkSmCoTT1p4DO7Na2VKTfX3qFc942lwT0dWs2PSXE3IuvDUtSHKqFox3v+HikZBsK1zFU7wG7MurtrPy6JOSlWu2ZrjwGA2t77TMcAYVbNbwOJEqVl9Pm50HwSrPO4eAZNCqpbUOc805abkzhgwbfae2B7w0Oq031o6g/XuOFaLmdr0YJh7/hB70n1GZp/8X3lplr9VBajTEzke45rLYPEGShew==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NZBrqwg/O122cP3g9y3vm9d3xz1mCKfE8dEqQNuFVns=;
- b=Ulg/G1Txu23aC4qvQI8ScFvkPE6mxI+R8tQBD64emAFYoxBmsSgXbzigqscHL2NR+vyJix5z9JkAkmRRik14VenpQzqTQvwxIvEd3ASBZOWtLGpu40WpvGTLC02JzXetKoxLEL02fk77doBBSpT+gnvG7AO5uIDxKsSX9cqrCb9bKIPrwkDYkyEGEUVUVZh/KM1zyPbqxR/9TSZd37y9/mhTt1ccBOqi8TTR5JEkJjXRKOB8zmOE3i+2b2BJSeaS1EwsjXC/oAWNJKgWJyjXPDSI1vNJlep2lLVjSWAvVfhOAcGth7JOq+mHgYK3XMoXbcrn1tk+Z2BuZQKVGoVLnA==
+ bh=flgRsytMFqr+kw4Cd88HHA8+bHmdnUtF+C03Qe9juw0=;
+ b=iH4WJ50nqzq8i7AVeCPyACocyjzunHNqflQKvJAmhYqrIGqnl4nBZKdDjSFyeEZzy6dKm2Uca/5q7DNoguUO4lF1kq9b2r4xnEK3DLpyjMk3ZhBXpBCL/+pI2qCB8PI192Z3ipqQnOWltum9PTNqGRoa15aRyXWnj8mHXIkbdE8=
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by IA1PR12MB6233.namprd12.prod.outlook.com (2603:10b6:208:3e7::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.21; Tue, 21 Jan
- 2025 18:36:12 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%5]) with mapi id 15.20.8356.010; Tue, 21 Jan 2025
- 18:36:12 +0000
-Date: Tue, 21 Jan 2025 14:36:11 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: kevin.tian@intel.com, corbet@lwn.net, will@kernel.org, joro@8bytes.org,
-	suravee.suthikulpanit@amd.com, robin.murphy@arm.com,
-	dwmw2@infradead.org, baolu.lu@linux.intel.com, shuah@kernel.org,
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
-	eric.auger@redhat.com, jean-philippe@linaro.org, mdf@kernel.org,
-	mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
-	smostafa@google.com, ddutile@redhat.com, yi.l.liu@intel.com,
-	patches@lists.linux.dev
-Subject: Re: [PATCH v5 08/14] iommufd/viommu: Add iommufd_viommu_report_event
- helper
-Message-ID: <20250121183611.GY5556@nvidia.com>
-References: <20250110195114.GJ5556@nvidia.com>
- <Z4Smpeb4k4UF3Qso@Asurada-Nvidia>
- <20250113192144.GT5556@nvidia.com>
- <Z4Vt6DAMDfEv6tb5@Asurada-Nvidia>
- <20250113195433.GV5556@nvidia.com>
- <Z4V7NbxGyYoQN0yV@Asurada-Nvidia>
- <20250114134158.GC5556@nvidia.com>
- <Z4rVg1Xg5TCiFlSb@nvidia.com>
- <20250120181854.GQ5556@nvidia.com>
- <Z463eXfgNArCOfPn@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from SJ2PR01MB8529.prod.exchangelabs.com (2603:10b6:a03:55b::17) by
+ MN0PR01MB7754.prod.exchangelabs.com (2603:10b6:208:37d::22) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8377.16; Tue, 21 Jan 2025 18:40:58 +0000
+Received: from SJ2PR01MB8529.prod.exchangelabs.com
+ ([fe80::2707:818a:2b2a:16e9]) by SJ2PR01MB8529.prod.exchangelabs.com
+ ([fe80::2707:818a:2b2a:16e9%7]) with mapi id 15.20.8377.009; Tue, 21 Jan 2025
+ 18:40:58 +0000
+Date: Tue, 21 Jan 2025 10:40:55 -0800
+From: Vanshidhar Konda <vanshikonda@os.amperecomputing.com>
+To: Beata Michalska <beata.michalska@arm.com>
+Cc: Viresh Kumar <viresh.kumar@linaro.org>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, ionela.voinescu@arm.com, 
+	sudeep.holla@arm.com, will@kernel.org, catalin.marinas@arm.com, rafael@kernel.org, 
+	sumitg@nvidia.com, yang@os.amperecomputing.com, lihuisong@huawei.com, 
+	zhanjie9@hisilicon.com
+Subject: Re: [PATCH v9 1/5] cpufreq: Allow arch_freq_get_on_cpu to return an
+ error
+Message-ID: <j4s4amaknobmjvoq7jf734h7oieob3qxr5eigsrawakgxltszy@6kixp27xhwn6>
+References: <20250121084435.2839280-1-beata.michalska@arm.com>
+ <20250121084435.2839280-2-beata.michalska@arm.com>
+ <20250121104706.2gcegucb6hcuksrd@vireshk-i7>
+ <Z4-52JUmR7A-7NJP@arm.com>
+Content-Type: text/plain; charset=us-ascii; format=flowed
 Content-Disposition: inline
-In-Reply-To: <Z463eXfgNArCOfPn@nvidia.com>
-X-ClientProxiedBy: BL1P221CA0002.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:208:2c5::32) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+In-Reply-To: <Z4-52JUmR7A-7NJP@arm.com>
+X-ClientProxiedBy: CH2PR20CA0004.namprd20.prod.outlook.com
+ (2603:10b6:610:58::14) To SJ2PR01MB8529.prod.exchangelabs.com
+ (2603:10b6:a03:55b::17)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|IA1PR12MB6233:EE_
-X-MS-Office365-Filtering-Correlation-Id: c31764e5-a42b-4f2c-9f22-08dd3a4a7af7
+X-MS-TrafficTypeDiagnostic: SJ2PR01MB8529:EE_|MN0PR01MB7754:EE_
+X-MS-Office365-Filtering-Correlation-Id: e2b1f292-0516-49b1-c49a-08dd3a4b258c
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5yY6/SXo+OJ+2zTfqWgss9sGWX+jdvaNivNXs5KiEYI3hWcwgadFeZVLgBWB?=
- =?us-ascii?Q?lRLvqV2ixT0iIWZB8O6Y9fgm/XglKe9GGwVnvSGqfXYavTVk7yvQSpAREPIf?=
- =?us-ascii?Q?sam5KifZrq9VZZ2MVq/3oTtkU+O8d1fUYnklgNFoeiIHaeLU+DTG3ZGO1m3a?=
- =?us-ascii?Q?j449m/gqyscGCgampMdKMnO0XT8l9QuTXWybk+4vBYs1PUPTMqq8ilPUq66d?=
- =?us-ascii?Q?NxcWxnwmbNxZwrcYhQnWAmRXdmTiPpRQINX9OzgpgpxOZvPUw9ke60VHbTXa?=
- =?us-ascii?Q?WP19LwoN0XS9DKhbycWbWz64f/ykD6cCBbszR8DK8PJxCjTzxaxx7o82x0qn?=
- =?us-ascii?Q?n40C9gwzmHecX/mwKrwmw18Nnjmrml6IKUN32wsrp41LeReIXYSLjRvILanH?=
- =?us-ascii?Q?n2U+xqotUEjN+LEk2Ayq9eiTEkvrVA6D7SOZxbiNgvetVYSCduo+QONCPtuD?=
- =?us-ascii?Q?GLHhd7BnB1nwcUywkA1M+Hjv3TDeGqkCy3UeOuaDdKH1Xo9QvyoJ+enjFDis?=
- =?us-ascii?Q?SokS4aikX6T//cjtNRQa3+11WzeZ2blDJ5rKFdeWrKHCOI8zC9fVerejtyAY?=
- =?us-ascii?Q?4X+54jyLNFsCtspCYFX8lLYA3bhsdqZQYoys2oZdcE+afAc6/XFFISTExSIT?=
- =?us-ascii?Q?jcWFB/a0PAk7ixk6GYboNUwKKjNpBhFusA4PxmAagOCVjM72OMFjEUfvVXon?=
- =?us-ascii?Q?vDEuF4RY20iaTJXGZ0ycqgJtnkPkiOTjn+eWIEu1a8r8hlmfei/NHh4XmT/Y?=
- =?us-ascii?Q?Ja5IDOaWVWX5rfvorEJ9pRzbxdkEc1UpoqCUJRhV0aPOY9jpBV1QYcLEPMM5?=
- =?us-ascii?Q?TNyhCgoyuIOuBMAkxDYX8iywvF7+q3rG1OSzVY7tqLy1gxDaXB5R43hQ6vh6?=
- =?us-ascii?Q?6vISMCx+b/nxY134xT6hbz/KzG88rdYKhe1sEIC+LjqmmGhEJDXA/cV7ozHy?=
- =?us-ascii?Q?UaVONPxP5ZyEfiKHcwKOxrCY6wvAl8uRd2UYi48w9r4EvJRxz1mA8bhaJ+Xm?=
- =?us-ascii?Q?plUjLMpvYxMkmX8Pyj+WJ02xQgDsSujhjKO6PNr6skQtrAiWcIPupuvrfiEA?=
- =?us-ascii?Q?wi1GB3vwyqKJSsLuXb//gY7fA+FSlD2YOK7Lrq9JCL/mBtuKQ0sTuZUgHsZO?=
- =?us-ascii?Q?IrG/PYFCuHDtYHuh69W2Z8XU/Otf9dtBcgV8jlu9/nlTvu1DFFNvvZUa5XZz?=
- =?us-ascii?Q?V9bMrwG4ThBc/955GyKZodAfAAA9C4mPSJmeGPen4xHpEK31O4UHBiB0vhN/?=
- =?us-ascii?Q?NoTl0oCJtHdica6HpeHtFlxgGtuprKRFqm2fJSmffayQrALfPR/eSjXMmNM8?=
- =?us-ascii?Q?qBy1bY52i2oOgVzZQWNWXHTDVxZzBMfkuxPl1sziyZCcr5k1XrECsTm6fS9u?=
- =?us-ascii?Q?F6sLCQZxtnJo8sPcFS7dORcP0wuH?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?bI5QBNnYo5nag+JLpoVQycecajFzrRTcXHOjo7U5W9gkZB5XdfZTdJOizm6m?=
+ =?us-ascii?Q?lJ5UsdmcYE5fxcx0KJi8XiS1LLdj6XQ4hi8Fg1smDuKOvmNQE7NVtwQPYmlq?=
+ =?us-ascii?Q?wrz52oIQy/m/oSb2Acc06VUnSeH26VxD8dkXiofqAqCS4EE2cJVEqpzNMMeg?=
+ =?us-ascii?Q?ooDOF3VxkE0TsmiIZD0JMqHe5kJIDvIrUdRB5iYb7HwvjH3/6DpNEB/3jt2C?=
+ =?us-ascii?Q?QZ+hGBGsQsSt9ERDUlbkCu12TnRUfc8lISyZky4MAZ7zwcilerc2kk/nw7uh?=
+ =?us-ascii?Q?mVA2G7aeMzaUOBoXeJjWI4pSNiIygKkblIBVMlulsumUJWCCD9rTHv/FmKrF?=
+ =?us-ascii?Q?vroTwQhcvgznL316P/wi56Xtfds3Nyvi2d55699SkeMoiWrPRbtVUpxdYIqw?=
+ =?us-ascii?Q?rmq6nwKfwB3NfojwZUPvxaCcyy6CmHlpIRFnDv7WdY2zl7/z1rtUBiJvAYEK?=
+ =?us-ascii?Q?7VdLtHN2zEFapnFFlAZn+9vdlv8T+67JpvpqoqU2BxWL8lzcSbKDduqyo7Ea?=
+ =?us-ascii?Q?4Ght1BEhWGEeLyuKoKcARMWIv4XAes3R8c9MAiDd2x+uaPwIPXlGNqyzr86Z?=
+ =?us-ascii?Q?1e/x7nLaeBVEG6sZ8+pyyF9ZaKjmWh5ipuS9cFWKHajxhVKJY7psdmA8zgU+?=
+ =?us-ascii?Q?sXslKOJz3fm0gsIn/Uy3TAE+cf21jj4PX81F2l6DXgSHzMRSWmwQtFMerVS6?=
+ =?us-ascii?Q?ZcaTvb+is4lURB7LtdlANjnb1dv/GerJX0bTwUUJBCUk4i/tmlJsQI0Ax3Jq?=
+ =?us-ascii?Q?Vb+Y0F/oF66Iq5DKQjv+ujijbCGpy5I+XkYJOZOm14nrelCq+SSQXkKs1nv/?=
+ =?us-ascii?Q?wNydd8rcLkOaeWUYA0O5ynfP/8wJ8/HHv/wxsEzXrDSunSdoYnxJhCeXUpy5?=
+ =?us-ascii?Q?aCBNoaUdUNghVyXMpoygDt1v3zhPD57qaOmhEHhpWa1/3w09BN763fvpASC1?=
+ =?us-ascii?Q?42JbS/8P2g92x5rplUxeFfndc8M7A4D0ZgBD50yXlVHYMoWyfAQ45bfifhTE?=
+ =?us-ascii?Q?5igs5WoGKi52Uup5lmwM3HyVAKsWLq5BYMlEdDL2lztjFA0uH1OIgeFJO+uR?=
+ =?us-ascii?Q?3qfIp0+tWErfW/vuLOGlZPC4/k3QzETOSBXODFzgxGmC9TIsdu2ATUdc6JUX?=
+ =?us-ascii?Q?MwdgVBm+SG2t0bmPEbZu4nGVwmjaJ/o+x5qmEWOZ/VPEYv9mFruDqRWMDyCP?=
+ =?us-ascii?Q?obK2Ty01a1kJ+KlVQjhtIADgt/SBQlMy9NdIFEBriI+TZXM3drLFQ4AxAYHW?=
+ =?us-ascii?Q?I+Q7dSKA2pGLuf+q2QIHBdxA6CLxDzUfarzK73WZVRLbO/6KjJLK2ozLMOHE?=
+ =?us-ascii?Q?6Q+Vsxd84+w1nZD1zf9/FqHtBieQthAjguEj2/v5CznCcLufxpKHSepuV2IS?=
+ =?us-ascii?Q?wGIWUVaMV8prBEVpEwHjy+iB0l5d?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR01MB8529.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(7053199007);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?TzcOrs51N35UnsdjyIc+q6y29dcxk7m/lR8gPgTiDHS3A/kvG+5LT8Wdtwf3?=
- =?us-ascii?Q?ObH2n0R1w2BmANbdVsH7mibZXOMHXgtb5usxcqSBsTh8A3rW3XrnA8DchyZQ?=
- =?us-ascii?Q?wE8AY9SLZCggGDhf5DWjWUtxEI6WKQl5C2JfgRTB+l72fJGvGl06oXFznCJj?=
- =?us-ascii?Q?z12n6oIb9/qLGzlAo+qcdGBbnhOuM+VQwFDYFiXFR2LZH3ApeEKGmhNgqYzE?=
- =?us-ascii?Q?eEas0YUqIOYBM1iLbjEhNVp9sqcymg/7ft/t/XxK2Ap6r/CPzAMvFEgjk9VA?=
- =?us-ascii?Q?W5UzM6EK0p9qjNuATRpmJW98pxGYlZAx+JkcAnbE5+wFZFmvIhPq2tyxW8/b?=
- =?us-ascii?Q?8dQkUb1S9kL3sV0qSiQ+DvcN6Kl3Tcjp54jtClfu7sF0KCfjxGU2yiEJ+mro?=
- =?us-ascii?Q?RF/TI1l63Xt7HNRXJ3eOuNnL0rLjG8bN4Y6wpFT2I1luC7NHrM1N2hq9HuQU?=
- =?us-ascii?Q?4HFn96RiGT7vk6Udc1oZky/OthVxcSyvbiZuRq5SxgsMG3NGJrRnUIuIZlUx?=
- =?us-ascii?Q?Bv0PEbx1VYdf0wjs6bB5J1uy5pNHqJ09zii47qnKbHrdizdBZw1kmyGb/jeD?=
- =?us-ascii?Q?O4w/T8JrYjBslAwXNT0qYlOwQ9xsxY+jGOUWOh50QYjrfWm/3sV9rzI5rERX?=
- =?us-ascii?Q?vfHIw1AI+Rn64gKmET1fcEOuKSZa2Raz1QUt2+TFI6vEM2za92G5aVhhrkUi?=
- =?us-ascii?Q?W6qFqn/p7x0X+/I7mQdq6DlJTL+xl8j4hL3NdSdRfdcEZ6hAnLP7gLyK/wqT?=
- =?us-ascii?Q?LGmj8yJGa5Uua1HywzaIOqtBD62MVuh3xz9Ol8tacfcb0N9U4ERsGTCpU0zA?=
- =?us-ascii?Q?X6+nT9JEXr0mpZ5BupjiecQn1keHJfIg5b0VGva9+/yp6n2Iu8UCSXWc84hR?=
- =?us-ascii?Q?4/voG0BYEk7pdVr480FYR4AbNe6rks8TKOI/EoldHo4ifGka8RLFjXTH1Owr?=
- =?us-ascii?Q?tR7GYURS7Ab4GnXAnajIudNVn4dCP60ZDd1yt18owsNqRH8PESBn0MscBJYK?=
- =?us-ascii?Q?r7/Nk1FjdHjmMXHnLhTfEi6K9fINmRyMIRt5q8K7XTX7NCiOpLT7elNVDciS?=
- =?us-ascii?Q?SX3aUBh1q7ocQrFITDVZnVqQxwVRYRRGvQ2d0zwzCs1TWiPMPZjvyOnBV9pQ?=
- =?us-ascii?Q?991rJ6RlDOx+KUl5y3OUxvteiRSU38T2aoJK4IGuzirQ+SbcBvddhVypXoWp?=
- =?us-ascii?Q?ttVKGjwWIBBT4pbm5Tvw7kqLYISMwLis+po4DO7gLPisqaPvwSl229qreFJD?=
- =?us-ascii?Q?FXEQhExqkVidjKqU2AeMWLGUV2G7iGp28W4AdcOWKmDX/54aagha3vbp+hXa?=
- =?us-ascii?Q?ob9fRlq/WMEN3oRsiTxfg2NHdW3R/4AsY9WW7PuXGeODNh0Piae4xKtUawGj?=
- =?us-ascii?Q?HaIZz0uPw7yGVxv49C/Z7kWp37PWYJwhq7MvuJhpKzTHUrWva2kOb6FeZJEa?=
- =?us-ascii?Q?C7RluqGrkR58HlM8TFiXUSkdWkvy1WozTuuAIkbXRGwCHkPBDw4HNbaXZKkN?=
- =?us-ascii?Q?hFyiuZy/G9Tc4ojS96ZbzbvvSg7VkPG2O01/2aFuUoZHq07Xfy/sXrI5/kfq?=
- =?us-ascii?Q?3udPsQQhcQhpsiN4A+zX2MnN/nWCRrTmOa1JkupM?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c31764e5-a42b-4f2c-9f22-08dd3a4a7af7
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?VY1in18h7b7tqWPYGO1U0YugT3e/42wU1Mu9LSk+5oJqjYZqj4TPbvU6sz6M?=
+ =?us-ascii?Q?2vxu1beKXghQlc73jIIiZ+BbBHF4tLMKYh/AD4USJjhQgFvITnI9WV/kANYx?=
+ =?us-ascii?Q?VjJ00lx4zVGtt+bZ17O/xQYRzXocdtTT7rwSC0GK2+nRr/hYOVCfnE9UJAti?=
+ =?us-ascii?Q?UlbY6TaC0ZCueKvAgeJ7MwTpIkY5CUFvviO6ai+PyWWAKIR7Qfsba3GwkA/b?=
+ =?us-ascii?Q?RvsSl3ZH1V6BHl14BZmPcms6FNHEYu7qc8rSSakUpq9rI3/VgQfzezUL91Fg?=
+ =?us-ascii?Q?iEfkajfcdBk5oKqE/7ONH1qjheSaH7EXeXGcOo+fDf8MKtqSgRo1doW6e9xR?=
+ =?us-ascii?Q?ccxLXn6r3VkER6I7TEJTnN4I5loS3NDBbjS2NM9hGS8dYbbhQH6rgZFv0a5j?=
+ =?us-ascii?Q?Dl20IjNAMRma+ry/qWvhimtCUM66nThnaYRJ0dvVIgKG9qTb+Ta4GMDZRcUO?=
+ =?us-ascii?Q?pibbOEccvqaQps4Y51f+pOAT6/WNygIrBY+NaDLeoyxQc/h/T67T0Q0k1vMX?=
+ =?us-ascii?Q?ASDmwXyOjuucU3FBOM8TfyHkUmMBRKYdT1rFgg/4BfNdT1OmdqGez1Fz8zP6?=
+ =?us-ascii?Q?kYi8WPVsPgtwfvtNT+4hXG3vFwhEfe+MlGPwwAlcImvR2yKt2oOXJ54zGb/t?=
+ =?us-ascii?Q?lZlFjbUkQ8q0qfjrc7zXUZK1ltiV5XoaV2rovwuz+MKWOeYkybAB21WPT7Fz?=
+ =?us-ascii?Q?Yl4mjLkFQK1ofmJVzu4flLMZBSITmMkbTsojnW1T+p7fY46ESZkKn6T07EKY?=
+ =?us-ascii?Q?ANQxER4rRBsSCVvZKuiKT3vnl4I+yibUfzkpGKNj2y3G0LiLq+pNM9c6sfkZ?=
+ =?us-ascii?Q?tSgLmuYJmc4pT7+9r9Yqn3CLHE3/tezjhi6S4fuAjlpWNVhI/XQl/heTFxKV?=
+ =?us-ascii?Q?gHHQsBo88uVbgRNpZr7nMQSJtEH/lkrwKtgHzLA15bkWlzvMxMU1HwxYWngy?=
+ =?us-ascii?Q?4AOWyCqEQqbWy5iem9Cp/MhxW2N45WlEf1iVoNFcKF+gfwRzcqvqr62ZmOAl?=
+ =?us-ascii?Q?Oy6gOJV1kmw2TGrDLkkaQiPvf1Bqnxc9dK5Y5hcKC9JjEIBapq8Di+AfQycV?=
+ =?us-ascii?Q?uEin4khPE7BPNjBgox5O807cJZUWW4JaKqRwCFkWu3/xleEHiqWG4hgRvBNf?=
+ =?us-ascii?Q?JXu2nZI5an6wjCR8FFMug/8gr58biRl+f7A4LftfPul385H8DgDHJehCv8Jb?=
+ =?us-ascii?Q?ETXZEevMuXnAif4sF+OExYx1fO3lVWfV8k3bX66tswjtYxPeqbAWZU3psAl2?=
+ =?us-ascii?Q?RbZKAT06UPaihpIJgyaqkXI0gAMJxMBmwG99SEcKQB55DVa1pJnW1jESqe8H?=
+ =?us-ascii?Q?fpgxCvY0FxLIsHnfPKm8I6gFIrWDyb0DpqhWradDc07y8ab3TU2e+K7deFUq?=
+ =?us-ascii?Q?lwe5iw7vSaQZDM228QM92K0nsrpONChluNFtMW9hXUUFPFHQJfGheemlimT+?=
+ =?us-ascii?Q?dCRU2PTKOzXwJ4VXL+zisggjXwccRdozKtrDQK34Nj22vh+giCG1+sZDDfaq?=
+ =?us-ascii?Q?q4agWOQTJ/z42dGW1a+6SoQ3eSKieC7/X+Y0ZjTQiCWY8XPgu5Ic2ujIhxme?=
+ =?us-ascii?Q?FH0o8IJkOr/8P2FGIwGEg3xFCztc+TtUoLnqyvO68aEECnQXWc8rQBmvi5CT?=
+ =?us-ascii?Q?OmYMaa4Uq+LXwzQTXOwA/e9dGCfPHHcCGAsGALTgy/op?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e2b1f292-0516-49b1-c49a-08dd3a4b258c
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR01MB8529.prod.exchangelabs.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jan 2025 18:36:12.3282
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jan 2025 18:40:58.4690
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: s2lMR73iZZYxhDKUyjPKvhq1YgsIToGFz2vvDK2pQMUVZfBZ+wPETcZlvR/K9Kh9
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6233
+X-MS-Exchange-CrossTenant-UserPrincipalName: ap0hFJ5VUA+yU3WkgVCZAx9KuhMCo6Zz3R9QCmX6mHzLZ6Fq3h8LxqvGxkRCZyu5V6WbHmADun0isl6V654KmYcmXEG/VDp5im/2vFxER1bgOEj3vskyaWxWkGMrUdM3
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR01MB7754
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_103617_241082_05F819B7 
-X-CRM114-Status: GOOD (  25.21  )
+X-CRM114-CacheID: sfid-20250121_104104_521061_7687FD0C 
+X-CRM114-Status: GOOD (  22.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,54 +163,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 20, 2025 at 12:52:09PM -0800, Nicolin Chen wrote:
-> The counter of the number of events in the vEVENTQ could decrease
-> when userspace reads the queue. But you were saying "the number of
-> events that were sent into the queue", which is like a PROD index
-> that would keep growing but reset to 0 after UINT_MAX?
+On Tue, Jan 21, 2025 at 04:14:32PM +0100, Beata Michalska wrote:
+>On Tue, Jan 21, 2025 at 04:17:06PM +0530, Viresh Kumar wrote:
+>> On 21-01-25, 08:44, Beata Michalska wrote:
+>> > Allow arch_freq_get_on_cpu to return an error for cases when retrieving
+>> > current CPU frequency is not possible, whether that being due to lack of
+>> > required arch support or due to other circumstances when the current
+>> > frequency cannot be determined at given point of time.
+>> >
+>> > Signed-off-by: Beata Michalska <beata.michalska@arm.com>
+>> > ---
+>> >  arch/x86/kernel/cpu/aperfmperf.c | 2 +-
+>> >  arch/x86/kernel/cpu/proc.c       | 7 +++++--
+>> >  drivers/cpufreq/cpufreq.c        | 8 ++++----
+>> >  include/linux/cpufreq.h          | 2 +-
+>> >  4 files changed, 11 insertions(+), 8 deletions(-)
+>> >
+>> > diff --git a/arch/x86/kernel/cpu/aperfmperf.c b/arch/x86/kernel/cpu/aperfmperf.c
+>> > index f642de2ebdac..6cf31a1649c4 100644
+>> > --- a/arch/x86/kernel/cpu/aperfmperf.c
+>> > +++ b/arch/x86/kernel/cpu/aperfmperf.c
+>> > @@ -498,7 +498,7 @@ void arch_scale_freq_tick(void)
+>> >   */
+>> >  #define MAX_SAMPLE_AGE	((unsigned long)HZ / 50)
+>> >
+>> > -unsigned int arch_freq_get_on_cpu(int cpu)
+>> > +int arch_freq_get_on_cpu(int cpu)
+>> >  {
+>> >  	struct aperfmperf *s = per_cpu_ptr(&cpu_samples, cpu);
+>> >  	unsigned int seq, freq;
+>> > diff --git a/arch/x86/kernel/cpu/proc.c b/arch/x86/kernel/cpu/proc.c
+>> > index 41ed01f46bd9..d79f5845a463 100644
+>> > --- a/arch/x86/kernel/cpu/proc.c
+>> > +++ b/arch/x86/kernel/cpu/proc.c
+>> > @@ -86,9 +86,12 @@ static int show_cpuinfo(struct seq_file *m, void *v)
+>> >  		seq_printf(m, "microcode\t: 0x%x\n", c->microcode);
+>> >
+>> >  	if (cpu_has(c, X86_FEATURE_TSC)) {
+>> > -		unsigned int freq = arch_freq_get_on_cpu(cpu);
+>> > +		int freq = arch_freq_get_on_cpu(cpu);
+>> >
+>> > -		seq_printf(m, "cpu MHz\t\t: %u.%03u\n", freq / 1000, (freq % 1000));
+>> > +		if (freq <= 0)
+>> > +			seq_puts(m, "cpu MHz\t\t: Unknown\n");
+>> > +		else
+>> > +			seq_printf(m, "cpu MHz\t\t: %u.%03u\n", freq / 1000, (freq % 1000));
+>> >  	}
+>> >
+>> >  	/* Cache size */
+>> > diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
+>> > index 418236fef172..6f45684483c4 100644
+>> > --- a/drivers/cpufreq/cpufreq.c
+>> > +++ b/drivers/cpufreq/cpufreq.c
+>> > @@ -728,18 +728,18 @@ show_one(cpuinfo_transition_latency, cpuinfo.transition_latency);
+>> >  show_one(scaling_min_freq, min);
+>> >  show_one(scaling_max_freq, max);
+>> >
+>> > -__weak unsigned int arch_freq_get_on_cpu(int cpu)
+>> > +__weak int arch_freq_get_on_cpu(int cpu)
+>> >  {
+>> > -	return 0;
+>> > +	return -EOPNOTSUPP;
+>> >  }
+>> >
+>> >  static ssize_t show_scaling_cur_freq(struct cpufreq_policy *policy, char *buf)
+>> >  {
+>> >  	ssize_t ret;
+>> > -	unsigned int freq;
+>> > +	int freq;
+>> >
+>> >  	freq = arch_freq_get_on_cpu(policy->cpu);
+>> > -	if (freq)
+>> > +	if (freq > 0)
+>>
+>> >= ?
+>>
+>> Since we can return error now, 0 should be considered a valid
+>> frequency value ?
+>Theoretically speaking - it should, though what would 0 actually
+>represent then ?
+I would think the value of 0 would be valid and should be interpreted in a
+product/architecture specific manner? From silicon behavior, to me only negative
+frequency values wouldn't make any sense.
 
-yes
+In Patch 1 of this series we interpret 0 as "Unknown" on a x86 system though. So
+for the sake of consistency should we consider 0 a valid value everywhere?
 
-> > IOMMU_VEVENTQ_STATE_OVERFLOW with a 0 length event is seen if events
-> > have been lost and no subsequent events are present. It exists to
-> > ensure timely delivery of the overflow event to userspace. counter
-> > will be the sequence number of the next successful event.
-> 
-> So userspace should first read the header to decide whether or not
-> to read a vEVENT. If header is overflows, it should skip the vEVENT
-> struct and read the next header?
+Regards,
+Vanshi
 
-Yes, but there won't be a next header. overflow would always be the
-last thing in a read() response. If there is another event then
-overflow is indicated by non-monotonic count.
-
-> > If events are lost in the middle of the queue then flags will remain 0
-> > but counter will become non-montonic. A counter delta > 1 indicates
-> > that many events have been lost.
-> 
-> I don't quite get the "no subsequent events" v.s. "in the middle of
-> the queue"..
-
-I mean to supress specific overflow events to userspace if the counter already
-fully indicates overflow.
-
-The purpose of the overflow event is specifically, and only, to
-indicate immediately that an overflow occured at the end of the queue,
-and no additional events have been pushed since the overflow.
-
-Without this we could loose an event and userspace may not realize
-it for a long time.
-
-> The producer is the driver calling iommufd_viommu_report_event that
-> only produces a single vEVENT at a time. When the number of vEVENTs
-> in the vEVENTQ hits the @veventq_depth, it won't insert new vEVENTs
-> but add an overflow (or exception) node to the head of deliver list
-> and increase the producer index so the next vEVENT that can find an
-> empty space in the queue will have an index with a gap (delta >= 1)?
-
-Yes, but each new overflow should move the single preallocated
-overflow node back to the end of the list, and the read side should
-skip the overflow node if it is not the last entry in the list
-
-Jason
+>
+>---
+>BR
+>Beata
+>>
+>> >  		ret = sysfs_emit(buf, "%u\n", freq);
+>> >  	else if (cpufreq_driver->setpolicy && cpufreq_driver->get)
+>> >  		ret = sysfs_emit(buf, "%u\n", cpufreq_driver->get(policy->cpu));
+>> > diff --git a/include/linux/cpufreq.h b/include/linux/cpufreq.h
+>> > index 7fe0981a7e46..02fd4746231d 100644
+>> > --- a/include/linux/cpufreq.h
+>> > +++ b/include/linux/cpufreq.h
+>> > @@ -1184,7 +1184,7 @@ static inline int of_perf_domain_get_sharing_cpumask(int pcpu, const char *list_
+>> >  }
+>> >  #endif
+>> >
+>> > -extern unsigned int arch_freq_get_on_cpu(int cpu);
+>> > +extern int arch_freq_get_on_cpu(int cpu);
+>> >
+>> >  #ifndef arch_set_freq_scale
+>> >  static __always_inline
+>> > --
+>> > 2.25.1
+>>
+>> --
+>> viresh
 
