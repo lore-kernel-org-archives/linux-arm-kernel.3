@@ -4,135 +4,184 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FDE0C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 15:03:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF7E5C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 15:08:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0byVvo++YtkFDQYObcsaLWp1UF3HNGpLniy8FFAvXks=; b=ExR/SKVOutgan6y3OJ0i8Vx1oF
-	3NlhBjnNp+jxeanUusRrxerduWsxrSRhRjvrgKGh+/MOy45Pss1XW2NzPBiE3XwiUNlta+TxYRTzl
-	XY3DxoaQPCxiGAe42mpTYdSQKcZUvhi5b/QDSCGBLkIVugbaOqYmg3yoPRXfvRAQF20+Lh6Bcyau/
-	nX82oAmQsxs2okjI5dX/B/CwEDzb2+Q4eGKvSOxGnLmzakWl2KZ3XBMKI817hGjMRmylvzePpwpZp
-	9IfUIRSb4bK/XJ6zQOo8kYO1y55R/qO7Tpp49vVLPLt7RRU5kAccShpSRUvmXX3TbEAJ26XajmoLJ
-	Vo6/+mog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WBHULHP/CvhrPKTc1FyVZQPlVgRDiwLh83NJLrWxGGI=; b=bDgERXFbUu49+BjnC+MPrgkqNK
+	Lb6rP3xvOVhd3MODKfbM1GJEp/awdxaiVCeF/6efaFY6iTsf8CbtiPsTbVdlgTiMDMwhgbJUxEp22
+	Gc8RKBqBymokKUkq1Re9f9VYY4iUJhl1sieBZbZxXCShAbKpd5r49CAGNYe+192bHRIjYKhNCLf2E
+	7TJUpsYmjBT6LfDsLmnphUtRm5VWXlS/7A3RoLVbnR/GUFjfqlWeIOQckOiNzIWOMjp+3SigaHK39
+	H0+/erfKuRtVQY+LkFIxMJB1lCISvXOCYEZtpEczXUGodv1xbfZCZeCC2LvyDmaKplYbiL8xyq8ae
+	SqLM0+mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taFma-000000089YU-2WsJ;
-	Tue, 21 Jan 2025 15:03:12 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	id 1taFr4-00000008AUu-3aJx;
+	Tue, 21 Jan 2025 15:07:50 +0000
+Received: from mail-am7eur03on20614.outbound.protection.outlook.com ([2a01:111:f403:260e::614] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taFlI-000000089RA-3st9;
-	Tue, 21 Jan 2025 15:01:54 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id D64002110A;
-	Tue, 21 Jan 2025 15:01:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1737471709; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0byVvo++YtkFDQYObcsaLWp1UF3HNGpLniy8FFAvXks=;
-	b=WGbFTEh7HiKf291KkdD89RuKF0YIN5rR0lsu8iBRJ272ACcwcJXcWtQsP7nD8wEIMSB35w
-	YuwOIzCZlrTojfsRNp0dVML/F2pjiqgkUKFoAnrBU0vUtFYOXeR/BgTiwTzYhPH1jx+Acn
-	tRyKGqWOl5exorxVQjLGUTAJVBkpelA=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1737471709;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0byVvo++YtkFDQYObcsaLWp1UF3HNGpLniy8FFAvXks=;
-	b=yALy81RYjlqCrOcNWfGjt0ZQvzyNo/rYxTCZOu34eHMI8hg1FSwqtgL/D09kki2ngz0qo9
-	1Spxqe1KDSsKPZBg==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1737471708; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0byVvo++YtkFDQYObcsaLWp1UF3HNGpLniy8FFAvXks=;
-	b=rKpy+5Q1igPIgUJsVtTmoqe1O8W6ZCZJUrUxxZ1QXZQSziaGC+9zh1PgWu8YgE7vV2S8+u
-	2FEhQN0UA6jxOhmJEPszPYWcnbFkFMcHeRSRP6XZLqlk0ehvSpd4mZZqTyn4GkLsZPpy01
-	k38EpYKpDvqF8m907F+DtwmbPP3DTVk=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1737471708;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0byVvo++YtkFDQYObcsaLWp1UF3HNGpLniy8FFAvXks=;
-	b=l+FnA78Z09ynyPgCTsdHqj6HXy0cy4f93jF4vdegExSALru3ba+GvkWuXYmgxyL4UpKfez
-	gZ5kF8jK1Umzo8CA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id DA3441387C;
-	Tue, 21 Jan 2025 15:01:47 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id iIHNMtu2j2cYKQAAD6G6ig
-	(envelope-from <svarbanov@suse.de>); Tue, 21 Jan 2025 15:01:47 +0000
-Message-ID: <f3f15261-9246-4822-b504-61ffa768b7a9@suse.de>
-Date: Tue, 21 Jan 2025 17:01:43 +0200
+	id 1taFpl-000000089ss-1a7b
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Jan 2025 15:06:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JDpZuGZBbFK3OTnYZ+ooK/dHeIGRXJ/9Kd8AVErXX/rkkR5nDACOcuYfSANOoovsD2YtcSF1WHUJwDrYkvcAct1j1vfVBIOKjU0R2YFV4evCrNNXHB1K3S444Z4yMzpmj5quSP+OggWpZqqZzCjbml+4eCqiKowxfw19YBTA4foTWQu5ZJi3FpNQbTjjiSw+ymYWh1SZFt2JpH8j2PeDJ3KaECSaQ0yCjnFi/vT+4sjgfjOIlj7UEJcf4anuCbSa/zpxbxzosGGPx1V61oeH9NUZlxq/TWsxFV0kLWYjisy9aWwWCDvP+vdG5vEQnjdJq3GaObux1hOFBSyvw+56ng==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WBHULHP/CvhrPKTc1FyVZQPlVgRDiwLh83NJLrWxGGI=;
+ b=wXoumn6j5exLC0RKAd6vjx71853KIn1zsJFW72Qn3gdtB+yHvmwqcI3AkX6KGpKmR9lT4rEFAp54a1l4yKtlhHVlyHkvPOqBd/V2MxGMLuDARWO7D0Diw/nA0oYJjGG28U8nQg6SVP1VEP6/euo+zFhhKgajfhNuwy/WHvmAcHqRhVsY/oiwcIYBTieaSAkwJU7LrPEiHaPECOkjVqvz8p9qCqKUWqNc4qssuLNVIehv9av3G7PC68Myw2kVqqoO9BVxjkYMMCvCs+O9SP1T/cX56gAjM0BFSx3L050JWWVBPTJaimudc8GmHEQNpnrgeMJdgSQNUy/rqB8X5hlKXg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WBHULHP/CvhrPKTc1FyVZQPlVgRDiwLh83NJLrWxGGI=;
+ b=Vk/qxk+yfEBbk3bzCS8ZsW6as5UrGEvEU2SFkZ8DyAOhZLw6nXchEb/3hcTA8gwb9gKb9rlahxFG6ypsQOFnZKWhAVYPWFRKrukpLrI9HK4VT8w5+wcMANdu6sU+krlBpt4tKOhLDySSbgxDAIrPkzF669RdvIy+/Pi0GeIq1L01w+RCJu0S1Me9wgMvpR8KkJai9NIBffC134G4qf9V7AlomRGiQWQ/FE21yQIb80Oj6+M298zX4DPzUvBH2Ev4b6FjAV+jfDxwKWKKPXTv2ID0L8VAUC04cIRB33X6JoU1rWd33m6sb/uM5Ucf9Zv7hMTXmI/AxcliqwpMrTlVmw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by PA4PR04MB9295.eurprd04.prod.outlook.com (2603:10a6:102:2a6::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.21; Tue, 21 Jan
+ 2025 15:06:20 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8356.020; Tue, 21 Jan 2025
+ 15:06:20 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Subject: [PATCH v6 0/2] Make i.MX9 OCOTP work as accessing controller
+Date: Tue, 21 Jan 2025 23:05:30 +0800
+Message-Id: <20250121-imx-ocotp-v6-0-76dab40e13db@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIALq3j2cC/23OTW7DIBCG4atErEs1M/wYsuo9qi6ADA2LGMuOL
+ FeR714SqSqpuvxGPK+4iYXnwos4Hm5i5rUspY5t2JeDSOcwfrIsp7YFAWkkJFkum6ypXieZImc
+ FGjVkI9r7aeZctkfr/aPtc1mudf56pFe8X/+rrChBoncxQsjOBngbt+k11Yu4N1bq3dA7ak7lE
+ GyKOWuMz071zvdONReJ1IDgHQz47HTnSPVON5cN6ISawOo//zQ/zgCC651pLtiTB0bHkf2v2/f
+ 9GzbKUY2AAQAA
+X-Change-ID: 20241212-imx-ocotp-cbef304140f5
+To: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Peng Fan <peng.fan@nxp.com>, Frank Li <Frank.Li@nxp.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1737471947; l=3242;
+ i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
+ bh=ILRsm1TCToQDqVHiNju6x7gHUMy0pIE0RDFmJ/s/Nso=;
+ b=txvw6WTPyxwGjvRXAh5OYQw6U8GAF3C0qjJbj2KRXe0FeC/xCUgnL8/tEJon9c8dlyXsXLC1H
+ Zmj0ha8lRw2AlopfPZyrZjC0NpqUoFitoncTJHaiXQdfkj9oCquNm3X
+X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
+ pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
+X-ClientProxiedBy: SG2PR02CA0135.apcprd02.prod.outlook.com
+ (2603:1096:4:188::23) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 00/10] Add PCIe support for bcm2712
-To: Olivier Benjamin <olivier.benjamin@bootlin.com>,
- Stanimir Varbanov <svarbanov@suse.de>, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rpi-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
- Jim Quinlan <jim2101024@gmail.com>,
- Nicolas Saenz Julienne <nsaenz@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, kw@linux.com,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Andrea della Porta <andrea.porta@suse.com>,
- Phil Elwell <phil@raspberrypi.com>, Jonathan Bell <jonathan@raspberrypi.com>
-References: <20241025124515.14066-1-svarbanov@suse.de>
- <9b7161a7-2682-4824-8af0-39477b0938d8@bootlin.com>
-Content-Language: en-US
-From: Stanimir Varbanov <svarbanov@suse.de>
-In-Reply-To: <9b7161a7-2682-4824-8af0-39477b0938d8@bootlin.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-2.80 / 50.00];
-	BAYES_HAM(-3.00)[99.99%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_TLS_ALL(0.00)[];
-	TAGGED_RCPT(0.00)[dt];
-	MIME_TRACE(0.00)[0:+];
-	RCPT_COUNT_TWELVE(0.00)[22];
-	ARC_NA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[linutronix.de,kernel.org,broadcom.com,gmail.com,google.com,linux.com,pengutronix.de,suse.com,raspberrypi.com];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo]
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PA4PR04MB9295:EE_
+X-MS-Office365-Filtering-Correlation-Id: 266e5ead-88c7-4ba0-415e-08dd3a2d2992
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bnNMSytGalh0eEJ1ejY0KzFnaGg2ODlCZE1WbzBXR1FGNzdFdlNEeUFWaXdW?=
+ =?utf-8?B?RUVET0NRcHN6M0NRb0ViYTFGZEdIR0xVa08xK2lXMkF5V3F1ZCtrTVpKTnhp?=
+ =?utf-8?B?Q1Y5bGlnZDMrUjR5SXVRSE55emEyRHRlWlcvL3VCZExzYkhQRk5KdnBPNlpH?=
+ =?utf-8?B?UjBUZnlZcGRtYjI4QytJa0psVXBhQitOZ2EvcnVvWXhPK1pkbXJ6NkNuaU1V?=
+ =?utf-8?B?QnBqYklCUkNDRllEM295WnVCNDF2MlhFNVlqWGZURDU3M1NPekYvU0xWR2lm?=
+ =?utf-8?B?Q2NOWUYwN00yaTk1dkk1YWo4emZtOFQzUnJqMDVnbGRCOHhRWG5FQmxhRUNN?=
+ =?utf-8?B?RXhyQWNFaUpWMkVRREwyZTVCMC9zaGNFM2lGeFg1TGJBM1NZZU02Wm4wU1ZJ?=
+ =?utf-8?B?WWxOcmxNN3ZLUXBEckprWFd2aUU0MVhoNlhWQ0I3VnFqd01SbUlHREVzTExN?=
+ =?utf-8?B?czdoQWdrZk1GellZWk0xYmlBK0xhSlJxSHBBcFlLT2xjYXBEUU1ZK1Y4K1U3?=
+ =?utf-8?B?RFdHSEFrK3l0MTdJQzhpdCt3bDVmN1p2cnBSSmFqYWpDcTBSRUNmQmJyU3F6?=
+ =?utf-8?B?YkxRVEZqdk5nSkQzU3prS21QVEl2K2dsb0hHQXlOU281Y29GQUQ5K21mbzZD?=
+ =?utf-8?B?NmJ6NnRaendUSTQ5OUtIWWM1ekpuNGx1NUFxSStWZmJKRnVTKzI2R2ZndGxq?=
+ =?utf-8?B?R3JKYkZROW1tbjhLaDZhZDdZRkswN2JNbVVKenZJeHZjRVpTL2crcVYvSGN2?=
+ =?utf-8?B?eHJ4WU8yVy9pbWEwSW4vV0RoVUZSVzkwMU9Za0V5RzZ4Q2dVR1EvNGdLVnl0?=
+ =?utf-8?B?K1U1cW1ZaWJQTXBiNGVYOXJUQVY1MjIrYkh2LzFVc1A5bHRTT0NndGwzTzRz?=
+ =?utf-8?B?TjFHVjZnT21wbjRYMm9JWWduUWdpREZ4UytTSERqZGhDd1p1QXhPMWJKUmdD?=
+ =?utf-8?B?WXRPMG53NksxTkg2MG9kaE5PcHpTR0IybEs2aTViUFdiRXAxUUs4L1liMVF6?=
+ =?utf-8?B?Wnd0WGhMb2FPNjJpcHZ3M1ZjcFR3eVhGZnlrZ29OOXlacDQvcXZpeExxcUVw?=
+ =?utf-8?B?T3hDWmdtRTRiL0RFSHZaUElDWVdrVUIyWVQyME5EaitzN2VybW94TVRZUVNS?=
+ =?utf-8?B?Z1hTcDNPSkYxRlVWVXRXcTBvS3Z6UjZ2WnRzSmJMYjRzdWswVFlLRWFsenZP?=
+ =?utf-8?B?YUlqQVZDZUlKLzVYNVhaOG8wWFVYSm9NRU13S0JCTVdLa2l4MWJpQ3pMb0hR?=
+ =?utf-8?B?aFlMemh0eTlNUklwVHE4QW5ZM2N6NFBPM0M1ZllwZjFkS0o0SEl5M1BwRnQ5?=
+ =?utf-8?B?V3NDMnNQVGxHcnVoK2tZZXBVTXpBaUJuRDY4aVhlN0gxazFJQk9CSnU1VUto?=
+ =?utf-8?B?SW95OC8rQU95aVB5YjUydFN6aXRCSkZtcVRQK1lWNElUL3dxVU5tL2thcFpa?=
+ =?utf-8?B?bzJDdFJXRXhjK2F3ZmlpcTZLME9DOXJFOEpoYlRQMFdLbVhEc0dpek5HN3J4?=
+ =?utf-8?B?d2J3N0wzTDB4VmFxZWplWTNlZ0Z3SUE1eHk0ZHNKZFBPeGNlNEd6eTZoZEFk?=
+ =?utf-8?B?MXBhN0crK055NzAveTcva2F1TEF3RUhNZUxLUnA0UnpxaithbjF3bVRydkoz?=
+ =?utf-8?B?YWYyTFdNazZybU40RTEyOEhPZEoxT3BEbUlQQ1E0UWJiVStkL1RjaCsvQytL?=
+ =?utf-8?B?SS84bStxU0NHbDJ2cUEzYkdJNUR6SlBxYkFMRk9UY0dTNFF4ZUxNVDh5aU1R?=
+ =?utf-8?B?VUt2NjVGMXFuN012S2swcHBPcCttSFVrazg4dUp1ajcrbTk4QXVyK3RXZmEw?=
+ =?utf-8?B?TEwwaUVxL2NlTkEzZWpWTTdXcjAxT0dpY3ZQTkoxMXpVVmxocUtnVGdNRGli?=
+ =?utf-8?B?Z1ltSHVrSm5wb1RQaTdveDR3R2M3K3V0UGRJcWp0K3RXR2pNL2o4MmMvRnBG?=
+ =?utf-8?B?aVZPeVlUVVI4bDBORGNUWjRjbEloVXpSVHp0clZkRlA4clZSWm8wTUx0TldV?=
+ =?utf-8?B?ZzRQcFRBNnJBPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dUlTZkdRSEsybUFOZWY5VjVKK1BKcU82dWlyWjdLNlFUWlRWRmtTdnRDeHN5?=
+ =?utf-8?B?WjM4WWVTNytTT0N3WnZpNmdPN3ZFek16T2c0Ym5LaW0xM0ZDbEw3SENRSUYz?=
+ =?utf-8?B?alpEOW5BS2xSTmJOazNQZnIyRlhBUTRJNjlPMmhYNitXNm9CaUwyOVpDVVpP?=
+ =?utf-8?B?WlB0ekthb1lKYnVhSTlLa0piUzZQR0FZeWNOWFZWV1pFU2prQ25pbWxoK0xF?=
+ =?utf-8?B?V3M5QkM3MVpuN0JkTnU0UE8rQzFVWFE3S3k1VVZwTC8yK1JrMlpEcFVhamgv?=
+ =?utf-8?B?d2xsUDU3L2pZNTR2cU00bW5DbGpnZE5vdU1Jb2tGdjFWMXl3SDkxcXBKRFpJ?=
+ =?utf-8?B?NFR4K2UyWGxMeFJVZGhqRnEzZmpvaWE1dU1XTU8xUUEzL1NBdlZ5aVhVMDZV?=
+ =?utf-8?B?T1JvM0cwQ0tndEJ1YkxuRHZXYjg1T2x4VEJQTE1LSkU3aFZtc29TL01DZzEy?=
+ =?utf-8?B?NlA1bFlwaHBuRjZEUHFxVmlrdlp2Rkc5TitQcFhoVkU3Ry94enplaUw0Qkxq?=
+ =?utf-8?B?THNIUmF2T1VCeTBKUXltRUJxa1V6QXRNWk9KVnVSOGFDOUp3RmdSeU1WV2Zr?=
+ =?utf-8?B?Y2piblhhQndZUUVqS0pubXZuUXlwUjNFbnl2ejRBbWRTZS95SVBzdzN3UHBw?=
+ =?utf-8?B?WUxzZ04zZkw4OWFVQ2Z6ZUpuaFNaRWJSbEozUkJ2c3c2ZnNhRjkwY1hLN3FO?=
+ =?utf-8?B?VUFPL3NZMWZNTStWK0RrMVR5b0JpMTI5MmpyT0o2anROMHRDbnJnZ0NEbWVr?=
+ =?utf-8?B?T1M2R0ZlZVRERFh5NmhQcHFveStGSUdtOHpsK1lWZzFzOXF2dFF1dGI2d2gw?=
+ =?utf-8?B?SVE2Vy9DU1E0NWpuREJCc1RyOXZPY3RGbStLOG90Yk1BK1VCSUNDb2gxcHc5?=
+ =?utf-8?B?dXZxSUZsNHZ6V2JvZjJacVJSQitab09PVXU4eExXa2cxeVZVQ2V2MG00c1Rw?=
+ =?utf-8?B?MnJUaWZma2tvUm14dWk5OW4yQU9lZ21SbWNWUU11OVduYW56a1J2UnU1TTBJ?=
+ =?utf-8?B?bm5LOXEzSDY5UGx2Qmp0TXZCZFRLUnRCWlBnVFMyeWF1ZGZBZUp4QlExRVdy?=
+ =?utf-8?B?a3hzMWpQV0ExdXpVM3VaaldGMmJtRzY1Wm41Zm9MR0o2bjBaNGVZMi85U1A2?=
+ =?utf-8?B?K2F3dWxla2FpMTFqQ1BXRlpDdkhlTFpUYVlXT2RWR3BUMzR5UlBrdHFicTBO?=
+ =?utf-8?B?c1Q3Sm4zcEVITjVGN29ZWkdVM01XM2h6VVhzNWVUd3BNY2FyeTF3eGxtM0JP?=
+ =?utf-8?B?dmVWK25lVUNOVjFQVG9BOVlIT0l1d1N6ZDl3ZFhpbm1SMDhTWWlGMmNxVzAv?=
+ =?utf-8?B?M0g2UEZpQ3B6TEdaK01VaW16eXNkNWdQUWNxdGk4YmZZL0svNXo4bEgrMkJS?=
+ =?utf-8?B?SDIwanZEVldQNWFWRjNsR1pWelB1cVVDWjVRallMQnhMVjN0aWltb1NyR2Er?=
+ =?utf-8?B?NHJNWHozL0FnU1l6OHJiWERmUWh5VUU0RHRZbFpxZnAzVEhLTFZFMWZvZ1Vl?=
+ =?utf-8?B?TEo5T2g1T3RPblk1aDlrU2gvRnVMVmpES3V0QlRUci9hTTNVcGtUR1R5Wito?=
+ =?utf-8?B?QTVhMUF4Rjg5akFkaHMrUnV5aTRhVlZLRExSTmc2YnRnZzRwd0hDM0ZoL2VE?=
+ =?utf-8?B?VGsvWXltTDBxRnJpVUQwN1ZCWmpOU2h1RHVMQ0Qvb3MzV3RBcE9lODBzeTdM?=
+ =?utf-8?B?M09lYUdhc3Q4dVJTOEdqVmdVZzRuaTJFT084VXZkbjg5YWh6Z1FEbTlJb3J0?=
+ =?utf-8?B?dXJWNEt6c0gyb0NKb0xqOFBGNGFsZ1ZQUWg5bGprd3JLU3dDQm5rY083eHVX?=
+ =?utf-8?B?QzBrQmNiclRNVTRucDZMM0ZMSzE2Z2tGUHN5aTBwNE1udjhNMHFGNVpxZjMw?=
+ =?utf-8?B?a2NFSVA4REljN21jajNxaGZQNElWZ05iNm1BRFh1aENrcm4wTEd6T2xuMUF3?=
+ =?utf-8?B?NlFEUk45UEFCeDU3NW4yQlJiYmVxZWFHZVBtOXUrN01ScUhFMVA5dG95SllD?=
+ =?utf-8?B?WFZLc2xjbFd6T2NZWmVKRGJmVU5kQU9Lc3lpQU1mTmRaVTRtdU9nV3MxZit2?=
+ =?utf-8?B?eW9TNHBJc0I3QXV6d0xwNmpVa3F2ZVllQnJSM1o0b1k3a2Q1c1ZkUFZWTGlo?=
+ =?utf-8?Q?tcAFihVKShJIFf27+79HK7EFw?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 266e5ead-88c7-4ba0-415e-08dd3a2d2992
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jan 2025 15:06:20.3557
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qoTsrmUZXB1iJV8+I0DwL+hrwwjDCKt+41BqV8MBqoNK43QC6CPr9d2rkBYl/stSr7s4w2RI9jqjHkoJzG7xUw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9295
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_070153_116030_4CD8B248 
-X-CRM114-Status: GOOD (  23.77  )
+X-CRM114-CacheID: sfid-20250121_070629_427328_6AE147B6 
+X-CRM114-Status: GOOD (  16.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,49 +196,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Olivier,
+Previously there was discussion on using "feature-controller" or
+adding a specific node to group the fuse information for U-Boot to
+parse and update node. But rejected by DT maintainer(Rob).
 
-On 12/23/24 6:35 PM, Olivier Benjamin wrote:
-> On 10/25/24 14:45, Stanimir Varbanov wrote:
->> Here is v4 of the series which aims to add support for PCIe on bcm2712
->> SoC
->> used by RPi5. Previous v3 can be found at [1].
->>
-> Hello Stanimir,
-> 
-> Thank you for you work on this!
-> 
->> v3 -> v4 changes include:
->>   - Addressed comments on the interrupt-controller driver (Thomas)
->>   - Moved "Reuse config structure" patch earlier in the series (Bjorn)
->>   - Merged "Avoid turn off of bridge reset" into "Add bcm2712
->> support" (Bjorn)
->>   - Fixed DTB warnings on broadcom/bcm2712-rpi-5-b.dtb
->>
->> For more detailed info check patches.
->>
-> I would simply like to report that I have (rather succintly) tested this
-> series.
-> I have built a 6.13.0-rc4-v8 vanilla kernel and deployed it to a
-> Raspberry Pi 5 equipped with a "Raspberry Pi SSD" NVMe Drive on an M.2
-> Hat+ connected to the main board using PCIe.
-> This of course did not work, and I could not see my drive.
-> I then applied this series on top, rebuilt and deployed the kernel, and
-> I could see the /dev/nvme0 device and mount the ext4 fs on the 1st
-> partition.
-> 
->> Comments are welcome!
->> ~Stan
->     
-> If you find it helpful, feel free to collect my Tested-By tag.
-> 
-> I'll be happy to do the same for future versions of the series and can
-> do some additional testing if you want an extra pair of eyes.
-> 
+Since the STM32 engineers added access controller concept and landed
+the support in Linux Kernel, reuse the concept for i.MX.
 
-Thanks for the help! I definitely will need Tested-by for the recently
-posted v5 :)
+i.MX OCOTP eFuse has some bits to indicate a specific periphral or
+function is avaiable for current chip, for example i.MX93 has variants
+that not have NPU. So introduce '#access-controller-cells' for OCOTP,
+and add "#access-controllers = <&ocotp [gate_index]>" for periphrals
+that needs accessing control checking.
 
-~Stan
+In OCOTP driver, the nodes under "/" will be iterated, and checked
+if property "#access-controllers" exsits. If not allow access, detach
+the node.
+
+In the end, cpu nodes should still be handled by bootloader.
+And I may also update i.MX8M to use same method to support variants
+if this patchset is good.
+
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+---
+Changes in v6:
+- Rebased to next-2025-1-20
+- Update Kconfig per Alexander
+- Link to v5: https://lore.kernel.org/r/20250108-imx-ocotp-v5-0-a6d90e18ebe9@nxp.com
+
+Changes in v5:
+- Rebased to next-20250107, but seems Srinivas's for-fixes patches not
+included, so I picked the for-fixes patches and rebase the patchset.
+- make gates pointer and using ARRAY_SIZE
+- Use of_parse_phandle_by_args
+- Read fuse when needed, not cache them in the very beginning
+- Use %pOF for node name
+- Check controller node name in imx_ele_ocotp_grant_access
+- Use dev_info when detach node
+- Use priv as function parameter to replace pdev.
+- Link to v4: https://lore.kernel.org/r/20241223-imx-ocotp-v4-0-f504c1420640@nxp.com
+
+Changes in v4:
+- Add missing of_node_put(provider)
+- Typo fix in commit log
+- Link to v3: https://lore.kernel.org/r/20241219-imx-ocotp-v3-0-b22371098071@nxp.com
+
+Changes in v3:
+- Add A-b for patch 1
+- Use scoped API when iterate nodes and address build warning in patch 2
+- I am also thinking that to drop patch 2 to let
+ bootloader to iterate the nodes that have access-controllers property and
+ update the nodes before booting the kernel. Then just need patch 1 for
+ the binding updates. Anyway, comments are welcomed.
+- Link to v2: https://lore.kernel.org/r/20241217-imx-ocotp-v2-0-3faa6cbff41b@nxp.com
+
+Changes in v2:
+- Add R-b for patch 1
+- Use '/' root node instead of '/soc' or '/soc@0' for patch 2
+- Link to v1: https://lore.kernel.org/r/20241212-imx-ocotp-v1-0-198bb0af86a0@nxp.com
+
+---
+Peng Fan (2):
+      dt-bindings: nvmem: imx-ocotp: Introduce #access-controller-cells
+      nvmem: imx-ocotp-ele: Support accessing controller for i.MX9
+
+ .../devicetree/bindings/nvmem/imx-ocotp.yaml       |   5 +
+ drivers/nvmem/Kconfig                              |   3 +
+ drivers/nvmem/imx-ocotp-ele.c                      | 172 ++++++++++++++++++++-
+ include/dt-bindings/nvmem/fsl,imx93-ocotp.h        |  24 +++
+ include/dt-bindings/nvmem/fsl,imx95-ocotp.h        |  43 ++++++
+ 5 files changed, 246 insertions(+), 1 deletion(-)
+---
+base-commit: 8c50c358a94b6f6d7e6185966830b5bc3afa5524
+change-id: 20241212-imx-ocotp-cbef304140f5
+
+Best regards,
+-- 
+Peng Fan <peng.fan@nxp.com>
 
 
