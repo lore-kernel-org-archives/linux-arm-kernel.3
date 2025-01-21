@@ -4,77 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B15BEC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 04:42:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D46EC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 04:43:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=W6HslTJVcoTc76NPV/AhEAAiVSfWCRn3Y3i6yxgDWLg=; b=f9B2HIViXL71VvJRVOedPd1ljJ
-	iD0+BwrVErck5sWV24D0w5hHDfkLeQ89nQUSTo7sA2LaJUXNuxZp5Abb6EhyhkWliHMbo0qhe1QbV
-	W4gsfkLmb8ngSfUPUFacExDjFRzJYIMhHGylihAfvPmQYbeHhHMegmOKIYXyAo1mtJJ7UveY/FZf1
-	a/U3f4P09KjgfeAoYI11op4KM7Cye7A6pKH7s4SSrGdo5Fik+NX/VkS+/bLUolDKDfzBr9YDb459f
-	R0RUTk8cDUSArEMT+29+1LlcMEc0INY1NbbrtXy8xgdM0YgUk/94OXuTC7EFWXPx0iWCLt6x5ILp4
-	f/bO1gAg==;
+	bh=8hHBbJFUh8rXIYoFSQAl65O5d5oHXvK0PfY4Pz1nd0k=; b=c3gK9VBZcSlE3gE5SMI2dWQ072
+	h6X2bS2utWH8BIHCpOZY9NsvQG9Z3jr5EX6qIX3mL6/tf266OWgK6FZQpUMP1YXaKDMYuZE2O/m8L
+	rEdd2t8r4V4+mpbFahp4G61pD2jevdPIh3Fz/HicKMGhJ2t7i0/l/7QycGNbuUR9qqVxBBMnUK/j5
+	Ydqgga3jIzgNbwyZ0HzpzRR5I00X7uAyhVfci2QzX8ZOC0hGJU7oNaaDAmkXGXPLSjfbfZMqtPzKW
+	Svoi0PegUZx09UpNwzANZpAEFIRN3GZlA9LJD6uTAB7OJD1SmyHDxoBAlelG6vmcOgrZC3NRWSeYT
+	BhnEpexQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ta65C-00000006skK-31It;
-	Tue, 21 Jan 2025 04:41:46 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ta63t-00000006sf5-0xLD
+	id 1ta66W-00000006t1i-1gl8;
+	Tue, 21 Jan 2025 04:43:08 +0000
+Received: from mx.socionext.com ([202.248.49.38])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1ta65A-00000006sjG-1j3p
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 04:40:26 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2ef80d30df1so9603720a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jan 2025 20:40:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1737434423; x=1738039223; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=W6HslTJVcoTc76NPV/AhEAAiVSfWCRn3Y3i6yxgDWLg=;
-        b=rKRKtFXKAiJXHl7hob3ECK30rPjD4g3U7m5wLOO8/uZZJVmm2YJ/tOTyZxZYnyjcsd
-         eh+FbLXPMWSghn79t+unXgCZzbHXewfSXC8qx9eLTOOWK0PP2tQMmt3s8eclvGIwo0mG
-         k880Tee7zP1+k1DyO0pWsxSp6rSxwjIbOTJk04frbEvhCTjPbcZFqP0ghCt7CooNbax8
-         D/FBcbNTwul3F5iH/N8Ul/GTiAiuTUimqfss3y5ilQK/Xr9ofDaaXcG1tFg95US941de
-         kJuhE7ogiRDfhgUGhX7xNefuYX7UcLgOFCemfJUhP5GandrCEM+65dmOzKeG5np2Whmn
-         61kQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737434423; x=1738039223;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=W6HslTJVcoTc76NPV/AhEAAiVSfWCRn3Y3i6yxgDWLg=;
-        b=In3LzYWc5KwhaauB+GUpGN5/i6udxTyQi5lFHlQZscupyf4z0FCQv95YbCXoIsHZO/
-         3CFxCYGKQH385+y7xjaqeSi2RdrOyQLm8X0dZrn3m5jtaTNZ7uHu1PgY198EkM8xrCD8
-         QGLJp0WpkOhlFO0Jx0ZFzQ4KZY/QoCQ7vuTfVWP5ZeCgMNmm+HY7OWX4pP2EasN9eBsS
-         AAXqCCWM1749Jwb3U4E21Db8vV1J8fyh7MP7AnfD35TEiLz50U/IbtSrrctE2cv2KMwa
-         5luxbgh6fgWJ3hVZDIlgMlrBIBpd7eWSdeHtRI6HNcYr97nokeH7OPLr6thXzEtpMmST
-         zPRA==
-X-Gm-Message-State: AOJu0YwGTAy7nGs4QAF5XwiGxYUV4PLOTzXTz7/UEEWoWSrX8gYPTyvI
-	PA2VWTDoAvR4D1w+G8/XHId4u6IQ7RSSZot6ITkGBHo0jb2Iism1iw6gioZSKfFc9PCxacnWZ8m
-	ClMvuqLn57fyi/Jlv+DBC6g==
-X-Google-Smtp-Source: AGHT+IF4p997QdwvM0SsDbErEoy+U/aICq4fFswhgZuSPgNMtUKRK4y7HpGvS1wx8IpyVVRWtWkg/psQwIA3R5wW3Q==
-X-Received: from pjoz4.prod.google.com ([2002:a17:90a:9804:b0:2ea:3a1b:f493])
- (user=lokeshvutla job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:90b:2e06:b0:2ee:d824:b594 with SMTP id 98e67ed59e1d1-2f782d8ccdemr21933409a91.31.1737434423306;
- Mon, 20 Jan 2025 20:40:23 -0800 (PST)
-Date: Tue, 21 Jan 2025 04:40:16 +0000
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.48.0.rc2.279.g1de40edade-goog
-Message-ID: <20250121044016.2219256-1-lokeshvutla@google.com>
-Subject: [PATCH v2] KVM: arm64: Flush hyp bss section after initialization of
- variables in bss
-From: Lokesh Vutla <lokeshvutla@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Fuad Tabba <tabba@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	lokeshvutla@google.com, sachinparekh@google.com
-Content-Type: text/plain; charset="UTF-8"
+	Tue, 21 Jan 2025 04:41:46 +0000
+Received: from unknown (HELO iyokan2-ex.css.socionext.com) ([172.31.9.54])
+  by mx.socionext.com with ESMTP; 21 Jan 2025 13:41:42 +0900
+Received: from mail.mfilter.local (mail-arc02.css.socionext.com [10.213.46.40])
+	by iyokan2-ex.css.socionext.com (Postfix) with ESMTP id 181002006FCC;
+	Tue, 21 Jan 2025 13:41:42 +0900 (JST)
+Received: from kinkan2.css.socionext.com ([172.31.9.51]) by m-FILTER with ESMTP; Tue, 21 Jan 2025 13:41:42 +0900
+Received: from plum.e01.socionext.com (unknown [10.212.245.39])
+	by kinkan2.css.socionext.com (Postfix) with ESMTP id 68555C3C1E;
+	Tue, 21 Jan 2025 13:41:41 +0900 (JST)
+From: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
+To: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>
+Cc: Furong Xu <0x1207@gmail.com>,
+	Joao Pinto <Joao.Pinto@synopsys.com>,
+	Vince Bridgers <vbridger@opensource.altera.com>,
+	netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
+Subject: [PATCH net v2 0/3] Limit devicetree parameters to hardware capability
+Date: Tue, 21 Jan 2025 13:41:35 +0900
+Message-Id: <20250121044138.2883912-1-hayashi.kunihiko@socionext.com>
+X-Mailer: git-send-email 2.25.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_204025_269272_349DECDB 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20250120_204144_591647_F4FB9952 
+X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,50 +76,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To determine CPU features during initialization, the nVHE hypervisor
-utilizes sanitized values of the host's CPU features registers. These
-values, stored in u64 idaa64*_el1_sys_val variables are updated by the
-kvm_hyp_init_symbols() function at EL1. To ensure EL2 visibility with
-the MMU off, the data cache needs to be flushed after these updates.
-However, individually flushing each variable using
-kvm_flush_dcache_to_poc() is inefficient.
+This series includes patches that checks the devicetree properties,
+the number of MTL queues and FIFO size values, and if these specified
+values exceed the value contained in the hardware capabilities, limit to
+the values from the capabilities.
 
-These cpu feature variables would be part of the bss section of
-the hypervisor. Hence, flush the entire bss section of hypervisor
-once the initialization is complete.
+And this sets hardware capability values if FIFO sizes are not specified
+and removes redundant lines.
 
-Fixes: 6c30bfb18d0b ("KVM: arm64: Add handlers for protected VM System Registers")
-Suggested-by: Fuad Tabba <tabba@google.com>
-Signed-off-by: Lokesh Vutla <lokeshvutla@google.com>
----
-v1: https://lore.kernel.org/kvmarm/20250120151514.1769597-1-lokeshvutla@google.com/
-- Applies on top of Linux 6.13 tag.
 Changes since v1:
-* Updated Commit message based on review
-* Updated kvm_flush_dcache_to_poc() to call from kvm_hyp_init_symbols()
+- Move the check for FIFO size and MTL queues to initializing phase
+- Move zero check lines to initializing phase
+- Use hardware capabilities instead of defined values
+- Add warning messages if the values exceeds
+- Add Fixes: lines
 
- arch/arm64/kvm/arm.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+Kunihiko Hayashi (3):
+  net: stmmac: Limit the number of MTL queues to hardware capability
+  net: stmmac: Limit FIFO size by hardware capability
+  net: stmmac: Specify hardware capability value when FIFO size isn't
+    specified
 
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index a102c3aebdbc..caacb2da8e09 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -2410,6 +2410,13 @@ static void kvm_hyp_init_symbols(void)
- 	kvm_nvhe_sym(id_aa64smfr0_el1_sys_val) = read_sanitised_ftr_reg(SYS_ID_AA64SMFR0_EL1);
- 	kvm_nvhe_sym(__icache_flags) = __icache_flags;
- 	kvm_nvhe_sym(kvm_arm_vmid_bits) = kvm_arm_vmid_bits;
-+
-+	/*
-+	 * Flush entire BSS since part of its data containing init symbols is read
-+	 * while the MMU is off.
-+	 */
-+	kvm_flush_dcache_to_poc(kvm_ksym_ref(__hyp_bss_start),
-+				kvm_ksym_ref(__hyp_bss_end) - kvm_ksym_ref(__hyp_bss_start));
- }
- 
- static int __init kvm_hyp_init_protection(u32 hyp_va_bits)
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 43 +++++++++++++------
+ 1 file changed, 30 insertions(+), 13 deletions(-)
+
 -- 
-2.48.0.rc2.279.g1de40edade-goog
+2.25.1
 
 
