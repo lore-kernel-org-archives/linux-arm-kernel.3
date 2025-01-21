@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B79CCC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 12:12:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E48B6C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 12:13:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=A2rjxWclf+WPEXBHSO1PTiJ94UtgJfvYGJjqmycRMCQ=; b=hOV7KxybxsqagFYDcfs3lc3tkN
-	3GZmruUx/4+1cwEP8/KrvqYNQSM3VqlWftki68qIOQYiyktM4RhQHOfyCpAZlscFGwIRDHoZz1MlV
-	bkKnU/yxF7SSOtK/Ze2RrdjChOdvepMEnVdD+UasNiiltqX7NBkBo0fBgmYlUIRKZ8ZsurBpQE6pW
-	gK3TWiILpljjlJB0PZ4lYqx6kOMG7xUIJap5AQuWPUVvERHnAykjLMW12utDJ/o6H5pzRFwu7FW2u
-	gUFmCR6LjBBMYXVvECZwggrNcaRbo1hTeOcBMVWZRgmmJIL6HQyuvBJONOphdhPRWca+Zvis4D5PN
-	IqSZjQSA==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wltn9pDwrjnqOfitPVsnRnSJW/4HpXp+im/TILClmlQ=; b=KaEfRV37MJbtyvYbWhdm9W32II
+	RoEuEZVMPCmMeHXhxhiMOyCGnU1UBHBxSAuEKsO83vdhN5CRhH55aqMRdOJ5FISFQBdmSRbGWbxXE
+	EdNi0DCyILte9qM6k+4Gxo3v0RtwQ6UKQueVo0bl8kGJo8XExkIx5w8Sl/lkVcBhGj5ggKNm0Xvjw
+	x7FBXamwKfdQpwtkHmxNhcTCXrt6LlrvvuCZsJmZNQO759oBb2IsMuhj759x77ITqC0Wg7BrM7bpO
+	wwaR7ZS4hse/AenbLDMHQEBen+r1Gt1VUbacwdabwSb2CGNOMe2MAYNAtmK3ZXJ5eazOWMhBrMvau
+	QUNGefgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taD7A-00000007pPM-42Pk;
-	Tue, 21 Jan 2025 12:12:16 +0000
+	id 1taD8P-00000007pdx-2Vkg;
+	Tue, 21 Jan 2025 12:13:33 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taD4d-00000007ozV-2Eco
+	id 1taD4j-00000007p0r-3czx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 12:09:41 +0000
+	Tue, 21 Jan 2025 12:09:47 +0000
 Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50L8YsKd018009;
-	Tue, 21 Jan 2025 12:09:26 GMT
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50L8YsKf018009;
+	Tue, 21 Jan 2025 12:09:39 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=A2rjxWclf+WPEXBHSO1PTi
-	J94UtgJfvYGJjqmycRMCQ=; b=jYWBEdns2p3qGhvX5rFqZFbUxDuXamJ7lM5F4i
-	m+51ZCgqkUMlBORRJh1WmynbtwvzfioobXu3tuG6EmUCUzV8MQQJVEyoMcrOKxCH
-	n7gy6lzp7c3YgTqCV98AsUVy9N7IsgjqfwpgJS8TVAyz0URkE8gzp4hDvRZiepKt
-	48lMT/cMnFuNxQq5BxLoLpBtsRRpa+3h1gs5ZjJeHiWbHNENa2rqVBQxlyEw3yG6
-	USW9Wng3FXTiIHQPX0JE2bTHbUWq5WDSus85QjHV4ohcArRL0eBTS5d22aNkJ7HH
-	tdSpRR2b6IvSK43/9h7b0ENqdvgSpSwKH58LXdGmaUgRHBDQ==
-Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44a85r8sed-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	wltn9pDwrjnqOfitPVsnRnSJW/4HpXp+im/TILClmlQ=; b=SETbBEfawJhraPwB
+	b3i7Iz8EAaoPtwqb8AMuRbYJoIsRCkKjYZzIFZa7j/q43+WHHmf9Riz0xIEsSn7P
+	888N4FAnsC2rf/YKsweOUAT0CYdQeJJ5CMW6Q2ktwLLEW0Irh95ojxamN41SMOqp
+	Ly5INNatYRqDF2dixTwE4Zrbs20B6d+uvYNcfuF90Zw8/tG9n5Xxgt8qUv8XFOWE
+	o1+npGtDWcOP3bXWjkCFZKEwQAwSndWZKYUK2FYgiB3op7I5C51+2f4WhR5oWsvb
+	d8y3UyqGAkKl6ro6YCWqokY2f7ueQzlyKQFaN6yxyX5CHciKK32V3c4MdHL+PZO+
+	W07qEQ==
+Received: from nasanppmta03.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44a85r8sev-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 21 Jan 2025 12:09:26 +0000 (GMT)
+	Tue, 21 Jan 2025 12:09:39 +0000 (GMT)
 Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 50LC9Pwd015782
+	by NASANPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 50LC9css020632
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 21 Jan 2025 12:09:25 GMT
+	Tue, 21 Jan 2025 12:09:38 GMT
 Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
  nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Tue, 21 Jan 2025 04:09:16 -0800
+ 15.2.1544.9; Tue, 21 Jan 2025 04:09:29 -0800
 From: Vikram Sharma <quic_vikramsa@quicinc.com>
 To: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
         <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
@@ -62,10 +63,12 @@ CC: <linux-arm-kernel@lists.infradead.org>, <quic_vikramsa@quicinc.com>,
         <linux-media@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
         <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
         <kernel@quicinc.com>
-Subject: [PATCH v1 0/2] Update clocks for sc7280-camss 
-Date: Tue, 21 Jan 2025 17:38:59 +0530
-Message-ID: <20250121120901.1841142-1-quic_vikramsa@quicinc.com>
+Subject: [PATCH v1 2/2] media: qcom: camss: update clock names for sc7280
+Date: Tue, 21 Jan 2025 17:39:01 +0530
+Message-ID: <20250121120901.1841142-3-quic_vikramsa@quicinc.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250121120901.1841142-1-quic_vikramsa@quicinc.com>
+References: <20250121120901.1841142-1-quic_vikramsa@quicinc.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -74,19 +77,19 @@ X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
  nasanex01b.na.qualcomm.com (10.46.141.250)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: iLj2eIVwCmQD8f6xHerIgWtpfvpRjaOq
-X-Proofpoint-ORIG-GUID: iLj2eIVwCmQD8f6xHerIgWtpfvpRjaOq
+X-Proofpoint-GUID: 3wnSuwbteNtQavXd9yDFLdLkdC1xPECr
+X-Proofpoint-ORIG-GUID: 3wnSuwbteNtQavXd9yDFLdLkdC1xPECr
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-01-21_05,2025-01-21_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 mlxlogscore=889
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 mlxlogscore=999
  clxscore=1015 impostorscore=0 lowpriorityscore=0 adultscore=0 bulkscore=0
  suspectscore=0 malwarescore=0 priorityscore=1501 spamscore=0 phishscore=0
  classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
  definitions=main-2501210100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_040939_692005_463CFA67 
-X-CRM114-Status: GOOD (  12.93  )
+X-CRM114-CacheID: sfid-20250121_040946_024857_A0E66F7B 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,36 +104,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This one is a follow-up change for series.
-https://lore.kernel.org/linux-arm-msm/20241206191900.2545069-1-quic_vikramsa@quicinc.com/
-We have got comments on our dtsi change to update clock names as
-- GCC_CAMERA_AHB_CLK is always enabled clock so it can be removed.
-- Change clock name from gcc_cam_hf_axi to `gcc_axi_hf` for consistency.
-- Add gcc_axi_sf as missing to enable it can have undefined hw behaviour.
-
-So to handle these comments in our base series we need to update
-documentaion and driver (already merged) to work with dtsi.
-
-We are not breaking ABI here because the ABI hasn't been cemented yet as the dtsi changes are
-not merged yet also there are no users for this driver as of now. 
-
-Used following tools for the sanity check of these changes.
-- make CHECK_DTBS=y W=1 DT_SCHEMA_FILES=media/qcom,sc7280-camss.yaml
-- make DT_CHECKER_FLAGS=-m W=1
-DT_SCHEMA_FILES=media/qcom,sc7280-camss.yaml dt_binding_check
-- make -j32 W=1
-- ./scripts/checkpatch.pl
+This patch changes gcc_cam_hf_axi clock name to make consistent
+with existing platforms and add gcc_axi_sf clock too.
 
 Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
+---
+ drivers/media/platform/qcom/camss/camss.c | 15 ++++++++++-----
+ 1 file changed, 10 insertions(+), 5 deletions(-)
 
-Vikram Sharma (2):
-  media: dt-bindings: update clocks for sc7280-camss
-  media: qcom: camss: update clock names for sc7280
-
- .../bindings/media/qcom,sc7280-camss.yaml         | 10 +++++-----
- drivers/media/platform/qcom/camss/camss.c         | 15 ++++++++++-----
- 2 files changed, 15 insertions(+), 10 deletions(-)
-
+diff --git a/drivers/media/platform/qcom/camss/camss.c b/drivers/media/platform/qcom/camss/camss.c
+index a85e9df0f301..b1358457c66e 100644
+--- a/drivers/media/platform/qcom/camss/camss.c
++++ b/drivers/media/platform/qcom/camss/camss.c
+@@ -1443,12 +1443,13 @@ static const struct camss_subdev_resources vfe_res_7280[] = {
+ 		.regulators = {},
+ 
+ 		.clock = { "camnoc_axi", "cpas_ahb", "icp_ahb", "vfe0",
+-			   "vfe0_axi", "gcc_cam_hf_axi" },
++			   "vfe0_axi", "gcc_axi_hf", "gcc_axi_sf" },
+ 		.clock_rate = { { 150000000, 240000000, 320000000, 400000000, 480000000 },
+ 				{ 80000000 },
+ 				{ 0 },
+ 				{ 380000000, 510000000, 637000000, 760000000 },
+ 				{ 0 },
++				{ 0 },
+ 				{ 0 } },
+ 
+ 		.reg = { "vfe0" },
+@@ -1468,12 +1469,13 @@ static const struct camss_subdev_resources vfe_res_7280[] = {
+ 		.regulators = {},
+ 
+ 		.clock = { "camnoc_axi", "cpas_ahb", "icp_ahb", "vfe1",
+-			   "vfe1_axi", "gcc_cam_hf_axi" },
++			   "vfe1_axi", "gcc_axi_hf", "gcc_axi_sf" },
+ 		.clock_rate = { { 150000000, 240000000, 320000000, 400000000, 480000000 },
+ 				{ 80000000 },
+ 				{ 0 },
+ 				{ 380000000, 510000000, 637000000, 760000000 },
+ 				{ 0 },
++				{ 0 },
+ 				{ 0 } },
+ 
+ 		.reg = { "vfe1" },
+@@ -1493,12 +1495,13 @@ static const struct camss_subdev_resources vfe_res_7280[] = {
+ 		.regulators = {},
+ 
+ 		.clock = { "camnoc_axi", "cpas_ahb", "icp_ahb", "vfe2",
+-			   "vfe2_axi", "gcc_cam_hf_axi" },
++			   "vfe2_axi", "gcc_axi_hf", "gcc_axi_sf" },
+ 		.clock_rate = { { 150000000, 240000000, 320000000, 400000000, 480000000 },
+ 				{ 80000000 },
+ 				{ 0 },
+ 				{ 380000000, 510000000, 637000000, 760000000 },
+ 				{ 0 },
++				{ 0 },
+ 				{ 0 } },
+ 
+ 		.reg = { "vfe2" },
+@@ -1516,11 +1519,12 @@ static const struct camss_subdev_resources vfe_res_7280[] = {
+ 	/* VFE3 (lite) */
+ 	{
+ 		.clock = { "camnoc_axi", "cpas_ahb", "icp_ahb",
+-			   "vfe_lite0", "gcc_cam_hf_axi" },
++			   "vfe_lite0", "gcc_axi_hf", "gcc_axi_sf" },
+ 		.clock_rate = { { 150000000, 240000000, 320000000, 400000000, 480000000 },
+ 				{ 80000000 },
+ 				{ 0 },
+ 				{ 320000000, 400000000, 480000000, 600000000 },
++				{ 0 },
+ 				{ 0 } },
+ 
+ 		.regulators = {},
+@@ -1537,11 +1541,12 @@ static const struct camss_subdev_resources vfe_res_7280[] = {
+ 	/* VFE4 (lite) */
+ 	{
+ 		.clock = { "camnoc_axi", "cpas_ahb", "icp_ahb",
+-			   "vfe_lite1", "gcc_cam_hf_axi" },
++			   "vfe_lite1", "gcc_axi_hf", "gcc_axi_sf" },
+ 		.clock_rate = { { 150000000, 240000000, 320000000, 400000000, 480000000 },
+ 				{ 80000000 },
+ 				{ 0 },
+ 				{ 320000000, 400000000, 480000000, 600000000 },
++				{ 0 },
+ 				{ 0 } },
+ 
+ 		.regulators = {},
 -- 
 2.25.1
 
