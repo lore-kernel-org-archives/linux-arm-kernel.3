@@ -4,57 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77DE2C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 15:28:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D173C0218B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 15:29:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0kdbhR5Oah3F6JdgY3wvRdCOu+Dio2Yu26Rr1uZmLOE=; b=RTFn9CArnmqPPR+6dfY5soeOtl
-	4Bm8HPtucsM7o6Et8vZOhdku14UaXcGDDKA6zlrW0wPfvXK8UsbTS2Z6USImnkeUGziI0VeeR5yHZ
-	5Ahk6DbSRbS+Sr86v3YUZpkQFNpuPl8NviIrWiGy8RAdgIrOfMTYz3PcQON/eLp/KKNAGNKgeeoBq
-	ofWW8JuSN/8i/SLGH8BQBY8qlrnpkj5BQgWWZe/Yc55N0Ldi1HeRoI1aq89le+apyB6eVbDPkfvHi
-	AyVWI91jsXeXP6quHTrzc17bQb4yVKIpxyCs0QNQtMcCeffU6ki0v8jrqG3+fUA2dHV5462Em4+3L
-	ndUKDYKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:From:CC:To:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YvSKUk5v6EFDKQLEGztTw1EfOLgqPgtPZVAGwGdWSV8=; b=4wrWbl2q3w5FqpeSzRV6j9GVWE
+	Z0+wFm1HDJPDfU2P7oWM20hiH7B2H09yzx6V5CKstxHt67DyuJxZP7U7qdpzZZK2+u/fS+kLrWUL/
+	/YhgxUWo5igZ50LzDDXccg32iHc4p6mQIRhYDeIugvIJDoeFk3WtW456+1bmuz1CZr0fygsEXezbV
+	bZTXPHIYyoDn2fJWWD0P+mlvBgm4UTwuW7z8d8qsJIczr4dbyP+I7qu2sz1KSms8DrNkfAvPDmNRA
+	61AfjqeptPW94ppVnDcRvhvkBnPycdsX1CyAM/spdoAprneB8E83tn4buTP040oLxGr1qSKrU0hFQ
+	FlXOH2gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taGAN-00000008DVI-2GSC;
-	Tue, 21 Jan 2025 15:27:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taFyL-00000008Bcp-0BMj
+	id 1taGBc-00000008DjL-1dGR;
+	Tue, 21 Jan 2025 15:29:04 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1taG2Y-00000008CPF-2Wm9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 15:15:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C7ED31063;
-	Tue, 21 Jan 2025 07:15:48 -0800 (PST)
-Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BB5E33F66E;
-	Tue, 21 Jan 2025 07:15:16 -0800 (PST)
-Date: Tue, 21 Jan 2025 16:14:32 +0100
-From: Beata Michalska <beata.michalska@arm.com>
-To: Viresh Kumar <viresh.kumar@linaro.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org, ionela.voinescu@arm.com,
-	sudeep.holla@arm.com, will@kernel.org, catalin.marinas@arm.com,
-	rafael@kernel.org, sumitg@nvidia.com, yang@os.amperecomputing.com,
-	vanshikonda@os.amperecomputing.com, lihuisong@huawei.com,
-	zhanjie9@hisilicon.com
-Subject: Re: [PATCH v9 1/5] cpufreq: Allow arch_freq_get_on_cpu to return an
- error
-Message-ID: <Z4-52JUmR7A-7NJP@arm.com>
-References: <20250121084435.2839280-1-beata.michalska@arm.com>
- <20250121084435.2839280-2-beata.michalska@arm.com>
- <20250121104706.2gcegucb6hcuksrd@vireshk-i7>
+	Tue, 21 Jan 2025 15:19:44 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 341A5A1398;
+	Tue, 21 Jan 2025 16:19:29 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=mail; bh=YvSKUk5v6EFDKQLEGztTw1EfOLgqPgtPZVAGwGdWSV8=; b=
+	EDYM4KaCJlzn5nU9DaE4/F2L53G9QcUJe5kNRIsYjfViLqTIbit6OzIbFGniH+LF
+	Djy9tgYfH5znDGs/uz68zNkaNbcP1FHKRRnc/DYOzr7ajZWphvK+vZ3Mik3DDhFg
+	iCxjDhcmC0tL4y7QtgcuKydotWHPllcnh7IdbPDzgr3ki7tPuvBgpF3jWcC42IBe
+	UqaVatbPIVtT3pJIhlxDeXqew2mas2O4YHMpo4ahVaeOnzFJuVjlx8SINHN3aDG5
+	fIC1tOzBpkAv87Dj6C2pQzPxExAyWbppKWZRsMDBG7ZzaNu027OwXqU3885gpcuA
+	9VIE7NXepx/qdYuTRxOedmGVbfQMhllfsZcBVEl0ovkzCUU9dSytbiAGJNFO7IU7
+	QA8zbjBWySvbXhPI2cleKV7Wz3YIpEBH5N2pmmjdqLcXitjWLkeDKOuMLU6kds9l
+	Gc+DUI77fjTqcfNZBIvC3Iy6U8Gbgg0ZW1qadfMlC+aANiYqfOWiP4+lbAlPQx9e
+	cOL2rlSfNV+0BdfylzzCn9sqbpXRQHJDsVoDMyEPCxfAA68fIzxvar7LIyVnyypj
+	t8uzptbHQIjMBmFVhGHDgYet6xErA53fcjR3hj0kLs0AHBvQh//J3H7/YtqPgaSR
+	GD21DQqFvLw2T3IsR5esHk7KEEz3aGciGpU0dvRMJMc=
+Message-ID: <f2ec8a55-42ad-498a-b793-072444dcb92e@prolan.hu>
+Date: Tue, 21 Jan 2025 16:19:27 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250121104706.2gcegucb6hcuksrd@vireshk-i7>
+User-Agent: Mozilla Thunderbird
+Content-Language: en-US
+To: <linux-iio@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<timestamp@lists.linux.dev>
+CC: William Breathitt Gray <wbg@kernel.org>, Jonathan Cameron
+	<jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, Daniel Lezcano
+	<daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, "Dipen
+ Patel" <dipenp@nvidia.com>
+From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
+Subject: [Q] Frequency & duty cycle measurement?
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.254.7.14]
+X-ClientProxiedBy: ATLAS.intranet.prolan.hu (10.254.0.229) To
+ ATLAS.intranet.prolan.hu (10.254.0.229)
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2980D9485267746B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_071521_172173_0349454E 
-X-CRM114-Status: GOOD (  22.13  )
+X-CRM114-CacheID: sfid-20250121_071943_041427_CE062CCF 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,108 +83,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 21, 2025 at 04:17:06PM +0530, Viresh Kumar wrote:
-> On 21-01-25, 08:44, Beata Michalska wrote:
-> > Allow arch_freq_get_on_cpu to return an error for cases when retrieving
-> > current CPU frequency is not possible, whether that being due to lack of
-> > required arch support or due to other circumstances when the current
-> > frequency cannot be determined at given point of time.
-> > 
-> > Signed-off-by: Beata Michalska <beata.michalska@arm.com>
-> > ---
-> >  arch/x86/kernel/cpu/aperfmperf.c | 2 +-
-> >  arch/x86/kernel/cpu/proc.c       | 7 +++++--
-> >  drivers/cpufreq/cpufreq.c        | 8 ++++----
-> >  include/linux/cpufreq.h          | 2 +-
-> >  4 files changed, 11 insertions(+), 8 deletions(-)
-> > 
-> > diff --git a/arch/x86/kernel/cpu/aperfmperf.c b/arch/x86/kernel/cpu/aperfmperf.c
-> > index f642de2ebdac..6cf31a1649c4 100644
-> > --- a/arch/x86/kernel/cpu/aperfmperf.c
-> > +++ b/arch/x86/kernel/cpu/aperfmperf.c
-> > @@ -498,7 +498,7 @@ void arch_scale_freq_tick(void)
-> >   */
-> >  #define MAX_SAMPLE_AGE	((unsigned long)HZ / 50)
-> >  
-> > -unsigned int arch_freq_get_on_cpu(int cpu)
-> > +int arch_freq_get_on_cpu(int cpu)
-> >  {
-> >  	struct aperfmperf *s = per_cpu_ptr(&cpu_samples, cpu);
-> >  	unsigned int seq, freq;
-> > diff --git a/arch/x86/kernel/cpu/proc.c b/arch/x86/kernel/cpu/proc.c
-> > index 41ed01f46bd9..d79f5845a463 100644
-> > --- a/arch/x86/kernel/cpu/proc.c
-> > +++ b/arch/x86/kernel/cpu/proc.c
-> > @@ -86,9 +86,12 @@ static int show_cpuinfo(struct seq_file *m, void *v)
-> >  		seq_printf(m, "microcode\t: 0x%x\n", c->microcode);
-> >  
-> >  	if (cpu_has(c, X86_FEATURE_TSC)) {
-> > -		unsigned int freq = arch_freq_get_on_cpu(cpu);
-> > +		int freq = arch_freq_get_on_cpu(cpu);
-> >  
-> > -		seq_printf(m, "cpu MHz\t\t: %u.%03u\n", freq / 1000, (freq % 1000));
-> > +		if (freq <= 0)
-> > +			seq_puts(m, "cpu MHz\t\t: Unknown\n");
-> > +		else
-> > +			seq_printf(m, "cpu MHz\t\t: %u.%03u\n", freq / 1000, (freq % 1000));
-> >  	}
-> >  
-> >  	/* Cache size */
-> > diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
-> > index 418236fef172..6f45684483c4 100644
-> > --- a/drivers/cpufreq/cpufreq.c
-> > +++ b/drivers/cpufreq/cpufreq.c
-> > @@ -728,18 +728,18 @@ show_one(cpuinfo_transition_latency, cpuinfo.transition_latency);
-> >  show_one(scaling_min_freq, min);
-> >  show_one(scaling_max_freq, max);
-> >  
-> > -__weak unsigned int arch_freq_get_on_cpu(int cpu)
-> > +__weak int arch_freq_get_on_cpu(int cpu)
-> >  {
-> > -	return 0;
-> > +	return -EOPNOTSUPP;
-> >  }
-> >  
-> >  static ssize_t show_scaling_cur_freq(struct cpufreq_policy *policy, char *buf)
-> >  {
-> >  	ssize_t ret;
-> > -	unsigned int freq;
-> > +	int freq;
-> >  
-> >  	freq = arch_freq_get_on_cpu(policy->cpu);
-> > -	if (freq)
-> > +	if (freq > 0)
-> 
-> >= ?
-> 
-> Since we can return error now, 0 should be considered a valid
-> frequency value ?
-Theoretically speaking - it should, though what would 0 actually
-represent then ?
+Hi all,
 
----
-BR
-Beata
-> 
-> >  		ret = sysfs_emit(buf, "%u\n", freq);
-> >  	else if (cpufreq_driver->setpolicy && cpufreq_driver->get)
-> >  		ret = sysfs_emit(buf, "%u\n", cpufreq_driver->get(policy->cpu));
-> > diff --git a/include/linux/cpufreq.h b/include/linux/cpufreq.h
-> > index 7fe0981a7e46..02fd4746231d 100644
-> > --- a/include/linux/cpufreq.h
-> > +++ b/include/linux/cpufreq.h
-> > @@ -1184,7 +1184,7 @@ static inline int of_perf_domain_get_sharing_cpumask(int pcpu, const char *list_
-> >  }
-> >  #endif
-> >  
-> > -extern unsigned int arch_freq_get_on_cpu(int cpu);
-> > +extern int arch_freq_get_on_cpu(int cpu);
-> >  
-> >  #ifndef arch_set_freq_scale
-> >  static __always_inline
-> > -- 
-> > 2.25.1
-> 
-> -- 
-> viresh
+we want to measure the frequency and duty cycle of a signal (relating to 
+power consumption) using a hardware timer in our SoC (Microchip 
+SAMA5D2). The hardware is capable of taking a snapshot of the timer 
+value into another dedicated register pair (RA, RB) on the 
+rising/falling edges, and a small `devmem`-based userspace utility was 
+created as a working PoC. Now we want to move to a "proper" kernelspace 
+solution.
+
+However, none of the existing drivers seem to be able to do this; the 
+closest was `drivers/counter/microchip-tcb-capture.c`, but that only 
+seems to count one type of edge (rising/falling), and cannot give us the 
+time between them, which would be needed for duty cycle calculation. The 
+only other driver I could find was 
+`drivers/clocksource/timer-atmel-tcb.c`, which again seems incapable of 
+such measurements. Therefore, a new module will probably be needed; the 
+question then becomes: which API to implement.
+
+As `microchip-tcb-capture.c` uses the Generic Counter Interface, that 
+was obviously a first stop. However, from what I could see, you can only 
+represent (1) the number of times an edge has been encountered, and (2) 
+rotary encodings (quadrature and direction-step decoders); and not the 
+time between edges.
+
+IIO_ALTVOLTAGE and IIO_CHAN_INFO_FREQUENCY/_PHASE also seemed promising 
+(although the lack of IIO_CHAN_INFO_DUTY_CYCLE already posed a problem), 
+until I saw that all current drivers are frequency *generators*, and not 
+measurers, the latter seems to be completely unimplemented.
+
+The only other contender I could find was the Hardware Timestamping 
+Engine (HTE), but again, it's not clear whether (1) the API is even 
+capable of relaying duty cycle information to userspace and (2) if it 
+is, how would one go about implementing it.
+
+It is also entirely possible I missed a driver or API that could handle 
+this better, if so, please don't keep it to yourselves.
+
+So, how could one go about implementing such a driver?
+
+Bence
+
 
