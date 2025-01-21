@@ -4,70 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D776DC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 11:50:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05FA8C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 11:52:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n50bXjL6CzsZAywq5myPb2oe8TPuInq6nzZ0FGMySmo=; b=xYW5km6Pk5IK/9i1mUdsZOjJu1
-	55SzVGsaavWeQHNvsCZGaJ8QI7eu/GbT5s2onF5Y2SnAA+cBDx3/R5lX4IjlITAsoWazUeDSojxyh
-	pj1vt2MOS5qeL09MjukHGKs9yNE+cVj7N3Kv5BAo1Ai0FmmTWF76Ty2dwvfWZpixKVV34xb1ZOspp
-	Ckv6d2yI2PCOUaPTvMF80ccYBpir8FmFYXt7a8EpULiWfqIs2Dso200g9fxBiOHUFio48gTchCT1P
-	MjTR4bgzuZD67sbwfuW0qjea8n0UQ7MQOFTkJH9tZo4DlnrYa6j851Zwsd9q6fyw0kxu3PhhPJeNZ
-	5QM41ILw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/JxEK8gd2DKUYFHUImvOGy5ibdZjUbYdrztpRvTmVbM=; b=n3CkaFfeP9jHC4Ec3xYARQAW3Y
+	CWdmEm2qFuIHKQPGxcQag1RYnp2kHKZKeGSld43g7fNb8HIljyQ93fnuRTbB3z/vy48TYdENTJ51Z
+	5/6WF5rlAAov+ako+q73qm4ruCsXS5VO1fiD3GhDB9eirlCAWQxn39ozBVPzRQE37jeR/uow/0iSI
+	bx8YbjxS2ENNOaMH9111vhS3jUmMXi75aooHBP5elQyXx/3tLyUxcgNc6MysG2ywV84La91qF/sls
+	2y5Zffq14Oxvv07XnM67y3TSUEuQQnrMaDxhhwx5wu5i5XqPohyfGplNLgGP3R6Oqm/IqDpTUrRxZ
+	RpfI4inw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taCm1-00000007mmi-3Rwi;
-	Tue, 21 Jan 2025 11:50:26 +0000
-Received: from m16.mail.163.com ([117.135.210.5])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taBZo-00000007b6h-2Ay2;
-	Tue, 21 Jan 2025 10:33:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=n50bX
-	jL6CzsZAywq5myPb2oe8TPuInq6nzZ0FGMySmo=; b=WtnYvh5OrLJFZkembmmv4
-	e4nr+f9ubsoWJy9Gnfb1GbEUULNTD/MAK/pC71wYRN4DVCRXHBx0K0AwqcokU4JP
-	W6unlYhmKcIW3ciQr+BsxFp+c6Bsf0na3r6vMB2PBlSqsddYEDvhw1Y1dHawSHjL
-	Od0NExiP+mhW7kyojd5wQk=
-Received: from ProDesk.. (unknown [])
-	by gzsmtp1 (Coremail) with SMTP id PCgvCgDHkqjYd49nreMjBg--.21590S12;
-	Tue, 21 Jan 2025 18:33:09 +0800 (CST)
-From: Andy Yan <andyshrk@163.com>
-To: heiko@sntech.de
-Cc: hjc@rock-chips.com,
-	krzk+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	derek.foreman@collabora.com,
-	detlev.casanova@collabora.com,
-	daniel@fooishbar.org,
-	robh@kernel.org,
-	sebastian.reichel@collabora.com,
-	Andy Yan <andy.yan@rock-chips.com>
-Subject: [PATCH v12 10/13] dt-bindings: display: vop2: describe constraint SoC by SoC
-Date: Tue, 21 Jan 2025 18:32:47 +0800
-Message-ID: <20250121103254.2528004-11-andyshrk@163.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250121103254.2528004-1-andyshrk@163.com>
-References: <20250121103254.2528004-1-andyshrk@163.com>
+	id 1taCnw-00000007n48-39R6;
+	Tue, 21 Jan 2025 11:52:24 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1taCmb-00000007mwW-1CMW;
+	Tue, 21 Jan 2025 11:51:06 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50L9D6t0003828;
+	Tue, 21 Jan 2025 12:50:43 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=/JxEK8gd2DKUYFHUImvOGy
+	5ibdZjUbYdrztpRvTmVbM=; b=bWzyn92s9NU2kARkgKSzj5i/ePkqu9HjHIv1n2
+	dipRXPMbsQRHFdTHIUH6KZBbfxklMOXh2BFbDYHUPtlNvUmuCfQFCRv9EECyyfmo
+	ZV2PORDPW0OTL/+UkXVJxephYh0q5VpeDqOJJVMTxllSHWwepDP4JPboLo2jUWYX
+	0k2s4d7wFS2tF8lmzwdGhOpBXsEQw9WFAosXs++uxD4hIKY1Kw/hrn/Nmtj0vV+C
+	bGjPbRG3eiYJWpwpMk7N2GksbynHkqHCpcweeiqiUTPa0ZFgszuboqvp9kVDISaj
+	GNZ6geqhFk4wnb2jNdOQVuJNVqldkT6dVYtHXKXHDoC62fGw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44a213j8gj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 21 Jan 2025 12:50:42 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 35B3040049;
+	Tue, 21 Jan 2025 12:49:44 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 60D732A3D06;
+	Tue, 21 Jan 2025 12:49:15 +0100 (CET)
+Received: from localhost (10.129.178.212) by SHFDAG1NODE3.st.com
+ (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 21 Jan
+ 2025 12:49:15 +0100
+From: Christian Bruel <christian.bruel@foss.st.com>
+To: <christian.bruel@foss.st.com>, <vkoul@kernel.org>, <kishon@kernel.org>,
+        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>
+CC: <arnd@arndb.de>, <fabrice.gasnier@foss.st.com>,
+        <linux-phy@lists.infradead.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>
+Subject: [PATCH] [PATCH v2] phy: stm32: Fix constant-value overflow assertion
+Date: Tue, 21 Jan 2025 12:49:00 +0100
+Message-ID: <20250121114900.3838224-1-christian.bruel@foss.st.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: PCgvCgDHkqjYd49nreMjBg--.21590S12
-X-Coremail-Antispam: 1Uf129KBjvJXoWxZF4UWFWrJw47tw1kZF4Dtwb_yoW5WF4kpa
-	93Cas8X3y8Gr1UWw4ktF1rCw40qF93Aw4xJrn7t3WxGa1qvF4UG3yagrn8Ar9xWrsrZaya
-	kFs0kw15J3y2vr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j8zV8UUUUU=
-X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0hfbXmePdPc5zgAAsc
+Content-Type: text/plain
+X-Originating-IP: [10.129.178.212]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-21_05,2025-01-21_02,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_023344_985605_2324BD38 
-X-CRM114-Status: GOOD (  10.71  )
+X-CRM114-CacheID: sfid-20250121_035101_907211_2FCD27F1 
+X-CRM114-Status: GOOD (  13.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,139 +89,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andy Yan <andy.yan@rock-chips.com>
+Guard against false positives with a WARN_ON check to make the compiler
+happy: This should not happen because the offset range is checked against
+the sorted imp_lookup_table values.
 
-As more SoCs variants are introduced, each SoC brings its own
-unique set of constraints, describe this constraints SoC by
-SoC will make things easier for adding new variant.
+Guard against a true warning found for the max_vswing, as a given
+vswing value can be 802000 or 803000 depending on the current impedance
 
-Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
-
+Fixes: 2de679ecd724 ("phy: stm32: work around constant-value overflow assertion")
+Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
 ---
+v2: Change title and Fixes tag
+---
+ drivers/phy/st/phy-stm32-combophy.c | 38 ++++++++++++++---------------
+ 1 file changed, 18 insertions(+), 20 deletions(-)
 
-Changes in v12:
-- Only change the description method for existing SoC.
-
-Changes in v11:
-- Remove redundant min/maxItems constraint
-
-Changes in v10:
-- Move interrupt-names back to top level
-- Add constraint of interrupts for all platform
-- Add constraint for all grf phandles
-- Reorder some properties
-
-Changes in v9:
-- Drop 'vop-' prefix of interrupt-names.
-- Add blank line between DT properties
-- Remove list interrupt-names in top level
-
-Changes in v8:
-- Fix dt_binding_check errors
-- ordered by soc name
-- Link to the previous version:
-  https://lore.kernel.org/linux-rockchip/6pn3qjxotdtpzucpul24yro7ppddezwuizneovqvmgdwyv2j7p@ztg4mqyiqmjf/T/#u
-
-Changes in v4:
-- describe constraint SOC by SOC, as interrupts of rk3576 is very
-  different from others
-- Drop Krzysztof's Reviewed-by, as this version changed a lot.
-
-Changes in v3:
-- ordered by soc name
-- Add description for newly added interrupt
-
-Changes in v2:
-- Add dt bindings
-
- .../display/rockchip/rockchip-vop2.yaml       | 44 +++++++++++++------
- 1 file changed, 30 insertions(+), 14 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
-index 2531726af306..f23939e67fd0 100644
---- a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
-+++ b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
-@@ -14,6 +14,7 @@ description:
- maintainers:
-   - Sandy Huang <hjc@rock-chips.com>
-   - Heiko Stuebner <heiko@sntech.de>
-+  - Andy Yan <andyshrk@163.com>
+diff --git a/drivers/phy/st/phy-stm32-combophy.c b/drivers/phy/st/phy-stm32-combophy.c
+index 49e9fa90a681..607b4d607eb5 100644
+--- a/drivers/phy/st/phy-stm32-combophy.c
++++ b/drivers/phy/st/phy-stm32-combophy.c
+@@ -111,6 +111,7 @@ static const struct clk_impedance imp_lookup[] = {
+ 	{ 4204000, { 511000, 609000, 706000, 802000 } },
+ 	{ 3999000, { 571000, 648000, 726000, 803000 } }
+ };
++#define DEFAULT_IMP_INDEX 3 /* Default impedance is 50 Ohm */
  
- properties:
-   compatible:
-@@ -120,43 +121,58 @@ allOf:
-       properties:
-         compatible:
-           contains:
--            const: rockchip,rk3588-vop
-+            enum:
-+              - rockchip,rk3566-vop
-+              - rockchip,rk3568-vop
-     then:
-       properties:
-         clocks:
--          minItems: 7
-+          minItems: 5
+ static int stm32_impedance_tune(struct stm32_combophy *combophy)
+ {
+@@ -119,10 +120,9 @@ static int stm32_impedance_tune(struct stm32_combophy *combophy)
+ 	u8 imp_of, vswing_of;
+ 	u32 max_imp = imp_lookup[0].microohm;
+ 	u32 min_imp = imp_lookup[imp_size - 1].microohm;
+-	u32 max_vswing = imp_lookup[imp_size - 1].vswing[vswing_size - 1];
++	u32 max_vswing;
+ 	u32 min_vswing = imp_lookup[0].vswing[0];
+ 	u32 val;
+-	u32 regval;
+ 
+ 	if (!of_property_read_u32(combophy->dev->of_node, "st,output-micro-ohms", &val)) {
+ 		if (val < min_imp || val > max_imp) {
+@@ -130,45 +130,43 @@ static int stm32_impedance_tune(struct stm32_combophy *combophy)
+ 			return -EINVAL;
+ 		}
+ 
+-		regval = 0;
+-		for (imp_of = 0; imp_of < ARRAY_SIZE(imp_lookup); imp_of++) {
+-			if (imp_lookup[imp_of].microohm <= val) {
+-				regval = FIELD_PREP(STM32MP25_PCIEPRG_IMPCTRL_OHM, imp_of);
++		for (imp_of = 0; imp_of < ARRAY_SIZE(imp_lookup); imp_of++)
++			if (imp_lookup[imp_of].microohm <= val)
+ 				break;
+-			}
+-		}
 +
-         clock-names:
--          minItems: 7
-+          minItems: 5
++		if (WARN_ON(imp_of == ARRAY_SIZE(imp_lookup)))
++			return -EINVAL;
+ 
+ 		dev_dbg(combophy->dev, "Set %u micro-ohms output impedance\n",
+ 			imp_lookup[imp_of].microohm);
+ 
+ 		regmap_update_bits(combophy->regmap, SYSCFG_PCIEPRGCR,
+ 				   STM32MP25_PCIEPRG_IMPCTRL_OHM,
+-				   regval);
+-	} else {
+-		regmap_read(combophy->regmap, SYSCFG_PCIEPRGCR, &val);
+-		imp_of = FIELD_GET(STM32MP25_PCIEPRG_IMPCTRL_OHM, val);
+-	}
++				   FIELD_PREP(STM32MP25_PCIEPRG_IMPCTRL_OHM, imp_of));
++	} else
++		imp_of = DEFAULT_IMP_INDEX;
+ 
+ 	if (!of_property_read_u32(combophy->dev->of_node, "st,output-vswing-microvolt", &val)) {
++		max_vswing = imp_lookup[imp_of].vswing[vswing_size - 1];
 +
-+        interrupts:
-+          maxItems: 1
+ 		if (val < min_vswing || val > max_vswing) {
+ 			dev_err(combophy->dev, "Invalid value %u for output vswing\n", val);
+ 			return -EINVAL;
+ 		}
  
-         ports:
-           required:
-             - port@0
-             - port@1
-             - port@2
--            - port@3
--
--      required:
--        - rockchip,grf
--        - rockchip,vo1-grf
--        - rockchip,vop-grf
--        - rockchip,pmu
- 
--    else:
--      properties:
-         rockchip,vo1-grf: false
-         rockchip,vop-grf: false
-         rockchip,pmu: false
- 
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: rockchip,rk3588-vop
-+    then:
-+      properties:
-         clocks:
--          maxItems: 5
-+          minItems: 7
+-		regval = 0;
+-		for (vswing_of = 0; vswing_of < ARRAY_SIZE(imp_lookup[imp_of].vswing); vswing_of++) {
+-			if (imp_lookup[imp_of].vswing[vswing_of] >= val) {
+-				regval = FIELD_PREP(STM32MP25_PCIEPRG_IMPCTRL_VSWING, vswing_of);
++		for (vswing_of = 0; vswing_of < ARRAY_SIZE(imp_lookup[imp_of].vswing); vswing_of++)
++			if (imp_lookup[imp_of].vswing[vswing_of] >= val)
+ 				break;
+-			}
+-		}
 +
-         clock-names:
--          maxItems: 5
-+          minItems: 7
-+
-+        interrupts:
-+          maxItems: 1
++		if (WARN_ON(vswing_of == ARRAY_SIZE(imp_lookup[imp_of].vswing)))
++			return -EINVAL;
  
-         ports:
-           required:
-             - port@0
-             - port@1
-             - port@2
-+            - port@3
-+
-+      required:
-+        - rockchip,grf
-+        - rockchip,vo1-grf
-+        - rockchip,vop-grf
-+        - rockchip,pmu
+ 		dev_dbg(combophy->dev, "Set %u microvolt swing\n",
+ 			 imp_lookup[imp_of].vswing[vswing_of]);
  
- additionalProperties: false
+ 		regmap_update_bits(combophy->regmap, SYSCFG_PCIEPRGCR,
+ 				   STM32MP25_PCIEPRG_IMPCTRL_VSWING,
+-				   regval);
++				   FIELD_PREP(STM32MP25_PCIEPRG_IMPCTRL_VSWING, vswing_of));
+ 	}
  
+ 	return 0;
 -- 
 2.34.1
 
