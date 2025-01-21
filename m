@@ -4,80 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DEA0C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 17:31:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 426BEC0218B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 17:32:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6SMmn399DijCiUX3gBxnE2kLGfAWmnOcjzp7FDIMbN8=; b=n12U5X+iZHmBdoT+6YC2jMxuHE
-	2oNkSPg7kTYxOkflCl9y+ZciOtj41yizFmTJii3r2Xs/cfzaNcNCAaBxOYAQPRPlF21HsPvpiijNE
-	yIiYVCdmN6sS3Kng25GzlShtTqgIfLg6XGu/2CJbL/KdcM9toOPOyZYsBYHFI3pAwsRGUz3CGzQ8M
-	nBvxdRrHb1j9CCGzGnzdutlv9S9aqv3hL01+cajdL7TkL1m3VKm2WKserVcCG6gGwMYkZXqyAD/VB
-	OsTmalXcZTUch89NnwX+K8Vaf6TiEc8hGqCub2ormV58SGpP5sP5kDb+ttpxvhG3X+eq8EU1c55pe
-	icV7UDug==;
+	bh=35MWvWUX+y9FbjxI6z260ZVWsxzfCHFj7/oCaThUJWA=; b=SqtFkPWuhPe2vMtzherQs1jb8W
+	I32RrrTj5uxyHs+na2DLsQMdkou7nkd0zGtNGx93eopCDCW+G8JBXNdhbGq+UeMliVovvH+vfKqcp
+	inoUuiLR/mM8P44Ej54uygDVhLckmUVHf1SBLFaXsLhdZAtd5O9HPBNzQ/TP2tkZ4bzbgVt7PDkY3
+	R+/Mu/MUfu8oGLzVfY1QdM4kxNHA0iJNTJ6mwWXbSn6T2eTn7QoxQXwkLlCosFOKePHdkmFKhyl32
+	k5YWzHi9uxvkdBUSyMcfRGwqCr4GZWFRmrL/zx64peucZZ+0pc4s7+Bs4VKvuEnrMrlU8HUF6+wif
+	i2A2E5Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taI62-00000008UGk-1A9L;
-	Tue, 21 Jan 2025 17:31:26 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1taI7H-00000008UOd-3nkS;
+	Tue, 21 Jan 2025 17:32:43 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taI4i-00000008TuV-40Xa
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 17:30:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=6SMmn399DijCiUX3gBxnE2kLGfAWmnOcjzp7FDIMbN8=; b=jLn+HGnFMAjk83/mc/4RxYs8zb
-	T728HVItldev866KXmTyPmjhdKDYiKz53jfW6MDTu7K3ooq1gEBbLrb7eKgHZZNd3kkKlabsk6tpG
-	EWFGNz/sKFLndPKFTLjLP64aiXG7BGoUE/lX8vUcVfU8PusaRt5GGhBndBZ//68XJaSbDAT/JIaje
-	/CJUZD4FsCV6JlGTzcGIFZiVonZPR0hDmU2X49NKOcWvtk7YrBd9K6YKuzfI59XssGUN7EuHIEdGY
-	A9tHCfB3DtcbS3mKASK/vNGEMV+skTCQU++Esupmc1FBsCziycMdb5kzN7oiOqAMpwLT8mEmO6wS/
-	f5m3YE6g==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:46698)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1taI4U-0007Wc-2x;
-	Tue, 21 Jan 2025 17:29:50 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1taI4Q-00044e-31;
-	Tue, 21 Jan 2025 17:29:46 +0000
-Date: Tue, 21 Jan 2025 17:29:46 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Yanteng Si <si.yanteng@linux.dev>
-Cc: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Furong Xu <0x1207@gmail.com>, Joao Pinto <Joao.Pinto@synopsys.com>,
-	Vince Bridgers <vbridger@opensource.altera.com>,
-	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v2 2/3] net: stmmac: Limit FIFO size by hardware
- capability
-Message-ID: <Z4_ZilVFKacuAUE8@shell.armlinux.org.uk>
-References: <20250121044138.2883912-1-hayashi.kunihiko@socionext.com>
- <20250121044138.2883912-3-hayashi.kunihiko@socionext.com>
- <07f2f6d0-e025-4b21-ac41-caaf71bb6fff@linux.dev>
+	id 1taI57-00000008U3s-1D1m;
+	Tue, 21 Jan 2025 17:30:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3123F5C5A44;
+	Tue, 21 Jan 2025 17:29:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56442C4CEDF;
+	Tue, 21 Jan 2025 17:30:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737480628;
+	bh=Govg89tiGbSn5yl9wzSlsxsIzUrVeToBKInXCkUD1UU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qyfPVyKzB1Cw46YjJnd5wRP11zBPA/rGHs4f7GcLunyOZEkHoGCizSoVGwm19rN30
+	 Te4LA5dXTAHtqlEc29+BhrS+BTDWI7F7QBkGtDnRPK1n6UwE5t1tQ5odrHZR9Geke4
+	 WlD+XGkjWaTF/zkbEczagQMu/y7x9DQ23ySs9r2TJRWe55wk9y4m2ajTP2HuUHcFMT
+	 IWIv1JkTsmHzaZob77Z+FLHV1gEYE76BqlhOnGDVHEFR+zP5czc0LQrECjJH+wrFv2
+	 6D3KB+btja9yJE2tQfIakNmxcdvMUsvdDfAy7VW6dUO1inwgY1aBJXC8Iy58GEEaw2
+	 iT5o/kW0yS8bw==
+Date: Tue, 21 Jan 2025 17:30:23 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Friday Yang <friday.yang@mediatek.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Garmin Chang <garmin.chang@mediatek.com>,
+	Yong Wu <yong.wu@mediatek.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Project_Global_Chrome_Upstream_Group@mediatek.com
+Subject: Re: [PATCH v3 1/2] dt-bindings: clock: mediatek: Add SMI LARBs reset
+ for MT8188
+Message-ID: <20250121-violet-widely-df3567b085a4@spud>
+References: <20250121065045.13514-1-friday.yang@mediatek.com>
+ <20250121065045.13514-2-friday.yang@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="234HpXv0PCqVfF3i"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <07f2f6d0-e025-4b21-ac41-caaf71bb6fff@linux.dev>
+In-Reply-To: <20250121065045.13514-2-friday.yang@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_093004_994061_8987437C 
-X-CRM114-Status: GOOD (  26.19  )
+X-CRM114-CacheID: sfid-20250121_093029_409246_B2D85F95 
+X-CRM114-Status: GOOD (  15.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,85 +83,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 22, 2025 at 01:14:25AM +0800, Yanteng Si wrote:
-> 在 1/21/25 12:41, Kunihiko Hayashi 写道:
-> > Tx/Rx FIFO size is specified by the parameter "{tx,rx}-fifo-depth" from
-> > stmmac_platform layer.
-> > 
-> > However, these values are constrained by upper limits determined by the
-> > capabilities of each hardware feature. There is a risk that the upper
-> > bits will be truncated due to the calculation, so it's appropriate to
-> > limit them to the upper limit values and display a warning message.
-> > 
-> > Fixes: e7877f52fd4a ("stmmac: Read tx-fifo-depth and rx-fifo-depth from the devicetree")
-> > Signed-off-by: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
-> > ---
-> >   drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 13 +++++++++++++
-> >   1 file changed, 13 insertions(+)
-> > 
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > index 251a8c15637f..da3316e3e93b 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > @@ -7245,6 +7245,19 @@ static int stmmac_hw_init(struct stmmac_priv *priv)
-> >   		priv->plat->tx_queues_to_use = priv->dma_cap.number_tx_queues;
-> >   	}
-> 
-> > +	if (priv->plat->rx_fifo_size > priv->dma_cap.rx_fifo_size) {
-> 
-> > +		dev_warn(priv->device,
-> > +			 "Rx FIFO size exceeds dma capability (%d)\n",
-> > +			 priv->plat->rx_fifo_size);
-> > +		priv->plat->rx_fifo_size = priv->dma_cap.rx_fifo_size;
-> I executed grep and found that only dwmac4 and dwxgmac2 have initialized
-> dma_cap.rx_fifo_size. Can this code still work properly on hardware other
-> than these two?
 
-Looking at drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c:
+--234HpXv0PCqVfF3i
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-        /* Compute minimum number of packets to make FIFO full */
-        pkt_count = priv->plat->rx_fifo_size;
-        if (!pkt_count)
-                pkt_count = priv->dma_cap.rx_fifo_size;
+On Tue, Jan 21, 2025 at 02:50:40PM +0800, Friday Yang wrote:
+> SMI LARBs require reset functions when applying clamp operations.
+> Add '#reset-cells' for the clock controller located in image, camera
+> and IPE subsystems.
 
-drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:
+A new required property is an abi break, please explain why this is
+required. What are "SMI LARBs"? Why did things previously work without
+acting as a reset controller?
 
-        int rxfifosz = priv->plat->rx_fifo_size;
-        int txfifosz = priv->plat->tx_fifo_size;
+>=20
+> Signed-off-by: Friday Yang <friday.yang@mediatek.com>
+> ---
+>  .../bindings/clock/mediatek,mt8188-clock.yaml | 21 +++++++++++++++++++
+>  1 file changed, 21 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt8188-cloc=
+k.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt8188-clock.yaml
+> index 860570320545..2985c8c717d7 100644
+> --- a/Documentation/devicetree/bindings/clock/mediatek,mt8188-clock.yaml
+> +++ b/Documentation/devicetree/bindings/clock/mediatek,mt8188-clock.yaml
+> @@ -57,6 +57,27 @@ required:
+>    - reg
+>    - '#clock-cells'
+>=20
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - mediatek,mt8188-camsys-rawa
+> +              - mediatek,mt8188-camsys-rawb
+> +              - mediatek,mt8188-camsys-yuva
+> +              - mediatek,mt8188-camsys-yuvb
+> +              - mediatek,mt8188-imgsys-wpe1
+> +              - mediatek,mt8188-imgsys-wpe2
+> +              - mediatek,mt8188-imgsys-wpe3
+> +              - mediatek,mt8188-imgsys1-dip-nr
+> +              - mediatek,mt8188-imgsys1-dip-top
+> +              - mediatek,mt8188-ipesys
+> +
+> +    then:
+> +      required:
+> +        - '#reset-cells'
+> +
+>  additionalProperties: false
+>=20
+>  examples:
+> --
+> 2.46.0
+>=20
 
-        if (rxfifosz == 0)
-                rxfifosz = priv->dma_cap.rx_fifo_size;
-        if (txfifosz == 0)
-                txfifosz = priv->dma_cap.tx_fifo_size;
+--234HpXv0PCqVfF3i
+Content-Type: application/pgp-signature; name="signature.asc"
 
-(in two locations)
+-----BEGIN PGP SIGNATURE-----
 
-It looks to me like the intention is that priv->plat->rx_fifo_size is
-supposed to _override_ whatever is in priv->dma_cap.rx_fifo_size.
+iHQEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ4/ZrwAKCRB4tDGHoIJi
+0pWsAPUdBV9ZoeWHEnWqUr1Shp9vd4lHhIWVWH6d7kO3PIJqAP4xDK4Kgf1eou4H
+43tgZR/e7RChn/6kgYrsxa86J5XpAA==
+=x+CA
+-----END PGP SIGNATURE-----
 
-Now looking at the defintions:
-
-drivers/net/ethernet/stmicro/stmmac/dwmac4.h:#define GMAC_HW_RXFIFOSIZE        GENMASK(4, 0)
-drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h:#define XGMAC_HWFEAT_RXFIFOSIZE GENMASK(4, 0)
-
-So there's a 5-bit bitfield that describes the receive FIFO size for
-these two MACs. Then we have:
-
-drivers/net/ethernet/stmicro/stmmac/common.h:#define DMA_HW_FEAT_RXFIFOSIZE    0x00080000       /* Rx FIFO > 2048 Bytes */
-
-which is used here:
-
-drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c:    dma_cap->rxfifo_over_2048 = (hw_cap & DMA_HW_FEAT_RXFIFOSIZE) >> 19;
-
-which is only used to print a Y/N value in a debugfs file, otherwise
-having no bearing on driver behaviour.
-
-So, I suspect MACs other than xgmac2 or dwmac4 do not have the ability
-to describe the hardware FIFO sizes in hardware, thus why there's the
-override and no checking of what the platform provided - and doing so
-would break the driver. This is my interpretation from the code alone.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+--234HpXv0PCqVfF3i--
 
