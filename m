@@ -4,88 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30193C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 07:30:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FCFFC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 07:31:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gpYNm3qlAya2ACRDiV2R40K+VHw6jIU1PcEeONO07Hc=; b=4sFgJTlAJ/csGabVTIFLW2HVqU
-	nTIxyq+mNoVGg8fVVgjXi4t+mXSS2QpMSBlDAkXtWi2avINNWjkoGcLDj0q5rcjlJb0O+NqzLHrcW
-	a7fcUsKtRNTnYS5lBRPT1uCcji3mFaTs006g3wnbqRW+wDsEcXH/ahJnD7T9ZmXuHv1T0PVvNEhRR
-	UqSVdfk/0T85NJvejPTpP8+dHxE8aJaU0f2+v4850yEVrFecYqnjFoOg+Kl+EHdm/Utr4oXcry8gx
-	JgHizEiMsOYhaJPwgTo+oR9kw7Wq3nkFfdLI+iapWy86LvL/hhbwTWFRRITKVMn0iN+p0qt6Elik5
-	02Dkdo0g==;
+	bh=h+Vn0Ug9JU6+clTGINvG6sBhseUNjSaHZCPTnYRIKIw=; b=D8x8GaJngVUEW3f1U4vvzfW9iq
+	tS9F3+YSHBZqclWYo3KWIxG22m/sBcxtFe35UkN/prS6IaigRd4QZCBslPBPNM0/PGUX+9kJgoi1D
+	eMqqQiglML6ht1h/7w49i/pdzzHpYEfMj/CJ2oJ3KXx2CLKrUeaG6w/O7EO3eF+Kt3w3zfBCVWZWH
+	+oaKwkWNV8W4Ydm9xuiqlGw/L7EIp4k0ksOV6++FM4nqOoqTe/vFa/9EzqrS+qyPduHVKapQf6dsR
+	m97l2GyoHLEhZI6Ie7rjI6SfzMG8Z7KWciyyOqRrlajrvXQbjQzYDUmHJS2bwdlbTyEybgtbiCy9v
+	KRAvafjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ta8hw-000000078nC-3X1i;
-	Tue, 21 Jan 2025 07:29:56 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1ta8jC-000000078xh-1xvD;
+	Tue, 21 Jan 2025 07:31:14 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ta8DG-0000000733Z-3DOY
+	id 1ta8S2-000000076GZ-2OBw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 06:58:15 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2162c0f6a39so116136425ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jan 2025 22:58:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737442694; x=1738047494; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gpYNm3qlAya2ACRDiV2R40K+VHw6jIU1PcEeONO07Hc=;
-        b=ROXzW4+856t5z2SR/6S01jFG6vPPkl/QUrZP5jhwatlgD6yJ+VWsksOVXStMfvaOyf
-         hnrf/DC2wgraEBmLC232SSg6krK3qy6+eb/QO+aphKgUaNzbpq2863LgfEQXuoCCv5L8
-         B28RhIEn/LYenafEQ5683Vx2aTpSCGBWD8HfihW+PE7tRe2jwPxyv6+R9YkesgV9+JKf
-         MJpgWzCVwZYQB/wR6zUWLG0dke1EDLmuxt0IXEFSGAV7QELpno7prd7g0fCIVj0jkGn7
-         DEWtd72VMUpAeBA7fZYOyaarC5trJiSxHrf1WMazzlJ380gNhwRfpgkyZhVj6eQDB2QN
-         Zzgg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737442694; x=1738047494;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=gpYNm3qlAya2ACRDiV2R40K+VHw6jIU1PcEeONO07Hc=;
-        b=OYq0X6IERTAklkycl6mxeoyOUVSiNQYsfnIXnxwFlIJ2ssb8EhlhBvc1tAMam8l7c1
-         tqUR/fJkjAUlB1q/MxzK17PuaYxMy0lPGBH9tozSrGWWNngQfc1Dt9lKS137K4a5JiaW
-         X0q0RXkM0zQBEJaFvqLc5S5otukiV8ygUPKbmzemLvxAk355UgoruQCj3Qhs2k6LIHzj
-         5HZgnxvTYNcXO8Gma2KBaKFDjsirqg5M5OoKnZ/Sb36WFKnSVW8tokcrjcsrrOFksWPD
-         +sTAQKu+rVTGcVMVsWglD+2jA5k4G6ciWnfdU3zWBpdlueXmjRDhw+7JTzLnpXccXzL6
-         Nvvg==
-X-Forwarded-Encrypted: i=1; AJvYcCU84iX5KWK406NRTKzvRX+b97xBhR5KvhV5rO59UaxrGSnDRudgXsM8qt/eL9NAGluz4d+NMLcQ0iu4Tv9NNdba@lists.infradead.org
-X-Gm-Message-State: AOJu0YyGitUrLljByv1zhF1CRX7bi2WPNzZbNriO0Z5bSlXSIh98vPEX
-	LX/2RcuTihtTMoT71sum7qwJFjWEeaWt5t5ClIQc5qxppRbgfeEV3oztmRTQTkE=
-X-Gm-Gg: ASbGncv5lF4jQAvFHuU2y33ESAESiBIfcUpwmRYTaQNnF5e37UNHCHPifuMe7EnaNol
-	ukL3NcsYcb3dXz3cIV3iNMQdmgfuA6+jjIbHYqC0Z3jhXGUdmfF/LmxsItihze1lDhYiDVNP0Qw
-	4XyT1Oe3w3YGAKRaSrlVmPKernTw95PCo/bFafoHAf82hrSzvN4AC/132Go8EL7Syq8U1Ky3ljj
-	0YyOlFuI4OVpYrzCtgm8jhGHrmIgz/Q9bwAxGgciPy9KzJakyFoDZqgn+3omAVK37SGTBbW
-X-Google-Smtp-Source: AGHT+IHYl8ITOnKHBR9wtZWdnRc2vDPL7PmQsCpT1dlueNYfJot6EA1SnMHcxy4v1Dsvc7fZY1N5kw==
-X-Received: by 2002:a05:6a20:c707:b0:1d8:c74d:1ca0 with SMTP id adf61e73a8af0-1eb02521584mr31018777637.11.1737442694157;
-        Mon, 20 Jan 2025 22:58:14 -0800 (PST)
-Received: from localhost ([122.172.84.139])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-a9bdf0b50c6sm6841360a12.68.2025.01.20.22.58.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Jan 2025 22:58:13 -0800 (PST)
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: Viresh Kumar <viresh.kumar@linaro.org>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	=?UTF-8?q?Alex=20Benn=C3=A9e?= <alex.bennee@linaro.org>,
-	Bill Mills <bill.mills@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 3/3] firmware: arm_ffa: Provide .dma_configure()
-Date: Tue, 21 Jan 2025 12:26:40 +0530
-Message-Id: <766e29dbb32987f714158eef827e706fd1157500.1737441631.git.viresh.kumar@linaro.org>
-X-Mailer: git-send-email 2.31.1.272.g89b43f80a514
-In-Reply-To: <cover.1737441631.git.viresh.kumar@linaro.org>
-References: <cover.1737441631.git.viresh.kumar@linaro.org>
+	Tue, 21 Jan 2025 07:13:31 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50L2JZXI017914;
+	Tue, 21 Jan 2025 07:13:21 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	h+Vn0Ug9JU6+clTGINvG6sBhseUNjSaHZCPTnYRIKIw=; b=IoJjSj3zrOU02YeI
+	dSNgmNDsNogNAMS/SojlXXaRsMw0X5DSNXiFTSSWojA7F9EcbpYRMO9JhO1mSemE
+	dg8loPFmstJmsoDOoAlYlOeWv4NUc6CEk8hR1j2EwSm2Ey7RztNSP47CDrZzxPIR
+	+xUigfFBqIBP4Fy8BxfxiNzLDP2m9gN2xLDl1OqHE0Fnc2+UIKYMnmzp+BCiFyqV
+	dygKDyhZyArXiH2fyFO4flZCSMnAA7SYBOIljC5C7TiVAsQM54vTLRz+E6hN5ftv
+	a0IxHuHurJqdGBLBGsV/zSsmeKJSTy6Wc7tEQE/8TooM/S89XLgeqZrwg2Bvq9T3
+	BIK2Rw==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44a2pugkjg-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 21 Jan 2025 07:13:21 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 50L7DKPc031133
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 21 Jan 2025 07:13:20 GMT
+Received: from [10.253.35.93] (10.80.80.8) by nalasex01c.na.qualcomm.com
+ (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 20 Jan
+ 2025 23:13:14 -0800
+Message-ID: <89d4df79-a202-407a-bcfd-6af5315c403c@quicinc.com>
+Date: Tue, 21 Jan 2025 15:13:11 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] net: stmmac: qcom-ethqos: Enable RX programmable swap
+ on qcs615
+To: Andrew Lunn <andrew@lunn.ch>
+CC: Krzysztof Kozlowski <krzk@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo
+ Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson
+	<andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Alexandre
+ Torgue <alexandre.torgue@foss.st.com>,
+        Jose Abreu <joabreu@synopsys.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>, <netdev@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20241225-support_10m100m-v1-0-4b52ef48b488@quicinc.com>
+ <20241225-support_10m100m-v1-2-4b52ef48b488@quicinc.com>
+ <4b4ef1c1-a20b-4b65-ad37-b9aabe074ae1@kernel.org>
+ <278de6e8-de8f-458a-a4b9-92b3eb81fa77@quicinc.com>
+ <e47f3b5c-9efa-4b71-b854-3a5124af06d7@lunn.ch>
+ <87a7729d-ccdd-46f0-bcfd-3915452344fd@quicinc.com>
+ <7e046761-7787-4f01-b47b-9374402489ac@lunn.ch>
+ <5bc3f4e0-6c3f-412c-a825-54707c70f779@quicinc.com>
+ <0fe23cfd-9326-4664-9c94-cf010aec882c@lunn.ch>
+Content-Language: en-US
+From: Yijie Yang <quic_yijiyang@quicinc.com>
+In-Reply-To: <0fe23cfd-9326-4664-9c94-cf010aec882c@lunn.ch>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: GvL8wDOpkugmdU1D06R9_Tiw5YRakzH9
+X-Proofpoint-GUID: GvL8wDOpkugmdU1D06R9_Tiw5YRakzH9
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-21_03,2025-01-21_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=886 clxscore=1015
+ lowpriorityscore=0 malwarescore=0 phishscore=0 impostorscore=0
+ priorityscore=1501 suspectscore=0 adultscore=0 spamscore=0 mlxscore=0
+ bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501210058
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_225814_801701_7C97857C 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20250120_231330_623934_FDF59693 
+X-CRM114-Status: GOOD (  32.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,41 +125,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Provide .dma_configure() callback to make reserved-memory work for FFA
-devices.
 
-Signed-off-by: Viresh Kumar <viresh.kumar@linaro.org>
----
- drivers/firmware/arm_ffa/bus.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
 
-diff --git a/drivers/firmware/arm_ffa/bus.c b/drivers/firmware/arm_ffa/bus.c
-index ca526e438e71..e7fd25ba71a4 100644
---- a/drivers/firmware/arm_ffa/bus.c
-+++ b/drivers/firmware/arm_ffa/bus.c
-@@ -110,12 +110,21 @@ static struct attribute *ffa_device_attributes_attrs[] = {
- };
- ATTRIBUTE_GROUPS(ffa_device_attributes);
- 
-+static int ffa_Device_dma_configure(struct device *dev)
-+{
-+	if (dev->of_node)
-+		return of_dma_configure(dev, dev->of_node, true);
-+
-+	return 0;
-+}
-+
- const struct bus_type ffa_bus_type = {
- 	.name		= "arm_ffa",
- 	.match		= ffa_device_match,
- 	.probe		= ffa_device_probe,
- 	.remove		= ffa_device_remove,
- 	.uevent		= ffa_device_uevent,
-+	.dma_configure	= ffa_Device_dma_configure,
- 	.dev_groups	= ffa_device_attributes_groups,
- };
- EXPORT_SYMBOL_GPL(ffa_bus_type);
+On 2025-01-21 00:49, Andrew Lunn wrote:
+>>> So this indicates any board might need this feature, not just this one
+>>> board. Putting the board name in the driver then does not scale.
+>>>
+>>
+>> Should I ignore this if I choose to use the following standard properties?
+> 
+> You should always follow standard properties unless they don't
+> work. And if they don't work, your commit message needs to explain why
+> they don't work forcing your to do something special.
+> 
+>>>> This means the time
+>>>> delay introduced by the PC board may not be zero. Therefore, it's necessary
+>>>> for software developers to tune both the RX programming swap bit and the
+>>>> delay to ensure correct sampling.
+>>>
+>>> O.K. Now look at how other boards tune their delays. There are
+>>> standard properties for this:
+>>>
+>>>           rx-internal-delay-ps:
+>>>             description:
+>>>               RGMII Receive Clock Delay defined in pico seconds. This is used for
+>>>               controllers that have configurable RX internal delays. If this
+>>>               property is present then the MAC applies the RX delay.
+>>>           tx-internal-delay-ps:
+>>>             description:
+>>>               RGMII Transmit Clock Delay defined in pico seconds. This is used for
+>>>               controllers that have configurable TX internal delays. If this
+>>>               property is present then the MAC applies the TX delay.
+>>>
+>>> I think you can use these properties, maybe with an additional comment
+>>> in the binding. RGMII running at 1G has a clock of 125MHz. That is a
+>>> period of 8ns. So a half clock cycle delay is then 4ns.
+>>>
+>>> So an rx-internal-delay-ps of 0-2000 means this clock invert should be
+>>> disabled. A rx-internal-delay-ps of 4000-6000 means the clock invert
+>>> should be enabled.
+>>
+>> This board was designed to operate at different speed rates, not a fixed
+>> speed, and the clock rate varies for each speed. Thus, the delay introduced
+>> by inverting the clock is not fixed. Additionally, I noticed that some
+>> vendors apply the same routine for this property across all speeds in their
+>> driver code. Can this property be used just as a flag, regardless of its
+>> actual value?
+> 
+> Maybe you should go read the RGMII standard, and then think about how
+> your hardware actually works.
+> 
+> RGMII always has a variable clock, with different clock speeds for
+> 10/100/1G. So your board design is just plain normal, not
+> special. Does the standard talk about different delays for different
+> speeds? As you say, other drivers apply the same delay for all
+> speeds. Why should your hardware be special?
+> 
+> RGMII has been around for 25 years. Do you really think your RGMII
+> implementation needs something special which no other implementation
+> has needed in the last 25 years?
+
+I do not intend to violate the regulations of the RGMII standard and aim 
+to maintain the same delay across all speeds. But the RX programming 
+swap bit can only introduce a delay of 180 degrees. Should I assume the 
+1G speed clock to calculate and determine if this bit should be enabled 
+for all speeds?
+
+> 
+>>> Now, ideally, you want the PHY to add the RGMII delays, that is what i
+>>> request all MAC/PHY pairs do, so we have a uniform setup across all
+>>> boards. So unless the PHY does not support RGMII delays, you would
+>>> expect rx-internal-delay-ps to be either just a small number of
+>>> picoseconds for fine tuning, or a small number of picoseconds + 4ns
+>>> for fine tuning.
+>>
+>> The delay for both TX and RX sides is added by the MAC in the Qualcomm
+>> driver, which was introduced by the initial patch. I believe there may be a
+>> refactor in the future to ensure it follows the requirements.
+>   
+> You can do it in the MAC. But you probably want to clearly document
+> this, that your design is different to > 95% of systems in Linux which
+> have the PHY do the delays.
+> 
+> 	Andrew
+
 -- 
-2.31.1.272.g89b43f80a514
+Best Regards,
+Yijie
 
 
