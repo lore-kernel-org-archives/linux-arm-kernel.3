@@ -4,74 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA6F7C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 14:21:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 765A3C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 14:33:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jMdYmwmLPyDuVRsbkv93AlEBzIO1Opr34EVAtN7rIzg=; b=HMwEQcUqUdoiqvbxnAjFrFe27j
-	r4/8vl6oDag6xZppHshQMu/St2q0HI+aTUpOusecpGw0CbmaKwvgj9Mwj7p+z3k3JqxiSMID4yu/Y
-	hH2IQ3+Dy+5DhySdiaN20Okf5X8Y6X0l0/oAOpjS1ihO5KY/yaF7z6keXWrBhbU05FKWZi6uZ82Bv
-	mrhpRDKqr6POLp/Wm8axTKRVivjsxZ/fSKjEgjZvuJB7eQ1Us5G5hdak6Rf2+PlrVSnu1pJlFquR/
-	wZwKdciHpnHaRstCQ6FWYWkO+MF8PE+A4wPHC5wHqCjcoGX/lW/DlGOhySQ1oZkf1d2hbOmDi/c2f
-	O5bYu1Cg==;
+	bh=qPpN1nMz8ypNY7Uvp2UVwET0jVW8zavGqE0/d00IijA=; b=CWNec+fYvtZVHOZ2cw/L8ucl1R
+	86Xab1B9q1QtqQxU5yCKalWAdxx/CIaURoPp1Ag15IyZ7jFx25IKD+CphgJeJXTwwvsAOvE9bAdke
+	X5VGEKHgk2spnzXCwkXzfJcqu+dzmDJIJVX3Lp66tReJSa3aia/sOhde4M/FkT3hEMntuurZ+zZWO
+	sa4umCNn0G5VYtu+2VuGsywU4gErDPsiqILNVRtqMYdjjvkVs4ZdETqqVHMiM+6wV7V+y31CS04AE
+	FnUEIpYjmSYW/JRjYI8UBg1zxyu63fAKjLFs4QyLI6HzlA5ye0sUq+RH1pJnbIgwo2O9xAkjmFMUC
+	2I2Fitiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taF84-000000083Pf-1Cws;
-	Tue, 21 Jan 2025 14:21:20 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1taFJk-000000084x6-3m5l;
+	Tue, 21 Jan 2025 14:33:24 +0000
+Received: from mail-westeuropeazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c201::] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taF6W-0000000834z-4AIB
+	id 1taFIS-000000084pc-0rN6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 14:19:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=jMdYmwmLPyDuVRsbkv93AlEBzIO1Opr34EVAtN7rIzg=; b=kRfQF0VPZ2zh5eyHFHt9OFbw7i
-	F70eXR9dI+FP4iMiLNDozLfDCKz6XXFTtoV/GCmoYoej6vZfFQb3iXQMz1LeqsefvRTz9vuV8Vfkr
-	+u/b8Jl+YEoJAcuEO1IyAvBnKKh6A85m81xpx3A6S9pNOGxl+niZYUVK2XehbdCYthGMgjnxMhobY
-	+8Cu2GGJmcQFv0E58PvCMeYrfsokoiBK9Dgw2NRT733jii2C7dWnuYdUyFBMH6J76Xdd6/KutdmGj
-	gfTPyc9OtXK1QspBhrY4OO7NZkEBJulU3Nr7UyK/7tyHf77ssJSoyPBObP1VlpDQOgdqPZHwpDplx
-	GikDbNCQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:43796)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1taF6P-0007KN-1u;
-	Tue, 21 Jan 2025 14:19:37 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1taF6L-0003xt-29;
-	Tue, 21 Jan 2025 14:19:33 +0000
-Date: Tue, 21 Jan 2025 14:19:33 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
-Subject: Re: [PATCH] ARM: cacheinfo fix format field mask
-Message-ID: <Z4-s9UHBJZx9APeE@shell.armlinux.org.uk>
-References: <20250115-arm-cacheinfo-fix-v1-1-5f30eeb4e463@linaro.org>
- <CAMuHMdVLvCNZtc2qYrsnMz5L0Hyr70x-Hj5NA8izYBH2tf=yFg@mail.gmail.com>
+	Tue, 21 Jan 2025 14:32:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Un5ohnZtbpKHhTLCJSSW961xrfBPFd1lwXVX/IUtaDSvmJB2e1sIrwNDXfU8T1TdFkq1+LwYrEQVzhMaqxDOLzbz8zle9jMTkiVExE+UqutPwbsivPK9yaREtM2aJHSk7tIzLcir71l8yQ35bHijZkIM4V915C8Eiic8KOcOBNi8sOee4XGvz7bRxWIcv28ZozsfWvrhx7vKRx7ISYGNc5UA8HMPvK/vNGp7Yzuxd0dSCLShr7YkVaqLGNPaUe/IisTzhmOa4oFqo+GTECFdLgFjdQfVF0J+w9NWKZA+9/yHHaoMOdLLyfMyjbFzEBdnE8oFH5m6YOzuzYTALSuWKA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qPpN1nMz8ypNY7Uvp2UVwET0jVW8zavGqE0/d00IijA=;
+ b=b2xiVd//OVC2pBNvdKzYdxAiTHSdZBHGzHP8I31iNeagb/sXvfPYi7NlkAU6o7LCGQ9Ec1Rr5TLB9ZXhwVH/dakTtNT7KgJaEzEg3WBAuho/FjlDMH0OxJCyU1CQ6Khi4VOJz9adEdKl2XwTpeIQAzc9V6hSlVUAHkDTd43WrO/juSZeDGiGHyvCKueN8VUXGw7sld67r9AaEn4+c8dpxr3cc8d3mq2FuFzFgOsJOG+wzntmoU8fRA6Bj3LcSgcQASSN0eLVxNELKtQR6h19SVesgjgLVQIxfuv89tW4vBLYazUiI+dFQgA1Mmf6b9TBKTB3u1bdJHLe0Twlmadf/Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qPpN1nMz8ypNY7Uvp2UVwET0jVW8zavGqE0/d00IijA=;
+ b=NE0ncwFwwq3egvbUphkr0gUR+SLKn+aPREkagMpOQb5EqTquI43ws2pxcDYCEL3EN7jWg4IBO0YB6nAdbA00pZzKBYDyqnLtPBYcRWqe/ZjPKox6tu8ZBuMLS0N9shKNYmWq3vV6mMFSJq6VJDIHQLH/RefFlgKPnU9rTlWfLDk8thPIlWUwY80UGcA+AHECZKh2CVeeMjt4QK1MBJGfDHxPaYTCq2QjVZjg4AIGqmcoSXocyrskvhyXmspLEbaOj21IA4xcpCpLpl4juxkClPzFfOkXGAy85sPqqhXTTwoeTUxdd8+wUWlf/cf/eHGU7w5Zehwq+xTgSlpKP3LmWw==
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AM9PR04MB8748.eurprd04.prod.outlook.com (2603:10a6:20b:409::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.22; Tue, 21 Jan
+ 2025 14:31:55 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8356.020; Tue, 21 Jan 2025
+ 14:31:55 +0000
+From: Peng Fan <peng.fan@nxp.com>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>, "Peng Fan (OSS)"
+	<peng.fan@oss.nxp.com>, Sudeep Holla <sudeep.holla@arm.com>,
+	"cristian.marussi@arm.com" <cristian.marussi@arm.com>
+CC: Sudeep Holla <sudeep.holla@arm.com>, Cristian Marussi
+	<cristian.marussi@arm.com>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, "arm-scmi@vger.kernel.org"
+	<arm-scmi@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-rtc@vger.kernel.org"
+	<linux-rtc@vger.kernel.org>
+Subject: RE: [PATCH 0/4] rtc/scmi: Support multiple RTCs
+Thread-Topic: [PATCH 0/4] rtc/scmi: Support multiple RTCs
+Thread-Index: AQHbauK0WlkpRT4hXUuysPkoc9lMC7MfdE+AgAHSTTA=
+Date: Tue, 21 Jan 2025 14:31:55 +0000
+Message-ID: <PAXPR04MB8459968DFDE5979802CC034A88E62@PAXPR04MB8459.eurprd04.prod.outlook.com>
+References: <20250120-rtc-v1-0-08c50830bac9@nxp.com>
+ <20250120102117538ef59b@mail.local>
+In-Reply-To: <20250120102117538ef59b@mail.local>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|AM9PR04MB8748:EE_
+x-ms-office365-filtering-correlation-id: 449442e3-0efe-4a48-e8f2-08dd3a285ae8
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|366016|376014|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?UZRCam2LvSvSQl1TfxsvoyZ/QOP0VVJSpZ0wQ4m5Ru4oOVkGy49QVDdvc+Ff?=
+ =?us-ascii?Q?zC2K6V5Ez865N30XZDolu3spAt0Pg+pkm02JMUJtkY7FkHoWSCjddFUsBFvr?=
+ =?us-ascii?Q?wl4nrKfFJLz+apszZwSCPc00P5oFaLXUvQyNuLeDXXXeEE4I9IbYNS+/glN/?=
+ =?us-ascii?Q?q4/ssM6nvCgxfDwe6JQcxorjp92n0GnjVMFMzF4OpZoyKepmqc4ZKBjna9iK?=
+ =?us-ascii?Q?Ra0PEeqX56FxGanuma8SPEOXUQolJSKSBy4V+VYJ9GYsgiVWYa3LI7tMS6qe?=
+ =?us-ascii?Q?JhUYWQqD07HdetmL91BzefTH5wbY5IKWIZvm0rK4HdQUQrvJkZermcUKIAWH?=
+ =?us-ascii?Q?5jJBR1qNuAeSptd19KiHXa3KfMPA+BvDVI0GdyghMSwaClS3Jc0jRco7JguO?=
+ =?us-ascii?Q?KtvXc8QzfCEkzItxDMNLNP4uS5mVud3bHjStLI3IotDxX7x9+H27qNyXW7bO?=
+ =?us-ascii?Q?8bqdXN2R/PSxe/u3kjoEtRBB63hrxLiSePn3WnkP6rA/rcZpccCDJG13RTfZ?=
+ =?us-ascii?Q?uIHpewtKFGyqNfLBLuMX2+1SmsDkG715ws4Ycl5jWZGHY+1ogrfMYGqwa6Tj?=
+ =?us-ascii?Q?Dyc7qsZO/RHz1DgYnMAWlbHOnl/ZPVu/9bUeRtZZtAcmA8izVFeHVB0k6sQe?=
+ =?us-ascii?Q?rIiT4glgsua5STm8bvU/KkTSmOzZvEozOUWHKfN7i/mv4TMzVgSBSfIxqQT+?=
+ =?us-ascii?Q?zfERaw30PsXWxgFrF6WQNWKWpPbNPEFrVgM5xTjeYmnTEva/oQ9uKjCQdVfd?=
+ =?us-ascii?Q?KA/BC883u06ppmaxmFxbtTJbJy7XAwjgh2JAeFJBOdC1WlkSovGVYC9oBLxK?=
+ =?us-ascii?Q?Nu1GJ11L4RUmyBDvMDHylF6etK78iu2xUdtZTXPECWpw2DJE1g1fmKvtDihG?=
+ =?us-ascii?Q?ZhXt2YFDvwX363qaQvFf4YjuQ3aQssQk8f45pn81ftise1D+uwtfb2dvHJ8e?=
+ =?us-ascii?Q?B2ZzW9kBp0GUNKONt4abFPDELl3yT9keFBOG/H1GhgWlXk0oKY9F+Z45vH8f?=
+ =?us-ascii?Q?iDitlwUAb+ruwC9pbFFVDHVsumDdeqYysYDzrzOg8IyjdCP6nrt4E8eoioQC?=
+ =?us-ascii?Q?HLlFAWBLyVCSfbnc916+rLNHFOqM65rCDvQqohFExgDjGKXEPnWqP1oEGXsh?=
+ =?us-ascii?Q?zHLzcZxjSUukM5/WwElPYAxzLu3Lxc4UCwQaggkJYg/yR5tZxkCQymDmSmU/?=
+ =?us-ascii?Q?C66QYqrYBFiZQ8o9nE1OGLQ4BIbU2yiz5N2KLUdljZ33I6Ek1OnnYLPpgYBY?=
+ =?us-ascii?Q?b/aP5hIFWN+KPImTwqRuq2Dlou2VOg0FTn9U3p2nwm3opXR3H136YHtaPggk?=
+ =?us-ascii?Q?PSCbbBoC85U6UoCuoMfyJmauL+GtBgR/JWzNgCosi6tl57hh7nTkp/QBcvNi?=
+ =?us-ascii?Q?0D9VYXhxQ4fTRbeMwmj7G0C3Hh3B?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(1800799024)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?KBc3+bgtxxK+2KZbQgcFsFNvfsr4/HqdN/jh9fH46bkMn5LlCavVALScSrPt?=
+ =?us-ascii?Q?ACF4UGTBTTecaKdG2M9/6wHTWsZVcbeZ5Ib14eKlSdkuH5EJv3MBLX4eNlwd?=
+ =?us-ascii?Q?JclJtUcY4EN5HbJJ32o/BKsOgBxOHzCNN+DI3iE62UTOE9L+mW3y0acApamU?=
+ =?us-ascii?Q?/mEMnlVrv7AYSJmUfKfXC8tQytgOD2G2dQaTUmJ/WfY3C9GQML9v9aqef5TX?=
+ =?us-ascii?Q?FtVDv8+9NykbWtQL1BWhvj2VHWQ1TzS6tl9x6rL7SGMtlEBisXmWpst+43Fs?=
+ =?us-ascii?Q?zjQ7hsCtov9E8w2NwjZEqHPQatrVpp7e0El1DmXvzqO94l/Q314YN1Meb9jf?=
+ =?us-ascii?Q?u2hXiTLqnk+ulnRA2HcdExcEEsn2KfYekgC3z3wYia4CiDE7WMKVLRFTUmSW?=
+ =?us-ascii?Q?/0zOojuUN+e9jEExD0DvyCve6fEJQA9wPYIsHjK2g8yORYLsIRfpYan3TdEj?=
+ =?us-ascii?Q?5cZeY2VE1uhaPs/xcaY9Yi4LufoHas/Cz5qDhAwBHwIm5r7viuU6YLdVYVWN?=
+ =?us-ascii?Q?11KyZ4gOH3OAWzEL3oPwn4QbT7c3w38dDDCFA3g+CnTH0Bvs2+w2bZpGpRAo?=
+ =?us-ascii?Q?k147epViyIataZcZmkj42xmOEPn16oQzwsG3evTGkh2U3LC5+CFvzzA9D/Gi?=
+ =?us-ascii?Q?8n1/0SN/C31xUIgp6TvuaIRri2SL6gli91cxAXYk91OoPDtrQVMlvUcnKOQX?=
+ =?us-ascii?Q?H4V7tSQ4G+w6X1iIjIgOkW03zUycHmzXt8EsfsisEaoPPC4JvZQpgAPQ3TjJ?=
+ =?us-ascii?Q?ixnXMVanDQJZmIU7CYHkJO7SGJijSkpl7vQaMI9PPrFiZmMnWqucHXqRUcFT?=
+ =?us-ascii?Q?tlySnvhBsU9tWb8dpZuLtHgEwdBIxSJvAW5RxW+cJVI2wX0ZoHZXYUTZAahO?=
+ =?us-ascii?Q?H/IZaxIrefOZfq5DS3dvZFZt26pSzU0yw3bm8N0SEbOBEPt006YoOhIxubFc?=
+ =?us-ascii?Q?Cba1rK0ZtRGiPQ4lYqnsienfzDZwiaNoR6MxsOnxDfvz2mgCspNpRQpfNFNZ?=
+ =?us-ascii?Q?53VeadJg/NHdt8P/oq/u2AGKLDZDlBK7t+CsEIP5XSbJbV0UZsIoyRBnj6eP?=
+ =?us-ascii?Q?EZPNyTo7Y5/ty1G0jsEuU/3tG98OMXVDAoaKmaxXNKQF0Zn81NL2V1IKo3ll?=
+ =?us-ascii?Q?Adn5CPa+EXXLfoEhDxeEw50d79c9krdZJ/g0WljMMu31Bj60yHUbXytCbMu1?=
+ =?us-ascii?Q?JORoDJy8OxC1ob8TYWNFdMjhRF3Xv20iQhvMjd7xGC4MVq4UhhsaXoZhdH1b?=
+ =?us-ascii?Q?2alhjbh4FJ+yL1wXiR6oe+nFfZIV1OPzcKs0Ce/JLD9RRKWKVKdS2LuQAGyp?=
+ =?us-ascii?Q?rjotlWdkOVyRfFJl+czXKjAeZP/ZzVSka6W4mD26EgmwPq4w0dhW5wGXfzFG?=
+ =?us-ascii?Q?2+A4UXFnOnH1r4leSoTzwUD1TWLa3UFBNJDSPSvrM1Nz+B615pKT5XpzxBnP?=
+ =?us-ascii?Q?GGSuFDSw8AgmBsy1SF9bX4Sw+mvFmXVNMggmmeBjbfUeNOqsPB1SFYlU19PK?=
+ =?us-ascii?Q?fdFEgLI3t9TY7bO6hponD0cAtaqm1KEe6dlQ+Kcn3UKulXITJeHSDmnOYGZM?=
+ =?us-ascii?Q?uSZIgon1BlX6xQei1io=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAMuHMdVLvCNZtc2qYrsnMz5L0Hyr70x-Hj5NA8izYBH2tf=yFg@mail.gmail.com>
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 449442e3-0efe-4a48-e8f2-08dd3a285ae8
+X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Jan 2025 14:31:55.4347
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: wfduWQIgwKgtro3mIHW58u8GqoqC5f0xiM/H24mKpMFrtPk/LdK3VJv9AN8mRNablq56ubNa2BtM/N9bVnhlcw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8748
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_061945_027484_E1E992FD 
-X-CRM114-Status: GOOD (  18.79  )
+X-CRM114-CacheID: sfid-20250121_063204_273106_7766FC49 
+X-CRM114-Status: GOOD (  22.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,52 +167,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 21, 2025 at 03:12:13PM +0100, Geert Uytterhoeven wrote:
-> Hi Dmitry,
-> 
-> Thanks for your patch!
-> 
-> On Wed, Jan 15, 2025 at 12:11 PM Dmitry Baryshkov
-> <dmitry.baryshkov@linaro.org> wrote:
-> > Fix C&P error left unnoticed during the reviews. The FORMAT field spans
-> > over bits 29-31, not 24-27 of the CTR register.
-> 
-> Please add
-> 
->     This causes a warning on e.g. Cortex-A8 and Cortex-A9:
-> 
->         WARNING: CPU: 0 PID: 0 at arch/arm/kernel/cacheinfo.c:43
-> cache_line_size+0x84/0x94
-> 
-> so people find this patch when looking up the warning.
-> 
-> > Fixes: a9ff94477836 ("ARM: 9433/2: implement cacheinfo support")
-> > Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> > Closes: https://lore.kernel.org/linux-arm-msm/01515ea0-c6f0-479f-9da5-764d9ee79ed6@samsung.com/
-> > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> 
-> This fixes the warning on Cortex-A8/A9, so
-> Tested-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> 
-> Note that this changes HWalign on Cortex-A9 (various Renesas SoCs,
-> with 1, 2, or 4 CPU cores):
-> 
->     -SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=<N>, Nodes=1
->     +SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=<N>, Nodes=1
-> 
-> On Cortex-A8 (BeagleBone Black, i.e. AM335x), it changes HWalign,
-> and causes a warning message:
-> 
->     -SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
->     +SLUB: HWalign=16, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
->      ...
->     +cacheinfo: Unable to detect cache hierarchy for CPU 0
-> 
+Hi Alexandre
 
-Also, has this been tested on CPUs that don't implement the cache type
-register?
+> Subject: Re: [PATCH 0/4] rtc/scmi: Support multiple RTCs
+>=20
+> Hello,
+>=20
+> On 20/01/2025 10:25:32+0800, Peng Fan (OSS) wrote:
+> > i.MX95 System Manager(SM) BBM protocol exports two RTCs for EVK
+> board.
+> > one RTC is SoC internal RTC, the other is board RTC.
+> >
+> > The current driver only use the 1st RTC. With this patchset, both RTCs
+> > could be used in Linux. To achieve this:
+> >
+> > 1. Support more event sources for BBM protocol 2. Add bbm_info
+> hook to
+> > let users could query the number of RTCs 3. Introduce
+> > devm_rtc_allocate_device_priv to support setting rtc device
+> >    private information
+> > 4. Update rtc-imx-sm-bbm.c to register both RTCs
+> >
+>=20
+> I'm sorry but no, you have to register two RTCs like any other system
+> would do.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+It is the i.MX SCMI Protocol exports two RTCs using one protocol.
+
+Two RTC devices are created, but share one parent device.
+
+Do you mean each RTC device should have a unique parent device?
+
+Thanks,
+Peng.
+
+
+
+
+>=20
+> > Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> > ---
+> > Peng Fan (4):
+> >       firmware: arm_scmi: imx: Support more event sources
+> >       firmware: arm_scmi: imx: Introduce bbm_info hook
+> >       rtc: Introduce devm_rtc_allocate_device_priv
+> >       rtc: imx-sm-bbm: Support multiple RTCs
+> >
+> >  drivers/firmware/arm_scmi/vendors/imx/imx-sm-bbm.c | 33
+> ++++++++++-
+> >  drivers/rtc/class.c                                |  9 ++-
+> >  drivers/rtc/dev.c                                  |  8 ++-
+> >  drivers/rtc/interface.c                            | 16 ++---
+> >  drivers/rtc/proc.c                                 |  2 +-
+> >  drivers/rtc/rtc-imx-sm-bbm.c                       | 69 ++++++++++++++=
+-------
+> -
+> >  include/linux/rtc.h                                |  2 +
+> >  include/linux/scmi_imx_protocol.h                  |  2 +
+> >  8 files changed, 100 insertions(+), 41 deletions(-)
+> > ---
+> > base-commit: e7bb221a638962d487231ac45a6699fb9bb8f9fa
+> > change-id: 20250116-rtc-3834e01786a8
+> >
+> > Best regards,
+> > --
+> > Peng Fan <peng.fan@nxp.com>
+> >
+>=20
+> --
+> Alexandre Belloni, co-owner and COO, Bootlin
+> Embedded Linux and Kernel engineering
+> https://eur01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2F
+> bootlin.com%2F&data=3D05%7C02%7Cpeng.fan%40nxp.com%7C7b5c28
+> 0a03ee47dea25f08dd393c2e53%7C686ea1d3bc2b4c6fa92cd99c5c30
+> 1635%7C0%7C0%7C638729652821885462%7CUnknown%7CTWFpbG
+> Zsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXa
+> W4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata
+> =3DxL23vC4m%2BtiTN8eNs8QptUHgfo%2FuHEUcEewGMdeYWYo%3D&r
+> eserved=3D0
 
