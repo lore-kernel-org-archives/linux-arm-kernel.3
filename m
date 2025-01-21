@@ -4,70 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96905C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 11:01:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4C2DC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 11:03:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uDIbtAsW7Z+RHKfRE194nI3eRnrneMc4A7g7rnDUZbc=; b=X7nC0pjWkA4UrfDroHWPgkzCzV
-	qvrIDVSu2cbUXNnQWgMO134pfp3yVNZDgi74Lxm/CY4S7E3NfmfvN7rrTtWvIU7D74Q7v0Bd+6MYE
-	vVdkk5VYXXFCVrhmaLu5ctwOU6iPXFlatwwjJWRxchfhU/K1Iqw8XHPM0+8nRwdTh7CWeJyQJ36Ek
-	mQ50ffimaiGWGleJHFas1eRfGDbI68sFO73NUyGiFlOiVm2r7qZ6wW+bfmeV7sKsOxV/4Bb/LKx6T
-	ea108JIvJdX06fNEWRud/0pateiDQdsf4wf1WuuOwyi0cFR2CE0ESoO+G7XfcuR2pBBUi2VbVGtQm
-	+RY8WPJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qWMK52sF0eRm8zfyBd6jBI4MU3618X+xXQ6ERCNq24k=; b=z2eszmHDLAU63yMSfa8OXB8K0J
+	/PmW1hBdpJiXeXNGPDB5AVn+EDpU07foSuv+VfmKMA2ib/fXol/Mw8evjZ1hbIVI9baBAmazOJR3s
+	++ovlBBzJowU57ZSW0SCOn0wk6xXMDDNTpDePrEnvEDXPSvBTGv532VxVjqSgoF7RdOw+dYtirfcC
+	g4Mguac2FZoacICAyanOrGLG/+sJ7ceTw9GTugFIeF4HSrWcBWJKXyA95oXrulDBtN5br8B1mJZR+
+	18LAgbQt8msHvjfYlLOy3NSPt4Ai/UbDlBnLGhnwtOyDyMi/dMihaj4L17ZLXLroYIZcNl4b/OgTL
+	ytOBBjRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taC0t-00000007h3J-2lqZ;
-	Tue, 21 Jan 2025 11:01:43 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
+	id 1taC29-00000007hCF-1QR2;
+	Tue, 21 Jan 2025 11:03:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taBbL-00000007bbJ-3rUn;
-	Tue, 21 Jan 2025 10:35:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=uDIbt
-	AsW7Z+RHKfRE194nI3eRnrneMc4A7g7rnDUZbc=; b=iE6+hLWbjewHau/dVatSP
-	tgH1Ef9LQn9piHiYmNjVZ9icPJLnB4DgnHHgBBwDujNsjg4SPTCJhKsj9OEjiH0I
-	B76JnvGpkfaJwpahjswMkvq+4aedm1HrKtslMrQdiZuPTDjsKUuB+U2nagFemU+R
-	4LoU/3sQZ0wnLrvkPZmHUI=
-Received: from ProDesk.. (unknown [])
-	by gzsmtp4 (Coremail) with SMTP id PygvCgCXjRJVeI9nsMUzFg--.31618S2;
-	Tue, 21 Jan 2025 18:35:05 +0800 (CST)
-From: Andy Yan <andyshrk@163.com>
-To: heiko@sntech.de
-Cc: hjc@rock-chips.com,
-	krzk+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	derek.foreman@collabora.com,
-	detlev.casanova@collabora.com,
-	daniel@fooishbar.org,
-	robh@kernel.org,
-	sebastian.reichel@collabora.com,
-	Andy Yan <andy.yan@rock-chips.com>
-Subject: [PATCH v12 12/13] dt-bindings: display: vop2: Add rk3576 support
-Date: Tue, 21 Jan 2025 18:34:57 +0800
-Message-ID: <20250121103500.2528258-1-andyshrk@163.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250121103254.2528004-1-andyshrk@163.com>
-References: <20250121103254.2528004-1-andyshrk@163.com>
+	id 1taBpL-00000007eR1-16Pq
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Jan 2025 10:49:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9FD32106F;
+	Tue, 21 Jan 2025 02:50:12 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5EA923F66E;
+	Tue, 21 Jan 2025 02:49:43 -0800 (PST)
+Date: Tue, 21 Jan 2025 10:49:34 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Radu Rendec <rrendec@redhat.com>
+Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: Re: [RFC PATCH] firmware: arm_scmi: Support mailbox transports with
+ no completion IRQ
+Message-ID: <Z497vnIasuJbVarg@pluto>
+References: <20250120212418.889385-1-rrendec@redhat.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: PygvCgCXjRJVeI9nsMUzFg--.31618S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxWr1kWFWUuF4UtFW5trWkZwb_yoW5ZFWUpa
-	93C3Z8XrW8Gr1UWw1ktF1rCwn3tFn3Ar4akrn7ta17Kws8tr4UWw4agr98ZrnxWFy7ZayY
-	9FsYk347G3s2vrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UMSoAUUUUU=
-X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqB-bXmePcy1lIgAAsD
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250120212418.889385-1-rrendec@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_023520_289843_4B3A1BB3 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20250121_024947_396956_A44D71E5 
+X-CRM114-Status: GOOD (  29.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,149 +64,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andy Yan <andy.yan@rock-chips.com>
+On Mon, Jan 20, 2025 at 04:24:18PM -0500, Radu Rendec wrote:
+> With the introduction of no_completion_irq in struct scmi_chan_info in
+> commit a690b7e6e774 ("firmware: arm_scmi: Add configurable polling mode
+> for transports") it became possible to enable polling mode by default
+> when the transport does not support completion interrupts.
+> 
 
-Add vop found on rk3576, the main difference between rk3576 and the
-previous vop is that each VP has its own interrupt line.
+Hi Radu,
 
-Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+> Mailbox controllers on the other hand have a similar mechanism to
+> indicate if completion interrupts are available, using the txdone_irq
+> flag in struct mbox_controller. This is available since the introduction
+> of the mailbox framework in commit 2b6d83e2b8b7 ("mailbox: Introduce
+> framework for mailbox").
+> 
 
----
+mmm...I dont think you can do this....it is a bit tricky to explain BUT
+the optional txdone_irq in the mailbox subsystem is NOT a completion
+interrupt as intended in the SCMI world, I'll try to explain why in the
+following.
 
-Changes in v12:
-- Split from patch 10/13
+The SCMI mailbox transport is defined by a mailbox and an associated
+shared memory area: when an SCMI client like Linux wants to send a
+message to the server it places the message in the shmem, set the
+channel BUSY bit, and rings the doorbell to alert the other side; at 
+this point the SCMI server wakes up grab the message from the shmem,
+process it as it sees fit, places the reply back into the same shmem 
+area, clears the channnel BUSY bit, and CAN optionally ring back the
+client with the mailbox doorbell: this completion IRQ is OPTIONAL, and,
+if missing, the client will have instead to revert to polling the well
+defined channel BUSY bit in the shmem area to know when the reply from
+the server is ready.
+The end result is that the channel is kept busy until the server has
+replied, and cannot be reused until we are sure that the reply is available
+AND that the client execution path, waiting for it, has comsumed such
+expected reply message. (or times out)
+Alternatively, even if we have this completion IRQ we can decide, client
+side, to start a polling trabnsaction and dont use the completion
+IRQ...but this is another sroty.
 
-Changes in v11:
-- Remove redundant min/maxItems constraint
+Now, in the mailbox subsystem the txdone_irq, when present is meant to
+represnt a txACK IRQ, sent automatically by the mailbox controller, when
+the transmission has completed and the issued command has been read by
+the server(usually when the server clears some specific reg): it does NOT
+assure the client that the server has processed the request and that a
+reply has been placed into the shmem area, so it is not what SCMI intend
+of a completion interrupt: it is just a mere indication that the
+transmission client->server has completed in the mailbox and that the
+mailbox channel(doorbell) is now free annd available for another
+transmission.
 
-Changes in v10:
-- Move interrupt-names back to top level
-- Add constraint of interrupts for all platform
-- Add constraint for all grf phandles
-- Reorder some properties
+Indeed, such TxACK, when received by the mailbox driver causes the next
+enqueued message to be sent (i.e. the doorbell to be ring), and, while
+it is certainly useful in some other context in which you could use such
+TxACK to deduce that the channel is free and available for another
+transmission, it is not enough in the SCMI world to guarantee that the
+SCMI reply has come back and has been processed by the client.
 
-Changes in v9:
-- Drop 'vop-' prefix of interrupt-names.
-- Add blank line between DT properties
-- Remove list interrupt-names in top level
+From another point of view, you could say that the problem is that the
+mailbox/doorbell/TxACK is only one side of the story, the other part,
+the shared memory area used for the effective message transmission, is
+unknown to the mailbox controller and in control of the SCMI stack, so
+you cannot let the mailbox subsystem decide when to queue new messages
+on the same shared memory area used for cmds and replies.
 
-Changes in v8:
-- Fix dt_binding_check errors
-- ordered by soc name
-- Link to the previous version:
-  https://lore.kernel.org/linux-rockchip/6pn3qjxotdtpzucpul24yro7ppddezwuizneovqvmgdwyv2j7p@ztg4mqyiqmjf/T/#u
+In fact, such TxACk interrupt has no practical usage in the SCMI stack
+and it is even counterproductive to have it, since it can cause the
+client to mistakenly attempt the next transmission before the previous
+one has completed, so overwriting the in-flight reply.
+(..and our busy-looping client side on the channel BUSY bit does not
+help here...)
 
-Changes in v4:
-- describe constraint SOC by SOC, as interrupts of rk3576 is very
-  different from others
-- Drop Krzysztof's Reviewed-by, as this version changed a lot.
+The following commit, though, needed mainly for different reasons, should
+have indeed solved also the issue with mailbox controllers having a TxACK,
+since it introduces a global channel lock that serializes and inhibits any
+further transmissions, at the SCMI layer, even on systems that has a working
+and enabled TxACK IRQ.
 
-Changes in v3:
-- ordered by soc name
-- Add description for newly added interrupt
+commit da1642bc97c4ef67f347edcd493bd0a52f88777b (tag: scmi-fixes-6.12)
+Author: Justin Chen <justin.chen@broadcom.com>
+Date:   Mon Oct 14 09:07:17 2024 -0700
 
-Changes in v2:
-- Add dt bindings
+    firmware: arm_scmi: Queue in scmi layer for mailbox implementation
 
- .../display/rockchip/rockchip-vop2.yaml       | 55 ++++++++++++++++++-
- 1 file changed, 52 insertions(+), 3 deletions(-)
+In general, anyway, it would be even better, if possible, not to enable
+at all such txACK IRQ at the mailbox level when such a controller is used
+for SCMI: as an example, in arm_mhuv3.c, NOT even defining the txACK in
+the DT when describimng the mailbox controller does the trick.
 
-diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
-index 157a37ed84da..a2a6369c7b6f 100644
---- a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
-+++ b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
-@@ -21,6 +21,7 @@ properties:
-     enum:
-       - rockchip,rk3566-vop
-       - rockchip,rk3568-vop
-+      - rockchip,rk3576-vop
-       - rockchip,rk3588-vop
- 
-   reg:
-@@ -38,10 +39,21 @@ properties:
-       - const: gamma-lut
- 
-   interrupts:
--    maxItems: 1
-+    minItems: 1
-+    maxItems: 4
-     description:
--      The VOP interrupt is shared by several interrupt sources, such as
--      frame start (VSYNC), line flag and other status interrupts.
-+      For VOP version under rk3576, the interrupt is shared by several interrupt
-+      sources, such as frame start (VSYNC), line flag and other interrupt status.
-+      For VOP version from rk3576 there is a system interrupt for bus error, and
-+      every video port has it's independent interrupts for vsync and other video
-+      port related error interrupts.
-+
-+  interrupt-names:
-+    items:
-+      - const: sys
-+      - const: vp0
-+      - const: vp1
-+      - const: vp2
- 
-   # See compatible-specific constraints below.
-   clocks:
-@@ -135,6 +147,8 @@ allOf:
-         interrupts:
-           maxItems: 1
- 
-+        interrupt-names: false
-+
-         ports:
-           required:
-             - port@0
-@@ -148,6 +162,39 @@ allOf:
-       required:
-         - rockchip,grf
- 
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - rockchip,rk3576-vop
-+    then:
-+      properties:
-+        clocks:
-+          minItems: 5
-+
-+        clock-names:
-+          minItems: 5
-+
-+        interrupts:
-+          minItems: 4
-+
-+        interrupt-names:
-+          minItems: 4
-+
-+        ports:
-+          required:
-+            - port@0
-+            - port@1
-+            - port@2
-+
-+        rockchip,vo1-grf: false
-+        rockchip,vop-grf: false
-+
-+      required:
-+        - rockchip,grf
-+        - rockchip,pmu
-+
-   - if:
-       properties:
-         compatible:
-@@ -164,6 +211,8 @@ allOf:
-         interrupts:
-           maxItems: 1
- 
-+        interrupt-names: false
-+
-         ports:
-           required:
-             - port@0
--- 
-2.34.1
+Did you see any specific anomaly regarding the SCMI stack when using a
+mailbox controller which provides a txACK ?
+
+Sorry for the not so short mail :P ... but if I am missing something
+and you are seeing anomalies, please let us know.
+
+Thanks,
+Cristian
 
 
