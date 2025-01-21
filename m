@@ -4,167 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A73B7C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 10:58:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D03CC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 10:59:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q1Ogb3NtcH2o+zZlOL4f9Oe4P25Qrklq+Dbmt1X8Eb0=; b=Sm2NC4iyrddle6cne5TWyEpopQ
-	B0hzSr835Cq4G/ic87WvuskDs504UnKZ49pqZAJsMTaIVbmoxiHyKgJfKN/iW299B+/G/ue1mxgpE
-	uJnV37h9Wc627HblZQ+7drXdK63U6gau9X8O2uvQalG8jETdd3cGofHGOdcOEfejfazRRAttfe16I
-	xWWD9EHEQTU1MSOeKSTQw4exDx/qxfTaeprJSN+Tlp/WAP/8ZRir/qnFxTokOJrtGw+cd5X6g6vEO
-	Fnfg4QwgSzsVFzzasYOzJJp6Er801A4CdzTIWKhjc+jZSeVIpFrvSbvjc+dKYgSicHO3oGHot7DdY
-	I33LAvHQ==;
+	bh=bjjne0E3+H0DxvpYvXQJEPPLzeITfjRK1it/y9/KiaE=; b=i4JgJZlKIYf25YGcmug0Li4is+
+	9mGCSIjeTh7DmPEiaZMvKhvuN9n0iWoj4KNvLpsM0EBfXV7TUtlp6Mvy9gfowNuZGpKunY8bwDKL4
+	WAQ4Vm68CqIxMu1QE2gnsAPz7+/mDLVnNY2SHMU7LQuki6qKWDRZVV6D4w21dGDF/htwODiBBPh2g
+	zQ519fANkpJLMEN7rm4Y76fwPybE43W8NyNetrrv9fzM4nHBRaC5YOpAas6TLHcYWBb0woQDyn2aJ
+	uvviMt5D0phESYAyBf35V2zvy/lG1ermg4GFYeoCvD6xEpxfgNjFy/Wr1mxtVoThreTP6u9QdnKLO
+	FGj8b0Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taBx8-00000007gE1-08Xb;
-	Tue, 21 Jan 2025 10:57:50 +0000
-Received: from mail-northeuropeazlp170130004.outbound.protection.outlook.com ([2a01:111:f403:c200::4] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1taByN-00000007gYx-3jyX;
+	Tue, 21 Jan 2025 10:59:07 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taBks-00000007dWw-1tiV
+	id 1taBmn-00000007dpQ-47Zk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 10:45:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LuHw5Ar/ziC8HmGTuqloB9Ncz0sm8WJxkcSvBtLtOMak8Mu2pZVzpL6YkegnEKB/VymzrRlMkm68fupzjw/efWdSYClp9fe+ZdcZc3gU99r8KYQGYQZBjE9YRHaEibcJcpBmGHsAgrj2RKhe+YHVXv5CzQjohp5Wl8VIHY/wWrKTr183pbDUOkNO7lsdSZStCZaj/glwA4z12XQZNx7ONIFtZLz+uCqkvFO9ayM5dmwBtGIjcU92+gBvVDrT2hchfGMLpdPckNMGCZfbEEBD+GeS0fBDBNLPxYYGfJ3tBLLdqhT+V8TyLdyDMuVZEwne7dr140nr1GiSPYZYEpscxw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=q1Ogb3NtcH2o+zZlOL4f9Oe4P25Qrklq+Dbmt1X8Eb0=;
- b=UJIJIr0eanMZA/e3Eq+G8iTt/+ClpP+okyXvnpa8A1g+r4ZVS6N/gCsKC1nAYXMUho7FXgHHmAR6QFAXajuT5F0BQZWT+PrqXuOWtShwIRLKcI2aKbA8R5B3VndQReOGWi+eGnxJMD/g64fy8cWt7nb5od0PMbkoBMoI9mxx2k78K6uosGu+qB6HPdcA1dcCnS2xCE3vxy1VVLzMt8V63LLXtmTJ5IMciCcuPD7bXg4incdqm3+RSyaA84jDUlVEaTaRDiXO6ySl7t7qJedtTd5QgjJtMstlRLz8DlysY6lRSM66Qt2QJvTTIxVMVHMznfDruDfas1Tomst2YbdlQg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=q1Ogb3NtcH2o+zZlOL4f9Oe4P25Qrklq+Dbmt1X8Eb0=;
- b=VyxfK53eTo5pmTZTocHyce4ENzdkPzrZBUMcq7JEHDXH/i7IDrO+j2XPW0LdOyFJLJstos6J5Ou/UJrlnEPNMDZKFmAAVU1Vyq6SZTw6FJMpa1GvdlK+b4pp1Mlm8h3TG7Ok9onb75P5zIVAWsrZWkEtRcAsoZCU2wymjEzJhMs=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
- by PA3PR04MB11225.eurprd04.prod.outlook.com (2603:10a6:102:4b1::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.21; Tue, 21 Jan
- 2025 10:45:06 +0000
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a%3]) with mapi id 15.20.8356.020; Tue, 21 Jan 2025
- 10:45:06 +0000
-Message-ID: <9cde03a7-1748-4644-bb73-90dd986150dc@cherry.de>
-Date: Tue, 21 Jan 2025 11:45:04 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Disable DMA for uart5 on
- px30-ringneck
-To: =?UTF-8?Q?=C5=81ukasz_Czechowski?= <lukasz.czechowski@thaumatec.com>
-Cc: linux-arm-kernel@lists.infradead.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250121092255.3108495-1-lukasz.czechowski@thaumatec.com>
- <20250121092255.3108495-3-lukasz.czechowski@thaumatec.com>
- <2be46f44-6c81-417b-b0b9-7325cb0f7c10@cherry.de>
- <CABd623tHh07Nb7KVjS_GJ5OqfjF4kOUKsSKNKA_HcJbLG=WBiw@mail.gmail.com>
-Content-Language: en-US
-From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <CABd623tHh07Nb7KVjS_GJ5OqfjF4kOUKsSKNKA_HcJbLG=WBiw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR4P281CA0268.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:e8::13) To AS8PR04MB8897.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::20)
+	Tue, 21 Jan 2025 10:47:11 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-21628b3fe7dso94067185ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jan 2025 02:47:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1737456429; x=1738061229; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=bjjne0E3+H0DxvpYvXQJEPPLzeITfjRK1it/y9/KiaE=;
+        b=taus03XFRA8OqPFSEOwFjuY5isXRmteJafCtsJhsIPQaKiSvPFprR3VXX0+Algd4Nr
+         zNF6TTpVhv4gflTuyUvVg2g2oIrhR91wRnNtSrx9WYdvr3UOlf9jxyxNt7nY41r1AFQz
+         reQSgzYfhMLXN3eS8j1BSuolOFU64e6n9iyFMoLXxBCRfFIcmE2T0WXJbbQXHaAuzIjh
+         pyCvyKOXYpRk9QyFjyqF0nDUw3+z/EGgZRCFpuHkPah0/TAc3UpcWayLBYkJppWjd9au
+         ZMYZK7JgM8vfved/yrTSz/v7/LdhOoJc+YlypZAZCQ2YKEKFWHGPKOS06SD2VgexsK3s
+         3Rrg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737456429; x=1738061229;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bjjne0E3+H0DxvpYvXQJEPPLzeITfjRK1it/y9/KiaE=;
+        b=lEm2aWv5Egin+N/lbW0huMdL34D31mg2+sQX74JZ5J5JQ83PLmSUisPe/JwmuqGfSe
+         ZenmnDHKLf/hl0i4shS3ooWecpopg2FRu0Q1l6fjcn3w7pxMO7U3wdnrMaCx6Pc+rnq1
+         F63He4dWtjPNDlnCM+oGZvSbn33g2ymESIc0DcJAxb21UciL52NNz90TyhPuht//4JAH
+         lv600yRrhhsJasbp9/5Cws53A5czGi0G+8OFy+EpcDeRAKM8ODdPioc3hbYcvFNj8jqa
+         UuU9025QmYPCF9OT0EQm0ypxXSzrdmxMlxCzl6g84hmvmclCEQMcezmPgnr6aepj0lx2
+         MovA==
+X-Forwarded-Encrypted: i=1; AJvYcCW2eywaqkT2PeLR6nXzY0V75peRRuEA7vVEDlEfAywB8VrhhCKEr7JtHfyW+m5bEYeEWvqiqhg+JaLzw8rgAT9Z@lists.infradead.org
+X-Gm-Message-State: AOJu0YyeAgtV80HmEZs7fZ8jqPJ0+FaCgBOaHL3QqcBFHlHQbOmCYSHK
+	eepWuLXjur1uxZHxu6lWMjLz3cApGlPosugxWkzCcxbnRBiB6H/WSmNCBpPutfQ=
+X-Gm-Gg: ASbGncv/P87U8PHMSFTDa8+ch/rT2eItgztlEE914kQIoqRkWbIRl78wx5Oeqfr8apO
+	mMBUjMWCldWC0/1SctoBzGiv8phINvpYyTOfe0K350xh/RMQjQNNReOXhiKa0qdEaBhOBzOrFuN
+	sSDydAq+9119GHWfEMVzJqzzxthlf8ILMEJIJEH6eeBAN6i2CAAWGS8q5HWHEZECDmspPnqEKF1
+	olO5NNGVGKza2R/4LP5jr1zR0MAdSN9wEjBGkwUWCzgJZOiP7xHddGBQp+CmTQFZbtwlThFMycD
+	QoKuZxc=
+X-Google-Smtp-Source: AGHT+IGJD1dOPoV4WHlzi5WBxwqsVI7hrl9CV1yzciPVE32NItswuJUQXBovrfqj5yvKVARoiyBnQw==
+X-Received: by 2002:a17:903:11cd:b0:215:b5c6:9ee8 with SMTP id d9443c01a7336-21c351d3065mr220669285ad.7.1737456429087;
+        Tue, 21 Jan 2025 02:47:09 -0800 (PST)
+Received: from localhost ([122.172.84.139])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21c2ceba3f8sm76268275ad.97.2025.01.21.02.47.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 21 Jan 2025 02:47:08 -0800 (PST)
+Date: Tue, 21 Jan 2025 16:17:06 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: Beata Michalska <beata.michalska@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org, ionela.voinescu@arm.com,
+	sudeep.holla@arm.com, will@kernel.org, catalin.marinas@arm.com,
+	rafael@kernel.org, sumitg@nvidia.com, yang@os.amperecomputing.com,
+	vanshikonda@os.amperecomputing.com, lihuisong@huawei.com,
+	zhanjie9@hisilicon.com
+Subject: Re: [PATCH v9 1/5] cpufreq: Allow arch_freq_get_on_cpu to return an
+ error
+Message-ID: <20250121104706.2gcegucb6hcuksrd@vireshk-i7>
+References: <20250121084435.2839280-1-beata.michalska@arm.com>
+ <20250121084435.2839280-2-beata.michalska@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|PA3PR04MB11225:EE_
-X-MS-Office365-Filtering-Correlation-Id: 73441e94-21c6-4135-ad66-08dd3a08aad5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?czBNY1RSS09GbUhITWZwM3lpV1VUVG9ZdWNxVmFqVWRXczlsQVpJK1JJb3Rk?=
- =?utf-8?B?MjdlaVJtdVU4N05QMzJVMWtUZTNPNjNHWklBN2NqR1pNdGI3ZXlOY2QxVUVu?=
- =?utf-8?B?L2RxZkkxcnJpSDNtUngzNFpJYnZ2cTkxVkhCb3hkV1Awc1A0b2VNR09aRTRW?=
- =?utf-8?B?aC9rc3NzRVZxcFFaYXgxVGtZemNiNGVuNFdGTlJIcjlmb3Q4dzIwNnR4dk9q?=
- =?utf-8?B?MGNpbmh1KzFaL3o3RVRLZDFUN1dqOTNuTHZST05HR0dpak5RTEsrNlFJUHo1?=
- =?utf-8?B?R0lZWGZmOGM2SVpXVkxGRjYwbGZqK0paSEV1SFUrUFNwSDZxbXMwMS9OTStN?=
- =?utf-8?B?OVpxLzJUQTVTZXh2QmNMZzBTaGtkOHpNRTQxMU1qa3NsdXN6eWlxODN4cGVP?=
- =?utf-8?B?ZEFTa3pHN1FRRHdLVTRteDJ1Nmh4WS9VRDV4WEliR096VjV1aW4xZkZXWDlq?=
- =?utf-8?B?dDVXVnBNaDl2T2xjdWYyZkpDNHoyVHJ1b2RwM1NYMXZwSGdoSnI4Lzk5Smlq?=
- =?utf-8?B?NmhWeFVZMnN6NHRmU0dZemtWRnhXVkZvTCsvcHRBREFOZ21kU0VMY2MzcEly?=
- =?utf-8?B?ZFdacGNFeU04T25pbFBmRzV4ZmMvU3FBSkxqaWc0RmEwaVM2RExLZFlWYWor?=
- =?utf-8?B?eWVHamljUkF3MVdMV3dXSnc2SUFTVHZkL2U5MExVRzUyNERQa3lZalZYNGRW?=
- =?utf-8?B?MGpuUTFOZE5TeDNZQmZ3SnpFVTQ4enBUdkkvRHZiRFFXRmJvbkQxUmtpd1Fm?=
- =?utf-8?B?L25rdkdGcEJkSDRjZEtnSk5QbEFVZ2hpcWFiUm1kZnJtWFVxVVplMjUvZVpu?=
- =?utf-8?B?ZFQ5VWI1QWRTNjROMVIxMDlIenFBeThLTHJLcmFmbkgyb0JUVW9YY2U3Wlpy?=
- =?utf-8?B?dFhMQ2ZpbkxpNkYvVHptNitWYWE4NVM1NUZ0cWtmWGFYd0QrQ2o0UHVCNkFW?=
- =?utf-8?B?ekxYSHFFcHgxWlN5MWNyNlFjS1hPT1BMTVUvYWR2NHVTZmw1YnVzTlk0clZi?=
- =?utf-8?B?bktOWktvd21NZzFWMlFqam43cnFQYWc0RVhLa1M5YnluWDJwY0VVTmxCUm8v?=
- =?utf-8?B?bXNkWDdCcGJGek9XZkJaWUFSU2haRnpPTEt2RWgwT1VUN2MvUS9vVmRhLzhB?=
- =?utf-8?B?RXRQb3FFVGJpVTBwVW9VdnlFUk9jRUlMQWNzZFBBVFV0TDhiVWxaRlROQU1U?=
- =?utf-8?B?OXlFbWF5akNZd29RWCtFZ0ZhWU1Yay9CRXVKb29hVENRSUhVenlkb3k4N2tx?=
- =?utf-8?B?UEpmcHQ0ZVJHZ1RZQXNBQ2ZaVmtQZE1nRzFwYVBENzg0MWt2T0pMeWZiK3dH?=
- =?utf-8?B?cmtWdXEwd2JBYzBKZTczZnFUSFBCazVlR3FYb2wwZTBNU20vdzNaVGVVaWNN?=
- =?utf-8?B?UXJRdnpiY3pLTkxWdi84aWJ5TElYTUVXdEdlZGQzRE1SRUd2VkI0ckZsV0FK?=
- =?utf-8?B?dkxOOEIzNTYrMGxTQXNpSUdBam11enI3cjJ2RFZBL0NHOC9Pa3hjNGF0aEZh?=
- =?utf-8?B?NmMwZXcySVkydFNyU01UdXVoamVtQkpMdUc4bEFYUjZPUHd2SGdRUW1iZGRO?=
- =?utf-8?B?S2FQMEgrVlZLb2k3cjZSTjR2ZjZtMzdyaWFqeWtJZml6QXQrSE10M3BuYlcr?=
- =?utf-8?B?VHpiZzJpaXErbUVyWWxVQk4wZnphZTV6VEFYOHlkeVJqTFV5L3phY09zMnRB?=
- =?utf-8?B?a2crUnNnVFIzekhGVFErSXQrYjlrcXZ4aS9LejBNSEdNaXFsbHJ5SEhrK3BM?=
- =?utf-8?B?ZEVKc29OYm11U3Z6cVYvbjdxb2tKMWZnWjdaQnl4ejF3NnNxcUNxdEZxdm1n?=
- =?utf-8?B?SDNzRG1RSFJsV0ZVc0hvUT09?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RkNYajlXTm5QUHRDUm9zU2tuNTRjZUpJZ0tCcGFIcTE2Qk5tTUdxeVNiQXNW?=
- =?utf-8?B?NTNaaE5LOVRrMTFHdUJ0ajRFZzB2ajFZaDhFdW9MMklraG1Bc3A1eXVBYmlR?=
- =?utf-8?B?cG5vdTVybVBaL0JIZm84aGkzbVMzRDk5cnR0QW82TVpYMmF0QmVud3dvamZG?=
- =?utf-8?B?UFdtWjlNcUQwN2FlaTNOdjVRVE8wMzdNWXdTTjRoVCtwRG9kRjZWbG9CcXA5?=
- =?utf-8?B?d054QzMrZnlZRFBvZkhveXhWWDlTRW9TcHFBLzFnVmx3dU5JZVY0MGR4TWt0?=
- =?utf-8?B?cW1RbW9OQVRMNU43aFA3Z1RCdHpCV1lvY3ZEMHg3Q3NaU1BId2dHNU9xSzIx?=
- =?utf-8?B?ZHVWL3l4YVZsWEh5WjRuYWZOaHJiWFFpSzh4QmdFMUtqSzJiMm1jUWlOTWZy?=
- =?utf-8?B?N2Zxd0tGdkZWTVJ4cjBmeGZQaWFEUFNOTHFJbnd1aXRsOHlBWEgxYysrQ1gw?=
- =?utf-8?B?MjR4SDVDM25KVExPdFA0cHUvMkRCcHZ0Y3RGc1pib3ZCZHRxS3o2UUlCZHNE?=
- =?utf-8?B?K2FpZThLRzg4eElFVzkyRFh1V2tMamJJaVQ5ZXIyS2JPK0N0ZWtMNDZQdWNn?=
- =?utf-8?B?MkRBS25TR3JsQkpTQkNYYlRISUk3KzlyajF2K2RDNFI2Y3hYVllFVHhQRXEx?=
- =?utf-8?B?ckRxSVRvSGdWZWJ3K3ZDOGZaYzVmR1JZWTFVeGd0cE05V2ZlZXhSZVBnaE9l?=
- =?utf-8?B?R3hOZ3h4aUtOS1V2bjJtd3BYajdFK3plNGNHSHRObGd6bnppb3A5YjBxeExn?=
- =?utf-8?B?R3lCYXhmL3FEUUZTb0Z5OUQwRlVSc2t6VGxGcFhrUUV5TEZhaXZkK3JJdnZu?=
- =?utf-8?B?czgzc3lzWlJ0RGtBNDRZV3I5N2U5RTByR3JTRkJUc0cvdDVWei92VndWRWhy?=
- =?utf-8?B?akhpd3huc0ZUSVN5ODVQY1ord3h3YnA0L09qWWRWY1c1R3VHSWo0eUlwUXBN?=
- =?utf-8?B?c1pHUlFGaE9CMU52YUlsLzlTQSt2cDVWa1czRkEzN3VBQW5JNklVSWVuYWE2?=
- =?utf-8?B?ZlBHUDYzRE0yUDQxeEU3VkxtT0JMQmxJaDd0UnJuRWl2YzI3SVorQjF3MHpn?=
- =?utf-8?B?Zkg5NGhwdUkvdFBEVGZzRTV3MHlKaktEYXp3TTdmZmhHeUNFem5yblMrbkQr?=
- =?utf-8?B?STg2cmZnT1hEZlVkU0RSOFEycklJTWxsbTdxL0M5eTl0Q3JodmNNZ3c4UE0v?=
- =?utf-8?B?NEZkNzllb3l0RzVNTVJ2R09NcGlZYTROTHMrT0ZhcDhqL0ozcHdhRExQYnJw?=
- =?utf-8?B?am9ZSXZwczQ2OXg1ckdqRGJqQlBBOXRncjc2WC9TL3pOdEpNRlM1OXZUZ2x2?=
- =?utf-8?B?dStIcWtOd1lOUnZJUVI4KzQvbUk5dWtRdFoyYWFPdHk3Qm1HNk54VTg4NEF1?=
- =?utf-8?B?UUlNUmRPQUpLSGVBYmI2bWxkdmNmUjBJcGZLK2d5Y1B3dnlCUlFzd1ErVzdi?=
- =?utf-8?B?ZXJzVFhvOGxKS01QaUYzcXZoSWRsUklrd0VKMnlnZ2d2aFdKdkZuYytWYktI?=
- =?utf-8?B?bkw5eEhIVXVlUVZpL3Qwd3Y2RUkvSlE3ZTJuZEhUVHArMnBqdnRmQ1ZoWHB5?=
- =?utf-8?B?cDVsUm1YMlA4cHVJTXhQRmxUck9SOUFCN3VaT2pGWk1Cc3BDaUZGdmo2ZHVL?=
- =?utf-8?B?NmpsRDEwdzRBSlNKZk5uU1hGamF2TFpTbEs0dEl6STNVM0srWUNoWWJRWVVK?=
- =?utf-8?B?SW02RTk4bjEvU0xUOThOTllhZzJhczJlYWlDQi9UZUdGY2JhUmt1ZW9vcnNJ?=
- =?utf-8?B?cWZENitob291eFVoZFlWVXp1MEN1a1JtbU4yWXA0cE42NU9XaExmR2oxTkEw?=
- =?utf-8?B?TlZtWEVqSWhpNllUUnRLVHFhUlZCOUI0L3JzZFFRZEFDQmNFdkpxR2pzTi80?=
- =?utf-8?B?Tk40RUFFS001cTVnRXdZWTl2OG9GQkRnZVYzMTljS0lnTnNUeGRBYUtWWml1?=
- =?utf-8?B?R3AwRXJrbXRFVEVTQUQ5Yk1qRFVNRnlDcDNhVDRlYkFxNURIQVM3MENabVNJ?=
- =?utf-8?B?TDI3cGRSZlkrRE1oZmxCKzhiSFltbjdXbGpxbnR1QzRzYmVnNHRoSE1sME5P?=
- =?utf-8?B?RnpEL0d2UFNvaTBwRXZuVmVSejczcW9GODBJTzRhTDllRU5nOVNFaVR1LzRJ?=
- =?utf-8?B?MGFHSElWUnR4cTFMTEtHdEF1Mk1XcDlIN0R5emt0NStWZzZ4N1hVcVBhUFdF?=
- =?utf-8?B?Ync9PQ==?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 73441e94-21c6-4135-ad66-08dd3a08aad5
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jan 2025 10:45:05.9489
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: GWRbqmWRpKJHx6qzsWbEz51lgamMNAhPzVYaQplTy8+2hMStTKww2u70GBpmo6fxpVJzkvGbpWf2u2+hiZaGErvC2mbfU82bl2SceAkOH30=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA3PR04MB11225
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250121084435.2839280-2-beata.michalska@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_024510_505328_F50D424D 
-X-CRM114-Status: GOOD (  29.89  )
+X-CRM114-CacheID: sfid-20250121_024710_069157_AFAF3417 
+X-CRM114-Status: GOOD (  22.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,79 +102,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Łukasz,
-
-On 1/21/25 11:28 AM, Łukasz Czechowski wrote:
-> Hi Quentin,
+On 21-01-25, 08:44, Beata Michalska wrote:
+> Allow arch_freq_get_on_cpu to return an error for cases when retrieving
+> current CPU frequency is not possible, whether that being due to lack of
+> required arch support or due to other circumstances when the current
+> frequency cannot be determined at given point of time.
 > 
->> On 1/21/25 10:41 AM, Quentin Schulz <quentin.schulz@cherry.de> wrote:
->>
->> Hi Lukasz,
->>
->> On 1/21/25 10:22 AM, Lukasz Czechowski wrote:
->>> UART controllers without flow control seem to behave unstable
->>> in case DMA is enabled. The issues were indicated in the message:
->>> https://lore.kernel.org/linux-arm-kernel/CAMdYzYpXtMocCtCpZLU_xuWmOp2Ja_v0Aj0e6YFNRA-yV7u14g@mail.gmail.com/
->>> In case of PX30-uQ7 Ringneck SoM, it was noticed that after couple
->>> of hours of UART communication, the CPU stall was occurring,
->>> leading to the system becoming unresponsive.
->>> After disabling the DMA, extensive UART communication tests for
->>> up to two weeks were performed, and no issues were further
->>> observed.
->>> The flow control pins for uart5 are not available on PX30-uQ7
->>> Ringneck, as configured by pinctrl-0, so the DMA nodes were
->>> removed on SoM dtsi.
->>>
->>
->> Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
->>
->> We should backport this to stable releases too, so please follow the
->> instructions from here:
->> https://www.kernel.org/doc/html/latest/process/submitting-patches.html#select-the-recipients-for-your-patch
->>
->> Essentially:
->>
->> Cc: stable@vger.kernel.org
->>
->> in the commit log and we'll need a
->>
->> Fixes: <commit hash>
->>
->> trailer as well with the commit hash of the commit introducing the issue
->> (likely the one defining uart5 for Ringneck for us).
->>
->> Considering that UART0 CTS and RTS are routed to Q7 header but only
->> usable when Haikou exposes UART0 on the DB9 connector (via the SW2
->> switch), which is NOT the default state (and in any case not supported
->> by our current device tree), I believe we should make the same change to
->> the uart0 node in haikou dts for Ringneck. What do you think? Can you
->> send another patch for that one?
+> Signed-off-by: Beata Michalska <beata.michalska@arm.com>
+> ---
+>  arch/x86/kernel/cpu/aperfmperf.c | 2 +-
+>  arch/x86/kernel/cpu/proc.c       | 7 +++++--
+>  drivers/cpufreq/cpufreq.c        | 8 ++++----
+>  include/linux/cpufreq.h          | 2 +-
+>  4 files changed, 11 insertions(+), 8 deletions(-)
 > 
-> It seems that in case of uart0, that is configured as kernel console, the DMA
-> is not used by the kernel:
-> https://lore.kernel.org/linux-serial/20200217114016.49856-7-andriy.shevchenko@linux.intel.com/
-> Which is likely why the issue was not observed so far. However it might be
-> good to do the same change to be on the safe side.
-> Should I extend this patch series with the fix for the Haikou device tree then,
-> or create a new one?
-> 
+> diff --git a/arch/x86/kernel/cpu/aperfmperf.c b/arch/x86/kernel/cpu/aperfmperf.c
+> index f642de2ebdac..6cf31a1649c4 100644
+> --- a/arch/x86/kernel/cpu/aperfmperf.c
+> +++ b/arch/x86/kernel/cpu/aperfmperf.c
+> @@ -498,7 +498,7 @@ void arch_scale_freq_tick(void)
+>   */
+>  #define MAX_SAMPLE_AGE	((unsigned long)HZ / 50)
+>  
+> -unsigned int arch_freq_get_on_cpu(int cpu)
+> +int arch_freq_get_on_cpu(int cpu)
+>  {
+>  	struct aperfmperf *s = per_cpu_ptr(&cpu_samples, cpu);
+>  	unsigned int seq, freq;
+> diff --git a/arch/x86/kernel/cpu/proc.c b/arch/x86/kernel/cpu/proc.c
+> index 41ed01f46bd9..d79f5845a463 100644
+> --- a/arch/x86/kernel/cpu/proc.c
+> +++ b/arch/x86/kernel/cpu/proc.c
+> @@ -86,9 +86,12 @@ static int show_cpuinfo(struct seq_file *m, void *v)
+>  		seq_printf(m, "microcode\t: 0x%x\n", c->microcode);
+>  
+>  	if (cpu_has(c, X86_FEATURE_TSC)) {
+> -		unsigned int freq = arch_freq_get_on_cpu(cpu);
+> +		int freq = arch_freq_get_on_cpu(cpu);
+>  
+> -		seq_printf(m, "cpu MHz\t\t: %u.%03u\n", freq / 1000, (freq % 1000));
+> +		if (freq <= 0)
+> +			seq_puts(m, "cpu MHz\t\t: Unknown\n");
+> +		else
+> +			seq_printf(m, "cpu MHz\t\t: %u.%03u\n", freq / 1000, (freq % 1000));
+>  	}
+>  
+>  	/* Cache size */
+> diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
+> index 418236fef172..6f45684483c4 100644
+> --- a/drivers/cpufreq/cpufreq.c
+> +++ b/drivers/cpufreq/cpufreq.c
+> @@ -728,18 +728,18 @@ show_one(cpuinfo_transition_latency, cpuinfo.transition_latency);
+>  show_one(scaling_min_freq, min);
+>  show_one(scaling_max_freq, max);
+>  
+> -__weak unsigned int arch_freq_get_on_cpu(int cpu)
+> +__weak int arch_freq_get_on_cpu(int cpu)
+>  {
+> -	return 0;
+> +	return -EOPNOTSUPP;
+>  }
+>  
+>  static ssize_t show_scaling_cur_freq(struct cpufreq_policy *policy, char *buf)
+>  {
+>  	ssize_t ret;
+> -	unsigned int freq;
+> +	int freq;
+>  
+>  	freq = arch_freq_get_on_cpu(policy->cpu);
+> -	if (freq)
+> +	if (freq > 0)
 
-Ah, I had missed that one, thanks for the heads up. Just a small remark, 
-better send links to merged commits rather than mailing list patches, 
-it's a bit more difficult to figure out if the patch (and that version 
-of the patch) is merged. If there was an interesting discussion on the 
-patch and that information got lost when merging, nice to add the ML 
-link though!
-In the case of the linked patch, it is merged indeed: 
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/drivers/tty/serial/8250/8250_port.c?id=089b6d36549160b535e109cd07ed6d578b81de46
+>= ?
 
-No, no need to send a patch. When Haikou is configured to have UART0 on 
-the DB9 connector (and the Device Tree is adapted for it) and not use it 
-as kernel console, we should be able to use hardware flow control and 
-not have this issue. So we don't need to remove dmas/dma-names when it's 
-used as kernel console, and we don't need to remove them when routed to 
-DB9 connector either, so all good :)
+Since we can return error now, 0 should be considered a valid
+frequency value ?
 
-Cheers,
-Quentin
+>  		ret = sysfs_emit(buf, "%u\n", freq);
+>  	else if (cpufreq_driver->setpolicy && cpufreq_driver->get)
+>  		ret = sysfs_emit(buf, "%u\n", cpufreq_driver->get(policy->cpu));
+> diff --git a/include/linux/cpufreq.h b/include/linux/cpufreq.h
+> index 7fe0981a7e46..02fd4746231d 100644
+> --- a/include/linux/cpufreq.h
+> +++ b/include/linux/cpufreq.h
+> @@ -1184,7 +1184,7 @@ static inline int of_perf_domain_get_sharing_cpumask(int pcpu, const char *list_
+>  }
+>  #endif
+>  
+> -extern unsigned int arch_freq_get_on_cpu(int cpu);
+> +extern int arch_freq_get_on_cpu(int cpu);
+>  
+>  #ifndef arch_set_freq_scale
+>  static __always_inline
+> -- 
+> 2.25.1
+
+-- 
+viresh
 
