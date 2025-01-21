@@ -4,130 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5404AC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 18:34:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0E3BC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 18:37:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I6g/CX+/dSwtyMMTLVD/KiU50D2jdXyznwECf80QCyY=; b=eleYUhjLoUWHVLrUA3qwz/3hU1
-	UdlJ/QPJKNlw8jKPByzQJlDP/WKqhakhNTEg7h5kP1jxxBASZSpQddYfjG/dDxMN6fn2yYJme7qdL
-	B1nyeqQBKUWTXFZ/m4dnbfBMkBUboL9BBmh+Wo1Amm9QynGhBYWcIs9NXVBmbufPgjDO01XCMlhdl
-	vZBry7w+W+V7UdxqkJdeIrYSmCe1O/i9r9VSNZpf6hI02JvKKTt9newNUVK63DEgc+4pE1NqTNayi
-	wqY4PtpyGl8I7nK894iBfpBE7r9p9LMgpkd5/vrJVPof21n3zU1zxyd7DasSw1pUFfde5dKsL8FFg
-	ReAdmg+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NZBrqwg/O122cP3g9y3vm9d3xz1mCKfE8dEqQNuFVns=; b=TWELq09uuysIC8jNSKB746QmC1
+	35/PxjlmLKSkiYA7Pb7NbmWRwWGQO7PULtIg/M+rnv492gCFwhvxMmbCY3j/qL7/l7F7babXnNhjo
+	SX4SuwsmubkcZCGdshLzdylxbfSUDp69S8kho0NwCyGYPs0J0U6VOIH2MV+zdG0FBDloTxS0FhPAI
+	TxU1zxvUYxTTjIP/d4lS1xc9NGNZPTTDaRF5yjWph6HeomdEfrNLKTB5lxTCWEDIJCknb/j1+GXg/
+	x5zwbf/IDaU21L6TlhcewDPeKbVkUcLLe4Uf1ztqMB1l+YYb3Vdswzy7yTXD8hJ9UrSLyBMq11alv
+	5BGLKTQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taJ4l-00000008bt7-3rJf;
-	Tue, 21 Jan 2025 18:34:11 +0000
-Received: from mail-oi1-x22e.google.com ([2607:f8b0:4864:20::22e])
+	id 1taJ84-00000008cAG-1aD1;
+	Tue, 21 Jan 2025 18:37:36 +0000
+Received: from mail-dm6nam11on20622.outbound.protection.outlook.com ([2a01:111:f403:2415::622] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taJ31-00000008bfa-0bcm
+	id 1taJ6n-00000008c4J-0n6y
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 18:32:24 +0000
-Received: by mail-oi1-x22e.google.com with SMTP id 5614622812f47-3ebbe804913so1440713b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jan 2025 10:32:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1737484342; x=1738089142; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=I6g/CX+/dSwtyMMTLVD/KiU50D2jdXyznwECf80QCyY=;
-        b=WDYGAc8yhGQc9E/o434LscxeAurm8bP+RXaXdN8AlzIOL2686k+tVK/mvEFXFcbved
-         b0MbqORrA1lE290mx6NZe5gt2YVNzndQ9Jl+J2jgf3Ufn204hMQFAGp3LnzSE5sBcsts
-         MIbP4etZeqbQ981sucyP8xkYMWj0GoPM1jHTs=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737484342; x=1738089142;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=I6g/CX+/dSwtyMMTLVD/KiU50D2jdXyznwECf80QCyY=;
-        b=J76yj0VHHbSi8rpQMLOtl2/1wn/Ad4GJVEGIB7p7hRBTwpKuuCJzXKxioyXbQFWw+Q
-         BnMNwNTEQ3sK9C2VeTOYYH1Bpkx86gln4L+TS3uc5e9Z7peUpJDekcQoExBz+IPTw+U9
-         mMATG7zxxvq6XtGZ2BHhri4HixO6+K+iZvsuZcYE7BA/qLHuXGYmL3qEU/4qHKylgiZw
-         +vc4dEYeCFV5dqbZmPHv/ZWXmppif0GEVPrwUcBUXx8sJjVJX/R8n8qFxX8exgFkZeZw
-         huwUMw6PTFJ9D4Dx/TdoUMKj5tNzQRXRCDh1cqtVMwD9JGdqRaLC4hV7S7ch6XPB+88J
-         kI8Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXikeydS2yz3riXsd5ZO0WYcaEPxe+E9/P9tuvSVw3BfOv+7PZ7yq8deJzkxTuQNnDkgMtLQHQhqRIl89HhlYQz@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw4NKux7HHr0y8uOjufUcb1r9UwLg0zhag8g9PVR+mCVRsRJt4h
-	QQzBZRXVHG00RMPZI4rU+Rt7lbt+nnWsagLT43/O/pwApw43BZve19XZashuyQ==
-X-Gm-Gg: ASbGncvNUmU7ODb1fOXaPQEbRucvMKsP4BbtvsBHrR25Oe1GZnnZ1GHDT9Kmyx/AmIk
-	iCf3OR8NxVOUn+ADH5fJ732rlp41QmZJvkWWw0YCa8XpSPEwfj5VX6bvqlvfI+DLesUQklmOMIA
-	amUGRcAblW+j8sD6GNjNARe/NtRttxua34dXG9jmEzRDH6aiijrM2btfstZ3XDcU1zuxfqamGOe
-	ck2YWHFbqSnPTIwPrapQQXyIhL/IvpUp4yvoEjUEojBUD6a5zwosaX1yqErOhOlPqwYZtxbEKa9
-	y66u3aXSVOcT1deVoWsDMAbNHOYkkUCU4Q==
-X-Google-Smtp-Source: AGHT+IEdmBRPRkWmokta3IssK592zHSuLuOAdbq0f0sxdCFGkG6xlMjxeEXZTzeb5T9HD5OCPu6HQw==
-X-Received: by 2002:a05:6870:4f17:b0:29e:5df2:3e50 with SMTP id 586e51a60fabf-2b1c09c5d8fmr10307404fac.15.1737484342205;
-        Tue, 21 Jan 2025 10:32:22 -0800 (PST)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2b1b8cef45bsm3757647fac.20.2025.01.21.10.32.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 21 Jan 2025 10:32:19 -0800 (PST)
-Message-ID: <1abdd175-280a-442a-a27a-9bc01c0a04c0@broadcom.com>
-Date: Tue, 21 Jan 2025 10:32:16 -0800
+	Tue, 21 Jan 2025 18:36:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EVQcyra55soRz4maIO04ov/A3OiHQjzp4Z5b1ncWjGfX1Q7vyRGGTRlaR4dE5PK1C5DsGh3in6qAztgWItvJULT6NmyU2rEWw1HTb+dEm3aKPXbRcqgLiXcOp6jqQsTjSpbEzt8/0o12MGYuWuXOOQAJaS/YRKhydFPlCJiNY/rC7CtWh7fhLIaaVLX1RvNGpcaIwmzY8w4qrTpfUDQ51C/fvdSxbwis4C6I7wiHi7sp+jHAwUduWIO00eRUMg2XEyGpXMsAv1HjuCmd8QlM83/QKcv/a+rrpS0DUFIbgkOose90UPa9Fi82plnjFfH2Q02jf1h5rSHre30kyWVX8g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NZBrqwg/O122cP3g9y3vm9d3xz1mCKfE8dEqQNuFVns=;
+ b=ve3+qQLnOGJAwUl8KBh7SCzEqtSJO7T9p6avRqDKx1in5NZaCVSvyHjBcLaIn10jEhgkhQGWq28XF1Z8ydfG/oASGJQNovHTt5L2IXA9Kfb+Q3N99wSIKnnptdpFXY2si/BC+m43GV5Pir/aE6Jfy6bjPPMVyx5o+0G92Ufkn0lupGQsRk57vg5O5GNUZ3jXr8oP7mczYaM1UT95dLA0nBFwdVWKXtrEwXzFjkvxUE53lnuEn4PmvjGFdaRRfwPJjziHlZqBTreFjB8DLwLrLIGUsv5QvpAcU51HXgBIicm3FcveGvgeyqjVe7jKfEKS5Y1FR0chOjFtQAGyg+xMyQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NZBrqwg/O122cP3g9y3vm9d3xz1mCKfE8dEqQNuFVns=;
+ b=Ulg/G1Txu23aC4qvQI8ScFvkPE6mxI+R8tQBD64emAFYoxBmsSgXbzigqscHL2NR+vyJix5z9JkAkmRRik14VenpQzqTQvwxIvEd3ASBZOWtLGpu40WpvGTLC02JzXetKoxLEL02fk77doBBSpT+gnvG7AO5uIDxKsSX9cqrCb9bKIPrwkDYkyEGEUVUVZh/KM1zyPbqxR/9TSZd37y9/mhTt1ccBOqi8TTR5JEkJjXRKOB8zmOE3i+2b2BJSeaS1EwsjXC/oAWNJKgWJyjXPDSI1vNJlep2lLVjSWAvVfhOAcGth7JOq+mHgYK3XMoXbcrn1tk+Z2BuZQKVGoVLnA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by IA1PR12MB6233.namprd12.prod.outlook.com (2603:10b6:208:3e7::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.21; Tue, 21 Jan
+ 2025 18:36:12 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%5]) with mapi id 15.20.8356.010; Tue, 21 Jan 2025
+ 18:36:12 +0000
+Date: Tue, 21 Jan 2025 14:36:11 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: kevin.tian@intel.com, corbet@lwn.net, will@kernel.org, joro@8bytes.org,
+	suravee.suthikulpanit@amd.com, robin.murphy@arm.com,
+	dwmw2@infradead.org, baolu.lu@linux.intel.com, shuah@kernel.org,
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
+	eric.auger@redhat.com, jean-philippe@linaro.org, mdf@kernel.org,
+	mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
+	smostafa@google.com, ddutile@redhat.com, yi.l.liu@intel.com,
+	patches@lists.linux.dev
+Subject: Re: [PATCH v5 08/14] iommufd/viommu: Add iommufd_viommu_report_event
+ helper
+Message-ID: <20250121183611.GY5556@nvidia.com>
+References: <20250110195114.GJ5556@nvidia.com>
+ <Z4Smpeb4k4UF3Qso@Asurada-Nvidia>
+ <20250113192144.GT5556@nvidia.com>
+ <Z4Vt6DAMDfEv6tb5@Asurada-Nvidia>
+ <20250113195433.GV5556@nvidia.com>
+ <Z4V7NbxGyYoQN0yV@Asurada-Nvidia>
+ <20250114134158.GC5556@nvidia.com>
+ <Z4rVg1Xg5TCiFlSb@nvidia.com>
+ <20250120181854.GQ5556@nvidia.com>
+ <Z463eXfgNArCOfPn@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z463eXfgNArCOfPn@nvidia.com>
+X-ClientProxiedBy: BL1P221CA0002.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:208:2c5::32) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 -next 09/11] PCI: brcmstb: Fix for missing of_node_put
-To: Stanimir Varbanov <svarbanov@suse.de>, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rpi-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Jim Quinlan <jim2101024@gmail.com>,
- Nicolas Saenz Julienne <nsaenz@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, kw@linux.com,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Andrea della Porta <andrea.porta@suse.com>,
- Phil Elwell <phil@raspberrypi.com>, Jonathan Bell
- <jonathan@raspberrypi.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>,
- stable@vger.kernel.org
-References: <20250120130119.671119-1-svarbanov@suse.de>
- <20250120130119.671119-10-svarbanov@suse.de>
-Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20250120130119.671119-10-svarbanov@suse.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|IA1PR12MB6233:EE_
+X-MS-Office365-Filtering-Correlation-Id: c31764e5-a42b-4f2c-9f22-08dd3a4a7af7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5yY6/SXo+OJ+2zTfqWgss9sGWX+jdvaNivNXs5KiEYI3hWcwgadFeZVLgBWB?=
+ =?us-ascii?Q?lRLvqV2ixT0iIWZB8O6Y9fgm/XglKe9GGwVnvSGqfXYavTVk7yvQSpAREPIf?=
+ =?us-ascii?Q?sam5KifZrq9VZZ2MVq/3oTtkU+O8d1fUYnklgNFoeiIHaeLU+DTG3ZGO1m3a?=
+ =?us-ascii?Q?j449m/gqyscGCgampMdKMnO0XT8l9QuTXWybk+4vBYs1PUPTMqq8ilPUq66d?=
+ =?us-ascii?Q?NxcWxnwmbNxZwrcYhQnWAmRXdmTiPpRQINX9OzgpgpxOZvPUw9ke60VHbTXa?=
+ =?us-ascii?Q?WP19LwoN0XS9DKhbycWbWz64f/ykD6cCBbszR8DK8PJxCjTzxaxx7o82x0qn?=
+ =?us-ascii?Q?n40C9gwzmHecX/mwKrwmw18Nnjmrml6IKUN32wsrp41LeReIXYSLjRvILanH?=
+ =?us-ascii?Q?n2U+xqotUEjN+LEk2Ayq9eiTEkvrVA6D7SOZxbiNgvetVYSCduo+QONCPtuD?=
+ =?us-ascii?Q?GLHhd7BnB1nwcUywkA1M+Hjv3TDeGqkCy3UeOuaDdKH1Xo9QvyoJ+enjFDis?=
+ =?us-ascii?Q?SokS4aikX6T//cjtNRQa3+11WzeZ2blDJ5rKFdeWrKHCOI8zC9fVerejtyAY?=
+ =?us-ascii?Q?4X+54jyLNFsCtspCYFX8lLYA3bhsdqZQYoys2oZdcE+afAc6/XFFISTExSIT?=
+ =?us-ascii?Q?jcWFB/a0PAk7ixk6GYboNUwKKjNpBhFusA4PxmAagOCVjM72OMFjEUfvVXon?=
+ =?us-ascii?Q?vDEuF4RY20iaTJXGZ0ycqgJtnkPkiOTjn+eWIEu1a8r8hlmfei/NHh4XmT/Y?=
+ =?us-ascii?Q?Ja5IDOaWVWX5rfvorEJ9pRzbxdkEc1UpoqCUJRhV0aPOY9jpBV1QYcLEPMM5?=
+ =?us-ascii?Q?TNyhCgoyuIOuBMAkxDYX8iywvF7+q3rG1OSzVY7tqLy1gxDaXB5R43hQ6vh6?=
+ =?us-ascii?Q?6vISMCx+b/nxY134xT6hbz/KzG88rdYKhe1sEIC+LjqmmGhEJDXA/cV7ozHy?=
+ =?us-ascii?Q?UaVONPxP5ZyEfiKHcwKOxrCY6wvAl8uRd2UYi48w9r4EvJRxz1mA8bhaJ+Xm?=
+ =?us-ascii?Q?plUjLMpvYxMkmX8Pyj+WJ02xQgDsSujhjKO6PNr6skQtrAiWcIPupuvrfiEA?=
+ =?us-ascii?Q?wi1GB3vwyqKJSsLuXb//gY7fA+FSlD2YOK7Lrq9JCL/mBtuKQ0sTuZUgHsZO?=
+ =?us-ascii?Q?IrG/PYFCuHDtYHuh69W2Z8XU/Otf9dtBcgV8jlu9/nlTvu1DFFNvvZUa5XZz?=
+ =?us-ascii?Q?V9bMrwG4ThBc/955GyKZodAfAAA9C4mPSJmeGPen4xHpEK31O4UHBiB0vhN/?=
+ =?us-ascii?Q?NoTl0oCJtHdica6HpeHtFlxgGtuprKRFqm2fJSmffayQrALfPR/eSjXMmNM8?=
+ =?us-ascii?Q?qBy1bY52i2oOgVzZQWNWXHTDVxZzBMfkuxPl1sziyZCcr5k1XrECsTm6fS9u?=
+ =?us-ascii?Q?F6sLCQZxtnJo8sPcFS7dORcP0wuH?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?TzcOrs51N35UnsdjyIc+q6y29dcxk7m/lR8gPgTiDHS3A/kvG+5LT8Wdtwf3?=
+ =?us-ascii?Q?ObH2n0R1w2BmANbdVsH7mibZXOMHXgtb5usxcqSBsTh8A3rW3XrnA8DchyZQ?=
+ =?us-ascii?Q?wE8AY9SLZCggGDhf5DWjWUtxEI6WKQl5C2JfgRTB+l72fJGvGl06oXFznCJj?=
+ =?us-ascii?Q?z12n6oIb9/qLGzlAo+qcdGBbnhOuM+VQwFDYFiXFR2LZH3ApeEKGmhNgqYzE?=
+ =?us-ascii?Q?eEas0YUqIOYBM1iLbjEhNVp9sqcymg/7ft/t/XxK2Ap6r/CPzAMvFEgjk9VA?=
+ =?us-ascii?Q?W5UzM6EK0p9qjNuATRpmJW98pxGYlZAx+JkcAnbE5+wFZFmvIhPq2tyxW8/b?=
+ =?us-ascii?Q?8dQkUb1S9kL3sV0qSiQ+DvcN6Kl3Tcjp54jtClfu7sF0KCfjxGU2yiEJ+mro?=
+ =?us-ascii?Q?RF/TI1l63Xt7HNRXJ3eOuNnL0rLjG8bN4Y6wpFT2I1luC7NHrM1N2hq9HuQU?=
+ =?us-ascii?Q?4HFn96RiGT7vk6Udc1oZky/OthVxcSyvbiZuRq5SxgsMG3NGJrRnUIuIZlUx?=
+ =?us-ascii?Q?Bv0PEbx1VYdf0wjs6bB5J1uy5pNHqJ09zii47qnKbHrdizdBZw1kmyGb/jeD?=
+ =?us-ascii?Q?O4w/T8JrYjBslAwXNT0qYlOwQ9xsxY+jGOUWOh50QYjrfWm/3sV9rzI5rERX?=
+ =?us-ascii?Q?vfHIw1AI+Rn64gKmET1fcEOuKSZa2Raz1QUt2+TFI6vEM2za92G5aVhhrkUi?=
+ =?us-ascii?Q?W6qFqn/p7x0X+/I7mQdq6DlJTL+xl8j4hL3NdSdRfdcEZ6hAnLP7gLyK/wqT?=
+ =?us-ascii?Q?LGmj8yJGa5Uua1HywzaIOqtBD62MVuh3xz9Ol8tacfcb0N9U4ERsGTCpU0zA?=
+ =?us-ascii?Q?X6+nT9JEXr0mpZ5BupjiecQn1keHJfIg5b0VGva9+/yp6n2Iu8UCSXWc84hR?=
+ =?us-ascii?Q?4/voG0BYEk7pdVr480FYR4AbNe6rks8TKOI/EoldHo4ifGka8RLFjXTH1Owr?=
+ =?us-ascii?Q?tR7GYURS7Ab4GnXAnajIudNVn4dCP60ZDd1yt18owsNqRH8PESBn0MscBJYK?=
+ =?us-ascii?Q?r7/Nk1FjdHjmMXHnLhTfEi6K9fINmRyMIRt5q8K7XTX7NCiOpLT7elNVDciS?=
+ =?us-ascii?Q?SX3aUBh1q7ocQrFITDVZnVqQxwVRYRRGvQ2d0zwzCs1TWiPMPZjvyOnBV9pQ?=
+ =?us-ascii?Q?991rJ6RlDOx+KUl5y3OUxvteiRSU38T2aoJK4IGuzirQ+SbcBvddhVypXoWp?=
+ =?us-ascii?Q?ttVKGjwWIBBT4pbm5Tvw7kqLYISMwLis+po4DO7gLPisqaPvwSl229qreFJD?=
+ =?us-ascii?Q?FXEQhExqkVidjKqU2AeMWLGUV2G7iGp28W4AdcOWKmDX/54aagha3vbp+hXa?=
+ =?us-ascii?Q?ob9fRlq/WMEN3oRsiTxfg2NHdW3R/4AsY9WW7PuXGeODNh0Piae4xKtUawGj?=
+ =?us-ascii?Q?HaIZz0uPw7yGVxv49C/Z7kWp37PWYJwhq7MvuJhpKzTHUrWva2kOb6FeZJEa?=
+ =?us-ascii?Q?C7RluqGrkR58HlM8TFiXUSkdWkvy1WozTuuAIkbXRGwCHkPBDw4HNbaXZKkN?=
+ =?us-ascii?Q?hFyiuZy/G9Tc4ojS96ZbzbvvSg7VkPG2O01/2aFuUoZHq07Xfy/sXrI5/kfq?=
+ =?us-ascii?Q?3udPsQQhcQhpsiN4A+zX2MnN/nWCRrTmOa1JkupM?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c31764e5-a42b-4f2c-9f22-08dd3a4a7af7
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jan 2025 18:36:12.3282
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: s2lMR73iZZYxhDKUyjPKvhq1YgsIToGFz2vvDK2pQMUVZfBZ+wPETcZlvR/K9Kh9
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6233
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_103223_188109_C4C5F08B 
-X-CRM114-Status: GOOD (  19.91  )
+X-CRM114-CacheID: sfid-20250121_103617_241082_05F819B7 
+X-CRM114-Status: GOOD (  25.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,38 +173,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/20/25 05:01, Stanimir Varbanov wrote:
-> A call to of_parse_phandle() increments refcount, of_node_put must be
-> called when done the work on it. Fix missing of_node_put() on the
-> msi_np device node by using scope based of_node_put() cleanups.
-> 
-> Cc: stable@vger.kernel.org # v5.10+
-> Fixes: 40ca1bf580ef ("PCI: brcmstb: Add MSI support")
-> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
-> ---
-> v4 -> v5:
->   - New patch in the series.
-> 
->   drivers/pci/controller/pcie-brcmstb.c | 3 ++-
->   1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
-> index 744fe1a4cf9c..546056f7f0d3 100644
-> --- a/drivers/pci/controller/pcie-brcmstb.c
-> +++ b/drivers/pci/controller/pcie-brcmstb.c
-> @@ -1844,7 +1844,8 @@ static struct pci_ops brcm7425_pcie_ops = {
->   
->   static int brcm_pcie_probe(struct platform_device *pdev)
->   {
-> -	struct device_node *np = pdev->dev.of_node, *msi_np;
-> +	struct device_node *msi_np __free(device_node) = NULL;
+On Mon, Jan 20, 2025 at 12:52:09PM -0800, Nicolin Chen wrote:
+> The counter of the number of events in the vEVENTQ could decrease
+> when userspace reads the queue. But you were saying "the number of
+> events that were sent into the queue", which is like a PROD index
+> that would keep growing but reset to 0 after UINT_MAX?
 
-In the interest of making this a straight back port to 5.10 that does 
-not have all of the __free() goodies, I would just add the missing 
-of_node_put() where necessary.
+yes
 
-Also, since this is a bug fix, you should probably make it appear 
-earlier in the patch series, or even sent it as a separate fix entirely.
--- 
-Florian
+> > IOMMU_VEVENTQ_STATE_OVERFLOW with a 0 length event is seen if events
+> > have been lost and no subsequent events are present. It exists to
+> > ensure timely delivery of the overflow event to userspace. counter
+> > will be the sequence number of the next successful event.
+> 
+> So userspace should first read the header to decide whether or not
+> to read a vEVENT. If header is overflows, it should skip the vEVENT
+> struct and read the next header?
+
+Yes, but there won't be a next header. overflow would always be the
+last thing in a read() response. If there is another event then
+overflow is indicated by non-monotonic count.
+
+> > If events are lost in the middle of the queue then flags will remain 0
+> > but counter will become non-montonic. A counter delta > 1 indicates
+> > that many events have been lost.
+> 
+> I don't quite get the "no subsequent events" v.s. "in the middle of
+> the queue"..
+
+I mean to supress specific overflow events to userspace if the counter already
+fully indicates overflow.
+
+The purpose of the overflow event is specifically, and only, to
+indicate immediately that an overflow occured at the end of the queue,
+and no additional events have been pushed since the overflow.
+
+Without this we could loose an event and userspace may not realize
+it for a long time.
+
+> The producer is the driver calling iommufd_viommu_report_event that
+> only produces a single vEVENT at a time. When the number of vEVENTs
+> in the vEVENTQ hits the @veventq_depth, it won't insert new vEVENTs
+> but add an overflow (or exception) node to the head of deliver list
+> and increase the producer index so the next vEVENT that can find an
+> empty space in the queue will have an index with a gap (delta >= 1)?
+
+Yes, but each new overflow should move the single preallocated
+overflow node back to the end of the list, and the read side should
+skip the overflow node if it is not the last entry in the list
+
+Jason
 
