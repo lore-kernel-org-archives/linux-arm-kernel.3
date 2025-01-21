@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE8D3C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 07:53:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A291AC02185
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 07:54:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UKl1MKwLjhszX9BKVFACDwTcTbfPjaluhNOP3IU2uvE=; b=t6UVo67G6mRwqHu46Dmao01LTR
-	alDvIib+YmuFCwIr2Nm0ttKSizCJCKVTMiff0/cHXTkHZ7HK+3HMKY/hWyzfRvRb375f6O/ZdxBNm
-	/8wQShfkz76PD/T8Oi6f3IDNi2EWcOGoroTuWfXlZbsisFBqb1fA0Xd3pHlxVRgJTPGI3WVDzzAUg
-	Sdr+IO3+7nC8Qsi38gvduuSeyTz/feMg7Wr0BzisH7F/Yyr7/YT8UAAStvjs+iOLYmUKoJsSqpGUJ
-	h8uVL+hSqE5wyQA914oBuD8/QS3IFJeOdxQdcUP/rtXREMHMABqWfVWZXZHq/N3GN9F9FWPAJbzpo
-	W3H7AVVg==;
+	bh=ANkSlmSu8/+gD5Ka6RHfu5C72JvXIbqm6DfkZZxFM/A=; b=huGTJIkma88RUT3QbHL9kezFYq
+	dG06Qt6v6Ias9OI3WVLZcPurmdRQZeul7kmdBN3gZt1GD+GbB5zkwK7GiBJR3c4OS+5G9DyaHcR3U
+	GfC8Jbe8ihk2KoFJF3r7R2cQwDgzfktihiIhl3tqoxRD7t4zKiiL54asYk+G3w6eOmEmVW6lAvJ1q
+	vB40k+VZ0vPqqHdgcJzywd6OZCcrJL2aPw9saYNqRanSPksLdGTAIYkcE/niEInbrDN5Cx23TiTTY
+	b7xDWXnK2Iuf+awGSvGnXxjclc+/6kX+rNSASGIO7FDrUMU4t95WLwfdhtBgIr6xlrLEE+GUHhpm7
+	hqr5AFIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ta94N-00000007B9r-1IKO;
-	Tue, 21 Jan 2025 07:53:07 +0000
+	id 1ta95c-00000007BIU-3wcJ;
+	Tue, 21 Jan 2025 07:54:24 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ta91M-00000007AjV-3Sbt
+	id 1ta928-00000007AqJ-2kXu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 07:50:02 +0000
+	Tue, 21 Jan 2025 07:50:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B4DD25C5653;
-	Tue, 21 Jan 2025 07:49:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91CE8C4CEDF;
-	Tue, 21 Jan 2025 07:49:50 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id AB8915C560D;
+	Tue, 21 Jan 2025 07:50:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9E09C4CEDF;
+	Tue, 21 Jan 2025 07:50:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737445799;
-	bh=W9MvNZNB/WPuvLlt0HRcWe+Q/odOJq42KRM3eF+V1dY=;
+	s=k20201202; t=1737445847;
+	bh=kvzx1OYy0trEjDMaN7ETgM11OjenSjm4JBSEkY4PYFU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=O5MRCH0Bs03mY2+nP+XtN7RdpkpznvRlDQx+qATOFkBT/Jr89HheQmJgoqokHnvnj
-	 j5byNUV3SoonvweGFJEQPQcyuzyEmfX//8zIkO0YZ1B485/c2d5NO3Zk0U9dV64trb
-	 4ALS57pkkUjxySMgH/JfWVfgG9LS6TYAA3bunOye7PoAMQ3GI7pHqmUfJot/wc2DWi
-	 GbyW29NkHGCw3J/U9vCGoqto4mnSIHt6xKrHarfysP47MeB4QUiyhrKBDy5rRmp4bX
-	 XFlKX+WiCcmldsz3XCSV/zmFeV5aX7yf6YoXd3zYQfB65hlhnPkyaY5MetEd7hjlR5
-	 +Tz4iHz/BS2uQ==
-Message-ID: <8c8ef847-0d6a-4859-9e26-dfea993f9d7f@kernel.org>
-Date: Tue, 21 Jan 2025 08:49:48 +0100
+	b=NejB85dL7SWConl9SSEUyEHx0i+ypoXohskLkjLFkftNjK2wA33827Ew5aLNRhVMU
+	 aayMzTSze4VrkyDne/o3+568v2g/NvwuphVt5N5mWPngfp11wHF8FVNdjrJx/ZaEL/
+	 zNsbgiFA4tjJUIb6aBD79sKBp5Mp109wkAaulcsYpsq50s+y7ZN5GF0Sbq3ECseUVJ
+	 Ze5vKyxq6ORlHLGjSI2OHykDPvNKnxd29FIOSG0q4PPXZrAXBpzgsLGGSHC0M3worF
+	 dO/RbUbQikmJCcO8iIMeMSEwGnOfOUcNOiFUrmsPlZD+ECTdtF5c+VIhNbpyAONFXx
+	 EmG7kEEq0kqxg==
+Message-ID: <7344eda0-a217-46d9-9006-5be1e50c98f0@kernel.org>
+Date: Tue, 21 Jan 2025 08:50:36 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/5] Add i.MX91 platform support
+Subject: Re: [PATCH v4 4/5] arm64: defconfig: enable i.MX91 pinctrl
 To: Joy Zou <joy.zou@nxp.com>, robh@kernel.org, krzk+dt@kernel.org,
  conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
  catalin.marinas@arm.com, will@kernel.org, kernel@pengutronix.de,
@@ -61,6 +61,7 @@ Cc: joao.goncalves@toradex.com, marex@denx.de, hvilleneuve@dimonoff.com,
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, ping.bai@nxp.com,
  ye.li@nxp.com, aisheng.dong@nxp.com, frank.li@nxp.com, carlos.song@nxp.com
 References: <20250121074017.2819285-1-joy.zou@nxp.com>
+ <20250121074017.2819285-5-joy.zou@nxp.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,12 +107,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250121074017.2819285-1-joy.zou@nxp.com>
+In-Reply-To: <20250121074017.2819285-5-joy.zou@nxp.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_235000_956882_5EA2FA67 
-X-CRM114-Status: UNSURE (   9.42  )
+X-CRM114-CacheID: sfid-20250120_235048_789172_671E0E1D 
+X-CRM114-Status: UNSURE (   6.38  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -128,26 +129,13 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 21/01/2025 08:40, Joy Zou wrote:
+> From: Pengfei Li <pengfei.li_1@nxp.com>
 > 
-> Change for v2:
-> - change ddr node pmu comaptible
-> - remove mu1 and mu2
-> - change iomux node compatible and enable 91 pinctrl
-> - refine commit message for patch #2
-> - change hex to lowercase in pinfunc.h
-> - ordering nodes with the dt-format tool
-> 
-> Joy Zou (1):
->   arm64: dts: imx93: Add labels for the references easier
-> 
-> Pengfei Li (4):
->   dt-bindings: arm: fsl: Add i.MX91 11x11 evk board
->   arm64: dts: freescale: Add i.MX91 dtsi support
->   arm64: dts: freescale: Add i.MX91 11x11 EVK basic support
+> Enable i.MX91 pinctrl driver for booting the system
 
-
-Why do you use entierly different prefixes?
-
+That's really poor commit msg. You are changing common defconfig, not
+your own. Booting system of what soc? What product? Why would we like to
+have it, if there is no board with it?
 
 Best regards,
 Krzysztof
