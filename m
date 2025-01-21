@@ -4,69 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 694BAC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 11:19:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9559C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 11:21:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oJdLO77RbaR9GKn+dIgYoxZbnC9pnSRo87z+ypPIZyU=; b=nt83Qvp+YByF44a8IcEYo69YDV
-	lhB62MTiCREHcLdpEkfBgQLnunP9dtxwV1f/NkAnh58LV7efNbzvVazwqxjmDnGBUTbiryiReFL/o
-	Dv+TD0MN8uadLpgPCzciopHZfUXxZsm8zbjWwuvnLoJvkxkohnqrOCADuOSSkv8G+dXciZK7oWM9j
-	pH9YglhkHZE06TkKhAW6fq/y03CcXPo4J/KOlpx/AENqmhQRA39UHomyeuPgzfupQueiVYpWpcUQt
-	d3n3dJuJ3hBIS3VKYHErgfSVi2RQudjfxp/VjKSxKPABvFt+3FUDo48JNFe7O9DPH/qxEnkZwRKSB
-	i6vUEdVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ChcxeXKlPhsKDRHFg2ZVdJieYmcH201J90aZIwUb0pg=; b=RY9fYtVszdcWC18BBPNJNjvmmv
+	jMhOL9jJXV5/GkMpLgESlgWLLsiiuYyaTg7kSEetNII9iGMT7Jvfzc7/6xtXVwJ2mwL3JiIyhQv+/
+	uFVBD+e+oXDbD8yNJYLazAX5d+zhvdLKUfIUSFPXkHGqdPpml8BefI5CHnPpIvXYY39GlhKDRE5VT
+	C4Vw4pFXSMbgH0JGMUFHjaZz5oLDC2Dg7lxm7KbSiSH2kvsV/X0VkCw40R0zxxJHRqQqlVl6jkjn6
+	iI9jK9pCU06jW9i9MaV0JhwPzN/HrsCDkVye7Wa6q7aEGGxJ6rsqJpWQqwpcAR0ZNPlL4RnKeuF2a
+	Fu0dSldA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taCIB-00000007jhF-1gai;
-	Tue, 21 Jan 2025 11:19:35 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1taCK1-00000007jsb-1JFA;
+	Tue, 21 Jan 2025 11:21:29 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taCFi-00000007jDi-09QI
+	id 1taCIj-00000007jmS-07Rk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 11:17:03 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1taCFV-0001Dr-Vy; Tue, 21 Jan 2025 12:16:50 +0100
-Message-ID: <591d482c-cf1b-4875-b18d-8560f66e00d0@pengutronix.de>
-Date: Tue, 21 Jan 2025 12:16:48 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/4] gpio: mxc: silence warning about GPIO base being
- statically allocated
-To: Andy Shevchenko <andy.shevchenko@gmail.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Andy Whitcroft <apw@canonical.com>,
- Joe Perches <joe@perches.com>, Dwaipayan Ray <dwaipayanray1@gmail.com>,
- Lukas Bulwahn <lukas.bulwahn@gmail.com>, Fabio Estevam <festevam@gmail.com>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Dario Binacchi <dario.binacchi@amarulasolutions.com>,
- Haibo Chen <haibo.chen@nxp.com>,
- Catalin Popescu <catalin.popescu@leica-geosystems.com>,
- linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20250113-b4-imx-gpio-base-warning-v1-0-0a28731a5cf6@pengutronix.de>
- <CAHp75Ve8d96Uw1obJVwRPyRE5E0eC8qU7uXe-UKuZeB-3XLPcA@mail.gmail.com>
- <528b6695-387e-436d-98fc-6f576636d16f@pengutronix.de>
- <CAHp75VfOhAmkpB_nhQE8m25p=3P2wvTfOnQFEsLR5KEktLy4vQ@mail.gmail.com>
- <43ecfb45-d96b-46e5-95e1-2ece32532e74@pengutronix.de>
- <CAHp75VfZHZ7Xx1SnryBX683B=gm70SE_bvhivn+ecUePebQLdA@mail.gmail.com>
-Content-Language: en-US
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-In-Reply-To: <CAHp75VfZHZ7Xx1SnryBX683B=gm70SE_bvhivn+ecUePebQLdA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+	Tue, 21 Jan 2025 11:20:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3A0AA5C563D;
+	Tue, 21 Jan 2025 11:19:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 592AAC4CEDF;
+	Tue, 21 Jan 2025 11:20:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737458407;
+	bh=v1d0SASIxkzavbdWB0Z8uWsRdIMGWtVVeSjXeHT91kk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=PRnkPNm0Z4fBkrAmSfPZPGnNqXC0MbV5Xy+ik+MIbO66xYXdS+HE4UneKhisMOA2a
+	 qiCGdihhFLfjJV18XL4gMLIK0M+OKoTm5RDN8oLgpTIMaFPa2nVXS/WPd4J78p6l0n
+	 eQkiVXtrasNKqAZJzNH9rpa2xlwFcL+EUfvMC2Eg/zlwqisPZ4cMJUlJPhDrvitSp5
+	 Q8KMY7w+s57nfJ2CB1y6a5iV1JHU7ovoHFZiJ2E/C7NaVqaFhAt5MSng79807hdSdR
+	 rU2R/gBSQSyxLsnGfHrX16S6jLwE3pJCLYCgN8oCQWs4SrWkiPCjTOgNa8Lo6Ia+gO
+	 gjKTTezXEtWNA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1taCIf-00E31i-2j;
+	Tue, 21 Jan 2025 11:20:05 +0000
+Date: Tue, 21 Jan 2025 11:20:04 +0000
+Message-ID: <86r04wv2fv.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	broonie@kernel.org,
+	catalin.marinas@arm.com,
+	eauger@redhat.com,
+	fweimer@redhat.com,
+	jeremy.linton@arm.com,
+	oliver.upton@linux.dev,
+	pbonzini@redhat.com,
+	stable@vger.kernel.org,
+	wilco.dijkstra@arm.com,
+	will@kernel.org
+Subject: Re: [PATCH] KVM: arm64/sve: Ensure SVE is trapped after guest exit
+In-Reply-To: <20250121100026.3974971-1-mark.rutland@arm.com>
+References: <20250121100026.3974971-1-mark.rutland@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, broonie@kernel.org, catalin.marinas@arm.com, eauger@redhat.com, fweimer@redhat.com, jeremy.linton@arm.com, oliver.upton@linux.dev, pbonzini@redhat.com, stable@vger.kernel.org, wilco.dijkstra@arm.com, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_031702_081390_D7F47C63 
-X-CRM114-Status: GOOD (  31.99  )
+X-CRM114-CacheID: sfid-20250121_032009_158660_BDBEC38F 
+X-CRM114-Status: GOOD (  48.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,96 +92,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
+Hi Mark,
 
-On 15.01.25 16:16, Andy Shevchenko wrote:
-> On Wed, Jan 15, 2025 at 9:03 AM Ahmad Fatoum <a.fatoum@pengutronix.de> wrote:
->> Please read my cover letter / commit messages. I do nowhere object to deprecation
->> and removal of the sysfs interface. But I strongly disagree that a necessary step
->> towards that is having Linux start toggling random GPIOs after an update on
->> platforms that behaved consistently for >10 years.
->>
->> Can you explain why we can't remove the hardcoded base at the same time that
->> sysfs support is removed for good?
+On Tue, 21 Jan 2025 10:00:26 +0000,
+Mark Rutland <mark.rutland@arm.com> wrote:
 > 
-> Because (if follow your logic!) it won't ever happen until all the
-> platforms that are using the non-dynamic bases are being removed as
-> well.
->
-> Otherwise this situation isn't anyhow different to the broken platform
-> as you described.
-
-Sorry, it's not clear to me why non-dynamic-bases can't be removed
-at the same time that SysFS itself is removed. Can you explain?
-
->>>> i.MX is an actively developed and widely used platform. Why should support
->>>> be dropped?
->>>
->>> Exactly, Which means "tend to get never fixed".
->>
->> Imagine ReiserFS deprecation strategy involved shipping an update that
->> just corrupted your existing file system and developers insisted on calling
->> it a fix, as ReiserFS is going to be removed anyway.
+> There is a period of time after returning from a KVM_RUN ioctl where
+> userspace may use SVE without trapping, but the kernel can unexpectedly
+> discard the live SVE state. Eric Auger has observed this causing QEMU
+> crashes where SVE is used by memmove():
 > 
-> It's not the same. If you still want to compare, then it means that
-> what I suggest is to move from Reiser to say XFS.
-
-I made a chart.
-
-Starting position is that both ReiserFS and GPIO SysFS are going to be removed.
-
-                +------------------------------------------------------------------------+
-                | File System                       | GPIO                               |
-+---------------+-----------------------------------+------------------------------------+
-| Sensible      | Use XFS. ReiserFS will be         | Use libgpiod. /sys/class/gpio will |
-|               | removed in future.                | be removed in future               |
-+---------------+-----------------------------------+------------------------------------+
-| User-hostile  | Mounting will jumble your inodes  | Booting will jumble your GPIOs     |
-|               | and possibly corrupt your FS.     | and possibly brick your board.     |
-+---------------+-----------------------------------+------------------------------------+
-
-I believe the second row is bad and I don't want it for i.MX
-users (or any users for that matter).
-
->> To reiterate, my issue is with the manner of breakage:
->>
->>   - broken, because /sys/class/gpio doesn't exist: good
->>   - broken, because script executes successfully, but toggles arbitrary pins: bad
+>   https://issues.redhat.com/browse/RHEL-68997
 > 
-> I understand that, but what the series is trying to do is to put on
-> hold _any_ sysfs removal activity along with reducing test coverage
-> and motivation to fix the certain platform to work with dynamic base.
+> The only state discarded is the user SVE state of the task which issued
+> the KVM_RUN ioctl. Other tasks are unaffected, plain FPSIMD state is
+> unaffected, and kernel state is unaffected.
+> 
+> This happens because fpsimd_kvm_prepare() incorrectly manipulates the
+> FPSIMD/SVE state. When the vCPU is loaded, fpsimd_kvm_prepare()
+> unconditionally clears TIF_SVE but does not reconfigure CPACR_EL1.ZEN to
+> trap userspace SVE usage. If the vCPU does not use FPSIMD/SVE and hyp
+> does not save the host's FPSIMD/SVE state, the kernel may return to
+> userspace with TIF_SVE clear while SVE is still enabled in
+> CPACR_EL1.ZEN. Subsequent userspace usage of SVE will not be trapped,
+> and the next save of userspace FPSIMD/SVE state will only store the
+> FPSIMD portion due to TIF_SVE being clear, discarding any SVE state.
+> 
+> The broken logic was originally introduced in commit:
+> 
+>   93ae6b01bafee8fa ("KVM: arm64: Discard any SVE state when entering KVM guests")
+> 
+> ... though at the time fp_user_discard() would reconfigure CPACR_EL1.ZEN
+> to trap subsequent SVE usage, masking the issue until that logic was
+> removed in commit:
+> 
+>   8c845e2731041f0f ("arm64/sve: Leave SVE enabled on syscall if we don't context switch")
+> 
+> Avoid this issue by reconfiguring CPACR_EL1.ZEN when clearing
+> TIF_SVE. At the same time, add a comment to explain why
+> current->thread.fp_type must be set even though the FPSIMD state is not
+> foreign. A similar issue exists when SME is enabled, and will require
+> further rework. As SME currently depends on BROKEN, a BUILD_BUG() and
+> comment are added for now, and this issue will need to be fixed properly
+> in a follow-up patch.
+> 
+> Commit 93ae6b01bafee8fa also introduced an unintended ptrace ABI change.
+> Unconditionally clearing TIF_SVE regardless of whether the state is
+> foreign discards saved SVE state created by ptrace after syscall entry.
+> Avoid this by only clearing TIF_SVE when the FPSIMD/SVE state is not
+> foreign. When the state is foreign, KVM hyp code does not need to save
+> any host state, and so this will not affect KVM.
+> 
+> There appear to be further issues with unintentional SVE state
+> discarding, largely impacting ptrace and signal handling, which will
+> need to be addressed in separate patches.
+> 
+> Reported-by: Eric Auger <eauger@redhat.com>
+> Reported-by: Wilco Dijkstra <wilco.dijkstra@arm.com>
+> Cc: stable@vger.kernel.org
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Florian Weimer <fweimer@redhat.com>
+> Cc: Jeremy Linton <jeremy.linton@arm.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Mark Brown <broonie@kernel.org>
+> Cc: Oliver Upton <oliver.upton@linux.dev>
+> Cc: Paolo Bonzini <pbonzini@redhat.com>
+> Cc: Will Deacon <will@kernel.org>
+> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> ---
+>  arch/arm64/kernel/fpsimd.c | 20 ++++++++++++++++++--
+>  1 file changed, 18 insertions(+), 2 deletions(-)
+> 
+> I believe there are some other issues in this area, but I'm sending this
+> out on its own because I beleive the other issues are more complex while
+> this is self-contained, and people are actively hitting this case in
+> production.
+> 
+> I intend to follow-up with fixes for the other cases I mention in the
+> commit message, and for the SME case with the BUILD_BUG_ON().
+> 
+> Mark.
+> 
+> diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
+> index 8c4c1a2186cc5..e4053a90ed240 100644
+> --- a/arch/arm64/kernel/fpsimd.c
+> +++ b/arch/arm64/kernel/fpsimd.c
+> @@ -1711,8 +1711,24 @@ void fpsimd_kvm_prepare(void)
+>  	 */
+>  	get_cpu_fpsimd_context();
+>  
+> -	if (test_and_clear_thread_flag(TIF_SVE)) {
+> -		sve_to_fpsimd(current);
+> +	if (!test_thread_flag(TIF_FOREIGN_FPSTATE) &&
+> +	    test_and_clear_thread_flag(TIF_SVE)) {
+> +		sve_user_disable();
 
-Why can't consumers of the static base be removed and then when none
-are left, the base goes away too. Why does it have to be the other
-way round?
+I'm pretty happy with this fix. However...
 
-> So, prepare your scripts not to toggle arbitrary numbers then and use libgpiod.
+> +
+> +		/*
+> +		 * The KVM hyp code doesn't set fp_type when saving the host's
+> +		 * FPSIMD state. Set fp_type here in case the hyp code saves
+> +		 * the host state.
 
-The SoC's own GPIO controllers have had deterministic numbering
-for a long time. What would make them arbitrary is setting the base
-to -1.
+Should KVM do that? The comment seems to indicate that this is
+papering over yet another bug...
 
-> P.S. I think this discussion goes nowhere. Talk to the GPIO
-> maintainers for the matter, 
+> +		 *
+> +		 * If hyp code does not save the host state, then the host
+> +		 * state remains live on the CPU and saved fp_type is
+> +		 * irrelevant until it is overwritten by a later call to
+> +		 * fpsimd_save_user_state().
 
-I believe that's what I am doing now?
+I'm not sure I understand this. If fp_type is irrelevant, surely it is
+*forever* irrelevant, not until something else happens. Or am I
+missing something?
 
-> I'm not preventing you to put on hold GPIO
-> development for _this_ platform, but I'm strongly against that because
-> of your platform others should also be on hold, hence my NAK for that
-> gpiolib patch.
+> +		 *
+> +		 * This is *NOT* sufficient when CONFIG_ARM64_SME=y, where
+> +		 * fp_type can be FP_STATE_SVE regardless of TIF_SVE.
+> +		 */
+> +		BUILD_BUG_ON(IS_ENABLED(CONFIG_ARM64_SME));
 
-Can you explain or point me at resources to understand why a static base
-is blocking GPIO development subsystem-wide?
+I'd rather not have this build-time failure, as this is very likely to
+annoy a lot of people. Instead, just make SME unselectable with KVM:
+
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 100570a048c5e..88bedf95a3662 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -2271,6 +2271,7 @@ config ARM64_SME
+ 	default y
+ 	depends on ARM64_SVE
+ 	depends on BROKEN
++	depends on !KVM
+ 	help
+ 	  The Scalable Matrix Extension (SME) is an extension to the AArch64
+ 	  execution state which utilises a substantial subset of the SVE
 
 Thanks,
-Ahmad
 
+	M.
 
 -- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+Without deviation from the norm, progress is not possible.
 
