@@ -4,63 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4D18C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 11:00:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96905C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 11:01:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0p9kCPX0kFOEZOIBaQgiLe2sNq8cghl604dX/e+fCK8=; b=sR++xGNJpzCnN8kGsZqnHlPHYi
-	9/tQ4OL0edC5h3GVr63Xle6lWikUc8ecObFNODQMF6R3lrT/4sHraQXThVjhgzJ2HhXpKw6lFJD6X
-	ns/DUrJBVL4NcPSrAiTtiqYWH8X4Q5QX4jMxKpycxxOpYiZnHzoxA3cS0UvHTnG6F/lfkThL4WbOx
-	feQ82A1gRFF9PU/kzAHNs7RVZJBxV3VghAfxwdBq+2DwjlosUT5AEMr0XujsmiDpaCHwixedFbrWj
-	wgfXP5ICQHtmmivry9VyIxzV5ulHFgQO6uWTDZwXGzSWqdUq2aQZlivZMvpzP1dh5J4LcWyYXh5Zy
-	GLYOdWtw==;
+	bh=uDIbtAsW7Z+RHKfRE194nI3eRnrneMc4A7g7rnDUZbc=; b=X7nC0pjWkA4UrfDroHWPgkzCzV
+	qvrIDVSu2cbUXNnQWgMO134pfp3yVNZDgi74Lxm/CY4S7E3NfmfvN7rrTtWvIU7D74Q7v0Bd+6MYE
+	vVdkk5VYXXFCVrhmaLu5ctwOU6iPXFlatwwjJWRxchfhU/K1Iqw8XHPM0+8nRwdTh7CWeJyQJ36Ek
+	mQ50ffimaiGWGleJHFas1eRfGDbI68sFO73NUyGiFlOiVm2r7qZ6wW+bfmeV7sKsOxV/4Bb/LKx6T
+	ea108JIvJdX06fNEWRud/0pateiDQdsf4wf1WuuOwyi0cFR2CE0ESoO+G7XfcuR2pBBUi2VbVGtQm
+	+RY8WPJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taBze-00000007gsH-0w45;
-	Tue, 21 Jan 2025 11:00:26 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
+	id 1taC0t-00000007h3J-2lqZ;
+	Tue, 21 Jan 2025 11:01:43 +0000
+Received: from m16.mail.163.com ([220.197.31.5])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taBnC-00000007dvW-1iK6
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 10:47:35 +0000
-Received: from [10.156.205.88] (unknown [167.220.238.88])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 3571C205A9D6;
-	Tue, 21 Jan 2025 02:47:28 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 3571C205A9D6
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1737456453;
-	bh=0p9kCPX0kFOEZOIBaQgiLe2sNq8cghl604dX/e+fCK8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lAopDuXA60YAgdosgvAgfkgCazTII9V7wWa/8Mlz02BIA7k/oczJScx2D4fM9nVLm
-	 YYkon7r8GCQhgmxjqvEaoSNBbUz6Jqatsr1fFT0NOE68Dlfag33/rqCcEcX2ZqnaJq
-	 jyxqxweMzxBITuutSmC4d3G0o8+GRUZMu39raYaM=
-Message-ID: <f9606b7c-e20c-43cb-bc03-1deecb0d7539@linux.microsoft.com>
-Date: Tue, 21 Jan 2025 16:17:27 +0530
+	id 1taBbL-00000007bbJ-3rUn;
+	Tue, 21 Jan 2025 10:35:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=uDIbt
+	AsW7Z+RHKfRE194nI3eRnrneMc4A7g7rnDUZbc=; b=iE6+hLWbjewHau/dVatSP
+	tgH1Ef9LQn9piHiYmNjVZ9icPJLnB4DgnHHgBBwDujNsjg4SPTCJhKsj9OEjiH0I
+	B76JnvGpkfaJwpahjswMkvq+4aedm1HrKtslMrQdiZuPTDjsKUuB+U2nagFemU+R
+	4LoU/3sQZ0wnLrvkPZmHUI=
+Received: from ProDesk.. (unknown [])
+	by gzsmtp4 (Coremail) with SMTP id PygvCgCXjRJVeI9nsMUzFg--.31618S2;
+	Tue, 21 Jan 2025 18:35:05 +0800 (CST)
+From: Andy Yan <andyshrk@163.com>
+To: heiko@sntech.de
+Cc: hjc@rock-chips.com,
+	krzk+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	derek.foreman@collabora.com,
+	detlev.casanova@collabora.com,
+	daniel@fooishbar.org,
+	robh@kernel.org,
+	sebastian.reichel@collabora.com,
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: [PATCH v12 12/13] dt-bindings: display: vop2: Add rk3576 support
+Date: Tue, 21 Jan 2025 18:34:57 +0800
+Message-ID: <20250121103500.2528258-1-andyshrk@163.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250121103254.2528004-1-andyshrk@163.com>
+References: <20250121103254.2528004-1-andyshrk@163.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 1/5] cpufreq: Allow arch_freq_get_on_cpu to return an
- error
-To: Beata Michalska <beata.michalska@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
- ionela.voinescu@arm.com, sudeep.holla@arm.com, will@kernel.org,
- catalin.marinas@arm.com, rafael@kernel.org, viresh.kumar@linaro.org
-Cc: sumitg@nvidia.com, yang@os.amperecomputing.com,
- vanshikonda@os.amperecomputing.com, lihuisong@huawei.com,
- zhanjie9@hisilicon.com
-References: <20250121084435.2839280-1-beata.michalska@arm.com>
- <20250121084435.2839280-2-beata.michalska@arm.com>
-Content-Language: en-US
-From: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
-In-Reply-To: <20250121084435.2839280-2-beata.michalska@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: PygvCgCXjRJVeI9nsMUzFg--.31618S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxWr1kWFWUuF4UtFW5trWkZwb_yoW5ZFWUpa
+	93C3Z8XrW8Gr1UWw1ktF1rCwn3tFn3Ar4akrn7ta17Kws8tr4UWw4agr98ZrnxWFy7ZayY
+	9FsYk347G3s2vrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UMSoAUUUUU=
+X-Originating-IP: [58.22.7.114]
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqB-bXmePcy1lIgAAsD
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_024734_505414_57DA38DA 
-X-CRM114-Status: GOOD (  17.97  )
+X-CRM114-CacheID: sfid-20250121_023520_289843_4B3A1BB3 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,97 +82,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Andy Yan <andy.yan@rock-chips.com>
 
-On 21-01-2025 14:14, Beata Michalska wrote:
-> Allow arch_freq_get_on_cpu to return an error for cases when retrieving
-> current CPU frequency is not possible, whether that being due to lack of
-> required arch support or due to other circumstances when the current
-> frequency cannot be determined at given point of time.
->
-> Signed-off-by: Beata Michalska <beata.michalska@arm.com>
-> ---
->   arch/x86/kernel/cpu/aperfmperf.c | 2 +-
->   arch/x86/kernel/cpu/proc.c       | 7 +++++--
->   drivers/cpufreq/cpufreq.c        | 8 ++++----
->   include/linux/cpufreq.h          | 2 +-
->   4 files changed, 11 insertions(+), 8 deletions(-)
->
-> diff --git a/arch/x86/kernel/cpu/aperfmperf.c b/arch/x86/kernel/cpu/aperfmperf.c
-> index f642de2ebdac..6cf31a1649c4 100644
-> --- a/arch/x86/kernel/cpu/aperfmperf.c
-> +++ b/arch/x86/kernel/cpu/aperfmperf.c
-> @@ -498,7 +498,7 @@ void arch_scale_freq_tick(void)
->    */
->   #define MAX_SAMPLE_AGE	((unsigned long)HZ / 50)
->   
-> -unsigned int arch_freq_get_on_cpu(int cpu)
-> +int arch_freq_get_on_cpu(int cpu)
->   {
->   	struct aperfmperf *s = per_cpu_ptr(&cpu_samples, cpu);
->   	unsigned int seq, freq;
-> diff --git a/arch/x86/kernel/cpu/proc.c b/arch/x86/kernel/cpu/proc.c
-> index 41ed01f46bd9..d79f5845a463 100644
-> --- a/arch/x86/kernel/cpu/proc.c
-> +++ b/arch/x86/kernel/cpu/proc.c
-> @@ -86,9 +86,12 @@ static int show_cpuinfo(struct seq_file *m, void *v)
->   		seq_printf(m, "microcode\t: 0x%x\n", c->microcode);
->   
->   	if (cpu_has(c, X86_FEATURE_TSC)) {
-> -		unsigned int freq = arch_freq_get_on_cpu(cpu);
-> +		int freq = arch_freq_get_on_cpu(cpu);
->   
-> -		seq_printf(m, "cpu MHz\t\t: %u.%03u\n", freq / 1000, (freq % 1000));
-> +		if (freq <= 0)
-> +			seq_puts(m, "cpu MHz\t\t: Unknown\n");
-> +		else
-> +			seq_printf(m, "cpu MHz\t\t: %u.%03u\n", freq / 1000, (freq % 1000));
->   	}
->   
->   	/* Cache size */
-> diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
-> index 418236fef172..6f45684483c4 100644
-> --- a/drivers/cpufreq/cpufreq.c
-> +++ b/drivers/cpufreq/cpufreq.c
-> @@ -728,18 +728,18 @@ show_one(cpuinfo_transition_latency, cpuinfo.transition_latency);
->   show_one(scaling_min_freq, min);
->   show_one(scaling_max_freq, max);
->   
-> -__weak unsigned int arch_freq_get_on_cpu(int cpu)
-> +__weak int arch_freq_get_on_cpu(int cpu)
->   {
-> -	return 0;
-> +	return -EOPNOTSUPP;
->   }
->   
->   static ssize_t show_scaling_cur_freq(struct cpufreq_policy *policy, char *buf)
->   {
->   	ssize_t ret;
-> -	unsigned int freq;
-> +	int freq;
->   
->   	freq = arch_freq_get_on_cpu(policy->cpu);
-> -	if (freq)
-> +	if (freq > 0)
->   		ret = sysfs_emit(buf, "%u\n", freq);
->   	else if (cpufreq_driver->setpolicy && cpufreq_driver->get)
->   		ret = sysfs_emit(buf, "%u\n", cpufreq_driver->get(policy->cpu));
-> diff --git a/include/linux/cpufreq.h b/include/linux/cpufreq.h
-> index 7fe0981a7e46..02fd4746231d 100644
-> --- a/include/linux/cpufreq.h
-> +++ b/include/linux/cpufreq.h
-> @@ -1184,7 +1184,7 @@ static inline int of_perf_domain_get_sharing_cpumask(int pcpu, const char *list_
->   }
->   #endif
->   
-> -extern unsigned int arch_freq_get_on_cpu(int cpu);
-> +extern int arch_freq_get_on_cpu(int cpu);
->   
->   #ifndef arch_set_freq_scale
->   static __always_inline
+Add vop found on rk3576, the main difference between rk3576 and the
+previous vop is that each VP has its own interrupt line.
 
-Looks good to me.
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
 
-Reviewed-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
+---
 
+Changes in v12:
+- Split from patch 10/13
+
+Changes in v11:
+- Remove redundant min/maxItems constraint
+
+Changes in v10:
+- Move interrupt-names back to top level
+- Add constraint of interrupts for all platform
+- Add constraint for all grf phandles
+- Reorder some properties
+
+Changes in v9:
+- Drop 'vop-' prefix of interrupt-names.
+- Add blank line between DT properties
+- Remove list interrupt-names in top level
+
+Changes in v8:
+- Fix dt_binding_check errors
+- ordered by soc name
+- Link to the previous version:
+  https://lore.kernel.org/linux-rockchip/6pn3qjxotdtpzucpul24yro7ppddezwuizneovqvmgdwyv2j7p@ztg4mqyiqmjf/T/#u
+
+Changes in v4:
+- describe constraint SOC by SOC, as interrupts of rk3576 is very
+  different from others
+- Drop Krzysztof's Reviewed-by, as this version changed a lot.
+
+Changes in v3:
+- ordered by soc name
+- Add description for newly added interrupt
+
+Changes in v2:
+- Add dt bindings
+
+ .../display/rockchip/rockchip-vop2.yaml       | 55 ++++++++++++++++++-
+ 1 file changed, 52 insertions(+), 3 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
+index 157a37ed84da..a2a6369c7b6f 100644
+--- a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
++++ b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
+@@ -21,6 +21,7 @@ properties:
+     enum:
+       - rockchip,rk3566-vop
+       - rockchip,rk3568-vop
++      - rockchip,rk3576-vop
+       - rockchip,rk3588-vop
+ 
+   reg:
+@@ -38,10 +39,21 @@ properties:
+       - const: gamma-lut
+ 
+   interrupts:
+-    maxItems: 1
++    minItems: 1
++    maxItems: 4
+     description:
+-      The VOP interrupt is shared by several interrupt sources, such as
+-      frame start (VSYNC), line flag and other status interrupts.
++      For VOP version under rk3576, the interrupt is shared by several interrupt
++      sources, such as frame start (VSYNC), line flag and other interrupt status.
++      For VOP version from rk3576 there is a system interrupt for bus error, and
++      every video port has it's independent interrupts for vsync and other video
++      port related error interrupts.
++
++  interrupt-names:
++    items:
++      - const: sys
++      - const: vp0
++      - const: vp1
++      - const: vp2
+ 
+   # See compatible-specific constraints below.
+   clocks:
+@@ -135,6 +147,8 @@ allOf:
+         interrupts:
+           maxItems: 1
+ 
++        interrupt-names: false
++
+         ports:
+           required:
+             - port@0
+@@ -148,6 +162,39 @@ allOf:
+       required:
+         - rockchip,grf
+ 
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - rockchip,rk3576-vop
++    then:
++      properties:
++        clocks:
++          minItems: 5
++
++        clock-names:
++          minItems: 5
++
++        interrupts:
++          minItems: 4
++
++        interrupt-names:
++          minItems: 4
++
++        ports:
++          required:
++            - port@0
++            - port@1
++            - port@2
++
++        rockchip,vo1-grf: false
++        rockchip,vop-grf: false
++
++      required:
++        - rockchip,grf
++        - rockchip,pmu
++
+   - if:
+       properties:
+         compatible:
+@@ -164,6 +211,8 @@ allOf:
+         interrupts:
+           maxItems: 1
+ 
++        interrupt-names: false
++
+         ports:
+           required:
+             - port@0
+-- 
+2.34.1
 
 
