@@ -4,71 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81CF8C0218B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 16:03:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3208C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 16:05:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iQcpKD+KJDuVJj3F4wa6P8a/bpfKsiibTn0ATqZgmkg=; b=WCBpZWSj9tQJGEH+YI+p8tF8di
-	le3DiOTtZcpknpcFBHdjujdLz2R5kMo7VRgYtPvO3XhrcPtyI4M4216TCaI8GaZLB0MuaJGJ2p4IB
-	7AqWb1ewp/pVk17Rqd0915f1Ay1u+OAaSveURzdjiNnCt/LhsinS/IspKRER/+YhovICOPNlJXCwW
-	9PJFM6hqVbKHRT30T5xcHRSjgaaFsz8IOLGwMWt9kGw9d/wOrl8K0D8DywU9T3h95yILVz+ISBK5U
-	+8uQH9dHzi7dPmABZ2XTabn5gy0ZO8oswIkx/7gZPrgZnlRH1u6YTqixdVDULgHYDBo/lxCHs/Z8s
-	S0zqfjyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z2FOea4nDBu0+G6p+iJMCw85i8M06r7WM2sMcFmY90k=; b=aJKm9WTUdU33aRHCRrMCHRpbOu
+	HLyD/tVXuYml7DOZYMOhBVMITak1Zxd1r9ZYHo2TqTo96a9mohEiGoygRHwAe4B5da2RO4RNzy7eE
+	+ijZ0RU/Yxc5QCYsp+JKA0DDXuVQ4Y4qXcY+IFbFb2q8FX633AZB9vDWNnfYEFr9GgNNxDHNrww1T
+	EhIMerz01pZ3EYCgBDLKCG09tiGgUL+VA2suHhts2tDWwsIr1LT/VTZfe+V8LkmEtqZzRXCNi/BS6
+	tsZ6uFgxO+kF80qOmjPrUTCylQIfNrcV7k+sbHLdbPfjsrsEk8i2UjEVcAanryX7XzwT1s5BGuyYW
+	vfZHSzZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taGiL-00000008Iol-2tRh;
-	Tue, 21 Jan 2025 16:02:53 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1taGkw-00000008JSY-0ev5;
+	Tue, 21 Jan 2025 16:05:34 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taGgm-00000008IPe-0Zus
+	id 1taGjW-00000008JGG-3sNk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 16:01:17 +0000
+	Tue, 21 Jan 2025 16:04:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id ADD61A41C44;
-	Tue, 21 Jan 2025 15:59:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6055C4CEDF;
-	Tue, 21 Jan 2025 16:01:12 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id F1E375C4A85;
+	Tue, 21 Jan 2025 16:03:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3F6CC4CEDF;
+	Tue, 21 Jan 2025 16:04:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737475274;
-	bh=iQcpKD+KJDuVJj3F4wa6P8a/bpfKsiibTn0ATqZgmkg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NuPgY0cIhJi6iFxI0ERs2b1yTwsg8I00IC/5PCfqCljGQClTB0lQ7tNHds7xDkTb+
-	 mslZAaucrQQWJgLuPHbGoGyjjgklTTSZ5Qmh9nQMyOt/pPadM7JJBpB/3nMpmsbVDz
-	 5VZ45hTOBVvLs1racWwsfTYYPjKLYRMu/SEsiLwq6HcMaX5NziLsj8GGOwunZcpWNP
-	 C4QYl1l4evg3o+XHegXAojiPxHSUx4cy4ZbtFFwPfXASG6wYOu6cDRCcR01UIFhWpf
-	 zIujOTg0YHFI/xbxKuCTVMFfB4vCcSXjl0zdOSMsZrLSIqGHhh2NHktw27ahWZis96
-	 4ZN0DJhVnvpCA==
-Date: Tue, 21 Jan 2025 16:01:09 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Sean Anderson <sean.anderson@linux.dev>
-Cc: "Mahapatra, Amit Kumar" <amit.kumar-mahapatra@amd.com>,
-	"Simek, Michal" <michal.simek@amd.com>,
-	"linux-spi@vger.kernel.org" <linux-spi@vger.kernel.org>,
-	Jinjie Ruan <ruanjinjie@huawei.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	"amitrkcian2002@gmail.com" <amitrkcian2002@gmail.com>,
-	"git (AMD-Xilinx)" <git@amd.com>
-Subject: Re: [PATCH 5/7] spi: zynqmp-gqspi: Split the bus
-Message-ID: <f1310bb6-48ef-4bdf-a359-f34b0d849a4d@sirena.org.uk>
-References: <20250116232118.2694169-1-sean.anderson@linux.dev>
- <20250116232118.2694169-6-sean.anderson@linux.dev>
- <DM4PR12MB76932590B9A6BB1CC17AD67FDCE62@DM4PR12MB7693.namprd12.prod.outlook.com>
- <1f7cb52d-31a4-458c-9b81-b46bf56fd8a8@linux.dev>
+	s=k20201202; t=1737475446;
+	bh=/XFx7CKrwdy60Saw0gL5MizADdAyJGZKGZNTwxZNpxQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GEavxdbnPVXicCizNfG4C9QVfS3+mTtx1uW1+amz5szj2myK8ZjP4/jh2Il6qMB/X
+	 MXiOQ879jXOlR0/5P/HS8RafgQj3/lv8ZY75e9SctrRn9HdIvJ3XMulJInVxIm4K8V
+	 f8WNL4xiwA3DTGP3dumYzBBMZJTUFo8TJizz8MR7hQ5D1B7zrkCHal0njRgOyLL+89
+	 ZVXvTR6bbd9b6ZJfHa6n4Z8muW8x5oHM74hIXnky8NbEt+bLBB3q/ap/GZKXE87Iy1
+	 SeKvAKEr2Mff9NsrIrwlkZ3UpYfeqg5J27N4iUUCWegHNh5y75GVdl1y8zW+WSUu6B
+	 boPc1cHVEIzmg==
+Message-ID: <56e74e80-8e90-4784-b284-bee1af35e37e@kernel.org>
+Date: Tue, 21 Jan 2025 17:03:59 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="SkwomuF90JxgE8Ws"
-Content-Disposition: inline
-In-Reply-To: <1f7cb52d-31a4-458c-9b81-b46bf56fd8a8@linux.dev>
-X-Cookie: <Manoj> I *like* the chicken
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] ARM: dts: imx6ul: Add Variscite Concerto board
+ support
+To: Antonin Godard <antonin.godard@bootlin.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <20250121-varsom6ul-concerto-dts-v1-0-eb349acf0ac6@bootlin.com>
+ <20250121-varsom6ul-concerto-dts-v1-3-eb349acf0ac6@bootlin.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
+ QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
+ gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
+ /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
+ iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
+ VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
+ 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
+ xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
+ eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
+ AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
+ MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
+ Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
+ ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
+ vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
+ oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
+ lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
+ t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
+ uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
+ 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
+ 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
+In-Reply-To: <20250121-varsom6ul-concerto-dts-v1-3-eb349acf0ac6@bootlin.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_080116_246173_50F24903 
-X-CRM114-Status: GOOD (  11.95  )
+X-CRM114-CacheID: sfid-20250121_080407_056196_0123F625 
+X-CRM114-Status: GOOD (  23.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,43 +124,183 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 21/01/2025 10:33, Antonin Godard wrote:
+> This patch adds support for the Variscite Concerto Carrier Board.
 
---SkwomuF90JxgE8Ws
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Please do not use "This commit/patch/change", but imperative mood. See
+longer explanation here:
+https://elixir.bootlin.com/linux/v5.17.1/source/Documentation/process/submitting-patches.rst#L95
+> 
+> This Carrier-Board has the following:
+> - LVDS interface for the VLCD-CAP-GLD-LVDS 7" LCD 800 x 480 touch
+>   display (not configured)
+> - USB Host + USB OTG Connector
+> - 10/100 Mbps Ethernet
+> - miniPCI-Express slot
+> - SD Card connector
+> - Audio Headphone/Line In jack connectors
+> - S-ATA
+> - On-board DMIC
+> 
+> Product Page: https://www.variscite.com/product/single-board-computers/concerto-board
+> 
+> This file is based on the one provided by Variscite on their own kernel,
+> but adapted for mainline.
+> 
+> Signed-off-by: Antonin Godard <antonin.godard@bootlin.com>
+> ---
+>  arch/arm/boot/dts/nxp/imx/Makefile                 |   1 +
+>  .../boot/dts/nxp/imx/imx6ul-var-som-concerto.dts   | 331 +++++++++++++++++++++
+>  2 files changed, 332 insertions(+)
+> 
+> diff --git a/arch/arm/boot/dts/nxp/imx/Makefile b/arch/arm/boot/dts/nxp/imx/Makefile
+> index 39a153536d2a2b8f75b5fbe4332660f89442064a..94c9bc94cc8e2daa1fb3b5686b0b58db1f6678b6 100644
+> --- a/arch/arm/boot/dts/nxp/imx/Makefile
+> +++ b/arch/arm/boot/dts/nxp/imx/Makefile
+> @@ -329,6 +329,7 @@ dtb-$(CONFIG_SOC_IMX6UL) += \
+>  	imx6ul-tx6ul-0010.dtb \
+>  	imx6ul-tx6ul-0011.dtb \
+>  	imx6ul-tx6ul-mainboard.dtb \
+> +	imx6ul-var-som-concerto.dtb \
+>  	imx6ull-14x14-evk.dtb \
+>  	imx6ull-colibri-aster.dtb \
+>  	imx6ull-colibri-emmc-aster.dtb \
+> diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto.dts b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto.dts
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..4289641d94c5a72ba985f339652039dbf13da40c
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto.dts
+> @@ -0,0 +1,331 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +/*
+> + * Support for Variscite MX6 Concerto Carrier board with the VAR-SOM-MX6UL
+> + * Variscite SoM mounted on it
+> + *
+> + * Copyright 2019 Variscite Ltd.
+> + * Copyright 2025 Bootlin
+> + */
+> +
+> +#include "imx6ul-var-som.dtsi"
+> +
+> +/ {
+> +	model = "Variscite VAR-SOM-MX6UL Concerto Board";
+> +	compatible = "variscite,mx6concerto", "variscite,var-som-imx6ul", "fsl,imx6ul";
+> +
+> +	backlight {
+> +		compatible = "pwm-backlight";
+> +		pwms = <&pwm4 0 20000 0>;
+> +		brightness-levels = <0 4 8 16 32 64 128 255>;
+> +		default-brightness-level = <6>;
+> +		status = "okay";
 
-On Tue, Jan 21, 2025 at 10:53:53AM -0500, Sean Anderson wrote:
-> On 1/21/25 08:19, Mahapatra, Amit Kumar wrote:
+Which file disables it?
 
-> > IMHO, restricting users to fixed names is not ideal. A better approach =
-would be to=20
-> > introduce a Device Tree (DT) property for the bus number and select the=
- bus=20
-> > accordingly.
+> +	};
+> +
+> +	chosen {
+> +		stdout-path = &uart1;
+> +	};
+> +
+> +	gpio-keys {
+> +		compatible = "gpio-keys";
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pinctrl_gpio_key_back>, <&pinctrl_gpio_key_wakeup>;
+> +
+> +		key-back {
+> +			gpios = <&gpio4 14 GPIO_ACTIVE_LOW>;
+> +			linux,code = <KEY_BACK>;
+> +		};
+> +
+> +		key-wakeup {
+> +			gpios = <&gpio5 8 GPIO_ACTIVE_LOW>;
+> +			linux,code = <KEY_WAKEUP>;
+> +			wakeup-source;
+> +		};
+> +	};
+> +
+> +	leds {
+> +		compatible = "gpio-leds";
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pinctrl_gpio_leds>;
+> +
+> +		gpled2 {
 
-> Why? It's not an artificial restriction; it reflects the hardware. And th=
-is is how
-> SPI busses are typically represented. If you have two SPI busses, there s=
-hould be
-> two devicetree nodes.
+led-0
+led-1
+led-2
 
-Perhaps the thing is more that the buses are named instead of numbered?
+Are there other leds here?
 
---SkwomuF90JxgE8Ws
-Content-Type: application/pgp-signature; name="signature.asc"
 
------BEGIN PGP SIGNATURE-----
+> +			gpios = <&gpio1 25 GPIO_ACTIVE_HIGH>;
+> +			linux,default-trigger = "heartbeat";
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmePxMQACgkQJNaLcl1U
-h9DOhQf/YOzVrfNHnRJnwGRbPbNkofZBmWsqC+oClntJtsfCIOd+yZ9XffNE+XTW
-d3wV2ZC9xSBHQxmlnNT+FKuujIDWCsPmhuOgoxAgs349j3eot+CXTgbAxbZXGnm2
-F/wdLFQZ5kL+CN7J6z3KmHMoP2rEjl0EBVhnsRWL9JdayOiq6TNGQFpHm+QN15rq
-6TXvF4UAYiBi6q+quTy+gMjBMPJKMHOO1/O3sf64+TO+t38e0vxUziV9a2IoCqcL
-2OaKjv4UxFuufz5KmxVkxaOknpSQITnTdBdu8XSApSM0DfFmEWzVluFh+XgD8hnH
-0L02vm82OcjZRvMrs4TZ2pTYlc71KA==
-=Zc1a
------END PGP SIGNATURE-----
+Missing function and color
 
---SkwomuF90JxgE8Ws--
+> +		};
+> +	};
+> +};
+> +
+> +&can1 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_flexcan1>;
+> +	status = "okay";
+> +};
+> +
+> +&fec1 {
+> +	status = "disabled";
+> +};
+> +
+> +&fec2 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_enet2>, <&pinctrl_enet2_gpio>, <&pinctrl_enet2_mdio>;
+> +	phy-mode = "rmii";
+> +	phy-handle = <&ethphy1>;
+> +	phy-reset-gpios = <&gpio5 5 GPIO_ACTIVE_LOW>;
+> +	phy-reset-duration = <100>;
+> +	status = "okay";
+> +
+> +	mdio {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		ethphy1: ethernet-phy@3 {
+> +			compatible = "ethernet-phy-ieee802.3-c22";
+> +			micrel,rmii-reference-clock-select-25-mhz = <1>;
+> +			micrel,led-mode = <0>;
+> +			clocks = <&rmii_ref_clk>;
+> +			clock-names = "rmii-ref";
+> +			reg = <3>;
+> +		};
+> +	};
+> +};
+> +
+> +&i2c1 {
+> +	clock-frequency = <100000>;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_i2c1>;
+> +	status = "okay";
+> +
+> +	/* DS1337 RTC module */
+
+Drop comment, obvious. This cannot be anything else, because node name
+and compatible told that.
+
+> +	rtc@68 {
+> +		/*
+> +		 * To actually use this interrupt
+> +		 * connect pins J14.8 & J14.10 on the Concerto-Board.
+> +		 */
+> +		compatible = "dallas,ds1337";
+> +		reg = <0x68>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pinctrl_rtc>;
+> +		interrupt-parent = <&gpio1>;
+> +		interrupts = <10 IRQ_TYPE_EDGE_FALLING>;
+> +	};
+> +};
+
+
+Best regards,
+Krzysztof
 
