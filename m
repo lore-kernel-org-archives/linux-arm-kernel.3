@@ -4,84 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D68A3C0218B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 13:01:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5AC1C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 13:03:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uA940mkLL9KHlcuBfwiSIb3vbphWe9IhllR+VjD8CvI=; b=arrYcV3FhmDtVT2K40D1uXo5uV
-	93Vrk8xsw3w7c63HsDqZ1NTCLdacgR0OM22m5YbpsSMTpF4m4s6Jy9arZl5mvNRn1en5tVfdBl3DP
-	+y/XjgJ2S3USpSlYQgOm7p/NQ0Tgwmb1n/6Jll7czBX3SBhVQxs0hLYB8kHkqGPqXwzNGPbteSsWB
-	3Ppoq0o5C7OUpxGsKl0Uc4K6jyflfiwNcOdAwpg22lJMdMKhRLkd0punC4QRmj1rR3+GXIpGeTZCQ
-	uRUAwvVxfYFy4k2e2HGXFSfVcuQh84ejlQ2F3KW8hL4xEdBVl3MPKOEnzPqNPhrZZgqnHJRdL1LPI
-	u39Ode3A==;
+	bh=9t1/6xp6kobBuD8iol0wX3LKTY5SdLf4DflSjZLsnGs=; b=hrGK/uy+qsgnI+UjKzfEmaPSaT
+	e9ubG/ycCpN6kUtCKoP9G+MuUuEeIILZo5a4H6bpLs2BPTjOO1QuFsM4Hd/Dhs86NSpiw1MgPt6PW
+	Y8AEXNDs+nMQeprpzNce9YM8cmeU3gswcjRCpQLDLjCtlyCi41snO7gcWlPDKMjo3H5Q0TBRksDic
+	lTHRZyUF22JvWhobQNdWXahIZwtvB2N/ZPU5w3ts47m8ScsFnuAjNuUO+TAGB8Yo183u2+Bn0Gl35
+	3YfJGZu5+8o+SsekiDF7psJqugl/VN15IwzQfcVRBOqVcZjMMQ9E3v9ulDZv+ye2HsGdOj/im5/G2
+	8fCqgmJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taDt2-00000007vQu-1sXQ;
-	Tue, 21 Jan 2025 13:01:44 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taDpg-00000007uu5-3SfU
+	id 1taDue-00000007voE-0epo;
+	Tue, 21 Jan 2025 13:03:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1taDtL-00000007vWG-0aze
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 12:58:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=uA940mkLL9KHlcuBfwiSIb3vbphWe9IhllR+VjD8CvI=; b=mdoYhlVkty1GpM8FmQVp5QiD8B
-	Ey/KgEeTwABBdYcLZ8oufPHyJNj06JsuXdwDZ2At1jFQYoY8NSrNxToQMKjJJgXDVmAte4E5SWw4j
-	/PwfJf345eUnb/jLHwSizUujKKl1TbDiLYZ6wB2+ZT7TPBSNq3R/ozp9G9Wa7k7zovVTx6XoIFOFA
-	a6P2hkmZ+NpyKk1TU2ThKzoUm4aDcZzWLwM/L92ii27ehWKOJlgO+d9B64cqK0IP+3Gq7cfxMCcon
-	urxGSXPMgPVEoj5FX0zOmw9JlirdcMaDtjWzgNZAujqR3hMI7qoY8WW3vlSBsPqlLbRuvgalgAsJn
-	OGHodGUA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:60812)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1taDpM-0007FN-2u;
-	Tue, 21 Jan 2025 12:57:57 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1taDpI-0003uT-0r;
-	Tue, 21 Jan 2025 12:57:52 +0000
-Date: Tue, 21 Jan 2025 12:57:52 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Yijie Yang <quic_yijiyang@quicinc.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 2/4] net: stmmac: dwmac-qcom-ethqos: Mask PHY mode if
- configured with rgmii-id
-Message-ID: <Z4-Z0CKtiHWCC3TM@shell.armlinux.org.uk>
-References: <20250121-dts_qcs615-v3-0-fa4496950d8a@quicinc.com>
- <20250121-dts_qcs615-v3-2-fa4496950d8a@quicinc.com>
- <30450f09-83d4-4ff0-96b2-9f251f0c0896@kernel.org>
+	Tue, 21 Jan 2025 13:02:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CED9E106F;
+	Tue, 21 Jan 2025 05:02:28 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.2.76.71])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ECD173F66E;
+	Tue, 21 Jan 2025 05:01:59 -0800 (PST)
+Date: Tue, 21 Jan 2025 13:01:54 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: "mark.barnett@arm.com" <mark.barnett@arm.com>
+Cc: peterz@infradead.org, mingo@redhat.com, acme@kernel.org,
+	namhyung@kernel.org, irogers@google.com, ben.gainey@arm.com,
+	deepak.surti@arm.com, ak@linux.intel.com, will@kernel.org,
+	james.clark@arm.com, mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+	adrian.hunter@intel.com, linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 1/5] perf: Allow periodic events to alternate between
+ two sample periods
+Message-ID: <20250121130154.GA416913@e132581.arm.com>
+References: <20250106120156.227273-1-mark.barnett@arm.com>
+ <20250106120156.227273-2-mark.barnett@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <30450f09-83d4-4ff0-96b2-9f251f0c0896@kernel.org>
+In-Reply-To: <20250106120156.227273-2-mark.barnett@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_045816_863472_16E77A41 
-X-CRM114-Status: GOOD (  19.14  )
+X-CRM114-CacheID: sfid-20250121_050203_271148_EE95B56E 
+X-CRM114-Status: GOOD (  36.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,47 +69,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 21, 2025 at 01:47:55PM +0100, Krzysztof Kozlowski wrote:
-> On 21/01/2025 08:54, Yijie Yang wrote:
-> > The Qualcomm board always chooses the MAC to provide the delay instead of
-> > the PHY, which is completely opposite to the suggestion of the Linux
-> > kernel.
+On Mon, Jan 06, 2025 at 12:01:52PM +0000, mark.barnett@arm.com wrote:
+> From: Ben Gainey <ben.gainey@arm.com>
+> 
+> This change modifies perf_event_attr to add a second, alternative
+> sample period field, and modifies the core perf overflow handling
+> such that when specified an event will alternate between two sample
+> periods.
+> 
+> Currently, perf does not provide a  mechanism for decoupling the period
+> over which counters are counted from the period between samples. This is
+> problematic for building a tool to measure per-function metrics derived
+> from a sampled counter group. Ideally such a tool wants a very small
+> sample window in order to correctly attribute the metrics to a given
+> function, but prefers a larger sample period that provides representative
+> coverage without excessive probe effect, triggering throttling, or
+> generating excessive amounts of data.
+> 
+> By alternating between a long and short sample_period and subsequently
+> discarding the long samples, tools may decouple the period between
+> samples that the tool cares about from the window of time over which
+> interesting counts are collected.
+> 
+> It is expected that typically tools would use this feature with the
+> cycles or instructions events as an approximation for time, but no
+> restrictions are applied to which events this can be applied to.
+> 
+> Signed-off-by: Ben Gainey <ben.gainey@arm.com>
+> Signed-off-by: Mark Barnett <mark.barnett@arm.com>
+> ---
+>  include/linux/perf_event.h      |  5 +++++
+>  include/uapi/linux/perf_event.h |  3 +++
+>  kernel/events/core.c            | 37 ++++++++++++++++++++++++++++++++-
+>  3 files changed, 44 insertions(+), 1 deletion(-)
+> 
+> diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
+> index cb99ec8c9e96..cbb332f4e19c 100644
+> --- a/include/linux/perf_event.h
+> +++ b/include/linux/perf_event.h
+> @@ -276,6 +276,11 @@ struct hw_perf_event {
+>  	 */
+>  	u64				freq_time_stamp;
+>  	u64				freq_count_stamp;
+> +
+> +	/*
+> +	 * Indicates that the alternative sample period is used
+> +	 */
+> +	bool				using_alt_sample_period;
+>  #endif
+>  };
+>  
+> diff --git a/include/uapi/linux/perf_event.h b/include/uapi/linux/perf_event.h
+> index 0524d541d4e3..499a8673df8e 100644
+> --- a/include/uapi/linux/perf_event.h
+> +++ b/include/uapi/linux/perf_event.h
+> @@ -379,6 +379,7 @@ enum perf_event_read_format {
+>  #define PERF_ATTR_SIZE_VER6	120	/* add: aux_sample_size */
+>  #define PERF_ATTR_SIZE_VER7	128	/* add: sig_data */
+>  #define PERF_ATTR_SIZE_VER8	136	/* add: config3 */
+> +#define PERF_ATTR_SIZE_VER9	144	/* add: alt_sample_period */
+>  
+>  /*
+>   * Hardware event_id to monitor via a performance monitoring event:
+> @@ -531,6 +532,8 @@ struct perf_event_attr {
+>  	__u64	sig_data;
+>  
+>  	__u64	config3; /* extension of config2 */
+> +
+> +	__u64	alt_sample_period;
+>  };
+>  
+>  /*
+> diff --git a/kernel/events/core.c b/kernel/events/core.c
+> index 065f9188b44a..7e339d12363a 100644
+> --- a/kernel/events/core.c
+> +++ b/kernel/events/core.c
+> @@ -4178,6 +4178,8 @@ static void perf_adjust_period(struct perf_event *event, u64 nsec, u64 count, bo
+>  	s64 period, sample_period;
+>  	s64 delta;
+>  
+> +	WARN_ON_ONCE(hwc->using_alt_sample_period);
+> +
+>  	period = perf_calculate_period(event, nsec, count);
+>  
+>  	delta = (s64)(period - hwc->sample_period);
+> @@ -9850,6 +9852,7 @@ static int __perf_event_overflow(struct perf_event *event,
+>  				 int throttle, struct perf_sample_data *data,
+>  				 struct pt_regs *regs)
+>  {
+> +	struct hw_perf_event *hwc = &event->hw;
+>  	int events = atomic_read(&event->event_limit);
+>  	int ret = 0;
+>  
+> @@ -9869,6 +9872,18 @@ static int __perf_event_overflow(struct perf_event *event,
+>  	    !bpf_overflow_handler(event, data, regs))
+>  		goto out;
+>  
+> +	/*
+> +	 * Swap the sample period to the alternative period
+> +	 */
+> +	if (event->attr.alt_sample_period) {
+> +		bool using_alt = hwc->using_alt_sample_period;
+> +		u64 sample_period = (using_alt ? event->attr.sample_period
+> +					       : event->attr.alt_sample_period);
+> +
+> +		hwc->sample_period = sample_period;
+> +		hwc->using_alt_sample_period = !using_alt;
+> +	}
+> +
+>  	/*
+>  	 * XXX event_limit might not quite work as expected on inherited
+>  	 * events
+> @@ -12291,9 +12306,19 @@ perf_event_alloc(struct perf_event_attr *attr, int cpu,
+>  	if (attr->freq && attr->sample_freq)
+>  		hwc->sample_period = 1;
+>  	hwc->last_period = hwc->sample_period;
+> -
 
-You still need to explain why it's preferable to match this in the mainline
-kernel. Does it not work when you use the phylib maintainers suggestion
-(if that is so, you need to state as much.)
+Redundant change at here?
 
-> How does the Linux kernel suggest it?
+>  	local64_set(&hwc->period_left, hwc->sample_period);
+>  
+> +	if (attr->alt_sample_period) {
+> +		hwc->sample_period = attr->alt_sample_period;
+> +		hwc->using_alt_sample_period = true;
+> +	}
 
-It's what phylib maintainers prefer, as documented in many emails from
-Andrew Lunn and in Documentation/networking/phy.rst:
+My understanding it sets a short sample window for the first period.
+Would it initialize the `hwc->period_left` with the updated sample
+period?
 
-"Whenever possible, use the PHY side RGMII delay for these reasons:
+> +
+> +	/*
+> +	 * alt_sample_period cannot be used with freq
+> +	 */
+> +	if (attr->freq && attr->alt_sample_period)
+> +		goto err_ns;
+> +
 
-* PHY devices may offer sub-nanosecond granularity in how they allow a
-  receiver/transmitter side delay (e.g: 0.5, 1.0, 1.5ns) to be specified. Such
-  precision may be required to account for differences in PCB trace lengths
+It is good to validate parameters first. So move the checking before
+the adjustment for the alt sample period.
 
-* PHY devices are typically qualified for a large range of applications
-  (industrial, medical, automotive...), and they provide a constant and
-  reliable delay across temperature/pressure/voltage ranges
+>  	/*
+>  	 * We do not support PERF_SAMPLE_READ on inherited events unless
+>  	 * PERF_SAMPLE_TID is also selected, which allows inherited events to
+> @@ -12763,9 +12788,19 @@ SYSCALL_DEFINE5(perf_event_open,
+>  	if (attr.freq) {
+>  		if (attr.sample_freq > sysctl_perf_event_sample_rate)
+>  			return -EINVAL;
+> +		if (attr.alt_sample_period)
+> +			return -EINVAL;
+>  	} else {
+>  		if (attr.sample_period & (1ULL << 63))
+>  			return -EINVAL;
+> +		if (attr.alt_sample_period) {
+> +			if (!attr.sample_period)
+> +				return -EINVAL;
+> +			if (attr.alt_sample_period & (1ULL << 63))
+> +				return -EINVAL;
+> +			if (attr.alt_sample_period == attr.sample_period)
+> +				attr.alt_sample_period = 0;
 
-* PHY device drivers in PHYLIB being reusable by nature, being able to
-  configure correctly a specified delay enables more designs with similar delay
-  requirements to be operated correctly
-"
+In theory, the attr.alt_sample_period should be less than
+attr.sample_period, right?
 
-> > The usage of phy-mode in legacy DTS was also incorrect. Change the
-> > phy_mode passed from the DTS to the driver from PHY_INTERFACE_MODE_RGMII_ID
-> > to PHY_INTERFACE_MODE_RGMII to ensure correct operation and adherence to
-> > the definition.
+Thanks,
+Leo
 
-If the delays dependent on the phy-mode are going to be implemented at
-the MAC end, then changing the PHY mode indicated to phylink and phylib
-to PHY_INTERFACE_MODE_RGMII is the right thing to be doing. However,
-as mentioned in the documentation and by Andrew, this is discouraged.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+> +		}
+>  	}
+>  
+>  	/* Only privileged users can get physical addresses */
+> 
+> -- 
+> 2.43.0
+> 
 
