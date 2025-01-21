@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A43A9C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 15:25:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7C34C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 15:26:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1vDXJK4KbYxcZJlt3fw7FKxfRAL1QGGnOoRjEgA9o2w=; b=JRhNVx7VuF6OX5VssxUYTraldt
-	XoqOfI4ESKPy876/pqTuvhWa+ucGEwXMgcginMTYQCOgB8fTMoVOt8TTAjaIAhK4J0niQxLxvGESo
-	SvGNA2mnZXebFhsDD7Cr6P+rYSjrG4x4Jjqzr1vo90Nfc6RssLWfanERm6IFwf0yzzBOL55vnNiH0
-	2J818cB4aMgXnFa+Axu2kl2UK7qh9P5vkUN1dzX88zT/gNZ0QCbLzY/y336fughJPWskiO2kLX8vM
-	eAdUAFM005H/F94QxdMBwAz7/X+UbTwcXnadvBVN866td59rpZJ7AQoWvOdlmV2GC2e0RrmjzoOzB
-	gF5uIegw==;
+	bh=1BIk0mJ4ghFJN5TubUO6JYFTlPsrPupFq1LBuxjGGzk=; b=AWIPFCcmEZol4zeWjo9SFUMIM6
+	qxEgMtI5R8oQy0phjmV1eW//Eo0alsCxafRX1XtsTQKnaNtLDbcg33YWTplUfHGLDyvKevbJqBPwH
+	pW4+uZ//k8L+/YBte+nsZp2d2OlW/AR9diAEbYe+ok0OCPhif7TNtcbPnYto6jGIK/VBpJWIE3ysV
+	XW0r+eOdRJWxSxwukFOxkjDy8HcNdLw+P3csFKEep+QoqS5S2rIzOAKvPHpygS5FhwyYs9r2U9Xl1
+	JXarmpgnP/w6/0OLzHtvw/03DGsXmZZ9PRQ1YRVgErWfT5Mtq70AbsuuZCVD4TYDZw3PAV8AQOqvM
+	oPLprmJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taG7s-00000008DC9-3E2E;
-	Tue, 21 Jan 2025 15:25:12 +0000
-Received: from mail-ej1-x641.google.com ([2a00:1450:4864:20::641])
+	id 1taG98-00000008DLV-3Tpj;
+	Tue, 21 Jan 2025 15:26:30 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taG1O-00000008CGX-3mcE
+	id 1taFth-00000008B9C-0SEA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 15:18:32 +0000
-Received: by mail-ej1-x641.google.com with SMTP id a640c23a62f3a-aaec111762bso1082195966b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jan 2025 07:18:30 -0800 (PST)
+	Tue, 21 Jan 2025 15:10:34 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-ab633d9582aso261283366b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jan 2025 07:10:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1737472709; x=1738077509; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=1vDXJK4KbYxcZJlt3fw7FKxfRAL1QGGnOoRjEgA9o2w=;
-        b=dygI333GgdFe/PX8x8qApql0VHb+6oyu7cbpmbuDLw/g/A0c4dCRxc0HEwopKD5awj
-         KoUgHp4X20WKc1NI1kcpOrAjpqoRjLj1WPpbGGTVm0Fcn8EDTvsaXegr1UB3IEqqcf/k
-         OhC8VrmuXhELMSxZma4zbmCAnpsk+YGnA0X53P3p5C4TR5ArQvGtHnAr9+u3r9QuWxC6
-         LO3lP+ivqObdgA35fcJYgU1T3KB3Bpr2CSxY09NWzsfxOEe6Gl7J6/6XohF2YVwGYhYg
-         lFKFLjZf0FqfTsioxBJe+RUx9BsLxB49KhTZmYfU7qOlJxFSyN8aRgcOEJyndO7xri+w
-         2pOg==
+        d=suse.com; s=google; t=1737472231; x=1738077031; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=1BIk0mJ4ghFJN5TubUO6JYFTlPsrPupFq1LBuxjGGzk=;
+        b=FwpP4IAkAzPRTHeEulepslZdz63sfjZrMj6um6OV6+SEQD1WW/5LV/0aSrM14DMTad
+         kpfBpnv0kFg3algkhYIpvKpNoEz+w3pF+YsF1muDdWFPsQ3f6sFJzUmOGthIY+Z3XKs7
+         kcU3aZaeGvPs8zIP1tnvphf/s1GRtW8m25pjJZR5bEK/1XOzBa5Fyc2U+knpOoBH1CSb
+         s9ze98d5mkVqVHZ7yO9wbODO5le3mL9iMQ0w4HlI9bKeAJbq242K8qNKM5TodukjJ8Bo
+         hkpUg3PXggVHDT4JdG7nehTyfJP1YSGdYh1P/KcgUQogs3RvYPHJ5UMZBHbmdDJaz3XJ
+         xWqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737472709; x=1738077509;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=1vDXJK4KbYxcZJlt3fw7FKxfRAL1QGGnOoRjEgA9o2w=;
-        b=Knjbv60mXsswC4j4KEEtJGMXzCHk3XwvUcGT7S5oQmYkTp4VSnnEeCoJ81U3XthGDK
-         4d41q3IQ4D8iSPho41hKCqlVcnrVhuaZex2bzUW28F5nHOTDrm2CaFj8yvl+mO2qUZ0y
-         mDulIhFUIUDrib298sFbmYxrDRwCMRuMeb3INtuy0kdKOEg3wGdSzSiSGla5XFCEv29X
-         vcT6kCRdOuxrGX9qLnLUIOOUayc5F/goyo/FAQUD262uPW8h/b8tO2IDbbaVM6tLug9V
-         7YnbiP5sjdKjbrMvulaATvQWT/3rHTGWMcq2SmM6vFFtmbmHPCib/LovRPjLaOT5KxUb
-         3FpQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV14Jl8tFjgpFsLGw+cC5P89A4UvhDisoxy/06JeXS2v0wDzrirKzLDLgB+m9zKlZPP2u9A3Yhyo5roP3PWym9d@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywl+XAb1kFCMs6uDD0qtEdh/m0aDQjsEvX7RUmDdfjX+C0j7kiU
-	3fPppWh7GAAPFBurE+u3W5xTW3PRRyxH1kajJ9CKLhEOu+nWbN76SC0mhK+DCw4=
-X-Gm-Gg: ASbGncvWkQg0HyC+1QOMtm9dqb7U+r9BAhk/fK9Pszsvy2yG8jjw3Y6aQTkZ/xlsXoE
-	pNQm+o1wkbkPCX1gwXgdmoQwfvHr7CV/8EXQ/shZZLmKuTbIwB32CLLXvHKbN/n7ZggJv8N2jDN
-	huxxKfmsGQNMpgWcuSzOXyit/BF1adA8ZXFLItEpIliqO5tf2homO5OPyiQPA/SwXBzHA/XJQuc
-	j2xppBtMVmCqwla3aCaAltLU+tQzDqFbFUM7FlIIxHvH5hOCyl4oJJ+7Lg48KEKG17rkpbB9Sin
-	xhlZFDZ19QK3qG72jPeF6rYioBL2FeeXIz9PX6oH
-X-Google-Smtp-Source: AGHT+IEAYrB4ZnhRxgxUfTTRbx252YKxI33JmIyfaSG0E9U1Xt61QWphw76hL6w5A49qZMtALYAPDg==
-X-Received: by 2002:a17:907:1b1c:b0:ab2:c0ba:519e with SMTP id a640c23a62f3a-ab38b3701d1mr1506057866b.35.1737472709292;
-        Tue, 21 Jan 2025 07:18:29 -0800 (PST)
+        d=1e100.net; s=20230601; t=1737472231; x=1738077031;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1BIk0mJ4ghFJN5TubUO6JYFTlPsrPupFq1LBuxjGGzk=;
+        b=KCZqCuq9GPRy+44ybdqRBXs9jEqPDnVNT+lpG/45mDzGXSpRx/5UtBc+cHZzmEgbKe
+         AZmt51Z2NfhixlJrTG6Rl55oPMh63pJU2W8nAZiyN2L9P7Kvsv/W29ifqPauq0tFlfFT
+         jMDOMSgQh2JFWF0lRk/J6IhNYzhccb6OfHKWdoCoq3HsKuIdUqCIagIxh2E90rGN0eVi
+         LCEsxXvYwsJTKoohtRdAV2P2OL6CT8U9OcyzDne//VL7nsLYCoUzp1LduYCcH/6Faq8h
+         hY87JdY5I5R8S/QQDL0hIJYzXwOyertCvQs0wHxjEyrlwtc9Yiwpqr04z3phT2WDGvBX
+         feXA==
+X-Forwarded-Encrypted: i=1; AJvYcCVK7sNbRzCRyHQDRCB9ZL2Y20Yh7vkO/P0001M5MPKUH2bDm9s58pG4qsywyrVhrnl0aU28EVkV1gzcaxshLwBZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyDFi3vGH2wXYjJwcItJzgCACgYfSIF55SnpttphbEZqrwO2/Zx
+	lpsTCFlXfpveSqS2CnXHgBc+35HNaFa8Fqs7rJH8WqciokCbmWKwI11eE3rYNH0=
+X-Gm-Gg: ASbGncuq9STLOAbuz54rSXKBl+b4LHbB8NTQ9nM7gOeITwEgFu+4InUnNgfhBVm7rUF
+	mJJd0jNqMdh3ynNDwYAd0Bm+JiBfbf6CbNeZWxKGKPfbFXISjtI0aCdBV39LYKnVBh3MozYlx98
+	EvhyrX+ds8ivoVvAE8offZMlr6KXGaOtbpVJt10PdKM21yXMDJp/ukoE6i7zhtZVzjj/zUDOORw
+	L7ylPJIp85bfP3qhfJF9XhKBXKtMCinxl4tC3O/7QKttXWPxnQYk6hpa0kYpXWgA+xvEWUoXpC/
+	a9bBVKqO01xnvteUedM+3WZbJOFTsX2w9s1awbSg
+X-Google-Smtp-Source: AGHT+IH9FVvcKrRKMRhk26BWOCPbtQyPFCLPBzPFOkLbN63Gck9obXb7zAzQ71TAqafJQA1N8DPwwg==
+X-Received: by 2002:a17:907:94cc:b0:aa6:85a4:31f8 with SMTP id a640c23a62f3a-ab38b32ad1fmr1524098166b.33.1737472229912;
+        Tue, 21 Jan 2025 07:10:29 -0800 (PST)
 Received: from localhost (host-87-14-236-197.retail.telecomitalia.it. [87.14.236.197])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab384fcb5desm755070666b.165.2025.01.21.07.18.28
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab384f8d3a0sm759146666b.158.2025.01.21.07.10.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Jan 2025 07:18:28 -0800 (PST)
+        Tue, 21 Jan 2025 07:10:29 -0800 (PST)
 From: Andrea della Porta <andrea.porta@suse.com>
 X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Tue, 21 Jan 2025 16:19:22 +0100
-To: Herve Codina <herve.codina@bootlin.com>
+Date: Tue, 21 Jan 2025 16:11:22 +0100
+To: Andrew Lunn <andrew@lunn.ch>
 Cc: Andrea della Porta <andrea.porta@suse.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Michael Turquette <mturquette@baylibre.com>,
@@ -96,11 +95,11 @@ Cc: Andrea della Porta <andrea.porta@suse.com>,
 	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
 	Masahiro Yamada <masahiroy@kernel.org>,
 	Stefan Wahren <wahrenst@gmx.net>,
+	Herve Codina <herve.codina@bootlin.com>,
 	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
 Subject: Re: [PATCH v6 08/10] misc: rp1: RaspberryPi RP1 misc driver
-Message-ID: <Z4-6-ifsuuKMHimq@apocalypse>
+Message-ID: <Z4-5GvpJfqkad-6A@apocalypse>
 References: <cover.1736776658.git.andrea.porta@suse.com>
  <550590a5a0b80dd8a0c655921ec0aa41a67c8148.1736776658.git.andrea.porta@suse.com>
  <2025011722-motocross-finally-e664@gregkh>
@@ -109,16 +108,14 @@ References: <cover.1736776658.git.andrea.porta@suse.com>
  <Z4-oORWO4BgOqibB@apocalypse>
  <2025012157-bonsai-caddie-19b2@gregkh>
  <Z4-xcjov0HLivfVX@apocalypse>
- <2025012148-unused-winking-7d51@gregkh>
- <20250121161512.2a3ac703@bootlin.com>
+ <6f16b0ea-ebb7-4692-bfc0-79052f079bc1@lunn.ch>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250121161512.2a3ac703@bootlin.com>
+In-Reply-To: <6f16b0ea-ebb7-4692-bfc0-79052f079bc1@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_071830_955171_206393F8 
-X-CRM114-Status: GOOD (  48.66  )
+X-CRM114-CacheID: sfid-20250121_071033_342130_BB6A8D3C 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,135 +130,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Herve,
+Hi Andrew,
 
-On 16:15 Tue 21 Jan     , Herve Codina wrote:
-> Hi Andrea,
-> 
-> On Tue, 21 Jan 2025 15:49:04 +0100
-> Greg Kroah-Hartman <gregkh@linuxfoundation.org> wrote:
-> 
-> > On Tue, Jan 21, 2025 at 03:38:42PM +0100, Andrea della Porta wrote:
-> > > Hi Greg,
-> > > 
-> > > On 15:18 Tue 21 Jan     , Greg Kroah-Hartman wrote:  
-> > > > On Tue, Jan 21, 2025 at 02:59:21PM +0100, Andrea della Porta wrote:  
-> > > > > Hi Greg,
-> > > > > 
-> > > > > On 09:48 Tue 21 Jan     , Greg Kroah-Hartman wrote:  
-> > > > > > On Tue, Jan 21, 2025 at 09:43:37AM +0100, Andrea della Porta wrote:  
-> > > > > > > Hi Greg,
-> > > > > > > 
-> > > > > > > On 12:47 Fri 17 Jan     , Greg Kroah-Hartman wrote:  
-> > > > > > > > On Mon, Jan 13, 2025 at 03:58:07PM +0100, Andrea della Porta wrote:  
-> > > > > > > > > The RaspberryPi RP1 is a PCI multi function device containing
-> > > > > > > > > peripherals ranging from Ethernet to USB controller, I2C, SPI
-> > > > > > > > > and others.
-> > > > > > > > > 
-> > > > > > > > > Implement a bare minimum driver to operate the RP1, leveraging
-> > > > > > > > > actual OF based driver implementations for the on-board peripherals
-> > > > > > > > > by loading a devicetree overlay during driver probe.
-> > > > > > > > > 
-> > > > > > > > > The peripherals are accessed by mapping MMIO registers starting
-> > > > > > > > > from PCI BAR1 region.
-> > > > > > > > > 
-> > > > > > > > > With the overlay approach we can achieve more generic and agnostic
-> > > > > > > > > approach to managing this chipset, being that it is a PCI endpoint
-> > > > > > > > > and could possibly be reused in other hw implementations. The
-> > > > > > > > > presented approach is also used by Bootlin's Microchip LAN966x
-> > > > > > > > > patchset (see link) as well, for a similar chipset.
-> > > > > > > > > 
-> > > > > > > > > For reasons why this driver is contained in drivers/misc, please
-> > > > > > > > > check the links.  
-> > > > > > > > 
-> > > > > > > > Links aren't always around all the time, please document it here why
-> > > > > > > > this is needed, and then links can "add to" that summary.  
-> > > > > > > 
-> > > > > > > Ack.
-> > > > > > >   
-> > > > > > > >   
-> > > > > > > > > This driver is heavily based on downstream code from RaspberryPi
-> > > > > > > > > Foundation, and the original author is Phil Elwell.
-> > > > > > > > > 
-> > > > > > > > > Link: https://datasheets.raspberrypi.com/rp1/rp1-peripherals.pdf  
-> > > > > > > 
-> > > > > > > ...
-> > > > > > >   
-> > > > > > > > > diff --git a/drivers/misc/rp1/rp1_pci.c b/drivers/misc/rp1/rp1_pci.c
-> > > > > > > > > new file mode 100644
-> > > > > > > > > index 000000000000..3e8ba3fa7fd5
-> > > > > > > > > --- /dev/null
-> > > > > > > > > +++ b/drivers/misc/rp1/rp1_pci.c
-> > > > > > > > > @@ -0,0 +1,305 @@
-> > > > > > > > > +// SPDX-License-Identifier: GPL-2.0
-> > > > > > > > > +/*
-> > > > > > > > > + * Copyright (c) 2018-24 Raspberry Pi Ltd.
-> > > > > > > > > + * All rights reserved.
-> > > > > > > > > + */
-> > > > > > > > > +
-> > > > > > > > > +#include <linux/err.h>
-> > > > > > > > > +#include <linux/interrupt.h>
-> > > > > > > > > +#include <linux/irq.h>
-> > > > > > > > > +#include <linux/irqchip/chained_irq.h>
-> > > > > > > > > +#include <linux/irqdomain.h>
-> > > > > > > > > +#include <linux/module.h>
-> > > > > > > > > +#include <linux/msi.h>
-> > > > > > > > > +#include <linux/of_platform.h>
-> > > > > > > > > +#include <linux/pci.h>
-> > > > > > > > > +#include <linux/platform_device.h>
-> > > > > > > > > +
-> > > > > > > > > +#include "rp1_pci.h"  
-> > > > > > > > 
-> > > > > > > > Why does a self-contained .c file need a .h file?  Please put it all in
-> > > > > > > > here.  
-> > > > > > > 
-> > > > > > > I agree with you. Indeed, the very first version of this patch had the header
-> > > > > > > file placed inside the .c, but I received concerns about it and some advice to
-> > > > > > > do it differently, as you can see here:
-> > > > > > > https://lore.kernel.org/all/ZtWDpaqUG9d9yPPf@apocalypse/
-> > > > > > > so I've changed it accordingly in V2. So right now I'm not sure what the
-> > > > > > > acceptable behaviour should be ...  
-> > > > > > 
-> > > > > > It's a pretty simple rule:
-> > > > > > 	Only use a .h file if multiple .c files need to see the symbol.
-> > > > > > 
-> > > > > > So no .h file is needed here.  
-> > > > > 
-> > > > > Perfect, I'll revert back that two lines to V1 then. Please be aware
-> > > > > though that this will trigger the following checkpatch warning:
-> > > > > 
-> > > > > WARNING: externs should be avoided in .c files  
-> > > > 
-> > > > Well where are those externs defined at?  Shouldn't there be a .h file
-> > > > for them somewhere in the tree if they really are global?  
-> > > 
-> > > Those symbols are deined in drivers/misc/rp1/rp1-pci.dtbo.S (added by
-> > > this patchset) and created by cmd_wrap_S_dtb in scripts/Makefile.lib.
-> > > They are just placeholders that contains rp1-pci.dtbo as
-> > > a binary blob, in order for the driver (rp1_pci.c) to be able to use
-> > > the binary buffer representing the overlay and address it from the
-> > > driver probe function.
-> > > So there's no other reference from outside rp1_pci.c to those two symbols.
-> > > In comparison, this is the very same approach used by a recently accepted
-> > > patch involving drivers/misc/lan966x_pci.c, which also has the two externs
-> > > in it and triggers the same checkpatch warning.  
+On 15:53 Tue 21 Jan     , Andrew Lunn wrote:
+> > > Well where are those externs defined at?  Shouldn't there be a .h file
+> > > for them somewhere in the tree if they really are global?
 > > 
-> > Ok, that's fine, checkpatch is just a hint, not a hard-and-fast-rule.
-> > 
+> > Those symbols are deined in drivers/misc/rp1/rp1-pci.dtbo.S (added by
+> > this patchset) and created by cmd_wrap_S_dtb in scripts/Makefile.lib.
 > 
-> Maybe just to avoid confusion for future readers, you can add a comment as I
-> did for the lan966x:
->   https://elixir.bootlin.com/linux/v6.13-rc3/source/drivers/misc/lan966x_pci.c#L21
-> 
-> This will not avoid the warning but will give an explanation to people
-> looking closer at this checkpatch warning.
+> Could cmd_wrap_S_dtb be extended to actually produce a header?
 
-Good advice, thanks Herve! Added...
+It will produce a header nonetheless, one which is needed by just one .c
+file violating Greg's rule about having a header only if referenced by more
+than one source and the symbol is truly global, IMHO.
 
-Regards,
+Thanks,
 Andrea
 
 > 
-> Best regards,
-> Hervé
+> But that might confuse static analysers?
+> 
+> 	Andrew
 
