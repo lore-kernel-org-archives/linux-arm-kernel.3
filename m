@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 209B8C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 17:34:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B48DC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 17:39:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tjzENzNcJI3kMv2wJNKt36aOtMgEQTQOR9G5/GIQJis=; b=CWz/LFq5OaL0Th8RMiuCOPZ0N4
-	NXXt2Ssx7pPv2TO4Yfguq4xVt0u5yQP8w7/y4ARjX/ld7lypoUCrWUY8Uk7C556gMDrx4XF1oCs52
-	8khxXD/US+XtPQcimEEd9T/eAkB/mF0YBVO22qmeBJ2KKvUyleE7Ha41DRxy6iCtPsIlnfSlOhqDY
-	WCFwrf13nC6HXyLhI8f5zW28yBPU15HZVNIIzse3krMFQPwhapHGA3mccnNhEYbC5oHNoY164A8Yx
-	v08EQ+GxT/eeNa36iLAI6CtddpXS2vFeTopiIPa3oiZizXY2YsnNL0Ai0yRq7+wKO057K9GDxIgtF
-	cv9JG8JQ==;
+	bh=njrMv7/v3hrxrqYA6u5qEwMI8KFQ0dRUo1yYjGE3JFk=; b=5CJEz98ovYnzt0a0r63nWQiilD
+	G2zDkDJGvdhg2ajuyXYq/VJFHr1KMH6UUjMtBHOgUMmjqkgVhz1bVZVJ+uVgLLx8+ds0vjGYzdEXv
+	zubCr/vE6dP1suYlfkkRx1ue9kuSPldVwBXmm8Mz1jgHU8S7l+v+tFvJN2O+Va2UA49PXrnWkWIIj
+	pYmIBVcbZpRj7vvIr5gqWf4fnLA6Yu9ISM7jyJL+NX5a+FXerE9Wxvaf0tKmpSZkdRFAX2yH0Y4MQ
+	+JuHP/lXvds6TsTj4nsgdAZnF/6KLSIvL6XYYkSksf4GrAXfTfpLnGLPIPDB2nEHkxhpeZCa1Pgg/
+	dxS0NPMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taI8W-00000008Ub6-3ooL;
-	Tue, 21 Jan 2025 17:34:00 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1taIDc-00000008VG3-3KKx;
+	Tue, 21 Jan 2025 17:39:16 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taI72-00000008ULX-3sOs
+	id 1taICL-00000008V37-2mgz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 17:32:30 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-21675fd60feso125477955ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jan 2025 09:32:28 -0800 (PST)
+	Tue, 21 Jan 2025 17:37:58 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-2eeb4d643a5so10708953a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jan 2025 09:37:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737480748; x=1738085548; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1737481077; x=1738085877; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=tjzENzNcJI3kMv2wJNKt36aOtMgEQTQOR9G5/GIQJis=;
-        b=hBGUamnRLfwYeD8Z+T/nnwps0bsNGx/2jEde753PPL6IoQ3miIUuKrL1A27SHOyAXn
-         nHGCVvadqdQQpYmxtuct6+N0cF1A/tPTTSIog/j8k55fMAr2+W87EEWr37ys9kYYOwZ0
-         JuqI57MNybT1ibyQ9pd/1k3jJVDOGJhdaMuvqkiL8G79y00nJR4bYRNuunGJMTDhvahT
-         Bu4NF8WcPYPCgEN1bs0AGIPHFnkHup4IrZ+KwY4wEtQs+SXKQtEaqdIZBc1cJl+oW20f
-         NcAxHTa88m/bm0Oa6i4cdbvXidbgG68eZlvoZ8WyWoJS5YOFHvFsASj0z+JD/BNHoSIM
-         eT+A==
+        bh=njrMv7/v3hrxrqYA6u5qEwMI8KFQ0dRUo1yYjGE3JFk=;
+        b=O+HiiKa0BQbZoe5Luo+d++//+Cqjt0od5B0j1FoGD9DY1FjvlW/kIqsNg4ePo3xGEy
+         1tT96SzU01EZvIcXYcNh7xiNQS42H3/LD8baSC+CjN8dD8oyMRwULIIOMAtF7f2aHI8E
+         iQ2ukVhLrOQvkzvIRNhoLfIsDnC72XKXTCNcDDAz9kFqZaym4NQXOo8Y2ta20vDWtZc8
+         F5ZtR6Z8gmNPNOyNk6RIyLifZPKwUCg6xKuk3brRPJryptXk+56/+VWYnxQD+tQU6qE+
+         zZo4njbEVn4XpnbhSUQA0OHDkwE6AcBVzqXZCoz0pxbuFC9TtO6sPPdwv2jLMn30xXer
+         UmQg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737480748; x=1738085548;
+        d=1e100.net; s=20230601; t=1737481077; x=1738085877;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=tjzENzNcJI3kMv2wJNKt36aOtMgEQTQOR9G5/GIQJis=;
-        b=E0mI3ENHyKMfj6l9aaJF7V9b12cMfFyEAwI8RJTk3aa8k7di0FJRWQ5me+7MUe/pIv
-         4GFMdrACgBglbsNnucK97tYbUJy6jsZjniamsDqNLNUDklAme94lCCeIZBczkhNHAkUu
-         a3auObimcGo/ld560sr+SP5E/wbmnHaNHVgaYc/m6/YhX0+5eKcfoyABV9AQwG0SdLSi
-         iRYPqKPQ0sXN/qhP9o3ZNIaQ5re+jieEV8DIxWEy0Tp5MG3BD1rnvCHRVxAbL79fnPUP
-         7M5eNK6STCsOHI3kRTy/SZuyebp4LDmRsLnZk9rxgYpk/16/iocVNripHxegnmbt+KF5
-         BJqw==
-X-Forwarded-Encrypted: i=1; AJvYcCXKazwSHViwXgV9ozU6XRCJj3cZhF0tW112nWe7VY/jgoaO2iFdEoGlXXmjLyUmnZ/V021d4Zw4/hZUcEUXrtLd@lists.infradead.org
-X-Gm-Message-State: AOJu0YwvkAw23pMiH6oNehuIvmOaQjT+/89QjMOzcknlBYfveFHovd3e
-	ZHf/s06aeg8eer5XFaHzX4dUGYyNBgJLZjYZOgbGN16ju1j26h/T
-X-Gm-Gg: ASbGncu3xWzBK4dViXrKwvvfRA0Y3ZyINiKFEff9Zt3kfSXbRN32QqBKmKncXyKeRhj
-	XXiaxrTA+N6cgruJJPEkS2b+W2ffbTT8YfZ/6gHmw3dk4/htrodckF18GjpXeQDAJoVRMXm1bp0
-	1fJYRf9LBjWVQgzfBrCyebNRX3cozGG5gAvQFVQ34rabWRYaVHBQlq2JbnX1wqZfQ38Ac3bVUK7
-	fkU4BhBxJcLjvIyn90zLadGf+g7dIgfFVhYdlWrVR28gXwkYYtWBuZNXQLAJgxuglKxqoiB5ttA
-	utBfZMZwUGMVBDZ7LCIzZcEx/7AW33QzgAzlMybg/ZE=
-X-Google-Smtp-Source: AGHT+IEuvg3vAcQfjXET6AR8ux8wjRA5zzJlIOjxyWZLfufb5XYvWraoCGwicb2vYnn92H36vXW25w==
-X-Received: by 2002:a05:6a00:340c:b0:728:e906:e446 with SMTP id d2e1a72fcca58-72dafbda6ddmr28903077b3a.24.1737480747843;
-        Tue, 21 Jan 2025 09:32:27 -0800 (PST)
+        bh=njrMv7/v3hrxrqYA6u5qEwMI8KFQ0dRUo1yYjGE3JFk=;
+        b=ixFnVyuysTPFAyDKqBF9CCm0Z92UFvhiPm3oG13YkbnZ0+w7wONSsmnT9R+wVrMzZG
+         18BWmQwRIqU3XcFeCn/QvebeVGg992W0RDefcs9gLa3V0kqF2ega0xMKBoy4gMC8zSF1
+         gDoLBCVjoMmcDgljEgAEjlQ3xiPwlaPoz6V9IGBpCtc2k58ioFdky4UHay1svgr6Glrg
+         ZEsvsgi+OJCw0h/0/Ca21ZIDgDU+++vb0lXtd6nReUMaGuEgQBH4L0TE4NAOjNYVNJFj
+         rKOUhwtfy3A8flgoC8N5XN1OfVj7S1exA+9HRv/BUAyTrI4zejCp5iAxpehe1ghgsOlE
+         x5tg==
+X-Forwarded-Encrypted: i=1; AJvYcCUBOKJWbNQvw8b+tlaJ9Y5zeuSMS6AgQSzw5KsnyyGuKxrEzkuEKMDPmcYk7F8k5UfJ4UWkBvJazwhmzoV1IlWJ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxr7vt1NxQku6d31Pzs63Fe2+Azvn4Vmn/ks97J70man2emsKSZ
+	vyE5slFzwe3BmJe4j1coG1Ngck0FeIm4tX+70SeAijXGUgzq/GIG
+X-Gm-Gg: ASbGnctN/MrB8PTbdJKPB4jEQ1g/lC5+zcNaUcjyrg2KaMK4sc9DgEd/Dt8dkEYkVgB
+	6b/sMwOM4BGln3pD/dGH/Us/0Y9rmP8sCIeU2zMl48alGyoCTGkODXgQwTLkjjk38VIrC/VsRkm
+	H/odkOOmFnjfg8f/wM0qzqad5gyvejqbwdK9+nF1B7RtSzFkvrhpC2M5vhS436nYXctGqbN4sI/
+	qlTJ3hHM5hQLe6ixTiQLL2yvtIGHyKH5rEd5OaOYZCwCmd+nrCXOxrEHeWb7yMdNX722TRgzE9Q
+	s+6HFvxo6U0a89AelMkAYRvcMDXb7gvOto5xQ/0+vd8=
+X-Google-Smtp-Source: AGHT+IEJOI4zC1nxoJutJ0GIn7T5vVTBsqgozLgVRkp1XHIsrJ/AQjPAJdeaf4DFlti33uVCSnqVhw==
+X-Received: by 2002:a05:6a00:4fd3:b0:72a:8461:d172 with SMTP id d2e1a72fcca58-72daf9becfamr29107128b3a.3.1737481076941;
+        Tue, 21 Jan 2025 09:37:56 -0800 (PST)
 Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72dab81336esm9324395b3a.38.2025.01.21.09.32.24
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72dabace1bdsm9639120b3a.171.2025.01.21.09.37.53
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 21 Jan 2025 09:32:27 -0800 (PST)
-Message-ID: <193f1583-973e-4d5b-8a9f-559622b16441@roeck-us.net>
-Date: Tue, 21 Jan 2025 09:32:23 -0800
+        Tue, 21 Jan 2025 09:37:56 -0800 (PST)
+Message-ID: <d945ddc0-06e9-4ca3-a9c3-c19dd9457d15@roeck-us.net>
+Date: Tue, 21 Jan 2025 09:37:52 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 01/21] hwmon: Fix the type of 'config' in struct
+Subject: Re: [PATCH v1 00/21] hwmon: Fix the type of 'config' in struct
  hwmon_channel_info to u64
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>,
- Huisong Li <lihuisong@huawei.com>
-Cc: linux-hwmon@vger.kernel.org, linux-kernel@vger.kernel.org,
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Armin Wolf <W_Armin@gmx.de>, Huisong Li <lihuisong@huawei.com>,
+ linux-hwmon@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  arm-scmi@vger.kernel.org, netdev@vger.kernel.org, linux-rtc@vger.kernel.org,
  oss-drivers@corigine.com, linux-rdma@vger.kernel.org,
@@ -88,12 +88,13 @@ Cc: linux-hwmon@vger.kernel.org, linux-kernel@vger.kernel.org,
  davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
  pabeni@redhat.com, saeedm@nvidia.com, leon@kernel.org, tariqt@nvidia.com,
  louis.peens@corigine.com, hkallweit1@gmail.com, kabel@kernel.org,
- W_Armin@gmx.de, hdegoede@redhat.com, ilpo.jarvinen@linux.intel.com,
+ hdegoede@redhat.com, ilpo.jarvinen@linux.intel.com,
  alexandre.belloni@bootlin.com, krzk@kernel.org, jonathan.cameron@huawei.com,
  zhanjie9@hisilicon.com, zhenglifeng1@huawei.com, liuyonglong@huawei.com
 References: <20250121064519.18974-1-lihuisong@huawei.com>
- <20250121064519.18974-2-lihuisong@huawei.com>
- <Z4_T3s7zn3UQNkbW@shell.armlinux.org.uk>
+ <03b138e9-688f-4ebc-bd01-3d54fd20e525@gmx.de>
+ <9add68ac-7d10-4011-9da8-1f2de077d3e9@roeck-us.net>
+ <Z4_XQQ0tkD1EkOJ4@shell.armlinux.org.uk>
 Content-Language: en-US
 From: Guenter Roeck <linux@roeck-us.net>
 Autocrypt: addr=linux@roeck-us.net; keydata=
@@ -139,12 +140,12 @@ Autocrypt: addr=linux@roeck-us.net; keydata=
  WkRwrSuCn7UG+qVWZeKEsFKFOkynOs3pVbcbq1pxbhk3TRWCGRU5JolI4ohy/7JV1TVbjiDI
  HP/aVnm6NC8of26P40Pg8EdAhajZnHHjA7FrJXsy3cyIGqvg9os4rNkUWmrCfLLsZDHD8FnU
  mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
-In-Reply-To: <Z4_T3s7zn3UQNkbW@shell.armlinux.org.uk>
+In-Reply-To: <Z4_XQQ0tkD1EkOJ4@shell.armlinux.org.uk>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_093228_975238_D5EA6346 
-X-CRM114-Status: GOOD (  25.01  )
+X-CRM114-CacheID: sfid-20250121_093757_709539_D6EBFE4E 
+X-CRM114-Status: GOOD (  14.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,64 +160,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/21/25 09:05, Russell King (Oracle) wrote:
-> On Tue, Jan 21, 2025 at 02:44:59PM +0800, Huisong Li wrote:
->>    */
->>   struct hwmon_channel_info {
->>   	enum hwmon_sensor_types type;
->> -	const u32 *config;
->> +	const u64 *config;
->>   };
->>   
->>   #define HWMON_CHANNEL_INFO(stype, ...)		\
->>   	(&(const struct hwmon_channel_info) {	\
->>   		.type = hwmon_##stype,		\
->> -		.config = (const u32 []) {	\
->> +		.config = (const u64 []) {	\
->>   			__VA_ARGS__, 0		\
->>   		}				\
->>   	})
+On 1/21/25 09:20, Russell King (Oracle) wrote:
+[ ... ]
 > 
-> I'm sorry, but... no. Just no. Have you tried building with only your
-> first patch?
+> 1. convert *all* drivers that defines a config array to be defined by
+>     their own macro in hwmon.h, and then switch that macro to make the
+>     definitions be a u64 array at the same time as switching struct
+>      hwmon_channel_info.config
 > 
-> It will cause the compiler to barf on, e.g. the following:
+> 2. convert *all* drivers to use HWMON_CHANNEL_INFO() unconditionally,
+>     and switch that along with struct hwmon_channel_info.config.
 > 
-> static u32 marvell_hwmon_chip_config[] = {
-> ...
-> 
-> static const struct hwmon_channel_info marvell_hwmon_chip = {
->          .type = hwmon_chip,
->          .config = marvell_hwmon_chip_config,
-> };
-> 
-> I suggest that you rearrange your series: first, do the conversions
-> to HWMON_CHANNEL_INFO() in the drivers you have.
-> 
-> At this point, if all the drivers that assign to hw_channel_info.config
-> have been converted, this patch 1 is then suitable.
-> 
-> If there are still drivers that assign a u32 array to
-> hw_channel_info.config, then you need to consider how to handle
-> that without causing regressions. You can't cast it between a u32
-> array and u64 array to silence the warning, because config[1]
-> won't point at the next entry.
-> 
-> I think your only option would be to combine the conversion of struct
-> hwmon_channel_info and the other drivers into a single patch. Slightly
-> annoying, but without introducing more preprocessor yuckiness, I don't
-> see another way.
+> 3. add a new member to struct hwmon_channel_info such as
+>     "const u64 *config64" and then gradually convert drivers to use it.
+>     Once everyone is converted over, then remove "const u32 *config",
+>     optionally rename "config64" back to "config" and then re-patch all
+>     drivers. That'll be joyful, with multiple patches to drivers that
+>     need to be merged in sync with hwmon changes - and last over several
+>     kernel release cycles.
 > 
 
-This is moot because the series does not explain which attributes
-would be added ... and it turns out the to-be-added attributes would be
-non-standard and thus not be acceptable anyway. On top of that, if the
-size of configuration fields ever becomes an issue, I would look for a
-much less invasive solution.
+Alternatively, add another sensor type for the overflowing field, such as
+hwmon_power_2 (or whatever), and use it for the additional attributes.
 
-The author of this series did not contact me before submitting it,
-and I did not have a chance to prevent it from being submitted.
-Still, sorry for the noise.
+> This is not going to be an easy change!
+> 
+
+Neither is it necessary at this time.
 
 Guenter
 
