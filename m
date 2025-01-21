@@ -4,90 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ED95C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 10:18:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EDB0C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 10:19:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2sKmlgZFxW5SzQMIIe+zswmZcO3cIm/lz/eCX/l5rXA=; b=dWYJB7WCEf3MZa+OuOtcwu8jk8
-	UWPeFzJRU0fnYsEnOs4nJJPE04uLoWZkDFf3Rkssjr+ZtauWsTUgyimJAhSOtIef4h5Buq8agEgFI
-	PZ4b0Vq36AUd/TqbpDHUdEelP+ZCc3Uymret9IzjBKMbMEWizuzeLF7CbFGp5ubmhRTJgig7k1O88
-	TF1a5OXUwDuzVKdX/3dCRTcmMHrAsz9o+L11SOsF3z41VrpXz3KXtR4OffnNkHbscllrsHa2ZO1Vz
-	E2o6s24n9RCAoFWgTLN2ucWAZn3d42UaHh3SY1xCN96PPuOenYbXfssWDUux9AfQQ+7c4zuMgIXts
-	YTdGrG6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pulaHYswL3RBT3G2fzwNe67BCOa9InRfcnOUkC9cnV0=; b=gkxhFig9qioZIrUot8yYCJG0KH
+	jwXo0gCEr/nAYN7RLcA02yuSNFByDrvgE/ryzCpu9wUBSCA8sz0MmJJFcQA+kvvYPP0SFxhOMs/qs
+	rdRuqB7ty050horxCikOC1Ox8EkTxfidphRekP9vGkDAr4lVuIfhE9ENLDxagKmHbQsNMPy8rad+j
+	chEAF8f/CboA6lm1oWBxzT9qmOVLG/xw/jLYVAwM8CuOe+wkWvRASrw/dA7qV/DKAR/rRsTCUQA/w
+	ckfVEOHcFteY1+mexqE0gWs1+b1ZsWj+dTWCKlORRZFTHa0qsQ1CHa+kOWsbJf7OO4uRAWGXRCHGo
+	baMM/XDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taBKp-00000007Y8Q-0NIW;
-	Tue, 21 Jan 2025 10:18:15 +0000
-Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
+	id 1taBM4-00000007YHE-3AWs;
+	Tue, 21 Jan 2025 10:19:32 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taBJX-00000007Xry-3tqo
+	id 1taBJe-00000007Xtp-22K9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 10:16:57 +0000
-Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-3022484d4e4so55987201fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jan 2025 02:16:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737454614; x=1738059414; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=2sKmlgZFxW5SzQMIIe+zswmZcO3cIm/lz/eCX/l5rXA=;
-        b=YkAWoLfL7Lu7CPAiesvXJOq2QUZZOWiPneUbRi+OfBxLoeio41T/XnmPtxI0zYXwFE
-         g1nPE8vT11wm2zzcxGT8Z8VfWTg28lsP6ys1yzd7QDL6tE/F2r8v51czVgLjYJ6DbIOD
-         HMd4JVjo8+7KugSIG+sp4nxEKHGC85931WsL2v2eZobpZtwT3BW6qf4UbS9isoX0JbKy
-         irVug2OtMwi1qmBRrAGwPFRvyAJQESt7cCsdubQrJ22zO4js+Lk4We2ljq6OXWTH1q/v
-         HMzy3uFOAiZB8C5Uow5xi7/OojUDUzE3IxkqkMbUbPZ0mo6ynjBOmWlv8jEVBjunlp17
-         fRNA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737454614; x=1738059414;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2sKmlgZFxW5SzQMIIe+zswmZcO3cIm/lz/eCX/l5rXA=;
-        b=tNNj0qhealvFQtwbr/MCL09Xf/Ewd6IT6C2qUFzg5vx7R/qtL5U0PnqdpS+XthXF23
-         22bBizrbPJNq8UEAdVf/pJ0EGKug9+FOiHde2rpqa5ik/j7xzfQ2Ou3E2wnfhluuEMQi
-         qBdMVTEc9Fycucb4CFtzvo28ZQKk9bmHURrTFHkJyWubKZ1dWCiTWjnjiXzTZQZaUxEj
-         Ww+tCwvx7XRCUobzvLnPDlltTMgbBaPZpoTBWsxX9MBP9H/BiAgSZpuuaqXvSHqhHI9f
-         pBEn7qbhBtDbDkWd+qCiHh3LCMVdFRIribiSZ7Wi3/TzQ6TMopUts0pc4yTDpufz4Llh
-         0uVA==
-X-Forwarded-Encrypted: i=1; AJvYcCUsXjAQ3MHgPPJRRObyRpPvFjdSF2KIBj8759H/qXS7JkVgULRU7DCjdFz483SYnnUJ3UUn5Zok2x6IHc645AnZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzONqqvp32nQFa0O2YX7xP0stnPyTow0xoCa9jyGs8z6EGC74H4
-	cqxXxTeCUXrsmAA+bdqiu0FinffA4zgEgqUyG1xJs0eNDnPdyrl8r4EAZITbVNg=
-X-Gm-Gg: ASbGncvoJWVmeYLVrO9EfEkjKNJKMYDMrRIIAlM5fJWlz/bHuBXVa9+Nx+tic38+JL7
-	fGZOa6qcfZ/kPXKuefPJ5BBmSyZ6wrwBBtTXdI4OANNFiMg/dsg050Yu2u2xwkHS8yFlM5Wi4Zq
-	QOywrVEVVe2qqcnJn1eulkfxd1pKV6o5ciZOi54P2CCk1iOJbcdXsNaUFPIhITy5yS7uXlljEuA
-	WymxHy1OyzXhvIOSY0qtE5QWyTNUIxzzIAY0EJ1cdrBTkaQIFr/9ESjheC0jA5gxq5pglKqeqwO
-	P6WrRXlFZ+P1jruJ+9iJjtO4Dprz+3Gmr0naoYVkJ0hu+qomlQ==
-X-Google-Smtp-Source: AGHT+IFznj5QTkxejj1h7e2DHbCZsbF1n+9b/WPMSF7tP8oviwsQK24SYuQjBNYHiYuWIa5m3UyWwQ==
-X-Received: by 2002:a05:651c:1309:b0:300:3a15:8f0d with SMTP id 38308e7fff4ca-3072cb284e5mr59022731fa.34.1737454613712;
-        Tue, 21 Jan 2025 02:16:53 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3072a4ed203sm21215321fa.73.2025.01.21.02.16.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Jan 2025 02:16:52 -0800 (PST)
-Date: Tue, 21 Jan 2025 12:16:49 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: oushixiong1025@163.com
-Cc: Joel Stanley <joel@jms.id.au>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
-	linux-aspeed@lists.ozlabs.org, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Shixiong Ou <oushixiong@kylinos.cn>
-Subject: Re: [PATCH] drm/aspeed: Use devm_platform_get_and_ioremap_resource()
-Message-ID: <b5rhfo6q6ko4vf2vubkcma4v7dnpxruh7peyqav6tszj4sg6ee@mzjc543jsujn>
-References: <20250121075041.201599-1-oushixiong1025@163.com>
+	Tue, 21 Jan 2025 10:17:03 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <a.fatoum@pengutronix.de>)
+	id 1taBJL-0004uM-KZ; Tue, 21 Jan 2025 11:16:43 +0100
+Message-ID: <1cedb66f-dad9-4974-865c-bd5a2721a873@pengutronix.de>
+Date: Tue, 21 Jan 2025 11:16:41 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250121075041.201599-1-oushixiong1025@163.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] gpio: mxc: remove dead code after switch to DT-only
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+ Andy Whitcroft <apw@canonical.com>, Joe Perches <joe@perches.com>,
+ Dwaipayan Ray <dwaipayanray1@gmail.com>,
+ Lukas Bulwahn <lukas.bulwahn@gmail.com>, Fabio Estevam <festevam@gmail.com>,
+ Andy Shevchenko <andy.shevchenko@gmail.com>, Shawn Guo
+ <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+ Haibo Chen <haibo.chen@nxp.com>,
+ Catalin Popescu <catalin.popescu@leica-geosystems.com>,
+ linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <20250113-b4-imx-gpio-base-warning-v1-0-0a28731a5cf6@pengutronix.de>
+ <20250113-b4-imx-gpio-base-warning-v1-3-0a28731a5cf6@pengutronix.de>
+ <CAMRc=MfZncRy_Qx_Yi_QjqX2cszv9X9st5Yk87Q7R3Hug2S9KQ@mail.gmail.com>
+Content-Language: en-US
+From: Ahmad Fatoum <a.fatoum@pengutronix.de>
+In-Reply-To: <CAMRc=MfZncRy_Qx_Yi_QjqX2cszv9X9st5Yk87Q7R3Hug2S9KQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_021655_965422_48977D87 
-X-CRM114-Status: UNSURE (   8.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250121_021702_522339_361399F2 
+X-CRM114-Status: GOOD (  19.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,16 +78,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 21, 2025 at 03:50:41PM +0800, oushixiong1025@163.com wrote:
-> From: Shixiong Ou <oushixiong@kylinos.cn>
+On 15.01.25 17:55, Bartosz Golaszewski wrote:
+> On Mon, Jan 13, 2025 at 11:19 PM Ahmad Fatoum <a.fatoum@pengutronix.de> wrote:
+>>
+>> struct platform_device::id was only set by board code, but since i.MX
+>> became a devicetree-only platform, this will always be -1
+>> (PLATFORM_DEVID_NONE).
+>>
+>> Note: of_alias_get_id() returns a negative number on error and base
+>> treats all negative errors the same, so we need not add any additional
+>> error handling.
+>>
+>> Fixes: 0f2c7af45d7e ("gpio: mxc: Convert the driver to DT-only")
+>> Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
+>> ---
+>>  drivers/gpio/gpio-mxc.c | 3 +--
+>>  1 file changed, 1 insertion(+), 2 deletions(-)
+>>
+>> diff --git a/drivers/gpio/gpio-mxc.c b/drivers/gpio/gpio-mxc.c
+>> index 4cb455b2bdee71ba4eb20c93567c3b8db100dbb2..619b6fb9d833a4bb94a93b4209f01b49ad1cbdb0 100644
+>> --- a/drivers/gpio/gpio-mxc.c
+>> +++ b/drivers/gpio/gpio-mxc.c
+>> @@ -490,8 +490,7 @@ static int mxc_gpio_probe(struct platform_device *pdev)
+>>         port->gc.request = mxc_gpio_request;
+>>         port->gc.free = mxc_gpio_free;
+>>         port->gc.to_irq = mxc_gpio_to_irq;
+>> -       port->gc.base = (pdev->id < 0) ? of_alias_get_id(np, "gpio") * 32 :
+>> -                                            pdev->id * 32;
+>> +       port->gc.base = of_alias_get_id(np, "gpio") * 32;
+>>
+>>         err = devm_gpiochip_add_data(&pdev->dev, &port->gc, port);
+>>         if (err)
+>>
+>> --
+>> 2.39.5
+>>
 > 
-Missing commit message
+> This looks like I can pick it up separately from the rest? Is that right?
 
-> Signed-off-by: Shixiong Ou <oushixiong@kylinos.cn>
+Yes, please do.
 
-This doesn't match your email address, so SoB is missing.
+Thanks,
+Ahmad
+
+> 
+> Bart
+> 
+
 
 -- 
-With best wishes
-Dmitry
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
