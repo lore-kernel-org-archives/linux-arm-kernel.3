@@ -4,85 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8B2DC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 14:58:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17073C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 14:59:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sniiGLBlwlwVQE72YbXn9tSIJ0uzVlORMQYMI+fWlc8=; b=DNaGWa7v0hn/Fr9ZEHjUnUefaj
-	qZybfoU63/cnnz3fheT5nxBnziw5m4x+ObK7ty/mwvyedIHumjZomFOmkgbqdYPgKXGLlHHIsPZ89
-	Ff8GeBXAV6QWVgpXH7jXb3fCV1Hz7xoVOt60L1ydzMaCapgCc1hLdaGtu0bjtOEKnyxJjc87nRR6I
-	daS9ecdFfB5e+UBYR1fgb3EfJb/Yj3mvXzXYHXVrPQUpqrquTwqPW4VG59uROW85NPgBDGuOGQvRl
-	lbbXiXBvLfY8YUxvvxq8WQAFekF0ptC5kY+64Amft9g7cDprG9m3jxJHsWEnlWuhuh/0vC2BT39H5
-	OUQR8d7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jOdz1pir69ic1MtrrgXIbkYUZ+D5XBf/KaHWQiuYNhM=; b=3vh60Y2JXPvWzPbN//K6aU4S3x
+	nEmsKIaTLDJlp2loec1Y0SwNZTfmdNR9FAP7H+0DnDEYLVGViwcfVArrWqw1hKJrUi8P6jUg7qwMc
+	o1uZPXP2uk3rQKZhSrA0q6BN6eXciGBdhBdLSI/U0Pi0b8Qy4iPoMtXmRG8ykajVrA7Dh2P5PoSn0
+	L3detPGZb7Zw/K8jwc9ugxN1hwF4TEc02YSwvafkolfERrys2PF6tFlfZSHnYhreN15AM/53seRq2
+	Nb+y12zqBFUvVj/J44eIm438FG3f/+gKWg1hI2QkaP1zq8S2RnPPHlfDWE8GueeGNagwL3G/1nzhz
+	lNOLCNRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taFhr-0000000893Z-3XFu;
-	Tue, 21 Jan 2025 14:58:19 +0000
-Received: from mail-yb1-xb30.google.com ([2607:f8b0:4864:20::b30])
+	id 1taFj8-000000089B1-0IaK;
+	Tue, 21 Jan 2025 14:59:38 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taFc7-0000000889y-333b
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 14:52:25 +0000
-Received: by mail-yb1-xb30.google.com with SMTP id 3f1490d57ef6-e46c6547266so8204229276.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jan 2025 06:52:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737471143; x=1738075943; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=sniiGLBlwlwVQE72YbXn9tSIJ0uzVlORMQYMI+fWlc8=;
-        b=kL9vEWG8NfRd3DurIl+G6R3d1v3Flumi4kzXhFzYCVB4UaKd3RGJC34j/PStR4XIPI
-         sp32VyTQv1nPQbORG4do8njt4Cj8WzaHmm05Ckc/4WXOak2uQ2ICmLZysabT9/0erT1u
-         2K9/g68cmOdAaC1tfxdrkgjDZGzxklxjLNEsOXlYS5sGgDyFo0yQQPRPGOF8w78NlbKN
-         2kriQWOJ1LiwPc6M1qm20P73zxyF9svrDVhaWDPj77+cOEUEmuLHUnRB47iKc7peC6X0
-         4SyAJJiRzdb1JRr9i/FLqJx8xRq4DT2GZH789pxxn1oz3ozVbgjD/5/hA/Wc+ADjgZBu
-         0FXA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737471143; x=1738075943;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=sniiGLBlwlwVQE72YbXn9tSIJ0uzVlORMQYMI+fWlc8=;
-        b=cdjE8w6/1BWDD5ZjY1NhFVR3GH/Ep7E+xKYepYjJR6bq5KLuIInxh/fx942Me07tFt
-         /HICwDvRi9UYGOgfyhfIpaLwjXuYejRDHlXwqeJQNAP+43K0dggJXz7oLiC7n0iqF/jp
-         xb+uBqTpIWfgP4u7IXnRm5FEmFA4t1kGfZrM7JyZJbDsOKUX8hgR89EP5YIjmLaqxQQW
-         rCkQ/3LNmoCfXxq/BQiXm2JK7E7a1rPatoPz2X7OV3agzc1GJOsi4DlY2W5qTqGe/vW3
-         JOfPR2W94CzET18PLGSDYD0CgPNuAnVdFWS7oz4ZpW0cds+zRJ67UiYeE+FFPcUR1W7E
-         Qv3Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXuPJJyz9zbKi1l6y/nu7GEyHURo4hquOBXeVl45m2D3DNRygbg5qPgBfm3Kz3oLBtHd/KtmuLU4znEWzp5w5zL@lists.infradead.org
-X-Gm-Message-State: AOJu0YzzBNTgLChXBibrNYzs4JmUgFaRnuLVdTKVVX47OEPhK5xzrtqz
-	588fZ2CqDzX4UQ7AAVe6JGhYCubdswVJsrwtP+lRN0v2zlNS8AZdYDQzLMSYJ4yIz3oqX6nI9nX
-	406H5AS/6a94+yWfRSuNTcsJSG/aE4VYpOnNqwA==
-X-Gm-Gg: ASbGnct6kuZKIt7UIsOpR2w5vtjM/f8awayzQbGXr9MmpoWzVuMgWFeHUIF3Q4dKNgP
-	NmUqI3MHKtKT0EXdMMWfAAqK13Tu+H+nNPKZtce8MD6Y2lSk6jXGhOMIJUHYFFNrI9A==
-X-Google-Smtp-Source: AGHT+IHAR8Oh5IZMK/EFhUxy82Sms5gJQlwLhipbAW1ZqvwX6pE5x6pYuPH97QTlNrx+1G0xVn/kn1tGS1MQfWri5Fo=
-X-Received: by 2002:a05:690c:690d:b0:6ef:5119:6f39 with SMTP id
- 00721157ae682-6f6eb90d631mr163457467b3.30.1737471142696; Tue, 21 Jan 2025
- 06:52:22 -0800 (PST)
+	id 1taFdf-000000088P4-2dd8;
+	Tue, 21 Jan 2025 14:54:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=jOdz1pir69ic1MtrrgXIbkYUZ+D5XBf/KaHWQiuYNhM=; b=0JkgvKr3zX/SWfsisMO3nGTokE
+	GBPyL/5K4mu5uZdxFzuQLtxeeqt5LvSbTfVqPLZ8xtvKJgbTjEB+OAHzVF+mFZhfGQa70P7uiYPWE
+	ttLFJov1r/nl9YFVDq3wDu9m7IwJZ6zUBzT9L5akMyDvRg+YiD8DhyUGqnld7RWt1Exc=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1taFdP-006fA0-WD; Tue, 21 Jan 2025 15:53:44 +0100
+Date: Tue, 21 Jan 2025 15:53:43 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Andrea della Porta <andrea.porta@suse.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof Wilczynski <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH v6 08/10] misc: rp1: RaspberryPi RP1 misc driver
+Message-ID: <6f16b0ea-ebb7-4692-bfc0-79052f079bc1@lunn.ch>
+References: <cover.1736776658.git.andrea.porta@suse.com>
+ <550590a5a0b80dd8a0c655921ec0aa41a67c8148.1736776658.git.andrea.porta@suse.com>
+ <2025011722-motocross-finally-e664@gregkh>
+ <Z49eOdVvwknOoD3E@apocalypse>
+ <2025012143-rippling-rehydrate-581b@gregkh>
+ <Z4-oORWO4BgOqibB@apocalypse>
+ <2025012157-bonsai-caddie-19b2@gregkh>
+ <Z4-xcjov0HLivfVX@apocalypse>
 MIME-Version: 1.0
-References: <20250115-arm-cacheinfo-fix-v1-1-5f30eeb4e463@linaro.org>
- <CAMuHMdVLvCNZtc2qYrsnMz5L0Hyr70x-Hj5NA8izYBH2tf=yFg@mail.gmail.com> <Z4-s9UHBJZx9APeE@shell.armlinux.org.uk>
-In-Reply-To: <Z4-s9UHBJZx9APeE@shell.armlinux.org.uk>
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Date: Tue, 21 Jan 2025 16:52:11 +0200
-X-Gm-Features: AbW1kvYT3J50S3fCbdFz3TPsLp6pmDCYH3eh_cCAu0j-x_otJ6Yo49o0bUKeGAI
-Message-ID: <CAA8EJprB9tBoqUaZKnGrJQVPpRA86ynB6k42dOCW7HG-VTfhbA@mail.gmail.com>
-Subject: Re: [PATCH] ARM: cacheinfo fix format field mask
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>, Linus Walleij <linus.walleij@linaro.org>, 
-	Sudeep Holla <sudeep.holla@arm.com>, Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z4-xcjov0HLivfVX@apocalypse>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_065223_766353_2365780D 
-X-CRM114-Status: GOOD (  22.05  )
+X-CRM114-CacheID: sfid-20250121_065359_663632_11FD23FD 
+X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,71 +98,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 21 Jan 2025 at 16:19, Russell King (Oracle)
-<linux@armlinux.org.uk> wrote:
->
-> On Tue, Jan 21, 2025 at 03:12:13PM +0100, Geert Uytterhoeven wrote:
-> > Hi Dmitry,
-> >
-> > Thanks for your patch!
-> >
-> > On Wed, Jan 15, 2025 at 12:11=E2=80=AFPM Dmitry Baryshkov
-> > <dmitry.baryshkov@linaro.org> wrote:
-> > > Fix C&P error left unnoticed during the reviews. The FORMAT field spa=
-ns
-> > > over bits 29-31, not 24-27 of the CTR register.
-> >
-> > Please add
-> >
-> >     This causes a warning on e.g. Cortex-A8 and Cortex-A9:
-> >
-> >         WARNING: CPU: 0 PID: 0 at arch/arm/kernel/cacheinfo.c:43
-> > cache_line_size+0x84/0x94
-> >
-> > so people find this patch when looking up the warning.
-> >
-> > > Fixes: a9ff94477836 ("ARM: 9433/2: implement cacheinfo support")
-> > > Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> > > Closes: https://lore.kernel.org/linux-arm-msm/01515ea0-c6f0-479f-9da5=
--764d9ee79ed6@samsung.com/
-> > > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> >
-> > This fixes the warning on Cortex-A8/A9, so
-> > Tested-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> >
-> > Note that this changes HWalign on Cortex-A9 (various Renesas SoCs,
-> > with 1, 2, or 4 CPU cores):
-> >
-> >     -SLUB: HWalign=3D64, Order=3D0-3, MinObjects=3D0, CPUs=3D<N>, Nodes=
-=3D1
-> >     +SLUB: HWalign=3D32, Order=3D0-3, MinObjects=3D0, CPUs=3D<N>, Nodes=
-=3D1
-> >
-> > On Cortex-A8 (BeagleBone Black, i.e. AM335x), it changes HWalign,
-> > and causes a warning message:
-> >
-> >     -SLUB: HWalign=3D64, Order=3D0-3, MinObjects=3D0, CPUs=3D1, Nodes=
-=3D1
-> >     +SLUB: HWalign=3D16, Order=3D0-3, MinObjects=3D0, CPUs=3D1, Nodes=
-=3D1
-> >      ...
-> >     +cacheinfo: Unable to detect cache hierarchy for CPU 0
-> >
->
-> Also, has this been tested on CPUs that don't implement the cache type
-> register?
+> > Well where are those externs defined at?  Shouldn't there be a .h file
+> > for them somewhere in the tree if they really are global?
+> 
+> Those symbols are deined in drivers/misc/rp1/rp1-pci.dtbo.S (added by
+> this patchset) and created by cmd_wrap_S_dtb in scripts/Makefile.lib.
 
-It returns -EOPNOTSUPP for anything <=3D v7 (or those v7-but-really-v6).
-And those CPUs are required to implement the register.
+Could cmd_wrap_S_dtb be extended to actually produce a header?
 
->
-> --
-> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+But that might confuse static analysers?
 
-
-
---=20
-With best wishes
-Dmitry
+	Andrew
 
