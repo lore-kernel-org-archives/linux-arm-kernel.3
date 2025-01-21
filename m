@@ -4,64 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6574AC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 09:02:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10CABC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 09:05:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A+TVNlmwLo5DFQXSKMd0595gZhidubjKDsk4gS7IkUE=; b=aXEhy527uX0PEIpUDOLl0xWA4O
-	BzBz5tJfWj4XoJmmwO8WzbH20zNnnEqDAf5pCK1GO38oxs1YDqyMf/x4x/GdMkz+EDFqned9tO615
-	/W9dUQQ8WvaBCauYKWBsKKoMZDmwF289ojV6V3uRKt1MKY3dbhjIK8nrC/HiKNyjIotot523JowEE
-	u3Khszt/70PHUTFuiAjjjGksoIJ+jAAE5vPKXZmBou5YnRAO4ejSfQejmlB/LwzURpCSNda1+CHKS
-	NM3pypkvy06nEyEHZe3QHAVBVPQd4+UyeK72a3yp55LPgb6C4rtXCoYGXaNPHV3BSjRfJ+bEKs8nO
-	skD/h47A==;
+	bh=+Pc2PEdnGFpaGBgL/oJAKRuPoe5iwoPem8ceWmvXk0o=; b=I4xVfMn/CF+HwVTuSEfVsVUI4Y
+	+K/pCYB6enGyOWmS4wRV6THiauLx+7S6la1NbGMnnZ94TbB0Yqb571agdahRF9VRC6l4xiulroBXy
+	McZleyChxXY9JVxSMe1Z01fDdkjWRkMG0HKXieo0nekMLmeXLrF2kn/hmIGdnIX0YeqBXEAUQ4r54
+	eiizFxNdt6zj8GrgjCZuM6+9ZYEz+ot+hZivZMWtSa7wJWEQg1AXpxPGJLE6SmKPcC3N+OnLToz4W
+	6yDeQ3zFk7TuxaNqD9M4pOqJzJPM1GKU6j56JWgf74kgcbWWgnkW9Fpv0lEYhci/uetEetjkVNwA5
+	ToV9bQZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taA9F-00000007LdB-11YA;
-	Tue, 21 Jan 2025 09:02:13 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1taACd-00000007MjK-2B0H;
+	Tue, 21 Jan 2025 09:05:43 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taA7x-00000007LSM-0yR2
+	id 1taABL-00000007MTY-34yq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 09:00:54 +0000
+	Tue, 21 Jan 2025 09:04:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1F0E65C56FF;
-	Tue, 21 Jan 2025 09:00:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E2ECC4CEDF;
-	Tue, 21 Jan 2025 09:00:51 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 74A3BA41302;
+	Tue, 21 Jan 2025 09:02:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3280C4CEDF;
+	Tue, 21 Jan 2025 09:04:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737450052;
-	bh=vFNoBZ+nI5T4qVwrUslpx8ALifj8Vv/ubexULfrSCjQ=;
+	s=k20201202; t=1737450262;
+	bh=834LCvceUx526IEmw0ApuQZvBNYCCIxRzLlO39/DYQI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hlbgFgPwb8HYu2JbNrOg38Y0v91/KxpL5P5hBNQe0BjeZs+s3abzX6Kxtah4qD/e1
-	 ROy6PcpdCvI1cjjcRRAXeOHAZIDdtcSs3ucyHYoRrx9SX+d/2qtkoyoc057c7R+kjv
-	 vdXQABuPkmnGDnn25izHoWOwLrgBL7a0zGSbhONwhwxtSr8TVPpVJUivaExs9tmr76
-	 cBGHDKAzQL3khAvvRNNsdst4mz1KA0lL/RX5wGzer6ITHjlIIkgr9Uj3gSMq8kGedR
-	 gEgSmskZUR+Si96fbkMpTaJbRqGFIB2TL6N7ZYvuoZiH28C7uAwyhmSYK6WplP85cD
-	 8Kff8JAyx0PYA==
-Date: Tue, 21 Jan 2025 10:00:48 +0100
+	b=FGKpB0djZnPUbicSPAkZ7dNLNaZZr7Yhhp0DDXD6Sr5YIn+toCie5iW+Ob+NJ6mJj
+	 y2OWAxJ1Kpk+OuyRbcAiqO5soJWT8iAJ3wJGk8fxYVPzu3rLC+iGEFOhrM7yhtd1gF
+	 JQYuhW8prhTcIXuySzvxBsoohj8DyjjayCU46/O8cqWovekK6CQCBidsX2tzTsl/2l
+	 YoXIO0g2YCn0GGO6J+WQW1hKwcMPlL+Z2FeWNrl1j0Uae00MXmFKFY7iDDcOWkWirx
+	 pvnQb3MiW9PPLcfB14Kmd3+4Q2eZCy5ZjpP8Dw8pJECRdJIcIpMVKMKAbTyFrJdrzu
+	 kRqHwb+nySa9A==
+Date: Tue, 21 Jan 2025 10:04:19 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Mao Jinlong <quic_jinlmao@quicinc.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-	linux-kernel@vger.kernel.org, coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v4 2/2] coresight: Add remote etm support
-Message-ID: <20250121-honored-turkey-from-sirius-ad2caf@krzk-bin>
-References: <20250121063900.3211-1-quic_jinlmao@quicinc.com>
- <20250121063900.3211-3-quic_jinlmao@quicinc.com>
+To: Joy Zou <joy.zou@nxp.com>
+Cc: "robh@kernel.org" <robh@kernel.org>, 
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>, 
+	"shawnguo@kernel.org" <shawnguo@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, 
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>, 
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, 
+	"joao.goncalves@toradex.com" <joao.goncalves@toradex.com>, "marex@denx.de" <marex@denx.de>, 
+	"hvilleneuve@dimonoff.com" <hvilleneuve@dimonoff.com>, "hiago.franco@toradex.com" <hiago.franco@toradex.com>, 
+	Peng Fan <peng.fan@nxp.com>, "frieder.schrempf@kontron.de" <frieder.schrempf@kontron.de>, 
+	"alexander.stein@ew.tq-group.com" <alexander.stein@ew.tq-group.com>, "m.othacehe@gmail.com" <m.othacehe@gmail.com>, 
+	"mwalle@kernel.org" <mwalle@kernel.org>, "Max.Merchel@ew.tq-group.com" <Max.Merchel@ew.tq-group.com>, 
+	"quic_bjorande@quicinc.com" <quic_bjorande@quicinc.com>, "geert+renesas@glider.be" <geert+renesas@glider.be>, 
+	"dmitry.baryshkov@linaro.org" <dmitry.baryshkov@linaro.org>, "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>, 
+	"arnd@arndb.de" <arnd@arndb.de>, "nfraprado@collabora.com" <nfraprado@collabora.com>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"imx@lists.linux.dev" <imx@lists.linux.dev>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, Jacky Bai <ping.bai@nxp.com>, Ye Li <ye.li@nxp.com>, 
+	Aisheng Dong <aisheng.dong@nxp.com>, Frank Li <frank.li@nxp.com>, Carlos Song <carlos.song@nxp.com>
+Subject: Re: [EXT] Re: [PATCH v4 5/5] arm64: dts: imx93: Add labels for the
+ references easier
+Message-ID: <20250121-belligerent-elephant-of-courage-ed8caa@krzk-bin>
+References: <20250121074017.2819285-1-joy.zou@nxp.com>
+ <20250121074017.2819285-6-joy.zou@nxp.com>
+ <870da365-bb18-47a7-ab78-62ce8a663559@kernel.org>
+ <AS4PR04MB9386C8D1E2FF247C28D38BD0E1E62@AS4PR04MB9386.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250121063900.3211-3-quic_jinlmao@quicinc.com>
+In-Reply-To: <AS4PR04MB9386C8D1E2FF247C28D38BD0E1E62@AS4PR04MB9386.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_010053_395859_23FFE591 
-X-CRM114-Status: GOOD (  28.21  )
+X-CRM114-CacheID: sfid-20250121_010423_860186_697401E8 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,171 +90,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 21, 2025 at 02:39:00PM +0800, Mao Jinlong wrote:
-> The system on chip (SoC) consists of main APSS(Applications
-> processor subsytem) and additional processors like modem, lpass.
-> Coresight remote etm(Embedded Trace Macrocell) driver is for
-> enabling and disabling the etm trace of remote processors. It
-> uses QMI interface to communicate with remote processors' software
-> and uses coresight framework to configure the connection from
-> remote etm source to TMC sinks.
-> 
-> Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
-> ---
->  drivers/hwtracing/coresight/Kconfig           |  13 +
->  drivers/hwtracing/coresight/Makefile          |   1 +
->  drivers/hwtracing/coresight/coresight-qmi.h   |  89 +++++
->  .../coresight/coresight-remote-etm.c          | 316 ++++++++++++++++++
->  4 files changed, 419 insertions(+)
->  create mode 100644 drivers/hwtracing/coresight/coresight-qmi.h
->  create mode 100644 drivers/hwtracing/coresight/coresight-remote-etm.c
-> 
-> diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/coresight/Kconfig
-> index 06f0a7594169..871dd83649ea 100644
-> --- a/drivers/hwtracing/coresight/Kconfig
-> +++ b/drivers/hwtracing/coresight/Kconfig
-> @@ -247,4 +247,17 @@ config CORESIGHT_DUMMY
->  
->  	  To compile this driver as a module, choose M here: the module will be
->  	  called coresight-dummy.
-> +
-> +config CORESIGHT_REMOTE_ETM
-> +	tristate "Remote processor ETM trace support"
-> +	depends on QCOM_QMI_HELPERS
-> +	help
-> +	  Enables support for ETM trace collection on remote processor using
-> +	  CoreSight framework. Enabling this will allow turning on ETM
-> +	  tracing on remote processor via sysfs by configuring the required
-> +	  CoreSight components.
-> +
-> +	  To compile this driver as a module, choose M here: the module will be
-> +	  called coresight-remote-etm.
-> +
->  endif
-> diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/coresight/Makefile
-> index 4ba478211b31..e0781d729eb3 100644
-> --- a/drivers/hwtracing/coresight/Makefile
-> +++ b/drivers/hwtracing/coresight/Makefile
-> @@ -51,3 +51,4 @@ coresight-cti-y := coresight-cti-core.o	coresight-cti-platform.o \
->  		   coresight-cti-sysfs.o
->  obj-$(CONFIG_ULTRASOC_SMB) += ultrasoc-smb.o
->  obj-$(CONFIG_CORESIGHT_DUMMY) += coresight-dummy.o
-> +obj-$(CONFIG_CORESIGHT_REMOTE_ETM) += coresight-remote-etm.o
-> diff --git a/drivers/hwtracing/coresight/coresight-qmi.h b/drivers/hwtracing/coresight/coresight-qmi.h
-> new file mode 100644
-> index 000000000000..c9b49500d11c
-> --- /dev/null
-> +++ b/drivers/hwtracing/coresight/coresight-qmi.h
-> @@ -0,0 +1,89 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (c) 2021-2025 Qualcomm Innovation Center, Inc. All rights reserved.
-> + */
-> +
-> +#ifndef _CORESIGHT_QMI_H
-> +#define _CORESIGHT_QMI_H
-> +
-> +#include <linux/soc/qcom/qmi.h>
-> +
-> +#define CORESIGHT_QMI_SVC_ID			(0x33)
-> +#define CORESIGHT_QMI_VERSION			(1)
-> +
-> +#define CORESIGHT_QMI_GET_ETM_REQ_V01		(0x002B)
-> +#define CORESIGHT_QMI_GET_ETM_RESP_V01		(0x002B)
-> +#define CORESIGHT_QMI_SET_ETM_REQ_V01		(0x002C)
-> +#define CORESIGHT_QMI_SET_ETM_RESP_V01		(0x002C)
-> +
-> +#define CORESIGHT_QMI_GET_ETM_REQ_MAX_LEN	(0)
-> +#define CORESIGHT_QMI_GET_ETM_RESP_MAX_LEN	(14)
-> +#define CORESIGHT_QMI_SET_ETM_REQ_MAX_LEN	(7)
-> +#define CORESIGHT_QMI_SET_ETM_RESP_MAX_LEN	(7)
-> +
-> +#define TIMEOUT_MS				(10000)
-> +
-> +enum coresight_etm_state_enum_type_v01 {
-> +	/* To force a 32 bit signed enum. Do not change or use */
-> +	CORESIGHT_ETM_STATE_ENUM_TYPE_MIN_ENUM_VAL_V01 = INT_MIN,
-> +	CORESIGHT_ETM_STATE_DISABLED_V01 = 0,
-> +	CORESIGHT_ETM_STATE_ENABLED_V01 = 1,
-> +	CORESIGHT_ETM_STATE_ENUM_TYPE_MAX_ENUM_VAL_01 = INT_MAX,
-> +};
-> +
-> +struct coresight_set_etm_req_msg_v01 {
-> +	/* Mandatory */
-> +	/* ETM output state */
-> +	enum coresight_etm_state_enum_type_v01 state;
-> +};
-> +
-> +struct coresight_set_etm_resp_msg_v01 {
-> +	/* Mandatory */
-> +	struct qmi_response_type_v01 resp;
-> +};
-> +
-> +static struct qmi_elem_info coresight_set_etm_req_msg_v01_ei[] = {
+On Tue, Jan 21, 2025 at 08:25:51AM +0000, Joy Zou wrote:
+> > THERMAL_NO_LIMIT
+> > > THERMAL_NO_LIMIT>, @@ -1334,7 +1334,7 @@ usbmisc2:
+> > usbmisc@4c200200 {
+> > >                       #index-cells = <1>;
+> > >               };
+> > >
+> > > -             ddr-pmu@4e300dc0 {
+> > > +             ddr_pmu: ddr-pmu@4e300dc0 {
+> > 
+> > Useless commit - there are no users.
+> Thanks for your comments!
+> Have used the labels in imx91.dtsi. The imx91.dtsi have included the imx93.dtsi.
 
-Why, unlike every other instance, this cannot be const?
+That's patch 5/5 so I say: impossible.
 
-Anyway, you cannot have DATA in the header. This makes little sense.
-There is no such patterns so I don't understand from where did you get
-this.
-
-...
-
-> +	{
-> +		.data_type = QMI_UNSIGNED_4_BYTE,
-> +		.elem_len  = 1,
-> +		.elem_size = sizeof(enum coresight_etm_state_enum_type_v01),
-> +		.array_type  = NO_ARRAY,
-> +		.tlv_type  = 0x01,
-> +		.offset    = offsetof(struct coresight_set_etm_req_msg_v01,
-> +				      state),
-> +		.ei_array  = NULL,
-> +	},
-
-> +static int remote_etm_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct coresight_platform_data *pdata;
-> +	struct remote_etm_drvdata *drvdata;
-> +	struct coresight_desc desc = {0 };
-> +	int ret;
-> +
-> +	desc.name = coresight_alloc_device_name(&remote_etm_devs, dev);
-> +	if (!desc.name)
-> +		return -ENOMEM;
-> +	pdata = coresight_get_platform_data(dev);
-> +	if (IS_ERR(pdata))
-> +		return PTR_ERR(pdata);
-> +	pdev->dev.platform_data = pdata;
-> +
-> +	pm_runtime_enable(dev);
-> +	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
-> +	if (!drvdata)
-> +		return -ENOMEM;
-> +
-> +	drvdata->dev = &pdev->dev;
-
-Use the cached value, if you cache it.
-
- = dev
-
-> +	platform_set_drvdata(pdev, drvdata);
-> +
-> +	drvdata->qmi_id = (u32)(unsigned long)of_device_get_match_data(&pdev->dev);
-
-Ditto, everywhere...
-
-> +
-> +	mutex_init(&drvdata->mutex);
-> +
-> +	ret = qmi_handle_init(&drvdata->handle,
-> +			CORESIGHT_QMI_SET_ETM_REQ_MAX_LEN,
-> +			&server_ops, NULL);
-> +	if (ret < 0) {
-> +		dev_err_probe(dev, ret, "Remote ETM client init failed.\n");
-
-Syntax is always: return dev_err_probe. I am pretty sure you got this
-feedback before.
+Either you did not understand the commit or your patchset is
+non-bisectable, so anyway that's wrong or fix your builds.
 
 Best regards,
 Krzysztof
