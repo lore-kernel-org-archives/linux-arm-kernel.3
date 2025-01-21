@@ -4,74 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16D50C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 18:30:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACFDFC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 18:31:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nPmI6P1yce0Rt1cYrZm/UVilLYiBEgksr3ZYl6OBta0=; b=uRjdN3IHTFeslUap0qbl3kFB3h
-	hCqmxx5/vRE/ahyZUde0DUvKj4wV5vfGzEO6RNAWEYfzqMLqPY49LFkWnGoBjKAPVMDs7hvkvSknR
-	M+wkyZhKiC13mmgPHqP8YYppeiiX+33G4BR+A9mv8bK5u1oHI/8J5ULhO9eHF0voVTonJJeT4WGB3
-	J8Gp8u47h0LCr7RTkkJO3e5ADGGYEYzUgGKYmvy7vxp5U+vvEFWxcPJzLnPaSRLR0RiXSkRtZfj6c
-	LnBI7GCX/iht/MANrPWBdeLJLeoWgIM9j/m5E5YUBpbROV0Fd+RxfiyPfmGQ3bL1ozUewXXBaeNKW
-	aBJJ69qA==;
+	bh=lphuxEBOTKwaeIsn4ZxAyXhOMS7H5NX6cm7O5tAhiPY=; b=ZuouY5hplnUgQPlTHL9vIhkFlQ
+	rLoqLpqD1mm7GHxZGzSQ4+HDrcJT3oqs609ogqOG+WGIT96b/Qa97xFpbaeQt75sllAbPDjCkfUzh
+	iOaPjgWSKVMXnMWbMCOc3lG7KFRxgKa+uav6Zj//vFhySUWsLbLg7rhXbi0Lqyr6n/iHbu37t0MXZ
+	yJgOt/IPEprBXs/Eu6j2oCcxfK1FHEYuUFXFNcQRi/AciV28IdfktE/VVs41wxaF7i3HtHQZ6ynxH
+	RY+07RfD236EAoSf+uYwxZFelRjgqoDSq+edQVku5tFQzx3gyWLukiaFQbWlkksfZ0HptKLkFT8pD
+	w0IPMavg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taJ0u-00000008bN9-1ToU;
-	Tue, 21 Jan 2025 18:30:12 +0000
-Received: from mail-oa1-x2e.google.com ([2001:4860:4864:20::2e])
+	id 1taJ2A-00000008baK-2pgC;
+	Tue, 21 Jan 2025 18:31:30 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taIzb-00000008b3q-2Kk1
+	id 1taIzq-00000008b9h-2C2g
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 21 Jan 2025 18:29:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=lphuxEBOTKwaeIsn4ZxAyXhOMS7H5NX6cm7O5tAhiPY=; b=GYcfdueOlTcc6crpSzhS+ngwin
+	MeXuR07t7tzXMDd1bOKTeRSs8/0Yo9CKsUc4f/bDe/TvhVj/3jP1oSxiLntKofxFQO6X2uI1sZIa1
+	M2EKrLR5booN6X2hf28y8TOg4Pe5XsLrSudjamOECY6AmOak4DvnK2YOkxCbvNYya2PEN0qSJgjH8
+	aLVkr3iNQR9HD0ON9b2N7NB9DPeuOiHailu1VUUMr7ECGkOgxg7KPVpA8oV3u1V7mbn+mchD/kOGI
+	sPRBM02cxkxBJyPpJ5E96RCYNYJi7z/1KL2hpI2ykvkVdPXRHBiF8UJ4K06nYN+IR82NvelEr9Kh0
+	FdHdoTbg==;
+Received: from mail-oa1-x34.google.com ([2001:4860:4864:20::34])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1taIzn-0000000DL7J-1JNp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 18:28:53 +0000
-Received: by mail-oa1-x2e.google.com with SMTP id 586e51a60fabf-2addd5053c0so3637082fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jan 2025 10:28:50 -0800 (PST)
+	Tue, 21 Jan 2025 18:29:05 +0000
+Received: by mail-oa1-x34.google.com with SMTP id 586e51a60fabf-2b1f7406e49so1314984fac.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jan 2025 10:29:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1737484130; x=1738088930; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1737484140; x=1738088940; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=nPmI6P1yce0Rt1cYrZm/UVilLYiBEgksr3ZYl6OBta0=;
-        b=NRrKHF6t8qseijwZxPOpG6AE2sqtaKgJCg4Z21f3p1ZU7uBhPw9vhV4hjEYHWS8/Ph
-         /WfHmrokdJnlmEPHjR5gEQ+MtwS4GnGS+tGOJk15Zh41lUW1tTDjeDPgOarr9CEWuCIk
-         0HJV8ld7s24WVxSxn8FHgBR7+bz4jM0qmS8NE=
+        bh=lphuxEBOTKwaeIsn4ZxAyXhOMS7H5NX6cm7O5tAhiPY=;
+        b=K3+W1cieQh4C7XcS6qMYPbAvzzxVn0qagZ2X8/85dIcU1jv1tzhAIUTWl6cGPBls/E
+         KGtQOSy7WFDwf1kBw1qwCG7TlzywDIusC/2RRsYKHA9hm8xaE/nSLM485BAUwKgmxJua
+         HP/Vwi0LLyLC7KFwrFL4Q6VpXg3d7gJAOryDA=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737484130; x=1738088930;
+        d=1e100.net; s=20230601; t=1737484140; x=1738088940;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=nPmI6P1yce0Rt1cYrZm/UVilLYiBEgksr3ZYl6OBta0=;
-        b=VxrLDUUa/tOZN0fqcJ0BE2QlWGIqLOFsosHEF0Kl1E4hQvjzE2PBwYkHbEu288Z882
-         53Mfmw+GvEqTq0ndeAEbMVoCVzhEIl252NfpBUHi3JXLW9KI8y/eVvMMN2aPFpzc6cqi
-         7KlI5dI8HObSvtfen/DNZ6A3+eld1lIqIRsaHUynJfjUXpBpTwrmoFTAirurZHsX8huP
-         8wscs4a3QkPCik4jq+2y9TNwfFLlCOF/YjQYI8Opme/CjZxHf1cQM8yNuJBzSi7mYQnX
-         S7FBfHuDu5aLOwChBen7k0oiX+8uC3en+QiYQmeS5Dkq6DECQ15VqM25I5PK/w+n/yJT
-         bkwA==
-X-Forwarded-Encrypted: i=1; AJvYcCURjmMjwreDmOk1j8SyYkBHgBWzSeWVw1yWHC6QM8yShQPa8PZHlq++3EWI/DWDI9rgITt2BbdHzz0aC2tYm2kw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw9U7MjS9BTGhaQmZXGCVZ9VGIE3sq9bP/Mdgv+hJaYKFaDS4Rq
-	cifhL8AQ8jcKZvunD215angWFKzY5OaN5gEYJNuVo+K68TMrCKI89mVLH3AKrQ==
-X-Gm-Gg: ASbGncv3LQxQF2jOpAFci+wQzFZ+w8PyZ6/4xFx3tho+dGmNgdr7rw+9umdTfeVt19P
-	8e8OZc5ZTgaLxULWPUWs/+cX0++jeRw4uXzYAyiG+PT59E3FMTtcf0jiubiP1dqwoikksgFxhuR
-	sUaCIF+mFizbq2GxZKY2D9mkJDUynni36PtICDBAh1c7+oAnFGClSeS3DN1U622fkGfPrOgEsYH
-	72QCeLGLDXPL/uVZYRllnamYKr4mYMetXNrppIpehlK17C7VufssLygV4bJj16HzfAsF4cmGd3O
-	WLYkVKQdsn3jxdhv6ajD95dgWFmKvr650Q==
-X-Google-Smtp-Source: AGHT+IFjKKl0hAzIld/Bp9CKfd2qa5nPK0PXiRU/GqnggYe1x1c7HhQHt6C0F2hBru2e35XfOzkNaA==
-X-Received: by 2002:a05:6871:5317:b0:29e:d36:6e39 with SMTP id 586e51a60fabf-2b1c08c6401mr12423250fac.10.1737484129843;
-        Tue, 21 Jan 2025 10:28:49 -0800 (PST)
+        bh=lphuxEBOTKwaeIsn4ZxAyXhOMS7H5NX6cm7O5tAhiPY=;
+        b=GjZ4J6+FZp9fi97j2yy2Y1KnU2J8E8XzUb592yMT69A1N+EQGYPoDIoIsSOmF9HjDE
+         eSEM1y1yVUYjd+/6/KEOni+yCOxfAHxjDsYg+qERB4dHTorKa8YnRZHVHuRjg1Ip0Z6j
+         rQgZIbUOzp1kkC8RL0wdkB6+qiNchXY1nMCL6KXiV7clyPiVZ1H79llv5ewKQgungrE4
+         1Uwey1s/9shGYvX1+BV1AAzqQyVKTRewi6RiB8THA75MGniQKJqT/iOaD8XbTWJ7hv7o
+         R+uM4dMdKiThZYSaZJ6GhR3AJjQe/SeHvPOVedI7cyaWpuZ63L2e9ZVD3qsPTIRTkLMk
+         sxXw==
+X-Forwarded-Encrypted: i=1; AJvYcCVNwGnsVpfOpkMINWYe4iKgnm3BWLuXZJmtG818fx5D/hg2H+Ca9I+Fbt+afX7MCGxf4rDp3SiYXLMFMNO3auCP@lists.infradead.org
+X-Gm-Message-State: AOJu0YxUTqMeQ5JYQJtgcHbfyMep5s9IdcGQTQjf9+nxGO7d+j7QBanB
+	q+t1cZ2ekEk73WuW0vCg0VvHt8kWF3gb8w15rqcpAHWF5mXCqYEY7n/3PoLwug==
+X-Gm-Gg: ASbGncvmrCOUQX2ZoN2H9aPIPN+VJbW/0z57W6SEA8q70k6V4bQn45EEdBRlqNk1FPl
+	bi1AuestsU6UNOgNblKlSqWbHmTwpRC4lkq/wbxRx508Ov8j7kVKuxk78MLloGSKm2mS0MbFSSl
+	c6BK1qjrKyohVEeudwoG9/O73qj8ibe6jqqrqKj5XrD8+w4SSftfVvy0zqhJpn35ElY+xx24fzE
+	T2ibVS9bp0bD3IDldXjcMqjR4mayPVhm6OvSDnT1LbsBznB/BIOMwFk8XL9IHrvMKd5d+oGlRJK
+	bSaUXua/gZaAN10MPHmJQ186adf0JUJw9g==
+X-Google-Smtp-Source: AGHT+IEMDQQA7uXEUvvs2Yxi9Rw/8/nVfXYv+l+nzcRAMtxy6O0OkHj5qGEgblrUmVLbE6CdOhZ2xQ==
+X-Received: by 2002:a05:6870:9e49:b0:29e:18cc:276f with SMTP id 586e51a60fabf-2b1c0a24a1cmr10758963fac.11.1737484139842;
+        Tue, 21 Jan 2025 10:28:59 -0800 (PST)
 Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2b1b9011b66sm3833108fac.44.2025.01.21.10.28.47
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2b1b900ec2fsm3814393fac.46.2025.01.21.10.28.57
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 21 Jan 2025 10:28:48 -0800 (PST)
-Message-ID: <641c46a0-6cd9-4d2e-8576-69900948029b@broadcom.com>
-Date: Tue, 21 Jan 2025 10:28:46 -0800
+        Tue, 21 Jan 2025 10:28:59 -0800 (PST)
+Message-ID: <7e42c339-aa12-47b1-a5a7-5d445459a489@broadcom.com>
+Date: Tue, 21 Jan 2025 10:28:56 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 -next 02/11] dt-bindings: PCI: brcmstb: Update bindings
- for PCIe on bcm2712
+Subject: Re: [PATCH v5 -next 01/11] dt-bindings: interrupt-controller: Add
+ bcm2712 MSI-X DT bindings
 To: Stanimir Varbanov <svarbanov@suse.de>, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-rpi-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
@@ -87,7 +102,7 @@ Cc: Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
  Phil Elwell <phil@raspberrypi.com>, Jonathan Bell
  <jonathan@raspberrypi.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>
 References: <20250120130119.671119-1-svarbanov@suse.de>
- <20250120130119.671119-3-svarbanov@suse.de>
+ <20250120130119.671119-2-svarbanov@suse.de>
 Content-Language: en-US
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
@@ -122,12 +137,12 @@ Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
  MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
  7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
  95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20250120130119.671119-3-svarbanov@suse.de>
+In-Reply-To: <20250120130119.671119-2-svarbanov@suse.de>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_102851_664260_D3CB2A7D 
-X-CRM114-Status: UNSURE (   6.78  )
+X-CRM114-CacheID: sfid-20250121_182903_651133_C6E6EB93 
+X-CRM114-Status: UNSURE (   6.50  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -144,9 +159,10 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 1/20/25 05:01, Stanimir Varbanov wrote:
-> Update brcmstb PCIe controller bindings with bcm2712 compatible.
+> Adds DT bindings for bcm2712 MSI-X interrupt peripheral controller.
 > 
 > Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
 Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
 -- 
