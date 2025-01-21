@@ -4,112 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA029C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 08:44:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7D5BC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 08:46:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WfyBwrVAKcG2iSXqbe+KfTaCoLpZROxE8VUSqF7vM6w=; b=eHmJZJpGXYqtT3thcgroUmSCUQ
-	bOGyauns4wmkBUQ8WruWoQmTpGJGj1KwK25+WQAloRtYXyokbH5uwssq0CIq31sGas4Lm+e/cg3zw
-	2IiKw5tq1gVt132p8iuIWzc0bJoq3O5tgovEUdgIbFbVI8lduec+6Dd+QIACYjffXII6xzR+ERRx+
-	9y8V8146rZsRil48VYgbuTH0O5AW6MMS/Q07uWoFyutV1ZpHXGLQddkUhe+ZMn57H4ioWmT5MD/hT
-	jJodzBZSFFrM3FI9W3OqsiUxEwZLXIj8Zn42ptUOh87PoOnAVJ/YsDwy9o+Qqp1mg/TKW7url7CAs
-	w8OgTYqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BPOyeSFBq1DuvrCyWSLCLiTbN7JMEvangsVB5DMeqiE=; b=fH6pAeZT2GeaUGNn5o7Mqu1nRx
+	poIiDFlju0OYGG3CyAZ16GMGxd+Ez2CHfm7hYZG1Qug0rObb8BXEEGbZfPnVOD+P+OhH1Kl/riWHG
+	tTeZjsfFxHsXdqr+ZHskAxkXYXljNGRPldoq+c44AMzKbQ52prUtF/ycqEtBXYqEddT4iWGZNizmf
+	e5MnFHnlfAut7YK3s0wyokoOAsrwHKGGW+kX2IoC/A9ISSz6RL72n1i21yReF3qH9V41AJClpQz2n
+	E+zZKAHs3/mM4EAssTaEyLAf7unym5wo/8NUxI7v7SzVEW+DHnIbkWqVXfYl6X7sY6Pl0doSHRKFp
+	CIVHrJwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ta9rj-00000007IGE-3Dgn;
-	Tue, 21 Jan 2025 08:44:07 +0000
-Received: from mail-ed1-x542.google.com ([2a00:1450:4864:20::542])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ta9qR-00000007I3P-139N
+	id 1ta9tu-00000007Iia-2y2l;
+	Tue, 21 Jan 2025 08:46:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1ta9sb-00000007IMB-1oFA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 08:42:48 +0000
-Received: by mail-ed1-x542.google.com with SMTP id 4fb4d7f45d1cf-5d3ecae02beso7504568a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jan 2025 00:42:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1737448965; x=1738053765; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=WfyBwrVAKcG2iSXqbe+KfTaCoLpZROxE8VUSqF7vM6w=;
-        b=ckK3hE0AG3ceYDkrENH8EiS7A1pY4hInYjOTP1BOeSbaQS0ehyLhhmqfUkMLrQU9Xp
-         VWukYjDZhuoNrLRTMNBqVRYfN0FjbDO64IQJUFdOnbD407jix8pZYrblcml7VwFFVGl4
-         9vM+HEU3ERTbocF0dErX7FcLvR53gVMkQha72+y7mUS0SsFG3Kq6ZpTUDBCmqRV0bDOp
-         c5uT+OI5rZg2SEi5s9bx5svIq6F2ZkbAOYoY9WKfdTCFbMPYhACPo+Cra/QeFw1+BnmM
-         p1VAZP2UOEAIhDREch+gJp17OG3komyI5oWBPv13lBrKwv+OKi5hripjbE4SgpM/z8bS
-         iVRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737448965; x=1738053765;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WfyBwrVAKcG2iSXqbe+KfTaCoLpZROxE8VUSqF7vM6w=;
-        b=m3kOTUcjoOnC+0YXbBgRHmTaUNeddM5GCNIyWvDOEsX3W0Te/ZPD4POErxoxMuFuPL
-         Rxirlt78Q/UahuG8cpqv/3VKWewfW4D5HdRHbEwEBwD1FhOSOrXOoDQihl/NxmX+L86X
-         KNCVRH61Nv47rhjmlDoGi200429vxpnKuINFtQs4018ninUc5mNq3JTLSqCuIplC7i50
-         TwutsB8xTWiktpIoK5QgjqDj1Y4KQ1a8wsVHVy2BTjeOq7r1xSMdfNPoqItHM89Fd4xQ
-         ZBhCvRkjtmY/Wo8tpzSrtMSAfrYLOz0VPnFiXzvML2lldmJLAMuVm/fxbBr4eD7qXoJV
-         KDKQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVbDgNTMyjoz8vGcmtxmExolH+LGlVFel8h7ceS9XwHZpYCfgMr8l6R++ERanrKGCC0DXFtsOrYzVNrRhgKwn8M@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhJ/7zW1nGyJWvFrS2KhfIt+GConXqnU12046uuXMw2Bztd+Ki
-	kUzxwm4ObNj8PopgtRWTDCqEbryyRzM0Ivf2RZskjqVW4HFNqeGmlCwwiHxZPCU=
-X-Gm-Gg: ASbGncvE3pH8i4bwxqh/2FHbcb4C0ItBFXbaQ5/ngFXIWB/T2NysPC48tTK0IkMUVn4
-	iz8iWxCdu8SyPlSYjBNe5VsR19M7kwew13NI2CM9S5OkoW4eDZ/3D3HYcW5fo/av/TR4VuSlbKZ
-	Wtl86Ri84i+j2acPj78k3fhFF5mSa56sdLHoSnyHGyKNI7AlVZHe26WDkiHfECPXaGd+d+DZmcZ
-	OkL1VRZQIzR9JaF2sdAEfHlsLSjht8kmjh5Yer+jJpYEhEzPO/CMRorHlkR4SBtC85qBtwnHQVf
-	I+WiYzv+jImtMfDXNqq46QnAbcJnCIsOtH3e1b7h
-X-Google-Smtp-Source: AGHT+IHJoMEfBlMLvkr8KlEq8oWlxXFcL1m1dYtTgkFptyAjoAjldlyHkpeVawKUvQ8QmvdxpOWQWw==
-X-Received: by 2002:a17:906:5617:b0:ab2:b8c3:be3c with SMTP id a640c23a62f3a-ab38b3fb0dcmr1352712066b.51.1737448964785;
-        Tue, 21 Jan 2025 00:42:44 -0800 (PST)
-Received: from localhost (host-87-14-236-197.retail.telecomitalia.it. [87.14.236.197])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab384c75baesm719449966b.1.2025.01.21.00.42.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Jan 2025 00:42:44 -0800 (PST)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Tue, 21 Jan 2025 09:43:37 +0100
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Andrea della Porta <andrea.porta@suse.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Wilczynski <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>
-Subject: Re: [PATCH v6 08/10] misc: rp1: RaspberryPi RP1 misc driver
-Message-ID: <Z49eOdVvwknOoD3E@apocalypse>
-References: <cover.1736776658.git.andrea.porta@suse.com>
- <550590a5a0b80dd8a0c655921ec0aa41a67c8148.1736776658.git.andrea.porta@suse.com>
- <2025011722-motocross-finally-e664@gregkh>
+	Tue, 21 Jan 2025 08:45:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C5D5A106F;
+	Tue, 21 Jan 2025 00:45:26 -0800 (PST)
+Received: from e125905.cambridge.arm.com (e125905.cambridge.arm.com [10.1.194.73])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id AB4A03F66E;
+	Tue, 21 Jan 2025 00:44:54 -0800 (PST)
+From: Beata Michalska <beata.michalska@arm.com>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org,
+	ionela.voinescu@arm.com,
+	sudeep.holla@arm.com,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	rafael@kernel.org,
+	viresh.kumar@linaro.org
+Cc: sumitg@nvidia.com,
+	yang@os.amperecomputing.com,
+	vanshikonda@os.amperecomputing.com,
+	lihuisong@huawei.com,
+	zhanjie9@hisilicon.com,
+	Jonathan Corbet <corbet@lwn.net>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Phil Auld <pauld@redhat.com>,
+	x86@kernel.org,
+	linux-doc@vger.kernel.org
+Subject: [PATCH v9 0/5] Add support for AArch64 AMUv1-based average freq
+Date: Tue, 21 Jan 2025 08:44:30 +0000
+Message-Id: <20250121084435.2839280-1-beata.michalska@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2025011722-motocross-finally-e664@gregkh>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_004247_284924_4CD1DBC5 
-X-CRM114-Status: GOOD (  35.57  )
+X-CRM114-CacheID: sfid-20250121_004501_556025_DBFAB8F0 
+X-CRM114-Status: GOOD (  19.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,135 +79,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Greg,
+Hi All,
 
-On 12:47 Fri 17 Jan     , Greg Kroah-Hartman wrote:
-> On Mon, Jan 13, 2025 at 03:58:07PM +0100, Andrea della Porta wrote:
-> > The RaspberryPi RP1 is a PCI multi function device containing
-> > peripherals ranging from Ethernet to USB controller, I2C, SPI
-> > and others.
-> > 
-> > Implement a bare minimum driver to operate the RP1, leveraging
-> > actual OF based driver implementations for the on-board peripherals
-> > by loading a devicetree overlay during driver probe.
-> > 
-> > The peripherals are accessed by mapping MMIO registers starting
-> > from PCI BAR1 region.
-> > 
-> > With the overlay approach we can achieve more generic and agnostic
-> > approach to managing this chipset, being that it is a PCI endpoint
-> > and could possibly be reused in other hw implementations. The
-> > presented approach is also used by Bootlin's Microchip LAN966x
-> > patchset (see link) as well, for a similar chipset.
-> > 
-> > For reasons why this driver is contained in drivers/misc, please
-> > check the links.
-> 
-> Links aren't always around all the time, please document it here why
-> this is needed, and then links can "add to" that summary.
+This series adds support for obtaining an average CPU frequency based on
+a hardware provided feedback. The average frequency is being exposed via
+dedicated yet optional cpufreq sysfs attribute - cpuinfo_avg_freq.
+The architecture specific bits are being provided for AArch64, caching on
+existing implementation for FIE and AMUv1 support: the frequency scale
+factor, updated on each sched tick, serving as a base for retrieving
+the frequency for a given CPU, representing an average frequency
+reported between the ticks.
 
-Ack.
+The changes have been rather lightly (due to some limitations) tested on
+an FVP model.
 
-> 
-> > This driver is heavily based on downstream code from RaspberryPi
-> > Foundation, and the original author is Phil Elwell.
-> > 
-> > Link: https://datasheets.raspberrypi.com/rp1/rp1-peripherals.pdf
+Note that [PATCH 2/4] arm64: amu: Delay allocating cpumask for AMU FIE support
+can be merged independently.
+Additionally, this series depends on [6]
 
-...
+Relevant discussions:
+[1] https://lore.kernel.org/all/20240229162520.970986-1-vanshikonda@os.amperecomputing.com/
+[2] https://lore.kernel.org/all/7eozim2xnepacnnkzxlbx34hib4otycnbn4dqymfziqou5lw5u@5xzpv3t7sxo3/
+[3] https://lore.kernel.org/all/20231212072617.14756-1-lihuisong@huawei.com/
+[4] https://lore.kernel.org/lkml/ZIHpd6unkOtYVEqP@e120325.cambridge.arm.com/T/#m4e74cb5a0aaa353c60fedc6cfb95ab7a6e381e3c
+[5] https://lore.kernel.org/all/20240603081331.3829278-1-beata.michalska@arm.com/
+[6] https://lore.kernel.org/all/20240827154818.1195849-1-ionela.voinescu@arm.com/
 
-> > diff --git a/drivers/misc/rp1/rp1_pci.c b/drivers/misc/rp1/rp1_pci.c
-> > new file mode 100644
-> > index 000000000000..3e8ba3fa7fd5
-> > --- /dev/null
-> > +++ b/drivers/misc/rp1/rp1_pci.c
-> > @@ -0,0 +1,305 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * Copyright (c) 2018-24 Raspberry Pi Ltd.
-> > + * All rights reserved.
-> > + */
-> > +
-> > +#include <linux/err.h>
-> > +#include <linux/interrupt.h>
-> > +#include <linux/irq.h>
-> > +#include <linux/irqchip/chained_irq.h>
-> > +#include <linux/irqdomain.h>
-> > +#include <linux/module.h>
-> > +#include <linux/msi.h>
-> > +#include <linux/of_platform.h>
-> > +#include <linux/pci.h>
-> > +#include <linux/platform_device.h>
-> > +
-> > +#include "rp1_pci.h"
-> 
-> Why does a self-contained .c file need a .h file?  Please put it all in
-> here.
+v9:
+- Moved changes to arch_freq_get_on_cpu to a separate patch
 
-I agree with you. Indeed, the very first version of this patch had the header
-file placed inside the .c, but I received concerns about it and some advice to
-do it differently, as you can see here:
-https://lore.kernel.org/all/ZtWDpaqUG9d9yPPf@apocalypse/
-so I've changed it accordingly in V2. So right now I'm not sure what the
-acceptable behaviour should be ...
+v8:
+- Drop introducing new function and reuse arch_freq_get_on_cpu, guarding its use
+  in scaling_cur_freq sysfs handler with dedicated config for x86
 
-> 
-> > +
-> > +#define RP1_DRIVER_NAME		"rp1"
-> 
-> KBUILD_MODNAME?
+v7:
+- Dropping 'arch_topology: init capacity_freq_ref to 0' patch from the series
+  as this one has been sent separately as an independent change
+  [https://lore.kernel.org/all/20240827154818.1195849-1-ionela.voinescu@arm.com/]
+- Including in the series change that introduces new sysfs entry [PATCH 1/4]
+- Consequently modifying previously arch_freq_get_on_cpu to match reqs for new
+  sysfs attribute
+- Dropping an idea of considering a CPU that has been idle for a while as a
+  valid source of information for obtaining an AMU-counter based frequency
+- Some minor cosmetic changes
 
-Right. Thanks for pointing that out.
+v6:
+ - delay allocating cpumask for AMU FIE support instead of invalidating the mask
+   upon failure to register cpufreq policy notifications
+ - drop the change to cpufreq core (for cpuinfo_cur_freq) as this one will be
+   sent as a separate change
 
-> 
-> > +
-> > +#define RP1_HW_IRQ_MASK		GENMASK(5, 0)
-> > +
-> > +#define REG_SET			0x800
-> > +#define REG_CLR			0xc00
-> > +
-> > +/* MSI-X CFG registers start at 0x8 */
-> > +#define MSIX_CFG(x) (0x8 + (4 * (x)))
-> > +
-> > +#define MSIX_CFG_IACK_EN        BIT(3)
-> > +#define MSIX_CFG_IACK           BIT(2)
-> > +#define MSIX_CFG_ENABLE         BIT(0)
-> > +
-> > +/* Address map */
-> > +#define RP1_PCIE_APBS_BASE	0x108000
-> > +
-> > +/* Interrupts */
-> > +#define RP1_INT_END		61
-> 
-> 
-> 
-> > +
-> > +struct rp1_dev {
-> > +	struct pci_dev *pdev;
-> > +	struct irq_domain *domain;
-> > +	struct irq_data *pcie_irqds[64];
-> > +	void __iomem *bar1;
-> > +	int ovcs_id;	/* overlay changeset id */
-> > +	bool level_triggered_irq[RP1_INT_END];
-> > +};
-> > +
-> > +static void msix_cfg_set(struct rp1_dev *rp1, unsigned int hwirq, u32 value)
-> > +{
-> > +	iowrite32(value, rp1->bar1 + RP1_PCIE_APBS_BASE + REG_SET + MSIX_CFG(hwirq));
-> 
-> Do your writes need a read to flush them properly?  Or can they handle
-> this automatically?
->
+v5:
+ - Fix invalid access to cpumask
+ - Reworked finding reference cpu when getting the freq
 
-I had some thoughts with RaspberryPi foundation folks to double check it, and it
-seems that there should be no need to readback the value (unless we want to go
-really paranoid), so I would avoid that since in case of level handled interrupt
-we would end up reading the register on every triggering interrupts.
+v4:
+- dropping seqcount
+- fixing identifying active cpu within given policy
+- skipping full dynticks cpus when retrieving the freq
+- bringing back plugging in arch_freq_get_on_cpu into cpuinfo_cur_freq
 
-Many thanks,
-Andrea
- 
-> thanks,
-> 
-> greg k-h
+v3:
+- dropping changes to cpufreq_verify_current_freq
+- pulling in changes from Ionela initializing capacity_freq_ref to 0
+  (thanks for that!)  and applying suggestions made by her during last review:
+	- switching to arch_scale_freq_capacity and arch_scale_freq_ref when
+	  reversing freq scale factor computation
+	- swapping shift with multiplication
+- adding time limit for considering last scale update as valid
+- updating frequency scale factor upon entering idle
+
+v2:
+- Splitting the patches
+- Adding comment for full dyntick mode
+- Plugging arch_freq_get_on_cpu into cpufreq_verify_current_freq instead
+  of in show_cpuinfo_cur_freq to allow the framework to stay more in sync
+  with potential freq changes
+
+CC: Jonathan Corbet <corbet@lwn.net>
+CC: Thomas Gleixner <tglx@linutronix.de>
+CC: Ingo Molnar <mingo@redhat.com>
+CC: Borislav Petkov <bp@alien8.de>
+CC: Dave Hansen <dave.hansen@linux.intel.com>
+CC: H. Peter Anvin <hpa@zytor.com>
+CC: Phil Auld <pauld@redhat.com>
+CC: x86@kernel.org
+CC: linux-doc@vger.kernel.org
+
+*** BLURB HERE ***
+
+Beata Michalska (5):
+  cpufreq: Allow arch_freq_get_on_cpu to return an error
+  cpufreq: Introduce an optional cpuinfo_avg_freq sysfs entry
+  arm64: amu: Delay allocating cpumask for AMU FIE support
+  arm64: Provide an AMU-based version of arch_freq_get_on_cpu
+  arm64: Update AMU-based freq scale factor on entering idle
+
+ Documentation/admin-guide/pm/cpufreq.rst |  16 ++-
+ arch/arm64/kernel/topology.c             | 144 +++++++++++++++++++----
+ arch/x86/kernel/cpu/aperfmperf.c         |   2 +-
+ arch/x86/kernel/cpu/proc.c               |   7 +-
+ drivers/cpufreq/Kconfig.x86              |  12 ++
+ drivers/cpufreq/cpufreq.c                |  38 +++++-
+ include/linux/cpufreq.h                  |   2 +-
+ 7 files changed, 189 insertions(+), 32 deletions(-)
+
+-- 
+2.25.1
+
 
