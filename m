@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 388EFC0218B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 12:58:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 037F9C0218C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 12:59:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2tKEcOHUOoj6M1N+AbaF6ST0bT5lNvPCmN4NWW4SFdg=; b=WQw1oxkk/tw3lH3o3HVIsKHr/f
-	VmvQ87WmFxAD1nXyp0Y4FkgndirweZCRJTp9oD4EWfotQFzQvHWxqN2xlmA+kkALp+yFqv+K2jdml
-	kdnr3JZFCPTIef9PDXhs4GLIA/V9OaNk0y36askd+W7thv5enFzRacpGHOPYiAhMkH7fsyRm/FWkj
-	TMaTJD8HTN0b5ZJy0xQVUe9vqPihSOqogbKA6EnKbvEqNGtkkGUREdnzsMZ2V+odI1RWzC2YvVfj0
-	37Py6VDcxIJBmacJC2GpUfD9ijMoDSSehnu/OMN0f7dudRqBol+IoSqHUjMtSLBgs5ixtaXtY7MvN
-	2mEfP3Sw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RiSS1nYpUCNiSeYMCfYpcAR25/sptrb9q7TkmxVtubc=; b=29OaToxLohvJS/EvShRHGbxYj/
+	xob0UHqjXXLTS0S7XBrS+dwtV5dn/NB4Dhm5PrEe0eeT8DNTGNtNTdtJIlafCrLQ+dZowkqoRtkX1
+	BlzK6u4B7XqxK0Acjs2hFvk7bvmOeRMamsbESvRciIXXuSxpPQyQthS64yHmxsN4CzkfJ4Kz+LcaA
+	gg/x41I8f9ED3HWftHWoTKejf77zNhHIQHCe/tsEklB93H6T0/Ri0MTYOxLxe3UbQIGDyRUPnFI9b
+	kVCTrAK3jfwimvBZBitAARpOGdKgD9+08M247JhHFLmUofIfmltwqtqVpCZQArEDbcmHfapGMSN0a
+	xl9to9Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taDpH-00000007uop-28Cc;
-	Tue, 21 Jan 2025 12:57:51 +0000
+	id 1taDqX-00000007v2Y-0VS4;
+	Tue, 21 Jan 2025 12:59:09 +0000
 Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taDnl-00000007ual-3MLy
+	id 1taDnn-00000007ub4-323N
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 12:56:19 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-ab2e308a99bso1161833566b.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jan 2025 04:56:17 -0800 (PST)
+	Tue, 21 Jan 2025 12:56:20 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-aaef00ab172so852862366b.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jan 2025 04:56:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=thaumatec-com.20230601.gappssmtp.com; s=20230601; t=1737464175; x=1738068975; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=2tKEcOHUOoj6M1N+AbaF6ST0bT5lNvPCmN4NWW4SFdg=;
-        b=2xQH13M2HpkQAvoq9Ci3BXSXgFLb4jbKtPfivBw2eLpxJeKmeYHW1PaXoQGyP26eja
-         iUiu5Y+YoL4FwY+67F4i7hTjIU9aDbtUNgdiqPt6guc1ldXkhHLSEtIsdLhW+oEXOEee
-         Yuf7a3JQrsMUQfe80bRYGDfcd8u9NP8oflZZX7q666mNb+aTqYzvreuH52zx+pBnFXnI
-         pdv2qxkbTW5lWvZzbT2A7JtMnY7SJKNHj2GcazOJg1jU70aaVahmPperjSm43hW7nsG3
-         zTvOg+gYoJMxX9XxZdi0er7rgdO+Jj212ws6H+34gztFJMM12CruU9ShFe52qr7/Qb4+
-         a1qQ==
+        d=thaumatec-com.20230601.gappssmtp.com; s=20230601; t=1737464178; x=1738068978; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RiSS1nYpUCNiSeYMCfYpcAR25/sptrb9q7TkmxVtubc=;
+        b=bGGr6iJO3o47YZdBJwjlIFin5mbsA5TQwzLmYnHTqHEUQx5XW01UTerW+QVd/3l+uY
+         VPYFy8Tvj2yDVi6BwDdFyygLsuCpij70z0v115KFTf0WBxAZDmCohWpXIQcPDkq/DJZJ
+         O+HnRg1nxfbsjXWf9Nw4sF57Q9ERHCkyJMVl+CSPE/xAqtlQ8Lo5AnpawUfdve1E8Bh5
+         XoEa+5Vu2HRnufUyMXysiuojfIvj6VX9jCulTA3/adjSr3Mm9aSQ2w4VYV1wQr8k0e6L
+         jY6AY12EYT/6QKOAze6hzq3nOQdZfMWaWviagEFiSdYymCgPhbQ+BUlW+rPrfoN+s8Kf
+         2sRA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737464175; x=1738068975;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=2tKEcOHUOoj6M1N+AbaF6ST0bT5lNvPCmN4NWW4SFdg=;
-        b=Fci86ckO3oGC7iAEzVM2PKuWdWk6NptfnsZVO2L5eTifXCjdwXx7TtorWptcw4Qrs6
-         OxHmcCl96Nib7A3k98geW9jmL20TjrJ586dHMydN8LD0nqmtyNREUvVuDgO4s1Ys+0EJ
-         EIlcn0cfmjyK4jYJ4fEiyEWMwY9GyYedQ+341MZ/rVkZCYFTWt0aGVPn/oFCV1yVqqpR
-         QPD/mb9520Zb/J8u3wL5PV/nuAY4bmLg7FaXDlg7NqQC736Q6r+UlnE6fJ/L2vmh1zEw
-         rm6ssPlCQd+eVl3O9BXTJm6OKj3079h20tM/nhivz6woyKN0glUzkurEmt1sXzy0DxCa
-         jK9w==
-X-Gm-Message-State: AOJu0Yy7kykvXQURIyguz4z1NaiL+L+M0q2+E7nFj54FpXVKijMd3Hvl
-	Ox0MH6jUnqLGgp/lCcaECAgO/uUCAT60ZFq6PGwHSI/CHLlxGTHbe+y7dNyM0lNzdd77DS+kilg
-	L
-X-Gm-Gg: ASbGncvI23P4ODFvbJcfU9NdHJe8G+HaCZzJZVd9BHTVr7xrymxs5j7F16doDZjTipJ
-	sVkmGfJkuSML3UuVLJzbZ1ik+u4B83WYUVPZwOEMBqyS5R9reX/Pvn3Ncw7n9Mj/9ug5WZAsyEO
-	+QdmNA40Es8/H4By6+dQ3RNIli1R4/xM4/G2ebdDqftV+PnAVMoh8H62sXnOIasFc4wan+sgLl3
-	b289qHhIdfO+1utNTegPqCrS1dWi2UOyBnqIeHcxQA2WPlOxToi0gN5Vf+0vCu5OStPom/TOAZB
-	wjc90LgEG0SH6arxkV361mJuCg==
-X-Google-Smtp-Source: AGHT+IHR/cBAroTUZCaiEdxwuMtCTe0EdEvbyOMLExycVSHdkWsyOdkdL4afo+lVY6hdc2SpvD4elg==
-X-Received: by 2002:a17:907:97ce:b0:ab2:f255:59f5 with SMTP id a640c23a62f3a-ab38cc9056cmr1524096566b.16.1737464175468;
-        Tue, 21 Jan 2025 04:56:15 -0800 (PST)
+        d=1e100.net; s=20230601; t=1737464178; x=1738068978;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=RiSS1nYpUCNiSeYMCfYpcAR25/sptrb9q7TkmxVtubc=;
+        b=fXp3GVWbPEBHX2DM3UbdW2x2ByAXzkqb8IZmXUNzBhfqzlM+f+zRbn0GG0/FkhoWQp
+         UBheQ8z7la4gKvJZKB/A4A2GYzOuT/CfgzNr6j7tEX5WNFHvw9qGpV8vYWInZCtqdkTm
+         YHm6cWeQO0Pa7UrzTP6AzCpN2imuS9bFX3QkkrrmqdzFARtgTmbP5T8QTuxUE0S6NGQw
+         4ueS9FsIHefdyE2fgQSgzjzkVv53Y8/jqucFcqF+8fuBeIv8iymaZebP62NB9qRtxud5
+         lOm74iibegmwsFqQ5CR+nxGYuSk7IKHrFmrSmM3rzseDDy0XLwSFiVRL9QRUVEYgssLv
+         eD+g==
+X-Gm-Message-State: AOJu0YzEcA0wkethVh0/4/gASxBiQr3b15Ik6IlQT8k15hR4iH5PyafT
+	TalVgtaMR8dOBAVYyhcP4Vg0a3dhiH6ok2Dq+Yg7A4Ee1lkqys0PLMwiDvnDNb8DpGFrF2AW868
+	8Zxw=
+X-Gm-Gg: ASbGncu/6Ghk1RcptURXwbAf68E7j8JOG4ppXqBgjtkBU5uYPh/1yM+7tclfYDzMmr/
+	80Pl5z0VngWhASmRTAZQSISBMeWj1F/b74LCAJiDPSLHQOqRuA1djsr1lJeXmDmt5va2oDjKLOU
+	2H7c+tcNuyeAj6gQv8jdXdSMB6+YqRkAbneZHK7m3ff9VzV00I6gdSk87MUyjdc1zcqAk8Ti5+l
+	h9nLbUaD8BVBtgzg6DEgS4X9qKWmvM3Dmpn34dtjIgpRPMNUG0AZjN7DJ15VWq64mwVN5m9H/o2
+	6yubKGj1kySkLE5DfOGliq+aog==
+X-Google-Smtp-Source: AGHT+IGNUrQ1owGiuycreL+ecfL6xNDC4NN9qxkE8FnFn4B+VO++Fb989ERQC0artIbK2G1crar2zw==
+X-Received: by 2002:a50:9357:0:b0:5db:e91a:6baf with SMTP id 4fb4d7f45d1cf-5dbe91a6ce3mr1051424a12.14.1737464178063;
+        Tue, 21 Jan 2025 04:56:18 -0800 (PST)
 Received: from lczechowski-Latitude-5440.. ([78.9.4.190])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab384ce0529sm740943866b.43.2025.01.21.04.56.14
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab384ce0529sm740943866b.43.2025.01.21.04.56.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Jan 2025 04:56:14 -0800 (PST)
+        Tue, 21 Jan 2025 04:56:17 -0800 (PST)
 From: Lukasz Czechowski <lukasz.czechowski@thaumatec.com>
 To: linux-arm-kernel@lists.infradead.org,
 	robh@kernel.org,
@@ -76,16 +77,19 @@ To: linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
 Cc: quentin.schulz@cherry.de,
-	Lukasz Czechowski <lukasz.czechowski@thaumatec.com>
-Subject: [PATCH v2 0/2] Disable DMA on secondary UART on PX30 Ringneck
-Date: Tue, 21 Jan 2025 13:56:02 +0100
-Message-ID: <20250121125604.3115235-1-lukasz.czechowski@thaumatec.com>
+	Lukasz Czechowski <lukasz.czechowski@thaumatec.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v2 1/2] arm64: dts: rockchip: Move uart5 pin configuration to SoM dtsi
+Date: Tue, 21 Jan 2025 13:56:03 +0100
+Message-ID: <20250121125604.3115235-2-lukasz.czechowski@thaumatec.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250121125604.3115235-1-lukasz.czechowski@thaumatec.com>
+References: <20250121125604.3115235-1-lukasz.czechowski@thaumatec.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_045618_042516_B728B7B2 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20250121_045619_758860_FA5BA9FF 
+X-CRM114-Status: GOOD (  14.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,26 +104,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PX30-uQ7 (Ringneck) SoM has two external UARTs, connected to
-uart0 and uart5 controllers on the PX30 SoC. The uart5 does not
-expose RTS/CTS pins on the Q7 connector, as they are used for
-different purposes. It was observed that UART controllers without
-hardware flow controller behave unstable if the DMA is enabled.
-This patch series moves the pinctrl-0 to SoM dtsi file and uses
-/delete-property/ to remove DMA from this UART controller.
-----
-Changes v2:
- - Update commit message of patch 1/2
- - Add Cc: stable@vger.kernel.org
+In the PX30-uQ7 (Ringneck) SoM, the hardware CTS and RTS pins for
+uart5 cannot be used for the UART CTS/RTS, because they are already
+allocated for different purposes. CTS pin is routed to SUS_S3#
+signal, while RTS pin is used internally and is not available on
+Q7 connector. Move definition of the pinctrl-0 property from
+px30-ringneck-haikou.dts to px30-ringneck.dtsi.
 
-Lukasz Czechowski (2):
-  arm64: dts: rockchip: Move uart5 pin configuration to SoM dtsi
-  arm64: dts: rockchip: Disable DMA for uart5 on px30-ringneck
+This commit is a dependency to next commit in the patch series,
+that disables DMA for uart5.
 
+Cc: stable@vger.kernel.org
+Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
+Signed-off-by: Lukasz Czechowski <lukasz.czechowski@thaumatec.com>
+---
  arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts | 1 -
- arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi       | 6 ++++++
- 2 files changed, 6 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi       | 4 ++++
+ 2 files changed, 4 insertions(+), 1 deletion(-)
 
+diff --git a/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts b/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts
+index e4517f47d519c..eb9470a00e549 100644
+--- a/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts
++++ b/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts
+@@ -226,7 +226,6 @@ &uart0 {
+ };
+ 
+ &uart5 {
+-	pinctrl-0 = <&uart5_xfer>;
+ 	rts-gpios = <&gpio0 RK_PB5 GPIO_ACTIVE_HIGH>;
+ 	status = "okay";
+ };
+diff --git a/arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi b/arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi
+index ae050cc6cd050..2c87005c89bd3 100644
+--- a/arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi
++++ b/arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi
+@@ -396,6 +396,10 @@ &u2phy_host {
+ 	status = "okay";
+ };
+ 
++&uart5 {
++	pinctrl-0 = <&uart5_xfer>;
++};
++
+ /* Mule UCAN */
+ &usb_host0_ehci {
+ 	status = "okay";
 -- 
 2.43.0
 
