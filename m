@@ -4,61 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F9D7C0218B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 21:50:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31956C0218B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 23:52:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CRKKcyPjoabyj6UhYawNm7cMg5b+yHqOJ+jXOfGN160=; b=0V3dInaMgrUyx9wsrgXFupImY7
-	yKUtKiqg38XptOh3wOyHBxEyDG+irVfNXQziR51DoBGfO5H0M4jpmgBw8ii8/mvkVyofmf2etalZs
-	FCEvDdqD5h93PWk7gfXPnkhzzkDbB+QIH81C5Tez0cCWAxg+yhM5ZMN88ugYcSH/nRxWGkhKlKg1L
-	NZwCCEKNAdHzZwl7CSAvcLXnlYEVJpUossXC25pXQ6QYNBLSHTjyycJkV8Fu7JNj/7b2vqwgS5BNu
-	S5dTajwm4Pw34rt5+BbeJ1mucKIltxOewQY0yLeKiPwneCzt5cNAL5Pc9MCEeveYNd1SW3xX7ykyF
-	UKi4m32A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AuYhx4ivzz0E1AuPp+VdpQD15ncC9/RM8+DNV9taH/M=; b=LUbEgO3sXF8IC1kDyYyCOO+86C
+	HT54TycFc4Wo1eGV7eBQQetzDvr6rRpx9csz25IvESSv+NEpIK/xcixjIR4LuGUJ6jauAtUWkBQUY
+	LiHeLalgRzle4AnVRiNdoMmgzzOXhY/XhnGFdhRESn+33MT5F+ysPact0SNWRNWFJIQ9yMJXZaU5z
+	rps+IGtb9Uglfq8QeSH7gMybGnmyR+kE8K0z5+Ig7GBFTnyn9jFIooQzoT97sz1AXGNSr+TPKb2li
+	LFjNlDEyjex9Kt+E1GAOOWtIA2qN+eMN+K1o0zF+b1xlTFBLp4q/oJmyzsVDUeGBcU1C6/pttWn8T
+	elSh9MNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taM8n-00000008rAY-2i98;
-	Tue, 21 Jan 2025 21:50:33 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taM7W-00000008r6F-17Mr
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 21:49:15 +0000
-Received: from DESKTOP-0403QTC. (unknown [20.236.11.185])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 5D406205A9EC;
-	Tue, 21 Jan 2025 13:49:12 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 5D406205A9EC
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1737496152;
-	bh=CRKKcyPjoabyj6UhYawNm7cMg5b+yHqOJ+jXOfGN160=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:Reply-To:From;
-	b=AnhMTBG5w0v57AHdyDrH4rfPMLpZGLXbxSxM/kulCk1lIzsyrkv2JKeRXmYR7oW/p
-	 uiXeHo2ayumznqIIaVwHPWld1D4Ep4fJEXar+ZvMO7uvNCQEG0aKLI+e0g1YQexhZR
-	 xSem6n7ei8EIEw2f0J3o8+6OA/3FR7fFnMikja4s=
-Date: Tue, 21 Jan 2025 13:49:10 -0800
-From: Jacob Pan <jacob.pan@linux.microsoft.com>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: Shyam Saini <shyamsaini@linux.microsoft.com>, iommu@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- virtualization@lists.linux.dev, will@kernel.org, eric.auger@redhat.com,
- code@tyhicks.com, eahariha@linux.microsoft.com, vijayb@linux.microsoft.com,
- jacob.pan@linux.microsoft.com
-Subject: Re: [PATCH 0/3] make MSI IOVA base address and its length
- configurable
-Message-ID: <20250121134910.11797062@DESKTOP-0403QTC.>
-In-Reply-To: <20250120142643.GM674319@ziepe.ca>
-References: <20250116232307.1436693-1-shyamsaini@linux.microsoft.com>
-	<20250120142643.GM674319@ziepe.ca>
-X-Mailer: Claws Mail 4.0.0 (GTK+ 3.24.33; x86_64-pc-linux-gnu)
+	id 1taO2X-00000008zhE-2r9H;
+	Tue, 21 Jan 2025 23:52:13 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1taO1F-00000008zbf-3ela;
+	Tue, 21 Jan 2025 23:50:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=AuYhx4ivzz0E1AuPp+VdpQD15ncC9/RM8+DNV9taH/M=; b=A6QEpfly++bM7NYGmP3SnrNw46
+	tzmrW4bt3urzf1A4m8tC0jM+IPQbXwCo6UjGQnaXpgaSxnQwj7NTl3gMT250EkSz8azZGdC6FTKkH
+	mAQZcJBLjsXeUD+EdhuPJGZtujaBkPOe/s9/hh4QEdd4cm5G6OWOqq+jSIct6tfDA4Qg=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1taO0v-006mUm-5p; Wed, 22 Jan 2025 00:50:33 +0100
+Date: Wed, 22 Jan 2025 00:50:33 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Shengyu Qu <wiagn233@outlook.com>
+Cc: Elad Yifee <eladwf@gmail.com>, Felix Fietkau <nbd@nbd.name>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Mark Lee <Mark-MC.Lee@mediatek.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Daniel Golle <daniel@makrotopia.org>,
+	Joe Damato <jdamato@fastly.com>, sr@denx.de
+Subject: Re: [PATCH net-next v2 1/2] net: ethernet: mtk_eth_soc: use prefetch
+ methods
+Message-ID: <6359f0e9-6f13-4b87-993a-313a378742d5@lunn.ch>
+References: <20240729183038.1959-1-eladwf@gmail.com>
+ <20240729183038.1959-2-eladwf@gmail.com>
+ <TYCPR01MB8437EC132CBC033368FC40A998102@TYCPR01MB8437.jpnprd01.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <TYCPR01MB8437EC132CBC033368FC40A998102@TYCPR01MB8437.jpnprd01.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_134914_337986_DFF2DE1E 
-X-CRM114-Status: GOOD (  28.20  )
+X-CRM114-CacheID: sfid-20250121_155053_909637_1B3B4017 
+X-CRM114-Status: GOOD (  10.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,66 +78,23 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: jacob.pan@linux.microsoft.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jason,
+On Mon, Jan 06, 2025 at 10:28:46PM +0800, Shengyu Qu wrote:
+> Hello,
+> 
+> Sorry to bother, but what happened to this patch? Is it given up or
+> something?
 
-On Mon, 20 Jan 2025 10:26:43 -0400
-Jason Gunthorpe <jgg@ziepe.ca> wrote:
+There appear to be open questions about it. Those questions need
+answering. Also, the net-next is closed at the moment for the merge
+window. So a new version will need to be submitted once net-next
+reopens in two weeks time.
 
-> On Thu, Jan 16, 2025 at 03:23:04PM -0800, Shyam Saini wrote:
-> > Hi,
-> > 
-> > Currently, the MSI_IOVA_BASE address is hard-coded to 0x80000000,
-> > assuming that all platforms have this address available for MSI IOVA
-> > reservation. However, this is not always the case, as some platforms
-> > reserve this address for other purposes.  
-> 
-> Can you explain this some more? This address is in the kernel
-> controlled IOVA space, there are few ways a platform can impact this.
-> 
-> How is the platform impacting it? Is the non-functional IOVA always
-> reflected in the iommu_get_resv_regions()?
 
-I don't know the platform impact but just to clarify, are you asking
-whether this non-functional IOVA is also under IORT RMR or other FW
-tables? I don't think it is.
+    Andrew
 
-But this special IOVA is reflected in iommu_get_resv_regions() the same
-way as the hardcoded MSI_IOVA_BASE. So each iommu group's
-reserved_regions should show.
-
-> Why not avoid this conflict in your platform software?
-I had the same question but it seems there is not enough difference
-(than the standard smmu) to justify a platform code. i.e. platform
-specific iommu_get_resv_regions(), is that what you are suggesting?
-
-> > There was an [1] attempt to fix this problem by passing the MSI IOVA
-> > base as a kernel command line parameter.   
-> 
-> Yuk
-> 
-> > In the previous attempt,
-> > Will suggested reserving the MSI IOVA at runtime whenever there is a
-> > conflict with the default MSI_IOVA_BASE. However, dynamically
-> > reserving this address has debuggability concerns, as it becomes
-> > difficult to track IOMMU mapping failures.  
-> 
-> Still, this approach seems like the best to me..
-> 
-> > This patch series aims to address the issue by introducing a new DTS
-> > property, "arm,smmu-pci-msi-iova-data". This property allows the
-> > configuration of MSI IOVA with a custom MSI base address and a
-> > custom length for IOMMU/SMMU drivers. It accommodates platforms
-> > that do not have the default MSI base address available for MSI
-> > reservation.  
-> 
-> My understand was using DT to set kernel configurables was frowned
-> upon? Ultimately MSI_IOVA_BASE is an arbitary choice by kernel
-> software.
-> 
-> Jason
-
+---
+pw-bot: cr
 
