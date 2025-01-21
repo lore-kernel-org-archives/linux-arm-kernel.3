@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 588BCC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 07:17:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE4D3C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 07:18:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vaUdnz7gXtwLrVau6nlifMBhOXuAYudXGK+KIyM6pIE=; b=q4R6gurnheTWd/iN8hj6YIkBxH
-	eJO8R9cIeE1TUQLflmeK5zM9u6mL3y4eNYb98C7OygKdMzBlV4QdQ+KDo+pdkaqQOZtFaNaTH1me8
-	e9Fs3eShU5/qgGKK3wB35CtOd//HsJpzXdqFWZO0NjdqJnCO2dsBhK1Q77yzfgsKSKTgCG+qUnfkX
-	VqLm8RVvdiOJ9sm3UMNQbYXJeWV6BUsBjotoywaKjRxWukIOdlkNnBuvXJ6FMMObCQyXk/uqFpb7i
-	HMM+I6COgXompVmIIESQQFvbnHE2S36vy+cYUOsGMAV6vV2uQfyoRVPhIMcwxRSvtVxSNZ4duvkbw
-	16Gm/HSA==;
+	bh=2BcL6orrZb5IC+WsuztLOoMi2nm6MNRYZnLRt0S3yoI=; b=qHIa0E8QQV0AQFT3MtWOEZKs6e
+	ojov35Gj3QMHbaRVPKhaBa30WR8Q6faIa2ws0yylelPQCJQY+BKvvnkqlFzwc/D/8fxNJ4Yh4DE7X
+	ex06MifM/FlmCG8PwFiPeAx7EqR1frH5FGp5rJd3wIgsNvmW8QafBgAugRpsQq5oAgMVb1Ai1O/Hx
+	234lhC5iVEAMN0Raa/VxzeHBHOL5fhggW1KcuItD6khWLMbIjlZU0C0i6BkL/i9qmrnj1kOoNgOLo
+	oEUYoVNFjJhgfbW5oaMGA2fDN55xxeG2ltZxJnq/rulJGvPecoK3ZtKztXPPQaaZ4HDmrLMiXjQWb
+	3RreVJ4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ta8VQ-0000000771c-0wPu;
-	Tue, 21 Jan 2025 07:17:00 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190])
+	id 1ta8Wf-000000077KT-3cNG;
+	Tue, 21 Jan 2025 07:18:17 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ta8Ck-000000072nX-32hv
+	id 1ta8Ck-000000072n4-3Klo
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 21 Jan 2025 06:57:44 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.163])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4YcdH335Wxz2FcWT;
-	Tue, 21 Jan 2025 14:54:23 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id 2FB21180042;
-	Tue, 21 Jan 2025 14:57:41 +0800 (CST)
+Received: from mail.maildlp.com (unknown [172.19.163.48])
+	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4YcdHy51YmzRlYj;
+	Tue, 21 Jan 2025 14:55:10 +0800 (CST)
+Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id CC2101802D0;
+	Tue, 21 Jan 2025 14:57:39 +0800 (CST)
 Received: from kwepemn100009.china.huawei.com (7.202.194.112) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
+ dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 21 Jan 2025 14:57:41 +0800
+ 15.2.1544.11; Tue, 21 Jan 2025 14:57:39 +0800
 Received: from localhost.localdomain (10.28.79.22) by
  kwepemn100009.china.huawei.com (7.202.194.112) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 21 Jan 2025 14:57:39 +0800
+ 15.2.1544.11; Tue, 21 Jan 2025 14:57:37 +0800
 From: Huisong Li <lihuisong@huawei.com>
 To: <linux-hwmon@vger.kernel.org>
 CC: <linux-kernel@vger.kernel.org>, <linux-media@vger.kernel.org>,
@@ -59,9 +59,9 @@ CC: <linux-kernel@vger.kernel.org>, <linux-media@vger.kernel.org>,
 	<ilpo.jarvinen@linux.intel.com>, <alexandre.belloni@bootlin.com>,
 	<krzk@kernel.org>, <jonathan.cameron@huawei.com>, <zhanjie9@hisilicon.com>,
 	<zhenglifeng1@huawei.com>, <liuyonglong@huawei.com>, <lihuisong@huawei.com>
-Subject: [PATCH v1 15/21] hwmon: (scmi-hwmon) Fix the type of 'config' in struct hwmon_channel_info to u64
-Date: Tue, 21 Jan 2025 14:45:13 +0800
-Message-ID: <20250121064519.18974-16-lihuisong@huawei.com>
+Subject: [PATCH v1 14/21] hwmon: (pwm-fan) Fix the type of 'config' in struct hwmon_channel_info to u64
+Date: Tue, 21 Jan 2025 14:45:12 +0800
+Message-ID: <20250121064519.18974-15-lihuisong@huawei.com>
 X-Mailer: git-send-email 2.22.0
 In-Reply-To: <20250121064519.18974-1-lihuisong@huawei.com>
 References: <20250121064519.18974-1-lihuisong@huawei.com>
@@ -72,8 +72,8 @@ X-Originating-IP: [10.28.79.22]
 X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
  kwepemn100009.china.huawei.com (7.202.194.112)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_225742_930997_760A8AB4 
-X-CRM114-Status: GOOD (  11.62  )
+X-CRM114-CacheID: sfid-20250120_225742_999136_F4C3BD06 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,35 +93,31 @@ Modify the related code in driver to avoid compiling failure.
 
 Signed-off-by: Huisong Li <lihuisong@huawei.com>
 ---
- drivers/hwmon/scmi-hwmon.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ drivers/hwmon/pwm-fan.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/hwmon/scmi-hwmon.c b/drivers/hwmon/scmi-hwmon.c
-index 364199b332c0..b4b43e200d2a 100644
---- a/drivers/hwmon/scmi-hwmon.c
-+++ b/drivers/hwmon/scmi-hwmon.c
-@@ -157,10 +157,10 @@ static const struct thermal_zone_device_ops scmi_hwmon_thermal_ops = {
- 
- static int scmi_hwmon_add_chan_info(struct hwmon_channel_info *scmi_hwmon_chan,
- 				    struct device *dev, int num,
--				    enum hwmon_sensor_types type, u32 config)
-+				    enum hwmon_sensor_types type, u64 config)
- {
+diff --git a/drivers/hwmon/pwm-fan.c b/drivers/hwmon/pwm-fan.c
+index 579d31bb9ac7..91bb6d590a36 100644
+--- a/drivers/hwmon/pwm-fan.c
++++ b/drivers/hwmon/pwm-fan.c
+@@ -498,7 +498,7 @@ static int pwm_fan_probe(struct platform_device *pdev)
+ 	int ret;
+ 	const struct hwmon_channel_info **channels;
+ 	u32 initial_pwm, pwm_min_from_stopped = 0;
+-	u32 *fan_channel_config;
++	u64 *fan_channel_config;
+ 	int channel_count = 1;	/* We always have a PWM channel. */
  	int i;
--	u32 *cfg = devm_kcalloc(dev, num + 1, sizeof(*cfg), GFP_KERNEL);
-+	u64 *cfg = devm_kcalloc(dev, num + 1, sizeof(*cfg), GFP_KERNEL);
  
- 	if (!cfg)
- 		return -ENOMEM;
-@@ -181,7 +181,7 @@ static enum hwmon_sensor_types scmi_types[] = {
- 	[ENERGY] = hwmon_energy,
- };
+@@ -586,7 +586,7 @@ static int pwm_fan_probe(struct platform_device *pdev)
  
--static u32 hwmon_attributes[hwmon_max] = {
-+static u64 hwmon_attributes[hwmon_max] = {
- 	[hwmon_temp] = HWMON_T_INPUT | HWMON_T_LABEL,
- 	[hwmon_in] = HWMON_I_INPUT | HWMON_I_LABEL,
- 	[hwmon_curr] = HWMON_C_INPUT | HWMON_C_LABEL,
+ 		ctx->fan_channel.type = hwmon_fan;
+ 		fan_channel_config = devm_kcalloc(dev, ctx->tach_count + 1,
+-						  sizeof(u32), GFP_KERNEL);
++						  sizeof(u64), GFP_KERNEL);
+ 		if (!fan_channel_config)
+ 			return -ENOMEM;
+ 		ctx->fan_channel.config = fan_channel_config;
 -- 
 2.22.0
 
