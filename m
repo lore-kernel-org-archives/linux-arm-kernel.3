@@ -4,151 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D735BC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 18:42:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E39DEC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 19:57:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=flgRsytMFqr+kw4Cd88HHA8+bHmdnUtF+C03Qe9juw0=; b=X2wketfJJqtaLgKozz5wdUV47M
-	+GT8d+WfAJUvwLFgMJrTJbfIKD4VmeuABSzuFiwsKWWSdu+NlfX2lQ96nWCP7Xv+ledtY065YlAUj
-	ZObNDSfqMqwaFcfgWYj1f3p6Ku2S/DaGgvqnmDXqWOmNxDVJK8VoieDfEVvzmQNlF0kUBDM9h6nUu
-	CIipj0BkkEzhizxABdM4T2BhjhPV2PUvJ+gHlXHq5dUVliLhKV6EV+Nbjq9Iy8ghKOHtOgKvA35xI
-	lCpv5emDkguPS09YRW5eTVFb2ztpUgcXbavyzYTIl7m6jry/jskH/SP9c1DhgiD9WKaMjjtYKuWWr
-	k0Iildfw==;
+	bh=JC4iu8bXBbT0ZHSla3RRjIntqRdu00Oh4k1yf19TIxg=; b=ByJraK9mUGekc6M8QHmdVWJUCg
+	6wx+34uUYcM2Lp5kK1ZjIKUO0+4ZogvZYyPr/94Iw0OrkmhDax2WL/yg05SOxDvCwlSaKr30GOzUX
+	huxm9858BH5+QvklwgaQmSEe2L44SekrZ9MTQLNhkfSJdBpAa2bBEA5C0MjZffDd+NYaqwiTm2gn8
+	6MCPb2NHaFI++EAB0jAUL5gdb0zpEdWThYTVpGXVVZm+YMSqp6VOCTYAJaI8xJAcKoB1/nAzDxeah
+	DhtblOAe71eWIo+hXHLxVZulv/f7T5wy0QlPjENWlxppTU8KRHQSxTpX6UV+Zfatkgrl2utVdovjY
+	9N1AoQMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taJCl-00000008cRJ-1PPU;
-	Tue, 21 Jan 2025 18:42:27 +0000
-Received: from mail-eastus2azlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c110::2] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	id 1taKN7-00000008h5y-3knO;
+	Tue, 21 Jan 2025 19:57:13 +0000
+Received: from mail-sn1nam02on20601.outbound.protection.outlook.com ([2a01:111:f403:2406::601] helo=NAM02-SN1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taJBQ-00000008cLu-1wkM
+	id 1taKLq-00000008gvb-3leW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 18:41:08 +0000
+	Tue, 21 Jan 2025 19:55:56 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rm4neEAJOHa/WzZKqf+FIAB2g+El4oPh0NNOEWhevtlvR3S+XyVbAs4DPN/wbHKEvhF1J3yReQPRLos0+o1MoYuq9RxrrV+/HmBy1TxHIu8bTTDs44fEjb/iypLophpICfvFn5gcpzB0OMS7h9DEVfNeWwri7yXkT216aCISnUCmap3rKq48tsO2aPbzuQfqhvSpcZuDmiVetRh26PvoIHJmYWbp6AKjMRXZczAwcU+Cqq7ZXOlBE6wRbBZZZD7zItU/ZI3DD9ZbXe5XIbuqmiQxPUQKeiwSXaSgbmAQGBpIgpcIIebfYAglGFWO5ox/XxAfRvu6w3FnCjFCSD2R+w==
+ b=dPIT2F0SekjKP3AEP0oliitpZmiB9+aAKLOqkH8/yYT/x+jTiY9Z4id9dBC0di/FbBMJ59EMx1ooTDHkNYyFhaE80iKA7BDJoWDrYIhleTuZp1S+7K9uXhWEnUXLrmGyN7UFiyjW2HvGHQ82+SLM5tG8vaZlyiqJRW5NWNjOieaMyLWkQfsfRpUfc0qN+CI6aorM2d05TTtuFnDEak8x0ZaE5iUsTC62qI8NmVFoVD8vVGCqXCckZxr0cr3uv3mazevDXc0u1deBq6JPSorWhnnCh2Qqqg5leERLWnA5BtCZ5hNtb9Ew0vUj3PFFA930vtRmQz9naiWLS+9qnMAKzQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=flgRsytMFqr+kw4Cd88HHA8+bHmdnUtF+C03Qe9juw0=;
- b=mj9Ie1tr7HGYQ0ZJfVMUTUtoM2jgYvdsnobDduNMmX3PqjGx/rB2obTfweak5R3olmIF+89XL5phM4Xc3A1Y1JT4roZFX9ya5Pi5EzG2nWc3PI0PlSFANdRO3liKkSmCoTT1p4DO7Na2VKTfX3qFc942lwT0dWs2PSXE3IuvDUtSHKqFox3v+HikZBsK1zFU7wG7MurtrPy6JOSlWu2ZrjwGA2t77TMcAYVbNbwOJEqVl9Pm50HwSrPO4eAZNCqpbUOc805abkzhgwbfae2B7w0Oq031o6g/XuOFaLmdr0YJh7/hB70n1GZp/8X3lplr9VBajTEzke45rLYPEGShew==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
+ bh=JC4iu8bXBbT0ZHSla3RRjIntqRdu00Oh4k1yf19TIxg=;
+ b=cMPEt+i2eGsGXxHXMbZE1zISg9HZQ7UcYrtmsz7/xRFyqOVEVhQhRda4sTXT2PE4PQWfgi98iWlHT9LJogDQU7Cmyt1JtEBqQIJOp9fiTW+hnJ32YcZUmphyKD4JpfNysvIUJdjkqaLl9Vyn2vSePtIa7SbslYsS78EsO6eQLSlg5IVJrcTML0W9Y7sagklu2nVY4pD7IMt0L1wAH2smY6+0QkWfILYXlqSLYCv4fI42kHNOQzAzga+j6uHMMAOgTxEFe75/RT9KyLsORbX7kJMo0uLQna7ilYDCalyZEPyNlXqJE/QFqpkJ5xdpTn2e2l+EEkT6eR1H9SKIMDyO3w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=redhat.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=flgRsytMFqr+kw4Cd88HHA8+bHmdnUtF+C03Qe9juw0=;
- b=iH4WJ50nqzq8i7AVeCPyACocyjzunHNqflQKvJAmhYqrIGqnl4nBZKdDjSFyeEZzy6dKm2Uca/5q7DNoguUO4lF1kq9b2r4xnEK3DLpyjMk3ZhBXpBCL/+pI2qCB8PI192Z3ipqQnOWltum9PTNqGRoa15aRyXWnj8mHXIkbdE8=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from SJ2PR01MB8529.prod.exchangelabs.com (2603:10b6:a03:55b::17) by
- MN0PR01MB7754.prod.exchangelabs.com (2603:10b6:208:37d::22) with Microsoft
+ bh=JC4iu8bXBbT0ZHSla3RRjIntqRdu00Oh4k1yf19TIxg=;
+ b=D0/F1wCA/4WA3E3mQaBvZPms48DF83DNh913sjtQTtZQLoXSMkFx4yUrfUuOzXmgpJeVlSUfxPHPSbj6dZPF5xv4eGTMzi8zR2FMjkzCrXQ2veqEaLsFLToJvv5VuMazjQj5yZJjuJJDeUSO0VyOrR0zBybvFLjPti1G43aFOxNYPFyVupr+LyMXqTATXva9bftBS5EC7im5ZwZiyBD/m3oCEuJHkIaZlnCoiua80Lp2KOtwoPdFLDKksjjI7hbzkI2gOzjb4vSqWPZQx8ZBoW5oc2vEfnw5IhyD9lopCw2NQOAWOC0s+rBfgeoTXXkr5FfPfoxBL5vExA5XG3zCLA==
+Received: from BL0PR02CA0084.namprd02.prod.outlook.com (2603:10b6:208:51::25)
+ by MN0PR12MB6102.namprd12.prod.outlook.com (2603:10b6:208:3ca::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.21; Tue, 21 Jan
+ 2025 19:55:43 +0000
+Received: from BL6PEPF0001AB74.namprd02.prod.outlook.com
+ (2603:10b6:208:51:cafe::93) by BL0PR02CA0084.outlook.office365.com
+ (2603:10b6:208:51::25) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8293.16 via Frontend Transport; Tue,
+ 21 Jan 2025 19:55:43 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ BL6PEPF0001AB74.mail.protection.outlook.com (10.167.242.167) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8377.16; Tue, 21 Jan 2025 18:40:58 +0000
-Received: from SJ2PR01MB8529.prod.exchangelabs.com
- ([fe80::2707:818a:2b2a:16e9]) by SJ2PR01MB8529.prod.exchangelabs.com
- ([fe80::2707:818a:2b2a:16e9%7]) with mapi id 15.20.8377.009; Tue, 21 Jan 2025
- 18:40:58 +0000
-Date: Tue, 21 Jan 2025 10:40:55 -0800
-From: Vanshidhar Konda <vanshikonda@os.amperecomputing.com>
-To: Beata Michalska <beata.michalska@arm.com>
-Cc: Viresh Kumar <viresh.kumar@linaro.org>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, ionela.voinescu@arm.com, 
-	sudeep.holla@arm.com, will@kernel.org, catalin.marinas@arm.com, rafael@kernel.org, 
-	sumitg@nvidia.com, yang@os.amperecomputing.com, lihuisong@huawei.com, 
-	zhanjie9@hisilicon.com
-Subject: Re: [PATCH v9 1/5] cpufreq: Allow arch_freq_get_on_cpu to return an
- error
-Message-ID: <j4s4amaknobmjvoq7jf734h7oieob3qxr5eigsrawakgxltszy@6kixp27xhwn6>
-References: <20250121084435.2839280-1-beata.michalska@arm.com>
- <20250121084435.2839280-2-beata.michalska@arm.com>
- <20250121104706.2gcegucb6hcuksrd@vireshk-i7>
- <Z4-52JUmR7A-7NJP@arm.com>
-Content-Type: text/plain; charset=us-ascii; format=flowed
-Content-Disposition: inline
-In-Reply-To: <Z4-52JUmR7A-7NJP@arm.com>
-X-ClientProxiedBy: CH2PR20CA0004.namprd20.prod.outlook.com
- (2603:10b6:610:58::14) To SJ2PR01MB8529.prod.exchangelabs.com
- (2603:10b6:a03:55b::17)
+ 15.20.8356.11 via Frontend Transport; Tue, 21 Jan 2025 19:55:43 +0000
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 21 Jan
+ 2025 11:55:23 -0800
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail204.nvidia.com
+ (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 21 Jan
+ 2025 11:55:22 -0800
+Received: from nvidia.com (10.127.8.14) by mail.nvidia.com (10.129.68.10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
+ Transport; Tue, 21 Jan 2025 11:55:18 -0800
+Date: Tue, 21 Jan 2025 11:55:16 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <kevin.tian@intel.com>, <corbet@lwn.net>, <will@kernel.org>,
+	<joro@8bytes.org>, <suravee.suthikulpanit@amd.com>, <robin.murphy@arm.com>,
+	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>, <shuah@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, <eric.auger@redhat.com>,
+	<jean-philippe@linaro.org>, <mdf@kernel.org>, <mshavit@google.com>,
+	<shameerali.kolothum.thodi@huawei.com>, <smostafa@google.com>,
+	<ddutile@redhat.com>, <yi.l.liu@intel.com>, <patches@lists.linux.dev>
+Subject: Re: [PATCH v5 08/14] iommufd/viommu: Add iommufd_viommu_report_event
+ helper
+Message-ID: <Z4/7pGx6F1mpAUuV@nvidia.com>
+References: <Z4Smpeb4k4UF3Qso@Asurada-Nvidia>
+ <20250113192144.GT5556@nvidia.com>
+ <Z4Vt6DAMDfEv6tb5@Asurada-Nvidia>
+ <20250113195433.GV5556@nvidia.com>
+ <Z4V7NbxGyYoQN0yV@Asurada-Nvidia>
+ <20250114134158.GC5556@nvidia.com>
+ <Z4rVg1Xg5TCiFlSb@nvidia.com>
+ <20250120181854.GQ5556@nvidia.com>
+ <Z463eXfgNArCOfPn@nvidia.com>
+ <20250121183611.GY5556@nvidia.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250121183611.GY5556@nvidia.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR01MB8529:EE_|MN0PR01MB7754:EE_
-X-MS-Office365-Filtering-Correlation-Id: e2b1f292-0516-49b1-c49a-08dd3a4b258c
+X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB74:EE_|MN0PR12MB6102:EE_
+X-MS-Office365-Filtering-Correlation-Id: cd08dec5-5a7d-4d27-715c-08dd3a559721
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?bI5QBNnYo5nag+JLpoVQycecajFzrRTcXHOjo7U5W9gkZB5XdfZTdJOizm6m?=
- =?us-ascii?Q?lJ5UsdmcYE5fxcx0KJi8XiS1LLdj6XQ4hi8Fg1smDuKOvmNQE7NVtwQPYmlq?=
- =?us-ascii?Q?wrz52oIQy/m/oSb2Acc06VUnSeH26VxD8dkXiofqAqCS4EE2cJVEqpzNMMeg?=
- =?us-ascii?Q?ooDOF3VxkE0TsmiIZD0JMqHe5kJIDvIrUdRB5iYb7HwvjH3/6DpNEB/3jt2C?=
- =?us-ascii?Q?QZ+hGBGsQsSt9ERDUlbkCu12TnRUfc8lISyZky4MAZ7zwcilerc2kk/nw7uh?=
- =?us-ascii?Q?mVA2G7aeMzaUOBoXeJjWI4pSNiIygKkblIBVMlulsumUJWCCD9rTHv/FmKrF?=
- =?us-ascii?Q?vroTwQhcvgznL316P/wi56Xtfds3Nyvi2d55699SkeMoiWrPRbtVUpxdYIqw?=
- =?us-ascii?Q?rmq6nwKfwB3NfojwZUPvxaCcyy6CmHlpIRFnDv7WdY2zl7/z1rtUBiJvAYEK?=
- =?us-ascii?Q?7VdLtHN2zEFapnFFlAZn+9vdlv8T+67JpvpqoqU2BxWL8lzcSbKDduqyo7Ea?=
- =?us-ascii?Q?4Ght1BEhWGEeLyuKoKcARMWIv4XAes3R8c9MAiDd2x+uaPwIPXlGNqyzr86Z?=
- =?us-ascii?Q?1e/x7nLaeBVEG6sZ8+pyyF9ZaKjmWh5ipuS9cFWKHajxhVKJY7psdmA8zgU+?=
- =?us-ascii?Q?sXslKOJz3fm0gsIn/Uy3TAE+cf21jj4PX81F2l6DXgSHzMRSWmwQtFMerVS6?=
- =?us-ascii?Q?ZcaTvb+is4lURB7LtdlANjnb1dv/GerJX0bTwUUJBCUk4i/tmlJsQI0Ax3Jq?=
- =?us-ascii?Q?Vb+Y0F/oF66Iq5DKQjv+ujijbCGpy5I+XkYJOZOm14nrelCq+SSQXkKs1nv/?=
- =?us-ascii?Q?wNydd8rcLkOaeWUYA0O5ynfP/8wJ8/HHv/wxsEzXrDSunSdoYnxJhCeXUpy5?=
- =?us-ascii?Q?aCBNoaUdUNghVyXMpoygDt1v3zhPD57qaOmhEHhpWa1/3w09BN763fvpASC1?=
- =?us-ascii?Q?42JbS/8P2g92x5rplUxeFfndc8M7A4D0ZgBD50yXlVHYMoWyfAQ45bfifhTE?=
- =?us-ascii?Q?5igs5WoGKi52Uup5lmwM3HyVAKsWLq5BYMlEdDL2lztjFA0uH1OIgeFJO+uR?=
- =?us-ascii?Q?3qfIp0+tWErfW/vuLOGlZPC4/k3QzETOSBXODFzgxGmC9TIsdu2ATUdc6JUX?=
- =?us-ascii?Q?MwdgVBm+SG2t0bmPEbZu4nGVwmjaJ/o+x5qmEWOZ/VPEYv9mFruDqRWMDyCP?=
- =?us-ascii?Q?obK2Ty01a1kJ+KlVQjhtIADgt/SBQlMy9NdIFEBriI+TZXM3drLFQ4AxAYHW?=
- =?us-ascii?Q?I+Q7dSKA2pGLuf+q2QIHBdxA6CLxDzUfarzK73WZVRLbO/6KjJLK2ozLMOHE?=
- =?us-ascii?Q?6Q+Vsxd84+w1nZD1zf9/FqHtBieQthAjguEj2/v5CznCcLufxpKHSepuV2IS?=
- =?us-ascii?Q?wGIWUVaMV8prBEVpEwHjy+iB0l5d?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR01MB8529.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(7053199007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?VY1in18h7b7tqWPYGO1U0YugT3e/42wU1Mu9LSk+5oJqjYZqj4TPbvU6sz6M?=
- =?us-ascii?Q?2vxu1beKXghQlc73jIIiZ+BbBHF4tLMKYh/AD4USJjhQgFvITnI9WV/kANYx?=
- =?us-ascii?Q?VjJ00lx4zVGtt+bZ17O/xQYRzXocdtTT7rwSC0GK2+nRr/hYOVCfnE9UJAti?=
- =?us-ascii?Q?UlbY6TaC0ZCueKvAgeJ7MwTpIkY5CUFvviO6ai+PyWWAKIR7Qfsba3GwkA/b?=
- =?us-ascii?Q?RvsSl3ZH1V6BHl14BZmPcms6FNHEYu7qc8rSSakUpq9rI3/VgQfzezUL91Fg?=
- =?us-ascii?Q?iEfkajfcdBk5oKqE/7ONH1qjheSaH7EXeXGcOo+fDf8MKtqSgRo1doW6e9xR?=
- =?us-ascii?Q?ccxLXn6r3VkER6I7TEJTnN4I5loS3NDBbjS2NM9hGS8dYbbhQH6rgZFv0a5j?=
- =?us-ascii?Q?Dl20IjNAMRma+ry/qWvhimtCUM66nThnaYRJ0dvVIgKG9qTb+Ta4GMDZRcUO?=
- =?us-ascii?Q?pibbOEccvqaQps4Y51f+pOAT6/WNygIrBY+NaDLeoyxQc/h/T67T0Q0k1vMX?=
- =?us-ascii?Q?ASDmwXyOjuucU3FBOM8TfyHkUmMBRKYdT1rFgg/4BfNdT1OmdqGez1Fz8zP6?=
- =?us-ascii?Q?kYi8WPVsPgtwfvtNT+4hXG3vFwhEfe+MlGPwwAlcImvR2yKt2oOXJ54zGb/t?=
- =?us-ascii?Q?lZlFjbUkQ8q0qfjrc7zXUZK1ltiV5XoaV2rovwuz+MKWOeYkybAB21WPT7Fz?=
- =?us-ascii?Q?Yl4mjLkFQK1ofmJVzu4flLMZBSITmMkbTsojnW1T+p7fY46ESZkKn6T07EKY?=
- =?us-ascii?Q?ANQxER4rRBsSCVvZKuiKT3vnl4I+yibUfzkpGKNj2y3G0LiLq+pNM9c6sfkZ?=
- =?us-ascii?Q?tSgLmuYJmc4pT7+9r9Yqn3CLHE3/tezjhi6S4fuAjlpWNVhI/XQl/heTFxKV?=
- =?us-ascii?Q?gHHQsBo88uVbgRNpZr7nMQSJtEH/lkrwKtgHzLA15bkWlzvMxMU1HwxYWngy?=
- =?us-ascii?Q?4AOWyCqEQqbWy5iem9Cp/MhxW2N45WlEf1iVoNFcKF+gfwRzcqvqr62ZmOAl?=
- =?us-ascii?Q?Oy6gOJV1kmw2TGrDLkkaQiPvf1Bqnxc9dK5Y5hcKC9JjEIBapq8Di+AfQycV?=
- =?us-ascii?Q?uEin4khPE7BPNjBgox5O807cJZUWW4JaKqRwCFkWu3/xleEHiqWG4hgRvBNf?=
- =?us-ascii?Q?JXu2nZI5an6wjCR8FFMug/8gr58biRl+f7A4LftfPul385H8DgDHJehCv8Jb?=
- =?us-ascii?Q?ETXZEevMuXnAif4sF+OExYx1fO3lVWfV8k3bX66tswjtYxPeqbAWZU3psAl2?=
- =?us-ascii?Q?RbZKAT06UPaihpIJgyaqkXI0gAMJxMBmwG99SEcKQB55DVa1pJnW1jESqe8H?=
- =?us-ascii?Q?fpgxCvY0FxLIsHnfPKm8I6gFIrWDyb0DpqhWradDc07y8ab3TU2e+K7deFUq?=
- =?us-ascii?Q?lwe5iw7vSaQZDM228QM92K0nsrpONChluNFtMW9hXUUFPFHQJfGheemlimT+?=
- =?us-ascii?Q?dCRU2PTKOzXwJ4VXL+zisggjXwccRdozKtrDQK34Nj22vh+giCG1+sZDDfaq?=
- =?us-ascii?Q?q4agWOQTJ/z42dGW1a+6SoQ3eSKieC7/X+Y0ZjTQiCWY8XPgu5Ic2ujIhxme?=
- =?us-ascii?Q?FH0o8IJkOr/8P2FGIwGEg3xFCztc+TtUoLnqyvO68aEECnQXWc8rQBmvi5CT?=
- =?us-ascii?Q?OmYMaa4Uq+LXwzQTXOwA/e9dGCfPHHcCGAsGALTgy/op?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e2b1f292-0516-49b1-c49a-08dd3a4b258c
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR01MB8529.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jan 2025 18:40:58.4690
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|1800799024|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?EqRb2c7hwdBjo5xtVv+HCZ94huQ+WjUloBWdZOm6f8+ofJINXXrIADTs3Faf?=
+ =?us-ascii?Q?uIx1jaNpDYl5a3DenBdYbhxHOJby7f2aWXmCxUotZZNL6QbForMuMM/jwW2O?=
+ =?us-ascii?Q?M/V1ToA1WOl8GBaG5z3EHewicOgEOVvJvfe/M/QOnIgHY4Nr+RIbVW0UjgSv?=
+ =?us-ascii?Q?Q0RIPydNYN43u4Vyq4NyK7eExDSKvu8+IY1Se8km80aGwFNMLkql6rVrBnlB?=
+ =?us-ascii?Q?BqL06DIhj6F4XoLhAX8TwoPI6UACx+Pze6G/6QSbsWcFDCBQxCF8ll3PeTSx?=
+ =?us-ascii?Q?jp5mJR6hgRte2elkGJ1IpwskG/uHVaqyxmHdAIn8+NPI4XFnplQbeMFYLQUO?=
+ =?us-ascii?Q?d7gGobmXew2xISLiRsi5brUcIcDRPFukuf2X7kbPVu/OPIzXOuXUUFpZ3f9h?=
+ =?us-ascii?Q?/IyExVLokkMCWy6lk7MkZjvclsNBgByzY2ABA4cySpy4FxYSTRmUMeWsSeY5?=
+ =?us-ascii?Q?Cy87HWESszOI1rfVN7UvDjFqjYmMPO0iJi/FewfDm99vmIW4hPsqoaBc8q/m?=
+ =?us-ascii?Q?uZ5N1eH6ysfZi87CfBxSXTvKwdkIm3vmEdfAeVz3qIRHjPodbhP31JEjugyG?=
+ =?us-ascii?Q?t5efrYhQ4q6Ws4g1G/LTz5aXwyC+eGqleRV1D+HRJXZGqg0snmQJC28e8TA0?=
+ =?us-ascii?Q?7pbylihbRDblP5iuYIzK7KewjtqNZp+NcBKayng8d919oHmSYaKiFhbxcmDh?=
+ =?us-ascii?Q?xlb4O3V4zYhtV/uAPhxd7AtsQmR32EJjnyve9ces2g2xS9ajZwQB4JJinXdD?=
+ =?us-ascii?Q?27KhEg15VJLvz29jvNLwiuFBpUVc4pM0kwir4/PTr0rQQBK8GoM0P+lZRbzS?=
+ =?us-ascii?Q?f/fSxQJCmfQMIz9rTIcGMi1QTC9DSAlL5obsPbUAj/zAlKfuEljt7Ix2x7xy?=
+ =?us-ascii?Q?10uVae5duGCXMfshSvqarNlbLqiWHZAHND+hAWYpDhytLlcINbWYfOECK3Sq?=
+ =?us-ascii?Q?DU3fI++dEU3gzbFc8tEJs8JJwerTtnlL3ebmJdTAZPD3nsV40FyR2KEJ+2cA?=
+ =?us-ascii?Q?mPjSXohvZjGfKvxo03uiFqFlsws5/d7WNts7jEXR+D6DehZDoWvhgmiEjRKP?=
+ =?us-ascii?Q?LolLABwHQy36xjCL8wJoFedzznfprFPPVa9txKkuY+yEqR83VfIn70fUPMLa?=
+ =?us-ascii?Q?l21nXEG+RUqTjs3teNwyLWmmyjeWn2ooIoFZucUWtKl4eaBBX2I6OwjBu24b?=
+ =?us-ascii?Q?lxIxRpxR9j5FHQ3NFcuTP8W8c7qk3AnkijbdR9MEIof2L4KZxWjEos7ggK0c?=
+ =?us-ascii?Q?ngVTpveOfOV3ZTa83GrjLPAYiNvhbdlOorYDgOmvDHbLQ6L9zWVzCaltWNpi?=
+ =?us-ascii?Q?NeENoITEiRS/iHt7OTiExBzORnD/CTWiXv/Pe0tpbw0KVYJi/0uZ9ovTkmnq?=
+ =?us-ascii?Q?SHZ3D52Vwl78ynyDq8GGx+GFVORVNywhFWaUSGaqJQ6VTKTaVN4VzOND5wRG?=
+ =?us-ascii?Q?Hru776RbfmaAbjAODY+FFeHrs04/aFkgRxdnIB2B1F6TcPRMWcZiiTx7LEUA?=
+ =?us-ascii?Q?VOWpXl8La3be868=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jan 2025 19:55:43.6629
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ap0hFJ5VUA+yU3WkgVCZAx9KuhMCo6Zz3R9QCmX6mHzLZ6Fq3h8LxqvGxkRCZyu5V6WbHmADun0isl6V654KmYcmXEG/VDp5im/2vFxER1bgOEj3vskyaWxWkGMrUdM3
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR01MB7754
+X-MS-Exchange-CrossTenant-Network-Message-Id: cd08dec5-5a7d-4d27-715c-08dd3a559721
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB74.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6102
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_104104_521061_7687FD0C 
-X-CRM114-Status: GOOD (  22.54  )
+X-CRM114-CacheID: sfid-20250121_115554_935838_5568BA6C 
+X-CRM114-Status: GOOD (  40.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,119 +166,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 21, 2025 at 04:14:32PM +0100, Beata Michalska wrote:
->On Tue, Jan 21, 2025 at 04:17:06PM +0530, Viresh Kumar wrote:
->> On 21-01-25, 08:44, Beata Michalska wrote:
->> > Allow arch_freq_get_on_cpu to return an error for cases when retrieving
->> > current CPU frequency is not possible, whether that being due to lack of
->> > required arch support or due to other circumstances when the current
->> > frequency cannot be determined at given point of time.
->> >
->> > Signed-off-by: Beata Michalska <beata.michalska@arm.com>
->> > ---
->> >  arch/x86/kernel/cpu/aperfmperf.c | 2 +-
->> >  arch/x86/kernel/cpu/proc.c       | 7 +++++--
->> >  drivers/cpufreq/cpufreq.c        | 8 ++++----
->> >  include/linux/cpufreq.h          | 2 +-
->> >  4 files changed, 11 insertions(+), 8 deletions(-)
->> >
->> > diff --git a/arch/x86/kernel/cpu/aperfmperf.c b/arch/x86/kernel/cpu/aperfmperf.c
->> > index f642de2ebdac..6cf31a1649c4 100644
->> > --- a/arch/x86/kernel/cpu/aperfmperf.c
->> > +++ b/arch/x86/kernel/cpu/aperfmperf.c
->> > @@ -498,7 +498,7 @@ void arch_scale_freq_tick(void)
->> >   */
->> >  #define MAX_SAMPLE_AGE	((unsigned long)HZ / 50)
->> >
->> > -unsigned int arch_freq_get_on_cpu(int cpu)
->> > +int arch_freq_get_on_cpu(int cpu)
->> >  {
->> >  	struct aperfmperf *s = per_cpu_ptr(&cpu_samples, cpu);
->> >  	unsigned int seq, freq;
->> > diff --git a/arch/x86/kernel/cpu/proc.c b/arch/x86/kernel/cpu/proc.c
->> > index 41ed01f46bd9..d79f5845a463 100644
->> > --- a/arch/x86/kernel/cpu/proc.c
->> > +++ b/arch/x86/kernel/cpu/proc.c
->> > @@ -86,9 +86,12 @@ static int show_cpuinfo(struct seq_file *m, void *v)
->> >  		seq_printf(m, "microcode\t: 0x%x\n", c->microcode);
->> >
->> >  	if (cpu_has(c, X86_FEATURE_TSC)) {
->> > -		unsigned int freq = arch_freq_get_on_cpu(cpu);
->> > +		int freq = arch_freq_get_on_cpu(cpu);
->> >
->> > -		seq_printf(m, "cpu MHz\t\t: %u.%03u\n", freq / 1000, (freq % 1000));
->> > +		if (freq <= 0)
->> > +			seq_puts(m, "cpu MHz\t\t: Unknown\n");
->> > +		else
->> > +			seq_printf(m, "cpu MHz\t\t: %u.%03u\n", freq / 1000, (freq % 1000));
->> >  	}
->> >
->> >  	/* Cache size */
->> > diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
->> > index 418236fef172..6f45684483c4 100644
->> > --- a/drivers/cpufreq/cpufreq.c
->> > +++ b/drivers/cpufreq/cpufreq.c
->> > @@ -728,18 +728,18 @@ show_one(cpuinfo_transition_latency, cpuinfo.transition_latency);
->> >  show_one(scaling_min_freq, min);
->> >  show_one(scaling_max_freq, max);
->> >
->> > -__weak unsigned int arch_freq_get_on_cpu(int cpu)
->> > +__weak int arch_freq_get_on_cpu(int cpu)
->> >  {
->> > -	return 0;
->> > +	return -EOPNOTSUPP;
->> >  }
->> >
->> >  static ssize_t show_scaling_cur_freq(struct cpufreq_policy *policy, char *buf)
->> >  {
->> >  	ssize_t ret;
->> > -	unsigned int freq;
->> > +	int freq;
->> >
->> >  	freq = arch_freq_get_on_cpu(policy->cpu);
->> > -	if (freq)
->> > +	if (freq > 0)
->>
->> >= ?
->>
->> Since we can return error now, 0 should be considered a valid
->> frequency value ?
->Theoretically speaking - it should, though what would 0 actually
->represent then ?
-I would think the value of 0 would be valid and should be interpreted in a
-product/architecture specific manner? From silicon behavior, to me only negative
-frequency values wouldn't make any sense.
+On Tue, Jan 21, 2025 at 02:36:11PM -0400, Jason Gunthorpe wrote:
+> On Mon, Jan 20, 2025 at 12:52:09PM -0800, Nicolin Chen wrote:
+> > The counter of the number of events in the vEVENTQ could decrease
+> > when userspace reads the queue. But you were saying "the number of
+> > events that were sent into the queue", which is like a PROD index
+> > that would keep growing but reset to 0 after UINT_MAX?
+> 
+> yes
 
-In Patch 1 of this series we interpret 0 as "Unknown" on a x86 system though. So
-for the sake of consistency should we consider 0 a valid value everywhere?
+Ack. Then I think we should name it "index", beside a "counter"
+indicating the number of events in the queue. Or perhaps a pair
+of consumer and producer indexes that wrap at end of a limit.
 
-Regards,
-Vanshi
+> > > IOMMU_VEVENTQ_STATE_OVERFLOW with a 0 length event is seen if events
+> > > have been lost and no subsequent events are present. It exists to
+> > > ensure timely delivery of the overflow event to userspace. counter
+> > > will be the sequence number of the next successful event.
+> > 
+> > So userspace should first read the header to decide whether or not
+> > to read a vEVENT. If header is overflows, it should skip the vEVENT
+> > struct and read the next header?
+> 
+> Yes, but there won't be a next header. overflow would always be the
+> last thing in a read() response. If there is another event then
+> overflow is indicated by non-monotonic count.
 
->
->---
->BR
->Beata
->>
->> >  		ret = sysfs_emit(buf, "%u\n", freq);
->> >  	else if (cpufreq_driver->setpolicy && cpufreq_driver->get)
->> >  		ret = sysfs_emit(buf, "%u\n", cpufreq_driver->get(policy->cpu));
->> > diff --git a/include/linux/cpufreq.h b/include/linux/cpufreq.h
->> > index 7fe0981a7e46..02fd4746231d 100644
->> > --- a/include/linux/cpufreq.h
->> > +++ b/include/linux/cpufreq.h
->> > @@ -1184,7 +1184,7 @@ static inline int of_perf_domain_get_sharing_cpumask(int pcpu, const char *list_
->> >  }
->> >  #endif
->> >
->> > -extern unsigned int arch_freq_get_on_cpu(int cpu);
->> > +extern int arch_freq_get_on_cpu(int cpu);
->> >
->> >  #ifndef arch_set_freq_scale
->> >  static __always_inline
->> > --
->> > 2.25.1
->>
->> --
->> viresh
+I am not 100% sure why "overflow would always be the last thing
+in a read() response". I thought that kernel should immediately
+report an overflow to user space when the vEVENTQ is overflowed.
+
+Yet, thinking about this once again: user space actually has its
+own queue. There's probably no point in letting it know about an
+overflow immediately when the kernel vEVENTQ overflows until its
+own user queue overflows after it reads the entire vEVENTQ so it
+can trigger a vHW event/irq to the VM?
+
+> > > If events are lost in the middle of the queue then flags will remain 0
+> > > but counter will become non-montonic. A counter delta > 1 indicates
+> > > that many events have been lost.
+> > 
+> > I don't quite get the "no subsequent events" v.s. "in the middle of
+> > the queue"..
+> 
+> I mean to supress specific overflow events to userspace if the counter already
+> fully indicates overflow.
+> 
+> The purpose of the overflow event is specifically, and only, to
+> indicate immediately that an overflow occured at the end of the queue,
+> and no additional events have been pushed since the overflow.
+> 
+> Without this we could loose an event and userspace may not realize
+> it for a long time.
+
+I see. Because there is no further new event, there would be no
+new index to indicate a gap. Thus, we need an overflow node.
+
+> > The producer is the driver calling iommufd_viommu_report_event that
+> > only produces a single vEVENT at a time. When the number of vEVENTs
+> > in the vEVENTQ hits the @veventq_depth, it won't insert new vEVENTs
+> > but add an overflow (or exception) node to the head of deliver list
+> > and increase the producer index so the next vEVENT that can find an
+> > empty space in the queue will have an index with a gap (delta >= 1)?
+> 
+> Yes, but each new overflow should move the single preallocated
+> overflow node back to the end of the list, and the read side should
+> skip the overflow node if it is not the last entry in the list
+
+If the number of events in the queue is below @veventq_depth as
+userspace consumed the events from the queue, I think a new
+iommufd_viommu_report_event call should delete the overflow node
+from the end of the list, right? Since it can just insert a new
+event to the list by marking it a non-monotonic index..
+
+Thanks!
+Nicolin
 
