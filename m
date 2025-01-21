@@ -4,90 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A91D9C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 08:07:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 407AAC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 08:12:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N8zx6HqiP0IYCIOJkJv49NyaMCMfUqHrZKQYAY9p22I=; b=a2Fljfy5mc1SNjHMTIsg2iHr7O
-	w58lS8ejWO86trozMadfYEdI/0VAPkPRREVSBxSejDjAj7WlNOoBydEk/hr4v8Mo6nE+g8kb0ygDs
-	LoOU1TP1D+32GarMJ2pRuqtUBb+h5xtrfpKN5G3X75F3Y8wXVNkNBlRjj+uLpdi82/PSC+MHSJEoT
-	Rk8IPMrYoPNQhg0lvvLZtOxXjxS7Ud5f1PUoGofctGHfFyk1WT3qR+ePChbOLerF2ZL49lQoBi0XV
-	LzrDsXNB7w+X3rV1SskT9aibpfPOXy9z/K2CmZnqmnCPy3FkylxkMYtkseijUz9t6SmgfZDS8/vpI
-	ndG/6I+g==;
+	bh=log5WJR6IyFtuTXAcIDevkvz4g0SqLN743hcIngb+So=; b=XLyZTZF/Ee7fGdReI9TpjIgz46
+	1HRdS/jug27iT1PPxiQbFjavbx75JtV9rvY7MTP8tLZ15nvwVnlAoK7Elq/Mi4E2Sy4oEZi8IUi5Z
+	eMsakNNsRFxf+PFCiLPpte/WURSwHNdk2COdJS9Nvfoc2hdKMJ1cSLexhnbftzpIXGSvlTcpHAlrA
+	n6tLhnaOB+j+FW95BmPJJY0Ac8wqCHjVkX2tQ+f3O8mNAFM8TeVZkidFkzFm2y4wXuJMjEGQ2oQOy
+	J8NKdX85IHCkXWsb8738a7UUjeZmdjqOxRyjMpwXb0Wi5Rq5JcW+I64XuTFdSbZ7JkhF+w6ifYvYE
+	7hV8ZfiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ta9IV-00000007D8g-1UwX;
-	Tue, 21 Jan 2025 08:07:43 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1ta9Mk-00000007E6H-2DgG;
+	Tue, 21 Jan 2025 08:12:06 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ta9Ej-00000007CaF-34lL
+	id 1ta9LS-00000007DgO-3YD9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 08:03:50 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-385de9f789cso4022670f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jan 2025 00:03:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737446628; x=1738051428; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=N8zx6HqiP0IYCIOJkJv49NyaMCMfUqHrZKQYAY9p22I=;
-        b=JbsyV7/3iUGkOfwYDX31CCgWMP28GNo0AXMfDn+jndD3VnFCTUrE0WrOHCqeh/Z/oq
-         oT6JyrpychFiKsSH+J+R7I7dJ1x48xcqt5jrKuVtyg2L0S9gdcTdQ9ROg/nEXWeP5nwq
-         e3vmNMovTPfpPhDocfaME9WAfXi5R9SMoicA2uU3CwM3w6bnieYa4JMSTWXaQhQVEYZQ
-         QJAnq7Tr+tkTtolkTgRCmzJP1Abz5V7ivKST5bq5fHiHbXEYkByOnCJDhodntApDcy4/
-         eyv+gsfHIG/svYzSu2YiKP5sH14B4JSG28eDw61pZJfQx7UZdRlEAzRPRE3y9bp9pSuP
-         yhpA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737446628; x=1738051428;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=N8zx6HqiP0IYCIOJkJv49NyaMCMfUqHrZKQYAY9p22I=;
-        b=H6DxYF7jm41Xo5OaS47nXSS9ttAa52ps8jwm0myDohbTXf6dwL0ZPEqKDcaoc/GQtB
-         AUS3e6Sn0IJvuFvotq2Z0Lk2JxQTojLuyf9yzNkKfStBsJdpDPUmD10G/zy6MxIQXphF
-         3ZeCOdGQsxU0zjPMJ6+RDKvSz3AtZy3PJDW7lSHa7Tw/3l2v+bzlG46QakYx3CrM6RW5
-         UXXauu/FjTbGpV2oS1aClgEqUGsxcoRXRp0XMR77Hzqg0kTlOK/s6rpsHnOnxBsUa+oR
-         BGDIXGI+nnDjOt4qMyf3bsMt78j2tNS1JFs7ao0NhI6HQSA4Gcp1W2F3sHE4Qpo7N/3G
-         i9gw==
-X-Gm-Message-State: AOJu0Yxb9m/YAmr9isNacIPlBLtd169QACF8mmaEbxczkMF1lTudVQPQ
-	yULM95iMKf11oWS+dpKHYIzR/Zfnjg5YI5QZw9hrmYudakKlIQCHATS99GYjNEg=
-X-Gm-Gg: ASbGncvjgGJ8JknF4ZHJqsKbkX5rE/Ym9xXtFHtvSW9YH4vOZvJSM4Vghl9jrGy1VMQ
-	qUchYSt5/G1jil42eVGmOwsEzjlncCuy//Ss22+K7mhHJwyKAnAMLuEhdYt5XBiNQP5TnX50K6L
-	6+4OE18rY8y9kXWbEY6/BPMucONnlUH2yxKkfcEcFw5nw0/8kK9JSPXFiXrMH9RIuLzg0S3eJh9
-	pWSBX5yOI6q5pLMRgDXv7E7xPA5VWx7iyg6vN8lTh4s/jSMfTrrI9QN7ienrbSSxgVvczXbUqU=
-X-Google-Smtp-Source: AGHT+IHrNBKASCNdy9476OAsuENS8PkN67B0BVHI6CbHYNScLbwyX+0XbsUcr7Ex8YfKUrH7iaH6kQ==
-X-Received: by 2002:a5d:64a1:0:b0:385:f44a:a53 with SMTP id ffacd0b85a97d-38bf5655b07mr12484539f8f.4.1737446627668;
-        Tue, 21 Jan 2025 00:03:47 -0800 (PST)
-Received: from [10.1.1.109] ([80.111.64.44])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38bf321508esm12791757f8f.10.2025.01.21.00.03.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Jan 2025 00:03:47 -0800 (PST)
-Message-ID: <09af67d5ab80c6891d546cc74261866999af4433.camel@linaro.org>
-Subject: Re: [PATCH 1/3] pinctrl: samsung: add support for eint_fltcon_offset
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Peter Griffin <peter.griffin@linaro.org>, Krzysztof Kozlowski
- <krzk@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, Alim Akhtar
- <alim.akhtar@samsung.com>, Linus Walleij <linus.walleij@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
-  linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
- tudor.ambarus@linaro.org, willmcvicker@google.com,
- semen.protsenko@linaro.org,  kernel-team@android.com,
- jaewon02.kim@samsung.com
-Date: Tue, 21 Jan 2025 08:03:46 +0000
-In-Reply-To: <20250120-pinctrl-fltcon-suspend-v1-1-e77900b2a854@linaro.org>
-References: <20250120-pinctrl-fltcon-suspend-v1-0-e77900b2a854@linaro.org>
-	 <20250120-pinctrl-fltcon-suspend-v1-1-e77900b2a854@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.1-4 
+	Tue, 21 Jan 2025 08:10:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 61E58A41082;
+	Tue, 21 Jan 2025 08:08:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12DDFC4CEDF;
+	Tue, 21 Jan 2025 08:10:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737447045;
+	bh=4E7ESDSaf4+a9ETUc/ps41hfuefD5kFw+WeQW47jS/w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XAPnB6Vhwla9Scsq5i5MuiaGhM3QVdz960fI6LZ/OI7koDCehme0oy9Rp1caBgxva
+	 NZXRBTpVwhPlxlSm1hHI/Npl0Hge7XGmv1hirB71Bt7hH8k74bE5GBrtwvmV/pFaM7
+	 5flnvBN+atF8z4a+oVz8GANOFhdGXcgiqYneXjGrgN0GbUG7LhdzgTythBzrq9tmuc
+	 JnX2eIlcPaJ+HoJHE7tCrCL6JGa1+mGH6dCvmtOEcupihZ67hydxdiDizuDOcGjt6L
+	 m+flK7O7RDyt7rFpwT15n9gKZ2+00ZtClZXdH9Fw38jUa17cxvixE7/Iuputf3ywmn
+	 fn9oTH1iDRA1Q==
+Date: Tue, 21 Jan 2025 09:10:42 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Marc Kleine-Budde <mkl@pengutronix.de>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	kernel@pengutronix.de, devicetree@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Leonard =?utf-8?B?R8O2aHJz?= <l.goehrs@pengutronix.de>
+Subject: Re: [PATCH stm32-next v2 2/2] ARM: dts: stm32: lxa-fairytux2: add
+ Linux Automation GmbH FairyTux 2
+Message-ID: <20250121-sparkling-screeching-bison-eadce1@krzk-bin>
+References: <20250120-lxa-fairytux-v2-0-95f4a0eaa44d@pengutronix.de>
+ <20250120-lxa-fairytux-v2-2-95f4a0eaa44d@pengutronix.de>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20250120-lxa-fairytux-v2-2-95f4a0eaa44d@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_000349_831482_AEEE63AA 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20250121_001047_014779_D85AD122 
+X-CRM114-Status: GOOD (  20.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,20 +78,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2025-01-20 at 22:34 +0000, Peter Griffin wrote:
-> On gs101 SoC the fltcon0 (filter configuration 0) offset
-> isn't at a fixed offset like previous SoCs as the fltcon1
-> register only exists when there are more than 4 pins in the
-> bank.
->=20
-> Add a eint_fltcon_offset and new GS101_PIN_BANK_EINT*
-> macros that take an additional fltcon_offs variable.
->=20
-> This can then be used in suspend/resume callbacks to
-> save and restore the fltcon0 and fltcon1 registers.
->=20
-> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+On Mon, Jan 20, 2025 at 05:33:48PM +0100, Marc Kleine-Budde wrote:
+> +&i2c1 {
+> +	pinctrl-names =3D "default", "sleep";
+> +	pinctrl-0 =3D <&i2c1_pins_b>;
+> +	pinctrl-1 =3D <&i2c1_sleep_pins_b>;
+> +	status =3D "okay";
+> +
+> +	io_board_gpio: gpio6408@20 {
 
-Reviewed-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+Not much improved here. I gave even link with examples and there is no
+example there called "gpio48548796573467346574" or whatever number there
+would be.
+
+So again: node names should be generic. gpio@
+
+> +		compatible =3D "ti,tca6408";
+> +		reg =3D <0x20>;
+> +		gpio-controller;
+> +		#gpio-cells =3D <2>;
+> +		vcc-supply =3D <&v3v3_hdmi>;
+> +		gpio-line-names =3D "LED1_GA_YK", "LED2_GA_YK", "LED1_GK_YA", "LED2_GK=
+_YA",
+> +				  "RS485_EN", "RS485_120R", "", "CAN_120R";
+> +	};
+> +};
+> +
+> +&led_controller_io {
+> +	/*
+> +	 * led-2 and led-3 are internally connected antiparallel to one
+> +	 * another inside the ethernet jack like this:
+> +	 * GPIO1 ---+---|led-2|>--+--- GPIO3
+> +	 *          +--<|led-3|---+
+> +	 * E.g. only one of the LEDs can be illuminated at a time while
+> +	 * the other output must be driven low.
+> +	 * This should likely be implemented using a multi color LED
+> +	 * driver for antiparallel LEDs.
+> +	 */
+> +	led-2 {
+> +		label =3D "green:act";
+
+I don't see improvements here either. Where is color property? Where is
+function?
+
+Again, drop label.
+
+> +		gpios =3D <&io_board_gpio 1 GPIO_ACTIVE_HIGH>;
+> +	};
+> +
+> +	led-3 {
+> +		label =3D "orange:act";
+> +		gpios =3D <&io_board_gpio 3 GPIO_ACTIVE_HIGH>;
+> +	};
+> +};
+> +
+> +&usart3 {
+> +	/*
+> +	 * On Gen 1 FairyTux 2 only RTS can be used and not CTS as well,
+> +	 * Because pins PD11 (CTS) and PI11 (USER_BTN1) share the same
+> +	 * interrupt and only one of them can be used at a time.
+> +	 */
+> +	rts-gpios =3D <&gpiod 12 GPIO_ACTIVE_LOW>;
+> +};
+> +
+> +&usbotg_hs {
+> +	dr_mode =3D "peripheral";
+> +};
+> diff --git a/arch/arm/boot/dts/st/stm32mp153c-lxa-fairytux2-gen2.dts b/ar=
+ch/arm/boot/dts/st/stm32mp153c-lxa-fairytux2-gen2.dts
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..f263e30e6bcee751b5d550e00=
+a202d2100c5f9fc
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/st/stm32mp153c-lxa-fairytux2-gen2.dts
+> @@ -0,0 +1,146 @@
+> +// SPDX-License-Identifier: (GPL-2.0-or-later OR BSD-3-Clause)
+> +/*
+> + * Copyright (C) 2024 Leonard G=C3=B6hrs, Pengutronix
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "stm32mp153c-lxa-fairytux2.dtsi"
+> +
+> +/ {
+> +	model =3D "Linux Automation GmbH FairyTux 2 Gen 2";
+> +	compatible =3D "lxa,stm32mp153c-fairytux2-gen2", "oct,stm32mp153x-osd32=
+", "st,stm32mp153";
+> +
+> +	gpio-keys {
+> +		compatible =3D "gpio-keys";
+> +
+> +		button-left {
+> +			label =3D "USER_BTN1";
+> +			linux,code =3D <KEY_ESC>;
+> +			gpios =3D <&gpioi 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+> +		};
+> +
+> +		button-right {
+> +			label =3D "USER_BTN2";
+> +			linux,code =3D <KEY_HOME>;
+> +			gpios =3D <&gpioe 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+> +		};
+> +	};
+> +};
+> +
+> +&gpiof {
+> +	gpio-line-names =3D "", "", "", "", "",				/*  0 */
+> +			  "", "", "", "", "",				/*  5 */
+> +			  "", "", "", "", "",				/* 10 */
+> +			  "";						/* 15 */
+> +};
+> +
+> +&gpioh {
+> +	gpio-line-names =3D "", "", "", "", "LCD_RESET",			/*  0 */
+> +			  "", "", "", "", "",				/*  5 */
+> +			  "", "", "GPIO1", "GPIO_INT", "",		/* 10 */
+> +			  "";						/* 15 */
+> +};
+> +
+> +&gpioi {
+> +	gpio-line-names =3D "GPIO2", "", "", "", "",			/*  0 */
+> +			  "", "", "", "ETH_", "",			/*  5 */
+> +			  "", "USER_BTN1";				/* 10 */
+> +};
+> +
+> +&i2c1 {
+> +	pinctrl-names =3D "default", "sleep";
+> +	pinctrl-0 =3D <&i2c1_pins_b>;
+> +	pinctrl-1 =3D <&i2c1_sleep_pins_b>;
+> +	status =3D "okay";
+> +
+> +	io_board_gpio: gpio6408@20 {
+
+Same problem
+
+> +		compatible =3D "ti,tca6408";
+> +		reg =3D <0x20>;
+> +		gpio-controller;
+> +		#gpio-cells =3D <2>;
+> +		interrupt-parent =3D <&gpioh>;
+> +		interrupts =3D <13 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-controller;
+> +		pinctrl-names =3D "default";
+> +		pinctrl-0 =3D <&board_tca6408_pins>;
+> +		#interrupt-cells =3D <2>;
+> +		vcc-supply =3D <&v3v3_hdmi>;
+> +		gpio-line-names =3D "LED1_GA_YK", "LED2_GA_YK", "LED1_GK_YA", "USB_CC_=
+ALERT",
+> +				  "RS485_EN", "RS485_120R", "USB_CC_RESET", "CAN_120R";
+> +	};
+> +
+> +	usb_c: tcpc@28 {
+
+If this is typec, then typec@
+
+> +		compatible =3D "st,stusb1600";
+> +		reg =3D <0x28>;
+> +		interrupt-parent =3D <&io_board_gpio>;
+> +		interrupts =3D <3 IRQ_TYPE_EDGE_FALLING>;
+> +		vdd-supply =3D <&reg_5v>;
+> +		vsys-supply =3D <&v3v3_hdmi>;
+> +
+> +		connector {
+> +			compatible =3D "usb-c-connector";
+> +			label =3D "USB-C";
+> +			power-role =3D "dual";
+> +			typec-power-opmode =3D "default";
+> +
+> +			port {
+> +				con_usbotg_hs_ep: endpoint {
+> +					remote-endpoint =3D <&usbotg_hs_ep>;
+> +				};
+> +			};
+> +		};
+> +	};
+> +
+> +	io_board_eeprom: eeprom@56 {
+> +		compatible =3D "atmel,24c04";
+> +		reg =3D <0x56>;
+> +		vcc-supply =3D <&v3v3_hdmi>;
+> +	};
+> +
+> +	temperature-sensor@48 {
+
+BTW, keep order of nodes. Preferred is by unit address.
+
+Best regards,
+Krzysztof
 
 
