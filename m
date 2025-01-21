@@ -4,71 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B921C02185
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 10:28:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDA51C0218B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 10:29:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/OmIbVSBxCrvBjAdO8eLjGzfDpvYZ4LSoIcp75CzZqk=; b=FRLTuKwFOyUIqa+TCiMOwJt29h
-	aEtbHn90Obw4H2eDFczIqlzko+MzwPkChKLAVBHb9EBsB6k+cO/0MFpWG+FWNLUBesd6JTu2xlVKo
-	Rnlzl0MMNlom8SvnTZww+HeNog4BK+4Pbj0ab1OK9yoDxm3oEm+HEcI3NUWFGmGspvIdNDz8fzf8n
-	gVqiyfPhG1fAPsZw2jsGoFxVtSIHtnX8JnN1rm9OiO1Lv491QKrn0WBDARvf4CpAB3rzpILyJkQR9
-	Zkz/AiWvk1hLX2O1Gdc8C/wPWqDf+i2jZ4BHIqDISVmXk4FyYdtwEJ9jjXIsD/FMSRTl9vO60zkrM
-	+iB4D1tw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w5SY3ixS2vGf5OsjUh3qWK0Ry9P1z8jaz5mDXOxz1ZU=; b=p6fKNpRX7bClCDpE/mR9XTW8VL
+	zl4tic9WeDaR3mIDy5W/zb2Q0pgx1mOvyMC5FI/PH0yIit+D/QezMsbaKZ1m6wr7tSW5uQPuoQpL6
+	+RvrU3cVr7/RaCzjgn2cXDg6W8l0USs+uLODg4yrqh6havY/fWo4prmN/zEL/WLu9tiTrzNJZ4o/U
+	DP/fobfyWItHp0VVINNpQuX/7/yZpcVqcfI/oSPle6l7cOdz3QIptLJiJLuIzUGrZ6EHZSVFKtSfb
+	6yn5s91W2uoVKpymDp0MzpgBFiLv/cBOVPXrrZD3N6agnfXad7jEZllJ9sp+MZ5UOwFccNfXxf69J
+	xgAReZMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taBUN-00000007Zd3-44yW;
-	Tue, 21 Jan 2025 10:28:07 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1taBVq-00000007a13-40nn;
+	Tue, 21 Jan 2025 10:29:38 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taBT6-00000007ZJq-0MFH
+	id 1taBUX-00000007ZEQ-35KT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 10:26:49 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1taBSt-0006uR-6B; Tue, 21 Jan 2025 11:26:35 +0100
-Message-ID: <449b4618-7d06-49c8-b521-5fdd02a2ba1b@pengutronix.de>
-Date: Tue, 21 Jan 2025 11:26:33 +0100
+	Tue, 21 Jan 2025 10:28:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=w5SY3ixS2vGf5OsjUh3qWK0Ry9P1z8jaz5mDXOxz1ZU=; b=cyX/jYjGB1FPjJydxCZWUDLLHK
+	7aeF842Hs7W4CSWW23q+pFVdtjVG3Y+tD7EoDzTrsqGUQdGlXBxsHxudB+7wFVSwNAKeqTE1KL7pi
+	ZG/r4GCwhoIC1NlqIJsnnrxNncSn8sYcRSVRI1Ljh84zwwC1KYGXQQg0c21lcbBAxVOnJDXQxIilR
+	lL3zwrwXu3fCXJ1S7FTG5kPUhL8FuvcpFI1vRI4XdWATP6R2X3y/mSaxAnK+CleT/hmIDVAaEsLSE
+	P9DIWC5HUYObLadSYDH5UNhRgIcjX7BWeqInmGTlSAysGz1snRkohC0KLfb12dYHDk5GUdEvuspDR
+	37QFTyrA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:42832)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1taBSI-000767-17;
+	Tue, 21 Jan 2025 10:25:58 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1taBSE-0003pB-1H;
+	Tue, 21 Jan 2025 10:25:54 +0000
+Date: Tue, 21 Jan 2025 10:25:54 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Furong Xu <0x1207@gmail.com>, Joao Pinto <Joao.Pinto@synopsys.com>,
+	Vince Bridgers <vbridger@opensource.altera.com>,
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v2 0/3] Limit devicetree parameters to hardware
+ capability
+Message-ID: <Z492Mvw-BxLBR1eZ@shell.armlinux.org.uk>
+References: <20250121044138.2883912-1-hayashi.kunihiko@socionext.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] gpiolib: add opt-out for existing drivers with static
- GPIO base
-To: Kent Gibson <warthog618@gmail.com>
-Cc: Andy Shevchenko <andy.shevchenko@gmail.com>,
- Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski
- <brgl@bgdev.pl>, Andy Whitcroft <apw@canonical.com>,
- Joe Perches <joe@perches.com>, Dwaipayan Ray <dwaipayanray1@gmail.com>,
- Lukas Bulwahn <lukas.bulwahn@gmail.com>, Fabio Estevam <festevam@gmail.com>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Dario Binacchi <dario.binacchi@amarulasolutions.com>,
- Haibo Chen <haibo.chen@nxp.com>,
- Catalin Popescu <catalin.popescu@leica-geosystems.com>,
- linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20250113-b4-imx-gpio-base-warning-v1-0-0a28731a5cf6@pengutronix.de>
- <20250113-b4-imx-gpio-base-warning-v1-1-0a28731a5cf6@pengutronix.de>
- <CAHp75VcnB37ET8mW=m5sXwP4qDQDUPKL0yRy8n49m++zShqPMA@mail.gmail.com>
- <97baffcd-35cc-49a0-95e9-d1ceac966dc3@pengutronix.de>
- <CAHp75VfAmqzKxgXTc9TqeFOeGSr_D3NmCa0M7+4Zf37CofrHeg@mail.gmail.com>
- <40531a5e-993f-4532-b071-6f233d6923f8@pengutronix.de>
- <20250115130432.GA159787@rigel>
-Content-Language: en-US
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-In-Reply-To: <20250115130432.GA159787@rigel>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250121044138.2883912-1-hayashi.kunihiko@socionext.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_022648_122739_82687311 
-X-CRM114-Status: GOOD (  27.18  )
+X-CRM114-CacheID: sfid-20250121_022817_777903_075EB729 
+X-CRM114-Status: GOOD (  15.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,80 +88,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kent,
-
-On 15.01.25 14:04, Kent Gibson wrote:
-> On Wed, Jan 15, 2025 at 08:07:38AM +0100, Ahmad Fatoum wrote:
->> On 14.01.25 20:38, Andy Shevchenko wrote:
->>> On Tue, Jan 14, 2025 at 12:06 PM Ahmad Fatoum <a.fatoum@pengutronix.de> wrote:
->>>> On 14.01.25 10:49, Andy Shevchenko wrote:
->>>>> On Tue, Jan 14, 2025 at 12:20 AM Ahmad Fatoum <a.fatoum@pengutronix.de> wrote:
->>>>>>
->>>>>> Some drivers have had deterministic GPIO numbering for most of
->>>>>> their existence, e.g. the i.MX GPIO since commit 7e6086d9e54a
->>>>>> ("gpio/mxc: specify gpio base for device tree probe"), more than
->>>>>> 12 years ago.
->>>>>>
->>>>>> Reverting this to dynamically numbered will break existing setups in
->>>>>> the worst manner possible: The build will succeed, the kernel will not
->>>>>> print warnings, but users will find their devices essentially toggling
->>>>>> GPIOs at random with the potential of permanent damage.
->>>>>>
->>>>>> As these concerns won't go away until the sysfs interface is removed,
->>>>>> let's add a new struct gpio_chip::legacy_static_base member that can be
->>>>>> used by existing drivers that have been grandfathered in to suppress
->>>>>> the warning currently being printed:
->>>>>>
->>>>>>   gpio gpiochip0: Static allocation of GPIO base is deprecated,
->>>>>>   use dynamic allocation.
->>>>>
->>>>> Warning is harmless and still a good reminder for the stuff that needs
->>>>> more love.
->>>>> NAK.
->>>>
->>>> A warning is a call-to-action and it's counterproductive to keep tricking
->>>> people into removing the static base and breaking other users' scripts.
->>>
->>> Are you prepared to say the same when the entire GPIO SYSFS will be
->>> removed? Because that's exactly what I referred to in the reply to the
->>> cover letter as an impediment to move forward.
->>
->> No. But this gives me an idea: We could make the warning dependent
->> on CONFIG_GPIO_SYSFS and add a comment to the i.MX code suggesting
->> users do that instead. What do you think?
->>
+On Tue, Jan 21, 2025 at 01:41:35PM +0900, Kunihiko Hayashi wrote:
+> This series includes patches that checks the devicetree properties,
+> the number of MTL queues and FIFO size values, and if these specified
+> values exceed the value contained in the hardware capabilities, limit to
+> the values from the capabilities.
 > 
-> AIUI, the purpose of the warning is to remind driver authors, not end users,
-> to update their drivers, as the old behaviour is deprecated. That is
-> independent of GPIO SYSFS - that just happens to be something that makes the
-> change visible to userspace.
-> 
-> Rather than making the warning conditional, how about making the fix for the
-> warning in your driver, so switching to dynamic allocation, conditional on
-> CONFIG_GPIO_SYSFS not being set?
-> That would provide a path forward for users that want to dispense with
-> the warning - as long as they dispense with GPIO SYSFS.
+> And this sets hardware capability values if FIFO sizes are not specified
+> and removes redundant lines.
 
-That could work for gpio-mxc, provided that SysFS is the only user for which
-the static base matters. I assume that's the case, but I am not sure.
+I think you also indeed to explain why (and possibly understand) - if
+there are hardware capabilities that describe these parameters - it has
+been necessary to have them in firmware as well.
 
-An argument for suppressing the warning selectively in the GPIO core is that
-this doesn't only affect gpio-mxc, but also e.g. gpio-zynq or gpio-mxs.
+There are two scenarios I can think of why these would be duplicated:
 
-Cheers,
-Ahmad
+1. firmware/platform capabilities are there to correct wrong values
+   provided by the hardware.
+2. firmware/platform capabilities are there to reduce the parameters
+   below hardware maximums.
 
+Which it is affects whether your patch is correct or not, and thus needs
+to be mentioned.
 
+Finally, as you are submitting to the net tree, you really need to
+describe what has regressed in the driver. To me, this looks like a new
+"feature" to validate parameters against the hardware.
 
-> 
-> Cheers,
-> Kent.
-> 
+Please answer these points in this email thread. Please also include
+the explanation in future postings.
 
+Thanks.
 
 -- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
