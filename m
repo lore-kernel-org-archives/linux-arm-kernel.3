@@ -4,78 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10CABC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 09:05:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73F49C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 09:18:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Pc2PEdnGFpaGBgL/oJAKRuPoe5iwoPem8ceWmvXk0o=; b=I4xVfMn/CF+HwVTuSEfVsVUI4Y
-	+K/pCYB6enGyOWmS4wRV6THiauLx+7S6la1NbGMnnZ94TbB0Yqb571agdahRF9VRC6l4xiulroBXy
-	McZleyChxXY9JVxSMe1Z01fDdkjWRkMG0HKXieo0nekMLmeXLrF2kn/hmIGdnIX0YeqBXEAUQ4r54
-	eiizFxNdt6zj8GrgjCZuM6+9ZYEz+ot+hZivZMWtSa7wJWEQg1AXpxPGJLE6SmKPcC3N+OnLToz4W
-	6yDeQ3zFk7TuxaNqD9M4pOqJzJPM1GKU6j56JWgf74kgcbWWgnkW9Fpv0lEYhci/uetEetjkVNwA5
-	ToV9bQZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WybZHGOekReVNQCkWnvWUK4UlVXmv6kKckTNAu3ItQg=; b=RqXkmx8Ssmn12wSpuXH80J1Eea
+	hIeowuR3sx+DpivVwN68gOAA5Wm630s9tpLdaEkU+ctK+YUjArREie3AJIAAuFgCx3O4kSP79v/Dz
+	gd4guwbgF8gmfhzlxzeyxNHTdaOtPw6zOjDX6CESIbbFOLrww+1u23vLxUL5jNScJJ/fnBY6J4ecD
+	bPlsYRz4fZK24uFNKlQcWdlLGS20HZGEXzghnhdOvEqIQDeqJtorm5yIBH3IL47gIhSmxNy7VN50F
+	2JJ2b6nfJLK6e1NK+C2i8Kz+BZeS6aEcBFZkPh3sqQt3z8q8/wwnHnhxPdMBfbCcqlNTc1M46m/+V
+	4R/++PrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taACd-00000007MjK-2B0H;
-	Tue, 21 Jan 2025 09:05:43 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1taAP2-00000007O3O-3ot3;
+	Tue, 21 Jan 2025 09:18:32 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taABL-00000007MTY-34yq
+	id 1taANl-00000007Npy-1ukE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 09:04:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 74A3BA41302;
-	Tue, 21 Jan 2025 09:02:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3280C4CEDF;
-	Tue, 21 Jan 2025 09:04:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737450262;
-	bh=834LCvceUx526IEmw0ApuQZvBNYCCIxRzLlO39/DYQI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FGKpB0djZnPUbicSPAkZ7dNLNaZZr7Yhhp0DDXD6Sr5YIn+toCie5iW+Ob+NJ6mJj
-	 y2OWAxJ1Kpk+OuyRbcAiqO5soJWT8iAJ3wJGk8fxYVPzu3rLC+iGEFOhrM7yhtd1gF
-	 JQYuhW8prhTcIXuySzvxBsoohj8DyjjayCU46/O8cqWovekK6CQCBidsX2tzTsl/2l
-	 YoXIO0g2YCn0GGO6J+WQW1hKwcMPlL+Z2FeWNrl1j0Uae00MXmFKFY7iDDcOWkWirx
-	 pvnQb3MiW9PPLcfB14Kmd3+4Q2eZCy5ZjpP8Dw8pJECRdJIcIpMVKMKAbTyFrJdrzu
-	 kRqHwb+nySa9A==
-Date: Tue, 21 Jan 2025 10:04:19 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Joy Zou <joy.zou@nxp.com>
-Cc: "robh@kernel.org" <robh@kernel.org>, 
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>, 
-	"shawnguo@kernel.org" <shawnguo@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, 
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>, 
-	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, 
-	"joao.goncalves@toradex.com" <joao.goncalves@toradex.com>, "marex@denx.de" <marex@denx.de>, 
-	"hvilleneuve@dimonoff.com" <hvilleneuve@dimonoff.com>, "hiago.franco@toradex.com" <hiago.franco@toradex.com>, 
-	Peng Fan <peng.fan@nxp.com>, "frieder.schrempf@kontron.de" <frieder.schrempf@kontron.de>, 
-	"alexander.stein@ew.tq-group.com" <alexander.stein@ew.tq-group.com>, "m.othacehe@gmail.com" <m.othacehe@gmail.com>, 
-	"mwalle@kernel.org" <mwalle@kernel.org>, "Max.Merchel@ew.tq-group.com" <Max.Merchel@ew.tq-group.com>, 
-	"quic_bjorande@quicinc.com" <quic_bjorande@quicinc.com>, "geert+renesas@glider.be" <geert+renesas@glider.be>, 
-	"dmitry.baryshkov@linaro.org" <dmitry.baryshkov@linaro.org>, "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>, 
-	"arnd@arndb.de" <arnd@arndb.de>, "nfraprado@collabora.com" <nfraprado@collabora.com>, 
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"imx@lists.linux.dev" <imx@lists.linux.dev>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, Jacky Bai <ping.bai@nxp.com>, Ye Li <ye.li@nxp.com>, 
-	Aisheng Dong <aisheng.dong@nxp.com>, Frank Li <frank.li@nxp.com>, Carlos Song <carlos.song@nxp.com>
-Subject: Re: [EXT] Re: [PATCH v4 5/5] arm64: dts: imx93: Add labels for the
- references easier
-Message-ID: <20250121-belligerent-elephant-of-courage-ed8caa@krzk-bin>
-References: <20250121074017.2819285-1-joy.zou@nxp.com>
- <20250121074017.2819285-6-joy.zou@nxp.com>
- <870da365-bb18-47a7-ab78-62ce8a663559@kernel.org>
- <AS4PR04MB9386C8D1E2FF247C28D38BD0E1E62@AS4PR04MB9386.eurprd04.prod.outlook.com>
+	Tue, 21 Jan 2025 09:17:14 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <a.fatoum@pengutronix.de>)
+	id 1taANV-0001x0-1a; Tue, 21 Jan 2025 10:16:57 +0100
+Message-ID: <1f7289e7-8e5f-448c-a443-2f27a43e640e@pengutronix.de>
+Date: Tue, 21 Jan 2025 10:16:54 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <AS4PR04MB9386C8D1E2FF247C28D38BD0E1E62@AS4PR04MB9386.eurprd04.prod.outlook.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: Recall: [PATCH v11 0/7] v12: firmware: imx: driver for NXP
+ secure-enclave
+To: Pankaj Gupta <pankaj.gupta@nxp.com>, Jonathan Corbet <corbet@lwn.net>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, Conor Dooley <conor@kernel.org>
+References: <AM9PR04MB86041F11E6744FB41C40CECA95E72@AM9PR04MB8604.eurprd04.prod.outlook.com>
+Content-Language: en-US
+From: Ahmad Fatoum <a.fatoum@pengutronix.de>
+In-Reply-To: <AM9PR04MB86041F11E6744FB41C40CECA95E72@AM9PR04MB8604.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_010423_860186_697401E8 
-X-CRM114-Status: GOOD (  10.20  )
+X-CRM114-CacheID: sfid-20250121_011713_494634_AD2BC208 
+X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,26 +76,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 21, 2025 at 08:25:51AM +0000, Joy Zou wrote:
-> > THERMAL_NO_LIMIT
-> > > THERMAL_NO_LIMIT>, @@ -1334,7 +1334,7 @@ usbmisc2:
-> > usbmisc@4c200200 {
-> > >                       #index-cells = <1>;
-> > >               };
-> > >
-> > > -             ddr-pmu@4e300dc0 {
-> > > +             ddr_pmu: ddr-pmu@4e300dc0 {
-> > 
-> > Useless commit - there are no users.
-> Thanks for your comments!
-> Have used the labels in imx91.dtsi. The imx91.dtsi have included the imx93.dtsi.
+Hello Pankaj,
 
-That's patch 5/5 so I say: impossible.
+On 20.01.25 10:26, Pankaj Gupta wrote:
+> Pankaj Gupta would like to recall the message, "[PATCH v11 0/7] v12: firmware: imx: driver for NXP secure-enclave".
 
-Either you did not understand the commit or your patchset is
-non-bisectable, so anyway that's wrong or fix your builds.
+AFAIK, recall is an outlook-specific feature and most readers on LKMLs
+will just get an email like quoted and thus recalling the message only
+adds noise.
 
-Best regards,
-Krzysztof
+A single reply to the cover letter that this was sent out by mistake
+is enough.
 
+Cheers,
+Ahmad
+
+
+-- 
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
