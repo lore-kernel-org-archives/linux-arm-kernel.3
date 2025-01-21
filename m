@@ -4,111 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2119BC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 12:56:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 388EFC0218B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 12:58:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bXC74PWmtSRlrU5J4GgmUZLneHcWtGa6tCNi3GP26LU=; b=Aya9epNkaAdMUcdNC4/O8mnpQg
-	yPa0FuVEPyTaMThzhpK9sTbA+RYnN+MlmeiWbsgxiX0GGCM2ZZH5OiFIhIlUXljDid8YjApN4FT87
-	dgihhVsDH8GERPqMwRBPexSAGJpgiTBJGNcxlaPBCMg+MbsHsBmoJmBOwv7FZuvtvTWUyNGNncGA0
-	Xzq4KLdeF1CH3TFswlh8NGxGvt5ShymXRrKPY9sFlOL6/3eF7BYm+VRGnjExV5VDxh1KjIV48fZqN
-	cckiP2R7PNjF25MLyzWSyDc6SiwESOwdensRaaz4OrtoynZ72WqRZ8Q2l7MzepYGa/4nyFYV9zgoY
-	znZy/q9Q==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2tKEcOHUOoj6M1N+AbaF6ST0bT5lNvPCmN4NWW4SFdg=; b=WQw1oxkk/tw3lH3o3HVIsKHr/f
+	VmvQ87WmFxAD1nXyp0Y4FkgndirweZCRJTp9oD4EWfotQFzQvHWxqN2xlmA+kkALp+yFqv+K2jdml
+	kdnr3JZFCPTIef9PDXhs4GLIA/V9OaNk0y36askd+W7thv5enFzRacpGHOPYiAhMkH7fsyRm/FWkj
+	TMaTJD8HTN0b5ZJy0xQVUe9vqPihSOqogbKA6EnKbvEqNGtkkGUREdnzsMZ2V+odI1RWzC2YvVfj0
+	37Py6VDcxIJBmacJC2GpUfD9ijMoDSSehnu/OMN0f7dudRqBol+IoSqHUjMtSLBgs5ixtaXtY7MvN
+	2mEfP3Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taDo1-00000007udM-3Zqq;
-	Tue, 21 Jan 2025 12:56:33 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1taDpH-00000007uop-28Cc;
+	Tue, 21 Jan 2025 12:57:51 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taDmk-00000007uTP-3AH0
+	id 1taDnl-00000007ual-3MLy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 12:55:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id AE859A418D3;
-	Tue, 21 Jan 2025 12:53:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33CECC4CEDF;
-	Tue, 21 Jan 2025 12:55:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737464111;
-	bh=2QTP5vZI0WIec9j9DFzXQ4+LctdoFs1ad3x+levD6qA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Ck210LyclgH8uoCSDasWSxH4hpuhhzB6hzZqqRjQqTTOLJ8wBeUz1wsUG1+IFROxa
-	 ktJPOQ2+oPRvJlq5C2ptOcyO7mUDXa5PugDp0H+Lyiz7qydp2s2/OIQs1sjmZ5hsEV
-	 IVzIvDNZaZo6ZUeS9sV24+eaE7z9Vvh1wSOvnOs0YRcyiKiDsnZeCzK+9tjmhT4EPY
-	 O55dtqPEsgmo3Qwe/xj4NJpTgKUt6JQA7qD4EmpILE3ZO8UtDofPh42wT+eeuLl8S2
-	 mTcIrgxi4x6AqKGhVxx4r9elawWPGPNurX0C9gWEeOn9AVCeKpP5hty/4uqnTT+cD0
-	 gIFMopTEY+XZw==
-Message-ID: <c985b741-35db-4e3b-8fe4-8d2085371033@kernel.org>
-Date: Tue, 21 Jan 2025 13:55:02 +0100
+	Tue, 21 Jan 2025 12:56:19 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-ab2e308a99bso1161833566b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jan 2025 04:56:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=thaumatec-com.20230601.gappssmtp.com; s=20230601; t=1737464175; x=1738068975; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=2tKEcOHUOoj6M1N+AbaF6ST0bT5lNvPCmN4NWW4SFdg=;
+        b=2xQH13M2HpkQAvoq9Ci3BXSXgFLb4jbKtPfivBw2eLpxJeKmeYHW1PaXoQGyP26eja
+         iUiu5Y+YoL4FwY+67F4i7hTjIU9aDbtUNgdiqPt6guc1ldXkhHLSEtIsdLhW+oEXOEee
+         Yuf7a3JQrsMUQfe80bRYGDfcd8u9NP8oflZZX7q666mNb+aTqYzvreuH52zx+pBnFXnI
+         pdv2qxkbTW5lWvZzbT2A7JtMnY7SJKNHj2GcazOJg1jU70aaVahmPperjSm43hW7nsG3
+         zTvOg+gYoJMxX9XxZdi0er7rgdO+Jj212ws6H+34gztFJMM12CruU9ShFe52qr7/Qb4+
+         a1qQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737464175; x=1738068975;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=2tKEcOHUOoj6M1N+AbaF6ST0bT5lNvPCmN4NWW4SFdg=;
+        b=Fci86ckO3oGC7iAEzVM2PKuWdWk6NptfnsZVO2L5eTifXCjdwXx7TtorWptcw4Qrs6
+         OxHmcCl96Nib7A3k98geW9jmL20TjrJ586dHMydN8LD0nqmtyNREUvVuDgO4s1Ys+0EJ
+         EIlcn0cfmjyK4jYJ4fEiyEWMwY9GyYedQ+341MZ/rVkZCYFTWt0aGVPn/oFCV1yVqqpR
+         QPD/mb9520Zb/J8u3wL5PV/nuAY4bmLg7FaXDlg7NqQC736Q6r+UlnE6fJ/L2vmh1zEw
+         rm6ssPlCQd+eVl3O9BXTJm6OKj3079h20tM/nhivz6woyKN0glUzkurEmt1sXzy0DxCa
+         jK9w==
+X-Gm-Message-State: AOJu0Yy7kykvXQURIyguz4z1NaiL+L+M0q2+E7nFj54FpXVKijMd3Hvl
+	Ox0MH6jUnqLGgp/lCcaECAgO/uUCAT60ZFq6PGwHSI/CHLlxGTHbe+y7dNyM0lNzdd77DS+kilg
+	L
+X-Gm-Gg: ASbGncvI23P4ODFvbJcfU9NdHJe8G+HaCZzJZVd9BHTVr7xrymxs5j7F16doDZjTipJ
+	sVkmGfJkuSML3UuVLJzbZ1ik+u4B83WYUVPZwOEMBqyS5R9reX/Pvn3Ncw7n9Mj/9ug5WZAsyEO
+	+QdmNA40Es8/H4By6+dQ3RNIli1R4/xM4/G2ebdDqftV+PnAVMoh8H62sXnOIasFc4wan+sgLl3
+	b289qHhIdfO+1utNTegPqCrS1dWi2UOyBnqIeHcxQA2WPlOxToi0gN5Vf+0vCu5OStPom/TOAZB
+	wjc90LgEG0SH6arxkV361mJuCg==
+X-Google-Smtp-Source: AGHT+IHR/cBAroTUZCaiEdxwuMtCTe0EdEvbyOMLExycVSHdkWsyOdkdL4afo+lVY6hdc2SpvD4elg==
+X-Received: by 2002:a17:907:97ce:b0:ab2:f255:59f5 with SMTP id a640c23a62f3a-ab38cc9056cmr1524096566b.16.1737464175468;
+        Tue, 21 Jan 2025 04:56:15 -0800 (PST)
+Received: from lczechowski-Latitude-5440.. ([78.9.4.190])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab384ce0529sm740943866b.43.2025.01.21.04.56.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 21 Jan 2025 04:56:14 -0800 (PST)
+From: Lukasz Czechowski <lukasz.czechowski@thaumatec.com>
+To: linux-arm-kernel@lists.infradead.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	heiko@sntech.de,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: quentin.schulz@cherry.de,
+	Lukasz Czechowski <lukasz.czechowski@thaumatec.com>
+Subject: [PATCH v2 0/2] Disable DMA on secondary UART on PX30 Ringneck
+Date: Tue, 21 Jan 2025 13:56:02 +0100
+Message-ID: <20250121125604.3115235-1-lukasz.czechowski@thaumatec.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/2] media: dt-bindings: update clocks for sc7280-camss
-To: Vikram Sharma <quic_vikramsa@quicinc.com>, rfoss@kernel.org,
- todor.too@gmail.com, bryan.odonoghue@linaro.org, mchehab@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- akapatra@quicinc.com, hariramp@quicinc.com, andersson@kernel.org,
- konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
- cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, kernel@quicinc.com
-References: <20250121120901.1841142-1-quic_vikramsa@quicinc.com>
- <20250121120901.1841142-2-quic_vikramsa@quicinc.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250121120901.1841142-2-quic_vikramsa@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_045514_920047_F40A0653 
-X-CRM114-Status: GOOD (  12.04  )
+X-CRM114-CacheID: sfid-20250121_045618_042516_B728B7B2 
+X-CRM114-Status: GOOD (  11.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,37 +100,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/01/2025 13:09, Vikram Sharma wrote:
-> This patch change clock names to make it consistent with
+The PX30-uQ7 (Ringneck) SoM has two external UARTs, connected to
+uart0 and uart5 controllers on the PX30 SoC. The uart5 does not
+expose RTS/CTS pins on the Q7 connector, as they are used for
+different purposes. It was observed that UART controllers without
+hardware flow controller behave unstable if the DMA is enabled.
+This patch series moves the pinctrl-0 to SoM dtsi file and uses
+/delete-property/ to remove DMA from this UART controller.
+----
+Changes v2:
+ - Update commit message of patch 1/2
+ - Add Cc: stable@vger.kernel.org
 
+Lukasz Czechowski (2):
+  arm64: dts: rockchip: Move uart5 pin configuration to SoM dtsi
+  arm64: dts: rockchip: Disable DMA for uart5 on px30-ringneck
 
-Please do not use "This commit/patch/change", but imperative mood. See
-longer explanation here:
-https://elixir.bootlin.com/linux/v5.17.1/source/Documentation/process/submitting-patches.rst#L95
+ arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts | 1 -
+ arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi       | 6 ++++++
+ 2 files changed, 6 insertions(+), 1 deletion(-)
 
+-- 
+2.43.0
 
-> existing platforms as gcc_cam_hf_axi -> gcc_axi_hf.
-
-Which ones? sm8250 uses different.
-
-> This also adds gcc_axi_sf and remove gcc_camera_ahb.
-
-Why?
-
-> 
-> This change will not break ABI because the ABI hasn't
-> been cemented yet as the dtsi changes are not merged
-> yet and there are no users for this driver as of now.
-
-So why did you wait till it gets to this merge window? Or is there some
-sort of history here which you hid? The user was merged to media tree
-and it is going to be merged for RC1.
-
-Please wrap commit message according to Linux coding style / submission
-process (neither too early nor over the limit):
-https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/submitting-patches.rst#L597
-
-
-Best regards,
-Krzysztof
 
