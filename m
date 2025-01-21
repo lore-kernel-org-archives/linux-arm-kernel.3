@@ -4,45 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EDB0C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 10:19:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B921C02185
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 10:28:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pulaHYswL3RBT3G2fzwNe67BCOa9InRfcnOUkC9cnV0=; b=gkxhFig9qioZIrUot8yYCJG0KH
-	jwXo0gCEr/nAYN7RLcA02yuSNFByDrvgE/ryzCpu9wUBSCA8sz0MmJJFcQA+kvvYPP0SFxhOMs/qs
-	rdRuqB7ty050horxCikOC1Ox8EkTxfidphRekP9vGkDAr4lVuIfhE9ENLDxagKmHbQsNMPy8rad+j
-	chEAF8f/CboA6lm1oWBxzT9qmOVLG/xw/jLYVAwM8CuOe+wkWvRASrw/dA7qV/DKAR/rRsTCUQA/w
-	ckfVEOHcFteY1+mexqE0gWs1+b1ZsWj+dTWCKlORRZFTHa0qsQ1CHa+kOWsbJf7OO4uRAWGXRCHGo
-	baMM/XDA==;
+	bh=/OmIbVSBxCrvBjAdO8eLjGzfDpvYZ4LSoIcp75CzZqk=; b=FRLTuKwFOyUIqa+TCiMOwJt29h
+	aEtbHn90Obw4H2eDFczIqlzko+MzwPkChKLAVBHb9EBsB6k+cO/0MFpWG+FWNLUBesd6JTu2xlVKo
+	Rnlzl0MMNlom8SvnTZww+HeNog4BK+4Pbj0ab1OK9yoDxm3oEm+HEcI3NUWFGmGspvIdNDz8fzf8n
+	gVqiyfPhG1fAPsZw2jsGoFxVtSIHtnX8JnN1rm9OiO1Lv491QKrn0WBDARvf4CpAB3rzpILyJkQR9
+	Zkz/AiWvk1hLX2O1Gdc8C/wPWqDf+i2jZ4BHIqDISVmXk4FyYdtwEJ9jjXIsD/FMSRTl9vO60zkrM
+	+iB4D1tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taBM4-00000007YHE-3AWs;
-	Tue, 21 Jan 2025 10:19:32 +0000
+	id 1taBUN-00000007Zd3-44yW;
+	Tue, 21 Jan 2025 10:28:07 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taBJe-00000007Xtp-22K9
+	id 1taBT6-00000007ZJq-0MFH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 10:17:03 +0000
+	Tue, 21 Jan 2025 10:26:49 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1taBJL-0004uM-KZ; Tue, 21 Jan 2025 11:16:43 +0100
-Message-ID: <1cedb66f-dad9-4974-865c-bd5a2721a873@pengutronix.de>
-Date: Tue, 21 Jan 2025 11:16:41 +0100
+	id 1taBSt-0006uR-6B; Tue, 21 Jan 2025 11:26:35 +0100
+Message-ID: <449b4618-7d06-49c8-b521-5fdd02a2ba1b@pengutronix.de>
+Date: Tue, 21 Jan 2025 11:26:33 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] gpio: mxc: remove dead code after switch to DT-only
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
- Andy Whitcroft <apw@canonical.com>, Joe Perches <joe@perches.com>,
- Dwaipayan Ray <dwaipayanray1@gmail.com>,
+Subject: Re: [PATCH 1/4] gpiolib: add opt-out for existing drivers with static
+ GPIO base
+To: Kent Gibson <warthog618@gmail.com>
+Cc: Andy Shevchenko <andy.shevchenko@gmail.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski
+ <brgl@bgdev.pl>, Andy Whitcroft <apw@canonical.com>,
+ Joe Perches <joe@perches.com>, Dwaipayan Ray <dwaipayanray1@gmail.com>,
  Lukas Bulwahn <lukas.bulwahn@gmail.com>, Fabio Estevam <festevam@gmail.com>,
- Andy Shevchenko <andy.shevchenko@gmail.com>, Shawn Guo
- <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
  Pengutronix Kernel Team <kernel@pengutronix.de>,
  Dario Binacchi <dario.binacchi@amarulasolutions.com>,
  Haibo Chen <haibo.chen@nxp.com>,
@@ -50,11 +51,15 @@ Cc: Linus Walleij <linus.walleij@linaro.org>,
  linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
 References: <20250113-b4-imx-gpio-base-warning-v1-0-0a28731a5cf6@pengutronix.de>
- <20250113-b4-imx-gpio-base-warning-v1-3-0a28731a5cf6@pengutronix.de>
- <CAMRc=MfZncRy_Qx_Yi_QjqX2cszv9X9st5Yk87Q7R3Hug2S9KQ@mail.gmail.com>
+ <20250113-b4-imx-gpio-base-warning-v1-1-0a28731a5cf6@pengutronix.de>
+ <CAHp75VcnB37ET8mW=m5sXwP4qDQDUPKL0yRy8n49m++zShqPMA@mail.gmail.com>
+ <97baffcd-35cc-49a0-95e9-d1ceac966dc3@pengutronix.de>
+ <CAHp75VfAmqzKxgXTc9TqeFOeGSr_D3NmCa0M7+4Zf37CofrHeg@mail.gmail.com>
+ <40531a5e-993f-4532-b071-6f233d6923f8@pengutronix.de>
+ <20250115130432.GA159787@rigel>
 Content-Language: en-US
 From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-In-Reply-To: <CAMRc=MfZncRy_Qx_Yi_QjqX2cszv9X9st5Yk87Q7R3Hug2S9KQ@mail.gmail.com>
+In-Reply-To: <20250115130432.GA159787@rigel>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
@@ -62,8 +67,8 @@ X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_021702_522339_361399F2 
-X-CRM114-Status: GOOD (  19.51  )
+X-CRM114-CacheID: sfid-20250121_022648_122739_82687311 
+X-CRM114-Status: GOOD (  27.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,51 +83,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15.01.25 17:55, Bartosz Golaszewski wrote:
-> On Mon, Jan 13, 2025 at 11:19 PM Ahmad Fatoum <a.fatoum@pengutronix.de> wrote:
+Hi Kent,
+
+On 15.01.25 14:04, Kent Gibson wrote:
+> On Wed, Jan 15, 2025 at 08:07:38AM +0100, Ahmad Fatoum wrote:
+>> On 14.01.25 20:38, Andy Shevchenko wrote:
+>>> On Tue, Jan 14, 2025 at 12:06 PM Ahmad Fatoum <a.fatoum@pengutronix.de> wrote:
+>>>> On 14.01.25 10:49, Andy Shevchenko wrote:
+>>>>> On Tue, Jan 14, 2025 at 12:20 AM Ahmad Fatoum <a.fatoum@pengutronix.de> wrote:
+>>>>>>
+>>>>>> Some drivers have had deterministic GPIO numbering for most of
+>>>>>> their existence, e.g. the i.MX GPIO since commit 7e6086d9e54a
+>>>>>> ("gpio/mxc: specify gpio base for device tree probe"), more than
+>>>>>> 12 years ago.
+>>>>>>
+>>>>>> Reverting this to dynamically numbered will break existing setups in
+>>>>>> the worst manner possible: The build will succeed, the kernel will not
+>>>>>> print warnings, but users will find their devices essentially toggling
+>>>>>> GPIOs at random with the potential of permanent damage.
+>>>>>>
+>>>>>> As these concerns won't go away until the sysfs interface is removed,
+>>>>>> let's add a new struct gpio_chip::legacy_static_base member that can be
+>>>>>> used by existing drivers that have been grandfathered in to suppress
+>>>>>> the warning currently being printed:
+>>>>>>
+>>>>>>   gpio gpiochip0: Static allocation of GPIO base is deprecated,
+>>>>>>   use dynamic allocation.
+>>>>>
+>>>>> Warning is harmless and still a good reminder for the stuff that needs
+>>>>> more love.
+>>>>> NAK.
+>>>>
+>>>> A warning is a call-to-action and it's counterproductive to keep tricking
+>>>> people into removing the static base and breaking other users' scripts.
+>>>
+>>> Are you prepared to say the same when the entire GPIO SYSFS will be
+>>> removed? Because that's exactly what I referred to in the reply to the
+>>> cover letter as an impediment to move forward.
 >>
->> struct platform_device::id was only set by board code, but since i.MX
->> became a devicetree-only platform, this will always be -1
->> (PLATFORM_DEVID_NONE).
->>
->> Note: of_alias_get_id() returns a negative number on error and base
->> treats all negative errors the same, so we need not add any additional
->> error handling.
->>
->> Fixes: 0f2c7af45d7e ("gpio: mxc: Convert the driver to DT-only")
->> Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
->> ---
->>  drivers/gpio/gpio-mxc.c | 3 +--
->>  1 file changed, 1 insertion(+), 2 deletions(-)
->>
->> diff --git a/drivers/gpio/gpio-mxc.c b/drivers/gpio/gpio-mxc.c
->> index 4cb455b2bdee71ba4eb20c93567c3b8db100dbb2..619b6fb9d833a4bb94a93b4209f01b49ad1cbdb0 100644
->> --- a/drivers/gpio/gpio-mxc.c
->> +++ b/drivers/gpio/gpio-mxc.c
->> @@ -490,8 +490,7 @@ static int mxc_gpio_probe(struct platform_device *pdev)
->>         port->gc.request = mxc_gpio_request;
->>         port->gc.free = mxc_gpio_free;
->>         port->gc.to_irq = mxc_gpio_to_irq;
->> -       port->gc.base = (pdev->id < 0) ? of_alias_get_id(np, "gpio") * 32 :
->> -                                            pdev->id * 32;
->> +       port->gc.base = of_alias_get_id(np, "gpio") * 32;
->>
->>         err = devm_gpiochip_add_data(&pdev->dev, &port->gc, port);
->>         if (err)
->>
->> --
->> 2.39.5
+>> No. But this gives me an idea: We could make the warning dependent
+>> on CONFIG_GPIO_SYSFS and add a comment to the i.MX code suggesting
+>> users do that instead. What do you think?
 >>
 > 
-> This looks like I can pick it up separately from the rest? Is that right?
+> AIUI, the purpose of the warning is to remind driver authors, not end users,
+> to update their drivers, as the old behaviour is deprecated. That is
+> independent of GPIO SYSFS - that just happens to be something that makes the
+> change visible to userspace.
+> 
+> Rather than making the warning conditional, how about making the fix for the
+> warning in your driver, so switching to dynamic allocation, conditional on
+> CONFIG_GPIO_SYSFS not being set?
+> That would provide a path forward for users that want to dispense with
+> the warning - as long as they dispense with GPIO SYSFS.
 
-Yes, please do.
+That could work for gpio-mxc, provided that SysFS is the only user for which
+the static base matters. I assume that's the case, but I am not sure.
 
-Thanks,
+An argument for suppressing the warning selectively in the GPIO core is that
+this doesn't only affect gpio-mxc, but also e.g. gpio-zynq or gpio-mxs.
+
+Cheers,
 Ahmad
 
+
+
 > 
-> Bart
+> Cheers,
+> Kent.
 > 
 
 
