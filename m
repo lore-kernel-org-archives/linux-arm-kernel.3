@@ -4,65 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9D20C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 13:34:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F374C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 13:42:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CrXfcdVr6NdC02aW2xfqrEL5toMXHgGsEbUdVnuz8pA=; b=D8ViRZxx6vNmrPNRvVkLbyX6SN
-	GmCyP6BV8pqWCCbBvlCgrwo2NdvdXpV+Oo+qaVyN36QrCDeqRo4P5Adj/26oNSyXYBkOS3gMWdyFr
-	fWBmfPTJQGbBNKL2RV5eM3PVHKWoRVtFTLTaUZg8QccOzOcyjTTkeJBiDEHF09+rWo6e55uhN0JXC
-	e0Y142xFcSz15pOnYx8t+HmVC/gcUOMzQ6RINS4iNHAsT8JyYcJF5aRlnMuBczsSLckKRSrFz+J2R
-	MwjIER3E1IiwgC5TKqXbmeOPbopRCsPfPPgrQ/ZUA1TDhs9gvmi3QPJNyRV/iO9SQe5JNZRSEeQNP
-	loHMhoyg==;
+	bh=1XuHjAhe+6crgeyPxGiThULHkHEa/QwDtL3yiBvZqn4=; b=IlsEvZ2W/Vy1Wuh6+JwyhFoG/a
+	KKUtvIesF9VAQkj2TypHbSu9GGuhxAPyGQSKUSP+otxMCjLzIiedqhRHTZp9YYUxRM88qoO9o18VG
+	ZDg9HHTbC9jQakoxbf2VGfiPqj3YbBUm7k7m5MTC3EBPFpcHrOrZFoAAscXyrhO6SYwi7T7uEWsZh
+	CTofbKwgnAS9Cb8oCfUuhBw2fWLEBLoGjpfMETZXpkHkSqHkGEwvS8bO+tIubk8ElT63vYNrYeCSs
+	o/KNDOvGRpWhM8l34Fi6R4AQrJy+XyUz1ie88r4QKBSKjyIlLOI/cBCW08ZkENJWIU5yjB9Ud13Jq
+	W7ssoqrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taEOg-00000007zAU-34Y0;
-	Tue, 21 Jan 2025 13:34:26 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1taEVq-00000007zjc-24ql;
+	Tue, 21 Jan 2025 13:41:50 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taENQ-00000007z0P-0fvJ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 13:33:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D8CD0A4195B;
-	Tue, 21 Jan 2025 13:31:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEC92C4CEDF;
-	Tue, 21 Jan 2025 13:33:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737466387;
-	bh=Xk56czmJVwBhrixeLvjBArHXhkCDOSVkd9QDQyRZfSg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Z5xMJZBWzG2m/L3H3qmDGn9EsnFk5GqYLdAoLjsya5FjHHKx4JKVnVEsRBH/QkuBK
-	 ZyxC35WL6QVpmZawDTqUpwpUo/viLIetkrp6HgCTj80a5zlSay0WotDqRKSIHaKzgj
-	 JLsAM+DeQmzyc7y9tKZkD8Tzd/42dpZR/DIIl1JOpM4JDIxm87ybKADNinMgRTNWgG
-	 U76gC+a/4x+5CoG18vhJ8YcBJmC5OYiIQX8SI/UlDroKPjW+qe7bzfq/qnxhulW9VH
-	 fWrNaWO0/lpunSLR9IoJrZz0iEhpRq4jIV7WI1yrRzqbUA/1xZsNUoXbsTjCz3oM6P
-	 i5TMRgeD2fJGA==
-Date: Tue, 21 Jan 2025 13:33:00 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
-	eauger@redhat.com, fweimer@redhat.com, jeremy.linton@arm.com,
-	oliver.upton@linux.dev, pbonzini@redhat.com, stable@vger.kernel.org,
-	wilco.dijkstra@arm.com, will@kernel.org
-Subject: Re: [PATCH] KVM: arm64/sve: Ensure SVE is trapped after guest exit
-Message-ID: <59f02239-98d3-4768-8520-a2532e400a8f@sirena.org.uk>
-References: <20250121100026.3974971-1-mark.rutland@arm.com>
- <86r04wv2fv.wl-maz@kernel.org>
+	id 1taEUY-00000007zTl-2rmW;
+	Tue, 21 Jan 2025 13:40:31 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50LBcWDl021758;
+	Tue, 21 Jan 2025 13:40:21 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=1XuHjAhe+6crgeyPxGiThULHkHEa/Q
+	wDtL3yiBvZqn4=; b=XXJc1fjY1LEte8uWYOHY0rVlVq4wX9PCcoXpIbn1EYs9EL
+	OD4/8pPTNQ9wGah7zwpokGzeZLvKhyS2XwyswSQynQSvx4Pq0nVXT5v0PMm1KdzN
+	F6FmU2v9zN3MF0dGtVIr8337iz/SeaELL+AkChcaIBTAfjVK9Q1TKCVQHZUYF4b8
+	lkEmavTZcGG7bcRDLLuw9HOFrKWm+iyEw+rBb1iDcR2ksQakFyzbWZB9l+0n9NZH
+	7bFXS3CXhWJ3qAfxFUQeEb9d90I2xBmDXS8qIuY9SsKjzzFL1VStL4eYIhJR/WhB
+	kacwVPn3TvuRt93neu9S0HZxZA9oxnhjkLM3qkFg==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44a1n9b0sf-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 21 Jan 2025 13:40:21 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 50LAtOsq021012;
+	Tue, 21 Jan 2025 13:40:19 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 448sb1b14q-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 21 Jan 2025 13:40:19 +0000
+Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 50LDeIWj60031254
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 21 Jan 2025 13:40:18 GMT
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 25C3B2004B;
+	Tue, 21 Jan 2025 13:40:18 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 7FD1A20040;
+	Tue, 21 Jan 2025 13:40:17 +0000 (GMT)
+Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.155.204.135])
+	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Tue, 21 Jan 2025 13:40:17 +0000 (GMT)
+Date: Tue, 21 Jan 2025 14:40:16 +0100
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: Joel Granados <joel.granados@kernel.org>
+Cc: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>,
+        Kees Cook <kees@kernel.org>, Luis Chamberlain <mcgrof@kernel.org>,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+        linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
+        openipmi-developer@lists.sourceforge.net,
+        intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+        intel-xe@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
+        linux-rdma@vger.kernel.org, linux-raid@vger.kernel.org,
+        linux-scsi@vger.kernel.org, linux-serial@vger.kernel.org,
+        xen-devel@lists.xenproject.org, linux-aio@kvack.org,
+        linux-fsdevel@vger.kernel.org, netfs@lists.linux.dev,
+        codalist@coda.cs.cmu.edu, linux-mm@kvack.org,
+        linux-nfs@vger.kernel.org, ocfs2-devel@lists.linux.dev,
+        fsverity@lists.linux.dev, linux-xfs@vger.kernel.org,
+        io-uring@vger.kernel.org, bpf@vger.kernel.org,
+        kexec@lists.infradead.org, linux-trace-kernel@vger.kernel.org,
+        linux-hardening@vger.kernel.org, apparmor@lists.ubuntu.com,
+        linux-security-module@vger.kernel.org, keyrings@vger.kernel.org,
+        Song Liu <song@kernel.org>,
+        "Steven Rostedt (Google)" <rostedt@goodmis.org>,
+        "Martin K. Petersen" <martin.petersen@oracle.com>,
+        "Darrick J. Wong" <djwong@kernel.org>,
+        Jani Nikula <jani.nikula@intel.com>,
+        Corey Minyard <cminyard@mvista.com>
+Subject: Re: [PATCH v2] treewide: const qualify ctl_tables where applicable
+Message-ID: <Z4+jwDBrZNRgu85S@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+References: <20250110-jag-ctl_table_const-v2-1-0000e1663144@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="N27dzkvpr7ZXoSe4"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <86r04wv2fv.wl-maz@kernel.org>
-X-Cookie: <Manoj> I *like* the chicken
+In-Reply-To: <20250110-jag-ctl_table_const-v2-1-0000e1663144@kernel.org>
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: mWjZL4Eizm--6YwnTI2RlL8astD0-e-i
+X-Proofpoint-GUID: mWjZL4Eizm--6YwnTI2RlL8astD0-e-i
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-21_05,2025-01-21_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 phishscore=0
+ bulkscore=0 suspectscore=0 adultscore=0 clxscore=1011 priorityscore=1501
+ spamscore=0 impostorscore=0 lowpriorityscore=0 mlxscore=0 mlxlogscore=999
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
+ definitions=main-2501210112
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_053308_323017_E403168D 
-X-CRM114-Status: GOOD (  25.04  )
+X-CRM114-CacheID: sfid-20250121_054030_723458_EFCB0421 
+X-CRM114-Status: GOOD (  18.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,64 +125,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jan 10, 2025 at 03:16:08PM +0100, Joel Granados wrote:
 
---N27dzkvpr7ZXoSe4
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Hi Joel,
 
-On Tue, Jan 21, 2025 at 11:20:04AM +0000, Marc Zyngier wrote:
-> Mark Rutland <mark.rutland@arm.com> wrote:
+> Add the const qualifier to all the ctl_tables in the tree except for
+> watchdog_hardlockup_sysctl, memory_allocation_profiling_sysctls,
+> loadpin_sysctl_table and the ones calling register_net_sysctl (./net,
+> drivers/inifiniband dirs). These are special cases as they use a
+> registration function with a non-const qualified ctl_table argument or
+> modify the arrays before passing them on to the registration function.
+> 
+> Constifying ctl_table structs will prevent the modification of
+> proc_handler function pointers as the arrays would reside in .rodata.
+> This is made possible after commit 78eb4ea25cd5 ("sysctl: treewide:
+> constify the ctl_table argument of proc_handlers") constified all the
+> proc_handlers.
 
-> > +		/*
-> > +		 * The KVM hyp code doesn't set fp_type when saving the host's
-> > +		 * FPSIMD state. Set fp_type here in case the hyp code saves
-> > +		 * the host state.
+I could identify at least these occurences in s390 code as well:
 
-> Should KVM do that? The comment seems to indicate that this is
-> papering over yet another bug...
+diff --git a/arch/s390/appldata/appldata_base.c b/arch/s390/appldata/appldata_base.c
+index dd7ba7587dd5..9b83c318f919 100644
+--- a/arch/s390/appldata/appldata_base.c
++++ b/arch/s390/appldata/appldata_base.c
+@@ -204,7 +204,7 @@ appldata_timer_handler(const struct ctl_table *ctl, int write,
+ {
+ 	int timer_active = appldata_timer_active;
+ 	int rc;
+-	struct ctl_table ctl_entry = {
++	const struct ctl_table ctl_entry = {
+ 		.procname	= ctl->procname,
+ 		.data		= &timer_active,
+ 		.maxlen		= sizeof(int),
+@@ -237,7 +237,7 @@ appldata_interval_handler(const struct ctl_table *ctl, int write,
+ {
+ 	int interval = appldata_interval;
+ 	int rc;
+-	struct ctl_table ctl_entry = {
++	const struct ctl_table ctl_entry = {
+ 		.procname	= ctl->procname,
+ 		.data		= &interval,
+ 		.maxlen		= sizeof(int),
+@@ -269,7 +269,7 @@ appldata_generic_handler(const struct ctl_table *ctl, int write,
+ 	struct list_head *lh;
+ 	int rc, found;
+ 	int active;
+-	struct ctl_table ctl_entry = {
++	const struct ctl_table ctl_entry = {
+ 		.data		= &active,
+ 		.maxlen		= sizeof(int),
+ 		.extra1		= SYSCTL_ZERO,
+diff --git a/arch/s390/kernel/hiperdispatch.c b/arch/s390/kernel/hiperdispatch.c
+index 7857a7e8e56c..7d0ba16085c1 100644
+--- a/arch/s390/kernel/hiperdispatch.c
++++ b/arch/s390/kernel/hiperdispatch.c
+@@ -273,7 +273,7 @@ static int hiperdispatch_ctl_handler(const struct ctl_table *ctl, int write,
+ {
+ 	int hiperdispatch;
+ 	int rc;
+-	struct ctl_table ctl_entry = {
++	const struct ctl_table ctl_entry = {
+ 		.procname	= ctl->procname,
+ 		.data		= &hiperdispatch,
+ 		.maxlen		= sizeof(int),
+diff --git a/arch/s390/kernel/topology.c b/arch/s390/kernel/topology.c
+index 6691808bf50a..26e50de83d80 100644
+--- a/arch/s390/kernel/topology.c
++++ b/arch/s390/kernel/topology.c
+@@ -629,7 +629,7 @@ static int topology_ctl_handler(const struct ctl_table *ctl, int write,
+ 	int enabled = topology_is_enabled();
+ 	int new_mode;
+ 	int rc;
+-	struct ctl_table ctl_entry = {
++	const struct ctl_table ctl_entry = {
+ 		.procname	= ctl->procname,
+ 		.data		= &enabled,
+ 		.maxlen		= sizeof(int),
+@@ -658,7 +658,7 @@ static int polarization_ctl_handler(const struct ctl_table *ctl, int write,
+ {
+ 	int polarization;
+ 	int rc;
+-	struct ctl_table ctl_entry = {
++	const struct ctl_table ctl_entry = {
+ 		.procname	= ctl->procname,
+ 		.data		= &polarization,
+ 		.maxlen		= sizeof(int),
+diff --git a/arch/s390/mm/cmm.c b/arch/s390/mm/cmm.c
+index 939e3bec2db7..8e354c90a3dd 100644
+--- a/arch/s390/mm/cmm.c
++++ b/arch/s390/mm/cmm.c
+@@ -263,7 +263,7 @@ static int cmm_pages_handler(const struct ctl_table *ctl, int write,
+ 			     void *buffer, size_t *lenp, loff_t *ppos)
+ {
+ 	long nr = cmm_get_pages();
+-	struct ctl_table ctl_entry = {
++	const struct ctl_table ctl_entry = {
+ 		.procname	= ctl->procname,
+ 		.data		= &nr,
+ 		.maxlen		= sizeof(long),
+@@ -283,7 +283,7 @@ static int cmm_timed_pages_handler(const struct ctl_table *ctl, int write,
+ 				   loff_t *ppos)
+ {
+ 	long nr = cmm_get_timed_pages();
+-	struct ctl_table ctl_entry = {
++	const struct ctl_table ctl_entry = {
+ 		.procname	= ctl->procname,
+ 		.data		= &nr,
+ 		.maxlen		= sizeof(long),
 
-It should, we need to record what format the data we saved was in so
-that if the saved state is loaded we load what we actually saved.
 
-> > +		 * If hyp code does not save the host state, then the host
-> > +		 * state remains live on the CPU and saved fp_type is
-> > +		 * irrelevant until it is overwritten by a later call to
-> > +		 * fpsimd_save_user_state().
+> Best regards,
+> -- 
+> Joel Granados <joel.granados@kernel.org>
 
-> I'm not sure I understand this. If fp_type is irrelevant, surely it is
-> *forever* irrelevant, not until something else happens. Or am I
-> missing something?
-
-The confusion stems from the fact that the setting of fp_type is done
-separately to the actual state save since we don't map fp_type to the
-hypervisor.  Either we don't save in KVM, in which case any later save
-in the host kernel will write both state and fp_type, or we save in KVM
-in which case this results in the correct fp_type being set.  In both
-cases we have live state in the registers and whatever is currently in
-memory should be considered stale and it's not the end of the world if
-it's corrupt.  It would be a lot more straightforward if we wrote
-fp_type from the hypervisor as part of the save.
-
-I want to rework the way we represent the state so that we don't have
-the state spread around like this, avoiding the need to map individual
-parts of it separately to the hypervisor.  We need something like that
-to sensibly implement in kernel SVE/SME which we will need at some
-point.
-
---N27dzkvpr7ZXoSe4
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmePogwACgkQJNaLcl1U
-h9D19AgAgrJ45489o8TGJ8JMXDL8lZvvna95oXYrXXqodtkC+PMzli9Rc8kMrsWK
-pHnwe7xWvLYz3pcEAAb8p9EDnGs6bZqU4cqW+BFXzi7L6sTGKWtR2TkafJdZIDuM
-mGG7+67auJDb7kYHQouE3TADsTa+qPz3uoqQ51n2SMB6qJwZni5AEo1jYsrXAebW
-qVy0IusFb3ENgNkcXMOg5+CQdvZrxhdFBcPTXTTQWhMinZuS/Rcjp3Inh1S7ypLW
-UPq/lPkAcNduYdGhngmECCzNntGwlT4MZ5Z/M+7AuWo1YPT2pp9d76D40KAqOcHK
-2d3lB6DgMxJs5JG6LZ7L8pG0GaJDJw==
-=f6Ta
------END PGP SIGNATURE-----
-
---N27dzkvpr7ZXoSe4--
+Thanks!
 
