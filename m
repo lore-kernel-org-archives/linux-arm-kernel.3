@@ -4,73 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 740EAC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 10:02:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97305C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 10:05:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=u4vaYSGAqiC2k5PFBj4rKLbIFmWsNma/5FFeHHBhlWE=; b=kmpHaIcF8x9xjo1Wsm/VnMFRGm
-	B01lEdc4uMZ2+4XMc1rVEr8ZowBpLehS4khUDDCdiNskQh4Fma4yRZYZT/DKB8qNmWESTgSmub6yy
-	eyGM76ytEcSvjJo+WyjKu6digWtg1liYdhtMXdiUjyYS5i/Ps3pCH9bA9XDhZDlD6TCewi4/JlopR
-	KaZLAYHc0piUhJgzKbwmAKOvTvOxSF2PrOLadhOxJsWQIVTD6qF6P1B7T83TgX3wPsyoK/B1xJAY1
-	5/jSQPqCHjszJ1f4roVQJyP/3MmDHY7DR56Yv4PkI1BHFr6wIaudRW8zEL8tKCVs7gGg3wvkCy02u
-	EVNNaEeA==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O6/n8hDp7QRArU4O2g/ML/aye8ngcZnZwiazO907zlw=; b=vfFewIYMiHct+OMbD5d5mY28cf
+	HHZfBRv47zoF2lEL3Rw8mwkORELqbTj9EpeHtN4+sUTHI7aFNreReVq2mg6D8My8MqnlfJETRWgYF
+	p1UROLgXYK2K3jmD3ew4XQxRSGqCPd/T7NPQzb5GDkuIvFgBbrOq86GRXq/vAK9OHivjy2zM1qZqc
+	/c4FHtG7tQ4vdxt86TEqCx45jR5tyEhBPlqMIgEQIkGJaEfY5azm7KxmP51MaoSN5WJYQiqRCl6Sk
+	hKlC8d9cFtFMSJjGEyUAg7Nm1T+Y8aBGDNsac9o5LqNxskFzaTLS4cb21O27Inwd670fuatymgajE
+	W9Pqy+vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taB5A-00000007Vwg-2WWT;
-	Tue, 21 Jan 2025 10:02:04 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1taB8N-00000007WMm-37KA;
+	Tue, 21 Jan 2025 10:05:23 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taB3t-00000007Vmq-3U5y
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 21 Jan 2025 10:00:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=u4vaYSGAqiC2k5PFBj4rKLbIFmWsNma/5FFeHHBhlWE=; b=C40GMV9ZUAiCp0Srs9n7kLrT0c
-	NLDr2hcRZ9D6rQEcfjt/CORiNBD9jH+C7AEuO3r2jzn+YUZ7p4YbtF7bA5SLUMl3m5mGx6U75jimL
-	H76iCfRFVjNDzPYDjOtQApwKoe4rEndjhGHNn9h095iYC686qGODijk9CWVM+edrKGVcTRhqW7KCK
-	NeEoJt3JcKXRKysx5b9bmDA89DOhH8NpS+PCSvx8KQxtDKNT2Fn/wSXLU6fF0CAWhsqhltz6oAqw8
-	4Pe+yKDz64hbMcOPkNnUTZ88++DQysnwCUxeTMZ+FcYD0EHRVC8KiDIe0e/uYkb+G3TzE4KHwqU1f
-	9C2K9V4A==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taB3m-0000000DEhJ-1X3H
+	id 1taB74-00000007WEz-3lAG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 10:00:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A0DE6106F;
-	Tue, 21 Jan 2025 02:01:03 -0800 (PST)
-Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id F276C3F740;
-	Tue, 21 Jan 2025 02:00:32 -0800 (PST)
-From: Mark Rutland <mark.rutland@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: broonie@kernel.org,
-	catalin.marinas@arm.com,
-	eauger@redhat.com,
-	fweimer@redhat.com,
-	jeremy.linton@arm.com,
-	mark.rutland@arm.com,
-	maz@kernel.org,
-	oliver.upton@linux.dev,
-	pbonzini@redhat.com,
-	stable@vger.kernel.org,
-	wilco.dijkstra@arm.com,
-	will@kernel.org
-Subject: [PATCH] KVM: arm64/sve: Ensure SVE is trapped after guest exit
-Date: Tue, 21 Jan 2025 10:00:26 +0000
-Message-Id: <20250121100026.3974971-1-mark.rutland@arm.com>
-X-Mailer: git-send-email 2.30.2
+	Tue, 21 Jan 2025 10:04:04 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-5401bd6ccadso5436203e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jan 2025 02:04:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1737453840; x=1738058640; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=O6/n8hDp7QRArU4O2g/ML/aye8ngcZnZwiazO907zlw=;
+        b=DYM9JncbcwajVKozKpoX3bXKD2Mxv7lVDhjy9TI6ylRKP0Em3S+oeAQ4mByr1OH2Tz
+         XGa4BCoZc7U3rf6R2ulvbxbWUdDobsMnMdT/Jf8qXRvSKFTFAXrQuG3Fl14mq3Z9dE38
+         URu7sGNcj/9NsWMsnYIkf6sk3MZMiqTR8LeVc=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737453840; x=1738058640;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=O6/n8hDp7QRArU4O2g/ML/aye8ngcZnZwiazO907zlw=;
+        b=Hrxv1IJnkjRlbKdksG+0NyObHp4r2YWqFBVpZhexbthecQj95Y6tW/2MtNwxxxNSjj
+         MNEZK/jrOf8Pv9rZ+e+cm1xpIpMdNbIBLt4Y/A+PlwgOZUbw2PTCrex9kSY0Oe2zaFJS
+         YdaBMAlHKlh6GSc4vXXYaEQztM+byVzyvxzBT+5uTc4EnX4AOKV6dq9fuGIWUQqgGZj4
+         CjsNHQN+3clOd+1kg/h7ztQibHYb+4KbpRCbU4W6cG0WEE6sqiT/6u2OzoZDzI3wd+SY
+         NfFvHew9vc4nFznFY1tBxP0AgIrpwHooufVzAHDcPcShPm9aBCPNLA5/pohl8hderK+5
+         utFA==
+X-Forwarded-Encrypted: i=1; AJvYcCWeXm5M7KcEkpY+El92/830J6KnuEswMHj8rQRVNg4nkvsI2VssaOPUyURPtFEz34Kr3RQfUZodNduTpZ0+N4pk@lists.infradead.org
+X-Gm-Message-State: AOJu0YzaioTIxUjW+wQGtl1EjcXi6dbzYBv880TnnXDTp2T7As2NOHow
+	EBXDDtpnsu7n2VPOtUp1Mvula939G6vYazIg8wx3rWBkHYbti8riY5yiTwCscNm929sOo/1LLWV
+	foXSrUrfKGGdjaGYzHe+uPy4z3hnRJg5F6koR
+X-Gm-Gg: ASbGnctXqvso0bsWIPu0RgjNJtuSFSI0EMd23RyJ31ZTITlJsu79LsYoplmZ5BDYB2J
+	3smpF+3grHUxTT/SndtxgAtlURcBlOi2xgLBmNAsb5AbUvyqmPENdTDfGo+Pwz/kzm6kznvw43Q
+	W9Zg==
+X-Google-Smtp-Source: AGHT+IEHkmodUPY8jx3l9mPpOWb5qGvotXrLEwy87UqZLyCSEt+B6PD7M50ngyePU/VJqW5r/Wi7zurFvL6FFAiUMyw=
+X-Received: by 2002:ac2:511e:0:b0:542:98bb:5678 with SMTP id
+ 2adb3069b0e04-5439c248293mr3883356e87.25.1737453840514; Tue, 21 Jan 2025
+ 02:04:00 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250115063555.32492-1-ot_cathy.xu@mediatek.com>
+ <20250115063555.32492-2-ot_cathy.xu@mediatek.com> <nmyxygrya6cpalmirsunvkx32uox3kjxd4l5ggdhjtj7edyizz@yodolm5ktboo>
+ <f7ba63c8afcef1d1925d51e35e4b81f0d0e773ff.camel@mediatek.com>
+ <d04bc250-2104-4e02-9bf8-5785f4444c8d@kernel.org> <d11076d3eb2f92018fd3e26cae665a47f71ca838.camel@mediatek.com>
+ <b212d05d-de3b-41b2-bc48-c6b79ae54a8b@kernel.org> <bec17d1e215a11daa1fdede78c8070c8e1763c72.camel@mediatek.com>
+ <e7d49bda-8aaa-4897-8117-ab889fb27be0@collabora.com> <8ca2e369be804697ef71491dfd366cf6afcca9bd.camel@mediatek.com>
+In-Reply-To: <8ca2e369be804697ef71491dfd366cf6afcca9bd.camel@mediatek.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Tue, 21 Jan 2025 18:03:48 +0800
+X-Gm-Features: AbW1kva5BWbWh-3Q7_Rq2n5cpf3IRTiqkqz7iCKINLZ1rxFHRVj_riUn5jQd4B8
+Message-ID: <CAGXv+5EYMM=hn8nKig3iHqD3KhxHVQyteweL-OiSoCV8mD2iew@mail.gmail.com>
+Subject: Re: [PATCH v3 1/2] dt-bindings: pinctrl: mediatek: add support for mt8196
+To: =?UTF-8?B?Q2F0aHkgWHUgKOiuuOWNjuWptyk=?= <ot_cathy.xu@mediatek.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	"krzk@kernel.org" <krzk@kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>, 
+	=?UTF-8?B?TGVpIFh1ZSAo6Jab56OKKQ==?= <Lei.Xue@mediatek.com>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+	=?UTF-8?B?V2VuYmluIE1laSAo5qKF5paH5b2sKQ==?= <Wenbin.Mei@mediatek.com>, 
+	"linus.walleij@linaro.org" <linus.walleij@linaro.org>, 
+	=?UTF-8?B?R3VvZG9uZyBMaXUgKOWImOWbveagiyk=?= <Guodong.Liu@mediatek.com>, 
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>, 
+	"robh@kernel.org" <robh@kernel.org>, "sean.wang@kernel.org" <sean.wang@kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_100038_886833_D85E46A6 
-X-CRM114-Status: GOOD (  23.45  )
+X-CRM114-CacheID: sfid-20250121_020403_013087_1B6813F5 
+X-CRM114-Status: GOOD (  55.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,114 +107,250 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There is a period of time after returning from a KVM_RUN ioctl where
-userspace may use SVE without trapping, but the kernel can unexpectedly
-discard the live SVE state. Eric Auger has observed this causing QEMU
-crashes where SVE is used by memmove():
+On Tue, Jan 21, 2025 at 5:58=E2=80=AFPM Cathy Xu (=E8=AE=B8=E5=8D=8E=E5=A9=
+=B7) <ot_cathy.xu@mediatek.com> wrote:
+>
+> On Mon, 2025-01-20 at 13:42 +0100, AngeloGioacchino Del Regno wrote:
+> > External email : Please do not click links or open attachments until
+> > you have verified the sender or the content.
+> >
+> >
+> > Il 20/01/25 10:17, Cathy Xu (=E8=AE=B8=E5=8D=8E=E5=A9=B7) ha scritto:
+> > > On Thu, 2025-01-16 at 11:20 +0100, Krzysztof Kozlowski wrote:
+> > > > External email : Please do not click links or open attachments
+> > > > until
+> > > > you have verified the sender or the content.
+> > > >
+> > > >
+> > > > On 16/01/2025 09:18, Cathy Xu (=E8=AE=B8=E5=8D=8E=E5=A9=B7) wrote:
+> > > > > On Thu, 2025-01-16 at 08:28 +0100, Krzysztof Kozlowski wrote:
+> > > > > > External email : Please do not click links or open
+> > > > > > attachments
+> > > > > > until
+> > > > > > you have verified the sender or the content.
+> > > > > >
+> > > > > >
+> > > > > > On 16/01/2025 03:20, Cathy Xu (=E8=AE=B8=E5=8D=8E=E5=A9=B7) wro=
+te:
+> > > > > > > > > +          bias-pull-down:
+> > > > > > > > > +            oneOf:
+> > > > > > > > > +              - type: boolean
+> > > > > > > > > +              - enum: [100, 101, 102, 103]
+> > > > > > > > > +                description: mt8196 pull down
+> > > > > > > > > PUPD/R0/R1
+> > > > > > > > > type
+> > > > > > > > > define value.
+> > > > > > > > > +              - enum: [200, 201, 202, 203, 204, 205,
+> > > > > > > > > 206,
+> > > > > > > > > 207]
+> > > > > > > > > +                description: mt8196 pull down RSEL
+> > > > > > > > > type
+> > > > > > > > > define
+> > > > > > > > > value.
+> > > > > > > >
+> > > > > > > > Not much improved.
+> > > > > > >
+> > > > > > >    I have removed the content related to 'resistance
+> > > > > > > value', we
+> > > > > > > use
+> > > > > > > 'RSEL' instead of 'resistance value'.
+> >
+> > This is wrong.
+>
+>   Sorry, I think I may not have expressed myself clearly. What I meant
+> is that the attribute 'mediatek,rsel-resistance-in-si-unit' is not
+> supported. In the dts, can write the resistance value, for example:
+> bias-pull-up=3D<1000>, but can't use 'mediatek,rsel-resistance-in-si-unit
+> =3D <xxx>'.
 
-  https://issues.redhat.com/browse/RHEL-68997
+`mediatek,rsel-resistance-in-si-unit` is supported in
+drivers/pinctrl/mediatek/pinctrl-paris.c
 
-The only state discarded is the user SVE state of the task which issued
-the KVM_RUN ioctl. Other tasks are unaffected, plain FPSIMD state is
-unaffected, and kernel state is unaffected.
+Angelo is requesting that you continue that support and make it
+exclusive, i.e. not support the RSEL macro magic numbers, and
+_only_ support ohm values, in the device tree.
 
-This happens because fpsimd_kvm_prepare() incorrectly manipulates the
-FPSIMD/SVE state. When the vCPU is loaded, fpsimd_kvm_prepare()
-unconditionally clears TIF_SVE but does not reconfigure CPACR_EL1.ZEN to
-trap userspace SVE usage. If the vCPU does not use FPSIMD/SVE and hyp
-does not save the host's FPSIMD/SVE state, the kernel may return to
-userspace with TIF_SVE clear while SVE is still enabled in
-CPACR_EL1.ZEN. Subsequent userspace usage of SVE will not be trapped,
-and the next save of userspace FPSIMD/SVE state will only store the
-FPSIMD portion due to TIF_SVE being clear, discarding any SVE state.
+ChenYu
 
-The broken logic was originally introduced in commit:
-
-  93ae6b01bafee8fa ("KVM: arm64: Discard any SVE state when entering KVM guests")
-
-... though at the time fp_user_discard() would reconfigure CPACR_EL1.ZEN
-to trap subsequent SVE usage, masking the issue until that logic was
-removed in commit:
-
-  8c845e2731041f0f ("arm64/sve: Leave SVE enabled on syscall if we don't context switch")
-
-Avoid this issue by reconfiguring CPACR_EL1.ZEN when clearing
-TIF_SVE. At the same time, add a comment to explain why
-current->thread.fp_type must be set even though the FPSIMD state is not
-foreign. A similar issue exists when SME is enabled, and will require
-further rework. As SME currently depends on BROKEN, a BUILD_BUG() and
-comment are added for now, and this issue will need to be fixed properly
-in a follow-up patch.
-
-Commit 93ae6b01bafee8fa also introduced an unintended ptrace ABI change.
-Unconditionally clearing TIF_SVE regardless of whether the state is
-foreign discards saved SVE state created by ptrace after syscall entry.
-Avoid this by only clearing TIF_SVE when the FPSIMD/SVE state is not
-foreign. When the state is foreign, KVM hyp code does not need to save
-any host state, and so this will not affect KVM.
-
-There appear to be further issues with unintentional SVE state
-discarding, largely impacting ptrace and signal handling, which will
-need to be addressed in separate patches.
-
-Reported-by: Eric Auger <eauger@redhat.com>
-Reported-by: Wilco Dijkstra <wilco.dijkstra@arm.com>
-Cc: stable@vger.kernel.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Florian Weimer <fweimer@redhat.com>
-Cc: Jeremy Linton <jeremy.linton@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>
-Cc: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Will Deacon <will@kernel.org>
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
----
- arch/arm64/kernel/fpsimd.c | 20 ++++++++++++++++++--
- 1 file changed, 18 insertions(+), 2 deletions(-)
-
-I believe there are some other issues in this area, but I'm sending this
-out on its own because I beleive the other issues are more complex while
-this is self-contained, and people are actively hitting this case in
-production.
-
-I intend to follow-up with fixes for the other cases I mention in the
-commit message, and for the SME case with the BUILD_BUG_ON().
-
-Mark.
-
-diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index 8c4c1a2186cc5..e4053a90ed240 100644
---- a/arch/arm64/kernel/fpsimd.c
-+++ b/arch/arm64/kernel/fpsimd.c
-@@ -1711,8 +1711,24 @@ void fpsimd_kvm_prepare(void)
- 	 */
- 	get_cpu_fpsimd_context();
- 
--	if (test_and_clear_thread_flag(TIF_SVE)) {
--		sve_to_fpsimd(current);
-+	if (!test_thread_flag(TIF_FOREIGN_FPSTATE) &&
-+	    test_and_clear_thread_flag(TIF_SVE)) {
-+		sve_user_disable();
-+
-+		/*
-+		 * The KVM hyp code doesn't set fp_type when saving the host's
-+		 * FPSIMD state. Set fp_type here in case the hyp code saves
-+		 * the host state.
-+		 *
-+		 * If hyp code does not save the host state, then the host
-+		 * state remains live on the CPU and saved fp_type is
-+		 * irrelevant until it is overwritten by a later call to
-+		 * fpsimd_save_user_state().
-+		 *
-+		 * This is *NOT* sufficient when CONFIG_ARM64_SME=y, where
-+		 * fp_type can be FP_STATE_SVE regardless of TIF_SVE.
-+		 */
-+		BUILD_BUG_ON(IS_ENABLED(CONFIG_ARM64_SME));
- 		current->thread.fp_type = FP_STATE_FPSIMD;
- 	}
- 
--- 
-2.30.2
-
+> > > > > >
+> > > > > > So the value in Ohms was removed? I assume above do not have
+> > > > > > known
+> > > > > > value
+> > > > > > in Ohms?
+> > > > >
+> > > > >    Yes, value in Ohns was removed, no code have knowm value.
+> > > >
+> > > > Does the hardware have known value in Ohms?
+> >
+> > It does.
+> >
+> > >
+> > >    What do you mean by 'hardware'? When writing to the rsel
+> > > register,
+> > > the value written is 0-7.
+> > >
+> >
+> > Hardware means "the pin controller of the mt8196 SoC" :-)
+> >
+> > Anyway.
+> >
+> > The RSEL registers' function is to select a specific resistance value
+> > to
+> > pullup/down a pin, or a group of pins.
+> >
+> > Devicetree bindings require to specify values in known units, so in
+> > device tree
+> > you *need* to specify the RSEL resistance in Ohms.
+> >
+> > You cannot specify RSEL register value in device-tree. That's
+> > unacceptable.
+> >
+> > Regards,
+> > Angelo
+>
+>  Yes, I understand what you mean. However, I was referring to writing
+> the rsel register in the driver, not in dts.
+>
+> >
+> > > >
+> > > >
+> > > > >
+> > > > > >
+> > > > > > >
+> > > > > > > >
+> > > > > > > >
+> > > > > > > > > +            description: |
+> > > > > > > > > +              For pull down type is normal, it doesn't
+> > > > > > > > > need
+> > > > > > > > > add
+> > > > > > > > > RSEL & R1R0.
+> > > > > > > > > +              For pull down type is PUPD/R0/R1 type,
+> > > > > > > > > it
+> > > > > > > > > can
+> > > > > > > > > add
+> > > > > > > > > R1R0 define to
+> > > > > > > > > +              set different resistance. It can support
+> > > > > > > > > "MTK_PUPD_SET_R1R0_00" &
+> > > > > > > > > +              "MTK_PUPD_SET_R1R0_01" &
+> > > > > > > > > "MTK_PUPD_SET_R1R0_10"
+> > > > > > > > > &
+> > > > > > > > > +              "MTK_PUPD_SET_R1R0_11" define in mt8196.
+> > > > > > > > > +              For pull down type is PD/RSEL, it can
+> > > > > > > > > add
+> > > > > > > > > RSEL
+> > > > > > > > > define to set
+> > > > > > > > > +              different resistance. It can support
+> > > > > > > > > +              "MTK_PULL_SET_RSEL_000" &
+> > > > > > > > > "MTK_PULL_SET_RSEL_001" &
+> > > > > > > > > +              "MTK_PULL_SET_RSEL_010" &
+> > > > > > > > > "MTK_PULL_SET_RSEL_011" &
+> > > > > > > > > +              "MTK_PULL_SET_RSEL_100" &
+> > > > > > > > > "MTK_PULL_SET_RSEL_101" &
+> > > > > > > > > +              "MTK_PULL_SET_RSEL_110" &
+> > > > > > > > > "MTK_PULL_SET_RSEL_111"
+> > > > > > > > > define in
+> > > > > > > > > +              mt8196.
+> > > > > > > > > diff --git a/include/dt-bindings/pinctrl/mt8196-
+> > > > > > > > > pinfunc.h
+> > > > > > > > > b/include/dt-bindings/pinctrl/mt8196-pinfunc.h
+> > > > > > > > > new file mode 100644
+> > > > > > > > > index 000000000000..bf0c8374407c
+> > > > > > > > > --- /dev/null
+> > > > > > > > > +++ b/include/dt-bindings/pinctrl/mt8196-pinfunc.h
+> > > > > > > > > @@ -0,0 +1,1572 @@
+> > > > > > > > > +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-
+> > > > > > > > > Clause
+> > > > > > > > > */
+> > > > > > > > > +/*
+> > > > > > > > > + * Copyright (C) 2025 Mediatek Inc.
+> > > > > > > > > + * Author: Guodong Liu <Guodong.Liu@mediatek.com>
+> > > > > > > > > + */
+> > > > > > > > > +
+> > > > > > > > > +#ifndef __MT8196_PINFUNC_H
+> > > > > > > > > +#define __MT8196_PINFUNC_H
+> > > > > > > > > +
+> > > > > > > > > +#include <dt-bindings/pinctrl/mt65xx.h>
+> > > > > > > > > +
+> > > > > > > > > +#define PINMUX_GPIO0__FUNC_GPIO0 (MTK_PIN_NO(0) | 0)
+> > > > > > > > > +#define PINMUX_GPIO0__FUNC_DMIC1_CLK (MTK_PIN_NO(0) |
+> > > > > > > > > 1)
+> > > > > > > > > +#define PINMUX_GPIO0__FUNC_SPI3_A_MO (MTK_PIN_NO(0) |
+> > > > > > > > > 3)
+> > > > > > > > > +#define PINMUX_GPIO0__FUNC_FMI2S_B_LRCK (MTK_PIN_NO(0)
+> > > > > > > > > |
+> > > > > > > > > 4)
+> > > > > > > > > +#define PINMUX_GPIO0__FUNC_SCP_DMIC1_CLK
+> > > > > > > > > (MTK_PIN_NO(0) |
+> > > > > > > > > 5)
+> > > > > > > > > +#define PINMUX_GPIO0__FUNC_TP_GPIO14_AO (MTK_PIN_NO(0)
+> > > > > > > > > |
+> > > > > > > > > 6)
+> > > > > > > >
+> > > > > > > > I do not see how you resolved my comment from v1. In v2 I
+> > > > > > > > reminded
+> > > > > > > > about
+> > > > > > > > it, so you responded that yopu will change something, but
+> > > > > > > > I
+> > > > > > > > do
+> > > > > > > > not
+> > > > > > > > see
+> > > > > > > > any changes.
+> > > > > > > >
+> > > > > > > > So explain: how did you resolve my comment?
+> > > > > > > >
+> > > > > > > > These two examples where you claim you will change
+> > > > > > > > something,
+> > > > > > > > but
+> > > > > > > > send
+> > > > > > > > the same. I skipped the rest of the patch.
+> > > > > > >
+> > > > > > >    Thank you for your patient response, here is my
+> > > > > > > explanation
+> > > > > > > for
+> > > > > > > you
+> > > > > > > question:
+> > > > > > >
+> > > > > > >    In v1, I undertand that you meant I didn't sent a real
+> > > > > > > binding,
+> > > > > > > and
+> > > > > >
+> > > > > >
+> > > > > > The comment is under specific lines, so I said these defines
+> > > > > > are
+> > > > > > not
+> > > > > > a
+> > > > > > real binding. You sent them again, but they are still not
+> > > > > > bindings,
+> > > > > > because they are not used in the driver. Maybe the usage is
+> > > > > > convoluted,
+> > > > > > so which part of implementation are these connecting with
+> > > > > > DTS?
+> > > > > > IOW,
+> > > > > > which part of driver relies on the binding?
+> > > > >
+> > > > >    I got you. This binding define many macros, which will be
+> > > > > used
+> > > > > for
+> > > > > 'pinmux' setting in the DTS. The usage like this:
+> > > > >
+> > > > >    adsp_uart_pins: adsp-uart-pins {
+> > > > >                  pins-tx-rx {
+> > > > >                          pinmux =3D
+> > > > > <PINMUX_GPIO35__FUNC_O_ADSP_UTXD0>,
+> > > > >                                   <PINMUX_GPIO36__FUNC_I1_ADSP_
+> > > > > URXD0
+> > > > > > ;
+> > > > >
+> > > > >                  };
+> > > > >          };
+> > > >
+> > > >
+> > > > That's DTS, not driver, so not a binding. Drop the header from
+> > > > bindings.
+> > >
+> > >    Sorry, I don't quite understand the relationship between binding
+> > > and
+> > > driver. Driver will parse this macro to get gpio number and
+> > > function.
+> > >
 
