@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D490CC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 07:50:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C62CC02185
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 07:52:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5z9CDaeHRL0Be6RMnooWLuq/u5BqMeiJNbVFMo9uWxo=; b=LIwFkErGnqdKiNNVqBQn21mQmK
-	zFif+aaq+mkoftBc2BLefTj/2ulMoEVBtNoD9f+L09IHuxtxTv+fomXDukky+geKr3HzK2LHSOKFn
-	kyJByIiRZn0+hGdODkXX0gQIhrEIhgp8IgRZFdfoeHeu1UtWs/9x9WzbIK/3zpPqeusp16ttTvrEO
-	xu0gmll5LQz80Vk6EaGuG8CxNVWdCL/T+7A71UCzTn5eGlkEf1PasyNx6YZ15tU58slGcuePM5Z1E
-	5GXHUC5SsmIx4jz+VxNI/uH4f+j3KGpI87G44Gu8vSq5zQhHPbNH/PPw47qdHI3yWIqk88MlFYS+J
-	lMUcWsfw==;
+	bh=STYf4wgHXRcbC+rz5+ompAdEELSQTG28RshkTROSkEk=; b=oeGmHKynj1Fg6nCphhrs8C+6x0
+	61F4cQOgrU2xeXfJ7GYeAJ/xMttmY7H2F5yKuQACYmkyOaMtC+809dC+nc/gA8qITpXDXNuOIOWt6
+	GKcAsmdh/H258s3MFdWsZm/Knn/BbnhvYoBN9ZnR3wl28k6phCUPzo2mPM56FduXTQOCxo18LMyUX
+	AWKfxnUWUk+R0LG21OCtHIOtz9X/yT/02khRRlHFhzwclyGnBaONU5rZRlsuaTKIpFBsKa7cEKSdR
+	kKHbz4yK5YyKcYBvu4Uu2e5NzBsXLnWNOtX6l8Q+TN8EzTbPxvdnuFOex3osjx7/8o2OYsmeQ25jo
+	SsQv79mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ta91r-00000007AnF-1QYw;
-	Tue, 21 Jan 2025 07:50:31 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ta937-00000007AyM-2Nt2;
+	Tue, 21 Jan 2025 07:51:49 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ta8z5-00000007ALy-0NCh
+	id 1ta90y-00000007Af5-3Jeu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jan 2025 07:47:40 +0000
+	Tue, 21 Jan 2025 07:49:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C83325C54FD;
-	Tue, 21 Jan 2025 07:46:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8D28C4CEDF;
-	Tue, 21 Jan 2025 07:47:27 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9EE605C560D;
+	Tue, 21 Jan 2025 07:48:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CE37C4CEDF;
+	Tue, 21 Jan 2025 07:49:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737445658;
-	bh=qbKckhNIg6EjGDCsoRXL1mNP+H/m1P0vkbS8EI5QTjY=;
+	s=k20201202; t=1737445775;
+	bh=PtYFv6xJPvEdq+20Z/QErDiJWyNyw2+ZZfpycjJ/DT0=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Uis4lMGARFE3IXP3P2lQuFMUv+mU4wXtAtK8WTZ4Wg+LtCCydVLbcay7eb7JIgxyw
-	 Ri16biOm6HEZqqUNrRZaRTjycOxytEwPjv6Gd+7dzW8oYcr0Bua4LqXmW7t8YL0ELF
-	 2Co03VZb6+bGNRzCniziF/2P2RbwqNfLYFxkB/PLpqX8I29S8ar2pWeuWByOU/zopR
-	 Lmq6VPbhcXWaHjNxQI2NAYB3FI2DCUTDI5H7BMo0EXBBYt4VlvVghZh0hKpSkITpzE
-	 jRF1cDkaO5jtcOrnJ3VRKDzTiZLImvosRb7Eduv7a8xElAiDCyRDwsrraJdyoFALf2
-	 A2RTwHxrnmSPw==
-Message-ID: <870c6b3e-d4f9-4722-934e-00e9ddb84e2e@kernel.org>
-Date: Tue, 21 Jan 2025 08:47:25 +0100
+	b=UjImRUYpdM1dD6wJOiBFszEkMJQk9zUbkIZaf5YCnVUbbf1HzCm7N/ewuhFCkRMqI
+	 3G9C/cdzNPqFSVbAYR2Pk/j8RVgQsv3Wj+HFLJNkgstiWbGOI56vZO7seDWcQlvkL6
+	 c1e04kSzKlV6B16WZ4g8OOVTl4RGlGTbd2fK07QNp+NnU80Zv5R8nLtFmfjLKSDhfO
+	 awP85bsb6outZAe0HSv7AnA82POmuGK7eUxh/9J0hOTHXE+5UdNJI/eNhT6ZfOOWzo
+	 xFoApPX0z1+dawLgcL0ZqHCvLmrbxcef55rPhRbBiViePO78b1f8FrZcBXr/QhRWrf
+	 e17S5XT23vxwQ==
+Message-ID: <870da365-bb18-47a7-ab78-62ce8a663559@kernel.org>
+Date: Tue, 21 Jan 2025 08:49:23 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 00/21] hwmon: Fix the type of 'config' in struct
- hwmon_channel_info to u64
-To: Huisong Li <lihuisong@huawei.com>, linux-hwmon@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, arm-scmi@vger.kernel.org,
- netdev@vger.kernel.org, linux-rtc@vger.kernel.org, oss-drivers@corigine.com,
- linux-rdma@vger.kernel.org, platform-driver-x86@vger.kernel.org,
- linuxarm@huawei.com, linux@roeck-us.net, jdelvare@suse.com,
- kernel@maidavale.org, pauk.denis@gmail.com, james@equiv.tech,
- sudeep.holla@arm.com, cristian.marussi@arm.com, matt@ranostay.sg,
- mchehab@kernel.org, irusskikh@marvell.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, saeedm@nvidia.com, leon@kernel.org, tariqt@nvidia.com,
- louis.peens@corigine.com, hkallweit1@gmail.com, linux@armlinux.org.uk,
- kabel@kernel.org, W_Armin@gmx.de, hdegoede@redhat.com,
- ilpo.jarvinen@linux.intel.com, alexandre.belloni@bootlin.com,
- jonathan.cameron@huawei.com, zhanjie9@hisilicon.com,
- zhenglifeng1@huawei.com, liuyonglong@huawei.com
-References: <20250121064519.18974-1-lihuisong@huawei.com>
+Subject: Re: [PATCH v4 5/5] arm64: dts: imx93: Add labels for the references
+ easier
+To: Joy Zou <joy.zou@nxp.com>, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
+ catalin.marinas@arm.com, will@kernel.org, kernel@pengutronix.de,
+ festevam@gmail.com
+Cc: joao.goncalves@toradex.com, marex@denx.de, hvilleneuve@dimonoff.com,
+ hiago.franco@toradex.com, peng.fan@nxp.com, frieder.schrempf@kontron.de,
+ alexander.stein@ew.tq-group.com, m.othacehe@gmail.com, mwalle@kernel.org,
+ Max.Merchel@ew.tq-group.com, quic_bjorande@quicinc.com,
+ geert+renesas@glider.be, dmitry.baryshkov@linaro.org,
+ neil.armstrong@linaro.org, arnd@arndb.de, nfraprado@collabora.com,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, ping.bai@nxp.com,
+ ye.li@nxp.com, aisheng.dong@nxp.com, frank.li@nxp.com, carlos.song@nxp.com
+References: <20250121074017.2819285-1-joy.zou@nxp.com>
+ <20250121074017.2819285-6-joy.zou@nxp.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -110,12 +108,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250121064519.18974-1-lihuisong@huawei.com>
+In-Reply-To: <20250121074017.2819285-6-joy.zou@nxp.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_234739_223002_F859B8CA 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20250120_234936_919203_D3C26D42 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,23 +128,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/01/2025 07:44, Huisong Li wrote:
-> The hwmon_device_register() is deprecated. When I try to repace it with
-> hwmon_device_register_with_info() for acpi_power_meter driver, I found that
-> the power channel attribute in linux/hwmon.h have to extend and is more
-> than 32 after this replacement.
+On 21/01/2025 08:40, Joy Zou wrote:
+> Making the references easier, so add labels.
 > 
-> However, the maximum number of hwmon channel attributes is 32 which is
-> limited by current hwmon codes. This is not good to add new channel
-> attribute for some hwmon sensor type and support more channel attribute.
+> Signed-off-by: Joy Zou <joy.zou@nxp.com>
+> ---
+>  arch/arm64/boot/dts/freescale/imx93.dtsi | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 > 
-> This series are aimed to do this. And also make sure that acpi_power_meter
-> driver can successfully replace the deprecated hwmon_device_register()
-> later.
+> diff --git a/arch/arm64/boot/dts/freescale/imx93.dtsi b/arch/arm64/boot/dts/freescale/imx93.dtsi
+> index 56766fdb0b1e..4739e7cb7e9b 100644
+> --- a/arch/arm64/boot/dts/freescale/imx93.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx93.dtsi
+> @@ -206,7 +206,7 @@ cpu_crit: cpu-crit {
+>  			};
+>  
+>  			cooling-maps {
+> -				map0 {
+> +				map0: map0 {
+>  					trip = <&cpu_alert>;
+>  					cooling-device =
+>  						<&A55_0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
+> @@ -1334,7 +1334,7 @@ usbmisc2: usbmisc@4c200200 {
+>  			#index-cells = <1>;
+>  		};
+>  
+> -		ddr-pmu@4e300dc0 {
+> +		ddr_pmu: ddr-pmu@4e300dc0 {
 
-Avoid combining independent patches into one patch bomb. Or explain the
-dependencies and how is it supposed to be merged - that's why you have
-cover letter here.
+Useless commit - there are no users.
 
 Best regards,
 Krzysztof
