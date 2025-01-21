@@ -4,108 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAC0FC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 16:39:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 354F8C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jan 2025 16:41:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rk7YrE6UBezqaR/fdDYkZZ8HhhiqPdu23Nnd1oC9law=; b=01lTuuz+wN3S5/c1tyd7Go5XIh
-	FHi61ZnkWKIqM2uWWwiRMV2vWf1G1wy3chKH3n4PBmCXKTSvRW4sl3WJJYDgZFTrv2Cbh+KdrhDSJ
-	vVBcNRlxLQSMfTwcXsRifB5oeMO2pGE6HbJRM84MGsiValvAGnUMJYWaddG94BhNpwOck5ub0zNnE
-	jJqJXvZpPuPPxeZkxaw0UVwwkijOLchuBFeC9OfCEWIC7LDcM8SIYK0bonGRouy4nLwLCSFFeA8pq
-	BWNQ2UMgZ9GrSqxSOtBOPgBzV+i6fm0uba4/YnWKoS/po9IAOwDjfLLq3m05hLt+lf7xo9Bolcfmq
-	XkPJjN6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z4obhy05T3Ag3JlWrJ+ed+uiE0KTWe6SS0n5vaejRXY=; b=Jfrqyi8KB1XqqNU2Dym/TvucAb
+	5GVoEX2RsY1DfFoZ51bHWQUzS/Jz6KMa3nXf2lL7htC9s3ScKONfXOM4jtFg4K0HxolJQRi++R/o/
+	rYraVv8xIVSKmlf/yu+nnmaRzUgEwuvYMVvwG/Fh51SLgFV7PCLN098Ex8q+VVLFeA/oXQqZYL7zG
+	3XNAGpNpq1ZZOUrOPCgLbZrl1qm4HMH6Rp8wh3VShWkfN9/j0RAPeN5KeJiTIuDPBGx/hKibxCgFH
+	yPBPnQj9s4Woxup6nIPPjw9bzc5wM45wgqE1zhxag5n8D4dB/6oyRVjGGDQwgZDRhPza0owoKQ6S3
+	i214ZQ/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taHHn-00000008NRZ-2sGS;
-	Tue, 21 Jan 2025 16:39:31 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1taHJj-00000008Nj9-3zb9;
+	Tue, 21 Jan 2025 16:41:31 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taHGU-00000008NEH-21Qk;
-	Tue, 21 Jan 2025 16:38:11 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50LFN5xk011302;
-	Tue, 21 Jan 2025 16:37:38 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=rk7YrE6UBezqaR/fdDYkZZ8HhhiqPd
-	u23Nnd1oC9law=; b=fz8cQTU8PvP8JVPbKU6Ynem/RjPPMY4uzRJefS9/1Tx/qT
-	LzhhVSjzTVTggodrGdoC7U7DKDLLylgyhVs2FXbeQ7/tfYw6bKUuWYwWuOif/J55
-	axSnjLRVcxlX4rVFmGjI9yaNmgps2TdyXZGRxYJBxyypnf4KKtSpIijUn0tx2sG2
-	UQkEtTDltlKN8Af1rd91bT/prAvISQdM/HX80B8iBN3U4iv/2IgONEpJfBHX5Mtz
-	927QozGW/1WX1WRlYYGSfytKSwEZp1r05DyTHoaBZJKMtMvgB8PB502t9kcSNrkN
-	9ZetdoZIDddF9W2j5/S1Aryn/L+NhiQXTESjl6tQ==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44a5d7k4jx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 21 Jan 2025 16:37:38 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 50LCt2RB024252;
-	Tue, 21 Jan 2025 16:37:37 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 448q0y45w5-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 21 Jan 2025 16:37:36 +0000
-Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 50LGbZEl22872488
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 21 Jan 2025 16:37:35 GMT
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id DB61420040;
-	Tue, 21 Jan 2025 16:37:34 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 3F9B220043;
-	Tue, 21 Jan 2025 16:37:34 +0000 (GMT)
-Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.155.204.135])
-	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Tue, 21 Jan 2025 16:37:34 +0000 (GMT)
-Date: Tue, 21 Jan 2025 17:37:33 +0100
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        Linus Walleij <linus.walleij@linaro.org>,
-        Andy Lutomirski <luto@kernel.org>,
-        Peter Zijlstra <peterz@infradead.org>,
-        "Mike Rapoport (IBM)" <rppt@kernel.org>,
-        Ryan Roberts <ryan.roberts@arm.com>,
-        Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
-        Matthew Wilcox <willy@infradead.org>,
-        Qi Zheng <zhengqi.arch@bytedance.com>, linux-alpha@vger.kernel.org,
-        linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-        linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
-        linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-        linux-s390@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-        linux-um@lists.infradead.org, loongarch@lists.linux.dev,
-        x86@kernel.org
-Subject: Re: [PATCH v2 6/6] mm: Introduce ctor/dtor at PGD level
-Message-ID: <Z4/NTRDBXEEimdvc@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
-References: <20250103184415.2744423-1-kevin.brodsky@arm.com>
- <20250103184415.2744423-7-kevin.brodsky@arm.com>
+	id 1taHIR-00000008NZM-1r67;
+	Tue, 21 Jan 2025 16:40:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D901DA41D15;
+	Tue, 21 Jan 2025 16:38:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1ADF6C4CEDF;
+	Tue, 21 Jan 2025 16:40:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737477610;
+	bh=n6OwF0LtgoRb+4gCwo/Yxj34ecr+BW/s6uOoxV5vMmk=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=lkRQIKUcsP/6LY0rJsBfga/cvSR/cWw2GTYHCjdGg0zq/BalM1ysCPu075pG3n6x5
+	 TgAkE48TCOsHMA7Y2/qb17dvIQt6Nzyt6HZ5YVNXMjCuan19GD834jqe6MaSKJ1L8u
+	 1QWbhtFbZs6QXqXFIP0KtlN02T58zf8miQAh2qB09CRskS2u6Axm4Ps9S8c/y34gCo
+	 L8QphVXUj3NdyZIKJNmfIkrjbqIXCTPYJD6fKiOrhO/SjiEo/aoYCGU7X10E30qPOz
+	 /Tq15OBEqSU4dHnsa5R9Xc7aX14SzyFL3717IlVkR8u8eQCqSWpnOhW3wxTDjPLXfJ
+	 On9WG2dgHLLmQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 71064380AA75;
+	Tue, 21 Jan 2025 16:40:35 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250103184415.2744423-7-kevin.brodsky@arm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: _Jbv8MOWLvlsI4K8ecrKg7ZStBAwr44Z
-X-Proofpoint-ORIG-GUID: _Jbv8MOWLvlsI4K8ecrKg7ZStBAwr44Z
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-01-21_07,2025-01-21_03,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
- impostorscore=0 mlxscore=0 spamscore=0 clxscore=1011 mlxlogscore=539
- lowpriorityscore=0 phishscore=0 adultscore=0 malwarescore=0 suspectscore=0
- bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2501210134
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH 1/2] Bluetooth: btusb: mediatek: Add locks for
+ usb_driver_claim_interface()
+From: patchwork-bot+bluetooth@kernel.org
+Message-Id: <173747763400.49514.16130463515349826883.git-patchwork-notify@kernel.org>
+Date: Tue, 21 Jan 2025 16:40:34 +0000
+References: <20250115193636.1.If8b655b5c6877bd9a1136ba0f1cd61cc6a4b6e9c@changeid>
+In-Reply-To: <20250115193636.1.If8b655b5c6877bd9a1136ba0f1cd61cc6a4b6e9c@changeid>
+To: Doug Anderson <dianders@chromium.org>
+Cc: marcel@holtmann.org, luiz.dentz@gmail.com,
+ angelogioacchino.delregno@collabora.com, chris.lu@mediatek.com,
+ matthias.bgg@gmail.com, linux-arm-kernel@lists.infradead.org,
+ linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-mediatek@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_083810_520882_5350EF90 
-X-CRM114-Status: GOOD (  16.93  )
+X-CRM114-CacheID: sfid-20250121_084011_551176_8F1571D3 
+X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,40 +77,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 03, 2025 at 06:44:15PM +0000, Kevin Brodsky wrote:
+Hello:
 
-Hi Kevin,
-...
-> diff --git a/arch/s390/include/asm/pgalloc.h b/arch/s390/include/asm/pgalloc.h
-> index 5fced6d3c36b..b19b6ed2ab53 100644
-> --- a/arch/s390/include/asm/pgalloc.h
-> +++ b/arch/s390/include/asm/pgalloc.h
-> @@ -130,11 +130,18 @@ static inline void pud_populate(struct mm_struct *mm, pud_t *pud, pmd_t *pmd)
->  
->  static inline pgd_t *pgd_alloc(struct mm_struct *mm)
->  {
-> -	return (pgd_t *) crst_table_alloc(mm);
-> +	unsigned long *table = crst_table_alloc(mm);
-> +
-> +	if (!table)
-> +		return NULL;
+This series was applied to bluetooth/bluetooth-next.git (master)
+by Luiz Augusto von Dentz <luiz.von.dentz@intel.com>:
 
-I do not know status of this series, but FWIW, this call is missed:
+On Wed, 15 Jan 2025 19:36:36 -0800 you wrote:
+> The documentation for usb_driver_claim_interface() says that "the
+> device lock" is needed when the function is called from places other
+> than probe(). This appears to be the lock for the USB interface
+> device. The Mediatek btusb code gets called via this path:
+> 
+>   Workqueue: hci0 hci_power_on [bluetooth]
+>   Call trace:
+>    usb_driver_claim_interface
+>    btusb_mtk_claim_iso_intf
+>    btusb_mtk_setup
+>    hci_dev_open_sync
+>    hci_power_on
+>    process_scheduled_works
+>    worker_thread
+>    kthread
+> 
+> [...]
 
-	crst_table_init(table, _REGION1_ENTRY_EMPTY); 
+Here is the summary with links:
+  - [1/2] Bluetooth: btusb: mediatek: Add locks for usb_driver_claim_interface()
+    https://git.kernel.org/bluetooth/bluetooth-next/c/ec5570088c6a
+  - [2/2] Bluetooth: btusb: mediatek: Add err code to btusb claim iso printout
+    https://git.kernel.org/bluetooth/bluetooth-next/c/6ca1c15fcb92
 
-> +	pagetable_pgd_ctor(virt_to_ptdesc(table));
-> +
-> +	return (pgd_t *) table;
->  }
->  
->  static inline void pgd_free(struct mm_struct *mm, pgd_t *pgd)
->  {
-> +	pagetable_dtor(virt_to_ptdesc(pgd));
->  	crst_table_free(mm, (unsigned long *) pgd);
->  }
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-...
 
-Thanks!
 
