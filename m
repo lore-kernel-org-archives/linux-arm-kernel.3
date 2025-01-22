@@ -4,66 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6FB9C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 05:38:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA2E7C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 05:59:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0UhUEFtQQOL13rouwu2v+xW9brqIm6jsVUtUdWb/LHk=; b=ZjiCiZAfahEhr+mJuXMAwvX4am
-	10d2fL4K26ZySfH1h7fgFGyk7Ds9P1P1XnQZPJKhMIEvMJ91+7iGBDeTlu+Dzm84GdlcH4Ap+/2p8
-	7vpgE4W85+yL4XSZOcgjnHuTteoN51aF0OkyzBGWs0YxVENNDsqyQ5w95DKMKfJ4HIA0/XMWzGoL1
-	E9u2WzR/23q4T4hk+oAf32kbi+wnEU1hiF8uQmitruzFoZnxzOsypysUVyzzX/seZLgxng9hxrF+G
-	peVJcA31C1kPAEwMEiHndBs38pjQjlYoWD27oTR+aBhSAbofnp69bH/Dy5MWZfRY9extbd3CaF65t
-	4w/yNBiA==;
+	bh=oWtwN2y9htoF2/ngnM+5j1uHKmVDNRI5Y+z51fo5zQI=; b=1yqbRBAa7SPhYEfnD/VZM61dLv
+	PiUIdJEOVaYcwveyONQixP2ZDd/XxRrKtWCs7dkLg4VW7FjopNvkPDBl1pyR0N7+oN1jod43UJz88
+	dLuk2dDH4jbdwJDqGDJbLArj+PJflRGZMMEtt5QKy/rl26e4IoGSds4sGGknWJdirIkT0b0rcvQ+o
+	9L4YadoouNuYuYs95wUQyO9lLIKM/b3q9JyVC0tMVrivzREHFBRSHFjYl1/p5KDjwOimjH6PU4RQD
+	A5NvVZKRrBfMRnLOoeP9Wv9Jo2meDldLEL2KWlA63q6dpAEvq+T32gF/x58PwY9sE2kCd8htYPCqE
+	RQuPB/CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taTR7-00000009QWY-3Bvi;
-	Wed, 22 Jan 2025 05:37:57 +0000
-Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
+	id 1taTlq-00000009RUc-3EZd;
+	Wed, 22 Jan 2025 05:59:22 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taTPm-00000009QOi-3ZnS
+	id 1taTkW-00000009RIq-0Oxk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 05:36:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1737524189; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=0UhUEFtQQOL13rouwu2v+xW9brqIm6jsVUtUdWb/LHk=;
-	b=QrbV/UmeYSRl+jTjkYZtonPo6zkHE5efPSDMMRhZqOeCzMowPDStRkkJx8IXzeh1Z5U/5D4BteRK4RP9fzaAaXtyFK/JZ8Uyv2YHUFIJ/1VyBWUbi08WxwaN/G70VTiz9WxlDWjMwkeIt3sBJjMMs+jAFc7P2mFW+TICRFYW7sM=
-Received: from 30.246.161.230(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WO7MbT6_1737524184 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 22 Jan 2025 13:36:26 +0800
-Message-ID: <8775a7d1-b4c5-467b-942c-3041e2994735@linux.alibaba.com>
-Date: Wed, 22 Jan 2025 13:36:23 +0800
+	Wed, 22 Jan 2025 05:58:02 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.105])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4YdCxW310SzmZ87;
+	Wed, 22 Jan 2025 13:56:15 +0800 (CST)
+Received: from dggemv703-chm.china.huawei.com (unknown [10.3.19.46])
+	by mail.maildlp.com (Postfix) with ESMTPS id 4DF251400D1;
+	Wed, 22 Jan 2025 13:57:54 +0800 (CST)
+Received: from kwepemn100009.china.huawei.com (7.202.194.112) by
+ dggemv703-chm.china.huawei.com (10.3.19.46) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Wed, 22 Jan 2025 13:57:54 +0800
+Received: from [10.67.121.59] (10.67.121.59) by kwepemn100009.china.huawei.com
+ (7.202.194.112) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 22 Jan
+ 2025 13:57:52 +0800
+Message-ID: <ef34bf8a-c8d9-13bb-011c-6a4365bb3cb8@huawei.com>
+Date: Wed, 22 Jan 2025 13:57:51 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v18 0/3] ACPI: APEI: handle synchronous errors in task
- work
-To: yazen.ghannam@amd.com, mark.rutland@arm.com, catalin.marinas@arm.com,
- mingo@redhat.com, robin.murphy@arm.com, Jonathan.Cameron@Huawei.com,
- bp@alien8.de, rafael@kernel.org, linux-arm-kernel@lists.infradead.org,
- wangkefeng.wang@huawei.com, tanxiaofei@huawei.com, mawupeng1@huawei.com,
- tony.luck@intel.com, linmiaohe@huawei.com, naoya.horiguchi@nec.com,
- james.morse@arm.com, tongtiangen@huawei.com, gregkh@linuxfoundation.org,
- will@kernel.org, jarkko@kernel.org
-Cc: linux-acpi@vger.kernel.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, akpm@linux-foundation.org,
- linux-edac@vger.kernel.org, x86@kernel.org, justin.he@arm.com,
- ardb@kernel.org, ying.huang@linux.alibaba.com, ashish.kalra@amd.com,
- baolin.wang@linux.alibaba.com, tglx@linutronix.de,
- dave.hansen@linux.intel.com, lenb@kernel.org, hpa@zytor.com,
- robert.moore@intel.com, lvying6@huawei.com, xiexiuqi@huawei.com,
- zhuo.song@linux.alibaba.com
-References: <20250107081735.16159-1-xueshuai@linux.alibaba.com>
-From: Shuai Xue <xueshuai@linux.alibaba.com>
-In-Reply-To: <20250107081735.16159-1-xueshuai@linux.alibaba.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.2.0
+Subject: Re: [PATCH v1 19/21] platform/x86: dell-ddv: Fix the type of 'config'
+ in struct hwmon_channel_info to u64
+To: =?UTF-8?Q?Ilpo_J=c3=a4rvinen?= <ilpo.jarvinen@linux.intel.com>
+CC: <linux-hwmon@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>,
+	<linux-media@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<arm-scmi@vger.kernel.org>, Netdev <netdev@vger.kernel.org>,
+	<linux-rtc@vger.kernel.org>, <oss-drivers@corigine.com>,
+	<linux-rdma@vger.kernel.org>, <platform-driver-x86@vger.kernel.org>,
+	<linuxarm@huawei.com>, <linux@roeck-us.net>, <jdelvare@suse.com>,
+	<kernel@maidavale.org>, <pauk.denis@gmail.com>, <james@equiv.tech>,
+	<sudeep.holla@arm.com>, <cristian.marussi@arm.com>, <matt@ranostay.sg>,
+	<mchehab@kernel.org>, <irusskikh@marvell.com>, <andrew+netdev@lunn.ch>,
+	<davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <saeedm@nvidia.com>, <leon@kernel.org>,
+	<tariqt@nvidia.com>, <louis.peens@corigine.com>, <hkallweit1@gmail.com>,
+	<linux@armlinux.org.uk>, <kabel@kernel.org>, <W_Armin@gmx.de>, Hans de Goede
+	<hdegoede@redhat.com>, <alexandre.belloni@bootlin.com>, <krzk@kernel.org>,
+	<jonathan.cameron@huawei.com>, <zhanjie9@hisilicon.com>,
+	<zhenglifeng1@huawei.com>, <liuyonglong@huawei.com>
+References: <20250121064519.18974-1-lihuisong@huawei.com>
+ <20250121064519.18974-20-lihuisong@huawei.com>
+ <844c5097-eeb7-7275-7558-83ca4e5ee4b2@linux.intel.com>
+From: "lihuisong (C)" <lihuisong@huawei.com>
+In-Reply-To: <844c5097-eeb7-7275-7558-83ca4e5ee4b2@linux.intel.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.121.59]
+X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
+ kwepemn100009.china.huawei.com (7.202.194.112)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_213635_684081_B14DD286 
-X-CRM114-Status: GOOD (  42.75  )
+X-CRM114-CacheID: sfid-20250121_215800_438438_FE47A683 
+X-CRM114-Status: GOOD (  19.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,245 +92,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Rafael,
 
-Gentle ping.
-
-Thanks.
-
-Best Regards,
-Shuai
-
-在 2025/1/7 16:17, Shuai Xue 写道:
-> changes singce v17:
-> - rebase to Linux 6.13-rc7 with no functional changes
-> - add reviewed-by tag for patch 1-3 from Jane Chu
-> - add reviewed-by tag for patch 3 from Yazen
-> 
-> changes singce v16:
-> - add reviewed-by tag for patch 1 and patch 2 from Yazen
-> - rewrite warning message for force kill (per Yazen)
-> - warn with dev_err in ghes (per Jarkko)
-> - add return value -ENXIO in memory_failure comments  (per Yazen)
-> - Link: https://lore.kernel.org/lkml/20241104015430.98599-1-xueshuai@linux.alibaba.com/
-> 
-> changes singce v15:
-> - add HW_ERR and GHES_PFX prefix per Yazen
-> 
-> changes since v14:
-> - add reviewed-by tags from Jarkko and Jonathan
-> - remove local variable and use twcb->pfn
-> 
-> changes since v13:
-> - add reviewed-by tag from Jarkko
-> - rename task_work to ghes_task_work (per Jarkko)
-> 
-> changes since v12:
-> - tweak error message for force kill (per Jarkko)
-> - fix comments style (per Jarkko)
-> - fix commit log typo (per Jarko)
-> 
-> changes since v11:
-> - rebase to Linux 6.11-rc6
-> - fix grammer and typo in commit log (per Borislav)
-> - remove `sync_` perfix of `sync_task_work`  (per Borislav)
-> - comments flags and description of `task_work`  (per Borislav)
-> 
-> changes since v10:
-> - rebase to v6.8-rc2
-> 
-> changes since v9:
-> - split patch 2 to address exactly one issue in one patch (per Borislav)
-> - rewrite commit log according to template (per Borislav)
-> - pickup reviewed-by tag of patch 1 from James Morse
-> - alloc and free twcb through gen_pool_{alloc, free) (Per James)
-> - rewrite cover letter
-> 
-> changes since v8:
-> - remove the bug fix tag of patch 2 (per Jarkko Sakkinen)
-> - remove the declaration of memory_failure_queue_kick (per Naoya Horiguchi)
-> - rewrite the return value comments of memory_failure (per Naoya Horiguchi)
-> 
-> changes since v7:
-> - rebase to Linux v6.6-rc2 (no code changed)
-> - rewritten the cover letter to explain the motivation of this patchset
-> 
-> changes since v6:
-> - add more explicty error message suggested by Xiaofei
-> - pick up reviewed-by tag from Xiaofei
-> - pick up internal reviewed-by tag from Baolin
-> 
-> changes since v5 by addressing comments from Kefeng:
-> - document return value of memory_failure()
-> - drop redundant comments in call site of memory_failure()
-> - make ghes_do_proc void and handle abnormal case within it
-> - pick up reviewed-by tag from Kefeng Wang
-> 
-> changes since v4 by addressing comments from Xiaofei:
-> - do a force kill only for abnormal sync errors
-> 
-> changes since v3 by addressing comments from Xiaofei:
-> - do a force kill for abnormal memory failure error such as invalid PA,
-> unexpected severity, OOM, etc
-> - pcik up tested-by tag from Ma Wupeng
-> 
-> changes since v2 by addressing comments from Naoya:
-> - rename mce_task_work to sync_task_work
-> - drop ACPI_HEST_NOTIFY_MCE case in is_hest_sync_notify()
-> - add steps to reproduce this problem in cover letter
-> 
-> changes since v1:
-> - synchronous events by notify type
-> - Link: https://lore.kernel.org/lkml/20221206153354.92394-3-xueshuai@linux.alibaba.com/
-> 
-> ## Cover Letter
-> 
-> There are two major types of uncorrected recoverable (UCR) errors :
-> 
-> - Synchronous error: The error is detected and raised at the point of the
->    consumption in the execution flow, e.g. when a CPU tries to access
->    a poisoned cache line. The CPU will take a synchronous error exception
->    such as Synchronous External Abort (SEA) on Arm64 and Machine Check
->    Exception (MCE) on X86. OS requires to take action (for example, offline
->    failure page/kill failure thread) to recover this uncorrectable error.
-> 
-> - Asynchronous error: The error is detected out of processor execution
->    context, e.g. when an error is detected by a background scrubber. Some data
->    in the memory are corrupted. But the data have not been consumed. OS is
->    optional to take action to recover this uncorrectable error.
-> 
-> Currently, both synchronous and asynchronous error use
-> memory_failure_queue() to schedule memory_failure() exectute in kworker
-> context. As a result, when a user-space process is accessing a poisoned
-> data, a data abort is taken and the memory_failure() is executed in the
-> kworker context:
-> 
->    - will send wrong si_code by SIGBUS signal in early_kill mode, and
->    - can not kill the user-space in some cases resulting a synchronous
->      error infinite loop
-> 
-> Issue 1: send wrong si_code in early_kill mode
-> 
-> Since commit a70297d22132 ("ACPI: APEI: set memory failure flags as
-> MF_ACTION_REQUIRED on synchronous events")', the flag MF_ACTION_REQUIRED
-> could be used to determine whether a synchronous exception occurs on
-> ARM64 platform.  When a synchronous exception is detected, the kernel is
-> expected to terminate the current process which has accessed poisoned
-> page. This is done by sending a SIGBUS signal with an error code
-> BUS_MCEERR_AR, indicating an action-required machine check error on
-> read.
-> 
-> However, when kill_proc() is called to terminate the processes who have
-> the poisoned page mapped, it sends the incorrect SIGBUS error code
-> BUS_MCEERR_AO because the context in which it operates is not the one
-> where the error was triggered.
-> 
-> To reproduce this problem:
-> 
->    # STEP1: enable early kill mode
->    #sysctl -w vm.memory_failure_early_kill=1
->    vm.memory_failure_early_kill = 1
-> 
->    # STEP2: inject an UCE error and consume it to trigger a synchronous error
->    #einj_mem_uc single
->    0: single   vaddr = 0xffffb0d75400 paddr = 4092d55b400
->    injecting ...
->    triggering ...
->    signal 7 code 5 addr 0xffffb0d75000
->    page not present
->    Test passed
-> 
-> The si_code (code 5) from einj_mem_uc indicates that it is BUS_MCEERR_AO
-> error and it is not fact.
-> 
-> To fix it, queue memory_failure() as a task_work so that it runs in
-> the context of the process that is actually consuming the poisoned data.
-> 
-> After this patch set:
-> 
->    # STEP1: enable early kill mode
->    #sysctl -w vm.memory_failure_early_kill=1
->    vm.memory_failure_early_kill = 1
-> 
->    # STEP2: inject an UCE error and consume it to trigger a synchronous error
->    #einj_mem_uc single
->    0: single   vaddr = 0xffffb0d75400 paddr = 4092d55b400
->    injecting ...
->    triggering ...
->    signal 7 code 4 addr 0xffffb0d75000
->    page not present
->    Test passed
-> 
-> The si_code (code 4) from einj_mem_uc indicates that it is BUS_MCEERR_AR
-> error as we expected.
-> 
-> Issue 2: a synchronous error infinite loop due to memory_failure() failed
-> 
-> If a user-space process, e.g. devmem, a poisoned page which has been set
-> HWPosion flag, kill_accessing_process() is called to send SIGBUS to the
-> current processs with error info. Because the memory_failure() is
-> executed in the kworker contex, it will just do nothing but return
-> EFAULT. So, devmem will access the posioned page and trigger an
-> excepction again, resulting in a synchronous error infinite loop. Such
-> loop may cause platform firmware to exceed some threshold and reboot
-> when Linux could have recovered from this error.
-> 
-> To reproduce this problem:
-> 
->    # STEP 1: inject an UCE error, and kernel will set HWPosion flag for related page
->    #einj_mem_uc single
->    0: single   vaddr = 0xffffb0d75400 paddr = 4092d55b400
->    injecting ...
->    triggering ...
->    signal 7 code 4 addr 0xffffb0d75000
->    page not present
->    Test passed
-> 
->    # STEP 2: access the same page and it will trigger a synchronous error infinite loop
->    devmem 0x4092d55b400
-> 
-> To fix it, if memory_failure() failed, perform a force kill to current process.
-> 
-> Issue 3: a synchronous error infinite loop due to no memory_failure() queued
-> 
-> No memory_failure() work is queued unless all bellow preconditions check passed:
-> 
-> - `if (!(mem_err->validation_bits & CPER_MEM_VALID_PA))` in ghes_handle_memory_failure()
-> - `if (flags == -1)` in ghes_handle_memory_failure()
-> - `if (!IS_ENABLED(CONFIG_ACPI_APEI_MEMORY_FAILURE))` in ghes_do_memory_failure()
-> - `if (!pfn_valid(pfn) && !arch_is_platform_page(physical_addr)) ` in ghes_do_memory_failure()
-> 
-> If the preconditions are not passed, the user-space process will trigger SEA again.
-> This loop can potentially exceed the platform firmware threshold or even
-> trigger a kernel hard lockup, leading to a system reboot.
-> 
-> To fix it, if no memory_failure() queued, perform a force kill to current process.
-> 
-> And the the memory errors triggered in kernel-mode[5], also relies on this
-> patchset to kill the failure thread.
-> 
-> Lv Ying and XiuQi from Huawei also proposed to address similar problem[2][4].
-> Acknowledge to discussion with them.
-> 
-> [1] Add ARMv8 RAS virtualization support in QEMU https://patchew.org/QEMU/20200512030609.19593-1-gengdongjiu@huawei.com/
-> [2] https://lore.kernel.org/lkml/20221205115111.131568-3-lvying6@huawei.com/
-> [3] https://lkml.kernel.org/r/20220914064935.7851-1-xueshuai@linux.alibaba.com
-> [4] https://lore.kernel.org/lkml/20221209095407.383211-1-lvying6@huawei.com/
-> [5] https://patchwork.kernel.org/project/linux-arm-kernel/cover/20240528085915.1955987-1-tongtiangen@huawei.com/
-> 
-> Shuai Xue (3):
->    ACPI: APEI: send SIGBUS to current task if synchronous memory error
->      not recovered
->    mm: memory-failure: move return value documentation to function
->      declaration
->    ACPI: APEI: handle synchronous exceptions in task work
-> 
->   arch/x86/kernel/cpu/mce/core.c |  7 ---
->   drivers/acpi/apei/ghes.c       | 90 +++++++++++++++++++++-------------
->   include/acpi/ghes.h            |  3 --
->   include/linux/mm.h             |  1 -
->   mm/memory-failure.c            | 23 +++------
->   5 files changed, 63 insertions(+), 61 deletions(-)
-> 
-
+在 2025/1/21 20:18, Ilpo Järvinen 写道:
+> On Tue, 21 Jan 2025, Huisong Li wrote:
+>
+>> The type of 'config' in struct hwmon_channel_info has been fixed to u64.
+>> Modify the related code in driver to avoid compiling failure.
+> Does this mean that after applying part of your series but not yet this
+> patch, compile would fail? If so, it's unacceptable. At no point in a
+> patch series are you allowed to cause a compile failure because it hinders
+> 'git bisect' that is an important troubleshooting tool.
+>
+> So you might have to combine changes to drivers and API if you make an
+> API change that breaks driver build until driver too is changed. Note that
+> it will impact a lot how quickly your patches can be accepted as much
+> higher level of coordination is usually required if your patch is touching
+> things all over the place, but it cannot be avoided at times. And
+> requirement of doing minimal change only will be much much higher in such
+> a large scale change.
+>
+Ack. Thanks for your reply.
+>
+>> Signed-off-by: Huisong Li <lihuisong@huawei.com>
+>> ---
+>>   drivers/platform/x86/dell/dell-wmi-ddv.c | 6 +++---
+>>   1 file changed, 3 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/drivers/platform/x86/dell/dell-wmi-ddv.c b/drivers/platform/x86/dell/dell-wmi-ddv.c
+>> index e75cd6e1efe6..efb2278aabb9 100644
+>> --- a/drivers/platform/x86/dell/dell-wmi-ddv.c
+>> +++ b/drivers/platform/x86/dell/dell-wmi-ddv.c
+>> @@ -86,7 +86,7 @@ struct thermal_sensor_entry {
+>>   
+>>   struct combined_channel_info {
+>>   	struct hwmon_channel_info info;
+>> -	u32 config[];
+>> +	u64 config[];
+>>   };
+>>   
+>>   struct combined_chip_info {
+>> @@ -500,7 +500,7 @@ static const struct hwmon_ops dell_wmi_ddv_ops = {
+>>   
+>>   static struct hwmon_channel_info *dell_wmi_ddv_channel_create(struct device *dev, u64 count,
+>>   							      enum hwmon_sensor_types type,
+>> -							      u32 config)
+>> +							      u64 config)
+>>   {
+>>   	struct combined_channel_info *cinfo;
+>>   	int i;
+>> @@ -543,7 +543,7 @@ static struct hwmon_channel_info *dell_wmi_ddv_channel_init(struct wmi_device *w
+>>   							    struct dell_wmi_ddv_sensors *sensors,
+>>   							    size_t entry_size,
+>>   							    enum hwmon_sensor_types type,
+>> -							    u32 config)
+>> +							    u64 config)
+>>   {
+>>   	struct hwmon_channel_info *info;
+>>   	int ret;
+>>
+> .
 
