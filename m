@@ -4,83 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2693C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 10:40:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D696C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 10:41:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D148uN4hDXdT2rJSZKJwByhsJ6g1FBpWYudcX0hVbmM=; b=va7mpYpckjGFXqKapC3xh9wKN9
-	btP1BD7D4UeCzGMYekd8CqcTQJQtaVWUys1QAZ3vE/6EwsKax28v3u3cZ4+puNDcFhOL/8mvHkA3i
-	Vy0GXWky+4DQHVbiP9rFZrJ5R+yLwsKAOmumBqi1Q4CkwoXkMWUW+UZWs+3pIgL5bd3S4RFGclW5g
-	N2FeF/1EXyzaXgrDzPoRnIiMg3YiqBLB/tgP1WkuymXKTnXOFOKCgGuDGd8BP4pTAxgUCs15QxCn5
-	BhwLKNJK1JRSRO47BgU3txOXLtVO2Q2vpHU+suX/JUYHUpTONfMrmJtLdtHnoQgQE6UUbJUFc7BhA
-	Idj/42fw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VBYwlp7RbHOlI1fJL3B+XwCYKxEWXd67YbgS8K7TW4A=; b=K/INpLNvbKPBeuNp99Y+ckZl3e
+	9fWoNsqpOMgbF6bvJDYwVPSJharNf48TMdUjkXPQ/lZgdirMlunvyAjyzBdHdxa1yyzTjVz8A7cEg
+	LLEHH2nAFcJaszpJ6LQIfHA8vrhua/7uVJMrmr78vllB5gtGufGRFQktdORVh2vUw+7Mru9lclhjB
+	PT0T4bRrdwyrpjHgQZcwWdBTcWmlUAHgm9aOsTurjMJEU/ZxNWYpzYNv2elkz303haTCvnZTBV8vB
+	2T9/YsrFLK0WFkDHy2ltjZsFyznVu48/ojbpSxEOVPVKvKvc6CqT3bU8uDkKUbmBBl1invMPK1fom
+	XdZ+D0HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taY9E-00000009yHY-3FlX;
-	Wed, 22 Jan 2025 10:39:48 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1taYAU-00000009yZS-1snJ;
+	Wed, 22 Jan 2025 10:41:06 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taY45-00000009xQG-1p7y
+	id 1taY5W-00000009xgs-20uk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 10:34:30 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 50MAYNrK998000
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Wed, 22 Jan 2025 04:34:23 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1737542063;
-	bh=D148uN4hDXdT2rJSZKJwByhsJ6g1FBpWYudcX0hVbmM=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=asebbBcouZYomCUcR1R60J/3sjbhOTfqfLWJz0eIxYX9TKFIkjastUZyFJ1ymseRX
-	 Nt5CjjyVK17BdWqqCqvnlURnvrVwnUSIgDzyGiTptMkqmwpFTwCBhXNO5hILA5PUOR
-	 hsVhbAGGnGBVXk3a6HftOLjNpu2CMxmHm9M1gHU0=
-Received: from DLEE102.ent.ti.com (dlee102.ent.ti.com [157.170.170.32])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 50MAYNw6118463;
-	Wed, 22 Jan 2025 04:34:23 -0600
-Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE102.ent.ti.com
- (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 22
- Jan 2025 04:34:22 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 22 Jan 2025 04:34:22 -0600
-Received: from localhost (uda0492258.dhcp.ti.com [10.24.72.104])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 50MAYLfx010598;
-	Wed, 22 Jan 2025 04:34:22 -0600
-Date: Wed, 22 Jan 2025 16:04:20 +0530
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: Markus Schneider-Pargmann <msp@baylibre.com>
-CC: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Siddharth
- Vadapalli <s-vadapalli@ti.com>, Nishanth Menon <nm@ti.com>,
-        Vignesh
- Raghavendra <vigneshr@ti.com>,
-        Tero Kristo <kristo@kernel.org>,
-        Krzysztof
- Kozlowski <krzysztof.kozlowski@linaro.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH 1/5] dt-bindings: mfd: syscon: Add
- ti,j784s4-acspcie-proxy-ctrl to second list
-Message-ID: <ktchilwqxu3xxu7afa2qkrmkfbwwf3xasyo3jfypizgrl7yd64@nqdp5zle7xkl>
-References: <20250122-topic-am62-dt-syscon-v6-13-v1-0-515d56edc35e@baylibre.com>
- <20250122-topic-am62-dt-syscon-v6-13-v1-1-515d56edc35e@baylibre.com>
+	Wed, 22 Jan 2025 10:35:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 36772A42007;
+	Wed, 22 Jan 2025 10:34:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2FCDC4CED6;
+	Wed, 22 Jan 2025 10:35:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737542157;
+	bh=JTDUHh73Mw8ryqE69NeEdNB/621cn8wdHmgIhZAqEAM=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=pkXxd2o8/8XZsWH4LxsTAaNUSDF8I5OxhRIkyzAHDkHcnaQjIlSFCVmRgXPC3MYlP
+	 LWKGwCCKLnSl8arOpeJGPV8SyGB5d0/vrquzHy0GGUa8FXGls2BCCLTy6PwfKa+am/
+	 zLTO4PTKed1HnlXXDG3lYOu9RKYabxH+cGV3l5/9kh8J2Pan7qPqZLsr63D9xL17TO
+	 V7og35OljQ1qVI+etHzzlCe3+6djPQhzztLp5qsqNb3Ix1L4Sy2N3+E4Y1UzN2UKxr
+	 nskcnQTPUKYGVcnxdwlBtU0iUvgPU615C9I+HdkbdJz5IDf4MwJoVyGCISPOa8CiGL
+	 mzf0Lnq+82qRA==
+Message-ID: <11880309-5021-4038-a4eb-a3a80da71550@kernel.org>
+Date: Wed, 22 Jan 2025 11:35:50 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250122-topic-am62-dt-syscon-v6-13-v1-1-515d56edc35e@baylibre.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+User-Agent: Mozilla Thunderbird
+Subject: Re: [EXT] Re: [PATCH v12 2/5] dt-bindings: arm: fsl: add imx-se-fw
+ binding doc
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Pankaj Gupta <pankaj.gupta@nxp.com>, Jonathan Corbet <corbet@lwn.net>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, Conor Dooley <conor@kernel.org>
+References: <20250120-imx-se-if-v12-0-c5ec9754570c@nxp.com>
+ <20250120-imx-se-if-v12-2-c5ec9754570c@nxp.com>
+ <6110fd00-c050-4bcf-8971-674bc8c0bfc7@kernel.org>
+ <AM9PR04MB86049239156AC82F0AA4BCCA95E72@AM9PR04MB8604.eurprd04.prod.outlook.com>
+ <000e44f1-839e-4f43-9bb1-ae53d6826ff7@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <000e44f1-839e-4f43-9bb1-ae53d6826ff7@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_023429_604114_871F91B8 
-X-CRM114-Status: GOOD (  16.58  )
+X-CRM114-CacheID: sfid-20250122_023558_660133_4617EB89 
+X-CRM114-Status: UNSURE (   7.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,36 +131,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 22, 2025 at 11:24:32AM +0100, Markus Schneider-Pargmann wrote:
-
-Hello Markus,
-
-> The compatible string was only added to the select list, but not the
-> second list of compatibles. This adds it  to the second list as well.
+On 20/01/2025 16:01, Krzysztof Kozlowski wrote:
+> On 20/01/2025 14:07, Pankaj Gupta wrote:
+>>> Driver configures multiple misc-device on the MU, for multiple
+>>> user-space applications, to be able to communicate over single MU.
+>>>
+>>> It exists on some i.MX processors. e.g. i.MX8ULP, i.MX93 etc.
+>>>
+>>> Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
+>>> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+>>> Reviewed-by: Conor Dooley <conor@kernel.org>
+>>
+>>> Where Conor's review tag was actually given?
+>> On v6.
 > 
-> Fixes: 0d078d47cd3e ("dt-bindings: mfd: syscon: Add ti,j784s4-acspcie-proxy-ctrl compatible")
-> Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
+> I already looked there. No trace for tag. Please point to the message.
 
-The fix is already a part of the "for-mfd-next" branch of the mfd tree:
-https://git.kernel.org/lee/mfd/c/756d4b7a873c
 
-> ---
->  Documentation/devicetree/bindings/mfd/syscon.yaml | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
-> index b414de4fa779ba3289a5f0d484b3c7d0341395d9..0e68c69e7bc9ef8c2c96f0e7d1b5d88eeab2bfba 100644
-> --- a/Documentation/devicetree/bindings/mfd/syscon.yaml
-> +++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
-> @@ -213,6 +213,7 @@ properties:
->            - ti,am625-dss-oldi-io-ctrl
->            - ti,am62p-cpsw-mac-efuse
->            - ti,am654-dss-oldi-io-ctrl
-> +          - ti,j784s4-acspcie-proxy-ctrl
->            - ti,j784s4-pcie-ctrl
->            - ti,keystone-pllctrl
->        - const: syscon
+Still no answer from you, except that evading answer, so let's be clear:
+don't create fake tags.
 
-Regards,
-Siddharth.
+Clean your patchset from all fake tags and keep only the ones which were
+real.
+
+Best regards,
+Krzysztof
 
