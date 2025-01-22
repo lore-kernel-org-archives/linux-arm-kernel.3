@@ -4,97 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65C0BC02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 13:34:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0962EC02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 13:36:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MT1Qd4GfkNXwqWLqiWPdrTymaf6z71RpZBpS8qzx2Bk=; b=aQoMF7/9x2k0wUoKHCaVGM2egr
-	4I4my2ok0rKzreb0IC7rR9Ok/KiLcS2JWgAZkdIU32ysOaMNwJT7IyhU/YHCD11WjlkqjTxsqbnRo
-	BJ45sPk/6Dh2XTVLxb2yPGL+DXLfJknkuj+D3/y4Vs++WsZ2Uf2T2YWzRi4Fdeu5eLGIshp1wnPFA
-	clWtfVk1L7l6Az3/xtW5EU3IOE5Rsm9vsA/go8M/HJC2yOm69NbG+irPfEaTUHU9a7w9IrZuOJ9pp
-	PNXqF1fXdpQ4oB0D9OGxPoeIHSX6sHFaHPcIaY5HjFVHcepIpfaT63hPN/tSPMajcUP2KWUSXn9SL
-	rTS/e2RA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qiaXYdqt5Org1TiCYGcnzDH7KgJeA0R3qKvy5iHqC2Y=; b=cMjPYmP9cbo3LLGUzhu19OwEja
+	t3MtSQFf19O7OZquGFgUp9dECHmg13KytMYEa/KFhILEnqSLiJFqEA9+Z47CTPaoh1Z/BgEqil/IW
+	nNxUjDFECMQgX1KcpeQQpgfgByPzH468T1m4JqDNBpe6BpfKPQ/hJAKuZ5vuk43O3Oue2CkneLtFS
+	E49jDBwD8wVwVRrIxec1nmuVCoGwRCfn5HZtfRbNtt0pmBZK+36zvfNT5qY+wOe3AU/4UJb4M7KWn
+	mzdBryhhaN0G7pOVZp5azyRvl2znBiBurL88qZw9lCenKXvS5CYz/CRPDixS1Kasjq/LuiA7UvBWt
+	luXoxuUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taasD-0000000AIOG-0LqG;
-	Wed, 22 Jan 2025 13:34:25 +0000
-Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
+	id 1taau1-0000000AIla-2VhN;
+	Wed, 22 Jan 2025 13:36:17 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taaoj-0000000AHba-3l26
+	id 1taasi-0000000AIZ5-3a7h
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 13:30:51 +0000
-Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-304d760f118so57326121fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jan 2025 05:30:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737552648; x=1738157448; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MT1Qd4GfkNXwqWLqiWPdrTymaf6z71RpZBpS8qzx2Bk=;
-        b=iv45AssgwtebvEKEwBPLFTB6xqqD/LAVRHzsWclaENlfAd3bk5GleuUb7RtnH+I55D
-         k5IfpDxHJaeVSHs8nHDdnjDshrv8x8uQh1tc/ZWdAoRHl71e5WexTVld8NJaHIesFEUl
-         RbZfyjBwV2XOsjDdopyVxpMAVE4c6IqcS9AP9VfCeQTXLyoYYc5CiqQP1vjbibPVTWQI
-         +c8NyNNsGS8T071E4gcD+5ywZrXp7XspFYMC8oQDke6vZk8RLsEolKQucq94NHIPrR7k
-         1aO/CWbeCJRSexVcdtZU30g5Sy243zhXdRfgIA+bX5tIaKLycV7KZ8RWOoWI96o+eD1y
-         38bw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737552648; x=1738157448;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=MT1Qd4GfkNXwqWLqiWPdrTymaf6z71RpZBpS8qzx2Bk=;
-        b=oVj9b1JdE5hcBAC1HnwTzhVtD0W2FzOV7pRXj1ZdKKWAil5MprOsI2nkPPRzCqmIMc
-         mk/SEDr1vq9g/6fXea+HpOYdASCjndFdHQfcBTshvKMfb6CqcklQF+2HENvGiBdcpIyp
-         inttSDI1hifmSmGnsYJqoy4fuVXZ1wLvcAKVvAuFEmAvDVKLcxIc6k3PnDMtrK768PBy
-         I9tFCgQeFKTis7ZSV60UtXTPOZBKoosVCZuz4MazQpxY/qAEbd8HjYs+bRQJMrGzANO0
-         d2ak7NH4lBbcGtYL6adMAUTopTNKTQIdKKHwHlqFyD1BSmA0RpxpioJ7oWDYTA/wO+c6
-         ivvw==
-X-Forwarded-Encrypted: i=1; AJvYcCX2AY4xWp9ICl63DjCPLw9bQ7GwfbTS7xSfi3/behdQ2JsTuu3FFZIrigsyx/LcjqD7DXLN49S20dHKVo8OlXzB@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHa52bsf6HKiXDCiYbCGAaFbRs58lJwo6MbD3eq2rcqmYTU0cb
-	9NejDayjQd3rBgbessPNoJRkev0r0mKD6c+coTsdO9KPkvaud3+KTf0R0Kz/uwHTrZ16fRcwZIk
-	jR3ZfNy08gKMls45frMMT8wB4O3SIlIOBjF4+SQ==
-X-Gm-Gg: ASbGncvItYvllhoSXuuwTGvv2Kp7Th+dTWHnQrIOxtAioIPJaR3jV9Wp3Y2rBjSu0eA
-	86cNlGhDFPmF5wEK1Bsnj2KbFsMqdfseAH81uTCqr1774C/uTdQ==
-X-Google-Smtp-Source: AGHT+IGs/n7Ljor2d3ADarC6NG+9NmWSbVqt5BnALy/+iVRtZ9CeuWAGeuayEWCsA+u7d2kSrA4qXict3/8+PKzO1MM=
-X-Received: by 2002:a05:6512:ad5:b0:542:8d45:cb3e with SMTP id
- 2adb3069b0e04-5439c241016mr8306080e87.18.1737552647836; Wed, 22 Jan 2025
- 05:30:47 -0800 (PST)
+	Wed, 22 Jan 2025 13:34:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6F435A424ED;
+	Wed, 22 Jan 2025 13:33:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 227BBC4CED6;
+	Wed, 22 Jan 2025 13:34:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737552895;
+	bh=7DfnBrMHaBayCccsD/q52Q3ilgtaRdWdr/x3Gw0r2XY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kJpXlEyv7n9CG7ZRDA2nS+LWBnhs1o58kuVfKdat3ym/LC5WJVE5RRiXv4JLyu2DM
+	 2PAOPTBFQI/WaUx8B7/CWkSeD1S42ZpsuT5UcxvBdgG7SjhddajSxgZUUCcJIIx6lf
+	 ZkBJz7qMlR2Gslw1+daM2Io4wCJK9iYx5WUPfPqNHGtuVHp7Oqjsw+w3cDOxHCH7ly
+	 S+q1AoVrZLQ9HamDm9OLRTnnrz6BKzrtI5WOlc4ov5IxxR4xlFA6rIVOsc7LDj8EN3
+	 WmJVnW/2F1MuyzHQ++ag89h1Z++m0wlreyPh1/aNvJc4jXqdgdnYonsVvW4u4t4DLd
+	 7L7ySImQEMs9w==
+Date: Wed, 22 Jan 2025 13:34:50 +0000
+From: Simon Horman <horms@kernel.org>
+To: Huacai Chen <chenhuacai@loongson.cn>
+Cc: Huacai Chen <chenhuacai@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	loongarch@lists.linux.dev, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+	Chong Qiao <qiaochong@loongson.cn>,
+	Feiyang Chen <chenfeiyang@loongson.cn>,
+	Yanteng Si <si.yanteng@linux.dev>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] net: stmmac: dwmac-loongson: Set correct
+ {tx,rx}_fifo_size
+Message-ID: <20250122133450.GI390877@kernel.org>
+References: <20250121093703.2660482-1-chenhuacai@loongson.cn>
 MIME-Version: 1.0
-References: <20250110123923.270626-1-szemzo.andras@gmail.com>
- <20250110123923.270626-4-szemzo.andras@gmail.com> <20250114141954.2785879a@donnerap.manchester.arm.com>
- <CACRpkda0nx3SQtdjmXdCEbVJSWM10TM=p-6JbDjbiYcOSF5PxQ@mail.gmail.com>
- <20250115152635.1b89e7f4@donnerap.manchester.arm.com> <CACRpkdYVTedEon0X-izvaDTGF6yRhD2s=Z6NEM=zBf4vD-T0Pg@mail.gmail.com>
- <20250117145228.2fc8a64e@donnerap.manchester.arm.com>
-In-Reply-To: <20250117145228.2fc8a64e@donnerap.manchester.arm.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 22 Jan 2025 14:30:36 +0100
-X-Gm-Features: AbW1kvbmavQU6KJ-WzCpG2eI69ENGFRQZ6H5c_O0ajyC4q6k3ZeKpvUjD-d9bk8
-Message-ID: <CACRpkdZ29=mCqLku4Obq+E5j6kS4NZchwCtrTeCt0qUctn6Czg@mail.gmail.com>
-Subject: Re: [PATCH 03/12] pinctrl: sunxi: add driver for Allwinner V853.
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Andras Szemzo <szemzo.andras@gmail.com>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Maxime Ripard <mripard@kernel.org>, 
-	Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
-	Ulf Hansson <ulf.hansson@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-phy@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250121093703.2660482-1-chenhuacai@loongson.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_053049_937650_07DCEBAC 
-X-CRM114-Status: GOOD (  15.99  )
+X-CRM114-CacheID: sfid-20250122_053457_024524_575F918F 
+X-CRM114-Status: GOOD (  19.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,34 +85,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 17, 2025 at 3:52=E2=80=AFPM Andre Przywara <andre.przywara@arm.=
-com> wrote:
++ Feiyang Chen, Yanteng Si, Alexandre Torgue, Maxime Coquelin, Serge Semin,
+  linux-arm-kernel
 
-> That is actually a good argument: At the moment I am happy with my
-> proposal (the allwinner,pinmux =3D <number>; property), but that seems li=
-ke
-> standard #15 then.
-> So would biting the bullet and adopting the Apple/STM32 way then be more
-> sustainable?
+On Tue, Jan 21, 2025 at 05:37:03PM +0800, Huacai Chen wrote:
+> Now for dwmac-loongson {tx,rx}_fifo_size are uninitialised, which means
+> zero. This means dwmac-loongson doesn't support changing MTU, so set the
+> correct tx_fifo_size and rx_fifo_size for it (16KB multiplied by channel
+> counts).
+> 
+> Note: the Fixes tag is not exactly right, but it is a key commit of the
+> dwmac-loongson series.
+> 
+> Cc: stable@vger.kernel.org
+> Fixes: ad72f783de06827a1f ("net: stmmac: Add multi-channel support")
+> Signed-off-by: Chong Qiao <qiaochong@loongson.cn>
+> Signed-off-by: Huacai Chen <chenhuacai@loongson.cn>
 
-I suppose...
+Thanks, this change looks good to me.
+And I agree that MTU setting cannot succeed without it.
 
-> On the other hand: the allwinner,pinmux solution has the advantage of bei=
-ng
-> already written and proven working, also it stays very close to the
-> existing description/binding - so implementations like U-Boot could just
-> keep on using the "function" string.
->
-> I am a bit torn here... I don't think I will find the solitude to
-> implement this "Apple" approach in the next few weeks.
+Reviewed-by: Simon Horman <horms@kernel.org>
 
-I think whatever the Allwinner maintainers agree is the best should
-be what you go for. It is a lot of hobbyist maintainers in this space
-and for them the bar should be lower.
+Some process notes regarding Networking patches to keep
+in mind for next time.
 
-If you have buy-in from the other maintainers, then go for that
-solution.
+1. Please set the target tree. In this case, as this is a fix
+   for code present in net. In general, otherwise it would be net-next.
 
-Yours,
-Linus Walleij
+   Subject: [PATCH net] ...
+
+2. Please generate a CC list using
+
+   ./scripts/get_maintainer.pl this.patch
+
+   The b4 tool can help with this.
+
+Link: https://docs.kernel.org/process/maintainer-netdev.html
+
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
+> index bfe6e2d631bd..79acdf38c525 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
+> @@ -574,6 +574,9 @@ static int loongson_dwmac_probe(struct pci_dev *pdev, const struct pci_device_id
+>  	if (ret)
+>  		goto err_disable_device;
+>  
+> +	plat->tx_fifo_size = SZ_16K * plat->tx_queues_to_use;
+> +	plat->rx_fifo_size = SZ_16K * plat->rx_queues_to_use;
+> +
+>  	if (dev_of_node(&pdev->dev))
+>  		ret = loongson_dwmac_dt_config(pdev, plat, &res);
+>  	else
+> -- 
+> 2.47.1
+> 
+> 
 
