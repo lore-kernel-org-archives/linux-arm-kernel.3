@@ -4,80 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA2E7C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 05:59:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35868C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 06:08:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oWtwN2y9htoF2/ngnM+5j1uHKmVDNRI5Y+z51fo5zQI=; b=1yqbRBAa7SPhYEfnD/VZM61dLv
-	PiUIdJEOVaYcwveyONQixP2ZDd/XxRrKtWCs7dkLg4VW7FjopNvkPDBl1pyR0N7+oN1jod43UJz88
-	dLuk2dDH4jbdwJDqGDJbLArj+PJflRGZMMEtt5QKy/rl26e4IoGSds4sGGknWJdirIkT0b0rcvQ+o
-	9L4YadoouNuYuYs95wUQyO9lLIKM/b3q9JyVC0tMVrivzREHFBRSHFjYl1/p5KDjwOimjH6PU4RQD
-	A5NvVZKRrBfMRnLOoeP9Wv9Jo2meDldLEL2KWlA63q6dpAEvq+T32gF/x58PwY9sE2kCd8htYPCqE
-	RQuPB/CA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0W20+yxBOW7S58mPqEOjxHOWXZCgIN0XLLUDfARBjDU=; b=4UNx9IYxm1kgoJqItEw8bKvQMW
+	FvFAVQxx5tRNGNUSBYwchUTqVK5tmjWsxEh0K96E7FabZmReJaNC9CbNb6ZMp3EOD0aUGWcdQYLJE
+	VbcmzaEEgnuUjMSGjZo7dpL+L3imCl3y9SLUehba64kl/TYgRlUSpDDAyMfD4Tbj8z0ePxK/PWfGq
+	Gbd8bMJdWYnnxYBh6BEc2U4nyZpGm1zR2ePEfWTvAAOIKeOY2uueMUrOp9Ui0iLv0dkypzuJyWf6W
+	/FLewn2PKR9rKihy31+2AwXOio9mZ7PzsSQ3ttcxvCQOqnIN1hMPAjF21Zb/bYzGnVo9FbK0MGKp5
+	nPOYepRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taTlq-00000009RUc-3EZd;
-	Wed, 22 Jan 2025 05:59:22 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1taTtw-00000009SRK-3yLg;
+	Wed, 22 Jan 2025 06:07:44 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taTkW-00000009RIq-0Oxk
+	id 1taTsd-00000009SKl-461g
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 05:58:02 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.105])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4YdCxW310SzmZ87;
-	Wed, 22 Jan 2025 13:56:15 +0800 (CST)
-Received: from dggemv703-chm.china.huawei.com (unknown [10.3.19.46])
-	by mail.maildlp.com (Postfix) with ESMTPS id 4DF251400D1;
-	Wed, 22 Jan 2025 13:57:54 +0800 (CST)
-Received: from kwepemn100009.china.huawei.com (7.202.194.112) by
- dggemv703-chm.china.huawei.com (10.3.19.46) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Wed, 22 Jan 2025 13:57:54 +0800
-Received: from [10.67.121.59] (10.67.121.59) by kwepemn100009.china.huawei.com
- (7.202.194.112) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 22 Jan
- 2025 13:57:52 +0800
-Message-ID: <ef34bf8a-c8d9-13bb-011c-6a4365bb3cb8@huawei.com>
-Date: Wed, 22 Jan 2025 13:57:51 +0800
+	Wed, 22 Jan 2025 06:06:25 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-2f78a4ca5deso6223955a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jan 2025 22:06:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1737525983; x=1738130783; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=0W20+yxBOW7S58mPqEOjxHOWXZCgIN0XLLUDfARBjDU=;
+        b=CyqwISpV3NKiT6A0qWbdr8PkEpFKmmfUbq0mpDG7SgEyhZPt4Lw6Wf3VtrEaQQs3G5
+         Du66QmtXa6fUcDHQMyIImc03LJb1fc6FtPnYYzrqrWjgoxIVJqf6Qfbdo65LovfkHuBn
+         pBU9JUSNBU01dYMoKIwzG1CVIUFeEExFA/QNbHq0daY4QpMUJxijzE7v8z28yaw3JgVQ
+         r1kT3VhAaOIuAr2NpV40hYFK4UgquQ5k4w9VYI0nKoaddjrhhX3uSyViKaP+G1tm0+6/
+         EixMrlwC2GEaF3ZQI61PwGp0K6AOMMv/7PTbZDJ9CI6u7NhWWamJhSas4J7Gp4SeO4Jc
+         LSpg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737525983; x=1738130783;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0W20+yxBOW7S58mPqEOjxHOWXZCgIN0XLLUDfARBjDU=;
+        b=tiSYPaucC1Z3ZahXYqUI8A9r4tUFyfPp6Jr6eZ5rdFZ7eLVWjcUZ/6t/pekkO66+us
+         nlk8jB64v7A+XAI0Lt0CT71ihrQiLG+KN7j2FV4nanAIAlCMc1pNxLDiQvk5JwDOL7bj
+         AEijn+IaxvNZkL1he0q+aEKV2QB1H2YxpxecMmfb61e5UvVqxsvnFBD7iEUi4mGu9dbX
+         b9+v2Fi+ISnXNN1e9Ysv6RLMRSFdVJWEs/BXwCakn5khSFkKAjwGDSsD/auHBzZs+JGx
+         WFzo/3a45+A7g0uayD7ikQEuBWelBl6ToWGrQsQiXfjNnYD9kQJR4ogDzffqzE/6xWlp
+         4hkw==
+X-Forwarded-Encrypted: i=1; AJvYcCUjz8jLuBZ4Su7MmUSXpFRR9CNhl86m7a6d9kw+rtMf3I/uqEGm5wsEpKF8P+sFNaU1Z4gns6Sz1c0Ck/GZRoA9@lists.infradead.org
+X-Gm-Message-State: AOJu0YzfRwz3O45JzXlkpwTB7aKTDb72OwYn6nSW2TAr3jv7+h3d2Mlj
+	WEDJbzzl7AYCDvhQEFVef+A3Bhuoqi5vSDJsOCV3SwHVSt8mJAZ05B3uIgfJdwU=
+X-Gm-Gg: ASbGncuN8pE0sI9Cy3asGiwadBHWP6ssHwnYAcJYgNZaJbQ6DyPl+cKEcQ3UcQnSbjv
+	xoz6u+C3J3pH8W3r0OD9f7BxWWGmNt+5BdDPPV9yUdbk9b4j4Dxu5DChSqDDpdX3xUZoRkX+9XC
+	IG7fua8Sp/q7McN15mLOa92IT5GzIYWc5NOS3pjP2SN5mHZek7EO2KCetqB8BRIhx9Xd0y2jrxb
+	7gOxk4GruuEme+mKcE168g2obS9/rg2U8zfU8D04nPBTOv3xHA0iA97kyxFC1xPEx8WTWNf
+X-Google-Smtp-Source: AGHT+IE4ag6j6hEEpyPWZk0VRFVk6mkVLAwHWJ2F4Qn9kdzng8UiejuaFtPP8B6RnjwiXV6/Vg4wEg==
+X-Received: by 2002:a17:90b:2748:b0:2ea:59e3:2d2e with SMTP id 98e67ed59e1d1-2f782c73b7fmr31718132a91.10.1737525982910;
+        Tue, 21 Jan 2025 22:06:22 -0800 (PST)
+Received: from localhost ([122.172.84.139])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f7e6a65966sm648044a91.1.2025.01.21.22.06.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 21 Jan 2025 22:06:22 -0800 (PST)
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-pm@vger.kernel.org,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	kernel test robot <lkp@intel.com>,
+	stable@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH V2] cpufreq: s3c64xx: Fix compilation warning
+Date: Wed, 22 Jan 2025 11:36:16 +0530
+Message-Id: <236b227e929e5adc04d1e9e7af6845a46c8e9432.1737525916.git.viresh.kumar@linaro.org>
+X-Mailer: git-send-email 2.31.1.272.g89b43f80a514
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.2.0
-Subject: Re: [PATCH v1 19/21] platform/x86: dell-ddv: Fix the type of 'config'
- in struct hwmon_channel_info to u64
-To: =?UTF-8?Q?Ilpo_J=c3=a4rvinen?= <ilpo.jarvinen@linux.intel.com>
-CC: <linux-hwmon@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>,
-	<linux-media@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<arm-scmi@vger.kernel.org>, Netdev <netdev@vger.kernel.org>,
-	<linux-rtc@vger.kernel.org>, <oss-drivers@corigine.com>,
-	<linux-rdma@vger.kernel.org>, <platform-driver-x86@vger.kernel.org>,
-	<linuxarm@huawei.com>, <linux@roeck-us.net>, <jdelvare@suse.com>,
-	<kernel@maidavale.org>, <pauk.denis@gmail.com>, <james@equiv.tech>,
-	<sudeep.holla@arm.com>, <cristian.marussi@arm.com>, <matt@ranostay.sg>,
-	<mchehab@kernel.org>, <irusskikh@marvell.com>, <andrew+netdev@lunn.ch>,
-	<davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
-	<pabeni@redhat.com>, <saeedm@nvidia.com>, <leon@kernel.org>,
-	<tariqt@nvidia.com>, <louis.peens@corigine.com>, <hkallweit1@gmail.com>,
-	<linux@armlinux.org.uk>, <kabel@kernel.org>, <W_Armin@gmx.de>, Hans de Goede
-	<hdegoede@redhat.com>, <alexandre.belloni@bootlin.com>, <krzk@kernel.org>,
-	<jonathan.cameron@huawei.com>, <zhanjie9@hisilicon.com>,
-	<zhenglifeng1@huawei.com>, <liuyonglong@huawei.com>
-References: <20250121064519.18974-1-lihuisong@huawei.com>
- <20250121064519.18974-20-lihuisong@huawei.com>
- <844c5097-eeb7-7275-7558-83ca4e5ee4b2@linux.intel.com>
-From: "lihuisong (C)" <lihuisong@huawei.com>
-In-Reply-To: <844c5097-eeb7-7275-7558-83ca4e5ee4b2@linux.intel.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.121.59]
-X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
- kwepemn100009.china.huawei.com (7.202.194.112)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_215800_438438_FE47A683 
-X-CRM114-Status: GOOD (  19.17  )
+X-CRM114-CacheID: sfid-20250121_220624_031522_4AC50687 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,63 +101,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The driver generates following warning when regulator support isn't
+enabled in the kernel. Fix it.
 
-在 2025/1/21 20:18, Ilpo Järvinen 写道:
-> On Tue, 21 Jan 2025, Huisong Li wrote:
->
->> The type of 'config' in struct hwmon_channel_info has been fixed to u64.
->> Modify the related code in driver to avoid compiling failure.
-> Does this mean that after applying part of your series but not yet this
-> patch, compile would fail? If so, it's unacceptable. At no point in a
-> patch series are you allowed to cause a compile failure because it hinders
-> 'git bisect' that is an important troubleshooting tool.
->
-> So you might have to combine changes to drivers and API if you make an
-> API change that breaks driver build until driver too is changed. Note that
-> it will impact a lot how quickly your patches can be accepted as much
-> higher level of coordination is usually required if your patch is touching
-> things all over the place, but it cannot be avoided at times. And
-> requirement of doing minimal change only will be much much higher in such
-> a large scale change.
->
-Ack. Thanks for your reply.
->
->> Signed-off-by: Huisong Li <lihuisong@huawei.com>
->> ---
->>   drivers/platform/x86/dell/dell-wmi-ddv.c | 6 +++---
->>   1 file changed, 3 insertions(+), 3 deletions(-)
->>
->> diff --git a/drivers/platform/x86/dell/dell-wmi-ddv.c b/drivers/platform/x86/dell/dell-wmi-ddv.c
->> index e75cd6e1efe6..efb2278aabb9 100644
->> --- a/drivers/platform/x86/dell/dell-wmi-ddv.c
->> +++ b/drivers/platform/x86/dell/dell-wmi-ddv.c
->> @@ -86,7 +86,7 @@ struct thermal_sensor_entry {
->>   
->>   struct combined_channel_info {
->>   	struct hwmon_channel_info info;
->> -	u32 config[];
->> +	u64 config[];
->>   };
->>   
->>   struct combined_chip_info {
->> @@ -500,7 +500,7 @@ static const struct hwmon_ops dell_wmi_ddv_ops = {
->>   
->>   static struct hwmon_channel_info *dell_wmi_ddv_channel_create(struct device *dev, u64 count,
->>   							      enum hwmon_sensor_types type,
->> -							      u32 config)
->> +							      u64 config)
->>   {
->>   	struct combined_channel_info *cinfo;
->>   	int i;
->> @@ -543,7 +543,7 @@ static struct hwmon_channel_info *dell_wmi_ddv_channel_init(struct wmi_device *w
->>   							    struct dell_wmi_ddv_sensors *sensors,
->>   							    size_t entry_size,
->>   							    enum hwmon_sensor_types type,
->> -							    u32 config)
->> +							    u64 config)
->>   {
->>   	struct hwmon_channel_info *info;
->>   	int ret;
->>
-> .
+   drivers/cpufreq/s3c64xx-cpufreq.c: In function 's3c64xx_cpufreq_set_target':
+>> drivers/cpufreq/s3c64xx-cpufreq.c:55:22: warning: variable 'old_freq' set but not used [-Wunused-but-set-variable]
+      55 |         unsigned int old_freq, new_freq;
+         |                      ^~~~~~~~
+>> drivers/cpufreq/s3c64xx-cpufreq.c:54:30: warning: variable 'dvfs' set but not used [-Wunused-but-set-variable]
+      54 |         struct s3c64xx_dvfs *dvfs;
+         |                              ^~~~
+
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202501191803.CtfT7b2o-lkp@intel.com/
+Cc: <stable@vger.kernel.org> # v5.4+
+Signed-off-by: Viresh Kumar <viresh.kumar@linaro.org>
+---
+V2: Move s3c64xx_dvfs_table too inside ifdef.
+
+ drivers/cpufreq/s3c64xx-cpufreq.c | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/cpufreq/s3c64xx-cpufreq.c b/drivers/cpufreq/s3c64xx-cpufreq.c
+index c6bdfc308e99..9cef71528076 100644
+--- a/drivers/cpufreq/s3c64xx-cpufreq.c
++++ b/drivers/cpufreq/s3c64xx-cpufreq.c
+@@ -24,6 +24,7 @@ struct s3c64xx_dvfs {
+ 	unsigned int vddarm_max;
+ };
+ 
++#ifdef CONFIG_REGULATOR
+ static struct s3c64xx_dvfs s3c64xx_dvfs_table[] = {
+ 	[0] = { 1000000, 1150000 },
+ 	[1] = { 1050000, 1150000 },
+@@ -31,6 +32,7 @@ static struct s3c64xx_dvfs s3c64xx_dvfs_table[] = {
+ 	[3] = { 1200000, 1350000 },
+ 	[4] = { 1300000, 1350000 },
+ };
++#endif
+ 
+ static struct cpufreq_frequency_table s3c64xx_freq_table[] = {
+ 	{ 0, 0,  66000 },
+@@ -51,15 +53,16 @@ static struct cpufreq_frequency_table s3c64xx_freq_table[] = {
+ static int s3c64xx_cpufreq_set_target(struct cpufreq_policy *policy,
+ 				      unsigned int index)
+ {
+-	struct s3c64xx_dvfs *dvfs;
+-	unsigned int old_freq, new_freq;
++	unsigned int new_freq = s3c64xx_freq_table[index].frequency;
+ 	int ret;
+ 
++#ifdef CONFIG_REGULATOR
++	struct s3c64xx_dvfs *dvfs;
++	unsigned int old_freq;
++
+ 	old_freq = clk_get_rate(policy->clk) / 1000;
+-	new_freq = s3c64xx_freq_table[index].frequency;
+ 	dvfs = &s3c64xx_dvfs_table[s3c64xx_freq_table[index].driver_data];
+ 
+-#ifdef CONFIG_REGULATOR
+ 	if (vddarm && new_freq > old_freq) {
+ 		ret = regulator_set_voltage(vddarm,
+ 					    dvfs->vddarm_min,
+-- 
+2.31.1.272.g89b43f80a514
+
 
