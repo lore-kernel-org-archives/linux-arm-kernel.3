@@ -4,97 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60C40C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 00:18:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FF45C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 00:20:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SQVDg8zwmBbcXYl6zUtnOQaEMDJDakZCCSAsHxpjPDA=; b=eKWPnbYRq/SubcKthfKAm3d5RW
-	veH7NsKKsqsAhCtSQPlvE9IZLpongHQ3fFdL/edLegSQKfHN5HSYNhohNLic1ahFTG+U5HhCTH+TR
-	h79SU75cZ+T06AaZvA60iG4o7YT65mEQyyo5zK0dJpiuanZNvROBV89k2PJESzxNEonw471TjYQF5
-	j8bp/uWCjky/kdf8vvDiX5yAfVLkMLmjBE6Rf+QEbGa8twr+ZPnENvMww1uHyln8MZSZVR2IkylKJ
-	h9WYMRvqrhYUMO6mZY/F9Dc20Wm84onKiEjEi1/ZNldny45b8litEwJlWRBYnC2pZZw+I+1iSJ/Jz
-	TSH4EaTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LXghlfhRrFCx/sGoC3oMAY0O6HNgyaJ/L03L6lreXxo=; b=4+LeSurYcn9eimp7pr6q311F0j
+	s1Ew5qAKcbDx6FSY7mlx1i/TaGwOlsBUjFJWdQvtCANmcae24Kz/w8YcoLcXHWsRlKs1DTV6yaCZ9
+	fCHQNtmDTiuiiCEqRGy2O7bsR29opIw91ImdtJIz4TOwxNawgj7aEDaZN7p+HF3zASbwwLuCU9ARo
+	o4stF3F6Q/7sB4ojSIB45Fi8POsF+pkPYXzqc1uqOCrXNpVEnUhqr90XTA/6ujCMw5B36NH6IUD2K
+	jmgt+p7sPG067gM9kPibtTYHq2suVFNunKwL91AhZzumbWyTNH6EazQ3pDW+HOi5keAXIUTpU7uuy
+	DiO1bR8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taORQ-0000000912v-1Kpv;
-	Wed, 22 Jan 2025 00:17:56 +0000
-Received: from mail-oi1-x232.google.com ([2607:f8b0:4864:20::232])
+	id 1taOUB-000000091KP-0JE4;
+	Wed, 22 Jan 2025 00:20:47 +0000
+Received: from mail-qk1-x735.google.com ([2607:f8b0:4864:20::735])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taOQ7-000000090vj-2MPg
+	id 1taOSt-000000091Dr-0RW1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 00:16:38 +0000
-Received: by mail-oi1-x232.google.com with SMTP id 5614622812f47-3eb880e5ac2so3710764b6e.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jan 2025 16:16:35 -0800 (PST)
+	Wed, 22 Jan 2025 00:19:28 +0000
+Received: by mail-qk1-x735.google.com with SMTP id af79cd13be357-7be3f230436so579807585a.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jan 2025 16:19:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1737504994; x=1738109794; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=SQVDg8zwmBbcXYl6zUtnOQaEMDJDakZCCSAsHxpjPDA=;
-        b=MDMiYXqnuysNMw5ATH2IyLbsyZ+7qGXC4AS5JCO8mw045qLbQHrpnDXlh0mRq1/b/x
-         5xKzMdI3Xui7szhRttGaP06UXX+3b/mrKirGWb/8E5js6OlK+WEaKtQFzY10XIgKxrL7
-         0WkYhBzcI2urunIuLw+oJHQLKr3DSB7ivVaiS6Z7clKgaPuHJK3MukvjZFOjVUMSMP/B
-         YURW50z3RJTfbuTppw2JoXPVLZyAKQlA1+XG4fD6SPJBhgfCOLD/l2TdgN5bYqDtELHw
-         Y24Cq6rXOM/EHCJOsp7Hm0OKDOVCZU3IEjSuhTP+WiqRTGGaNYyXgxbxcPBKwyzAneq6
-         4wrg==
+        d=ziepe.ca; s=google; t=1737505166; x=1738109966; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=LXghlfhRrFCx/sGoC3oMAY0O6HNgyaJ/L03L6lreXxo=;
+        b=HK+ko20wMpJlFn3vtYLXM0YNP+rt8JiFSewHKuuuBvEc08UAHk1NzYWh9K89pAp1jE
+         jwZ93+QY4CmLgsxJjSm0Ljhk5BwFKt2PWF+m9EiPRC8sBUduH2thciOv7TmvdM9Qb0ns
+         GVs2Edfa24JFCkn99eI4etjVw7Jqgz+l6M16WgKwq8ZWlzfPtgUw3HOrAeJIM5ZTcA3b
+         ZkDfBw2BlNN48JSE2/wWKjGRa9bP651ozfROgvp5Px58pvFGyuCRykqDj2VM+1/n26sK
+         rSQx+7MwEY1jmooUXA+7n4FC+9Cxn6bOeW5jkT14oq2VMa8CccCFvdU96jcCsiRKVtwv
+         /O/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737504994; x=1738109794;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=SQVDg8zwmBbcXYl6zUtnOQaEMDJDakZCCSAsHxpjPDA=;
-        b=OFHoz1XLT6CjC7a/YR4jsVIXb4nv+bBg1Fj1/q2gRNej+t3O15Su5JnlR+UG+j7YOP
-         BRqCnL3eqZeBfeos1SKZfXGfc9XbBMiExitjjgWzxzdworUuq6o0qIwSl0CipHkp9WqS
-         a+uL+ceqmQoCMh0yf6AM8Yq1xJ/seVZBjNBn+0aQav+tCOIbj7vDn0WntX/6rVNT4s2i
-         OIgY1RD7vR8tAU3zj6lqSlX3xLosho1AHvF+UQlGghJlrNs7AGx5VwwADwtnNxwG0r4N
-         y7uLB9OUwY76BSOpMNltahYYsmwZaHj0nMzKBELMHYNYJfWiBtdc66BnBYlicklnkSfJ
-         F+Mw==
-X-Forwarded-Encrypted: i=1; AJvYcCXf6xnnnRJff2k2cEQMUgILyV3VQ04qXdan2hyT6kkqBYoK3RfrFW2po9hT/3/gnvVCOoylYjkmjzUERZUrF5qq@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4rIMpfio638KIh79X5yABdC4DNbmwahrqNab+mzuPMKGT5kJ8
-	/5JTJmdXcL5HX00o9r5UXcyQZ0OGL/F5vEnLAJ994g0qWnkKEonyz/Q8K8IH/rA=
-X-Gm-Gg: ASbGncs6nwf3b8CfpTXGGqM+e6iz2AOFFNJw9AOd69bIrCpPS9qDyvWJwfgPH2riuO4
-	6150q1WYixzfNhY7KEGvXhyPDTfhBjJ2eR48+mKji1004xqGwc9GLIhZc4AIvb9iOVoOYw+j26n
-	PqnPnOicefVBsJEOv3fwCWUjveG7U6La/scrvArCkPeul3ettKbNCNvkkFiUIzt13URrfD0+Cb/
-	dA/PAlxD9DSjLlnPM4gxW+9ySF1NQVZ7gbSpe7Z6fkdWToFdbUEtrh9B80CDQzramu/iScuH9Qe
-	4mZOMgKwDh73eHxKEkrHU43ITdJESQE=
-X-Google-Smtp-Source: AGHT+IFUzXtAIp3HDw6cXZF7Eh349UV04myuUv9p02O2+mdfioB7429VrhWHruPNNSQlkcbzikUpXw==
-X-Received: by 2002:a05:6808:3c97:b0:3e6:f6a:de5c with SMTP id 5614622812f47-3f19fdd1253mr12737286b6e.27.1737504994385;
-        Tue, 21 Jan 2025 16:16:34 -0800 (PST)
-Received: from [192.168.0.142] (ip98-183-112-25.ok.ok.cox.net. [98.183.112.25])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-3f19da6eab9sm3330497b6e.17.2025.01.21.16.16.32
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 21 Jan 2025 16:16:32 -0800 (PST)
-Message-ID: <9f40295b-484a-48e8-b053-ff8550e589d7@baylibre.com>
-Date: Tue, 21 Jan 2025 18:16:32 -0600
+        d=1e100.net; s=20230601; t=1737505166; x=1738109966;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LXghlfhRrFCx/sGoC3oMAY0O6HNgyaJ/L03L6lreXxo=;
+        b=ty/OHvZon6Js0lLxlnB7WiIU0ABy1N5OxpnJ+wE6cHcipyuzdb22WI8ui26BtoaWPi
+         NszGaDMREgG65gcQY2I59pFmGSnsoWvDbVFoUsTM7EFAtTiVreed2Dsh0gDbmnDCTOzG
+         ITkFS/uS9m8ODoITMvX/dxqEpv/+UlYsWuUmwVKiNt8F26tdoKmyZqDY/zTo27qpsfPU
+         Rv+JuoWGUNViMuXir3Q7ZEWBQohT1l+AFytDo2q1DERA1GxkWlAcbCgiLBc/+Ye6FkaV
+         3barYsMOQQND6VtHkD761Wz6dVpTgvloq/nOkYyVCnzwUr7FkSh5A0sPkSbjNY5om2p6
+         GUNg==
+X-Forwarded-Encrypted: i=1; AJvYcCWxnBHzkVvum9QS5cMIhEwGFkiEDkpiKvk4NV9Cu81wQxovTZMe8DaEpTjwieJ8quMG4qagyyWXmTT6V8wJRfeF@lists.infradead.org
+X-Gm-Message-State: AOJu0YzpN1gC31+OiO2Jn51Y5hawCncyeR00nvPf7iKzf2rGoQF3+Rpb
+	kLH/mfn2MR9ZlZpmQ6tWxybRkdvjBjs3xPDEzB0ahNVVOQULX/XZKOej5mGXOx4=
+X-Gm-Gg: ASbGncs7FssZJFS/QWm3fGvo1Xc4IRJa9kPitDmLsTKci/kmfOLuZmhXO+rX8ZQ8c4z
+	ICeGfw8qK5q/bjaJXDvn3Ue18MVNkLBxuz7KFFl06iUlkLw5wUD20hCVTSM2Xe2bidmbix7myGg
+	xWc/kMvsl1b4MHW15rrQZUkvtbAynneyWWxp3BHN/Q7v3GbluktGNG1L/fn62tTDEvpvDYj2+n1
+	fytdI10LOhazSrdFgIEiYJv2O2dc/DtFx2dM0+Ts/Wb
+X-Google-Smtp-Source: AGHT+IHoWfQLXBi4VVc2RH/uW0uLrxtbCGBc+6ctACTGWHOSsmF0DObwhxass5GjF3fYnabLc9/BJg==
+X-Received: by 2002:a05:620a:440b:b0:7b6:cf60:3973 with SMTP id af79cd13be357-7be6321c80fmr3167063785a.23.1737505165882;
+        Tue, 21 Jan 2025 16:19:25 -0800 (PST)
+Received: from ziepe.ca ([130.41.10.206])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7be61473bc5sm605450085a.20.2025.01.21.16.19.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 21 Jan 2025 16:19:24 -0800 (PST)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1taOSq-00000003lzE-0J9M;
+	Tue, 21 Jan 2025 20:19:24 -0400
+Date: Tue, 21 Jan 2025 20:19:24 -0400
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Jacob Pan <jacob.pan@linux.microsoft.com>
+Cc: Shyam Saini <shyamsaini@linux.microsoft.com>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	virtualization@lists.linux.dev, will@kernel.org,
+	eric.auger@redhat.com, code@tyhicks.com,
+	eahariha@linux.microsoft.com, vijayb@linux.microsoft.com
+Subject: Re: [PATCH 0/3] make MSI IOVA base address and its length
+ configurable
+Message-ID: <20250122001924.GT674319@ziepe.ca>
+References: <20250116232307.1436693-1-shyamsaini@linux.microsoft.com>
+ <20250120142643.GM674319@ziepe.ca>
+ <67901659.170a0220.20b206.f1f5SMTPIN_ADDED_BROKEN@mx.google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/7] dt-bindings: spi: zynqmp-qspi: Split the bus
-To: Sean Anderson <sean.anderson@linux.dev>, Mark Brown <broonie@kernel.org>,
- Michal Simek <michal.simek@amd.com>, linux-spi@vger.kernel.org
-Cc: Jinjie Ruan <ruanjinjie@huawei.com>,
- linux-arm-kernel@lists.infradead.org,
- Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>,
- linux-kernel@vger.kernel.org, Miquel Raynal <miquel.raynal@bootlin.com>,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- devicetree@vger.kernel.org,
- "linux-iio@vger.kernel.org" <linux-iio@vger.kernel.org>,
- Jonathan Cameron <jic23@kernel.org>, =?UTF-8?Q?Nuno_S=C3=A1?=
- <nuno.sa@analog.com>
-References: <20250116232118.2694169-1-sean.anderson@linux.dev>
- <20250116232118.2694169-2-sean.anderson@linux.dev>
-From: David Lechner <dlechner@baylibre.com>
-Content-Language: en-US
-In-Reply-To: <20250116232118.2694169-2-sean.anderson@linux.dev>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <67901659.170a0220.20b206.f1f5SMTPIN_ADDED_BROKEN@mx.google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_161635_877885_F4516F1A 
-X-CRM114-Status: GOOD (  18.46  )
+X-CRM114-CacheID: sfid-20250121_161927_143754_164DE7DA 
+X-CRM114-Status: GOOD (  26.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,79 +105,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/16/25 5:21 PM, Sean Anderson wrote:
-> This device supports two separate SPI busses: 
+On Tue, Jan 21, 2025 at 01:49:10PM -0800, Jacob Pan wrote:
 
-...
+> > On Thu, Jan 16, 2025 at 03:23:04PM -0800, Shyam Saini wrote:
+> > > Hi,
+> > > 
+> > > Currently, the MSI_IOVA_BASE address is hard-coded to 0x80000000,
+> > > assuming that all platforms have this address available for MSI IOVA
+> > > reservation. However, this is not always the case, as some platforms
+> > > reserve this address for other purposes.  
+> > 
+> > Can you explain this some more? This address is in the kernel
+> > controlled IOVA space, there are few ways a platform can impact this.
+> > 
+> > How is the platform impacting it? Is the non-functional IOVA always
+> > reflected in the iommu_get_resv_regions()?
+> 
+> I don't know the platform impact but just to clarify, are you asking
+> whether this non-functional IOVA is also under IORT RMR or other FW
+> tables? I don't think it is.
 
-> @@ -84,5 +94,32 @@ examples:
->          resets = <&zynqmp_reset ZYNQMP_RESET_QSPI>;
->          reg = <0x0 0xff0f0000 0x0 0x1000>,
->                <0x0 0xc0000000 0x0 0x8000000>;
-> +
-> +        spi-lower {
-> +          #address-cells = <1>;
-> +          #size-cells = <0>;
-> +          num-cs = <2>;
-> +          cs-gpios = <0>, <&gpio 5>;
-> +
-> +          flash@0 {
-> +            reg = <0>;
-> +            compatible = "jedec,spi-nor";
-> +          };
-> +
-> +          flash@1 {
-> +            reg = <1>;
-> +            compatible = "jedec,spi-nor";
-> +          };
-> +        };
-> +
-> +        spi-upper {
-> +          #address-cells = <1>;
-> +          #size-cells = <0>;
-> +
-> +          flash@0 {
-> +            reg = <0>;
-> +            compatible = "jedec,spi-nor";
-> +          };
-> +        };
->        };
->      };
+No, I'm asking how can you possibly have a HW platform where
+MSI_IOVA_BASE is unable to be used for DMA?
 
-In the IIO subsystem, we've been recently working on several "advanced" ADCs
-that could use a SPI controller like this. These ADCs have multiple input
-channels that perform conversions in parallel and the data for each channel
-needs to be read back on a separate serial line (MISO) at the same time. Another
-similar case is to have two separate chips, but they share a conversion trigger
-and essentially operate as a single composite device rather than two distinct
-devices [1]. This would be similar to some ADCs that are daisy-chained where we
-consider all of the chips in the chain as a single composite device, but they
-would be in parallel rather than chained.
+MSI_IOVA_BASE is 128M, and most ARM platforms put DRAM starting at
+0. Most ARM VMMs put DRAM starting at 0 too.
 
-[1]: https://lore.kernel.org/linux-iio/e5e8eba7-2455-488b-a36f-e246844e11fd@baylibre.com/
+So a platform saying that DMA to 128M doesn't work is pretty broken,
+to the point it is hard to believe there is a HW issue at work here?
 
-For those use cases though, as mentioned above, we only have a single device
-that would be connected to both buses. So for such a SPI controller with
-multiple buses, I was envisioning that instead of adding child nodes for each
-of the child buses, that we would do something like add a spi-buses property
-to the spi peripheral bindings where you could specify one or more buses that
-a device was connected to.
+> But this special IOVA is reflected in iommu_get_resv_regions() the same
+> way as the hardcoded MSI_IOVA_BASE. So each iommu group's
+> reserved_regions should show.
 
-e.g. a device connected to the lower bus would be spi-buses = <0>; one connected
-to the upper bus would be spi-buses = <1>; and a device connected to both would
-be spi-buses = <0>, <1>;.  This would also work for SPI controllers that have
-4 or 8 busses.
+That's great
 
-SPI controllers like these have a striping feature that allows to control both
-buses at the same to either mirror the same data on both buses at the same
-time when writing, e.g. for configuration or to read and write two different
-bytes at the same time. A peripheral driver for device that was connected to
-both buses could make use of this feature to craft a single SPI message with
-transfers containing (new) parameters that specify which bus to use (one or
-both) and, in the case of using both buses, to mirror or stripe the data.
+> > Why not avoid this conflict in your platform software?
+> I had the same question but it seems there is not enough difference
+> (than the standard smmu) to justify a platform code. i.e. platform
+> specific iommu_get_resv_regions(), is that what you are suggesting?
 
-Could we make a single device connected to both buses like this work using
-the proposed spi-lower and spi-upper or should we consider a different binding
-like the one I suggested?
- 
+And here I mean, why not stop marking it reserved in the ACPI/DT
+inside your firwmare or hypervisor?
+
+This smells like some SW component using the same address Linux uses
+for some odd purpose. Just change it and let Linux keep using the
+address it wants?
+
+Jason
 
