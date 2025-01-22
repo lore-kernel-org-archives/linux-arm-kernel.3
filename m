@@ -4,69 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33D70C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 03:05:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E7C9C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 03:21:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QRjh9FhrnaHu0S6KpqI8qiqynan6VGuEAgxuDFjUP/U=; b=aJ8OtTmxq6XHxbTcBwNgU+Xiwm
-	q1WiAg2wUF9Fj580XYO807IFsaGC2DBm+hOx0ea2BmpVEynMqkgLB57tC3VaTHRA9rnwWZtD6u8br
-	APVQvFgXA46sDMQdI8TrwJmZY+YXL19Jlsjkt21G8WuDnEqxBSDlZsBmgbiwcMmh8BW/ksiwQ+Mez
-	Z0xzcxTkZUfbCKo5sU1rCVUIZbp+aXdD2K7hmw8p7gaeYJ0PV68oIH8tBxrScgIq1uAcfs3bidO1u
-	FzV2gPwMMZVyadNf3EcDbBaN9J9CRG0E+gPn6Hs1sztGMIQlyEIkbfCnNYMLeeQk2HN0GjeSpcltO
-	wVnJwjVA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ycCJe4iHPRkD54eEU7PyOP9GUqchf9MNTCeZuUiby6c=; b=u1yA7O+YnbnFCZ/w9U2Gu5SKBK
+	X9od6AmDNxKCf1PPgJWapGPPZXtfEslvvbBGkmt1wsUumWBPP2MdDg/g5BhZImS6/inYFQfwWm3QM
+	xymhViNGTKnb0B0vHv1QI30k1SNVaWldX+PCOpygiN9KUuebjXJzACJyvQ5Z+GnVj4SSjOQ7mv6sC
+	NRBtoSQAWJ1cR3sds+UATsYmgZNbBkVcxjGvvNE6p4NAheDOjjXiuZpoRW2KWro64PVtk3rujhW+r
+	TL3nd9WagZKn0gyt2yoCt2/vJG094U2I6SXWkq4nWSPrXmy85LMdg0JEkQv+I/DqUe6+4F14g3EAE
+	3ynEIk8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taR2u-00000009HwD-1E3h;
-	Wed, 22 Jan 2025 03:04:48 +0000
-Received: from m16.mail.163.com ([220.197.31.4])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taR1c-00000009HtP-3pzE
+	id 1taRIN-00000009IgC-09R5;
+	Wed, 22 Jan 2025 03:20:47 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1taRH6-00000009IY1-0kL7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 03:03:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-Id:MIME-Version; bh=QRjh9
-	FhrnaHu0S6KpqI8qiqynan6VGuEAgxuDFjUP/U=; b=UyoLNlt6vmCgZ+SJU1ru9
-	gffJweKRjs98BGRmGx6BBDYGF2luHg3g+ZWa2blkEPGxtfdEivo1bO1Yqx3hVAy3
-	6n2tUSlqih1Rf5dCiYmsAQXrCzsLSHtq4x8uzsRp1e8g6Wu4QnMN/+apgMPqWElQ
-	HEMYAzsE4o3pnLVSmp1Il8=
-Received: from localhost.localdomain (unknown [116.128.244.169])
-	by gzsmtp5 (Coremail) with SMTP id QCgvCgAn0lmmX5BnaACMLQ--.47927S2;
-	Wed, 22 Jan 2025 11:02:00 +0800 (CST)
-From: oushixiong1025@163.com
-To: Joel Stanley <joel@jms.id.au>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	linux-aspeed@lists.ozlabs.org,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Shixiong Ou <oushixiong@kylinos.cn>
-Subject: [PATCH v2] drm/aspeed: Use devm_platform_get_and_ioremap_resource()
-Date: Wed, 22 Jan 2025 11:01:55 +0800
-Message-Id: <20250122030155.57802-1-oushixiong1025@163.com>
-X-Mailer: git-send-email 2.25.1
+	Wed, 22 Jan 2025 03:19:29 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-21636268e43so140717825ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jan 2025 19:19:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1737515967; x=1738120767; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=ycCJe4iHPRkD54eEU7PyOP9GUqchf9MNTCeZuUiby6c=;
+        b=X12Sb7MFNmSY2MEsk/19zNRIfhumIB3fsVmc9XPUVuYLzBn4o5l61TwRWpC7x85wwU
+         RUHV/B/NF7FA3wvHZ8/8ZCMAOQr1ppxTTZKBoCAgs9RR6XnK837qXTJt2CHFlwdvB5Oo
+         jChzCdqXWm1l0ckaD9Jxw8MRbDLRDAemveBRcYYE5m8xZx0xqU6NdqSd7P5dtn4fI/ih
+         d9LCkEsxqMsKqtn2eeRBJtvzwg920yeeaw896FtEzVSmzJl4FwAUrb+CGYTi5VNJRrgy
+         Icrw6oAVHrNGPC2m2oi65h7mmeDQC8BUMeeSK0VdaO5cOFc63KGYp+Vaho3BsNJL/k4i
+         257g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737515967; x=1738120767;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ycCJe4iHPRkD54eEU7PyOP9GUqchf9MNTCeZuUiby6c=;
+        b=QX676HVUksuRnYiUkISlV7xAPSUur+6AkDNlMR0cWZR6blA4LCbYSH/Q/HN4LK8G+d
+         cweGmpOMkkCL+BXwt+4dhe478NzkapQDQzk20EJvjYLgu9antZ4dgCDuFI9GfPi4qfpv
+         dXXxY4W0eqgIsATl9Hxj/nwAZFfwYtzntPFlYjRwQe33KOZArGQZ4lF5wkWVD9kqlj31
+         OnIDnZZ/7/1CDwHsKCTgACVEpwOPyQTlyqAE0/iGtD/p36YPREJkwgQE9nEg6xjwtPcM
+         MXYYBU5CDZ7sdaKqnoeoTFdtgLmH7K6w1UOFUqyVcZQbNMWOxYBBPH0g6tgjPiOKTw88
+         IQtw==
+X-Forwarded-Encrypted: i=1; AJvYcCXUjPoJMw9Ek2V0M9S4K3YfOBXy940FEcJyRcLvdxFRwUUCVV0fQZRB0yZf4poAzpYUmdMn8ehn4HG3SeEzPUqd@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy4/bARVcu+s6rhI48qYzrejgW2ooK7lqdXCOOwx4/ZPOPHGqVj
+	LOY55/Mpb7kAn9KHXmstRrp4GUCyxi23oXakC5OhmWzk544uV+Lw
+X-Gm-Gg: ASbGncvfQBzffcERmnl5JrJ4WQnqpliBJydDhGk/+5uZaD8A5c/0i+oLuIAioHjQG4p
+	aXNZEkhU4nozXTMuOnGVsLOJH3kBwhgn77p6wAwcqLRL7Os1JM3eCaTnTGN2lhdfHw/FDtIRCd9
+	8IGg52ldCOzGhlrofXPShxgm4sN6U9qQtwoLybNX0HoDHA+QrZXiEqcCZmhUHDkbolPQ5Rr+AoI
+	Cw/+FpZuHoqD0PxV8YrpgnFOd+1bNfDfXzG6M/CjhWkY6PzeSgRCawFsRMW9rz9q34UooA5fBqr
+	+wtTL1pyPw5PGsbD0EYIEKBSmqLv3SWFI53Gejozvos=
+X-Google-Smtp-Source: AGHT+IEOuQB/DKea8GblfO+5X1HYu9hNJgnmEWoKRQBMmJDQJ7xU3ANrN9lhrrI96HZOMNUSbHisWw==
+X-Received: by 2002:a05:6a20:748f:b0:1e1:a06b:375a with SMTP id adf61e73a8af0-1eb2160f41fmr35258743637.35.1737515967111;
+        Tue, 21 Jan 2025 19:19:27 -0800 (PST)
+Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72daba4eaacsm10183893b3a.135.2025.01.21.19.19.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 21 Jan 2025 19:19:25 -0800 (PST)
+Message-ID: <b965f04e-a706-4abf-89ed-4749a2c0b9b9@roeck-us.net>
+Date: Tue, 21 Jan 2025 19:19:21 -0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: QCgvCgAn0lmmX5BnaACMLQ--.47927S2
-X-Coremail-Antispam: 1Uf129KBjvdXoWrZFWfCryfWFWUJr13CryxAFb_yoWDWFcE9F
-	48urs3XrW7AryDt3yjvanxCFyIkF9agrWrGF18KaySv3W7Z34DWryUur92qr1Y9wsayF95
-	t3WUXr17A3s3CjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUbqQ6tUUUUU==
-X-Originating-IP: [116.128.244.169]
-X-CM-SenderInfo: xrxvxxx0lr0wirqskqqrwthudrp/1tbiXAPcD2eQUvPxtQAAse
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 00/21] hwmon: Fix the type of 'config' in struct
+ hwmon_channel_info to u64
+To: "lihuisong (C)" <lihuisong@huawei.com>, Armin Wolf <W_Armin@gmx.de>,
+ linux-hwmon@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, arm-scmi@vger.kernel.org,
+ netdev@vger.kernel.org, linux-rtc@vger.kernel.org, oss-drivers@corigine.com,
+ linux-rdma@vger.kernel.org, platform-driver-x86@vger.kernel.org,
+ linuxarm@huawei.com, jdelvare@suse.com, kernel@maidavale.org,
+ pauk.denis@gmail.com, james@equiv.tech, sudeep.holla@arm.com,
+ cristian.marussi@arm.com, matt@ranostay.sg, mchehab@kernel.org,
+ irusskikh@marvell.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, saeedm@nvidia.com,
+ leon@kernel.org, tariqt@nvidia.com, louis.peens@corigine.com,
+ hkallweit1@gmail.com, linux@armlinux.org.uk, kabel@kernel.org,
+ hdegoede@redhat.com, ilpo.jarvinen@linux.intel.com,
+ alexandre.belloni@bootlin.com, krzk@kernel.org, jonathan.cameron@huawei.com,
+ zhanjie9@hisilicon.com, zhenglifeng1@huawei.com, liuyonglong@huawei.com
+References: <20250121064519.18974-1-lihuisong@huawei.com>
+ <03b138e9-688f-4ebc-bd01-3d54fd20e525@gmx.de>
+ <9add68ac-7d10-4011-9da8-1f2de077d3e9@roeck-us.net>
+ <fd412ce2-ec40-fe73-6b1b-284a99a39f12@huawei.com>
+Content-Language: en-US
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ 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
+ mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
+In-Reply-To: <fd412ce2-ec40-fe73-6b1b-284a99a39f12@huawei.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_190329_362844_0FD7B437 
-X-CRM114-Status: UNSURE (   9.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250121_191928_227253_8FEC86B0 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,33 +160,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shixiong Ou <oushixiong@kylinos.cn>
+On 1/21/25 18:52, lihuisong (C) wrote:
 
-Convert platform_get_resource(), devm_ioremap_resource() to a single call to
-devm_platform_get_and_ioremap_resource().
+>> Those are not hwmon attributes and should not be (or have been) exposed
+>> as sysfs attributes in the first place, but (if really wanted/needed)
+>> through debugfs files. Even _if_ exposed as sysfs attributes they should
+>> not have the power1_ prefix (except maybe for the last one).
+> I plan to accept the suggestion Armin proposed that acpi_power_meter can use the "extra_groups" parameter for these "not generic hwmon power attributes".
+> Should we drop the power1_ prefix? But this will lead to the change of these attributes.
+> Do you mean 'power1_is_battery' can be added to hwmon power attributes in hwmon.h?
 
-Signed-off-by: Shixiong Ou <oushixiong@kylinos.cn>
----
-V1 -> V2: Add Missing commit message.
+No; power1_is_battery is still not a hardware monitoring attribute,
+much less one to standardize. Also, don't change any attribute names.
+They are wrong, but they are the ABI for this driver.
 
- drivers/gpu/drm/aspeed/aspeed_gfx_drv.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
-
-diff --git a/drivers/gpu/drm/aspeed/aspeed_gfx_drv.c b/drivers/gpu/drm/aspeed/aspeed_gfx_drv.c
-index a7a6b70220eb..33f81b53771d 100644
---- a/drivers/gpu/drm/aspeed/aspeed_gfx_drv.c
-+++ b/drivers/gpu/drm/aspeed/aspeed_gfx_drv.c
-@@ -146,8 +146,7 @@ static int aspeed_gfx_load(struct drm_device *drm)
- 	struct resource *res;
- 	int ret;
- 
--	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
--	priv->base = devm_ioremap_resource(drm->dev, res);
-+	priv->base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
- 	if (IS_ERR(priv->base))
- 		return PTR_ERR(priv->base);
- 
--- 
-2.25.1
+Guenter
 
 
