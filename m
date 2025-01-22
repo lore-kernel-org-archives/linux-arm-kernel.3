@@ -4,97 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83CF0C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 11:47:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B461CC02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 11:49:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M66snbmYrKqt/mbHszvaMECVHNs6H3jl0JCiF0yhrSs=; b=eZ5QubQiE4Gm39M2oxTzVO2Jpr
-	Hdj5AzSpGYJmBs3XAoLDe72Dfc/7/gjuww2srIcRAKsdQLT3ePyHRZbJzZthnl/Wx41sKpJBRZmbL
-	F0sEVmdHy8ERL7tp4mDWxOaLHI2ZeqOZ/uRb50B0B+jCgDJVbogLKwdhOc+LweMliGXE6GeB9DuQE
-	ki8x7CKMZHySw9e+z56+GDT3Hsqm6ewgiwClrac/95iP+xIfzdmUwl7WQjZ/aqbx6gt1y5JG7wEUM
-	Li3wjKICyVe6m2FpoLjbsOqmQrwmz5wUOBhBfrk2NTiS8/om0Zn14DW1edPLpbTLIhsmRf0g4aj8j
-	5MFeMwjg==;
+	bh=xXO+eeJwoYDq0+ajeKon9Edlp30dkoKqCF75LDwgv34=; b=QtAl7FH4ZLbj0BlJQ5hEkG8wpE
+	m0A29SntWCbsJrlODCPLb1lWqo4W+5oOp1C80aBxa1DHqD6tRk3dYfBMzIfzivQ8vMkh3HHgYnJjf
+	o1GTHBa/01obVq4Q7Sk/QHxNYDpYWb+xzhDqSPq5IIEAJwi44cX/BNTXlFoWZgGWJVll3sQpOyAEp
+	npRNu2ydWshsjN3DbyKbpsBLOaQz0ujqT1Ye2d2sahZd+6AM2nPA68auDPEp8rJGpGqKR+fSyK32r
+	cg7uwnfp5RCMTYjAmPQRUAbBu2JwsT/Qsh8k0aCOOC3/zZOoXeMTeEJ+eqKN8aUnE1hZqw2qQUYwV
+	kKy0NWgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taZCy-0000000A5Ki-1QLr;
-	Wed, 22 Jan 2025 11:47:44 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1taZEF-0000000A5bm-44Zz;
+	Wed, 22 Jan 2025 11:49:03 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taZBd-0000000A5CL-39PI
+	id 1taZBr-0000000A5E6-1lRg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 11:46:22 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-43621d2dd4cso51225e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jan 2025 03:46:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1737546380; x=1738151180; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=M66snbmYrKqt/mbHszvaMECVHNs6H3jl0JCiF0yhrSs=;
-        b=HR5iAWmD/TLFLgqbfwZDYUvmeifvNsOv2LVxliL9smwV8T604jT2j+2ZHIMjLtjEts
-         DAZyDJRbUXiyfv/gQEB+kI7+4jZ3gLhmKthbvoDDmVVmj2kSsMCRWzjS6moT0ea7m4A8
-         6cz/hMjELr9/wJdrqJKjR2dqlyXb6m3czld6TEzyGNYNtI5nyeLqcxv7W3n1FtwaGGBs
-         fL+MWCaVfKZFJIW0XL3criL2S2Nm+csdE6G+Ogyu/ewmPTxhCMcaHoir0BBj3b5ltyYf
-         9diwdkobZC6M8+xOZJZ8qyROIr7rRpdZYiMF5ilpYCNB0qCnDuTz0khES3927+wr0bRq
-         UDKw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737546380; x=1738151180;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=M66snbmYrKqt/mbHszvaMECVHNs6H3jl0JCiF0yhrSs=;
-        b=WgsAasAJbnQ3+rMTrVICablQDdZdBtraZhlIYKJWfcgd2zOwtLJWICZq/3rhvEnLfo
-         0AJFbVWqfwqCjsXkZzKBJUKbVFO2+qUsrwSCm6Qzv3WMeHm6Gd9LGWc+VID5ViYBPfmk
-         Dzg+pXH2NYgQQ5RjoElP+WMineHkd7quednQ3bHQUW2Cvcf024ja7ewYJqg1yziLtcNN
-         Okc+QW6bT4xxV04LWcO5SkpIBDUBFomfeMPG/Jgu1U2sx2aycH7X6K+IGanZLc6f5wfH
-         kF48fS2gr+hRFN6xO3naIZb++wXbz4vPUhycR1bEU6Kd9zukLy5qLX0Kee4u5tuTVSBf
-         B4dA==
-X-Forwarded-Encrypted: i=1; AJvYcCWs3QiXGdwD1zZyE+32Ty7TbB3HyGsfVPVL+jtQUykNoIthZwtfyWc9HXvpTiFJrADhuA3Ru/4Y/vZCYeMkzTYo@lists.infradead.org
-X-Gm-Message-State: AOJu0YzcmLY2HQqFQDHJ9fD9y9I9DvBuMOQna1MmIaLncNuz3r2uvqBl
-	DeoTGa34BwzQQ3aYPHGDlpWh5qUoPr29MP1a65/DK1EBZymkyds1CSl96AK1Ng==
-X-Gm-Gg: ASbGncs/egP7g8oSxCuWmsU8J8qrwVbIsYm23Ks4QI/CdvJdxq/hgiSFMS3l4s+DPml
-	DH15V8wsMBGvU56pf7jOQOYawImXx1bus+AuuAI0ckqKJKUme0PHJZv6LoWaRAcJDCRwWIG+Imj
-	dbegcBBZVaSewkD8gnG4oGJLmcTQksUM9d9QTJDWnnzaPX5SizW0xtC0v7JWQ0g31hqOBWUzrSt
-	6P7w6wdi2nFqDP/poD0gJXJ+pF2C6lRt51L7ms8pYRUiADcrSHOKfrLi5utAPL+9kfSugdgiitQ
-	cpb168y3lE24B4VUxdXOYGQ6avNNDQ==
-X-Google-Smtp-Source: AGHT+IFls5TpL47C7K0O0oaibl6d2ILOLB2S6EMRWR6zhH8HrTL9uwlX0dZcT7Ee9IXAWCDbxNzW+g==
-X-Received: by 2002:a05:600c:1f91:b0:434:9d0b:bd7c with SMTP id 5b1f17b1804b1-438b2da67dcmr845945e9.3.1737546379863;
-        Wed, 22 Jan 2025 03:46:19 -0800 (PST)
-Received: from google.com (88.140.78.34.bc.googleusercontent.com. [34.78.140.88])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438b31c6fbasm21159875e9.33.2025.01.22.03.46.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jan 2025 03:46:19 -0800 (PST)
-Date: Wed, 22 Jan 2025 11:46:14 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: iommu@lists.linux.dev, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, robdclark@gmail.com, joro@8bytes.org,
-	robin.murphy@arm.com, jean-philippe@linaro.org, nicolinc@nvidia.com,
-	vdonnefort@google.com, qperret@google.com, tabba@google.com,
-	danielmentz@google.com, tzukui@google.com
-Subject: Re: [RFC PATCH v2 00/58] KVM: Arm SMMUv3 driver for pKVM
-Message-ID: <Z5DahnNdoShXesib@google.com>
-References: <20241212180423.1578358-1-smostafa@google.com>
- <20241212194119.GA4679@ziepe.ca>
- <Z1yNWI9lBNIZg6Le@google.com>
- <20250102201614.GA26854@ziepe.ca>
- <Z35rEeSVwfZVA9IF@google.com>
- <20250116191952.GD674319@ziepe.ca>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250116191952.GD674319@ziepe.ca>
+	Wed, 22 Jan 2025 11:46:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 283835C581B;
+	Wed, 22 Jan 2025 11:45:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C966C4CEE3;
+	Wed, 22 Jan 2025 11:46:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737546394;
+	bh=J/3Uv76izXM3DkFhHTfwqy9MkTyaRA0S84/pyF38QyA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=S8p9UURgZao9lh+1de2TLrojnarOYcZZl77vvfSAh0m7M/vUtsPqLrKrMetuZFpkr
+	 qItQoglvTuDwQfHpB3FRZqI+b05vv2uKE1KyWH4AzZwFDciv6bO3MDG48Tp8Hr4q1e
+	 SVPUUX0g1/HrHCcPIVxB+nqbHWMOWinv0C5+08ABgHeebXz4qKg2O2OWrBbVpQInUZ
+	 sYGY/47MMVqT3AV6elgSgSy0tQ/gnRJlbZmHotRHsT8mN4PbJzL65Jm4taOOrmlLab
+	 Kz0Jw3aBn0qjZN30BcFLdNEhiHhWHf30ZKW9J2uZ7TBHibgWkkvMCtWZ/XgOMdfb69
+	 K3gChKxlEK74A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1taZBn-00ENrU-Gu;
+	Wed, 22 Jan 2025 11:46:32 +0000
+Date: Wed, 22 Jan 2025 11:46:31 +0000
+Message-ID: <86plkful48.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	broonie@kernel.org,
+	catalin.marinas@arm.com,
+	eauger@redhat.com,
+	fweimer@redhat.com,
+	jeremy.linton@arm.com,
+	oliver.upton@linux.dev,
+	pbonzini@redhat.com,
+	stable@vger.kernel.org,
+	wilco.dijkstra@arm.com,
+	will@kernel.org
+Subject: Re: [PATCH] KVM: arm64/sve: Ensure SVE is trapped after guest exit
+In-Reply-To: <Z4--YuG5SWrP_pW7@J2N7QTR9R3>
+References: <20250121100026.3974971-1-mark.rutland@arm.com>
+	<86r04wv2fv.wl-maz@kernel.org>
+	<Z4--YuG5SWrP_pW7@J2N7QTR9R3>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, broonie@kernel.org, catalin.marinas@arm.com, eauger@redhat.com, fweimer@redhat.com, jeremy.linton@arm.com, oliver.upton@linux.dev, pbonzini@redhat.com, stable@vger.kernel.org, wilco.dijkstra@arm.com, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_034621_812260_5EB9725B 
-X-CRM114-Status: GOOD (  21.72  )
+X-CRM114-CacheID: sfid-20250122_034635_548287_BB98C64D 
+X-CRM114-Status: GOOD (  51.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,40 +94,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 16, 2025 at 03:19:52PM -0400, Jason Gunthorpe wrote:
-> On Wed, Jan 08, 2025 at 12:09:53PM +0000, Mostafa Saleh wrote:
+On Tue, 21 Jan 2025 15:37:13 +0000,
+Mark Rutland <mark.rutland@arm.com> wrote:
 > 
-> > I am open to gradually upstream this as you mentioned where as a first
-> > step pKVM would establish DMA isolation without translation for host,
-> > that should be enough to have functional pKVM and run protected workloads.
-> 
-> Personally I hate these giant patch series, you should strip it down
-> to small meaningful steps and try to stay below 20 per series.
-> 
-> I think getting pkvm to own the SMMU HW is a great first step that
-> everything else can build on
+> On Tue, Jan 21, 2025 at 11:20:04AM +0000, Marc Zyngier wrote:
+> > Hi Mark,
+> >
 
-I plan to do that for v3, I think that also removes the out-of-tree
-dependencies, so the code applies directly on upstream.
-Thanks for the feedback!
+[...]
+
+> > > diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
+> > > index 8c4c1a2186cc5..e4053a90ed240 100644
+> > > --- a/arch/arm64/kernel/fpsimd.c
+> > > +++ b/arch/arm64/kernel/fpsimd.c
+> > > @@ -1711,8 +1711,24 @@ void fpsimd_kvm_prepare(void)
+> > >  	 */
+> > >  	get_cpu_fpsimd_context();
+> > >  
+> > > -	if (test_and_clear_thread_flag(TIF_SVE)) {
+> > > -		sve_to_fpsimd(current);
+> > > +	if (!test_thread_flag(TIF_FOREIGN_FPSTATE) &&
+> > > +	    test_and_clear_thread_flag(TIF_SVE)) {
+> > > +		sve_user_disable();
+> > 
+> > I'm pretty happy with this fix. However...
+> > 
+> > > +
+> > > +		/*
+> > > +		 * The KVM hyp code doesn't set fp_type when saving the host's
+> > > +		 * FPSIMD state. Set fp_type here in case the hyp code saves
+> > > +		 * the host state.
+> > 
+> > Should KVM do that? The comment seems to indicate that this is
+> > papering over yet another bug...
+> 
+> Yes; really this should be done at hyp (and at that point, hyp could
+> actually save the entire host SVE state), but that's a larger change and
+> more painful for backporting, which is why I didn't go that route. I'm
+> happy to go try to fix hyp to do that, or I can make the comment more
+> explicit that this is a bodge, if that's all you're after?
+> 
+> Alternatively, we could take the large hammer approach and always save
+> and unbind the host state prior to entering the guest, so that hyp
+> doesn't need to save anything. An unconditional call to
+> fpsimd_save_and_flush_cpu_state() would suffice, and that'd also
+> implicitly fix the SME issue below.
+
+I think I'd rather see that. Even if that costs us a few hundred
+cycles on vcpu_load(), I would take that any time over the current
+fragile/broken behaviour.
+
+>
+> > > +		 *
+> > > +		 * If hyp code does not save the host state, then the host
+> > > +		 * state remains live on the CPU and saved fp_type is
+> > > +		 * irrelevant until it is overwritten by a later call to
+> > > +		 * fpsimd_save_user_state().
+> > 
+> > I'm not sure I understand this. If fp_type is irrelevant, surely it is
+> > *forever* irrelevant, not until something else happens. Or am I
+> > missing something?
+> 
+> Sorry, this was not very clear.
+> 
+> What this is trying to say is that *while the state is live on a CPU*
+> fp_type is irrelevant, and it's only meaningful when saving/restoring
+> state. As above, the only reason to set it here is so that *if* hyp
+> saves and unbinds the state, fp_type will accurately describe what the
+> hyp code saved.
+> 
+> The key thing is that there are two possibilities:
+> 
+> (1) The guest doesn't use FPSIMD/SVE, and no trap is taken to save the
+>     host state. In this case, fp_type is not consumed before the next
+>     time state has to be written back to memory (the act of which will
+>     set fp_type).
+> 
+>     So in this case, setting fp_type is redundant but benign.
+> 
+> (2) The guest *does* use FPSIMD/SVE, and a trap is taken to hyp to save
+>     the host state. In this case the hyp code will save the task's
+>     FPSIMD state to task->thread.uw.fpsimd_state, but will not update
+>     task->thread.fp_type accordingly, and:
+> 
+>     * If fp_type happened to be FP_STATE_FPSIMD, all is good and a later
+>       restore will load the state saved by the hyp code.
+> 
+>     * If fp_type happened to be FP_STATE_SVE, a later restore will load
+>       stale state from task->thread.sve_state.
+> 
+> ... does that make sense?
+
+It does now, thanks. But with your above alternative suggestion, this
+becomes completely moot, right?
 
 > 
-> > But although that might be usable on some systems, I don’t think that’s
-> > practical in the long term as it limits the amount of HW that can run pKVM.
+> > > +		 *
+> > > +		 * This is *NOT* sufficient when CONFIG_ARM64_SME=y, where
+> > > +		 * fp_type can be FP_STATE_SVE regardless of TIF_SVE.
+> > > +		 */
+> > > +		BUILD_BUG_ON(IS_ENABLED(CONFIG_ARM64_SME));
+> > 
+> > I'd rather not have this build-time failure, as this is very likely to
+> > annoy a lot of people. Instead, just make SME unselectable with KVM:
 > 
-> I suspect you will end up doing everything. Old HW needs paravirt, new
-> HW will want nesting and its performance. Users other than mobile will
-> come. If we were to use pKVM on server workloads we need nesting for
-> performance.
+> I'm happy to change this, but FWIW I'd used BUILD_BUG() here because it
+> kept that associated with the comment and logic, and because we disabled
+> SME in commit:
+> 
+>   81235ae0c846e1fb4 ("arm64: Kconfig: Make SME depend on BROKEN for now)"
+> 
+> ... which was CC'd stable, and so this *shouldn't* blow up on anything
+> with that commit.
 
-Yes, I guess that would be the case, as I mentioned in another reply
-it would be interesting to get the order of magnitude both, which I am
-looking into, I hope it'd help with which direction we should
-prioritize upstream.
+My experience is that people do set CONFIG_BROKEN, and don't expect
+the kernel to fail to compile -- they "only" expect it to misbehave.
+
+> 
+> So I can:
+> 
+> (a) Add the dependency, as you suggest.
+> 
+> (b) Leave that as-is.
+> 
+> (c) Solve this in a different way so that we don't need a BUILD_BUG() or
+>     dependency. e.g. fix the SME case at the same time, at the cost of
+>     possibly needing to do a bit more work when backporting.
+> 
+> ... any preference?
+
+My preference would be on (c), if at all possible. My understanding is
+now that the fpsimd_save_and_flush_cpu_state() approach solves all of
+these problems, at the expense of a bit of overhead.
+
+Did I get that correctly?
 
 Thanks,
-Mostafa
 
-> 
-> Jason
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
