@@ -4,110 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 295D7C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 10:02:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5D1FC02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 10:04:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KZun86YgO/beF+USyArXg72Od8MD2P3otFMl9FWVMR8=; b=k2L4NRnPWUtocjLf+1n4bvMiCO
-	7pezPEzsySrRK5LB0AkXKh9lgdmbJochXx4o44A8fA5bYf1gd5DNiQ6yulfxIteImJuDjnc3RlzP+
-	OtooDCWdmUYx4MdE9uaoOr7qZMHX11yX+H3X7/G6M9jxRUuIeyAwCV9oLCnG8XtsbHPJRQHVpKXZ3
-	IcfeIM9gX0CcxhCEueo+vhknnpWTr6+K1QzzrP0f1m0yemIgb+FyDG/RyRxm2DvXIL70ToMSy64hj
-	95sgi0l1pEOhMyH42pZblkpndt01qz08Iky7tBoBK7sEDdMSCSsmYdCriVFC6sBP35XitHAbMup9J
-	NE8/niEw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Xl5+0tlZrLoM3ZeRbUgvSA4AIYam567wP93TMSoVT5s=; b=p3Y1Q+A7U7HC7QHD0Em+H/01nU
+	8OTbeBgRcYeTgg4EHCDbj/3ZazJHFG9QSHKPP3AA+HMmyDB61sNgk7HyD1sETNeJoEgzy4PqRsiJ+
+	OsCTr/Qhqk3B0WrOBg4TAxOx+heo5ptmEKmRBYDNLNQl8uLl6azotzlnLwEjz/daG1NZ6OL0T8tkZ
+	ha9BUdXPVvJplTy1pxnlEJogMtN/hCzHqgwn9DmKCVy/BA2qro9Dby+sxxvDDXTooxBD0WG7lLzhV
+	HCxxECzGIf+vqdJx1fxx1ppgFDXOW2+wEEC0sxhrrdT7zYsZFm3KknYmSu/tQatQA5GffxLVer1RZ
+	MW//aWTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taXYZ-00000009sAi-05Kb;
-	Wed, 22 Jan 2025 10:01:55 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1taXay-00000009sqd-32zT;
+	Wed, 22 Jan 2025 10:04:24 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taXSY-00000009rD1-1lyz;
-	Wed, 22 Jan 2025 09:55:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7E11E5C5D9E;
-	Wed, 22 Jan 2025 09:55:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 990A2C4CEE2;
-	Wed, 22 Jan 2025 09:55:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737539741;
-	bh=oTek1JRLg1nABvU7rxwqx97/p8svej4w5YzkvNSofVM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NfEpP8H/5XTmmcZM7/Cd5HS0PZkfFZrX0bx2m/biDCf9WAieo928GjZM+jb7bfPOj
-	 NQoNDxN+DITenk9l2NF9vg1HcCYzaeWGNnbPpJQOmirG1fwXHTMqQMCuj2Nod9gFhO
-	 2Vyt0W62gA4arrEmNjbGCV+bCPoeUUyOWhOsmTkJIrTbb5HPJI2D+HvYMNNuibBjOM
-	 v0g3ybgwxPL80vY11fyiiqQJzQzsafHHEnl0lgVM7YDMuFrvxUY4u707pL8XBiAF82
-	 a+RREuSPSfa6o4FC1VPkTGgg2LXdfnyrfES6NT9xNypMM9G4p4Qppjq543WoIiB44R
-	 +Np3L9/uqYrEQ==
-Message-ID: <77ea5067-deb2-41d4-ab82-ce19ac018ba3@kernel.org>
-Date: Wed, 22 Jan 2025 10:55:34 +0100
+	id 1taXZf-00000009sae-2Bmm;
+	Wed, 22 Jan 2025 10:03:04 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50M6I5f2023262;
+	Wed, 22 Jan 2025 10:02:42 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=Xl5+0tlZrLoM3ZeRbUgvSA4AIYam567wP93
+	TMSoVT5s=; b=kTBGf3qUkJvZoUtED5yKsIO4yNr/L1sUefoIISyk+35pbOu9d3p
+	JaCshhlnX726yqzrhTWXjryYK1w9TvpQM1oeUxM6hvWTpnS2ZyFe6jBG5EaOinBi
+	kSrxRVDkFk7oA9/Ji3KKSviivEMmvSjIoya3hLsv4YfaGPQLkYEMpw7PhIzmKLzH
+	qBWmc5FP6uwx7XV7sntDK7kmgTgaOLX6N/MUZGWcQa38BiqbSY39c7yvVTRA4Uny
+	OahphmBlQ8qRuBP2tggbA3xg1YCLob6gCiRlgW91Pf64ioiUPhxH6mkQC+1hiA1o
+	HKju7H5WIp3gKM72JULVg7M6NVV0ZgwQobQ==
+Received: from aptaippmta01.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com [103.229.16.4])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44au9eghht-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 22 Jan 2025 10:02:42 +0000 (GMT)
+Received: from pps.filterd (APTAIPPMTA01.qualcomm.com [127.0.0.1])
+	by APTAIPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTP id 50MA2cRr006767;
+	Wed, 22 Jan 2025 10:02:38 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+	by APTAIPPMTA01.qualcomm.com (PPS) with ESMTPS id 4485cm3b5r-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 22 Jan 2025 10:02:38 +0000
+Received: from APTAIPPMTA01.qualcomm.com (APTAIPPMTA01.qualcomm.com [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 50MA2cIZ006762;
+	Wed, 22 Jan 2025 10:02:38 GMT
+Received: from cbsp-sh-gv.ap.qualcomm.com (CBSP-SH-gv.ap.qualcomm.com [10.231.249.68])
+	by APTAIPPMTA01.qualcomm.com (PPS) with ESMTPS id 50MA2btX006760
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 22 Jan 2025 10:02:38 +0000
+Received: by cbsp-sh-gv.ap.qualcomm.com (Postfix, from userid 393357)
+	id C713840CE9; Wed, 22 Jan 2025 18:02:36 +0800 (CST)
+From: Ziqi Chen <quic_ziqichen@quicinc.com>
+To: quic_cang@quicinc.com, bvanassche@acm.org, mani@kernel.org,
+        beanhuo@micron.com, avri.altman@wdc.com, junwoo80.lee@samsung.com,
+        martin.petersen@oracle.com, quic_ziqichen@quicinc.com,
+        quic_nguyenb@quicinc.com, quic_nitirawa@quicinc.com,
+        quic_rampraka@quicinc.com
+Cc: linux-arm-msm@vger.kernel.org, linux-scsi@vger.kernel.org,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        linux-kernel@vger.kernel.org (open list:ARM/Mediatek SoC support:Keyword:mediatek),
+        linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support:Keyword:mediatek),
+        linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support:Keyword:mediatek)
+Subject: [PATCH v2 0/8] Support Multi-frequency scale for UFS
+Date: Wed, 22 Jan 2025 18:02:06 +0800
+Message-Id: <20250122100214.489749-1-quic_ziqichen@quicinc.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 12/13] dt-bindings: display: vop2: Add rk3576 support
-To: Andy Yan <andyshrk@163.com>
-Cc: heiko@sntech.de, hjc@rock-chips.com, krzk+dt@kernel.org,
- devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org, derek.foreman@collabora.com,
- detlev.casanova@collabora.com, daniel@fooishbar.org, robh@kernel.org,
- sebastian.reichel@collabora.com, Andy Yan <andy.yan@rock-chips.com>
-References: <20250121103254.2528004-1-andyshrk@163.com>
- <20250121103500.2528258-1-andyshrk@163.com>
- <20250122-amber-moth-of-upgrade-fa8331@krzk-bin>
- <5eb4acaa.6df6.1948d68332d.Coremail.andyshrk@163.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <5eb4acaa.6df6.1948d68332d.Coremail.andyshrk@163.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-QCInternal: smtphost
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: agubquMuDltbqzngpxf_iB_hHI7oG_fn
+X-Proofpoint-ORIG-GUID: agubquMuDltbqzngpxf_iB_hHI7oG_fn
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-22_04,2025-01-22_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
+ suspectscore=0 mlxlogscore=999 clxscore=1015 mlxscore=0 phishscore=0
+ impostorscore=0 adultscore=0 lowpriorityscore=0 spamscore=0 malwarescore=0
+ bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501220073
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_015542_554281_9B0F8384 
-X-CRM114-Status: GOOD (  13.82  )
+X-CRM114-CacheID: sfid-20250122_020303_673295_27FAF584 
+X-CRM114-Status: GOOD (  10.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,90 +107,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/01/2025 10:46, Andy Yan wrote:
->>> -      The VOP interrupt is shared by several interrupt sources, such as
->>> -      frame start (VSYNC), line flag and other status interrupts.
->>> +      For VOP version under rk3576, the interrupt is shared by several interrupt
->>> +      sources, such as frame start (VSYNC), line flag and other interrupt status.
->>> +      For VOP version from rk3576 there is a system interrupt for bus error, and
->>> +      every video port has it's independent interrupts for vsync and other video
->>> +      port related error interrupts.
->>> +
->>> +  interrupt-names:
->>> +    items:
->>> +      - const: sys
->>> +      - const: vp0
->>> +      - const: vp1
->>> +      - const: vp2
->>>  
->>>    # See compatible-specific constraints below.
->>>    clocks:
->>> @@ -135,6 +147,8 @@ allOf:
->>>          interrupts:
->>>            maxItems: 1
->>
->> So this change moves to this patch.
->>
->>>  
->>> +        interrupt-names: false
->>> +
->>>          ports:
->>>            required:
->>>              - port@0
->>> @@ -148,6 +162,39 @@ allOf:
->>>        required:
->>>          - rockchip,grf
->>>  
->>> +  - if:
->>> +      properties:
->>> +        compatible:
->>> +          contains:
->>> +            enum:
->>> +              - rockchip,rk3576-vop
->>> +    then:
->>> +      properties:
->>> +        clocks:
->>> +          minItems: 5
->>
->> No. You did not implement my comment at all.
->>
->> So again:
->> "Why minItems? Nothing in this patch makes sense for me. Neither changing
->> existing binding nor new binding for rk3576."
-> 
-> Do you mean because I already defined minItems of clocks is 5 on the top, so 
-> there is no need to redefine the same minItems here ?
+With OPP V2 enabled, devfreq can scale clocks amongst multiple frequency
+plans. However, the gear speed is only toggled between min and max during
+clock scaling. Enable multi-level gear scaling by mapping clock frequencies
+to gear speeds, so that when devfreq scales clock frequencies we can put
+the UFS link at the appropraite gear speeds accordingly.
 
-Lists must be constrained. This is not constrained from the max items
-and you repeat existing constrain.
+This series has been tested on below platforms -
+sm8550 mtp + UFS3.1
+SM8650 MTP + UFS3.1
+SM8750 MTP + UFS4.0
 
-For every variable list you need to provide min and maxItems, except the
-edge cases when dimension matches top level dimension.
+v1 -> v2:
+1. Withdraw old patch 8/8 "ARM: dts: msm: Use Operation Points V2 for UFS on SM8650"
+2. Add new patch 8/8 "ABI: sysfs-driver-ufs: Add missing UFS sysfs addributes"
+3. Modify commit message for  "scsi: ufs: core: Pass target_freq to clk_scale_notify() vops" and "scsi: ufs: qcom: Pass target_freq to clk scale pre and post change"
+4. In "scsi: ufs: qcom: Pass target_freq to clk scale pre and post change", use common Macro HZ_PER_MHZ in function ufs_qcom_set_core_clk_ctrl()
+5. In "scsi: ufs: qcom: Implement the freq_to_gear_speed() vops", print out freq and gear info as debugging message
+6. In "scsi: ufs: core: Enable multi-level gear scaling", rename the lable "do_pmc" to "config_pwr_mode"
+7. In "scsi: ufs: core: Toggle Write Booster during clock", initialize the local variables "wb_en" as "false"
 
-Standard example is:
+Can Guo (6):
+  scsi: ufs: core: Pass target_freq to clk_scale_notify() vops
+  scsi: ufs: qcom: Pass target_freq to clk scale pre and post change
+  scsi: ufs: core: Add a vops to map clock frequency to gear speed
+  scsi: ufs: qcom: Implement the freq_to_gear_speed() vops
+  scsi: ufs: core: Enable multi-level gear scaling
+  scsi: ufs: core: Toggle Write Booster during clock scaling base on
+    gear speed
 
-https://elixir.bootlin.com/linux/v6.11-rc6/source/Documentation/devicetree/bindings/ufs/qcom,ufs.yaml#L127
+Ziqi Chen (2):
+  scsi: ufs: core: Check if scaling up is required when disable clkscale
+  ABI: sysfs-driver-ufs: Add missing UFS sysfs addributes
 
-which I mention on mailing lists multiple times. Also described this
-case exactly on my two talks...
+ Documentation/ABI/testing/sysfs-driver-ufs | 31 ++++++++++
+ drivers/ufs/core/ufshcd-priv.h             | 17 +++++-
+ drivers/ufs/core/ufshcd.c                  | 71 ++++++++++++++++------
+ drivers/ufs/host/ufs-mediatek.c            |  1 +
+ drivers/ufs/host/ufs-qcom.c                | 66 +++++++++++++++-----
+ include/ufs/ufshcd.h                       |  8 ++-
+ 6 files changed, 159 insertions(+), 35 deletions(-)
 
-> 
->>
->> To address such comment, come with reasonable answer to "why". Not just
->> send the same. It's a waste of my time to keep reviewing the same.
-> 
-> Before sending this patch, I asked you what the next step should be, but you didn't respond.
+-- 
+2.34.1
 
-You asked whether splitting is correct and I did not object that. I
-already said: " You need to split reorganizing", then you asked if you
-can split, so sorry, I am not going to keep repeating the same multiple
-times.
-
-But anyway this is not about the split, so you did not question last
-time how to do it. You just skipped my paragraph asking for "Why?".
-
-
-
-Best regards,
-Krzysztof
 
