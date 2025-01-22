@@ -4,162 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5628DC02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 19:56:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A104C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 20:02:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q/CkI6YtI/68hhXtKZ1CzT14Pnfq6BMEmullmCigk74=; b=DPg0OtZoJ4JTSjSmAlK0gRe7aw
-	c8XUvd4Z+LxskpgWE0Kt0DFzLAgzHfrbFFFlMi3QP1+ZN0Mmi4pXaWk4GgsAAmf/1TYaTFmBbiT5h
-	pXHKk+FEsG18iGOjjDToAztc0wezAHBHj4PHk7WJYMLS4w1jdgQQyEHV4jZYAIyEl4sM9xUCEU5Ro
-	p+ZYuJMPsRn1JRxpSAB1EHFqgQ9BxDvZHPktv0ZGvDg3/XB/YT16I8R3u09jJUM6/yllO4mj++Ms4
-	0hhFHVQrfKGtHC7wBu1EivNVDr7o7iO9zwT+YFjGbd4/2VjKwcAXt2Yh1/skc5C/Izqc1ghnmklup
-	ELmZWoxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=jurTTxyZurW5GCpnwp6J13h1Jad371IuO/OxoFLazdE=; b=alKSmqP/FAtV0t
+	Ue5p1a/kEvql6bvJCC5ny1XHSFR6EcjTAhePemhMiBW2YcFx08OSYZIUl1DtEdbSUdfqffh/8+YOA
+	JBAlhvHmYKqXLsDYlcgHFfgOAYyuFqkG8TcIxFikiiZrUqhnSkcIRbpRl/FQ/QgQJYL7NCLusm4Vp
+	K/I9YoSahmgyCBecwnaEu36pfkiQWYbXMa7awOU5SUM1BIn245LGgKqiDxnaeQmf1DVbhFi/8cTAW
+	EBISlTCLVMokfiofBK0pl4BwcCc0CCM1HmWNvxnHv8R2arwjdjs10h+kMBJeVE5tSvWyn/RScwQME
+	4A1mWsNTPnuLEpEsdEjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tagq7-0000000B7IS-11al;
-	Wed, 22 Jan 2025 19:56:39 +0000
-Received: from mail-dm6nam11on2060d.outbound.protection.outlook.com ([2a01:111:f403:2415::60d] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	id 1tagvy-0000000B7ph-1wVa;
+	Wed, 22 Jan 2025 20:02:42 +0000
+Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tagon-0000000B7Ao-1CeL
+	id 1taguT-0000000B7am-3TnQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 19:55:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LSaG/Cp2icq/OC0ALFUotBqSYqC8uCX+BdhtGTWdop3PHIlql380dnKMiSxKbFofNaLdjZEPgBGsyl3gMsD0mLADKsPRrrwVpwhVDgO5t4sWnE6D6by6JmpYEB1SVBVl72hJBZO+lr6VmnArpPI8ELGjiyE5BEh23/wsgEeG3at+Wtr/rOy6Y6VRPgxfFaUE0kM2bWNnQMiRwPGLLFTfb7cyXTC8rLo9g9r0kF1A652ZGHxQu9VI9zLvFW+Ysz6D+u8tseTLT0t2q0gJv7hT4FtQJzMbAEfMZqqQ3weK2MwnPqqGlCPatojNTbI39Z7R3FL41rLGqxbiJETMRrVQ+g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Q/CkI6YtI/68hhXtKZ1CzT14Pnfq6BMEmullmCigk74=;
- b=RvsgUNf6Ab6cUiH4+WsVfUk+fFqBID1bxaJICpRT95YRWQ4N89XIXUC8JKwoZj4faoJE2RjhYOzWqQLTi1B+cFo+jcTcHSQSwlykMlF4P4qyYHVuqviCeD9tFUdFs8t8pa3nxF2w/FqlibKxD6gJrqaamEIlv6Salve7UFyDWKiKy13rg/fTnkku4kwpJwdSTBJchC4lPgE63uygN+o/EArqIN6DijTBX0YGMhX4IYKJWyukWk7kFlCc/DjfAOzRm4Kj/IbissEk66Frc+2HnmQeZW1hvpGMK/5maOU6NbU4VfEPHqiCTvoKF8gptb/gWvsisc2sLCIwO/onTNCWyA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Q/CkI6YtI/68hhXtKZ1CzT14Pnfq6BMEmullmCigk74=;
- b=kaaBKyzbATCdngkib0rIsV/X0xgXogJc2f1n8Yup5+tVNtxyd0Nt3D/XgTIUd7++Wd8iKXMIzFiSCCR/ieiU04x4TaStxq25OL0K5SC/Ox6sLDoQ9rduVQPgFfDfpqOLoJMlcExquVGyA5PnG/6Gf684Ntvjp2o3Fr7oL62J8MvoitTosVOXd/ANfTvB7AfozDkwB/yt+p8DfrlrdnwbpIPLd++ugyyT6aP2Zsxm/7Cs02XukNyM4trb7B3s4QGAMfunsaO8NH8/uMUJZdKGAsCuZ4nUaSe2zbVAyISatvvOU+txVTd5QQo90cr+DXF0U7X3yZe3+QUhRwLNAy1r5A==
-Received: from SJ0PR03CA0180.namprd03.prod.outlook.com (2603:10b6:a03:338::35)
- by DS0PR12MB8813.namprd12.prod.outlook.com (2603:10b6:8:14e::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.21; Wed, 22 Jan
- 2025 19:55:10 +0000
-Received: from SJ5PEPF00000208.namprd05.prod.outlook.com
- (2603:10b6:a03:338:cafe::7a) by SJ0PR03CA0180.outlook.office365.com
- (2603:10b6:a03:338::35) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8377.14 via Frontend Transport; Wed,
- 22 Jan 2025 19:55:10 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- SJ5PEPF00000208.mail.protection.outlook.com (10.167.244.41) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8377.8 via Frontend Transport; Wed, 22 Jan 2025 19:55:10 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 22 Jan
- 2025 11:54:59 -0800
-Received: from drhqmail201.nvidia.com (10.126.190.180) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.4; Wed, 22 Jan 2025 11:54:58 -0800
-Received: from nvidia.com (10.127.8.14) by mail.nvidia.com (10.126.190.180)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
- Transport; Wed, 22 Jan 2025 11:54:54 -0800
-Date: Wed, 22 Jan 2025 11:54:52 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: "Tian, Kevin" <kevin.tian@intel.com>
-CC: Jason Gunthorpe <jgg@nvidia.com>, "corbet@lwn.net" <corbet@lwn.net>,
-	"will@kernel.org" <will@kernel.org>, "joro@8bytes.org" <joro@8bytes.org>,
-	"suravee.suthikulpanit@amd.com" <suravee.suthikulpanit@amd.com>,
-	"robin.murphy@arm.com" <robin.murphy@arm.com>, "dwmw2@infradead.org"
-	<dwmw2@infradead.org>, "baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
-	"shuah@kernel.org" <shuah@kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kselftest@vger.kernel.org"
-	<linux-kselftest@vger.kernel.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, "eric.auger@redhat.com" <eric.auger@redhat.com>,
-	"jean-philippe@linaro.org" <jean-philippe@linaro.org>, "mdf@kernel.org"
-	<mdf@kernel.org>, "mshavit@google.com" <mshavit@google.com>,
-	"shameerali.kolothum.thodi@huawei.com"
-	<shameerali.kolothum.thodi@huawei.com>, "smostafa@google.com"
-	<smostafa@google.com>, "ddutile@redhat.com" <ddutile@redhat.com>, "Liu, Yi L"
-	<yi.l.liu@intel.com>, "patches@lists.linux.dev" <patches@lists.linux.dev>
-Subject: Re: [PATCH v5 08/14] iommufd/viommu: Add iommufd_viommu_report_event
- helper
-Message-ID: <Z5FNDOqkiPq90c16@nvidia.com>
-References: <Z463eXfgNArCOfPn@nvidia.com>
- <20250121183611.GY5556@nvidia.com>
- <Z4/7pGx6F1mpAUuV@nvidia.com>
- <20250121200924.GZ5556@nvidia.com>
- <Z5ALWFVTOSC/8+ji@nvidia.com>
- <20250121211404.GB5556@nvidia.com>
- <Z5AUNVHzJPATVqAY@nvidia.com>
- <20250122002128.GC5556@nvidia.com>
- <Z5CbGKYbwy+qPjyh@nvidia.com>
- <BN9PR11MB527600A5B8DC271075936A918CE12@BN9PR11MB5276.namprd11.prod.outlook.com>
+	Wed, 22 Jan 2025 20:01:11 +0000
+Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-7b6ffda45f3so1394985a.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jan 2025 12:01:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1737576068; x=1738180868; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=jurTTxyZurW5GCpnwp6J13h1Jad371IuO/OxoFLazdE=;
+        b=mphJIpsBufk7Qi1WspIfaoQo1gPSk3EVPUPerVLkMUzcqBLDcK/JjKXETx7+FoC1WX
+         z9XNBegg6NlhPLnom5dIbHDX1KDEKIte4wbZE4po5pQ8aqwRsAzk3YXR6MTp9v4GJlgW
+         zqfPK391bGte10f+JuGnc+LbaQ0ONeZpOmVKkBFagVPALgjgJ9+inyCTpM/1UL0Z+QyY
+         O0+BRWDVdSn6XllFMrsH6OcBKAE6vW/owMzv8rWaBgfcRSWTep7RQ/tcpZioQ7et3J15
+         bLFBAzIu45T5Ghxxj4iGHOQ97RtXMnylJHm1blU0xBUhV+TnP6uwDyD1GfZyfcMdVzDi
+         m3gw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737576068; x=1738180868;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jurTTxyZurW5GCpnwp6J13h1Jad371IuO/OxoFLazdE=;
+        b=MdrSDsZk0vxJjWc47zokaPAa2HQr09fQ9P3LDC4vdtUm123KadlYMRrm080g9y/+BY
+         LNkib1sa0fN2rTQ1Ev7bbwf90hTPdlCLyrDo+6k5ZnpKAwbtm8PddSY8s7S59BxIs7Ne
+         YWUm4A1bvP+ZRP1DkE7Y2Rp/NNqmSO45kPRq5yOPcV6fExoc6/Zw1ElFRq6MUY8cztQh
+         SZq9pgiSGN33F+HXkVv72Qetsos0BQNJHul/7cpvbX0WhiKFlVVgHLpRN98/hisyTqcG
+         phWFYCxG7pJ9XEBPf5irhjJJObbqynuASD48VfUxYWBnruEDxgwpmQCBsD90lrrZvwpY
+         GhoQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXA3HkhpPAtfxnaGvEW4hT0hf/rnBiC6sIuQDOcaaVioxUwyXbb1tJ5PlRdhTfZd3tWuR6gtUfSCPZR4un7LJhc@lists.infradead.org
+X-Gm-Message-State: AOJu0YxtNra0CE7vQ51eWIMBugvM8Tw+Wdzav5bowbg/Qe7+baw5ke73
+	vTyApQIMrMW4GF2myGjPHwAZvIAHj1vkDvjiLRrJ5qpz+bJy40q7
+X-Gm-Gg: ASbGnct7eunZLb5XgGqfZddHbiTHRNiWnqyGbuJ/ICAzv0KoA1o5b4fcqyvwA63Z6BV
+	KmMCvW3xjhspObDZPaw1jbpwjUmBPwLRxAlpX1R1IJMXBNpUjN/QjoLtNNhrFPRZEp0r0VU96Gr
+	3Elaj0ftXrd/cQEYj3KJ7DcoOrdpid6LnYhbsbtK+/7cafTKcydZTOuNCZiK3KovNLNIrfzQhWJ
+	HIDlJrVSfySYzAIL8MnEQyQREFjK9Fgaqbtw4tqDwi0Tr7OwCPYSJoD9mkzpcGqGovzjYT2zmzW
+	r8MmnJiAxcmbR8pEj6slrCU+L0sT
+X-Google-Smtp-Source: AGHT+IHPM76iU6Z5PtzDIriPWj/nNzCyP2ix3l+fnM7JVaz7sX/vP0vOsO1NLQa7vmhO30zGz8RV4Q==
+X-Received: by 2002:a05:620a:28ca:b0:7a9:a632:48ad with SMTP id af79cd13be357-7be6324e361mr1073763385a.11.1737576068474;
+        Wed, 22 Jan 2025 12:01:08 -0800 (PST)
+Received: from [192.168.1.99] (ool-4355b0da.dyn.optonline.net. [67.85.176.218])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7be6147e30asm694606385a.31.2025.01.22.12.01.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 22 Jan 2025 12:01:08 -0800 (PST)
+From: Connor Abbott <cwabbott0@gmail.com>
+Subject: [PATCH v3 0/3] iommu/arm-smmu, drm/msm: Fixes for stall-on-fault
+Date: Wed, 22 Jan 2025 15:00:57 -0500
+Message-Id: <20250122-msm-gpu-fault-fixes-next-v3-0-0afa00158521@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <BN9PR11MB527600A5B8DC271075936A918CE12@BN9PR11MB5276.namprd11.prod.outlook.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF00000208:EE_|DS0PR12MB8813:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0ee871b7-42d5-4b23-0b73-08dd3b1ead8a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|82310400026|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?NvAnflQuJrTPMJ02yZ+aDFQoOZykqHfnaAgJYKPWpgleKEmVOVLz4Waj89Et?=
- =?us-ascii?Q?082jI93IwM9zzbqSEU8AfVxI2pch9KxcVBgfZr2jUufH+dQJKuQ9AivIc0Yr?=
- =?us-ascii?Q?8aNCttNaUmx3C4xYCEFV2M9DXTHAuzxRAKmaIRRLU6EoVq9bBvMnwFPASskh?=
- =?us-ascii?Q?1wMf6Ns6zcBzXkTcwSE1XAqaaqsDoG2CB/6ULZQdDBZLJvRHoghzY36R1ZRh?=
- =?us-ascii?Q?CP9YLvZOCAae81HHbslPO7zqHj0wCJD/3PC/CgWuuLeRhbS0ZzuM4snOybhQ?=
- =?us-ascii?Q?b4WGbFdHuQ3yi81/2teKQfMxZ+v5ADR7Dz6QP2Ku9QH/TI05eZPP+Eoz4R31?=
- =?us-ascii?Q?CqVXTCBV7Yd0gD8uw+ib0bT3678Ka/ktSLXNa3bxzlJy2VQAW18sWH7t3KUD?=
- =?us-ascii?Q?T2DRHT/Ow0yATwERWUySzHsbcRFYcbNS/CnoOfmc4+a+MTrwubLsw3tDOJNF?=
- =?us-ascii?Q?HJI5Z6GrDZ4dMtNNBSmqPvbn0ZbSrluQr9CcYvlvyA+PotL1y6xKEaSGiAo9?=
- =?us-ascii?Q?/KClrLnWiak+CvXyJqGJWl3Lxt/aZBDTGJPIcxdeb8j/w9rV6Oga37Iko9aX?=
- =?us-ascii?Q?xpcDHcid0fTtmODszrEquYheLQb9gjQcOQdpHKfIRM9EGJzfqrfk7RwLIxaU?=
- =?us-ascii?Q?Hl2jaacPSK8FL4y1txmiDGdBkr77yjdzMHRU5ai2S7R307pWKfnz6PjcasnX?=
- =?us-ascii?Q?XdPEj+f167PpYowKr7TH3Sk7wGbYdss4MHMjOgxkYstdLrxeVLkIRo8dMs8H?=
- =?us-ascii?Q?qiBsSEoDhDjyRG9wWaopQ0yWYU/rrejTK2zI3wAD21usbN7moOO02mX+FuKp?=
- =?us-ascii?Q?0jR5ol97PasVHELbwpB4g45iXXFNcF9pd2uTY7y4vh9jBu/5RyhevyX/rCNK?=
- =?us-ascii?Q?SyrEJjNs7RB0cpcxP7OI6JIYC2wPd5MbG+bNuz+uZpGtu21a3V0D8hQETarn?=
- =?us-ascii?Q?X9S6dO4ob5ml/8gLyzTaWjSoBJdhkdpYIkF3WmDFInMuj5Cf4/o3bDOWZe8F?=
- =?us-ascii?Q?v7IuFhoGi1Xf4aLaKceSXOpcBrUZZU6lK72pcZUHR91W9ci08R/Qmf9O53mO?=
- =?us-ascii?Q?bey2RwL3eTTK/OSkKWSDWfJnMqVNXIWpszNTRohfu8uAzmw8jOvkKmhecoBn?=
- =?us-ascii?Q?Ia9OyOjDE9J3uwIX6CkZ4BbLjqTefinvj25uPWEe2zwAs055BQyoKTfPb9+B?=
- =?us-ascii?Q?aRjZBKHLe5nITIyWz4UwMdh4sPerKWcOUWxpXxYg4vYTDvfeluyaAA2lPcYC?=
- =?us-ascii?Q?+nYDZNlpM/JXqphTWQNH0TFeAfJCxCCTWmLpZ70dENWPGIudpRyjWbhHH8WS?=
- =?us-ascii?Q?o8vd8nn/jDYJ3xzbO7ye+QLXLtfh8JQ5HzaL2R3ZdmFEBY/Q9zdO2vBUF+In?=
- =?us-ascii?Q?CADeq8PMTLlRlCrH1oF/pTMxtIl3rE8FPPcOViWOm7qBHRooezuvtP8kEAtq?=
- =?us-ascii?Q?gadwMn7TazD5v9RiMjkEUkz/o9x+7Tt/MA6K/S5+hVst7piFtcqHUdch4Ffl?=
- =?us-ascii?Q?51RoJxjgGApifRY=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(82310400026)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jan 2025 19:55:10.2728
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0ee871b7-42d5-4b23-0b73-08dd3b1ead8a
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF00000208.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8813
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAHlOkWcC/43NPQ6DMAwF4KtUmevKcfgpnXqPqgMBA5EIoAQQF
+ eLuDUxMVcf3rPd5FZ6dYS8el1U4no03fReCul5E0eRdzWDKkAUhxShlCtZbqIcJqnxqR6jMwh4
+ 6XkbIElaY3ZEUSxHmg+PjGtavd8iN8WPvPsenWe7tH+gsAUEXmVaKdFyiftY2N+2t6K3Y0ZlOE
+ OEPiAJUJiopIqQUIzpD27Z9AdUaNRoJAQAA
+X-Change-ID: 20250117-msm-gpu-fault-fixes-next-96e3098023e1
+To: Rob Clark <robdclark@gmail.com>, Will Deacon <will@kernel.org>, 
+ Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, 
+ Sean Paul <sean@poorly.run>, Konrad Dybcio <konradybcio@kernel.org>, 
+ Abhinav Kumar <quic_abhinavk@quicinc.com>, 
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+ Marijn Suijten <marijn.suijten@somainline.org>
+Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, freedreno@lists.freedesktop.org, 
+ Connor Abbott <cwabbott0@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1737576067; l=2962;
+ i=cwabbott0@gmail.com; s=20240426; h=from:subject:message-id;
+ bh=+WyN8FK5rY7qRc7VsIGAiJo2lnVpGPEuUicLFpDWETs=;
+ b=a4zT3xeEwtyC9Lok7bYUo82pNV1IICFMNUHKvQZdQPpSD93+dLg1/j5KSWHZfEPg9D0yl3UG5
+ I8IDAG+Ikk+BU8oBibWzReXFAvKresl7KM82p7INLVNp/P+OYQJ5ccX
+X-Developer-Key: i=cwabbott0@gmail.com; a=ed25519;
+ pk=dkpOeRSXLzVgqhy0Idr3nsBr4ranyERLMnoAgR4cHmY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_115517_340416_844B0616 
-X-CRM114-Status: GOOD (  29.50  )
+X-CRM114-CacheID: sfid-20250122_120109_884571_C0CC7F73 
+X-CRM114-Status: GOOD (  17.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,65 +113,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 22, 2025 at 09:33:35AM +0000, Tian, Kevin wrote:
-> > From: Nicolin Chen <nicolinc@nvidia.com>
-> > Sent: Wednesday, January 22, 2025 3:16 PM
-> > 
-> > On Tue, Jan 21, 2025 at 08:21:28PM -0400, Jason Gunthorpe wrote:
-> > > On Tue, Jan 21, 2025 at 01:40:05PM -0800, Nicolin Chen wrote:
-> > > > > There is also the minor detail of what happens if the hypervisor HW
-> > > > > queue overflows - I don't know the answer here. It is security
-> > > > > concerning since the VM can spam DMA errors at high rate. :|
-> > > >
-> > > > In my view, the hypervisor queue is the vHW queue for the VM, so
-> > > > it should act like a HW, which means it's up to the guest kernel
-> > > > driver that handles the high rate DMA errors..
-> > >
-> > > I'm mainly wondering what happens if the single physical kernel
-> > > event queue overflows because it is DOS'd by a VM and the hypervisor
-> > > cannot drain it fast enough?
-> > >
-> > > I haven't looked closely but is there some kind of rate limiting or
-> > > otherwise to mitigate DOS attacks on the shared event queue from VMs?
-> > 
-> > SMMUv3 reads the event out of the physical kernel event queue,
-> > and adds that to faultq or veventq or prints it out. So, it'd
-> > not overflow because of DOS? And all other drivers should do
-> > the same?
-> > 
-> 
-> "add that to faultq or eventq" could take time or the irqthread
-> could be preempted for various reasons then there is always an
-> window within which an overflow condition could occur due to
-> the smmu driver incapable of fetching pending events timely.
+drm/msm uses the stall-on-fault model to record the GPU state on the
+first GPU page fault to help debugging. On systems where the GPU is
+paired with a MMU-500, there were two problems:
 
-Oh, I see..
+1. The MMU-500 doesn't de-assert its interrupt line until the fault is
+   resumed, which led to a storm of interrupts until the fault handler
+   was called. If we got unlucky and the fault handler was on the same
+   CPU as the interrupt, there was a deadlock.
+2. The GPU is capable of generating page faults much faster than we can
+   resume them. GMU (GPU Management Unit) shares the same context bank
+   as the GPU, so if there was a sudden spurt of page faults it would be
+   effectively starved and would trigger a watchdog reset, made even
+   worse because the GPU cannot be reset while there's a pending
+   transaction leaving the GPU permanently wedged.
 
-> On VT-d the driver could disable reporting non-recoverable fault
-> for a given device via a control bit in the PASID entry, but I didn't
-> see a similar knob for PRQ.
+Patch 1 fixes the first problem and is independent of the rest of the
+series. Patch 3 fixes the second problem and is dependent on patch 2, so
+there will have to be some cross-tree coordination.
 
-ARM has an event suppressing CD.R bit to disable event recording
-for a device. However, the stage-1 CD is controlled by the guest
-kernel or VMM having the control of the ram..
+I've rebased this series on the latest linux-next to avoid rebase
+troubles.
 
-ARM seems to also have an interesting event merging feature:
- STE.MEV, bit [83]
- Merge Events arising from terminated transactions from this stream.
-   0b0 Do not merge similar fault records
-   0b1 Permit similar fault records to be merged
- The SMMU might be able to reduce the usage of the Event queue by
- coalescing fault records that share the same page granule of address,
- access type and SubstreamID.
-   Setting MEV == 1 does not guarantee that faults will be coalesced.
-   Setting MEV == 0 causes a physical SMMU to prevent coalescing of
-   fault records, however, a hypervisor might not honour this setting
-   if it deems a guest to be too verbose.
- Note: Software must expect, and be able to deal with, coalesced fault
- records even when MEV == 0.
+Signed-off-by: Connor Abbott <cwabbott0@gmail.com>
+---
+Changes in v3:
+- Acknowledge the fault before resuming the transaction in patch 1.
+- Add suggested extra context to commit messages.
+- Link to v2: https://lore.kernel.org/r/20250120-msm-gpu-fault-fixes-next-v2-0-d636c4027042@gmail.com
 
-Yet, the driver doesn't seem to care setting it at this moment.
+Changes in v2:
+- Remove unnecessary _irqsave when locking in IRQ handler (Robin)
+- Reuse existing spinlock for CFIE manipulation (Robin)
+- Lock CFCFG manipulation against concurrent CFIE manipulation
+- Don't use timer to re-enable stall-on-fault. (Rob)
+- Use more descriptive name for the function that re-enables
+  stall-on-fault if the cooldown period has ended. (Rob)
+- Link to v1: https://lore.kernel.org/r/20250117-msm-gpu-fault-fixes-next-v1-0-bc9b332b5d0b@gmail.com
 
-Thanks
-Nicolin
+---
+Connor Abbott (3):
+      iommu/arm-smmu: Fix spurious interrupts with stall-on-fault
+      iommu/arm-smmu-qcom: Make set_stall work when the device is on
+      drm/msm: Temporarily disable stall-on-fault after a page fault
+
+ drivers/gpu/drm/msm/adreno/a5xx_gpu.c      |  2 ++
+ drivers/gpu/drm/msm/adreno/a6xx_gpu.c      |  4 +++
+ drivers/gpu/drm/msm/adreno/adreno_gpu.c    | 42 +++++++++++++++++++++++++++-
+ drivers/gpu/drm/msm/adreno/adreno_gpu.h    | 24 ++++++++++++++++
+ drivers/gpu/drm/msm/msm_iommu.c            |  9 ++++++
+ drivers/gpu/drm/msm/msm_mmu.h              |  1 +
+ drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 45 +++++++++++++++++++++++++++---
+ drivers/iommu/arm/arm-smmu/arm-smmu.c      | 41 ++++++++++++++++++++++++++-
+ drivers/iommu/arm/arm-smmu/arm-smmu.h      |  1 -
+ 9 files changed, 162 insertions(+), 7 deletions(-)
+---
+base-commit: 0907e7fb35756464aa34c35d6abb02998418164b
+change-id: 20250117-msm-gpu-fault-fixes-next-96e3098023e1
+
+Best regards,
+-- 
+Connor Abbott <cwabbott0@gmail.com>
+
 
