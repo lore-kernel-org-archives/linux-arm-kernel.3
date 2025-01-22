@@ -4,120 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC253C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 09:51:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15970C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 09:52:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XomeykE9MFTJxR7fE+wGVX7B1P/zGvGRjyh2NgfPMaM=; b=y1qSKbcaddnawQuObZzgxVCxyC
-	A4xA8Wj8fLiWc+X1fnOPyJ8F2OEMflmFaTT4I0MnwJNoNLecnL6gArueIsHfCpr6lfWVsKCMaT5/R
-	2uxf7QAEBj5KU3n0ICo9951gR2ZUZQDyKmmEprqkbs8udqbmVqNb3ed9IiyslCkkBd/E6mTPMNSx9
-	WkrzBz0iHUPfn7Ld9oRTMHdCCJCz5vC1ZctRZVbHpiQPfiSYkhuayIPHA1sJCHxEriKVOHq+xC63+
-	gLggFlaRYfg20uy8M+J9/LkuIYJhd/YEdAIVceMkH5qK47JroKYoYdqz1eRTk88FkCshDRDOU5Jkr
-	vcKNid/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tDYt3TIelwB9XXttsZTSY33aWcaWYEgNY4NojCYHGcc=; b=IPNsM0/3oNgepr5RS2Oy9kiW28
+	QX0AzyQ61d7ygLqVKj4IXuKSwmcrz4qH9H5qvOAuBrkMRwqmXNxtAwDjbHbYoQfCienu2dcj4YocH
+	el0htPZtH0rPnfV0aQ5ect8ZsNvqhn8p6kJRnY3JETN/0wWnsBQoTa6pwj9sosnNsYLw80H1CeKZ3
+	bH1ANE902zkjn1hwAGWb4sa3hSy4mxYqihux9uDz5SAMytngk0B5TiqTd1KPZmOsg5dA1PbJ/dYYu
+	Yflx1VBGSHTwADhOnYq21cKTUGmA2fBB/PTHpiwCj1hstriHxYrnYdkQZNn+qUbK7e8NSWkArTWha
+	OOHYP7BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taXO3-00000009qA3-10MZ;
-	Wed, 22 Jan 2025 09:51:03 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1taXPJ-00000009qP0-114Q;
+	Wed, 22 Jan 2025 09:52:21 +0000
+Received: from mail-tyzapc01on2070a.outbound.protection.outlook.com ([2a01:111:f403:2011::70a] helo=APC01-TYZ-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taXMB-00000009psc-0Hr1
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 09:49:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id DBDD6A41ECC;
-	Wed, 22 Jan 2025 09:47:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52DD3C4CED6;
-	Wed, 22 Jan 2025 09:48:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737539346;
-	bh=Fy3OsI4EP/JY36FAr8INgu6Giqe1hb34w2b8bIPYiWs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jTz51/jeWFOWhwWVZvd0vft9o9KWH6kJmD+shWzhciaM8iBVFK4tuEqwtFOXDaNS0
-	 UchAJIMYDVIoISU0kk4xWpz8TXwW0qRxIbZ4vk35c4UnXfFUGs85EUgtP3B2yvgke0
-	 XJ3gepjbzy4uDJglS4DScytZVFztVgNMXDiyiNcafS0furvXN7EJ/T5yELZ9UFtkEl
-	 lDf27aAyDyoWbJclm7Ko8v2t6XJlkxHigp30ZVoO1VjTNUPzDFaf1zzfaQgAvHZmNR
-	 VXJMvc7yU7/0Sglk8bv+xsJTbCTTtQC3xwNWUJQHguuIzCkKCUT8YPOI8ESEp0Lns5
-	 /YMPuIiHT0qRQ==
-Message-ID: <2bd19e9e-775d-41b0-99d4-accb9ae8262d@kernel.org>
-Date: Wed, 22 Jan 2025 10:48:57 +0100
-MIME-Version: 1.0
+	id 1taXNm-00000009q7V-1yH1;
+	Wed, 22 Jan 2025 09:50:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=a18qcHdjsK9CQT/IswjNz0ejseKQpymxKT1HpXIIhsWN7fjIbV+ymYMMjOGXQmpN75rb1EuvFDekpqRkJcuUt8uwy9TMPDzSW6Pj3pB1324aNVcVIVs95W3qLbtKSc4q7jYMn7dDk6nbTnBYP5NrMRLqcO6+WV/mmi/rs8a4SUgDyFvKQjeAeP21I/bOGYJaA7U3l1WeYWeKMgSfnfqVw1yPE2eS6GA7ihWIo44+vyyYYGZYgvQZJ9GiW6zjwgGOl1sbsQvcWPTe7ba18c4HCdlTpTvFwNq/jXOHDcLqcPDAcsogoV0ExLFR9UOuG7A2Nvib3b7oNnjxciLwsdqS1Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tDYt3TIelwB9XXttsZTSY33aWcaWYEgNY4NojCYHGcc=;
+ b=Hoj/2fOLW2PkoKgm1XBPWqsVU2aer6wLZJbvgUPAT+EXES7UrYANzLD37ppBDF9SuUEGnx9S8i+hWcF0++TNPPktOwqq0gKdAGDUsTIzDXCtc3PyH0UqLinVZvXlPa8UvrxW5SZuG7IZdQ0aMMBhkdapy87DNGMLxW8HliNL7CsHk5P05/MKgpTEDIS9iybtJQ1v6YOATh/FS14t1qMWZ9WYN7soQFmqbHHtcPNZAfnvZTbvSEMLHBDLWcPcjzxNViI7ZJoqEJ0XXkeEbGDOodDfahUoXnzprIlU2uCPYyRkDh1+N6eZvQKyClyaUWw+MwJZRJIUQJongk68iws83w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tDYt3TIelwB9XXttsZTSY33aWcaWYEgNY4NojCYHGcc=;
+ b=w2ytXgYRzW1g4PSNKW6GeqgZfVj/fv56ESBZYYeBQ0JPc5owjAAEP/S9a3xjuGytXkZ/UxhqeCgRxKCMt9WQ6dJ0KBqpDDJ5ws7aUQaQu3DLVM15X5DdBh3HaNW3ZHi+yhHVf7OrWz7oUSopy6J4O7plvULJ+182y3E6pfWQ+AJIGdGu+nzWVPxtEYGAdCvZuyDdsKtdMeA621KiH6R9IT9xFTR1dUHUgg4YgYLk6BRd6uJOLYr+eHgLQ1r3g+6fX8427C/dd3+NO/hW0BjWF0pcmiPMwj+f+CNaYqRV3U74DgXZ6de1+mZjTTBMZEgo2rLA+4Ib97BVh/psGFSgqA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from TYZPR03MB7155.apcprd03.prod.outlook.com (2603:1096:400:33e::5)
+ by OSQPR03MB8436.apcprd03.prod.outlook.com (2603:1096:604:277::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.20; Wed, 22 Jan
+ 2025 09:50:31 +0000
+Received: from TYZPR03MB7155.apcprd03.prod.outlook.com
+ ([fe80::8d2f:b8cd:fdec:5724]) by TYZPR03MB7155.apcprd03.prod.outlook.com
+ ([fe80::8d2f:b8cd:fdec:5724%5]) with mapi id 15.20.8356.020; Wed, 22 Jan 2025
+ 09:50:30 +0000
+Message-ID: <3aa88bdb-ce84-4029-b497-2502ab1eb7a5@amlogic.com>
+Date: Wed, 22 Jan 2025 17:50:25 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/4] net: stmmac: dwmac-qcom-ethqos: Mask PHY mode if
- configured with rgmii-id
-To: Yijie Yang <quic_yijiyang@quicinc.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+Subject: Re: [PATCH 00/11] Subject: [PATCH 00/11] Add DRM support for Amlogic
+ S4
+To: Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>,
- Richard Cochran <richardcochran@gmail.com>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20250121-dts_qcs615-v3-0-fa4496950d8a@quicinc.com>
- <20250121-dts_qcs615-v3-2-fa4496950d8a@quicinc.com>
- <30450f09-83d4-4ff0-96b2-9f251f0c0896@kernel.org>
- <48ce7924-bbb7-4a0f-9f56-681c8b2a21bd@quicinc.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <48ce7924-bbb7-4a0f-9f56-681c8b2a21bd@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+ Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+ dri-devel@lists.freedesktop.org, linux-amlogic@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250110-drm-s4-v1-0-cbc2d5edaae8@amlogic.com>
+ <CAFBinCDG2in4ZZAp2LXnz8bgiZoPL3G_c9+aCo9+Ort2W-tFCA@mail.gmail.com>
+ <1jwmex5lpc.fsf@starbuckisacylon.baylibre.com>
+From: Ao Xu <ao.xu@amlogic.com>
+In-Reply-To: <1jwmex5lpc.fsf@starbuckisacylon.baylibre.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: KL1P15301CA0059.APCP153.PROD.OUTLOOK.COM
+ (2603:1096:820:3d::20) To TYZPR03MB7155.apcprd03.prod.outlook.com
+ (2603:1096:400:33e::5)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TYZPR03MB7155:EE_|OSQPR03MB8436:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6d8bc139-60a8-4cd5-9743-08dd3aca351d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?OWJnanVudE1qSWhnOWtMS3ZWN0JaeEtOUHlPUDIrZG8ydDV4SFZia2FmL1hn?=
+ =?utf-8?B?ZFd4NUVtSFFFaFU3TmRpSUI4aGxXSy8yMU51S2hjM211ZkVCTzB2bHlvcm1Z?=
+ =?utf-8?B?aU05VXNFQ1NoRTF6cWpGNGh5NWU2NnNGeGQwU0RRcFRnN0NrQWJJTWJaUlp3?=
+ =?utf-8?B?NnpETUtnYmF5REJmQ1YzdkwwcWNhbUsrZ3RiOUZxRFVESDd6MnNqWTZQRWU5?=
+ =?utf-8?B?eEVYbDIrZ0F5eXM5UFJ6a1JNMzRwamozWmRMdU5heDlFNWJGOXhRbHdxdU5v?=
+ =?utf-8?B?ekxVUUx5S3Z4cThIWkJVL1plZUxhNk9jUkJtaFp4YVU1Tm42aG92eklDNGtQ?=
+ =?utf-8?B?RGRhUkFNQytmdmtsaVFWcGpQNDNCMFBxVUovMlNUV2RXS1pHcWJHVFhoMXM0?=
+ =?utf-8?B?UW5HcmR6Rk85bFIydGlsczU3VWhsZlM2amphb1h3ZGxNVis0UW9sallSTWFW?=
+ =?utf-8?B?RmVmZnAxV3AxN0tYVld4Um5LTlZCNUt3dUNnNDVkUlBmaDdwUC9weEYrYmhh?=
+ =?utf-8?B?MnFOSjFGSW1mTXo1YldmM2ZLTGZUcXdxdjZBMHRyeGNrZERlWE4wSlZhS1Rs?=
+ =?utf-8?B?ZkhEOEEyNE1aVjBTZE5wVnJ3OFN5Mm1EdEpWV0F4THh0R3ppaUJtMVNZdkdG?=
+ =?utf-8?B?WHREbnpYWFlFalJGVHc4cWNtUTFYOXhjS1JyMVVRaUJFY2M2dlo2NTFRMWpI?=
+ =?utf-8?B?YXIwMk9rZFJMZ09nWVlrZXFwSkxhejhhaEF6L1RZZmlsVXlPaFp2YjZnSmRR?=
+ =?utf-8?B?T1h5Z0lZdlFYYVU3SHErTWNwMzZEakhnOVpGNHg2MHZxc3h6NVNha20xMzdU?=
+ =?utf-8?B?WVpvWUd6Z2lYU1pIVGNuR2UycC91Wm5MR0Z0cFZPSjIwOHUyOUdyNEpNcXl2?=
+ =?utf-8?B?NWVzWmhPVVZ4SWhlckNyQnBNVG9SQkFoUm42ZmVLUUVqelhYTVFUY28vbUN0?=
+ =?utf-8?B?OHVjc1RUSnQ3RmxsTmFSZ2JlOC9aOUR4T2NoOE1OeFk1WUY0dXBzaHMzZFpW?=
+ =?utf-8?B?ekx6ckE3ZTJwbjIwMnoxbjhnbFhsazhPdWFHQVROOHhrbS9qWVlYN3J0RUN0?=
+ =?utf-8?B?eDZHYkUxWHhyV2ljZURraGY5cWNyaG1PODFvS2xZZHh6WVduQXVKQi9UTHhW?=
+ =?utf-8?B?dlVJaWkyaGcrdE1vanJQMmZXVk5BUDY3eVU4eTcvOURVVU02a3p2R0J3UlZ2?=
+ =?utf-8?B?WG4xZmVlVW1FTk02LzF5dTFnNnp4ZkJtYk5mR0V2T1FCLzFtN3VtWDhmZkRW?=
+ =?utf-8?B?UVgzY016WDZDUUxKWWM1UHJWcjV1TW9rSnZQcERIZzMzOEptdVhPN0JLSUx3?=
+ =?utf-8?B?eTR6bU15NStpdjhlOWM1bHdaUmJhUG9Nb3NyUWtONzYzbEJJTmhXTW9pQmli?=
+ =?utf-8?B?NjJRZlNMSHd5YW43Y04zSDErNnQ4Rm5wdHFUQ1pGN0FoTUQ1akV2d0FBQ2hx?=
+ =?utf-8?B?eGFmbk5lMVhwL3BhZEJLVHgvVkFMNnA0NjRQNVFHUlZFaXBmUEJ3OGxBQmtP?=
+ =?utf-8?B?OHZxY29YbGE0NU42MDZ3dWlSRjEyR3dZSUlWNXVjUjlTYlVXcFFkSVJyUUN0?=
+ =?utf-8?B?Tko0VmJERTIyZzQ5Yjg5Z25hTkRDQ2IwZHVPbVlqVHQ3L0dhUzBwSDVxM0oz?=
+ =?utf-8?B?eHRocGJORzBJNThlcUw1WHE3YWVxRCttckdyZW4xcjZzZWJselJueTRHMjVq?=
+ =?utf-8?B?dGVKZTdiTWloK2NCSndTWGlMWEtybkxUL3k5elFKa0htbW5LNVd4NFJ5UXUz?=
+ =?utf-8?B?Rk53OXhuUEp2UEwrZktZR3p4VGExNUFwc0ZHWktwRVEvMHIrVlJoWjlKSWF4?=
+ =?utf-8?B?aGVPTWRLTXFtTVY5aW1kdXgxaUhhZmNrSXRqbno5VHJyUFdSRXYramtTWHpT?=
+ =?utf-8?B?V25tekR5TSsra2xlYXNCdWtucUNWSjQ5bS9EZDA3cnQ0U0E9PQ==?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB7155.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZUQxc3ZCWHpDM3BzM255QTJiNXZLd2VFc2JFTE14b3hMVHpUL21ic1daWC8r?=
+ =?utf-8?B?TnREQko2ekw3Tzd5eTd0RlloK1Q5WTlPeWZlbjAzd3BjWTdiWjlmSURPZlJM?=
+ =?utf-8?B?SHpwOWVUWVdjeFBaVFpqRXZDcS83R2xDMUdNMUVGaHpEbi9rcG8yc29QR0xG?=
+ =?utf-8?B?TnV0QmVWK3NaM2s5UUJ2aGpHZW91ckg1YUU3V2l6NlRkMi90N2ZqcUp3NXJQ?=
+ =?utf-8?B?d3A1R3ZWL2daa2lXMDAraTZtK2Q0VnVwS1hoUzhiQkpzWHJGblhndnV0eHlY?=
+ =?utf-8?B?ajFsbGpuNmNOU0JnWURPTGEyZTRtNUI4Znp0Z0RjUFpkZEhZblRmNUhDdUZT?=
+ =?utf-8?B?NmdTVmo5dHZZUkxmenFaTVc0THZTSGFNY2YzYUFzQmRPaU8wWnlmcFZDa3F0?=
+ =?utf-8?B?bFJrZTM0T0ZDMHRyMHhNZm5yVWs0bmhCL2Jmd0EvNFVzM2pEQitlSjBiempG?=
+ =?utf-8?B?bDBta09sVzlrUWx0YkV3K1hYS1REbnlJeXFGYVg5cDFPTUN0emp5aW5qM2Nv?=
+ =?utf-8?B?MnhWUHR0dkJxMTlKRDhyemI1YkRtWGRDOFJEdXpLcjg4d2JpWGNDT2hsblZV?=
+ =?utf-8?B?cmlqT3UrZ2c0WEgzRVFrYTB3cjF6S05WV2ljNmFSZzB2MEkrNzZ1MTJQUFdo?=
+ =?utf-8?B?VnBaTUZqdTJMYS96eDVURTZZZ3E1Mnp1NnFIUEttL2FTSnBZWjhxT1NpRjdB?=
+ =?utf-8?B?bWJZMWRlMXg3L1MrMWxMdG5DL3RTYlFIVjFPMUlob1FoVjZGdG5oZ05tSUg2?=
+ =?utf-8?B?U0xIMVVLK1UvdE1TL2xJQk9ydkd4MWwxc1E3MDFXWHFzSUtpR2haYitpWGg4?=
+ =?utf-8?B?TEJGcG8zaXFjTHlJZHp0UjBkMkFvRTN6NWlJREtyNWNGLzhiM1ZuT0ZoU3Na?=
+ =?utf-8?B?c0pvOHlNUmF3RXVXZlowdEpPSE5Sa2Rrak5tVUQvNlpUa0FSWFBoZHJtcTlJ?=
+ =?utf-8?B?eWxzNHY0NEZmRzZVMWpRWFU5YWNrd2Z3S0V1WmhWRUdFWmd1czVYSnlHZ0d4?=
+ =?utf-8?B?RVFFdlVHcHRNelpPYTRyOUpPU00xeWh4cWNMNVFsSW1JelBscGtsb0ZKUTdl?=
+ =?utf-8?B?bTBsUmZkMHFkZ2pJOElJYy9WQWk4d3JMNGZ4N1JZRzJGcmp6MGI4SDYrYVNC?=
+ =?utf-8?B?TGozWk9aYWZ2R3VtSnk0SmdLcXhuNHZTbXJ4VlFTNEM2akt4L1pHT1h6MVdr?=
+ =?utf-8?B?MHRScmEva1pRK1NQelJqN1hldnhBcE9ldU5EY241bHBSMEhXNHl5SlEzdmpk?=
+ =?utf-8?B?ZFVyYzVtSWZRQjdKYWxlb2VhYVVkTUtkTlhja2Q4d3V6Y1lYVWVIcUF0eHR6?=
+ =?utf-8?B?N3crRlBOdXY0akkwRHVjVk9BSFp3LzcyaE1valBQZXZhNEpqYWVwbm5zaVBX?=
+ =?utf-8?B?OFd1UVZzaVArU3FNU25VbXFCV0p4RnFJMDdveXpZS3BsNlgyc1NRdkszN0g4?=
+ =?utf-8?B?SHJnaDlkNFd2K3JmQmEvUVN1RXQvQlFjWlVaRFBHWFhGT2pNNXBWbzAxWEZL?=
+ =?utf-8?B?TXNuKzhrSHRWNHdmbkx1dmVFQVRFc1ZhU2tHdzk4U3NFT0V4SXcwMkhmQ21P?=
+ =?utf-8?B?N2FqTytGOC9nTnhEaVFNR2pMRE5wcWMxLzhvS1FPbDdPRWVLTFgrTFlSVTQw?=
+ =?utf-8?B?Y25jTlRqNnd3cUZMWTZybElMY2FsNFFEL3NpMGVKQnBMTGt5eWwxU2tJcjFx?=
+ =?utf-8?B?UkN4c1VyVFcyWkpzMS8zbk1SSHpqSmdlMUY3cndlNVFWNHhFOHA0NVFDVHBR?=
+ =?utf-8?B?RUZ3c1BoSlBVQ3ByOW5LR3IxSzVuQWIzVlQySVBDVnZvcUw3eGFrNHlVNTgz?=
+ =?utf-8?B?TEJNbTI4aml5MTRQcnpTSlpCSjlJYXFoM2tNdkVwV3I1enlFVk0zbUYrVnpK?=
+ =?utf-8?B?N01DRk9MSzk2cTFhYVErS3V3L2U4SFhiTXNSV0l0eW5LdUFPNnUzUitKbmRJ?=
+ =?utf-8?B?M01PM1BmSU1JS1ZWNS9sVXB4a1NmMlNFRlZTNksvSXBHcmZQcy9FL09IVm42?=
+ =?utf-8?B?RHdtdVI0Q2c1eFlvTFJObFRaYmlsM1BFZmdEdWIzRVRzMXNBckxTU1VTcUh0?=
+ =?utf-8?B?VXYzN1kvSEtpMmRLRm8rRjVWOU51WXhCckFrVHBFejlObWdSbW93UlZxZmN4?=
+ =?utf-8?Q?s5l1rqWory9YXgRb0Zg8MqspX?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6d8bc139-60a8-4cd5-9743-08dd3aca351d
+X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB7155.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jan 2025 09:50:30.8460
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: wdllN26YsxCGSttWdmmo45RPLy5ipQIiqTwHafEF3ntjQCRx7P0aP9uvfnCH6WD+xjyv46d8AM2BRLYS/cIlBA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSQPR03MB8436
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_014907_243902_6E898A17 
-X-CRM114-Status: GOOD (  27.55  )
+X-CRM114-CacheID: sfid-20250122_015046_608407_9F49D950 
+X-CRM114-Status: GOOD (  36.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,93 +183,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/01/2025 09:56, Yijie Yang wrote:
-> 
-> 
-> On 2025-01-21 20:47, Krzysztof Kozlowski wrote:
->> On 21/01/2025 08:54, Yijie Yang wrote:
->>> The Qualcomm board always chooses the MAC to provide the delay instead of
->>> the PHY, which is completely opposite to the suggestion of the Linux
->>> kernel.
+On 2025/1/15 1:50, Jerome Brunet wrote:
+> [ EXTERNAL EMAIL ]
+>
+> On Sun 12 Jan 2025 at 23:44, Martin Blumenstingl <martin.blumenstingl@googlemail.com> wrote:
+>
+>> Hello,
 >>
+>> On Fri, Jan 10, 2025 at 6:39 AM Ao Xu via B4 Relay
+>> <devnull+ao.xu.amlogic.com@kernel.org> wrote:
+>>> This patch series adds DRM support for the Amlogic S4-series SoCs.
+>>> Compared to the Amlogic G12-series, the S4-series introduces the following changes:
+>> Thanks for your patches. With this mail I'll try to summarize my
+>> understanding of the situation with the drm/meson driver as I'm not
+>> sure how familiar you are with previous discussions.
 >>
->> How does the Linux kernel suggest it?
+>>> 1 The S4-series splits the HIU into three separate components: `sys_ctrl`, `pwr_ctrl`, and `clk_ctrl`.
+>>>    As a result, VENC and VCLK drivers are updated with S4-specific compatible strings to accommodate these changes.
+>> Jerome has already commented on patch 3/11 that this mixes in too many
+>> IP blocks into one driver.
+>> This is not a new situation, the existing code is doing exactly the same.
 >>
->>> The usage of phy-mode in legacy DTS was also incorrect. Change the
->>> phy_mode passed from the DTS to the driver from PHY_INTERFACE_MODE_RGMII_ID
->>> to PHY_INTERFACE_MODE_RGMII to ensure correct operation and adherence to
->>> the definition.
->>> To address the ABI compatibility issue between the kernel and DTS caused by
->>> this change, handle the compatible string 'qcom,qcs404-evb-4000' in the
->>> code, as it is the only legacy board that mistakenly uses the 'rgmii'
->>> phy-mode.
->>>
->>> Signed-off-by: Yijie Yang <quic_yijiyang@quicinc.com>
->>> ---
->>>   .../net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    | 18 +++++++++++++-----
->>>   1 file changed, 13 insertions(+), 5 deletions(-)
->>>
->>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
->>> index 2a5b38723635b5ef9233ca4709e99dd5ddf06b77..e228a62723e221d58d8c4f104109e0dcf682d06d 100644
->>> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
->>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
->>> @@ -401,14 +401,11 @@ static int ethqos_dll_configure(struct qcom_ethqos *ethqos)
->>>   static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos)
->>>   {
->>>   	struct device *dev = &ethqos->pdev->dev;
->>> -	int phase_shift;
->>> +	int phase_shift = 0;
->>>   	int loopback;
->>>   
->>>   	/* Determine if the PHY adds a 2 ns TX delay or the MAC handles it */
->>> -	if (ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_ID ||
->>> -	    ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_TXID)
->>> -		phase_shift = 0;
->>> -	else
->>> +	if (ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_ID)
->>>   		phase_shift = RGMII_CONFIG2_TX_CLK_PHASE_SHIFT_EN;
->>>   
->>>   	/* Disable loopback mode */
->>> @@ -810,6 +807,17 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
->>>   	ret = of_get_phy_mode(np, &ethqos->phy_mode);
->>>   	if (ret)
->>>   		return dev_err_probe(dev, ret, "Failed to get phy mode\n");
->>> +
->>> +	root = of_find_node_by_path("/");
->>> +	if (root && of_device_is_compatible(root, "qcom,qcs404-evb-4000"))
+>> Jerome has previously sent a series which started "an effort to remove
+>> the use HHI syscon" [0] from the drm/meson hdmi driver.
+>> In the same mail he further notes: "[the patchset] stops short of
+>> making any controversial DT changes. To decouple the HDMI
+>> phy driver and main DRM driver, allowing the PHY to get hold of its
+>> registers, I believe a DT ABI break is inevitable. Ideally the
+>> register region of the PHY within the HHI should provided, not the
+>> whole HHI. That's pain for another day ..."
 >>
+>> For now I'm assuming you're familiar with device-tree ABI.
+>> If not then please let us know so we can elaborate further on this.
 >>
->> First, just check if machine is compatible, don't open code it.
+>> My own notes for meson_dw_hdmi.c are:
+>> - we should not program HHI_HDMI_CLK_CNTL directly but go through CCF
+>> (common clock framework) instead (we should already have the driver
+>> for this in place)
+>> - we should not program HHI_MEM_PD_REG0 directly but go through the
+>> genpd/pmdomain framework (we should already have the driver for this
+>> in place)
+>> - for the HDMI PHY registers: on Meson8/8b/8m2 (those were 32-bit SoCs
+>> in case you're not familiar with them, they predate GXBB/GXL/...) I
+>> wrote a PHY driver (which is already upstream:
+>> drivers/phy/amlogic/phy-meson8-hdmi-tx.c) as that made most sense to
+>> me
 >>
->> Second, drivers should really, really not rely on the machine. I don't
->> think how this resolves ABI break for other users at all.
-> 
-> As detailed in the commit description, some boards mistakenly use the 
-> 'rgmii' phy-mode, and the MAC driver has also incorrectly parsed and 
+>> Then there's meson_venc.c which has two writes to HHI_GCLK_MPEG2.
+>> I think those should go through CCF instead of directly accessing this register.
+>>
+>> Also there's the VDAC registers in meson_encoder_cvbs.c:
+>> I think Neil suggested at one point to make it a PHY driver. I even
+>> started working on this (if you're curious: see [0] and [1]).
+>> DT ABI backwards compatibility is also a concern here.
+>>
+>> And finally there's the video clock tree programming in meson_vclk.c.
+>> My understanding here is that video PLL settings are very sensitive
+>> and require fine-tuning according to the desired output clock.
+>> Since it's a bunch of clocks I'd say that direct programming of the
+>> clock registers should be avoided and we need to go through CCF as
+>> well.
+>> But to me those register values are all magic (as I am not aware of
+>> any documentation that's available to me which describes how to
+>> determine the correct PLL register values - otherside the standard
+>> en/m/n/frac/lock and reset bits).
+>>
+>> I'm not saying that all of my thoughts are correct and immediately
+>> need to be put into code.
+>> Think of them more as an explanation to Jerome's reaction.
+>>
+>> I think what we need next is a discussion on how to move forward with
+>> device-tree ABI for new SoCs.
+>> Neil, Jerome: I'd like to hear your feedback on this.
+> I completely agree with your description of the problem, that and
+> Krzysztof's remark on patch 6. This is not new with this series indeed,
+> so it does not introduce new problems really but it compounds the
+> existing ones.
+>
+> Addressing those issues, if we want to, will get more difficult as more
+> support is added for sure.
 
-That's a kind of an ABI now, assuming it worked fine.
+Hi，jerome
 
-> added the delay for it. This code aims to prevent breaking these boards 
-> while correcting the erroneous parsing. This issue is similar to the one 
-> discussed in another thread:
-> https://lore.kernel.org/all/20241225-support_10m100m-v1-2-4b52ef48b488@quicinc.com/
-> 
+     What are the next steps for "an effort to remove the use HHI 
+syscon" patch set, and what is the schedule?
+
+>>> 2 The S4-series secures access to HDMITX DWC and TOP registers,
+>>>    requiring modifications to the driver to handle this new access method.
+> Regmap buses are made for those cases where the registers are the same,
+> but accessed differently. There is an example in the patchset referenced by
+> Martin, to handle GXL and G12 diff.
+>
+>> This info should go into patch 1/11 to explain why the g12a compatible
+>> string cannot be used as fallback.
 >>
->> You need to check what the ABI is here and do not break it.
-> 
-> If board compatible string matching is not recommended, can I address 
+>>
+>> Best regards,
+>> Martin
+>>
+>>
+>> [0] https://github.com/xdarklight/linux/commit/36e698edc25dc698a0d57b729a7a4587fafc0987
+>> [1] https://github.com/xdarklight/linux/commit/824b792fdbd2d3c0b71b21e1105eca0aaad8daa6
+> --
+> Jerome
 
-And what if affected board does not match the compatible, because you
-did not include it here? I said this code does not prevent breaking ABI
-and you did not address it. To my comment you need to consider ABI, you
-repeat the same, so kind of something irrelevant. I have feelings you
-want to push your code, just like in the past several of your
-colleagues. Learning from past mistakes I will not engage in such
-discussions, so please really rethink the concept and comments you
-received here.
 
-That's a NAK.
-
-Best regards,
-Krzysztof
 
