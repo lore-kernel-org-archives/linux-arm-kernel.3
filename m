@@ -4,65 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C100FC02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 16:16:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0092CC02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 16:22:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0QimwBK0cgXjaimRuuz1Y9NRWVe3Ak2Ys2b42kdgL50=; b=u88Le7FRWqN0wsu9VxDxvopsMs
-	6v0kCXzDC7gRoBbgqA8ZnzrnTN2iXAH7+7Fs4O3/SdETWQctBQ9uwUDQhLQAen5slb0yvdc7s5Fm+
-	4rKcfdDmQS2F3PdNVfRQmC1a0wRaVgY/mdZnryFCjxI/uBe00yOmunQPulwGa77RAqeZ4vU7pLF+/
-	3CFnrAh/aBqbqaWapMJWCV1GJjX09MdOl3/t4H6p6HD35vxCj6Eo5hfKpgEsm+kjoM0z5KCOk5vTg
-	3pDsrCxqEnn5iyokWHZ5qzjxrDM2GzJU1tRNCHKCBFXXWf2FSJpGAi80TljxjnolixkhVKwagil1S
-	a2vVPPng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nT+3HrKcZdya7PD/09X6ml+wR0vuTCRq8jZf0/rfslA=; b=s2DI6C9egO/LQ8HXRSW0fM7CPB
+	MsxF4YmHygqK2cuN5w18hBcLcSwFuTJIajrLljtHIUTSL9zDcewddA6SAJ5CVeXMfgPHXoJJyVvbw
+	8SZ7q98ldam7Vj7zwu3lTidfp3bLcbVV/XWbfpM9eEzkcoERMe3CXc58+tgk0ip7A+M9625aagtVa
+	pjMfqumTBiQPKUIHScA3fLCiUb3DZEXdFltzlvfxXneOP4fzNasTM6S+WvwCSoDeK/B0hh+4F0J3i
+	evH+WoZHCoys4B3CCOvZJG1DCzJdiGkM2OBja5dfdKkaSPbjk2wQQ120Rz54X87cRtfBm0fTaamPj
+	FRepPbkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tadOY-0000000AgK9-3qQT;
-	Wed, 22 Jan 2025 16:15:58 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tadUX-0000000Ah6t-1XNn;
+	Wed, 22 Jan 2025 16:22:09 +0000
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tadLE-0000000Affl-2u8g;
-	Wed, 22 Jan 2025 16:12:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id ADDA15C5819;
-	Wed, 22 Jan 2025 16:11:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45AEDC4CED2;
-	Wed, 22 Jan 2025 16:12:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737562351;
-	bh=0QimwBK0cgXjaimRuuz1Y9NRWVe3Ak2Ys2b42kdgL50=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eAkyegvAokUwR3nsoFLgsH1aCXyo/6LYy2MXL6qpKG3JT8SFPCfkovFZLGbDEdzqN
-	 4Q60r+Epz91fxYVYEYtdebaXcq+dsy1tRh2dRLECJkykB7Rbqw33y1d4t6vzOgSNMt
-	 2DBjjDWE1x/PTNv0lMyHYf3J2e9LxJhR/ox3DdkOWn2VS09J/K4Sp5fAEBJhJ3rNNZ
-	 ihwPzcgVWyQ2aA7zdGlUWtH24Tqtutj74PV4NvPLgr20C0Jish1IbxbAiE/vUJDK6e
-	 WSKcuG+BMJM5Ap2XbZnWFAB6oK4JRYq6KCS769eMk7QmCxnWkUJQH3mTrE463aOekg
-	 Ep0Nq3WeRi6ow==
-Date: Wed, 22 Jan 2025 17:12:26 +0100
-From: Niklas Cassel <cassel@kernel.org>
-To: Quentin Schulz <quentin.schulz@cherry.de>
-Cc: Quentin Schulz <foss+kernel@0leil.net>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, Jagan Teki <jagan@edgeble.ai>,
-	Michael Riesch <michael.riesch@wolfvision.net>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/3] arm64: dts: rockchip: minimal support for Pre-ICT
- tester adapter for RK3588 Jaguar + add overlay tests
-Message-ID: <Z5EY6uMmDCgfOzGO@ryzen>
-References: <20250116-pre-ict-jaguar-v2-0-157d319004fc@cherry.de>
- <6dd64754-fe72-4288-9724-b3cdaf193b3b@cherry.de>
+	id 1tadTD-0000000AgsE-2dEj;
+	Wed, 22 Jan 2025 16:20:48 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 49CF82190B;
+	Wed, 22 Jan 2025 16:20:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1737562844; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nT+3HrKcZdya7PD/09X6ml+wR0vuTCRq8jZf0/rfslA=;
+	b=SDhspgNc7hac5Pfg4OaVGvMwWVz4pD9JP45vdS1rNrueqTsfn5MG13bTpsCjQuq/91Ehi2
+	XBpuiWWz6n8VTAXfHCntT1UAVZY0x10M4n9v/s3Aqobp4g/JaCUDqqJiUd0yxS4/HdZbOx
+	htz2Ai6adwmXfHI5nisC7H+KkcpNeSY=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1737562844;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nT+3HrKcZdya7PD/09X6ml+wR0vuTCRq8jZf0/rfslA=;
+	b=mfVXxY3GXJjQJ0ox3IMljoELLK445aGMa2UoEAxVkDlispsSjgekkQJx5Mat4Mq0nEt/fF
+	t4NZXvP2oVrWxgCw==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1737562844; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nT+3HrKcZdya7PD/09X6ml+wR0vuTCRq8jZf0/rfslA=;
+	b=SDhspgNc7hac5Pfg4OaVGvMwWVz4pD9JP45vdS1rNrueqTsfn5MG13bTpsCjQuq/91Ehi2
+	XBpuiWWz6n8VTAXfHCntT1UAVZY0x10M4n9v/s3Aqobp4g/JaCUDqqJiUd0yxS4/HdZbOx
+	htz2Ai6adwmXfHI5nisC7H+KkcpNeSY=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1737562844;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nT+3HrKcZdya7PD/09X6ml+wR0vuTCRq8jZf0/rfslA=;
+	b=mfVXxY3GXJjQJ0ox3IMljoELLK445aGMa2UoEAxVkDlispsSjgekkQJx5Mat4Mq0nEt/fF
+	t4NZXvP2oVrWxgCw==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 3CF7A136A1;
+	Wed, 22 Jan 2025 16:20:43 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id Lwp/DNsakWexcQAAD6G6ig
+	(envelope-from <svarbanov@suse.de>); Wed, 22 Jan 2025 16:20:43 +0000
+Message-ID: <d8c0f79f-1896-4afa-86e3-bd330218f362@suse.de>
+Date: Wed, 22 Jan 2025 18:20:38 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <6dd64754-fe72-4288-9724-b3cdaf193b3b@cherry.de>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 -next 09/11] PCI: brcmstb: Fix for missing of_node_put
+To: Florian Fainelli <florian.fainelli@broadcom.com>,
+ Stanimir Varbanov <svarbanov@suse.de>, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rpi-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Jim Quinlan <jim2101024@gmail.com>,
+ Nicolas Saenz Julienne <nsaenz@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, kw@linux.com,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Andrea della Porta <andrea.porta@suse.com>,
+ Phil Elwell <phil@raspberrypi.com>, Jonathan Bell
+ <jonathan@raspberrypi.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ stable@vger.kernel.org
+References: <20250120130119.671119-1-svarbanov@suse.de>
+ <20250120130119.671119-10-svarbanov@suse.de>
+ <1abdd175-280a-442a-a27a-9bc01c0a04c0@broadcom.com>
+Content-Language: en-US
+From: Stanimir Varbanov <svarbanov@suse.de>
+In-Reply-To: <1abdd175-280a-442a-a27a-9bc01c0a04c0@broadcom.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-6.80 / 50.00];
+	REPLY(-4.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[23];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	FREEMAIL_CC(0.00)[linutronix.de,kernel.org,gmail.com,google.com,linux.com,pengutronix.de,suse.com,raspberrypi.com,vger.kernel.org];
+	RCVD_TLS_ALL(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	TAGGED_RCPT(0.00)[dt];
+	MID_RHS_MATCH_FROM(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:email,suse.de:mid]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_081232_774749_F50D2959 
-X-CRM114-Status: GOOD (  16.23  )
+X-CRM114-CacheID: sfid-20250122_082047_814040_E8F4572B 
+X-CRM114-Status: GOOD (  17.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,30 +150,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 22, 2025 at 04:38:16PM +0100, Quentin Schulz wrote:
-> So essentially, if SPL_ATF_NO_PLATFORM_PARAM is selected (the default for
-> RK356x, RK3588, forced on on RK3308, enabled for the majority of RK3399
-> boards, enabled for all RK3328 boards) the DT won't be passed to TF-A so no
-> issue in terms of size on that side.
-> If it is not selected, for TF-A < 2.4 (released 20201117, 4 years ago), a
-> DTB bigger than 64KiB will crash TF-A.
-> If it is not selected, for TF-A >= 2.4, a DTB bigger than 128KiB will result
-> in TF-A not being able to read the DTB (for Rockchip, that means not being
-> able to derive the UART settings (controller and baudrate) to use, and will
-> use the compile-time default instead).
+Hi Florian,
 
-Not everyone is using binary blobs from Rockchip.
-On my rock5b (rk3588), I'm building the bootloader using buildroot,
-which is using upstream TrustedFirmware-A (v2.12).
+On 1/21/25 8:32 PM, Florian Fainelli wrote:
+> On 1/20/25 05:01, Stanimir Varbanov wrote:
+>> A call to of_parse_phandle() increments refcount, of_node_put must be
+>> called when done the work on it. Fix missing of_node_put() on the
+>> msi_np device node by using scope based of_node_put() cleanups.
+>>
+>> Cc: stable@vger.kernel.org # v5.10+
+>> Fixes: 40ca1bf580ef ("PCI: brcmstb: Add MSI support")
+>> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
+>> ---
+>> v4 -> v5:
+>>   - New patch in the series.
+>>
+>>   drivers/pci/controller/pcie-brcmstb.c | 3 ++-
+>>   1 file changed, 2 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/
+>> controller/pcie-brcmstb.c
+>> index 744fe1a4cf9c..546056f7f0d3 100644
+>> --- a/drivers/pci/controller/pcie-brcmstb.c
+>> +++ b/drivers/pci/controller/pcie-brcmstb.c
+>> @@ -1844,7 +1844,8 @@ static struct pci_ops brcm7425_pcie_ops = {
+>>     static int brcm_pcie_probe(struct platform_device *pdev)
+>>   {
+>> -    struct device_node *np = pdev->dev.of_node, *msi_np;
+>> +    struct device_node *msi_np __free(device_node) = NULL;
+> 
+> In the interest of making this a straight back port to 5.10 that does
+> not have all of the __free() goodies, I would just add the missing
+> of_node_put() where necessary.
 
+Good point. Thank you.
 
-> In short, I don't know where to go with that additional piece of
-> information, but this is a bit bigger than simply moving things around and
-> adding compile-time tests for overlay application.
+> 
+> Also, since this is a bug fix, you should probably make it appear
+> earlier in the patch series, or even sent it as a separate fix entirely.
 
-This is significant information indeed.
+OK, will send it as a standalone patch (as v2 with your comment addressed).
 
+~Stan
 
-Kind regards,
-Niklas
 
