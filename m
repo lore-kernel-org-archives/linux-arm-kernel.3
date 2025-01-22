@@ -4,95 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA42EC02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 10:00:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 295D7C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 10:02:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bkXU/mbXgXy1UAlTcrbRMbMvk4S34h1r27crXRO7sVE=; b=LxOfprswNE7Yh5tD/j3TFGYGvL
-	pwPiQBZjevRR3U8NH5V6qwOExCnck//iydONknyKlMrnJpFjAgjAh9ZOhVfxgKEaHmNB5A9AOZMj+
-	p+OEz5iehoqX191pesTRVQU1tiRp36Ac1HtwXQ7Gyo73rYKCiCI1db72zTZN93v7iwFZvdZPs+7+U
-	Rg/dsljYxTBPM3BqPZjXbhOd7VyM9l0RFd5Vaumk2AmFfFStUhvlBuf8P0S+5RWigz9B4MsaRZLaq
-	No3ROAXAAt6hOJYekbnK7j+wEiM5zp9AmvDzYrse5y9JpD8hL1jU2hU8df0Za8XfwSK1BFQPOmwlN
-	qI2/67KA==;
+	bh=KZun86YgO/beF+USyArXg72Od8MD2P3otFMl9FWVMR8=; b=k2L4NRnPWUtocjLf+1n4bvMiCO
+	7pezPEzsySrRK5LB0AkXKh9lgdmbJochXx4o44A8fA5bYf1gd5DNiQ6yulfxIteImJuDjnc3RlzP+
+	OtooDCWdmUYx4MdE9uaoOr7qZMHX11yX+H3X7/G6M9jxRUuIeyAwCV9oLCnG8XtsbHPJRQHVpKXZ3
+	IcfeIM9gX0CcxhCEueo+vhknnpWTr6+K1QzzrP0f1m0yemIgb+FyDG/RyRxm2DvXIL70ToMSy64hj
+	95sgi0l1pEOhMyH42pZblkpndt01qz08Iky7tBoBK7sEDdMSCSsmYdCriVFC6sBP35XitHAbMup9J
+	NE8/niEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taXXK-00000009s1o-1cwC;
-	Wed, 22 Jan 2025 10:00:38 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1taXYZ-00000009sAi-05Kb;
+	Wed, 22 Jan 2025 10:01:55 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taXSJ-00000009r8m-0hId
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 09:55:28 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-385d7f19f20so3248378f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jan 2025 01:55:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1737539725; x=1738144525; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=bkXU/mbXgXy1UAlTcrbRMbMvk4S34h1r27crXRO7sVE=;
-        b=pBiw01NgWEzOcCyapanSGHxq28U9tyQLfrofOX6/vizjcEKuKhKpnyTT6UDYnPbLgT
-         1hFkMR3TH7oYAOGcpUM38KN4gmjnege/1/c39aUMlFXXYEoKIRyjTtl79OMlB5DmiOEx
-         D4cJjP82U2S8HrZCReUJPoqtplKMydynxd1P6V7GuQp5NqMNCUSm54oAV6y3iU0fHVZz
-         spsLQkdoZ6NLRKUN9OK4OoqQ9Cu2JLlRpdxiESDpYvpoe/eHI4ci7YfI7Q8d0v5uJmxH
-         JI2TNwOHtxxTo8UR5QkYClYYV+R1//mH/5IVCAdnIcYpn8rU8O5NNl/nfTaFkgXOvpsb
-         yyIw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737539725; x=1738144525;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bkXU/mbXgXy1UAlTcrbRMbMvk4S34h1r27crXRO7sVE=;
-        b=K2KLsiC/4jleEUsScG0I9OExSaC68hllo6dqxE+UnYYwBcFznDQHb3tPeRG4DC5bIa
-         TYK2/ciZCvie8nL/lEDnGMA78Cyep0dy6yguogSlNXu3c2N8ZGhkZPjb+VxsAk9glEcW
-         1H4C9nd8iPCaT4VrI6VrhlHifHO6Hal+OvggKfPzoR0O2D2Sc+uScUJJAl2szy7dt2ml
-         za4Tow399sbAlxrop4U9HmjlfxEzmGBuGT9AtYHe8BO/W9tlwLjLxnfEc2PWbNFrJZ2r
-         TBtX+xt5znaTYWCPqq2082ovgI7/y0Ban9a1fG0GnwcihJgpLRdxc9gCUnRYhaAnHNP6
-         WKaw==
-X-Gm-Message-State: AOJu0YwWOqFWs/LvSdfUfoJCNHOf5sAa6MdcuS1KPUavJ3D70JSkce/i
-	DDPlGSnuT7Sbj7TQVSo7XezdxneTRnOoAW2co5AieLxhF3tuRnskyNaKEbsS+hc=
-X-Gm-Gg: ASbGncvycrAn/ojEG5v+aDmgarbfscpGQC9QIbOpQYLHgkhm3NXvYMWVPhGvB77SH4r
-	2wkqNcRCZX9+D3JaW/By+F7wmE6GlbCKAB0eGXT8KyxP30QfQm9Xfp4OgfjlkxA/Beldco1zFsN
-	+kebhDQCO6pnd/gSJ4KO7gEKWZpd0FtbXrFYuH8cAQz83BISVZ0cOfmXYhFRqvzHqXxJdhz7aia
-	amKhbt9VVV+jfkAb59+cLF4mdFixDs7HfcPu4CUKUAyq7IQgbD4NVSHui/yeC5ROdM=
-X-Google-Smtp-Source: AGHT+IHi8wKxfGNlGgCMFVgEtLd+Q2y6RmCAks4ExEZmtnW1E5RNCntEk7piIjBdAlsaTXqPWamYWA==
-X-Received: by 2002:adf:a113:0:b0:38a:8d4c:aad3 with SMTP id ffacd0b85a97d-38bf5664d6bmr14540191f8f.18.1737539725527;
-        Wed, 22 Jan 2025 01:55:25 -0800 (PST)
-Received: from localhost ([2001:4090:a245:80cb:f705:a3ac:14fe:4e1b])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438b1cc8151sm16554205e9.1.2025.01.22.01.55.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jan 2025 01:55:25 -0800 (PST)
-From: Markus Schneider-Pargmann <msp@baylibre.com>
-Date: Wed, 22 Jan 2025 10:54:51 +0100
-Subject: [PATCH 3/3] arm64: dts: ti: k3-am62p5-sk: Add r5fss memory region
+	id 1taXSY-00000009rD1-1lyz;
+	Wed, 22 Jan 2025 09:55:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7E11E5C5D9E;
+	Wed, 22 Jan 2025 09:55:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 990A2C4CEE2;
+	Wed, 22 Jan 2025 09:55:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737539741;
+	bh=oTek1JRLg1nABvU7rxwqx97/p8svej4w5YzkvNSofVM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=NfEpP8H/5XTmmcZM7/Cd5HS0PZkfFZrX0bx2m/biDCf9WAieo928GjZM+jb7bfPOj
+	 NQoNDxN+DITenk9l2NF9vg1HcCYzaeWGNnbPpJQOmirG1fwXHTMqQMCuj2Nod9gFhO
+	 2Vyt0W62gA4arrEmNjbGCV+bCPoeUUyOWhOsmTkJIrTbb5HPJI2D+HvYMNNuibBjOM
+	 v0g3ybgwxPL80vY11fyiiqQJzQzsafHHEnl0lgVM7YDMuFrvxUY4u707pL8XBiAF82
+	 a+RREuSPSfa6o4FC1VPkTGgg2LXdfnyrfES6NT9xNypMM9G4p4Qppjq543WoIiB44R
+	 +Np3L9/uqYrEQ==
+Message-ID: <77ea5067-deb2-41d4-ab82-ce19ac018ba3@kernel.org>
+Date: Wed, 22 Jan 2025 10:55:34 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v12 12/13] dt-bindings: display: vop2: Add rk3576 support
+To: Andy Yan <andyshrk@163.com>
+Cc: heiko@sntech.de, hjc@rock-chips.com, krzk+dt@kernel.org,
+ devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, derek.foreman@collabora.com,
+ detlev.casanova@collabora.com, daniel@fooishbar.org, robh@kernel.org,
+ sebastian.reichel@collabora.com, Andy Yan <andy.yan@rock-chips.com>
+References: <20250121103254.2528004-1-andyshrk@163.com>
+ <20250121103500.2528258-1-andyshrk@163.com>
+ <20250122-amber-moth-of-upgrade-fa8331@krzk-bin>
+ <5eb4acaa.6df6.1948d68332d.Coremail.andyshrk@163.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
+ QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
+ gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
+ /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
+ iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
+ VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
+ 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
+ xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
+ eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
+ AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
+ MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
+ Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
+ ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
+ vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
+ oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
+ lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
+ t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
+ uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
+ 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
+ 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
+In-Reply-To: <5eb4acaa.6df6.1948d68332d.Coremail.andyshrk@163.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250122-topic-dt-updates-am62-wkup-v6-13-v1-3-f74835b91da9@baylibre.com>
-References: <20250122-topic-dt-updates-am62-wkup-v6-13-v1-0-f74835b91da9@baylibre.com>
-In-Reply-To: <20250122-topic-dt-updates-am62-wkup-v6-13-v1-0-f74835b91da9@baylibre.com>
-To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Markus Schneider-Pargmann <msp@baylibre.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1215; i=msp@baylibre.com;
- h=from:subject:message-id; bh=foP128Q0vaml+DKn9OpvbU52LDZNwWhrXWTRZEdqdvY=;
- b=kA0DAAgWJIy04tQVrj8ByyZiAGeQwIOg92yavyDfmN5jBj9NeidWAh9N6a221QeWlhy66MbzW
- 4h1BAAWCAAdFiEE3fCh7n4e16BYruJBJIy04tQVrj8FAmeQwIMACgkQJIy04tQVrj9VYQEA8SoU
- V8IaIsZt1Mmz6nO9GOWRwd8gFaSembrqKQYowmgA/2jOBz8u7ih/J2T1iVQqe7465hlN8aZTD56
- KZnia46MK
-X-Developer-Key: i=msp@baylibre.com; a=openpgp;
- fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_015527_209101_A314EF9B 
-X-CRM114-Status: GOOD (  10.18  )
+X-CRM114-CacheID: sfid-20250122_015542_554281_9B0F8384 
+X-CRM114-Status: GOOD (  13.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,42 +122,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the dma memory region for r5fss and list it in the wkup_r5fss0_core0
-as memory-region together with the other already present memory region.
+On 22/01/2025 10:46, Andy Yan wrote:
+>>> -      The VOP interrupt is shared by several interrupt sources, such as
+>>> -      frame start (VSYNC), line flag and other status interrupts.
+>>> +      For VOP version under rk3576, the interrupt is shared by several interrupt
+>>> +      sources, such as frame start (VSYNC), line flag and other interrupt status.
+>>> +      For VOP version from rk3576 there is a system interrupt for bus error, and
+>>> +      every video port has it's independent interrupts for vsync and other video
+>>> +      port related error interrupts.
+>>> +
+>>> +  interrupt-names:
+>>> +    items:
+>>> +      - const: sys
+>>> +      - const: vp0
+>>> +      - const: vp1
+>>> +      - const: vp2
+>>>  
+>>>    # See compatible-specific constraints below.
+>>>    clocks:
+>>> @@ -135,6 +147,8 @@ allOf:
+>>>          interrupts:
+>>>            maxItems: 1
+>>
+>> So this change moves to this patch.
+>>
+>>>  
+>>> +        interrupt-names: false
+>>> +
+>>>          ports:
+>>>            required:
+>>>              - port@0
+>>> @@ -148,6 +162,39 @@ allOf:
+>>>        required:
+>>>          - rockchip,grf
+>>>  
+>>> +  - if:
+>>> +      properties:
+>>> +        compatible:
+>>> +          contains:
+>>> +            enum:
+>>> +              - rockchip,rk3576-vop
+>>> +    then:
+>>> +      properties:
+>>> +        clocks:
+>>> +          minItems: 5
+>>
+>> No. You did not implement my comment at all.
+>>
+>> So again:
+>> "Why minItems? Nothing in this patch makes sense for me. Neither changing
+>> existing binding nor new binding for rk3576."
+> 
+> Do you mean because I already defined minItems of clocks is 5 on the top, so 
+> there is no need to redefine the same minItems here ?
 
-Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
----
- arch/arm64/boot/dts/ti/k3-am62p5-sk.dts | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+Lists must be constrained. This is not constrained from the max items
+and you repeat existing constrain.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-index 7f3dc39e12bc9ca4a746ff092f946b84a36404b3..cc695c9d662e6f2c41b73ddf4afe0e95888676e4 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-@@ -58,6 +58,12 @@ secure_ddr: optee@9e800000 {
- 			no-map;
- 		};
- 
-+		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9c800000 0x00 0x100000>;
-+			no-map;
-+		};
-+
- 		wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
- 			compatible = "shared-dma-pool";
- 			reg = <0x00 0x9c900000 0x00 0x01e00000>;
-@@ -677,3 +683,8 @@ &mcu_gpio0 {
- &mcu_gpio_intr {
- 	status = "reserved";
- };
-+
-+&wkup_r5fss0_core0 {
-+	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
-+			<&wkup_r5fss0_core0_memory_region>;
-+};
+For every variable list you need to provide min and maxItems, except the
+edge cases when dimension matches top level dimension.
 
--- 
-2.47.1
+Standard example is:
 
+https://elixir.bootlin.com/linux/v6.11-rc6/source/Documentation/devicetree/bindings/ufs/qcom,ufs.yaml#L127
+
+which I mention on mailing lists multiple times. Also described this
+case exactly on my two talks...
+
+> 
+>>
+>> To address such comment, come with reasonable answer to "why". Not just
+>> send the same. It's a waste of my time to keep reviewing the same.
+> 
+> Before sending this patch, I asked you what the next step should be, but you didn't respond.
+
+You asked whether splitting is correct and I did not object that. I
+already said: " You need to split reorganizing", then you asked if you
+can split, so sorry, I am not going to keep repeating the same multiple
+times.
+
+But anyway this is not about the split, so you did not question last
+time how to do it. You just skipped my paragraph asking for "Why?".
+
+
+
+Best regards,
+Krzysztof
 
