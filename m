@@ -4,82 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B461CC02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 11:49:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D74A2C0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 11:52:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xXO+eeJwoYDq0+ajeKon9Edlp30dkoKqCF75LDwgv34=; b=QtAl7FH4ZLbj0BlJQ5hEkG8wpE
-	m0A29SntWCbsJrlODCPLb1lWqo4W+5oOp1C80aBxa1DHqD6tRk3dYfBMzIfzivQ8vMkh3HHgYnJjf
-	o1GTHBa/01obVq4Q7Sk/QHxNYDpYWb+xzhDqSPq5IIEAJwi44cX/BNTXlFoWZgGWJVll3sQpOyAEp
-	npRNu2ydWshsjN3DbyKbpsBLOaQz0ujqT1Ye2d2sahZd+6AM2nPA68auDPEp8rJGpGqKR+fSyK32r
-	cg7uwnfp5RCMTYjAmPQRUAbBu2JwsT/Qsh8k0aCOOC3/zZOoXeMTeEJ+eqKN8aUnE1hZqw2qQUYwV
-	kKy0NWgA==;
+	bh=hO41Ocdyf/ChwO05tp6UyjANudf9xBcH27M4qrYUe2M=; b=F0DZrzhDa33FOsz4UiD0bS0wcG
+	UvGFUxHuxTwp5L8cr4YUwDJ7fkGa2uuvTOEwZ5xWsqtFCDeKl4BpHHqZP6eNIsNk1VbH9UC9cQav4
+	q5Sg9EKqFm0VzFNw9hxioArk2aCFJ5YHy2fgtL1zITpCQ1+ZRjBYFSsGdZsiFBMQrsRYtW5y0MbGN
+	oRM+scrXHvEnhPXCRgNP3M8taxiPVtTK/Je6MYo7Rv3y1Z7dPVPPgog7SUp4ruqs3gBfllQubWVIM
+	CVZk4/56ueLaK4+jqbEAs9eV3r+Ryn9LP6zwYEgIKWAgyVKr6Mfmc1P7EY3w/O/9epjO8DhXD8kmW
+	NwPulJDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taZEF-0000000A5bm-44Zz;
-	Wed, 22 Jan 2025 11:49:03 +0000
+	id 1taZHW-0000000A64n-16gI;
+	Wed, 22 Jan 2025 11:52:26 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taZBr-0000000A5E6-1lRg
+	id 1taZGC-0000000A5qR-1ktF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 11:46:36 +0000
+	Wed, 22 Jan 2025 11:51:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 283835C581B;
-	Wed, 22 Jan 2025 11:45:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C966C4CEE3;
-	Wed, 22 Jan 2025 11:46:34 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 78FE65C5D59;
+	Wed, 22 Jan 2025 11:50:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E212C4CED6;
+	Wed, 22 Jan 2025 11:51:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737546394;
-	bh=J/3Uv76izXM3DkFhHTfwqy9MkTyaRA0S84/pyF38QyA=;
+	s=k20201202; t=1737546663;
+	bh=63j/7wGwXuaZ+NknazkPZcLSbOn14PDE1Z9XGe727YY=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=S8p9UURgZao9lh+1de2TLrojnarOYcZZl77vvfSAh0m7M/vUtsPqLrKrMetuZFpkr
-	 qItQoglvTuDwQfHpB3FRZqI+b05vv2uKE1KyWH4AzZwFDciv6bO3MDG48Tp8Hr4q1e
-	 SVPUUX0g1/HrHCcPIVxB+nqbHWMOWinv0C5+08ABgHeebXz4qKg2O2OWrBbVpQInUZ
-	 sYGY/47MMVqT3AV6elgSgSy0tQ/gnRJlbZmHotRHsT8mN4PbJzL65Jm4taOOrmlLab
-	 Kz0Jw3aBn0qjZN30BcFLdNEhiHhWHf30ZKW9J2uZ7TBHibgWkkvMCtWZ/XgOMdfb69
-	 K3gChKxlEK74A==
+	b=Bm1/RMxck4trtFrCjtNR5Hr3WVRwSzcTg8mHPDDsGFzqILgDQCTHYZPFCP7yEIW5T
+	 2Ifx9T6vuaoMd9legXGRzIRj7H0qdadj21n1znxFORY07HA1E1c8qt79AKjdjNN/aU
+	 5/gNpls7dNGiDQsBkdCgJwBBj/s6JcIMdilgZ+fobGSlYdAMQEOpFt3Fkg3oOXt7rW
+	 UuDU+Ltd4Bpi61+iEm1Sj7e5R/tPsOnmAyYIJP0udAQSHPbn40tDten9tSmjOVkMuE
+	 Do4Lh4anKNxBzar9MAqXULoRLOlFUkcdJQpusEeTZVsjcT2hPSCJFFBkG01NPHI1bk
+	 /Up+rN3Q+Ei4Q==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1taZBn-00ENrU-Gu;
-	Wed, 22 Jan 2025 11:46:32 +0000
-Date: Wed, 22 Jan 2025 11:46:31 +0000
-Message-ID: <86plkful48.wl-maz@kernel.org>
+	id 1taZG9-00ENwN-A9;
+	Wed, 22 Jan 2025 11:51:01 +0000
+Date: Wed, 22 Jan 2025 11:51:00 +0000
+Message-ID: <86o6zzukwr.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	broonie@kernel.org,
-	catalin.marinas@arm.com,
-	eauger@redhat.com,
-	fweimer@redhat.com,
-	jeremy.linton@arm.com,
-	oliver.upton@linux.dev,
-	pbonzini@redhat.com,
-	stable@vger.kernel.org,
-	wilco.dijkstra@arm.com,
-	will@kernel.org
-Subject: Re: [PATCH] KVM: arm64/sve: Ensure SVE is trapped after guest exit
-In-Reply-To: <Z4--YuG5SWrP_pW7@J2N7QTR9R3>
-References: <20250121100026.3974971-1-mark.rutland@arm.com>
-	<86r04wv2fv.wl-maz@kernel.org>
-	<Z4--YuG5SWrP_pW7@J2N7QTR9R3>
+Cc: Mark Brown <broonie@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <shuah@kernel.org>,
+	Dave Martin <Dave.Martin@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH RFC v3 09/27] KVM: arm64: Factor SVE guest exit handling out into a function
+In-Reply-To: <Z4pAMaEYvdLpmbg2@J2N7QTR9R3>
+References: <20241220-kvm-arm64-sme-v3-0-05b018c1ffeb@kernel.org>
+	<20241220-kvm-arm64-sme-v3-9-05b018c1ffeb@kernel.org>
+	<Z4pAMaEYvdLpmbg2@J2N7QTR9R3>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, broonie@kernel.org, catalin.marinas@arm.com, eauger@redhat.com, fweimer@redhat.com, jeremy.linton@arm.com, oliver.upton@linux.dev, pbonzini@redhat.com, stable@vger.kernel.org, wilco.dijkstra@arm.com, will@kernel.org
+X-SA-Exim-Rcpt-To: mark.rutland@arm.com, broonie@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, catalin.marinas@arm.com, suzuki.poulose@arm.com, will@kernel.org, pbonzini@redhat.com, corbet@lwn.net, shuah@kernel.org, Dave.Martin@arm.com, tabba@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_034635_548287_BB98C64D 
-X-CRM114-Status: GOOD (  51.80  )
+X-CRM114-CacheID: sfid-20250122_035104_547113_FE6DF733 
+X-CRM114-Status: GOOD (  47.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,140 +100,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 21 Jan 2025 15:37:13 +0000,
+On Fri, 17 Jan 2025 11:34:09 +0000,
 Mark Rutland <mark.rutland@arm.com> wrote:
 > 
-> On Tue, Jan 21, 2025 at 11:20:04AM +0000, Marc Zyngier wrote:
-> > Hi Mark,
-> >
-
-[...]
-
-> > > diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-> > > index 8c4c1a2186cc5..e4053a90ed240 100644
-> > > --- a/arch/arm64/kernel/fpsimd.c
-> > > +++ b/arch/arm64/kernel/fpsimd.c
-> > > @@ -1711,8 +1711,24 @@ void fpsimd_kvm_prepare(void)
-> > >  	 */
-> > >  	get_cpu_fpsimd_context();
-> > >  
-> > > -	if (test_and_clear_thread_flag(TIF_SVE)) {
-> > > -		sve_to_fpsimd(current);
-> > > +	if (!test_thread_flag(TIF_FOREIGN_FPSTATE) &&
-> > > +	    test_and_clear_thread_flag(TIF_SVE)) {
-> > > +		sve_user_disable();
+> On Fri, Dec 20, 2024 at 04:46:34PM +0000, Mark Brown wrote:
+> > The SVE portion of kvm_vcpu_put() is quite large, especially given the
+> > comments required.  When we add similar handling for SME the function
+> > will get even larger, in order to keep things managable factor the SVE
+> > portion out of the main kvm_vcpu_put().
+> 
+> While investigating some problems with SVE I spotted a latent bug in
+> this area where I suspect the fix will conflict with / supersede this
+> rework. Details below; IIUC the bug was introduced in commit:
+> 
+>   8c8010d69c132273 ("KVM: arm64: Save/restore SVE state for nVHE")
+> 
+> > Signed-off-by: Mark Brown <broonie@kernel.org>
+> > ---
+> >  arch/arm64/kvm/fpsimd.c | 67 +++++++++++++++++++++++++++----------------------
+> >  1 file changed, 37 insertions(+), 30 deletions(-)
 > > 
-> > I'm pretty happy with this fix. However...
-> > 
-> > > +
-> > > +		/*
-> > > +		 * The KVM hyp code doesn't set fp_type when saving the host's
-> > > +		 * FPSIMD state. Set fp_type here in case the hyp code saves
-> > > +		 * the host state.
-> > 
-> > Should KVM do that? The comment seems to indicate that this is
-> > papering over yet another bug...
+> > diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
+> > index 09b65abaf9db60cc57dbc554ad2108a80c2dc46b..3c2e0b96877ac5b4f3b9d8dfa38975f11b74b60d 100644
+> > --- a/arch/arm64/kvm/fpsimd.c
+> > +++ b/arch/arm64/kvm/fpsimd.c
+> > @@ -151,6 +151,41 @@ void kvm_arch_vcpu_ctxsync_fp(struct kvm_vcpu *vcpu)
+> >  	}
+> >  }
+> >  
+> > +static void kvm_vcpu_put_sve(struct kvm_vcpu *vcpu)
+> > +{
+> > +	u64 zcr;
+> > +
+> > +	if (!vcpu_has_sve(vcpu))
+> > +		return;
+> > +
+> > +	zcr = read_sysreg_el1(SYS_ZCR);
+> > +
+> > +	/*
+> > +	 * If the vCPU is in the hyp context then ZCR_EL1 is loaded
+> > +	 * with its vEL2 counterpart.
+> > +	 */
+> > +	__vcpu_sys_reg(vcpu, vcpu_sve_zcr_elx(vcpu)) = zcr;
+> > +
+> > +	/*
+> > +	 * Restore the VL that was saved when bound to the CPU, which
+> > +	 * is the maximum VL for the guest. Because the layout of the
+> > +	 * data when saving the sve state depends on the VL, we need
+> > +	 * to use a consistent (i.e., the maximum) VL.  Note that this
+> > +	 * means that at guest exit ZCR_EL1 is not necessarily the
+> > +	 * same as on guest entry.
+> > +	 *
+> > +	 * ZCR_EL2 holds the guest hypervisor's VL when running a
+> > +	 * nested guest, which could be smaller than the max for the
+> > +	 * vCPU. Similar to above, we first need to switch to a VL
+> > +	 * consistent with the layout of the vCPU's SVE state. KVM
+> > +	 * support for NV implies VHE, so using the ZCR_EL1 alias is
+> > +	 * safe.
+> > +	 */
+> > +	if (!has_vhe() || (vcpu_has_nv(vcpu) && !is_hyp_ctxt(vcpu)))
+> > +		sve_cond_update_zcr_vq(vcpu_sve_max_vq(vcpu) - 1,
+> > +				       SYS_ZCR_EL1);
+> > +}
+> > +
+> >  /*
+> >   * Write back the vcpu FPSIMD regs if they are dirty, and invalidate the
+> >   * cpu FPSIMD regs so that they can't be spuriously reused if this vcpu
+> > @@ -179,38 +214,10 @@ void kvm_arch_vcpu_put_fp(struct kvm_vcpu *vcpu)
+> >  	}
 > 
-> Yes; really this should be done at hyp (and at that point, hyp could
-> actually save the entire host SVE state), but that's a larger change and
-> more painful for backporting, which is why I didn't go that route. I'm
-> happy to go try to fix hyp to do that, or I can make the comment more
-> explicit that this is a bodge, if that's all you're after?
+> A little before this context, kvm_arch_vcpu_put_fp() calls
+> local_irq_save(), which indicates that IRQs can be taken before this
+> point, which is deeply suspicious.
 > 
-> Alternatively, we could take the large hammer approach and always save
-> and unbind the host state prior to entering the guest, so that hyp
-> doesn't need to save anything. An unconditional call to
-> fpsimd_save_and_flush_cpu_state() would suffice, and that'd also
-> implicitly fix the SME issue below.
+> If IRQs are enabled, then it's possible to take an IRQ and potentially
+> run a softirq handler which uses kernel-mode NEON. That means
+> kernel_neon_begin() will try to save the live FPSIMD/SVE/SME state via
+> fpsimd_save_user_state(), using the live value of ZCR_ELx.LEN, which would not
+> be correct per the comment.
+> 
+> Looking at kvm_arch_vcpu_ioctl_run(), the relevant logic is:
+> 
+> 	vcpu_load(vcpu); // calls kvm_arch_vcpu_load_fp()
+> 
+> 	while (ret > 0) {
+> 		preempt_disable();
+> 		local_irq_disable();
+> 
+> 		kvm_arch_vcpu_ctxflush_fp();
+> 		ret = kvm_arm_vcpu_enter_exit(vcpu);
+> 		kvm_arch_vcpu_ctxsync_fp(vcpu);
+> 
+> 		local_irq_enable();
+> 		preempt_enable();
+> 	}
+> 
+> 	vcpu_put(vcpu); // calls kvm_arch_vcpu_put_fp()
+> 
+> ... and the problem can occur at any point after the vCPU has run where IRQs
+> are enabled, i.e, between local_irq_enable() and either local_irq_disable() or
+> vcpu_put()'s call to kvm_arch_vcpu_put_fp().
+> 
+> Note that kernel_neon_begin() calls:
+> 
+> 	fpsimd_save_user_state();
+> 	...
+> 	fpsimd_flush_cpu_state();
+> 
+> ... and fpsimd_save_user_state() will see that the SVE VL is wrong:
+> 
+> 	if (WARN_ON(sve_get_vl() != vl)) {
+> 		force_signal_inject(SIGKILL, SI_KERNEL, 0, 0);
+> 		return;
+> 	}
+> 
+> ... pending a SIGKILL for the VMM thread without saving the vCPU's state
+> before unbinding the live state via fpsimd_flush_cpu_state(), which'll
+> set TIF_FOREIGN_FPSTATE.
+> 
+> AFAICT it's possible to re-enter the vCPU after that happens, whereupon
+> stale vCPU FPSIMD/SVE state will be restored. Upon return to userspace
+> the SIGKILL will be delivered, killing the VMM.
+> 
+> As above, it looks like that's been broken since the nVHE SVE
+> save/restore was introduced in commit:
+> 
+>   8c8010d69c132273 ("KVM: arm64: Save/restore SVE state for nVHE")
+> 
+> The TL;DR summary is that it's not sufficient for kvm_arch_vcpu_put_fp()
+> to fix up ZCR_ELx. Either:
+> 
+> * That needs to be fixed up while IRQs are masked, e.g. by
+>   saving/restoring the host and guest ZCR_EL1 and/or ZCR_ELx values in
+>   kvm_arch_vcpu_ctxflush_fp() and kvm_arch_vcpu_ctxsync_fp()
+> 
+> * The lazy save logic in fpsimd_save_user_state() needs to handle KVM
+>   explicitly, saving the guest's ZCR_EL1 and restoring the host's
+>   ZCR_ELx.
+> 
+> I think we need to fix that before we extend this logic for SME.
 
-I think I'd rather see that. Even if that costs us a few hundred
-cycles on vcpu_load(), I would take that any time over the current
-fragile/broken behaviour.
-
->
-> > > +		 *
-> > > +		 * If hyp code does not save the host state, then the host
-> > > +		 * state remains live on the CPU and saved fp_type is
-> > > +		 * irrelevant until it is overwritten by a later call to
-> > > +		 * fpsimd_save_user_state().
-> > 
-> > I'm not sure I understand this. If fp_type is irrelevant, surely it is
-> > *forever* irrelevant, not until something else happens. Or am I
-> > missing something?
-> 
-> Sorry, this was not very clear.
-> 
-> What this is trying to say is that *while the state is live on a CPU*
-> fp_type is irrelevant, and it's only meaningful when saving/restoring
-> state. As above, the only reason to set it here is so that *if* hyp
-> saves and unbinds the state, fp_type will accurately describe what the
-> hyp code saved.
-> 
-> The key thing is that there are two possibilities:
-> 
-> (1) The guest doesn't use FPSIMD/SVE, and no trap is taken to save the
->     host state. In this case, fp_type is not consumed before the next
->     time state has to be written back to memory (the act of which will
->     set fp_type).
-> 
->     So in this case, setting fp_type is redundant but benign.
-> 
-> (2) The guest *does* use FPSIMD/SVE, and a trap is taken to hyp to save
->     the host state. In this case the hyp code will save the task's
->     FPSIMD state to task->thread.uw.fpsimd_state, but will not update
->     task->thread.fp_type accordingly, and:
-> 
->     * If fp_type happened to be FP_STATE_FPSIMD, all is good and a later
->       restore will load the state saved by the hyp code.
-> 
->     * If fp_type happened to be FP_STATE_SVE, a later restore will load
->       stale state from task->thread.sve_state.
-> 
-> ... does that make sense?
-
-It does now, thanks. But with your above alternative suggestion, this
-becomes completely moot, right?
-
-> 
-> > > +		 *
-> > > +		 * This is *NOT* sufficient when CONFIG_ARM64_SME=y, where
-> > > +		 * fp_type can be FP_STATE_SVE regardless of TIF_SVE.
-> > > +		 */
-> > > +		BUILD_BUG_ON(IS_ENABLED(CONFIG_ARM64_SME));
-> > 
-> > I'd rather not have this build-time failure, as this is very likely to
-> > annoy a lot of people. Instead, just make SME unselectable with KVM:
-> 
-> I'm happy to change this, but FWIW I'd used BUILD_BUG() here because it
-> kept that associated with the comment and logic, and because we disabled
-> SME in commit:
-> 
->   81235ae0c846e1fb4 ("arm64: Kconfig: Make SME depend on BROKEN for now)"
-> 
-> ... which was CC'd stable, and so this *shouldn't* blow up on anything
-> with that commit.
-
-My experience is that people do set CONFIG_BROKEN, and don't expect
-the kernel to fail to compile -- they "only" expect it to misbehave.
-
-> 
-> So I can:
-> 
-> (a) Add the dependency, as you suggest.
-> 
-> (b) Leave that as-is.
-> 
-> (c) Solve this in a different way so that we don't need a BUILD_BUG() or
->     dependency. e.g. fix the SME case at the same time, at the cost of
->     possibly needing to do a bit more work when backporting.
-> 
-> ... any preference?
-
-My preference would be on (c), if at all possible. My understanding is
-now that the fpsimd_save_and_flush_cpu_state() approach solves all of
-these problems, at the expense of a bit of overhead.
-
-Did I get that correctly?
+So save/restore ZCR_ELx eagerly? If that's what it takes, let's do
+that now.
 
 Thanks,
 
