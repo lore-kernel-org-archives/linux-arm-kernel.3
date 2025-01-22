@@ -4,77 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9FC2C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 21:32:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4303FC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 22:31:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M8MeaPRzOgZSacDujPwP4MM6x0sK9+Zo6QMLPmqlAFQ=; b=uAcwN22EGOoOwayahsrgMlO8U+
-	pCgwWVgcM4W1aTQ+tFtdazilwC+zN0/Ov65pTaEtvrSIIWHzcF5AnH/jZEMFCgFFspCszzZd/9i5s
-	RRu6Znm/IgmbkbJlFYvz748xdAeNuJfXL6eOvbDmz2TMT9zHpdry+sMOardnXP3fZDzE1IfOdFxVS
-	BO5MgQ2lI4WmCbUVwyEpUiSmRKSHK0PgfQrLphVqxbHnKyprNgUlDRfBLZf2Al7hs/XKWREP4fHqi
-	EMO9FrwMepPfaVTpwqc0Euo2zl/PwVsZZO4RVZRIAgcfJp8209A45uZ47AMOg+l0DjcBBLk4E3/eo
-	/leOVmGQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Xos+iPEOgtcwGXoWIUpdh6SUPLxn4fe3D3r1m6hKDLA=; b=jT9XKiVPGC4s7pJ4E0QRIKxAA5
+	T3par7RkdiFeZDWoni81gahhvVMuhgr1O7vNcneRooxAx4tof2uPwdpGnmTFboIrMYEWXIC4MecjW
+	wu6OtqTzVK6eJS7bfgO6h4IHzThmbXDe9sqzz0etlT0RK8I+PmOLj6/t3ri+HZ2wkyplP5yPgdHdi
+	/1SJX9RWhdwKZyJpilFwKSa0ytRV36BAdi6FtqsKsOCC7Iv8FBgtk59KjCTziCAPjpVNrHx+C+z4F
+	VBDH0qy0/lf5gGyeBftGpCAgoODTVV1RCApiOQkoRJxETzimr1UF0AVXjwHv2bLQwCWdfqU1W25/M
+	geOT7oNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taiKx-0000000BFHO-0XTf;
-	Wed, 22 Jan 2025 21:32:35 +0000
-Received: from smtp-fw-52003.amazon.com ([52.119.213.152])
+	id 1tajG5-0000000BL0d-3cXz;
+	Wed, 22 Jan 2025 22:31:37 +0000
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taiJf-0000000BFDd-1VJZ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 21:31:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazon201209;
-  t=1737581476; x=1769117476;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=M8MeaPRzOgZSacDujPwP4MM6x0sK9+Zo6QMLPmqlAFQ=;
-  b=sBc7eqe/x6BefNEsZ7KnDtQbfr9DQ71UOs0bhXBS68x4trk05pd+4rB/
-   pODg0ie8rQYJG7p44m4KkyrdVJEY1ptzA3xTKsoQeHV71OCI2B0p5VLzX
-   4ZUE6yiTJ/XEtBo4KqGQQtUjIxfXEoJvAwSZ/UXnP6bWleaCWrxzL75QV
-   w=;
-X-IronPort-AV: E=Sophos;i="6.13,226,1732579200"; 
-   d="scan'208";a="59780000"
-Received: from iad12-co-svc-p1-lb1-vlan3.amazon.com (HELO smtpout.prod.us-east-1.prod.farcaster.email.amazon.dev) ([10.43.8.6])
-  by smtp-border-fw-52003.iad7.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jan 2025 21:31:11 +0000
-Received: from EX19MTAEUB002.ant.amazon.com [10.0.17.79:42981]
- by smtpin.naws.eu-west-1.prod.farcaster.email.amazon.dev [10.0.45.135:2525] with esmtp (Farcaster)
- id eb42696a-8b43-4c02-b6e9-6d37daccf7e6; Wed, 22 Jan 2025 21:31:02 +0000 (UTC)
-X-Farcaster-Flow-ID: eb42696a-8b43-4c02-b6e9-6d37daccf7e6
-Received: from EX19D003EUA004.ant.amazon.com (10.252.50.128) by
- EX19MTAEUB002.ant.amazon.com (10.252.51.59) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.39;
- Wed, 22 Jan 2025 21:31:02 +0000
-Received: from [192.168.16.80] (10.1.212.27) by EX19D003EUA004.ant.amazon.com
- (10.252.50.128) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.39; Wed, 22 Jan 2025
- 21:30:59 +0000
-Message-ID: <965352b6-c21f-4161-9f23-2e96cc1267f6@amazon.de>
-Date: Wed, 22 Jan 2025 22:30:54 +0100
+	id 1tajEm-0000000BKp5-3a0Z;
+	Wed, 22 Jan 2025 22:30:18 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id BE07B2115D;
+	Wed, 22 Jan 2025 22:30:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1737585014; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=Xos+iPEOgtcwGXoWIUpdh6SUPLxn4fe3D3r1m6hKDLA=;
+	b=UUeGjhWnH4XaVdiJil15fMp8lJI/WXEKHhlX5mh6xNkzXQ8i53ecu0TJFdceRIxuZeijNX
+	bvvrUyJusnMfZ380gcYFzBVzc0bzi4ZTlgOiscV+1qWtVUjghPYeKBjkMw6ec7tq0EvFbg
+	4c/L5vqr+HXDuz0uxumk7pwPMWAMU1M=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1737585014;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=Xos+iPEOgtcwGXoWIUpdh6SUPLxn4fe3D3r1m6hKDLA=;
+	b=mOt5QrSVEop+Dh/j7X8hyrVUGOLOmQ06CyKv1tG/UuqaA5VX8hgwnW97RaulQVnq4BbL2R
+	QAzcA0mYz7BY6EBg==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=UUeGjhWn;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=mOt5QrSV
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1737585014; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=Xos+iPEOgtcwGXoWIUpdh6SUPLxn4fe3D3r1m6hKDLA=;
+	b=UUeGjhWnH4XaVdiJil15fMp8lJI/WXEKHhlX5mh6xNkzXQ8i53ecu0TJFdceRIxuZeijNX
+	bvvrUyJusnMfZ380gcYFzBVzc0bzi4ZTlgOiscV+1qWtVUjghPYeKBjkMw6ec7tq0EvFbg
+	4c/L5vqr+HXDuz0uxumk7pwPMWAMU1M=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1737585014;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=Xos+iPEOgtcwGXoWIUpdh6SUPLxn4fe3D3r1m6hKDLA=;
+	b=mOt5QrSVEop+Dh/j7X8hyrVUGOLOmQ06CyKv1tG/UuqaA5VX8hgwnW97RaulQVnq4BbL2R
+	QAzcA0mYz7BY6EBg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 49146136A1;
+	Wed, 22 Jan 2025 22:30:13 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id JohxDnVxkWeRRAAAD6G6ig
+	(envelope-from <svarbanov@suse.de>); Wed, 22 Jan 2025 22:30:13 +0000
+From: Stanimir Varbanov <svarbanov@suse.de>
+To: linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+	Jim Quinlan <jim2101024@gmail.com>,
+	Nicolas Saenz Julienne <nsaenz@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	kw@linux.com,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Stanimir Varbanov <svarbanov@suse.de>,
+	stable@vger.kernel.org
+Subject: [PATCH v2] PCI: brcmstb: Fix for missing of_node_put
+Date: Thu, 23 Jan 2025 00:29:55 +0200
+Message-ID: <20250122222955.1752778-1-svarbanov@suse.de>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] arm64: proton-pack: Add Spectre-BSE mitigation for
- Cortex-A7{2,3,5}
-To: James Morse <james.morse@arm.com>, <linux-arm-kernel@lists.infradead.org>
-CC: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-	<blakgeof@amazon.com>, <pjy@amazon.de>
-References: <20250122174736.1560714-1-james.morse@arm.com>
-Content-Language: en-US
-From: "Doebel, Bjoern" <doebel@amazon.de>
-In-Reply-To: <20250122174736.1560714-1-james.morse@arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.1.212.27]
-X-ClientProxiedBy: EX19D043UWC002.ant.amazon.com (10.13.139.222) To
- EX19D003EUA004.ant.amazon.com (10.252.50.128)
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: BE07B2115D
+X-Rspamd-Action: no action
+X-Spamd-Result: default: False [-3.01 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_MISSING_CHARSET(0.50)[];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	ARC_NA(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[14];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	FREEMAIL_CC(0.00)[broadcom.com,gmail.com,kernel.org,linux.com,linaro.org,google.com,suse.de,vger.kernel.org];
+	RCVD_TLS_ALL(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,suse.de:mid,suse.de:email,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	DKIM_TRACE(0.00)[suse.de:+];
+	ASN(0.00)[asn:25478, ipnet:::/0, country:RU];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_133115_583645_ACD39777 
-X-CRM114-Status: GOOD (  18.32  )
+X-CRM114-CacheID: sfid-20250122_143017_191401_FB603E83 
+X-CRM114-Status: GOOD (  13.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,62 +143,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+A call to of_parse_phandle() is incrementing the refcount, of_node_put
+must be called when done the work on it. Add missing of_node_put() after
+the check for msi_np == np and MSI initialization.
 
-On 22.01.25 18:47, James Morse wrote:
-> Hello!
-> 
-> Spectre-BSE is a variant of Spectre-BHB that abuses a power-saving mode
-> on some older cores to dodge the BHB mitigation applied to the branch predictor.
-> 
-> Only A72r0 actually needs anything doing - this is basically a bug in the
-> published BHB mitigation sequence that was published for A72r0. This
-> series moves A72r0 to use the WA1 firmware call for mitigation, and adds
-> the necessary reporting parts for user-space to discover which parts of
-> BHB/BSE are mitigated or vulnerable.
-> 
-> WA1 is used instead of WA3 which was new for BHB because we can't rely
-> on hypervisors not to use the 'local' workaround, and for Spectre-BSE
-> we don't need to worry about discovery via. (Which is why WA3 exists -
-> for cores not vulnerable to the issue mititaged by WA1).
-> 
-> Arm's description of this vulnerability can be found here:
-> https://developer.arm.com/Arm%20Security%20Center/Spectre-BSE
-> 
-> This series is based on arm64/for-next/core, and can be retrieved from:
-> https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git/log/?h=spectre_bse/v1
-> 
-> Backports of this version can also be found under spectre_bse/backports
-> of the above repo.
-> 
-> Because this vulnerability is hard to expoit, but the cost of mitigating
-> it is high - the mitigation is disabled by default. (see the last
-> patch). To enable the mitigation, a command-line argument is needed:
-> 'spectre_bse'.
+Cc: stable@vger.kernel.org # v5.10+
+Fixes: 40ca1bf580ef ("PCI: brcmstb: Add MSI support")
+Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
+---
+v1 -> v2:
+ - Use of_node_put instead of cleanups (Florian).
+ - Sent the patch separately from PCIe 2712 series (Florian).
 
-The Amazon Linux kernel team evaluated these patches on EC2 A1 instances 
-running Amazon Linux 2 and UnixBench. We can confirm that patch impact 
-is significant, especially for syscall overhead.
+ drivers/pci/controller/pcie-brcmstb.c | 13 +++++++++----
+ 1 file changed, 9 insertions(+), 4 deletions(-)
 
-UnixBench results in comparison to disabled mitigations (AL2, kernel 
-5.15, EC2 A1.4xlarge instance):
-
-Dhrystone 2           --  +0.01%
-2prec Whetstone       --  +0.01%
-Execl throughput      -- +21.39%
-File Copy 1024/2000   -- +45.40%
-File Copy 256/500     -- +46.52%
-File Copy 4096/8000   -- +25.68%
-Pipe Throughput       -- +51.46%
-Pipe based ctx switch -- +10.91%
-Process creation      --  +4.35%
-Shell Scripts x1      -- +20.00%
-Shell Scripts x8      -- +26.68%
-System Call Overhead  -- +55.82%
-Total Score           -- +28.36%
-
-
-Best,
-Bjoern
+diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
+index 744fe1a4cf9c..d171ee61eab3 100644
+--- a/drivers/pci/controller/pcie-brcmstb.c
++++ b/drivers/pci/controller/pcie-brcmstb.c
+@@ -1844,7 +1844,7 @@ static struct pci_ops brcm7425_pcie_ops = {
+ 
+ static int brcm_pcie_probe(struct platform_device *pdev)
+ {
+-	struct device_node *np = pdev->dev.of_node, *msi_np;
++	struct device_node *np = pdev->dev.of_node;
+ 	struct pci_host_bridge *bridge;
+ 	const struct pcie_cfg_data *data;
+ 	struct brcm_pcie *pcie;
+@@ -1944,9 +1944,14 @@ static int brcm_pcie_probe(struct platform_device *pdev)
+ 		goto fail;
+ 	}
+ 
+-	msi_np = of_parse_phandle(pcie->np, "msi-parent", 0);
+-	if (pci_msi_enabled() && msi_np == pcie->np) {
+-		ret = brcm_pcie_enable_msi(pcie);
++	if (pci_msi_enabled()) {
++		struct device_node *msi_np = of_parse_phandle(pcie->np, "msi-parent", 0);
++
++		if (msi_np == pcie->np)
++			ret = brcm_pcie_enable_msi(pcie);
++
++		of_node_put(msi_np);
++
+ 		if (ret) {
+ 			dev_err(pcie->dev, "probe of internal MSI failed");
+ 			goto fail;
+-- 
+2.47.0
 
 
