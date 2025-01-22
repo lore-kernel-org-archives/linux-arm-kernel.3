@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E311BC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 17:57:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94300C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 17:58:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3DfBuB1WVX83l/Xuqs0l83yZqQu/qQgoBu7Slnt9tew=; b=RkYlXyUQsgMwMhWuCpKI9gdxPO
-	MChcygLRW79sqVqBBfONgolsCmJs1pyfLxbSjplQD/YoXcd7jglgRsmSUGFZSh7z7YSO2iaeylrzZ
-	uxQET4SDmvjQBILxdqW3m+EQfe6hHunF/crQd57YGqD6g3e51lSKqJR0vFtn0bm1nGnW6Ts8+JltS
-	n3hS9cWgs0y4hV/5hxnzlqCRo9vqAo9xJoS47mjm0UbDVAJRYq/l3WnVWkCxvfW62Z5jTof3DAZ4Y
-	ts1NrLa1xBpSAj2RRk3Us5gPwh1M/jZn6suH+L2vcdd+rPLiRBB3bSTMHvhzeEwbqKZ0FuACompXA
-	OE7gw1wA==;
+	bh=UPdQFYW1+alBPT0W0zc3pKmITDrBpX+LkBaRcYVjQhA=; b=E/jlnSeyTd8tPyzM27bZz1PP2u
+	Kxd6q27z47G/f/e+Srzoj6+WmblMjW99OEcN9I/gsWIz7dtUKeWEnRNdpkvzTfonp8Wl4W8CoaMlp
+	3CnRC6/7CGgkyhScGRT34KX/SgrxOrbJ/u+pxxwHPyDzHpGI9utJdg3ON2lEak3xLn60KCW3gN0Ig
+	oZEan3WsENpSodQK+WK834mABrWgfFgFBOQ3f+WhuvpAYF0mz3B3b/v8auyzJGuZRLkye7iCvDX3z
+	idNWD6smz8smasK9IxAzQ8dejjPpsxln/j+6nVv6g4LV3at48z7ZsQHYziI0/+atRibf+kvDaGFyz
+	MaCV853Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taeyf-0000000AwFT-0Wz3;
-	Wed, 22 Jan 2025 17:57:21 +0000
+	id 1taezu-0000000AwRJ-3UHX;
+	Wed, 22 Jan 2025 17:58:38 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taepV-0000000AulX-45Qf
+	id 1taepX-0000000Aumm-30w9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 17:47:55 +0000
+	Wed, 22 Jan 2025 17:47:56 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BF3BE1007;
-	Wed, 22 Jan 2025 09:48:21 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 955181063;
+	Wed, 22 Jan 2025 09:48:23 -0800 (PST)
 Received: from eglon.cambridge.arm.com (eglon.cambridge.arm.com [10.1.196.57])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 707A23F66E;
-	Wed, 22 Jan 2025 09:47:52 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 468663F66E;
+	Wed, 22 Jan 2025 09:47:54 -0800 (PST)
 From: James Morse <james.morse@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Catalin Marinas <catalin.marinas@arm.com>,
@@ -40,17 +40,17 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Marc Zyngier <maz@kernel.org>,
 	Oliver Upton <oliver.upton@linux.dev>,
 	James Morse <james.morse@arm.com>
-Subject: [PATCH 2/3] arm64: proton-pack: Add Spectre-BSE mitigation for Cortex-A7{2,3,5}
-Date: Wed, 22 Jan 2025 17:47:35 +0000
-Message-Id: <20250122174736.1560714-3-james.morse@arm.com>
+Subject: [PATCH 3/3] arm64: proton-pack: Prefer WA1 for BHB on Cortex-A72 r0pX
+Date: Wed, 22 Jan 2025 17:47:36 +0000
+Message-Id: <20250122174736.1560714-4-james.morse@arm.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250122174736.1560714-1-james.morse@arm.com>
 References: <20250122174736.1560714-1-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_094754_102949_1A2B4344 
-X-CRM114-Status: GOOD (  22.51  )
+X-CRM114-CacheID: sfid-20250122_094755_851313_877A1148 
+X-CRM114-Status: GOOD (  18.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,242 +65,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A group of older Cortex cores are affected by Spectre-BSE which on one
-core bypasses the existing Spectre-BHB mitigation.
+Cortex-A72 r0pX is affected by Spectre-BSE which bypasses the existing
+Spectre-BHB mitigation. As implemented by TFA, both WA1 and WA3
+are sufficient to mitigate Spectre-BHB and Spectre-BSE on Cortex-A72 r0pX.
+The performance cost will be the same.
 
-The workaround is to use the Spectre-BHB 'arch_workaround_3' firmware
-call. For Cortex-A7{3,5}, this is the existing mitigation so only the
-reporting needs updating.
-For Cortex-A72 if WA3 is not implemented, there is still a benefit
-from enabling the Spectre-BHB branchy-loop.
+The incomplete mitigation is the branchy-loop that was previously used.
+It isn't possible to discover if a hypervisor implements WA3 using the
+branchy-loop, so WA3 can't be trusted for this CPU.
 
-This leads to special-casing anything affected by Spectre-BSE to avoid
-enabling the branchy-loop, and instead only do this if the firmware WA3
-call is not implemented. Such platforms will be reported as:
-| Mitigation: Branch predictor hardening, BHB, but not BSE
-via the Spectre-v2 vulnerabilities file.
+Instead, use WA1. This involves duplicating the BHB_FW bit in the
+mitigations bitmap and patching in the appropriate immediate to the
+mitigation sequence. If both WA3 and WA1 are selected, WA1 should
+take priority.
 
 Signed-off-by: James Morse <james.morse@arm.com>
 ---
-Nothing relies on the BSE entries being in the BHB firmware list,
-but this is done on the principle of least-surprise.
----
- arch/arm64/include/asm/spectre.h |   1 +
- arch/arm64/kernel/proton-pack.c  | 116 ++++++++++++++++++++++++++++++-
- 2 files changed, 114 insertions(+), 3 deletions(-)
+ arch/arm64/include/asm/assembler.h |  4 ++-
+ arch/arm64/kernel/proton-pack.c    | 58 ++++++++++++++++++++----------
+ 2 files changed, 42 insertions(+), 20 deletions(-)
 
-diff --git a/arch/arm64/include/asm/spectre.h b/arch/arm64/include/asm/spectre.h
-index 0c4d9045c31f..c4123aa0b00d 100644
---- a/arch/arm64/include/asm/spectre.h
-+++ b/arch/arm64/include/asm/spectre.h
-@@ -96,6 +96,7 @@ void spectre_v4_enable_task_mitigation(struct task_struct *tsk);
- enum mitigation_state arm64_get_meltdown_state(void);
- 
- enum mitigation_state arm64_get_spectre_bhb_state(void);
-+enum mitigation_state arm64_get_spectre_bse_state(void);
- bool is_spectre_bhb_affected(const struct arm64_cpu_capabilities *entry, int scope);
- u8 spectre_bhb_loop_affected(int scope);
- void spectre_bhb_enable_mitigation(const struct arm64_cpu_capabilities *__unused);
+diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
+index 3d8d534a7a77..36a5c7868cd8 100644
+--- a/arch/arm64/include/asm/assembler.h
++++ b/arch/arm64/include/asm/assembler.h
+@@ -838,7 +838,9 @@ alternative_cb_end
+ #ifdef CONFIG_MITIGATE_SPECTRE_BRANCH_HISTORY
+ 	stp	x0, x1, [sp, #-16]!
+ 	stp	x2, x3, [sp, #-16]!
+-	mov	w0, #ARM_SMCCC_ARCH_WORKAROUND_3
++alternative_cb ARM64_ALWAYS_SYSTEM, spectre_bhb_patch_wa3
++	mov	w0, #ARM_SMCCC_ARCH_WORKAROUND_3 // Maybe patched to WA1
++alternative_cb_end
+ alternative_cb ARM64_ALWAYS_SYSTEM, smccc_patch_fw_mitigation_conduit
+ 	nop					// Patched to SMC/HVC #0
+ alternative_cb_end
 diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
-index 193f141d4367..4667325e1d7e 100644
+index 4667325e1d7e..cbe731ff1831 100644
 --- a/arch/arm64/kernel/proton-pack.c
 +++ b/arch/arm64/kernel/proton-pack.c
-@@ -112,6 +112,24 @@ static const char *get_bhb_affected_string(enum mitigation_state bhb_state)
- 	}
- }
+@@ -864,7 +864,8 @@ enum mitigation_state arm64_get_spectre_bhb_state(void)
  
-+static const char *get_bse_affected_string(enum mitigation_state bse_state)
-+{
-+	enum mitigation_state bhb_state = arm64_get_spectre_bhb_state();
-+
-+	switch (bse_state) {
-+	case SPECTRE_UNAFFECTED:
-+		return "";
-+	default:
-+	case SPECTRE_VULNERABLE:
-+		/* BHB+BSE = ", but not BHB or BSE" */
-+		if (bhb_state == SPECTRE_VULNERABLE)
-+			return " or BSE";
-+		return ", but not BSE";
-+	case SPECTRE_MITIGATED:
-+		return ", BSE";
-+	}
-+}
-+
- static bool _unprivileged_ebpf_enabled(void)
- {
- #ifdef CONFIG_BPF_SYSCALL
-@@ -125,7 +143,9 @@ ssize_t cpu_show_spectre_v2(struct device *dev, struct device_attribute *attr,
- 			    char *buf)
- {
- 	enum mitigation_state bhb_state = arm64_get_spectre_bhb_state();
-+	enum mitigation_state bse_state = arm64_get_spectre_bse_state();
- 	const char *bhb_str = get_bhb_affected_string(bhb_state);
-+	const char *bse_str = get_bse_affected_string(bse_state);
- 	const char *v2_str = "Branch predictor hardening";
- 
- 	switch (spectre_v2_state) {
-@@ -143,7 +163,7 @@ ssize_t cpu_show_spectre_v2(struct device *dev, struct device_attribute *attr,
- 		if (bhb_state == SPECTRE_MITIGATED && _unprivileged_ebpf_enabled())
- 			return sprintf(buf, "Vulnerable: Unprivileged eBPF enabled\n");
- 
--		return sprintf(buf, "Mitigation: %s%s\n", v2_str, bhb_str);
-+		return sprintf(buf, "Mitigation: %s%s%s\n", v2_str, bhb_str, bse_str);
- 	case SPECTRE_VULNERABLE:
- 		fallthrough;
- 	default:
-@@ -825,6 +845,15 @@ int arch_prctl_spec_ctrl_get(struct task_struct *task, unsigned long which)
-  * - Has the 'Exception Clears Branch History Buffer' (ECBHB) feature, so no
-  *   software mitigation in the vectors is needed.
-  * - Has CSV2.3, so is unaffected.
-+ *
-+ *
-+ * Spectre BSE.
-+ *
-+ * Affects a small number of CPUs. Cortex-A73 and Cortex-A75 are already
-+ * mitigated by the firmware Spectre-BHB mitigation.
-+ * A72 r0 is mitigated by the firmware Spectre v2 call. This means A72 appears
-+ * in both the BHB "loop mitigated list" and "firmware mitigated list", and
-+ * needs special casing.
-  */
- static enum mitigation_state spectre_bhb_state;
- 
-@@ -841,6 +870,13 @@ enum bhb_mitigation_bits {
+ enum bhb_mitigation_bits {
+ 	BHB_LOOP,
+-	BHB_FW,
++	BHB_FW_WA3,
++	BHB_FW_WA1,
+ 	BHB_HW,
+ 	BHB_INSN,
  };
- static unsigned long system_bhb_mitigations;
- 
-+static enum mitigation_state spectre_bse_state;
-+
-+enum mitigation_state arm64_get_spectre_bse_state(void)
-+{
-+	return spectre_bse_state;
-+}
-+
- /*
-  * This must be called with SCOPE_LOCAL_CPU for each type of CPU, before any
-  * SCOPE_SYSTEM call will give the right answer.
-@@ -916,12 +952,36 @@ static enum mitigation_state spectre_bhb_get_cpu_fw_mitigation_state(void)
- 	}
+@@ -931,13 +932,17 @@ u8 spectre_bhb_loop_affected(int scope)
+ 	return k;
  }
  
-+/*
-+ * For a core affected by BSE, get the WA3 state and handle the 'unaffected'
-+ * case from unaware firmware.
-+ */
-+static enum mitigation_state spectre_bse_get_cpu_fw_mitigation_state(void)
-+{
-+	enum mitigation_state state = spectre_bhb_get_cpu_fw_mitigation_state();
-+
-+	switch (state) {
-+	case SPECTRE_MITIGATED:
-+		return state;
-+	default:
-+	case SPECTRE_UNAFFECTED:
-+		/*
-+		 * We don't rely on firmware for discovery of BSE affected
-+		 * cores. Unaffected is treated as not-implemented.
-+		 */
-+	case SPECTRE_VULNERABLE:
-+		return SPECTRE_VULNERABLE;
-+	}
-+}
-+
- static bool is_spectre_bhb_fw_affected(int scope)
+-static enum mitigation_state spectre_bhb_get_cpu_fw_mitigation_state(void)
++static enum mitigation_state
++spectre_bhb_get_cpu_fw_mitigation_state(enum bhb_mitigation_bits fw_wa)
  {
- 	static bool system_affected;
- 	enum mitigation_state fw_state;
- 	bool has_smccc = arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_NONE;
- 	static const struct midr_range spectre_bhb_firmware_mitigated_list[] = {
-+		/* A72 r0pX */
-+		MIDR_RANGE(MIDR_CORTEX_A72, 0, 0, 0, 0xf),
- 		MIDR_ALL_VERSIONS(MIDR_CORTEX_A73),
- 		MIDR_ALL_VERSIONS(MIDR_CORTEX_A75),
- 		{},
-@@ -974,6 +1034,29 @@ bool is_spectre_bhb_affected(const struct arm64_cpu_capabilities *entry,
- 	return false;
+ 	int ret;
+ 	struct arm_smccc_res res;
++	u64 imm = ARM_SMCCC_ARCH_WORKAROUND_3;
+ 
+-	arm_smccc_1_1_invoke(ARM_SMCCC_ARCH_FEATURES_FUNC_ID,
+-			     ARM_SMCCC_ARCH_WORKAROUND_3, &res);
++	if (fw_wa == BHB_FW_WA1)
++		imm = ARM_SMCCC_ARCH_WORKAROUND_1;
++
++	arm_smccc_1_1_invoke(ARM_SMCCC_ARCH_FEATURES_FUNC_ID, imm, &res);
+ 
+ 	ret = res.a0;
+ 	switch (ret) {
+@@ -956,9 +961,10 @@ static enum mitigation_state spectre_bhb_get_cpu_fw_mitigation_state(void)
+  * For a core affected by BSE, get the WA3 state and handle the 'unaffected'
+  * case from unaware firmware.
+  */
+-static enum mitigation_state spectre_bse_get_cpu_fw_mitigation_state(void)
++static enum mitigation_state
++spectre_bse_get_cpu_fw_mitigation_state(enum bhb_mitigation_bits fw_wa)
+ {
+-	enum mitigation_state state = spectre_bhb_get_cpu_fw_mitigation_state();
++	enum mitigation_state state = spectre_bhb_get_cpu_fw_mitigation_state(fw_wa);
+ 
+ 	switch (state) {
+ 	case SPECTRE_MITIGATED:
+@@ -992,7 +998,7 @@ static bool is_spectre_bhb_fw_affected(int scope)
+ 	if (scope != SCOPE_LOCAL_CPU)
+ 		return system_affected;
+ 
+-	fw_state = spectre_bhb_get_cpu_fw_mitigation_state();
++	fw_state = spectre_bhb_get_cpu_fw_mitigation_state(BHB_FW_WA3);
+ 	if (cpu_in_list || (has_smccc && fw_state == SPECTRE_MITIGATED)) {
+ 		system_affected = true;
+ 		return true;
+@@ -1082,7 +1088,7 @@ static int __init parse_spectre_bhb_param(char *str)
  }
+ early_param("nospectre_bhb", parse_spectre_bhb_param);
  
-+static bool is_spectre_bse_affected(int scope)
-+{
-+	static bool system_affected;
-+	static const struct midr_range spectre_bse_firmware_mitigated_list[] = {
-+		/* A72 r0pX */
-+		MIDR_RANGE(MIDR_CORTEX_A72, 0, 0, 0, 0xf),
-+		MIDR_ALL_VERSIONS(MIDR_CORTEX_A73),
-+		MIDR_ALL_VERSIONS(MIDR_CORTEX_A75),
-+		{},
-+	};
-+
-+	if (scope != SCOPE_LOCAL_CPU)
-+		return system_affected;
-+
-+	if (is_midr_in_range_list(read_cpuid_id(),
-+				  spectre_bse_firmware_mitigated_list)) {
-+		system_affected = true;
-+		return true;
-+	}
-+
-+	return false;
-+}
-+
- static void this_cpu_set_vectors(enum arm64_bp_harden_el1_vectors slot)
+-static void spectre_bhb_enable_fw_mitigation(void)
++static void spectre_bhb_enable_fw_mitigation(enum bhb_mitigation_bits fw_wa)
  {
- 	const char *v = arm64_get_bp_hardening_vector(slot);
-@@ -1046,7 +1129,9 @@ static void spectre_bhb_enable_loop_mitigation(void)
- 
- void spectre_bhb_enable_mitigation(const struct arm64_cpu_capabilities *entry)
- {
-+	bool bse_upgrade_loop_mitigation = false;
- 	enum mitigation_state fw_state, state = SPECTRE_VULNERABLE;
-+	enum mitigation_state bse_state = SPECTRE_VULNERABLE;
+ 	bp_hardening_cb_t cpu_cb;
  	struct bp_hardening_data *data = this_cpu_ptr(&bp_hardening_data);
+@@ -1107,7 +1113,7 @@ static void spectre_bhb_enable_fw_mitigation(void)
+ 	if (__this_cpu_read(bp_hardening_data.fn) != cpu_cb)
+ 		__this_cpu_write(bp_hardening_data.fn, NULL);
  
- 	if (!is_spectre_bhb_affected(entry, SCOPE_LOCAL_CPU))
-@@ -1073,17 +1158,42 @@ void spectre_bhb_enable_mitigation(const struct arm64_cpu_capabilities *entry)
- 		state = SPECTRE_MITIGATED;
- 		set_bit(BHB_INSN, &system_bhb_mitigations);
- 	} else if (spectre_bhb_loop_affected(SCOPE_LOCAL_CPU)) {
--		spectre_bhb_enable_loop_mitigation();
--		state = SPECTRE_MITIGATED;
-+		/* Cores also affected by BSE are special cased later */
-+		if (!is_spectre_bse_affected(SCOPE_LOCAL_CPU)) {
-+			spectre_bhb_enable_loop_mitigation();
-+			state = SPECTRE_MITIGATED;
-+		} else {
-+			bse_upgrade_loop_mitigation = true;
-+		}
- 	} else if (is_spectre_bhb_fw_affected(SCOPE_LOCAL_CPU)) {
- 		fw_state = spectre_bhb_get_cpu_fw_mitigation_state();
- 		if (fw_state == SPECTRE_MITIGATED) {
- 			spectre_bhb_enable_fw_mitigation();
- 			state = SPECTRE_MITIGATED;
-+
-+			if (is_spectre_bse_affected(SCOPE_LOCAL_CPU))
-+				bse_state = SPECTRE_MITIGATED;
- 		}
- 	}
- 
-+	/* Spectre BSE needs to upgrade the BHB mitigation to use firmware */
-+	if (bse_upgrade_loop_mitigation) {
-+		bse_state = spectre_bse_get_cpu_fw_mitigation_state();
-+		if (bse_state == SPECTRE_MITIGATED) {
-+			spectre_bhb_enable_fw_mitigation();
-+			state = SPECTRE_MITIGATED;
-+			bse_state = SPECTRE_MITIGATED;
-+		} else {
-+			spectre_bhb_enable_loop_mitigation();
-+			state = SPECTRE_MITIGATED;
-+			bse_state = SPECTRE_VULNERABLE;
-+		}
-+	} else if (!is_spectre_bse_affected(SCOPE_LOCAL_CPU)) {
-+		bse_state = SPECTRE_UNAFFECTED;
-+	}
-+
- 	update_mitigation_state(&spectre_bhb_state, state);
-+	update_mitigation_state(&spectre_bse_state, bse_state);
+-	set_bit(BHB_FW, &system_bhb_mitigations);
++	set_bit(fw_wa, &system_bhb_mitigations);
  }
  
- /* Patched to NOP when enabled */
+ static void spectre_bhb_enable_loop_mitigation(void)
+@@ -1166,9 +1172,9 @@ void spectre_bhb_enable_mitigation(const struct arm64_cpu_capabilities *entry)
+ 			bse_upgrade_loop_mitigation = true;
+ 		}
+ 	} else if (is_spectre_bhb_fw_affected(SCOPE_LOCAL_CPU)) {
+-		fw_state = spectre_bhb_get_cpu_fw_mitigation_state();
++		fw_state = spectre_bhb_get_cpu_fw_mitigation_state(BHB_FW_WA3);
+ 		if (fw_state == SPECTRE_MITIGATED) {
+-			spectre_bhb_enable_fw_mitigation();
++			spectre_bhb_enable_fw_mitigation(BHB_FW_WA3);
+ 			state = SPECTRE_MITIGATED;
+ 
+ 			if (is_spectre_bse_affected(SCOPE_LOCAL_CPU))
+@@ -1178,9 +1184,16 @@ void spectre_bhb_enable_mitigation(const struct arm64_cpu_capabilities *entry)
+ 
+ 	/* Spectre BSE needs to upgrade the BHB mitigation to use firmware */
+ 	if (bse_upgrade_loop_mitigation) {
+-		bse_state = spectre_bse_get_cpu_fw_mitigation_state();
++		bse_state = spectre_bse_get_cpu_fw_mitigation_state(BHB_FW_WA1);
+ 		if (bse_state == SPECTRE_MITIGATED) {
+-			spectre_bhb_enable_fw_mitigation();
++			/*
++			 * For affected cores the firmware implementions of WA1
++			 * and WA3 are both sufficient for BSE, but what about
++			 * hypervisors? It's possible the hypervisor implements
++			 * WA3 with the branchy-loop, which is not sufficient.
++			 * Use the WA1 call instead.
++			 */
++			spectre_bhb_enable_fw_mitigation(BHB_FW_WA1);
+ 			state = SPECTRE_MITIGATED;
+ 			bse_state = SPECTRE_MITIGATED;
+ 		} else {
+@@ -1214,7 +1227,7 @@ void noinstr spectre_bhb_patch_fw_mitigation_enabled(struct alt_instr *alt,
+ {
+ 	BUG_ON(nr_inst != 1);
+ 
+-	if (test_bit(BHB_FW, &system_bhb_mitigations))
++	if (test_bit(BHB_FW_WA3, &system_bhb_mitigations))
+ 		*updptr++ = cpu_to_le32(aarch64_insn_gen_nop());
+ }
+ 
+@@ -1239,26 +1252,33 @@ void noinstr spectre_bhb_patch_loop_iter(struct alt_instr *alt,
+ 	*updptr++ = cpu_to_le32(insn);
+ }
+ 
+-/* Patched to mov WA3 when supported */
++/* Patched to mov WA1 or WA3 when supported */
+ void noinstr spectre_bhb_patch_wa3(struct alt_instr *alt,
+ 				   __le32 *origptr, __le32 *updptr, int nr_inst)
+ {
+ 	u8 rd;
+ 	u32 insn;
++	u64 imm = ARM_SMCCC_ARCH_WORKAROUND_3;
+ 
+ 	BUG_ON(nr_inst != 1); /* MOV -> MOV */
+ 
+-	if (!IS_ENABLED(CONFIG_MITIGATE_SPECTRE_BRANCH_HISTORY) ||
+-	    !test_bit(BHB_FW, &system_bhb_mitigations))
++	if (!IS_ENABLED(CONFIG_MITIGATE_SPECTRE_BRANCH_HISTORY))
+ 		return;
+ 
++	if (!test_bit(BHB_FW_WA1, &system_bhb_mitigations) &&
++	    !test_bit(BHB_FW_WA3, &system_bhb_mitigations))
++		return;
++
++	/* If both WA1 and WA3 are selected, WA1 must be used */
++	if (test_bit(BHB_FW_WA1, &system_bhb_mitigations))
++		imm = ARM_SMCCC_ARCH_WORKAROUND_1;
++
+ 	insn = le32_to_cpu(*origptr);
+ 	rd = aarch64_insn_decode_register(AARCH64_INSN_REGTYPE_RD, insn);
+ 
+ 	insn = aarch64_insn_gen_logical_immediate(AARCH64_INSN_LOGIC_ORR,
+ 						  AARCH64_INSN_VARIANT_32BIT,
+-						  AARCH64_INSN_REG_ZR, rd,
+-						  ARM_SMCCC_ARCH_WORKAROUND_3);
++						  AARCH64_INSN_REG_ZR, rd, imm);
+ 	if (WARN_ON_ONCE(insn == AARCH64_BREAK_FAULT))
+ 		return;
+ 
 -- 
 2.39.2
 
