@@ -4,93 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F75CC02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 16:49:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10772C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 17:19:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xSBAii7BK2gaCNHWIIUjjrclWZDFTKQN8taZzBleOGc=; b=AgRpDBgMT/uFY/9nemvMId87Ci
-	0Yh/wcOgpY2yDdXkAr/K+5haVR1YQSFGMK/OQIOxHLWzziReILCBPaFs++kuWXiPJJ/1mdm8DBcxS
-	hcRtIUyIP+rLFEl51emO88lZyYHRMtWpZs3eVMp0zxSNZaZFEy2WS7/adtEI65ikExZYgFBCAtw3B
-	PCeM4XehZIzGCPBAW3eeV/ERnlM4BcJygtAQ3esk2GY7HOK/5LQxHiU2ACrZPGlZl3M9X5v8krlXD
-	wGC2L0x27U0sK01lo/aWo1gbScDhYP9yUX4m6klR8H8OvKafUJlgJu0Q8fSSr9EM9BU2iUzq2/jcQ
-	VhiqPDdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rVn+04C2RZSnNCuyRNAtEoZLpXdVmoal+q/IITqcBxo=; b=UZZTIAEoZCKd2mwTH7j61p4h84
+	Ah7rcvy+gl2MJmc5Fw6Y3Xwp641m9TBZXL9X7dHOcgCDURIwhZ17EVLmtL0UfgAl9t4l+N/6rbnP2
+	/2vQ2Fp2fNY2h2M7C9jxKRX+r1KMsz21kxiQ3QmXsRomjduvFogmrsDCzOMH69uKq9hoZHZUQqUgE
+	Q2KFU2juVWyWrMCSCdyvGXl3jiKEzXwnkDlnsUw2ZbccsB6IVMOfli/TQGNU3P7l1vsFHo1fYIxus
+	gR1lngl95D7zbe2VB6I0hbSBcPJ28x7EOCMfgk9J3RgwnvfG8TRFCFm9UUDs8TJ2jGIOJoCETWcer
+	1gZNCJYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taduI-0000000Al8V-0T7t;
-	Wed, 22 Jan 2025 16:48:46 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1taeNn-0000000AqWm-3wPA;
+	Wed, 22 Jan 2025 17:19:15 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tadsz-0000000Al03-3Ptc
+	id 1taeMW-0000000AqLO-2fsH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 16:47:27 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43625c4a50dso50139525e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jan 2025 08:47:25 -0800 (PST)
+	Wed, 22 Jan 2025 17:17:57 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-43621d2dd4cso71185e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jan 2025 09:17:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737564444; x=1738169244; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=xSBAii7BK2gaCNHWIIUjjrclWZDFTKQN8taZzBleOGc=;
-        b=kacJ2B1ZQXdldruDscnvYtfbw1XK3UQa8dG6uxH7WORnZBptRzNKwSeO3xLRFIXNzt
-         NqKqxcQ00FoHKR5D9SVk9tion+2a90xLo6FBp+d23Rk6UHCRxvF6GDsGpT4InxqI8aJj
-         vQLactRMhevzizCL0e4dPQPyOoeIrWtEmHPgQWEP9zo1KEV30Tpyd4/PQd8tERPMytpR
-         ZIcEi+42wzyQeGRMwdkvqZcOICX1D3zCgrPuaAQdbr5vzuiEPA8JUrcYsR/kt/d8xAnd
-         3kasGnC38h6XLyq/dK0WXh19EhT2ZwIOdr3vsRFofDfTv0hz6t1wmdu8uU7UzQdM2RbS
-         BMSQ==
+        d=google.com; s=20230601; t=1737566275; x=1738171075; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=rVn+04C2RZSnNCuyRNAtEoZLpXdVmoal+q/IITqcBxo=;
+        b=axxe+6P9wNnr/vOvYUuGaIPfKVbxFeiy3jUDsIjv/zIlv/H7fcGt7cXVjAZWcf4NIK
+         VL9amsmHalfvuTlGu6mxcAo9Auh3uGS+VPS5jE1LXwpdSIJMGNSjO6/5pIaJOj5JTbdm
+         xds7z/HQLUZ+ilylfJ5y+YMOd0WFRDVzCCVi5PjJGQ+lJudzExupZKo66LBmHXUf6L5L
+         ur/ZZ/uCMXtHdCKD8YEShCpVY/ZM88lA6c/2Uv0FyfvGA9SmVWXrVJg6r1ktUWhTAeTL
+         r+r1YFCn7HH/6khw7pWdOiwp5JbNmpaaqFSfHx2xjNPRwNxzMuE3A4dkN1PQu0C5Etd6
+         5/tQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737564444; x=1738169244;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
+        d=1e100.net; s=20230601; t=1737566275; x=1738171075;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=xSBAii7BK2gaCNHWIIUjjrclWZDFTKQN8taZzBleOGc=;
-        b=fXWym7anHS8LMG1og2/gNqgt9ziyqjYYMzg84R0b3s/32VUbMf7MC8zzmuTsDYO1eF
-         C6nVYBxOJPpP9z7glaCq0XJ6kFkngmU7u/i4TaL0vt/T8Xqu8TbmKHtemJjxVAK2e0nK
-         PjXHU3YWuLWmU9ZuVHokPTEcj4gkLKy7iYfhxxeVycw5uzKFbsSVhnqupFHBjtuagkUQ
-         Wo+X09n0dCVpeHGYnRxD5YJjLHpeyeQ3go83+rSmROKKN7MDeD8bgSU3zvj+CS/OVZVN
-         6iC7RKk3u7QNJ/QicVXgTHCv9rcXlBAY4lggQ3S3sLdvEsy9f9xWFQVG3S1MgJajcPTe
-         mWNg==
-X-Forwarded-Encrypted: i=1; AJvYcCXpqiiLydm392owRUJwjW+bCRLIKkVqO2xXXygfLuyJj+m4CV+pQRzyJjFXS6PksuZcy7ThXmZG0fQwARl8/TMO@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQX5tvVnkxuNQCjId/36YjRBQmADXOQDJFlyzv/M74iBcVfMWz
-	pXno7LzAAjVDNpanL8gcTQaGwbNrg3BwLrQ8tQFiaAsAH8j7XF6UGbi7RCNaaz0=
-X-Gm-Gg: ASbGncvmZEkLpk7CgSp8awmj3PIeLuXFYMnCVJXvZdh+Nu7wqjMmlJk17iBt/sAl9jx
-	5id7alV3/EVGbxAfAD6x8EOPj5UIjXA3gCIVCSb1PjRn36Pv/iN8+gAfV+S5Loc27ZrDfa1GbEg
-	/sG1J7SW+Kl5aiI9cPJ2XF2QwMym+mLFaYhG3CskNViRq7UT2AZguZeoGP8VETuTcBlGjkrjxgT
-	+n4QzixozOUmYXa/U22NyYLmBmMoMn228A4HZkFioxFUmA1/oVJU4SMnKb/L3khnFR/+htRZLZn
-	Rb1c
-X-Google-Smtp-Source: AGHT+IH0bumv8/ep45dsbyJ3w/bgIbCNbZvWl8ImNKDmIS37q2b3Bybg40Q9enSZb2jM4zdqkXOTng==
-X-Received: by 2002:a05:6000:156c:b0:386:1cd3:8a05 with SMTP id ffacd0b85a97d-38bf57ce963mr21812975f8f.54.1737564444187;
-        Wed, 22 Jan 2025 08:47:24 -0800 (PST)
-Received: from [192.168.68.163] ([212.105.145.45])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38bf328864esm17087269f8f.99.2025.01.22.08.47.22
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 22 Jan 2025 08:47:23 -0800 (PST)
-Message-ID: <ca8de228-68c2-4b2c-bb58-30f275afc49e@linaro.org>
-Date: Wed, 22 Jan 2025 16:47:22 +0000
+        bh=rVn+04C2RZSnNCuyRNAtEoZLpXdVmoal+q/IITqcBxo=;
+        b=YDoHSNceGmxVrLRTBCt301IIBVlidp5JXg/oHBO5tgpCHygRbB7IThk47alfUqRe2S
+         a/5E3sZ6noMl87asykDx3wlzuAeiVzHJHbQsy1gyLrjop6NWMQGvk6JXmnRiRsmpSzjv
+         eLt9H5jsG8lDpwJLIDO8th3TwncOzioWFfEBvSThjBIAf/ZuZ4N91bJKfD21QChTgE9h
+         zz7jXT3w6iqytwEErBDzfgLUjCEgPXkhcOAl8oHKEXmpMa4bvUnWAJAxOo2qvdOLKWqg
+         ybAeFQhLISDiNwBiiZRHj8nJu3b2bOBLHlkWz4UBxd4jfda0rA+VQQCRJKmn39H95lm+
+         wBPQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWdJVzB7+s+CB7NA24V6cmP0skpfhvEUtVo8GWI9dzp/SDjo5k4t1Tk05a/PluE0qfnp10Mo/eaEcvBfmDuYrJO@lists.infradead.org
+X-Gm-Message-State: AOJu0YxvI/5+s/VKj70W9OnfrzKsFA7p4nz0COHA5yLsbtTq7hwdSPlC
+	gMYASPxTThJua7NMWczJ17pQ6SiaTNoZprtlRus3k6PxL/If2aENi6fKLRzEvw==
+X-Gm-Gg: ASbGncvgYc9lcbuYwlqJ4Cy/VeyjEVDGmIJBuuDzH2cFjrbxuGPgjSE3IonP9nugawT
+	9dQ9xdXrS9UBLDlqOKzCpEBnZ9fB8f/7HoT6gyXkevVwUlAgoJa99t6JQRQ9yo57ZQrF9XbUH8D
+	h92AiguwszqiwbS82qVoqczFhWhI4NyszEpntrHI/SOju8FKoVSf5xIM42BS7WfDFwE7nFnPTn+
+	wtm6sqtyCKyDRxZKx8axWGGW6XiwZp13ZoPxANlaQieqX8XEsu9HQvDhexN47g/889rNtDge08s
+	d5nqQcOx334ccHHX/lHIcwvSQC4L0Q==
+X-Google-Smtp-Source: AGHT+IEcwSDzQsZnDZKS1v3rTQ17LH/kmqqhoYTY24yzjHG6NB2YOSFoasiucC8pKLaOn7Z5/gfrAw==
+X-Received: by 2002:a05:600c:314a:b0:42b:a961:e51 with SMTP id 5b1f17b1804b1-438b214a8afmr1528605e9.0.1737566274993;
+        Wed, 22 Jan 2025 09:17:54 -0800 (PST)
+Received: from google.com (88.140.78.34.bc.googleusercontent.com. [34.78.140.88])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38bf3214c5csm16835486f8f.8.2025.01.22.09.17.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 22 Jan 2025 09:17:54 -0800 (PST)
+Date: Wed, 22 Jan 2025 17:17:50 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: "Tian, Kevin" <kevin.tian@intel.com>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	"joey.gouly@arm.com" <joey.gouly@arm.com>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"robdclark@gmail.com" <robdclark@gmail.com>,
+	"joro@8bytes.org" <joro@8bytes.org>,
+	"robin.murphy@arm.com" <robin.murphy@arm.com>,
+	"jean-philippe@linaro.org" <jean-philippe@linaro.org>,
+	"nicolinc@nvidia.com" <nicolinc@nvidia.com>,
+	"vdonnefort@google.com" <vdonnefort@google.com>,
+	"qperret@google.com" <qperret@google.com>,
+	"tabba@google.com" <tabba@google.com>,
+	"danielmentz@google.com" <danielmentz@google.com>,
+	"tzukui@google.com" <tzukui@google.com>
+Subject: Re: [RFC PATCH v2 00/58] KVM: Arm SMMUv3 driver for pKVM
+Message-ID: <Z5EoPhhU9mm9zNWB@google.com>
+References: <20241212180423.1578358-1-smostafa@google.com>
+ <20241212194119.GA4679@ziepe.ca>
+ <Z1yNWI9lBNIZg6Le@google.com>
+ <20250102201614.GA26854@ziepe.ca>
+ <Z35rEeSVwfZVA9IF@google.com>
+ <BN9PR11MB52767756EE35DA2359C351F08C1A2@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <20250116191455.GC674319@ziepe.ca>
+ <BN9PR11MB52766732572A17627D16CBAC8C1B2@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <Z5DQuNn3GoU1vYPV@google.com>
+ <20250122162055.GV674319@ziepe.ca>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/5] A mechanism for efficient support for per-function
- metrics
-To: mark.barnett@arm.com
-Cc: ben.gainey@arm.com, deepak.surti@arm.com, ak@linux.intel.com,
- will@kernel.org, james.clark@arm.com, mark.rutland@arm.com,
- alexander.shishkin@linux.intel.com, jolsa@kernel.org,
- adrian.hunter@intel.com, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- peterz@infradead.org, mingo@redhat.com, acme@kernel.org,
- namhyung@kernel.org, irogers@google.com
-References: <20250106120156.227273-1-mark.barnett@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250106120156.227273-1-mark.barnett@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250122162055.GV674319@ziepe.ca>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_084725_846482_448BADB6 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20250122_091756_673469_BA2B17BE 
+X-CRM114-Status: GOOD (  22.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,30 +127,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 06/01/2025 12:01 pm, mark.barnett@arm.com wrote:
-> From: Mark Barnett <mark.barnett@arm.com>
+On Wed, Jan 22, 2025 at 12:20:55PM -0400, Jason Gunthorpe wrote:
+> On Wed, Jan 22, 2025 at 11:04:24AM +0000, Mostafa Saleh wrote:
+> > AFAIK, the most common use cases would be:
+> > - Devices using DMA API because it requires a lot of memory to be
+> >   contiguous in IOVA, which is hard to do with identity
 > 
-> This patch introduces the concept of an alternating sample rate to perf
-> core and provides the necessary basic changes in the tools to activate
-> that option.
+> This is not a feature of the DMA API any driver should rely on .. Are
+> you aware of one that does?
 > 
 
-[...]
+I’d guess one example is media drivers, they usually need large contiguous
+buffers, and would use for ex dma_alloc_coherent(), if the IOMMU is disabled or
+bypassed, that means that the kernel has to find such contiguous size in the
+physical address which can be impossible on devices with small memory as
+mobile devices. Similarly.
 
-> Changes since v1:
->   - Rebased onto perf-tools-next, as per request from Ian Rogers.
->   - Removed unnecessary code that truncated period_left to 0 and restarted
->     the PMU.
->   - Renamed variables to use the shorter 'alt_period' instead of
->     'alterantive_period'.
->   - Added patch #5 that addresses an issue in the x86 and PowerPC drivers that
->     caused the opposite period to be reported in the sample record.
->     
+I will look more into this while working on the patches to identity map
+everything for v3, and I’d see what kind of issues I hit.
 
-It sounds like it would be better if patch 5 comes first otherwise the 
-feature is introduced as broken.
+> > - Devices with security requirements/constraints to be isolated from the
+> >   rest of the system, also using DMA API
+> 
+> This is real, but again, in a mobile context does this even exist? It isn't
+> like there are external PCIe ports that need securing on a phone?
 
+It’s not just about completely external devices, it’s a defence in depth
+measure, where for example, network devices can be poked externally an
+there have cases in the past where exploits were found[1], so some vendors
+might have a policy to isolate such devices. Which I believe is a valid.
 
+[1] https://lwn.net/ml/oss-security/20221013101046.GB20615@suse.de/
+
+Thanks,
+Mostafa
+
+> 
+> > - VFIO is something we are looking at the moment and have prototyped with
+> >   pKVM, and it should be supported soon in Android (only for platform
+> >   devices for now)
+> 
+> Yes, this makes sense
+> 
+> Jason
 
