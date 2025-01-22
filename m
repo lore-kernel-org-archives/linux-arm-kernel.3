@@ -4,75 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E398C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 22:38:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EF5DC02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 22:42:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G4nulfCBgSWkzS/L23qgD/kenB1Hoae3y0h93vhD5hQ=; b=wTSEvM4QG8iOfPja6K3UOCKVHf
-	O6ALliVnoN6i1LRVJNZfwMrI02lfkNwkuhZ4MryYaqdVBXiiq5/S4xDNVcXmSsCaXvNS4lM2wiUSK
-	UBLt4AuA+B2yY5+zzwqQNOm0T23Uc/eQ8ZJjzE0xegqErzNRL4LXZ6R1yJaZBNgdTj0ZH4xMn3oNW
-	JziI387gtVmr0enhMGyCD7mZQDUTkiBEM8RTKlMGqI+ONHqUEv/zt1+yXieUgnmWoyuFG5LYVvkJm
-	5q5BpgOZCzzyTEFRxUFLxc7TTIofQ4Zls4eVp2GXnJNYsyury2HRUmmaMWSn9q7c/x9/6C6Jy9c1v
-	tGrygsVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hCnqJ7SE7al4Vf7tPnRzZDoKUhMbtBFVu0ZhtEEKigc=; b=DYDl3ETejS1Nnf+QPu/PYofgFF
+	QYn6lfNl2WsCy9J946tnexONdhsA50r/knQvp7DrIREKaRXX28Ga2po1Pjim6lT296B8lFx3IX/1n
+	3ci1wZzqwA3cET/h3X57l9AOvnwyCQpMTGg4XPD0RARdxHy7NCV/M33214zO8dxGp3JkZ0/x6n3HH
+	itewdiv3TdvgPh+WZi2kT4S0ppli+xEtd7q7xbMnoPr3HcCi1Qy0BwaUuZ2tmUosD3ykDgDzLz9I1
+	LuiYl2FJb9mGsLMK799ARuFbv068csoVnKdoJskmWoSJWzTULQFwIgUFITHr1kID0b+8Rzs2m5x08
+	QMZUX8vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tajMv-0000000BLZu-0zK5;
-	Wed, 22 Jan 2025 22:38:41 +0000
-Received: from smtp-fw-52005.amazon.com ([52.119.213.156])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tajLd-0000000BLVa-31Z9
+	id 1tajQ0-0000000BLo1-0LaB;
+	Wed, 22 Jan 2025 22:41:52 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tajOg-0000000BLhj-3yIz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 22:37:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
-  t=1737585442; x=1769121442;
-  h=date:from:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=G4nulfCBgSWkzS/L23qgD/kenB1Hoae3y0h93vhD5hQ=;
-  b=a5LlhCJ89RsGW11YyLGgNUwab8BeohOt9mww64Kc7fMV17i2Qh7TBNDI
-   S1b4ExUOZz4Ii3qX3xbEJlXofHedDHtAjrtUfwb7FWmc6k8IzlIaxNHP/
-   dHvtXLKzt0AsmS67a1LukgxtFvpYZ8sHYx8hnodRO9hJe+RoWg0g/qWIC
-   g=;
-X-IronPort-AV: E=Sophos;i="6.13,226,1732579200"; 
-   d="scan'208";a="712857940"
-Received: from iad12-co-svc-p1-lb1-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.43.8.6])
-  by smtp-border-fw-52005.iad7.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jan 2025 22:37:19 +0000
-Received: from EX19MTAUWA002.ant.amazon.com [10.0.7.35:48884]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.5.127:2525] with esmtp (Farcaster)
- id fbc3c2c8-fb22-409d-b4ab-1e9a512ec03c; Wed, 22 Jan 2025 22:37:17 +0000 (UTC)
-X-Farcaster-Flow-ID: fbc3c2c8-fb22-409d-b4ab-1e9a512ec03c
-Received: from EX19D003UWC001.ant.amazon.com (10.13.138.144) by
- EX19MTAUWA002.ant.amazon.com (10.250.64.202) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.39;
- Wed, 22 Jan 2025 22:37:04 +0000
-Received: from [10.95.192.248] (10.95.192.248) by
- EX19D003UWC001.ant.amazon.com (10.13.138.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.39;
- Wed, 22 Jan 2025 22:37:02 +0000
-Date: Wed, 22 Jan 2025 16:36:54 -0600
-From: Geoff Blake <blakgeof@amazon.com>
-To: "Doebel, Bjoern" <doebel@amazon.de>
-CC: James Morse <james.morse@arm.com>, <linux-arm-kernel@lists.infradead.org>,
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-	<pjy@amazon.de>
-Subject: Re: [PATCH 0/3] arm64: proton-pack: Add Spectre-BSE mitigation for
- Cortex-A7{2,3,5}
-In-Reply-To: <965352b6-c21f-4161-9f23-2e96cc1267f6@amazon.de>
-Message-ID: <b2a40d81-0186-da33-899d-9d21bb8356b9@amazon.com>
-References: <20250122174736.1560714-1-james.morse@arm.com> <965352b6-c21f-4161-9f23-2e96cc1267f6@amazon.de>
+	Wed, 22 Jan 2025 22:40:32 +0000
+Received: from [10.0.0.115] (c-67-182-156-199.hsd1.wa.comcast.net [67.182.156.199])
+	by linux.microsoft.com (Postfix) with ESMTPSA id C5D1320460B2;
+	Wed, 22 Jan 2025 14:40:28 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com C5D1320460B2
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1737585629;
+	bh=hCnqJ7SE7al4Vf7tPnRzZDoKUhMbtBFVu0ZhtEEKigc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jV0bdZ8MWiaF7fwCD5m/9rSCTR1iGYtuscbstQLeZAkO3oP0iczLr9QrORaMuJpl3
+	 Zk8dsXz6bMqvTOrsg4blv1v+drOvsa4cv1XB6w5+lYACNmkPx12WAdvegg6g5t0Mek
+	 gsBCoQzMP398BFpkMx7EM3kX3F4pBkUtLwknx4uc=
+Message-ID: <3e684fba-bf73-4c6c-806f-19fba74eb3f3@linux.microsoft.com>
+Date: Wed, 22 Jan 2025 14:40:29 -0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-X-Originating-IP: [10.95.192.248]
-X-ClientProxiedBy: EX19D043UWC001.ant.amazon.com (10.13.139.202) To
- EX19D003UWC001.ant.amazon.com (10.13.138.144)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] hyperv: Move hv_current_partition_id to arch-generic
+ code
+To: Wei Liu <wei.liu@kernel.org>
+Cc: linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, kys@microsoft.com,
+ haiyangz@microsoft.com, mhklinux@outlook.com, decui@microsoft.com,
+ catalin.marinas@arm.com, will@kernel.org, tglx@linutronix.de,
+ mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
+ hpa@zytor.com, arnd@arndb.de, jinankjain@linux.microsoft.com,
+ muminulrussell@gmail.com, skinsburskii@linux.microsoft.com,
+ mukeshrathor@microsoft.com
+References: <1733523707-15954-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <1733523707-15954-2-git-send-email-nunodasneves@linux.microsoft.com>
+ <Z1P69tl2qMNH-xmg@liuwe-devbox-debian-v2>
+Content-Language: en-US
+From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+In-Reply-To: <Z1P69tl2qMNH-xmg@liuwe-devbox-debian-v2>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_143721_904004_5B7108E7 
-X-CRM114-Status: GOOD (  23.96  )
+X-CRM114-CacheID: sfid-20250122_144031_050331_8959D5A8 
+X-CRM114-Status: GOOD (  25.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,77 +78,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Jan 2025, Doebel, Bjoern wrote:
-
-> Hi,
+On 12/6/2024 11:36 PM, Wei Liu wrote:
+> On Fri, Dec 06, 2024 at 02:21:46PM -0800, Nuno Das Neves wrote:
+>> From: Nuno Das Neves <nudasnev@microsoft.com>
+>>
+>> Make hv_current_partition_id available in both x86_64 and arm64.
+>> This feature isn't specific to x86_64 and will be needed by common
+>> code.
+>>
+>> While at it, replace the BUG()s with WARN()s. Failing to get the id
+>> need not crash the machine (although it is a very bad sign).
+>>
 > 
-> On 22.01.25 18:47, James Morse wrote:
-> > Hello!
-> > 
-> > Spectre-BSE is a variant of Spectre-BHB that abuses a power-saving mode
-> > on some older cores to dodge the BHB mitigation applied to the branch
-> > predictor.
-> > 
-> > Only A72r0 actually needs anything doing - this is basically a bug in the
-> > published BHB mitigation sequence that was published for A72r0. This
-> > series moves A72r0 to use the WA1 firmware call for mitigation, and adds
-> > the necessary reporting parts for user-space to discover which parts of
-> > BHB/BSE are mitigated or vulnerable.
-> > 
-> > WA1 is used instead of WA3 which was new for BHB because we can't rely
-> > on hypervisors not to use the 'local' workaround, and for Spectre-BSE
-> > we don't need to worry about discovery via. (Which is why WA3 exists -
-> > for cores not vulnerable to the issue mititaged by WA1).
-> > 
-> > Arm's description of this vulnerability can be found here:
-> > https://developer.arm.com/Arm%20Security%20Center/Spectre-BSE
-> > 
-> > This series is based on arm64/for-next/core, and can be retrieved from:
-> > https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git/log/?h=spectre_bse/v1
-> > 
-> > Backports of this version can also be found under spectre_bse/backports
-> > of the above repo.
-> > 
-> > Because this vulnerability is hard to expoit, but the cost of mitigating
-> > it is high - the mitigation is disabled by default. (see the last
-> > patch). To enable the mitigation, a command-line argument is needed:
-> > 'spectre_bse'.
+> A lot of things have changed since it was introduced. I don't remember
+> why I decided to use BUG() instead of WARN() in the first place.
 > 
-> The Amazon Linux kernel team evaluated these patches on EC2 A1 instances
-> running Amazon Linux 2 and UnixBench. We can confirm that patch impact is
-> significant, especially for syscall overhead.
-> 
-> UnixBench results in comparison to disabled mitigations (AL2, kernel 5.15, EC2
-> A1.4xlarge instance):
-> 
-> Dhrystone 2           --  +0.01%
-> 2prec Whetstone       --  +0.01%
-> Execl throughput      -- +21.39%
-> File Copy 1024/2000   -- +45.40%
-> File Copy 256/500     -- +46.52%
-> File Copy 4096/8000   -- +25.68%
-> Pipe Throughput       -- +51.46%
-> Pipe based ctx switch -- +10.91%
-> Process creation      --  +4.35%
-> Shell Scripts x1      -- +20.00%
-> Shell Scripts x8      -- +26.68%
-> System Call Overhead  -- +55.82%
-> Total Score           -- +28.36%
-> 
-> 
-> Best,
-> Bjoern
+> If the system can still function without knowing its partition id, then
+> can this be removed completely? We can always use the SELF id.
 > 
 
-We also conducted full sized workload tests that we consider 
-representative of common use cases for A1 instances. The data we see 
-shows the impact can be significant depending on workload:
+Missed this earlier, sorry.
 
-NGINX server configured as a load-balancer: -20%
-Memcached loaded so P99 response latency <10ms: -29%
-Memcached loaded so P99 response latency <1ms: -2%
-Wordpress blog server: -2%
+I checked the code and it seems that HV_PARTITION_ID_SELF may be sufficient.
+However, I'm not sure if there is some case where it is actually needed,
+so I'm hesitant to remove it at the moment.
 
-Thanks,
-Geoff
+Nuno
+
+> Thanks,
+> Wei.
+> 
+>> Signed-off-by: Nuno Das Neves <nudasnev@microsoft.com>
+>> ---
+>>  arch/arm64/hyperv/mshyperv.c    |  3 +++
+>>  arch/x86/hyperv/hv_init.c       | 25 +------------------------
+>>  arch/x86/include/asm/mshyperv.h |  2 --
+>>  drivers/hv/hv_common.c          | 23 +++++++++++++++++++++++
+>>  include/asm-generic/mshyperv.h  |  2 ++
+>>  5 files changed, 29 insertions(+), 26 deletions(-)
+>>
+>> diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
+>> index b1a4de4eee29..5050e748d266 100644
+>> --- a/arch/arm64/hyperv/mshyperv.c
+>> +++ b/arch/arm64/hyperv/mshyperv.c
+>> @@ -19,6 +19,9 @@
+>>  
+>>  static bool hyperv_initialized;
+>>  
+>> +u64 hv_current_partition_id = HV_PARTITION_ID_SELF;
+>> +EXPORT_SYMBOL_GPL(hv_current_partition_id);
+>> +
+>>  int hv_get_hypervisor_version(union hv_hypervisor_version_info *info)
+>>  {
+>>  	hv_get_vpreg_128(HV_REGISTER_HYPERVISOR_VERSION,
+>> diff --git a/arch/x86/hyperv/hv_init.c b/arch/x86/hyperv/hv_init.c
+>> index 95eada2994e1..950f5ccdb9d9 100644
+>> --- a/arch/x86/hyperv/hv_init.c
+>> +++ b/arch/x86/hyperv/hv_init.c
+>> @@ -35,7 +35,7 @@
+>>  #include <clocksource/hyperv_timer.h>
+>>  #include <linux/highmem.h>
+>>  
+>> -u64 hv_current_partition_id = ~0ull;
+>> +u64 hv_current_partition_id = HV_PARTITION_ID_SELF;
+>>  EXPORT_SYMBOL_GPL(hv_current_partition_id);
+>>  
+>>  void *hv_hypercall_pg;
+>> @@ -394,24 +394,6 @@ static void __init hv_stimer_setup_percpu_clockev(void)
+>>  		old_setup_percpu_clockev();
+>>  }
+>>  
+>> -static void __init hv_get_partition_id(void)
+>> -{
+>> -	struct hv_get_partition_id *output_page;
+>> -	u64 status;
+>> -	unsigned long flags;
+>> -
+>> -	local_irq_save(flags);
+>> -	output_page = *this_cpu_ptr(hyperv_pcpu_output_arg);
+>> -	status = hv_do_hypercall(HVCALL_GET_PARTITION_ID, NULL, output_page);
+>> -	if (!hv_result_success(status)) {
+>> -		/* No point in proceeding if this failed */
+>> -		pr_err("Failed to get partition ID: %lld\n", status);
+>> -		BUG();
+>> -	}
+>> -	hv_current_partition_id = output_page->partition_id;
+>> -	local_irq_restore(flags);
+>> -}
+>> -
+>>  #if IS_ENABLED(CONFIG_HYPERV_VTL_MODE)
+>>  static u8 __init get_vtl(void)
+>>  {
+>> @@ -606,11 +588,6 @@ void __init hyperv_init(void)
+>>  
+>>  	register_syscore_ops(&hv_syscore_ops);
+>>  
+>> -	if (cpuid_ebx(HYPERV_CPUID_FEATURES) & HV_ACCESS_PARTITION_ID)
+>> -		hv_get_partition_id();
+>> -
+>> -	BUG_ON(hv_root_partition && hv_current_partition_id == ~0ull);
+>> -
+>>  #ifdef CONFIG_PCI_MSI
+>>  	/*
+>>  	 * If we're running as root, we want to create our own PCI MSI domain.
+>> diff --git a/arch/x86/include/asm/mshyperv.h b/arch/x86/include/asm/mshyperv.h
+>> index 5f0bc6a6d025..9eeca2a6d047 100644
+>> --- a/arch/x86/include/asm/mshyperv.h
+>> +++ b/arch/x86/include/asm/mshyperv.h
+>> @@ -44,8 +44,6 @@ extern bool hyperv_paravisor_present;
+>>  
+>>  extern void *hv_hypercall_pg;
+>>  
+>> -extern u64 hv_current_partition_id;
+>> -
+>>  extern union hv_ghcb * __percpu *hv_ghcb_pg;
+>>  
+>>  bool hv_isolation_type_snp(void);
+>> diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
+>> index 7a35c82976e0..819bcfd2b149 100644
+>> --- a/drivers/hv/hv_common.c
+>> +++ b/drivers/hv/hv_common.c
+>> @@ -278,11 +278,34 @@ static void hv_kmsg_dump_register(void)
+>>  	}
+>>  }
+>>  
+>> +static void __init hv_get_partition_id(void)
+>> +{
+>> +	struct hv_get_partition_id *output_page;
+>> +	u64 status;
+>> +	unsigned long flags;
+>> +
+>> +	local_irq_save(flags);
+>> +	output_page = *this_cpu_ptr(hyperv_pcpu_output_arg);
+>> +	status = hv_do_hypercall(HVCALL_GET_PARTITION_ID, NULL, output_page);
+>> +	if (!hv_result_success(status)) {
+>> +		local_irq_restore(flags);
+>> +		WARN(true, "Failed to get partition ID: %lld\n", status);
+>> +		return;
+>> +	}
+>> +	hv_current_partition_id = output_page->partition_id;
+>> +	local_irq_restore(flags);
+>> +}
+>> +
+>>  int __init hv_common_init(void)
+>>  {
+>>  	int i;
+>>  	union hv_hypervisor_version_info version;
+>>  
+>> +	if (ms_hyperv.priv_high & HV_ACCESS_PARTITION_ID)
+>> +		hv_get_partition_id();
+>> +
+>> +	WARN_ON(hv_root_partition && hv_current_partition_id == HV_PARTITION_ID_SELF);
+>> +
+>>  	/* Get information about the Hyper-V host version */
+>>  	if (!hv_get_hypervisor_version(&version))
+>>  		pr_info("Hyper-V: Host Build %d.%d.%d.%d-%d-%d\n",
+>> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
+>> index 8fe7aaab2599..8c4ff6e9aae7 100644
+>> --- a/include/asm-generic/mshyperv.h
+>> +++ b/include/asm-generic/mshyperv.h
+>> @@ -60,6 +60,8 @@ struct ms_hyperv_info {
+>>  extern struct ms_hyperv_info ms_hyperv;
+>>  extern bool hv_nested;
+>>  
+>> +extern u64 hv_current_partition_id;
+>> +
+>>  extern void * __percpu *hyperv_pcpu_input_arg;
+>>  extern void * __percpu *hyperv_pcpu_output_arg;
+>>  
+>> -- 
+>> 2.34.1
+>>
+
 
