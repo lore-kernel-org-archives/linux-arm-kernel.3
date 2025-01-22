@@ -4,100 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 087F1C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 15:03:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78EADC02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 15:05:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NMfiJSqFcgJPozg0/DMp71+PzAqL2NmPTGoMF+zkaR4=; b=fgUtzD00xpG37LYO11Ksg+FWO4
-	Llr09Y8yoHpnyXPKDaq69Mj6uwx9rArKl8XUDBlUH9YOVRMDU/UOHo3vGfyZXwji5Szu+FM8c9DfF
-	g5GuRC+1Y32VxyLPB18mwJU6M2q6rAm/8brpfhnId/9MfKjC3SRRKvpxjDfXMdN+F2yuN0sv0DNGl
-	iPFX5VbvjqsQ3ZMY20sn5eaq3hqUEZkZA/CZMWA7YoHT009aathXdcokb6MU+5t9d0lLfneJKUpeH
-	pJUGz8ieJq9L6Mg6baBHTjRioMivKhAXqIrSAM4hjPGoAnYr4M2spvenVsEvlSkaXIjIVyPmxmAou
-	jW7P7xZg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:References:
+	In-Reply-To:Message-ID:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=3OedIriFi6e1oDwr4wv6eCf3QrN2hopNUC6JI0CVKVk=; b=wE86llw9TAkoCc
+	ZFqY2W0okP53FDeeh5maim1NGFQUHoytSzrVZmxZrCTdTXdxPWC/ZVdWZeiSjRdbGARKN/4qyg1JH
+	Ay1lxJ5N5cX+JX6Q0fPXC+ZipwQJaPbPL56+9kfAdLnrDM6vcl61XRH1+zuk665gdDG89EJahuQ7L
+	TbVY6Ljfmysqyl3ZFdQVE4GErO8vvKndB0FYDpILEOgoo8poc7ZhpZV0O4SylU1WNC2RomS9/PfkC
+	HG/+bxXGG/TUTXXthj74UMsdRM18nYqC7HZkCDVtZVHvrUxt25+WR0uNk5OyGbP5BMkwHDfOnYESP
+	LNhbz6tcr673XpcszQGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tacFu-0000000AVdl-36fY;
-	Wed, 22 Jan 2025 15:02:58 +0000
-Received: from mout.gmx.net ([212.227.17.21])
+	id 1tacIF-0000000AVyt-27UL;
+	Wed, 22 Jan 2025 15:05:23 +0000
+Received: from server.wki.vra.mybluehostin.me ([162.240.238.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tacEc-0000000AVTl-1JBO
+	id 1tacGx-0000000AVmm-0e0U
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 15:01:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1737558087; x=1738162887; i=wahrenst@gmx.net;
-	bh=NMfiJSqFcgJPozg0/DMp71+PzAqL2NmPTGoMF+zkaR4=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=icg/oNlQ1DS76oZFUwwzCvLJP5vdPypYh6mfeJ//qedy9X4ifuDstzSTkpnQeVcc
-	 2dy//1BoXuP9fjvRdxD7K9BUWeWoblwtgmUjMKne0SendjDAUKHl4fsGupMnaQeQD
-	 IX6G4a36NEsocIlSUP5wGaeSpK//ok0LnYEe1z8o8FV3YmsfCCiHnljVs3JYi1u5y
-	 EdoPf5icatgAAJfnYwjOgXkX+u+chOOaZVbbRJ9n4UizxnsNgS3Wn+K8PAr6zm+Ue
-	 vRRl09BSPslr/17L6wj5Rea2c1aJuFLEbCO5GNd+N2JgRfSAlK3DBtRzkltiBff1O
-	 DxW8DPgWtaLqjQB3sw==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.107] ([37.4.251.153]) by mail.gmx.net (mrgmx105
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MNKlu-1tqdzB0eBG-00QEWh; Wed, 22
- Jan 2025 16:01:27 +0100
-Message-ID: <cc710138-aee9-4d10-9ec5-8a017c19dff4@gmx.net>
-Date: Wed, 22 Jan 2025 16:01:26 +0100
+	Wed, 22 Jan 2025 15:04:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
+	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=3OedIriFi6e1oDwr4wv6eCf3QrN2hopNUC6JI0CVKVk=; b=gy/tA6cou0RSqwazxYArdTYzKe
+	tySSjtGIDjp9DKjHTFUrJYK1i1W3sB/8uMWCrRCC2aBsBfIr8EaO55oO0sld/fcGmBR8aNFEJtk1v
+	1Y52VdwdMsPF5EXA/U9sbHUrFf8Q30eABMRcoQUrEyiaxVIAdaQi3xajr257byXkTHxYdmJkZI4Vz
+	nIeRK7s/roDdQl5Z4oN9j+bG6eqn4WF19Tsw3sjZ3wQxeBIdnXI+tuN/q3Ip9I8eYaIqbqjajv/d0
+	8Qi4MDtvgvdOy63t1NJayJQbq3Ytj7a34dP0EoVkGBNMUU5zsLZu4tYH7T1/ztAYIugotapV1LaSn
+	ozUtfzew==;
+Received: from [122.175.9.182] (port=63087 helo=zimbra.couthit.local)
+	by server.wki.vra.mybluehostin.me with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <basharath@couthit.com>)
+	id 1tacGr-0006uR-2d;
+	Wed, 22 Jan 2025 20:33:58 +0530
+Received: from zimbra.couthit.local (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTPS id 01BEB1781F6A;
+	Wed, 22 Jan 2025 20:33:51 +0530 (IST)
+Received: from localhost (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTP id D52E51783FED;
+	Wed, 22 Jan 2025 20:33:50 +0530 (IST)
+Received: from zimbra.couthit.local ([127.0.0.1])
+	by localhost (zimbra.couthit.local [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id uXAQt3860tFi; Wed, 22 Jan 2025 20:33:50 +0530 (IST)
+Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
+	by zimbra.couthit.local (Postfix) with ESMTP id 903EA1781F6A;
+	Wed, 22 Jan 2025 20:33:50 +0530 (IST)
+Date: Wed, 22 Jan 2025 20:33:50 +0530 (IST)
+From: Basharath Hussain Khaja <basharath@couthit.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Message-ID: <1724623586.384707.1737558230381.JavaMail.zimbra@couthit.local>
+In-Reply-To: <ef90ecc9-7bb1-4f18-bd14-c5a82f07021b@lunn.ch>
+References: <20250109105600.41297-1-basharath@couthit.com> <20250109105600.41297-2-basharath@couthit.com> <7870d1e4-074f-4dc5-aae5-ac5fc725cc43@lunn.ch> <1556294138.382514.1737552374554.JavaMail.zimbra@couthit.local> <ef90ecc9-7bb1-4f18-bd14-c5a82f07021b@lunn.ch>
+Subject: Re: [RFC PATCH 01/10] dt-bindings: net: ti: Adds device tree
+ binding for DUAL-EMAC mode support on PRU-ICSS2 for AM57xx SOCs
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: defconfig: Enable pinctrl-based I2C mux
-To: Florian Fainelli <florian.fainelli@broadcom.com>,
- bcm-kernel-feedback-list@broadcom.com,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: Florian Fainelli <f.fainelli@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
- linux-arm-kernel@lists.infradead.org,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-References: <20241217193356.111102-1-wahrenst@gmx.net>
- <20250114231638.511804-1-florian.fainelli@broadcom.com>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <20250114231638.511804-1-florian.fainelli@broadcom.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: 7bit
-X-Provags-ID: V03:K1:kG+8OP9t9fOWgneKzp9htaw0ygOfSraVUkFCj+DfHyJElIT4S/m
- stSSp6mZFo2EPoViO6Ay2dTYkR93QFHNOqjO0WgV2hZzRSqbctS9IsCQsMavZ8bwz6PlILQ
- 5zn2fIxgrrm0IXzp5tpiybZqIwXECChhqcrhM5neXifwsqZIBiqZHEyfUbHLCbevd7j8ZAa
- eOoIIMzOZ4FdhRnq7LPxQ==
-UI-OutboundReport: notjunk:1;M01:P0:HrtCwjtqiwc=;XrY1I1djlduMYJUvJ6WoRJsnGIH
- VB8uVJ6Lfu/7zIL9yu8bgXNHkVI5xTKn4SPRELWWvbl78arnH8ZNooO4BAQvIOC4NnEZ9smUr
- 1f2gJ+Zo/4fHkpWYwqnxCwmTKKUxb8ogCh+pXh5OejZI0mU7EKBm0f5dxIa/J6ZIvbwAbsWZe
- ASLtyZYomqz34RgV5QE1daGSMZn0oRCLxqLgDsRfjUdeDiR+Ufi4YVegDH6YH0+zH4FMeSYsn
- d13WcFW7oB6veyqtf+ok5VDZnvjhaLDDRF0Sy6VPRFOICg54hsnh+MERRAhIbzx/U8yPD7VR+
- MWKudm6/QfF5SFNWU23hro4kMOS/PdFBYrcHAzO4kq6zQ8sKm/Dvq2VN1y8z86PEeMT/uTCdr
- yWPCCh21MgYReavLv7hPUurfxFS5mDh6F2ZjYBJ9gJYpcgbsiZDiN7q6GeyK5FKlybOPvmu6T
- dVi7wULSbzBg0hH70wjr1gf/2Cww2HDx8fst8SoxH3z4nAxYg1hOmyIv4MsSyV6wPJ0YIpo5Y
- +9vh/U+61skCOmV2YIXQCvKDrc5PRU8aLCtkalDhyOGOatAaK/Su64uv5k1GFiZvz5JlT7yF0
- vtOUSPcxNIT4ioMnh8h7rQgoGZmltW8ubsBliHt6uNySq4kmj/i63xp/9gikPCPQ3Ud7WtdmY
- yooClhBqYZGC/KJaXFlszVP1JvcavWYNU6snHOyJfo4uLHXIh/jH2a3CQUpZgT0MoCVg9PA0V
- MqcA0p4MxWfJjkKuQ2RuLMLkVPERarn/uidqd1OrYOnuTeecKWU9rT1QsEV6qiXp00HY7GVB1
- 5E2tGMVxKpXJxGJOumRaEiGG/7yaLHptiI8IxYhKa6TpC7qjB0guznPlkhWQsQA0eqa55mYLY
- z5Scn3iRCnuNVp6Eli6PD7FZ1KaXrxz7djhKnM4mn7XZbKIgrU6cSp5k/7jdkUfYemQJXbNbC
- mWNSqNIaqEmAUy4Mc6sihnF1A6YQXn0UlkD6sZ9SRGewqp86iUuH3dD25yLfU5RI+GF2Lc+Yo
- sh2t+kflymLfyfNRJjkIHwpJJu+t3YAcnRcTx73/KGNF+pOf4T2gZMdSCG6Lg1iiu/wh0fSGV
- 5Oq9oA/d0rGkO4fiYWOXrXA8fY6ZkALu9/nRau6PprQHGW0S8t5s5w2Hc9Z/u9SFesJPnWl7D
- 0aViAkgkhV/YdoCOvKLymvCOgx/h82NYlys/W8BKOv/hAhzisSS333CLVcPN6JeDKEC6/Kxwz
- cZE1QJ8hMjnyl8vvgI5A/GjwHIW6Th0G8g==
+X-Originating-IP: [10.10.10.103]
+X-Mailer: Zimbra 8.8.15_GA_3968 (ZimbraWebClient - FF113 (Linux)/8.8.15_GA_3968)
+Thread-Topic: dt-bindings: net: ti: Adds device tree binding for DUAL-EMAC mode support on PRU-ICSS2 for AM57xx SOCs
+Thread-Index: JtHjXV1FZw7lKrvlAfAnj8GsvFy7sg==
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.wki.vra.mybluehostin.me
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.wki.vra.mybluehostin.me: authenticated_id: smtp@couthit.com
+X-Authenticated-Sender: server.wki.vra.mybluehostin.me: smtp@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_070138_649437_D03FEDFF 
-X-CRM114-Status: GOOD (  10.60  )
+X-CRM114-CacheID: sfid-20250122_070403_220744_0327E6D9 
+X-CRM114-Status: GOOD (  12.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,30 +96,33 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: nm <nm@ti.com>, vigneshr <vigneshr@ti.com>, tony <tony@atomide.com>, edumazet <edumazet@google.com>, krishna <krishna@couthit.com>, pmohan <pmohan@couthit.com>, diogo ivo <diogo.ivo@siemens.com>, Rob Herring <robh@kernel.org>, javier carrasco cruz <javier.carrasco.cruz@gmail.com>, praneeth <praneeth@ti.com>, m-karicheri2 <m-karicheri2@ti.com>, basharath <basharath@couthit.com>, kuba <kuba@kernel.org>, pabeni <pabeni@redhat.com>, devicetree <devicetree@vger.kernel.org>, conor+dt <conor+dt@kernel.org>, schnelle <schnelle@linux.ibm.com>, mohan <mohan@couthit.com>, richardcochran <richardcochran@gmail.com>, prajith <prajith@ti.com>, rogerq <rogerq@kernel.org>, jacob e keller <jacob.e.keller@intel.com>, ssantosh <ssantosh@kernel.org>, linux-omap <linux-omap@vger.kernel.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, rogerq <rogerq@ti.com>, srk <srk@ti.com>, pratheesh <pratheesh@ti.com>, m-malladi <m-malladi@ti.com>, netdev <netdev@vger.kernel.org>, rdunlap <rdunlap@infradead.org>, linux-kernel <linux-kernel@vger.kernel.org>, danishanwar <danishanwar@ti.com>, afd <afd@ti.com>, andrew+netdev <andrew+netdev@lunn.ch>, parvathi <parvathi@couthit.com>, horms <horms@kernel.org>, krzk+dt <krzk+dt@kernel.org>, davem <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Florian,
+> On Wed, Jan 22, 2025 at 06:56:14PM +0530, Basharath Hussain Khaja wrote:
+>> 
+>> >> +          ti,no-half-duplex:
+>> >> +            type: boolean
+>> >> +            description:
+>> >> +              Disable half duplex operation on ICSSM MII port.
+>> > 
+>> > I already asked this in the next patch, but why have this property? Is
+>> > it because the hardware is broken? Or is this some sort of policy?
+>> > Policy should not be in DT, DT describes the hardware, not the policy
+>> > of how you use the hardware.
+>> > 
+>> 
+>> This series of patches enables support for full-duplex only. Support for
+>> half-duplex will be added in subsequent revisions. We will clean it up in
+>> the next version.
+> 
+> So you don't need this property. All you need to do is remove the 1/2
+> duplex link modes using phy_remove_link_mode() and user space will not
+> get the option to enable them, not will auto-neg advertise them.
 
-Am 15.01.25 um 00:16 schrieb Florian Fainelli:
-> From: Florian Fainelli <f.fainelli@gmail.com>
->
-> On Tue, 17 Dec 2024 20:33:56 +0100, Stefan Wahren <wahrenst@gmx.net> wrote:
->> The commit 84b1d6cc3e4c ("ARM: dts: bcm2711-rpi: Add pinctrl-based
->> multiplexing for I2C0") introduced multiplexing for I2C on BCM2711-based
->> Raspberry Pi boards. Unfortunately we missed to enable the necessary
->> driver in the defconfig.
->>
->> Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
->> Link: https://lore.kernel.org/linux-devicetree/961b3d43-b4c9-4573-82d7-844aa129d994@notapiano/
->> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
->> ---
-> Applied to https://github.com/Broadcom/stblinux/commits/defconfig-arm64/next, thanks!
-i can't find the patch in this branch or in linux-next. Do I miss something?
+Sure. We will remove this property and make necessary changes at all places in the next version.  
 
-Best regards
-> --
-> Florian
->
-
+Thanks & Best Regards,
+Basharath
 
