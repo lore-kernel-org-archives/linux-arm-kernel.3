@@ -4,93 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DCFCC02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 13:33:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65C0BC02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 13:34:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PsT5ZgwViolUdUf4pKeCqLICO/10Zy8qj04pN0k9tFs=; b=UeeDtnJQZ5cFTkO2EYVwyLqtMS
-	X/hQU3PWhrD7oK7CF0MNYNxUa84lBS3b4ekqHetU2SQk4x6TQ2iJW4G0qwMyCxfGS8utC7wh6z8aZ
-	Rm/VGEGwtyi8JrgSLfI9dhoFGnGWBC8EhfpiZchMtxfQqNOtOytdC0WENjKj7OXsDV2ZTjtffTT2G
-	71HPOxm7A+5BIFJMo57daCU+zk47EOJcijvNYpg6Fd0Up1hlEGvzC92KMIpVrITOvBTvQCXYPt8ci
-	k66BYYzztfmsubesrNUtzH83EmF8yaGjYus/vf+hqiIeJYQ+3fkX+Ou/3Vs3ec4L6gWZ1vqFZNWWK
-	OpbCT0Uw==;
+	bh=MT1Qd4GfkNXwqWLqiWPdrTymaf6z71RpZBpS8qzx2Bk=; b=aQoMF7/9x2k0wUoKHCaVGM2egr
+	4I4my2ok0rKzreb0IC7rR9Ok/KiLcS2JWgAZkdIU32ysOaMNwJT7IyhU/YHCD11WjlkqjTxsqbnRo
+	BJ45sPk/6Dh2XTVLxb2yPGL+DXLfJknkuj+D3/y4Vs++WsZ2Uf2T2YWzRi4Fdeu5eLGIshp1wnPFA
+	clWtfVk1L7l6Az3/xtW5EU3IOE5Rsm9vsA/go8M/HJC2yOm69NbG+irPfEaTUHU9a7w9IrZuOJ9pp
+	PNXqF1fXdpQ4oB0D9OGxPoeIHSX6sHFaHPcIaY5HjFVHcepIpfaT63hPN/tSPMajcUP2KWUSXn9SL
+	rTS/e2RA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taaqx-0000000AIB8-1jIT;
-	Wed, 22 Jan 2025 13:33:07 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1taasD-0000000AIOG-0LqG;
+	Wed, 22 Jan 2025 13:34:25 +0000
+Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taaob-0000000AHaF-21Ma
+	id 1taaoj-0000000AHba-3l26
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 13:30:42 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3862d161947so3704964f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jan 2025 05:30:41 -0800 (PST)
+	Wed, 22 Jan 2025 13:30:51 +0000
+Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-304d760f118so57326121fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jan 2025 05:30:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737552640; x=1738157440; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=PsT5ZgwViolUdUf4pKeCqLICO/10Zy8qj04pN0k9tFs=;
-        b=xGP4nkfKiCQkJguDwoWnMQFcftFM4VSX4heaMFkTWnAUrhFJEGg/BK+/j12GxsQSyr
-         C69V6cmAyAo6VcRKbOMIxNGibkZR4cbMOmXoQ8f/o16KdIp4bLVJ1c+c0YM16cl95f/x
-         WVRRY+tNa377HGjd0nMgiGghi7m5OH5B9krr3qn6HYJwJZ9UjhNaKevYiRbN1NkZy9OX
-         6gxEUPqaSJEdCPboVf2alZCCVA81TBfizUEhb+ner3+oqm/jyCMZhDcWpObIZbhnZ/qI
-         7HUeCvhe5yVMWyGIg6HdpVl6JuIt016z3PR/j2vt5LqNOwTXbtIRsWa8eFM1QmEmczKJ
-         dcrg==
+        d=linaro.org; s=google; t=1737552648; x=1738157448; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MT1Qd4GfkNXwqWLqiWPdrTymaf6z71RpZBpS8qzx2Bk=;
+        b=iv45AssgwtebvEKEwBPLFTB6xqqD/LAVRHzsWclaENlfAd3bk5GleuUb7RtnH+I55D
+         k5IfpDxHJaeVSHs8nHDdnjDshrv8x8uQh1tc/ZWdAoRHl71e5WexTVld8NJaHIesFEUl
+         RbZfyjBwV2XOsjDdopyVxpMAVE4c6IqcS9AP9VfCeQTXLyoYYc5CiqQP1vjbibPVTWQI
+         +c8NyNNsGS8T071E4gcD+5ywZrXp7XspFYMC8oQDke6vZk8RLsEolKQucq94NHIPrR7k
+         1aO/CWbeCJRSexVcdtZU30g5Sy243zhXdRfgIA+bX5tIaKLycV7KZ8RWOoWI96o+eD1y
+         38bw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737552640; x=1738157440;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=PsT5ZgwViolUdUf4pKeCqLICO/10Zy8qj04pN0k9tFs=;
-        b=ZvJ4+ZEUIHuKMQEIJWScfVT9Zz3JQDo2theHW0gd13jL8TkhU5lkZz5qp3P1mYraMg
-         YvW7Qni2sHS5T8e0SwTCrzIapN/2EkU6C8pPK2t8AnycDlUG+ZFL6v7ehA6tMeVYEfrd
-         Rqy4LxSbGVV9V0nzFjLzeDQPJ++QBS+BCH40LdPcDUjit2d4aBJcy5uuIouJ13nBoopF
-         2JFY3npCYXNq63KMlHvgMsgNHtIhkXNE3KtUa5RNAp7tPXOM9nwkmw/1UQ1ty0vuFhRS
-         glk4QXKsaOtkFB0neZD2prwbYr8UwiwuHRaLZkyu03vhI4GAMbgoTiCt0NRrJvqoEGLk
-         Er9Q==
-X-Gm-Message-State: AOJu0Yz5ibYYBPLd71tynvVMlg9IMvd2qYvxaTl722ec5Ol7ZRgRBfip
-	o0a6hhcQfIUFGtvTlYsWIittkW7bGvsgSIG6RbgjmFt3LcIRtGSkhVL0Cdrhfk0=
-X-Gm-Gg: ASbGncuTI9mqH8WH5q0OEl1YdnX05Sk0SLyoXgZdXn1EFbT/nXF+KgvEUythQzWi4D6
-	tnt4y1jxqbYsrAehuT7nRItp1+03EP1UH8L4K84bHurWsKn2H6BVD1eVpyt2wwEiSSdHYPCWdX/
-	mX78VT9g58TBhe9bUs/FKLCarkfLApjWlQt7pFR9w4WhEp6yUXsoFmHIN9i+9dhzTyltBB4x7CX
-	TfyNDznGTFAD4MdOsCiRY4KAVEThDwTlyiIE6OINOX9lmcpYiZ9OJGjjW4Vx1iERxpzRb9+BJyN
-	Y6jGPgI=
-X-Google-Smtp-Source: AGHT+IHGz3oZZDXrd7dn+W7Dx6QiFyDmlY7D2ck63M0pEtyL+pVpGkX33GNbY2T81rXpW5skMbhNiw==
-X-Received: by 2002:a05:6000:1f88:b0:386:459e:e138 with SMTP id ffacd0b85a97d-38bf57a604amr16210415f8f.36.1737552639966;
-        Wed, 22 Jan 2025 05:30:39 -0800 (PST)
-Received: from [192.168.0.35] ([176.61.106.227])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38bf322a838sm16081440f8f.48.2025.01.22.05.30.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 22 Jan 2025 05:30:39 -0800 (PST)
-Message-ID: <93be5858-6c1e-4a09-bfe3-ac89d458a892@linaro.org>
-Date: Wed, 22 Jan 2025 13:30:38 +0000
+        d=1e100.net; s=20230601; t=1737552648; x=1738157448;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=MT1Qd4GfkNXwqWLqiWPdrTymaf6z71RpZBpS8qzx2Bk=;
+        b=oVj9b1JdE5hcBAC1HnwTzhVtD0W2FzOV7pRXj1ZdKKWAil5MprOsI2nkPPRzCqmIMc
+         mk/SEDr1vq9g/6fXea+HpOYdASCjndFdHQfcBTshvKMfb6CqcklQF+2HENvGiBdcpIyp
+         inttSDI1hifmSmGnsYJqoy4fuVXZ1wLvcAKVvAuFEmAvDVKLcxIc6k3PnDMtrK768PBy
+         I9tFCgQeFKTis7ZSV60UtXTPOZBKoosVCZuz4MazQpxY/qAEbd8HjYs+bRQJMrGzANO0
+         d2ak7NH4lBbcGtYL6adMAUTopTNKTQIdKKHwHlqFyD1BSmA0RpxpioJ7oWDYTA/wO+c6
+         ivvw==
+X-Forwarded-Encrypted: i=1; AJvYcCX2AY4xWp9ICl63DjCPLw9bQ7GwfbTS7xSfi3/behdQ2JsTuu3FFZIrigsyx/LcjqD7DXLN49S20dHKVo8OlXzB@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHa52bsf6HKiXDCiYbCGAaFbRs58lJwo6MbD3eq2rcqmYTU0cb
+	9NejDayjQd3rBgbessPNoJRkev0r0mKD6c+coTsdO9KPkvaud3+KTf0R0Kz/uwHTrZ16fRcwZIk
+	jR3ZfNy08gKMls45frMMT8wB4O3SIlIOBjF4+SQ==
+X-Gm-Gg: ASbGncvItYvllhoSXuuwTGvv2Kp7Th+dTWHnQrIOxtAioIPJaR3jV9Wp3Y2rBjSu0eA
+	86cNlGhDFPmF5wEK1Bsnj2KbFsMqdfseAH81uTCqr1774C/uTdQ==
+X-Google-Smtp-Source: AGHT+IGs/n7Ljor2d3ADarC6NG+9NmWSbVqt5BnALy/+iVRtZ9CeuWAGeuayEWCsA+u7d2kSrA4qXict3/8+PKzO1MM=
+X-Received: by 2002:a05:6512:ad5:b0:542:8d45:cb3e with SMTP id
+ 2adb3069b0e04-5439c241016mr8306080e87.18.1737552647836; Wed, 22 Jan 2025
+ 05:30:47 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] media: qcom: camss: update clock names for sc7280
-To: Vikram Sharma <quic_vikramsa@quicinc.com>, rfoss@kernel.org,
- todor.too@gmail.com, mchehab@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, akapatra@quicinc.com,
- hariramp@quicinc.com, andersson@kernel.org, konradybcio@kernel.org,
- hverkuil-cisco@xs4all.nl, cros-qcom-dts-watchers@chromium.org,
- catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, kernel@quicinc.com
-References: <20250121180746.1989996-1-quic_vikramsa@quicinc.com>
- <20250121180746.1989996-3-quic_vikramsa@quicinc.com>
-Content-Language: en-US
-From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-In-Reply-To: <20250121180746.1989996-3-quic_vikramsa@quicinc.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20250110123923.270626-1-szemzo.andras@gmail.com>
+ <20250110123923.270626-4-szemzo.andras@gmail.com> <20250114141954.2785879a@donnerap.manchester.arm.com>
+ <CACRpkda0nx3SQtdjmXdCEbVJSWM10TM=p-6JbDjbiYcOSF5PxQ@mail.gmail.com>
+ <20250115152635.1b89e7f4@donnerap.manchester.arm.com> <CACRpkdYVTedEon0X-izvaDTGF6yRhD2s=Z6NEM=zBf4vD-T0Pg@mail.gmail.com>
+ <20250117145228.2fc8a64e@donnerap.manchester.arm.com>
+In-Reply-To: <20250117145228.2fc8a64e@donnerap.manchester.arm.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Wed, 22 Jan 2025 14:30:36 +0100
+X-Gm-Features: AbW1kvbmavQU6KJ-WzCpG2eI69ENGFRQZ6H5c_O0ajyC4q6k3ZeKpvUjD-d9bk8
+Message-ID: <CACRpkdZ29=mCqLku4Obq+E5j6kS4NZchwCtrTeCt0qUctn6Czg@mail.gmail.com>
+Subject: Re: [PATCH 03/12] pinctrl: sunxi: add driver for Allwinner V853.
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Andras Szemzo <szemzo.andras@gmail.com>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Maxime Ripard <mripard@kernel.org>, 
+	Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
+	Ulf Hansson <ulf.hansson@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, linux-clk@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-phy@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_053041_522965_843DF0E0 
-X-CRM114-Status: GOOD (  14.14  )
+X-CRM114-CacheID: sfid-20250122_053049_937650_07DCEBAC 
+X-CRM114-Status: GOOD (  15.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,91 +109,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/01/2025 18:07, Vikram Sharma wrote:
-> Update clock names to make them consistent with existing platform i.e
-> sc8280xp. Rename gcc_cam_hf_axi to gcc_axi_hf and add gcc_axi_sf.
-> 
-> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
-> ---
->   drivers/media/platform/qcom/camss/camss.c | 15 ++++++++++-----
->   1 file changed, 10 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/media/platform/qcom/camss/camss.c b/drivers/media/platform/qcom/camss/camss.c
-> index a85e9df0f301..b1358457c66e 100644
-> --- a/drivers/media/platform/qcom/camss/camss.c
-> +++ b/drivers/media/platform/qcom/camss/camss.c
-> @@ -1443,12 +1443,13 @@ static const struct camss_subdev_resources vfe_res_7280[] = {
->   		.regulators = {},
->   
->   		.clock = { "camnoc_axi", "cpas_ahb", "icp_ahb", "vfe0",
-> -			   "vfe0_axi", "gcc_cam_hf_axi" },
-> +			   "vfe0_axi", "gcc_axi_hf", "gcc_axi_sf" },
->   		.clock_rate = { { 150000000, 240000000, 320000000, 400000000, 480000000 },
->   				{ 80000000 },
->   				{ 0 },
->   				{ 380000000, 510000000, 637000000, 760000000 },
->   				{ 0 },
-> +				{ 0 },
->   				{ 0 } },
->   
->   		.reg = { "vfe0" },
-> @@ -1468,12 +1469,13 @@ static const struct camss_subdev_resources vfe_res_7280[] = {
->   		.regulators = {},
->   
->   		.clock = { "camnoc_axi", "cpas_ahb", "icp_ahb", "vfe1",
-> -			   "vfe1_axi", "gcc_cam_hf_axi" },
-> +			   "vfe1_axi", "gcc_axi_hf", "gcc_axi_sf" },
->   		.clock_rate = { { 150000000, 240000000, 320000000, 400000000, 480000000 },
->   				{ 80000000 },
->   				{ 0 },
->   				{ 380000000, 510000000, 637000000, 760000000 },
->   				{ 0 },
-> +				{ 0 },
->   				{ 0 } },
->   
->   		.reg = { "vfe1" },
-> @@ -1493,12 +1495,13 @@ static const struct camss_subdev_resources vfe_res_7280[] = {
->   		.regulators = {},
->   
->   		.clock = { "camnoc_axi", "cpas_ahb", "icp_ahb", "vfe2",
-> -			   "vfe2_axi", "gcc_cam_hf_axi" },
-> +			   "vfe2_axi", "gcc_axi_hf", "gcc_axi_sf" },
->   		.clock_rate = { { 150000000, 240000000, 320000000, 400000000, 480000000 },
->   				{ 80000000 },
->   				{ 0 },
->   				{ 380000000, 510000000, 637000000, 760000000 },
->   				{ 0 },
-> +				{ 0 },
->   				{ 0 } },
->   
->   		.reg = { "vfe2" },
-> @@ -1516,11 +1519,12 @@ static const struct camss_subdev_resources vfe_res_7280[] = {
->   	/* VFE3 (lite) */
->   	{
->   		.clock = { "camnoc_axi", "cpas_ahb", "icp_ahb",
-> -			   "vfe_lite0", "gcc_cam_hf_axi" },
-> +			   "vfe_lite0", "gcc_axi_hf", "gcc_axi_sf" },
->   		.clock_rate = { { 150000000, 240000000, 320000000, 400000000, 480000000 },
->   				{ 80000000 },
->   				{ 0 },
->   				{ 320000000, 400000000, 480000000, 600000000 },
-> +				{ 0 },
->   				{ 0 } },
->   
->   		.regulators = {},
-> @@ -1537,11 +1541,12 @@ static const struct camss_subdev_resources vfe_res_7280[] = {
->   	/* VFE4 (lite) */
->   	{
->   		.clock = { "camnoc_axi", "cpas_ahb", "icp_ahb",
-> -			   "vfe_lite1", "gcc_cam_hf_axi" },
-> +			   "vfe_lite1", "gcc_axi_hf", "gcc_axi_sf" },
->   		.clock_rate = { { 150000000, 240000000, 320000000, 400000000, 480000000 },
->   				{ 80000000 },
->   				{ 0 },
->   				{ 320000000, 400000000, 480000000, 600000000 },
-> +				{ 0 },
->   				{ 0 } },
->   
->   		.regulators = {},
-Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+On Fri, Jan 17, 2025 at 3:52=E2=80=AFPM Andre Przywara <andre.przywara@arm.=
+com> wrote:
+
+> That is actually a good argument: At the moment I am happy with my
+> proposal (the allwinner,pinmux =3D <number>; property), but that seems li=
+ke
+> standard #15 then.
+> So would biting the bullet and adopting the Apple/STM32 way then be more
+> sustainable?
+
+I suppose...
+
+> On the other hand: the allwinner,pinmux solution has the advantage of bei=
+ng
+> already written and proven working, also it stays very close to the
+> existing description/binding - so implementations like U-Boot could just
+> keep on using the "function" string.
+>
+> I am a bit torn here... I don't think I will find the solitude to
+> implement this "Apple" approach in the next few weeks.
+
+I think whatever the Allwinner maintainers agree is the best should
+be what you go for. It is a lot of hobbyist maintainers in this space
+and for them the bar should be lower.
+
+If you have buy-in from the other maintainers, then go for that
+solution.
+
+Yours,
+Linus Walleij
 
