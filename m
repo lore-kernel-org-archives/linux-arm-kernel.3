@@ -4,76 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CABBC02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 18:28:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B47B6C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 18:34:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q+sJ40zBAhXNyM5+7H2SDONfRCEukX+la4Ys4RjzEr0=; b=MJoIU4rhUhCZ46qVJTX6rJ+7kj
-	I2v3NU+EJAmO2EU1RJK8zk9SLwXO7JbZKeXxAVRW86SkGfY2WBPqsfl7Zaj8+diYa/EMJD2jJZv+G
-	brQ5Fq1ERGGVKMDLkRtDXkXO+dljrAO9AeWkSb2LBRCml9PUlpIJenQV2D7h6scaQ2cRSpgqNB8tv
-	kkTOIBn2nKZGjSvPgridzrPjfEOhy1Mkk+bokxA8qTJZG37bXOxaMP3jBKQOHd94k5S3Q98zwP2JY
-	Wi3Qqc3vdN3bKEcTQEbOC2MdlZNhaUgrZLVpnzrYk3bTGHF5JbSfphuav0K12GZeQrWQDFAFP4+Qe
-	yGAJhvJA==;
+	bh=XGxAfr1RErIaTjlH3ywSl69/Jh18iaYDydnvNAEir6k=; b=WxY6kWNg59mPd2qfKlpN6stqSm
+	cgJNKJjnnWKVMm/9w223yhyOz9TLyaW7+DMx5if2xxcCbu2ZzasTBzmtPysNHLliEIeAijnBq8582
+	FKq8VThgoq7qSWrC+1DOsUScn0PigEA7EPhvx7fBlVb0/ysACOKIfYkb2a1cX1On2csrHEqX8TNsZ
+	Ol324vo2XEZvia1/Sm8HKza53CU/0KtGG9Frukl2PlJrsfWBvZw5JjZZUeygnsQ8Z5bJVd7hIaWD9
+	fXn0QbI/npeoAVhzjKRqJM1QQmcIb+8QzxDpXy4aHnXAiXtn09fXYKVb9/YBwR0NfznoBo+q7bjHw
+	QDi2yuiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tafSf-0000000Az41-0Y3W;
-	Wed, 22 Jan 2025 18:28:21 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tafYc-0000000AzvB-0eZz;
+	Wed, 22 Jan 2025 18:34:30 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tafRN-0000000AyrI-1D2C
+	id 1tafXK-0000000AzSo-1840
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 18:27:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 091BD5C58B0;
-	Wed, 22 Jan 2025 18:26:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E74CC4CED2;
-	Wed, 22 Jan 2025 18:26:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737570420;
-	bh=Q+sJ40zBAhXNyM5+7H2SDONfRCEukX+la4Ys4RjzEr0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pX5DCPAwGd8XJlAcwCjZS7/TvZBiKO4OOj1cNFM+YP0iDnM9bgSH/FQE2nyR1c8qV
-	 SoVFFzxNrRnJO+nIFJ7TzyDz8Fr9af7kwKiRgeqXB4OZBnkQ6U/WHr1Qd0jNi6Tb9t
-	 efU68epX+//wQU/fqR32UVkdWBedD+Bngzhx9Xrrq4uy9ZBTJiB0vAk9/6P2fpmngV
-	 oivqHn/8hLl8jy/vBhsyh1iTlVSRl1JQnSGxfgicHC6qLxjaS77tpNMKU4YHXgNePR
-	 FIz46E+v7VxSSpaVcG0SVagOR+gMf8hDNUY8a6yc2F08J1C4fn98y9d2Z7w8863ev4
-	 AvZUTNe+oP2qA==
-Date: Wed, 22 Jan 2025 18:26:55 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Pankaj Gupta <pankaj.gupta@nxp.com>, Jonathan Corbet <corbet@lwn.net>,
+	Wed, 22 Jan 2025 18:33:11 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-2f42992f608so217568a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jan 2025 10:33:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1737570789; x=1738175589; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=XGxAfr1RErIaTjlH3ywSl69/Jh18iaYDydnvNAEir6k=;
+        b=UQ1k3hXvLlI2HLTh8Cs8CUPj9b2M6smllTMJ4+g967hUXK2hh5yPiQg4MaVLSse2Nu
+         ZHBXKTgXS5ttsgqWyahiEOyAOQ2z8qfcW5U3o3EyljpZqaZ2w6jcdcQyzZ4xQSF2uuSA
+         f90Gqa0o6+lgz6YPF/1kzdUOalkw8vYzngS2tWZYsykSMMTyKWquHTA+CTwzBF0Sb1Cb
+         mBdcfim61QiUhBz+bhNcdjBpcZjlKt8Lvfv6J47/R2SkawQ91Mw6UUF0K6wwLstLzJmf
+         D55d08ZqvH7KMY9Ax0SbRu1XfNuv8snDQzNA5BOTO87qr8GM6jIYfsnp3fFpMPQyWXwR
+         A3qQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737570789; x=1738175589;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=XGxAfr1RErIaTjlH3ywSl69/Jh18iaYDydnvNAEir6k=;
+        b=mO63eN8XE94HtO1pZb94Kc8O2u1+P9fYrYjhei2HGp4rzWB2fkC0wkjhIl1fIyx370
+         JmChQAnl7WK/mHF0GLPxIgVE6ixQD1+/Z0zNdiB8QOvShgNxmYKIVqndfTbGNAhFy8Bz
+         CynmPVqP9dQlZS4ZSTyc+U0gJ+X7Wn8OzXKjnUH9P+DUzbxPx1weepEcsvjK3PaJvE+2
+         q/RZINnGSbVOxUPndUgrzjDjEwlRxK4NywgWJWC+v2s8flGfHUrWkGV5nvgjhinGPqrz
+         vr134Z9l2eBeRt5rXSE/sc5PVA0jRVYZEm5FXLiBlwsQe8v4CmoktXJ9sPR1hhg4NRvp
+         w/lw==
+X-Forwarded-Encrypted: i=1; AJvYcCX1sTLMBYPuC55rF7yvFCxMolxJv4UEUD8oHTz7Zr+L9zAYEARlgXmlSVBsTfGoTz45x+HbmJIR6z7t53N5NBnr@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUfHcl2nrgCMXaL35sqTH2xnG/0/2onwZFGncIosZetI+mPcai
+	ABbmAox+h2/a36mx1C05EGh173sc7a6m9iu1CgueEiLQzEXWaHxf
+X-Gm-Gg: ASbGnctsw/q9So3gns5utkEM85Wu0tCcJ9bWcf37HJQYg+3KAxw93CIcYet0OIgibaE
+	1u5AkDi11N0oGFXR6aCwe4F24fv32VJPYZ2r4Nh32Vjrq47MPT5Uh8sRktiYihx5Zh1sAPZg02X
+	IUq25ujGE+kqkB/+O9jwZPiIAxGK9jDuvnfGLYOylocmYmshSpo6kx3Za89i1QCs//deS862jL/
+	bAhNveaIulW24KWyv5TSpzIKNsMzGuUlPlcVABs3k0KQBjvN70yVEiNNahKDDO1J/q1eQ==
+X-Google-Smtp-Source: AGHT+IH7KCx6ZerR7Y/ysqk3oOOXRwJAIgtVJJs/HwWggKSL+QPKg6M5ZcOSafU6EcNPqL9uv2Ogdg==
+X-Received: by 2002:a17:90b:51ca:b0:2ee:5bc9:75c7 with SMTP id 98e67ed59e1d1-2f782c4bdc3mr28221471a91.5.1737570789085;
+        Wed, 22 Jan 2025 10:33:09 -0800 (PST)
+Received: from google.com ([2620:15c:9d:2:824e:c27f:8742:e4e])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f7e6aaca04sm2015449a91.27.2025.01.22.10.33.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 22 Jan 2025 10:33:08 -0800 (PST)
+Date: Wed, 22 Jan 2025 10:33:05 -0800
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: Sasha Finkelstein <fnkl.kernel@gmail.com>
+Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [EXT] Re: [PATCH v12 2/5] dt-bindings: arm: fsl: add imx-se-fw
- binding doc
-Message-ID: <20250122-feed-empathic-4954564d95ba@spud>
-References: <20250120-imx-se-if-v12-0-c5ec9754570c@nxp.com>
- <20250120-imx-se-if-v12-2-c5ec9754570c@nxp.com>
- <6110fd00-c050-4bcf-8971-674bc8c0bfc7@kernel.org>
- <AM9PR04MB86049239156AC82F0AA4BCCA95E72@AM9PR04MB8604.eurprd04.prod.outlook.com>
- <000e44f1-839e-4f43-9bb1-ae53d6826ff7@kernel.org>
- <11880309-5021-4038-a4eb-a3a80da71550@kernel.org>
+	Conor Dooley <conor+dt@kernel.org>,
+	Henrik Rydberg <rydberg@bitmath.org>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-input@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>
+Subject: Re: [PATCH v5 2/4] input: apple_z2: Add a driver for Apple Z2
+ touchscreens
+Message-ID: <Z5E54dQQl9LE2znf@google.com>
+References: <20250118-z2-v5-0-6d38b2582169@gmail.com>
+ <20250118-z2-v5-2-6d38b2582169@gmail.com>
+ <Z5CNx9natNYmJ5il@google.com>
+ <CAMT+MTRKpgHBVVHoeWGmOqpF9vzZV3CTUdg4d0oOnutubeTFaQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="AmcLC6ZH7ugu6oqW"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <11880309-5021-4038-a4eb-a3a80da71550@kernel.org>
+In-Reply-To: <CAMT+MTRKpgHBVVHoeWGmOqpF9vzZV3CTUdg4d0oOnutubeTFaQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_102701_415389_AD5D5009 
-X-CRM114-Status: GOOD (  14.57  )
+X-CRM114-CacheID: sfid-20250122_103310_304181_AAEDF635 
+X-CRM114-Status: GOOD (  18.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,56 +106,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jan 22, 2025 at 06:40:50PM +0100, Sasha Finkelstein wrote:
+> On Wed, 22 Jan 2025 at 07:18, Dmitry Torokhov <dmitry.torokhov@gmail.com> wrote:
+> > > +     z2->input_dev->phys = "apple_z2";
+> >
+> > Phys is supposed to be unique, however my understanding there could be 2
+> > devices in the system?
+> 
+> All existing devices have at most one z2 device, and while i do not
+> have visibility
+> into future apple product decisions, judging by the current stack, it seems
+> unlikely for them to make one that needs two of them.
+> 
+> > -static int apple_z2_build_cal_blob(struct apple_z2 *z2, u32 address, size_t cal_size, char *data)
+> > +/* Build calibration blob, caller is responsible for freeing the blob data. */
+> 
+> A comment on a previous version of this patch requested to not have functions
+> that require the caller to free the return value
+> https://lore.kernel.org/all/ZAlM2DzMmwzWIZEF@nixie71/
 
---AmcLC6ZH7ugu6oqW
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+You have to pick your poison. Either the caller has to inspect the
+property to figure out the size of the allocation, handle errors, and
+provide diagnostic, and then have apple_z2_build_cal_blob() re-parse the
+property and fill the provided buffer, or you can hide it all in
+apple_z2_build_cal_blob() and task the caller with freeing the blob when
+they're done with it. Similar to request_firmware() and put_firmware().
 
-On Wed, Jan 22, 2025 at 11:35:50AM +0100, Krzysztof Kozlowski wrote:
-> On 20/01/2025 16:01, Krzysztof Kozlowski wrote:
-> > On 20/01/2025 14:07, Pankaj Gupta wrote:
-> >>> Driver configures multiple misc-device on the MU, for multiple
-> >>> user-space applications, to be able to communicate over single MU.
-> >>>
-> >>> It exists on some i.MX processors. e.g. i.MX8ULP, i.MX93 etc.
-> >>>
-> >>> Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
-> >>> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-> >>> Reviewed-by: Conor Dooley <conor@kernel.org>
-> >>
-> >>> Where Conor's review tag was actually given?
-> >> On v6.
-> >=20
-> > I already looked there. No trace for tag. Please point to the message.
->=20
->=20
-> Still no answer from you, except that evading answer, so let's be clear:
-> don't create fake tags.
->=20
-> Clean your patchset from all fake tags and keep only the ones which were
-> real.
+I think the latter works better in this particular case.
 
-Ye, I don't see that R-b given either. My guess is that somehow "go for
-it :+1: was interpreted as one, but it certainly was not meant to be
-one. Converting that to a tag is definitely not okay. Seems it appeared
-in v9 after Rob prompted about /his/ missing review from v8. I never use
-my k.org email in tags, so that is an immediate red flag. I think I never
-re-opened this thread after seeing that Rob had approved it back in v8,
-so I never noticed. Only by chance that I opened in now.
+Thanks.
 
-Thanks for spotting it :)
-
---AmcLC6ZH7ugu6oqW
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ5E4bgAKCRB4tDGHoIJi
-0v8/AQDUg11QxpssLFmCOzFjPrBV3rDvFSXKMi4tkZxmbAb1rgEA6rnCv9zbtejU
-growuDDxx9odvXR3iA6s6XV+J3V9VAA=
-=CXkd
------END PGP SIGNATURE-----
-
---AmcLC6ZH7ugu6oqW--
+-- 
+Dmitry
 
