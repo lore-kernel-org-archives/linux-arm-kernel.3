@@ -4,118 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A710C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 13:00:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFD14C0218C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 13:09:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Af2z8W+7mc/SOk7P4of2xH5AxoGm/Y7aLSXSKBYzo7k=; b=rkKMFIk3ks/F27nYnG4Txd2B8J
-	hKsnNw5gQsoxs9WMbnGXx7bLWAlB6Sdp90wlWVCjiEE8XLACRGTUMp3CC3kCHcCJe9ct5JFS/gbpP
-	kJAeDeSBN0dFh0ZfkMN/b8nbNbM3xEhMsSD1b6LN3EG0psQWXlzfUhQ/dvFkU/WSiml4z2wsuuse3
-	fwLTwxONT/bu0O0zyqXef1tlrtcDS1m437nxd8z4VG75os/SbhSOQiY8/vZoOarWVXdHKZmMQIkiW
-	315aL+7S1YHK50S+EARB4zgqjG+0N90yEfay6yVq+B8FfRQSzdseCFRT4ZLb7YjA7UkrH6Q0HLaRK
-	aN6lbLTA==;
+	bh=f79sgirNquVrPTw/4uMnu5O9aV6JookXhGIW+QW7GnE=; b=3K7bxrh5khtaH8NoO1r2M4a7Yb
+	yoITt8Pxhg6l2ACHh202zTQyPeqAiJDMpgtbRucCMQoc0Ki1/QsiWmafahsYZFkQDwgs5az0A84HT
+	qAnX02YtQAkPhV1zpLN1naXzb8tuRLWfjQghYD0V5x9t53OJOWItLmUBqjQdtnQzBH8rYEveNCSrq
+	4iEUOk4LURfu/HWUBVhwqQtg+YAFGulL7+WjiyTQ/NsZ7gY0ChN7xTCqYteS3fzWURYKEV8bdCi6D
+	Nr81WwwRB4OuPkWs1GxEViCPzBhDeNUBvALe3pgzi4XQ1uUwshAg64KVV2ktnLBEcrTXyLlsc4PtX
+	T5sTi2bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taaLJ-0000000AEFc-31V6;
-	Wed, 22 Jan 2025 13:00:25 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1taaTW-0000000AEwr-171K;
+	Wed, 22 Jan 2025 13:08:54 +0000
+Received: from relay1-d.mail.gandi.net ([217.70.183.193])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taaIy-0000000ADtN-0Kgb
+	id 1taaSE-0000000AEni-0qBe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 12:58:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A49735C5E51;
-	Wed, 22 Jan 2025 12:57:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92799C4CED6;
-	Wed, 22 Jan 2025 12:57:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737550678;
-	bh=iH9Nwh81chy+CHhQ5bMOenLErLnoG0ScuKC6ksTWUv4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PsJyP1tk8tlX7Ryb/c6qPchSnyERc3fgaYHkKXkfgeBUJYewerBbJrKwEQAgRPXV0
-	 GoTVzZgkbYlQDsIRpU/z951Itnf0dtf4qMkpITu1cyxarz3nXQcMYQoaEEXtHwmErj
-	 aVm8wXOTVreknm7hAihxXaj1EBrXvhYVFJHsZVyqJ+oQZVmMbO3TXZlGDXb9STFRh+
-	 xZqYy4tqs0OoEBOOc5YJlGYsxZO7iihnrLyiy8iQrzBuLeVgj3RZN7KFQwi1FTdQ8W
-	 lzfnukoTC8uOIopGfOjP97wDmdBufw5VDCEjtQ5bR/R9B2WcxESKkw5QMvS15N9Axh
-	 wGfkeJ4s+olcg==
-Message-ID: <d79c4d59-2186-4846-a202-aeff6d14d0c1@kernel.org>
-Date: Wed, 22 Jan 2025 13:57:52 +0100
+	Wed, 22 Jan 2025 13:07:35 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id C05CB24000C;
+	Wed, 22 Jan 2025 13:07:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1737551251;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=f79sgirNquVrPTw/4uMnu5O9aV6JookXhGIW+QW7GnE=;
+	b=byqfqMN1GFCpLrLEJsABHWp1y2JYKg/QAtE0Q6M6RHS7TD+JZcgfWXNEIBC3tb6qNsf/Ei
+	zYP76ooYhpJjiRdQAIApQwcemNQj7qhPx+UbX4paP5bHcsiQIFFq8+1ccgCPjDM8Ad0nmA
+	pjCMbJCAowxj0vI/6PSX1qNAuGhMTbROkY/WAqVxBukmb2wzeaCDl5UvyJyDdX9UdSLIdl
+	f4JfLC2H67dG36Rz2lto95ttWSFY4+IpcU8w7r96mfxYsAnkE2oRp61XjkA3OfEqYWq5Ik
+	TOqcpPm14U/eo5UvyWk9tKi3qXHdRLOJzVClLQ09l7cuUt/ZwQCPD6JlRgDzTA==
+Date: Wed, 22 Jan 2025 14:07:19 +0100
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Ninad Palsule <ninad@linux.ibm.com>, Jacky Chou
+ <jacky_chou@aspeedtech.com>, "andrew+netdev@lunn.ch"
+ <andrew+netdev@lunn.ch>, "andrew@codeconstruct.com.au"
+ <andrew@codeconstruct.com.au>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "davem@davemloft.net" <davem@davemloft.net>, "devicetree@vger.kernel.org"
+ <devicetree@vger.kernel.org>, "eajames@linux.ibm.com"
+ <eajames@linux.ibm.com>, "edumazet@google.com" <edumazet@google.com>,
+ "joel@jms.id.au" <joel@jms.id.au>, "krzk+dt@kernel.org"
+ <krzk+dt@kernel.org>, "kuba@kernel.org" <kuba@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
+ <linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>, "minyard@acm.org" <minyard@acm.org>,
+ "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+ "openipmi-developer@lists.sourceforge.net"
+ <openipmi-developer@lists.sourceforge.net>, "pabeni@redhat.com"
+ <pabeni@redhat.com>, "ratbert@faraday-tech.com" <ratbert@faraday-tech.com>,
+ "robh@kernel.org" <robh@kernel.org>
+Subject: Re: =?UTF-8?B?5Zue6KaGOiDlm57opoY6?= [PATCH v2 05/10] ARM: dts:
+ aspeed: system1: Add RGMII support
+Message-ID: <20250122140719.5629ae57@fedora.home>
+In-Reply-To: <0ee94fd3-d099-4d82-9ba8-eb1939450cc3@lunn.ch>
+References: <0c42bbd8-c09d-407b-8400-d69a82f7b248@lunn.ch>
+	<b2aec97b-63bc-44ed-9f6b-5052896bf350@linux.ibm.com>
+	<59116067-0caa-4666-b8dc-9b3125a37e6f@lunn.ch>
+	<SEYPR06MB51344BA59830265A083469489D132@SEYPR06MB5134.apcprd06.prod.outlook.com>
+	<8042c67c-04d3-41c0-9e88-8ce99839f70b@lunn.ch>
+	<c0b653ea-3fe0-4bdb-9681-bf4e3ef1364a@linux.ibm.com>
+	<c05c0476-c8bd-42f4-81da-7fe96e8e503b@lunn.ch>
+	<SEYPR06MB5134A63DBE28AA1305967A0C9D1C2@SEYPR06MB5134.apcprd06.prod.outlook.com>
+	<9fbc6f4c-7263-4783-8d41-ac2abe27ba95@lunn.ch>
+	<81567190-a683-4542-a530-0fb419f5f9be@linux.ibm.com>
+	<0ee94fd3-d099-4d82-9ba8-eb1939450cc3@lunn.ch>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [EXT] Re: [PATCH v12 4/5] firmware: imx: add driver for NXP
- EdgeLock Enclave
-To: Pankaj Gupta <pankaj.gupta@nxp.com>, Jonathan Corbet <corbet@lwn.net>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-References: <20250120-imx-se-if-v12-0-c5ec9754570c@nxp.com>
- <20250120-imx-se-if-v12-4-c5ec9754570c@nxp.com>
- <2fb2db33-9d45-442a-bfb9-55173751f20f@kernel.org>
- <AM9PR04MB860468CF15C1CC4B8EB257A695E12@AM9PR04MB8604.eurprd04.prod.outlook.com>
- <63fb9cc6-b57c-45bc-8da2-7bcb871d9887@kernel.org>
- <AM9PR04MB86045B01999B7B2E91434D4E95E12@AM9PR04MB8604.eurprd04.prod.outlook.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <AM9PR04MB86045B01999B7B2E91434D4E95E12@AM9PR04MB8604.eurprd04.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_045800_212301_4ECC341F 
-X-CRM114-Status: GOOD (  15.04  )
+X-CRM114-CacheID: sfid-20250122_050734_500704_1A554380 
+X-CRM114-Status: GOOD (  36.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,57 +100,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/01/2025 13:55, Pankaj Gupta wrote:
->>
->>> NAK. Node can be called firmware and your entire driver collapes.
->> The macro is updated to verify the correct-ness of node-name.
-> 
->> NAK, do you understand the term? I provided the reasons for NAK.
-> Your suggestion is to enable the driver for all allowed node names.
-> 1. firmware
-> 2. secure
-> 3. secure-enclave
-> 
-> Understood, will allow these names for the driver.
+Hello Andrew,
 
-No, you just cannot have such checks.
+On Fri, 10 Jan 2025 16:38:18 +0100
+Andrew Lunn <andrew@lunn.ch> wrote:
 
-> 
->>
->> +               (!memcmp(dev_of_node->full_name, NODE_NAME,
->> strlen(NODE_NAME)) ?\ ((strlen(dev_of_node->full_name) >
->> strlen(NODE_NAME)) ?\ GET_ASCII_TO_U8((strlen(dev_of_node-
->>> full_name) - strlen(NODE_NAME)),\ dev_of_node-
->>> full_name[strlen(NODE_NAME) + 1], \ -
->> dev_of_node->full_name[strlen(NODE_NAME) + 2]) : 0)
->> +                               dev_of_node-
->>> full_name[strlen(NODE_NAME) + 2]) : 0) : -EINVAL)
->>
->>>>> +     info_list = device_get_match_data(dev); +     if (idx >>=
->>>>> info_list->>num_mu) { +             dev_err(dev,
->>>>> +                     "Incorrect node name :%s\n",
->>>>> +                     dev->>of_node->>full_name);
->>>
->>>> Nope. "firmware" or "secure" are correct node names.
->>> New check is added to validate the correctness of the node name for
->>> this driver. Replaced the message of " Incorrect node name..", with
->>> the help message.
-> 
->> You did not resolve the NAK.
->> 1. You cannot reject correct names.
-> Ok, Understood.
->> 2. You cannot add undocumented ABI. You could try to document it, but it will 
->> not solve the first problem.
-> Ok. Will not add the ABI document.
+> > Do we need updates on this description. It doesn't talk about external =
+PCB
+> > level delays?
+> >=20
+> > https://github.com/torvalds/linux/blob/master/Documentation/devicetree/=
+bindings/net/ethernet-controller.yaml#L77-L90
+> >=20
+> > This is what you explained:
+> >=20
+> > MAC driver reads following phy-mode from device tree. 95% of mac driver
+> > directly
+> > =C2=A0pass it to PHY through phy_connect.
+> >=20
+> > rgmii - PCB has long clock lines so delay is added by PCB
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 On this mode PHY does nothin=
+g.
+> > rgmii-id - PCB doesn't add delay. Either MAC or PHY needs to add the de=
+lay
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Add delays=
+ in both directions. Some PHY may not add delay in that
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 case MAC n=
+eeds to add the delay mask rgmii-id to rgmii.
+> > rgmii-rxid - If there is an extra long TX clock line, but not RX clock,
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 you would use rgmii-rxid
+> > rgmii-txid - When there is an extra long RX clock line on the PCB, but =
+not
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 the TX clock line, you would use rgmii-txid =20
+>=20
+> The documentation is not great, that has been said a few times.  What
+> is described here is the view from the PHY, which is not ideal.
+>=20
+>       # RX and TX delays are added by the MAC when required
+>       - rgmii
+>=20
+> From the perspective of the PHY, this means it does not need to add
+> delays, because the MAC has added the delays, if required, e.g. the
+> PCB has not added the delays.
+>=20
+> We have the problem that DT is supposed to describe the
+> hardware. Saying the PHY should add the delays, but if the MAC adds
+> the delays it needs to mask the value passed to the PHY does not
+> describe the hardware, it is Linix implementation details. The DT
+> Maintainers don't want that in the DT binding because other OSes might
+> decide to implement the details differently.
+>=20
+> So your description becomes:
+>=20
+> rgmii      - PCB has long clock lines so delays are added by the PCB
+> rgmii-id   - PCB doesn't add delay. Either MAC or PHY needs to add the de=
+lays
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0   in both di=
+rections.
+> rgmii-rxid - There is an extra long TX clock line on the PCB, but not the=
+ RX clock.
+> rgmii-txid - There is an extra long RX clock line on the PCB, but not the=
+ TX clock.
+>=20
+> It is correct, but leaves so much unsaid developers will still get it
+> wrong.
 
-Hm? I said you cannot add ABI without documentation and you say you will
-not add the ABI?
+I myself got it wrong, as the kernel doc explicitely says that the "rgmii"
+phy-mode is the one to use to get MAC-side delay insertion, whereas the way=
+ I
+understand it, mac-side delay insertion doesn't really depend on the phy-mo=
+de
+passed from DT. Ideally we would even consider that these mac-side delay
+insertion would have to be ignored in basic 'RGMII' mode, but I think that =
+would
+break quite some existing setups ?
 
-Well, I NAK-ed this patch and consider all future versions having
-anything close to this NAKed as well.
+Can we consider an update in the kernel doc along these lines :
 
+---
+ Documentation/networking/phy.rst | 19 +++++++++++--------
+ 1 file changed, 11 insertions(+), 8 deletions(-)
 
+diff --git a/Documentation/networking/phy.rst b/Documentation/networking/ph=
+y.rst
+index f64641417c54..7ab77f9867a0 100644
+--- a/Documentation/networking/phy.rst
++++ b/Documentation/networking/phy.rst
+@@ -106,14 +106,17 @@ Whenever possible, use the PHY side RGMII delay for t=
+hese reasons:
+   configure correctly a specified delay enables more designs with similar =
+delay
+   requirements to be operated correctly
+=20
+-For cases where the PHY is not capable of providing this delay, but the
+-Ethernet MAC driver is capable of doing so, the correct phy_interface_t va=
+lue
+-should be PHY_INTERFACE_MODE_RGMII, and the Ethernet MAC driver should be
+-configured correctly in order to provide the required transmit and/or rece=
+ive
+-side delay from the perspective of the PHY device. Conversely, if the Ethe=
+rnet
+-MAC driver looks at the phy_interface_t value, for any other mode but
+-PHY_INTERFACE_MODE_RGMII, it should make sure that the MAC-level delays are
+-disabled.
++The MAC driver may add delays if the PCB doesn't include any. This can be
++detected based on firmware "rx-internal-delay-ps" and "tx-internal-delay-p=
+s"
++properties.
++
++When the MAC driver can insert the delays, it should always do so when the=
+se
++properties are present and non-zero, regardless of the RGMII mode specifie=
+d.
++
++However, the MAC driver must adjust the PHY_INTERFACE_MODE_RGMII_* mode it=
+ passes
++to the connected PHY device (through phy_attach or phylink_create() for ex=
+ample)
++to account for MAC-side delay insertion, so that the the PHY device knows
++if any delays still needs insertion on either TX or RX paths.
+=20
+ In case neither the Ethernet MAC, nor the PHY are capable of providing the
+ required delays, as defined per the RGMII standard, several options may be
+--=20
 
-Best regards,
-Krzysztof
+Thanks,
+
+Maxime
 
