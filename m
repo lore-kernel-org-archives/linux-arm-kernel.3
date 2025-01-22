@@ -4,69 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E294C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 09:48:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2225CC0218C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 09:49:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=axlssTCq9Kchrk499we+f3Lx4WoYd4erGv4hZ6Mo/co=; b=tmSMYFkSeE5yxXStK7+ofE7tc0
-	zdrCQqVZObzkk/MDOgHF5Z+iItv2ToMbh425gPRy6nk6RBcznzDuzQlkDjT85h6+sO1oS5JW6DmjL
-	47vJxztDPvLm9JLOjTD82E5lpFpiRHBKAiETjsaXJI5fFXVmr8jDURY1N1Fb6mSzvCcsbD3KzAk3t
-	CfKqLMtyMBgOcqnRzGRxjN7ArIMgkSfiY099TieV/NaHhxh0A7VjNX37CzlrDvctlCx2VuXI0kmox
-	LevPy+BWAjZ+MtHeqhyxcfv5/HPBqVvBB+2HVHH/80AtJO3LussbehX6dh/bB1l9Riz3Dca0RstQ0
-	db5WNESA==;
+	bh=5jyPDQeLL7dQCNZCqR0yGuA8VrKPQJzFBh9HiXi/qzY=; b=dJpUiZ7b0qGGDpilq8VYG9Ug/V
+	lvp9pjO5m3sgYp8ENRkzbtJEfobi+wx928kPr6PsydJkbX9GTvXCooVR4qlakXxwfUYNuai78b0gW
+	m5TXjDw827viXvlPk8GKSu/ro3hrCLi/ekeOSxCsXBnTSaxHPFxQMtroHUkPWSak0nKrBcG/dqw+L
+	0M+hsFHBmLrs9RW19Xr0L5LOJoUVIcOVUr9HyhlBkjQPr8uu50AfdJgMr311voAV4dcJ3xCn/Y9RQ
+	SqvMlsFagqaPvM1sYkfH1/FoMfJvV+L/SOWgshDYYzqh/iwbHDELwKearaEYf/omCGsBDp76zevsQ
+	4md5uWLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taXLX-00000009pfZ-2PkV;
-	Wed, 22 Jan 2025 09:48:27 +0000
-Received: from m16.mail.163.com ([220.197.31.2])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taXKE-00000009pSi-2Acv;
-	Wed, 22 Jan 2025 09:47:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=yWAJhbS/Q4MdxkCcBp+SmWjdnLYTjbVw2yNkD6kRxTc=; b=m
-	iWC5lsm0JB7e8qPX/ddL0OKPtrrkSeIwIzLKvgnUSsRVh/Zg+YzrLPDF87BrHzDH
-	HrcZ9sFV3DRLYMBHFyOmmroWmPOOdZiBpGippY2wgq1G3SjetN6VGAfDSFsl6rmH
-	ku9VAl5yMiyEiQpl6AqFXNrs47lUSVAzVR9k7N6ECQ=
-Received: from andyshrk$163.com ( [58.22.7.114] ) by
- ajax-webmail-wmsvr-40-141 (Coremail) ; Wed, 22 Jan 2025 17:46:43 +0800
- (CST)
-X-Originating-IP: [58.22.7.114]
-Date: Wed, 22 Jan 2025 17:46:43 +0800 (CST)
-From: "Andy Yan" <andyshrk@163.com>
-To: "Krzysztof Kozlowski" <krzk@kernel.org>
-Cc: heiko@sntech.de, hjc@rock-chips.com, krzk+dt@kernel.org,
-	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, derek.foreman@collabora.com,
-	detlev.casanova@collabora.com, daniel@fooishbar.org, robh@kernel.org,
-	sebastian.reichel@collabora.com,
-	"Andy Yan" <andy.yan@rock-chips.com>
-Subject: Re:Re: [PATCH v12 12/13] dt-bindings: display: vop2: Add rk3576
- support
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20240801(9da12a7b)
- Copyright (c) 2002-2025 www.mailtech.cn 163com
-In-Reply-To: <20250122-amber-moth-of-upgrade-fa8331@krzk-bin>
-References: <20250121103254.2528004-1-andyshrk@163.com>
- <20250121103500.2528258-1-andyshrk@163.com>
- <20250122-amber-moth-of-upgrade-fa8331@krzk-bin>
-X-NTES-SC: AL_Qu2YBfmYtkor5SifbekfmkcVgOw9UcO5v/Qk3oZXOJF8jCrr+CUnVkFMJFbsweeONhCLrheYTj1O48h1bZN6b5MbkJYlmVCGtvKvPsZd0ZQhuQ==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	id 1taXMn-00000009pzt-2YDz;
+	Wed, 22 Jan 2025 09:49:45 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1taXKS-00000009pUU-2phj
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 22 Jan 2025 09:47:21 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50M1gZwS017163;
+	Wed, 22 Jan 2025 09:47:10 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	5jyPDQeLL7dQCNZCqR0yGuA8VrKPQJzFBh9HiXi/qzY=; b=TxBHNVC2HydGZY8c
+	TAw/8gaGuW2FYjZRQiPmK/cIVb85bT2IS3lS+Vd6i6UiE7M5Rmw+AAFwC0Byb1dh
+	eHGhBJOfIZ0mKgpemWgwNWzNKyJ/Qye6VPXhMw9ARIGTGOTcWh5hYDorpcVCL7OJ
+	WfVwic/xzCjiwCW8mEPzAD8YN5zMqXeC8lXAAJhv0CtROjZ7VTMutI9KOYj+4+ux
+	67cTkSH6lzevbsZEu/dbeqTrqN4HFh7xBmf9qsfr7U1+A7tDEUWIb46s8mvn6/Mq
+	pBSgdP7DjVwGqXUhNZJVUOTrfX57Bvl1xN1GBewk3pDKg7JK3L6imzHQcADAKbzG
+	fpSCQg==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44aq8gs1mr-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 22 Jan 2025 09:47:10 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 50M9l9aL014454
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 22 Jan 2025 09:47:09 GMT
+Received: from [10.253.35.93] (10.80.80.8) by nalasex01c.na.qualcomm.com
+ (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 22 Jan
+ 2025 01:46:53 -0800
+Message-ID: <6f0aa596-25e5-4c02-9de9-6ee856cea314@quicinc.com>
+Date: Wed, 22 Jan 2025 17:46:47 +0800
 MIME-Version: 1.0
-Message-ID: <5eb4acaa.6df6.1948d68332d.Coremail.andyshrk@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: jSgvCgD3v_uDvpBnS8lcAA--.18343W
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqQvcXmeQtfafFwACse
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/4] net: stmmac: dwmac-qcom-ethqos: Mask PHY mode if
+ configured with rgmii-id
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+CC: Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller"
+	<davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio
+	<konradybcio@kernel.org>,
+        Richard Cochran <richardcochran@gmail.com>, <netdev@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20250121-dts_qcs615-v3-0-fa4496950d8a@quicinc.com>
+ <20250121-dts_qcs615-v3-2-fa4496950d8a@quicinc.com>
+ <20250121141734.164ef891@device-291.home>
+Content-Language: en-US
+From: Yijie Yang <quic_yijiyang@quicinc.com>
+In-Reply-To: <20250121141734.164ef891@device-291.home>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: NUVrdCCtMKwE2XojRjP3EnrdEHuOEZuK
+X-Proofpoint-ORIG-GUID: NUVrdCCtMKwE2XojRjP3EnrdEHuOEZuK
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-22_04,2025-01-22_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 priorityscore=1501
+ mlxlogscore=999 spamscore=0 suspectscore=0 clxscore=1011 phishscore=0
+ impostorscore=0 malwarescore=0 adultscore=0 lowpriorityscore=0 bulkscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
+ definitions=main-2501220071
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_014706_879607_35019F30 
-X-CRM114-Status: GOOD (  16.69  )
+X-CRM114-CacheID: sfid-20250122_014720_724498_254D48A2 
+X-CRM114-Status: GOOD (  33.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,85 +120,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CkhpCgpBdCAyMDI1LTAxLTIyIDE2OjA0OjU5LCAiS3J6eXN6dG9mIEtvemxvd3NraSIgPGtyemtA
-a2VybmVsLm9yZz4gd3JvdGU6Cj5PbiBUdWUsIEphbiAyMSwgMjAyNSBhdCAwNjozNDo1N1BNICsw
-ODAwLCBBbmR5IFlhbiB3cm90ZToKPj4gRnJvbTogQW5keSBZYW4gPGFuZHkueWFuQHJvY2stY2hp
-cHMuY29tPgo+PiAKPj4gQWRkIHZvcCBmb3VuZCBvbiByazM1NzYsIHRoZSBtYWluIGRpZmZlcmVu
-Y2UgYmV0d2VlbiByazM1NzYgYW5kIHRoZQo+PiBwcmV2aW91cyB2b3AgaXMgdGhhdCBlYWNoIFZQ
-IGhhcyBpdHMgb3duIGludGVycnVwdCBsaW5lLgo+PiAKPj4gU2lnbmVkLW9mZi1ieTogQW5keSBZ
-YW4gPGFuZHkueWFuQHJvY2stY2hpcHMuY29tPgo+PiAKPj4gLS0tCj4+IAo+PiBDaGFuZ2VzIGlu
-IHYxMjoKPj4gLSBTcGxpdCBmcm9tIHBhdGNoIDEwLzEzCj4KPk9yZGVyIHlvdXIgcGF0Y2hlcyBm
-aW5hbGx5LiBJdCdzIHYxMiBhbmQgeW91IHN0aWxsIHNlbmQgYmluZGluZyBhZnRlcgo+dGhlIHVz
-ZXIuIFJlYWQgY2FyZWZ1bGx5IHN1Ym1pdHRpbmcgYmluZGluZ3MvcGF0Y2hlcy4KPgo+PiAKPj4g
-Q2hhbmdlcyBpbiB2MTE6Cj4+IC0gUmVtb3ZlIHJlZHVuZGFudCBtaW4vbWF4SXRlbXMgY29uc3Ry
-YWludAo+PiAKPj4gQ2hhbmdlcyBpbiB2MTA6Cj4+IC0gTW92ZSBpbnRlcnJ1cHQtbmFtZXMgYmFj
-ayB0byB0b3AgbGV2ZWwKPj4gLSBBZGQgY29uc3RyYWludCBvZiBpbnRlcnJ1cHRzIGZvciBhbGwg
-cGxhdGZvcm0KPj4gLSBBZGQgY29uc3RyYWludCBmb3IgYWxsIGdyZiBwaGFuZGxlcwo+PiAtIFJl
-b3JkZXIgc29tZSBwcm9wZXJ0aWVzCj4+IAo+PiBDaGFuZ2VzIGluIHY5Ogo+PiAtIERyb3AgJ3Zv
-cC0nIHByZWZpeCBvZiBpbnRlcnJ1cHQtbmFtZXMuCj4+IC0gQWRkIGJsYW5rIGxpbmUgYmV0d2Vl
-biBEVCBwcm9wZXJ0aWVzCj4+IC0gUmVtb3ZlIGxpc3QgaW50ZXJydXB0LW5hbWVzIGluIHRvcCBs
-ZXZlbAo+PiAKPj4gQ2hhbmdlcyBpbiB2ODoKPj4gLSBGaXggZHRfYmluZGluZ19jaGVjayBlcnJv
-cnMKPj4gLSBvcmRlcmVkIGJ5IHNvYyBuYW1lCj4+IC0gTGluayB0byB0aGUgcHJldmlvdXMgdmVy
-c2lvbjoKPj4gICBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yb2NrY2hpcC82cG4zcWp4
-b3RkdHB6dWNwdWwyNHlybzdwcGRkZXp3dWl6bmVvdnF2bWdkd3l2Mmo3cEB6dGc0bXF5aXFtamYv
-VC8jdQo+PiAKPj4gQ2hhbmdlcyBpbiB2NDoKPj4gLSBkZXNjcmliZSBjb25zdHJhaW50IFNPQyBi
-eSBTT0MsIGFzIGludGVycnVwdHMgb2YgcmszNTc2IGlzIHZlcnkKPj4gICBkaWZmZXJlbnQgZnJv
-bSBvdGhlcnMKPj4gLSBEcm9wIEtyenlzenRvZidzIFJldmlld2VkLWJ5LCBhcyB0aGlzIHZlcnNp
-b24gY2hhbmdlZCBhIGxvdC4KPj4gCj4+IENoYW5nZXMgaW4gdjM6Cj4+IC0gb3JkZXJlZCBieSBz
-b2MgbmFtZQo+PiAtIEFkZCBkZXNjcmlwdGlvbiBmb3IgbmV3bHkgYWRkZWQgaW50ZXJydXB0Cj4+
-IAo+PiBDaGFuZ2VzIGluIHYyOgo+PiAtIEFkZCBkdCBiaW5kaW5ncwo+PiAKPj4gIC4uLi9kaXNw
-bGF5L3JvY2tjaGlwL3JvY2tjaGlwLXZvcDIueWFtbCAgICAgICB8IDU1ICsrKysrKysrKysrKysr
-KysrKy0KPj4gIDEgZmlsZSBjaGFuZ2VkLCA1MiBpbnNlcnRpb25zKCspLCAzIGRlbGV0aW9ucygt
-KQo+PiAKPj4gZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9k
-aXNwbGF5L3JvY2tjaGlwL3JvY2tjaGlwLXZvcDIueWFtbCBiL0RvY3VtZW50YXRpb24vZGV2aWNl
-dHJlZS9iaW5kaW5ncy9kaXNwbGF5L3JvY2tjaGlwL3JvY2tjaGlwLXZvcDIueWFtbAo+PiBpbmRl
-eCAxNTdhMzdlZDg0ZGEuLmEyYTYzNjljN2I2ZiAxMDA2NDQKPj4gLS0tIGEvRG9jdW1lbnRhdGlv
-bi9kZXZpY2V0cmVlL2JpbmRpbmdzL2Rpc3BsYXkvcm9ja2NoaXAvcm9ja2NoaXAtdm9wMi55YW1s
-Cj4+ICsrKyBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9kaXNwbGF5L3JvY2tj
-aGlwL3JvY2tjaGlwLXZvcDIueWFtbAo+PiBAQCAtMjEsNiArMjEsNyBAQCBwcm9wZXJ0aWVzOgo+
-PiAgICAgIGVudW06Cj4+ICAgICAgICAtIHJvY2tjaGlwLHJrMzU2Ni12b3AKPj4gICAgICAgIC0g
-cm9ja2NoaXAscmszNTY4LXZvcAo+PiArICAgICAgLSByb2NrY2hpcCxyazM1NzYtdm9wCj4+ICAg
-ICAgICAtIHJvY2tjaGlwLHJrMzU4OC12b3AKPj4gIAo+PiAgICByZWc6Cj4+IEBAIC0zOCwxMCAr
-MzksMjEgQEAgcHJvcGVydGllczoKPj4gICAgICAgIC0gY29uc3Q6IGdhbW1hLWx1dAo+PiAgCj4+
-ICAgIGludGVycnVwdHM6Cj4+IC0gICAgbWF4SXRlbXM6IDEKPj4gKyAgICBtaW5JdGVtczogMQo+
-PiArICAgIG1heEl0ZW1zOiA0Cj4+ICAgICAgZGVzY3JpcHRpb246Cj4+IC0gICAgICBUaGUgVk9Q
-IGludGVycnVwdCBpcyBzaGFyZWQgYnkgc2V2ZXJhbCBpbnRlcnJ1cHQgc291cmNlcywgc3VjaCBh
-cwo+PiAtICAgICAgZnJhbWUgc3RhcnQgKFZTWU5DKSwgbGluZSBmbGFnIGFuZCBvdGhlciBzdGF0
-dXMgaW50ZXJydXB0cy4KPj4gKyAgICAgIEZvciBWT1AgdmVyc2lvbiB1bmRlciByazM1NzYsIHRo
-ZSBpbnRlcnJ1cHQgaXMgc2hhcmVkIGJ5IHNldmVyYWwgaW50ZXJydXB0Cj4+ICsgICAgICBzb3Vy
-Y2VzLCBzdWNoIGFzIGZyYW1lIHN0YXJ0IChWU1lOQyksIGxpbmUgZmxhZyBhbmQgb3RoZXIgaW50
-ZXJydXB0IHN0YXR1cy4KPj4gKyAgICAgIEZvciBWT1AgdmVyc2lvbiBmcm9tIHJrMzU3NiB0aGVy
-ZSBpcyBhIHN5c3RlbSBpbnRlcnJ1cHQgZm9yIGJ1cyBlcnJvciwgYW5kCj4+ICsgICAgICBldmVy
-eSB2aWRlbyBwb3J0IGhhcyBpdCdzIGluZGVwZW5kZW50IGludGVycnVwdHMgZm9yIHZzeW5jIGFu
-ZCBvdGhlciB2aWRlbwo+PiArICAgICAgcG9ydCByZWxhdGVkIGVycm9yIGludGVycnVwdHMuCj4+
-ICsKPj4gKyAgaW50ZXJydXB0LW5hbWVzOgo+PiArICAgIGl0ZW1zOgo+PiArICAgICAgLSBjb25z
-dDogc3lzCj4+ICsgICAgICAtIGNvbnN0OiB2cDAKPj4gKyAgICAgIC0gY29uc3Q6IHZwMQo+PiAr
-ICAgICAgLSBjb25zdDogdnAyCj4+ICAKPj4gICAgIyBTZWUgY29tcGF0aWJsZS1zcGVjaWZpYyBj
-b25zdHJhaW50cyBiZWxvdy4KPj4gICAgY2xvY2tzOgo+PiBAQCAtMTM1LDYgKzE0Nyw4IEBAIGFs
-bE9mOgo+PiAgICAgICAgICBpbnRlcnJ1cHRzOgo+PiAgICAgICAgICAgIG1heEl0ZW1zOiAxCj4K
-PlNvIHRoaXMgY2hhbmdlIG1vdmVzIHRvIHRoaXMgcGF0Y2guCj4KPj4gIAo+PiArICAgICAgICBp
-bnRlcnJ1cHQtbmFtZXM6IGZhbHNlCj4+ICsKPj4gICAgICAgICAgcG9ydHM6Cj4+ICAgICAgICAg
-ICAgcmVxdWlyZWQ6Cj4+ICAgICAgICAgICAgICAtIHBvcnRAMAo+PiBAQCAtMTQ4LDYgKzE2Miwz
-OSBAQCBhbGxPZjoKPj4gICAgICAgIHJlcXVpcmVkOgo+PiAgICAgICAgICAtIHJvY2tjaGlwLGdy
-Zgo+PiAgCj4+ICsgIC0gaWY6Cj4+ICsgICAgICBwcm9wZXJ0aWVzOgo+PiArICAgICAgICBjb21w
-YXRpYmxlOgo+PiArICAgICAgICAgIGNvbnRhaW5zOgo+PiArICAgICAgICAgICAgZW51bToKPj4g
-KyAgICAgICAgICAgICAgLSByb2NrY2hpcCxyazM1NzYtdm9wCj4+ICsgICAgdGhlbjoKPj4gKyAg
-ICAgIHByb3BlcnRpZXM6Cj4+ICsgICAgICAgIGNsb2NrczoKPj4gKyAgICAgICAgICBtaW5JdGVt
-czogNQo+Cj5Oby4gWW91IGRpZCBub3QgaW1wbGVtZW50IG15IGNvbW1lbnQgYXQgYWxsLgo+Cj5T
-byBhZ2FpbjoKPiJXaHkgbWluSXRlbXM/IE5vdGhpbmcgaW4gdGhpcyBwYXRjaCBtYWtlcyBzZW5z
-ZSBmb3IgbWUuIE5laXRoZXIgY2hhbmdpbmcKPmV4aXN0aW5nIGJpbmRpbmcgbm9yIG5ldyBiaW5k
-aW5nIGZvciByazM1NzYuIgoKRG8geW91IG1lYW4gYmVjYXVzZSBJIGFscmVhZHkgZGVmaW5lZCBt
-aW5JdGVtcyBvZiBjbG9ja3MgaXMgNSBvbiB0aGUgdG9wLCBzbyAKdGhlcmUgaXMgbm8gbmVlZCB0
-byByZWRlZmluZSB0aGUgc2FtZSBtaW5JdGVtcyBoZXJlID8KCj4KPlRvIGFkZHJlc3Mgc3VjaCBj
-b21tZW50LCBjb21lIHdpdGggcmVhc29uYWJsZSBhbnN3ZXIgdG8gIndoeSIuIE5vdCBqdXN0Cj5z
-ZW5kIHRoZSBzYW1lLiBJdCdzIGEgd2FzdGUgb2YgbXkgdGltZSB0byBrZWVwIHJldmlld2luZyB0
-aGUgc2FtZS4KCkJlZm9yZSBzZW5kaW5nIHRoaXMgcGF0Y2gsIEkgYXNrZWQgeW91IHdoYXQgdGhl
-IG5leHQgc3RlcCBzaG91bGQgYmUsIGJ1dCB5b3UgZGlkbid0IHJlc3BvbmQuCkkgbWlnaHQgaW5k
-ZWVkIGhhdmUgZmFpbGVkIHRvIGdyYXNwIHlvdXIgbWFpbiBwb2ludCwgSSdtIGluZGVlZCBub3Qg
-IHdyaXRpbmcgZHQtc2NoZW1hLiAKSG9wZSB5b3UgY2FuIGV4cGxhaW4gc29tZSBvZiB0aGUgc3Bl
-Y2lmaWMgaXNzdWVzIGluIG1vcmUgZGV0YWlsIHRvIGF2b2lkIHdhc3RpbmcgdGhlIHRpbWUgb2Yg
-Ym90aApvZiB1cy4KCgoKPgo+QmVzdCByZWdhcmRzLAo+S3J6eXN6dG9mCj4KPgo+X19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPkxpbnV4LXJvY2tjaGlwIG1h
-aWxpbmcgbGlzdAo+TGludXgtcm9ja2NoaXBAbGlzdHMuaW5mcmFkZWFkLm9yZwo+aHR0cDovL2xp
-c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yb2NrY2hpcAo=
+
+
+On 2025-01-21 21:17, Maxime Chevallier wrote:
+> Hi,
+> 
+> On Tue, 21 Jan 2025 15:54:54 +0800
+> Yijie Yang <quic_yijiyang@quicinc.com> wrote:
+> 
+>> The Qualcomm board always chooses the MAC to provide the delay instead of
+>> the PHY, which is completely opposite to the suggestion of the Linux
+>> kernel. The usage of phy-mode in legacy DTS was also incorrect. Change the
+>> phy_mode passed from the DTS to the driver from PHY_INTERFACE_MODE_RGMII_ID
+>> to PHY_INTERFACE_MODE_RGMII to ensure correct operation and adherence to
+>> the definition.
+>> To address the ABI compatibility issue between the kernel and DTS caused by
+>> this change, handle the compatible string 'qcom,qcs404-evb-4000' in the
+>> code, as it is the only legacy board that mistakenly uses the 'rgmii'
+>> phy-mode.
+>>
+>> Signed-off-by: Yijie Yang <quic_yijiyang@quicinc.com>
+>> ---
+>>   .../net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    | 18 +++++++++++++-----
+>>   1 file changed, 13 insertions(+), 5 deletions(-)
+>>
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+>> index 2a5b38723635b5ef9233ca4709e99dd5ddf06b77..e228a62723e221d58d8c4f104109e0dcf682d06d 100644
+>> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+>> @@ -401,14 +401,11 @@ static int ethqos_dll_configure(struct qcom_ethqos *ethqos)
+>>   static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos)
+>>   {
+>>   	struct device *dev = &ethqos->pdev->dev;
+>> -	int phase_shift;
+>> +	int phase_shift = 0;
+>>   	int loopback;
+>>   
+>>   	/* Determine if the PHY adds a 2 ns TX delay or the MAC handles it */
+>> -	if (ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_ID ||
+>> -	    ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_TXID)
+>> -		phase_shift = 0;
+>> -	else
+>> +	if (ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_ID)
+>>   		phase_shift = RGMII_CONFIG2_TX_CLK_PHASE_SHIFT_EN;
+> 
+> So this looks like a driver modification to deal with errors in
+> devicetree, and these modifications don't seem to be correct.
+> 
+> You should set RGMII_CONFIG2_TX_CLK_PHASE_SHIFT_EN (i.e. adding a delay
+> n the TX line) when the PHY does not add internal delays on that line
+> (so, when the mode is rgmii or rgmii-rxid. The previous logic looks
+> correct in that regard.
+> 
+> Can you elaborate a bit more on the issue you are seeing ? On what
+> hardware is this happening ? What's the RGMII setup used (i.e. which
+> PHY, which mode, is there any delay lines on the PCB ?)
+
+As discussed following the first patch, the previous method of using 
+'rgmii' in DTS while adding delay via the MAC was incorrect. We need to 
+correct this misuse in both the DTS and the driver. For new boards, the 
+phy-mode should be 'rgmii-id', while legacy boards will remain 'rgmii'. 
+Both configurations will still enable 
+RGMII_CONFIG2_TX_CLK_PHASE_SHIFT_EN and allow the MAC to add the delay, 
+ensuring the behavior remains consistent before and after the change.
+
+> 
+> Thanks,
+> 
+> Maxime
+
+-- 
+Best Regards,
+Yijie
+
 
