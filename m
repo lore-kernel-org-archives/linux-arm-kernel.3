@@ -4,53 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94300C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 17:58:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CAB4C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 18:01:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UPdQFYW1+alBPT0W0zc3pKmITDrBpX+LkBaRcYVjQhA=; b=E/jlnSeyTd8tPyzM27bZz1PP2u
-	Kxd6q27z47G/f/e+Srzoj6+WmblMjW99OEcN9I/gsWIz7dtUKeWEnRNdpkvzTfonp8Wl4W8CoaMlp
-	3CnRC6/7CGgkyhScGRT34KX/SgrxOrbJ/u+pxxwHPyDzHpGI9utJdg3ON2lEak3xLn60KCW3gN0Ig
-	oZEan3WsENpSodQK+WK834mABrWgfFgFBOQ3f+WhuvpAYF0mz3B3b/v8auyzJGuZRLkye7iCvDX3z
-	idNWD6smz8smasK9IxAzQ8dejjPpsxln/j+6nVv6g4LV3at48z7ZsQHYziI0/+atRibf+kvDaGFyz
-	MaCV853Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=huBkoIUw/u/Khws61ncIncFVaNCii9Ts7qZuOrXvjA4=; b=pU8xXXT93pHFOcDEv5xIikouTw
+	D6QaCVwipYmB2y4lgkBZZCzIeEokHd621IpcceFQVmFChcRpIO+d//vp7F8ooe+WUdPapFsTR2qNk
+	ISEK44d6rO22NBbgjxmsTeuqHPIpnVZuxVKbLSwGXpmyIfVFAcUoTkHFwQpWejDohq6b6NZpzG1BS
+	XUDECPEJUHHQuMjrElpLdpqY+86AWjSpOGH6dazp9YWs4UpHu/bXwVuS11IcoWlCdd+rs9QeHi+Mj
+	EOT8LOjtmkNoDr/i1zOhlAcqmNsJ8dX8kjDseYbafHxPEDzmcW423Cj0YobanR5WyS/zuSD2AzHJq
+	d6mnhCpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taezu-0000000AwRJ-3UHX;
-	Wed, 22 Jan 2025 17:58:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taepX-0000000Aumm-30w9
+	id 1taf2i-0000000AwiY-2JjV;
+	Wed, 22 Jan 2025 18:01:32 +0000
+Received: from mail-am6eur05on2061f.outbound.protection.outlook.com ([2a01:111:f403:2612::61f] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1taf1Q-0000000AwcI-2gmD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 17:47:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 955181063;
-	Wed, 22 Jan 2025 09:48:23 -0800 (PST)
-Received: from eglon.cambridge.arm.com (eglon.cambridge.arm.com [10.1.196.57])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 468663F66E;
-	Wed, 22 Jan 2025 09:47:54 -0800 (PST)
-From: James Morse <james.morse@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>
-Subject: [PATCH 3/3] arm64: proton-pack: Prefer WA1 for BHB on Cortex-A72 r0pX
-Date: Wed, 22 Jan 2025 17:47:36 +0000
-Message-Id: <20250122174736.1560714-4-james.morse@arm.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250122174736.1560714-1-james.morse@arm.com>
-References: <20250122174736.1560714-1-james.morse@arm.com>
+	Wed, 22 Jan 2025 18:00:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=R9CRXvPCBUF0axpExIPiioYbnhCnBTrpKCF9R0yA0+CUucJ8Ubm0bTwVUkpjKbkSSzntyG42GS+DuNAETI7p2nUlblxsvdSix/UbS+LYVJTSgYkAWCoJTgiiyWDepkMq5B3Ss87vwXfwJE8jnIYu9wNtkddQTfXxxTVIyGpF+f3AMzgpFqA/KQ+HN/erm7Al4Qnv+ueyHUV/xTDdn+2QMGv8lncqdNDHyvFL3KQa4hhT5USu8DbwH+TSAz3536taeh0Ae6VjjOmfkgycJNLMfCVDy7e+Vm6MW9UCjOn1R3dAO4vsDuHZAogX7vA/rxGy6z6egdDVm8upZ9zrK+V0aA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=huBkoIUw/u/Khws61ncIncFVaNCii9Ts7qZuOrXvjA4=;
+ b=yKLYvFYmxJcpz+uWmxlE8QuidHG6PK7XzHRBVEn80AfTVJCjszEueAsOGAqI6f31siVcUlSMeUweL5qHhgO4Zo8VdZbXAEd3L5tdsGnW6cfhDTumjqDvzkFmXKqS+adNGR0g25w0Poh4GFL5ucFve2VLDo7REh5C2Q++qqRYh1M3aaJDSpRCrEEKK4cqxmdJte3nsHhrbB3C0LI30AHIDZiOTXMnyN/oE9es2ez5sd3rWQmFnBx5QklioXIOS/FCnkIs17E4U8oxsvnlVDMTfeetaYV8eLCGj+hvOLPDL3dB8693lICK/zWAJmBluptlYl7dyqKqi/BAfzGL0U04rA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=huBkoIUw/u/Khws61ncIncFVaNCii9Ts7qZuOrXvjA4=;
+ b=CAcqfjGeMhw2CIomDDHJnBv/TnhaRNfFKO2HxQGRSr/LmXS/4rxSPFA0rdZEwgQh5ojicdqFufQK+0v8YJSAbcX/ojLl52Qd9n/7PYQvBambrFgO8itfA94udE2Abnwen6gF1TcXeGm8LbFGziLiEX4nKnWp8bCUM71kJ9CW7nvqqhtqde8fEYdvYDTtvgi/tiWpi27Iy9tibcX1Dnnx+JQtjwxghTPbJbojC+wqznMFsnHIPn6lUy5yskSFLXWGE2gYm0zmPCvyJElKd72anBIQvVdiTbGeyWXZLrPrDknWS6IWFHUtsJCaRLVxX0pDBm0sw+cXCZnyp02DoneNfg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AM9PR04MB8716.eurprd04.prod.outlook.com (2603:10a6:20b:43f::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.22; Wed, 22 Jan
+ 2025 18:00:03 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8356.017; Wed, 22 Jan 2025
+ 18:00:03 +0000
+Date: Wed, 22 Jan 2025 12:59:53 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Pengfei Li <pengfei.li_1@nxp.com>,
+	Marco Felsch <m.felsch@pengutronix.de>
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v4 0/2] thermal: imx91: Add support for i.MX91 thermal
+ monitoring unit
+Message-ID: <Z5EyGZubxc2OpyT7@lizhi-Precision-Tower-5810>
+References: <20241216-imx91tmu-v4-0-75caef7481b8@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241216-imx91tmu-v4-0-75caef7481b8@nxp.com>
+X-ClientProxiedBy: SJ0PR03CA0099.namprd03.prod.outlook.com
+ (2603:10b6:a03:333::14) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM9PR04MB8716:EE_
+X-MS-Office365-Filtering-Correlation-Id: b7ae1f42-1a66-444d-3008-08dd3b0e98a9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|1800799024|7416014|366016|376014|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Hl666xLP4BaPBqLV4yAMNq6u7LMn6nDpVfdDB8YGPvHO2/OZTRca2NnXma1F?=
+ =?us-ascii?Q?jOxi6PPjiYG73Ric3cJpEwNlLVWDxHBkYMvn1tY+yrncnNTauIrFf3h9wUrr?=
+ =?us-ascii?Q?LcTuGLaPpfrIMvXENYExrf1qYQlxH8pf9/hx0Xa0SUWMwKO6/WHYgVu+kdPO?=
+ =?us-ascii?Q?qkpqeBiz5+yFD3BR8g24+4RjO7ais3gcya0kZAyQF20uQqv4oQ+t8s/FnH6Z?=
+ =?us-ascii?Q?MqY3o2IUQHoZIvPLfuv+I2tJGx4ah0A78ZlViAW17NRXLZGPCjcf1SIUOEsB?=
+ =?us-ascii?Q?xBtDaZf6ku6GEqcSwpc9p1ZSSlzhFm12tf/7FgQbyxAce/FTQ4mlR7JgcUTQ?=
+ =?us-ascii?Q?KG/efbDEk9EQznA1on2KT6v2xCxPmi0q5cbBtjW+7erMI/VChuTNa37nTlGL?=
+ =?us-ascii?Q?YtwgqKczEVpmTcvVsiqzL3kkqGU0sQ/F3BYuPtFD6OuEJRPPHyYpomyN2qVC?=
+ =?us-ascii?Q?UkAx6amP3rt45NSppJ1vYG3wBtS7THsyUsx+5vpkXhlSIIGn3qKumq/lBgeV?=
+ =?us-ascii?Q?m4Tk/m0o7OtKTox8Zt2PJB108QIDg9UM9paF7Pu4rWhl3XRb7Gi18p3fcFO8?=
+ =?us-ascii?Q?wrDn/Pg763rLo61j9b2NXWasescFVrwBNCekdf37PA+2oha9YrPTt7HfWfxw?=
+ =?us-ascii?Q?ES8tTk4tuwtb7nqdZVhxx8aPsjXKrEVjjRBYVkMhsNqTL1H7o1AN94uwhlH0?=
+ =?us-ascii?Q?trN5xgJ8xgaJlYT6nDjbcg8qThrYxeWkpO6w3UD8RW/6+DDaV6zK/Ox8BXRu?=
+ =?us-ascii?Q?NVXxwMf2Sm/WbKNgNnQzt6IFNDNQj0Tur76+i/32tAetMtdtNPMViw+UfZQk?=
+ =?us-ascii?Q?z/u4vQT1C/BljoiqXtXNu0/AUuG551VxIRUS1d/xGOU4GyvA93SmYhCDh6qw?=
+ =?us-ascii?Q?6pzVgh3jlj/r7c3C9nQWvw9qJRNH1QJj+Zkps4m0zM2Vew482ammyxyRL5+I?=
+ =?us-ascii?Q?idxtF0O7rzUJKkUOBaUlXl916fKy5rw4lg0YCpA6Qndwh9j6wH3W/E4U+Jrk?=
+ =?us-ascii?Q?i6p2y7tndgvaL7M057P47lhcFs22ziTmvhK/Id75ndNajlmjkAKvk7uPXSYo?=
+ =?us-ascii?Q?wcjiza99/abwV0RKnX2XwpjH8hpujtRGnVMB7rqNrttFRR8IvxdBueKM1CkR?=
+ =?us-ascii?Q?Qxbu00E3fhEQUu4ezjyFuUeSYRTZOq2Oq+vyeWBYFTtX74kXnpF6afLatMYk?=
+ =?us-ascii?Q?jcD7H0qnPs/k/xArLmJfZh/VtZ9d+XJiSwTOvU4+tdXkTy7CNAD3j0Ht+iJU?=
+ =?us-ascii?Q?BbzEJrxuxwu4poahfs04gJS5YKnC389rTeLHr3ppKj5nCSnICw0OAPkfNIyQ?=
+ =?us-ascii?Q?5KbVi9yftlGIzY5RBmnHlOgWMIrpYzNlhSV+95A/vTQD4YkbY6vU87jr+5Km?=
+ =?us-ascii?Q?MWqKUvnALmQtMG7dp7aoQOyCITt/3yo5CDc3/Mq7/869GDpNyeNT/kW0Ps71?=
+ =?us-ascii?Q?hOF3baF8yL//IQ+hzvgIMYWKdS04nroM98mEV8FShSAaUto1m13W0Q=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(1800799024)(7416014)(366016)(376014)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?l4QnuaI6EiUD0WfBu7Nugir8eukHFiTE7vof8TuFRs8H2Pxi2rJcMkcbfpVW?=
+ =?us-ascii?Q?5jS54LDS6cHWskSFBKJhUl9Ig0lYk6z68INM0PJoh8LITcjSdw2abHFOPNAl?=
+ =?us-ascii?Q?lwMdpaU2XTA13BwEt9dHBJTFfvsuSBxMHuvl4fSWCwe/Fh7tjgEpHSwlXo1t?=
+ =?us-ascii?Q?0qtrhvHfzBvCRgTmB68bYn1YCB7WDwHnsgnBZZY7nxAR7us2DX05I+hTuS6B?=
+ =?us-ascii?Q?ieXFY7aMDmdWKnaUskYdbmSQioywxRGwSM3D0+P2uUj1/6HKy5Gh830UZw4U?=
+ =?us-ascii?Q?1ZPX+viN2BIEjFc24zeuOzXyxEpxpqbRH8GoSg5ju1r3XH6ywn1flDNvAcUl?=
+ =?us-ascii?Q?Nt6K+50InyE8DUa06eIEdC/4X59RY75wNfFTKT0ydsgBrsrcJoHxempGFjTF?=
+ =?us-ascii?Q?VFtiZzWtIQJnH8Fom6GKQrqtkkQN6vnmlAerxnZtojQOE1CbCJRdU9Xot7fz?=
+ =?us-ascii?Q?eSrnkE1wBJMG9j475WxqNwEw/ipaTudznJa1NA3Yrv8qGGuLu6AsLXegGBSE?=
+ =?us-ascii?Q?Pbsje0Up30fJX5iXRJasUjK3rHvPr91FdwLbFS/rzsRbLvaLZHhcuHjL3089?=
+ =?us-ascii?Q?X8J/DY5oAyjsg+Hmk2PfXQA+xWfyCNRsDrn3ZBMIYSaZEVdljeRS0UPalZGF?=
+ =?us-ascii?Q?2r1QB9GpS4CRw6sWWIZAJNtMcCiv5SwUyGLhAkHT5RWSkxSyrQCYzbZn4men?=
+ =?us-ascii?Q?/L/KdZ4rPOMLlD4XcBAcz9JFeSokj/SExWQLfBx6n70LEa3tAOb0GVRni6E9?=
+ =?us-ascii?Q?w51tGB0124w0h3vd+a8T0wIMYAZhxytGOYLVoj8wVVt1TpzpERpNAhpbUcza?=
+ =?us-ascii?Q?T8s7KlAEtR/Nzm3a59HttVjA+9eO+/Yg/AZBuN024yh/fWfOe28Q+IOvftT5?=
+ =?us-ascii?Q?BK/m7EST967+tJLl1xwxmMUxjCaFLiNLX8mBdxaQxqHJB4cCMPtAvt1hcSAU?=
+ =?us-ascii?Q?5lGYDN2cr63G9CM6Ue3a88vZRijWlZKVtwJ+t+lqkhYsFeJ8zxTGMLJbGCme?=
+ =?us-ascii?Q?vtCy0Vv66kQh7cpXsdj51GURboByfhyOEzc9FP5zx4/BCc/XJf15BzSErCHx?=
+ =?us-ascii?Q?Z3V9XH0ohx6vg4azf4ltK24GVP6k7DCFf7OQ5K4c0gkwKLWr127cFPswROeK?=
+ =?us-ascii?Q?tVb7Tb8utLphPZuXiPOk+BXQy26PpiXAu43uyFyUFX6dQV0Nef5AiGWMyj27?=
+ =?us-ascii?Q?Dgshk6NV8GQFDPbtU1+fMhDben7T0Ac0Y0MVQZFq4GAEKewZtnUmFu4e0fye?=
+ =?us-ascii?Q?6xRGY0ZdGNK1OOUQTpeR4i1545Q7bYkqMFeY7H6Dz3nLWb30u0c+k6ZDOvL9?=
+ =?us-ascii?Q?k30o4PpdrZZjPLPiaZHnhfNL2yjK0X8soYn6vCb2Y3111FXl2bbbZMM39n/e?=
+ =?us-ascii?Q?nw17WB6WYAHyM2kUUke00SFJRFHAQBI6mVVpSDQYCf4TGdCmiNJJ7OHfvooy?=
+ =?us-ascii?Q?/JQw8EzAf7xdm3mamoQRJa5O0ofuQnFQiebtwgB1esMRWI+8cFnFDM6XFTI9?=
+ =?us-ascii?Q?4dywxmIy1I/bcuFbu8//jkfzWstOxFIFF685kbCH4mdF9CjaVImgAtitRsO0?=
+ =?us-ascii?Q?ianHiG9UKcNY/ByXuUw=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b7ae1f42-1a66-444d-3008-08dd3b0e98a9
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jan 2025 18:00:03.5395
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: aHwGqnrUgmbE7R6GI2LVNGp0h7oPMccjR3SoL7wD6JgaO3rkKNuSnvTOvfaJ8j8jzZVjfE1sYQS+bKD9hpnQzQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8716
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_094755_851313_877A1148 
-X-CRM114-Status: GOOD (  18.15  )
+X-CRM114-CacheID: sfid-20250122_100012_695096_9B0D97A8 
+X-CRM114-Status: GOOD (  19.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,196 +169,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Cortex-A72 r0pX is affected by Spectre-BSE which bypasses the existing
-Spectre-BHB mitigation. As implemented by TFA, both WA1 and WA3
-are sufficient to mitigate Spectre-BHB and Spectre-BSE on Cortex-A72 r0pX.
-The performance cost will be the same.
+On Mon, Dec 16, 2024 at 02:25:13PM -0500, Frank Li wrote:
+> - Add binding doc
+> - Add imx91 thermal driver
+> - dts part wait for https://lore.kernel.org/imx/Z04W5chGq5TitB9f@lizhi-Precision-Tower-5810/
+> merged, so not in this serial.
+>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
-The incomplete mitigation is the branchy-loop that was previously used.
-It isn't possible to discover if a hypervisor implements WA3 using the
-branchy-loop, so WA3 can't be trusted for this CPU.
+Rafael J. Wysocki and Daniel Lezcano
 
-Instead, use WA1. This involves duplicating the BHB_FW bit in the
-mitigations bitmap and patching in the appropriate immediate to the
-mitigation sequence. If both WA3 and WA1 are selected, WA1 should
-take priority.
+	Do you have chance to check this patches?
 
-Signed-off-by: James Morse <james.morse@arm.com>
----
- arch/arm64/include/asm/assembler.h |  4 ++-
- arch/arm64/kernel/proton-pack.c    | 58 ++++++++++++++++++++----------
- 2 files changed, 42 insertions(+), 20 deletions(-)
+Frank
 
-diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
-index 3d8d534a7a77..36a5c7868cd8 100644
---- a/arch/arm64/include/asm/assembler.h
-+++ b/arch/arm64/include/asm/assembler.h
-@@ -838,7 +838,9 @@ alternative_cb_end
- #ifdef CONFIG_MITIGATE_SPECTRE_BRANCH_HISTORY
- 	stp	x0, x1, [sp, #-16]!
- 	stp	x2, x3, [sp, #-16]!
--	mov	w0, #ARM_SMCCC_ARCH_WORKAROUND_3
-+alternative_cb ARM64_ALWAYS_SYSTEM, spectre_bhb_patch_wa3
-+	mov	w0, #ARM_SMCCC_ARCH_WORKAROUND_3 // Maybe patched to WA1
-+alternative_cb_end
- alternative_cb ARM64_ALWAYS_SYSTEM, smccc_patch_fw_mitigation_conduit
- 	nop					// Patched to SMC/HVC #0
- alternative_cb_end
-diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
-index 4667325e1d7e..cbe731ff1831 100644
---- a/arch/arm64/kernel/proton-pack.c
-+++ b/arch/arm64/kernel/proton-pack.c
-@@ -864,7 +864,8 @@ enum mitigation_state arm64_get_spectre_bhb_state(void)
- 
- enum bhb_mitigation_bits {
- 	BHB_LOOP,
--	BHB_FW,
-+	BHB_FW_WA3,
-+	BHB_FW_WA1,
- 	BHB_HW,
- 	BHB_INSN,
- };
-@@ -931,13 +932,17 @@ u8 spectre_bhb_loop_affected(int scope)
- 	return k;
- }
- 
--static enum mitigation_state spectre_bhb_get_cpu_fw_mitigation_state(void)
-+static enum mitigation_state
-+spectre_bhb_get_cpu_fw_mitigation_state(enum bhb_mitigation_bits fw_wa)
- {
- 	int ret;
- 	struct arm_smccc_res res;
-+	u64 imm = ARM_SMCCC_ARCH_WORKAROUND_3;
- 
--	arm_smccc_1_1_invoke(ARM_SMCCC_ARCH_FEATURES_FUNC_ID,
--			     ARM_SMCCC_ARCH_WORKAROUND_3, &res);
-+	if (fw_wa == BHB_FW_WA1)
-+		imm = ARM_SMCCC_ARCH_WORKAROUND_1;
-+
-+	arm_smccc_1_1_invoke(ARM_SMCCC_ARCH_FEATURES_FUNC_ID, imm, &res);
- 
- 	ret = res.a0;
- 	switch (ret) {
-@@ -956,9 +961,10 @@ static enum mitigation_state spectre_bhb_get_cpu_fw_mitigation_state(void)
-  * For a core affected by BSE, get the WA3 state and handle the 'unaffected'
-  * case from unaware firmware.
-  */
--static enum mitigation_state spectre_bse_get_cpu_fw_mitigation_state(void)
-+static enum mitigation_state
-+spectre_bse_get_cpu_fw_mitigation_state(enum bhb_mitigation_bits fw_wa)
- {
--	enum mitigation_state state = spectre_bhb_get_cpu_fw_mitigation_state();
-+	enum mitigation_state state = spectre_bhb_get_cpu_fw_mitigation_state(fw_wa);
- 
- 	switch (state) {
- 	case SPECTRE_MITIGATED:
-@@ -992,7 +998,7 @@ static bool is_spectre_bhb_fw_affected(int scope)
- 	if (scope != SCOPE_LOCAL_CPU)
- 		return system_affected;
- 
--	fw_state = spectre_bhb_get_cpu_fw_mitigation_state();
-+	fw_state = spectre_bhb_get_cpu_fw_mitigation_state(BHB_FW_WA3);
- 	if (cpu_in_list || (has_smccc && fw_state == SPECTRE_MITIGATED)) {
- 		system_affected = true;
- 		return true;
-@@ -1082,7 +1088,7 @@ static int __init parse_spectre_bhb_param(char *str)
- }
- early_param("nospectre_bhb", parse_spectre_bhb_param);
- 
--static void spectre_bhb_enable_fw_mitigation(void)
-+static void spectre_bhb_enable_fw_mitigation(enum bhb_mitigation_bits fw_wa)
- {
- 	bp_hardening_cb_t cpu_cb;
- 	struct bp_hardening_data *data = this_cpu_ptr(&bp_hardening_data);
-@@ -1107,7 +1113,7 @@ static void spectre_bhb_enable_fw_mitigation(void)
- 	if (__this_cpu_read(bp_hardening_data.fn) != cpu_cb)
- 		__this_cpu_write(bp_hardening_data.fn, NULL);
- 
--	set_bit(BHB_FW, &system_bhb_mitigations);
-+	set_bit(fw_wa, &system_bhb_mitigations);
- }
- 
- static void spectre_bhb_enable_loop_mitigation(void)
-@@ -1166,9 +1172,9 @@ void spectre_bhb_enable_mitigation(const struct arm64_cpu_capabilities *entry)
- 			bse_upgrade_loop_mitigation = true;
- 		}
- 	} else if (is_spectre_bhb_fw_affected(SCOPE_LOCAL_CPU)) {
--		fw_state = spectre_bhb_get_cpu_fw_mitigation_state();
-+		fw_state = spectre_bhb_get_cpu_fw_mitigation_state(BHB_FW_WA3);
- 		if (fw_state == SPECTRE_MITIGATED) {
--			spectre_bhb_enable_fw_mitigation();
-+			spectre_bhb_enable_fw_mitigation(BHB_FW_WA3);
- 			state = SPECTRE_MITIGATED;
- 
- 			if (is_spectre_bse_affected(SCOPE_LOCAL_CPU))
-@@ -1178,9 +1184,16 @@ void spectre_bhb_enable_mitigation(const struct arm64_cpu_capabilities *entry)
- 
- 	/* Spectre BSE needs to upgrade the BHB mitigation to use firmware */
- 	if (bse_upgrade_loop_mitigation) {
--		bse_state = spectre_bse_get_cpu_fw_mitigation_state();
-+		bse_state = spectre_bse_get_cpu_fw_mitigation_state(BHB_FW_WA1);
- 		if (bse_state == SPECTRE_MITIGATED) {
--			spectre_bhb_enable_fw_mitigation();
-+			/*
-+			 * For affected cores the firmware implementions of WA1
-+			 * and WA3 are both sufficient for BSE, but what about
-+			 * hypervisors? It's possible the hypervisor implements
-+			 * WA3 with the branchy-loop, which is not sufficient.
-+			 * Use the WA1 call instead.
-+			 */
-+			spectre_bhb_enable_fw_mitigation(BHB_FW_WA1);
- 			state = SPECTRE_MITIGATED;
- 			bse_state = SPECTRE_MITIGATED;
- 		} else {
-@@ -1214,7 +1227,7 @@ void noinstr spectre_bhb_patch_fw_mitigation_enabled(struct alt_instr *alt,
- {
- 	BUG_ON(nr_inst != 1);
- 
--	if (test_bit(BHB_FW, &system_bhb_mitigations))
-+	if (test_bit(BHB_FW_WA3, &system_bhb_mitigations))
- 		*updptr++ = cpu_to_le32(aarch64_insn_gen_nop());
- }
- 
-@@ -1239,26 +1252,33 @@ void noinstr spectre_bhb_patch_loop_iter(struct alt_instr *alt,
- 	*updptr++ = cpu_to_le32(insn);
- }
- 
--/* Patched to mov WA3 when supported */
-+/* Patched to mov WA1 or WA3 when supported */
- void noinstr spectre_bhb_patch_wa3(struct alt_instr *alt,
- 				   __le32 *origptr, __le32 *updptr, int nr_inst)
- {
- 	u8 rd;
- 	u32 insn;
-+	u64 imm = ARM_SMCCC_ARCH_WORKAROUND_3;
- 
- 	BUG_ON(nr_inst != 1); /* MOV -> MOV */
- 
--	if (!IS_ENABLED(CONFIG_MITIGATE_SPECTRE_BRANCH_HISTORY) ||
--	    !test_bit(BHB_FW, &system_bhb_mitigations))
-+	if (!IS_ENABLED(CONFIG_MITIGATE_SPECTRE_BRANCH_HISTORY))
- 		return;
- 
-+	if (!test_bit(BHB_FW_WA1, &system_bhb_mitigations) &&
-+	    !test_bit(BHB_FW_WA3, &system_bhb_mitigations))
-+		return;
-+
-+	/* If both WA1 and WA3 are selected, WA1 must be used */
-+	if (test_bit(BHB_FW_WA1, &system_bhb_mitigations))
-+		imm = ARM_SMCCC_ARCH_WORKAROUND_1;
-+
- 	insn = le32_to_cpu(*origptr);
- 	rd = aarch64_insn_decode_register(AARCH64_INSN_REGTYPE_RD, insn);
- 
- 	insn = aarch64_insn_gen_logical_immediate(AARCH64_INSN_LOGIC_ORR,
- 						  AARCH64_INSN_VARIANT_32BIT,
--						  AARCH64_INSN_REG_ZR, rd,
--						  ARM_SMCCC_ARCH_WORKAROUND_3);
-+						  AARCH64_INSN_REG_ZR, rd, imm);
- 	if (WARN_ON_ONCE(insn == AARCH64_BREAK_FAULT))
- 		return;
- 
--- 
-2.39.2
-
+> ---
+> Changes in v4:
+> - Add Kryz's review tag for binding
+> - Add Marco's review tag for driver
+> - Use devm_add_action()
+> - Move pm_runtim_put before thermal_of_zone_register()
+> - Link to v3: https://lore.kernel.org/r/20241212-imx91tmu-v3-0-85e756b29437@nxp.com
+>
+> Changes in v3:
+> - add ref thermal-sensor
+> - restrict #thermal-sensor-cells to 0 only
+> - Change to unevaluatedProperties
+>
+> - add IMX91_TMU_ prefix for register define
+> - remove unused register define
+> - fix missed pm_runtime_put() at error path in imx91_tmu_get_temp()
+> - use dev variable in probe function
+> - use pm_runtime_set_active() in probe
+> - move START to imx91_tmu_get_temp()
+> - use DEFINE_RUNTIME_DEV_PM_OPS()
+> - keep set reset value because there are not sw "reset" bit in controller,
+>   uboot may change and enable tmu.
+>
+> - Link to v2: https://lore.kernel.org/r/20241210-imx91tmu-v2-0-5032aad4d88e@nxp.com
+>
+> Changes in v2:
+> - use low case for hexvalue
+> - combine struct imx91_tmu and tmu_sensor
+> - simplify imx91_tmu_start() and imx91_tmu_enable()
+> - use s16 for imx91_tmu_get_temp(), which may negative value
+> - use reverse christmas tree style
+> - use run time pm
+> - use oneshot to sample temp
+> - register thermal zone after hardware init
+> - Link to v1: https://lore.kernel.org/r/20241209-imx91tmu-v1-0-7859c5387f31@nxp.com
+>
+> ---
+> Pengfei Li (2):
+>       dt-bindings: thermal: fsl,imx91-tmu: add bindings for NXP i.MX91 thermal module
+>       thermal: imx91: Add support for i.MX91 thermal monitoring unit
+>
+>  .../devicetree/bindings/thermal/fsl,imx91-tmu.yaml |  67 ++++++
+>  drivers/thermal/Kconfig                            |  10 +
+>  drivers/thermal/Makefile                           |   1 +
+>  drivers/thermal/imx91_thermal.c                    | 263 +++++++++++++++++++++
+>  4 files changed, 341 insertions(+)
+> ---
+> base-commit: d07c576946b2bc440d6d2073998023e8a0bd7568
+> change-id: 20241209-imx91tmu-af2a7c042d8d
+>
+> Best regards,
+> ---
+> Frank Li <Frank.Li@nxp.com>
+>
 
