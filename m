@@ -4,87 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACC06C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 07:03:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73A32C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 07:17:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=98nwCRYv2SeYsyOZNSoNm6lFlX/EwFYW68/vkffV1uA=; b=P6Ze2jxkdmktldW8z8QxvchBYD
-	aGeMwb3Fplgz0QZGfYdbxUg/ad2rE8Xv8HG2UuBIgjnNciB1I9bM4kk7XNy60IHvWIltxXpusXUjk
-	2lZsZ88qk1G4gd8ULDIFrW18m5yR/H2dQvZGYjbIWuW5q688TUBL7mMMnb5I6KRiijIdNgqH8hRov
-	qDlw8625d1fOqLvrkYV72ooZaoeczd9rbUcu6AEJNzfhCtzn9tu6G+Rjs7ya9UdIkvtS1aRfPWYTg
-	58mSutmva30DJqYJtrAwEOrTL4v2zc4n07Na9OGkcr1+l8JL/pssXgCJrsjVJaJ3UjaJLBm+5AdnI
-	kx3UeG+w==;
+	bh=0hhWPgTtRw8HFH6N8rgW5HV+TT3s9L6Lbj53zgNmAjg=; b=Er9mRI4ZXh4lZePyHrTg8lXyh2
+	EfaZIowj+KS8sYkJ6cJhytg6q8Uu5+XKebP29YAyDOcLXuvYAqjSfEQaWq1dinjZSRu56/Ulu2wtz
+	m9h5Tm0fMGWH2u6mOilmrqJVXaDWePM/Uh58vQDsQvWVXwxN5fh4NHuJUNgRB429qnDlTrvBYGt0j
+	zT7maGAjv4q11moBkWUNPnrlFh5fJO09ZVpEXTgTJLClOu+EkPF6Fm/sojpPCVg/olsM96Ny0XNSP
+	x4qI0eHJ+FbXX7QBKF2uSqlqCWHV7sMpxqt/w4badVB7QhwulckeTRmhSEPxhtIgV+0NbTSvv11dZ
+	77ctTrQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taUlt-00000009ZHH-1F1Z;
-	Wed, 22 Jan 2025 07:03:29 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1taUzR-00000009aIe-269q;
+	Wed, 22 Jan 2025 07:17:29 +0000
+Received: from mail-bn8nam11on20622.outbound.protection.outlook.com ([2a01:111:f403:2414::622] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taUhC-00000009Yda-1wzR
+	id 1taUy9-00000009a98-1EU5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 06:58:39 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-21636268e43so143578525ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jan 2025 22:58:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737529117; x=1738133917; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=98nwCRYv2SeYsyOZNSoNm6lFlX/EwFYW68/vkffV1uA=;
-        b=tTYOoYHQwyQb7T40Tmj3cu28pprnlGUzv9csrEa0rNdjimE0m98otnbif3Z8MT7nUS
-         NMZumssvoJU6zgRaq2xAqSsRM0xtkidUY9PdsNr5U8IHxrU6wuRRtCih8+ALLIEVhTwO
-         yYtoIfZ1vV28CFbKtq5bId7fOg33fEB6TgVcyOTpleSOGB+BU4CL9nyFx+8z4nvZ5u2M
-         z636rOsuxfRiGTjuH6BjsF4wha2C7B8wulHsOeWAq6hvS/S/MMkwSnNkkUKU3nixUuco
-         2lTPn8vF5vH9kq8MrZJmYd6stOiaFiXW9HOGC/gTaqz0lMPhFYvutfzpzU7Thq9IcoVF
-         cGhg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737529117; x=1738133917;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=98nwCRYv2SeYsyOZNSoNm6lFlX/EwFYW68/vkffV1uA=;
-        b=rZGKYuJlwgP21z/3uMZzOLaTvc1qN6PgsHDg9rU0N4Zza52w24aS1Tv0sftfJ7Xk1Q
-         REN9nkMax7J48uj8ZrbFGukQkRdLSZsbp8Ya1JQ//cAGhtA8JZmLF1v3Za1+yRr1RNwo
-         mTE700o5ZWcYKy5IxILQuRyOgS2uOQ6WByLEG1924XCROon+dLZDQXsYZP0iSdOY+VuV
-         z3tGOACY/BpUvPwOMbUl9KeWWBqmcVfIUO7Huf+8YzRuHcG7ei1NBHc/dtalfP0l63q1
-         bFQNbLMnHJRO0ctC+9VLidUjEtpXqH+jNqPPzaTdt5pZLvtOkHouBoUaX3eLP3z2fLcQ
-         6Qeg==
-X-Forwarded-Encrypted: i=1; AJvYcCWSlwdknKYzygl+dRWIsCOCabLxgGrqS6YIMdftuAXcaqto6QhnkPcvpq5Uu7uarSw2qISITUZ8R/Bqms7nhOQm@lists.infradead.org
-X-Gm-Message-State: AOJu0YyRAoHSwhAGExpzh4EH6tiLTrcf/lp+Y4jvmmIIpk2LNLY4uVla
-	Z1n/UfCMjJvk3eLdkziEQtAWESZ0dd5M5giIk8g+kWA41cuQCOl1W9DxRcLWRyM=
-X-Gm-Gg: ASbGnctcQ17ZuMkDgKtxjtosCw6bve93YrrATjKUWXsXVXCPClZ40L1vjyLUah2gb6e
-	lMoC2uf49rDEZ8J4UAKqd35Zu6xPbro8Me3hLAGmz82jW+rjS3Iq8QOzZYljB5gr5du1YpBH63i
-	liSB2b9n1HWUcR0q82NpA2MzmLxVPGKWsSmAN4gcacEh2AWx+8ndMPwBxumYX0ruHAdUmN/sqhM
-	Ajb08IegQ3XcxPiFc9NdAovItI5pWe5SsXBB9tfQJklfhkiXdeG9HX4n95wPa49x1gGSw6S
-X-Google-Smtp-Source: AGHT+IFlyQTrbWJ70KA4F7+yV/Afg3zlHDmPMltEFy0yFNqRhEfo+qrlLDzqJAfprSQh6gV4oL8egQ==
-X-Received: by 2002:a05:6a20:9144:b0:1e1:a9dd:5a58 with SMTP id adf61e73a8af0-1eb215ec11cmr37960260637.30.1737529117262;
-        Tue, 21 Jan 2025 22:58:37 -0800 (PST)
-Received: from localhost ([122.172.84.139])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72dab9b9b1esm10519029b3a.99.2025.01.21.22.58.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Jan 2025 22:58:36 -0800 (PST)
-Date: Wed, 22 Jan 2025 12:28:34 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Alim Akhtar <alim.akhtar@samsung.com>, linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] cpufreq: s3c64xx: hide unused variable
-Message-ID: <20250122065834.c4va6uwjrfny2mfv@vireshk-i7>
-References: <20250122065216.1371158-1-arnd@kernel.org>
+	Wed, 22 Jan 2025 07:16:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XKL/F/kGvJqMB1nuwPVbcedv+THNm/3X0iejhJpMbVDEoINe0aOdhXy9dT7z+fC3b/3+PsfKiP4O+E4VDipZKuSoG6HjxsukRWpdXsuMxIW2HL/pzVde39OAX+hxDfvVHqhQZKOzcrhrvrVmmU7XZmJTtYgPkkgOT71pSflQLNe91/zzEc+FDfczOkBZXHBVtZAl1mJv1dLmN7eRUwKxv1DuOT0uIxFM0grPSIwavSUpGHsXMaAAWisqBYxG5OsWFTz2g8FDfBfVyT4WJT4x9YAT/waNSNRJMSZOqaxWyZjOqsDlJOxgP0L8IX0qQlLqAVuaMGquy3tlFElMocoYHQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0hhWPgTtRw8HFH6N8rgW5HV+TT3s9L6Lbj53zgNmAjg=;
+ b=IYxc1DQL1pBX3gl4O+HLnKlUbtkfShUxQ9fs64bEhGnGF3jWZUzfgMkDPgqtH01QV8RdYROTs9FXFtmkjD3hQVQnOx8QIm8lqsRgzjn6+29/rzUsR0QVdAC1YoqNe4LkSKXo1VISyW6SPMCLySU5GeykR+PuAHEHMG3+AAa4o9VITlrTBqkjlywQvEygGOrGIqdf/Addmn2cZ2nLm5TZmifBGsZ6PY7zgX/tvEfHz0Atd7C/hz0MOtieMuCGbX8IXXTStIShjUXnp7qE9mFoAGqPYBNkz26huV9unL6CNYD4DkndSEg8hsp+UuQ683lUogrVKHXZg+mqA7iniIsDiA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=redhat.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0hhWPgTtRw8HFH6N8rgW5HV+TT3s9L6Lbj53zgNmAjg=;
+ b=r7saYjToR1PYcfSb/1fvVaYim/qrmiC9ZXgW7ZFNhTX9LobIbIWB0I3cKxTv00o4OL59Zz4BfueZvaiMkG/0pXp6bkHUoEQnV+OcPQlU9T8puwGHTpKmUI1ohGM4wxPhVv3UMe02qzqmMt0EMKaC2LRurgB7zrnbsbNgPkw1WEVtbZzUyectWaRUprJuIgLxavuM8hTUBpR4xkzHce170jy0s2PypH4KjHK+WbfozAYs4aEfJZ/zg+us/66jPBmXwSDRo0+ebFBaa8tz4omB/6rrkclk48KPEOQEtuI1vJ2Dp3oK5bqpKk4QeiLX2tmMS9S0zUSD5CGd5rsyRZAukA==
+Received: from DS7PR03CA0091.namprd03.prod.outlook.com (2603:10b6:5:3b7::6) by
+ PH7PR12MB8155.namprd12.prod.outlook.com (2603:10b6:510:2b2::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8293.15; Wed, 22 Jan
+ 2025 07:15:59 +0000
+Received: from CY4PEPF0000EDD6.namprd03.prod.outlook.com
+ (2603:10b6:5:3b7:cafe::e0) by DS7PR03CA0091.outlook.office365.com
+ (2603:10b6:5:3b7::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8356.22 via Frontend Transport; Wed,
+ 22 Jan 2025 07:15:59 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ CY4PEPF0000EDD6.mail.protection.outlook.com (10.167.241.202) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8377.8 via Frontend Transport; Wed, 22 Jan 2025 07:15:58 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 21 Jan
+ 2025 23:15:43 -0800
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 21 Jan
+ 2025 23:15:42 -0800
+Received: from nvidia.com (10.127.8.14) by mail.nvidia.com (10.129.68.6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
+ Transport; Tue, 21 Jan 2025 23:15:37 -0800
+Date: Tue, 21 Jan 2025 23:15:36 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <kevin.tian@intel.com>, <corbet@lwn.net>, <will@kernel.org>,
+	<joro@8bytes.org>, <suravee.suthikulpanit@amd.com>, <robin.murphy@arm.com>,
+	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>, <shuah@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, <eric.auger@redhat.com>,
+	<jean-philippe@linaro.org>, <mdf@kernel.org>, <mshavit@google.com>,
+	<shameerali.kolothum.thodi@huawei.com>, <smostafa@google.com>,
+	<ddutile@redhat.com>, <yi.l.liu@intel.com>, <patches@lists.linux.dev>
+Subject: Re: [PATCH v5 08/14] iommufd/viommu: Add iommufd_viommu_report_event
+ helper
+Message-ID: <Z5CbGKYbwy+qPjyh@nvidia.com>
+References: <Z4rVg1Xg5TCiFlSb@nvidia.com>
+ <20250120181854.GQ5556@nvidia.com>
+ <Z463eXfgNArCOfPn@nvidia.com>
+ <20250121183611.GY5556@nvidia.com>
+ <Z4/7pGx6F1mpAUuV@nvidia.com>
+ <20250121200924.GZ5556@nvidia.com>
+ <Z5ALWFVTOSC/8+ji@nvidia.com>
+ <20250121211404.GB5556@nvidia.com>
+ <Z5AUNVHzJPATVqAY@nvidia.com>
+ <20250122002128.GC5556@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20250122065216.1371158-1-arnd@kernel.org>
+In-Reply-To: <20250122002128.GC5556@nvidia.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000EDD6:EE_|PH7PR12MB8155:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0b8b0ee0-f085-4118-ea67-08dd3ab49ece
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|376014|7416014|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?EtLlpyMoRLEagzYxjU/1QdeFtEMTYT+zwi+rP2qN4ke08Pn+qi+WJJ4mkT7w?=
+ =?us-ascii?Q?HtrucRz+7+WJP7UphLm51AXmoKZShIfmSesyKD7N3wCoWFLE6xLkrlQb0zn7?=
+ =?us-ascii?Q?zRpBGKqkHk00EPpufXl047t2jCNPxeRzSbC/Wd2/rlATZZDVHe4UaKMOKwME?=
+ =?us-ascii?Q?Tjt7jvQV2Ps05P8OfBC+qqInSNmJWmtD7ayzgv0O6Y43ZFw83uDHIKv3FX8c?=
+ =?us-ascii?Q?jNOnMowxiJmrA9OehCD13UTff/ihRA0W8odBcO2KgvRgUclTXwMzXV/St142?=
+ =?us-ascii?Q?6frzHOSzC9AubyR0TN3LUllKR8x0q1y4JO/000HUBlkZGbthfgTljEPjrH9o?=
+ =?us-ascii?Q?o3+K/TDl6W/xgr3Xuxal0twRHgWrHUWH3rsnJ+ik4YIbc7E6vA7wHqDrsPZe?=
+ =?us-ascii?Q?xcChuruZ6un9hzGmFHTfU3o2TAXdvHUOpqiWdEXhPldygFDJRWp0SgYk/Bmo?=
+ =?us-ascii?Q?Htx2kyDktf4tkYBVWwo5F3KbIGkH858SA8eJXqyjLM/K5OZSR63+uUnKr7hD?=
+ =?us-ascii?Q?ylbAIFW6+QPWYRKupotYB2DW2nIo+dmW1++U9DMcnxCG/jLrRiuJzw6Lcdgg?=
+ =?us-ascii?Q?RI0PjkvIGR8txkbgyZoA9gWUPllqkKFQ0mfQzbYPScSTq8cNAgvSNvtokUd2?=
+ =?us-ascii?Q?EJz8M283itlorhSo0OP//8hdlo7iQYXntWRFNicLSKXrIcsXs08OKBsCBDp1?=
+ =?us-ascii?Q?aOS4p41PWb6lHmEJKxtyWekKc0F3pLueHsRM5Bhky28ywjtiZevV788a+c5h?=
+ =?us-ascii?Q?IpG+u3QYBletAn0gSam5V/X+KdvtxSuzLw/SPTmGQUL0kK+2TQkPDp3fwVA2?=
+ =?us-ascii?Q?2dFWX3Rn0zH3bt+cJBzYYr/581pfOcHRCVPlJe2HAqfcSE6b9/oSXH2G6BPm?=
+ =?us-ascii?Q?gqBNr64QCvoDHMEWwPICqv7z4idA+aamWsIK6DzW7SzBro+uzPJ4D3RHmc85?=
+ =?us-ascii?Q?ovdxUsnKGT/rDDQFelKOthvIbXE20SSh9q6A77YZ0kZWS/mgc8T8Qy2a22Wc?=
+ =?us-ascii?Q?/dl7ybMRrRm5f3qNF7YIAB8PV+DDcRGYpLhFUL3SGzjoV8ye7htGl1RpmHMt?=
+ =?us-ascii?Q?jou1odJh+x+xfjAHRCmeMfErMNdElaef9NAvSNJk3eavv4iEjRWeyOpJJkhJ?=
+ =?us-ascii?Q?IPrB16LJW8wJrFi0jP3gwoxap1HHlvBtRrtWN1DpaYm6ekilyxVcqOCgF49b?=
+ =?us-ascii?Q?QLk1iXxJKVfJRo6H2G1xTNtVynVD0ta7Yn8BMtJqhe83Y+P7dk1OGWxkoRg9?=
+ =?us-ascii?Q?J20YYP9hDJweEps/jVlfo1mxzS/CqducpPf2UXpp2+xV9csH1pQVwKz6DxYU?=
+ =?us-ascii?Q?utuEv6wWLPWYrs+sBkYJzd45oQyJRT9fr8RX30vL807WfDneDqUOoYFldqhs?=
+ =?us-ascii?Q?aNQCsdKEntPSHxmaO3tFMhcWl+/+X/EMBCIv/KFhun0dI/avjGpludW8LsT6?=
+ =?us-ascii?Q?ubS5jF9PK8IuAYTZPn5lQ5y4bBdDDja66cILlElqnFy0tV6E4NBE7Ln3WaLE?=
+ =?us-ascii?Q?Y2BdHMzFNPoAC2Y=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(376014)(7416014)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jan 2025 07:15:58.8738
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0b8b0ee0-f085-4118-ea67-08dd3ab49ece
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EDD6.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB8155
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_225838_515999_9B56D1F6 
-X-CRM114-Status: GOOD (  20.48  )
+X-CRM114-CacheID: sfid-20250121_231609_328494_E58D2331 
+X-CRM114-Status: GOOD (  17.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,52 +166,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22-01-25, 07:52, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
+On Tue, Jan 21, 2025 at 08:21:28PM -0400, Jason Gunthorpe wrote:
+> On Tue, Jan 21, 2025 at 01:40:05PM -0800, Nicolin Chen wrote:
+> > > There is also the minor detail of what happens if the hypervisor HW
+> > > queue overflows - I don't know the answer here. It is security
+> > > concerning since the VM can spam DMA errors at high rate. :|
+> > 
+> > In my view, the hypervisor queue is the vHW queue for the VM, so
+> > it should act like a HW, which means it's up to the guest kernel
+> > driver that handles the high rate DMA errors..
 > 
-> A previous compiler warning fix extended an #ifdef block, but that
-> led to another warning in some builds:
+> I'm mainly wondering what happens if the single physical kernel
+> event queue overflows because it is DOS'd by a VM and the hypervisor
+> cannot drain it fast enough?
 > 
-> drivers/cpufreq/s3c64xx-cpufreq.c:27:28: error: 's3c64xx_dvfs_table' defined but not used [-Werror=unused-variable]
->    27 | static struct s3c64xx_dvfs s3c64xx_dvfs_table[] = {
-> 
-> Add yet another #ifdef check around that variable.
-> 
-> Fixes: 76b218721e5f ("cpufreq: s3c64xx: Fix compilation warning")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
+> I haven't looked closely but is there some kind of rate limiting or
+> otherwise to mitigate DOS attacks on the shared event queue from VMs?
 
-I too have sent a fix this morning:
-236b227e929e5adc04d1e9e7af6845a46c8e9432.1737525916.git.viresh.kumar@linaro.org
+SMMUv3 reads the event out of the physical kernel event queue,
+and adds that to faultq or veventq or prints it out. So, it'd
+not overflow because of DOS? And all other drivers should do
+the same?
 
-> I wonder if the driver should instead depend on CONFIG_REGULATOR
-> and drop the #ifdef checks.
-
-The way CONFIG_REGULATOR is used in the driver, it seems like it can
-be used without regulators too. The initial commit also confirms this.
-
-commit b3748ddd80569ec753f62e709629b8c639143222
-Author: Mark Brown <broonie@opensource.wolfsonmicro.com>
-Date:   Mon Jun 15 11:23:20 2009 +0100
-
-    [ARM] S3C64XX: Initial support for DVFS
-
-    This patch provides initial support for CPU frequency scaling on the
-    Samsung S3C ARM processors. Currently only S3C6410 processors are
-    supported, though addition of another data table with supported clock
-    rates should be sufficient to enable support for further CPUs.
-
-    Use the regulator framework to provide optional support for DVFS in
-    the S3C cpufreq driver. When a software controllable regulator is
-    configured the driver will use it to lower the supply voltage when
-    running at a lower frequency, giving improved power savings.
-
-    When regulator support is disabled or no regulator can be obtained
-    for VDDARM the driver will fall back to scaling only the frequency.
-
-    Signed-off-by: Mark Brown <broonie@opensource.wolfsonmicro.com>
-    Signed-off-by: Ben Dooks <ben-linux@fluff.org>
-
--- 
-viresh
+Thanks
+Nicolin
 
