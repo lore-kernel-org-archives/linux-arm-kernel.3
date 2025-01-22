@@ -4,56 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F7BFC02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 13:46:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BC96C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 13:53:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YJXkNjhw3Aw/eM4XePKe96UikbQjmvVIAHBl8Bw77+Q=; b=bvFwD4Pctjkt3Ar1ngoyX0MXsY
-	kYxQoJq0UI9TThATBqm/htVC0PoVut9wmha+vi+I54H7n+PnblGgVObz06evVLtwPdzCKtj2sRkvH
-	gjwj2TJZOWKytp+xSAA3bTNJx9MDcvAHfC6HIWlx84yXpzy26yX0Oq+oJRhbV8W4nLooBi5rmFXzG
-	L8eh7I1D2xnBukJIrbju0ZxBRoM+w+BTNBOZLazeG2VLLm98UYQ/+PaDHDEBQ5KwC0HGjAuRDvMrX
-	qpmzimi6GCnl5wybGnk0yUsponTPL2ekOlPqxJzmOvBwT2m4GqS+5Z/Aq9V6x4BG2SFc+uoSzX/y+
-	X2xZHd4g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jv2yDZtHcpSll2NLJ4TWnj6kWytYEK0xigOiSIN3QPQ=; b=gU7thqKYXbaABUDL+IqHvU75hk
+	PVfC+KiAHIgBPUDuSW9JA/lYxqMQoLRc4hCkrzBO26K7ZMZI7sZHweHuKYmrsyGi3hD37BCwBAsrs
+	CXgXWtQdQKatnalv+moJtXjVKPkn+OCjs5TZvSoSfPOTwp3Au7nCAPKMraXMcetF4iyD0bNSCiW+X
+	Yc7BmZWu+p609UN53os3oHNIY7g3fo6sO35o8E9btTNdSeLsuEKEaQzXylEQCG5fAB3jijAaPcSon
+	03/RSSfBK4xUAPeX+aTMsR+Ms2mVmWS5ohJ5D+wPK07xyRJe4740YITRgBUsvDjmshdJzYVeQkYsE
+	ZpHgriZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tab3G-0000000AJv1-0KFH;
-	Wed, 22 Jan 2025 13:45:50 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tabAN-0000000AKrT-34HB;
+	Wed, 22 Jan 2025 13:53:11 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tab0j-0000000AJZf-0yjC;
-	Wed, 22 Jan 2025 13:43:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=YJXkNjhw3Aw/eM4XePKe96UikbQjmvVIAHBl8Bw77+Q=; b=B8GfoPTfvztONar6kUdDGB6Dln
-	7QBlQaOUSNpq42nxCfsTaoD3g3hgp47FjRCIS6AU2SKA/m/CrcaVKKcqG9b0JqCGmLYeX/U1X30qD
-	94jcupitsrV3UmMeENlw+nIXGNaQvv4/Oi516Qi9D1zrSIK77B6nbt4uH5Gnu0mnmPR8=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tab0X-006xSm-6T; Wed, 22 Jan 2025 14:43:01 +0100
-Date: Wed, 22 Jan 2025 14:43:01 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Basharath Hussain Khaja <basharath@couthit.com>
-Subject: Re: [RFC PATCH 01/10] dt-bindings: net: ti: Adds device tree binding
- for DUAL-EMAC mode support on PRU-ICSS2 for AM57xx SOCs
-Message-ID: <ef90ecc9-7bb1-4f18-bd14-c5a82f07021b@lunn.ch>
-References: <20250109105600.41297-1-basharath@couthit.com>
- <20250109105600.41297-2-basharath@couthit.com>
- <7870d1e4-074f-4dc5-aae5-ac5fc725cc43@lunn.ch>
- <1556294138.382514.1737552374554.JavaMail.zimbra@couthit.local>
+	id 1tab95-0000000AKaa-1rFL;
+	Wed, 22 Jan 2025 13:51:52 +0000
+X-UUID: 0390f958d8c811ef9048ed6ed365623b-20250122
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=jv2yDZtHcpSll2NLJ4TWnj6kWytYEK0xigOiSIN3QPQ=;
+	b=kWFYFfZKJ3WRuGl47YcW5NFG9PImD+uW6f6BBv5qA7WenMBkeKscomph1xKMRy6dlagrITq2geDi6mqFu/+vIAh0xt1qzEqajfuKWJQjqSIsuSTpli7K+wXqi9GpiWmKp9WHqeT3AfuehLhzVfRuGbyd4Avq0uC9HNDaapdZDeI=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.46,REQID:1055a063-c382-43a8-b647-983014b8cf2b,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:60aa074,CLOUDID:31d88e7e-427a-4311-9df4-bfaeeacd8532,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
+	l,URL:1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
+	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-UUID: 0390f958d8c811ef9048ed6ed365623b-20250122
+Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw02.mediatek.com
+	(envelope-from <ot_chhao.chang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 623293458; Wed, 22 Jan 2025 06:51:43 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.28; Wed, 22 Jan 2025 21:51:40 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.28 via Frontend Transport; Wed, 22 Jan 2025 21:51:40 +0800
+From: Hao Chang <ot_chhao.chang@mediatek.com>
+To: Sean Wang <sean.wang@kernel.org>, Linus Walleij
+	<linus.walleij@linaro.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+CC: Wenbin Mei <wenbin.mei@mediatek.com>, Axe Yang <axe.yang@mediatek.com>,
+	Qingliang Li <qingliang.li@mediatek.com>,
+	<linux-mediatek@lists.infradead.org>, <linux-gpio@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, "Hao
+ Chang" <ot_chhao.chang@mediatek.com>
+Subject: [PATCH v2 0/3] pinctrl: mediatek: add support for multi-instance EINT
+Date: Wed, 22 Jan 2025 21:51:22 +0800
+Message-ID: <20250122135135.15234-1-ot_chhao.chang@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <1556294138.382514.1737552374554.JavaMail.zimbra@couthit.local>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_054313_268404_D8A493EC 
-X-CRM114-Status: GOOD (  16.52  )
+X-CRM114-CacheID: sfid-20250122_055151_484945_CAA10A14 
+X-CRM114-Status: UNSURE (   9.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,30 +84,39 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: nm <nm@ti.com>, vigneshr <vigneshr@ti.com>, tony <tony@atomide.com>, edumazet <edumazet@google.com>, krishna <krishna@couthit.com>, pmohan <pmohan@couthit.com>, diogo ivo <diogo.ivo@siemens.com>, Rob Herring <robh@kernel.org>, javier carrasco cruz <javier.carrasco.cruz@gmail.com>, praneeth <praneeth@ti.com>, m-karicheri2 <m-karicheri2@ti.com>, jacob e keller <jacob.e.keller@intel.com>, kuba <kuba@kernel.org>, pabeni <pabeni@redhat.com>, devicetree <devicetree@vger.kernel.org>, conor+dt <conor+dt@kernel.org>, schnelle <schnelle@linux.ibm.com>, mohan <mohan@couthit.com>, richardcochran <richardcochran@gmail.com>, prajith <prajith@ti.com>, rogerq <rogerq@kernel.org>, ssantosh <ssantosh@kernel.org>, linux-omap <linux-omap@vger.kernel.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, rogerq <rogerq@ti.com>, srk <srk@ti.com>, pratheesh <pratheesh@ti.com>, m-malladi <m-malladi@ti.com>, netdev <netdev@vger.kernel.org>, rdunlap <rdunlap@infradead.org>, linux-kernel <linux-kernel@vger.kernel.org>, danishanwar <danishanwar@ti.com>, afd <afd@ti.com>, andrew+netdev <andrew+netdev@lunn.ch>, parvathi <parvathi@couthit.com>, horms <horms@kernel.org>, krzk+dt <krzk+dt@kernel.org>, davem <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 22, 2025 at 06:56:14PM +0530, Basharath Hussain Khaja wrote:
-> 
-> >> +          ti,no-half-duplex:
-> >> +            type: boolean
-> >> +            description:
-> >> +              Disable half duplex operation on ICSSM MII port.
-> > 
-> > I already asked this in the next patch, but why have this property? Is
-> > it because the hardware is broken? Or is this some sort of policy?
-> > Policy should not be in DT, DT describes the hardware, not the policy
-> > of how you use the hardware.
-> > 
-> 
-> This series of patches enables support for full-duplex only. Support for 
-> half-duplex will be added in subsequent revisions. We will clean it up in
-> the next version.
+Change in v2:
+1)Remove debug code
+2)Remove instance structure
+3)Change from providing mapping table by device tree to providing it by
+pinctrl
+4)Use eint hw structure as the basis for private data
+---
+This patch depends on
+[v3,2/2] pinctrl: mediatek: add mt8196 driver
+[v3,1/2] dt-bindings: pinctrl: mediatek: add support for mt8196
 
-So you don't need this property. All you need to do is remove the 1/2
-duplex link modes using phy_remove_link_mode() and user space will not
-get the option to enable them, not will auto-neg advertise them.
+Please also accept this patch together with [1]
+to avoid build and dt binding check error.
+[1]https://patchwork.kernel.org/project/linux-mediatek/list/?series=&submitter=215008&state=&q=v3&archive=&delegate=
+---
+ot_chhao.chang (3):
+  pinctrl: mediatek: add support for multi-instance EINT
+  pinctrl: mediatek: update EINT base retrieval method
+  pinctrl: mediatek: adapt to multi-base design
 
-	Andrew
+ drivers/pinctrl/mediatek/mtk-eint.c           | 219 ++++++++++-------
+ drivers/pinctrl/mediatek/mtk-eint.h           |  22 +-
+ drivers/pinctrl/mediatek/pinctrl-mt8196.c     |   1 +
+ .../pinctrl/mediatek/pinctrl-mtk-common-v2.c  |  45 ++--
+ .../pinctrl/mediatek/pinctrl-mtk-common-v2.h  |   1 +
+ drivers/pinctrl/mediatek/pinctrl-mtk-mt8196.h | 232 ++++++++++++++++++
+ drivers/pinctrl/mediatek/pinctrl-paris.h      |   7 +
+ 7 files changed, 418 insertions(+), 109 deletions(-)
+
+-- 
+2.34.1
+
 
