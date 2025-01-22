@@ -4,131 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4303FC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 22:31:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 124CCC02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 22:34:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Xos+iPEOgtcwGXoWIUpdh6SUPLxn4fe3D3r1m6hKDLA=; b=jT9XKiVPGC4s7pJ4E0QRIKxAA5
-	T3par7RkdiFeZDWoni81gahhvVMuhgr1O7vNcneRooxAx4tof2uPwdpGnmTFboIrMYEWXIC4MecjW
-	wu6OtqTzVK6eJS7bfgO6h4IHzThmbXDe9sqzz0etlT0RK8I+PmOLj6/t3ri+HZ2wkyplP5yPgdHdi
-	/1SJX9RWhdwKZyJpilFwKSa0ytRV36BAdi6FtqsKsOCC7Iv8FBgtk59KjCTziCAPjpVNrHx+C+z4F
-	VBDH0qy0/lf5gGyeBftGpCAgoODTVV1RCApiOQkoRJxETzimr1UF0AVXjwHv2bLQwCWdfqU1W25/M
-	geOT7oNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VK83oYZiUr/4FmQT3AHsLHS5JaACjWwYH+JkriqTEp0=; b=MuAHCKGclgO1xBOz92Fd0IQIxS
+	X7g7GMc0b+dw28BztwsxjgUeBa3FTCVReda+kgVyAh/UJ7Oi/XPPLoZumaEL29kqSqil/SxA8JtDL
+	Tnb/KZL6YzUHSYTmsaxykrPfR/ke1+mEV2cW4U4TWXoVPceR9k8uy0N1ttwLCFG+MJWkkvsP2kFm7
+	eDrBFSX7C7mILTFSp7b/aW8UfcCjwi+T7zv86SzkQU2UWx26ZeVKQFxHN9oheCTh3/AfKzd0bc6K4
+	aXkbD8o4xLkdIKeizmmtViyPBbXarb6tisbRd+Y/SKXcemPuIuW2PKzbEDqrVuaz6HmOH/V4Z8Hq3
+	I9tzeQxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tajG5-0000000BL0d-3cXz;
-	Wed, 22 Jan 2025 22:31:37 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	id 1tajIt-0000000BLFQ-0T5r;
+	Wed, 22 Jan 2025 22:34:31 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tajEm-0000000BKp5-3a0Z;
-	Wed, 22 Jan 2025 22:30:18 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id BE07B2115D;
-	Wed, 22 Jan 2025 22:30:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1737585014; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=Xos+iPEOgtcwGXoWIUpdh6SUPLxn4fe3D3r1m6hKDLA=;
-	b=UUeGjhWnH4XaVdiJil15fMp8lJI/WXEKHhlX5mh6xNkzXQ8i53ecu0TJFdceRIxuZeijNX
-	bvvrUyJusnMfZ380gcYFzBVzc0bzi4ZTlgOiscV+1qWtVUjghPYeKBjkMw6ec7tq0EvFbg
-	4c/L5vqr+HXDuz0uxumk7pwPMWAMU1M=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1737585014;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=Xos+iPEOgtcwGXoWIUpdh6SUPLxn4fe3D3r1m6hKDLA=;
-	b=mOt5QrSVEop+Dh/j7X8hyrVUGOLOmQ06CyKv1tG/UuqaA5VX8hgwnW97RaulQVnq4BbL2R
-	QAzcA0mYz7BY6EBg==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=UUeGjhWn;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=mOt5QrSV
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1737585014; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=Xos+iPEOgtcwGXoWIUpdh6SUPLxn4fe3D3r1m6hKDLA=;
-	b=UUeGjhWnH4XaVdiJil15fMp8lJI/WXEKHhlX5mh6xNkzXQ8i53ecu0TJFdceRIxuZeijNX
-	bvvrUyJusnMfZ380gcYFzBVzc0bzi4ZTlgOiscV+1qWtVUjghPYeKBjkMw6ec7tq0EvFbg
-	4c/L5vqr+HXDuz0uxumk7pwPMWAMU1M=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1737585014;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=Xos+iPEOgtcwGXoWIUpdh6SUPLxn4fe3D3r1m6hKDLA=;
-	b=mOt5QrSVEop+Dh/j7X8hyrVUGOLOmQ06CyKv1tG/UuqaA5VX8hgwnW97RaulQVnq4BbL2R
-	QAzcA0mYz7BY6EBg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 49146136A1;
-	Wed, 22 Jan 2025 22:30:13 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id JohxDnVxkWeRRAAAD6G6ig
-	(envelope-from <svarbanov@suse.de>); Wed, 22 Jan 2025 22:30:13 +0000
-From: Stanimir Varbanov <svarbanov@suse.de>
-To: linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Jim Quinlan <jim2101024@gmail.com>,
-	Nicolas Saenz Julienne <nsaenz@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	kw@linux.com,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Stanimir Varbanov <svarbanov@suse.de>,
-	stable@vger.kernel.org
-Subject: [PATCH v2] PCI: brcmstb: Fix for missing of_node_put
-Date: Thu, 23 Jan 2025 00:29:55 +0200
-Message-ID: <20250122222955.1752778-1-svarbanov@suse.de>
-X-Mailer: git-send-email 2.47.0
+	id 1tajHZ-0000000BL7b-3RlX;
+	Wed, 22 Jan 2025 22:33:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1737585183; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Mf5SCFjvqN7ECeeglhX4pUqVwkTxLeBy165andaGnIp/Fgu2n/1sN6TDoqBtOU2B6o8tkAl9Cftz/EYiJHMVFns+Hy8/Q3sA+Hxd9s/vd1R7wUJd4/kFQYfA7K91vgdM8SN4oVMgW10n5mSUeFZnVDyzAW36UIdR68t+n/VxrsM=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1737585183; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=VK83oYZiUr/4FmQT3AHsLHS5JaACjWwYH+JkriqTEp0=; 
+	b=EOajkPhdQFwFGSaeZn8sjYVOeX3nf2OUIcG4inISrTCUcaZ1Kir8njkIMAdbBQ6jtrSn5VY6HHPS6/DSjFQplXRVgJznOqhDl7Is85m+Tg2lljv7myHfivzd6Vyo2Rs6pvi2qBXDM2qbRw71PA+910zpdXMu3EGgKW6ILsqgtKo=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1737585183;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:Content-Transfer-Encoding:In-Reply-To:Message-Id:Reply-To;
+	bh=VK83oYZiUr/4FmQT3AHsLHS5JaACjWwYH+JkriqTEp0=;
+	b=FrK5YHLSKXM+x3in0IfbPVxSH6sl9S5nkt1rAE5IOjgSaXDZNf/nlH4aMR1+1TmZ
+	jCpyUNWSWtcZy/yCR4A0rRakBY5nIWx++R0S8QaZ9gvlCILFHxAYE7hnik6W2YNX+CJ
+	IoRmX3lqWISJbRL+iiMvXz3XrXDpD9Lrtmfrpoeg=
+Received: by mx.zohomail.com with SMTPS id 1737585179773821.5799938261969;
+	Wed, 22 Jan 2025 14:32:59 -0800 (PST)
+Received: by venus (Postfix, from userid 1000)
+	id 833431808C6; Wed, 22 Jan 2025 23:32:56 +0100 (CET)
+Date: Wed, 22 Jan 2025 23:32:56 +0100
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Arnd Bergmann <arnd@arndb.de>, 
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Zhang Yubing <yubing.zhang@rock-chips.com>, 
+	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] phy: rockchip: fix Kconfig dependency more
+Message-ID: <zf6uopaitghxemdrjzbyb3kilkd4xncg6ckdhrauprcqc4m4gy@lvwzhptywvzy>
+References: <20250122065249.1390081-1-arnd@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: BE07B2115D
-X-Rspamd-Action: no action
-X-Spamd-Result: default: False [-3.01 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_MISSING_CHARSET(0.50)[];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[14];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	FREEMAIL_CC(0.00)[broadcom.com,gmail.com,kernel.org,linux.com,linaro.org,google.com,suse.de,vger.kernel.org];
-	RCVD_TLS_ALL(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,suse.de:mid,suse.de:email,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	DKIM_TRACE(0.00)[suse.de:+];
-	ASN(0.00)[asn:25478, ipnet:::/0, country:RU];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com]
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20250122065249.1390081-1-arnd@kernel.org>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_143017_191401_FB603E83 
-X-CRM114-Status: GOOD (  13.12  )
+X-CRM114-CacheID: sfid-20250122_143309_965046_9A22156B 
+X-CRM114-Status: GOOD (  20.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,53 +82,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A call to of_parse_phandle() is incrementing the refcount, of_node_put
-must be called when done the work on it. Add missing of_node_put() after
-the check for msi_np == np and MSI initialization.
+Hi,
 
-Cc: stable@vger.kernel.org # v5.10+
-Fixes: 40ca1bf580ef ("PCI: brcmstb: Add MSI support")
-Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
----
-v1 -> v2:
- - Use of_node_put instead of cleanups (Florian).
- - Sent the patch separately from PCIe 2712 series (Florian).
+On Wed, Jan 22, 2025 at 07:52:44AM +0100, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+>=20
+> A previous patch ensured that USB Type C connector support is enabled,
+> but it is still possible to build the phy driver without enabling
+> CONFIG_USB (host support) or CONFIG_USB_GADGET (device support), and
+> in that case the common helper functions are unavailable:
+>=20
+> aarch64-linux-ld: drivers/phy/rockchip/phy-rockchip-usbdp.o: in function =
+`rk_udphy_probe':
+> phy-rockchip-usbdp.c:(.text+0xe74): undefined reference to `usb_get_maxim=
+um_speed'
+>=20
+> Select CONFIG_USB_COMMON directly here, like we do in some other phy
+> drivers, to make sure this is available even when actual USB support
+> is disabled or in a loadable module that cannot be reached from a
+> built-in phy driver.
+>=20
+> Fixes: 9c79b779643e ("phy: rockchip: fix CONFIG_TYPEC dependency")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
 
- drivers/pci/controller/pcie-brcmstb.c | 13 +++++++++----
- 1 file changed, 9 insertions(+), 4 deletions(-)
+Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 
-diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
-index 744fe1a4cf9c..d171ee61eab3 100644
---- a/drivers/pci/controller/pcie-brcmstb.c
-+++ b/drivers/pci/controller/pcie-brcmstb.c
-@@ -1844,7 +1844,7 @@ static struct pci_ops brcm7425_pcie_ops = {
- 
- static int brcm_pcie_probe(struct platform_device *pdev)
- {
--	struct device_node *np = pdev->dev.of_node, *msi_np;
-+	struct device_node *np = pdev->dev.of_node;
- 	struct pci_host_bridge *bridge;
- 	const struct pcie_cfg_data *data;
- 	struct brcm_pcie *pcie;
-@@ -1944,9 +1944,14 @@ static int brcm_pcie_probe(struct platform_device *pdev)
- 		goto fail;
- 	}
- 
--	msi_np = of_parse_phandle(pcie->np, "msi-parent", 0);
--	if (pci_msi_enabled() && msi_np == pcie->np) {
--		ret = brcm_pcie_enable_msi(pcie);
-+	if (pci_msi_enabled()) {
-+		struct device_node *msi_np = of_parse_phandle(pcie->np, "msi-parent", 0);
-+
-+		if (msi_np == pcie->np)
-+			ret = brcm_pcie_enable_msi(pcie);
-+
-+		of_node_put(msi_np);
-+
- 		if (ret) {
- 			dev_err(pcie->dev, "probe of internal MSI failed");
- 			goto fail;
--- 
-2.47.0
+Thanks,
 
+-- Sebastian
+
+>  drivers/phy/rockchip/Kconfig | 1 +
+>  1 file changed, 1 insertion(+)
+>=20
+> diff --git a/drivers/phy/rockchip/Kconfig b/drivers/phy/rockchip/Kconfig
+> index 2f7a05f21dc5..dcb8e1628632 100644
+> --- a/drivers/phy/rockchip/Kconfig
+> +++ b/drivers/phy/rockchip/Kconfig
+> @@ -125,6 +125,7 @@ config PHY_ROCKCHIP_USBDP
+>  	depends on ARCH_ROCKCHIP && OF
+>  	depends on TYPEC
+>  	select GENERIC_PHY
+> +	select USB_COMMON
+>  	help
+>  	  Enable this to support the Rockchip USB3.0/DP combo PHY with
+>  	  Samsung IP block. This is required for USB3 support on RK3588.
+> --=20
+> 2.39.5
+>=20
+>=20
 
