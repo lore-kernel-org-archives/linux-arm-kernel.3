@@ -4,78 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED59DC02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 23:06:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EDA7C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 23:25:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NOCH19QPQve15/xDfCMek7YUzEnwKF37VwTNG2vrby8=; b=Eeu6ixaOMOMmvwnEfJkt4J4kb6
-	JVUe92AHUvCogn/XePO5CutYiKF0YxA9mz9dViHmChxCIl+lpnjVToisv5Me3jxWTSFboRb9NSd9x
-	vu19kZm1LXe2OrCL5UH60t3gciQPU+l0NjK8/li2X9U20NpO7M2+Iydtzpn2W36Sv08WGFxkK7op7
-	y7YUtMJQxsRypZ73v1uh+DCLf1uuAS1NFLjFrp1CWVRGvH23NxEsGB4QZmOGemYX8blmIEhecJZgh
-	Tx4qReXkXLxajFnr3uVUQO2vlt8rUEAkdaKkv7M/XjnBB4oe9FseBHQvGuFURQV6NRbWLgAGXy427
-	RgrQ4UFA==;
+	bh=PQ9ID+y+HYqvdGcyA/HuZ8MXuYAda/StiIy444/tIYw=; b=lO/bZPb6/FDX9Q9HRj9hev1ocx
+	bRAIBxz65AM1qmLuf6hM1w6DeeC5rHqDPsAZe1Yj1QbqAf1A8x4va2ukfmzS6C5xn1Z8egv24uN4s
+	RZTzwmCoekdoY75VlOFFX5BB08WSgnO7D8tdTrw0OarYlwHQ/5f+J1xtqPKgM8WvDEdijSMgWKoUK
+	YiNKcU5yjhk0lNnbFQKMFBqzxgm1bOyNEQb6YCGAcR+XaMnMK6PMWvjWsL5ZIUeGopOec06PAFLkk
+	2QYekPoKkkkCDRa8KagmsG8Ih2kqQqYFLxhe6GDRrtFVJ7CUqSGTzTUjRTHutV2tcN8OaBIsy2RYu
+	o+mdaX5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tajnp-0000000BNpY-1nVu;
-	Wed, 22 Jan 2025 23:06:29 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tajmV-0000000BNgn-0bzL
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 23:05:08 +0000
-Received: from [10.0.0.115] (c-67-182-156-199.hsd1.wa.comcast.net [67.182.156.199])
-	by linux.microsoft.com (Postfix) with ESMTPSA id CAC672057204;
-	Wed, 22 Jan 2025 15:05:05 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com CAC672057204
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1737587106;
-	bh=NOCH19QPQve15/xDfCMek7YUzEnwKF37VwTNG2vrby8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jLXp0xX4Ir1OjqwEMFDxcFawW3sDCvVQudelB5j3vl9twNlUGW8bXqX3vZzL+6EbW
-	 cQCK/ohTqBs/+JBnP0rub4I5RDpQfQjBE4OF75X5e0ATmYu81Xl7HMLXACdhGCmReu
-	 HlKE+5NSRAZOGaDjdkUbn48X6TialrDHgzFFKlnw=
-Message-ID: <0da8c88c-f26d-4992-a871-9f8287eec889@linux.microsoft.com>
-Date: Wed, 22 Jan 2025 15:05:06 -0800
+	id 1tak5r-0000000BOpU-2LHs;
+	Wed, 22 Jan 2025 23:25:07 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tak4X-0000000BOl3-1Dvp;
+	Wed, 22 Jan 2025 23:23:46 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50MGpaE4004030;
+	Wed, 22 Jan 2025 23:23:33 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	PQ9ID+y+HYqvdGcyA/HuZ8MXuYAda/StiIy444/tIYw=; b=Um2U5XD6HENLY6Va
+	PQ/7Zee4uMIm2K5uJ68ivcvwIAnr6h5XRGJgLLX0Eaq1Gf8IukTMAwtOBZm6toFO
+	v1a2UA/4CC7w5k5tylnhPm9o7HhtkmI9wIXDz/9mGZUCYFXqlaKNlN3nz/pWNaIm
+	uBBy8YvJmR0FycamItBe9an9EGQdYSfVrywjY+260lxhYhS6JAqE8ohBtQ6SkiQU
+	ZbnK91SybUy2Lns4g9E6JexZtlTUoVY4ucMlWg48hvnzo0HrLDafyWh+BBBbR5x3
+	8TRJDH7js2jdCzQd1oZlCG6/iaAeKSkrcIECGY98iVQ0AOZn41z/KqDpdd/d45aA
+	Bgts9g==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44b4jm0s1t-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 22 Jan 2025 23:23:33 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 50MNNWJQ007045
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 22 Jan 2025 23:23:32 GMT
+Received: from [10.81.24.74] (10.49.16.6) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 22 Jan
+ 2025 15:23:32 -0800
+Message-ID: <36af1162-cd43-4045-bb43-b8bbf44f9788@quicinc.com>
+Date: Wed, 22 Jan 2025 15:23:29 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] hyperv: Move some features to common code
-To: Michael Kelley <mhklinux@outlook.com>,
- "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>
-Cc: "kys@microsoft.com" <kys@microsoft.com>,
- "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
- "wei.liu@kernel.org" <wei.liu@kernel.org>,
- "decui@microsoft.com" <decui@microsoft.com>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "will@kernel.org" <will@kernel.org>, "tglx@linutronix.de"
- <tglx@linutronix.de>, "mingo@redhat.com" <mingo@redhat.com>,
- "bp@alien8.de" <bp@alien8.de>,
- "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
- "x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>,
- "arnd@arndb.de" <arnd@arndb.de>,
- "jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
- "muminulrussell@gmail.com" <muminulrussell@gmail.com>,
- "skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
- "mukeshrathor@microsoft.com" <mukeshrathor@microsoft.com>
-References: <1733523707-15954-1-git-send-email-nunodasneves@linux.microsoft.com>
- <SN6PR02MB41573F55DBAAF124CFD92840D4332@SN6PR02MB4157.namprd02.prod.outlook.com>
- <6cf69fbd-b6a0-4e88-85a6-749a4e2dbdaa@linux.microsoft.com>
- <SN6PR02MB415783BB8A3844F5ADD142B2D4042@SN6PR02MB4157.namprd02.prod.outlook.com>
+Subject: Re: [PATCH 05/12] clk: sunxi-ng: add CCU drivers for V853
+To: Andras Szemzo <szemzo.andras@gmail.com>,
+        Michael Turquette
+	<mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+        Jernej Skrabec
+	<jernej.skrabec@gmail.com>,
+        Samuel Holland <samuel@sholland.org>,
+        Linus
+ Walleij <linus.walleij@linaro.org>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        Maxime Ripard <mripard@kernel.org>
+CC: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+        Ulf Hansson <ulf.hansson@linaro.org>,
+        Paul Walmsley
+	<paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>,
+        Albert Ou
+	<aou@eecs.berkeley.edu>,
+        =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
+	<u.kleine-koenig@baylibre.com>,
+        Florian Fainelli
+	<florian.fainelli@broadcom.com>,
+        <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-sunxi@lists.linux.dev>,
+        <linux-kernel@vger.kernel.org>, <linux-phy@lists.infradead.org>,
+        <linux-gpio@vger.kernel.org>, <linux-pm@vger.kernel.org>,
+        <linux-riscv@lists.infradead.org>
+References: <20250110123923.270626-1-szemzo.andras@gmail.com>
+ <20250110123923.270626-6-szemzo.andras@gmail.com>
+From: Jeff Johnson <quic_jjohnson@quicinc.com>
 Content-Language: en-US
-From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-In-Reply-To: <SN6PR02MB415783BB8A3844F5ADD142B2D4042@SN6PR02MB4157.namprd02.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
+In-Reply-To: <20250110123923.270626-6-szemzo.andras@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.49.16.6]
+X-ClientProxiedBy: nalasex01a.na.qualcomm.com (10.47.209.196) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: 0rtJg0pCT2kcaINT24J2xEvyArlsT86f
+X-Proofpoint-GUID: 0rtJg0pCT2kcaINT24J2xEvyArlsT86f
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-22_10,2025-01-22_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1011 impostorscore=0
+ spamscore=0 mlxlogscore=922 priorityscore=1501 phishscore=0 mlxscore=0
+ suspectscore=0 lowpriorityscore=0 adultscore=0 bulkscore=0 malwarescore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
+ definitions=main-2501220170
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_150507_585977_693AD31E 
-X-CRM114-Status: GOOD (  81.20  )
+X-CRM114-CacheID: sfid-20250122_152345_478033_D753009D 
+X-CRM114-Status: UNSURE (   6.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,286 +127,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/17/2024 9:48 AM, Michael Kelley wrote:
-> From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Monday, December 9, 2024 12:20 PM
->>
->> On 12/7/2024 6:59 PM, Michael Kelley wrote:
->>> From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Friday, December 6, 2024 2:22 PM
->>>>
->>>> There are several bits of Hyper-V-related code that today live in
->>>> arch/x86 but are not really specific to x86_64 and will work on arm64
->>>> too.
->>>>
->>>> Some of these will be needed in the upcoming mshv driver code (for
->>>> Linux as root partition on Hyper-V).
->>>
->>> Previously, Linux as the root partition on Hyper-V was x86 only, which is
->>> why the code is currently under arch/x86. So evidently the mshv driver
->>> is being expanded to support both x86 and arm64, correct? Assuming
->>> that's the case, I have some thoughts about how the source code should
->>> be organized and built. It's probably best to get this right to start with so
->>> it doesn't need to be changed again.
->>
->> Yes, we plan on supporting both architectures (eventually). I completely agree
->> that it's better to sort out these issues now rather than later.
->>
->>>
->>> * Patch 2 of this series moves hv_call_deposit_pages() and
->>>    hv_call_create_vp() to common code, but does not move
->>>    hv_call_add_logical_proc(). All three are used together, so
->>>    I'm wondering why hv_call_add_logical_proc() isn't moved.
->>>
->>
->> The only reason is that in our internal tree there's no common or arm64 code
->> yet that uses it - there is no reason it can't also become common code!
-> 
-> Maybe I'm missing your point, but hv_call_add_logical_proc() and
-> hv_call_create_vp() are called in succession in hv_smp_prepare_cpus(),
-> so it seems like they very much go together. Presumably a similar
-> sequence will be needed on the arm64 side when running as the
-> root partition?
-> 
+On 1/10/25 04:39, Andras Szemzo wrote:> +module_platform_driver(sun8i_v853_r_ccu_driver);
+> +
+> +MODULE_IMPORT_NS("SUNXI_CCU");
+> +MODULE_LICENSE("GPL");
 
-Yes that's right, sorry I wasn't being too clear.
-
->>
->>> * These three functions were originally put in a separate source
->>>    code file because of being specific to running in the root partition,
->>>    and not needed for generic Linux guest support. I think there's
->>>    value in keeping them in a separate file, rather than merging them
->>>    into hv_common.c. Maybe just move the entire hv_proc.c file?
->>
->> Agreed. I think it should be renamed too - this file will eventually
->> contain some additional hypercall helper functions, some of which may also be
->> shared by the driver code. Something like "hv_call_common.c"?
-> 
-> I went back and looked at your patch series from a year ago [1], and
-> got a better understanding of where this work is headed. I wanted
-> to comment on that series back then, but got subsumed in wrapping
-> things up for my retirement. :-(  I see significant portions of that
-> series have been posted independently and accepted, so my further
-> comments here assume the rest of the series is still the macro-level
-> approach you are taking.
-> 
->>From that series, you are planning three modules, controlled by
-> CONFIG_MSHV, CONFIG_MSHV_ROOT, and CONFIG_MSHV_VTL.
-> That makes sense, and addresses one of my top-level concerns,
-> which is that normal guest kernels shouldn't include all that code.
-> And apparently that code works as a module as well as built-in.
-> 
-> The code currently in hv_proc.c is similar to the code in hv_call.c
-> and mshv_root_hv_call.c from that series -- it's a wrapper around
-> Hyper-V hypercalls. But a difference is that the code in hv_proc.c
-> can't be a module because it is called from hv_smp_prepare_cpus(),
-> which must be built-in. So it can't be added to the proposed
-> hv_call.c without making all of hv_call.c built-in. Ideally, there
-> would be a separate source file just for the code that must be
-> built-in. I'm not familiar enough with root partition requirements
-> to understand what hv_smp_prepare_cpus() and its calls to
-> hv_call_add_logical_proc() and hv_call_create_vp() are doing.
-> Evidently it is related to bringing up CPUs in the root partition,
-> and not related to guest VMs. But those two hv_call_* functions
-> would also be used for managing guest VMs from /dev/mshv.
-> 
-
-It makes sense to keep the different kinds of functionality
-separated based on where they are needed. I do wonder if it will be
-cumbersome to keep all the cases in their own files - builtin/module,
-root/guest, and separated into arch directories vs drivers/hv...
-
-> As for the name, I don't really like "common", even though I'm the
-> one who created "hv_common.c" back when doing the initial arm64
-> support on Hyper-V. :-( My thinking is that anything that isn't under
-> arch/x86 or arch/arm64 is by definition shared across architectures,
-> so having "common" in the name is superfluous. Maybe just
-> staying with hv_proc.c is OK.
-> 
-
-I'll stick with hv_proc.c.
-
->>
->>>    And then later, perhaps move the entire irqdomain.c file as well?
->> Yes, may as well move it too.
-> 
-> irqdomain.c is also in that category of needing to be built-in. But
-> looking more closely, it is x86 specific and should stay where it is. I
-> can't immediately tell whether it's feasible to make the Hyper-V
-> IOMMU driver (and irqdomain.c) architecture neutral, or whether
-> a separate arm64 implementation will be needed. My guess is the
-> latter.
-> 
->>
->>>    There's also an interesting question of whether to move them into
->>>    drivers/hv, or create a new directory virt/hyperv. Hyper-V support
->>>    started out 15 years ago structured as a driver, hence "drivers/hv".
->>>    But over the time, the support has become significantly more than
->>>    just a driver, so "virt/hyperv" might be a better location for
->>>    non-driver code that had previously been under arch/x86 but is
->>>    now common to all architectures.
->>>
->> I'd be fine with using "virt/hyperv", but I thought "virt" was only for
->> KVM.
-> 
-> Now that I see the bigger picture from your previous patch series,
-> keeping the files in drivers/hv seems OK to me. The 'mshv' code *is*
-> a driver that implements /dev/mshv. :-)
-> 
->>
->> Another option would be to create subdirectories in "drivers/hv" to
->> organize the different modules more cleanly (i.e. when the /dev/mshv
->> driver code is introduced).
-> 
-> Putting all the mshv and "running as root partition" files in a single
-> sub-directory might make sense. Multiple sub-directories might be
-> overkill. But I don't have a strong opinion either way. Putting them
-> all directly in drivers/hv seems OK, as does one or more sub-directories.
-> 
-> One thing I encountered back when first doing the arm64 support is
-> that everything in the drivers/hv directory could be built as a module.
-> The Hyper-V support under arch/x86 was always built-in, and the
-> arch/arm64 code I added was as well. But there was no obvious place
-> to put common code that must always be built-in. At the time, I thought
-> about introducing virt/hyperv, but had only a single relatively small source
-> code file, and introducing that new pathname with its own Makefile, etc.
-> seemed like overkill. So drivers/hv/hv_common.c came into existence. I
-> tweaked the existing drivers/hv/Makefile so hv_common.c is always
-> built-in even when CONFIG_HYPERV=m. It's a little messy, but not too
-> bad.
-> 
-> The difference in what can be built as a module vs. must be built-in
-> might be a factor in the directory structure, along with the
-> CONFIG options that control whether the root partition code
-> gets built at all (see below). The details will govern what works
-> well and what ends up being a bit of a mess.
-> 
->>
->>> * Today, the code for running in the root partition is built along
->>>    with the rest of the Hyper-V support, and so is present in kernels
->>>    built for normal Linux guests on Hyper-V. I haven't thought about
->>>    all the implications, but perhaps there's value in having a CONFIG
->>>    option to build for the root partition, so that code can be dropped
->>>    from normal kernels. There's a significant amount of new code still
->>>    to come for mshv that could be excluded from normal guests in this
->>>    way. Also, the tests of the hv_root_partition variable could be
->>>    changed to a function the compiler detects is always "false" in a
->>>    kernel built without the CONFIG option, in which case it can drop
->>>    the code for where hv_root_partition is "true".
->>>
->> Using hv_root_partition is a good way to do it, since it won't require
->> many #ifdefs or moving the existing code around too much.
->>
->> I can certainly give it a try, and create a separate patch series
->> introducing the option. I suppose "CONFIG_HYPERV_ROOT" makes sense as a
->> name?
-> 
-> Now that I see you have CONFIG_MSHV, CONFIG_MSHV_ROOT, and
-> CONFIG_MSHV_VTL planned, could building the hv_root_partition code
-> just be under control of CONFIG_MSHV_ROOT without introducing
-> another CONFIG variable? Is any of the root partition code like
-> hv_proc.c and irqdomain.c needed if CONFIG_MSHV_ROOT=n?
-
-I will experiment with it - I think we can probably do it that way, yes.
-
-> Stubs will be needed for functions called from the generic kernel code
-> when CONFIG_MSHV_ROOT=n, but those are easily supplied in
-> asm/mshyperv.h. If hv_root_partition becomes a function whose
-> return value is gated by CONFIG_MSHV_ROOT, then the compiler
-> can know when the value is always "false" and drop even the code
-> that calls the stubs. But I'm pretty sure the stubs are still needed to
-> avoid compile errors, even when the compiler drops the code.
-> 
-> With this approach, you can avoid #ifdefs except in asm/mshyperv.h
-> for the stubs, and in the hv_root_partition() function.
-> 
-> One more code structure topic:  In the previous patch series,
-> some of the mshv code is x86 specific. There is x86 assembler
-> code, and references to x86 specific registers (all the HV_X64_*
-> registers). Do you plan to put architecture specific code under
-> drivers/hv, or under arch/[x86/arm64]/hyperv? We've made
-> drivers/hv be architecture neutral -- currently there's only one
-> "cheat" with an #ifdef CONFIG_ARM64 in the hv_balloon.c driver
-> that turns off some functionality.
-
-Today in our internal tree, all the module code lives in drivers/hv.
-Some of the code is arch-neutral "in-theory", but uses hypervisor
-features that are not yet supported on arm64, (but may be in future.)
-
-For such features, we use #ifdefs in drivers/hv to conditionally compile
-it. Note that today we only compile test arm64, we don't actually have
-a running build for it yet, so the driver will be x86_64 only at first.
-
-There is very little driver code that actually deals with architectural
-details. If necessary, I imagine we would create arch-specific files
-inside drivers/hv at first, and maybe move them to arch/ if appropriate.
-
-> 
-> As we discussed previously, the new Hyper-V #include files
-> provide the union of x86 and arm64 definitions, with just an
-> occasional #ifdef where needed. That was justified because
-> that's how the definitions come from the Windows/Hyper-V
-> world. But it seems like the mshv code should be structured
-> with arch specific code is under arch, not in drivers/hv with
-> #ifdefs. The Makefiles in arch/[x86,arm64]/hyperv will need
-> to use CONFIG_MSHV, CONFIG_MSHV_ROOT, and
-> CONFIG_MSHV_VTL to decide what to build, and whether to
-> build as a module vs. built-in.
-> 
-> Maybe putting the mshv code in a "mshv" subdirectory under
-> both drivers/hv and arch/[x86,arm64]/hyperv would conceptually
-> help tie together the arch neutral and arch specific portions.
-> Or something like that ....
-> 
-
-I think it could evolve to that point, but it's hard to say until we
-get closer.
-
->>
->>> * The code currently in hv_proc.c is built for x86 only, and validly
->>>    assumes the page size is 4K. But when the code moves to be
->>>    common across architectures, that assumption is no longer
->>>    valid in the general case. Perhaps the intent is that kernels for
->>>    the root partition should always be built with page size 4K on
->>>    arm64, but nothing enforces that intent. Personally, I think the code
->>>    should be made to work with page sizes other than 4K so as to not
->>>    leave technical debt. But I realize you may have other priorities. If
->>>    there were a CONFIG option for building for the root partition,
->>>    that option could be setup to enforce the 4K page size on arm64.
->>>
->> That makes sense. I suppose this can be done by selecting PAGE_SIZE_4KB
->> under HYPERV in drivers/hv/Kconfig?
-> 
-> Since the PAGE_SIZE value is independently selectable in the .config
-> file, I'm not sure if you can override it when CONFIG_MSHV_ROOT is
-> set. But you can allow CONFIG_MSHV_ROOT to be set only if
-> PAGE_SIZE_4KB is selected on arm64. I'd have to look in more detail
-> to figure out the best way to create an appropriate dependency.
-> 
->>
->> I'm not how easy it will be to make the code work with different page
->> sizes, since we use alloc_page() and similar in a few places, assuming 4k.
-> 
-> alloc_page() is not the problem as it is relatively easy to break up a
-> 16K or 64K page into multiple 4K pages when depositing memory.
-> And you can round up the amount of deposited memory to the
-> larger boundary without doing any harm. But in your previous patch
-> series, I see hv_call_withdraw_memory(), wherein Hyper-V gives
-> back individual 4K pages in no particular order. That's the killer, as
-> it is not feasible to re-assemble a random set of 4K pages into larger
-> 16K or 64K pages for free_page().
-> 
-> So scratch that idea. :-( The root partition must run with a page
-> size that matches the size Hyper-V uses to do memory deposits to
-> and from a partition, and that's 4K.
-
-Yes that does seem to clinch it. There will have to be a dependency.
-
-Thanks for the detailed responses, sorry it took me some time to get to.
-
-Nuno
-
-> 
-> Michael
-> 
-> [1] https://lore.kernel.org/lkml/1696010501-24584-1-git-send-email-nunodasneves@linux.microsoft.com/
+Since commit 1fffe7a34c89 ("script: modpost: emit a warning when the
+description is missing"), a module without a MODULE_DESCRIPTION() will
+result in a warning with make W=1. Please add a MODULE_DESCRIPTION()
+to avoid this warning in all of your new modules.
 
 
