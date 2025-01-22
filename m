@@ -4,108 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 771ADC02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 10:07:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AECB2C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 10:14:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zFmj7zj/Lq0aydtI5Gp746tMc3UoW0yD2aMedlR5Jng=; b=Ym+jJRcMDEAhYTIO+EEj0alA/O
-	lS44ymoPLIvb5Bdk6IqjCIazaTS4uIaCDTASfSz1JiLq4d3wE9/6YjOU9HABFK1RiLxej6sNhA1fv
-	kVkMKayuylIcQq2FmI+8cqSUvYSr/Xw87Ulq2pi25ibjTaRFihvg07tQtETftM3Pv5O1mE663M8Wz
-	9iv+r3D6PFiZkAju1W7Trb+WHJLWMHZBhNAT8Izn3p4RU5CN5ngMZwbpMvaJEBcQAl+DDwj5w9KAn
-	/VbM5GaEy6RJpQHiJExAjjlbGVM53pFHOVD4yTkEVo0N0Vs95C535MQznMWa02EvblQ6m1P0Rxp3F
-	Uvj3DMmw==;
+	bh=7FjAh7Ei78ytRX43ARrF1IGLCoNkOCTH/fahyOjt2Co=; b=eNcjXgwxMxSVEExt6MrRh2UUk2
+	qC00MZORy6zdkKXtPqqMhwb08kTmNhg/gPEUWVWbcIlHuN84vJ6HxuzXBWo+SpAHeivx6ekap79nv
+	Aye5bzw1yzgUCV8kZPRI4Rkm+RjRH2SFZJMSL3spLbX33T36jVXm4IXSJ0SNNtkwX6AA3nNvV7rkj
+	uxAxd9GkCn3fAG0V52r+obx+2E9rAZHxVgv6zlnCsK7HwkGkF+6/M1eg5Pj9KR3MDKnOwTnPbdzIY
+	0o6x/WVjNeQQLxyC/dcuW4vMpL1ZcfSAu9I2OfqakDfThvxE3cJmTNhUP9tO720dacB8G+aSHhoD1
+	N6EvQlZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taXdV-00000009tVa-04AQ;
-	Wed, 22 Jan 2025 10:07:01 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1taXkM-00000009uQj-0xTk;
+	Wed, 22 Jan 2025 10:14:06 +0000
+Received: from mail-vs1-f45.google.com ([209.85.217.45])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taXbY-00000009t3f-07vF
+	id 1taXj3-00000009u9A-2nGd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 10:05:01 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50M9Qml5030077;
-	Wed, 22 Jan 2025 10:04:48 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	zFmj7zj/Lq0aydtI5Gp746tMc3UoW0yD2aMedlR5Jng=; b=NnMwcwutVfIdifgQ
-	drCmbTCZm+mM+1nGU24aAw7TJAb6OO1fJolXxfqq9cty5jAvoyergGx/DxRCM5Ek
-	acY2oBAyGlpkpBInkkvbnddd8s+DxlUEPiZZmLFnfjuCEhmaHPVMDKreyaHolD2L
-	gyKLFnNqdebpDl/kMrUIV1TZmIAkmq83Jxui5HU7askqXE72Zi3Y5iXpInyvo27A
-	OkMW45ydqMlkdWidY+NxHKV8r7BNO8zwWpaohWqEoCkHFEWSh3sbQTVtLmseWmup
-	smWWiVwUhJ1Vlsao1rOaiTvsmrFZGQvtimrpGK9/0kqnUOBROsHxxLIVosMUkzTm
-	yxrNAA==
-Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44ax1yr38p-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 22 Jan 2025 10:04:47 +0000 (GMT)
-Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
-	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 50MA4lCa010810
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 22 Jan 2025 10:04:47 GMT
-Received: from [10.253.35.93] (10.80.80.8) by nalasex01c.na.qualcomm.com
- (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 22 Jan
- 2025 02:04:40 -0800
-Message-ID: <23a9f6cf-3921-48c1-9c28-aeede639cf40@quicinc.com>
-Date: Wed, 22 Jan 2025 18:04:38 +0800
+	Wed, 22 Jan 2025 10:12:46 +0000
+Received: by mail-vs1-f45.google.com with SMTP id ada2fe7eead31-4afefc876c6so1784678137.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jan 2025 02:12:44 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737540761; x=1738145561;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=7FjAh7Ei78ytRX43ARrF1IGLCoNkOCTH/fahyOjt2Co=;
+        b=wTHzA716eT+KmGdXZVtkQh/K4MXDw4vVurXf4vQ038SG0xeDrgE4uOdi4K7xS0wES7
+         dbsZhYxERHx4Yl8DyV0GUynoa/U7Yg8NjG/RG2zV3wAICnhZt3Y1pH7nbSemRXSBAfQ4
+         EMo1sq6tJWpGgG5wqsB4WgqbcVe1TZV1YdOgUUZfHeQXL+RW54jnd4FAS/UQ/1EzyxM6
+         NFBenRX3XJbz96AcovLl28XRsg89g3bnct/LLwdVpgOjVajoEG3asEj7XFPemxsvIVgT
+         wqcFpJWkjGznsu6qoDJ+AbpAD7R0pDmNreZU6a89h0YhUAERhnqDIzippxc5qs2IMQ8G
+         yHXg==
+X-Forwarded-Encrypted: i=1; AJvYcCWEMZSKKhHZd9cUmaRy5UrHs6NuJ8c/2vfMUyqHQ5Kso/Iiz6oa/lzEcBBJOltELve1Tvgpfhb1bI30rZyNKzPs@lists.infradead.org
+X-Gm-Message-State: AOJu0YwH5TLtQPYUAs/6YqxHJebMM+svltST5IKP/C29A6c7YgRJPx1R
+	D4ec2u21yxvxzhJOPzsJiXG2TkOC/BXPfuk/fZ+8niqAOO3dWnERV3g/C8xd
+X-Gm-Gg: ASbGncsjn19pZWNrea98vb1X269SQ3E76zans9az8SzSnWmCWoV8WgD/sIDExavSyFK
+	iK8ObD1Xi/OYq9AZSp1Q+fhmzpattd34ZMQh5/rqXMUqmgEwxYL1H3Dt3lQNfT9pK7lnJ8YltUj
+	hurwkrrw6zZWVnBBQblb8nX/plgJ/psT8Y9FD6Nauj6D7bDSVyTRyz3I6RnfxdEiM+4Ey4U9shG
+	ZB64hK/ChIar4Da89dFAKvvWnQdMDmoyxbNdmTYn97nb0VJ0qzSZSaBgwdXS2izrpcegMRSNJCc
+	mFdeSYmyOzXjWiRM6bIPLXWjOwkmOCD4
+X-Google-Smtp-Source: AGHT+IF39EjN9ov3IcZxuI9Fd46rdqoUtseLzC/osfKwDtCvFF97+tQeN4I/e8l94aTlq2RSYAlpsg==
+X-Received: by 2002:a05:6102:510a:b0:4b2:bc6b:c845 with SMTP id ada2fe7eead31-4b690ba2f8cmr14252190137.6.1737540761232;
+        Wed, 22 Jan 2025 02:12:41 -0800 (PST)
+Received: from mail-ua1-f49.google.com (mail-ua1-f49.google.com. [209.85.222.49])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-4b68a208576sm2606288137.8.2025.01.22.02.12.40
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 22 Jan 2025 02:12:40 -0800 (PST)
+Received: by mail-ua1-f49.google.com with SMTP id a1e0cc1a2514c-8641c7574a5so1704641241.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jan 2025 02:12:40 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUnwxdPsOT5to6TOA74T5qAuVbo+d0llwakb9v1XDzo5lRrcQau+N0p+o42HOAfCBf7rNf5wpuiMPKhwkfq8gkh@lists.infradead.org
+X-Received: by 2002:a05:6102:3f03:b0:4b2:5ce4:2b4f with SMTP id
+ ada2fe7eead31-4b690b5d82dmr18149923137.2.1737540760048; Wed, 22 Jan 2025
+ 02:12:40 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/4] net: stmmac: dwmac-qcom-ethqos: Mask PHY mode if
- configured with rgmii-id
-To: Andrew Lunn <andrew@lunn.ch>
-CC: Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller"
-	<davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio
-	<konradybcio@kernel.org>,
-        Richard Cochran <richardcochran@gmail.com>, <netdev@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-msm@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250121-dts_qcs615-v3-0-fa4496950d8a@quicinc.com>
- <20250121-dts_qcs615-v3-2-fa4496950d8a@quicinc.com>
- <bf45ec15-d430-499a-ba30-825611369402@lunn.ch>
-Content-Language: en-US
-From: Yijie Yang <quic_yijiyang@quicinc.com>
-In-Reply-To: <bf45ec15-d430-499a-ba30-825611369402@lunn.ch>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01c.na.qualcomm.com (10.47.97.35)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: tYKueVtLj5-_nOleRcVBv1tEtZKa-_lh
-X-Proofpoint-GUID: tYKueVtLj5-_nOleRcVBv1tEtZKa-_lh
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-01-22_04,2025-01-22_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
- impostorscore=0 malwarescore=0 adultscore=0 mlxlogscore=951 clxscore=1015
- lowpriorityscore=0 spamscore=0 mlxscore=0 suspectscore=0 phishscore=0
- bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2501220073
+References: <20250103163805.1775705-1-claudiu.beznea.uj@bp.renesas.com> <20250103163805.1775705-4-claudiu.beznea.uj@bp.renesas.com>
+In-Reply-To: <20250103163805.1775705-4-claudiu.beznea.uj@bp.renesas.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 22 Jan 2025 11:12:28 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdUrU=wEORsTYA01nJKGDYyfGcbYUQ0PVbztWK89wAh6og@mail.gmail.com>
+X-Gm-Features: AWEUYZnWOoKJ3RBtL6Pi7s9iVWaQT9ZdiOxnl5ZN6Xov2Ob1CcY6b31swX2Vhsk
+Message-ID: <CAMuHMdUrU=wEORsTYA01nJKGDYyfGcbYUQ0PVbztWK89wAh6og@mail.gmail.com>
+Subject: Re: [PATCH 3/6] dt-bindings: thermal: r9a08g045-tsu: Document the TSU unit
+To: Claudiu <claudiu.beznea@tuxon.dev>
+Cc: rafael@kernel.org, daniel.lezcano@linaro.org, rui.zhang@intel.com, 
+	lukasz.luba@arm.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	magnus.damm@gmail.com, mturquette@baylibre.com, sboyd@kernel.org, 
+	p.zabel@pengutronix.de, ulf.hansson@linaro.org, linux-pm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-clk@vger.kernel.org, Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_020500_082470_D19BB8F5 
-X-CRM114-Status: GOOD (  15.21  )
+X-CRM114-CacheID: sfid-20250122_021245_701557_806CF6B3 
+X-CRM114-Status: GOOD (  16.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,33 +99,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jan 3, 2025 at 5:38=E2=80=AFPM Claudiu <claudiu.beznea@tuxon.dev> w=
+rote:
+> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+>
+> The Renesas RZ/G3S SoC includes a Thermal Sensor Unit (TSU) block designe=
+d
+> to measure the junction temperature. The temperature is measured using
+> the RZ/G3S ADC, with a dedicated ADC channel directly connected to the TS=
+U.
+> Add documentation for it.
+>
+> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 
+LGTM from the hardware-description point of view, do
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
-On 2025-01-22 01:10, Andrew Lunn wrote:
->> To address the ABI compatibility issue between the kernel and DTS caused by
->> this change, handle the compatible string 'qcom,qcs404-evb-4000' in the
->> code, as it is the only legacy board that mistakenly uses the 'rgmii'
->> phy-mode.
-> 
-> Are you saying every other board DT got this correct? How do you know
-> that? Was this SoC never shipped to anybody, so the only possible
-> board is the QCOM RDK which never left the lab?
-> 
-> I doubt this is true, so you are probably breaking out of tree
-> boards. We care less about out of tree boards, but we also don't
-> needlessly break them.
+Gr{oetje,eeting}s,
 
-You're right. My conclusion was based solely on browsing all RGMII-type 
-Qualcomm boards under the source tree, and I didn't take the scenario 
-you mentioned into account. I will work on coming up with a new 
-solution. If you have any suggestions, I will gladly take them as a 
-reference.
+                        Geert
 
-> 
-> 	Andrew
+--=20
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
 
--- 
-Best Regards,
-Yijie
-
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
 
