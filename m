@@ -4,76 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EB48C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 13:57:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CC50C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 13:58:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qa1a4J09IZroRfnMvAaal6iEwKvksoRdj5GEz3hJKuI=; b=Soni5noEJvxl4M7YYIFUiooJT5
-	T6cHQu1P/63/peFhyww+6cr3Om8pomSeLFey8raG0nd0RBvazbuozmhkP4VNrNBK0J/ILhvbe8W6N
-	YfSanw4VdSgKn+j0FMwQMmMTq2J3Xlk2x7/gX7iiLJMBg5uq9/M3dH+J5F0Sl0db42K1Yx7nD1Mm5
-	qvqNLZNeXKj3256F10X5S++j+Aa2/HFh7PIELg1p6bKCIowwU/pSFcaSewK/ZMwvVifDDPyB0LQbb
-	0xC/MVzniziABBY6Bx2Vj/6K1FBhPKc4SR/umypy5Dvf/EdFLxSud1/nIKLln5EcnevsinrqSORdB
-	s15Lj2CA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vROVvEJAPMd6h1sAQTMXe1qA7vplyxzuDoRMv8PutaI=; b=ijlKAdfxOAZdy56kkSVR+MBaY/
+	5eUWONJBt+e9DQ/CnhnY/+/PePlJCYpsXw/ta0fRhosAEoeYRdb8XnXcp6zjjBr5rJbbacQj6s3r3
+	lf4eKWnobqD11I3tiZaY5wCzLaX0k4HfzgknwDYvt0iqLMStYiPhYdypCKiSL99sx+GDSq7cGbXL3
+	UbyHB2wmgKz4O4skDB8Mp1FosjGigvNtB6Lj0wz8icw/fFwW60xACylJblnNWKM6Wa3uMHr41WzTt
+	2haCp42V5VQJz1HC0Su2ESJze082YHT6hD+9E37+6zO+jdEWU91z9zIHL3/ZeabfyFIPfdVJEjTxl
+	Ws2ERXXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tabE9-0000000ALVF-0rOB;
-	Wed, 22 Jan 2025 13:57:05 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tab9I-0000000AKee-0Ni1;
-	Wed, 22 Jan 2025 13:52:05 +0000
-X-UUID: 0db6fd42d8c811ef9048ed6ed365623b-20250122
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=Qa1a4J09IZroRfnMvAaal6iEwKvksoRdj5GEz3hJKuI=;
-	b=vD0mXe2D83pi9trraSwZKaB8ATJN9sjRC7nQrhiFE2GKCGiREQfvUuYh8t1NlC4yBVoe0e8+NfOSIUvhcWVooqAr+pqk7FOR1l3c8+XpwEGpK2plkCiPqCyOBhm972FPEwWiB4WqIhXGkHc/LZkHPcnPocKWiNo356tex2fb7B8=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.46,REQID:dd2a302c-d390-4afc-8057-e4ba3846105e,IP:0,U
-	RL:0,TC:0,Content:0,EDM:-25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-25
-X-CID-META: VersionHash:60aa074,CLOUDID:9ed88e7e-427a-4311-9df4-bfaeeacd8532,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:1,
-	IP:nil,URL:11|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
-	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-UUID: 0db6fd42d8c811ef9048ed6ed365623b-20250122
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
-	(envelope-from <ot_chhao.chang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1260138993; Wed, 22 Jan 2025 06:52:00 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.28; Wed, 22 Jan 2025 21:51:57 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.28 via Frontend Transport; Wed, 22 Jan 2025 21:51:57 +0800
-From: Hao Chang <ot_chhao.chang@mediatek.com>
-To: Sean Wang <sean.wang@kernel.org>, Linus Walleij
-	<linus.walleij@linaro.org>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-CC: Wenbin Mei <wenbin.mei@mediatek.com>, Axe Yang <axe.yang@mediatek.com>,
-	Qingliang Li <qingliang.li@mediatek.com>,
-	<linux-mediatek@lists.infradead.org>, <linux-gpio@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, Hao
- Chang <ot_chhao.chang@mediatek.com>
-Subject: [PATCH v2 3/3] pinctrl: mediatek: adapt to multi-base design
-Date: Wed, 22 Jan 2025 21:51:25 +0800
-Message-ID: <20250122135135.15234-4-ot_chhao.chang@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250122135135.15234-1-ot_chhao.chang@mediatek.com>
-References: <20250122135135.15234-1-ot_chhao.chang@mediatek.com>
+	id 1tabFP-0000000ALk8-3Lpk;
+	Wed, 22 Jan 2025 13:58:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tabA5-0000000AKnW-1PrK
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 22 Jan 2025 13:52:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D8A5C1007;
+	Wed, 22 Jan 2025 05:53:18 -0800 (PST)
+Received: from [10.57.6.202] (unknown [10.57.6.202])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3D0933F738;
+	Wed, 22 Jan 2025 05:52:48 -0800 (PST)
+Message-ID: <79061537-9550-45ad-8bd3-26fe7423f16f@arm.com>
+Date: Wed, 22 Jan 2025 13:52:46 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/3] iommu/arm-smmu: Fix spurious interrupts with
+ stall-on-fault
+To: Connor Abbott <cwabbott0@gmail.com>, Rob Clark <robdclark@gmail.com>,
+ Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
+ Sean Paul <sean@poorly.run>, Konrad Dybcio <konradybcio@kernel.org>,
+ Abhinav Kumar <quic_abhinavk@quicinc.com>,
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+ Marijn Suijten <marijn.suijten@somainline.org>
+Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, freedreno@lists.freedesktop.org
+References: <20250120-msm-gpu-fault-fixes-next-v2-0-d636c4027042@gmail.com>
+ <20250120-msm-gpu-fault-fixes-next-v2-1-d636c4027042@gmail.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20250120-msm-gpu-fault-fixes-next-v2-1-d636c4027042@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_055204_137599_563FFD67 
-X-CRM114-Status: GOOD (  24.84  )
+X-CRM114-CacheID: sfid-20250122_055253_468498_B08F5035 
+X-CRM114-Status: GOOD (  30.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,481 +71,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The eint num will obtain the operation address through pins.
-Change the traversal method of irq handle from traversing a set of
-registers to traversing one by one.
+On 2025-01-20 3:46 pm, Connor Abbott wrote:
+> On some SMMUv2 implementations, including MMU-500, SMMU_CBn_FSR.SS
+> asserts an interrupt. The only way to clear that bit is to resume the
+> transaction by writing SMMU_CBn_RESUME, but typically resuming the
+> transaction requires complex operations (copying in pages, etc.) that
+> can't be done in IRQ context. drm/msm already has a problem, because
+> its fault handler sometimes schedules a job to dump the GPU state and
+> doesn't resume translation until this is complete.
+> 
+> Work around this by disabling context fault interrupts until after the
+> transaction is resumed. Because other context banks can share an IRQ
+> line, we may still get an interrupt intended for another context bank,
+> but in this case only SMMU_CBn_FSR.SS will be asserted and we can skip
+> it assuming that interrupts are disabled which is accomplished by
+> removing the bit from ARM_SMMU_CB_FSR_FAULT.
 
-Signed-off-by: Hao Chang <ot_chhao.chang@mediatek.com>
-Signed-off-by: Qingliang Li <qingliang.li@mediatek.com>
----
- drivers/pinctrl/mediatek/mtk-eint.c | 219 +++++++++++++++++-----------
- drivers/pinctrl/mediatek/mtk-eint.h |   9 +-
- 2 files changed, 140 insertions(+), 88 deletions(-)
+...and we won't see SS set *unless* an external user has gone out of 
+their way to set CFCFG, so it's fair to assume they must have a fault 
+handler and expect it to reenable CFIE. Good enough for me (and thanks 
+for a nice comprehensive writeup). Now let's see how many more bugs we 
+might uncover in MMU-500 and/or QCom firmware's emulation thereof :)
 
-diff --git a/drivers/pinctrl/mediatek/mtk-eint.c b/drivers/pinctrl/mediatek/mtk-eint.c
-index 27f0a54e12bf..540245c3128d 100644
---- a/drivers/pinctrl/mediatek/mtk-eint.c
-+++ b/drivers/pinctrl/mediatek/mtk-eint.c
-@@ -1,11 +1,13 @@
- // SPDX-License-Identifier: GPL-2.0
--// Copyright (c) 2014-2018 MediaTek Inc.
-+// Copyright (c) 2014-2025 MediaTek Inc.
- 
- /*
-  * Library for MediaTek External Interrupt Support
-  *
-  * Author: Maoguang Meng <maoguang.meng@mediatek.com>
-  *	   Sean Wang <sean.wang@mediatek.com>
-+ *	   Hao Chang <ot_chhao.chang@mediatek.com>
-+ *	   Qingliang Li <qingliang.li@mediatek.com>
-  *
-  */
- 
-@@ -20,6 +22,7 @@
- #include <linux/platform_device.h>
- 
- #include "mtk-eint.h"
-+#include "pinctrl-mtk-common-v2.h"
- 
- #define MTK_EINT_EDGE_SENSITIVE           0
- #define MTK_EINT_LEVEL_SENSITIVE          1
-@@ -68,13 +71,11 @@ static void __iomem *mtk_eint_get_offset(struct mtk_eint *eint,
- 					 unsigned int eint_num,
- 					 unsigned int offset)
- {
--	unsigned int eint_base = 0;
-+	unsigned int idx = eint->pins[eint_num].index;
-+	unsigned int inst = eint->pins[eint_num].instance;
- 	void __iomem *reg;
- 
--	if (eint_num >= eint->hw->ap_num)
--		eint_base = eint->hw->ap_num;
--
--	reg = eint->base + offset + ((eint_num - eint_base) / 32) * 4;
-+	reg = eint->base[inst] + offset + (idx / 32 * 4);
- 
- 	return reg;
- }
-@@ -83,7 +84,7 @@ static unsigned int mtk_eint_can_en_debounce(struct mtk_eint *eint,
- 					     unsigned int eint_num)
- {
- 	unsigned int sens;
--	unsigned int bit = BIT(eint_num % 32);
-+	unsigned int bit = BIT(eint->pins[eint_num].index % 32);
- 	void __iomem *reg = mtk_eint_get_offset(eint, eint_num,
- 						eint->regs->sens);
- 
-@@ -92,7 +93,7 @@ static unsigned int mtk_eint_can_en_debounce(struct mtk_eint *eint,
- 	else
- 		sens = MTK_EINT_EDGE_SENSITIVE;
- 
--	if (eint_num < eint->hw->db_cnt && sens != MTK_EINT_EDGE_SENSITIVE)
-+	if (eint->pins[eint_num].debounce && sens != MTK_EINT_EDGE_SENSITIVE)
- 		return 1;
- 	else
- 		return 0;
-@@ -102,9 +103,9 @@ static int mtk_eint_flip_edge(struct mtk_eint *eint, int hwirq)
- {
- 	int start_level, curr_level;
- 	unsigned int reg_offset;
--	u32 mask = BIT(hwirq & 0x1f);
--	u32 port = (hwirq >> 5) & eint->hw->port_mask;
--	void __iomem *reg = eint->base + (port << 2);
-+	unsigned int mask = BIT(eint->pins[hwirq].index & 0x1f);
-+	unsigned int port = (eint->pins[hwirq].index >> 5) & eint->hw->port_mask;
-+	void __iomem *reg = eint->base[eint->pins[hwirq].instance] + (port << 2);
- 
- 	curr_level = eint->gpio_xlate->get_gpio_state(eint->pctl, hwirq);
- 
-@@ -126,11 +127,13 @@ static int mtk_eint_flip_edge(struct mtk_eint *eint, int hwirq)
- static void mtk_eint_mask(struct irq_data *d)
- {
- 	struct mtk_eint *eint = irq_data_get_irq_chip_data(d);
--	u32 mask = BIT(d->hwirq & 0x1f);
-+	u32 idx = eint->pins[d->hwirq].index;
-+	u32 inst = eint->pins[d->hwirq].instance;
-+	u32 mask = BIT(idx & 0x1f);
- 	void __iomem *reg = mtk_eint_get_offset(eint, d->hwirq,
- 						eint->regs->mask_set);
- 
--	eint->cur_mask[d->hwirq >> 5] &= ~mask;
-+	eint->cur_mask[inst][idx >> 5] &= ~mask;
- 
- 	writel(mask, reg);
- }
-@@ -138,32 +141,44 @@ static void mtk_eint_mask(struct irq_data *d)
- static void mtk_eint_unmask(struct irq_data *d)
- {
- 	struct mtk_eint *eint = irq_data_get_irq_chip_data(d);
--	u32 mask = BIT(d->hwirq & 0x1f);
-+	u32 idx = eint->pins[d->hwirq].index;
-+	u32 inst = eint->pins[d->hwirq].instance;
-+	u32 mask = BIT(idx & 0x1f);
- 	void __iomem *reg = mtk_eint_get_offset(eint, d->hwirq,
- 						eint->regs->mask_clr);
- 
--	eint->cur_mask[d->hwirq >> 5] |= mask;
-+	eint->cur_mask[inst][idx >> 5] |= mask;
- 
- 	writel(mask, reg);
- 
--	if (eint->dual_edge[d->hwirq])
-+	if (eint->pins[d->hwirq].dual_edge)
- 		mtk_eint_flip_edge(eint, d->hwirq);
- }
- 
- static unsigned int mtk_eint_get_mask(struct mtk_eint *eint,
- 				      unsigned int eint_num)
- {
--	unsigned int bit = BIT(eint_num % 32);
-+	unsigned int bit = BIT(eint->pins[eint_num].index % 32);
- 	void __iomem *reg = mtk_eint_get_offset(eint, eint_num,
- 						eint->regs->mask);
- 
- 	return !!(readl(reg) & bit);
- }
- 
-+static unsigned int mtk_eint_get_status(struct mtk_eint *eint,
-+					unsigned int eint_num)
-+{
-+	unsigned int bit = BIT(eint->pins[eint_num].index % 32);
-+	void __iomem *reg = mtk_eint_get_offset(eint, eint_num,
-+						eint->regs->stat);
-+
-+	return !!(readl(reg) & bit);
-+}
-+
- static void mtk_eint_ack(struct irq_data *d)
- {
- 	struct mtk_eint *eint = irq_data_get_irq_chip_data(d);
--	u32 mask = BIT(d->hwirq & 0x1f);
-+	u32 mask = BIT(eint->pins[d->hwirq].index & 0x1f);
- 	void __iomem *reg = mtk_eint_get_offset(eint, d->hwirq,
- 						eint->regs->ack);
- 
-@@ -174,7 +189,7 @@ static int mtk_eint_set_type(struct irq_data *d, unsigned int type)
- {
- 	struct mtk_eint *eint = irq_data_get_irq_chip_data(d);
- 	bool masked;
--	u32 mask = BIT(d->hwirq & 0x1f);
-+	unsigned int mask = BIT(eint->pins[d->hwirq].index & 0x1f);
- 	void __iomem *reg;
- 
- 	if (((type & IRQ_TYPE_EDGE_BOTH) && (type & IRQ_TYPE_LEVEL_MASK)) ||
-@@ -186,9 +201,9 @@ static int mtk_eint_set_type(struct irq_data *d, unsigned int type)
- 	}
- 
- 	if ((type & IRQ_TYPE_EDGE_BOTH) == IRQ_TYPE_EDGE_BOTH)
--		eint->dual_edge[d->hwirq] = 1;
-+		eint->pins[d->hwirq].dual_edge = 1;
- 	else
--		eint->dual_edge[d->hwirq] = 0;
-+		eint->pins[d->hwirq].dual_edge = 0;
- 
- 	if (!mtk_eint_get_mask(eint, d->hwirq)) {
- 		mtk_eint_mask(d);
-@@ -223,27 +238,32 @@ static int mtk_eint_set_type(struct irq_data *d, unsigned int type)
- static int mtk_eint_irq_set_wake(struct irq_data *d, unsigned int on)
- {
- 	struct mtk_eint *eint = irq_data_get_irq_chip_data(d);
--	int shift = d->hwirq & 0x1f;
--	int reg = d->hwirq >> 5;
-+	unsigned int idx = eint->pins[d->hwirq].index;
-+	unsigned int inst = eint->pins[d->hwirq].instance;
-+	unsigned int shift = idx & 0x1f;
-+	unsigned int port = idx >> 5;
- 
- 	if (on)
--		eint->wake_mask[reg] |= BIT(shift);
-+		eint->wake_mask[inst][port] |= BIT(shift);
- 	else
--		eint->wake_mask[reg] &= ~BIT(shift);
-+		eint->wake_mask[inst][port] &= ~BIT(shift);
- 
- 	return 0;
- }
- 
- static void mtk_eint_chip_write_mask(const struct mtk_eint *eint,
--				     void __iomem *base, u32 *buf)
-+				     void __iomem *base, u32 **buf)
- {
--	int port;
-+	int inst, port, port_num;
- 	void __iomem *reg;
- 
--	for (port = 0; port < eint->hw->ports; port++) {
--		reg = base + (port << 2);
--		writel_relaxed(~buf[port], reg + eint->regs->mask_set);
--		writel_relaxed(buf[port], reg + eint->regs->mask_clr);
-+	for (inst = 0; inst < eint->nbase; inst++) {
-+		port_num = (eint->base_pin_num[inst] + 31) / 32;
-+		for (port = 0; port < port_num; port++) {
-+			reg = eint->base[inst] + (port << 2);
-+			writel_relaxed(~buf[inst][port], reg + eint->regs->mask_set);
-+			writel_relaxed(buf[inst][port], reg + eint->regs->mask_clr);
-+		}
- 	}
- }
- 
-@@ -303,15 +323,18 @@ static struct irq_chip mtk_eint_irq_chip = {
- 
- static unsigned int mtk_eint_hw_init(struct mtk_eint *eint)
- {
--	void __iomem *dom_en = eint->base + eint->regs->dom_en;
--	void __iomem *mask_set = eint->base + eint->regs->mask_set;
--	unsigned int i;
--
--	for (i = 0; i < eint->hw->ap_num; i += 32) {
--		writel(0xffffffff, dom_en);
--		writel(0xffffffff, mask_set);
--		dom_en += 4;
--		mask_set += 4;
-+	void __iomem *dom_reg, *mask_reg;
-+	unsigned int i, j;
-+
-+	for (i = 0; i < eint->nbase; i++) {
-+		dom_reg = eint->base[i] + eint->regs->dom_en;
-+		mask_reg = eint->base[i] + eint->regs->mask_set;
-+		for (j = 0; j < eint->base_pin_num[i]; j += 32) {
-+			writel(0xffffffff, dom_reg);
-+			writel(0xffffffff, mask_reg);
-+			dom_reg += 4;
-+			mask_reg += 4;
-+		}
- 	}
- 
- 	return 0;
-@@ -322,14 +345,16 @@ mtk_eint_debounce_process(struct mtk_eint *eint, int index)
- {
- 	unsigned int rst, ctrl_offset;
- 	unsigned int bit, dbnc;
-+	unsigned int inst = eint->pins[index].instance;
-+	unsigned int idx = eint->pins[index].index;
- 
--	ctrl_offset = (index / 4) * 4 + eint->regs->dbnc_ctrl;
--	dbnc = readl(eint->base + ctrl_offset);
--	bit = MTK_EINT_DBNC_SET_EN << ((index % 4) * 8);
-+	ctrl_offset = (idx / 4) * 4 + eint->regs->dbnc_ctrl;
-+	dbnc = readl(eint->base[inst] + ctrl_offset);
-+	bit = MTK_EINT_DBNC_SET_EN << ((idx % 4) * 8);
- 	if ((bit & dbnc) > 0) {
--		ctrl_offset = (index / 4) * 4 + eint->regs->dbnc_set;
--		rst = MTK_EINT_DBNC_RST_BIT << ((index % 4) * 8);
--		writel(rst, eint->base + ctrl_offset);
-+		ctrl_offset = (idx / 4) * 4 + eint->regs->dbnc_set;
-+		rst = MTK_EINT_DBNC_RST_BIT << ((idx % 4) * 8);
-+		writel(rst, eint->base[inst] + ctrl_offset);
- 	}
- }
- 
-@@ -337,20 +362,16 @@ static void mtk_eint_irq_handler(struct irq_desc *desc)
- {
- 	struct irq_chip *chip = irq_desc_get_chip(desc);
- 	struct mtk_eint *eint = irq_desc_get_handler_data(desc);
--	unsigned int status, eint_num;
--	int offset, mask_offset, index;
--	void __iomem *reg =  mtk_eint_get_offset(eint, 0, eint->regs->stat);
-+	unsigned int index, inst, idx, mask;
-+	void __iomem *reg;
- 	int dual_edge, start_level, curr_level;
- 
- 	chained_irq_enter(chip, desc);
--	for (eint_num = 0; eint_num < eint->hw->ap_num; eint_num += 32,
--	     reg += 4) {
--		status = readl(reg);
--		while (status) {
--			offset = __ffs(status);
--			mask_offset = eint_num >> 5;
--			index = eint_num + offset;
--			status &= ~BIT(offset);
-+	for (index = 0; index < eint->hw->ap_num; index++) {
-+		if (mtk_eint_get_status(eint, index)) {
-+			inst = eint->pins[index].instance;
-+			idx = eint->pins[index].index;
-+			mask = BIT(idx & 0x1f);
- 
- 			/*
- 			 * If we get an interrupt on pin that was only required
-@@ -358,21 +379,22 @@ static void mtk_eint_irq_handler(struct irq_desc *desc)
- 			 * interrupt (as would mtk_eint_resume do anyway later
- 			 * in the resume sequence).
- 			 */
--			if (eint->wake_mask[mask_offset] & BIT(offset) &&
--			    !(eint->cur_mask[mask_offset] & BIT(offset))) {
--				writel_relaxed(BIT(offset), reg -
--					eint->regs->stat +
--					eint->regs->mask_set);
-+			if (eint->wake_mask[inst][idx >> 5] & mask &&
-+			    !(eint->cur_mask[inst][idx >> 5] & mask)) {
-+				reg = mtk_eint_get_offset(eint, index,
-+							  eint->regs->mask_set);
-+				writel_relaxed(mask, reg);
- 			}
- 
--			dual_edge = eint->dual_edge[index];
-+			dual_edge = eint->pins[index].dual_edge;
- 			if (dual_edge) {
- 				/*
- 				 * Clear soft-irq in case we raised it last
- 				 * time.
- 				 */
--				writel(BIT(offset), reg - eint->regs->stat +
--				       eint->regs->soft_clr);
-+				reg = mtk_eint_get_offset(eint, index,
-+							  eint->regs->soft_clr);
-+				writel(mask, reg);
- 
- 				start_level =
- 				eint->gpio_xlate->get_gpio_state(eint->pctl,
-@@ -388,13 +410,14 @@ static void mtk_eint_irq_handler(struct irq_desc *desc)
- 				 * If level changed, we might lost one edge
- 				 * interrupt, raised it through soft-irq.
- 				 */
--				if (start_level != curr_level)
--					writel(BIT(offset), reg -
--					       eint->regs->stat +
--					       eint->regs->soft_set);
-+				if (start_level != curr_level) {
-+					reg = mtk_eint_get_offset(eint, index,
-+								  eint->regs->soft_set);
-+					writel(mask, reg);
-+				}
- 			}
- 
--			if (index < eint->hw->db_cnt)
-+			if (eint->pins[index].debounce)
- 				mtk_eint_debounce_process(eint, index);
- 		}
- 	}
-@@ -423,6 +446,8 @@ int mtk_eint_set_debounce(struct mtk_eint *eint, unsigned long eint_num,
- 	int virq, eint_offset;
- 	unsigned int set_offset, bit, clr_bit, clr_offset, rst, i, unmask,
- 		     dbnc;
-+	unsigned int inst = eint->pins[eint_num].instance;
-+	unsigned int idx = eint->pins[eint_num].index;
- 	struct irq_data *d;
- 
- 	if (!eint->hw->db_time)
-@@ -432,8 +457,8 @@ int mtk_eint_set_debounce(struct mtk_eint *eint, unsigned long eint_num,
- 	eint_offset = (eint_num % 4) * 8;
- 	d = irq_get_irq_data(virq);
- 
--	set_offset = (eint_num / 4) * 4 + eint->regs->dbnc_set;
--	clr_offset = (eint_num / 4) * 4 + eint->regs->dbnc_clr;
-+	set_offset = (idx / 4) * 4 + eint->regs->dbnc_set;
-+	clr_offset = (idx / 4) * 4 + eint->regs->dbnc_clr;
- 
- 	if (!mtk_eint_can_en_debounce(eint, eint_num))
- 		return -EINVAL;
-@@ -454,12 +479,12 @@ int mtk_eint_set_debounce(struct mtk_eint *eint, unsigned long eint_num,
- 	}
- 
- 	clr_bit = 0xff << eint_offset;
--	writel(clr_bit, eint->base + clr_offset);
-+	writel(clr_bit, eint->base[inst] + clr_offset);
- 
- 	bit = ((dbnc << MTK_EINT_DBNC_SET_DBNC_BITS) | MTK_EINT_DBNC_SET_EN) <<
- 		eint_offset;
- 	rst = MTK_EINT_DBNC_RST_BIT << eint_offset;
--	writel(rst | bit, eint->base + set_offset);
-+	writel(rst | bit, eint->base[inst] + set_offset);
- 
- 	/*
- 	 * Delay a while (more than 2T) to wait for hw debounce counter reset
-@@ -487,27 +512,53 @@ EXPORT_SYMBOL_GPL(mtk_eint_find_irq);
- 
- int mtk_eint_do_init(struct mtk_eint *eint)
- {
--	int i;
-+	unsigned int size, i, port;
- 
- 	/* If clients don't assign a specific regs, let's use generic one */
- 	if (!eint->regs)
- 		eint->regs = &mtk_generic_eint_regs;
- 
--	eint->wake_mask = devm_kcalloc(eint->dev, eint->hw->ports,
--				       sizeof(*eint->wake_mask), GFP_KERNEL);
--	if (!eint->wake_mask)
-+	eint->base_pin_num = devm_kmalloc_array(eint->dev, eint->nbase, sizeof(u16),
-+						GFP_KERNEL);
-+	if (!eint->base_pin_num)
- 		return -ENOMEM;
- 
--	eint->cur_mask = devm_kcalloc(eint->dev, eint->hw->ports,
--				      sizeof(*eint->cur_mask), GFP_KERNEL);
--	if (!eint->cur_mask)
-+	if (!eint->pins) {
-+		size = eint->hw->ap_num * sizeof(struct mtk_eint_pin);
-+		eint->pins = devm_kmalloc(eint->dev, size, GFP_KERNEL);
-+		if (!eint->pins)
-+			return -ENOMEM;
-+
-+		eint->base_pin_num[0] = eint->hw->ap_num;
-+		for (i = 0; i < eint->hw->ap_num; i++) {
-+			eint->pins[i].instance = 0;
-+			eint->pins[i].index = i;
-+			eint->pins[i].debounce = (i < eint->hw->db_cnt) ? 1 : 0;
-+		}
-+	} else {
-+		for (i = 0; i < eint->hw->ap_num; i++)
-+			eint->base_pin_num[eint->pins[i].instance]++;
-+	}
-+
-+	eint->wake_mask = devm_kmalloc(eint->dev, eint->nbase * sizeof(u32 *), GFP_KERNEL);
-+	if (!eint->wake_mask)
- 		return -ENOMEM;
- 
--	eint->dual_edge = devm_kcalloc(eint->dev, eint->hw->ap_num,
--				       sizeof(int), GFP_KERNEL);
--	if (!eint->dual_edge)
-+	eint->cur_mask = devm_kmalloc(eint->dev, eint->nbase * sizeof(u32 *), GFP_KERNEL);
-+	if (!eint->wake_mask)
- 		return -ENOMEM;
- 
-+	for (i = 0; i < eint->nbase; i++) {
-+		port = (eint->base_pin_num[i] + 31) / 32;
-+		eint->wake_mask[i] = devm_kzalloc(eint->dev, port * sizeof(u32), GFP_KERNEL);
-+		if (!eint->wake_mask[i])
-+			return -ENOMEM;
-+
-+		eint->cur_mask[i] = devm_kzalloc(eint->dev, port * sizeof(u32), GFP_KERNEL);
-+		if (!eint->cur_mask[i])
-+			return -ENOMEM;
-+	}
-+
- 	eint->domain = irq_domain_add_linear(eint->dev->of_node,
- 					     eint->hw->ap_num,
- 					     &irq_domain_simple_ops, NULL);
-diff --git a/drivers/pinctrl/mediatek/mtk-eint.h b/drivers/pinctrl/mediatek/mtk-eint.h
-index c1efdf02fb49..959afc4b950b 100644
---- a/drivers/pinctrl/mediatek/mtk-eint.h
-+++ b/drivers/pinctrl/mediatek/mtk-eint.h
-@@ -1,10 +1,11 @@
- /* SPDX-License-Identifier: GPL-2.0 */
- /*
-- * Copyright (C) 2014-2018 MediaTek Inc.
-+ * Copyright (C) 2014-2025 MediaTek Inc.
-  *
-  * Author: Maoguang Meng <maoguang.meng@mediatek.com>
-  *	   Sean Wang <sean.wang@mediatek.com>
-- *
-+ *	   Hao Chang <ot_chhao.chang@mediatek.com>
-+ *	   Qingliang Li <qingliang.li@mediatek.com>
-  */
- #ifndef __MTK_EINT_H
- #define __MTK_EINT_H
-@@ -71,8 +72,8 @@ struct mtk_eint {
- 	int irq;
- 
- 	int *dual_edge;
--	u32 *wake_mask;
--	u32 *cur_mask;
-+	u32 **wake_mask;
-+	u32 **cur_mask;
- 
- 	/* Used to fit into various EINT device */
- 	const struct mtk_eint_hw *hw;
--- 
-2.34.1
+Reviewed-by Robin Murphy <robin.murphy@arm.com>
+
+> Signed-off-by: Connor Abbott <cwabbott0@gmail.com>
+> ---
+>   drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 15 ++++++++++++++-
+>   drivers/iommu/arm/arm-smmu/arm-smmu.c      | 30 ++++++++++++++++++++++++++++++
+>   drivers/iommu/arm/arm-smmu/arm-smmu.h      |  1 -
+>   3 files changed, 44 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> index 59d02687280e8d37b5e944619fcfe4ebd1bd6926..7d86e9972094eb4d304b24259f4ed9a4820cabc7 100644
+> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> @@ -125,12 +125,25 @@ static void qcom_adreno_smmu_resume_translation(const void *cookie, bool termina
+>   	struct arm_smmu_domain *smmu_domain = (void *)cookie;
+>   	struct arm_smmu_cfg *cfg = &smmu_domain->cfg;
+>   	struct arm_smmu_device *smmu = smmu_domain->smmu;
+> -	u32 reg = 0;
+> +	u32 reg = 0, sctlr;
+> +	unsigned long flags;
+>   
+>   	if (terminate)
+>   		reg |= ARM_SMMU_RESUME_TERMINATE;
+>   
+> +	spin_lock_irqsave(&smmu_domain->cb_lock, flags);
+> +
+>   	arm_smmu_cb_write(smmu, cfg->cbndx, ARM_SMMU_CB_RESUME, reg);
+> +
+> +	/*
+> +	 * Re-enable interrupts after they were disabled by
+> +	 * arm_smmu_context_fault().
+> +	 */
+> +	sctlr = arm_smmu_cb_read(smmu, cfg->cbndx, ARM_SMMU_CB_SCTLR);
+> +	sctlr |= ARM_SMMU_SCTLR_CFIE;
+> +	arm_smmu_cb_write(smmu, cfg->cbndx, ARM_SMMU_CB_SCTLR, sctlr);
+> +
+> +	spin_unlock_irqrestore(&smmu_domain->cb_lock, flags);
+>   }
+>   
+>   static void qcom_adreno_smmu_set_prr_bit(const void *cookie, bool set)
+> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> index 79afc92e1d8b984dd35c469a3f283ad0c78f3d26..fe3d77984533eb1a0e0e211021598bc808f2a6b2 100644
+> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> @@ -463,6 +463,36 @@ static irqreturn_t arm_smmu_context_fault(int irq, void *dev)
+>   	if (!(cfi.fsr & ARM_SMMU_CB_FSR_FAULT))
+>   		return IRQ_NONE;
+>   
+> +	/*
+> +	 * On some implementations FSR.SS asserts a context fault
+> +	 * interrupt. We do not want this behavior, because resolving the
+> +	 * original context fault typically requires operations that cannot be
+> +	 * performed in IRQ context but leaving the stall unacknowledged will
+> +	 * immediately lead to another spurious interrupt as FSR.SS is still
+> +	 * set. Work around this by disabling interrupts for this context bank.
+> +	 * It's expected that interrupts are re-enabled after resuming the
+> +	 * translation.
+> +	 *
+> +	 * We have to do this before report_iommu_fault() so that we don't
+> +	 * leave interrupts disabled in case the downstream user decides the
+> +	 * fault can be resolved inside its fault handler.
+> +	 *
+> +	 * There is a possible race if there are multiple context banks sharing
+> +	 * the same interrupt and both signal an interrupt in between writing
+> +	 * RESUME and SCTLR. We could disable interrupts here before we
+> +	 * re-enable them in the resume handler, leaving interrupts enabled.
+> +	 * Lock the write to serialize it with the resume handler.
+> +	 */
+> +	if (cfi.fsr & ARM_SMMU_CB_FSR_SS) {
+> +		u32 val;
+> +
+> +		spin_lock(&smmu_domain->cb_lock);
+> +		val = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_SCTLR);
+> +		val &= ~ARM_SMMU_SCTLR_CFIE;
+> +		arm_smmu_cb_write(smmu, idx, ARM_SMMU_CB_SCTLR, val);
+> +		spin_unlock(&smmu_domain->cb_lock);
+> +	}
+> +
+>   	ret = report_iommu_fault(&smmu_domain->domain, NULL, cfi.iova,
+>   		cfi.fsynr & ARM_SMMU_CB_FSYNR0_WNR ? IOMMU_FAULT_WRITE : IOMMU_FAULT_READ);
+>   
+> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.h b/drivers/iommu/arm/arm-smmu/arm-smmu.h
+> index 2dbf3243b5ad2db01e17fb26c26c838942a491be..789c64ff3eb9944c8af37426e005241a8288da20 100644
+> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.h
+> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.h
+> @@ -216,7 +216,6 @@ enum arm_smmu_cbar_type {
+>   					 ARM_SMMU_CB_FSR_TLBLKF)
+>   
+>   #define ARM_SMMU_CB_FSR_FAULT		(ARM_SMMU_CB_FSR_MULTI |	\
+> -					 ARM_SMMU_CB_FSR_SS |		\
+>   					 ARM_SMMU_CB_FSR_UUT |		\
+>   					 ARM_SMMU_CB_FSR_EF |		\
+>   					 ARM_SMMU_CB_FSR_PF |		\
+> 
 
 
