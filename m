@@ -4,116 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EE79C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 11:25:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 560B8C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 11:28:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dgWBX4ybraAMrDiRu2u6zch5vMU45ypPsnBxsZlDNDA=; b=FY9gEuqozgjZq3+J71N+YGUEkT
-	3Ag3T4o4Xnv0HRGyR9dQLxQFsa2nLHlScKqG53770vwRcC+gzQHSeGYZDsvhdVDRqGk64cbK5pMoo
-	f2nQO1HkTUrYvgk/G+8/BlwPmFcsraCbwVG36oiBYmFBzp7hwoaeJmitE3Dk+Rx9Mf+XyzQZI8eIk
-	ETqUGY0xztFuFhySdyedWQND+ErbnarlZ1KXmz9xr3kKMjv7JjL/qRx5c8zB4si2Stb7wI36joelR
-	+37q0RjUrHuHTKFJujmTlc30hTUrjzrsQWLnOqGTV8+TEFAKGMk85YzHKGN3ERPCM6/a0bG2MZ3j1
-	JIkbDaog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5Bj6SlnqGUNk+5S9i5pvyH6aDELpYCxdwMZsHtSo9SQ=; b=HrebnGw7uYPKvxF/x5hMTvqhgA
+	euchYesrI5mVhjsBHQHD5ktnUBNuqUDmzRYv9WWRDhXN6JMHy6jC0K2uEWyPw5Tw1haliIIov6laR
+	yNHjSBTL8e7XoPe2cWB7jZxWLCecBc6IDRk15bnKZP8S9nCOscGfCoRhPT7ezXkiEFTuXwek4LDV/
+	5lMEVMrxQin341UG1vJYLIOLpIQFY5AL1iMc38hPu+V3LrUWU5T4aSCHEN+PDKpdnNkmwtq2vmcvn
+	XwDYkW3nFgn1yLVu+ISBmJGqXPn2ddGrns6ng6lNqTt47ycGu/QJslKp5+9X6SwavAFQtwsvMJqXl
+	CKJqtjYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taYqu-0000000A2dg-0iTU;
-	Wed, 22 Jan 2025 11:24:56 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1taYuS-0000000A3Oo-3jy9;
+	Wed, 22 Jan 2025 11:28:36 +0000
+Received: from mx2.sberdevices.ru ([45.89.224.132] helo=mx1.sberdevices.ru)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taYpb-0000000A2TD-4483
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 11:23:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id ACADEA42121;
-	Wed, 22 Jan 2025 11:21:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE875C4CED6;
-	Wed, 22 Jan 2025 11:23:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737545014;
-	bh=DFW0ySEcK5zFjneu/zUnRvTXguR+9mng1b4DYDONaVo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=djO+2sMkz8+eS4i6SG8RSsbqT1Qg+JaOY92qmyJP/PdDFXYo504FdqDUuoRdF8is4
-	 ky8k1v3l/qh4FBOuUhImZf6s/P9rj11MhHhOV536mmEFOIdrXwrLm8X2C6AwXmKWvD
-	 BXwMz3XWx+jDlFf//y7VsK/DQ1ojlmsW5EIS4whXpi6jeHWnK6gxXaU61Z9v6cTKIF
-	 uuS6hcRx4POoefQ9WMzEcvf2xkSjjhVJzHTGTucVBRBRFVIuaS90VizRXsEi71VrQv
-	 dgDnRms3xRakDu4pdjnEPoR69QlBAWND+Z0x07uSOXHDb7QbfzCbluYE6KXHW72row
-	 lU/xaOFNngFaA==
-Message-ID: <63fb9cc6-b57c-45bc-8da2-7bcb871d9887@kernel.org>
-Date: Wed, 22 Jan 2025 12:23:27 +0100
+	id 1taYt8-0000000A2wX-0Mju;
+	Wed, 22 Jan 2025 11:27:16 +0000
+Received: from p-infra-ksmg-sc-msk02.sberdevices.ru (localhost [127.0.0.1])
+	by mx1.sberdevices.ru (Postfix) with ESMTP id 76257120009;
+	Wed, 22 Jan 2025 14:27:05 +0300 (MSK)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.sberdevices.ru 76257120009
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=salutedevices.com;
+	s=mail; t=1737545225;
+	bh=5Bj6SlnqGUNk+5S9i5pvyH6aDELpYCxdwMZsHtSo9SQ=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type:From;
+	b=O7mh6dk+o8cs2UgkOsSDEdMYYrUx6icHmvuQxefocfBRv+M8stAXADwisxpRW782s
+	 K2lUVF2rRLMENOg+23trHvf3XEeRLS/fElbF4qf3zEvaMPcKhL4hOZ8iizJrwojHgz
+	 SwobHj35QqNOzZ09J2zSEZr0rM5lfhLTxEkjLXaxp9fHGMEVi1jAA9ot4YVobcYkW1
+	 SrgUvKiruF9EpZaXAVjT8qBNk7TZ/ZRUHGzf2Z1/n1Cx0ju7bloht6SlB0hY8ArYdp
+	 qtYuQNipX0YM23wT3PNqmoyHqLOWPQQd1So29/zeveUEGsjF+wLLSieYqJM34hL2ZZ
+	 fzrIgQM65/+sg==
+Received: from smtp.sberdevices.ru (p-exch-cas-a-m1.sberdevices.ru [172.24.201.216])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mx1.sberdevices.ru (Postfix) with ESMTPS;
+	Wed, 22 Jan 2025 14:27:05 +0300 (MSK)
+Date: Wed, 22 Jan 2025 14:27:03 +0300
+From: Dmitry Rokosov <ddrokosov@salutedevices.com>
+To: Jerome Brunet <jbrunet@baylibre.com>
+CC: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+	<sboyd@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman
+	<khilman@baylibre.com>, Martin Blumenstingl
+	<martin.blumenstingl@googlemail.com>, <linux-clk@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-amlogic@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v3 3/4] clk: amlogic: drop clk_regmap tables
+Message-ID: <pvklak6rusprrnj2pd64ada42oi43uty7xi7iaaoqu2sqdpyko@noy36ilokhwf>
+References: <20250120-amlogic-clk-drop-clk-regmap-tables-v3-0-126244146947@baylibre.com>
+ <20250120-amlogic-clk-drop-clk-regmap-tables-v3-3-126244146947@baylibre.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [EXT] Re: [PATCH v12 4/5] firmware: imx: add driver for NXP
- EdgeLock Enclave
-To: Pankaj Gupta <pankaj.gupta@nxp.com>, Jonathan Corbet <corbet@lwn.net>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-References: <20250120-imx-se-if-v12-0-c5ec9754570c@nxp.com>
- <20250120-imx-se-if-v12-4-c5ec9754570c@nxp.com>
- <2fb2db33-9d45-442a-bfb9-55173751f20f@kernel.org>
- <AM9PR04MB860468CF15C1CC4B8EB257A695E12@AM9PR04MB8604.eurprd04.prod.outlook.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <AM9PR04MB860468CF15C1CC4B8EB257A695E12@AM9PR04MB8604.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250120-amlogic-clk-drop-clk-regmap-tables-v3-3-126244146947@baylibre.com>
+User-Agent: NeoMutt/20241212
+X-Originating-IP: [172.28.64.124]
+X-ClientProxiedBy: p-i-exch-a-m2.sberdevices.ru (172.24.196.120) To
+ p-exch-cas-a-m1.sberdevices.ru (172.24.201.216)
+X-KSMG-Rule-ID: 1
+X-KSMG-Message-Action: clean
+X-KSMG-AntiSpam-Lua-Profiles: 190499 [Jan 22 2025]
+X-KSMG-AntiSpam-Version: 6.1.1.7
+X-KSMG-AntiSpam-Envelope-From: ddrokosov@salutedevices.com
+X-KSMG-AntiSpam-Rate: 0
+X-KSMG-AntiSpam-Status: not_detected
+X-KSMG-AntiSpam-Method: none
+X-KSMG-AntiSpam-Auth: dkim=none
+X-KSMG-AntiSpam-Info: LuaCore: 50 0.3.50 df4aeb250ed63fd3baa80a493fa6caee5dd9e10f, {Track_E25351}, {Tracking_from_domain_doesnt_match_to}, salutedevices.com:7.1.1;smtp.sberdevices.ru:7.1.1,5.0.1;127.0.0.199:7.1.2;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1, FromAlignment: s
+X-MS-Exchange-Organization-SCL: -1
+X-KSMG-AntiSpam-Interceptor-Info: scan successful
+X-KSMG-AntiPhishing: Clean
+X-KSMG-LinksScanning: Clean
+X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.0.1.6960, bases: 2025/01/22 10:19:00 #27099507
+X-KSMG-AntiVirus-Status: Clean, skipped
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_032336_152926_AB82D4F8 
-X-CRM114-Status: GOOD (  18.44  )
+X-CRM114-CacheID: sfid-20250122_032714_795201_A2724927 
+X-CRM114-Status: GOOD (  14.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,73 +99,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/01/2025 12:13, Pankaj Gupta wrote:
+On Mon, Jan 20, 2025 at 06:15:32PM +0100, Jerome Brunet wrote:
+> Remove the clk_regmap tables that are used to keep track which clock
+> need to be initialised before being registered. The initialisation is now
+> done by the .init() operation of clk_regmap.
 > 
+> This rework saves a bit memory and makes maintenance a bit easier.
 > 
-> -----Original Message----- From: Krzysztof Kozlowski
-> <krzk@kernel.org>> Sent: Monday, January 20, 2025 5:54 PM To: Pankaj
-> Gupta <pankaj.gupta@nxp.com>>; Jonathan Corbet <corbet@lwn.net>>; 
-> Rob Herring <robh@kernel.org>>; Krzysztof Kozlowski
-> <krzk+dt@kernel.org>>; Conor Dooley <conor+dt@kernel.org>>; Shawn
-> Guo <shawnguo@kernel.org>>; Sascha Hauer <s.hauer@pengutronix.de>>;
-> Pengutronix Kernel Team <kernel@pengutronix.de>>; Fabio Estevam
-> <festevam@gmail.com>> Cc: linux-doc@vger.kernel.org; linux-
-> kernel@vger.kernel.org; devicetree@vger.kernel.org;
-> imx@lists.linux.dev; linux-arm-kernel@lists.infradead.org Subject:
-> [EXT] Re: [PATCH v12 4/5] firmware: imx: add driver for NXP EdgeLock
-> Enclave
+> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+
+Reviewed-by: Dmitry Rokosov <ddrokosov@salutedevices.com>
+
+For the A1 and AXG:
+Tested-by: Dmitry Rokosov <ddrokosov@salutedevices.com>
+
+> ---
+>  drivers/clk/meson/a1-peripherals.c | 163 +-------------
+>  drivers/clk/meson/a1-pll.c         |  16 +-
+>  drivers/clk/meson/axg-aoclk.c      |  22 --
+>  drivers/clk/meson/axg-audio.c      | 433 -------------------------------------
+>  drivers/clk/meson/axg.c            | 131 -----------
+>  drivers/clk/meson/c3-peripherals.c | 210 +-----------------
+>  drivers/clk/meson/c3-pll.c         |  32 +--
+>  drivers/clk/meson/g12a-aoclk.c     |  34 ---
+>  drivers/clk/meson/g12a.c           | 261 ----------------------
+>  drivers/clk/meson/gxbb-aoclk.c     |  19 --
+>  drivers/clk/meson/gxbb.c           | 393 ---------------------------------
+>  drivers/clk/meson/meson-aoclk.c    |   5 +-
+>  drivers/clk/meson/meson-aoclk.h    |   2 -
+>  drivers/clk/meson/meson-eeclk.c    |   4 -
+>  drivers/clk/meson/meson-eeclk.h    |   2 -
+>  drivers/clk/meson/meson8-ddr.c     |   9 -
+>  drivers/clk/meson/meson8b.c        | 200 -----------------
+>  drivers/clk/meson/s4-peripherals.c | 229 --------------------
+>  drivers/clk/meson/s4-pll.c         |  31 ---
+>  19 files changed, 5 insertions(+), 2191 deletions(-)
 > 
-> Caution: This is an external email. Please take care when clicking
-> links or opening attachments. When in doubt, report the message
-> using the 'Report this email' button
 
-
-You got comment on this, more than once.
-
-Rest of the email is poorly formatted, so I am just skimming through it.
-Fix your email program to send readable content if you want some answers
-for stuff I missed. I expect all my comments fully addressed, not just
-some of them.
-
-
->>> + +static int se_if_probe(struct platform_device *pdev) { +
->>> const struct se_if_node_info_list *info_list; +     const struct
->>> se_if_node_info *info; +     struct device *dev = &pdev->>dev; 
->>> +     struct se_fw_load_info *load_fw; +     struct se_if_priv
->>> *priv; +     u32 idx; +     int ret; +q +     idx =
->>> GET_IDX_FROM_DEV_NODE_NAME(dev->>of_node);
-> 
->> NAK. Node can be called firmware and your entire driver collapes.
-> The macro is updated to verify the correct-ness of node-name.
-
-NAK, do you understand the term? I provided the reasons for NAK.
-
-> 
-> +               (!memcmp(dev_of_node->full_name, NODE_NAME, 
-> strlen(NODE_NAME)) ?\ ((strlen(dev_of_node->full_name) >
-> strlen(NODE_NAME)) ?\ GET_ASCII_TO_U8((strlen(dev_of_node-
-> >full_name) - strlen(NODE_NAME)),\ dev_of_node-
-> >full_name[strlen(NODE_NAME) + 1], \ -
-> dev_of_node->full_name[strlen(NODE_NAME) + 2]) : 0) 
-> +                               dev_of_node-
-> >full_name[strlen(NODE_NAME) + 2]) : 0) : -EINVAL)
-> 
->>> +     info_list = device_get_match_data(dev); +     if (idx >>=
->>> info_list->>num_mu) { +             dev_err(dev, 
->>> +                     "Incorrect node name :%s\n", 
->>> +                     dev->>of_node->>full_name);
-> 
->> Nope. "firmware" or "secure" are correct node names.
-> New check is added to validate the correctness of the node name for
-> this driver. Replaced the message of " Incorrect node name..", with
-> the help message.
-
-You did not resolve the NAK.
-1. You cannot reject correct names.
-2. You cannot add undocumented ABI. You could try to document it, but it
-will not solve the first problem.
-
-
-Best regards,
-Krzysztof
+[...]
+-- 
+Thank you,
+Dmitry
 
