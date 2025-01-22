@@ -4,85 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48D84C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 18:57:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D697C0218C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 18:58:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hCpKDdKg4rdX1fCkNUFQGWyQg+xKmQk23jdejo83T+A=; b=4aOo3b5Szc9rRPzvmXGkf6AcNs
-	uEMBXzecHH+ukdEg3g8g/PB+2+m3KonyUCmm4ppSy/MFDUdotNkSX3FtSs0PD1wmZTht2KRgoHCfj
-	FDkKTNkjqkF6flCVmJWZ4m3h9pcmrl7Uxl3AhS+swNbMCNg5oANAwgIUWbLn+quYkQ0e7Q6vMMGaj
-	RV5EIzJ+HYjq2KMVh3tZ/wUXw5r4bLjwxRGjn3Rw5pVyEs7G1mIywHO7ei+DypZqLGmELBHqVk9zS
-	ao5ORzAUzuO6Mo8bL+Wl65JGu4WiNN4FqsTytjIUjAklFOGVnir68yTJvQFGTVIQc6+pfT7NfGv6y
-	d+C5Eevg==;
+	bh=ucEtL2vpaDXIcOOJNCX2jaEjGKELSNePIN/Dbu21H78=; b=YTwdNP4xm0X1Z+1DvKHLmRB7IE
+	QArgQqP7oRSJ+HZrs9PqHC7e7Q60ne+GtoJC0+KRg8SjkmuIpLCB5DEg0IX9j2HgmshNqxYVJYxU8
+	my93wnVuwGkOEa7wcP52dtfGdw4iSegXZPWA++LZm3UYcWkJ9tDUZZoFjOkeDieh8KK3+Q9+qowi+
+	K/E1LX9nRdnO9GkEBnTAnqprzeqToMMuhhxbWMkqeMZ1O3LOv0wOYq2m8rhpOtbfEj7cZ1TT+Lq/I
+	DbJTO/3gicj9lDs02nRQq7s9PChMInt4mJXD4wW/VEjOFVXCozpjzZJXA+1vNLOwvOabLpXrUV5nt
+	S8mzxBDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tafuN-0000000B2He-3yYk;
-	Wed, 22 Jan 2025 18:56:59 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tafvg-0000000B2Ob-2NFB;
+	Wed, 22 Jan 2025 18:58:20 +0000
+Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taft4-0000000B26J-2us7
+	id 1taftl-0000000B2BT-0rrs
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 18:55:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=hCpKDdKg4rdX1fCkNUFQGWyQg+xKmQk23jdejo83T+A=; b=wbw8FXVSTVYJs6N8NQRDei+kf6
-	WhboiXTxBHYWqR43xrZcxr76M1+HrYgItDRbn7sdkVbRhzuGIjvZfG9UWajqYcyVnjIxGPVPzRAzg
-	e1c1qx2eV5Wp822RD8Qq03WJFckWovLhpZVWwKwE2FpyNILvpIjqgZA+3ziUYuMNKsA/T6N6hnEwi
-	ElC4MioxwSWGsODlYGMPJg+8msO2fkUvf36hQ923+6RXdVwx/U6wZ7ycldajzITiFhwW+wmgqxIkO
-	jDQN1Ut68J4I76GTic1c9RFytpUQ6BKVfW41d56RqwKgzGbQWR1HU+ta3tz2wpLUbuG0WJIweeMZd
-	YrjstVLA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:53750)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tafso-0000Ax-17;
-	Wed, 22 Jan 2025 18:55:22 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tafsj-00058Q-3C;
-	Wed, 22 Jan 2025 18:55:18 +0000
-Date: Wed, 22 Jan 2025 18:55:17 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: davem@davemloft.net, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
-	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	=?iso-8859-1?Q?Nicol=F2?= Veronese <nicveronese@gmail.com>,
-	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
-	Antoine Tenart <atenart@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: Re: [PATCH net-next RFC v2 1/6] net: ethtool: common: Make BaseT a
- 4-lanes mode
-Message-ID: <Z5E_FUxSZJWRWVAq@shell.armlinux.org.uk>
-References: <20250122174252.82730-1-maxime.chevallier@bootlin.com>
- <20250122174252.82730-2-maxime.chevallier@bootlin.com>
+	Wed, 22 Jan 2025 18:56:22 +0000
+Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-30229d5b21cso234981fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jan 2025 10:56:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1737572179; x=1738176979; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=ucEtL2vpaDXIcOOJNCX2jaEjGKELSNePIN/Dbu21H78=;
+        b=dXGuyawGNyGuDREcyyNV3FLk+QD/tHC+SzEk22ErptUBPFZwV7RPhT7w0aSukNrYe4
+         doFjkdAseXucQ0FomEo72H/neMF/plmf6fGosADN6p8fqSgMzZahgeolIkbF0S+yDIL7
+         D+APA8HYPLbKyEQXJGYM5PaSYI8QDItbsg+H0FD6AkyOcFy+l/AWXA92kEUF0/OP9bZS
+         I6LR9JA9b4nxYN7NhYqaFBVE61hVk+qrLFlFcJi+fAS401/5BQIuLzfcZa2vs/eLjc8o
+         nTQT9tFRQ9AKcBAGt6Fz8zhfr9i7eEpr25h8X+bKs5IyL1xvyqlk5O0KjVovyoa3SJ7P
+         yqtg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737572179; x=1738176979;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ucEtL2vpaDXIcOOJNCX2jaEjGKELSNePIN/Dbu21H78=;
+        b=cU53eMenYC43FAyvLLT7qRn2Mu7vuvMTK4khG7uQlXa+M/Lvis2IcsStL0HaALQq0k
+         U6rZIVKVzpuByYpAfRn2xdoQk/u7tD8HI2NTrM2Vl0P6Zc1/GiJohaEJZdwnNxCC+Jqb
+         5zD/HJU8/tnm0CQhUXbeqYlila2KHitH4HrKHU/BZgEtnO98F2Kflfkvzh3l6viKLUOC
+         s8qsWkhZ8rMmHA83YyL5Gp2bj//GlZGTsUgMiKSUqwf0xcd3zyFaOc9o1ALAhysEshuY
+         DA77rng1VKpEn6qgp5lXz6TgukrVDycTJ4YlEAjpd0rp1tfzPeC5hkC4lDBmNzWWRPSf
+         n9+Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWijezRwuV1dHFNlSoXT/oVboCj7NXzZ89EC+kGLZwkmISntBVM66XMJUU0gKfJenyjUujcI8Rf6Cp4thNq62fz@lists.infradead.org
+X-Gm-Message-State: AOJu0YwFt1rTLpVFNu+gmdLe+decKA4Z3mNr1RUlSHmDXLwKCJF1fs4L
+	t5TqmjNtyWCFRuGZCgY5Bjf0AsDw3rtLSdSRv8xBDdWr6N4EkDK3AWWQkMQ7VAM=
+X-Gm-Gg: ASbGncuRrBf5pPlkdLZt4eh+0EbvM51NIVMx9wQ6SYTJ8pzp5agwCfLPYvKxEeXygnt
+	FMvtlhje4Izkx+hSMXvdFgRKwO8i4vfomJ0jVW5Q9dsQdgMQYvFCpFjbXzxtIKbllFLYAEd0zBM
+	gQBM4121Vqxt7xTLP0dDZhpAVzEwHRGe/VHttGIbR21xKsM8Lili45icm1tPzpsi4JfErQGXeqM
+	YsbukIW8DAlZztzP2jdFhkCK3aeIxkwkMGeOvIwviR80b83saunHHdH+0in/Ytce8Tej52XPI6/
+	eXf3U1pwXw6XswmIykgF7nk3eJIyobTTn5JEFMTacm1KCIX9Lw==
+X-Google-Smtp-Source: AGHT+IH1Num8sybuVWGX6lQCu41xk40pAQuzRF+kjqRrF1p7We/fl/ksVQE0dG+SV6CSYwqD02NYlQ==
+X-Received: by 2002:a05:651c:1713:b0:300:7f87:a6a with SMTP id 38308e7fff4ca-3072cab0c95mr63866951fa.7.1737572178788;
+        Wed, 22 Jan 2025 10:56:18 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3072a35acb6sm26558281fa.62.2025.01.22.10.56.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 22 Jan 2025 10:56:17 -0800 (PST)
+Date: Wed, 22 Jan 2025 20:56:15 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Damon Ding <damon.ding@rock-chips.com>
+Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, rfoss@kernel.org, vkoul@kernel.org, 
+	sebastian.reichel@collabora.com, cristian.ciocaltea@collabora.com, l.stach@pengutronix.de, 
+	andy.yan@rock-chips.com, hjc@rock-chips.com, algea.cao@rock-chips.com, 
+	kever.yang@rock-chips.com, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-phy@lists.infradead.org
+Subject: Re: [PATCH v5 12/20] drm/rockchip: analogix_dp: Add support to get
+ panel from the DP AUX bus
+Message-ID: <qrtcanwfokvc5x6xtgxhi2fs6fcibhnnhenegrdialx7cgy7u3@ea4v3woh5gki>
+References: <20250109032725.1102465-1-damon.ding@rock-chips.com>
+ <20250109032725.1102465-13-damon.ding@rock-chips.com>
+ <d7zpv6qt52mhny54dejw4yqlp2k2c437op7qmepqe27pufplqk@64xvohrz7h2q>
+ <330041c4-aaee-4b41-8ccd-e2807415c709@rock-chips.com>
+ <ba369b98-9a2a-421a-9251-4db3c1dcedd9@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20250122174252.82730-2-maxime.chevallier@bootlin.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <ba369b98-9a2a-421a-9251-4db3c1dcedd9@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_105539_000874_0D0A9637 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20250122_105621_254659_AEC0DEE3 
+X-CRM114-Status: GOOD (  31.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,46 +108,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 22, 2025 at 06:42:46PM +0100, Maxime Chevallier wrote:
-> When referring to BaseT ethernet, we are most of the time thinking of
-> BaseT4 ethernet on Cat5/6/7 cables. This is therefore BaseT4, although
-> BaseT4 is also possible for 100BaseTX. This is even more true now that
-> we have a special __LINK_MODE_LANES_T1 mode especially for Single Pair
-> ethernet.
+On Wed, Jan 22, 2025 at 05:37:53PM +0800, Damon Ding wrote:
+> Hi Dmitry,
 > 
-> Mark BaseT as being a 4-lanes mode.
+> On 2025/1/22 16:17, Damon Ding wrote:
+> > Hi Dmitry,
+> > 
+> > On 2025/1/9 20:48, Dmitry Baryshkov wrote:
+> > > On Thu, Jan 09, 2025 at 11:27:17AM +0800, Damon Ding wrote:
+> > > > Move drm_of_find_panel_or_bridge() a little later and combine it with
+> > > > component_add() into a new function rockchip_dp_link_panel().
+> > > > The function
+> > > > will serve as done_probing() callback of devm_of_dp_aux_populate_bus(),
+> > > > aiding to support for obtaining the eDP panel via the DP AUX bus.
+> > > > 
+> > > > If failed to get the panel from the DP AUX bus, it will then try
+> > > > the other
+> > > > way to get panel information through the platform bus.
+> > > > 
+> > > > In addition, use dev_err() instead of drm_err() in rockchip_dp_poweron()
+> > > > , which will be called before rockchip_dp_bind().
+> > > > 
+> > > > Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+> > > > 
+> > > > ---
+> > > > 
+> > > > Changes in v4:
+> > > > - Use done_probing() to call drm_of_find_panel_or_bridge() and
+> > > >    component_add() when getting panel from the DP AUX bus
+> > > > 
+> > > > Changes in v5:
+> > > > - Use the functions exported by the Analogix side to get the pointers of
+> > > >    struct analogix_dp_plat_data and struct drm_dp_aux.
+> > > > - Use dev_err() instead of drm_err() in rockchip_dp_poweron().
+> > > > 
+> > > > ---
+> > > >   .../gpu/drm/rockchip/analogix_dp-rockchip.c   | 41 ++++++++++++++-----
+> > > >   1 file changed, 30 insertions(+), 11 deletions(-)
+> > > > 
+> > > > diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/
+> > > > drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+> > > > index 0957d3c5d31d..3ae01b870f49 100644
+> > > > --- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+> > > > +++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+> > > > @@ -124,13 +124,13 @@ static int rockchip_dp_poweron(struct
+> > > > analogix_dp_plat_data *plat_data)
+> > > >       ret = clk_prepare_enable(dp->pclk);
+> > > >       if (ret < 0) {
+> > > > -        drm_err(dp->drm_dev, "failed to enable pclk %d\n", ret);
+> > > > +        dev_err(dp->dev, "failed to enable pclk %d\n", ret);
+> > > 
+> > > 
+> > > why?
+> > > 
+> > 
+> > The &rockchip_dp_device.drm_dev will be assigned in rockchip_dp_bind(),
+> > which is called after probing process. The PM operations have been
+> > advanced to the probing for the AUX transmission, so the dev_err() may
+> > be better than drm_err().
+> > 
+> 
+> Using drm_...() uniformly may be better [0].
 
-This is a problem:
+Yes
 
-1.4.50 10BASE-T: IEEE 802.3 Physical Layer specification for a 10 Mb/s
-CSMA/CD local area network over two pairs of twisted-pair telephone
-wire. (See IEEE Std 802.3, Clause 14.)
-
-Then we have the 100BASE-T* family, which can be T1, T2, T4 or TX.
-T1 is over a single balanced twisted pair. T2 is over two pairs of
-Cat 3 or better. T4 is over four pairs of Cat3/4/5.
-
-The common 100BASE-T* type is TX, which is over two pairs of Cat5.
-This is sadly what the ethtool 100baseT link modes are used to refer
-to.
-
-We do have a separate link mode for 100baseT1, but not 100baseT4.
-
-So, these ethtool modes that are of the form baseT so far are
-describing generally two pairs, one pair in each direction. (T1 is
-a single pair that is bidirectional.)
-
-It's only once we get to 1000BASE-T (1000baseT) that we get to an
-ethtool link mode that has four lanes in a bidirectional fashion.
-
-So, simply redefining this ends up changing 10baseT and 100baseT from
-a single lane in each direction to four lanes (and is a "lane" here
-defined as the total number of pairs used for communication in both
-directions, or the total number of lanes used in either direction.
-
-Hence, I'm not sure this makes sense.
+> 
+> > > >           return ret;
+> > > >       }
+> > > >       ret = rockchip_dp_pre_init(dp);
+> > > >       if (ret < 0) {
+> > > > -        drm_err(dp->drm_dev, "failed to dp pre init %d\n", ret);
+> > > > +        dev_err(dp->dev, "failed to dp pre init %d\n", ret);
+> > > >           clk_disable_unprepare(dp->pclk);
+> > > >           return ret;
+> > > >       }
+> > > 
+> 
+> Best regards,
+> Damon
+> 
+> [0]https://patchwork.kernel.org/project/linux-rockchip/patch/20250109032725.1102465-6-damon.ding@rock-chips.com/#26209891
+> 
 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+With best wishes
+Dmitry
 
