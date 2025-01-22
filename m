@@ -4,88 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 473F8C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 14:11:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5199C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 14:12:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u6A2D9Gp6FOhIbSWgb9j5UrKEP+ZhUZ+HlhkvNqPm+8=; b=Gn115ybCcjq0P2IZBaCKxrAnYN
-	i53K2RBGz4M5OeAkuKzY06KTSzozNNbS3sJgpb3Fw/Sx9wNtyQcVq0Ba+KTsPMnQefMUT8PmbRPRl
-	s5WYgMNttQVVqjhc1XMdx6uGkiRKLNOHpPIL0fzu22YEp8p9Wxwk65RCJLc+oMlEPKL5204Sy40YC
-	WYEc4l1Y2Jl8cbNjs21uEMXkywNnEQeygLidIRw/YG8iUsQBNk16SykosWBbQwYhaFRr0RLLR6CPz
-	BmJ0oL/Eb3KyghcuytR1UOIvgdTWXcLbqY7eOxtbv+xv4M1BziJkwzmo8TS2J1hX1z8LYiwrNtVyB
-	2n9EJNrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lzD+7TZXT2sRDxJfc726niuQB3RO286sYGqYL650DZ4=; b=qeUKldNc6y3cIbBl4GG/aAaLqR
+	bumbGggN/jMp2SSQKbqZd2h3xgtvgowZQT0r3qMh6ktqS4Ag/XyZiKdL22y7Nw+4zpnOB846832YI
+	6j0wBgtOz7qNPlco7SES+zdhDbNVkUDJNdFP/I9CXzQmlGhOPVJKERmtbmCYbpfTUYVpvMvCDHt6H
+	QglKAe7MVajBj2GQMYf/Ndl4vVfnhr7Bd+GehWeBx5eVfGuriUtKG1HX3o2RuMXtWH/rIxn0uEexh
+	GBtX6IaLNJ01qhMlGuLlX+j+0FR4RzGbGYMIIYEqeIIjRb6AAB7cW/jgOKyCE9Vmhjdlpcw2YYjQW
+	d0KOZQmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tabRr-0000000ANt9-2cx2;
-	Wed, 22 Jan 2025 14:11:15 +0000
-Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
+	id 1tabT7-0000000AO53-26MS;
+	Wed, 22 Jan 2025 14:12:33 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tabMe-0000000AMzG-2C0c
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 14:05:54 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 9D40F1BF208;
-	Wed, 22 Jan 2025 14:05:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1737554747;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=u6A2D9Gp6FOhIbSWgb9j5UrKEP+ZhUZ+HlhkvNqPm+8=;
-	b=j45+Wj0bkZUjkfE2K7uxrujT3U0CBiljadFY9MriVnVTIHNFfsdFA5xnU5ptdu/wlydT4b
-	n2vJbfLP+TmM0g0MR4H0vd5fJviqvSdbh8lgC+59TU/F7Kg9mInq2xT1/fXyc8Tympc6pG
-	SC1r2wzqeAOGO3MYoRZWhHoz94AxeCf6w7Sg90jqLyrtUdnL1bBgjkNRgxmFFzVSP+iS14
-	gMCgNt+ynhl7pYBKfOnoTLNBgl1YBVjuodqnbWHX3XtTAebrVCkdoAeIJFUCtV2Rus55TL
-	9HF2d9LlA3ulb67ms7LaA+aWcA3fGjTx4RxCyixqFvkjd/WiVeMYS9QNDhjXUQ==
-Date: Wed, 22 Jan 2025 15:05:42 +0100
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Ninad Palsule <ninad@linux.ibm.com>, Jacky Chou
- <jacky_chou@aspeedtech.com>, "andrew+netdev@lunn.ch"
- <andrew+netdev@lunn.ch>, "andrew@codeconstruct.com.au"
- <andrew@codeconstruct.com.au>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "davem@davemloft.net" <davem@davemloft.net>, "devicetree@vger.kernel.org"
- <devicetree@vger.kernel.org>, "eajames@linux.ibm.com"
- <eajames@linux.ibm.com>, "edumazet@google.com" <edumazet@google.com>,
- "joel@jms.id.au" <joel@jms.id.au>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>, "kuba@kernel.org" <kuba@kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
- <linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, "minyard@acm.org" <minyard@acm.org>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "openipmi-developer@lists.sourceforge.net"
- <openipmi-developer@lists.sourceforge.net>, "pabeni@redhat.com"
- <pabeni@redhat.com>, "ratbert@faraday-tech.com" <ratbert@faraday-tech.com>,
- "robh@kernel.org" <robh@kernel.org>
-Subject: Re: =?UTF-8?B?5Zue6KaGOiDlm57opoY6?= [PATCH v2 05/10] ARM: dts:
- aspeed: system1: Add RGMII support
-Message-ID: <20250122150542.55d483e6@fedora.home>
-In-Reply-To: <c83f0193-ce24-4a3e-87d1-f52587e13ca4@lunn.ch>
-References: <59116067-0caa-4666-b8dc-9b3125a37e6f@lunn.ch>
-	<SEYPR06MB51344BA59830265A083469489D132@SEYPR06MB5134.apcprd06.prod.outlook.com>
-	<8042c67c-04d3-41c0-9e88-8ce99839f70b@lunn.ch>
-	<c0b653ea-3fe0-4bdb-9681-bf4e3ef1364a@linux.ibm.com>
-	<c05c0476-c8bd-42f4-81da-7fe96e8e503b@lunn.ch>
-	<SEYPR06MB5134A63DBE28AA1305967A0C9D1C2@SEYPR06MB5134.apcprd06.prod.outlook.com>
-	<9fbc6f4c-7263-4783-8d41-ac2abe27ba95@lunn.ch>
-	<81567190-a683-4542-a530-0fb419f5f9be@linux.ibm.com>
-	<0ee94fd3-d099-4d82-9ba8-eb1939450cc3@lunn.ch>
-	<20250122140719.5629ae57@fedora.home>
-	<c83f0193-ce24-4a3e-87d1-f52587e13ca4@lunn.ch>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	id 1tabNO-0000000ANDa-0Osm;
+	Wed, 22 Jan 2025 14:06:39 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50M7XQw7013738;
+	Wed, 22 Jan 2025 14:06:10 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=lzD+7TZXT2sRDxJfc726niuQB3RO28
+	6sYGqYL650DZ4=; b=pM55oaCkrG4O2Dq5LyDq7yUqgYEHoGWcDynb+cv/6amQGv
+	CSmA/4xHSIiJybxZQFG6ojn8mE7UozWjpvy4MM7gIMIcL1pTI9SIcFqkQ1kbhafz
+	X53gHxEK3qD3CZSLKuVEK4z0NAY5u6JEC+L7nMD99cIZzTyFR+l/Wtu6MJvwGX2V
+	IJVscUMPZbaPO/OdXOyaJR4ONTy4KfzZyBc/vm05niTL9IIUz+nnphrVv7czqVeM
+	wsN6QPjda0kXip9FvOsBHAquLX9cqkuFgdbti0RIf62uF+/PF8fUC1U+TMIoOvjz
+	+glf2u/CA/TL5TQYzSbjWk7Wfgj0d3pTM7lec5CA==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44avcp1q7a-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 22 Jan 2025 14:06:09 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 50MDHXj7024252;
+	Wed, 22 Jan 2025 14:06:09 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 448q0y8uwa-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 22 Jan 2025 14:06:09 +0000
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 50ME67Kp19399076
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 22 Jan 2025 14:06:07 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 06BE120043;
+	Wed, 22 Jan 2025 14:06:07 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 46B9320040;
+	Wed, 22 Jan 2025 14:06:06 +0000 (GMT)
+Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.155.204.135])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Wed, 22 Jan 2025 14:06:06 +0000 (GMT)
+Date: Wed, 22 Jan 2025 15:06:05 +0100
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: Heiko Carstens <hca@linux.ibm.com>
+Cc: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        Linus Walleij <linus.walleij@linaro.org>,
+        Andy Lutomirski <luto@kernel.org>,
+        Peter Zijlstra <peterz@infradead.org>,
+        "Mike Rapoport (IBM)" <rppt@kernel.org>,
+        Ryan Roberts <ryan.roberts@arm.com>,
+        Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+        Matthew Wilcox <willy@infradead.org>,
+        Qi Zheng <zhengqi.arch@bytedance.com>, linux-alpha@vger.kernel.org,
+        linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+        linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+        linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+        linux-s390@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+        linux-um@lists.infradead.org, loongarch@lists.linux.dev,
+        x86@kernel.org
+Subject: Re: [PATCH v2 6/6] mm: Introduce ctor/dtor at PGD level
+Message-ID: <Z5D7TSR3AttkC0Jf@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+References: <20250103184415.2744423-1-kevin.brodsky@arm.com>
+ <20250103184415.2744423-7-kevin.brodsky@arm.com>
+ <Z4/NTRDBXEEimdvc@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+ <20250122074954.8685-A-hca@linux.ibm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-GND-Sasl: maxime.chevallier@bootlin.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250122074954.8685-A-hca@linux.ibm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: hnL1myQOEbP9JlWEuwvdB13NGgqHi6w6
+X-Proofpoint-GUID: hnL1myQOEbP9JlWEuwvdB13NGgqHi6w6
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-22_06,2025-01-22_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 adultscore=0
+ bulkscore=0 mlxlogscore=742 spamscore=0 phishscore=0 mlxscore=0
+ suspectscore=0 lowpriorityscore=0 priorityscore=1501 clxscore=1015
+ malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501220104
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_060552_863698_D045131C 
-X-CRM114-Status: GOOD (  36.15  )
+X-CRM114-CacheID: sfid-20250122_060638_245137_68B93799 
+X-CRM114-Status: GOOD (  23.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,92 +123,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > Can we consider an update in the kernel doc along these lines :
+On Wed, Jan 22, 2025 at 08:49:54AM +0100, Heiko Carstens wrote:
+> > >  static inline pgd_t *pgd_alloc(struct mm_struct *mm)
+> > >  {
+> > > -	return (pgd_t *) crst_table_alloc(mm);
+> > > +	unsigned long *table = crst_table_alloc(mm);
+> > > +
+> > > +	if (!table)
+> > > +		return NULL;
 > > 
-> > ---
-> >  Documentation/networking/phy.rst | 19 +++++++++++--------
-> >  1 file changed, 11 insertions(+), 8 deletions(-)
+> > I do not know status of this series, but FWIW, this call is missed:
 > > 
-> > diff --git a/Documentation/networking/phy.rst b/Documentation/networking/phy.rst
-> > index f64641417c54..7ab77f9867a0 100644
-> > --- a/Documentation/networking/phy.rst
-> > +++ b/Documentation/networking/phy.rst
-> > @@ -106,14 +106,17 @@ Whenever possible, use the PHY side RGMII delay for these reasons:
-> >    configure correctly a specified delay enables more designs with similar delay
-> >    requirements to be operated correctly
-> >  
-> > -For cases where the PHY is not capable of providing this delay, but the
-> > -Ethernet MAC driver is capable of doing so, the correct phy_interface_t value
-> > -should be PHY_INTERFACE_MODE_RGMII, and the Ethernet MAC driver should be
-> > -configured correctly in order to provide the required transmit and/or receive
-> > -side delay from the perspective of the PHY device. Conversely, if the Ethernet
-> > -MAC driver looks at the phy_interface_t value, for any other mode but
-> > -PHY_INTERFACE_MODE_RGMII, it should make sure that the MAC-level delays are
-> > -disabled.
-> > +The MAC driver may add delays if the PCB doesn't include any. This can be
-> > +detected based on firmware "rx-internal-delay-ps" and "tx-internal-delay-ps"
-> > +properties.
-> > +
-> > +When the MAC driver can insert the delays, it should always do so when these
-> > +properties are present and non-zero, regardless of the RGMII mode specified.
-> > +
-> > +However, the MAC driver must adjust the PHY_INTERFACE_MODE_RGMII_* mode it passes
-> > +to the connected PHY device (through phy_attach or phylink_create() for example)
-> > +to account for MAC-side delay insertion, so that the the PHY device knows
-> > +if any delays still needs insertion on either TX or RX paths.  
+> > 	crst_table_init(table, _REGION1_ENTRY_EMPTY); 
 > 
-> You dropped:
-> 
->    For cases where the PHY is not capable of providing this delay...
-> 
-> This is something i would like to keep, to strengthen that we really
-> do want the PHY to add the delays. Many MACs are capable of adding
-> delays, but we don't want them to, the PHY should do it, so we have
-> consistency.
-> 
-> The language i've tried to use is that "rx-internal-delay-ps" and
-> "tx-internal-delay-ps" can be used to fine tune the delays, so i'm
-> expecting their values to be small, because the PHY is adding the 2ns,
-> and the MAC is just adding/removing 0-200ps etc. I've also used the
-> same terminology for PHY drivers, the PHY DT properties for delays are
-> used for fine tuning, but the basic 2ns on/off comes from the phy-mode
-> passed to phylib.
-> 
-> If it is just fine tuning, and not adding the full 2ns, it should just
-> pass phy-mode straight through.
-> 
-> So your text becomes something like:
-> 
->   The MAC driver may fine tune the delays. This can be configured
->   based on firmware "rx-internal-delay-ps" and "tx-internal-delay-ps"
->   properties. These values are expected to be small, not the full 2ns
->   delay.
-> 
->   A MAC driver inserting these fine tuning delays should always do so
->   when these properties are present and non-zero, regardless of the
->   RGMII mode specified.
-> 
-> Then we can address when the MAC adds the full 2ns.
-> 
->   For cases where the PHY is not capable of providing the 2ns delay,
->   the MAC must provide it, if the phy-mode indicates the PCB is not
->   providing the delays. The MAC driver must adjust the
->   PHY_INTERFACE_MODE_RGMII_* mode it passes to the connected PHY
->   device (through phy_attach or phylink_create() for example) to
->   account for MAC-side delay insertion, so that the the PHY device
->   does not add additional delays.
-> 
-> I also think we need something near the beginning like:
-> 
->   The device tree property phy-mode describes the hardware. When used
->   with RGMII, its value indicates if the hardware, i.e. the PCB,
->   provides the 2ns delay required for RGMII. A phy-mode of 'rgmii'
->   indicates the PCB is adding the 2ns delay. For other values, the
->   MAC/PHY pair must insert the needed 2ns delay, with the strong
->   preference the PHY adds the delay.
+> Why is that missing?
 
-Thanks Andrew for the suggestions, your wording is definitely better
-than mine :) I'll queue that for when net-next re-opens.
+Because the follow-up pagetable_pgd_ctor() is called against uninitialized
+page table, while other pagetable_pXd_ctor() variants are called against
+initialized one. I could imagine complications as result of that.
 
-Maxime
+Whether Region1 table is the right choice is a big question though, as you
+noticed below.
+
+> A pgd table can be a Region1, Region2, or Region3 table. The only caller of
+> this function is mm_init() via mm_alloc_pgd(); and right after mm_alloc_pgd()
+> there is a call to init_new_context() which will initialize the pgd correctly.
+
+init_new_context() is in a way a constructor as well, so whole thing looks odd
+to me. But I do not immedeately see a better way :(
+
+> I guess what really gets odd, and might be broken (haven't checked yet) is
+> what happens on dynamic upgrade of page table levels (->crst_table_upgrade()).
+
+Hmm, that is a good point.
+
+> With that a pgd may become a pud, and with that we get an imbalance with
+> the ctor/dtor calls for the various page table levels when they get freed
+
+The ctor/dtor mismatch should not be a problem, as pagetable_pgd|p4d|pud_ctor()
+are the same and there is one pagetable_dtor() for all top levels as of now.
+But if it ever comes to separate implementations, then we are in the world
+of pain.
+
+> again. Plus, at first glance, it looks also broken that we have open-coded
+> crst_alloc() calls instead of using the "proper" page table allocation API
+> within crst_table_upgrade(), which again would cause an imbalance.
+
+This is a good point too.
+
+Many thanks!
 
