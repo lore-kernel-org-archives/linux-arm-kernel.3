@@ -4,86 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A194C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 19:27:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9F29C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 19:28:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2W+qfsEAUclS3rHGg1rqVyLJ0A2NtvBKn6a5gu/HE+Q=; b=t77qRSL0HmpeeOB4ZKP3G3LTbX
-	N9PrG6lc2SrnBfyKDejB7WiQSDIZEyfdESwiILmBqT1dxA0e8mu4ZJXvlVdm2hn/v7Iz0+Mdlc4cd
-	K1+77+ZN7oRqQ3tR0fgHaUlUYA5FLoKfLg18NW5KOIML5MTiY69Hj6sw/eqzRNDZ+6VEdoGv/kG1p
-	xV0SV6hprAQo6l7zSR9GFtbbYMf0OCGSWk2U8WHtrMsl0z9pzw8UqQGwIZOSN03X7fKWUIg1qHcRY
-	4t9yYcOurUX965CHYRK+48sDhGJAp10/ssyXx6psF+KoWmazc5Ebv5XUgfLgUfVCmR/AQun5wwL3C
-	jYtoGZUw==;
+	bh=5/QjlKd7INPe1HgojOhV/2stvDwogfZjlBdkvmc4y6I=; b=UXp0wAgMpDg4pKI08QLjGFYMYv
+	q4uVIq2XmDTZRvIM44BSR+k+AUSlGZlhS7OMbsQGXQlzZOVBt0EkvTBsZIBaccFhhxZBRNaFsxliY
+	6+dplRoX0aIAXOZp7E5jh9PNwpg/WYjBDnhPW5TYhLQ6NX5U21zcFIyB82VyV0/akrNtBKMug//eG
+	mn7mET+IqAZRR+FlPAMDiJy0cSpyxUK/FLc4nAX9TFdZYac2TbjpTCpbbbgg9x25t79R2gCyZZj2E
+	ogLeVIXcI/1o5wt2iRMXpnoApGFUxZ+bMM417VwQqXhLI/I7iNRseQmV+8g/dYVjkjcy3q05igjeB
+	jJCkqeHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tagNf-0000000B4sr-36DI;
-	Wed, 22 Jan 2025 19:27:15 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tagOv-0000000B4yD-1Vr4;
+	Wed, 22 Jan 2025 19:28:33 +0000
+Received: from mail-bn8nam11on20613.outbound.protection.outlook.com ([2a01:111:f403:2414::613] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tagMM-0000000B4j6-0kAN
+	id 1tagN6-0000000B4pT-1P8b
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 19:25:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=2W+qfsEAUclS3rHGg1rqVyLJ0A2NtvBKn6a5gu/HE+Q=; b=zgM0RouzKSxSBhQv/D2XkgVoiw
-	e8l+KkrofWnaCxW/VswXEPsvHyftp4soRON+mPixqjvrT2AITkMnzKN1rWqrs/Wxp2ezmVGKPkNdu
-	cRnsRKEQEhOTsibHhZJqu0ckUkvOO94eOz1ecA+lN7FeJdsyhLkM8gfh64JDVS5eaN6h8D0yD3yEA
-	cEFQnGMnIFZFu72GgIkctg9T67YAGC7LJr/Z891SSGX4Od3ZvoVqdBEJuQ0hCFTDxyZSzAvHl0BrE
-	Nb1rs8od0pCKYzRUa6KI4B+cqA/Z762ewtE+2piYAXY/y4P7AaVEqDBqM6V7/8yoCfbVhxu3lK+1M
-	wVmuLDGQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:44086)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tagMA-0000Cl-1U;
-	Wed, 22 Jan 2025 19:25:44 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tagM6-00059x-00;
-	Wed, 22 Jan 2025 19:25:38 +0000
-Date: Wed, 22 Jan 2025 19:25:37 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: davem@davemloft.net, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Wed, 22 Jan 2025 19:26:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UzFHXQBlgjjRkPIzT3j6KtX5RbG4+5M2h7ymenzyZ3rkn32T/tdVjz/K/PKryXTmntpUw/3/D6KXaS4RMs1dLnrf2A03PoWg97HpA2f1sy5SJuyTwEJZIzmk3yRjDYK/2/n82vUwFLiCcldlDnrRU2Sp/kk/e/LuxLFVM6ICrBccTLOxzv040kmQ/KD/k3SwcvDCPpXHuZcFcT1b6mJwyTs39hvTLW88n+AIYi/0mGzFvJmpc02Ez+/qppT7IQ22N107OiZeHKbJauwJdjtilKka/NB4/basZ34kM1BAbY0+6gHMvLoNox0/51ycKVSCfonmQfL/SGtERZwjEwRE5w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5/QjlKd7INPe1HgojOhV/2stvDwogfZjlBdkvmc4y6I=;
+ b=LKcoyTFObNR94o/wx4IfQKlNeTUWGIIqUgzP1E3hxKJ0oUjV8aauV29dj9se//crsD4YpF+juzq2GYB4SDKAUPKJWy9iJXZ1fEitcGnIfySR1WLVN9ZnE+YMSKXTFLymeiQCegJkTDKrIumWc5dJbj8IME0OLcLj7+Sxj/dyPoX9HqMe/veuBT3XyE+WutjXgVjdEZt/64kHJ0IPA6XJS5m1hrYlgo1BVs0qnA3Y+TXxlDct43EukfV7t1FHKSFA8AqyRbOBFQUM6KkZrlC+dsL/bCLk0h+13WtEI00aFVHX5hhs3OL5aplO2e0xNgbySuCfanE94pJ6SAFXk8HbDw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5/QjlKd7INPe1HgojOhV/2stvDwogfZjlBdkvmc4y6I=;
+ b=kpxRXRFhUnUs5VAYQ/VC5q5lnuqsz/WrkilJIskVaVW0S+CM/THwilzX/nmvROGM1vDb8a6c8lM3YfsVUkvEZqoE3urkjBfPEnlssTJmssvYOHlM2Zeg8e4ha65V4L8nW2URqz3T1ZWFy6iQFC7OUQDXNGmRwl3Zdqb9m8kMgzBtddgzPhaew51lRUxGDSUAUmZRCkgntPzxv6zj5l2QJ7ib64H96VLYvwriTcsHsLx9rUdlVbmQqv6qr64t1WnNUE5zprkbsoPoPcn4M+DT6M8/a9D+z3EZ51esbNHCb9LUFHjqCyquEzdhCP61uz9m/k1Qn1O3c63TAJQPGSKbnQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by SA0PR12MB7462.namprd12.prod.outlook.com (2603:10b6:806:24b::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.21; Wed, 22 Jan
+ 2025 19:26:24 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%5]) with mapi id 15.20.8356.010; Wed, 22 Jan 2025
+ 19:26:24 +0000
+Date: Wed, 22 Jan 2025 15:26:22 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Baolu Lu <baolu.lu@linux.intel.com>
+Cc: Zhangfei Gao <zhangfei.gao@linaro.org>, acpica-devel@lists.linux.dev,
+	iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>,
+	Kevin Tian <kevin.tian@intel.com>, kvm@vger.kernel.org,
+	Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
-	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	=?iso-8859-1?Q?Nicol=F2?= Veronese <nicveronese@gmail.com>,
-	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
-	Antoine Tenart <atenart@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: Re: [PATCH net-next RFC v2 1/6] net: ethtool: common: Make BaseT a
- 4-lanes mode
-Message-ID: <Z5FGMfF1ox-KhFAg@shell.armlinux.org.uk>
-References: <20250122174252.82730-1-maxime.chevallier@bootlin.com>
- <20250122174252.82730-2-maxime.chevallier@bootlin.com>
- <Z5E_FUxSZJWRWVAq@shell.armlinux.org.uk>
-MIME-Version: 1.0
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Robert Moore <robert.moore@intel.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
+	Alex Williamson <alex.williamson@redhat.com>,
+	Donald Dutile <ddutile@redhat.com>,
+	Eric Auger <eric.auger@redhat.com>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	Jerry Snitselaar <jsnitsel@redhat.com>,
+	Moritz Fischer <mdf@kernel.org>,
+	Michael Shavit <mshavit@google.com>,
+	Nicolin Chen <nicolinc@nvidia.com>, patches@lists.linux.dev,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
+	Mostafa Saleh <smostafa@google.com>
+Subject: Re: [PATCH v4 00/12] Initial support for SMMUv3 nested translation
+Message-ID: <20250122192622.GA965540@nvidia.com>
+References: <0-v4-9e99b76f3518+3a8-smmuv3_nesting_jgg@nvidia.com>
+ <20241112182938.GA172989@nvidia.com>
+ <CABQgh9HOHzeRF7JfrXrRAcGB53o29HkW9rnVTf4JefeVWDvzyQ@mail.gmail.com>
+ <20241113012359.GB35230@nvidia.com>
+ <9df3dd17-375a-4327-b2a8-e9f7690d81b1@linux.intel.com>
+ <20241113164316.GL35230@nvidia.com>
+ <6ed97a10-853f-429e-8506-94b218050ad3@linux.intel.com>
+ <20241115175522.GA35230@nvidia.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z5E_FUxSZJWRWVAq@shell.armlinux.org.uk>
+In-Reply-To: <20241115175522.GA35230@nvidia.com>
+X-ClientProxiedBy: MN0PR04CA0003.namprd04.prod.outlook.com
+ (2603:10b6:208:52d::15) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|SA0PR12MB7462:EE_
+X-MS-Office365-Filtering-Correlation-Id: eae9cc8b-a81e-4637-c49e-08dd3b1aa875
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?QQTfrl+m6tuC7g/agspPGIgff88jFgaKLzOzZnjaSvdcp5jhTsg9hTT+Dq1O?=
+ =?us-ascii?Q?FiOIcdsm6rxU6B4GV8do6iPAb8HSrKcYOe2UMRq9Kd7P5IS28kE1mJ6eg19U?=
+ =?us-ascii?Q?SJ9qAHtY/C09nI4LgeeYgLWW4gRGNvKorLq7irKF993PbKwpBMe9QTche7tc?=
+ =?us-ascii?Q?JwzKJIHwUO1lfcwTZLoRbE9UJKaurhwDRI/WZtMOm+mjsNO0Jb5yI2v39rzV?=
+ =?us-ascii?Q?vQK8gMef5AoeW4AWdboQrWphbyIz15Dl4CPbW2rDLV6ztYAgqc7Y2iHFg9l2?=
+ =?us-ascii?Q?y/k4q9EjfGhF/7J1FQ12akM0zPG0enFjLU9z+eivQb2TOMMZo1pCuO86lP9a?=
+ =?us-ascii?Q?u2orgu4Ehv1/zmLAppAkjNFBW0cH+DhLa+1QShD7pkWtTwWyma1w2ZPFl2VS?=
+ =?us-ascii?Q?culxMnl75p/caegWyrDUK4s3S6yxX0LDtkhck47cNpksE0E5poSbt95YGXW4?=
+ =?us-ascii?Q?vy46ZntvOFU5VbcYX2dnpZSh+wbb0NZFPGbt+GsB5KDMiRhxn8OlFDhtvn5r?=
+ =?us-ascii?Q?gcFbEtl+tSsyacoyAnVd8bcorkI3AF0O8adclt0BCKs3jU4Q1iwlyujObTsL?=
+ =?us-ascii?Q?FErsfMga+9gsOv5dunR+0ZozJsgTEjzAQzQQif/0Pd4c0G8Vj2MSKlkHhGkH?=
+ =?us-ascii?Q?S13v7v4883VQQ9QM9v2skAQfXN6qiZaa8jm8wDdmQXi5m3YfPFOgji+MVb1L?=
+ =?us-ascii?Q?q5fYqDLsHopEQ5Ltdgu8SQcKLtAaqjT/wNeZw7S07tVUFL7vwmCHWSHY+/iy?=
+ =?us-ascii?Q?LUqWUigfF7lzpodjbVYk9abDWZgzvP8RHmyGjOnXT3iOwyQfuYZLCV5ObqOI?=
+ =?us-ascii?Q?HvFfo5FikV5+YzBLVcwtcwCRf/wDC2Zd4Ry5x3ukGLUo/IUgIgSf0d7V0qrN?=
+ =?us-ascii?Q?HqJbKJqLdzaC2ejg08YdtLnItO3oNrILdn+688xwy/xA/lwjb4xYZleFkx+z?=
+ =?us-ascii?Q?bYTUcVGyeIdBZCepKSkoEmbxCtt4bUiTlTxvN5eITEdCzZNekS6/pm94nWG+?=
+ =?us-ascii?Q?0/kLILQnmj1RPEMrqBpLLMVgo/aq4Yte6Yhm1HAiVDzI91r8pREA0QTZJD/S?=
+ =?us-ascii?Q?S8Qv9uH5pQOSVGzUwlmZhvqMi0Rctkpduw+Qhkrao7HJWB5h37ZvAsRVsRJX?=
+ =?us-ascii?Q?vV6ct7yHC9NpJCub51fJFNU5P0tN2c9IzS9w/uHo7iMFzedEI1F+9bfnhgBH?=
+ =?us-ascii?Q?/ktQj+ke5g3EUlzN3jeaFB9qKc8eFp6ch2FtldQmD3Psxx4dAbWCIFlZ3b6y?=
+ =?us-ascii?Q?LtSZHhcoux1wlDmR/KvslBBqzjV8PVdMae9qPan9mwAlWaVfdluETEMGN6J1?=
+ =?us-ascii?Q?F/QYqv6C5hGrBkjWXbpBPHvRiZBId1o3VZ1UOpEGa6eJjPlyoSweSLDV0xUU?=
+ =?us-ascii?Q?jegUL2uNvBZtA9VGKHCtLE3GuAOx?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?N/GHwMI84BCGdEOUu2o8vGQDksmhSnm79A1KejUbZsrbRSrFR0C7gtBJnhwc?=
+ =?us-ascii?Q?YySpMgJ9cHT2MG9P+2+wwf15EVv5EoeSW3frThCDt2+Eb+OXQUoPquOgRunV?=
+ =?us-ascii?Q?LrZnFQdj8i1r70OESGgYjVhZsMy58PaSfpoYQrElJvCFzxSroSJe6jvnaMOy?=
+ =?us-ascii?Q?/bA0XvDM05XLej9SigQQb9yhdNFuotScIRnP0GiJD92OBJmVXGKMjBAeJi+b?=
+ =?us-ascii?Q?PSy1r8cclCUdg4td1yoZWB4000qcCQbHFSrUU/gf2YgFzbYPmSBBIN4cyHNg?=
+ =?us-ascii?Q?SwYp0cu+pu+4xLZ0j+9j04uPEGtu/RNvDpp0+40R1XUoKtwAkpM3Uo4Tv7pG?=
+ =?us-ascii?Q?4h/9KiLfDKSkbbxLRtX1oRV5zKUemBJeMNJJbXcn+Gic9JLg0mJjLfkjo3yw?=
+ =?us-ascii?Q?zbB8I/m82FMdk2HgSAd5RNGy/MIXyYeG6kXTDMICuL3fsxYtFEty5gPijaW6?=
+ =?us-ascii?Q?t8oqK6ULKh0ct2H4qOAZ5+kgb2f77d87vuQp2zpvoj4zMYwmbb5Kr0ch2wQp?=
+ =?us-ascii?Q?547smwYh3nTNyUHk86BI3dCBXUk09LIQ6JP5i3v9rDG0Yt5tgXe9ZBp/Qk52?=
+ =?us-ascii?Q?5slLzyRn2XBKHOW6/XilLihAg/CvY0m9n1MO98ABd9ZGi/SqMQrzgPBwn4l9?=
+ =?us-ascii?Q?/F+Ll5NN5DLEEAqT/sElunkXqd9WlNckWeI6HPg4Smnk7eOfZGF0NO/RwyWj?=
+ =?us-ascii?Q?OnpBHmf27EBH3HXWFs8PGgvsvghxHcav2OQqoJR5o2SK5+mvTRerbSzGHT0t?=
+ =?us-ascii?Q?CsGLuFfAH2BReECNM9p5pw6DKlB0IrSuvXPx2MHP2e6/P2oatwgPBe4Cp90S?=
+ =?us-ascii?Q?g1BHRioGcR8KGqKyC5OyDyFtZjkfKPQITjwF954Sbt3QaTt+rVL84JEH+ZlY?=
+ =?us-ascii?Q?Loi7tabM8X+xFko8Vek7HxggE+ZpCaSzILT5iqvqKvbUlqDTSy/TwyC3WhoA?=
+ =?us-ascii?Q?V+bTHMCpWoVCZsMBO5tPAESud3Gjxf3vuDvZusbY4dqwofaSzMDco9USWCmf?=
+ =?us-ascii?Q?pGhTXbCikiYzEhYGNBjrGwHvYgIFwIMNdohJ4g3jUwsKvqshjDXdlEDKxBi9?=
+ =?us-ascii?Q?UfXy0XxLHuMfEsEwFNMTmneTvadBXu4uvp8LIeWsomTE6zB+LaBHKh7tVhR4?=
+ =?us-ascii?Q?fTIL8MjQARZKfYmiSb2EIxHAWSqJ3ODUOP7IN1xJMejkn4kVk0P65dZLHH8S?=
+ =?us-ascii?Q?IhKC3KZ9RRtX9KLpq5N3tyT1SRtPKhZvBW/xJUmWpDQ9qxCV1mvROpIH+SWG?=
+ =?us-ascii?Q?gephDl6E2ZXAlURBNpZWazmHLivpCCiPbCVWTPcgv/Z1J6T842as9PTXtJSg?=
+ =?us-ascii?Q?TGd5teGkGHtFIuLqdgQY58iM5oEfX7t8TegQMdS6A+dJALO4UMMjH8UgIyvW?=
+ =?us-ascii?Q?z9C4NwP7q34T9x5H7NbyJSqFW5Tg9eje3yIlc1TgJ+uoUTyLZ4iwUmHN/7J1?=
+ =?us-ascii?Q?5En3Buim7Ie1jOgg6owznAC0OhJouh1EYTISnuEvQOdRltddflaDgw1EAzF0?=
+ =?us-ascii?Q?L9HDcTRa8z1hCL7Lw7CORNH+i/LxBuMi9R1cu0MJEAo67u857QH4h/eT+PPC?=
+ =?us-ascii?Q?DSbCKhTsbHF+tm/tAoQnhzeZA4LTsIM7GBOQmzqq?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: eae9cc8b-a81e-4637-c49e-08dd3b1aa875
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jan 2025 19:26:23.9606
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: RInY1k8gqjTyJP79e7cS27haSDWAODeeWYu6PBmUXVuCs3L1jx1OLMElD8d60IMt
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR12MB7462
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_112554_223675_614D824A 
-X-CRM114-Status: GOOD (  21.35  )
+X-CRM114-CacheID: sfid-20250122_112640_374957_8DB2973F 
+X-CRM114-Status: GOOD (  18.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,54 +182,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 22, 2025 at 06:55:17PM +0000, Russell King (Oracle) wrote:
-> On Wed, Jan 22, 2025 at 06:42:46PM +0100, Maxime Chevallier wrote:
-> > When referring to BaseT ethernet, we are most of the time thinking of
-> > BaseT4 ethernet on Cat5/6/7 cables. This is therefore BaseT4, although
-> > BaseT4 is also possible for 100BaseTX. This is even more true now that
-> > we have a special __LINK_MODE_LANES_T1 mode especially for Single Pair
-> > ethernet.
+On Fri, Nov 15, 2024 at 01:55:22PM -0400, Jason Gunthorpe wrote:
+> > > I need your help to remove IOMMU_DEV_FEAT_IOPF from the intel
+> > > driver. I have a patch series that eliminates it from all the other
+> > > drivers, and I wrote a patch to remove FEAT_SVA from intel..
 > > 
-> > Mark BaseT as being a 4-lanes mode.
+> > Yes, sure. Let's make this happen in the next cycle.
+> >
+> > FEAT_IOPF could be removed. IOPF manipulation can be handled in the
+> > domain attachment path. A per-device refcount can be implemented. This
+> > count increments with each iopf-capable domain attachment and decrements
+> > with each detachment. PCI PRI is enabled for the first iopf-capable
+> > domain and disabled when the last one is removed. Probably we can also
+> > solve the PF/VF sharing PRI issue.
 > 
-> This is a problem:
+> Here is what I have so far, if you send me a patch for vt-d to move
+> FEAT_IOPF into attach as you describe above (see what I did to arm for
+> example), then I can send it next cycle
 > 
-> 1.4.50 10BASE-T: IEEE 802.3 Physical Layer specification for a 10 Mb/s
-> CSMA/CD local area network over two pairs of twisted-pair telephone
-> wire. (See IEEE Std 802.3, Clause 14.)
-> 
-> Then we have the 100BASE-T* family, which can be T1, T2, T4 or TX.
-> T1 is over a single balanced twisted pair. T2 is over two pairs of
-> Cat 3 or better. T4 is over four pairs of Cat3/4/5.
-> 
-> The common 100BASE-T* type is TX, which is over two pairs of Cat5.
-> This is sadly what the ethtool 100baseT link modes are used to refer
-> to.
-> 
-> We do have a separate link mode for 100baseT1, but not 100baseT4.
-> 
-> So, these ethtool modes that are of the form baseT so far are
-> describing generally two pairs, one pair in each direction. (T1 is
-> a single pair that is bidirectional.)
-> 
-> It's only once we get to 1000BASE-T (1000baseT) that we get to an
-> ethtool link mode that has four lanes in a bidirectional fashion.
-> 
-> So, simply redefining this ends up changing 10baseT and 100baseT from
-> a single lane in each direction to four lanes (and is a "lane" here
-> defined as the total number of pairs used for communication in both
-> directions, or the total number of lanes used in either direction.
-> 
-> Hence, I'm not sure this makes sense.
+> https://github.com/jgunthorpe/linux/commits/iommu_no_feat/
 
-Looking at patch 2, I don't see why you need patch 1. It's not really
-improving the situation. Before the patch, the number of lanes for
-some BASE-T is wrong. After the patch, the number of lanes for some
-BASE-T is also wrong - just a different subset.
+Hey Baolu, a reminder on this, lets try for it next cycle?
 
-I think you should drop this patch and just have patch 2.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Thanks,
+Jason
 
