@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85159C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 17:54:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEF30C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 17:56:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5wffDtbIhvi7tGvDJiT0+V8rWPwFnrokGOJCr5whKvk=; b=Sz9RG5TNRjpnfp1Jd5XcLtJnNn
-	bhBnvMUi0PNu3G99RmOyrkIKOXGedvF/ZGaGQY4gZEUOeq8j9rl+eYQYB3r2Hvz5q02RYsv+ANWn4
-	q6b8KopR8Japc1c0XHAFfRoJV+RbOF//lC730d48bVWnztLNcyqCa5g13WqSAGCEUUx1ebdY7mCK+
-	WH8kXP+IWpHEsQziPf8WfHl97gxWRoGch4+RJACH1Bfp5MNjt3dRyAH4kR8pQupeJI8DTBdvtVNLN
-	sNqev7Av3nckOpqDjnBW5ZtTFGR8oT1D9J78OZRWewp0w0IZljm/h6Ed1KWbNK+Iyv91EPBqTJfwB
-	Aqz6E/Gw==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wh2HMG8/6vAqiSqSGwdaz2ExZwLVjqVYVqBXFzBhVoM=; b=svuqvuBPWmYmPYUPSVTndB1m/x
+	uOvCFUbuo255zP9JnqGj1fwQ83aluLYY6h0sYbVmeoHtmmej/jw1EVpI+Yt28+VTX+eC+9ZEFbTZg
+	51MG3OrlNbzMMg1WlexU1wq8Z3MOGLBA4qo3lKKW1zde1Zhj8yrOy+7s/CMxuILZb1187DX0NzhKq
+	5IiVwJAxFEo75oRJ59xBwZlIcE4bGSOuk396rt5rrg7f/iX8jfkcUZ88vMGUfzfSKkM7geVwLgBpJ
+	bDAjSq1fAzytTAtokWatBkaXg4Bww/zoAtDrddWrEOvkXcGwTirAGilrIx8M4C+VaRNsz6m0DSV9r
+	j/MlcCsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taew8-0000000Avx7-3elH;
-	Wed, 22 Jan 2025 17:54:44 +0000
+	id 1taexP-0000000Aw7f-26Vn;
+	Wed, 22 Jan 2025 17:56:03 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taepO-0000000Auk6-0ZBQ
+	id 1taepQ-0000000Auke-0P1a
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 17:47:47 +0000
+	Wed, 22 Jan 2025 17:47:49 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 52C041007;
-	Wed, 22 Jan 2025 09:48:11 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 98F781063;
+	Wed, 22 Jan 2025 09:48:14 -0800 (PST)
 Received: from eglon.cambridge.arm.com (eglon.cambridge.arm.com [10.1.196.57])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0407E3F66E;
-	Wed, 22 Jan 2025 09:47:41 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 48B0E3F66E;
+	Wed, 22 Jan 2025 09:47:45 -0800 (PST)
 From: James Morse <james.morse@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Catalin Marinas <catalin.marinas@arm.com>,
@@ -40,15 +40,17 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Marc Zyngier <maz@kernel.org>,
 	Oliver Upton <oliver.upton@linux.dev>,
 	James Morse <james.morse@arm.com>
-Subject: [PATCH 0/3] arm64: proton-pack: Add Spectre-BSE mitigation for Cortex-A7{2,3,5}
-Date: Wed, 22 Jan 2025 17:47:33 +0000
-Message-Id: <20250122174736.1560714-1-james.morse@arm.com>
+Subject: [PATCH 1/3] arm64: proton-pack: Move the loop and firmware enable sequences into helpers
+Date: Wed, 22 Jan 2025 17:47:34 +0000
+Message-Id: <20250122174736.1560714-2-james.morse@arm.com>
 X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250122174736.1560714-1-james.morse@arm.com>
+References: <20250122174736.1560714-1-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_094746_216025_02DFD8A9 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20250122_094748_221132_897BE325 
+X-CRM114-Status: GOOD (  15.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,60 +65,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello!
+A variant of Spectre-BHB needs to be able to tweak the way the BHB
+mitigation is selected. Move the enable routines for the loop and firmware
+vectors into helpers.
 
-Spectre-BSE is a variant of Spectre-BHB that abuses a power-saving mode
-on some older cores to dodge the BHB mitigation applied to the branch predictor.
+Signed-off-by: James Morse <james.morse@arm.com>
+---
+ arch/arm64/kernel/proton-pack.c | 80 +++++++++++++++++++--------------
+ 1 file changed, 47 insertions(+), 33 deletions(-)
 
-Only A72r0 actually needs anything doing - this is basically a bug in the
-published BHB mitigation sequence that was published for A72r0. This
-series moves A72r0 to use the WA1 firmware call for mitigation, and adds
-the necessary reporting parts for user-space to discover which parts of
-BHB/BSE are mitigated or vulnerable.
-
-WA1 is used instead of WA3 which was new for BHB because we can't rely
-on hypervisors not to use the 'local' workaround, and for Spectre-BSE
-we don't need to worry about discovery via. (Which is why WA3 exists -
-for cores not vulnerable to the issue mititaged by WA1).
-
-Arm's description of this vulnerability can be found here:
-https://developer.arm.com/Arm%20Security%20Center/Spectre-BSE
-
-This series is based on arm64/for-next/core, and can be retrieved from:
-https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git/log/?h=spectre_bse/v1
-
-Backports of this version can also be found under spectre_bse/backports
-of the above repo.
-
-Because this vulnerability is hard to expoit, but the cost of mitigating
-it is high - the mitigation is disabled by default. (see the last
-patch). To enable the mitigation, a command-line argument is needed:
-'spectre_bse'.
-
-This series adds more things to the vulnerability reporting file:
-| morse@adam:~$ cat /sys/devices/system/cpu/vulnerabilities/spectre_v2
-| Mitigation: CSV2, BHB, but not BSE
-or:
-| Mitigation: CSV2, BHB, BSE
-
-
-(KVM maintainers are on CC as this changes which mitigation KVM enables,
- and there is some hypervisor reasoning in the last patch)
-
-
-Thanks,
-
-James Morse (3):
-  arm64: proton-pack: Move the loop and firmware enable sequences into
-    helpers
-  arm64: proton-pack: Add Spectre-BSE mitigation for Cortex-A7{2,3,5}
-  arm64: proton-pack: Prefer WA1 for BHB on Cortex-A72 r0pX
-
- arch/arm64/include/asm/assembler.h |   4 +-
- arch/arm64/include/asm/spectre.h   |   1 +
- arch/arm64/kernel/proton-pack.c    | 230 +++++++++++++++++++++++------
- 3 files changed, 191 insertions(+), 44 deletions(-)
-
+diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
+index da53722f95d4..193f141d4367 100644
+--- a/arch/arm64/kernel/proton-pack.c
++++ b/arch/arm64/kernel/proton-pack.c
+@@ -999,9 +999,53 @@ static int __init parse_spectre_bhb_param(char *str)
+ }
+ early_param("nospectre_bhb", parse_spectre_bhb_param);
+ 
+-void spectre_bhb_enable_mitigation(const struct arm64_cpu_capabilities *entry)
++static void spectre_bhb_enable_fw_mitigation(void)
+ {
+ 	bp_hardening_cb_t cpu_cb;
++	struct bp_hardening_data *data = this_cpu_ptr(&bp_hardening_data);
++
++	/*
++	 * Ensure KVM uses one of the spectre bp_hardening
++	 * vectors. The indirect vector doesn't include the EL3
++	 * call, so needs upgrading to
++	 * HYP_VECTOR_SPECTRE_INDIRECT.
++	 */
++	if (!data->slot || data->slot == HYP_VECTOR_INDIRECT)
++		data->slot += 1;
++
++	this_cpu_set_vectors(EL1_VECTOR_BHB_FW);
++
++	/*
++	 * The WA3 call in the vectors supersedes the WA1 call
++	 * made during context-switch. Uninstall any firmware
++	 * bp_hardening callback.
++	 */
++	cpu_cb = spectre_v2_get_sw_mitigation_cb();
++	if (__this_cpu_read(bp_hardening_data.fn) != cpu_cb)
++		__this_cpu_write(bp_hardening_data.fn, NULL);
++
++	set_bit(BHB_FW, &system_bhb_mitigations);
++}
++
++static void spectre_bhb_enable_loop_mitigation(void)
++{
++	struct bp_hardening_data *data = this_cpu_ptr(&bp_hardening_data);
++
++	/*
++	 * Ensure KVM uses the indirect vector which will have the
++	 * branchy-loop added. A57/A72-r0 will already have selected
++	 * the spectre-indirect vector, which is sufficient for BHB
++	 * too.
++	 */
++	if (!data->slot)
++		data->slot = HYP_VECTOR_INDIRECT;
++
++	this_cpu_set_vectors(EL1_VECTOR_BHB_LOOP);
++	set_bit(BHB_LOOP, &system_bhb_mitigations);
++}
++
++void spectre_bhb_enable_mitigation(const struct arm64_cpu_capabilities *entry)
++{
+ 	enum mitigation_state fw_state, state = SPECTRE_VULNERABLE;
+ 	struct bp_hardening_data *data = this_cpu_ptr(&bp_hardening_data);
+ 
+@@ -1029,43 +1073,13 @@ void spectre_bhb_enable_mitigation(const struct arm64_cpu_capabilities *entry)
+ 		state = SPECTRE_MITIGATED;
+ 		set_bit(BHB_INSN, &system_bhb_mitigations);
+ 	} else if (spectre_bhb_loop_affected(SCOPE_LOCAL_CPU)) {
+-		/*
+-		 * Ensure KVM uses the indirect vector which will have the
+-		 * branchy-loop added. A57/A72-r0 will already have selected
+-		 * the spectre-indirect vector, which is sufficient for BHB
+-		 * too.
+-		 */
+-		if (!data->slot)
+-			data->slot = HYP_VECTOR_INDIRECT;
+-
+-		this_cpu_set_vectors(EL1_VECTOR_BHB_LOOP);
++		spectre_bhb_enable_loop_mitigation();
+ 		state = SPECTRE_MITIGATED;
+-		set_bit(BHB_LOOP, &system_bhb_mitigations);
+ 	} else if (is_spectre_bhb_fw_affected(SCOPE_LOCAL_CPU)) {
+ 		fw_state = spectre_bhb_get_cpu_fw_mitigation_state();
+ 		if (fw_state == SPECTRE_MITIGATED) {
+-			/*
+-			 * Ensure KVM uses one of the spectre bp_hardening
+-			 * vectors. The indirect vector doesn't include the EL3
+-			 * call, so needs upgrading to
+-			 * HYP_VECTOR_SPECTRE_INDIRECT.
+-			 */
+-			if (!data->slot || data->slot == HYP_VECTOR_INDIRECT)
+-				data->slot += 1;
+-
+-			this_cpu_set_vectors(EL1_VECTOR_BHB_FW);
+-
+-			/*
+-			 * The WA3 call in the vectors supersedes the WA1 call
+-			 * made during context-switch. Uninstall any firmware
+-			 * bp_hardening callback.
+-			 */
+-			cpu_cb = spectre_v2_get_sw_mitigation_cb();
+-			if (__this_cpu_read(bp_hardening_data.fn) != cpu_cb)
+-				__this_cpu_write(bp_hardening_data.fn, NULL);
+-
++			spectre_bhb_enable_fw_mitigation();
+ 			state = SPECTRE_MITIGATED;
+-			set_bit(BHB_FW, &system_bhb_mitigations);
+ 		}
+ 	}
+ 
 -- 
 2.39.2
 
