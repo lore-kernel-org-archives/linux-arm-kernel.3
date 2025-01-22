@@ -4,59 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3BBAC02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 07:02:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACC06C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 07:03:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=x6o0B/mABlYNetR8Yrdio0jBp79xBeavOzkwWl0sd0Q=; b=35R1ZWCkumbapWfDEmM3gsApnP
-	jWuwIGyJ48iz3xuScmUnRdZ4c8UCru3m+UyTjJuAVOQ8mgZD2LtHtb6Lvo/o1UdYWP2o2fSrr3M+k
-	y5SlI5VaiU7q4aE9iMDuA+4C3lku5o1e+c6Abr7vxZezSVU00a01aGz5DZlWptoaG+Xl4vze2uw5I
-	tgLG8iTC3h9vphitRvFvZKbsTYmug9jRjhGZp9+0/CgMg8fg8J6ORnwVcA+wpbPuVeYB+vTQ9vr8A
-	1Lzkx6bP8Y7pffTWsEzVErs4IgFLTxwA2NigvK2TX8eGE5dq0B+d2YgDoEiWHPrgtKQ6bAKLqjufk
-	zA1pkIHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=98nwCRYv2SeYsyOZNSoNm6lFlX/EwFYW68/vkffV1uA=; b=P6Ze2jxkdmktldW8z8QxvchBYD
+	aGeMwb3Fplgz0QZGfYdbxUg/ad2rE8Xv8HG2UuBIgjnNciB1I9bM4kk7XNy60IHvWIltxXpusXUjk
+	2lZsZ88qk1G4gd8ULDIFrW18m5yR/H2dQvZGYjbIWuW5q688TUBL7mMMnb5I6KRiijIdNgqH8hRov
+	qDlw8625d1fOqLvrkYV72ooZaoeczd9rbUcu6AEJNzfhCtzn9tu6G+Rjs7ya9UdIkvtS1aRfPWYTg
+	58mSutmva30DJqYJtrAwEOrTL4v2zc4n07Na9OGkcr1+l8JL/pssXgCJrsjVJaJ3UjaJLBm+5AdnI
+	kx3UeG+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taUkd-00000009ZAr-2nwP;
-	Wed, 22 Jan 2025 07:02:11 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1taUlt-00000009ZHH-1F1Z;
+	Wed, 22 Jan 2025 07:03:29 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taUgr-00000009YXi-3KZM
+	id 1taUhC-00000009Yda-1wzR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 06:58:19 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.112])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4YdFHh6x2mz1JHv7;
-	Wed, 22 Jan 2025 14:57:04 +0800 (CST)
-Received: from dggpemf100016.china.huawei.com (unknown [7.185.36.236])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3EE2314013B;
-	Wed, 22 Jan 2025 14:58:05 +0800 (CST)
-Received: from localhost.huawei.com (10.50.165.33) by
- dggpemf100016.china.huawei.com (7.185.36.236) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 22 Jan 2025 14:58:04 +0800
-From: Yushan Wang <wangyushan12@huawei.com>
-To: <xuwei5@hisilicon.com>, <yangyicong@hisilicon.com>,
-	<Jonathan.Cameron@huawei.com>, <wangjie125@huawei.com>,
-	<wanghuiqiang@huawei.com>, <christophe.jaillet@wanadoo.fr>
-CC: <prime.zeng@hisilicon.com>, <fanghao11@huawei.com>,
-	<wangyushan12@huawei.com>, <linuxarm@huawei.com>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH v2 0/2] soc cache: Add support for HiSilicon L3 cache
-Date: Wed, 22 Jan 2025 14:58:01 +0800
-Message-ID: <20250122065803.3363926-1-wangyushan12@huawei.com>
-X-Mailer: git-send-email 2.33.0
+	Wed, 22 Jan 2025 06:58:39 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-21636268e43so143578525ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jan 2025 22:58:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1737529117; x=1738133917; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=98nwCRYv2SeYsyOZNSoNm6lFlX/EwFYW68/vkffV1uA=;
+        b=tTYOoYHQwyQb7T40Tmj3cu28pprnlGUzv9csrEa0rNdjimE0m98otnbif3Z8MT7nUS
+         NMZumssvoJU6zgRaq2xAqSsRM0xtkidUY9PdsNr5U8IHxrU6wuRRtCih8+ALLIEVhTwO
+         yYtoIfZ1vV28CFbKtq5bId7fOg33fEB6TgVcyOTpleSOGB+BU4CL9nyFx+8z4nvZ5u2M
+         z636rOsuxfRiGTjuH6BjsF4wha2C7B8wulHsOeWAq6hvS/S/MMkwSnNkkUKU3nixUuco
+         2lTPn8vF5vH9kq8MrZJmYd6stOiaFiXW9HOGC/gTaqz0lMPhFYvutfzpzU7Thq9IcoVF
+         cGhg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737529117; x=1738133917;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=98nwCRYv2SeYsyOZNSoNm6lFlX/EwFYW68/vkffV1uA=;
+        b=rZGKYuJlwgP21z/3uMZzOLaTvc1qN6PgsHDg9rU0N4Zza52w24aS1Tv0sftfJ7Xk1Q
+         REN9nkMax7J48uj8ZrbFGukQkRdLSZsbp8Ya1JQ//cAGhtA8JZmLF1v3Za1+yRr1RNwo
+         mTE700o5ZWcYKy5IxILQuRyOgS2uOQ6WByLEG1924XCROon+dLZDQXsYZP0iSdOY+VuV
+         z3tGOACY/BpUvPwOMbUl9KeWWBqmcVfIUO7Huf+8YzRuHcG7ei1NBHc/dtalfP0l63q1
+         bFQNbLMnHJRO0ctC+9VLidUjEtpXqH+jNqPPzaTdt5pZLvtOkHouBoUaX3eLP3z2fLcQ
+         6Qeg==
+X-Forwarded-Encrypted: i=1; AJvYcCWSlwdknKYzygl+dRWIsCOCabLxgGrqS6YIMdftuAXcaqto6QhnkPcvpq5Uu7uarSw2qISITUZ8R/Bqms7nhOQm@lists.infradead.org
+X-Gm-Message-State: AOJu0YyRAoHSwhAGExpzh4EH6tiLTrcf/lp+Y4jvmmIIpk2LNLY4uVla
+	Z1n/UfCMjJvk3eLdkziEQtAWESZ0dd5M5giIk8g+kWA41cuQCOl1W9DxRcLWRyM=
+X-Gm-Gg: ASbGnctcQ17ZuMkDgKtxjtosCw6bve93YrrATjKUWXsXVXCPClZ40L1vjyLUah2gb6e
+	lMoC2uf49rDEZ8J4UAKqd35Zu6xPbro8Me3hLAGmz82jW+rjS3Iq8QOzZYljB5gr5du1YpBH63i
+	liSB2b9n1HWUcR0q82NpA2MzmLxVPGKWsSmAN4gcacEh2AWx+8ndMPwBxumYX0ruHAdUmN/sqhM
+	Ajb08IegQ3XcxPiFc9NdAovItI5pWe5SsXBB9tfQJklfhkiXdeG9HX4n95wPa49x1gGSw6S
+X-Google-Smtp-Source: AGHT+IFlyQTrbWJ70KA4F7+yV/Afg3zlHDmPMltEFy0yFNqRhEfo+qrlLDzqJAfprSQh6gV4oL8egQ==
+X-Received: by 2002:a05:6a20:9144:b0:1e1:a9dd:5a58 with SMTP id adf61e73a8af0-1eb215ec11cmr37960260637.30.1737529117262;
+        Tue, 21 Jan 2025 22:58:37 -0800 (PST)
+Received: from localhost ([122.172.84.139])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72dab9b9b1esm10519029b3a.99.2025.01.21.22.58.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 21 Jan 2025 22:58:36 -0800 (PST)
+Date: Wed, 22 Jan 2025 12:28:34 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Alim Akhtar <alim.akhtar@samsung.com>, linux-pm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] cpufreq: s3c64xx: hide unused variable
+Message-ID: <20250122065834.c4va6uwjrfny2mfv@vireshk-i7>
+References: <20250122065216.1371158-1-arnd@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.165.33]
-X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
- dggpemf100016.china.huawei.com (7.185.36.236)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250122065216.1371158-1-arnd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_225818_017374_DAF8EFAC 
-X-CRM114-Status: GOOD (  11.58  )
+X-CRM114-CacheID: sfid-20250121_225838_515999_9B56D1F6 
+X-CRM114-Status: GOOD (  20.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,42 +99,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds support for HiSilicon SoC cache lockdown and cache
-maintenance operations.
+On 22-01-25, 07:52, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> A previous compiler warning fix extended an #ifdef block, but that
+> led to another warning in some builds:
+> 
+> drivers/cpufreq/s3c64xx-cpufreq.c:27:28: error: 's3c64xx_dvfs_table' defined but not used [-Werror=unused-variable]
+>    27 | static struct s3c64xx_dvfs s3c64xx_dvfs_table[] = {
+> 
+> Add yet another #ifdef check around that variable.
+> 
+> Fixes: 76b218721e5f ("cpufreq: s3c64xx: Fix compilation warning")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
 
-Cache lockdown feature prevents cache entries from being evicted from L3
-cache for better performance.  It can be enabled by calling mmap
-function to the file (`/dev/hisi_soc_cache_mgmt`).  This feature is
-implemented in the driver hisi_soc_l3c.
+I too have sent a fix this morning:
+236b227e929e5adc04d1e9e7af6845a46c8e9432.1737525916.git.viresh.kumar@linaro.org
 
-L3 cache and L3 cache PMU share the same memory resource, which makes
-one fails to probe while another is on board.  Since both devices
-rely on distinct information exported by ACPI, their probing functions
-should be unrelated.  Workaround the resource conflict check by
-replacing devm_ioremap_resource() to devm_ioremap() instead.
+> I wonder if the driver should instead depend on CONFIG_REGULATOR
+> and drop the #ifdef checks.
 
-Changes in v2:
-  - Save unnecessary iterations when performing cache lock. (Christophe)
-  - Other minor style changes. (Christophe)
-  - Link to v1: https://lore.kernel.org/all/20250107132907.3521574-1-wangyushan12@huawei.com
+The way CONFIG_REGULATOR is used in the driver, it seems like it can
+be used without regulators too. The initial commit also confirms this.
 
-Jie Wang (1):
-  soc cache: Add framework driver for HiSilicon SoC cache
+commit b3748ddd80569ec753f62e709629b8c639143222
+Author: Mark Brown <broonie@opensource.wolfsonmicro.com>
+Date:   Mon Jun 15 11:23:20 2009 +0100
 
-Yushan Wang (1):
-  soc cache: L3 cache lockdown support for HiSilicon SoC
+    [ARM] S3C64XX: Initial support for DVFS
 
- drivers/soc/hisilicon/Kconfig                 |  22 +
- drivers/soc/hisilicon/Makefile                |   2 +
- .../soc/hisilicon/hisi_soc_cache_framework.c  | 534 ++++++++++++++++++
- .../soc/hisilicon/hisi_soc_cache_framework.h  |  77 +++
- drivers/soc/hisilicon/hisi_soc_l3c.c          | 527 +++++++++++++++++
- 5 files changed, 1162 insertions(+)
- create mode 100644 drivers/soc/hisilicon/hisi_soc_cache_framework.c
- create mode 100644 drivers/soc/hisilicon/hisi_soc_cache_framework.h
- create mode 100644 drivers/soc/hisilicon/hisi_soc_l3c.c
+    This patch provides initial support for CPU frequency scaling on the
+    Samsung S3C ARM processors. Currently only S3C6410 processors are
+    supported, though addition of another data table with supported clock
+    rates should be sufficient to enable support for further CPUs.
+
+    Use the regulator framework to provide optional support for DVFS in
+    the S3C cpufreq driver. When a software controllable regulator is
+    configured the driver will use it to lower the supply voltage when
+    running at a lower frequency, giving improved power savings.
+
+    When regulator support is disabled or no regulator can be obtained
+    for VDDARM the driver will fall back to scaling only the frequency.
+
+    Signed-off-by: Mark Brown <broonie@opensource.wolfsonmicro.com>
+    Signed-off-by: Ben Dooks <ben-linux@fluff.org>
 
 -- 
-2.33.0
-
+viresh
 
