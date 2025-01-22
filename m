@@ -4,71 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36A30C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 09:07:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1BAFC0218C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 09:08:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hsQBhgtpgyLUVlhj2uOdXGpB5uzrnxpQS3g2lRTQAn8=; b=Wq01qvZvdeiwS6BYTUpUJLapEZ
-	Gug/wu9TfDzrVpzxMCjco9ifNVN7JW/urLgVpHky2tWoAJRDzYvp5HiH5yt5w0rhOSjnGuGspAbMM
-	HnbmufA8YtOSxCasna6geEZKiPxUmSOvbbYz5MV6TaqLUunGg3GmPUHlQCfZY55DczgUdNavKQRhw
-	6LCEbCrVDTzuJnm8AxVrmgnz3v+2m9T/dn5gAm91GKb4t0p/3liN2TeXRA8V+RN0aXlnM6ZZV8JCS
-	4Tlym2DfuEpMCaabTZHK74z6g3nL2u1hUOJ4l/gdkjGTe0tQGIK2CUwyTaLn3evSldP/8K93wGXfz
-	a6Vs8vvg==;
+	bh=vkQFLh6xLHsI2CxC96/YoRHNzOH+kkMYSIC+Pxqdhdo=; b=UfKQ73LaI+1rQaub5RgkXYvrZy
+	gz9DCRPcfaMVmPCMJWdp15AxEiPI0JkXLPLTmyJ009Dwx3floCbPqfDLYsB1DbooOYp6eVQX8qGY8
+	ePKTAYyddY/mcsC4Qo5COLQzF5H+kpm4JROCZk8HSIs5CCKU2AMJCrBuuDsrAD4geLrFZ26iP/coZ
+	GbuwzONVPZtNDkW1ScnT+ahVw0gL0jADfysvD0sttTm8IuMVAUDCKTEUG93YT9ITrqlxEX2RwO4gF
+	LPcU+eJWQra4n2Rt+MPfmsN15iXzFXoIyBWikRPQLraClYJhaK+4lwhxgx+/gYjBx7OXyGB2TyPZp
+	yNAT+uBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taWhS-00000009lOm-28ik;
-	Wed, 22 Jan 2025 09:07:02 +0000
-Received: from mail-m49215.qiye.163.com ([45.254.49.215])
+	id 1taWiq-00000009lYZ-0nde;
+	Wed, 22 Jan 2025 09:08:28 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taWg9-00000009lDw-2Yre;
-	Wed, 22 Jan 2025 09:05:42 +0000
-Received: from [172.16.12.26] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 96647672;
-	Wed, 22 Jan 2025 17:05:37 +0800 (GMT+08:00)
-Message-ID: <26c55255-2671-4bb1-aaee-c3145f8698f7@rock-chips.com>
-Date: Wed, 22 Jan 2025 17:05:36 +0800
+	id 1taWhS-00000009lOj-1v1I
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 22 Jan 2025 09:07:04 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50M4XT7N029449;
+	Wed, 22 Jan 2025 09:06:46 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	vkQFLh6xLHsI2CxC96/YoRHNzOH+kkMYSIC+Pxqdhdo=; b=gWKUQ/2Dgnv+3NBj
+	bXUOHQoWyh0NWIf05dH/A2uxKuFboNcQdeFT0sCXEj6ni/E0LVU6snwIAwNbPNnG
+	/8BOLtUFHDTTqOStsec7bthFNZwLjLPaddT85QbpfgITIwAUQbvcsRe9a13K5FB6
+	kb5O1uUYVxX6ed/33Ab/0mbrhEtY76zGyr1azLKfbiBYwZuUOEbRo8c/z919K3N3
+	Lu7u/G5JtJ26jMKRnjtFcy+WUkWPeg0XTTQHB92Oeaqq2WcfMzYus6aqVI9ulJkl
+	R4fmhgzQTN374C0TdetaS1x2KY4HhkrwryIeDyfX2QCpPlln5HrJjody6upi9tlt
+	BhTTQg==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44asrnrks3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 22 Jan 2025 09:06:46 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 50M96j4X013601
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 22 Jan 2025 09:06:45 GMT
+Received: from [10.253.35.93] (10.80.80.8) by nalasex01c.na.qualcomm.com
+ (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 22 Jan
+ 2025 01:06:28 -0800
+Message-ID: <fad78436-8263-46af-b669-3bcd75f036a4@quicinc.com>
+Date: Wed, 22 Jan 2025 17:06:22 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 20/20] arm64: dts: rockchip: Enable eDP0 display on
- RK3588S EVB1 board
-To: Andy Yan <andyshrk@163.com>
-Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, rfoss@kernel.org, vkoul@kernel.org,
- sebastian.reichel@collabora.com, cristian.ciocaltea@collabora.com,
- l.stach@pengutronix.de, dmitry.baryshkov@linaro.org,
- andy.yan@rock-chips.com, hjc@rock-chips.com, algea.cao@rock-chips.com,
- kever.yang@rock-chips.com, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org
-References: <20250109032725.1102465-1-damon.ding@rock-chips.com>
- <20250109032725.1102465-21-damon.ding@rock-chips.com>
- <8927876.291e.19454e86e8f.Coremail.andyshrk@163.com>
+Subject: Re: [PATCH v3 2/4] net: stmmac: dwmac-qcom-ethqos: Mask PHY mode if
+ configured with rgmii-id
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>,
+        Krzysztof Kozlowski
+	<krzk@kernel.org>
+CC: Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller"
+	<davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio
+	<konradybcio@kernel.org>,
+        Richard Cochran <richardcochran@gmail.com>, <netdev@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20250121-dts_qcs615-v3-0-fa4496950d8a@quicinc.com>
+ <20250121-dts_qcs615-v3-2-fa4496950d8a@quicinc.com>
+ <30450f09-83d4-4ff0-96b2-9f251f0c0896@kernel.org>
+ <Z4-Z0CKtiHWCC3TM@shell.armlinux.org.uk>
 Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <8927876.291e.19454e86e8f.Coremail.andyshrk@163.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Yijie Yang <quic_yijiyang@quicinc.com>
+In-Reply-To: <Z4-Z0CKtiHWCC3TM@shell.armlinux.org.uk>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGkIdHlZMTx4eGRlIGh9LTUxWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSE
-	NVSktLVUpCS0tZBg++
-X-HM-Tid: 0a948d42906703a3kunm96647672
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NxQ6Iio4STIXEi9IPh5LDBYV
-	KTAaCQ5VSlVKTEhMTkhNTEhCSkpLVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFISkxMNwY+
-DKIM-Signature: a=rsa-sha256;
-	b=CG+gEnx+XPdVro1zdFzCtUaeVySUsXtaffUl3mFF+lfs47HUrqfKK/fVH37Afw5wPC0Kqr4qZ/Iy2hmAuSnfp6ix+7g6MKIZ7LKrZ7eR1gKfBCu5oy7Kgp7rXs1q97nz1ATOSJb8cQyspPDbsna3Iaagk6FtyLDygDm6807jCQw=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=hsQBhgtpgyLUVlhj2uOdXGpB5uzrnxpQS3g2lRTQAn8=;
-	h=date:mime-version:subject:message-id:from;
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: odx1Rgb5QmadLm_bSlJHMe-MZJhxbKP0
+X-Proofpoint-ORIG-GUID: odx1Rgb5QmadLm_bSlJHMe-MZJhxbKP0
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-22_04,2025-01-22_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0
+ suspectscore=0 mlxlogscore=999 malwarescore=0 bulkscore=0 mlxscore=0
+ spamscore=0 lowpriorityscore=0 clxscore=1011 adultscore=0 phishscore=0
+ priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501220065
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_010541_855469_526F106F 
-X-CRM114-Status: GOOD (  13.42  )
+X-CRM114-CacheID: sfid-20250122_010702_513859_EA870E7D 
+X-CRM114-Status: GOOD (  25.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,137 +123,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
 
-On 2025/1/11 18:28, Andy Yan wrote:
-> 
-> Hi Damon,
-> 
-> At 2025-01-09 11:27:25, "Damon Ding" <damon.ding@rock-chips.com> wrote:
->> Add the necessary DT changes to enable eDP0 on RK3588S EVB1 board:
->> - Set pinctrl of pwm12 for backlight
->> - Enable edp0/hdptxphy0/vp2
->> - Add aux-bus/panel nodes
->>
->> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
->>
->> ---
->>
->> Changes in v2:
->> - Remove brightness-levels and default-brightness-level properties in
->>   backlight node.
->> - Add the detail DT changes to commit message.
->>
->> Changes in v3:
->> - Use aux-bus instead of platform bus for edp-panel.
->>
->> Changes in v4:
->> - Add comments related to the use of panel compatible "lg,lp079qx1-sp0v"
->>   in the commit message.
->>
->> Changes in v5:
->> - Use "edp-panel" instead of "lg,lp079qx1-sp0v"
->> - Remove unnecessary comments in commit message
->> - Assign the parent of DCLK_VOP2_SRC to PLL_V0PLL
->> ---
->> .../boot/dts/rockchip/rk3588s-evb1-v10.dts    | 54 +++++++++++++++++++
->> 1 file changed, 54 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
->> index bc4077575beb..a8c151b41e21 100644
->> --- a/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
->> +++ b/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
->> @@ -9,6 +9,7 @@
->> #include <dt-bindings/gpio/gpio.h>
->> #include <dt-bindings/input/input.h>
->> #include <dt-bindings/pinctrl/rockchip.h>
->> +#include <dt-bindings/soc/rockchip,vop2.h>
->> #include <dt-bindings/usb/pd.h>
->> #include "rk3588s.dtsi"
->>
->> @@ -238,6 +239,41 @@ &combphy2_psu {
->> 	status = "okay";
->> };
->>
->> +&edp0 {
->> +	force-hpd;
->> +	status = "okay";
->> +
->> +	aux-bus {
->> +		panel {
->> +			compatible = "edp-panel";
->> +			backlight = <&backlight>;
->> +			power-supply = <&vcc3v3_lcd_edp>;
->> +
->> +			port {
->> +				panel_in_edp: endpoint {
->> +					remote-endpoint = <&edp_out_panel>;
->> +				};
->> +			};
->> +		};
->> +	};
->> +};
->> +
->> +&edp0_in {
->> +	edp0_in_vp2: endpoint {
->> +		remote-endpoint = <&vp2_out_edp0>;
->> +	};
->> +};
->> +
->> +&edp0_out {
->> +	edp_out_panel: endpoint {
->> +		remote-endpoint = <&panel_in_edp>;
->> +	};
->> +};
->> +
->> +&hdptxphy0 {
->> +	status = "okay";
->> +};
->> +
->> &i2c3 {
->> 	status = "okay";
->>
->> @@ -399,6 +435,7 @@ usbc0_int: usbc0-int {
->> };
->>
->> &pwm12 {
->> +	pinctrl-0 = <&pwm12m1_pins>;
->> 	status = "okay";
->> };
->>
->> @@ -1168,3 +1205,20 @@ usbdp_phy0_dp_altmode_mux: endpoint@1 {
->> 		};
->> 	};
->> };
->> +
->> +&vop_mmu {
->> +	status = "okay";
->> +};
->> +
->> +&vop {
->> +	assigned-clocks = <&cru DCLK_VOP2_SRC>;
->> +	assigned-clock-parents = <&cru PLL_V0PLL>;
-> 
-> It's necessary to explain why we need to  assign V0PLL for DCLK_VOP2_SRC in commit message.
-> 
-> 
 
-I will add relevant explainations in next version.
+On 2025-01-21 20:57, Russell King (Oracle) wrote:
+> On Tue, Jan 21, 2025 at 01:47:55PM +0100, Krzysztof Kozlowski wrote:
+>> On 21/01/2025 08:54, Yijie Yang wrote:
+>>> The Qualcomm board always chooses the MAC to provide the delay instead of
+>>> the PHY, which is completely opposite to the suggestion of the Linux
+>>> kernel.
+> 
+> You still need to explain why it's preferable to match this in the mainline
+> kernel. Does it not work when you use the phylib maintainers suggestion
+> (if that is so, you need to state as much.)
 
->> +	status = "okay";
->> +};
->> +
->> +&vp2 {
->> +	vp2_out_edp0: endpoint@ROCKCHIP_VOP2_EP_EDP0 {
->> +		reg = <ROCKCHIP_VOP2_EP_EDP0>;
->> +		remote-endpoint = <&edp0_in_vp2>;
->> +	};
->> +};
->> -- 
->> 2.34.1
->>
+Okay, I will include that explanation in the next version.
 
-Best regards,
-Damon
+> 
+>> How does the Linux kernel suggest it?
+> 
+> It's what phylib maintainers prefer, as documented in many emails from
+> Andrew Lunn and in Documentation/networking/phy.rst:
+> 
+> "Whenever possible, use the PHY side RGMII delay for these reasons:
+> 
+> * PHY devices may offer sub-nanosecond granularity in how they allow a
+>    receiver/transmitter side delay (e.g: 0.5, 1.0, 1.5ns) to be specified. Such
+>    precision may be required to account for differences in PCB trace lengths
+> 
+> * PHY devices are typically qualified for a large range of applications
+>    (industrial, medical, automotive...), and they provide a constant and
+>    reliable delay across temperature/pressure/voltage ranges
+> 
+> * PHY device drivers in PHYLIB being reusable by nature, being able to
+>    configure correctly a specified delay enables more designs with similar delay
+>    requirements to be operated correctly
+> "
+> 
+>>> The usage of phy-mode in legacy DTS was also incorrect. Change the
+>>> phy_mode passed from the DTS to the driver from PHY_INTERFACE_MODE_RGMII_ID
+>>> to PHY_INTERFACE_MODE_RGMII to ensure correct operation and adherence to
+>>> the definition.
+> 
+> If the delays dependent on the phy-mode are going to be implemented at
+> the MAC end, then changing the PHY mode indicated to phylink and phylib
+> to PHY_INTERFACE_MODE_RGMII is the right thing to be doing. However,
+> as mentioned in the documentation and by Andrew, this is discouraged.
+> 
+Adding delay by the MAC side is generally discouraged, but the current 
+driver configuration sequence was designed to do so. We need to follow 
+this approach until we can rewrite it, correct?
+
+-- 
+Best Regards,
+Yijie
 
 
