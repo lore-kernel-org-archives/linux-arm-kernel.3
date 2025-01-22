@@ -4,90 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 326EAC02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 08:50:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D731C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 08:58:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ahcAYxKCW2/TnZTsjnNnWROYjAukoakSCPj81fATNcw=; b=FXHleqYGlPIaoTF46q1WonBaXa
-	1OsjOgW5BGpf1b/i9rur3+FRE2oLpU9wrex99z8NnGBT6WH5NUiMB6/s0Pt9e9t8A3fxxrd7BXPKy
-	mMEA9x5b23HpVgumbG/iqM3gqXkNJuV7+IyuH13xJV1ILjVbTAZNwH9VzrOi073GLDKh5vzI9TNvR
-	mL5zZayfadnecT9fUbhpJ2BZStk4LY0KNFz+92fuFMCenc0TH23yijcFZ7wp34amDRBX01h+y2qSV
-	YqhYtBOrtrhKxD0kFbXPLD57AE1Lv+EZYkAJmIkosyUemj4ZnB/XER8kApIg84/5WhcjAdBbC2Hts
-	CyxEI44Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mmZuSHMdrepy4/YndlIJfpy2ZoZmjaeihcJX2mJ7HM4=; b=nouOkC4ZU7TW8RR6qfnIO8jqXx
+	L0Iia2/efF8e6wvyyeYr/eVIupJpzEoZxqSCmN8+66yvpn2H5R+hTZavC5Ban75UcbyaT/JNZJpWh
+	B7sri0myxdNY5y5PAEzJ9ZLKZWjfo9p63wJw1gw+UdRdzNWT8utAKmwkiEbubCdEbtP/j1QQqIT2I
+	eAK04bAyEZdm9q+k3EtdEpB8xeBA99tjRTSH1kK8zvS4VG7XjW1XA53eD+dmgqYRNaE+E5eAbxeX7
+	aD6c59XO2FDBXAagvBCo+779jJrk9HT06q4WxwI9lCvvlxxP4K04G/YtgEhEhLBU0Prd4mOno49XS
+	09iqSpNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taWRF-00000009jnx-1bzS;
-	Wed, 22 Jan 2025 08:50:17 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1taWYt-00000009kMI-2N6T;
+	Wed, 22 Jan 2025 08:58:11 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taWPx-00000009jho-1qxK
+	id 1taWXb-00000009kD3-2pLB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 08:48:58 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-436202dd7f6so75917355e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jan 2025 00:48:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737535736; x=1738140536; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ahcAYxKCW2/TnZTsjnNnWROYjAukoakSCPj81fATNcw=;
-        b=fGK7LcdYf4xpEs2/bAggKn042azN295q5al7dfAidjcT9V38wHALLCgeODELy7RlPu
-         poi235bjMGbMtS1UJ6ArjrPB3OHVZZcEYhR02ZBmdysqMhcCTBrmdgNorBFGpsBqOP2R
-         hzTZn1SQDy/KRDfFdQIGCxZu40N2LwM70K1mGg4ADSbwYrtq0KeCJxhSgzExYov4yVqu
-         L6U2qxRTIRJ2YCYDgLiWRvLltNsIxLYgUj9AnYXFctZ9U61z2xwUQv2oMJ6UlhZpW4Th
-         MXsqbAvLAf95OIJungZ07YyLaveq2pz7Bl8hKye1JgTMzK/bLM1xvEJvWGNxrhe6Trtf
-         cnWQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737535736; x=1738140536;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ahcAYxKCW2/TnZTsjnNnWROYjAukoakSCPj81fATNcw=;
-        b=Im0ZZ38X9oDxPKTa+Mvi3LoSSrGWEfL6GnB/mcmZ3+hCtRZBYt2In/vpob4bWMHNro
-         kMZJxUxXRh5yHJI7W3dyyxOJiu3GEBoIJk060ZUT2IiLCohQGNmCCGm+KVqedDmJ6tPk
-         TRb1T4xXgeIoImlmWU2dhooYxkGjnWxh4js02iNT5vBweLWsUq3fTzRAIMF8+lFgHY5U
-         FBTJQ1yqgIzoOwCJ3nc0PMhWbvDwHpuX80Ldz7do/YqJJQ7bWKFMmGrDnxyWkVjpd48T
-         iCT7vwzDxQ3ujQREOrlI6W3VO32mem77FtXMoWQFpLKX1SHiKiBE8IjxrK5u0u7JZQsp
-         6g/w==
-X-Forwarded-Encrypted: i=1; AJvYcCXidnyvIOAQYLwcjQpk4ne4/qSXONX49lDkS6YTflo+0L+LrfcSi5mlVYThH9qG6c7QlXaCGzsGluf4Dcpy/w3x@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHZmXHzqMwbQdiShKVdmqNWt7eA1mxDdACl7isTkw+0X3NNR5V
-	+GgIfMLA/DXGnsyAKARyyo3WdNOgKeWqbg8E+HqfP0Q2x5OlOyPxYT3wHDBq6aI=
-X-Gm-Gg: ASbGnctJ7jQ6es71peMlO3UEQolJY+20S4t4Ou/55dZ2rql+V/yqUO6vX7o4p7YhZSj
-	wdFU5PMLt00eHzX91FlETCwp9n8D8C6XqjAEIFGZlS+hWBgnK0Al7CWnyVHoVwTX44OmCL0erLH
-	XLIIwsAixfusGqbeIql1urQSdmQtCbrkGg4NfDwNKSZUjLUK82lBRupVQeDDwarVn06ohtgWNaO
-	q6UNNchC6NtH/e3Bsz4qq7YqjPKI7Gbh0M9kKTQNYpAlKHJWt4OU/0pRIsMzfS1zlrSg77Vavo=
-X-Google-Smtp-Source: AGHT+IHq3PpoCGSQdzJWDJkxvFTv6ixwaU5LzRSfdsLCE0QsOxCCYnY482OJuMYLEl9P4UbO7C0N0g==
-X-Received: by 2002:a05:600c:458a:b0:436:faeb:2a18 with SMTP id 5b1f17b1804b1-438913bed3fmr178285215e9.6.1737535735986;
-        Wed, 22 Jan 2025 00:48:55 -0800 (PST)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438b1d904cbsm12331605e9.1.2025.01.22.00.48.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jan 2025 00:48:55 -0800 (PST)
-Date: Wed, 22 Jan 2025 11:48:52 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 2/5] firmware: arm_scmi: imx: Add i.MX95 CPU Protocol
-Message-ID: <3b9a7392-8ebe-4d43-a111-68bb6d2f93b6@stanley.mountain>
-References: <20250121-imx-lmm-cpu-v1-0-0eab7e073e4e@nxp.com>
- <20250121-imx-lmm-cpu-v1-2-0eab7e073e4e@nxp.com>
+	Wed, 22 Jan 2025 08:56:52 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50M1hAiw018045;
+	Wed, 22 Jan 2025 08:56:42 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	mmZuSHMdrepy4/YndlIJfpy2ZoZmjaeihcJX2mJ7HM4=; b=DDZNb+X20t0XiECr
+	CE0mGwulmB1T8X2jZuDXbtIcpe5h8pvuy8dPISEOo6Gv55GHGMJCduE2YJSPWrzE
+	IH/Iu71hA87YUu65kNxR9NIyhbhF0lHTdLOoWeVKSoRNCK0UgNUGJedib8VR2O4c
+	WBilhWie2mqv2FOcjQVhvC7Ft8QH8ilfQ8uX2RM/zTgesttIwosWSaoNfbewIW8E
+	yvAMakIlFA5g+7bx93xiN+FLxxacUlLQLdyoHbpfx8XWSG/fWc3Z4yrs4bkwI7Fb
+	oEvo9cizskj8MHX7/qa/XoiU5198aCtzHRgL9bdqQvx3Li97cuRRm2PjWWgzrqEz
+	YPAD7Q==
+Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44aq8grwht-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 22 Jan 2025 08:56:42 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 50M8ufDi002822
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 22 Jan 2025 08:56:41 GMT
+Received: from [10.253.35.93] (10.80.80.8) by nalasex01c.na.qualcomm.com
+ (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 22 Jan
+ 2025 00:56:25 -0800
+Message-ID: <48ce7924-bbb7-4a0f-9f56-681c8b2a21bd@quicinc.com>
+Date: Wed, 22 Jan 2025 16:56:19 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250121-imx-lmm-cpu-v1-2-0eab7e073e4e@nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/4] net: stmmac: dwmac-qcom-ethqos: Mask PHY mode if
+ configured with rgmii-id
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+        Andrew Lunn
+	<andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric
+ Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni
+	<pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Vinod Koul
+	<vkoul@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre
+ Torgue <alexandre.torgue@foss.st.com>,
+        Bjorn Andersson
+	<andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Richard
+ Cochran <richardcochran@gmail.com>
+CC: <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20250121-dts_qcs615-v3-0-fa4496950d8a@quicinc.com>
+ <20250121-dts_qcs615-v3-2-fa4496950d8a@quicinc.com>
+ <30450f09-83d4-4ff0-96b2-9f251f0c0896@kernel.org>
+Content-Language: en-US
+From: Yijie Yang <quic_yijiyang@quicinc.com>
+In-Reply-To: <30450f09-83d4-4ff0-96b2-9f251f0c0896@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: 0BYb4wTjg5Clrf8iEUS_7OaSW_qmyZo6
+X-Proofpoint-ORIG-GUID: 0BYb4wTjg5Clrf8iEUS_7OaSW_qmyZo6
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-22_03,2025-01-22_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 priorityscore=1501
+ mlxlogscore=999 spamscore=0 suspectscore=0 clxscore=1015 phishscore=0
+ impostorscore=0 malwarescore=0 adultscore=0 lowpriorityscore=0 bulkscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
+ definitions=main-2501220064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_004857_514280_FCB19409 
-X-CRM114-Status: GOOD (  31.40  )
+X-CRM114-CacheID: sfid-20250122_005651_730252_9F065AA4 
+X-CRM114-Status: GOOD (  32.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,334 +122,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 21, 2025 at 11:08:12PM +0800, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
+
+
+On 2025-01-21 20:47, Krzysztof Kozlowski wrote:
+> On 21/01/2025 08:54, Yijie Yang wrote:
+>> The Qualcomm board always chooses the MAC to provide the delay instead of
+>> the PHY, which is completely opposite to the suggestion of the Linux
+>> kernel.
 > 
-> This protocol allows an agent to start, stop a CPU or set reset vector. It
-> is used to manage auxiliary CPUs in an LM (e.g. additional cores in an AP
-> cluster).
 > 
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
->  drivers/firmware/arm_scmi/vendors/imx/Kconfig      |  13 +-
->  drivers/firmware/arm_scmi/vendors/imx/Makefile     |   1 +
->  drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c | 283 +++++++++++++++++++++
->  include/linux/scmi_imx_protocol.h                  |  10 +
->  4 files changed, 306 insertions(+), 1 deletion(-)
+> How does the Linux kernel suggest it?
 > 
-> diff --git a/drivers/firmware/arm_scmi/vendors/imx/Kconfig b/drivers/firmware/arm_scmi/vendors/imx/Kconfig
-> index 1a936fc87d2350e2a21bccd45dfbeebfa3b90286..9070522510e4d3f3d7276a7581f8676006d20f90 100644
-> --- a/drivers/firmware/arm_scmi/vendors/imx/Kconfig
-> +++ b/drivers/firmware/arm_scmi/vendors/imx/Kconfig
-> @@ -12,6 +12,17 @@ config IMX_SCMI_BBM_EXT
->  	  To compile this driver as a module, choose M here: the
->  	  module will be called imx-sm-bbm.
->  
-> +config IMX_SCMI_CPU_EXT
-> +	tristate "i.MX SCMI CPU EXTENSION"
-> +	depends on ARM_SCMI_PROTOCOL || (COMPILE_TEST && OF)
-> +	default y if ARCH_MXC
-> +	help
-> +	  This enables i.MX System CPU Protocol to manage cpu
-> +	  start, stop and etc.
-> +
-> +	  To compile this driver as a module, choose M here: the
-> +	  module will be called imx-sm-cpu.
-> +
->  config IMX_SCMI_LMM_EXT
->  	tristate "i.MX SCMI LMM EXTENSION"
->  	depends on ARM_SCMI_PROTOCOL || (COMPILE_TEST && OF)
-> @@ -21,7 +32,7 @@ config IMX_SCMI_LMM_EXT
->  	  manage Logical Machines boot, shutdown and etc.
->  
->  	  To compile this driver as a module, choose M here: the
-> -	  module will be called imx-sm-lmm.
-> +	  module will be called imx-sm-cpu.
->  
+>> The usage of phy-mode in legacy DTS was also incorrect. Change the
+>> phy_mode passed from the DTS to the driver from PHY_INTERFACE_MODE_RGMII_ID
+>> to PHY_INTERFACE_MODE_RGMII to ensure correct operation and adherence to
+>> the definition.
+>> To address the ABI compatibility issue between the kernel and DTS caused by
+>> this change, handle the compatible string 'qcom,qcs404-evb-4000' in the
+>> code, as it is the only legacy board that mistakenly uses the 'rgmii'
+>> phy-mode.
+>>
+>> Signed-off-by: Yijie Yang <quic_yijiyang@quicinc.com>
+>> ---
+>>   .../net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    | 18 +++++++++++++-----
+>>   1 file changed, 13 insertions(+), 5 deletions(-)
+>>
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+>> index 2a5b38723635b5ef9233ca4709e99dd5ddf06b77..e228a62723e221d58d8c4f104109e0dcf682d06d 100644
+>> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+>> @@ -401,14 +401,11 @@ static int ethqos_dll_configure(struct qcom_ethqos *ethqos)
+>>   static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos)
+>>   {
+>>   	struct device *dev = &ethqos->pdev->dev;
+>> -	int phase_shift;
+>> +	int phase_shift = 0;
+>>   	int loopback;
+>>   
+>>   	/* Determine if the PHY adds a 2 ns TX delay or the MAC handles it */
+>> -	if (ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_ID ||
+>> -	    ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_TXID)
+>> -		phase_shift = 0;
+>> -	else
+>> +	if (ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_ID)
+>>   		phase_shift = RGMII_CONFIG2_TX_CLK_PHASE_SHIFT_EN;
+>>   
+>>   	/* Disable loopback mode */
+>> @@ -810,6 +807,17 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
+>>   	ret = of_get_phy_mode(np, &ethqos->phy_mode);
+>>   	if (ret)
+>>   		return dev_err_probe(dev, ret, "Failed to get phy mode\n");
+>> +
+>> +	root = of_find_node_by_path("/");
+>> +	if (root && of_device_is_compatible(root, "qcom,qcs404-evb-4000"))
+> 
+> 
+> First, just check if machine is compatible, don't open code it.
+> 
+> Second, drivers should really, really not rely on the machine. I don't
+> think how this resolves ABI break for other users at all.
 
-It's supposed to be called imx-sm-lmm.
+As detailed in the commit description, some boards mistakenly use the 
+'rgmii' phy-mode, and the MAC driver has also incorrectly parsed and 
+added the delay for it. This code aims to prevent breaking these boards 
+while correcting the erroneous parsing. This issue is similar to the one 
+discussed in another thread:
+https://lore.kernel.org/all/20241225-support_10m100m-v1-2-4b52ef48b488@quicinc.com/
 
->  config IMX_SCMI_MISC_EXT
->  	tristate "i.MX SCMI MISC EXTENSION"
-> diff --git a/drivers/firmware/arm_scmi/vendors/imx/Makefile b/drivers/firmware/arm_scmi/vendors/imx/Makefile
-> index f39a99ccaf9af757475e8b112d224669444d7ddc..e3a5ea46345c89da1afae25e55698044672b7c28 100644
-> --- a/drivers/firmware/arm_scmi/vendors/imx/Makefile
-> +++ b/drivers/firmware/arm_scmi/vendors/imx/Makefile
-> @@ -1,4 +1,5 @@
->  # SPDX-License-Identifier: GPL-2.0-only
->  obj-$(CONFIG_IMX_SCMI_BBM_EXT) += imx-sm-bbm.o
-> +obj-$(CONFIG_IMX_SCMI_CPU_EXT) += imx-sm-cpu.o
->  obj-$(CONFIG_IMX_SCMI_LMM_EXT) += imx-sm-lmm.o
->  obj-$(CONFIG_IMX_SCMI_MISC_EXT) += imx-sm-misc.o
-> diff --git a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..e3f294c2cb69a5b5a916d55984f4a63539937d02
-> --- /dev/null
-> +++ b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c
-> @@ -0,0 +1,283 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * System control and Management Interface (SCMI) NXP CPU Protocol
-> + *
-> + * Copyright 2025 NXP
-> + */
-> +
-> +#include <linux/bits.h>
-> +#include <linux/io.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/scmi_protocol.h>
-> +#include <linux/scmi_imx_protocol.h>
-> +
-> +#include "../../protocols.h"
-> +#include "../../notify.h"
-> +
-> +#define SCMI_PROTOCOL_SUPPORTED_VERSION		0x10000
-> +
-> +enum scmi_imx_cpu_protocol_cmd {
-> +	SCMI_IMX_CPU_ATTRIBUTES	= 0x3,
-> +	SCMI_IMX_CPU_START = 0x4,
-> +	SCMI_IMX_CPU_STOP = 0x5,
-> +	SCMI_IMX_CPU_RESET_VECTOR_SET = 0x6,
-> +	SCMI_IMX_CPU_INFO_GET = 0xC,
-> +};
-> +
-> +struct scmi_imx_cpu_info {
-> +	u32 nr_cpu;
-> +};
-> +
-> +#define SCMI_IMX_CPU_PROTO_ATTR_NUM_CPUS(x)  ((x) & 0xFFFF)
-> +struct scmi_msg_imx_cpu_protocol_attributes {
-> +	__le32 attributes;
-> +};
-> +
-> +struct scmi_msg_imx_cpu_attributes_out {
-> +	__le32 attributes;
-> +#define	CPU_MAX_NAME	16
-> +	u8 name[CPU_MAX_NAME];
+> 
+> You need to check what the ABI is here and do not break it.
 
-char is always unsigned in the kernel these days but strings should
-still always be char.  Same thing in patch 1, there were a couple u8
-names.
+If board compatible string matching is not recommended, can I address 
+this historical issue by adding the rx-internal-delay-ps and 
+tx-internal-delay-ps properties, as Andrew suggested in the thread 
+mentioned above? Boards without this property are considered legacy 
+boards and will follow the legacy routine, while others will apply the 
+new routine. Similar examples include ksz_parse_rgmii_delay and 
+sja1105_parse_rgmii_delays.
 
-> +};
-> +
-> +struct scmi_imx_cpu_reset_vector_set_in {
-> +	__le32 cpuid;
-> +#define	CPU_VEC_FLAGS_RESUME	BIT(31)
-> +#define	CPU_VEC_FLAGS_START	BIT(30)
-> +#define	CPU_VEC_FLAGS_BOOT	BIT(29)
-> +	__le32 flags;
-> +	__le32 resetvectorlow;
-> +	__le32 resetvectorhigh;
-> +};
-> +
-> +struct scmi_imx_cpu_info_get_out {
-> +#define	CPU_RUN_MODE_START	0
-> +#define	CPU_RUN_MODE_HOLD	1
-> +#define	CPU_RUN_MODE_STOP	2
-> +#define	CPU_RUN_MODE_SLEEP	3
-> +	__le32 runmode;
-> +	__le32 sleepmode;
-> +	__le32 resetvectorlow;
-> +	__le32 resetvectorhigh;
-> +};
-> +
-> +static int scmi_imx_cpu_validate_cpuid(const struct scmi_protocol_handle *ph,
-> +				       u32 cpuid)
-> +{
-> +	struct scmi_imx_cpu_info *info = ph->get_priv(ph);
-> +
-> +	if (cpuid >= info->nr_cpu)
-> +		return -EINVAL;
-> +
-> +	return 0;
-> +}
-> +
-> +static int scmi_imx_cpu_start(const struct scmi_protocol_handle *ph, u32 cpuid)
-> +{
-> +	struct scmi_xfer *t;
-> +	int ret;
-> +
-> +	ret = scmi_imx_cpu_validate_cpuid(ph, cpuid);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = ph->xops->xfer_get_init(ph, SCMI_IMX_CPU_START, sizeof(u32),
-> +				      0, &t);
-> +	if (ret)
-> +		return ret;
-> +
-> +	put_unaligned_le32(cpuid, t->tx.buf);
-> +	ret = ph->xops->do_xfer(ph, t);
-> +
-> +	ph->xops->xfer_put(ph, t);
-> +
-> +	return ret;
-> +}
-> +
-> +static int scmi_imx_cpu_stop(const struct scmi_protocol_handle *ph, u32 cpuid)
-> +{
-> +	struct scmi_xfer *t;
-> +	int ret;
-> +
-> +	ret = scmi_imx_cpu_validate_cpuid(ph, cpuid);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = ph->xops->xfer_get_init(ph, SCMI_IMX_CPU_STOP, sizeof(u32),
-> +				      0, &t);
-> +	if (ret)
-> +		return ret;
-> +
-> +	put_unaligned_le32(cpuid, t->tx.buf);
-> +	ret = ph->xops->do_xfer(ph, t);
-> +
-> +	ph->xops->xfer_put(ph, t);
-> +
-> +	return ret;
-> +}
-> +
-> +static int scmi_imx_cpu_reset_vector_set(const struct scmi_protocol_handle *ph,
-> +					 u32 cpuid, u64 vector, bool start,
-> +					 bool boot, bool resume)
-> +{
-> +	struct scmi_imx_cpu_reset_vector_set_in *in;
-> +	struct scmi_xfer *t;
-> +	int ret;
-> +
-> +	ret = scmi_imx_cpu_validate_cpuid(ph, cpuid);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = ph->xops->xfer_get_init(ph, SCMI_IMX_CPU_RESET_VECTOR_SET, sizeof(*in),
-> +				      0, &t);
-> +	if (ret)
-> +		return ret;
-> +
-> +	in = t->tx.buf;
-> +	in->cpuid = cpu_to_le32(cpuid);
-> +	in->flags = start ? CPU_VEC_FLAGS_START : 0;
-> +	in->flags |= boot ? CPU_VEC_FLAGS_BOOT : 0;
-> +	in->flags |= resume ? CPU_VEC_FLAGS_BOOT : 0;
+> 
+> 
+> Best regards,
+> Krzysztof
 
-s/CPU_VEC_FLAGS_BOOT/CPU_VEC_FLAGS_RESUME/
-
-> +	in->resetvectorlow = cpu_to_le32(lower_32_bits(vector));
-> +	in->resetvectorhigh = cpu_to_le32(upper_32_bits(vector));
-> +	ret = ph->xops->do_xfer(ph, t);
-> +
-> +	ph->xops->xfer_put(ph, t);
-> +
-> +	return ret;
-> +}
-> +
-> +static int scmi_imx_cpu_started(const struct scmi_protocol_handle *ph, u32 cpuid,
-> +				bool *started)
-> +{
-> +	struct scmi_imx_cpu_info_get_out *out;
-> +	struct scmi_xfer *t;
-> +	int ret;
-> +
-> +	*started = false;
-> +	ret = scmi_imx_cpu_validate_cpuid(ph, cpuid);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = ph->xops->xfer_get_init(ph, SCMI_IMX_CPU_INFO_GET, sizeof(u32),
-> +				      0, &t);
-> +	if (ret)
-> +		return ret;
-> +
-> +	put_unaligned_le32(cpuid, t->tx.buf);
-> +	ret = ph->xops->do_xfer(ph, t);
-> +	if (!ret) {
-> +		out = t->rx.buf;
-> +		if ((out->runmode == CPU_RUN_MODE_START) ||
-> +		    (out->runmode == CPU_RUN_MODE_SLEEP))
-> +			*started = true;
-> +	}
-> +
-> +	ph->xops->xfer_put(ph, t);
-> +
-> +	return ret;
-> +}
-> +
-> +static const struct scmi_imx_cpu_proto_ops scmi_imx_cpu_proto_ops = {
-> +	.cpu_reset_vector_set = scmi_imx_cpu_reset_vector_set,
-> +	.cpu_start = scmi_imx_cpu_start,
-> +	.cpu_started = scmi_imx_cpu_started,
-> +	.cpu_stop = scmi_imx_cpu_stop,
-> +};
-> +
-> +static int scmi_imx_cpu_protocol_attributes_get(const struct scmi_protocol_handle *ph,
-> +						struct scmi_imx_cpu_info *info)
-> +{
-> +	struct scmi_msg_imx_cpu_protocol_attributes *attr;
-> +	struct scmi_xfer *t;
-> +	int ret;
-> +
-> +	ret = ph->xops->xfer_get_init(ph, PROTOCOL_ATTRIBUTES, 0,
-> +				      sizeof(*attr), &t);
-> +	if (ret)
-> +		return ret;
-> +
-> +	attr = t->rx.buf;
-> +
-> +	ret = ph->xops->do_xfer(ph, t);
-> +	if (!ret) {
-> +		info->nr_cpu = SCMI_IMX_CPU_PROTO_ATTR_NUM_CPUS(attr->attributes);
-> +		dev_info(ph->dev, "i.MX SM CPU: %d cpus\n",
-> +			 info->nr_cpu);
-
-This can fit in 80 characters:
-
-		dev_info(ph->dev, "i.MX SM CPU: %d cpus\n", info->nr_cpu);
-
-> +	}
-> +
-> +	ph->xops->xfer_put(ph, t);
-> +
-> +	return ret;
-> +}
-> +
-> +static int scmi_imx_cpu_attributes_get(const struct scmi_protocol_handle *ph,
-> +				       u32 cpuid, struct scmi_imx_cpu_info *info)
-
-No need to pass the "info" pointer.
-
-> +{
-> +	struct scmi_msg_imx_cpu_attributes_out *out;
-> +	struct scmi_xfer *t;
-> +	int ret;
-> +
-> +	ret = ph->xops->xfer_get_init(ph, SCMI_IMX_CPU_ATTRIBUTES, sizeof(u32), 0, &t);
-> +	if (ret)
-> +		return ret;
-> +
-> +	put_unaligned_le32(cpuid, t->tx.buf);
-> +	ret = ph->xops->do_xfer(ph, t);
-> +	if (!ret) {
-> +		out = t->rx.buf;
-> +		dev_info(ph->dev, "i.MX CPU: name: %s\n", out->name);
-> +	} else {
-> +		dev_err(ph->dev, "i.MX cpu: Failed to get info of cpu(%u)\n", cpuid);
-> +	}
-> +
-> +	ph->xops->xfer_put(ph, t);
-> +
-> +	return ret;
-> +}
-> +
-> +
-
-Multiple blank lines (checkpatch.pl --strict).
-
-> +static int scmi_imx_cpu_protocol_init(const struct scmi_protocol_handle *ph)
-> +{
-
-regards,
-dan carpenter
+-- 
+Best Regards,
+Yijie
 
 
