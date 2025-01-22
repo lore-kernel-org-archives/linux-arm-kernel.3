@@ -4,88 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E5BDC02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 12:45:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CAFCC02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 12:46:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/nRt7/FOVju0HHPP7y/y/GmcikIqd0uun9LCjQjrq7E=; b=qku5BJAQ4TCmK5DaUtTlhuqN7v
-	5AFLyRD7a3EcAglp1EZja66u5ommHIoWgpMD+5FD8cQcxvl8F66k1xwdhJdyEWCvAIWruD0mVA4Ep
-	lvgHLsmE73tDcx7J+ubH81WHLZI9NSHpLIL+bhkwiDiNuYcm/jHVNcIJoM+fQ9tzSrZ4/rt0WlCBu
-	QgY5+nTw+QwEJxaLoQIS6Htntns+PyuLBmwbCkt0yIqf+qxgqSHbqEjAhptpq1Pg9exRXEt6vr/CD
-	9DxFPfWiNtBdloiF5U1+QQB0O0HGUTjabetKjTqzqrK9oqqkSv3luMxC/XN2SFN4sWMuXX4Zz8ruy
-	ba97HMWg==;
+	bh=YTtwLlBe37BdCgnBuy1MLWGgT5Jb4n0isj9w5Ot2fmw=; b=qtGgWMW4i96InICbLLiU7wlQW7
+	I++zieV0icC0Q7+owecD9FXeKyFj+RuUo8og6kgllBwGggE95VDKzWYGeogjqSl7bY5+oex1EU4qP
+	7s6La+9cSccpfu5RqXYsdAQG7V/n9CvZ3mGCmxqo1n+xiZG+yGNLQcmKiW+/XytcvCVDQu9KgFHZZ
+	ijjjID1w71wNtmeg10FGoOGuGvI0Z3gQ7DSXE+E/YBYe9BQVlrReoyrkZPbJxMlWWECwJHmMRTJfu
+	mP0DBRJon7AjdthfyPVuH4KfilV3yVbPrEDGsdqqWybAOLCwTz3H0dYH0xzPVXl8wkWodvWHjP+2e
+	G8wrLvKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taa6E-0000000ABZ3-37CX;
-	Wed, 22 Jan 2025 12:44:50 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1taa7V-0000000ABn8-170m;
+	Wed, 22 Jan 2025 12:46:09 +0000
+Received: from mx1.sberdevices.ru ([37.18.73.165])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taa3J-0000000AAo6-3yA5;
-	Wed, 22 Jan 2025 12:41:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9C751A42535;
-	Wed, 22 Jan 2025 12:40:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9005FC4CEF0;
-	Wed, 22 Jan 2025 12:41:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737549708;
-	bh=/nRt7/FOVju0HHPP7y/y/GmcikIqd0uun9LCjQjrq7E=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=VoyrM/KR3y6SyzXqcrUXIeXUzSXAukF1jTugO3Tp/XeZbDQsZz0btjWFVZexImUyA
-	 GNv9Ye0JlCb6LXyPS9Jx9MVxR+Wdtkk0Ms+qZSrA1Lr8Xe+0i9vU/ISeGtF/6vb7Vs
-	 1Uj3RovlFmNzqVfmuzQ82cCacT+Fx0ki2YqsVx1IY92F3iqqKCafCCMLWLqphwdRxg
-	 srLeLPCzyALTJw1qCRW7tcb44xO01Rx4zDtdApARN9p2pthq2z1LppbizS751cMHo9
-	 cZn++ylUYdHjeWMHwboi8qRzV/CerfY2kd1XCsOqWLze560AIlYM8svAXpyzid0N54
-	 v69z43CGgr7bQ==
-Received: by mail-lj1-f174.google.com with SMTP id 38308e7fff4ca-3022484d4e4so70972151fa.1;
-        Wed, 22 Jan 2025 04:41:48 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCU12AHSYENHOBv9iyePprsHgX21JujcFIf6S6xnslX/So4jFvCmhtFbqjZHkz2ggk8yxTNlp9a9ClUza14=@lists.infradead.org, AJvYcCUl5qpudej6+aPG4PBeopzEIZnQyKyQQp71PNMZ/GEnJXL3jmSGem4gmuwn+GdCLG4LapXqutNsINLMlqU2C7kINg==@lists.infradead.org, AJvYcCWnw2gpxdPFWHcGA/WKrhZ491mmPhHHe3Qgtgz872PCG0zVL/j7w83rjgISDPN1FOBLRsTgfA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzAxlOxUw7qoG98Wl7vjres/aJWrut/b6fntwsJHhSq5vDl3o1N
-	2v6baBDof58LqiFJRrQeHWYsRdbZb9pkSJZMFAoeblF3yoWq5MnIMxxzvxgi8uHk1Xe6DRKxa35
-	4K/qqL3gCYL+6/chUctBBnq3X8hg=
-X-Google-Smtp-Source: AGHT+IFcRSReB7hah7mapcirnp1PWu31SswN3BbR4HjBYPEG79Tzl030J0TjqkE7fYQS4xaDIi2/KgOUqh2J3fswv1A=
-X-Received: by 2002:a05:651c:2228:b0:302:4130:e19c with SMTP id
- 38308e7fff4ca-3072caa15c1mr71017091fa.19.1737549706586; Wed, 22 Jan 2025
- 04:41:46 -0800 (PST)
+	id 1taa3V-0000000AAnx-1BmV;
+	Wed, 22 Jan 2025 12:42:04 +0000
+Received: from p-infra-ksmg-sc-msk01.sberdevices.ru (localhost [127.0.0.1])
+	by mx1.sberdevices.ru (Postfix) with ESMTP id C866810000F;
+	Wed, 22 Jan 2025 15:41:45 +0300 (MSK)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.sberdevices.ru C866810000F
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=salutedevices.com;
+	s=mail; t=1737549705;
+	bh=YTtwLlBe37BdCgnBuy1MLWGgT5Jb4n0isj9w5Ot2fmw=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:From;
+	b=avQeXlvD0X76BKyLAQbtpU0G3qYpQ3zlmE3dI99AX943Xfct8cW7NJvm9cGfOjrdc
+	 s/HQN1xG/Jb5rcHHGMz4UkoXcyVbj85l5FNQbJsB58oJO5ecLOmARNbj+Pd7+EEuAT
+	 BHivPC0jbb25+xuKVki+2UaTOsinFp2B61IyZ/9Ps0RnzoHHl57QMEYDBdt91KRr1h
+	 JCfW7rMzEghqyABkc5rrb1LZyVUVTzh23wYkqvfvDgwpuI2pFmkef+WZ2OsfBYLFDB
+	 2q31eADmH1Jm1F2H/EzfcHW2Dp7Tt89tmuzSiglcufKcm5P8HfbRWXDcI45npON9xz
+	 SxjmCWLErLEJQ==
+Received: from smtp.sberdevices.ru (p-exch-cas-a-m1.sberdevices.ru [172.24.201.216])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mx1.sberdevices.ru (Postfix) with ESMTPS;
+	Wed, 22 Jan 2025 15:41:45 +0300 (MSK)
+From: Alexey Romanov <avromanov@salutedevices.com>
+To: <herbert@gondor.apana.org.au>
+CC: <avromanov@salutedevices.com>, <clabbe@baylibre.com>,
+	<conor+dt@kernel.org>, <davem@davemloft.net>, <devicetree@vger.kernel.org>,
+	<jbrunet@baylibre.com>, <kernel@salutedevices.com>, <khilman@baylibre.com>,
+	<krzk+dt@kernel.org>, <krzysztof.kozlowski+dt@linaro.org>,
+	<linux-amlogic@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-crypto@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<martin.blumenstingl@googlemail.com>, <neil.armstrong@linaro.org>,
+	<robh+dt@kernel.org>, <vadim.fedorenko@linux.dev>
+Subject: Re: [PATCH v11 11/22] crypto: amlogic - Introduce hasher
+Date: Wed, 22 Jan 2025 15:41:29 +0300
+Message-ID: <Z2aokzSrAHpJE_PG@gondor.apana.org.au> (raw)
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241213140755.1298323-12-avromanov@salutedevices.com>
+References: <Z2aokzSrAHpJE_PG@gondor.apana.org.au>
 MIME-Version: 1.0
-References: <20250110-jag-ctl_table_const-v2-1-0000e1663144@kernel.org>
- <Z4+jwDBrZNRgu85S@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com> <nslqrapp4v3rknjgtfk4cg64ha7rewrrg24aslo2e5jmxfwce5@t4chrpuk632k>
-In-Reply-To: <nslqrapp4v3rknjgtfk4cg64ha7rewrrg24aslo2e5jmxfwce5@t4chrpuk632k>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Wed, 22 Jan 2025 13:41:35 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXEZPe8zk7s67SADK9wVH3cfBup-sAZSC6_pJyng9QT7aw@mail.gmail.com>
-X-Gm-Features: AbW1kvaDj3u8bGVj1m4rnYAkpiRSTpmPAB3bThAH-GyuG2Tmgw9okzkp1e58uCc
-Message-ID: <CAMj1kXEZPe8zk7s67SADK9wVH3cfBup-sAZSC6_pJyng9QT7aw@mail.gmail.com>
-Subject: Re: Re: [PATCH v2] treewide: const qualify ctl_tables where applicable
-To: Joel Granados <joel.granados@kernel.org>
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>, =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>, 
-	Kees Cook <kees@kernel.org>, Luis Chamberlain <mcgrof@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	openipmi-developer@lists.sourceforge.net, intel-gfx@lists.freedesktop.org, 
-	dri-devel@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
-	linux-hyperv@vger.kernel.org, linux-rdma@vger.kernel.org, 
-	linux-raid@vger.kernel.org, linux-scsi@vger.kernel.org, 
-	linux-serial@vger.kernel.org, xen-devel@lists.xenproject.org, 
-	linux-aio@kvack.org, linux-fsdevel@vger.kernel.org, netfs@lists.linux.dev, 
-	codalist@coda.cs.cmu.edu, linux-mm@kvack.org, linux-nfs@vger.kernel.org, 
-	ocfs2-devel@lists.linux.dev, fsverity@lists.linux.dev, 
-	linux-xfs@vger.kernel.org, io-uring@vger.kernel.org, bpf@vger.kernel.org, 
-	kexec@lists.infradead.org, linux-trace-kernel@vger.kernel.org, 
-	linux-hardening@vger.kernel.org, apparmor@lists.ubuntu.com, 
-	linux-security-module@vger.kernel.org, keyrings@vger.kernel.org, 
-	Song Liu <song@kernel.org>, "Steven Rostedt (Google)" <rostedt@goodmis.org>, 
-	"Martin K. Petersen" <martin.petersen@oracle.com>, "Darrick J. Wong" <djwong@kernel.org>, 
-	Jani Nikula <jani.nikula@intel.com>, Corey Minyard <cminyard@mvista.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [172.28.160.235]
+X-ClientProxiedBy: p-i-exch-a-m1.sberdevices.ru (172.24.196.116) To
+ p-exch-cas-a-m1.sberdevices.ru (172.24.201.216)
+X-KSMG-Rule-ID: 1
+X-KSMG-Message-Action: clean
+X-KSMG-AntiSpam-Lua-Profiles: 190505 [Jan 22 2025]
+X-KSMG-AntiSpam-Version: 6.1.1.7
+X-KSMG-AntiSpam-Envelope-From: avromanov@salutedevices.com
+X-KSMG-AntiSpam-Rate: 0
+X-KSMG-AntiSpam-Status: not_detected
+X-KSMG-AntiSpam-Method: none
+X-KSMG-AntiSpam-Auth: dkim=none
+X-KSMG-AntiSpam-Info: LuaCore: 50 0.3.50 df4aeb250ed63fd3baa80a493fa6caee5dd9e10f, {Tracking_uf_ne_domains}, {Tracking_from_domain_doesnt_match_to}, salutedevices.com:7.1.1;elixir.bootlin.com:7.1.1;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;127.0.0.199:7.1.2;smtp.sberdevices.ru:5.0.1,7.1.1, FromAlignment: s
+X-MS-Exchange-Organization-SCL: -1
+X-KSMG-AntiSpam-Interceptor-Info: scan successful
+X-KSMG-AntiPhishing: Clean, bases: 2025/01/22 11:41:00
+X-KSMG-LinksScanning: Clean, bases: 2025/01/22 11:41:00
+X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.0.1.6960, bases: 2025/01/22 10:19:00 #27099507
+X-KSMG-AntiVirus-Status: Clean, skipped
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_044150_109602_19C141B8 
-X-CRM114-Status: GOOD (  28.42  )
+X-CRM114-CacheID: sfid-20250122_044202_618163_56BA0BC7 
+X-CRM114-Status: UNSURE (   5.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,60 +100,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
+Message-ID: <20250122124129.veSIqf71IiP-ugcj8Hpsh27omoIg4PgagbIR2qECS3c@z>
 
-On Wed, 22 Jan 2025 at 13:25, Joel Granados <joel.granados@kernel.org> wrote:
->
-> On Tue, Jan 21, 2025 at 02:40:16PM +0100, Alexander Gordeev wrote:
-> > On Fri, Jan 10, 2025 at 03:16:08PM +0100, Joel Granados wrote:
-> >
-> > Hi Joel,
-> >
-> > > Add the const qualifier to all the ctl_tables in the tree except for
-> > > watchdog_hardlockup_sysctl, memory_allocation_profiling_sysctls,
-> > > loadpin_sysctl_table and the ones calling register_net_sysctl (./net,
-> > > drivers/inifiniband dirs). These are special cases as they use a
-> > > registration function with a non-const qualified ctl_table argument or
-> > > modify the arrays before passing them on to the registration function.
-> > >
-> > > Constifying ctl_table structs will prevent the modification of
-> > > proc_handler function pointers as the arrays would reside in .rodata.
-> > > This is made possible after commit 78eb4ea25cd5 ("sysctl: treewide:
-> > > constify the ctl_table argument of proc_handlers") constified all the
-> > > proc_handlers.
-> >
-> > I could identify at least these occurences in s390 code as well:
-> Hey Alexander
->
-> Thx for bringing these to my attention. I had completely missed them as
-> the spatch only deals with ctl_tables outside functions.
->
-> Short answer:
-> These should not be included in the current patch because they are a
-> different pattern from how sysctl tables are usually used. So I will not
-> include them.
->
-> With that said, I think it might be interesting to look closer at them
-> as they seem to be complicating the proc_handler (I have to look at them
-> closer).
->
-> I see that they are defining a ctl_table struct within the functions and
-> just using the data (from the incoming ctl_table) to forward things down
-> to proc_do{u,}intvec_* functions. This is very odd and I have only seen
-> it done in order to change the incoming ctl_table (which is not what is
-> being done here).
->
-> I will take a closer look after the merge window and circle back with
-> more info. Might take me a while as I'm not very familiar with s390
-> code; any additional information on why those are being used inside the
-> functions would be helpfull.
->
+> You cannot sleep in the digest function.
 
-Using const data on the stack is not as useful, because the stack is
-always mapped writable.
+Why? I couldn't find this explanation anywhere.
+In addition, I found an example of one of the digest functions that is sleeping [1].
 
-Global data structures marked 'const' will be moved into an ELF
-section that is typically mapped read-only in its entirely, and so the
-data cannot be modified by writing to it directly. No such protection
-is possible for the stack, and so the constness there is only enforced
-at compile time.
+Links:
+
+  - [1] https://elixir.bootlin.com/linux/v6.12.6/source/drivers/crypto/mxs-dcp.c#L804
 
