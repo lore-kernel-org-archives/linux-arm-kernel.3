@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE1B7C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 13:32:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DCFCC02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 13:33:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NB6Rh/OFeXzQHL/a0mwC65e81QBFBxkxQjo9tidAdio=; b=l7AWUl1RJPPNHoi4tsisepYCUB
-	kAxamtfr79IHeQJNj0xXTBFuftnytNGg+9qawHf0DC2fK/kVV2u1ety1YdHYG7c4NpEkXSiS2PVPo
-	Q13lKTyrxhGCQ7YxLGh4Uom+6vK+Y1fyrpW6hXnClasIgn3pVmkQa3IA2KsReef/0HAfRd3mv5mzq
-	IF8ilHi1EaTehsRdxw3puNyH7F7Hz4T1/mWFKx80fqH5IxoIAWEzaiw9fwB8D4a8myxbZRYU79HaX
-	c/25GpUUcppJOJ070yD/1hFYCjc25X7RMG3kkzcAFOnPvbiLaTCDrgqPouZAWTlujkIjpJaB9qIZv
-	QYWSG5Rg==;
+	bh=PsT5ZgwViolUdUf4pKeCqLICO/10Zy8qj04pN0k9tFs=; b=UeeDtnJQZ5cFTkO2EYVwyLqtMS
+	X/hQU3PWhrD7oK7CF0MNYNxUa84lBS3b4ekqHetU2SQk4x6TQ2iJW4G0qwMyCxfGS8utC7wh6z8aZ
+	Rm/VGEGwtyi8JrgSLfI9dhoFGnGWBC8EhfpiZchMtxfQqNOtOytdC0WENjKj7OXsDV2ZTjtffTT2G
+	71HPOxm7A+5BIFJMo57daCU+zk47EOJcijvNYpg6Fd0Up1hlEGvzC92KMIpVrITOvBTvQCXYPt8ci
+	k66BYYzztfmsubesrNUtzH83EmF8yaGjYus/vf+hqiIeJYQ+3fkX+Ou/3Vs3ec4L6gWZ1vqFZNWWK
+	OpbCT0Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taaph-0000000AHph-3HYK;
-	Wed, 22 Jan 2025 13:31:49 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1taaqx-0000000AIB8-1jIT;
+	Wed, 22 Jan 2025 13:33:07 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taaoP-0000000AHYT-3l7t
+	id 1taaob-0000000AHaF-21Ma
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 13:30:31 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4363dc916ceso5786245e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jan 2025 05:30:29 -0800 (PST)
+	Wed, 22 Jan 2025 13:30:42 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3862d161947so3704964f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jan 2025 05:30:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737552628; x=1738157428; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1737552640; x=1738157440; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=NB6Rh/OFeXzQHL/a0mwC65e81QBFBxkxQjo9tidAdio=;
-        b=mnhEGFpyKiuOm6kBFgPheSk9LzkrpHjEI8aOIZvpk4a8dlH2qFz/c4y20A6eN1P4Ke
-         vB+OB8C4sSp/hnF7ew8Hnjv4PjsejY+vp64PpPRRKvMtSPbOXv6Ih3jnB8UvNT4Zi8IY
-         D97c4catTdAdU4ug2twLWdky+U+DIAQ8cyBO5V4a7myszblGpqPy7I+WZUWEn6LPBNJb
-         m6hsrGbStKsu+Z4Y+i2WWIwtgB/BDNtsZvPSlBHUNMWfWKDHK0/TiAZw1AWJKjFbo5gq
-         E0YRH31NY9hi5i7iDYMYILsqcyqBjAY205mBqLXdFnB6fO1sQoDmcI/sa0dxeC4Q6VfN
-         W5+g==
+        bh=PsT5ZgwViolUdUf4pKeCqLICO/10Zy8qj04pN0k9tFs=;
+        b=xGP4nkfKiCQkJguDwoWnMQFcftFM4VSX4heaMFkTWnAUrhFJEGg/BK+/j12GxsQSyr
+         C69V6cmAyAo6VcRKbOMIxNGibkZR4cbMOmXoQ8f/o16KdIp4bLVJ1c+c0YM16cl95f/x
+         WVRRY+tNa377HGjd0nMgiGghi7m5OH5B9krr3qn6HYJwJZ9UjhNaKevYiRbN1NkZy9OX
+         6gxEUPqaSJEdCPboVf2alZCCVA81TBfizUEhb+ner3+oqm/jyCMZhDcWpObIZbhnZ/qI
+         7HUeCvhe5yVMWyGIg6HdpVl6JuIt016z3PR/j2vt5LqNOwTXbtIRsWa8eFM1QmEmczKJ
+         dcrg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737552628; x=1738157428;
+        d=1e100.net; s=20230601; t=1737552640; x=1738157440;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=NB6Rh/OFeXzQHL/a0mwC65e81QBFBxkxQjo9tidAdio=;
-        b=mfADJxUSotSlJO2JVeb9j3vqTX8WvzBRIptxcQ3m44UPA6JcELoU8vE2oz+cwZXdKC
-         A0YQHtXcS0QWsoQ+bUvhtp9szRV6LCpg+HpIFcHN84K6ZLmQJt6sfr0dsRvpXYa337FU
-         4GeHPRcwQ30HN6TlFZeK1xiEgIY1mBpHd26wthef5VbIQZtf07sXvj2vhEttAyKyetcY
-         Ll7/mGo2Hn4GCaOjdQKMYF8hxgRhX4/s2L9svBO7/UikN2Qbxfp7Awc2/EreYkqJbB18
-         JSqkDRiR/NNEJ/pBrUAncLr+f8NIaoMap3oRyKLzEOQAP3TSAFgbSfTzC8HAvz6ql7e9
-         093Q==
-X-Gm-Message-State: AOJu0YyPGb3Np2qbzgF1VCobFpaZFPuAFH87TKrddurOqFxUMxyVwMZV
-	xYrSqCdLkFfFBquyT+BvI84H5OTf7qJ2VfAMq4WvvOTXeBGCNcHe2Ogznx4Fhbk=
-X-Gm-Gg: ASbGncvzVLIhaBMyWQyDN4wB1Vv/uf+cpBnS3L6oxeum0yLyN6pM3kOV31kIyd9G41U
-	Ak5brdfnprZ2dukw28dnFmcY8LG4whnjMrz4MZztBg+zssvhlQrp9By58J7mYfZ4/Gh7SOaKN/X
-	UTKimp09/++cmQjubk0TStWcbaVpuEHppvr3FRH8payWzbOaQ70TqH9ZGn+PIqx9MzaIfKf1HK1
-	LR7C1rNvlBy9W2ICQpzaHgQrwGqO0YdIEzLsWPm072Lb1onUTDZP9Y0tnfJAll9yBPIs0z3EkVm
-	Mot8wZg=
-X-Google-Smtp-Source: AGHT+IEs9lAWF9RKOmcaZzHtX4TIStHBK+ZBY/o7F7o+SLwozXV7t/wh2J7X0yEr3mWNe9q0TILkWA==
-X-Received: by 2002:a5d:47a2:0:b0:38b:e22e:aee0 with SMTP id ffacd0b85a97d-38bf5b02a75mr19062848f8f.23.1737552627762;
-        Wed, 22 Jan 2025 05:30:27 -0800 (PST)
+        bh=PsT5ZgwViolUdUf4pKeCqLICO/10Zy8qj04pN0k9tFs=;
+        b=ZvJ4+ZEUIHuKMQEIJWScfVT9Zz3JQDo2theHW0gd13jL8TkhU5lkZz5qp3P1mYraMg
+         YvW7Qni2sHS5T8e0SwTCrzIapN/2EkU6C8pPK2t8AnycDlUG+ZFL6v7ehA6tMeVYEfrd
+         Rqy4LxSbGVV9V0nzFjLzeDQPJ++QBS+BCH40LdPcDUjit2d4aBJcy5uuIouJ13nBoopF
+         2JFY3npCYXNq63KMlHvgMsgNHtIhkXNE3KtUa5RNAp7tPXOM9nwkmw/1UQ1ty0vuFhRS
+         glk4QXKsaOtkFB0neZD2prwbYr8UwiwuHRaLZkyu03vhI4GAMbgoTiCt0NRrJvqoEGLk
+         Er9Q==
+X-Gm-Message-State: AOJu0Yz5ibYYBPLd71tynvVMlg9IMvd2qYvxaTl722ec5Ol7ZRgRBfip
+	o0a6hhcQfIUFGtvTlYsWIittkW7bGvsgSIG6RbgjmFt3LcIRtGSkhVL0Cdrhfk0=
+X-Gm-Gg: ASbGncuTI9mqH8WH5q0OEl1YdnX05Sk0SLyoXgZdXn1EFbT/nXF+KgvEUythQzWi4D6
+	tnt4y1jxqbYsrAehuT7nRItp1+03EP1UH8L4K84bHurWsKn2H6BVD1eVpyt2wwEiSSdHYPCWdX/
+	mX78VT9g58TBhe9bUs/FKLCarkfLApjWlQt7pFR9w4WhEp6yUXsoFmHIN9i+9dhzTyltBB4x7CX
+	TfyNDznGTFAD4MdOsCiRY4KAVEThDwTlyiIE6OINOX9lmcpYiZ9OJGjjW4Vx1iERxpzRb9+BJyN
+	Y6jGPgI=
+X-Google-Smtp-Source: AGHT+IHGz3oZZDXrd7dn+W7Dx6QiFyDmlY7D2ck63M0pEtyL+pVpGkX33GNbY2T81rXpW5skMbhNiw==
+X-Received: by 2002:a05:6000:1f88:b0:386:459e:e138 with SMTP id ffacd0b85a97d-38bf57a604amr16210415f8f.36.1737552639966;
+        Wed, 22 Jan 2025 05:30:39 -0800 (PST)
 Received: from [192.168.0.35] ([176.61.106.227])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38bf327556dsm16278714f8f.71.2025.01.22.05.30.26
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38bf322a838sm16081440f8f.48.2025.01.22.05.30.38
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 22 Jan 2025 05:30:27 -0800 (PST)
-Message-ID: <f0079c85-0ff9-4663-9ba3-b208b3487db5@linaro.org>
-Date: Wed, 22 Jan 2025 13:30:26 +0000
+        Wed, 22 Jan 2025 05:30:39 -0800 (PST)
+Message-ID: <93be5858-6c1e-4a09-bfe3-ac89d458a892@linaro.org>
+Date: Wed, 22 Jan 2025 13:30:38 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] media: dt-bindings: update clocks for sc7280-camss
+Subject: Re: [PATCH v2 2/2] media: qcom: camss: update clock names for sc7280
 To: Vikram Sharma <quic_vikramsa@quicinc.com>, rfoss@kernel.org,
  todor.too@gmail.com, mchehab@kernel.org, robh@kernel.org,
  krzk+dt@kernel.org, conor+dt@kernel.org, akapatra@quicinc.com,
@@ -82,15 +82,15 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
  linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, kernel@quicinc.com
 References: <20250121180746.1989996-1-quic_vikramsa@quicinc.com>
- <20250121180746.1989996-2-quic_vikramsa@quicinc.com>
+ <20250121180746.1989996-3-quic_vikramsa@quicinc.com>
 Content-Language: en-US
 From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-In-Reply-To: <20250121180746.1989996-2-quic_vikramsa@quicinc.com>
+In-Reply-To: <20250121180746.1989996-3-quic_vikramsa@quicinc.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_053029_941986_2021692F 
-X-CRM114-Status: GOOD (  16.94  )
+X-CRM114-CacheID: sfid-20250122_053041_522965_843DF0E0 
+X-CRM114-Status: GOOD (  14.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,56 +107,89 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 On 21/01/2025 18:07, Vikram Sharma wrote:
 > Update clock names to make them consistent with existing platform i.e
-> qcom,sc8280xp-camss.yaml. Rename gcc_cam_hf_axi to gcc_axi_hf and add
-> gcc_axi_sf.
-> 
-> gcc_camera_ahb is always on and we don't need to enable it explicitly.
-> gcc_axi_sf is added to avoid unexpected hardware behaviour.
-> 
-> This change will not break ABI because the ABI hasn't been cemented yet as
-> the dtsi changes are not merged yet and there are no users for this driver
-> as of now.
+> sc8280xp. Rename gcc_cam_hf_axi to gcc_axi_hf and add gcc_axi_sf.
 > 
 > Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
 > ---
->   .../devicetree/bindings/media/qcom,sc7280-camss.yaml   | 10 +++++-----
->   1 file changed, 5 insertions(+), 5 deletions(-)
+>   drivers/media/platform/qcom/camss/camss.c | 15 ++++++++++-----
+>   1 file changed, 10 insertions(+), 5 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/media/qcom,sc7280-camss.yaml b/Documentation/devicetree/bindings/media/qcom,sc7280-camss.yaml
-> index e11141b812a0..ee35e3bc97ff 100644
-> --- a/Documentation/devicetree/bindings/media/qcom,sc7280-camss.yaml
-> +++ b/Documentation/devicetree/bindings/media/qcom,sc7280-camss.yaml
-> @@ -55,8 +55,8 @@ properties:
->         - const: csiphy3_timer
->         - const: csiphy4
->         - const: csiphy4_timer
-> -      - const: gcc_camera_ahb
-> -      - const: gcc_cam_hf_axi
-> +      - const: gcc_axi_hf
-> +      - const: gcc_axi_sf
->         - const: icp_ahb
->         - const: vfe0
->         - const: vfe0_axi
-> @@ -310,8 +310,8 @@ examples:
->                        <&camcc CAM_CC_CSI3PHYTIMER_CLK>,
->                        <&camcc CAM_CC_CSIPHY4_CLK>,
->                        <&camcc CAM_CC_CSI4PHYTIMER_CLK>,
-> -                     <&gcc GCC_CAMERA_AHB_CLK>,
->                        <&gcc GCC_CAMERA_HF_AXI_CLK>,
-> +                     <&gcc GCC_CAMERA_SF_AXI_CLK>,
->                        <&camcc CAM_CC_ICP_AHB_CLK>,
->                        <&camcc CAM_CC_IFE_0_CLK>,
->                        <&camcc CAM_CC_IFE_0_AXI_CLK>,
-> @@ -343,8 +343,8 @@ examples:
->                             "csiphy3_timer",
->                             "csiphy4",
->                             "csiphy4_timer",
-> -                          "gcc_camera_ahb",
-> -                          "gcc_cam_hf_axi",
-> +                          "gcc_axi_hf",
-> +                          "gcc_axi_sf",
->                             "icp_ahb",
->                             "vfe0",
->                             "vfe0_axi",
+> diff --git a/drivers/media/platform/qcom/camss/camss.c b/drivers/media/platform/qcom/camss/camss.c
+> index a85e9df0f301..b1358457c66e 100644
+> --- a/drivers/media/platform/qcom/camss/camss.c
+> +++ b/drivers/media/platform/qcom/camss/camss.c
+> @@ -1443,12 +1443,13 @@ static const struct camss_subdev_resources vfe_res_7280[] = {
+>   		.regulators = {},
+>   
+>   		.clock = { "camnoc_axi", "cpas_ahb", "icp_ahb", "vfe0",
+> -			   "vfe0_axi", "gcc_cam_hf_axi" },
+> +			   "vfe0_axi", "gcc_axi_hf", "gcc_axi_sf" },
+>   		.clock_rate = { { 150000000, 240000000, 320000000, 400000000, 480000000 },
+>   				{ 80000000 },
+>   				{ 0 },
+>   				{ 380000000, 510000000, 637000000, 760000000 },
+>   				{ 0 },
+> +				{ 0 },
+>   				{ 0 } },
+>   
+>   		.reg = { "vfe0" },
+> @@ -1468,12 +1469,13 @@ static const struct camss_subdev_resources vfe_res_7280[] = {
+>   		.regulators = {},
+>   
+>   		.clock = { "camnoc_axi", "cpas_ahb", "icp_ahb", "vfe1",
+> -			   "vfe1_axi", "gcc_cam_hf_axi" },
+> +			   "vfe1_axi", "gcc_axi_hf", "gcc_axi_sf" },
+>   		.clock_rate = { { 150000000, 240000000, 320000000, 400000000, 480000000 },
+>   				{ 80000000 },
+>   				{ 0 },
+>   				{ 380000000, 510000000, 637000000, 760000000 },
+>   				{ 0 },
+> +				{ 0 },
+>   				{ 0 } },
+>   
+>   		.reg = { "vfe1" },
+> @@ -1493,12 +1495,13 @@ static const struct camss_subdev_resources vfe_res_7280[] = {
+>   		.regulators = {},
+>   
+>   		.clock = { "camnoc_axi", "cpas_ahb", "icp_ahb", "vfe2",
+> -			   "vfe2_axi", "gcc_cam_hf_axi" },
+> +			   "vfe2_axi", "gcc_axi_hf", "gcc_axi_sf" },
+>   		.clock_rate = { { 150000000, 240000000, 320000000, 400000000, 480000000 },
+>   				{ 80000000 },
+>   				{ 0 },
+>   				{ 380000000, 510000000, 637000000, 760000000 },
+>   				{ 0 },
+> +				{ 0 },
+>   				{ 0 } },
+>   
+>   		.reg = { "vfe2" },
+> @@ -1516,11 +1519,12 @@ static const struct camss_subdev_resources vfe_res_7280[] = {
+>   	/* VFE3 (lite) */
+>   	{
+>   		.clock = { "camnoc_axi", "cpas_ahb", "icp_ahb",
+> -			   "vfe_lite0", "gcc_cam_hf_axi" },
+> +			   "vfe_lite0", "gcc_axi_hf", "gcc_axi_sf" },
+>   		.clock_rate = { { 150000000, 240000000, 320000000, 400000000, 480000000 },
+>   				{ 80000000 },
+>   				{ 0 },
+>   				{ 320000000, 400000000, 480000000, 600000000 },
+> +				{ 0 },
+>   				{ 0 } },
+>   
+>   		.regulators = {},
+> @@ -1537,11 +1541,12 @@ static const struct camss_subdev_resources vfe_res_7280[] = {
+>   	/* VFE4 (lite) */
+>   	{
+>   		.clock = { "camnoc_axi", "cpas_ahb", "icp_ahb",
+> -			   "vfe_lite1", "gcc_cam_hf_axi" },
+> +			   "vfe_lite1", "gcc_axi_hf", "gcc_axi_sf" },
+>   		.clock_rate = { { 150000000, 240000000, 320000000, 400000000, 480000000 },
+>   				{ 80000000 },
+>   				{ 0 },
+>   				{ 320000000, 400000000, 480000000, 600000000 },
+> +				{ 0 },
+>   				{ 0 } },
+>   
+>   		.regulators = {},
 Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
 
