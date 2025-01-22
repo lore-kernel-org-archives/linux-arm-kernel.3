@@ -4,87 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DCEEC02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 10:38:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2693C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 10:40:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9XkI+wm+NB2N9LIlwo90xT0gHZyWpbSFjMquVIxSSJc=; b=xoBlPZboSWSpw53IDC+E9hc5b3
-	Ei55JBFm6tG/gslK+UEGJWJSnXfrun22qdqp5rebk5ncpneVmr+vrevOqx4/G5PVhw/fL0m/GZuJX
-	czY/1+aahRLLgwcFulmDMlNWqkp9wSpkTq4flNrpgHROiS4nkFHOQX9mq/M/WeqjMdQPP7HF8DeMx
-	tFQ7azs0jGzhVFNVHY4m2ZObEVvHRsIVayd/54h+fIILhBsEtZivLOQWb1NXTEn8ZjI78REdYjUOy
-	0oKXBbYVaC7gmHyVKuisFb2/dKpRPDLf3aWl/P8AK7gO1VUw8P9qjALScQacO2xbmhwwkWhu0C43h
-	JiHzC7lQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D148uN4hDXdT2rJSZKJwByhsJ6g1FBpWYudcX0hVbmM=; b=va7mpYpckjGFXqKapC3xh9wKN9
+	btP1BD7D4UeCzGMYekd8CqcTQJQtaVWUys1QAZ3vE/6EwsKax28v3u3cZ4+puNDcFhOL/8mvHkA3i
+	Vy0GXWky+4DQHVbiP9rFZrJ5R+yLwsKAOmumBqi1Q4CkwoXkMWUW+UZWs+3pIgL5bd3S4RFGclW5g
+	N2FeF/1EXyzaXgrDzPoRnIiMg3YiqBLB/tgP1WkuymXKTnXOFOKCgGuDGd8BP4pTAxgUCs15QxCn5
+	BhwLKNJK1JRSRO47BgU3txOXLtVO2Q2vpHU+suX/JUYHUpTONfMrmJtLdtHnoQgQE6UUbJUFc7BhA
+	Idj/42fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taY7z-00000009y2v-0aGz;
-	Wed, 22 Jan 2025 10:38:31 +0000
-Received: from mail-vk1-f181.google.com ([209.85.221.181])
+	id 1taY9E-00000009yHY-3FlX;
+	Wed, 22 Jan 2025 10:39:48 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taY3S-00000009xCp-06IS
+	id 1taY45-00000009xQG-1p7y
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 10:33:51 +0000
-Received: by mail-vk1-f181.google.com with SMTP id 71dfb90a1353d-51e2dfab53bso406558e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jan 2025 02:33:49 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737542024; x=1738146824;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=9XkI+wm+NB2N9LIlwo90xT0gHZyWpbSFjMquVIxSSJc=;
-        b=ojHSdhP5Kc9hfy5PRLgMuAC23S9cWB7BEyPWEW9YzYd/wiBIs4gun5zAp9viF0bix3
-         afuJcxTBvjr4OyB3TcpgkhU+mSFr7PpUjJyp+9CLageDlXfWSQonVhYLAyX8jCEuz7dp
-         Kwzc76mXppZAdZhz9eVbKVZPRD6NKrrhVA32qp6WI3ZHmfnx4vgvI5F8ybKWLQu0y9PF
-         8u5mHQpRKK8qVjQIgF3YIHX5B4mFCPaAe7jarEtgoVqWyNsRxRdmMVjuHNzidrLFSica
-         +UGxGuV/pAuqpncyxqz/MQUpJjA8AtbdavroJFjibccCEYYxUxSz5B8RFY3LtUVJIiR4
-         fCvg==
-X-Forwarded-Encrypted: i=1; AJvYcCViyCWLIFDPfqwAbAkF1FQkSyHiz1gsP0LOi+/HY0tPQy+Leim7dDtUrG94yqpNhdSrDKBBu1LyPmR2XsV/TcNq@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYtd9J4Udzt2RASlPcxpEFdNULqH/bwpjsyCoQm/IlLu9telAz
-	1R7mgAg7JPQBrpYOIYJOE3jccjVLzGmNjZe0zCDJpQWt2EpXNnGTWeNwE+vI
-X-Gm-Gg: ASbGncvPcCUWkautJDkMQU5afveM8Hol3C5UL2Pec+9/hD+pfQQi37sYw5SXTEJrUa7
-	fns+Pg5n9CR8pEu6y0UXKeAkdJhOPQC2o7I3DVCRe9OknHrdYDAMhonHubKRBMvlH+b3qXIJQQZ
-	yDg5c2/U9k1cO7Qe/Y+236Si+19IeDiIepvvRfg7oT8vcUPtkgjftbmkq7QEoya36WAWpK0yUSR
-	SCe1XU1FENUevxkcuvph/324lsxVJhw3gJKvOSxRLFm3wblLL6/WirSToy9+X+Y/oloBOHGavQs
-	gPAvPQPZX7v7i7AqGaabo2NZEH1BHIB2
-X-Google-Smtp-Source: AGHT+IGZfwziLEBS+t4P3ksxoMn6Z2nHZnJcEzQRkQfrXw7KYJInive0UPjEbtq3LTWlqFgn5tbcNw==
-X-Received: by 2002:a05:6122:1698:b0:518:91b3:5e37 with SMTP id 71dfb90a1353d-51d5b26bbafmr14527326e0c.5.1737542024056;
-        Wed, 22 Jan 2025 02:33:44 -0800 (PST)
-Received: from mail-vs1-f54.google.com (mail-vs1-f54.google.com. [209.85.217.54])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-8642cacabb4sm3003714241.8.2025.01.22.02.33.43
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 22 Jan 2025 02:33:43 -0800 (PST)
-Received: by mail-vs1-f54.google.com with SMTP id ada2fe7eead31-4afeccfeda2so3628027137.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jan 2025 02:33:43 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCU9jXsXFQO0vrkDFFlKZVM0n7gI1G17lFo6nXfLqZK6g/MLTEobM52GxZ8z8QOK0t/QEoQrBT+1n7RwKPqz1wLY@lists.infradead.org
-X-Received: by 2002:a05:6102:3f41:b0:4b2:5ca3:f82a with SMTP id
- ada2fe7eead31-4b690bb6273mr17446848137.7.1737542022886; Wed, 22 Jan 2025
- 02:33:42 -0800 (PST)
+	Wed, 22 Jan 2025 10:34:30 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 50MAYNrK998000
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Wed, 22 Jan 2025 04:34:23 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1737542063;
+	bh=D148uN4hDXdT2rJSZKJwByhsJ6g1FBpWYudcX0hVbmM=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=asebbBcouZYomCUcR1R60J/3sjbhOTfqfLWJz0eIxYX9TKFIkjastUZyFJ1ymseRX
+	 Nt5CjjyVK17BdWqqCqvnlURnvrVwnUSIgDzyGiTptMkqmwpFTwCBhXNO5hILA5PUOR
+	 hsVhbAGGnGBVXk3a6HftOLjNpu2CMxmHm9M1gHU0=
+Received: from DLEE102.ent.ti.com (dlee102.ent.ti.com [157.170.170.32])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 50MAYNw6118463;
+	Wed, 22 Jan 2025 04:34:23 -0600
+Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE102.ent.ti.com
+ (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 22
+ Jan 2025 04:34:22 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Wed, 22 Jan 2025 04:34:22 -0600
+Received: from localhost (uda0492258.dhcp.ti.com [10.24.72.104])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 50MAYLfx010598;
+	Wed, 22 Jan 2025 04:34:22 -0600
+Date: Wed, 22 Jan 2025 16:04:20 +0530
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: Markus Schneider-Pargmann <msp@baylibre.com>
+CC: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Siddharth
+ Vadapalli <s-vadapalli@ti.com>, Nishanth Menon <nm@ti.com>,
+        Vignesh
+ Raghavendra <vigneshr@ti.com>,
+        Tero Kristo <kristo@kernel.org>,
+        Krzysztof
+ Kozlowski <krzysztof.kozlowski@linaro.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH 1/5] dt-bindings: mfd: syscon: Add
+ ti,j784s4-acspcie-proxy-ctrl to second list
+Message-ID: <ktchilwqxu3xxu7afa2qkrmkfbwwf3xasyo3jfypizgrl7yd64@nqdp5zle7xkl>
+References: <20250122-topic-am62-dt-syscon-v6-13-v1-0-515d56edc35e@baylibre.com>
+ <20250122-topic-am62-dt-syscon-v6-13-v1-1-515d56edc35e@baylibre.com>
 MIME-Version: 1.0
-References: <20250103163805.1775705-1-claudiu.beznea.uj@bp.renesas.com> <20250103163805.1775705-7-claudiu.beznea.uj@bp.renesas.com>
-In-Reply-To: <20250103163805.1775705-7-claudiu.beznea.uj@bp.renesas.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 22 Jan 2025 11:33:31 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdXJGWaTAxOnMXr4mCfzON8QZX8yPQn3P=14Qh5OswLYtg@mail.gmail.com>
-X-Gm-Features: AWEUYZkJPokStUOT3TcAsrnueI2Vk5EIGp1vwEy5bGWF1hObbHDG-k1nE2SBS9Y
-Message-ID: <CAMuHMdXJGWaTAxOnMXr4mCfzON8QZX8yPQn3P=14Qh5OswLYtg@mail.gmail.com>
-Subject: Re: [PATCH 6/6] arm64: defconfig: Enable RZ/G3S thermal
-To: Claudiu <claudiu.beznea@tuxon.dev>
-Cc: rafael@kernel.org, daniel.lezcano@linaro.org, rui.zhang@intel.com, 
-	lukasz.luba@arm.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	magnus.damm@gmail.com, mturquette@baylibre.com, sboyd@kernel.org, 
-	p.zabel@pengutronix.de, ulf.hansson@linaro.org, linux-pm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-clk@vger.kernel.org, Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250122-topic-am62-dt-syscon-v6-13-v1-1-515d56edc35e@baylibre.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_023350_059287_916AA440 
-X-CRM114-Status: GOOD (  14.60  )
+X-CRM114-CacheID: sfid-20250122_023429_604114_871F91B8 
+X-CRM114-Status: GOOD (  16.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,29 +95,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 3, 2025 at 5:38=E2=80=AFPM Claudiu <claudiu.beznea@tuxon.dev> w=
-rote:
-> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
->
-> Enable the CONFIG_RZG3S_THERMAL flag for the RZ/G3S SoC.
->
-> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+On Wed, Jan 22, 2025 at 11:24:32AM +0100, Markus Schneider-Pargmann wrote:
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-Queueing in renesas-devel is postponed, pending acceptance of the
-driver by the thermal maintainers.
+Hello Markus,
 
-Gr{oetje,eeting}s,
+> The compatible string was only added to the select list, but not the
+> second list of compatibles. This adds it  to the second list as well.
+> 
+> Fixes: 0d078d47cd3e ("dt-bindings: mfd: syscon: Add ti,j784s4-acspcie-proxy-ctrl compatible")
+> Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
 
-                        Geert
+The fix is already a part of the "for-mfd-next" branch of the mfd tree:
+https://git.kernel.org/lee/mfd/c/756d4b7a873c
 
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
+> ---
+>  Documentation/devicetree/bindings/mfd/syscon.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
+> index b414de4fa779ba3289a5f0d484b3c7d0341395d9..0e68c69e7bc9ef8c2c96f0e7d1b5d88eeab2bfba 100644
+> --- a/Documentation/devicetree/bindings/mfd/syscon.yaml
+> +++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
+> @@ -213,6 +213,7 @@ properties:
+>            - ti,am625-dss-oldi-io-ctrl
+>            - ti,am62p-cpsw-mac-efuse
+>            - ti,am654-dss-oldi-io-ctrl
+> +          - ti,j784s4-acspcie-proxy-ctrl
+>            - ti,j784s4-pcie-ctrl
+>            - ti,keystone-pllctrl
+>        - const: syscon
 
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
+Regards,
+Siddharth.
 
