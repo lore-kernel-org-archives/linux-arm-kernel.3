@@ -4,119 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21E99C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 19:17:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A194C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 19:27:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=StBs1yybCW0ddI0aiXdemem+T65OMsy4WM+BdrXHgOE=; b=hlJliJ3nCUsxNNRQAJwc9xjEbz
-	+IlmpLa8QYmMG08RwL+CBsczYwP96xjvepVpSUZxEPGYpWfZh/k4J9x065kccBbDP+oHe7ic5Uzn9
-	SQDkTn/sm/6W5UBqrCMq8G8tOlo6KgRSfqk95pwTm5nCcsKF2kKGaNfyeM2cHbUicdwZUlgUaUnKW
-	7tPWsHrAjVPasQpOyEUd3KTvmM1kFmUiTEWE1b7sFZYKK89DpeXeP643F8Eil66EnmEce0WoUXVlG
-	xD9j74elsGw4e8dBD0r8F2oSIFvzvkCKncy9c1FU3L8GFzL0XbQPIrFbdhJW5kMWwSIpSLXZm0L58
-	DX0tD9Yw==;
+	bh=2W+qfsEAUclS3rHGg1rqVyLJ0A2NtvBKn6a5gu/HE+Q=; b=t77qRSL0HmpeeOB4ZKP3G3LTbX
+	N9PrG6lc2SrnBfyKDejB7WiQSDIZEyfdESwiILmBqT1dxA0e8mu4ZJXvlVdm2hn/v7Iz0+Mdlc4cd
+	K1+77+ZN7oRqQ3tR0fgHaUlUYA5FLoKfLg18NW5KOIML5MTiY69Hj6sw/eqzRNDZ+6VEdoGv/kG1p
+	xV0SV6hprAQo6l7zSR9GFtbbYMf0OCGSWk2U8WHtrMsl0z9pzw8UqQGwIZOSN03X7fKWUIg1qHcRY
+	4t9yYcOurUX965CHYRK+48sDhGJAp10/ssyXx6psF+KoWmazc5Ebv5XUgfLgUfVCmR/AQun5wwL3C
+	jYtoGZUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tagEM-0000000B4IZ-1s9h;
-	Wed, 22 Jan 2025 19:17:38 +0000
-Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
+	id 1tagNf-0000000B4sr-36DI;
+	Wed, 22 Jan 2025 19:27:15 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tagD4-0000000B49E-30tO
+	id 1tagMM-0000000B4j6-0kAN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 19:16:19 +0000
-Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-7b6f53c12adso3894585a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jan 2025 11:16:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1737573377; x=1738178177; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=StBs1yybCW0ddI0aiXdemem+T65OMsy4WM+BdrXHgOE=;
-        b=gDiyqPA9B8Kq59qfN5+VZykQ5oapCPx6woz6Qk7mfkXdaOakISYRCIx9TpK8xDlAK/
-         DSQuwCAZAWyxQBgy5ZY1f7D3Wnvr+2M2JX00tVjn8HV4Q5K8IiyknLUHJJY0znAvoA/J
-         47m9/nk2u8TDnEpb8Bf3SDZ/XVq5JGHorC/Ju/4R+7J5yFdNsOZ5yt/M3BJPXnxhuMaR
-         E7vJpFualsfO0VPOKe673LKmnCd8q8LsblBHVeicSod1/p/lUnntd2kM9d8LuhWDygx/
-         NrvlzN8zw3GrqkYNauHVmWNbWgJC+oru12Hn317D+5/xq5DrIuSiY1DF+8FuZ8LmeFeI
-         nf5w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737573377; x=1738178177;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=StBs1yybCW0ddI0aiXdemem+T65OMsy4WM+BdrXHgOE=;
-        b=xG57vP79KVXA+vKtOeJp94gyFHCt8S+xDRIX1qIyl2B2uWtcr6gMd6PR1Oy+nHHmsx
-         Vn04W0J57h2gCPAorGtkupk7j7AVlgCj//eRoQdQl4uz+ogpTvh0zjeqV68vaIjJ+sdm
-         FNNCyfY8v6kuHigXPEo31sL2ndiYT5co6dfTwyPeaSRbehTevA9mTYkzpCkrgqge8Tm9
-         3Gw+LZr8nj/3XOeN0tHfKKsZ6M5+70ev6HmowjkjNIog27zIHohoHttaDEpJdU3HnmXU
-         OlIpoLF2z8yGybVRQ9cCoYlZRgTUU/qwziwLUMNOaAFoSITTBSJvGYBtFnEslyrYMan/
-         323Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXE2uXITCIcNNkyKKHd1g7/a6F5pj+IsH+3wnhcVfAIQCq7WP8bdX/hftOheqanFYdnwsGTzzudRaJzbwSCLS3y@lists.infradead.org
-X-Gm-Message-State: AOJu0YyXtNBnFywB/vDPm1KHh7SNHKxSi0pYLVorAaBsEBeKQeLQjG+s
-	S4GBQRSWpktOMFmfREYyDxUpHvxQ9cNbB2L/Vg1fuaXdmOMZxg594Ymi4u3Sg5s=
-X-Gm-Gg: ASbGncsic2snPx8tJoUGqVbxfPW/3ymY5eJLuou0PwG1Q9UBiKSRn2Rs6PsfI5By6HU
-	tMGubGW23ReO4GNuQu1Bi8rHJ0ijkU2I/GAmTxcaD4QytF3H/5lxSS/QAJZm4ETkWnl+2flfJyO
-	rGc2YHKDqx2pceVOx98P37F4PnmNsSkZLVksWWpOJ1JUDLf1JMyEMdMgEC1ahuyFzyMcFrjvFqf
-	7Owe+C3DZvMoppD3M3PMxT46UqyH9AT8BcaX+sujF6PgKBqYVbmZ9L43NO5xd1yc6YdICvHQODf
-	K5dRobkBMo4foTdJ0VLDC++ceqGwClssSjx5cXNNy+U=
-X-Google-Smtp-Source: AGHT+IFVrl9HtlsCxgPAX2pD8bZ64h5nRxXoX/dvVQ3V1TgnXiLnupfnJHpYt7QXTpYGl54zFfzQXg==
-X-Received: by 2002:a05:620a:601a:b0:7b6:d632:37be with SMTP id af79cd13be357-7be6320bebcmr3861755385a.4.1737573377534;
-        Wed, 22 Jan 2025 11:16:17 -0800 (PST)
-Received: from ziepe.ca (hlfxns017vw-142-68-128-5.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.68.128.5])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7be8b26abedsm123129785a.34.2025.01.22.11.16.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jan 2025 11:16:16 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1tagD2-000000042qJ-1azx;
-	Wed, 22 Jan 2025 15:16:16 -0400
-Date: Wed, 22 Jan 2025 15:16:16 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: "Tian, Kevin" <kevin.tian@intel.com>,
-	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"maz@kernel.org" <maz@kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	"joey.gouly@arm.com" <joey.gouly@arm.com>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"robdclark@gmail.com" <robdclark@gmail.com>,
-	"joro@8bytes.org" <joro@8bytes.org>,
-	"robin.murphy@arm.com" <robin.murphy@arm.com>,
-	"jean-philippe@linaro.org" <jean-philippe@linaro.org>,
-	"nicolinc@nvidia.com" <nicolinc@nvidia.com>,
-	"vdonnefort@google.com" <vdonnefort@google.com>,
-	"qperret@google.com" <qperret@google.com>,
-	"tabba@google.com" <tabba@google.com>,
-	"danielmentz@google.com" <danielmentz@google.com>,
-	"tzukui@google.com" <tzukui@google.com>
-Subject: Re: [RFC PATCH v2 00/58] KVM: Arm SMMUv3 driver for pKVM
-Message-ID: <20250122191616.GW674319@ziepe.ca>
-References: <20241212194119.GA4679@ziepe.ca>
- <Z1yNWI9lBNIZg6Le@google.com>
- <20250102201614.GA26854@ziepe.ca>
- <Z35rEeSVwfZVA9IF@google.com>
- <BN9PR11MB52767756EE35DA2359C351F08C1A2@BN9PR11MB5276.namprd11.prod.outlook.com>
- <20250116191455.GC674319@ziepe.ca>
- <BN9PR11MB52766732572A17627D16CBAC8C1B2@BN9PR11MB5276.namprd11.prod.outlook.com>
- <Z5DQuNn3GoU1vYPV@google.com>
- <20250122162055.GV674319@ziepe.ca>
- <Z5EoPhhU9mm9zNWB@google.com>
+	Wed, 22 Jan 2025 19:25:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=2W+qfsEAUclS3rHGg1rqVyLJ0A2NtvBKn6a5gu/HE+Q=; b=zgM0RouzKSxSBhQv/D2XkgVoiw
+	e8l+KkrofWnaCxW/VswXEPsvHyftp4soRON+mPixqjvrT2AITkMnzKN1rWqrs/Wxp2ezmVGKPkNdu
+	cRnsRKEQEhOTsibHhZJqu0ckUkvOO94eOz1ecA+lN7FeJdsyhLkM8gfh64JDVS5eaN6h8D0yD3yEA
+	cEFQnGMnIFZFu72GgIkctg9T67YAGC7LJr/Z891SSGX4Od3ZvoVqdBEJuQ0hCFTDxyZSzAvHl0BrE
+	Nb1rs8od0pCKYzRUa6KI4B+cqA/Z762ewtE+2piYAXY/y4P7AaVEqDBqM6V7/8yoCfbVhxu3lK+1M
+	wVmuLDGQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:44086)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tagMA-0000Cl-1U;
+	Wed, 22 Jan 2025 19:25:44 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tagM6-00059x-00;
+	Wed, 22 Jan 2025 19:25:38 +0000
+Date: Wed, 22 Jan 2025 19:25:37 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: davem@davemloft.net, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
+	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	=?iso-8859-1?Q?Nicol=F2?= Veronese <nicveronese@gmail.com>,
+	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+	Antoine Tenart <atenart@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Subject: Re: [PATCH net-next RFC v2 1/6] net: ethtool: common: Make BaseT a
+ 4-lanes mode
+Message-ID: <Z5FGMfF1ox-KhFAg@shell.armlinux.org.uk>
+References: <20250122174252.82730-1-maxime.chevallier@bootlin.com>
+ <20250122174252.82730-2-maxime.chevallier@bootlin.com>
+ <Z5E_FUxSZJWRWVAq@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <Z5EoPhhU9mm9zNWB@google.com>
+In-Reply-To: <Z5E_FUxSZJWRWVAq@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_111618_755333_56771B07 
-X-CRM114-Status: GOOD (  21.15  )
+X-CRM114-CacheID: sfid-20250122_112554_223675_614D824A 
+X-CRM114-Status: GOOD (  21.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,32 +98,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 22, 2025 at 05:17:50PM +0000, Mostafa Saleh wrote:
-> On Wed, Jan 22, 2025 at 12:20:55PM -0400, Jason Gunthorpe wrote:
-> > On Wed, Jan 22, 2025 at 11:04:24AM +0000, Mostafa Saleh wrote:
-> > > AFAIK, the most common use cases would be:
-> > > - Devices using DMA API because it requires a lot of memory to be
-> > >   contiguous in IOVA, which is hard to do with identity
+On Wed, Jan 22, 2025 at 06:55:17PM +0000, Russell King (Oracle) wrote:
+> On Wed, Jan 22, 2025 at 06:42:46PM +0100, Maxime Chevallier wrote:
+> > When referring to BaseT ethernet, we are most of the time thinking of
+> > BaseT4 ethernet on Cat5/6/7 cables. This is therefore BaseT4, although
+> > BaseT4 is also possible for 100BaseTX. This is even more true now that
+> > we have a special __LINK_MODE_LANES_T1 mode especially for Single Pair
+> > ethernet.
 > > 
-> > This is not a feature of the DMA API any driver should rely on .. Are
-> > you aware of one that does?
-> > 
+> > Mark BaseT as being a 4-lanes mode.
 > 
-> I’d guess one example is media drivers, they usually need large contiguous
-> buffers, and would use for ex dma_alloc_coherent(), if the IOMMU is disabled or
-> bypassed, that means that the kernel has to find such contiguous size in the
-> physical address which can be impossible on devices with small memory as
-> mobile devices. Similarly.
+> This is a problem:
+> 
+> 1.4.50 10BASE-T: IEEE 802.3 Physical Layer specification for a 10 Mb/s
+> CSMA/CD local area network over two pairs of twisted-pair telephone
+> wire. (See IEEE Std 802.3, Clause 14.)
+> 
+> Then we have the 100BASE-T* family, which can be T1, T2, T4 or TX.
+> T1 is over a single balanced twisted pair. T2 is over two pairs of
+> Cat 3 or better. T4 is over four pairs of Cat3/4/5.
+> 
+> The common 100BASE-T* type is TX, which is over two pairs of Cat5.
+> This is sadly what the ethtool 100baseT link modes are used to refer
+> to.
+> 
+> We do have a separate link mode for 100baseT1, but not 100baseT4.
+> 
+> So, these ethtool modes that are of the form baseT so far are
+> describing generally two pairs, one pair in each direction. (T1 is
+> a single pair that is bidirectional.)
+> 
+> It's only once we get to 1000BASE-T (1000baseT) that we get to an
+> ethtool link mode that has four lanes in a bidirectional fashion.
+> 
+> So, simply redefining this ends up changing 10baseT and 100baseT from
+> a single lane in each direction to four lanes (and is a "lane" here
+> defined as the total number of pairs used for communication in both
+> directions, or the total number of lanes used in either direction.
+> 
+> Hence, I'm not sure this makes sense.
 
-I see, that make sense
+Looking at patch 2, I don't see why you need patch 1. It's not really
+improving the situation. Before the patch, the number of lanes for
+some BASE-T is wrong. After the patch, the number of lanes for some
+BASE-T is also wrong - just a different subset.
 
-> It’s not just about completely external devices, it’s a defence in depth
-> measure, where for example, network devices can be poked externally an
-> there have cases in the past where exploits were found[1], so some vendors
-> might have a policy to isolate such devices. Which I believe is a valid.
+I think you should drop this patch and just have patch 2.
 
-The performance cost of doing isolation like that with networking is
-probably prohibitive with paravirt..
-
-Jason
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
