@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 845E8C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 05:25:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E40B9C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 05:26:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YntZz1Mt/wtlO4/vUgbqSz5D1yOoCBwe8qT49y3en44=; b=RVzOxl8dNgj3fuqti7ute0Ot4O
-	SNXFYBecs8KgMSLgRvh40cBudKHwMjpbu9oNFJNl5DHtRKCDcwZ7dOcSn9ckDU77KR27cY+WjKJ8g
-	4N3iylcRvzzg2XscFi5CT2q+oM+TJahlfLVTFfRcuih88rnLKv/kd92aQ0HuHrqYl7LVTTzZtoE8W
-	GGAj56tWH8EOpaCyCMuOLSjrPnjkTLaAZ0XbiD+SbLEUFcWmxVa/pAz3FM/+4p+QUfFtMyKKWlYHD
-	4EmrXePROY+J+31UupMiZ6sPBC32r+XY9R3aR+L0PwXVAo/dLAY+phwslgsNLeliq4x853220J4Xw
-	fl1cXfCQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rogkgLiMxM/qpPu5zNxUF5knwWkoakJvFVE9RPvdc+8=; b=y2s5TEVrGUt2Zb7IGhseszBPj6
+	IQO9+ZCwI4mFu9i1B3BlgB/a2nK4t8gaTdT13gOLOljE4l22LgerOv4h6yCOe36Or3XAr+JVC82GF
+	gXGD4JvZJlY9HBp/8Flz9W+g8IqNG/w3zjFjMmVo5asuo0YjiwKdycFKTt3H40PRPHGp6/pH39cU7
+	jaWx3BXXJExgdQVQECb22Dj4DD6rE1nDoi1LF55r9fbgg3UtfEaT1klLh18P10+PNFHNb7yub94Ed
+	SU9eEcRSF8eCY8bYm97/pqky70bZuRGCkpe6SijTF3UJJaaR3ErnFAGjRNCXZlkVDs8GhMYuiWNpE
+	+2k2P7hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taTEo-00000009PPM-0qUR;
-	Wed, 22 Jan 2025 05:25:14 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1taTGA-00000009PXh-3lhm;
+	Wed, 22 Jan 2025 05:26:38 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taTDQ-00000009PIy-2maR
+	id 1taTDT-00000009PJI-38Nf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 05:23:50 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-21675fd60feso136569255ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jan 2025 21:23:48 -0800 (PST)
+	Wed, 22 Jan 2025 05:23:52 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2166f1e589cso156914035ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jan 2025 21:23:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737523427; x=1738128227; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=YntZz1Mt/wtlO4/vUgbqSz5D1yOoCBwe8qT49y3en44=;
-        b=gtsYwJBYw0ukaTlILyMLgJBR8ogohAnbpw3baVSJN1Ysr/hte7JhP/T8qubD6fJwe+
-         IY4TWadQglABd538UtjFOz+AVnLklu5zeYJ+qYG3n4plOxjrxsS0pBOkJdZsLglv/PKJ
-         OZf7JKc3o3m9q/0s08+IBVdmOlpNIHJjmNji8tyDAvvlhpgOuXONqgq2u3kTitWZpCmO
-         inIHBtcZ6D29R+k42EW9d+fzTJkaYpIZduyr1KohZ1W4S7cOfgd90qJO8dCJR3/B0Z9r
-         FYmkU/kU1SCGba3UTQylOxGO6vca6UQt0yZefh68syJyJEO6ZT7fyvhx5JINvnj2Ke3p
-         0G4g==
+        d=linaro.org; s=google; t=1737523431; x=1738128231; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rogkgLiMxM/qpPu5zNxUF5knwWkoakJvFVE9RPvdc+8=;
+        b=M8DgsE5qWvoWSp8UDBzohciUPRLGnDE1dEP71oe19PakLkKHUBkKbLoikJELGGrhHV
+         KP5dOTheCYD+VinmpONx2tprg+uOo+mi6r3u2iKDl7KSbgqc75DfURDQF8vbfz3s6FCT
+         Jyi2PuibXNPgfE28pckbvMxU79myFxM5huEcS/AsPN//gcF0f+G5AnF3+q2sr4HNX8er
+         4BVYgeat+kEdIuwDZWCi5zgK4oB+PSDsXBCFLthEmblskxlbAUlDmzaHzSfVqQjAP8tw
+         lidZkX4oZ4LTCv7c4lr6WkuxEf302syoofg1TgDU/BV5bjL4qsfEo+RlmjQ06s0zAB5o
+         7ipQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737523427; x=1738128227;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=YntZz1Mt/wtlO4/vUgbqSz5D1yOoCBwe8qT49y3en44=;
-        b=SKhUv+DzLiL5wxuJi4rY2GWnnMaqi0KzjbzTrWsm9i1CvU9WZ9b9T6+9LGlNw+a6oN
-         hgQ5LrMsdrjzPfOqdUfG9HnGygvHYMJkxYb+CeufYj1u3HPrYryN86b68i3wiiH39gdd
-         1cbCuSWAFm/XdB2GuXiHt2C+4bQFjjPA9Z0HQMUsfxPSqvDt+L1A0U5TxcrlrbzAsaCN
-         mcXekC1YIu/p/1sKMeXZDEBlwTohfjPTo1Xd0on5IQXKuGqQs5MvQ1f0b9Eyppp2FIqW
-         q58Kfr5N9roOon1oYynV/B8CUPpDWrjBHpCBcPjvdIfZ3rbhYu5vxPo5gYCeLI7EH3WL
-         /bxA==
-X-Forwarded-Encrypted: i=1; AJvYcCWyukHc5IgVsMfWJd7e6JhVAqsMUWhYn9yQ2P7warDeqUQ32Xq39Oer5nhMYJej8FhevZ65GzisD2X3avoTnzKd@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw39VT6WmUoyl1HjqzYSJh06tmIOLLdrT7Fz7gGlvkPKyuGLOh9
-	q8VqBPTsmvY5p2POiDYDPJCTCbjYHbC0kn0zzqgPYUhLnYIAQDBGeKQGja84QYg=
-X-Gm-Gg: ASbGncvYrca59Cjlz/hY8wpFJh4EYXH6yf1z98g+GqvHDkOLq5qGz17GImpk0EZeDY1
-	no+c2ZBz4CnszojHY8zIxJmDV8+5f30Tn/CQJljLZ0w3ivmB95ZnxdEVkmNSEguaRc6jHnXdlJe
-	+QjiOPEBO++/6Ici21MD3lAKVPoej4GIGnOCZoMa8bzbSAMWHl0WS/+pIC4QYPvbwa39JGfE4Xm
-	0/r4jMTcG4PZC2Y1/mt+NMS3Y6DUz/L9c0rn1Gl9pWAWywz68XskmEFTUodRdR9SV7x4txC
-X-Google-Smtp-Source: AGHT+IF5NiznMvHmJ56DNofog6mUGrXroKcpo9h4kJw0sm/S7G5ZplEwIxWReVDfDx4BrGbiIDsDeA==
-X-Received: by 2002:a17:902:e88f:b0:216:48f4:4f20 with SMTP id d9443c01a7336-21c3551437emr302333535ad.16.1737523427653;
-        Tue, 21 Jan 2025 21:23:47 -0800 (PST)
+        d=1e100.net; s=20230601; t=1737523431; x=1738128231;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=rogkgLiMxM/qpPu5zNxUF5knwWkoakJvFVE9RPvdc+8=;
+        b=lczVNLEuTzIpgryWzFZ7eSzccLxywrrdybeFeJGJ8ajOcBR9xRJfeQczXcOyVXxKnY
+         HpafJXHkoF+D/Xbz2FlSWtcHSNe+oG1t7L/tcV+biDVeZk21Yd6q82mEE7R46b6BIpGe
+         Yd0tt6Wdfo9Y1L4jcEgc5OoaTncKgxvb7+aZpHCVHvTjGlbAPOX6Nk4HjCMqBoyVu7Up
+         /BlO1f7N2e2C1s7lRngnEnWXHCpVVWKoPlDl4j8aAqcxPS9XKgaj8DotYUFsXy4Y6BOF
+         f1XGlMGOOjc16I2WRQQrvNlaOhwamn5nHl65tCg9uaWKs65EJC0g9WJLWlBHj6KWJcBI
+         Uvug==
+X-Forwarded-Encrypted: i=1; AJvYcCXu9cNG6sbblYAxlNuEHIzC8bCI5KEK7QR2VAJLmCBHIgw2lheA6HqYntAy5ho+gOjqzaKQEG6VoPXs3xFW8jfp@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy2KAQgWezTQHnUZwTtQFr34OrH3mkVaAy8QdYqo65ClG3gnpM9
+	+USuWRE2iIfhnjcufmBSIaxTUTlA5QmFlD8MdYJzdrMzlVxgUuegTD5wi7G9leo=
+X-Gm-Gg: ASbGncsS9mmRKPFHdaONZRXcsrwuCXJmOYLH7wZPNrNdJWchU38NI/A6FFkHJcYiV3H
+	ovB0wyYSSGIRO8eceJ4gRPD02aOyJTnSH6+HiI4k4ahVHY1OqkElhcxarEth/8GIebhQOu2zuso
+	TIXArkHsoY2cemaTnIEFW6TpP243KMRO1suAFo0zSomF6hB5/K7eMCNT2tl/MlK9zsNNwxzN36f
+	ChIbfIyTk6ZtqvRPSpz3vnNx00QIZACByXV0J9/WyAHQQv0oI90vPFIURVGw6pOC7T74Qe4
+X-Google-Smtp-Source: AGHT+IEPqDe1yqvKzBLjAWElqaZtpyjXL8Li25l93tVo0G95bXnS1JRd6Jcj8OJjonQqW0E4kYj2Ag==
+X-Received: by 2002:a17:903:2291:b0:215:6816:6345 with SMTP id d9443c01a7336-21c355c4292mr312338035ad.16.1737523430910;
+        Tue, 21 Jan 2025 21:23:50 -0800 (PST)
 Received: from localhost ([122.172.84.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21c2cea073csm87367825ad.48.2025.01.21.21.23.46
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21c2d3ac797sm86139995ad.155.2025.01.21.21.23.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Jan 2025 21:23:47 -0800 (PST)
+        Tue, 21 Jan 2025 21:23:50 -0800 (PST)
 From: Viresh Kumar <viresh.kumar@linaro.org>
 To: Sudeep Holla <sudeep.holla@arm.com>
 Cc: Viresh Kumar <viresh.kumar@linaro.org>,
@@ -74,16 +75,17 @@ Cc: Viresh Kumar <viresh.kumar@linaro.org>,
 	Bill Mills <bill.mills@linaro.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/2] firmware: arm_ffa: Partition info can returns self as well
-Date: Wed, 22 Jan 2025 10:53:42 +0530
-Message-Id: <0bc7e1754db0547c6c041ed178cf24ca326af2d1.1737522729.git.viresh.kumar@linaro.org>
+Subject: [PATCH 2/2] firmware: arm_ffa: Allow multiple UUIDs per partition
+Date: Wed, 22 Jan 2025 10:53:43 +0530
+Message-Id: <e7990bc3dc128e5056c3bad381e548a49ab67c81.1737522729.git.viresh.kumar@linaro.org>
 X-Mailer: git-send-email 2.31.1.272.g89b43f80a514
+In-Reply-To: <0bc7e1754db0547c6c041ed178cf24ca326af2d1.1737522729.git.viresh.kumar@linaro.org>
+References: <0bc7e1754db0547c6c041ed178cf24ca326af2d1.1737522729.git.viresh.kumar@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_212348_732033_18B0359B 
-X-CRM114-Status: UNSURE (   9.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250121_212351_787549_3BAEB1E9 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,30 +100,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Partition info may return self partition as well (specially with newer
-versions of FFA spec), skip adding it twice.
+A partition can implement multiple UUIDs and adding the same partition
+twice will fail. Don't try to add a partition again, if it is already
+added earlier.
 
 Signed-off-by: Viresh Kumar <viresh.kumar@linaro.org>
 ---
-Rebased over: 9967e35eb1cbdb8d0c0bae3f54401d806700e6b6.1732255888.git.viresh.kumar@linaro.org
-
- drivers/firmware/arm_ffa/driver.c | 3 +++
- 1 file changed, 3 insertions(+)
+ drivers/firmware/arm_ffa/driver.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
-index 34d9a54b6a77..b824c7c024fd 100644
+index b824c7c024fd..6de941821319 100644
 --- a/drivers/firmware/arm_ffa/driver.c
 +++ b/drivers/firmware/arm_ffa/driver.c
-@@ -1424,6 +1424,9 @@ static int ffa_setup_partitions(void)
+@@ -1389,6 +1389,10 @@ static int ffa_add_partition_info(int vm_id)
+ 	struct ffa_dev_part_info *info;
+ 	int ret;
  
- 	xa_init(&drv_info->partition_info);
- 	for (idx = 0, tpbuf = pbuf; idx < count; idx++, tpbuf++) {
-+		if (drv_info->vm_id == tpbuf->id)
-+			continue;
++	/* Already added ? */
++	if (xa_load(&drv_info->partition_info, vm_id))
++		return 0;
 +
- 		/* Note that if the UUID will be uuid_null, that will require
- 		 * ffa_bus_notifier() to find the UUID of this partition id
- 		 * with help of ffa_device_match_uuid(). FF-A v1.1 and above
+ 	info = kzalloc(sizeof(*info), GFP_KERNEL);
+ 	if (!info)
+ 		return -ENOMEM;
 -- 
 2.31.1.272.g89b43f80a514
 
