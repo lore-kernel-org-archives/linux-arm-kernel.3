@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CC82C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 10:26:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FFC3C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 10:27:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=GwHv2aPcEWoD0loupYwRcf7PKkvnDo+yTNth+u2DuQc=; b=w8nPpOKs9Gzy5O
-	ux+9kCiqYtBCTKUpXoY7fFzQaIP+VtsI6SWb1kafGJ759eTjCO1P+wQAzp64RhWipgq8PQ3XvM7hc
-	HyhZun85SVs9ilVOggifrRID5lksK1906x7T00xGd928yAaieAxM769TPzlxFYITXQroAWuc2zlEI
-	WNMnlPUdImcVZeFwgSGQErlHgScUSEmPxBuL59s7J2b6/rL/vwazU+prE7alu0UCPmT7LG95W6/ev
-	kt6m7IK1lojValJviJ5k0Ed9e5phyNXjjJ1JToO5VjG3GUBIdFFG3fdKMeJdEhzeiw7QEzvbn+s8V
-	jPb1G+4NkQ8rylOVZ+Aw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IpIWGgNd2lENHo+vgBhA/C2LOLlWQiS8zO/AwCsXh4Q=; b=WWp28keg/hV6EINdxvHyViQOdf
+	G5njVJ+wXXwsibRKwI+P+lKUqv2v9bUjjh55xUPtD5LlhdPEeREcIVd0qQJB34/iajL9TP57clFwr
+	LHatl94303+HDq68GgsDk9viW/rIqzoS0RTJsSBfzC1oUkfQEouJBZy7QlVRXzxsD45sWFjbAlTW0
+	LiEJIpmrADly36e7YE4S5OSqAi3k2h64NaRj47VZJ9HLysGFKqhmJmf6lO/nwhDkSqG2EHAdLP0GE
+	IuFrJo1KvEZtbBcYgzBrcciflDy4drAVbPtpbs/lIfr1DjEFFzz9d+8DyAWX1BRx2kHmQ7AMmgUn3
+	YOXYsbhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taXwJ-00000009viQ-3inT;
-	Wed, 22 Jan 2025 10:26:27 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1taXxZ-00000009vwa-25Ac;
+	Wed, 22 Jan 2025 10:27:45 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taXv0-00000009vRh-3M6Q
+	id 1taXv2-00000009vRu-0YT9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 10:25:08 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4363ae65100so73532565e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jan 2025 02:25:06 -0800 (PST)
+	Wed, 22 Jan 2025 10:25:09 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4361e89b6daso46267115e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jan 2025 02:25:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1737541505; x=1738146305; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=GwHv2aPcEWoD0loupYwRcf7PKkvnDo+yTNth+u2DuQc=;
-        b=ZwgtNup5OG3aBVuSlfe0iMRxB/5aIGyBjbPdk89prRACTVb7V6fF+XE9XLFDmOLPwP
-         3PvjQJ6gShNJgY72caoMVxIIToZ8s+YzYZbOpXKVZG43Sy0576uTkxLEAG/jOK5TlN2y
-         DIy0g8k+sCLdqD9W7hl3QN0F6HSJncUTJBnjNYNPc4Y54hOArz0JIhHa0EnlYcPS2EQC
-         uJDhf+RxlZPJzt/ao4acspC3d62noBYBFO1Ue28aFIQmjRU4zlFqf2iH7UQoQvXnUqcM
-         k/vC85cJ13KzOaKTK1WS4g8dpBOHrMqdAWFenggBhEtxhnASyu0xpHUibAMPG/jkdLCL
-         1bPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737541505; x=1738146305;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1737541506; x=1738146306; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=GwHv2aPcEWoD0loupYwRcf7PKkvnDo+yTNth+u2DuQc=;
-        b=T6x5W91Kn0ODTzdl4o88xy7eQCl6nzqMYEPo+/Y6bxDZFCQeBmEn5DmtAQpQIegWO7
-         3sC54MbborAOszazaWT6QegW681ASUzuxavtA1YdNXnx5nxwvsCWbLM5iKZYiM7fLWKF
-         LE6piXj7o6PkK+E0ZbqBepE1N7QIpS2oMkVn47Kw1/o2h4MdTZZ48rSUkZTtBEGAhA0/
-         FJ3vjpMzoaOQ7u05/iFz8yKMyExHr7iXxSbT7FYBzknSMdd9kJej4UK1CczQBEIMTaGB
-         T9g67Ohxsj4Z/vEF/5BRJcoqiiQvKlvwgfzeH+f+4C3tR67f6LQOKwXsyVyqpQnAPVLg
-         XpjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX75RdeUyVLVmr3cPskbMQPldQxroL3m5Va72YXQQS9V9dS4UvOX996lFFpJ7dfQjI/7CUBlioRQqZ105jY6O8u@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy28w211Z+wDG4Pbxlf27qhiSVQPD17AXUIpqvO8hwRm4PGGfAO
-	traGmLgORlnG8u/Gn3dA0bO0Lg15mHD4fXegXRbTOYLm4bK9wwnYnJCpUkBiQuA=
-X-Gm-Gg: ASbGnctVV18Fx2x3SyyK825hdfmfVPtos4U/BwDYYBY49OxZJC7HnToLxJmNaeqc+rK
-	qyfYboBE8bSNIFaclkUWBR7l66nJGKO9KEFf5rCwM28EhiFivasT9z0tn4ODG58bECz4R4TpV2i
-	IeT3bVqWVBx4fzrKQnzFUfBTSCHkNw5roNYvtJvaFgpygJf7XDd5EPMdUsQ+q5Np1CAq0FM2psE
-	12Wcxn3E+Ho2dMiUOtSb/2iaIo5z3WGMMDZwjqHRQiBiIholfnop4QRrX0ZJ8+H/fE=
-X-Google-Smtp-Source: AGHT+IFpt/XXXccsHvEFoIG6ujz+wEELGcCf+5voltza935oFhduQAAvS+EeH/1myB8fiPdsB+lIPQ==
-X-Received: by 2002:a05:600c:4e06:b0:434:fddf:5c0c with SMTP id 5b1f17b1804b1-438913c60e1mr196869015e9.4.1737541505222;
-        Wed, 22 Jan 2025 02:25:05 -0800 (PST)
+        bh=IpIWGgNd2lENHo+vgBhA/C2LOLlWQiS8zO/AwCsXh4Q=;
+        b=VDiVRTdSHq4YtQj5JoVfVFnLWgMLR1DiVBfAKhWaqL4V91FdbJZ1GkJZE5wZxhG2Lb
+         NL4o8zjcGC1s88s1gdQj4d+WiXxVvsaHyaqaKS2jLkeGOe3w99wQ3fERKHBEHOHlmLG1
+         VKqFMjQsVAOdWmwn2tX4AGRsHGCQkXh4zi+0BOLTS/DMF4hHqeOFJWlc9lT1Ad8lfR8f
+         t+8P+9FYX2GCg1FzL/P8EUFuzOOUAQr2dTVZ4W5/k/QQLQDOvzpa4gswtQiN7U+WN5EO
+         HHbHvRZmbbDQrpcKTzH6odwfQyHhjRqWB4gsa3MzTaChYjEg1pPjjr8GBUWKinlmymPJ
+         wQ+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737541506; x=1738146306;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=IpIWGgNd2lENHo+vgBhA/C2LOLlWQiS8zO/AwCsXh4Q=;
+        b=aYyvWXmjMXTI55xO4O8BUW3gtwm/y6qhHNtdPyXvY4SyJlfMJIMKG3teiD0mmbtTRV
+         r9Kqh7LZhUFbxkVug/I41EaO+W/FJjkOvEwyYhrL7oFlMNE+47f8N8o9DhBowzrKC8l7
+         3Kb0rMRl7irPfIqOyYNht4w5RfQjWmPHlAGfL+3dadyHbfiJ1OtbH2lc6u6oAHDXTieu
+         TcoQa3uRJkEWq9W5JYf22JpjD8ocoP2FAlJcO4F6HwIqLUM5sRujOqHbclKyjpnyO0gP
+         vm3NK1NcmEHyizKnEUS5qV9rz8WMRU1NJP9fcIS4RhhpFY1HRAMXSSRy5+tMxEhqg9KL
+         h48A==
+X-Forwarded-Encrypted: i=1; AJvYcCVHC2tGHUoEYbb0MmBlAFYeQwXtO+PcZvDY/V/JHzmZP5r5Q27KWRTVB9YPTjplf6LWVGbOAVXkiNl7AJ7nM+t+@lists.infradead.org
+X-Gm-Message-State: AOJu0YyISqst89RZY7Tt6zaCTf3EcR+pHsKnkqZaKXDYaiZT/qYml23c
+	iS6s98arktQ1f8cVcHl47bKx6dVb81p6q/88KkK0juCV91Qzd/PARQEQ0DQmQkw=
+X-Gm-Gg: ASbGnctN4cFagYmc0YUHVdz2kPrBjwbZcXzKWs0E4tDYJeZIIajUHuOGdR/9FHEAEky
+	VVlKxqHpVsl4mlPazlSdP0/NzWSdFqb7vcN7TuXjq3qImtAcnNgpkooaicElizjD+MLcVuru38l
+	tugjW4MUnSY44Bn9Zz8fbi+rBHI9BK3CCwzpKmLW4+eU1zsKUDaoQGZ+o3uoi/oO+HhS2rt/yCq
+	V5r5IA831D28UjJyWiQ2WwD81/JKUr9nWEftcKyr+GRWRVYQKLDMYmsfVld1EXfAK8=
+X-Google-Smtp-Source: AGHT+IHPUrmQOCnYkU3EXFbKGz2qcbqTpnROon80fji2JKFfsS7aPn44TzE2C/9th1P+qRkaWMnSzw==
+X-Received: by 2002:a05:600c:34c5:b0:434:b9c6:68f7 with SMTP id 5b1f17b1804b1-438914376bdmr167252605e9.26.1737541506526;
+        Wed, 22 Jan 2025 02:25:06 -0800 (PST)
 Received: from localhost ([2001:4090:a245:80cb:f705:a3ac:14fe:4e1b])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38bf322a934sm15536132f8f.42.2025.01.22.02.25.03
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438b31d99ffsm18631675e9.29.2025.01.22.02.25.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jan 2025 02:25:04 -0800 (PST)
+        Wed, 22 Jan 2025 02:25:06 -0800 (PST)
 From: Markus Schneider-Pargmann <msp@baylibre.com>
-Subject: [PATCH 0/5] arm64: dts: ti: k3-am62a/p: Add ddr-pmctrl,
- canuart-wake
-Date: Wed, 22 Jan 2025 11:24:31 +0100
-Message-Id: <20250122-topic-am62-dt-syscon-v6-13-v1-0-515d56edc35e@baylibre.com>
+Date: Wed, 22 Jan 2025 11:24:32 +0100
+Subject: [PATCH 1/5] dt-bindings: mfd: syscon: Add
+ ti,j784s4-acspcie-proxy-ctrl to second list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAF/HkGcC/x3MMQ6DMAwAwK8gz1hKAvXQr1QdUOxQD01QjBAI8
- XcixlvuBJOqYvDuTqiyqWnJDb7vIP6mPAsqN0Nw4eV88LiWRSNOfwrIK9phsWTcCP2AlFg4uYG
- YRmjBUiXp/uSf73XdhXy2d2wAAAA=
-X-Change-ID: 20250121-topic-am62-dt-syscon-v6-13-6fdedf036d64
+Message-Id: <20250122-topic-am62-dt-syscon-v6-13-v1-1-515d56edc35e@baylibre.com>
+References: <20250122-topic-am62-dt-syscon-v6-13-v1-0-515d56edc35e@baylibre.com>
+In-Reply-To: <20250122-topic-am62-dt-syscon-v6-13-v1-0-515d56edc35e@baylibre.com>
 To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
@@ -88,18 +87,17 @@ Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
  linux-arm-kernel@lists.infradead.org, 
  Markus Schneider-Pargmann <msp@baylibre.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1391; i=msp@baylibre.com;
- h=from:subject:message-id; bh=eLqqISzAEibN/RsSoa/Ahf79y4yOwqmAAtxfAfv+ph4=;
- b=owGbwMvMwCGm0rPl0RXRdfaMp9WSGNInHE++crjV/ZzSpBNu9+45S91fcfHphpfTs4WScv40B
- x+bYHePpaOUhUGMg0FWTJHl7oeF7+rkri+IWPfIEWYOKxPIEAYuTgGYiJEvw/+S59yzuHsky9NP
- a35r2OBiczEt+iZDsPvG96xeb7n+zWRkZFjvGh7Zubg5/+OunepJK84vdVvyZsbuTbc2hM2v/iW
- rX8wBAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1025; i=msp@baylibre.com;
+ h=from:subject:message-id; bh=NpuDuCt4ALF4oICaFLhz7K3buKHpxyvWMHv4701ZSw0=;
+ b=owGbwMvMwCGm0rPl0RXRdfaMp9WSGNInHM9cli8RF2J29E4eQ0s3p3VR8GXddT+3V5rc/NhWX
+ RSdUsbVUcrCIMbBICumyHL3w8J3dXLXF0Sse+QIM4eVCWQIAxenAEyk5xwjw6vMLTNPaskqXkyt
+ UPoZ+vW41bPIK3I7xVW7jC411G93MGX4K3bXVLBW0HWD8lpbE8vdN+73bn7cr9PfMnFfxqtmKU5
+ VPgA=
 X-Developer-Key: i=msp@baylibre.com; a=openpgp;
  fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_022506_842936_1D01C8E4 
-X-CRM114-Status: UNSURE (   8.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250122_022508_173522_26AB99ED 
+X-CRM114-Status: GOOD (  10.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,41 +112,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The compatible string was only added to the select list, but not the
+second list of compatibles. This adds it  to the second list as well.
 
-Within the wkup-conf register range there are two register ranges that
-are controlling specific other parts of the SoC. ddr-pmctrl is one
-register that control the DDR power management. canuart-wake are
-multiple registers that control the wakeup functionality of the CANUART
-block.
-
-The series first adds the dt-bindings to syscon and afterwards adds the
-nodes to the wakeup domains of the am62a/p devicetrees.
-
-First patch is a fixup I noticed missing.
-
-Best
-Markus
-
+Fixes: 0d078d47cd3e ("dt-bindings: mfd: syscon: Add ti,j784s4-acspcie-proxy-ctrl compatible")
 Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
 ---
-Markus Schneider-Pargmann (5):
-      dt-bindings: mfd: syscon: Add ti,j784s4-acspcie-proxy-ctrl to second list
-      dt-bindings: mfd: syscon: Add ti,am62-ddr-pmctrl
-      dt-bindings: mfd: syscon: Add ti,am62-canuart-wake compatible
-      arm64: dts: ti: k3-am62a-wakeup: Add ddr-pmctrl, canuart-wake
-      arm64: dts: ti: k3-am62p-j722s-common-wakeup: Add ddr-pmctrl, canuart-wake
+ Documentation/devicetree/bindings/mfd/syscon.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
- Documentation/devicetree/bindings/mfd/syscon.yaml        |  5 +++++
- arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi              | 10 ++++++++++
- arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi | 10 ++++++++++
- 3 files changed, 25 insertions(+)
----
-base-commit: 40384c840ea1944d7c5a392e8975ed088ecf0b37
-change-id: 20250121-topic-am62-dt-syscon-v6-13-6fdedf036d64
+diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
+index b414de4fa779ba3289a5f0d484b3c7d0341395d9..0e68c69e7bc9ef8c2c96f0e7d1b5d88eeab2bfba 100644
+--- a/Documentation/devicetree/bindings/mfd/syscon.yaml
++++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
+@@ -213,6 +213,7 @@ properties:
+           - ti,am625-dss-oldi-io-ctrl
+           - ti,am62p-cpsw-mac-efuse
+           - ti,am654-dss-oldi-io-ctrl
++          - ti,j784s4-acspcie-proxy-ctrl
+           - ti,j784s4-pcie-ctrl
+           - ti,keystone-pllctrl
+       - const: syscon
 
-Best regards,
 -- 
-Markus Schneider-Pargmann <msp@baylibre.com>
+2.47.1
 
 
