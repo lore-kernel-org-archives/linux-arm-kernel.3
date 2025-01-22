@@ -4,51 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D696C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 10:41:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87302C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 10:42:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VBYwlp7RbHOlI1fJL3B+XwCYKxEWXd67YbgS8K7TW4A=; b=K/INpLNvbKPBeuNp99Y+ckZl3e
-	9fWoNsqpOMgbF6bvJDYwVPSJharNf48TMdUjkXPQ/lZgdirMlunvyAjyzBdHdxa1yyzTjVz8A7cEg
-	LLEHH2nAFcJaszpJ6LQIfHA8vrhua/7uVJMrmr78vllB5gtGufGRFQktdORVh2vUw+7Mru9lclhjB
-	PT0T4bRrdwyrpjHgQZcwWdBTcWmlUAHgm9aOsTurjMJEU/ZxNWYpzYNv2elkz303haTCvnZTBV8vB
-	2T9/YsrFLK0WFkDHy2ltjZsFyznVu48/ojbpSxEOVPVKvKvc6CqT3bU8uDkKUbmBBl1invMPK1fom
-	XdZ+D0HA==;
+	bh=z5FcyisFdtQWcrEQg28ebr42hlWzEYDkgFLliddNjDg=; b=MUI/UyrWaGBP/FwE1yM//BdJy7
+	awpDlGSTHH2OCJ+pR7CCLSyK6Obb33WCwlpcykpNTHaHJRreoyf2buF1gXfyhPBExcfO2/Cbc3fRA
+	jcWd9M3yueG0tcOnBBp1X6cMA8lRmoN4mCLGNwY+l/mG4SKY1GYyRQCVIbIiz2/uoixFRFaTk6fxa
+	q3aheIs75u+P5+t5wzjj74FmzkfQL/WWqemZ9wy6/SHWozAAdasG32nwaC4lKlGNg28Au3XlqkDj1
+	rQzRLFPW/fYelZ7yLVvB0gh2APRnJOD7QdWFdvHQWsWeXspxwTDKS5IUAzCxqG72JgL1Q3IEFZOdP
+	8BRl8xlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taYAU-00000009yZS-1snJ;
-	Wed, 22 Jan 2025 10:41:06 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1taYBk-00000009ysi-14ej;
+	Wed, 22 Jan 2025 10:42:24 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taY5W-00000009xgs-20uk
+	id 1taY7P-00000009xxj-2wVK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 10:35:59 +0000
+	Wed, 22 Jan 2025 10:37:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 36772A42007;
-	Wed, 22 Jan 2025 10:34:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2FCDC4CED6;
-	Wed, 22 Jan 2025 10:35:52 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id AA0665C5E0B;
+	Wed, 22 Jan 2025 10:37:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78B79C4CED6;
+	Wed, 22 Jan 2025 10:37:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737542157;
-	bh=JTDUHh73Mw8ryqE69NeEdNB/621cn8wdHmgIhZAqEAM=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=pkXxd2o8/8XZsWH4LxsTAaNUSDF8I5OxhRIkyzAHDkHcnaQjIlSFCVmRgXPC3MYlP
-	 LWKGwCCKLnSl8arOpeJGPV8SyGB5d0/vrquzHy0GGUa8FXGls2BCCLTy6PwfKa+am/
-	 zLTO4PTKed1HnlXXDG3lYOu9RKYabxH+cGV3l5/9kh8J2Pan7qPqZLsr63D9xL17TO
-	 V7og35OljQ1qVI+etHzzlCe3+6djPQhzztLp5qsqNb3Ix1L4Sy2N3+E4Y1UzN2UKxr
-	 nskcnQTPUKYGVcnxdwlBtU0iUvgPU615C9I+HdkbdJz5IDf4MwJoVyGCISPOa8CiGL
-	 mzf0Lnq+82qRA==
-Message-ID: <11880309-5021-4038-a4eb-a3a80da71550@kernel.org>
-Date: Wed, 22 Jan 2025 11:35:50 +0100
+	s=k20201202; t=1737542274;
+	bh=YTDBSUNXRg/3/JJrgBfO0+vVFkgIo4NVR4oXnPZ3VBs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ESl+ISpfLB0ztouOSjNuhS3XTNAfFjaV1kSHix3diBf56XFl2i2txpq6GaQZx2LVD
+	 SPulVHNb0ev3vDAkXUVEHTD8riNq1neVJLyXpZuh076r05DPGEOuO9QSav8KPE8i7I
+	 35/7xYFjhml0WU809cRuagjV2RqYdDEIINjjwDhBZrm6p9sxmN4SgkVrr6qIMQJf4k
+	 eEpT0pvpRw3FxA7tAzlAmr6WaEhYsxoHRh/QVGrtJVZ5vOzpJ1ju0qBzCAkPFbvk8T
+	 g93BQ/oEfEQUk17mjBq4CmjjIc1GphapwdpizgYJNtAl7y7mQtfIW+lvB3/QYCMhT+
+	 Qky9swtqAGBsg==
+Message-ID: <446e615f-7b2f-4258-ba52-0a9757da6489@kernel.org>
+Date: Wed, 22 Jan 2025 11:37:47 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [EXT] Re: [PATCH v12 2/5] dt-bindings: arm: fsl: add imx-se-fw
  binding doc
-From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Pankaj Gupta <pankaj.gupta@nxp.com>, Jonathan Corbet <corbet@lwn.net>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
@@ -65,8 +64,8 @@ References: <20250120-imx-se-if-v12-0-c5ec9754570c@nxp.com>
  <20250120-imx-se-if-v12-2-c5ec9754570c@nxp.com>
  <6110fd00-c050-4bcf-8971-674bc8c0bfc7@kernel.org>
  <AM9PR04MB86049239156AC82F0AA4BCCA95E72@AM9PR04MB8604.eurprd04.prod.outlook.com>
- <000e44f1-839e-4f43-9bb1-ae53d6826ff7@kernel.org>
 Content-Language: en-US
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
@@ -110,13 +109,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <000e44f1-839e-4f43-9bb1-ae53d6826ff7@kernel.org>
+In-Reply-To: <AM9PR04MB86049239156AC82F0AA4BCCA95E72@AM9PR04MB8604.eurprd04.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_023558_660133_4617EB89 
-X-CRM114-Status: UNSURE (   7.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250122_023755_829941_FD18C606 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,28 +129,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/01/2025 16:01, Krzysztof Kozlowski wrote:
-> On 20/01/2025 14:07, Pankaj Gupta wrote:
->>> Driver configures multiple misc-device on the MU, for multiple
->>> user-space applications, to be able to communicate over single MU.
->>>
->>> It exists on some i.MX processors. e.g. i.MX8ULP, i.MX93 etc.
->>>
->>> Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
->>> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
->>> Reviewed-by: Conor Dooley <conor@kernel.org>
->>
->>> Where Conor's review tag was actually given?
->> On v6.
+On 20/01/2025 14:07, Pankaj Gupta wrote:
 > 
-> I already looked there. No trace for tag. Please point to the message.
+> 
+> -----Original Message-----
+> From: Krzysztof Kozlowski <krzk@kernel.org>
+> Sent: Monday, January 20, 2025 5:47 PM
+> To: Pankaj Gupta <pankaj.gupta@nxp.com>; Jonathan Corbet <corbet@lwn.net>; Rob 
+> Herring <robh@kernel.org>; Krzysztof Kozlowski <krzk+dt@kernel.org>; Conor 
+> Dooley <conor+dt@kernel.org>; Shawn Guo <shawnguo@kernel.org>; Sascha Hauer 
+> <s.hauer@pengutronix.de>; Pengutronix Kernel Team <kernel@pengutronix.de>; 
+> Fabio Estevam <festevam@gmail.com>
+> Cc: linux-doc@vger.kernel.org; linux-kernel@vger.kernel.org; 
+> devicetree@vger.kernel.org; imx@lists.linux.dev; 
+> linux-arm-kernel@lists.infradead.org; Conor Dooley <conor@kernel.org>
+> Subject: [EXT] Re: [PATCH v12 2/5] dt-bindings: arm: fsl: add imx-se-fw 
+> binding doc
+> 
+> Caution: This is an external email. Please take care when clicking links or 
+> opening attachments. When in doubt, report the message using the 'Report this 
+> email' button
 
 
-Still no answer from you, except that evading answer, so let's be clear:
-don't create fake tags.
+How did you resolve below comment:
 
-Clean your patchset from all fake tags and keep only the ones which were
-real.
+"And please actually read the comments I have left
+on every mail about your mail client being broken. I don't want to see
+20 lines of to and cc lists on every response :(
+"
+
+That's was v6 or v5, half a year ago, and still you keep doing exactly
+the same.
+
+Notice how reviewers get annoyed over time...
 
 Best regards,
 Krzysztof
