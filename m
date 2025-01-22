@@ -4,95 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D877C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 15:09:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19D0FC02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 15:12:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=umz6FsDsVFwJuh2rg9jtJSv3h52jbplrjXp7FNQjbO4=; b=HHO5rOO2delmtc3BJcIkNa0WFH
-	hkeNpOdcQK9SGz7PYjJUJmqohz8JaLqmX1PrLj1QuJGZagXV3Fr2Wa85fXVkFiE33G1Ag9pZNHTos
-	VbxhTA6Y9RAV6RsWMoI0mS7ClfJlC+ADkdUhaxrzavadw0NjW2hLsIvSSQOA1Z38dwEYhf5UOJ89w
-	U8U+6LqibVmdeP2CYCZxVd7ySOMr+70Cs5fQGSVNK7Gu67YXLOrbbyqv4FckOZh4v7jhH1bTD8gbR
-	3lk0wzHxxsmiI5JGGntdypPKhpQ0Gk9YT8k9gYP1HwDz5h5f00jD0iMNxuEY0UgNjtRKC7pAzAlhI
-	uc3WZVNA==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iP6JYLAn3kSqxDMH1x2eypCfziCgLVwxubhfad9Yzqg=; b=yltVdx3cWGqk7q8TpMHIylDXvu
+	m3tL79izhTchMLupC+AE9V6plIONQ2PBalc7IVcc3ol1k0OTbbYaphszyZ6TZ2Ye52/Z366KchlTK
+	gPJ+53xSgCl0zth7OUqYM0NciWGatqgwzfqtc1so9WaK8fabz2QuL8Pn/x9SnCinhqz8LVDxZM5dK
+	mGOtbTb2hFvdLHwDUjxIGZHG7hz9kK0qKdNuJxa9cnhJNVlutmoVaFPzsbtX6hDemKtjDO/mUp8HW
+	ELrptcDH9sHHLxhFGwjwh6agYtCfPSf8q5AFS9AHEhqaiRMMV96rzLncj6v+pNEFQnADZjFYXcvAw
+	OeHaYeBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tacMH-0000000AWUu-1IVV;
-	Wed, 22 Jan 2025 15:09:33 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1tacOl-0000000AWtS-0ODp;
+	Wed, 22 Jan 2025 15:12:07 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tacKz-0000000AWIQ-1QzK
+	id 1tacNS-0000000AWgU-2wtT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 15:08:14 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-53ff1f7caaeso7514525e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jan 2025 07:08:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737558491; x=1738163291; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=umz6FsDsVFwJuh2rg9jtJSv3h52jbplrjXp7FNQjbO4=;
-        b=UsmzrsGKETmR5DxJUavXGjhR9su8jCZcNi3IIPFsABHq7zEMPV2UYZsPPkdupObM8H
-         iYmCr+tHaKEYPlaSQlnGMYTYyJVow6zwN8VlEhSPLDFgy3RjA3XeutUVXHITTS7901zu
-         ipNuZzzhFyrr9hY/h3HXmQa9Unhl5RZe00YnhVVAgfxd8CqsbVXpIi89tn5DEUXhHgTO
-         BRoG5c7W/GK9hj98DA0h7ZJNiIGvF5hZlV2PYiKc1YdZwGJT5UUgt3EXqHorg907/4H/
-         IMZN0jLFm7P1/d0ZHubB7c7dj+X3NVmCwlY9viaha/VlpM0wpPpf+YxMshlectDKwPZM
-         EViw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737558491; x=1738163291;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=umz6FsDsVFwJuh2rg9jtJSv3h52jbplrjXp7FNQjbO4=;
-        b=gUPd/CpRVpV6lnUPbrdkYqNpVwuiI8utmgqCy2DPVGC9w3yk9JxgLMIE6IrZ9NwTv0
-         RHMdOOaq0ohzRf92mmAV3UheJgX1yio9iopFbTb2BD9bOpoSzM9aMkAaB6Y6JW3N8c2U
-         c92BfAVOv27YZ3OziPkT7z4t868ZKxmb+tm0YEgrHhLiAF1omRSWi4w/SfRBH44pLlQf
-         KdMAIiTCV1zLSdcHxep2aAz6sGw0jv7Wy7h4hpzg3J5pybj/utJ4rcn52hdnxWegQnX/
-         ch5rpOppPgXliHTbOJOoruM1fSj3onPHkPVILboLk/mKHH0D/mrAYUnIUkZFo8cV/2J7
-         laBg==
-X-Forwarded-Encrypted: i=1; AJvYcCWpKTuRkC919vDcTHucdydIhmmLaGXtNcZtH0aKcwipFPJPOkqEoiifnjWsZ0sggEsWszsudImQaTW/7UyOdZO/@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzQ7FuxI6DnkGGpL//aJBmTMtYP1h2G7grtozogwyGOlnyspKx
-	2HjNo2h+7kXPhE6+4bSF3h2WFZYZP5UKuhhdl1BxyrrUo6Y3iY5J
-X-Gm-Gg: ASbGnct4/P9uyyI46G/kKIZKP/gzw0qlRtRDi61rd6AyonusVd6bPlVE7V7fhqbgqKT
-	7UwC2zs6rDUUL1iH+E1yBeTttGGqrcgzSdCM8mcHlYQDG/ml4ZHLijc1CXFWLNwOINpRz5VnwT5
-	Jg1fZ1tib1DLR40+DPPm5A7yeeSfSY/hFre5wVTWFxQFYrZ4Si75EACSGXPt2D8P+CCwnJLcoll
-	YRtrwJ9QpT4mSoAX38O4EiPc2Z2Ec3v+g/xdSnOlSqc0sFvw15J6OU8elbYqbKETB0LS4bxNtBA
-	0FKN89XJ1wwwVTqLaK5CSCeoUAZ+YNV1cx2bEl4JgIgEJ/jeYx9xehlmQ+xbaiexZzmpKzYAZgR
-	6BW2j5MKxe4sAIOE=
-X-Google-Smtp-Source: AGHT+IE2a0yAIO4BOuV/oNsZg2RXIMgYsnxf4ES5Xw9/S5/1JbkObgMJtKJi8R+5obE5eRRkCTd+ow==
-X-Received: by 2002:a05:6512:e83:b0:542:2a81:a759 with SMTP id 2adb3069b0e04-5439c21f23dmr6119766e87.2.1737558490533;
-        Wed, 22 Jan 2025 07:08:10 -0800 (PST)
-Received: from ?IPV6:2001:999:584:a1be:41d4:8b85:aace:5430? (n5ykva7sx9871hnihio-1.v6.elisa-mobile.fi. [2001:999:584:a1be:41d4:8b85:aace:5430])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5439af07b5esm2263566e87.45.2025.01.22.07.08.08
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 22 Jan 2025 07:08:09 -0800 (PST)
-Message-ID: <decd473c-289d-44be-b882-3f2bb15c0d57@gmail.com>
-Date: Wed, 22 Jan 2025 17:10:31 +0200
+	Wed, 22 Jan 2025 15:10:47 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50M7XBIe013509;
+	Wed, 22 Jan 2025 15:10:29 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=
+	content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=iP6JYL
+	An3kSqxDMH1x2eypCfziCgLVwxubhfad9Yzqg=; b=oe++BO6+6YaXyzZAzm2Vfe
+	asicoVzK9bzTB/35VuO19PVEov7mApKRfkrMPWfXeOYra4CfAHA1mr1lktJZf+Zv
+	7Ag47fEY1i4UAi0CIPAeRwcVKNEIxnyKJu8N3fCxyPbnRLrntjgJpBs/IceK1iFY
+	DJ7Fcy/106hdA/XY9MUWQ+C6qe99C20B91IyKrbYXZSwRt6YAUE85U9C+ggslZsg
+	oOtEDkspkp2eVrgL7hks82sba8qZ1mgGWNzvkte47E8yHqCo3YaHrCt130KCF9n7
+	nkQmY5mPCFK++maitW6BhKlvOsH9XirJYldKMx8KATkRgth6qWytCDqGgNEdpqfA
+	==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44avcp2183-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 22 Jan 2025 15:10:28 +0000 (GMT)
+Received: from m0360072.ppops.net (m0360072.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 50MF5I64021452;
+	Wed, 22 Jan 2025 15:10:28 GMT
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44avcp2180-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 22 Jan 2025 15:10:28 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 50MEWxV4029604;
+	Wed, 22 Jan 2025 15:10:27 GMT
+Received: from smtprelay03.dal12v.mail.ibm.com ([172.16.1.5])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 448qmngxum-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 22 Jan 2025 15:10:27 +0000
+Received: from smtpav06.dal12v.mail.ibm.com (smtpav06.dal12v.mail.ibm.com [10.241.53.105])
+	by smtprelay03.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 50MFAQnW30474798
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 22 Jan 2025 15:10:26 GMT
+Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id BBCE258043;
+	Wed, 22 Jan 2025 15:10:26 +0000 (GMT)
+Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 21C2658055;
+	Wed, 22 Jan 2025 15:10:25 +0000 (GMT)
+Received: from [9.67.103.45] (unknown [9.67.103.45])
+	by smtpav06.dal12v.mail.ibm.com (Postfix) with ESMTP;
+	Wed, 22 Jan 2025 15:10:25 +0000 (GMT)
+Message-ID: <79c859c6-ff59-4641-8ae7-4136d7c3724e@linux.ibm.com>
+Date: Wed, 22 Jan 2025 09:10:24 -0600
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dmaengine: ti: k3-udma-glue: Drop skip_fdq argument from
- k3_udma_glue_reset_rx_chn
-To: Roger Quadros <rogerq@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- MD Danish Anwar <danishanwar@ti.com>,
- Siddharth Vadapalli <s-vadapalli@ti.com>,
- Vignesh Raghavendra <vigneshr@ti.com>
-Cc: srk@ti.com, dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20250116-k3-udma-glue-single-fdq-v1-1-a0de73e36390@kernel.org>
-From: =?UTF-8?Q?P=C3=A9ter_Ujfalusi?= <peter.ujfalusi@gmail.com>
+Subject: Re: [PATCH v6 02/10] bindings: ipmi: Add binding for IPMB device intf
+To: minyard@acm.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+        andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+        kuba@kernel.org, pabeni@redhat.com,
+        openipmi-developer@lists.sourceforge.net, netdev@vger.kernel.org,
+        joel@jms.id.au, andrew@codeconstruct.com.au,
+        devicetree@vger.kernel.org, eajames@linux.ibm.com,
+        linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+        linux-kernel@vger.kernel.org
+References: <20250116203527.2102742-1-ninad@linux.ibm.com>
+ <20250116203527.2102742-3-ninad@linux.ibm.com>
 Content-Language: en-US
-In-Reply-To: <20250116-k3-udma-glue-single-fdq-v1-1-a0de73e36390@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+From: Ninad Palsule <ninad@linux.ibm.com>
+In-Reply-To: <20250116203527.2102742-3-ninad@linux.ibm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: 6-n8PCpmb03FndjCSeNg3mA0W6V6JDMb
+X-Proofpoint-GUID: vA3A8Mv6S_n51l7CjcDZtEnBqfbDtcHD
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-22_06,2025-01-22_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 adultscore=0
+ bulkscore=0 mlxlogscore=838 spamscore=0 phishscore=0 mlxscore=0
+ suspectscore=0 lowpriorityscore=0 priorityscore=1501 clxscore=1015
+ malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501220111
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_070813_382020_15FF6450 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20250122_071046_860285_EB372E2F 
+X-CRM114-Status: GOOD (  11.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,26 +119,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello Corey, Rob & Krzysztof
 
-
-On 16/01/2025 17:00, Roger Quadros wrote:
-> The user of k3_udma_glue_reset_rx_chn() e.g. ti_am65_cpsw_nuss can
-> run on multiple platforms having different DMA architectures.
-> On some platforms there can be one FDQ for all flows in the RX channel
-> while for others there is a separate FDQ for each flow in the RX channel.
+On 1/16/25 14:35, Ninad Palsule wrote:
+> Add device tree binding document for the IPMB device interface.
+> This device is already in use in both driver and .dts files.
 > 
-> So far we have been relying on the skip_fdq argument of
-> k3_udma_glue_reset_rx_chn().
-> 
-> Instead of relying on the user to provide this information, infer it
-> based on DMA architecture during k3_udma_glue_request_rx_chn() and save it
-> in an internal flag 'single_fdq'. Use that flag at
-> k3_udma_glue_reset_rx_chn() to deicide if the FDQ needs
-> to be cleared for every flow or just for flow 0.
+> Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
 
-This should have been the original approach, there are things that
-clients must not care.
+Do you have further comments on this? If not can you please send the ACK?
 
-Acked-by: Peter Ujfalusi <peter.ujfalusi@gmail.com>
+-- 
+Thanks & Regards,
+Ninad
 
 
