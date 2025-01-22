@@ -4,75 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27A09C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 12:27:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53BA8C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 12:42:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GKsy0CgAI7HNXTSqszrGM2CRCHMFPbrE3yv+YuKGi6g=; b=ykVOfnhRpi+rihx8F3etvZRRZi
-	UPwq+y7YWKORgfmWBx4JMlH5QayedOjfe6EKqN0wQAZG2EkCdCUmkk0Cn7TIS4/7f+EFHYbdgLs6K
-	/JBSAakgIpC92r8VQYtocS9JtjdyTEyFkJ9KbryuOljwHr920zTvAQAEyRlUKJY8c4ooE77brT0No
-	t61f1fr6i7Ns8u6qumnGewBtvfTvP5jeDxSwS6o3703f3LF6hbDfyx5X8k4GG9/N8/2WS9PlK0xxd
-	ops0kQXKM27AEwZ558ykklS87PDZTZndM1KJcNby0YE9gYMCC7OPvJb/wqlGtWa4GwRUHqUVaFcoF
-	TFjCZ1OQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WJFfe/ReS+bB0SKEoehh4uNo6Rwt0UXw3v3zOYh0SCg=; b=T/2FJBt4r6bEfAxY0JsnDEpT8h
+	IEM73/1BcZZMasj8hA2uUyWesG+VMCs1bxCq6ynjI6adbDAJzGFd8Xbb3LVc+ixWFdGb5rP/gqxnp
+	Qw6NW5d8HqV4yvzXDQnXKy7+jrcLmlxqGdAGoi9ktldyvHiyugG9fYZ9YqbQ2Et3F8/AVNes+OOWa
+	Pd0zE4ykUDiNHtPdIpv2Jvz/5A936wNWWo3XDLkfclGJD9jnA0qTgfk6OMkPVS9xaxKyNLAsoGZKw
+	qsyJbuOSZyvW5yh2nVCb3G01+dIGNu2kdXhQYf4GL6cs7jFnre9b7fMQ0ArWPQj5q8Iq8iVyJfLjY
+	zjn9NZ4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taZpA-0000000A9CQ-2lHU;
-	Wed, 22 Jan 2025 12:27:12 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1taa3j-0000000AAuu-44uH;
+	Wed, 22 Jan 2025 12:42:15 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taZns-0000000A8uJ-25yL;
-	Wed, 22 Jan 2025 12:25:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8086E5C54FD;
-	Wed, 22 Jan 2025 12:25:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DED6C4CED6;
-	Wed, 22 Jan 2025 12:25:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737548751;
-	bh=Xfp892u0X0rMtHWkGD3r2bVHj+FTM/t28M4VtoJ0Wyc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZRnNn+6Tt76019xBirdMVmzRbeL8Q2odMq6HFhgkth9P5ZrYdpErYPlXsxL6Fl3rj
-	 ZI5VtP10jvH/fQAv6HRDykVpsfGmvb0d/xEWjnDE5tgAnq++jvuWWHT6WYDemhqEh2
-	 qhtEzGq7/MMx5/wpO74r4FRgEujUuclOLSKI/Yy3NZM6X5dfnqSKY4Ag8uJB7GG8XW
-	 AQ7J/NzQdgEpLRKLYUKh7jqPAvOBjZZ+gq5nRJ0qTwqiguA+mChUjtx0pX3QTt2bwy
-	 E0gMyTw1G3DnV5TJGaTuN+E86ySP5PQe5fDrGHlTa+/9p9roru7zJ1Awo7fm8PfyZm
-	 vQJdRIi7afA0Q==
-Date: Wed, 22 Jan 2025 13:25:46 +0100
-From: Joel Granados <joel.granados@kernel.org>
-To: Alexander Gordeev <agordeev@linux.ibm.com>
-Cc: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>, 
-	Kees Cook <kees@kernel.org>, Luis Chamberlain <mcgrof@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	openipmi-developer@lists.sourceforge.net, intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
-	intel-xe@lists.freedesktop.org, linux-hyperv@vger.kernel.org, linux-rdma@vger.kernel.org, 
-	linux-raid@vger.kernel.org, linux-scsi@vger.kernel.org, linux-serial@vger.kernel.org, 
-	xen-devel@lists.xenproject.org, linux-aio@kvack.org, linux-fsdevel@vger.kernel.org, 
-	netfs@lists.linux.dev, codalist@coda.cs.cmu.edu, linux-mm@kvack.org, 
-	linux-nfs@vger.kernel.org, ocfs2-devel@lists.linux.dev, fsverity@lists.linux.dev, 
-	linux-xfs@vger.kernel.org, io-uring@vger.kernel.org, bpf@vger.kernel.org, 
-	kexec@lists.infradead.org, linux-trace-kernel@vger.kernel.org, 
-	linux-hardening@vger.kernel.org, apparmor@lists.ubuntu.com, linux-security-module@vger.kernel.org, 
-	keyrings@vger.kernel.org, Song Liu <song@kernel.org>, 
-	"Steven Rostedt (Google)" <rostedt@goodmis.org>, "Martin K. Petersen" <martin.petersen@oracle.com>, 
-	"Darrick J. Wong" <djwong@kernel.org>, Jani Nikula <jani.nikula@intel.com>, 
-	Corey Minyard <cminyard@mvista.com>
-Subject: Re: Re: [PATCH v2] treewide: const qualify ctl_tables where
- applicable
-Message-ID: <nslqrapp4v3rknjgtfk4cg64ha7rewrrg24aslo2e5jmxfwce5@t4chrpuk632k>
-References: <20250110-jag-ctl_table_const-v2-1-0000e1663144@kernel.org>
- <Z4+jwDBrZNRgu85S@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+	id 1taa2R-0000000AAc2-3Ycq
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 22 Jan 2025 12:40:57 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-54024ecc33dso6903914e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jan 2025 04:40:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1737549653; x=1738154453; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WJFfe/ReS+bB0SKEoehh4uNo6Rwt0UXw3v3zOYh0SCg=;
+        b=eMdSKUw2tUKbQ99KoZjNO+Nqv8t+N2FRboyJ2NxJmG/WNkqclwJp27w3u8b9jJNLFJ
+         OFdQWigFoQZbGov+JVc4t/cTdbTDcJZh7ZKfG7lQBvqxbb1IIi5ELP2xa7dOUKGONK+V
+         zSM/XGQR3XkDFrFKVUXMRRcDGyO9li9N6WxTGmSwjAmi8M655Avfk2or0UIP0Mh8GxkI
+         IGPRfpskh3fXOUxxczXCOZpe/S3OkIT59d8hUe4+ky47Dj1WUB4EYjpxf7TEjt1dm/je
+         7i3B63+ETYW3Wc9Uc7iyd/UBAP6q1MtCIPzc6Etfj7N0CISX/6AEq0wZJKrtEHiPoRKX
+         r89w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737549653; x=1738154453;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=WJFfe/ReS+bB0SKEoehh4uNo6Rwt0UXw3v3zOYh0SCg=;
+        b=H4cGMyCoRHklk1+m/TY7Kj8pOSUD2XaICK1sJzApFkRyM8iWZMgZLeM5t7/HWnWHpm
+         uzsjROiDwxzMBNWmlzx1vAgA5BH5yL09lCSjm1MOEmQCNPij52hPvhaf+dXgkTjXHZPL
+         dYdRKTKrQaY6uGd3NZIX/G57wo4017sbLr81moeXAY46MPBjico6aIxBToxSaRrqfCC4
+         ViKMkCjdjPhb8xwDYVUG/o5DNP57cS41S6IuwkT4l2YMXEjNcvXbwNjRyEe8eFI1/8xl
+         Ob1hVLxxO6oUU8G5kRm/DNR+fFTb9oFuEN2yXvuMQKSCtwgbEQd7Wy0+4as84bUFkSwJ
+         I4Sg==
+X-Forwarded-Encrypted: i=1; AJvYcCXS3ChJi/E3vIIVZGM5YMvUiMhp9hzRzHL/jCltCY1LDNc9A2F3LIzrE7xSeTOG6HHRhfGdIoo0Dq04lo+6YKvT@lists.infradead.org
+X-Gm-Message-State: AOJu0YzLjA/eb5eaTlt2UJaYpmY3foNMr9Yx8HhaBm8mXylZq5jlEQQc
+	wYBz6tmNmhuDB7wXxGxGsuhe3++A2k+9qvlRI6U/wnV1inLAglK9O7SEjE5ZitcA0rWHRUtFazu
+	Zt9WTYC+X/QD4eGDbuOOeWwWOKjHG2P42PtH2dQ==
+X-Gm-Gg: ASbGncsUmVmV6tnPUC8fCZ4w3vz/6vRc6uOgMXmVijigD2IYTNEm1nwGB8EaSY0df+z
+	8WghIMpPRbNtAhxqzPbW6YhjY8Zswz6szMrZoTYlshn79hv2MSQ==
+X-Google-Smtp-Source: AGHT+IG8x91swQ1/TCs2bNY81sSJWW2iCRubETASwyNlneW1MiOKNQOm+h1c21oPbkA4UckTqWfjL3th8Is1ivCtTMo=
+X-Received: by 2002:ac2:59dd:0:b0:542:8cb0:88a8 with SMTP id
+ 2adb3069b0e04-5439c285ec4mr5563483e87.52.1737549653306; Wed, 22 Jan 2025
+ 04:40:53 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z4+jwDBrZNRgu85S@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+References: <20250115211627.193961-1-krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20250115211627.193961-1-krzysztof.kozlowski@linaro.org>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Wed, 22 Jan 2025 13:40:42 +0100
+X-Gm-Features: AbW1kvawWKhH0X1YIWMRn8P4MqzemM3g4CZwqQRFd_gIgX8aGMtS5oZnnXo-N6g
+Message-ID: <CACRpkdYTXk+U5n2qjBiaWmRPNAbeTR_CO1N+7-7XqjvSU57Byw@mail.gmail.com>
+Subject: Re: [PATCH] ARM: dts: st: ste-nomadik: Align GPIO hog name with bindings
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_042552_618129_76CA570D 
-X-CRM114-Status: GOOD (  26.52  )
+X-CRM114-CacheID: sfid-20250122_044055_904900_A910DAFC 
+X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,151 +95,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 21, 2025 at 02:40:16PM +0100, Alexander Gordeev wrote:
-> On Fri, Jan 10, 2025 at 03:16:08PM +0100, Joel Granados wrote:
-> 
-> Hi Joel,
-> 
-> > Add the const qualifier to all the ctl_tables in the tree except for
-> > watchdog_hardlockup_sysctl, memory_allocation_profiling_sysctls,
-> > loadpin_sysctl_table and the ones calling register_net_sysctl (./net,
-> > drivers/inifiniband dirs). These are special cases as they use a
-> > registration function with a non-const qualified ctl_table argument or
-> > modify the arrays before passing them on to the registration function.
-> > 
-> > Constifying ctl_table structs will prevent the modification of
-> > proc_handler function pointers as the arrays would reside in .rodata.
-> > This is made possible after commit 78eb4ea25cd5 ("sysctl: treewide:
-> > constify the ctl_table argument of proc_handlers") constified all the
-> > proc_handlers.
-> 
-> I could identify at least these occurences in s390 code as well:
-Hey Alexander
+On Wed, Jan 15, 2025 at 10:16=E2=80=AFPM Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
 
-Thx for bringing these to my attention. I had completely missed them as
-the spatch only deals with ctl_tables outside functions.
+> Bindings expect GPIO hog names to end with 'hog' suffix, so correct it
+> to fix dtbs_check warning:
+>
+>   ste-nomadik-s8815.dtb: mmcsd-gpio: $nodename:0: 'mmcsd-gpio' does not m=
+atch '^.+-hog(-[0-9]+)?$'
+>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Short answer:
-These should not be included in the current patch because they are a
-different pattern from how sysctl tables are usually used. So I will not
-include them.
+Patch applied!
 
-With that said, I think it might be interesting to look closer at them
-as they seem to be complicating the proc_handler (I have to look at them
-closer).
-
-I see that they are defining a ctl_table struct within the functions and
-just using the data (from the incoming ctl_table) to forward things down
-to proc_do{u,}intvec_* functions. This is very odd and I have only seen
-it done in order to change the incoming ctl_table (which is not what is
-being done here).
-
-I will take a closer look after the merge window and circle back with
-more info. Might take me a while as I'm not very familiar with s390
-code; any additional information on why those are being used inside the
-functions would be helpfull.
-
-Best
-
-
-> 
-> diff --git a/arch/s390/appldata/appldata_base.c b/arch/s390/appldata/appldata_base.c
-> index dd7ba7587dd5..9b83c318f919 100644
-> --- a/arch/s390/appldata/appldata_base.c
-> +++ b/arch/s390/appldata/appldata_base.c
-> @@ -204,7 +204,7 @@ appldata_timer_handler(const struct ctl_table *ctl, int write,
->  {
->  	int timer_active = appldata_timer_active;
->  	int rc;
-> -	struct ctl_table ctl_entry = {
-> +	const struct ctl_table ctl_entry = {
->  		.procname	= ctl->procname,
->  		.data		= &timer_active,
->  		.maxlen		= sizeof(int),
-> @@ -237,7 +237,7 @@ appldata_interval_handler(const struct ctl_table *ctl, int write,
->  {
->  	int interval = appldata_interval;
->  	int rc;
-> -	struct ctl_table ctl_entry = {
-> +	const struct ctl_table ctl_entry = {
->  		.procname	= ctl->procname,
->  		.data		= &interval,
->  		.maxlen		= sizeof(int),
-> @@ -269,7 +269,7 @@ appldata_generic_handler(const struct ctl_table *ctl, int write,
->  	struct list_head *lh;
->  	int rc, found;
->  	int active;
-> -	struct ctl_table ctl_entry = {
-> +	const struct ctl_table ctl_entry = {
->  		.data		= &active,
->  		.maxlen		= sizeof(int),
->  		.extra1		= SYSCTL_ZERO,
-> diff --git a/arch/s390/kernel/hiperdispatch.c b/arch/s390/kernel/hiperdispatch.c
-> index 7857a7e8e56c..7d0ba16085c1 100644
-> --- a/arch/s390/kernel/hiperdispatch.c
-> +++ b/arch/s390/kernel/hiperdispatch.c
-> @@ -273,7 +273,7 @@ static int hiperdispatch_ctl_handler(const struct ctl_table *ctl, int write,
->  {
->  	int hiperdispatch;
->  	int rc;
-> -	struct ctl_table ctl_entry = {
-> +	const struct ctl_table ctl_entry = {
->  		.procname	= ctl->procname,
->  		.data		= &hiperdispatch,
->  		.maxlen		= sizeof(int),
-> diff --git a/arch/s390/kernel/topology.c b/arch/s390/kernel/topology.c
-> index 6691808bf50a..26e50de83d80 100644
-> --- a/arch/s390/kernel/topology.c
-> +++ b/arch/s390/kernel/topology.c
-> @@ -629,7 +629,7 @@ static int topology_ctl_handler(const struct ctl_table *ctl, int write,
->  	int enabled = topology_is_enabled();
->  	int new_mode;
->  	int rc;
-> -	struct ctl_table ctl_entry = {
-> +	const struct ctl_table ctl_entry = {
->  		.procname	= ctl->procname,
->  		.data		= &enabled,
->  		.maxlen		= sizeof(int),
-> @@ -658,7 +658,7 @@ static int polarization_ctl_handler(const struct ctl_table *ctl, int write,
->  {
->  	int polarization;
->  	int rc;
-> -	struct ctl_table ctl_entry = {
-> +	const struct ctl_table ctl_entry = {
->  		.procname	= ctl->procname,
->  		.data		= &polarization,
->  		.maxlen		= sizeof(int),
-> diff --git a/arch/s390/mm/cmm.c b/arch/s390/mm/cmm.c
-> index 939e3bec2db7..8e354c90a3dd 100644
-> --- a/arch/s390/mm/cmm.c
-> +++ b/arch/s390/mm/cmm.c
-> @@ -263,7 +263,7 @@ static int cmm_pages_handler(const struct ctl_table *ctl, int write,
->  			     void *buffer, size_t *lenp, loff_t *ppos)
->  {
->  	long nr = cmm_get_pages();
-> -	struct ctl_table ctl_entry = {
-> +	const struct ctl_table ctl_entry = {
->  		.procname	= ctl->procname,
->  		.data		= &nr,
->  		.maxlen		= sizeof(long),
-> @@ -283,7 +283,7 @@ static int cmm_timed_pages_handler(const struct ctl_table *ctl, int write,
->  				   loff_t *ppos)
->  {
->  	long nr = cmm_get_timed_pages();
-> -	struct ctl_table ctl_entry = {
-> +	const struct ctl_table ctl_entry = {
->  		.procname	= ctl->procname,
->  		.data		= &nr,
->  		.maxlen		= sizeof(long),
-> 
-> 
-> > Best regards,
-> > -- 
-> > Joel Granados <joel.granados@kernel.org>
-> 
-> Thanks!
-
--- 
-
-Joel Granados
+Yours,
+Linus Walleij
 
