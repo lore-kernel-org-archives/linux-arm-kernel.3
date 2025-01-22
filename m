@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58BEEC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 15:20:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5EE0C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 15:24:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=djWtGhr5oTox+N6XWUQsQGyJ8G5sCOS6J6PY0lIAvH4=; b=woEdCgPvgH2Id7A7y1mBa7bDy1
-	94LpkEX2eUtw8uaSz098+QxOi/eU3MO/WQFYZIRP1SUkDCTWoo8f0S9by94gNG48ui8CfSya98nXd
-	ZhcRvgRhPB8EQm09/gSua2INQ//iUe5SzRH0U4ckNJCb+xy37NqynABdztwyKpw1HiOhiE8ldUz/0
-	ScCrVml5CKmo65awvsTg2GlW6Bq/EO6LONWetqy4yPHELPS/Bm5ZmmSCW1mPtrqQ2JiHZk3WnAVy7
-	7Ih9OSJgLhkCGfsruXYDpUaRiIzIoFRhdCpVyjOlLcA4af2pp3z6UuZSM3HF77+Ko4hjbJju2Z02I
-	eowvEcgw==;
+	bh=0+CyT2zW/75zAjWXFahSzgXt++cx8Mmcm9jPY7qUqaM=; b=avthBiCgcWNrDurnFDYnsFS4+n
+	qPmlXasyH/rGKt9W9JGQ8pztEqlQUPUQ5zxgpndaXOK6WVcgsB+pM42kJU7+A6L7S0h2YVz3HMFwA
+	XZIY92Jr+ax0DU9sxgSTMzLi9/rLDyCxgEA8vV8ZcXCXf50Z5EaZa4qLhDwg7pZPkwiEykjV6CYUP
+	VUXfm6MN9EobpI78xiNYAG3CsmJ+0Rt9QpvXlh8mYHrMupd+Ij96AdG/VXlwTJtfFiH1TlGgqIO3s
+	CZxB4ADRxE/Mkv91tOGXGTLTVNefoi0exoCZW/Vq8fQDkGQ6M2qKp2qG5D0g8sbVy5Ux8dGDPSR5T
+	n24QB6KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tacWK-0000000AXjZ-3T2o;
-	Wed, 22 Jan 2025 15:19:56 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tacaU-0000000AYJG-3K9o;
+	Wed, 22 Jan 2025 15:24:14 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tacV0-0000000AXSH-41mu
+	id 1tacZA-0000000AY3l-2r0S
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 15:18:36 +0000
+	Wed, 22 Jan 2025 15:22:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EB6E95C5F32;
-	Wed, 22 Jan 2025 15:17:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13F1DC4CED6;
-	Wed, 22 Jan 2025 15:18:28 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7CF32A427C9;
+	Wed, 22 Jan 2025 15:21:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 613A8C4CED2;
+	Wed, 22 Jan 2025 15:22:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737559114;
-	bh=nNGPdWI3XCIFccQmXFY/mLOyIewxTNrUA4q8QqeMk6Q=;
+	s=k20201202; t=1737559371;
+	bh=Y00duup1jJKmtkaj3i0tYDb8m+2/E7Bi7a8rp6BYPFw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=uOd7RWhw1hNxtcZDz7DKp6p0XyT2BbJa81qDD0G/cPPo14KDGiLbJqyvVn3HKmNNw
-	 EPI6X5X1OBPZD2FuNGwB6/0iRSXB8P4cF5O0Sw5CF4le+ybicLQwvBMfIIlv53eMVb
-	 yOpKguQL6zosUrnUy0kdBFDofvu68C78qgnh+iqlj/NzjddOJhW8lhVqZ0gplUwOSw
-	 FjUVoD6mKHU7/Zm4CTUiKsUSMCsGl5gYAISA2AamqJmo/DK9Q18I9g5Jy5Jx3JMVwC
-	 CMQiNaMQgB8vDMmoj/TifqFl5Ch3Pden/SgW9itBKUPRGtLbicrjUOctBDyn7bQBpl
-	 nk3nbTUwViVEg==
-Message-ID: <ea4ca423-c75d-468c-b5b2-673cd58e42c9@kernel.org>
-Date: Wed, 22 Jan 2025 16:18:26 +0100
+	b=Ygj4y3rBrdeaLoQHFUVqAygjtYNUjae2PsUFgTLTxncRai5H8j6JtyQzRmzGppkPB
+	 Ecez321gFPwKW0OQzvB5yZ4HMUBqxl3PtD/UN8EcYmkLCVgvrCGoQxVeCRPlyF5pgj
+	 VELe95m4GPHJMi1Jzu5qomMNZWDv9enz/TREzrvyC/SVwaHcY7SwNiBkgyHGc0uyNp
+	 sE2DCPd6LPQ+UHizeSuWURP8CC8Qhx6ad0byKRt5jmxXwl0cTBJdZMs6VDU+yti7e9
+	 C2YM8vUTWtWe7qVUsenetDSRLzcFY/xn9ACCqrsSYYL7laRf9mWpWsFueGlUmopKqj
+	 WHFokOtfkezhQ==
+Message-ID: <920a7917-e7ba-4380-8401-2de318e60b74@kernel.org>
+Date: Wed, 22 Jan 2025 16:22:43 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/9] dt-bindings: spi: Add STM32 OSPI controller
+Subject: Re: [PATCH 3/9] dt-bindings: misc: Add STM32 Octo Memory Manager
+ controller
 To: patrice.chotard@foss.st.com, Mark Brown <broonie@kernel.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>,
@@ -61,7 +62,7 @@ Cc: linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  christophe.kerello@foss.st.com
 References: <20250122141037.953934-1-patrice.chotard@foss.st.com>
- <20250122141037.953934-2-patrice.chotard@foss.st.com>
+ <20250122141037.953934-4-patrice.chotard@foss.st.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,12 +108,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250122141037.953934-2-patrice.chotard@foss.st.com>
+In-Reply-To: <20250122141037.953934-4-patrice.chotard@foss.st.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_071835_101129_64C7440E 
-X-CRM114-Status: GOOD (  19.14  )
+X-CRM114-CacheID: sfid-20250122_072252_855002_B7688719 
+X-CRM114-Status: GOOD (  24.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,140 +129,187 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 22/01/2025 15:10, patrice.chotard@foss.st.com wrote:
-> ---
->  .../bindings/spi/st,stm32-ospi.yaml           | 109 ++++++++++++++++++
->  1 file changed, 109 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/spi/st,stm32-ospi.yaml
+> From: Patrice Chotard <patrice.chotard@foss.st.com>
 > 
-> diff --git a/Documentation/devicetree/bindings/spi/st,stm32-ospi.yaml b/Documentation/devicetree/bindings/spi/st,stm32-ospi.yaml
+> Add bindings for STM32 Octo Memory Manager (OMM) controller.
+> 
+> OMM manages:
+>   - the muxing between 2 OSPI busses and 2 output ports.
+>     There are 4 possible muxing configurations:
+>       - direct mode (no multiplexing): OSPI1 output is on port 1 and OSPI2
+>         output is on port 2
+>       - OSPI1 and OSPI2 are multiplexed over the same output port 1
+>       - swapped mode (no multiplexing), OSPI1 output is on port 2,
+>         OSPI2 output is on port 1
+>       - OSPI1 and OSPI2 are multiplexed over the same output port 2
+>   - the split of the memory area shared between the 2 OSPI instances.
+>   - chip select selection override.
+>   - the time between 2 transactions in multiplexed mode.
+> 
+> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+> ---
+>  .../bindings/misc/st,stm32-omm.yaml           | 194 ++++++++++++++++++
+>  1 file changed, 194 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/misc/st,stm32-omm.yaml
+
+
+All my other comments apply.
+
+Also:
+This cannot be misc. Depending what this is, either dedicated subsystem
+like memory or soc.
+
+
+> 
+> diff --git a/Documentation/devicetree/bindings/misc/st,stm32-omm.yaml b/Documentation/devicetree/bindings/misc/st,stm32-omm.yaml
 > new file mode 100644
-> index 000000000000..bf16252f85fa
+> index 000000000000..ef8f5d2c526c
 > --- /dev/null
-> +++ b/Documentation/devicetree/bindings/spi/st,stm32-ospi.yaml
+> +++ b/Documentation/devicetree/bindings/misc/st,stm32-omm.yaml
 
 
-Use compatible as filename.
-
-> @@ -0,0 +1,109 @@
+> @@ -0,0 +1,194 @@
 > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 > +%YAML 1.2
 > +---
-> +$id: http://devicetree.org/schemas/spi/st,stm32-ospi.yaml#
+> +$id: http://devicetree.org/schemas/misc/st,stm32-omm.yaml#
 > +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +title: STMicroelectronics STM32 Octal Serial Peripheral Interface (OSPI)
+> +title: STM32 Octo Memory Manager (OMM)
 > +
 > +maintainers:
 > +  - Patrice Chotard <patrice.chotard@foss.st.com>
 > +
-> +allOf:
-> +  - $ref: spi-controller.yaml#
+> +description: |
+> +  The STM32 Octo Memory Manager is a low-level interface that enables an
+> +  efficient OCTOSPI pin assignment with a full I/O matrix (before alternate
+> +  function map) and multiplex of single/dual/quad/octal SPI interfaces over
+> +  the same bus. It Supports up to:
+> +    - Two single/dual/quad/octal SPI interfaces
+> +    - Two ports for pin assignment
 > +
 > +properties:
 > +  compatible:
-> +    const: st,stm32mp25-ospi
-> +
-> +  reg:
-> +    description: registers
-
-That's not helping. Please take a look how other bindings do it.
-maxItems instead or you need to list the items with meaningful description.
-
+> +    const: st,stm32mp25-omm
 > +
 > +  "#address-cells":
-> +    const: 1
+> +    const: 2
 > +
 > +  "#size-cells":
-> +    const: 0
+> +    const: 1
+> +
+> +  ranges:
+> +    description: |
+> +      Reflects the memory layout with four integer values per OSPI instance.
+> +      Format:
+> +      <chip-select> 0 <registers base address> <size>
+> +
+> +  reg:
+> +    items:
+> +      - description: registers
 
-Drop *cells.
+Well, why here is entirely different syntax? Anyway, useless
+description. Say something useful
+
+> +      - description: memory mapping
+
+This is a bit better but still confusing. Memory mapping of what?
+Virtual memory? This is vague to me.
+
+> +
+> +  reg-names:
+> +    items:
+> +      - const: omm
+> +      - const: omm_mm
+
+Not useful names. Drop prefixes and then you end up with empty first
+entry :/
+
 > +
 > +  memory-region:
-> +    maxItems: 1
-> +    description: Phandle to a node describing memory-map region to be used
+> +    description: Phandle to a node describing memory-map region to be used.
 
-Drop description, redundant. Say something useful - the purpose - or
-just maxItems if purpose is obvious.
+Constraints.
+
+> +
+> +  memory-region-names:
+> +    minItems: 1
+
+Nope, you just said one phandle?
+
+> +    items:
+> +      - const: mm_ospi1
+> +      - const: mm_ospi2
+
+Drop redundant parts. If name is just 1 or 2, then just drop xxx-names
 
 > +
 > +  clocks:
 > +    maxItems: 1
 > +
-> +  interrupts:
-> +    maxItems: 1
-> +
 > +  resets:
-> +    maxItems: 2
-
-You need to list and describe the items.
-
-> +
-> +  dmas:
-> +    items:
-> +      - description: tx DMA channel
-> +      - description: rx DMA channel
-
-maxItems: 2 is enough, because names define what these are
-
-> +
-> +  dma-names:
-> +    items:
-> +      - const: tx
-> +      - const: rx
-> +
-> +  st,syscfg-dlyb:
-> +    description: |
-> +      Use to set the OSPI delay block within SYSCFG to:
-
-Phandles to what? Describe also the destination device.
-
-> +        Tune the phase of the RX sampling clock (or DQS) in order
-
-Unneeded indentation.
-
-> +        to sample the data in their valid window.
-> +        Tune the phase of the TX launch clock in order to meet setup
-> +        and hold constraints of TX signals versus the memory clock.
-> +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> +    items:
-> +      minItems: 2
-> +      maxItems: 2
-
-Your example has only one item, so probably you wanted one more items
-with description. Now you miss one of matrix constraints.
-
-git grep -C 8 phandle-array
-(e.g. some sram or syscon examples)
-
-
-
+> +    maxItems: 1
 > +
 > +  access-controllers:
 > +    minItems: 1
 > +    maxItems: 2
-
-List the items.
-
+> +
+> +  st,syscfg-amcr:
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> +    description: |
+> +      The Address Mapping Control Register (AMCR) is used to split the 256MB
+> +      memory map area shared between the 2 OSPI instance. The Octo Memory
+> +      Manager sets the AMCR depending of the memory-region configuration.
+> +      Format is phandle to syscfg / register offset within syscfg / memory split
+> +      bitmask.
+> +      The memory split bitmask description is:
+> +        - 000: OCTOSPI1 (256 Mbytes), OCTOSPI2 unmapped
+> +        - 001: OCTOSPI1 (192 Mbytes), OCTOSPI2 (64 Mbytes)
+> +        - 010: OCTOSPI1 (128 Mbytes), OCTOSPI2 (128 Mbytes)
+> +        - 011: OCTOSPI1 (64 Mbytes), OCTOSPI2 (192 Mbytes)
+> +        - 1xx: OCTOSPI1 unmapped, OCTOSPI2 (256 Mbytes)
+> +    items:
+> +      minItems: 3
+> +      maxItems: 3
+> +
+> +  st,omm-req2ack-ns:
+> +    description: |
+> +      In multiplexed mode (MUXEN = 1), this field defines the time in
+> +      nanoseconds between two transactions.
+> +
+> +  st,omm-cssel-ovr:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    description: |
+> +      Configure the chip select selector override for the 2 OCTOSPIs.
+> +      The 2 bits mask muxing description is:
+> +        -bit 0: Chip select selector override setting for OCTOSPI1
+> +          0x0: the chip select signal from OCTOSPI1 is sent to NCS1
+> +          0x1: the chip select signal from OCTOSPI1 is sent to NCS2
+> +        -bit 1: Chip select selector override setting for OCTOSPI2
+> +          0x0: the chip select signal from OCTOSPI2 is sent to NCS1
+> +          0x1: the chip select signal from OCTOSPI2 is sent to NCS2
+> +
+> +  st,omm-mux:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    description: |
+> +      Configure the muxing between the 2 OCTOSPIs busses and the 2 output ports.
+> +      The muxing 2 bits mask description is:
+> +        - 0x0: direct mode, default
+> +        - 0x1: mux OCTOSPI1 and OCTOSPI2 to port 1
+> +        - 0x2: swapped mode
+> +        - 0x3: mux OCTOSPI1 and OCTOSPI2 to port 2
 > +
 > +  power-domains:
 > +    maxItems: 1
 > +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - "#address-cells"
-> +  - "#size-cells"
+> +patternProperties:
+> +  "^spi@[a-f0-9]+$":
+> +    type: object
+> +    $ref: "/schemas/spi/st,stm32-ospi.yaml#"
 
-Drop cells
+Drop quotes.
 
-> +  - clocks
-> +  - interrupts
-> +  - st,syscfg-dlyb
-> +
-> +unevaluatedProperties: false
-> +
-
-
+Look at your other $ref and keep things consistent.
 
 Best regards,
 Krzysztof
