@@ -4,101 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08E20C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 10:33:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71A55C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 10:34:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RXZQ3iTLaTcFIc0MIbkuKG0+bnWN6S1esvXMq4e4+0s=; b=cg5vB9aajlKFn115iPvIxJg6Nf
-	xKlBLBmXz1rvR+tlfnD/VLZF7l0/tgcKAvYoPj4N22PHjoop73wUNvXFJqQDVk5Z1ogQYDkKaxL8n
-	IogLiC27E7RGDbeRcn90bQgTeHUXmydC9CBotKDk8CCgChOL+/QZ54xbrdQdoK890XW5pcdvcNwig
-	q94Xz8FvCrr1wWwmEOSqZvO8xCjufA6OYI1YpLMxjTHT+09rfgpyvz9k6eP1xeCnlDGHbsXmMLgPE
-	MkI/cN0Riq+HbV6neFSgglZc1b8u0wEyPAroh7yJ3JVBCBoQwd7qg6doaB7DLWLD+8pV/2rNWCFw4
-	J1lJWQNw==;
+	bh=0/PoSpuGXNJMj5JpQ9gwkbA2BrsaYfv6F03Ox4my/J0=; b=OXAI6DFXeJvwcpJD+DM/4fw7qs
+	9VPakA9gkjGiqkFrDP9qPPLtpO7DHodagUid9ES3zeqC4kf8HD6CRKUCNbBJD3vt3F0aNBE3v543T
+	9RUTbeGokrt3jld06qZXTxieJp657EvnCqFSEJhqhpGV3c44ThGBbBVMRcc+5/LsAbWf2XC2nRWlE
+	AfLgamoXZw1dRaXcwuetXlQiMz7lv8TCi2UOWTzeMaHGPcJmRHeZdI8quHr8Oh93vd+RsJoTLxz1M
+	kT5XD6jQgSdcpkeyFb4QjntpxEyKDlrEoCrM+rJVSUs1G9aX7wwBNn786UzqcjjvOpCvUkkkgwAtw
+	OaTzAcZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taY2d-00000009x0l-0XIc;
-	Wed, 22 Jan 2025 10:32:59 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1taY3s-00000009xKu-3Nud;
+	Wed, 22 Jan 2025 10:34:16 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taXv7-00000009vTX-1zcr
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 10:25:14 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4361815b96cso46701875e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jan 2025 02:25:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1737541512; x=1738146312; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=RXZQ3iTLaTcFIc0MIbkuKG0+bnWN6S1esvXMq4e4+0s=;
-        b=C2l2LzK7dhQ+9LoSPvbijl3jTEAEaURfdU7tYlRTSj4BC4Z+q4B3Y5igYMGHSmBHzm
-         5ZLcSE5k8cI/Qx9wQxU20Zx9asj9taLoDi1XNqsD4wStn90Don48JoFVeZAD5FQSRJXD
-         f6g/4rcynkC4Fbn5QYQX2fFRgyP0Qw0CnumUyBS6Tz6ySqgI2DzgEGIMZz/T6AheubJa
-         us+WVVwUF5HwY9cTLTs5O3uWe8/exd7f2DVHMyvwEvc71QFDEiFKYVjF9qP7Q6+yTNas
-         dBHmPMnHnjYtbAZYvEC6sCH7EL5/fGlD3odBFDISL/y1H5o8Uy21dCOPU1c6ZJCHpEnX
-         bBWg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737541512; x=1738146312;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=RXZQ3iTLaTcFIc0MIbkuKG0+bnWN6S1esvXMq4e4+0s=;
-        b=WNjTBiXcDjBAn+Ynk9u56ryYALBtWVr0McsuKkvMxpATqyANWH5HTN466NM5dAIz3e
-         ghMdXQlfAT315kEkzpplWtkAlC8oS8IklkkeSEIyV0sNZ2EQmH3cUk6lumw8bDq3Yr0x
-         yzl1pADbIgUJ12nb+iPpuKuM7S8h/VJGwPrIyAjpuAXRngN1o95FOtWjsbD6PvWpY3H1
-         PYLQZ/tgpS4w2SLCd8EssYj3NyUL044gmD/oQZ68hapRCh67W+NzII8EoN1tzCj0PCCC
-         7A+5a3G7d3uY6E1S7F5O8ZA3ZSRzFGd0VgEDuqEC1B0iZfLeET/1srTo05ZE1+9awPTp
-         Q7pw==
-X-Forwarded-Encrypted: i=1; AJvYcCUBZUvw/qGzNQoQjmvYphMYtk91ATHX2mLkFMvSigV28XnkBqdJfr4ZMJRmAK3o1yzPf5m+2rGxcG07iaR1FgfP@lists.infradead.org
-X-Gm-Message-State: AOJu0YxMKCIgdYRH2TSITeK6/BgeU8tEPC+kw/fhgvjExROTbrCFqjts
-	YVTygLFyexgP3AYEC/LOpwRIX1j9Eq/KRbwDPd+xiy87/8yBt3caUoNNiYrpFyc=
-X-Gm-Gg: ASbGnctNt0iipu0rd6r2SJ5w/vMbUX/haIEtBjKKlL8e46/EiCr8cEouDTmFIj26hxD
-	FvPTKVggdRZYhSaNOTMekV53aKe5/UoNdZtNPyjA3gTEOybOcqN7sb0hywSY7E4j7/r0/4brNsg
-	u3IrC6t5xctVQiVVN/11sgC1cdTa6zr+JL9E/jbYsyx6puAAExZnfVoreJIH+9uSE610zd9zHz6
-	iYH8xuT6/6CVUxN+02SEJs2xWXFZPihmFb3NwWNkNGfhZjdi5Bgubgy8arU5+iukvs=
-X-Google-Smtp-Source: AGHT+IFcdjMkbBVSBvPBcUMc6AIbuC7ugMJHA3X8FNx9ozrzI4NtnIr1pvfbPlrQNAdMI3bs+KTBkQ==
-X-Received: by 2002:a05:600c:3495:b0:434:a315:19c with SMTP id 5b1f17b1804b1-438913bdb0emr187626515e9.3.1737541511808;
-        Wed, 22 Jan 2025 02:25:11 -0800 (PST)
-Received: from localhost ([2001:4090:a245:80cb:f705:a3ac:14fe:4e1b])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438b31a1e69sm19459595e9.11.2025.01.22.02.25.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jan 2025 02:25:11 -0800 (PST)
-From: Markus Schneider-Pargmann <msp@baylibre.com>
-Date: Wed, 22 Jan 2025 11:24:36 +0100
-Subject: [PATCH 5/5] arm64: dts: ti: k3-am62p-j722s-common-wakeup: Add
- ddr-pmctrl, canuart-wake
+	id 1taXz8-00000009wF1-2tMO;
+	Wed, 22 Jan 2025 10:29:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A2FAD5C5DFD;
+	Wed, 22 Jan 2025 10:28:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66B26C4CED6;
+	Wed, 22 Jan 2025 10:29:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737541761;
+	bh=um0lS4DsGQyE4fkosuc7MC9GnEa206XsxZ4NA+YNoZI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=bOPvj/5FP7wJfcrNKqQaqUMuKUqRBgDrxM3mUrAAxQAc27DFuNzrUlTdVEcSdo8Nz
+	 RhMddUCj78+ct1xb/urJoGncjVYV4n/srB6KTUVxhUcpeUYRlOpNLybzv4HJ3FYwIV
+	 wc58hrgfeKkXGuUS9wI/Fj43JrludUVqdut4cPbK0aYRTgXT31AKNY8/t+l9cTZuBJ
+	 9vfMXQCQdVgI47dYJGPI3kCJRTMpizwZtwpVqNq22nOPx/PtNqyDgV1omcOY+cmAjp
+	 IQxF/JaXAONyW8Hn+iCSaRsDWY6ryYSxUqOtBbausdurK1vZqum+Ju0kzMe5imLQto
+	 1qLKYFdX0bafw==
+Message-ID: <09b3089b-bd44-4993-8377-f191c4a669c4@kernel.org>
+Date: Wed, 22 Jan 2025 11:29:14 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v12 12/13] dt-bindings: display: vop2: Add rk3576 support
+To: Andy Yan <andyshrk@163.com>
+Cc: heiko@sntech.de, hjc@rock-chips.com, krzk+dt@kernel.org,
+ devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, derek.foreman@collabora.com,
+ detlev.casanova@collabora.com, daniel@fooishbar.org, robh@kernel.org,
+ sebastian.reichel@collabora.com, Andy Yan <andy.yan@rock-chips.com>
+References: <20250121103254.2528004-1-andyshrk@163.com>
+ <20250121103500.2528258-1-andyshrk@163.com>
+ <20250122-amber-moth-of-upgrade-fa8331@krzk-bin>
+ <76fe64e1.7132.1948d81c1f4.Coremail.andyshrk@163.com>
+Content-Language: en-US
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <76fe64e1.7132.1948d81c1f4.Coremail.andyshrk@163.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250122-topic-am62-dt-syscon-v6-13-v1-5-515d56edc35e@baylibre.com>
-References: <20250122-topic-am62-dt-syscon-v6-13-v1-0-515d56edc35e@baylibre.com>
-In-Reply-To: <20250122-topic-am62-dt-syscon-v6-13-v1-0-515d56edc35e@baylibre.com>
-To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Siddharth Vadapalli <s-vadapalli@ti.com>, Nishanth Menon <nm@ti.com>, 
- Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Markus Schneider-Pargmann <msp@baylibre.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1091; i=msp@baylibre.com;
- h=from:subject:message-id; bh=mKVbeLCZ5Zhwj38zZ5+OKDCOtAlsP8KiPIVX5xjl0ek=;
- b=owGbwMvMwCGm0rPl0RXRdfaMp9WSGNInHK+adOnjcd2UZTr56pOKd2zOl3dUPlBr4q99Wetyy
- 7w/a9a+6ihlYRDjYJAVU2S5+2Hhuzq56wsi1j1yhJnDygQyhIGLUwAmUsfPyLDw+WttJy1+tr99
- dzSrZwsxH9jckPb5WdzmBE6LUF7mtqmMDNvC9OKt/t86fkpoR0yisVH3jj7BxZaTJ4ipL3B4PJl
- nIT8A
-X-Developer-Key: i=msp@baylibre.com; a=openpgp;
- fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_022513_514998_45AB53F9 
-X-CRM114-Status: UNSURE (   9.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250122_022922_821000_1E4C237E 
+X-CRM114-Status: GOOD (  12.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,37 +122,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Within the wkup-conf register range there are ddr-pmctrl and
-canuart-wake control registers. Add dedicated subnodes for these.
+On 22/01/2025 11:14, Andy Yan wrote:
+> Hi, 
+> 
+> At 2025-01-22 16:04:59, "Krzysztof Kozlowski" <krzk@kernel.org> wrote:
+>> On Tue, Jan 21, 2025 at 06:34:57PM +0800, Andy Yan wrote:
+>>> From: Andy Yan <andy.yan@rock-chips.com>
+>>>
+>>> Add vop found on rk3576, the main difference between rk3576 and the
+>>> previous vop is that each VP has its own interrupt line.
+>>>
+>>> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+>>>
+>>> ---
+>>>
+>>> Changes in v12:
+>>> - Split from patch 10/13
+>>
+>> Order your patches finally. It's v12 and you still send binding after
+>> the user. Read carefully submitting bindings/patches.
+> 
+> What do you mean by "sending binding after user" here? 
+> I think PATCH 1~9 are fix and preparations, PATCH 13("drm/rockchip: vop2: Add support for rk3576")
+> is the user that uses the new binding.
 
-Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
----
- arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+Ah, my bad. I thought that's the last one.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi
-index 6f32135f00a551cfea4cc896fc03147271eab9b7..3daade3f4ffcfa669f109200e86c3e11da34e70c 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi
-@@ -39,6 +39,16 @@ usb1_phy_ctrl: syscon@4018 {
- 			compatible = "ti,am62-usb-phy-ctrl", "syscon";
- 			reg = <0x4018 0x4>;
- 		};
-+
-+		ddr_pmctrl: syscon@80d0 {
-+			compatible = "ti,am62-ddr-pmctrl", "syscon";
-+			reg = <0x80d0 0x4>;
-+		};
-+
-+		canuart_wake: syscon@18300 {
-+			compatible = "ti,am62-canuart-wake", "syscon";
-+			reg = <0x18300 0x44>;
-+		};
- 	};
- 
- 	wkup_uart0: serial@2b300000 {
 
--- 
-2.47.1
-
+Best regards,
+Krzysztof
 
