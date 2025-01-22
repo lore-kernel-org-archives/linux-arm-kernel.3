@@ -4,102 +4,203 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24D02C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 09:34:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1FD5C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 09:35:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Subject:Cc:To:
-	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YV31ap+hTk7A9j35eAwWYQDQxUENrLNo4C4Wd2gbJZI=; b=KLmkeeit6neMizVIC+hyTwdus0
-	T3ofJUzMIpx+K8vPgbbdmyfIKXRbJUxKQYoB8JNf9AlGR85ihPZeSOXN6h/qgz5gdKmwxjKcWfVRJ
-	1qq4UF1pgoBlpaaB9NGWxudiF4D0lRP+7GrQowJO8dAtGbRuoPyrhjJDapuPJzF55x9xAK9EV11L4
-	U7cFOHpUg4e0JeLHrL4zRp4G7p5p+zuEBYV/AY7rrQsYxjhy0ZCEXYeWpJyYez0a+YW6cixGRwTw4
-	dVtL2pwW6hc4CCD4ptt54wNMp0wRdwMCmpEBO8eac2esxuUCgYDDEHcySIJAPE3lm3cUwMg0ws7Ff
-	06rpqi7A==;
+	bh=Jj5OErtbqvP2tCpIwE2US+8IAh5gGnrEZzUjdb11FwA=; b=b2slNrtSCOxYjfD2NXoRGjkWeq
+	EdY8xoH0vosDFgLDPsAsK1KvUmW/ZzY9K5EZbjhpUO6UUUWjeppjvbVR+d4LDHrJRu628zh72bzfJ
+	66erX6igiJk3tXLdXt0z4RAyImKS6f0y6Z7PHozLdTUe6wceOP+ylAjAwKgjQJvoGKldLyv4oH0w3
+	djL223RplBJmpDCBT5b7Buoe76kDYH8xejk5Gs2b9Erg0PVdw/jjN3NxzLFn1uVBIXBclmGlAI4f0
+	Hq6Zxi9aSAMmajYLblFGb+B7MTgmv3jbkEQ0ef7fjTFzRqLgr3zT8VgLT2hfV/zrTdbWpA/hpIlcM
+	I9ya8S+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taX7V-00000009o6g-1VmZ;
-	Wed, 22 Jan 2025 09:33:57 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1taX8q-00000009oHO-08dd;
+	Wed, 22 Jan 2025 09:35:20 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taX6D-00000009nrf-008x;
-	Wed, 22 Jan 2025 09:32:38 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-3863703258fso388414f8f.1;
-        Wed, 22 Jan 2025 01:32:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737538355; x=1738143155; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:subject:cc:to:from:date:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=YV31ap+hTk7A9j35eAwWYQDQxUENrLNo4C4Wd2gbJZI=;
-        b=TRi8rBWvvfxTGh8ZjFveGIm2gOpO8Va8sjABBXTcYtg6xVA+uCSaxw/FRUc+YF07sK
-         95WVs/EGsi+hoa0xU47rrYBxz3EmOGjKYWdRoaEnEurn7qkzVBocZK1RdP6Fs0htSmV2
-         /ZCCUDEsMGJhCRptP8mzhbPlKS0BxzpJ1/KFKEUXcym4DJP4gJ3IBTDEL29JpRnZ3ZNG
-         Oy8IWS/RiIJY6AnLC742aan7u8PelXULgtav0BLzi6lQT8TBFTDhkADuD22kyyNVWp2M
-         53S+sZzxJsUOCDFyyzYjc5iEPb75WzG0jE7pynkh7mdKbFV/J33gNjL0VS31bV7j6bqf
-         6UNg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737538355; x=1738143155;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:subject:cc:to:from:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=YV31ap+hTk7A9j35eAwWYQDQxUENrLNo4C4Wd2gbJZI=;
-        b=SR8Cgf2VOphtw3YtPvGjhYiYiWdVRafcs74i0ga4YLus6221toQgpGucL3YG+TFYFu
-         hQ/ydr8gv+L+0kSwmfDwdteVmIXGtRk+pdumPQrMEf9XgeLT7PidHX1kATnYFCQNQDkH
-         xyTiFijhZ+y/E1XDfsvSWK2DuYgXCRTpoHV4iS9tGbmYvmKvNUzpxpajP7b0UUf5F1EV
-         UKdv0stlAp1nkKct7l6u3sLVOvDW27FZHyMfGtWUcU7vXCzjnDKmR1NVoIFHfMfCRD8s
-         9+07HdVzkwr1qNPmriUfmrrKsMq0IltLGEod/tERAUJaRrHRPS+Hz9k6WAAa11Jvrnak
-         wHDg==
-X-Forwarded-Encrypted: i=1; AJvYcCW+P5QHNDji6f+afcF3QmjRWHP1F1LIJnknPLeAviOcv4dt35XwmKhXfNSEdyol9m9YEwFzo2mxYTbmPUfGV7A=@lists.infradead.org, AJvYcCXsPrzhWHJQgANWqmQ57jlk+qkpe9ELDc8aR9LVCKeKHG5buiW/575jQ+Or3FymSe+lj9boec/pG9gYNP3Oa0Zd@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPphnZ2XUbC5SEdwNdJDdHM3UnHDB9tIMILBnvp02dMKFw6mqT
-	9g0Eb/x4+edv9EPehkkxW9zwh4iLDsjOhYA2PsQjz8LOFp/J7P1K
-X-Gm-Gg: ASbGncvxzuo8ujuVGLW++jQm2c54uskFiHu1FV3opDDSfK+/IqxHOWUMC3Ecp3od+s/
-	qENwI21zJeg15CH5Ej+xkaijWtzUP2ehf8upKIpEGrlO6mUUlUsS+YBPvR38jqox7GxLqAxADiN
-	tdjEtlZcSatm5DaE/ZdGBSYnO/40xP8+KOD4vdAkHNtKgdaK6arsr/aeXA8qvswsYISbPXYBdZT
-	eR48w2bDWHygBZsxolSCwGpLe8y9hiDpBcmhL7uTuxAxAPitxWaNwKc8L51q4+VV3TjTUL0mTuj
-	lQwLi7TBwdR5/BBaKhp71salGA==
-X-Google-Smtp-Source: AGHT+IEPa16/GommLca/ZabHQ6R/9IpeTlIhByFGnz2RnxfnxdP8CfDb1RQsqRARjMyM70FdR1u6+w==
-X-Received: by 2002:adf:9dce:0:b0:38a:88bc:aea6 with SMTP id ffacd0b85a97d-38bec4f592amr16953017f8f.6.1737538354689;
-        Wed, 22 Jan 2025 01:32:34 -0800 (PST)
-Received: from Ansuel-XPS. (93-34-91-161.ip49.fastwebnet.it. [93.34.91.161])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38bf327e19fsm16106067f8f.93.2025.01.22.01.32.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jan 2025 01:32:34 -0800 (PST)
-Message-ID: <6790bb32.5d0a0220.168b1e.7c5b@mx.google.com>
-X-Google-Original-Message-ID: <Z5C7L3W26Ae_vlE4@Ansuel-XPS.>
-Date: Wed, 22 Jan 2025 10:32:31 +0100
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Andy-ld Lu =?utf-8?B?KOWNouS4nCk=?= <Andy-ld.Lu@mediatek.com>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"linux-mmc@vger.kernel.org" <linux-mmc@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	Wenbin Mei =?utf-8?B?KOaiheaWh+W9rCk=?= <Wenbin.Mei@mediatek.com>,
-	Chaotian Jing =?utf-8?B?KOS6leacneWkqSk=?= <Chaotian.Jing@mediatek.com>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"ulf.hansson@linaro.org" <ulf.hansson@linaro.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	upstream <upstream@airoha.com>
-Subject: Re: [PATCH 2/2] mmc: mtk-sd: add support for AN7581 MMC Host
-References: <20250115073026.31552-1-ansuelsmth@gmail.com>
- <20250115073026.31552-2-ansuelsmth@gmail.com>
- <9e022bf13354f544962491cf8061ff3edb878c30.camel@mediatek.com>
- <678e8816.050a0220.b6bb9.f588@mx.google.com>
- <eb064f0873fd47e7cbd07f8e403f11dd6060ff34.camel@mediatek.com>
+	id 1taX7U-00000009o6K-0fFZ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 22 Jan 2025 09:33:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1737538436; x=1769074436;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=xwl5LUc/Q+ZxOmcnC8YVBDUYR2Of8tEEFfF7s+tCeKc=;
+  b=dFIhY3xPVNXP3r07ofZRscfDEN3nIUmlMpVgqrQFSkQDeoslQWWLBW84
+   MvZeps2YH6BahIhJ0RbUk7pk/MznrwzukfhynTKsIVciWy6eSd4c790AH
+   uK0SLnHTOnKYggLcYYImdIx5Rd8RcaK4GjizWsu+i1acbtNT4td8m/NEZ
+   lQKXJW5k/i7tQAasrMzlSHc1ZdPr0ILe5u+2d8Ipzycy3WUReSX3vzl27
+   dZvfqgbS2vbvD/3Oro+hUbzj08nOZte+zH8Ou0FN9Go4RxjfvoDk2UB8H
+   /ragTd+jKOT5+syRF+H8gLFn+crORE9LORSsPg9KyzTlEt5NeTwL7rc9G
+   g==;
+X-CSE-ConnectionGUID: If/F2HxfQDy+Lj28w2Cgvg==
+X-CSE-MsgGUID: zjV4DGusTnaJb/l52AH1qw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11322"; a="37683957"
+X-IronPort-AV: E=Sophos;i="6.13,224,1732608000"; 
+   d="scan'208";a="37683957"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jan 2025 01:33:52 -0800
+X-CSE-ConnectionGUID: q3rRBBa0SzifBpsmjA22WQ==
+X-CSE-MsgGUID: Hzj/A5L+Qryg+P196T1p9Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
+   d="scan'208";a="112067298"
+Received: from orsmsx603.amr.corp.intel.com ([10.22.229.16])
+  by orviesa003.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 22 Jan 2025 01:33:52 -0800
+Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
+ ORSMSX603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Wed, 22 Jan 2025 01:33:51 -0800
+Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
+ orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44 via Frontend Transport; Wed, 22 Jan 2025 01:33:51 -0800
+Received: from NAM10-DM6-obe.outbound.protection.outlook.com (104.47.58.44) by
+ edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.44; Wed, 22 Jan 2025 01:33:51 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XUx8oLeH2d6YhdQxD0nqJYsSQTW/Xqr8K5wQbbX7rGYcmD0a5hpwnjWhUmLaaERgG23znGt3YcwuUsDoR0y6RvhzOuFg8o9sewxDRFhezfO0QwJmtCZ6oWRNg8mawbdGewMsNW2VHHghUYG49/p3Vn8S4A32LBVBV96R8P9Ti9yWUb7j6i9Ye7Kn5w8U7flDdhO9zOBysbE+y1FWXH2igPbjFyIF8f+7iUw3S5uzUKx9dDHYtSkTHWRkvhI8ggVDG8B+ObC2O1foWX6WE4TLVxcntylo0r1TPdO67A6KTVVwVQtn+jdE465b0U710tgVcf2ylD3ZcRznwFrndmZmmg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Jj5OErtbqvP2tCpIwE2US+8IAh5gGnrEZzUjdb11FwA=;
+ b=fZaQUjwAZp1/+MT/j9g7Fcw2+CXfHCRNUDuMC0V6TUmaaolLdvzczI2fdcxV8YpAfq08uTldqZnK0M1ASUUnmIlJLAyElTnJWjSKRuSWMLiMeDmYgnHM4CTWkjItbd9cSwwb2hQERxR1kNTXZ/P5/Zo18eeMqVcj/uQMrSFfhWRkYZofAfdRwr9vNsGxp7MVZfs8Ta5yPo3JguBZ6cOlPyel0ZYDm5bmPful1+vtagnIDGOAkpMFs9Q7WCE7u0y3XcQ+mg/Tjyy6wJb/6akn5I9nX6MqpgyPyuHtLgKoj1oP6uP+yWNsfcA2Fq1h4/gCQlYfMLDJuijR64JxJXeOKA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
+ by PH0PR11MB4888.namprd11.prod.outlook.com (2603:10b6:510:32::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8377.16; Wed, 22 Jan
+ 2025 09:33:35 +0000
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1]) by BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1%7]) with mapi id 15.20.8356.020; Wed, 22 Jan 2025
+ 09:33:35 +0000
+From: "Tian, Kevin" <kevin.tian@intel.com>
+To: Nicolin Chen <nicolinc@nvidia.com>, Jason Gunthorpe <jgg@nvidia.com>
+CC: "corbet@lwn.net" <corbet@lwn.net>, "will@kernel.org" <will@kernel.org>,
+	"joro@8bytes.org" <joro@8bytes.org>, "suravee.suthikulpanit@amd.com"
+	<suravee.suthikulpanit@amd.com>, "robin.murphy@arm.com"
+	<robin.murphy@arm.com>, "dwmw2@infradead.org" <dwmw2@infradead.org>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>, "shuah@kernel.org"
+	<shuah@kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kselftest@vger.kernel.org"
+	<linux-kselftest@vger.kernel.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, "eric.auger@redhat.com" <eric.auger@redhat.com>,
+	"jean-philippe@linaro.org" <jean-philippe@linaro.org>, "mdf@kernel.org"
+	<mdf@kernel.org>, "mshavit@google.com" <mshavit@google.com>,
+	"shameerali.kolothum.thodi@huawei.com"
+	<shameerali.kolothum.thodi@huawei.com>, "smostafa@google.com"
+	<smostafa@google.com>, "ddutile@redhat.com" <ddutile@redhat.com>, "Liu, Yi L"
+	<yi.l.liu@intel.com>, "patches@lists.linux.dev" <patches@lists.linux.dev>
+Subject: RE: [PATCH v5 08/14] iommufd/viommu: Add iommufd_viommu_report_event
+ helper
+Thread-Topic: [PATCH v5 08/14] iommufd/viommu: Add iommufd_viommu_report_event
+ helper
+Thread-Index: AQHbYSdBMlcOcpQt3kG1noLochuwD7MQS3cAgAAP+QCAABREAIADyIOAgADmPQCAAAdNAIAAAd6AgAAN/YCAARw/AIAFRUmAgAR2FACAACrRgIABbFiAgAAWGACAAAPzAIAADsUAgAADTACAAAdFgIAALRcAgABztQCAACOA4A==
+Date: Wed, 22 Jan 2025 09:33:35 +0000
+Message-ID: <BN9PR11MB527600A5B8DC271075936A918CE12@BN9PR11MB5276.namprd11.prod.outlook.com>
+References: <Z4rVg1Xg5TCiFlSb@nvidia.com> <20250120181854.GQ5556@nvidia.com>
+ <Z463eXfgNArCOfPn@nvidia.com> <20250121183611.GY5556@nvidia.com>
+ <Z4/7pGx6F1mpAUuV@nvidia.com> <20250121200924.GZ5556@nvidia.com>
+ <Z5ALWFVTOSC/8+ji@nvidia.com> <20250121211404.GB5556@nvidia.com>
+ <Z5AUNVHzJPATVqAY@nvidia.com> <20250122002128.GC5556@nvidia.com>
+ <Z5CbGKYbwy+qPjyh@nvidia.com>
+In-Reply-To: <Z5CbGKYbwy+qPjyh@nvidia.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|PH0PR11MB4888:EE_
+x-ms-office365-filtering-correlation-id: 384d5c07-ea37-4501-2636-08dd3ac7d84f
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?q+MiHxTmF6miYvOQE5Pd7+iO0ljsPDMZ+cl4OBwdLVJv/oYE3lJsIUdID+Ei?=
+ =?us-ascii?Q?WQOfIbZpQRf8iXgZ9cWm3Dh/Kp3DCocxZOVPOPX1yVuRDrR7ZOsr2VXnp0lJ?=
+ =?us-ascii?Q?ziux12qpJfn7MP6f2OCaeHMp4b1qA1OSmdM0IHsXWCTqF8W3kHd+1PA5wrW+?=
+ =?us-ascii?Q?zJ8xTut9+DbW4A4MAZ+kOVb9zSEfy+n8pa0DI9TLAA6/t/jVMujf1xijdzlr?=
+ =?us-ascii?Q?dYsi1diJEdHwyOE82dF8PnGZima3TC/cMv9t+3WgCmC2NBS3M4TZHcTmRdyD?=
+ =?us-ascii?Q?bE4ksvuqjrqteWMUoT7eFcpE7xfmrdooVeD6MGhuAitpcZSHLmghhE2cKE7g?=
+ =?us-ascii?Q?F6ZqK3i+CO4if13a9AJAqGwI4tc/4xKG0n7XjiC/RciTv65wZEuw++ES15z7?=
+ =?us-ascii?Q?Ro74paKOQ0H2/zPvFcrolUG9++dNh/P/cnls9suwqfL/urTTGtFKdpiDfIs9?=
+ =?us-ascii?Q?GrqLwQpfYULusRgM8WNUXvRTiHG4HA4PQrFjl9y9vd6rW3+ZxOhaD54xAb27?=
+ =?us-ascii?Q?Ei/mt/1ql1JJVrntnxOTyW0eCq2LSPRBKu8To5de8S67/rdoUycc4m179s3x?=
+ =?us-ascii?Q?3xjgsFbv2BtDRsarUPNjo4XqS5Bo2cU9Z9pMTShFzT6A2ERmf9+r63249d6h?=
+ =?us-ascii?Q?nWLdINGTd9HsmpDZ+Puj56GLPcxe8ylWWJRs8wWVc43ERjHFP2ryNoQJpV8n?=
+ =?us-ascii?Q?ngSPK87X3syk3jGjM5GHHPKBzt/J4rGf7u3GJxWsPRSswSKuwl8HblUJdu0l?=
+ =?us-ascii?Q?Xo++NpJ4n9BUoZiWRu28LjpZZo9lpYB8LWEw65w0RXiNLkmh+2XDNyZPtg1z?=
+ =?us-ascii?Q?vkzbAvfDOOhV3wq46Dwhvdq/28+1rxNMjpQS/2tRHPaJZYgjtdxLpwa9FxEA?=
+ =?us-ascii?Q?z0ZPf/dd0Cb7DB3Wb2SIgCHo7SpUi7zBWl7wAkIQrYT2/b0T4xLUMEhX/JRJ?=
+ =?us-ascii?Q?waOeu2ayP8KWOUihRAVsWDrVDXamRCRWEFxmif01HzagTPS0bNSrJTbCRU7t?=
+ =?us-ascii?Q?nQSbBtXGac1F3AVWH1owucoTavwGy8dIBWvzUyInRjRy2O0LsDwUdoAUXJ1/?=
+ =?us-ascii?Q?LgGIvGTGsMEyx3LAlpGXzgwBNOZzmmsBIawShxbI7k8JfhNABh29m4ijDlak?=
+ =?us-ascii?Q?2X0XrceQqGsu9zvOL8uCMYCxO3ayrXN1tmVHlID0mo/1g+XU3Kv6UQKdgZPG?=
+ =?us-ascii?Q?2OVGt2YRE3LeavYCAOi6uUHqcOhBLVUYRoqilaXFTwI8aiTIuzHn0mzK1IWf?=
+ =?us-ascii?Q?YJE0O0k3Ig9zkNth2G8nQw/Z1qmuut07VSBZBSA7ze7tw+1ucPLUJpXUpPxh?=
+ =?us-ascii?Q?KG0rkypzghyFCwBuT78ylvYS+fKbvDDH8ELn2hKeapXj8ObjSVsOGuoK6DPo?=
+ =?us-ascii?Q?U6L+PXVqoRRWK7gJCArTbqB+n9cQfAVvbbnQN/Cyt4gMNDNOus0+S9DXIOq7?=
+ =?us-ascii?Q?L+fQnlpuykR1omyoR1uNWk+IiTeXrbuV?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?8xVf0X4kV2WRv7dj4T2xXy+bJ/hLnG0sU5+u3nS5XiXEI5J6wpTd3VPlr5EB?=
+ =?us-ascii?Q?J/a+Ar/sdjvlUwXTmLslBCHefbA806fOoC/kwoZ2rIoV9hZBX7Yt6HyMywMe?=
+ =?us-ascii?Q?fPI2mtoO3AcTNCrgf/0WmTu6ZSphoftZ+7zD83B5lCB7/ydZWs2MK/XkrIqB?=
+ =?us-ascii?Q?kI0kEm6pw2aeIXBlutP2GVt3Th6xw76pDLwKRqE9dLrz+yZ3IJ46Pk09cqJi?=
+ =?us-ascii?Q?AMedAyhHt5KGg970agbqZ3i8adDZQokJM2jVsLK46xOud1XqYXvunZcFjsM0?=
+ =?us-ascii?Q?0ZrV0PSrv5Yv48rz+rGrThNMGwg+sSn6XzzOk3nKuNhnx3tVn1RebvxpmIPi?=
+ =?us-ascii?Q?SfgO7jGopIM1UG2cohb07ZkSVT8CuVi5oE70B6URa7MCWAi6NPjPrqNf8XdH?=
+ =?us-ascii?Q?X2ntdorcly+afX4zYXE8XjFhX9xa6FFqjlyGccYhCOni6ILsF2o2EbuC47BW?=
+ =?us-ascii?Q?WC+i1b30+xfwTxmH60Opurctp/SLZ4xwByRvXDSdqRV2E8SvfWeq5SZM4Qxj?=
+ =?us-ascii?Q?Uc0u24cu6SAr5I9KApIDie/ED1w0RWazBMdW1nWiTi5H0Objp6r6JTcC6nxH?=
+ =?us-ascii?Q?TGMDKl2hpYL/mmbPe/+AmJrBMXBOVCco3e9mQ04xO6Nzi8rpt90jC2jjBao2?=
+ =?us-ascii?Q?46ARto+Enf2Xs/YJpWyg7B1B1qLDqsC9QwBRf1V+V8BC7oRjiLACEnfZhDxf?=
+ =?us-ascii?Q?FOJP2BjpCMMCxQkfvJ+mausLwLN9kc40qjzaptzNHK9/aWxuH8HOLNNTb6Tn?=
+ =?us-ascii?Q?xneGX+dxnT4RYMG2/3731tbgNuAVV7gF06tpGOW6K0zH+oaRvyNixBiiedd2?=
+ =?us-ascii?Q?hXZjqUS+95mPPvww4os5e6AzXDIQHA9q+9xVphx+Jab5TEBVv/5pz38vJhGX?=
+ =?us-ascii?Q?5gaeNm39VP9xXNgr863lA5Nz1Hq7LLBbmSfiW9BiP3oHvuEhSbD099G91xLu?=
+ =?us-ascii?Q?AODSLtLEYcJVzX9ciC0iiL0ebG+/glFE/lRt7GDSTRYqOBQHnls3g3QG2kB1?=
+ =?us-ascii?Q?z2LbdHV4IkUu6HwY41cmZ3PbcH4RIlTNh45mPYnZ9C7UCxZd2zskcxA7uqdH?=
+ =?us-ascii?Q?TNDykry/0F30oRjAWo5haZ47x+yHiVNEPm18ImYaL2O8RfNmkXNxxvv308Ly?=
+ =?us-ascii?Q?kkco1mLDlNWNt6xNkuxLBzHwWdacJEdFs6imb4xNcg3ZiQNZc1izKB9BBPI0?=
+ =?us-ascii?Q?1j8yQITdbWOjum5kxc0aHYH5jOM22SRiUbuOpAtuzPz36ArD6XrPeyTTvcDr?=
+ =?us-ascii?Q?sNnWThhKO1FdWqlQkZkx1A5xuh9Bx81A8aRryzmbdkgEIGZrhyLof2kNu6Vm?=
+ =?us-ascii?Q?6PjmHYE82hQIgXpHpV6gIAxnAIVYbDk33374r9gMOrCtgfxbIDJJwp4tmaqV?=
+ =?us-ascii?Q?7njXSibSDetzAQ0hi6u5xqdYUtaOe09GCx8LCjZYhgXLLra+GaBzSgCpC784?=
+ =?us-ascii?Q?jOZuIkPlnU9OpkiwUVPKJoQYoqjiFCy7hiwveTnRJhTPs8T8uYpu9w1aziQM?=
+ =?us-ascii?Q?DjnEmBbbT9a3fBrEp1phJABeFJ+TWWWPJ48hgaWOa65wSmYtHyaEh7F7HQKs?=
+ =?us-ascii?Q?fFdMOVi1lS/EGqXT+7HJygwEn1iIAbf8X02Ri800?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <eb064f0873fd47e7cbd07f8e403f11dd6060ff34.camel@mediatek.com>
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 384d5c07-ea37-4501-2636-08dd3ac7d84f
+X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Jan 2025 09:33:35.7848
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: Gw52n7Tyc9tDLdjMpK+DbWpM216bU8M/QiFSjC3CM7XzoPSnJueF6fn/FPepVaBdLKOW6UHPauECniOzRGkg7A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR11MB4888
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_013237_064650_87D1C614 
-X-CRM114-Status: GOOD (  53.67  )
+X-CRM114-CacheID: sfid-20250122_013356_239083_4F967DCF 
+X-CRM114-Status: GOOD (  23.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,267 +215,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 21, 2025 at 06:25:48AM +0000, Andy-ld Lu (卢东) wrote:
-> On Mon, 2025-01-20 at 18:29 +0100, Christian Marangi wrote:
-> > External email : Please do not click links or open attachments until
-> > you have verified the sender or the content.
-> > 
-> > 
-> > On Thu, Jan 16, 2025 at 07:01:13AM +0000, Andy-ld Lu (卢东) wrote:
-> > > On Wed, 2025-01-15 at 08:29 +0100, Christian Marangi wrote:
-> > > > Add support for AN7581 MMC Host. The MMC Host controller is based
-> > > > on
-> > > > mt7622 with the difference of not having regulator supply and
-> > > > state_uhs
-> > > > pins and hclk clock.
-> > > > 
-> > > > Some minor fixes are applied to check if the state_uhs pins are
-> > > > defined
-> > > > and make hclk optional for the new airoha compatible.
-> > > > 
-> > > > Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> > > > ---
-> > > >  drivers/mmc/host/mtk-sd.c | 55 ++++++++++++++++++++++++++++++++-
-> > > > ----
-> > > > --
-> > > >  1 file changed, 46 insertions(+), 9 deletions(-)
-> > > > 
-> > > > diff --git a/drivers/mmc/host/mtk-sd.c b/drivers/mmc/host/mtk-
-> > > > sd.c
-> > > > index efb0d2d5716b..9d6868883c91 100644
-> > > > --- a/drivers/mmc/host/mtk-sd.c
-> > > > +++ b/drivers/mmc/host/mtk-sd.c
-> > > > @@ -666,6 +666,20 @@ static const struct mtk_mmc_compatible
-> > > > mt8196_compat = {
-> > > >     .support_new_rx = true,
-> > > >  };
-> > > > 
-> > > > +static const struct mtk_mmc_compatible an7581_compat = {
-> > > > +   .clk_div_bits = 12,
-> > > > +   .recheck_sdio_irq = true,
-> > > > +   .hs400_tune = false,
-> > > > +   .pad_tune_reg = MSDC_PAD_TUNE0,
-> > > > +   .async_fifo = true,
-> > > > +   .data_tune = true,
-> > > > +   .busy_check = true,
-> > > > +   .stop_clk_fix = true,
-> > > > +   .stop_dly_sel = 3,
-> > > > +   .enhance_rx = true,
-> > > > +   .support_64g = false,
-> > > > +};
-> > > > +
-> > > >  static const struct of_device_id msdc_of_ids[] = {
-> > > >     { .compatible = "mediatek,mt2701-mmc", .data =
-> > > > &mt2701_compat},
-> > > >     { .compatible = "mediatek,mt2712-mmc", .data =
-> > > > &mt2712_compat},
-> > > > @@ -680,7 +694,7 @@ static const struct of_device_id
-> > > > msdc_of_ids[] =
-> > > > {
-> > > >     { .compatible = "mediatek,mt8183-mmc", .data =
-> > > > &mt8183_compat},
-> > > >     { .compatible = "mediatek,mt8196-mmc", .data =
-> > > > &mt8196_compat},
-> > > >     { .compatible = "mediatek,mt8516-mmc", .data =
-> > > > &mt8516_compat},
-> > > > -
-> > > > +   { .compatible = "airoha,an7581-mmc", .data = &an7581_compat},
-> > > >     {}
-> > > >  };
-> > > >  MODULE_DEVICE_TABLE(of, msdc_of_ids);
-> > > > @@ -1600,6 +1614,10 @@ static int msdc_ops_switch_volt(struct
-> > > > mmc_host *mmc, struct mmc_ios *ios)
-> > > >     struct msdc_host *host = mmc_priv(mmc);
-> > > >     int ret;
-> > > > 
-> > > > +   /* Skip setting supply if not supported */
-> > > > +   if (!mmc->supply.vqmmc)
-> > > > +           return 0;
-> > > > +
-> > > 
-> > > Hi Christian,
-> > > 
-> > > I think here is no need. If you have not 'vqmmc' in the
-> > > dts, IS_ERR(mmc->supply.vqmmc) would be -ENODEV and the
-> > > corresponding
-> > > flow would not be executed.
-> > > 
-> > > And another question, host->pins_default is just selected here,
-> > > that
-> > > would be lost.
-> > > 
-> > > >     if (!IS_ERR(mmc->supply.vqmmc)) {
-> > > >             if (ios->signal_voltage != MMC_SIGNAL_VOLTAGE_330 &&
-> > > >                 ios->signal_voltage != MMC_SIGNAL_VOLTAGE_180) {
-> > > > @@ -1699,7 +1717,9 @@ static void msdc_enable_sdio_irq(struct
-> > > > mmc_host *mmc, int enb)
-> > > >                             dev_dbg(host->dev, "SDIO eint irq:
-> > > > %d!\n", host->eint_irq);
-> > > >                     }
-> > > > 
-> > > > -                   pinctrl_select_state(host->pinctrl, host-
-> > > > > pins_uhs);
-> > > > 
-> > > > +                   /* Skip setting uhs pins if not supported */
-> > > > +                   if (host->pins_uhs)
-> > > > +                           pinctrl_select_state(host->pinctrl,
-> > > > host->pins_uhs);
-> > > >             } else {
-> > > >                     dev_pm_clear_wake_irq(host->dev);
-> > > >             }
-> > > > @@ -2036,6 +2056,10 @@ static void msdc_ops_set_ios(struct
-> > > > mmc_host
-> > > > *mmc, struct mmc_ios *ios)
-> > > > 
-> > > >     msdc_set_buswidth(host, ios->bus_width);
-> > > > 
-> > > > +   /* Skip regulator if not supported */
-> > > > +   if (!mmc->supply.vmmc)
-> > > > +           goto skip_regulator;
-> > > > +
-> > > 
-> > > No need too.
-> > > 
-> > > >     /* Suspend/Resume will do power off/on */
-> > > >     switch (ios->power_mode) {
-> > > >     case MMC_POWER_UP:
-> > > > @@ -2071,6 +2095,7 @@ static void msdc_ops_set_ios(struct
-> > > > mmc_host
-> > > > *mmc, struct mmc_ios *ios)
-> > > >             break;
-> > > >     }
-> > > > 
-> > > > +skip_regulator:
-> > > >     if (host->mclk != ios->clock || host->timing != ios->timing)
-> > > >             msdc_set_mclk(host, ios->timing, ios->clock);
-> > > >  }
-> > > > @@ -2816,9 +2841,12 @@ static int msdc_of_clock_parse(struct
-> > > > platform_device *pdev,
-> > > >     if (IS_ERR(host->src_clk))
-> > > >             return PTR_ERR(host->src_clk);
-> > > > 
-> > > > -   host->h_clk = devm_clk_get(&pdev->dev, "hclk");
-> > > > -   if (IS_ERR(host->h_clk))
-> > > > -           return PTR_ERR(host->h_clk);
-> > > > +   /* AN7581 SoC doesn't have hclk */
-> > > > +   if (!device_is_compatible(&pdev->dev, "airoha,an7581-mmc")) {
-> > > > +           host->h_clk = devm_clk_get(&pdev->dev, "hclk");
-> > > > +           if (IS_ERR(host->h_clk))
-> > > > +                   return PTR_ERR(host->h_clk);
-> > > > +   }
-> > > 
-> > > devm_clk_get_optional could be used to instead here, no need to use
-> > > compatible to distinguish.
-> > > 
-> > 
-> > I can make the hclk optional but I think this would affect also every
-> > other compatible by hiding broken clock configuration.
-> > 
-> > > >     host->bus_clk = devm_clk_get_optional(&pdev->dev, "bus_clk");
-> > > >     if (IS_ERR(host->bus_clk))
-> > > > @@ -2926,10 +2954,13 @@ static int msdc_drv_probe(struct
-> > > > platform_device *pdev)
-> > > >             return PTR_ERR(host->pins_default);
-> > > >     }
-> > > > 
-> > > > -   host->pins_uhs = pinctrl_lookup_state(host->pinctrl,
-> > > > "state_uhs");
-> > > > -   if (IS_ERR(host->pins_uhs)) {
-> > > > -           dev_err(&pdev->dev, "Cannot find pinctrl uhs!\n");
-> > > > -           return PTR_ERR(host->pins_uhs);
-> > > > +   /* AN7581 doesn't have state_uhs pins */
-> > > > +   if (!device_is_compatible(&pdev->dev, "airoha,an7581-mmc")) {
-> > > > +           host->pins_uhs = pinctrl_lookup_state(host->pinctrl,
-> > > > "state_uhs");
-> > > > +           if (IS_ERR(host->pins_uhs)) {
-> > > > +                   dev_err(&pdev->dev, "Cannot find pinctrl
-> > > > uhs!\n");
-> > > > +                   return PTR_ERR(host->pins_uhs);
-> > > > +           }
-> > > >     }
-> > > 
-> > > Could you consider to set a dummy 'state_uhs' same as
-> > > 'state_default'
-> > > in the dts, that you could not use compatible to distinguish here.
-> > > 
-> > 
-> > This is problematic, correct me if I'm wrong, you are suggesting to
-> > assign the emmc pins to both default and uhs? This is problematic as
-> > the
-> > pinctrl driver would complain that such pins are already assigned to
-> > something. Also I don't think it's possible to assign these pins to a
-> > dummy pin.
-> > 
-> Maybe I have not expressed clearly...What I mean is that you could set
-> as below, and the content of &mmc_pins_uhs is just copied from
-> &mmc_pins_default.
-> 
-> mmc@1fa0e000 {
-> 	...
-> 	pinctrl-names = "default", "state_uhs";
-> 	pinctrl-0 = <&mmc_pins_default>;
-> 	pinctrl-1 = <&mmc_pins_uhs>;
-> }
+> From: Nicolin Chen <nicolinc@nvidia.com>
+> Sent: Wednesday, January 22, 2025 3:16 PM
+>=20
+> On Tue, Jan 21, 2025 at 08:21:28PM -0400, Jason Gunthorpe wrote:
+> > On Tue, Jan 21, 2025 at 01:40:05PM -0800, Nicolin Chen wrote:
+> > > > There is also the minor detail of what happens if the hypervisor HW
+> > > > queue overflows - I don't know the answer here. It is security
+> > > > concerning since the VM can spam DMA errors at high rate. :|
+> > >
+> > > In my view, the hypervisor queue is the vHW queue for the VM, so
+> > > it should act like a HW, which means it's up to the guest kernel
+> > > driver that handles the high rate DMA errors..
+> >
+> > I'm mainly wondering what happens if the single physical kernel
+> > event queue overflows because it is DOS'd by a VM and the hypervisor
+> > cannot drain it fast enough?
+> >
+> > I haven't looked closely but is there some kind of rate limiting or
+> > otherwise to mitigate DOS attacks on the shared event queue from VMs?
+>=20
+> SMMUv3 reads the event out of the physical kernel event queue,
+> and adds that to faultq or veventq or prints it out. So, it'd
+> not overflow because of DOS? And all other drivers should do
+> the same?
+>=20
 
-Ok my bad. I did declared the second pin to pinctrl-0 instead of adding
-pinctrl-1. With that it does work correctly.
+"add that to faultq or eventq" could take time or the irqthread
+could be preempted for various reasons then there is always an
+window within which an overflow condition could occur due to
+the smmu driver incapable of fetching pending events timely.
 
-> > > > 
-> > > >     /* Support for SDIO eint irq ? */
-> > > > @@ -3010,6 +3041,12 @@ static int msdc_drv_probe(struct
-> > > > platform_device *pdev)
-> > > >             dev_err(&pdev->dev, "Cannot ungate clocks!\n");
-> > > >             goto release_clk;
-> > > >     }
-> > > > +
-> > > > +   /* AN7581 without regulator require tune to OCR values */
-> > > > +   if (device_is_compatible(&pdev->dev, "airoha,an7581-mmc") &&
-> > > > +       !mmc->ocr_avail)
-> > > > +           mmc->ocr_avail = MMC_VDD_32_33 | MMC_VDD_33_34;
-> > > > +
-> > > 
-> > > Maybe you could use regulator-fixed in the dts and configure
-> > > min/max
-> > > voltage to get ocr_avail, no need to set hard code here.
-> > > 
-> > 
-> > Also suggested by Wenbin Mei (梅文彬) and I just tried this.
-> > 
-> > This can't be done, fixed-regulator needs to have the same min and
-> > max
-> > voltage or they fail to probe sooo fixed-regulator saddly can't be
-> > used
-> > :(
-> > 
-> > I will send a new version of this with the other point corrected but
-> > I
-> > think a compatible and these additional if is a must :(
-> If use the fixed regulator such as below, you will get the same
-> ocr_avail as 'MMC_VDD_32_33 | MMC_VDD_33_34' through
-> mmc_regulator_get_ocrmask().
-> 
-> vmmc_3v3: regulator-vmmc-3v3 {
-> 	compatible = "regulator-fixed";
-> 	regulator-name = "vmmc";
-> 	regulator-min-microvolt = <3300000>;
-> 	regulator-max-microvolt = <3300000>;
-> 	regulator-always-on;
-> }
+On VT-d the driver could disable reporting non-recoverable fault
+for a given device via a control bit in the PASID entry, but I didn't
+see a similar knob for PRQ.
 
-Ok the code was a bit confusing but yes I can confirm that a 3.3 fixed
-regulator define those 2 flags so also this is OK.
+and the overflow situation on intel-iommu driver is higher than
+arm. The irqthread reads head/tail once, batch-reports  the
+events in-between, and then updates the head register...
 
-There is still the discussion about clock. You are totally against a new
-compatible for the hclk? 
 
-> > 
-> > > >     msdc_init_hw(host);
-> > > > 
-> > > >     if (mmc->caps2 & MMC_CAP2_CQE) {
-> > 
-> > --
-> >         Ansuel
-
--- 
-	Ansuel
 
