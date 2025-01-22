@@ -4,91 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F870C0218C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 22:59:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED59DC02181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 23:06:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jqVF0cBTijRuq0m7GTGEM8FFP9eJBtgNqw9jRV9T5lo=; b=Hb7AIsvx6Q6GpQcl+KMrsDTFMZ
-	J5vKSE3HW20PhJGfVskrcnWAL37VFB9u9AnZalhUXWqyqMIQ2ol6QYxQgURNm5GNYt58zQFjr9Vjv
-	V7V0nyPyxe2U9W/jKWTLamkLFxeC6DQ7ztKleCjpAOVfPZm3s0aLsj7WkLYQDwXt8P/gWvjTuadMX
-	ItY50VsOuZT6+CjpmAs56J2+4y7kHCOxQcu1U7a0cZDGeTy0Qp1dBKtFEoQLoO+GNyerfcx95fD3Q
-	KSbF3dBFWTS6dc7i86JTjFbpCjkHe/PiCT/odxUxD346zJDkXwRn3DbuMq3y6VqqE+qCmYQjr1VxW
-	an9YBSgQ==;
+	bh=NOCH19QPQve15/xDfCMek7YUzEnwKF37VwTNG2vrby8=; b=Eeu6ixaOMOMmvwnEfJkt4J4kb6
+	JVUe92AHUvCogn/XePO5CutYiKF0YxA9mz9dViHmChxCIl+lpnjVToisv5Me3jxWTSFboRb9NSd9x
+	vu19kZm1LXe2OrCL5UH60t3gciQPU+l0NjK8/li2X9U20NpO7M2+Iydtzpn2W36Sv08WGFxkK7op7
+	y7YUtMJQxsRypZ73v1uh+DCLf1uuAS1NFLjFrp1CWVRGvH23NxEsGB4QZmOGemYX8blmIEhecJZgh
+	Tx4qReXkXLxajFnr3uVUQO2vlt8rUEAkdaKkv7M/XjnBB4oe9FseBHQvGuFURQV6NRbWLgAGXy427
+	RgrQ4UFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tajh3-0000000BN7j-17ol;
-	Wed, 22 Jan 2025 22:59:29 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tajfl-0000000BMzF-2YEW
+	id 1tajnp-0000000BNpY-1nVu;
+	Wed, 22 Jan 2025 23:06:29 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tajmV-0000000BNgn-0bzL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jan 2025 22:58:10 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4361f796586so2780085e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jan 2025 14:58:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737586687; x=1738191487; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jqVF0cBTijRuq0m7GTGEM8FFP9eJBtgNqw9jRV9T5lo=;
-        b=DCGWKUnXPX6Z2XgdL+7T/Aux3+cfwYIXdHQwrqqSW8zaX2n7tGta70nU4rv+onzqS8
-         NI3ax6szDNZiqCVtu2SMw8BwNTdRz5iC+Pcg3rH8vTZZ/B0iYFTOPsBSMajLrGQY45E/
-         AkxJGSmhZtL2QcxK5Y9AoleSQdx8AvmCVwj2SYorq0xLyPFjEtlliHh8K3yt37jtH0j9
-         xEogZGAypLMYFqN8QYkmSsc061G2rEM8XT0boAQXhFFRr+wztGUDA/NXhsKgx4SMDQ1/
-         OINiaddSnseGvs3TYFNvpKN7UqrKAjeNiQ1vXVvYd362+fVWwOlUjFois9fi1HZ2e4Pd
-         3gPQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737586687; x=1738191487;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=jqVF0cBTijRuq0m7GTGEM8FFP9eJBtgNqw9jRV9T5lo=;
-        b=JkGdAq9b+zTYXFyjsUFlm2kvdWP/PPHSuMTh5DQY5Rm+GfrcfhoOUwOm/5JZaZQeWn
-         voOBfzaZcb+MqwHWLydoj07j8dDtklb/V3AiyAGlxWmQhMZNqoQgLDGs0qZWUsuI6RVo
-         WUeeFsVeX5V7NSZXGwLLvI6r+w2ceSZLFJG4JV8rsV5bhug3r3+qSUWlCvdgcVHN5WrH
-         JQDci9f7u2NT4sZgWoHMwJgHlZCnGDhyuJRu4C581dapfozHBvWfBW/HVdSDd5iECCUk
-         LPr1nU6jOIddHKRyq/jSJ8TvXPQu6L8rC1mpigAJLFtHurNqwl+T5NBlqJAj0CasHEDB
-         Ga/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXLDXjLVr2rEcPzkc5Y+hp3zjWQ5I6lwB5HHyIkI/gJInKlT24SqcyTqQ1EtnhOyyyK/d0lmIUxWJhU+Y+1khxt@lists.infradead.org
-X-Gm-Message-State: AOJu0YyVqdWmp7b1/dNJ4d3pAJqZAAZUv+7sSInmb7ZuOz4E0/vcJqkn
-	Q5HWy2mHSltDEULAGLiEUztqmvjMh5J0X9elhpyPYnPMk/PSItFf
-X-Gm-Gg: ASbGncuU9PkTlhZtumY/f+dWL32UwNUc9RbWfqwOcJHm7Ktb1djZXps/kWxCZkZakU9
-	eGuGZAqt2XSr59k2FVwCXaXspweuCPCCam78aEttwqWaJwCEtozBx0FaSTYUtVYc5yjcS21WP/r
-	bmWDPHuZPjlNTsc/k5AtIevBJfwZBuE5hEhM4I1eQZPBnFLEeEpRc/AZS4Qm/17OFwLApbzMCDu
-	JXhsoRzTrV4ftT3KXL0uYWD5MKCEq9Lv86ynbsl7gt8bcmLqlTODPNDlZhw5FQeh5Ec+5dOyE99
-	ZNntDdDnknwEX37Qlwfkv3PcJZ7VJC83
-X-Google-Smtp-Source: AGHT+IEQnQhWcYcYLwtPUsp3QOoc70eLrq7vJCaIVuPYRH/ywGliFi/4zTlOAPB9XOacsMLy93f4rg==
-X-Received: by 2002:a05:6000:1f88:b0:385:fd31:ca23 with SMTP id ffacd0b85a97d-38bf57a7797mr24374385f8f.40.1737586687462;
-        Wed, 22 Jan 2025 14:58:07 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438b31df412sm40115765e9.36.2025.01.22.14.58.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jan 2025 14:58:06 -0800 (PST)
-Date: Wed, 22 Jan 2025 22:58:05 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Anastasia Belova <abelova@astralinux.ru>
-Cc: Emilio =?UTF-8?B?TMOzcGV6?= <emilio@elopez.com.ar>, Michael Turquette
- <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Chen-Yu Tsai
- <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
- <samuel@sholland.org>, Hans de Goede <hdegoede@redhat.com>, Maxime Ripard
- <mripard@kernel.org>, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, lvc-project@linuxtesting.org
-Subject: Re: [PATCH] clk: sunxi: add explicit casting to prevent overflow
-Message-ID: <20250122225805.2ba6a062@pumpkin>
-In-Reply-To: <20250120084719.63116-1-abelova@astralinux.ru>
-References: <20250120084719.63116-1-abelova@astralinux.ru>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Wed, 22 Jan 2025 23:05:08 +0000
+Received: from [10.0.0.115] (c-67-182-156-199.hsd1.wa.comcast.net [67.182.156.199])
+	by linux.microsoft.com (Postfix) with ESMTPSA id CAC672057204;
+	Wed, 22 Jan 2025 15:05:05 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com CAC672057204
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1737587106;
+	bh=NOCH19QPQve15/xDfCMek7YUzEnwKF37VwTNG2vrby8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jLXp0xX4Ir1OjqwEMFDxcFawW3sDCvVQudelB5j3vl9twNlUGW8bXqX3vZzL+6EbW
+	 cQCK/ohTqBs/+JBnP0rub4I5RDpQfQjBE4OF75X5e0ATmYu81Xl7HMLXACdhGCmReu
+	 HlKE+5NSRAZOGaDjdkUbn48X6TialrDHgzFFKlnw=
+Message-ID: <0da8c88c-f26d-4992-a871-9f8287eec889@linux.microsoft.com>
+Date: Wed, 22 Jan 2025 15:05:06 -0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] hyperv: Move some features to common code
+To: Michael Kelley <mhklinux@outlook.com>,
+ "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>
+Cc: "kys@microsoft.com" <kys@microsoft.com>,
+ "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
+ "wei.liu@kernel.org" <wei.liu@kernel.org>,
+ "decui@microsoft.com" <decui@microsoft.com>,
+ "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+ "will@kernel.org" <will@kernel.org>, "tglx@linutronix.de"
+ <tglx@linutronix.de>, "mingo@redhat.com" <mingo@redhat.com>,
+ "bp@alien8.de" <bp@alien8.de>,
+ "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+ "x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>,
+ "arnd@arndb.de" <arnd@arndb.de>,
+ "jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
+ "muminulrussell@gmail.com" <muminulrussell@gmail.com>,
+ "skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
+ "mukeshrathor@microsoft.com" <mukeshrathor@microsoft.com>
+References: <1733523707-15954-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <SN6PR02MB41573F55DBAAF124CFD92840D4332@SN6PR02MB4157.namprd02.prod.outlook.com>
+ <6cf69fbd-b6a0-4e88-85a6-749a4e2dbdaa@linux.microsoft.com>
+ <SN6PR02MB415783BB8A3844F5ADD142B2D4042@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Language: en-US
+From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+In-Reply-To: <SN6PR02MB415783BB8A3844F5ADD142B2D4042@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_145809_652355_D27395A4 
-X-CRM114-Status: GOOD (  19.09  )
+X-CRM114-CacheID: sfid-20250122_150507_585977_693AD31E 
+X-CRM114-Status: GOOD (  81.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,48 +90,286 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 20 Jan 2025 11:47:16 +0300
-Anastasia Belova <abelova@astralinux.ru> wrote:
-
-> If n = 255, the result of multiplication of n and 24000000
-> may not fit int type. Add explicit casting to prevent overflow.
+On 12/17/2024 9:48 AM, Michael Kelley wrote:
+> From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Monday, December 9, 2024 12:20 PM
+>>
+>> On 12/7/2024 6:59 PM, Michael Kelley wrote:
+>>> From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Friday, December 6, 2024 2:22 PM
+>>>>
+>>>> There are several bits of Hyper-V-related code that today live in
+>>>> arch/x86 but are not really specific to x86_64 and will work on arm64
+>>>> too.
+>>>>
+>>>> Some of these will be needed in the upcoming mshv driver code (for
+>>>> Linux as root partition on Hyper-V).
+>>>
+>>> Previously, Linux as the root partition on Hyper-V was x86 only, which is
+>>> why the code is currently under arch/x86. So evidently the mshv driver
+>>> is being expanded to support both x86 and arm64, correct? Assuming
+>>> that's the case, I have some thoughts about how the source code should
+>>> be organized and built. It's probably best to get this right to start with so
+>>> it doesn't need to be changed again.
+>>
+>> Yes, we plan on supporting both architectures (eventually). I completely agree
+>> that it's better to sort out these issues now rather than later.
+>>
+>>>
+>>> * Patch 2 of this series moves hv_call_deposit_pages() and
+>>>    hv_call_create_vp() to common code, but does not move
+>>>    hv_call_add_logical_proc(). All three are used together, so
+>>>    I'm wondering why hv_call_add_logical_proc() isn't moved.
+>>>
+>>
+>> The only reason is that in our internal tree there's no common or arm64 code
+>> yet that uses it - there is no reason it can't also become common code!
 > 
-> Found by Linux Verification Center (linuxtesting.org) with SVACE.
+> Maybe I'm missing your point, but hv_call_add_logical_proc() and
+> hv_call_create_vp() are called in succession in hv_smp_prepare_cpus(),
+> so it seems like they very much go together. Presumably a similar
+> sequence will be needed on the arm64 side when running as the
+> root partition?
+> 
 
-You need to read and understand the code before writing any patches.
-The '>> p' and '/ (m + 1)' are both just conditional 'divide by 2'.
-So can be done before the multiply.
-Since req->rate is 'signed long' and the value is a frequency it is
-only just possible that it exceeds 31 bits (and will be wrong on 32bit
-builds - but sun-9 might be 64bit only?)
+Yes that's right, sorry I wasn't being too clear.
 
-In any case it would be sensible to force an unsigned divide.
-So perhaps:
-	unsigned int n = DIV_ROUND_UP(req->rate, 6000000ul);
-	...
-	req->rate = ((24000000ul >> p) / (m + 1)) * n;
+>>
+>>> * These three functions were originally put in a separate source
+>>>    code file because of being specific to running in the root partition,
+>>>    and not needed for generic Linux guest support. I think there's
+>>>    value in keeping them in a separate file, rather than merging them
+>>>    into hv_common.c. Maybe just move the entire hv_proc.c file?
+>>
+>> Agreed. I think it should be renamed too - this file will eventually
+>> contain some additional hypercall helper functions, some of which may also be
+>> shared by the driver code. Something like "hv_call_common.c"?
+> 
+> I went back and looked at your patch series from a year ago [1], and
+> got a better understanding of where this work is headed. I wanted
+> to comment on that series back then, but got subsumed in wrapping
+> things up for my retirement. :-(  I see significant portions of that
+> series have been posted independently and accepted, so my further
+> comments here assume the rest of the series is still the macro-level
+> approach you are taking.
+> 
+>>From that series, you are planning three modules, controlled by
+> CONFIG_MSHV, CONFIG_MSHV_ROOT, and CONFIG_MSHV_VTL.
+> That makes sense, and addresses one of my top-level concerns,
+> which is that normal guest kernels shouldn't include all that code.
+> And apparently that code works as a module as well as built-in.
+> 
+> The code currently in hv_proc.c is similar to the code in hv_call.c
+> and mshv_root_hv_call.c from that series -- it's a wrapper around
+> Hyper-V hypercalls. But a difference is that the code in hv_proc.c
+> can't be a module because it is called from hv_smp_prepare_cpus(),
+> which must be built-in. So it can't be added to the proposed
+> hv_call.c without making all of hv_call.c built-in. Ideally, there
+> would be a separate source file just for the code that must be
+> built-in. I'm not familiar enough with root partition requirements
+> to understand what hv_smp_prepare_cpus() and its calls to
+> hv_call_add_logical_proc() and hv_call_create_vp() are doing.
+> Evidently it is related to bringing up CPUs in the root partition,
+> and not related to guest VMs. But those two hv_call_* functions
+> would also be used for managing guest VMs from /dev/mshv.
+> 
 
-David
+It makes sense to keep the different kinds of functionality
+separated based on where they are needed. I do wonder if it will be
+cumbersome to keep all the cases in their own files - builtin/module,
+root/guest, and separated into arch directories vs drivers/hv...
+
+> As for the name, I don't really like "common", even though I'm the
+> one who created "hv_common.c" back when doing the initial arm64
+> support on Hyper-V. :-( My thinking is that anything that isn't under
+> arch/x86 or arch/arm64 is by definition shared across architectures,
+> so having "common" in the name is superfluous. Maybe just
+> staying with hv_proc.c is OK.
+> 
+
+I'll stick with hv_proc.c.
+
+>>
+>>>    And then later, perhaps move the entire irqdomain.c file as well?
+>> Yes, may as well move it too.
+> 
+> irqdomain.c is also in that category of needing to be built-in. But
+> looking more closely, it is x86 specific and should stay where it is. I
+> can't immediately tell whether it's feasible to make the Hyper-V
+> IOMMU driver (and irqdomain.c) architecture neutral, or whether
+> a separate arm64 implementation will be needed. My guess is the
+> latter.
+> 
+>>
+>>>    There's also an interesting question of whether to move them into
+>>>    drivers/hv, or create a new directory virt/hyperv. Hyper-V support
+>>>    started out 15 years ago structured as a driver, hence "drivers/hv".
+>>>    But over the time, the support has become significantly more than
+>>>    just a driver, so "virt/hyperv" might be a better location for
+>>>    non-driver code that had previously been under arch/x86 but is
+>>>    now common to all architectures.
+>>>
+>> I'd be fine with using "virt/hyperv", but I thought "virt" was only for
+>> KVM.
+> 
+> Now that I see the bigger picture from your previous patch series,
+> keeping the files in drivers/hv seems OK to me. The 'mshv' code *is*
+> a driver that implements /dev/mshv. :-)
+> 
+>>
+>> Another option would be to create subdirectories in "drivers/hv" to
+>> organize the different modules more cleanly (i.e. when the /dev/mshv
+>> driver code is introduced).
+> 
+> Putting all the mshv and "running as root partition" files in a single
+> sub-directory might make sense. Multiple sub-directories might be
+> overkill. But I don't have a strong opinion either way. Putting them
+> all directly in drivers/hv seems OK, as does one or more sub-directories.
+> 
+> One thing I encountered back when first doing the arm64 support is
+> that everything in the drivers/hv directory could be built as a module.
+> The Hyper-V support under arch/x86 was always built-in, and the
+> arch/arm64 code I added was as well. But there was no obvious place
+> to put common code that must always be built-in. At the time, I thought
+> about introducing virt/hyperv, but had only a single relatively small source
+> code file, and introducing that new pathname with its own Makefile, etc.
+> seemed like overkill. So drivers/hv/hv_common.c came into existence. I
+> tweaked the existing drivers/hv/Makefile so hv_common.c is always
+> built-in even when CONFIG_HYPERV=m. It's a little messy, but not too
+> bad.
+> 
+> The difference in what can be built as a module vs. must be built-in
+> might be a factor in the directory structure, along with the
+> CONFIG options that control whether the root partition code
+> gets built at all (see below). The details will govern what works
+> well and what ends up being a bit of a mess.
+> 
+>>
+>>> * Today, the code for running in the root partition is built along
+>>>    with the rest of the Hyper-V support, and so is present in kernels
+>>>    built for normal Linux guests on Hyper-V. I haven't thought about
+>>>    all the implications, but perhaps there's value in having a CONFIG
+>>>    option to build for the root partition, so that code can be dropped
+>>>    from normal kernels. There's a significant amount of new code still
+>>>    to come for mshv that could be excluded from normal guests in this
+>>>    way. Also, the tests of the hv_root_partition variable could be
+>>>    changed to a function the compiler detects is always "false" in a
+>>>    kernel built without the CONFIG option, in which case it can drop
+>>>    the code for where hv_root_partition is "true".
+>>>
+>> Using hv_root_partition is a good way to do it, since it won't require
+>> many #ifdefs or moving the existing code around too much.
+>>
+>> I can certainly give it a try, and create a separate patch series
+>> introducing the option. I suppose "CONFIG_HYPERV_ROOT" makes sense as a
+>> name?
+> 
+> Now that I see you have CONFIG_MSHV, CONFIG_MSHV_ROOT, and
+> CONFIG_MSHV_VTL planned, could building the hv_root_partition code
+> just be under control of CONFIG_MSHV_ROOT without introducing
+> another CONFIG variable? Is any of the root partition code like
+> hv_proc.c and irqdomain.c needed if CONFIG_MSHV_ROOT=n?
+
+I will experiment with it - I think we can probably do it that way, yes.
+
+> Stubs will be needed for functions called from the generic kernel code
+> when CONFIG_MSHV_ROOT=n, but those are easily supplied in
+> asm/mshyperv.h. If hv_root_partition becomes a function whose
+> return value is gated by CONFIG_MSHV_ROOT, then the compiler
+> can know when the value is always "false" and drop even the code
+> that calls the stubs. But I'm pretty sure the stubs are still needed to
+> avoid compile errors, even when the compiler drops the code.
+> 
+> With this approach, you can avoid #ifdefs except in asm/mshyperv.h
+> for the stubs, and in the hv_root_partition() function.
+> 
+> One more code structure topic:  In the previous patch series,
+> some of the mshv code is x86 specific. There is x86 assembler
+> code, and references to x86 specific registers (all the HV_X64_*
+> registers). Do you plan to put architecture specific code under
+> drivers/hv, or under arch/[x86/arm64]/hyperv? We've made
+> drivers/hv be architecture neutral -- currently there's only one
+> "cheat" with an #ifdef CONFIG_ARM64 in the hv_balloon.c driver
+> that turns off some functionality.
+
+Today in our internal tree, all the module code lives in drivers/hv.
+Some of the code is arch-neutral "in-theory", but uses hypervisor
+features that are not yet supported on arm64, (but may be in future.)
+
+For such features, we use #ifdefs in drivers/hv to conditionally compile
+it. Note that today we only compile test arm64, we don't actually have
+a running build for it yet, so the driver will be x86_64 only at first.
+
+There is very little driver code that actually deals with architectural
+details. If necessary, I imagine we would create arch-specific files
+inside drivers/hv at first, and maybe move them to arch/ if appropriate.
 
 > 
-> Fixes: 6424e0aeebc4 ("clk: sunxi: rewrite sun9i_a80_get_pll4_factors()")
-> Signed-off-by: Anastasia Belova <abelova@astralinux.ru>
-> ---
->  drivers/clk/sunxi/clk-sun9i-core.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> As we discussed previously, the new Hyper-V #include files
+> provide the union of x86 and arm64 definitions, with just an
+> occasional #ifdef where needed. That was justified because
+> that's how the definitions come from the Windows/Hyper-V
+> world. But it seems like the mshv code should be structured
+> with arch specific code is under arch, not in drivers/hv with
+> #ifdefs. The Makefiles in arch/[x86,arm64]/hyperv will need
+> to use CONFIG_MSHV, CONFIG_MSHV_ROOT, and
+> CONFIG_MSHV_VTL to decide what to build, and whether to
+> build as a module vs. built-in.
 > 
-> diff --git a/drivers/clk/sunxi/clk-sun9i-core.c b/drivers/clk/sunxi/clk-sun9i-core.c
-> index d93c7a53c6c0..70fbd7390d96 100644
-> --- a/drivers/clk/sunxi/clk-sun9i-core.c
-> +++ b/drivers/clk/sunxi/clk-sun9i-core.c
-> @@ -50,7 +50,7 @@ static void sun9i_a80_get_pll4_factors(struct factors_request *req)
->  	else if (n < 12)
->  		n = 12;
->  
-> -	req->rate = ((24000000 * n) >> p) / (m + 1);
-> +	req->rate = ((24000000ULL * n) >> p) / (m + 1);
->  	req->n = n;
->  	req->m = m;
->  	req->p = p;
+> Maybe putting the mshv code in a "mshv" subdirectory under
+> both drivers/hv and arch/[x86,arm64]/hyperv would conceptually
+> help tie together the arch neutral and arch specific portions.
+> Or something like that ....
+> 
+
+I think it could evolve to that point, but it's hard to say until we
+get closer.
+
+>>
+>>> * The code currently in hv_proc.c is built for x86 only, and validly
+>>>    assumes the page size is 4K. But when the code moves to be
+>>>    common across architectures, that assumption is no longer
+>>>    valid in the general case. Perhaps the intent is that kernels for
+>>>    the root partition should always be built with page size 4K on
+>>>    arm64, but nothing enforces that intent. Personally, I think the code
+>>>    should be made to work with page sizes other than 4K so as to not
+>>>    leave technical debt. But I realize you may have other priorities. If
+>>>    there were a CONFIG option for building for the root partition,
+>>>    that option could be setup to enforce the 4K page size on arm64.
+>>>
+>> That makes sense. I suppose this can be done by selecting PAGE_SIZE_4KB
+>> under HYPERV in drivers/hv/Kconfig?
+> 
+> Since the PAGE_SIZE value is independently selectable in the .config
+> file, I'm not sure if you can override it when CONFIG_MSHV_ROOT is
+> set. But you can allow CONFIG_MSHV_ROOT to be set only if
+> PAGE_SIZE_4KB is selected on arm64. I'd have to look in more detail
+> to figure out the best way to create an appropriate dependency.
+> 
+>>
+>> I'm not how easy it will be to make the code work with different page
+>> sizes, since we use alloc_page() and similar in a few places, assuming 4k.
+> 
+> alloc_page() is not the problem as it is relatively easy to break up a
+> 16K or 64K page into multiple 4K pages when depositing memory.
+> And you can round up the amount of deposited memory to the
+> larger boundary without doing any harm. But in your previous patch
+> series, I see hv_call_withdraw_memory(), wherein Hyper-V gives
+> back individual 4K pages in no particular order. That's the killer, as
+> it is not feasible to re-assemble a random set of 4K pages into larger
+> 16K or 64K pages for free_page().
+> 
+> So scratch that idea. :-( The root partition must run with a page
+> size that matches the size Hyper-V uses to do memory deposits to
+> and from a partition, and that's 4K.
+
+Yes that does seem to clinch it. There will have to be a dependency.
+
+Thanks for the detailed responses, sorry it took me some time to get to.
+
+Nuno
+
+> 
+> Michael
+> 
+> [1] https://lore.kernel.org/lkml/1696010501-24584-1-git-send-email-nunodasneves@linux.microsoft.com/
 
 
