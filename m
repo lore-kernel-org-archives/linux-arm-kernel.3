@@ -4,138 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0092CC02181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 16:22:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D63CC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jan 2025 16:23:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nT+3HrKcZdya7PD/09X6ml+wR0vuTCRq8jZf0/rfslA=; b=s2DI6C9egO/LQ8HXRSW0fM7CPB
-	MsxF4YmHygqK2cuN5w18hBcLcSwFuTJIajrLljtHIUTSL9zDcewddA6SAJ5CVeXMfgPHXoJJyVvbw
-	8SZ7q98ldam7Vj7zwu3lTidfp3bLcbVV/XWbfpM9eEzkcoERMe3CXc58+tgk0ip7A+M9625aagtVa
-	pjMfqumTBiQPKUIHScA3fLCiUb3DZEXdFltzlvfxXneOP4fzNasTM6S+WvwCSoDeK/B0hh+4F0J3i
-	evH+WoZHCoys4B3CCOvZJG1DCzJdiGkM2OBja5dfdKkaSPbjk2wQQ120Rz54X87cRtfBm0fTaamPj
-	FRepPbkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T9hDFjf5DGvpzHigba5X0fDbl6l6sC1pecUGU0oUOE0=; b=JYDUORmDmsD4UxXnBXQbXwlE8y
+	IHVMENI3tO/u18+C5ozcwIY49t6XtmYL7QyIKnh1r0vjgjd72rXep3uBN5JDwcGA3G/UBk9bOtcm1
+	MsaYPf98zTGHDWe7viuloIe3D045+v3ZlAk36BrwgaWXmjjFwEBagysq8+52UNLm2TRJ8vzr9tMra
+	zAikfVgwVPGgBnjPr3ZwSGpu0weMEYuWmyIF8hB2oC7ctcbpkfEeQTWbki9pcykIvyO1nqs7dqSsR
+	EGN5y0OzjyMkoLRqI54Uiz9MTakN+jIWPmu3Cvn7Ip7/lSIRYGKPZB42zz0yZ7xV2dUGLbE2ymzGM
+	RSyqdDuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tadUX-0000000Ah6t-1XNn;
-	Wed, 22 Jan 2025 16:22:09 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	id 1tadVs-0000000Aha5-1rL1;
+	Wed, 22 Jan 2025 16:23:32 +0000
+Received: from mail-qv1-xf29.google.com ([2607:f8b0:4864:20::f29])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tadTD-0000000AgsE-2dEj;
-	Wed, 22 Jan 2025 16:20:48 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 49CF82190B;
-	Wed, 22 Jan 2025 16:20:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1737562844; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nT+3HrKcZdya7PD/09X6ml+wR0vuTCRq8jZf0/rfslA=;
-	b=SDhspgNc7hac5Pfg4OaVGvMwWVz4pD9JP45vdS1rNrueqTsfn5MG13bTpsCjQuq/91Ehi2
-	XBpuiWWz6n8VTAXfHCntT1UAVZY0x10M4n9v/s3Aqobp4g/JaCUDqqJiUd0yxS4/HdZbOx
-	htz2Ai6adwmXfHI5nisC7H+KkcpNeSY=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1737562844;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nT+3HrKcZdya7PD/09X6ml+wR0vuTCRq8jZf0/rfslA=;
-	b=mfVXxY3GXJjQJ0ox3IMljoELLK445aGMa2UoEAxVkDlispsSjgekkQJx5Mat4Mq0nEt/fF
-	t4NZXvP2oVrWxgCw==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1737562844; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nT+3HrKcZdya7PD/09X6ml+wR0vuTCRq8jZf0/rfslA=;
-	b=SDhspgNc7hac5Pfg4OaVGvMwWVz4pD9JP45vdS1rNrueqTsfn5MG13bTpsCjQuq/91Ehi2
-	XBpuiWWz6n8VTAXfHCntT1UAVZY0x10M4n9v/s3Aqobp4g/JaCUDqqJiUd0yxS4/HdZbOx
-	htz2Ai6adwmXfHI5nisC7H+KkcpNeSY=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1737562844;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nT+3HrKcZdya7PD/09X6ml+wR0vuTCRq8jZf0/rfslA=;
-	b=mfVXxY3GXJjQJ0ox3IMljoELLK445aGMa2UoEAxVkDlispsSjgekkQJx5Mat4Mq0nEt/fF
-	t4NZXvP2oVrWxgCw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 3CF7A136A1;
-	Wed, 22 Jan 2025 16:20:43 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id Lwp/DNsakWexcQAAD6G6ig
-	(envelope-from <svarbanov@suse.de>); Wed, 22 Jan 2025 16:20:43 +0000
-Message-ID: <d8c0f79f-1896-4afa-86e3-bd330218f362@suse.de>
-Date: Wed, 22 Jan 2025 18:20:38 +0200
+	id 1tadTO-0000000Agu9-1l0v
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 22 Jan 2025 16:20:59 +0000
+Received: by mail-qv1-xf29.google.com with SMTP id 6a1803df08f44-6dccccd429eso64485806d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jan 2025 08:20:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1737562857; x=1738167657; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=T9hDFjf5DGvpzHigba5X0fDbl6l6sC1pecUGU0oUOE0=;
+        b=cme467ob9RgxxUS9SEZX8T9M+m0WvwvFEmYWnzdXvx/EGBXdSH63QHBMt4f1pEeV0F
+         ZgSKIWZ4MRMTpnCEx7ZAjOd3ijA2KTYjR2eIhYhxOZ7CNDAOVPams6McG+RzGA9Dj/ef
+         LjICU6ux0JRRRv2XwMq+mbBANbbTQ0CUA34AfuJ7ADCcz4hUpQtp9LZ2yiHbvDjeRsEq
+         DY0COdjidbTFA/fbE9ugIiGCWPhDcX5zo8mACevhWi1Jk+XDzuFD0znuJA3xx/DHzx4O
+         CjkdjbD/huHCgjwdClpV0er8e828RL0c0aP6V/K0Cd1rgWpJTfiiWEQ179gr6iXS+PyK
+         UPjQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737562857; x=1738167657;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=T9hDFjf5DGvpzHigba5X0fDbl6l6sC1pecUGU0oUOE0=;
+        b=UTNYofYT49zIuLgHbgAzejLHueriKcArf83IuycU1LJL41oe6wBiJXrm76IDyb4XCK
+         wdXOlePBfFWuEUhKhFHse6ktScSguTml7jk/qNyjKxsP3JezxXtiAar29eMwQpprXoKV
+         0C60arFoRme7wbvSutECM+LqZxRqA1ipTA+vDPiZSZspvA2si3FcspVrZxomzC1w8LP6
+         TZx4XDX97RdjisZ3UYWUHiuMMl89lSeSPIwJS0Z80O3rTSsYuAclACNF3zIpWxSpzYwe
+         fVAi3qcJBRm3519KCjjsImMlS1z9cq7/3u0H/MMjaIwkE40Evk0shS30ZdAST9g5Jhfc
+         AkFg==
+X-Forwarded-Encrypted: i=1; AJvYcCX0pOBryhvdwmIW9f5+nHweDRkDcwpIgOzNkfVA2hE/QgRWBy0OkQJQYB7+kj2NL+AiWeY2S34hZtnc6mJIetYC@lists.infradead.org
+X-Gm-Message-State: AOJu0YxnHSXM1EGKrFX27fgcbq4ojTVBsnqKzOiltzYFDHsenSJ3ZJlx
+	AhEvGAebd+m1YhTrqqU130U0RFWTchtH3QwkqRLwBTQKntLyYXWimHGGl3+h/yI=
+X-Gm-Gg: ASbGnct/Yh9v0rXD7Khu5P1zjHe/NwhhQdzPuz9DsB5nO0Lt9VVmNp5Ptl87ozJTuuv
+	caO+LlNu3zdb13+2F6vp11CTHQjZKvXDO6xJAUO3boqO1vQo1i7SXK6+dKCJSc+GJPcKi8FsQCU
+	JEDmBpkJc9MswE7Hdad7tKjzYko6PLSvnkHLwWYHICoSsytRlR6HUsW6fdwjG7icGsPThQ6LbBa
+	x47dXwVJITa+xSsJ5oTzwSEF6vhUfbGSa9qCdJE78sXh9/Q3gsHCGeefotJ29ioCHIrhsOAY1tF
+	337q2eFk2z6KIOzbR4bXazuyNvUlCPr/WDACGYqd8Jc=
+X-Google-Smtp-Source: AGHT+IEO4sjsfZ98DUdmFnOpRcKd5hBontzItCkyvXoYAGu8ZhSlBVq4j7OqBMeWhGsiwNzwffbF2Q==
+X-Received: by 2002:a0c:bf44:0:b0:6e1:f40c:b558 with SMTP id 6a1803df08f44-6e1f40cb631mr18093296d6.44.1737562856988;
+        Wed, 22 Jan 2025 08:20:56 -0800 (PST)
+Received: from ziepe.ca (hlfxns017vw-142-68-128-5.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.68.128.5])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6e1afc23080sm61987686d6.54.2025.01.22.08.20.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 22 Jan 2025 08:20:56 -0800 (PST)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1tadTL-00000003qLW-46Wn;
+	Wed, 22 Jan 2025 12:20:55 -0400
+Date: Wed, 22 Jan 2025 12:20:55 -0400
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: "Tian, Kevin" <kevin.tian@intel.com>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	"joey.gouly@arm.com" <joey.gouly@arm.com>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"robdclark@gmail.com" <robdclark@gmail.com>,
+	"joro@8bytes.org" <joro@8bytes.org>,
+	"robin.murphy@arm.com" <robin.murphy@arm.com>,
+	"jean-philippe@linaro.org" <jean-philippe@linaro.org>,
+	"nicolinc@nvidia.com" <nicolinc@nvidia.com>,
+	"vdonnefort@google.com" <vdonnefort@google.com>,
+	"qperret@google.com" <qperret@google.com>,
+	"tabba@google.com" <tabba@google.com>,
+	"danielmentz@google.com" <danielmentz@google.com>,
+	"tzukui@google.com" <tzukui@google.com>
+Subject: Re: [RFC PATCH v2 00/58] KVM: Arm SMMUv3 driver for pKVM
+Message-ID: <20250122162055.GV674319@ziepe.ca>
+References: <20241212180423.1578358-1-smostafa@google.com>
+ <20241212194119.GA4679@ziepe.ca>
+ <Z1yNWI9lBNIZg6Le@google.com>
+ <20250102201614.GA26854@ziepe.ca>
+ <Z35rEeSVwfZVA9IF@google.com>
+ <BN9PR11MB52767756EE35DA2359C351F08C1A2@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <20250116191455.GC674319@ziepe.ca>
+ <BN9PR11MB52766732572A17627D16CBAC8C1B2@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <Z5DQuNn3GoU1vYPV@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 -next 09/11] PCI: brcmstb: Fix for missing of_node_put
-To: Florian Fainelli <florian.fainelli@broadcom.com>,
- Stanimir Varbanov <svarbanov@suse.de>, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rpi-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Jim Quinlan <jim2101024@gmail.com>,
- Nicolas Saenz Julienne <nsaenz@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, kw@linux.com,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Andrea della Porta <andrea.porta@suse.com>,
- Phil Elwell <phil@raspberrypi.com>, Jonathan Bell
- <jonathan@raspberrypi.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>,
- stable@vger.kernel.org
-References: <20250120130119.671119-1-svarbanov@suse.de>
- <20250120130119.671119-10-svarbanov@suse.de>
- <1abdd175-280a-442a-a27a-9bc01c0a04c0@broadcom.com>
-Content-Language: en-US
-From: Stanimir Varbanov <svarbanov@suse.de>
-In-Reply-To: <1abdd175-280a-442a-a27a-9bc01c0a04c0@broadcom.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-6.80 / 50.00];
-	REPLY(-4.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[23];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	FREEMAIL_CC(0.00)[linutronix.de,kernel.org,gmail.com,google.com,linux.com,pengutronix.de,suse.com,raspberrypi.com,vger.kernel.org];
-	RCVD_TLS_ALL(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	TAGGED_RCPT(0.00)[dt];
-	MID_RHS_MATCH_FROM(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:email,suse.de:mid]
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z5DQuNn3GoU1vYPV@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_082047_814040_E8F4572B 
-X-CRM114-Status: GOOD (  17.32  )
+X-CRM114-CacheID: sfid-20250122_082058_455608_32DDC548 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,47 +128,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Florian,
+On Wed, Jan 22, 2025 at 11:04:24AM +0000, Mostafa Saleh wrote:
+> AFAIK, the most common use cases would be:
+> - Devices using DMA API because it requires a lot of memory to be
+>   contiguous in IOVA, which is hard to do with identity
 
-On 1/21/25 8:32 PM, Florian Fainelli wrote:
-> On 1/20/25 05:01, Stanimir Varbanov wrote:
->> A call to of_parse_phandle() increments refcount, of_node_put must be
->> called when done the work on it. Fix missing of_node_put() on the
->> msi_np device node by using scope based of_node_put() cleanups.
->>
->> Cc: stable@vger.kernel.org # v5.10+
->> Fixes: 40ca1bf580ef ("PCI: brcmstb: Add MSI support")
->> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
->> ---
->> v4 -> v5:
->>   - New patch in the series.
->>
->>   drivers/pci/controller/pcie-brcmstb.c | 3 ++-
->>   1 file changed, 2 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/
->> controller/pcie-brcmstb.c
->> index 744fe1a4cf9c..546056f7f0d3 100644
->> --- a/drivers/pci/controller/pcie-brcmstb.c
->> +++ b/drivers/pci/controller/pcie-brcmstb.c
->> @@ -1844,7 +1844,8 @@ static struct pci_ops brcm7425_pcie_ops = {
->>     static int brcm_pcie_probe(struct platform_device *pdev)
->>   {
->> -    struct device_node *np = pdev->dev.of_node, *msi_np;
->> +    struct device_node *msi_np __free(device_node) = NULL;
-> 
-> In the interest of making this a straight back port to 5.10 that does
-> not have all of the __free() goodies, I would just add the missing
-> of_node_put() where necessary.
+This is not a feature of the DMA API any driver should rely on .. Are
+you aware of one that does?
 
-Good point. Thank you.
+> - Devices with security requirements/constraints to be isolated from the
+>   rest of the system, also using DMA API
 
-> 
-> Also, since this is a bug fix, you should probably make it appear
-> earlier in the patch series, or even sent it as a separate fix entirely.
+This is real, but again, in a mobile context does this even exist? It isn't
+like there are external PCIe ports that need securing on a phone?
 
-OK, will send it as a standalone patch (as v2 with your comment addressed).
+> - VFIO is something we are looking at the moment and have prototyped with
+>   pKVM, and it should be supported soon in Android (only for platform
+>   devices for now)
 
-~Stan
+Yes, this makes sense
 
+Jason
 
