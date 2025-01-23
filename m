@@ -4,122 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F044EC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 20:28:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13304C0218C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 20:29:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RnTOe7yFWT4UYNJIuLdQZTeHUNhoeVu47fqL7N52te8=; b=Y1aPrJbGqCva2NffA1D5xy9uNW
-	s11iHOYtUkNU0dKnMmXJanhRRAKGL5kvURjn156mMF2N3KLy8MDl8LLex49TS9H88gHLV/Inde0h+
-	1POxdVYX8A0qA1G/Hryt746Akui2DauV0z+dLoL/SG3PEi2n2TllYNP89R7+VD/6l6LntWSQMtKYH
-	M5PUoLlDzBjpiiu8fyeJajRhpDCzfx2XZhxCjwDMj0PwYXg9VnvPB3mHgH0btaPBd3atKwdI1HwV7
-	u4ncSc3C9+qlq/gp0n7hxy0htboYlLTK9wkoPs4r7goimKBkz+mLf4gF7aUIL8OxFF1SsWJ7KKJbr
-	ChKnLiJw==;
+	bh=00Jd7qfRLvc64aDOsfuy6UISvWMt9cQyEiI056IRJNA=; b=zSA9TX9Ckz1KTAV7HzjLYm+LVr
+	kbtxqp3nS5I8QjbvpPos9zn0jCP7kqxxnjCC8ROHSnBUtKJ1mUd5NhuQ8HsJxpUCUS32HSQDgot8N
+	Uboo6DxsYaoMGGatvm+zq6KGWlI1+0lXGshnVG73FdygP+u6BpGHhN6k3guoiQrYw2q9j711W/01G
+	ZO7wpJ1Ui40lgOlmxH8ZwWsDzSwS2kYj0QFZBI5yLHeRPBvW+tfVlxaKwT7dy6hv2AsZR14snqQw1
+	1wMoo/SW6b5vR3P77jQ+InXTdI5tAVLcSm3zCnm8uYLb42i+4S7HgCO8iC0F74xLU8kqUgWAuWO3X
+	ho0+LVbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb3oQ-0000000DEuq-1T1u;
-	Thu, 23 Jan 2025 20:28:26 +0000
-Received: from mail-oi1-x229.google.com ([2607:f8b0:4864:20::229])
+	id 1tb3pg-0000000DFBC-41k8;
+	Thu, 23 Jan 2025 20:29:44 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb3n7-0000000DEWo-0r7P
+	id 1tb3nb-0000000DEf8-1yXe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 20:27:06 +0000
-Received: by mail-oi1-x229.google.com with SMTP id 5614622812f47-3eba50d6da7so351535b6e.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 12:27:04 -0800 (PST)
+	Thu, 23 Jan 2025 20:27:36 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-436ce2ab251so9147945e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 12:27:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1737664024; x=1738268824; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=RnTOe7yFWT4UYNJIuLdQZTeHUNhoeVu47fqL7N52te8=;
-        b=Zw7aZyAC/urbv0tBajqIQbAY9iR989LLR2ORw3jqEpEQ0Z8/zKaSwDukLxrRsb3R7/
-         jYkT4ENSoQxInOW63vNoM+Wu3JR9YAz0nEvWPakBUClqc5+oP5vz6+/viaAiIggIuROS
-         NGF82aVnqh3ZpFHWp/iStTZS9hmqKkMKoYbyI=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737664024; x=1738268824;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1737664054; x=1738268854; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=RnTOe7yFWT4UYNJIuLdQZTeHUNhoeVu47fqL7N52te8=;
-        b=ogSZnYtdXSivrO/H8VD0yAE9jSuIodAg8rlwjmrv/iryMbOXe3Aed9DOW5NDkYojnK
-         5SWU0bRfH3K3yJMpd6DZI1MzrHnJkIQUf3XZHydNPsUiI08D3daq1Irq/Ij+E9Y37WgO
-         4/zrLeDRMJOqfMKUcMI8JRBPqIpC8MBdgWlIqUcxeggCG0k3wbpEt8HbRLBmv6JkLD5z
-         +S8GXbOdxCiWrcyKsZ11ZvdRU5unWKxjKTeG5pUnPgCUwDmXiSp0Ly+JmjfK3zAoR3H3
-         fLHgSM8DoM73t7DpVctC3kkztvFvC5bQNCsFCFlBtxARgrXafYCLnIaP0lWbSxm23mp6
-         rxYQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXjtjzgDnP69/oh9HCUCGYc6OJEvRWUEjPxKStLYTeHJZB818O+AAxgFLzo1tm+KBjXaCmAqJypbniDkhrZJbmm@lists.infradead.org
-X-Gm-Message-State: AOJu0YyjLuPVwvXWuPYMIUZBwAZOVel0cHnb28BxvfCmrzbLAjG1w18b
-	gRippPTrGSLTebHXNdpmPBKOd2wMy8K7pNALot4gbmhEKhAG1zGIQh9i/0uk9A==
-X-Gm-Gg: ASbGncuPytYZBKDtWJWtvecuXxF3l+UhRG/I9GIJC1KxWYhKSYvDEJEHDpi+aXut7LT
-	3LMo61k8uRoX0Xk2LN1msnPP5jtd8ylvhNAyffy1I60vLFZe6BDS9i2vpkMZ8Vsg7aNRJPZ8o1T
-	WK0jvtAzAFPaoKMMgzx7Q9m0/lzlj3GlhSvLkP+7ywg3TYRFt5GzQQyjN3e0sXMJsvgYVYvfhrZ
-	9tQeDojaVIYBa3AlI6AwpEQogzEkLcDKg72s7l1ISpDOBwxju20GInmDYTzNs4/Qijo4xeP+2gr
-	x9+qkjfs5dqxZqt1jIouYSuE3STeXCVyar2pX14It+TV
-X-Google-Smtp-Source: AGHT+IGoXpwCo6KUpEa1mgyEsN3GlaOew1nrW9GfIqCjqRaZGtjUxFVw4Q2NPiRX3bzz35kSues//A==
-X-Received: by 2002:a05:6808:490e:b0:3ec:d251:d758 with SMTP id 5614622812f47-3f19fc9e9e8mr13292209b6e.23.1737664023776;
-        Thu, 23 Jan 2025 12:27:03 -0800 (PST)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-3f1f08c2f03sm58176b6e.30.2025.01.23.12.27.01
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 23 Jan 2025 12:27:02 -0800 (PST)
-Message-ID: <f27f9f63-32d3-4e90-9e12-2f893198f02e@broadcom.com>
-Date: Thu, 23 Jan 2025 12:27:00 -0800
+        bh=00Jd7qfRLvc64aDOsfuy6UISvWMt9cQyEiI056IRJNA=;
+        b=BzX6g18iex08ke97g0xyKqLsj4oDFftrDtCTs1Tp8eYXzo3M7eeWy3WkaL38ZWRnAW
+         6sZfSVk1WLMkxBH+t0RGJc+zSRIMTjcRUllMyD+r1uBiCvezF8l0mU3o8lq6sTH11Ya5
+         4aSiCBDZBKmr6JT1aigtfPIXeU1vd1FOEUHoYVavA2KHCGYV7nrmKcfVFDAxiQYgJckW
+         tglshozZeAVcl8jJURw2WplqnUPIFT8YTt4M8Ls7iI0mmt7siyluSs4jj/ukbqcwZ9Rt
+         okm5J0eOXF5SlBLjDq0D57oJHZGGN68KCxoezZNV3B2t1gN7Q09Xgc4QsDHP1x4RqRcK
+         /mPw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737664054; x=1738268854;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=00Jd7qfRLvc64aDOsfuy6UISvWMt9cQyEiI056IRJNA=;
+        b=IHL3zHlqPRgaiEr0by3543LEXWEyJxeA2l82092x7Z4V16pAlN1maaq3i7oPFE8z3H
+         3GMGh+b5hUtirl2k3wAJmqtcgL7lLFZAeCclC8xgY8JyI6zIp7PsQD8Tl2P+DBxGe0uZ
+         YePLjaS6YZvnudG1J/sSWhUHRsyM+bstMxq90OIArz5mW3+U3yGr6Decfac1HlratEaY
+         IiRUws2R/afV79Ahqq2xeh2yHAI7ud/h6U9Yk7T92VbnoGtdnFvij7MfvuPnmjAnDUb3
+         PPio8jhMmQPoEKfmssxdJKkU/HuDlO1vK6NRfMcfOo4IsoVMVjOCMS/YlkuNgmprXj3+
+         kRpg==
+X-Forwarded-Encrypted: i=1; AJvYcCWgrj8khPuS9m4rYTSPp8URV5U+7FaXVbeP/gzn219PqvOat1EC3drVEIy+W8jXRkVLUNBNSae06Z1pS9TeEGo/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXo4uB+df+aXIoQpQZA/ealVMsS6SssrFzwiRnUNFTK6NZw/o/
+	7uI6yhRZFD/nayT4hGKSQTiTH7fc73FT8HVUy5yjdWiwNwmJTZta
+X-Gm-Gg: ASbGncu11ewXl8FEgzvaemQLMaCLSd8GGgX4ZkWYm8lR6lSLm2sbIqHHnVp6Q+Y6/fI
+	uE6Lss8j/bvmTtL63MpPvgsQoppDIlHLaFzgbgm18fqXXZyDzhfEhPBZCxQWwsNZjESTHXFkP37
+	DyMYM4eTITk42wylpWO7hU2U6D5vm1zGjchb14m/Dhg5LNfdy/vAq6PY0vOQiTqMWb1u1z6BGWD
+	1+ulKB9SsPNGpp+M0i0l4ztPLo4zGDimS8HRDLu2T13MZ/ya4BF9ja8H2RYZqMh80Z4PWKYQ4Vx
+	CGWecc6eLkLkOU0zc3mkRZaVS1z5+nGpmvriJjUgrbs=
+X-Google-Smtp-Source: AGHT+IELmIj4TMdtO6F0JzBvp13pItF/CqH7DVKu4Caf20C2VuLCa8NuLXlr21iKRQntmJ/EV7Urrw==
+X-Received: by 2002:a05:600c:3c82:b0:434:f623:9fe3 with SMTP id 5b1f17b1804b1-438913e024emr291117265e9.16.1737664053774;
+        Thu, 23 Jan 2025 12:27:33 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438bd507e0csm2624815e9.20.2025.01.23.12.27.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Jan 2025 12:27:33 -0800 (PST)
+Date: Thu, 23 Jan 2025 20:27:32 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Anastasia Belova <abelova@astralinux.ru>, Emilio =?UTF-8?B?TMOzcGV6?=
+ <emilio@elopez.com.ar>, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej
+ Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
+ Hans de Goede <hdegoede@redhat.com>, Maxime Ripard <mripard@kernel.org>,
+ linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+ lvc-project@linuxtesting.org
+Subject: Re: [PATCH] clk: sunxi: add explicit casting to prevent overflow
+Message-ID: <20250123202732.5f7eb52b@pumpkin>
+In-Reply-To: <20250123005556.57b2331d@minigeek.lan>
+References: <20250120084719.63116-1-abelova@astralinux.ru>
+	<20250122225805.2ba6a062@pumpkin>
+	<20250123005556.57b2331d@minigeek.lan>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 06/33] cpufreq: brcmstb: Stop setting common freq
- attributes
-To: Viresh Kumar <viresh.kumar@linaro.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Markus Mayer <mmayer@broadcom.com>,
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: linux-pm@vger.kernel.org, Vincent Guittot <vincent.guittot@linaro.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <cover.1737631669.git.viresh.kumar@linaro.org>
- <3e6d8f8ac58727a8ca4d2a57fd90600618085936.1737631669.git.viresh.kumar@linaro.org>
-Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <3e6d8f8ac58727a8ca4d2a57fd90600618085936.1737631669.git.viresh.kumar@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_122705_295765_FF9D9D53 
-X-CRM114-Status: UNSURE (   5.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250123_122735_517673_49BB9CB3 
+X-CRM114-Status: GOOD (  41.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,12 +106,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/23/25 03:35, Viresh Kumar wrote:
-> The cpufreq core handles this now, the driver can skip setting it.
-> 
-> Signed-off-by: Viresh Kumar <viresh.kumar@linaro.org>
+On Thu, 23 Jan 2025 00:55:56 +0000
+Andre Przywara <andre.przywara@arm.com> wrote:
 
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
--- 
-Florian
+> On Wed, 22 Jan 2025 22:58:05 +0000
+> David Laight <david.laight.linux@gmail.com> wrote:
+> 
+> Hi,
+> 
+> please note that this is all practically irrelevant:
+> - PLL4 is PLL_PERIPH0, which is meant to be fixed to 960MHz. Linux
+>   would not change this frequency.
+> - the Allwinner A80 is both old and quite rare/obscure: the most
+>   prominent board (Cubieboard4) was broken for a while and nobody
+>   noticed
+> - this "allwinner,sun9i-a80-pll4-clk" clock is not used by any DT
+>   in the kernel, so it's effectively dead code
+> 
+> But just for sports:
+
+Doesn't surprise me ...
+
+> 
+> > On Mon, 20 Jan 2025 11:47:16 +0300
+> > Anastasia Belova <abelova@astralinux.ru> wrote:
+> >   
+> > > If n = 255, the result of multiplication of n and 24000000
+> > > may not fit int type. Add explicit casting to prevent overflow.
+> > > 
+> > > Found by Linux Verification Center (linuxtesting.org) with SVACE.    
+> > 
+> > You need to read and understand the code before writing any patches.
+> > The '>> p' and '/ (m + 1)' are both just conditional 'divide by 2'.
+> > So can be done before the multiply.  
+> 
+> Well, normally you would try to multiply first, then divide, to avoid
+> losing precision. In this case it's fine, since it's just dividing by 2
+> or 4, and 24E6 is dividable by both, so no loss. But the formula in the
+> data sheet is written as "24MHz*N/(Input_div+1)/(Output_div+1)", which
+> matches the code (somewhat).
+
+That PLL can generate all sorts of frequencies due to the multiply
+and divide (as well as the shift).
+The code was clearly sub-optimal for arbitrary frequencies :-)
+ 
+> So I think it's indeed better to divide first here, to avoid using
+> heavy library based 64-bit mul/div algorithms, just for this one corner
+> case, but it would need a comment, to point to the problem and avoid
+> people "fixing it back".
+> 
+> > Since req->rate is 'signed long' and the value is a frequency it is  
+> 
+> struct factors_request.rate is "unsigned long"
+> 
+> > only just possible that it exceeds 31 bits (and will be wrong on 32bit
+> > builds - but sun-9 might be 64bit only?)  
+> 
+> The A80 has Cortex-A7 cores, so it's 32-bit only. The SoC can address
+> more than 4GB, but that's not relevant here.
+
+I couldn't decide whether the code was for 32bit or not.
+Using 'long' is pretty dubious almost everywhere.
+I'm sure it is a hangover from people worried about int being 16bit.
+But that has never been true for linux (or pretty much any unix since
+the early 1980s).
+
+>  
+> > In any case it would be sensible to force an unsigned divide.
+> > So perhaps:
+> > 	unsigned int n = DIV_ROUND_UP(req->rate, 6000000ul);
+> > 	...
+> > 	req->rate = ((24000000ul >> p) / (m + 1)) * n;  
+> 
+> Yeah, I don't think we need the "long" qualifier, but this looks like
+> indeed the best solution, just with an added comment.
+
+Maybe just mention it only need to generate 96MHz.
+
+> And we probably
+> want to change the type of "p" and "m" to u8 on the way, to match the
+> struct and make them unsigned as well.
+
+Make them unsigned, but not u8.
+The u8 would get promoted to signed int before any arithmetic.
+
+	David
+
+> 
+> Cheers,
+> Andre
+>  
+> 
+> > 
+> > David
+> >   
+> > > 
+> > > Fixes: 6424e0aeebc4 ("clk: sunxi: rewrite sun9i_a80_get_pll4_factors()")
+> > > Signed-off-by: Anastasia Belova <abelova@astralinux.ru>
+> > > ---
+> > >  drivers/clk/sunxi/clk-sun9i-core.c | 2 +-
+> > >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > > 
+> > > diff --git a/drivers/clk/sunxi/clk-sun9i-core.c b/drivers/clk/sunxi/clk-sun9i-core.c
+> > > index d93c7a53c6c0..70fbd7390d96 100644
+> > > --- a/drivers/clk/sunxi/clk-sun9i-core.c
+> > > +++ b/drivers/clk/sunxi/clk-sun9i-core.c
+> > > @@ -50,7 +50,7 @@ static void sun9i_a80_get_pll4_factors(struct factors_request *req)
+> > >  	else if (n < 12)
+> > >  		n = 12;
+> > >  
+> > > -	req->rate = ((24000000 * n) >> p) / (m + 1);
+> > > +	req->rate = ((24000000ULL * n) >> p) / (m + 1);
+> > >  	req->n = n;
+> > >  	req->m = m;
+> > >  	req->p = p;    
+> > 
+> >   
+> 
+
 
