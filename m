@@ -4,93 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E63E5C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 16:36:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DC29C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 16:38:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=37PCcaFsphtONjU1WuGj3LJHxxawzOceGVtfL5iTpqc=; b=h5/MQBTMstr01UqZ14wNNv+joA
-	OxqWdDOnz2rPXDwIHXurVSZounLnk1wEcB9Xo7Io3wZ2CLE9hDTKHgmLR+SqgnGAlKmjOB9fBMd+P
-	qDwtRGJb7RdiZEHUpgVejgHxm20vVB8HjqJM9kvmiy6HA6dUTX0Bm+yw04ghF92Q+szLTOV4qgT4g
-	uR0TJd99wfYfb3yAitbmZQ9SXOHW58XGMLfcgCvWSZM69EgNNnj3qcV+MAQgsxz4KT2TQI/YYR/ua
-	pZD/hJT2EIKJ9hfRQ6GvL6rqDJw3IDoe6AhSc4YBo0EcZpZ7jVB/kmPd/MPd8fVArm23yHJjI7wyG
-	wIRWdkBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JmqJmFqL3f9Ul549GQDF2Vbu6Pyh7mgtxvfqWIXqGs8=; b=bAvvwv8n9TdNrQICrqIUuhCmwh
+	aoNjAoypBsB7XmQ0iemf+vGHk2v/FdamOvCjMgDgGMKKzEkLkfPTZpb6iHWrxXPUL89aT+if6MKwc
+	i+eFVDbWBikuX+1NiKia5/H6f0tA/+8vxKhhjSEU/Hodc0VF+iyHmKi6NqETitUQq7xmPdKzZx/FZ
+	4JifXleI5eMPiiRkdjiVQfkED2WlRFnFbvWj5W4qK95CNzRJdp+xTxOlMhEsCnuO+z8yhkV1yxGvF
+	oMpmgpma09eir4QytB5NhS4ACdLUz9jroEJpe9SZS+idx/g6y6HH8tKeR+dBRmWC1WdJTKhEdOhsq
+	9ZI/zhAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb0C7-0000000Cq9W-30Fk;
-	Thu, 23 Jan 2025 16:36:39 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1tb0E4-0000000CqGO-1srM;
+	Thu, 23 Jan 2025 16:38:40 +0000
+Received: from albert.telenet-ops.be ([2a02:1800:110:4::f00:1a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb0Ap-0000000Cpyy-00eb
+	id 1tb0Cm-0000000CqCx-21nU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 16:35:20 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-21644aca3a0so24999905ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 08:35:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737650117; x=1738254917; darn=lists.infradead.org;
-        h=mime-version:references:in-reply-to:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=37PCcaFsphtONjU1WuGj3LJHxxawzOceGVtfL5iTpqc=;
-        b=XV1RM8Wta8D21+D0TNnUjOzOR/6egdAB+4S7N1Dd8rAba/vEmZJZu9a9UjUg0ceqp+
-         fQbd5ofsGhNOcx7d92Frb4D8y95J2GEwE4/hUvHRxsSkPAUIegG9uMg5/mwKLh5Ghimo
-         yV+aGqHo5OT54RL310Yy7gcrV8fWPUzUXGOcUvwZmS1zLpBX/JuhVUPIelJkZ2I8lDLL
-         iHfM84qGEo7NlQdQKAcuYDOTNuXUTBDO+Cxh53QhwyZfZySQ6wATDimCW7DRSQud1a/4
-         glbzOoau0L9dZz4tNLzlu+gU81mpnHDZLEl2GcVyvyRoe1G+TIA+Gjk9oB1yzvVSeY/J
-         GTWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737650117; x=1738254917;
-        h=mime-version:references:in-reply-to:message-id:subject:cc:to:from
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=37PCcaFsphtONjU1WuGj3LJHxxawzOceGVtfL5iTpqc=;
-        b=ekwfLHQ6jnnfmUyaHlXqjdb4bsAhGorJnR2P7ZxRIetH6zTi3skpKMqW1yJDnbnksR
-         l9S1+U4/BCMf435+YsChrH0MF9PlOFActsYGm8Ai16sWulcxYzz+fzsG2SkH4o49v9ux
-         euYDEdO8T1UsvQLFb8uFWwz9GQ7nqnuieAlnr6d70sSi9NAJfMpjp1d8kwb00KdfbySi
-         mXAbjNt0cjzxson9TsDDoyHxehAFSYXdOekbh9AyH6KXzbGQKfKHA1uSVw4YCzMBx56Z
-         Px+qcgyOP+0uSFXwJjEYSMZUfUBtB0SZoclEuoVv+iqVHo/eDWTL7eLgGg8Ohpan0Ovh
-         B/fA==
-X-Forwarded-Encrypted: i=1; AJvYcCVRAs/+lSyysKswUU9ZJ02kb5M121lNnZZhS1V5MoIoVXcZywqNyCRzuwVhO2G+gW6uQ0rTP9a1K8+9cJ42P7H0@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQifypelVjNfxiaZ8GqClThnYozqBmnDYz+LrwKCkKVdXoDoMh
-	Zi4bFnIcBr9kg+BT2jew5kDIHPSBXPKNHoPR9MNykEgpnpXwTSj6
-X-Gm-Gg: ASbGncsZ4TnIFeBHogxHHncWWrzjkC4fp49xJiIcueY1VWVCRq6iLmgumjE03AuemPC
-	uF1y/f2XPyip1NfAwCsC9lHVApQv75+ylmjg1axZefTnMg43Fgwr3yygd9RLaSh+pzb5Dh9pzxm
-	1dHbSLAEr5LWhl2NDtieJkRoG4ErLdB7S3U0Xd3D4UKs6ngE4oteu6qD8h2rzuzUfxTeVYgcyK8
-	aHUAmIeNcXjoQph22jCr+74cXyOrcgecBx5vTAz//+7l+C9z0QjKlZ9u6ryQN0188kzfdJFKneb
-	KOixw8eI
-X-Google-Smtp-Source: AGHT+IFs4lUJjgFulZgoKt9vLCAMNVT+ssvpUR3RYJq7IZyHJnj6PWguIOa0Hbt9lV14uqVBhXgqSw==
-X-Received: by 2002:a05:6a20:394b:b0:1e1:d22d:cf38 with SMTP id adf61e73a8af0-1eb214f0f61mr39291398637.21.1737650117287;
-        Thu, 23 Jan 2025 08:35:17 -0800 (PST)
-Received: from orangepi5-plus ([129.146.253.192])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72f8a76115bsm117705b3a.108.2025.01.23.08.35.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Jan 2025 08:35:16 -0800 (PST)
-Date: Fri, 24 Jan 2025 00:35:01 +0800
-From: Furong Xu <0x1207@gmail.com>
-To: Jon Hunter <jonathanh@nvidia.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Alexander Lobakin <aleksander.lobakin@intel.com>, Joe Damato
- <jdamato@fastly.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
- Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com, Brad Griffis
- <bgriffis@nvidia.com>, "linux-tegra@vger.kernel.org"
- <linux-tegra@vger.kernel.org>
-Subject: Re: [PATCH net-next v3 1/4] net: stmmac: Switch to zero-copy in
- non-XDP RX path
-Message-ID: <20250124003501.5fff00bc@orangepi5-plus>
-In-Reply-To: <d465f277-bac7-439f-be1d-9a47dfe2d951@nvidia.com>
-References: <cover.1736910454.git.0x1207@gmail.com>
-	<bd7aabf4d9b6696885922ed4bef8fc95142d3004.1736910454.git.0x1207@gmail.com>
-	<d465f277-bac7-439f-be1d-9a47dfe2d951@nvidia.com>
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; aarch64-unknown-linux-gnu)
+	Thu, 23 Jan 2025 16:37:22 +0000
+Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed80:4563:f165:f885:ebc1])
+	by albert.telenet-ops.be with cmsmtp
+	id 4gdB2E00F5PrELR06gdBEk; Thu, 23 Jan 2025 17:37:13 +0100
+Received: from rox.of.borg ([192.168.97.57])
+	by ramsan.of.borg with esmtp (Exim 4.97)
+	(envelope-from <geert@linux-m68k.org>)
+	id 1tb0CU-0000000EEZY-3aR7;
+	Thu, 23 Jan 2025 17:37:11 +0100
+Received: from geert by rox.of.borg with local (Exim 4.97)
+	(envelope-from <geert@linux-m68k.org>)
+	id 1tb0Cd-00000000mL3-24G3;
+	Thu, 23 Jan 2025 17:37:11 +0100
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: Magnus Damm <magnus.damm@gmail.com>,
+	Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	=?UTF-8?q?Niklas=20S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>
+Cc: linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [PATCH] arm64: dts: renesas: r8a779f0: Disable rswitch ports by default
+Date: Thu, 23 Jan 2025 17:37:10 +0100
+Message-ID: <c4688de8e3289ad82c2cd85f0893eac660ac8890.1737649969.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="MP_/uWm=6.JKohvenzJ_Cv9eW2I"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_083519_056310_A711E28E 
-X-CRM114-Status: GOOD (  19.27  )
+X-CRM114-CacheID: sfid-20250123_083720_669261_3E8E64EA 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,54 +72,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---MP_/uWm=6.JKohvenzJ_Cv9eW2I
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+The Renesas Ethernet Switch has three independent ports.  Each port can
+act as a separate interface, and can be enabled or disabled
+independently.  Currently all ports are enabled by default, hence board
+DTS files that enable the switch must disable all unused ports
+explicitly.
 
-Hi Jon,
+Disable all ports by default, and explicitly enable ports that are used,
+next to their configuration.
 
-On Thu, 23 Jan 2025 14:06:42 +0000, Jon Hunter wrote: 
-> We have noticed a boot regression on -next when booting with NFS.
-> Bisect is pointing to this commit and reverting this on top of -next
-> does fix the problem.
-> 
-> I only see this on Tegra234 which uses the 
-> drivers/net/ethernet/stmicro/stmmac/dwmac-tegra.c driver. Tegra194
-> which uses the
-> drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c driver
-> appears to be fine.
+Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+---
+This is similar to how Ethernet switch ports are handled on RZ/N1D, and
+CAN-FD channels on R-Car Gen3/4.
 
-What is the MTU of Tegra234 and NFS server? Are they both 1500?
+If accepted, I'm wondering if I should move it forward, before "[PATCH
+3/5] arm64: dts: renesas: s4sk: Access rswitch ports via phandles"[1],
+which would become slightly simpler.
 
-Could you please try attached patch to confirm if this regression is
-fixed?
+[1] https://lore.kernel.org/all/20250118111344.361617-3-marek.vasut+renesas@mailbox.org
+---
+ arch/arm64/boot/dts/renesas/r8a779f0-spider-ethernet.dtsi | 3 +++
+ arch/arm64/boot/dts/renesas/r8a779f0.dtsi                 | 3 +++
+ arch/arm64/boot/dts/renesas/r8a779f4-s4sk.dts             | 6 ++----
+ 3 files changed, 8 insertions(+), 4 deletions(-)
 
-If the attached patch fixes this regression, and so it seems to be a
-cache coherence issue specific to Tegra234, since this patch avoid
-memcpy and the page buffers may be modified by upper network stack of
-course, then cache lines of page buffers may become dirty. But by
-reverting this patch, cache lines of page buffers never become dirty,
-this is the core difference.
+diff --git a/arch/arm64/boot/dts/renesas/r8a779f0-spider-ethernet.dtsi b/arch/arm64/boot/dts/renesas/r8a779f0-spider-ethernet.dtsi
+index 892729786d00b36e..ad2b0398d35431a1 100644
+--- a/arch/arm64/boot/dts/renesas/r8a779f0-spider-ethernet.dtsi
++++ b/arch/arm64/boot/dts/renesas/r8a779f0-spider-ethernet.dtsi
+@@ -57,6 +57,7 @@ &rswitch_port0 {
+ 	phy-handle = <&u101>;
+ 	phy-mode = "sgmii";
+ 	phys = <&eth_serdes 0>;
++	status = "okay";
+ 
+ 	mdio {
+ 		#address-cells = <1>;
+@@ -75,6 +76,7 @@ &rswitch_port1 {
+ 	phy-handle = <&u201>;
+ 	phy-mode = "sgmii";
+ 	phys = <&eth_serdes 1>;
++	status = "okay";
+ 
+ 	mdio {
+ 		#address-cells = <1>;
+@@ -93,6 +95,7 @@ &rswitch_port2 {
+ 	phy-handle = <&u301>;
+ 	phy-mode = "sgmii";
+ 	phys = <&eth_serdes 2>;
++	status = "okay";
+ 
+ 	mdio {
+ 		#address-cells = <1>;
+diff --git a/arch/arm64/boot/dts/renesas/r8a779f0.dtsi b/arch/arm64/boot/dts/renesas/r8a779f0.dtsi
+index 840ba73c03f1b6f4..06be9f7720d64179 100644
+--- a/arch/arm64/boot/dts/renesas/r8a779f0.dtsi
++++ b/arch/arm64/boot/dts/renesas/r8a779f0.dtsi
+@@ -989,14 +989,17 @@ ethernet-ports {
+ 				rswitch_port0: port@0 {
+ 					reg = <0>;
+ 					phys = <&eth_serdes 0>;
++					status = "disabled";
+ 				};
+ 				rswitch_port1: port@1 {
+ 					reg = <1>;
+ 					phys = <&eth_serdes 1>;
++					status = "disabled";
+ 				};
+ 				rswitch_port2: port@2 {
+ 					reg = <2>;
+ 					phys = <&eth_serdes 2>;
++					status = "disabled";
+ 				};
+ 			};
+ 		};
+diff --git a/arch/arm64/boot/dts/renesas/r8a779f4-s4sk.dts b/arch/arm64/boot/dts/renesas/r8a779f4-s4sk.dts
+index 24ecdf6e8476a945..df652e7b85c95ebe 100644
+--- a/arch/arm64/boot/dts/renesas/r8a779f4-s4sk.dts
++++ b/arch/arm64/boot/dts/renesas/r8a779f4-s4sk.dts
+@@ -187,6 +187,7 @@ &rswitch_port0 {
+ 	phy-handle = <&ic99>;
+ 	phy-mode = "sgmii";
+ 	phys = <&eth_serdes 0>;
++	status = "okay";
+ 
+ 	mdio {
+ 		#address-cells = <1>;
+@@ -205,6 +206,7 @@ &rswitch_port1 {
+ 	phy-handle = <&ic102>;
+ 	phy-mode = "sgmii";
+ 	phys = <&eth_serdes 1>;
++	status = "okay";
+ 
+ 	mdio {
+ 		#address-cells = <1>;
+@@ -218,10 +220,6 @@ ic102: ethernet-phy@2 {
+ 	};
+ };
+ 
+-&rswitch_port2 {
+-	status = "disabled";
+-};
+-
+ &rwdt {
+ 	timeout-sec = <60>;
+ 	status = "okay";
+-- 
+2.43.0
 
---MP_/uWm=6.JKohvenzJ_Cv9eW2I
-Content-Type: text/x-patch
-Content-Transfer-Encoding: 7bit
-Content-Disposition: attachment; filename=force-disable-rx-checksum.diff
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index edbf8994455d..f00bcfc65dd0 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -5442,7 +5442,7 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
-        struct stmmac_rx_queue *rx_q = &priv->dma_conf.rx_queue[queue];
-        struct stmmac_channel *ch = &priv->channel[queue];
-        unsigned int count = 0, error = 0, len = 0;
--       int status = 0, coe = priv->hw->rx_csum;
-+       int status = 0, coe = 0;
-        unsigned int next_entry = rx_q->cur_rx;
-        enum dma_data_direction dma_dir;
-        unsigned int desc_size;
-
---MP_/uWm=6.JKohvenzJ_Cv9eW2I--
 
