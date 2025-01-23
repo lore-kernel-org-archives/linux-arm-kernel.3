@@ -4,171 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32A17C0218B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 19:56:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D601EC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 20:09:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rTaFalhB3BrKg+0uVMUZnYotZTQXpcQjmF20L1ckDLw=; b=s+fQBL4mFERc7MNn11EtM7TYoH
-	tUCEOV59lN/uT8k/EKighwHYPxCepm2cXHROtQKDjeI//3RYxWAIx4VvvBbjoOBJzNF93+hMCLTeo
-	VwA69SeNRZ+WBHzzZkWp9uYHZ4CUQwEwkphGcnRkKWRC0dQWoAphj/JbNDra4vMURJs75gM/8mOkH
-	R9pxkJYY7RHu8yURjLycf0IQdSEMm5PrYfuuEqUeEy80y8N3y3ZhaRpq6tVIjpRiul7kSk3pgxYMt
-	DXaQQV6rx8T8dw6DgbdNHySMyiW10DDgNF8Qx0Dp1Ib+a1gEILJlZwy88IIg+29f2SaW0emmcs5p6
-	JY3VnzNQ==;
+	bh=+JkSlsaIfhcFzvcBCwyzBDOC4gQnSGt2mpkIon0qZ64=; b=gyo0zI4xW9cCGnTsUrA/BwQhOd
+	4lBFM4RnpDhMHJ8GyAwoQ51wmSdlNFKpducS7zMGJGkTDug2EGyxLWJDHZlTq6exctnXikyJjsCV8
+	8C+WjG5x1Moz33+MGuwJll13bX3J1xZE52k2abGC7al6oC1DBV544E7iC9UdkDCLm5jfTxCz2L9Q/
+	E68kvP7AtKeyDRA5LkPYqmDEBZlQHlwYOBeihTsSV4AxmCgCuBwXe6e6z7V6pIRhC95AJUiItfzyg
+	uCcWVKm3/VR9ZBhXXoPhdWbNbBA9J4vB7jHPCtJxCtmLFVilozKjcU8FqF6IvsK0yBXXK7jIKnhYT
+	TYwwFY+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb3Iz-0000000DBVi-3Vd1;
-	Thu, 23 Jan 2025 19:55:57 +0000
-Received: from mail-dm6nam10on2060a.outbound.protection.outlook.com ([2a01:111:f403:2413::60a] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1tb3Vh-0000000DCYu-2HId;
+	Thu, 23 Jan 2025 20:09:05 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb3Gc-0000000DB96-2k5o
+	id 1tb3UP-0000000DCTW-2uHP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 19:53:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ng0w43x+u6F+sJIb3JX8YqXXLuN5hobXVo3YJ+1UJt3IurZuofichFdIeyZT8A1/YSCtkIcuDLNnkid9FUWUioXOmUORU2rIdDb3rlaTRbVVM3fhg47zVxxY6xNqgVQdnN9nKcjvzq8rXs2P5TNY71tEZsT4Sg+0eYe6ygYLdvGGrUcGKlHGvgV8juW5cKOujXMH165dzHdKzzPX+QvC3drSfMuLq2IsEGQl3bZmgzVO40rzDYnjwFl2pv+FZRK0YhUC6Bd8xsmX2SOucEwvoymnRqPidhCFtMZWSerqhvxihlJYHH9jBnDVVFaFmZKKA+p4SV5O0DJdZ5F1QkYdiQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rTaFalhB3BrKg+0uVMUZnYotZTQXpcQjmF20L1ckDLw=;
- b=dFXk3MhW+TKZXa7y3cILfWzRxDKOk51ozV9sFtlRlF8b2VIo+muJ+Of9hNqMljz3TfN1fMtHvcl5kdslKOyyhlCX9N5dByEFhPbfp+YApeO2ew++ETjKVFPVOS3TQNn85An5yAkedBFNdYhYGhpI64bIx1pDBB1IJVny2dRSidHJObcwlxPD8pjovzxU8M+QpTNLeiRA7+iWrrqR2PQcB24z4OA4+jNe4FXTfBOJUdFsfczPjzUxKzgasN/L/tsExY08r0r5l3iCI83eTOGMIBF0lKknM4Ft/9Gi/KM5HRXzM6QAjHFLvaNlKQDdpK+CIly+PUsHf0vZ0vZIQ+eofg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rTaFalhB3BrKg+0uVMUZnYotZTQXpcQjmF20L1ckDLw=;
- b=IOuZdtMy02LEsvcWhlb79TlnvWNmow+zyxTWq1dbu/UOmIHkBWO5T5BtySSdVgvnZJOyU7NMfo8tFPzN+eorJlB3NcNWym8abZGL+kakB1ZaEZXQHWFE6KsdthUnIXqBBUMopssQOWa1020rELyfc/ga6B16QfGt6p6YaH+DRfxIzzNC9q5d4zxTUr2I3hVpI5UkmaplcAWDBQee0NtUb2ZAwoleL7vtVnDjf02jD3Jq9C4e+H4JnINnzokecy51SuQzJMc5lZ5de5u3o/HnwyhUCacN+Y6gKHmhhC48N233xPjIhrlDNj/O7Eqpdfq0Ymfh6WPxrARCh5a3K5N+oQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DS7PR12MB6237.namprd12.prod.outlook.com (2603:10b6:8:97::18) by
- DM4PR12MB5745.namprd12.prod.outlook.com (2603:10b6:8:5c::7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8377.16; Thu, 23 Jan 2025 19:53:24 +0000
-Received: from DS7PR12MB6237.namprd12.prod.outlook.com
- ([fe80::64de:5b39:d2ef:8db6]) by DS7PR12MB6237.namprd12.prod.outlook.com
- ([fe80::64de:5b39:d2ef:8db6%5]) with mapi id 15.20.8356.020; Thu, 23 Jan 2025
- 19:53:24 +0000
-Message-ID: <e6305e71-5633-48bf-988d-fa2886e16aae@nvidia.com>
-Date: Thu, 23 Jan 2025 11:53:21 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3 1/4] net: stmmac: Switch to zero-copy in
- non-XDP RX path
-To: Furong Xu <0x1207@gmail.com>, Jon Hunter <jonathanh@nvidia.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Alexander Lobakin <aleksander.lobakin@intel.com>,
- Joe Damato <jdamato@fastly.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-References: <cover.1736910454.git.0x1207@gmail.com>
- <bd7aabf4d9b6696885922ed4bef8fc95142d3004.1736910454.git.0x1207@gmail.com>
- <d465f277-bac7-439f-be1d-9a47dfe2d951@nvidia.com>
- <20250124003501.5fff00bc@orangepi5-plus>
-Content-Language: en-US
-From: Brad Griffis <bgriffis@nvidia.com>
-In-Reply-To: <20250124003501.5fff00bc@orangepi5-plus>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: CH0P221CA0039.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:610:11d::21) To DS7PR12MB6237.namprd12.prod.outlook.com
- (2603:10b6:8:97::18)
+	Thu, 23 Jan 2025 20:07:47 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 50NK7gBZ1256773
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 23 Jan 2025 14:07:42 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1737662862;
+	bh=+JkSlsaIfhcFzvcBCwyzBDOC4gQnSGt2mpkIon0qZ64=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=Bh00+rr9e2qKlFCS4tadjOXJ8upWWlchxNQ5nI4bRx4T/q3Ds52DK2liH20+/Anq0
+	 O12FQh+nyKmOn5ZSyERox6RoDcNx6twxpF79QBDHYZviQxatfyi8TQKEf+DrkM4g12
+	 4iT1JGiHemNS8cyQNdg3MmmSqbus3MJTWGO7Js3w=
+Received: from DLEE111.ent.ti.com (dlee111.ent.ti.com [157.170.170.22])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 50NK7gbI089921
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 23 Jan 2025 14:07:42 -0600
+Received: from DLEE105.ent.ti.com (157.170.170.35) by DLEE111.ent.ti.com
+ (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 23
+ Jan 2025 14:07:41 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE105.ent.ti.com
+ (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 23 Jan 2025 14:07:41 -0600
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 50NK7fjU008713;
+	Thu, 23 Jan 2025 14:07:41 -0600
+Date: Thu, 23 Jan 2025 14:07:41 -0600
+From: Nishanth Menon <nm@ti.com>
+To: Andrew Davis <afd@ti.com>
+CC: Vignesh Raghavendra <vigneshr@ti.com>,
+        Santosh Shilimkar
+	<ssantosh@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        "Rob Herring (Arm)" <robh@kernel.org>, Lee
+ Jones <lee@kernel.org>
+Subject: Re: [PATCH] soc: ti: k3-socinfo: Do not use syscon helper to build
+ regmap
+Message-ID: <20250123200741.wcpnqejut5b6zkvp@consonant>
+References: <20250123181726.597144-1-afd@ti.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS7PR12MB6237:EE_|DM4PR12MB5745:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5c705861-e3f1-47e5-7ffe-08dd3be798ed
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?MitkR3d2M2pwaDU4Unlnd2hRZnU5dEpyenlUQUVHWDR5TUluSVVTTTNTSXVo?=
- =?utf-8?B?TFd4bTRoUE5xTjJEWkhOejcxL3pML3hDdDhCMzhRc2dLejVWcGs4cW8yZCtY?=
- =?utf-8?B?S0NyUEx0T3BIM2hXZCtsRGJGLzVTTGhxRlAzQmZINUlGZkZuaXpUOE8yS0p5?=
- =?utf-8?B?QTBrb2Zydnh4L2trSFpIdUljQkFqUkFLdXl2cmVWdWlLUjF3Tkh0VVNhWW93?=
- =?utf-8?B?azZ5ZTUwN0N3TEoxemhtQks4MmcvS3dSbHdKU1pxTXpLR2dUaXF1MTh3dmFT?=
- =?utf-8?B?YVdFbDZQQlVxK3FKa1RUemNVbEk0TUVITHJoUlRucWM3ZHQ4NzRwRGVlZDcw?=
- =?utf-8?B?a2Mzdm02MGRYUThZZ2ZyYlJGZjRMK0FVRE8wU2dhVG5YdU1WRkVHMVpaUmI5?=
- =?utf-8?B?RnZpSjNJMkJDZ0JDUC95NmszS2hGSGxCWm8vK3hjSDNyUEFWNVl5TmhqU1Fi?=
- =?utf-8?B?UFJkeHV4SEs4UjZIL1M0OGRZcUx4YzcrQjRGTDBDM1hhWkRuWmYxeEMrb3B3?=
- =?utf-8?B?NGtPTnh0QVpKQStXa3p5Q1F4M1l4c2RqRWNsMVFvTElVZGdIZkk5M0wyc0dK?=
- =?utf-8?B?WmF6S0gxUG1YNSswbUQxMEd3R0I3STcyeXlFTEZFOTRIMVRVTXZsUG9yaDIw?=
- =?utf-8?B?MjdqaHROWVdtTGxLMzM0L0h3cVZkNm9TRkV0dUpldmE0aGRUL2hhRUREcmZU?=
- =?utf-8?B?ZW9aSEtMKzJWTVJZd1RxNjlDc2MwZCthOCtqNkxYMmc1SzljeGIzZElhY09L?=
- =?utf-8?B?dTBubnRrdVRuSHRyclBiWkI1TXVFWGl5dEE2R3FYRXJDbFFDemwydHRzcGJ2?=
- =?utf-8?B?YUdWbHJ2czg3WmMyNnV5VURtSlBIbkJsZTdqbFZoYTJUWFRheFhndGU0a1Zw?=
- =?utf-8?B?cjJkbUZjN09KQ3Q4ZmE3YjhlamJiVkJEWFAxUzJvZUI4NXdOTkVPdUFMS2lR?=
- =?utf-8?B?UUphQUhaMGY2am42cjV5NzJnSWxkUlVQZ0dLN2YxTHBWcHN2ZytsZlZQSVdu?=
- =?utf-8?B?U3ROV1MwOTNRRDNUWWtJaG9naVZOK0NxTWVEQVVVNXhyOTY2OXJZaXprUHdC?=
- =?utf-8?B?YWYrdnBZWko5Umt0RGQ5M2g2YVg1YW5VNDErMFJiNmRVMk01TG5ES1F0YklT?=
- =?utf-8?B?WU5aM2k1aktDQnExek16V0JpRGdTT09rakVaQTdOYyszOUttdUtDdkluWFBZ?=
- =?utf-8?B?SDBVU2dRZWVpbWRDbFZWU2MxeFBhdWtEd2VVTzNOQjE2ZnJZSFZxVFJlNm9r?=
- =?utf-8?B?TDM4dHBJQ2ZVY0ExV1NzQ0lEVE52amwzOW1LK1RONWpuaTJsSUY0UitWZEtJ?=
- =?utf-8?B?Ui9ROUtsZVYrbDZLNEdvT0l2cU5PcGdCUWVjWjZEc3ZBVjFpVm5VY3czWjFt?=
- =?utf-8?B?VDVaZGdpc0dVZUlYbjZWRWd1cTdmSktXaWhHYldIbGM1KzRMa3M2MEtudmoy?=
- =?utf-8?B?bmdaTzNiOUtNZmRXQ05ERFoyMkFKY0EwdlV0VVZuVUJIVXFCT244ZlMzaGt6?=
- =?utf-8?B?Q3g4TVVtdTk2clg4djlhZEl2UHY4Z3BWMzBnOXJFOGFyK2ZNLzFYODlXMWNz?=
- =?utf-8?B?TUhCZmRDRGNibFRMY1g0aWhTK2J0Wllxa1ZaTTdDOGgwc3ROM0gwdXVyUC8r?=
- =?utf-8?B?VFBQVCtyOUxVRTFSNXhYekhEcnRzaS9mdk9RM3FkZDRvY3VybDJUR0hlSEU0?=
- =?utf-8?B?VkNLQ25BTFVGMittZlRzWVMzRHBUaVo3U2xCTDRmOWdSTWJDSlg5ZFA3dEp4?=
- =?utf-8?B?MUJ6RlNVVFJrSTd6bkRFWmZCWjZLc0V3RElmblRWcWlESXBST05zbEtWem9R?=
- =?utf-8?B?bWtZallPV1grMjQybnRLTDJ1NDl5ZDZXb3VzbjZBVEJSQ1lsdkxNaWRLYXBK?=
- =?utf-8?Q?a5wWE/92wnci/?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB6237.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YXpwdjBFVVJKMEtCV3VFSHJOWUJZaUkwajRJVHFmcVVUd2MxSkNaSEUrUjQv?=
- =?utf-8?B?Q0JUZXNZN09XZlZRRzdHUW51U3FaeFltRGl1UkNwcjhEVHNRZlRickY0eUlL?=
- =?utf-8?B?dzF1ZTAvbzlrSXZDRlpQSHJsZWtBVG4zQ0toK2txbUVzWGMyZlRxRWY3QXlM?=
- =?utf-8?B?VExtMys2UGYvRkpEODN4NjNCSzcvNjVRZGcyUGYrbzRxNE9weFdNdmVjTDdN?=
- =?utf-8?B?S0Jabm1JUHIyQlZyTzdIOTlZSzNIclQwNXNnVGxvTThSeEVVdUFrdGpIT052?=
- =?utf-8?B?Y2o0bnBkUUlQNytwelFZMk40TFlnOHNLdERVd2RBODBpZkhZRU5WWDN5UWdD?=
- =?utf-8?B?SFRKTWJOVGJ2cTREb05Oam4rY0FPcEZ3TTJQa1JOUEc0K2ZROFFjTjlMTzRI?=
- =?utf-8?B?MzRacTdxbVJpTGJJdENPN05ZRmNESEtaWUlDY3p3Q2luNTM2aStxSy9yMFo0?=
- =?utf-8?B?UWZQNDhyZXZXWjAvMmxRbFMwSHgwbDgzVmNVZzhnUEZCSzRaNDBpbDMzMjNS?=
- =?utf-8?B?TFlBQ2ZHaklkMTkyZzE4K04rR0szYWJmRkZubm5QdjZXSDVXSWdja2tvZDNr?=
- =?utf-8?B?dnJQYkx3Y2d0VU1JdWd6UVdPbDJyeS9RTlVrNjV6bXlwdkR3YW0wSTY3aXU4?=
- =?utf-8?B?dnlpeVhPak9oWnZzbkRZQi9QcmlEWHlEQndZYkJXVnpENG5YbER0cFNETTNm?=
- =?utf-8?B?N3Jta0dUTTFKb1V5ZWVNalhmYTl5VHlsVjhlY2pWYWZMTExPTGRIdzhCNFp1?=
- =?utf-8?B?R3JJOWo4UWlqZWpNVkNlc3VXSDFZVUEvbzF3OHFFMlBYaVRFMnM2TENrOUl3?=
- =?utf-8?B?VEdURzU3d2g1eDBHQm5JN2ZjbG1iUTQwUTEvL3l6R1VldmVKNXdBMXJEZm1k?=
- =?utf-8?B?Q1A1VXVzRGNiWDhOdkRaYWcrSmMzVGlNTmdiYW9TdUQ5cFFZSVU1TnJnWFk0?=
- =?utf-8?B?VUJGMnlKL0F4bi8rWlpiZThReHRpdmhjcUp1SnNkaXcwakJHVFh0U3VmY0pW?=
- =?utf-8?B?UlNwZStwWUxtd3hRcStQdmgzZTZtWEU0eWMza0dldVZyWlJkeW8rbXA1NEVQ?=
- =?utf-8?B?RDZkTXlDdU4zQUVNeWgzZUdwVW1BMTFSYXRNQXlWYXhsRytxcktFWlNyWGxh?=
- =?utf-8?B?aEdSelEwa3liTkhVcXpLc09jZUloelYwZEsvQ1U2dXg2aVE0Tkh3ZjF1Q3po?=
- =?utf-8?B?M1V5a2U2MStML3V4VUF4Wm5EVGFBSDRaOThDNEtRVS9lQkRRZllDdm5LZ1B4?=
- =?utf-8?B?TmtzMnVwK2lWRDVQZzVYbG9RN1BNbFR0aWpNSTUvZDR5RGRNWWMvcWJraWd1?=
- =?utf-8?B?ZndvTGxXNlVGemR5KzZ3Zlp3bmNadnZRSWdqZGEwNjkxNkQ5ZCswcldXRm1Q?=
- =?utf-8?B?OThHR05hWkt2ZDJ5YXlXM2l4VmV6SmxVd0VTdVdaTXNZZmxwcXNNQXpBaVk3?=
- =?utf-8?B?WmM3ZldGamhoTmJCWGxhR1JoRHlDc0s3QmN5aDE1eDk5TFhEZDhhK0J3TFJM?=
- =?utf-8?B?ckRTbXBKSXBRenoxQUdXR3NseGQrWlM0YVpIZSszMnU0TTIxbnJORlNCa043?=
- =?utf-8?B?cE11V0c1Ty9ZNWlPbVpMZDFnYzBzc0o4amZoQmZRcGtxV29iSllHMlp2cFlK?=
- =?utf-8?B?OWxnU21hT2pwUkNkV2d5Z3hXUFVzT21lNElNVVl6K3pjVkJkQUVMTzg1Z0Vo?=
- =?utf-8?B?TWNmMVFWVk9aMTYxQWhqT1NNOWN1R25yL041bDRXZmJwTCtXc0tOdm5ucWRG?=
- =?utf-8?B?eXNCQ29udnVMNXNXaG1uK2JxR2dQcFdNeGZiNEREYTRxUGNPSytxM0xCZ0lW?=
- =?utf-8?B?MUJ2QnQzVVUyQVhKMFBOdlJxQ2kwZm1nSTVxbDRobUZEcEhwY2FSZkYzd3NE?=
- =?utf-8?B?a25UOHlYR2tUUkU4SThyYy94clhmaGpNNm52ZGpsNDE1aUZpRHliS2N1cVVt?=
- =?utf-8?B?M2Z5d0ZCSEgyRzdMb01hOUpBUE84WTdWaDFWd1hXOTVyaytiakxQUndlN09O?=
- =?utf-8?B?ZSs5STVVdGhyS0pRV2hBRjQvRVloblFsZFJ3VlFNdysybzR2R1pwaXlkRDBh?=
- =?utf-8?B?d09Wb0tFblBPM1A1WXdBdUo4RFFnMHZTa3VrQmZVY1ZrUUdXZVpIMTJPN2M2?=
- =?utf-8?Q?9ESY1cvlSRuCYckw1AhZMn+ve?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5c705861-e3f1-47e5-7ffe-08dd3be798ed
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB6237.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jan 2025 19:53:24.7195
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: CjLC1MYQc4A0LCWZwqZoQXkD1WeCfxjtxufLQ8S3wMjHbhwZb9d64czioRCMQCflVMRx5/edZ1mcZ/3jxKNTKQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB5745
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250123181726.597144-1-afd@ti.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_115330_702768_153FE2E8 
-X-CRM114-Status: GOOD (  17.75  )
+X-CRM114-CacheID: sfid-20250123_120745_821209_A97F391F 
+X-CRM114-Status: GOOD (  27.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,32 +88,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/23/25 08:35, Furong Xu wrote:
-> What is the MTU of Tegra234 and NFS server? Are they both 1500?
+On 12:17-20250123, Andrew Davis wrote:
+> The syscon helper device_node_to_regmap() is used to fetch a regmap
+> registered to a device node. It also currently creates this regmap
+> if the node did not already have a regmap associated with it. This
+> should only be used on "syscon" nodes. This driver is not such a
+> device and instead uses device_node_to_regmap() on its own node as
+> a hacky way to create a regmap for itself.
+> 
+> This will not work going forward and so we should create our regmap
+> the normal way by defining our regmap_config, fetching our memory
+> resource, then using the normal regmap_init_mmio() function.
+> 
+> Signed-off-by: Andrew Davis <afd@ti.com>
+> ---
 
-I see the same issue.  Yes, both are 1500.
+This is part of the fixes TI K3 platforms boot issues reported in
+https://lore.kernel.org/all/b2413460-ec8b-4c77-99b8-4c32b262439a@ti.com/
+on the latest linus master v6.13-5001-gd0d106a2bd21 + linux
+next-20250123
 
-> Could you please try attached patch to confirm if this regression is
-> fixed?
+Total set of patches tested with:
+https://lore.kernel.org/all/20250119182121.3956546-1-vaishnav.a@ti.com/
+https://lore.kernel.org/r/20250123181726.597144-1-afd@ti.com
+https://lore.kernel.org/r/20250123181913.597304-1-afd@ti.com
+https://lore.kernel.org/r/20250123182059.597491-1-afd@ti.com
+https://lore.kernel.org/r/20250123182234.597665-1-afd@ti.com
 
-Patch fixes the issue.
+I will try and get this in at the earliest possible window. Thanks for
+providing a fix.
 
-> If the attached patch fixes this regression, and so it seems to be a
-> cache coherence issue specific to Tegra234, since this patch avoid
-> memcpy and the page buffers may be modified by upper network stack of
-> course, then cache lines of page buffers may become dirty. But by
-> reverting this patch, cache lines of page buffers never become dirty,
-> this is the core difference.
+Cc Rob and Lee
 
-Thanks for these insights. I don't have specific experience in this 
-driver, but I see we have dma-coherent turned on for this driver in our 
-downstream device tree files (i.e. dtbs that coincide with our 
-out-of-tree implementation of this driver).  I went back to the original 
-code and verified that the issue was there. I did a new test where I 
-added dma-coherent to this ethernet node in the dtb and retested. It worked!
+>  drivers/soc/ti/k3-socinfo.c | 13 ++++++++++++-
+>  1 file changed, 12 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/soc/ti/k3-socinfo.c b/drivers/soc/ti/k3-socinfo.c
+> index 4fb0f0a248288..704039eb3c078 100644
+> --- a/drivers/soc/ti/k3-socinfo.c
+> +++ b/drivers/soc/ti/k3-socinfo.c
+> @@ -105,6 +105,12 @@ k3_chipinfo_variant_to_sr(unsigned int partno, unsigned int variant,
+>  	return -ENODEV;
+>  }
+>  
+> +static const struct regmap_config k3_chipinfo_regmap_cfg = {
+> +	.reg_bits = 32,
+> +	.val_bits = 32,
+> +	.reg_stride = 4,
+> +};
+> +
+>  static int k3_chipinfo_probe(struct platform_device *pdev)
+>  {
+>  	struct device_node *node = pdev->dev.of_node;
+> @@ -112,13 +118,18 @@ static int k3_chipinfo_probe(struct platform_device *pdev)
+>  	struct device *dev = &pdev->dev;
+>  	struct soc_device *soc_dev;
+>  	struct regmap *regmap;
+> +	void __iomem *base;
+>  	u32 partno_id;
+>  	u32 variant;
+>  	u32 jtag_id;
+>  	u32 mfg;
+>  	int ret;
+>  
+> -	regmap = device_node_to_regmap(node);
+> +	base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(base))
+> +		return PTR_ERR(base);
+> +
+> +	regmap = regmap_init_mmio(dev, base, &k3_chipinfo_regmap_cfg);
+>  	if (IS_ERR(regmap))
+>  		return PTR_ERR(regmap);
+>  
+> -- 
+> 2.39.2
+> 
 
-Just to clarify, the patch that you had us try was not intended as an 
-actual fix, correct? It was only for diagnostic purposes, i.e. to see if 
-there is some kind of cache coherence issue, which seems to be the case? 
-  So perhaps the only fix needed is to add dma-coherent to our device tree?
+-- 
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
 
