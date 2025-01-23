@@ -4,77 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24FBEC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 21:15:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 996CAC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 21:18:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kav0vywzNK/Lke8CSBltT7ORnmfq4aKEvc7LgdKS2FQ=; b=dk0bDVFT0LoUQQCIQee4jMIcdK
-	RnMoM2mgOHS1VZZpF/aAU5jVty3x2WW5pzlobQni+0WRK7FKoLyCYW9CvfQPoe/bvRlx4r2Mfo8O9
-	LIb5MeC4YHtCBU+h0OGShbUdY2JVnqELHBcraXgCUMNqOXtXEYr1ZfpIUyj1jfTQjTbqE7mQSXt7f
-	zedNMLClFqjPLGnOmp+UbNmzgYLcEXczux87p7bZsLt3ywykbZ8ZjSlsoEWjj1HVBJlxw5Qh/5Ij0
-	s/U2ZEqhMKnYsHyR6h/DKP8yMcwIlNnUzAhDz+isCF6FGIOz2UwihCH/mnNNZZzPwlXwl6SA5SQrY
-	UlEzSe/A==;
+	bh=0s0TZa+/AGyLnRciIIQJMh70Ve7Kbe0zJYWKJjLqkb8=; b=rretcynGumm+bsnjkhWmCmkphQ
+	OvqGMTkEV127zWFucZ0xwZHa8k8nTQoGZBKwUyd9UkTAhdUC/rIhn/rI0K1sDyEQGYrKi+u2jrFL2
+	lMhtNh0eDh2Mz2xBEdFtzcaGMkNqmZfNYIi7QVpWIcyE6dSPVp1zvHSpkedObqCmhn6S5U8yiPyCG
+	d4o8CvOVK2wy0bjBWW+1ZFxKuzlss4h05FsGS2Fouwd2NULyTopc4d/ssxCma0T8Topoy8c5fRsel
+	hKxqmwO8sGf86ps4/X7IKAHsX+LBj650K/8vNtgDjpFy3612awan05NTRJH5kC7vuAJdwtf7AmJKj
+	CfRMR61A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb4Xq-0000000DIig-0KSP;
-	Thu, 23 Jan 2025 21:15:22 +0000
-Received: from smtp-fw-9106.amazon.com ([207.171.188.206])
+	id 1tb4b5-0000000DIzS-40xB;
+	Thu, 23 Jan 2025 21:18:43 +0000
+Received: from mout-p-101.mailbox.org ([80.241.56.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb4WX-0000000DIeA-0rOQ
+	id 1tb4Zn-0000000DIrD-1yoz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 21:14:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazon201209;
-  t=1737666842; x=1769202842;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=kav0vywzNK/Lke8CSBltT7ORnmfq4aKEvc7LgdKS2FQ=;
-  b=iZBAI/ciTqGRMjnoMtbvDa84M+GNEG/YefU60SfHqXwF2Rn0WIdW+dWF
-   xfefLVJFRhWH+3R+LhDD04fKHXaloQebZIlcEA1YO8/kIlCIEwdkWv7Wx
-   tWSsn5kGBXvoKiWsfTeIMaT+B7jRcb7DDgwLa1m6VVg687XA2fk9QzGWZ
-   4=;
-X-IronPort-AV: E=Sophos;i="6.13,229,1732579200"; 
-   d="scan'208";a="793255573"
-Received: from pdx4-co-svc-p1-lb2-vlan2.amazon.com (HELO smtpout.prod.us-east-1.prod.farcaster.email.amazon.dev) ([10.25.36.210])
-  by smtp-border-fw-9106.sea19.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jan 2025 21:13:53 +0000
-Received: from EX19MTAEUC002.ant.amazon.com [10.0.43.254:7461]
- by smtpin.naws.eu-west-1.prod.farcaster.email.amazon.dev [10.0.37.156:2525] with esmtp (Farcaster)
- id a043c6b0-f00c-497f-aa64-71da178f7873; Thu, 23 Jan 2025 21:13:52 +0000 (UTC)
-X-Farcaster-Flow-ID: a043c6b0-f00c-497f-aa64-71da178f7873
-Received: from EX19D003EUA004.ant.amazon.com (10.252.50.128) by
- EX19MTAEUC002.ant.amazon.com (10.252.51.245) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.39;
- Thu, 23 Jan 2025 21:13:52 +0000
-Received: from [192.168.19.212] (10.1.212.15) by EX19D003EUA004.ant.amazon.com
- (10.252.50.128) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.39; Thu, 23 Jan 2025
- 21:13:48 +0000
-Message-ID: <508f2d34-15e1-4c84-842c-ec34bcbdd4cb@amazon.de>
-Date: Thu, 23 Jan 2025 22:13:44 +0100
+	Thu, 23 Jan 2025 21:17:24 +0000
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [10.196.197.202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4YfDKr5kypz9shx;
+	Thu, 23 Jan 2025 22:17:20 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1737667040;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0s0TZa+/AGyLnRciIIQJMh70Ve7Kbe0zJYWKJjLqkb8=;
+	b=WvQNHbq4j8rQgx3062nPCIrAGnJAfSO0aiZVO+VH8YQ6cJR+o1tOO2q/vDaooICbfPaWIn
+	MItViy4l/9XMuPURQtf4gIiPfpCX1iJOzaQ1zYi0u40qHovH5CVu5UGfdgdTZv45OOsSnT
+	NWAkGg6trRpCCkdPexD9NYQ0WAqIBjB8tCnCiOXQtP/we8JHBkEGIDsTwpfe+C0J9BpV8r
+	Eo1BUm8+i+5/a8E5KE90H+z/jZWnIsGmoiRlwvZcdsQqkk9kQ/ej29ygsStWPC9xwsFKNc
+	wzreymoFF+h2YzBh807jFEcRIEelWXBKZeK/Z34eYGWegM60yMXUJr1efcQEgA==
+Message-ID: <9e67bdc3-2cc0-4aa4-90bc-252b9771b7c5@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1737667038;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0s0TZa+/AGyLnRciIIQJMh70Ve7Kbe0zJYWKJjLqkb8=;
+	b=HDwg+EtbMOzheeMO5hhIMqvOUVG4e7dkBGsK+yC7cko0KGXTFXI7BMl3owDF1wilH6dBsC
+	OPUA/9XKaDEH/HuwMs0QR8dXyGwNx0LoH62Y638+j9Y3+7+fFzVw+VgvqsHPQYERz0Yb2x
+	SPezR6aSj6O5Gk8L2DEtjOTN/4S7l6knR99eS98xHJ/C4X62N4W/NYnSRC+ZEEwui/qyN7
+	qIFSyzB11PDLhQwMj2cFeVVAI0ot1+G4g6b/yHy0bijGzJWTkvVmsRWZCrpIO+mei0od5H
+	bvFpC7n/nKT+oza18QtDduh4Naw1SsBAUsHkvNumGvlFcCNs8wSh5vq3ZLeVdQ==
+Date: Thu, 23 Jan 2025 22:17:15 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] arm64: proton-pack: Add Spectre-BSE mitigation for
- Cortex-A7{2,3,5}
-To: James Morse <james.morse@arm.com>, <linux-arm-kernel@lists.infradead.org>
-CC: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-	<blakgeof@amazon.com>, <pjy@amazon.de>
-References: <20250122174736.1560714-1-james.morse@arm.com>
+Subject: Re: [PATCH] arm64: dts: renesas: r8a779f0: Disable rswitch ports by
+ default
+To: Geert Uytterhoeven <geert+renesas@glider.be>,
+ Magnus Damm <magnus.damm@gmail.com>,
+ Marek Vasut <marek.vasut+renesas@mailbox.org>,
+ Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+ =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>
+Cc: linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org
+References: <c4688de8e3289ad82c2cd85f0893eac660ac8890.1737649969.git.geert+renesas@glider.be>
 Content-Language: en-US
-From: "Doebel, Bjoern" <doebel@amazon.de>
-In-Reply-To: <20250122174736.1560714-1-james.morse@arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <c4688de8e3289ad82c2cd85f0893eac660ac8890.1737649969.git.geert+renesas@glider.be>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.1.212.15]
-X-ClientProxiedBy: EX19D037UWC003.ant.amazon.com (10.13.139.231) To
- EX19D003EUA004.ant.amazon.com (10.252.50.128)
+X-MBO-RS-META: afqnogrz6g1bge85jhodgssiuee7ym7r
+X-MBO-RS-ID: cbbdb80942174f9b945
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_131401_301458_6D35766C 
-X-CRM114-Status: GOOD (  18.06  )
+X-CRM114-CacheID: sfid-20250123_131723_663904_0BDFAFD1 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,40 +95,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi again James,
+On 1/23/25 5:37 PM, Geert Uytterhoeven wrote:
+> The Renesas Ethernet Switch has three independent ports.  Each port can
+> act as a separate interface, and can be enabled or disabled
+> independently.  Currently all ports are enabled by default, hence board
+> DTS files that enable the switch must disable all unused ports
+> explicitly.
+> 
+> Disable all ports by default, and explicitly enable ports that are used,
+> next to their configuration.
+> 
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> ---
+> This is similar to how Ethernet switch ports are handled on RZ/N1D, and
+> CAN-FD channels on R-Car Gen3/4.
+> 
+> If accepted, I'm wondering if I should move it forward, before "[PATCH
+> 3/5] arm64: dts: renesas: s4sk: Access rswitch ports via phandles"[1],
+> which would become slightly simpler.
+> 
+> [1] https://lore.kernel.org/all/20250118111344.361617-3-marek.vasut+renesas@mailbox.org
+Reviewed-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-> Spectre-BSE is a variant of Spectre-BHB that abuses a power-saving mode
-> on some older cores to dodge the BHB mitigation applied to the branch predictor.
-> 
-> Only A72r0 actually needs anything doing - this is basically a bug in the
-> published BHB mitigation sequence that was published for A72r0. This
-> series moves A72r0 to use the WA1 firmware call for mitigation, and adds
-> the necessary reporting parts for user-space to discover which parts of
-> BHB/BSE are mitigated or vulnerable.
-> 
-> WA1 is used instead of WA3 which was new for BHB because we can't rely
-> on hypervisors not to use the 'local' workaround, and for Spectre-BSE
-> we don't need to worry about discovery via. (Which is why WA3 exists -
-> for cores not vulnerable to the issue mititaged by WA1).
-> 
-> Arm's description of this vulnerability can be found here:
-> https://developer.arm.com/Arm%20Security%20Center/Spectre-BSE
-> 
-> This series is based on arm64/for-next/core, and can be retrieved from:
-> https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git/log/?h=spectre_bse/v1
-> 
-> Backports of this version can also be found under spectre_bse/backports
-> of the above repo.
-> 
-> Because this vulnerability is hard to expoit, but the cost of mitigating
-> it is high - the mitigation is disabled by default. (see the last
-> patch). To enable the mitigation, a command-line argument is needed:
-> 'spectre_bse'.
-
-I see that the patch to introduce this parameter is in the git series 
-you linked above, but it is on top of the three patches in this series. 
-Did you intend to send it as patch 4/4?
-
-Best regards,
-Bjoern
+I don't mind either ordering, but please keep in mind that 5/5 in [1] 
+has Fixes: tag and it is already overloading that tag by pulling in most 
+of the series as dependencies .
 
