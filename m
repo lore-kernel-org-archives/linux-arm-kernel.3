@@ -4,94 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13304C0218C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 20:29:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00118C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 20:31:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=00Jd7qfRLvc64aDOsfuy6UISvWMt9cQyEiI056IRJNA=; b=zSA9TX9Ckz1KTAV7HzjLYm+LVr
-	kbtxqp3nS5I8QjbvpPos9zn0jCP7kqxxnjCC8ROHSnBUtKJ1mUd5NhuQ8HsJxpUCUS32HSQDgot8N
-	Uboo6DxsYaoMGGatvm+zq6KGWlI1+0lXGshnVG73FdygP+u6BpGHhN6k3guoiQrYw2q9j711W/01G
-	ZO7wpJ1Ui40lgOlmxH8ZwWsDzSwS2kYj0QFZBI5yLHeRPBvW+tfVlxaKwT7dy6hv2AsZR14snqQw1
-	1wMoo/SW6b5vR3P77jQ+InXTdI5tAVLcSm3zCnm8uYLb42i+4S7HgCO8iC0F74xLU8kqUgWAuWO3X
-	ho0+LVbQ==;
+	bh=xhXUcAh2hlUnon67PlT/agcOsGJGx82H3mKA5T5zmFk=; b=xKJ9JIRHaBcQsDsgSKU8BBGlKz
+	pZ9h8ZKZrPj4LyuRSr81MvSNUF86KdW/YkcWNe3OJ/YglQysmdrwSV5f8TUw42W7aWnUi6k7E3ir7
+	Czday5pLMajNFlPv6M5pSY961ms/UsK7zLUQwhkF37KF7+U7+SNYW2T3hOfOsHkavixH/0vSa2uUg
+	ylptf2ETP+DJfBzk4+o2qSUKx59OIlCmKY425EWZotcmEwwK5xivCzW5+TVSt59w/o9w7balY/zfw
+	3moTnz9UPkhoZ2XgPL/ESRXFAvv0cpB6GFE2DVL3VJbXIDsIeuvRZ3Q/xfomsZWprKRY6Nddi9ku3
+	OpXbxdcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb3pg-0000000DFBC-41k8;
-	Thu, 23 Jan 2025 20:29:44 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1tb3r5-0000000DFWQ-2iet;
+	Thu, 23 Jan 2025 20:31:11 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb3nb-0000000DEf8-1yXe
+	id 1tb3pm-0000000DFDH-2r82
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 20:27:36 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-436ce2ab251so9147945e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 12:27:35 -0800 (PST)
+	Thu, 23 Jan 2025 20:29:51 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-2ee9b1a2116so307395a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 12:29:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737664054; x=1738268854; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1737664190; x=1738268990; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=00Jd7qfRLvc64aDOsfuy6UISvWMt9cQyEiI056IRJNA=;
-        b=BzX6g18iex08ke97g0xyKqLsj4oDFftrDtCTs1Tp8eYXzo3M7eeWy3WkaL38ZWRnAW
-         6sZfSVk1WLMkxBH+t0RGJc+zSRIMTjcRUllMyD+r1uBiCvezF8l0mU3o8lq6sTH11Ya5
-         4aSiCBDZBKmr6JT1aigtfPIXeU1vd1FOEUHoYVavA2KHCGYV7nrmKcfVFDAxiQYgJckW
-         tglshozZeAVcl8jJURw2WplqnUPIFT8YTt4M8Ls7iI0mmt7siyluSs4jj/ukbqcwZ9Rt
-         okm5J0eOXF5SlBLjDq0D57oJHZGGN68KCxoezZNV3B2t1gN7Q09Xgc4QsDHP1x4RqRcK
-         /mPw==
+        bh=xhXUcAh2hlUnon67PlT/agcOsGJGx82H3mKA5T5zmFk=;
+        b=CMhTp07QUnRWRnX2GhckrQ0VmlT/Eh2gybxFVpurP3t2VO603jfRDUUTRi6/GrWQOf
+         zu2CbJcB+gFpM0CYqpZqGplE7T+dIxA+dKVzm5SFpaApkX6e9XvN0E/u/Hgvh+KQ+cGC
+         6ImurvAN7i8UgEGjgH4vihBVAfaa6rqSV5jiwZWZp6cnQXPZvKko7170XOltR9nF9/hc
+         Z5yW2hOnmXS1Y1N6T6DfsuP2mbaaGA2Vl4s2MxhZU4cCvvc8AIreo4Lde7+R/SGNZAna
+         gJprrGTzvBemopp8O0w+ywV3KrxHvqYDBgLddpeOwhPgLiKIOC5i9qQ7QmFoOxNwr6sS
+         Ucdg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737664054; x=1738268854;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1737664190; x=1738268990;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=00Jd7qfRLvc64aDOsfuy6UISvWMt9cQyEiI056IRJNA=;
-        b=IHL3zHlqPRgaiEr0by3543LEXWEyJxeA2l82092x7Z4V16pAlN1maaq3i7oPFE8z3H
-         3GMGh+b5hUtirl2k3wAJmqtcgL7lLFZAeCclC8xgY8JyI6zIp7PsQD8Tl2P+DBxGe0uZ
-         YePLjaS6YZvnudG1J/sSWhUHRsyM+bstMxq90OIArz5mW3+U3yGr6Decfac1HlratEaY
-         IiRUws2R/afV79Ahqq2xeh2yHAI7ud/h6U9Yk7T92VbnoGtdnFvij7MfvuPnmjAnDUb3
-         PPio8jhMmQPoEKfmssxdJKkU/HuDlO1vK6NRfMcfOo4IsoVMVjOCMS/YlkuNgmprXj3+
-         kRpg==
-X-Forwarded-Encrypted: i=1; AJvYcCWgrj8khPuS9m4rYTSPp8URV5U+7FaXVbeP/gzn219PqvOat1EC3drVEIy+W8jXRkVLUNBNSae06Z1pS9TeEGo/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzXo4uB+df+aXIoQpQZA/ealVMsS6SssrFzwiRnUNFTK6NZw/o/
-	7uI6yhRZFD/nayT4hGKSQTiTH7fc73FT8HVUy5yjdWiwNwmJTZta
-X-Gm-Gg: ASbGncu11ewXl8FEgzvaemQLMaCLSd8GGgX4ZkWYm8lR6lSLm2sbIqHHnVp6Q+Y6/fI
-	uE6Lss8j/bvmTtL63MpPvgsQoppDIlHLaFzgbgm18fqXXZyDzhfEhPBZCxQWwsNZjESTHXFkP37
-	DyMYM4eTITk42wylpWO7hU2U6D5vm1zGjchb14m/Dhg5LNfdy/vAq6PY0vOQiTqMWb1u1z6BGWD
-	1+ulKB9SsPNGpp+M0i0l4ztPLo4zGDimS8HRDLu2T13MZ/ya4BF9ja8H2RYZqMh80Z4PWKYQ4Vx
-	CGWecc6eLkLkOU0zc3mkRZaVS1z5+nGpmvriJjUgrbs=
-X-Google-Smtp-Source: AGHT+IELmIj4TMdtO6F0JzBvp13pItF/CqH7DVKu4Caf20C2VuLCa8NuLXlr21iKRQntmJ/EV7Urrw==
-X-Received: by 2002:a05:600c:3c82:b0:434:f623:9fe3 with SMTP id 5b1f17b1804b1-438913e024emr291117265e9.16.1737664053774;
-        Thu, 23 Jan 2025 12:27:33 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438bd507e0csm2624815e9.20.2025.01.23.12.27.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Jan 2025 12:27:33 -0800 (PST)
-Date: Thu, 23 Jan 2025 20:27:32 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Anastasia Belova <abelova@astralinux.ru>, Emilio =?UTF-8?B?TMOzcGV6?=
- <emilio@elopez.com.ar>, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej
- Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
- Hans de Goede <hdegoede@redhat.com>, Maxime Ripard <mripard@kernel.org>,
- linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- lvc-project@linuxtesting.org
-Subject: Re: [PATCH] clk: sunxi: add explicit casting to prevent overflow
-Message-ID: <20250123202732.5f7eb52b@pumpkin>
-In-Reply-To: <20250123005556.57b2331d@minigeek.lan>
-References: <20250120084719.63116-1-abelova@astralinux.ru>
-	<20250122225805.2ba6a062@pumpkin>
-	<20250123005556.57b2331d@minigeek.lan>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+        bh=xhXUcAh2hlUnon67PlT/agcOsGJGx82H3mKA5T5zmFk=;
+        b=uYJkHOyUtOQ3XQgzH8v+Q6wKOd3JRV7JHbnRJAFj3NzVie07OAbfpJqcs6X/BgMN+h
+         2EkeRNcoYRRX/F1Uuk44y/GYuqWxBkWDufkazTEtS1A6Xxz2pxhWBvFWg3tVM7jqi2hE
+         +qoAJT8p5sXjbAF7r4TwCfgriJwTNH1RXQiLXzYnl+5jWPabsvQEdCrBZeOmHOIjbLbw
+         CYo9UybDJkv9Vp5euIxDvwAsoiu8jmVyJ6yXTkBclozS27Pz/Qe9Fqh+aUnBge9rv6lj
+         lNrfo0JRR9SfKvPY0UDNuxWRR8s+fzMgCRTX5m756JiUUVK2CZBS1R7rDJ+mItg4IvdC
+         RkMA==
+X-Forwarded-Encrypted: i=1; AJvYcCX7+gclcEAywjB2BBISnLGNYs8eIS5f8hBYFoaUwoEcAU9ZrTYeYPRsfcLMm/5O7bK3p0w3wCEUt/K3OVWvwo0I@lists.infradead.org
+X-Gm-Message-State: AOJu0YwWCEBb1S2MTn5a+hHi11M4MnphhDstKoUQ/Ewza5fo8r3aGOLy
+	l1ux+oiX4gCZlXQ31M0uCwdhltGds5/UgwayFjq5b40YjHk9Str0zn6Im9Goto6oal3m1DPrmry
+	h6GxCYBfkgUPQF/VdBqJXaoq2oU8=
+X-Gm-Gg: ASbGnctLb5H3iXKKo4UYqUkKJUiCMs9KVe4BSzjpcNnkOgD1rjWmfkwLhtesaZws0xj
+	2GYUXh3f/3zCGvwIgZsUzXkGmiR/5YGUZyJydyz0V751dN0XQzDpORzvT/IM/gw==
+X-Google-Smtp-Source: AGHT+IEl/Vyc8QmUbX/0GWfiscTSIPf6SvYZLBKkQKTl7lLUFAx/A3wbK7xRIXAG5nlkFHCAISdwVSqrdyt6dZww7dM=
+X-Received: by 2002:a05:6a00:3a1d:b0:72d:8a01:bb6c with SMTP id
+ d2e1a72fcca58-72daf7a1db7mr13737192b3a.0.1737664189916; Thu, 23 Jan 2025
+ 12:29:49 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+References: <20250122-msm-gpu-fault-fixes-next-v3-0-0afa00158521@gmail.com>
+ <20250122-msm-gpu-fault-fixes-next-v3-1-0afa00158521@gmail.com>
+ <Z5IjsqQ6vTdUXiGt@hu-guptap-hyd.qualcomm.com> <CACu1E7H5X2EfY9AG=xceaoZJkbumwnrsU4QvNbxd_A2wgVVOaQ@mail.gmail.com>
+ <Z5KXwNPrdirVUn8Z@hu-guptap-hyd.qualcomm.com>
+In-Reply-To: <Z5KXwNPrdirVUn8Z@hu-guptap-hyd.qualcomm.com>
+From: Connor Abbott <cwabbott0@gmail.com>
+Date: Thu, 23 Jan 2025 15:29:38 -0500
+X-Gm-Features: AWEUYZlzwCzK_Ns_Li_73IXsL90hsOwVuugbU7LWSAnvDp0ILCSA2EsoYowsZGM
+Message-ID: <CACu1E7Hw3WxNzwdA2A8hG2yWNVMLy=r=68_X0C3tkVttgRzXVQ@mail.gmail.com>
+Subject: Re: [PATCH v3 1/3] iommu/arm-smmu: Fix spurious interrupts with stall-on-fault
+To: Prakash Gupta <quic_guptap@quicinc.com>
+Cc: Rob Clark <robdclark@gmail.com>, Will Deacon <will@kernel.org>, 
+	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, Sean Paul <sean@poorly.run>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Abhinav Kumar <quic_abhinavk@quicinc.com>, 
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+	Marijn Suijten <marijn.suijten@somainline.org>, iommu@lists.linux.dev, 
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	freedreno@lists.freedesktop.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_122735_517673_49BB9CB3 
-X-CRM114-Status: GOOD (  41.97  )
+X-CRM114-CacheID: sfid-20250123_122950_720560_1B9481C6 
+X-CRM114-Status: GOOD (  36.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,122 +101,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Jan 2025 00:55:56 +0000
-Andre Przywara <andre.przywara@arm.com> wrote:
+On Thu, Jan 23, 2025 at 2:26=E2=80=AFPM Prakash Gupta <quic_guptap@quicinc.=
+com> wrote:
+>
+> On Thu, Jan 23, 2025 at 09:00:17AM -0500, Connor Abbott wrote:
+> > On Thu, Jan 23, 2025 at 6:10=E2=80=AFAM Prakash Gupta <quic_guptap@quic=
+inc.com> wrote:
+> > >
+> > > On Wed, Jan 22, 2025 at 03:00:58PM -0500, Connor Abbott wrote:
+> > >
+> > > > +     /*
+> > > > +      * On some implementations FSR.SS asserts a context fault
+> > > > +      * interrupt. We do not want this behavior, because resolving=
+ the
+> > > > +      * original context fault typically requires operations that =
+cannot be
+> > > > +      * performed in IRQ context but leaving the stall unacknowled=
+ged will
+> > > > +      * immediately lead to another spurious interrupt as FSR.SS i=
+s still
+> > > > +      * set. Work around this by disabling interrupts for this con=
+text bank.
+> > > > +      * It's expected that interrupts are re-enabled after resumin=
+g the
+> > > > +      * translation.
+> > > > +      *
+> > > > +      * We have to do this before report_iommu_fault() so that we =
+don't
+> > > > +      * leave interrupts disabled in case the downstream user deci=
+des the
+> > > > +      * fault can be resolved inside its fault handler.
+> > > > +      *
+> > > > +      * There is a possible race if there are multiple context ban=
+ks sharing
+> > > > +      * the same interrupt and both signal an interrupt in between=
+ writing
+> > > > +      * RESUME and SCTLR. We could disable interrupts here before =
+we
+> Not sure if multiple context bank with shared interrupt supported for
+> arm-smmu driver, but even if does than context fault handler they would
+> operate on their respective context register space, so I don't see the ra=
+ce
+> at context register update.
+>
+> > > > +      * re-enable them in the resume handler, leaving interrupts e=
+nabled.
+> > > > +      * Lock the write to serialize it with the resume handler.
+> > > > +      */
+> > > > +     if (cfi.fsr & ARM_SMMU_CB_FSR_SS) {
+> > > > +             u32 val;
+> > > > +
+> > > > +             spin_lock(&smmu_domain->cb_lock);
+> > > > +             val =3D arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_SCTLR=
+);
+> > > > +             val &=3D ~ARM_SMMU_SCTLR_CFIE;
+> > > > +             arm_smmu_cb_write(smmu, idx, ARM_SMMU_CB_SCTLR, val);
+> > > > +             spin_unlock(&smmu_domain->cb_lock);
+> > > > +     }
+> > > > +
+> > > > +     /*
+> > > > +      * The SMMUv2 architecture specification says that if stall-o=
+n-fault is
+> > > > +      * enabled the correct sequence is to write to SMMU_CBn_FSR t=
+o clear
+> > > > +      * the fault and then write to SMMU_CBn_RESUME. Clear the int=
+errupt
+> > > > +      * first before running the user's fault handler to make sure=
+ we follow
+> > > > +      * this sequence. It should be ok if there is another fault i=
+n the
+> > > > +      * meantime because we have already read the fault info.
+> > > > +      */
+> qcom_adreno_smmu_get_fault_info() reads the fault info as part of client
+> fault hanlder. So it would not be ok to clear FSR before reporting the
+> fault to client.
 
-> On Wed, 22 Jan 2025 22:58:05 +0000
-> David Laight <david.laight.linux@gmail.com> wrote:
-> 
-> Hi,
-> 
-> please note that this is all practically irrelevant:
-> - PLL4 is PLL_PERIPH0, which is meant to be fixed to 960MHz. Linux
->   would not change this frequency.
-> - the Allwinner A80 is both old and quite rare/obscure: the most
->   prominent board (Cubieboard4) was broken for a while and nobody
->   noticed
-> - this "allwinner,sun9i-a80-pll4-clk" clock is not used by any DT
->   in the kernel, so it's effectively dead code
-> 
-> But just for sports:
+That's a good point, but as long as stall-on-fault is enabled it
+doesn't matter because subsequent transactions that fault will be
+stalled. Patch 3 of this series disables stall-on-fault after the
+first fault in drm/msm, but we don't care as much about the accuracy
+of those subsequent faults.
 
-Doesn't surprise me ...
-
-> 
-> > On Mon, 20 Jan 2025 11:47:16 +0300
-> > Anastasia Belova <abelova@astralinux.ru> wrote:
-> >   
-> > > If n = 255, the result of multiplication of n and 24000000
-> > > may not fit int type. Add explicit casting to prevent overflow.
-> > > 
-> > > Found by Linux Verification Center (linuxtesting.org) with SVACE.    
-> > 
-> > You need to read and understand the code before writing any patches.
-> > The '>> p' and '/ (m + 1)' are both just conditional 'divide by 2'.
-> > So can be done before the multiply.  
-> 
-> Well, normally you would try to multiply first, then divide, to avoid
-> losing precision. In this case it's fine, since it's just dividing by 2
-> or 4, and 24E6 is dividable by both, so no loss. But the formula in the
-> data sheet is written as "24MHz*N/(Input_div+1)/(Output_div+1)", which
-> matches the code (somewhat).
-
-That PLL can generate all sorts of frequencies due to the multiply
-and divide (as well as the shift).
-The code was clearly sub-optimal for arbitrary frequencies :-)
- 
-> So I think it's indeed better to divide first here, to avoid using
-> heavy library based 64-bit mul/div algorithms, just for this one corner
-> case, but it would need a comment, to point to the problem and avoid
-> people "fixing it back".
-> 
-> > Since req->rate is 'signed long' and the value is a frequency it is  
-> 
-> struct factors_request.rate is "unsigned long"
-> 
-> > only just possible that it exceeds 31 bits (and will be wrong on 32bit
-> > builds - but sun-9 might be 64bit only?)  
-> 
-> The A80 has Cortex-A7 cores, so it's 32-bit only. The SoC can address
-> more than 4GB, but that's not relevant here.
-
-I couldn't decide whether the code was for 32bit or not.
-Using 'long' is pretty dubious almost everywhere.
-I'm sure it is a hangover from people worried about int being 16bit.
-But that has never been true for linux (or pretty much any unix since
-the early 1980s).
-
->  
-> > In any case it would be sensible to force an unsigned divide.
-> > So perhaps:
-> > 	unsigned int n = DIV_ROUND_UP(req->rate, 6000000ul);
-> > 	...
-> > 	req->rate = ((24000000ul >> p) / (m + 1)) * n;  
-> 
-> Yeah, I don't think we need the "long" qualifier, but this looks like
-> indeed the best solution, just with an added comment.
-
-Maybe just mention it only need to generate 96MHz.
-
-> And we probably
-> want to change the type of "p" and "m" to u8 on the way, to match the
-> struct and make them unsigned as well.
-
-Make them unsigned, but not u8.
-The u8 would get promoted to signed int before any arithmetic.
-
-	David
-
-> 
-> Cheers,
-> Andre
->  
-> 
-> > 
-> > David
-> >   
-> > > 
-> > > Fixes: 6424e0aeebc4 ("clk: sunxi: rewrite sun9i_a80_get_pll4_factors()")
-> > > Signed-off-by: Anastasia Belova <abelova@astralinux.ru>
-> > > ---
-> > >  drivers/clk/sunxi/clk-sun9i-core.c | 2 +-
-> > >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > > 
-> > > diff --git a/drivers/clk/sunxi/clk-sun9i-core.c b/drivers/clk/sunxi/clk-sun9i-core.c
-> > > index d93c7a53c6c0..70fbd7390d96 100644
-> > > --- a/drivers/clk/sunxi/clk-sun9i-core.c
-> > > +++ b/drivers/clk/sunxi/clk-sun9i-core.c
-> > > @@ -50,7 +50,7 @@ static void sun9i_a80_get_pll4_factors(struct factors_request *req)
-> > >  	else if (n < 12)
-> > >  		n = 12;
-> > >  
-> > > -	req->rate = ((24000000 * n) >> p) / (m + 1);
-> > > +	req->rate = ((24000000ULL * n) >> p) / (m + 1);
-> > >  	req->n = n;
-> > >  	req->m = m;
-> > >  	req->p = p;    
-> > 
-> >   
-> 
-
+>
+> > > The context would remain stalled till we write to CBn_RESUME. Which i=
+s done
+> > > in qcom_adreno_smmu_resume_translation(). For a stalled context furth=
+er
+> > > transactions are not processed and we shouldn't see further faults an=
+d
+> > > or fault inerrupts. Do you observe faults with stalled context?
+> >
+> > Yes. I've observed that on MMU-500 writing RESUME before the interrupt
+> > has been cleared doesn't clear SS. This happened with v2 in the case
+> > where there was already a devcoredump and drm/msm called
+> > qcom_adreno_smmu_resume_translation() immediately from its fault
+> > handler, and we'd get a storm of unhandled interrupts until it was
+> > disabled. Given that the architecture spec says we're supposed to
+> > clear the interrupt first this may have been an attempt to "help"
+> > developers.
+> >
+>
+> Just to clarify, present sequence is:
+> 1. context fault with stall enable. FSR.SS set.
+> 2. Report fault to client
+> 3. resume/terminate stalled transaction
+> 4. clear FSR
+>
+> At what point when you try #2->#3->#4 or #4->#2->#3 sequence, is FSR.SS
+> cleared and interrupt storm is observed.  The way CFIE disable is helping
+> with current patch indicates write FSR is unstalling context and subseque=
+nt
+> transactions are faulted.  Do you stop getting interrupt storm after writ=
+e
+> RESUME. If you can mention your SCTLR configuration and FSR state in test
+> sequence, it would be clearer.
+>
+> An aside, If reducing delay between FSR and RESUME write helps then both
+> can be done as part of qcom_adreno_smmu_resume_translation(). This will
+> follow spec recommendation and also make sure fault registers are not
+> cleared before reporting fault to client.
+>
+> Thanks,
+> Prakash
 
