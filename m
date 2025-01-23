@@ -4,91 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5556C0218B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 11:34:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFDD6C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 11:39:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+zMurHlZ7uGtqY8vr+C9le803uP9XgfHXwzvJheucbI=; b=q7hygnUe997c7X0/pMXsVpPTCv
-	vykIA1rIA5BkXFRRRw0i8FKBd8de43lUr4+Z8ZZR2mYa9FrA6BqvSOD6bKPQhoNwW44LODi4+lvmG
-	Z3acYOQ2ArSAPjq6n1OgrWdfuGbdASJ1UsXb5inR/cqGmLOZNGoHM3oOQ0PHLWPT+DuMX+bpy9q5x
-	skQUdIzUvmaV/Up1g5329UzkW/k/3EO6pD6OtI4SqmYTz3llKF1mRySWne/mtUCMFjQ1zmDYlM2JY
-	RpkP9yR8wgU3HQjGEaTUFTMy5/Je+PLgAzw824N0z/aB9uCJQJxC6dCxwiGrp4k086TCHOBxT+ih0
-	JrBzV9Yw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=G5e0D4ceKro9Yb8N26UgxQagAkkEg3LLRP/2T93ftQc=; b=fRKTbrbSg5zZ7rt8Ra/7W6wXlJ
+	d3H6AX9u2ShYmpfSCgwVsQfFWZ/xBPL5ZPJqu1/po78lIh9fm/cOFV9tQFxfk8oIQu2GU49qhHcDd
+	QhLaNydQlMPbQXRm2CAJ6Xc8yi4vbT/++Kq1kBq4kLnXKtFgimflodUlFcZHszJqG1I9NGhWvuv3z
+	cPBKbAF/GxD29aySEN0GTvaJlM1T8iA59+pwg5053aKwNdmW8FkC+oeJos1y2ggJp8Bc30LxDU0k0
+	3sQDqdKNeIiBUKYTLxAc+XDTvMb1K4aHRlpPt7ECq/bpmsjG6fB2O1g7JNtzjEAGlfjdh9PUh40vJ
+	go18MtCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tavTX-0000000CLSy-1K7R;
-	Thu, 23 Jan 2025 11:34:19 +0000
-Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
+	id 1tavYP-0000000CM1m-3iGo;
+	Thu, 23 Jan 2025 11:39:21 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tavS3-0000000CL8U-3uKG
+	id 1tavX8-0000000CLkc-05c6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 11:32:49 +0000
-Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-30737db1ab1so6928021fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 03:32:47 -0800 (PST)
+	Thu, 23 Jan 2025 11:38:03 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-2ee51f8c47dso1203379a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 03:38:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737631966; x=1738236766; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=+zMurHlZ7uGtqY8vr+C9le803uP9XgfHXwzvJheucbI=;
-        b=vkHMKnig0ibUj3L79+7mpjx9UyVOLx4HvCtT43+3agczXq90VSPcivD8bbx/LRT0i3
-         mPra7G5COno6CehNYh0s0vkE8ulJGp9uOwBogqNKDg9ONuURxAtRleBBwhi1IAnd5QGi
-         YK2FRKZoLjBdR7DCrHSqqDb6QGs3+2TV+7RddvqX0UdCRT5ndMgpZ7/Cs5wHP5bdSYYI
-         iw4IubwF/v4B26yzcxkEi+KZ5y9lPatoOn/olaP3wT5EobtO6aT2yQIN0SMf2BmpghLp
-         EUEcPabKTu9RYocu0d3a8M18gSbx+eClJtmHZe2mKH7UzVJRVZFdmqeSfstwipGyGV/o
-         mw/g==
+        d=linaro.org; s=google; t=1737632281; x=1738237081; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=G5e0D4ceKro9Yb8N26UgxQagAkkEg3LLRP/2T93ftQc=;
+        b=RZ9X5xWs/mCoWDw1OpGivmb1GBXfIGraRCROQpbIBQ3xcFl/exf5R0+Hkk3a93DhaU
+         PJuD0lmoJKPOvT/U4ZEEDBSKqtl8gSPO6B+jeaEYfoLx9ClQxsDXoL2TT187EaebQL5Q
+         F3/kOWlPWekWXbSfXSRRYHWF0HTn/PezkMDw7rHL+71T98GinhpHQtEboCCMQfxpBVBT
+         n9S48tVX9riB/vTCdO70obYVnQ6EW0AwCl2M35vzHb1O9Eb7A0Wu6B1UzYPM1zLuG52G
+         JRCLMPkOgtNr48hv/hW/dIWsHwlm/v5vS6A1OdFRhfXaeSmG1MJp4a2n7wXQSxGj2gZV
+         rfbA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737631966; x=1738236766;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+zMurHlZ7uGtqY8vr+C9le803uP9XgfHXwzvJheucbI=;
-        b=mNCCYM95byHCkRC8I7XUJx6nsrton7b16tuWQZ3xPmyJ9XGyPbDcyMiesjRoVCG72d
-         Z/8HcDU6lbWYgv08Gud0caLwWiSnvXDAUMM0n0KCD+HNv2vKXNAQ2jtDBIrvDe0rKgF2
-         e3/RVRhuKAyW6IUm11k4+FV+BGSh86e48/3ydQa0/eZ/XjtqqMuMYF1w9on1nOu0YK/P
-         Pa1vFPQmQkS9obxMamnYIF34FCt1MfVr67YzSZiwWmYAb16ifDTI16f0aSSTLC/F0Yrn
-         b/ZULA1sP3xlwuJb13JYi5e2OjW3Qd5HVV6jhB9WhUYEuiwxJOw5ED6aqi+SaE5R/sJP
-         Qe4A==
-X-Forwarded-Encrypted: i=1; AJvYcCXRnUOzC5XTQxzyU0fezMQU2l/cCNT9nPVUh75kP4JPkOzW82vZVU1yb2jtowBv04yfv0UWQfFnRZjlh7io7EuI@lists.infradead.org
-X-Gm-Message-State: AOJu0YxNt093UM4xsEeOO81DTuIVvfr5at1iZ1xMAh3oDCeGlpCZ/RTr
-	QkL2sv4U94G+tcrXHIw9hHmL7lZxsAXrZDJWBgq2OvKXr+luRBxkCtX2SvH9oKo=
-X-Gm-Gg: ASbGnctthaGLEHfGp3icUr4mWvpY/qJM8hJuAo9QHXlAMfJ13TL9g6psBkB9v9MaRle
-	UjvTL4ATu9PklNpai5RPFEWTJkCBEMZ5hegSyCkkHm7wZ+GeEt3OSazEJ+VhfWiVJ7bpVo6kg6X
-	yrXUrZ2mCVqLRhc/FAIOH56frrVcxjlYgSO5s42fWzohLM68TgNhB/uBlHqTOWE51WxzE6adyOa
-	BorNR8IOkXTGT5ZONVywEQQj9s4+rL58Bo2XPpU1d5OIkOVXQ12wNw7F1U1eYU2/8emQ8JZTE3C
-	zlfqENIjuB/ym7JeLCdJ+VpnqJ0bPLz8T6vFuq93BeXAl+2nLjlVIGLkfjiA
-X-Google-Smtp-Source: AGHT+IGv3eRW1iX8AGSWOKHG3VFmFTMTVFcrPCnNhNO4BTbpmlhnROuDMhCvalg4dPHCeDzpS5d6Ng==
-X-Received: by 2002:a2e:b90d:0:b0:304:4cec:29f9 with SMTP id 38308e7fff4ca-3072ca60ef9mr67919831fa.3.1737631966038;
-        Thu, 23 Jan 2025 03:32:46 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3072a330764sm30489481fa.3.2025.01.23.03.32.43
+        d=1e100.net; s=20230601; t=1737632281; x=1738237081;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=G5e0D4ceKro9Yb8N26UgxQagAkkEg3LLRP/2T93ftQc=;
+        b=jJiPdman6rk9Goqj2L1m/gvvMqaLq4zSmBd5AZktZRO05Q9TGzjIgR4GaczxL++VpV
+         eB6kM2gZ+ok+JM7zHquIBPSFXVkB1A4dJt8hrrcaGXC1CJAF0BqJxgZWIK3+16Z9MWWJ
+         hh299C4JV4FXgsMb4/DeLdX2S8iTb5BKOvXqOujWvlDjWXt0RbUt9TiCiwQdfBhbpmtp
+         /Rm0jb4un6PBU4dueO8pC2oCek+B40ISsRjJ4ooLdou+CXhMvNC80TJ2RE25mVLD0h4b
+         SNyTJ8X+NX2w7OiOrkzWDu3SRcAqk8sDOXaDfsD7KJSF2OaZJCPDiSrmQp+b2AzMzsP/
+         pVTw==
+X-Forwarded-Encrypted: i=1; AJvYcCU0nRT7Vk2LY1WJoWk4VjLhuBOG5/DaEuHAGSX/qvnHeb8YLLzM7GGQkVwFp3XexRDoGnlodPuBY55Cgpamk42M@lists.infradead.org
+X-Gm-Message-State: AOJu0YyeIpR4qQTMqfQgknTW093lPGRoCa20+Ljhf8vkAhL/7OjewdWS
+	7nqswhnziNzZHHn1yDgyszkSme3mrmpEyXYKbdDKfKgjX1Emp+H+6rc99XK//HA=
+X-Gm-Gg: ASbGncszGT8mnXhDeQsRTLOTjB3RwfOrvLD9Y7Ynz7AZZaYXi8VDc3ByA8AFNEtI2wf
+	E03LWJnNmQgWhti4i79LpcbsFTgDIkDPjSc4099l6Q3k+1K1Hka1UixApbKMqsmAG2p8RkQp3Ru
+	e32QIorBwUfQfwY942wQiHLbco0iHR4TfkYdel0O5xhJU+kM74nfhKpoKDaUorXkLbSNwP91d19
+	MqJ9e5PUmtcwKnHCkkYMi60huVauaHYhZb6zAO2EC+lByWFTkjIFFAnIOp7xjLSv6CeDrqwHdHf
+	N98P5Ug=
+X-Google-Smtp-Source: AGHT+IGtsIzzGfAcKL/PEpiuES32TcQcp9F7OLmJOeJMP9wYjML8Ng6LAzORWCaFKdsDKOmTsmrEHA==
+X-Received: by 2002:a17:90b:5206:b0:2f4:f7f8:fc8b with SMTP id 98e67ed59e1d1-2f782d4ed77mr37302192a91.27.1737632280204;
+        Thu, 23 Jan 2025 03:38:00 -0800 (PST)
+Received: from localhost ([122.172.84.139])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f7e6a5e2b2sm3705966a91.3.2025.01.23.03.37.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Jan 2025 03:32:44 -0800 (PST)
-Date: Thu, 23 Jan 2025 13:32:42 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Damon Ding <damon.ding@rock-chips.com>
-Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, rfoss@kernel.org, vkoul@kernel.org, 
-	sebastian.reichel@collabora.com, cristian.ciocaltea@collabora.com, l.stach@pengutronix.de, 
-	andy.yan@rock-chips.com, hjc@rock-chips.com, algea.cao@rock-chips.com, 
-	kever.yang@rock-chips.com, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-phy@lists.infradead.org
-Subject: Re: [PATCH v6 14/14] arm64: dts: rockchip: Enable eDP0 display on
- RK3588S EVB1 board
-Message-ID: <u3qiasthay5xrtu4bfu5ihag7x2wajrpbktrcs7bxutvc2iwrk@on5ymtwq5vwx>
-References: <20250123100747.1841357-1-damon.ding@rock-chips.com>
- <20250123100747.1841357-15-damon.ding@rock-chips.com>
+        Thu, 23 Jan 2025 03:37:59 -0800 (PST)
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Hector Martin <marcan@marcan.st>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Kevin Hilman <khilman@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Markus Mayer <mmayer@broadcom.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Naveen N Rao <naveen@kernel.org>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Sven Peter <sven@svenpeter.dev>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	WANG Xuerui <kernel@xen0n.name>
+Cc: linux-pm@vger.kernel.org,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	arm-scmi@vger.kernel.org,
+	asahi@lists.linux.dev,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	linux-omap@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-tegra@vger.kernel.org,
+	loongarch@lists.linux.dev
+Subject: [PATCH 00/33] cpufreq: manage common sysfs attributes from core
+Date: Thu, 23 Jan 2025 17:05:36 +0530
+Message-Id: <cover.1737631669.git.viresh.kumar@linaro.org>
+X-Mailer: git-send-email 2.31.1.272.g89b43f80a514
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250123100747.1841357-15-damon.ding@rock-chips.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_033247_970434_83491CA8 
-X-CRM114-Status: GOOD (  23.87  )
+X-CRM114-CacheID: sfid-20250123_033802_058884_DB01F38A 
+X-CRM114-Status: GOOD (  11.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,138 +132,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 23, 2025 at 06:07:47PM +0800, Damon Ding wrote:
-> Add the necessary DT changes to enable eDP0 on RK3588S EVB1 board:
-> - Set pinctrl of pwm12 for backlight
-> - Enable edp0/hdptxphy0/vp2
-> - Assign the parent of DCLK_VOP2_SRC to PLL_V0PLL
-> - Add aux-bus/panel nodes
-> 
-> For RK3588, the PLL_V0PLL is specifically designed for the VOP2. This
-> means the clock rate of PLL_V0PLL can be adjusted according to the dclk
-> rate of relevant VP. It is typically assigned as the dclk source of a
-> specific VP when the clock of relevant display mode is unusual, such as
-> the eDP panel 'lg,lp079qx1-sp0v' paired with RK3588S EVB1, which has a
-> clock rate of 202.02MHz.
-> 
-> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-> 
-> ---
-> 
-> Changes in v2:
-> - Remove brightness-levels and default-brightness-level properties in
->   backlight node.
-> - Add the detail DT changes to commit message.
-> 
-> Changes in v3:
-> - Use aux-bus instead of platform bus for edp-panel.
-> 
-> Changes in v4:
-> - Add comments related to the use of panel compatible "lg,lp079qx1-sp0v"
->   in the commit message.
-> 
-> Changes in v5:
-> - Use "edp-panel" instead of "lg,lp079qx1-sp0v"
-> - Remove unnecessary comments in commit message
-> - Assign the parent of DCLK_VOP2_SRC to PLL_V0PLL
-> 
-> Changes in v6:
-> - Add PLL_V0PLL related descriptions in commit message
-> ---
->  .../boot/dts/rockchip/rk3588s-evb1-v10.dts    | 54 +++++++++++++++++++
->  1 file changed, 54 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
-> index bc4077575beb..a8c151b41e21 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
-> @@ -9,6 +9,7 @@
->  #include <dt-bindings/gpio/gpio.h>
->  #include <dt-bindings/input/input.h>
->  #include <dt-bindings/pinctrl/rockchip.h>
-> +#include <dt-bindings/soc/rockchip,vop2.h>
->  #include <dt-bindings/usb/pd.h>
->  #include "rk3588s.dtsi"
->  
-> @@ -238,6 +239,41 @@ &combphy2_psu {
->  	status = "okay";
->  };
->  
-> +&edp0 {
-> +	force-hpd;
+Hello,
 
-Why? Please mention the reason in the commit message.
+Most of the drivers add available and boost frequencies related attributes. This
+patch series tries to avoid duplication and simplify driver's code by managing
+these from core code.
 
-> +	status = "okay";
-> +
-> +	aux-bus {
-> +		panel {
-> +			compatible = "edp-panel";
-> +			backlight = <&backlight>;
-> +			power-supply = <&vcc3v3_lcd_edp>;
-> +
-> +			port {
-> +				panel_in_edp: endpoint {
-> +					remote-endpoint = <&edp_out_panel>;
-> +				};
-> +			};
-> +		};
-> +	};
-> +};
-> +
-> +&edp0_in {
-> +	edp0_in_vp2: endpoint {
-> +		remote-endpoint = <&vp2_out_edp0>;
-> +	};
-> +};
-> +
-> +&edp0_out {
-> +	edp_out_panel: endpoint {
-> +		remote-endpoint = <&panel_in_edp>;
-> +	};
-> +};
-> +
-> +&hdptxphy0 {
-> +	status = "okay";
-> +};
-> +
->  &i2c3 {
->  	status = "okay";
->  
-> @@ -399,6 +435,7 @@ usbc0_int: usbc0-int {
->  };
->  
->  &pwm12 {
-> +	pinctrl-0 = <&pwm12m1_pins>;
->  	status = "okay";
->  };
->  
-> @@ -1168,3 +1205,20 @@ usbdp_phy0_dp_altmode_mux: endpoint@1 {
->  		};
->  	};
->  };
-> +
-> +&vop_mmu {
-> +	status = "okay";
-> +};
-> +
-> +&vop {
-> +	assigned-clocks = <&cru DCLK_VOP2_SRC>;
-> +	assigned-clock-parents = <&cru PLL_V0PLL>;
-> +	status = "okay";
-> +};
-> +
-> +&vp2 {
-> +	vp2_out_edp0: endpoint@ROCKCHIP_VOP2_EP_EDP0 {
-> +		reg = <ROCKCHIP_VOP2_EP_EDP0>;
-> +		remote-endpoint = <&edp0_in_vp2>;
-> +	};
-> +};
-> -- 
-> 2.34.1
-> 
+A quick search revealed that only the drivers that set the
+policy->freq_table field, enable these attributes. Which makes sense as
+well, since the show_available_freqs() helper works only if the
+freq_table is present.
+
+In order to simplify drivers, create the relevant sysfs files forcefully
+from cpufreq core.
+
+Pushed here:
+
+git://git.kernel.org/pub/scm/linux/kernel/git/vireshk/pm.git cpufreq/core-attr
+
+--
+Viresh
+
+Viresh Kumar (33):
+  cpufreq: Always create freq-table related sysfs file
+  cpufreq: dt: Stop setting cpufreq_driver->attr field
+  cpufreq: acpi: Stop setting common freq attributes
+  cpufreq: apple: Stop setting cpufreq_driver->attr field
+  cpufreq: bmips: Stop setting cpufreq_driver->attr field
+  cpufreq: brcmstb: Stop setting common freq attributes
+  cpufreq: davinci: Stop setting cpufreq_driver->attr field
+  cpufreq: e_powersaver: Stop setting cpufreq_driver->attr field
+  cpufreq: elanfreq: Stop setting cpufreq_driver->attr field
+  cpufreq: imx6q: Stop setting cpufreq_driver->attr field
+  cpufreq: kirkwood: Stop setting cpufreq_driver->attr field
+  cpufreq: longhaul: Stop setting cpufreq_driver->attr field
+  cpufreq: loongson: Stop setting cpufreq_driver->attr field
+  cpufreq: mediatek: Stop setting cpufreq_driver->attr field
+  cpufreq: omap: Stop setting cpufreq_driver->attr field
+  cpufreq: p4: Stop setting cpufreq_driver->attr field
+  cpufreq: pasemi: Stop setting cpufreq_driver->attr field
+  cpufreq: pmac: Stop setting cpufreq_driver->attr field
+  cpufreq: powernow: Stop setting cpufreq_driver->attr field
+  cpufreq: powernv: Stop setting common freq attributes
+  cpufreq: qcom: Stop setting cpufreq_driver->attr field
+  cpufreq: qoriq: Stop setting cpufreq_driver->attr field
+  cpufreq: sc520_freq: Stop setting cpufreq_driver->attr field
+  cpufreq: scmi: Stop setting cpufreq_driver->attr field
+  cpufreq: scpi: Stop setting cpufreq_driver->attr field
+  cpufreq: sh: Stop setting cpufreq_driver->attr field
+  cpufreq: spear: Stop setting cpufreq_driver->attr field
+  cpufreq: speedstep: Stop setting cpufreq_driver->attr field
+  cpufreq: tegra: Stop setting cpufreq_driver->attr field
+  cpufreq: vexpress: Stop setting cpufreq_driver->attr field
+  cpufreq: virtual: Stop setting cpufreq_driver->attr field
+  cpufreq: Remove cpufreq_generic_attrs
+  cpufreq: Stop checking for duplicate available/boost freq attributes
+
+ drivers/cpufreq/acpi-cpufreq.c         |  1 -
+ drivers/cpufreq/apple-soc-cpufreq.c    |  8 --------
+ drivers/cpufreq/bmips-cpufreq.c        |  1 -
+ drivers/cpufreq/brcmstb-avs-cpufreq.c  |  1 -
+ drivers/cpufreq/cpufreq-dt.c           |  8 --------
+ drivers/cpufreq/cpufreq.c              | 15 +++++++++++++++
+ drivers/cpufreq/davinci-cpufreq.c      |  1 -
+ drivers/cpufreq/e_powersaver.c         |  1 -
+ drivers/cpufreq/elanfreq.c             |  1 -
+ drivers/cpufreq/freq_table.c           |  8 --------
+ drivers/cpufreq/imx6q-cpufreq.c        |  1 -
+ drivers/cpufreq/kirkwood-cpufreq.c     |  1 -
+ drivers/cpufreq/longhaul.c             |  1 -
+ drivers/cpufreq/loongson2_cpufreq.c    |  1 -
+ drivers/cpufreq/loongson3_cpufreq.c    |  1 -
+ drivers/cpufreq/mediatek-cpufreq-hw.c  |  1 -
+ drivers/cpufreq/mediatek-cpufreq.c     |  1 -
+ drivers/cpufreq/omap-cpufreq.c         |  1 -
+ drivers/cpufreq/p4-clockmod.c          |  1 -
+ drivers/cpufreq/pasemi-cpufreq.c       |  1 -
+ drivers/cpufreq/pmac32-cpufreq.c       |  1 -
+ drivers/cpufreq/pmac64-cpufreq.c       |  1 -
+ drivers/cpufreq/powernow-k6.c          |  1 -
+ drivers/cpufreq/powernow-k7.c          |  1 -
+ drivers/cpufreq/powernow-k8.c          |  1 -
+ drivers/cpufreq/powernv-cpufreq.c      |  2 --
+ drivers/cpufreq/qcom-cpufreq-hw.c      |  7 -------
+ drivers/cpufreq/qoriq-cpufreq.c        |  1 -
+ drivers/cpufreq/sc520_freq.c           |  1 -
+ drivers/cpufreq/scmi-cpufreq.c         |  8 --------
+ drivers/cpufreq/scpi-cpufreq.c         |  1 -
+ drivers/cpufreq/sh-cpufreq.c           |  1 -
+ drivers/cpufreq/spear-cpufreq.c        |  1 -
+ drivers/cpufreq/speedstep-centrino.c   |  1 -
+ drivers/cpufreq/speedstep-ich.c        |  1 -
+ drivers/cpufreq/speedstep-smi.c        |  1 -
+ drivers/cpufreq/tegra186-cpufreq.c     |  1 -
+ drivers/cpufreq/tegra194-cpufreq.c     |  1 -
+ drivers/cpufreq/vexpress-spc-cpufreq.c |  1 -
+ drivers/cpufreq/virtual-cpufreq.c      |  1 -
+ include/linux/cpufreq.h                |  1 -
+ 41 files changed, 15 insertions(+), 75 deletions(-)
 
 -- 
-With best wishes
-Dmitry
+2.31.1.272.g89b43f80a514
+
 
