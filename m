@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B98EC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 22:59:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24145C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 23:58:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q5vETblkns4myv0L36tnPYvQDxGkuxSXvQ+u+++b6uc=; b=2wdKtyx6hYY6RzeruKDVeerZGA
-	718gMWp/it/zFfKpvZzE2HT86c//dMTG2Zdd1gqVIYxyWBFQ6zItykJtioUTErKu5sW1jsNMwMjj7
-	kF2RZiJMLHigEz6NDJQh8757s3ZCvyh2nY5dk9uGHuUMI3DTvk5zkI/A8+U6te3n8fHbYyVqxizW7
-	R3z4wqXeEzMl+VuxcnJawx4ej3k0/dWujdOI+bclyRdBkjtVVLLlIMY3hUCeyLFOhtj6bVrMzs7ih
-	joi0DLxNox+sY40VhwGkNArw68ujfa+tCJP/3hsdPdWdszpH4VzuBOhLGLkpSJT8xFWPB3ebd4HV0
-	5U3X+MGA==;
+	bh=nKnjB9QFtA5GWFQs3FvapprWdMQNbXukoRejQDs+ZtA=; b=ZXTUjHUCdTSzH/89oVA+GPpZIE
+	fjCcufIk0TyllF2rgiSVzALKh4+Kj8nmym+9N7tkfKbb/ja+NwD9l+uKRR25i8Jgh8DqyVj20lYWw
+	nx+2fA5bbQoeIwX7bmILLuNXtks1O0dIfUQ9fGjanz743LxNnNCs/zaRQDIc6vPcBIkxmwl4NMS1S
+	CntiwCDwXqpp32QV0IIdLiu1ct2j8GpSSGS6hKdemDBpy7qCoxz1WBt48IuffNvhl5mPtV8EAfevT
+	/RYWQv0zvqlXlz2bvhYJTkmQJQYccXRQF8c/Ed9SiP1nl1+aopw3YFP3Hb4uauZm6KLUBmE9D+k5Y
+	r+fkHUUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb6AI-0000000DSPb-3MZF;
-	Thu, 23 Jan 2025 22:59:10 +0000
-Received: from out-173.mta1.migadu.com ([2001:41d0:203:375::ad])
+	id 1tb75F-0000000DXmR-3xrw;
+	Thu, 23 Jan 2025 23:58:01 +0000
+Received: from out-188.mta0.migadu.com ([2001:41d0:1004:224b::bc])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb68z-0000000DSHe-1L8N
+	id 1tb73x-0000000DXg6-3tLB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 22:57:51 +0000
-Message-ID: <34e84bd2-381b-4f3e-99e1-92f7a878ed15@linux.dev>
+	Thu, 23 Jan 2025 23:56:43 +0000
+Message-ID: <11b81c8b-5ef1-470c-836a-a436ecadf0f4@linux.dev>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1737673066;
+	t=1737676594;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Q5vETblkns4myv0L36tnPYvQDxGkuxSXvQ+u+++b6uc=;
-	b=UWMHVbsVeOqCg1tbtZ5magJB5bC76eSbbvBnvaJ0k5mWY3C/RUdQPQcisluKOJMIWkuiru
-	QgzUcrPMpwhCrCi1seyFemiz6RO+s43G4LiZS0elucLnEDAu1i8WqdtYaW22T5ucw+KTGU
-	bAF8FjTxdUqOh6VtYsckqRjXlUI104w=
-Date: Thu, 23 Jan 2025 17:57:41 -0500
+	bh=nKnjB9QFtA5GWFQs3FvapprWdMQNbXukoRejQDs+ZtA=;
+	b=BMuauh09Hah9j32wLPh8Uc9gIYcPh7uft6ysJVcYGJQE1XqW7FREugCabFu3MVWHK8Jipy
+	HROYK1a2b0T4NyZ/Cd1ECDmUPICsf1zpRCmHYfqyqUh7OZoSCTheJWqIonXfv0i5IVhh+R
+	sDqWwoatdZG2QNpOmyPa1TZW10vCAM4=
+Date: Thu, 23 Jan 2025 18:56:29 -0500
 MIME-Version: 1.0
-Subject: Re: [PATCH 1/5] dt-bindings: spi: zynqmp-qspi: Add reset
-To: Rob Herring <robh@kernel.org>
-Cc: Michal Simek <michal.simek@amd.com>, Mark Brown <broonie@kernel.org>,
- linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
- Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org,
- Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>,
- Miquel Raynal <miquel.raynal@bootlin.com>, Conor Dooley
- <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- devicetree@vger.kernel.org
-References: <20250116225521.2688224-1-sean.anderson@linux.dev>
- <20250116225521.2688224-2-sean.anderson@linux.dev>
- <8a0d8789-7a0d-42b7-9aff-e867c14db3c9@amd.com>
- <b8e63009-13fb-493f-adf6-4d30adbe9b1b@linux.dev>
- <20250123224520.GA456390-robh@kernel.org>
-Content-Language: en-US
+Subject: Re: [PATCH next] drm: zynqmp_dp: Unlock on error in
+ zynqmp_dp_bridge_atomic_enable()
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <20250123224520.GA456390-robh@kernel.org>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Dan Carpenter <dan.carpenter@linaro.org>,
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Michal Simek <michal.simek@amd.com>, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kernel-janitors@vger.kernel.org
+References: <b4042bd9-c943-4738-a2e1-8647259137c6@stanley.mountain>
+ <20241112052754.GB21062@pendragon.ideasonboard.com>
+ <37be000a-3ef8-4df4-aefa-b4d73487ad27@linux.dev>
+ <20241112164305.GA24067@pendragon.ideasonboard.com>
+ <5c2c6883-d81a-4869-9f32-48d23c0728ea@linux.dev>
+Content-Language: en-US
+In-Reply-To: <5c2c6883-d81a-4869-9f32-48d23c0728ea@linux.dev>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_145749_566614_EBC240A9 
-X-CRM114-Status: GOOD (  17.36  )
+X-CRM114-CacheID: sfid-20250123_155642_254948_2C5B7FE1 
+X-CRM114-Status: GOOD (  13.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,59 +80,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/23/25 17:45, Rob Herring wrote:
-> On Fri, Jan 17, 2025 at 11:12:15AM -0500, Sean Anderson wrote:
->> On 1/17/25 02:14, Michal Simek wrote:
->> > 
->> > 
->> > On 1/16/25 23:55, Sean Anderson wrote:
->> >> Add a reset to help recover from cancelled operations.
->> >>
->> >> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
->> >> ---
->> >>
->> >>   Documentation/devicetree/bindings/spi/spi-zynqmp-qspi.yaml | 6 ++++++
->> >>   1 file changed, 6 insertions(+)
->> >>
->> >> diff --git a/Documentation/devicetree/bindings/spi/spi-zynqmp-qspi.yaml b/Documentation/devicetree/bindings/spi/spi-zynqmp-qspi.yaml
->> >> index 04d4d3b4916d..901e15fcce2d 100644
->> >> --- a/Documentation/devicetree/bindings/spi/spi-zynqmp-qspi.yaml
->> >> +++ b/Documentation/devicetree/bindings/spi/spi-zynqmp-qspi.yaml
->> >> @@ -36,12 +36,16 @@ properties:
->> >>     power-domains:
->> >>       maxItems: 1
->> >>   +  resets:
->> >> +    maxItems: 1
->> >> +
->> >>   required:
->> >>     - compatible
->> >>     - reg
->> >>     - interrupts
->> >>     - clock-names
->> >>     - clocks
->> >> +  - resets
->> > 
->> > In 2/5 you are calling devm_reset_control_get_optional_exclusive() that's why I expect reset is not really required property.
+On 11/12/24 12:22, Sean Anderson wrote:
+> On 11/12/24 11:43, Laurent Pinchart wrote:
+>> On Tue, Nov 12, 2024 at 09:41:58AM -0500, Sean Anderson wrote:
+>>> On 11/12/24 00:27, Laurent Pinchart wrote:
+>>> > Hi Dan,
+>>> > 
+>>> > Thank you for the patch.
+>>> > 
+>>> > On Mon, Nov 11, 2024 at 12:06:10PM +0300, Dan Carpenter wrote:
+>>> >> We added some locking to this function, but accidentally forgot to unlock
+>>> >> if zynqmp_dp_mode_configure() failed.  Use a guard lock to fix it.
+>>> >> 
+>>> >> Fixes: a7d5eeaa57d7 ("drm: zynqmp_dp: Add locking")
+>>> >> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+>>> > 
+>>> > Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+>>> > 
+>>> > Sean, how about replacing all the mutex_lock()/mutex_unlock() calls
+>>> > you've added in a7d5eeaa57d7 with guards ?
+>>> 
+>>> I have no objection to that.
 >> 
->> It's optional for the driver for backwards compatibility. But for the
->> devicetree we make it mandatory since it should be included in all new
->> devicetrees.
+>> Would you send a patch ? Otherwise I can do it.
+>> 
 > 
-> Generally, we discourage new required properties as that's an ABI 
-> change. The exception is really when optional was a mistake. That's 
-> arguably the case here if the h/w always has a reset.
+> I can send a patch, but it will not be for a week or two.
+> 
+> --Sean
 
-This device has a reset on ZynqMP and Versal.
-
-The driver still considers this property optional, so it's not an ABI break.
-But I made it required in the schema to help out the folks at AMD when they
-get around to upstreaming the Versal devicetree :)
-
-> Unfortunately, there's not a way to distinguish 'required' from 
-> 'required for new users'.
-
-I will add a note to the commit message about this situation.
+Just following up on this; will the above patched be merged? I would
+prefer to keep the bugfix and the conversion separate.
 
 --Sean
-
 
