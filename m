@@ -4,117 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D52A1C0218B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 07:39:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8A0EC0218B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 07:46:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XaiEwb9GzSb1/VXlwzCT2CT2IHfMEAwz/tMVIauuf48=; b=Y9gYb2ShnAVCRn0uAK/Y4/zlAN
-	q6A0C5QNpQcstbWemaoPvn1rG+dY4xs+o8Djr1zioO+sKhuyxblpYMCWImRbTlvVXx6jyYTLdrRFd
-	icmV5Wy46KW0eGE2d27OkPyzXLOC6oRxtzlLgBAUonqpoiahgMHzNA9UopfZEg9Ubwa28j5UVMuA2
-	xHAgYKCav7zbZbFvlBOvk6Ew4+5tt/iO0KZNPNqrwHaEU9PvY+Vs+25OJGpq8Z85Zid40YshRVjGl
-	6OnkuDoagGoG8zx3tlXO0Wy2kRnOOQVo6mKhe1GjmW0wRaRGx2N7ZLHm2GjDv63QF6RozXyxxO6h1
-	lBOcz9Tg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2Y2ZyGTQmSSDnhgpeXztWXterlCb8p1VI1fd4ZlKGko=; b=uWiFKKJsh61rQbvIlkwIaoNOz5
+	BEUXpDPySxRIDZ8/tQTJ2/QRJm4wDn45lRQgZRIu5wN1t21tcmycBRXIDMYWNbuoX6zWujJOQ8Dy9
+	apsQEwhy3PI3OIP9p4C+QoLanmaNZz8NXhHm+XwDAClnYq6dBmrGDgceEzgd3Nn+cYLmtU0MJr4jl
+	beObkn48JI8pinc9vWoNb5MJP5pfubdkymW/vP52FuZhrpUJDUaPPdyu49dXIMsrfxg89tYZe6fmJ
+	IjfhQd/rR4xt4q0Up30Tr1Tmp23ZB+Y64FtJhnkvLt77rm6RXSXFrJK5iy8GMKNp62fWJjdGL01MA
+	hvamV/Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taroH-0000000Bsuk-1UXp;
-	Thu, 23 Jan 2025 07:39:29 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1taruz-0000000BtvM-3956;
+	Thu, 23 Jan 2025 07:46:25 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tarmz-0000000Bsg9-0BLi;
-	Thu, 23 Jan 2025 07:38:10 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50N3wf9L017075;
-	Thu, 23 Jan 2025 07:37:58 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	XaiEwb9GzSb1/VXlwzCT2CT2IHfMEAwz/tMVIauuf48=; b=dPqQvTr9LyVe1xEn
-	MX7AkSZ2PItM6U5xtxpFXHTQZKUrNBttI1catuJNSpsS3gCDPbfKi+Wzt2lltN6A
-	iFjVfQr8KgIfPUmFT/fN1vsQTmzIKEryVIgz1TDNhvqTr3rbQxrlVYGxT7lHqkW2
-	jtZY2HMKduqe3SExqqWBAH+j7HWGDWeaZNf5dyAVoNOvfumvMG4XNTR3wudDU6AP
-	5Uzet0zt/7eoQ8nRZsmBzl7NSUgXxsisbou/vBgM1KV87A9E6xXnV8H+PvpYW1/8
-	NI/haH9yJwdGNuavzDjHMhymH8m5maMjtIXb1j3jcstPz3gVMba0/+4rp4DizRkx
-	TIqR0A==
-Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44bebbgd6j-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 23 Jan 2025 07:37:58 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 50N7bvFb019617
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 23 Jan 2025 07:37:57 GMT
-Received: from [10.239.155.136] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 22 Jan
- 2025 23:37:51 -0800
-Message-ID: <f3a0b0b1-f4a8-4285-96de-8ce2633c7918@quicinc.com>
-Date: Thu, 23 Jan 2025 15:37:48 +0800
+	id 1tarte-0000000Btkv-2iXr;
+	Thu, 23 Jan 2025 07:45:03 +0000
+X-UUID: f0a3fa5cd95d11ef82ff63e91e7eb18c-20250123
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=2Y2ZyGTQmSSDnhgpeXztWXterlCb8p1VI1fd4ZlKGko=;
+	b=lGyADgYPxHJ7/qCbXHQYMFk/R6kf1t2HPiuuYfHB8PWlPYgEpMB/luRgWnQQH/ekXPJC6/hPruRR/nhyJvclXKnnanjb87IIuWttLOKCszAYiC/YsffRt5Y27u89m35HshLvSplOOk4tX39nTN7ejCE6n7H9luTOsy7HHlClKUU=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.46,REQID:fefd1767-9520-44e4-9253-0b49728985c0,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-5
+X-CID-META: VersionHash:60aa074,CLOUDID:984a933d-da39-4471-8a46-23da908abe46,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
+	l,URL:11|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
+	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
+X-UUID: f0a3fa5cd95d11ef82ff63e91e7eb18c-20250123
+Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
+	(envelope-from <andy-ld.lu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 2122581583; Thu, 23 Jan 2025 00:44:56 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.28; Thu, 23 Jan 2025 15:44:53 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.28 via Frontend Transport; Thu, 23 Jan 2025 15:44:53 +0800
+From: Andy-ld Lu <andy-ld.lu@mediatek.com>
+To: <ulf.hansson@linaro.org>, <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>, <wenbin.mei@mediatek.com>
+CC: <linux-mmc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	Andy-ld Lu <andy-ld.lu@mediatek.com>
+Subject: [PATCH] mmc: mtk-sd: optimize register settings for hs400(es) mode
+Date: Thu, 23 Jan 2025 15:44:32 +0800
+Message-ID: <20250123074442.1617-1-andy-ld.lu@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/8] scsi: ufs: core: Pass target_freq to
- clk_scale_notify() vops
-To: Bart Van Assche <bvanassche@acm.org>, <quic_cang@quicinc.com>,
-        <mani@kernel.org>, <beanhuo@micron.com>, <avri.altman@wdc.com>,
-        <junwoo80.lee@samsung.com>, <martin.petersen@oracle.com>,
-        <quic_nguyenb@quicinc.com>, <quic_nitirawa@quicinc.com>,
-        <quic_rampraka@quicinc.com>
-CC: <linux-arm-msm@vger.kernel.org>, <linux-scsi@vger.kernel.org>,
-        Alim Akhtar
-	<alim.akhtar@samsung.com>,
-        "James E.J. Bottomley"
-	<James.Bottomley@HansenPartnership.com>,
-        Peter Wang
-	<peter.wang@mediatek.com>,
-        Stanley Jhu <chu.stanley@gmail.com>,
-        "Manivannan
- Sadhasivam" <manivannan.sadhasivam@linaro.org>,
-        Matthias Brugger
-	<matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>,
-        Andrew Halaney
-	<ahalaney@redhat.com>,
-        Maramaina Naresh <quic_mnaresh@quicinc.com>,
-        "Eric
- Biggers" <ebiggers@google.com>,
-        Minwoo Im <minwoo.im@samsung.com>,
-        open list
-	<linux-kernel@vger.kernel.org>,
-        "moderated list:UNIVERSAL FLASH STORAGE HOST
- CONTROLLER DRIVER..." <linux-mediatek@lists.infradead.org>,
-        "moderated
- list:ARM/Mediatek SoC support:Keyword:mediatek"
-	<linux-arm-kernel@lists.infradead.org>
-References: <20250122100214.489749-1-quic_ziqichen@quicinc.com>
- <20250122100214.489749-2-quic_ziqichen@quicinc.com>
- <2e42cc2b-5597-435a-a58d-507c46e1132f@acm.org>
-Content-Language: en-US
-From: Ziqi Chen <quic_ziqichen@quicinc.com>
-In-Reply-To: <2e42cc2b-5597-435a-a58d-507c46e1132f@acm.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: 1GpTbm2S83pcV9tsyR83haxBRJ49a72g
-X-Proofpoint-ORIG-GUID: 1GpTbm2S83pcV9tsyR83haxBRJ49a72g
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-01-23_03,2025-01-22_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
- impostorscore=0 malwarescore=0 adultscore=0 spamscore=0 lowpriorityscore=0
- bulkscore=0 mlxlogscore=999 clxscore=1015 suspectscore=0 mlxscore=0
- phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2501230057
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_233809_220104_CC5906C5 
-X-CRM114-Status: GOOD (  10.06  )
+X-CRM114-CacheID: sfid-20250122_234502_711536_E9375074 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,31 +83,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+For hs400(es) mode, the 'hs400-ds-delay' is typically configured in the
+dts. However, some projects may only define 'mediatek,hs400-ds-dly3',
+which can lead to initialization failures in hs400es mode. CMD13 reported
+response crc error in the mmc_switch_status() just after switching to
+hs400es mode.
 
+[    1.914038][   T82] mmc0: mmc_select_hs400es failed, error -84
+[    1.914954][   T82] mmc0: error -84 whilst initialising MMC card
 
-On 1/23/2025 2:19 AM, Bart Van Assche wrote:
-> On 1/22/25 2:02 AM, Ziqi Chen wrote:
->> diff --git a/include/ufs/ufshcd.h b/include/ufs/ufshcd.h
->> index d7aca9e61684..a4dac897a169 100644
->> --- a/include/ufs/ufshcd.h
->> +++ b/include/ufs/ufshcd.h
->> @@ -344,7 +344,7 @@ struct ufs_hba_variant_ops {
->>       void    (*exit)(struct ufs_hba *);
->>       u32    (*get_ufs_hci_version)(struct ufs_hba *);
->>       int    (*set_dma_mask)(struct ufs_hba *);
->> -    int    (*clk_scale_notify)(struct ufs_hba *, bool,
->> +    int (*clk_scale_notify)(struct ufs_hba *, bool, unsigned long,
->>                       enum ufs_notify_change_status);
->>       int    (*setup_clocks)(struct ufs_hba *, bool,
->>                   enum ufs_notify_change_status);
-> 
-> Please keep the indentation consistent.
-> 
-> Thanks,
-> 
-> Bart.
+Currently, the hs400_ds_dly3 value is set within the tuning function. This
+means that the PAD_DS_DLY3 field is not configured before tuning process,
+which is the reason for the above-mentioned CMD13 response crc error.
 
-Thanks, Bart, I will improve it.
+Move the PAD_DS_DLY3 field configuration into msdc_prepare_hs400_tuning(),
+and add a value check of hs400_ds_delay to prevent overwriting by zero when
+the 'hs400-ds-delay' is not set in the dts. In addition, since hs400(es)
+only tune the PAD_DS_DLY1, the PAD_DS_DLY2_SEL bit should be cleared to
+bypass it.
 
--Ziqi
+Signed-off-by: Andy-ld Lu <andy-ld.lu@mediatek.com>
+---
+ drivers/mmc/host/mtk-sd.c | 37 +++++++++++++++++++++++--------------
+ 1 file changed, 23 insertions(+), 14 deletions(-)
+
+diff --git a/drivers/mmc/host/mtk-sd.c b/drivers/mmc/host/mtk-sd.c
+index 4b6e91372526..4e3e31ddf84b 100644
+--- a/drivers/mmc/host/mtk-sd.c
++++ b/drivers/mmc/host/mtk-sd.c
+@@ -273,6 +273,7 @@
+ #define MSDC_PAD_TUNE_CMD2_SEL	  BIT(21)   /* RW */
+ 
+ #define PAD_DS_TUNE_DLY_SEL       BIT(0)	  /* RW */
++#define PAD_DS_TUNE_DLY2_SEL      BIT(1)	  /* RW */
+ #define PAD_DS_TUNE_DLY1	  GENMASK(6, 2)   /* RW */
+ #define PAD_DS_TUNE_DLY2	  GENMASK(11, 7)  /* RW */
+ #define PAD_DS_TUNE_DLY3	  GENMASK(16, 12) /* RW */
+@@ -317,9 +318,10 @@
+ #define PAD_CMD_TX_DLY          GENMASK(16, 12)	/* RW */
+ 
+ /* EMMC50_PAD_DS_TUNE mask */
+-#define PAD_DS_DLY_SEL		BIT(16)	/* RW */
+-#define PAD_DS_DLY1		GENMASK(14, 10)	/* RW */
+-#define PAD_DS_DLY3		GENMASK(4, 0)	/* RW */
++#define PAD_DS_DLY_SEL          BIT(16) /* RW */
++#define PAD_DS_DLY2_SEL         BIT(15) /* RW */
++#define PAD_DS_DLY1             GENMASK(14, 10) /* RW */
++#define PAD_DS_DLY3             GENMASK(4, 0)   /* RW */
+ 
+ /* LOOP_TEST_CONTROL mask */
+ #define TEST_LOOP_DSCLK_MUX_SEL        BIT(0)	/* RW */
+@@ -2504,13 +2506,23 @@ static int msdc_execute_tuning(struct mmc_host *mmc, u32 opcode)
+ static int msdc_prepare_hs400_tuning(struct mmc_host *mmc, struct mmc_ios *ios)
+ {
+ 	struct msdc_host *host = mmc_priv(mmc);
++
+ 	host->hs400_mode = true;
+ 
+-	if (host->top_base)
+-		writel(host->hs400_ds_delay,
+-		       host->top_base + EMMC50_PAD_DS_TUNE);
+-	else
+-		writel(host->hs400_ds_delay, host->base + PAD_DS_TUNE);
++	if (host->top_base) {
++		if (host->hs400_ds_dly3)
++			sdr_set_field(host->top_base + EMMC50_PAD_DS_TUNE,
++				      PAD_DS_DLY3, host->hs400_ds_dly3);
++		if (host->hs400_ds_delay)
++			writel(host->hs400_ds_delay,
++			       host->top_base + EMMC50_PAD_DS_TUNE);
++	} else {
++		if (host->hs400_ds_dly3)
++			sdr_set_field(host->base + PAD_DS_TUNE,
++				      PAD_DS_TUNE_DLY3, host->hs400_ds_dly3);
++		if (host->hs400_ds_delay)
++			writel(host->hs400_ds_delay, host->base + PAD_DS_TUNE);
++	}
+ 	/* hs400 mode must set it to 0 */
+ 	sdr_clr_bits(host->base + MSDC_PATCH_BIT2, MSDC_PATCH_BIT2_CFGCRCSTS);
+ 	/* to improve read performance, set outstanding to 2 */
+@@ -2530,14 +2542,11 @@ static int msdc_execute_hs400_tuning(struct mmc_host *mmc, struct mmc_card *card
+ 	if (host->top_base) {
+ 		sdr_set_bits(host->top_base + EMMC50_PAD_DS_TUNE,
+ 			     PAD_DS_DLY_SEL);
+-		if (host->hs400_ds_dly3)
+-			sdr_set_field(host->top_base + EMMC50_PAD_DS_TUNE,
+-				      PAD_DS_DLY3, host->hs400_ds_dly3);
++		sdr_clr_bits(host->top_base + EMMC50_PAD_DS_TUNE,
++			     PAD_DS_DLY2_SEL);
+ 	} else {
+ 		sdr_set_bits(host->base + PAD_DS_TUNE, PAD_DS_TUNE_DLY_SEL);
+-		if (host->hs400_ds_dly3)
+-			sdr_set_field(host->base + PAD_DS_TUNE,
+-				      PAD_DS_TUNE_DLY3, host->hs400_ds_dly3);
++		sdr_clr_bits(host->base + PAD_DS_TUNE, PAD_DS_TUNE_DLY2_SEL);
+ 	}
+ 
+ 	host->hs400_tuning = true;
+-- 
+2.46.0
+
 
