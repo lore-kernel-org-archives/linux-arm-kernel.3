@@ -4,88 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5DF1C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 12:32:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87D10C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 12:35:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:References:
-	In-Reply-To:Message-ID:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=39CuZZZdjSJEJPQMh+OB3G3RFMPggoTrQcp5t75nl8Y=; b=3F7JpjMcIM6Kup
-	ba9A7uazhEWvpR0UJCjc7MutvK4GnNIBBeofTrBoiiddcrmtX/powYd9XChJGuzqkX3qK64I1k/EH
-	yPhZoPU22OKAXvsM5DXjAyQCNACf0GucABDfFOtZjfEXOuY8xJe9u99Vv+T9yl2EeOEUE4cf3jMxC
-	jReJnGIilbbUkplbrQqNmpEUaYoPZCj6nZYskIsFtxCcPrRXLEZ/CG3UYHZiQt9nyWQompfi+nJWT
-	v+XrdUhZjykpXRnkONLHT6ktt2SSbj6Tu0Yr7sMGhyfJwC/mFebD0R/oJjARWac5Gs2fsbO08xdNp
-	PDzhAdbsD/PoQ4em648Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TUhzrte0gn0xG2dMeihV0KQvJaVA5XBuzjXG7GGu8P4=; b=xXO4W8ZIs0PdLpoOPVnTBM2Fw9
+	PFIjngq/9j25eVqdWm6ZZmiR3NeFQwZRzVoR/3pn9eljks9y3RWNe5Hy7onsMY1K4bZfexW0qef9E
+	n/oXjHGMqXb5ocBBortGA8qNDFWuvvM2zQ9HkHpvBXHXKGunTEBXQ464ooSchCyBsByRTqLrXvRt3
+	OjZQkMbuGa4zVfisuLFgXnnda1bZOqNUPzhXY/rhN+0d7TZng7GJX3KwN5b50+Af14cXq/YRfT8gA
+	FVvq6fjwLpJ8hxtwd2Jyvc72KLLAff8Tw+ExUthg5jXVEMJIubqK7NnXUZFvSqLuK1aSrqzx+qZm3
+	IaNaH2CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tawNA-0000000CSF2-2Ix4;
-	Thu, 23 Jan 2025 12:31:48 +0000
-Received: from server.wki.vra.mybluehostin.me ([162.240.238.73])
+	id 1tawQW-0000000CSdo-2uTw;
+	Thu, 23 Jan 2025 12:35:16 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tawLr-0000000CS6m-3GNi
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 12:30:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
-	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=39CuZZZdjSJEJPQMh+OB3G3RFMPggoTrQcp5t75nl8Y=; b=atGtDdFA/e4szMovQBwMFwgXZn
-	co6f+Ko4J890WcGUnR27tQkv47WQotAMgVeGUpdhIHs0P2Ay6ftyu4fzFvUfxjY4gJXetCJDuQPVF
-	TtvHLm8RmrsIztBJvjDPjdUo1rAYIKT0D+YzQ7UWKKjTGTUbxUSoHnI6m7EreB+hqZdtGl3u7i3jK
-	jdFp5M9z4gv7koNlNHcYAhghg/IUdc18Qj+WBrSOsb4jrB8OUSqc7QEeMiOVafkvItxkP9cg1eYCO
-	j17SlYjKKx1cM+3yFH74+WkQuyZmN8tWggp4l2iWs5idkuwdGvVJWIMAnAnxKfD8R3OFlpkkcyyER
-	g0jaFJug==;
-Received: from [122.175.9.182] (port=45111 helo=zimbra.couthit.local)
-	by server.wki.vra.mybluehostin.me with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <basharath@couthit.com>)
-	id 1tawLl-0005TL-35;
-	Thu, 23 Jan 2025 18:00:22 +0530
-Received: from zimbra.couthit.local (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTPS id 5FE1A1781C63;
-	Thu, 23 Jan 2025 18:00:13 +0530 (IST)
-Received: from localhost (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTP id 395D61782495;
-	Thu, 23 Jan 2025 18:00:13 +0530 (IST)
-Received: from zimbra.couthit.local ([127.0.0.1])
-	by localhost (zimbra.couthit.local [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id 2df9ieE3WTUM; Thu, 23 Jan 2025 18:00:13 +0530 (IST)
-Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
-	by zimbra.couthit.local (Postfix) with ESMTP id D9E111781C63;
-	Thu, 23 Jan 2025 18:00:12 +0530 (IST)
-Date: Thu, 23 Jan 2025 18:00:12 +0530 (IST)
-From: Basharath Hussain Khaja <basharath@couthit.com>
-To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Message-ID: <1333946741.395386.1737635412707.JavaMail.zimbra@couthit.local>
-In-Reply-To: <6ac6161b-373a-47ce-801d-9e4ff1ef258c@wanadoo.fr>
-References: <20250109105600.41297-1-basharath@couthit.com> <20250109105600.41297-5-basharath@couthit.com> <6ac6161b-373a-47ce-801d-9e4ff1ef258c@wanadoo.fr>
-Subject: Re: [RFC PATCH 04/10] net: ti: prueth: Adds link detection, RX and
- TX support.
+	id 1tawPD-0000000CSU7-2Jfo;
+	Thu, 23 Jan 2025 12:33:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1737635632;
+	bh=n+6IUxsW4H4bSYmqPQjoTK1FHxsbX9PDXmPVfDRcSqc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=iKqC1TmGIEJd8D41d972RFZCbgfAmS39po+SUOviQ1ifkD3+wjyeNl9/FXkd6K3lB
+	 YK/JeW6Kc6YGEO8cl/roK6l1s06TFVHeFMvOHcSq6tM3thdgifIRvByM3uEvrl/AV/
+	 ZTHhN3bD15aa8ZZFrueQOE+HXL/lU4WkUDdDLfHpNcxaN45HNmMErGPShadqbIXopV
+	 TgfO5wKw3j6cSCZB7iFzG+g+MH16Z1DN4dATwMc4E3/GaV6IXj7TFXmKteDxz0SccF
+	 BzY0bcKsuAY56rIl3VHCMBEOvL7QqHt5Ji5d2ClaRZMucBC89MerMIN1LRLRodq1SX
+	 deiz0N0Xq+/nQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C017517E0DD8;
+	Thu, 23 Jan 2025 13:33:51 +0100 (CET)
+Message-ID: <4455b317-aeea-42ff-be55-020d52330219@collabora.com>
+Date: Thu, 23 Jan 2025 13:33:51 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Originating-IP: [10.10.10.103]
-X-Mailer: Zimbra 8.8.15_GA_3968 (ZimbraWebClient - FF113 (Linux)/8.8.15_GA_3968)
-Thread-Topic: prueth: Adds link detection, RX and TX support.
-Thread-Index: wMpv7fMC/ugczbeFyu6r0nphcnNI/g==
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.wki.vra.mybluehostin.me
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.wki.vra.mybluehostin.me: authenticated_id: smtp@couthit.com
-X-Authenticated-Sender: server.wki.vra.mybluehostin.me: smtp@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] mmc: mtk-sd: Fix register settings for hs400(es) mode
+To: Andy-ld Lu <andy-ld.lu@mediatek.com>, ulf.hansson@linaro.org,
+ matthias.bgg@gmail.com, wenbin.mei@mediatek.com
+Cc: linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20250123092644.7359-1-andy-ld.lu@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250123092644.7359-1-andy-ld.lu@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_043027_891971_FBC327E2 
-X-CRM114-Status: UNSURE (   5.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250123_043355_783107_91720246 
+X-CRM114-Status: GOOD (  11.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,108 +72,33 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: nm <nm@ti.com>, vigneshr <vigneshr@ti.com>, tony <tony@atomide.com>, edumazet <edumazet@google.com>, krishna <krishna@couthit.com>, pmohan <pmohan@couthit.com>, diogo ivo <diogo.ivo@siemens.com>, Rob Herring <robh@kernel.org>, javier carrasco cruz <javier.carrasco.cruz@gmail.com>, praneeth <praneeth@ti.com>, m-karicheri2 <m-karicheri2@ti.com>, basharath <basharath@couthit.com>, kuba <kuba@kernel.org>, pabeni <pabeni@redhat.com>, devicetree <devicetree@vger.kernel.org>, conor+dt <conor+dt@kernel.org>, schnelle <schnelle@linux.ibm.com>, mohan <mohan@couthit.com>, richardcochran <richardcochran@gmail.com>, prajith <prajith@ti.com>, rogerq <rogerq@kernel.org>, jacob e keller <jacob.e.keller@intel.com>, ssantosh <ssantosh@kernel.org>, linux-omap <linux-omap@vger.kernel.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, rogerq <rogerq@ti.com>, srk <srk@ti.com>, pratheesh <pratheesh@ti.com>, m-malladi <m-malladi@ti.com>, netdev <netdev@vger.kernel.org>, rdunlap <rdunlap@infradead.org>, linux-kernel <linux-kernel@vger.kernel.org>, danishanwar <danishanwar@ti.com>, afd <afd@ti.com>, andrew+netdev <andrew+netdev@lunn.ch>, parvathi <parvathi@couthit.com>, horms <horms@kernel.org>, krzk+dt <krzk+dt@kernel.org>, davem <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Il 23/01/25 10:26, Andy-ld Lu ha scritto:
+> For hs400(es) mode, the 'hs400-ds-delay' is typically configured in the
+> dts. However, some projects may only define 'mediatek,hs400-ds-dly3',
+> which can lead to initialization failures in hs400es mode. CMD13 reported
+> response crc error in the mmc_switch_status() just after switching to
+> hs400es mode.
+> 
+> [    1.914038][   T82] mmc0: mmc_select_hs400es failed, error -84
+> [    1.914954][   T82] mmc0: error -84 whilst initialising MMC card
+> 
+> Currently, the hs400_ds_dly3 value is set within the tuning function. This
+> means that the PAD_DS_DLY3 field is not configured before tuning process,
+> which is the reason for the above-mentioned CMD13 response crc error.
+> 
+> Move the PAD_DS_DLY3 field configuration into msdc_prepare_hs400_tuning(),
+> and add a value check of hs400_ds_delay to prevent overwriting by zero when
+> the 'hs400-ds-delay' is not set in the dts. In addition, since hs400(es)
+> only tune the PAD_DS_DLY1, the PAD_DS_DLY2_SEL bit should be cleared to
+> bypass it.
+> 
+> Fixes: c4ac38c6539b ("mmc: mtk-sd: Add HS400 online tuning support")
+> Signed-off-by: Andy-ld Lu <andy-ld.lu@mediatek.com>
 
-> Le 09/01/2025 =C3=A0 11:55, Basharath Hussain Khaja a =C3=A9crit=C2=A0:
->> From: Roger Quadros <rogerq@ti.com>
->>=20
->> Changes corresponding to link configuration such as speed and duplexity.
->> IRQ and handler initializations are performed for packet reception.Firmw=
-are
->> receives the packet from the wire and stores it into OCMC queue. Next, i=
-t
->> notifies the CPU via interrupt. Upon receiving the interrupt CPU will
->> service the IRQ and packet will be processed by pushing the newly alloca=
-ted
->> SKB to upper layers.
->>=20
->> When the user application want to transmit a packet, it will invoke
->> sys_send() which will inturn invoke the PRUETH driver, then it will writ=
-e
->> the packet into OCMC queues. PRU firmware will pick up the packet and
->> transmit it on to the wire.
->=20
-> Hi,
-> a few nitpicks.
->=20
-> ...
->=20
->> +static int icssm_prueth_tx_enqueue(struct prueth_emac *emac,
->> +=09=09=09=09   struct sk_buff *skb,
->> +=09=09=09=09   enum prueth_queue_id queue_id)
->> +{
->> +=09struct prueth_queue_desc __iomem *queue_desc;
->> +=09const struct prueth_queue_info *txqueue;
->> +=09u16 bd_rd_ptr, bd_wr_ptr, update_wr_ptr;
->> +=09struct net_device *ndev =3D emac->ndev;
->> +=09unsigned int buffer_desc_count;
->> +=09int free_blocks, update_block;
->> +=09bool buffer_wrapped =3D false;
->> +=09int write_block, read_block;
->> +=09void *src_addr, *dst_addr;
->> +=09int pkt_block_size;
->> +=09void __iomem *dram;
->> +=09int txport, pktlen;
->> +=09u32 wr_buf_desc;
->> +=09void *ocmc_ram;
->> +
->> +=09dram =3D emac->prueth->mem[emac->dram].va;
->> +=09if (eth_skb_pad(skb)) {
->> +=09=09if (netif_msg_tx_err(emac) && net_ratelimit())
->> +=09=09=09netdev_err(ndev, "packet pad failed");
->=20
-> Missing trailing \n.
->=20
->> +=09=09return -ENOMEM;
->> +=09}
->> +
->> +=09/* which port to tx: MII0 or MII1 */
->> +=09txport =3D emac->tx_port_queue;
->=20
-> ...
->=20
->> +static int icssm_emac_request_irqs(struct prueth_emac *emac)
->> +{
->> +=09struct net_device *ndev =3D emac->ndev;
->> +=09int ret =3D 0;
->=20
-> No need to init.
->=20
->> +
->> +=09ret =3D request_threaded_irq(emac->rx_irq, NULL, icssm_emac_rx_threa=
-d,
->> +=09=09=09=09   IRQF_TRIGGER_HIGH | IRQF_ONESHOT,
->> +=09=09=09=09   ndev->name, ndev);
->> +=09if (ret) {
->> +=09=09netdev_err(ndev, "unable to request RX IRQ\n");
->> +=09=09return ret;
->> +=09}
->=20
-> ...
->=20
->> +static int icssm_emac_ndo_start_xmit(struct sk_buff *skb,
->> +=09=09=09=09     struct net_device *ndev)
->> +{
->> +=09struct prueth_emac *emac =3D netdev_priv(ndev);
->> +=09int ret =3D 0;
->> +=09u16 qid;
->> +
->> +=09if (unlikely(!emac->link)) {
->> +=09=09if (netif_msg_tx_err(emac) && net_ratelimit())
->> +=09=09=09netdev_err(ndev, "No link to transmit");
->=20
-> \n
->=20
->> +=09=09goto fail_tx;
->> +=09}
->> +
->> +=09qid =3D icssm_prueth_get_tx_queue_id(emac->prueth, skb);...
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-We will handle all comments in the next version.
 
-Thanks & Best Regards,
-Basharath
 
