@@ -4,87 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 207BDC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 14:02:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7469C0218B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 14:08:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KrivE+jXCcpkJfX31hjpK5tPlRP7KoKj2mnULiizYXQ=; b=tS0uB6CBOcnYfkR7/Y7d6YkpJ8
-	f2fAT+qmcnj1xlOkQFLirTgdO93y1HildOqfUWiA4ov7hmkGoJ2yWGO0fXjxTi1aW74RhGgHQeWVg
-	IM38jkdcwieu/uuOuMlJKFhgGeHIXNGyspqCkSdu3xGkfUPhlh/+Ari5WpZUTJGIzeE2QB1Xjgk+4
-	2+AAAuy03lIpDr+GgbmLwyDZSD85e1Yw/43UViRCWP4Jko8EAlm3co20SkuKFmhcNln1eboIR+z/I
-	VC6EoeklE0muZl1FtM0OtW96yh9NkUzeKW36xF1SBmthl/C3xsfLa2HnERPp2hXjAOBs+AkUf0Ce9
-	I/VwcXzw==;
+	bh=qOd/wQclXu4wS6VTQ3uZHgoG3iZXR/9baSy6qU4XdB0=; b=RehDRcSHLqQ/fcNUTwc/l6dM0m
+	6z9EX8NSBy8DgC/nzNVjqA2ymvxLqDUq/F9prr8p34du8vBUOsboEy8tgAMVQRQUxegR8237I0YIe
+	29LadZOSmwdVASC63lUX2ubMp5Mk4FS6Tkr9S7F36M0H17BHfo9iTvJzy2Dr1wuvi6H20grkwxViG
+	S0w4RYpIKa27qM4pGu1joBReCd8xZxmMfjSHURyKCe3bpQ21ZcBaM2OWOOYplibx+VEcN9ARnv+2g
+	Crlb4MX/NeYNd5E54tDGC1WpTyxKX95/OCGRsdeq9OgsueItJTLR5r58vYVay6oatp62voW+0I7xw
+	jr4ecc6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taxmI-0000000CZFu-25Or;
-	Thu, 23 Jan 2025 14:01:50 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1taxs2-0000000CZcR-00Sm;
+	Thu, 23 Jan 2025 14:07:46 +0000
+Received: from mo4-p01-ob.smtp.rzone.de ([85.215.255.50])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taxl0-0000000CZ8s-2eVN
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 14:00:31 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-2efdaa02378so231072a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 06:00:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737640829; x=1738245629; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KrivE+jXCcpkJfX31hjpK5tPlRP7KoKj2mnULiizYXQ=;
-        b=iRNpnkwfuFhWSTYS6vh78LVWZ33tI6bQAXZu5zNwXssRJ3oaodbitaSjqsIjNRtZs9
-         For8y1M0loA9UWCxaDkKbiXY1vK9RhVTXEAIctfG4Ryw7jhGc+uuwZ6SkbzoJNcOklVD
-         jUfLp1L3SHmh6DNver5U9SaxQNZMnQQ4+9F1P9nZuLkiarg+I1ayDL7un9K1QNJ5Lbbm
-         TwM9qDZFY6l8iMAEQlXCZmrZX/UTIIaiRVKOmCclCq+9Xt1nCP9T9yyGFGEkYlVdalUE
-         Pwf7disJqFCmPuDvwSh4pSg7T+xxg4HOTTZUvKDi0AUGm04/CHSoOrwnnSdz8j54fOxx
-         35Ug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737640829; x=1738245629;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=KrivE+jXCcpkJfX31hjpK5tPlRP7KoKj2mnULiizYXQ=;
-        b=wzSctmKumScj6AJF/icR8Leq5S86tN7sNkPLKWv1n6FcgfmD3uR1l5z0LiRXtZ+SpZ
-         XU3e55Eq0v4a3R+N0KTL9xDbiH7UUBVTDs1z2ElV+pL0p9sLUWNRBN50muvlbgsP5neu
-         xq5fQ99+JZmI/8rQRz+9oK9tGvvTvXohyu3PYP8jP6uqIo1H1YU4eFOA9hanm0LCdgp1
-         BKyAD13doXnjKTY5JJZSV18IjNj7sWMgxYqL9jq1l+h9+/lijd0fFxxzlzFENwTvHz7I
-         Ya/RGwlBMJiY56l+8ZcFUx7YuJlnq8HJbVOnPzjkU1hxOsQ/cTSa94cW2IlfToSK7Yb3
-         zgiA==
-X-Forwarded-Encrypted: i=1; AJvYcCWApiil6uPw+ddpbz2BP92q+isaaE6wRm4g9FyPYzTkXv7EfvAbzLs8d4g4Wm6oYtrhVFYyEecopcF1Gj1Lw7xT@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw4dO4JoX0/O8lFAvMlx0WdaowZlx3gOsK1RUa0zssens9vr023
-	TNYAwxqjLZXHWg0fTPdcLdGxfwTBO8zSkFsEAVcbMHPI9xEo643cVeQxIuMuB7c+76IC0lKkRIQ
-	CAMKvOqYaZ8TM/GdfiSPM5U5nunA=
-X-Gm-Gg: ASbGnctU8il30rp6ttepAMZEgAddTLalX4dzt5xyqlCl+jTIavChS4LpRHyYA5PeCSv
-	XnXLQg9/3iQAbQ3EQN78MPu1S/m+FKv44vB8nsQ6Ms8/zxDkx6Tw4zb4RZ5OVQA==
-X-Google-Smtp-Source: AGHT+IFmTC6qmDF4oUBj7xpD8an7Qpq8DoBkwz2IBfRe4cVvkaz/pes+WZH4kbi478o6Q0jVZbaKQwuX1r2P0uDuuGQ=
-X-Received: by 2002:a05:6a00:2406:b0:72a:a7a4:99ca with SMTP id
- d2e1a72fcca58-72daf973e78mr14767252b3a.2.1737640828927; Thu, 23 Jan 2025
- 06:00:28 -0800 (PST)
-MIME-Version: 1.0
-References: <20250122-msm-gpu-fault-fixes-next-v3-0-0afa00158521@gmail.com>
- <20250122-msm-gpu-fault-fixes-next-v3-1-0afa00158521@gmail.com> <Z5IjsqQ6vTdUXiGt@hu-guptap-hyd.qualcomm.com>
-In-Reply-To: <Z5IjsqQ6vTdUXiGt@hu-guptap-hyd.qualcomm.com>
-From: Connor Abbott <cwabbott0@gmail.com>
-Date: Thu, 23 Jan 2025 09:00:17 -0500
-X-Gm-Features: AWEUYZkhKWn32H9Mkt-2dMmko580derQXOamfCI9VPysLRLbJNJBREOXqAVlk7w
-Message-ID: <CACu1E7H5X2EfY9AG=xceaoZJkbumwnrsU4QvNbxd_A2wgVVOaQ@mail.gmail.com>
-Subject: Re: [PATCH v3 1/3] iommu/arm-smmu: Fix spurious interrupts with stall-on-fault
-To: Prakash Gupta <quic_guptap@quicinc.com>
-Cc: Rob Clark <robdclark@gmail.com>, Will Deacon <will@kernel.org>, 
-	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, Sean Paul <sean@poorly.run>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Abhinav Kumar <quic_abhinavk@quicinc.com>, 
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
-	Marijn Suijten <marijn.suijten@somainline.org>, iommu@lists.linux.dev, 
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	freedreno@lists.freedesktop.org
-Content-Type: text/plain; charset="UTF-8"
+	id 1taxqj-0000000CZVc-0xRM;
+	Thu, 23 Jan 2025 14:06:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1737641165; cv=none;
+    d=strato.com; s=strato-dkim-0002;
+    b=pezeV67NOa+Ck54l4xdGEkvA+MHAlJVPr3imSuDz8T/3Qiio26PCszv8kp30eLejQf
+    5sNr26qOZMb3KZ3nJacN4H3ybOebEyd94/X5tjczpKUJZ5dVBYMBrlKfpBQ/vobQHpZN
+    NxNQ3+qAgpR37d8/ZsalWr0XBtus/syQeT5UdTUYJ2EK2Li/cdhFLMSFgLm1r2PjGpjw
+    JcF5wCxYylDMLGpV9TDoGs0K2KLB2Hvg5SBfTGczA2+1ynaamTWIRUQ3AtKRqvcMt8Z6
+    oaegj0XBcso/G4NGEpxwJFD66W8BEOAKBcYVFSowlW2Ek2ls/r/yL+L527JhA/0w6ppF
+    ca4Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1737641165;
+    s=strato-dkim-0002; d=strato.com;
+    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
+    From:Subject:Sender;
+    bh=qOd/wQclXu4wS6VTQ3uZHgoG3iZXR/9baSy6qU4XdB0=;
+    b=QA+pUGvdHmMAXj8O6DpShJ2E5fuaYAAt3yg4LGfFKHabLCDhXnE1Tl/LnavudffB62
+    NjEVeAK4MCMr2KKqJzsFxynDLbFAlw3DXBrXjBOXZEF//lE8TygyDg7VOvKbbPzGqp4f
+    RQp8eLSjbNZpxD2QDHvWe0Z6D0wA2fgsRj4SKpzR0OCYGlGnmT6bFnEPIICEV7K6JGcq
+    OocepOZwCEWgkvdep87ife1c4xONig6Hv58q/LyMTByevQLaI0wI6tvd0GQxRKgU94aW
+    S8M6xxMneL2NkvyTvjM1XY+U7jLGPfAQhYsyrwmeEa/Grgfa02oRYDoqe83+zxJkSuLg
+    H9oA==
+ARC-Authentication-Results: i=1; strato.com;
+    arc=none;
+    dkim=none
+X-RZG-CLASS-ID: mo01
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1737641165;
+    s=strato-dkim-0002; d=goldelico.com;
+    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
+    From:Subject:Sender;
+    bh=qOd/wQclXu4wS6VTQ3uZHgoG3iZXR/9baSy6qU4XdB0=;
+    b=FUxSx0a3fR8UcEMZ8MIpTqTmZxDIUsz9ihtWkb3TXrF/D+koYIdl2pdRltxA4eVogC
+    aG2sI3q1ULsomrRZ16U7zuYbzh0jeGnk0tieWJmMAHE7JSmX5L0B9i/fzdkT2cxBFvzF
+    XPtWHtJXeSztAklfxWnmKk4PvOmVY3NiTu0rmJ6qo9yhz39ik3Mci9zs4jQhhm7hyKY0
+    JA4rjHNLvnkOzuQZp66umHXrrN4L7txDIfL9JJn3++UrVx4aUdMZrMmWZ4OpEsDEiJkY
+    1hmqLcuNGIT02tkiKRFHLdQ16UQd14uonSAUHaYNRA7+NkG/cjEruHMptrEVqyW7o6sE
+    Fwcw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1737641165;
+    s=strato-dkim-0003; d=goldelico.com;
+    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
+    From:Subject:Sender;
+    bh=qOd/wQclXu4wS6VTQ3uZHgoG3iZXR/9baSy6qU4XdB0=;
+    b=HhTmBpAFmaZglcpbu8bA+TdnnwzTbi+y7OU/VLuGu/TnI2MjUHHmjKxkCZFWNYVyQi
+    S1DZsGz6e2AxkuL446AA==
+X-RZG-AUTH: ":JGIXVUS7cutRB/49FwqZ7WcJeFKiMhflhwDubTJ9o12DNOsPj0lFzL1yeToZ"
+Received: from smtpclient.apple
+    by smtp.strato.de (RZmta 51.2.21 DYNA|AUTH)
+    with ESMTPSA id Qeb5b110NE649yj
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (curve X9_62_prime256v1 with 256 ECDH bits, eq. 3072 bits RSA))
+	(Client did not present a certificate);
+    Thu, 23 Jan 2025 15:06:04 +0100 (CET)
+Content-Type: text/plain;
+	charset=us-ascii
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3776.700.51.11.1\))
+Subject: Re: [PATCH v2] Revert v6.2-rc1 and later "ARM: dts: bcm2835-rpi: Use
+ firmware clocks for display"
+From: "H. Nikolaus Schaller" <hns@goldelico.com>
+In-Reply-To: <5221f64e-fda4-4daa-add7-1d0b26765113@broadcom.com>
+Date: Thu, 23 Jan 2025 15:05:53 +0100
+Cc: Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Florian Fainelli <f.fainelli@gmail.com>,
+ Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>,
+ devicetree <devicetree@vger.kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ stable <stable@vger.kernel.org>,
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+ linux-rpi-kernel@lists.infradead.org,
+ arm-soc <linux-arm-kernel@lists.infradead.org>,
+ Discussions about the Letux Kernel <letux-kernel@openphoenux.org>
 Content-Transfer-Encoding: quoted-printable
+Message-Id: <D6C59720-57A3-4EE0-A78C-F259F8906C0D@goldelico.com>
+References: <cb9e10dfb4f50207e33ddac16794ee6b806744da.1737217627.git.hns@goldelico.com>
+ <808a325f-81bc-4f5d-8c07-fa255ef2d25a@gmx.net>
+ <8F33BB1D-2210-421B-A788-8484C23DF4C6@goldelico.com>
+ <5221f64e-fda4-4daa-add7-1d0b26765113@broadcom.com>
+To: Florian Fainelli <florian.fainelli@broadcom.com>,
+ Stefan Wahren <wahrenst@gmx.net>
+X-Mailer: Apple Mail (2.3776.700.51.11.1)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_060030_670426_3431A2A3 
-X-CRM114-Status: GOOD (  34.72  )
+X-CRM114-CacheID: sfid-20250123_060625_534662_BAD7FF31 
+X-CRM114-Status: GOOD (  14.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,166 +120,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 23, 2025 at 6:10=E2=80=AFAM Prakash Gupta <quic_guptap@quicinc.=
-com> wrote:
->
-> On Wed, Jan 22, 2025 at 03:00:58PM -0500, Connor Abbott wrote:
->
-> > @@ -125,12 +125,25 @@ static void qcom_adreno_smmu_resume_translation(c=
-onst void *cookie, bool termina
-> >       struct arm_smmu_domain *smmu_domain =3D (void *)cookie;
-> >       struct arm_smmu_cfg *cfg =3D &smmu_domain->cfg;
-> >       struct arm_smmu_device *smmu =3D smmu_domain->smmu;
-> > -     u32 reg =3D 0;
-> > +     u32 reg =3D 0, sctlr;
-> > +     unsigned long flags;
-> >
-> >       if (terminate)
-> >               reg |=3D ARM_SMMU_RESUME_TERMINATE;
-> >
-> > +     spin_lock_irqsave(&smmu_domain->cb_lock, flags);
-> > +
-> >       arm_smmu_cb_write(smmu, cfg->cbndx, ARM_SMMU_CB_RESUME, reg);
-> > +
-> At this point further transaction can be processed but SCTLR.CFIE is
-> cleared so subequent context fault will not generate interrupt till
-> SCTLR.CFIE is set.
+Hi,
 
-If you're asking why the spin lock is there, it's because this isn't
-true if there's another context bank, they share an interrupt line,
-and it happens to fault around the same time. I haven't checked if
-that's actually the case for Adreno, but in case this gets used by
-other drivers and moved into common code I want it to be as robust as
-possible. This is explained in the comment added to
-arm_smmu_context_fault(). Also the next commit toggles CFCFG and we
-want to serialize against that.
-
->
-> > +     /*
-> > +      * Re-enable interrupts after they were disabled by
-> > +      * arm_smmu_context_fault().
-> > +      */
-> > +     sctlr =3D arm_smmu_cb_read(smmu, cfg->cbndx, ARM_SMMU_CB_SCTLR);
-> > +     sctlr |=3D ARM_SMMU_SCTLR_CFIE;
-> > +     arm_smmu_cb_write(smmu, cfg->cbndx, ARM_SMMU_CB_SCTLR, sctlr);
-> > +
-> > +     spin_unlock_irqrestore(&smmu_domain->cb_lock, flags);
-> >  }
-> >
-> >  static void qcom_adreno_smmu_set_prr_bit(const void *cookie, bool set)
-> > diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/=
-arm-smmu/arm-smmu.c
-> > index 79afc92e1d8b984dd35c469a3f283ad0c78f3d26..ca1ff59015a63912f0f9c52=
-56452b2b2efa928f1 100644
-> > --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> > +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> > @@ -463,13 +463,52 @@ static irqreturn_t arm_smmu_context_fault(int irq=
-, void *dev)
-> >       if (!(cfi.fsr & ARM_SMMU_CB_FSR_FAULT))
-> >               return IRQ_NONE;
-> >
-> > +     /*
-> > +      * On some implementations FSR.SS asserts a context fault
-> > +      * interrupt. We do not want this behavior, because resolving the
-> > +      * original context fault typically requires operations that cann=
-ot be
-> > +      * performed in IRQ context but leaving the stall unacknowledged =
-will
-> > +      * immediately lead to another spurious interrupt as FSR.SS is st=
-ill
-> > +      * set. Work around this by disabling interrupts for this context=
- bank.
-> > +      * It's expected that interrupts are re-enabled after resuming th=
-e
-> > +      * translation.
-> > +      *
-> > +      * We have to do this before report_iommu_fault() so that we don'=
-t
-> > +      * leave interrupts disabled in case the downstream user decides =
+> Am 20.01.2025 um 17:34 schrieb Florian Fainelli =
+<florian.fainelli@broadcom.com>:
+>=20
+>=20
+>=20
+> On 1/19/2025 7:04 AM, 'H. Nikolaus Schaller' via =
+BCM-KERNEL-FEEDBACK-LIST,PDL wrote:
+>> Hi Stefan,
+>>> Am 19.01.2025 um 01:36 schrieb Stefan Wahren <wahrenst@gmx.net>:
+>>>=20
+>>> Hi,
+>>>=20
+>>> Am 18.01.25 um 17:27 schrieb H. Nikolaus Schaller:
+>>>> This reverts commit 27ab05e1b7e5c5ec9b4f658e1b2464c0908298a6.
+>>>>=20
+>>>> I tried to upgrade a RasPi 3B+ with Waveshare 7inch HDMI LCD
+>>>> from 6.1.y to 6.6.y but found that the display is broken with
+>>>> this log message:
+>>>>=20
+>>>> [   17.776315] vc4-drm soc:gpu: bound 3f400000.hvs (ops =
+vc4_drm_unregister [vc4])
+>>>> [   17.784034] platform 3f806000.vec: deferred probe pending
+>>>>=20
+>>>> Some tests revealed that while 6.1.y works, 6.2-rc1 is already =
+broken but all
+>>>> newer kernels as well. And a bisect did lead me to this patch.
+>>> I successfully tested every Kernel release until Linux 6.13-rc with =
 the
-> > +      * fault can be resolved inside its fault handler.
-> > +      *
-> > +      * There is a possible race if there are multiple context banks s=
-haring
-> > +      * the same interrupt and both signal an interrupt in between wri=
-ting
-> > +      * RESUME and SCTLR. We could disable interrupts here before we
-> > +      * re-enable them in the resume handler, leaving interrupts enabl=
-ed.
-> > +      * Lock the write to serialize it with the resume handler.
-> > +      */
-> > +     if (cfi.fsr & ARM_SMMU_CB_FSR_SS) {
-> > +             u32 val;
-> > +
-> > +             spin_lock(&smmu_domain->cb_lock);
-> > +             val =3D arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_SCTLR);
-> > +             val &=3D ~ARM_SMMU_SCTLR_CFIE;
-> > +             arm_smmu_cb_write(smmu, idx, ARM_SMMU_CB_SCTLR, val);
-> > +             spin_unlock(&smmu_domain->cb_lock);
-> > +     }
-> > +
-> > +     /*
-> > +      * The SMMUv2 architecture specification says that if stall-on-fa=
-ult is
-> > +      * enabled the correct sequence is to write to SMMU_CBn_FSR to cl=
-ear
-> > +      * the fault and then write to SMMU_CBn_RESUME. Clear the interru=
-pt
-> > +      * first before running the user's fault handler to make sure we =
-follow
-> > +      * this sequence. It should be ok if there is another fault in th=
-e
-> > +      * meantime because we have already read the fault info.
-> > +      */
-> The context would remain stalled till we write to CBn_RESUME. Which is do=
-ne
-> in qcom_adreno_smmu_resume_translation(). For a stalled context further
-> transactions are not processed and we shouldn't see further faults and
-> or fault inerrupts. Do you observe faults with stalled context?
+>>> Raspberry Pi 3B+, so i prefer to step back and analyze this issue =
+further.
+>> Yes, I would be happy with any solution.
+>>> What kernel config do you use ?
+>> a private one which enables application specific drivers.
+>>> What is the value of CONFIG_CLK_RASPBERRYPI ?
+>> CONFIG_CLK_RASPBERRYPI is not set
+>> I checked where this is defined and it is in bcm2835_defconfig and
+>> multi_v7_defconfig by
+>> 4c6f5d4038af2c ("ARM: defconfig: enable cpufreq driver for RPi")
+>> which hides this requirement quite well and got therefore =
+unnoticed...
+>> Setting CONFIG_CLK_RASPBERRYPI=3Dy makes HDMI work without my =
+proposed revert.
+>> Tested with v6.2.16, v6.6.72, v6.12.10 and v6.13-rc7.
+>=20
+> I have been burned before by something similar and came up with this =
+patch series that I should resubmit after addressing Conor's comment:
+>=20
+> =
+https://lore.kernel.org/all/20240513235234.1474619-1-florian.fainelli@broa=
+dcom.com/
+>=20
+> Essentially, it removes the guess work, all you have to do is enable =
+CONFIG_ARCH_BCM2835 and it just works, which is how it should be IMHO.
 
-Yes. I've observed that on MMU-500 writing RESUME before the interrupt
-has been cleared doesn't clear SS. This happened with v2 in the case
-where there was already a devcoredump and drm/msm called
-qcom_adreno_smmu_resume_translation() immediately from its fault
-handler, and we'd get a storm of unhandled interrupts until it was
-disabled. Given that the architecture spec says we're supposed to
-clear the interrupt first this may have been an attempt to "help"
-developers.
+Sounds like a good idea!
 
->
-> > +     arm_smmu_cb_write(smmu, idx, ARM_SMMU_CB_FSR, cfi.fsr);
-> > +
-> >       ret =3D report_iommu_fault(&smmu_domain->domain, NULL, cfi.iova,
-> >               cfi.fsynr & ARM_SMMU_CB_FSYNR0_WNR ? IOMMU_FAULT_WRITE : =
-IOMMU_FAULT_READ);
-> >
-> >       if (ret =3D=3D -ENOSYS && __ratelimit(&rs))
-> >               arm_smmu_print_context_fault_info(smmu, idx, &cfi);
-> >
-> > -     arm_smmu_cb_write(smmu, idx, ARM_SMMU_CB_FSR, cfi.fsr);
-> >       return IRQ_HANDLED;
-> >  }
-> >
-> > diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.h b/drivers/iommu/arm/=
-arm-smmu/arm-smmu.h
-> > index 2dbf3243b5ad2db01e17fb26c26c838942a491be..789c64ff3eb9944c8af3742=
-6e005241a8288da20 100644
-> > --- a/drivers/iommu/arm/arm-smmu/arm-smmu.h
-> > +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.h
-> > @@ -216,7 +216,6 @@ enum arm_smmu_cbar_type {
-> >                                        ARM_SMMU_CB_FSR_TLBLKF)
-> >
-> >  #define ARM_SMMU_CB_FSR_FAULT                (ARM_SMMU_CB_FSR_MULTI | =
-       \
-> > -                                      ARM_SMMU_CB_FSR_SS |           \
-> Given writing to FSR.SS doesn't clear this bit but write to CBn_RESUME
-> does, this seems right. This but can be taken as separate patch.
->
-> >                                        ARM_SMMU_CB_FSR_UUT |          \
-> >                                        ARM_SMMU_CB_FSR_EF |           \
-> >                                        ARM_SMMU_CB_FSR_PF |           \
-> >
-> > --
-> > 2.47.1
-> >
+Supported-by: H. Nikolaus Schaller <hns@goldelico.com>
+
+BR,
+Nikoalus
+
 
