@@ -4,87 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6ED4C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 07:27:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D52A1C0218B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 07:39:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:References:
-	In-Reply-To:Message-ID:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=veVVuKJ87/rWDfKKk1AslmxtqJaSaNITyAxbJjSZqBs=; b=2QBwBsb13wIrDH
-	+EN80KtKvhRF7OH+/0ZOaFTwcCmlN/9SnTaI7/lwhI4t4LfwM1iW6GsOg/tJbvQsyLo/DjqkZRxsr
-	ulh7MLvpEPDX5wV0f9ShNCJrpQteF1UfLRsUSDiEBq/fAciYftVxgEhJshaH/zmWZyQDVTkhVy7S6
-	Edx88FJkBh5RuqaM7I9UzDDywuQoOU5WP49qnr7KQZ9yqBP2YXd0Imd1U89us6Ykm+bmRgaubC5AF
-	8kp/3ZFMlbmQELegs8GxRpIsOj7eriOSYAKqu3bRm0n+z0/YoQE4F9Z/AAYV0dF12CrpOiRR+cA5l
-	ZuufpV9Emazhz7WDUpBQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XaiEwb9GzSb1/VXlwzCT2CT2IHfMEAwz/tMVIauuf48=; b=Y9gYb2ShnAVCRn0uAK/Y4/zlAN
+	q6A0C5QNpQcstbWemaoPvn1rG+dY4xs+o8Djr1zioO+sKhuyxblpYMCWImRbTlvVXx6jyYTLdrRFd
+	icmV5Wy46KW0eGE2d27OkPyzXLOC6oRxtzlLgBAUonqpoiahgMHzNA9UopfZEg9Ubwa28j5UVMuA2
+	xHAgYKCav7zbZbFvlBOvk6Ew4+5tt/iO0KZNPNqrwHaEU9PvY+Vs+25OJGpq8Z85Zid40YshRVjGl
+	6OnkuDoagGoG8zx3tlXO0Wy2kRnOOQVo6mKhe1GjmW0wRaRGx2N7ZLHm2GjDv63QF6RozXyxxO6h1
+	lBOcz9Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tarcX-0000000BrWs-2bsD;
-	Thu, 23 Jan 2025 07:27:21 +0000
-Received: from server.wki.vra.mybluehostin.me ([162.240.238.73])
+	id 1taroH-0000000Bsuk-1UXp;
+	Thu, 23 Jan 2025 07:39:29 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tarbD-0000000BrJQ-37S2
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 07:26:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
-	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=veVVuKJ87/rWDfKKk1AslmxtqJaSaNITyAxbJjSZqBs=; b=sClbXXEvBxiDWOPpHjgna2Gr/r
-	y7v1+u6od2V3kWR5Nd3lCCR2kHu5jhH6cUl4U9+h//cIsVEFI3Gyiba6S9Q82ZyoN4iwE2FIsqS3W
-	DsxNnFTErn3b2PRzsPP0aO1xORwztmfTzvrZan4K5x7E1Y0CAPiBY4UJljzuJNZUzVxXW7Rbb6pdR
-	zFlvVbaokqMzbs96DSwagskLz3Km6HfJXaGxuzfEcM2jKKTtiijosYTR6xjXZ6hlBV8jb4jL3W9SA
-	r7PzG6sPpqv/jKYGPQ3jXs3ARB9GfbCtT8gfF15l/jQ2WFZPzE5ki1LeF45zlZ870NkaxDng6OGoV
-	+UMB5CsA==;
-Received: from [122.175.9.182] (port=20914 helo=zimbra.couthit.local)
-	by server.wki.vra.mybluehostin.me with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <basharath@couthit.com>)
-	id 1tarb9-0008NK-2D;
-	Thu, 23 Jan 2025 12:55:56 +0530
-Received: from zimbra.couthit.local (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTPS id 81E7F1781A7D;
-	Thu, 23 Jan 2025 12:55:49 +0530 (IST)
-Received: from localhost (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTP id 623C21782495;
-	Thu, 23 Jan 2025 12:55:49 +0530 (IST)
-Received: from zimbra.couthit.local ([127.0.0.1])
-	by localhost (zimbra.couthit.local [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id CgdwGL9ompX1; Thu, 23 Jan 2025 12:55:49 +0530 (IST)
-Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
-	by zimbra.couthit.local (Postfix) with ESMTP id 1E2E41781A7D;
-	Thu, 23 Jan 2025 12:55:49 +0530 (IST)
-Date: Thu, 23 Jan 2025 12:55:48 +0530 (IST)
-From: Basharath Hussain Khaja <basharath@couthit.com>
-To: Jason Xing <kerneljasonxing@gmail.com>
-Message-ID: <507763040.391350.1737617148913.JavaMail.zimbra@couthit.local>
-In-Reply-To: <CAL+tcoD6WuJH6yXaEGvuz_s3sROPXtEMeZw1hBNQvb6wnKKr-w@mail.gmail.com>
-References: <20250109105600.41297-1-basharath@couthit.com> <20250110055906.65086-7-basharath@couthit.com> <CAL+tcoD6WuJH6yXaEGvuz_s3sROPXtEMeZw1hBNQvb6wnKKr-w@mail.gmail.com>
-Subject: Re: [RFC PATCH 06/10] net: ti: prueth: Adds HW timestamping support
- for PTP using PRU-ICSS IEP module
+	id 1tarmz-0000000Bsg9-0BLi;
+	Thu, 23 Jan 2025 07:38:10 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50N3wf9L017075;
+	Thu, 23 Jan 2025 07:37:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	XaiEwb9GzSb1/VXlwzCT2CT2IHfMEAwz/tMVIauuf48=; b=dPqQvTr9LyVe1xEn
+	MX7AkSZ2PItM6U5xtxpFXHTQZKUrNBttI1catuJNSpsS3gCDPbfKi+Wzt2lltN6A
+	iFjVfQr8KgIfPUmFT/fN1vsQTmzIKEryVIgz1TDNhvqTr3rbQxrlVYGxT7lHqkW2
+	jtZY2HMKduqe3SExqqWBAH+j7HWGDWeaZNf5dyAVoNOvfumvMG4XNTR3wudDU6AP
+	5Uzet0zt/7eoQ8nRZsmBzl7NSUgXxsisbou/vBgM1KV87A9E6xXnV8H+PvpYW1/8
+	NI/haH9yJwdGNuavzDjHMhymH8m5maMjtIXb1j3jcstPz3gVMba0/+4rp4DizRkx
+	TIqR0A==
+Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44bebbgd6j-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 23 Jan 2025 07:37:58 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 50N7bvFb019617
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 23 Jan 2025 07:37:57 GMT
+Received: from [10.239.155.136] (10.80.80.8) by nasanex01b.na.qualcomm.com
+ (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 22 Jan
+ 2025 23:37:51 -0800
+Message-ID: <f3a0b0b1-f4a8-4285-96de-8ce2633c7918@quicinc.com>
+Date: Thu, 23 Jan 2025 15:37:48 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Originating-IP: [10.10.10.103]
-X-Mailer: Zimbra 8.8.15_GA_3968 (ZimbraWebClient - FF113 (Linux)/8.8.15_GA_3968)
-Thread-Topic: prueth: Adds HW timestamping support for PTP using PRU-ICSS IEP module
-Thread-Index: wTJ8No/eSvZZY8f30NQgDnaEMvdq2w==
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.wki.vra.mybluehostin.me
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.wki.vra.mybluehostin.me: authenticated_id: smtp@couthit.com
-X-Authenticated-Sender: server.wki.vra.mybluehostin.me: smtp@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/8] scsi: ufs: core: Pass target_freq to
+ clk_scale_notify() vops
+To: Bart Van Assche <bvanassche@acm.org>, <quic_cang@quicinc.com>,
+        <mani@kernel.org>, <beanhuo@micron.com>, <avri.altman@wdc.com>,
+        <junwoo80.lee@samsung.com>, <martin.petersen@oracle.com>,
+        <quic_nguyenb@quicinc.com>, <quic_nitirawa@quicinc.com>,
+        <quic_rampraka@quicinc.com>
+CC: <linux-arm-msm@vger.kernel.org>, <linux-scsi@vger.kernel.org>,
+        Alim Akhtar
+	<alim.akhtar@samsung.com>,
+        "James E.J. Bottomley"
+	<James.Bottomley@HansenPartnership.com>,
+        Peter Wang
+	<peter.wang@mediatek.com>,
+        Stanley Jhu <chu.stanley@gmail.com>,
+        "Manivannan
+ Sadhasivam" <manivannan.sadhasivam@linaro.org>,
+        Matthias Brugger
+	<matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>,
+        Andrew Halaney
+	<ahalaney@redhat.com>,
+        Maramaina Naresh <quic_mnaresh@quicinc.com>,
+        "Eric
+ Biggers" <ebiggers@google.com>,
+        Minwoo Im <minwoo.im@samsung.com>,
+        open list
+	<linux-kernel@vger.kernel.org>,
+        "moderated list:UNIVERSAL FLASH STORAGE HOST
+ CONTROLLER DRIVER..." <linux-mediatek@lists.infradead.org>,
+        "moderated
+ list:ARM/Mediatek SoC support:Keyword:mediatek"
+	<linux-arm-kernel@lists.infradead.org>
+References: <20250122100214.489749-1-quic_ziqichen@quicinc.com>
+ <20250122100214.489749-2-quic_ziqichen@quicinc.com>
+ <2e42cc2b-5597-435a-a58d-507c46e1132f@acm.org>
+Content-Language: en-US
+From: Ziqi Chen <quic_ziqichen@quicinc.com>
+In-Reply-To: <2e42cc2b-5597-435a-a58d-507c46e1132f@acm.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: 1GpTbm2S83pcV9tsyR83haxBRJ49a72g
+X-Proofpoint-ORIG-GUID: 1GpTbm2S83pcV9tsyR83haxBRJ49a72g
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-23_03,2025-01-22_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
+ impostorscore=0 malwarescore=0 adultscore=0 spamscore=0 lowpriorityscore=0
+ bulkscore=0 mlxlogscore=999 clxscore=1015 suspectscore=0 mlxscore=0
+ phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501230057
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_232559_809235_ADA720AB 
-X-CRM114-Status: GOOD (  14.78  )
+X-CRM114-CacheID: sfid-20250122_233809_220104_CC5906C5 
+X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,152 +126,34 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: nm <nm@ti.com>, vigneshr <vigneshr@ti.com>, tony <tony@atomide.com>, edumazet <edumazet@google.com>, krishna <krishna@couthit.com>, pmohan <pmohan@couthit.com>, diogo ivo <diogo.ivo@siemens.com>, Rob Herring <robh@kernel.org>, javier carrasco cruz <javier.carrasco.cruz@gmail.com>, praneeth <praneeth@ti.com>, m-karicheri2 <m-karicheri2@ti.com>, basharath <basharath@couthit.com>, kuba <kuba@kernel.org>, pabeni <pabeni@redhat.com>, devicetree <devicetree@vger.kernel.org>, conor+dt <conor+dt@kernel.org>, schnelle <schnelle@linux.ibm.com>, mohan <mohan@couthit.com>, richardcochran <richardcochran@gmail.com>, prajith <prajith@ti.com>, rogerq <rogerq@kernel.org>, jacob e keller <jacob.e.keller@intel.com>, ssantosh <ssantosh@kernel.org>, linux-omap <linux-omap@vger.kernel.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, rogerq <rogerq@ti.com>, srk <srk@ti.com>, pratheesh <pratheesh@ti.com>, m-malladi <m-malladi@ti.com>, netdev <netdev@vger.kernel.org>, rdunlap <rdunlap@infradead.org>, linux-kernel <linux-kernel@vger.kernel.org>, danishanwar <danishanwar@ti.com>, afd <afd@ti.com>, andrew+netdev <andrew+netdev@lunn.ch>, parvathi <parvathi@couthit.com>, horms <horms@kernel.org>, krzk+dt <krzk+dt@kernel.org>, davem <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On Fri, Jan 10, 2025 at 2:01=E2=80=AFPM Basharath Hussain Khaja
-> <basharath@couthit.com> wrote:
->>
->> From: Roger Quadros <rogerq@ti.com>
->>
->> PRU-ICSS IEP module, which is capable of timestamping RX and
->> TX packets at HW level, is used for time synchronization by PTP4L.
->>
->> This change includes interaction between firmware and user space
->> application (ptp4l) with required packet timestamps. The driver
->> initializes the PRU firmware with appropriate mode and configuration
->> flags. Firmware updates local registers with the flags set by driver
->> and uses for further operation. RX SOF timestamp comes along with
->> packet and firmware will rise interrupt with TX SOF timestamp after
->> pushing the packet on to the wire.
->>
->> IEP driver is available in upstream and we are reusing for hardware
->> configuration for ICSSM as well. On top of that we have extended it
->> with the changes for AM57xx SoC.
->>
->> Extended ethtool for reading HW timestamping capability of the PRU
->> interfaces.
->>
->> Currently ordinary clock (OC) configuration has been validated with
->> Linux ptp4l.
->>
->> Signed-off-by: Roger Quadros <rogerq@ti.com>
->> Signed-off-by: Andrew F. Davis <afd@ti.com>
->> Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
->> Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
->> ---
->>  drivers/net/ethernet/ti/icssg/icss_iep.c      |  42 ++
->>  drivers/net/ethernet/ti/icssm/icssm_ethtool.c |  26 +
->>  drivers/net/ethernet/ti/icssm/icssm_prueth.c  | 443 +++++++++++++++++-
->>  drivers/net/ethernet/ti/icssm/icssm_prueth.h  |  11 +
->>  .../net/ethernet/ti/icssm/icssm_prueth_ptp.h  |  85 ++++
->>  5 files changed, 605 insertions(+), 2 deletions(-)
->>  create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_ptp.h
->>
->> diff --git a/drivers/net/ethernet/ti/icssg/icss_iep.c
->> b/drivers/net/ethernet/ti/icssg/icss_iep.c
->> index 768578c0d958..9a2ea13703d8 100644
->> --- a/drivers/net/ethernet/ti/icssg/icss_iep.c
->> +++ b/drivers/net/ethernet/ti/icssg/icss_iep.c
->> @@ -937,11 +937,53 @@ static const struct icss_iep_plat_data
->> am654_icss_iep_plat_data =3D {
->>         .config =3D &am654_icss_iep_regmap_config,
->>  };
->>
->> +static const struct icss_iep_plat_data am57xx_icss_iep_plat_data =3D {
->> +       .flags =3D ICSS_IEP_64BIT_COUNTER_SUPPORT |
->> +                ICSS_IEP_SLOW_COMPEN_REG_SUPPORT,
->> +       .reg_offs =3D {
->> +               [ICSS_IEP_GLOBAL_CFG_REG] =3D 0x00,
->> +               [ICSS_IEP_COMPEN_REG] =3D 0x08,
->> +               [ICSS_IEP_SLOW_COMPEN_REG] =3D 0x0C,
->> +               [ICSS_IEP_COUNT_REG0] =3D 0x10,
->> +               [ICSS_IEP_COUNT_REG1] =3D 0x14,
->> +               [ICSS_IEP_CAPTURE_CFG_REG] =3D 0x18,
->> +               [ICSS_IEP_CAPTURE_STAT_REG] =3D 0x1c,
->> +
->> +               [ICSS_IEP_CAP6_RISE_REG0] =3D 0x50,
->> +               [ICSS_IEP_CAP6_RISE_REG1] =3D 0x54,
->> +
->> +               [ICSS_IEP_CAP7_RISE_REG0] =3D 0x60,
->> +               [ICSS_IEP_CAP7_RISE_REG1] =3D 0x64,
->> +
->> +               [ICSS_IEP_CMP_CFG_REG] =3D 0x70,
->> +               [ICSS_IEP_CMP_STAT_REG] =3D 0x74,
->> +               [ICSS_IEP_CMP0_REG0] =3D 0x78,
->> +               [ICSS_IEP_CMP0_REG1] =3D 0x7c,
->> +               [ICSS_IEP_CMP1_REG0] =3D 0x80,
->> +               [ICSS_IEP_CMP1_REG1] =3D 0x84,
->> +
->> +               [ICSS_IEP_CMP8_REG0] =3D 0xc0,
->> +               [ICSS_IEP_CMP8_REG1] =3D 0xc4,
->> +               [ICSS_IEP_SYNC_CTRL_REG] =3D 0x180,
->> +               [ICSS_IEP_SYNC0_STAT_REG] =3D 0x188,
->> +               [ICSS_IEP_SYNC1_STAT_REG] =3D 0x18c,
->> +               [ICSS_IEP_SYNC_PWIDTH_REG] =3D 0x190,
->> +               [ICSS_IEP_SYNC0_PERIOD_REG] =3D 0x194,
->> +               [ICSS_IEP_SYNC1_DELAY_REG] =3D 0x198,
->> +               [ICSS_IEP_SYNC_START_REG] =3D 0x19c,
->> +       },
->> +       .config =3D &am654_icss_iep_regmap_config,
->> +};
->> +
->>  static const struct of_device_id icss_iep_of_match[] =3D {
->>         {
->>                 .compatible =3D "ti,am654-icss-iep",
->>                 .data =3D &am654_icss_iep_plat_data,
->>         },
->> +       {
->> +               .compatible =3D "ti,am5728-icss-iep",
->> +               .data =3D &am57xx_icss_iep_plat_data,
->> +       },
->>         {},
->>  };
->>  MODULE_DEVICE_TABLE(of, icss_iep_of_match);
->> diff --git a/drivers/net/ethernet/ti/icssm/icssm_ethtool.c
->> b/drivers/net/ethernet/ti/icssm/icssm_ethtool.c
->> index cce3276d5565..86d62d64dc4d 100644
->> --- a/drivers/net/ethernet/ti/icssm/icssm_ethtool.c
->> +++ b/drivers/net/ethernet/ti/icssm/icssm_ethtool.c
->> @@ -7,6 +7,7 @@
->>
->>  #include <linux/if_bridge.h>
->>  #include "icssm_prueth.h"
->> +#include "../icssg/icss_iep.h"
->>
->>  #define PRUETH_MODULE_VERSION "0.2"
->>  #define PRUETH_MODULE_DESCRIPTION "PRUSS Ethernet driver"
->> @@ -189,12 +190,37 @@ static void icssm_emac_get_regs(struct net_device =
-*ndev,
->>         regs->version =3D PRUETH_REG_DUMP_GET_VER(prueth);
->>  }
->>
->> +static int icssm_emac_get_ts_info(struct net_device *ndev,
->> +                                 struct kernel_ethtool_ts_info *info)
->> +{
->> +       struct prueth_emac *emac =3D netdev_priv(ndev);
->> +
->> +       if ((PRUETH_IS_EMAC(emac->prueth) && !emac->emac_ptp_tx_irq))
->> +               return ethtool_op_get_ts_info(ndev, info);
->> +
->> +       info->so_timestamping =3D
->> +               SOF_TIMESTAMPING_TX_HARDWARE |
->> +               SOF_TIMESTAMPING_TX_SOFTWARE |
->> +               SOF_TIMESTAMPING_RX_HARDWARE |
->> +               SOF_TIMESTAMPING_RX_SOFTWARE |
->> +               SOF_TIMESTAMPING_SOFTWARE |
->> +               SOF_TIMESTAMPING_RAW_HARDWARE;
->=20
-> In addtion to what Richard suggested, there is no need to re-mark the
-> following flags "SOF_TIMESTAMPING_RX_SOFTWARE" and
-> "SOF_TIMESTAMPING_SOFTWARE", please see __ethtool_get_ts_info().
->=20
 
-Yes. This module always uses IEP HW timestamping both on RX side and TX sid=
-e=20
-for better precision. We will clean this in the next version.
 
-Thanks & Best Regards,
-Basharath
+On 1/23/2025 2:19 AM, Bart Van Assche wrote:
+> On 1/22/25 2:02 AM, Ziqi Chen wrote:
+>> diff --git a/include/ufs/ufshcd.h b/include/ufs/ufshcd.h
+>> index d7aca9e61684..a4dac897a169 100644
+>> --- a/include/ufs/ufshcd.h
+>> +++ b/include/ufs/ufshcd.h
+>> @@ -344,7 +344,7 @@ struct ufs_hba_variant_ops {
+>>       void    (*exit)(struct ufs_hba *);
+>>       u32    (*get_ufs_hci_version)(struct ufs_hba *);
+>>       int    (*set_dma_mask)(struct ufs_hba *);
+>> -    int    (*clk_scale_notify)(struct ufs_hba *, bool,
+>> +    int (*clk_scale_notify)(struct ufs_hba *, bool, unsigned long,
+>>                       enum ufs_notify_change_status);
+>>       int    (*setup_clocks)(struct ufs_hba *, bool,
+>>                   enum ufs_notify_change_status);
+> 
+> Please keep the indentation consistent.
+> 
+> Thanks,
+> 
+> Bart.
+
+Thanks, Bart, I will improve it.
+
+-Ziqi
 
