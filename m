@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 064F7C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 11:46:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03899C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 11:47:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MdX1SYlxV+BuSD5MpIWAGjJb4j3+Z4eC30JBUmG9pbw=; b=OqMdA6dWb2vnj1ukeMskPq7gwE
-	8cPJViBQf8OgZCWvjP3yjYkkHy2fORpkoKILYjKqkJQzdFwvFC8iqe2R1fG3MuhM1auuinI7JVMIe
-	I4DICKqE3jvsPjrFk0KSDZoWFVQDsT3hrz/4yjS4y2Xvn+aAuK44Oz2b2fP0iL6yrGUUSK+AlYQib
-	shN2B4qHkU6rh5JhdJSVtgosiRKLT278z978Fu53NFKwJMS2VhKABTWVfGLHKuUjUKtmyQElJY7g4
-	76eNdZsmEDlfvMUD4swlps4LLIfrlxTPoO0/ltgTp+lo+CMbPkhVJE87w4f3pUk2+XBMrC3z98UtV
-	uNZ7hELw==;
+	bh=bidGXEhWbEsWi+5Sth126LejibvpIMLA/P72ifY2Y/8=; b=tU77aGFxiMNYSt2U2FGtHLvqjC
+	YP6iVc7KUwx8KLrRI8HB0pa95BIio225mF1GxKEdGzy4ctl34o+r/uv5Jg20CTyyu2YQgb6KXncLu
+	xqLn+fsGD9934thHdfSuVamm4AYcXaRYKIJ+Ay8/jfdpk4hDV959FGLnV/m3qrXl5sgCzvPW6bkbH
+	6U+B9t6hC2Bd6XOGCkoKIH6dTJmL5T0AwRmgDRnl00vdDLeRMIpXU1FcCZSEZgaN5Bez3IudPpYyv
+	suwGiUAhr1hdoRMemzBSpnKj+r1EidR/hunX5G1XVMd1+cll6E+n5ku4FTjpEB9fsTh+29HqAVPoD
+	SdinGBgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tavel-0000000CNbC-1RFR;
-	Thu, 23 Jan 2025 11:45:55 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1tavg2-0000000CNr3-0SE9;
+	Thu, 23 Jan 2025 11:47:14 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tavYR-0000000CM1v-1W8r
+	id 1tavYU-0000000CM4E-27qe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 11:39:24 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-215770613dbso8693255ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 03:39:23 -0800 (PST)
+	Thu, 23 Jan 2025 11:39:27 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-2f4448bf96fso1175487a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 03:39:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737632362; x=1738237162; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1737632366; x=1738237166; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=MdX1SYlxV+BuSD5MpIWAGjJb4j3+Z4eC30JBUmG9pbw=;
-        b=Gb7zBvNzolj8LlZUmzydLCdOllSyVTkQdwRyDv9BINp+cT6JerVrE9pVFAvBxAFzYY
-         P7T5c7AEkSXfmYR0A2y7r14jZXuFwmWrH1T/GW2SFO1xRFymDQAyzDSEmgPPDUEdT0hI
-         b8EdZB9aHtGL+/jDlf0dUs2P1FsOEg5rKw52HVZ5pZnGKIfL721yj13bj7yZm2Izu9hy
-         3//gzr0k3+yHA1elKtJk9jKPLMnAIT2VKbDtW9PoBU/lwENrT6yBzfIt0b2QUuD1ViP/
-         mseXM+5Piks74wUy2oV+JkGevZajYq7dGtKuwStrEo7Q/wNop9TyQwRwPAmlT+g99AvI
-         aB1w==
+        bh=bidGXEhWbEsWi+5Sth126LejibvpIMLA/P72ifY2Y/8=;
+        b=KKK1VOzichGv42zXVnI09nSbiAczw7PDuAJz1umzHWqmJuiFo/3iqOJHJ2jOcHT5eU
+         6rlCL5DV3Xf7yWoSB6LY9N1gO1rUeC+9Pk1TpkNnor0uygB7veTDaHGuk86H3utXlbXC
+         BxH7zABXpQ9GscjvN44KSZnyWLdojKRfmv90c9+6wgucnapjx5V8+nT0QPd9OIvk3NhA
+         91wXF/dvnS/P3oTVPjzBcdXU9Qac+fYsoiowK0j4ft4KmGiNZ97MMV+gEcLc/EYqZU7q
+         tZt9Ur6P/gWsbVSFVomVxC5SHJC9WbzOKGiBA9EzrtgzubNNnFsobMXBuhZXCpUGOQC4
+         Vbsg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737632362; x=1738237162;
+        d=1e100.net; s=20230601; t=1737632366; x=1738237166;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=MdX1SYlxV+BuSD5MpIWAGjJb4j3+Z4eC30JBUmG9pbw=;
-        b=drCwhQE+eiJUjwfBtGddJu8fpGzRRuYJdHRP4/kBo+AhJdE1DcMz2HMy4vaiat1+j0
-         CkjDYY9EgYhCANbOS9qg6Br9CpgMNrAFFUuHMxlFVrlG56B+JecW9cinhJ87UjwmA6pL
-         uuZH/fNBnOP3xWclrYyZmZCFa73u4V/4231pG1b3VyNQYpy6C38KY9/8BLwEcqr9J4oP
-         ZZqOP9GpEhcMAw4WjREIxoCbpP8Qn1P+DMh55JCXR35H68ew4P/oBeMu4XwCDfSUmIVm
-         krxPYqmEXp8Z+wGPyVkiSFyLlh/fL7lUoaSjTy3UqwQtvhADfS5AoPQFcCWF5CpPouAu
-         Nptw==
-X-Forwarded-Encrypted: i=1; AJvYcCWykw6tRk9HjhrUq5WWbeQHQBmrPUJzIjPmAInzQYzt+Lfu3Lsqe5CWtljuat6GzDzKgdeXnMoLUi+YZW9vyvTc@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZZy9PTT+2DesYGvt9/PtzFUISbsr+RKWTioln61zlMsDiEWAy
-	milOsXABPVsmNB4gcrtd/A81cMhuLWEc9zpBpux3fJx+eZ4z5Wcgo9ThKacZuy0=
-X-Gm-Gg: ASbGncs631MXqAdzfOmmYnDdPI9aMQiNxeC3okrzOZ6Ddxf966KM8WLLPc7upXuZe1u
-	AZZXZp+XpHemZVlqifPHUnGGDB68oaIWWib4QLtQoqgIJk0IfZxZHd9EhdU1mImmpGCLWy4afNi
-	6/RgrtIXDWL5uktd4RFgt0YkoSt6hxaTTEyoUnrV741Ox0vShoiDaBV4fZceAiahe+k2YvqY03C
-	1pD9jPvMhhKJ2IB8lds/v7DM7AJEr3fbXdhXHFSScnTbiGl1A6bv0HbLxuQeeruv3lwS5aoqOO4
-	Hlyoy2+bQXcNvpn0vQ==
-X-Google-Smtp-Source: AGHT+IGErAbE+NwTrY1AINeQ3Si6MPxs7fVewd1+h1jBQl/h9wJNR/mCHaoI/Y7H43GtjmK7onqLBg==
-X-Received: by 2002:a05:6a20:2589:b0:1e0:d0c8:7100 with SMTP id adf61e73a8af0-1eb214701c4mr46281215637.7.1737632362526;
-        Thu, 23 Jan 2025 03:39:22 -0800 (PST)
+        bh=bidGXEhWbEsWi+5Sth126LejibvpIMLA/P72ifY2Y/8=;
+        b=scEAqJlNZ8puKFKb5H/v4n7HnsjbL6W320dyZndGAQPdnvS/La2eWx+y2et2v6wWcl
+         nn/9YlIXufQR7JH5if5Q3n1mkLlnZcX1nGZ9M4hJspImXN3S6xzFh7MbXfDAUkUJxjnC
+         X/TV+5w55IB0UzliqUMhsuZbLi11OUNT1GRG3mDM5MMSvIZUhf/+Oe+NIi1/mpev9qcN
+         WEywAsFarEyoR8WDo1vGS0b4MWQ4fxMNpDWewXFhgxrluiaPQTWvZeoRb30sMonmX1Gv
+         CuiuVZTpLFEw2dPXjsmsMM+NiS3og+PFP6H6vKgqI2AjbcZsSKm3sinTgShNdtLOh1et
+         pPOQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWqwmmiYrmkRWiT/W7Bf5WpQIOSgA7ovhNAozLCT92nC0X2Eptv216n+ZXVLwIwVP3xofrzjXGQt6FOQPp0I0/y@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXNm4SWafGWOjOX6Wf9VbM4+5WwU4AugqqhSgBpbEYux/KqMuQ
+	a9JM0SHn7X/emKMCDKGxIu0sJoEYVyLw9XATYHHT9iimbuaJaxBWftnS6mz85hI=
+X-Gm-Gg: ASbGnctv0bWopwoSVMgooUUfe8FXdSGMAY3cnve0OpjcNsY0gy01FjObaEAy06GNtyD
+	IsKjZ7ptWK35Fgc92ZhOfbITaHwqOXvxATtkQlAI6DIcpqZCUpkcFaO1/gZionRLLXzaPV06GBz
+	AtAnvoft8MvS85UEGcn+5UkZrzqzonydKEc8lEocYYa5u56hXwUzyh79wIZOToCy1T9ZA8DDWm9
+	1TvoqMazBgZkzgOv/rn12Zpp9xgP9dbopswTv2tJZf1yc6Oo12EVQCRatBiDd341fH3/5R1YNeq
+	u4bipiM=
+X-Google-Smtp-Source: AGHT+IHMoaj306mgy718YKGGZ2ZKiv1T27I/McQDNCDh5aizBvwSBcMBEOMZ/suJHkPkfqgWyPwUEA==
+X-Received: by 2002:a17:90b:37ce:b0:2f2:ab09:c256 with SMTP id 98e67ed59e1d1-2f782d6f0b9mr39599393a91.33.1737632365880;
+        Thu, 23 Jan 2025 03:39:25 -0800 (PST)
 Received: from localhost ([122.172.84.139])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72dab7f2a38sm12882604b3a.21.2025.01.23.03.39.21
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-a9bdd309d91sm12546450a12.48.2025.01.23.03.39.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Jan 2025 03:39:22 -0800 (PST)
+        Thu, 23 Jan 2025 03:39:25 -0800 (PST)
 From: Viresh Kumar <viresh.kumar@linaro.org>
 To: "Rafael J. Wysocki" <rafael@kernel.org>,
 	Sudeep Holla <sudeep.holla@arm.com>,
@@ -78,17 +78,17 @@ Cc: linux-pm@vger.kernel.org,
 	arm-scmi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 24/33] cpufreq: scmi: Stop setting cpufreq_driver->attr field
-Date: Thu, 23 Jan 2025 17:06:00 +0530
-Message-Id: <d4893396c4bacdd995d03a296b9d3ff44e71d072.1737631669.git.viresh.kumar@linaro.org>
+Subject: [PATCH 25/33] cpufreq: scpi: Stop setting cpufreq_driver->attr field
+Date: Thu, 23 Jan 2025 17:06:01 +0530
+Message-Id: <2b89078adc1472d5ab9377ad7675cf4c07a8f7cc.1737631669.git.viresh.kumar@linaro.org>
 X-Mailer: git-send-email 2.31.1.272.g89b43f80a514
 In-Reply-To: <cover.1737631669.git.viresh.kumar@linaro.org>
 References: <cover.1737631669.git.viresh.kumar@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_033923_410454_EA220C1C 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20250123_033926_541423_B21A8D96 
+X-CRM114-Status: GOOD (  10.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,42 +108,21 @@ setting them.
 
 Signed-off-by: Viresh Kumar <viresh.kumar@linaro.org>
 ---
- drivers/cpufreq/scmi-cpufreq.c | 8 --------
- 1 file changed, 8 deletions(-)
+ drivers/cpufreq/scpi-cpufreq.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/drivers/cpufreq/scmi-cpufreq.c b/drivers/cpufreq/scmi-cpufreq.c
-index b8fe758aeb01..4a3ee59cb771 100644
---- a/drivers/cpufreq/scmi-cpufreq.c
-+++ b/drivers/cpufreq/scmi-cpufreq.c
-@@ -171,12 +171,6 @@ scmi_get_rate_limit(u32 domain, bool has_fast_switch)
- 	return rate_limit;
- }
- 
--static struct freq_attr *scmi_cpufreq_hw_attr[] = {
--	&cpufreq_freq_attr_scaling_available_freqs,
--	NULL,
--	NULL,
--};
--
- static int scmi_limit_notify_cb(struct notifier_block *nb, unsigned long event, void *data)
- {
- 	struct scmi_data *priv = container_of(nb, struct scmi_data, limit_notify_nb);
-@@ -309,7 +303,6 @@ static int scmi_cpufreq_init(struct cpufreq_policy *policy)
- 			dev_warn(cpu_dev, "failed to enable boost: %d\n", ret);
- 			goto out_free_table;
- 		} else {
--			scmi_cpufreq_hw_attr[1] = &cpufreq_freq_attr_scaling_boost_freqs;
- 			scmi_cpufreq_driver.boost_enabled = true;
- 		}
- 	}
-@@ -395,7 +388,6 @@ static struct cpufreq_driver scmi_cpufreq_driver = {
+diff --git a/drivers/cpufreq/scpi-cpufreq.c b/drivers/cpufreq/scpi-cpufreq.c
+index cd89c1b9832c..54574978986c 100644
+--- a/drivers/cpufreq/scpi-cpufreq.c
++++ b/drivers/cpufreq/scpi-cpufreq.c
+@@ -183,7 +183,6 @@ static struct cpufreq_driver scpi_cpufreq_driver = {
  		  CPUFREQ_NEED_INITIAL_FREQ_CHECK |
  		  CPUFREQ_IS_COOLING_DEV,
  	.verify	= cpufreq_generic_frequency_table_verify,
--	.attr	= scmi_cpufreq_hw_attr,
- 	.target_index	= scmi_cpufreq_set_target,
- 	.fast_switch	= scmi_cpufreq_fast_switch,
- 	.get	= scmi_cpufreq_get_rate,
+-	.attr	= cpufreq_generic_attr,
+ 	.get	= scpi_cpufreq_get_rate,
+ 	.init	= scpi_cpufreq_init,
+ 	.exit	= scpi_cpufreq_exit,
 -- 
 2.31.1.272.g89b43f80a514
 
