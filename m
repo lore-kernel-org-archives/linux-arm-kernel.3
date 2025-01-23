@@ -4,59 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D2BCC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 21:39:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18122C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 21:41:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=phE5EUiXqfaznykg5BmtEp6TYHgw7kjzgrlGUME8OQQ=; b=PC4+ZfyOozNA/AoMe074oL1pV2
-	62tcuiayhV/JSQhMDitXLPyDJJObDjbvz+2MJiqOd/+OmXRB7HTkNc3gKRpVw3Yuv8A7mhGqeSPGi
-	6Zof3r8YSZy9t7Gm66Bf9xOh87RZhYWw9qtQ2WAs7k99qAo266Jn8srk6EaXJMWutyvPzqEvDaTDq
-	mP990ayQms+Rn1SicrqDA9Twlx0i7GU+gnh1qqbSYcuZFZq2lXtFaP1fs8EvMuJP65VVpV5k4qm3j
-	DYwZHEa/oVOfL/yULBd8Rwbw7pD3DcbXRdnhplyuQxdqkR3kV32vFso824+8VgKyZUkrcDuBSlITW
-	Qf94C6Cw==;
+	bh=ISiaXzwM8SDAMNs3ASxK9KpfZqPXdPHVEQ5zkEDOHJQ=; b=b3k7KOYFttZckUGd6KzGhdRh9S
+	PaOcBBJc49+U2i8TpjTr8F1RhQc07NAutmV2/B+DFg2NqJedsKjzr4imu0bUbTIIYj43CSwPFFGZA
+	xdsr4PVtKe01TV4OG4lDfHl4Zf/a/Jpdz+TM5JqIdKS3bAmq3N/sKY4GWj2FA+7HxGSeyAUbe9vCy
+	9r0jPlXn56RSeSh56AAwDIgeAJL656fRI3JULbxTF1RxrpYN7QP+AKIt8YOLcYXQ4yvCyB1zf2Jub
+	jqt+Xcw3u/bFr355KlY2fDT39zGJBNlGAAQeFcDu+eQYZ8V9U4/82Xf9P2Zyd/QhabYVGK0XYhCx8
+	XnJhPoOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb4vI-0000000DKYk-2Z9e;
-	Thu, 23 Jan 2025 21:39:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb4tz-0000000DKRv-2SuN
+	id 1tb4wZ-0000000DKe2-1Ths;
+	Thu, 23 Jan 2025 21:40:55 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tb4u4-0000000DKSL-1thb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 21:38:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9D0DB1063;
-	Thu, 23 Jan 2025 13:38:40 -0800 (PST)
-Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3544A3F66E;
-	Thu, 23 Jan 2025 13:38:09 -0800 (PST)
-Date: Thu, 23 Jan 2025 22:37:29 +0100
-From: Beata Michalska <beata.michalska@arm.com>
-To: Vanshidhar Konda <vanshikonda@os.amperecomputing.com>
-Cc: Viresh Kumar <viresh.kumar@linaro.org>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
-	ionela.voinescu@arm.com, sudeep.holla@arm.com, will@kernel.org,
-	catalin.marinas@arm.com, rafael@kernel.org, sumitg@nvidia.com,
-	yang@os.amperecomputing.com, lihuisong@huawei.com,
-	zhanjie9@hisilicon.com
-Subject: Re: [PATCH v9 1/5] cpufreq: Allow arch_freq_get_on_cpu to return an
- error
-Message-ID: <Z5K2mdin7hyPXIIP@arm.com>
-References: <20250121084435.2839280-1-beata.michalska@arm.com>
- <20250121084435.2839280-2-beata.michalska@arm.com>
- <20250121104706.2gcegucb6hcuksrd@vireshk-i7>
- <Z4-52JUmR7A-7NJP@arm.com>
- <j4s4amaknobmjvoq7jf734h7oieob3qxr5eigsrawakgxltszy@6kixp27xhwn6>
+	Thu, 23 Jan 2025 21:38:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8104F5C5B53;
+	Thu, 23 Jan 2025 21:37:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62AEAC4CED3;
+	Thu, 23 Jan 2025 21:38:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737668299;
+	bh=kIg09Min6QwFaovmaca18U9kozBuMZ1yuBDBVGZHNLw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=i0Gl7ZvIuWU4RspKumbfgiP3PSD4xH0Ac1OIpaIVQ7wbHfcXEC3xzHjRNNUWHhdT7
+	 EyaW8WmYu/8mNAO0/UoTeo6doKEkdNDD9Rwhr+0mXjYlAFMtI+gGkREM23XdLPIMjU
+	 nEJwGXzJPx7O+coBGU9aYtBGVTHO5ooI48pAiSQNTNuursXmYsfpOWgotEDgdA9Zf0
+	 CRwFe4bPhNhsE7BYcKc40iZpgKIgU6+jhC4JASdjys8GdiIjCvve0I63E564CgLPeE
+	 f9zGCoQGzFUV/QcOaJh87AfD2PYRljR8v2eQlYCVTW3G6PngfnG4Bv8L5ad7rCBpI6
+	 57cW6lsfZqCnw==
+Date: Thu, 23 Jan 2025 15:38:18 -0600
+From: Rob Herring <robh@kernel.org>
+To: Christian Bruel <christian.bruel@foss.st.com>
+Cc: bhelgaas@google.com, lpieralisi@kernel.org, kw@linux.com,
+	manivannan.sadhasivam@linaro.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, jingoohan1@gmail.com,
+	p.zabel@pengutronix.de, johan+linaro@kernel.org,
+	quic_schintav@quicinc.com, cassel@kernel.org,
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	fabrice.gasnier@foss.st.com
+Subject: Re: [PATCH v3 01/10] dt-bindings: PCI: Add STM32MP25 PCIe Root
+ Complex bindings
+Message-ID: <20250123213818.GA401153-robh@kernel.org>
+References: <20250115092134.2904773-1-christian.bruel@foss.st.com>
+ <20250115092134.2904773-2-christian.bruel@foss.st.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <j4s4amaknobmjvoq7jf734h7oieob3qxr5eigsrawakgxltszy@6kixp27xhwn6>
+In-Reply-To: <20250115092134.2904773-2-christian.bruel@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_133815_727234_D9F09130 
-X-CRM114-Status: GOOD (  28.27  )
+X-CRM114-CacheID: sfid-20250123_133820_580490_AFD5FE79 
+X-CRM114-Status: GOOD (  20.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,131 +81,211 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 21, 2025 at 10:40:55AM -0800, Vanshidhar Konda wrote:
-> On Tue, Jan 21, 2025 at 04:14:32PM +0100, Beata Michalska wrote:
-> > On Tue, Jan 21, 2025 at 04:17:06PM +0530, Viresh Kumar wrote:
-> > > On 21-01-25, 08:44, Beata Michalska wrote:
-> > > > Allow arch_freq_get_on_cpu to return an error for cases when retrieving
-> > > > current CPU frequency is not possible, whether that being due to lack of
-> > > > required arch support or due to other circumstances when the current
-> > > > frequency cannot be determined at given point of time.
-> > > >
-> > > > Signed-off-by: Beata Michalska <beata.michalska@arm.com>
-> > > > ---
-> > > >  arch/x86/kernel/cpu/aperfmperf.c | 2 +-
-> > > >  arch/x86/kernel/cpu/proc.c       | 7 +++++--
-> > > >  drivers/cpufreq/cpufreq.c        | 8 ++++----
-> > > >  include/linux/cpufreq.h          | 2 +-
-> > > >  4 files changed, 11 insertions(+), 8 deletions(-)
-> > > >
-> > > > diff --git a/arch/x86/kernel/cpu/aperfmperf.c b/arch/x86/kernel/cpu/aperfmperf.c
-> > > > index f642de2ebdac..6cf31a1649c4 100644
-> > > > --- a/arch/x86/kernel/cpu/aperfmperf.c
-> > > > +++ b/arch/x86/kernel/cpu/aperfmperf.c
-> > > > @@ -498,7 +498,7 @@ void arch_scale_freq_tick(void)
-> > > >   */
-> > > >  #define MAX_SAMPLE_AGE	((unsigned long)HZ / 50)
-> > > >
-> > > > -unsigned int arch_freq_get_on_cpu(int cpu)
-> > > > +int arch_freq_get_on_cpu(int cpu)
-> > > >  {
-> > > >  	struct aperfmperf *s = per_cpu_ptr(&cpu_samples, cpu);
-> > > >  	unsigned int seq, freq;
-> > > > diff --git a/arch/x86/kernel/cpu/proc.c b/arch/x86/kernel/cpu/proc.c
-> > > > index 41ed01f46bd9..d79f5845a463 100644
-> > > > --- a/arch/x86/kernel/cpu/proc.c
-> > > > +++ b/arch/x86/kernel/cpu/proc.c
-> > > > @@ -86,9 +86,12 @@ static int show_cpuinfo(struct seq_file *m, void *v)
-> > > >  		seq_printf(m, "microcode\t: 0x%x\n", c->microcode);
-> > > >
-> > > >  	if (cpu_has(c, X86_FEATURE_TSC)) {
-> > > > -		unsigned int freq = arch_freq_get_on_cpu(cpu);
-> > > > +		int freq = arch_freq_get_on_cpu(cpu);
-> > > >
-> > > > -		seq_printf(m, "cpu MHz\t\t: %u.%03u\n", freq / 1000, (freq % 1000));
-> > > > +		if (freq <= 0)
-> > > > +			seq_puts(m, "cpu MHz\t\t: Unknown\n");
-> > > > +		else
-> > > > +			seq_printf(m, "cpu MHz\t\t: %u.%03u\n", freq / 1000, (freq % 1000));
-> > > >  	}
-> > > >
-> > > >  	/* Cache size */
-> > > > diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
-> > > > index 418236fef172..6f45684483c4 100644
-> > > > --- a/drivers/cpufreq/cpufreq.c
-> > > > +++ b/drivers/cpufreq/cpufreq.c
-> > > > @@ -728,18 +728,18 @@ show_one(cpuinfo_transition_latency, cpuinfo.transition_latency);
-> > > >  show_one(scaling_min_freq, min);
-> > > >  show_one(scaling_max_freq, max);
-> > > >
-> > > > -__weak unsigned int arch_freq_get_on_cpu(int cpu)
-> > > > +__weak int arch_freq_get_on_cpu(int cpu)
-> > > >  {
-> > > > -	return 0;
-> > > > +	return -EOPNOTSUPP;
-> > > >  }
-> > > >
-> > > >  static ssize_t show_scaling_cur_freq(struct cpufreq_policy *policy, char *buf)
-> > > >  {
-> > > >  	ssize_t ret;
-> > > > -	unsigned int freq;
-> > > > +	int freq;
-> > > >
-> > > >  	freq = arch_freq_get_on_cpu(policy->cpu);
-> > > > -	if (freq)
-> > > > +	if (freq > 0)
-> > > 
-> > > >= ?
-> > > 
-> > > Since we can return error now, 0 should be considered a valid
-> > > frequency value ?
-> > Theoretically speaking - it should, though what would 0 actually
-> > represent then ?
-> I would think the value of 0 would be valid and should be interpreted in a
-> product/architecture specific manner? From silicon behavior, to me only negative
-> frequency values wouldn't make any sense.
-Still not convinced as of when '0' could represent a valid frequency and what
-that one would actually imply but I do not have that strong of an opinion here.
+On Wed, Jan 15, 2025 at 10:21:25AM +0100, Christian Bruel wrote:
+> Document the bindings for STM32MP25 PCIe Controller configured in
+> root complex mode.
 > 
-> In Patch 1 of this series we interpret 0 as "Unknown" on a x86 system though. So
-> for the sake of consistency should we consider 0 a valid value everywhere?
-Yes, but on the other hand, showing 'Unknown' could be skipped entirely here as
-the arch_freq_get_on_cpu for x86 is always providing a 'valid' frequency.
-The change here was just to make things somewhat sane.
-Note that the new attribute introduced in the following patch will utilise
-potential error values from arch_freq_get_on_cpu though.
+> Supports 4 INTx and MSI interrupts from the ARM GICv2m controller.
+> 
+> STM32 PCIe may be in a power domain which is the case for the STM32MP25
+> based boards.
+> 
+> Supports WAKE# from wake-gpios
+> 
+> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+> ---
+>  .../bindings/pci/st,stm32-pcie-common.yaml    |  43 +++++++
+>  .../bindings/pci/st,stm32-pcie-host.yaml      | 120 ++++++++++++++++++
+>  2 files changed, 163 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml
+>  create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml b/Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml
+> new file mode 100644
+> index 000000000000..9ee25bb25aac
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml
+> @@ -0,0 +1,43 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pci/st,stm32-pcie-common.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: STM32MP25 PCIe RC/EP controller
+> +
+> +maintainers:
+> +  - Christian Bruel <christian.bruel@foss.st.com>
+> +
+> +description:
+> +  STM32MP25 PCIe RC/EP common properties
+> +
+> +properties:
+> +  clocks:
+> +    maxItems: 1
+> +    description: PCIe system clock
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+> +  phys:
+> +    maxItems: 1
 
----
-BR
-Beata
+You have phys in host bridge and the root ports?
+
+> +
+> +  phy-names:
+> +    const: pcie-phy
+
+-names is unless when there is only 1 entry. We already know it's a 
+'phy' for 'pcie', so the whole string adds nothing.
+
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  access-controllers:
+> +    maxItems: 1
+> +
+> +  reset-gpios:
+> +    description: GPIO controlled connection to PERST# signal
+> +    maxItems: 1
+
+You have multiple root ports, but only one PERST# signal?
+
+> +
+> +required:
+> +  - clocks
+> +  - resets
+> +
+> +additionalProperties: true
+> diff --git a/Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml b/Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
+> new file mode 100644
+> index 000000000000..b5b8c92522e0
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
+> @@ -0,0 +1,120 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pci/st,stm32-pcie-host.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: STMicroelectronics STM32MP25 PCIe Root Complex
+> +
+> +maintainers:
+> +  - Christian Bruel <christian.bruel@foss.st.com>
+> +
+> +description:
+> +  PCIe root complex controller based on the Synopsys DesignWare PCIe core.
+> +
+> +allOf:
+> +  - $ref: /schemas/pci/snps,dw-pcie.yaml#
+> +  - $ref: /schemas/pci/st,stm32-pcie-common.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    const: st,stm32mp25-pcie-rc
+> +
+> +  reg:
+> +    items:
+> +      - description: Data Bus Interface (DBI) registers.
+> +      - description: PCIe configuration registers.
+> +
+> +  reg-names:
+> +    items:
+> +      - const: dbi
+> +      - const: config
+> +
+> +  msi-parent:
+> +    maxItems: 1
+> +
+> +  wake-gpios:
+> +    description: GPIO used as WAKE# input signal
+> +    maxItems: 1
+> +
+> +  wakeup-source: true
+> +
+> +dependentRequired:
+> +  wakeup-source: [ wake-gpios ]
+> +
+> +patternProperties:
+> +  '^pcie@[0-2],0$':
+> +    type: object
+> +    $ref: /schemas/pci/pci-pci-bridge.yaml#
+> +
+> +    properties:
+> +      reg:
+> +        maxItems: 1
+> +
+> +      phys:
+> +        maxItems: 1
+> +
+> +      phy-names:
+> +        const: pcie-phy
+> +
+> +    required:
+> +      - phys
+> +      - phy-names
+> +      - ranges
+> +
+> +    unevaluatedProperties: false
+> +
+> +required:
+> +  - interrupt-map
+> +  - interrupt-map-mask
+> +  - ranges
+> +  - dma-ranges
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
+> +    #include <dt-bindings/gpio/gpio.h>
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/phy/phy.h>
+> +    #include <dt-bindings/reset/st,stm32mp25-rcc.h>
+> +
+> +    pcie@48400000 {
+> +        compatible = "st,stm32mp25-pcie-rc";
+> +        device_type = "pci";
+> +        reg = <0x48400000 0x400000>,
+> +              <0x10000000 0x10000>;
+> +        reg-names = "dbi", "config";
+> +        #interrupt-cells = <1>;
+> +        interrupt-map-mask = <0 0 0 7>;
+> +        interrupt-map = <0 0 0 1 &intc 0 0 GIC_SPI 264 IRQ_TYPE_LEVEL_HIGH>,
+> +                        <0 0 0 2 &intc 0 0 GIC_SPI 265 IRQ_TYPE_LEVEL_HIGH>,
+> +                        <0 0 0 3 &intc 0 0 GIC_SPI 266 IRQ_TYPE_LEVEL_HIGH>,
+> +                        <0 0 0 4 &intc 0 0 GIC_SPI 267 IRQ_TYPE_LEVEL_HIGH>;
+> +        #address-cells = <3>;
+> +        #size-cells = <2>;
+> +        ranges = <0x01000000 0x0 0x00000000 0x10010000 0x0 0x10000>,
+> +                 <0x02000000 0x0 0x10020000 0x10020000 0x0 0x7fe0000>,
+> +                 <0x42000000 0x0 0x18000000 0x18000000 0x0 0x8000000>;
+> +        dma-ranges = <0x42000000 0x0 0x80000000 0x80000000 0x0 0x80000000>;
+> +        clocks = <&rcc CK_BUS_PCIE>;
+> +        resets = <&rcc PCIE_R>;
+> +        msi-parent = <&v2m0>;
+> +        wakeup-source;
+> +        wake-gpios = <&gpioh 5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+> +        reset-gpios = <&gpioj 8 GPIO_ACTIVE_LOW>;
+> +        access-controllers = <&rifsc 68>;
+> +        power-domains = <&CLUSTER_PD>;
+> +
+> +        pcie@0,0 {
+> +          device_type = "pci";
+> +          reg = <0x0 0x0 0x0 0x0 0x0>;
+> +          phys = <&combophy PHY_TYPE_PCIE>;
+> +          phy-names = "pcie-phy";
+> +          #address-cells = <3>;
+> +          #size-cells = <2>;
+> +          ranges;
+> +        };
+> +
+> +    };
+> -- 
+> 2.34.1
 > 
-> Regards,
-> Vanshi
-> 
-> > 
-> > ---
-> > BR
-> > Beata
-> > > 
-> > > >  		ret = sysfs_emit(buf, "%u\n", freq);
-> > > >  	else if (cpufreq_driver->setpolicy && cpufreq_driver->get)
-> > > >  		ret = sysfs_emit(buf, "%u\n", cpufreq_driver->get(policy->cpu));
-> > > > diff --git a/include/linux/cpufreq.h b/include/linux/cpufreq.h
-> > > > index 7fe0981a7e46..02fd4746231d 100644
-> > > > --- a/include/linux/cpufreq.h
-> > > > +++ b/include/linux/cpufreq.h
-> > > > @@ -1184,7 +1184,7 @@ static inline int of_perf_domain_get_sharing_cpumask(int pcpu, const char *list_
-> > > >  }
-> > > >  #endif
-> > > >
-> > > > -extern unsigned int arch_freq_get_on_cpu(int cpu);
-> > > > +extern int arch_freq_get_on_cpu(int cpu);
-> > > >
-> > > >  #ifndef arch_set_freq_scale
-> > > >  static __always_inline
-> > > > --
-> > > > 2.25.1
-> > > 
-> > > --
-> > > viresh
 
