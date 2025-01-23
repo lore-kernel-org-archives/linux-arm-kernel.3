@@ -4,91 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03899C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 11:47:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C99CAC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 11:52:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bidGXEhWbEsWi+5Sth126LejibvpIMLA/P72ifY2Y/8=; b=tU77aGFxiMNYSt2U2FGtHLvqjC
-	YP6iVc7KUwx8KLrRI8HB0pa95BIio225mF1GxKEdGzy4ctl34o+r/uv5Jg20CTyyu2YQgb6KXncLu
-	xqLn+fsGD9934thHdfSuVamm4AYcXaRYKIJ+Ay8/jfdpk4hDV959FGLnV/m3qrXl5sgCzvPW6bkbH
-	6U+B9t6hC2Bd6XOGCkoKIH6dTJmL5T0AwRmgDRnl00vdDLeRMIpXU1FcCZSEZgaN5Bez3IudPpYyv
-	suwGiUAhr1hdoRMemzBSpnKj+r1EidR/hunX5G1XVMd1+cll6E+n5ku4FTjpEB9fsTh+29HqAVPoD
-	SdinGBgA==;
+	bh=BMsgE4cTOvGu1oHN2jPXinLwurlF8Y91utoENFVkqYo=; b=RIrAzAyJFGstTzYT1anFn5ufFj
+	0XSJdhgY7DbWH2QW55fcBckMeOwl2Z894V2tnwvT7oA6udWsypJUzxhC7e2CbCABtBLl7NQDxlMuN
+	1zECxnSkYsEtZV9aIOF7uHEmUvo0c8NaEtG8wN/wgyulHfYeettATUNxTTTLvx9C8BF/Md8TpqKpG
+	nvx1uQsZs4KpRF1vHT+qT9C8gNbDYyRqaE+kb1n6yqxShgGJZgM0vcFPe5HBVeKdpnZg4R/Ufi64X
+	wJ3/9trsfdTX4ZAcnMBXTvffDWISJSGzHQ6zv/GhCIc2anydQMntpP83M2EV+OlQhRf598xZccAq2
+	RtNpZBWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tavg2-0000000CNr3-0SE9;
-	Thu, 23 Jan 2025 11:47:14 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1tavkm-0000000COO8-4A1g;
+	Thu, 23 Jan 2025 11:52:08 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tavYU-0000000CM4E-27qe
+	id 1tavjV-0000000COEx-0g7Z
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 11:39:27 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-2f4448bf96fso1175487a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 03:39:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737632366; x=1738237166; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bidGXEhWbEsWi+5Sth126LejibvpIMLA/P72ifY2Y/8=;
-        b=KKK1VOzichGv42zXVnI09nSbiAczw7PDuAJz1umzHWqmJuiFo/3iqOJHJ2jOcHT5eU
-         6rlCL5DV3Xf7yWoSB6LY9N1gO1rUeC+9Pk1TpkNnor0uygB7veTDaHGuk86H3utXlbXC
-         BxH7zABXpQ9GscjvN44KSZnyWLdojKRfmv90c9+6wgucnapjx5V8+nT0QPd9OIvk3NhA
-         91wXF/dvnS/P3oTVPjzBcdXU9Qac+fYsoiowK0j4ft4KmGiNZ97MMV+gEcLc/EYqZU7q
-         tZt9Ur6P/gWsbVSFVomVxC5SHJC9WbzOKGiBA9EzrtgzubNNnFsobMXBuhZXCpUGOQC4
-         Vbsg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737632366; x=1738237166;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bidGXEhWbEsWi+5Sth126LejibvpIMLA/P72ifY2Y/8=;
-        b=scEAqJlNZ8puKFKb5H/v4n7HnsjbL6W320dyZndGAQPdnvS/La2eWx+y2et2v6wWcl
-         nn/9YlIXufQR7JH5if5Q3n1mkLlnZcX1nGZ9M4hJspImXN3S6xzFh7MbXfDAUkUJxjnC
-         X/TV+5w55IB0UzliqUMhsuZbLi11OUNT1GRG3mDM5MMSvIZUhf/+Oe+NIi1/mpev9qcN
-         WEywAsFarEyoR8WDo1vGS0b4MWQ4fxMNpDWewXFhgxrluiaPQTWvZeoRb30sMonmX1Gv
-         CuiuVZTpLFEw2dPXjsmsMM+NiS3og+PFP6H6vKgqI2AjbcZsSKm3sinTgShNdtLOh1et
-         pPOQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWqwmmiYrmkRWiT/W7Bf5WpQIOSgA7ovhNAozLCT92nC0X2Eptv216n+ZXVLwIwVP3xofrzjXGQt6FOQPp0I0/y@lists.infradead.org
-X-Gm-Message-State: AOJu0YzXNm4SWafGWOjOX6Wf9VbM4+5WwU4AugqqhSgBpbEYux/KqMuQ
-	a9JM0SHn7X/emKMCDKGxIu0sJoEYVyLw9XATYHHT9iimbuaJaxBWftnS6mz85hI=
-X-Gm-Gg: ASbGnctv0bWopwoSVMgooUUfe8FXdSGMAY3cnve0OpjcNsY0gy01FjObaEAy06GNtyD
-	IsKjZ7ptWK35Fgc92ZhOfbITaHwqOXvxATtkQlAI6DIcpqZCUpkcFaO1/gZionRLLXzaPV06GBz
-	AtAnvoft8MvS85UEGcn+5UkZrzqzonydKEc8lEocYYa5u56hXwUzyh79wIZOToCy1T9ZA8DDWm9
-	1TvoqMazBgZkzgOv/rn12Zpp9xgP9dbopswTv2tJZf1yc6Oo12EVQCRatBiDd341fH3/5R1YNeq
-	u4bipiM=
-X-Google-Smtp-Source: AGHT+IHMoaj306mgy718YKGGZ2ZKiv1T27I/McQDNCDh5aizBvwSBcMBEOMZ/suJHkPkfqgWyPwUEA==
-X-Received: by 2002:a17:90b:37ce:b0:2f2:ab09:c256 with SMTP id 98e67ed59e1d1-2f782d6f0b9mr39599393a91.33.1737632365880;
-        Thu, 23 Jan 2025 03:39:25 -0800 (PST)
-Received: from localhost ([122.172.84.139])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-a9bdd309d91sm12546450a12.48.2025.01.23.03.39.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Jan 2025 03:39:25 -0800 (PST)
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Viresh Kumar <viresh.kumar@linaro.org>
-Cc: linux-pm@vger.kernel.org,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 25/33] cpufreq: scpi: Stop setting cpufreq_driver->attr field
-Date: Thu, 23 Jan 2025 17:06:01 +0530
-Message-Id: <2b89078adc1472d5ab9377ad7675cf4c07a8f7cc.1737631669.git.viresh.kumar@linaro.org>
-X-Mailer: git-send-email 2.31.1.272.g89b43f80a514
-In-Reply-To: <cover.1737631669.git.viresh.kumar@linaro.org>
-References: <cover.1737631669.git.viresh.kumar@linaro.org>
+	Thu, 23 Jan 2025 11:50:50 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 50NBoEvq1193662
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 23 Jan 2025 05:50:14 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1737633014;
+	bh=BMsgE4cTOvGu1oHN2jPXinLwurlF8Y91utoENFVkqYo=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=PIQTGdD0zerWx/dHLYjUCcDjoAEz+GBDXpI17vGfhHrA5NGrmok0w438APiNoBOAg
+	 8jsc/s+7p0tdHxD2E2GmKW3gldTWSZb2VfHhqt6CBqjGuw1Sm/XfGPytf0pY5K8DWn
+	 KdBAJkHHnBLXuIvaPABQA5nXPo0kZ6FCLByvTRRY=
+Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 50NBoED8054261
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 23 Jan 2025 05:50:14 -0600
+Received: from DFLE103.ent.ti.com (10.64.6.24) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 23
+ Jan 2025 05:50:14 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE103.ent.ti.com
+ (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 23 Jan 2025 05:50:14 -0600
+Received: from [10.24.69.13] (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 50NBo7bw107089;
+	Thu, 23 Jan 2025 05:50:08 -0600
+Message-ID: <f1bdd422-5034-4390-95b1-36cd04109fb3@ti.com>
+Date: Thu, 23 Jan 2025 17:20:07 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net 0/3] Add native mode XDP support
+To: Simon Horman <horms@kernel.org>
+CC: <rogerq@kernel.org>, <danishanwar@ti.com>, <pabeni@redhat.com>,
+        <kuba@kernel.org>, <edumazet@google.com>, <davem@davemloft.net>,
+        <andrew+netdev@lunn.ch>, <bpf@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <netdev@vger.kernel.org>, <robh@kernel.org>,
+        <matthias.schiffer@ew.tq-group.com>, <dan.carpenter@linaro.org>,
+        <rdunlap@infradead.org>, <diogo.ivo@siemens.com>,
+        <schnelle@linux.ibm.com>, <glaroque@baylibre.com>,
+        <john.fastabend@gmail.com>, <hawk@kernel.org>, <daniel@iogearbox.net>,
+        <ast@kernel.org>, <srk@ti.com>, Vignesh Raghavendra
+	<vigneshr@ti.com>
+References: <20250122124951.3072410-1-m-malladi@ti.com>
+ <20250122131341.GH390877@kernel.org>
+Content-Language: en-US
+From: Meghana Malladi <m-malladi@ti.com>
+In-Reply-To: <20250122131341.GH390877@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_033926_541423_B21A8D96 
-X-CRM114-Status: GOOD (  10.19  )
+X-CRM114-CacheID: sfid-20250123_035049_287128_E58285E1 
+X-CRM114-Status: GOOD (  15.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,27 +95,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The cpufreq core handles this for basic attributes now, the driver can skip
-setting them.
 
-Signed-off-by: Viresh Kumar <viresh.kumar@linaro.org>
----
- drivers/cpufreq/scpi-cpufreq.c | 1 -
- 1 file changed, 1 deletion(-)
 
-diff --git a/drivers/cpufreq/scpi-cpufreq.c b/drivers/cpufreq/scpi-cpufreq.c
-index cd89c1b9832c..54574978986c 100644
---- a/drivers/cpufreq/scpi-cpufreq.c
-+++ b/drivers/cpufreq/scpi-cpufreq.c
-@@ -183,7 +183,6 @@ static struct cpufreq_driver scpi_cpufreq_driver = {
- 		  CPUFREQ_NEED_INITIAL_FREQ_CHECK |
- 		  CPUFREQ_IS_COOLING_DEV,
- 	.verify	= cpufreq_generic_frequency_table_verify,
--	.attr	= cpufreq_generic_attr,
- 	.get	= scpi_cpufreq_get_rate,
- 	.init	= scpi_cpufreq_init,
- 	.exit	= scpi_cpufreq_exit,
--- 
-2.31.1.272.g89b43f80a514
+On 22/01/25 18:43, Simon Horman wrote:
+> On Wed, Jan 22, 2025 at 06:19:48PM +0530, Meghana Malladi wrote:
+>> This series adds native XDP support using page_pool.
+>> XDP zero copy support is not included in this patch series.
+>>
+>> Patch 1/3: Replaces skb with page pool for Rx buffer allocation
+>> Patch 2/3: Adds prueth_swdata struct for SWDATA for all swdata cases
+>> Patch 3/3: Introduces native mode XDP support
+> 
+> Hi Meghana,
+> 
+> Unless I am mistaken this patchset should be targeted at net-next,
+> as a new feature, rather than net, as bug fixes.
+> 
 
+Yes Indeed. Thanks for pointing this to me. I will be more vigilant next 
+time I am posting to avoid such mistakes. :)
+
+> With that in mind:
+> 
+> ## Form letter - net-next-closed
+> 
+> The merge window for v6.14 has begun. Therefore net-next is closed
+> for new drivers, features, code refactoring and optimizations.
+> We are currently accepting bug fixes only.
+> 
+> Please repost when net-next reopens after Feb 3rd.
+> 
+
+My bad for not checking this before posting. I will re-post it after Feb 
+3rd. Thanks a lot.
+
+> RFC patches sent for review only are obviously welcome at any time.
+> 
+> See: https://www.kernel.org/doc/html/next/process/maintainer-netdev.html#development-cycle
+> 
+> --
+> pw-bot: deferred
 
