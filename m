@@ -4,76 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEF6EC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 10:44:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA28AC0218B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 10:48:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tLUfkUuRz3nRthcoDnA3/VSyQ9KzaT4t1CIzkWnxXYw=; b=z26ZscsY8qiA+oiVn+HYG7OS/R
-	1uI+ET4YtIj2CnomQcbe8a4Q46dN5uTv5Whp6TkFwGpAAIkuRwAKvoYIdJ6iBRVGRxMfA+L2egxh0
-	AHdiFWQgPeOeSAhPElSNtVNXxNa6rNxGnaRjsiPAhdzbL2+dcAktTzg126FsTyP2VGAWstu67fwzk
-	zah0FudT5gRWKIPGs95wGJIA1xDEJzmEgc0yzYx96RaCRKxJIxIpa9mkfnAQLjbuuNs6tKHUGEYaK
-	oOK1tpSwR0JL/SDRcLoH3/4f2Bf3y+nRozfiJf5I1q4oNqNQYnRhyw/5579oUtM+uwJQVfBXHnw1e
-	JFGhiyng==;
+	bh=z57cSE1YbxqFMvNXpCY9G1ml/Qmrt4h2lF0Z1wJAZeg=; b=AbP+s5BHJNOOMqSUIX36ExQF3N
+	XVhFEhJx4MQTokT8outcE5HijhyVZq6NQoElo13QFmiEZGHnndmtHVlZoUutbwbOG7M6sos6EwyS0
+	2/rb6s1sCbB4GNmtGwjfgGDnkuJBzZWtxVDC0/kHVyTzF+aPcFDYmGNuqBDLoXPPNTLAGgPZHy0S9
+	3S/LhpsNtiyu4BEOrJv+8dqYKowEpxqb54MZjA+sL9SpMzt5owpH7E+tQkQcY6fRl+NTdvF5dTEda
+	Lq/0TwyQl+NpkAe/twRwV67f1Zl4yQqp/RDYTIigg0T/wWV1cp6VG6yHCqL3vsrVZyOUP9Inxvzp4
+	McrRbZQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tauhL-0000000CFEj-2eV8;
-	Thu, 23 Jan 2025 10:44:31 +0000
-Received: from relay5-d.mail.gandi.net ([217.70.183.197])
+	id 1taulF-0000000CFqR-3Uy2;
+	Thu, 23 Jan 2025 10:48:33 +0000
+Received: from relay4-d.mail.gandi.net ([217.70.183.196])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taug3-0000000CF2O-33OR
+	id 1taujx-0000000CFin-090V
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 10:43:13 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 66FDF1C000E;
-	Thu, 23 Jan 2025 10:43:07 +0000 (UTC)
+	Thu, 23 Jan 2025 10:47:14 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 33211E000C;
+	Thu, 23 Jan 2025 10:47:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1737628989;
+	t=1737629228;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=tLUfkUuRz3nRthcoDnA3/VSyQ9KzaT4t1CIzkWnxXYw=;
-	b=OKTZ0eXBaLQy6Rq432EqyJslmMw2hRhB07qvB1bN8W0Wt0CRMzqS8GwtweDXvvZKWvgy31
-	RTizLkQ9+JGW+tIGMkPWbTR0wU7ipdRR8npWIto6KFI/jJMLqEbUvqWJQMNLs+sFs0cc5d
-	f90N+nLimTcYUf587XRFHQ74p7RDhNQGnc5WxLIHxnOC0BjxgWNxn90abQEhgzx3I2T7Pt
-	XmYs7N5XEmhrXhLgfergYerdeNv0fzPZnbUmFw4qkVV2Cgg5KmeWDT3asDSsOqGPXux1Gg
-	MEvgJbD5Rf64zTj+4MHWbAim+8U1jSLCoFjoaLCOLZ+U/NqeC6y3aDxCrEwO5g==
-Date: Thu, 23 Jan 2025 11:43:06 +0100
-From: Kory Maincent <kory.maincent@bootlin.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+	bh=z57cSE1YbxqFMvNXpCY9G1ml/Qmrt4h2lF0Z1wJAZeg=;
+	b=DUuzo9eHub7/9PHurqPsH7DVY2E29qZysu/JXIZMuv4LVRmHZ/6ECt7tt2VnNLXJ8aNBEH
+	R78LqtD/c5I3LNz2jM/92soLfSDNIPPM5ibHpyBjO1fdyWXFT9gJRk60J18pmwOuoXYaqC
+	JarofkUBD6J08p72p8SEVzURzJPyLC27BqGGutcCUADiDKWxPe7CZ3QqOXFcyvOWPsmRW8
+	pSdoP8nSBStB+hrABkz+8Ib9Yzxqr1x0j89/qHoNet9qPbWjnd4GlI2fwcte6KT6/bxL0/
+	7gKbf//tehBgA1qPdBCApsdvuWANLeTEO1C1EfEavc02x7DPVFb68LvC60LkBA==
+Date: Thu, 23 Jan 2025 11:47:02 +0100
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
 Cc: davem@davemloft.net, netdev@vger.kernel.org,
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
  thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
  <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org, Christophe Leroy
+ <pabeni@redhat.com>, linux-arm-kernel@lists.infradead.org, Christophe Leroy
  <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
  Florian Fainelli <f.fainelli@gmail.com>, Heiner Kallweit
- <hkallweit1@gmail.com>, Vladimir Oltean <vladimir.oltean@nxp.com>, Marek
+ <hkallweit1@gmail.com>, Vladimir Oltean <vladimir.oltean@nxp.com>,
+ =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>, Marek
  =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>, Oleksij Rempel
  <o.rempel@pengutronix.de>, =?UTF-8?B?Tmljb2zDsg==?= Veronese
  <nicveronese@gmail.com>, Simon Horman <horms@kernel.org>,
  mwojtas@chromium.org, Antoine Tenart <atenart@kernel.org>, Rob Herring
  <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>
-Subject: Re: [PATCH net-next RFC v2 0/6] net: phy: Introduce a port
- representation
-Message-ID: <20250123114306.5c2f767e@kmaincent-XPS-13-7390>
-In-Reply-To: <20250123113121.1d151582@kmaincent-XPS-13-7390>
+Subject: Re: [PATCH net-next RFC v2 1/6] net: ethtool: common: Make BaseT a
+ 4-lanes mode
+Message-ID: <20250123114702.2c69f49f@fedora.home>
+In-Reply-To: <Z5E_FUxSZJWRWVAq@shell.armlinux.org.uk>
 References: <20250122174252.82730-1-maxime.chevallier@bootlin.com>
-	<20250123113121.1d151582@kmaincent-XPS-13-7390>
-Organization: bootlin
-X-Mailer: Claws Mail 4.0.0 (GTK+ 3.24.33; x86_64-pc-linux-gnu)
+	<20250122174252.82730-2-maxime.chevallier@bootlin.com>
+	<Z5E_FUxSZJWRWVAq@shell.armlinux.org.uk>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-Sasl: kory.maincent@bootlin.com
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_024311_899279_9BF64CA3 
-X-CRM114-Status: GOOD (  21.82  )
+X-CRM114-CacheID: sfid-20250123_024713_336723_958417EA 
+X-CRM114-Status: GOOD (  19.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,43 +89,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Jan 2025 11:31:21 +0100
-Kory Maincent <kory.maincent@bootlin.com> wrote:
+Hello Russell,
 
-> On Wed, 22 Jan 2025 18:42:45 +0100
-> Maxime Chevallier <maxime.chevallier@bootlin.com> wrote:
->=20
-> > Hello everyone,
-> >=20
-> > This is a second RFC for the introduction of a front-facing interfaces
-> > for ethernet devices.
-> >=20
-> > The firts RFC[1] already got some reviews, focusing on the DT part of
-> > that work. To better lay the ground for further discussions, this second
-> > round includes a binding :)
-> >=20
-> > Oleksij suggested some further possibilities for improving this binding,
-> > as we could consider describing connectors in great details for
-> > crossover detection, PoE ping mappings, etc. However, as this is
-> > preliminary work, the included binding is still quite simple but can
-> > certainly be extended.
-> >=20
-> > This RFC V2 doesn't bring much compared to V1 :
-> >  - A binding was introduced
-> >  - A warning has been fixed in the dp83822 patch
-> >  - The "lanes" property has been made optional =20
->=20
-> Small question, I know you want to begin with something simple but would =
-it be
-> possible to consider how to support the port representation in NIT and
-> switch drivers? Maybe it is out of your scope but it would be nice if you
-> consider how NIT and switches can support it in your development.
+On Wed, 22 Jan 2025 18:55:17 +0000
+"Russell King (Oracle)" <linux@armlinux.org.uk> wrote:
 
-s/NIT/NIC/
+> On Wed, Jan 22, 2025 at 06:42:46PM +0100, Maxime Chevallier wrote:
+> > When referring to BaseT ethernet, we are most of the time thinking of
+> > BaseT4 ethernet on Cat5/6/7 cables. This is therefore BaseT4, although
+> > BaseT4 is also possible for 100BaseTX. This is even more true now that
+> > we have a special __LINK_MODE_LANES_T1 mode especially for Single Pair
+> > ethernet.
+> > 
+> > Mark BaseT as being a 4-lanes mode.  
+> 
+> This is a problem:
+> 
+> 1.4.50 10BASE-T: IEEE 802.3 Physical Layer specification for a 10 Mb/s
+> CSMA/CD local area network over two pairs of twisted-pair telephone
+> wire. (See IEEE Std 802.3, Clause 14.)
+> 
+> Then we have the 100BASE-T* family, which can be T1, T2, T4 or TX.
+> T1 is over a single balanced twisted pair. T2 is over two pairs of
+> Cat 3 or better. T4 is over four pairs of Cat3/4/5.
+> 
+> The common 100BASE-T* type is TX, which is over two pairs of Cat5.
+> This is sadly what the ethtool 100baseT link modes are used to refer
+> to.
+> 
+> We do have a separate link mode for 100baseT1, but not 100baseT4.
+> 
+> So, these ethtool modes that are of the form baseT so far are
+> describing generally two pairs, one pair in each direction. (T1 is
+> a single pair that is bidirectional.)
+> 
+> It's only once we get to 1000BASE-T (1000baseT) that we get to an
+> ethtool link mode that has four lanes in a bidirectional fashion.
+> 
+> So, simply redefining this ends up changing 10baseT and 100baseT from
+> a single lane in each direction to four lanes (and is a "lane" here
+> defined as the total number of pairs used for communication in both
+> directions, or the total number of lanes used in either direction.
+> 
+> Hence, I'm not sure this makes sense.
+> 
 
-Sorry.
---=20
-K=C3=B6ry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
+I'm fine with your justification, so let's simplify and drop that
+patch then. That should also avoid the lanes/pairs confusion as well.
+
+Thanks for the feedback !
+
+Maxime
 
