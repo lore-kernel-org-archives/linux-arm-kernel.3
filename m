@@ -4,75 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28349C0218B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 07:18:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6792AC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 07:22:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hcGfEedhE7m9EkCg6qCuIbrFQfNbCC4sY3ipNadpGYM=; b=o9XwAp8hCXEvH1hTLFpyxd0kUN
-	kiR7vmqYZinPFfZsC1NV6Wr57NQIXklOuCHIgWB9vZDxgZXBfrHO1KqYhNZ+MPr4coKhsJ6KMWAn8
-	84csg8Npp2P76i2AgR55RciJ9lHfc8TTHpf2vrkc2B7nWj2WwWaKnr8Yk5FCOdc6WfFb20HejC1O2
-	TRvZRY0kAV72zE6qnLNcM+8atjUhX8jG9gl94ODS+iTb1VRXZmKSDd6ymOUJ4JlZgYLs1Vf3s+Znf
-	U2S/2v62SHCtE6lVL9VOyfq0SMkhOHoUGsYCUtIenVToBhgai/2/9h7Wocyv0oKFXxBr67QlnQ68E
-	dfe3++9g==;
+	bh=EFMPhJsaRB8xQ1oZEMBlZYYpWv71/uFkayM0SSCiils=; b=qsiroAImz6rOcc+NGDtgbspVFR
+	lzfo+C/L2RMVdTvRXkfFzsr/8d2q9UG4UwYlWwIm50CnrJQ7jfXQ3mcoJu8tDWCGmBa9Bp4s4TvlT
+	7Prf04irMnbLWVAYThhl00USbb3I0AVFVHmF7eLDQsTngY/cdQyqMIBp0gNCBHJEyRC8OlNvI2qYS
+	/rTBhWp81FJQPr8j9pk6RqX5DmInjzFUejkGnApG2oFFB9l2Dl8BfZVyYUye6JfnJYkDqrXtaDlaS
+	h5iGkleFROBms1Yn8WkEccUy2pgBHPNlmIJAN4a6kS7s/j67/yW/MIEulNUGQyLRJbycR6L5ICMBA
+	Yxy4pidg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tarTJ-0000000BqRh-1tKK;
-	Thu, 23 Jan 2025 07:17:49 +0000
-Received: from smtp-78.smtpout.orange.fr ([80.12.242.78] helo=smtp.smtpout.orange.fr)
+	id 1tarY4-0000000Bqm4-1LMq;
+	Thu, 23 Jan 2025 07:22:44 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tarRz-0000000BqMC-3aum
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 07:16:29 +0000
-Received: from [192.168.1.37] ([90.11.132.44])
-	by smtp.orange.fr with ESMTPA
-	id arRhtWwm7puS4arRktmPw9; Thu, 23 Jan 2025 08:16:19 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1737616579;
-	bh=hcGfEedhE7m9EkCg6qCuIbrFQfNbCC4sY3ipNadpGYM=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=RCJG0LZST/c9iDLh1h2eAi6tSx/hpX4+/bh3htnH7e0khwHvVG9w0wmLaMSqWoIKp
-	 Dj5MuOopdZZPzFZYTVgeAZP4r2kEpipHdhLDaXRcWSFYkFdOQIpMyxwZRoAMy2ktAn
-	 Bje5JvwCdghoQ+Lc979DeoZ1Hp86EW8rXBWf9vsznO3tlugwsDRcD88SPPpHSLw/zo
-	 MElRrxYMfPZt3Mo6dn1oOk5onWSMY+Nzc/GUus2vqY28VyMd5DkisxlmxxqXjzLfQX
-	 J8Q+ovpUs4OrHzP4QjQjV3YjYnNw726t2qx+ebfn8P6xe+c0g4FSEXAqp/a/O9M0Wy
-	 97uvgBG44uDDQ==
-X-ME-Helo: [192.168.1.37]
-X-ME-Auth: bWFyaW9uLmphaWxsZXRAd2FuYWRvby5mcg==
-X-ME-Date: Thu, 23 Jan 2025 08:16:19 +0100
-X-ME-IP: 90.11.132.44
-Message-ID: <6ac6161b-373a-47ce-801d-9e4ff1ef258c@wanadoo.fr>
-Date: Thu, 23 Jan 2025 08:16:09 +0100
+	id 1tarWk-0000000BqfQ-0ssA;
+	Thu, 23 Jan 2025 07:21:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0E562A40256;
+	Thu, 23 Jan 2025 07:19:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D0CFC4CED3;
+	Thu, 23 Jan 2025 07:21:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737616881;
+	bh=nK8AIy/Tv012S0VNi5cXiOFKEzXFQyYEaGHg3tObdyM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=VqDXH+bMXCJbaGdTViprc7aa7gS+JF7e4dS+LkGkloK9L5B3A0H/8P6EPvHHvK6ko
+	 iai8d4/2GFx0BgMEKs+K1Mr4XIasogf7gksZAfkNwN4i7Ks5OtWwadH+cvTF3OUkoX
+	 Zy7CSA+CKLqzD0xNUeCgB1qI4R1+mvo8WJ6ODUPDbMOMOPIzG2rY9JgYdPyB8FKm/7
+	 sACFYeGLWiKudTdlnsEM2QoKw7gTxgaXNlWlcvocFRoDRpSUWPR/xmTs4SVforxxvQ
+	 kdZaVXgojUHQQJ4rrdgo8M6t3xM9vteVvPACNSNIHC2mfzBJrz+PaHtiyXEmd1Lfyw
+	 21GCD9DvJ88rA==
+Message-ID: <e6fd5225-b437-4f3b-9835-f206ae4b9d2f@kernel.org>
+Date: Thu, 23 Jan 2025 08:21:13 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 04/10] net: ti: prueth: Adds link detection, RX and TX
- support.
-To: Basharath Hussain Khaja <basharath@couthit.com>, danishanwar@ti.com,
- rogerq@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, nm@ti.com, ssantosh@kernel.org,
- tony@atomide.com, richardcochran@gmail.com, parvathi@couthit.com,
- schnelle@linux.ibm.com, rdunlap@infradead.org, diogo.ivo@siemens.com,
- m-karicheri2@ti.com, horms@kernel.org, jacob.e.keller@intel.com,
- m-malladi@ti.com, javier.carrasco.cruz@gmail.com, afd@ti.com, s-anna@ti.com
-Cc: linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-omap@vger.kernel.org, pratheesh@ti.com, prajith@ti.com,
- vigneshr@ti.com, praneeth@ti.com, srk@ti.com, rogerq@ti.com,
- krishna@couthit.com, pmohan@couthit.com, mohan@couthit.com
-References: <20250109105600.41297-1-basharath@couthit.com>
- <20250109105600.41297-5-basharath@couthit.com>
-Content-Language: en-US, fr-FR
-From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-In-Reply-To: <20250109105600.41297-5-basharath@couthit.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH 03/12] dt-bindings: display: mediatek: add EXDMA yaml for
+ MT8196
+To: =?UTF-8?B?UGF1bC1wbCBDaGVuICjpmbPmn4/pnJYp?= <Paul-pl.Chen@mediatek.com>,
+ "robh@kernel.org" <robh@kernel.org>
+Cc: =?UTF-8?B?U3VubnkgU2hlbiAo5rKI5aeN5aeNKQ==?= <Sunny.Shen@mediatek.com>,
+ =?UTF-8?B?U2lyaXVzIFdhbmcgKOeOi+eak+aYsSk=?= <Sirius.Wang@mediatek.com>,
+ =?UTF-8?B?TmFuY3kgTGluICjmnpfmrKPonqIp?= <Nancy.Lin@mediatek.com>,
+ =?UTF-8?B?WGlhbmRvbmcgV2FuZyAo546L5YWI5YasKQ==?=
+ <Xiandong.Wang@mediatek.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ Project_Global_Chrome_Upstream_Group
+ <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "fshao@chromium.org" <fshao@chromium.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ =?UTF-8?B?U2luZ28gQ2hhbmcgKOW8teiIiOWciyk=?= <Singo.Chang@mediatek.com>,
+ =?UTF-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "treapking@chromium.org" <treapking@chromium.org>
+References: <20250110123835.2719824-1-paul-pl.chen@mediatek.com>
+ <20250110123835.2719824-5-paul-pl.chen@mediatek.com>
+ <173651725269.2671643.2891127782637834272.robh@kernel.org>
+ <SG2PR03MB66367B4A9DBCC971F55DB326BC182@SG2PR03MB6636.apcprd03.prod.outlook.com>
+ <d116e180-a056-4595-851c-ed1bb6f24cef@kernel.org>
+ <b9405b09da418eb3c65592b53489d7f0dd4093f2.camel@mediatek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <b9405b09da418eb3c65592b53489d7f0dd4093f2.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_231628_443905_C4EA33CA 
-X-CRM114-Status: GOOD (  15.33  )
+X-CRM114-CacheID: sfid-20250122_232122_384695_81CEFD5C 
+X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,94 +144,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le 09/01/2025 à 11:55, Basharath Hussain Khaja a écrit :
-> From: Roger Quadros <rogerq@ti.com>
+On 23/01/2025 07:11, Paul-pl Chen (陳柏霖) wrote:
 > 
-> Changes corresponding to link configuration such as speed and duplexity.
-> IRQ and handler initializations are performed for packet reception.Firmware
-> receives the packet from the wire and stores it into OCMC queue. Next, it
-> notifies the CPU via interrupt. Upon receiving the interrupt CPU will
-> service the IRQ and packet will be processed by pushing the newly allocated
-> SKB to upper layers.
+> Hi Krzysztof 
 > 
-> When the user application want to transmit a packet, it will invoke
-> sys_send() which will inturn invoke the PRUETH driver, then it will write
-> the packet into OCMC queues. PRU firmware will pick up the packet and
-> transmit it on to the wire.
+> I hope this email finds you well. I have a couple of questions
+> regarding the EXDMA commit patch and decoupling:
+> 
+> 1. Would removing the example from the EXDMA commit patch be sufficient
+> to achieve decoupling for EXDMA YAML and MTK clock/power header?
 
-Hi,
-a few nitpicks.
+No
 
-...
+> 
+> 2. If removing the example from the EXDMA YAML is not allowed, what
+> alternative changes could we implement to achieve decoupling?
 
-> +static int icssm_prueth_tx_enqueue(struct prueth_emac *emac,
-> +				   struct sk_buff *skb,
-> +				   enum prueth_queue_id queue_id)
-> +{
-> +	struct prueth_queue_desc __iomem *queue_desc;
-> +	const struct prueth_queue_info *txqueue;
-> +	u16 bd_rd_ptr, bd_wr_ptr, update_wr_ptr;
-> +	struct net_device *ndev = emac->ndev;
-> +	unsigned int buffer_desc_count;
-> +	int free_blocks, update_block;
-> +	bool buffer_wrapped = false;
-> +	int write_block, read_block;
-> +	void *src_addr, *dst_addr;
-> +	int pkt_block_size;
-> +	void __iomem *dram;
-> +	int txport, pktlen;
-> +	u32 wr_buf_desc;
-> +	void *ocmc_ram;
-> +
-> +	dram = emac->prueth->mem[emac->dram].va;
-> +	if (eth_skb_pad(skb)) {
-> +		if (netif_msg_tx_err(emac) && net_ratelimit())
-> +			netdev_err(ndev, "packet pad failed");
+Don't use the header constants but just some fake phandle.
 
-Missing trailing \n.
 
-> +		return -ENOMEM;
-> +	}
-> +
-> +	/* which port to tx: MII0 or MII1 */
-> +	txport = emac->tx_port_queue;
 
-...
-
-> +static int icssm_emac_request_irqs(struct prueth_emac *emac)
-> +{
-> +	struct net_device *ndev = emac->ndev;
-> +	int ret = 0;
-
-No need to init.
-
-> +
-> +	ret = request_threaded_irq(emac->rx_irq, NULL, icssm_emac_rx_thread,
-> +				   IRQF_TRIGGER_HIGH | IRQF_ONESHOT,
-> +				   ndev->name, ndev);
-> +	if (ret) {
-> +		netdev_err(ndev, "unable to request RX IRQ\n");
-> +		return ret;
-> +	}
-
-...
-
-> +static int icssm_emac_ndo_start_xmit(struct sk_buff *skb,
-> +				     struct net_device *ndev)
-> +{
-> +	struct prueth_emac *emac = netdev_priv(ndev);
-> +	int ret = 0;
-> +	u16 qid;
-> +
-> +	if (unlikely(!emac->link)) {
-> +		if (netif_msg_tx_err(emac) && net_ratelimit())
-> +			netdev_err(ndev, "No link to transmit");
-
-\n
-
-> +		goto fail_tx;
-> +	}
-> +
-> +	qid = icssm_prueth_get_tx_queue_id(emac->prueth, skb);...
-CJ
+Best regards,
+Krzysztof
 
