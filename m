@@ -4,123 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD823C0218B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 19:49:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12316C0218B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 19:50:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/ehvXM/x2Xpjmareg8hVceTaEqRxIeAlXfZcNgyZJpQ=; b=ywklB//iVKRvHegdv+Blhdqdvt
-	gkPkCyZu3H7CBOXDnGtB6nBser7MQz7Yd2VSB4BmeRbRzwG5HKFkg0R2a4DRfOEiA3Gmm6UbmtwNW
-	78Hz2gWuebJhKvBrUWCNZ2ieCg7uxNGNjPRjBHo5k6yuDrmrvvOK2xGmMXm31X5zi3C0pjX5VMng3
-	S+Xm4+cuVE1gqvQ3zAqFQD0huMp3Q4otTzYI7AS+ruHrBymB3xzuxdPfzbzXRVZgmrPN/QF5/hfHK
-	7w/3UBjFsdw/YaQ7ZlZgjQNPuEko9/ZpEsdxv2xJDBj5BaXtAHbvEoHZ60orwbSerTNAFdHniB7bw
-	TT3ypMsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UEzQx5EKwKnXykiE3C9S4XHeCQPE3yQLJe/q7xEl0UI=; b=QcYxCzxAsNUWI6l8JkXjtzXRSz
+	1QiT93GLjIZpU6bNwp2cb/QtaYQ48CHIN3azvmmuoW7gFErSrZVzTtY2L3r2hlWVqPdUGDCsAH1Ru
+	eRxbUcWxFGPeBKp1NHVMD+FRl3DwfXe5JEawVEyJiJx1Zvv38ND2Cm10tYMYkG/YNkifLXgYsz4jI
+	ahGCR+bkaXmKSBNR7Rdl/bFAvlsx/xnP54R8/WFQK8NCEvfqi6kZldUi62nSG+56blDqQ9+EBka7S
+	7ZabdttiZYybtxIqA+qFFUFeEnXatZvTNy44lmZGWRMDRfAVXKSyoU44fkY7Vc+V47zNx05xxfcWZ
+	qSOsloIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb3Cg-0000000DAYh-2Ps7;
-	Thu, 23 Jan 2025 19:49:26 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1tb3Dx-0000000DAmn-0qQK;
+	Thu, 23 Jan 2025 19:50:45 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb3BN-0000000DAIy-3l3q
+	id 1tb3Bo-0000000DAOV-3vFa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 19:48:07 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2163dc5155fso24334215ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 11:48:05 -0800 (PST)
+	Thu, 23 Jan 2025 19:48:36 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-438a39e659cso8878745e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 11:48:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737661684; x=1738266484; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/ehvXM/x2Xpjmareg8hVceTaEqRxIeAlXfZcNgyZJpQ=;
-        b=njeIRFcbdcfmTVCxBuFTkMya/g9sYuvpwD+PH4cp5qX6gHJua8Zh1EI7VrsYLE/Ncl
-         2BrmIbcyYKg+QooDkp96u8xLgct6QtuMzD6lB9OBqV4bA45OlXHqZN/iwHoMZw0K/PMI
-         2OvFOQ5ZguTrRwN0uf1vUJZXr3GOkiHtYJsz+fHOqdRemZeM8Stv/NSl5XrO/G5h6uFQ
-         KpGdol3jaj6ZF1zsjzCLZJJnwi8U3ErmKE/D0A0b85icIVcffztlgRcuYNFmI7j3C8SM
-         YDbKzBwJs6taex3bTxJ5xhxRS5g/7+S6704x24fIrVWAsrx0U3pL6ZcxYZthm434MvpW
-         3SAA==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1737661711; x=1738266511; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=UEzQx5EKwKnXykiE3C9S4XHeCQPE3yQLJe/q7xEl0UI=;
+        b=HIRl8HoZgdSNJqgyTJ03QJFiQ0Fr+Varh027CPF4ejfouHNQLHBzmy20Vl3M6IhnmX
+         I07EDtLlpzZ0Ii3DPDgNlQ/iVmSP7L7H9PQM+ZGRUc9Ut7pf2tE0+vF+bzWKjPlnuwr4
+         0AgOsNeWQkDk2esv4ny5UuY+DdxGWCWs2HbnrTbpMR2V4q2WC87CBCoch+nexvUv/igJ
+         5hcmXmV2+Tdxc1yk9fcWCx/msQnOwebQBnD+/f2LuQ8My1A6EGs4or/Z+fvgs+9PtEti
+         XTNb3MDwnHF2XB6lNKpEfTasQda8esbLFk2MFZBpjbd1Y9JjmH3I3qNXH9XpmYkulfl8
+         kPfA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737661684; x=1738266484;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/ehvXM/x2Xpjmareg8hVceTaEqRxIeAlXfZcNgyZJpQ=;
-        b=VYs5vEf2ppL4n1kJZnkg5WGqVQgItjGd5AkBBwTBCTC9b8Q8x41kGuKGIbrb8AuM9d
-         j3hXHZ4/GKb18iGTOAVxaVeenN6YGYOQ8UdRIKGXTYSl8st5/I6oILxmopHq1MAHAd7+
-         M5NUYoRtNWpjyrvY4MjW7nRnlcJmZXbdKSfHw94g9Yv1tdUGyqYDBtY8JhnpCoOLhy3Y
-         scAEGDl3XKO6VMu7gIchC6YaIKMkBD8wlGCTmgCpb2M98U3+q62Aqnrkg5uuHrpObO05
-         BZMq1INLJnTdSLUjAwQ/1GtLhwtn1XTDOUHiojsX3B5+mZJQDCaTk2aVT1qBvEcHM4PB
-         3qVw==
-X-Forwarded-Encrypted: i=1; AJvYcCVKvn0nv2aqr+r79FYmK74bLB8oVgHh1QdLT2IYWHvrjh+pVFdVQuI15k70zwPSVwGNs9JLJhVGM84hJ0jHpQuy@lists.infradead.org
-X-Gm-Message-State: AOJu0YyMOu7j8CTJud4veUzQGWTbjhkxHySKYmV75FH21fQ+KnEByy8q
-	FeawaOtPkrTe+CcNQLK+clJkPvJ9crakfNM0aPgFYRDGOCXuFG4=
-X-Gm-Gg: ASbGncvPpc18FacL/fu2HCUmuYTj+HV1VwJuZ4iSYirqYuk/eU8djukUhqhRSkvUClW
-	KiNIw5hkoFYbFYhyF9wi6xFUaC/yNun3h4F2xAFZPd2wid9zhEoa82y7JdEBkigJTpaWbCwD8RV
-	BtLsiHVNtjruSw2h6LewvI3b3l5SP+B234ZJcddu9opLVr7BkiEs/Z7Dk8Vp7ta+IX0XlIMOM3+
-	jDRb9vKE+mdYsM52R3p9RwiXwd0A2J6KR4FLd9CXCFRx1TfV22WQiZ8BxLHQNcQ/dAtBjPEe7y9
-	oaDt
-X-Google-Smtp-Source: AGHT+IHN0sZtZXkNpILip1vz+eYUU1Y/MTgN8GKmFzFYwee95EZNDldTyC5bmSvcCfRBqUDdtCAgnw==
-X-Received: by 2002:a17:902:e548:b0:216:60a3:b3fd with SMTP id d9443c01a7336-21c351d345amr370312355ad.3.1737661684548;
-        Thu, 23 Jan 2025 11:48:04 -0800 (PST)
-Received: from localhost ([2601:646:9e00:f56e:123b:cea3:439a:b3e3])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21da3ea2430sm2880515ad.65.2025.01.23.11.48.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Jan 2025 11:48:04 -0800 (PST)
-Date: Thu, 23 Jan 2025 11:48:03 -0800
-From: Stanislav Fomichev <stfomichev@gmail.com>
-To: Song Yoong Siang <yoong.siang.song@intel.com>
-Cc: "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Willem de Bruijn <willemb@google.com>,
-	Florian Bezdeka <florian.bezdeka@siemens.com>,
-	Donald Hunter <donald.hunter@gmail.com>,
-	Jonathan Corbet <corbet@lwn.net>, Bjorn Topel <bjorn@kernel.org>,
-	Magnus Karlsson <magnus.karlsson@intel.com>,
-	Maciej Fijalkowski <maciej.fijalkowski@intel.com>,
-	Jonathan Lemon <jonathan.lemon@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Joe Damato <jdamato@fastly.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
-	Mina Almasry <almasrymina@google.com>,
-	Daniel Jurgens <danielj@nvidia.com>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Mykola Lysenko <mykolal@fb.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	KP Singh <kpsingh@kernel.org>, Hao Luo <haoluo@google.com>,
-	Jiri Olsa <jolsa@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, bpf@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	intel-wired-lan@lists.osuosl.org, xdp-hints@xdp-project.net
-Subject: Re: [PATCH bpf-next v6 2/4] selftests/bpf: Add launch time request
- to xdp_hw_metadata
-Message-ID: <Z5Kc8wufjrsXMCW9@mini-arch>
-References: <20250116155350.555374-1-yoong.siang.song@intel.com>
- <20250116155350.555374-3-yoong.siang.song@intel.com>
+        d=1e100.net; s=20230601; t=1737661711; x=1738266511;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=UEzQx5EKwKnXykiE3C9S4XHeCQPE3yQLJe/q7xEl0UI=;
+        b=SM6TVe8ke+RoE9FXTDL2QH8CrqoDjJmV6ym1cvt0P/jPTfrTh89ZhjDCkHVdUU4KY6
+         3WddcT3CDsO4ndsTBj33STeROI2TGQNIEs6+VpeED+AivIhQG7oeOpXL98yIhULxYljz
+         WnUITY/754FGSB3ww8AWbF0vScDzH1xifO28v0OG9dB7KKfo9rPRlcZzRLBXLPkr8HZl
+         7MNG6fSFK7fbraSjLC3O8vdPBf5+YalluIE3tlVe72stnJi45xHOC/llrxJOv/Bs8Hmj
+         RBb9ZHcXpeEzirA7xpI3yuwCzI71y9MaN58ICw0aiuQbDMdZEQ86ilVSXywDE2xvQ7CH
+         xU/w==
+X-Gm-Message-State: AOJu0YwWrrQ18fuuJJBWeFKDHS5g25jjXf2tdRzEK2HYhOGsfEqgTXfI
+	4hW+jkRAv69DSPZ5ajG9v+L47k6Gez47Bui5c2sejyaB/+GYlVguPS5KOIVv5UA=
+X-Gm-Gg: ASbGncuJOjK1Of+rqM9v9RdjSbbvr8TH5WFAF6s3WHZ8lG9XjPkp8Y3YsU0kEdRsB7a
+	adTn06GlVA4eWmbPEleW/Kl6tJhbH5qYBBsYYpOX/JXHP4DU2GzwYRg93tSNU7hV6hJO1g9WRVY
+	/DITJaij/7IeXkphAaVikSqlqsDy+88rFjQrsd94ursYtrtlM884HwRjCnZhHlU8ZOvpvFQA020
+	rJE2Nmxz0VfZSibqjCrhVE44n8FZnxJRX4htz/IbqjA/0B5KL7xkqThlqS0KG/EcmK+IGAxpxvZ
+	/X27sVOhc10bgQsmKq28O6GqzncppGPWn2X5TgO9atYXmP85QArL
+X-Google-Smtp-Source: AGHT+IFCmuRcO2q+WkCuoyE4umxs3Q8grgYjAGWaKRdiWeb/qlKv81TNKgwodg4lbmq0iUf3Z/pwAw==
+X-Received: by 2002:a05:6000:156c:b0:386:1cd3:8a05 with SMTP id ffacd0b85a97d-38bf57ce963mr27366273f8f.54.1737661710999;
+        Thu, 23 Jan 2025 11:48:30 -0800 (PST)
+Received: from ?IPV6:2001:861:d40:ed60:308f:ce31:765f:bf21? ([2001:861:d40:ed60:308f:ce31:765f:bf21])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38c2a1c3f5dsm556090f8f.92.2025.01.23.11.48.30
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 23 Jan 2025 11:48:30 -0800 (PST)
+Message-ID: <971868a3-2dc4-4623-b979-4e722658f6a1@baylibre.com>
+Date: Thu, 23 Jan 2025 20:48:30 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250116155350.555374-3-yoong.siang.song@intel.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4] arm64: arch_k3: Replace select with imply for TI
+ mailbox and TI SCI
+To: Andrew Davis <afd@ti.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, nm@ti.com
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-omap@vger.kernel.org, khilman@baylibre.com,
+ Mattijs Korpershoek <mkorpershoek@baylibre.com>, vishalm@ti.com,
+ Nicolas Frayer <nfrayer@baylibre.com>
+References: <20250123-timodulemailboxsci-v4-1-b1a31b56f162@baylibre.com>
+ <f1e6f49c-71e2-4c6f-b78f-7608739530c9@ti.com>
+Content-Language: en-US
+From: Guillaume La Roque <glaroque@baylibre.com>
+In-Reply-To: <f1e6f49c-71e2-4c6f-b78f-7608739530c9@ti.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_114805_934345_DE4D20D0 
-X-CRM114-Status: GOOD (  10.88  )
+X-CRM114-CacheID: sfid-20250123_114833_257464_822D6856 
+X-CRM114-Status: GOOD (  17.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,18 +103,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/16, Song Yoong Siang wrote:
-> Add launch time hardware offload request to xdp_hw_metadata. Users can
-> configure the delta of launch time relative to HW RX-time using the "-l"
-> argument. By default, the delta is set to 0 ns, which means the launch time
-> is disabled. By setting the delta to a non-zero value, the launch time
-> hardware offload feature will be enabled and requested. Additionally, users
-> can configure the Tx Queue to be enabled with the launch time hardware
-> offload using the "-L" argument. By default, Tx Queue 0 will be used.
-> 
-> Signed-off-by: Song Yoong Siang <yoong.siang.song@intel.com>
+Hi Andrew,
 
-Forgot to add:
+thanks for review.
 
-Acked-by: Stanislav Fomichev <sdf@fomichev.me>
+Le 23/01/2025 à 16:29, Andrew Davis a écrit :
+> On 1/23/25 6:12 AM, Guillaume La Roque wrote:
+>> In order to build TI mailbox and TI SCI as modules, replace
+>> select with imply.
+>>
+>> Signed-off-by: Nicolas Frayer <nfrayer@baylibre.com>
+>> Signed-off-by: Guillaume La Roque <glaroque@baylibre.com>
+>> ---
+>> Changes in v4:
+>> - rebase on master branch
+>> - Link to v3: 
+>> https://lore.kernel.org/r/20241016-timodulemailboxsci-v3-1-0e7f7a6de97d@baylibre.com
+>>
+>> Changes in v3:
+>> - rebase with master
+>>
+>> Changes in v2:
+>> - Use imply instead of removing select altogether and dropped
+>> patches 2/3 and 3/3 from previous series as using imply makes
+>> them redundant
+>> ---
+>>   arch/arm64/Kconfig.platforms | 4 ++--
+>>   1 file changed, 2 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+>> index 02007256709e..a6e4bfffc09d 100644
+>> --- a/arch/arm64/Kconfig.platforms
+>> +++ b/arch/arm64/Kconfig.platforms
+>> @@ -133,8 +133,8 @@ config ARCH_K3
+>>       select PM_GENERIC_DOMAINS if PM
+>>       select MAILBOX
+>>       select SOC_TI
+>> -    select TI_MESSAGE_MANAGER
+>> -    select TI_SCI_PROTOCOL
+>> +    imply TI_MESSAGE_MANAGER
+>> +    imply TI_SCI_PROTOCOL
+>
+> I really don't like "imply" in general, and this will be the only
+> instance of it now in the whole file..
+>
+> Your v1 of this series was the right way to do this IMHO. The only
+> issue was patches 2/3 and 3/3 should have been first in the series to
+> prevent bisect issues. And they had to go to two different maintainers
+> so it shouldn't have been a single series in the first place.
+ok for me ,i will reuse v1 , split and resend.
+
+Thanks
+Guillaume
+>
+> Andrew
+>
+>>       select TI_K3_SOCINFO
+>>       help
+>>         This enables support for Texas Instruments' K3 multicore SoC
+>>
+>> ---
+>> base-commit: 21266b8df5224c4f677acf9f353eecc9094731f0
+>> change-id: 20241016-timodulemailboxsci-412e2a6458fc
+>>
+>> Best regards,
+
+
 
