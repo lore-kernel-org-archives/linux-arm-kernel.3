@@ -4,216 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 876A3C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 16:42:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97109C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 17:14:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gvCB211DSi8toJrUvWNjgaCiJ5NtA3KfshnDE/LSXyc=; b=LAJWYXYe4BNICEFoYIeaKxBs3o
-	acqn9z9JZhI4akxneYK+xtcg96exfTv8Nc3zKfynJJyB6h1mi9nfr+AtLGlHH0/hYih270GDEf/KH
-	9DPz8XGRvTHq/r+Hjhj1Vwo0V2pTvhzLbrJi7PTnlvK+ww3FVr63ZNcIYhy1vSO1BaztmIpNNxMsE
-	zuSTarcIyyZTP1+SG8ejB5mXoVtJcq3voHe7tGWR7z4+MK7JSleZTkk9Ek2giiQ1qRiI99fXMRosx
-	TW/1jsyxSk0oGVhT4KuCFNRNTN8CXJWrEMFQJQhrsvgtr1OB55xOD4CRcjLxbwa8UjvCIy8SlfVVY
-	Bt3mXLkQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8fOKblc3FZS7ikfIHW19sV5gSa/Sm7uYNFXMWgCbP3w=; b=jo99F0xHuq0SBq
+	H35dd8B7WAcF7352uBKh2eMBoc3YdrDhX04Xn17WIMS/GetYKe921BU3pybUv3Z6FWuVdGGvVeG2H
+	6KttStSrAnhbe7FFUkklGuMq7OWknWVkAUT5AZBjcX6Vy63pmhkCv5mky5hclfDtzfjDrXO9a4mu0
+	7TxMeH3PdMUhwoX1W4SZziZ5vlwNRlTseHJw4tF3yN1QZ6jwYHWrXQG2kkTNogm7NCmREreG+MR+E
+	L97UNA1JFsSAXHrMDeU4T9AuD1W7AFjvykzR0jXowlC2WRxinhRbjO9fTROfT71wiecEpUeuFguRV
+	OaxMVGEbMF+L/WM4D++A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb0Hq-0000000CqUC-1BaG;
-	Thu, 23 Jan 2025 16:42:34 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1tb0m9-0000000Ctwk-1icP;
+	Thu, 23 Jan 2025 17:13:53 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb0GY-0000000CqNi-0b2C
+	id 1tb0kq-0000000CtiD-2l2d
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 16:41:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1737650474; x=1769186474;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=cppfD8LYJ8+RDMdrTdPCb4Tz93zM5wZs+tqbp9zqyTg=;
-  b=AK/wyE8r6Nyz/QzXgGKDLXfKo6XtwrHa3u0Tznf3J5hVAABZQV59y726
-   fQh1a09l4ZnINc84ODalo4slejYaxi6sGzmvRuGdnni4WpkaGA196wbfa
-   EiM6NUOY0bkC1WD1jND/V64LNYNcBWPzbFSsNGbTf/Di7HigqkAaMkJgn
-   ooyaHcVYfnt/kWdesvqHNV8KHV1ZeWG+rRh8+nlU4e/aawRf27n5GOH76
-   1brIoDpB5Xj5xejzybkWb7AR+nPrCeDadnRaDMxyqb3vkISxVWp7WmNiu
-   CsdGV3ZAIlu3+HfZ7P5cHRXcLHh3xFS7AMqfglRHzMsGmveDzAf2n/Fll
-   g==;
-X-CSE-ConnectionGUID: nPPYM9HBTzGMopMTimLZbA==
-X-CSE-MsgGUID: nh4MtaQ8QWiRm1g+3Gd+EQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11324"; a="55576267"
-X-IronPort-AV: E=Sophos;i="6.13,228,1732608000"; 
-   d="scan'208";a="55576267"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jan 2025 08:41:11 -0800
-X-CSE-ConnectionGUID: bZWx12lcQfik4AsBvx+xQQ==
-X-CSE-MsgGUID: vXqsIPJxTNauTQ+K1Pw5Uw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,228,1732608000"; 
-   d="scan'208";a="107631946"
-Received: from orsmsx603.amr.corp.intel.com ([10.22.229.16])
-  by fmviesa008.fm.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 23 Jan 2025 08:41:10 -0800
-Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
- ORSMSX603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Thu, 23 Jan 2025 08:41:08 -0800
-Received: from ORSEDG601.ED.cps.intel.com (10.7.248.6) by
- orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44 via Frontend Transport; Thu, 23 Jan 2025 08:41:08 -0800
-Received: from NAM10-MW2-obe.outbound.protection.outlook.com (104.47.55.43) by
- edgegateway.intel.com (134.134.137.102) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Thu, 23 Jan 2025 08:41:08 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=j1zdCylRL29+2AFCENJENUiCNnSrzFWUg4oEGQkMRIZ5xXfJRnThIKnIxEiCnhV8AkHq6aGiLLS6lleX7sI5aEYCb1dIydoUIeX3JQM6ffCr+WhLE3KLmKAZtjcWc3oDGfmBQjnct0JCXbXoRpZkYmsczy1Ihtplm+FJGSpPEHbvIsuoMxruExCl2Qx0ZhvfUMnltQ1kxOAQe9co6s79xxYa3aN6eNXm8a1bm5ASnPXV85k1GiFui56AhrUfZqxg29vgSq9+Bw1Uyd/IYVl7nQ5x+OOlcExm4DMaTaY0zev7n91GjXTO9ix/GfqHr0ybRQR9PyPz3wYRs2ohc3KbwQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gvCB211DSi8toJrUvWNjgaCiJ5NtA3KfshnDE/LSXyc=;
- b=ImPXjFv/t4LhHymJw7by+nUMBCZQ0OkX5gahIJNkS8ZjWnkKTyDhLKXcaxFm0FmGs4xOll2ueDurPjzoIUW5khjKwMRhlf1LWVCcLF3f9SuZPkSuwyYZlzfFLjEXjLdQwgWePOnFAuAx3wDbgbJHvt9AmjoSyiqcis1RpaFbWgfnGunbN1Dfrz4POjAnDuF+iWO/KPG1zNzTUSg8L/hCReig8YFJVFHfuhUO3ZCbBsRjyegVILF8BtX9bmQ8wtkJNkyxwY47C4pTs4v0FTR4VIqPTlYIm9M9Hi5zMXpsu4Duzx6vV85bs60VjL4K3Y7PK0Mn7iMAJ0+6p04LtIRy5Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from PH0PR11MB5830.namprd11.prod.outlook.com (2603:10b6:510:129::20)
- by MW3PR11MB4714.namprd11.prod.outlook.com (2603:10b6:303:5d::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.22; Thu, 23 Jan
- 2025 16:41:04 +0000
-Received: from PH0PR11MB5830.namprd11.prod.outlook.com
- ([fe80::c80d:3b17:3f40:10d6]) by PH0PR11MB5830.namprd11.prod.outlook.com
- ([fe80::c80d:3b17:3f40:10d6%7]) with mapi id 15.20.8356.020; Thu, 23 Jan 2025
- 16:41:04 +0000
-From: "Song, Yoong Siang" <yoong.siang.song@intel.com>
-To: "Bouska, Zdenek" <zdenek.bouska@siemens.com>, "David S . Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
-	<horms@kernel.org>, Willem de Bruijn <willemb@google.com>, "Bezdeka, Florian"
-	<florian.bezdeka@siemens.com>, Donald Hunter <donald.hunter@gmail.com>,
-	Jonathan Corbet <corbet@lwn.net>, Bjorn Topel <bjorn@kernel.org>, "Karlsson,
- Magnus" <magnus.karlsson@intel.com>, "Fijalkowski, Maciej"
-	<maciej.fijalkowski@intel.com>, Jonathan Lemon <jonathan.lemon@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>, Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer
-	<hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>, "Damato, Joe"
-	<jdamato@fastly.com>, Stanislav Fomichev <sdf@fomichev.me>, Xuan Zhuo
-	<xuanzhuo@linux.alibaba.com>, Mina Almasry <almasrymina@google.com>, "Daniel
- Jurgens" <danielj@nvidia.com>, Andrii Nakryiko <andrii@kernel.org>, "Eduard
- Zingerman" <eddyz87@gmail.com>, Mykola Lysenko <mykolal@fb.com>, "Martin
- KaFai Lau" <martin.lau@linux.dev>, Song Liu <song@kernel.org>, Yonghong Song
-	<yonghong.song@linux.dev>, KP Singh <kpsingh@kernel.org>, Hao Luo
-	<haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, Shuah Khan
-	<shuah@kernel.org>, Alexandre Torgue <alexandre.torgue@foss.st.com>, "Jose
- Abreu" <joabreu@synopsys.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	"Nguyen, Anthony L" <anthony.l.nguyen@intel.com>, "Kitszel, Przemyslaw"
-	<przemyslaw.kitszel@intel.com>
-CC: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"bpf@vger.kernel.org" <bpf@vger.kernel.org>,
-	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
-	"linux-stm32@st-md-mailman.stormreply.com"
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "intel-wired-lan@lists.osuosl.org"
-	<intel-wired-lan@lists.osuosl.org>, "xdp-hints@xdp-project.net"
-	<xdp-hints@xdp-project.net>
-Subject: RE: [PATCH bpf-next v6 4/4] igc: Add launch time support to XDP ZC
-Thread-Topic: [PATCH bpf-next v6 4/4] igc: Add launch time support to XDP ZC
-Thread-Index: AQHbaC8B2aD+Y8oJSU6tHVAr+g1K37MkidWAgAAKZBA=
-Date: Thu, 23 Jan 2025 16:41:03 +0000
-Message-ID: <PH0PR11MB583095A2F12DA10D57781D18D8E02@PH0PR11MB5830.namprd11.prod.outlook.com>
-References: <20250116155350.555374-1-yoong.siang.song@intel.com>
- <20250116155350.555374-5-yoong.siang.song@intel.com>
- <AS1PR10MB5675499EE0ED3A579151D3D3EBE02@AS1PR10MB5675.EURPRD10.PROD.OUTLOOK.COM>
-In-Reply-To: <AS1PR10MB5675499EE0ED3A579151D3D3EBE02@AS1PR10MB5675.EURPRD10.PROD.OUTLOOK.COM>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_9d258917-277f-42cd-a3cd-14c4e9ee58bc_ActionId=5346f792-2728-437a-af4f-d8df71fd3714;MSIP_Label_9d258917-277f-42cd-a3cd-14c4e9ee58bc_ContentBits=0;MSIP_Label_9d258917-277f-42cd-a3cd-14c4e9ee58bc_Enabled=true;MSIP_Label_9d258917-277f-42cd-a3cd-14c4e9ee58bc_Method=Standard;MSIP_Label_9d258917-277f-42cd-a3cd-14c4e9ee58bc_Name=restricted;MSIP_Label_9d258917-277f-42cd-a3cd-14c4e9ee58bc_SetDate=2025-01-23T15:32:06Z;MSIP_Label_9d258917-277f-42cd-a3cd-14c4e9ee58bc_SiteId=38ae3bcd-9579-4fd4-adda-b42e1495d55a;
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PH0PR11MB5830:EE_|MW3PR11MB4714:EE_
-x-ms-office365-filtering-correlation-id: 51d8393d-a787-4f87-19d8-08dd3bccba37
-x-ld-processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|921020|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?HaJUVV1/yEsqMHDAfZDyORkZve+F+SBhAZWthwAVgNmxYllJ+G6eeZihVyF6?=
- =?us-ascii?Q?AaTWBcemyfb+OdJajnJlq1TwI3DnagPVy0Mexd6ZkYeGf/Ku99z/4yaPWmBJ?=
- =?us-ascii?Q?aq2RhODldqPkoCtCccLjJAyjkF94pLgMtIKEZ58fq0W2GyzGUJNysh+ugoiN?=
- =?us-ascii?Q?7esIrmUw4DI9XqGL5cnaX3m+a/F534/JoLCH19OI6O121Plkuh/ks1/r+sSU?=
- =?us-ascii?Q?+h6PIEZEIBTnHHpbyVWaGWMLgUVDXvwFushrZZeSg0Sr1F9Lg2w/qhuMOtz3?=
- =?us-ascii?Q?R9vwUVeFAi8JQC6DRqd153YaYYMJiErWMB/yoC0qcTCwKSGopFtlqZKFl3un?=
- =?us-ascii?Q?AgvKcJak/sTKY+h25nn02hYEAZTibHfRMJgtrDim4LCaSAxGjDl4qt7L0Z2C?=
- =?us-ascii?Q?YzCEUiGwhsf2PGUwIoUN8aqmpEOfBm5ZDUwJSEHYBEK1t7ORGd4PdddX1v92?=
- =?us-ascii?Q?k8NS7AIlC9A2AZNOMznvq01yXOJcRONUl00Ad38AqIvabwfyRuDohxKyW8YI?=
- =?us-ascii?Q?j+gINxuo89HPDr0vGg5V4G79dWxaL9B+UiE4ApJJEdvvJUlzLP9Nk4E09ezl?=
- =?us-ascii?Q?YnGpkueh2Ga4etKWkJxSooNbbPruwg3ddQW3lP65AN6wHxVyOAwmQZxoiZuQ?=
- =?us-ascii?Q?BKAkYxq+biTf2GHfnpNh8/EBirh40mq+a6nYYNIj4voDcDi7Ankx7Um7ZMnx?=
- =?us-ascii?Q?xyqL6cImVEIlAcshIyWPQbhtJ33Add/HaE2ko8JgmCP2iwchbA74x0Dg6qu1?=
- =?us-ascii?Q?sxYm6AiFiITyLxydN14jmEzsk3ah66gFtau5Wn5uVBeW0KjmmkqniN+fA1oE?=
- =?us-ascii?Q?1DgtlRJFb+mpsVZ4x/jokNj+X+gxu/ksO0k2P+F9QRKMrC/SVu86VJ/rpw7i?=
- =?us-ascii?Q?hIJP1oNSc71RSYCzDfnABoNAkQmeFAHNljUhQKzEZdhaEqhLyGbG4JhiYWfl?=
- =?us-ascii?Q?MwACHKHWoyFNbLsK85Njq+3PQkWK4frTffdPNS2ouPt7+coP8rCVoYnGsa/n?=
- =?us-ascii?Q?po0TRdZpR1RFRWk4BuzGfF+4wGzIVllndHDKdzn01ZUaAJdtreH3jowPOQTC?=
- =?us-ascii?Q?8PtvxEes/oL1GvqxF4U9YvGpPocnPNATzNmwhJUwxZPwJj68rwhFE2F7b5HY?=
- =?us-ascii?Q?3FMjSaSzcIapu/NuGFHBrfIry2xwB58dXnzwHPaYygw+MMN/0GYbWfnWwlt5?=
- =?us-ascii?Q?+Y3kY/q33cpamxVQMEo5MzmlaERqnY1SLSrI+DU1FEedB6cbgkkWYU7L9ks2?=
- =?us-ascii?Q?OAWIWm38bZSmpAujhhRsMLgpaV7NzQRXo2Fa3aoOIEiNTxymTVGuMMMshOCa?=
- =?us-ascii?Q?ill4nd9J0cTxWXh4gfkZRCvenN04rNJBL5QBbPEDviknfkGlbcTgIwJbowMr?=
- =?us-ascii?Q?+RqVlOFO1DoLKK0/OSJiEIH6UrGdsU4cKJlt6tlvV8E07mey23/1apPb1lby?=
- =?us-ascii?Q?kEfkqGKjqEU=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR11MB5830.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(921020)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?q6c2Al7pY0dLeJd8oxzU3Yi9y6X66V/YYrKhs+STyFBETAsqFnPj8qNB6Pwg?=
- =?us-ascii?Q?6ksAzkWGw19IbhrZtgPwPUkg2mK+DPt1azxJ55M5fx2ACDM5VqCYKdZFoEfs?=
- =?us-ascii?Q?zqN2a6AN3C3eU0l427zK6WN78X98j0D6XOnTrpgSCOCgKj/Y3tmI69hCmWbl?=
- =?us-ascii?Q?v0mzk4PZvOm+zfnBFZS58VP3Q55AtwXqRQITDpKKe2hvPaVI0XmiIMqjbBo+?=
- =?us-ascii?Q?2P9y4/8MA+pfJvGvq0AhQm/Aiy+bPTwOIc4/T2Dh4pJURlb7J4p1ekJZQ5f2?=
- =?us-ascii?Q?aly87pGjMQ9uGNGOimt9OuWUHt5KVusM8wqIs0RCLmf4hpQQcvhdj9SgJazl?=
- =?us-ascii?Q?jB2Tf1pYMkzaOk72SAgHLiuARYobGww6KrZOdzr6JeeeU6Bkbe1WCAx62nkt?=
- =?us-ascii?Q?l7FABjWDGgNheHJrRt9iBQsciBOM8APbzwUrKpqeKJp3nt5fYs8K/yzGdeYW?=
- =?us-ascii?Q?ZO3Xz2nsHv6n1TkvNcXOKBrPActKX1dmfinb3tDRTR6S3iatL6Z2pVfom1I3?=
- =?us-ascii?Q?mxjRT73IeQetYVZBTykiweIJYckYUrV9LzrH0T9QXXsXHnlUw8qlMyAee81b?=
- =?us-ascii?Q?6fopCCebuDx1Qj3DYVnuWgAwBJueZEAowKdVyj8wwt+xdjQ61LhTqw7hsbdP?=
- =?us-ascii?Q?nEc1TBnNeL1781KFOlrd9KplQuHHYU+a1Qrhlh9iY3KIybVrSAKm7GhJpF90?=
- =?us-ascii?Q?1O5eWaA3DJxZkU6j07Bzvc1uvXjOSLlrdBwuXts7NaupbKl6qbeqb3KGfWM9?=
- =?us-ascii?Q?kgdg3Me+Ibnlj0Gt5hxJK9psZ2rxrbwwkRE4p7yMmvEEmmzLzxR3vcT7XXYy?=
- =?us-ascii?Q?qozIO6sTlIDX8kO9rR3ARFF9IsvPS23kp/3JlBt6yxfT0Qlro/ycXq+dFtZR?=
- =?us-ascii?Q?ikzPmefmDGCIodwKzPcLCV9wmL9vG9Yp6mbDlbhROqx4isFiCv6TzIIKm60L?=
- =?us-ascii?Q?Fo2XaAttcu9/8o3np9wrTV6kxtTLT+jKBnDAIY37EFqbOMYU4pKWS9FkBZF+?=
- =?us-ascii?Q?lyUtbhG4ldVYGUUHXRyEwLRrE+k6QjcyBvcCg54Vn2fjV6/wSVTMpiFyCXkw?=
- =?us-ascii?Q?Wmc2s/+XF0Mmq+oHnfc6qDd/b40Mrxq0gtHsdaZFiPvsnifh05aTRdUJD+Gl?=
- =?us-ascii?Q?MmKcYcWnMWfNc1GVYD1bJ9Pa2+YFBUfyB90Ekc0GogoOAG83+mmsEL5HNzS5?=
- =?us-ascii?Q?wirTfWAS+4iaQL6fS0QGp+fPQyIAt3VMkUSBJ2siZ1bzpRAdWz+tHJscy+5e?=
- =?us-ascii?Q?FNW9fkE0xBd0w4FJnXdeTjieF0XkX00wrrsW63yHtRP/NRxuIoF0smg7AoEt?=
- =?us-ascii?Q?atIPYj2e12ycFE/SsCssTKhX95UlnPGTlB+9tmLnMTZ4adLDUt/FHubsyPIe?=
- =?us-ascii?Q?+mgMv3m6mZAbfrHe8oF0O2YxIQnWQ6vySrSMXE2UrFIOLHJHZ82CGurkfPul?=
- =?us-ascii?Q?+7/WUXlGeWrouzBv2MSPeK4wysIbLvQ1EqUglqcycsTWUp3oz1qN/ujFn3Z9?=
- =?us-ascii?Q?c1gt5SYtbKzZkbaHPX8uFb7fCSQcTdZ55JOBLHWvZ/MjueLcwx3qPU5CzWk/?=
- =?us-ascii?Q?cmqjfz0lRoVoWZdODhxy5MLCWvE+NGLdisVYqv30XuyUaSp3+3UtcvW/6Bq5?=
- =?us-ascii?Q?XQ=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 23 Jan 2025 17:12:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1737652350;
+	h=from:from:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8fOKblc3FZS7ikfIHW19sV5gSa/Sm7uYNFXMWgCbP3w=;
+	b=eKbOPKdXZK3AfpHIHsRX+MNNjhDFGwl57uacrqGaAfIWP06FyUUvMmZ0on8QOrAiOauR+i
+	GFsYCZfSxRyuW24aWkPdjcBJR5JtFtntqGq40ZvHHr7JITNV7BiXWo7QImvdArYWryUzPK
+	rWtXAfobAqthNIdHOKMCfjq1yofjbp0=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-619-BRltncKrPlyig3bg7Cz50Q-1; Thu, 23 Jan 2025 12:11:02 -0500
+X-MC-Unique: BRltncKrPlyig3bg7Cz50Q-1
+X-Mimecast-MFC-AGG-ID: BRltncKrPlyig3bg7Cz50Q
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-436328fcfeeso9369635e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 09:11:02 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737652261; x=1738257061;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:reply-to:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8fOKblc3FZS7ikfIHW19sV5gSa/Sm7uYNFXMWgCbP3w=;
+        b=v2xT/OL2AQDneNMZpu8a/P7yPZHhvZzy+xeiJ1+bcKFpwrPe6zkrZl0D8XLq8+4kd5
+         2W/dpE8bfDBJnntOwm14LyzdUg8mJ2o5tOAqv/edEwJO6fs71mju3RHLaevrPrVmiQfs
+         +ydJyb8XUxACrgTmcKe+Mksgsrv+mXm9E6kqKs3x8Tj0G1XaeEJx66kYQEclKpiOPmCL
+         GaSPveojVVHaLgN1wELJVMtHqPn4HoDkmgIW7jgOAxsQjEvBuI16KpOKT1eGv0i15wJ8
+         6GuX3kmZY4AVsIuxTO1XFJ2apxmSO65QQaYZg4WDR8qEgJYi8hLo3iNF4ERw2fVxApNC
+         pFOg==
+X-Forwarded-Encrypted: i=1; AJvYcCXa45CNQVGILX07ic3lSZOYqXbEQKmE9OHBt8JR4w8DQUFdmpTDQi+OmCciKQDNVP0jGPxwrE1dAbeC47RmDrNt@lists.infradead.org
+X-Gm-Message-State: AOJu0YxLi639hnPypcOZvc1RoVM9+0TMuMKBdGx4gheDiOjH4arkm/cz
+	mPa5cEuVMxrEpGVj9ok321/nd82zfxo7zFTRMoE+jVbE5KqrXotODDM5cVAbRgXeBQcWfhwq4IO
+	SzKun5X5MYMHwSNsQGOZmfNYRy6BLveCodo0y5u1svAUFWPEHeK8yUn6eEL9V6WcuoJCcwfR4
+X-Gm-Gg: ASbGnctxtEYV0Rlbsxa01xI0R9tY4L/5qXQbPI+LAZ6tHW5TPuBdSjkDmy+BgTEpHmJ
+	593tGdKRTNYLpe0uGdgmQW/1d6bOeDLIUJJt9taZzYZY1RyxZeNLrso0QTPWZLo3CADy7p5RrJG
+	985EWXK3Liv8tyx0+DZVV2BYg52092qxbbPz0KZG9XB8cKKhJfdiTnr9AuomZE2Rz9h+B2SQM93
+	YZd4U4HyUVg6Fj0Rz5G77H+LpOfZFUoH+KcKXIyvzeRDDGjDVNsw6Xz8OkaInFHOsg2VszDfEhj
+	+EP9onyYbWFIMW+5bXikuw9ZVIJ+8ZpDC8cR2PFF6A==
+X-Received: by 2002:a05:600c:c87:b0:434:ff30:a159 with SMTP id 5b1f17b1804b1-438912d54b1mr280615825e9.0.1737652261100;
+        Thu, 23 Jan 2025 09:11:01 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEve2JNXs/aOVwoBIaoWNaT3prodhge18rjmwvoIe2mZAtYGf3exTDDbW8BsosdzSW8HiTIkw==
+X-Received: by 2002:a05:600c:c87:b0:434:ff30:a159 with SMTP id 5b1f17b1804b1-438912d54b1mr280615385e9.0.1737652260533;
+        Thu, 23 Jan 2025 09:11:00 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:59e:9d80:527b:9dff:feef:3874? ([2a01:e0a:59e:9d80:527b:9dff:feef:3874])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438b31d9a39sm67975795e9.31.2025.01.23.09.10.55
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 23 Jan 2025 09:10:59 -0800 (PST)
+Message-ID: <fa9b443d-e068-41bc-ad03-9f04818c72e0@redhat.com>
+Date: Thu, 23 Jan 2025 18:10:54 +0100
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PH0PR11MB5830.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 51d8393d-a787-4f87-19d8-08dd3bccba37
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Jan 2025 16:41:03.9694
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: hM1fNSix9Ka6dtJTW6DWyUPOb4L59Fml55ulO1RyqXMLgJaQVSO5sQIuBec/9Qg3ebHMWS14ZwVpTAYrANgDxBG2AK8ArHwZUxWYbSpPIlM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW3PR11MB4714
-X-OriginatorOrg: intel.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFCv2 02/13] genirq/msi: Rename
+ iommu_dma_compose_msi_msg() to msi_msg_set_msi_addr()
+To: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
+ robin.murphy@arm.com, jgg@nvidia.com, kevin.tian@intel.com,
+ tglx@linutronix.de, maz@kernel.org, alex.williamson@redhat.com
+Cc: joro@8bytes.org, shuah@kernel.org, reinette.chatre@intel.com,
+ yebin10@huawei.com, apatel@ventanamicro.com,
+ shivamurthy.shastri@linutronix.de, bhelgaas@google.com,
+ anna-maria@linutronix.de, yury.norov@gmail.com, nipun.gupta@amd.com,
+ iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
+ jean-philippe@linaro.org, mdf@kernel.org, mshavit@google.com,
+ shameerali.kolothum.thodi@huawei.com, smostafa@google.com, ddutile@redhat.com
+References: <cover.1736550979.git.nicolinc@nvidia.com>
+ <242034456c0bfcd7ecf75cb29d8e5c99db0675d6.1736550979.git.nicolinc@nvidia.com>
+From: Eric Auger <eric.auger@redhat.com>
+In-Reply-To: <242034456c0bfcd7ecf75cb29d8e5c99db0675d6.1736550979.git.nicolinc@nvidia.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: CHt5li1wzFFfOJWPEfOO3Q8v_Q1NUMUhskMGZuHJDv8_1737652261
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_084114_281310_11609F2E 
-X-CRM114-Status: GOOD (  16.02  )
+X-CRM114-CacheID: sfid-20250123_091232_760916_790F6082 
+X-CRM114-Status: GOOD (  23.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -225,108 +119,174 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: eric.auger@redhat.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thursday, January 23, 2025 11:40 PM, Bouska, Zdenek <zdenek.bouska@sieme=
-ns.com> wrote:
->
->Hi Siang,
->
->I tested this patch series on 6.13 with Intel I226-LM (rev 04).
->
->I also applied patch "selftests/bpf: Actuate tx_metadata_len in xdp_hw_met=
-adata" [1]
->and "selftests/bpf: Enable Tx hwtstamp in xdp_hw_metadata" [2] so that TX =
-timestamps
->work.
->
->HW RX-timestamp was small (0.5956 instead of 1737373125.5956):
->
->HW RX-time:   595572448 (sec:0.5956) delta to User RX-time sec:1737373124.=
-9873 (1737373124987318.750 usec)
->XDP RX-time:   1737373125582798388 (sec:1737373125.5828) delta to User RX-=
-time sec:0.0001 (92.733 usec)
->
->Igc's raw HW RX-timestamp in front of frame data was overwritten by BPF pr=
-ogram on
->line 90 in tools/testing/selftests/bpf: meta->hint_valid =3D 0;
->
->"HW timestamp has been copied into local variable" comment is outdated on
->line 2813 in drivers/net/ethernet/intel/igc/igc_main.c after
->commit 069b142f5819 igc: Add support for PTP .getcyclesx64() [3].
->
->Workaround is to add unused data to xdp_meta struct:
->
->--- a/tools/testing/selftests/bpf/xdp_metadata.h
->+++ b/tools/testing/selftests/bpf/xdp_metadata.h
->@@ -49,4 +49,5 @@ struct xdp_meta {
->                __s32 rx_vlan_tag_err;
->        };
->        enum xdp_meta_field hint_valid;
->+       __u8 avoid_IGC_TS_HDR_LEN[16];
-> };
->
 
-Hi Zdenek Bouska,=20
 
-Thanks for your help on testing this patch set.
-You are right, there is some issue with the Rx hw timestamp,
-I will submit the bug fix patch when the solution is finalized,
-but the fix will not be part of this launch time patch set.
-Until then, you can continue to use your WA.
 
->But Launch time still does not work:
+On 1/11/25 4:32 AM, Nicolin Chen wrote:
+> From: Jason Gunthorpe <jgg@nvidia.com>
 >
->HW Launch-time:   1737374407515922696 (sec:1737374407.5159) delta to HW TX=
--complete-time sec:-0.9999 (-999923.649 usec)
+> The new function is used to take in a u64 MSI address and store it in the
+> msi_msg. If the iommu has provided an alternative address then that is
+> replaced instead.
 >
->Command "sudo ethtool -X enp1s0 start 1 equal 1" was in v4 [4] but is not =
-in v6.
->Was that intentional? After executing it Launch time feature works:
+> All callers have a tidy u64 already so this also consolidates the repeated
+> low/high code into a small helper.
+>
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
+>  include/linux/msi.h               | 18 ++++++++----------
+>  drivers/irqchip/irq-gic-v2m.c     |  5 +----
+>  drivers/irqchip/irq-gic-v3-its.c  | 13 +++----------
+>  drivers/irqchip/irq-gic-v3-mbi.c  | 12 ++++--------
+>  drivers/irqchip/irq-ls-scfg-msi.c |  5 ++---
+>  5 files changed, 18 insertions(+), 35 deletions(-)
+>
+> diff --git a/include/linux/msi.h b/include/linux/msi.h
+> index d442b4a69d56..f6369748fc6e 100644
+> --- a/include/linux/msi.h
+> +++ b/include/linux/msi.h
+> @@ -296,13 +296,8 @@ static inline void msi_desc_set_iommu_msi_iova(struct msi_desc *desc,
+>  #endif
+>  }
+>  
+> -/**
+> - * iommu_dma_compose_msi_msg() - Apply translation to an MSI message
+> - * @desc: MSI descriptor prepared by iommu_dma_prepare_msi()
+> - * @msg: MSI message containing target physical address
+> - */
+> -static inline void iommu_dma_compose_msi_msg(struct msi_desc *desc,
+> -					     struct msi_msg *msg)
+> +static inline void msi_msg_set_msi_addr(struct msi_desc *desc,
+> +					struct msi_msg *msg, u64 msi_addr)
+nit: msi_msg_set_addr(ess) may be enough as the populated fields are
+address_lo/hi
+>  {
+>  #ifdef CONFIG_IRQ_MSI_IOMMU
+>  	if (desc->iommu_msi_page_shift) {
+> @@ -310,11 +305,14 @@ static inline void iommu_dma_compose_msi_msg(struct msi_desc *desc,
+>  			       << desc->iommu_msi_page_shift;
+>  
+>  		msg->address_hi = upper_32_bits(msi_iova);
+> -		msg->address_lo = lower_32_bits(msi_iova) |
+> -				  (msg->address_lo &
+> -				   ((1 << desc->iommu_msi_page_shift) - 1));
+> +		msg->address_lo =
+> +			lower_32_bits(msi_iova) |
+> +			(msi_addr & ((1 << desc->iommu_msi_page_shift) - 1));
+> +		return;
+>  	}
+>  #endif
+> +	msg->address_hi = upper_32_bits(msi_addr);
+> +	msg->address_lo = lower_32_bits(msi_addr);
+>  }
+>  
+>  int msi_domain_insert_msi_desc(struct device *dev, unsigned int domid,
+> diff --git a/drivers/irqchip/irq-gic-v2m.c b/drivers/irqchip/irq-gic-v2m.c
+> index be35c5349986..6599c56873ad 100644
+> --- a/drivers/irqchip/irq-gic-v2m.c
+> +++ b/drivers/irqchip/irq-gic-v2m.c
+> @@ -87,9 +87,6 @@ static void gicv2m_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
+>  	struct v2m_data *v2m = irq_data_get_irq_chip_data(data);
+>  	phys_addr_t addr = gicv2m_get_msi_addr(v2m, data->hwirq);
+>  
+> -	msg->address_hi = upper_32_bits(addr);
+> -	msg->address_lo = lower_32_bits(addr);
+> -
+>  	if (v2m->flags & GICV2M_GRAVITON_ADDRESS_ONLY)
+>  		msg->data = 0;
+>  	else
+> @@ -97,7 +94,7 @@ static void gicv2m_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
+>  	if (v2m->flags & GICV2M_NEEDS_SPI_OFFSET)
+>  		msg->data -= v2m->spi_offset;
+>  
+> -	iommu_dma_compose_msi_msg(irq_data_get_msi_desc(data), msg);
+> +	msi_msg_set_msi_addr(irq_data_get_msi_desc(data), msg, addr);
+>  }
+>  
+>  static struct irq_chip gicv2m_irq_chip = {
+> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+> index 92244cfa0464..8c3ab7b471ca 100644
+> --- a/drivers/irqchip/irq-gic-v3-its.c
+> +++ b/drivers/irqchip/irq-gic-v3-its.c
+> @@ -1809,17 +1809,10 @@ static u64 its_irq_get_msi_base(struct its_device *its_dev)
+>  static void its_irq_compose_msi_msg(struct irq_data *d, struct msi_msg *msg)
+>  {
+>  	struct its_device *its_dev = irq_data_get_irq_chip_data(d);
+> -	struct its_node *its;
+> -	u64 addr;
+> -
+> -	its = its_dev->its;
+> -	addr = its->get_msi_base(its_dev);
+> -
+> -	msg->address_lo		= lower_32_bits(addr);
+> -	msg->address_hi		= upper_32_bits(addr);
+> -	msg->data		= its_get_event_id(d);
+>  
+> -	iommu_dma_compose_msi_msg(irq_data_get_msi_desc(d), msg);
+> +	msg->data = its_get_event_id(d);
+> +	msi_msg_set_msi_addr(irq_data_get_msi_desc(d), msg,
+> +			     its_dev->its->get_msi_base(its_dev));
+>  }
+>  
+>  static int its_irq_set_irqchip_state(struct irq_data *d,
+> diff --git a/drivers/irqchip/irq-gic-v3-mbi.c b/drivers/irqchip/irq-gic-v3-mbi.c
+> index 3fe870f8ee17..513479da9ee3 100644
+> --- a/drivers/irqchip/irq-gic-v3-mbi.c
+> +++ b/drivers/irqchip/irq-gic-v3-mbi.c
+> @@ -147,22 +147,18 @@ static const struct irq_domain_ops mbi_domain_ops = {
+>  
+>  static void mbi_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
+>  {
+> -	msg[0].address_hi = upper_32_bits(mbi_phys_base + GICD_SETSPI_NSR);
+> -	msg[0].address_lo = lower_32_bits(mbi_phys_base + GICD_SETSPI_NSR);
+>  	msg[0].data = data->parent_data->hwirq;
+> -
+> -	iommu_dma_compose_msi_msg(irq_data_get_msi_desc(data), msg);
+> +	msi_msg_set_msi_addr(irq_data_get_msi_desc(data), &msg[0],
+> +			     mbi_phys_base + GICD_SETSPI_NSR);
+>  }
+>  
+>  static void mbi_compose_mbi_msg(struct irq_data *data, struct msi_msg *msg)
+>  {
+>  	mbi_compose_msi_msg(data, msg);
+>  
+> -	msg[1].address_hi = upper_32_bits(mbi_phys_base + GICD_CLRSPI_NSR);
+> -	msg[1].address_lo = lower_32_bits(mbi_phys_base + GICD_CLRSPI_NSR);
+>  	msg[1].data = data->parent_data->hwirq;
+> -
+> -	iommu_dma_compose_msi_msg(irq_data_get_msi_desc(data), &msg[1]);
+> +	msi_msg_set_msi_addr(irq_data_get_msi_desc(data), &msg[1],
+> +			     mbi_phys_base + GICD_CLRSPI_NSR);
+>  }
+>  
+>  static bool mbi_init_dev_msi_info(struct device *dev, struct irq_domain *domain,
+> diff --git a/drivers/irqchip/irq-ls-scfg-msi.c b/drivers/irqchip/irq-ls-scfg-msi.c
+> index c0e1aafe468c..2ac6d89b4cb4 100644
+> --- a/drivers/irqchip/irq-ls-scfg-msi.c
+> +++ b/drivers/irqchip/irq-ls-scfg-msi.c
+> @@ -87,8 +87,6 @@ static void ls_scfg_msi_compose_msg(struct irq_data *data, struct msi_msg *msg)
+>  {
+>  	struct ls_scfg_msi *msi_data = irq_data_get_irq_chip_data(data);
+>  
+> -	msg->address_hi = upper_32_bits(msi_data->msiir_addr);
+> -	msg->address_lo = lower_32_bits(msi_data->msiir_addr);
+>  	msg->data = data->hwirq;
+>  
+>  	if (msi_affinity_flag) {
+> @@ -98,7 +96,8 @@ static void ls_scfg_msi_compose_msg(struct irq_data *data, struct msi_msg *msg)
+>  		msg->data |= cpumask_first(mask);
+>  	}
+>  
+> -	iommu_dma_compose_msi_msg(irq_data_get_msi_desc(data), msg);
+> +	msi_msg_set_msi_addr(irq_data_get_msi_desc(data), msg,
+> +			     msi_data->msiir_addr);
+>  }
+>  
+>  static int ls_scfg_msi_set_affinity(struct irq_data *irq_data,
 
-This ethtool command is to use RSS method to route the incoming packet
-to the queue which has launch time enabled. However, not every device suppo=
-rt
-RSS. So I move to use a more generic method, which is vlan priority method,
-to route the incoming packet. Therefore, you need to send an
-UDP packet with VLAN priority 1 to port 9091 of DUT.
-
-Below is example of my python script to generate the vlan UDP packet.
-You can have a quick try on it.
-
-from scapy.all import *
-from scapy.all import Ether, Dot1Q, IP, UDP
-packet =3D Ether(src=3D"44:ab:bc:bb:21:44", dst=3D"22:ab:bc:bb:12:34") / Do=
-t1Q(vlan=3D100, prio=3D1) / IP(src=3D"169.254.1.2", dst=3D"169.254.1.1") / =
-UDP(dport=3D9091)
-sendp(packet, iface=3D"enp1s0")
-
-Thanks & Regards
-Siang
-
->
->HW Launch-time:   1737374618088557111 (sec:1737374618.0886) delta to HW TX=
--complete-time sec:0.0000 (0.012 usec)
->
->Thank you for XDP launch time support!
->
->[1] https://lore.kernel.org/linux-kernel/20241205044258.3155799-1-
->yoong.siang.song@intel.com/
->[2] https://lore.kernel.org/linux-kernel/20241205051936.3156307-1-
->yoong.siang.song@intel.com/
->[3]
->https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/=
-?id=3D069
->b142f58196bd9f47b35e493255741e2c663c7
->[4] https://lore.kernel.org/linux-kernel/20250106135724.9749-1-
->yoong.siang.song@intel.com/
->
->Best regards,
->Zdenek Bouska
->
->--
->Siemens, s.r.o
->Foundational Technologies
->
 
