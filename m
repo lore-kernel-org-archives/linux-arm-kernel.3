@@ -4,68 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1A8DC0218C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 16:26:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C774BC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 16:32:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=itwqJx2tzman+sJPKbBqoRjHwiTIXUQ73v+2UV1gBF8=; b=QWciH/r+CBfQMwPHDztfvLPKn7
-	8ClRUpmnAhE2WvzkcTlmjEPSQ6ZIaKF1gk+0Pusy6q7D+TO9VhVvfAwzRCf+zd5WcT5w9s5lPKT2V
-	8T0lvrUihQg+MSFUFOKRy9CRPMC7cJFyaO5Nk2OdIivuBTv67KgcsPOE3YPrPuml0AteDYanObWdG
-	RBUiuyYD6NlYNcX62pVQ1Wiavo0ya4SrBz0h9i4pbzxjJJwk/MJN+v0aqnbeRn0a/OkYgUX8xrlf+
-	AAqtjnnvU/WeOYQx9yy3ejCuy0OdO3SGwRwk9snSfp+gtfUficobl9mbcui1pVzRGmJ8TVg3K6jTC
-	Okl1/GIg==;
+	bh=/OOZAk573KBIPXdQ0sttl1zQn0JOhz1RA0dJ6LznH6g=; b=c84TY6ohs+9dBx3heHz0livTG/
+	QaRVH0SuUc4wDT4JTQ0o5f0gie8msBDDv0fVDvK3+UrNAHjYxfarm5qq1Late1R2tZty8ZXxcexPg
+	YVtEkdzt/eIUSEyJOK/V8BPgAUX3E6qCaGjq9AMgyq4jSYOK0wa+bC58HXBWA/7r+yhRa3sAJQMkR
+	lHuecdDP0d9n6aINVo+dD0maJzT0Tn92KSkGVcNm9okoFROsd9MFxWywnRHXHa/w7r9zgDHqaCmpP
+	DR04/S+2nU1OCA3iPNHzKByMVeIUmGN9Tw/JoXHJXu+hA96sIhMZIr27CNc/CINLorZKQ+csXdylj
+	mRnQ+GHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb01z-0000000Cp2E-0vCB;
-	Thu, 23 Jan 2025 16:26:11 +0000
-Received: from out-183.mta0.migadu.com ([2001:41d0:1004:224b::b7])
+	id 1tb07w-0000000Cpck-19Ns;
+	Thu, 23 Jan 2025 16:32:20 +0000
+Received: from mail-qv1-f53.google.com ([209.85.219.53])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb00g-0000000Cou2-3jAk
+	id 1tb06d-0000000CpSs-2ctY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 16:24:53 +0000
-Message-ID: <46a7eba6-a705-4543-b967-e83ccc89e7d4@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1737649482;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=itwqJx2tzman+sJPKbBqoRjHwiTIXUQ73v+2UV1gBF8=;
-	b=WICPg1uNcTyIIa143qvd7TIyaPFypFvnjpzy2TBctTOcb+kibsxGs0GtRCDR5mzy1ic0x5
-	HxwPLGbYXF6KzWKNxsZtOgH/O2oXtnJYDciC/0Vs0N+Rv2rVZD/a02VOWGw/eL9mzWusBL
-	F5Dd+yqZBd3Zd895GP44LkdQ38RmxQ8=
-Date: Thu, 23 Jan 2025 11:24:36 -0500
+	Thu, 23 Jan 2025 16:31:01 +0000
+Received: by mail-qv1-f53.google.com with SMTP id 6a1803df08f44-6dd420f82e2so14184626d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 08:30:59 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737649857; x=1738254657;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/OOZAk573KBIPXdQ0sttl1zQn0JOhz1RA0dJ6LznH6g=;
+        b=oYwowT5jvEeCdi21BefhvbrnS7vjbh/e+YeQ8wU6ihN9ERT3QrPeHmNdZhxbhkCtpy
+         Zr/g/1SuBja+gizmICJpqPSMCm9gZR2mb0jR6RLzPLy0ecSUAOYqhasmocE/oCIYGaDX
+         8A3wNR/12zVqelrnfIqaXWY2Zw/fCutsxsjHOgejOT+idmFhLv7hbk0td31VA3Hp1wul
+         t3I+nBOevGa5Q0hGG2knqmCcSzf7Dk9Q0K0d7IFuFnrYXtwL5HcMXgCiF3XFgtNdgZZf
+         KT8/6Ian1dtn15920pObhF9qBe8/3rrjWDfUUEb3G3YN3BEB9LjI/o6gkickreT232iJ
+         NtFA==
+X-Forwarded-Encrypted: i=1; AJvYcCWTF1np9PPgfUzm5iSG90cP0j9BLw4IHenrTVgjxlhRB1ZSUfSwFnpcSmV4hppdbxTiD+u1KonfMC72SX229sZb@lists.infradead.org
+X-Gm-Message-State: AOJu0YzFa+rjdBnUlvGOvRQEnR6dXVC1P3bMoEr9xC6sYYRcEz/JgU/Y
+	jcE7by3bFe9xufs3BBBCzZXBjZ6vCEUpvfPVGl+gZsVXAoA37A6sjKcQxOXA
+X-Gm-Gg: ASbGncuEzebe2pbEpVvHNDz4LAkE51SdXyVvXXKtHT6CdXOJg5s2S9iU9XzuYKz++tK
+	ctnbkEUYJfFm7QuMC4lHRHUwaGCsxpOPVMWWToVU5HleltpyrMdrt5ZdH9K3tuCNWgs8tkoVkrc
+	PnGTDdAPLz6zJ/1rx4rgsTncuOUdeKjCMahE5kMe0JRWg9ya9fKPL321reb7HEc/tOasiEXQesA
+	2ss13ZUQZFIpX5wMuBnRx70GwZJ3rzSsuJsh0V/cPjv+SjGhq2siixSO61+dN3hXx/mVGGKrCsp
+	03NhqQ2NuDyqNP6PyF6aWYhpYIcs9M4EdBIi5RRW8HLELg0=
+X-Google-Smtp-Source: AGHT+IH1rn+8O138IhjNBRadHWq8+cEErY4CWHqPCTFEqaAs7J4/j+DHYeKkm7iAaVn025BNHNENdA==
+X-Received: by 2002:a05:6214:2aa8:b0:6d4:1ea3:981d with SMTP id 6a1803df08f44-6e1b223031emr390772386d6.43.1737649857552;
+        Thu, 23 Jan 2025 08:30:57 -0800 (PST)
+Received: from mail-qt1-f177.google.com (mail-qt1-f177.google.com. [209.85.160.177])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6e20524693fsm133066d6.45.2025.01.23.08.30.57
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 23 Jan 2025 08:30:57 -0800 (PST)
+Received: by mail-qt1-f177.google.com with SMTP id d75a77b69052e-46c7855df10so17424121cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 08:30:57 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXsYbVkQK5SSdMeYv5T4CtzlhapKE8cXMIv1EC+tLDDzwcyb4gfqw43tijAybp6IIclAObwNyobVXSfU1b3jY4O@lists.infradead.org
+X-Received: by 2002:a05:622a:47:b0:467:5d0b:c750 with SMTP id
+ d75a77b69052e-46e12a690e0mr384445131cf.22.1737649857108; Thu, 23 Jan 2025
+ 08:30:57 -0800 (PST)
 MIME-Version: 1.0
-Subject: Re: [PATCH 1/7] dt-bindings: spi: zynqmp-qspi: Split the bus
-To: David Lechner <dlechner@baylibre.com>, Mark Brown <broonie@kernel.org>,
- Michal Simek <michal.simek@amd.com>, linux-spi@vger.kernel.org
-Cc: Jinjie Ruan <ruanjinjie@huawei.com>,
- linux-arm-kernel@lists.infradead.org,
- Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>,
- linux-kernel@vger.kernel.org, Miquel Raynal <miquel.raynal@bootlin.com>,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- devicetree@vger.kernel.org,
- "linux-iio@vger.kernel.org" <linux-iio@vger.kernel.org>,
- Jonathan Cameron <jic23@kernel.org>, =?UTF-8?Q?Nuno_S=C3=A1?=
- <nuno.sa@analog.com>
-References: <20250116232118.2694169-1-sean.anderson@linux.dev>
- <20250116232118.2694169-2-sean.anderson@linux.dev>
- <9f40295b-484a-48e8-b053-ff8550e589d7@baylibre.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <9f40295b-484a-48e8-b053-ff8550e589d7@baylibre.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+References: <20250118111344.361617-1-marek.vasut+renesas@mailbox.org>
+ <CAMuHMdUTQ=4K8P_TgTp_b=NDdimgXJgW_nhO1ZJa11C846Bubw@mail.gmail.com> <61d3d9c1-cb43-4b29-81e2-1c6f189191d0@mailbox.org>
+In-Reply-To: <61d3d9c1-cb43-4b29-81e2-1c6f189191d0@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 23 Jan 2025 17:30:45 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdUCEshShnrNgxcLy1ii=OKt957aofEKm-1NRdzwMQ1p_w@mail.gmail.com>
+X-Gm-Features: AWEUYZnhg-6RrWKZLzBa-_4Pv7SVHAFC90S4-tDaNOpf85kbrAi3FkAdF0fGMVI
+Message-ID: <CAMuHMdUCEshShnrNgxcLy1ii=OKt957aofEKm-1NRdzwMQ1p_w@mail.gmail.com>
+Subject: Re: [PATCH 1/5] arm64: dts: renesas: r8a779f0: Add labels for rswitch ports
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>, linux-arm-kernel@lists.infradead.org, 
+	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, 
+	devicetree@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_082451_357940_97E01011 
-X-CRM114-Status: GOOD (  30.32  )
+X-CRM114-CacheID: sfid-20250123_083059_664255_F3C51AF2 
+X-CRM114-Status: GOOD (  26.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,98 +96,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/21/25 19:16, David Lechner wrote:
-> On 1/16/25 5:21 PM, Sean Anderson wrote:
->> This device supports two separate SPI busses: 
-> 
-> ...
-> 
->> @@ -84,5 +94,32 @@ examples:
->>          resets = <&zynqmp_reset ZYNQMP_RESET_QSPI>;
->>          reg = <0x0 0xff0f0000 0x0 0x1000>,
->>                <0x0 0xc0000000 0x0 0x8000000>;
->> +
->> +        spi-lower {
->> +          #address-cells = <1>;
->> +          #size-cells = <0>;
->> +          num-cs = <2>;
->> +          cs-gpios = <0>, <&gpio 5>;
->> +
->> +          flash@0 {
->> +            reg = <0>;
->> +            compatible = "jedec,spi-nor";
->> +          };
->> +
->> +          flash@1 {
->> +            reg = <1>;
->> +            compatible = "jedec,spi-nor";
->> +          };
->> +        };
->> +
->> +        spi-upper {
->> +          #address-cells = <1>;
->> +          #size-cells = <0>;
->> +
->> +          flash@0 {
->> +            reg = <0>;
->> +            compatible = "jedec,spi-nor";
->> +          };
->> +        };
->>        };
->>      };
-> 
-> In the IIO subsystem, we've been recently working on several "advanced" ADCs
-> that could use a SPI controller like this. These ADCs have multiple input
-> channels that perform conversions in parallel and the data for each channel
-> needs to be read back on a separate serial line (MISO) at the same time. Another
-> similar case is to have two separate chips, but they share a conversion trigger
-> and essentially operate as a single composite device rather than two distinct
-> devices [1]. This would be similar to some ADCs that are daisy-chained where we
-> consider all of the chips in the chain as a single composite device, but they
-> would be in parallel rather than chained.
-> 
-> [1]: https://lore.kernel.org/linux-iio/e5e8eba7-2455-488b-a36f-e246844e11fd@baylibre.com/
+Hi Marek,
+
+On Thu, Jan 23, 2025 at 5:20=E2=80=AFPM Marek Vasut <marek.vasut@mailbox.or=
+g> wrote:
+> On 1/23/25 4:25 PM, Geert Uytterhoeven wrote:
+> > On Sat, Jan 18, 2025 at 12:14=E2=80=AFPM Marek Vasut
+> > <marek.vasut+renesas@mailbox.org> wrote:
+> >> Introduce labels for each rswitch port in the form 'rswitchportN'.
+> >> Those can be used to access rswitch port nodes directly, which is
+> >> going to be useful in reducing DT indentation slightly as well as
+> >> in DT /aliases node to reference the rswitch ports as ethernetN
+> >> interfaces. No functional change.
+> >>
+> >> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> >
+> > Thanks for your patch!
+> >
+> > Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> > i.e. will queue in renesas-devel for v6.15.
+> >
+> >> --- a/arch/arm64/boot/dts/renesas/r8a779f0.dtsi
+> >> +++ b/arch/arm64/boot/dts/renesas/r8a779f0.dtsi
+> >> @@ -974,15 +974,15 @@ ethernet-ports {
+> >>                                  #address-cells =3D <1>;
+> >>                                  #size-cells =3D <0>;
+> >>
+> >> -                               port@0 {
+> >> +                               rswitchport0: port@0 {
+> >>                                          reg =3D <0>;
+> >>                                          phys =3D <&eth_serdes 0>;
+> >>                                  };
+> >> -                               port@1 {
+> >> +                               rswitchport1: port@1 {
+> >>                                          reg =3D <1>;
+> >>                                          phys =3D <&eth_serdes 1>;
+> >>                                  };
+> >> -                               port@2 {
+> >> +                               rswitchport2: port@2 {
+> >>                                          reg =3D <2>;
+> >>                                          phys =3D <&eth_serdes 2>;
+> >>                                  };
+> >
+> > Would you mind if I would change all rswitchportN to rswitch_portN
+> > while applying, for consistency with other Renesas DTS files?
 >
-> For those use cases though, as mentioned above, we only have a single device
-> that would be connected to both buses. So for such a SPI controller with
-> multiple buses, I was envisioning that instead of adding child nodes for each
-> of the child buses, that we would do something like add a spi-buses property
-> to the spi peripheral bindings where you could specify one or more buses that
-> a device was connected to.
-> 
-> e.g. a device connected to the lower bus would be spi-buses = <0>; one connected
-> to the upper bus would be spi-buses = <1>; and a device connected to both would
-> be spi-buses = <0>, <1>;.  This would also work for SPI controllers that have
-> 4 or 8 busses.
-> 
-> SPI controllers like these have a striping feature that allows to control both
-> buses at the same to either mirror the same data on both buses at the same
-> time when writing, e.g. for configuration or to read and write two different
-> bytes at the same time. A peripheral driver for device that was connected to
-> both buses could make use of this feature to craft a single SPI message with
-> transfers containing (new) parameters that specify which bus to use (one or
-> both) and, in the case of using both buses, to mirror or stripe the data.
-> 
-> Could we make a single device connected to both buses like this work using
-> the proposed spi-lower and spi-upper or should we consider a different binding
-> like the one I suggested?
+> Go ahead, but also keep the commit messages in sync .
 
-If you are willing to do the work to rewrite the SPI subsystem to handle
-this, then I don't object to it in principle. Using a property would
-also help with forwards compatibility. On the other hand, separate
-busses are easier to implement since they integrate better with the SPI
-subsystem (e.g. you can just call spi_register_controller to create all
-the slaves).
+Sure ;-)
 
-There have been some previous patches from Xilinx to handle this
-use case [1], but IMO they were pretty hacky. They got this feature
-merged into U-Boot and it broke many other boards and took a lot of
-cleanup to fix. So I have intentionally only tackled the unsynchronized
-use case since that requires no modification to areas outside of this
-driver. I don't need the "parallel" use case and I am not interested in
-doing the work required to implement it.
+> I can send a V2 too ?
 
---Sean
+No need for that, as I already made these changes locally.
+Thanks!
 
-[1] https://lore.kernel.org/linux-spi/20221017121249.19061-1-amit.kumar-mahapatra@amd.com/
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--=20
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
+
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
 
