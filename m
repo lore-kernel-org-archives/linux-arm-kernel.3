@@ -4,84 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C774BC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 16:32:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F9D5C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 16:33:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/OOZAk573KBIPXdQ0sttl1zQn0JOhz1RA0dJ6LznH6g=; b=c84TY6ohs+9dBx3heHz0livTG/
-	QaRVH0SuUc4wDT4JTQ0o5f0gie8msBDDv0fVDvK3+UrNAHjYxfarm5qq1Late1R2tZty8ZXxcexPg
-	YVtEkdzt/eIUSEyJOK/V8BPgAUX3E6qCaGjq9AMgyq4jSYOK0wa+bC58HXBWA/7r+yhRa3sAJQMkR
-	lHuecdDP0d9n6aINVo+dD0maJzT0Tn92KSkGVcNm9okoFROsd9MFxWywnRHXHa/w7r9zgDHqaCmpP
-	DR04/S+2nU1OCA3iPNHzKByMVeIUmGN9Tw/JoXHJXu+hA96sIhMZIr27CNc/CINLorZKQ+csXdylj
-	mRnQ+GHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aJA4g42En+uawhKwJGlWNJO+UAjw8o7TK6oQsEIEysw=; b=sFZ7lRzEDfsCbTOvvW13BuXE64
+	ZmCHiFygDy8rHANUFrB/xOnXNDJdVGs2j+PPmgcdFUILIm7feUoVLVGLDxwRy7utSEDqmIt8iFiaP
+	aFEjZjz/SinS3JdegSA/xJ0/O4cP0q6nE7dbXX8O2hhfVqrbdHZzHK/C7rnedUTEwQGGAltQULaOv
+	98vjmrOj92KEAU3PaNL3hz9+Npx8DZ9LS4GoHr9TyE124rbM7JrH663Fqe2ffTcDNLNDxKjvWZ2gX
+	H6l15tipvZ0AB2CXu0N81vfZhoqrdgyDFwDXqVPQ9lAzMf2QNyExhkYVEPItWfo5V0agO7CSa5Th5
+	Wym0arSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb07w-0000000Cpck-19Ns;
-	Thu, 23 Jan 2025 16:32:20 +0000
-Received: from mail-qv1-f53.google.com ([209.85.219.53])
+	id 1tb09B-0000000Cpl0-3zfx;
+	Thu, 23 Jan 2025 16:33:37 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb06d-0000000CpSs-2ctY
+	id 1tb077-0000000CpVJ-48Li
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 16:31:01 +0000
-Received: by mail-qv1-f53.google.com with SMTP id 6a1803df08f44-6dd420f82e2so14184626d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 08:30:59 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737649857; x=1738254657;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/OOZAk573KBIPXdQ0sttl1zQn0JOhz1RA0dJ6LznH6g=;
-        b=oYwowT5jvEeCdi21BefhvbrnS7vjbh/e+YeQ8wU6ihN9ERT3QrPeHmNdZhxbhkCtpy
-         Zr/g/1SuBja+gizmICJpqPSMCm9gZR2mb0jR6RLzPLy0ecSUAOYqhasmocE/oCIYGaDX
-         8A3wNR/12zVqelrnfIqaXWY2Zw/fCutsxsjHOgejOT+idmFhLv7hbk0td31VA3Hp1wul
-         t3I+nBOevGa5Q0hGG2knqmCcSzf7Dk9Q0K0d7IFuFnrYXtwL5HcMXgCiF3XFgtNdgZZf
-         KT8/6Ian1dtn15920pObhF9qBe8/3rrjWDfUUEb3G3YN3BEB9LjI/o6gkickreT232iJ
-         NtFA==
-X-Forwarded-Encrypted: i=1; AJvYcCWTF1np9PPgfUzm5iSG90cP0j9BLw4IHenrTVgjxlhRB1ZSUfSwFnpcSmV4hppdbxTiD+u1KonfMC72SX229sZb@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFa+rjdBnUlvGOvRQEnR6dXVC1P3bMoEr9xC6sYYRcEz/JgU/Y
-	jcE7by3bFe9xufs3BBBCzZXBjZ6vCEUpvfPVGl+gZsVXAoA37A6sjKcQxOXA
-X-Gm-Gg: ASbGncuEzebe2pbEpVvHNDz4LAkE51SdXyVvXXKtHT6CdXOJg5s2S9iU9XzuYKz++tK
-	ctnbkEUYJfFm7QuMC4lHRHUwaGCsxpOPVMWWToVU5HleltpyrMdrt5ZdH9K3tuCNWgs8tkoVkrc
-	PnGTDdAPLz6zJ/1rx4rgsTncuOUdeKjCMahE5kMe0JRWg9ya9fKPL321reb7HEc/tOasiEXQesA
-	2ss13ZUQZFIpX5wMuBnRx70GwZJ3rzSsuJsh0V/cPjv+SjGhq2siixSO61+dN3hXx/mVGGKrCsp
-	03NhqQ2NuDyqNP6PyF6aWYhpYIcs9M4EdBIi5RRW8HLELg0=
-X-Google-Smtp-Source: AGHT+IH1rn+8O138IhjNBRadHWq8+cEErY4CWHqPCTFEqaAs7J4/j+DHYeKkm7iAaVn025BNHNENdA==
-X-Received: by 2002:a05:6214:2aa8:b0:6d4:1ea3:981d with SMTP id 6a1803df08f44-6e1b223031emr390772386d6.43.1737649857552;
-        Thu, 23 Jan 2025 08:30:57 -0800 (PST)
-Received: from mail-qt1-f177.google.com (mail-qt1-f177.google.com. [209.85.160.177])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6e20524693fsm133066d6.45.2025.01.23.08.30.57
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 23 Jan 2025 08:30:57 -0800 (PST)
-Received: by mail-qt1-f177.google.com with SMTP id d75a77b69052e-46c7855df10so17424121cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 08:30:57 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXsYbVkQK5SSdMeYv5T4CtzlhapKE8cXMIv1EC+tLDDzwcyb4gfqw43tijAybp6IIclAObwNyobVXSfU1b3jY4O@lists.infradead.org
-X-Received: by 2002:a05:622a:47:b0:467:5d0b:c750 with SMTP id
- d75a77b69052e-46e12a690e0mr384445131cf.22.1737649857108; Thu, 23 Jan 2025
- 08:30:57 -0800 (PST)
+	Thu, 23 Jan 2025 16:31:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=aJA4g42En+uawhKwJGlWNJO+UAjw8o7TK6oQsEIEysw=; b=FY0aipgKoz6hdW9JmVzyeCWzs2
+	JDQrGtiEjokG0h0MAqwdRltMqbjsiTBI9wAkNypiJnZx5SQ4PLQ/UHEKu7hrmiKPTF1Nx2l0vbbo2
+	iYXBhJQ7arITeTtpl/QqVDfCYBOv9F6FGKYwwUelCHzRL7koyrGsN5ZKQgLjfx8dOS7XZdLlodnZq
+	jRSUtSD3YiFO9hranwGYWMSxO3k8lx9yy+8x/ejZZ4Wv2H4X4C9TRx90lydy/m5OvQxZftaplUsIl
+	wyne/41MJBGeXP4T7iXjDe9ZWKoq6XxxOkOR6zgkxo5kqyWG1/c1ueqvV7Jed3KMqaMyM5WZ76N4O
+	Roaak0rw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:36832)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tb06u-0001HN-2h;
+	Thu, 23 Jan 2025 16:31:16 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tb06q-000659-1t;
+	Thu, 23 Jan 2025 16:31:12 +0000
+Date: Thu, 23 Jan 2025 16:31:12 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Furong Xu <0x1207@gmail.com>, Joao Pinto <Joao.Pinto@synopsys.com>,
+	Vince Bridgers <vbridger@opensource.altera.com>,
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v2 0/3] Limit devicetree parameters to hardware
+ capability
+Message-ID: <Z5Ju0DtNDwj_hO0F@shell.armlinux.org.uk>
+References: <20250121044138.2883912-1-hayashi.kunihiko@socionext.com>
+ <Z492Mvw-BxLBR1eZ@shell.armlinux.org.uk>
+ <ea845c58-ee2a-4660-bc13-7e05003de5d0@socionext.com>
 MIME-Version: 1.0
-References: <20250118111344.361617-1-marek.vasut+renesas@mailbox.org>
- <CAMuHMdUTQ=4K8P_TgTp_b=NDdimgXJgW_nhO1ZJa11C846Bubw@mail.gmail.com> <61d3d9c1-cb43-4b29-81e2-1c6f189191d0@mailbox.org>
-In-Reply-To: <61d3d9c1-cb43-4b29-81e2-1c6f189191d0@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 23 Jan 2025 17:30:45 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdUCEshShnrNgxcLy1ii=OKt957aofEKm-1NRdzwMQ1p_w@mail.gmail.com>
-X-Gm-Features: AWEUYZnhg-6RrWKZLzBa-_4Pv7SVHAFC90S4-tDaNOpf85kbrAi3FkAdF0fGMVI
-Message-ID: <CAMuHMdUCEshShnrNgxcLy1ii=OKt957aofEKm-1NRdzwMQ1p_w@mail.gmail.com>
-Subject: Re: [PATCH 1/5] arm64: dts: renesas: r8a779f0: Add labels for rswitch ports
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>, linux-arm-kernel@lists.infradead.org, 
-	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, 
-	devicetree@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ea845c58-ee2a-4660-bc13-7e05003de5d0@socionext.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_083059_664255_F3C51AF2 
-X-CRM114-Status: GOOD (  26.51  )
+X-CRM114-CacheID: sfid-20250123_083130_027052_A583C19A 
+X-CRM114-Status: GOOD (  25.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,71 +90,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
+On Thu, Jan 23, 2025 at 02:25:15PM +0900, Kunihiko Hayashi wrote:
+> Hi Russell,
+> 
+> Thank you for your comment.
+> 
+> On 2025/01/21 19:25, Russell King (Oracle) wrote:
+> > On Tue, Jan 21, 2025 at 01:41:35PM +0900, Kunihiko Hayashi wrote:
+> > > This series includes patches that checks the devicetree properties,
+> > > the number of MTL queues and FIFO size values, and if these specified
+> > > values exceed the value contained in the hardware capabilities, limit to
+> > > the values from the capabilities.
+> > > 
+> > > And this sets hardware capability values if FIFO sizes are not specified
+> > > and removes redundant lines.
+> > 
+> > I think you also indeed to explain why (and possibly understand) - if
+> > there are hardware capabilities that describe these parameters - it has
+> > been necessary to have them in firmware as well.
+> > 
+> > There are two scenarios I can think of why these would be duplicated:
+> > 
+> > 1. firmware/platform capabilities are there to correct wrong values
+> >     provided by the hardware.
+> > 2. firmware/platform capabilities are there to reduce the parameters
+> >     below hardware maximums.
+> > 
+> > Which it is affects whether your patch is correct or not, and thus needs
+> > to be mentioned.
+> 
+> I think scenario 2 applies in this case.
 
-On Thu, Jan 23, 2025 at 5:20=E2=80=AFPM Marek Vasut <marek.vasut@mailbox.or=
-g> wrote:
-> On 1/23/25 4:25 PM, Geert Uytterhoeven wrote:
-> > On Sat, Jan 18, 2025 at 12:14=E2=80=AFPM Marek Vasut
-> > <marek.vasut+renesas@mailbox.org> wrote:
-> >> Introduce labels for each rswitch port in the form 'rswitchportN'.
-> >> Those can be used to access rswitch port nodes directly, which is
-> >> going to be useful in reducing DT indentation slightly as well as
-> >> in DT /aliases node to reference the rswitch ports as ethernetN
-> >> interfaces. No functional change.
-> >>
-> >> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-> >
-> > Thanks for your patch!
-> >
-> > Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> > i.e. will queue in renesas-devel for v6.15.
-> >
-> >> --- a/arch/arm64/boot/dts/renesas/r8a779f0.dtsi
-> >> +++ b/arch/arm64/boot/dts/renesas/r8a779f0.dtsi
-> >> @@ -974,15 +974,15 @@ ethernet-ports {
-> >>                                  #address-cells =3D <1>;
-> >>                                  #size-cells =3D <0>;
-> >>
-> >> -                               port@0 {
-> >> +                               rswitchport0: port@0 {
-> >>                                          reg =3D <0>;
-> >>                                          phys =3D <&eth_serdes 0>;
-> >>                                  };
-> >> -                               port@1 {
-> >> +                               rswitchport1: port@1 {
-> >>                                          reg =3D <1>;
-> >>                                          phys =3D <&eth_serdes 1>;
-> >>                                  };
-> >> -                               port@2 {
-> >> +                               rswitchport2: port@2 {
-> >>                                          reg =3D <2>;
-> >>                                          phys =3D <&eth_serdes 2>;
-> >>                                  };
-> >
-> > Would you mind if I would change all rswitchportN to rswitch_portN
-> > while applying, for consistency with other Renesas DTS files?
->
-> Go ahead, but also keep the commit messages in sync .
+In light of my other reply
+(https://lore.kernel.org/r/Z4_ZilVFKacuAUE8@shell.armlinux.org.uk) I
+don't think either of my two above applies, and the driver is designed
+to allow platform code to override the hardware value, or to provide
+the value if there is no hardware value.
 
-Sure ;-)
+My suggestion, therefore, would be (e.g.):
 
-> I can send a V2 too ?
+	if (priv->dma_cap.rx_fifo_size &&
+	    priv->plat->rx_fifo_size > priv->dma_cap.rx_fifo_size) {
+		dev_warn(priv->device,
+			 "Rx FIFO size exceeds dma capability (%d)\n",
+			 priv->plat->rx_fifo_size);
+		priv->plat->rx_fifo_size = priv->dma_cap.rx_fifo_size;
+	}
 
-No need for that, as I already made these changes locally.
-Thanks!
+if we still want to limit it to the hardware provided capability, where
+that is provided.
 
-Gr{oetje,eeting}s,
-
-                        Geert
-
---=20
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
-
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
