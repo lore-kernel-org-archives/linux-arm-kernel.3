@@ -4,98 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31778C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 17:27:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9C46C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 17:37:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k8m9xRoXO8qO8XqSfSEsQnhK07zXdgSA6NiBY4fDmK4=; b=11AMpSRV7x2AUqu7lkzk4yIRJC
-	BVy0IPnODiq+qzADKqyEUKMIffsjBDjLKoVDsLwXAJYqqfayFMoYOGZr/H30OW9gNNw+htRtzT1jl
-	hqjjWH+rUlMpx6xybgyz3XD1QMsPuO7iPwYApE3p32HYvRU6+5iUSupuFKiqN93mfBnFrr0p2etWZ
-	16Pa7d4epXyvtQqPv4QZAqxohxaMI09763JGZT9Nviz2shJYxGZMUCXUY9Rvq4+T6AhQ8AH51ouIu
-	t+SBhdMUl4wGdjrdT3rSK+xeOvML7tvuuCPO53jAX1OqymWihIjV/n93VVbyWTVsKhSzux+Fb2v/U
-	W9LbAyCg==;
+	bh=3sAObRTPJYOicvuINKNxbQAMLh+X34dr0zItcLyQyQ8=; b=pVbdUXufjDa0U5t0ThnG/J6hXu
+	2yGXkBjRE77td0jnqCoc6czKUq6A468ORlVfzsYvypK8v/QAklpxkTLE2dZV1CZW4bKLYtram9haz
+	3QLk00kLrV4BvNG4HwLYVORKfTLrc80/QLzAGxUyhCCaVEY7o5J9lrC4evObiVv2GR5SKbnmiM3Cr
+	JyHM4jvgi30Nvs05lWhPwXz2GPjuQxeNaOh4v6W5BJarXvvoIIUUAprToc9uKHSS8riinH7TNNg7G
+	Ikn5OsrlDIfJwHuXEbgQM2k27vBMevkf3gJRGkBGlz0Xh0enjIZlknwpwlUfABJw4gjpZKoBDAytD
+	wuLJPfZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb0z0-0000000Cwoe-3kVE;
-	Thu, 23 Jan 2025 17:27:10 +0000
-Received: from fout-b1-smtp.messagingengine.com ([202.12.124.144])
+	id 1tb18K-0000000CxXu-2mTQ;
+	Thu, 23 Jan 2025 17:36:48 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb0xa-0000000CwWO-3dhu
+	id 1tb172-0000000CxRS-2Fmv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 17:25:44 +0000
-Received: from phl-compute-09.internal (phl-compute-09.phl.internal [10.202.2.49])
-	by mailfout.stl.internal (Postfix) with ESMTP id DA42E1140201;
-	Thu, 23 Jan 2025 12:25:40 -0500 (EST)
-Received: from phl-mailfrontend-02 ([10.202.2.163])
-  by phl-compute-09.internal (MEProxy); Thu, 23 Jan 2025 12:25:41 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1737653140; x=1737739540; bh=k8m9xRoXO8qO8XqSfSEsQnhK07zXdgSA6Ni
-	BY4fDmK4=; b=UNo25tJwNvq55hoKi4JZyWAOukNp8MvMH+iorVe5L5BUtzJpbWH
-	WOgPg2idCOTbkZcaXMF2izFUNYgiUA226zegEY7nETeejoKK+GH4cPAHHv4+gaA2
-	No75GzYsuQyJacbZ/eYKXTwsUp5TYVoBOqXy8fhIJRXV5XVcH0Pal2S4UxsEDI2y
-	PiK4Z9B92Tr+O3VgNSW0x8IFzZwQqCDZSY/GmAMWjjp5lTbe8jfaOnEgLf29kSyi
-	Zmn2Hsh1zynROQ0y+Xlq/WdjgYnxETOKDfFXFn47SlRtalgbMBFHUm6OAn4jc8gv
-	6Y2A2ye8gvT1v9retfkZ+EYsHMj6Fa9pqsA==
-X-ME-Sender: <xms:lHuSZ6Q3Y5mhqk8SqvLGEFZoc7L4C4Vq4ocMRY2ZtCGtclnoY4C5SA>
-    <xme:lHuSZ_wkYj6yUvP4QaNCshFicFLEFVSJ38U4fHhzWFl_c5Y8FXlT2RCouTYHUppcV
-    3sfLnqHFNasTZI>
-X-ME-Received: <xmr:lHuSZ31_tFSo7XicJ0ebl7IM7PwV516qOGVdK7wpFbTNrS10D7tTqtr_-VRZ4XWdqF-L8PSDJvqpJ3GxWhzKC7OevWE>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrudejgedgvddvhecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfhfgggtuggjsehttdertddttddv
-    necuhfhrohhmpefkughoucfutghhihhmmhgvlhcuoehiughoshgthhesihguohhstghhrd
-    horhhgqeenucggtffrrghtthgvrhhnpedvudefveekheeugeeftddvveefgfduieefudei
-    fefgleekheegleegjeejgeeghfenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
-    epmhgrihhlfhhrohhmpehiughoshgthhesihguohhstghhrdhorhhgpdhnsggprhgtphht
-    thhopedvhedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepmhdqmhgrlhhlrgguih
-    esthhirdgtohhmpdhrtghpthhtoheprhhoghgvrhhqsehkvghrnhgvlhdrohhrghdprhgt
-    phhtthhopegurghnihhshhgrnhifrghrsehtihdrtghomhdprhgtphhtthhopehprggsvg
-    hnihesrhgvughhrghtrdgtohhmpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhr
-    ghdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtoh
-    epuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegrnhgurhgvfido
-    nhgvthguvghvsehluhhnnhdrtghhpdhrtghpthhtohepsghpfhesvhhgvghrrdhkvghrnh
-    gvlhdrohhrgh
-X-ME-Proxy: <xmx:lHuSZ2AChG0X3LVUB2gLV-R46xtnlu9S7wKocCq7aBn071w8mSkmwg>
-    <xmx:lHuSZzgHG-hOKyO9omZOfwtUNN30N8LBhwuTr08mKQZLsVHT4pvW4w>
-    <xmx:lHuSZyr_hNQ478wEmCyozRK9lNuBXL9sCYjy_DkCidWjo73QJKas7w>
-    <xmx:lHuSZ2jyNRP5R1jMWTP1nA7sQvc3TNA1p8s5fyyd7DwYXnIEhNNREw>
-    <xmx:lHuSZyTkibneaWB543QSYzPQcrGBqLywyZCYoS_k1Xe33pUkaDUTZJac>
-Feedback-ID: i494840e7:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 23 Jan 2025 12:25:39 -0500 (EST)
-Date: Thu, 23 Jan 2025 19:25:36 +0200
-From: Ido Schimmel <idosch@idosch.org>
-To: Meghana Malladi <m-malladi@ti.com>
-Cc: rogerq@kernel.org, danishanwar@ti.com, pabeni@redhat.com,
-	kuba@kernel.org, edumazet@google.com, davem@davemloft.net,
-	andrew+netdev@lunn.ch, bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, robh@kernel.org,
-	matthias.schiffer@ew.tq-group.com, dan.carpenter@linaro.org,
-	rdunlap@infradead.org, diogo.ivo@siemens.com,
-	schnelle@linux.ibm.com, glaroque@baylibre.com,
-	john.fastabend@gmail.com, hawk@kernel.org, daniel@iogearbox.net,
-	ast@kernel.org, srk@ti.com, Vignesh Raghavendra <vigneshr@ti.com>
-Subject: Re: [PATCH net 3/3] net: ti: icssg-prueth: Add AF_XDP support
-Message-ID: <Z5J7kGFU_ZgneFAF@shredder>
-References: <20250122124951.3072410-1-m-malladi@ti.com>
- <20250122124951.3072410-4-m-malladi@ti.com>
+	Thu, 23 Jan 2025 17:35:30 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50NFr2iw031618;
+	Thu, 23 Jan 2025 17:35:18 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=3sAObRTPJYOicvuINKNxbQAM
+	Lh+X34dr0zItcLyQyQ8=; b=CnWxtVDZsoW06382hhUrxkUCZN6PsICjBsshSBM7
+	Dky1GYeFZ3yh3IkoNzfbUprCb/UjdidwYmFrtKByGeHBcXM1zd8aTaO3AHbMbxy8
+	qLbOCjWGiiYCs5qAjIDDbmgj80IV/DnYvsou60wwA8KeWuFhsFvwyvFy4reQgn0R
+	OjPXipHokqwj2jID6Qn0/1uqI20Z3RSVjTIo/iE/4xpfgecx8dYJBmtLapgxwQIN
+	Mt3RkIXH569SnzKV9Mt4XZJIBDZFo/hhyiJOCKtK5hVkCtEzaaqZL0R6G4JDbtIF
+	BRrWyRkKgqt61qoaJSMo6UochB36Z0NXUhFFIz//OLmvMw==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44brsyg93v-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 23 Jan 2025 17:35:17 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 50NHZGA4031330
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 23 Jan 2025 17:35:16 GMT
+Received: from hu-guptap-hyd.qualcomm.com (10.80.80.8) by
+ nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Thu, 23 Jan 2025 09:35:12 -0800
+Date: Thu, 23 Jan 2025 23:04:58 +0530
+From: Prakash Gupta <quic_guptap@quicinc.com>
+To: Robin Murphy <robin.murphy@arm.com>
+CC: Connor Abbott <cwabbott0@gmail.com>, Rob Clark <robdclark@gmail.com>,
+        "Will Deacon" <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
+        Sean Paul
+	<sean@poorly.run>, Konrad Dybcio <konradybcio@kernel.org>,
+        Abhinav Kumar
+	<quic_abhinavk@quicinc.com>,
+        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        <iommu@lists.linux.dev>, <linux-arm-msm@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <freedreno@lists.freedesktop.org>
+Subject: Re: [PATCH v3 1/3] iommu/arm-smmu: Fix spurious interrupts with
+ stall-on-fault
+Message-ID: <Z5J9wpooIH5/Ccrt@hu-guptap-hyd.qualcomm.com>
+References: <20250122-msm-gpu-fault-fixes-next-v3-0-0afa00158521@gmail.com>
+ <20250122-msm-gpu-fault-fixes-next-v3-1-0afa00158521@gmail.com>
+ <Z5IjsqQ6vTdUXiGt@hu-guptap-hyd.qualcomm.com>
+ <b593ac5e-cb29-473a-af1b-214168968679@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20250122124951.3072410-4-m-malladi@ti.com>
+In-Reply-To: <b593ac5e-cb29-473a-af1b-214168968679@arm.com>
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: QM4dPC_sVTC_fOBkeECY6Kk1472-TJ67
+X-Proofpoint-ORIG-GUID: QM4dPC_sVTC_fOBkeECY6Kk1472-TJ67
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-23_07,2025-01-23_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 suspectscore=0
+ lowpriorityscore=0 mlxlogscore=494 spamscore=0 mlxscore=0 clxscore=1015
+ impostorscore=0 malwarescore=0 adultscore=0 priorityscore=1501
+ phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501230129
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_092542_970355_4F93D94B 
-X-CRM114-Status: GOOD (  13.58  )
+X-CRM114-CacheID: sfid-20250123_093528_730842_A1B9105F 
+X-CRM114-Status: GOOD (  34.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,60 +108,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-s/AF_XDP/XDP/ ?
-
-On Wed, Jan 22, 2025 at 06:19:51PM +0530, Meghana Malladi wrote:
-> From: Roger Quadros <rogerq@kernel.org>
+On Thu, Jan 23, 2025 at 11:51:27AM +0000, Robin Murphy wrote:
+> On 2025-01-23 11:10 am, Prakash Gupta wrote:
+> > On Wed, Jan 22, 2025 at 03:00:58PM -0500, Connor Abbott wrote:
+> > > +	/*
+> > > +	 * The SMMUv2 architecture specification says that if stall-on-fault is
+> > > +	 * enabled the correct sequence is to write to SMMU_CBn_FSR to clear
+> > > +	 * the fault and then write to SMMU_CBn_RESUME. Clear the interrupt
+> > > +	 * first before running the user's fault handler to make sure we follow
+> > > +	 * this sequence. It should be ok if there is another fault in the
+> > > +	 * meantime because we have already read the fault info.
+> > > +	 */
+> > The context would remain stalled till we write to CBn_RESUME. Which is done
+> > in qcom_adreno_smmu_resume_translation(). For a stalled context further
+> > transactions are not processed and we shouldn't see further faults and
+> > or fault inerrupts. Do you observe faults with stalled context?
 > 
-> Add native XDP support. We do not support zero copy yet.
-
-There are various XDP features (e.g., NETDEV_XDP_ACT_BASIC) to tell the
-stack what the driver supports. I don't see any of them being set here.
-
+> This aspect isn't exclusive to stalled contexts though - even for "normal"
+> terminated faults, clearing the FSR as soon as we've sampled all the
+> associated fault registers is no bad thing, since if a second fault does
+> occur while we're still reporting the first, we're then more likely to get a
+> full syndrome rather than just the FSR.MULTI bit.
 > 
-> Signed-off-by: Roger Quadros <rogerq@kernel.org>
-> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+ARM SMMUv2 spec recommends, in case of reported fault sw should first
+correct the condition which casued the fault, I would interpret this as
+reporting fault to client using callback, and then write CBn_FSR and
+CBn_RESUME in this order. Even in case of reported fault where context is
+not stalled, the first step, IMO, I see no reason why should be any
+different.  I agree that delaying fault clearance can result in FSR.MULTI
+being set, but clearning fault before  prevent clients to use SCTLR.HUPCF
+on subsequent transactions while they take any debug action. The client
+should be reported fault in the same state it occured. Please refer
+qcom_smmu_context_fault() for this sequence.
 
-[...]
+> > > +	arm_smmu_cb_write(smmu, idx, ARM_SMMU_CB_FSR, cfi.fsr);
+> > > +
+> > >   	ret = report_iommu_fault(&smmu_domain->domain, NULL, cfi.iova,
+> > >   		cfi.fsynr & ARM_SMMU_CB_FSYNR0_WNR ? IOMMU_FAULT_WRITE : IOMMU_FAULT_READ);
+> > >   	if (ret == -ENOSYS && __ratelimit(&rs))
+> > >   		arm_smmu_print_context_fault_info(smmu, idx, &cfi);
+> > > -	arm_smmu_cb_write(smmu, idx, ARM_SMMU_CB_FSR, cfi.fsr);
+> > >   	return IRQ_HANDLED;
+> > >   }
+> > > diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.h b/drivers/iommu/arm/arm-smmu/arm-smmu.h
+> > > index 2dbf3243b5ad2db01e17fb26c26c838942a491be..789c64ff3eb9944c8af37426e005241a8288da20 100644
+> > > --- a/drivers/iommu/arm/arm-smmu/arm-smmu.h
+> > > +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.h
+> > > @@ -216,7 +216,6 @@ enum arm_smmu_cbar_type {
+> > >   					 ARM_SMMU_CB_FSR_TLBLKF)
+> > >   #define ARM_SMMU_CB_FSR_FAULT		(ARM_SMMU_CB_FSR_MULTI |	\
+> > > -					 ARM_SMMU_CB_FSR_SS |		\
+> > Given writing to FSR.SS doesn't clear this bit but write to CBn_RESUME
+> > does, this seems right. This but can be taken as separate patch.
+> 
+> This change on its own isn't really useful - all that would achieve is that
+> instead of constantly re-reporting the FSR.SS "fault", the interrupt goes
+> unhandled and the IRQ core ends up disabling it permanently. If anything
+> that's arguably worse, since the storm of context fault reports does at
+> least give a fairly clear indication of what's gone wrong, rather than
+> having to deduce the cause of an "irq n: nobody cared" message entirely by
+> code inspection.
+> 
+Does spec allow or do we see reported fault with just FSR.SS bit. If answer
+is no then Keeping FSR_SS would be misleading. Here ARM_SMMU_CB_FSR_FAULT
+is used to clear fault bits or check valid faults. Also validity of this
+is not based on rest of the change. 
 
-> +static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id, int *xdp_state)
->  {
->  	struct prueth_rx_chn *rx_chn = &emac->rx_chns;
->  	u32 buf_dma_len, pkt_len, port_id = 0;
-> @@ -560,10 +732,12 @@ static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id)
->  	struct page *page, *new_page;
->  	struct page_pool *pool;
->  	struct sk_buff *skb;
-> +	struct xdp_buff xdp;
->  	u32 *psdata;
->  	void *pa;
->  	int ret;
->  
-> +	*xdp_state = 0;
->  	pool = rx_chn->pg_pool;
->  	ret = k3_udma_glue_pop_rx_chn(rx_chn->rx_chn, flow_id, &desc_dma);
->  	if (ret) {
-> @@ -602,8 +776,17 @@ static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id)
->  		goto requeue;
->  	}
->  
-> -	/* prepare skb and send to n/w stack */
->  	pa = page_address(page);
-> +	if (emac->xdp_prog) {
-> +		xdp_init_buff(&xdp, PAGE_SIZE, &rx_chn->xdp_rxq);
-> +		xdp_prepare_buff(&xdp, pa, PRUETH_HEADROOM, pkt_len, false);
-> +
-> +		*xdp_state = emac_run_xdp(emac, &xdp, page);
-> +		if (*xdp_state != ICSSG_XDP_PASS)
-> +			goto requeue;
-> +	}
-> +
-> +	/* prepare skb and send to n/w stack */
->  	skb = build_skb(pa, prueth_rxbuf_total_len(pkt_len));
->  	if (!skb) {
->  		ndev->stats.rx_dropped++;
-
-XDP program could have changed the packet length, but driver seems to be
-building the skb using original length read from the descriptor.
-Consider using xdp_build_skb_from_buff()
+Thanks,
+Prakash
+ 
+> > 
+> > >   					 ARM_SMMU_CB_FSR_UUT |		\
+> > >   					 ARM_SMMU_CB_FSR_EF |		\
+> > >   					 ARM_SMMU_CB_FSR_PF |		\
+> > > 
+> > > -- 
+> > > 2.47.1
+> > > 
+> 
 
