@@ -4,99 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23123C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 16:23:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1A8DC0218C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 16:26:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dP4iIFxpGRxJIuWg8fbKde8yqpGCy/LbovICFuWMxcc=; b=zddxwD3++Ic51K3tYGKRHCWp+6
-	jmvJycERm1A/XYTQX2X9kTqwLhazAYoSoQ2zURPMknANig531uyBxwlScq1endj+z0LmjFv/mYv13
-	CmySRkh6VV0gIumbqgkKRye8uJWWTp5dh2x/rsGgQJuHK4VjF+iRwHBT2OhYLhNNeZVCM0wfnrfiZ
-	RiXQR2UJmuQr1LMErlSl8V7N6oqSELP2DkjitGrzPY+Kxj5BSWQCcixNzCylJey9gBhvwkVXyCXI7
-	G1EVMfITJb2p3PWK6EZStLn1HmTqpxmwQCAucbYpF8UBXn+HH9cYm7UK8pHoTzZGGrbBG5Rl+5E0C
-	E/XnBK4w==;
+	bh=itwqJx2tzman+sJPKbBqoRjHwiTIXUQ73v+2UV1gBF8=; b=QWciH/r+CBfQMwPHDztfvLPKn7
+	8ClRUpmnAhE2WvzkcTlmjEPSQ6ZIaKF1gk+0Pusy6q7D+TO9VhVvfAwzRCf+zd5WcT5w9s5lPKT2V
+	8T0lvrUihQg+MSFUFOKRy9CRPMC7cJFyaO5Nk2OdIivuBTv67KgcsPOE3YPrPuml0AteDYanObWdG
+	RBUiuyYD6NlYNcX62pVQ1Wiavo0ya4SrBz0h9i4pbzxjJJwk/MJN+v0aqnbeRn0a/OkYgUX8xrlf+
+	AAqtjnnvU/WeOYQx9yy3ejCuy0OdO3SGwRwk9snSfp+gtfUficobl9mbcui1pVzRGmJ8TVg3K6jTC
+	Okl1/GIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tazzA-0000000CohU-3AVI;
-	Thu, 23 Jan 2025 16:23:16 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1tb01z-0000000Cp2E-0vCB;
+	Thu, 23 Jan 2025 16:26:11 +0000
+Received: from out-183.mta0.migadu.com ([2001:41d0:1004:224b::b7])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tazww-0000000CoPS-2udT
+	id 1tb00g-0000000Cou2-3jAk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 16:20:59 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-54021daa6cbso1248072e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 08:20:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1737649257; x=1738254057; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dP4iIFxpGRxJIuWg8fbKde8yqpGCy/LbovICFuWMxcc=;
-        b=gqpcT1IlNLodVeVnXKaudmtzca25/xcOmWpiRScw+Q8zSV9hmzbGx3zOkEKE6eJ6vx
-         jtPEf9FX/9LzGrgnW5DqBPGfYeDDB5JFiA2drA7hHX3tMbvk6NJ6FcDz0hQuPc+0At9D
-         2pW1FOgVJMyFH+N66mK9NfFsnnLYM4UlYpga0=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737649257; x=1738254057;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=dP4iIFxpGRxJIuWg8fbKde8yqpGCy/LbovICFuWMxcc=;
-        b=WP1aADcjvcKljhow5mW3rfgpsoPLMWPsQKo07qe6FAh+1pLQOFiuQ+0f3EckAXcTKn
-         1Kw6D0RZkBdYiIBS33wm0Td7kh1rvt+ZQmK6fPoVVibEKEqqNJPhusLNeSHgdlfpwxCS
-         ykaT+killlRAf7cTTQHLickRzTRPV8XRgxFNyhnx0mT1svO9lliAo4xt9aRm/YpWluit
-         wK8v2BRiQF1fZUqIAHGsUZTD3DkF7JD/Ls9+VIpryVyJzyZ8vVQAIAG6zNbx2RANorWq
-         tHfUqpO897cDfe4yOyRS65oJWbgPGoG3dw2tY/NrFprfzLCtKEHOFr+YpjI8UypAIKHk
-         6jqg==
-X-Forwarded-Encrypted: i=1; AJvYcCVMMadte6Tpt40RZK5O4lcvh5BdWSID2RiNXESs2jjPWYU4w00RakJ0eLYZkt1obJ4aRkYUbB/tqpmke4I9C5FK@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzr5kLKzJdmy5xaZeGiP9kqJCk0HDb/uhVsADFFQm+CXIzjfdNu
-	axemjK1+ulHrnZeNCG3EqXpftrLURZKFzdu0ehB3Mo6HAx4xvMmh14fYY8SQ4NUF6irvddLWkRj
-	rfrrhauVKJt9+2ZbKurxtuu2dyFMgy1CVfI3i
-X-Gm-Gg: ASbGnctn9LC3C30ODxnZhl0cZJ1wdp30Vp5R1ud+V4C2slv938F/hX0jKn3Ujv4hmjm
-	uutecRa4VivduSgE7SdV6ZQPWHEntGbArE/eaFTkcnUz892EFA7r5Q7yhxTew3lpyDPhlT3/WG7
-	+y1bDBWSO6gWbwjs8cuQ==
-X-Google-Smtp-Source: AGHT+IEKUB561xRTvYxXd4p0qNfpMRKfCZE8QX0G+Jn2kD2LonKgpFupCThYaQ1M0nTLUAE+dgJAYJFA1Lqm+sRFeOA=
-X-Received: by 2002:a05:6512:124e:b0:540:2549:b5ad with SMTP id
- 2adb3069b0e04-5439c246d35mr9447895e87.22.1737649256790; Thu, 23 Jan 2025
- 08:20:56 -0800 (PST)
+	Thu, 23 Jan 2025 16:24:53 +0000
+Message-ID: <46a7eba6-a705-4543-b967-e83ccc89e7d4@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1737649482;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=itwqJx2tzman+sJPKbBqoRjHwiTIXUQ73v+2UV1gBF8=;
+	b=WICPg1uNcTyIIa143qvd7TIyaPFypFvnjpzy2TBctTOcb+kibsxGs0GtRCDR5mzy1ic0x5
+	HxwPLGbYXF6KzWKNxsZtOgH/O2oXtnJYDciC/0Vs0N+Rv2rVZD/a02VOWGw/eL9mzWusBL
+	F5Dd+yqZBd3Zd895GP44LkdQ38RmxQ8=
+Date: Thu, 23 Jan 2025 11:24:36 -0500
 MIME-Version: 1.0
-References: <20250110123835.2719824-1-paul-pl.chen@mediatek.com>
- <20250110123835.2719824-5-paul-pl.chen@mediatek.com> <173651725269.2671643.2891127782637834272.robh@kernel.org>
- <SG2PR03MB66367B4A9DBCC971F55DB326BC182@SG2PR03MB6636.apcprd03.prod.outlook.com>
- <d116e180-a056-4595-851c-ed1bb6f24cef@kernel.org> <b9405b09da418eb3c65592b53489d7f0dd4093f2.camel@mediatek.com>
- <e6fd5225-b437-4f3b-9835-f206ae4b9d2f@kernel.org> <843f2dcee012007572f41df991e52369c1e5ed22.camel@mediatek.com>
-In-Reply-To: <843f2dcee012007572f41df991e52369c1e5ed22.camel@mediatek.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Fri, 24 Jan 2025 00:20:45 +0800
-X-Gm-Features: AWEUYZkfWBp2Lo-8TZn9tTq4YyIX0WXHpEKOlB7N1Mjjx7XBDKyByJYKaE3h9KI
-Message-ID: <CAGXv+5G8C8F5ua595Z3zs-D4vUP6YSUaxaUTGPQY-kfZ6am61g@mail.gmail.com>
-Subject: Re: [PATCH 03/12] dt-bindings: display: mediatek: add EXDMA yaml for MT8196
-To: =?UTF-8?B?UGF1bC1wbCBDaGVuICjpmbPmn4/pnJYp?= <Paul-pl.Chen@mediatek.com>
-Cc: "robh@kernel.org" <robh@kernel.org>, "krzk@kernel.org" <krzk@kernel.org>, 
-	=?UTF-8?B?U3VubnkgU2hlbiAo5rKI5aeN5aeNKQ==?= <Sunny.Shen@mediatek.com>, 
-	=?UTF-8?B?U2lyaXVzIFdhbmcgKOeOi+eak+aYsSk=?= <Sirius.Wang@mediatek.com>, 
-	=?UTF-8?B?TmFuY3kgTGluICjmnpfmrKPonqIp?= <Nancy.Lin@mediatek.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	=?UTF-8?B?WGlhbmRvbmcgV2FuZyAo546L5YWI5YasKQ==?= <Xiandong.Wang@mediatek.com>, 
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>, 
-	Project_Global_Chrome_Upstream_Group <Project_Global_Chrome_Upstream_Group@mediatek.com>, 
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>, 
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, "fshao@chromium.org" <fshao@chromium.org>, 
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>, 
-	=?UTF-8?B?U2luZ28gQ2hhbmcgKOW8teiIiOWciyk=?= <Singo.Chang@mediatek.com>, 
-	=?UTF-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, 
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, "treapking@chromium.org" <treapking@chromium.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 1/7] dt-bindings: spi: zynqmp-qspi: Split the bus
+To: David Lechner <dlechner@baylibre.com>, Mark Brown <broonie@kernel.org>,
+ Michal Simek <michal.simek@amd.com>, linux-spi@vger.kernel.org
+Cc: Jinjie Ruan <ruanjinjie@huawei.com>,
+ linux-arm-kernel@lists.infradead.org,
+ Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>,
+ linux-kernel@vger.kernel.org, Miquel Raynal <miquel.raynal@bootlin.com>,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ devicetree@vger.kernel.org,
+ "linux-iio@vger.kernel.org" <linux-iio@vger.kernel.org>,
+ Jonathan Cameron <jic23@kernel.org>, =?UTF-8?Q?Nuno_S=C3=A1?=
+ <nuno.sa@analog.com>
+References: <20250116232118.2694169-1-sean.anderson@linux.dev>
+ <20250116232118.2694169-2-sean.anderson@linux.dev>
+ <9f40295b-484a-48e8-b053-ff8550e589d7@baylibre.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+In-Reply-To: <9f40295b-484a-48e8-b053-ff8550e589d7@baylibre.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_082058_747698_9B5F335B 
-X-CRM114-Status: GOOD (  24.07  )
+X-CRM114-CacheID: sfid-20250123_082451_357940_97E01011 
+X-CRM114-Status: GOOD (  30.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,88 +80,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 24, 2025 at 12:14=E2=80=AFAM Paul-pl Chen (=E9=99=B3=E6=9F=8F=
-=E9=9C=96)
-<Paul-pl.Chen@mediatek.com> wrote:
+On 1/21/25 19:16, David Lechner wrote:
+> On 1/16/25 5:21 PM, Sean Anderson wrote:
+>> This device supports two separate SPI busses: 
+> 
+> ...
+> 
+>> @@ -84,5 +94,32 @@ examples:
+>>          resets = <&zynqmp_reset ZYNQMP_RESET_QSPI>;
+>>          reg = <0x0 0xff0f0000 0x0 0x1000>,
+>>                <0x0 0xc0000000 0x0 0x8000000>;
+>> +
+>> +        spi-lower {
+>> +          #address-cells = <1>;
+>> +          #size-cells = <0>;
+>> +          num-cs = <2>;
+>> +          cs-gpios = <0>, <&gpio 5>;
+>> +
+>> +          flash@0 {
+>> +            reg = <0>;
+>> +            compatible = "jedec,spi-nor";
+>> +          };
+>> +
+>> +          flash@1 {
+>> +            reg = <1>;
+>> +            compatible = "jedec,spi-nor";
+>> +          };
+>> +        };
+>> +
+>> +        spi-upper {
+>> +          #address-cells = <1>;
+>> +          #size-cells = <0>;
+>> +
+>> +          flash@0 {
+>> +            reg = <0>;
+>> +            compatible = "jedec,spi-nor";
+>> +          };
+>> +        };
+>>        };
+>>      };
+> 
+> In the IIO subsystem, we've been recently working on several "advanced" ADCs
+> that could use a SPI controller like this. These ADCs have multiple input
+> channels that perform conversions in parallel and the data for each channel
+> needs to be read back on a separate serial line (MISO) at the same time. Another
+> similar case is to have two separate chips, but they share a conversion trigger
+> and essentially operate as a single composite device rather than two distinct
+> devices [1]. This would be similar to some ADCs that are daisy-chained where we
+> consider all of the chips in the chain as a single composite device, but they
+> would be in parallel rather than chained.
+> 
+> [1]: https://lore.kernel.org/linux-iio/e5e8eba7-2455-488b-a36f-e246844e11fd@baylibre.com/
 >
-> On Thu, 2025-01-23 at 08:21 +0100, Krzysztof Kozlowski wrote:
-> >
-> > External email : Please do not click links or open attachments until
-> > you have verified the sender or the content.
-> >
-> >
-> > On 23/01/2025 07:11, Paul-pl Chen (=E9=99=B3=E6=9F=8F=E9=9C=96) wrote:
-> > >
-> > > Hi Krzysztof
-> > >
-> > > I hope this email finds you well. I have a couple of questions
-> > > regarding the EXDMA commit patch and decoupling:
-> > >
-> > > 1. Would removing the example from the EXDMA commit patch be
-> > > sufficient
-> > > to achieve decoupling for EXDMA YAML and MTK clock/power header?
-> >
-> > No
-> >
-> > >
-> > > 2. If removing the example from the EXDMA YAML is not allowed, what
-> > > alternative changes could we implement to achieve decoupling?
-> >
-> > Don't use the header constants but just some fake phandle.
-> >
-> >
-> >
-> > Best regards,
-> > Krzysztof
->
-> Hi Krzysztof,
->
-> Once again, thanks for the review and reply.
->
-> SO If we apply Chenyu's suggestion:
->
-> + example:
-> +-|
->
-> +soc {
-> +
-> + disp_ovl0_exdma2: dma-controller@32850000 {
-> +compatible =3D "mediatek,mt8196-exdma";
-> +reg =3D <0 0x32850000 0 0x1000>;
-> +clocks =3D <13>;
-> +power-domains =3D <12>;
-> +mediatek,larb =3D <88>;
-> +iommus =3D <&mm_smmu 144>;
-> +#dma-cells =3D <1>;
-> +        };
-> +    };
->
-> Does this work for decoupling?
->
+> For those use cases though, as mentioned above, we only have a single device
+> that would be connected to both buses. So for such a SPI controller with
+> multiple buses, I was envisioning that instead of adding child nodes for each
+> of the child buses, that we would do something like add a spi-buses property
+> to the spi peripheral bindings where you could specify one or more buses that
+> a device was connected to.
+> 
+> e.g. a device connected to the lower bus would be spi-buses = <0>; one connected
+> to the upper bus would be spi-buses = <1>; and a device connected to both would
+> be spi-buses = <0>, <1>;.  This would also work for SPI controllers that have
+> 4 or 8 busses.
+> 
+> SPI controllers like these have a striping feature that allows to control both
+> buses at the same to either mirror the same data on both buses at the same
+> time when writing, e.g. for configuration or to read and write two different
+> bytes at the same time. A peripheral driver for device that was connected to
+> both buses could make use of this feature to craft a single SPI message with
+> transfers containing (new) parameters that specify which bus to use (one or
+> both) and, in the case of using both buses, to mirror or stripe the data.
+> 
+> Could we make a single device connected to both buses like this work using
+> the proposed spi-lower and spi-upper or should we consider a different binding
+> like the one I suggested?
 
-AFAIK it will since now it isn't including any headers.
+If you are willing to do the work to rewrite the SPI subsystem to handle
+this, then I don't object to it in principle. Using a property would
+also help with forwards compatibility. On the other hand, separate
+busses are easier to implement since they integrate better with the SPI
+subsystem (e.g. you can just call spi_register_controller to create all
+the slaves).
 
-ChenYu
+There have been some previous patches from Xilinx to handle this
+use case [1], but IMO they were pretty hacky. They got this feature
+merged into U-Boot and it broke many other boards and took a lot of
+cleanup to fix. So I have intentionally only tackled the unsynchronized
+use case since that requires no modification to areas outside of this
+driver. I don't need the "parallel" use case and I am not interested in
+doing the work required to implement it.
 
-> Best Regards,
->
-> Paul
->
->
->
->
-> ************* MEDIATEK Confidentiality Notice ********************
-> The information contained in this e-mail message (including any
-> attachments) may be confidential, proprietary, privileged, or otherwise
-> exempt from disclosure under applicable laws. It is intended to be
-> conveyed only to the designated recipient(s). Any use, dissemination,
-> distribution, printing, retaining or copying of this e-mail (including it=
-s
-> attachments) by unintended recipient(s) is strictly prohibited and may
-> be unlawful. If you are not an intended recipient of this e-mail, or beli=
-eve
-> that you have received this e-mail in error, please notify the sender
-> immediately (by replying to this e-mail), delete any and all copies of
-> this e-mail (including any attachments) from your system, and do not
-> disclose the content of this e-mail to any other person. Thank you!
+--Sean
+
+[1] https://lore.kernel.org/linux-spi/20221017121249.19061-1-amit.kumar-mahapatra@amd.com/
 
