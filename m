@@ -4,89 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCAB4C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 13:05:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F221CC0218B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 13:07:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cl9194DFZdwJ8whugEX9MZlsEcPw/nky6ZU9/dikYFM=; b=eC1qGVy5Mjr6SpMxVp/CRT8c4r
-	j0j/te+CoX7XIIjW+ZCCRyrUyvrLCcFcXG53GXAao1oA0jz9bgvSlphTcGIwqteWD7XQKnAmYoSoU
-	//Ca/Row+yDNZNpzdGBIEM0iyPlu85dNbrjWr82XAtdys1932T1P+l6hjwYghC0Gxmb7To6PokzTD
-	BIrgPZNvyBA6t+EbRO7iRK3sHdEe/Cj6cVZngp+FOvkP0GYjv3N2p8/rUzbi4sSoF1qPxZsWgULO6
-	VgcKxPJAze9leZXARrcGYU8S54JtgOUX/kPQn/4wrZ5ai4c9fM6SsCWuVGvN4xNLFVyR/DMokfpgg
-	rCzjVHOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qiygrgYsO739skaoPESqIEGzSo4IJJ9SbsxwNuEpwL0=; b=tunfsJoTHtO2dYlnXfA5hWIH3X
+	2L2QHAZzp2fnXSyo5Cwqhpt7WFuIvq0JRD6+92KBDs6WhNf7dHHsCx0n1LyiF+8U2xGJFco3htqEx
+	gC5GSWW7C3cT2cHGLkBgmt9ldGezuEyGqPp6GrNR7dBXIgNIIBkynUD2se0fwNQxmS290YBuUVD6u
+	0v4dRZQKB4MZZsAs7k5xblua1oFvc6hFlVfGcz6XPX0SX94+LXgMS+TmiRMGSo67sNgSzhXjBaXNF
+	CwzQTwuEawPL5VG//GgiqNdBlCezGaew2CLh8S/e9DRpSDFGTB0UwtShswIStI2iYM2kCMLwfXG9D
+	62/AAoTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tawtv-0000000CUNO-0NrE;
-	Thu, 23 Jan 2025 13:05:39 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1tawvk-0000000CUTW-3B60;
+	Thu, 23 Jan 2025 13:07:32 +0000
+Received: from mail-qt1-f170.google.com ([209.85.160.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tawsd-0000000CUFn-1Lrj
+	id 1tawuS-0000000CUQZ-2WGq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 13:04:20 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-43690d4605dso5927855e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 05:04:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737637458; x=1738242258; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cl9194DFZdwJ8whugEX9MZlsEcPw/nky6ZU9/dikYFM=;
-        b=e4nSBgmIiWUZ9N7XemoS2iHpXpFUrRh+RPiSFhuUOuhjeOspwnQ4wAaasa2J0uWfPu
-         +9ZMe8Uw4Rft9QMYtyx9C3L2JDrv2JOIe8QL0N82D0EDSojxjQUV4VY4RwJ8OugqGfCu
-         XlANZQViPYYDj/dkA+AfunudyV+ckKO4tIF5sQpNB/KFxrx4fcAJiF/RE4NCleVe3+KT
-         Kp1Wduo4wdM1EgwQFvzHYMENH9sg0naZCOSSzCbmvj8Xi6EgXF4VThW7gnf0/YUn7ezJ
-         95Kba3HfBCPW2YFMSzhDDBmFCQCW8c3d3wULhgQWp1AwywTHtbCnvYEQmuUqDR2IXsju
-         9Jdw==
+	Thu, 23 Jan 2025 13:06:14 +0000
+Received: by mail-qt1-f170.google.com with SMTP id d75a77b69052e-4678cd314b6so8139811cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 05:06:11 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737637458; x=1738242258;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cl9194DFZdwJ8whugEX9MZlsEcPw/nky6ZU9/dikYFM=;
-        b=WMkgUXRp6pI7H2UN26qbqC3+3psmajsEhbgvVsITSa1gbRuLvR+Z/+rPVZXrbHdCyj
-         4WxgMklyQz+xOcwQvJAQn/2MBICSLPQusUbTd0tMaqEk8vhKaWaoz/7/jLhtHAcr0GGh
-         x01Q48xf27Zy8Z+0MdiOeaURIUEdcV1K6dzUMDShjqz+H1v6qsV4qOogLGw4SZAQLXil
-         v9y/0a4Cqhcxh4yeL3eze72ZeNKECmdUrIVriKQ/gHqYgzZT95fIgB26j1J+NJGOH6uK
-         mFLlnrpk7Zx50rqbkBXlfoxUdPwZVpH5CC5bLCz5Ccqdc4S7VzghiFiFF9+DG7gqgYJa
-         Np5w==
-X-Forwarded-Encrypted: i=1; AJvYcCU5tAkKgv+K9VdvOwP9M3m5mCJQ5MkjcOM857dG4AA/y8G+70fUET/5oQ/IqenxTzjiSl6RE1bS5i7iv6xPGahG@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7mGAAzO1YthvOVNjUkAlU+I9/IEx5i6PoQIARUd0ZFGGwCgFz
-	KmZ9BmcJnlq8qJr0BKXfjPV7giT1PE/+exc6bWt2OoKDlKAkTRwla2CdzknBy8A=
-X-Gm-Gg: ASbGncsHy91UgzkD0PbEVH++NguthdD7KYDPI0C7rL/omQpHqnRhiVaWNALV6MdnLJY
-	kaS2hgSO691QKGpto/wum26JceRBoSo1biaaa6aWHndFC4pXfSBJIxONzw+MaDn52pgZRpwXC7W
-	Z0jaHaHXJBd9SfE6Bdu5xExd3bicGqOem6j0AsWin9LSr51nk/BtRcQRwWN692rRkANaNStyHpX
-	bAtsEHfGQyJ4T8Q7wwVTWsOU2ufFTStdo0uYP8l3TtUB5ZFhsLjuFkBSevgudZgYIGFGqPF8tIO
-	5qXgJqIn+2MYNUd2PtyT
-X-Google-Smtp-Source: AGHT+IFfMaV0Ij3T3tldLauIZsdbGiEdyirSW5JG2BohSSJNY2hQK3fqNX1SRxOVtDQ4hJ9zH+XqLQ==
-X-Received: by 2002:a05:600c:3d06:b0:434:eb73:b0c0 with SMTP id 5b1f17b1804b1-438913c7e31mr266934345e9.5.1737637457469;
-        Thu, 23 Jan 2025 05:04:17 -0800 (PST)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438b31afa30sm64090025e9.20.2025.01.23.05.04.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Jan 2025 05:04:16 -0800 (PST)
-Date: Thu, 23 Jan 2025 16:04:13 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: zuoqian <zuoqian113@gmail.com>,
-	Ionela Voinescu <ionela.voinescu@arm.com>, rafael@kernel.org,
-	viresh.kumar@linaro.org, cristian.marussi@arm.com,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] cpufreq: scpi: compare against frequency instead of rate
-Message-ID: <8ebf8f26-c3d9-43c0-b417-ce3131a84eb4@stanley.mountain>
-References: <20250123075321.4442-1-zuoqian113@gmail.com>
- <ad11dfc1-5e88-4421-b427-3955d4220133@stanley.mountain>
- <Z5IzMhTOhtujyH0n@bogus>
+        d=1e100.net; s=20230601; t=1737637570; x=1738242370;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=qiygrgYsO739skaoPESqIEGzSo4IJJ9SbsxwNuEpwL0=;
+        b=WWHLqzboUTgU8zYkYM4yXtGMBQDB9lAKPzxOV9mzd1QGX4WtfLZNo5ieXfkbgzINi8
+         pDfNzDb5IIk/aHuYT08r/bQicK33STyfAmxmU1UpLMjWM9fJpMEsGGOKgfUdgvPNSJA5
+         JTEUIAZLaJzH2GTE/m9J/XucVJOqpXDxysHnn++thSAjoLVrEDQOVmBwCVX2bxqArniH
+         qEkWLTyPKg24r7OQZSk8UsqZVkjagUpVJJFzIqVuiQFzPKgbDsMrqESeHQAk0dX0HG8R
+         w9z8kI6p0WGHWm65zkDIQLO8NazTA32XVK9PW9zpMYEhX8SyjCTkJbRYTSkV4iZoEfSb
+         X14g==
+X-Forwarded-Encrypted: i=1; AJvYcCXqxBQNec1eRztvc0iMOaFm83/6yPPw+bVvUzQaDj1dWlwlMeiiZFQMXB2tHdSOxVI7ywVuZWaieUxpqlNb5erg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy0hBI6SdjzpDq/iVYV7zo4+59OulrlnKkTXZl1L63LlwVEgusu
+	3cek2zk0/2lFhz4EnFO/Qo4xGrbM0cLT3kOuIVVA5obtA2zTkPwCEUaITv/2
+X-Gm-Gg: ASbGnctnIOFFKXAlRTAuqkPdolzEr6iAf8eNCSBDzKZrOgc2e0Bp/R+hqJ5ERUI7ahB
+	xX9s/q1Y9yfJosWmrES8wb+wvOnZy6jhFyG+9fQGRuRJOXp6Uy8fE0/JSnFYCMXrO/syk08WcLk
+	3exWrJsqsVHJuerP1OY2OyUX3eT4lDVv2aieG1+/sU0DoO3KpaOcQCo8VipexjR/UjB7MasCJrS
+	fApRL+6aX2nl7mvK1hmA0RP1+y9hCH6IQwxvmlvg9rCtLfUhcP6sqixdkF+XA6+CSq+4b418g5q
+	Nh+Jeh1UaoiyCF6JomVcYO3u/uDL/N8y0JBAq5tWMBm2vfs=
+X-Google-Smtp-Source: AGHT+IG1NDGk48klJ6dA4LJvVJ/f8ecdvG0tUZ1Z3u8EgS6S+DHuG1kE9AwlHpDVxQ/S/pp5gHX4IQ==
+X-Received: by 2002:a05:622a:211:b0:466:b1fb:3028 with SMTP id d75a77b69052e-46e12ad56c6mr414633611cf.4.1737637569792;
+        Thu, 23 Jan 2025 05:06:09 -0800 (PST)
+Received: from mail-qt1-f176.google.com (mail-qt1-f176.google.com. [209.85.160.176])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-46e102ec205sm74239491cf.11.2025.01.23.05.06.09
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 23 Jan 2025 05:06:09 -0800 (PST)
+Received: by mail-qt1-f176.google.com with SMTP id d75a77b69052e-467a6781bc8so7406411cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 05:06:09 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXMtRE1ccb8Mfuc7o2mTzx958TReVHepw2Hd6hkgOUTRO0/5FNYG3M/wSu2f1B9I8db7Zl8IKLQ5tW1rhJ2nPdB@lists.infradead.org
+X-Received: by 2002:a05:622a:211:b0:466:b1fb:3028 with SMTP id
+ d75a77b69052e-46e12ad56c6mr414633151cf.4.1737637569250; Thu, 23 Jan 2025
+ 05:06:09 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z5IzMhTOhtujyH0n@bogus>
+References: <20250116153204.615736-1-niklas.soderlund+renesas@ragnatech.se>
+In-Reply-To: <20250116153204.615736-1-niklas.soderlund+renesas@ragnatech.se>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 23 Jan 2025 14:05:57 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdVVZghXmA3MrmM+L=fta9Rf5tjGhrSzXFH693wKkaKBKg@mail.gmail.com>
+X-Gm-Features: AWEUYZkhnBAcJOrt0LZ4LxtesBsvqH4lZK5bBapycwiiMvp-1FtOceeF8qtL8Og
+Message-ID: <CAMuHMdVVZghXmA3MrmM+L=fta9Rf5tjGhrSzXFH693wKkaKBKg@mail.gmail.com>
+Subject: Re: [PATCH] ARM: shmobile: defconfig: Supplement DTB with ATAG information
+To: =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>
+Cc: Russell King <linux@armlinux.org.uk>, linux-renesas-soc@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_050419_374882_E0E235D3 
-X-CRM114-Status: GOOD (  33.54  )
+X-CRM114-CacheID: sfid-20250123_050612_640781_B6918398 
+X-CRM114-Status: GOOD (  17.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,75 +94,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 23, 2025 at 12:16:50PM +0000, Sudeep Holla wrote:
-> (for some reason I don't have the original email)
-> 
-> On Thu, Jan 23, 2025 at 02:12:14PM +0300, Dan Carpenter wrote:
-> > On Thu, Jan 23, 2025 at 07:53:20AM +0000, zuoqian wrote:
-> > > The CPU rate from clk_get_rate() may not be divisible by 1000
-> > > (e.g., 133333333). But the rate calculated from frequency is always
-> > > divisible by 1000 (e.g., 133333000).
-> > > Comparing the rate causes a warning during CPU scaling:
-> > > "cpufreq: __target_index: Failed to change cpu frequency: -5".
-> > > When we choose to compare frequency here, the issue does not occur.
-> > > 
-> > > Signed-off-by: zuoqian <zuoqian113@gmail.com>
-> > > ---
-> > >  drivers/cpufreq/scpi-cpufreq.c | 5 +++--
-> > >  1 file changed, 3 insertions(+), 2 deletions(-)
-> > > 
-> > > diff --git a/drivers/cpufreq/scpi-cpufreq.c b/drivers/cpufreq/scpi-cpufreq.c
-> > > index cd89c1b9832c..3bff4bb5ab4a 100644
-> > > --- a/drivers/cpufreq/scpi-cpufreq.c
-> > > +++ b/drivers/cpufreq/scpi-cpufreq.c
-> > > @@ -39,8 +39,9 @@ static unsigned int scpi_cpufreq_get_rate(unsigned int cpu)
-> > >  static int
-> > >  scpi_cpufreq_set_target(struct cpufreq_policy *policy, unsigned int index)
-> > >  {
-> > > -	u64 rate = policy->freq_table[index].frequency * 1000;
-> > 
-> > policy->freq_table[index].frequency is a u32 so in this original
-> > calculation, even though "rate" is declared as a u64, it can't actually
-> > be more than UINT_MAX.
-> >
-> 
-> Agreed and understood.
-> 
-> > > +	unsigned long freq = policy->freq_table[index].frequency;
-> > >  	struct scpi_data *priv = policy->driver_data;
-> > > +	u64 rate = freq * 1000;
-> >
-> > So you've fixed this by casting policy->freq_table[index].frequency
-> > to unsigned long, which fixes the problem on 64bit systems but it still
-> > remains on 32bit systems.  It would be better to declare freq as a u64.
-> >
-> 
-> Just trying to understand if that matters. freq is in kHz as copied
-> from policy->freq_table[index].frequency and we compare it with
-> kHZ below as the obtained clock rate is divided by 1000. What am I
-> missing ? If it helps, it can be renamed as freq_in_khz and even keep
-> it as "unsigned int" as in struct cpufreq_frequency_table.
-> 
+Hi Niklas,
 
+Thanks for your patch!
 
-I misunderstood the integer overflow bug because I read too much into the
-fact that "rate" was declared as a u64.  It would have been fine to
-declare it as a unsigned long.  The cpufreq internals don't support
-anything more than ULONG_MAX.  I have heard someone say that new systems
-are bumping up against the 4GHz limit but presumably that would only be
-high end 64bit systems, not old 32bit system.
+On Thu, Jan 16, 2025 at 4:33=E2=80=AFPM Niklas S=C3=B6derlund
+<niklas.soderlund+renesas@ragnatech.se> wrote:
+> Enable CONFIG_ARM_ATAG_DTB_COMPAT to allow u-boot to override kernel
+> command line from DTB using the bootargs argument. This is needed at
+> lest on H1 Marzen to control the command line from u-boot.
 
-The ->freq_table[] frequency is in kHz so a u32 is fine.  I guess if we
-get frequencies of a THz then we'll have to update that.  But when we
-convert to Hz then we need a cast to avoid an integer overflow for systems
-which are over the 4GHz boundary.
+least
 
-	unsigned long rate = (unsigned long)khz * 1000;
+>
+> Signed-off-by: Niklas S=C3=B6derlund <niklas.soderlund+renesas@ragnatech.=
+se>
 
-The second bug is that we need to compare kHz instead of Hz and that's
-straight forward.
+Thanks, this indeed makes shmobile_defconfig boot on my old Marzen.
+Unfortunately this change is not sufficient for my old Lager (I guess
+I should upgrade U-Boot instead ;-)
 
-regards,
-dan carpenter
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+Tested-by: Geert Uytterhoeven <geert+renesas@glider.be>
+i.e. will queue in renesas-devel for v6.15.
 
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--=20
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
+
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
 
