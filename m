@@ -4,91 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12316C0218B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 19:50:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF920C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 19:52:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UEzQx5EKwKnXykiE3C9S4XHeCQPE3yQLJe/q7xEl0UI=; b=QcYxCzxAsNUWI6l8JkXjtzXRSz
-	1QiT93GLjIZpU6bNwp2cb/QtaYQ48CHIN3azvmmuoW7gFErSrZVzTtY2L3r2hlWVqPdUGDCsAH1Ru
-	eRxbUcWxFGPeBKp1NHVMD+FRl3DwfXe5JEawVEyJiJx1Zvv38ND2Cm10tYMYkG/YNkifLXgYsz4jI
-	ahGCR+bkaXmKSBNR7Rdl/bFAvlsx/xnP54R8/WFQK8NCEvfqi6kZldUi62nSG+56blDqQ9+EBka7S
-	7ZabdttiZYybtxIqA+qFFUFeEnXatZvTNy44lmZGWRMDRfAVXKSyoU44fkY7Vc+V47zNx05xxfcWZ
-	qSOsloIg==;
+	bh=wZxQGSUfQfwUHj5oyRYvQeOgS2I9ObjtSjRqQOUlky4=; b=ruPHTxKxFmjo2usMjk4go13GqM
+	3R1vc/LyyRXYYys9HH00JRxzlGA+y+wpM5+R6YMkKFGQ+Hlm7dNmvSCDisN9wIS4zJMcvOdJNrR/k
+	cL5GRgSocRdS3/nCkC2MDTg04VeAENFL3fvX3PuImclQELcjMHlXSG/T6nAsey1wOa3P9Gb1itXTN
+	UGAdXFWSmkmYWTbw+V4uyVXXC7oS8pwuYS9WHkcB5ShSCod2gtm8UkqE0xiwk1nXJx54s2hs3Se5V
+	0tNqLZunUOWLy9hziTsaLbAjwj3aPcclNYNJ2HeBmhBRLOgsx3cvmc2y9BxI82przkLc2nSJMgRPe
+	ey07rcCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb3Dx-0000000DAmn-0qQK;
-	Thu, 23 Jan 2025 19:50:45 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1tb3FC-0000000DAyZ-3aN0;
+	Thu, 23 Jan 2025 19:52:02 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb3Bo-0000000DAOV-3vFa
+	id 1tb3CG-0000000DAU3-4C4J
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 19:48:36 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-438a39e659cso8878745e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 11:48:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1737661711; x=1738266511; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=UEzQx5EKwKnXykiE3C9S4XHeCQPE3yQLJe/q7xEl0UI=;
-        b=HIRl8HoZgdSNJqgyTJ03QJFiQ0Fr+Varh027CPF4ejfouHNQLHBzmy20Vl3M6IhnmX
-         I07EDtLlpzZ0Ii3DPDgNlQ/iVmSP7L7H9PQM+ZGRUc9Ut7pf2tE0+vF+bzWKjPlnuwr4
-         0AgOsNeWQkDk2esv4ny5UuY+DdxGWCWs2HbnrTbpMR2V4q2WC87CBCoch+nexvUv/igJ
-         5hcmXmV2+Tdxc1yk9fcWCx/msQnOwebQBnD+/f2LuQ8My1A6EGs4or/Z+fvgs+9PtEti
-         XTNb3MDwnHF2XB6lNKpEfTasQda8esbLFk2MFZBpjbd1Y9JjmH3I3qNXH9XpmYkulfl8
-         kPfA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737661711; x=1738266511;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=UEzQx5EKwKnXykiE3C9S4XHeCQPE3yQLJe/q7xEl0UI=;
-        b=SM6TVe8ke+RoE9FXTDL2QH8CrqoDjJmV6ym1cvt0P/jPTfrTh89ZhjDCkHVdUU4KY6
-         3WddcT3CDsO4ndsTBj33STeROI2TGQNIEs6+VpeED+AivIhQG7oeOpXL98yIhULxYljz
-         WnUITY/754FGSB3ww8AWbF0vScDzH1xifO28v0OG9dB7KKfo9rPRlcZzRLBXLPkr8HZl
-         7MNG6fSFK7fbraSjLC3O8vdPBf5+YalluIE3tlVe72stnJi45xHOC/llrxJOv/Bs8Hmj
-         RBb9ZHcXpeEzirA7xpI3yuwCzI71y9MaN58ICw0aiuQbDMdZEQ86ilVSXywDE2xvQ7CH
-         xU/w==
-X-Gm-Message-State: AOJu0YwWrrQ18fuuJJBWeFKDHS5g25jjXf2tdRzEK2HYhOGsfEqgTXfI
-	4hW+jkRAv69DSPZ5ajG9v+L47k6Gez47Bui5c2sejyaB/+GYlVguPS5KOIVv5UA=
-X-Gm-Gg: ASbGncuJOjK1Of+rqM9v9RdjSbbvr8TH5WFAF6s3WHZ8lG9XjPkp8Y3YsU0kEdRsB7a
-	adTn06GlVA4eWmbPEleW/Kl6tJhbH5qYBBsYYpOX/JXHP4DU2GzwYRg93tSNU7hV6hJO1g9WRVY
-	/DITJaij/7IeXkphAaVikSqlqsDy+88rFjQrsd94ursYtrtlM884HwRjCnZhHlU8ZOvpvFQA020
-	rJE2Nmxz0VfZSibqjCrhVE44n8FZnxJRX4htz/IbqjA/0B5KL7xkqThlqS0KG/EcmK+IGAxpxvZ
-	/X27sVOhc10bgQsmKq28O6GqzncppGPWn2X5TgO9atYXmP85QArL
-X-Google-Smtp-Source: AGHT+IFCmuRcO2q+WkCuoyE4umxs3Q8grgYjAGWaKRdiWeb/qlKv81TNKgwodg4lbmq0iUf3Z/pwAw==
-X-Received: by 2002:a05:6000:156c:b0:386:1cd3:8a05 with SMTP id ffacd0b85a97d-38bf57ce963mr27366273f8f.54.1737661710999;
-        Thu, 23 Jan 2025 11:48:30 -0800 (PST)
-Received: from ?IPV6:2001:861:d40:ed60:308f:ce31:765f:bf21? ([2001:861:d40:ed60:308f:ce31:765f:bf21])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38c2a1c3f5dsm556090f8f.92.2025.01.23.11.48.30
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 23 Jan 2025 11:48:30 -0800 (PST)
-Message-ID: <971868a3-2dc4-4623-b979-4e722658f6a1@baylibre.com>
-Date: Thu, 23 Jan 2025 20:48:30 +0100
+	Thu, 23 Jan 2025 19:49:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id C9671A4117C
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 19:47:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CABF2C4CEE5
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 19:48:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737661739;
+	bh=b4vDZnBnRJMAExr0E30kjS5qChTkUb0rbppiv1HRSJI=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=EqFILXrfuR2ZIidhuGa5elmndxPWGARZ4+4SUQ2LogGGqSbmkEFngJj3ERNUU5Axy
+	 YYUlQPgrWtS8Bo+FycDGiEFlKSSOw1QJSLV1SkcYzR3JUh5wJOsWKDKhy+f9dHUYrm
+	 7pLUtWpNp2N+2Y0sK8B4CyIWN9Oj9mVmr/pc6wO0nOggRziN+6xsno0t+ylDSmez+f
+	 hHOhgGyHUHGaLZIo95ILsDiPy3DdHTK6ShflF5RwVdt51e0wRjNvkhkge2MoFni6GY
+	 d+OtMIPxV+S9hN6vnPi6I9YS/z47Wg42UQk9TAYDVlKrPFiHJYy97CE2ilrI6E2Cfo
+	 Fe1T5Gag59atw==
+Received: by mail-oi1-f182.google.com with SMTP id 5614622812f47-3eb9101419cso812016b6e.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 11:48:59 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUseSE7dWIh0eOuoDe0KyEr1BzALFeoSJzNG+JscB5vSVpIJGIlZc8suIda+nYlhXixEjMTzQVtSpB2SoJgVIMz@lists.infradead.org
+X-Gm-Message-State: AOJu0YyoxoUF5xEehDzUPAcC+sP04hLBqqnupTz8JjOLbimxJM/vhTJO
+	nLno6N7Nh7QE/XGlFx5MByC51fY4caZ8idwCzpVkWVlHUjrg/lLkN3U1hjWhvu5brQJcN2bMAGG
+	rzhw/qfxk4TIVC8wCtssHNrV300c=
+X-Google-Smtp-Source: AGHT+IEn7eMjaHs+zmgjFd4WWVQahCuGuBBNarJzdEYSnQbw32rD83EbOPgQ6J9LSZlnM3ccjdpcf7atXcTLmBuPCOI=
+X-Received: by 2002:a05:6808:4c88:b0:3ea:f791:3caf with SMTP id
+ 5614622812f47-3f19fc2ac4fmr14986057b6e.17.1737661739096; Thu, 23 Jan 2025
+ 11:48:59 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4] arm64: arch_k3: Replace select with imply for TI
- mailbox and TI SCI
-To: Andrew Davis <afd@ti.com>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, nm@ti.com
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-omap@vger.kernel.org, khilman@baylibre.com,
- Mattijs Korpershoek <mkorpershoek@baylibre.com>, vishalm@ti.com,
- Nicolas Frayer <nfrayer@baylibre.com>
-References: <20250123-timodulemailboxsci-v4-1-b1a31b56f162@baylibre.com>
- <f1e6f49c-71e2-4c6f-b78f-7608739530c9@ti.com>
-Content-Language: en-US
-From: Guillaume La Roque <glaroque@baylibre.com>
-In-Reply-To: <f1e6f49c-71e2-4c6f-b78f-7608739530c9@ti.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <236b227e929e5adc04d1e9e7af6845a46c8e9432.1737525916.git.viresh.kumar@linaro.org>
+In-Reply-To: <236b227e929e5adc04d1e9e7af6845a46c8e9432.1737525916.git.viresh.kumar@linaro.org>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Thu, 23 Jan 2025 20:48:48 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0gz2WLtwJca5oAgZ23C+UmX18k9fvCbzRAEV6zZL4jiiQ@mail.gmail.com>
+X-Gm-Features: AWEUYZkHJTFNwFesQmZCHaWO-zzZKYYgHYBBgsz-SFLTIOGI_LaSzdS3jIxf3XU
+Message-ID: <CAJZ5v0gz2WLtwJca5oAgZ23C+UmX18k9fvCbzRAEV6zZL4jiiQ@mail.gmail.com>
+Subject: Re: [PATCH V2] cpufreq: s3c64xx: Fix compilation warning
+To: Viresh Kumar <viresh.kumar@linaro.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, linux-pm@vger.kernel.org, 
+	Vincent Guittot <vincent.guittot@linaro.org>, kernel test robot <lkp@intel.com>, stable@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_114833_257464_822D6856 
-X-CRM114-Status: GOOD (  17.26  )
+X-CRM114-CacheID: sfid-20250123_114901_166786_CEB94C8A 
+X-CRM114-Status: GOOD (  20.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,70 +86,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
-
-thanks for review.
-
-Le 23/01/2025 à 16:29, Andrew Davis a écrit :
-> On 1/23/25 6:12 AM, Guillaume La Roque wrote:
->> In order to build TI mailbox and TI SCI as modules, replace
->> select with imply.
->>
->> Signed-off-by: Nicolas Frayer <nfrayer@baylibre.com>
->> Signed-off-by: Guillaume La Roque <glaroque@baylibre.com>
->> ---
->> Changes in v4:
->> - rebase on master branch
->> - Link to v3: 
->> https://lore.kernel.org/r/20241016-timodulemailboxsci-v3-1-0e7f7a6de97d@baylibre.com
->>
->> Changes in v3:
->> - rebase with master
->>
->> Changes in v2:
->> - Use imply instead of removing select altogether and dropped
->> patches 2/3 and 3/3 from previous series as using imply makes
->> them redundant
->> ---
->>   arch/arm64/Kconfig.platforms | 4 ++--
->>   1 file changed, 2 insertions(+), 2 deletions(-)
->>
->> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
->> index 02007256709e..a6e4bfffc09d 100644
->> --- a/arch/arm64/Kconfig.platforms
->> +++ b/arch/arm64/Kconfig.platforms
->> @@ -133,8 +133,8 @@ config ARCH_K3
->>       select PM_GENERIC_DOMAINS if PM
->>       select MAILBOX
->>       select SOC_TI
->> -    select TI_MESSAGE_MANAGER
->> -    select TI_SCI_PROTOCOL
->> +    imply TI_MESSAGE_MANAGER
->> +    imply TI_SCI_PROTOCOL
+On Wed, Jan 22, 2025 at 7:06=E2=80=AFAM Viresh Kumar <viresh.kumar@linaro.o=
+rg> wrote:
 >
-> I really don't like "imply" in general, and this will be the only
-> instance of it now in the whole file..
+> The driver generates following warning when regulator support isn't
+> enabled in the kernel. Fix it.
 >
-> Your v1 of this series was the right way to do this IMHO. The only
-> issue was patches 2/3 and 3/3 should have been first in the series to
-> prevent bisect issues. And they had to go to two different maintainers
-> so it shouldn't have been a single series in the first place.
-ok for me ,i will reuse v1 , split and resend.
-
-Thanks
-Guillaume
+>    drivers/cpufreq/s3c64xx-cpufreq.c: In function 's3c64xx_cpufreq_set_ta=
+rget':
+> >> drivers/cpufreq/s3c64xx-cpufreq.c:55:22: warning: variable 'old_freq' =
+set but not used [-Wunused-but-set-variable]
+>       55 |         unsigned int old_freq, new_freq;
+>          |                      ^~~~~~~~
+> >> drivers/cpufreq/s3c64xx-cpufreq.c:54:30: warning: variable 'dvfs' set =
+but not used [-Wunused-but-set-variable]
+>       54 |         struct s3c64xx_dvfs *dvfs;
+>          |                              ^~~~
 >
-> Andrew
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202501191803.CtfT7b2o-lkp@i=
+ntel.com/
+> Cc: <stable@vger.kernel.org> # v5.4+
+> Signed-off-by: Viresh Kumar <viresh.kumar@linaro.org>
+> ---
+> V2: Move s3c64xx_dvfs_table too inside ifdef.
+
+Applied as 6.14-rc material.
+
+If you'd rather apply it yourself, please let me know and I'll drop it.
+
+Thanks!
+
+>  drivers/cpufreq/s3c64xx-cpufreq.c | 11 +++++++----
+>  1 file changed, 7 insertions(+), 4 deletions(-)
 >
->>       select TI_K3_SOCINFO
->>       help
->>         This enables support for Texas Instruments' K3 multicore SoC
->>
->> ---
->> base-commit: 21266b8df5224c4f677acf9f353eecc9094731f0
->> change-id: 20241016-timodulemailboxsci-412e2a6458fc
->>
->> Best regards,
-
-
+> diff --git a/drivers/cpufreq/s3c64xx-cpufreq.c b/drivers/cpufreq/s3c64xx-=
+cpufreq.c
+> index c6bdfc308e99..9cef71528076 100644
+> --- a/drivers/cpufreq/s3c64xx-cpufreq.c
+> +++ b/drivers/cpufreq/s3c64xx-cpufreq.c
+> @@ -24,6 +24,7 @@ struct s3c64xx_dvfs {
+>         unsigned int vddarm_max;
+>  };
+>
+> +#ifdef CONFIG_REGULATOR
+>  static struct s3c64xx_dvfs s3c64xx_dvfs_table[] =3D {
+>         [0] =3D { 1000000, 1150000 },
+>         [1] =3D { 1050000, 1150000 },
+> @@ -31,6 +32,7 @@ static struct s3c64xx_dvfs s3c64xx_dvfs_table[] =3D {
+>         [3] =3D { 1200000, 1350000 },
+>         [4] =3D { 1300000, 1350000 },
+>  };
+> +#endif
+>
+>  static struct cpufreq_frequency_table s3c64xx_freq_table[] =3D {
+>         { 0, 0,  66000 },
+> @@ -51,15 +53,16 @@ static struct cpufreq_frequency_table s3c64xx_freq_ta=
+ble[] =3D {
+>  static int s3c64xx_cpufreq_set_target(struct cpufreq_policy *policy,
+>                                       unsigned int index)
+>  {
+> -       struct s3c64xx_dvfs *dvfs;
+> -       unsigned int old_freq, new_freq;
+> +       unsigned int new_freq =3D s3c64xx_freq_table[index].frequency;
+>         int ret;
+>
+> +#ifdef CONFIG_REGULATOR
+> +       struct s3c64xx_dvfs *dvfs;
+> +       unsigned int old_freq;
+> +
+>         old_freq =3D clk_get_rate(policy->clk) / 1000;
+> -       new_freq =3D s3c64xx_freq_table[index].frequency;
+>         dvfs =3D &s3c64xx_dvfs_table[s3c64xx_freq_table[index].driver_dat=
+a];
+>
+> -#ifdef CONFIG_REGULATOR
+>         if (vddarm && new_freq > old_freq) {
+>                 ret =3D regulator_set_voltage(vddarm,
+>                                             dvfs->vddarm_min,
+> --
+> 2.31.1.272.g89b43f80a514
+>
+>
 
