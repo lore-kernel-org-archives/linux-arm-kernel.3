@@ -4,72 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DEC7C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 18:19:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D457CC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 18:39:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CAeWf0TyEBr01x40HP4EGE1CA7O72oy4oe2uClVTtsI=; b=0ayteTpvCnU4ceEH0lEBsgIW+c
-	fig8QarEY++oTsxi7Qo9FY7m5jGewybdYaEDOZjRYa1gzUsw+/7cbJk7pL1e7ThIRfGnZT0YD4JNA
-	6YGq4MSYTMvr5QIZfOxi6TqTz0pHJ8ypZmC11LLqBi4xFJndMc8XI7QmEG0dmnGNJB5J6qvBwVmZ6
-	f5+zWY1hEINQoZVY3PbyIxySS7SS+DEZ6w2kCTV5B6cwhUvuVraBxoEWDXcpevOtp+BxjUDKyheRj
-	whBWuPHL6dF2dDNeLSv6GlOofzKLx3/rs2ZBIghnlbyjRoxre0gfv8AlqFmu2nhDCbThgMVG1A+qE
-	G4Q3jBHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HUTQU5mANTyBEG4HhBxkrJ4GgQfZfqNMqaiW7sVkm1k=; b=U21/JNYKNCOF2+51x+HCMFxt3n
+	m4yHTFxBeNBWVOsx9yx5LaJrIgBbZEWrPRgrrQLV2QStjftA4miGVTtD1ZMREc70+f3RDGF8Wp0Bu
+	Qvx2vJ67H/rPfuDJJCEuC0QN2O2LrZSyC4oPtZJYHJuz2fFsiV5khxjgtLRDio2cUQ0uLGye6RC9K
+	1N1eXqhk90NeXKhjzqXeSgleP483RMtjpmLYj9Mci0soobdzRP+GUdZnc4adABQQZa7ohzZ2eNO0U
+	BQVOWDm+fX0F3zU/AT+SR6LKT6ZQUHs3K0rnn04zxNhgxqalO3Tgkj9y8VblWDUa+FgCIeR109VwF
+	CCaoZvuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb1nu-0000000D1Pu-04Ca;
-	Thu, 23 Jan 2025 18:19:46 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1tb26x-0000000D33l-0rpr;
+	Thu, 23 Jan 2025 18:39:27 +0000
+Received: from fhigh-a1-smtp.messagingengine.com ([103.168.172.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb1lk-0000000D18l-3rOQ
+	id 1tb25d-0000000D2y5-3aOV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 18:17:34 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 50NIHRHn1243921
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 23 Jan 2025 12:17:27 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1737656247;
-	bh=CAeWf0TyEBr01x40HP4EGE1CA7O72oy4oe2uClVTtsI=;
-	h=From:To:CC:Subject:Date;
-	b=RPjBG6C2bnVVPmiY0AYtEvN1sKJdiPiBaUjIYOuz8sjCy0ABwSkswaazzOjL0eyKx
-	 dqgekob63C9SeWsd9E+lHO8qBDADcDgmlGj8x6ozVTY+vi1JKLRXVw5KhPzaG3zXCb
-	 qKokraUm2SSXZzKTkagcRKMLYfjVEw8s8D2rw8fQ=
-Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 50NIHRMp018667
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 23 Jan 2025 12:17:27 -0600
-Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE105.ent.ti.com
- (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 23
- Jan 2025 12:17:27 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE107.ent.ti.com
- (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 23 Jan 2025 12:17:27 -0600
-Received: from fllvsmtp7.itg.ti.com ([10.249.42.149])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 50NIHRtE040063;
-	Thu, 23 Jan 2025 12:17:27 -0600
-From: Andrew Davis <afd@ti.com>
-To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Santosh
- Shilimkar <ssantosh@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        Andrew Davis <afd@ti.com>
-Subject: [PATCH] soc: ti: k3-socinfo: Do not use syscon helper to build regmap
-Date: Thu, 23 Jan 2025 12:17:26 -0600
-Message-ID: <20250123181726.597144-1-afd@ti.com>
-X-Mailer: git-send-email 2.39.2
+	Thu, 23 Jan 2025 18:38:08 +0000
+Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 1DE1311400E4;
+	Thu, 23 Jan 2025 13:38:02 -0500 (EST)
+Received: from phl-mailfrontend-02 ([10.202.2.163])
+  by phl-compute-05.internal (MEProxy); Thu, 23 Jan 2025 13:38:02 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1737657482;
+	 x=1737743882; bh=HUTQU5mANTyBEG4HhBxkrJ4GgQfZfqNMqaiW7sVkm1k=; b=
+	CBiEy5d3UTihLhWnJjuBWRwHpR/Dk2iPz0iSoA+TzGfFPM3r5nmGxARE0uKDHtHX
+	kHVOT9WA0HBGpLspKKdnjXvI0bmT+geVrnoupfN43cjOtD2JfPVw/eCjeYzkku2N
+	ptHWa5wO4Ri5B+HOFIzeoGd4hI2Trd7VPejZ+l291/v3p+8B0h0dcCQPZkKjUkh6
+	6oCWkflXBGCVDbzdIggtLU33QSeVZaByCaw+k1wjUjrYtpUeb2V7D3YDgJHxi4UN
+	QLgigUOo15lyFWO8Q6e1k/Afh67wFct0UWzx04lnQPx01BVCpPhIrI1Fq1QrHfWz
+	2MBy24ZmonrktVjJw0Edlw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1737657482; x=
+	1737743882; bh=HUTQU5mANTyBEG4HhBxkrJ4GgQfZfqNMqaiW7sVkm1k=; b=T
+	BuyCnXaPbJ+ihVzqXJCKkw0pIy0van2BQ8/ZpHb14AAISbQeoI2u4TYVtVPcBSak
+	cZbNEieND78hT+L9XEJQLx0PiPcTAW9stf5oi7kcTcdHQeGOkLXGycryYyFepN0w
+	z07w6j2WQ/UQFDEbM+0e4oiNHai7QalYLif7mbpqQxdbtm1Cn2MrsSBpFe23KiwI
+	Dc/S1mXXg0wwYv3dmFl16jXiDn7XBiDb6ZcvHHtBwyf6yH8QJYjWrDfKL9rves1c
+	nb2SocoR0OG8diTlnkS5KztpPumcvU4cv1BvAL5RpEV779ZmmlzU/yN5UTyxYQD+
+	dRP1Wp2MwZfbOIgtpqFrQ==
+X-ME-Sender: <xms:iYySZ5D0lPHX7aBXvy-IZC6BxTLTUzltVa9aFUtUP2hlojwCvseAXA>
+    <xme:iYySZ3id20xWO_OtTtqVk7qDznq2lKaVjLjF_NFTWZvogCE85pWAiK0kI8pNdQC29
+    Z0xdvXdSoFPr7NnhUc>
+X-ME-Received: <xmr:iYySZ0k0_DorKIWWpHfjtKr19UKf8MXHFDnHSMDbCWZqes2Zz1hPF0hMqDbqfSid-YoD4pKVjWFE-jLseQh6bo8rh937ugH8TQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrudejgedgvdegtdcutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
+    hnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfhfgggtugfgjgesthekredttddt
+    jeenucfhrhhomheppfhikhhlrghsucfunpguvghrlhhunhguuceonhhikhhlrghsrdhsoh
+    guvghrlhhunhguodhrvghnvghsrghssehrrghgnhgrthgvtghhrdhsvgeqnecuggftrfgr
+    thhtvghrnhepffekgfdukeeghffhjeetvdeitdegteeikeffieduhfegveetjeevtdffvd
+    ekffdtnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigv
+    pedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehnihhklhgrshdrshhouggvrhhluhhnug
+    dorhgvnhgvshgrshesrhgrghhnrghtvggthhdrshgvpdhnsggprhgtphhtthhopeekpdhm
+    ohguvgepshhmthhpohhuthdprhgtphhtthhopehgvggvrhhtodhrvghnvghsrghssehglh
+    hiuggvrhdrsggvpdhrtghpthhtohepmhgrghhnuhhsrdgurghmmhesghhmrghilhdrtgho
+    mhdprhgtphhtthhopehmrghrvghkrdhvrghsuhhtodhrvghnvghsrghssehmrghilhgsoh
+    igrdhorhhgpdhrtghpthhtohephihoshhhihhhihhrohdrshhhihhmohgurgdruhhhsehr
+    vghnvghsrghsrdgtohhmpdhrtghpthhtohepkhhunhhinhhorhhirdhmohhrihhmohhtoh
+    drghigsehrvghnvghsrghsrdgtohhmpdhrtghpthhtoheplhhinhhugidqrhgvnhgvshgr
+    shdqshhotgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqd
+    grrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphht
+    thhopeguvghvihgtvghtrhgvvgesvhhgvghrrdhkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:iYySZzxFi3qHyMCkvIsoQ9xo6_gSlxw1FfV6GriyUltz-TdG_vg2gw>
+    <xmx:iYySZ-QmFGXAQJ8l1cgexfCYfX5bS-is-_i7zxZfC9aEpmqNuRrUWw>
+    <xmx:iYySZ2YDnDcnmNwLreDovbAHnUK10nctBztCHv0h-0pCpAuI8F1oyA>
+    <xmx:iYySZ_SnIOF4ZQJRHNIDJmpwV3m24SCPgM0IGFaugdWi40umI7J6kg>
+    <xmx:ioySZxHBNDunnY1VhaXuhYz2XGIGXMqyCsIAOupQcacWbPFKdFyTIoHl>
+Feedback-ID: i80c9496c:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 23 Jan 2025 13:38:00 -0500 (EST)
+Date: Thu, 23 Jan 2025 19:37:58 +0100
+From: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Magnus Damm <magnus.damm@gmail.com>,
+	Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: renesas: r8a779f0: Disable rswitch ports by
+ default
+Message-ID: <20250123183758.GK3436806@ragnatech.se>
+References: <c4688de8e3289ad82c2cd85f0893eac660ac8890.1737649969.git.geert+renesas@glider.be>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+In-Reply-To: <c4688de8e3289ad82c2cd85f0893eac660ac8890.1737649969.git.geert+renesas@glider.be>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_101733_114986_AEA1BF4D 
-X-CRM114-Status: GOOD (  16.54  )
+X-CRM114-CacheID: sfid-20250123_103806_613568_9F0B3260 
+X-CRM114-Status: GOOD (  18.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,60 +122,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The syscon helper device_node_to_regmap() is used to fetch a regmap
-registered to a device node. It also currently creates this regmap
-if the node did not already have a regmap associated with it. This
-should only be used on "syscon" nodes. This driver is not such a
-device and instead uses device_node_to_regmap() on its own node as
-a hacky way to create a regmap for itself.
+Hello Geert,
 
-This will not work going forward and so we should create our regmap
-the normal way by defining our regmap_config, fetching our memory
-resource, then using the normal regmap_init_mmio() function.
+Thanks for your work.
 
-Signed-off-by: Andrew Davis <afd@ti.com>
----
- drivers/soc/ti/k3-socinfo.c | 13 ++++++++++++-
- 1 file changed, 12 insertions(+), 1 deletion(-)
+On 2025-01-23 17:37:10 +0100, Geert Uytterhoeven wrote:
+> The Renesas Ethernet Switch has three independent ports.  Each port can
+> act as a separate interface, and can be enabled or disabled
+> independently.  Currently all ports are enabled by default, hence board
+> DTS files that enable the switch must disable all unused ports
+> explicitly.
+> 
+> Disable all ports by default, and explicitly enable ports that are used,
+> next to their configuration.
+> 
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> ---
+> This is similar to how Ethernet switch ports are handled on RZ/N1D, and
+> CAN-FD channels on R-Car Gen3/4.
+> 
+> If accepted, I'm wondering if I should move it forward, before "[PATCH
+> 3/5] arm64: dts: renesas: s4sk: Access rswitch ports via phandles"[1],
+> which would become slightly simpler.
 
-diff --git a/drivers/soc/ti/k3-socinfo.c b/drivers/soc/ti/k3-socinfo.c
-index 4fb0f0a248288..704039eb3c078 100644
---- a/drivers/soc/ti/k3-socinfo.c
-+++ b/drivers/soc/ti/k3-socinfo.c
-@@ -105,6 +105,12 @@ k3_chipinfo_variant_to_sr(unsigned int partno, unsigned int variant,
- 	return -ENODEV;
- }
- 
-+static const struct regmap_config k3_chipinfo_regmap_cfg = {
-+	.reg_bits = 32,
-+	.val_bits = 32,
-+	.reg_stride = 4,
-+};
-+
- static int k3_chipinfo_probe(struct platform_device *pdev)
- {
- 	struct device_node *node = pdev->dev.of_node;
-@@ -112,13 +118,18 @@ static int k3_chipinfo_probe(struct platform_device *pdev)
- 	struct device *dev = &pdev->dev;
- 	struct soc_device *soc_dev;
- 	struct regmap *regmap;
-+	void __iomem *base;
- 	u32 partno_id;
- 	u32 variant;
- 	u32 jtag_id;
- 	u32 mfg;
- 	int ret;
- 
--	regmap = device_node_to_regmap(node);
-+	base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(base))
-+		return PTR_ERR(base);
-+
-+	regmap = regmap_init_mmio(dev, base, &k3_chipinfo_regmap_cfg);
- 	if (IS_ERR(regmap))
- 		return PTR_ERR(regmap);
- 
+I let you and Marek figure that out, for the content of this patch.
+
+Reviewed-by: Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
+
+> 
+> [1] https://lore.kernel.org/all/20250118111344.361617-3-marek.vasut+renesas@mailbox.org
+> ---
+>  arch/arm64/boot/dts/renesas/r8a779f0-spider-ethernet.dtsi | 3 +++
+>  arch/arm64/boot/dts/renesas/r8a779f0.dtsi                 | 3 +++
+>  arch/arm64/boot/dts/renesas/r8a779f4-s4sk.dts             | 6 ++----
+>  3 files changed, 8 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/renesas/r8a779f0-spider-ethernet.dtsi b/arch/arm64/boot/dts/renesas/r8a779f0-spider-ethernet.dtsi
+> index 892729786d00b36e..ad2b0398d35431a1 100644
+> --- a/arch/arm64/boot/dts/renesas/r8a779f0-spider-ethernet.dtsi
+> +++ b/arch/arm64/boot/dts/renesas/r8a779f0-spider-ethernet.dtsi
+> @@ -57,6 +57,7 @@ &rswitch_port0 {
+>  	phy-handle = <&u101>;
+>  	phy-mode = "sgmii";
+>  	phys = <&eth_serdes 0>;
+> +	status = "okay";
+>  
+>  	mdio {
+>  		#address-cells = <1>;
+> @@ -75,6 +76,7 @@ &rswitch_port1 {
+>  	phy-handle = <&u201>;
+>  	phy-mode = "sgmii";
+>  	phys = <&eth_serdes 1>;
+> +	status = "okay";
+>  
+>  	mdio {
+>  		#address-cells = <1>;
+> @@ -93,6 +95,7 @@ &rswitch_port2 {
+>  	phy-handle = <&u301>;
+>  	phy-mode = "sgmii";
+>  	phys = <&eth_serdes 2>;
+> +	status = "okay";
+>  
+>  	mdio {
+>  		#address-cells = <1>;
+> diff --git a/arch/arm64/boot/dts/renesas/r8a779f0.dtsi b/arch/arm64/boot/dts/renesas/r8a779f0.dtsi
+> index 840ba73c03f1b6f4..06be9f7720d64179 100644
+> --- a/arch/arm64/boot/dts/renesas/r8a779f0.dtsi
+> +++ b/arch/arm64/boot/dts/renesas/r8a779f0.dtsi
+> @@ -989,14 +989,17 @@ ethernet-ports {
+>  				rswitch_port0: port@0 {
+>  					reg = <0>;
+>  					phys = <&eth_serdes 0>;
+> +					status = "disabled";
+>  				};
+>  				rswitch_port1: port@1 {
+>  					reg = <1>;
+>  					phys = <&eth_serdes 1>;
+> +					status = "disabled";
+>  				};
+>  				rswitch_port2: port@2 {
+>  					reg = <2>;
+>  					phys = <&eth_serdes 2>;
+> +					status = "disabled";
+>  				};
+>  			};
+>  		};
+> diff --git a/arch/arm64/boot/dts/renesas/r8a779f4-s4sk.dts b/arch/arm64/boot/dts/renesas/r8a779f4-s4sk.dts
+> index 24ecdf6e8476a945..df652e7b85c95ebe 100644
+> --- a/arch/arm64/boot/dts/renesas/r8a779f4-s4sk.dts
+> +++ b/arch/arm64/boot/dts/renesas/r8a779f4-s4sk.dts
+> @@ -187,6 +187,7 @@ &rswitch_port0 {
+>  	phy-handle = <&ic99>;
+>  	phy-mode = "sgmii";
+>  	phys = <&eth_serdes 0>;
+> +	status = "okay";
+>  
+>  	mdio {
+>  		#address-cells = <1>;
+> @@ -205,6 +206,7 @@ &rswitch_port1 {
+>  	phy-handle = <&ic102>;
+>  	phy-mode = "sgmii";
+>  	phys = <&eth_serdes 1>;
+> +	status = "okay";
+>  
+>  	mdio {
+>  		#address-cells = <1>;
+> @@ -218,10 +220,6 @@ ic102: ethernet-phy@2 {
+>  	};
+>  };
+>  
+> -&rswitch_port2 {
+> -	status = "disabled";
+> -};
+> -
+>  &rwdt {
+>  	timeout-sec = <60>;
+>  	status = "okay";
+> -- 
+> 2.43.0
+> 
+
 -- 
-2.39.2
-
+Kind Regards,
+Niklas Söderlund
 
