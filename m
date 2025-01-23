@@ -4,89 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7400DC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 19:42:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD823C0218B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 19:49:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EIZXj0NQXlFQEJN+NUiNBmBZ8xZyeEtXhJlqzjffnhQ=; b=g/aXysNLo7creTKkaat8WgMoWT
-	03Jvw3hZID9e/uDL5u9qe+jvt2ECpQGo2SjyHDfAYdHvJFRnVi55ltEegE0UsE2ljw2ooaT4guyGo
-	SDoIEnLO5lj6tX4SKQiUR3rlA5zEBTIVZ7/eYlN5eYcz+Ei2CQJUAsy0EBw19YDdJNY9AYY4A/Smg
-	Lgu9jna7XZz7AzJuBcVpfUUHXogjPlMA8FKjkq0YtLJnuh9WqMF7d+CAG722b7XwZDZdrV0qISoOw
-	7zToALymdf5NiHCitWDrb10vaeQgQdyKDHRgcwYWNUpR/KS+3jy3V/wIhgkwUXWlvcf7eZ+5Mi9bZ
-	Gaq0/ccg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/ehvXM/x2Xpjmareg8hVceTaEqRxIeAlXfZcNgyZJpQ=; b=ywklB//iVKRvHegdv+Blhdqdvt
+	gkPkCyZu3H7CBOXDnGtB6nBser7MQz7Yd2VSB4BmeRbRzwG5HKFkg0R2a4DRfOEiA3Gmm6UbmtwNW
+	78Hz2gWuebJhKvBrUWCNZ2ieCg7uxNGNjPRjBHo5k6yuDrmrvvOK2xGmMXm31X5zi3C0pjX5VMng3
+	S+Xm4+cuVE1gqvQ3zAqFQD0huMp3Q4otTzYI7AS+ruHrBymB3xzuxdPfzbzXRVZgmrPN/QF5/hfHK
+	7w/3UBjFsdw/YaQ7ZlZgjQNPuEko9/ZpEsdxv2xJDBj5BaXtAHbvEoHZ60orwbSerTNAFdHniB7bw
+	TT3ypMsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb35y-0000000D9mA-0iGH;
-	Thu, 23 Jan 2025 19:42:30 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tb3Cg-0000000DAYh-2Ps7;
+	Thu, 23 Jan 2025 19:49:26 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb34f-0000000D9Zn-2ISk;
-	Thu, 23 Jan 2025 19:41:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 988105C5B53;
-	Thu, 23 Jan 2025 19:40:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EA82C4CEEA;
-	Thu, 23 Jan 2025 19:41:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737661268;
-	bh=FzgMlZoMTVJxW0DtNfnaS6A9Ohe9wUCQbfRzCAOE11Y=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=GE9Gsa7iiU444KpkYxrogoBdZowGSjkyO0k7laPoPcoq6g3XxCe0poALteq4R4Zph
-	 tZ3ytakM0acv90IqA3t/Tq+HIhgvttRHrxIMc4+ftcYx59CQekJex95lkIBya9MuSj
-	 e8hgK78Mvi+bBQYrsrlD41mZ7vaA3+PkczkIp5mOMTvpFuEkiNLQOfTC7I53w3Jpp9
-	 jdf7sxICX3pGKHys55ON+N8sg3msEwZ1hAbYoGP7MqRskWyhGBaMTolzt8pF6nm7po
-	 ccEaxXFbs1MchzhtSnnv0PMPk6yc1GTQLhaCumG8Mkicq84A+N5GxqwlpPfo2bFwbT
-	 FHvlAO5Y9gebg==
-Received: by mail-oi1-f178.google.com with SMTP id 5614622812f47-3eb790888c6so345991b6e.2;
-        Thu, 23 Jan 2025 11:41:08 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCU5wulwOCBhoWF/df0Ls9hO3W3T+TwhWaWCN5xE+6vLruEZ/FldTCQSkOHa4pFt7BOiY5m+9fBg0pnNc6rxyyWW@lists.infradead.org, AJvYcCWkKFSNLMIp5nF02L7KERweyb0oew5d5PQCOcQrknpPHpemrbgDsYB26rQNVzTIv5XGonnEecWXTYntAEH7/dM=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwE9bPgt+g48VmhCWU+3Svn3YBlZuCZoK4vrYeA9OgT3EvIHqJg
-	xictHatyFBnlgzmBq0sQyK8gMU6cPbpCt+7Y29yxi4ygXwnudtuwpTlf1mk/m+BIFVBE3Ucl2Qg
-	Y7jlVaqtkeLIU1iTfPfW/a+pnqA4=
-X-Google-Smtp-Source: AGHT+IFEZLpokzQrSZWtE1aUlhzheSpv16W1XbXdM7wOE5P8c+MPFR4VPEp6oVT06Ebj/5DfcgalM7sIG87OhMAknWU=
-X-Received: by 2002:a05:6808:309c:b0:3ea:519e:cc71 with SMTP id
- 5614622812f47-3f19fd7beb4mr15987065b6e.39.1737661267410; Thu, 23 Jan 2025
- 11:41:07 -0800 (PST)
+	id 1tb3BN-0000000DAIy-3l3q
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Jan 2025 19:48:07 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2163dc5155fso24334215ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 11:48:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1737661684; x=1738266484; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=/ehvXM/x2Xpjmareg8hVceTaEqRxIeAlXfZcNgyZJpQ=;
+        b=njeIRFcbdcfmTVCxBuFTkMya/g9sYuvpwD+PH4cp5qX6gHJua8Zh1EI7VrsYLE/Ncl
+         2BrmIbcyYKg+QooDkp96u8xLgct6QtuMzD6lB9OBqV4bA45OlXHqZN/iwHoMZw0K/PMI
+         2OvFOQ5ZguTrRwN0uf1vUJZXr3GOkiHtYJsz+fHOqdRemZeM8Stv/NSl5XrO/G5h6uFQ
+         KpGdol3jaj6ZF1zsjzCLZJJnwi8U3ErmKE/D0A0b85icIVcffztlgRcuYNFmI7j3C8SM
+         YDbKzBwJs6taex3bTxJ5xhxRS5g/7+S6704x24fIrVWAsrx0U3pL6ZcxYZthm434MvpW
+         3SAA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737661684; x=1738266484;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/ehvXM/x2Xpjmareg8hVceTaEqRxIeAlXfZcNgyZJpQ=;
+        b=VYs5vEf2ppL4n1kJZnkg5WGqVQgItjGd5AkBBwTBCTC9b8Q8x41kGuKGIbrb8AuM9d
+         j3hXHZ4/GKb18iGTOAVxaVeenN6YGYOQ8UdRIKGXTYSl8st5/I6oILxmopHq1MAHAd7+
+         M5NUYoRtNWpjyrvY4MjW7nRnlcJmZXbdKSfHw94g9Yv1tdUGyqYDBtY8JhnpCoOLhy3Y
+         scAEGDl3XKO6VMu7gIchC6YaIKMkBD8wlGCTmgCpb2M98U3+q62Aqnrkg5uuHrpObO05
+         BZMq1INLJnTdSLUjAwQ/1GtLhwtn1XTDOUHiojsX3B5+mZJQDCaTk2aVT1qBvEcHM4PB
+         3qVw==
+X-Forwarded-Encrypted: i=1; AJvYcCVKvn0nv2aqr+r79FYmK74bLB8oVgHh1QdLT2IYWHvrjh+pVFdVQuI15k70zwPSVwGNs9JLJhVGM84hJ0jHpQuy@lists.infradead.org
+X-Gm-Message-State: AOJu0YyMOu7j8CTJud4veUzQGWTbjhkxHySKYmV75FH21fQ+KnEByy8q
+	FeawaOtPkrTe+CcNQLK+clJkPvJ9crakfNM0aPgFYRDGOCXuFG4=
+X-Gm-Gg: ASbGncvPpc18FacL/fu2HCUmuYTj+HV1VwJuZ4iSYirqYuk/eU8djukUhqhRSkvUClW
+	KiNIw5hkoFYbFYhyF9wi6xFUaC/yNun3h4F2xAFZPd2wid9zhEoa82y7JdEBkigJTpaWbCwD8RV
+	BtLsiHVNtjruSw2h6LewvI3b3l5SP+B234ZJcddu9opLVr7BkiEs/Z7Dk8Vp7ta+IX0XlIMOM3+
+	jDRb9vKE+mdYsM52R3p9RwiXwd0A2J6KR4FLd9CXCFRx1TfV22WQiZ8BxLHQNcQ/dAtBjPEe7y9
+	oaDt
+X-Google-Smtp-Source: AGHT+IHN0sZtZXkNpILip1vz+eYUU1Y/MTgN8GKmFzFYwee95EZNDldTyC5bmSvcCfRBqUDdtCAgnw==
+X-Received: by 2002:a17:902:e548:b0:216:60a3:b3fd with SMTP id d9443c01a7336-21c351d345amr370312355ad.3.1737661684548;
+        Thu, 23 Jan 2025 11:48:04 -0800 (PST)
+Received: from localhost ([2601:646:9e00:f56e:123b:cea3:439a:b3e3])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21da3ea2430sm2880515ad.65.2025.01.23.11.48.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Jan 2025 11:48:04 -0800 (PST)
+Date: Thu, 23 Jan 2025 11:48:03 -0800
+From: Stanislav Fomichev <stfomichev@gmail.com>
+To: Song Yoong Siang <yoong.siang.song@intel.com>
+Cc: "David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Willem de Bruijn <willemb@google.com>,
+	Florian Bezdeka <florian.bezdeka@siemens.com>,
+	Donald Hunter <donald.hunter@gmail.com>,
+	Jonathan Corbet <corbet@lwn.net>, Bjorn Topel <bjorn@kernel.org>,
+	Magnus Karlsson <magnus.karlsson@intel.com>,
+	Maciej Fijalkowski <maciej.fijalkowski@intel.com>,
+	Jonathan Lemon <jonathan.lemon@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Joe Damato <jdamato@fastly.com>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
+	Mina Almasry <almasrymina@google.com>,
+	Daniel Jurgens <danielj@nvidia.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Mykola Lysenko <mykolal@fb.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	KP Singh <kpsingh@kernel.org>, Hao Luo <haoluo@google.com>,
+	Jiri Olsa <jolsa@kernel.org>, Shuah Khan <shuah@kernel.org>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Tony Nguyen <anthony.l.nguyen@intel.com>,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, bpf@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	intel-wired-lan@lists.osuosl.org, xdp-hints@xdp-project.net
+Subject: Re: [PATCH bpf-next v6 2/4] selftests/bpf: Add launch time request
+ to xdp_hw_metadata
+Message-ID: <Z5Kc8wufjrsXMCW9@mini-arch>
+References: <20250116155350.555374-1-yoong.siang.song@intel.com>
+ <20250116155350.555374-3-yoong.siang.song@intel.com>
 MIME-Version: 1.0
-References: <cover.1737631669.git.viresh.kumar@linaro.org>
-In-Reply-To: <cover.1737631669.git.viresh.kumar@linaro.org>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Thu, 23 Jan 2025 20:40:56 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0gQDxb0-a5HiEa0vyWCGz01esQBy1fJ4vNXDZJ=GW1W+Q@mail.gmail.com>
-X-Gm-Features: AWEUYZmJBrMCqL-riW-i0DlJyFI1cRh2mxShaIBztS2B8ipvq-I9aavy-zqQjVc
-Message-ID: <CAJZ5v0gQDxb0-a5HiEa0vyWCGz01esQBy1fJ4vNXDZJ=GW1W+Q@mail.gmail.com>
-Subject: Re: [PATCH 00/33] cpufreq: manage common sysfs attributes from core
-To: Viresh Kumar <viresh.kumar@linaro.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Christophe Leroy <christophe.leroy@csgroup.eu>, Cristian Marussi <cristian.marussi@arm.com>, 
-	Fabio Estevam <festevam@gmail.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Hector Martin <marcan@marcan.st>, Huacai Chen <chenhuacai@kernel.org>, 
-	Jiaxun Yang <jiaxun.yang@flygoat.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	Kevin Hilman <khilman@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Markus Mayer <mmayer@broadcom.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Naveen N Rao <naveen@kernel.org>, 
-	Nicholas Piggin <npiggin@gmail.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
-	Sudeep Holla <sudeep.holla@arm.com>, Sven Peter <sven@svenpeter.dev>, 
-	Thierry Reding <thierry.reding@gmail.com>, WANG Xuerui <kernel@xen0n.name>, linux-pm@vger.kernel.org, 
-	Vincent Guittot <vincent.guittot@linaro.org>, arm-scmi@vger.kernel.org, 
-	asahi@lists.linux.dev, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
-	linux-mips@vger.kernel.org, linux-omap@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-tegra@vger.kernel.org, 
-	loongarch@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250116155350.555374-3-yoong.siang.song@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_114109_680416_37CB06BF 
-X-CRM114-Status: GOOD (  14.21  )
+X-CRM114-CacheID: sfid-20250123_114805_934345_DE4D20D0 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,118 +135,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 23, 2025 at 12:38=E2=80=AFPM Viresh Kumar <viresh.kumar@linaro.=
-org> wrote:
->
-> Hello,
->
-> Most of the drivers add available and boost frequencies related attribute=
-s. This
-> patch series tries to avoid duplication and simplify driver's code by man=
-aging
-> these from core code.
->
-> A quick search revealed that only the drivers that set the
-> policy->freq_table field, enable these attributes. Which makes sense as
-> well, since the show_available_freqs() helper works only if the
-> freq_table is present.
->
-> In order to simplify drivers, create the relevant sysfs files forcefully
-> from cpufreq core.
->
-> Pushed here:
->
-> git://git.kernel.org/pub/scm/linux/kernel/git/vireshk/pm.git cpufreq/core=
--attr
+On 01/16, Song Yoong Siang wrote:
+> Add launch time hardware offload request to xdp_hw_metadata. Users can
+> configure the delta of launch time relative to HW RX-time using the "-l"
+> argument. By default, the delta is set to 0 ns, which means the launch time
+> is disabled. By setting the delta to a non-zero value, the launch time
+> hardware offload feature will be enabled and requested. Additionally, users
+> can configure the Tx Queue to be enabled with the launch time hardware
+> offload using the "-L" argument. By default, Tx Queue 0 will be used.
+> 
+> Signed-off-by: Song Yoong Siang <yoong.siang.song@intel.com>
 
-Acked-by: Rafael J. Wysocki <rafael@kernel.org>
+Forgot to add:
 
-for the series.
-
-Thanks!
-
-> --
-> Viresh
->
-> Viresh Kumar (33):
->   cpufreq: Always create freq-table related sysfs file
->   cpufreq: dt: Stop setting cpufreq_driver->attr field
->   cpufreq: acpi: Stop setting common freq attributes
->   cpufreq: apple: Stop setting cpufreq_driver->attr field
->   cpufreq: bmips: Stop setting cpufreq_driver->attr field
->   cpufreq: brcmstb: Stop setting common freq attributes
->   cpufreq: davinci: Stop setting cpufreq_driver->attr field
->   cpufreq: e_powersaver: Stop setting cpufreq_driver->attr field
->   cpufreq: elanfreq: Stop setting cpufreq_driver->attr field
->   cpufreq: imx6q: Stop setting cpufreq_driver->attr field
->   cpufreq: kirkwood: Stop setting cpufreq_driver->attr field
->   cpufreq: longhaul: Stop setting cpufreq_driver->attr field
->   cpufreq: loongson: Stop setting cpufreq_driver->attr field
->   cpufreq: mediatek: Stop setting cpufreq_driver->attr field
->   cpufreq: omap: Stop setting cpufreq_driver->attr field
->   cpufreq: p4: Stop setting cpufreq_driver->attr field
->   cpufreq: pasemi: Stop setting cpufreq_driver->attr field
->   cpufreq: pmac: Stop setting cpufreq_driver->attr field
->   cpufreq: powernow: Stop setting cpufreq_driver->attr field
->   cpufreq: powernv: Stop setting common freq attributes
->   cpufreq: qcom: Stop setting cpufreq_driver->attr field
->   cpufreq: qoriq: Stop setting cpufreq_driver->attr field
->   cpufreq: sc520_freq: Stop setting cpufreq_driver->attr field
->   cpufreq: scmi: Stop setting cpufreq_driver->attr field
->   cpufreq: scpi: Stop setting cpufreq_driver->attr field
->   cpufreq: sh: Stop setting cpufreq_driver->attr field
->   cpufreq: spear: Stop setting cpufreq_driver->attr field
->   cpufreq: speedstep: Stop setting cpufreq_driver->attr field
->   cpufreq: tegra: Stop setting cpufreq_driver->attr field
->   cpufreq: vexpress: Stop setting cpufreq_driver->attr field
->   cpufreq: virtual: Stop setting cpufreq_driver->attr field
->   cpufreq: Remove cpufreq_generic_attrs
->   cpufreq: Stop checking for duplicate available/boost freq attributes
->
->  drivers/cpufreq/acpi-cpufreq.c         |  1 -
->  drivers/cpufreq/apple-soc-cpufreq.c    |  8 --------
->  drivers/cpufreq/bmips-cpufreq.c        |  1 -
->  drivers/cpufreq/brcmstb-avs-cpufreq.c  |  1 -
->  drivers/cpufreq/cpufreq-dt.c           |  8 --------
->  drivers/cpufreq/cpufreq.c              | 15 +++++++++++++++
->  drivers/cpufreq/davinci-cpufreq.c      |  1 -
->  drivers/cpufreq/e_powersaver.c         |  1 -
->  drivers/cpufreq/elanfreq.c             |  1 -
->  drivers/cpufreq/freq_table.c           |  8 --------
->  drivers/cpufreq/imx6q-cpufreq.c        |  1 -
->  drivers/cpufreq/kirkwood-cpufreq.c     |  1 -
->  drivers/cpufreq/longhaul.c             |  1 -
->  drivers/cpufreq/loongson2_cpufreq.c    |  1 -
->  drivers/cpufreq/loongson3_cpufreq.c    |  1 -
->  drivers/cpufreq/mediatek-cpufreq-hw.c  |  1 -
->  drivers/cpufreq/mediatek-cpufreq.c     |  1 -
->  drivers/cpufreq/omap-cpufreq.c         |  1 -
->  drivers/cpufreq/p4-clockmod.c          |  1 -
->  drivers/cpufreq/pasemi-cpufreq.c       |  1 -
->  drivers/cpufreq/pmac32-cpufreq.c       |  1 -
->  drivers/cpufreq/pmac64-cpufreq.c       |  1 -
->  drivers/cpufreq/powernow-k6.c          |  1 -
->  drivers/cpufreq/powernow-k7.c          |  1 -
->  drivers/cpufreq/powernow-k8.c          |  1 -
->  drivers/cpufreq/powernv-cpufreq.c      |  2 --
->  drivers/cpufreq/qcom-cpufreq-hw.c      |  7 -------
->  drivers/cpufreq/qoriq-cpufreq.c        |  1 -
->  drivers/cpufreq/sc520_freq.c           |  1 -
->  drivers/cpufreq/scmi-cpufreq.c         |  8 --------
->  drivers/cpufreq/scpi-cpufreq.c         |  1 -
->  drivers/cpufreq/sh-cpufreq.c           |  1 -
->  drivers/cpufreq/spear-cpufreq.c        |  1 -
->  drivers/cpufreq/speedstep-centrino.c   |  1 -
->  drivers/cpufreq/speedstep-ich.c        |  1 -
->  drivers/cpufreq/speedstep-smi.c        |  1 -
->  drivers/cpufreq/tegra186-cpufreq.c     |  1 -
->  drivers/cpufreq/tegra194-cpufreq.c     |  1 -
->  drivers/cpufreq/vexpress-spc-cpufreq.c |  1 -
->  drivers/cpufreq/virtual-cpufreq.c      |  1 -
->  include/linux/cpufreq.h                |  1 -
->  41 files changed, 15 insertions(+), 75 deletions(-)
->
-> --
-> 2.31.1.272.g89b43f80a514
->
+Acked-by: Stanislav Fomichev <sdf@fomichev.me>
 
