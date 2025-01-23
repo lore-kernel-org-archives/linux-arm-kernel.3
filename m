@@ -4,176 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8A14C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 15:23:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E452DC0218B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 15:26:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f6FwZ8xkWt0jwnBw5XnNwK4jazRSqAXPTvOXNz8cCYk=; b=pxGrN1QSKWjNOpdP2J0Q0kKfrK
-	ZhzAqwWSnyNOKXyfhyqHc7mPsg83f5TZ/MhEfui/RftfmxrU+rh9H+Yd6NpvCWABcamRO11VJWN92
-	VoosekncwpBkJ328YdQF4Elbq/tjNhsAFcQ8X8rIFFZdhdg3BpTI3emLKji8PnVUrqi93jDJGoDk8
-	Kd6M8VLtZmxJ98jDH8JZeR+b0eYUxuduE1nH4NWjWO7cFh2PqPNIaEwTQTXQyadsyYk2dqcXnQJ+R
-	Qs88rIgESbCvpxnO56y9hiYgA4IO32PifV+FA6szXQKABXgthU2nIPiyMGC5j29m5b2l2xe482RWv
-	OMHp73oQ==;
+	bh=t9b8B/1KhmA8Zn74X54gjZWQdCBq0YTpDGkeuzPv3Wg=; b=lfXQw4z0exUFWf+TthxSjNlRCH
+	9xQ0Fqp3ocuGVHC1UgbLC6dkOJX31udxZF5BGVl07Ox8WJCO67uGEHKyDpAMYVOH/8Fy48E6SHUhn
+	nltiXDxuO4Zpz7uASIH7feLuQ7zAIXei+Rrjaq3WGURNLTII+XNTodR4VLAZVXmBJLDDbbGYnbRXx
+	QtrqoC+apMbXlvR456K3F5ttNaCr2mO6XBrKie982e/WEP+zNPa4+3YORa81aPec7qM1YwK1zsg39
+	KhnOhEv9GKn2Q0YmxXmuFDDFDUyg7O/Uo8wWFPJXLENVvu0h1b4lyJqI6kje/zH5c9QwKyrYHJhZE
+	pVClfnlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taz34-0000000ChOl-1W70;
-	Thu, 23 Jan 2025 15:23:14 +0000
-Received: from mail-westeuropeazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c201::] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1taz6M-0000000ChfK-0Yd4;
+	Thu, 23 Jan 2025 15:26:38 +0000
+Received: from mail-vk1-f171.google.com ([209.85.221.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taz1m-0000000ChH3-110m
+	id 1taz54-0000000Chb3-1KjC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 15:21:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=L0OMcagwCgVOpe4spqfQXnnrJytytM9eCDWupfqywjpwkauMg9bCtURPWwHWAyNxtqGwQ04yJI4WU+jpy5H5OyAaGr+/7htDSzSUBlnhn16G9XyCcuxJ4M9AL+WNo8sViOldhf1oO1FVSRJ5X/snQ1TMB2d4f3wvB5RH2qlfvhEJf1939qz/mE7lQybhCXgyXsmDQbsCsigNdCEIpNi7yag98BqbvBsrrygx7dYqjG8jevTaSVe96LemVL+E7NN/2RL9SWbOLhFtkz4GWCKJzuYLhQUWc7wBlIjfsgnX0gDF2RdRRuJ+Z1Z/ZGvRsYmqu/N+nUOeaUXfQ2OUKDs+9Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=f6FwZ8xkWt0jwnBw5XnNwK4jazRSqAXPTvOXNz8cCYk=;
- b=jT6qOO0037im0SYOFPM3mB3QceLsJybwzx3y7ElDr2EEVByho5AUQMOa2d2lK99Ee5SZPI8LjZUoffEkFMKTCcvFn8K1iuTeGyaXLfkrwUMT6FcWBhRjwsDU1mXpvfoFN0VkDctxht3tlaJpydYr5/RklFe1eG8f22hQaK21xHqexAB1+iBDfkZfh6SEss9wyvOoypvoscleCTFQOfN2ibTyUMIjX0nxlbYsZeDxTncqO6QV6nTDxDjguuQYNiUEcUAvtriHrLmXwFSllEYquijZFfr0VyEwLF1D/1peD+RbzOSGp8ZjInEytX+lk96uvCXhzbuZf+apqhZS000MEA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=f6FwZ8xkWt0jwnBw5XnNwK4jazRSqAXPTvOXNz8cCYk=;
- b=ZN1oGmR3HtuHe9Y7CCEPs4l64Hv1QaLr5vLQBwWnKg1PhO5U0mVO+gWr7DhHUouIwqkm63mXvdDdbErks2rHBIw0qs5pGw6WX4nd/AfbC9Y+DwomQieJ88sOxXo4sVM5ixVkxR8zOS4TksIA96yhuk/cMRz8ZjcVZOyYYyX6jHzlLon21X+ddWacBtJXaQf96wEMTCP0oFK7ZU1EM4c6TwIpvsXTiYMXM31KcFmOwNjEx0hy5Koagfpgpv+ChxEKGvsqzULoT1c04A1/pe3qxf3fTiPm4HxdOHlS9zNy9Fe2EoGCMbrDZ0Z7aXyGhrgj1p0V2pNCdYh33PRTPPCpwg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by AM8PR04MB7956.eurprd04.prod.outlook.com (2603:10a6:20b:241::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.22; Thu, 23 Jan
- 2025 15:21:47 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d%7]) with mapi id 15.20.8377.009; Thu, 23 Jan 2025
- 15:21:47 +0000
-Date: Thu, 23 Jan 2025 10:21:36 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
-Subject: Re: [PATCH v8 2/7] PCI: dwc: Use devicetree 'ranges' property to get
- rid of cpu_addr_fixup() callback
-Message-ID: <Z5JegF7i3Ig2pLYB@lizhi-Precision-Tower-5810>
-References: <20250116231358.GA616783@bhelgaas>
- <20250116232916.GA617353@bhelgaas>
- <Z4p6bekWQ7t7ZDS8@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <Z4p6bekWQ7t7ZDS8@lizhi-Precision-Tower-5810>
-X-ClientProxiedBy: BYAPR04CA0001.namprd04.prod.outlook.com
- (2603:10b6:a03:40::14) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
+	Thu, 23 Jan 2025 15:25:19 +0000
+Received: by mail-vk1-f171.google.com with SMTP id 71dfb90a1353d-5174f9c0d2aso353963e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 07:25:17 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737645914; x=1738250714;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=t9b8B/1KhmA8Zn74X54gjZWQdCBq0YTpDGkeuzPv3Wg=;
+        b=VLYb/CmFe0/gAaoUiGeCpS2yRTfquBWCi6SVkLYmQ4Bv/eM20648Jm/rDP+tguq7OR
+         hccfLGlzEgmSSoVtBaGOaJiznV79e6ntx4iap0nIgarw12eKjS1KtYz+vBX0fSbeCEaa
+         eCaqs5ncw+LWDLWJMaFeUuiYsAQ9rbqUS/2VGKdZAFPhsaSNfsPhgBBa+V5XobhbTeMN
+         y9bWFsLeTrktqbwzINO75BSgCDlhfgJF4SOQlRzPF3pN9ydLn35c9/JnLwbscLKqxQJr
+         tJAeLnd53gAAyHOLGFTIeRJYHJV+Hf43b+E+mRMZKjn6oLcoMxtRDDm4nJMMS1A+Xf9M
+         nPfw==
+X-Gm-Message-State: AOJu0YxIYQ3lxNaeELbyFvNNjo2rb1ExTlaq3fWytoQ9mA99Oh6O7hyy
+	ucpfqiza+QqsQux5jtOrcLsZlVlQSm5sV6Wu+bEIprAAYTp2nw0Jl9uhP09/
+X-Gm-Gg: ASbGncvhCN9fpqNvzp3eVuvZl3cee7MFX+0DhTPMx+DYZy1aT80OX6CV7RXVATnnNDa
+	OChgjK4bg7bEqwR5nxO9RjjgMpRzCXCC8vEQQ4U8QK357oSNpYFltTtfeGfE+/U0/m/S3Js/NGZ
+	om1/KJMZgLf5RCJtWRj+NGvo1Mh/oYauz9HLyq9+l6nQoCVNfzA6RI0SA8C5zt+ecZLb5C7zrTe
+	Q5t0uhyjSR82CaUVf42JmmbrHVrYOt/kMZWb+E1G3dL6k03mFznJZl95Nj4MicDo59MY1Uk2ycB
+	Q1ff4dYMYMMgco/ro3GLoG2H8g2vdfsS4HRRpd7sd8E=
+X-Google-Smtp-Source: AGHT+IH8Ov+rIZhW1qD1F/JFYUGPoOYGcIIGolqlj1hnbbd2Pk0DKwA/In+MgFWScDmIQypKsyAK2A==
+X-Received: by 2002:a05:6122:2403:b0:516:2209:9032 with SMTP id 71dfb90a1353d-51d584614a3mr23037050e0c.2.1737645914019;
+        Thu, 23 Jan 2025 07:25:14 -0800 (PST)
+Received: from mail-vs1-f44.google.com (mail-vs1-f44.google.com. [209.85.217.44])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-4b68a208576sm3226019137.8.2025.01.23.07.25.13
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 23 Jan 2025 07:25:13 -0800 (PST)
+Received: by mail-vs1-f44.google.com with SMTP id ada2fe7eead31-4afed7b7d1bso273826137.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 07:25:13 -0800 (PST)
+X-Received: by 2002:a05:6102:a53:b0:4b2:5c4b:55e7 with SMTP id
+ ada2fe7eead31-4b690cde3a2mr20737457137.25.1737645913456; Thu, 23 Jan 2025
+ 07:25:13 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|AM8PR04MB7956:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0d7a7799-a0cb-4368-88f8-08dd3bc1a6d8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|52116014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?TTk2d2sra0lqbmtiTSs0a2ZDbnY3S2NGc2JiSVNGK2tUdE14QXR6ajV2U09w?=
- =?utf-8?B?R0RtYXo2RldLMmo3THhGcGlZd0YrVm9UTEFRY1lFREpyRlQ5UTJzSDNRRkZD?=
- =?utf-8?B?Y3MyMUd6Q29hNXpsOG9UMFZDMHV4cDdYamVibmdkSHRweHZueDVkR3NteDFG?=
- =?utf-8?B?U2NZRDlqWndEOHppekk2V3FHOXptRDI4TVM0WVBkUUFkQkFIYmVkWUtnbExQ?=
- =?utf-8?B?SWZVZ29GUkZnVGR1Z0JZWDJJN1d5Q29ad3ZsWngxMHFnMlY0QzVGTFVNSFp3?=
- =?utf-8?B?MlJScHhNWUFkblNNQlp3a0FRQVpvWGhRMFBhaXdjNy9sYmVIaG9pQjg3bmFM?=
- =?utf-8?B?djBZeWhlSVAzUzJKUTNrN0pJNllmaVRoWlY5dDJueUVNRkNpSTdmUjRQeExi?=
- =?utf-8?B?U1VtalFibnVQaWtQVHBOM3dxQjFJMG1WYXFyTGlUVitGazBpV0JUWlpoSHBu?=
- =?utf-8?B?S2NFai9BdC9xR1FUUE10VlVveThDZWNGS3k0WVlJaTZjT0tmbFNmbDFQb1dS?=
- =?utf-8?B?dStpTjdMYm1hOGYzKzJJL3g0bVkyOVo3RFhIdEptQitMYU1zQXZxSFpaVncz?=
- =?utf-8?B?SXR0bTd5VEtwcTdycVc1NGMzNVRFYjdBSEJuUDYwRmdNWVFjN2E0eE9FT05h?=
- =?utf-8?B?dWlmaXB2bFFvWU1OdFZiNXJHY0J4L1J1V3lyZFkvY2N6L1JtajEzWWVhajl1?=
- =?utf-8?B?MXVDMVFEc2NTSGtuMjlEVHJEUE9HME11RGttZzBpMzAxWXI4T05LTHRaZUU0?=
- =?utf-8?B?WXlucnU3eWk1eno1ejB5aGs0Nk9NUmVxbVJWWnUzeVhMTis1VmY0K2tNMXFJ?=
- =?utf-8?B?U21KaVZjYUhPN0laNkZ3bDAwYzN6bFo1Vjk5NUlVZTVhSmg3c2VvM0VORTRT?=
- =?utf-8?B?RjNpNUJ2OE5maWZQWXJtU0NRRTkrNzFBTTY1Nm9aUDVqTXhDbEFGOHErZys3?=
- =?utf-8?B?ZlNxWllPd2x0WGVITy9XUzlXSEFDSTNld2cvZmw1ZnVqL090OXJ3TGhmY0dj?=
- =?utf-8?B?K09meEluK0xSL09INWNTNDROQ3RQNWtocDdPb0xMM1daSm93NjBXU0pVc0Zr?=
- =?utf-8?B?VGtjRHhsS2hnYW9HZkRJT2xrZzBRTnlkTzd1Nm00cXl3MUJjYmc5SlNkQjZi?=
- =?utf-8?B?SDd1VFllNldyeGVwWEdMeko3YXdMTDg3eTNNTGVLRUNYSzhpYmN0QWk1VXpI?=
- =?utf-8?B?dytTdEZUL1dRQVpac0JuLzR4Vlk2RGduQU4rczB1aEgzVGhqU0VYZlUwaVBY?=
- =?utf-8?B?TnA5cFFNOEtZWEVJY3AyL3pRWk1yNnRmQlhuUTBTYmhKUjE5TFlNVnh2Nnda?=
- =?utf-8?B?QTk2MTNyaW91ZDhMaE4rL3FCd0FGSndKbHcwNm50aUwzR2dSMUpIVHpWMkNN?=
- =?utf-8?B?WE1RRy9STXhsRThZMEhLajdMU0FqOW54NmRQTVBwbnIxTW5YNFpHMEtvS2tQ?=
- =?utf-8?B?SkthbzZaYzBFVzUvZDljZk95cFY3UlEzK1JyeHFVK2EyWHExaENLOVYvUjdt?=
- =?utf-8?B?UlgvUExjZ3dwRmQ0L0RvUEwwZE9CY3RrS2lUdUtCem9XSUR6YjRlUXNLTm9B?=
- =?utf-8?B?QnZHNEtLQkVITm5pNG4xWFpEOStKaVNjNy9HaUJ3TVhTVU5rYkY2emRVUjlO?=
- =?utf-8?B?MXhxRXJ3bkt2QXZJWDVRalVoVWo3Y01RUDVWMUgvZ2lWRzNlWDFzVm9oNmdq?=
- =?utf-8?B?S0ZTcFRmUTNaUEVNaTJDVVFia1ZkSlBOZWhwdFZEbGxMNkdDTUVnalpsazh0?=
- =?utf-8?B?R2FJS0JkSWNuanVXM3ptTVdLT2tvalVMamp3UnBneHZoNXdlOTcyTDBHMmUr?=
- =?utf-8?B?bysrd1VPamJadTRObG9lNEpscWdLNms4ZlVpTFBvUHh3bldIZkZ3NFQ4TENX?=
- =?utf-8?B?OW9zKzJUR0NpVldKTWRqSlg2TzdIVDhEeVBkMW1rZWFRQ2V0bWdBQVBOc3pa?=
- =?utf-8?Q?Nx1enj3RkMMOz7YbMWmHfkzTE3vbhONc?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(52116014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QSs1ZUxQaGlqQzBLYVRVNGh3R2hualFFSWJZbXRMd0E2Qm16c1RNSCtWcGFQ?=
- =?utf-8?B?VWRSMzYyYXhzaHV0TzdLWk1ocHJScVI3S0RDWERVWkhxQ3QyclFhNG13R1BJ?=
- =?utf-8?B?ekNJYWNnWVFYVmxmOHlGSkxlUDBvMEFsd3FNeEJqNE9iRFVFQjJBRXNGOUhz?=
- =?utf-8?B?cVZlMUNLMmFEQzFOMUgrRnVZa3o2d0dlNzBoOGp5aEtGbmZodFYzd05tVE5K?=
- =?utf-8?B?RUk3TUNIMnNNWkNWa3NScTBRSGFNT2RnM1FQYmhPKzgyL2dCaUNrVFkyVmwr?=
- =?utf-8?B?QndnbnBxQ1pMR0xVdjZvZjRuM1h5TkdRN1l1MXBpUG03MjR2OVdoQ3hRT2hm?=
- =?utf-8?B?MzlEUEo2ZnBiYXREU3lWMzRtelFDOS9JcWdVKzNGeUl3UFU4bG5aZ05rcEdj?=
- =?utf-8?B?OWFWVkQvd0JYNC9BQm1EUmttU05jZDVKb2N0ZUdsaDIrdkhYaDdTK3VaWm51?=
- =?utf-8?B?Wjk4TXk2THNoYnJvNDlsbzZOaCttdW9CalVLSmtZR1R1TEtOZGhHaDQ1aGFr?=
- =?utf-8?B?bWpMYnk5Mm9XeHZ0Ui9QRTFrUHFBaWIrMWM0UXBKZkVPNy85dUdob0RlS3Vj?=
- =?utf-8?B?MTZlSWxRTEptSXdOUnZZZ0tBZ1F2aHJMd1NtcUdtR2NlWUZFVk5wZ3pudGhI?=
- =?utf-8?B?bk9qRmZUZnIrcEtsa0haVFZmd1FTZDI5Znp5YlpCOFozaHFXQURxL0RBT0hZ?=
- =?utf-8?B?Z0lRbm9maXVrVUFneERmTTNUdk9vZXdLUUZDQkxMYXIwQXdsQzlDK3BSbjhG?=
- =?utf-8?B?UWNCa085NHBKaVBVUXE3VjR0TVpjWVhrWjNORkxlTFNIRHlFcnROSzB0M3FQ?=
- =?utf-8?B?dTdZeXNHSGhFTlQ3Yjh3QkdCM2VXbjR1LzRSVUM3d2VpcnduSHo5VUQwMkJY?=
- =?utf-8?B?TGUwU1RoSzByTm54aFZPZDNralBpcmNTUFQ1cGNEZVA4SVIzYk1FUkN2QW5r?=
- =?utf-8?B?ajIzSTExajAxTlg2MGZHZ2xGNDM1RC9ydDVWazVxeklUM05rOTFWRXUxUFR1?=
- =?utf-8?B?UkNyekl2M0h4bEZ4dGtGWjBQRDVhQ1U3SE5Hb0E1MVBHUmR1cGx6azlvYmJk?=
- =?utf-8?B?bU1WdFZ0cmw3YjBZSjJrbFVYZGlaTldZcmFrdVg1RlJwL3pyYTF3dzBuODVy?=
- =?utf-8?B?bkZJbHJZZEwzcHhEbzAyQVlBdEJaUVdBWlYyNWpLVG41NEZURnNnWkZXbVVk?=
- =?utf-8?B?OGM3VVdUeFVpT3dzUTlKTDd4c3o1V0ZuVkV3dzg1dUU5TXdka1hwK2xmdzU1?=
- =?utf-8?B?U29TMlhpdXptTVkyU1MzdktIakF2WDBIUFpUNGlvOTlWMHhmdXdaZlJkSnlz?=
- =?utf-8?B?QWM0UGFLTXVDKzFFaE5wUmNlb05iYnZxRVNPNlVRS0hQdTJSVWNoUEwwZFNo?=
- =?utf-8?B?NVZVaHE4bWJKWGJOQTFKM0xkeGlpS0QrOUtGb1ZDcENJNm05MDJQRDBTakVq?=
- =?utf-8?B?RGtoTVJZWGdkSThBUzdITVFIa2Zic3BpZVNNbnRDaDNKU2lLVm1FRStkaU9t?=
- =?utf-8?B?VlBqUi9DOEljQ1cyMnB5VmRwbmxyVEk1ZkZSbmFTY05wUFlEZ0RwRkxrcS9P?=
- =?utf-8?B?eFRJWHg0N21MSVZzMVRkU3h1QnI0K3NDMHgxUFhNcUtwVHRPdTBIVWIrQ2Nr?=
- =?utf-8?B?UDR5VGloZXlDZGlubGs2ZzB1ZFRHYlRsQ21Ec1AvdWJQQ3o3bEpvc3A1S0VC?=
- =?utf-8?B?ZndPRkJMR296VDFlV3JDRytaOCtWR1diQzBIc0VoSDRlSTYzay8rZ0JDYmZn?=
- =?utf-8?B?cmxudUNmUEJXOXpacjFWMUlCWFRzQ0hoZFZFSWRLU1VSZ0h3ZjNUUUZpWXJQ?=
- =?utf-8?B?clNsM2F2aEcvcTVJSmtjV292dlJMV3F1Tm5ZRzd5ekZPSXlqQWdhMmZYU3I0?=
- =?utf-8?B?eUJHS0pBaXRkMVQ5cTMvNVc2MnJQWDQ0MDZPbDYrZEpEMi9BQVBxV0ZYd3R5?=
- =?utf-8?B?dWVKdzFHeG02cFVPOHl5YTA3Y28vOWdlZk8zRldscm1ZcDRrY3REY0dEQWMy?=
- =?utf-8?B?a0NHOGk4dnJQa0FGTHhVQ05HQ1FXSGlFcE42dXVQcHBvRFB3K0ttWER0NnEv?=
- =?utf-8?B?R1NTQ2JzTWlzVkgyQ1lMd1RzS1dUMitsWk92eTk0ZFQwWlQrQzNENWUyUTVx?=
- =?utf-8?Q?pjqE=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0d7a7799-a0cb-4368-88f8-08dd3bc1a6d8
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jan 2025 15:21:47.3408
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ljJowjT3V6u/fdJZ6iS1exWGbE6dpCJKuQnuNURKTWRJgm0McxATiUn/MKqXDMeS2cJl5pCJQgG+WFya9/zqxA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7956
+References: <20250118111344.361617-1-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20250118111344.361617-1-marek.vasut+renesas@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 23 Jan 2025 16:25:01 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdUTQ=4K8P_TgTp_b=NDdimgXJgW_nhO1ZJa11C846Bubw@mail.gmail.com>
+X-Gm-Features: AWEUYZlPykv4QH7LgkEQDPD8UQk0TXIl7OZNblAPbfwNmuapfG6Le-FqWDaZUzw
+Message-ID: <CAMuHMdUTQ=4K8P_TgTp_b=NDdimgXJgW_nhO1ZJa11C846Bubw@mail.gmail.com>
+Subject: Re: [PATCH 1/5] arm64: dts: renesas: r8a779f0: Add labels for rswitch ports
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_072154_454741_B8161EA9 
-X-CRM114-Status: GOOD (  28.48  )
+X-CRM114-CacheID: sfid-20250123_072518_360858_CB842FF2 
+X-CRM114-Status: GOOD (  20.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,112 +93,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 17, 2025 at 10:42:37AM -0500, Frank Li wrote:
-> On Thu, Jan 16, 2025 at 05:29:16PM -0600, Bjorn Helgaas wrote:
-> > On Thu, Jan 16, 2025 at 05:14:00PM -0600, Bjorn Helgaas wrote:
-> > > On Tue, Nov 19, 2024 at 02:44:20PM -0500, Frank Li wrote:
-> > > > parent_bus_addr in struct of_range can indicate address information just
-> > > > ahead of PCIe controller. Most system's bus fabric use 1:1 map between
-> > > > input and output address. but some hardware like i.MX8QXP doesn't use 1:1
-> > > > map. See below diagram:
-> > > >
-> > > >             ┌─────────┐                    ┌────────────┐
-> > > >  ┌─────┐    │         │ IA: 0x8ff8_0000    │            │
-> > > >  │ CPU ├───►│   ┌────►├─────────────────┐  │ PCI        │
-> > > >  └─────┘    │   │     │ IA: 0x8ff0_0000 │  │            │
-> > > >   CPU Addr  │   │  ┌─►├─────────────┐   │  │ Controller │
-> > > > 0x7ff8_0000─┼───┘  │  │             │   │  │            │
-> > > >             │      │  │             │   │  │            │   PCI Addr
-> > > > 0x7ff0_0000─┼──────┘  │             │   └──► IOSpace   ─┼────────────►
-> > > >             │         │             │      │            │    0
-> > > > 0x7000_0000─┼────────►├─────────┐   │      │            │
-> > > >             └─────────┘         │   └──────► CfgSpace  ─┼────────────►
-> > > >              BUS Fabric         │          │            │    0
-> > > >                                 │          │            │
-> > > >                                 └──────────► MemSpace  ─┼────────────►
-> > > >                         IA: 0x8000_0000    │            │  0x8000_0000
-> > > >                                            └────────────┘
-> > > >
-> > > > bus@5f000000 {
-> > > > 	compatible = "simple-bus";
-> > > > 	#address-cells = <1>;
-> > > > 	#size-cells = <1>;
-> > > > 	ranges = <0x80000000 0x0 0x70000000 0x10000000>;
-> > > >
-> > > > 	pcie@5f010000 {
-> > > > 		compatible = "fsl,imx8q-pcie";
-> > > > 		reg = <0x5f010000 0x10000>, <0x8ff00000 0x80000>;
-> > > > 		reg-names = "dbi", "config";
-> > > > 		#address-cells = <3>;
-> > > > 		#size-cells = <2>;
-> > > > 		device_type = "pci";
-> > > > 		bus-range = <0x00 0xff>;
-> > > > 		ranges = <0x81000000 0 0x00000000 0x8ff80000 0 0x00010000>,
-> > > > 			 <0x82000000 0 0x80000000 0x80000000 0 0x0ff00000>;
-> > > > 	...
-> > > > 	};
-> > > > };
-> > > >
-> > > > Term internal address (IA) here means the address just before PCIe
-> > > > controller. After ATU use this IA instead CPU address, cpu_addr_fixup() can
-> > > > be removed.
-> > >
-> > > > @@ -730,9 +779,15 @@ static int dw_pcie_iatu_setup(struct dw_pcie_rp *pp)
-> > > >
-> > > >  		atu.index = i;
-> > > >  		atu.type = PCIE_ATU_TYPE_MEM;
-> > > > -		atu.cpu_addr = entry->res->start;
-> > > > +		parent_bus_addr = entry->res->start;
-> > > >  		atu.pci_addr = entry->res->start - entry->offset;
-> > > >
-> > > > +		ret = dw_pcie_get_parent_addr(pci, entry->res->start, &parent_bus_addr);
-> > > > +		if (ret)
-> > > > +			return ret;
-> > > > +
-> > > > +		atu.cpu_addr = parent_bus_addr;
-> > >
-> > > Here you set atu.cpu_addr to the intermediate bus address instead
-> > > of the CPU physical address before calling
-> > > dw_pcie_prog_outbound_atu().
-> > >
-> > > But what about other callers of dw_pcie_prog_outbound_atu()?  Don't
-> > > all of them need to use the intermediate bus address?
->
-> All should use "intermediate bus address", RC side only call it here. EP
->
-> side is here
-> https://lore.kernel.org/imx/Z4p0fUAK1ONNjLst@lizhi-Precision-Tower-5810/T/#t
->
-> >
-> > Somehow I expected the patch to skip calling ->cpu_addr_fixup() if the
-> > driver had set 'use_parent_dt_ranges'.  In fact, I think that's a
-> > requirement.
->
-> It's fine to add check to call cpu_addr_fixup() although I think driver
-> owner should take responsiblity to make cpu_addr_fixup and
-> use_parent_dt_ranges exclusive.
->
-> >
-> > Since dw_pcie_prog_outbound_atu() is the only dwc caller, maybe the
-> > parent_bus_addr change should go *there* instead of in the callers?
->
-> I am not sure I understand your means.
->
-> EP and RC parts need call dw_pcie_prog_outbound_atu(). EP and RC use
-> difference method to get outbound windows informaiton. So can't move it
-> into dw_pcie_prog_outbound_atu().
->
-> Frank
+Hi Marek,
 
-Bjorn:
+On Sat, Jan 18, 2025 at 12:14=E2=80=AFPM Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
+> Introduce labels for each rswitch port in the form 'rswitchportN'.
+> Those can be used to access rswitch port nodes directly, which is
+> going to be useful in reducing DT indentation slightly as well as
+> in DT /aliases node to reference the rswitch ports as ethernetN
+> interfaces. No functional change.
+>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-	I saw you have not picked all of these patches during you rework
-pci git branches.
+Thanks for your patch!
 
-	I know you are busy, do you have chance to pick left patch for 6.14.
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+i.e. will queue in renesas-devel for v6.15.
 
-Frank
+> --- a/arch/arm64/boot/dts/renesas/r8a779f0.dtsi
+> +++ b/arch/arm64/boot/dts/renesas/r8a779f0.dtsi
+> @@ -974,15 +974,15 @@ ethernet-ports {
+>                                 #address-cells =3D <1>;
+>                                 #size-cells =3D <0>;
+>
+> -                               port@0 {
+> +                               rswitchport0: port@0 {
+>                                         reg =3D <0>;
+>                                         phys =3D <&eth_serdes 0>;
+>                                 };
+> -                               port@1 {
+> +                               rswitchport1: port@1 {
+>                                         reg =3D <1>;
+>                                         phys =3D <&eth_serdes 1>;
+>                                 };
+> -                               port@2 {
+> +                               rswitchport2: port@2 {
+>                                         reg =3D <2>;
+>                                         phys =3D <&eth_serdes 2>;
+>                                 };
 
-> >
-> > Bjorn
+Would you mind if I would change all rswitchportN to rswitch_portN
+while applying, for consistency with other Renesas DTS files?
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--=20
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
+
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
 
