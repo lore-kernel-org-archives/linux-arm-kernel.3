@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C5EFC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 10:21:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94AC8C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 10:22:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pF1YbHNd68QH0+4RCSEvZWIcRHcqxu5ECsjv3zK+Ugk=; b=1+BAkgpBe5ZL6QR5Cn7/w2OwE+
-	ANaqrvYscq6AobIlpjugWBu4TVqF9d2o2USVH2tzHO4Cz1pBoeb9O7TtWBWdjzbRoYfsS0sak6hQN
-	+7KbDklfchf0OGqtZkb/OyPKwt+Cq+y5Ke3BAm8QA4ZJBBdbjWREL51nRw7In+oPJ3iiHNAyOTo8i
-	Kr9TvETR9uVvOM4GfbPFklB6UftCsMLyhkWfKJjS2+y7qEkaxuAJbbXBGin14ym5TIk3fGpt2JFGG
-	m/JO2GeWvwnbzZMSLWNEW9JIwixJWApTEI8+Tu/TPrF3oIkvqYRDiUb0m7QlYAkWLJt25qprqi/Pv
-	91fi+5vQ==;
+	bh=Vvacs6TTd8+7VxkiJviBM48r26FUm4A3QUyHkwS0LAA=; b=H6HEXKT3nzvm9n/iO5O238nTAQ
+	IixnIePW1vYeqKppcI8v3Nsp3BHghVJpizNBJeVpHH3hgzGp0KMFpFhriVZ1wgrMzSAA1XNAq31Lb
+	YsJeU/9MZY640kkPzig+JJVhW1RRiRsXNEI6cS0JyFCqXub0tdrDX6VRs/GcupWx7emTfu1rQvgVF
+	TQxdAfDrNZpsC4v3smMdfpOkO0WV6bRlaLzkfzkjPm0vOySa9a/dtAki6s0G2S+/MPZA2kGfN+4h5
+	aZIRnHyLGtMUv0yyEUk3CBXdvhVTSZqlXvLIT57vEQlKVi5tP8gfJ1m0t0IULp4Do7rheIY1u4h8I
+	HVxcnwlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tauKj-0000000CBZg-3hwC;
-	Thu, 23 Jan 2025 10:21:09 +0000
-Received: from mail-m1973171.qiye.163.com ([220.197.31.71])
+	id 1tauM0-0000000CBlQ-1asN;
+	Thu, 23 Jan 2025 10:22:28 +0000
+Received: from mail-m1973184.qiye.163.com ([220.197.31.84])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tau8J-0000000C9eR-3TvU;
+	id 1tau8K-0000000C9fg-285v;
 	Thu, 23 Jan 2025 10:08:21 +0000
 Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 9818ae7f;
-	Thu, 23 Jan 2025 18:08:14 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 9818ae88;
+	Thu, 23 Jan 2025 18:08:16 +0800 (GMT+08:00)
 From: Damon Ding <damon.ding@rock-chips.com>
 To: heiko@sntech.de
 Cc: robh@kernel.org,
@@ -51,30 +51,30 @@ Cc: robh@kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-phy@lists.infradead.org,
 	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v6 08/14] drm/rockchip: analogix_dp: Add support to get panel from the DP AUX bus
-Date: Thu, 23 Jan 2025 18:07:41 +0800
-Message-Id: <20250123100747.1841357-9-damon.ding@rock-chips.com>
+Subject: [PATCH v6 09/14] dt-bindings: display: rockchip: analogix-dp: Add support for RK3588
+Date: Thu, 23 Jan 2025 18:07:42 +0800
+Message-Id: <20250123100747.1841357-10-damon.ding@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250123100747.1841357-1-damon.ding@rock-chips.com>
 References: <20250123100747.1841357-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGUkZSlZMSx9NGUtIThodQh9WFRQJFh
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGkMfH1ZITUJLTxkdSkhJGU9WFRQJFh
 	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
 	hVSktLVUpCS0tZBg++
-X-HM-Tid: 0a9492a240e703a3kunm9818ae7f
+X-HM-Tid: 0a9492a2484703a3kunm9818ae88
 X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Ok06Iww4ATINLCw*Dik6FC9N
-	MhwwCj9VSlVKTEhMTUlNQ0JNSEhLVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFIT0tLNwY+
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Nz46Hww6TzILDixMDi9IFB4M
+	CzpPFE9VSlVKTEhMTUlNQ0JDSUlKVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFJSUlCNwY+
 DKIM-Signature: a=rsa-sha256;
-	b=kMAWDFGWAskd70OrFUetSCT5n7NTElyEcyF8TqLV1SoNw14xrt7G9MTpovyiSQNhyyprw8TWNuumt+SkgCvaofut72Sub7RWr4nFGn0l+73okaPlwcAm2jIHRUT+V9XgFWwkn/mJMNQItnfEkusq7MWBpLffgf6vpmwmzSmypKE=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=pF1YbHNd68QH0+4RCSEvZWIcRHcqxu5ECsjv3zK+Ugk=;
+	b=HbNgYNwVKSz4uYAoKk916Ub9oKRhr4cNCDblGk8bQ8xdJPJoyg5bNMI5mXwgJk+nLx6cQdKmAfIZU86dqme54mFhyXnEOw8SuFt9QnXd5Zf95y8Yh5/z9pQs7ZER/GTV3LlEbU8vlglrhwHoQZXf8S3KvWfrADqazwWB/8iavLk=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=Vvacs6TTd8+7VxkiJviBM48r26FUm4A3QUyHkwS0LAA=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_020820_058403_C29C226F 
-X-CRM114-Status: GOOD (  16.24  )
+X-CRM114-CacheID: sfid-20250123_020820_706305_33CB59D4 
+X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,107 +89,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move drm_of_find_panel_or_bridge() a little later and combine it with
-component_add() into a new function rockchip_dp_link_panel(). The function
-will serve as done_probing() callback of devm_of_dp_aux_populate_bus(),
-aiding to support for obtaining the eDP panel via the DP AUX bus.
+Compared with RK3288/RK3399, the HBR2 link rate support is the main
+improvement of RK3588 eDP TX controller, and there are also two
+independent eDP display interfaces on RK3588 Soc.
 
-If failed to get the panel from the DP AUX bus, it will then try the other
-way to get panel information through the platform bus.
+The newly added 'apb' reset is to ensure the APB bus of eDP controller
+works well on the RK3588 SoC.
 
 Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
 
 ---
 
+Changes in v2:
+- Add the main defferences of the RK3588 eDP and the previous versions
+  in commit message
+
+Changes in v3:
+- Expand the property clock-names, resets and reset-names
+
 Changes in v4:
-- Use done_probing() to call drm_of_find_panel_or_bridge() and
-  component_add() when getting panel from the DP AUX bus
+- Remove 'spdif' clock which added in v3
+- Add the comment of newly added 'apb' reset in commit message
 
 Changes in v5:
-- Use the functions exported by the Analogix side to get the pointers of
-  struct analogix_dp_plat_data and struct drm_dp_aux.
-- Use dev_err() instead of drm_err() in rockchip_dp_poweron().
+- Put the differences between RK3288/RK3399 and RK3588 into 'allOf'
 
 Changes in v6:
-- Keep drm_err() in rockchip_dp_poweron()
-- Pass 'dp' in drm_...() rather than 'dp->drm_dev'
+- Keep the widest constraints and add only RK3588 related constraints
+  into 'allOf'
 ---
- .../gpu/drm/rockchip/analogix_dp-rockchip.c   | 37 ++++++++++++++-----
- 1 file changed, 28 insertions(+), 9 deletions(-)
+ .../rockchip/rockchip,analogix-dp.yaml        | 22 ++++++++++++++++++-
+ 1 file changed, 21 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-index 13f32aeea7ca..004b1b68d1cf 100644
---- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-@@ -393,11 +393,27 @@ static const struct component_ops rockchip_dp_component_ops = {
- 	.unbind = rockchip_dp_unbind,
- };
+diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
+index eaf4e67e232e..baee021314e7 100644
+--- a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
++++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
+@@ -15,6 +15,7 @@ properties:
+     enum:
+       - rockchip,rk3288-dp
+       - rockchip,rk3399-edp
++      - rockchip,rk3588-edp
  
-+static int rockchip_dp_link_panel(struct drm_dp_aux *aux)
-+{
-+	struct analogix_dp_plat_data *plat_data = analogix_dp_aux_to_plat_data(aux);
-+	struct rockchip_dp_device *dp = pdata_encoder_to_dp(plat_data);
-+	int ret;
-+
-+	ret = drm_of_find_panel_or_bridge(dp->dev->of_node, 1, 0, &plat_data->panel, NULL);
-+	if (ret)
-+		return ret;
-+
-+	ret = component_add(dp->dev, &rockchip_dp_component_ops);
-+	if (ret)
-+		return ret;
-+
-+	return ret;
-+}
-+
- static int rockchip_dp_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
- 	const struct rockchip_dp_chip_data *dp_data;
--	struct drm_panel *panel = NULL;
- 	struct rockchip_dp_device *dp;
- 	struct resource *res;
- 	int i;
-@@ -407,10 +423,6 @@ static int rockchip_dp_probe(struct platform_device *pdev)
- 	if (!dp_data)
- 		return -ENODEV;
+   clocks:
+     minItems: 2
+@@ -31,9 +32,12 @@ properties:
+     maxItems: 1
  
--	ret = drm_of_find_panel_or_bridge(dev->of_node, 1, 0, &panel, NULL);
--	if (ret < 0 && ret != -ENODEV)
--		return ret;
--
- 	dp = devm_kzalloc(dev, sizeof(*dp), GFP_KERNEL);
- 	if (!dp)
- 		return -ENOMEM;
-@@ -434,7 +446,6 @@ static int rockchip_dp_probe(struct platform_device *pdev)
+   resets:
+-    maxItems: 1
++    minItems: 1
++    maxItems: 2
  
- 	dp->dev = dev;
- 	dp->adp = ERR_PTR(-ENODEV);
--	dp->plat_data.panel = panel;
- 	dp->plat_data.dev_type = dp->data->chip_type;
- 	dp->plat_data.power_on = rockchip_dp_poweron;
- 	dp->plat_data.power_off = rockchip_dp_powerdown;
-@@ -450,9 +461,17 @@ static int rockchip_dp_probe(struct platform_device *pdev)
- 	if (IS_ERR(dp->adp))
- 		return PTR_ERR(dp->adp);
+   reset-names:
++    minItems: 1
++    maxItems: 2
+     const: dp
  
--	ret = component_add(dev, &rockchip_dp_component_ops);
--	if (ret)
--		return ret;
-+	ret = devm_of_dp_aux_populate_bus(analogix_dp_get_aux(dp->adp), rockchip_dp_link_panel);
-+	if (ret) {
-+		if (ret != -ENODEV) {
-+			drm_err(dp, "failed to populate aux bus : %d\n", ret);
-+			return ret;
-+		}
+   rockchip,grf:
+@@ -55,6 +59,22 @@ required:
+ allOf:
+   - $ref: /schemas/display/bridge/analogix,dp.yaml#
+ 
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - rockchip,rk3588-edp
++    then:
++      properties:
++        resets:
++          minItems: 2
++          maxItems: 2
++        reset-names:
++          items:
++            - const: dp
++            - const: apb
 +
-+		ret = rockchip_dp_link_panel(analogix_dp_get_aux(dp->adp));
-+		if (ret)
-+			return ret;
-+	}
+ unevaluatedProperties: false
  
- 	return 0;
- }
+ examples:
 -- 
 2.34.1
 
