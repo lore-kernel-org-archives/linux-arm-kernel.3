@@ -4,81 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E92C2C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 15:31:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDBA6C0218B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 15:32:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CRkGB3GceLUeejR3dcVm7Hu3nWcnMD2L4Z0M3mLfQKE=; b=0X88V9/sEuRPsogDHsYQYtILI4
-	5mPwlj454sxdxZR6eISAME3KG6f+lOuacZ7gFtoUkpIplfxJpqFq+k5ruynO4ByB0flDmeeFjKVdj
-	blAY1+oacEvvtc0IOR8GobO75wpGwXWLZ0WewWyEVmOAMO7C1C9thRoOzXf57OX860enS2PJE9Edc
-	KpU2L5tItmNmyt54GLGlFdUIN8a0ILQzwMZ2UciYdTi6gSBtMomRGPo3CQmyXMKK2F5srgYabLEQm
-	rdZHwtXHG6UIv9n5xv1jfyKAvxrIYK1tdthsfcac+XDRql9rCkfi73xIzh70mmjaIuB9JUeon+MEU
-	EXz3qStg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NrD9tohMn9+0XqNxtx5bn8n/sseawkF6bGYnJGkw4Qs=; b=b/9MX8foi0cc5ambgUkzhfkPyo
+	6BbjE5jxsgzrCxmQTXevr6KGCFnmzkf6cxTi8La8rSRBdFKGGM3gaMjbIWabKxa5ddTeeXRfydEHy
+	sRLYKJKlSy2QyTGNvUfh6s+1hNGdOUckNy/VWgaGxL5+ppH8svo0E9uKfJ6lbXBUPILBrw1SgAYUP
+	4cFOtzr054uWqCKNg/OkNazJ73hOFM/dlxdq1oaCmJTPs8s4JELH3qv+wjpB0uEWgnpfW2i06Lp7F
+	mJNiUgKGBSFisBWnS2e15gR1uvLFErCrgJD0qmGKhDCxWp7VLnFx2dJLstcH3CyXtk0OJziJ77TZ0
+	xVRT/Cfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tazAO-0000000CiIl-0KBN;
-	Thu, 23 Jan 2025 15:30:48 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1tazBd-0000000CiRp-33UO;
+	Thu, 23 Jan 2025 15:32:05 +0000
+Received: from mail-yb1-xb2a.google.com ([2607:f8b0:4864:20::b2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taz90-0000000Ci3q-18gb
+	id 1taz9F-0000000Ci5q-1AuY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 15:29:23 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 50NFT4Ug390550
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 23 Jan 2025 09:29:04 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1737646144;
-	bh=CRkGB3GceLUeejR3dcVm7Hu3nWcnMD2L4Z0M3mLfQKE=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=kssc1V+cCJobwWgTufYIHAO98RyROnvVXJj0+kdQJYYqCKhfS1QJHXQJpauS3jOIO
-	 69jx9Oz//RrEoH75a0KwnweVDXWohmJZK3reXvanhDJ/5jMu+wGTfqIS+A7xWH5AFy
-	 L0ct/JcVukcUOfyBUdzSpjO+PX469wXAmp26n2JA=
-Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 50NFT4ko004948
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 23 Jan 2025 09:29:04 -0600
-Received: from DLEE115.ent.ti.com (157.170.170.26) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 23
- Jan 2025 09:29:04 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE115.ent.ti.com
- (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 23 Jan 2025 09:29:04 -0600
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 50NFT3qU084061;
-	Thu, 23 Jan 2025 09:29:03 -0600
-Message-ID: <f1e6f49c-71e2-4c6f-b78f-7608739530c9@ti.com>
-Date: Thu, 23 Jan 2025 09:29:03 -0600
+	Thu, 23 Jan 2025 15:29:38 +0000
+Received: by mail-yb1-xb2a.google.com with SMTP id 3f1490d57ef6-e4a6b978283so3653008276.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 07:29:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1737646176; x=1738250976; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=NrD9tohMn9+0XqNxtx5bn8n/sseawkF6bGYnJGkw4Qs=;
+        b=QvQxJ+f15JB7xldUzbyBuFsklEZvRuhyoDk4E5x//R/rZ1l56DG15S3vYX2S4MQf+i
+         FeGTRUIAaa8p6v17lniJfr1aVEer5QjkiTB//K9P8NxhyRFZxl0nvtJOnltb+jUxkPsR
+         QjdyYGlVUr6CtzJiWCq1NLP7vsa8wdeFx2FGpiqbhj3SUrDLS4vWf1Ifv2UY5Sdtjh8n
+         9p2z4xUv1LhQ/HKcqOHHHDLcjQrrqnr/rTZ0q7hrICSAxTmmUHMaNCdaodvaDl69IBSw
+         EqSVWDQJJj0cBJT/MF0WGElSxwiaJlu6/q/nNmGPk4jvP1IYk5axy7ZD+cIV1gxLllc7
+         Frzg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737646176; x=1738250976;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=NrD9tohMn9+0XqNxtx5bn8n/sseawkF6bGYnJGkw4Qs=;
+        b=geO4By/8YsWamg8xB18WTgef5Dh5J4fYS/fsMvRLSsDZ+PSpcINNYvKRrrSpsRM3bP
+         qV6dkdmlJ68nJIENpLH75Z/uNRxjzXvsG35waY2LcuMiM+1YgUCowmnNXhN07zJOq+NE
+         XgH/bCSoxLu00xk0PpcUKUWWNkkaHUbazHOodXHVOvE83v5PscGcgD1ouU4D+SMqBXtv
+         MzzthDdowH60uvj0AYAXssZSLv7b1ZOHjOXa0OgI4gWBdYDNb4ajvaeYJ2l+/UXqZibs
+         zv5YRhMN+hFqN9wO5U3uTNT9gAFOZc7mzCqNRZQdZxYN0MRLmKQOenTeppvqoopURfVL
+         H8Qg==
+X-Forwarded-Encrypted: i=1; AJvYcCUBWo1JgZI2pRntzD6kEF+/4WOxcDnzzQzPOTJKixI1jqkSHXsvYsvSPjRn63cJRh+HlSj0BLRII+Yu0weppbdQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz4PadQK1/bixZ1Y6MemCDwDlVuYVLitq56LmeT6FSMlspAqqAe
+	wKEkTGVUeIXfgaB3MpQBbkPmYzVjGA7UJirZ74MuDVj+2tyhqZjwtHRtGyszPNmb3N5FgWPJWUp
+	WUC/15dkXE9bIO3H+n5mw/hR7M7E=
+X-Gm-Gg: ASbGncsoXBLILrlDsiHDrH/k5N36QoKROinTiEf4VWURCUBFpyT1VFqLoIip2HWnDnE
+	ji3VG0wKGJyoHQr7F0lex4GqqVMqM+GWi2a3WxCKKGrGApyaSJ+WwpDW1KaAqHd4=
+X-Google-Smtp-Source: AGHT+IEcgaNEMT/nz9felDBiOOxXNv6kz7jxv8iPIixkQPXeXQj/Qcp8sEMC4T0kInZ7xTeKCClB4Fx7CAupT9sEVhs=
+X-Received: by 2002:a05:6902:2a8d:b0:e38:9227:befa with SMTP id
+ 3f1490d57ef6-e5825780b02mr3125345276.1.1737646176006; Thu, 23 Jan 2025
+ 07:29:36 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4] arm64: arch_k3: Replace select with imply for TI
- mailbox and TI SCI
-To: Guillaume La Roque <glaroque@baylibre.com>,
-        Catalin Marinas
-	<catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, <nm@ti.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-omap@vger.kernel.org>, <khilman@baylibre.com>,
-        Mattijs Korpershoek
-	<mkorpershoek@baylibre.com>, <vishalm@ti.com>,
-        Nicolas Frayer
-	<nfrayer@baylibre.com>
-References: <20250123-timodulemailboxsci-v4-1-b1a31b56f162@baylibre.com>
-Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20250123-timodulemailboxsci-v4-1-b1a31b56f162@baylibre.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+References: <20250118-z2-v5-0-6d38b2582169@gmail.com> <20250118-z2-v5-2-6d38b2582169@gmail.com>
+ <Z5CNx9natNYmJ5il@google.com>
+In-Reply-To: <Z5CNx9natNYmJ5il@google.com>
+From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+Date: Thu, 23 Jan 2025 16:29:25 +0100
+X-Gm-Features: AbW1kvYrTQzvZ3DNs13coOwZ-EGWuTfhUMiTchLAOX9rz6NmJ2BSwg_pqYaH0XY
+Message-ID: <CAMT+MTQudKdUs5we_UCqN0WPJn+T0pyY+NrbaBFKBM2Rkuacmg@mail.gmail.com>
+Subject: Re: [PATCH v5 2/4] input: apple_z2: Add a driver for Apple Z2 touchscreens
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Henrik Rydberg <rydberg@bitmath.org>, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-input@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_072922_480447_F18C7927 
-X-CRM114-Status: GOOD (  18.43  )
+X-CRM114-CacheID: sfid-20250123_072937_316838_8C683DFA 
+X-CRM114-Status: UNSURE (   7.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,58 +98,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/23/25 6:12 AM, Guillaume La Roque wrote:
-> In order to build TI mailbox and TI SCI as modules, replace
-> select with imply.
-> 
-> Signed-off-by: Nicolas Frayer <nfrayer@baylibre.com>
-> Signed-off-by: Guillaume La Roque <glaroque@baylibre.com>
-> ---
-> Changes in v4:
-> - rebase on master branch
-> - Link to v3: https://lore.kernel.org/r/20241016-timodulemailboxsci-v3-1-0e7f7a6de97d@baylibre.com
-> 
-> Changes in v3:
-> - rebase with master
-> 
-> Changes in v2:
-> - Use imply instead of removing select altogether and dropped
-> patches 2/3 and 3/3 from previous series as using imply makes
-> them redundant
-> ---
->   arch/arm64/Kconfig.platforms | 4 ++--
->   1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
-> index 02007256709e..a6e4bfffc09d 100644
-> --- a/arch/arm64/Kconfig.platforms
-> +++ b/arch/arm64/Kconfig.platforms
-> @@ -133,8 +133,8 @@ config ARCH_K3
->   	select PM_GENERIC_DOMAINS if PM
->   	select MAILBOX
->   	select SOC_TI
-> -	select TI_MESSAGE_MANAGER
-> -	select TI_SCI_PROTOCOL
-> +	imply TI_MESSAGE_MANAGER
-> +	imply TI_SCI_PROTOCOL
+On Wed, 22 Jan 2025 at 07:18, Dmitry Torokhov <dmitry.torokhov@gmail.com> wrote:
+> diff --git a/drivers/input/touchscreen/apple_z2.c b/drivers/input/touchscreen/apple_z2.c
+> index 4a5ea252961a..a1bd2f3147ab 100644
 
-I really don't like "imply" in general, and this will be the only
-instance of it now in the whole file..
-
-Your v1 of this series was the right way to do this IMHO. The only
-issue was patches 2/3 and 3/3 should have been first in the series to
-prevent bisect issues. And they had to go to two different maintainers
-so it shouldn't have been a single series in the first place.
-
-Andrew
-
->   	select TI_K3_SOCINFO
->   	help
->   	  This enables support for Texas Instruments' K3 multicore SoC
-> 
-> ---
-> base-commit: 21266b8df5224c4f677acf9f353eecc9094731f0
-> change-id: 20241016-timodulemailboxsci-412e2a6458fc
-> 
-> Best regards,
+Since i will be incorporating this into my patch, do you want a co-developed-by?
 
