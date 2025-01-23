@@ -4,91 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E33D5C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 22:33:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5E13C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 22:39:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CJ2LgP1zcI6D9CZmTqDUnO2CFra8WcbcyzGNJfUiXA8=; b=yiW98cz20b+ZSL2USEshR0mXkr
-	ZPNqrl26Cv2Fc9lo7xeWvU5F48bZFjGQEo1zNc1brHJHx4DhYe8gybXUCeg6QvsDnKT7aG3eVf+QD
-	O3AgbmhsOmUbANHr9dfyTSyJPzCZbZ9e3vZc30Z+BAKPhAJv29Mmr56yXtZI6Ew0L6VPTc9VhZFjz
-	5bWHJ9NFp9SIl0wk5UpAwLO05/+D9gF80YcciiVPR7y5t4KQQhpS21F1vip+R2ChLAULWhk4NqXVi
-	kuLELkE6Kl0d8bmzB4ISsQQ9IKJST9dQwQbqRdY3GuUcNx2eKxYVp3LcCPXEQHHIXi7yqJkcLcmuU
-	mRjvEbBw==;
+	bh=dfFbufE/oZqYpKWLTE17oZPb84Hww5PkyDbRc8FQEe4=; b=waCxG6IEb/82U//IGoT17X9IdR
+	Xxqmk3AJTzUVgffIN1bErzEcB/Q1cPVy96zEv/JfQH2Nfyq3eM4zUP/dQdXP5mLtpODn46srKHy7u
+	YxN7TXYpDmpxNynIckUpZMjXk+1ZAhJuuNnOZw8z/1TUaSv6+UfEg3ZLREx+Z2NCcvQLvU5v1+VS4
+	PJyMfRcAsdg5d7xkBht1FIm+Zhsusaj35hjALbQseQfW9khk5X5AuyPIUkswvEdbetr0PCPWqpHqS
+	MgPw+5sJDodZclOrt9x4o4nLaf9yGxLw1aWeuwvDqZ9NDsq1yxxEznY4rrJBgYHwEXIsoSdVVdv03
+	mpKCvbSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb5lP-0000000DPyI-07Ic;
-	Thu, 23 Jan 2025 22:33:27 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tb5qc-0000000DQZ7-48hI;
+	Thu, 23 Jan 2025 22:38:50 +0000
+Received: from out-182.mta0.migadu.com ([2001:41d0:1004:224b::b6])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb5hN-0000000DPJj-2DMF;
-	Thu, 23 Jan 2025 22:29:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1737671355;
-	bh=DYl+QLg+bXf1oFNxNjE9MmYOZbStaYtUHF6Ata+RLOA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Vr2xpAN4ksdLDWbNRyZDBVw58o4axQ7f0jvRwJfz1gnFc4uARKRe5OPQwHZIZJ5Ti
-	 ZNK5UDQl2nlzsPH42JWBuMDqRYtZqaE9TSXSHGIfIfSCNlfYYoPzKhPEumnjCPq+Lc
-	 IRKTizZprjjrZrsE1O8KWNFQUbbxEpFbbuxrVHG65xw737BtusbliNkvUXheIYRm3g
-	 mPxfrrJM/W0ZHNWjiS5ha6spAJhsyJIGvhAeTacgR77k587pz+EImJpG+RoSEgJmob
-	 tQAb40UQt2hnYUBFtnYFoTS8l+UxNF9eikTRmMmqhNLXmwcqziqsYSA5rIK5tx05Ns
-	 Lp1me8BXbL8uQ==
-Received: from earth.mtl.collabora.ca (mtl.collabora.ca [66.171.169.34])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id DE7C917E0FA7;
-	Thu, 23 Jan 2025 23:29:11 +0100 (CET)
-From: Detlev Casanova <detlev.casanova@collabora.com>
-To: linux-kernel@vger.kernel.org
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Alexey Charkov <alchark@gmail.com>,
-	Jianfeng Liu <liujianfeng1994@gmail.com>,
-	Dragan Simic <dsimic@manjaro.org>,
-	FUKAUMI Naoki <naoki@radxa.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Detlev Casanova <detlev.casanova@collabora.com>,
-	Johan Jonker <jbx6244@gmail.com>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Sugar Zhang <sugar.zhang@rock-chips.com>,
-	Algea Cao <algea.cao@rock-chips.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	dri-devel@lists.freedesktop.org,
-	kernel@collabora.com
-Subject: [PATCH v2 2/2] arm64: dts: rockchip: Add HDMI0 audio output on rock-5b
-Date: Thu, 23 Jan 2025 17:28:07 -0500
-Message-ID: <20250123222850.223255-3-detlev.casanova@collabora.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250123222850.223255-1-detlev.casanova@collabora.com>
-References: <20250123222850.223255-1-detlev.casanova@collabora.com>
+	id 1tb5pK-0000000DQSS-12ww
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Jan 2025 22:37:31 +0000
+Message-ID: <2784cc3b-0b8f-4116-b34d-0de4ff56cf92@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1737671842;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dfFbufE/oZqYpKWLTE17oZPb84Hww5PkyDbRc8FQEe4=;
+	b=tFxf07Npt3G59e0jExTBPWWrlv0Q6ZQzxnqAc+CuBqTZInnmbTdwYtTiVgttMaHfrCRx+m
+	3kFCtUVwtMnNdfw+wt8J8iF0NVezP7bosn9yV7knS3/ybW85IH1XaOnCbfTo2bgW3/hUdp
+	M9fi7Nz61+wCFxA3FigSB6/39PVoZUY=
+Date: Thu, 23 Jan 2025 17:37:16 -0500
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH 1/7] dt-bindings: spi: zynqmp-qspi: Split the bus
+To: David Lechner <dlechner@baylibre.com>, Mark Brown <broonie@kernel.org>,
+ Michal Simek <michal.simek@amd.com>, linux-spi@vger.kernel.org
+Cc: Jinjie Ruan <ruanjinjie@huawei.com>,
+ linux-arm-kernel@lists.infradead.org,
+ Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>,
+ linux-kernel@vger.kernel.org, Miquel Raynal <miquel.raynal@bootlin.com>,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ devicetree@vger.kernel.org,
+ "linux-iio@vger.kernel.org" <linux-iio@vger.kernel.org>,
+ Jonathan Cameron <jic23@kernel.org>, =?UTF-8?Q?Nuno_S=C3=A1?=
+ <nuno.sa@analog.com>
+References: <20250116232118.2694169-1-sean.anderson@linux.dev>
+ <20250116232118.2694169-2-sean.anderson@linux.dev>
+ <9f40295b-484a-48e8-b053-ff8550e589d7@baylibre.com>
+ <46a7eba6-a705-4543-b967-e83ccc89e7d4@linux.dev>
+ <6afc379a-2f9f-4462-ae30-ef6945a83236@baylibre.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+In-Reply-To: <6afc379a-2f9f-4462-ae30-ef6945a83236@baylibre.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_142917_732682_5D8A57DD 
-X-CRM114-Status: GOOD (  12.20  )
+X-CRM114-CacheID: sfid-20250123_143730_436235_544BA929 
+X-CRM114-Status: GOOD (  28.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,71 +82,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the simple-audio-card driver with the hdmi0 QP node as CODEC and
-the i2s5 device as CPU.
+On 1/23/25 16:59, David Lechner wrote:
+> On 1/23/25 10:24 AM, Sean Anderson wrote:
+>> On 1/21/25 19:16, David Lechner wrote:
+>>> On 1/16/25 5:21 PM, Sean Anderson wrote:
+> 
+> ...
+> 
+>>> Could we make a single device connected to both buses like this work using
+>>> the proposed spi-lower and spi-upper or should we consider a different binding
+>>> like the one I suggested?
+>> 
+>> If you are willing to do the work to rewrite the SPI subsystem to handle
+>> this, then I don't object to it in principle. Using a property would
+>> also help with forwards compatibility. On the other hand, separate
+>> busses are easier to implement since they integrate better with the SPI
+>> subsystem (e.g. you can just call spi_register_controller to create all
+>> the slaves).
+>> 
+>> There have been some previous patches from Xilinx to handle this
+>> use case [1], but IMO they were pretty hacky. They got this feature
+>> merged into U-Boot and it broke many other boards and took a lot of
+>> cleanup to fix. So I have intentionally only tackled the unsynchronized
+>> use case since that requires no modification to areas outside of this
+>> driver. I don't need the "parallel" use case and I am not interested in
+>> doing the work required to implement it.
+>> 
+>> --Sean
+>> 
+>> [1] https://lore.kernel.org/linux-spi/20221017121249.19061-1-amit.kumar-mahapatra@amd.com/
+> 
+> Fair enough, and I think it can be done without breaking things like the multi
+> CS support did.
+> 
+> Here are a couple of patches. Feel free to resubmit them with your series if
+> they work for you. To make it work with your series, you should just need to
+> modify the .dts to look like this:
+> 
+> +          flash@0 {
+> +            compatible = "jedec,spi-nor";
+> +            reg = <0>;
+> +            spi-buses = <0>; /* lower */
+> +          };
+> +
+> +          flash@1 {
+> +            reg = <1>;
+> +            compatible = "jedec,spi-nor";
+> +            /* also OK to omit property in case of spi-buses = <0>; */
+> +          };
+> +
+> +          flash@2 {
+> +            reg = <2>;
+> +            compatible = "jedec,spi-nor";
+> +            spi-buses = <1>; /* upper */
+> +          };
+> 
+> 
+> Then drop patch "spi: zynqmp-gqspi: Split the bus" of course.
+> 
+> In zynqmp_qspi_probe(), add a line:
+> 
+> 	ctlr->num_buses = 2;
+> 
+> And in the zynqmp_qspi_transfer_one() function, use spi->buses to select the
+> correct bus:
+> 
+> 	xqspi->genfifobus = FIELD_PREP(GQSPI_GENFIFO_BUS_MASK, spi->buses);
+> 
+> I don't have a SPI controller on hand with multiple buses, so I don't have
+> any patch adding support to a specific controller. But I did build and run this
+> and hacked in some stuff to the drivers I am working on to make sure it is
+> working as advertised as best as I could with a single bus.
 
-The simple-audio-card,mclk-fs value is set to 128 as it is done in
-the downstream driver.
+Your patches LGTM. I will use them for v2. Mark do you have any comments on this
+approach?
 
-The #sound-dai-cells value is set to 0 in the hdmi0 node so that it can be
-used as an audio codec node.
-
-Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
----
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |  1 +
- .../boot/dts/rockchip/rk3588-rock-5b.dts      | 19 +++++++++++++++++++
- 2 files changed, 20 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-index a337f3fb8377e..fcd1c85e6ce8f 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-@@ -1395,6 +1395,7 @@ hdmi0: hdmi@fde80000 {
- 		reset-names = "ref", "hdp";
- 		rockchip,grf = <&sys_grf>;
- 		rockchip,vo-grf = <&vo1_grf>;
-+		#sound-dai-cells = <0>;
- 		status = "disabled";
- 
- 		ports {
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-index d597112f1d5b8..1909078538367 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-@@ -49,6 +49,21 @@ hdmi0_con_in: endpoint {
- 		};
- 	};
- 
-+	hdmi0-sound {
-+		compatible = "simple-audio-card";
-+		simple-audio-card,format = "i2s";
-+		simple-audio-card,mclk-fs = <128>;
-+		simple-audio-card,name = "hdmi0";
-+
-+		simple-audio-card,codec {
-+			sound-dai = <&hdmi0>;
-+		};
-+
-+		simple-audio-card,cpu {
-+			sound-dai = <&i2s5_8ch>;
-+		};
-+	};
-+
- 	leds {
- 		compatible = "gpio-leds";
- 		pinctrl-names = "default";
-@@ -318,6 +333,10 @@ i2s0_8ch_p0_0: endpoint {
- 	};
- };
- 
-+&i2s5_8ch {
-+	status = "okay";
-+};
-+
- &package_thermal {
- 	polling-delay = <1000>;
- 
--- 
-2.48.1
-
+--Sean
 
