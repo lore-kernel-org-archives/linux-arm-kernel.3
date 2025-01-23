@@ -4,84 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A277C0218B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 14:17:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF89BC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 15:11:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=g1ToMyTjMs2jLgsOp4dn6EsxiilccUPfzThLkca0KWU=; b=FbSrGFhnFhjZaBOmKVixF0r5oU
-	JfHxbf1Z9/iMb6lsoQyjLVx8vwLjLpbZzRwxlR86v9s5DA1uPsFBPnca/oyYyCEStRR8JjcbK1oUT
-	ZjoGgWFw92RyoOB9ikbrMKIO6fxRRyMN+Sk6WBENYmNS9rqZqmetLlCyon/sipyS6s0tzj/oEO/HL
-	9T5C8t2N14rmn6+e6aH0zHfPnj1lFYU36nfU+d5/pZXJ9UcKVuioSZPKgGj7SMuKGpB014uRCrcJ6
-	Xc6y0LY4/37kxmif32nH776jds64bLMadKTS9h2zSJji1bMDT6CRXhWwhhBlRenQ10BmmN2T5jG5r
-	R4IVo+zQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=knMGn2Wkuz6riwch0zsxfhPrwQTG5Mk4DlPhD7PidIw=; b=Ste82OniXUx6l1530T8ps/OQ52
+	OUsndHZyGV7R+Un9vBO6fX49H4/HbyQ3+cO939cZLhnByhQCqqJHYlQqm4JattJZDFYl4CY0ZwL11
+	kw0/QDEY//oBEMjwi2HbgWLzDJ3VKgTff24j7R84skx1psHHyfJ2xWQC2u7K9tb0YYPN55bFJJPor
+	l9eqVU8/8epqITIaJqzeEN9h7P+slIiQE8QKNscT8Igd4nWiu0UrAeSb2BvXb3fY4nuzP28jqEnh/
+	jXW8vf06sTlkoXpV22PzznKswvO/lKzEaTZowfnl9ySUHU0MtaWuLPjHbjSl3VxYXTm0bl+CIWjqi
+	j6SusGeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tay15-0000000Cae8-0vHo;
-	Thu, 23 Jan 2025 14:17:07 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1tayr5-0000000CgAE-2UWP;
+	Thu, 23 Jan 2025 15:10:51 +0000
+Received: from mgamail.intel.com ([198.175.65.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taxzm-0000000CaPj-1NGM
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 14:15:47 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-54298ec925bso1170177e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 06:15:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737641744; x=1738246544; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=g1ToMyTjMs2jLgsOp4dn6EsxiilccUPfzThLkca0KWU=;
-        b=vLjgU/qS6xgaWy6YoTTNGGEqZjrOosabP4ILIBfzrXXa2hKJMKZjFYeFne807i95+l
-         hJPR9ef9Dn1WdcRgHZNAscKlDgcwTX6EaPhZ1qnUV+GRrMCmXz6yDfeK3MWROxyxkJs7
-         0QGf4LNc+P4EX1Su+WkTi63vueChrwU6TAYQrbgEjOtSKtD6RYcZM6rsNnS1hI5ER9lY
-         dnDmia1ShtWDJGur8aFkYBBk1ta83w6+PKjQipAMPxKwZCNiu9bf9WoMWun8d1QMvBef
-         Xqkv/tmNrJ/prThprAlz1uQPvBIfDW+IAXfodz/6OWscEFBGlI3etD1w32Tknui4LQRZ
-         s1uQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737641744; x=1738246544;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=g1ToMyTjMs2jLgsOp4dn6EsxiilccUPfzThLkca0KWU=;
-        b=B4YAxqXjbheXEmet8wRHy9QYcUzJqBaJLWeR9hLKtdASDbJHSIhCHRyvMxM6E0RS/k
-         jcnkWkjml/ys/V4oG0ojbFIKvJprz/MjbLAx6Cv29cKYPa48Pn0Y/Rm4GFaxATYtuT3a
-         sKSVX44jkpydbGPiwZ6qflUm6G0wzuKVcgPZYPo7d2cZvlgGygDrT622E6LnQCEyleI2
-         6SO7fNknvgdX0PmtAQ4m9rwpLc9wzwriOOohbPJ9KrkNeITcbuwCz2pueQ6NwmjWB30E
-         CERYJb02jSO2mH2vSbA6NYDkRQbEssjiOAJQbM24UkJRoQV+JqXjTM/RDvVHuuXVxr+b
-         TP9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVTbiVmG3Sbx/61Ei1HAxWcDMcn9JUC+W2eR9On4Zb3tp2x4ww9ghtOHHFNEJrLgljlptCo6+plS/dafWREm1rU@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPmYk0z4R2Ao3HAju5k8cW+6ecDcUZhC1dXt+TKdyjI0h5W4xl
-	pqpVXIaRj/iabsfFzQyF3clSHwmQhp7OrXe2lGH1CNaEezkkGMyeYcAn9pv/CfA=
-X-Gm-Gg: ASbGncuyLtagr/CGBtpTFDTZMiElz0JAzMwG4VHg4Q/EjFnYvwCxpxUff9lv3rqFW/r
-	7PNU1kR+4uRkGTMzvhFxhmXH+MOof/77Kh3pekYa7G9TTyjuSq2I7XbdHuGk610mxaDf/tB/wq8
-	JBCLUcDLzsyfP4BhGey8kJhKDmBSERebAKjJZmrH+SWE43Oq1EYfpv6FP7Jk1mQDF3g83fde0OG
-	wqbQ13vUuLlkN1q8IyHuHQpTNYzsTWepSkSjGyi8Ur3H7+GHMAYQa/+9q6O5nFsFbZ/IEf4K2XX
-	kwzrnt+RQh4pPIXhThuHm7IeIEvKXT+631iNk+Z6WQXbBVXx0hmHqtY=
-X-Google-Smtp-Source: AGHT+IHplopuHQYOeHKQxzSgMWlfVO0WOZMzXUZ9QofYSuMY+TN8CSqm5hG6oBjV6GjzjpVF5ldH2g==
-X-Received: by 2002:ac2:4195:0:b0:540:3566:985c with SMTP id 2adb3069b0e04-5439c251121mr6875642e87.26.1737641743965;
-        Thu, 23 Jan 2025 06:15:43 -0800 (PST)
-Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-543bb6bf5b1sm778726e87.118.2025.01.23.06.15.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Jan 2025 06:15:43 -0800 (PST)
-From: Ulf Hansson <ulf.hansson@linaro.org>
-To: Linus <torvalds@linux-foundation.org>,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Ulf Hansson <ulf.hansson@linaro.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] pmdomain/cpuidle-psci updates for v6.14
-Date: Thu, 23 Jan 2025 15:15:40 +0100
-Message-ID: <20250123141540.265172-1-ulf.hansson@linaro.org>
-X-Mailer: git-send-email 2.43.0
+	id 1taypn-0000000Cfyn-35uE;
+	Thu, 23 Jan 2025 15:09:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1737644972; x=1769180972;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=pF/kDcBdLVM7aYd9aJedufMh9LibuSV9mXkSDswmU+8=;
+  b=Mcbt++eu+0mHzQH1G1IOxnp1DqQFItWsTFmhP0iIQxuhOu/XqZ938XeZ
+   P3DMRDYnVbcm81yEdUSh0RkQXHAMi/6k3Ky3M6rNB4S5fq6GK/pBK32NM
+   jWjcLdinfJFRjnm4SW8tyKUwhfeRS/uIoG18uTqfs5GeSa5j9MHWisL1E
+   Jmm7e6GFu5HaWY/dWNbFOpsdempznF5v7q8/RnHXTmfF3PNfmW7Ys3Uzf
+   rzHxC0nThHHP+seGjRznm+5Q2RXeOcBtKskpjnp1dWYzV4p9MqwAyQxV2
+   BWWrP1WzSpw1LJJfIVLfCxbBFkKkUMbPdheRY75gVPwsFfN4Utsk32MrD
+   w==;
+X-CSE-ConnectionGUID: 2ynxT7WKQwKQFaZMeJM4wA==
+X-CSE-MsgGUID: XvFYivoHRfaXKSgL+sMSdg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11324"; a="48644535"
+X-IronPort-AV: E=Sophos;i="6.13,228,1732608000"; 
+   d="scan'208";a="48644535"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jan 2025 07:09:31 -0800
+X-CSE-ConnectionGUID: xPbLHVeBSq616OQf1WAQSA==
+X-CSE-MsgGUID: TzDUErmnQpiQQvLgaCPQJw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,228,1732608000"; 
+   d="scan'208";a="107297820"
+Received: from unknown (HELO localhost) ([10.237.66.160])
+  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jan 2025 07:09:28 -0800
+From: Jani Nikula <jani.nikula@intel.com>
+To: dri-devel@lists.freedesktop.org
+Cc: intel-gfx@lists.freedesktop.org,
+	jani.nikula@intel.com,
+	Sandy Huang <hjc@rock-chips.com>,
+	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH 2/5] drm/rockchip: stop passing non struct drm_device to drm_err() and friends
+Date: Thu, 23 Jan 2025 17:09:09 +0200
+Message-Id: <f42da4c9943a2f2a9de4272b7849e72236d4c3f9.1737644530.git.jani.nikula@intel.com>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <cover.1737644530.git.jani.nikula@intel.com>
+References: <cover.1737644530.git.jani.nikula@intel.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_061546_417699_7A6CAB1E 
-X-CRM114-Status: GOOD (  12.58  )
+X-CRM114-CacheID: sfid-20250123_070931_823263_83C82154 
+X-CRM114-Status: GOOD (  11.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,81 +89,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
+The expectation is that the struct drm_device based logging helpers get
+passed an actual struct drm_device pointer rather than some random
+struct pointer where you can dereference the ->dev member.
 
-Here's the pull-request with the pmdomain and cpuidle-psci updates for v6.14.
-Details about the highlights are as usual found in the signed tag.
+Convert drm_err(hdmi, ...) to dev_err(hdmi->dev, ...). This matches
+current usage, but drops "[drm] *ERROR*" prefix from logging.
 
-Please pull this in!
+Signed-off-by: Jani Nikula <jani.nikula@intel.com>
 
-Kind regards
-Ulf Hansson
+---
 
+Looks like it's possible to hunt down the struct drm_device in most of
+these cases, if that's desired. This was the simplest change.
 
-The following changes since commit 726efa92e02b460811e8bc6990dd742f03b645ea:
+Cc: Sandy Huang <hjc@rock-chips.com>
+Cc: "Heiko Stübner" <heiko@sntech.de>
+Cc: Andy Yan <andy.yan@rock-chips.com>
+Cc: dri-devel@lists.freedesktop.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-rockchip@lists.infradead.org
+---
+ drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c    | 16 ++++++++--------
+ drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 16 ++++++++--------
+ 2 files changed, 16 insertions(+), 16 deletions(-)
 
-  pmdomain: imx8mp-blk-ctrl: add missing loop break condition (2025-01-16 16:10:32 +0100)
+diff --git a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+index e7a6669c46b0..f737e7d46e66 100644
+--- a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
++++ b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+@@ -203,7 +203,7 @@ static int rockchip_hdmi_parse_dt(struct rockchip_hdmi *hdmi)
+ 
+ 	hdmi->regmap = syscon_regmap_lookup_by_phandle(np, "rockchip,grf");
+ 	if (IS_ERR(hdmi->regmap)) {
+-		drm_err(hdmi, "Unable to get rockchip,grf\n");
++		dev_err(hdmi->dev, "Unable to get rockchip,grf\n");
+ 		return PTR_ERR(hdmi->regmap);
+ 	}
+ 
+@@ -214,7 +214,7 @@ static int rockchip_hdmi_parse_dt(struct rockchip_hdmi *hdmi)
+ 	if (IS_ERR(hdmi->ref_clk)) {
+ 		ret = PTR_ERR(hdmi->ref_clk);
+ 		if (ret != -EPROBE_DEFER)
+-			drm_err(hdmi, "failed to get reference clock\n");
++			dev_err(hdmi->dev, "failed to get reference clock\n");
+ 		return ret;
+ 	}
+ 
+@@ -222,7 +222,7 @@ static int rockchip_hdmi_parse_dt(struct rockchip_hdmi *hdmi)
+ 	if (IS_ERR(hdmi->grf_clk)) {
+ 		ret = PTR_ERR(hdmi->grf_clk);
+ 		if (ret != -EPROBE_DEFER)
+-			drm_err(hdmi, "failed to get grf clock\n");
++			dev_err(hdmi->dev, "failed to get grf clock\n");
+ 		return ret;
+ 	}
+ 
+@@ -302,16 +302,16 @@ static void dw_hdmi_rockchip_encoder_enable(struct drm_encoder *encoder)
+ 
+ 	ret = clk_prepare_enable(hdmi->grf_clk);
+ 	if (ret < 0) {
+-		drm_err(hdmi, "failed to enable grfclk %d\n", ret);
++		dev_err(hdmi->dev, "failed to enable grfclk %d\n", ret);
+ 		return;
+ 	}
+ 
+ 	ret = regmap_write(hdmi->regmap, hdmi->chip_data->lcdsel_grf_reg, val);
+ 	if (ret != 0)
+-		drm_err(hdmi, "Could not write to GRF: %d\n", ret);
++		dev_err(hdmi->dev, "Could not write to GRF: %d\n", ret);
+ 
+ 	clk_disable_unprepare(hdmi->grf_clk);
+-	drm_dbg(hdmi, "vop %s output to hdmi\n", ret ? "LIT" : "BIG");
++	dev_dbg(hdmi->dev, "vop %s output to hdmi\n", ret ? "LIT" : "BIG");
+ }
+ 
+ static int
+@@ -574,7 +574,7 @@ static int dw_hdmi_rockchip_bind(struct device *dev, struct device *master,
+ 	ret = rockchip_hdmi_parse_dt(hdmi);
+ 	if (ret) {
+ 		if (ret != -EPROBE_DEFER)
+-			drm_err(hdmi, "Unable to parse OF data\n");
++			dev_err(hdmi->dev, "Unable to parse OF data\n");
+ 		return ret;
+ 	}
+ 
+@@ -582,7 +582,7 @@ static int dw_hdmi_rockchip_bind(struct device *dev, struct device *master,
+ 	if (IS_ERR(hdmi->phy)) {
+ 		ret = PTR_ERR(hdmi->phy);
+ 		if (ret != -EPROBE_DEFER)
+-			drm_err(hdmi, "failed to get phy\n");
++			dev_err(hdmi->dev, "failed to get phy\n");
+ 		return ret;
+ 	}
+ 
+diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+index f41151d49fca..3d1dddb34603 100644
+--- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
++++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+@@ -242,7 +242,7 @@ static void dw_hdmi_qp_rk3588_hpd_work(struct work_struct *work)
+ 	if (drm) {
+ 		changed = drm_helper_hpd_irq_event(drm);
+ 		if (changed)
+-			drm_dbg(hdmi, "connector status changed\n");
++			dev_dbg(hdmi->dev, "connector status changed\n");
+ 	}
+ }
+ 
+@@ -472,7 +472,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
+ 		}
+ 	}
+ 	if (hdmi->port_id < 0) {
+-		drm_err(hdmi, "Failed to match HDMI port ID\n");
++		dev_err(hdmi->dev, "Failed to match HDMI port ID\n");
+ 		return hdmi->port_id;
+ 	}
+ 
+@@ -496,20 +496,20 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
+ 	hdmi->regmap = syscon_regmap_lookup_by_phandle(dev->of_node,
+ 						       "rockchip,grf");
+ 	if (IS_ERR(hdmi->regmap)) {
+-		drm_err(hdmi, "Unable to get rockchip,grf\n");
++		dev_err(hdmi->dev, "Unable to get rockchip,grf\n");
+ 		return PTR_ERR(hdmi->regmap);
+ 	}
+ 
+ 	hdmi->vo_regmap = syscon_regmap_lookup_by_phandle(dev->of_node,
+ 							  "rockchip,vo-grf");
+ 	if (IS_ERR(hdmi->vo_regmap)) {
+-		drm_err(hdmi, "Unable to get rockchip,vo-grf\n");
++		dev_err(hdmi->dev, "Unable to get rockchip,vo-grf\n");
+ 		return PTR_ERR(hdmi->vo_regmap);
+ 	}
+ 
+ 	ret = devm_clk_bulk_get_all_enabled(hdmi->dev, &clks);
+ 	if (ret < 0) {
+-		drm_err(hdmi, "Failed to get clocks: %d\n", ret);
++		dev_err(hdmi->dev, "Failed to get clocks: %d\n", ret);
+ 		return ret;
+ 	}
+ 
+@@ -517,7 +517,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
+ 						    GPIOD_OUT_HIGH);
+ 	if (IS_ERR(hdmi->enable_gpio)) {
+ 		ret = PTR_ERR(hdmi->enable_gpio);
+-		drm_err(hdmi, "Failed to request enable GPIO: %d\n", ret);
++		dev_err(hdmi->dev, "Failed to request enable GPIO: %d\n", ret);
+ 		return ret;
+ 	}
+ 
+@@ -525,7 +525,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
+ 	if (IS_ERR(hdmi->phy)) {
+ 		ret = PTR_ERR(hdmi->phy);
+ 		if (ret != -EPROBE_DEFER)
+-			drm_err(hdmi, "failed to get phy: %d\n", ret);
++			dev_err(hdmi->dev, "failed to get phy: %d\n", ret);
+ 		return ret;
+ 	}
+ 
+@@ -564,7 +564,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
+ 	connector = drm_bridge_connector_init(drm, encoder);
+ 	if (IS_ERR(connector)) {
+ 		ret = PTR_ERR(connector);
+-		drm_err(hdmi, "failed to init bridge connector: %d\n", ret);
++		dev_err(hdmi->dev, "failed to init bridge connector: %d\n", ret);
+ 		return ret;
+ 	}
+ 
+-- 
+2.39.5
 
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v6.14
-
-for you to fetch changes up to 885f5669f2abd0db34c9832259f77240d5350e36:
-
-  pmdomain: airoha: Fix compilation error with Clang-20 and Thumb2 mode (2025-01-21 10:45:24 +0100)
-
-----------------------------------------------------------------
-pmdomain core:
- - Add support for naming idlestates through DT
-
-pmdomain providers:
- - arm: Explicitly request the current state at init for the SCMI PM domain
- - mediatek: Add Airoha CPU PM Domain support for CPU frequency scaling
- - ti: Add per-device latency constraint management to the ti_sci PM domain
-
-cpuidle-psci:
- - Enable system-wakeup through GENPD_FLAG_ACTIVE_WAKEUP
-
-----------------------------------------------------------------
-Christian Marangi (2):
-      pmdomain: airoha: Add Airoha CPU PM Domain support
-      pmdomain: airoha: Fix compilation error with Clang-20 and Thumb2 mode
-
-Kevin Hilman (3):
-      pmdomain: ti_sci: add per-device latency constraint management
-      pmdomain: ti_sci: add wakeup constraint management
-      pmdomain: ti_sci: handle wake IRQs for IO daisy chain wakeups
-
-Konrad Dybcio (2):
-      dt-bindings: power: domain-idle-state: Allow idle-state-name
-      pmdomain: core: Support naming idle states
-
-Patrick Delaunay (1):
-      cpuidle: psci: Activate GENPD_FLAG_ACTIVE_WAKEUP with OSI
-
-Peng Fan (2):
-      pmdomain: imx8m[p]-blk-ctrl: Suppress bind attrs
-      pmdomain: imx-gpcv2: Suppress bind attrs
-
-Sudeep Holla (1):
-      pmdomain: arm: scmi_pm_domain: Send an explicit request to set the current state
-
-Ulf Hansson (2):
-      pmdomain: Merge branch fixes into next
-      pmdomain: Merge branch fixes into next
-
- .../bindings/power/domain-idle-state.yaml          |   5 +
- drivers/cpuidle/cpuidle-psci-domain.c              |   1 +
- drivers/pmdomain/arm/scmi_pm_domain.c              |   8 ++
- drivers/pmdomain/core.c                            |  15 ++-
- drivers/pmdomain/imx/gpcv2.c                       |   2 +
- drivers/pmdomain/imx/imx8m-blk-ctrl.c              |   1 +
- drivers/pmdomain/imx/imx8mp-blk-ctrl.c             |   1 +
- drivers/pmdomain/mediatek/Kconfig                  |  12 ++
- drivers/pmdomain/mediatek/Makefile                 |   8 ++
- drivers/pmdomain/mediatek/airoha-cpu-pmdomain.c    | 144 +++++++++++++++++++++
- drivers/pmdomain/ti/ti_sci_pm_domains.c            |  81 ++++++++++++
- include/linux/pm_domain.h                          |   1 +
- 12 files changed, 276 insertions(+), 3 deletions(-)
- create mode 100644 drivers/pmdomain/mediatek/airoha-cpu-pmdomain.c
 
