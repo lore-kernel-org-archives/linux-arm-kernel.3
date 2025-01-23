@@ -4,110 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B94DC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 17:16:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91C5DC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 17:18:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f2lz1JhxCiAQPWfDUtfyCfkikpyW82hyEvi1Or2PPgU=; b=XAm3G6I4i6b4uv
-	MQmxyDvpE2s+qDt+F+bxuFtx6hSDoBPblJRU3WX5+z8UdJ9dExfgWU6QLBXuYjtXpAPrb9IFfZjTg
-	jFILyliHDaW32sQRaHVZBeflZpLOQIGPeJFTHHlZPH5IXx97M6kUyqO7o/HgofiuxeDB2ZrT3tfC5
-	FiWOKwrch09NShUbAIDKSo+yC8xuAXLol+Ley8RJwaziaXKKs8DDIEDhZyJF0CfqO29i+CssR1c3N
-	Nh17WhcWMzEyeQ5FEp6zXFcV33mA/+Kuebtgs2v6OwFbGuofOSb7ivvKbx7smC67u368XkMyaJjaT
-	CWRHPrV1VY3j3IIkhWkQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IEdwzZuISYQ6gFd6Y29BLt5d39XZq4ploTAqqzTMaRA=; b=iIL9ekvFWSmXvfWdYM+39/iTg9
+	6Y3U0FUfrheoQtAipcI2mDuIihs4UkgqzOaFx0TgkwOuavMkScXILgZKsLcbLE9tQ8iQ6sqV1YvJ2
+	4ojhc+esvnb55olSxuKCNT6bWMp53MOQY4+kVabvVNbLeZHYSp7S8ETqr6ABFyxfYu+/vaEZ9VzZM
+	AXHdG6O6EPYJxx4UqvavUAjko5i1DadXXeZpuow7eV1iqcMoXQDJFigpgJX6OoGFLds1CXFVTaQP9
+	6t9Ta7DfgtrDzEFnT/0MWijAwgYPcJ5Oy79xzL+D9WEHOquvGDhzfeW03oGB6pIFV5zy8EJjsCcRR
+	i90Ck2ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb0of-0000000CuVE-3CFy;
-	Thu, 23 Jan 2025 17:16:29 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tb0pw-0000000Curi-0E8h;
+	Thu, 23 Jan 2025 17:17:48 +0000
+Received: from fhigh-b1-smtp.messagingengine.com ([202.12.124.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb0kt-0000000Ctj1-0XnZ
+	id 1tb0lE-0000000CtpF-1hXC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 17:12:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1737652354;
-	h=from:from:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=f2lz1JhxCiAQPWfDUtfyCfkikpyW82hyEvi1Or2PPgU=;
-	b=T3p9y0nHATDF3oK5JeVZ6nPt0lVMEntPUyX9bAlMnttb8t4YF73LW9X6eS1fv4jrN6b+Bg
-	yQ7V1QDAID2ZKHWJyfiGARlhYtayLNflYRwkpNcpB0au5oOnswVyThLQfwt1d/K8WDO9NY
-	pkpOtzWbqit762HdsqQwat7hpOwIR1c=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-410-jEtXJIk0O5mN0XTun6E09Q-1; Thu, 23 Jan 2025 12:10:56 -0500
-X-MC-Unique: jEtXJIk0O5mN0XTun6E09Q-1
-X-Mimecast-MFC-AGG-ID: jEtXJIk0O5mN0XTun6E09Q
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-38a35a65575so737663f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 09:10:56 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737652255; x=1738257055;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:reply-to:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=f2lz1JhxCiAQPWfDUtfyCfkikpyW82hyEvi1Or2PPgU=;
-        b=HPZurcfxzL9/KltgqFkRuNzNcef/RnOsd/W9I6AwAPP8huBvKka0JOC3VkztcuIzE2
-         MQCJSBW39j1ip1YYw6K3GiNP6P0McRZSNdfc6A4+DkTnzqI80JkwbfiP3rzWkjIkq2Ts
-         zpszpNOA5hAdWwagunJog5SNu1Ja2X08o6p86e6NeF5eOok8K22mPz4KxdKxOEJ41xbc
-         tqn/pSoCXWPu+QlCtiZ9D6ibvDEB3ny1P/+m+ITDe/8JNuTrsnGrLAo8HQt8kVhEzhDZ
-         ME2OlwKdr6sFQ4k5fYLXEbPDK7TNe2SyPVMjWTvqUDlSwudNFSHjdlVs6JUV5XtT6uE7
-         jqCQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWUW0IDAaFKC420y61JEVA+1ESVw0ZS/ByxKB0alCiug+w8624KwwZbsTMozxVntIHhK9BQ57HMTteQeBWvTKRb@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPqIBhsoa6L0c3itbT8bpvgMKXZqzHvY3m315UUjyXlV6gd15L
-	ZczT6I9QwjhlhWN0SwpXCSi7ci0okleOrEPFttIjXjXiBYNogay7/1n/Ur5jCq7t6DpAeDXqITg
-	zmHdro49cDNh15Jp6kAPBBnipxHuAsYNw3F2yfyFckfgoFc1sW5vg4o2epC11GdwVri6XY2qy
-X-Gm-Gg: ASbGncudo5gQxW2fjdqtz4osp+GJrZr11lPNHYGVYpzrN0IOUAmh5D6qcZIVrWEePpr
-	eGtniteV5haMnOEufGY4yn154USm9QXB9lIKqe9fjK2Bz5o//AGDafgM96TtAGnipw7IRHixtLH
-	rRrlRQDLOsoRl0/Igs7Q2gSClm1g7BxafF1/wUvJ2x9XXZuLnkR7tLtJgkzAx69Ef96IQxB8eQD
-	PLgc30oYZLFgQI5zNZ8qTcTptRwPdDUuQbH3E+lZPpJy6+WtmnI00dhQxb8inxdEGWQ9BpMyAsY
-	H/K0t7eSLMvGehHGRTyQJaXOaoLuAjy4imV+9M2R4A==
-X-Received: by 2002:a5d:6da4:0:b0:38b:e32a:10a6 with SMTP id ffacd0b85a97d-38bf57a9932mr29480865f8f.41.1737652255069;
-        Thu, 23 Jan 2025 09:10:55 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGK/5MgTOgXIu9+Lg1LjrltVZkaY8JHUprLufh35bjJjxTwBW+dXwhnf8hS5iSt70eBgqDsvw==
-X-Received: by 2002:a5d:6da4:0:b0:38b:e32a:10a6 with SMTP id ffacd0b85a97d-38bf57a9932mr29480826f8f.41.1737652254632;
-        Thu, 23 Jan 2025 09:10:54 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:59e:9d80:527b:9dff:feef:3874? ([2a01:e0a:59e:9d80:527b:9dff:feef:3874])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438b31d9a39sm67975795e9.31.2025.01.23.09.10.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 23 Jan 2025 09:10:53 -0800 (PST)
-Message-ID: <1b48e138-3134-442a-9796-e3a33b106221@redhat.com>
-Date: Thu, 23 Jan 2025 18:10:48 +0100
+	Thu, 23 Jan 2025 17:12:58 +0000
+Received: from phl-compute-09.internal (phl-compute-09.phl.internal [10.202.2.49])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 5492025401E0;
+	Thu, 23 Jan 2025 12:12:52 -0500 (EST)
+Received: from phl-mailfrontend-01 ([10.202.2.162])
+  by phl-compute-09.internal (MEProxy); Thu, 23 Jan 2025 12:12:53 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1737652372; x=
+	1737738772; bh=IEdwzZuISYQ6gFd6Y29BLt5d39XZq4ploTAqqzTMaRA=; b=e
+	h6EBk3c1w/NQUm2mYjcVbaY6u+1E8R4d014BEcdhXMd6Af56VlaS4Ncb5tvo+IWp
+	Nq/+egPOnVNakhVSinsrk5awwcZdGtTHecBrJksIEPhJGmKBNNPepIFSjhCAzkug
+	8nmKwG7yrYMPcePFrWoQGgGtU3OgetLncJ0dReuqO4150alM8bCuC2QAw4NLd9mq
+	qdTv/G765xKkJ2+Caq3H7wrNvM8x9kIm1V4lwvIwn/RQIc2OENlSn9A8Co7sIAN3
+	zkPzYx7lzEnEwEC2vIUGteU0McEvovx4n0n7lb2CrIspElG0jD5jz5EQ8dkHv1fn
+	daGsF2Zc7C+JhuRsY40tA==
+X-ME-Sender: <xms:kniSZ-TOY8B_0nge4ou-q-egMugh0vWcVkRM5tCkEew1H4hL7pKEag>
+    <xme:kniSZzwLhlDLWqQq-L_wRFrK8uLsDxuZwtKgog_Qg9QLr4eAjKzKBp7gJnA_FSArw
+    Bly7mxUHF93USI>
+X-ME-Received: <xmr:kniSZ70I2xHaCgGKAQdCprcGimyEvG0pW0prYd1HVEwFEugA2bwsxPSjAA5x72eUAzNIoJJnsOveH4HDbIjwQWlxgjA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrudejgedgvddvfecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
+    hnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfhfgggtugfgjgesthekredttddt
+    jeenucfhrhhomhepkfguohcuufgthhhimhhmvghluceoihguohhstghhsehiughoshgthh
+    drohhrgheqnecuggftrfgrthhtvghrnhepudelvdejjeehgfdvteehfeehteejjeefteej
+    veeijefgueejffelffegkeffueeinecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenuc
+    evlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehiughoshgt
+    hhesihguohhstghhrdhorhhgpdhnsggprhgtphhtthhopedvhedpmhhouggvpehsmhhtph
+    houhhtpdhrtghpthhtohepmhdqmhgrlhhlrgguihesthhirdgtohhmpdhrtghpthhtohep
+    rhhoghgvrhhqsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegurghnihhshhgrnhifrg
+    hrsehtihdrtghomhdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhr
+    tghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegvughumhgrii
+    gvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhf
+    thdrnhgvthdprhgtphhtthhopegrnhgurhgvfidonhgvthguvghvsehluhhnnhdrtghhpd
+    hrtghpthhtohepsghpfhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:kniSZ6DyO532XvOQ8-0hB5ZFlgpqhOP98c4akHlA-9bIAju9LkQw-A>
+    <xmx:kniSZ3jSRXaRukRyKzoAmOdLnlagt5M2L3ZCtaAMZDWALfRsIOYF1g>
+    <xmx:kniSZ2oJWa70WL3a3eWNl_Q8Kos-Iof5J52jFydJfs0gge19AbpPwg>
+    <xmx:kniSZ6jPs0bXmET6mtpsn80XUyMneue42RzMRHMTN7S98bymJJglLg>
+    <xmx:lHiSZ2QN7pwGCcQbU3twW_jw7WpV3qw2jueFCpmbch9ZCt17_SIwQ7ys>
+Feedback-ID: i494840e7:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 23 Jan 2025 12:12:49 -0500 (EST)
+Date: Thu, 23 Jan 2025 19:12:46 +0200
+From: Ido Schimmel <idosch@idosch.org>
+To: Meghana Malladi <m-malladi@ti.com>
+Cc: rogerq@kernel.org, danishanwar@ti.com, pabeni@redhat.com,
+	kuba@kernel.org, edumazet@google.com, davem@davemloft.net,
+	andrew+netdev@lunn.ch, bpf@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org, robh@kernel.org,
+	matthias.schiffer@ew.tq-group.com, dan.carpenter@linaro.org,
+	rdunlap@infradead.org, diogo.ivo@siemens.com,
+	schnelle@linux.ibm.com, glaroque@baylibre.com,
+	john.fastabend@gmail.com, hawk@kernel.org, daniel@iogearbox.net,
+	ast@kernel.org, srk@ti.com, Vignesh Raghavendra <vigneshr@ti.com>
+Subject: Re: [PATCH net 1/3] net: ti: icssg-prueth: Use page_pool API for RX
+ buffer allocation
+Message-ID: <Z5J4jjJ4_arvfF9E@shredder>
+References: <20250122124951.3072410-1-m-malladi@ti.com>
+ <20250122124951.3072410-2-m-malladi@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFCv2 01/13] genirq/msi: Store the IOMMU IOVA directly in
- msi_desc instead of iommu_cookie
-To: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
- robin.murphy@arm.com, jgg@nvidia.com, kevin.tian@intel.com,
- tglx@linutronix.de, maz@kernel.org, alex.williamson@redhat.com
-Cc: joro@8bytes.org, shuah@kernel.org, reinette.chatre@intel.com,
- yebin10@huawei.com, apatel@ventanamicro.com,
- shivamurthy.shastri@linutronix.de, bhelgaas@google.com,
- anna-maria@linutronix.de, yury.norov@gmail.com, nipun.gupta@amd.com,
- iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org,
- linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
- jean-philippe@linaro.org, mdf@kernel.org, mshavit@google.com,
- shameerali.kolothum.thodi@huawei.com, smostafa@google.com, ddutile@redhat.com
-References: <cover.1736550979.git.nicolinc@nvidia.com>
- <671b2128c193fc9ac9af0f4add96f85a785f513a.1736550979.git.nicolinc@nvidia.com>
-From: Eric Auger <eric.auger@redhat.com>
-In-Reply-To: <671b2128c193fc9ac9af0f4add96f85a785f513a.1736550979.git.nicolinc@nvidia.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: VrWTFF8TNC0brDlyaShQkV_nId8QaQCdaGEi7cTy-uY_1737652255
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250122124951.3072410-2-m-malladi@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_091235_238563_828CE28D 
-X-CRM114-Status: GOOD (  33.50  )
+X-CRM114-CacheID: sfid-20250123_091256_905772_376DCBC4 
+X-CRM114-Status: GOOD (  34.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,193 +110,491 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: eric.auger@redhat.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jan 22, 2025 at 06:19:49PM +0530, Meghana Malladi wrote:
+> From: Roger Quadros <rogerq@kernel.org>
+> 
+> This is to prepare for native XDP support.
+> 
+> The page pool API is more faster in allocating pages than
+> __alloc_skb(). Drawback is that it works at PAGE_SIZE granularity
+> so we are not efficient in memory usage.
+> i.e. we are using PAGE_SIZE (4KB) memory for 1.5KB max packet size.
+> 
+> Signed-off-by: Roger Quadros <rogerq@kernel.org>
+> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
 
-Hi Nicolin,
+Patch is missing your SoB
 
-On 1/11/25 4:32 AM, Nicolin Chen wrote:
-> From: Jason Gunthorpe <jgg@nvidia.com>
->
-> All the iommu cases simply want to override the MSI page's address with
-those which translate MSIs
-> the IOVA that was mapped through the iommu. This doesn't need a cookie
-> pointer, we just need to store the IOVA and its page size in the msi_desc.
->
-> Instead provide msi_desc_set_iommu_msi_iova() which allows the IOMMU side
-> to specify the IOVA that the MSI page is placed during
-> iommu_dma_prepare(). This is stored in the msi_desc and then
-iommu_dma_prepare_msi()
-> iommu_dma_compose_msi_msg() is a simple inline that sets address_hi/lo.
->
-> The next patch will correct the naming.
->
-> This is done because we cannot correctly lock access to group->domain in
-> the atomic context that iommu_dma_compose_msi_msg() is called under. Today
-> the locking miss is tolerable because dma_iommu.c operates under an
-> assumption that the domain does not change while a driver is probed.
->
-> However iommufd now permits the domain to change while the driver is
-> probed and VFIO userspace can create races with IRQ changes calling
-> iommu_dma_prepare/compose_msi_msg() and changing/freeing the iommu_domain.
-and is it safe in iommu_dma_prepare_msi()?
->
-> Removing the pointer, and critically, the call to
-> iommu_get_domain_for_dev() during compose resolves this race.
->
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 > ---
->  include/linux/iommu.h     |  6 ------
->  include/linux/msi.h       | 45 +++++++++++++++++++++++----------------
->  drivers/iommu/dma-iommu.c | 30 +++++---------------------
->  3 files changed, 32 insertions(+), 49 deletions(-)
->
-> diff --git a/include/linux/iommu.h b/include/linux/iommu.h
-> index 318d27841130..3a4215966c1b 100644
-> --- a/include/linux/iommu.h
-> +++ b/include/linux/iommu.h
-> @@ -1513,7 +1513,6 @@ static inline void iommu_debugfs_setup(void) {}
->  int iommu_get_msi_cookie(struct iommu_domain *domain, dma_addr_t base);
->  
->  int iommu_dma_prepare_msi(struct msi_desc *desc, phys_addr_t msi_addr);
-> -void iommu_dma_compose_msi_msg(struct msi_desc *desc, struct msi_msg *msg);
->  
->  #else /* CONFIG_IOMMU_DMA */
->  
-> @@ -1529,11 +1528,6 @@ static inline int iommu_dma_prepare_msi(struct msi_desc *desc, phys_addr_t msi_a
+>  drivers/net/ethernet/ti/Kconfig               |   1 +
+>  drivers/net/ethernet/ti/icssg/icssg_common.c  | 180 ++++++++++++------
+>  drivers/net/ethernet/ti/icssg/icssg_prueth.h  |  14 +-
+>  .../net/ethernet/ti/icssg/icssg_prueth_sr1.c  |  21 +-
+>  4 files changed, 146 insertions(+), 70 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/ti/Kconfig b/drivers/net/ethernet/ti/Kconfig
+> index 0d5a862cd78a..b461281d31b6 100644
+> --- a/drivers/net/ethernet/ti/Kconfig
+> +++ b/drivers/net/ethernet/ti/Kconfig
+> @@ -204,6 +204,7 @@ config TI_ICSSG_PRUETH_SR1
+>  	select PHYLIB
+>  	select TI_ICSS_IEP
+>  	select TI_K3_CPPI_DESC_POOL
+> +	select PAGE_POOL
+>  	depends on PRU_REMOTEPROC
+>  	depends on NET_SWITCHDEV
+>  	depends on ARCH_K3 && OF && TI_K3_UDMA_GLUE_LAYER
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
+> index 74f0f200a89d..313667ce24c3 100644
+> --- a/drivers/net/ethernet/ti/icssg/icssg_common.c
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
+> @@ -45,6 +45,11 @@ void prueth_cleanup_rx_chns(struct prueth_emac *emac,
+>  			    struct prueth_rx_chn *rx_chn,
+>  			    int max_rflows)
 >  {
->  	return 0;
->  }
-> -
-> -static inline void iommu_dma_compose_msi_msg(struct msi_desc *desc, struct msi_msg *msg)
-> -{
-> -}
-> -
->  #endif	/* CONFIG_IOMMU_DMA */
->  
->  /*
-> diff --git a/include/linux/msi.h b/include/linux/msi.h
-> index b10093c4d00e..d442b4a69d56 100644
-> --- a/include/linux/msi.h
-> +++ b/include/linux/msi.h
-> @@ -184,7 +184,8 @@ struct msi_desc {
->  	struct msi_msg			msg;
->  	struct irq_affinity_desc	*affinity;
->  #ifdef CONFIG_IRQ_MSI_IOMMU
-> -	const void			*iommu_cookie;
-you may add kernel doc comments above
-> +	u64				iommu_msi_iova : 58;
-> +	u64				iommu_msi_page_shift : 6;
->  #endif
->  #ifdef CONFIG_SYSFS
->  	struct device_attribute		*sysfs_attrs;
-> @@ -285,28 +286,36 @@ struct msi_desc *msi_next_desc(struct device *dev, unsigned int domid,
->  
->  #define msi_desc_to_dev(desc)		((desc)->dev)
->  
-> -#ifdef CONFIG_IRQ_MSI_IOMMU
-> -static inline const void *msi_desc_get_iommu_cookie(struct msi_desc *desc)
-> -{
-> -	return desc->iommu_cookie;
-> -}
-> -
-> -static inline void msi_desc_set_iommu_cookie(struct msi_desc *desc,
-> -					     const void *iommu_cookie)
-> +static inline void msi_desc_set_iommu_msi_iova(struct msi_desc *desc,
-> +					       u64 msi_iova,
-> +					       unsigned int page_shift)
->  {
-> -	desc->iommu_cookie = iommu_cookie;
-> -}
-> -#else
-> -static inline const void *msi_desc_get_iommu_cookie(struct msi_desc *desc)
-> -{
-> -	return NULL;
-> +#ifdef CONFIG_IRQ_MSI_IOMMU
-> +	desc->iommu_msi_iova = msi_iova >> page_shift;
-> +	desc->iommu_msi_page_shift = page_shift;
-> +#endif
->  }
->  
-> -static inline void msi_desc_set_iommu_cookie(struct msi_desc *desc,
-> -					     const void *iommu_cookie)
-> +/**
-> + * iommu_dma_compose_msi_msg() - Apply translation to an MSI message
-> + * @desc: MSI descriptor prepared by iommu_dma_prepare_msi()
-> + * @msg: MSI message containing target physical address
-> + */
-> +static inline void iommu_dma_compose_msi_msg(struct msi_desc *desc,
-> +					     struct msi_msg *msg)
->  {
-> -}
-> +#ifdef CONFIG_IRQ_MSI_IOMMU
-> +	if (desc->iommu_msi_page_shift) {
-> +		u64 msi_iova = desc->iommu_msi_iova
-> +			       << desc->iommu_msi_page_shift;
-> +
-> +		msg->address_hi = upper_32_bits(msi_iova);
-> +		msg->address_lo = lower_32_bits(msi_iova) |
-> +				  (msg->address_lo &
-> +				   ((1 << desc->iommu_msi_page_shift) - 1));
+> +	if (rx_chn->pg_pool) {
+> +		page_pool_destroy(rx_chn->pg_pool);
+> +		rx_chn->pg_pool = NULL;
 > +	}
->  #endif
+> +
+>  	if (rx_chn->desc_pool)
+>  		k3_cppi_desc_pool_destroy(rx_chn->desc_pool);
+>  
+> @@ -461,17 +466,17 @@ int prueth_init_rx_chns(struct prueth_emac *emac,
+>  }
+>  EXPORT_SYMBOL_GPL(prueth_init_rx_chns);
+>  
+> -int prueth_dma_rx_push(struct prueth_emac *emac,
+> -		       struct sk_buff *skb,
+> -		       struct prueth_rx_chn *rx_chn)
+> +int prueth_dma_rx_push_mapped(struct prueth_emac *emac,
+> +			      struct prueth_rx_chn *rx_chn,
+> +			      struct page *page, u32 buf_len)
+>  {
+>  	struct net_device *ndev = emac->ndev;
+>  	struct cppi5_host_desc_t *desc_rx;
+> -	u32 pkt_len = skb_tailroom(skb);
+>  	dma_addr_t desc_dma;
+>  	dma_addr_t buf_dma;
+>  	void **swdata;
+>  
+> +	buf_dma = page_pool_get_dma_addr(page) + PRUETH_HEADROOM;
+>  	desc_rx = k3_cppi_desc_pool_alloc(rx_chn->desc_pool);
+>  	if (!desc_rx) {
+>  		netdev_err(ndev, "rx push: failed to allocate descriptor\n");
+> @@ -479,25 +484,18 @@ int prueth_dma_rx_push(struct prueth_emac *emac,
+>  	}
+>  	desc_dma = k3_cppi_desc_pool_virt2dma(rx_chn->desc_pool, desc_rx);
+>  
+> -	buf_dma = dma_map_single(rx_chn->dma_dev, skb->data, pkt_len, DMA_FROM_DEVICE);
+> -	if (unlikely(dma_mapping_error(rx_chn->dma_dev, buf_dma))) {
+> -		k3_cppi_desc_pool_free(rx_chn->desc_pool, desc_rx);
+> -		netdev_err(ndev, "rx push: failed to map rx pkt buffer\n");
+> -		return -EINVAL;
+> -	}
+> -
+>  	cppi5_hdesc_init(desc_rx, CPPI5_INFO0_HDESC_EPIB_PRESENT,
+>  			 PRUETH_NAV_PS_DATA_SIZE);
+>  	k3_udma_glue_rx_dma_to_cppi5_addr(rx_chn->rx_chn, &buf_dma);
+> -	cppi5_hdesc_attach_buf(desc_rx, buf_dma, skb_tailroom(skb), buf_dma, skb_tailroom(skb));
+> +	cppi5_hdesc_attach_buf(desc_rx, buf_dma, buf_len, buf_dma, buf_len);
+>  
+>  	swdata = cppi5_hdesc_get_swdata(desc_rx);
+> -	*swdata = skb;
+> +	*swdata = page;
+>  
+> -	return k3_udma_glue_push_rx_chn(rx_chn->rx_chn, 0,
+> +	return k3_udma_glue_push_rx_chn(rx_chn->rx_chn, PRUETH_RX_FLOW_DATA,
+>  					desc_rx, desc_dma);
+>  }
+> -EXPORT_SYMBOL_GPL(prueth_dma_rx_push);
+> +EXPORT_SYMBOL_GPL(prueth_dma_rx_push_mapped);
+>  
+>  u64 icssg_ts_to_ns(u32 hi_sw, u32 hi, u32 lo, u32 cycle_time_ns)
+>  {
+> @@ -535,18 +533,31 @@ void emac_rx_timestamp(struct prueth_emac *emac,
+>  	ssh->hwtstamp = ns_to_ktime(ns);
+>  }
+>  
+> +unsigned int prueth_rxbuf_total_len(unsigned int len)
+> +{
+> +	len += PRUETH_HEADROOM;
+> +	len += SKB_DATA_ALIGN(sizeof(struct skb_shared_info));
+> +
+> +	return SKB_DATA_ALIGN(len);
 > +}
+> +EXPORT_SYMBOL_GPL(prueth_rxbuf_total_len);
+> +
+>  static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id)
+>  {
+>  	struct prueth_rx_chn *rx_chn = &emac->rx_chns;
+>  	u32 buf_dma_len, pkt_len, port_id = 0;
+>  	struct net_device *ndev = emac->ndev;
+>  	struct cppi5_host_desc_t *desc_rx;
+> -	struct sk_buff *skb, *new_skb;
+>  	dma_addr_t desc_dma, buf_dma;
+> +	struct page *page, *new_page;
+> +	struct page_pool *pool;
+> +	struct sk_buff *skb;
+>  	void **swdata;
+>  	u32 *psdata;
+> +	void *pa;
+>  	int ret;
 >  
->  int msi_domain_insert_msi_desc(struct device *dev, unsigned int domid,
->  			       struct msi_desc *init_desc);
-> diff --git a/drivers/iommu/dma-iommu.c b/drivers/iommu/dma-iommu.c
-> index 2a9fa0c8cc00..bf91e014d179 100644
-> --- a/drivers/iommu/dma-iommu.c
-> +++ b/drivers/iommu/dma-iommu.c
-> @@ -1815,7 +1815,7 @@ int iommu_dma_prepare_msi(struct msi_desc *desc, phys_addr_t msi_addr)
->  	static DEFINE_MUTEX(msi_prepare_lock); /* see below */
->  
->  	if (!domain || !domain->iova_cookie) {
-> -		desc->iommu_cookie = NULL;
-> +		msi_desc_set_iommu_msi_iova(desc, 0, 0);
+> +	pool = rx_chn->pg_pool;
+>  	ret = k3_udma_glue_pop_rx_chn(rx_chn->rx_chn, flow_id, &desc_dma);
+>  	if (ret) {
+>  		if (ret != -ENODATA)
+> @@ -558,14 +569,8 @@ static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id)
 >  		return 0;
+>  
+>  	desc_rx = k3_cppi_desc_pool_dma2virt(rx_chn->desc_pool, desc_dma);
+> -
+>  	swdata = cppi5_hdesc_get_swdata(desc_rx);
+> -	skb = *swdata;
+> -
+> -	psdata = cppi5_hdesc_get_psdata(desc_rx);
+> -	/* RX HW timestamp */
+> -	if (emac->rx_ts_enabled)
+> -		emac_rx_timestamp(emac, skb, psdata);
+> +	page = *swdata;
+>  
+>  	cppi5_hdesc_get_obuf(desc_rx, &buf_dma, &buf_dma_len);
+>  	k3_udma_glue_rx_cppi5_to_dma_addr(rx_chn->rx_chn, &buf_dma);
+> @@ -574,32 +579,50 @@ static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id)
+>  	pkt_len -= 4;
+>  	cppi5_desc_get_tags_ids(&desc_rx->hdr, &port_id, NULL);
+>  
+> -	dma_unmap_single(rx_chn->dma_dev, buf_dma, buf_dma_len, DMA_FROM_DEVICE);
+>  	k3_cppi_desc_pool_free(rx_chn->desc_pool, desc_rx);
+>  
+> -	skb->dev = ndev;
+> -	new_skb = netdev_alloc_skb_ip_align(ndev, PRUETH_MAX_PKT_SIZE);
+>  	/* if allocation fails we drop the packet but push the
+> -	 * descriptor back to the ring with old skb to prevent a stall
+> +	 * descriptor back to the ring with old page to prevent a stall
+>  	 */
+> -	if (!new_skb) {
+> +	new_page = page_pool_dev_alloc_pages(pool);
+
+I don't see where the reference is released via a put call
+
+> +	if (unlikely(!new_page)) {
+> +		new_page = page;
+>  		ndev->stats.rx_dropped++;
+> -		new_skb = skb;
+> -	} else {
+> -		/* send the filled skb up the n/w stack */
+> -		skb_put(skb, pkt_len);
+> -		if (emac->prueth->is_switch_mode)
+> -			skb->offload_fwd_mark = emac->offload_fwd_mark;
+> -		skb->protocol = eth_type_trans(skb, ndev);
+> -		napi_gro_receive(&emac->napi_rx, skb);
+> -		ndev->stats.rx_bytes += pkt_len;
+> -		ndev->stats.rx_packets++;
+> +		goto requeue;
 >  	}
 >  
-> @@ -1827,33 +1827,13 @@ int iommu_dma_prepare_msi(struct msi_desc *desc, phys_addr_t msi_addr)
->  	mutex_lock(&msi_prepare_lock);
->  	msi_page = iommu_dma_get_msi_page(dev, msi_addr, domain);
->  	mutex_unlock(&msi_prepare_lock);
-> -
-> -	msi_desc_set_iommu_cookie(desc, msi_page);
-> -
->  	if (!msi_page)
->  		return -ENOMEM;
-> -	return 0;
-> -}
+> +	/* prepare skb and send to n/w stack */
+> +	pa = page_address(page);
+> +	skb = build_skb(pa, prueth_rxbuf_total_len(pkt_len));
+
+napi_build_skb()? See commit 53ee91427177 ("net/mlx5e: Switch to using
+napi_build_skb()")
+
+Also, I believe the frag size is incorrect. It is used to initialize
+skb->truesize which should signal the size of the buffer that was
+allocated for the packet (PAGE_SIZE in this case).
+
+> +	if (!skb) {
+> +		ndev->stats.rx_dropped++;
+> +		page_pool_recycle_direct(pool, page);
+> +		goto requeue;
+> +	}
+> +
+> +	skb_reserve(skb, PRUETH_HEADROOM);
+> +	skb_put(skb, pkt_len);
+> +	skb->dev = ndev;
+> +
+> +	psdata = cppi5_hdesc_get_psdata(desc_rx);
+> +	/* RX HW timestamp */
+> +	if (emac->rx_ts_enabled)
+> +		emac_rx_timestamp(emac, skb, psdata);
+> +
+> +	if (emac->prueth->is_switch_mode)
+> +		skb->offload_fwd_mark = emac->offload_fwd_mark;
+> +	skb->protocol = eth_type_trans(skb, ndev);
+
+skb_mark_for_recycle() ?
+
+> +
+> +	netif_receive_skb(skb);
+
+The code was previously using napi_gro_receive(), why give up on GRO
+support?
+
+> +	ndev->stats.rx_bytes += pkt_len;
+> +	ndev->stats.rx_packets++;
+> +
+> +requeue:
+>  	/* queue another RX DMA */
+> -	ret = prueth_dma_rx_push(emac, new_skb, &emac->rx_chns);
+> +	ret = prueth_dma_rx_push_mapped(emac, &emac->rx_chns, new_page,
+> +					PRUETH_MAX_PKT_SIZE);
+>  	if (WARN_ON(ret < 0)) {
+> -		dev_kfree_skb_any(new_skb);
+> +		page_pool_recycle_direct(pool, new_page);
+>  		ndev->stats.rx_errors++;
+>  		ndev->stats.rx_dropped++;
+>  	}
+> @@ -611,22 +634,17 @@ static void prueth_rx_cleanup(void *data, dma_addr_t desc_dma)
+>  {
+>  	struct prueth_rx_chn *rx_chn = data;
+>  	struct cppi5_host_desc_t *desc_rx;
+> -	struct sk_buff *skb;
+> -	dma_addr_t buf_dma;
+> -	u32 buf_dma_len;
+> +	struct page_pool *pool;
+> +	struct page *page;
+>  	void **swdata;
 >  
-> -/**
-> - * iommu_dma_compose_msi_msg() - Apply translation to an MSI message
-> - * @desc: MSI descriptor prepared by iommu_dma_prepare_msi()
-> - * @msg: MSI message containing target physical address
-> - */
-> -void iommu_dma_compose_msi_msg(struct msi_desc *desc, struct msi_msg *msg)
-> -{
-> -	struct device *dev = msi_desc_to_dev(desc);
-> -	const struct iommu_domain *domain = iommu_get_domain_for_dev(dev);
-> -	const struct iommu_dma_msi_page *msi_page;
+> +	pool = rx_chn->pg_pool;
+> +
+>  	desc_rx = k3_cppi_desc_pool_dma2virt(rx_chn->desc_pool, desc_dma);
+>  	swdata = cppi5_hdesc_get_swdata(desc_rx);
+> -	skb = *swdata;
+> -	cppi5_hdesc_get_obuf(desc_rx, &buf_dma, &buf_dma_len);
+> -	k3_udma_glue_rx_cppi5_to_dma_addr(rx_chn->rx_chn, &buf_dma);
 > -
-> -	msi_page = msi_desc_get_iommu_cookie(desc);
+> -	dma_unmap_single(rx_chn->dma_dev, buf_dma, buf_dma_len,
+> -			 DMA_FROM_DEVICE);
+> +	page = *swdata;
+> +	page_pool_recycle_direct(pool, page);
+>  	k3_cppi_desc_pool_free(rx_chn->desc_pool, desc_rx);
 > -
-> -	if (!domain || !domain->iova_cookie || WARN_ON(!msi_page))
-> -		return;
-> -
-> -	msg->address_hi = upper_32_bits(msi_page->iova);
-> -	msg->address_lo &= cookie_msi_granule(domain->iova_cookie) - 1;
-> -	msg->address_lo += lower_32_bits(msi_page->iova);
-> +	msi_desc_set_iommu_msi_iova(
-> +		desc, msi_page->iova,
-> +		ilog2(cookie_msi_granule(domain->iova_cookie)));
-> +	return 0;
+> -	dev_kfree_skb_any(skb);
 >  }
 >  
->  static int iommu_dma_init(void)
+>  static int prueth_tx_ts_cookie_get(struct prueth_emac *emac)
+> @@ -907,29 +925,70 @@ int icssg_napi_rx_poll(struct napi_struct *napi_rx, int budget)
+>  }
+>  EXPORT_SYMBOL_GPL(icssg_napi_rx_poll);
+>  
+> +static struct page_pool *prueth_create_page_pool(struct prueth_emac *emac,
+> +						 struct device *dma_dev,
+> +						 int size)
+> +{
+> +	struct page_pool_params pp_params = { 0 };
+> +	struct page_pool *pool;
+> +
+> +	pp_params.order = 0;
+> +	pp_params.flags = PP_FLAG_DMA_MAP;
 
+What about PP_FLAG_DMA_SYNC_DEV ? I don't see a sync for device call. I
+also don't see a sync for CPU...
+
+> +	pp_params.pool_size = size;
+> +	pp_params.nid = dev_to_node(emac->prueth->dev);
+> +	pp_params.dma_dir = DMA_BIDIRECTIONAL;
+> +	pp_params.dev = dma_dev;
+> +	pp_params.napi = &emac->napi_rx;
+> +
+> +	pool = page_pool_create(&pp_params);
+> +	if (IS_ERR(pool))
+> +		netdev_err(emac->ndev, "cannot create rx page pool\n");
+> +
+> +	return pool;
+> +}
+> +
+>  int prueth_prepare_rx_chan(struct prueth_emac *emac,
+>  			   struct prueth_rx_chn *chn,
+>  			   int buf_size)
+>  {
+> -	struct sk_buff *skb;
+> +	struct page_pool *pool;
+> +	struct page *page;
+>  	int i, ret;
+>  
+> +	pool = prueth_create_page_pool(emac, chn->dma_dev, chn->descs_num);
+> +	if (IS_ERR(pool))
+> +		return PTR_ERR(pool);
+> +
+> +	chn->pg_pool = pool;
+> +
+>  	for (i = 0; i < chn->descs_num; i++) {
+> -		skb = __netdev_alloc_skb_ip_align(NULL, buf_size, GFP_KERNEL);
+> -		if (!skb)
+> -			return -ENOMEM;
+> +		/* NOTE: we're not using memory efficiently here.
+> +		 * 1 full page (4KB?) used here instead of
+> +		 * PRUETH_MAX_PKT_SIZE (~1.5KB?)
+> +		 */
+
+What about using page_pool_alloc_frag()? Never used it, but the
+documentation says:
+
+2. page_pool_alloc_frag(): allocate memory with page splitting when
+driver knows that the memory it need is always smaller than or equal to
+half of the page allocated from page pool. Page splitting enables memory
+saving and thus avoids TLB/cache miss for data access, but there also is
+some cost to implement page splitting, mainly some cache line
+dirtying/bouncing for ‘struct page’ and atomic operation for
+page->pp_ref_count.
+
+https://docs.kernel.org/networking/page_pool.html
+
+> +		page = page_pool_dev_alloc_pages(pool);
+> +		if (!page) {
+> +			netdev_err(emac->ndev, "couldn't allocate rx page\n");
+> +			ret = -ENOMEM;
+> +			goto recycle_alloc_pg;
+> +		}
+>  
+> -		ret = prueth_dma_rx_push(emac, skb, chn);
+> +		ret = prueth_dma_rx_push_mapped(emac, chn, page, buf_size);
+>  		if (ret < 0) {
+>  			netdev_err(emac->ndev,
+> -				   "cannot submit skb for rx chan %s ret %d\n",
+> +				   "cannot submit page for rx chan %s ret %d\n",
+>  				   chn->name, ret);
+> -			kfree_skb(skb);
+> -			return ret;
+> +			page_pool_recycle_direct(pool, page);
+> +			goto recycle_alloc_pg;
+>  		}
+>  	}
+>  
+>  	return 0;
+> +
+> +recycle_alloc_pg:
+> +	prueth_reset_rx_chan(&emac->rx_chns, PRUETH_MAX_RX_FLOWS, false);
+> +
+> +	return ret;
+>  }
+>  EXPORT_SYMBOL_GPL(prueth_prepare_rx_chan);
+>  
+> @@ -958,6 +1017,9 @@ void prueth_reset_rx_chan(struct prueth_rx_chn *chn,
+>  					  prueth_rx_cleanup, !!i);
+>  	if (disable)
+>  		k3_udma_glue_disable_rx_chn(chn->rx_chn);
+> +
+> +	page_pool_destroy(chn->pg_pool);
+> +	chn->pg_pool = NULL;
+>  }
+>  EXPORT_SYMBOL_GPL(prueth_reset_rx_chan);
+>  
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+> index 5473315ea204..62f3d04af222 100644
+> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+> @@ -33,6 +33,8 @@
+>  #include <linux/dma/k3-udma-glue.h>
+>  
+>  #include <net/devlink.h>
+> +#include <net/xdp.h>
+> +#include <net/page_pool/helpers.h>
+>  
+>  #include "icssg_config.h"
+>  #include "icss_iep.h"
+> @@ -125,6 +127,7 @@ struct prueth_rx_chn {
+>  	u32 descs_num;
+>  	unsigned int irq[ICSSG_MAX_RFLOWS];	/* separate irq per flow */
+>  	char name[32];
+> +	struct page_pool *pg_pool;
+>  };
+>  
+>  /* There are 4 Tx DMA channels, but the highest priority is CH3 (thread 3)
+> @@ -202,6 +205,10 @@ struct prueth_emac {
+>  	unsigned long rx_pace_timeout_ns;
+>  };
+>  
+> +/* The buf includes headroom compatible with both skb and xdpf */
+> +#define PRUETH_HEADROOM_NA (max(XDP_PACKET_HEADROOM, NET_SKB_PAD) + NET_IP_ALIGN)
+> +#define PRUETH_HEADROOM  ALIGN(PRUETH_HEADROOM_NA, sizeof(long))
+> +
+>  /**
+>   * struct prueth_pdata - PRUeth platform data
+>   * @fdqring_mode: Free desc queue mode
+> @@ -402,9 +409,10 @@ int prueth_init_rx_chns(struct prueth_emac *emac,
+>  			struct prueth_rx_chn *rx_chn,
+>  			char *name, u32 max_rflows,
+>  			u32 max_desc_num);
+> -int prueth_dma_rx_push(struct prueth_emac *emac,
+> -		       struct sk_buff *skb,
+> -		       struct prueth_rx_chn *rx_chn);
+> +int prueth_dma_rx_push_mapped(struct prueth_emac *emac,
+> +			      struct prueth_rx_chn *rx_chn,
+> +			      struct page *page, u32 buf_len);
+> +unsigned int prueth_rxbuf_total_len(unsigned int len);
+>  void emac_rx_timestamp(struct prueth_emac *emac,
+>  		       struct sk_buff *skb, u32 *psdata);
+>  enum netdev_tx icssg_ndo_start_xmit(struct sk_buff *skb, struct net_device *ndev);
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c b/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
+> index 3dc86397c367..c2bc7169355a 100644
+> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
+> @@ -274,10 +274,12 @@ static struct sk_buff *prueth_process_rx_mgm(struct prueth_emac *emac,
+>  	struct prueth_rx_chn *rx_chn = &emac->rx_mgm_chn;
+>  	struct net_device *ndev = emac->ndev;
+>  	struct cppi5_host_desc_t *desc_rx;
+> -	struct sk_buff *skb, *new_skb;
+> +	struct page *page, *new_page;
+>  	dma_addr_t desc_dma, buf_dma;
+>  	u32 buf_dma_len, pkt_len;
+> +	struct sk_buff *skb;
+>  	void **swdata;
+> +	void *pa;
+>  	int ret;
+>  
+>  	ret = k3_udma_glue_pop_rx_chn(rx_chn->rx_chn, flow_id, &desc_dma);
+> @@ -299,32 +301,35 @@ static struct sk_buff *prueth_process_rx_mgm(struct prueth_emac *emac,
+>  	}
+>  
+>  	swdata = cppi5_hdesc_get_swdata(desc_rx);
+> -	skb = *swdata;
+> +	page = *swdata;
+>  	cppi5_hdesc_get_obuf(desc_rx, &buf_dma, &buf_dma_len);
+>  	pkt_len = cppi5_hdesc_get_pktlen(desc_rx);
+>  
+>  	dma_unmap_single(rx_chn->dma_dev, buf_dma, buf_dma_len, DMA_FROM_DEVICE);
+>  	k3_cppi_desc_pool_free(rx_chn->desc_pool, desc_rx);
+>  
+> -	new_skb = netdev_alloc_skb_ip_align(ndev, PRUETH_MAX_PKT_SIZE);
+> +	new_page = page_pool_dev_alloc_pages(rx_chn->pg_pool);
+>  	/* if allocation fails we drop the packet but push the
+>  	 * descriptor back to the ring with old skb to prevent a stall
+>  	 */
+> -	if (!new_skb) {
+> +	if (!new_page) {
+>  		netdev_err(ndev,
+> -			   "skb alloc failed, dropped mgm pkt from flow %d\n",
+> +			   "page alloc failed, dropped mgm pkt from flow %d\n",
+>  			   flow_id);
+> -		new_skb = skb;
+> +		new_page = page;
+>  		skb = NULL;	/* return NULL */
+>  	} else {
+>  		/* return the filled skb */
+> +		pa = page_address(page);
+> +		skb = build_skb(pa, prueth_rxbuf_total_len(pkt_len));
+>  		skb_put(skb, pkt_len);
+>  	}
+>  
+>  	/* queue another DMA */
+> -	ret = prueth_dma_rx_push(emac, new_skb, &emac->rx_mgm_chn);
+> +	ret = prueth_dma_rx_push_mapped(emac, &emac->rx_chns, new_page,
+> +					PRUETH_MAX_PKT_SIZE);
+>  	if (WARN_ON(ret < 0))
+> -		dev_kfree_skb_any(new_skb);
+> +		page_pool_recycle_direct(rx_chn->pg_pool, new_page);
+>  
+>  	return skb;
+>  }
+> -- 
+> 2.25.1
+> 
+> 
 
