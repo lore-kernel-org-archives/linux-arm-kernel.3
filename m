@@ -4,70 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5E13C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 22:39:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16EBFC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 22:41:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dfFbufE/oZqYpKWLTE17oZPb84Hww5PkyDbRc8FQEe4=; b=waCxG6IEb/82U//IGoT17X9IdR
-	Xxqmk3AJTzUVgffIN1bErzEcB/Q1cPVy96zEv/JfQH2Nfyq3eM4zUP/dQdXP5mLtpODn46srKHy7u
-	YxN7TXYpDmpxNynIckUpZMjXk+1ZAhJuuNnOZw8z/1TUaSv6+UfEg3ZLREx+Z2NCcvQLvU5v1+VS4
-	PJyMfRcAsdg5d7xkBht1FIm+Zhsusaj35hjALbQseQfW9khk5X5AuyPIUkswvEdbetr0PCPWqpHqS
-	MgPw+5sJDodZclOrt9x4o4nLaf9yGxLw1aWeuwvDqZ9NDsq1yxxEznY4rrJBgYHwEXIsoSdVVdv03
-	mpKCvbSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kpOgM1ZE1WoM2Lmj2fTpr8OCKz6dZVRt8SvhNOfjHns=; b=Yf+5Nk8kZ//a9/4Y++nurnEGhU
+	UuI87GzpSmHoVt+JhM7lxmhKZAZajzJPZjHJ/ITku6sV7JOI5416CzYSQ6jXfcD9OCSuhVAj+EL9g
+	s7SGl9dQrSNO3CGfeTgsELO/qikb2UPXj+0rZYjP6T8OfzA5+aqtqh30vz0MEpJHyS7QkH+EGmdtA
+	gjT9rNF8fYwEFpnL8BH3Sd5Qs4H703O6JoWlxB9ITj2OopmM+SImxfcPyi8Mg4YuuHyxZtY5PT0WV
+	mrWANr2IYcA4c5kTPvR15KF44f4rbZcW8eKCOTamTkRJPwzddM2A3P18xlFggIlswxtbQYqwar8z6
+	lblTCbIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb5qc-0000000DQZ7-48hI;
-	Thu, 23 Jan 2025 22:38:50 +0000
-Received: from out-182.mta0.migadu.com ([2001:41d0:1004:224b::b6])
+	id 1tb5tF-0000000DQrE-1S17;
+	Thu, 23 Jan 2025 22:41:33 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb5pK-0000000DQSS-12ww
+	id 1tb5rw-0000000DQlo-3cE2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 22:37:31 +0000
-Message-ID: <2784cc3b-0b8f-4116-b34d-0de4ff56cf92@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1737671842;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=dfFbufE/oZqYpKWLTE17oZPb84Hww5PkyDbRc8FQEe4=;
-	b=tFxf07Npt3G59e0jExTBPWWrlv0Q6ZQzxnqAc+CuBqTZInnmbTdwYtTiVgttMaHfrCRx+m
-	3kFCtUVwtMnNdfw+wt8J8iF0NVezP7bosn9yV7knS3/ybW85IH1XaOnCbfTo2bgW3/hUdp
-	M9fi7Nz61+wCFxA3FigSB6/39PVoZUY=
-Date: Thu, 23 Jan 2025 17:37:16 -0500
+	Thu, 23 Jan 2025 22:40:14 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-38633b5dbcfso1606530f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 14:40:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1737672011; x=1738276811; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=kpOgM1ZE1WoM2Lmj2fTpr8OCKz6dZVRt8SvhNOfjHns=;
+        b=HWiTHSQWqTLlFwrAJFb9Zf3BMlwAi1NlIECqIPM6A6RurmoDffhVCRb9kaYrCl4L7j
+         60Ly0C20lkSE67TJR1p/QWg702kNmTe8BW8+KOLuzPBq4CeJtfdph3FULZKtbRgHEuUm
+         kA+k89UrW0RX6FtOOoD6aZwEbe65oV8ZiGeeRIdqSE/+Zvd1KRjxjoVsv0gstV0p1t+d
+         MTwIvQStMFM9Oz4jHcnUCuabeh9I9ppw6N4M9hA0LAYcFOr+M0N77eMx2fyEt4J61HjB
+         qOoo1DKi2sGzHxpP8LTQC2VOX+ZaGIdsZ6oG5x+H0SVEBcQxmAJaMUtpDmnnnLb/YJ19
+         d3GA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737672011; x=1738276811;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=kpOgM1ZE1WoM2Lmj2fTpr8OCKz6dZVRt8SvhNOfjHns=;
+        b=KmRw7/uXz7xv3GkKxHxAP9ShcXqBk9XTJOGPQ5X0w9kycoXduP7pTDwv3TGcdnnAKz
+         7jGDD3xfVn5LerNLr4PRQLo0n7khdFCjAHHwmHiXmqYogqBe/srosEZmxZwTMTWpPcOu
+         GGugHUTziVaJ28iH6P/6d1SMiywb/F2hv03XJkOt+H69928TfnkDWJqiUMRrzK002T9r
+         IFSYZwcThC20GZjOUCjYc7ghS8LV4rPtyNmnov2GX/sUJSvvG43FoIkB/dTaYUgvAZwL
+         voHcuux5CQ3KGZaeSSV9RontgcQ2Un0KTfPNvrtRjZdkHIrBLCSmaXF4PH24q/+Xkwp4
+         X/WQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXLNfm3WjdSEi5h7lzhxyVfIY5QMi+nqSuUK6aoqw3uVSqFloT3PRVvDgh/9kynwnihj81lcm9BYsNWmrt8ZlW2@lists.infradead.org
+X-Gm-Message-State: AOJu0YzCfth/19Vjpp4k3Gytrqn3WIcnmRofLSxmbyUiwtEjzrIhM9uB
+	bmmMFldVJ9Ey39S+SSeDjPEiwxSDav5OEcqO/f7vrsE4hR8+dnT7
+X-Gm-Gg: ASbGncsBsyZhQxQcBXgBWiHk3EXR1EY+1g2frgyCY3ZTZw3lDa2s5rsniQSshAXRMMk
+	IDpZAoap/mtt0nLrzcbGhNTHZ+k8G9u3BVqA9FaBnlHRzVoG6pqxx4eWllkPs68KOTugEnix8SY
+	0a/PuNDCjfM/r6Sfeys420pdOLjLTUUwCy8U0ZWGXyraKz4jy0x1+mrXcTY1OCE7JXf4FtitI1T
+	kBAOrxpoKmT+YBS4bNy+QzS71AjZg06wwWGHY12yFxaSQ1S/4aGC6pBk0hGq5kqXRHsoWPfH056
+	/W0=
+X-Google-Smtp-Source: AGHT+IFl7F961mwND8EifRVPoDNvLg6XuLzQ+c9+gtx8iFzXlkCo9ZHl4laxPVi7MFV+qKlriw7EOw==
+X-Received: by 2002:a5d:58d1:0:b0:385:e394:37ed with SMTP id ffacd0b85a97d-38bf5659cd5mr20605391f8f.18.1737672010472;
+        Thu, 23 Jan 2025 14:40:10 -0800 (PST)
+Received: from [10.0.1.56] ([2001:871:22a:8634::1ad1])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38c2a18931esm894942f8f.60.2025.01.23.14.40.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Jan 2025 14:40:10 -0800 (PST)
+From: Christian Schrefl <chrisi.schrefl@gmail.com>
+Date: Thu, 23 Jan 2025 23:40:06 +0100
+Subject: [PATCH v3] arm: rust: Enable Rust support for ARMv7
 MIME-Version: 1.0
-Subject: Re: [PATCH 1/7] dt-bindings: spi: zynqmp-qspi: Split the bus
-To: David Lechner <dlechner@baylibre.com>, Mark Brown <broonie@kernel.org>,
- Michal Simek <michal.simek@amd.com>, linux-spi@vger.kernel.org
-Cc: Jinjie Ruan <ruanjinjie@huawei.com>,
- linux-arm-kernel@lists.infradead.org,
- Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>,
- linux-kernel@vger.kernel.org, Miquel Raynal <miquel.raynal@bootlin.com>,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- devicetree@vger.kernel.org,
- "linux-iio@vger.kernel.org" <linux-iio@vger.kernel.org>,
- Jonathan Cameron <jic23@kernel.org>, =?UTF-8?Q?Nuno_S=C3=A1?=
- <nuno.sa@analog.com>
-References: <20250116232118.2694169-1-sean.anderson@linux.dev>
- <20250116232118.2694169-2-sean.anderson@linux.dev>
- <9f40295b-484a-48e8-b053-ff8550e589d7@baylibre.com>
- <46a7eba6-a705-4543-b967-e83ccc89e7d4@linux.dev>
- <6afc379a-2f9f-4462-ae30-ef6945a83236@baylibre.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <6afc379a-2f9f-4462-ae30-ef6945a83236@baylibre.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Message-Id: <20250123-rfl-arm32-v3-1-8f13623d42c5@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAEXFkmcC/02MywrDIBBFfyW47hR1jJqu+h+lC5+JkEfRElpC/
+ r0mq24GznDP2UgJOYVCbs1GclhTSctcAS8NcYOZ+wDJVyac8pYyjpDjCCZPyCF2iCiYkCgVqft
+ XDjF9ztbjWXlI5b3k75le2fElItDYdtV1yjoQWmnQkjtgTEtng/OK+Xs/mTRe3TKRo7Ly0+Tee
+ iY6BvV4EAIddJpyUK3S0kiDVuG/ue/7D5zZa5vcAAAA
+X-Change-ID: 20250123-rfl-arm32-f93334146367
+To: Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
+ Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <benno.lossin@proton.me>, 
+ Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+ Trevor Gross <tmgross@umich.edu>, Jonathan Corbet <corbet@lwn.net>, 
+ Russell King <linux@armlinux.org.uk>, Rudraksha Gupta <guptarud@gmail.com>, 
+ Ard Biesheuvel <ardb@kernel.org>, Geert Stappers <stappers@stappers.nl>, 
+ Andrew Lunn <andrew@lunn.ch>, Jamie Cunliffe <Jamie.Cunliffe@arm.com>, 
+ Sven Van Asbroeck <thesven73@gmail.com>
+Cc: rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Christian Schrefl <chrisi.schrefl@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1737672009; l=7124;
+ i=chrisi.schrefl@gmail.com; s=20250119; h=from:subject:message-id;
+ bh=V/W/svs/p7WIzfoHkEUJoBxM4iBLCH0hgMoeQV/nLq0=;
+ b=nhIktXdUhMTMuFdU4a6+ZC+2WOt389PL8u+sa9n9rI7AM3FVBZIfxJxvEY9hrmzTjFqfYS1Db
+ s+lHbwwtBLLBok+oWdRIIxShhi6vrMKJ63LH/LEk8lsKoYvqyu0DHQu
+X-Developer-Key: i=chrisi.schrefl@gmail.com; a=ed25519;
+ pk=EIyitYCrzxWlybrqoGqiL2jyvO7Vp9X40n0dQ6HE4oU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_143730_436235_544BA929 
-X-CRM114-Status: GOOD (  28.88  )
+X-CRM114-CacheID: sfid-20250123_144012_915882_3DE244D1 
+X-CRM114-Status: GOOD (  23.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,80 +117,177 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/23/25 16:59, David Lechner wrote:
-> On 1/23/25 10:24 AM, Sean Anderson wrote:
->> On 1/21/25 19:16, David Lechner wrote:
->>> On 1/16/25 5:21 PM, Sean Anderson wrote:
-> 
-> ...
-> 
->>> Could we make a single device connected to both buses like this work using
->>> the proposed spi-lower and spi-upper or should we consider a different binding
->>> like the one I suggested?
->> 
->> If you are willing to do the work to rewrite the SPI subsystem to handle
->> this, then I don't object to it in principle. Using a property would
->> also help with forwards compatibility. On the other hand, separate
->> busses are easier to implement since they integrate better with the SPI
->> subsystem (e.g. you can just call spi_register_controller to create all
->> the slaves).
->> 
->> There have been some previous patches from Xilinx to handle this
->> use case [1], but IMO they were pretty hacky. They got this feature
->> merged into U-Boot and it broke many other boards and took a lot of
->> cleanup to fix. So I have intentionally only tackled the unsynchronized
->> use case since that requires no modification to areas outside of this
->> driver. I don't need the "parallel" use case and I am not interested in
->> doing the work required to implement it.
->> 
->> --Sean
->> 
->> [1] https://lore.kernel.org/linux-spi/20221017121249.19061-1-amit.kumar-mahapatra@amd.com/
-> 
-> Fair enough, and I think it can be done without breaking things like the multi
-> CS support did.
-> 
-> Here are a couple of patches. Feel free to resubmit them with your series if
-> they work for you. To make it work with your series, you should just need to
-> modify the .dts to look like this:
-> 
-> +          flash@0 {
-> +            compatible = "jedec,spi-nor";
-> +            reg = <0>;
-> +            spi-buses = <0>; /* lower */
-> +          };
-> +
-> +          flash@1 {
-> +            reg = <1>;
-> +            compatible = "jedec,spi-nor";
-> +            /* also OK to omit property in case of spi-buses = <0>; */
-> +          };
-> +
-> +          flash@2 {
-> +            reg = <2>;
-> +            compatible = "jedec,spi-nor";
-> +            spi-buses = <1>; /* upper */
-> +          };
-> 
-> 
-> Then drop patch "spi: zynqmp-gqspi: Split the bus" of course.
-> 
-> In zynqmp_qspi_probe(), add a line:
-> 
-> 	ctlr->num_buses = 2;
-> 
-> And in the zynqmp_qspi_transfer_one() function, use spi->buses to select the
-> correct bus:
-> 
-> 	xqspi->genfifobus = FIELD_PREP(GQSPI_GENFIFO_BUS_MASK, spi->buses);
-> 
-> I don't have a SPI controller on hand with multiple buses, so I don't have
-> any patch adding support to a specific controller. But I did build and run this
-> and hacked in some stuff to the drivers I am working on to make sure it is
-> working as advertised as best as I could with a single bus.
+This commit allows building ARMv7 kernels with Rust support.
 
-Your patches LGTM. I will use them for v2. Mark do you have any comments on this
-approach?
+The rust core library expects some __eabi_... functions
+that are not implemented in the kernel.
+Those functions are some float operations and __aeabi_uldivmod.
+For now those are implemented with define_panicking_intrinsics!.
 
---Sean
+This is based on the code by Sven Van Asbroeck from the original
+rust branch and inspired by the AArch version by Jamie Cunliffe.
+
+I have tested the rust samples and a custom simple MMIO module
+on hardware (De1SoC FPGA + Arm A9 CPU).
+
+Tested-by: Rudraksha Gupta <guptarud@gmail.com>
+Reviewed-by: Alice Ryhl <aliceryhl@google.com>
+Acked-by: Miguel Ojeda <ojeda@kernel.org>
+Tested-by: Miguel Ojeda <ojeda@kernel.org>
+Acked-by: Ard Biesheuvel <ardb@kernel.org>
+Signed-off-by: Christian Schrefl <chrisi.schrefl@gmail.com>
+---
+I've updated my Rust ARMv7 patches. 
+Not much has changed since v2 but I want to send it out again
+before sending it to Russell's ARM patch tracker, since I should
+hopefully have more time to work on this again.
+
+I'm not sure how exactly the patch tracker works, I assume I
+should just sent it to the tracker once all review comments are 
+addressed and it has sat in the mailing list for some time? 
+
+I've kept the Tags from v2 since nothing signifficant has changed,
+I hope thats fine with everyone.
+---
+Changes in v3:
+- Rebased ontop of v6.13
+    Removing the rust/bindgen_parameters changes which are
+    already in 732cd686cdd6 (rust: fix `ARCH_SLAB_MINALIGN` multiple
+    definition error) 
+- Link to v2: https://lore.kernel.org/r/2dbd1491-149d-443c-9802-75786a6a3b73@gmail.com
+
+Changes in v2:
+- Removed unrelated whitespace change.
+- Added target name to panic message in scripts/generate_rust_target.rs.
+- Fixed the comment in rust/bindgen_parameters.
+- Link to v1: https://lore.kernel.org/r/4e0f5932-c7bc-4878-862c-1186cbecd71d@gmail.com
+---
+ Documentation/rust/arch-support.rst |  1 +
+ arch/arm/Kconfig                    |  1 +
+ arch/arm/Makefile                   |  1 +
+ rust/Makefile                       |  8 ++++++++
+ rust/compiler_builtins.rs           | 24 ++++++++++++++++++++++++
+ scripts/generate_rust_target.rs     |  4 +++-
+ 6 files changed, 38 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/rust/arch-support.rst b/Documentation/rust/arch-support.rst
+index 54be7ddf3e57a732dbbca85541b137c62e834d7d..6e6a515d08991a130a8e79dc4ad7ad09da244020 100644
+--- a/Documentation/rust/arch-support.rst
++++ b/Documentation/rust/arch-support.rst
+@@ -15,6 +15,7 @@ support corresponds to ``S`` values in the ``MAINTAINERS`` file.
+ =============  ================  ==============================================
+ Architecture   Level of support  Constraints
+ =============  ================  ==============================================
++``arm``        Maintained        ARMv7 Little Endian only.
+ ``arm64``      Maintained        Little Endian only.
+ ``loongarch``  Maintained        \-
+ ``riscv``      Maintained        ``riscv64`` and LLVM/Clang only.
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index 202397be76d8037b531b34dee16c7dfcfd0124ef..3375c91e698c024f95a85682f5a91d9815c355e5 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -130,6 +130,7 @@ config ARM
+ 	select MMU_GATHER_RCU_TABLE_FREE if SMP && ARM_LPAE
+ 	select HAVE_REGS_AND_STACK_ACCESS_API
+ 	select HAVE_RSEQ
++	select HAVE_RUST if CPU_LITTLE_ENDIAN && CPU_32v7
+ 	select HAVE_STACKPROTECTOR
+ 	select HAVE_SYSCALL_TRACEPOINTS
+ 	select HAVE_UID16
+diff --git a/arch/arm/Makefile b/arch/arm/Makefile
+index 00ca7886b18efe2d01f33bc079eda2483ec807a7..4808d3ed98e42d39afc676f2654381f288d1b5b7 100644
+--- a/arch/arm/Makefile
++++ b/arch/arm/Makefile
+@@ -150,6 +150,7 @@ endif
+ KBUILD_CPPFLAGS	+=$(cpp-y)
+ KBUILD_CFLAGS	+=$(CFLAGS_ABI) $(CFLAGS_ISA) $(arch-y) $(tune-y) $(call cc-option,-mshort-load-bytes,$(call cc-option,-malignment-traps,)) -msoft-float -Uarm
+ KBUILD_AFLAGS	+=$(CFLAGS_ABI) $(AFLAGS_ISA) -Wa,$(arch-y) $(tune-y) -include asm/unified.h -msoft-float
++KBUILD_RUSTFLAGS += --target=arm-unknown-linux-gnueabi
+ 
+ CHECKFLAGS	+= -D__arm__
+ 
+diff --git a/rust/Makefile b/rust/Makefile
+index a40a3936126d603836e0ec9b42a1285916b60e45..71932a088c860b9a129b9fe06811f67f5771b984 100644
+--- a/rust/Makefile
++++ b/rust/Makefile
+@@ -243,6 +243,7 @@ bindgen_skip_c_flags := -mno-fp-ret-in-387 -mpreferred-stack-boundary=% \
+ # Derived from `scripts/Makefile.clang`.
+ BINDGEN_TARGET_x86	:= x86_64-linux-gnu
+ BINDGEN_TARGET_arm64	:= aarch64-linux-gnu
++BINDGEN_TARGET_arm	:= arm-linux-gnueabi
+ BINDGEN_TARGET		:= $(BINDGEN_TARGET_$(SRCARCH))
+ 
+ # All warnings are inhibited since GCC builds are very experimental,
+@@ -394,6 +395,13 @@ redirect-intrinsics = \
+ 	__muloti4 __multi3 \
+ 	__udivmodti4 __udivti3 __umodti3
+ 
++ifdef CONFIG_ARM
++	# Add eabi initrinsics for ARM 32-bit
++	redirect-intrinsics += \
++		__aeabi_fadd __aeabi_fmul __aeabi_fcmpeq __aeabi_fcmple __aeabi_fcmplt __aeabi_fcmpun \
++		__aeabi_dadd __aeabi_dmul __aeabi_dcmple __aeabi_dcmplt __aeabi_dcmpun \
++		__aeabi_uldivmod
++endif
+ ifneq ($(or $(CONFIG_ARM64),$(and $(CONFIG_RISCV),$(CONFIG_64BIT))),)
+ 	# These intrinsics are defined for ARM64 and RISCV64
+ 	redirect-intrinsics += \
+diff --git a/rust/compiler_builtins.rs b/rust/compiler_builtins.rs
+index f14b8d7caf89964198313deace1bcb06fea82964..dd16c1dc899cbc755630ef3bae71e6eb0fd2c62a 100644
+--- a/rust/compiler_builtins.rs
++++ b/rust/compiler_builtins.rs
+@@ -73,5 +73,29 @@ pub extern "C" fn $ident() {
+     __umodti3,
+ });
+ 
++#[cfg(target_arch = "arm")]
++define_panicking_intrinsics!("`f32` should not be used", {
++    __aeabi_fadd,
++    __aeabi_fmul,
++    __aeabi_fcmpeq,
++    __aeabi_fcmple,
++    __aeabi_fcmplt,
++    __aeabi_fcmpun,
++});
++
++#[cfg(target_arch = "arm")]
++define_panicking_intrinsics!("`f64` should not be used", {
++    __aeabi_dadd,
++    __aeabi_dmul,
++    __aeabi_dcmple,
++    __aeabi_dcmplt,
++    __aeabi_dcmpun,
++});
++
++#[cfg(target_arch = "arm")]
++define_panicking_intrinsics!("`u64` division/modulo should not be used", {
++    __aeabi_uldivmod,
++});
++
+ // NOTE: if you are adding a new intrinsic here, you should also add it to
+ // `redirect-intrinsics` in `rust/Makefile`.
+diff --git a/scripts/generate_rust_target.rs b/scripts/generate_rust_target.rs
+index 0d00ac3723b5e5971acb47478d6c2a63bc4ed6c6..f8e7fb38bf160ab35c9331a732fcd2fe4023fead 100644
+--- a/scripts/generate_rust_target.rs
++++ b/scripts/generate_rust_target.rs
+@@ -172,7 +172,9 @@ fn main() {
+     let mut ts = TargetSpec::new();
+ 
+     // `llvm-target`s are taken from `scripts/Makefile.clang`.
+-    if cfg.has("ARM64") {
++    if cfg.has("ARM") {
++        panic!("arm uses the builtin rustc target");
++    } else if cfg.has("ARM64") {
+         panic!("arm64 uses the builtin rustc aarch64-unknown-none target");
+     } else if cfg.has("RISCV") {
+         if cfg.has("64BIT") {
+
+---
+base-commit: ffd294d346d185b70e28b1a28abe367bbfe53c04
+change-id: 20250123-rfl-arm32-f93334146367
+
+Best regards,
+-- 
+Christian Schrefl <chrisi.schrefl@gmail.com>
+
 
