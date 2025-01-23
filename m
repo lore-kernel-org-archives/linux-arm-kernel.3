@@ -4,82 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F221CC0218B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 13:07:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97DA7C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 13:26:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qiygrgYsO739skaoPESqIEGzSo4IJJ9SbsxwNuEpwL0=; b=tunfsJoTHtO2dYlnXfA5hWIH3X
-	2L2QHAZzp2fnXSyo5Cwqhpt7WFuIvq0JRD6+92KBDs6WhNf7dHHsCx0n1LyiF+8U2xGJFco3htqEx
-	gC5GSWW7C3cT2cHGLkBgmt9ldGezuEyGqPp6GrNR7dBXIgNIIBkynUD2se0fwNQxmS290YBuUVD6u
-	0v4dRZQKB4MZZsAs7k5xblua1oFvc6hFlVfGcz6XPX0SX94+LXgMS+TmiRMGSo67sNgSzhXjBaXNF
-	CwzQTwuEawPL5VG//GgiqNdBlCezGaew2CLh8S/e9DRpSDFGTB0UwtShswIStI2iYM2kCMLwfXG9D
-	62/AAoTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YDMBe9tkpgHPQpqtg06bZBRTKJ0SR8sQY/o1bRFp1/8=; b=r+WZxXZ826Adf4YuilyI0A1OQ1
+	gP1nM7r7Y2njMa+jyj6rbuY391t2vU1VHaTGXMxTaKLyMrWc3hB+VgU/mrnHnwxSoqF+TogzMoFRU
+	K8HDp4ExW4xv3U6pBT6pAwY2WFQblT28/7Fhm50+i2YmUUon2EZJmEJ0d2sZYD/epfri7S5i6R2BT
+	dqQ4GsZb9MX/8Y7ysH03+GSbYi1S+NzoGKLBssSC98cLlEym3Th/0a0Q70IwdbA+NBAUvCaur2Uaa
+	M7BHafBqo5857VGr7OlzYb1+OxJoVW8MmJOi2dKm6BmJrgNzZ/isZEUVFNEbXL3d2kIMrG0lwOxqN
+	V/ZUmCVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tawvk-0000000CUTW-3B60;
-	Thu, 23 Jan 2025 13:07:32 +0000
-Received: from mail-qt1-f170.google.com ([209.85.160.170])
+	id 1taxDh-0000000CVdh-0k0J;
+	Thu, 23 Jan 2025 13:26:05 +0000
+Received: from mail-bn8nam11on2060e.outbound.protection.outlook.com ([2a01:111:f403:2414::60e] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tawuS-0000000CUQZ-2WGq
+	id 1taxCO-0000000CVOp-0Lv8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 13:06:14 +0000
-Received: by mail-qt1-f170.google.com with SMTP id d75a77b69052e-4678cd314b6so8139811cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 05:06:11 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737637570; x=1738242370;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=qiygrgYsO739skaoPESqIEGzSo4IJJ9SbsxwNuEpwL0=;
-        b=WWHLqzboUTgU8zYkYM4yXtGMBQDB9lAKPzxOV9mzd1QGX4WtfLZNo5ieXfkbgzINi8
-         pDfNzDb5IIk/aHuYT08r/bQicK33STyfAmxmU1UpLMjWM9fJpMEsGGOKgfUdgvPNSJA5
-         JTEUIAZLaJzH2GTE/m9J/XucVJOqpXDxysHnn++thSAjoLVrEDQOVmBwCVX2bxqArniH
-         qEkWLTyPKg24r7OQZSk8UsqZVkjagUpVJJFzIqVuiQFzPKgbDsMrqESeHQAk0dX0HG8R
-         w9z8kI6p0WGHWm65zkDIQLO8NazTA32XVK9PW9zpMYEhX8SyjCTkJbRYTSkV4iZoEfSb
-         X14g==
-X-Forwarded-Encrypted: i=1; AJvYcCXqxBQNec1eRztvc0iMOaFm83/6yPPw+bVvUzQaDj1dWlwlMeiiZFQMXB2tHdSOxVI7ywVuZWaieUxpqlNb5erg@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0hBI6SdjzpDq/iVYV7zo4+59OulrlnKkTXZl1L63LlwVEgusu
-	3cek2zk0/2lFhz4EnFO/Qo4xGrbM0cLT3kOuIVVA5obtA2zTkPwCEUaITv/2
-X-Gm-Gg: ASbGnctnIOFFKXAlRTAuqkPdolzEr6iAf8eNCSBDzKZrOgc2e0Bp/R+hqJ5ERUI7ahB
-	xX9s/q1Y9yfJosWmrES8wb+wvOnZy6jhFyG+9fQGRuRJOXp6Uy8fE0/JSnFYCMXrO/syk08WcLk
-	3exWrJsqsVHJuerP1OY2OyUX3eT4lDVv2aieG1+/sU0DoO3KpaOcQCo8VipexjR/UjB7MasCJrS
-	fApRL+6aX2nl7mvK1hmA0RP1+y9hCH6IQwxvmlvg9rCtLfUhcP6sqixdkF+XA6+CSq+4b418g5q
-	Nh+Jeh1UaoiyCF6JomVcYO3u/uDL/N8y0JBAq5tWMBm2vfs=
-X-Google-Smtp-Source: AGHT+IG1NDGk48klJ6dA4LJvVJ/f8ecdvG0tUZ1Z3u8EgS6S+DHuG1kE9AwlHpDVxQ/S/pp5gHX4IQ==
-X-Received: by 2002:a05:622a:211:b0:466:b1fb:3028 with SMTP id d75a77b69052e-46e12ad56c6mr414633611cf.4.1737637569792;
-        Thu, 23 Jan 2025 05:06:09 -0800 (PST)
-Received: from mail-qt1-f176.google.com (mail-qt1-f176.google.com. [209.85.160.176])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-46e102ec205sm74239491cf.11.2025.01.23.05.06.09
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 23 Jan 2025 05:06:09 -0800 (PST)
-Received: by mail-qt1-f176.google.com with SMTP id d75a77b69052e-467a6781bc8so7406411cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 05:06:09 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXMtRE1ccb8Mfuc7o2mTzx958TReVHepw2Hd6hkgOUTRO0/5FNYG3M/wSu2f1B9I8db7Zl8IKLQ5tW1rhJ2nPdB@lists.infradead.org
-X-Received: by 2002:a05:622a:211:b0:466:b1fb:3028 with SMTP id
- d75a77b69052e-46e12ad56c6mr414633151cf.4.1737637569250; Thu, 23 Jan 2025
- 05:06:09 -0800 (PST)
+	Thu, 23 Jan 2025 13:24:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iActez7wJAjF+Lns+36u2wJHFgeSi4DrtAU5C1Otrux6kDKugHOqu9z2gzA9fmw5sYhwIbXnVgX+Fm1BK9hqPSjqk1CUT9rY3KpVq7gEj22Ljjrmcs2KI/REWEexhUEkrwF87qPVw+RpLK5kdS7vLvrSYTKiG2oQgkO5yW0wFNXnrKCedkDylzMDBAViDDmn7qWZFQfAduTmi0m7Nu20ivazBsUL9xaDH/tyRlllXpL/wR9CifGS+0EMohi+2MPdq4DJgFlIK2xdeRozyfdl5H+WuvSwopvz5hie1dOOscGA+4ZG29BmdrBlsF01jLS5+u/5UyWX4doEzRf5m4TXnA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YDMBe9tkpgHPQpqtg06bZBRTKJ0SR8sQY/o1bRFp1/8=;
+ b=qc3N1ir035tOf4WGUF3/KmqQMcL09+uwrpuxkJFbMwYjBQ8BXb9j3uyZTA7HuGz2cQMlKPvCJ3sSBaXh8lU1oKutERVhMg1O2Z9Ru+AQ5ivVPUDIAyIgIN6lJle73GrGV5G8Z84ATLd211UMjWdUrRiE5uXbE9EN5KW5QhJqCsaMZFsjdgGWHhTglkEAGwfJuGigAWSObEyK6JHo9TyG37EYFSH3gvKW/deJopRsTkrjkhi9aDVe5404DnGyit6Co8WocllRUcoCG5/sRmlepb1wxfYm4tY7HnNEefNCZ9V6QrSbkJzQRLRk3tvQhO7ZRrpMsGk9miWkZ9YEO8As5A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YDMBe9tkpgHPQpqtg06bZBRTKJ0SR8sQY/o1bRFp1/8=;
+ b=AYrOwRZoS/Zana73LzH8mE2N1sHZfJDKjbvbt6Ysc8SQ4Tvtik6ra2hGUqaCSjT1CZpWfrWKlj1iXSMLXHI6fujoF26Ao7/g6UHDqOSUw+dfxAjb1SuB8klmvf/G29CH94wnl1B2kWQ8SxFAcEn+YiPJdYk56cN5OWRU6POiAYEjrlUCUPjE2c6rYuPa97qPhZB3yeL9865Bys39pwHpzpPgi9R6myBAPKTZWlRNyxJZxX9v5OS0qbsVXgl9bsbLLU/AcJC2RJbjoP8olnR4s8WPQ/jWoUdXMc+9gnpjVzzWt2m3OP1eqWACMXbf5IJJWyfQFA1pZO0BzwfiT4oU7w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by PH0PR12MB5645.namprd12.prod.outlook.com (2603:10b6:510:140::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8377.17; Thu, 23 Jan
+ 2025 13:24:33 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%5]) with mapi id 15.20.8356.010; Thu, 23 Jan 2025
+ 13:24:33 +0000
+Date: Thu, 23 Jan 2025 09:24:32 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, "will@kernel.org" <will@kernel.org>,
+	"robin.murphy@arm.com" <robin.murphy@arm.com>,
+	"kevin.tian@intel.com" <kevin.tian@intel.com>,
+	"tglx@linutronix.de" <tglx@linutronix.de>,
+	"maz@kernel.org" <maz@kernel.org>,
+	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
+	"joro@8bytes.org" <joro@8bytes.org>,
+	"shuah@kernel.org" <shuah@kernel.org>,
+	"reinette.chatre@intel.com" <reinette.chatre@intel.com>,
+	"eric.auger@redhat.com" <eric.auger@redhat.com>,
+	"yebin (H)" <yebin10@huawei.com>,
+	"apatel@ventanamicro.com" <apatel@ventanamicro.com>,
+	"shivamurthy.shastri@linutronix.de" <shivamurthy.shastri@linutronix.de>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"anna-maria@linutronix.de" <anna-maria@linutronix.de>,
+	"yury.norov@gmail.com" <yury.norov@gmail.com>,
+	"nipun.gupta@amd.com" <nipun.gupta@amd.com>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
+	"patches@lists.linux.dev" <patches@lists.linux.dev>,
+	"jean-philippe@linaro.org" <jean-philippe@linaro.org>,
+	"mdf@kernel.org" <mdf@kernel.org>,
+	"mshavit@google.com" <mshavit@google.com>,
+	"smostafa@google.com" <smostafa@google.com>,
+	"ddutile@redhat.com" <ddutile@redhat.com>
+Subject: Re: [PATCH RFCv2 00/13] iommu: Add MSI mapping support with nested
+ SMMU
+Message-ID: <20250123132432.GJ5556@nvidia.com>
+References: <cover.1736550979.git.nicolinc@nvidia.com>
+ <4946ea266bdc4b1e8796dee1b228bd8f@huawei.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <4946ea266bdc4b1e8796dee1b228bd8f@huawei.com>
+X-ClientProxiedBy: BL1P223CA0018.NAMP223.PROD.OUTLOOK.COM
+ (2603:10b6:208:2c4::23) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-References: <20250116153204.615736-1-niklas.soderlund+renesas@ragnatech.se>
-In-Reply-To: <20250116153204.615736-1-niklas.soderlund+renesas@ragnatech.se>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 23 Jan 2025 14:05:57 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdVVZghXmA3MrmM+L=fta9Rf5tjGhrSzXFH693wKkaKBKg@mail.gmail.com>
-X-Gm-Features: AWEUYZkhnBAcJOrt0LZ4LxtesBsvqH4lZK5bBapycwiiMvp-1FtOceeF8qtL8Og
-Message-ID: <CAMuHMdVVZghXmA3MrmM+L=fta9Rf5tjGhrSzXFH693wKkaKBKg@mail.gmail.com>
-Subject: Re: [PATCH] ARM: shmobile: defconfig: Supplement DTB with ATAG information
-To: =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>
-Cc: Russell King <linux@armlinux.org.uk>, linux-renesas-soc@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|PH0PR12MB5645:EE_
+X-MS-Office365-Filtering-Correlation-Id: 62321417-5c24-4920-49d7-08dd3bb14627
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?3B4IAQxSizldW4TLwBtgVuBTcgVeGHjca31TTJrmEU/l3WbNAntfU/YH5ViL?=
+ =?us-ascii?Q?R/kXbGyZOQk8o2rliIF7/aLBBUNCS7fwu1sRAYQYpWHmfaX0xKK9HDkqehRO?=
+ =?us-ascii?Q?gOa/B9XimM+JL05X5tx7lX1jjy5mJSRmNHx8K5jFkb447VvCUFjhAnszj6XJ?=
+ =?us-ascii?Q?56lbcOR/6JWxf8sc61FSVni9jk4FG2/3MaLU+VEePObnVdFyNER1SHb/TjBO?=
+ =?us-ascii?Q?Py1bvi0RKzzwn9uNJ5pfr+DOZDSBSZClXYZBN4tmaM4wy0JoZDfurNXvYihY?=
+ =?us-ascii?Q?lYDIWaHRTqniWRZyqoFkKmgsUUE0TMXxyM+n1dF+n772O6uq6azTYg+nET2W?=
+ =?us-ascii?Q?FnKEKqTgVYK/0K/V/Jw2UVhGHPIFiGDIhINucQwSmbbD4JAcQBcAC/nOY3ST?=
+ =?us-ascii?Q?HoMJ3zzHv7dC7hrV00c2YTMKRU7GPP+cSr24lszFXszsmgPJFCiQbBxGVL3F?=
+ =?us-ascii?Q?XJ7l40S+I9fPQlzrUP8aPcssEHBg66dpwoK2sxbWL9yPfQovDjsqz0tvUA/C?=
+ =?us-ascii?Q?Q0uPvhFSF3Yel6+bM6rmkeLpmPCPxogttQjTm8KcNIBwpCxQKjkk1HXBjteh?=
+ =?us-ascii?Q?M3LCvWgFWbEb0qAV5sE4G4JIbpLoBVYPjImMWHCjQIvHRFnvxxOnEI4qZLDW?=
+ =?us-ascii?Q?RtYxSR9fF6f5+e6jEbCj6wOLUexWUxk72oK8jcWE4/QIEQ3PNa0Z366bmoUO?=
+ =?us-ascii?Q?1z8LzXdeGd7dps8Jv6uFRNjbfNf7Pysx9IuJDwvrHW6OGx+ZEuqZRbwTD5L8?=
+ =?us-ascii?Q?GC6AQ52lHT+U/mEHm2QE5FvAGjG6B3u+Z1884MmBNXtjrVkYX5endYpMMLY2?=
+ =?us-ascii?Q?rlAAwSQZTcdVm1C9PAjJQehKIKT9BLKPVzR7gg3/wHH2hY75ufqxj3mw3mqk?=
+ =?us-ascii?Q?xmsCXFvwi8Vahpk1zMn+zT2c8zI9GKV2eSkHfspmRIZYjtivAeXQiltKC4lo?=
+ =?us-ascii?Q?w0sdNERPumTr27Z6MTE8BQ5m86IJEt+43ygLTmxEaAN+BWAIacoLLWHtyqKP?=
+ =?us-ascii?Q?1Z8R32LeHrPh4N1+FyKYE5ZkY1x/Qy8SDQn9W/qIj3syvwOuER5nhnBDrdZw?=
+ =?us-ascii?Q?/Sna5DGv1S9MB3kiyFn1p5m7I3WulDg5f0Pmzdhzl47nrWlI9n6+hM+v11xO?=
+ =?us-ascii?Q?PeQbDIqecZfDOzq5AvL5oKlhMHCRtfjrREzaVEVwvN5uIwAOZKf6FF55rYPR?=
+ =?us-ascii?Q?JCXWa18LagcLTj0dfmTEZ3o5YrXNVjldrRca+MCG5IB+llshd88/f8k9hO1x?=
+ =?us-ascii?Q?0THPX/8BsyG5X5IjMs8s3m76cVN1aPWcuzjgVaaRLTOgX4dZp4D9u/1a6goT?=
+ =?us-ascii?Q?epbIUszRz0xNxcaHWq320KWqX5WyBmEwmGkgCxQKW+E+B7+BiS36PWY0kxRj?=
+ =?us-ascii?Q?Yjqv2xamRZa6MZpgAtby4lv/uq6z?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FVPshtQZqipgf4r2aqZkGPRESafjsjUSLsmm/Cmqif7Kl8Q1E3PbLta/lB1o?=
+ =?us-ascii?Q?fSDM6sanFCAMfy2FMyjjaUOmnOFt92tshum8K4yTN00uCdiSf6zoydaEbIPH?=
+ =?us-ascii?Q?kgfN+GIb9FVmH+k926BzcEHW2cIab0W0j8HDNVFf1yvS0Gj8H7hREnLf7yXS?=
+ =?us-ascii?Q?1ylvA7WBl4CQgMQELYNEPDOu0gYg08d/4DeMfhUpOUOc9m3EEA3NKLVhYhGA?=
+ =?us-ascii?Q?3N1RYX5UC1fBpLGn0Fz13YkK2Aj6UMWaa983iBvOU0RFBIbjKj5e3wC5R4Ab?=
+ =?us-ascii?Q?/9tIC+M5VcN4g2wjsPZP8RapSShz+S5OdXRrS3h9rBSiAsc+iOQPBorRiR99?=
+ =?us-ascii?Q?NXgETrFTcYdLYllMwsMS0/ptiJSDknLD52y5XoB0Rho/FL9Q+HJqD6Lnv2E8?=
+ =?us-ascii?Q?u3klXTVnEDlR0jNqkx3D76mUX4v2dGy5FjueMbCQg0favsk0gfXEZ8bfCd5K?=
+ =?us-ascii?Q?72wWh/VVz4TomClr7/7f25ElYYe3FLdrnXLKTdbiLo7mU0XqfSpqc2iQ5e25?=
+ =?us-ascii?Q?Wbi7xDPwcqatt7E4DTKfojY3M0UOBXXUarQKf5nSP0Khz4G6OAw8LcMDpF2R?=
+ =?us-ascii?Q?2WBlWhga3MFDIJXYHd4b8Ct/tv7Jgk7ScFgMdP5qr2nzehXNlsq+TUbHXA9i?=
+ =?us-ascii?Q?K7BplwdQgWZ/k3Na/tAapFBlgPksshcLgj5IK/JOUkFAHMWuJEmc+kmpk4z5?=
+ =?us-ascii?Q?EqYXPM0bLZGDluzfuhNAR7zXDAIX6v7CblrZCcCTRxxxUnDQ6xjCN11ekLWt?=
+ =?us-ascii?Q?op1fLM2oj4qnnXgEUILQ+Qd1IjUTrnxc032DCRnmyzm5Jb0EP7v9q3t42mgs?=
+ =?us-ascii?Q?Jmo32UVkeBGmLwwRQIkJqexB/ARCBl8dWGkooKxrNrY04woEhmidyTJjbEue?=
+ =?us-ascii?Q?gE4aSHSxYeukX6LFQzu64aHRDqbNG9Q5pJ5XFvFSJq1CIfx0HgFVRqUR9war?=
+ =?us-ascii?Q?zNi223g0gzENZ/raH10seXu8MgVi7fVGYxcwtUmGdcvr6KIjTWQ8/Gs+HEWt?=
+ =?us-ascii?Q?eo3SBfTGHgBD+fF7LjS8G+MlWFbmnHBcQrtP8VfZd2jsiBhbdwxtDeFUKVV6?=
+ =?us-ascii?Q?4xI8hZGYucYpcYV87aCD5figU7ZDDV7HcuPlvZOfIoXaeCLQt0xC5i5xyINf?=
+ =?us-ascii?Q?D2WywaGPb1A1NPW2+Am/lZJDfhoTnGLRDTOc0SsVmDBzw0F1Y5i3QzQFuyfW?=
+ =?us-ascii?Q?1reBfquttHdQMdi/g6LSQfEYhtCTQ39LqlNjndred8SdalmETZou2jvk00x4?=
+ =?us-ascii?Q?BkEaN3FooxL56V1EQ38KQ4ryTsV8gJpwMwX3+x0CX5mMkREoJhAvC/SIEKaz?=
+ =?us-ascii?Q?FjvW2tQHDOw7vKtE24AC0pyjJe0osM9cU1c82NhPntyZ1xqc5B8zT3d92k/w?=
+ =?us-ascii?Q?gKJQKwLgYDu4yvsPw1CU2jAtCTkY54X+9ZvRV1jmFurLyN3okh6slrSiNOyi?=
+ =?us-ascii?Q?IW8Ox2hUchNVa/NC8qVIo9Mv82UBoWrjCq9xFtIjPnXGFdxb3vq1XFx716SM?=
+ =?us-ascii?Q?GJYkLeek2b9tOIrommigh8DJaIOQIhQJiF89LLevJL8eDERIheBw9nfsvhFI?=
+ =?us-ascii?Q?ov1mOGHiZnOPnOmckyY=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 62321417-5c24-4920-49d7-08dd3bb14627
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jan 2025 13:24:33.0258
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: SNyv6b4d/+ZVW8SKTW0fhNogkxWAvWZ7Zr+sWh6oC4Sla2QHopI98PEG0/8rmdq/
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB5645
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_050612_640781_B6918398 
-X-CRM114-Status: GOOD (  17.23  )
+X-CRM114-CacheID: sfid-20250123_052444_124518_6F769A76 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,41 +183,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Niklas,
+On Thu, Jan 23, 2025 at 09:06:49AM +0000, Shameerali Kolothum Thodi wrote:
 
-Thanks for your patch!
+> One confusion I have about the above text is, do we still plan to support the
+> approach -1( Using RMR in Qemu)
 
-On Thu, Jan 16, 2025 at 4:33=E2=80=AFPM Niklas S=C3=B6derlund
-<niklas.soderlund+renesas@ragnatech.se> wrote:
-> Enable CONFIG_ARM_ATAG_DTB_COMPAT to allow u-boot to override kernel
-> command line from DTB using the bootargs argument. This is needed at
-> lest on H1 Marzen to control the command line from u-boot.
+Yes, it remains an option. The VMM would use the
+IOMMU_OPTION_SW_MSI_START/SIZE ioctls to tell the kernel where it
+wants to put the RMR region then it would send the RMR into the VM
+through ACPI.
 
-least
+The kernel side promises that the RMR region will have a consistent
+(but unpredictable!) layout of ITS pages (however many are required)
+within that RMR space, regardless of what devices/domain are attached.
 
->
-> Signed-off-by: Niklas S=C3=B6derlund <niklas.soderlund+renesas@ragnatech.=
-se>
+I would like to start with patches up to #10 for this part as it
+solves two of the three problems here.
 
-Thanks, this indeed makes shmobile_defconfig boot on my old Marzen.
-Unfortunately this change is not sufficient for my old Lager (I guess
-I should upgrade U-Boot instead ;-)
+> or you are just mentioning it here because
+> it is still possible to make use of that. I think from previous discussions the
+> argument was to adopt a more dedicated MSI pass-through model which I
+> think is  approach-2 here.  
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-Tested-by: Geert Uytterhoeven <geert+renesas@glider.be>
-i.e. will queue in renesas-devel for v6.15.
+The basic flow of the pass through model is shown in the last two
+patches, it is not fully complete but is testable. It assumes a single
+ITS page. The VM would use IOMMU_OPTION_SW_MSI_START/SIZE to put the
+ITS page at the correct S2 location and then describe it in the ACPI
+as an ITS page not a RMR.
 
-Gr{oetje,eeting}s,
+The VMM will capture the MSI writes and use
+VFIO_IRQ_SET_ACTION_PREPARE to convey the guests's S1 translation to
+the IRQ subsystem.
 
-                        Geert
+This missing peice is cleaning up the ITS mapping to allow for
+multiple ITS pages. I've imagined that kvm would someone give iommufd
+a FD that holds the specific ITS pages instead of the
+IOMMU_OPTION_SW_MSI_START/SIZE flow.
 
---=20
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
-
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
+Jason
 
