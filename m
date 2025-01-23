@@ -4,93 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E257C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 09:21:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7AE2C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 09:28:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oB4W4SH6htOtdlhb8GrE+2UJqq21f/9wPF0wA34Zojk=; b=0rUtYV4+61cnVYeSCqfD2gmSYs
-	+mXHQerrzWL7biNQ/AvA419V4FFoHpoVsIvoMaVxSKuzCcNReSUpPfT3dpO8doEmMKOCEMkz9HrGV
-	8jbchD1igHb46F3267vwLjcX3+xkFimZq9BCtnwMs3EXgAZb2EEXcQY+rvWHJ8oHNRJApP1aGRvMC
-	2E2/iC8QV68N/CflTp0kMW3AUwrQTFIrspPGwA1dxp01jKijb3z6jnNZhB4ckh1cNGJSLJSZDdrSU
-	xuzqKdzIsf0Ksv2NcBlK6oHiuidXG0d7+ClK0n3L6zX8BNXnrpr4Vos55LUDEZHW+vao8eZ7BsVSo
-	5qCEzy2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JWWAzItImoWGXYtJ3eWXsoeT9tJE5bcK6MiBbovl0yo=; b=1mWtLPcbogZkb+O72sS9/FWwBm
+	RrmiCmVdfP2LevlXBiqNfNPmawNjhKsyormwDvkNrkjwNallZLGh/UnDOj6Rm6XbohrUSDLHoFjNH
+	DrD+h7xpTxFPapuCsQ2svfYbcVfw6FAdaq7NhdIrtOg8+9LHqe6an5v9oMJzMd5OxzBPdyH3Zggnn
+	VMvDFj72jv3aPBSzahk8M15DYFdStntkwJ6uvqU6ow5lF7djzY8iPRotyK5fgYfiXmBQDPw3YHciZ
+	LFMcWZjnbY1UN43TWTRVhrR7eIZVVUMVYVl2UbwqxLSBTvRPfb+0su1jxHwRV0s5bFKHZc9aZRPHQ
+	slD6ElQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tatOV-0000000C5SI-1iKe;
-	Thu, 23 Jan 2025 09:20:59 +0000
-Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
+	id 1tatVX-0000000C5sx-1vO5;
+	Thu, 23 Jan 2025 09:28:15 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tatND-0000000C5Gp-30cf
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 09:19:41 +0000
-Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-30613802a04so6531951fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 01:19:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1737623978; x=1738228778; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=oB4W4SH6htOtdlhb8GrE+2UJqq21f/9wPF0wA34Zojk=;
-        b=sG86R61+3DGr99MCSC+n4WKz7wq1TIuPf2YsBeq1omZcCfDuYA5BmwHPAuWJrUOrEK
-         kwa1k+KLf70KikMKx3v3YyTxmIZRMOz7LGvigModxniT/NQNPaCx9FQGjYhVy832cdcx
-         +2LCECTfQ3QthP6DF1XgjXNmF+RwRS2/QABYQGY4Aw0Oy0t5IxZV7oqCy4g1LQjW0rzj
-         RrTUHhp7j5IfqcPeE2kYew3+7b4ygV+4beuAK+SPjJMfMqRcHkjTlmmRANHgZdOMBwKg
-         2SHibHTukPxbTs41Yqkmw3h/HOQmrn48DSqsfKdwAru02wIaQYZFXxx2K6iNd9H893++
-         vYsw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737623978; x=1738228778;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=oB4W4SH6htOtdlhb8GrE+2UJqq21f/9wPF0wA34Zojk=;
-        b=NHk4rd7HKXkxgGbHu20SSbrI91EN2xFboyiyTl08+LkItrPEI8dh8aUz9/oCULAZgE
-         qLzUZf4tLgg4VvKed6mk0g+nXQM0qeRyUmFOiG2+IsbRrG08QuhtNg3yu99x4ragz43+
-         LwmhZKEg53OrIH/31/TwqPU+qJKO+5tBkhTNYXbvoTUbmZ5EsIHY5XPsGKptYfBAoZX+
-         Zwis4ssCgExP+tP9lNNzhF9xdRjXpOvRoOu7U6PxmyJZqD+Lc9HpiPDESrLKpg0C1o1F
-         UXJq3aLn+Ws52Iy1P03lmPX2g2X6T+uwqT0HubwFf6qLH0NInwMOpUcT/GewL2qd80+A
-         faPg==
-X-Forwarded-Encrypted: i=1; AJvYcCXe4iQPzMNgWVdpR15oDqBVDR3u9GZ3fMfENA/A6jBMUfvujbbvsAMo89bMcWU1QCP1LvQK3jSmtMMqtw7wPQT2@lists.infradead.org
-X-Gm-Message-State: AOJu0YzgGIz3BLyE7w9eZSQ3MDf7Ik2qDO1gSCEQPrhdHfxvakvVjrxs
-	uLiJigDI6DMhyQhHGSj2KmVwYO/dxON2tZB3LB+osy4nrArct0DXdC48FoeF3S2w1hKmTdFBo/O
-	0GM19jmUGuP7vzIwrPJPLXLvBv3aoyVYUrHWTUQ==
-X-Gm-Gg: ASbGnctDTOUj/KNVaJSgZrTR5H0I4BqwjKLWVTnn02SszQibW+vQRYaNTrq2CH7bV4P
-	rvgHPGargmyukFUiZoVy9dbjEnfP4kDqxdI2iciE6QXrrhGWi1Eh+DUFc5y5RmL8RSRxhBcmIrF
-	qrTh1V4CbtggT6XioS+g==
-X-Google-Smtp-Source: AGHT+IGbSoxSTFInm4TCaCofKOLTJWRiuDcAw2dKFZSYyjUZBr9SIVV2X/zkpumKU3mLaYhF4wBklmHsUPwTqe2gouc=
-X-Received: by 2002:a2e:a373:0:b0:2fb:4abb:7001 with SMTP id
- 38308e7fff4ca-3072ca5c94dmr67603241fa.2.1737623977535; Thu, 23 Jan 2025
- 01:19:37 -0800 (PST)
+	id 1tatUE-0000000C5ja-1R5b;
+	Thu, 23 Jan 2025 09:26:55 +0000
+X-UUID: 2cadbd68d96c11ef82ff63e91e7eb18c-20250123
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=JWWAzItImoWGXYtJ3eWXsoeT9tJE5bcK6MiBbovl0yo=;
+	b=Q+1o6WiQRMWjQrGuftnUxvTbZDpBV40O64KrHLIq2HOy/tDSP1CLGdn6ZcF9RIcK8k32vY+oemxiJzHey3dz4/5dZaG4gJM9oGeFh5NhqKYj5YymUJzrOrPk4LHse6m1BiTvLcg6yMJE5RLugu+ZRItS0yaRnXvuURdI/Z+8v8I=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.46,REQID:148e94b0-0579-4a06-a3fb-e0ac23011d0a,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-5
+X-CID-META: VersionHash:60aa074,CLOUDID:10db943d-da39-4471-8a46-23da908abe46,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
+	l,URL:11|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
+	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
+X-UUID: 2cadbd68d96c11ef82ff63e91e7eb18c-20250123
+Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw01.mediatek.com
+	(envelope-from <andy-ld.lu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1923785544; Thu, 23 Jan 2025 02:26:50 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.28; Thu, 23 Jan 2025 17:26:47 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.28 via Frontend Transport; Thu, 23 Jan 2025 17:26:46 +0800
+From: Andy-ld Lu <andy-ld.lu@mediatek.com>
+To: <ulf.hansson@linaro.org>, <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>, <wenbin.mei@mediatek.com>
+CC: <linux-mmc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	Andy-ld Lu <andy-ld.lu@mediatek.com>
+Subject: [PATCH v2] mmc: mtk-sd: Fix register settings for hs400(es) mode
+Date: Thu, 23 Jan 2025 17:26:01 +0800
+Message-ID: <20250123092644.7359-1-andy-ld.lu@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-References: <20250113-b4-imx-gpio-base-warning-v1-0-0a28731a5cf6@pengutronix.de>
- <CAHp75Ve8d96Uw1obJVwRPyRE5E0eC8qU7uXe-UKuZeB-3XLPcA@mail.gmail.com>
- <528b6695-387e-436d-98fc-6f576636d16f@pengutronix.de> <CAMRc=MdYB_XHCaurs1mO+KGX7rB5zFT3zCi=UbNY0rSbMEJdWw@mail.gmail.com>
- <3f21523b-816e-488c-bf0a-c6677c375a18@pengutronix.de>
-In-Reply-To: <3f21523b-816e-488c-bf0a-c6677c375a18@pengutronix.de>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Thu, 23 Jan 2025 10:19:26 +0100
-X-Gm-Features: AbW1kvYo_Qrh_r7UXUMBdQ5UCw_ecPTbUqtFHQIGsKawdSRJFwErHJRVdlHKD1o
-Message-ID: <CAMRc=MewWr8nrUBgWe+ckTuVdmLC=grkw1aWeXnWszcaBZvZvQ@mail.gmail.com>
-Subject: Re: [PATCH 0/4] gpio: mxc: silence warning about GPIO base being
- statically allocated
-To: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Cc: Andy Shevchenko <andy.shevchenko@gmail.com>, Linus Walleij <linus.walleij@linaro.org>, 
-	Andy Whitcroft <apw@canonical.com>, Joe Perches <joe@perches.com>, 
-	Dwaipayan Ray <dwaipayanray1@gmail.com>, Lukas Bulwahn <lukas.bulwahn@gmail.com>, 
-	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>, Haibo Chen <haibo.chen@nxp.com>, 
-	Catalin Popescu <catalin.popescu@leica-geosystems.com>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_011940_019315_73D92276 
-X-CRM114-Status: GOOD (  22.50  )
+X-CRM114-CacheID: sfid-20250123_012654_387269_7E4EB5BB 
+X-CRM114-Status: GOOD (  16.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,53 +83,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 21, 2025 at 11:37=E2=80=AFAM Ahmad Fatoum <a.fatoum@pengutronix=
-.de> wrote:
->
-> Hello Bartosz,
->
-> On 15.01.25 17:52, Bartosz Golaszewski wrote:
-> >
-> > I recently wrote a user-space compatibility layer for sysfs[1]. While
-> > right now it doesn't support static base numbers, I'm very open to
-> > adding it except that I wasn't sure how to approach it.
-> >
-> > Is this of any use to you and could it help you switch to libgpiod
-> > without changing your user-space set-up (given the support for static
-> > GPIO numbering)?
->
-> If the goal is to have a drop-in replacement for sysfs outside
-> of the kernel, I think it needs to maintain the same numbering.
->
-> I am not sure I see myself using it, because the new projects are using
-> libgpiod from the get-go. My issue is not with removal of sysfs, but with
-> user hostile deprecation approaches.
->
-> > If so, how would you like to see this implemented? A
-> > config file at /etc that would list chip labels and their desired GPIO
-> > base?
->
-> Many GPIOs tend to not have labels. I think the mapping config file
-> should rather map GPIO controllers to a base address. The same thing the
-> kernel is currently doing. This assumes the numbering of the built-in
-> GPIO controllers is deterministic, e.g. by consulting /aliases. I haven't
-> checked, but I hope this is already the case.
+For hs400(es) mode, the 'hs400-ds-delay' is typically configured in the
+dts. However, some projects may only define 'mediatek,hs400-ds-dly3',
+which can lead to initialization failures in hs400es mode. CMD13 reported
+response crc error in the mmc_switch_status() just after switching to
+hs400es mode.
 
-Well, they will have labels, it's just that the label will be
-something like "6e80000.gpio" which can very well be mapped onto a
-predefined GPIO range.
+[    1.914038][   T82] mmc0: mmc_select_hs400es failed, error -84
+[    1.914954][   T82] mmc0: error -84 whilst initialising MMC card
 
-The file could look like:
+Currently, the hs400_ds_dly3 value is set within the tuning function. This
+means that the PAD_DS_DLY3 field is not configured before tuning process,
+which is the reason for the above-mentioned CMD13 response crc error.
 
-/etc/gpio-static-base.conf
+Move the PAD_DS_DLY3 field configuration into msdc_prepare_hs400_tuning(),
+and add a value check of hs400_ds_delay to prevent overwriting by zero when
+the 'hs400-ds-delay' is not set in the dts. In addition, since hs400(es)
+only tune the PAD_DS_DLY1, the PAD_DS_DLY2_SEL bit should be cleared to
+bypass it.
 
-```
-6e80000.gpio 12
-foobar 340
-```
+Fixes: c4ac38c6539b ("mmc: mtk-sd: Add HS400 online tuning support")
+Signed-off-by: Andy-ld Lu <andy-ld.lu@mediatek.com>
+---
+Changes in v2:
+- Change commit title from 'optimize' to 'Fix'
+- Add a Fixes tag
+- Change spaces back to tabs
 
-Where the first column is the label and the second the static base
-that must be less than 512 - ngpio.
+---
+ drivers/mmc/host/mtk-sd.c | 31 ++++++++++++++++++++-----------
+ 1 file changed, 20 insertions(+), 11 deletions(-)
 
-Bart
+diff --git a/drivers/mmc/host/mtk-sd.c b/drivers/mmc/host/mtk-sd.c
+index 4b6e91372526..345ea91629e0 100644
+--- a/drivers/mmc/host/mtk-sd.c
++++ b/drivers/mmc/host/mtk-sd.c
+@@ -273,6 +273,7 @@
+ #define MSDC_PAD_TUNE_CMD2_SEL	  BIT(21)   /* RW */
+ 
+ #define PAD_DS_TUNE_DLY_SEL       BIT(0)	  /* RW */
++#define PAD_DS_TUNE_DLY2_SEL      BIT(1)	  /* RW */
+ #define PAD_DS_TUNE_DLY1	  GENMASK(6, 2)   /* RW */
+ #define PAD_DS_TUNE_DLY2	  GENMASK(11, 7)  /* RW */
+ #define PAD_DS_TUNE_DLY3	  GENMASK(16, 12) /* RW */
+@@ -318,6 +319,7 @@
+ 
+ /* EMMC50_PAD_DS_TUNE mask */
+ #define PAD_DS_DLY_SEL		BIT(16)	/* RW */
++#define PAD_DS_DLY2_SEL		BIT(15)	/* RW */
+ #define PAD_DS_DLY1		GENMASK(14, 10)	/* RW */
+ #define PAD_DS_DLY3		GENMASK(4, 0)	/* RW */
+ 
+@@ -2504,13 +2506,23 @@ static int msdc_execute_tuning(struct mmc_host *mmc, u32 opcode)
+ static int msdc_prepare_hs400_tuning(struct mmc_host *mmc, struct mmc_ios *ios)
+ {
+ 	struct msdc_host *host = mmc_priv(mmc);
++
+ 	host->hs400_mode = true;
+ 
+-	if (host->top_base)
+-		writel(host->hs400_ds_delay,
+-		       host->top_base + EMMC50_PAD_DS_TUNE);
+-	else
+-		writel(host->hs400_ds_delay, host->base + PAD_DS_TUNE);
++	if (host->top_base) {
++		if (host->hs400_ds_dly3)
++			sdr_set_field(host->top_base + EMMC50_PAD_DS_TUNE,
++				      PAD_DS_DLY3, host->hs400_ds_dly3);
++		if (host->hs400_ds_delay)
++			writel(host->hs400_ds_delay,
++			       host->top_base + EMMC50_PAD_DS_TUNE);
++	} else {
++		if (host->hs400_ds_dly3)
++			sdr_set_field(host->base + PAD_DS_TUNE,
++				      PAD_DS_TUNE_DLY3, host->hs400_ds_dly3);
++		if (host->hs400_ds_delay)
++			writel(host->hs400_ds_delay, host->base + PAD_DS_TUNE);
++	}
+ 	/* hs400 mode must set it to 0 */
+ 	sdr_clr_bits(host->base + MSDC_PATCH_BIT2, MSDC_PATCH_BIT2_CFGCRCSTS);
+ 	/* to improve read performance, set outstanding to 2 */
+@@ -2530,14 +2542,11 @@ static int msdc_execute_hs400_tuning(struct mmc_host *mmc, struct mmc_card *card
+ 	if (host->top_base) {
+ 		sdr_set_bits(host->top_base + EMMC50_PAD_DS_TUNE,
+ 			     PAD_DS_DLY_SEL);
+-		if (host->hs400_ds_dly3)
+-			sdr_set_field(host->top_base + EMMC50_PAD_DS_TUNE,
+-				      PAD_DS_DLY3, host->hs400_ds_dly3);
++		sdr_clr_bits(host->top_base + EMMC50_PAD_DS_TUNE,
++			     PAD_DS_DLY2_SEL);
+ 	} else {
+ 		sdr_set_bits(host->base + PAD_DS_TUNE, PAD_DS_TUNE_DLY_SEL);
+-		if (host->hs400_ds_dly3)
+-			sdr_set_field(host->base + PAD_DS_TUNE,
+-				      PAD_DS_TUNE_DLY3, host->hs400_ds_dly3);
++		sdr_clr_bits(host->base + PAD_DS_TUNE, PAD_DS_TUNE_DLY2_SEL);
+ 	}
+ 
+ 	host->hs400_tuning = true;
+-- 
+2.46.0
+
 
