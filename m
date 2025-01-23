@@ -4,74 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF920C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 19:52:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8417C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 19:53:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wZxQGSUfQfwUHj5oyRYvQeOgS2I9ObjtSjRqQOUlky4=; b=ruPHTxKxFmjo2usMjk4go13GqM
-	3R1vc/LyyRXYYys9HH00JRxzlGA+y+wpM5+R6YMkKFGQ+Hlm7dNmvSCDisN9wIS4zJMcvOdJNrR/k
-	cL5GRgSocRdS3/nCkC2MDTg04VeAENFL3fvX3PuImclQELcjMHlXSG/T6nAsey1wOa3P9Gb1itXTN
-	UGAdXFWSmkmYWTbw+V4uyVXXC7oS8pwuYS9WHkcB5ShSCod2gtm8UkqE0xiwk1nXJx54s2hs3Se5V
-	0tNqLZunUOWLy9hziTsaLbAjwj3aPcclNYNJ2HeBmhBRLOgsx3cvmc2y9BxI82przkLc2nSJMgRPe
-	ey07rcCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2VCOEQAK19ULSsk2vqSc2GTpqBfe0PtJgwMdKQhESkg=; b=fcjm/H5Ye3pzo5fN9C/t97OXDY
+	GJAM7yYHBsC7P84d41VW5CMAtiCWovVCy1RIyEQp0Dcz3jdgds9H0J8J4BvzyMJsnhcisKepU9BLi
+	v9aW/sPJKJw3LVQhzz3Gry68pw6LkFl5E2V2ay3Wr35xS9PrVjLrov56M4DUSO9iSsUIiODyA1BgA
+	F3BP52PBZGvAwmvFQnl45TGhbRK6jnHQGq1euUs8mP+bkhFBPhe08c14L1EBxf8+S6AiC2iq14Hkt
+	hmdYwM49KQrrOv240pebmAWX9BKBMgKpL7+/54jGflEZ6QjUEYrlyT1lnev3Ijh46cp2Sn3fmcd3/
+	0QRfq2rQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb3FC-0000000DAyZ-3aN0;
-	Thu, 23 Jan 2025 19:52:02 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb3CG-0000000DAU3-4C4J
+	id 1tb3GS-0000000DB80-28CI;
+	Thu, 23 Jan 2025 19:53:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tb3CN-0000000DAVV-3PfK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 19:49:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C9671A4117C
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 19:47:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CABF2C4CEE5
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 19:48:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737661739;
-	bh=b4vDZnBnRJMAExr0E30kjS5qChTkUb0rbppiv1HRSJI=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=EqFILXrfuR2ZIidhuGa5elmndxPWGARZ4+4SUQ2LogGGqSbmkEFngJj3ERNUU5Axy
-	 YYUlQPgrWtS8Bo+FycDGiEFlKSSOw1QJSLV1SkcYzR3JUh5wJOsWKDKhy+f9dHUYrm
-	 7pLUtWpNp2N+2Y0sK8B4CyIWN9Oj9mVmr/pc6wO0nOggRziN+6xsno0t+ylDSmez+f
-	 hHOhgGyHUHGaLZIo95ILsDiPy3DdHTK6ShflF5RwVdt51e0wRjNvkhkge2MoFni6GY
-	 d+OtMIPxV+S9hN6vnPi6I9YS/z47Wg42UQk9TAYDVlKrPFiHJYy97CE2ilrI6E2Cfo
-	 Fe1T5Gag59atw==
-Received: by mail-oi1-f182.google.com with SMTP id 5614622812f47-3eb9101419cso812016b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 11:48:59 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUseSE7dWIh0eOuoDe0KyEr1BzALFeoSJzNG+JscB5vSVpIJGIlZc8suIda+nYlhXixEjMTzQVtSpB2SoJgVIMz@lists.infradead.org
-X-Gm-Message-State: AOJu0YyoxoUF5xEehDzUPAcC+sP04hLBqqnupTz8JjOLbimxJM/vhTJO
-	nLno6N7Nh7QE/XGlFx5MByC51fY4caZ8idwCzpVkWVlHUjrg/lLkN3U1hjWhvu5brQJcN2bMAGG
-	rzhw/qfxk4TIVC8wCtssHNrV300c=
-X-Google-Smtp-Source: AGHT+IEn7eMjaHs+zmgjFd4WWVQahCuGuBBNarJzdEYSnQbw32rD83EbOPgQ6J9LSZlnM3ccjdpcf7atXcTLmBuPCOI=
-X-Received: by 2002:a05:6808:4c88:b0:3ea:f791:3caf with SMTP id
- 5614622812f47-3f19fc2ac4fmr14986057b6e.17.1737661739096; Thu, 23 Jan 2025
- 11:48:59 -0800 (PST)
+	Thu, 23 Jan 2025 19:49:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1786A1063;
+	Thu, 23 Jan 2025 11:49:32 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4AE1B3F5A1;
+	Thu, 23 Jan 2025 11:49:02 -0800 (PST)
+Date: Thu, 23 Jan 2025 19:48:53 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: jack21 <jackhuang021@gmail.com>, sudeep.holla@arm.com,
+	cristian.marussi@arm.com, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Huangjie <huangjie1663@phytium.com.cn>
+Subject: Re: [PATCH] dirvers: scmi: poll again when transfer reach timeout
+Message-ID: <Z5KdJa0QOIYIIRv4@pluto>
+References: <20250123083323.2363749-1-jackhuang021@gmail.com>
+ <f0fbc4cf-21ae-4332-8842-73f0467d16ff@stanley.mountain>
 MIME-Version: 1.0
-References: <236b227e929e5adc04d1e9e7af6845a46c8e9432.1737525916.git.viresh.kumar@linaro.org>
-In-Reply-To: <236b227e929e5adc04d1e9e7af6845a46c8e9432.1737525916.git.viresh.kumar@linaro.org>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Thu, 23 Jan 2025 20:48:48 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0gz2WLtwJca5oAgZ23C+UmX18k9fvCbzRAEV6zZL4jiiQ@mail.gmail.com>
-X-Gm-Features: AWEUYZkHJTFNwFesQmZCHaWO-zzZKYYgHYBBgsz-SFLTIOGI_LaSzdS3jIxf3XU
-Message-ID: <CAJZ5v0gz2WLtwJca5oAgZ23C+UmX18k9fvCbzRAEV6zZL4jiiQ@mail.gmail.com>
-Subject: Re: [PATCH V2] cpufreq: s3c64xx: Fix compilation warning
-To: Viresh Kumar <viresh.kumar@linaro.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, linux-pm@vger.kernel.org, 
-	Vincent Guittot <vincent.guittot@linaro.org>, kernel test robot <lkp@intel.com>, stable@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <f0fbc4cf-21ae-4332-8842-73f0467d16ff@stanley.mountain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_114901_166786_CEB94C8A 
-X-CRM114-Status: GOOD (  20.35  )
+X-CRM114-CacheID: sfid-20250123_114907_945270_653DEC69 
+X-CRM114-Status: GOOD (  23.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,86 +65,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 22, 2025 at 7:06=E2=80=AFAM Viresh Kumar <viresh.kumar@linaro.o=
-rg> wrote:
->
-> The driver generates following warning when regulator support isn't
-> enabled in the kernel. Fix it.
->
->    drivers/cpufreq/s3c64xx-cpufreq.c: In function 's3c64xx_cpufreq_set_ta=
-rget':
-> >> drivers/cpufreq/s3c64xx-cpufreq.c:55:22: warning: variable 'old_freq' =
-set but not used [-Wunused-but-set-variable]
->       55 |         unsigned int old_freq, new_freq;
->          |                      ^~~~~~~~
-> >> drivers/cpufreq/s3c64xx-cpufreq.c:54:30: warning: variable 'dvfs' set =
-but not used [-Wunused-but-set-variable]
->       54 |         struct s3c64xx_dvfs *dvfs;
->          |                              ^~~~
->
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202501191803.CtfT7b2o-lkp@i=
-ntel.com/
-> Cc: <stable@vger.kernel.org> # v5.4+
-> Signed-off-by: Viresh Kumar <viresh.kumar@linaro.org>
-> ---
-> V2: Move s3c64xx_dvfs_table too inside ifdef.
+On Thu, Jan 23, 2025 at 01:38:30PM +0300, Dan Carpenter wrote:
+> s/dirvers/drivers/
+> 
+> On Thu, Jan 23, 2025 at 04:33:24PM +0800, jack21 wrote:
+> > From: Huangjie <huangjie1663@phytium.com.cn>
+> > 
+> > spin_until_cond() not really hold a spin lock, possible timeout may occur
+> > in preemption kernel when preempted after spin_until_cond().
+> > 
+> > We check status again when reach timeout is reached to prevent incorrect
+> > jugement of timeout.
+> > 
 
-Applied as 6.14-rc material.
+Hi,
 
-If you'd rather apply it yourself, please let me know and I'll drop it.
+probably another not so short email of mine :P ... 
 
-Thanks!
+> 
+> I suspect the real issue is that we exit the spin loop when
+> try_wait_for_completion(&xfer->done) is true.  Probably we should add
+> that as a Fixes tag?:
+> 
 
->  drivers/cpufreq/s3c64xx-cpufreq.c | 11 +++++++----
->  1 file changed, 7 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/cpufreq/s3c64xx-cpufreq.c b/drivers/cpufreq/s3c64xx-=
-cpufreq.c
-> index c6bdfc308e99..9cef71528076 100644
-> --- a/drivers/cpufreq/s3c64xx-cpufreq.c
-> +++ b/drivers/cpufreq/s3c64xx-cpufreq.c
-> @@ -24,6 +24,7 @@ struct s3c64xx_dvfs {
->         unsigned int vddarm_max;
->  };
->
-> +#ifdef CONFIG_REGULATOR
->  static struct s3c64xx_dvfs s3c64xx_dvfs_table[] =3D {
->         [0] =3D { 1000000, 1150000 },
->         [1] =3D { 1050000, 1150000 },
-> @@ -31,6 +32,7 @@ static struct s3c64xx_dvfs s3c64xx_dvfs_table[] =3D {
->         [3] =3D { 1200000, 1350000 },
->         [4] =3D { 1300000, 1350000 },
->  };
-> +#endif
->
->  static struct cpufreq_frequency_table s3c64xx_freq_table[] =3D {
->         { 0, 0,  66000 },
-> @@ -51,15 +53,16 @@ static struct cpufreq_frequency_table s3c64xx_freq_ta=
-ble[] =3D {
->  static int s3c64xx_cpufreq_set_target(struct cpufreq_policy *policy,
->                                       unsigned int index)
->  {
-> -       struct s3c64xx_dvfs *dvfs;
-> -       unsigned int old_freq, new_freq;
-> +       unsigned int new_freq =3D s3c64xx_freq_table[index].frequency;
->         int ret;
->
-> +#ifdef CONFIG_REGULATOR
-> +       struct s3c64xx_dvfs *dvfs;
-> +       unsigned int old_freq;
-> +
->         old_freq =3D clk_get_rate(policy->clk) / 1000;
-> -       new_freq =3D s3c64xx_freq_table[index].frequency;
->         dvfs =3D &s3c64xx_dvfs_table[s3c64xx_freq_table[index].driver_dat=
-a];
->
-> -#ifdef CONFIG_REGULATOR
->         if (vddarm && new_freq > old_freq) {
->                 ret =3D regulator_set_voltage(vddarm,
->                                             dvfs->vddarm_min,
-> --
-> 2.31.1.272.g89b43f80a514
->
->
+The Kernel SCMI stack, acting as an SCMI agent have to cope with the
+possible (even though rare) scenario of receiving Out of Order messages
+when dealing with async commands...
+
+...IOW, what to do if, after having issued an AsycnCmd, the Delayed response
+is received BEFORE the corresponding immediate reply to the initial request:
+such a wicked (and rare) situation could be the result of a misbehaving
+platform server OR simply due to parallellization of activies on the A2P
+and P2A on some transports, i.e. platform sent reply and delayed_response
+in the correct order but the transport delivered those OoO, being
+transmitted on 2 discinct physical  channels...hard but not impossible.
+
+Kernel side we address this OoO scenario by assuming that, if a valid
+Delayed Response to a in-flight Async-cmd is received on teh P2A chan,
+before the immediate A2P reply, the transaction itself is good and we
+can progress by just logging and ignoring/swallowing the missing
+immediate-reply, that will probably arrive later, and just carry on
+processing the Delayed Response.
+
+In order to do that, we maintain, in fact, a per-message state-machine,
+and inside scmi_msg_response_validate(), when we detect the OoO condition,
+we cause the wait-for-immediate-reply to terminate by issuing forcibly a
+complete(xfer->done)....
+
+...this works straight away for the non-polled IRQ transactions since
+causes the wait_for_completion() to terminate cleanly, BUT in order to
+cut-short also the busy-wait in the polling case we need that additional
+try_wait_for_completion()....so as not to spin forever for a message
+that we dont care anymore...
+[ note that any late arriving immediate-reply will be in teh future
+ discarded at this point]
+
+For this reason, I think that this patch, while correctly checking the
+poll_done() condition when the spinloop terminates for the reason
+explained in the commit-message, it should also check if the loop was not
+instead forcibly terminated by the OoO scenario...if not, we will end up
+considering the polling to have timeout, while instead it was forcibly
+terminated by the OoO state machine complete() and just want to ignore
+such missing message...
+
+So what about instead of checking (untested):
+
++	if (!completion_done(&xfer->done) &&
++	    !info->desc->ops->poll_done(cinfo, xfer))
+
+... so that we determine that the polling has timed out only when:
+
+- the immediate-reply has NOT been received [!poll_done()]
+
+ AND
+
+- we were NOT forcibly make to ignore the missing reply in an OoO scenario
+    [!completion_done]
+
+NOTE THAT xfer->done on the polling path is ONLY completed in case of OoO.
+
+> Fixes: ed7c04c1fea3 ("firmware: arm_scmi: Handle concurrent and out-of-order messages")
+> 
+> Btw, the scmi_xfer_done_no_timeout() has a confusing name, because it
+> does timeout.  Was the "_no" an accident?
+> 
+
+Agreed. Not sure of the history of the bad naming...
+
+Thans,
+Cristian
 
