@@ -4,89 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 460E4C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 18:11:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B669C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 18:14:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nyKfEZgI2q04ubHRnQeM6mRxNH8f7N8tmMhgcpNLYwE=; b=ueDtlBLEEIuy7vE0ghrmJKZb31
-	nbkFpRQOpML83vYaVDlpX4DcqqkC+zJ/qp9gXuc95w9nVLOXo4/9BAdHgA8ccbb+Z5F5xERksYs+E
-	9RXIH93/4PttxtxvTqaVuoUYdBapTx23gFVfM+gWzo2ybn4MK0s9LK8RKpM4DLkEMwDYcqxjz2FdC
-	P19yEByvaB9GIWez2QYVE1jGy3qdxYQJHGmodr9mHLm0UyIQo+t4BzTSpVWUs6HGT9IjkxGRALyAn
-	s2lU1M78eBAYGbtk+/LPNKBGM0NKI2lsKw49hA6GIcAOYSV5y7oyJFRpVGuNwfSxcWlqUkWw0ogOk
-	5uhA025A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PVyuLEE3dAAoVcq+yTIoaeUsgJELIviXx5aQ5heZ0CU=; b=SgEGQP1QGxr+8JY2s7tatx72PH
+	Iy0REPj35rALBj9YVyI2WFzrn3/W8JG8Xxi9zNJ35q6v2speoltqLfMTutwMzUtBWULSvoWtBpX23
+	oNckLWxFEzTLKuNQS9bMmYFCUTsgDo3gW61M9sh3HyYm9Wwjn8BLPlcyKMwBjLsq1HYDQlf34WUJ8
+	T8f6iGKJ77T1Is8muPJjGMw20QInv+lDt4t+y7zOREdEIYLywEcnB5u22Dzm3ELnuPMitEaeU6+V3
+	5m9IR+0SC/YuMqGARqBzJnNlTh9RfH9Iq0cyEBQcZ9zyV+P3lqDeIdAu6oW7H2qG28sCg0ayTRXZd
+	GTdXt0Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb1fW-0000000D0hI-33XX;
-	Thu, 23 Jan 2025 18:11:06 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1tb1iU-0000000D0ri-1zL0;
+	Thu, 23 Jan 2025 18:14:10 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb1eD-0000000D0e2-3uX0
+	id 1tb1h0-0000000D0md-05IB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 18:09:47 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-2ef7733a1dcso284271a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 10:09:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737655785; x=1738260585; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nyKfEZgI2q04ubHRnQeM6mRxNH8f7N8tmMhgcpNLYwE=;
-        b=Z6mw5O3xr2DiE6q3L++bKFIkQMV//eRJHlWWjKAThNv+U/RekQ7yHJoDe3/m97ppbS
-         CGsfXOHdV7KZEp+i03EdR7r+BlmTOVtckeqQuUc4EI7oDAKzSbLgRPtToLqzJTIYBsfy
-         YJ9D9hjvyDJ1cdZVE1Db1lDFQhK0a7ShJHYR2IFhMiE4dsQzjdKv4eE2i1zBPPF9G40Q
-         mRbBqF5A2CAy1hnBogjbxRL3c4ast0kpklopwp9wLoWfcB9xJaH9WMVUn/FyoFRB6rQ4
-         uAPZdcE8DYWeKDcDY1EzTqaXCqh2HK66rq1qXCW+ksDnXgEjGSS1xstrAACgFH8HqFX8
-         M0Ug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737655785; x=1738260585;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=nyKfEZgI2q04ubHRnQeM6mRxNH8f7N8tmMhgcpNLYwE=;
-        b=To3zpYi0J/ErugvX51rN1aCfWDb4YCFx37OZwrJXb4JHOB8qYgKBWVPDjGdaoQ86VY
-         Vj/QEoFoDsP05Hoej7P6xsSI1lAt5ggU4adtXqKP2I7Da4Ov8s9GveHCnUA3aGzBTDpp
-         xqjhCqw7M2iHNfj99m2MFLuujcoFoZH0OpMh1rDxn0swMyrkAdl2KhDtGF5nenPiBn9S
-         /9NznMWtnkY1OYyvAwIfUUXn1hNoNtTuvdnu4O0V17CCOO9v7DFERBsZWXDOdDmFR1sD
-         J5i97n3YPOOpEfuOIPV1JL3z39voBwPZfSp7mTrzUGVC/hU1wvFj9NxezpFgBrI4Wsx0
-         8dqA==
-X-Forwarded-Encrypted: i=1; AJvYcCXRK/JscNYYvkTjKePJGn7QfmLmzg+0osayVtE/l3TAB4yn/kWkrhq1A3Y+VrWC9KyzNSIArbztkxzCFpr6sBae@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHaFl9eitciQzNG2fRpVNjccbWz6HoQUJedvw/jjGGDX8t91ob
-	5cOdxVZj0DYvBXEy9oOFZczSRXNb2H76Rj4oN6LjfwFUyrK8RhWuT4Y0fCIU+rukpCX42LuvOVe
-	Cb2e3MYGZVd8YUQzk+y2J9xaNQ90=
-X-Gm-Gg: ASbGncsj2nKKp1wpyjk6GqWI3Bhsz6xGmaglNGQbPMTZ+LXMyRl60pKazdLxBQOjqnY
-	FYDZa+4JKYGWeHoKq9bgUraZWqfxESW5R70R4THQZP64swViIczMg0qmF2pn9oQ==
-X-Google-Smtp-Source: AGHT+IEEH3PHsFVxMvB++p2z2cLrzhfGijMDaM+Tji/bw29FKBGdgLy//H/LRds0MsXyeSdRL2jN0EV6I288KPRLGZ0=
-X-Received: by 2002:a05:6a00:850:b0:725:d9b6:3938 with SMTP id
- d2e1a72fcca58-72dafb71a44mr14883468b3a.3.1737655784773; Thu, 23 Jan 2025
- 10:09:44 -0800 (PST)
+	Thu, 23 Jan 2025 18:12:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1737655955;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=PVyuLEE3dAAoVcq+yTIoaeUsgJELIviXx5aQ5heZ0CU=;
+	b=Q0ClfGCEvkDgVkaXccad7oF2uRAvIpt2stkqQ5G8softAYJUmdlnUIaGkZlyeeJvu/s3nR
+	24ysLSFUSLSpaD++Bcl5Txj/ZMO5VHaUD/Jb/mbtcb3HLrw7316QAPLKuN2UFvMODY9M/b
+	zor7iHIinBDSLyagHOhQ0AAiE/1ckQ4=
+Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-90-PklM3NXRNFmEc7eVHGFc4A-1; Thu,
+ 23 Jan 2025 13:12:32 -0500
+X-MC-Unique: PklM3NXRNFmEc7eVHGFc4A-1
+X-Mimecast-MFC-AGG-ID: PklM3NXRNFmEc7eVHGFc4A
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 62F881955DC6;
+	Thu, 23 Jan 2025 18:12:30 +0000 (UTC)
+Received: from thinkpad-p1.localdomain.com (unknown [10.22.90.108])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 9E96930001BE;
+	Thu, 23 Jan 2025 18:12:28 +0000 (UTC)
+From: Radu Rendec <rrendec@redhat.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Rob Herring <robh@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Borislav Petkov <bp@alien8.de>
+Subject: [PATCH] arm64: cacheinfo: Avoid out-of-bounds write to cacheinfo array
+Date: Thu, 23 Jan 2025 13:11:59 -0500
+Message-ID: <20250123181159.1849346-1-rrendec@redhat.com>
 MIME-Version: 1.0
-References: <20250122-msm-gpu-fault-fixes-next-v3-0-0afa00158521@gmail.com>
- <20250122-msm-gpu-fault-fixes-next-v3-1-0afa00158521@gmail.com>
- <Z5IjsqQ6vTdUXiGt@hu-guptap-hyd.qualcomm.com> <b593ac5e-cb29-473a-af1b-214168968679@arm.com>
- <Z5J9wpooIH5/Ccrt@hu-guptap-hyd.qualcomm.com>
-In-Reply-To: <Z5J9wpooIH5/Ccrt@hu-guptap-hyd.qualcomm.com>
-From: Connor Abbott <cwabbott0@gmail.com>
-Date: Thu, 23 Jan 2025 13:09:33 -0500
-X-Gm-Features: AbW1kvYGAg-AyeJwPcNQQ2QOH2zEJ2YL7TOxF-zPnlJpiWV2i8GmCg2Npquk7J4
-Message-ID: <CACu1E7EUQxWxGB_OY+CifUufYZzaomn8nMYrmRvfrr5Oqx5XSw@mail.gmail.com>
-Subject: Re: [PATCH v3 1/3] iommu/arm-smmu: Fix spurious interrupts with stall-on-fault
-To: Prakash Gupta <quic_guptap@quicinc.com>
-Cc: Robin Murphy <robin.murphy@arm.com>, Rob Clark <robdclark@gmail.com>, 
-	Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, Sean Paul <sean@poorly.run>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Abhinav Kumar <quic_abhinavk@quicinc.com>, 
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
-	Marijn Suijten <marijn.suijten@somainline.org>, iommu@lists.linux.dev, 
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	freedreno@lists.freedesktop.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: bKFAr0czMj3yOUMoBpgc4dFKB91PQ1UgPIrIuYWWQRs_1737655951
+X-Mimecast-Originator: redhat.com
+Content-Transfer-Encoding: 8bit
+content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_100945_972047_8C673FE2 
-X-CRM114-Status: GOOD (  42.78  )
+X-CRM114-CacheID: sfid-20250123_101238_133973_71D9F0B3 
+X-CRM114-Status: GOOD (  20.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,135 +86,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 23, 2025 at 12:35=E2=80=AFPM Prakash Gupta <quic_guptap@quicinc=
-.com> wrote:
->
-> On Thu, Jan 23, 2025 at 11:51:27AM +0000, Robin Murphy wrote:
-> > On 2025-01-23 11:10 am, Prakash Gupta wrote:
-> > > On Wed, Jan 22, 2025 at 03:00:58PM -0500, Connor Abbott wrote:
-> > > > + /*
-> > > > +  * The SMMUv2 architecture specification says that if stall-on-fa=
-ult is
-> > > > +  * enabled the correct sequence is to write to SMMU_CBn_FSR to cl=
-ear
-> > > > +  * the fault and then write to SMMU_CBn_RESUME. Clear the interru=
-pt
-> > > > +  * first before running the user's fault handler to make sure we =
-follow
-> > > > +  * this sequence. It should be ok if there is another fault in th=
-e
-> > > > +  * meantime because we have already read the fault info.
-> > > > +  */
-> > > The context would remain stalled till we write to CBn_RESUME. Which i=
-s done
-> > > in qcom_adreno_smmu_resume_translation(). For a stalled context furth=
-er
-> > > transactions are not processed and we shouldn't see further faults an=
-d
-> > > or fault inerrupts. Do you observe faults with stalled context?
-> >
-> > This aspect isn't exclusive to stalled contexts though - even for "norm=
-al"
-> > terminated faults, clearing the FSR as soon as we've sampled all the
-> > associated fault registers is no bad thing, since if a second fault doe=
-s
-> > occur while we're still reporting the first, we're then more likely to =
-get a
-> > full syndrome rather than just the FSR.MULTI bit.
-> >
-> ARM SMMUv2 spec recommends, in case of reported fault sw should first
-> correct the condition which casued the fault, I would interpret this as
-> reporting fault to client using callback, and then write CBn_FSR and
-> CBn_RESUME in this order. Even in case of reported fault where context is
-> not stalled, the first step, IMO, I see no reason why should be any
-> different.  I agree that delaying fault clearance can result in FSR.MULTI
-> being set, but clearning fault before  prevent clients to use SCTLR.HUPCF
-> on subsequent transactions while they take any debug action. The client
-> should be reported fault in the same state it occured. Please refer
-> qcom_smmu_context_fault() for this sequence.
+The (percpu) cacheinfo array is allocated based on the number of cache
+leaves that is determined by fetch_cache_info(). When the device tree or
+the ACPI tables provide information about the cache, that information is
+used to determine the number of leaves. However, for arm64 systems, the
+cacheinfo array is filled later in populate_cache_leaves() based on the
+information from the CLIDR_EL1 register. If this information happens to
+be inconsistent with the device tree or ACPI tables, and if the number
+of cache leaves exposed by CLIDR_EL1 is larger than the pre-determined
+number, populate_cache_leaves() happily writes past the allocated struct
+cacheinfo array.
 
-It's not possible to implement it the way the spec describes because
-correcting the condition which caused the fault cannot always be done
-in the client's callback. Sometimes it has to be deferred to a handler
-not in IRQ context. However we must clear FSR (except for the SS bit)
-before leaving the fault handler because while the transaction is
-pending we want to be able to distinguish between a subsequent fault
-in another context bank (only FSR.SS will be set and we can ignore and
-return IRQ_NONE) and this context bank if they share an interrupt
-line. So, moving this up generally doesn't hurt and fixes the case
-where the client does resume the transaction inside its handler. I
-don't think there's really another way to implement this.
+An example is the Renesas R-Car S4 Spider board, where the cache
+information is described in arch/arm64/boot/dts/renesas/r8a779f0.dtsi.
+The CPU nodes contain no explicit info (other than `next-level-cache`),
+so of_count_cache_leaves() defaults to 2. The next cache level has an
+explicit `cache-level` property equal to 3 and `cache-unified`, so at
+the first iteration in init_of_cache_level(), the level is bumped to 3
+(from 1) and the leaves count is incremented to 3. So, it ends up with
+a total of 3 levels and 3 leaves. Essentially, the device tree describes
+a split L1 cache, no L2 cache and a unified L3 cache, and that's
+consistent with the technical reference manual. However, according to
+CLIDR_EL1, the unified cache is at L2, and there is no L3. So, the code
+in populate_cache_leaves() populates the 3 leaves for L1 and L2, but it
+also examines L3 (for which it finds CACHE_TYPE_NOCACHE) and attempts to
+populate a 4th leaf, which hasn't been allocated.
 
-And I have no idea why you think this prevents clients from using
-HUPCF, we already use HUPCF in drm/msm and it works fine with this
-series.
+This is easily observed on boot if KASAN is enabled:
+8<----------------------------------------------------------------------
+BUG: KASAN: slab-out-of-bounds in populate_cache_leaves+0x314/0x388
+Write of size 4 at addr ffff0004402e16c4 by task swapper/0/1
 
->
-> > > > + arm_smmu_cb_write(smmu, idx, ARM_SMMU_CB_FSR, cfi.fsr);
-> > > > +
-> > > >           ret =3D report_iommu_fault(&smmu_domain->domain, NULL, cf=
-i.iova,
-> > > >                   cfi.fsynr & ARM_SMMU_CB_FSYNR0_WNR ? IOMMU_FAULT_=
-WRITE : IOMMU_FAULT_READ);
-> > > >           if (ret =3D=3D -ENOSYS && __ratelimit(&rs))
-> > > >                   arm_smmu_print_context_fault_info(smmu, idx, &cfi=
-);
-> > > > - arm_smmu_cb_write(smmu, idx, ARM_SMMU_CB_FSR, cfi.fsr);
-> > > >           return IRQ_HANDLED;
-> > > >   }
-> > > > diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.h b/drivers/iommu/=
-arm/arm-smmu/arm-smmu.h
-> > > > index 2dbf3243b5ad2db01e17fb26c26c838942a491be..789c64ff3eb9944c8af=
-37426e005241a8288da20 100644
-> > > > --- a/drivers/iommu/arm/arm-smmu/arm-smmu.h
-> > > > +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.h
-> > > > @@ -216,7 +216,6 @@ enum arm_smmu_cbar_type {
-> > > >                                            ARM_SMMU_CB_FSR_TLBLKF)
-> > > >   #define ARM_SMMU_CB_FSR_FAULT           (ARM_SMMU_CB_FSR_MULTI | =
-       \
-> > > > -                                  ARM_SMMU_CB_FSR_SS |           \
-> > > Given writing to FSR.SS doesn't clear this bit but write to CBn_RESUM=
-E
-> > > does, this seems right. This but can be taken as separate patch.
-> >
-> > This change on its own isn't really useful - all that would achieve is =
-that
-> > instead of constantly re-reporting the FSR.SS "fault", the interrupt go=
-es
-> > unhandled and the IRQ core ends up disabling it permanently. If anythin=
-g
-> > that's arguably worse, since the storm of context fault reports does at
-> > least give a fairly clear indication of what's gone wrong, rather than
-> > having to deduce the cause of an "irq n: nobody cared" message entirely=
- by
-> > code inspection.
-> >
-> Does spec allow or do we see reported fault with just FSR.SS bit.
+CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.13.0-rc6+ #14
+Hardware name: Renesas Spider CPU and Breakout boards based on r8a779f0 (DT)
+Call trace:
+ show_stack+0x34/0x98 (C)
+ dump_stack_lvl+0x7c/0xa0
+ print_address_description.constprop.0+0x90/0x320
+ print_report+0x108/0x1f0
+ kasan_report+0xb4/0x100
+ __asan_report_store4_noabort+0x20/0x30
+ populate_cache_leaves+0x314/0x388
+ detect_cache_attributes+0x2f0/0x440
+ update_siblings_masks+0x30/0x5b0
+ store_cpu_topology+0x154/0x1d8
+ smp_prepare_cpus+0x34/0x180
+ kernel_init_freeable+0x338/0x480
+ kernel_init+0x28/0x170
+ ret_from_fork+0x10/0x20
 
-Yes, the spec allows it and we do see it in practice. After this patch
-we may still see it in the case where multiple context banks share an
-interrupt and the other bank faults, but the correct action is to
-ignore it because we've disabled CFIE for this bank already. This is
-why this hunk has to be in this patch.
+Allocated by task 1:
+ kasan_save_stack+0x2c/0x58
+ kasan_save_track+0x20/0x40
+ kasan_save_alloc_info+0x40/0x60
+ __kasan_kmalloc+0xd4/0xd8
+ __kmalloc_noprof+0x190/0x4b0
+ allocate_cache_info+0x90/0x188
+ fetch_cache_info+0x320/0x408
+ init_cpu_topology+0x318/0x398
+ smp_prepare_cpus+0x28/0x180
+ kernel_init_freeable+0x338/0x480
+ kernel_init+0x28/0x170
+ ret_from_fork+0x10/0x20
+8<----------------------------------------------------------------------
 
-> If answer
-> is no then Keeping FSR_SS would be misleading. Here ARM_SMMU_CB_FSR_FAULT
-> is used to clear fault bits or check valid faults. Also validity of this
-> is not based on rest of the change.
->
-> Thanks,
-> Prakash
->
-> > >
-> > > >                                            ARM_SMMU_CB_FSR_UUT |   =
-       \
-> > > >                                            ARM_SMMU_CB_FSR_EF |    =
-       \
-> > > >                                            ARM_SMMU_CB_FSR_PF |    =
-       \
-> > > >
-> > > > --
-> > > > 2.47.1
-> > > >
-> >
+The loop that detects/populates cache information already has a bounds
+check on the array size but does not account for cache levels with
+separate data/instructions cache. Fix this by incrementing the index
+for any populated leaf (instead of any populated level).
+
+Fixes: 5d425c186537 ("arm64: kernel: add support for cpu cache information")
+
+Signed-off-by: Radu Rendec <rrendec@redhat.com>
+---
+ arch/arm64/kernel/cacheinfo.c | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
+
+diff --git a/arch/arm64/kernel/cacheinfo.c b/arch/arm64/kernel/cacheinfo.c
+index d9c9218fa1fdd..77ffda7284754 100644
+--- a/arch/arm64/kernel/cacheinfo.c
++++ b/arch/arm64/kernel/cacheinfo.c
+@@ -101,16 +101,18 @@ int populate_cache_leaves(unsigned int cpu)
+ 	unsigned int level, idx;
+ 	enum cache_type type;
+ 	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
+-	struct cacheinfo *this_leaf = this_cpu_ci->info_list;
++	struct cacheinfo *infos = this_cpu_ci->info_list;
+ 
+ 	for (idx = 0, level = 1; level <= this_cpu_ci->num_levels &&
+-	     idx < this_cpu_ci->num_leaves; idx++, level++) {
++	     idx < this_cpu_ci->num_leaves; level++) {
+ 		type = get_cache_type(level);
+ 		if (type == CACHE_TYPE_SEPARATE) {
+-			ci_leaf_init(this_leaf++, CACHE_TYPE_DATA, level);
+-			ci_leaf_init(this_leaf++, CACHE_TYPE_INST, level);
++			if (idx + 2 > this_cpu_ci->num_leaves)
++				break;
++			ci_leaf_init(&infos[idx++], CACHE_TYPE_DATA, level);
++			ci_leaf_init(&infos[idx++], CACHE_TYPE_INST, level);
+ 		} else {
+-			ci_leaf_init(this_leaf++, type, level);
++			ci_leaf_init(&infos[idx++], type, level);
+ 		}
+ 	}
+ 	return 0;
+-- 
+2.47.1
+
 
