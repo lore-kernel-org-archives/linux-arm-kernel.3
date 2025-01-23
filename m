@@ -4,110 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D457CC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 18:39:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A19CC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jan 2025 18:48:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HUTQU5mANTyBEG4HhBxkrJ4GgQfZfqNMqaiW7sVkm1k=; b=U21/JNYKNCOF2+51x+HCMFxt3n
-	m4yHTFxBeNBWVOsx9yx5LaJrIgBbZEWrPRgrrQLV2QStjftA4miGVTtD1ZMREc70+f3RDGF8Wp0Bu
-	Qvx2vJ67H/rPfuDJJCEuC0QN2O2LrZSyC4oPtZJYHJuz2fFsiV5khxjgtLRDio2cUQ0uLGye6RC9K
-	1N1eXqhk90NeXKhjzqXeSgleP483RMtjpmLYj9Mci0soobdzRP+GUdZnc4adABQQZa7ohzZ2eNO0U
-	BQVOWDm+fX0F3zU/AT+SR6LKT6ZQUHs3K0rnn04zxNhgxqalO3Tgkj9y8VblWDUa+FgCIeR109VwF
-	CCaoZvuQ==;
+	bh=DczCpxNaKSvjeM3R5dTVcQppZp7elZJyeOuBB/Vqoqk=; b=qlADevoaJdRtUHEBdyz+Mekbnz
+	cLD782r62SS1wrrHkx/X+plupoS1eWnFpYle57l2Kfp9tyuB82rOpMcRs/iYm+jCHVMrUgPzPMftA
+	HhBoNnoL1Gav9BAYcIQ9PYv9wWREVqnmeIaJqGfufOZLXbVzNCGswofMzt7F4RlxwCbSk+NSemk2t
+	GJ5X3JdqXgduTeCUMh6vj0Mb5uTf+vOf2PdDwzhyG64CJByTE6SOd+pSNNfRLskA42hGvgdwMBaay
+	u2JJCGRx1ZvotNVWeUpXcnag521xXlPvSbYXjQ5nD7hjDkZXvhbMNqpavIWzFPcrDg/i8E82+GVN7
+	rta2TEcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb26x-0000000D33l-0rpr;
-	Thu, 23 Jan 2025 18:39:27 +0000
-Received: from fhigh-a1-smtp.messagingengine.com ([103.168.172.152])
+	id 1tb2FA-0000000D47k-1Wjk;
+	Thu, 23 Jan 2025 18:47:56 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb25d-0000000D2y5-3aOV
+	id 1tb2Dr-0000000D43A-3CmN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jan 2025 18:38:08 +0000
-Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 1DE1311400E4;
-	Thu, 23 Jan 2025 13:38:02 -0500 (EST)
-Received: from phl-mailfrontend-02 ([10.202.2.163])
-  by phl-compute-05.internal (MEProxy); Thu, 23 Jan 2025 13:38:02 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1737657482;
-	 x=1737743882; bh=HUTQU5mANTyBEG4HhBxkrJ4GgQfZfqNMqaiW7sVkm1k=; b=
-	CBiEy5d3UTihLhWnJjuBWRwHpR/Dk2iPz0iSoA+TzGfFPM3r5nmGxARE0uKDHtHX
-	kHVOT9WA0HBGpLspKKdnjXvI0bmT+geVrnoupfN43cjOtD2JfPVw/eCjeYzkku2N
-	ptHWa5wO4Ri5B+HOFIzeoGd4hI2Trd7VPejZ+l291/v3p+8B0h0dcCQPZkKjUkh6
-	6oCWkflXBGCVDbzdIggtLU33QSeVZaByCaw+k1wjUjrYtpUeb2V7D3YDgJHxi4UN
-	QLgigUOo15lyFWO8Q6e1k/Afh67wFct0UWzx04lnQPx01BVCpPhIrI1Fq1QrHfWz
-	2MBy24ZmonrktVjJw0Edlw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1737657482; x=
-	1737743882; bh=HUTQU5mANTyBEG4HhBxkrJ4GgQfZfqNMqaiW7sVkm1k=; b=T
-	BuyCnXaPbJ+ihVzqXJCKkw0pIy0van2BQ8/ZpHb14AAISbQeoI2u4TYVtVPcBSak
-	cZbNEieND78hT+L9XEJQLx0PiPcTAW9stf5oi7kcTcdHQeGOkLXGycryYyFepN0w
-	z07w6j2WQ/UQFDEbM+0e4oiNHai7QalYLif7mbpqQxdbtm1Cn2MrsSBpFe23KiwI
-	Dc/S1mXXg0wwYv3dmFl16jXiDn7XBiDb6ZcvHHtBwyf6yH8QJYjWrDfKL9rves1c
-	nb2SocoR0OG8diTlnkS5KztpPumcvU4cv1BvAL5RpEV779ZmmlzU/yN5UTyxYQD+
-	dRP1Wp2MwZfbOIgtpqFrQ==
-X-ME-Sender: <xms:iYySZ5D0lPHX7aBXvy-IZC6BxTLTUzltVa9aFUtUP2hlojwCvseAXA>
-    <xme:iYySZ3id20xWO_OtTtqVk7qDznq2lKaVjLjF_NFTWZvogCE85pWAiK0kI8pNdQC29
-    Z0xdvXdSoFPr7NnhUc>
-X-ME-Received: <xmr:iYySZ0k0_DorKIWWpHfjtKr19UKf8MXHFDnHSMDbCWZqes2Zz1hPF0hMqDbqfSid-YoD4pKVjWFE-jLseQh6bo8rh937ugH8TQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrudejgedgvdegtdcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfhfgggtugfgjgesthekredttddt
-    jeenucfhrhhomheppfhikhhlrghsucfunpguvghrlhhunhguuceonhhikhhlrghsrdhsoh
-    guvghrlhhunhguodhrvghnvghsrghssehrrghgnhgrthgvtghhrdhsvgeqnecuggftrfgr
-    thhtvghrnhepffekgfdukeeghffhjeetvdeitdegteeikeffieduhfegveetjeevtdffvd
-    ekffdtnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigv
-    pedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehnihhklhgrshdrshhouggvrhhluhhnug
-    dorhgvnhgvshgrshesrhgrghhnrghtvggthhdrshgvpdhnsggprhgtphhtthhopeekpdhm
-    ohguvgepshhmthhpohhuthdprhgtphhtthhopehgvggvrhhtodhrvghnvghsrghssehglh
-    hiuggvrhdrsggvpdhrtghpthhtohepmhgrghhnuhhsrdgurghmmhesghhmrghilhdrtgho
-    mhdprhgtphhtthhopehmrghrvghkrdhvrghsuhhtodhrvghnvghsrghssehmrghilhgsoh
-    igrdhorhhgpdhrtghpthhtohephihoshhhihhhihhrohdrshhhihhmohgurgdruhhhsehr
-    vghnvghsrghsrdgtohhmpdhrtghpthhtohepkhhunhhinhhorhhirdhmohhrihhmohhtoh
-    drghigsehrvghnvghsrghsrdgtohhmpdhrtghpthhtoheplhhinhhugidqrhgvnhgvshgr
-    shdqshhotgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqd
-    grrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphht
-    thhopeguvghvihgtvghtrhgvvgesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:iYySZzxFi3qHyMCkvIsoQ9xo6_gSlxw1FfV6GriyUltz-TdG_vg2gw>
-    <xmx:iYySZ-QmFGXAQJ8l1cgexfCYfX5bS-is-_i7zxZfC9aEpmqNuRrUWw>
-    <xmx:iYySZ2YDnDcnmNwLreDovbAHnUK10nctBztCHv0h-0pCpAuI8F1oyA>
-    <xmx:iYySZ_SnIOF4ZQJRHNIDJmpwV3m24SCPgM0IGFaugdWi40umI7J6kg>
-    <xmx:ioySZxHBNDunnY1VhaXuhYz2XGIGXMqyCsIAOupQcacWbPFKdFyTIoHl>
-Feedback-ID: i80c9496c:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 23 Jan 2025 13:38:00 -0500 (EST)
-Date: Thu, 23 Jan 2025 19:37:58 +0100
-From: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Magnus Damm <magnus.damm@gmail.com>,
-	Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	linux-renesas-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: renesas: r8a779f0: Disable rswitch ports by
- default
-Message-ID: <20250123183758.GK3436806@ragnatech.se>
-References: <c4688de8e3289ad82c2cd85f0893eac660ac8890.1737649969.git.geert+renesas@glider.be>
+	Thu, 23 Jan 2025 18:46:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 25A2B5C5A86;
+	Thu, 23 Jan 2025 18:45:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5ED4DC4CED3;
+	Thu, 23 Jan 2025 18:46:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737657993;
+	bh=xRs52lnDW+3EPY7W1diAkuIowIIBS5h+ZR8ZnRYlmzw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KcsoVOsYhlA3/ktn1A28fZL/qamOfSb69vNnRHZ+Coo/Dyd1ghedXYE9e7P5KTQBv
+	 6l+StJwvpCLUY1SXLif+6kXE8Xl3Dx1sQrUM54AhbIVrIdcp1bO2jTrTSdbaF/G0SX
+	 gA7HVvE2W/1WIPVBs7FPUtuRp9rGHrZm1acQaDeNvcwaqzsE89NOm4fotvusPNtUOB
+	 8tnW9GHA3+n6fuXfIR6JtkSgBZmyv7KOPS1N29/0k5GS9HPb68Vgu+LAswGZVLamGs
+	 2UZZu7k+soKHtupNJN2ML6a+31dkrTpplwEOplV1m2glK3C24TwdAbzVMc1X7jizCE
+	 fOYbvYaX3TdEw==
+Date: Thu, 23 Jan 2025 18:46:28 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Charan Pedumuru <charan.pedumuru@microchip.com>
+Subject: Re: [PATCH v2] dt-bindings: dma: convert atmel-dma.txt to YAML
+Message-ID: <20250123-crucial-yelp-de4a63b0e3b5@spud>
+References: <20250123-dma-v1-1-054f1a77e733@microchip.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="USuX8QMl72gqtfih"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <c4688de8e3289ad82c2cd85f0893eac660ac8890.1737649969.git.geert+renesas@glider.be>
+In-Reply-To: <20250123-dma-v1-1-054f1a77e733@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_103806_613568_9F0B3260 
-X-CRM114-Status: GOOD (  18.33  )
+X-CRM114-CacheID: sfid-20250123_104635_892159_8FBBE06A 
+X-CRM114-Status: GOOD (  20.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,130 +67,101 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Alexandre Belloni <alexandre.belloni@bootlin.com>, Vinod Koul <vkoul@kernel.org>, Ludovic Desroches <ludovic.desroches@microchip.com>, Durai Manickam KR <durai.manickamkr@microchip.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, dmaengine@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Geert,
 
-Thanks for your work.
+--USuX8QMl72gqtfih
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On 2025-01-23 17:37:10 +0100, Geert Uytterhoeven wrote:
-> The Renesas Ethernet Switch has three independent ports.  Each port can
-> act as a separate interface, and can be enabled or disabled
-> independently.  Currently all ports are enabled by default, hence board
-> DTS files that enable the switch must disable all unused ports
-> explicitly.
-> 
-> Disable all ports by default, and explicitly enable ports that are used,
-> next to their configuration.
-> 
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+On Thu, Jan 23, 2025 at 02:58:01PM +0530, Charan Pedumuru wrote:
+> From: Durai Manickam KR <durai.manickamkr@microchip.com>
+>=20
+> Add a description, required properties, appropriate compatibles and
+> missing properties like clocks and clock-names which are not defined in
+> the text binding for all the SoCs that are supported by microchip.
+>=20
+> Signed-off-by: Durai Manickam KR <durai.manickamkr@microchip.com>
+> Signed-off-by: Charan Pedumuru <charan.pedumuru@microchip.com>
 > ---
-> This is similar to how Ethernet switch ports are handled on RZ/N1D, and
-> CAN-FD channels on R-Car Gen3/4.
-> 
-> If accepted, I'm wondering if I should move it forward, before "[PATCH
-> 3/5] arm64: dts: renesas: s4sk: Access rswitch ports via phandles"[1],
-> which would become slightly simpler.
-
-I let you and Marek figure that out, for the content of this patch.
-
-Reviewed-by: Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
-
-> 
-> [1] https://lore.kernel.org/all/20250118111344.361617-3-marek.vasut+renesas@mailbox.org
+> Changes in v2:
+> - Renamed the yaml file to a compatible.
+> - Removed `|` and description for common properties.
+> - Modified the commit message.
+> - Dropped the label for the node in examples.
+> - Link to v1: https://lore.kernel.org/all/20240215-dmac-v1-1-8f1c6f031c98=
+@microchip.com
 > ---
->  arch/arm64/boot/dts/renesas/r8a779f0-spider-ethernet.dtsi | 3 +++
->  arch/arm64/boot/dts/renesas/r8a779f0.dtsi                 | 3 +++
->  arch/arm64/boot/dts/renesas/r8a779f4-s4sk.dts             | 6 ++----
->  3 files changed, 8 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/renesas/r8a779f0-spider-ethernet.dtsi b/arch/arm64/boot/dts/renesas/r8a779f0-spider-ethernet.dtsi
-> index 892729786d00b36e..ad2b0398d35431a1 100644
-> --- a/arch/arm64/boot/dts/renesas/r8a779f0-spider-ethernet.dtsi
-> +++ b/arch/arm64/boot/dts/renesas/r8a779f0-spider-ethernet.dtsi
-> @@ -57,6 +57,7 @@ &rswitch_port0 {
->  	phy-handle = <&u101>;
->  	phy-mode = "sgmii";
->  	phys = <&eth_serdes 0>;
-> +	status = "okay";
->  
->  	mdio {
->  		#address-cells = <1>;
-> @@ -75,6 +76,7 @@ &rswitch_port1 {
->  	phy-handle = <&u201>;
->  	phy-mode = "sgmii";
->  	phys = <&eth_serdes 1>;
-> +	status = "okay";
->  
->  	mdio {
->  		#address-cells = <1>;
-> @@ -93,6 +95,7 @@ &rswitch_port2 {
->  	phy-handle = <&u301>;
->  	phy-mode = "sgmii";
->  	phys = <&eth_serdes 2>;
-> +	status = "okay";
->  
->  	mdio {
->  		#address-cells = <1>;
-> diff --git a/arch/arm64/boot/dts/renesas/r8a779f0.dtsi b/arch/arm64/boot/dts/renesas/r8a779f0.dtsi
-> index 840ba73c03f1b6f4..06be9f7720d64179 100644
-> --- a/arch/arm64/boot/dts/renesas/r8a779f0.dtsi
-> +++ b/arch/arm64/boot/dts/renesas/r8a779f0.dtsi
-> @@ -989,14 +989,17 @@ ethernet-ports {
->  				rswitch_port0: port@0 {
->  					reg = <0>;
->  					phys = <&eth_serdes 0>;
-> +					status = "disabled";
->  				};
->  				rswitch_port1: port@1 {
->  					reg = <1>;
->  					phys = <&eth_serdes 1>;
-> +					status = "disabled";
->  				};
->  				rswitch_port2: port@2 {
->  					reg = <2>;
->  					phys = <&eth_serdes 2>;
-> +					status = "disabled";
->  				};
->  			};
->  		};
-> diff --git a/arch/arm64/boot/dts/renesas/r8a779f4-s4sk.dts b/arch/arm64/boot/dts/renesas/r8a779f4-s4sk.dts
-> index 24ecdf6e8476a945..df652e7b85c95ebe 100644
-> --- a/arch/arm64/boot/dts/renesas/r8a779f4-s4sk.dts
-> +++ b/arch/arm64/boot/dts/renesas/r8a779f4-s4sk.dts
-> @@ -187,6 +187,7 @@ &rswitch_port0 {
->  	phy-handle = <&ic99>;
->  	phy-mode = "sgmii";
->  	phys = <&eth_serdes 0>;
-> +	status = "okay";
->  
->  	mdio {
->  		#address-cells = <1>;
-> @@ -205,6 +206,7 @@ &rswitch_port1 {
->  	phy-handle = <&ic102>;
->  	phy-mode = "sgmii";
->  	phys = <&eth_serdes 1>;
-> +	status = "okay";
->  
->  	mdio {
->  		#address-cells = <1>;
-> @@ -218,10 +220,6 @@ ic102: ethernet-phy@2 {
->  	};
->  };
->  
-> -&rswitch_port2 {
-> -	status = "disabled";
-> -};
-> -
->  &rwdt {
->  	timeout-sec = <60>;
->  	status = "okay";
-> -- 
-> 2.43.0
-> 
+>  .../bindings/dma/atmel,at91sam9g45-dma.yaml        | 67 ++++++++++++++++=
+++++++
+>  .../devicetree/bindings/dma/atmel-dma.txt          | 42 --------------
+>  2 files changed, 67 insertions(+), 42 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/dma/atmel,at91sam9g45-dma.=
+yaml b/Documentation/devicetree/bindings/dma/atmel,at91sam9g45-dma.yaml
+> new file mode 100644
+> index 000000000000..8d0d68786cbc
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/dma/atmel,at91sam9g45-dma.yaml
+> @@ -0,0 +1,67 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/dma/atmel,at91sam9g45-dma.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Atmel Direct Memory Access Controller (DMA)
+> +
+> +maintainers:
+> +  - Ludovic Desroches <ludovic.desroches@microchip.com>
+> +  - Tudor Ambarus <tudor.ambarus@linaro.org>
+> +
+> +description:
+> +  The Atmel Direct Memory Access Controller (DMAC) transfers data from a=
+ source
+> +  peripheral to a destination peripheral over one or more AMBA buses. On=
+e channel
+> +  is required for each source/destination pair. In the most basic config=
+uration,
+> +  the DMAC has one master interface and one channel. The master interfac=
+e reads
+> +  the data from a source and writes it to a destination. Two AMBA transf=
+ers are
+> +  required for each DMAC data transfer. This is also known as a dual-acc=
+ess transfer.
+> +  The DMAC is programmed via the APB interface.
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - enum:
 
--- 
-Kind Regards,
-Niklas Söderlund
+compatible:
+ enum:
+
+You only have one option in your oneOf list.
+
+> +          - atmel,at91sam9g45-dma
+> +          - atmel,at91sam9rl-dma
+
+Blank line here please.
+
+> +  reg:
+> +    maxItems: 1
+
+--USuX8QMl72gqtfih
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ5KOgwAKCRB4tDGHoIJi
+0t3xAP9LuhUuGfr5V4YXaUTK/z6aZn5QphsTGsu+j2FxTWKPBwEA2L8ZpbVYVkzA
+sY6/DEzfAl4U+5LlJFfTSIilXui4xAk=
+=UYo6
+-----END PGP SIGNATURE-----
+
+--USuX8QMl72gqtfih--
 
