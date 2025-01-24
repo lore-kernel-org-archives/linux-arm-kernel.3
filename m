@@ -4,109 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EF31C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 06:02:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE2D2C0218B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 06:30:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=48WLvrmGgq8l5irtiIVlpxzaJVXPZ+RlqW2L6jPOFuM=; b=HnfE11roZwCy7bX4ve65v9lZM0
-	2L4OWKulfH8VlcEvSoEa08t4T1ziiOKwFXpJB38i/Ar1oPay0pRJPsz0vFLS+wTQvYuHvraW9xAax
-	ti52Nzz5mB2GlCDKVAtzpM6WTsuDLyhXgST6zQ7TW248PMXXJMWnAC7J8W7Yi97XMGGYL6bBevhgK
-	4ZnOPXGxD79bG1vpYsEiIJHqY3bjaYRODS55N2IonRlg1K2IZpROo1Zw73EuJn5Y7hebKdWQ9vCkz
-	egdgPkqMCFmutKj0a7Ka85a6NCheOzffGXmSoPZVQUM8SGyM09rw1WGHO7ZWyrDoOcoTB1ns55aB3
-	t4s1c28w==;
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JeN5L2YEWJnNE+LNbwNgDchuAps1f8wGg5gZvbxuxxw=; b=xWWdd+LQ+DpythCFOe9ElO2b25
+	KDW0hehFm4UYDH4o2P2zAxS8DjrVB6Kd7oI6GXezPb08R5m486cSkmEsLovAIaHuhN1GtQaUeb1m5
+	KSQKDYEX+zQmjTbgnnoprbaYotBW8TfpwYDlbrqoUpR+aMVEafyJrsL1VE3hiFnzZ18/VAWsgou0e
+	oMaxnmf7Ysn58vm3OY6I7TVaKdQoTWOGI++s07lA4REoMFwve0Qw2qAtC3CvQpR34VDqAMafQh+zr
+	vhwn/13/Ea0YCX7uOQXjCxP9e6owNqwmOeRMHiBTJi6/Z+v8FKYkcErh/whJshx8+AxFnZDAULKGy
+	atdAhcSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbClF-0000000DywH-1xre;
-	Fri, 24 Jan 2025 06:01:45 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tbDCd-0000000E0a7-3TYT;
+	Fri, 24 Jan 2025 06:30:03 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbCjv-0000000Dyrj-49Z6
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jan 2025 06:00:25 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50O3sYhc030950
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jan 2025 06:00:22 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	48WLvrmGgq8l5irtiIVlpxzaJVXPZ+RlqW2L6jPOFuM=; b=meFLRnHKT5vtOFkA
-	Ar3Sav+HG2/0PS8xAIG07cOtmouwEYVrBxVf/0h7UHglk+DkA4sGuCVFuRhnqDC4
-	Jq86RINgIPrrfHVDX/XqosmrMeBBCZMOgWi63EVOc8meNayNo8nOk8Z7F/6+JdTb
-	HjDQY1TkTkQU4kRhv3lxzddrJ3BfkXovFmLjrxalG8EH2eYac/4eucGrS5B/bspz
-	GisSdGzyAdMzUjXi66K/DTrV210S12g/t2PkNPbBjdP/Sc+6m1XzG6qejjbqbnlL
-	ff7SeyLM2EPPieH/Tz1UPgtTiWMWTsAK1GUijczN8GN9oBYcyXTIIyUzs9atE5p9
-	QY2qIw==
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44c3bxr7b1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jan 2025 06:00:22 +0000 (GMT)
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-21631cbf87dso35492125ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 22:00:22 -0800 (PST)
+	id 1tbDBI-0000000E0Sf-2Mr2;
+	Fri, 24 Jan 2025 06:28:41 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2165448243fso37368935ad.1;
+        Thu, 23 Jan 2025 22:28:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1737700119; x=1738304919; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:references:cc:to:from:subject
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JeN5L2YEWJnNE+LNbwNgDchuAps1f8wGg5gZvbxuxxw=;
+        b=XjQ4xSttT6TDP3qcN+yY5e8+xdmRvICMlsIs2eNF9uXSMET0IzsKqh63o5XfAoWfQt
+         /2cP63xdq0n4TOfhByDG1RFW1pCYVB5jZR5c2JQZUVQfZgeDDnBW1bjh0A2oSu5nsZ95
+         3EdKW5eVykZB5gQoopju1ZJw7fxKaMfxXniCRH487Myb784lE4aEtHSfgBWmM3NdgYHb
+         Mf7Vb8H7Po1eLxZMZjEPcHIKxxpyDhCq1EToCbz58b/9UDFIICnww4/elCMyDgZV+vs4
+         1iJ0Slw+uZCujBKP9A9o1bKjG7Rg1wGGBmMDbVsE7NuWtneK3RGfpR6JtWRnnka/IKZR
+         kYrA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737698421; x=1738303221;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=48WLvrmGgq8l5irtiIVlpxzaJVXPZ+RlqW2L6jPOFuM=;
-        b=ZLcjnacyQWtxlrmY4JeldJhtiqYqgOHTWDlsFPfWDXE3YE9pvndjGTGY3rmqxRzxN0
-         mE5cpel0IplEJVag8ubxVe7NlZa4KgtiCaLWsUrGKRm91DuVYzYc7v8HzTqj59ZRGN6q
-         jUcKvbjSe2PeP93VeLrcI2WzoNcrX/p9BBFUsWiaIGQeuLPlpiRJUp0XchMcpiNXhqbr
-         4AchwpxQSVlv3yjQuqbBY1HJsNO4RsHRy/4GPTrJC1P+EZdyF2uRLYc2T+8E4MSaZwKb
-         AEdlDmYVZdDbH5c5MLmxzbUYYZpjgrG+yxRl/UqQs3epnGY6cDkqDBzVdWSxjundRtKv
-         kGFw==
-X-Forwarded-Encrypted: i=1; AJvYcCUjFTCTmjCHfgyv36QuHt37QKOAbeZeigQomfGLgIpb/d5AFaPua7UiPmTRiNmLFlpPz4mtCWBcr+jzcbqjSuvz@lists.infradead.org
-X-Gm-Message-State: AOJu0YwoOZwMIKzabi1bn0rTMkVzRkFNDWZ5P/PgYq57/Ha2ji9+ljMh
-	DAZYQf/C7DgtZAvhF0BHYv+miRRgxAiWPLzfFGGHJUbJag0ERBbyNXHDUFljSa52V2RsXd9elIv
-	RvP0mrUgx8sQAyaQCjfHp9El2RS1xTq9zEvWPEKQhBjrRp1z5IcKy4lDUQtZQQM6nfx3tmT04FQ
-	==
-X-Gm-Gg: ASbGncs78xpDOG5GqemLpSRLsE+Acz3jm9FiSnNkz/05q6GV/PGtETHapfEVfYBt7LG
-	wwTmVyVK4nhcKt5N1UOEPKb6PkKB/yTYLYApsVk99Bu2Mj5HfDuL4kMUWx+dk51Q53UNFdvYNx1
-	ZNNWF6/+2Qs3dXA5Gk1AUbSagIxCwnn1bTN+c8HZtQMd/rwWG3Rz2hlHPLCkWg2Fbrd7P7aXDyz
-	FHMvw715l9LhXddh9iJTtIr2y4k0D6bFp/fMKxjqjXtAgrBax5AlnOXE8ZNso4LBb1GpkJPUl+l
-	/yRWKx4vrj8=
-X-Received: by 2002:a17:902:e743:b0:215:a039:738 with SMTP id d9443c01a7336-21c352de481mr468312635ad.5.1737698420699;
-        Thu, 23 Jan 2025 22:00:20 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEY2M8ll7VI/M66jt4+0uoyEviD0sV6PuwerOhF56aY9l+1ofmanLjzThwLUGQXXTPjMhbOjg==
-X-Received: by 2002:a17:902:e743:b0:215:a039:738 with SMTP id d9443c01a7336-21c352de481mr468312165ad.5.1737698420336;
-        Thu, 23 Jan 2025 22:00:20 -0800 (PST)
-Received: from [10.64.68.153] ([114.94.8.21])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21da414ed3bsm8435955ad.193.2025.01.23.22.00.17
+        d=1e100.net; s=20230601; t=1737700119; x=1738304919;
+        h=content-transfer-encoding:in-reply-to:references:cc:to:from:subject
+         :user-agent:mime-version:date:message-id:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=JeN5L2YEWJnNE+LNbwNgDchuAps1f8wGg5gZvbxuxxw=;
+        b=aJl/pxxN3ByIeKV5DyP2VN7JK0hMDW7VzMktxSUV+XyIvgyrMDi9P+I/QTNp1v72cv
+         r36Q1cpx8gxyr63VPoR8JJYqWXFyPsSnvsqnB7QXU1e2gelJfDBp9XdkdvFV7zWvhMWB
+         mCLrrGF5Yvl3HEdCEw/q42IHPoLbekkWf9x0gVcRR3fVOMHCu3l0pXHlY3qMdnmKiZm8
+         lQ85kiATGA2ygIuhHh/vg+3V8nQwgsfZpFNATrUQCfNraZ+pricV3rijifbDjHota2cP
+         vNUFUa4Tpg1e2bAbWzLWMY/FvfFUzFsbour/iORTHeNSIZVouKdoi0oRsFuhSGaEvt2N
+         CFCQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUHvefKcUkpvXg9zFvLFQLjifWm2OEmR8QtN+HA3mOTgfZ1zHQKu4RPFsiOIbPo04szgxWX5TMYbbIRKCNcok8=@lists.infradead.org, AJvYcCVGjKsocDo/Mw4IL8pIKOx0E60Pu8r/0t5Sl/75oYWdvA6YEpxS9rdn5bpQoaubnyw4fhfikyBp4iB9k8fo4t9q@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyi9+lV/cTy0rzYKr2khiVcZb8IlMrjymyrYGZG+ldY7F0BFYHS
+	60ulDcbdJjJba/Rba9nO8s63/Av4WnOMe8GK462ofA3pzhjtlR3T
+X-Gm-Gg: ASbGncskR2Qxzq1LA+vZKnH/D2vLZMEKCl/j4aOCcl56e3IPDKzt6nDjZXnmXU/Ukv9
+	5pW/xdV3+I/4+0KMtqFNuGqnlEWyz0ahcVveh9ejY/W/Wmti2xyn9gjUEejkpckfx3Y9rDbTWml
+	+EasUK2A/EW6mLXaRdIEI4u2N3xO+7hfCNKvuGqk8l+IuYNEkAKvhIEmn0kwnrGSoYv5VjUgSrU
+	rYPpDV9XcTy5gCwaHld1JyH8coUZ+nHpsnFZHSdKiKaaQTbKdgUox0PkMrzAElq4BoDaCU8kel+
+	B5GggxI9iFzWUtJX2z29lfLP/KgFbOhQFDansk03z5VVtg==
+X-Google-Smtp-Source: AGHT+IHY/D+A068yAUx/g7x+kFr63Bnlf+rIa04USNxKmK/2NSr0XdbeFHP/urcYPUPpXZvoC5hi8Q==
+X-Received: by 2002:a17:903:2312:b0:216:69ca:770b with SMTP id d9443c01a7336-21c3550eaacmr474494645ad.12.1737700118732;
+        Thu, 23 Jan 2025 22:28:38 -0800 (PST)
+Received: from ?IPV6:2408:8362:245d:56a8:bc4b:53ff:fead:2724? ([2401:b60:5:867d:3631:b7db:c3f4:aae2])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21da4141dacsm8967865ad.133.2025.01.23.22.28.35
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 23 Jan 2025 22:00:19 -0800 (PST)
-Message-ID: <2fd825ac-ea58-4acd-a27b-b104868bcc20@oss.qualcomm.com>
-Date: Fri, 24 Jan 2025 14:00:15 +0800
+        Thu, 23 Jan 2025 22:28:38 -0800 (PST)
+Message-ID: <98387508-10de-4c2e-80ad-05d0d86b7006@gmail.com>
+Date: Fri, 24 Jan 2025 14:28:30 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] firmware: xilinx: Update the zynqmp_pm_load_pdi() API
-To: Nava kishore Manne <nava.kishore.manne@amd.com>, michal.simek@amd.com,
-        ronak.jain@amd.com, gregkh@linuxfoundation.org,
-        jay.buddhabhatti@amd.com, praveen.teja.kundanala@amd.com,
-        siva.durga.prasad.paladugu@amd.com, u.kleine-koenig@baylibre.com,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250123103522.1258499-1-nava.kishore.manne@amd.com>
- <20250123103522.1258499-2-nava.kishore.manne@amd.com>
-Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <20250123103522.1258499-2-nava.kishore.manne@amd.com>
+Subject: Re: [PATCH] arm64: dts: rockchip: change eth phy mode to rgmii-id for
+ orangepi r1 plus lts
+From: Tianling Shen <cnsztl@gmail.com>
+To: Dragan Simic <dsimic@manjaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Jonas Karlman <jonas@kwiboo.se>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+ Peter Geis <pgwipeout@gmail.com>
+References: <20250119091154.1110762-1-cnsztl@gmail.com>
+ <ce15f141688c4c537ac3307b6fbed283@manjaro.org>
+ <59893a67-18c7-4ab3-9b2a-5a17091d4b6c@gmail.com>
+ <dffd06a341b58e9689f578c3456cc11d@manjaro.org>
+ <65f4e27f-3dc4-4eaf-be4d-265ce0325ade@gmail.com>
+In-Reply-To: <65f4e27f-3dc4-4eaf-be4d-265ce0325ade@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: IPb2-S5sYLFRGkqJKLF0mLPDN1s7yMaX
-X-Proofpoint-GUID: IPb2-S5sYLFRGkqJKLF0mLPDN1s7yMaX
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-01-24_02,2025-01-23_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=896 clxscore=1011
- phishscore=0 bulkscore=0 adultscore=0 priorityscore=1501
- lowpriorityscore=0 suspectscore=0 mlxscore=0 spamscore=0 impostorscore=0
- malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2501240041
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_220024_155490_9C55D3A2 
-X-CRM114-Status: GOOD (  18.12  )
+X-CRM114-CacheID: sfid-20250123_222840_615182_6452DC28 
+X-CRM114-Status: GOOD (  20.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,45 +106,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 1/23/2025 6:35 PM, Nava kishore Manne wrote:
-> Update the zynqmp_pm_load_pdi() API to handle the firmware
-> error’s properly.
+On 2025/1/19 23:48, Tianling Shen wrote:
+> On 2025/1/19 19:36, Dragan Simic wrote:
+>> On 2025-01-19 12:15, Tianling Shen wrote:
+>>> On 2025/1/19 17:54, Dragan Simic wrote:
+>>>> Thanks for the patch.  Please, see a comment below.
+>>>>
+>>>> On 2025-01-19 10:11, Tianling Shen wrote:
+>>>>> In general the delay should be added by the PHY instead of the MAC,
+>>>>> and this improves network stability on some boards which seem to
+>>>>> need different delay.
+>>>>>
+>>>>> Fixes: 387b3bbac5ea ("arm64: dts: rockchip: Add Xunlong OrangePi R1 
+>>>>> Plus LTS")
+>>>>> Cc: stable@vger.kernel.org # 6.6+
+>>>>> Signed-off-by: Tianling Shen <cnsztl@gmail.com>
+>>>>> ---
+>>>>>  arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus-lts.dts | 3 +--
+>>>>>  arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dts     | 1 +
+>>>>>  arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dtsi    | 1 -
+>>>>>  3 files changed, 2 insertions(+), 3 deletions(-)
+>>>>>
+>>>>> diff --git
+>>>>> a/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus-lts.dts
+>>>>> b/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus-lts.dts
+>>>>> index 67c246ad8b8c..ec2ce894da1f 100644
+>>>>> --- a/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus-lts.dts
+>>>>> +++ b/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus-lts.dts
+>>>>> @@ -17,8 +17,7 @@ / {
+>>>>>
+>>>>>  &gmac2io {
+>>>>>      phy-handle = <&yt8531c>;
+>>>>> -    tx_delay = <0x19>;
+>>>>> -    rx_delay = <0x05>;
+>>>>> +    phy-mode = "rgmii-id";
+>>>>
+>>>> Shouldn't the "tx_delay" and "rx_delay" DT parameters be converted
+>>>> into the "tx-internal-delay-ps" and "rx-internal-delay-ps" parameters,
+>>>> respectively, so the Motorcomm PHY driver can pick them up and
+>>>> actually configure the internal PHY delays?
+>>>
+>>> The documentation[1] says "{t,r}x-internal-delay-ps" default to 1950
+>>> and that value already works fine on my board.
+>>>
+>>> 1. https://www.kernel.org/doc/Documentation/devicetree/bindings/net/ 
+>>> motorcomm%2Cyt8xxx.yaml
+>>
+>> I see, but those values differ from the values found in the
+>> "tx_delay" and "rx_delay" DT parameters, so I think this patch
+>> should be tested with at least one more Orange Pi R1 Plus LTS
+>> board, to make sure it's all still fine.
 > 
-> Signed-off-by: Nava kishore Manne <nava.kishore.manne@amd.com>
-> ---
->   drivers/firmware/xilinx/zynqmp.c | 12 ++++++++++--
->   1 file changed, 10 insertions(+), 2 deletions(-)
+> This patch has been tested on 2 boards, and we will do more tests in 
+> next week.
 > 
-> diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
-> index 720fa8b5d8e9..ea04a6ac402d 100644
-> --- a/drivers/firmware/xilinx/zynqmp.c
-> +++ b/drivers/firmware/xilinx/zynqmp.c
-> @@ -1483,8 +1483,16 @@ EXPORT_SYMBOL_GPL(zynqmp_pm_set_requirement);
->    */
->   int zynqmp_pm_load_pdi(const u32 src, const u64 address)
->   {
-> -	return zynqmp_pm_invoke_fn(PM_LOAD_PDI, NULL, 3, src, lower_32_bits(address),
-> -				   upper_32_bits(address));
-> +	u32 ret_payload[PAYLOAD_ARG_CNT];
-> +	int ret;
-> +
-> +	ret = zynqmp_pm_invoke_fn(PM_LOAD_PDI, ret_payload, 3, src,
-> +				  lower_32_bits(address),
-> +				  upper_32_bits(address));
-> +	if (ret_payload[0])
-> +		return ret_payload[0];
-Looks a little bit hacking. As the ret_payload is u32, return as int, it 
-has possibility to overflow?
 
-> +
-> +	return ret;
->   }
->   EXPORT_SYMBOL_GPL(zynqmp_pm_load_pdi);
->   
+Managed to test on another board and looks so far so good.
+(Working network connection, no packet drop)
 
 Thanks,
-Jie
+Tianling.
+
+> Thanks,
+> Tianling.
+> 
+>>
+>>>>
+>>>>>      status = "okay";
+>>>>>
+>>>>>      mdio {
+>>>>> diff --git a/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dts
+>>>>> b/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dts
+>>>>> index 324a8e951f7e..846b931e16d2 100644
+>>>>> --- a/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dts
+>>>>> +++ b/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dts
+>>>>> @@ -15,6 +15,7 @@ / {
+>>>>>
+>>>>>  &gmac2io {
+>>>>>      phy-handle = <&rtl8211e>;
+>>>>> +    phy-mode = "rgmii";
+>>>>>      tx_delay = <0x24>;
+>>>>>      rx_delay = <0x18>;
+>>>>>      status = "okay";
+>>>>> diff --git a/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dtsi
+>>>>> b/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dtsi
+>>>>> index 4f193704e5dc..09508e324a28 100644
+>>>>> --- a/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dtsi
+>>>>> +++ b/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dtsi
+>>>>> @@ -109,7 +109,6 @@ &gmac2io {
+>>>>>      assigned-clocks = <&cru SCLK_MAC2IO>, <&cru SCLK_MAC2IO_EXT>;
+>>>>>      assigned-clock-parents = <&gmac_clk>, <&gmac_clk>;
+>>>>>      clock_in_out = "input";
+>>>>> -    phy-mode = "rgmii";
+>>>>>      phy-supply = <&vcc_io>;
+>>>>>      pinctrl-0 = <&rgmiim1_pins>;
+>>>>>      pinctrl-names = "default";
+> 
 
 
