@@ -4,77 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA28DC02181
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 13:57:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F17DC02181
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 13:58:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mxd6y8xWCXx2qwD35/Qus8yO+IDrLVV1lvVQaT0RaxQ=; b=j4BX4zeVdfvudVDv+ZnB64oOGY
-	kM40NWRQKxouxUmPWEYN1fMTW+HNZ0QKowgFhysPmCB0GwcdrEEfGiYHq+Vr1hzaOjutdmw3xvSsZ
-	qEdNN1atvpYjlgHCXvKpLbxoshg+I5vE/ui8OgU38OcPZvcJNzc5J58YFLGCVbZrJboTpwFOZjCac
-	wygb0THYu+0XaNfQ205nPYJYHUwQwDvW9EJ8Y27LSziZl8xVanb4ViqIGHGWRnrCnh3QDDmVqPWvY
-	ekcQ/sZnU6XZyYkDxqHK1ePxdgsydNecLCsfhOhT7s+0F7vUdHJkX3q6uvcAeeq6FYsEE4zVxoQ9p
-	o7k6ZQ2w==;
+	bh=zKRrbe6gGWiSaBV4mplOTEhtmjTYcRZx77kHNzgfO9s=; b=esbw9jM2imX8KcEj0PA3BUPbMA
+	orjOUz8uu2MqpLXsrpzvCarQv9Dp6Tya+rJ1yquDse4YJDnyOKkRk52Ese2a2ti1WWf38Red9Xy6v
+	UCBDu6tP3+E/KvUmOY52J1qmUPhDtLvdm3zmzjLsbaTRBz3nADgBA3zVJ4J9QvvPc6hOO7SS0Cegm
+	QO2CpEhIKb+mKaZQ9H1ALEjOqZk1HdUmvtLP5u6xOXdwaklc8867HttvRrwk91hQV1O43PL0PxHLu
+	AdQz3td2FErlkkSfz3RJj7wZJ/PS4lSAS3YLVLhQM1HIHy+BjSGRqpujINz/+rRJ+SQSaMXi3bCyJ
+	S/WVLo7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbKB3-0000000EoZT-3PEa;
-	Fri, 24 Jan 2025 13:56:53 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1tbKCM-0000000Eolh-2arg;
+	Fri, 24 Jan 2025 13:58:14 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbK4K-0000000Ensk-3roK;
-	Fri, 24 Jan 2025 13:49:58 +0000
-X-UUID: 152ae62cda5a11ef9048ed6ed365623b-20250124
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=mxd6y8xWCXx2qwD35/Qus8yO+IDrLVV1lvVQaT0RaxQ=;
-	b=lfbW/1iokKiUSNHRjiBO4bhUFKT7SpKNoPiGtaL8hU0Imtsgf3Ljnoc3fBTxMv/mYa69p7BAdPD6UuczLhhkVOuFPtN7DYYoZpeBNfO3rJKJv0VvTtw4ovSUvAL8T9MmtmsGlqartZ0HHRl7R91ITtn7AMzkOFoU8hZHf1R+DjM=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.46,REQID:efed1833-27fe-4705-ace5-f5d9ab554bf5,IP:0,U
-	RL:0,TC:0,Content:0,EDM:-25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-25
-X-CID-META: VersionHash:60aa074,CLOUDID:8877a53d-da39-4471-8a46-23da908abe46,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:1,
-	IP:nil,URL:11|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
-	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-UUID: 152ae62cda5a11ef9048ed6ed365623b-20250124
-Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
-	(envelope-from <ot_chhao.chang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 2103134366; Fri, 24 Jan 2025 06:49:50 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.28; Fri, 24 Jan 2025 21:49:48 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.28 via Frontend Transport; Fri, 24 Jan 2025 21:49:47 +0800
-From: Hao Chang <ot_chhao.chang@mediatek.com>
-To: Sean Wang <sean.wang@kernel.org>, Linus Walleij
-	<linus.walleij@linaro.org>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-CC: Wenbin Mei <wenbin.mei@mediatek.com>, Axe Yang <axe.yang@mediatek.com>,
-	Qingliang Li <qingliang.li@mediatek.com>, Hanks Chen
-	<hanks.chen@mediatek.com>, Chunhui Li <chunhui.li@mediatek.com>,
-	<linux-mediatek@lists.infradead.org>, <linux-gpio@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, "Hao
- Chang" <ot_chhao.chang@mediatek.com>
-Subject: [PATCH v3 1/2] pinctrl: mediatek: update EINT base retrieval method
-Date: Fri, 24 Jan 2025 21:49:05 +0800
-Message-ID: <20250124134918.2779-2-ot_chhao.chang@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250124134918.2779-1-ot_chhao.chang@mediatek.com>
-References: <20250124134918.2779-1-ot_chhao.chang@mediatek.com>
+	id 1tbK5o-0000000Eo1P-0h1O
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 24 Jan 2025 13:51:29 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-436a39e4891so14394995e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jan 2025 05:51:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1737726686; x=1738331486; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=zKRrbe6gGWiSaBV4mplOTEhtmjTYcRZx77kHNzgfO9s=;
+        b=y7nPahbpYxdA/4ofUQSo7RQ8gL/7jwfZzG3AP34kCcLpwpecS8Ke0FikVApt1uFROJ
+         wOzZLaFxJv0h5482a/ZWbt4hUCt86SCV1y3xSX6MTupSELg8tHU8AJO5rkLea/QTARTV
+         otw4MrwkoOhR0knZAyFFtp9z2Hp5IDz0tHc2Y9SKGsG3rJRfJCqRQiCQ+2VWlTfcsRN3
+         r4AYFSNbRVcsU1cFX3BjPIuxLOz5il+aoRXsOp9Rvj7WBSrK+NGGVt85UAuebkpPaqd6
+         N67sA+npOmM/WMNneT2xi9D6cfrtenD14nrNkNemExhfw3/UTgZzGp0UQ90LpbNTVUGU
+         NsHQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737726686; x=1738331486;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zKRrbe6gGWiSaBV4mplOTEhtmjTYcRZx77kHNzgfO9s=;
+        b=YU+drxNpugpwsfv/lRUdAZ8bOouyRw0CpraQiLRvqCafRUofYHBQtxzmOxS0crMrkI
+         oPYkl9XwFu0CJzFFw/XTka62zwwXLDw6nBIySb4HGecY9S2NkadD/b6UW8Y6DkarQhDF
+         UeejanJDwVHJHBgGQXk6YsKUODxDHv+gJhIpUKHBeg6qdDpfjx7DHAdhsPXMqZgEksMn
+         bVyhMSE/uRmuvwPcfL8Bj9X4XEdbdn1M95PTFKDVjP6E8kxie5OzkCs26Oy/e78TLa8r
+         CGENv1OpmtyUh9dTzAzDGhCPH7GeQl5qOkx6PrIKqRFeHTP+XH4lOeI3+YN2SHCukr87
+         VgOA==
+X-Forwarded-Encrypted: i=1; AJvYcCVyV3uRfPhlTm7i/fC3mZO4ebjSlGv1PznxLV0e+3zcwGuR6EeJlN+wcW7ZGh6I3Xuftkm1Sl+iIiRR0z8uVkO2@lists.infradead.org
+X-Gm-Message-State: AOJu0YwUmLmGTTlizOQKI4dyS9Z9OXJzR/bJGT/K8nYMptry2ASz4P74
+	2qF3FAcfumSB8bLEE63vPwKclYfysikh6fvjOsBYO1an8JngGvfpFdEMcX1QT1Q=
+X-Gm-Gg: ASbGncvrlGdAg2s7sn9Op5Szhuaad1lmIoWpBkpdKz2SdNrOEBUgCQR+tLzevTt760q
+	NbEyyUu0Gr2kc4RT869z3z2D6jsRXITeQZsE0wp8X3Ryn9D6uCSgN4Q9xJqTA/8pgQkh0gBvKMg
+	ptPj4U6jVQFgldIiDejIjdt1YO8k4XkJoOrx6zK2fayrZVBNwGoMGuAJ+0fy0Hb2sd3c6JKRolk
+	LLMZAaML+IBtcGP9ynC6cdoMARthlo6LdZ34GEZ0FlMLkqfZPw0zOR+8GjE/P2jOX3S+sDVq5Wz
+	akedMlT16w==
+X-Google-Smtp-Source: AGHT+IETFMJJrZWr/EDBakUelIAVIlOvrzgYZmGp+ZA18dqs2i5tih8sUMHw8uH4sD7esRtqKjCpXw==
+X-Received: by 2002:a05:600c:3585:b0:434:f297:8e85 with SMTP id 5b1f17b1804b1-438913d5da1mr323417065e9.10.1737726686177;
+        Fri, 24 Jan 2025 05:51:26 -0800 (PST)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438bd485007sm27717805e9.12.2025.01.24.05.51.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Jan 2025 05:51:25 -0800 (PST)
+Date: Fri, 24 Jan 2025 16:51:22 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH 1/3] clk: Introduce clk_set_spread_spectrum
+Message-ID: <f83759b4-8e8a-4497-b032-341c8538c293@stanley.mountain>
+References: <20250124-clk-ssc-v1-0-2d39f6baf2af@nxp.com>
+ <20250124-clk-ssc-v1-1-2d39f6baf2af@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250124-clk-ssc-v1-1-2d39f6baf2af@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250124_054956_955046_86CCA5F7 
-X-CRM114-Status: GOOD (  15.98  )
+X-CRM114-CacheID: sfid-20250124_055128_219449_A4159A7F 
+X-CRM114-Status: GOOD (  16.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,107 +110,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Change the method of obtaining the EINT base from a single value to
-multiple values.
-Modify the EINT base and add nbase for counting.
+On Fri, Jan 24, 2025 at 10:25:17PM +0800, Peng Fan (OSS) wrote:
+> diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
+> index cf7720b9172ff223d86227aad144e15375ddfd86..a4fe4a60f839244b736e3c2751eeb38dc4577b1f 100644
+> --- a/drivers/clk/clk.c
+> +++ b/drivers/clk/clk.c
+> @@ -2790,6 +2790,45 @@ int clk_set_max_rate(struct clk *clk, unsigned long rate)
+>  }
+>  EXPORT_SYMBOL_GPL(clk_set_max_rate);
+>  
+> +int clk_set_spread_spectrum(struct clk *clk, unsigned int modfreq,
+> +			    unsigned int spreadpercent, unsigned int method,
+> +			    bool enable)
+> +{
+> +	struct clk_spread_spectrum clk_ss;
+> +	struct clk_core *core;
+> +	int ret = 0;
+> +
+> +	if (!clk || !clk->core)
+> +		return 0;
+> +
+> +	clk_ss.modfreq = modfreq;
+> +	clk_ss.spreadpercent = spreadpercent;
+> +	clk_ss.method = method;
+> +	clk_ss.enable = enable;
+> +
+> +	clk_prepare_lock();
+> +
+> +	core = clk->core;
+> +
+> +	if (core->prepare_count) {
+> +		ret = -EBUSY;
+> +		goto fail;
 
-Change-Id: I708f2eaa4c57b5705201025c252a7122914c4a40
-Signed-off-by: Hao Chang <ot_chhao.chang@mediatek.com>
-Signed-off-by: Qingliang Li <qingliang.li@mediatek.com>
----
- .../pinctrl/mediatek/pinctrl-mtk-common-v2.c  | 50 +++++++++++++------
- 1 file changed, 35 insertions(+), 15 deletions(-)
+fail is too vague to be useful as a name.  Also this should be
+goto unlock;
 
-diff --git a/drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.c b/drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.c
-index 6411c10cb637..e74fc68f631d 100644
---- a/drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.c
-+++ b/drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.c
-@@ -368,7 +368,7 @@ static const struct mtk_eint_xt mtk_eint_xt = {
- int mtk_build_eint(struct mtk_pinctrl *hw, struct platform_device *pdev)
- {
- 	struct device_node *np = pdev->dev.of_node;
--	unsigned int i, j, count_reg_names;
-+	int ret, i, j, count_reg_names;
- 
- 	if (!IS_ENABLED(CONFIG_EINT_MTK))
- 		return 0;
-@@ -377,7 +377,7 @@ int mtk_build_eint(struct mtk_pinctrl *hw, struct platform_device *pdev)
- 		return -ENODEV;
- 
- 	count_reg_names = of_property_count_strings(np, "reg-names");
--	if (count_reg_names < 0 || count_reg_names < hw->soc->nbase_names)
-+	if (count_reg_names < hw->soc->nbase_names)
- 		return -EINVAL;
- 
- 	hw->eint = devm_kmalloc(hw->dev, sizeof(*hw->eint), GFP_KERNEL);
-@@ -385,33 +385,53 @@ int mtk_build_eint(struct mtk_pinctrl *hw, struct platform_device *pdev)
- 		return -ENOMEM;
- 
- 	hw->eint->nbase = count_reg_names - hw->soc->nbase_names;
--	hw->eint->base = devm_kmalloc_array(&pdev->dev, hw->eint->nbase,
-+	hw->eint->base = devm_kmalloc_array(hw->dev, hw->eint->nbase,
- 					    sizeof(*hw->eint->base), GFP_KERNEL);
--	if (!hw->eint->base)
--		return -ENOMEM;
-+	if (!hw->eint->base) {
-+		ret = -ENOMEM;
-+		goto err_free_eint;
-+	}
- 
- 	for (i = hw->soc->nbase_names, j = 0; i < count_reg_names; i++, j++) {
- 		hw->eint->base[j] = of_iomap(np, i);
--		if (IS_ERR(hw->eint->base[j]))
--			return PTR_ERR(hw->eint->base[j]);
-+		if (IS_ERR(hw->eint->base[j])) {
-+			ret = PTR_ERR(hw->eint->base[j]);
-+			goto err_free_eint;
-+		}
- 	}
- 
--	if (!of_property_read_bool(np, "interrupt-controller"))
--		return -ENODEV;
-+	if (!of_property_read_bool(np, "interrupt-controller")) {
-+		ret = -ENODEV;
-+		goto err_free_eint;
-+	}
- 
- 	hw->eint->irq = irq_of_parse_and_map(np, 0);
--	if (!hw->eint->irq)
--		return -EINVAL;
--
--	if (hw->soc->eint_pin)
--		hw->eint->pins = hw->soc->eint_pin;
-+	if (!hw->eint->irq) {
-+		ret = -EINVAL;
-+		goto err_free_eint;
-+	}
- 
- 	hw->eint->dev = &pdev->dev;
- 	hw->eint->hw = hw->soc->eint_hw;
- 	hw->eint->pctl = hw;
- 	hw->eint->gpio_xlate = &mtk_eint_xt;
- 
--	return mtk_eint_do_init(hw->eint);
-+	ret = mtk_eint_do_init(hw->eint);
-+	if (ret)
-+		goto err_free_eint;
-+
-+	return 0;
-+
-+err_free_eint:
-+	for (j = 0; j < hw->eint->nbase; j++) {
-+		if (hw->eint->base[j])
-+			iounmap(hw->eint->base[j]);
-+	}
-+	if (hw->eint->base)
-+		devm_kfree(hw->dev, hw->eint->base);
-+	devm_kfree(hw->dev, hw->eint);
-+	hw->eint = NULL;
-+	return ret;
- }
- EXPORT_SYMBOL_GPL(mtk_build_eint);
- 
--- 
-2.46.0
+> +	}
+> +
+> +	ret = clk_pm_runtime_get(core);
+> +	if (ret)
+> +		goto fail;
+> +
+> +	if (core->ops->set_spread_spectrum)
+> +		ret = core->ops->set_spread_spectrum(core->hw, &clk_ss);
+> +
+> +	clk_pm_runtime_put(core);
+unlock:
+
+> +	clk_prepare_unlock();
+> +fail:
+> +	return ret;
+> +}
+
+regards,
+dan carpenter
 
 
