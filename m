@@ -4,113 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15B33C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 13:54:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E5A7C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 13:55:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HQ436xsC/lZ2NOanJQhd1UGohCJoGG0yvT7GZWuMkXI=; b=UAAPhTUl/Vwp3b9JAOLf/3LCdM
-	1vHAqNJaISqh2LOkd+9foTOmr3lnMGDWfVHQQj3DeHxenCs1hWiB7PvVDjvMq2JnjjTgnebiOJtEF
-	n27pLx6z1u1ysXKCq63ghA+Z8AVIeVSdzSZnAlxM2mvxwbvWCcd8Ea62RV+Icw4gEADTlmiPCdso7
-	MWjmWr3WMCr66H2UI+NVawYACxXnQ+2UTuIp28qapmBCNwdUzu+phcYzt188ro9bEnSHlRl1oELDN
-	sefIyIXGOj5TKiAgqOZfHC/Vw9RMXBr3M+wvNB0XKp0QcS75ILM0CW/5tSzQplpk83E+fRfHFt4yX
-	2dh12AFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KpLfynM31yo/shZxF3ZUy2NRwhB39YpYEBEOuQQVK5g=; b=2v2X6+W4kfH4FuTSmOsP6tM0cM
+	BdL4Xi2T7kQQim5c+yUXHgqdJCib7nGEllJqLcgZXvFGgTwf6oMa7tiWjZOxP2bPLbndB80TEG3DJ
+	F8NKMpS0AM4RHazJ+d5qm6EIp1xOL2ePInHZz/CkYcDLhvbTDAnP3xmPbJE2btRuZ8E08cInbqFfs
+	Q1ACd141eYiTxjAyhr5KbZF9DX2VzKvgBIb+OUSYyMP1wGSP2F5S1xCtbXCXY2IXTVo7CVmPdzAGG
+	dD0ecx8zYMK8fYvXqMEprXBpzA+q01yDfdWB6Ldh/dG8/SBd51qaB/5Z3Zn1O+VznKgzlQS1cg4yh
+	3fgeS/Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbK8U-0000000EoGy-17MV;
-	Fri, 24 Jan 2025 13:54:14 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tbK9l-0000000EoOF-3tJz;
+	Fri, 24 Jan 2025 13:55:33 +0000
+Received: from [216.200.240.185] (helo=mailgw02.mediatek.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbK0q-0000000EnV7-3e4S
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jan 2025 13:46:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 039E75C57D6;
-	Fri, 24 Jan 2025 13:45:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 051E2C4CED2;
-	Fri, 24 Jan 2025 13:46:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737726379;
-	bh=rqJ7MtkN0NJ3IbpIzJE6dNQ3uQUgLR2K4PX33hFwLaA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=pHQn7lS+JjZY+tLwMNWXyi3KDutDewUONgA+GFXHRLrQu2FbCnGlkz6B/QkwIVxvx
-	 F7n0XzFL5tLtM5EYDph6/TEa/3id/nD2eZ/t74PU3v7BaDeDca264KZvrwbmueXk6C
-	 AiYbtLFsXoMcYBbFkQ7fsgs8r1dTjDDMWOaFvhh1fMs0MSp0/AfCGQdW7xEChIicB4
-	 AM2BRER72YcFqMuRUksOExhOqP4ExaCH+KPt/TrVqANRP0sPkuX/hBc5DEHn/qDctC
-	 aigphh2ofeowfIPytro9MckJojnP94B4hZG+s4wfl0LbEINP3zePjl0tZurfJSABCc
-	 Q2fTZxSKrpvNg==
-Message-ID: <e2de94ab-82ea-4d36-a9dc-75f6891d8927@kernel.org>
-Date: Fri, 24 Jan 2025 14:46:11 +0100
+	id 1tbK3v-0000000Enp9-1Z92;
+	Fri, 24 Jan 2025 13:49:32 +0000
+X-UUID: 06c6b278da5a11ef9048ed6ed365623b-20250124
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=KpLfynM31yo/shZxF3ZUy2NRwhB39YpYEBEOuQQVK5g=;
+	b=GctpTKJXrFyzooruAB9Qxs9S3SKhpcACyIzOO7lm0I76yMeT7w2Xb50L8mIKX2OATth63wB3Unb1q58QgayDg1nQEnGdRVXBfn0mZkIiWLJZX6o+j38oJbaevoGk59mjLgUY8QcjkT7FLiUsQw4sHiLQAIrix0Rgvg/KeDGSWK8=;
+X-CID-CACHE: Type:Local,Time:202501240640-07,HitQuantity:1
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.46,REQID:68d016cd-83b0-4c21-b612-a373f79a39ac,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:60aa074,CLOUDID:5068a53d-da39-4471-8a46-23da908abe46,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
+	l,URL:1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
+	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-UUID: 06c6b278da5a11ef9048ed6ed365623b-20250124
+Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw02.mediatek.com
+	(envelope-from <ot_chhao.chang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 2006452046; Fri, 24 Jan 2025 06:49:26 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.28; Fri, 24 Jan 2025 21:49:23 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.28 via Frontend Transport; Fri, 24 Jan 2025 21:49:23 +0800
+From: Hao Chang <ot_chhao.chang@mediatek.com>
+To: Sean Wang <sean.wang@kernel.org>, Linus Walleij
+	<linus.walleij@linaro.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+CC: Wenbin Mei <wenbin.mei@mediatek.com>, Axe Yang <axe.yang@mediatek.com>,
+	Qingliang Li <qingliang.li@mediatek.com>, Hanks Chen
+	<hanks.chen@mediatek.com>, Chunhui Li <chunhui.li@mediatek.com>,
+	<linux-mediatek@lists.infradead.org>, <linux-gpio@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, Hao
+ Chang <ot_chhao.chang@mediatek.com>
+Subject: [PATCH v3 0/2]
+Date: Fri, 24 Jan 2025 21:49:04 +0800
+Message-ID: <20250124134918.2779-1-ot_chhao.chang@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 00/23] Support spread spectrum clocking for i.MX8M PLLs
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
- linux-kernel@vger.kernel.org
-Cc: linux-amarula@amarulasolutions.com, Abel Vesa <abelvesa@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Dan Carpenter
- <dan.carpenter@linaro.org>, Fabio Estevam <festevam@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Peng Fan <peng.fan@nxp.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Shawn Guo <shawnguo@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
-References: <20250118124044.157308-1-dario.binacchi@amarulasolutions.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250118124044.157308-1-dario.binacchi@amarulasolutions.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250124_054621_004306_8CC65904 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20250124_054931_415827_F788C145 
+X-CRM114-Status: UNSURE (   7.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,28 +89,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/01/2025 13:39, Dario Binacchi wrote:
-> The series adds support for spread spectrum clocking for i.MX8M{M,N,P}
-> PLLs (audio, video and DRAM). It has been tested for the video PLL on
-> boards using i.MX8MN and i.MX8MP.
-> 
-> Changes in v9:
-> - Add 'Reviewed-by' tag of Peng Fan for imx8mn platform patches
-> - Fix building warning raised by the kernel test robot for patch
->   v8, 11/18 clk: imx: add support for i.MX8MN anatop clock driver
-> - Add patches for imx8m{m,p} platforms:
->   - 23/23 clk: imx8mm: support spread spectrum clock generation
->   - 22/23 clk: imx: add support for i.MX8MM anatop clock driver
->   - 21/23 clk: imx8mp: support spread spectrum clock generation
->   - 20/23 clk: imx8mp: rename ccm_base to base
->   - 19/23 clk: imx: add support for i.MX8MP anatop clock driver
-I responded in particular patch, but let's respond for formality to
-cover letter as well.
+Change in v3:
+1)Add error handling to prevent memory leaks
+2)Move the eint pin assignment action to eint for processing
+---
+This patch depends on
+[v3,2/2] pinctrl: mediatek: add mt8196 driver
+[v3,1/2] dt-bindings: pinctrl: mediatek: add support for mt8196
 
-The bindings here might get obsolete already with work:
+Please also accept this patch together with [1]
+to avoid build and dt binding check error.
+[1]https://patchwork.kernel.org/project/linux-mediatek/list/?series=&submitter=215008&state=&q=v3&archive=&delegate=
+---
 
-https://github.com/devicetree-org/dt-schema/pull/154
+Hao Chang (2):
+  pinctrl: mediatek: update EINT base retrieval method
+  pinctrl: mediatek: adapt to multi-base design
 
-Best regards,
-Krzysztof
+ drivers/pinctrl/mediatek/mtk-eint.c           | 38 +++++++++-----
+ .../pinctrl/mediatek/pinctrl-mtk-common-v2.c  | 50 +++++++++++++------
+ 2 files changed, 60 insertions(+), 28 deletions(-)
+
+-- 
+2.46.0
+
 
