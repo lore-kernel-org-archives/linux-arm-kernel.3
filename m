@@ -4,76 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C998C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 17:33:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CEBEC0218C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 17:35:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K59hpdystkn8QFRkAhSRoR2AxPXCsaehF/2nh6Z9iJE=; b=EnI11PJ4Owp5Nx/FJemWjx7xzn
-	6vF71DRyy4ChL0u5L3hq74xBpneaDgmeB3f1SkgQUpaCo9RHUE8UwfLZZUfKISKWXgPfXahb/MWG9
-	shj89xH/GXyMxgNUuVfemaqTPd2DG9C38u/0yJ2xGwi4w2PdcL7498UKSzOz1PBzY0UnzhvKIl7Ml
-	/g0dBLjQDJ9z2C/L0gYEB0gQHSE+yG8ehEDr2u6uHxGIXLEkvnEIjKsMgtipOdA6RI0zO7eE61onz
-	mrFwCLR2zNOUDfuhK0IjvlJKLizMhp0S5LgDTQPEJgtgqWzjlhPhzLi9P8NJ+DO0aMC6Q+Ba+kP95
-	IoiJzqTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ruC3Si199E8o1aS23xffWac98lpH95xyibK8IlaDgUI=; b=psI7ojA82ozCzxrC9Mn/0dgLtw
+	rJ4iZWKbhjnke2g1ZnWSXWsfO670M3YUaF1V0ctY4NMbxKV+AY9T8uspojVOp1J4e0YaTvRbOFJoK
+	do5KCbt89ujhmyEGyljraTU14rXgDTVCwsVkqfwQ3wZjrG1UdcGW0nfl8e5qNtjOWGTsxwbJ0cqHx
+	OPD0aHnHlbAJv1SrKfkPF0hdf/hMrCMURb16UKKzsrf2fSEWPR/dh1ioTjLSrEnQqB8q0Uop5l1Sj
+	ml22iFBLq+8XFZC4SwkHMiCzrojMobt99vF7qazQRjg5oFUFn24/85ZX4xnPhrmWrix6Cx4CZkpUX
+	N/qKHezw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbNYC-0000000FDFp-3sIy;
-	Fri, 24 Jan 2025 17:33:00 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tbNab-0000000FDkT-0ZjC;
+	Fri, 24 Jan 2025 17:35:29 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbNWu-0000000FD8C-1jCT;
-	Fri, 24 Jan 2025 17:31:41 +0000
+	id 1tbNZI-0000000FDS2-1XyA
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 24 Jan 2025 17:34:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8FB325C60DC;
-	Fri, 24 Jan 2025 17:30:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FE7DC4CED2;
-	Fri, 24 Jan 2025 17:31:35 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 75B1C5C5934;
+	Fri, 24 Jan 2025 17:33:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A54CDC4CED2;
+	Fri, 24 Jan 2025 17:34:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737739899;
-	bh=hgo5Gm6nDhGIQgSJHFT/RmxBxdtq+iVJ5SoDgdrUDWI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hQvRZcd4e2GNQdo7p0U4OCCfPvGv6YOcR/Ps8DznEY6RoRrIRB/osheeIqYU+O+0B
-	 9EGwizhOSWwtVXT53fP3XGQeR05fXIKdOkbPDIQPh6yLWIhqhSSSWR//PK5LRWv5vR
-	 CubAIK9WJR+q0+wPXdUfkkTDnJQk8Xcb5vv7eZf6D+7a6m1opDV2Z7oeVjPT3UCqOV
-	 7ZQfxwNyvo76Z1kH6z5oMzCBHC8AFM/RFpTbpspC5qC2AzCvbGnMIm3UHEpnAHpaAG
-	 DY0WtlHXROP9+injXE/p8n9p914ERjlxe9yPN0/Ldm4qh9RNalYVmFIhQxmke/TjQI
-	 VwOJNjGPP9Iyw==
-Date: Fri, 24 Jan 2025 17:31:33 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Friday Yang =?utf-8?B?KOadqOmYsyk=?= <Friday.Yang@mediatek.com>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"mturquette@baylibre.com" <mturquette@baylibre.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	Garmin Chang =?utf-8?B?KOW8teWutumKmCk=?= <Garmin.Chang@mediatek.com>,
-	"sboyd@kernel.org" <sboyd@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	Yong Wu =?utf-8?B?KOWQtOWLhyk=?= <Yong.Wu@mediatek.com>,
-	"robh@kernel.org" <robh@kernel.org>,
-	Project_Global_Chrome_Upstream_Group <Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Subject: Re: [PATCH v3 1/2] dt-bindings: clock: mediatek: Add SMI LARBs reset
- for MT8188
-Message-ID: <20250124-aide-feisty-821cf9cf1382@spud>
-References: <20250121065045.13514-1-friday.yang@mediatek.com>
- <20250121065045.13514-2-friday.yang@mediatek.com>
- <20250121-violet-widely-df3567b085a4@spud>
- <2bfb6c05a3471e54f51c06895709853661e82c9a.camel@mediatek.com>
+	s=k20201202; t=1737740047;
+	bh=Wfb3nCJHrFZ/ER3+NaAKiTIh4tK6aoLhRwbmFqRcZq4=;
+	h=From:Date:Subject:To:Cc:From;
+	b=LVDoYpKzXIJX9ChjvY3/s4fCfrmROugPfMq71vG8hIdFhyBgKuqH0zexCVZzWrDth
+	 c+1nh6MrS40V6dh1kInB6kwMnlgvKr7y7SeHTEoqp8L0ZbrzeJFdxLgwIrm26X3qCh
+	 QtAGmGSg+XYr57rODjCCTgKoaGURk3N0cnT4HAWZpE/MKKHCzsaBp9J/fcpiqB5PYX
+	 /7Nq0a2VtiHezyZw0Vi76DOQo4PeZPqFuJ5SbvYBsDP/4ko45/gvegx0wZXy/CFrWS
+	 xZUpSbRXNAEu6YIgEfn0f1M4IG/qYtWN/7Y1XB5ju49mFCV1zISY5hnBUJdcI9J6AB
+	 jr1WZx+vwjhNg==
+From: Mark Brown <broonie@kernel.org>
+Date: Fri, 24 Jan 2025 17:33:22 +0000
+Subject: [PATCH] arm64/gcs: Fix documentation for HWCAP
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="D7rLUrhVT1Wjp55T"
-Content-Disposition: inline
-In-Reply-To: <2bfb6c05a3471e54f51c06895709853661e82c9a.camel@mediatek.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250124-arm64-gcs-hwcap-doc-v1-1-fa9368b01ca6@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAOHOk2cC/x3MQQqAIBBA0avErBtQ0YKuEi1Ep5pFGg5UIN09a
+ fkW/1cQKkwCU1eh0MXCOTXovoOw+7QRcmwGo4xT2lj05RgsbkFwv4M/MeaAbhyiW61WZvTQyrP
+ Qys9/nZf3/QChb8zqZQAAAA==
+X-Change-ID: 20250124-arm64-gcs-hwcap-doc-576d5f41027a
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+ Thiago Jung Bauermann <thiago.bauermann@linaro.org>, 
+ Yury Khrustalev <yury.khrustalev@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, David Spickett <David.Spickett@arm.com>, 
+ Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-1b0d6
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1133; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=Wfb3nCJHrFZ/ER3+NaAKiTIh4tK6aoLhRwbmFqRcZq4=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnk88M8xVJBNItAkMMTYAz53ygbsLKSqUxNKWD5HxM
+ wskB0qSJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ5PPDAAKCRAk1otyXVSH0Ic5B/
+ 9JtV6z5AGvOTKCCbgK/5m7AhexBmNehPccFzXR4jInlgXQ4UcR052/3PXNHGSOgye6MYfwAWWLQe0h
+ O3I6rkdWLHv9crGWKeN3wOfT8/DnbCoT7e8Dr8TIfpr0F2ooPDS3yBOZpNYR/HCjOlmZLlIoQXO1VZ
+ IggAi1O3wKVSRFa9MRGoRiE+zD3CEW+Wbi/piOiYqCdT6YLwR1sfAq3eOGj/l/VnTOu10Cc4QLfYmC
+ xXheoRbeovwv1gIFwyMqn6A1PV942WgmH/D6gdQc91f+eOvQkDJuBGP69Q/VN9Bsl4L2PGykWcy9qz
+ MnDSJ9umh6TDdrhwbKHHU+uluossqb
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250124_093140_540210_D93B6EE8 
-X-CRM114-Status: GOOD (  32.83  )
+X-CRM114-CacheID: sfid-20250124_093408_452550_1850D1CF 
+X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,154 +89,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+In one of the renumberings of the GCS hwcap a stray reference to HWCAP2 was
+left, fix it.
 
---D7rLUrhVT1Wjp55T
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Reported-by: David Spickett <David.Spickett@arm.com>
+Fixes: 7058bf87cd59 ("arm64/gcs: Document the ABI for Guarded Control Stacks")
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+ Documentation/arch/arm64/gcs.rst | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-On Wed, Jan 22, 2025 at 07:40:12AM +0000, Friday Yang (=E6=9D=A8=E9=98=B3) =
-wrote:
-> On Tue, 2025-01-21 at 17:30 +0000, Conor Dooley wrote:
-> > On Tue, Jan 21, 2025 at 02:50:40PM +0800, Friday Yang wrote:
-> > > SMI LARBs require reset functions when applying clamp operations.
-> > > Add '#reset-cells' for the clock controller located in image,
-> > > camera
-> > > and IPE subsystems.
-> >=20
-> > A new required property is an abi break, please explain why this is
-> > required.
+diff --git a/Documentation/arch/arm64/gcs.rst b/Documentation/arch/arm64/gcs.rst
+index 1f65a3193e7765dce9bfd6ad88b9fbd6a225ed86..226c0b008456f28c57c2221f45eed7e99610be46 100644
+--- a/Documentation/arch/arm64/gcs.rst
++++ b/Documentation/arch/arm64/gcs.rst
+@@ -37,7 +37,7 @@ intended to be exhaustive.
+   shadow stacks rather than GCS.
+ 
+ * Support for GCS is reported to userspace via HWCAP_GCS in the aux vector
+-  AT_HWCAP2 entry.
++  AT_HWCAP entry.
+ 
+ * GCS is enabled per thread.  While there is support for disabling GCS
+   at runtime this should be done with great care.
 
-You never answered this part. From a quick check, looks like the change
-you made will cause probe failures if the resets are not present? Maybe
-I misread the driver code in my quick skim - but that is the implication
-of a new required property, so I didn't dig super far.
+---
+base-commit: ffd294d346d185b70e28b1a28abe367bbfe53c04
+change-id: 20250124-arm64-gcs-hwcap-doc-576d5f41027a
 
-Adding new properties that break a driver is not really acceptable, so I
-hope I made a mistake there.
+Best regards,
+-- 
+Mark Brown <broonie@kernel.org>
 
-> What are "SMI LARBs"? Why did things previously work
-> > without
-> > acting as a reset controller?
-> >=20
->=20
-> The background can refer to the discussion in the following link:
->=20
-> https://lore.kernel.org/all/CAFGrd9qZhObQXvm2_abqaX83xMLqxjQETB2=3DwXpobD=
-WU1CnvkA@mail.gmail.com/
->=20
-> https://lore.kernel.org/all/CAPDyKFpokXV2gJDgowbixTvOH_5VL3B5H8eyhP+KJ5Fa=
-sm2rFg@mail.gmail.com/
-> SMI clamp and reset operations should be implemented in SMI driver
-> instead of PM driver.
-
-So the answer to how it worked previously was that nothing actually used
-this multimedia interface?
-
-Your commit message needs to explain why a new required property is okay
-and why it was not there before.
-
-Thanks,
-Conor.
-
->=20
-> I previously added the SMI reset control driver. However, the
-> reviewer's comments are correct, these functions have already
-> been implemented in the clock control driver. There is no need
-> to submit duplicate code.=20
->=20
-> https://lore.kernel.org/lkml/20241120063305.8135-2-friday.yang@mediatek.c=
-om/
->=20
-> https://lore.kernel.org/lkml/20241120063305.8135-3-friday.yang@mediatek.c=
-om/
->=20
->=20
-> On the MediaTek platform, the SMI block diagram like this:
->=20
->                 DRAM
->                  |
->             EMI(External Memory Interface)
->                  |  |
->           MediaTek IOMMU(Input Output Memory Management Unit)
->                  |  |
->              SMI-Common(Smart Multimedia Interface Common)
->                  |
->          +----------------+------------------+
->          |                |                  |
->          |                |                  |
->          |                |                  |
->          |                |                  |
->          |                |                  |
->        larb0       SMI-Sub-Common0     SMI-Sub-Common1
->                    |      |     |      |             |
->                   larb1  larb2 larb3  larb7       larb9
->=20
-> The SMI-Common connects with SMI LARBs and IOMMU. The maximum LARBs
-> number that connects with a SMI-Common is 8. If the engines number is
-> over 8, sometimes we use a SMI-Sub-Common which is nearly same with
-> SMI-Common. It supports up to 8 input and 1 output(SMI-Common has 2
-> output).
->=20
-> > >=20
-> > > Signed-off-by: Friday Yang <friday.yang@mediatek.com>
-> > > ---
-> > >  .../bindings/clock/mediatek,mt8188-clock.yaml | 21
-> > > +++++++++++++++++++
-> > >  1 file changed, 21 insertions(+)
-> > >=20
-> > > diff --git
-> > > a/Documentation/devicetree/bindings/clock/mediatek,mt8188-
-> > > clock.yaml
-> > > b/Documentation/devicetree/bindings/clock/mediatek,mt8188-
-> > > clock.yaml
-> > > index 860570320545..2985c8c717d7 100644
-> > > --- a/Documentation/devicetree/bindings/clock/mediatek,mt8188-
-> > > clock.yaml
-> > > +++ b/Documentation/devicetree/bindings/clock/mediatek,mt8188-
-> > > clock.yaml
-> > > @@ -57,6 +57,27 @@ required:
-> > >    - reg
-> > >    - '#clock-cells'
-> > >=20
-> > > +allOf:
-> > > +  - if:
-> > > +      properties:
-> > > +        compatible:
-> > > +          contains:
-> > > +            enum:
-> > > +              - mediatek,mt8188-camsys-rawa
-> > > +              - mediatek,mt8188-camsys-rawb
-> > > +              - mediatek,mt8188-camsys-yuva
-> > > +              - mediatek,mt8188-camsys-yuvb
-> > > +              - mediatek,mt8188-imgsys-wpe1
-> > > +              - mediatek,mt8188-imgsys-wpe2
-> > > +              - mediatek,mt8188-imgsys-wpe3
-> > > +              - mediatek,mt8188-imgsys1-dip-nr
-> > > +              - mediatek,mt8188-imgsys1-dip-top
-> > > +              - mediatek,mt8188-ipesys
-> > > +
-> > > +    then:
-> > > +      required:
-> > > +        - '#reset-cells'
-> > > +
-> > >  additionalProperties: false
-> > >=20
-> > >  examples:
-> > > --
-> > > 2.46.0
-> > >=20
-
---D7rLUrhVT1Wjp55T
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ5POdQAKCRB4tDGHoIJi
-0i5YAP9Dx5bXus4xwjvaYC4iLzVHrcUXsxmP4pUtVR6hWDrycwD9GKZ11XB4OJbc
-HOrve7a/fbLIiPLQfLUBCD2A5m4nbQ8=
-=oF2i
------END PGP SIGNATURE-----
-
---D7rLUrhVT1Wjp55T--
 
