@@ -4,98 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7D06C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 01:54:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5DACC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 02:14:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0CIWoUy3ha4vzmjbfSmJFxTGA26KK4HHUmc6qsOMGbs=; b=ceEj8ScBcdB7vz8mjJ4UkWznUd
-	WzzGLRikjHAKVAD4krwfKKqeo+ImMKnHZdtMCWBdc/Yx02w/5Mi+JlcouOhoTak0HtWzuFPeKi5RT
-	CcNStc3Vwwq1UriJWG+1DBWtJF/7l03MaugmQ1fhD5tF4zqk9uTMMNAUb3KT2KkFvgnGbgd76yuD6
-	8eR/sc+PX4h/c3G3URd0uJQQlpr5t8MPB1MRHu4gON7SwJv8cdcgiF5d/ygXUJp1Zp6iCYBVZ1TJ3
-	orfd7hMUhYXp3FOzOIKxypAsxnc6NCXymUMcd26JD+reUYipgdtGu5MvRJInSeN6o030iI4K3KnzB
-	nhOkCMBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UPmM6acKSzQDeXlufKGeLR25eMLELY0p+Hjcp4bjlBk=; b=aH5Qc5hOpJaxDdQ8iPMhPdp7py
+	38SIaJvGflfyRvaaNC6sWxqZtJZPzAcLbwoea8uDyGHl888SqVARP6UGcjg3CcKoGpbMUPEoV0mnM
+	IgzAgtKflRYuFLpVcJRT9xcSDeNPiE1c0vqnHlDiJCQhsXoFoGxSeuESeOA34tGRbYp+4eBez0QaZ
+	TYfMDhaoWdnas10iKKgmImUkoYfAh7TovyobDKRfCrO8xTVHuCH/Xq4RqY/4OqzVqnpf4U9uFm5nI
+	BVmhdxd1+3jJwfvxXx3iZz/KY8kOsLrcP7hHYBrFtPMXfyHVm8mi4JO2Hy9myFSrN1zESxWu9vEdh
+	Qt1oseFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb8u7-0000000Dgd0-2pAU;
-	Fri, 24 Jan 2025 01:54:39 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1tb9Cp-0000000DhtX-0hQh;
+	Fri, 24 Jan 2025 02:13:59 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb8sq-0000000DgYw-06SC
+	id 1tb9BW-0000000Dhlg-1SC3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jan 2025 01:53:21 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-216281bc30fso37415795ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 17:53:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737683599; x=1738288399; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0CIWoUy3ha4vzmjbfSmJFxTGA26KK4HHUmc6qsOMGbs=;
-        b=JhovNrZkRQSwfqjJirfETC3u5feU9z4WMp57ReO2B/T+BXalq85BkpiwtNmYlVMi6P
-         aXtJLCfGNWgmVxyVVXpvvc6doB6laQcF9nebWBLTn5aj7OGff4Z5SrNgtt/hLcL9QA7x
-         tN1b11ewtWgAYFO4KZJZD1rVoYtZzLgKV2FDUvp0clCN+fyyICe6nrrEwu6TN4ZrapVZ
-         MEg96KiTMqEZYk/ytQsTI3QKtpUmMtHVc859A6qsX3bST9gJx7YW2Aibx/WseJ9L17Ad
-         vCOkZh21o7Ta0MIOjtwsuj79HJogauefbb247FyOoe+i+KnR1R0XkgcHyTuODTfZKkwL
-         KY7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737683599; x=1738288399;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0CIWoUy3ha4vzmjbfSmJFxTGA26KK4HHUmc6qsOMGbs=;
-        b=Mgb0wXCtTUz7pqBrAS9U3bL/Zl5YS0EDl+8uCcSzKW6p4dE5O8BLtEMCicmupw3VpL
-         U04wfmCKpOVzj5MFQ4mh37uZ0qQ21jYnGvC8QvxS1JcYxfC0kkYk8xKrRdyqTdsbLFfe
-         jbdrMq8w1749tzrq6Hg6+vqMqVSovSEUjfiVJWJXyNqAbGoGEKnc3/qDlCyfgVT8vw81
-         7Wnwobw3rse2TKbgF9tGCxtwxlv+JbsLWVCNsi8VbNPed+O//Phs7ZDkFBMBAbxdIRH8
-         1VcjbhIrvOQwLbBiXv9jXwmDVkMQTAIGg20spW3oGYP2/dAxcUnMuPi3xhgqlSMs466f
-         UhZg==
-X-Forwarded-Encrypted: i=1; AJvYcCWrA07DPqjZGMZ6UKWPEoy3NijVx3zlaHk67Fd3Q4u0W2UclqPkd7XZpW2Zsc0EDKhuixZNvcaklMdWA4OXhoU5@lists.infradead.org
-X-Gm-Message-State: AOJu0YxC5P5Cl4T1NZepj4IJbjus88gSEdLqKCsxR8TnCKZkQ9kpYe3m
-	i+P5eU1OsBXBsuTkpZKyKLMjGUdLcNGbaFiWJFblJclg86eI0m4m
-X-Gm-Gg: ASbGncu60akzb536CFO3MLYLkRrii7q1+yhNjpIwP5smyIKNSi4Whg/FZY7BQh0GL2H
-	clvVTndp41pTzZXrr231DtY02aksxC3g3zOY5Jnkce/NVpgIimbX6AyhrnChXUD16UXo2XN4RXO
-	Yx002tgRSuN7Eu0cI3YjvmLQY29Dn2w7PwaFCVhLjcMKk4S/bdJprC3lSaWO4qaUFbxkzonREh7
-	kVxsCyTQO/oSbfwd0KaLT/rBf5Plwcdrq6YAIs+sVvEckvB2+ccipJzuCfXduxxPa+4UpgAVcZs
-	Aw==
-X-Google-Smtp-Source: AGHT+IFZRfnI30bnwFu/Rtxq5p6ANLOVPVizJ9I6bLn4f1DAiaJJMm0/EPmYHmngP0TFWmohDF1dbQ==
-X-Received: by 2002:a17:902:ce8d:b0:216:591a:8544 with SMTP id d9443c01a7336-21c35630a13mr474511075ad.34.1737683598984;
-        Thu, 23 Jan 2025 17:53:18 -0800 (PST)
-Received: from localhost ([129.146.253.192])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21da4141100sm5538865ad.137.2025.01.23.17.53.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Jan 2025 17:53:18 -0800 (PST)
-Date: Fri, 24 Jan 2025 09:53:05 +0800
-From: Furong Xu <0x1207@gmail.com>
-To: Brad Griffis <bgriffis@nvidia.com>
-Cc: Jon Hunter <jonathanh@nvidia.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Alexander Lobakin <aleksander.lobakin@intel.com>, Joe Damato
- <jdamato@fastly.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
- Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-Subject: Re: [PATCH net-next v3 1/4] net: stmmac: Switch to zero-copy in
- non-XDP RX path
-Message-ID: <20250124095305.00002b3e@gmail.com>
-In-Reply-To: <e6305e71-5633-48bf-988d-fa2886e16aae@nvidia.com>
-References: <cover.1736910454.git.0x1207@gmail.com>
-	<bd7aabf4d9b6696885922ed4bef8fc95142d3004.1736910454.git.0x1207@gmail.com>
-	<d465f277-bac7-439f-be1d-9a47dfe2d951@nvidia.com>
-	<20250124003501.5fff00bc@orangepi5-plus>
-	<e6305e71-5633-48bf-988d-fa2886e16aae@nvidia.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Fri, 24 Jan 2025 02:12:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1737684758; x=1769220758;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ZVWsL5TzIlssbUAp6wHsmMyTAmfxKSHrFnKGbtmAIBQ=;
+  b=Qvp2YzTh0njZtKpUU5ckkhTCItaJK2bOIaAQ1PI5zzMMzD+5fxbZQmfW
+   m0rZgXUCgoeKAjLlQBFkp+Xg3mlGo3BJSS0IgkjUKLzxgFVBgeEV/W4se
+   w/5e5P3OWJsoEMuy3wAD4Jn3BuIBOqB1tzp/GAeHVr43IOty+zgNCf07e
+   mzcx6qd0AZ4BILuDUVlTtEwZLAsBvaWhd/pHNJPg2F7mmFfWDqI4e/3/j
+   D3AcxEjKDS6Lrxq2Jef/OcGH+K6dcrxO1bskt9rnS73OfxccP/fG6METn
+   ap6r7H7r5qFHIIXn+hQmxJfg2sBpuN2hmYufG06ywFTvG6xoZAq8VtOu6
+   Q==;
+X-CSE-ConnectionGUID: O/F6ANSJRCO6WsM01cKUWg==
+X-CSE-MsgGUID: +xU77SdZTG+hWk5VhnIGLA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11324"; a="48875999"
+X-IronPort-AV: E=Sophos;i="6.13,230,1732608000"; 
+   d="scan'208";a="48875999"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jan 2025 18:12:31 -0800
+X-CSE-ConnectionGUID: nXYMOnQESfGam5t5ZaclGw==
+X-CSE-MsgGUID: 6JPi4DtnRJujUu4v4yIVnA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,230,1732608000"; 
+   d="scan'208";a="107645960"
+Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
+  by orviesa006.jf.intel.com with ESMTP; 23 Jan 2025 18:12:27 -0800
+Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tb9BI-000c19-0j;
+	Fri, 24 Jan 2025 02:12:24 +0000
+Date: Fri, 24 Jan 2025 10:11:52 +0800
+From: kernel test robot <lkp@intel.com>
+To: "Jiao, Joey" <quic_jiangenj@quicinc.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>,
+	Christoph Lameter <cl@linux-foundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev,
+	Linux Memory Management List <linux-mm@kvack.org>,
+	kasan-dev@googlegroups.com, linux-kernel@vger.kernel.org,
+	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kernel@quicinc.com
+Subject: Re: [PATCH 4/7] kcov: introduce new kcov KCOV_TRACE_UNIQ_CMP mode
+Message-ID: <202501240959.61XLxBYF-lkp@intel.com>
+References: <20250114-kcov-v1-4-004294b931a2@quicinc.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250114-kcov-v1-4-004294b931a2@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_175320_068410_3E832D23 
-X-CRM114-Status: GOOD (  26.90  )
+X-CRM114-CacheID: sfid-20250123_181238_399985_FBD4D775 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,39 +98,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Jan 2025 11:53:21 -0800, Brad Griffis <bgriffis@nvidia.com> wrote:
+Hi Joey,
 
-> On 1/23/25 08:35, Furong Xu wrote:
-> > What is the MTU of Tegra234 and NFS server? Are they both 1500?  
-> 
-> I see the same issue.  Yes, both are 1500.
-> 
-> > Could you please try attached patch to confirm if this regression is
-> > fixed?  
-> 
-> Patch fixes the issue.
-> 
-> > If the attached patch fixes this regression, and so it seems to be a
-> > cache coherence issue specific to Tegra234, since this patch avoid
-> > memcpy and the page buffers may be modified by upper network stack of
-> > course, then cache lines of page buffers may become dirty. But by
-> > reverting this patch, cache lines of page buffers never become dirty,
-> > this is the core difference.  
-> 
-> Thanks for these insights. I don't have specific experience in this 
-> driver, but I see we have dma-coherent turned on for this driver in our 
-> downstream device tree files (i.e. dtbs that coincide with our 
-> out-of-tree implementation of this driver).  I went back to the original 
-> code and verified that the issue was there. I did a new test where I 
-> added dma-coherent to this ethernet node in the dtb and retested. It worked!
-> 
-> Just to clarify, the patch that you had us try was not intended as an 
-> actual fix, correct? It was only for diagnostic purposes, i.e. to see if 
-> there is some kind of cache coherence issue, which seems to be the case? 
+kernel test robot noticed the following build errors:
 
-It is not an actual fix, it is only for diagnostic purposes.
+[auto build test ERROR on 9b2ffa6148b1e4468d08f7e0e7e371c43cac9ffe]
 
->   So perhaps the only fix needed is to add dma-coherent to our device tree?
+url:    https://github.com/intel-lab-lkp/linux/commits/Jiao-Joey/kcov-introduce-new-kcov-KCOV_TRACE_UNIQ_PC-mode/20250114-133713
+base:   9b2ffa6148b1e4468d08f7e0e7e371c43cac9ffe
+patch link:    https://lore.kernel.org/r/20250114-kcov-v1-4-004294b931a2%40quicinc.com
+patch subject: [PATCH 4/7] kcov: introduce new kcov KCOV_TRACE_UNIQ_CMP mode
+config: mips-randconfig-r073-20250124 (https://download.01.org/0day-ci/archive/20250124/202501240959.61XLxBYF-lkp@intel.com/config)
+compiler: mips-linux-gcc (GCC) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250124/202501240959.61XLxBYF-lkp@intel.com/reproduce)
 
-Yes, add dma-coherent to ethernet node is the correct fix.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202501240959.61XLxBYF-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   kernel/kcov.c: In function 'kcov_map_add':
+>> kernel/kcov.c:309:60: error: 'struct kcov_entry' has no member named 'type'
+     309 |                         if (entry->ent == ent->ent && entry->type == ent->type &&
+         |                                                            ^~
+   kernel/kcov.c:309:73: error: 'struct kcov_entry' has no member named 'type'
+     309 |                         if (entry->ent == ent->ent && entry->type == ent->type &&
+         |                                                                         ^~
+>> kernel/kcov.c:310:34: error: 'struct kcov_entry' has no member named 'arg1'
+     310 |                             entry->arg1 == ent->arg1 && entry->arg2 == ent->arg2) {
+         |                                  ^~
+   kernel/kcov.c:310:47: error: 'struct kcov_entry' has no member named 'arg1'
+     310 |                             entry->arg1 == ent->arg1 && entry->arg2 == ent->arg2) {
+         |                                               ^~
+>> kernel/kcov.c:310:62: error: 'struct kcov_entry' has no member named 'arg2'
+     310 |                             entry->arg1 == ent->arg1 && entry->arg2 == ent->arg2) {
+         |                                                              ^~
+   kernel/kcov.c:310:75: error: 'struct kcov_entry' has no member named 'arg2'
+     310 |                             entry->arg1 == ent->arg1 && entry->arg2 == ent->arg2) {
+         |                                                                           ^~
+   kernel/kcov.c:343:48: error: 'struct kcov_entry' has no member named 'type'
+     343 |                         area[start_index] = ent->type;
+         |                                                ^~
+   kernel/kcov.c:344:52: error: 'struct kcov_entry' has no member named 'arg1'
+     344 |                         area[start_index + 1] = ent->arg1;
+         |                                                    ^~
+   kernel/kcov.c:345:52: error: 'struct kcov_entry' has no member named 'arg2'
+     345 |                         area[start_index + 2] = ent->arg2;
+         |                                                    ^~
+
+
+vim +309 kernel/kcov.c
+
+   290	
+   291	static notrace inline void kcov_map_add(struct kcov_map *map, struct kcov_entry *ent,
+   292						struct task_struct *t, unsigned int mode)
+   293	{
+   294		struct kcov *kcov;
+   295		struct kcov_entry *entry;
+   296		unsigned int key = hash_key(ent);
+   297		unsigned long pos, start_index, end_pos, max_pos, *area;
+   298	
+   299		kcov = t->kcov;
+   300	
+   301		if ((mode == KCOV_MODE_TRACE_UNIQ_PC ||
+   302		     mode == KCOV_MODE_TRACE_UNIQ_EDGE))
+   303			hash_for_each_possible_rcu(map->buckets, entry, node, key) {
+   304				if (entry->ent == ent->ent)
+   305					return;
+   306			}
+   307		else
+   308			hash_for_each_possible_rcu(map->buckets, entry, node, key) {
+ > 309				if (entry->ent == ent->ent && entry->type == ent->type &&
+ > 310				    entry->arg1 == ent->arg1 && entry->arg2 == ent->arg2) {
+   311					return;
+   312				}
+   313			}
+   314	
+   315		entry = (struct kcov_entry *)gen_pool_alloc(map->pool, 1 << MIN_POOL_ALLOC_ORDER);
+   316		if (unlikely(!entry))
+   317			return;
+   318	
+   319		barrier();
+   320		memcpy(entry, ent, sizeof(*entry));
+   321		hash_add_rcu(map->buckets, &entry->node, key);
+   322	
+   323		if (mode == KCOV_MODE_TRACE_UNIQ_PC || mode == KCOV_MODE_TRACE_UNIQ_CMP)
+   324			area = t->kcov_area;
+   325		else
+   326			area = kcov->map_edge->area;
+   327	
+   328		pos = READ_ONCE(area[0]) + 1;
+   329		if (mode == KCOV_MODE_TRACE_UNIQ_PC || mode == KCOV_MODE_TRACE_UNIQ_EDGE) {
+   330			if (likely(pos < t->kcov_size)) {
+   331				WRITE_ONCE(area[0], pos);
+   332				barrier();
+   333				area[pos] = ent->ent;
+   334			}
+   335		} else {
+   336			start_index = 1 + (pos - 1) * KCOV_WORDS_PER_CMP;
+   337			max_pos = t->kcov_size * sizeof(unsigned long);
+   338			end_pos = (start_index + KCOV_WORDS_PER_CMP) * sizeof(u64);
+   339			if (likely(end_pos <= max_pos)) {
+   340				/* See comment in __sanitizer_cov_trace_pc(). */
+   341				WRITE_ONCE(area[0], pos);
+   342				barrier();
+   343				area[start_index] = ent->type;
+   344				area[start_index + 1] = ent->arg1;
+   345				area[start_index + 2] = ent->arg2;
+   346				area[start_index + 3] = ent->ent;
+   347			}
+   348		}
+   349	}
+   350	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
