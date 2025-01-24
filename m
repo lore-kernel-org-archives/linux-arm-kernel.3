@@ -4,77 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 870AFC0218B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 13:36:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B9E9C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 13:42:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TFsv3UfKcQEUe4LWmZy8joE4lsGXNnzFnSR4/jdYIys=; b=WaxXhRqFPXttwnAcJ8N/3AirG7
-	dMn246f9zIM+L8qCIrZri0oHWBLli0MW+hKKNOj8tobASsLHPL9Fto2315IlalY5Rg2pVah6LH/co
-	vdZWareFU5ReLoNPaM0dgVOMIzeBFJX2CUK6ZZ3S+/73fdY2IK72U0ejUdK1zCX7j0S94CqC285nD
-	AC/krVVSUJr/Tfh3zHrqfxC7caF+wRLg+7betUru+8ptoDTQhJl5ZAr1fxBuUlKTbItZhVuw8/BJp
-	7GHuHnBqz846XjyxGmDXg5sFQ/gf2uIoXLsWiP99m6RszJgfc6wVeJjU7c7UZnBhVh4VoPUyvBYJH
-	YY0Y4lEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KpLfynM31yo/shZxF3ZUy2NRwhB39YpYEBEOuQQVK5g=; b=X1OTPuumbNoP+A5cDsVnZFJtrf
+	HeuqYzJFZLpm8c1+6eOwCSag2v/1JjUxRaijymfowJ1KpTs+Rl/4uM/45XzOyGdMWmgq0mPK6ZOqz
+	W/2v52Netk+moCo3pIa6pr7t7j6UZed9tfuH1fmFQP2QVUjV1ed5PsoUFs98hD3OuRtmXrSiu9o1r
+	3d0I6MEz54969pTx2/KZATTY6f/81NF7iW9XhrhuEWFtREUHB9WuNLE2UU9pnbeFjM24j+5YpQyr7
+	g+9jLJZfOOBA9WCang58RJassJVQj56VIRJbDWXGvFsiSx+DPJ4Wdug1UeL41KXEVjP06725RoWit
+	Lz2Hz/vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbJrb-0000000El2p-1J7d;
-	Fri, 24 Jan 2025 13:36:47 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tbJws-0000000EmhN-1X5A;
+	Fri, 24 Jan 2025 13:42:14 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbJqG-0000000Ekti-3ADt
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jan 2025 13:35:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 68AA75C5E71;
-	Fri, 24 Jan 2025 13:34:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59869C4CEE0;
-	Fri, 24 Jan 2025 13:35:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737725723;
-	bh=TFsv3UfKcQEUe4LWmZy8joE4lsGXNnzFnSR4/jdYIys=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VTJp66NbwqsqB1XJ7zHZLaZXKg9oppm5xJfJAH4QCuyr/X87rCiPyEoc3lb6+nZ+r
-	 1CDAZ2ivTmLGmmmcx3mRqcI4wUs9JyVOiisZxS1thOMPu4n0IoD24apM+fbtDkfeIL
-	 SFDFdQhdal2g4MZosJX69gh7BYs83RF27p1Ki9U7O8hQLMqwYA2kQneUAJjpfGenNe
-	 0SFV7/m5GtN1rKeMU6o6cgsecWpufiYP+KuqKUIQ/yWJLot6shH4INjcxZy2Kaz4YU
-	 79VTQe1LJ7tVXkCJyH6IpTkjuL3R+W6FgWfcB1/Ibh08iPQeLDzFjPmbSq06V0J4Y6
-	 WZhBhAbB/5HYA==
-Date: Fri, 24 Jan 2025 13:35:17 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Sean Anderson <sean.anderson@linux.dev>
-Cc: David Lechner <dlechner@baylibre.com>,
-	Michal Simek <michal.simek@amd.com>, linux-spi@vger.kernel.org,
-	Jinjie Ruan <ruanjinjie@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>,
-	linux-kernel@vger.kernel.org,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
-	"linux-iio@vger.kernel.org" <linux-iio@vger.kernel.org>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>
-Subject: Re: [PATCH 1/7] dt-bindings: spi: zynqmp-qspi: Split the bus
-Message-ID: <ecac5293-ae70-4575-b706-58f877bacc92@sirena.org.uk>
-References: <20250116232118.2694169-1-sean.anderson@linux.dev>
- <20250116232118.2694169-2-sean.anderson@linux.dev>
- <9f40295b-484a-48e8-b053-ff8550e589d7@baylibre.com>
- <46a7eba6-a705-4543-b967-e83ccc89e7d4@linux.dev>
- <6afc379a-2f9f-4462-ae30-ef6945a83236@baylibre.com>
- <2784cc3b-0b8f-4116-b34d-0de4ff56cf92@linux.dev>
+	id 1tbJvX-0000000EmHa-1sJl;
+	Fri, 24 Jan 2025 13:40:52 +0000
+X-UUID: cfa7ae7eda5811ef9048ed6ed365623b-20250124
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=KpLfynM31yo/shZxF3ZUy2NRwhB39YpYEBEOuQQVK5g=;
+	b=Q/bERLsfNbu1bhwMI7iCUJQr5/biIEBimb2r3bqVhx73pCqbXC3tBw2ZDdAVaUVxtLxjCH4TjAXJhIfghZZkHqWaE7mZIcXwruDYMzGAmxKgSmfciLrM4U1olcLsqoxx6Fg3aLHOe8sfE8MeA4tHrtKa0f9cbGYXn4rhqNQQtSA=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.46,REQID:cc03b8cb-3a73-45fd-aa0e-8e9ebfd2cf74,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:60aa074,CLOUDID:5068a53d-da39-4471-8a46-23da908abe46,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
+	l,URL:1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
+	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_ULS,TF_CID_SPAM_SNR
+X-UUID: cfa7ae7eda5811ef9048ed6ed365623b-20250124
+Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw02.mediatek.com
+	(envelope-from <ot_chhao.chang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1100366859; Fri, 24 Jan 2025 06:40:44 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.28; Fri, 24 Jan 2025 21:40:42 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.28 via Frontend Transport; Fri, 24 Jan 2025 21:40:41 +0800
+From: Hao Chang <ot_chhao.chang@mediatek.com>
+To: Sean Wang <sean.wang@kernel.org>, Linus Walleij
+	<linus.walleij@linaro.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+CC: Wenbin Mei <wenbin.mei@mediatek.com>, Axe Yang <axe.yang@mediatek.com>,
+	Qingliang Li <qingliang.li@mediatek.com>, Hanks Chen
+	<hanks.chen@mediatek.com>, Chunhui Li <chunhui.li@mediatek.com>,
+	<linux-mediatek@lists.infradead.org>, <linux-gpio@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, Hao
+ Chang <ot_chhao.chang@mediatek.com>
+Subject: [PATCH v3 0/2]
+Date: Fri, 24 Jan 2025 21:40:12 +0800
+Message-ID: <20250124134025.2666-1-ot_chhao.chang@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Pkerz/Ef+rgcHpyv"
-Content-Disposition: inline
-In-Reply-To: <2784cc3b-0b8f-4116-b34d-0de4ff56cf92@linux.dev>
-X-Cookie: Earth is a beta site.
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250124_053524_835125_2EAD6417 
-X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-CacheID: sfid-20250124_054051_490238_A6F461AC 
+X-CRM114-Status: UNSURE (   7.33  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,32 +88,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Change in v3:
+1)Add error handling to prevent memory leaks
+2)Move the eint pin assignment action to eint for processing
+---
+This patch depends on
+[v3,2/2] pinctrl: mediatek: add mt8196 driver
+[v3,1/2] dt-bindings: pinctrl: mediatek: add support for mt8196
 
---Pkerz/Ef+rgcHpyv
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Please also accept this patch together with [1]
+to avoid build and dt binding check error.
+[1]https://patchwork.kernel.org/project/linux-mediatek/list/?series=&submitter=215008&state=&q=v3&archive=&delegate=
+---
 
-On Thu, Jan 23, 2025 at 05:37:16PM -0500, Sean Anderson wrote:
+Hao Chang (2):
+  pinctrl: mediatek: update EINT base retrieval method
+  pinctrl: mediatek: adapt to multi-base design
 
-> Your patches LGTM. I will use them for v2. Mark do you have any comments on this
-> approach?
+ drivers/pinctrl/mediatek/mtk-eint.c           | 38 +++++++++-----
+ .../pinctrl/mediatek/pinctrl-mtk-common-v2.c  | 50 +++++++++++++------
+ 2 files changed, 60 insertions(+), 28 deletions(-)
 
-It looks fine.
+-- 
+2.46.0
 
---Pkerz/Ef+rgcHpyv
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmeTlxQACgkQJNaLcl1U
-h9A/1wf+LwQC6JmRuJILYtffqfOtSDabDTmR6snmnjAjefCBKxfO/hAcNc2Q7Pex
-z5hBWE5wI8Jospu0Z7tLTxnMTss99sjFPY8eVjqmNNxTqaT9hi6XbA7v6ZyRCRcs
-In3EdL438Uqrs9m79GE4fqgSzniu+eKpo1gUnLDLP7cl2FgKs0VHPuaZzYFZ+PUj
-X056bLr6i0jiwp5nMGKfWIG2CPtu3DkqtNNhlJNfmDwhe5hCEHGu/eimVFcxFXw5
-W81T1KHx52bmeUWbhnDLaAsP99WaCgwt4VarQxGBRIF1wEvTxKvig3Vvd+7rMV9E
-ZY/0pvaRX8141lF0IY4P9VBE1AddWw==
-=3e6Y
------END PGP SIGNATURE-----
-
---Pkerz/Ef+rgcHpyv--
 
