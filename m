@@ -4,49 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1014CC0218B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 14:54:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BD79C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 14:58:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qYQHBdk5i4zn8knyVHEsUvxgDpAUE193jWRLHV0XTVE=; b=McKLPwm+he3gL0RMwRKIuDwIC0
-	kmlxzlFPSuzJ3Vxg6MEKiQ1j6DI1qR2JDWkIFgkvYc3Fv8xEfjGYZ+FBsnUvg5krknVr7kNk20HBo
-	5feKmfSz8GMHjLboAQZTm5N3Tw6wdpgpwj8LkFxc2Bvrx/iJtLfYuEOFgdPJWIZ8yNF/NV8lz96DE
-	aaAs4tsxyQKnWUduc+ZCXhE6XIEur78zPRImBsK6ntM8Ocv/zdBmfPbPS8GtIaqfgZDnD98fXWG9x
-	Kl2iKGx2SbmbcqllibW5/9/ZIuUEDP0dW01TrD2SQq5AjfG6GT+gpwNXF0bcVKYYvxnyGUXexx7pM
-	NBkJFqWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J5kjHkJnOHEQs5ufwKsC59GIKFl8SpG5yJzGjmGDr5w=; b=JQQIapzCunkKViXUUPG2cteBiv
+	fdyqI0obMghFieNbyozmGRQCI5DaapK1gFSn0Nrjp1USOFRKVk7K6Lj5uADEqhoaSFqFBMOUAviXC
+	CrzYIbKRNhiembv7TsiGDkqYQKHpYKUJa7xr6wggNdf/llNpDDTcODNjXe1/3ohbhSj1mm0SIy/gy
+	uOAUuaOJTvD7SdpwXl1DvvZhVLMDzsKt/xrbreJPxl/8ANoJFzd6IaQF1x8MUUZqCRtSxI4WecRi5
+	LLSe6bYdctCKAygJ89Q5v1lMyLBwJ9GIU6tmXu51vB7IyyJfpcuXomF/cv91dBBmFaCZM18rIiBx1
+	1GCsGg7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbL48-0000000Eta6-0U5F;
-	Fri, 24 Jan 2025 14:53:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbL2j-0000000EtPU-2Vby
+	id 1tbL8C-0000000Etwc-3ykO;
+	Fri, 24 Jan 2025 14:58:00 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tbL6t-0000000Etng-0829
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jan 2025 14:52:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3105EFEC;
-	Fri, 24 Jan 2025 06:52:46 -0800 (PST)
-Received: from NH27D9T0LF (unknown [10.57.6.244])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A3B4A3F694;
-	Fri, 24 Jan 2025 06:52:17 -0800 (PST)
-Date: Fri, 24 Jan 2025 15:52:10 +0100
-From: Emanuele Rocca <emanuele.rocca@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Mark Rutland <mark.rutland@arm.com>
-Subject: [BUG] ARM64 regression: NULL pointer dereference in
- arm_smccc_version_init+0x90/0x1ac
-Message-ID: <Z5OpGluX6oX5NLxh@NH27D9T0LF>
+	Fri, 24 Jan 2025 14:56:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=J5kjHkJnOHEQs5ufwKsC59GIKFl8SpG5yJzGjmGDr5w=; b=4gfHYnQetFNudQQ+w0vRAFchfg
+	Y4EJjpeJ/W5BT2yO0YcIuG4oKRxO0hO6s3EWVekqKFoQ89SXc6yD20w6pJZxVGHBhEjdVLJLt3/cv
+	Fi/9fQU0C5QsxoPygdVzEqlZx+xOAqg9qkI9e8HomDOlVKUbQkCBD0bGSdx/h+8x1k3Q=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tbL6Y-007cTY-5X; Fri, 24 Jan 2025 15:56:18 +0100
+Date: Fri, 24 Jan 2025 15:56:18 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Willie Thai <wthai@nvidia.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	joel@jms.id.au, andrew@codeconstruct.com.au, kees@kernel.org,
+	tony.luck@intel.com, gpiccoli@igalia.com,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org, openbmc@lists.ozlabs.org,
+	leohu@nvidia.com, tingkaic@nvidia.com, dkodihalli@nvidia.com,
+	wthai <wthai@willie-obmc-builder.nvidia.com>
+Subject: Re: [PATCH] ARM: dts: aspeed: Add device tree for Nvidia's GB200NVL
+ BMC
+Message-ID: <7b47725f-fb57-454c-82f6-859202060243@lunn.ch>
+References: <20250124051819.7714-1-wthai@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <20250124051819.7714-1-wthai@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250124_065221_682786_72BEA5E6 
-X-CRM114-Status: UNSURE (   7.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250124_065639_069041_A2364018 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,45 +74,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-longterm kernel 6.1.123 crashes early when booting on the Lenovo Thinkpad X13s
-with the following error:
+On Fri, Jan 24, 2025 at 05:18:19AM +0000, Willie Thai wrote:
+> From: wthai <wthai@willie-obmc-builder.nvidia.com>
+> 
+> The GB200NVL BMC is an Aspeed Ast2600 based BMC
+> for Nvidia Blackwell GB200NVL platform.
+> 
+> Signed-off-by: wthai <wthai@nvidia.com>
 
- Unable to handle kernel NULL pointer dereference at virtual address 0000000000000264
+I'm not sure that is a valid name for a Signed-off-by. I would expect
+something like:
 
- pc: arm_smccc_version_init+0x90/0x1ac
+Signed-off-by: Willie Thai <wthai@nvidia.com>
 
-According to faddr2line, that is line 31 of smccc.c:
+> +&mac0 {
+> +	status = "okay";
+> +	pinctrl-names = "default";
+> +	phy-mode = "rgmii-rxid";
+> +	max-speed = <1000>;
+> +	phy-handle = <&ethphy3>;
+> +	pinctrl-0 = <&pinctrl_rgmii1_default>;
+> +};
 
- arm_smccc_version_init+0x90/0x1ac:
- arm_smccc_version_init at debian/build/build_arm64_none_arm64/drivers/firmware/smccc/smccc.c:31
+This phy-mode is wrong. There is a long discussion about this, started
+from a BMC submitted by IBM. Please wait until Aspeed fix the MAC
+driver before adding support for RGMII based ethernet. You are
+probably innocent here, apart from failing to sanity check vendor
+advise, which happens to be wrong.
 
- 22 void __init arm_smccc_version_init(u32 version, enum arm_smccc_conduit conduit)
- 23 {
- 24         struct arm_smccc_res res;
- 25 
- 26         smccc_version = version;
- 27         smccc_conduit = conduit;
- 28 
- 29         smccc_trng_available = smccc_probe_trng();
- 30 
- 31         if ((smccc_version >= ARM_SMCCC_VERSION_1_2) &&
+https://lore.kernel.org/netdev/20250107162350.1281165-10-ninad@linux.ibm.com/T/
+https://lore.kernel.org/linux-arm-kernel/bebbba7b-f86e-4dc4-8253-65d34cb84804@linux.ibm.com/T/
 
-This is with kernel 6.1.123. The last known good kernel I have available right
-now is 6.1.119. In the 6.1.120 changelog I see the following commit which seems
-potentially related?
+The max-speed parameter should also be unneeded. Unless you have a
+real need for it. Does this MAC/PHY combination support higher speeds,
+but they are broken for some reason, so you need to avoid them?
 
- https://lore.kernel.org/all/20241106160448.2712997-1-mark.rutland@arm.com/
-
-That's stable commit [1].
-
-The relevant upstream commit [2] is in linux 6.12, and that kernel version does
-not crash. Comparing [1] vs [2] I see differences, but I can't tell if they can
-help debug the issue further. 
-
-Thanks,
-  ema
-
-[1] https://git.kernel.org/linus/bfcaffd4cc2d61ecb0571c5baf127c4089978ad4
-[2] https://git.kernel.org/linus/8c462d56487e3abdbf8a61cedfe7c795a54f4a78
+	Andrew
 
