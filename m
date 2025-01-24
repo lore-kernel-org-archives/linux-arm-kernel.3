@@ -4,62 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AD8FC02181
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 11:05:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C98F1C0218B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 11:07:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xS8sfpyKxEecLfJgThWHKU3Ix8NabgEGiuP5uDP/ji4=; b=My4z5FvELlHVdeb05sz6OXs2fN
-	VPetYwoTpNVKUlwDAiB2aMw+1/WbSUe6u6+W9L+Otnv8LrnrzI8OjGR6BqlmXAhTHtUvrc9mU4eq3
-	fV7JbWZI1lc9jT47bfKwXd37v/BXLZc34aClmlEkjbt4bBPq4Rp8JU6OfJbfr2v8bf3oUWqmKHsnV
-	NZCr68WWSLiGSWbLOQEF1YAbDxEXLnM1YsH75fCNdtceIOWBhetyvPiCOmcBkbvLYJlxWMTh8F5Ep
-	dhYEh+x2l8Ui5AOgm6t5iPh6Ysvcj40RqPBcRZa/8tB+sura6+cInT6Si0Pme0usQlahBQgpR5xhp
-	DMXplvvQ==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0dqwYTTHItjIM6ghqeOt0STczPqUYZ5EwZI5o2uzaA0=; b=F1fdUaFMDzEBZN45WrTbczFBtu
+	RCeNIVY2ireQwG/QB0cXBfalz0oXOIRczGZ1xf5fWZCfjALqORbeD9UFd3XpaTpOidYnMt06Usd9B
+	qyJMAw3AwwFvwHjv9pocX9DReoeooHdLjQiNf8WxEq/r1VbTyKL9jZNf8DSGWKj2jpSp1+ZZemRXw
+	2U79Pp4igIhihChRnnV8nI0OzziUpa86rYsNM0D6GShHpNY0k+StMTi2T5wCRqjrltAqwro8h5J9b
+	P6NxckbTaCw3dTjizjwLap8JpQafobdP9Ng49movZ8GZTEb1cznexblls2Ms4mwHhY/btyjFEc56I
+	EzH7CiMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbHUv-0000000EX4x-07O7;
-	Fri, 24 Jan 2025 11:05:13 +0000
-Received: from mail.ispras.ru ([83.149.199.84])
+	id 1tbHWu-0000000EXH7-3S2c;
+	Fri, 24 Jan 2025 11:07:16 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbHSc-0000000EWlk-0YFG
+	id 1tbHVW-0000000EX8r-1eVR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jan 2025 11:02:52 +0000
-Received: from ldvnode.intra.ispras.ru (unknown [10.10.2.153])
-	by mail.ispras.ru (Postfix) with ESMTPSA id 0BC1640755EB;
-	Fri, 24 Jan 2025 11:02:47 +0000 (UTC)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.ispras.ru 0BC1640755EB
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ispras.ru;
-	s=default; t=1737716567;
-	bh=xS8sfpyKxEecLfJgThWHKU3Ix8NabgEGiuP5uDP/ji4=;
-	h=From:To:Cc:Subject:Date:From;
-	b=audw0OhgKV189hBmIGwdsFiT6XnENZxvdWhS8yD+r0GxiqxQ8Gz0uH7D/uGRH/QRg
-	 wwlUwtw4XIZrWLSNm1acFni0WyisihC2bUvZqCb8Efj59Lvn+qb65yg/kaF+b3Alj+
-	 6Ef+S+FmRjiBS15zhgKYkH9CbAP+fXTPhHJ2cIeY=
-From: Vitalii Mordan <mordan@ispras.ru>
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Vitalii Mordan <mordan@ispras.ru>,
-	Taichi Sugaya <sugaya.taichi@socionext.com>,
-	Takao Orito <orito.takao@socionext.com>,
-	Jassi Brar <jaswinder.singh@linaro.org>,
-	dmaengine@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	lvc-project@linuxtesting.org,
-	Fedor Pchelkin <pchelkin@ispras.ru>,
-	Alexey Khoroshilov <khoroshilov@ispras.ru>,
-	Vadim Mutilin <mutilin@ispras.ru>
-Subject: [PATCH] dma: milbeaut-hdmac: fix call balance of mdev->clk handling routines
-Date: Fri, 24 Jan 2025 14:02:40 +0300
-Message-Id: <20250124110240.1285500-1-mordan@ispras.ru>
-X-Mailer: git-send-email 2.25.1
+	Fri, 24 Jan 2025 11:05:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 63328A414DF
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jan 2025 11:04:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23191C4CEE6
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jan 2025 11:05:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737716749;
+	bh=CBFb9cadK6CI8XSq0vtxlBS7O6t7I082PLHFx/6xqJg=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=e2xss22X+GyHcg3L8RAGJnHI3wDEOvPUmDUd72VUO16PECn3RbKh71bUJsCjz4MHd
+	 34alIyJ7KAOL1PhHPmxJ8W6ZekOE7ybWqTa8Yi/U5HZVx5iPXhA7OQsPv/iDuqwGdD
+	 RIoAyWvWanAC5dkN7+Vej8NoM8kxx4GFamPhoe4GdoZ4pWSeVhC8DVAMStEOXmq/IH
+	 b9xNJyKxptQn4ZmyTBB2eKnumhh359jLGlyW5QahtLgPUgFatOjU2FaacQhNvAWxZB
+	 Q7fZYMvH/pSF/rbwsu8wZDf4msxdCVQ5/q+XOaDGzvw3VuUt/w/QtKOeNm+aFsPuEO
+	 qOqYyDaSZwucA==
+Received: by mail-oi1-f170.google.com with SMTP id 5614622812f47-3eba7784112so1094579b6e.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jan 2025 03:05:49 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWsTd6kwIeab7N+BBE118K7pzuqSMx4O62ITBejoGRs06Z023U8n0vceodNkzUHlAMHZvjZFtFUJkMfIQNchrA0@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywxyp7BMqSqhpQ1hy/SAogOitVNQbjlhQr2xtmDnAhSrbEP/KL1
+	d2mizkd17B74H+vnA6YE2G4Bfx+bYuTT99uKkMV6e1JXZWjLzshhf8m8gELcfJEwEpOVo1KS9XM
+	dg0YfvmLEW+teHEukeTXkcdbM3No=
+X-Google-Smtp-Source: AGHT+IF9SQa/+bL5eAQooEMEc4F5um8UWTrom9xFFpSH41EcICfOloxWkQjjLH9ovO30qYEM+acRaxA2bbdUNAtBaco=
+X-Received: by 2002:a05:6871:6187:b0:29e:4a13:603f with SMTP id
+ 586e51a60fabf-2b1c09e6ad7mr17574182fac.4.1737716748305; Fri, 24 Jan 2025
+ 03:05:48 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <cover.1737707712.git.viresh.kumar@linaro.org>
+In-Reply-To: <cover.1737707712.git.viresh.kumar@linaro.org>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Fri, 24 Jan 2025 12:05:36 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0jYSZQKkLN-TO_h0AazhHZtHgpavTnnAscLPYLmjX3LaA@mail.gmail.com>
+X-Gm-Features: AWEUYZn3vDpFuQgrmPTKrUBYJK1_bLxZl9mOCsSZPYdX_ojBCvjxJpMU7z9GFhg
+Message-ID: <CAJZ5v0jYSZQKkLN-TO_h0AazhHZtHgpavTnnAscLPYLmjX3LaA@mail.gmail.com>
+Subject: Re: [PATCH 00/15] cpufreq: simplify boost handling
+To: Viresh Kumar <viresh.kumar@linaro.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+	Christophe Leroy <christophe.leroy@csgroup.eu>, Cristian Marussi <cristian.marussi@arm.com>, 
+	"Gautham R. Shenoy" <gautham.shenoy@amd.com>, Hector Martin <marcan@marcan.st>, 
+	Huacai Chen <chenhuacai@kernel.org>, Huang Rui <ray.huang@amd.com>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Mario Limonciello <mario.limonciello@amd.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Naveen N Rao <naveen@kernel.org>, 
+	Nicholas Piggin <npiggin@gmail.com>, Perry Yuan <perry.yuan@amd.com>, 
+	Sudeep Holla <sudeep.holla@arm.com>, Sven Peter <sven@svenpeter.dev>, 
+	WANG Xuerui <kernel@xen0n.name>, linux-pm@vger.kernel.org, 
+	Vincent Guittot <vincent.guittot@linaro.org>, Lifeng Zheng <zhenglifeng1@huawei.com>, 
+	arm-scmi@vger.kernel.org, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	loongarch@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250124_030250_355657_E32DBBB4 
-X-CRM114-Status: GOOD (  15.04  )
+X-CRM114-CacheID: sfid-20250124_030550_562695_28C7A53F 
+X-CRM114-Status: GOOD (  16.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,77 +95,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If the clock mdev->clk was enabled in milbeaut_hdmac_probe(), it should be
-disabled in any path. If dmaengine_terminate_sync() returns an error in
-milbeaut_hdmac_remove(), the clock mdev->clk will not be disabled.
+On Fri, Jan 24, 2025 at 9:58=E2=80=AFAM Viresh Kumar <viresh.kumar@linaro.o=
+rg> wrote:
+>
+> Hello,
+>
+> The boost feature can be controlled at two levels currently, driver
+> level (applies to all policies) and per-policy.
+>
+> Currently most of the drivers enables driver level boost support from the
+> per-policy ->init() callback, which isn't really efficient as that gets c=
+alled
+> for each policy and then there is online/offline path too where this gets=
+ done
+> unnecessarily.
+>
+> Also it is possible to have a scenario where not all cpufreq policies sup=
+port
+> boost frequencies. And letting sysfs (or other parts of the kernel) enabl=
+e boost
+> feature for that policy isn't correct.
+>
+> Simplify and cleanup handling of boost to solve these issues.
 
-Use the devm_clk_get_enabled() helper function to ensure proper call
-balance for mdev->clk.
+I guess this depends on the previous series?
 
-Found by Linux Verification Center (linuxtesting.org) with Klever.
-
-Fixes: 6c3214e698e4 ("dmaengine: milbeaut-hdmac: Add HDMAC driver for Milbeaut platforms")
-Signed-off-by: Vitalii Mordan <mordan@ispras.ru>
----
- drivers/dma/milbeaut-hdmac.c | 15 ++++-----------
- 1 file changed, 4 insertions(+), 11 deletions(-)
-
-diff --git a/drivers/dma/milbeaut-hdmac.c b/drivers/dma/milbeaut-hdmac.c
-index 9a5ec247ed6d..cc70928602af 100644
---- a/drivers/dma/milbeaut-hdmac.c
-+++ b/drivers/dma/milbeaut-hdmac.c
-@@ -476,16 +476,12 @@ static int milbeaut_hdmac_probe(struct platform_device *pdev)
- 	if (IS_ERR(mdev->reg_base))
- 		return PTR_ERR(mdev->reg_base);
- 
--	mdev->clk = devm_clk_get(dev, NULL);
-+	mdev->clk = devm_clk_get_enabled(dev, NULL);
- 	if (IS_ERR(mdev->clk)) {
--		dev_err(dev, "failed to get clock\n");
-+		dev_err(dev, "failed to get and enable clock\n");
- 		return PTR_ERR(mdev->clk);
- 	}
- 
--	ret = clk_prepare_enable(mdev->clk);
--	if (ret)
--		return ret;
--
- 	ddev = &mdev->ddev;
- 	ddev->dev = dev;
- 	dma_cap_set(DMA_SLAVE, ddev->cap_mask);
-@@ -507,12 +503,12 @@ static int milbeaut_hdmac_probe(struct platform_device *pdev)
- 	for (i = 0; i < nr_chans; i++) {
- 		ret = milbeaut_hdmac_chan_init(pdev, mdev, i);
- 		if (ret)
--			goto disable_clk;
-+			return ret;
- 	}
- 
- 	ret = dma_async_device_register(ddev);
- 	if (ret)
--		goto disable_clk;
-+		return ret;
- 
- 	ret = of_dma_controller_register(dev->of_node,
- 					 milbeaut_hdmac_xlate, mdev);
-@@ -525,8 +521,6 @@ static int milbeaut_hdmac_probe(struct platform_device *pdev)
- 
- unregister_dmac:
- 	dma_async_device_unregister(ddev);
--disable_clk:
--	clk_disable_unprepare(mdev->clk);
- 
- 	return ret;
- }
-@@ -560,7 +554,6 @@ static void milbeaut_hdmac_remove(struct platform_device *pdev)
- 
- 	of_dma_controller_free(pdev->dev.of_node);
- 	dma_async_device_unregister(&mdev->ddev);
--	clk_disable_unprepare(mdev->clk);
- }
- 
- static const struct of_device_id milbeaut_hdmac_match[] = {
--- 
-2.25.1
-
+> Pushed here:
+>
+> git://git.kernel.org/pub/scm/linux/kernel/git/vireshk/pm.git cpufreq/boos=
+t
+>
+> Rebased over few dependencies from PM tree, will push to the arm-cpufreq =
+tree
+> after merge window is closed.
+>
+> Viresh Kumar (15):
+>   cpufreq: staticize cpufreq_boost_trigger_state()
+>   cpufreq: Export cpufreq_boost_set_sw()
+>   cpufreq: Introduce policy->boost_supported flag
+>   cpufreq: acpi: Set policy->boost_supported
+>   cpufreq: amd: Set policy->boost_supported
+>   cpufreq: cppc: Set policy->boost_supported
+>   cpufreq: Restrict enabling boost on policies with no boost frequencies
+>   cpufreq: apple: Set .set_boost directly
+>   cpufreq: loongson: Set .set_boost directly
+>   cpufreq: powernv: Set .set_boost directly
+>   cpufreq: scmi: Set .set_boost directly
+>   cpufreq: dt: Set .set_boost directly
+>   cpufreq: qcom: Set .set_boost directly
+>   cpufreq: staticize policy_has_boost_freq()
+>   cpufreq: Remove cpufreq_enable_boost_support()
+>
+>  drivers/cpufreq/acpi-cpufreq.c      |  3 +++
+>  drivers/cpufreq/amd-pstate.c        |  4 ++--
+>  drivers/cpufreq/apple-soc-cpufreq.c | 10 +---------
+>  drivers/cpufreq/cppc_cpufreq.c      |  9 +--------
+>  drivers/cpufreq/cpufreq-dt.c        | 14 +-------------
+>  drivers/cpufreq/cpufreq.c           | 30 ++++++++++++-----------------
+>  drivers/cpufreq/freq_table.c        |  7 +++++--
+>  drivers/cpufreq/loongson3_cpufreq.c | 10 +---------
+>  drivers/cpufreq/powernv-cpufreq.c   |  5 +----
+>  drivers/cpufreq/qcom-cpufreq-hw.c   |  7 +------
+>  drivers/cpufreq/scmi-cpufreq.c      | 11 +----------
+>  include/linux/cpufreq.h             | 20 ++++++-------------
+>  12 files changed, 35 insertions(+), 95 deletions(-)
+>
+> --
+> 2.31.1.272.g89b43f80a514
+>
 
