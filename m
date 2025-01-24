@@ -4,86 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43986C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 11:19:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AFE3C0218B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 11:44:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cVXKrB+O1fh/6+48GtXPh7iohUuDCptQ4J19ggAdm2o=; b=VvnCfYtrhDHB4TFETm/wlpIjoR
-	vdPkcQe+AwGKo6sMO7Q9c58kVATPL2AXo62+1l2DOonzQBzIQYnF0luJ0iBu7qtrpPFRFHK+SI5mu
-	fUaZaM6c/KYucxvN0UczWC5ORdVfzQR1iLpnNIm0gsoVhcuyymS7JyqssZUKJP6G2iD14GTWlkqZv
-	IYWIASYOCwoG9k9qKn0jEhoccYGeOFbYQrkfcJckbYkVVHBXCHeUci8O0nrmYg7j4lbmcLi+tredO
-	gcXtnzT2a5BthA38L3LI09s7cqXhjuoavVJfAXLzwOJ0RKvz7UvfV8H/hRpnxewPbD8tq3b7qKOyT
-	+pTPPMDQ==;
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gmE9iIxnUvIbx/Dspv+KKcwOK1+i7P4ctLBUvFTCi3c=; b=Qaabus6obdmfLIOUa1ezBk+XQp
+	UOPPpFt9lPk+IPhmKT3MLpd3F3yRXy3B5bKSJ9ZAG1CF0eXtJpnqq2tfrJEg7T6nHBTMjAHbxxntr
+	s2xM4wYYzIXk5u9kSQZNKV7wOz94IZ54ibhOXoj1wBw3AR2BO3M68wrduiIDmxxRIWrKc+iB3j8xb
+	esdmMgcQxASPpKCQrhrCfAsUOKjAXIH4yQJSy8XP3OqUWqRv4oL+O+s3lKiGLGndXg7zePbr4AGV6
+	vbG4sXrT9hnaviwEGB4XHRydeCptDJ0giI2pkJmmvbs7M5eQr6UmGXr0ettxtXiuO8+0fCGUUtut8
+	89WEQ/tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbHhz-0000000EYNx-1mZg;
-	Fri, 24 Jan 2025 11:18:43 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1tbI71-0000000EayZ-0ND6;
+	Fri, 24 Jan 2025 11:44:35 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbHgb-0000000EYD7-1uEm
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jan 2025 11:17:18 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-388cae9eb9fso1079105f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jan 2025 03:17:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1737717435; x=1738322235; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=cVXKrB+O1fh/6+48GtXPh7iohUuDCptQ4J19ggAdm2o=;
-        b=c81RvcdThfHOSvdwsTjJkYC0gbInsCWl1sKpFvfr9rpjKBGyQnyrsGT0foekoETDmA
-         hNeJkIbhUVyoNGbOzgYVAj3HDnFCm12haQ0d80sJzm4qQDsJpBKtG6imf28fiScrg2MB
-         7CQBnfV9XBRzYVHxd2627kM+CX2nxhyrHcJoM=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737717435; x=1738322235;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=cVXKrB+O1fh/6+48GtXPh7iohUuDCptQ4J19ggAdm2o=;
-        b=C3nqCYDcAOQtsyfRfp81rCVKeA5/qpVws8OTAK0nuAm4a67YMiLv9QwE7G74WqILEw
-         doeD6fyVNdbrjfoQJooyW4dLyDQwK8PxQEMaBC5NcO89SMTfUqvuROm8OI8miEmBTzqu
-         fYVfH/9mN1m5bBplAsKKqNMLM8IsjiPqtvGLSgqZCJ40ME4OQM4BvwNWNz9+nGTyh+Dv
-         BtYwDIJBHXPrbDtncCNvJ3/Lgkx3PrHWYDHVRTdLBVxPPAzeasNzsm5O6MsxWP2ooR3F
-         djVUSwEJhK/IMjLfHQGzXF/NudjzWxlQ+7TDztSGjgQa8Tcjoxg+r1+ZYFWq1k+Qcx68
-         Mibw==
-X-Forwarded-Encrypted: i=1; AJvYcCVXnJvJo4P+MR3UzkCWbkMocV03kNMBRJ2uJdKuvQZt3Vfys5dShbU49W7jo2yE/RYThmRlcvUWj9glExEbehWc@lists.infradead.org
-X-Gm-Message-State: AOJu0YyllOpU3WheCC9EMUr7ByrILYNLJksEXAzcDX8j84md1V9TE3Nl
-	T5ahJGE57w/LrnP0HFgiFhu8HREmAZvJSuSfYrk8uOiV1VZvojhsw19dPBjY1fI=
-X-Gm-Gg: ASbGnct0OYpmjhciUiprhjIAMxbDqKNSNfJH+ic4yIiVDTP+Ho4aTfrxyOG2vdB9x2x
-	iLeeuKglAI1RaYLd+KvRfV+pbCSwAQQdgRkKT04gWPmjgO6e811tuhGm5/digl5RC9HNg5x+I5c
-	/AVjPyWmsGg1wdbhbD0LfWlkBn+z2rOEW1PLM2iHJee7rpBzwDfzbIYuijlOUP7QTcOHPnL4kpC
-	J9oU5k6TmCh2QekRNWSYurZblppKFeccHDfXHZRTBtj6lZmew8SN4Id2GNAppNhELlElF5U4FIJ
-	0EsQUqVsA+xoqq+/weT3Qsl3eOn3UCsrYgmgcldhKg==
-X-Google-Smtp-Source: AGHT+IF7P9coZufZpIyRLi78wcbOmVrALszhypBmaNuECTkf3A9PTixnF+7VqbmWI7lij1JXG+mT6Q==
-X-Received: by 2002:a05:6000:1a8c:b0:38a:888c:6786 with SMTP id ffacd0b85a97d-38bf57c063fmr27161921f8f.52.1737717435139;
-        Fri, 24 Jan 2025 03:17:15 -0800 (PST)
-Received: from localhost.localdomain ([2001:b07:6474:ebbf:a445:7786:b555:5259])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38c2a188bf5sm2431547f8f.50.2025.01.24.03.17.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Jan 2025 03:17:14 -0800 (PST)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH] clk: stm32f4: fix an uninitialized variable
-Date: Fri, 24 Jan 2025 12:16:54 +0100
-Message-ID: <20250124111711.1051436-1-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
+	id 1tbI5i-0000000EasV-0IkO;
+	Fri, 24 Jan 2025 11:43:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1737718994; x=1769254994;
+  h=from:to:cc:subject:in-reply-to:references:date:
+   message-id:mime-version:content-transfer-encoding;
+  bh=3GxZghT8/UmmYstqY+mXofNgLJhuY4yUJDtRaLYNwVw=;
+  b=nH9Z/R3gLcWXiDlxuNuW/wgfOPrTh6K4yEaCkJSeguvSiRr0sI96rgvy
+   k5f3zQ1S9g3CJ2VUMIr/XRZNyibri/s9qjGcjdTTbnN5c2f/20byJpYc9
+   ImT/7Md1k2bLvKeBw4fBc2HE+6HPpPWmwZ3i3CzJH+2So0+75xs+8tDwL
+   vMjDL2QJIEJ6xa7IGtoZju4mtqTF507Z67NZOqd2VXGTcSr8JAIOon7H9
+   mEOAxux6L//Ebmh9UboMo8sCMLYeqcSWN0x+zLyamzg47x7lKE3+345Z5
+   OyfOSHPvpo7GQIthbSmkbXCs9aodS4fetoadcnnpxJTQG1Gqs3zd98Efg
+   Q==;
+X-CSE-ConnectionGUID: vYn+teg7RiCDVjHygNUxlQ==
+X-CSE-MsgGUID: D64GQnpvSLWTTKgNutLGww==
+X-IronPort-AV: E=McAfee;i="6700,10204,11325"; a="38280691"
+X-IronPort-AV: E=Sophos;i="6.13,231,1732608000"; 
+   d="scan'208";a="38280691"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Jan 2025 03:43:13 -0800
+X-CSE-ConnectionGUID: J44Cq+BmTJ60kjaqAULNbw==
+X-CSE-MsgGUID: V1mdlc5FTKyYK7EimpLcHA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,231,1732608000"; 
+   d="scan'208";a="108346498"
+Received: from dprybysh-mobl.ger.corp.intel.com (HELO localhost) ([10.245.246.170])
+  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Jan 2025 03:43:10 -0800
+From: Jani Nikula <jani.nikula@intel.com>
+To: Andy Yan <andyshrk@163.com>
+Cc: dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org, Sandy
+ Huang <hjc@rock-chips.com>, Heiko =?utf-8?Q?St=C3=BCbner?=
+ <heiko@sntech.de>, Andy Yan
+ <andy.yan@rock-chips.com>, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, Cristian Ciocaltea
+ <cristian.ciocaltea@collabora.com>
+Subject: Re:[PATCH 2/5] drm/rockchip: stop passing non struct drm_device to
+ drm_err() and friends
+In-Reply-To: <2c0a76c3.618c.19497bb4329.Coremail.andyshrk@163.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+References: <cover.1737644530.git.jani.nikula@intel.com>
+ <f42da4c9943a2f2a9de4272b7849e72236d4c3f9.1737644530.git.jani.nikula@intel.com>
+ <2c0a76c3.618c.19497bb4329.Coremail.andyshrk@163.com>
+Date: Fri, 24 Jan 2025 13:43:07 +0200
+Message-ID: <87plkcbfp0.fsf@intel.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250124_031717_500587_5B454209 
-X-CRM114-Status: GOOD (  12.40  )
+X-CRM114-CacheID: sfid-20250124_034314_162315_CE11897C 
+X-CRM114-Status: GOOD (  14.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,42 +90,222 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The variable s, used by pr_debug() to print the mnemonic of the modulation
-depth in use, was not initialized. Fix the output by addressing the correct
-mnemonic.
+On Fri, 24 Jan 2025, "Andy Yan" <andyshrk@163.com> wrote:
+> Hi=EF=BC=8C
+>
+> At 2025-01-23 23:09:09, "Jani Nikula" <jani.nikula@intel.com> wrote:
+>>The expectation is that the struct drm_device based logging helpers get
+>>passed an actual struct drm_device pointer rather than some random
+>>struct pointer where you can dereference the ->dev member.
+>>
+>>Convert drm_err(hdmi, ...) to dev_err(hdmi->dev, ...). This matches
+>>current usage, but drops "[drm] *ERROR*" prefix from logging.
+>
+> Frankly, I prefer the original version of the log.
+> It is a platform driver, so it should use its own device.
+> It is a driver that works in drm subsystem, so it's better to use "[drm] =
+*ERROR*" prefix when logging
 
-Fixes: 65b3516dbe50 ("clk: stm32f4: support spread spectrum clock generation")
-Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+If you need to do struct device based logging that is not the same
+device as the struct drm_device dev member, you need to use dev_err()
+and friends. You can't and must not use drm_err() and friends.
 
----
+It's as simple as that.
 
- drivers/clk/clk-stm32f4.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+The current drm_err(hdmi, ...) usage is simply abuse of the macros, and
+must stop.
 
-diff --git a/drivers/clk/clk-stm32f4.c b/drivers/clk/clk-stm32f4.c
-index f476883bc93b..85e23961ec34 100644
---- a/drivers/clk/clk-stm32f4.c
-+++ b/drivers/clk/clk-stm32f4.c
-@@ -888,7 +888,6 @@ static int __init stm32f4_pll_ssc_parse_dt(struct device_node *np,
- 					   struct stm32f4_pll_ssc *conf)
- {
- 	int ret;
--	const char *s;
- 
- 	if (!conf)
- 		return -EINVAL;
-@@ -916,7 +915,8 @@ static int __init stm32f4_pll_ssc_parse_dt(struct device_node *np,
- 	conf->mod_type = ret;
- 
- 	pr_debug("%pOF: SSCG settings: mod_freq: %d, mod_depth: %d mod_method: %s [%d]\n",
--		 np, conf->mod_freq, conf->mod_depth, s, conf->mod_type);
-+		 np, conf->mod_freq, conf->mod_depth,
-+		 stm32f4_ssc_mod_methods[ret], conf->mod_type);
- 
- 	return 0;
- }
--- 
-2.43.0
 
+BR,
+Jani.
+
+
+>
+>>
+>>Signed-off-by: Jani Nikula <jani.nikula@intel.com>
+>>
+>>---
+>>
+>>Looks like it's possible to hunt down the struct drm_device in most of
+>>these cases, if that's desired. This was the simplest change.
+>>
+>>Cc: Sandy Huang <hjc@rock-chips.com>
+>>Cc: "Heiko St=C3=BCbner" <heiko@sntech.de>
+>>Cc: Andy Yan <andy.yan@rock-chips.com>
+>>Cc: dri-devel@lists.freedesktop.org
+>>Cc: linux-arm-kernel@lists.infradead.org
+>>Cc: linux-rockchip@lists.infradead.org
+>>---
+>> drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c    | 16 ++++++++--------
+>> drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 16 ++++++++--------
+>> 2 files changed, 16 insertions(+), 16 deletions(-)
+>>
+>>diff --git a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c b/drivers/gpu/dr=
+m/rockchip/dw_hdmi-rockchip.c
+>>index e7a6669c46b0..f737e7d46e66 100644
+>>--- a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+>>+++ b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+>>@@ -203,7 +203,7 @@ static int rockchip_hdmi_parse_dt(struct rockchip_hdm=
+i *hdmi)
+>>=20
+>> 	hdmi->regmap =3D syscon_regmap_lookup_by_phandle(np, "rockchip,grf");
+>> 	if (IS_ERR(hdmi->regmap)) {
+>>-		drm_err(hdmi, "Unable to get rockchip,grf\n");
+>>+		dev_err(hdmi->dev, "Unable to get rockchip,grf\n");
+>> 		return PTR_ERR(hdmi->regmap);
+>> 	}
+>>=20
+>>@@ -214,7 +214,7 @@ static int rockchip_hdmi_parse_dt(struct rockchip_hdm=
+i *hdmi)
+>> 	if (IS_ERR(hdmi->ref_clk)) {
+>> 		ret =3D PTR_ERR(hdmi->ref_clk);
+>> 		if (ret !=3D -EPROBE_DEFER)
+>>-			drm_err(hdmi, "failed to get reference clock\n");
+>>+			dev_err(hdmi->dev, "failed to get reference clock\n");
+>> 		return ret;
+>> 	}
+>>=20
+>>@@ -222,7 +222,7 @@ static int rockchip_hdmi_parse_dt(struct rockchip_hdm=
+i *hdmi)
+>> 	if (IS_ERR(hdmi->grf_clk)) {
+>> 		ret =3D PTR_ERR(hdmi->grf_clk);
+>> 		if (ret !=3D -EPROBE_DEFER)
+>>-			drm_err(hdmi, "failed to get grf clock\n");
+>>+			dev_err(hdmi->dev, "failed to get grf clock\n");
+>> 		return ret;
+>> 	}
+>>=20
+>>@@ -302,16 +302,16 @@ static void dw_hdmi_rockchip_encoder_enable(struct =
+drm_encoder *encoder)
+>>=20
+>> 	ret =3D clk_prepare_enable(hdmi->grf_clk);
+>> 	if (ret < 0) {
+>>-		drm_err(hdmi, "failed to enable grfclk %d\n", ret);
+>>+		dev_err(hdmi->dev, "failed to enable grfclk %d\n", ret);
+>> 		return;
+>> 	}
+>>=20
+>> 	ret =3D regmap_write(hdmi->regmap, hdmi->chip_data->lcdsel_grf_reg, val=
+);
+>> 	if (ret !=3D 0)
+>>-		drm_err(hdmi, "Could not write to GRF: %d\n", ret);
+>>+		dev_err(hdmi->dev, "Could not write to GRF: %d\n", ret);
+>>=20
+>> 	clk_disable_unprepare(hdmi->grf_clk);
+>>-	drm_dbg(hdmi, "vop %s output to hdmi\n", ret ? "LIT" : "BIG");
+>>+	dev_dbg(hdmi->dev, "vop %s output to hdmi\n", ret ? "LIT" : "BIG");
+>> }
+>>=20
+>> static int
+>>@@ -574,7 +574,7 @@ static int dw_hdmi_rockchip_bind(struct device *dev, =
+struct device *master,
+>> 	ret =3D rockchip_hdmi_parse_dt(hdmi);
+>> 	if (ret) {
+>> 		if (ret !=3D -EPROBE_DEFER)
+>>-			drm_err(hdmi, "Unable to parse OF data\n");
+>>+			dev_err(hdmi->dev, "Unable to parse OF data\n");
+>> 		return ret;
+>> 	}
+>>=20
+>>@@ -582,7 +582,7 @@ static int dw_hdmi_rockchip_bind(struct device *dev, =
+struct device *master,
+>> 	if (IS_ERR(hdmi->phy)) {
+>> 		ret =3D PTR_ERR(hdmi->phy);
+>> 		if (ret !=3D -EPROBE_DEFER)
+>>-			drm_err(hdmi, "failed to get phy\n");
+>>+			dev_err(hdmi->dev, "failed to get phy\n");
+>> 		return ret;
+>> 	}
+>>=20
+>>diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu=
+/drm/rockchip/dw_hdmi_qp-rockchip.c
+>>index f41151d49fca..3d1dddb34603 100644
+>>--- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+>>+++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+>>@@ -242,7 +242,7 @@ static void dw_hdmi_qp_rk3588_hpd_work(struct work_st=
+ruct *work)
+>> 	if (drm) {
+>> 		changed =3D drm_helper_hpd_irq_event(drm);
+>> 		if (changed)
+>>-			drm_dbg(hdmi, "connector status changed\n");
+>>+			dev_dbg(hdmi->dev, "connector status changed\n");
+>> 	}
+>> }
+>>=20
+>>@@ -472,7 +472,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *de=
+v, struct device *master,
+>> 		}
+>> 	}
+>> 	if (hdmi->port_id < 0) {
+>>-		drm_err(hdmi, "Failed to match HDMI port ID\n");
+>>+		dev_err(hdmi->dev, "Failed to match HDMI port ID\n");
+>> 		return hdmi->port_id;
+>> 	}
+>>=20
+>>@@ -496,20 +496,20 @@ static int dw_hdmi_qp_rockchip_bind(struct device *=
+dev, struct device *master,
+>> 	hdmi->regmap =3D syscon_regmap_lookup_by_phandle(dev->of_node,
+>> 						       "rockchip,grf");
+>> 	if (IS_ERR(hdmi->regmap)) {
+>>-		drm_err(hdmi, "Unable to get rockchip,grf\n");
+>>+		dev_err(hdmi->dev, "Unable to get rockchip,grf\n");
+>> 		return PTR_ERR(hdmi->regmap);
+>> 	}
+>>=20
+>> 	hdmi->vo_regmap =3D syscon_regmap_lookup_by_phandle(dev->of_node,
+>> 							  "rockchip,vo-grf");
+>> 	if (IS_ERR(hdmi->vo_regmap)) {
+>>-		drm_err(hdmi, "Unable to get rockchip,vo-grf\n");
+>>+		dev_err(hdmi->dev, "Unable to get rockchip,vo-grf\n");
+>> 		return PTR_ERR(hdmi->vo_regmap);
+>> 	}
+>>=20
+>> 	ret =3D devm_clk_bulk_get_all_enabled(hdmi->dev, &clks);
+>> 	if (ret < 0) {
+>>-		drm_err(hdmi, "Failed to get clocks: %d\n", ret);
+>>+		dev_err(hdmi->dev, "Failed to get clocks: %d\n", ret);
+>> 		return ret;
+>> 	}
+>>=20
+>>@@ -517,7 +517,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *de=
+v, struct device *master,
+>> 						    GPIOD_OUT_HIGH);
+>> 	if (IS_ERR(hdmi->enable_gpio)) {
+>> 		ret =3D PTR_ERR(hdmi->enable_gpio);
+>>-		drm_err(hdmi, "Failed to request enable GPIO: %d\n", ret);
+>>+		dev_err(hdmi->dev, "Failed to request enable GPIO: %d\n", ret);
+>> 		return ret;
+>> 	}
+>>=20
+>>@@ -525,7 +525,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *de=
+v, struct device *master,
+>> 	if (IS_ERR(hdmi->phy)) {
+>> 		ret =3D PTR_ERR(hdmi->phy);
+>> 		if (ret !=3D -EPROBE_DEFER)
+>>-			drm_err(hdmi, "failed to get phy: %d\n", ret);
+>>+			dev_err(hdmi->dev, "failed to get phy: %d\n", ret);
+>> 		return ret;
+>> 	}
+>>=20
+>>@@ -564,7 +564,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *de=
+v, struct device *master,
+>> 	connector =3D drm_bridge_connector_init(drm, encoder);
+>> 	if (IS_ERR(connector)) {
+>> 		ret =3D PTR_ERR(connector);
+>>-		drm_err(hdmi, "failed to init bridge connector: %d\n", ret);
+>>+		dev_err(hdmi->dev, "failed to init bridge connector: %d\n", ret);
+>> 		return ret;
+>> 	}
+>>=20
+>>--=20
+>>2.39.5
+>>
+>>
+>>_______________________________________________
+>>Linux-rockchip mailing list
+>>Linux-rockchip@lists.infradead.org
+>>http://lists.infradead.org/mailman/listinfo/linux-rockchip
+
+--=20
+Jani Nikula, Intel
 
