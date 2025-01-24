@@ -4,70 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62A35C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 08:59:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52FEEC02181
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 09:00:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/dPRX9W95wzwQTmmvdwrEPqh/JERYDW6ukU8wyxlrOs=; b=Kwlps5mkvOd7UzGjkBnpQDLrCH
-	LV1GYNua4frIU3hdy/KmGKJDtc8ZO1krySOa7xyar20QhNaP2zg3VpK255O3rpd/TQac9HZMLYh5Q
-	AlZqi7IVxVr0YgnCQZVWytHfWZejwcx2tSbdO9LnQnQXfhT3/yCwhcJsBtiqzgBuX3lhBGOQMDknt
-	0TA0figeddIOMGg3Ihbr/2eimg41EPSGndDeGPNZYqT6uq7TPbEt6/JTcYdG/hoqcBUBcCAAZfMVV
-	6HHaurw4fzaAl9FplwX4OEUFcjBv2XAulqrQdjee91bjoXJd00HpfY4R0mD8jNGzo13Ed3I2i7ldB
-	/7lnd0Ww==;
+	bh=ZlOzh0yVdNtO9Xo4eTT0ptUq5hK7+DDJWK0WMdAATE0=; b=ak+bRDjlNTXfszQcLi8LLINg/o
+	tjGJNwGT0r8HW8YIliRScVTrTjG2msdp+XUdQYdmIR7C8qrgQEl3DiHU9sISDCLJmyqYaHTfn609I
+	DfcRvOOdF5LzdzFnqFJrft0puzgWNfmjNZ4yXce/BhxOvyz07UTPTPcnUWQrRkrVK6K6L+K0CkLvW
+	i4P4HT1hj4JM1WVS3RkJF6776yCjF3Et7uH9UJeNMeIwrU08UHvsNF25iET8f9tRkAT+QljD6KF/h
+	XC8+l2VjBQkeh4WzOo9SbydR2SvFiv+1bVBjcaUeT/5nqxWM/ortWIm6UkbyuzSMWvQKoJwqF6YwK
+	WjmYinZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbFWm-0000000EIog-0bkw;
-	Fri, 24 Jan 2025 08:59:00 +0000
+	id 1tbFY5-0000000EJ7R-3toR;
+	Fri, 24 Jan 2025 09:00:21 +0000
 Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbFUW-0000000EISW-0l22
+	id 1tbFUm-0000000EIU9-3Uab
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jan 2025 08:56:41 +0000
+	Fri, 24 Jan 2025 08:56:58 +0000
 Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id DCBF1A09FF;
-	Fri, 24 Jan 2025 09:56:38 +0100 (CET)
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 836E3A09FF;
+	Fri, 24 Jan 2025 09:56:55 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
 	:cc:content-transfer-encoding:content-type:content-type:date
 	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=/dPRX9W95wzwQTmmvdwr
-	EPqh/JERYDW6ukU8wyxlrOs=; b=HRJ3XRli0bJqmqEkA5XizKxZ08cudSvu96Iw
-	VumzdC99vsEJnvFL4SgTXbOd837Y795TwlVsW0Dk9j4J6GL1oxG9Eb+aPUHMo77L
-	jGtLasYkWxk6enfuuSjXEiRjLNQr+efAuhn6RVLpe76HEWGbgVDYFtAZGohE8pw/
-	vPdLzKhHsnpPXqEv5jU0MXPDdGL7/Uf1tgb92HDTAgLBfXhZsOm/ro605IOmy6is
-	Pu8e/3b1ITFXd7ORkYXaWRdDO5SEdxzfqDsTQ5D3K3yMbaIag9h0Ya50RfXFVWfe
-	Gj1DF7GRZ1QOgeLYkGZfpRQLe1IYxstFPYZzc60gW1jNwmpii57++Kq7Py2w/HNp
-	Ci8HVZr9mxIPCL3bW4Ml8wW7llqrsnriL4UutQpgmmq/kF8ctA5i5XWIfqDd9OnA
-	/fkhiYKYk5ry8T0OdRBWgWzXpGRAlv0CLdFBmQBsXxjzwZnpCzSeaMpEzrv/3AhJ
-	VAG3XQIeKQBmDYGKVUlOlumZOrw6gRFvCxArevfYiV2SbbKzIteCw+a+LY2+L6lv
-	P+2FLybnzYO/0SFJdw7HqRTyqktRu5i8LOaEG/5X0twYCOd3ZhGzIPNbN849NGn1
-	mCB6pgKe8RyVjBrQ8kTHXaOIvF8vAs9OYP5qWjZt5magzJ82FiwLRMYM5aEbBiq1
-	XboyO1Y=
+	:reply-to:subject:subject:to:to; s=mail; bh=ZlOzh0yVdNtO9Xo4eTT0
+	ptUq5hK7+DDJWK0WMdAATE0=; b=g7rLjC7w1RWLE5CXrEPJAknMGKmzbtUJde/P
+	EOew21O+3aI3OSgdhlz38WMoJdJNw6DfoiAPVpLFB9ZsULv8zLLwwh8gamVjrrqD
+	gXazlAdLmKevEOFooxcn86Pvwl6Zr7dgXBvdnnUDc8oNk6tGMeeczHTZZDuXwMCA
+	oXLLdORXZkS5o+atOk7SUL0q0rJieS8zbA6UFmHu9Ehj2wM8rEzPwF2oFFPIEWBI
+	tT8lakaDiPUMdSG4oNW6p0Sclmkv10z9EnqXDDhUQYWJahYT0J9kN7NkBmefAPr6
+	xC6fCtcpLEgYs9mOYlHKmSVQhzO5JNxm2KdnRocHYNJrhqHR+zmuJECHgizGw0Kb
+	ZezsjwDdP2tgs4XQgWnRnIGCKTF+WnWzi6byuUdQgvo3+V9R1YoG4zJ443bEfrTD
+	t7UyfrZ1stEVqhK+3IJ21+/omyu1k9buRONbsLvygY0bfza6Ypdk3AHFFP3D2hUJ
+	zfafYq+wSH5agjXRBCcPDBpOd+3Rkn9fa2RiSllG00LgBABCl6K3aSaca7Q4cxkF
+	0oYHWRctUCaAU174CKNd1DnvvEMblOEzN7MvV9uS19L7ws0T3g7eO9yCa1fMhMcj
+	LaIYEamaYI8ccVYa2svsDosOaa68e66fiN2MjZgjzFxGTVneb9oDQm65hFRAQRvN
+	ajDlf74=
 From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-To: <dmaengine@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+To: <linux-pm@vger.kernel.org>, <linux-kernel@vger.kernel.org>
 CC: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, Mark Brown
 	<broonie@kernel.org>, Vinod Koul <vkoul@kernel.org>, "Rafael J . Wysocki"
 	<rafael@kernel.org>, <linux-spi@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>
-Subject: [PATCH v2 1/4] dma: Add devm_dma_request_chan()
-Date: Fri, 24 Jan 2025 09:52:20 +0100
-Message-ID: <20250124085221.766303-8-csokas.bence@prolan.hu>
+	<linux-arm-kernel@lists.infradead.org>, <dmaengine@vger.kernel.org>, "Pavel
+ Machek" <pavel@ucw.cz>, Len Brown <len.brown@intel.com>, Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>
+Subject: [PATCH v2 2/4] pm: runtime: Add new devm functions
+Date: Fri, 24 Jan 2025 09:52:22 +0100
+Message-ID: <20250124085221.766303-10-csokas.bence@prolan.hu>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250124085221.766303-4-csokas.bence@prolan.hu>
 References: <20250124085221.766303-4-csokas.bence@prolan.hu>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1737708998;VERSION=7984;MC=241928571;ID=70499;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1737709014;VERSION=7984;MC=2223755251;ID=70500;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
 X-ESET-Antispam: OK
 X-EsetResult: clean, is OK
 X-EsetId: 37303A29ACD94852677063
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250124_005640_388972_30EEA2B3 
-X-CRM114-Status: GOOD (  12.15  )
+X-CRM114-CacheID: sfid-20250124_005657_039356_4C92CAA8 
+X-CRM114-Status: GOOD (  10.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,81 +84,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Expand the arsenal of devm functions for DMA
-devices, this time for requesting channels.
+Add `devm_pm_runtime_set_active()` and
+`devm_pm_runtime_get_noresume()` for
+simplifying common use cases in drivers.
 
 Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
 ---
- drivers/dma/dmaengine.c   | 30 ++++++++++++++++++++++++++++++
- include/linux/dmaengine.h |  7 +++++++
- 2 files changed, 37 insertions(+)
+ drivers/base/power/runtime.c | 36 ++++++++++++++++++++++++++++++++++++
+ include/linux/pm_runtime.h   |  4 ++++
+ 2 files changed, 40 insertions(+)
 
-diff --git a/drivers/dma/dmaengine.c b/drivers/dma/dmaengine.c
-index c1357d7f3dc6..02c29d26ac85 100644
---- a/drivers/dma/dmaengine.c
-+++ b/drivers/dma/dmaengine.c
-@@ -926,6 +926,36 @@ void dma_release_channel(struct dma_chan *chan)
+diff --git a/drivers/base/power/runtime.c b/drivers/base/power/runtime.c
+index 2ee45841486b..f0a6c64bec19 100644
+--- a/drivers/base/power/runtime.c
++++ b/drivers/base/power/runtime.c
+@@ -1545,6 +1545,24 @@ void pm_runtime_enable(struct device *dev)
  }
- EXPORT_SYMBOL_GPL(dma_release_channel);
+ EXPORT_SYMBOL_GPL(pm_runtime_enable);
  
-+static void dmaenginem_release_channel(void *chan)
++static void pm_runtime_set_suspended_action(void *data)
 +{
-+	dma_release_channel(chan);
++	pm_runtime_set_suspended(data);
 +}
 +
 +/**
-+ * devm_dma_request_chan - try to allocate an exclusive slave channel
-+ * @dev:	pointer to client device structure
-+ * @name:	slave channel name
++ * devm_pm_runtime_set_active - devres-enabled version of pm_runtime_set_active.
 + *
-+ * Returns pointer to appropriate DMA channel on success or an error pointer.
-+ *
-+ * The operation is managed and will be undone on driver detach.
++ * @dev: Device to handle.
 + */
-+
-+struct dma_chan *devm_dma_request_chan(struct device *dev, const char *name)
++int devm_pm_runtime_set_active(struct device *dev)
 +{
-+	struct dma_chan *chan = dma_request_chan(dev, name);
-+	int ret = 0;
++	pm_runtime_set_active(dev);
 +
-+	if (!IS_ERR(chan))
-+		ret = devm_add_action_or_reset(dev, dmaenginem_release_channel, chan);
-+
-+	if (ret)
-+		return ERR_PTR(ret);
-+
-+	return chan;
++	return devm_add_action_or_reset(dev, pm_runtime_set_suspended_action, dev);
 +}
-+EXPORT_SYMBOL_GPL(devm_dma_request_chan);
++EXPORT_SYMBOL_GPL(devm_pm_runtime_set_active);
++
+ static void pm_runtime_disable_action(void *data)
+ {
+ 	pm_runtime_dont_use_autosuspend(data);
+@@ -1567,6 +1585,24 @@ int devm_pm_runtime_enable(struct device *dev)
+ }
+ EXPORT_SYMBOL_GPL(devm_pm_runtime_enable);
+ 
++static void pm_runtime_put_noidle_action(void *data)
++{
++	pm_runtime_put_noidle(data);
++}
++
++/**
++ * devm_pm_runtime_get_noresume - devres-enabled version of pm_runtime_get_noresume.
++ *
++ * @dev: Device to handle.
++ */
++int devm_pm_runtime_get_noresume(struct device *dev)
++{
++	pm_runtime_get_noresume(dev);
++
++	return devm_add_action_or_reset(dev, pm_runtime_put_noidle_action, dev);
++}
++EXPORT_SYMBOL_GPL(devm_pm_runtime_get_noresume);
 +
  /**
-  * dmaengine_get - register interest in dma_channels
-  */
-diff --git a/include/linux/dmaengine.h b/include/linux/dmaengine.h
-index 346251bf1026..ffb54b52ef0c 100644
---- a/include/linux/dmaengine.h
-+++ b/include/linux/dmaengine.h
-@@ -1528,6 +1528,7 @@ struct dma_chan *__dma_request_channel(const dma_cap_mask_t *mask,
+  * pm_runtime_forbid - Block runtime PM of a device.
+  * @dev: Device to handle.
+diff --git a/include/linux/pm_runtime.h b/include/linux/pm_runtime.h
+index d39dc863f612..d7eca86150b8 100644
+--- a/include/linux/pm_runtime.h
++++ b/include/linux/pm_runtime.h
+@@ -93,7 +93,9 @@ extern void pm_runtime_new_link(struct device *dev);
+ extern void pm_runtime_drop_link(struct device_link *link);
+ extern void pm_runtime_release_supplier(struct device_link *link);
  
- struct dma_chan *dma_request_chan(struct device *dev, const char *name);
- struct dma_chan *dma_request_chan_by_mask(const dma_cap_mask_t *mask);
-+struct dma_chan *devm_dma_request_chan(struct device *dev, const char *name);
++int devm_pm_runtime_set_active(struct device *dev);
+ extern int devm_pm_runtime_enable(struct device *dev);
++int devm_pm_runtime_get_noresume(struct device *dev);
  
- void dma_release_channel(struct dma_chan *chan);
- int dma_get_slave_caps(struct dma_chan *chan, struct dma_slave_caps *caps);
-@@ -1564,6 +1565,12 @@ static inline struct dma_chan *dma_request_chan_by_mask(
- {
- 	return ERR_PTR(-ENODEV);
- }
-+
-+static inline struct dma_chan *devm_dma_request_chan(struct device *dev, const char *name)
-+{
-+	return ERR_PTR(-ENODEV);
-+}
-+
- static inline void dma_release_channel(struct dma_chan *chan)
- {
- }
+ /**
+  * pm_suspend_ignore_children - Set runtime PM behavior regarding children.
+@@ -276,7 +278,9 @@ static inline void __pm_runtime_disable(struct device *dev, bool c) {}
+ static inline void pm_runtime_allow(struct device *dev) {}
+ static inline void pm_runtime_forbid(struct device *dev) {}
+ 
++static inline int devm_pm_runtime_set_active(struct device *dev) { return 0; }
+ static inline int devm_pm_runtime_enable(struct device *dev) { return 0; }
++static inline int devm_pm_runtime_get_noresume(struct device *dev) { return 0; }
+ 
+ static inline void pm_suspend_ignore_children(struct device *dev, bool enable) {}
+ static inline void pm_runtime_get_noresume(struct device *dev) {}
 -- 
 2.48.1
 
