@@ -4,86 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5DACC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 02:14:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEBA4C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 02:44:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UPmM6acKSzQDeXlufKGeLR25eMLELY0p+Hjcp4bjlBk=; b=aH5Qc5hOpJaxDdQ8iPMhPdp7py
-	38SIaJvGflfyRvaaNC6sWxqZtJZPzAcLbwoea8uDyGHl888SqVARP6UGcjg3CcKoGpbMUPEoV0mnM
-	IgzAgtKflRYuFLpVcJRT9xcSDeNPiE1c0vqnHlDiJCQhsXoFoGxSeuESeOA34tGRbYp+4eBez0QaZ
-	TYfMDhaoWdnas10iKKgmImUkoYfAh7TovyobDKRfCrO8xTVHuCH/Xq4RqY/4OqzVqnpf4U9uFm5nI
-	BVmhdxd1+3jJwfvxXx3iZz/KY8kOsLrcP7hHYBrFtPMXfyHVm8mi4JO2Hy9myFSrN1zESxWu9vEdh
-	Qt1oseFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gUr8glPor4PY9LWUaf6Hy93FwZ+OFlyI/oBmRms57JE=; b=VmA10QZLC18DvlWS9COqpvIaUX
+	kCG0JSV5lMGdZvrsFbDOv8TovdrQ9Y0/Dk3aB42SLi5VgolLlWQbfAn65qvkrVNSXB/yXVvnKrbmI
+	2GoqTPbgsk9XkrHyj/k4IkUzlvjXCvptluf/UpHGiSAIPZNP4GiYEsJB9OIBE9YWMd4JWnM1mUJHO
+	aKwknw27Rj+1qbPkpkOetvJmrqCpsMRl7JxVtqKVSoVfWXWNXek9lSDxoYxa8heXtQzawENwAEW30
+	By9DBzVs3XdLiol0pVMTXwii4RbkknmU/grsEDownQ8ap6cbfUAwehjV1ZX7Kg9ftVOLMEREUVxDp
+	WmtVRh+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb9Cp-0000000DhtX-0hQh;
-	Fri, 24 Jan 2025 02:13:59 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1tb9gL-0000000DkwU-3Te6;
+	Fri, 24 Jan 2025 02:44:29 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb9BW-0000000Dhlg-1SC3
+	id 1tb9f3-0000000Dkes-0U09
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jan 2025 02:12:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1737684758; x=1769220758;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ZVWsL5TzIlssbUAp6wHsmMyTAmfxKSHrFnKGbtmAIBQ=;
-  b=Qvp2YzTh0njZtKpUU5ckkhTCItaJK2bOIaAQ1PI5zzMMzD+5fxbZQmfW
-   m0rZgXUCgoeKAjLlQBFkp+Xg3mlGo3BJSS0IgkjUKLzxgFVBgeEV/W4se
-   w/5e5P3OWJsoEMuy3wAD4Jn3BuIBOqB1tzp/GAeHVr43IOty+zgNCf07e
-   mzcx6qd0AZ4BILuDUVlTtEwZLAsBvaWhd/pHNJPg2F7mmFfWDqI4e/3/j
-   D3AcxEjKDS6Lrxq2Jef/OcGH+K6dcrxO1bskt9rnS73OfxccP/fG6METn
-   ap6r7H7r5qFHIIXn+hQmxJfg2sBpuN2hmYufG06ywFTvG6xoZAq8VtOu6
-   Q==;
-X-CSE-ConnectionGUID: O/F6ANSJRCO6WsM01cKUWg==
-X-CSE-MsgGUID: +xU77SdZTG+hWk5VhnIGLA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11324"; a="48875999"
-X-IronPort-AV: E=Sophos;i="6.13,230,1732608000"; 
-   d="scan'208";a="48875999"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jan 2025 18:12:31 -0800
-X-CSE-ConnectionGUID: nXYMOnQESfGam5t5ZaclGw==
-X-CSE-MsgGUID: 6JPi4DtnRJujUu4v4yIVnA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,230,1732608000"; 
-   d="scan'208";a="107645960"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by orviesa006.jf.intel.com with ESMTP; 23 Jan 2025 18:12:27 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tb9BI-000c19-0j;
-	Fri, 24 Jan 2025 02:12:24 +0000
-Date: Fri, 24 Jan 2025 10:11:52 +0800
-From: kernel test robot <lkp@intel.com>
-To: "Jiao, Joey" <quic_jiangenj@quicinc.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Christoph Lameter <cl@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev,
-	Linux Memory Management List <linux-mm@kvack.org>,
-	kasan-dev@googlegroups.com, linux-kernel@vger.kernel.org,
-	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kernel@quicinc.com
-Subject: Re: [PATCH 4/7] kcov: introduce new kcov KCOV_TRACE_UNIQ_CMP mode
-Message-ID: <202501240959.61XLxBYF-lkp@intel.com>
-References: <20250114-kcov-v1-4-004294b931a2@quicinc.com>
+	Fri, 24 Jan 2025 02:43:10 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-21634338cfdso36012405ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 18:43:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1737686588; x=1738291388; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gUr8glPor4PY9LWUaf6Hy93FwZ+OFlyI/oBmRms57JE=;
+        b=fgmC7ktFNUvo2vgbVHaYJUV1X8zyhf7AJTi1fLOWQpPLV7SzYHWNUE3+DrEUkxqXD+
+         l3aVjNEyZ15gLFgL7+ctP9DYawpYtfcUc9GWwQKgSJ0JqYYnkBongN5uN2HR6papXl+g
+         VJt2I58M2ITFbDpvFrIEo9WxV78m2J4MrYv/F8pA+ov2aPRGy/2Kni5AcuQoc6yUEW7j
+         n77AJsg9lT8ntrDFSKm4kFBgJZqxYqWgJKrnGu14NiZlAdLSzpQ7EuzoMaL5s+d8Uqme
+         DQDBxdOCwZmIArCHi9/sLElPtp2RwD31x0tkrncGhjUV8s9bckaIUdeOmua9TLQP8IUf
+         k7rg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737686588; x=1738291388;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=gUr8glPor4PY9LWUaf6Hy93FwZ+OFlyI/oBmRms57JE=;
+        b=F1wQo8U8IlubdGNuRCdPs+Hy/uFMFNlAfEbefROOU5BmPCN9PFPPQ4CfzGe628ELPE
+         0VccariQhFXwszSWmdJhnpmoz3fzLMle3r5JevHQ1sYv1o5ZghxY+xSYkUX1zIHGmZud
+         qSBkU8LzSn1ckbYS+WYIy7tBRN/dIMSF4xQmRlhUCriRq46boCIA/5GrP+vlOk5a8i79
+         F8LaBKY71c8pHxau7DPQ7XavYqiR9Jea4oJlORyF2BLLc5Gl5ZQieDDeZdzbfldEFxoT
+         SKV9gA/stpg03Z7lkn/7ZhFJh8uRB/4R5843/zRUvINGQILoU9eDMZyZ6FI8uddCrn9j
+         odaQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW1RTXM2vjaQ4NnPhJtPve1tvfFGZ+5VjqnjywUbmE/LOkPRLePTf36vZQvGB7O7nsAPXYHdkKUnIkNUUKZILEm@lists.infradead.org
+X-Gm-Message-State: AOJu0YzLMfMSRFNAhaddLfFbDqqTWPzkC5C98vYq4KLM5qILTEKC+1el
+	Z44W3LH+2E+9Lj632JG2uZGvJ/68+2/hEP4gskRlcGZxCDbWYOVJ
+X-Gm-Gg: ASbGncsGBGG1RfCogjbgq7x41wIK//UWDE40cuYSaWJCp6xe4eC9kq0prHKxLay6vFM
+	iCf8BXdBRYxePatFOn5vIMpbgiFmyLdDKGLXRsJ2FpLIxagwFfnBFR575aOKfSkQt2xoVOcN+3r
+	hZs2CgukQBQlGGMYJOwYsFy1lhCl03dF/iLnuTs81wevv7AWG5MsMcjZOKrgCfp3NkMhCMktPNx
+	2Oiap9snpxYnpNZ2X4GOvTMrCqcxylOu4O/2ueHXsrt0OrJkWYPSaRvChRdsLoF08S/fhKHeu5r
+	7LsJXMz8+gtw
+X-Google-Smtp-Source: AGHT+IE1TjZAhue2BOZibYjg2nefwmslQC24rfaOQvrKIXArpghvt/uN1d+O/NDrEY+ImyktqYYP7g==
+X-Received: by 2002:a17:902:c951:b0:215:b058:28a5 with SMTP id d9443c01a7336-21c355c65a3mr359067945ad.18.1737686588269;
+        Thu, 23 Jan 2025 18:43:08 -0800 (PST)
+Received: from localhost ([129.146.253.192])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21da41413e4sm5866175ad.158.2025.01.23.18.43.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Jan 2025 18:43:07 -0800 (PST)
+Date: Fri, 24 Jan 2025 10:42:56 +0800
+From: Furong Xu <0x1207@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Brad Griffis <bgriffis@nvidia.com>, Jon Hunter <jonathanh@nvidia.com>,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Alexander Lobakin <aleksander.lobakin@intel.com>, Joe Damato
+ <jdamato@fastly.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
+ Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com,
+ "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
+Subject: Re: [PATCH net-next v3 1/4] net: stmmac: Switch to zero-copy in
+ non-XDP RX path
+Message-ID: <20250124104256.00007d23@gmail.com>
+In-Reply-To: <ccbecd2a-7889-4389-977e-10da6a00391c@lunn.ch>
+References: <cover.1736910454.git.0x1207@gmail.com>
+	<bd7aabf4d9b6696885922ed4bef8fc95142d3004.1736910454.git.0x1207@gmail.com>
+	<d465f277-bac7-439f-be1d-9a47dfe2d951@nvidia.com>
+	<20250124003501.5fff00bc@orangepi5-plus>
+	<e6305e71-5633-48bf-988d-fa2886e16aae@nvidia.com>
+	<ccbecd2a-7889-4389-977e-10da6a00391c@lunn.ch>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250114-kcov-v1-4-004294b931a2@quicinc.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_181238_399985_FBD4D775 
-X-CRM114-Status: GOOD (  12.55  )
+X-CRM114-CacheID: sfid-20250123_184309_161261_C87E6238 
+X-CRM114-Status: GOOD (  17.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,122 +111,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Joey,
+On Thu, 23 Jan 2025 22:48:42 +0100, Andrew Lunn <andrew@lunn.ch> wrote:
 
-kernel test robot noticed the following build errors:
+> > Just to clarify, the patch that you had us try was not intended as an actual
+> > fix, correct? It was only for diagnostic purposes, i.e. to see if there is
+> > some kind of cache coherence issue, which seems to be the case?  So perhaps
+> > the only fix needed is to add dma-coherent to our device tree?  
+> 
+> That sounds quite error prone. How many other DT blobs are missing the
+> property? If the memory should be coherent, i would expect the driver
+> to allocate coherent memory. Or the driver needs to handle
+> non-coherent memory and add the necessary flush/invalidates etc.
 
-[auto build test ERROR on 9b2ffa6148b1e4468d08f7e0e7e371c43cac9ffe]
+stmmac driver does the necessary cache flush/invalidates to maintain cache lines
+explicitly.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Jiao-Joey/kcov-introduce-new-kcov-KCOV_TRACE_UNIQ_PC-mode/20250114-133713
-base:   9b2ffa6148b1e4468d08f7e0e7e371c43cac9ffe
-patch link:    https://lore.kernel.org/r/20250114-kcov-v1-4-004294b931a2%40quicinc.com
-patch subject: [PATCH 4/7] kcov: introduce new kcov KCOV_TRACE_UNIQ_CMP mode
-config: mips-randconfig-r073-20250124 (https://download.01.org/0day-ci/archive/20250124/202501240959.61XLxBYF-lkp@intel.com/config)
-compiler: mips-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250124/202501240959.61XLxBYF-lkp@intel.com/reproduce)
+See dma_sync_single_for_cpu():
+https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git/tree/include/linux/dma-mapping.h#n297
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202501240959.61XLxBYF-lkp@intel.com/
+dma_dev_need_sync() is supposed to return false for Tegra234, since the ethernet
+controller on Tegra234 is dma coherent by SoC design as Brad said their
+downstream device tree has dma-coherent turned on by default, and after add
+dma-coherent to mainline ethernet node, stmmac driver works fine.
+But dma-coherent property is missing in mainline Tegra234 ethernet device tree
+node, dma_dev_need_sync() returns true and this is not the expected behavior.
 
-All errors (new ones prefixed by >>):
-
-   kernel/kcov.c: In function 'kcov_map_add':
->> kernel/kcov.c:309:60: error: 'struct kcov_entry' has no member named 'type'
-     309 |                         if (entry->ent == ent->ent && entry->type == ent->type &&
-         |                                                            ^~
-   kernel/kcov.c:309:73: error: 'struct kcov_entry' has no member named 'type'
-     309 |                         if (entry->ent == ent->ent && entry->type == ent->type &&
-         |                                                                         ^~
->> kernel/kcov.c:310:34: error: 'struct kcov_entry' has no member named 'arg1'
-     310 |                             entry->arg1 == ent->arg1 && entry->arg2 == ent->arg2) {
-         |                                  ^~
-   kernel/kcov.c:310:47: error: 'struct kcov_entry' has no member named 'arg1'
-     310 |                             entry->arg1 == ent->arg1 && entry->arg2 == ent->arg2) {
-         |                                               ^~
->> kernel/kcov.c:310:62: error: 'struct kcov_entry' has no member named 'arg2'
-     310 |                             entry->arg1 == ent->arg1 && entry->arg2 == ent->arg2) {
-         |                                                              ^~
-   kernel/kcov.c:310:75: error: 'struct kcov_entry' has no member named 'arg2'
-     310 |                             entry->arg1 == ent->arg1 && entry->arg2 == ent->arg2) {
-         |                                                                           ^~
-   kernel/kcov.c:343:48: error: 'struct kcov_entry' has no member named 'type'
-     343 |                         area[start_index] = ent->type;
-         |                                                ^~
-   kernel/kcov.c:344:52: error: 'struct kcov_entry' has no member named 'arg1'
-     344 |                         area[start_index + 1] = ent->arg1;
-         |                                                    ^~
-   kernel/kcov.c:345:52: error: 'struct kcov_entry' has no member named 'arg2'
-     345 |                         area[start_index + 2] = ent->arg2;
-         |                                                    ^~
-
-
-vim +309 kernel/kcov.c
-
-   290	
-   291	static notrace inline void kcov_map_add(struct kcov_map *map, struct kcov_entry *ent,
-   292						struct task_struct *t, unsigned int mode)
-   293	{
-   294		struct kcov *kcov;
-   295		struct kcov_entry *entry;
-   296		unsigned int key = hash_key(ent);
-   297		unsigned long pos, start_index, end_pos, max_pos, *area;
-   298	
-   299		kcov = t->kcov;
-   300	
-   301		if ((mode == KCOV_MODE_TRACE_UNIQ_PC ||
-   302		     mode == KCOV_MODE_TRACE_UNIQ_EDGE))
-   303			hash_for_each_possible_rcu(map->buckets, entry, node, key) {
-   304				if (entry->ent == ent->ent)
-   305					return;
-   306			}
-   307		else
-   308			hash_for_each_possible_rcu(map->buckets, entry, node, key) {
- > 309				if (entry->ent == ent->ent && entry->type == ent->type &&
- > 310				    entry->arg1 == ent->arg1 && entry->arg2 == ent->arg2) {
-   311					return;
-   312				}
-   313			}
-   314	
-   315		entry = (struct kcov_entry *)gen_pool_alloc(map->pool, 1 << MIN_POOL_ALLOC_ORDER);
-   316		if (unlikely(!entry))
-   317			return;
-   318	
-   319		barrier();
-   320		memcpy(entry, ent, sizeof(*entry));
-   321		hash_add_rcu(map->buckets, &entry->node, key);
-   322	
-   323		if (mode == KCOV_MODE_TRACE_UNIQ_PC || mode == KCOV_MODE_TRACE_UNIQ_CMP)
-   324			area = t->kcov_area;
-   325		else
-   326			area = kcov->map_edge->area;
-   327	
-   328		pos = READ_ONCE(area[0]) + 1;
-   329		if (mode == KCOV_MODE_TRACE_UNIQ_PC || mode == KCOV_MODE_TRACE_UNIQ_EDGE) {
-   330			if (likely(pos < t->kcov_size)) {
-   331				WRITE_ONCE(area[0], pos);
-   332				barrier();
-   333				area[pos] = ent->ent;
-   334			}
-   335		} else {
-   336			start_index = 1 + (pos - 1) * KCOV_WORDS_PER_CMP;
-   337			max_pos = t->kcov_size * sizeof(unsigned long);
-   338			end_pos = (start_index + KCOV_WORDS_PER_CMP) * sizeof(u64);
-   339			if (likely(end_pos <= max_pos)) {
-   340				/* See comment in __sanitizer_cov_trace_pc(). */
-   341				WRITE_ONCE(area[0], pos);
-   342				barrier();
-   343				area[start_index] = ent->type;
-   344				area[start_index + 1] = ent->arg1;
-   345				area[start_index + 2] = ent->arg2;
-   346				area[start_index + 3] = ent->ent;
-   347			}
-   348		}
-   349	}
-   350	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+The dma-coherent property in device tree node is SoC specific, so only the
+vendors know if their stmmac ethernet controller is dma coherent and
+whether their device tree are missing the critical dma-coherent property.
 
