@@ -4,99 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEBA4C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 02:44:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89BDFC0218B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 02:46:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gUr8glPor4PY9LWUaf6Hy93FwZ+OFlyI/oBmRms57JE=; b=VmA10QZLC18DvlWS9COqpvIaUX
-	kCG0JSV5lMGdZvrsFbDOv8TovdrQ9Y0/Dk3aB42SLi5VgolLlWQbfAn65qvkrVNSXB/yXVvnKrbmI
-	2GoqTPbgsk9XkrHyj/k4IkUzlvjXCvptluf/UpHGiSAIPZNP4GiYEsJB9OIBE9YWMd4JWnM1mUJHO
-	aKwknw27Rj+1qbPkpkOetvJmrqCpsMRl7JxVtqKVSoVfWXWNXek9lSDxoYxa8heXtQzawENwAEW30
-	By9DBzVs3XdLiol0pVMTXwii4RbkknmU/grsEDownQ8ap6cbfUAwehjV1ZX7Kg9ftVOLMEREUVxDp
-	WmtVRh+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NGDhpCeU/tycigAOibtSPsGCf8Cu27SWkmjLwUeeJ98=; b=UIZccF0lx3G2SKgZfHc49oIVcm
+	MWSSbJp7ZW4sR6oCnXlS6715Rl6LZL1XT4wk/J4AiFdekr9dMYqHOF7XEk6r2VLFimfD4veLmTWD9
+	1fb/e6m/8fQJJsodhVf9JR6/kt3SGyemvhJfCvITf4zue587cwi2+12yPD5jH9qPI2AHZ7Nqxrxws
+	uqp8az5I8qs/jxORV+L8h8fteraPlb8FdhhietvqkVpFkdDqkAOv4i7BuAK6ofhKwbtcEqDYqPGNp
+	jn5Txb5ggPn7mn0QePN3E7VzqxCNvLM3gYQM2MYkC0Aezd3LimO0g0u+aJGtfiY4VtlixcfEG/6Ji
+	Vw/aLkAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb9gL-0000000DkwU-3Te6;
-	Fri, 24 Jan 2025 02:44:29 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1tb9hc-0000000Dl9f-1tzY;
+	Fri, 24 Jan 2025 02:45:48 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb9f3-0000000Dkes-0U09
+	id 1tb9fT-0000000Dkkk-3IsD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jan 2025 02:43:10 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-21634338cfdso36012405ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 18:43:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737686588; x=1738291388; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gUr8glPor4PY9LWUaf6Hy93FwZ+OFlyI/oBmRms57JE=;
-        b=fgmC7ktFNUvo2vgbVHaYJUV1X8zyhf7AJTi1fLOWQpPLV7SzYHWNUE3+DrEUkxqXD+
-         l3aVjNEyZ15gLFgL7+ctP9DYawpYtfcUc9GWwQKgSJ0JqYYnkBongN5uN2HR6papXl+g
-         VJt2I58M2ITFbDpvFrIEo9WxV78m2J4MrYv/F8pA+ov2aPRGy/2Kni5AcuQoc6yUEW7j
-         n77AJsg9lT8ntrDFSKm4kFBgJZqxYqWgJKrnGu14NiZlAdLSzpQ7EuzoMaL5s+d8Uqme
-         DQDBxdOCwZmIArCHi9/sLElPtp2RwD31x0tkrncGhjUV8s9bckaIUdeOmua9TLQP8IUf
-         k7rg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737686588; x=1738291388;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=gUr8glPor4PY9LWUaf6Hy93FwZ+OFlyI/oBmRms57JE=;
-        b=F1wQo8U8IlubdGNuRCdPs+Hy/uFMFNlAfEbefROOU5BmPCN9PFPPQ4CfzGe628ELPE
-         0VccariQhFXwszSWmdJhnpmoz3fzLMle3r5JevHQ1sYv1o5ZghxY+xSYkUX1zIHGmZud
-         qSBkU8LzSn1ckbYS+WYIy7tBRN/dIMSF4xQmRlhUCriRq46boCIA/5GrP+vlOk5a8i79
-         F8LaBKY71c8pHxau7DPQ7XavYqiR9Jea4oJlORyF2BLLc5Gl5ZQieDDeZdzbfldEFxoT
-         SKV9gA/stpg03Z7lkn/7ZhFJh8uRB/4R5843/zRUvINGQILoU9eDMZyZ6FI8uddCrn9j
-         odaQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW1RTXM2vjaQ4NnPhJtPve1tvfFGZ+5VjqnjywUbmE/LOkPRLePTf36vZQvGB7O7nsAPXYHdkKUnIkNUUKZILEm@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLMfMSRFNAhaddLfFbDqqTWPzkC5C98vYq4KLM5qILTEKC+1el
-	Z44W3LH+2E+9Lj632JG2uZGvJ/68+2/hEP4gskRlcGZxCDbWYOVJ
-X-Gm-Gg: ASbGncsGBGG1RfCogjbgq7x41wIK//UWDE40cuYSaWJCp6xe4eC9kq0prHKxLay6vFM
-	iCf8BXdBRYxePatFOn5vIMpbgiFmyLdDKGLXRsJ2FpLIxagwFfnBFR575aOKfSkQt2xoVOcN+3r
-	hZs2CgukQBQlGGMYJOwYsFy1lhCl03dF/iLnuTs81wevv7AWG5MsMcjZOKrgCfp3NkMhCMktPNx
-	2Oiap9snpxYnpNZ2X4GOvTMrCqcxylOu4O/2ueHXsrt0OrJkWYPSaRvChRdsLoF08S/fhKHeu5r
-	7LsJXMz8+gtw
-X-Google-Smtp-Source: AGHT+IE1TjZAhue2BOZibYjg2nefwmslQC24rfaOQvrKIXArpghvt/uN1d+O/NDrEY+ImyktqYYP7g==
-X-Received: by 2002:a17:902:c951:b0:215:b058:28a5 with SMTP id d9443c01a7336-21c355c65a3mr359067945ad.18.1737686588269;
-        Thu, 23 Jan 2025 18:43:08 -0800 (PST)
-Received: from localhost ([129.146.253.192])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21da41413e4sm5866175ad.158.2025.01.23.18.43.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Jan 2025 18:43:07 -0800 (PST)
-Date: Fri, 24 Jan 2025 10:42:56 +0800
-From: Furong Xu <0x1207@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Brad Griffis <bgriffis@nvidia.com>, Jon Hunter <jonathanh@nvidia.com>,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Alexander Lobakin <aleksander.lobakin@intel.com>, Joe Damato
- <jdamato@fastly.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
- Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-Subject: Re: [PATCH net-next v3 1/4] net: stmmac: Switch to zero-copy in
- non-XDP RX path
-Message-ID: <20250124104256.00007d23@gmail.com>
-In-Reply-To: <ccbecd2a-7889-4389-977e-10da6a00391c@lunn.ch>
-References: <cover.1736910454.git.0x1207@gmail.com>
-	<bd7aabf4d9b6696885922ed4bef8fc95142d3004.1736910454.git.0x1207@gmail.com>
-	<d465f277-bac7-439f-be1d-9a47dfe2d951@nvidia.com>
-	<20250124003501.5fff00bc@orangepi5-plus>
-	<e6305e71-5633-48bf-988d-fa2886e16aae@nvidia.com>
-	<ccbecd2a-7889-4389-977e-10da6a00391c@lunn.ch>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Fri, 24 Jan 2025 02:43:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1737686616; x=1769222616;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=5Jxf1MIkAme+I3DGHNaJEUWbgACy1KWQtq6VUX4R9y8=;
+  b=ePkpJR3Km2FmQYsy9jHHhYbjHQF2Y5ayFkbjpKQ7bx21pOLUnLex5PQ6
+   rds9EDSrY1DHheXrehoTmdm5yqKpur3s8/MkTyn8iEiSU1y5QXdroeZFj
+   uoAS6YyWMIVoY/CxwBLqT+YNppjV8sXInPKd27nCoKJOauqs+DGZj5tBX
+   yrV/tWdZlpwWZ0HV7VoG1EemUPBtFxQ0LI1Pgaa/3tcdNRRlnaMdCGd6u
+   /7AN8QPeIMSe+5koS9PseTZWRv8cL1JkWSVukM2NisAHR+29GUoIKoy0D
+   a9AyV+qJ4xQQUQxr9PRy8GGftWAsVHHwcrKSv9F8rhZzrdMBHsQlcVVrB
+   Q==;
+X-CSE-ConnectionGUID: Ce3Cg9w1QjCTsFIymfUJtQ==
+X-CSE-MsgGUID: Cso2BtGtQBWoRID7TIgfOA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11324"; a="38469255"
+X-IronPort-AV: E=Sophos;i="6.13,230,1732608000"; 
+   d="scan'208";a="38469255"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jan 2025 18:43:33 -0800
+X-CSE-ConnectionGUID: 8pdSFtXJRIKb07fDND+IjQ==
+X-CSE-MsgGUID: C4DkUGYDQ9OFFE7AKWijjg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,230,1732608000"; 
+   d="scan'208";a="138519430"
+Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
+  by orviesa002.jf.intel.com with ESMTP; 23 Jan 2025 18:43:30 -0800
+Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tb9fL-000c2x-1X;
+	Fri, 24 Jan 2025 02:43:27 +0000
+Date: Fri, 24 Jan 2025 10:43:12 +0800
+From: kernel test robot <lkp@intel.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH 1/5] firmware: arm_scmi: imx: Add i.MX95 LMM protocol
+Message-ID: <202501241025.6reKesXZ-lkp@intel.com>
+References: <20250121-imx-lmm-cpu-v1-1-0eab7e073e4e@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250121-imx-lmm-cpu-v1-1-0eab7e073e4e@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_184309_161261_C87E6238 
-X-CRM114-Status: GOOD (  17.26  )
+X-CRM114-CacheID: sfid-20250123_184335_876213_26766A1A 
+X-CRM114-Status: UNSURE (   9.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,32 +95,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Jan 2025 22:48:42 +0100, Andrew Lunn <andrew@lunn.ch> wrote:
+Hi Peng,
 
-> > Just to clarify, the patch that you had us try was not intended as an actual
-> > fix, correct? It was only for diagnostic purposes, i.e. to see if there is
-> > some kind of cache coherence issue, which seems to be the case?  So perhaps
-> > the only fix needed is to add dma-coherent to our device tree?  
-> 
-> That sounds quite error prone. How many other DT blobs are missing the
-> property? If the memory should be coherent, i would expect the driver
-> to allocate coherent memory. Or the driver needs to handle
-> non-coherent memory and add the necessary flush/invalidates etc.
+kernel test robot noticed the following build warnings:
 
-stmmac driver does the necessary cache flush/invalidates to maintain cache lines
-explicitly.
+[auto build test WARNING on 0907e7fb35756464aa34c35d6abb02998418164b]
 
-See dma_sync_single_for_cpu():
-https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git/tree/include/linux/dma-mapping.h#n297
+url:    https://github.com/intel-lab-lkp/linux/commits/Peng-Fan-OSS/firmware-arm_scmi-imx-Add-i-MX95-LMM-protocol/20250121-231254
+base:   0907e7fb35756464aa34c35d6abb02998418164b
+patch link:    https://lore.kernel.org/r/20250121-imx-lmm-cpu-v1-1-0eab7e073e4e%40nxp.com
+patch subject: [PATCH 1/5] firmware: arm_scmi: imx: Add i.MX95 LMM protocol
+config: arm64-randconfig-r122-20250124 (https://download.01.org/0day-ci/archive/20250124/202501241025.6reKesXZ-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 14.2.0
+reproduce: (https://download.01.org/0day-ci/archive/20250124/202501241025.6reKesXZ-lkp@intel.com/reproduce)
 
-dma_dev_need_sync() is supposed to return false for Tegra234, since the ethernet
-controller on Tegra234 is dma coherent by SoC design as Brad said their
-downstream device tree has dma-coherent turned on by default, and after add
-dma-coherent to mainline ethernet node, stmmac driver works fine.
-But dma-coherent property is missing in mainline Tegra234 ethernet device tree
-node, dma_dev_need_sync() returns true and this is not the expected behavior.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202501241025.6reKesXZ-lkp@intel.com/
 
-The dma-coherent property in device tree node is SoC specific, so only the
-vendors know if their stmmac ethernet controller is dma coherent and
-whether their device tree are missing the critical dma-coherent property.
+sparse warnings: (new ones prefixed by >>)
+>> drivers/firmware/arm_scmi/vendors/imx/imx-sm-lmm.c:189:32: sparse: sparse: restricted __le32 degrades to integer
+
+vim +189 drivers/firmware/arm_scmi/vendors/imx/imx-sm-lmm.c
+
+   172	
+   173	static int scmi_imx_lmm_protocol_attributes_get(const struct scmi_protocol_handle *ph,
+   174							struct scmi_imx_lmm_priv *priv)
+   175	{
+   176		struct scmi_msg_imx_lmm_protocol_attributes *attr;
+   177		struct scmi_xfer *t;
+   178		int ret;
+   179	
+   180		ret = ph->xops->xfer_get_init(ph, PROTOCOL_ATTRIBUTES, 0,
+   181					      sizeof(*attr), &t);
+   182		if (ret)
+   183			return ret;
+   184	
+   185		attr = t->rx.buf;
+   186	
+   187		ret = ph->xops->do_xfer(ph, t);
+   188		if (!ret) {
+ > 189			priv->nr_lmm = SCMI_IMX_LMM_PROTO_ATTR_NUM_LM(attr->attributes);
+   190			dev_info(ph->dev, "i.MX LMM: %d Logical Machines\n",
+   191				 priv->nr_lmm);
+   192		}
+   193	
+   194		ph->xops->xfer_put(ph, t);
+   195	
+   196		return ret;
+   197	}
+   198	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
