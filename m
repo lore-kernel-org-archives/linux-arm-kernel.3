@@ -4,78 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD05FC02181
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 20:05:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D58B3C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 21:35:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6QIKaqbbemwWz44f4TWNlRFlZj3y5YlJKRtI3zz9LXI=; b=dYFJhGg2FuU08SgLINtWVxlaPI
-	rKEr4jBhSgAAA6w65i0mWx4EhLhBIHPmh4yft5BCpJwF3GFBLBwHbR/+MaZmoj2CLHWtZhpOtkUhQ
-	zK8++JkxzCl9vRik48JT77DtlKQsRzdmESRZagMDp8ad3sqmpygqV+/8sDAupPt9MJAeDd0258WaU
-	ycj5NA3Zwu43hPL/zliI4PbRBzR5k/SWIaUGx8VbGkKOFGvZuCuN+wE0O8/5WoFOIH5eBOQfaUQJW
-	Ec+u5dKaLWKWtHe5F297b4R0gz/3fU3vEqnuSKfMElFWhgU0Kn3RpdrXA1cHNyNXYexCcdIgsnD1a
-	+hjG0KSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B5XzMv+8i/tGR0v/5VTcsly1t4bB+llskpYgDn0DxQo=; b=0s+PDziLG2gFvC+d+iIvbwGVB7
+	ZhfPDOciMP7ahMkYvyBti4SQhDqfS9o/SDG67Id085W8q1dgPfEs8cr73YNdIW740MR79IqjxOc3r
+	kMwtEuSfUUBFgYBvZ/cl570XLJBgjxstPq+AfFlmsMJh4CNh+wZ35AmGkrZlF60JFhuke1xqwy8Sl
+	9cGptyYsU7z69P75d9oGe7awfhvq9aaX3RgHWjx9+gXm2+Upux9UNMhBwgl3bPH8PGn6JAAdJFXyM
+	DScEP2GkMwilj+mEvBYldfistKTm8rrxPTeWS/s1BuD8/VGaxatSJpz3AVyBN6rsayGj0M+Ge4eHF
+	p95jHASw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbPv8-0000000FRZ6-41ge;
-	Fri, 24 Jan 2025 20:04:50 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tbRKS-0000000FYUb-0VxE;
+	Fri, 24 Jan 2025 21:35:04 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbPtq-0000000FRTZ-3c5K
+	id 1tbRJ8-0000000FYPr-3sIm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jan 2025 20:03:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 535155C61B5
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jan 2025 20:02:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 286A2C4AF09
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jan 2025 20:03:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737749009;
-	bh=kB0Yj6fw56hD+dYGBFuwDB3YlGtW0RV64sm6DIzXdOU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=hV0rQ9qDFdGx5gluvvJFRcOZjz/GrT0B23/FQ/+l4TEwchnAqJfG2xJswlONSuONv
-	 DfjFuaccVnCsehoeDiqaNydBy/4ckQB4u6Ojk5xU+DHh60nLTxNrizr+p+ag/zrOQM
-	 YfUwr5uEAp4Dul3rPKvoU8COj54pJS0no2SYgVKZwyzhdB7O9VrzU47LGSuu7Iidi+
-	 L2QCrCwo7sac4n9NwZNKZ0V0oM6Bo5ZKzoKY71CIXYFzqP19o7hDhsUHBuiOi+Ku47
-	 SHbvoc7Uyn+RihYg9/L1WGy80C/wazuhyAayHLkrZF9EtjT/olXNkImqwPnMQV0K8N
-	 yZp0KUWwjWxYg==
-Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-5401e6efffcso2786067e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jan 2025 12:03:29 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWVnKUKNbHOXoX0dVo9luX74HAcNjhRc+bJXCD5GYkFzzmOdcFL7UnLztmNa+xdRnsiBwLwLE0FKHHIncDhuhty@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz5gAq/mCEGtDV2I04UM2tgsApC28XPUjMLLlLhF11UxJIBux3B
-	+1RrIMpPQsFfxsUBcEY9nl5sv9YYBfCi2ibk/jF0XdJNm8U6Nyqko4DpwOmyZxZtu2xRuT2KLKX
-	gomKopiQzcrrGCTA1oP9mpp0bHw==
-X-Google-Smtp-Source: AGHT+IFI4E8ok6ZnUBXd1X1cgum64M+dQ5G/aCCjGU+84hgDMGp37JiJm4zF1YCFsaN9zLh7Hk7stY0iKRVKvN9Pd+g=
-X-Received: by 2002:a05:6512:ad5:b0:542:2190:9d99 with SMTP id
- 2adb3069b0e04-5439c22d7fcmr11990382e87.6.1737749007253; Fri, 24 Jan 2025
- 12:03:27 -0800 (PST)
+	Fri, 24 Jan 2025 21:33:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1737754423; x=1769290423;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ZV+CoJSZ+wVV/344CBzff1eeJ9Hjk9q/8p3TD4Hsxtw=;
+  b=XLdGDw13Y47ckAPGhYtgzC2Fjuj+85ZTZOuwXdDzlRDueh3D9owKG/rI
+   kkdWGA5NR/skDse6t3MshfRtM4nYg3t/kesWfCqjvYBmQu+Z6a3fhCLP/
+   RnI7eCBobElhBanloHddfZ9i9yOT0Ry7KsWJH1/1NjM7gJklH2xJHeyUh
+   V9YHz3FKJ4VrqRBIphQvbRCtj6KfMq7kIeA9NGfj7+2prFO9mgeHsmCAz
+   VLWSO5kzA5XvEjQSOFfyRRhHWnkr3A1i9BDgbjNkjLRGsWpSTZxAkpDkF
+   lKxVD+BwHcu+WTpRijkbmvlL0eC3oSbvY3W0MMCVbRA7Jm5ukGEOHDMz6
+   w==;
+X-CSE-ConnectionGUID: d/MG9pkvSiKalvDoMxA9Lg==
+X-CSE-MsgGUID: qlRSrek2QRat92+IbKOc3w==
+X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="49718513"
+X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
+   d="scan'208";a="49718513"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Jan 2025 13:33:37 -0800
+X-CSE-ConnectionGUID: g4+/9ZLtQsOQaUV3ZgoZ4w==
+X-CSE-MsgGUID: CHXgLetET/Spk4p+CUHLlg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,232,1732608000"; 
+   d="scan'208";a="107782823"
+Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
+  by fmviesa007.fm.intel.com with ESMTP; 24 Jan 2025 13:33:33 -0800
+Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tbRIw-000d9T-2h;
+	Fri, 24 Jan 2025 21:33:30 +0000
+Date: Sat, 25 Jan 2025 05:33:11 +0800
+From: kernel test robot <lkp@intel.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH 3/3] clk: scmi: Support spread spectrum
+Message-ID: <202501250520.evxxfDdY-lkp@intel.com>
+References: <20250124-clk-ssc-v1-3-2d39f6baf2af@nxp.com>
 MIME-Version: 1.0
-References: <20241217-syscon-fixes-v2-0-4f56d750541d@kernel.org>
- <20241217-syscon-fixes-v2-3-4f56d750541d@kernel.org> <b2413460-ec8b-4c77-99b8-4c32b262439a@ti.com>
-In-Reply-To: <b2413460-ec8b-4c77-99b8-4c32b262439a@ti.com>
-From: Rob Herring <robh@kernel.org>
-Date: Fri, 24 Jan 2025 14:03:14 -0600
-X-Gmail-Original-Message-ID: <CAL_JsqKVydDqmr-gyn1wt=1PO_p1NMze+1D+4qXWxGiGVLV9EA@mail.gmail.com>
-X-Gm-Features: AWEUYZlVwnePv2ukQi7kKELxZyZ8P4Izpod4DeD-vVe5G2_hjHHUcMstEkOJyM8
-Message-ID: <CAL_JsqKVydDqmr-gyn1wt=1PO_p1NMze+1D+4qXWxGiGVLV9EA@mail.gmail.com>
-Subject: Re: [PATCH v2 3/3] mfd: syscon: Allow syscon nodes without a "syscon" compatible
-To: Vaishnav Achath <vaishnav.a@ti.com>
-Cc: Lee Jones <lee@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Pankaj Dubey <pankaj.dubey@samsung.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@arm.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
-	Will McVicker <willmcvicker@google.com>, John Madieu <john.madieu.xa@bp.renesas.com>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Andrew Davis <afd@ti.com>, 
-	Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, "Kumar, Udit" <u-kumar1@ti.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250124-clk-ssc-v1-3-2d39f6baf2af@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250124_120330_985094_FEB88D5A 
-X-CRM114-Status: GOOD (  37.03  )
+X-CRM114-CacheID: sfid-20250124_133342_974429_142D0C40 
+X-CRM114-Status: GOOD (  12.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,87 +101,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 22, 2025 at 3:44=E2=80=AFAM Vaishnav Achath <vaishnav.a@ti.com>=
- wrote:
->
-> Hi Rob,
->
-> On 17/12/24 23:41, Rob Herring (Arm) wrote:
-> > of_syscon_register_regmap() was added for nodes which need a custom
-> > regmap setup. It's not really correct for those nodes to claim they are
-> > compatible with "syscon" as the default handling likely doesn't work in
-> > those cases. If device_node_get_regmap() happens to be called first,
-> > then of_syscon_register() will be called and an incorrect regmap will b=
-e
-> > created (barring some other error). That may lead to unknown results in
-> > the worst case. In the best case, of_syscon_register_regmap() will fail
-> > with -EEXIST. This problem remains unless these cases drop "syscon" (an
-> > ABI issue) or we exclude them using their specific compatible. ATM,
-> > there is only one user: "google,gs101-pmu"
-> >
-> > There are also cases of adding "syscon" compatible to existing nodes
-> > after the fact in order to register the syscon. That presents a
-> > potential DT ABI problem. Instead, if there's a kernel change needing a
-> > syscon for a node, then it should be possible to allow the kernel to
-> > register a syscon without a DT change. That's only possible by using
-> > of_syscon_register_regmap() currently, but in the future we may want to
-> > support a match list for cases which don't need a custom regmap.
-> >
-> > With this change, the lookup functions will succeed for any node
-> > registered by of_syscon_register_regmap() regardless of whether the nod=
-e
-> > compatible contains "syscon".
-> >
-> > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> > ---
-> > v2:
-> >   - Fix logic when a syscon is found in list to not return an error
-> > ---
-> >   drivers/mfd/syscon.c | 12 ++++++------
-> >   1 file changed, 6 insertions(+), 6 deletions(-)
-> >
-> > diff --git a/drivers/mfd/syscon.c b/drivers/mfd/syscon.c
-> > index bfb1f69fcff1d3cd35cf04ccd4c449e7d0395c79..226915ca3c93dcaf47bdd46=
-b58e00e10e155f952 100644
-> > --- a/drivers/mfd/syscon.c
-> > +++ b/drivers/mfd/syscon.c
-> > @@ -171,9 +171,12 @@ static struct regmap *device_node_get_regmap(struc=
-t device_node *np,
-> >                       break;
-> >               }
-> >
-> > -     if (!syscon)
-> > -             syscon =3D of_syscon_register(np, check_res);
-> > -
-> > +     if (!syscon) {
-> > +             if (of_device_is_compatible(np, "syscon"))
-> > +                     syscon =3D of_syscon_register(np, check_res);
-> > +             else
-> > +                     syscon =3D ERR_PTR(-EINVAL);
-> > +     }
->
-> Earlier the above check was only in syscon_node_to_regmap() , but now
-> the users of device_node_to_regmap() also undergoes this check and there
-> are few drivers in tree which uses device_node_to_regmap() without
-> having "syscon" in compatible, likely those drivers need to be fixed,
-> but this patch breaks all those drivers now, atleast the below drivers
-> are affected and all TI platforms fail to boot due to this:
->
-> drivers/soc/ti/k3-socinfo.c
-> drivers/mux/mmio.c ("reg-mux" users)
-> drivers/clk/keystone/syscon-clk.c
->
-> All the above drivers fail due to the above check for syscon compatible.
->
-> What is the recommended solution to fix this?
+Hi Peng,
 
-I've sent a fix[1]. That's not to say I don't agree with fixes to
-drivers removing device_node_to_regmap() calls. If you just need a
-regmap for within a single driver, then just use regmap APIs directly.
-What's in syscon.c is for (surprise!) syscon's, and those have the
-characteristic of being shared.
+kernel test robot noticed the following build warnings:
 
-Rob
+[auto build test WARNING on 5ffa57f6eecefababb8cbe327222ef171943b183]
 
-[1] https://lore.kernel.org/all/20250124191644.2309790-1-robh@kernel.org/
+url:    https://github.com/intel-lab-lkp/linux/commits/Peng-Fan-OSS/clk-Introduce-clk_set_spread_spectrum/20250124-212050
+base:   5ffa57f6eecefababb8cbe327222ef171943b183
+patch link:    https://lore.kernel.org/r/20250124-clk-ssc-v1-3-2d39f6baf2af%40nxp.com
+patch subject: [PATCH 3/3] clk: scmi: Support spread spectrum
+config: i386-buildonly-randconfig-005-20250125 (https://download.01.org/0day-ci/archive/20250125/202501250520.evxxfDdY-lkp@intel.com/config)
+compiler: clang version 19.1.3 (https://github.com/llvm/llvm-project ab51eccf88f5321e7c60591c5546b254b6afab99)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250125/202501250520.evxxfDdY-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202501250520.evxxfDdY-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/clk/clk-scmi.c:298: warning: cannot understand function prototype: 'const char * const scmi_clk_ssc_allowlist[] = '
+
+
+vim +298 drivers/clk/clk-scmi.c
+
+   286	
+   287	/**
+   288	 * scmi_clk_ops_alloc() - Alloc and configure clock operations
+   289	 * @dev: A device reference for devres
+   290	 * @feats_key: A bitmap representing the desired clk_ops capabilities
+   291	 *
+   292	 * Allocate and configure a proper set of clock operations depending on the
+   293	 * specifically required SCMI clock features.
+   294	 *
+   295	 * Return: A pointer to the allocated and configured clk_ops on success,
+   296	 *	   or NULL on allocation failure.
+   297	 */
+ > 298	static const char * const scmi_clk_ssc_allowlist[] = {
+   299		"fsl,imx95",
+   300		NULL
+   301	};
+   302	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
