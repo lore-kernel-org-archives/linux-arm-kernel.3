@@ -4,100 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AF15C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 03:52:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8406C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 04:08:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UsOSr255hsze50L8MIH369hi7fncpzVLWcWcM0n4BCw=; b=N+SI/ZrxVZu5+HfbnbHV12Oe/f
-	1sNFlTzjfEXcexYRUKL4onk5QESlxOtn4ZriJSQGkSK/B4gxwj6SAb04h6p/pTeW2avU3gKqMi0k1
-	8tgZwIQCvO53/DZSbrNHtAukJ5R8t/8+YEaS4sSc6pU/R5t0gqNf/mkOveRPRLk1DVGq6C2I8OSVs
-	gOIbG+g8T2j/hgL4N8Gu07fknOT9lY8CMJDCF43eK8T6Vw4nBagypFJJGsSMaQoPJJXeYoQ/aUbBs
-	Zo7l9HTxVpNYwiDH9T57x0txI8Yho8pNUGCPFGZ6zBC8CKjQKZuEvi4+L28CxRSBMZYrVb9TqNSmR
-	KpBMSK4A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Vj1NaMTUsVA57ckq/QD9h243Rs/TkZbkHkyDFlhTqVQ=; b=SjWWIaDtmRf1Fduk/fNtWYvMie
+	hzT4km6v6WTNcUeD5n/VNSRKhgRoGrOHM68PnspArWhZ+Kj3iarvfLo1GtibmVvy4hN0Zx1ZRtfku
+	3NF+hEEBbjfA9DhcFvARBFBEVUkMkA1V42SpTWjXrJHRaerp7y5mK9PNuiJ6cbwP1qrLEsRsMQM3L
+	xxYZ3P2+wd/H/8VgbLhYOLhrjaqxXokruFJMXycUvvmYz6fyZ20mKAa6kWrpsDnRSEVGAjohGLIza
+	ZteBfGLMMfh8kOYMdO2jxgwWrJDT2KhNRLq9VJ/qoB1Ve7ALdnQS0AdOre3B+fat4aYQfDKdwd+nI
+	cjktGmnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbAkQ-0000000Dq69-07X0;
-	Fri, 24 Jan 2025 03:52:46 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tbAzT-0000000DrUP-3TP6;
+	Fri, 24 Jan 2025 04:08:19 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbAhz-0000000DprE-2Ssr;
-	Fri, 24 Jan 2025 03:50:16 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50NK1bwe025017;
-	Fri, 24 Jan 2025 03:50:07 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	UsOSr255hsze50L8MIH369hi7fncpzVLWcWcM0n4BCw=; b=MdY5fsvGqrkk09id
-	qu/JAKNKUkXaA0NcuZeQAfZOgUP3XntcdHRl1MgsOM4NCCmNmHgpYL/kQCSZDq0b
-	PPuA2I6W7/d+RhU7iO/83Vj3yuGw3uF9pt9G5Ej8YdMiOpkEmroMRPD/7SvPoSS1
-	/urid3pcxbBU/hVSaLwMW4vGkQ1ZVWS4Ys5MT0Ln5W1X/mK7Aw9fnUpqEb5J62zY
-	N/lqWGNqqBjAHaGW0+OgSkf8DGARWGJ5tlDqaSv3pgDMCbY2Otb/Akz8C4rsjN1z
-	3+C3K7efCPj0ZX3Fec1uj89pQLyfprpQatJ/kbIXIsUwvpFy8HRNWXz/yXrDlHiE
-	R5jFZQ==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44bvengru6-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 24 Jan 2025 03:50:07 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 50O3o6bk007904
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 24 Jan 2025 03:50:06 GMT
-Received: from [10.239.155.136] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 23 Jan
- 2025 19:50:02 -0800
-Message-ID: <de0a80f0-f6b8-4213-8687-7111e6ad7aba@quicinc.com>
-Date: Fri, 24 Jan 2025 11:50:00 +0800
+	id 1tbAy5-0000000DrOy-0ZAw;
+	Fri, 24 Jan 2025 04:06:54 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-215770613dbso21056855ad.2;
+        Thu, 23 Jan 2025 20:06:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1737691612; x=1738296412; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Vj1NaMTUsVA57ckq/QD9h243Rs/TkZbkHkyDFlhTqVQ=;
+        b=RACbIuDq11FpuGjt5Y8HWY/zu5LSoss+5R/9g7JHkyyitLU00MLU2/oIefu+FXW6Oj
+         Tx6ztan3/BiRJTggRfZiI4lTmdQR98hQXuv7NbZFHb8r+UFMJkTcos7Usg8puqTaddCT
+         7z2p20WFFEWiMnMQBilLVJBUsMw/5ROU0v8ADatH/Q+mHzru4XN6L4oKNPFPb9ZkX8pt
+         IDTD7+8f9C4+xX8r+mkqqSAfBMguX6cDbTWdyWeqwgmo97wAyq3SCW3zkM5VPt8S90AR
+         zOPdcuxox/7MbyfeTbdzrO+Ns3lJr8psV+zAS+7udLgXAYmgOpwvs2vpMHdlMKIRauI2
+         AKeA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737691612; x=1738296412;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Vj1NaMTUsVA57ckq/QD9h243Rs/TkZbkHkyDFlhTqVQ=;
+        b=Z/F7oPrSeBRWdejY6R0fh7fxtwWwADJEevuYypMi4HVqBkE9Iye6CJepsoPMCA2POT
+         yS/tfmQbOMWkMlH9JakJIcfj11+voA/Nk3NS/gKWxLF4aJylFBC1e09n/H/m0SKR1VQt
+         GIcBhWq3Zfd/aV+/tBCD+IYCg2Sjh4dRXgx4mWjkeLtawErgrxu7ES18V1MwVecNY2Ko
+         yjOupxqLcCaVDk4knX2o56SATue1XOPCENj3PL4laNhhocse/BT6YOVhufNR/EqghHn/
+         vxbqFUBWXUDUdCsMDEhqQnRfyzfQ2IzwvKAmcVRNSs8nh8w9uC4joXa/yqeLr5kl+Moi
+         aJeQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWCJo8eI4rbCFzM+IT5vLWFb4NnceNzryEETzx6g8wJrsGDkTWLsfvUN15xVNoSa4Zji7cP7ZTl+4Bs5ktX3gLe@lists.infradead.org, AJvYcCXbzZAFk9Cp9HqsQ1NL/NljNofT3qHWRPVc9nGr/sV50dWIN/FY4G23pukhV5UhSfO5T6jNmtMDNCMH5/uA4YY=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx8x4ehKNnJ1R5zELSVfD24XUkd3/IjXDwYiq5cqWq2UqdLE4+E
+	vFbWVojOnhmyTW1EV6LCbcQs352+nEJ7VID8cIGEnijn0b0QUW19
+X-Gm-Gg: ASbGncsKXNh3H/n7x8kgpx4Pe3jRIdwt7f/bZVuqHQ4g1qOchEWhwlddQ40BewQD7Vo
+	etuOn1iDe4n7iuZwl01nn1iBIXDzPf/6iTdzkMZVu1GN24534Zvyyei0dB8Ddj6bfyXmyEspEj/
+	xGHMr5sYzoq00RRflaYoQaHfZa9Fb5VscfxF5BAcNczyInhQCToYqpzBLxxgkS3G+WEkF8XFDgP
+	qT9PBjCBGX3cctUfm4/ZHERJExquMtXbs0YQmeAOyGfsUtKtgwzsVaBqODrw6vtG/NHttr10E+w
+	RRr9EZ9DyZe80EnL0DUI1JcHAdsQoA==
+X-Google-Smtp-Source: AGHT+IF3SHS7uGw6j2HUHGRc2o6x9hUUGZICmg9DQKSnpjYz1OzyDi2k9jgSfX5GniU24Huia3n0zA==
+X-Received: by 2002:a05:6a00:a2a:b0:72d:8af9:bc64 with SMTP id d2e1a72fcca58-72daf9ec17dmr31990363b3a.9.1737691611690;
+        Thu, 23 Jan 2025 20:06:51 -0800 (PST)
+Received: from jren-d3.localdomain ([221.222.59.195])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72f8a78f145sm795398b3a.167.2025.01.23.20.06.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Jan 2025 20:06:51 -0800 (PST)
+From: Imkanmod Khan <imkanmodkhan@gmail.com>
+To: stable@vger.kernel.org
+Cc: patches@lists.linux.dev,
+	mchehab@kernel.org,
+	fullwaywang@outlook.com,
+	gregkh@linuxfoundation.org,
+	linux-kernel@vger.kernel.org,
+	tiffany.lin@mediatek.com,
+	andrew-ct.chen@mediatek.com,
+	yunfei.dong@mediatek.com,
+	matthias.bgg@gmail.com,
+	linux-media@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Imkanmod Khan <imkanmodkhan@gmail.com>
+Subject: [PATCH 6.1.y] media: mtk-vcodec: potential null pointer deference in SCP
+Date: Fri, 24 Jan 2025 12:06:41 +0800
+Message-ID: <20250124040641.7431-1-imkanmodkhan@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/8] Support Multi-frequency scale for UFS
-To: <neil.armstrong@linaro.org>, <quic_cang@quicinc.com>, <bvanassche@acm.org>,
-        <mani@kernel.org>, <beanhuo@micron.com>, <avri.altman@wdc.com>,
-        <junwoo80.lee@samsung.com>, <martin.petersen@oracle.com>,
-        <quic_nguyenb@quicinc.com>, <quic_nitirawa@quicinc.com>,
-        <quic_rampraka@quicinc.com>
-CC: <linux-arm-msm@vger.kernel.org>, <linux-scsi@vger.kernel.org>,
-        "Matthias
- Brugger" <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>,
-        "open list:ARM/Mediatek SoC
- support:Keyword:mediatek" <linux-kernel@vger.kernel.org>,
-        "moderated
- list:ARM/Mediatek SoC support:Keyword:mediatek"
-	<linux-arm-kernel@lists.infradead.org>,
-        "moderated list:ARM/Mediatek SoC
- support:Keyword:mediatek" <linux-mediatek@lists.infradead.org>
-References: <20250122100214.489749-1-quic_ziqichen@quicinc.com>
- <d4881156-a003-41fe-824e-4c29e279fbb7@linaro.org>
-Content-Language: en-US
-From: Ziqi Chen <quic_ziqichen@quicinc.com>
-In-Reply-To: <d4881156-a003-41fe-824e-4c29e279fbb7@linaro.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: LdKnsDhDlDeLqdLLFYQQD0jKSqhLeu_e
-X-Proofpoint-ORIG-GUID: LdKnsDhDlDeLqdLLFYQQD0jKSqhLeu_e
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-01-24_01,2025-01-23_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=999
- suspectscore=0 adultscore=0 spamscore=0 priorityscore=1501 impostorscore=0
- mlxscore=0 bulkscore=0 clxscore=1015 malwarescore=0 phishscore=0
- lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2501240025
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_195015_642534_DE419F7A 
-X-CRM114-Status: GOOD (  16.07  )
+X-CRM114-CacheID: sfid-20250123_200653_182715_96BE6BEE 
+X-CRM114-Status: UNSURE (   9.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,151 +105,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Fullway Wang <fullwaywang@outlook.com>
 
+[ Upstream commit 53dbe08504442dc7ba4865c09b3bbf5fe849681b ]
 
-On 1/24/2025 4:12 AM, neil.armstrong@linaro.org wrote:
-> Hi,
-> 
-> On 22/01/2025 11:02, Ziqi Chen wrote:
->> With OPP V2 enabled, devfreq can scale clocks amongst multiple frequency
->> plans. However, the gear speed is only toggled between min and max during
->> clock scaling. Enable multi-level gear scaling by mapping clock 
->> frequencies
->> to gear speeds, so that when devfreq scales clock frequencies we can put
->> the UFS link at the appropraite gear speeds accordingly.
->>
->> This series has been tested on below platforms -
->> sm8550 mtp + UFS3.1
->> SM8650 MTP + UFS3.1
->> SM8750 MTP + UFS4.0
-> 
-> Thanks, could you be more precise on how you tested this feature ? how 
-> did you exercise the gear changes and check that is cales correctly ?
-> 
-> Thanks,
-> Neil
-> 
+The return value of devm_kzalloc() needs to be checked to avoid
+NULL pointer deference. This is similar to CVE-2022-3113.
 
-Hi Neil,
+Link: https://lore.kernel.org/linux-media/PH7PR20MB5925094DAE3FD750C7E39E01BF712@PH7PR20MB5925.namprd20.prod.outlook.com
+Signed-off-by: Fullway Wang <fullwaywang@outlook.com>
+Signed-off-by: Mauro Carvalho Chehab <mchehab@kernel.org>
+[ To fix CVE: CVE-2024-40973, modified the file path from drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_scp.c
+ to drivers/media/platform/mediatek/vcodec/mtk_vcodec_fw_scp.c and minor conflict resolution ]
+Signed-off-by: Imkanmod Khan <imkanmodkhan@gmail.com>
+---
+ drivers/media/platform/mediatek/vcodec/mtk_vcodec_fw_scp.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-I made a Debugging patch that track the freq and gear in UFS devfreq and 
-clkscale path. I do data transfer from userspace and print out devfreq 
-target freq , clkscale recommended freq , final clkscale freq and gear 
-value of before and after clkscale.
+diff --git a/drivers/media/platform/mediatek/vcodec/mtk_vcodec_fw_scp.c b/drivers/media/platform/mediatek/vcodec/mtk_vcodec_fw_scp.c
+index d8e66b645bd8..27f08b1d34d1 100644
+--- a/drivers/media/platform/mediatek/vcodec/mtk_vcodec_fw_scp.c
++++ b/drivers/media/platform/mediatek/vcodec/mtk_vcodec_fw_scp.c
+@@ -65,6 +65,8 @@ struct mtk_vcodec_fw *mtk_vcodec_fw_scp_init(struct mtk_vcodec_dev *dev)
+ 	}
+ 
+ 	fw = devm_kzalloc(&dev->plat_dev->dev, sizeof(*fw), GFP_KERNEL);
++	if (!fw)
++		return ERR_PTR(-ENOMEM);
+ 	fw->type = SCP;
+ 	fw->ops = &mtk_vcodec_rproc_msg;
+ 	fw->scp = scp;
+-- 
+2.25.1
 
-For example, we can get such logs on SM8550 as below:
-
-[    5.424720] [DEBUG]ufshcd_devfreq_target: target freq = 75000000
-[    5.509541] [DEBUG]ufshcd_devfreq_target: recommended freq = 75000000
-[    5.525463] [DEBUG]ufshcd_devfreq_target: final freq = 75000000
-[    5.525464] [DEBUG]ufshcd_devfreq_target: scaling DOWN from freq 
-300000000 to freq 75000000
-[    5.525468] [DEBUG]ufshcd_devfreq_scale: freq 75000000 mapped to gear 
-1 , caller: ufshcd_devfreq_target+0x298/0x3e4
-[    5.525531] [DEBUG]ufshcd_devfreq_scale: scaling DOWN gear from 4 -> 1
-[    5.728018] [DEBUG]ufshcd_devfreq_target: updated target freq to 75000000
-
-
-.. G1 -> G4...
-
-[  261.068843] [DEBUG]ufshcd_devfreq_target: target freq = 300000000
-[  261.075242] [DEBUG]ufshcd_devfreq_target: recommended freq = 300000000
-[  261.082055] [DEBUG]ufshcd_devfreq_target: final freq = 300000000
-[  261.088280] [DEBUG]ufshcd_devfreq_target: scaling UP from freq 
-75000000 to freq 300000000
-[  261.096743] ufshcd-qcom 1d84000.ufshc: 
-ufshcd_is_devfreq_scaling_required: req_freq= 300000000, target_freq = 
-75000000
-[  261.107814] [DEBUG]ufshcd_devfreq_scale: freq 300000000 mapped to 
-gear 4 , caller: ufshcd_devfreq_target+0x298/0x3e4
-[  261.126922] [DEBUG]ufshcd_devfreq_scale: scaling UP gear from 1 -> 4
-[  261.134810] [DEBUG]ufshcd_devfreq_target: updated target freq to 
-300000000
-[  261.196460] [DEBUG]ufshcd_devfreq_target: target freq = 244755397
-[  261.210039] [DEBUG]ufshcd_devfreq_target: recommended freq = 300000000
-[  261.216900] [DEBUG]ufshcd_devfreq_target: final freq = 300000000
-[  261.223135] [DEBUG]ufshcd_devfreq_target: scaling DOWN from freq 
-300000000 to freq 300000000
-[  261.231872] ufshcd-qcom 1d84000.ufshc: 
-ufshcd_is_devfreq_scaling_required: req_freq= 300000000, target_freq = 
-300000000
-[  261.243017] [DEBUG]ufshcd_devfreq_target: scaling DOWN from freq 
-300000000 to freq 300000000 not required
-
-
-.. G4 -> G2...
-
-[  455.604414] [DEBUG]ufshcd_devfreq_target: target freq = 149736604
-[  455.617895] [DEBUG]ufshcd_devfreq_target: recommended freq = 150000000
-[  455.624702] [DEBUG]ufshcd_devfreq_target: final freq = 150000000
-[  455.630936] [DEBUG]ufshcd_devfreq_target: scaling DOWN from freq 
-300000000 to freq 150000000
-[  455.639656] ufshcd-qcom 1d84000.ufshc: 
-ufshcd_is_devfreq_scaling_required: req_freq= 150000000, target_freq = 
-300000000
-[  455.650838] [DEBUG]ufshcd_devfreq_scale: freq 150000000 mapped to 
-gear 2 , caller: ufshcd_devfreq_target+0x298/0x3e4
-[  455.661809] [DEBUG]ufshcd_devfreq_scale: scaling DOWN gear from 4 -> 2
-[  455.670529] [DEBUG]ufshcd_devfreq_target: updated target freq to 
-150000000
-
-
-...G2 -> G1
-
-[  548.484492] [DEBUG]ufshcd_devfreq_target: target freq = 75000000
-[  548.497957] [DEBUG]ufshcd_devfreq_target: recommended freq = 75000000
-[  548.504801] [DEBUG]ufshcd_devfreq_target: final freq = 75000000
-[  548.510949] [DEBUG]ufshcd_devfreq_target: scaling DOWN from freq 
-150000000 to freq 75000000
-[  548.519590] ufshcd-qcom 1d84000.ufshc: 
-ufshcd_is_devfreq_scaling_required: req_freq= 75000000, target_freq = 
-150000000
-[  548.530725] [DEBUG]ufshcd_devfreq_scale: freq 75000000 mapped to gear 
-1 , caller: ufshcd_devfreq_target+0x298/0x3e4
-[  548.552850] [DEBUG]ufshcd_devfreq_scale: scaling DOWN gear from 2 -> 1
-
-
--Ziqi
-
->>
->> v1 -> v2:
->> 1. Withdraw old patch 8/8 "ARM: dts: msm: Use Operation Points V2 for 
->> UFS on SM8650"
->> 2. Add new patch 8/8 "ABI: sysfs-driver-ufs: Add missing UFS sysfs 
->> addributes"
->> 3. Modify commit message for  "scsi: ufs: core: Pass target_freq to 
->> clk_scale_notify() vops" and "scsi: ufs: qcom: Pass target_freq to clk 
->> scale pre and post change"
->> 4. In "scsi: ufs: qcom: Pass target_freq to clk scale pre and post 
->> change", use common Macro HZ_PER_MHZ in function 
->> ufs_qcom_set_core_clk_ctrl()
->> 5. In "scsi: ufs: qcom: Implement the freq_to_gear_speed() vops", 
->> print out freq and gear info as debugging message
->> 6. In "scsi: ufs: core: Enable multi-level gear scaling", rename the 
->> lable "do_pmc" to "config_pwr_mode"
->> 7. In "scsi: ufs: core: Toggle Write Booster during clock", initialize 
->> the local variables "wb_en" as "false"
->>
->> Can Guo (6):
->>    scsi: ufs: core: Pass target_freq to clk_scale_notify() vops
->>    scsi: ufs: qcom: Pass target_freq to clk scale pre and post change
->>    scsi: ufs: core: Add a vops to map clock frequency to gear speed
->>    scsi: ufs: qcom: Implement the freq_to_gear_speed() vops
->>    scsi: ufs: core: Enable multi-level gear scaling
->>    scsi: ufs: core: Toggle Write Booster during clock scaling base on
->>      gear speed
->>
->> Ziqi Chen (2):
->>    scsi: ufs: core: Check if scaling up is required when disable clkscale
->>    ABI: sysfs-driver-ufs: Add missing UFS sysfs addributes
->>
->>   Documentation/ABI/testing/sysfs-driver-ufs | 31 ++++++++++
->>   drivers/ufs/core/ufshcd-priv.h             | 17 +++++-
->>   drivers/ufs/core/ufshcd.c                  | 71 ++++++++++++++++------
->>   drivers/ufs/host/ufs-mediatek.c            |  1 +
->>   drivers/ufs/host/ufs-qcom.c                | 66 +++++++++++++++-----
->>   include/ufs/ufshcd.h                       |  8 ++-
->>   6 files changed, 159 insertions(+), 35 deletions(-)
->>
-> 
 
