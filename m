@@ -4,99 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 967F8C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 05:03:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86B2AC02181
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 05:20:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0eYsDa3iowZle90PPKo5xgDvKG54lWztwuDRX2J8S4I=; b=T/ro1mFy9FGBUpOjTpZap8bA3u
-	g6MRp4DlegvSmJyYceaslQLhCjVR18Ao7LBWvoXzoo15dI6vUAN/Kz2hHb5Y9mLC99CLocOJ2rYIm
-	cDIKTpbgs6h4SUr09SLABl4T1yQ5aDTEoyerNhKwzk1HgivOFkxPaQ7qgNkv7D6GcMDUD/SBgtu6Z
-	8wJbEjD4ptXNWfJNU37cOTcIN4qvo0KZzZnFXFC+868ez7EIJd1mI9+2Uoo9bRlkWC4Jf3D/HbiG3
-	y17ao/oJutWqSxsW6mhszTF1MSB4xlhSn2SlmaiPyXo4L1hhr2YZRqponHFahIecUs2oijCfVy0y8
-	uBseIH1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9jBR0u/RYNbFMDZpXxRdzsK+8LLl0xqfF8Sg6XLTopc=; b=Ha0T8PXgvsJ5QMjqnbpdBfuoxI
+	nyLLMWHVqv/apbWwYXTCwii8Xf+SbujM7R9gVohRgxhiMLlhEman8WYQlvfVEVvrHUSYc0oinbFSl
+	fQqLlqPah2YLVZA+nHOCPHrh98pk7l89f7vKIHnIjBf2IlVisJrr0fy0uY9igXT4EU5llQ/RhDyQO
+	JF/qblJCHl7JvoksNzmrdkEs/hixNv1IDQFw48GrWHe9PqTRsfheqxTFN9XiwrjfGFM7A6yr1PJ7R
+	xgLjQr4gyk/o85uo1PEFwnYdxzDdyXOYTip3mqLTyCiFwe0JWveC9gZ1afUHuXdDfIzTExbyIyFVR
+	TmS/Ez3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbBqX-0000000Dvfb-0cLi;
-	Fri, 24 Jan 2025 05:03:09 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1tbC7A-0000000Dwaw-2zap;
+	Fri, 24 Jan 2025 05:20:20 +0000
+Received: from mail-bn8nam11on20617.outbound.protection.outlook.com ([2a01:111:f403:2414::617] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbBpA-0000000DvXz-44Ab
+	id 1tbC5p-0000000DwQx-2YSU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jan 2025 05:01:46 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-54298ec925bso2092003e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 21:01:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737694903; x=1738299703; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=0eYsDa3iowZle90PPKo5xgDvKG54lWztwuDRX2J8S4I=;
-        b=lY+SXgV7aRjjkvzufRjtRDhDCv3sofLJUc+B3Jl1WvToc4nl0YuHrR4GK1+8HKht+/
-         IsN+QMrO0G2vSsF6fPESuGNN8iPNsegLXa2+kzonrvc3DqwN2EgtL3dmzX9tKfO1R7pk
-         YahpU/OJ/GzznvPFD4Xl+VUHg3TnoiaPFH8ZPhx8wWTwSYcYhKxE0/Qg1mEvOQ2jnHyF
-         npxh4RHzYgUcQ32q9yLBx69gyk6I50C6AWlmGEwlysXn+P+9G3OoOiu23rMFKOAMajfN
-         2IeR0Wqp/tFRJcl7Tfb5plZvaExoAgXN40bauS2xCYfA8obTsCZITkLudCdTWxWiTKMh
-         2fZg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737694903; x=1738299703;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0eYsDa3iowZle90PPKo5xgDvKG54lWztwuDRX2J8S4I=;
-        b=ABsGVYlPLwvh0gWkuhfjcNAIySE8LswTxD0JJU+AGfj4DXSv4re8cQnbOsrAXHZmiq
-         DUtVNTrrdApuQacCSyDTob7krRdy2SBAep2L3oCdX+UdEywrFTw4cLkETWeKmfHNeVjH
-         WyIglnEgnIRfnWePuWniqPa8G7CPh8sulOQhpYNiEXEccYegVzLQotmIaSZIYoCMphbq
-         Tn96Y9c6sDrwO3M3pv4b4Zslu7bJ3y0rZjv+wM5PXcP6P87W/obK3ZYIGylGKIs6TmaM
-         Hf33tAiZKz0zCUifsTnqUnFw6bNzCJPKQi/j7W3zGdDmezqwc3R395tf5pSbOrT/7o+N
-         WfCg==
-X-Forwarded-Encrypted: i=1; AJvYcCU0ivZCUlmmzVPJrvzPsXz9H9P3Hq32tk6j0n6FJ+UBzSdoTuEtW19P90DW7sEVpTOgJVm14LpEZVRTqlNC1+Hm@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxe4AvwwGLa2eMYlV6eoy/2s2hkn7K/ufMWyeYKGzadDyiXqhqg
-	SYklbqtWWjrlkDy8TcmAYDmkpek/Z9GJZWbOEXWaFDdhNI3kfzQHxKbVj3uTBKw=
-X-Gm-Gg: ASbGncuJVNhQ9NoeYSciQ1EmxyIp01a5CQ2aCQEJ6gJyhgTrU9CX9LHuiXr8w4y/7as
-	+N2pvYULY5d9eDnP0tVOv68RrWOjJ/Vmi4sYVaqOQw7ty7lYlyOQ5KEijwOxRCxlxlb+FHZ6nFz
-	JhRk+iydf5zdRWmG5D3541nhRJuKnPVjcX7SS3GLV9eBIjmwFKfIyckNxdcNmXFju5CE7/Ib8jh
-	9yJ/+Pu1JEGl0nFBwlvgVapc4ucd39ltTc/AcPD1yhtRNo2Qg+rXyRfQ0wYY480Kwr5WCYbK4j7
-	EsSP3cZH+5cVW+3agUFoY4lBPlsWUS7ewsemontiYC0udzOW6PDWUYstEU2a
-X-Google-Smtp-Source: AGHT+IFFQeosHAQK91/7knXdxvaokrMIpayWFtvTGFpLCdc3EM+chnPzHE/8v2OM0VCnxzJ7GQylfQ==
-X-Received: by 2002:ac2:44b3:0:b0:540:3561:969d with SMTP id 2adb3069b0e04-5439c287f06mr9522617e87.49.1737694902384;
-        Thu, 23 Jan 2025 21:01:42 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-543c8368542sm160268e87.114.2025.01.23.21.01.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Jan 2025 21:01:40 -0800 (PST)
-Date: Fri, 24 Jan 2025 07:01:38 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Detlev Casanova <detlev.casanova@collabora.com>
-Cc: linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Sebastian Reichel <sebastian.reichel@collabora.com>, Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
-	Alexey Charkov <alchark@gmail.com>, Jianfeng Liu <liujianfeng1994@gmail.com>, 
-	Dragan Simic <dsimic@manjaro.org>, FUKAUMI Naoki <naoki@radxa.com>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Johan Jonker <jbx6244@gmail.com>, 
-	Kever Yang <kever.yang@rock-chips.com>, Sugar Zhang <sugar.zhang@rock-chips.com>, 
-	Algea Cao <algea.cao@rock-chips.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org, kernel@collabora.com
-Subject: Re: [PATCH v2 1/2] drm/bridge: synopsys: Add audio support for
- dw-hdmi-qp
-Message-ID: <mpj5o2kdadkwsutjdtmze6riycdan3w7mohgqdzxiwfpvlh7zx@eocnqikqwrwt>
-References: <20250123222850.223255-1-detlev.casanova@collabora.com>
- <20250123222850.223255-2-detlev.casanova@collabora.com>
+	Fri, 24 Jan 2025 05:18:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OdzpWohioeTYt6duo47nWcFGqB2dPysPju4yv7G9KeBheTTGrz3HonGLYELdydL+52LTSP/rQIaI0mKdWcl5rGszsHTb1R5Hh0CyVjX2mKNAwhMjhRyuql9xRuigWchdq0HxwrbAxsuhFFG7U1nu/pOu8bbBGcGFLjcJFave8PVtzRIDLaKwTmfKsFHgoMLUM39PObDTrmkZ6rVlI9cZcbiGQhKir7yjL7Xq34eLRT7ZPJmnEEVn7apr8ITFXz1WsIVaCuyIqDZDv6XTMg8UzDRX6DrCkuBHLBrsW0T8Kp6eEBd/kVglrGkMBBvI6yqA+K73bwiK6tj8Z+T2+gZHNA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9jBR0u/RYNbFMDZpXxRdzsK+8LLl0xqfF8Sg6XLTopc=;
+ b=UOmPGEJ+o4eXyrbmsxwJiZ1lwDJJHDW0TBg5/8xlf5zQFLG623EcMfOeYWnHUFepDaa6ntgrvY5oEqYQZQOJtwJH6EBHKULkVC4wQoEoNITqP4SZVREt3RBoIaxWxepUVKvS8/WfH2PcObQqaJKxaD7XuP2xmD26JGovUidh7l43nRu1rSfKpj7qsdWlI+IMNlXDSjuGkHSeETHxYQbdG60ASvV8VW9UKiQfJUmduoVy8NZhiTvYpfYTdNutd3h8j3G984n7pASvdlcaaVqRp+qiMrhTOIrQEVoqNRJfUdk5wRTTeaVVrLGl+cGDaA8sv4852pnHSvtiLWnh8NiGqA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9jBR0u/RYNbFMDZpXxRdzsK+8LLl0xqfF8Sg6XLTopc=;
+ b=G6dGOhww27u2xERswKLcE5WZGPjCaZWnatqmp8vEUISPOxTjupwMjYaPglLxqoUEQ0Ey2dI90nYFF+BlZjunrZ83BLHQBssYqWUtOLyEEjd0RlJcerBlsCAEYLK5DSpf3E04WiTcBePl/nsUckclVgF06BjErDXUaKOT1qjFhXS2AbUBA1NN3OQ45Jn1+ycJLx0qkQ8AsxJlcsFxFE5p9ylBogeB4BaHMwVzZ/GGeX2GfZW2SKSyRshfnQPlMcbpKby04TSZCl5VtDHHEhvpE38lhnLkyYbpRhQOUfECfTpKIygBY/NM8ZutVVUVBAtomN/8NdIcFL57Wd7gJ1haMQ==
+Received: from BN9PR03CA0441.namprd03.prod.outlook.com (2603:10b6:408:113::26)
+ by CH2PR12MB9496.namprd12.prod.outlook.com (2603:10b6:610:27e::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8377.19; Fri, 24 Jan
+ 2025 05:18:40 +0000
+Received: from MN1PEPF0000ECD8.namprd02.prod.outlook.com
+ (2603:10b6:408:113:cafe::d7) by BN9PR03CA0441.outlook.office365.com
+ (2603:10b6:408:113::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8356.21 via Frontend Transport; Fri,
+ 24 Jan 2025 05:18:40 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ MN1PEPF0000ECD8.mail.protection.outlook.com (10.167.242.137) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8377.8 via Frontend Transport; Fri, 24 Jan 2025 05:18:40 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Thu, 23 Jan
+ 2025 21:18:26 -0800
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Thu, 23 Jan
+ 2025 21:18:26 -0800
+Received: from willie-obmc-builder.nvidia.com (10.127.8.10) by mail.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
+ Transport; Thu, 23 Jan 2025 21:18:25 -0800
+From: Willie Thai <wthai@nvidia.com>
+To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<joel@jms.id.au>, <andrew@codeconstruct.com.au>, <kees@kernel.org>,
+	<tony.luck@intel.com>, <gpiccoli@igalia.com>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
+	<linux-kernel@vger.kernel.org>, <linux-hardening@vger.kernel.org>,
+	<openbmc@lists.ozlabs.org>
+CC: <wthai@nvidia.com>, <leohu@nvidia.com>, <tingkaic@nvidia.com>,
+	<dkodihalli@nvidia.com>, wthai <wthai@willie-obmc-builder.nvidia.com>
+Subject: [PATCH] ARM: dts: aspeed: Add device tree for Nvidia's GB200NVL BMC
+Date: Fri, 24 Jan 2025 05:18:19 +0000
+Message-ID: <20250124051819.7714-1-wthai@nvidia.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250123222850.223255-2-detlev.casanova@collabora.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN1PEPF0000ECD8:EE_|CH2PR12MB9496:EE_
+X-MS-Office365-Filtering-Correlation-Id: b2c6f620-d50d-4141-394e-08dd3c369078
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|36860700013|1800799024|82310400026|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?1+4Bx9KMgVGTmprjLR1G3cN9j+9fH5lB1h20HVlzxWk8hu+4wHA55KXFmdnJ?=
+ =?us-ascii?Q?YQ0UZuQMom0YxsI11LyHVTjDl7jVLvdZ4ecH1PjNmjBVkVNteEFZ7JLPLh8h?=
+ =?us-ascii?Q?/WU8uhUwH4+/js62joEGGvA/tJ/Cs6AUyJBL7QI/Xpk3q6xi9pVxBFysmNmf?=
+ =?us-ascii?Q?rxEPInD7fAmervtWAZaVk75J0Kzz6JcaGx0gAn6vM9ygz3X9A2lCSI21mmXO?=
+ =?us-ascii?Q?C0l/Q6NpMyqHOOFRVzN1wyaQfPgzSfgYR8Vp+s3bpXRmCQ97LuCV4jTn6RZV?=
+ =?us-ascii?Q?ytCOR0ft74Ql50n+DMWw9fwerWtUc/lT6UgR/aaw0WxU57X5vH54fXgWPAQY?=
+ =?us-ascii?Q?G9tRPV68AO42H36yfr01hMGtRDbphoxEi4CS532A9AFzFWo8q6pa2vTe1Rvp?=
+ =?us-ascii?Q?2aagfOWFUfATekKVLovne8jrWqCvUuZDuxIm5dY/v/PrbqWXz9k6c/UNR8lw?=
+ =?us-ascii?Q?PXvg9b/Jgev4kc6dxty2ALKQtdbWOKNJk75DOFPKErzCGmTrzKsnnX7uRZ/S?=
+ =?us-ascii?Q?hnA5zf3eVABnWJxR02dHN7e5fW9BhGB/fiLwUBG0Xy2YKuOZnPrPe/Az+Jxx?=
+ =?us-ascii?Q?/YZQH0T5VrrOu6kqkWxxH+19pbFyeeH38KggqiMWhTbjs0Uje62xIptJH/C9?=
+ =?us-ascii?Q?uCQApfvLy+3xI7xk6ovwl+msK2JBFJD9AEouDOXxmrk6JV56z3PVdtiHbpm1?=
+ =?us-ascii?Q?CfUTj3ZaJ6fd+ej4q4K4iJlF43xhP1OlrSxOUZJzOzJsKD2Y2tIq+eYnvj5g?=
+ =?us-ascii?Q?wQRW73nkwTSVmbwGZ279gLLUvHRhXGI0/aLnBNnbYYBzmeQhQ4W+VuBnzr4R?=
+ =?us-ascii?Q?i6ogaL+mnnGDHh6O8e/BsieWT9jffBOa3bOLxFo0vUK8tOuYl9HIewj80HE0?=
+ =?us-ascii?Q?HZt1Pybz2mDdF3nchgVtx0zpn2cngF6KHedK4EXhqjv4Q5HpYfrpRVB0tdLd?=
+ =?us-ascii?Q?TUYZiC4WC4ftCvpA5VCs9u0ou/ZC1dJWFvIHRnfcfMZpKD36GKM2a/OeCkj5?=
+ =?us-ascii?Q?EByLSCkbEl3UzUXs7SdpNXylhbtnkQvnvO5SGxmRg6vt4KxOA55sdvyn/vzP?=
+ =?us-ascii?Q?V47Y5guVJk65x7mllRFw7loPe5SNE6L1uwG3xk4YU3uNgBxqVJX91ks/TICj?=
+ =?us-ascii?Q?xy/SOmQcyrLBThtRu/uG16nGLq1X52d4cLfH1u1tsdGBdYLinuVAgEHxYIhh?=
+ =?us-ascii?Q?zZW+F8McF3BWLkYOoXisYwvH1Znm1Isd/Qc6gBovdVtpBnBMejveKELKwDf4?=
+ =?us-ascii?Q?hzC1Gn7Kr34fpAYRnDSBxRYiNiN5JkuI/RSIo91RTzp0KZ2Y1ED+ezXW7XeM?=
+ =?us-ascii?Q?vljm3NG4XFuYTyET0+tW1GvUf7AfKoWTBayxlykPbBGig9QXk0iVCULEh8vv?=
+ =?us-ascii?Q?Ii03cBXVlwgKxIH1/lAm86oklXNMMyLQf82MM5sW9JBZBY5luNc3ABohyv9c?=
+ =?us-ascii?Q?JOOSIRuQ4dTndDmx/bYZYPcBi+zks4qf2JKgM60+mE12njpDP77ML3chCLYP?=
+ =?us-ascii?Q?xT4gi9HML5yGm14=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700013)(1800799024)(82310400026)(921020);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jan 2025 05:18:40.4145
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b2c6f620-d50d-4141-394e-08dd3c369078
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000ECD8.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB9496
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_210145_019052_062A46B8 
-X-CRM114-Status: GOOD (  37.95  )
+X-CRM114-CacheID: sfid-20250123_211857_755076_E9D48BA2 
+X-CRM114-Status: GOOD (  13.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,281 +152,1402 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 23, 2025 at 05:28:06PM -0500, Detlev Casanova wrote:
-> From: Sugar Zhang <sugar.zhang@rock-chips.com>
-> 
-> Register the dw-hdmi-qp bridge driver as an HDMI audio codec.
-> 
-> The register values computation functions (for n) are based on the
-> downstream driver, as well as the register writing functions.
-> 
-> The driver uses the generic HDMI Codec framework in order to implement
-> the HDMI audio support.
-> 
-> Signed-off-by: Sugar Zhang <sugar.zhang@rock-chips.com>
-> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
-> ---
->  drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 424 +++++++++++++++++++
->  1 file changed, 424 insertions(+)
-> 
-> diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-> index b281cabfe992e..f79d38de4c6c4 100644
-> --- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-> +++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-> @@ -36,6 +36,66 @@
->  
->  #define SCRAMB_POLL_DELAY_MS	3000
->  
-> +/*
-> + * Unless otherwise noted, entries in this table are 100% optimization.
-> + * Values can be obtained from hdmi_compute_n() but that function is
-> + * slow so we pre-compute values we expect to see.
-> + *
-> + * All 32k and 48k values are expected to be the same (due to the way
-> + * the math works) for any rate that's an exact kHz.
-> + */
-> +static const struct dw_hdmi_audio_tmds_n {
-> +	unsigned long tmds;
-> +	unsigned int n_32k;
-> +	unsigned int n_44k1;
-> +	unsigned int n_48k;
-> +} common_tmds_n_table[] = {
-> +	{ .tmds = 25175000, .n_32k = 4096, .n_44k1 = 12854, .n_48k = 6144, },
-> +	{ .tmds = 25200000, .n_32k = 4096, .n_44k1 = 5656, .n_48k = 6144, },
+From: wthai <wthai@willie-obmc-builder.nvidia.com>
 
-These values do not seem to match the tables in HDMI, Appendix D. Is
-there any reason for that?
+The GB200NVL BMC is an Aspeed Ast2600 based BMC
+for Nvidia Blackwell GB200NVL platform.
 
-> +	{ .tmds = 27000000, .n_32k = 4096, .n_44k1 = 5488, .n_48k = 6144, },
-> +	{ .tmds = 28320000, .n_32k = 4096, .n_44k1 = 5586, .n_48k = 6144, },
-> +	{ .tmds = 30240000, .n_32k = 4096, .n_44k1 = 5642, .n_48k = 6144, },
-> +	{ .tmds = 31500000, .n_32k = 4096, .n_44k1 = 5600, .n_48k = 6144, },
-> +	{ .tmds = 32000000, .n_32k = 4096, .n_44k1 = 5733, .n_48k = 6144, },
-> +	{ .tmds = 33750000, .n_32k = 4096, .n_44k1 = 6272, .n_48k = 6144, },
-> +	{ .tmds = 36000000, .n_32k = 4096, .n_44k1 = 5684, .n_48k = 6144, },
-> +	{ .tmds = 40000000, .n_32k = 4096, .n_44k1 = 5733, .n_48k = 6144, },
-> +	{ .tmds = 49500000, .n_32k = 4096, .n_44k1 = 5488, .n_48k = 6144, },
-> +	{ .tmds = 50000000, .n_32k = 4096, .n_44k1 = 5292, .n_48k = 6144, },
-> +	{ .tmds = 54000000, .n_32k = 4096, .n_44k1 = 5684, .n_48k = 6144, },
-> +	{ .tmds = 65000000, .n_32k = 4096, .n_44k1 = 7056, .n_48k = 6144, },
-> +	{ .tmds = 68250000, .n_32k = 4096, .n_44k1 = 5376, .n_48k = 6144, },
-> +	{ .tmds = 71000000, .n_32k = 4096, .n_44k1 = 7056, .n_48k = 6144, },
-> +	{ .tmds = 72000000, .n_32k = 4096, .n_44k1 = 5635, .n_48k = 6144, },
-> +	{ .tmds = 73250000, .n_32k = 4096, .n_44k1 = 14112, .n_48k = 6144, },
-> +	{ .tmds = 74250000, .n_32k = 4096, .n_44k1 = 6272, .n_48k = 6144, },
-> +	{ .tmds = 75000000, .n_32k = 4096, .n_44k1 = 5880, .n_48k = 6144, },
-> +	{ .tmds = 78750000, .n_32k = 4096, .n_44k1 = 5600, .n_48k = 6144, },
-> +	{ .tmds = 78800000, .n_32k = 4096, .n_44k1 = 5292, .n_48k = 6144, },
-> +	{ .tmds = 79500000, .n_32k = 4096, .n_44k1 = 4704, .n_48k = 6144, },
-> +	{ .tmds = 83500000, .n_32k = 4096, .n_44k1 = 7056, .n_48k = 6144, },
-> +	{ .tmds = 85500000, .n_32k = 4096, .n_44k1 = 5488, .n_48k = 6144, },
-> +	{ .tmds = 88750000, .n_32k = 4096, .n_44k1 = 14112, .n_48k = 6144, },
-> +	{ .tmds = 97750000, .n_32k = 4096, .n_44k1 = 14112, .n_48k = 6144, },
-> +	{ .tmds = 101000000, .n_32k = 4096, .n_44k1 = 7056, .n_48k = 6144, },
-> +	{ .tmds = 106500000, .n_32k = 4096, .n_44k1 = 4704, .n_48k = 6144, },
-> +	{ .tmds = 108000000, .n_32k = 4096, .n_44k1 = 5684, .n_48k = 6144, },
-> +	{ .tmds = 115500000, .n_32k = 4096, .n_44k1 = 5712, .n_48k = 6144, },
-> +	{ .tmds = 119000000, .n_32k = 4096, .n_44k1 = 5544, .n_48k = 6144, },
-> +	{ .tmds = 135000000, .n_32k = 4096, .n_44k1 = 5488, .n_48k = 6144, },
-> +	{ .tmds = 146250000, .n_32k = 4096, .n_44k1 = 6272, .n_48k = 6144, },
-> +	{ .tmds = 148500000, .n_32k = 4096, .n_44k1 = 5488, .n_48k = 6144, },
-> +	{ .tmds = 154000000, .n_32k = 4096, .n_44k1 = 5544, .n_48k = 6144, },
-> +	{ .tmds = 162000000, .n_32k = 4096, .n_44k1 = 5684, .n_48k = 6144, },
-> +
-> +	/* For 297 MHz+ HDMI spec have some other rule for setting N */
-> +	{ .tmds = 297000000, .n_32k = 3073, .n_44k1 = 4704, .n_48k = 5120, },
-> +	{ .tmds = 594000000, .n_32k = 3073, .n_44k1 = 9408, .n_48k = 10240, },
-> +
-> +	/* End of table */
-> +	{ .tmds = 0,         .n_32k = 0,    .n_44k1 = 0,    .n_48k = 0, },
-> +};
-> +
->  struct dw_hdmi_qp_i2c {
->  	struct i2c_adapter	adap;
->  
-> @@ -83,6 +143,326 @@ static void dw_hdmi_qp_mod(struct dw_hdmi_qp *hdmi, unsigned int data,
->  	regmap_update_bits(hdmi->regm, reg, mask, data);
->  }
->  
-> +static struct dw_hdmi_qp *dw_hdmi_qp_from_bridge(struct drm_bridge *bridge)
-> +{
-> +	struct dw_hdmi_qp *hdmi = container_of(bridge, struct dw_hdmi_qp, bridge);
-> +
-> +	return hdmi;
+Signed-off-by: wthai <wthai@nvidia.com>
+---
+ .../bindings/arm/aspeed/aspeed.yaml           |    1 +
+ arch/arm/boot/dts/aspeed/Makefile             |    1 +
+ .../aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts | 1352 +++++++++++++++++
+ 3 files changed, 1354 insertions(+)
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts
 
-Just `return container_of(bridge, struct dw_hdmi_qp, bridge);`
-
-> +}
-> +
-
-[...]
-
-> +
-> +static int dw_hdmi_qp_audio_enable(struct drm_connector *connector,
-> +			    struct drm_bridge *bridge)
-> +{
-> +	struct dw_hdmi_qp *hdmi = dw_hdmi_qp_from_bridge(bridge);
-> +
-> +	if (connector->status == connector_status_connected)
-> +		dw_hdmi_qp_mod(hdmi, 0, AVP_DATAPATH_PACKET_AUDIO_SWDISABLE, GLOBAL_SWDISABLE);
-> +
-> +	return 0;
-> +}
-> +
-> +static int dw_hdmi_qp_audio_prepare(struct drm_connector *connector,
-> +			     struct drm_bridge *bridge,
-> +			     struct hdmi_codec_daifmt *fmt,
-> +			     struct hdmi_codec_params *hparms)
-> +{
-> +	struct dw_hdmi_qp *hdmi = dw_hdmi_qp_from_bridge(bridge);
-> +	struct drm_connector_state *conn_state =
-> +		drm_atomic_helper_connector_duplicate_state(connector);
-> +	bool ref2stream = false;
-> +	unsigned long long tmds_char_rate = conn_state->hdmi.tmds_char_rate;
-> +
-> +	drm_atomic_helper_connector_destroy_state(connector, conn_state);
-
-This looks suspicious. I'd suggest storing tmds_char_rate to struct
-dw_hdmi_qp in .atomic_commit instead of playing with the state.
-
-> +
-> +	if (connector->status != connector_status_connected) {
-> +		dev_dbg(hdmi->dev, "connector status is not connected\n");
-> +		return 0;
-> +	}
-> +
-> +	if (fmt->bit_clk_provider | fmt->frame_clk_provider) {
-> +		dev_err(hdmi->dev, "unsupported clock settings\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	if (fmt->bit_fmt == SNDRV_PCM_FORMAT_IEC958_SUBFRAME_LE)
-> +		ref2stream = true;
-> +
-> +	dw_hdmi_qp_set_audio_interface(hdmi, fmt, hparms);
-> +	dw_hdmi_qp_set_sample_rate(hdmi, tmds_char_rate, hparms->sample_rate);
-> +	dw_hdmi_qp_set_channel_status(hdmi, hparms->iec.status, ref2stream);
-> +	drm_atomic_helper_connector_hdmi_update_audio_infoframe(connector, &hparms->cea);
-> +
-> +	return 0;
-> +}
-> +
-> +static void dw_hdmi_qp_audio_disable(struct drm_connector *connector,
-> +			      struct drm_bridge *bridge)
-> +{
-> +	struct dw_hdmi_qp *hdmi = container_of(bridge, struct dw_hdmi_qp, bridge);
-> +
-> +	if (connector->status != connector_status_connected) {
-> +		dev_dbg(hdmi->dev, "connector status is not connected\n");
-> +		return;
-> +	}
-
-Will audio stream be disabled on disconnect?
-
-And anyway the InfoFrame should be cleared by a call to
-drm_atomic_helper_connector_hdmi_clear_audio_infoframe().
-
-> +
-> +	/*
-> +	 * Keep ACR, AUDI, AUDS packet always on to make SINK device
-> +	 * active for better compatibility and user experience.
-> +	 *
-> +	 * This also fix POP sound on some SINK devices which wakeup
-> +	 * from suspend to active.
-> +	 */
-> +	dw_hdmi_qp_mod(hdmi, I2S_BPCUV_RCV_DIS, I2S_BPCUV_RCV_MSK,
-> +		  AUDIO_INTERFACE_CONFIG0);
-> +	dw_hdmi_qp_mod(hdmi, AUDPKT_PBIT_FORCE_EN | AUDPKT_CHSTATUS_OVR_EN,
-> +		  AUDPKT_PBIT_FORCE_EN_MASK | AUDPKT_CHSTATUS_OVR_EN_MASK,
-> +		  AUDPKT_CONTROL0);
-> +
-> +	dw_hdmi_qp_mod(hdmi, AVP_DATAPATH_PACKET_AUDIO_SWDISABLE,
-> +		  AVP_DATAPATH_PACKET_AUDIO_SWDISABLE, GLOBAL_SWDISABLE);
-> +}
-> +
->  static int dw_hdmi_qp_i2c_read(struct dw_hdmi_qp *hdmi,
->  			       unsigned char *buf, unsigned int length)
->  {
-> @@ -361,6 +741,40 @@ static int dw_hdmi_qp_config_drm_infoframe(struct dw_hdmi_qp *hdmi,
->  	return 0;
->  }
->  
-> +static int dw_hdmi_qp_config_audio_infoframe(struct dw_hdmi_qp *hdmi,
-> +					     const u8 *buffer, size_t len)
-> +{
-> +	/*
-> +	 * AUDI_CONTENTS0: { RSV, HB2, HB1, RSV }
-> +	 * AUDI_CONTENTS1: { PB3, PB2, PB1, PB0 }
-> +	 * AUDI_CONTENTS2: { PB7, PB6, PB5, PB4 }
-> +	 *
-> +	 * PB0: CheckSum
-> +	 * PB1: | CT3    | CT2  | CT1  | CT0  | F13  | CC2 | CC1 | CC0 |
-> +	 * PB2: | F27    | F26  | F25  | SF2  | SF1  | SF0 | SS1 | SS0 |
-> +	 * PB3: | F37    | F36  | F35  | F34  | F33  | F32 | F31 | F30 |
-> +	 * PB4: | CA7    | CA6  | CA5  | CA4  | CA3  | CA2 | CA1 | CA0 |
-> +	 * PB5: | DM_INH | LSV3 | LSV2 | LSV1 | LSV0 | F52 | F51 | F50 |
-> +	 * PB6~PB10: Reserved
-> +	 *
-> +	 * AUDI_CONTENTS0 default value defined by HDMI specification,
-> +	 * and shall only be changed for debug purposes.
-> +	 * So, we only configure payload byte from PB0~PB7(2 word total).
-> +	 */
-> +	regmap_bulk_write(hdmi->regm, PKT_AUDI_CONTENTS1, &buffer[3], 2);
-
-Please also update PKT_AUDI_CONTENTS0, in case it gets damaged somehow.
-
-> +
-> +	/* Enable ACR, AUDI, AMD */
-> +	dw_hdmi_qp_mod(hdmi,
-> +		  PKTSCHED_ACR_TX_EN | PKTSCHED_AUDI_TX_EN | PKTSCHED_AMD_TX_EN,
-> +		  PKTSCHED_ACR_TX_EN | PKTSCHED_AUDI_TX_EN | PKTSCHED_AMD_TX_EN,
-> +		  PKTSCHED_PKT_EN);
-> +
-> +	/* Enable AUDS */
-> +	dw_hdmi_qp_mod(hdmi, PKTSCHED_AUDS_TX_EN, PKTSCHED_AUDS_TX_EN, PKTSCHED_PKT_EN);
-> +
-> +	return 0;
-> +}
-> +
->  static void dw_hdmi_qp_bridge_atomic_enable(struct drm_bridge *bridge,
->  					    struct drm_bridge_state *old_state)
->  {
-> @@ -477,6 +891,9 @@ static int dw_hdmi_qp_bridge_write_infoframe(struct drm_bridge *bridge,
->  	case HDMI_INFOFRAME_TYPE_DRM:
->  		return dw_hdmi_qp_config_drm_infoframe(hdmi, buffer, len);
->  
-> +	case HDMI_INFOFRAME_TYPE_AUDIO:
-> +		return dw_hdmi_qp_config_audio_infoframe(hdmi, buffer, len);
-> +
->  	default:
->  		dev_dbg(hdmi->dev, "Unsupported infoframe type %x\n", type);
->  		return 0;
-> @@ -494,6 +911,9 @@ static const struct drm_bridge_funcs dw_hdmi_qp_bridge_funcs = {
->  	.hdmi_tmds_char_rate_valid = dw_hdmi_qp_bridge_tmds_char_rate_valid,
->  	.hdmi_clear_infoframe = dw_hdmi_qp_bridge_clear_infoframe,
->  	.hdmi_write_infoframe = dw_hdmi_qp_bridge_write_infoframe,
-> +	.hdmi_audio_startup = dw_hdmi_qp_audio_enable,
-> +	.hdmi_audio_shutdown = dw_hdmi_qp_audio_disable,
-> +	.hdmi_audio_prepare = dw_hdmi_qp_audio_prepare,
->  };
->  
->  static irqreturn_t dw_hdmi_qp_main_hardirq(int irq, void *dev_id)
-> @@ -603,6 +1023,10 @@ struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
->  	if (IS_ERR(hdmi->bridge.ddc))
->  		return ERR_CAST(hdmi->bridge.ddc);
->  
-> +	hdmi->bridge.hdmi_audio_max_i2s_playback_channels = 8;
-> +	hdmi->bridge.hdmi_audio_dev = dev;
-> +	hdmi->bridge.hdmi_audio_dai_port = 1;
-> +
->  	ret = devm_drm_bridge_add(dev, &hdmi->bridge);
->  	if (ret)
->  		return ERR_PTR(ret);
-> -- 
-> 2.48.1
-> 
-
+diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+index 2f92b8ab08fa..0a6f3654dcb5 100644
+--- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
++++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+@@ -96,6 +96,7 @@ properties:
+               - inventec,starscream-bmc
+               - inventec,transformer-bmc
+               - jabil,rbp-bmc
++              - nvidia,gb200nvl-bmc
+               - qcom,dc-scm-v1-bmc
+               - quanta,s6q-bmc
+               - ufispace,ncplite-bmc
+diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed/Makefile
+index c4f064e4b073..0dc5240866f3 100644
+--- a/arch/arm/boot/dts/aspeed/Makefile
++++ b/arch/arm/boot/dts/aspeed/Makefile
+@@ -48,6 +48,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
+ 	aspeed-bmc-lenovo-hr630.dtb \
+ 	aspeed-bmc-lenovo-hr855xg2.dtb \
+ 	aspeed-bmc-microsoft-olympus.dtb \
++	aspeed-bmc-nvidia-gb200nvl-bmc.dtb \
+ 	aspeed-bmc-opp-lanyang.dtb \
+ 	aspeed-bmc-opp-mowgli.dtb \
+ 	aspeed-bmc-opp-nicole.dtb \
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts
+new file mode 100644
+index 000000000000..91d025229aba
+--- /dev/null
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts
+@@ -0,0 +1,1352 @@
++// SPDX-License-Identifier: GPL-2.0+
++/dts-v1/;
++
++#include "aspeed-g6.dtsi"
++#include <dt-bindings/gpio/aspeed-gpio.h>
++#include <dt-bindings/leds/common.h>
++
++&gpio0 {
++	gpio-line-names =
++
++	/* gpio-line-names are the combination of <signal>-<I/O> , "" is the placeholder for the unused pins
++	*/
++
++	/* 208 (26*8) 3.3V GPIOs */
++
++	/*A0-A7*/
++	"", "", "", "", "", "", "", "",
++
++	/*B0-B7*/
++	"", "", "", "", "", "", "", "",
++
++	/*C0-C7*/
++	"SGPIO_I2C_MUX_SEL-O",
++	"", "", "", "", "", "", "",
++
++	/*D0-D7*/
++	"", "", "",
++	"UART1_MUX_SEL-O",
++	"",
++	"FPGA_PEX_RST_L-O",
++	"", "",
++
++	/*E0-E7*/
++	"RTL8221_PHY_RST_L-O",
++	"RTL8211_PHY_INT_L-I",
++	"",
++	"UART3_MUX_SEL-O",
++	"", "", "",
++	"SGPIO_BMC_EN-O",
++
++	/*F0-F7*/
++	"", "", "", "", "", "", "", "",
++
++	/*G0-G7*/
++	"", "", "", "", "", "", "", "",
++
++	/*H0-H7*/
++	"", "", "", "", "", "", "", "",
++
++	/*I0-I7*/
++	"", "", "", "", "",
++	"QSPI2_RST_L-O",
++	"GLOBAL_WP_BMC-O",
++	"BMC_DDR4_TEN-O",
++
++	/*J0-J7*/
++	"", "", "", "", "", "", "", "",
++
++	/*K0-K7*/
++	"", "", "", "", "", "", "", "",
++
++	/*L0-L7*/
++	"", "", "", "", "", "", "", "",
++
++	/*M0-M7*/
++	"PCIE_EP_RST_EN-O",
++	"BMC_FRU_WP-O",
++	"HMC_RESET_L-O",
++	"STBY_POWER_EN-O",
++	"STBY_POWER_PG-I",
++	"PCIE_EP_RST_L-O",
++	"", "",
++
++	/*N0-N7*/
++	"", "", "", "", "", "", "", "",
++
++	/*O0-O7*/
++	"", "", "", "", "", "", "", "",
++
++	/*P0-P7*/
++	"", "", "", "", "", "", "", "",
++
++	/*Q0-Q7*/
++	"", "", "", "", "", "", "", "",
++
++	/*R0-R7*/
++	"", "", "", "", "", "", "", "",
++
++	/*S0-S7*/
++	"", "", "", "", "", "", "", "",
++
++	/*T0-T7*/
++	"", "", "", "", "", "", "", "",
++
++	/*U0-U7*/
++	"", "", "", "", "", "", "", "",
++
++	/*V0-V7*/
++	"AP_EROT_REQ-O",
++	"EROT_AP_GNT-I",
++	"",
++	"",
++	"PCB_TEMP_ALERT-I",
++	"", "", "",
++
++	/*W0-W7*/
++	"", "", "", "", "", "", "", "",
++
++	/*X0-X7*/
++	"", "",
++	"TPM_MUX_SEL-O",
++	"", "", "", "", "",
++
++	/*Y0-Y7*/
++	"", "", "",
++	"EMMC_RST-O",
++	"","", "", "",
++
++	/*Z0-Z7*/
++	"BMC_READY-O",
++	"", "", "", "", "", "", "";
++};
++
++&sgpiom0 {
++	status="okay";
++	ngpios = <128>;
++
++	gpio-line-names =
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"RUN_POWER_FAULT_L-I",
++	"SYS_RST_IN_L-O",
++	"RUN_POWER_PG-I",
++	"PWR_BRAKE_L-O",
++	"SYS_RST_OUT_L-I",
++	"RUN_POWER_EN-O",
++	"L0L1_RST_REQ_OUT_L-I",
++	"SHDN_FORCE_L-O",
++	"L2_RST_REQ_OUT_L-I",
++	"SHDN_REQ_L-O",
++	"SHDN_OK_L-I",
++	"UID_LED_N-O",
++	"BMC_I2C1_FPGA_ALERT_L-I",
++	"SYS_FAULT_LED_N-O",
++	"BMC_I2C0_FPGA_ALERT_L-I",
++	"PWR_LED_N-O",
++	"FPGA_RSVD_FFU3-I",
++	"",
++	"FPGA_RSVD_FFU2-I",
++	"",
++	"FPGA_RSVD_FFU1-I",
++	"",
++	"FPGA_RSVD_FFU0-I",
++	"BMC_I2C_SSIF_ALERT_L-O",
++	"CPU_BOOT_DONE-I",
++	"JTAG_MUX_SELECT-O",
++	"SPI_BMC_FPGA_INT_L-I",
++	"RTC_CLR_L-O",
++	"THERM_BB_WARN_L-I",
++	"UART_MUX_SEL-O",
++	"THERM_BB_OVERT_L-I",
++	"",
++	"CPU0_UPHY3_PRSNT1_L-I",
++	"IOBRD0_RUN_POWER_EN-O",
++	"CPU0_UPHY3_PRSNT0_L-I",
++	"IOBRD1_RUN_POWER_EN-O",
++	"CPU0_UPHY2_PRSNT1_L-I",
++	"FPGA_RSVD_FFU4-O",
++	"CPU0_UPHY2_PRSNT0_L-I",
++	"FPGA_RSVD_FFU5-O",
++	"CPU0_UPHY1_PRSNT1_L-I",
++	"FPGA_RSVD_FFU6-O",
++	"CPU0_UPHY1_PRSNT0_L-I",
++	"FPGA_RSVD_FFU7-O",
++	"CPU0_UPHY0_PRSNT1_L-I",
++	"RSVD_NV_PLT_DETECT-O",
++	"CPU0_UPHY0_PRSNT0_L-I",
++	"SPI1_INT_L-O",
++	"CPU1_UPHY3_PRSNT1_L-I",
++	"",
++	"CPU1_UPHY3_PRSNT0_L-I",
++	"HMC_EROT_MUX_STATUS",
++	"CPU1_UPHY2_PRSNT1_L-I",
++	"",
++	"CPU1_UPHY2_PRSNT0_L-I",
++	"",
++	"CPU1_UPHY1_PRSNT1_L-I",
++	"",
++	"CPU1_UPHY1_PRSNT0_L-I",
++	"",
++	"CPU1_UPHY0_PRSNT1_L-I",
++	"",
++	"CPU1_UPHY0_PRSNT0_L-I",
++	"",
++	"FAN1_PRESENT_L-I",
++	"",
++	"FAN0_PRESENT_L-I",
++	"",
++	"",
++	"",
++	"IPEX_CABLE_PRSNT_L-I",
++	"",
++	"M2_1_PRSNT_L-I",
++	"",
++	"M2_0_PRSNT_L-I",
++	"",
++	"CPU1_UPHY4_PRSNT1_L-I",
++	"",
++	"CPU0_UPHY4_PRSNT0_L-I",
++	"",
++	"",
++	"",
++	"I2C_RTC_ALERT_L-I",
++	"",
++	"FAN7_PRESENT_L-I",
++	"",
++	"FAN6_PRESENT_L-I",
++	"",
++	"FAN5_PRESENT_L-I",
++	"",
++	"FAN4_PRESENT_L-I",
++	"",
++	"FAN3_PRESENT_L-I",
++	"",
++	"FAN2_PRESENT_L-I",
++	"",
++	"IOBRD0_IOX_INT_L-I",
++	"",
++	"IOBRD1_PRSNT_L-I",
++	"",
++	"IOBRD0_PRSNT_L-I",
++	"",
++	"IOBRD1_PWR_GOOD-I",
++	"",
++	"IOBRD0_PWR_GOOD-I",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"FAN_FAIL_IN_L-I",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"PDB_CABLE_PRESENT_L-I",
++	"",
++	"",
++	"",
++	"CHASSIS_PWR_BRK_L-I",
++	"",
++	"",
++	"",
++	"IOBRD1_IOX_INT_L-I",
++	"",
++	"10GBE_SMBALRT_L-I",
++	"",
++	"PCIE_WAKE_L-I",
++	"",
++	"I2C_M21_ALERT_L-I",
++	"",
++	"I2C_M20_ALERT_L-I",
++	"",
++	"TRAY_FAST_SHDN_L-I",
++	"",
++	"UID_BTN_N-I",
++	"",
++	"PWR_BTN_L-I",
++	"",
++	"PSU_SMB_ALERT_L-I",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"NODE_LOC_ID[0]-I",
++	"",
++	"NODE_LOC_ID[1]-I",
++	"",
++	"NODE_LOC_ID[2]-I",
++	"",
++	"NODE_LOC_ID[3]-I",
++	"",
++	"NODE_LOC_ID[4]-I",
++	"",
++	"NODE_LOC_ID[5]-I",
++	"",
++	"FAN10_PRESENT_L-I",
++	"",
++	"FAN9_PRESENT_L-I",
++	"",
++	"FAN8_PRESENT_L-I",
++	"",
++	"FPGA1_READY_HMC-I",
++	"",
++	"DP_HPD-I",
++	"",
++	"HMC_I2C3_FPGA_ALERT_L-I",
++	"",
++	"HMC_I2C2_FPGA_ALERT_L-I",
++	"",
++	"FPGA0_READY_HMC-I",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"LEAK_DETECT_ALERT_L-I",
++	"",
++	"MOD1_B2B_CABLE_PRESENT_L-I",
++	"",
++	"MOD1_CLINK_CABLE_PRESENT_L-I",
++	"",
++	"FAN11_PRESENT_L-I",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"",
++	"RSVD_SGPIO_IN_CRC[0]",
++	"RSVD_SGPIO_O_CRC[7]",
++	"RSVD_SGPIO_IN_CRC[1]",
++	"RSVD_SGPIO_O_CRC[6]",
++	"RSVD_SGPIO_IN_CRC[2]",
++	"RSVD_SGPIO_O_CRC[5]",
++	"RSVD_SGPIO_IN_CRC[3]",
++	"RSVD_SGPIO_O_CRC[4]",
++	"RSVD_SGPIO_IN_CRC[4]",
++	"RSVD_SGPIO_O_CRC[3]",
++	"RSVD_SGPIO_IN_CRC[5]",
++	"RSVD_SGPIO_O_CRC[2]",
++	"RSVD_SGPIO_IN_CRC[6]",
++	"RSVD_SGPIO_O_CRC[1]",
++	"RSVD_SGPIO_IN_CRC[7]",
++	"RSVD_SGPIO_O_CRC[0]";
++};
++
++// EMMC group that excludes WP pin
++&pinctrl {
++	pinctrl_emmcg5_default: emmcg5_default {
++		function = "EMMC";
++		groups = "EMMCG5";
++	};
++};
++
++/ {
++	model = "AST2600 GB200NVL BMC";
++	compatible = "nvidia,gb200nvl-bmc", "aspeed,ast2600";
++
++	aliases {
++		serial2 = &uart3;
++		serial4 = &uart5;
++		i2c16   = &imux16;
++		i2c17   = &imux17;
++		i2c18   = &imux18;
++		i2c19   = &imux19;
++		i2c20   = &imux20;
++		i2c21   = &imux21;
++		i2c22   = &imux22;
++		i2c23   = &imux23;
++		i2c24   = &imux24;
++		i2c25   = &imux25;
++		i2c26   = &imux26;
++		i2c27   = &imux27;
++		i2c28   = &imux28;
++		i2c29   = &imux29;
++		i2c30   = &imux30;
++		i2c31   = &imux31;
++		i2c32   = &imux32;
++		i2c33   = &imux33;
++		i2c34   = &imux34;
++		i2c35   = &imux35;
++		i2c36   = &imux36;
++		i2c37   = &imux37;
++		i2c38   = &imux38;
++		i2c39   = &imux39;
++		i2c40	= &e1si2c0;
++		i2c41	= &e1si2c1;
++		i2c42	= &e1si2c2;
++		i2c43	= &e1si2c3;
++		i2c44	= &e1si2c4;
++		i2c45	= &e1si2c5;
++		i2c46	= &e1si2c6;
++		i2c47	= &e1si2c7;
++		i2c48	= &i2c5mux0;
++		i2c49   = &m2riser;
++		i2c50	= &i2c5mux2;
++		i2c51	= &i2c5mux3;
++	};
++
++	chosen {
++		stdout-path = &uart5;
++		bootargs = "console=tty0 console=ttyS4,115200n8 earlyprintk";
++	};
++
++	memory@80000000 {
++		device_type = "memory";
++		reg = <0x80000000 0x80000000>;
++	};
++
++	reserved-memory {
++		#address-cells = <1>;
++		#size-cells = <1>;
++		ranges;
++
++		vga_memory: framebuffer@9f000000 {
++			no-map;
++			reg = <0x9f000000 0x01000000>; /* 16M */
++		};
++
++		ramoops@a0000000 {
++			compatible = "ramoops";
++			reg = <0xa0000000 0x100000>; /* 1MB */
++			record-size = <0x10000>; /* 64KB */
++			max-reason = <2>; /* KMSG_DUMP_OOPS */
++		};
++
++		gfx_memory: framebuffer {
++			size = <0x01000000>;
++			alignment = <0x01000000>;
++			compatible = "shared-dma-pool";
++			reusable;
++		};
++
++		video_engine_memory: jpegbuffer {
++			size = <0x02000000>;	/* 32M */
++			alignment = <0x01000000>;
++			compatible = "shared-dma-pool";
++			reusable;
++		};
++	};
++
++	power-gpios{
++		n2-gpios = <&gpio0 ASPEED_GPIO(N, 2) (GPIO_ACTIVE_HIGH|GPIO_PULL_UP)>;
++		n3-gpios = <&gpio0 ASPEED_GPIO(N, 3) (GPIO_ACTIVE_HIGH|GPIO_PULL_UP)>;
++	};
++
++	leds {
++		compatible = "gpio-leds";
++		uid_led {
++			gpios = <&sgpiom0 27 GPIO_ACTIVE_LOW>;
++		};
++		fault_led {
++			gpios = <&sgpiom0 29 GPIO_ACTIVE_LOW>;
++		};
++		power_led {
++			gpios = <&sgpiom0 31 GPIO_ACTIVE_LOW>;
++		};
++
++		// Non-LEDs:
++		//   BMC_READY-O GPIO pin (not an LED) is being bound to the GPIO LED driver.
++		// Notes:
++		// * This is a workaround and leverages the GPIO LED driver to enable control of
++		//   reset tolerance and still allow the GPIO to be controlled from user space.
++		// * The standard Linux GPIO driver allows control of reset tolerance, however
++		//   does not expose user space APIs for user space control of the GPIO pin.
++		// * GPIO_TRANSITORY = reset tolerance is disabled
++		// * Any non-leds should be added below this line.
++		bmc_ready_noled {
++			gpios = <&gpio0 ASPEED_GPIO(Z, 0) (GPIO_ACTIVE_HIGH|GPIO_TRANSITORY)>;
++		};
++	};
++
++	buttons {
++		power-btn {
++			gpio = <&sgpiom0 156 GPIO_ACTIVE_LOW>;
++		};
++		uid-btn {
++			gpio = <&sgpiom0 154 GPIO_ACTIVE_LOW>;
++		};
++	};
++};
++
++// Enabled Primary flash on FMC for bring up activity
++&fmc {
++	status = "okay";
++	flash@0 {
++		status = "okay";
++		compatible = "jedec,spi-nor";
++		label = "bmc";
++		spi-max-frequency = <50000000>;
++		partitions {
++			compatible = "fixed-partitions";
++			#address-cells = <1>;
++			#size-cells = <1>;
++
++			u-boot@0 {
++				reg = <0x0 0xe0000>; // 896KB
++				label = "u-boot";
++			};
++
++			kernel@100000 {
++				reg = <0x100000 0x900000>; // 9MB
++				label = "kernel";
++			};
++
++			rofs@a00000 {
++				reg = <0xa00000 0x35FF000>; // 55292KB (extends to end of 64MB SPI - 4KB)
++				label = "rofs";
++			};
++		};
++	};
++};
++
++&fmcraw {
++	status = "okay";
++	spidev@0 {
++		compatible = "hgx,glacier";
++		status = "okay";
++	};
++};
++
++&spi1raw {
++	status = "okay";
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_spi1_default>;
++	spidev@0 {
++		spi-max-frequency = <25000000>;
++		compatible = "hgx,glacier";
++		status = "okay";
++	};
++};
++
++&spi2 {
++	status = "okay";
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_spi2_default>;
++
++	// Data SPI is 64MB in size
++	flash@0 {
++		status = "okay";
++		label = "config";
++		spi-max-frequency = <50000000>;
++		partitions {
++			compatible = "fixed-partitions";
++			#address-cells = <1>;
++			#size-cells = <1>;
++
++			u-boot-env@0 {
++				reg = <0x0 0x40000>;            // 256KB at offset 0
++				label = "u-boot-env";
++			};
++
++			rwfs@40000 {
++				reg = <0x40000 0x1000000>;      // 16MB at offset 0x40000
++				label = "rwfs";
++			};
++
++			log@0x1040000 {
++				reg = <0x1040000 0x2800000>;    // 40MB at offset 0x1040000
++				label = "log";                  // Move log to EMMC, make this unused
++			};
++		};
++	};
++};
++
++&uart1 {
++	status = "okay";
++};
++
++&uart3 {
++	//Enabling SOL
++	status = "okay";
++};
++
++&uart5 {
++	// BMC Debug Console
++	status = "okay";
++};
++
++&uart_routing {
++	status = "okay";
++};
++
++// MAC1 (per schematics, 1-based MAC1-MAC4) of AST2600 connected to external PHY
++// This is "mac0" in zero-based DTS
++&mdio0 {
++	status = "okay";
++	ethphy0: ethernet-phy@0 {
++		compatible = "ethernet-phy-ieee802.3-c22";
++		reg = <0>;
++	};
++
++};
++
++&mdio3 {
++	status = "okay";
++	ethphy3: ethernet-phy@2 {
++		compatible = "ethernet-phy-ieee802.3-c22";
++		reg = <2>;
++	};
++};
++
++&mac0 {
++	status = "okay";
++	pinctrl-names = "default";
++	phy-mode = "rgmii-rxid";
++	max-speed = <1000>;
++	phy-handle = <&ethphy3>;
++	pinctrl-0 = <&pinctrl_rgmii1_default>;
++};
++
++&mac2 {
++	status = "okay";
++	phy-mode = "rmii";
++	use-ncsi;
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_rmii3_default>;
++};
++
++// Enable emmc
++&emmc_controller {
++	status = "okay";
++};
++
++&emmc {
++	non-removable;
++	pinctrl-0 = <&pinctrl_emmcg5_default>;
++	bus-width = <4>;
++	max-frequency = <52000000>;
++	clk-phase-mmc-hs200 = <9>, <225>;
++};
++
++/*
++* Enable USB port A as device (via the virtual hub) to host
++*/
++&vhub {
++	status = "okay";
++	pinctrl-names = "default";
++	/*
++	Uncomment below line to enable internal EHCI controller
++	Current config uses xHCI Port1
++	*/
++	// pinctrl-0 = <&pinctrl_usb2adp_default>;
++};
++
++&video {
++	status = "okay";
++	memory-region = <&video_engine_memory>;
++};
++
++// USB 2.0 to HMC, on USB Port B
++&ehci1 {
++	status = "okay";
++};
++
++// USB 1.0
++&uhci {
++	status = "okay";
++};
++
++// I2C1, SSIF IPMI interface
++&i2c0 {
++	status = "okay";
++	clock-frequency = <400000>;
++	disable-master = <1>;
++	i2c-tck-thddat-config = <0x0099EC00>;
++	ssif-bmc@10 {
++		compatible = "ssif-bmc";
++		alert-gpio = <&sgpiom0 39 GPIO_ACTIVE_LOW>;
++		pulse_width_us = <5>;
++		timeout_ms = <4995>;
++		reg = <0x10>;
++	};
++};
++
++// I2C2
++// BMC_I2C1_FPGA - Secondary FPGA
++// HMC EROT
++&i2c1 {
++	status = "okay";
++	clock-frequency = <400000>;
++	multi-master;
++	i2c-scl-clk-low-timeout-us = <32000>;
++	i2c-tck-thddat-config = <0x0099EC00>;
++};
++
++// I2C4
++&i2c3 {
++	status = "disabled";
++};
++
++// I2C5
++// RTC Driver
++// IO Expander
++&i2c4 {
++	status = "okay";
++	clock-frequency = <400000>;
++	i2c-tck-thddat-config = <0x0099EC00>;
++	// Module 0, Expander @0x21
++	exp4: pca9555@21 {
++		compatible = "nxp,pca9555";
++		reg = <0x21>;
++		gpio-controller;
++		#gpio-cells = <2>;
++
++		#address-cells = <1>;
++		#size-cells = <0>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++		interrupt-parent = <&gpio1>;
++		interrupts = <ASPEED_GPIO(B, 6) IRQ_TYPE_LEVEL_LOW>;
++
++		gpio-line-names =
++			"RTC_MUX_SEL-O",
++			"PCI_MUX_SEL-O",
++			"TPM_MUX_SEL-O",
++			"FAN_MUX-SEL-O",
++			"SGMII_MUX_SEL-O",
++			"DP_MUX_SEL-O",
++			"UPHY3_USB_SEL-O",
++			"NCSI_MUX_SEL-O",
++			"BMC_PHY_RST-O",
++			"RTC_CLR_L-O",
++			"BMC_12V_CTRL-O",
++			"PS_RUN_IO0_PG-I",
++			"",
++			"",
++			"",
++			"";
++	};
++};
++
++// I2C6
++// Module 0/1 I2C MUX x3
++&i2c5 {
++	status = "okay";
++	clock-frequency = <400000>;
++	multi-master;
++	i2c-scl-clk-low-timeout-us = <32000>;
++	i2c-tck-thddat-config = <0x0099EC00>;
++
++	i2c-switch@71 {
++		compatible = "nxp,pca9546";
++		#address-cells = <1>;
++		#size-cells = <0>;
++		reg = <0x71>;
++		i2c-mux-idle-disconnect;
++
++		imux16: i2c@0 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <0>;
++		};
++
++		imux17: i2c@1 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <1>;
++		};
++
++		imux18: i2c@2 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <2>;
++		};
++
++		imux19: i2c@3 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <3>;
++		};
++	};
++
++	i2c-switch@72 {
++		compatible = "nxp,pca9546";
++		#address-cells = <1>;
++		#size-cells = <0>;
++		reg = <0x72>;
++		i2c-mux-idle-disconnect;
++
++		imux20: i2c@0 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <0>;
++		};
++
++		imux21: i2c@1 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <1>;
++		};
++
++		imux22: i2c@2 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <2>;
++		};
++
++		imux23: i2c@3 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <3>;
++		};
++	};
++
++	i2c-switch@73 {
++		compatible = "nxp,pca9546";
++		#address-cells = <1>;
++		#size-cells = <0>;
++		reg = <0x73>;
++		i2c-mux-idle-disconnect;
++
++		imux24: i2c@0 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <0>;
++		};
++
++		imux25: i2c@1 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <1>;
++		};
++
++		imux26: i2c@2 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <2>;
++		};
++
++		imux27: i2c@3 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <3>;
++		};
++	};
++
++	//A MUX for a riser with a secondary M.2 installed.
++	i2c-switch@74 {
++		compatible = "nxp,pca9546";
++		#address-cells = <1>;
++		#size-cells = <0>;
++		reg = <0x74>;
++		i2c-mux-idle-disconnect;
++
++		i2c5mux0: i2c@0 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <0>;
++		};
++
++		//Optional/secondary M.2 drive slot
++		m2riser: i2c@1 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <1>;
++		};
++
++		i2c5mux2: i2c@2 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <2>;
++		};
++
++		i2c5mux3: i2c@3 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <3>;
++		};
++	};
++
++	i2c-switch@75 {
++		compatible = "nxp,pca9546";
++		#address-cells = <1>;
++		#size-cells = <0>;
++		reg = <0x75>;
++		i2c-mux-idle-disconnect;
++
++		imux28: i2c@0 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <0>;
++		};
++
++		imux29: i2c@1 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <1>;
++		};
++
++		imux30: i2c@2 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <2>;
++		};
++
++		imux31: i2c@3 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <3>;
++		};
++	};
++
++	i2c-switch@76 {
++		compatible = "nxp,pca9546";
++		#address-cells = <1>;
++		#size-cells = <0>;
++		reg = <0x76>;
++		i2c-mux-idle-disconnect;
++
++		imux32: i2c@0 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <0>;
++		};
++
++		imux33: i2c@1 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <1>;
++		};
++
++		imux34: i2c@2 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <2>;
++		};
++
++		imux35: i2c@3 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <3>;
++		};
++	};
++
++	i2c-switch@77 {
++		compatible = "nxp,pca9546";
++		#address-cells = <1>;
++		#size-cells = <0>;
++		reg = <0x77>;
++		i2c-mux-idle-disconnect;
++
++		imux36: i2c@0 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <0>;
++		};
++
++		imux37: i2c@1 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <1>;
++		};
++
++		imux38: i2c@2 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <2>;
++		};
++
++		imux39: i2c@3 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <3>;
++		};
++	};
++};
++
++// I2C7
++// Module 0/1 Leak Sensors
++// Module 0/1 Fan Controllers
++&i2c6 {
++	status = "okay";
++	clock-frequency = <400000>;
++	i2c-tck-thddat-config = <0x0099EC00>;
++	hsc@12 {
++		compatible = "ti,lm5066i";
++		reg = <0x12>;
++		shunt-resistor-micro-ohms = <190>;
++		status = "okay";
++	};
++	hsc@14 {
++		compatible = "ti,lm5066i";
++		reg = <0x14>;
++		shunt-resistor-micro-ohms = <190>;
++		status = "okay";
++	};
++	max31790_1 {
++		compatible = "maxim,max31790";
++		reg = <0x20>;
++		#address-cells = <1>;
++		#size-cells = <0>;
++	};
++	max31790_2 {
++		compatible = "maxim,max31790";
++		reg = <0x23>;
++		#address-cells = <1>;
++		#size-cells = <0>;
++	};
++	max31790_3 {
++		compatible = "maxim,max31790";
++		reg = <0x2c>;
++		#address-cells = <1>;
++		#size-cells = <0>;
++	};
++	max31790_4 {
++		compatible = "maxim,max31790";
++		reg = <0x2f>;
++		#address-cells = <1>;
++		#size-cells = <0>;
++	};
++};
++
++// I2C9
++// M.2
++&i2c8 {
++	status = "okay";
++	clock-frequency = <400000>;
++	multi-master;
++	i2c-scl-clk-low-timeout-us = <32000>;
++	i2c-tck-thddat-config = <0x0099EC00>;
++};
++
++// I2C10
++// HMC IO Expander
++// Module 0/1 IO Expanders
++&i2c9 {
++	status = "okay";
++	clock-frequency = <400000>;
++	i2c-tck-thddat-config = <0x0099EC00>;
++	// Module 0, Expander @0x20
++	exp0: pca9555@20 {
++		compatible = "nxp,pca9555";
++		reg = <0x20>;
++		gpio-controller;
++		#gpio-cells = <2>;
++
++		#address-cells = <1>;
++		#size-cells = <0>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++		interrupt-parent = <&gpio1>;
++		interrupts = <ASPEED_GPIO(B, 6) IRQ_TYPE_LEVEL_LOW>;
++
++		gpio-line-names =
++		"FPGA_THERM_OVERT_L-I",
++		"FPGA_READY_BMC-I",
++		"HMC_BMC_DETECT-O",
++		"HMC_PGOOD-O",
++		"",
++		"BMC_STBY_CYCLE-O",
++		"FPGA_EROT_FATAL_ERROR_L-I",
++		"WP_HW_EXT_CTRL_L-O",
++		"EROT_FPGA_RST_L-O",
++		"FPGA_EROT_RECOVERY_L-O",
++		"BMC_EROT_FPGA_SPI_MUX_SEL-O",
++		"USB_HUB_RESET_L-O",
++		"NCSI_CS1_SEL-O",
++		"SGPIO_EN_L-O",
++		"B2B_IOEXP_INT_L-I",
++		"I2C_BUS_MUX_RESET_L-O";
++	};
++
++	// Module 1, Expander @0x21
++	exp1: pca9555@21 {
++		compatible = "nxp,pca9555";
++		reg = <0x21>;
++		gpio-controller;
++		#gpio-cells = <2>;
++
++		#address-cells = <1>;
++		#size-cells = <0>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++		interrupt-parent = <&gpio1>;
++		interrupts = <ASPEED_GPIO(B, 6) IRQ_TYPE_LEVEL_LOW>;
++
++		gpio-line-names =
++		"SEC_FPGA_THERM_OVERT_L-I",
++		"SEC_FPGA_READY_BMC-I",
++		"",
++		"",
++		"",
++		"",
++		"SEC_FPGA_EROT_FATAL_ERROR_L-I",
++		"SEC_WP_HW_EXT_CTRL_L-O",
++		"SEC_EROT_FPGA_RST_L-O",
++		"SEC_FPGA_EROT_RECOVERY_L-O",
++		"SEC_BMC_EROT_FPGA_SPI_MUX_SEL-O",
++		"",
++		"",
++		"",
++		"",
++		"SEC_I2C_BUS_MUX_RESET_L-O";
++	};
++
++	// HMC Expander @0x27
++	exp2: pca9555@27 {
++		compatible = "nxp,pca9555";
++		reg = <0x27>;
++		gpio-controller;
++		#gpio-cells = <2>;
++
++		#address-cells = <1>;
++		#size-cells = <0>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++		interrupt-parent = <&gpio1>;
++		interrupts = <ASPEED_GPIO(B, 6) IRQ_TYPE_LEVEL_LOW>;
++
++		gpio-line-names =
++		"HMC_PRSNT_L-I",
++		"HMC_READY-I",
++		"HMC_EROT_FATAL_ERROR_L-I",
++		"I2C_MUX_SEL-O",
++		"HMC_EROT_SPI_MUX_SEL-O",
++		"HMC_EROT_RECOVERY_L-O",
++		"HMC_EROT_RST_L-O",
++		"GLOBAL_WP_HMC-O",
++		"FPGA_RST_L-O",
++		"USB2_HUB_RST-O",
++		"CPU_UART_MUX_SEL-O",
++		"",
++		"",
++		"",
++		"",
++		"";
++	};
++	// HMC Expander @0x74
++	exp3: pca9555@74 {
++		compatible = "nxp,pca9555";
++		reg = <0x74>;
++		gpio-controller;
++		#gpio-cells = <2>;
++
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		interrupt-controller;
++		#interrupt-cells = <2>;
++		interrupt-parent = <&gpio1>;
++		interrupts = <ASPEED_GPIO(B, 6) IRQ_TYPE_LEVEL_LOW>;
++
++		gpio-line-names =
++		"IOB_PRSNT_L",
++		"IOB_DP_HPD",
++		"IOX_BMC_RESET",
++		"IOB_IOEXP_INT_L",
++		"IOB_UID_LED_L",
++		"IOB_UID_BTN_L",
++		"IOB_SYS_RST_BTN_L",
++		"IOB_PWR_LED_L",
++		"IOB_PWR_BTN_L",
++		"IOB_PHY_RST",
++		"CPLD_JTAG_MUX_SEL",
++		"",
++		"",
++		"",
++		"",
++		"";
++	};
++};
++
++// I2C11
++// BMC FRU EEPROM
++// BMC Temp Sensor
++&i2c10 {
++	status = "okay";
++	clock-frequency = <400000>;
++	i2c-tck-thddat-config = <0x0099EC00>;
++	// BMC FRU EEPROM - 256 bytes
++	eeprom@50 {
++		compatible = "atmel,24c02";
++		reg = <0x50>;
++		pagesize = <8>;
++	};
++};
++
++// I2C12
++&i2c11 {
++	status = "disabled";
++};
++
++// I2C13
++&i2c12 {
++	status = "disabled";
++};
++
++// I2C14
++// Module 0 UPHY3 SMBus
++&i2c13 {
++	status = "disabled";
++};
++
++// I2C15
++// Module 1 UPHY3 SMBus
++&i2c14 {
++	status = "okay";
++	clock-frequency = <100000>;
++	multi-master;
++	i2c-scl-clk-low-timeout-us = <32000>;
++	i2c-tck-thddat-config = <0x00EFD000>;
++
++	//E1.S drive slot 0-3
++	i2c-switch@77 {
++		compatible = "nxp,pca9546";
++		#address-cells = <1>;
++		#size-cells = <0>;
++		reg = <0x77>;
++		i2c-mux-idle-disconnect;
++
++		e1si2c0: i2c@0 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <0>;
++		};
++
++		e1si2c1: i2c@1 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <1>;
++		};
++
++		e1si2c2: i2c@2 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <2>;
++		};
++
++		e1si2c3: i2c@3 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <3>;
++		};
++	};
++};
++
++// I2C16
++&i2c15 {
++	status = "okay";
++	clock-frequency = <100000>;
++	multi-master;
++	i2c-scl-clk-low-timeout-us = <32000>;
++	i2c-tck-thddat-config = <0x00EFD000>;
++
++	//E1.S drive slot 4-7
++	i2c-switch@77 {
++		compatible = "nxp,pca9546";
++		#address-cells = <1>;
++		#size-cells = <0>;
++		reg = <0x77>;
++		i2c-mux-idle-disconnect;
++
++		e1si2c4: i2c@0 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <0>;
++		};
++
++		e1si2c5: i2c@1 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <1>;
++		};
++
++		e1si2c6: i2c@2 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <2>;
++		};
++
++		e1si2c7: i2c@3 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <3>;
++		};
++	};
++};
++
++// PCIe RC
++&pcie {
++	status = "okay";
++
++	interrupts = <GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH>;
++
++	pcie_intc0: legacy-interrupt-controller {
++		interrupts = <GIC_SPI 168 IRQ_TYPE_EDGE_RISING>;
++	};
++};
++
++// Bridge between AHB bus and PCIe RC.
++&h2x {
++	status = "okay";
++};
++
++&mctp {
++	status = "okay";
++};
++
++&jtag0 {
++	status = "okay";
++};
++
++&jtag1 {
++	mux-gpios = <&sgpiom0 41 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
++	status = "okay";
++};
++
++&rng {
++	status = "okay";
++};
++
 -- 
-With best wishes
-Dmitry
+2.25.1
+
 
