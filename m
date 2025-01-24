@@ -4,64 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2B14C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 08:38:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23C6EC02181
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 08:53:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IZegoU4yGkAb3LRr862Kj9381H4s3fRnUlcMUi01tig=; b=r2UjC+KP8p0dwNxSB8/sGI3jJG
-	hjBM6mHen9OGebRyAvqr7e2/Lj4SBuUfWZH0M+48X4ujwbR6DZJvMNKhjuaaLXv2y4SyjqfwUiO83
-	kpqMZhO2IcWc8+P8XvqtYGgxZW7W64QFd7xvdfA/16Hig8njVNxDWNiXMsnNqRDKr/XLP3c01zZBV
-	4XRDHZauLB0QxAH1k/l9FzMsLm6ZoZyddrEsaDiPMpqgQtJhE6MJPzcb2I0eM8pSfr4mcgboDt7Tk
-	M/vwqbCJf9/j6Ey+b98ASuf2KP2AOZpasaCrTJyRfVHnkpGdQSBxkzyMzIL2zMaUbXcfywh4fu51B
-	lqateulQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=o7lbqvBfWFIL0G8uqSnKhjS80pSitov1mvBHEMw18dY=; b=ff88V7wJXKspYqtgrgPr40Os/9
+	DZw5w74CEozO9Ys4IQojIH/GSwbrMJKbYx2n8+UFOT3tbBrhb/Ow4Gt1AZY0s0DrVddhJYrXDiSyb
+	7CVCcvhwOHMD38KbQmpXhrAZbTgtKwA/AENTJYuXW5hvig59w9zACnNiWK3vITtXAs4GDowTWIChD
+	89f63acXzhWb/wn/OQI5SrfyS5RBr2P1Fjt6l3AWO2UCuwoqaWvzBjtkdT0FpCuJ6P+a+oxksckr/
+	VLjDx3cbuQ6xA8yNCsbC4v10O3GuPqzDxmOFykz1dAQTJaSaxvp7wRvYbEtpEUmxsL+piXGoywzc4
+	WvrbG3Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbFCs-0000000EGw8-2EBD;
-	Fri, 24 Jan 2025 08:38:26 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tbFR8-0000000EI8c-2GYP;
+	Fri, 24 Jan 2025 08:53:10 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbFBQ-0000000EGV0-16NL
+	id 1tbFPn-0000000EI3A-34dj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jan 2025 08:36:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 411955C4A0C;
-	Fri, 24 Jan 2025 08:36:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40535C4CED2;
-	Fri, 24 Jan 2025 08:36:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737707815;
-	bh=7PocYP06gYB5s4GBXtZIom2srut+GbONZRftd77UgHM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fuHkpp1Xtxj6zF6kglVoC/edfTVWsbpzIRUa/NELq+BZiJ/w9xKUZPLQbcrb4RXjH
-	 OU205SBskgjqrhK365LIEE6AIYj5fTdEzvILJVvlg9C4bfsLztpZY/rTp0EovTiN3x
-	 ze6udOlmcf9TlE38qVFQk3L9LlyB/AwSzgQO019DLZG7HWUNUT05mDLfaaKzX+pOhN
-	 z2t8ljaxzAK59++j/zFCsdUJZYpmwICHMS3W8FqhCdZIu/czuBKZOwVQAjGa8EWAuK
-	 eNFs2VvJ4wqWNWs0IeNsVMPM6SvTek0iOAf7X5x7sJKjXVrPgAGRc6/NnJYw0FgGtc
-	 ZV6XKqe7/dCkQ==
-Date: Fri, 24 Jan 2025 09:36:51 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Willie Thai <wthai@nvidia.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	joel@jms.id.au, andrew@codeconstruct.com.au, kees@kernel.org, 
-	tony.luck@intel.com, gpiccoli@igalia.com, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
-	linux-hardening@vger.kernel.org, openbmc@lists.ozlabs.org, leohu@nvidia.com, tingkaic@nvidia.com, 
-	dkodihalli@nvidia.com, wthai <wthai@willie-obmc-builder.nvidia.com>
-Subject: Re: [PATCH] ARM: dts: aspeed: Add device tree for Nvidia's GB200NVL
- BMC
-Message-ID: <20250124-rebel-stimulating-galago-bfa0e5@krzk-bin>
-References: <20250124051819.7714-1-wthai@nvidia.com>
+	Fri, 24 Jan 2025 08:51:49 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-385f06d0c8eso962432f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jan 2025 00:51:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1737708705; x=1738313505; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=o7lbqvBfWFIL0G8uqSnKhjS80pSitov1mvBHEMw18dY=;
+        b=U2gLg3o5WWQt8D/VadikTLuEaYHLOPf+d0du41SNxPKnJmKuKrb2YXhUIK9rDDoClI
+         vbh0JX579QFIV/o1OPU+4YU0qaUi9b6AyGiaBOMFwiCvpAi7Lax0fL146gvzku6p/eI4
+         B9KEqwMOEUlGLRMqM628gqvPGYnjn/xK9ElpS4bVpDXFo+IO7y+CoO/DLk9c+UaFuSMB
+         lrjHCNB/Lm+CWQxGgBKLOPefV+gOFnSVaclOw8D7CQLOk6F9x5q97mg0J1Ga72ZJAcHt
+         eaiJ/ngoVCi2BYMaTGQEs0by+Lcj+/GVa9EyRB9X2oGdsCSazQGVZMjvyXUy1YS4drx+
+         zSZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737708705; x=1738313505;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=o7lbqvBfWFIL0G8uqSnKhjS80pSitov1mvBHEMw18dY=;
+        b=kLMvyTTQspGHQOjhX9DFu8OnwjUKMAUd33zkUEXMovUmaVW56ZMd6tsz/mSb6EqRQq
+         EreDbj/GEv+hRk+A3ulj2/q/zbGHBZvdnVYR42LgaWwTF7T0VQLmLKy/7TYlq20IKhgq
+         I8MHqLuskqylel5eqA4ZTVAyfJ9NfELXVFSLiPr8SUOWbYy7EBWBURHLnCGao30Igk5R
+         NE+rK01Omf/vvvBA7Gy7MGjdFzYSupxf6jAUI2QxTQAno2275Fa6u0hm6UjK2ntlkqO7
+         /1F6D8A2r12UusqXYIlEPbOja4XSmnylt+8M2gsoFfQaO0PbJmDvXSt8w+30uNlyYXcE
+         WrUQ==
+X-Gm-Message-State: AOJu0Yz9dfiKn9pkhpAsx6bYl2FIFLq+U42vGpF4Btwv36J5oGX0ayft
+	w6b3aVrM+BSk6sFPW/sKhYGzMKE3RTqsSsbqkQeVzIyxNCOW6Jar
+X-Gm-Gg: ASbGncuFjlQ1ig18Atr4A9l0+efW6SKrMMWZA6ou84/xxe9W710Jfmne4OR28jKAjpu
+	g2s8i7X1F3BkDr3x2hHQztx+QZrYEPR89rDeuv+jt7kusy1yuSzWjgsRMsx/rP+yVExcpB5yLTY
+	JKsciFkJdA41NzePBtp7bVt403WcL1LivISL9U3u4D5u3fhmOMhN0ZsheKtFmx6Vh5dFbuVBpB6
+	sVS5OzsENMRaxNR1T+TchE3GXw0x2cyUY0X22XF1eZDNja4SMUzr5S2pBq1/3kNfdL00wNIs3NR
+	xN6ocUg7
+X-Google-Smtp-Source: AGHT+IF4dqAR6koojsslJLJ51I90eR24QucpBC3Wc4090WYTgW0SGNn1teDBd4jW7zBLCJGN0QkY1w==
+X-Received: by 2002:a5d:5986:0:b0:38a:a083:9200 with SMTP id ffacd0b85a97d-38bf59eb93dmr30924270f8f.44.1737708705110;
+        Fri, 24 Jan 2025 00:51:45 -0800 (PST)
+Received: from eichest-laptop.lan ([2a02:168:af72:0:58db:611:d7b2:c596])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38c2a188c33sm2085115f8f.53.2025.01.24.00.51.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Jan 2025 00:51:44 -0800 (PST)
+From: Stefan Eichenberger <eichest@gmail.com>
+To: andrew@lunn.ch,
+	gregory.clement@bootlin.com,
+	sebastian.hesselbarth@gmail.com,
+	tglx@linutronix.de,
+	shivamurthy.shastri@linutronix.de,
+	anna-maria@linutronix.de
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH v2] irqchip/irq-mvebu-icu: Fix access to msi_data from irq_domain
+Date: Fri, 24 Jan 2025 09:50:39 +0100
+Message-ID: <20250124085140.44792-1-eichest@gmail.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250124051819.7714-1-wthai@nvidia.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250124_003656_394892_C62A45E1 
-X-CRM114-Status: GOOD (  30.09  )
+X-CRM114-CacheID: sfid-20250124_005147_784981_4A01A175 
+X-CRM114-Status: GOOD (  14.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,344 +99,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 24, 2025 at 05:18:19AM +0000, Willie Thai wrote:
-> From: wthai <wthai@willie-obmc-builder.nvidia.com>
+Previously, we incorrectly cast irq_domain->host_data directly to
+mvebu_icu_msi_data. However, host_data actually stores a structure of
+type msi_domain_info.
 
+This incorrect assumption caused issues such as the thermal sensors of
+the CP110 platform malfunctioning. Specifically, the translation of the
+SEI interrupt to IRQ_TYPE_EDGE_RISING failed, preventing proper
+interrupt handling. The following error was observed:
+genirq: Setting trigger mode 4 for irq 85 failed (irq_chip_set_type_parent+0x0/0x34)
+armada_thermal f2400000.system-controller:thermal-sensor@70: Cannot request threaded IRQ 85
 
-This does not match SoB.
+This commit resolves the issue by first casting host_data to
+msi_domain_info and then accessing the mvebu_icu_msi_data through
+msi_domain_info->chip_data.
 
-> 
-> The GB200NVL BMC is an Aspeed Ast2600 based BMC
-> for Nvidia Blackwell GB200NVL platform.
-> 
-> Signed-off-by: wthai <wthai@nvidia.com>
+Cc: stable@vger.kernel.org
+Fixes: d929e4db22b6 ("irqchip/irq-mvebu-icu: Prepare for real per device MSI")
+Signed-off-by: Stefan Eichenberger <eichest@gmail.com>
+---
+Changes in v2:
+* This patch is a v2 because it addresses the same issue as this patch:
+  https://lore.kernel.org/all/20241217111623.92625-1-eichest@gmail.com/
+* This time it addresses the underlying issue instead of adding a
+  workaround (thanks to Thomas)
 
-Full name.
+ drivers/irqchip/irq-mvebu-icu.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-
-
-> ---
->  .../bindings/arm/aspeed/aspeed.yaml           |    1 +
-
-Please run scripts/checkpatch.pl and fix reported warnings. After that,
-run also 'scripts/checkpatch.pl --strict' and (probably) fix more
-warnings. Some warnings can be ignored, especially from --strict run,
-but the code here looks like it needs a fix. Feel free to get in touch
-if the warning is not clear.
-
-
->  arch/arm/boot/dts/aspeed/Makefile             |    1 +
->  .../aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts | 1352 +++++++++++++++++
->  3 files changed, 1354 insertions(+)
->  create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-> index 2f92b8ab08fa..0a6f3654dcb5 100644
-> --- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-> +++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-> @@ -96,6 +96,7 @@ properties:
->                - inventec,starscream-bmc
->                - inventec,transformer-bmc
->                - jabil,rbp-bmc
-> +              - nvidia,gb200nvl-bmc
->                - qcom,dc-scm-v1-bmc
->                - quanta,s6q-bmc
->                - ufispace,ncplite-bmc
-> diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed/Makefile
-> index c4f064e4b073..0dc5240866f3 100644
-> --- a/arch/arm/boot/dts/aspeed/Makefile
-> +++ b/arch/arm/boot/dts/aspeed/Makefile
-> @@ -48,6 +48,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
->  	aspeed-bmc-lenovo-hr630.dtb \
->  	aspeed-bmc-lenovo-hr855xg2.dtb \
->  	aspeed-bmc-microsoft-olympus.dtb \
-> +	aspeed-bmc-nvidia-gb200nvl-bmc.dtb \
->  	aspeed-bmc-opp-lanyang.dtb \
->  	aspeed-bmc-opp-mowgli.dtb \
->  	aspeed-bmc-opp-nicole.dtb \
-> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts
-> new file mode 100644
-> index 000000000000..91d025229aba
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts
-> @@ -0,0 +1,1352 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +/dts-v1/;
-> +
-> +#include "aspeed-g6.dtsi"
-> +#include <dt-bindings/gpio/aspeed-gpio.h>
-> +#include <dt-bindings/leds/common.h>
-> +
-> +&gpio0 {
-> +	gpio-line-names =
-> +
-> +	/* gpio-line-names are the combination of <signal>-<I/O> , "" is the placeholder for the unused pins
-> +	*/
-
-Odd wrapping and alignment. See DTS coding style.
-
-> +
-> +	/* 208 (26*8) 3.3V GPIOs */
-> +
-> +	/*A0-A7*/
-> +	"", "", "", "", "", "", "", "",
-
-All these are misaligned.
-
-...
-
-> +
-> +// EMMC group that excludes WP pin
-> +&pinctrl {
-> +	pinctrl_emmcg5_default: emmcg5_default {
-> +		function = "EMMC";
-> +		groups = "EMMCG5";
-> +	};
-> +};
-> +
-> +/ {
-
-No, look at other DTS. You never start with overrides, this is
-completely wrong coding style, completely odd and unacceptable code.
-
-
-> +	model = "AST2600 GB200NVL BMC";
-> +	compatible = "nvidia,gb200nvl-bmc", "aspeed,ast2600";
-> +
-> +	aliases {
-> +		serial2 = &uart3;
-> +		serial4 = &uart5;
-> +		i2c16   = &imux16;
-> +		i2c17   = &imux17;
-> +		i2c18   = &imux18;
-> +		i2c19   = &imux19;
-> +		i2c20   = &imux20;
-> +		i2c21   = &imux21;
-> +		i2c22   = &imux22;
-> +		i2c23   = &imux23;
-> +		i2c24   = &imux24;
-> +		i2c25   = &imux25;
-> +		i2c26   = &imux26;
-> +		i2c27   = &imux27;
-> +		i2c28   = &imux28;
-> +		i2c29   = &imux29;
-> +		i2c30   = &imux30;
-> +		i2c31   = &imux31;
-> +		i2c32   = &imux32;
-> +		i2c33   = &imux33;
-> +		i2c34   = &imux34;
-> +		i2c35   = &imux35;
-> +		i2c36   = &imux36;
-> +		i2c37   = &imux37;
-> +		i2c38   = &imux38;
-> +		i2c39   = &imux39;
-> +		i2c40	= &e1si2c0;
-> +		i2c41	= &e1si2c1;
-> +		i2c42	= &e1si2c2;
-> +		i2c43	= &e1si2c3;
-> +		i2c44	= &e1si2c4;
-> +		i2c45	= &e1si2c5;
-> +		i2c46	= &e1si2c6;
-> +		i2c47	= &e1si2c7;
-> +		i2c48	= &i2c5mux0;
-> +		i2c49   = &m2riser;
-> +		i2c50	= &i2c5mux2;
-> +		i2c51	= &i2c5mux3;
-> +	};
-> +
-> +	chosen {
-> +		stdout-path = &uart5;
-> +		bootargs = "console=tty0 console=ttyS4,115200n8 earlyprintk";
-
-Drop entire bootargs. Use proper stdout-path instead. earlyprintk is
-debugging, not mainline-wide use.
-
-> +	};
-> +
-> +	memory@80000000 {
-> +		device_type = "memory";
-> +		reg = <0x80000000 0x80000000>;
-> +	};
-> +
-> +	reserved-memory {
-> +		#address-cells = <1>;
-> +		#size-cells = <1>;
-> +		ranges;
-> +
-> +		vga_memory: framebuffer@9f000000 {
-> +			no-map;
-> +			reg = <0x9f000000 0x01000000>; /* 16M */
-> +		};
-> +
-> +		ramoops@a0000000 {
-> +			compatible = "ramoops";
-> +			reg = <0xa0000000 0x100000>; /* 1MB */
-> +			record-size = <0x10000>; /* 64KB */
-> +			max-reason = <2>; /* KMSG_DUMP_OOPS */
-> +		};
-> +
-> +		gfx_memory: framebuffer {
-> +			size = <0x01000000>;
-> +			alignment = <0x01000000>;
-> +			compatible = "shared-dma-pool";
-> +			reusable;
-> +		};
-> +
-> +		video_engine_memory: jpegbuffer {
-> +			size = <0x02000000>;	/* 32M */
-> +			alignment = <0x01000000>;
-> +			compatible = "shared-dma-pool";
-> +			reusable;
-> +		};
-> +	};
-> +
-> +	power-gpios{
-> +		n2-gpios = <&gpio0 ASPEED_GPIO(N, 2) (GPIO_ACTIVE_HIGH|GPIO_PULL_UP)>;
-> +		n3-gpios = <&gpio0 ASPEED_GPIO(N, 3) (GPIO_ACTIVE_HIGH|GPIO_PULL_UP)>;
-> +	};
-> +
-> +	leds {
-> +		compatible = "gpio-leds";
-> +		uid_led {
-
-
-No, sorry, you send us crappy downstream code asking us to comment on
-exactly the same issues we fixed long time ago.
-
-Drop your entire code and start from scratch from most recently reviewed
-upstream code, so you will not duplicate all of the known and fixed
-issues.
-
-The exact issue here: Follow DTS coding style for naming.
-
-> +			gpios = <&sgpiom0 27 GPIO_ACTIVE_LOW>;
-> +		};
-> +		fault_led {
-> +			gpios = <&sgpiom0 29 GPIO_ACTIVE_LOW>;
-> +		};
-> +		power_led {
-> +			gpios = <&sgpiom0 31 GPIO_ACTIVE_LOW>;
-> +		};
-> +
-> +		// Non-LEDs:
-> +		//   BMC_READY-O GPIO pin (not an LED) is being bound to the GPIO LED driver.
-> +		// Notes:
-> +		// * This is a workaround and leverages the GPIO LED driver to enable control of
-> +		//   reset tolerance and still allow the GPIO to be controlled from user space.
-> +		// * The standard Linux GPIO driver allows control of reset tolerance, however
-> +		//   does not expose user space APIs for user space control of the GPIO pin.
-> +		// * GPIO_TRANSITORY = reset tolerance is disabled
-> +		// * Any non-leds should be added below this line.
-> +		bmc_ready_noled {
-> +			gpios = <&gpio0 ASPEED_GPIO(Z, 0) (GPIO_ACTIVE_HIGH|GPIO_TRANSITORY)>;
-> +		};
-> +	};
-> +
-> +	buttons {
-> +		power-btn {
-> +			gpio = <&sgpiom0 156 GPIO_ACTIVE_LOW>;
-> +		};
-> +		uid-btn {
-> +			gpio = <&sgpiom0 154 GPIO_ACTIVE_LOW>;
-> +		};
-> +	};
-> +};
-> +
-> +// Enabled Primary flash on FMC for bring up activity
-> +&fmc {
-> +	status = "okay";
-> +	flash@0 {
-> +		status = "okay";
-> +		compatible = "jedec,spi-nor";
-> +		label = "bmc";
-> +		spi-max-frequency = <50000000>;
-> +		partitions {
-> +			compatible = "fixed-partitions";
-> +			#address-cells = <1>;
-> +			#size-cells = <1>;
-> +
-> +			u-boot@0 {
-> +				reg = <0x0 0xe0000>; // 896KB
-> +				label = "u-boot";
-> +			};
-> +
-> +			kernel@100000 {
-> +				reg = <0x100000 0x900000>; // 9MB
-> +				label = "kernel";
-> +			};
-> +
-> +			rofs@a00000 {
-> +				reg = <0xa00000 0x35FF000>; // 55292KB (extends to end of 64MB SPI - 4KB)
-> +				label = "rofs";
-> +			};
-> +		};
-> +	};
-> +};
-> +
-> +&fmcraw {
-> +	status = "okay";
-> +	spidev@0 {
-> +		compatible = "hgx,glacier";
-> +		status = "okay";
-> +	};
-> +};
-> +
-> +&spi1raw {
-> +	status = "okay";
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_spi1_default>;
-> +	spidev@0 {
-
-Node names should be generic. See also an explanation and list of
-examples (not exhaustive) in DT specification:
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
-
-> +		spi-max-frequency = <25000000>;
-> +		compatible = "hgx,glacier";
-
-
-NAK, does not exist.
-
-> +		status = "okay";
-
-Where was it disabled?
-
-Please run scripts/checkpatch.pl and fix reported warnings. After that,
-run also 'scripts/checkpatch.pl --strict' and (probably) fix more
-warnings. Some warnings can be ignored, especially from --strict run,
-but the code here looks like it needs a fix. Feel free to get in touch
-if the warning is not clear.
-
-
-It does not look like you tested the DTS against bindings. Please run
-'make dtbs_check W=1' (see
-Documentation/devicetree/bindings/writing-schema.rst or
-https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-sources-with-the-devicetree-schema/
-for instructions).
-Maybe you need to update your dtschema and yamllint. Don't rely on
-distro packages for dtschema and be sure you are using the latest
-released dtschema.
-
-> +	};
-> +};
-> +
-> +&spi2 {
-> +	status = "okay";
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_spi2_default>;
-> +
-> +	// Data SPI is 64MB in size
-> +	flash@0 {
-> +		status = "okay";
-
-Where did you disabled it?
-
-I finished review here, because you have way too many trivial issues
-which would be pointed out by tools if you run them.
-
-And you are supposed to run the tools first, before you use community.
-
-Best regards,
-Krzysztof
+diff --git a/drivers/irqchip/irq-mvebu-icu.c b/drivers/irqchip/irq-mvebu-icu.c
+index b337f6c05f18..4eebed39880a 100644
+--- a/drivers/irqchip/irq-mvebu-icu.c
++++ b/drivers/irqchip/irq-mvebu-icu.c
+@@ -68,7 +68,8 @@ static int mvebu_icu_translate(struct irq_domain *d, struct irq_fwspec *fwspec,
+ 			       unsigned long *hwirq, unsigned int *type)
+ {
+ 	unsigned int param_count = static_branch_unlikely(&legacy_bindings) ? 3 : 2;
+-	struct mvebu_icu_msi_data *msi_data = d->host_data;
++	struct msi_domain_info *info = d->host_data;
++	struct mvebu_icu_msi_data *msi_data = info->chip_data;
+ 	struct mvebu_icu *icu = msi_data->icu;
+ 
+ 	/* Check the count of the parameters in dt */
+-- 
+2.45.2
 
 
