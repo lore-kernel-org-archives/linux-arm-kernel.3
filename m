@@ -4,69 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 470B2C0218B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 06:37:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B744C0218B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 06:48:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yDcVaVVMzrXp9l580+Ibh1Pcrfg4xdal5MP+F108Ii4=; b=mA+I96aLn21vifFbBi+lrMI9Hb
-	FtZ9u4DYwCCmreT0eEDh46JlHWd7THMxdFT4I6ynJ2ivPL0zSwWDRuQ/Lut9MxO1/1AAL0Euip+I2
-	4awLPsLR3MBzy3QVAvo5ZYKPTeHnOwr2ZAAOZVFGArpIB/1n/sZUQuOomXLnDlJtKg9nizUnJjQnE
-	0Fow/l5etUmfasWYC5KqbFkrI2HDelAPjWNkVm/uhuKrcw1vyOyawSKQf3hEOpbJFkRknORRAHgOh
-	hITF5Q25nzTYi3HBtW2ANHQ9RZeAHD1SqzCLXWSEU+89/fSwFkaDW/+FY6HsS9+CVS2NW3b8wWrvp
-	lkDm+tBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hakErszKHTtOs4Wy81rK0wCSNo3C7i1Eglw64nX85ko=; b=34lT6uWmCET7Um7JTpiwgX0rFw
+	xoUhOZL0E5CtWdm9nei6GsabV3esfeg2EdoHO/UwiiXFKWP7+S23c+XpgHuDRLgaLvVm31fI82dxa
+	Kpc9stKbKsQysTkePe3bDLnJR4o2HsjJNLOpivHA7oSVoZZ2bvdr394QWnyarETHy3kBXYyS+oEBy
+	eJF9vvdFUgktT2CGmihAp2pMRAFFqu46+gkjRupVgOAGx8J9VNdNk6M55w/2S0BdBjg3x7VHvrMPl
+	g5pvaorILzapDyBfuPS8/RjjZwvv2bULZ+7SYTdxDdeLCGVknE3UJ27DF22BjOmywRQRBQGJ1ZgwK
+	I00O1FIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbDJf-0000000E13L-1EXg;
-	Fri, 24 Jan 2025 06:37:19 +0000
-Received: from mail.manjaro.org ([116.203.91.91])
+	id 1tbDTy-0000000E28r-3yvv;
+	Fri, 24 Jan 2025 06:47:58 +0000
+Received: from mail-m1973173.qiye.163.com ([220.197.31.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbDIJ-0000000E0uk-1rG5;
-	Fri, 24 Jan 2025 06:35:56 +0000
-MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1737700551;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=yDcVaVVMzrXp9l580+Ibh1Pcrfg4xdal5MP+F108Ii4=;
-	b=V7rZp0U47HCH4FUtf6IyKFL7rtDgum7Ud4Vaha/e1ppJBCu+Rkeo6qkO/da+tnAvVu5Oln
-	vAy3Uuxq7HvTq9OsNkRaoIQJbdcYQXun/CDw5H8ivsu0PAtAuf2YBwsKGhB91FLiBIaTVJ
-	VLCsJXbS196nQF5idKZ/Io+zLZDdDvTs9nrIkBnsSq0v436BKJSpMbEt0PARPWn5ClCenE
-	r2SMOEBy2/RAbJvGsRSERPjqKzjGzwYL0u90eGnNFDskz8LIv8eE+tZonUmJtVKNQgUI6J
-	QLghRufuU70FSaRfLVD22ZJ0BhxYCC6chXxW/nUmTtM+sas+WrFbA/T9H6mNvA==
-Date: Fri, 24 Jan 2025 07:35:50 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Tianling Shen <cnsztl@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Jonas
- Karlman <jonas@kwiboo.se>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org, Peter Geis
- <pgwipeout@gmail.com>
-Subject: Re: [PATCH] arm64: dts: rockchip: change eth phy mode to rgmii-id for
- orangepi r1 plus lts
-In-Reply-To: <98387508-10de-4c2e-80ad-05d0d86b7006@gmail.com>
-References: <20250119091154.1110762-1-cnsztl@gmail.com>
- <ce15f141688c4c537ac3307b6fbed283@manjaro.org>
- <59893a67-18c7-4ab3-9b2a-5a17091d4b6c@gmail.com>
- <dffd06a341b58e9689f578c3456cc11d@manjaro.org>
- <65f4e27f-3dc4-4eaf-be4d-265ce0325ade@gmail.com>
- <98387508-10de-4c2e-80ad-05d0d86b7006@gmail.com>
-Message-ID: <59e46b34e1c8f9197565fea917335d3f@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=UTF-8;
- format=flowed
-Content-Transfer-Encoding: 8bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+	id 1tbDSc-0000000E1hF-0Q5U;
+	Fri, 24 Jan 2025 06:46:35 +0000
+Received: from localhost.localdomain (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 994456e1;
+	Fri, 24 Jan 2025 14:46:22 +0800 (GMT+08:00)
+From: Elaine Zhang <zhangqing@rock-chips.com>
+To: mturquette@baylibre.com,
+	sboyd@kernel.org,
+	kever.yang@rock-chips.com,
+	zhangqing@rock-chips.com,
+	heiko@sntech.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: linux-clk@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	huangtao@rock-chips.com,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v1 0/3] clk: rockchip: Fixed some incorrect commits
+Date: Fri, 24 Jan 2025 14:46:16 +0800
+Message-Id: <20250124064619.13893-1-zhangqing@rock-chips.com>
+X-Mailer: git-send-email 2.17.1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGk0ZGlZKGklKTkpIGkhPSB1WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+X-HM-Tid: 0a94970fcd5e03a3kunm994456e1
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NDY6URw4IzIPDiEWARMZDB80
+	EEsaCjBVSlVKTEhMTEtKSkNPSkJDVTMWGhIXVQETGhUcChIVHDsJFBgQVhgTEgsIVRgUFkVZV1kS
+	C1lBWU5DVUlJVUxVSkpPWVdZCAFZQUhCTzcG
+DKIM-Signature: a=rsa-sha256;
+	b=Bm2kb4XJ8h9ZAx8pB34IrXe66neBGLNV0dJTem0EA4zI/qtoWWtbeXI3wgkmx7bkekvL7BBCNJf+GA1GL2KwRlT8pp7C8h/3VwmMYvJCN4FpyRcwpK1Xa1yUte4e8wgTY22Cht5HSKvhg2OhSfvxUCg2voduaUeC37DKFotG0LA=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=hakErszKHTtOs4Wy81rK0wCSNo3C7i1Eglw64nX85ko=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_223555_773777_4FEC05E9 
-X-CRM114-Status: GOOD (  18.16  )
+X-CRM114-CacheID: sfid-20250123_224634_610590_6B58D3ED 
+X-CRM114-Status: UNSURE (   5.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,103 +79,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Tianling,
+Elaine Zhang (3):
+  Revert "clk: rockchip: Set parent rate for DCLK_VOP clock on RK3228"
+  Revert "arm64: dts: rockchip: Increase VOP clk rate on RK3328"
+  arm64: dts: rockchip: Increase VOP clk rate on RK3328
 
-On 2025-01-24 07:28, Tianling Shen wrote:
-> On 2025/1/19 23:48, Tianling Shen wrote:
->> On 2025/1/19 19:36, Dragan Simic wrote:
->>> On 2025-01-19 12:15, Tianling Shen wrote:
->>>> On 2025/1/19 17:54, Dragan Simic wrote:
->>>>> Thanks for the patch.  Please, see a comment below.
->>>>> 
->>>>> On 2025-01-19 10:11, Tianling Shen wrote:
->>>>>> In general the delay should be added by the PHY instead of the 
->>>>>> MAC,
->>>>>> and this improves network stability on some boards which seem to
->>>>>> need different delay.
->>>>>> 
->>>>>> Fixes: 387b3bbac5ea ("arm64: dts: rockchip: Add Xunlong OrangePi 
->>>>>> R1 Plus LTS")
->>>>>> Cc: stable@vger.kernel.org # 6.6+
->>>>>> Signed-off-by: Tianling Shen <cnsztl@gmail.com>
->>>>>> ---
->>>>>>  arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus-lts.dts | 3 
->>>>>> +--
->>>>>>  arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dts     | 1 
->>>>>> +
->>>>>>  arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dtsi    | 1 
->>>>>> -
->>>>>>  3 files changed, 2 insertions(+), 3 deletions(-)
->>>>>> 
->>>>>> diff --git
->>>>>> a/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus-lts.dts
->>>>>> b/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus-lts.dts
->>>>>> index 67c246ad8b8c..ec2ce894da1f 100644
->>>>>> --- a/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus-lts.dts
->>>>>> +++ b/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus-lts.dts
->>>>>> @@ -17,8 +17,7 @@ / {
->>>>>> 
->>>>>>  &gmac2io {
->>>>>>      phy-handle = <&yt8531c>;
->>>>>> -    tx_delay = <0x19>;
->>>>>> -    rx_delay = <0x05>;
->>>>>> +    phy-mode = "rgmii-id";
->>>>> 
->>>>> Shouldn't the "tx_delay" and "rx_delay" DT parameters be converted
->>>>> into the "tx-internal-delay-ps" and "rx-internal-delay-ps" 
->>>>> parameters,
->>>>> respectively, so the Motorcomm PHY driver can pick them up and
->>>>> actually configure the internal PHY delays?
->>>> 
->>>> The documentation[1] says "{t,r}x-internal-delay-ps" default to 1950
->>>> and that value already works fine on my board.
->>>> 
->>>> 1. https://www.kernel.org/doc/Documentation/devicetree/bindings/net/ 
->>>> motorcomm%2Cyt8xxx.yaml
->>> 
->>> I see, but those values differ from the values found in the
->>> "tx_delay" and "rx_delay" DT parameters, so I think this patch
->>> should be tested with at least one more Orange Pi R1 Plus LTS
->>> board, to make sure it's all still fine.
->> 
->> This patch has been tested on 2 boards, and we will do more tests in 
->> next week.
->> 
-> 
-> Managed to test on another board and looks so far so good.
-> (Working network connection, no packet drop)
+ arch/arm64/boot/dts/rockchip/rk3328.dtsi | 10 ++++++----
+ drivers/clk/rockchip/clk-rk3228.c        |  2 +-
+ 2 files changed, 7 insertions(+), 5 deletions(-)
 
-Sounds good to me, thanks for the additional testing.
+-- 
+2.17.1
 
->>>>>>      status = "okay";
->>>>>> 
->>>>>>      mdio {
->>>>>> diff --git 
->>>>>> a/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dts
->>>>>> b/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dts
->>>>>> index 324a8e951f7e..846b931e16d2 100644
->>>>>> --- a/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dts
->>>>>> +++ b/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dts
->>>>>> @@ -15,6 +15,7 @@ / {
->>>>>> 
->>>>>>  &gmac2io {
->>>>>>      phy-handle = <&rtl8211e>;
->>>>>> +    phy-mode = "rgmii";
->>>>>>      tx_delay = <0x24>;
->>>>>>      rx_delay = <0x18>;
->>>>>>      status = "okay";
->>>>>> diff --git 
->>>>>> a/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dtsi
->>>>>> b/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dtsi
->>>>>> index 4f193704e5dc..09508e324a28 100644
->>>>>> --- a/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dtsi
->>>>>> +++ b/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dtsi
->>>>>> @@ -109,7 +109,6 @@ &gmac2io {
->>>>>>      assigned-clocks = <&cru SCLK_MAC2IO>, <&cru SCLK_MAC2IO_EXT>;
->>>>>>      assigned-clock-parents = <&gmac_clk>, <&gmac_clk>;
->>>>>>      clock_in_out = "input";
->>>>>> -    phy-mode = "rgmii";
->>>>>>      phy-supply = <&vcc_io>;
->>>>>>      pinctrl-0 = <&rgmiim1_pins>;
->>>>>>      pinctrl-names = "default";
 
