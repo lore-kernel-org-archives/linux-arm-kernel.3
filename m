@@ -4,92 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 264D4C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 05:28:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EF31C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 06:02:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=p07sjty6xKqv6rCV4Fqi1eiP0EADaUe999Gk077M4nk=; b=RgbhXX5JUHtTcRw4F7c/weYvVd
-	XY/jOUMyFnNzDUGS3AiWcksApZVBqkoFvZOkee3sf+XlbyH4CMGdRTDlhUXkJhTZvCn8DQ8pZP6uF
-	7ynakos0xAeZ0g8WcTir2VfbBD5id2WfzUfu/6hoyxqvdPzsxl/7c8cry6S4NO7oR76GE59wJclOj
-	Ubz25loCjj7qZ4ZS1oIrHPPBzG32L2qeee5lKqFpzgvIPsAZ4igxia9ZVKndRotq+jYYfR7LjfQKM
-	Fq+pkuytn1NjCPJD7zhhSCiNyRxAUXFzFbwi3EalnnZBHNzd1S+RcFnj9dtsKujbh+1L4+holWGJf
-	7CarxYaA==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=48WLvrmGgq8l5irtiIVlpxzaJVXPZ+RlqW2L6jPOFuM=; b=HnfE11roZwCy7bX4ve65v9lZM0
+	2L4OWKulfH8VlcEvSoEa08t4T1ziiOKwFXpJB38i/Ar1oPay0pRJPsz0vFLS+wTQvYuHvraW9xAax
+	ti52Nzz5mB2GlCDKVAtzpM6WTsuDLyhXgST6zQ7TW248PMXXJMWnAC7J8W7Yi97XMGGYL6bBevhgK
+	4ZnOPXGxD79bG1vpYsEiIJHqY3bjaYRODS55N2IonRlg1K2IZpROo1Zw73EuJn5Y7hebKdWQ9vCkz
+	egdgPkqMCFmutKj0a7Ka85a6NCheOzffGXmSoPZVQUM8SGyM09rw1WGHO7ZWyrDoOcoTB1ns55aB3
+	t4s1c28w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbCEZ-0000000Dwxa-0xaE;
-	Fri, 24 Jan 2025 05:27:59 +0000
-Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
+	id 1tbClF-0000000DywH-1xre;
+	Fri, 24 Jan 2025 06:01:45 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbCDF-0000000DwpN-36Du;
-	Fri, 24 Jan 2025 05:26:38 +0000
-Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-3003c0c43c0so17440721fa.1;
-        Thu, 23 Jan 2025 21:26:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737696395; x=1738301195; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=p07sjty6xKqv6rCV4Fqi1eiP0EADaUe999Gk077M4nk=;
-        b=WTKOoh1SsohoUzOBsF8Qf1dPofkonCMpvrv2RT0Hp4Yuk6dvz/R/NI/t99R1lNhKIl
-         m8DPvhD1jLXOz7cKHfn62tffMWu/AcHxum+Ysx8kLUDRARd4UiFuNEquUoir2qnyLyS+
-         UW7JVd/Njyyx3ChqzM8fPgen4jLsegrW/Vjd9PC/lp0iq7OuaR28rkPP/a+qLNiO2jXu
-         a9Vn71bm2zHQMI06zIfG5HlXcLDC88E6Ayk8mt8N2N1/htre+K8t8f7l3QmVALbsfVwL
-         mRyKbJsHpIG5rwlwkBsOljcNuh7daCV9iqqbMU5K7aPieyHnzXclLpqZNuWKV8Tte3rL
-         BmuQ==
+	id 1tbCjv-0000000Dyrj-49Z6
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 24 Jan 2025 06:00:25 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50O3sYhc030950
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jan 2025 06:00:22 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	48WLvrmGgq8l5irtiIVlpxzaJVXPZ+RlqW2L6jPOFuM=; b=meFLRnHKT5vtOFkA
+	Ar3Sav+HG2/0PS8xAIG07cOtmouwEYVrBxVf/0h7UHglk+DkA4sGuCVFuRhnqDC4
+	Jq86RINgIPrrfHVDX/XqosmrMeBBCZMOgWi63EVOc8meNayNo8nOk8Z7F/6+JdTb
+	HjDQY1TkTkQU4kRhv3lxzddrJ3BfkXovFmLjrxalG8EH2eYac/4eucGrS5B/bspz
+	GisSdGzyAdMzUjXi66K/DTrV210S12g/t2PkNPbBjdP/Sc+6m1XzG6qejjbqbnlL
+	ff7SeyLM2EPPieH/Tz1UPgtTiWMWTsAK1GUijczN8GN9oBYcyXTIIyUzs9atE5p9
+	QY2qIw==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44c3bxr7b1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jan 2025 06:00:22 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-21631cbf87dso35492125ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 22:00:22 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737696395; x=1738301195;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=p07sjty6xKqv6rCV4Fqi1eiP0EADaUe999Gk077M4nk=;
-        b=HcK+cnbYBD4aWm36n0WyE3QCLXBuwon4ls44qJ3Z7QP7nP5AGrTc3R7aahG9KarsjW
-         b04MzXy+dtX0bOE6A+6huXrXoCxt7/uPngslY+b549idUheEhG2jc7Q8FNY6N6PWi3ZJ
-         B8ViuXK+tAXytqCcUL11wCH4tjRApXVZUZDJF6T7UZgVQ+oixK/m/hkKgm49AiJgTOTD
-         21u333UwZ7hmZbyMaZtG+xIoBj6t05K464HG9lvVpLKLqvFJ47d/82BNeECTyzLKGlQ7
-         Dit78o3SsFY2djgO0KgxppHZjD7+hh7HIuvW1e4NqE+4HlxFh00cojOKZwSDtA9Q9KPZ
-         zU8w==
-X-Forwarded-Encrypted: i=1; AJvYcCUAVz/j1z9rM2SgtgDLQEnsdgFmhN4Xz8B9viHH3lAVS7xUCnusxLrfAmYFsbEpGb9VaYAEhWknk6Few1Rp2aNP@lists.infradead.org
-X-Gm-Message-State: AOJu0YzfNdizAOA9h1LOSuW3wQKyNxQcmjtnx0NH/uis/o4zC3Vs7Xpw
-	Jk0hhHqDGsV6mBVXQv5czDlX62J8ZO+qadcsKH+rjulkc74bkPHRIp0Q1yQP
-X-Gm-Gg: ASbGncu66p2WQilchZixdf/R7l7M1o74yKfktleB1+G24q5ZctHNnM3IszN+mRnXkIu
-	YwDlXLxT3LbbJS9XGOQRUw6B0DkXhyHChF+66i+dYdsh9Jgt1pWihy5lsWLCbPyGwAwtxnvpn67
-	ObtH1hiV/kek6Y68N4Krj1OF4J31auWesgwAWKwglTN1z+0EvmiUrtD3K5CmsV1qitfviYoh3ei
-	+7MBEdcPk/999GRT6PAu/GpxyfEICtKEQyysErhWPvUsw2u1OQO5qsimiYu12b+1oCTjr2xF36x
-	PDh9oWIyoBdeEsk/zGU2jetAEpWJ
-X-Google-Smtp-Source: AGHT+IFlqUx90XIioMXK3K5xnP0U9POjUttzeJEvX3ss+rSU2HenO99mLcexlPY8+ML+vDDZJVxQcA==
-X-Received: by 2002:a2e:a263:0:b0:302:3abc:d9e2 with SMTP id 38308e7fff4ca-3072cb21f67mr76745751fa.29.1737696394396;
-        Thu, 23 Jan 2025 21:26:34 -0800 (PST)
-Received: from localhost.localdomain ([188.243.23.53])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3076bc49f46sm2389441fa.105.2025.01.23.21.26.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Jan 2025 21:26:32 -0800 (PST)
-From: Alexander Shiyan <eagle.alexander923@gmail.com>
-To: linux-rockchip@lists.infradead.org
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Alexey Charkov <alchark@gmail.com>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Dragan Simic <dsimic@manjaro.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Alexander Shiyan <eagle.alexander923@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] arm64: dts: rockchip: Fix broken tsadc pinctrl binding for rk3588
-Date: Fri, 24 Jan 2025 08:26:11 +0300
-Message-Id: <20250124052611.3705-1-eagle.alexander923@gmail.com>
-X-Mailer: git-send-email 2.39.1
+        d=1e100.net; s=20230601; t=1737698421; x=1738303221;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=48WLvrmGgq8l5irtiIVlpxzaJVXPZ+RlqW2L6jPOFuM=;
+        b=ZLcjnacyQWtxlrmY4JeldJhtiqYqgOHTWDlsFPfWDXE3YE9pvndjGTGY3rmqxRzxN0
+         mE5cpel0IplEJVag8ubxVe7NlZa4KgtiCaLWsUrGKRm91DuVYzYc7v8HzTqj59ZRGN6q
+         jUcKvbjSe2PeP93VeLrcI2WzoNcrX/p9BBFUsWiaIGQeuLPlpiRJUp0XchMcpiNXhqbr
+         4AchwpxQSVlv3yjQuqbBY1HJsNO4RsHRy/4GPTrJC1P+EZdyF2uRLYc2T+8E4MSaZwKb
+         AEdlDmYVZdDbH5c5MLmxzbUYYZpjgrG+yxRl/UqQs3epnGY6cDkqDBzVdWSxjundRtKv
+         kGFw==
+X-Forwarded-Encrypted: i=1; AJvYcCUjFTCTmjCHfgyv36QuHt37QKOAbeZeigQomfGLgIpb/d5AFaPua7UiPmTRiNmLFlpPz4mtCWBcr+jzcbqjSuvz@lists.infradead.org
+X-Gm-Message-State: AOJu0YwoOZwMIKzabi1bn0rTMkVzRkFNDWZ5P/PgYq57/Ha2ji9+ljMh
+	DAZYQf/C7DgtZAvhF0BHYv+miRRgxAiWPLzfFGGHJUbJag0ERBbyNXHDUFljSa52V2RsXd9elIv
+	RvP0mrUgx8sQAyaQCjfHp9El2RS1xTq9zEvWPEKQhBjrRp1z5IcKy4lDUQtZQQM6nfx3tmT04FQ
+	==
+X-Gm-Gg: ASbGncs78xpDOG5GqemLpSRLsE+Acz3jm9FiSnNkz/05q6GV/PGtETHapfEVfYBt7LG
+	wwTmVyVK4nhcKt5N1UOEPKb6PkKB/yTYLYApsVk99Bu2Mj5HfDuL4kMUWx+dk51Q53UNFdvYNx1
+	ZNNWF6/+2Qs3dXA5Gk1AUbSagIxCwnn1bTN+c8HZtQMd/rwWG3Rz2hlHPLCkWg2Fbrd7P7aXDyz
+	FHMvw715l9LhXddh9iJTtIr2y4k0D6bFp/fMKxjqjXtAgrBax5AlnOXE8ZNso4LBb1GpkJPUl+l
+	/yRWKx4vrj8=
+X-Received: by 2002:a17:902:e743:b0:215:a039:738 with SMTP id d9443c01a7336-21c352de481mr468312635ad.5.1737698420699;
+        Thu, 23 Jan 2025 22:00:20 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEY2M8ll7VI/M66jt4+0uoyEviD0sV6PuwerOhF56aY9l+1ofmanLjzThwLUGQXXTPjMhbOjg==
+X-Received: by 2002:a17:902:e743:b0:215:a039:738 with SMTP id d9443c01a7336-21c352de481mr468312165ad.5.1737698420336;
+        Thu, 23 Jan 2025 22:00:20 -0800 (PST)
+Received: from [10.64.68.153] ([114.94.8.21])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21da414ed3bsm8435955ad.193.2025.01.23.22.00.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 23 Jan 2025 22:00:19 -0800 (PST)
+Message-ID: <2fd825ac-ea58-4acd-a27b-b104868bcc20@oss.qualcomm.com>
+Date: Fri, 24 Jan 2025 14:00:15 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] firmware: xilinx: Update the zynqmp_pm_load_pdi() API
+To: Nava kishore Manne <nava.kishore.manne@amd.com>, michal.simek@amd.com,
+        ronak.jain@amd.com, gregkh@linuxfoundation.org,
+        jay.buddhabhatti@amd.com, praveen.teja.kundanala@amd.com,
+        siva.durga.prasad.paladugu@amd.com, u.kleine-koenig@baylibre.com,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250123103522.1258499-1-nava.kishore.manne@amd.com>
+ <20250123103522.1258499-2-nava.kishore.manne@amd.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <20250123103522.1258499-2-nava.kishore.manne@amd.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Proofpoint-ORIG-GUID: IPb2-S5sYLFRGkqJKLF0mLPDN1s7yMaX
+X-Proofpoint-GUID: IPb2-S5sYLFRGkqJKLF0mLPDN1s7yMaX
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-24_02,2025-01-23_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=896 clxscore=1011
+ phishscore=0 bulkscore=0 adultscore=0 priorityscore=1501
+ lowpriorityscore=0 suspectscore=0 mlxscore=0 spamscore=0 impostorscore=0
+ malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501240041
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_212637_787292_2F09FF73 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20250123_220024_155490_9C55D3A2 
+X-CRM114-Status: GOOD (  18.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,35 +121,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There is no pinctrl "gpio" and "otpout" (probably designed as "output")
-handling in the tsadc driver.
-Let's use proper binding "default" and "sleep".
 
-Fixes: 32641b8ab1a5 ("arm64: dts: rockchip: add rk3588 thermal sensor")
-Cc: stable@vger.kernel.org
-Signed-off-by: Alexander Shiyan <eagle.alexander923@gmail.com>
----
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-index a337f3fb8377..f141065eb69d 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-@@ -2667,9 +2667,9 @@ tsadc: tsadc@fec00000 {
- 		rockchip,hw-tshut-temp = <120000>;
- 		rockchip,hw-tshut-mode = <0>; /* tshut mode 0:CRU 1:GPIO */
- 		rockchip,hw-tshut-polarity = <0>; /* tshut polarity 0:LOW 1:HIGH */
--		pinctrl-0 = <&tsadc_gpio_func>;
--		pinctrl-1 = <&tsadc_shut>;
--		pinctrl-names = "gpio", "otpout";
-+		pinctrl-0 = <&tsadc_shut>;
-+		pinctrl-1 = <&tsadc_gpio_func>;
-+		pinctrl-names = "default", "sleep";
- 		#thermal-sensor-cells = <1>;
- 		status = "disabled";
- 	};
--- 
-2.39.1
+On 1/23/2025 6:35 PM, Nava kishore Manne wrote:
+> Update the zynqmp_pm_load_pdi() API to handle the firmware
+> error’s properly.
+> 
+> Signed-off-by: Nava kishore Manne <nava.kishore.manne@amd.com>
+> ---
+>   drivers/firmware/xilinx/zynqmp.c | 12 ++++++++++--
+>   1 file changed, 10 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
+> index 720fa8b5d8e9..ea04a6ac402d 100644
+> --- a/drivers/firmware/xilinx/zynqmp.c
+> +++ b/drivers/firmware/xilinx/zynqmp.c
+> @@ -1483,8 +1483,16 @@ EXPORT_SYMBOL_GPL(zynqmp_pm_set_requirement);
+>    */
+>   int zynqmp_pm_load_pdi(const u32 src, const u64 address)
+>   {
+> -	return zynqmp_pm_invoke_fn(PM_LOAD_PDI, NULL, 3, src, lower_32_bits(address),
+> -				   upper_32_bits(address));
+> +	u32 ret_payload[PAYLOAD_ARG_CNT];
+> +	int ret;
+> +
+> +	ret = zynqmp_pm_invoke_fn(PM_LOAD_PDI, ret_payload, 3, src,
+> +				  lower_32_bits(address),
+> +				  upper_32_bits(address));
+> +	if (ret_payload[0])
+> +		return ret_payload[0];
+Looks a little bit hacking. As the ret_payload is u32, return as int, it 
+has possibility to overflow?
+
+> +
+> +	return ret;
+>   }
+>   EXPORT_SYMBOL_GPL(zynqmp_pm_load_pdi);
+>   
+
+Thanks,
+Jie
 
 
