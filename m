@@ -4,66 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8450C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 10:19:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A1D8C0218B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 10:22:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pxAB7albovvdU7t1RPIPm3VmdTI5HDwMqnGEsvlp3/M=; b=y1Nf76/elwMSb/4GZ8HxD9eX9w
-	Tmm2Ly0DpiYrYeuSyPc/qpuSFnzbK1z6YcQ6cBxtoKvfAgj80I4ZzF4OP19XdykL3QAFKAQfGUg+Q
-	cScz3WV50ralHqhj0zn03qQhY3mThlhOLDtjGhykZ/SkIqPz/hnnTiikEg59T7Mp09Z685/iaVILd
-	0jOuMUh8qoXq2MeGZU7oCWaCiVOD/kkoZGAq6mZyf5ttCwqZhh9qTZZvfyhxcAZZJ3uNmKcMmKpL/
-	nyqCMM1o0sxlvxwoNvkQAt44cWy5Ek3T+jFwbXShxmVyuxgfFxmWdOjn/i7SF4smpV5zK5vmwbkC7
-	y0SB83Cw==;
+	bh=u0BM50TZK/HIu82bsqWrUkagwGNI0D2aUJbSTJdHkTw=; b=K4iCavNM/hprbtHmCXwyInzINw
+	rf3woOLCg8ecpQ+w4G8td+g60lPh0ZJ10YQfkC/SibhBtv2vfc28AOudAF9PWIsqxKYHn6hrkTvwR
+	onh7wyMPQ3l5FgNw6QEHGmWMHPuM1r8RRY+UYK2vxgjCnphnfOwaC2/pCcvX8trXXjeLNQSHSXO8b
+	2iLnPNa8IonUs/qy5bAUanB2fVw2hSa6z1vNhoUJd8rJamQs2ngMemnTs2ARlevVtEtQ5+bKEfIBx
+	sJy/kEj+h+g47IhSPF5bZ8zERCNXyyYZ4vqe5XeQ5IuOjGUdRrAyYHkxGekwtv9eHR2LCj9pj+tMa
+	Rz29R/wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbGmj-0000000ERls-17e3;
-	Fri, 24 Jan 2025 10:19:33 +0000
-Received: from mx.socionext.com ([202.248.49.38])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbGhW-0000000EREU-1NRi
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jan 2025 10:14:11 +0000
-Received: from unknown (HELO kinkan2-ex.css.socionext.com) ([172.31.9.52])
-  by mx.socionext.com with ESMTP; 24 Jan 2025 19:14:06 +0900
-Received: from mail.mfilter.local (mail-arc01.css.socionext.com [10.213.46.36])
-	by kinkan2-ex.css.socionext.com (Postfix) with ESMTP id 19A3A208E6F3;
-	Fri, 24 Jan 2025 19:14:06 +0900 (JST)
-Received: from kinkan2.css.socionext.com ([172.31.9.51]) by m-FILTER with ESMTP; Fri, 24 Jan 2025 19:14:06 +0900
-Received: from plum.e01.socionext.com (unknown [10.212.245.39])
-	by kinkan2.css.socionext.com (Postfix) with ESMTP id A102C373C;
-	Fri, 24 Jan 2025 19:14:05 +0900 (JST)
-From: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
-To: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: Russell King <linux@armlinux.org.uk>,
-	Yanteng Si <si.yanteng@linux.dev>,
-	Furong Xu <0x1207@gmail.com>,
-	Joao Pinto <Joao.Pinto@synopsys.com>,
-	netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
-Subject: [PATCH net v3 3/3] net: stmmac: Specify hardware capability value when FIFO size isn't specified
-Date: Fri, 24 Jan 2025 19:13:59 +0900
-Message-Id: <20250124101359.2926906-4-hayashi.kunihiko@socionext.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250124101359.2926906-1-hayashi.kunihiko@socionext.com>
-References: <20250124101359.2926906-1-hayashi.kunihiko@socionext.com>
+	id 1tbGp1-0000000ERzb-2nxt;
+	Fri, 24 Jan 2025 10:21:55 +0000
+Received: from mail-m1973180.qiye.163.com ([220.197.31.80])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tbGng-0000000ERqB-2jUt;
+	Fri, 24 Jan 2025 10:20:34 +0000
+Received: from [172.16.12.26] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 999d7bbb;
+	Fri, 24 Jan 2025 18:20:21 +0800 (GMT+08:00)
+Message-ID: <9199671c-f647-4c39-8618-f2d7fa28f081@rock-chips.com>
+Date: Fri, 24 Jan 2025 18:20:21 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 09/14] dt-bindings: display: rockchip: analogix-dp: Add
+ support for RK3588
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: devicetree@vger.kernel.org, kever.yang@rock-chips.com,
+ l.stach@pengutronix.de, linux-phy@lists.infradead.org, vkoul@kernel.org,
+ linux-kernel@vger.kernel.org, cristian.ciocaltea@collabora.com,
+ hjc@rock-chips.com, sebastian.reichel@collabora.com,
+ dmitry.baryshkov@linaro.org, rfoss@kernel.org, krzk+dt@kernel.org,
+ heiko@sntech.de, andy.yan@rock-chips.com,
+ linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
+ algea.cao@rock-chips.com, linux-rockchip@lists.infradead.org,
+ conor+dt@kernel.org
+References: <20250123100747.1841357-1-damon.ding@rock-chips.com>
+ <20250123100747.1841357-10-damon.ding@rock-chips.com>
+ <173763136187.3345079.11905359473404124812.robh@kernel.org>
+Content-Language: en-US
+From: Damon Ding <damon.ding@rock-chips.com>
+In-Reply-To: <173763136187.3345079.11905359473404124812.robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQk8dTFZLShpKTRgdGkhMTExWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpOTE
+	5VSktLVUpCS0tZBg++
+X-HM-Tid: 0a9497d3b59d03a3kunm999d7bbb
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NBg6Lyo5AzIKCho4Az0aKBw4
+	MC8KCh1VSlVKTEhMTEpPS0lIT01DVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFIS0lCNwY+
+DKIM-Signature: a=rsa-sha256;
+	b=R9P1b2tY3AWKf5ZQ/2+nyS6ZvqpAcjzV+V0ScfM8eTSa/i9Jm7OY1vqqONpq6+DgOfkt6gctdO2lSxQme3D9eMmucV/8kGVoor85I9KlWdAqTsNwPPTY2EezB9MMB0cHYdCBnaRleqMhTFQriClr29J69Y0S/jfwE5Fq1TFS1S0=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=u0BM50TZK/HIu82bsqWrUkagwGNI0D2aUJbSTJdHkTw=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250124_021410_475609_6D93267B 
-X-CRM114-Status: GOOD (  17.04  )
+X-CRM114-CacheID: sfid-20250124_022032_846093_4D82DAF9 
+X-CRM114-Status: GOOD (  20.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,94 +83,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When Tx/Rx FIFO size is not specified in advance, the driver checks if
-the value is zero and sets the hardware capability value in functions
-where that value is used.
+Hi Rob,
 
-Consolidate the check and settings into function stmmac_hw_init() and
-remove redundant other statements.
+On 2025/1/23 19:22, Rob Herring (Arm) wrote:
+> 
+> On Thu, 23 Jan 2025 18:07:42 +0800, Damon Ding wrote:
+>> Compared with RK3288/RK3399, the HBR2 link rate support is the main
+>> improvement of RK3588 eDP TX controller, and there are also two
+>> independent eDP display interfaces on RK3588 Soc.
+>>
+>> The newly added 'apb' reset is to ensure the APB bus of eDP controller
+>> works well on the RK3588 SoC.
+>>
+>> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+>>
+>> ---
+>>
+>> Changes in v2:
+>> - Add the main defferences of the RK3588 eDP and the previous versions
+>>    in commit message
+>>
+>> Changes in v3:
+>> - Expand the property clock-names, resets and reset-names
+>>
+>> Changes in v4:
+>> - Remove 'spdif' clock which added in v3
+>> - Add the comment of newly added 'apb' reset in commit message
+>>
+>> Changes in v5:
+>> - Put the differences between RK3288/RK3399 and RK3588 into 'allOf'
+>>
+>> Changes in v6:
+>> - Keep the widest constraints and add only RK3588 related constraints
+>>    into 'allOf'
+>> ---
+>>   .../rockchip/rockchip,analogix-dp.yaml        | 22 ++++++++++++++++++-
+>>   1 file changed, 21 insertions(+), 1 deletion(-)
+>>
+> 
+> My bot found errors running 'make dt_binding_check' on your patch:
+> 
+> yamllint warnings/errors:
+> 
+> dtschema/dtc warnings/errors:
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml: properties:reset-names: 'const' should not be valid under {'enum': ['const', 'enum', 'exclusiveMaximum', 'exclusiveMinimum', 'minimum', 'maximum', 'multipleOf', 'pattern']}
+> 	hint: Scalar and array keywords cannot be mixed
+> 	from schema $id: http://devicetree.org/meta-schemas/keywords.yaml#
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml: properties:reset-names: 'const' should not be valid under {'enum': ['const', 'enum', 'exclusiveMaximum', 'exclusiveMinimum', 'minimum', 'maximum', 'multipleOf', 'pattern']}
+> 	hint: Scalar and array keywords cannot be mixed
+> 	from schema $id: http://devicetree.org/meta-schemas/keywords.yaml#
+> 
+> doc reference errors (make refcheckdocs):
+> 
+> See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250123100747.1841357-10-damon.ding@rock-chips.com
+> 
+> The base for the series is generally the latest rc1. A different dependency
+> should be noted in *this* patch.
+> 
+> If you already ran 'make dt_binding_check' and didn't see the above
+> error(s), then make sure 'yamllint' is installed and dt-schema is up to
+> date:
+> 
+> pip3 install dtschema --upgrade
+> 
+> Please check and re-submit after running the above command yourself. Note
+> that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+> your schema. However, it must be unset to test all examples with your schema.
+> 
+> 
+> 
 
-If FIFO size is zero and the hardware capability also doesn't have upper
-limit values, return with an error message.
+I have found these errors using dt_binding_check and will fix them in 
+the next version.
 
-Signed-off-by: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
----
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 35 ++++++++++---------
- 1 file changed, 18 insertions(+), 17 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 251a812e4e77..efeefb9eff8b 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -2375,11 +2375,6 @@ static void stmmac_dma_operation_mode(struct stmmac_priv *priv)
- 	u32 chan = 0;
- 	u8 qmode = 0;
- 
--	if (rxfifosz == 0)
--		rxfifosz = priv->dma_cap.rx_fifo_size;
--	if (txfifosz == 0)
--		txfifosz = priv->dma_cap.tx_fifo_size;
--
- 	/* Split up the shared Tx/Rx FIFO memory on DW QoS Eth and DW XGMAC */
- 	if (priv->plat->has_gmac4 || priv->plat->has_xgmac) {
- 		rxfifosz /= rx_channels_count;
-@@ -2851,11 +2846,6 @@ static void stmmac_set_dma_operation_mode(struct stmmac_priv *priv, u32 txmode,
- 	int rxfifosz = priv->plat->rx_fifo_size;
- 	int txfifosz = priv->plat->tx_fifo_size;
- 
--	if (rxfifosz == 0)
--		rxfifosz = priv->dma_cap.rx_fifo_size;
--	if (txfifosz == 0)
--		txfifosz = priv->dma_cap.tx_fifo_size;
--
- 	/* Adjust for real per queue fifo size */
- 	rxfifosz /= rx_channels_count;
- 	txfifosz /= tx_channels_count;
-@@ -5856,9 +5846,6 @@ static int stmmac_change_mtu(struct net_device *dev, int new_mtu)
- 	const int mtu = new_mtu;
- 	int ret;
- 
--	if (txfifosz == 0)
--		txfifosz = priv->dma_cap.tx_fifo_size;
--
- 	txfifosz /= priv->plat->tx_queues_to_use;
- 
- 	if (stmmac_xdp_is_enabled(priv) && new_mtu > ETH_DATA_LEN) {
-@@ -7247,15 +7234,29 @@ static int stmmac_hw_init(struct stmmac_priv *priv)
- 		priv->plat->tx_queues_to_use = priv->dma_cap.number_tx_queues;
- 	}
- 
--	if (priv->dma_cap.rx_fifo_size &&
--	    priv->dma_cap.rx_fifo_size < priv->plat->rx_fifo_size) {
-+	if (!priv->plat->rx_fifo_size) {
-+		if (priv->dma_cap.rx_fifo_size) {
-+			priv->plat->rx_fifo_size = priv->dma_cap.rx_fifo_size;
-+		} else {
-+			dev_err(priv->device, "Can't specify Rx FIFO size\n");
-+			return -ENODEV;
-+		}
-+	} else if (priv->dma_cap.rx_fifo_size &&
-+		   priv->dma_cap.rx_fifo_size < priv->plat->rx_fifo_size) {
- 		dev_warn(priv->device,
- 			 "Rx FIFO size (%u) exceeds dma capability\n",
- 			 priv->plat->rx_fifo_size);
- 		priv->plat->rx_fifo_size = priv->dma_cap.rx_fifo_size;
- 	}
--	if (priv->dma_cap.tx_fifo_size &&
--	    priv->dma_cap.tx_fifo_size < priv->plat->tx_fifo_size) {
-+	if (!priv->plat->tx_fifo_size) {
-+		if (priv->dma_cap.tx_fifo_size) {
-+			priv->plat->tx_fifo_size = priv->dma_cap.tx_fifo_size;
-+		} else {
-+			dev_err(priv->device, "Can't specify Tx FIFO size\n");
-+			return -ENODEV;
-+		}
-+	} else if (priv->dma_cap.tx_fifo_size &&
-+		   priv->dma_cap.tx_fifo_size < priv->plat->tx_fifo_size) {
- 		dev_warn(priv->device,
- 			 "Tx FIFO size (%u) exceeds dma capability\n",
- 			 priv->plat->tx_fifo_size);
--- 
-2.25.1
-
+Best regards
+Damon
 
