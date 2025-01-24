@@ -4,74 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 035D5C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 03:20:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63497C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 03:26:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hr2q/zEtH+pKoNV7Cfvrk2hAQt7KerJaGg3/YZVmNBc=; b=MOuhUNqvGRlBUVKpgk39nRe5tf
-	hP/EVA+qtF87sBQnulcIi49tzXpGLTcMhg776cZ3FWgEo3xmVKGWyZO+RSspAuUfZRXHHr8tjZlwv
-	bCRNx/4/GO5++MpXr31P/tb9QFiO451Ddvbr8aqLTKnJVU7X8kXRIY/ZHQWl6CIpyYPepJ3+Xa82P
-	xD+L4R0N4xHPqpsn8IuZvcBtcZLgKsgJDlVgcaP6nx0Ec2NmlJK33n8aS2iDUrvTUK8ypMKA52pGm
-	3V9QRD45B7s4DNUbsDbitqSwcup+R4PlLmwp2K2bKrSFLhbyDKb53Dj1/7vDaGBEo0fCbgevlc67P
-	dgRpcwVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NZVGarXm8F3wmNaZlX6Uo9ZJAp39A7Hk9H8iGkJJROc=; b=fqd2rypNARUaZBa0pyPrIzHWFC
+	fjiE0XaE7TCPQEhw4vMaGKBIKaelWdO8XCVhfjnAw5DJNoNMpM8iP9fLhf75Hdu9tw1pvOqX2ubRA
+	I0cQvaGsex0RCB2hlSrVFx9WBgVZt+xeO8t6WKqkNLmMaVZF7u/KkISPvNLCP6HN5HghSuXZdBIOj
+	FuCi/k84ysBeOwepdfHxOeCdd4ztc3n8gqHAc8lvza0LAXi8q3Lwn4i47QB+PWMO5iRwzNTIpRbBd
+	QOZiHH7RzcRN2BnBkkrWy+6zY2WYLhqPVvmMfFryRWj8KzgokPF3uvVN5VMGpd+U1GryEm3L6NuzO
+	LkmFFvsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbAEq-0000000Dnba-2gTV;
-	Fri, 24 Jan 2025 03:20:08 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1tbAL0-0000000Do7d-2s8V;
+	Fri, 24 Jan 2025 03:26:30 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbADX-0000000DnKR-1G0w;
-	Fri, 24 Jan 2025 03:18:48 +0000
-X-UUID: ea0e0bdeda0111ef82ff63e91e7eb18c-20250123
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=hr2q/zEtH+pKoNV7Cfvrk2hAQt7KerJaGg3/YZVmNBc=;
-	b=lj5869yk+EjoNmLbvS3O66wRPTd8/36VP1Aw6QgzDe4wN6MDNT73R2OoGxMlTB1e7AwQjj3XyyvvG5hqqKCQGGO4ebbHnpkpWlGNbsxO52ARt/nfiusZGzFNmah0KJT8lDOQBs+33TCVGL6Ogn4H72eJv5djvLU82h3tyt1JyDY=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.46,REQID:5295c14a-0fa1-4c8b-afe0-0e0ee10dc183,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-25
-X-CID-META: VersionHash:60aa074,CLOUDID:9089a47e-427a-4311-9df4-bfaeeacd8532,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
-	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
-	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: ea0e0bdeda0111ef82ff63e91e7eb18c-20250123
-Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw01.mediatek.com
-	(envelope-from <yenchia.chen@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1195928283; Thu, 23 Jan 2025 20:18:42 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.28; Fri, 24 Jan 2025 11:18:39 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.28 via Frontend Transport; Fri, 24 Jan 2025 11:18:39 +0800
-From: Yenchia Chen <yenchia.chen@mediatek.com>
-To: <gregkh@linuxfoundation.org>, <jirislaby@kernel.org>,
-	<matthias.bgg@gmail.com>, <angelogioacchino.delregno@collabora.com>
-CC: <yenchia.chen@mediatek.com>, <yj.chiang@mediatek.com>,
-	<tbergstrom@nvidia.com>, <treapking@chromium.org>,
-	<andriy.shevchenko@linux.intel.com>, <u.kleine-koenig@baylibre.com>,
-	<yujiaoliang@vivo.com>, <linux-kernel@vger.kernel.org>,
-	<linux-serial@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>
-Subject: [PATCH v2] serial: 8250_mtk: Add ACPI support
-Date: Fri, 24 Jan 2025 11:18:32 +0800
-Message-ID: <20250124031835.1788995-1-yenchia.chen@mediatek.com>
-X-Mailer: git-send-email 2.45.2
+	id 1tbAJg-0000000Do0G-3yoE
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 24 Jan 2025 03:25:10 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-2ee8e8e29f6so2429437a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 19:25:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1737689108; x=1738293908; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=NZVGarXm8F3wmNaZlX6Uo9ZJAp39A7Hk9H8iGkJJROc=;
+        b=tT3k0YOpZGtpYNIKDJUjMAeR/g64mtoowHSPrklmv092MneLK1mF2Yl9MLi0TFNlbz
+         Wmy2fLqWxG3SNbxCwyIaoL/5FzCbJ698F06aLXFp3x+dQL8UtRsJP01gT3+yYVj1tAfd
+         Tex+ng99T5NascQd1cZ+O8QojxAqzIOrl2/i0Et+uYqtOh8YxIqE4c1KsAhMjX2X1K7u
+         cxc8ndQy3bOJdyQs/7KrTCPoV4CiM+l6mb9FMVFdTne1rgfhPQhCT33IQyt+M6P6vQah
+         j+q63eaU8zMhYex+j3T2n+dTdCajFu4LueZAslqpqQFOo/CIFPA87VAAFRqZO0F1Cseo
+         X2VQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737689108; x=1738293908;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=NZVGarXm8F3wmNaZlX6Uo9ZJAp39A7Hk9H8iGkJJROc=;
+        b=un4Lf3BsU5BjHiNaABfzVNZpRK0YOIhhQt0qzfbE6emHywSx4TAyGOmWyhyhAtDoc+
+         4xZ+3gCKDX/gxjR2k4I5I5PjZiHQwJomx0C/OY+4WCOnHA4UsHLsi5evm5W7ChyxF99R
+         8UuXm6diUX9Gb4G46Dl1ft9/O2WnIwVJB992xvJmON1MXJ4FVVqfB0xU2GzPbax5z51v
+         ku+jYO/FOFZjTTCEJlOfoJ+TG4sYLRP3p5SW7yCaCSWMcIxGDcXzzzzNYtWjRRN1YHL0
+         UsTGBL3iSJHFiUTyNgaylMJY7WwQawFxNoTkB2Ldypg3lEB6Kmdg4mDr6h7DJ5XJqxk3
+         scVg==
+X-Forwarded-Encrypted: i=1; AJvYcCXaDSfOpN0fr1FbagPftmjrzqsVIA/apqU/9e5VoUOsyHZsQfmFHzc6Y7dN+0/Iku6XF+Le5wqMJDfTFW0AWPCR@lists.infradead.org
+X-Gm-Message-State: AOJu0YyKBXhvQ1SD/XjGH+pwUl//g7+voenq0fi3zJNZae3QyT7jl4O8
+	AqRlUNlv8XZJzipDFmyvdem29XqREaf5xl3TJazAfnaz13Mzd6SvL0tE8oW+ua8=
+X-Gm-Gg: ASbGncug+KW9ZkmvX3Bd+WSN6JO/0NskJ6NXn88IdYL7aTHbG+OsSRZpdkC77KBIwXc
+	6UDjIgCY10kLmCd/sW6TZ97333fLweMSPPAh115m3RArkoINhrSJo3q2peL7YUdU9bLGB1MsdfQ
+	NwRp+pvTbH6d9Z+jzH13eACt3Hip++51x5/zmWW7fbM+ynHfe+W8I3jiTfVx+ZMNYmIVwh9GDBd
+	cihjwkOySXYb1WuPoi3hJBU2tcA+gBM3OMZjnVUOJBEb44m1Pr/Bku5GfvrmQdtdwCR8OU7xR7b
+	AJ4Uw0k=
+X-Google-Smtp-Source: AGHT+IH3EOFfjRy2pHQZCow+ihTX4jvDoolzW8UTSKno/rqcqAGRzh/TvGK8xVaNUiDNlVEdvHjT3Q==
+X-Received: by 2002:a17:90b:258b:b0:2ee:f80c:688d with SMTP id 98e67ed59e1d1-2f782d4f168mr39207230a91.25.1737689107809;
+        Thu, 23 Jan 2025 19:25:07 -0800 (PST)
+Received: from localhost ([122.172.84.139])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f7ffa6acd0sm596795a91.28.2025.01.23.19.25.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Jan 2025 19:25:07 -0800 (PST)
+Date: Fri, 24 Jan 2025 08:55:02 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: "Rafael J. Wysocki" <rafael@kernel.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>, linux-pm@vger.kernel.org,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	kernel test robot <lkp@intel.com>, stable@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH V2] cpufreq: s3c64xx: Fix compilation warning
+Message-ID: <20250124032502.nj25mu5mko36qjaq@vireshk-i7>
+References: <236b227e929e5adc04d1e9e7af6845a46c8e9432.1737525916.git.viresh.kumar@linaro.org>
+ <CAJZ5v0gz2WLtwJca5oAgZ23C+UmX18k9fvCbzRAEV6zZL4jiiQ@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+In-Reply-To: <CAJZ5v0gz2WLtwJca5oAgZ23C+UmX18k9fvCbzRAEV6zZL4jiiQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_191847_349461_923EDB9C 
-X-CRM114-Status: GOOD (  17.00  )
+X-CRM114-CacheID: sfid-20250123_192509_003166_31B1A551 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,94 +103,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add ACPI support to 8250_mtk driver. This makes it possible to
-use UART on ARM-based desktops with EDK2 UEFI firmware.
+On 23-01-25, 20:48, Rafael J. Wysocki wrote:
+> On Wed, Jan 22, 2025 at 7:06 AM Viresh Kumar <viresh.kumar@linaro.org> wrote:
+> >
+> > The driver generates following warning when regulator support isn't
+> > enabled in the kernel. Fix it.
+> >
+> >    drivers/cpufreq/s3c64xx-cpufreq.c: In function 's3c64xx_cpufreq_set_target':
+> > >> drivers/cpufreq/s3c64xx-cpufreq.c:55:22: warning: variable 'old_freq' set but not used [-Wunused-but-set-variable]
+> >       55 |         unsigned int old_freq, new_freq;
+> >          |                      ^~~~~~~~
+> > >> drivers/cpufreq/s3c64xx-cpufreq.c:54:30: warning: variable 'dvfs' set but not used [-Wunused-but-set-variable]
+> >       54 |         struct s3c64xx_dvfs *dvfs;
+> >          |                              ^~~~
+> >
+> > Reported-by: kernel test robot <lkp@intel.com>
+> > Closes: https://lore.kernel.org/oe-kbuild-all/202501191803.CtfT7b2o-lkp@intel.com/
+> > Cc: <stable@vger.kernel.org> # v5.4+
+> > Signed-off-by: Viresh Kumar <viresh.kumar@linaro.org>
+> > ---
+> > V2: Move s3c64xx_dvfs_table too inside ifdef.
+> 
+> Applied as 6.14-rc material.
 
-Signed-off-by: Yenchia Chen <yenchia.chen@mediatek.com>
----
- drivers/tty/serial/8250/8250_mtk.c | 21 ++++++++++++++++++---
- 1 file changed, 18 insertions(+), 3 deletions(-)
+Thanks.
 
-diff --git a/drivers/tty/serial/8250/8250_mtk.c b/drivers/tty/serial/8250/8250_mtk.c
-index b44de2ed7413..d06952081191 100644
---- a/drivers/tty/serial/8250/8250_mtk.c
-+++ b/drivers/tty/serial/8250/8250_mtk.c
-@@ -5,6 +5,7 @@
-  * Copyright (c) 2014 MundoReader S.L.
-  * Author: Matthias Brugger <matthias.bgg@gmail.com>
-  */
-+#include <linux/acpi.h>
- #include <linux/clk.h>
- #include <linux/io.h>
- #include <linux/module.h>
-@@ -15,6 +16,7 @@
- #include <linux/pm_runtime.h>
- #include <linux/serial_8250.h>
- #include <linux/serial_reg.h>
-+#include <linux/units.h>
- #include <linux/console.h>
- #include <linux/dma-mapping.h>
- #include <linux/tty.h>
-@@ -519,6 +521,7 @@ static int mtk8250_probe(struct platform_device *pdev)
- 	struct mtk8250_data *data;
- 	struct resource *regs;
- 	int irq, err;
-+	acpi_handle acpi_dev_handle = ACPI_HANDLE(&pdev->dev);
- 
- 	irq = platform_get_irq(pdev, 0);
- 	if (irq < 0)
-@@ -545,8 +548,9 @@ static int mtk8250_probe(struct platform_device *pdev)
- 		err = mtk8250_probe_of(pdev, &uart.port, data);
- 		if (err)
- 			return err;
--	} else
-+	} else if (!acpi_dev_handle) {
- 		return -ENODEV;
-+	}
- 
- 	spin_lock_init(&uart.port.lock);
- 	uart.port.mapbase = regs->start;
-@@ -562,14 +566,18 @@ static int mtk8250_probe(struct platform_device *pdev)
- 	uart.port.startup = mtk8250_startup;
- 	uart.port.set_termios = mtk8250_set_termios;
- 	uart.port.uartclk = clk_get_rate(data->uart_clk);
-+	if (!uart.port.uartclk)
-+		uart.port.uartclk = 26 * HZ_PER_MHZ;
- #ifdef CONFIG_SERIAL_8250_DMA
- 	if (data->dma)
- 		uart.dma = data->dma;
- #endif
- 
--	/* Disable Rate Fix function */
--	writel(0x0, uart.port.membase +
-+	if (!acpi_dev_handle) {
-+		/* Disable Rate Fix function */
-+		writel(0x0, uart.port.membase +
- 			(MTK_UART_RATE_FIX << uart.port.regshift));
-+	}
- 
- 	platform_set_drvdata(pdev, data);
- 
-@@ -647,11 +655,18 @@ static const struct of_device_id mtk8250_of_match[] = {
- };
- MODULE_DEVICE_TABLE(of, mtk8250_of_match);
- 
-+static const struct acpi_device_id mtk8250_acpi_match[] = {
-+	{ "MTKI0511", 0 },
-+	{},
-+};
-+MODULE_DEVICE_TABLE(acpi, mtk8250_acpi_match);
-+
- static struct platform_driver mtk8250_platform_driver = {
- 	.driver = {
- 		.name		= "mt6577-uart",
- 		.pm		= &mtk8250_pm_ops,
- 		.of_match_table	= mtk8250_of_match,
-+		.acpi_match_table = mtk8250_acpi_match,
- 	},
- 	.probe			= mtk8250_probe,
- 	.remove			= mtk8250_remove,
 -- 
-2.45.2
-
+viresh
 
