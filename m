@@ -4,76 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88C25C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 03:51:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AF15C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 03:52:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IzkbIemVnuwiLLIK9y8mVhnQ/6V+p9dfR3FEtwj47hA=; b=hPNNb+JHkssWbqrN7DgD9nOkJJ
-	fP7KD3mZq+Csb6EknSeZe8onihiNIf4Y8L4hBB0hD7xwvc/roV2NXHobfUM5SAabQe8kqa79VEbzb
-	ESsz0aanrGw5VmlA3YQ8UmGqY80qTN6o14yVyrDLvB8Mwko3vhylktvS6OtBiMlcBF7OQaZJP4e6L
-	6KP9/bJ2AZ5Sr11ZcJjWC7K6OATv05jQpIlvuK0Iy1dvinmI1Xv46YbAm0TRrwgLoFBwsnjMdwV3m
-	x/QWTYRWrDn8dmnxwd+1dC+or6ux+iK7OXgj5kMkMspqn1HaMslgcEwonNPfQPTbqamjquDTjryM0
-	8A4Z476A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UsOSr255hsze50L8MIH369hi7fncpzVLWcWcM0n4BCw=; b=N+SI/ZrxVZu5+HfbnbHV12Oe/f
+	1sNFlTzjfEXcexYRUKL4onk5QESlxOtn4ZriJSQGkSK/B4gxwj6SAb04h6p/pTeW2avU3gKqMi0k1
+	8tgZwIQCvO53/DZSbrNHtAukJ5R8t/8+YEaS4sSc6pU/R5t0gqNf/mkOveRPRLk1DVGq6C2I8OSVs
+	gOIbG+g8T2j/hgL4N8Gu07fknOT9lY8CMJDCF43eK8T6Vw4nBagypFJJGsSMaQoPJJXeYoQ/aUbBs
+	Zo7l9HTxVpNYwiDH9T57x0txI8Yho8pNUGCPFGZ6zBC8CKjQKZuEvi4+L28CxRSBMZYrVb9TqNSmR
+	KpBMSK4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbAj6-0000000DpzU-1bl2;
-	Fri, 24 Jan 2025 03:51:24 +0000
-Received: from mail-oa1-x35.google.com ([2001:4860:4864:20::35])
+	id 1tbAkQ-0000000Dq69-07X0;
+	Fri, 24 Jan 2025 03:52:46 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbAhT-0000000Dpn4-1Jh2
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jan 2025 03:49:44 +0000
-Received: by mail-oa1-x35.google.com with SMTP id 586e51a60fabf-29e5aedbebdso913391fac.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 19:49:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737690582; x=1738295382; darn=lists.infradead.org;
-        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=IzkbIemVnuwiLLIK9y8mVhnQ/6V+p9dfR3FEtwj47hA=;
-        b=e4zp2T6qxwViJ9TBnKWbyVOCKWBDCP90w4vbN7UYjpKoqv4BnNTmNHKSFMGQzW3Bly
-         0FjmX4Bk0rQ8OmPFSDAUZpbiTMOPPYjoGu9lGP+7xXE2VByYAQjfqJ69WW84k6N8AaiC
-         /5u6B4HRbv1iuKW0CukdEaTi4/CF0imLw7EYkqqt4AhNGEL3OEv08OugzojGLXm9Royb
-         W0fBee0RICFMsuNObyOS/wJltrrHAOHM9ljWp2W0ylm5IBltaC3mSPiDp1GBwSk5jhPm
-         8XsVR2XRtZ8+n7eqOz51NwVreGR5TsHV9HmlOrYZEudyxc2seUiHyeArpljq3XgO/Myr
-         vi7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737690582; x=1738295382;
-        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=IzkbIemVnuwiLLIK9y8mVhnQ/6V+p9dfR3FEtwj47hA=;
-        b=jUsuygXJPoGKuoRRuTuY0XqM/2IUeSIQFV+jOKPbrGJyZrnaBQMUpD2IQH9/zbZhxP
-         ZGeV7+IWJE8egNwH1xq9N2Drq5oNlAhlEd111kHZXQpbwu4b/BgGFAnpyBgbyjpRhPxe
-         9JBF77Jk/6n5dGFpCFJR5U3UKdFcdf89WTJW4O/xiEkOaduc/JvUUGpmEwtHcPpDG2J/
-         kgb9r9p/hh1xbrlx5HYAEiJvR8zy+WYSkk0+iskrcdfOlnRCwhEcTHqmiCebaYfh9x1m
-         ZOQf6u7napGYoDuYXt2+jL1iNAjAQQMWSks7OahwPqfB/O2j+aD84Cs2byCt7WUn/eab
-         U0wQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXeALSu7M56dLfAUSEKFrjdEjTQHVaG5BTnX9K62S//uWub+WK6rvz7unUFOV4VTj+gH++SLxJFs/yHpzjRlGBo@lists.infradead.org
-X-Gm-Message-State: AOJu0YwXspIxjJoYUaqmXI/znWhs9Gn71sNGl9nzoceYCxX/gBflDcp9
-	N8+3kjt3p2ak6NDzD31FEVCaj2GILupjdgocVcxsOqbyLUZDFK5ZKJYnI6OIuKHwOwfnMq3UaRp
-	yuVmtSMLIVcNM7AydvF1JbrOINe8=
-X-Gm-Gg: ASbGncuB8ALZe+k8puC5BZ2fN0E7quzvnSHjt/9RViFsNcM8UfEv13WkvIVFOt3uWWi
-	dnhJ2/sZtRIbIeY1KfcSBWQAyuZQ7Vd+PAw1IcnYuBITir+ypDuFN980ORiplb+U=
-X-Google-Smtp-Source: AGHT+IEJWelIGE1J9YedECXyoOMvgyyo8zbUUFNY7kU7UvOS0+99ymHvFDD3XLLi+kCPbUHdIzTxmRDgcZfNjVE50z8=
-X-Received: by 2002:a05:6871:788c:b0:296:ff26:3cd1 with SMTP id
- 586e51a60fabf-2b1c0b08f68mr15657007fac.21.1737690580375; Thu, 23 Jan 2025
- 19:49:40 -0800 (PST)
+	id 1tbAhz-0000000DprE-2Ssr;
+	Fri, 24 Jan 2025 03:50:16 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50NK1bwe025017;
+	Fri, 24 Jan 2025 03:50:07 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	UsOSr255hsze50L8MIH369hi7fncpzVLWcWcM0n4BCw=; b=MdY5fsvGqrkk09id
+	qu/JAKNKUkXaA0NcuZeQAfZOgUP3XntcdHRl1MgsOM4NCCmNmHgpYL/kQCSZDq0b
+	PPuA2I6W7/d+RhU7iO/83Vj3yuGw3uF9pt9G5Ej8YdMiOpkEmroMRPD/7SvPoSS1
+	/urid3pcxbBU/hVSaLwMW4vGkQ1ZVWS4Ys5MT0Ln5W1X/mK7Aw9fnUpqEb5J62zY
+	N/lqWGNqqBjAHaGW0+OgSkf8DGARWGJ5tlDqaSv3pgDMCbY2Otb/Akz8C4rsjN1z
+	3+C3K7efCPj0ZX3Fec1uj89pQLyfprpQatJ/kbIXIsUwvpFy8HRNWXz/yXrDlHiE
+	R5jFZQ==
+Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44bvengru6-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 24 Jan 2025 03:50:07 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 50O3o6bk007904
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 24 Jan 2025 03:50:06 GMT
+Received: from [10.239.155.136] (10.80.80.8) by nasanex01b.na.qualcomm.com
+ (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 23 Jan
+ 2025 19:50:02 -0800
+Message-ID: <de0a80f0-f6b8-4213-8687-7111e6ad7aba@quicinc.com>
+Date: Fri, 24 Jan 2025 11:50:00 +0800
 MIME-Version: 1.0
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Thu, 23 Jan 2025 21:49:29 -0600
-X-Gm-Features: AWEUYZlFsD1hrC9yWFcWD1hz9rxHG1qET83nn7eCErcDD5iY6iyfy6W_xiWpBM4
-Message-ID: <CABb+yY0QX4PLU1wSfz7DsXCzoeOD=VAR-E0vDH2LLtwfp8aJbw@mail.gmail.com>
-Subject: [GIT PULL] Mailbox changes for v6.14
-To: Linus Torvalds <torvalds@linux-foundation.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/8] Support Multi-frequency scale for UFS
+To: <neil.armstrong@linaro.org>, <quic_cang@quicinc.com>, <bvanassche@acm.org>,
+        <mani@kernel.org>, <beanhuo@micron.com>, <avri.altman@wdc.com>,
+        <junwoo80.lee@samsung.com>, <martin.petersen@oracle.com>,
+        <quic_nguyenb@quicinc.com>, <quic_nitirawa@quicinc.com>,
+        <quic_rampraka@quicinc.com>
+CC: <linux-arm-msm@vger.kernel.org>, <linux-scsi@vger.kernel.org>,
+        "Matthias
+ Brugger" <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>,
+        "open list:ARM/Mediatek SoC
+ support:Keyword:mediatek" <linux-kernel@vger.kernel.org>,
+        "moderated
+ list:ARM/Mediatek SoC support:Keyword:mediatek"
+	<linux-arm-kernel@lists.infradead.org>,
+        "moderated list:ARM/Mediatek SoC
+ support:Keyword:mediatek" <linux-mediatek@lists.infradead.org>
+References: <20250122100214.489749-1-quic_ziqichen@quicinc.com>
+ <d4881156-a003-41fe-824e-4c29e279fbb7@linaro.org>
+Content-Language: en-US
+From: Ziqi Chen <quic_ziqichen@quicinc.com>
+In-Reply-To: <d4881156-a003-41fe-824e-4c29e279fbb7@linaro.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: LdKnsDhDlDeLqdLLFYQQD0jKSqhLeu_e
+X-Proofpoint-ORIG-GUID: LdKnsDhDlDeLqdLLFYQQD0jKSqhLeu_e
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-24_01,2025-01-23_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=999
+ suspectscore=0 adultscore=0 spamscore=0 priorityscore=1501 impostorscore=0
+ mlxscore=0 bulkscore=0 clxscore=1015 malwarescore=0 phishscore=0
+ lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501240025
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_194943_371910_92BE2ACD 
-X-CRM114-Status: GOOD (  13.31  )
+X-CRM114-CacheID: sfid-20250123_195015_642534_DE419F7A 
+X-CRM114-Status: GOOD (  16.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,87 +112,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
 
-The following changes since commit 5bc55a333a2f7316b58edc7573e8e893f7acb532:
 
-  Linux 6.13-rc7 (2025-01-12 14:37:56 -0800)
+On 1/24/2025 4:12 AM, neil.armstrong@linaro.org wrote:
+> Hi,
+> 
+> On 22/01/2025 11:02, Ziqi Chen wrote:
+>> With OPP V2 enabled, devfreq can scale clocks amongst multiple frequency
+>> plans. However, the gear speed is only toggled between min and max during
+>> clock scaling. Enable multi-level gear scaling by mapping clock 
+>> frequencies
+>> to gear speeds, so that when devfreq scales clock frequencies we can put
+>> the UFS link at the appropraite gear speeds accordingly.
+>>
+>> This series has been tested on below platforms -
+>> sm8550 mtp + UFS3.1
+>> SM8650 MTP + UFS3.1
+>> SM8750 MTP + UFS4.0
+> 
+> Thanks, could you be more precise on how you tested this feature ? how 
+> did you exercise the gear changes and check that is cales correctly ?
+> 
+> Thanks,
+> Neil
+> 
 
-are available in the Git repository at:
+Hi Neil,
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/jassibrar/mailbox.git
-tags/mailbox-v6.14
+I made a Debugging patch that track the freq and gear in UFS devfreq and 
+clkscale path. I do data transfer from userspace and print out devfreq 
+target freq , clkscale recommended freq , final clkscale freq and gear 
+value of before and after clkscale.
 
-for you to fetch changes up to 4783ce32b0806911287f35cc65b799876d6f9547:
+For example, we can get such logs on SM8550 as below:
 
-  riscv: export __cpuid_to_hartid_map (2025-01-20 10:25:11 -0600)
+[    5.424720] [DEBUG]ufshcd_devfreq_target: target freq = 75000000
+[    5.509541] [DEBUG]ufshcd_devfreq_target: recommended freq = 75000000
+[    5.525463] [DEBUG]ufshcd_devfreq_target: final freq = 75000000
+[    5.525464] [DEBUG]ufshcd_devfreq_target: scaling DOWN from freq 
+300000000 to freq 75000000
+[    5.525468] [DEBUG]ufshcd_devfreq_scale: freq 75000000 mapped to gear 
+1 , caller: ufshcd_devfreq_target+0x298/0x3e4
+[    5.525531] [DEBUG]ufshcd_devfreq_scale: scaling DOWN gear from 4 -> 1
+[    5.728018] [DEBUG]ufshcd_devfreq_target: updated target freq to 75000000
 
-----------------------------------------------------------------
-samsung: add gs101-mbox driver
-microchip: add sbi-ipc driver
-zynqmp: fix invalid __percpu annotation
-qcom: add IPQ5424 APCS compatible
-mpfs fix copy and paste bug
-th1520: Fix NULL vs IS_ERR() and a memory corruption bug
-tegra-hsp: clear mailbox before using message
 
-----------------------------------------------------------------
-Dan Carpenter (2):
-      mailbox: th1520: Fix a NULL vs IS_ERR() bug
-      mailbox: mpfs: fix copy and paste bug in probe
+.. G1 -> G4...
 
-Gokul Sriram Palanisamy (2):
-      dt-bindings: mailbox: qcom: Add IPQ5424 APCS compatible
-      mailbox: qcom: Add support for IPQ5424 APCS IPC
+[  261.068843] [DEBUG]ufshcd_devfreq_target: target freq = 300000000
+[  261.075242] [DEBUG]ufshcd_devfreq_target: recommended freq = 300000000
+[  261.082055] [DEBUG]ufshcd_devfreq_target: final freq = 300000000
+[  261.088280] [DEBUG]ufshcd_devfreq_target: scaling UP from freq 
+75000000 to freq 300000000
+[  261.096743] ufshcd-qcom 1d84000.ufshc: 
+ufshcd_is_devfreq_scaling_required: req_freq= 300000000, target_freq = 
+75000000
+[  261.107814] [DEBUG]ufshcd_devfreq_scale: freq 300000000 mapped to 
+gear 4 , caller: ufshcd_devfreq_target+0x298/0x3e4
+[  261.126922] [DEBUG]ufshcd_devfreq_scale: scaling UP gear from 1 -> 4
+[  261.134810] [DEBUG]ufshcd_devfreq_target: updated target freq to 
+300000000
+[  261.196460] [DEBUG]ufshcd_devfreq_target: target freq = 244755397
+[  261.210039] [DEBUG]ufshcd_devfreq_target: recommended freq = 300000000
+[  261.216900] [DEBUG]ufshcd_devfreq_target: final freq = 300000000
+[  261.223135] [DEBUG]ufshcd_devfreq_target: scaling DOWN from freq 
+300000000 to freq 300000000
+[  261.231872] ufshcd-qcom 1d84000.ufshc: 
+ufshcd_is_devfreq_scaling_required: req_freq= 300000000, target_freq = 
+300000000
+[  261.243017] [DEBUG]ufshcd_devfreq_target: scaling DOWN from freq 
+300000000 to freq 300000000 not required
 
-Michal Wilczynski (1):
-      mailbox: th1520: Fix memory corruption due to incorrect array size
 
-Mukesh Ojha (1):
-      mailbox: qcom-ipcc: Reset CLEAR_ON_RECV_RD if set from boot firmware
+.. G4 -> G2...
 
-Pekka Pessi (1):
-      mailbox: tegra-hsp: Clear mailbox before using message
+[  455.604414] [DEBUG]ufshcd_devfreq_target: target freq = 149736604
+[  455.617895] [DEBUG]ufshcd_devfreq_target: recommended freq = 150000000
+[  455.624702] [DEBUG]ufshcd_devfreq_target: final freq = 150000000
+[  455.630936] [DEBUG]ufshcd_devfreq_target: scaling DOWN from freq 
+300000000 to freq 150000000
+[  455.639656] ufshcd-qcom 1d84000.ufshc: 
+ufshcd_is_devfreq_scaling_required: req_freq= 150000000, target_freq = 
+300000000
+[  455.650838] [DEBUG]ufshcd_devfreq_scale: freq 150000000 mapped to 
+gear 2 , caller: ufshcd_devfreq_target+0x298/0x3e4
+[  455.661809] [DEBUG]ufshcd_devfreq_scale: scaling DOWN gear from 4 -> 2
+[  455.670529] [DEBUG]ufshcd_devfreq_target: updated target freq to 
+150000000
 
-Tudor Ambarus (3):
-      dt-bindings: mailbox: add google,gs101-mbox
-      mailbox: add Samsung Exynos driver
-      MAINTAINERS: add entry for Samsung Exynos mailbox driver
 
-Uros Bizjak (1):
-      mailbox: zynqmp: Remove invalid __percpu annotation in zynqmp_ipi_probe()
+...G2 -> G1
 
-Valentina Fernandez (4):
-      dt-bindings: mailbox: add binding for Microchip IPC mailbox controller
-      mailbox: add Microchip IPC support
-      riscv: sbi: vendorid_list: Add Microchip Technology to the vendor list
-      riscv: export __cpuid_to_hartid_map
+[  548.484492] [DEBUG]ufshcd_devfreq_target: target freq = 75000000
+[  548.497957] [DEBUG]ufshcd_devfreq_target: recommended freq = 75000000
+[  548.504801] [DEBUG]ufshcd_devfreq_target: final freq = 75000000
+[  548.510949] [DEBUG]ufshcd_devfreq_target: scaling DOWN from freq 
+150000000 to freq 75000000
+[  548.519590] ufshcd-qcom 1d84000.ufshc: 
+ufshcd_is_devfreq_scaling_required: req_freq= 75000000, target_freq = 
+150000000
+[  548.530725] [DEBUG]ufshcd_devfreq_scale: freq 75000000 mapped to gear 
+1 , caller: ufshcd_devfreq_target+0x298/0x3e4
+[  548.552850] [DEBUG]ufshcd_devfreq_scale: scaling DOWN gear from 2 -> 1
 
- .../bindings/mailbox/google,gs101-mbox.yaml        |  69 +++
- .../bindings/mailbox/microchip,sbi-ipc.yaml        | 123 +++++
- .../bindings/mailbox/qcom,apcs-kpss-global.yaml    |   1 +
- MAINTAINERS                                        |  10 +
- arch/riscv/include/asm/vendorid_list.h             |   1 +
- arch/riscv/kernel/smp.c                            |   1 +
- drivers/mailbox/Kconfig                            |  24 +
- drivers/mailbox/Makefile                           |   4 +
- drivers/mailbox/exynos-mailbox.c                   | 157 +++++++
- drivers/mailbox/mailbox-mchp-ipc-sbi.c             | 504 +++++++++++++++++++++
- drivers/mailbox/mailbox-mpfs.c                     |   2 +-
- drivers/mailbox/mailbox-th1520.c                   |   6 +-
- drivers/mailbox/qcom-apcs-ipc-mailbox.c            |   1 +
- drivers/mailbox/qcom-ipcc.c                        |  16 +
- drivers/mailbox/tegra-hsp.c                        |   6 +-
- drivers/mailbox/zynqmp-ipi-mailbox.c               |   2 +-
- include/linux/mailbox/exynos-message.h             |  19 +
- include/linux/mailbox/mchp-ipc.h                   |  33 ++
- 18 files changed, 973 insertions(+), 6 deletions(-)
- create mode 100644
-Documentation/devicetree/bindings/mailbox/google,gs101-mbox.yaml
- create mode 100644
-Documentation/devicetree/bindings/mailbox/microchip,sbi-ipc.yaml
- create mode 100644 drivers/mailbox/exynos-mailbox.c
- create mode 100644 drivers/mailbox/mailbox-mchp-ipc-sbi.c
- create mode 100644 include/linux/mailbox/exynos-message.h
- create mode 100644 include/linux/mailbox/mchp-ipc.h
+
+-Ziqi
+
+>>
+>> v1 -> v2:
+>> 1. Withdraw old patch 8/8 "ARM: dts: msm: Use Operation Points V2 for 
+>> UFS on SM8650"
+>> 2. Add new patch 8/8 "ABI: sysfs-driver-ufs: Add missing UFS sysfs 
+>> addributes"
+>> 3. Modify commit message for  "scsi: ufs: core: Pass target_freq to 
+>> clk_scale_notify() vops" and "scsi: ufs: qcom: Pass target_freq to clk 
+>> scale pre and post change"
+>> 4. In "scsi: ufs: qcom: Pass target_freq to clk scale pre and post 
+>> change", use common Macro HZ_PER_MHZ in function 
+>> ufs_qcom_set_core_clk_ctrl()
+>> 5. In "scsi: ufs: qcom: Implement the freq_to_gear_speed() vops", 
+>> print out freq and gear info as debugging message
+>> 6. In "scsi: ufs: core: Enable multi-level gear scaling", rename the 
+>> lable "do_pmc" to "config_pwr_mode"
+>> 7. In "scsi: ufs: core: Toggle Write Booster during clock", initialize 
+>> the local variables "wb_en" as "false"
+>>
+>> Can Guo (6):
+>>    scsi: ufs: core: Pass target_freq to clk_scale_notify() vops
+>>    scsi: ufs: qcom: Pass target_freq to clk scale pre and post change
+>>    scsi: ufs: core: Add a vops to map clock frequency to gear speed
+>>    scsi: ufs: qcom: Implement the freq_to_gear_speed() vops
+>>    scsi: ufs: core: Enable multi-level gear scaling
+>>    scsi: ufs: core: Toggle Write Booster during clock scaling base on
+>>      gear speed
+>>
+>> Ziqi Chen (2):
+>>    scsi: ufs: core: Check if scaling up is required when disable clkscale
+>>    ABI: sysfs-driver-ufs: Add missing UFS sysfs addributes
+>>
+>>   Documentation/ABI/testing/sysfs-driver-ufs | 31 ++++++++++
+>>   drivers/ufs/core/ufshcd-priv.h             | 17 +++++-
+>>   drivers/ufs/core/ufshcd.c                  | 71 ++++++++++++++++------
+>>   drivers/ufs/host/ufs-mediatek.c            |  1 +
+>>   drivers/ufs/host/ufs-qcom.c                | 66 +++++++++++++++-----
+>>   include/ufs/ufshcd.h                       |  8 ++-
+>>   6 files changed, 159 insertions(+), 35 deletions(-)
+>>
+> 
 
