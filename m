@@ -4,91 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63497C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 03:26:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A080DC02181
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 03:29:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NZVGarXm8F3wmNaZlX6Uo9ZJAp39A7Hk9H8iGkJJROc=; b=fqd2rypNARUaZBa0pyPrIzHWFC
-	fjiE0XaE7TCPQEhw4vMaGKBIKaelWdO8XCVhfjnAw5DJNoNMpM8iP9fLhf75Hdu9tw1pvOqX2ubRA
-	I0cQvaGsex0RCB2hlSrVFx9WBgVZt+xeO8t6WKqkNLmMaVZF7u/KkISPvNLCP6HN5HghSuXZdBIOj
-	FuCi/k84ysBeOwepdfHxOeCdd4ztc3n8gqHAc8lvza0LAXi8q3Lwn4i47QB+PWMO5iRwzNTIpRbBd
-	QOZiHH7RzcRN2BnBkkrWy+6zY2WYLhqPVvmMfFryRWj8KzgokPF3uvVN5VMGpd+U1GryEm3L6NuzO
-	LkmFFvsA==;
+	bh=1YtHwD+3ED5cGp9BL5t1b6GReiZ2l6fBPO+RUUjVzlU=; b=TOPTCWORQ6m9NECjFyga9dJYXo
+	K4oBJQYlhovd0cDQLDBda+sYna1Q9C/q8zfR1fnJz2J++CfjjM4fDWqod/Qkd+aYXUYpxmGiRRpwP
+	Rlwod7dlujzvW1GCoh+dgwnOZdyyxKy3S+eaYd7KPb/noeqkvA6onY6WZS/HW8cv/7BI5eKqGA3Ys
+	kl1s5oNau+11VUQxsy9o6ta9NCcf9PFCGq0B7d226hI/Ig8HzEy5US0ed+vkee0I0ymaV19tIaSu0
+	x8fBmHu1f7iKCbmrXE/SrjYHsIVgRfkIzxxF4Ehu6zQ2tfTzSFW79nQTYRCeB3NfRJ6Xx2HNMTyzs
+	MvAW10sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbAL0-0000000Do7d-2s8V;
-	Fri, 24 Jan 2025 03:26:30 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1tbANn-0000000DoZC-06dO;
+	Fri, 24 Jan 2025 03:29:23 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbAJg-0000000Do0G-3yoE
+	id 1tbAMU-0000000DoRJ-2pYb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jan 2025 03:25:10 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-2ee8e8e29f6so2429437a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 19:25:08 -0800 (PST)
+	Fri, 24 Jan 2025 03:28:03 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-2ee67e9287fso3060259a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 19:28:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737689108; x=1738293908; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=NZVGarXm8F3wmNaZlX6Uo9ZJAp39A7Hk9H8iGkJJROc=;
-        b=tT3k0YOpZGtpYNIKDJUjMAeR/g64mtoowHSPrklmv092MneLK1mF2Yl9MLi0TFNlbz
-         Wmy2fLqWxG3SNbxCwyIaoL/5FzCbJ698F06aLXFp3x+dQL8UtRsJP01gT3+yYVj1tAfd
-         Tex+ng99T5NascQd1cZ+O8QojxAqzIOrl2/i0Et+uYqtOh8YxIqE4c1KsAhMjX2X1K7u
-         cxc8ndQy3bOJdyQs/7KrTCPoV4CiM+l6mb9FMVFdTne1rgfhPQhCT33IQyt+M6P6vQah
-         j+q63eaU8zMhYex+j3T2n+dTdCajFu4LueZAslqpqQFOo/CIFPA87VAAFRqZO0F1Cseo
-         X2VQ==
+        d=linaro.org; s=google; t=1737689282; x=1738294082; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=1YtHwD+3ED5cGp9BL5t1b6GReiZ2l6fBPO+RUUjVzlU=;
+        b=OTL6l1USr1BU0QW41JZnViVzWwRhh29J54T4mLvsa1BplmA+iROcCJCU+PLbnSUZSz
+         bqUlw/KMEIGas1LXQ6XyvIiNxIhFHHsInlcvWdnGSYj1FzEqXeGwTUpjce1l0Afc6u/Q
+         GwT9ir/iglENsWX39xp90lhnksPWnwCioN57QjkFchAkAbr4ZHkzT7Z4Cc0Mvh3tIIRD
+         jl3YJ+K3Ovu8HHYYQnJUBUA3Ggd2XLCVXFaA10Kq0sphknuqC1M6etMCSwFlomAlpC21
+         AWTF6zBHO9tjUyCOctiEtHai9euSMsLTiLjg4ZV07Hsz5CZqXnki8ZPEY0CR39aSZ6ST
+         Gr0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737689108; x=1738293908;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=NZVGarXm8F3wmNaZlX6Uo9ZJAp39A7Hk9H8iGkJJROc=;
-        b=un4Lf3BsU5BjHiNaABfzVNZpRK0YOIhhQt0qzfbE6emHywSx4TAyGOmWyhyhAtDoc+
-         4xZ+3gCKDX/gxjR2k4I5I5PjZiHQwJomx0C/OY+4WCOnHA4UsHLsi5evm5W7ChyxF99R
-         8UuXm6diUX9Gb4G46Dl1ft9/O2WnIwVJB992xvJmON1MXJ4FVVqfB0xU2GzPbax5z51v
-         ku+jYO/FOFZjTTCEJlOfoJ+TG4sYLRP3p5SW7yCaCSWMcIxGDcXzzzzNYtWjRRN1YHL0
-         UsTGBL3iSJHFiUTyNgaylMJY7WwQawFxNoTkB2Ldypg3lEB6Kmdg4mDr6h7DJ5XJqxk3
-         scVg==
-X-Forwarded-Encrypted: i=1; AJvYcCXaDSfOpN0fr1FbagPftmjrzqsVIA/apqU/9e5VoUOsyHZsQfmFHzc6Y7dN+0/Iku6XF+Le5wqMJDfTFW0AWPCR@lists.infradead.org
-X-Gm-Message-State: AOJu0YyKBXhvQ1SD/XjGH+pwUl//g7+voenq0fi3zJNZae3QyT7jl4O8
-	AqRlUNlv8XZJzipDFmyvdem29XqREaf5xl3TJazAfnaz13Mzd6SvL0tE8oW+ua8=
-X-Gm-Gg: ASbGncug+KW9ZkmvX3Bd+WSN6JO/0NskJ6NXn88IdYL7aTHbG+OsSRZpdkC77KBIwXc
-	6UDjIgCY10kLmCd/sW6TZ97333fLweMSPPAh115m3RArkoINhrSJo3q2peL7YUdU9bLGB1MsdfQ
-	NwRp+pvTbH6d9Z+jzH13eACt3Hip++51x5/zmWW7fbM+ynHfe+W8I3jiTfVx+ZMNYmIVwh9GDBd
-	cihjwkOySXYb1WuPoi3hJBU2tcA+gBM3OMZjnVUOJBEb44m1Pr/Bku5GfvrmQdtdwCR8OU7xR7b
-	AJ4Uw0k=
-X-Google-Smtp-Source: AGHT+IH3EOFfjRy2pHQZCow+ihTX4jvDoolzW8UTSKno/rqcqAGRzh/TvGK8xVaNUiDNlVEdvHjT3Q==
-X-Received: by 2002:a17:90b:258b:b0:2ee:f80c:688d with SMTP id 98e67ed59e1d1-2f782d4f168mr39207230a91.25.1737689107809;
-        Thu, 23 Jan 2025 19:25:07 -0800 (PST)
+        d=1e100.net; s=20230601; t=1737689282; x=1738294082;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1YtHwD+3ED5cGp9BL5t1b6GReiZ2l6fBPO+RUUjVzlU=;
+        b=wUzn4ORVWsfB/p41Dl6N0/9ytookQp9/c3GmqE2vC8gAf92DdPyfTQYRevNkPR8YNz
+         DQ+6M43NRgCEVaY6cVGkoJYNs+gl8fXQ2rrIvmzvYFbRjqgk/Rv7iFPTyLMlV0tb4PIr
+         UvniLTrPewh82j0+QeKL921pROd9kpggWpxDJP1pup3YYCIU7E4Xab1RqfUrF7CDyAQX
+         YH7jGRyxpFrgKsnhl7m51SLNYShWfIeAB+oMOanJUy7EXyCTbYzWqzQEOvYLtwDj/1XZ
+         HImXE+hIVEAMawx2GCCIOO2UQ+kL0mDLviUjY8nZWanHRxHB7AYo2IpfZqItW6uGkmtk
+         Wb9g==
+X-Forwarded-Encrypted: i=1; AJvYcCUJ3t1EbxppEq9AdQO/L9g77DEeIeXAgSsTMEPrP6R7LeTWN9jSfML4Uiuko49uhJsxF7zaokwp8oOnk/ysLn2C@lists.infradead.org
+X-Gm-Message-State: AOJu0YzjP/67Vj7knaN9p60LU3ISVvTadgLkg2ZjeVZ4BY0f91a4sOJf
+	i7RhfEP65eIShhD/V+6jejQwJpOI3STwjoBqXOaPwLJUhoNAZWp8WIvGJJlqZ/w=
+X-Gm-Gg: ASbGncvAfs8gaKPekr+DEyJohj/GFp6Tb5NAB+04sL3msVnc1fWrvbTmDHbeKgFe9rJ
+	B22G54JG1C5ngBOmvSc9HFIGJ0G8u39UY1di0oF5OBYHLdMw2GlGPu0fOoNXn0q1rSvMFJEULy1
+	mta5T+cb/WbFqidFq41rrSWakf62TvnwoR37nyQr+YLfBzlpzSZMKIRJl5gMOOkd8lMDyUpjBPb
+	IbRnc5hYupce3Dq7ONvDc+4RMy52ai9UNp4egKb08TaDL0eenYRdsxNzrISSpk/BnMsux3NFXS3
+	k72i5RI=
+X-Google-Smtp-Source: AGHT+IEjcYLFKFT/4zjAgtn0Ur09jWOBQWRSc3NOeyRishuwgqWAN1BJw6YRpnHk99tT5Mt/zypi9A==
+X-Received: by 2002:a17:90b:2cc3:b0:2ee:d193:f3d5 with SMTP id 98e67ed59e1d1-2f782c628ddmr46198761a91.7.1737689281866;
+        Thu, 23 Jan 2025 19:28:01 -0800 (PST)
 Received: from localhost ([122.172.84.139])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f7ffa6acd0sm596795a91.28.2025.01.23.19.25.06
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f7ffa76ebdsm514831a91.34.2025.01.23.19.28.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Jan 2025 19:25:07 -0800 (PST)
-Date: Fri, 24 Jan 2025 08:55:02 +0530
+        Thu, 23 Jan 2025 19:28:01 -0800 (PST)
+Date: Fri, 24 Jan 2025 08:57:59 +0530
 From: Viresh Kumar <viresh.kumar@linaro.org>
-To: "Rafael J. Wysocki" <rafael@kernel.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>, linux-pm@vger.kernel.org,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	kernel test robot <lkp@intel.com>, stable@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH V2] cpufreq: s3c64xx: Fix compilation warning
-Message-ID: <20250124032502.nj25mu5mko36qjaq@vireshk-i7>
-References: <236b227e929e5adc04d1e9e7af6845a46c8e9432.1737525916.git.viresh.kumar@linaro.org>
- <CAJZ5v0gz2WLtwJca5oAgZ23C+UmX18k9fvCbzRAEV6zZL4jiiQ@mail.gmail.com>
+To: Beata Michalska <beata.michalska@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org, ionela.voinescu@arm.com,
+	sudeep.holla@arm.com, will@kernel.org, catalin.marinas@arm.com,
+	rafael@kernel.org, sumitg@nvidia.com, yang@os.amperecomputing.com,
+	vanshikonda@os.amperecomputing.com, lihuisong@huawei.com,
+	zhanjie9@hisilicon.com, Jonathan Corbet <corbet@lwn.net>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H . Peter Anvin" <hpa@zytor.com>, Phil Auld <pauld@redhat.com>,
+	x86@kernel.org, linux-doc@vger.kernel.org
+Subject: Re: [PATCH v9 2/5] cpufreq: Introduce an optional cpuinfo_avg_freq
+ sysfs entry
+Message-ID: <20250124032759.zo5l7pvdlfttyu5y@vireshk-i7>
+References: <20250121084435.2839280-1-beata.michalska@arm.com>
+ <20250121084435.2839280-3-beata.michalska@arm.com>
+ <20250121105355.sdrgmjv2w2256qfn@vireshk-i7>
+ <Z4-6bsDzfe9CLcVf@arm.com>
+ <20250122060902.5pgfr5g24jpjrxw3@vireshk-i7>
+ <Z5K42yXtcDSZGuUF@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAJZ5v0gz2WLtwJca5oAgZ23C+UmX18k9fvCbzRAEV6zZL4jiiQ@mail.gmail.com>
+In-Reply-To: <Z5K42yXtcDSZGuUF@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_192509_003166_31B1A551 
-X-CRM114-Status: GOOD (  13.42  )
+X-CRM114-CacheID: sfid-20250123_192802_714800_D92E7920 
+X-CRM114-Status: UNSURE (   8.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,30 +112,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23-01-25, 20:48, Rafael J. Wysocki wrote:
-> On Wed, Jan 22, 2025 at 7:06 AM Viresh Kumar <viresh.kumar@linaro.org> wrote:
-> >
-> > The driver generates following warning when regulator support isn't
-> > enabled in the kernel. Fix it.
-> >
-> >    drivers/cpufreq/s3c64xx-cpufreq.c: In function 's3c64xx_cpufreq_set_target':
-> > >> drivers/cpufreq/s3c64xx-cpufreq.c:55:22: warning: variable 'old_freq' set but not used [-Wunused-but-set-variable]
-> >       55 |         unsigned int old_freq, new_freq;
-> >          |                      ^~~~~~~~
-> > >> drivers/cpufreq/s3c64xx-cpufreq.c:54:30: warning: variable 'dvfs' set but not used [-Wunused-but-set-variable]
-> >       54 |         struct s3c64xx_dvfs *dvfs;
-> >          |                              ^~~~
-> >
-> > Reported-by: kernel test robot <lkp@intel.com>
-> > Closes: https://lore.kernel.org/oe-kbuild-all/202501191803.CtfT7b2o-lkp@intel.com/
-> > Cc: <stable@vger.kernel.org> # v5.4+
-> > Signed-off-by: Viresh Kumar <viresh.kumar@linaro.org>
-> > ---
-> > V2: Move s3c64xx_dvfs_table too inside ifdef.
-> 
-> Applied as 6.14-rc material.
+On 23-01-25, 22:47, Beata Michalska wrote:
+> Do you mean the new config option? If so, it is in Kconfig.x86 already.
+> Unless you have smth else in mind ?
 
-Thanks.
+Its good then :)
 
 -- 
 viresh
