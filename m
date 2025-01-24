@@ -4,99 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E67FC02182
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 00:32:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D54CBC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 01:15:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jwUdhzUcT/+g0Yt1m9YM5C5e54+Sg1OVGx+QoUxel7Y=; b=pl2g6HcsfBBC131Vg9oAtXqzwe
-	bcDDZbPzSyWe2oVwQv81hl2emmaHxhj0JcnN/nv8vkswVIzHhRr8MHIprdD5Cw/drHqMH5MG4Qf40
-	5dJR1nNjWt3amJE/HLAej4WQU41P50TKNXrAgQow/36m0xKHL7OmXvhs5+ypxiJbDf3YVYTPEVIbQ
-	E8qBgDX+ahgfEbLVHhptpEmSGZuNsdYRQGTMFi7ml1uMGbaJqmBw/a0EXsTjy7EqwM0sZ17t/moB+
-	tj9O1EWjwqhjRKWCfb6Cb0CKVsKGmthTOP9b8nAZqoypQBQnzNfSOShoj1GicVvCkdxRnzrcEYJ+1
-	DOEyJlqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aU3VKA/bQTWS+bu4+aakGGz0ODZlmqPSORLEC7Iu1H0=; b=lQdHNHuJOpoGd9vjbFO3ggB5SG
+	34enPCdDeeUDyt9Bi3lirzPQ+gz3VieDlAmDCcE1wkNfAwps89mkK5O2++CGj6zFVoFcnR5P9WN9J
+	l2nkPgPDlGVU1zmh4zyoNWXlOUJyoc90PEPjLNwTqs7GvaSXg+5VS5kFZ7Oud+VwWC36EHoWp4jlB
+	937d00Kra5HPnQuCvdzdLBkMn1HYR/uLwcXMyNwtDCUIkjci30Y6pI0JGobgK/YV+C1iYtxIx8Fse
+	wmAWzoaiESaOgq9onU7m046S7ai5e0pgTuoAjJXInNwyE1YfLcrsNIiFmRBAg+/6jUwdg6IjP32bV
+	bKhF5PyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb7c7-0000000DbUK-1fk7;
-	Fri, 24 Jan 2025 00:31:59 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1tb8I2-0000000De36-3YkT;
+	Fri, 24 Jan 2025 01:15:18 +0000
+Received: from mail-am0eur02on20602.outbound.protection.outlook.com ([2a01:111:f403:2606::602] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb7ap-0000000DbJE-3Ey1
+	id 1tb8Gj-0000000Ddw3-3Gg5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jan 2025 00:30:40 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-53f757134cdso1753653e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 16:30:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1737678632; x=1738283432; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jwUdhzUcT/+g0Yt1m9YM5C5e54+Sg1OVGx+QoUxel7Y=;
-        b=aIcyQogkpIcFgemLmADF5sqWv3i9D8p59FX3tNaaN6kovATfgjGXSmzGPszqqapxjY
-         61+uU695EzI26lEDmT0X9Jh6b+lvGJu/+Nzgmv6WqHtN0jCC2xUjslBBz0IUos6W3/sa
-         wPyxNAdLO48E4pDeINxtGjnu5e6CM94GTktmU=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737678632; x=1738283432;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=jwUdhzUcT/+g0Yt1m9YM5C5e54+Sg1OVGx+QoUxel7Y=;
-        b=PwFkppghWN1aXp3yPvRVlpD+Eh1jbhTjNocMFh7xLfXF7nQcIy0qCPxk4jNVl7Wwge
-         dQGlBV1uJLNEH5p4/+3IE1PQhMHpWoExRMz71oJ6dqXW1vkMMPusn28TenNLXtjdMqa5
-         cFeH4YgIMXPw/0VeKd447Wz9y2GytbG+ieAxYpvjS+AAS/lnbzEZwdnWrg/1W/+wzx13
-         hPG3iVe6htdB0sPopFEGuGwLWMCosJRHcq7yjmBuOvwey0kT+1+q9O3+8eqMrULmrJF9
-         Alf4eIbTW2UfkyErucRLgKHElGEsDuiUuy8RwmtWnNcqiR/zmSAFhAb6FdQUZ+k5szyP
-         jwBg==
-X-Forwarded-Encrypted: i=1; AJvYcCURnB+3aJiH3T41kF2RybTI1jqkT/by/2pYMoMz97f6nLuDFbnEIXKGifaVyXIe1gI2DUXj22PPODjuaghyavbx@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz69Ul1gJbwrZV/C6mOAByyJLmroYvORLwGUFjGrytbF5qyKR4m
-	RiuZtOZJOrf6megXJaqeTQg28HYZ6kvgsQv709+JMfbTgOcxPCfKs+/i48Mea+UoOUMPJXILhTq
-	TfQld
-X-Gm-Gg: ASbGncsv71sh3Rx+MX1clSj0ahtOZrjfXtvAfYhj5PFh3aDntw6RzJh52UfnJebslcD
-	Dt/MEfQn6JtXKtc7VfsksGupuSZlGo0f3HDjKtqXYSkc0VFRkKi6JVl91ZA/aV6Wxzqj+Q86SBY
-	CjYkERyKSqz1h+GCyIqDPA/sC7BvC4lS1C7piL+dKbNX1nrsrluunLRYeDMhr9Hfj8+QlVg1NF0
-	gab5VaLswn3VyS4vKDd4Vnk+uiYaL+c+o+peqM6HQlXr1/o+3QNbMnjRhdVS0hjSHPPSnqf6+X4
-	RPWKTBNIY7W2VdvPtrRb4xJSz3BKdII4L54qeVO+WArf1R9CerAQCU2y9G8=
-X-Google-Smtp-Source: AGHT+IEMvrpPL4YPsXb2oYKcC8c6UfVpEmyxI8vNjQWZg5akxCEyGn/ZSAwireu8NfOm4u/rw8BFDA==
-X-Received: by 2002:ac2:490a:0:b0:540:3550:b1dd with SMTP id 2adb3069b0e04-5439c216bf9mr8928647e87.3.1737678631347;
-        Thu, 23 Jan 2025 16:30:31 -0800 (PST)
-Received: from mail-lj1-f169.google.com (mail-lj1-f169.google.com. [209.85.208.169])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-543c8379984sm98311e87.183.2025.01.23.16.30.29
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 23 Jan 2025 16:30:30 -0800 (PST)
-Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-30227c56b11so13683261fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 16:30:29 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXliJMwx74zrWgPtXTurENp8u8V7UHLEqOlgno9Gba2emPs12Afmw/UDxEG2tE/YnHWGVEaY3wEkYEUiTlueA0w@lists.infradead.org
-X-Received: by 2002:a05:651c:1309:b0:300:3a15:8f0d with SMTP id
- 38308e7fff4ca-3072cb284e5mr99531441fa.34.1737678628894; Thu, 23 Jan 2025
- 16:30:28 -0800 (PST)
-MIME-Version: 1.0
-References: <20250123100747.1841357-1-damon.ding@rock-chips.com>
- <20250123100747.1841357-13-damon.ding@rock-chips.com> <rwn3g7tqgjnc525cjqtivgfgedhooiayn5nujng7bdzazgqhle@wfpuvoyr2tii>
-In-Reply-To: <rwn3g7tqgjnc525cjqtivgfgedhooiayn5nujng7bdzazgqhle@wfpuvoyr2tii>
-From: Doug Anderson <dianders@chromium.org>
-Date: Thu, 23 Jan 2025 16:30:17 -0800
-X-Gmail-Original-Message-ID: <CAD=FV=WKsA9fcq-LzGcYmgbMuMLUp5SMggpzBzZnvd3sxGf9BQ@mail.gmail.com>
-X-Gm-Features: AWEUYZmXU1D9ya-D7zW5B92vNI1k79fpY-WVkms-sf4EzP7id3527uV9rKgvOPs
-Message-ID: <CAD=FV=WKsA9fcq-LzGcYmgbMuMLUp5SMggpzBzZnvd3sxGf9BQ@mail.gmail.com>
-Subject: Re: [PATCH v6 12/14] drm/edp-panel: Add LG Display panel model LP079QX1-SP0V
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: Damon Ding <damon.ding@rock-chips.com>, heiko@sntech.de, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, rfoss@kernel.org, vkoul@kernel.org, 
-	sebastian.reichel@collabora.com, cristian.ciocaltea@collabora.com, 
-	l.stach@pengutronix.de, andy.yan@rock-chips.com, hjc@rock-chips.com, 
-	algea.cao@rock-chips.com, kever.yang@rock-chips.com, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+	Fri, 24 Jan 2025 01:13:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nONc3dhnleeqc/cU9fo663K9qyKtEsDtlJlc9ZW1+jAbY+RalBAYBFB5DztEyIWdIYH/3RX3vtbBc5bDeqtTCLkrLVKmKPPeExglQAsCpsr3EXl83B+anEzjgNzeRwtCxN0L4OT/55e/dyH9T8YmX/BS3YNqFaeaZqIdlRmBEQt1aVVbuo8sITu0soi50QiWoYpf7hWPnFMpUOG0VFRVs7aCKTO8mG5NIFkg/KfZl5lIYRwRDlnEGyGamJ9UFjW/lUGYavrUmwopMnvdnzAq0nfdjyMP2NjWyUcdyPOiGmLrDPP0SyNgsTUPQC49VKekuGxCrOrnf1yhT6wZafyyTA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aU3VKA/bQTWS+bu4+aakGGz0ODZlmqPSORLEC7Iu1H0=;
+ b=EwRPLU+RxZqk+5f/PUkVuEi5iBfv0fPz401a5GjoKHj8Xe3l0LndD8brf+7Nk72DHON6h5FGFn21DjIExEmRbtnnJkIP9QSA/aZVPiD3zkoXBGbPj5zm/BlGdwhccspmOlrBB1UGO/iKFqPEcSBbTuIpw1dDt5THKZaN5bX3ZsgXF4ZnlS9lqIi46Iat1JcASgLDACm1vsKQ9fPKwqwvm/dJzpCtq9ppen+IOI9Wwo0GDkkLdz3vWJMYVlDsltbkzA8KzfG6dcdcvDFoEVGD76D5z7M5LfMdq0oYVngF2TTL2mCY00PSdxqANQ//nvB8K0zxULB36yBc9geryKvvuA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aU3VKA/bQTWS+bu4+aakGGz0ODZlmqPSORLEC7Iu1H0=;
+ b=FjobXp1OHY4qHrJxfHUprtapSWImMMp/UpmzzNVnbcktj5U1yJznb/OPliLlnehyLoPdT/kdtE5gVGRlSxtFIfpg0dnJteqRF/uoBEljB8M928fiYPMqRxnKANJdWbqF2yGbp/TjQYV7WlAGU9KxKU1U/IqgK8skLR5awXdYTHjgS/p8KBURRcxiQ2FP+C4kMpGhLKrQVfkqGrSCIGwNL71LRtlflzSXC1c7QCJmbnDfM51mTaeIqE31cDFTZpRGyEZaEW77LU1c8TnnmW+OD1he+ZlBoHqQ5A/zbva9Qo1qhHj4HfQjU0ZIyMr1zmuH/juACrhul3erTWWwIpllgw==
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by DB9PR04MB8411.eurprd04.prod.outlook.com (2603:10a6:10:24c::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8377.17; Fri, 24 Jan
+ 2025 01:13:53 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8377.009; Fri, 24 Jan 2025
+ 01:13:52 +0000
+From: Peng Fan <peng.fan@nxp.com>
+To: Sudeep Holla <sudeep.holla@arm.com>, "Peng Fan (OSS)"
+	<peng.fan@oss.nxp.com>
+CC: "cristian.marussi@arm.com" <cristian.marussi@arm.com>,
+	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Jacky Bai <ping.bai@nxp.com>, "S.J. Wang"
+	<shengjiu.wang@nxp.com>, Jason Liu <jason.hui.liu@nxp.com>
+Subject: RE: [PATCH] firmware: arm_scmi: imx: Correct tx size of
+ scmi_imx_misc_ctrl_set
+Thread-Topic: [PATCH] firmware: arm_scmi: imx: Correct tx size of
+ scmi_imx_misc_ctrl_set
+Thread-Index: AQHbbWEC++aM5mB4eUa1vaBSu2/W6LMkR7gAgADXqsA=
+Date: Fri, 24 Jan 2025 01:13:52 +0000
+Message-ID: <PAXPR04MB8459EAF6D69B99B87D237D8D88E32@PAXPR04MB8459.eurprd04.prod.outlook.com>
+References: <20250123063441.392555-1-peng.fan@oss.nxp.com>
+ <Z5I0Irl1eUarzLlA@bogus>
+In-Reply-To: <Z5I0Irl1eUarzLlA@bogus>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|DB9PR04MB8411:EE_
+x-ms-office365-filtering-correlation-id: 5f149cff-98bf-4438-8598-08dd3c145ddf
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?81MuoVpVVTiQg8p1LA2V1GjCCSjFEXk0yNClNP5JqRjeL310NVq9o5GyhuPR?=
+ =?us-ascii?Q?+Ty83uyPNfE70012WSDP6PIbc9wtlpmn4d+OA1a0k4myMwDFmBCrALl2kIri?=
+ =?us-ascii?Q?SG1HPS7sGNbL990EDExZxcEVujV3wqvJTxRw/1du5wwsuzernx2he6i6iC7f?=
+ =?us-ascii?Q?wfIuhXdyer8Zyti7Jr/TSE/f2x00pHq3ZFJ8vyp+HV71vCOa++F6xoWpidxK?=
+ =?us-ascii?Q?+PRVEPSuqi+oBBmsVuBEmC0REz6be9+mPheq1xPm7WSYx2S/xA2ejn97OAJ5?=
+ =?us-ascii?Q?1onyrngBJlq3IovtCiPSL5SpWBIW1nhLgmUxhmaO2m+iOK0n6U9uuln50t/r?=
+ =?us-ascii?Q?1b4CEm/SKOGxqlLAYGamWjBWI3vAUQalGIEcyQLoGi3ag4hryM5HwwmowOR1?=
+ =?us-ascii?Q?2+UwaULy2WeOxevje1gUKKNlCVBCCl3Jy+OCK2KuOfnt7IzK9sU48iJDneje?=
+ =?us-ascii?Q?K4MdjuJ+DAtK496tV8fla2iSWYt4L1pv96uREAHYnmdTz1QlWQPS8mOBqYwA?=
+ =?us-ascii?Q?Xu2/GgJqbDkhG14DIMvbUOdAU23yH12C5vxFDqpr0BS3cjKYtH0LjZI42tPr?=
+ =?us-ascii?Q?fkbMs3fwZ4XVhvgoBVXk+uD4igmSbxq7fvJJWn/lwrO0HyuKoWoFi660wF1b?=
+ =?us-ascii?Q?ezNQJNxg/kDY46NZ/BD6e6sQcdb5x2zz6A93AmaNyx4DE8H6lxb06im7U9ux?=
+ =?us-ascii?Q?abzNw+6JjwvbSQJRpHd7jxVLRa0g39VGLssmKUgeZ1f2/gnmwRc8Cysud4TK?=
+ =?us-ascii?Q?ifmbsHUhE6cgOvxlFfTjhP/sIsyoqQ6VE6JeifO8NLSzJMxw/kdUWW0TujNb?=
+ =?us-ascii?Q?ikD5wpRLkY6WRwz9EB3gO4kqW17sJDr473ThYAitRDBqrxRS24qOLL+mcylB?=
+ =?us-ascii?Q?P5UQxoNqm+JVJkPDRZd/3/Q3I727qj4LlE4VI9LbkmfYeGtxBdz+kjsowWK6?=
+ =?us-ascii?Q?uGNiUkOQZXhvGNvP/ltPDuv3T653x4dQ7BRcLXgGoc+Ya0ETtdJ+8qBVUuO7?=
+ =?us-ascii?Q?yQYgRiaB8iBP/rb8m5sOvv6LycuWLknk57U1Eath0/h3lO4KPxToOX1Nd7bH?=
+ =?us-ascii?Q?W8NlBuHPl1g3+wTW0IqxoUDjIspBhQ70L38Y1Htd0cjQAwhBQBfz3qpbJcAv?=
+ =?us-ascii?Q?aOZLohnwcmzJWPlPoHSwDaDcEu39TRU8zqk5UBljcoZg/m/8U5c8BF3Arj0J?=
+ =?us-ascii?Q?qg2bLSXnOOms8WdfZ/560Z8a+BhrYbzDOWnVODIU2+IK8fz4hymfNyJ/I1i/?=
+ =?us-ascii?Q?e3kaph0QwiazW9C0xdU2kogUf7aEF3WokGGrmugSABue55SRSEJtyj1uyBeQ?=
+ =?us-ascii?Q?43I0mjmgw8l7pJ0zyO3s9YxIcGeOcWHD8l5zJFjDF/jBvJbfksRMnNMdkRz1?=
+ =?us-ascii?Q?lOfO3BtTToxzozW7kE3xBOHJVfglAmjaeEegp9/YCv2j7IT6zbWZtxw1ZKlT?=
+ =?us-ascii?Q?oOCi85H9wZu9ZP3SSE7MCDC3Mh4eyKeU?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?3aFwasZvNhdLmrxnnWYqvnnz8HLMb2XM5aKixyXdGTamHAYO7lx3y1alZxrn?=
+ =?us-ascii?Q?YKpsSIqtqJKXyYINrQmwTwzzs2/xq3BEm+srhzN5lELhFgdJ4ajdc4FjkAWG?=
+ =?us-ascii?Q?+965bKJcBqDCUDkbYVhgqZYxd/4sYureSVAUJfwvaYSC3kGzBpGJdBLeV+Ez?=
+ =?us-ascii?Q?JefmHbqjJnzMFYW2RHUNlJnb5I8ki5uzFk04ZLWPW0DncMyqoiVCD7Zv0fls?=
+ =?us-ascii?Q?fchSDB7DmYGJB3bY5c3WBdw5TpbQgk0Ezg4mTJSswihIGLI2Ntb4kv77qQtq?=
+ =?us-ascii?Q?LQQkeSkwKWsKmmv6G37tCzJ9ESRnQ9gdmDVzZ/Qce7gWskvW0md9w3AH2HnV?=
+ =?us-ascii?Q?yt3Q15y4OB//DdDLFdP/6bDkNU2l5zAVPb1lnpCUmbD1kulOPKAh2hDNmxuw?=
+ =?us-ascii?Q?ZN+V2w325qr4I7es9YRaaNrGUj9zA3/h8+OqAf2C7/Gley8jgrKKx90y2amp?=
+ =?us-ascii?Q?JlQJeOhYhBtqqY2izL3W1y1wJz2ao5uWcayVbT1zqHa12HRnjm5dBw/YhN5C?=
+ =?us-ascii?Q?aqyyg8QI7pGTjRk0aqzO40TFc+E4HKgCZ8o0gdBTzmB7sx2KuKvo5TXaFmaR?=
+ =?us-ascii?Q?oKfA9d3GspOoGrhHyYBAc7LKYsG+43e4h85LUHB4fn9bAVfYfsqTUkujICYm?=
+ =?us-ascii?Q?8uHThs9fEkDw1w8mdPDjTwVOISpydXASETj2xGRwYSVjxUalKZun4/PDuVwu?=
+ =?us-ascii?Q?LAntGTH/DqroyTn0NY77g/jLY6wk/5FgeJR+zWplC0DZ5PbjbNDSxSRDBWWI?=
+ =?us-ascii?Q?bNZ58qXpwuXYzi1txkCFeA6xFUtfIdVjAk8R/frzkaGCVLY+xFYU84Sp6DHz?=
+ =?us-ascii?Q?j3wOItu3BmEpcNjC7SFeXTpNb9F3Tn6tFr8u3DGSbSAsy/zFj8pE6bAt4m0o?=
+ =?us-ascii?Q?ZEi9OrQPD2wFhuVuWJ+nI29U1h56rgdEybwILEZ6RDy7W9PWkYKocDMkWE4W?=
+ =?us-ascii?Q?zBEM4Ce3D4L/DU1x4tOWPczgiZlAm5Yr3qQOqqX6ew/Q4aHYwRG7BBg16SKi?=
+ =?us-ascii?Q?XjOGImt8unKf0nTFozaun60p3koHr2I6hpFSgvDlz6CyFb3RMe8TX7CaYBot?=
+ =?us-ascii?Q?wajPydA0xeYFG+GinWftlwaALfPWObkvf3dmRS329UEh1b2G8H93PxM8fhIr?=
+ =?us-ascii?Q?MgBR+t+r91hOJBZYYQdRk2Rmjk/OYUwRbP+lOhbWG4SXxfw9uQhlMzx7VKRf?=
+ =?us-ascii?Q?Tp2j3UlmG4xD3zoSOe83DfJkaqLhs4ZZbe8jT9+eNkiQ5RtpqyAKKnvR/xgV?=
+ =?us-ascii?Q?66gCZCJUax0b+WCEzF2byU8ZgRQlp5u60Cy2pH6AGkgPbprqz/DNZAT8qT3n?=
+ =?us-ascii?Q?QwCf/J+Vdo0DGVXi7vmm0iwI1OFCslzSmjRfAoc/wMV9lVbjCG53bYpliCcO?=
+ =?us-ascii?Q?FhPB4BOrRXsHKzb7zMlDfJtEP8qStq9WoFPLy67/FM6hx4rsGA/KrJAeM8Bb?=
+ =?us-ascii?Q?MXeWuD9MLBZohUu8z1HNyiWdisW/d66VbHTpBWPJyLSsopaJ4TGkVNoAiPtE?=
+ =?us-ascii?Q?B7a5uQDae38Wy/oaPMqabSE20BQnhvJ/EyAILaa8OUbJNx3cJM7izLOM45QO?=
+ =?us-ascii?Q?M7sdH6vik+XLGqDPwKw=3D?=
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5f149cff-98bf-4438-8598-08dd3c145ddf
+X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Jan 2025 01:13:52.8074
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: Gt8xCQ/3eb888ooG6+TSH8jT2Wf3HjaIHlYyJmliZKhBPZmMoizw5AsfIBa+aBN98LjKlAYWaS2zVDLE7eqvVQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8411
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_163039_803408_AAD069B3 
-X-CRM114-Status: GOOD (  22.43  )
+X-CRM114-CacheID: sfid-20250123_171357_835137_FB240BBB 
+X-CRM114-Status: GOOD (  18.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,92 +166,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Thu, Jan 23, 2025 at 3:31=E2=80=AFAM Dmitry Baryshkov
-<dmitry.baryshkov@linaro.org> wrote:
->
-> On Thu, Jan 23, 2025 at 06:07:45PM +0800, Damon Ding wrote:
-> > The raw edid for LP079QX1-SP0V panel model is:
+> Subject: Re: [PATCH] firmware: arm_scmi: imx: Correct tx size of
+> scmi_imx_misc_ctrl_set
+>=20
+> On Thu, Jan 23, 2025 at 02:34:41PM +0800, Peng Fan (OSS) wrote:
+> > From: Peng Fan <peng.fan@nxp.com>
 > >
-> > 00 ff ff ff ff ff ff 00 16 83 00 00 00 00 00 00
-> > 04 17 01 00 a5 10 0c 78 06 ef 05 a3 54 4c 99 26
-> > 0f 50 54 00 00 00 01 01 01 01 01 01 01 01 01 01
-> > 01 01 01 01 01 01 ea 4e 00 4c 60 00 14 80 0c 10
-> > 84 00 78 a0 00 00 00 18 00 00 00 10 00 00 00 00
-> > 00 00 00 00 00 00 00 00 00 00 00 00 00 fe 00 4c
-> > 50 30 37 39 51 58 31 2d 53 50 30 56 00 00 00 fc
-> > 00 43 6f 6c 6f 72 20 4c 43 44 0a 20 20 20 00 3f
+> > 'struct scmi_imx_misc_ctrl_set_in' has a zero length array in the end,
+> > so sizeof will not count 'value[]', and txsize is smaller than actual
+> > size for tx,and SCMI firmware will take this protocol error.
 > >
-> > Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+> > Fix this by enlarge the txsize with 'num * 4' to count in the size of
+> > data.
+> >
+> > Fixes: 61c9f03e22fc ("firmware: arm_scmi: Add initial support for
+> i.MX
+> > MISC protocol")
+> > Reviewed-by: Jacky Bai <ping.bai@nxp.com>
+> > Tested-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+> > Acked-by: Jason Liu <jason.hui.liu@nxp.com>
+> > Signed-off-by: Peng Fan <peng.fan@nxp.com>
 > > ---
-> >  drivers/gpu/drm/panel/panel-edp.c | 8 ++++++++
-> >  1 file changed, 8 insertions(+)
->
-> Please use get_maintainers.pl when compiling To/Cc lists. Added Douglas
-> to CC manually.
->
-> Or, better, split irrelevant patches to separate series.
->
 > >
-> > diff --git a/drivers/gpu/drm/panel/panel-edp.c b/drivers/gpu/drm/panel/=
-panel-edp.c
-> > index f8511fe5fb0d..77e3fd3ed160 100644
-> > --- a/drivers/gpu/drm/panel/panel-edp.c
-> > +++ b/drivers/gpu/drm/panel/panel-edp.c
-> > @@ -1808,6 +1808,12 @@ static const struct panel_delay delay_200_150_e5=
-0 =3D {
-> >       .enable =3D 50,
-> >  };
+> > V1:
+> >  Patch is cherry-picked from downstream, so tags are kept.
 > >
-> > +static const struct panel_delay delay_50_500_e200 =3D {
-> > +     .hpd_absent =3D 50,
-> > +     .unprepare =3D 500,
-> > +     .enable =3D 200,
-> > +};
+>=20
+> I don't if Ack is really helpful, but Tested-by is as we can't test it on=
+ any
+> other platform. But it would be better if provided on the list instead of
+> coming pre-packaged like this in the future.=20
 
-Wow, hpd_absent is 50ms. That's excellent!
+I see. I'll follow that next time.
 
-I was curious if this was really correct since it's the lowest I've
-seen, but I searched the internet and found a datasheet that confirms
-it. Crazy. Although my datasheet has that whole section grayed out and
-says "Measurement not available". How worried should be about that? I
-guess if "hpd_absent" of 50 eventually doesn't work it can always be
-increased.
+Thanks,
+Peng.
 
-Looking at that datasheet (assuming you can find the same one), I
-wonder how you handle the T4 120ms requirement. It looks like that's
-the time from tcon reset (which is nearly power on) until you're
-allowed to put valid data on the panel. I _think_ you could meet the
-requirement via setting `powered_on_to_enable` to 320 though, right?
-...or maybe 335 to handle the maximum value of "tcon_reset" (no idea
-how you control this signal). If I remember correctly (it's been a
-while), things will already be clocking but outputting black when the
-panel's "enable" function is called. After the function is called then
-we'll turn on the backlight (and still outputting black) and
-eventually we'll put valid data. So as long as you consider the
-continued output of black as "valid data" then the timing diagram is
-satisfied.
-
-BTW: don't you also need a 200 ms "disable"?
-
-
-> >  #define EDP_PANEL_ENTRY(vend_chr_0, vend_chr_1, vend_chr_2, product_id=
-, _delay, _name) \
-> >  { \
-> >       .ident =3D { \
-> > @@ -1955,6 +1961,8 @@ static const struct edp_panel_entry edp_panels[] =
-=3D {
-> >       EDP_PANEL_ENTRY('C', 'S', 'W', 0x1100, &delay_200_500_e80_d50, "M=
-NB601LS1-1"),
-> >       EDP_PANEL_ENTRY('C', 'S', 'W', 0x1104, &delay_200_500_e50, "MNB60=
-1LS1-4"),
-> >
-> > +     EDP_PANEL_ENTRY('E', 'T', 'C', 0x0000, &delay_50_500_e200, "LP079=
-QX1-SP0V"),
-
-I don't love that the ID is 0x0000. That makes me nervous that the
-panel vendor isn't setting the ID properly. ...but at least the string
-matches in the EDID so hopefully that will be enough to uniquely
-identify things.
+I will add it as fix soon.
+> Thanks!
+>=20
+> --
+> Regards,
+> Sudeep
 
