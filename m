@@ -4,83 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF62FC02181
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 04:13:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00C5BC02181
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 04:17:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G61Z7AtRw9pYB1luCJ+gP3LAK8YB9ebW/zQnPLwNUMQ=; b=ev/ceux+AhSHSJnQBySMDIrWPT
-	fC/ychlA9RrZVMoc8572iZiUf46OawkUmt6qNhNXDko2xh0UklQYs8TyNqlkvc/Jxk44c01dKt0ST
-	wamCdkpM5HgAA1NRdAzlnWMST/QZDwGG7WnD1krtGsYLOuVmdh5rsnRdyHvAYVmzfU/lf3ZNdYVZi
-	IztUg7PtHx614o3epU9hkoM8WZGnrm4WU5VtzDSpMxCpHxWwG+5eH6ANJS+Nidsl/g/1GspXJvsWD
-	04sE45Vmlzap2/B7gNQw5j5d80/y9rAYfiRjTLRS/Bno1MQHNlBtme4nowZysI31svkKPDF3W1PfK
-	dZLuVJ9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0p9kCPX0kFOEZOIBaQgiLe2sNq8cghl604dX/e+fCK8=; b=NFclO/0si5heAqXDJGQfM+WuTI
+	KWMB8Mv/qh2F70jdWpKvl4kZU0VLw8T6z4gyjHUru+IVlECofZSemcSG9pBuWuCMbCgotNELKrXGA
+	GOaTZv6WcXkRt6TDgHIwzFlmxvrM0i8T2Jg9+RS5bHj+QBjMb9ibm8FNWxefE4LbJ0Q83CVkBzbvq
+	XnrHYPb4aK7iQkLOVjM03DNKVgfuWrwcajcZsEnt8Qk63jA1TrIwcu8arAs1h51YFdzDax5JAWCjQ
+	MKP3//rWIxpBJvjcuEvrj65nWNZK8nv0YpqBDlxaSWQE4Np4KK3U6LGr8YAAiy0Wkulb6ztD33NaQ
+	BZkDBkqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbB47-0000000DrsN-1l2E;
-	Fri, 24 Jan 2025 04:13:07 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbB2n-0000000Drnj-2UqX
+	id 1tbB7i-0000000Ds6I-1Ibv;
+	Fri, 24 Jan 2025 04:16:50 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tbB6O-0000000Ds1v-04eE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jan 2025 04:11:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1737691906; x=1769227906;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=jCliCqH9ud0GLTM7b/xWwloQkS4OyN5sqqdPDtXblVo=;
-  b=TEXIIFTGxPm3I0iVcV//7jzPWaE9taisYXpe+gODeDbBV8yn5bQF50W7
-   16RULUo/lCFLl7BVWZEoXpZ3hbJB4fmBk1Us+/pybTjMoJs3UiTkfQv6H
-   DvFg3W4uFEGfOjXfAB8HbUpzS/o6dJZl1W/JzZAAb+ujFdTC3K5kwwVqr
-   EilOZ7RGdsNP8cf8+eDd2ld9XYvdKK06lj7FySe8NhJUIF4a0NBNKiVxl
-   F64u6FwL/y3VWSR71eY/O3DYYA4vIQRKWcFVdlqm2gvfuS26ftQH+uE0C
-   NZiP5ML30kA5XGD7i+wUXg1fehbgR5WAP8yFM/QDK+qcD37OyDHsFF3Cx
-   A==;
-X-CSE-ConnectionGUID: DjTk2tpETquurYZpZcSSpg==
-X-CSE-MsgGUID: uZOnFS0/QY2/GkYm5YCurA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11324"; a="37475487"
-X-IronPort-AV: E=Sophos;i="6.13,230,1732608000"; 
-   d="scan'208";a="37475487"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jan 2025 20:11:44 -0800
-X-CSE-ConnectionGUID: NOpEyIMyQP2jMN0VJml8TQ==
-X-CSE-MsgGUID: QoqUchVYRu+8UvM4RR+nfg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="112623071"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by orviesa003.jf.intel.com with ESMTP; 23 Jan 2025 20:11:41 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tbB2g-000c8B-1f;
-	Fri, 24 Jan 2025 04:11:38 +0000
-Date: Fri, 24 Jan 2025 12:11:12 +0800
-From: kernel test robot <lkp@intel.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 2/5] firmware: arm_scmi: imx: Add i.MX95 CPU Protocol
-Message-ID: <202501241148.0CI9mBP5-lkp@intel.com>
-References: <20250121-imx-lmm-cpu-v1-2-0eab7e073e4e@nxp.com>
+	Fri, 24 Jan 2025 04:15:29 +0000
+Received: from [100.79.193.133] (unknown [4.194.122.170])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 85E492109A4F;
+	Thu, 23 Jan 2025 20:15:21 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 85E492109A4F
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1737692125;
+	bh=0p9kCPX0kFOEZOIBaQgiLe2sNq8cghl604dX/e+fCK8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Vpm4VR+InpBq4Y3Eid7fFT5i1qwVtNVR7e5SIEu1yBJ0pkYqSTpqIVFUmmJ5G+2yb
+	 F880cxxnwPG34WnvaV7ir4i7Hx99FBaRKOWMA0xWRV3++8WegzWsTedxU8wpNU8QEd
+	 ELnWB+zMdd0wRR/DFmmhuMUQPCCAEOYWNelOzxiA=
+Message-ID: <7380ab36-9cbb-455f-95ac-36b2a17db434@linux.microsoft.com>
+Date: Fri, 24 Jan 2025 09:45:19 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250121-imx-lmm-cpu-v1-2-0eab7e073e4e@nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 1/5] cpufreq: Allow arch_freq_get_on_cpu to return an
+ error
+To: Beata Michalska <beata.michalska@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+ ionela.voinescu@arm.com, sudeep.holla@arm.com, will@kernel.org,
+ catalin.marinas@arm.com, rafael@kernel.org, viresh.kumar@linaro.org
+Cc: sumitg@nvidia.com, yang@os.amperecomputing.com,
+ vanshikonda@os.amperecomputing.com, lihuisong@huawei.com,
+ zhanjie9@hisilicon.com
+References: <20250121084435.2839280-1-beata.michalska@arm.com>
+ <20250121084435.2839280-2-beata.michalska@arm.com>
+Content-Language: en-US
+From: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
+In-Reply-To: <20250121084435.2839280-2-beata.michalska@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_201145_664487_7A640915 
-X-CRM114-Status: UNSURE (   9.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250123_201528_111485_F56D2792 
+X-CRM114-Status: GOOD (  17.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,105 +75,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peng,
 
-kernel test robot noticed the following build warnings:
+On 21-01-2025 14:14, Beata Michalska wrote:
+> Allow arch_freq_get_on_cpu to return an error for cases when retrieving
+> current CPU frequency is not possible, whether that being due to lack of
+> required arch support or due to other circumstances when the current
+> frequency cannot be determined at given point of time.
+>
+> Signed-off-by: Beata Michalska <beata.michalska@arm.com>
+> ---
+>   arch/x86/kernel/cpu/aperfmperf.c | 2 +-
+>   arch/x86/kernel/cpu/proc.c       | 7 +++++--
+>   drivers/cpufreq/cpufreq.c        | 8 ++++----
+>   include/linux/cpufreq.h          | 2 +-
+>   4 files changed, 11 insertions(+), 8 deletions(-)
+>
+> diff --git a/arch/x86/kernel/cpu/aperfmperf.c b/arch/x86/kernel/cpu/aperfmperf.c
+> index f642de2ebdac..6cf31a1649c4 100644
+> --- a/arch/x86/kernel/cpu/aperfmperf.c
+> +++ b/arch/x86/kernel/cpu/aperfmperf.c
+> @@ -498,7 +498,7 @@ void arch_scale_freq_tick(void)
+>    */
+>   #define MAX_SAMPLE_AGE	((unsigned long)HZ / 50)
+>   
+> -unsigned int arch_freq_get_on_cpu(int cpu)
+> +int arch_freq_get_on_cpu(int cpu)
+>   {
+>   	struct aperfmperf *s = per_cpu_ptr(&cpu_samples, cpu);
+>   	unsigned int seq, freq;
+> diff --git a/arch/x86/kernel/cpu/proc.c b/arch/x86/kernel/cpu/proc.c
+> index 41ed01f46bd9..d79f5845a463 100644
+> --- a/arch/x86/kernel/cpu/proc.c
+> +++ b/arch/x86/kernel/cpu/proc.c
+> @@ -86,9 +86,12 @@ static int show_cpuinfo(struct seq_file *m, void *v)
+>   		seq_printf(m, "microcode\t: 0x%x\n", c->microcode);
+>   
+>   	if (cpu_has(c, X86_FEATURE_TSC)) {
+> -		unsigned int freq = arch_freq_get_on_cpu(cpu);
+> +		int freq = arch_freq_get_on_cpu(cpu);
+>   
+> -		seq_printf(m, "cpu MHz\t\t: %u.%03u\n", freq / 1000, (freq % 1000));
+> +		if (freq <= 0)
+> +			seq_puts(m, "cpu MHz\t\t: Unknown\n");
+> +		else
+> +			seq_printf(m, "cpu MHz\t\t: %u.%03u\n", freq / 1000, (freq % 1000));
+>   	}
+>   
+>   	/* Cache size */
+> diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
+> index 418236fef172..6f45684483c4 100644
+> --- a/drivers/cpufreq/cpufreq.c
+> +++ b/drivers/cpufreq/cpufreq.c
+> @@ -728,18 +728,18 @@ show_one(cpuinfo_transition_latency, cpuinfo.transition_latency);
+>   show_one(scaling_min_freq, min);
+>   show_one(scaling_max_freq, max);
+>   
+> -__weak unsigned int arch_freq_get_on_cpu(int cpu)
+> +__weak int arch_freq_get_on_cpu(int cpu)
+>   {
+> -	return 0;
+> +	return -EOPNOTSUPP;
+>   }
+>   
+>   static ssize_t show_scaling_cur_freq(struct cpufreq_policy *policy, char *buf)
+>   {
+>   	ssize_t ret;
+> -	unsigned int freq;
+> +	int freq;
+>   
+>   	freq = arch_freq_get_on_cpu(policy->cpu);
+> -	if (freq)
+> +	if (freq > 0)
+>   		ret = sysfs_emit(buf, "%u\n", freq);
+>   	else if (cpufreq_driver->setpolicy && cpufreq_driver->get)
+>   		ret = sysfs_emit(buf, "%u\n", cpufreq_driver->get(policy->cpu));
+> diff --git a/include/linux/cpufreq.h b/include/linux/cpufreq.h
+> index 7fe0981a7e46..02fd4746231d 100644
+> --- a/include/linux/cpufreq.h
+> +++ b/include/linux/cpufreq.h
+> @@ -1184,7 +1184,7 @@ static inline int of_perf_domain_get_sharing_cpumask(int pcpu, const char *list_
+>   }
+>   #endif
+>   
+> -extern unsigned int arch_freq_get_on_cpu(int cpu);
+> +extern int arch_freq_get_on_cpu(int cpu);
+>   
+>   #ifndef arch_set_freq_scale
+>   static __always_inline
 
-[auto build test WARNING on 0907e7fb35756464aa34c35d6abb02998418164b]
+Looks good to me.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Peng-Fan-OSS/firmware-arm_scmi-imx-Add-i-MX95-LMM-protocol/20250121-231254
-base:   0907e7fb35756464aa34c35d6abb02998418164b
-patch link:    https://lore.kernel.org/r/20250121-imx-lmm-cpu-v1-2-0eab7e073e4e%40nxp.com
-patch subject: [PATCH 2/5] firmware: arm_scmi: imx: Add i.MX95 CPU Protocol
-config: arm64-randconfig-r122-20250124 (https://download.01.org/0day-ci/archive/20250124/202501241148.0CI9mBP5-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 14.2.0
-reproduce: (https://download.01.org/0day-ci/archive/20250124/202501241148.0CI9mBP5-lkp@intel.com/reproduce)
+Reviewed-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202501241148.0CI9mBP5-lkp@intel.com/
-
-sparse warnings: (new ones prefixed by >>)
->> drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c:139:19: sparse: sparse: incorrect type in assignment (different base types) @@     expected restricted __le32 [usertype] flags @@     got unsigned long @@
-   drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c:139:19: sparse:     expected restricted __le32 [usertype] flags
-   drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c:139:19: sparse:     got unsigned long
->> drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c:140:19: sparse: sparse: invalid assignment: |=
-   drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c:140:19: sparse:    left side has type restricted __le32
-   drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c:140:19: sparse:    right side has type unsigned long
-   drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c:141:19: sparse: sparse: invalid assignment: |=
-   drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c:141:19: sparse:    left side has type restricted __le32
-   drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c:141:19: sparse:    right side has type unsigned long
->> drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c:173:25: sparse: sparse: restricted __le32 degrades to integer
-   drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c:205:32: sparse: sparse: restricted __le32 degrades to integer
-
-vim +139 drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c
-
-   119	
-   120	static int scmi_imx_cpu_reset_vector_set(const struct scmi_protocol_handle *ph,
-   121						 u32 cpuid, u64 vector, bool start,
-   122						 bool boot, bool resume)
-   123	{
-   124		struct scmi_imx_cpu_reset_vector_set_in *in;
-   125		struct scmi_xfer *t;
-   126		int ret;
-   127	
-   128		ret = scmi_imx_cpu_validate_cpuid(ph, cpuid);
-   129		if (ret)
-   130			return ret;
-   131	
-   132		ret = ph->xops->xfer_get_init(ph, SCMI_IMX_CPU_RESET_VECTOR_SET, sizeof(*in),
-   133					      0, &t);
-   134		if (ret)
-   135			return ret;
-   136	
-   137		in = t->tx.buf;
-   138		in->cpuid = cpu_to_le32(cpuid);
- > 139		in->flags = start ? CPU_VEC_FLAGS_START : 0;
- > 140		in->flags |= boot ? CPU_VEC_FLAGS_BOOT : 0;
-   141		in->flags |= resume ? CPU_VEC_FLAGS_BOOT : 0;
-   142		in->resetvectorlow = cpu_to_le32(lower_32_bits(vector));
-   143		in->resetvectorhigh = cpu_to_le32(upper_32_bits(vector));
-   144		ret = ph->xops->do_xfer(ph, t);
-   145	
-   146		ph->xops->xfer_put(ph, t);
-   147	
-   148		return ret;
-   149	}
-   150	
-   151	static int scmi_imx_cpu_started(const struct scmi_protocol_handle *ph, u32 cpuid,
-   152					bool *started)
-   153	{
-   154		struct scmi_imx_cpu_info_get_out *out;
-   155		struct scmi_xfer *t;
-   156		int ret;
-   157	
-   158		*started = false;
-   159		ret = scmi_imx_cpu_validate_cpuid(ph, cpuid);
-   160		if (ret)
-   161			return ret;
-   162	
-   163		ret = ph->xops->xfer_get_init(ph, SCMI_IMX_CPU_INFO_GET, sizeof(u32),
-   164					      0, &t);
-   165		if (ret)
-   166			return ret;
-   167	
-   168		put_unaligned_le32(cpuid, t->tx.buf);
-   169		ret = ph->xops->do_xfer(ph, t);
-   170		if (!ret) {
-   171			out = t->rx.buf;
-   172			if ((out->runmode == CPU_RUN_MODE_START) ||
- > 173			    (out->runmode == CPU_RUN_MODE_SLEEP))
-   174				*started = true;
-   175		}
-   176	
-   177		ph->xops->xfer_put(ph, t);
-   178	
-   179		return ret;
-   180	}
-   181	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
