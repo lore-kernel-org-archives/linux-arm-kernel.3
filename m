@@ -4,87 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23C6EC02181
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 08:53:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D01BC02181
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 08:57:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=o7lbqvBfWFIL0G8uqSnKhjS80pSitov1mvBHEMw18dY=; b=ff88V7wJXKspYqtgrgPr40Os/9
-	DZw5w74CEozO9Ys4IQojIH/GSwbrMJKbYx2n8+UFOT3tbBrhb/Ow4Gt1AZY0s0DrVddhJYrXDiSyb
-	7CVCcvhwOHMD38KbQmpXhrAZbTgtKwA/AENTJYuXW5hvig59w9zACnNiWK3vITtXAs4GDowTWIChD
-	89f63acXzhWb/wn/OQI5SrfyS5RBr2P1Fjt6l3AWO2UCuwoqaWvzBjtkdT0FpCuJ6P+a+oxksckr/
-	VLjDx3cbuQ6xA8yNCsbC4v10O3GuPqzDxmOFykz1dAQTJaSaxvp7wRvYbEtpEUmxsL+piXGoywzc4
-	WvrbG3Xg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2pmYbnPeKyxt+7NbOVL6/kIIAp9oX3TCI0RQTsRH730=; b=knN7PSS0bxkLKd
+	VfeP+lazrtNB9WTTzT2gwhQqZi4KY9i1pBF0D1N0Z8bkh2JbZ34XhNXKK5n+psW+qN08F9a1Hhhpj
+	QZc3t3qrPMB6fV/FytrjTvmWrW3Xk6aUGDrPetjIHmbsocZX2+4XxqrYkL8Dr6LlMlITAlTewxRt+
+	6ej/auZWQlKf7nlNbhJ0mYhtSVSJpqYhxdF1GoCgGRzyvhU7Eew0YTSa/v0pv9P0G1y4WSCywWBss
+	Kb5XebXsA4//WnDe0iF3f2XtPGgcqhbq6DHzE8IPA7qI+qBu+oIjGecy0JQmmTd0dBvhA0DY1F93D
+	U+Vgt6BFxYlwkER4eu/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbFR8-0000000EI8c-2GYP;
-	Fri, 24 Jan 2025 08:53:10 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1tbFVU-0000000EId6-1a5p;
+	Fri, 24 Jan 2025 08:57:40 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbFPn-0000000EI3A-34dj
+	id 1tbFU6-0000000EIOO-0S7p
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jan 2025 08:51:49 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-385f06d0c8eso962432f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jan 2025 00:51:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737708705; x=1738313505; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=o7lbqvBfWFIL0G8uqSnKhjS80pSitov1mvBHEMw18dY=;
-        b=U2gLg3o5WWQt8D/VadikTLuEaYHLOPf+d0du41SNxPKnJmKuKrb2YXhUIK9rDDoClI
-         vbh0JX579QFIV/o1OPU+4YU0qaUi9b6AyGiaBOMFwiCvpAi7Lax0fL146gvzku6p/eI4
-         B9KEqwMOEUlGLRMqM628gqvPGYnjn/xK9ElpS4bVpDXFo+IO7y+CoO/DLk9c+UaFuSMB
-         lrjHCNB/Lm+CWQxGgBKLOPefV+gOFnSVaclOw8D7CQLOk6F9x5q97mg0J1Ga72ZJAcHt
-         eaiJ/ngoVCi2BYMaTGQEs0by+Lcj+/GVa9EyRB9X2oGdsCSazQGVZMjvyXUy1YS4drx+
-         zSZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737708705; x=1738313505;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=o7lbqvBfWFIL0G8uqSnKhjS80pSitov1mvBHEMw18dY=;
-        b=kLMvyTTQspGHQOjhX9DFu8OnwjUKMAUd33zkUEXMovUmaVW56ZMd6tsz/mSb6EqRQq
-         EreDbj/GEv+hRk+A3ulj2/q/zbGHBZvdnVYR42LgaWwTF7T0VQLmLKy/7TYlq20IKhgq
-         I8MHqLuskqylel5eqA4ZTVAyfJ9NfELXVFSLiPr8SUOWbYy7EBWBURHLnCGao30Igk5R
-         NE+rK01Omf/vvvBA7Gy7MGjdFzYSupxf6jAUI2QxTQAno2275Fa6u0hm6UjK2ntlkqO7
-         /1F6D8A2r12UusqXYIlEPbOja4XSmnylt+8M2gsoFfQaO0PbJmDvXSt8w+30uNlyYXcE
-         WrUQ==
-X-Gm-Message-State: AOJu0Yz9dfiKn9pkhpAsx6bYl2FIFLq+U42vGpF4Btwv36J5oGX0ayft
-	w6b3aVrM+BSk6sFPW/sKhYGzMKE3RTqsSsbqkQeVzIyxNCOW6Jar
-X-Gm-Gg: ASbGncuFjlQ1ig18Atr4A9l0+efW6SKrMMWZA6ou84/xxe9W710Jfmne4OR28jKAjpu
-	g2s8i7X1F3BkDr3x2hHQztx+QZrYEPR89rDeuv+jt7kusy1yuSzWjgsRMsx/rP+yVExcpB5yLTY
-	JKsciFkJdA41NzePBtp7bVt403WcL1LivISL9U3u4D5u3fhmOMhN0ZsheKtFmx6Vh5dFbuVBpB6
-	sVS5OzsENMRaxNR1T+TchE3GXw0x2cyUY0X22XF1eZDNja4SMUzr5S2pBq1/3kNfdL00wNIs3NR
-	xN6ocUg7
-X-Google-Smtp-Source: AGHT+IF4dqAR6koojsslJLJ51I90eR24QucpBC3Wc4090WYTgW0SGNn1teDBd4jW7zBLCJGN0QkY1w==
-X-Received: by 2002:a5d:5986:0:b0:38a:a083:9200 with SMTP id ffacd0b85a97d-38bf59eb93dmr30924270f8f.44.1737708705110;
-        Fri, 24 Jan 2025 00:51:45 -0800 (PST)
-Received: from eichest-laptop.lan ([2a02:168:af72:0:58db:611:d7b2:c596])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38c2a188c33sm2085115f8f.53.2025.01.24.00.51.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Jan 2025 00:51:44 -0800 (PST)
-From: Stefan Eichenberger <eichest@gmail.com>
-To: andrew@lunn.ch,
-	gregory.clement@bootlin.com,
-	sebastian.hesselbarth@gmail.com,
-	tglx@linutronix.de,
-	shivamurthy.shastri@linutronix.de,
-	anna-maria@linutronix.de
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH v2] irqchip/irq-mvebu-icu: Fix access to msi_data from irq_domain
-Date: Fri, 24 Jan 2025 09:50:39 +0100
-Message-ID: <20250124085140.44792-1-eichest@gmail.com>
-X-Mailer: git-send-email 2.45.2
+	Fri, 24 Jan 2025 08:56:15 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 77A16A09FF;
+	Fri, 24 Jan 2025 09:56:02 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=mail; bh=2pmYbnPeKyxt+7NbOVL6/kIIAp9oX3TCI0RQTsRH730=; b=
+	I2wpu0CYQR3CbV7x/T8QxbdvunrCx/t0jUpMRxMYpyId8G1pMhUNmdxEX83rMcNT
+	pOmVn95QyZYXyo2TL12E5CBBTmuzCI4utQ6vYMyPvWinrw3cm/qcFJ8Dve7ncTbk
+	tE3RBCH/UbX1PG0Dy+HrfOUpLWdDfHUj+mz6Rvy5CqovsI5+EstokJIeMPk4AxZB
+	MC/706/lLvOIotm6HCExFUfSvsZNlv/u4uvP0LNcOHwUfwEHdAWLaFhl8FV80f1n
+	f1tuG4uJFPua4e8ZNvIl8O/9z02dE2R9Ir6eX+fz0HhxSK2Jo/5ujwxPMfjZO54S
+	HYPRFgp0O/+N0+fHM2cSTNtaNMRFZylvKBRnh9i9cQlcdHvu5WSlYMJfOzBYG5Uc
+	QFtKtaIJiZQockkYKNCogeMiAwc1ZI4r8LmfJwbSQ/tXvq3jnkz5aqCoG+pVEHcD
+	vy6Epopg1/SE3QTEQjCKbdAYEjviyliCGoB3oy7nK/hicCr0hm1eSCNhe3v4tn9r
+	1NNyj6t6dE7cZsVVcqNuyZ3UyN5UFjEZp6EFI/F8cGokMbgiY7xtwERhz6XNxYei
+	Lag+JNCYz2nlwDNx81wLR0zyqOCj3kgg6oS0JaTfWovgkmz4Z4Dg3EA1fTZcqSiO
+	5iQsfTe3+NOx9o1oDeoFH28XFX7l02ShVkcUgTh9AU8=
+From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+To: 
+Subject: [PATCH v2 0/4] Add more devm_ functions to simplify probe path in drivers/spi/atmel-quadspi.c
+Date: Fri, 24 Jan 2025 09:52:16 +0100
+Message-ID: <20250124085221.766303-4-csokas.bence@prolan.hu>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1737708961;VERSION=7984;MC=4288689662;ID=70488;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A29ACD94852677063
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250124_005147_784981_4A01A175 
-X-CRM114-Status: GOOD (  14.53  )
+X-CRM114-CacheID: sfid-20250124_005614_603540_3569A260 
+X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,52 +73,37 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Len Brown <len.brown@intel.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Tudor Ambarus <tudor.ambarus@linaro.org>, "Rafael J . Wysocki" <rafael@kernel.org>, Alexander Dahl <ada@thorsis.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-pm@vger.kernel.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, dmaengine@vger.kernel.org, Vinod Koul <vkoul@kernel.org>, Mark Brown <broonie@kernel.org>, linux-arm-kernel@lists.infradead.org, Pavel Machek <pavel@ucw.cz>, Varshini Rajendran <varshini.rajendran@microchip.com>, linux-spi@vger.kernel.org, =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Previously, we incorrectly cast irq_domain->host_data directly to
-mvebu_icu_msi_data. However, host_data actually stores a structure of
-type msi_domain_info.
+The probe function of the atmel-quadspi driver got quite convoluted,
+especially since the addition of SAMA7G5 support, that was forward-ported
+from an older vendor kernel. To alleivate this - and similar problems in
+the future - an effort was made to migrate as many functions as possible,
+to their devm_ managed counterparts. The few functions, which did not yet
+have a devm_ variant, are added in patch 1 and 2 of this series. Patch 3
+and 4 then use these APIs to simplify and fix the probe() function.
 
-This incorrect assumption caused issues such as the thermal sensors of
-the CP110 platform malfunctioning. Specifically, the translation of the
-SEI interrupt to IRQ_TYPE_EDGE_RISING failed, preventing proper
-interrupt handling. The following error was observed:
-genirq: Setting trigger mode 4 for irq 85 failed (irq_chip_set_type_parent+0x0/0x34)
-armada_thermal f2400000.system-controller:thermal-sensor@70: Cannot request threaded IRQ 85
+Change in v2: rebased onto Linus' master, which is:
+commit bc8198dc7ebc ("Merge tag 'sched_ext-for-6.14' of
+ git://git.kernel.org/pub/scm/linux/kernel/git/tj/sched_ext")
 
-This commit resolves the issue by first casting host_data to
-msi_domain_info and then accessing the mvebu_icu_msi_data through
-msi_domain_info->chip_data.
+Bence Csókás (4):
+  dma: Add devm_dma_request_chan()
+  pm: runtime: Add new devm functions
+  spi: atmel-quadspi: Use `devm_dma_request_chan()`
+  spi: atmel-quadspi: Fix unbalanced pm_runtime by using devm_ API
 
-Cc: stable@vger.kernel.org
-Fixes: d929e4db22b6 ("irqchip/irq-mvebu-icu: Prepare for real per device MSI")
-Signed-off-by: Stefan Eichenberger <eichest@gmail.com>
----
-Changes in v2:
-* This patch is a v2 because it addresses the same issue as this patch:
-  https://lore.kernel.org/all/20241217111623.92625-1-eichest@gmail.com/
-* This time it addresses the underlying issue instead of adding a
-  workaround (thanks to Thomas)
+ drivers/base/power/runtime.c | 36 +++++++++++++++++++++
+ drivers/dma/dmaengine.c      | 30 +++++++++++++++++
+ drivers/spi/atmel-quadspi.c  | 62 ++++++++++--------------------------
+ include/linux/dmaengine.h    |  7 ++++
+ include/linux/pm_runtime.h   |  4 +++
+ 5 files changed, 93 insertions(+), 46 deletions(-)
 
- drivers/irqchip/irq-mvebu-icu.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/irqchip/irq-mvebu-icu.c b/drivers/irqchip/irq-mvebu-icu.c
-index b337f6c05f18..4eebed39880a 100644
---- a/drivers/irqchip/irq-mvebu-icu.c
-+++ b/drivers/irqchip/irq-mvebu-icu.c
-@@ -68,7 +68,8 @@ static int mvebu_icu_translate(struct irq_domain *d, struct irq_fwspec *fwspec,
- 			       unsigned long *hwirq, unsigned int *type)
- {
- 	unsigned int param_count = static_branch_unlikely(&legacy_bindings) ? 3 : 2;
--	struct mvebu_icu_msi_data *msi_data = d->host_data;
-+	struct msi_domain_info *info = d->host_data;
-+	struct mvebu_icu_msi_data *msi_data = info->chip_data;
- 	struct mvebu_icu *icu = msi_data->icu;
- 
- 	/* Check the count of the parameters in dt */
 -- 
-2.45.2
+2.48.1
+
 
 
