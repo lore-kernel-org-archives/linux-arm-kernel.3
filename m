@@ -4,69 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4264C0218C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 10:23:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E2BDC02181
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 10:27:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=67Jqb8E5y2wMq+CtYW7x2oADzGlvHt47MmkZxhhINtQ=; b=FXquZr8EmigsKK+vO9MUR6RMlq
-	f04Ow4oEZSQG7In9wBHVCN50qS0NP77Rv+2CuJslQ7oVPE07DJ3kHn1i7WyUTRsfL6PXlqBAuHCB/
-	vHGpz0OdTs7frObtN2NyMPK/MDsWSUDnNzMx6P+BLmB8YvPqUPylN/yZ4KBn0O4geBCTbcECo3cTo
-	neHa5MWW42km33r2IYk7keIo8Kh0fnUWf+MkB+nKoseoU8ZdNrEXXd4R8mQS7ESoHSonZstbjwYlt
-	XkdDmC4m0U8+Tnlj1ruS26Jt77rAWKwfC/MXrj5ckim0OUMLuWsaqkqeDMbz1vFAW9H8wGLpSwP8y
-	ljO99VuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aVSfEDxnvDA5rGvCvnbh0Gb+paH+zzrZtcmrNCp+8Yc=; b=e6Wy8eoKYwHqtvoHR7TshSsFB8
+	rgnlshKaRLq0ZsJzqxU3yUcF7H9/I2P/kFAWxMCcxOtvn9ZQn8mdM3z41t6/2/qLFxJqzBEVFHTwC
+	BSMti4aZOElK74ZGVF09EQsRvkzupmtSH0PczqeOINE5WZb3oQ+YyRNlAfwhfiS8/62EBK/Hb9rJj
+	yq/NCPstPudtUKt5iYT8sFjqSw7h5bRnOZZFo3N4m7N/FZzBwq1iyCopnrGqXdRCX0VfWUX7AyJQW
+	PkLPFcnYm4xagg08GRFQjVgFK52gAFrP/aVOBrTshl7FR6me2sRb/LQj+7r3XN95aelGgjR4gRQje
+	MRNTDVEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbGqQ-0000000ES66-1OOx;
-	Fri, 24 Jan 2025 10:23:22 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tbGu2-0000000ESRK-3hqV;
+	Fri, 24 Jan 2025 10:27:06 +0000
+Received: from mail-qt1-x82f.google.com ([2607:f8b0:4864:20::82f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbGoF-0000000ERwa-23eF;
-	Fri, 24 Jan 2025 10:21:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 00B4BA4134C;
-	Fri, 24 Jan 2025 10:19:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71B10C4CED2;
-	Fri, 24 Jan 2025 10:21:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737714065;
-	bh=1rxi/IQFlqsCoGaYN4R4JXonbt8cWgjyvBPnXzr8SOc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=c9B89+1HAsf6XleKtnR0iRfZeUjw82iVnl2pDygJDF/EbvlmUJG5n2gdLbIlZPAET
-	 PYjnl+1k1X9jNR+/mC9b+3CGhXWb3ptRjjZApW1F/KNbZ7J8pCXsbRN3DvVDtKmldm
-	 QxjjIb9zfEU21WNePhsnAsANpXS9/K7luGGE7G0OTqaApBVwVBYkVSsusMctfOimPh
-	 PsD+0DzTPfcelGqZeG4VRKw+HkM784WmpVT7g+BEJ3VR7XoTswYwITGRiJdetmYfgu
-	 XmCOD+plmtdyCzuYmYcvMgBQgFRJ9lak0n1MD/QjImM3bRXgdSZnTzD8W5/QDa1Iju
-	 z/uqPD1EpEv+Q==
-Date: Fri, 24 Jan 2025 11:21:00 +0100
-From: Niklas Cassel <cassel@kernel.org>
-To: Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>
-Cc: Quentin Schulz <quentin.schulz@cherry.de>,
-	Quentin Schulz <foss+kernel@0leil.net>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Jagan Teki <jagan@edgeble.ai>,
-	Michael Riesch <michael.riesch@wolfvision.net>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/3] arm64: dts: rockchip: minimal support for Pre-ICT
- tester adapter for RK3588 Jaguar + add overlay tests
-Message-ID: <Z5NpjAUFK_cMIWLj@ryzen>
-References: <20250116-pre-ict-jaguar-v2-0-157d319004fc@cherry.de>
- <6dd64754-fe72-4288-9724-b3cdaf193b3b@cherry.de>
- <Z5EY6uMmDCgfOzGO@ryzen>
- <3324197.aV6nBDHxoP@diego>
+	id 1tbGsc-0000000ESGg-3Jl5;
+	Fri, 24 Jan 2025 10:25:39 +0000
+Received: by mail-qt1-x82f.google.com with SMTP id d75a77b69052e-4678664e22fso16458591cf.2;
+        Fri, 24 Jan 2025 02:25:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1737714337; x=1738319137; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=aVSfEDxnvDA5rGvCvnbh0Gb+paH+zzrZtcmrNCp+8Yc=;
+        b=ct+mi4973TBPramendlW/HBMCvGZBhMNmWkbABckUI0huDtCct+3rR4RblfQW8b8Zk
+         DytcI9iUQHmtXuriVNgnbqW1C9AenuMXQ7rZSV8L9iYH3aZuidAnV7//rV5+ltqAdBqP
+         tzIXjsbrrneUaXit1qat9rFsqanB7Xc+P9JdU5LR9b9A4i/0RbkxJjaCY78FOYUDHWl/
+         Igi6/3VnUf88ZRoPtxxyUCDtEmL9QEtl1HRuPva+PlAVEvJ2V4/xDuduYYsEktcSAyMr
+         WhSM7+/nBhV9sIS1DKQ2Cz8ARMJc1FfihkwR0RWBqUPOypLv02kmZwlnJvDErw7HuqSx
+         XKEA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737714337; x=1738319137;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=aVSfEDxnvDA5rGvCvnbh0Gb+paH+zzrZtcmrNCp+8Yc=;
+        b=Rf2dhVwRKS+yVzmteSt+q4s9a4w12e84m6amuba1seQ8TdsDSER7Vi0LUUEpb4mhmU
+         gP97epUJ0b0YjHXhpbal2yQyyAGN3SnK4mMsHCWA1nv0SmY1/a+tL7QFh7Nt/WZtsB+e
+         01eIs2bF4AKXUVWmkUGTIkynTKERIm0x1vjEQPh//TFR4TFismfL/7hvOeZCcASGwDa4
+         IoQVOzkrHNPVAG+pMXkvNTpSb9TZ4iC4r5bVht5GQ8SbJ03Pb1gBZAHjNVTL80DY1wyL
+         75/wJ927EREHgKMF8T6XDeigZg7Jdr42lDh4gtOcGI7aHgfHEY3ZB3cjWJV51Gh1ZR/3
+         ul/w==
+X-Forwarded-Encrypted: i=1; AJvYcCXCfkApyH9EAkkxnQZZNvGvZuAsQc785RiGGa4VDX7dCo//0VSqenVh+up7D2BuCRXCQUNkSCipsOnIvIl88h0=@lists.infradead.org, AJvYcCXlM7u/pPIf62CbMnCFwQXh8xse8cHq8wlSfB7vKqI8OL/bl2PAsJtdBghV7n2Zz3OSVWNhrvMgxMws3VF8TD0x@lists.infradead.org
+X-Gm-Message-State: AOJu0YxAxVq1GHNNCkfTY++CKlhJz3qvqacjBlhYTMaGREuR2rYdWhKx
+	HBBxmWxNrEO1sjVX5j9WL5fS/gGL6iQ768KzaGwVq7b2S1kh414nO+qWd3UoNbtKazyZfudea4s
+	etczWegi76V8XuSS9ov8we+aPlZI=
+X-Gm-Gg: ASbGncux9utCvdImHIuIpYQVwejp6RRFHKcwIWMHj5rd2J5cVyNlkvAOzCgz3CwEvB7
+	AdRyXLuCO7DP04ZXkpzQiiBgCZG7cxC2GaHg3Cy0vfO/1XGF25FTlHCdwC3adTyLmT4pqkuPe18
+	DaJvk+EpUNHT3NS/7LtRI=
+X-Google-Smtp-Source: AGHT+IG19zMkzxnogxqTUpCFFCWHU7lU6d2GX59oTfrT4bEh/Qp/+jBldUiAWHgLhmBH9A6JXxMmUJ7olZ5BQkuj30g=
+X-Received: by 2002:a05:622a:d4:b0:467:8703:a737 with SMTP id
+ d75a77b69052e-46e12a9a34bmr447365691cf.29.1737714337203; Fri, 24 Jan 2025
+ 02:25:37 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <3324197.aV6nBDHxoP@diego>
+References: <20250124052611.3705-1-eagle.alexander923@gmail.com>
+ <CABjd4YwA8P9LVuDviO6xydkHpuuOY7XT0pk1oa+FDqOo=uZN4A@mail.gmail.com> <a76f315f023a3f8f5435e0681119b4eb@manjaro.org>
+In-Reply-To: <a76f315f023a3f8f5435e0681119b4eb@manjaro.org>
+From: Alexey Charkov <alchark@gmail.com>
+Date: Fri, 24 Jan 2025 14:25:27 +0400
+X-Gm-Features: AWEUYZkJo1DrsP2L7lNkxItCPiQqRHHFgNLzNRHQsNokpADbfabjg0z5a8nFqdE
+Message-ID: <CABjd4Ywh_AkbXHonx-8vL-hNY5LMLJge5e4oqxvUG+qe6OF-Og@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: rockchip: Fix broken tsadc pinctrl binding
+ for rk3588
+To: Dragan Simic <dsimic@manjaro.org>
+Cc: Alexander Shiyan <eagle.alexander923@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, 
+	Sebastian Reichel <sebastian.reichel@collabora.com>, stable@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250124_022107_659729_262BA7AF 
-X-CRM114-Status: GOOD (  34.34  )
+X-CRM114-CacheID: sfid-20250124_022538_832535_9A5C8E46 
+X-CRM114-Status: GOOD (  32.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,79 +98,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 23, 2025 at 03:13:01PM +0100, Heiko Stübner wrote:
-> Am Mittwoch, 22. Januar 2025, 17:12:26 CET schrieb Niklas Cassel:
-> > On Wed, Jan 22, 2025 at 04:38:16PM +0100, Quentin Schulz wrote:
-> > > So essentially, if SPL_ATF_NO_PLATFORM_PARAM is selected (the default for
-> > > RK356x, RK3588, forced on on RK3308, enabled for the majority of RK3399
-> > > boards, enabled for all RK3328 boards) the DT won't be passed to TF-A so no
-> > > issue in terms of size on that side.
-> > > If it is not selected, for TF-A < 2.4 (released 20201117, 4 years ago), a
-> > > DTB bigger than 64KiB will crash TF-A.
-> > > If it is not selected, for TF-A >= 2.4, a DTB bigger than 128KiB will result
-> > > in TF-A not being able to read the DTB (for Rockchip, that means not being
-> > > able to derive the UART settings (controller and baudrate) to use, and will
-> > > use the compile-time default instead).
-> > 
-> > Not everyone is using binary blobs from Rockchip.
-> > On my rock5b (rk3588), I'm building the bootloader using buildroot,
-> > which is using upstream TrustedFirmware-A (v2.12).
-> > 
-> > 
-> > > In short, I don't know where to go with that additional piece of
-> > > information, but this is a bit bigger than simply moving things around and
-> > > adding compile-time tests for overlay application.
-> > 
-> > This is significant information indeed.
-> 
-> I guess the question is, can this hurt existing devices?
-> 
-> As Quentin mentioned, this only affects DTs that get handed over from
-> U-Boot to TF-A (and maybe OP-TEE).
-> 
-> So the whole range of things loading their DT from extlinux.conf or
-> whatever are not really affected.
-> 
-> 
-> DTs U-Boot can hand over are 2 types,
-> (1) built from within u-boot and
-> (2) stored somewhere centrally (SPI flash).
-> 
-> 
-> Case (1) is again not affected, as U-Boot (and other bootloaders) may
-> very well sync the DTS files, but generally not the build-system, so if
-> U-Boot (or any other bootloader) creates DTBs with symbols is completely
-> their own choice.
-> 
-> 
-> And for case (2) I see the manufacturer being responsible. Having the DT
-> in central storage makes it somewhat part of a "bios"-level in the hirarchy
-> and the general guarantee is that new software _will work_ with older DTs,
-> but the other way around is more a nice to have (old SW with new DTB).
-> 
-> So if some manufacturer has a centrally located DTB this does not matter
-> until they upgrade, and when that happens I do expect testing to happen
-> at the manufacturers side, before rolling out a "bios update"
+On Fri, Jan 24, 2025 at 2:06=E2=80=AFPM Dragan Simic <dsimic@manjaro.org> w=
+rote:
+>
+> Hello Alexey,
+>
+> On 2025-01-24 09:33, Alexey Charkov wrote:
+> > On Fri, Jan 24, 2025 at 9:26=E2=80=AFAM Alexander Shiyan
+> > <eagle.alexander923@gmail.com> wrote:
+> >>
+> >> There is no pinctrl "gpio" and "otpout" (probably designed as
+> >> "output")
+> >> handling in the tsadc driver.
+> >> Let's use proper binding "default" and "sleep".
+> >
+> > This looks reasonable, however I've tried it on my Radxa Rock 5C and
+> > the driver still doesn't claim GPIO0 RK_PA1 even with this change. As
+> > a result, a simulated thermal runaway condition (I've changed the
+> > tshut temperature to 65000 and tshut mode to 1) doesn't trigger a PMIC
+> > reset, even though a direct `gpioset 0 1=3D0` does.
+> >
+> > Are any additional changes needed to the driver itself?
+>
+> I've been digging through this patch the whole TSADC/OTP thing in the
+> last couple of hours, and AFAIK some parts of the upstream driver are
+> still missing, in comparison with the downstream driver.
+>
+> I've got some small suggestions for the patch itself, but the issue
+> you observed is obviously of higher priority, and I've singled it out
+> as well while digging through the code.
+>
+> Could you, please, try the patch below quickly, to see is it going to
+> fix the issue you observed?  I've got some "IRL stuff" to take care of
+> today, so I can't test it myself, and it would be great to know is it
+> the right path to the proper fix.
+>
+> diff --git i/drivers/thermal/rockchip_thermal.c
+> w/drivers/thermal/rockchip_thermal.c
+> index f551df48eef9..62f0e14a8d98 100644
+> --- i/drivers/thermal/rockchip_thermal.c
+> +++ w/drivers/thermal/rockchip_thermal.c
+> @@ -1568,6 +1568,11 @@ static int rockchip_thermal_probe(struct
+> platform_device *pdev)
+>          thermal->chip->initialize(thermal->grf, thermal->regs,
+>                                    thermal->tshut_polarity);
+>
+> +       if (thermal->tshut_mode =3D=3D TSHUT_MODE_GPIO)
+> +               pinctrl_select_default_state(dev);
+> +       else
+> +               pinctrl_select_sleep_state(dev);
 
-Personally, I'm all for letting the kernel build the DTBs with symbols.
+I believe no 'else' block is needed here, because if tshut_mode is not
+TSHUT_MODE_GPIO then the TSADC doesn't use this pin at all, so there's
+no reason for the driver to mess with its pinctrl state. I'd rather
+put a mirroring block to put the pin back to its 'sleep' state in the
+removal function for the TSHUT_MODE_GPIO case.
 
-(I have a patch that I keep rebasing on my tree only for that purpose.
-Sure, I could modify my build scripts to build the DTB separately,
-but with this patch, I do not need to do anything since the kernel
-builds the DTBs already.)
+Will try and revert.
 
-Other platforms, e.g. TI already build many boards with symbols:
-https://github.com/torvalds/linux/blob/v6.13/arch/arm64/boot/dts/ti/Makefile#L242-L261
+P.S. Just looked at the downstream driver, and it actually calls
+TSHUT_MODE_GPIO TSHUT_MODE_OTP instead, so it seems that "otpout" was
+not a typo in the first place. So maybe the right approach here is not
+to change the device tree but rather fix the "gpio" / "otpout" pinctrl
+state handling in the driver.
 
-
-You seems to have been against enabling symbols before:
-https://lore.kernel.org/linux-rockchip/171941553475.921128.9467465539299233735.b4-ty@sntech.de/
-https://lore.kernel.org/linux-rockchip/1952472.6tgchFWduM@diego/
-
-But if you have changed you mind, and you are no longer concerned about
-doing so, then in my own self-interest I'm all for it :)
-
-
-Kind regards,
-Niklas
+Best,
+Alexey
 
