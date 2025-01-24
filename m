@@ -4,77 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 876F7C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 08:28:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 251D4C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 08:29:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kzSv9c025BoT7bv1pofsol0/ETpj/UtQsU+Tj7powAA=; b=cZYNWx7Zq9Iy65kCwO7gPfltPV
-	K/vKHbIK9SWJF5QJBNwgmSy3HeaniFHG2fr4YnvKTalwK5G1smwvOeGyaYgfOPuyPQJJB9EhGnUAs
-	7/Q/AvmaZpw8gTpkKk/QushcEOlUgkwfVerxYD6CLOh6tpm6x2PJ8KWOgwvNsJaWYEOqwiRPqqZc8
-	IlTuCuxX0FqKyzMJ9oDbZn9lpFsRnBrRWYqyxVuu+ESp65rwQ9d/n8o/+eELh1O+Q1wB2P68OEFTl
-	wl1hex9sM4OK2q3d0XEOYmBRe0FCKKdIX1mBfWRrZQ7IWccDB7J9ROLisC7nsykYcsG++ppqlMg8N
-	+EydiTwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/8oAL6qTbQWJkj8r9VXN/YNw8cpkGC6GOUpg2XwzQs8=; b=Q3fI+DkpKGxQm9S1Jtse+C+Wm4
+	c49gj2STFqPJCTcqc2dSQies0xkB4Z/a30eCOEI7tkZGJZrOrrVCJf5EQw3Bl4tCcSBBQ+op+k5bC
+	kkZW9D8EfXJ0tUKkW0bYAta3RVU3SoBddFvjfnr4/km+2DCC0P/SOVhB6Wkp8Oje//6e08zOUuBSB
+	RYzHlvHyuZF14PYyROyaYtfvfgHNLZ7VEcFBFgj8XBzWX8uw5XO4UyreuamKEIWbJRxEAERielWHu
+	dOxK1Mop6vbaw5dLXi5Hoo2YXtrAyX+SGGEUW5FfuZ2dQHFPX+t1jaFSxzGms4cTJn+g6KCCxRYcD
+	EkCc7O7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbF2u-0000000EFMd-40np;
-	Fri, 24 Jan 2025 08:28:08 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tbF4D-0000000EFYa-28SO;
+	Fri, 24 Jan 2025 08:29:29 +0000
+Received: from mail-m3282.qiye.163.com ([220.197.32.82])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbF0V-0000000EEkg-24zh
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jan 2025 08:25:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 951F25C5A37;
-	Fri, 24 Jan 2025 08:24:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0817FC4CED2;
-	Fri, 24 Jan 2025 08:25:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737707138;
-	bh=x26BlNIlodJcFOTbs1Ak7gzDS8ZSUxVog8qPx6PkJOU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KwOU5BoxiuL2w9OJRXglPvu/vUssSQnDY50Nh85vPzUEtETR+jCiAlFLrGrfmEf8R
-	 ZxdiEK7ElK/67c5nxrXZyhtQtdU3wkcSL6SmWNr8erMfladBbPs/3pkc7IZtZZMQMR
-	 mfS97IxieYkbUx2H29Pgwr0hknhKwVJrj8xdK08WooqruWi0gtnVGFexMJGzdLUvRQ
-	 9A1y+c4u7QduuPReR7lIWrplunI8THOGxR0cjwy8p3YT/FnKtsHtwsN+xGAIhyEjKK
-	 7xmGpWxmk4ygoDE0wZ17XE5sBXOWQ8P7UsRQRdJu7dVrHyp8IPHi7hJOvRSHpfR+Yu
-	 g163vCinRtfAg==
-Date: Fri, 24 Jan 2025 13:55:25 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: =?utf-8?B?QW5kcsOp?= Draszik <andre.draszik@linaro.org>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>,
-	Avri Altman <avri.altman@wdc.com>,
-	Bart Van Assche <bvanassche@acm.org>,
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-	"Martin K. Petersen" <martin.petersen@oracle.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Mike Snitzer <snitzer@redhat.com>, Jens Axboe <axboe@kernel.dk>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Satya Tangirala <satyat@google.com>,
-	Eric Biggers <ebiggers@google.com>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
-	linux-scsi@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v3] scsi: ufs: fix use-after free in init error and
- remove paths
-Message-ID: <20250124082525.ejkftp7vvrq6ua4x@thinkpad>
-References: <20250116-ufshcd-fix-v3-1-6a83004ea85c@linaro.org>
+	id 1tbF1k-0000000EEyB-1e7r;
+	Fri, 24 Jan 2025 08:26:58 +0000
+Received: from [172.16.12.26] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 996fdf6b;
+	Fri, 24 Jan 2025 16:26:49 +0800 (GMT+08:00)
+Message-ID: <c1718efc-85de-4356-aa15-2296a0780b2f@rock-chips.com>
+Date: Fri, 24 Jan 2025 16:26:48 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250116-ufshcd-fix-v3-1-6a83004ea85c@linaro.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 06/14] drm/bridge: analogix_dp: support to get
+ &analogix_dp_device.plat_data and &analogix_dp_device.aux
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, rfoss@kernel.org, vkoul@kernel.org,
+ sebastian.reichel@collabora.com, cristian.ciocaltea@collabora.com,
+ l.stach@pengutronix.de, andy.yan@rock-chips.com, hjc@rock-chips.com,
+ algea.cao@rock-chips.com, kever.yang@rock-chips.com,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org
+References: <20250123100747.1841357-1-damon.ding@rock-chips.com>
+ <20250123100747.1841357-7-damon.ding@rock-chips.com>
+ <y4yzgkvcmvmphviuoroijaaotd2zdworbs5tfhdxh74kchirk6@dgoqwoksckiz>
+Content-Language: en-US
+From: Damon Ding <damon.ding@rock-chips.com>
+In-Reply-To: <y4yzgkvcmvmphviuoroijaaotd2zdworbs5tfhdxh74kchirk6@dgoqwoksckiz>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQklMHlZOSE9DSUxNGh9DQkhWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+X-HM-Tid: 0a94976bc3a103a3kunm996fdf6b
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6MU06Mzo4OTIXHiFLMDBKCA82
+	F1YwCxZVSlVKTEhMTEtMSUpKT09CVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFJQ0pLNwY+
+DKIM-Signature: a=rsa-sha256;
+	b=OYTYvei2Jt0VQn6+xbTs8MyEcoB25VtrUR7lof7WSmjRXwxJEUCpdeds8/R8FPtylnCqhMnxEYfnwWe8lhF4tAhafN/OQ4GNnzOSdhxEy1abwkDbtmF4hEXF63QkK1mmAn5qGwbNW9EOHOAF24wqZRsOfWhLaNR2Zq2sBlFtpoM=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=/8oAL6qTbQWJkj8r9VXN/YNw8cpkGC6GOUpg2XwzQs8=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250124_002539_623558_A6C92A63 
-X-CRM114-Status: GOOD (  40.82  )
+X-CRM114-CacheID: sfid-20250124_002656_990026_6EF83DBA 
+X-CRM114-Status: GOOD (  12.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,229 +82,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 16, 2025 at 11:18:08AM +0000, André Draszik wrote:
-> devm_blk_crypto_profile_init() registers a cleanup handler to run when
-> the associated (platform-) device is being released. For UFS, the
-> crypto private data and pointers are stored as part of the ufs_hba's
-> data structure 'struct ufs_hba::crypto_profile'. This structure is
-> allocated as part of the underlying ufshd allocation.
-> 
-> During driver release or during error handling in ufshcd_pltfrm_init(),
-> this structure is released as part of ufshcd_dealloc_host() before the
-> (platform-) device associated with the crypto call above is released.
-> Once this device is released, the crypto cleanup code will run, using
-> the just-released 'struct ufs_hba::crypto_profile'. This causes a
-> use-after-free situation:
-> 
->     exynos-ufshc 14700000.ufs: ufshcd_pltfrm_init() failed -11
->     exynos-ufshc 14700000.ufs: probe with driver exynos-ufshc failed with error -11
->     Unable to handle kernel paging request at virtual address 01adafad6dadad88
->     Mem abort info:
->       ESR = 0x0000000096000004
->       EC = 0x25: DABT (current EL), IL = 32 bits
->       SET = 0, FnV = 0
->       EA = 0, S1PTW = 0
->       FSC = 0x04: level 0 translation fault
->     Data abort info:
->       ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
->       CM = 0, WnR = 0, TnD = 0, TagAccess = 0
->       GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
->     [01adafad6dadad88] address between user and kernel address ranges
->     Internal error: Oops: 0000000096000004 [#1] PREEMPT SMP
->     Modules linked in:
->     CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Tainted: G        W          6.13.0-rc5-next-20250106+ #70
->     Tainted: [W]=WARN
->     Hardware name: Oriole (DT)
->     pstate: 20400005 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
->     pc : kfree+0x60/0x2d8
->     lr : kvfree+0x44/0x60
->     sp : ffff80008009ba80
->     x29: ffff80008009ba90 x28: 0000000000000000 x27: ffffbcc6591e0130
->     x26: ffffbcc659309960 x25: ffffbcc658f89c50 x24: ffffbcc659539d80
->     x23: ffff22e000940040 x22: ffff22e001539010 x21: ffffbcc65714b22c
->     x20: 6b6b6b6b6b6b6b6b x19: 01adafad6dadad80 x18: 0000000000000000
->     x17: ffffbcc6579fbac8 x16: ffffbcc657a04300 x15: ffffbcc657a027f4
->     x14: ffffbcc656f969cc x13: ffffbcc6579fdc80 x12: ffffbcc6579fb194
->     x11: ffffbcc6579fbc34 x10: 0000000000000000 x9 : ffffbcc65714b22c
->     x8 : ffff80008009b880 x7 : 0000000000000000 x6 : ffff80008009b940
->     x5 : ffff80008009b8c0 x4 : ffff22e000940518 x3 : ffff22e006f54f40
->     x2 : ffffbcc657a02268 x1 : ffff80007fffffff x0 : ffffc1ffc0000000
+Hi Dmitry,
 
-You can strip these register dump and abort info.
+On 2025/1/23 19:19, Dmitry Baryshkov wrote:
+> On Thu, Jan 23, 2025 at 06:07:39PM +0800, Damon Ding wrote:
+>> Add two new functions: one to find &analogix_dp_device.plat_data via
+>> &drm_dp_aux, and the other to get &analogix_dp_device.aux. Both of them
+>> serve for the function of getting panel from DP AUX bus, which is why
+>> they are included in a single commit.
+>>
+>> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+>> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+>> ---
+>>   drivers/gpu/drm/bridge/analogix/analogix_dp_core.c | 14 ++++++++++++++
+>>   include/drm/bridge/analogix_dp.h                   |  4 ++++
+>>   2 files changed, 18 insertions(+)
+>>
+>> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+>> index b05f5b9f5258..8251adfce2f9 100644
+>> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+>> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+>> @@ -1794,6 +1794,20 @@ int analogix_dp_stop_crc(struct drm_connector *connector)
+>>   }
+>>   EXPORT_SYMBOL_GPL(analogix_dp_stop_crc);
+>>   
+>> +struct analogix_dp_plat_data *analogix_dp_aux_to_plat_data(struct drm_dp_aux *aux)
+>> +{
+>> +	struct analogix_dp_device *dp = to_dp(aux);
+>> +
+>> +	return dp->plat_data;
+>> +}
+>> +EXPORT_SYMBOL_GPL(analogix_dp_aux_to_plat_data);
+>> +
+>> +struct drm_dp_aux *analogix_dp_get_aux(struct analogix_dp_device *dp)
+>> +{
+>> +	return &dp->aux;
+>> +}
+>> +EXPORT_SYMBOL_GPL(analogix_dp_get_aux);
+>> +
+>>   MODULE_AUTHOR("Jingoo Han <jg1.han@samsung.com>");
+>>   MODULE_DESCRIPTION("Analogix DP Core Driver");
+>>   MODULE_LICENSE("GPL v2");
+>> diff --git a/include/drm/bridge/analogix_dp.h b/include/drm/bridge/analogix_dp.h
+>> index 6002c5666031..1b119b547988 100644
+>> --- a/include/drm/bridge/analogix_dp.h
+>> +++ b/include/drm/bridge/analogix_dp.h
+>> @@ -7,6 +7,7 @@
+>>   #ifndef _ANALOGIX_DP_H_
+>>   #define _ANALOGIX_DP_H_
+>>   
+>> +#include <drm/display/drm_dp_aux_bus.h>
+> 
+> Nit: it should be enough to just forward-declare struct drm_dp_aux
+> instead.
+> 
 
->     Call trace:
->      kfree+0x60/0x2d8 (P)
->      kvfree+0x44/0x60
->      blk_crypto_profile_destroy_callback+0x28/0x70
->      devm_action_release+0x1c/0x30
->      release_nodes+0x6c/0x108
->      devres_release_all+0x98/0x100
->      device_unbind_cleanup+0x20/0x70
->      really_probe+0x218/0x2d0
-> 
-> In other words, the initialisation code flow is:
-> 
->   platform-device probe
->     ufshcd_pltfrm_init()
->       ufshcd_alloc_host()
->         scsi_host_alloc()
->           allocation of struct ufs_hba
->           creation of scsi-host devices
->     devm_blk_crypto_profile_init()
->       devm registration of cleanup handler using platform-device
-> 
-> and during error handling of ufshcd_pltfrm_init() or during driver
-> removal:
-> 
->   ufshcd_dealloc_host()
->     scsi_host_put()
->       put_device(scsi-host)
->         release of struct ufs_hba
->   put_device(platform-device)
->     crypto cleanup handler
-> 
-> To fix this use-after free, change ufshcd_alloc_host() to register a
-> devres action to automatically cleanup the underlying SCSI device on
-> ufshcd destruction, without requiring explicit calls to
-> ufshcd_dealloc_host(). This way:
-> 
->     * the crypto profile and all other ufs_hba-owned resources are
->       destroyed before SCSI (as they've been registered after)
->     * a memleak is plugged in tc-dwc-g210-pci.c remove() as a
->       side-effect
->     * EXPORT_SYMBOL_GPL(ufshcd_dealloc_host) can be removed fully as
->       it's not needed anymore
->     * no future drivers using ufshcd_alloc_host() could ever forget
->       adding the cleanup
-> 
-> Fixes: cb77cb5abe1f ("blk-crypto: rename blk_keyslot_manager to blk_crypto_profile")
-> Fixes: d76d9d7d1009 ("scsi: ufs: use devm_blk_ksm_init()")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: André Draszik <andre.draszik@linaro.org>
-> ---
-> Changes in v3:
-> - rename devres action handler to ufshcd_devres_release() (Bart)
-> - Link to v2: https://lore.kernel.org/r/20250114-ufshcd-fix-v2-1-2dc627590a4a@linaro.org
-> 
-> Changes in v2:
-> - completely new approach using devres action for Scsi_host cleanup, to
->   ensure ordering
-> - add Fixes: and CC: stable tags (Eric)
-> - Link to v1: https://lore.kernel.org/r/20250113-ufshcd-fix-v1-1-ca63d1d4bd55@linaro.org
-> ---
-> In my case, as per above trace I initially encountered an error in
-> ufshcd_verify_dev_init(), which made me notice this problem both during
-> error handling and release. For reproducing, it'd be possible to change
-> that function to just return an error, or rmmod the platform glue
-> driver.
-> 
-> Other approaches for solving this issue I see are the following, but I
-> believe this one here is the cleanest:
-> 
-> * turn 'struct ufs_hba::crypto_profile' into a dynamically allocated
->   pointer, in which case it doesn't matter if cleanup runs after
->   scsi_host_put()
-> * add an explicit devm_blk_crypto_profile_deinit() to be called by API
->   users when necessary, e.g. before ufshcd_dealloc_host() in this case
-> * register the crypto cleanup handler against the scsi-host device
->   instead, like in v1 of this patch
-> ---
->  drivers/ufs/core/ufshcd.c        | 27 +++++++++++++++++----------
->  drivers/ufs/host/ufshcd-pci.c    |  2 --
->  drivers/ufs/host/ufshcd-pltfrm.c | 11 ++++-------
->  include/ufs/ufshcd.h             |  1 -
->  4 files changed, 21 insertions(+), 20 deletions(-)
-> 
-> diff --git a/drivers/ufs/core/ufshcd.c b/drivers/ufs/core/ufshcd.c
-> index 43ddae7318cb..8351795296bb 100644
-> --- a/drivers/ufs/core/ufshcd.c
-> +++ b/drivers/ufs/core/ufshcd.c
-> @@ -10279,16 +10279,6 @@ int ufshcd_system_thaw(struct device *dev)
->  EXPORT_SYMBOL_GPL(ufshcd_system_thaw);
->  #endif /* CONFIG_PM_SLEEP  */
->  
-> -/**
-> - * ufshcd_dealloc_host - deallocate Host Bus Adapter (HBA)
-> - * @hba: pointer to Host Bus Adapter (HBA)
-> - */
-> -void ufshcd_dealloc_host(struct ufs_hba *hba)
-> -{
-> -	scsi_host_put(hba->host);
-> -}
-> -EXPORT_SYMBOL_GPL(ufshcd_dealloc_host);
-> -
->  /**
->   * ufshcd_set_dma_mask - Set dma mask based on the controller
->   *			 addressing capability
-> @@ -10307,6 +10297,16 @@ static int ufshcd_set_dma_mask(struct ufs_hba *hba)
->  	return dma_set_mask_and_coherent(hba->dev, DMA_BIT_MASK(32));
->  }
->  
-> +/**
-> + * ufshcd_devres_release - devres cleanup handler, invoked during release of
-> + *			   hba->dev
-> + * @host: pointer to SCSI host
-> + */
-> +static void ufshcd_devres_release(void *host)
-> +{
-> +	scsi_host_put(host);
-> +}
-> +
->  /**
->   * ufshcd_alloc_host - allocate Host Bus Adapter (HBA)
+I will move the header file to the driver of Rockchip Analogix DP and 
+just use the forward-declare here in the next version.
 
-Please update the kdoc too.
+>>   #include <drm/drm_crtc.h>
+>>   
+>>   struct analogix_dp_device;
+>> @@ -48,4 +49,7 @@ void analogix_dp_unbind(struct analogix_dp_device *dp);
+>>   int analogix_dp_start_crc(struct drm_connector *connector);
+>>   int analogix_dp_stop_crc(struct drm_connector *connector);
+>>   
+>> +struct analogix_dp_plat_data *analogix_dp_aux_to_plat_data(struct drm_dp_aux *aux);
+>> +struct drm_dp_aux *analogix_dp_get_aux(struct analogix_dp_device *dp);
+>> +
+>>   #endif /* _ANALOGIX_DP_H_ */
+>> -- 
+>> 2.34.1
+>>
+> 
 
->   * @dev: pointer to device handle
-> @@ -10334,6 +10334,13 @@ int ufshcd_alloc_host(struct device *dev, struct ufs_hba **hba_handle)
->  		err = -ENOMEM;
->  		goto out_error;
->  	}
-> +
-> +	err = devm_add_action_or_reset(dev, ufshcd_devres_release,
-> +				       host);
-> +	if (err)
-> +		return dev_err_probe(dev, err,
-> +				     "failed to add ufshcd dealloc action\n");
-> +
->  	host->nr_maps = HCTX_TYPE_POLL + 1;
->  	hba = shost_priv(host);
->  	hba->host = host;
-> diff --git a/drivers/ufs/host/ufshcd-pci.c b/drivers/ufs/host/ufshcd-pci.c
-> index ea39c5d5b8cf..9cfcaad23cf9 100644
-> --- a/drivers/ufs/host/ufshcd-pci.c
-> +++ b/drivers/ufs/host/ufshcd-pci.c
-> @@ -562,7 +562,6 @@ static void ufshcd_pci_remove(struct pci_dev *pdev)
->  	pm_runtime_forbid(&pdev->dev);
->  	pm_runtime_get_noresume(&pdev->dev);
->  	ufshcd_remove(hba);
-> -	ufshcd_dealloc_host(hba);
->  }
->  
->  /**
-> @@ -605,7 +604,6 @@ ufshcd_pci_probe(struct pci_dev *pdev, const struct pci_device_id *id)
->  	err = ufshcd_init(hba, mmio_base, pdev->irq);
->  	if (err) {
->  		dev_err(&pdev->dev, "Initialization failed\n");
-> -		ufshcd_dealloc_host(hba);
->  		return err;
->  	}
->  
-> diff --git a/drivers/ufs/host/ufshcd-pltfrm.c b/drivers/ufs/host/ufshcd-pltfrm.c
-> index 505572d4fa87..adb0a65d9df5 100644
-> --- a/drivers/ufs/host/ufshcd-pltfrm.c
-> +++ b/drivers/ufs/host/ufshcd-pltfrm.c
-> @@ -488,13 +488,13 @@ int ufshcd_pltfrm_init(struct platform_device *pdev,
->  	if (err) {
->  		dev_err(dev, "%s: clock parse failed %d\n",
->  				__func__, err);
-> -		goto dealloc_host;
-> +		goto out;
+Best regards,
+Damon
 
-This 'goto out' is pointless now. Please return the errno directly.
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
 
