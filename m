@@ -4,71 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A1D8C0218B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 10:22:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4264C0218C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 10:23:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u0BM50TZK/HIu82bsqWrUkagwGNI0D2aUJbSTJdHkTw=; b=K4iCavNM/hprbtHmCXwyInzINw
-	rf3woOLCg8ecpQ+w4G8td+g60lPh0ZJ10YQfkC/SibhBtv2vfc28AOudAF9PWIsqxKYHn6hrkTvwR
-	onh7wyMPQ3l5FgNw6QEHGmWMHPuM1r8RRY+UYK2vxgjCnphnfOwaC2/pCcvX8trXXjeLNQSHSXO8b
-	2iLnPNa8IonUs/qy5bAUanB2fVw2hSa6z1vNhoUJd8rJamQs2ngMemnTs2ARlevVtEtQ5+bKEfIBx
-	sJy/kEj+h+g47IhSPF5bZ8zERCNXyyYZ4vqe5XeQ5IuOjGUdRrAyYHkxGekwtv9eHR2LCj9pj+tMa
-	Rz29R/wQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=67Jqb8E5y2wMq+CtYW7x2oADzGlvHt47MmkZxhhINtQ=; b=FXquZr8EmigsKK+vO9MUR6RMlq
+	f04Ow4oEZSQG7In9wBHVCN50qS0NP77Rv+2CuJslQ7oVPE07DJ3kHn1i7WyUTRsfL6PXlqBAuHCB/
+	vHGpz0OdTs7frObtN2NyMPK/MDsWSUDnNzMx6P+BLmB8YvPqUPylN/yZ4KBn0O4geBCTbcECo3cTo
+	neHa5MWW42km33r2IYk7keIo8Kh0fnUWf+MkB+nKoseoU8ZdNrEXXd4R8mQS7ESoHSonZstbjwYlt
+	XkdDmC4m0U8+Tnlj1ruS26Jt77rAWKwfC/MXrj5ckim0OUMLuWsaqkqeDMbz1vFAW9H8wGLpSwP8y
+	ljO99VuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbGp1-0000000ERzb-2nxt;
-	Fri, 24 Jan 2025 10:21:55 +0000
-Received: from mail-m1973180.qiye.163.com ([220.197.31.80])
+	id 1tbGqQ-0000000ES66-1OOx;
+	Fri, 24 Jan 2025 10:23:22 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbGng-0000000ERqB-2jUt;
-	Fri, 24 Jan 2025 10:20:34 +0000
-Received: from [172.16.12.26] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 999d7bbb;
-	Fri, 24 Jan 2025 18:20:21 +0800 (GMT+08:00)
-Message-ID: <9199671c-f647-4c39-8618-f2d7fa28f081@rock-chips.com>
-Date: Fri, 24 Jan 2025 18:20:21 +0800
+	id 1tbGoF-0000000ERwa-23eF;
+	Fri, 24 Jan 2025 10:21:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 00B4BA4134C;
+	Fri, 24 Jan 2025 10:19:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71B10C4CED2;
+	Fri, 24 Jan 2025 10:21:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737714065;
+	bh=1rxi/IQFlqsCoGaYN4R4JXonbt8cWgjyvBPnXzr8SOc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=c9B89+1HAsf6XleKtnR0iRfZeUjw82iVnl2pDygJDF/EbvlmUJG5n2gdLbIlZPAET
+	 PYjnl+1k1X9jNR+/mC9b+3CGhXWb3ptRjjZApW1F/KNbZ7J8pCXsbRN3DvVDtKmldm
+	 QxjjIb9zfEU21WNePhsnAsANpXS9/K7luGGE7G0OTqaApBVwVBYkVSsusMctfOimPh
+	 PsD+0DzTPfcelGqZeG4VRKw+HkM784WmpVT7g+BEJ3VR7XoTswYwITGRiJdetmYfgu
+	 XmCOD+plmtdyCzuYmYcvMgBQgFRJ9lak0n1MD/QjImM3bRXgdSZnTzD8W5/QDa1Iju
+	 z/uqPD1EpEv+Q==
+Date: Fri, 24 Jan 2025 11:21:00 +0100
+From: Niklas Cassel <cassel@kernel.org>
+To: Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>
+Cc: Quentin Schulz <quentin.schulz@cherry.de>,
+	Quentin Schulz <foss+kernel@0leil.net>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Jagan Teki <jagan@edgeble.ai>,
+	Michael Riesch <michael.riesch@wolfvision.net>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/3] arm64: dts: rockchip: minimal support for Pre-ICT
+ tester adapter for RK3588 Jaguar + add overlay tests
+Message-ID: <Z5NpjAUFK_cMIWLj@ryzen>
+References: <20250116-pre-ict-jaguar-v2-0-157d319004fc@cherry.de>
+ <6dd64754-fe72-4288-9724-b3cdaf193b3b@cherry.de>
+ <Z5EY6uMmDCgfOzGO@ryzen>
+ <3324197.aV6nBDHxoP@diego>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 09/14] dt-bindings: display: rockchip: analogix-dp: Add
- support for RK3588
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: devicetree@vger.kernel.org, kever.yang@rock-chips.com,
- l.stach@pengutronix.de, linux-phy@lists.infradead.org, vkoul@kernel.org,
- linux-kernel@vger.kernel.org, cristian.ciocaltea@collabora.com,
- hjc@rock-chips.com, sebastian.reichel@collabora.com,
- dmitry.baryshkov@linaro.org, rfoss@kernel.org, krzk+dt@kernel.org,
- heiko@sntech.de, andy.yan@rock-chips.com,
- linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
- algea.cao@rock-chips.com, linux-rockchip@lists.infradead.org,
- conor+dt@kernel.org
-References: <20250123100747.1841357-1-damon.ding@rock-chips.com>
- <20250123100747.1841357-10-damon.ding@rock-chips.com>
- <173763136187.3345079.11905359473404124812.robh@kernel.org>
-Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <173763136187.3345079.11905359473404124812.robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQk8dTFZLShpKTRgdGkhMTExWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpOTE
-	5VSktLVUpCS0tZBg++
-X-HM-Tid: 0a9497d3b59d03a3kunm999d7bbb
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NBg6Lyo5AzIKCho4Az0aKBw4
-	MC8KCh1VSlVKTEhMTEpPS0lIT01DVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFIS0lCNwY+
-DKIM-Signature: a=rsa-sha256;
-	b=R9P1b2tY3AWKf5ZQ/2+nyS6ZvqpAcjzV+V0ScfM8eTSa/i9Jm7OY1vqqONpq6+DgOfkt6gctdO2lSxQme3D9eMmucV/8kGVoor85I9KlWdAqTsNwPPTY2EezB9MMB0cHYdCBnaRleqMhTFQriClr29J69Y0S/jfwE5Fq1TFS1S0=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=u0BM50TZK/HIu82bsqWrUkagwGNI0D2aUJbSTJdHkTw=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <3324197.aV6nBDHxoP@diego>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250124_022032_846093_4D82DAF9 
-X-CRM114-Status: GOOD (  20.28  )
+X-CRM114-CacheID: sfid-20250124_022107_659729_262BA7AF 
+X-CRM114-Status: GOOD (  34.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,79 +81,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
+On Thu, Jan 23, 2025 at 03:13:01PM +0100, Heiko Stübner wrote:
+> Am Mittwoch, 22. Januar 2025, 17:12:26 CET schrieb Niklas Cassel:
+> > On Wed, Jan 22, 2025 at 04:38:16PM +0100, Quentin Schulz wrote:
+> > > So essentially, if SPL_ATF_NO_PLATFORM_PARAM is selected (the default for
+> > > RK356x, RK3588, forced on on RK3308, enabled for the majority of RK3399
+> > > boards, enabled for all RK3328 boards) the DT won't be passed to TF-A so no
+> > > issue in terms of size on that side.
+> > > If it is not selected, for TF-A < 2.4 (released 20201117, 4 years ago), a
+> > > DTB bigger than 64KiB will crash TF-A.
+> > > If it is not selected, for TF-A >= 2.4, a DTB bigger than 128KiB will result
+> > > in TF-A not being able to read the DTB (for Rockchip, that means not being
+> > > able to derive the UART settings (controller and baudrate) to use, and will
+> > > use the compile-time default instead).
+> > 
+> > Not everyone is using binary blobs from Rockchip.
+> > On my rock5b (rk3588), I'm building the bootloader using buildroot,
+> > which is using upstream TrustedFirmware-A (v2.12).
+> > 
+> > 
+> > > In short, I don't know where to go with that additional piece of
+> > > information, but this is a bit bigger than simply moving things around and
+> > > adding compile-time tests for overlay application.
+> > 
+> > This is significant information indeed.
+> 
+> I guess the question is, can this hurt existing devices?
+> 
+> As Quentin mentioned, this only affects DTs that get handed over from
+> U-Boot to TF-A (and maybe OP-TEE).
+> 
+> So the whole range of things loading their DT from extlinux.conf or
+> whatever are not really affected.
+> 
+> 
+> DTs U-Boot can hand over are 2 types,
+> (1) built from within u-boot and
+> (2) stored somewhere centrally (SPI flash).
+> 
+> 
+> Case (1) is again not affected, as U-Boot (and other bootloaders) may
+> very well sync the DTS files, but generally not the build-system, so if
+> U-Boot (or any other bootloader) creates DTBs with symbols is completely
+> their own choice.
+> 
+> 
+> And for case (2) I see the manufacturer being responsible. Having the DT
+> in central storage makes it somewhat part of a "bios"-level in the hirarchy
+> and the general guarantee is that new software _will work_ with older DTs,
+> but the other way around is more a nice to have (old SW with new DTB).
+> 
+> So if some manufacturer has a centrally located DTB this does not matter
+> until they upgrade, and when that happens I do expect testing to happen
+> at the manufacturers side, before rolling out a "bios update"
 
-On 2025/1/23 19:22, Rob Herring (Arm) wrote:
-> 
-> On Thu, 23 Jan 2025 18:07:42 +0800, Damon Ding wrote:
->> Compared with RK3288/RK3399, the HBR2 link rate support is the main
->> improvement of RK3588 eDP TX controller, and there are also two
->> independent eDP display interfaces on RK3588 Soc.
->>
->> The newly added 'apb' reset is to ensure the APB bus of eDP controller
->> works well on the RK3588 SoC.
->>
->> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
->>
->> ---
->>
->> Changes in v2:
->> - Add the main defferences of the RK3588 eDP and the previous versions
->>    in commit message
->>
->> Changes in v3:
->> - Expand the property clock-names, resets and reset-names
->>
->> Changes in v4:
->> - Remove 'spdif' clock which added in v3
->> - Add the comment of newly added 'apb' reset in commit message
->>
->> Changes in v5:
->> - Put the differences between RK3288/RK3399 and RK3588 into 'allOf'
->>
->> Changes in v6:
->> - Keep the widest constraints and add only RK3588 related constraints
->>    into 'allOf'
->> ---
->>   .../rockchip/rockchip,analogix-dp.yaml        | 22 ++++++++++++++++++-
->>   1 file changed, 21 insertions(+), 1 deletion(-)
->>
-> 
-> My bot found errors running 'make dt_binding_check' on your patch:
-> 
-> yamllint warnings/errors:
-> 
-> dtschema/dtc warnings/errors:
-> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml: properties:reset-names: 'const' should not be valid under {'enum': ['const', 'enum', 'exclusiveMaximum', 'exclusiveMinimum', 'minimum', 'maximum', 'multipleOf', 'pattern']}
-> 	hint: Scalar and array keywords cannot be mixed
-> 	from schema $id: http://devicetree.org/meta-schemas/keywords.yaml#
-> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml: properties:reset-names: 'const' should not be valid under {'enum': ['const', 'enum', 'exclusiveMaximum', 'exclusiveMinimum', 'minimum', 'maximum', 'multipleOf', 'pattern']}
-> 	hint: Scalar and array keywords cannot be mixed
-> 	from schema $id: http://devicetree.org/meta-schemas/keywords.yaml#
-> 
-> doc reference errors (make refcheckdocs):
-> 
-> See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250123100747.1841357-10-damon.ding@rock-chips.com
-> 
-> The base for the series is generally the latest rc1. A different dependency
-> should be noted in *this* patch.
-> 
-> If you already ran 'make dt_binding_check' and didn't see the above
-> error(s), then make sure 'yamllint' is installed and dt-schema is up to
-> date:
-> 
-> pip3 install dtschema --upgrade
-> 
-> Please check and re-submit after running the above command yourself. Note
-> that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-> your schema. However, it must be unset to test all examples with your schema.
-> 
-> 
-> 
+Personally, I'm all for letting the kernel build the DTBs with symbols.
 
-I have found these errors using dt_binding_check and will fix them in 
-the next version.
+(I have a patch that I keep rebasing on my tree only for that purpose.
+Sure, I could modify my build scripts to build the DTB separately,
+but with this patch, I do not need to do anything since the kernel
+builds the DTBs already.)
 
-Best regards
-Damon
+Other platforms, e.g. TI already build many boards with symbols:
+https://github.com/torvalds/linux/blob/v6.13/arch/arm64/boot/dts/ti/Makefile#L242-L261
+
+
+You seems to have been against enabling symbols before:
+https://lore.kernel.org/linux-rockchip/171941553475.921128.9467465539299233735.b4-ty@sntech.de/
+https://lore.kernel.org/linux-rockchip/1952472.6tgchFWduM@diego/
+
+But if you have changed you mind, and you are no longer concerned about
+doing so, then in my own self-interest I'm all for it :)
+
+
+Kind regards,
+Niklas
 
