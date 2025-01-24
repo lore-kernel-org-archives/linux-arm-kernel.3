@@ -4,90 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A709DC02181
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 03:50:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88C25C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 03:51:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kIHrgdtc4oC/R4pWnFgtEGCVANIfrpCmBiRl/x6wgOc=; b=Z7/T+vOmTqcof7zHumhsegKTT+
-	Rv9Sf8bJUfg/rms8vZoMn6zw4QW0sP63IBTesPfR4r71+6IDW9xQy8UKQa6FgeDDEk4eNe3ngJ3uh
-	3HnI1/e3p7je658V+199q+NHYQOB56vQXPAL5P8/jsrE2vX3RdRBwXSo6QkbxY6cTmYOi7jsBALQZ
-	Pdu/FBiNlsx6gngBOp+WoXaO9yNP5W2m/AdgN2u6N+81rFG09YKLTVmQRmmYQVR05ExpyNkEHJQS7
-	N7T1iLdpRdrTFhw+20jcIvuauwQoarb61GELQ8rMu0j2lrd/huwPqlgf/qyuLnK4GICEjwtrgQpUb
-	o6soPJXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:Subject:
+	Message-ID:Date:From:MIME-Version:Reply-To:Cc:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IzkbIemVnuwiLLIK9y8mVhnQ/6V+p9dfR3FEtwj47hA=; b=hPNNb+JHkssWbqrN7DgD9nOkJJ
+	fP7KD3mZq+Csb6EknSeZe8onihiNIf4Y8L4hBB0hD7xwvc/roV2NXHobfUM5SAabQe8kqa79VEbzb
+	ESsz0aanrGw5VmlA3YQ8UmGqY80qTN6o14yVyrDLvB8Mwko3vhylktvS6OtBiMlcBF7OQaZJP4e6L
+	6KP9/bJ2AZ5Sr11ZcJjWC7K6OATv05jQpIlvuK0Iy1dvinmI1Xv46YbAm0TRrwgLoFBwsnjMdwV3m
+	x/QWTYRWrDn8dmnxwd+1dC+or6ux+iK7OXgj5kMkMspqn1HaMslgcEwonNPfQPTbqamjquDTjryM0
+	8A4Z476A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbAhn-0000000DpqB-35u4;
-	Fri, 24 Jan 2025 03:50:03 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1tbAj6-0000000DpzU-1bl2;
+	Fri, 24 Jan 2025 03:51:24 +0000
+Received: from mail-oa1-x35.google.com ([2001:4860:4864:20::35])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbAgT-0000000Dpie-3mpF
+	id 1tbAhT-0000000Dpn4-1Jh2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jan 2025 03:48:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1737690522; x=1769226522;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ESESZlbmbscGyg08fJZIcgd/7xsDYidU9KIpFT/rdAY=;
-  b=iYSjCxE5Q8+ua1qyg5uhDzzxqqbg/nlL1dC5nA9os9Y9qHfgAEC7HKwq
-   O2miXbUzyynPiILb2BMOkYrMCqI5VI9oP/R6vDxeCkZ1zPCTlQ2QtAX9n
-   qks55q/KoPer+p+c8BSVoez/kG4estTrD7FwdNmWRPVayNYYk/P7PhgJa
-   w9Gv6BQSzI8GUrQlx4Lww30JN3Yms029shROYMuQE2vQG/K+cDvKWsC+M
-   2oylZ66gQN4iGS2LxTDkfkBybk9yFoBAbNRbGkP7QNb2bSo/WujGlncFp
-   Z8nYe6JDVLaecvNhN5CcMa4j0myar8sx4fnzNNSQITwEvyKA/njp4cUZ9
-   g==;
-X-CSE-ConnectionGUID: 3eFNEbnwRhWn8A1vNKQZng==
-X-CSE-MsgGUID: wZRfVKdgRpe28B0G9JLCjA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11324"; a="41883728"
-X-IronPort-AV: E=Sophos;i="6.13,230,1732608000"; 
-   d="scan'208";a="41883728"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jan 2025 19:48:41 -0800
-X-CSE-ConnectionGUID: FcaMMzkpTRiK0gGgdkLT9w==
-X-CSE-MsgGUID: SIwu+aytSZuzIOueLOhRyQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,230,1732608000"; 
-   d="scan'208";a="138528984"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by orviesa002.jf.intel.com with ESMTP; 23 Jan 2025 19:48:37 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tbAgM-000c63-2F;
-	Fri, 24 Jan 2025 03:48:34 +0000
-Date: Fri, 24 Jan 2025 11:48:16 +0800
-From: kernel test robot <lkp@intel.com>
-To: Taniya Das <quic_tdas@quicinc.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, Ajit Pandey <quic_ajipan@quicinc.com>,
-	Imran Shaik <quic_imrashai@quicinc.com>,
-	Jagadeesh Kona <quic_jkona@quicinc.com>,
-	linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Taniya Das <quic_tdas@quicinc.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Subject: Re: [PATCH v4 07/10] clk: qcom: gpucc-qcs615: Add QCS615 graphics
- clock controller driver
-Message-ID: <202501241339.AZK5Ob8e-lkp@intel.com>
-References: <20250119-qcs615-mm-v4-clockcontroller-v4-7-5d1bdb5a140c@quicinc.com>
+	Fri, 24 Jan 2025 03:49:44 +0000
+Received: by mail-oa1-x35.google.com with SMTP id 586e51a60fabf-29e5aedbebdso913391fac.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jan 2025 19:49:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1737690582; x=1738295382; darn=lists.infradead.org;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=IzkbIemVnuwiLLIK9y8mVhnQ/6V+p9dfR3FEtwj47hA=;
+        b=e4zp2T6qxwViJ9TBnKWbyVOCKWBDCP90w4vbN7UYjpKoqv4BnNTmNHKSFMGQzW3Bly
+         0FjmX4Bk0rQ8OmPFSDAUZpbiTMOPPYjoGu9lGP+7xXE2VByYAQjfqJ69WW84k6N8AaiC
+         /5u6B4HRbv1iuKW0CukdEaTi4/CF0imLw7EYkqqt4AhNGEL3OEv08OugzojGLXm9Royb
+         W0fBee0RICFMsuNObyOS/wJltrrHAOHM9ljWp2W0ylm5IBltaC3mSPiDp1GBwSk5jhPm
+         8XsVR2XRtZ8+n7eqOz51NwVreGR5TsHV9HmlOrYZEudyxc2seUiHyeArpljq3XgO/Myr
+         vi7g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737690582; x=1738295382;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=IzkbIemVnuwiLLIK9y8mVhnQ/6V+p9dfR3FEtwj47hA=;
+        b=jUsuygXJPoGKuoRRuTuY0XqM/2IUeSIQFV+jOKPbrGJyZrnaBQMUpD2IQH9/zbZhxP
+         ZGeV7+IWJE8egNwH1xq9N2Drq5oNlAhlEd111kHZXQpbwu4b/BgGFAnpyBgbyjpRhPxe
+         9JBF77Jk/6n5dGFpCFJR5U3UKdFcdf89WTJW4O/xiEkOaduc/JvUUGpmEwtHcPpDG2J/
+         kgb9r9p/hh1xbrlx5HYAEiJvR8zy+WYSkk0+iskrcdfOlnRCwhEcTHqmiCebaYfh9x1m
+         ZOQf6u7napGYoDuYXt2+jL1iNAjAQQMWSks7OahwPqfB/O2j+aD84Cs2byCt7WUn/eab
+         U0wQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXeALSu7M56dLfAUSEKFrjdEjTQHVaG5BTnX9K62S//uWub+WK6rvz7unUFOV4VTj+gH++SLxJFs/yHpzjRlGBo@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXspIxjJoYUaqmXI/znWhs9Gn71sNGl9nzoceYCxX/gBflDcp9
+	N8+3kjt3p2ak6NDzD31FEVCaj2GILupjdgocVcxsOqbyLUZDFK5ZKJYnI6OIuKHwOwfnMq3UaRp
+	yuVmtSMLIVcNM7AydvF1JbrOINe8=
+X-Gm-Gg: ASbGncuB8ALZe+k8puC5BZ2fN0E7quzvnSHjt/9RViFsNcM8UfEv13WkvIVFOt3uWWi
+	dnhJ2/sZtRIbIeY1KfcSBWQAyuZQ7Vd+PAw1IcnYuBITir+ypDuFN980ORiplb+U=
+X-Google-Smtp-Source: AGHT+IEJWelIGE1J9YedECXyoOMvgyyo8zbUUFNY7kU7UvOS0+99ymHvFDD3XLLi+kCPbUHdIzTxmRDgcZfNjVE50z8=
+X-Received: by 2002:a05:6871:788c:b0:296:ff26:3cd1 with SMTP id
+ 586e51a60fabf-2b1c0b08f68mr15657007fac.21.1737690580375; Thu, 23 Jan 2025
+ 19:49:40 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250119-qcs615-mm-v4-clockcontroller-v4-7-5d1bdb5a140c@quicinc.com>
+From: Jassi Brar <jassisinghbrar@gmail.com>
+Date: Thu, 23 Jan 2025 21:49:29 -0600
+X-Gm-Features: AWEUYZlFsD1hrC9yWFcWD1hz9rxHG1qET83nn7eCErcDD5iY6iyfy6W_xiWpBM4
+Message-ID: <CABb+yY0QX4PLU1wSfz7DsXCzoeOD=VAR-E0vDH2LLtwfp8aJbw@mail.gmail.com>
+Subject: [GIT PULL] Mailbox changes for v6.14
+To: Linus Torvalds <torvalds@linux-foundation.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_194842_023357_51FA7480 
-X-CRM114-Status: UNSURE (   9.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250123_194943_371910_92BE2ACD 
+X-CRM114-Status: GOOD (  13.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,38 +88,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Taniya,
+Hi Linus,
 
-kernel test robot noticed the following build warnings:
+The following changes since commit 5bc55a333a2f7316b58edc7573e8e893f7acb532:
 
-[auto build test WARNING on 0907e7fb35756464aa34c35d6abb02998418164b]
+  Linux 6.13-rc7 (2025-01-12 14:37:56 -0800)
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Taniya-Das/clk-qcom-clk-alpha-pll-Add-support-for-dynamic-update-for-slewing-PLLs/20250119-182754
-base:   0907e7fb35756464aa34c35d6abb02998418164b
-patch link:    https://lore.kernel.org/r/20250119-qcs615-mm-v4-clockcontroller-v4-7-5d1bdb5a140c%40quicinc.com
-patch subject: [PATCH v4 07/10] clk: qcom: gpucc-qcs615: Add QCS615 graphics clock controller driver
-config: nios2-randconfig-r111-20250124 (https://download.01.org/0day-ci/archive/20250124/202501241339.AZK5Ob8e-lkp@intel.com/config)
-compiler: nios2-linux-gcc (GCC) 14.2.0
-reproduce: (https://download.01.org/0day-ci/archive/20250124/202501241339.AZK5Ob8e-lkp@intel.com/reproduce)
+are available in the Git repository at:
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202501241339.AZK5Ob8e-lkp@intel.com/
+  git://git.kernel.org/pub/scm/linux/kernel/git/jassibrar/mailbox.git
+tags/mailbox-v6.14
 
-sparse warnings: (new ones prefixed by >>)
->> drivers/clk/qcom/gpucc-qcs615.c:394:15: sparse: sparse: symbol 'gpu_cc_sm6150_hws' was not declared. Should it be static?
+for you to fetch changes up to 4783ce32b0806911287f35cc65b799876d6f9547:
 
-vim +/gpu_cc_sm6150_hws +394 drivers/clk/qcom/gpucc-qcs615.c
+  riscv: export __cpuid_to_hartid_map (2025-01-20 10:25:11 -0600)
 
-   393	
- > 394	struct clk_hw *gpu_cc_sm6150_hws[] = {
-   395		[CRC_DIV_PLL0] = &crc_div_pll0.hw,
-   396		[CRC_DIV_PLL1] = &crc_div_pll1.hw,
-   397	};
-   398	
+----------------------------------------------------------------
+samsung: add gs101-mbox driver
+microchip: add sbi-ipc driver
+zynqmp: fix invalid __percpu annotation
+qcom: add IPQ5424 APCS compatible
+mpfs fix copy and paste bug
+th1520: Fix NULL vs IS_ERR() and a memory corruption bug
+tegra-hsp: clear mailbox before using message
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+----------------------------------------------------------------
+Dan Carpenter (2):
+      mailbox: th1520: Fix a NULL vs IS_ERR() bug
+      mailbox: mpfs: fix copy and paste bug in probe
+
+Gokul Sriram Palanisamy (2):
+      dt-bindings: mailbox: qcom: Add IPQ5424 APCS compatible
+      mailbox: qcom: Add support for IPQ5424 APCS IPC
+
+Michal Wilczynski (1):
+      mailbox: th1520: Fix memory corruption due to incorrect array size
+
+Mukesh Ojha (1):
+      mailbox: qcom-ipcc: Reset CLEAR_ON_RECV_RD if set from boot firmware
+
+Pekka Pessi (1):
+      mailbox: tegra-hsp: Clear mailbox before using message
+
+Tudor Ambarus (3):
+      dt-bindings: mailbox: add google,gs101-mbox
+      mailbox: add Samsung Exynos driver
+      MAINTAINERS: add entry for Samsung Exynos mailbox driver
+
+Uros Bizjak (1):
+      mailbox: zynqmp: Remove invalid __percpu annotation in zynqmp_ipi_probe()
+
+Valentina Fernandez (4):
+      dt-bindings: mailbox: add binding for Microchip IPC mailbox controller
+      mailbox: add Microchip IPC support
+      riscv: sbi: vendorid_list: Add Microchip Technology to the vendor list
+      riscv: export __cpuid_to_hartid_map
+
+ .../bindings/mailbox/google,gs101-mbox.yaml        |  69 +++
+ .../bindings/mailbox/microchip,sbi-ipc.yaml        | 123 +++++
+ .../bindings/mailbox/qcom,apcs-kpss-global.yaml    |   1 +
+ MAINTAINERS                                        |  10 +
+ arch/riscv/include/asm/vendorid_list.h             |   1 +
+ arch/riscv/kernel/smp.c                            |   1 +
+ drivers/mailbox/Kconfig                            |  24 +
+ drivers/mailbox/Makefile                           |   4 +
+ drivers/mailbox/exynos-mailbox.c                   | 157 +++++++
+ drivers/mailbox/mailbox-mchp-ipc-sbi.c             | 504 +++++++++++++++++++++
+ drivers/mailbox/mailbox-mpfs.c                     |   2 +-
+ drivers/mailbox/mailbox-th1520.c                   |   6 +-
+ drivers/mailbox/qcom-apcs-ipc-mailbox.c            |   1 +
+ drivers/mailbox/qcom-ipcc.c                        |  16 +
+ drivers/mailbox/tegra-hsp.c                        |   6 +-
+ drivers/mailbox/zynqmp-ipi-mailbox.c               |   2 +-
+ include/linux/mailbox/exynos-message.h             |  19 +
+ include/linux/mailbox/mchp-ipc.h                   |  33 ++
+ 18 files changed, 973 insertions(+), 6 deletions(-)
+ create mode 100644
+Documentation/devicetree/bindings/mailbox/google,gs101-mbox.yaml
+ create mode 100644
+Documentation/devicetree/bindings/mailbox/microchip,sbi-ipc.yaml
+ create mode 100644 drivers/mailbox/exynos-mailbox.c
+ create mode 100644 drivers/mailbox/mailbox-mchp-ipc-sbi.c
+ create mode 100644 include/linux/mailbox/exynos-message.h
+ create mode 100644 include/linux/mailbox/mchp-ipc.h
 
