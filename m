@@ -4,64 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C829CC02181
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 13:53:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15B33C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 13:54:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I5nbYS8Me06veTw/Gxz1jOcdUVOdPnLg6e7X14NzEVM=; b=fOUP4Epx2REdbJrKT1sS4aAWB5
-	7PmcKt37vnP3ngUuaRk+R4L7gRI3B1HFUA1OK9aGXIjaDj5GyfR3wR70s9wYqvLRh4uhPSgMJmEEH
-	26WD2lER1piIsEBoM/SS7+oTsO+W88/55/Y299pBdxNSpsGl6LYR34KVUaXokZ6pD0RfRc8eq5dXx
-	Ozsd7wdKDcmy9InL6f0ko/z+RucSpqpAo+ghMN8CHme/bXck0O3NnT9Pv+8dxAT/7KCbg6GyDLpN4
-	aDkAIF+9SKvBA3Knq8A0CJ1+vGzOnkFHhTXiykPM14qE0AyoX13ZilSSaTnS6P43DJ/45s4J0euAj
-	Hu0vY/QA==;
+	bh=HQ436xsC/lZ2NOanJQhd1UGohCJoGG0yvT7GZWuMkXI=; b=UAAPhTUl/Vwp3b9JAOLf/3LCdM
+	1vHAqNJaISqh2LOkd+9foTOmr3lnMGDWfVHQQj3DeHxenCs1hWiB7PvVDjvMq2JnjjTgnebiOJtEF
+	n27pLx6z1u1ysXKCq63ghA+Z8AVIeVSdzSZnAlxM2mvxwbvWCcd8Ea62RV+Icw4gEADTlmiPCdso7
+	MWjmWr3WMCr66H2UI+NVawYACxXnQ+2UTuIp28qapmBCNwdUzu+phcYzt188ro9bEnSHlRl1oELDN
+	sefIyIXGOj5TKiAgqOZfHC/Vw9RMXBr3M+wvNB0XKp0QcS75ILM0CW/5tSzQplpk83E+fRfHFt4yX
+	2dh12AFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbK7C-0000000Eo9k-2g0J;
-	Fri, 24 Jan 2025 13:52:54 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tbK8U-0000000EoGy-17MV;
+	Fri, 24 Jan 2025 13:54:14 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbJzo-0000000EnLI-1Jx8
+	id 1tbK0q-0000000EnV7-3e4S
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jan 2025 13:45:17 +0000
+	Fri, 24 Jan 2025 13:46:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 80E475C5F63;
-	Fri, 24 Jan 2025 13:44:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A120AC4CEE0;
-	Fri, 24 Jan 2025 13:45:10 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 039E75C57D6;
+	Fri, 24 Jan 2025 13:45:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 051E2C4CED2;
+	Fri, 24 Jan 2025 13:46:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737726315;
-	bh=kmLfqUhU2c8IgHn1RWT6GuLpEbSDCyp6IvbEnyTtry0=;
+	s=k20201202; t=1737726379;
+	bh=rqJ7MtkN0NJ3IbpIzJE6dNQ3uQUgLR2K4PX33hFwLaA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kkW3C5xJ74J4W6yqdTdlIlihI2oEisUEVeJ8I3CZS+zNgJw4EUcuGZcOgjsrnWIbg
-	 vy25r6SYwnhMiFoOOXRY2CPH3r5WOx07HRfTvTX6LHCa9fOB533jzf0kBSr5lSc3qS
-	 TRxcJh7jyBF/Rb/DaQNecQP42g8y6zwXqrGnRuukjb/WHeU3QNvE4gw45ghjG0kzQA
-	 5WqtgGsVWqRYzIuQpK6qiYZm1nvjH523BfD3j4CZybNtMAHAtka+VI1xz2t7XmS07p
-	 biHBhy3hidnisOET96XX0pnc/YtYNL3c85D8AuTgJ279FXj7URreiZauM9t7ecNKrp
-	 yUdRoArbLTyqw==
-Message-ID: <47865ef4-fb8c-4ba5-82d8-eed1f292bf4d@kernel.org>
-Date: Fri, 24 Jan 2025 14:45:09 +0100
+	b=pHQn7lS+JjZY+tLwMNWXyi3KDutDewUONgA+GFXHRLrQu2FbCnGlkz6B/QkwIVxvx
+	 F7n0XzFL5tLtM5EYDph6/TEa/3id/nD2eZ/t74PU3v7BaDeDca264KZvrwbmueXk6C
+	 AiYbtLFsXoMcYBbFkQ7fsgs8r1dTjDDMWOaFvhh1fMs0MSp0/AfCGQdW7xEChIicB4
+	 AM2BRER72YcFqMuRUksOExhOqP4ExaCH+KPt/TrVqANRP0sPkuX/hBc5DEHn/qDctC
+	 aigphh2ofeowfIPytro9MckJojnP94B4hZG+s4wfl0LbEINP3zePjl0tZurfJSABCc
+	 Q2fTZxSKrpvNg==
+Message-ID: <e2de94ab-82ea-4d36-a9dc-75f6891d8927@kernel.org>
+Date: Fri, 24 Jan 2025 14:46:11 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/4] dt-bindings: clock: st,stm32-rcc: support spread
- spectrum clocking
-To: Stephen Boyd <sboyd@kernel.org>,
- Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+Subject: Re: [PATCH v9 00/23] Support spread spectrum clocking for i.MX8M PLLs
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
  linux-kernel@vger.kernel.org
-Cc: linux-amarula@amarulasolutions.com,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
-References: <20250114182021.670435-1-dario.binacchi@amarulasolutions.com>
- <20250114182021.670435-3-dario.binacchi@amarulasolutions.com>
- <73ad1336d9fbfa020ba666eef340f784.sboyd@kernel.org>
+Cc: linux-amarula@amarulasolutions.com, Abel Vesa <abelvesa@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Dan Carpenter
+ <dan.carpenter@linaro.org>, Fabio Estevam <festevam@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Peng Fan <peng.fan@nxp.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Shawn Guo <shawnguo@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
+References: <20250118124044.157308-1-dario.binacchi@amarulasolutions.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,13 +105,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <73ad1336d9fbfa020ba666eef340f784.sboyd@kernel.org>
+In-Reply-To: <20250118124044.157308-1-dario.binacchi@amarulasolutions.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250124_054516_446647_5382382F 
-X-CRM114-Status: UNSURE (   7.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250124_054621_004306_8CC65904 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,24 +125,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/01/2025 00:22, Stephen Boyd wrote:
-> Quoting Dario Binacchi (2025-01-14 10:19:47)
->> The addition of DT bindings for enabling and tuning spread spectrum
->> clocking generation is available only for the main PLL of stm32f{4,7}
->> platforms.
->>
->> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
->> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->>
->> ---
+On 18/01/2025 13:39, Dario Binacchi wrote:
+> The series adds support for spread spectrum clocking for i.MX8M{M,N,P}
+> PLLs (audio, video and DRAM). It has been tested for the video PLL on
+> boards using i.MX8MN and i.MX8MP.
 > 
-> Applied to clk-next
+> Changes in v9:
+> - Add 'Reviewed-by' tag of Peng Fan for imx8mn platform patches
+> - Fix building warning raised by the kernel test robot for patch
+>   v8, 11/18 clk: imx: add support for i.MX8MN anatop clock driver
+> - Add patches for imx8m{m,p} platforms:
+>   - 23/23 clk: imx8mm: support spread spectrum clock generation
+>   - 22/23 clk: imx: add support for i.MX8MM anatop clock driver
+>   - 21/23 clk: imx8mp: support spread spectrum clock generation
+>   - 20/23 clk: imx8mp: rename ccm_base to base
+>   - 19/23 clk: imx: add support for i.MX8MP anatop clock driver
+I responded in particular patch, but let's respond for formality to
+cover letter as well.
 
-Unlucky timing. NXP just sent this:
+The bindings here might get obsolete already with work:
 
 https://github.com/devicetree-org/dt-schema/pull/154
-
-which makes these bindings obsolete.
 
 Best regards,
 Krzysztof
