@@ -4,92 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8406C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 04:08:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF62FC02181
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 04:13:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Vj1NaMTUsVA57ckq/QD9h243Rs/TkZbkHkyDFlhTqVQ=; b=SjWWIaDtmRf1Fduk/fNtWYvMie
-	hzT4km6v6WTNcUeD5n/VNSRKhgRoGrOHM68PnspArWhZ+Kj3iarvfLo1GtibmVvy4hN0Zx1ZRtfku
-	3NF+hEEBbjfA9DhcFvARBFBEVUkMkA1V42SpTWjXrJHRaerp7y5mK9PNuiJ6cbwP1qrLEsRsMQM3L
-	xxYZ3P2+wd/H/8VgbLhYOLhrjaqxXokruFJMXycUvvmYz6fyZ20mKAa6kWrpsDnRSEVGAjohGLIza
-	ZteBfGLMMfh8kOYMdO2jxgwWrJDT2KhNRLq9VJ/qoB1Ve7ALdnQS0AdOre3B+fat4aYQfDKdwd+nI
-	cjktGmnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G61Z7AtRw9pYB1luCJ+gP3LAK8YB9ebW/zQnPLwNUMQ=; b=ev/ceux+AhSHSJnQBySMDIrWPT
+	fC/ychlA9RrZVMoc8572iZiUf46OawkUmt6qNhNXDko2xh0UklQYs8TyNqlkvc/Jxk44c01dKt0ST
+	wamCdkpM5HgAA1NRdAzlnWMST/QZDwGG7WnD1krtGsYLOuVmdh5rsnRdyHvAYVmzfU/lf3ZNdYVZi
+	IztUg7PtHx614o3epU9hkoM8WZGnrm4WU5VtzDSpMxCpHxWwG+5eH6ANJS+Nidsl/g/1GspXJvsWD
+	04sE45Vmlzap2/B7gNQw5j5d80/y9rAYfiRjTLRS/Bno1MQHNlBtme4nowZysI31svkKPDF3W1PfK
+	dZLuVJ9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbAzT-0000000DrUP-3TP6;
-	Fri, 24 Jan 2025 04:08:19 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1tbB47-0000000DrsN-1l2E;
+	Fri, 24 Jan 2025 04:13:07 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbAy5-0000000DrOy-0ZAw;
-	Fri, 24 Jan 2025 04:06:54 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-215770613dbso21056855ad.2;
-        Thu, 23 Jan 2025 20:06:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737691612; x=1738296412; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Vj1NaMTUsVA57ckq/QD9h243Rs/TkZbkHkyDFlhTqVQ=;
-        b=RACbIuDq11FpuGjt5Y8HWY/zu5LSoss+5R/9g7JHkyyitLU00MLU2/oIefu+FXW6Oj
-         Tx6ztan3/BiRJTggRfZiI4lTmdQR98hQXuv7NbZFHb8r+UFMJkTcos7Usg8puqTaddCT
-         7z2p20WFFEWiMnMQBilLVJBUsMw/5ROU0v8ADatH/Q+mHzru4XN6L4oKNPFPb9ZkX8pt
-         IDTD7+8f9C4+xX8r+mkqqSAfBMguX6cDbTWdyWeqwgmo97wAyq3SCW3zkM5VPt8S90AR
-         zOPdcuxox/7MbyfeTbdzrO+Ns3lJr8psV+zAS+7udLgXAYmgOpwvs2vpMHdlMKIRauI2
-         AKeA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737691612; x=1738296412;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Vj1NaMTUsVA57ckq/QD9h243Rs/TkZbkHkyDFlhTqVQ=;
-        b=Z/F7oPrSeBRWdejY6R0fh7fxtwWwADJEevuYypMi4HVqBkE9Iye6CJepsoPMCA2POT
-         yS/tfmQbOMWkMlH9JakJIcfj11+voA/Nk3NS/gKWxLF4aJylFBC1e09n/H/m0SKR1VQt
-         GIcBhWq3Zfd/aV+/tBCD+IYCg2Sjh4dRXgx4mWjkeLtawErgrxu7ES18V1MwVecNY2Ko
-         yjOupxqLcCaVDk4knX2o56SATue1XOPCENj3PL4laNhhocse/BT6YOVhufNR/EqghHn/
-         vxbqFUBWXUDUdCsMDEhqQnRfyzfQ2IzwvKAmcVRNSs8nh8w9uC4joXa/yqeLr5kl+Moi
-         aJeQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWCJo8eI4rbCFzM+IT5vLWFb4NnceNzryEETzx6g8wJrsGDkTWLsfvUN15xVNoSa4Zji7cP7ZTl+4Bs5ktX3gLe@lists.infradead.org, AJvYcCXbzZAFk9Cp9HqsQ1NL/NljNofT3qHWRPVc9nGr/sV50dWIN/FY4G23pukhV5UhSfO5T6jNmtMDNCMH5/uA4YY=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8x4ehKNnJ1R5zELSVfD24XUkd3/IjXDwYiq5cqWq2UqdLE4+E
-	vFbWVojOnhmyTW1EV6LCbcQs352+nEJ7VID8cIGEnijn0b0QUW19
-X-Gm-Gg: ASbGncsKXNh3H/n7x8kgpx4Pe3jRIdwt7f/bZVuqHQ4g1qOchEWhwlddQ40BewQD7Vo
-	etuOn1iDe4n7iuZwl01nn1iBIXDzPf/6iTdzkMZVu1GN24534Zvyyei0dB8Ddj6bfyXmyEspEj/
-	xGHMr5sYzoq00RRflaYoQaHfZa9Fb5VscfxF5BAcNczyInhQCToYqpzBLxxgkS3G+WEkF8XFDgP
-	qT9PBjCBGX3cctUfm4/ZHERJExquMtXbs0YQmeAOyGfsUtKtgwzsVaBqODrw6vtG/NHttr10E+w
-	RRr9EZ9DyZe80EnL0DUI1JcHAdsQoA==
-X-Google-Smtp-Source: AGHT+IF3SHS7uGw6j2HUHGRc2o6x9hUUGZICmg9DQKSnpjYz1OzyDi2k9jgSfX5GniU24Huia3n0zA==
-X-Received: by 2002:a05:6a00:a2a:b0:72d:8af9:bc64 with SMTP id d2e1a72fcca58-72daf9ec17dmr31990363b3a.9.1737691611690;
-        Thu, 23 Jan 2025 20:06:51 -0800 (PST)
-Received: from jren-d3.localdomain ([221.222.59.195])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72f8a78f145sm795398b3a.167.2025.01.23.20.06.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Jan 2025 20:06:51 -0800 (PST)
-From: Imkanmod Khan <imkanmodkhan@gmail.com>
-To: stable@vger.kernel.org
-Cc: patches@lists.linux.dev,
-	mchehab@kernel.org,
-	fullwaywang@outlook.com,
-	gregkh@linuxfoundation.org,
-	linux-kernel@vger.kernel.org,
-	tiffany.lin@mediatek.com,
-	andrew-ct.chen@mediatek.com,
-	yunfei.dong@mediatek.com,
-	matthias.bgg@gmail.com,
-	linux-media@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Imkanmod Khan <imkanmodkhan@gmail.com>
-Subject: [PATCH 6.1.y] media: mtk-vcodec: potential null pointer deference in SCP
-Date: Fri, 24 Jan 2025 12:06:41 +0800
-Message-ID: <20250124040641.7431-1-imkanmodkhan@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	id 1tbB2n-0000000Drnj-2UqX
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 24 Jan 2025 04:11:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1737691906; x=1769227906;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=jCliCqH9ud0GLTM7b/xWwloQkS4OyN5sqqdPDtXblVo=;
+  b=TEXIIFTGxPm3I0iVcV//7jzPWaE9taisYXpe+gODeDbBV8yn5bQF50W7
+   16RULUo/lCFLl7BVWZEoXpZ3hbJB4fmBk1Us+/pybTjMoJs3UiTkfQv6H
+   DvFg3W4uFEGfOjXfAB8HbUpzS/o6dJZl1W/JzZAAb+ujFdTC3K5kwwVqr
+   EilOZ7RGdsNP8cf8+eDd2ld9XYvdKK06lj7FySe8NhJUIF4a0NBNKiVxl
+   F64u6FwL/y3VWSR71eY/O3DYYA4vIQRKWcFVdlqm2gvfuS26ftQH+uE0C
+   NZiP5ML30kA5XGD7i+wUXg1fehbgR5WAP8yFM/QDK+qcD37OyDHsFF3Cx
+   A==;
+X-CSE-ConnectionGUID: DjTk2tpETquurYZpZcSSpg==
+X-CSE-MsgGUID: uZOnFS0/QY2/GkYm5YCurA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11324"; a="37475487"
+X-IronPort-AV: E=Sophos;i="6.13,230,1732608000"; 
+   d="scan'208";a="37475487"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jan 2025 20:11:44 -0800
+X-CSE-ConnectionGUID: NOpEyIMyQP2jMN0VJml8TQ==
+X-CSE-MsgGUID: QoqUchVYRu+8UvM4RR+nfg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
+   d="scan'208";a="112623071"
+Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
+  by orviesa003.jf.intel.com with ESMTP; 23 Jan 2025 20:11:41 -0800
+Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tbB2g-000c8B-1f;
+	Fri, 24 Jan 2025 04:11:38 +0000
+Date: Fri, 24 Jan 2025 12:11:12 +0800
+From: kernel test robot <lkp@intel.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH 2/5] firmware: arm_scmi: imx: Add i.MX95 CPU Protocol
+Message-ID: <202501241148.0CI9mBP5-lkp@intel.com>
+References: <20250121-imx-lmm-cpu-v1-2-0eab7e073e4e@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250121-imx-lmm-cpu-v1-2-0eab7e073e4e@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_200653_182715_96BE6BEE 
-X-CRM114-Status: UNSURE (   9.13  )
+X-CRM114-CacheID: sfid-20250123_201145_664487_7A640915 
+X-CRM114-Status: UNSURE (   9.77  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,37 +95,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fullway Wang <fullwaywang@outlook.com>
+Hi Peng,
 
-[ Upstream commit 53dbe08504442dc7ba4865c09b3bbf5fe849681b ]
+kernel test robot noticed the following build warnings:
 
-The return value of devm_kzalloc() needs to be checked to avoid
-NULL pointer deference. This is similar to CVE-2022-3113.
+[auto build test WARNING on 0907e7fb35756464aa34c35d6abb02998418164b]
 
-Link: https://lore.kernel.org/linux-media/PH7PR20MB5925094DAE3FD750C7E39E01BF712@PH7PR20MB5925.namprd20.prod.outlook.com
-Signed-off-by: Fullway Wang <fullwaywang@outlook.com>
-Signed-off-by: Mauro Carvalho Chehab <mchehab@kernel.org>
-[ To fix CVE: CVE-2024-40973, modified the file path from drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_scp.c
- to drivers/media/platform/mediatek/vcodec/mtk_vcodec_fw_scp.c and minor conflict resolution ]
-Signed-off-by: Imkanmod Khan <imkanmodkhan@gmail.com>
----
- drivers/media/platform/mediatek/vcodec/mtk_vcodec_fw_scp.c | 2 ++
- 1 file changed, 2 insertions(+)
+url:    https://github.com/intel-lab-lkp/linux/commits/Peng-Fan-OSS/firmware-arm_scmi-imx-Add-i-MX95-LMM-protocol/20250121-231254
+base:   0907e7fb35756464aa34c35d6abb02998418164b
+patch link:    https://lore.kernel.org/r/20250121-imx-lmm-cpu-v1-2-0eab7e073e4e%40nxp.com
+patch subject: [PATCH 2/5] firmware: arm_scmi: imx: Add i.MX95 CPU Protocol
+config: arm64-randconfig-r122-20250124 (https://download.01.org/0day-ci/archive/20250124/202501241148.0CI9mBP5-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 14.2.0
+reproduce: (https://download.01.org/0day-ci/archive/20250124/202501241148.0CI9mBP5-lkp@intel.com/reproduce)
 
-diff --git a/drivers/media/platform/mediatek/vcodec/mtk_vcodec_fw_scp.c b/drivers/media/platform/mediatek/vcodec/mtk_vcodec_fw_scp.c
-index d8e66b645bd8..27f08b1d34d1 100644
---- a/drivers/media/platform/mediatek/vcodec/mtk_vcodec_fw_scp.c
-+++ b/drivers/media/platform/mediatek/vcodec/mtk_vcodec_fw_scp.c
-@@ -65,6 +65,8 @@ struct mtk_vcodec_fw *mtk_vcodec_fw_scp_init(struct mtk_vcodec_dev *dev)
- 	}
- 
- 	fw = devm_kzalloc(&dev->plat_dev->dev, sizeof(*fw), GFP_KERNEL);
-+	if (!fw)
-+		return ERR_PTR(-ENOMEM);
- 	fw->type = SCP;
- 	fw->ops = &mtk_vcodec_rproc_msg;
- 	fw->scp = scp;
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202501241148.0CI9mBP5-lkp@intel.com/
+
+sparse warnings: (new ones prefixed by >>)
+>> drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c:139:19: sparse: sparse: incorrect type in assignment (different base types) @@     expected restricted __le32 [usertype] flags @@     got unsigned long @@
+   drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c:139:19: sparse:     expected restricted __le32 [usertype] flags
+   drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c:139:19: sparse:     got unsigned long
+>> drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c:140:19: sparse: sparse: invalid assignment: |=
+   drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c:140:19: sparse:    left side has type restricted __le32
+   drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c:140:19: sparse:    right side has type unsigned long
+   drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c:141:19: sparse: sparse: invalid assignment: |=
+   drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c:141:19: sparse:    left side has type restricted __le32
+   drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c:141:19: sparse:    right side has type unsigned long
+>> drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c:173:25: sparse: sparse: restricted __le32 degrades to integer
+   drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c:205:32: sparse: sparse: restricted __le32 degrades to integer
+
+vim +139 drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c
+
+   119	
+   120	static int scmi_imx_cpu_reset_vector_set(const struct scmi_protocol_handle *ph,
+   121						 u32 cpuid, u64 vector, bool start,
+   122						 bool boot, bool resume)
+   123	{
+   124		struct scmi_imx_cpu_reset_vector_set_in *in;
+   125		struct scmi_xfer *t;
+   126		int ret;
+   127	
+   128		ret = scmi_imx_cpu_validate_cpuid(ph, cpuid);
+   129		if (ret)
+   130			return ret;
+   131	
+   132		ret = ph->xops->xfer_get_init(ph, SCMI_IMX_CPU_RESET_VECTOR_SET, sizeof(*in),
+   133					      0, &t);
+   134		if (ret)
+   135			return ret;
+   136	
+   137		in = t->tx.buf;
+   138		in->cpuid = cpu_to_le32(cpuid);
+ > 139		in->flags = start ? CPU_VEC_FLAGS_START : 0;
+ > 140		in->flags |= boot ? CPU_VEC_FLAGS_BOOT : 0;
+   141		in->flags |= resume ? CPU_VEC_FLAGS_BOOT : 0;
+   142		in->resetvectorlow = cpu_to_le32(lower_32_bits(vector));
+   143		in->resetvectorhigh = cpu_to_le32(upper_32_bits(vector));
+   144		ret = ph->xops->do_xfer(ph, t);
+   145	
+   146		ph->xops->xfer_put(ph, t);
+   147	
+   148		return ret;
+   149	}
+   150	
+   151	static int scmi_imx_cpu_started(const struct scmi_protocol_handle *ph, u32 cpuid,
+   152					bool *started)
+   153	{
+   154		struct scmi_imx_cpu_info_get_out *out;
+   155		struct scmi_xfer *t;
+   156		int ret;
+   157	
+   158		*started = false;
+   159		ret = scmi_imx_cpu_validate_cpuid(ph, cpuid);
+   160		if (ret)
+   161			return ret;
+   162	
+   163		ret = ph->xops->xfer_get_init(ph, SCMI_IMX_CPU_INFO_GET, sizeof(u32),
+   164					      0, &t);
+   165		if (ret)
+   166			return ret;
+   167	
+   168		put_unaligned_le32(cpuid, t->tx.buf);
+   169		ret = ph->xops->do_xfer(ph, t);
+   170		if (!ret) {
+   171			out = t->rx.buf;
+   172			if ((out->runmode == CPU_RUN_MODE_START) ||
+ > 173			    (out->runmode == CPU_RUN_MODE_SLEEP))
+   174				*started = true;
+   175		}
+   176	
+   177		ph->xops->xfer_put(ph, t);
+   178	
+   179		return ret;
+   180	}
+   181	
+
 -- 
-2.25.1
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
