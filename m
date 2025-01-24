@@ -4,66 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6A56C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 12:34:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45DE2C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 12:43:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=khC5X3l9+f5KZD4zQX9V4C3Ijmp6FQETCPFYDtgLoRs=; b=jcF8yCdCM1l+j2NiNh6+6KH5zb
-	kgFvfbUmhDz08Pj46UgtlfuT48Y7kUJrn7rMThD4ExepCroAzpVBMcpP5rLAuWWCRXq2Eh0jPJYJ6
-	m5PcG6EDSYjC74FUuUWoeElD7REDzCDtTCEeGmXhGG7ZhPu2Xwia22JPy/c8gDcL0gvnEf32lQqet
-	ZxdkW48caljNsZ0nFmYAFcIviK0QETqXjpI0L6nyUI3vcZ57yGn4y/t+CkxVPC5E8uHBRll5Yw0N6
-	DgeGjWGDJrOBkbmu0HJMg/YTG/yl6W7GRiulMT/IK+3DLztPMkqZRVQ0WX9a7z6/rBX5ESdhH8e5u
-	wWav1Oew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Y0droG6bfOVQ9ccS8dcPaAEGjjMS1WyNZBdFc7z/3EM=; b=aNzcmr6VRdcWCYYfwV81GeSkPo
+	fEIlXaWoowIW/XjJqqGAVaJOG4X4KI3IxqTgrKZggxexNtLOTKH0M89GoXMNcx5pAwsFYiKTp0wn2
+	iKGnDBlrikY+fk6W4AxPqv9cegENv9bhBRMa6JylK0YybO4fAmwkezOOg6EOXfeYIqekWETZ5rW5w
+	mVZf0BIOyQ459JPh4KXGzF11ewBYqh1kTjD5OpLzSPgXwUHUoHK8iJpeiQjDACIkA+pXTh66BoG0w
+	++M0qOFKaqxO1rObCbvYCOZ+1ccpHEoqMIdAkKrnGDR87kKmZfS0H7Yp49Un6CYNjZkz2Gg1nKuHZ
+	4Nrrk+iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbIsj-0000000EfdP-44dc;
-	Fri, 24 Jan 2025 12:33:53 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tbJ22-0000000EgI3-19v7;
+	Fri, 24 Jan 2025 12:43:30 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbIox-0000000Ef7G-0Gji
+	id 1tbJ0h-0000000EgE8-377q
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jan 2025 12:30:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2E3C65C5F01;
-	Fri, 24 Jan 2025 12:29:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC9E7C4CEDD;
-	Fri, 24 Jan 2025 12:29:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737721798;
-	bh=JwX8musVq+spcpO8VEXeNqq9bKiTj5rJbdsNNvyFCe8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BPk6UeVAOQKa1tW5jlmsBHMAt3+ItJAXlrnRL1MiTQ3pif3Umq9lNV7NaUyMR6ULD
-	 pdX9+U9vARyY7/FoIUj+wtcNKU5mMDwwtGgq0B7tkk//7mEWTt0fEg7GdnQLo/jkx8
-	 vZvD3VETn337V8QK1vqeHcWIHTYvJGPDqjG2Gku5o6DxBOe9NA9ebCpaX4YFVXYYQ+
-	 mTM49i0A+GlsQV7CtpAVcq/fit7WH44CunvhJflOz5xm7KlDaJHOxJAqld3/DMzwkK
-	 GPj37EI1pb7NF+4y/+XI4pKqFfR6WsLwrNuOgr8hfXjyROzoAl6SdlDhMK2dQNCevx
-	 IFUcaaPKwz3Qg==
-Date: Fri, 24 Jan 2025 12:29:53 +0000
-From: Will Deacon <will@kernel.org>
-To: yunhui cui <cuiyunhui@bytedance.com>
-Cc: Shuai Xue <xueshuai@linux.alibaba.com>, renyu.zj@linux.alibaba.com,
-	mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [External] Re: [PATCH] perf/dwc_pcie: fix duplicate pci_dev
- devices
-Message-ID: <20250124122952.GB23438@willie-the-truck>
-References: <20250123074830.90923-1-cuiyunhui@bytedance.com>
- <344c53cd-d856-4c03-9deb-743b65acd8aa@linux.alibaba.com>
- <CAEEQ3wmDej9bbPUmkx-ZrD4FG9Z7gTHMeCrVszx64g90O0RyiQ@mail.gmail.com>
- <31e00081-8695-4ca6-a1ef-af5a007a7565@linux.alibaba.com>
- <CAEEQ3wm+f_SM7evwL=YrGy8gPLS5YdJm=qhJNT8bbMH7QBOzEA@mail.gmail.com>
+	Fri, 24 Jan 2025 12:42:09 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 50OCft1f1355368
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 24 Jan 2025 06:41:55 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1737722515;
+	bh=Y0droG6bfOVQ9ccS8dcPaAEGjjMS1WyNZBdFc7z/3EM=;
+	h=From:To:CC:Subject:Date;
+	b=KgCYOHIHrPe3VeMYjUaew8+9jcRsa1Oa71tscE15qycA+G1yBoNzK8kbpA4Slo+Nr
+	 SJW2k2Vyg8/ipdjAGkI4sDsgpOTcVrQbbufmOzhtW+Azaw6b3DR//nVIe32N9DTdx0
+	 Di+Pxr69L4Tg25f4ObaNM83SVeDDWvrww6/+CpZk=
+Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 50OCft2s020912
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 24 Jan 2025 06:41:55 -0600
+Received: from DFLE101.ent.ti.com (10.64.6.22) by DFLE104.ent.ti.com
+ (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 24
+ Jan 2025 06:41:54 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE101.ent.ti.com
+ (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 24 Jan 2025 06:41:54 -0600
+Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.72.104])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 50OCforC023206;
+	Fri, 24 Jan 2025 06:41:51 -0600
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        <s-vadapalli@ti.com>
+Subject: [PATCH] arm64: dts: ti: k3-j784s4-j742s2-evm: Add overlay to enable USB0 Type-A
+Date: Fri, 24 Jan 2025 18:11:49 +0530
+Message-ID: <20250124124150.2024963-1-s-vadapalli@ti.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAEEQ3wm+f_SM7evwL=YrGy8gPLS5YdJm=qhJNT8bbMH7QBOzEA@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250124_042959_148113_DEE268F5 
-X-CRM114-Status: GOOD (  14.07  )
+X-CRM114-CacheID: sfid-20250124_044207_915794_6D9C9312 
+X-CRM114-Status: GOOD (  17.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,29 +84,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 24, 2025 at 05:11:05PM +0800, yunhui cui wrote:
-> > >>>        vsec = dwc_pcie_des_cap(pdev);
-> > >>>        if (!vsec)
-> > >>>                return -ENODEV;
-> > >>>
-> > >>>        sbdf = plat_dev->id;
-> > >>> -     name = devm_kasprintf(&plat_dev->dev, GFP_KERNEL, "dwc_rootport_%x", sbdf);
-> > >>> +     name = devm_kasprintf(&plat_dev->dev, GFP_KERNEL, "dwc_rootport_%d_pmu", sbdf);
-> > >>
-> > >> A new name will break previous user tools.
-> > > This name isn't suitable. It can't clearly show which is the PMU
-> > > device. Userspace tools don't have binding relationships, like perf.
-> > > Tools must traverse PMU devices before use.
-> >
-> > The device is under /sys/bus/event_source/ which indates it is PMU device.
-> > As far as I know, most of PMU devices do not endup with a '_pmu' prefix.
-> 
-> The point is the name "dwc_rootport_" is misleading, suggesting an
-> extra PCIE RP in the system. Best to change the name to intuitive
-> "xx_pmu".
+The USB0 instance of the USB controller on both the J742S2 EVM and the
+J784S4 EVM supports a single USB interface at a time among the following:
+1. USB3.1 Gen1 Type C interface
+2. Two USB2.0 Type A interfaces via an on-board USB Hub.
 
-As pointed out above, changing the name will break userspace. So it's
-simply not an option, sorry.
+By default, the USB3.1 Gen1 Type C interface is supported on both of the
+EVMs. Enable the USB2.0 Type A interface by configuring the USB2.0_MUX_SEL
+mux. Additionally, set the Dual-Role Mode to Host since a Type-A interface
+is only associated with the Host Mode of operation.
 
-Will
+Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+---
+
+Hello,
+
+This patch is based on linux-next tagged next-20250124.
+Since Linux boot is broken on all TI K3 SoCs including
+J742S2 and J784S4 due to:
+https://github.com/torvalds/linux/commit/ba5095ebbc7a
+as indicated at:
+https://lore.kernel.org/r/b2413460-ec8b-4c77-99b8-4c32b262439a@ti.com/
+this patch was tested on J784S4-EVM by reverting the aforementioned commit.
+Logs validating the USB2.0 Type-A Connector on J784S4-EVM using a USB Pen
+Drive:
+https://gist.github.com/Siddharth-Vadapalli-at-TI/663d703912ae574e39d7a78421e404c8
+
+Regards,
+Siddharth.
+
+ arch/arm64/boot/dts/ti/Makefile               |  7 +++++
+ .../ti/k3-j784s4-j742s2-evm-usb0-type-a.dtso  | 29 +++++++++++++++++++
+ 2 files changed, 36 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-usb0-type-a.dtso
+
+diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+index 8a4bdf87e2d4..95b8fd0981d7 100644
+--- a/arch/arm64/boot/dts/ti/Makefile
++++ b/arch/arm64/boot/dts/ti/Makefile
+@@ -127,6 +127,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-j784s4-evm.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-j784s4-evm-pcie0-pcie1-ep.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-j784s4-evm-quad-port-eth-exp1.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-j784s4-evm-usxgmii-exp1-exp2.dtbo
++dtb-$(CONFIG_ARCH_K3) += k3-j784s4-j742s2-evm-usb0-type-a.dtbo
+ 
+ # Boards with J742S2 SoC
+ dtb-$(CONFIG_ARCH_K3) += k3-j742s2-evm.dtb
+@@ -209,10 +210,14 @@ k3-j721e-sk-csi2-dual-imx219-dtbs := k3-j721e-sk.dtb \
+ 	k3-j721e-sk-csi2-dual-imx219.dtbo
+ k3-j721s2-evm-pcie1-ep-dtbs := k3-j721s2-common-proc-board.dtb \
+ 	k3-j721s2-evm-pcie1-ep.dtbo
++k3-j742s2-evm-usb0-type-a-dtbs := k3-j742s2-evm.dtb \
++	k3-j784s4-j742s2-evm-usb0-type-a.dtbo
+ k3-j784s4-evm-pcie0-pcie1-ep-dtbs := k3-j784s4-evm.dtb \
+ 	k3-j784s4-evm-pcie0-pcie1-ep.dtbo
+ k3-j784s4-evm-quad-port-eth-exp1-dtbs := k3-j784s4-evm.dtb \
+ 	k3-j784s4-evm-quad-port-eth-exp1.dtbo
++k3-j784s4-evm-usb0-type-a-dtbs := k3-j784s4-evm.dtb \
++	k3-j784s4-j742s2-evm-usb0-type-a.dtbo
+ k3-j784s4-evm-usxgmii-exp1-exp2-dtbs := k3-j784s4-evm.dtb \
+ 	k3-j784s4-evm-usxgmii-exp1-exp2.dtbo
+ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
+@@ -243,8 +248,10 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
+ 	k3-j721e-evm-pcie1-ep.dtb \
+ 	k3-j721e-sk-csi2-dual-imx219.dtb \
+ 	k3-j721s2-evm-pcie1-ep.dtb \
++	k3-j742s2-evm-usb0-type-a.dtb \
+ 	k3-j784s4-evm-pcie0-pcie1-ep.dtb \
+ 	k3-j784s4-evm-quad-port-eth-exp1.dtb \
++	k3-j784s4-evm-usb0-type-a.dtb \
+ 	k3-j784s4-evm-usxgmii-exp1-exp2.dtb
+ 
+ # Enable support for device-tree overlays
+diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-usb0-type-a.dtso b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-usb0-type-a.dtso
+new file mode 100644
+index 000000000000..ba15d72d86d6
+--- /dev/null
++++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-usb0-type-a.dtso
+@@ -0,0 +1,29 @@
++// SPDX-License-Identifier: GPL-2.0-only OR MIT
++/**
++ * DT Overlay for enabling USB0 instance of USB on J784S4 and J742S2 EVMs for
++ * Host Mode of operation with the Type-A Connector.
++ *
++ * J784S4 EVM Product Link: https://www.ti.com/tool/J784S4XEVM
++ * J742S2 EVM Product Link: https://www.ti.com/tool/J742S2XH01EVM
++ *
++ * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.com/
++ */
++
++/dts-v1/;
++/plugin/;
++
++#include <dt-bindings/gpio/gpio.h>
++
++&exp2 {
++	p12-hog {
++		/* P12 - USB2.0_MUX_SEL */
++		gpio-hog;
++		gpios = <12 GPIO_ACTIVE_HIGH>;
++		output-high;
++		line-name = "USB2.0_MUX_SEL";
++	};
++};
++
++&usb0 {
++	dr_mode = "host";
++};
+-- 
+2.43.0
+
 
