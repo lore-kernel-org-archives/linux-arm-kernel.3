@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7C28C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jan 2025 02:28:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A19EC02181
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jan 2025 02:29:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TUVtAh3jk+1Z9FYL8oOTJSugJD98SnZKa+Q8sEqs79Q=; b=KsJqJ+0X+8Vlo/MWUAqDfyMIm1
-	fFCm0/YhosZcTdVe9uUJXA8ZYV+oAnefmMH2VnWK8qegaPZM9QyFgCukZ83QbsK2byI2OLOaqCB6X
-	FR4LTJFEfPew+ECO2BNoaTPaKFzT5Un+MEuvurxboZa6twDfXb1Zp7IjEc9xNquDJAoz9yI2ByTD7
-	KdF9n8LKci1LhIzF+l8YfrnsnbMRLf4LuXNQZ86RrNejy2fPpYnLiVxPY9OjCz2DVJ8/YnAuK4YiX
-	3XNdnyh9Kym/0CqZCOLNBhRrngTspY4MeMbNlBZcvllEczxr5eq/0f4nv+4n+33kXeu06EKn+l42+
-	8jZUB2Iw==;
+	bh=LoHUEUhOV0x0mPYHihiLdSKtz41TIEtVbSj3jmRsaOk=; b=zB/SOd2/aarrLHi1vZpsRuxkQr
+	/r0pjQRJ9avinAsWNHwrdEbmNqDjOAy9i86qMuHfsj43orG1KqLxWyAqmnaFouk7jr7+g6udmzoZq
+	/b7Tp3c1YldG6fH8Erw4x8WZSbNAQJQ4/aZM8VK7Sb7W4O6Bn9S6O+cGotc+w+ULoLmqSWOmsaNt6
+	aT1hZb6OYYUW0DqVf3lBaARUYL4eI0Fozw7o4FyYGVOdMvoRAekrbkcGvsN4DHaRcuy6vvEkOipyv
+	1vcr/Z2NuIoBsE9FpgHrSSLszidnvIkyJvrEA1bDa00Q/3GxtKyjdb/q/o1mfLo2Uu6jovqUsZL+O
+	iATd6iTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbVtr-0000000FurO-2B1E;
-	Sat, 25 Jan 2025 02:27:55 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1tbVv8-0000000Fuwl-13gZ;
+	Sat, 25 Jan 2025 02:29:14 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbVlo-0000000Fu9f-2guY
+	id 1tbVm1-0000000FuC6-0PpC
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Jan 2025 02:19:38 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2ee9f66cb12so5540858a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jan 2025 18:19:35 -0800 (PST)
+	Sat, 25 Jan 2025 02:19:50 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2166f9f52fbso80459685ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jan 2025 18:19:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1737771575; x=1738376375; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1737771588; x=1738376388; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=TUVtAh3jk+1Z9FYL8oOTJSugJD98SnZKa+Q8sEqs79Q=;
-        b=bZWrljxkkINMvI8qPAkqfFsRvky35Xr7NhNp7zOXgxF1cGPRYbvAFZ0ry/8sABr/1U
-         XRT0Chg4anJ+BWioyTRSGqQq7Coqx6q939ef/lrZRtiB4vORHWkGQpyst7ApzVvbi9q/
-         de+U71lEtAlQOR3fDcSyvg6X+qCKCibqywwMujwG6u/fZlrwAR9DMehxbm1jFau5mXCt
-         mQkAn7Cl2BdK0qHsdsQs3T9smwisQL1LkYoWB9k+Okc7dyitoliZYp/YBVUnYJMAo19S
-         STXfKHtL2/cZg8m171PjuCQlldCf3N2187e3BO12DYFAZnNwgJDoAgoPAvWF5raz22GZ
-         kRMQ==
+        bh=LoHUEUhOV0x0mPYHihiLdSKtz41TIEtVbSj3jmRsaOk=;
+        b=Em7pLlRC00SpJgYVCPpUkflLHkl7mL5M3OMmKOf4eBS1CQgGxJTuJ6W+QB8RElxchf
+         v4CN71Jw4rIyxhdDvyofjX4urxONlXXEw2rUToiHcytYHhnYwdYdEltvLrh55CzpqAyX
+         1GxfFP9MlD4HLj7dD3M4L6UVnXO6aAjgy8T0dZJhk+DjypthsK/dBJDiU2rKGiWVtKP9
+         ufPJh+DgC2XsAcnSnXcRwrB/uXoNEt4eUudE85GqE0oW5O+DmvZmUFyg9fswH73uzaW8
+         QiHDyMBZwJFz0xPQiI2aCBzY8Cg/qM7szPAWSZwxKtB1cU+Nr9XoqnGW7jMvecQrbfW+
+         JH4w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737771575; x=1738376375;
+        d=1e100.net; s=20230601; t=1737771588; x=1738376388;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=TUVtAh3jk+1Z9FYL8oOTJSugJD98SnZKa+Q8sEqs79Q=;
-        b=XIDdUabYFeM/+yin0bp00FehjlKkDQ8Wyf/wzWnDzLBSVgXcdmVIJGeesri4h5oOjU
-         AzfEeGB5EMvwE/O25jjNMWBuYfviOsu/ZFfj7lCAID9eKJudYT7oTbTpIXR4nhZZymt6
-         pAFvq0FN5gG0rW0bs2zygc3+jga8GW/E2idggBzqmculQHz9GsYbCRxs5Qq4RXrBBNap
-         gW/O2hiGMttf5ZUR7tUZlDUWpaZMN1OkB/UYej72tb/4G9Pgiu6qKkmkrPLa1YpNAbIB
-         TaCH2eOGcnk+iLuTdd9VBttlq/5nskkNTSdOeyewP94szvaHCxihrSYVKNQR3+TxxDOJ
-         zNvg==
-X-Forwarded-Encrypted: i=1; AJvYcCVFfw0YUg2klCLTgayaTDm6HBRNXR9GCsqmz+pquDUKfYqGOuNHVrmI5C4Qn3Rpa8M0bacmYevwsJdH0kTT19Yo@lists.infradead.org
-X-Gm-Message-State: AOJu0YxjDUswGcrqVOoutau27hs7zhN+TPT60bKAh7o9WsBF0y3ep01t
-	mMDqulq6vysi7sN9z1bNE2iI8KhoxpxFp/yYfTqta0p0AYtmL/TxEYiar58CcDOC0gNwcdtSQbF
-	kr7ixB19rTA==
-X-Google-Smtp-Source: AGHT+IF5/7KDUnK2hWYlKFk6TCuy51i/bgTYYOR6pwVpRa8Y8ICyfmquFNa7v3yriLE2ixCD8VdqiMqRbmEGkg==
-X-Received: from pfbcg8.prod.google.com ([2002:a05:6a00:2908:b0:725:d8bc:33e1])
+        bh=LoHUEUhOV0x0mPYHihiLdSKtz41TIEtVbSj3jmRsaOk=;
+        b=GN3azL0574OK2Q5s/Bm7D5rLG6fKFuR7KJIiZZLsLNfAomm1SWdtJnUoPB0WOhzx0A
+         iOXWYzssCFNHRClenWlsvU3gMe0dSkOL48ZQjOgvAmVjefXsML5Jetapl/nc7foOg60Y
+         z7DXE2f2/p57jh6tP+pDAIWA3UzI1ayUlYnEYqQnNsjBjaU54nGBRpTUNTuE9OLZtd3J
+         pSXvuDs5vAfkU5V/J1ZWYonWTux6bJDMVekiJ2Trhcgwb7KEZGrHtA1aMC2/zP4C+MLE
+         66Vx+XiVHFPRTOjevFtcyMf+P7orRSMrJ2n7+TmpBhyYij/hy05IHdU/yHlJltbLGPYL
+         HNmA==
+X-Forwarded-Encrypted: i=1; AJvYcCVeKo4MHN+lIMW0OzaDZuL1fCtsxcHUDdFf+K9/F7QPCqfISLBgG1BoKbeS8oDFjN26OPlsi4yEys7HY0YGClV6@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw458LrovV8nbyr1FprY4mnlFNXK+yn6lR/Lpg9pqynH//RFKv7
+	8njZwoO+nsK7Jq4HeTM14Q/60Qppsa0KziSYP9ZKJNNhlKOWHIv1GpxpCaRf02UybequfykCXN1
+	2Z82ly2/8NQ==
+X-Google-Smtp-Source: AGHT+IHGh/EcJQlJc3OUFLXhqDr5SV+ajo77ZpLxRt1CFaw1WVG3Fg0XoLCrcpjLJvkD2sLS2HovJh1AnpwYjQ==
+X-Received: from plez12.prod.google.com ([2002:a17:902:cccc:b0:215:dbd8:a6e7])
  (user=yepeilin job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a00:6812:b0:72d:b36a:4497 with SMTP id d2e1a72fcca58-72db36a45eemr40542229b3a.3.1737771575436;
- Fri, 24 Jan 2025 18:19:35 -0800 (PST)
-Date: Sat, 25 Jan 2025 02:19:30 +0000
+ 2002:a17:903:1381:b0:216:361a:783d with SMTP id d9443c01a7336-21c3562097amr541898135ad.28.1737771587999;
+ Fri, 24 Jan 2025 18:19:47 -0800 (PST)
+Date: Sat, 25 Jan 2025 02:19:39 +0000
 In-Reply-To: <cover.1737763916.git.yepeilin@google.com>
 Mime-Version: 1.0
 References: <cover.1737763916.git.yepeilin@google.com>
 X-Mailer: git-send-email 2.48.1.262.g85cc9f2d1e-goog
-Message-ID: <3f2de7c6e5d2def7bdfb091347c1dacea0915974.1737763916.git.yepeilin@google.com>
-Subject: [PATCH bpf-next v1 7/8] selftests/bpf: Add selftests for load-acquire
- and store-release instructions
+Message-ID: <e2072e24a6773b346f2a71c80b6a28d5b98e6194.1737763916.git.yepeilin@google.com>
+Subject: [PATCH bpf-next v1 8/8] bpf, docs: Update instruction-set.rst for
+ load-acquire and store-release instructions
 From: Peilin Ye <yepeilin@google.com>
 To: bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Cc: Peilin Ye <yepeilin@google.com>, bpf@ietf.org, Xu Kuohai <xukuohai@huaweicloud.com>, 
@@ -84,8 +84,8 @@ Cc: Peilin Ye <yepeilin@google.com>, bpf@ietf.org, Xu Kuohai <xukuohai@huaweiclo
 	Benjamin Segall <bsegall@google.com>, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250124_181936_689173_0C26A9BD 
-X-CRM114-Status: GOOD (  21.28  )
+X-CRM114-CacheID: sfid-20250124_181949_138232_B0DB7F3D 
+X-CRM114-Status: GOOD (  14.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,726 +100,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add several ./test_progs tests:
+Update documentation for the new load-acquire and store-release
+instructions.  Rename existing atomic operations as "atomic
+read-modify-write (RMW) operations".
 
-  - atomics/load_acquire
-  - atomics/store_release
-  - arena_atomics/load_acquire
-  - arena_atomics/store_release
-  - verifier_load_acquire/*
-  - verifier_store_release/*
-  - verifier_precision/bpf_load_acquire
-  - verifier_precision/bpf_store_release
+Following RFC 9669, section 7.3. "Adding Instructions", create new
+conformance groups "atomic32v2" and "atomic64v2", where:
 
-The last two tests are added to check if backtrack_insn() handles the
-new instructions correctly.
+  * atomic32v2: includes all instructions in "atomic32", plus the new
+                8-bit, 16-bit and 32-bit atomic load-acquire and
+                store-release instructions
 
-Additionally, the last test also makes sure that the verifier
-"remembers" the value (in src_reg) we store-release into e.g. a stack
-slot.  For example, if we take a look at the test program:
+  * atomic64v2: includes all instructions in "atomic64" and
+                "atomic32v2", plus the new 64-bit atomic load-acquire
+                and store-release instructions
 
-    #0:  "r1 = 8;"
-    #1:  "store_release((u64 *)(r10 - 8), r1);"
-    #2:  "r1 = *(u64 *)(r10 - 8);"
-    #3:  "r2 = r10;"
-    #4:  "r2 += r1;"	/* mark_precise */
-    #5:  "r0 = 0;"
-    #6:  "exit;"
-
-At #1, if the verifier doesn't remember that we wrote 8 to the stack,
-then later at #4 we would be adding an unbounded scalar value to the
-stack pointer, which would cause the program to be rejected:
-
-  VERIFIER LOG:
-  =============
-...
-  math between fp pointer and register with unbounded min value is not allowed
-
-All new tests depend on the pre-defined __BPF_FEATURE_LOAD_ACQ_STORE_REL
-feature macro, which implies -mcpu>=v4.
-
+Cc: bpf@ietf.org
 Signed-off-by: Peilin Ye <yepeilin@google.com>
 ---
- .../selftests/bpf/prog_tests/arena_atomics.c  |  61 ++++++-
- .../selftests/bpf/prog_tests/atomics.c        |  57 ++++++-
- .../selftests/bpf/prog_tests/verifier.c       |   4 +
- .../selftests/bpf/progs/arena_atomics.c       |  62 ++++++-
- tools/testing/selftests/bpf/progs/atomics.c   |  62 ++++++-
- .../bpf/progs/verifier_load_acquire.c         |  92 +++++++++++
- .../selftests/bpf/progs/verifier_precision.c  |  39 +++++
- .../bpf/progs/verifier_store_release.c        | 153 ++++++++++++++++++
- 8 files changed, 524 insertions(+), 6 deletions(-)
- create mode 100644 tools/testing/selftests/bpf/progs/verifier_load_acquire.c
- create mode 100644 tools/testing/selftests/bpf/progs/verifier_store_release.c
+ .../bpf/standardization/instruction-set.rst   | 114 +++++++++++++++---
+ 1 file changed, 98 insertions(+), 16 deletions(-)
 
-diff --git a/tools/testing/selftests/bpf/prog_tests/arena_atomics.c b/tools/testing/selftests/bpf/prog_tests/arena_atomics.c
-index 26e7c06c6cb4..81d3575d7652 100644
---- a/tools/testing/selftests/bpf/prog_tests/arena_atomics.c
-+++ b/tools/testing/selftests/bpf/prog_tests/arena_atomics.c
-@@ -162,6 +162,60 @@ static void test_uaf(struct arena_atomics *skel)
- 	ASSERT_EQ(skel->arena->uaf_recovery_fails, 0, "uaf_recovery_fails");
- }
+diff --git a/Documentation/bpf/standardization/instruction-set.rst b/Documentation/bpf/standardization/instruction-set.rst
+index ab820d565052..86917932e9ef 100644
+--- a/Documentation/bpf/standardization/instruction-set.rst
++++ b/Documentation/bpf/standardization/instruction-set.rst
+@@ -139,8 +139,14 @@ This document defines the following conformance groups:
+   specification unless otherwise noted.
+ * base64: includes base32, plus instructions explicitly noted
+   as being in the base64 conformance group.
+-* atomic32: includes 32-bit atomic operation instructions (see `Atomic operations`_).
+-* atomic64: includes atomic32, plus 64-bit atomic operation instructions.
++* atomic32: includes 32-bit atomic read-modify-write instructions (see
++  `Atomic operations`_).
++* atomic32v2: includes atomic32, plus 8-bit, 16-bit and 32-bit atomic
++  load-acquire and store-release instructions.
++* atomic64: includes atomic32, plus 64-bit atomic read-modify-write
++  instructions.
++* atomic64v2: unifies atomic32v2 and atomic64, plus 64-bit atomic load-acquire
++  and store-release instructions.
+ * divmul32: includes 32-bit division, multiplication, and modulo instructions.
+ * divmul64: includes divmul32, plus 64-bit division, multiplication,
+   and modulo instructions.
+@@ -653,20 +659,31 @@ Atomic operations are operations that operate on memory and can not be
+ interrupted or corrupted by other access to the same memory region
+ by other BPF programs or means outside of this specification.
  
-+static void test_load_acquire(struct arena_atomics *skel)
-+{
-+	LIBBPF_OPTS(bpf_test_run_opts, topts);
-+	int err, prog_fd;
-+
-+	if (skel->data->skip_lacq_srel_tests) {
-+		printf("%s:SKIP:Clang does not support BPF load-acquire or addr_space_cast\n",
-+		       __func__);
-+		test__skip();
-+		return;
-+	}
-+
-+	/* No need to attach it, just run it directly */
-+	prog_fd = bpf_program__fd(skel->progs.load_acquire);
-+	err = bpf_prog_test_run_opts(prog_fd, &topts);
-+	if (!ASSERT_OK(err, "test_run_opts err"))
-+		return;
-+	if (!ASSERT_OK(topts.retval, "test_run_opts retval"))
-+		return;
-+
-+	ASSERT_EQ(skel->arena->load_acquire8_result, 0x12, "load_acquire8_result");
-+	ASSERT_EQ(skel->arena->load_acquire16_result, 0x1234, "load_acquire16_result");
-+	ASSERT_EQ(skel->arena->load_acquire32_result, 0x12345678, "load_acquire32_result");
-+	ASSERT_EQ(skel->arena->load_acquire64_result, 0x1234567890abcdef,
-+		  "load_acquire64_result");
-+}
-+
-+static void test_store_release(struct arena_atomics *skel)
-+{
-+	LIBBPF_OPTS(bpf_test_run_opts, topts);
-+	int err, prog_fd;
-+
-+	if (skel->data->skip_lacq_srel_tests) {
-+		printf("%s:SKIP:Clang does not support BPF store-release or addr_space_cast\n",
-+		       __func__);
-+		test__skip();
-+		return;
-+	}
-+
-+	/* No need to attach it, just run it directly */
-+	prog_fd = bpf_program__fd(skel->progs.store_release);
-+	err = bpf_prog_test_run_opts(prog_fd, &topts);
-+	if (!ASSERT_OK(err, "test_run_opts err"))
-+		return;
-+	if (!ASSERT_OK(topts.retval, "test_run_opts retval"))
-+		return;
-+
-+	ASSERT_EQ(skel->arena->store_release8_result, 0x12, "store_release8_result");
-+	ASSERT_EQ(skel->arena->store_release16_result, 0x1234, "store_release16_result");
-+	ASSERT_EQ(skel->arena->store_release32_result, 0x12345678, "store_release32_result");
-+	ASSERT_EQ(skel->arena->store_release64_result, 0x1234567890abcdef,
-+		  "store_release64_result");
-+}
-+
- void test_arena_atomics(void)
- {
- 	struct arena_atomics *skel;
-@@ -171,7 +225,7 @@ void test_arena_atomics(void)
- 	if (!ASSERT_OK_PTR(skel, "arena atomics skeleton open"))
- 		return;
+-All atomic operations supported by BPF are encoded as store operations
+-that use the ``ATOMIC`` mode modifier as follows:
++All atomic operations supported by BPF are encoded as ``STX`` instructions
++that use the ``ATOMIC`` mode modifier, with the 'imm' field encoding the
++actual atomic operation.  These operations are categorized based on the second
++lowest nibble (bits 4-7) of the 'imm' field:
  
--	if (skel->data->skip_tests) {
-+	if (skel->data->skip_all_tests) {
- 		printf("%s:SKIP:no ENABLE_ATOMICS_TESTS or no addr_space_cast support in clang",
- 		       __func__);
- 		test__skip();
-@@ -199,6 +253,11 @@ void test_arena_atomics(void)
- 	if (test__start_subtest("uaf"))
- 		test_uaf(skel);
+-* ``{ATOMIC, W, STX}`` for 32-bit operations, which are
++* ``ATOMIC_LOAD`` and ``ATOMIC_STORE`` indicate atomic load and store
++  operations, respectively (see `Atomic load and store operations`_).
++* All other defined values indicate an atomic read-modify-write operation, as
++  described in the following section.
++
++Atomic read-modify-write operations
++~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++
++The atomic read-modify-write (RMW) operations are encoded as follows:
++
++* ``{ATOMIC, W, STX}`` for 32-bit RMW operations, which are
+   part of the "atomic32" conformance group.
+-* ``{ATOMIC, DW, STX}`` for 64-bit operations, which are
++* ``{ATOMIC, DW, STX}`` for 64-bit RMW operations, which are
+   part of the "atomic64" conformance group.
+-* 8-bit and 16-bit wide atomic operations are not supported.
++* 8-bit and 16-bit wide atomic RMW operations are not supported.
  
-+	if (test__start_subtest("load_acquire"))
-+		test_load_acquire(skel);
-+	if (test__start_subtest("store_release"))
-+		test_store_release(skel);
-+
- cleanup:
- 	arena_atomics__destroy(skel);
- }
-diff --git a/tools/testing/selftests/bpf/prog_tests/atomics.c b/tools/testing/selftests/bpf/prog_tests/atomics.c
-index 13e101f370a1..5d7cff3eed2b 100644
---- a/tools/testing/selftests/bpf/prog_tests/atomics.c
-+++ b/tools/testing/selftests/bpf/prog_tests/atomics.c
-@@ -162,6 +162,56 @@ static void test_xchg(struct atomics_lskel *skel)
- 	ASSERT_EQ(skel->bss->xchg32_result, 1, "xchg32_result");
- }
+-The 'imm' field is used to encode the actual atomic operation.
+-Simple atomic operation use a subset of the values defined to encode
+-arithmetic operations in the 'imm' field to encode the atomic operation:
++Simple atomic RMW operation use a subset of the values defined to encode
++arithmetic operations in the 'imm' field to encode the atomic RMW operation:
  
-+static void test_load_acquire(struct atomics_lskel *skel)
-+{
-+	LIBBPF_OPTS(bpf_test_run_opts, topts);
-+	int err, prog_fd;
-+
-+	if (skel->data->skip_lacq_srel_tests) {
-+		printf("%s:SKIP:Clang does not support BPF load-acquire\n", __func__);
-+		test__skip();
-+		return;
-+	}
-+
-+	/* No need to attach it, just run it directly */
-+	prog_fd = skel->progs.load_acquire.prog_fd;
-+	err = bpf_prog_test_run_opts(prog_fd, &topts);
-+	if (!ASSERT_OK(err, "test_run_opts err"))
-+		return;
-+	if (!ASSERT_OK(topts.retval, "test_run_opts retval"))
-+		return;
-+
-+	ASSERT_EQ(skel->bss->load_acquire8_result, 0x12, "load_acquire8_result");
-+	ASSERT_EQ(skel->bss->load_acquire16_result, 0x1234, "load_acquire16_result");
-+	ASSERT_EQ(skel->bss->load_acquire32_result, 0x12345678, "load_acquire32_result");
-+	ASSERT_EQ(skel->bss->load_acquire64_result, 0x1234567890abcdef, "load_acquire64_result");
-+}
-+
-+static void test_store_release(struct atomics_lskel *skel)
-+{
-+	LIBBPF_OPTS(bpf_test_run_opts, topts);
-+	int err, prog_fd;
-+
-+	if (skel->data->skip_lacq_srel_tests) {
-+		printf("%s:SKIP:Clang does not support BPF store-release\n", __func__);
-+		test__skip();
-+		return;
-+	}
-+
-+	/* No need to attach it, just run it directly */
-+	prog_fd = skel->progs.store_release.prog_fd;
-+	err = bpf_prog_test_run_opts(prog_fd, &topts);
-+	if (!ASSERT_OK(err, "test_run_opts err"))
-+		return;
-+	if (!ASSERT_OK(topts.retval, "test_run_opts retval"))
-+		return;
-+
-+	ASSERT_EQ(skel->bss->store_release8_result, 0x12, "store_release8_result");
-+	ASSERT_EQ(skel->bss->store_release16_result, 0x1234, "store_release16_result");
-+	ASSERT_EQ(skel->bss->store_release32_result, 0x12345678, "store_release32_result");
-+	ASSERT_EQ(skel->bss->store_release64_result, 0x1234567890abcdef, "store_release64_result");
-+}
-+
- void test_atomics(void)
- {
- 	struct atomics_lskel *skel;
-@@ -170,7 +220,7 @@ void test_atomics(void)
- 	if (!ASSERT_OK_PTR(skel, "atomics skeleton load"))
- 		return;
+-.. table:: Simple atomic operations
++.. table:: Simple atomic read-modify-write operations
  
--	if (skel->data->skip_tests) {
-+	if (skel->data->skip_all_tests) {
- 		printf("%s:SKIP:no ENABLE_ATOMICS_TESTS (missing Clang BPF atomics support)",
- 		       __func__);
- 		test__skip();
-@@ -193,6 +243,11 @@ void test_atomics(void)
- 	if (test__start_subtest("xchg"))
- 		test_xchg(skel);
+   ========  =====  ===========
+   imm       value  description
+@@ -686,10 +703,10 @@ arithmetic operations in the 'imm' field to encode the atomic operation:
  
-+	if (test__start_subtest("load_acquire"))
-+		test_load_acquire(skel);
-+	if (test__start_subtest("store_release"))
-+		test_store_release(skel);
-+
- cleanup:
- 	atomics_lskel__destroy(skel);
- }
-diff --git a/tools/testing/selftests/bpf/prog_tests/verifier.c b/tools/testing/selftests/bpf/prog_tests/verifier.c
-index 8a0e1ff8a2dc..8bdad4167cf5 100644
---- a/tools/testing/selftests/bpf/prog_tests/verifier.c
-+++ b/tools/testing/selftests/bpf/prog_tests/verifier.c
-@@ -45,6 +45,7 @@
- #include "verifier_ldsx.skel.h"
- #include "verifier_leak_ptr.skel.h"
- #include "verifier_linked_scalars.skel.h"
-+#include "verifier_load_acquire.skel.h"
- #include "verifier_loops1.skel.h"
- #include "verifier_lwt.skel.h"
- #include "verifier_map_in_map.skel.h"
-@@ -80,6 +81,7 @@
- #include "verifier_spill_fill.skel.h"
- #include "verifier_spin_lock.skel.h"
- #include "verifier_stack_ptr.skel.h"
-+#include "verifier_store_release.skel.h"
- #include "verifier_subprog_precision.skel.h"
- #include "verifier_subreg.skel.h"
- #include "verifier_tailcall_jit.skel.h"
-@@ -173,6 +175,7 @@ void test_verifier_int_ptr(void)              { RUN(verifier_int_ptr); }
- void test_verifier_iterating_callbacks(void)  { RUN(verifier_iterating_callbacks); }
- void test_verifier_jeq_infer_not_null(void)   { RUN(verifier_jeq_infer_not_null); }
- void test_verifier_jit_convergence(void)      { RUN(verifier_jit_convergence); }
-+void test_verifier_load_acquire(void)	      { RUN(verifier_load_acquire); }
- void test_verifier_ld_ind(void)               { RUN(verifier_ld_ind); }
- void test_verifier_ldsx(void)                  { RUN(verifier_ldsx); }
- void test_verifier_leak_ptr(void)             { RUN(verifier_leak_ptr); }
-@@ -211,6 +214,7 @@ void test_verifier_sockmap_mutate(void)       { RUN(verifier_sockmap_mutate); }
- void test_verifier_spill_fill(void)           { RUN(verifier_spill_fill); }
- void test_verifier_spin_lock(void)            { RUN(verifier_spin_lock); }
- void test_verifier_stack_ptr(void)            { RUN(verifier_stack_ptr); }
-+void test_verifier_store_release(void)	      { RUN(verifier_store_release); }
- void test_verifier_subprog_precision(void)    { RUN(verifier_subprog_precision); }
- void test_verifier_subreg(void)               { RUN(verifier_subreg); }
- void test_verifier_tailcall_jit(void)         { RUN(verifier_tailcall_jit); }
-diff --git a/tools/testing/selftests/bpf/progs/arena_atomics.c b/tools/testing/selftests/bpf/progs/arena_atomics.c
-index 40dd57fca5cc..fe8b67d9c87b 100644
---- a/tools/testing/selftests/bpf/progs/arena_atomics.c
-+++ b/tools/testing/selftests/bpf/progs/arena_atomics.c
-@@ -19,9 +19,15 @@ struct {
- } arena SEC(".maps");
+   *(u64 *)(dst + offset) += src
  
- #if defined(ENABLE_ATOMICS_TESTS) && defined(__BPF_FEATURE_ADDR_SPACE_CAST)
--bool skip_tests __attribute((__section__(".data"))) = false;
-+bool skip_all_tests __attribute((__section__(".data"))) = false;
- #else
--bool skip_tests = true;
-+bool skip_all_tests = true;
-+#endif
-+
-+#if defined(__BPF_FEATURE_LOAD_ACQ_STORE_REL) && defined(__BPF_FEATURE_ADDR_SPACE_CAST)
-+bool skip_lacq_srel_tests __attribute((__section__(".data"))) = false;
-+#else
-+bool skip_lacq_srel_tests = true;
- #endif
+-In addition to the simple atomic operations, there also is a modifier and
+-two complex atomic operations:
++In addition to the simple atomic RMW operations, there also is a modifier and
++two complex atomic RMW operations:
  
- __u32 pid = 0;
-@@ -274,4 +280,56 @@ int uaf(const void *ctx)
- 	return 0;
- }
+-.. table:: Complex atomic operations
++.. table:: Complex atomic read-modify-write operations
  
-+__u8 __arena_global load_acquire8_value = 0x12;
-+__u16 __arena_global load_acquire16_value = 0x1234;
-+__u32 __arena_global load_acquire32_value = 0x12345678;
-+__u64 __arena_global load_acquire64_value = 0x1234567890abcdef;
-+
-+__u8 __arena_global load_acquire8_result = 0;
-+__u16 __arena_global load_acquire16_result = 0;
-+__u32 __arena_global load_acquire32_result = 0;
-+__u64 __arena_global load_acquire64_result = 0;
-+
-+SEC("raw_tp/sys_enter")
-+int load_acquire(const void *ctx)
-+{
-+	if (pid != (bpf_get_current_pid_tgid() >> 32))
-+		return 0;
-+
-+#ifdef __BPF_FEATURE_LOAD_ACQ_STORE_REL
-+	load_acquire8_result = __atomic_load_n(&load_acquire8_value, __ATOMIC_ACQUIRE);
-+	load_acquire16_result = __atomic_load_n(&load_acquire16_value, __ATOMIC_ACQUIRE);
-+	load_acquire32_result = __atomic_load_n(&load_acquire32_value, __ATOMIC_ACQUIRE);
-+	load_acquire64_result = __atomic_load_n(&load_acquire64_value, __ATOMIC_ACQUIRE);
-+#endif
-+
-+	return 0;
-+}
-+
-+__u8 __arena_global store_release8_result = 0;
-+__u16 __arena_global store_release16_result = 0;
-+__u32 __arena_global store_release32_result = 0;
-+__u64 __arena_global store_release64_result = 0;
-+
-+SEC("raw_tp/sys_enter")
-+int store_release(const void *ctx)
-+{
-+	if (pid != (bpf_get_current_pid_tgid() >> 32))
-+		return 0;
-+
-+#ifdef __BPF_FEATURE_LOAD_ACQ_STORE_REL
-+	__u8 val8 = 0x12;
-+	__u16 val16 = 0x1234;
-+	__u32 val32 = 0x12345678;
-+	__u64 val64 = 0x1234567890abcdef;
-+
-+	__atomic_store_n(&store_release8_result, val8, __ATOMIC_RELEASE);
-+	__atomic_store_n(&store_release16_result, val16, __ATOMIC_RELEASE);
-+	__atomic_store_n(&store_release32_result, val32, __ATOMIC_RELEASE);
-+	__atomic_store_n(&store_release64_result, val64, __ATOMIC_RELEASE);
-+#endif
-+
-+	return 0;
-+}
-+
- char _license[] SEC("license") = "GPL";
-diff --git a/tools/testing/selftests/bpf/progs/atomics.c b/tools/testing/selftests/bpf/progs/atomics.c
-index f89c7f0cc53b..4c23d7d0d37d 100644
---- a/tools/testing/selftests/bpf/progs/atomics.c
-+++ b/tools/testing/selftests/bpf/progs/atomics.c
-@@ -5,9 +5,15 @@
- #include <stdbool.h>
+   ===========  ================  ===========================
+   imm          value             description
+@@ -699,8 +716,8 @@ two complex atomic operations:
+   CMPXCHG      0xf0 | FETCH      atomic compare and exchange
+   ===========  ================  ===========================
  
- #ifdef ENABLE_ATOMICS_TESTS
--bool skip_tests __attribute((__section__(".data"))) = false;
-+bool skip_all_tests __attribute((__section__(".data"))) = false;
- #else
--bool skip_tests = true;
-+bool skip_all_tests = true;
-+#endif
-+
-+#ifdef __BPF_FEATURE_LOAD_ACQ_STORE_REL
-+bool skip_lacq_srel_tests __attribute((__section__(".data"))) = false;
-+#else
-+bool skip_lacq_srel_tests = true;
- #endif
+-The ``FETCH`` modifier is optional for simple atomic operations, and
+-always set for the complex atomic operations.  If the ``FETCH`` flag
++The ``FETCH`` modifier is optional for simple atomic RMW operations, and
++always set for the complex atomic RMW operations.  If the ``FETCH`` flag
+ is set, then the operation also overwrites ``src`` with the value that
+ was in memory before it was modified.
  
- __u32 pid = 0;
-@@ -168,3 +174,55 @@ int xchg(const void *ctx)
+@@ -713,6 +730,71 @@ The ``CMPXCHG`` operation atomically compares the value addressed by
+ value that was at ``dst + offset`` before the operation is zero-extended
+ and loaded back to ``R0``.
  
- 	return 0;
- }
++Atomic load and store operations
++~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 +
-+__u8 load_acquire8_value = 0x12;
-+__u16 load_acquire16_value = 0x1234;
-+__u32 load_acquire32_value = 0x12345678;
-+__u64 load_acquire64_value = 0x1234567890abcdef;
++To encode an atomic load or store operation, the lowest 8 bits of the 'imm'
++field are divided as follows::
 +
-+__u8 load_acquire8_result = 0;
-+__u16 load_acquire16_result = 0;
-+__u32 load_acquire32_result = 0;
-+__u64 load_acquire64_result = 0;
++  +-+-+-+-+-+-+-+-+
++  | type  | order |
++  +-+-+-+-+-+-+-+-+
 +
-+SEC("raw_tp/sys_enter")
-+int load_acquire(const void *ctx)
-+{
-+	if (pid != (bpf_get_current_pid_tgid() >> 32))
-+		return 0;
++**type**
++  The operation type is one of:
 +
-+#ifdef __BPF_FEATURE_LOAD_ACQ_STORE_REL
-+	load_acquire8_result = __atomic_load_n(&load_acquire8_value, __ATOMIC_ACQUIRE);
-+	load_acquire16_result = __atomic_load_n(&load_acquire16_value, __ATOMIC_ACQUIRE);
-+	load_acquire32_result = __atomic_load_n(&load_acquire32_value, __ATOMIC_ACQUIRE);
-+	load_acquire64_result = __atomic_load_n(&load_acquire64_value, __ATOMIC_ACQUIRE);
-+#endif
++.. table:: Atomic load and store operation types
 +
-+	return 0;
-+}
++  ============  =====  ============
++  type          value  description
++  ============  =====  ============
++  ATOMIC_LOAD   0x1    atomic load
++  ATOMIC_STORE  0x2    atomic store
++  ============  =====  ============
 +
-+__u8 store_release8_result = 0;
-+__u16 store_release16_result = 0;
-+__u32 store_release32_result = 0;
-+__u64 store_release64_result = 0;
++**order**
++  The memory order is one of:
 +
-+SEC("raw_tp/sys_enter")
-+int store_release(const void *ctx)
-+{
-+	if (pid != (bpf_get_current_pid_tgid() >> 32))
-+		return 0;
++.. table:: Memory orders
 +
-+#ifdef __BPF_FEATURE_LOAD_ACQ_STORE_REL
-+	__u8 val8 = 0x12;
-+	__u16 val16 = 0x1234;
-+	__u32 val32 = 0x12345678;
-+	__u64 val64 = 0x1234567890abcdef;
++  =======  =====  =======================
++  order    value  description
++  =======  =====  =======================
++  RELAXED  0x0    relaxed
++  ACQUIRE  0x1    acquire
++  RELEASE  0x2    release
++  ACQ_REL  0x3    acquire and release
++  SEQ_CST  0x4    sequentially consistent
++  =======  =====  =======================
 +
-+	__atomic_store_n(&store_release8_result, val8, __ATOMIC_RELEASE);
-+	__atomic_store_n(&store_release16_result, val16, __ATOMIC_RELEASE);
-+	__atomic_store_n(&store_release32_result, val32, __ATOMIC_RELEASE);
-+	__atomic_store_n(&store_release64_result, val64, __ATOMIC_RELEASE);
-+#endif
++Currently the following combinations of ``type`` and ``order`` are allowed:
 +
-+	return 0;
-+}
-diff --git a/tools/testing/selftests/bpf/progs/verifier_load_acquire.c b/tools/testing/selftests/bpf/progs/verifier_load_acquire.c
-new file mode 100644
-index 000000000000..506df4b8231b
---- /dev/null
-+++ b/tools/testing/selftests/bpf/progs/verifier_load_acquire.c
-@@ -0,0 +1,92 @@
-+// SPDX-License-Identifier: GPL-2.0
++.. table:: Atomic load and store operations
 +
-+#include <linux/bpf.h>
-+#include <bpf/bpf_helpers.h>
-+#include "bpf_misc.h"
++  ========= =====  ====================
++  imm       value  description
++  ========= =====  ====================
++  LOAD_ACQ  0x11   atomic load-acquire
++  STORE_REL 0x22   atomic store-release
++  ========= =====  ====================
 +
-+#if defined(__TARGET_ARCH_arm64) && defined(__BPF_FEATURE_LOAD_ACQ_STORE_REL)
++``{ATOMIC, <size>, STX}`` with 'imm' = LOAD_ACQ means::
 +
-+SEC("socket")
-+__description("load-acquire, 8-bit")
-+__success __success_unpriv __retval(0x12)
-+__naked void load_acquire_8(void)
-+{
-+	asm volatile (
-+	"*(u8 *)(r10 - 1) = 0x12;"
-+	"w0 = load_acquire((u8 *)(r10 - 1));"
-+	"exit;"
-+	::: __clobber_all);
-+}
++  dst = load_acquire((unsigned size *)(src + offset))
 +
-+SEC("socket")
-+__description("load-acquire, 16-bit")
-+__success __success_unpriv __retval(0x1234)
-+__naked void load_acquire_16(void)
-+{
-+	asm volatile (
-+	"*(u16 *)(r10 - 2) = 0x1234;"
-+	"w0 = load_acquire((u16 *)(r10 - 2));"
-+	"exit;"
-+	::: __clobber_all);
-+}
++``{ATOMIC, <size>, STX}`` with 'imm' = STORE_REL means::
 +
-+SEC("socket")
-+__description("load-acquire, 32-bit")
-+__success __success_unpriv __retval(0x12345678)
-+__naked void load_acquire_32(void)
-+{
-+	asm volatile (
-+	"*(u32 *)(r10 - 4) = 0x12345678;"
-+	"w0 = load_acquire((u32 *)(r10 - 4));"
-+	"exit;"
-+	::: __clobber_all);
-+}
++  store_release((unsigned size *)(dst + offset), src)
 +
-+SEC("socket")
-+__description("load-acquire, 64-bit")
-+__success __success_unpriv __retval(0x1234567890abcdef)
-+__naked void load_acquire_64(void)
-+{
-+	asm volatile (
-+	"*(u64 *)(r10 - 8) = 0x1234567890abcdef;"
-+	"r0 = load_acquire((u64 *)(r10 - 8));"
-+	"exit;"
-+	::: __clobber_all);
-+}
++Where '<size>' is one of: ``B``, ``H``, ``W``, or ``DW``, and 'unsigned size'
++is one of: u8, u16, u32, or u64.
 +
-+SEC("socket")
-+__description("load-acquire with uninitialized src_reg")
-+__failure __failure_unpriv __msg("R2 !read_ok")
-+__naked void load_acquire_with_uninitialized_src_reg(void)
-+{
-+	asm volatile (
-+	"r0 = load_acquire((u64 *)(r2 + 0));"
-+	"exit;"
-+	::: __clobber_all);
-+}
++8-bit, 16-bit and 32-bit atomic load-acquire and store-release instructions
++are part of the "atomic32v2" conformance group.
 +
-+SEC("socket")
-+__description("load-acquire with non-pointer src_reg")
-+__failure __failure_unpriv __msg("R1 invalid mem access 'scalar'")
-+__naked void load_acquire_with_non_pointer_src_reg(void)
-+{
-+	asm volatile (
-+	"r1 = 0;"
-+	"r0 = load_acquire((u64 *)(r1 + 0));"
-+	"exit;"
-+	::: __clobber_all);
-+}
++64-bit atomic load-acquire and store-release instructions are part of the
++"atomic64v2" conformance group.
 +
-+#else
-+
-+SEC("socket")
-+__description("load-acquire is not supported by compiler or jit, use a dummy test")
-+__success
-+int dummy_test(void)
-+{
-+	return 0;
-+}
-+
-+#endif
-+
-+char _license[] SEC("license") = "GPL";
-diff --git a/tools/testing/selftests/bpf/progs/verifier_precision.c b/tools/testing/selftests/bpf/progs/verifier_precision.c
-index 6b564d4c0986..7d5b9e95e3cf 100644
---- a/tools/testing/selftests/bpf/progs/verifier_precision.c
-+++ b/tools/testing/selftests/bpf/progs/verifier_precision.c
-@@ -90,6 +90,45 @@ __naked int bpf_end_bswap(void)
- 		::: __clobber_all);
- }
+ 64-bit immediate instructions
+ -----------------------------
  
-+#if defined(__TARGET_ARCH_arm64) && defined(__BPF_FEATURE_LOAD_ACQ_STORE_REL)
-+
-+SEC("?raw_tp")
-+__success __log_level(2)
-+__msg("mark_precise: frame0: regs=r1 stack= before 2: (bf) r2 = r10")
-+__msg("mark_precise: frame0: regs=r1 stack= before 1: (db) r1 = load_acquire((u64 *)(r10 -8))")
-+__msg("mark_precise: frame0: regs= stack=-8 before 0: (7a) *(u64 *)(r10 -8) = 8")
-+__naked int bpf_load_acquire(void)
-+{
-+	asm volatile (
-+		"*(u64 *)(r10 - 8) = 8;"
-+		"r1 = load_acquire((u64 *)(r10 - 8));"
-+		"r2 = r10;"
-+		"r2 += r1;"	/* mark_precise */
-+		"r0 = 0;"
-+		"exit;"
-+		::: __clobber_all);
-+}
-+
-+SEC("?raw_tp")
-+__success __log_level(2)
-+__msg("mark_precise: frame0: regs=r1 stack= before 3: (bf) r2 = r10")
-+__msg("mark_precise: frame0: regs=r1 stack= before 2: (79) r1 = *(u64 *)(r10 -8)")
-+__msg("mark_precise: frame0: regs= stack=-8 before 1: (db) store_release((u64 *)(r10 -8), r1)")
-+__msg("mark_precise: frame0: regs=r1 stack= before 0: (b7) r1 = 8")
-+__naked int bpf_store_release(void)
-+{
-+	asm volatile (
-+		"r1 = 8;"
-+		"store_release((u64 *)(r10 - 8), r1);"
-+		"r1 = *(u64 *)(r10 - 8);"
-+		"r2 = r10;"
-+		"r2 += r1;"	/* mark_precise */
-+		"r0 = 0;"
-+		"exit;"
-+		::: __clobber_all);
-+}
-+
-+#endif /* load-acquire, store-release */
- #endif /* v4 instruction */
- 
- SEC("?raw_tp")
-diff --git a/tools/testing/selftests/bpf/progs/verifier_store_release.c b/tools/testing/selftests/bpf/progs/verifier_store_release.c
-new file mode 100644
-index 000000000000..d8c3b73388cb
---- /dev/null
-+++ b/tools/testing/selftests/bpf/progs/verifier_store_release.c
-@@ -0,0 +1,153 @@
-+// SPDX-License-Identifier: GPL-2.0
-+
-+#include <linux/bpf.h>
-+#include <bpf/bpf_helpers.h>
-+#include "bpf_misc.h"
-+
-+#if defined(__TARGET_ARCH_arm64) && defined(__BPF_FEATURE_LOAD_ACQ_STORE_REL)
-+
-+SEC("socket")
-+__description("store-release, 8-bit")
-+__success __success_unpriv __retval(0x12)
-+__naked void store_release_8(void)
-+{
-+	asm volatile (
-+	"w1 = 0x12;"
-+	"store_release((u8 *)(r10 - 1), w1);"
-+	"w0 = *(u8 *)(r10 - 1);"
-+	"exit;"
-+	::: __clobber_all);
-+}
-+
-+SEC("socket")
-+__description("store-release, 16-bit")
-+__success __success_unpriv __retval(0x1234)
-+__naked void store_release_16(void)
-+{
-+	asm volatile (
-+	"w1 = 0x1234;"
-+	"store_release((u16 *)(r10 - 2), w1);"
-+	"w0 = *(u16 *)(r10 - 2);"
-+	"exit;"
-+	::: __clobber_all);
-+}
-+
-+SEC("socket")
-+__description("store-release, 32-bit")
-+__success __success_unpriv __retval(0x12345678)
-+__naked void store_release_32(void)
-+{
-+	asm volatile (
-+	"w1 = 0x12345678;"
-+	"store_release((u32 *)(r10 - 4), w1);"
-+	"w0 = *(u32 *)(r10 - 4);"
-+	"exit;"
-+	::: __clobber_all);
-+}
-+
-+SEC("socket")
-+__description("store-release, 64-bit")
-+__success __success_unpriv __retval(0x1234567890abcdef)
-+__naked void store_release_64(void)
-+{
-+	asm volatile (
-+	"r1 = 0x1234567890abcdef;"
-+	"store_release((u64 *)(r10 - 8), r1);"
-+	"r0 = *(u64 *)(r10 - 8);"
-+	"exit;"
-+	::: __clobber_all);
-+}
-+
-+SEC("socket")
-+__description("store-release with uninitialized src_reg")
-+__failure __failure_unpriv __msg("R2 !read_ok")
-+__naked void store_release_with_uninitialized_src_reg(void)
-+{
-+	asm volatile (
-+	"store_release((u64 *)(r10 - 8), r2);"
-+	"exit;"
-+	::: __clobber_all);
-+}
-+
-+SEC("socket")
-+__description("store-release with uninitialized dst_reg")
-+__failure __failure_unpriv __msg("R2 !read_ok")
-+__naked void store_release_with_uninitialized_dst_reg(void)
-+{
-+	asm volatile (
-+	"r1 = 0x1234567890abcdef;"
-+	"store_release((u64 *)(r2 - 8), r1);"
-+	"exit;"
-+	::: __clobber_all);
-+}
-+
-+SEC("socket")
-+__description("store-release with non-pointer dst_reg")
-+__failure __failure_unpriv __msg("R1 invalid mem access 'scalar'")
-+__naked void store_release_with_non_pointer_dst_reg(void)
-+{
-+	asm volatile (
-+	"r1 = 0;"
-+	"store_release((u64 *)(r1 + 0), r1);"
-+	"exit;"
-+	::: __clobber_all);
-+}
-+
-+SEC("socket")
-+__description("store-release, leak pointer to stack")
-+__success __retval(0)
-+__failure_unpriv __msg_unpriv("R1 leaks addr into mem")
-+__naked void store_release_leak_pointer_to_stack(void)
-+{
-+	asm volatile (
-+	"store_release((u64 *)(r10 - 8), r1);"
-+	"r0 = 0;"
-+	"exit;"
-+	::: __clobber_all);
-+}
-+
-+struct {
-+	__uint(type, BPF_MAP_TYPE_HASH);
-+	__uint(max_entries, 1);
-+	__type(key, long long);
-+	__type(value, long long);
-+} map_hash_8b SEC(".maps");
-+
-+SEC("socket")
-+__description("store-release, leak pointer to map")
-+__success __retval(0)
-+__failure_unpriv __msg_unpriv("R6 leaks addr into mem")
-+__naked void store_release_leak_pointer_to_map(void)
-+{
-+	asm volatile (
-+	"r6 = r1;"
-+	"r1 = 0;"
-+	"*(u64 *)(r10 - 8) = r1;"
-+	"r2 = r10;"
-+	"r2 += -8;"
-+	"r1 = %[map_hash_8b] ll;"
-+	"call %[bpf_map_lookup_elem];"
-+	"if r0 == 0 goto l0_%=;"
-+	"store_release((u64 *)(r0 + 0), r6);"
-+"l0_%=:"
-+	"r0 = 0;"
-+	"exit;"
-+	:
-+	: __imm(bpf_map_lookup_elem),
-+	  __imm_addr(map_hash_8b)
-+	: __clobber_all);
-+}
-+
-+#else
-+
-+SEC("socket")
-+__description("store-release is not supported by compiler or jit, use a dummy test")
-+__success
-+int dummy_test(void)
-+{
-+	return 0;
-+}
-+
-+#endif
-+
-+char _license[] SEC("license") = "GPL";
 -- 
 2.48.1.262.g85cc9f2d1e-goog
 
