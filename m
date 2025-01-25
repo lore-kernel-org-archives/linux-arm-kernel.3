@@ -4,71 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9553C0218C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jan 2025 12:20:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9581CC0218C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jan 2025 13:00:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OCWgEAVbuUHv7u/Fo6MrCUR48eIzDRgKs9rEqTQ+aJ4=; b=MWnLtHwZCkkYb+yAHcwiSnpNXd
-	uj4TMwNQXfGzS7zXDTfeDxc6RXSAQ4C5i1j6CfrDiaFMSI7ku2r9amGlkeqmcmaUwggpGDmgQFI0H
-	CtRgqheRZtLICCqLuo08IQqS7FITVvzLqtHoCojhUQe4BqiaXFRxeZD20cHrhCRORZyCw0T/VGRpl
-	e/V/G8gX8ep0izkPyLgauk8KN5B4RDUD5QjfRjuxSN3GQx/5rVYyNzdHC/Px3d80gwduairDw4Al4
-	1c4rV+lmH/pwhX44nY21G6uB51DEg6JQnWz/UdYlf2SUoYYSm45H0bnpLFmU+aXSZSnFHEd34R4j4
-	+yqTLYrA==;
+	bh=el7iGP7OFYeR4PWe14A1/v42PBL2cJsaz3V9X1queIk=; b=U7Iq3VGcbU7fhwSi8IARTE3dzQ
+	mENQi0cvUfnQWPCN3NHKZDvNcCPi6n3tOyMQQEoR1J3wZ/e3jdmQQHKK94EwReb0mPhS/oIcTA/1Z
+	et/1QTG0BSmDQz0JjQiTn45tUIsGwDX2K7bnQOQG7olwBkkPLfGZB8Uvmiwf6l97TeSt29tvYSe3x
+	+dVSLJwLg1lAp5TtLnp4RLDb+NzlAOusT6MtFNrNFRZjQokJ4LDEiADkx8Ejo1Gz5TJy01zBaWkkC
+	Gq2qdIbC7LK4r7pSMvXNi64qM65K8P2ZPBnEcQ9RD8VBAcqChj5AxYs1nN+PTmKOlQ5Gjj/Y+eH/B
+	bTEpAVNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbf8u-0000000GNwG-2IuW;
-	Sat, 25 Jan 2025 12:20:04 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tbflc-0000000GPrC-3pL2;
+	Sat, 25 Jan 2025 13:00:04 +0000
+Received: from mail-yb1-xb36.google.com ([2607:f8b0:4864:20::b36])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbf7a-0000000GNnp-2tp7
+	id 1tbfkI-0000000GPl9-43bU
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Jan 2025 12:18:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E9CE8A40CFB;
-	Sat, 25 Jan 2025 12:16:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 911EDC4CED6;
-	Sat, 25 Jan 2025 12:18:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737807520;
-	bh=DtuhUQo6cIIxFbScvGXGCdL8XY+9bxpDxjbA4P0hs2A=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=cYD3h+lkMGNnzm2VvMEKLWI+anIFSrxSQ7RBx+ZOOJXsShl7H/nUZJqoBauhxSXzU
-	 Je3iHX2RhK1J9lB+CvirOwsPzXs7kIQmGu7KqNSVA88klIgAkuycVFLeo8ToRsZ1V1
-	 fZdRXkCqs4C0T5VQ5AZvYDukgddGsgaV7j4MiJ5WU7/hB8D1qGiYfwLkBRMYx3RZfy
-	 DIBWhJKQ148COISM891tm1GK4pGPcx8MrQWpzJljcIJG5dfCMZm6slB5Tyg+sa/aA6
-	 Pl9Byz7ftZLewvj4v9gsNtMsaCB0ynxhoXFphvRLETZ+hiyK4k0IN2y1phL+lRCBuO
-	 WV4t2aLZjAf/Q==
-Date: Sat, 25 Jan 2025 12:18:26 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Claudiu <claudiu.beznea@tuxon.dev>, rafael@kernel.org,
- daniel.lezcano@linaro.org, rui.zhang@intel.com, lukasz.luba@arm.com,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- magnus.damm@gmail.com, mturquette@baylibre.com, sboyd@kernel.org,
- p.zabel@pengutronix.de, ulf.hansson@linaro.org, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, Claudiu Beznea
- <claudiu.beznea.uj@bp.renesas.com>, "open list:IIO SUBSYSTEM AND DRIVERS"
- <linux-iio@vger.kernel.org>
-Subject: Re: [PATCH 4/6] thermal: renesas: rzg3s: Add thermal driver for the
- Renesas RZ/G3S SoC
-Message-ID: <20250125121826.6abbe7de@jic23-huawei>
-In-Reply-To: <CAMuHMdUDKFRsZWsZG9DY4PHdxQEDoPqzfeRx8MNTreOpxdLvpw@mail.gmail.com>
-References: <20250103163805.1775705-1-claudiu.beznea.uj@bp.renesas.com>
-	<20250103163805.1775705-5-claudiu.beznea.uj@bp.renesas.com>
-	<CAMuHMdUDKFRsZWsZG9DY4PHdxQEDoPqzfeRx8MNTreOpxdLvpw@mail.gmail.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-pc-linux-gnu)
+	Sat, 25 Jan 2025 12:58:44 +0000
+Received: by mail-yb1-xb36.google.com with SMTP id 3f1490d57ef6-e573136107bso5066430276.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Jan 2025 04:58:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1737809921; x=1738414721; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=el7iGP7OFYeR4PWe14A1/v42PBL2cJsaz3V9X1queIk=;
+        b=lCudljmMVuO5+tnrL+MpafFkka3tkMVCiZm9/zqObUBijqvcy2CzscLpPZsx2TiDvJ
+         2McT/UZt9tnJZzaW8DM829vRukScbr3pWxCdRpcmUJbtQ0g4VtOmbUyaZdDu0FgF5Dj9
+         DVs18JeCcMv1uJo87zbXZ0i8IUrVpd89vD5F4=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737809921; x=1738414721;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=el7iGP7OFYeR4PWe14A1/v42PBL2cJsaz3V9X1queIk=;
+        b=tOKkd+HjlbORXg2HhtxqgvpNWA86PI0FFhsZoEKhX+g20nsWkz+EEcJE/ntm9kv1la
+         lrkkXQN9CVa7GHok9cYBwvvG3CLuP9yTwpFS+AMQa/67M3d8hKM42TZ0zjx5uIjOos6T
+         KEXJHTgASdUxmBYJfcnYSX5gZOeMrZlDAyTHMlvwMwQx2kt8Py0NLjepwguZV/zk2nh+
+         ot0LOLe19jgDH+1mkkoqjxubTG1iMruoW6XQbDvNbHrfG1ucVnFyNzG9VPAG8aEDpyDu
+         3YxKaKz9zLgRLdxugXnANAHIU8BHfxr8VVu5ux/eVuSq0EwRcIrd6GXQLRABlpLy9Z1J
+         V02g==
+X-Forwarded-Encrypted: i=1; AJvYcCXNGyqFEHWQ6pK4ICagDaesigCkdaO86wgP64c87xlgn+aUyaNaB5WEP7F+Ci0rGqfBIRJe37uiIquJ6at2GD72@lists.infradead.org
+X-Gm-Message-State: AOJu0YzJGsBwsnckkEVVC+8VAypifbMrb3QrvNYyisWYads6fyDAvJiz
+	xGsHp6rwZ97avKAFnb5lAS0Ok/OI957MkjMaikKEYWM+agzslqd7oqNhTtuFKRN9JKozfIRpFSj
+	9vgP1t0beApGN2037JIKNFTEG7F3NLUk+IkHj3A==
+X-Gm-Gg: ASbGncv0Fovwfw3XtmWZfkQ+3lrodPXFq6az18ajsFX6GJ2vBTff/mG72LyKgNf294Q
+	VFQPipqRkC9lBR1jvAHvI8ZKVREa5VN66zM6DrOElrw/pkWzYKJKYmlfPcYqR
+X-Google-Smtp-Source: AGHT+IEEKpiikrUJ57qyfcCRA/e0fon58biS6P+zSfMgH8jo4xDtyN7iJdHR7Or74nDGVOsMp3enzXojTs8OVWanswA=
+X-Received: by 2002:a25:ae54:0:b0:e57:cc1e:2ab4 with SMTP id
+ 3f1490d57ef6-e57cc1e2c6cmr17264809276.28.1737809921258; Sat, 25 Jan 2025
+ 04:58:41 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+References: <20250124-clk-ssc-v1-0-2d39f6baf2af@nxp.com>
+In-Reply-To: <20250124-clk-ssc-v1-0-2d39f6baf2af@nxp.com>
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Date: Sat, 25 Jan 2025 13:58:30 +0100
+X-Gm-Features: AWEUYZnNxDwCk6NAMaoEBBJdy6_TRGTFA2dlWGHDjrD3fTX9PYVK1omwdpabvIA
+Message-ID: <CABGWkvpj2bYyqiOp4D9Ss2aWOnoR7BxqDOGpXdRusq=aWu9BEA@mail.gmail.com>
+Subject: Re: [PATCH 0/3] clk: Support spread spectrum and use it in clk-scmi
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Russell King <linux@armlinux.org.uk>, Sudeep Holla <sudeep.holla@arm.com>, 
+	Cristian Marussi <cristian.marussi@arm.com>, linux-clk@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, Peng Fan <peng.fan@nxp.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250125_041842_857780_F7F338C2 
-X-CRM114-Status: GOOD (  26.99  )
+X-CRM114-CacheID: sfid-20250125_045843_022050_977532A9 
+X-CRM114-Status: GOOD (  19.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,117 +96,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Jan 2025 11:29:19 +0100
-Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+On Fri, Jan 24, 2025 at 2:19=E2=80=AFPM Peng Fan (OSS) <peng.fan@oss.nxp.co=
+m> wrote:
+>
+> - Introduce clk_set_spread_spectrum to set the parameters for enabling
+>   spread spectrum of a clock.
+> - Parse 'assigned-clock-sscs' and configure it by default before using th=
+e
+>   clock. The pull request for this property is at [1]
+>   This property is parsed before parsing clock rate.
+>
+> - Enable this feature for clk-scmi on i.MX95.
+>   This may not the best, since checking machine compatibles.
+>   I am thinking to provide an API scmi_get_vendor_info, then driver
+>   could use it for OEM stuff, such as
+>   if (scmi_get_vendor_info returns NXP_IMX)
+>       ops->set_spread_spectrum =3D scmi_clk_set_spread_spectrum_imx;
+>
 
-> Hi Claudiu,
->=20
-> CC iio
->=20
-> On Fri, Jan 3, 2025 at 5:38=E2=80=AFPM Claudiu <claudiu.beznea@tuxon.dev>=
- wrote:
-> > From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-> >
-> > The Renesas RZ/G3S SoC features a Thermal Sensor Unit (TSU) that reports
-> > the junction temperature. The temperature is reported through a dedicat=
-ed
-> > ADC channel. Add a driver for the Renesas RZ/G3S TSU.
-> >
-> > Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com> =20
->=20
-> Thanks for your patch!
->=20
-> > --- /dev/null
-> > +++ b/drivers/thermal/renesas/rzg3s_thermal.c =20
->=20
-> > +static int rzg3s_thermal_probe(struct platform_device *pdev)
-> > +{
-> > +       struct rzg3s_thermal_priv *priv;
-> > +       struct device *dev =3D &pdev->dev;
-> > +       int ret;
-> > +
-> > +       priv =3D devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-> > +       if (!priv)
-> > +               return -ENOMEM;
-> > +
-> > +       priv->base =3D devm_platform_ioremap_resource(pdev, 0);
-> > +       if (IS_ERR(priv->base))
-> > +               return PTR_ERR(priv->base);
-> > +
-> > +       priv->channel =3D devm_iio_channel_get(dev, "tsu"); =20
->=20
-> Given there's only a single IIO channel, you could pass NULL instead
-> of the name, and drop "io-channel-names" from the DT bindings.
-> I don't know what's the IIO policy w.r.t. unnamed channels, though.
+I wonder if your solution is truly generic or merely a generalization
+of your use case, which seems significantly simpler compared to what
+happens on the i.MX8M platform, as discussed in thread
+https://lore.kernel.org/lkml/PAXPR04MB8459537D7D2A49221D0E890D88E32@PAXPR04=
+MB8459.eurprd04.prod.outlook.com/,
+or on the STM32F platform, where parameters are not written directly
+to registers but are instead used in calculations involving the
+parent_rate and the PLL divider, for example.
 
-It's supported, so fine as long as no future additional names show up.
-Will just fallback to index 0 I think.
+I am the author of the patches that introduced spread spectrum
+management for the AM33x and STM32Fx platforms, as well as the
+series, still pending acceptance, for the i.MX8M.
+From my perspective, this functionality varies significantly
+from platform to platform, with key differences that must be
+considered.
 
-Jonathan
+Thanks and regards,
+Dario
 
->=20
-> > +       if (IS_ERR(priv->channel))
-> > +               return dev_err_probe(dev, PTR_ERR(priv->channel), "Fail=
-ed to get IIO channel!\n");
-> > +
-> > +       priv->rstc =3D devm_reset_control_get_exclusive_deasserted(dev,=
- NULL);
-> > +       if (IS_ERR(priv->rstc))
-> > +               return dev_err_probe(dev, PTR_ERR(priv->rstc), "Failed =
-to get reset!\n");
-> > +
-> > +       priv->dev =3D dev;
-> > +       priv->mode =3D THERMAL_DEVICE_DISABLED;
-> > +       platform_set_drvdata(pdev, priv);
-> > +
-> > +       pm_runtime_set_autosuspend_delay(dev, 300);
-> > +       pm_runtime_use_autosuspend(dev);
-> > +       pm_runtime_enable(dev);
-> > +
-> > +       ret =3D rzg3s_thermal_read_calib(priv);
-> > +       if (ret) {
-> > +               dev_err_probe(dev, ret, "Failed to read calibration dat=
-a!\n");
-> > +               goto rpm_disable;
-> > +       }
-> > +
-> > +       priv->tz =3D thermal_of_zone_register(dev->of_node, 0, priv, &r=
-zg3s_tz_of_ops);
-> > +       if (IS_ERR(priv->tz)) {
-> > +               dev_err_probe(dev, PTR_ERR(priv->tz), "Failed to regist=
-er thermal zone!\n");
-> > +               goto rpm_disable;
-> > +       }
-> > +
-> > +       ret =3D thermal_add_hwmon_sysfs(priv->tz);
-> > +       if (ret) {
-> > +               dev_err_probe(dev, ret, "Failed to add hwmon sysfs!\n");
-> > +               goto tz_unregister;
-> > +       }
-> > +
-> > +       return 0;
-> > +
-> > +tz_unregister:
-> > +       thermal_of_zone_unregister(priv->tz);
-> > +rpm_disable:
-> > +       pm_runtime_disable(dev);
-> > +       pm_runtime_dont_use_autosuspend(dev);
-> > +       return ret;
-> > +} =20
->=20
-> Gr{oetje,eeting}s,
->=20
->                         Geert
->=20
+> [1] https://github.com/devicetree-org/dt-schema/pull/154
+>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+> Peng Fan (3):
+>       clk: Introduce clk_set_spread_spectrum
+>       clk: conf: Support assigned-clock-sscs
+>       clk: scmi: Support spread spectrum
+>
+>  drivers/clk/clk-conf.c        | 68 +++++++++++++++++++++++++++++++++++++=
+++++++
+>  drivers/clk/clk-scmi.c        | 37 +++++++++++++++++++++++
+>  drivers/clk/clk.c             | 39 +++++++++++++++++++++++++
+>  include/linux/clk-provider.h  | 22 ++++++++++++++
+>  include/linux/clk.h           | 22 ++++++++++++++
+>  include/linux/scmi_protocol.h |  5 ++++
+>  6 files changed, 193 insertions(+)
+> ---
+> base-commit: 5ffa57f6eecefababb8cbe327222ef171943b183
+> change-id: 20250124-clk-ssc-fccd4f60d7e5
+>
+> Best regards,
 > --
-> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m6=
-8k.org
->=20
-> In personal conversations with technical people, I call myself a hacker. =
-But
-> when I'm talking to journalists I just say "programmer" or something like=
- that.
->                                 -- Linus Torvalds
->=20
+> Peng Fan <peng.fan@nxp.com>
+>
 
+
+--=20
+
+Dario Binacchi
+
+Senior Embedded Linux Developer
+
+dario.binacchi@amarulasolutions.com
+
+__________________________________
+
+
+Amarula Solutions SRL
+
+Via Le Canevare 30, 31100 Treviso, Veneto, IT
+
+T. +39 042 243 5310
+info@amarulasolutions.com
+
+www.amarulasolutions.com
 
