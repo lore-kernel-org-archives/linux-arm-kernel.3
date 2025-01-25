@@ -4,71 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C059DC0218C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jan 2025 09:10:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86FECC0218C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jan 2025 10:22:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZQqoY+VHQagfTeSNQlaK3BWF4FH0YvRqhP8hfN9q4Og=; b=qKSaMorviF4cWvfv5kCKm38RAg
-	iTsBruNBJ4xsRdmi5IuE0oeo2gOZPWmNixL0KwigxdywzX1e60qUOlL+SpLzCmu0xPttbwe244M77
-	4HADh1FSTK7kQDUG784Xd/R87GxT2I/4BHCqjiZU3PwwjU2df+UAV5MaUBgyRgyKFiqWPJ42JDM35
-	KhxkIvTcvoRgvLPa9o8H3jRpFzq+eJM1n7K5qDorOA8R3DP1VFLp+s7+pUDd9qLNz8nkCk8klQTsF
-	D+KQ32Z6irgh4DQbsVC0mkzAdeQCrP4N2hypqlxq/cFbG47LeduOeszmdhlIg5TB8wbq3K0zHa+OR
-	NS8ITffQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wfvSpCX+V5zYmBnjZfj8HnP796xfwBWgA/BGlazT0N8=; b=lFLQ/cleqmFg4XUtGTY5EH14oT
+	eSKKPCcNX+GCmcYJ6JywvHmOari2ZQ9yophWHwtr9PtW8/JdNZhb0brdcmvULG2JusBxA20iKWzND
+	Wm/sJdhjL94t0btKPnTBUBCzdCyA6AlJpLeKu4aZ0qnDmkuqWkTdleLQfQruM6ZUc3dpI30eqTBzs
+	kARin1CoBDlNmq71RG/jVkZ/87LGUkx10L+pHq/i4YL6uw9uhXUFtONLE3cdOLmcmL0QGwikjaR4l
+	ebSctYIbek7yzCjY23TKz32U+YiIheSTePLIC/qF5dzCjMvStj5WbwVvrTJO37Vs6FEkJbwMUlBHp
+	Cz63h9zQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbcAv-0000000GGpo-0e2t;
-	Sat, 25 Jan 2025 09:09:57 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1tbdIl-0000000GJqn-2qCx;
+	Sat, 25 Jan 2025 10:22:07 +0000
+Received: from fout-a6-smtp.messagingengine.com ([103.168.172.149])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbc9d-0000000GGo2-2fHZ
+	id 1tbdHT-0000000GJdT-0aKz
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Jan 2025 09:08:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1737796118; x=1769332118;
-  h=date:from:to:cc:subject:message-id;
-  bh=X4wF5dKU1HjFSBOeV1xNIbwySqAc0rfv5NprIuKRmBM=;
-  b=V+nDXH6KpcYunG5ixoJ9iWaqp2JQn4ClIS3iSeUgVYCB/j40xi8dmojf
-   L97TS4ZHgTcf8KHqr73k0k4UKzduA5wa8opxb2z/wN/rO8BtrzHqEbCsn
-   SFVH7M1NfllXlNytWdd/8byPkISd1cH94gqy3iyZ4eopwQLM89kbOsoYV
-   HEm0Akw0MqY8fnL4v3NrKl59lOt2DY7HGApJzdNkAs8Ae8x1C/yhMi/Qa
-   t3fR8UFUkGz1O5sO8oe46SWTRy01pl1WjgNYnse6QOKdEg0aayC9dbkbN
-   2HFLnW7UrqpMt2lCuQDMQqmE65e+VBxkIY4woqv3wohwAjope3FPieoNT
-   g==;
-X-CSE-ConnectionGUID: 6oa71kljRK26V1ouyvm6Zg==
-X-CSE-MsgGUID: XGyvWyYpTy+8qHVLYYULZw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11325"; a="38496404"
-X-IronPort-AV: E=Sophos;i="6.13,233,1732608000"; 
-   d="scan'208";a="38496404"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Jan 2025 01:08:37 -0800
-X-CSE-ConnectionGUID: xfbgZmQGRNSM1ji216QgXQ==
-X-CSE-MsgGUID: OviRToZNQ7inTiYcToI2fw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,233,1732608000"; 
-   d="scan'208";a="112976278"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by fmviesa004.fm.intel.com with ESMTP; 25 Jan 2025 01:08:36 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tbc9Z-000deR-2c;
-	Sat, 25 Jan 2025 09:08:33 +0000
-Date: Sat, 25 Jan 2025 17:07:40 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:soc/drivers] BUILD SUCCESS
- 9ec80025030b0492512e01e2e667f4111c583b46
-Message-ID: <202501251734.giEJfLYN-lkp@intel.com>
-User-Agent: s-nail v14.9.24
+	Sat, 25 Jan 2025 10:20:48 +0000
+Received: from phl-compute-03.internal (phl-compute-03.phl.internal [10.202.2.43])
+	by mailfout.phl.internal (Postfix) with ESMTP id B7DEF138016A;
+	Sat, 25 Jan 2025 05:20:43 -0500 (EST)
+Received: from phl-mailfrontend-02 ([10.202.2.163])
+  by phl-compute-03.internal (MEProxy); Sat, 25 Jan 2025 05:20:43 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1737800443; x=1737886843; bh=wfvSpCX+V5zYmBnjZfj8HnP796xfwBWgA/B
+	GlazT0N8=; b=Liy6QBKKq1vNslG0frNNQ8ZOZF4YVO28jfSlWo/+BChqGJ9nMuY
+	PIhEdzwsITQ/MTcZerYpypwH3iSKKukVDIIU9ZHpNMVj49a8PZpPL2G6wLcv8CI/
+	ctsQoxXEAwTbL/zFKgj4PE1pWTWtkV21mcYjMnTyoZGA0u+O4edtNhXPBAg5E4V0
+	vBJ0tZZYNpQZ2/4SQhjjR6Mrl78uoUfyZEeApow7TRE7UUVMepOe0c8q3CCh+ax/
+	nwXiBjePKol90O9nv4jBsxZPY+nlf+3xM4bXoj5PSxerJkzx6h+5AUBr37C+TAyP
+	QLcdJSHO2OH5GcSFHS1C7fq5sThA2EE7ngQ==
+X-ME-Sender: <xms:-rqUZ2YMP4eMQkA9PwoRDquitQv8LWBv4bIbsMKroykPh4tsCPFsxA>
+    <xme:-rqUZ5YH-mRh6rN3RejNVMY2WFRU059L7CQj7w7BwzCU2yOlh4kXC4b8cXeYw3OGa
+    8DzNRs9NDg1WO0>
+X-ME-Received: <xmr:-rqUZw9X7qoxovCS-1F2_Xel_tMnaev6tiHbmmxDmsukOHy2X_BRaUqnfQq21QNW-gvdnMBA0nDQSn1r4hAvl3xAuy_ynw>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrudejgedgjedufecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
+    hnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfhfgggtuggjsehttdertddttddv
+    necuhfhrohhmpefkughoucfutghhihhmmhgvlhcuoehiughoshgthhesihguohhstghhrd
+    horhhgqeenucggtffrrghtthgvrhhnpedvudefveekheeugeeftddvveefgfduieefudei
+    fefgleekheegleegjeejgeeghfenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
+    epmhgrihhlfhhrohhmpehiughoshgthhesihguohhstghhrdhorhhgpdhnsggprhgtphht
+    thhopedukedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheptdiguddvtdejsehgmh
+    grihhlrdgtohhmpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthht
+    ohepsghgrhhifhhfihhssehnvhhiughirgdrtghomhdprhgtphhtthhopehjohhnrghthh
+    grnhhhsehnvhhiughirgdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhk
+    vghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhsthhmfedvsehsthdqmhguqd
+    hmrghilhhmrghnrdhsthhorhhmrhgvphhlhidrtghomhdprhgtphhtthhopehlihhnuhig
+    qdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtph
+    htthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgt
+    phhtthhopegrlhgvkhhsrghnuggvrhdrlhhosggrkhhinhesihhnthgvlhdrtghomh
+X-ME-Proxy: <xmx:-rqUZ4r3aXKJCGS03zlXoSDGv-ALNpPNWBnJHO0xsV8nQHDYy4CIEw>
+    <xmx:-rqUZxomAAfsoCiaBh8luWaktb77QMLNqWymjbIWlgZOiDtQZnRTHg>
+    <xmx:-rqUZ2QxKkrfCRmjI2btgCo-I5egxZ0KJbMZAgE6oImhMvsAfLBlIw>
+    <xmx:-rqUZxpxJC_77A3I1JfEIDCMeXO5pza8XHbENEUeokqmimNPCe2K0Q>
+    <xmx:-7qUZw-X2p7RTI4nSrbACn3sVCY2G7iwO7hQ0e3D7H5fq0AnGAzFxI4Q>
+Feedback-ID: i494840e7:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
+ 25 Jan 2025 05:20:41 -0500 (EST)
+Date: Sat, 25 Jan 2025 12:20:38 +0200
+From: Ido Schimmel <idosch@idosch.org>
+To: Furong Xu <0x1207@gmail.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Brad Griffis <bgriffis@nvidia.com>,
+	Jon Hunter <jonathanh@nvidia.com>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Alexander Lobakin <aleksander.lobakin@intel.com>,
+	Joe Damato <jdamato@fastly.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com,
+	"linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
+Subject: Re: [PATCH net-next v3 1/4] net: stmmac: Switch to zero-copy in
+ non-XDP RX path
+Message-ID: <Z5S69kb7Qz_QZqOh@shredder>
+References: <cover.1736910454.git.0x1207@gmail.com>
+ <bd7aabf4d9b6696885922ed4bef8fc95142d3004.1736910454.git.0x1207@gmail.com>
+ <d465f277-bac7-439f-be1d-9a47dfe2d951@nvidia.com>
+ <20250124003501.5fff00bc@orangepi5-plus>
+ <e6305e71-5633-48bf-988d-fa2886e16aae@nvidia.com>
+ <ccbecd2a-7889-4389-977e-10da6a00391c@lunn.ch>
+ <20250124104256.00007d23@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250124104256.00007d23@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250125_010837_687347_A7B60FAD 
-X-CRM114-Status: UNSURE (   5.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250125_022047_249586_270EA974 
+X-CRM114-Status: GOOD (  26.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,146 +119,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/drivers
-branch HEAD: 9ec80025030b0492512e01e2e667f4111c583b46  Merge tag 'litex-6.13-rc1' of https://github.com/litex-hub/linux into soc/drivers
+On Fri, Jan 24, 2025 at 10:42:56AM +0800, Furong Xu wrote:
+> On Thu, 23 Jan 2025 22:48:42 +0100, Andrew Lunn <andrew@lunn.ch> wrote:
+> 
+> > > Just to clarify, the patch that you had us try was not intended as an actual
+> > > fix, correct? It was only for diagnostic purposes, i.e. to see if there is
+> > > some kind of cache coherence issue, which seems to be the case?  So perhaps
+> > > the only fix needed is to add dma-coherent to our device tree?  
+> > 
+> > That sounds quite error prone. How many other DT blobs are missing the
+> > property? If the memory should be coherent, i would expect the driver
+> > to allocate coherent memory. Or the driver needs to handle
+> > non-coherent memory and add the necessary flush/invalidates etc.
+> 
+> stmmac driver does the necessary cache flush/invalidates to maintain cache lines
+> explicitly.
 
-elapsed time: 1233m
+Given the problem happens when the kernel performs syncing, is it
+possible that there is a problem with how the syncing is performed?
 
-configs tested: 126
-configs skipped: 7
+I am not familiar with this driver, but it seems to allocate multiple
+buffers per packet when split header is enabled and these buffers are
+allocated from the same page pool (see stmmac_init_rx_buffers()).
+Despite that, the driver is creating the page pool with a non-zero
+offset (see __alloc_dma_rx_desc_resources()) to avoid syncing the
+headroom, which is only present in the head buffer.
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+I asked Thierry to test the following patch [1] and initial testing
+seems OK. He also confirmed that "SPH feature enabled" shows up in the
+kernel log.
 
-tested configs:
-alpha                             allnoconfig    gcc-14.2.0
-alpha                            allyesconfig    gcc-14.2.0
-arc                              allmodconfig    gcc-13.2.0
-arc                               allnoconfig    gcc-13.2.0
-arc                              allyesconfig    gcc-13.2.0
-arc                     nsimosci_hs_defconfig    gcc-13.2.0
-arc                   randconfig-001-20250124    gcc-13.2.0
-arc                   randconfig-002-20250124    gcc-13.2.0
-arm                              allmodconfig    gcc-14.2.0
-arm                               allnoconfig    clang-17
-arm                              allyesconfig    gcc-14.2.0
-arm                          ep93xx_defconfig    clang-20
-arm                             mxs_defconfig    clang-20
-arm                   randconfig-001-20250124    clang-17
-arm                   randconfig-002-20250124    gcc-14.2.0
-arm                   randconfig-003-20250124    gcc-14.2.0
-arm                   randconfig-004-20250124    clang-19
-arm64                            allmodconfig    clang-18
-arm64                             allnoconfig    gcc-14.2.0
-arm64                 randconfig-001-20250124    clang-20
-arm64                 randconfig-002-20250124    clang-20
-arm64                 randconfig-003-20250124    clang-19
-arm64                 randconfig-004-20250124    clang-20
-csky                              allnoconfig    gcc-14.2.0
-csky                  randconfig-001-20250124    gcc-14.2.0
-csky                  randconfig-002-20250124    gcc-14.2.0
-hexagon                          allmodconfig    clang-20
-hexagon                           allnoconfig    clang-20
-hexagon               randconfig-001-20250124    clang-20
-hexagon               randconfig-002-20250124    clang-14
-i386                              allnoconfig    gcc-12
-i386                             allyesconfig    gcc-12
-i386        buildonly-randconfig-001-20250124    clang-19
-i386        buildonly-randconfig-002-20250124    clang-19
-i386        buildonly-randconfig-003-20250124    gcc-12
-i386        buildonly-randconfig-004-20250124    gcc-12
-i386        buildonly-randconfig-005-20250124    gcc-12
-i386        buildonly-randconfig-006-20250124    gcc-12
-i386                                defconfig    clang-19
-loongarch                        allmodconfig    gcc-14.2.0
-loongarch                         allnoconfig    gcc-14.2.0
-loongarch             randconfig-001-20250124    gcc-14.2.0
-loongarch             randconfig-002-20250124    gcc-14.2.0
-m68k                             allmodconfig    gcc-14.2.0
-m68k                              allnoconfig    gcc-14.2.0
-m68k                             allyesconfig    gcc-14.2.0
-microblaze                       allmodconfig    gcc-14.2.0
-microblaze                        allnoconfig    gcc-14.2.0
-microblaze                       allyesconfig    gcc-14.2.0
-mips                              allnoconfig    gcc-14.2.0
-nios2                         10m50_defconfig    gcc-14.2.0
-nios2                             allnoconfig    gcc-14.2.0
-nios2                 randconfig-001-20250124    gcc-14.2.0
-nios2                 randconfig-002-20250124    gcc-14.2.0
-openrisc                          allnoconfig    gcc-14.2.0
-openrisc                         allyesconfig    gcc-14.2.0
-openrisc                            defconfig    gcc-14.2.0
-parisc                           allmodconfig    gcc-14.2.0
-parisc                            allnoconfig    gcc-14.2.0
-parisc                           allyesconfig    gcc-14.2.0
-parisc                              defconfig    gcc-14.2.0
-parisc                randconfig-001-20250124    gcc-14.2.0
-parisc                randconfig-002-20250124    gcc-14.2.0
-powerpc                          allmodconfig    gcc-14.2.0
-powerpc                           allnoconfig    gcc-14.2.0
-powerpc                          allyesconfig    clang-16
-powerpc                      arches_defconfig    gcc-14.2.0
-powerpc                    gamecube_defconfig    clang-16
-powerpc                 mpc836x_rdk_defconfig    clang-18
-powerpc               randconfig-001-20250124    gcc-14.2.0
-powerpc               randconfig-002-20250124    gcc-14.2.0
-powerpc               randconfig-003-20250124    clang-20
-powerpc                     redwood_defconfig    clang-20
-powerpc                     tqm5200_defconfig    gcc-14.2.0
-powerpc                     tqm8560_defconfig    gcc-14.2.0
-powerpc64             randconfig-001-20250124    gcc-14.2.0
-powerpc64             randconfig-002-20250124    clang-20
-powerpc64             randconfig-003-20250124    clang-19
-riscv                            allmodconfig    clang-20
-riscv                             allnoconfig    gcc-14.2.0
-riscv                            allyesconfig    clang-20
-riscv                               defconfig    clang-19
-riscv                 randconfig-001-20250124    clang-19
-riscv                 randconfig-002-20250124    gcc-14.2.0
-s390                             allmodconfig    clang-19
-s390                              allnoconfig    clang-20
-s390                             allyesconfig    gcc-14.2.0
-s390                                defconfig    clang-15
-s390                  randconfig-001-20250124    gcc-14.2.0
-s390                  randconfig-002-20250124    clang-20
-sh                               allmodconfig    gcc-14.2.0
-sh                                allnoconfig    gcc-14.2.0
-sh                               allyesconfig    gcc-14.2.0
-sh                                  defconfig    gcc-14.2.0
-sh                    randconfig-001-20250124    gcc-14.2.0
-sh                    randconfig-002-20250124    gcc-14.2.0
-sh                           se7712_defconfig    gcc-14.2.0
-sh                           se7751_defconfig    gcc-14.2.0
-sh                        sh7763rdp_defconfig    gcc-14.2.0
-sh                        sh7785lcr_defconfig    gcc-14.2.0
-sparc                             allnoconfig    gcc-14.2.0
-sparc                 randconfig-001-20250124    gcc-14.2.0
-sparc                 randconfig-002-20250124    gcc-14.2.0
-sparc64                             defconfig    gcc-14.2.0
-sparc64               randconfig-001-20250124    gcc-14.2.0
-sparc64               randconfig-002-20250124    gcc-14.2.0
-um                               allmodconfig    clang-20
-um                                allnoconfig    clang-18
-um                               allyesconfig    gcc-12
-um                                  defconfig    clang-20
-um                             i386_defconfig    gcc-12
-um                    randconfig-001-20250124    gcc-12
-um                    randconfig-002-20250124    clang-20
-um                           x86_64_defconfig    clang-15
-x86_64                            allnoconfig    clang-19
-x86_64                           allyesconfig    clang-19
-x86_64      buildonly-randconfig-001-20250125    clang-19
-x86_64      buildonly-randconfig-002-20250125    gcc-11
-x86_64      buildonly-randconfig-003-20250125    clang-19
-x86_64      buildonly-randconfig-004-20250125    gcc-12
-x86_64      buildonly-randconfig-005-20250125    clang-19
-x86_64      buildonly-randconfig-006-20250125    gcc-12
-x86_64                              defconfig    gcc-11
-xtensa                            allnoconfig    gcc-14.2.0
-xtensa                randconfig-001-20250124    gcc-14.2.0
-xtensa                randconfig-002-20250124    gcc-14.2.0
+BTW, the commit that added split header support (67afd6d1cfdf0) says
+that it "reduces CPU usage because without the feature all the entire
+packet is memcpy'ed, while that with the feature only the header is".
+This is no longer correct after your patch, so is there still value in
+the split header feature? With two large buffers being allocated from
+the same page pool for each packet (headers + data), the end result is
+an inflated skb->truesize, no?
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+[1]
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index edbf8994455d..42170ce2927e 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -2091,8 +2091,8 @@ static int __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
+ 	pp_params.nid = dev_to_node(priv->device);
+ 	pp_params.dev = priv->device;
+ 	pp_params.dma_dir = xdp_prog ? DMA_BIDIRECTIONAL : DMA_FROM_DEVICE;
+-	pp_params.offset = stmmac_rx_offset(priv);
+-	pp_params.max_len = dma_conf->dma_buf_sz;
++	pp_params.offset = 0;
++	pp_params.max_len = num_pages * PAGE_SIZE;
+ 
+ 	rx_q->page_pool = page_pool_create(&pp_params);
+ 	if (IS_ERR(rx_q->page_pool)) {
 
