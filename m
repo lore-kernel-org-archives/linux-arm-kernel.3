@@ -4,86 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C00FC0218C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jan 2025 13:23:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E650C0218C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jan 2025 14:45:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rqQlkYxYh5YiVxFjsX2QaXZvcKyx1dpoVsF7zYYgoA4=; b=F8sNfq0Q9Nd2F/9io08hc70hEl
-	/vRr6E0Ofw7Ov0Kx7x0qTIf10Ny88ZETeltsp3oxlUz9o4H2TyDzByFWpiw1uhtWBtlFrvQLM/y1d
-	Qnu98Mt9H+DqNYy5v8muA3qePfkmKGtxd4Uq8mF33pdAt+LbmnZUwC7K/9SKY8f/P0uE9UMbCBJCU
-	wRPHg3UNv2t9MZ3AxQDvAQdl4AKuDF3Bpcu9bLcgRrcOQlJvLmLfDQKnuT1DR2tkey3uK5tOMeznf
-	QcmN1JB6Z/jxoWXuOHOSm2W6hh63GkVxQ7+SR0A83orNO92ZyFiIoGH//XdsgVfIokgRF7eQgyYPo
-	/r5ER9EQ==;
+	bh=MgdWUzewQLGutGWm0yU3b4mLrNsMLQvksBxEqgoq+88=; b=RvnDx4GnNGtpY8ujpw2Oqw6aUH
+	sPxox14hxALo1Ftp8Z0PJGEyZvgqlnxIUw0d/ANDm2ua33lBKesGGS6J8xOT6JkpwX0hQ3lQ+qNIo
+	UdlpPiF2jg13eg9p6L6DfVlgxWjH/A55NBIilAXqF3XmWKRADAXSSdKB5f/cJpq6mZbwlKQfp/eoJ
+	tWKsG7fVSxouOk+Guord7BMbqdSACST3DHdf7pYjWLp1KFjegdqa6J8Jc+fMPCat1nzV0fBAsKrRe
+	wqaK6PfHFQF6vTdsiklaU/n5GaghNvVraYquwYzoyKXWmSJ4p4hDtxD8d/vu89oV0nRpygundTPom
+	nP2uQ9pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbg7Z-0000000GQi9-1z6M;
-	Sat, 25 Jan 2025 13:22:45 +0000
-Received: from mail-yb1-xb2b.google.com ([2607:f8b0:4864:20::b2b])
+	id 1tbhPc-0000000GU1Q-1s3u;
+	Sat, 25 Jan 2025 14:45:28 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbg6G-0000000GQem-24J6
+	id 1tbhOG-0000000GTv7-1dHl
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Jan 2025 13:21:25 +0000
-Received: by mail-yb1-xb2b.google.com with SMTP id 3f1490d57ef6-e53a5ff2233so5523301276.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Jan 2025 05:21:24 -0800 (PST)
+	Sat, 25 Jan 2025 14:44:05 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-21628b3fe7dso53039665ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Jan 2025 06:44:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1737811283; x=1738416083; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1737816243; x=1738421043; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=rqQlkYxYh5YiVxFjsX2QaXZvcKyx1dpoVsF7zYYgoA4=;
-        b=iNdk7p1MevP1iV8Y9yZZT+AYFXkaEAHnK0fh1k5WhxXGwL43TyyjoH/WK3oXoX+1RZ
-         JHv9ztdcs8xvbObKgnxgdTPwoeglYQzChW5atgI4sxyqOOpSOMoNVc7/y9frBjc2QPMq
-         zE71df0SW9kO9W0/2w3caJe+XgxNTcTOdLibw=
+        bh=MgdWUzewQLGutGWm0yU3b4mLrNsMLQvksBxEqgoq+88=;
+        b=kWFcEDsNmRtf5Y5XJ3mWLZNwpb2WL4Ki6IlOQfsjBsrNor8yEWJ77nkFLoanMTsZSI
+         KHE73z+y9ACRcdT36FXQnFoo+BuqliuEaA2AhkeFtweqNHdLBewngQ9zgyk4WZL1w+0o
+         tmL0sCP4U0TP8DC7PpJ+pQPJuupdeZmUcmvJVNswfHzMF2NRNDkvwLeswO5yZZfdHT59
+         +fZrSmWT1sFV9NtIbzGxHVRSytdPa3EPpt6sh4t6dp7N/TEzrsnmVVIfvs8SGyW/mdJW
+         Kf9hZp7cnePam2Sq7iLCXQSuTdtlQM0mpBfAS78RHK9WfriGNjhu2WmwoS5qmMPahPZB
+         n09w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737811283; x=1738416083;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1737816243; x=1738421043;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=rqQlkYxYh5YiVxFjsX2QaXZvcKyx1dpoVsF7zYYgoA4=;
-        b=GLvgVw3BO6Pldq2ZvmKQ+DtNm6hd4qsgS0Zp7mlmLeXzFNID8rxCYn50Jkfg2atMGF
-         uVsxMNRYYCTkzmFujFGh6kIguMswZVKAjdvhlVgOyc0c/vlM7HiS22zVriLmcccLQB4X
-         I8S0e/LinY2Mog14UHeUTnwr3ON1kI2OJ9gaVRX4UESxZnK8O27i+r7tMd4JdrLVO3vN
-         E2U1VbJMdETUIj5TV8hjeJ5JUfiXnF/fd2m/rTl5SNWdm05admLDrncUPwdC/GAZpsRw
-         hF7OLXkYzDKGjA6kTMi71UqFfB9+3Zw8xI5QmBIHSd9byHg6/D23wp8OpOK2ee6YJdbG
-         FOXg==
-X-Forwarded-Encrypted: i=1; AJvYcCXhjdDHUzSFMpknkkONXry2UL1/49QJCFiwp2I3bISgX8GkQMdEvyOjIedsMkUVE9iNhE7e0T5XtfeJupOyYX/6@lists.infradead.org
-X-Gm-Message-State: AOJu0YzWJA2trXZDWRiRNDaoTMqfX3W71pMTNt2xUWYWuHLba3E+y42X
-	v+b+HA1cSYxGHI4gQMSXaaMBeEroO7wKhe+kmmxVFEb8LY1y7Qf712lKkqDMabbZfPr/97mnzhO
-	8y6XOAj94st1Rv70POkqolXAqM3TbQKLoXM2cVg==
-X-Gm-Gg: ASbGnctAJ/48VhSeLT0QvJIZp4nTfP2bwGOUuTYiY8wWXevFS8HOrt3AbiOwEzycu3y
-	MXBltkOqoFXPrGZczGKwR2B75ur7aCAzP8y6UBCtnq48JVx1FV9RU5Oh1bBuK
-X-Google-Smtp-Source: AGHT+IEC66mHyu/T69Up/dX022TugdsmD0uulT2kpXSasOG+om+qGGY/LBwo1LfOlHcKiAvuEQ7Oi2p0ts4rAblyPzI=
-X-Received: by 2002:a05:690c:25c7:b0:6ef:6c57:ddc6 with SMTP id
- 00721157ae682-6f6eb937ac1mr261166397b3.34.1737811283560; Sat, 25 Jan 2025
- 05:21:23 -0800 (PST)
+        bh=MgdWUzewQLGutGWm0yU3b4mLrNsMLQvksBxEqgoq+88=;
+        b=pddnL933m7/ELJLlfSnzpbxPIQKvOMiRlopKwaxDssHPpRu1X1kYwrRUdD2LJbt1oV
+         kco1ZrgQ3yawAujCMlK0fK3wQYSFKCQruC1D8haNxBTFJuf9z7jN6RF3rHNTS0J9Zsk/
+         R2jA1/Odsbh38rww2WStm4UA4uW/+aZOOn5BZCAcJojFAaYDON4T2nBz3Mj0CJb9jLVJ
+         QE4mfsgTAbdcPBgr4BeAAEF8q8lH49wo6w+KFcWuJOLZVxOpxrjEWYsLG6oZ+BOexkH+
+         Em3meB9czxyt5wT+DESMZNBWXJpE7CehOhFREUaytAvNF+QJmir8Y0ZB+KPgihllUWI5
+         7Txw==
+X-Forwarded-Encrypted: i=1; AJvYcCXwqVRX8fvTUbd/xwz6T89VdLIyThZxlk/XKc17df60s1/YSsB2vFzBtFiwmH8IhKWTP6UBdbCbZVP4COOwtwUU@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywg8Z/CSXqPY+16W7ND2SdCoDhOP0sDdDKPhl+1YvmHY1Iq1q6D
+	rPxizRHg/gL8PSSveiqlQOvoCnaHwm2/yHRXs2tFMu+6+jyhPICD
+X-Gm-Gg: ASbGnct9QU/CNVqoqIJZ1WFWWckgrJu2f4iSW87XcG6957A/9pvmfUArEuMCwebdb9G
+	DRCuziINVwrLOZ0FMnCZ9u8kJHBhgnFj2NTTuIquBbS+MsV81t+LU/j8sgHdsfY7VZxRwH31Udd
+	cynYuLqD1/Xm/vgJlSleeCUdAf9TcXdhb44Vsf+5ysXN9dnpESJW2BKiOyUzYxrDGoGknyhrMGj
+	RmQYR79fHLS1AvrGJmX5GJOmt2RBRkAgyyYL85K0rmYbj7FTLlEhpK8tnMrGjhAHM3+tzdQk2YR
+	Lw==
+X-Google-Smtp-Source: AGHT+IHA+4rV48inAhpZB8n1PkLhWTEJWQ25mbCFZqNsfRh6vVjT5iQKXj9RhiGTNIQSvXLlnOGvHQ==
+X-Received: by 2002:a17:902:c943:b0:215:5bd8:9f92 with SMTP id d9443c01a7336-21c351d328amr566604515ad.5.1737816242783;
+        Sat, 25 Jan 2025 06:44:02 -0800 (PST)
+Received: from localhost ([129.146.253.192])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21da3ea332esm33441735ad.87.2025.01.25.06.43.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 25 Jan 2025 06:44:02 -0800 (PST)
+Date: Sat, 25 Jan 2025 22:43:42 +0800
+From: Furong Xu <0x1207@gmail.com>
+To: Ido Schimmel <idosch@idosch.org>
+Cc: Andrew Lunn <andrew@lunn.ch>, Brad Griffis <bgriffis@nvidia.com>, Jon
+ Hunter <jonathanh@nvidia.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Alexander Lobakin <aleksander.lobakin@intel.com>, Joe Damato
+ <jdamato@fastly.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
+ Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com,
+ "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
+Subject: Re: [PATCH net-next v3 1/4] net: stmmac: Switch to zero-copy in
+ non-XDP RX path
+Message-ID: <20250125224342.00006ced@gmail.com>
+In-Reply-To: <Z5S69kb7Qz_QZqOh@shredder>
+References: <cover.1736910454.git.0x1207@gmail.com>
+	<bd7aabf4d9b6696885922ed4bef8fc95142d3004.1736910454.git.0x1207@gmail.com>
+	<d465f277-bac7-439f-be1d-9a47dfe2d951@nvidia.com>
+	<20250124003501.5fff00bc@orangepi5-plus>
+	<e6305e71-5633-48bf-988d-fa2886e16aae@nvidia.com>
+	<ccbecd2a-7889-4389-977e-10da6a00391c@lunn.ch>
+	<20250124104256.00007d23@gmail.com>
+	<Z5S69kb7Qz_QZqOh@shredder>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-References: <20250114182021.670435-1-dario.binacchi@amarulasolutions.com>
- <20250114182021.670435-3-dario.binacchi@amarulasolutions.com>
- <73ad1336d9fbfa020ba666eef340f784.sboyd@kernel.org> <47865ef4-fb8c-4ba5-82d8-eed1f292bf4d@kernel.org>
-In-Reply-To: <47865ef4-fb8c-4ba5-82d8-eed1f292bf4d@kernel.org>
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Date: Sat, 25 Jan 2025 14:21:13 +0100
-X-Gm-Features: AWEUYZn9YZy8Owehe6KhYJIuvjU2tyrCD5F9XaUX2lhI1_Zpu924GXyOjD3iZ7A
-Message-ID: <CABGWkvpeOyrzcU64pNxSYC7n-VOsjSEL-iD-_YqmCveGsrH-hg@mail.gmail.com>
-Subject: Re: [PATCH v4 2/4] dt-bindings: clock: st,stm32-rcc: support spread
- spectrum clocking
-To: Krzysztof Kozlowski <krzk@kernel.org>, Stephen Boyd <sboyd@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250125_052124_539754_16D39AE2 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20250125_064404_444408_2EFE2BEC 
+X-CRM114-Status: GOOD (  35.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,59 +114,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 24, 2025 at 2:45=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
->
-> On 16/01/2025 00:22, Stephen Boyd wrote:
-> > Quoting Dario Binacchi (2025-01-14 10:19:47)
-> >> The addition of DT bindings for enabling and tuning spread spectrum
-> >> clocking generation is available only for the main PLL of stm32f{4,7}
-> >> platforms.
-> >>
-> >> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-> >> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> >>
-> >> ---
-> >
-> > Applied to clk-next
->
-> Unlucky timing. NXP just sent this:
->
-> https://github.com/devicetree-org/dt-schema/pull/154
->
-> which makes these bindings obsolete.
->
+Hi Ido
 
-Why have the DT bindings already become obsolete even though the PR
-has not yet been accepted? The series has already been merged into
-the kernel. Please let me know if and when I need to make the changes.
-This is the first time I find myself in such a situation.
+On Sat, 25 Jan 2025 12:20:38 +0200, Ido Schimmel wrote:
 
-Thanks and regards,
-Dario
+> On Fri, Jan 24, 2025 at 10:42:56AM +0800, Furong Xu wrote:
+> > On Thu, 23 Jan 2025 22:48:42 +0100, Andrew Lunn <andrew@lunn.ch>
+> > wrote: 
+> > > > Just to clarify, the patch that you had us try was not intended
+> > > > as an actual fix, correct? It was only for diagnostic purposes,
+> > > > i.e. to see if there is some kind of cache coherence issue,
+> > > > which seems to be the case?  So perhaps the only fix needed is
+> > > > to add dma-coherent to our device tree?    
+> > > 
+> > > That sounds quite error prone. How many other DT blobs are
+> > > missing the property? If the memory should be coherent, i would
+> > > expect the driver to allocate coherent memory. Or the driver
+> > > needs to handle non-coherent memory and add the necessary
+> > > flush/invalidates etc.  
+> > 
+> > stmmac driver does the necessary cache flush/invalidates to
+> > maintain cache lines explicitly.  
+> 
+> Given the problem happens when the kernel performs syncing, is it
+> possible that there is a problem with how the syncing is performed?
+> 
+> I am not familiar with this driver, but it seems to allocate multiple
+> buffers per packet when split header is enabled and these buffers are
+> allocated from the same page pool (see stmmac_init_rx_buffers()).
+> Despite that, the driver is creating the page pool with a non-zero
+> offset (see __alloc_dma_rx_desc_resources()) to avoid syncing the
+> headroom, which is only present in the head buffer.
+> 
+> I asked Thierry to test the following patch [1] and initial testing
+> seems OK. He also confirmed that "SPH feature enabled" shows up in the
+> kernel log.
+> BTW, the commit that added split header support (67afd6d1cfdf0) says
+> that it "reduces CPU usage because without the feature all the entire
+> packet is memcpy'ed, while that with the feature only the header is".
+> This is no longer correct after your patch, so is there still value in
+> the split header feature? With two large buffers being allocated from
 
-> Best regards,
-> Krzysztof
+Thanks for these great insights!
 
+Yes, when "SPH feature enabled", it is not correct after my patch,
+pp_params.offset should be updated to match the offset of split payload.
 
+But I would like to let pp_params.max_len remains to
+dma_conf->dma_buf_sz since the sizes of both header and payload are
+limited to dma_conf->dma_buf_sz by DMA engine, no more than
+dma_conf->dma_buf_sz bytes will be written into a page buffer.
+So my patch would be like [2]:
 
---=20
+BTW, the split header feature will be very useful on some certain
+cases, stmmac driver should support this feature always.
 
-Dario Binacchi
+[2]
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index edbf8994455d..def0d893efbb 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -2091,7 +2091,7 @@ static int __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
+        pp_params.nid = dev_to_node(priv->device);
+        pp_params.dev = priv->device;
+        pp_params.dma_dir = xdp_prog ? DMA_BIDIRECTIONAL : DMA_FROM_DEVICE;
+-       pp_params.offset = stmmac_rx_offset(priv);
++       pp_params.offset = priv->sph ? 0 : stmmac_rx_offset(priv);
+        pp_params.max_len = dma_conf->dma_buf_sz;
 
-Senior Embedded Linux Developer
-
-dario.binacchi@amarulasolutions.com
-
-__________________________________
-
-
-Amarula Solutions SRL
-
-Via Le Canevare 30, 31100 Treviso, Veneto, IT
-
-T. +39 042 243 5310
-info@amarulasolutions.com
-
-www.amarulasolutions.com
+        rx_q->page_pool = page_pool_create(&pp_params);
 
