@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8585DC0218C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jan 2025 12:08:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9553C0218C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jan 2025 12:20:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2E6QePTpd89ZIkkKov8z7CrrPlWb1+OYP5n2eL9B+Ss=; b=wYMU/4kLrHPnnpi4T3xLVKr64N
-	3rUc9ByQNZcrhPAFzbl4RsiSr3scaarCb/laPp7RE+bvUTidvgPPyqDgBwt6CtYn+2P7r2iRZEx3y
-	sNLeJXU6ZWjnusI0O+62tItKJczRMRwMcHDarDrp0Kfi0Wy5DkOKjaiAPKdGb8HHUGoxv3IoIP9UF
-	420+G1i1uP7NFSetYjM5erBb/yz/yNPNMCQzwFbNbnsDwwekAa1vGKx9WkCfIIBZ2uw0b0hAH2ipW
-	wzCaYDB60osC34ruiPNtRQAnAyEQdysk78/rQta9ULluvI5ZDQf4/ng9S28QV+J1/V5aq5OPRHcjj
-	bLjp8BfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OCWgEAVbuUHv7u/Fo6MrCUR48eIzDRgKs9rEqTQ+aJ4=; b=MWnLtHwZCkkYb+yAHcwiSnpNXd
+	uj4TMwNQXfGzS7zXDTfeDxc6RXSAQ4C5i1j6CfrDiaFMSI7ku2r9amGlkeqmcmaUwggpGDmgQFI0H
+	CtRgqheRZtLICCqLuo08IQqS7FITVvzLqtHoCojhUQe4BqiaXFRxeZD20cHrhCRORZyCw0T/VGRpl
+	e/V/G8gX8ep0izkPyLgauk8KN5B4RDUD5QjfRjuxSN3GQx/5rVYyNzdHC/Px3d80gwduairDw4Al4
+	1c4rV+lmH/pwhX44nY21G6uB51DEg6JQnWz/UdYlf2SUoYYSm45H0bnpLFmU+aXSZSnFHEd34R4j4
+	+yqTLYrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbexW-0000000GNHu-0doe;
-	Sat, 25 Jan 2025 12:08:18 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1tbf8u-0000000GNwG-2IuW;
+	Sat, 25 Jan 2025 12:20:04 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbewC-0000000GNFy-3Ire
+	id 1tbf7a-0000000GNnp-2tp7
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Jan 2025 12:06:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1737806817; x=1769342817;
-  h=date:from:to:cc:subject:message-id;
-  bh=48yozpdaq3mk9qNQFFAbab1W8UmWz6tbZ18gWzWe20Y=;
-  b=edjFiiTfpFWcWPTPkBQ4AjGRg3uxvveCN8PdkeHWZP1NLjBW5EgHUc7w
-   EGpACpTELR5eQPBFBm+u7XhmEz6057qHDW9qvhikxsPt2BazdhkFitHZG
-   gTZ2gAXFV45BobVq4Ce/JwI3Ns/p8Vtw+b6ETNO9UZK5SYjHD6y58gM7x
-   MO466BCeJC9FxbIqkSJ85/sc03Vrt5WnTQdIC2LuqF37ZwOX9ucaqyL18
-   II6E4xV9cZfAxa3qzwsKHz5hSjdIoEIFiUF2NPCL6jx5zxBfF6eYWFbHb
-   wU2asEIgrWg70zDLsRRV1YqCxhPWHMx1Jii3LdwpQv2lnCpXx1JVfPgVm
-   g==;
-X-CSE-ConnectionGUID: sOj+mV3zSc6XxFcb6lbptA==
-X-CSE-MsgGUID: 3CeBnBUCRrGHrUOjgOgjyw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11325"; a="55749854"
-X-IronPort-AV: E=Sophos;i="6.13,234,1732608000"; 
-   d="scan'208";a="55749854"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Jan 2025 04:06:56 -0800
-X-CSE-ConnectionGUID: t4QxPMCLTvankgwj7dJAdw==
-X-CSE-MsgGUID: FYJ3H6PRRY+pN4XwhVOVvg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,234,1732608000"; 
-   d="scan'208";a="113017293"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by orviesa004.jf.intel.com with ESMTP; 25 Jan 2025 04:06:55 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tbew7-000dn5-34;
-	Sat, 25 Jan 2025 12:06:51 +0000
-Date: Sat, 25 Jan 2025 20:06:32 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:for-next] BUILD SUCCESS
- 1f8dba7e7b835ec559e95a3fbec4a9f874d7a311
-Message-ID: <202501252022.gy3Bj2XN-lkp@intel.com>
-User-Agent: s-nail v14.9.24
+	Sat, 25 Jan 2025 12:18:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id E9CE8A40CFB;
+	Sat, 25 Jan 2025 12:16:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 911EDC4CED6;
+	Sat, 25 Jan 2025 12:18:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737807520;
+	bh=DtuhUQo6cIIxFbScvGXGCdL8XY+9bxpDxjbA4P0hs2A=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=cYD3h+lkMGNnzm2VvMEKLWI+anIFSrxSQ7RBx+ZOOJXsShl7H/nUZJqoBauhxSXzU
+	 Je3iHX2RhK1J9lB+CvirOwsPzXs7kIQmGu7KqNSVA88klIgAkuycVFLeo8ToRsZ1V1
+	 fZdRXkCqs4C0T5VQ5AZvYDukgddGsgaV7j4MiJ5WU7/hB8D1qGiYfwLkBRMYx3RZfy
+	 DIBWhJKQ148COISM891tm1GK4pGPcx8MrQWpzJljcIJG5dfCMZm6slB5Tyg+sa/aA6
+	 Pl9Byz7ftZLewvj4v9gsNtMsaCB0ynxhoXFphvRLETZ+hiyK4k0IN2y1phL+lRCBuO
+	 WV4t2aLZjAf/Q==
+Date: Sat, 25 Jan 2025 12:18:26 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Claudiu <claudiu.beznea@tuxon.dev>, rafael@kernel.org,
+ daniel.lezcano@linaro.org, rui.zhang@intel.com, lukasz.luba@arm.com,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ magnus.damm@gmail.com, mturquette@baylibre.com, sboyd@kernel.org,
+ p.zabel@pengutronix.de, ulf.hansson@linaro.org, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, Claudiu Beznea
+ <claudiu.beznea.uj@bp.renesas.com>, "open list:IIO SUBSYSTEM AND DRIVERS"
+ <linux-iio@vger.kernel.org>
+Subject: Re: [PATCH 4/6] thermal: renesas: rzg3s: Add thermal driver for the
+ Renesas RZ/G3S SoC
+Message-ID: <20250125121826.6abbe7de@jic23-huawei>
+In-Reply-To: <CAMuHMdUDKFRsZWsZG9DY4PHdxQEDoPqzfeRx8MNTreOpxdLvpw@mail.gmail.com>
+References: <20250103163805.1775705-1-claudiu.beznea.uj@bp.renesas.com>
+	<20250103163805.1775705-5-claudiu.beznea.uj@bp.renesas.com>
+	<CAMuHMdUDKFRsZWsZG9DY4PHdxQEDoPqzfeRx8MNTreOpxdLvpw@mail.gmail.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250125_040656_916936_5FD32CFE 
-X-CRM114-Status: UNSURE (   5.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250125_041842_857780_F7F338C2 
+X-CRM114-Status: GOOD (  26.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,148 +83,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
-branch HEAD: 1f8dba7e7b835ec559e95a3fbec4a9f874d7a311  soc: document merges
+On Wed, 22 Jan 2025 11:29:19 +0100
+Geert Uytterhoeven <geert@linux-m68k.org> wrote:
 
-elapsed time: 1339m
+> Hi Claudiu,
+>=20
+> CC iio
+>=20
+> On Fri, Jan 3, 2025 at 5:38=E2=80=AFPM Claudiu <claudiu.beznea@tuxon.dev>=
+ wrote:
+> > From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> >
+> > The Renesas RZ/G3S SoC features a Thermal Sensor Unit (TSU) that reports
+> > the junction temperature. The temperature is reported through a dedicat=
+ed
+> > ADC channel. Add a driver for the Renesas RZ/G3S TSU.
+> >
+> > Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com> =20
+>=20
+> Thanks for your patch!
+>=20
+> > --- /dev/null
+> > +++ b/drivers/thermal/renesas/rzg3s_thermal.c =20
+>=20
+> > +static int rzg3s_thermal_probe(struct platform_device *pdev)
+> > +{
+> > +       struct rzg3s_thermal_priv *priv;
+> > +       struct device *dev =3D &pdev->dev;
+> > +       int ret;
+> > +
+> > +       priv =3D devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+> > +       if (!priv)
+> > +               return -ENOMEM;
+> > +
+> > +       priv->base =3D devm_platform_ioremap_resource(pdev, 0);
+> > +       if (IS_ERR(priv->base))
+> > +               return PTR_ERR(priv->base);
+> > +
+> > +       priv->channel =3D devm_iio_channel_get(dev, "tsu"); =20
+>=20
+> Given there's only a single IIO channel, you could pass NULL instead
+> of the name, and drop "io-channel-names" from the DT bindings.
+> I don't know what's the IIO policy w.r.t. unnamed channels, though.
 
-configs tested: 128
-configs skipped: 5
+It's supported, so fine as long as no future additional names show up.
+Will just fallback to index 0 I think.
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+Jonathan
 
-tested configs:
-alpha                             allnoconfig    gcc-14.2.0
-alpha                            allyesconfig    gcc-14.2.0
-arc                              allmodconfig    gcc-13.2.0
-arc                               allnoconfig    gcc-13.2.0
-arc                              allyesconfig    gcc-13.2.0
-arc                     nsimosci_hs_defconfig    gcc-13.2.0
-arc                   randconfig-001-20250124    gcc-13.2.0
-arc                   randconfig-002-20250124    gcc-13.2.0
-arm                               allnoconfig    clang-17
-arm                              allyesconfig    gcc-14.2.0
-arm                          ep93xx_defconfig    clang-20
-arm                             mxs_defconfig    clang-20
-arm                   randconfig-001-20250124    clang-17
-arm                   randconfig-002-20250124    gcc-14.2.0
-arm                   randconfig-003-20250124    gcc-14.2.0
-arm                   randconfig-004-20250124    clang-19
-arm64                            allmodconfig    clang-18
-arm64                             allnoconfig    gcc-14.2.0
-arm64                 randconfig-001-20250124    clang-20
-arm64                 randconfig-002-20250124    clang-20
-arm64                 randconfig-003-20250124    clang-19
-arm64                 randconfig-004-20250124    clang-20
-csky                              allnoconfig    gcc-14.2.0
-csky                  randconfig-001-20250124    gcc-14.2.0
-csky                  randconfig-002-20250124    gcc-14.2.0
-hexagon                          allmodconfig    clang-20
-hexagon                           allnoconfig    clang-20
-hexagon                          allyesconfig    clang-18
-hexagon               randconfig-001-20250124    clang-20
-hexagon               randconfig-002-20250124    clang-14
-i386                             allmodconfig    gcc-12
-i386                              allnoconfig    gcc-12
-i386                             allyesconfig    gcc-12
-i386        buildonly-randconfig-001-20250124    clang-19
-i386        buildonly-randconfig-002-20250124    clang-19
-i386        buildonly-randconfig-003-20250124    gcc-12
-i386        buildonly-randconfig-004-20250124    gcc-12
-i386        buildonly-randconfig-005-20250124    gcc-12
-i386        buildonly-randconfig-006-20250124    gcc-12
-i386                                defconfig    clang-19
-loongarch                        allmodconfig    gcc-14.2.0
-loongarch                         allnoconfig    gcc-14.2.0
-loongarch             randconfig-001-20250124    gcc-14.2.0
-loongarch             randconfig-002-20250124    gcc-14.2.0
-m68k                             allmodconfig    gcc-14.2.0
-m68k                              allnoconfig    gcc-14.2.0
-m68k                             allyesconfig    gcc-14.2.0
-microblaze                       allmodconfig    gcc-14.2.0
-microblaze                        allnoconfig    gcc-14.2.0
-microblaze                       allyesconfig    gcc-14.2.0
-mips                              allnoconfig    gcc-14.2.0
-nios2                         10m50_defconfig    gcc-14.2.0
-nios2                             allnoconfig    gcc-14.2.0
-nios2                 randconfig-001-20250124    gcc-14.2.0
-nios2                 randconfig-002-20250124    gcc-14.2.0
-openrisc                          allnoconfig    gcc-14.2.0
-openrisc                         allyesconfig    gcc-14.2.0
-openrisc                            defconfig    gcc-14.2.0
-parisc                           allmodconfig    gcc-14.2.0
-parisc                            allnoconfig    gcc-14.2.0
-parisc                           allyesconfig    gcc-14.2.0
-parisc                              defconfig    gcc-14.2.0
-parisc                randconfig-001-20250124    gcc-14.2.0
-parisc                randconfig-002-20250124    gcc-14.2.0
-powerpc                          allmodconfig    gcc-14.2.0
-powerpc                           allnoconfig    gcc-14.2.0
-powerpc                          allyesconfig    clang-16
-powerpc                      arches_defconfig    gcc-14.2.0
-powerpc                    gamecube_defconfig    clang-16
-powerpc                 mpc836x_rdk_defconfig    clang-18
-powerpc               randconfig-001-20250124    gcc-14.2.0
-powerpc               randconfig-002-20250124    gcc-14.2.0
-powerpc               randconfig-003-20250124    clang-20
-powerpc                     redwood_defconfig    clang-20
-powerpc                     tqm5200_defconfig    gcc-14.2.0
-powerpc                     tqm8560_defconfig    gcc-14.2.0
-powerpc64             randconfig-001-20250124    gcc-14.2.0
-powerpc64             randconfig-002-20250124    clang-20
-powerpc64             randconfig-003-20250124    clang-19
-riscv                            allmodconfig    clang-20
-riscv                             allnoconfig    gcc-14.2.0
-riscv                            allyesconfig    clang-20
-riscv                               defconfig    clang-19
-riscv                 randconfig-001-20250124    clang-19
-riscv                 randconfig-002-20250124    gcc-14.2.0
-s390                             allmodconfig    clang-19
-s390                              allnoconfig    clang-20
-s390                             allyesconfig    gcc-14.2.0
-s390                                defconfig    clang-15
-s390                  randconfig-001-20250124    gcc-14.2.0
-s390                  randconfig-002-20250124    clang-20
-sh                               allmodconfig    gcc-14.2.0
-sh                                allnoconfig    gcc-14.2.0
-sh                               allyesconfig    gcc-14.2.0
-sh                                  defconfig    gcc-14.2.0
-sh                    randconfig-001-20250124    gcc-14.2.0
-sh                    randconfig-002-20250124    gcc-14.2.0
-sh                           se7712_defconfig    gcc-14.2.0
-sh                           se7751_defconfig    gcc-14.2.0
-sh                        sh7763rdp_defconfig    gcc-14.2.0
-sh                        sh7785lcr_defconfig    gcc-14.2.0
-sparc                            allmodconfig    gcc-14.2.0
-sparc                             allnoconfig    gcc-14.2.0
-sparc                 randconfig-001-20250124    gcc-14.2.0
-sparc                 randconfig-002-20250124    gcc-14.2.0
-sparc64                             defconfig    gcc-14.2.0
-sparc64               randconfig-001-20250124    gcc-14.2.0
-sparc64               randconfig-002-20250124    gcc-14.2.0
-um                               allmodconfig    clang-20
-um                                allnoconfig    clang-18
-um                               allyesconfig    gcc-12
-um                                  defconfig    clang-20
-um                             i386_defconfig    gcc-12
-um                    randconfig-001-20250124    gcc-12
-um                    randconfig-002-20250124    clang-20
-um                           x86_64_defconfig    clang-15
-x86_64                            allnoconfig    clang-19
-x86_64                           allyesconfig    clang-19
-x86_64      buildonly-randconfig-001-20250125    clang-19
-x86_64      buildonly-randconfig-002-20250125    gcc-11
-x86_64      buildonly-randconfig-003-20250125    clang-19
-x86_64      buildonly-randconfig-004-20250125    gcc-12
-x86_64      buildonly-randconfig-005-20250125    clang-19
-x86_64      buildonly-randconfig-006-20250125    gcc-12
-x86_64                              defconfig    gcc-11
-xtensa                            allnoconfig    gcc-14.2.0
-xtensa                randconfig-001-20250124    gcc-14.2.0
-xtensa                randconfig-002-20250124    gcc-14.2.0
+>=20
+> > +       if (IS_ERR(priv->channel))
+> > +               return dev_err_probe(dev, PTR_ERR(priv->channel), "Fail=
+ed to get IIO channel!\n");
+> > +
+> > +       priv->rstc =3D devm_reset_control_get_exclusive_deasserted(dev,=
+ NULL);
+> > +       if (IS_ERR(priv->rstc))
+> > +               return dev_err_probe(dev, PTR_ERR(priv->rstc), "Failed =
+to get reset!\n");
+> > +
+> > +       priv->dev =3D dev;
+> > +       priv->mode =3D THERMAL_DEVICE_DISABLED;
+> > +       platform_set_drvdata(pdev, priv);
+> > +
+> > +       pm_runtime_set_autosuspend_delay(dev, 300);
+> > +       pm_runtime_use_autosuspend(dev);
+> > +       pm_runtime_enable(dev);
+> > +
+> > +       ret =3D rzg3s_thermal_read_calib(priv);
+> > +       if (ret) {
+> > +               dev_err_probe(dev, ret, "Failed to read calibration dat=
+a!\n");
+> > +               goto rpm_disable;
+> > +       }
+> > +
+> > +       priv->tz =3D thermal_of_zone_register(dev->of_node, 0, priv, &r=
+zg3s_tz_of_ops);
+> > +       if (IS_ERR(priv->tz)) {
+> > +               dev_err_probe(dev, PTR_ERR(priv->tz), "Failed to regist=
+er thermal zone!\n");
+> > +               goto rpm_disable;
+> > +       }
+> > +
+> > +       ret =3D thermal_add_hwmon_sysfs(priv->tz);
+> > +       if (ret) {
+> > +               dev_err_probe(dev, ret, "Failed to add hwmon sysfs!\n");
+> > +               goto tz_unregister;
+> > +       }
+> > +
+> > +       return 0;
+> > +
+> > +tz_unregister:
+> > +       thermal_of_zone_unregister(priv->tz);
+> > +rpm_disable:
+> > +       pm_runtime_disable(dev);
+> > +       pm_runtime_dont_use_autosuspend(dev);
+> > +       return ret;
+> > +} =20
+>=20
+> Gr{oetje,eeting}s,
+>=20
+>                         Geert
+>=20
+> --
+> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m6=
+8k.org
+>=20
+> In personal conversations with technical people, I call myself a hacker. =
+But
+> when I'm talking to journalists I just say "programmer" or something like=
+ that.
+>                                 -- Linus Torvalds
+>=20
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
