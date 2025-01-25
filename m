@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E650C0218C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jan 2025 14:45:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B04ADC0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jan 2025 15:05:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MgdWUzewQLGutGWm0yU3b4mLrNsMLQvksBxEqgoq+88=; b=RvnDx4GnNGtpY8ujpw2Oqw6aUH
-	sPxox14hxALo1Ftp8Z0PJGEyZvgqlnxIUw0d/ANDm2ua33lBKesGGS6J8xOT6JkpwX0hQ3lQ+qNIo
-	UdlpPiF2jg13eg9p6L6DfVlgxWjH/A55NBIilAXqF3XmWKRADAXSSdKB5f/cJpq6mZbwlKQfp/eoJ
-	tWKsG7fVSxouOk+Guord7BMbqdSACST3DHdf7pYjWLp1KFjegdqa6J8Jc+fMPCat1nzV0fBAsKrRe
-	wqaK6PfHFQF6vTdsiklaU/n5GaghNvVraYquwYzoyKXWmSJ4p4hDtxD8d/vu89oV0nRpygundTPom
-	nP2uQ9pQ==;
+	bh=UKw2SOCMf2JGxTXIqSAP0tOzr6+c+Tge86dZCU0DFh8=; b=S8U9rul1I9Of3H+yDB6plbaCj6
+	ZnC2uFjAg2NYSx8NZpSGuY87XpYclTkmGen7MnxlJT5dIgNkqW/U+7/bzxa/EOtgZqtoTYLuHo/Ov
+	GJN5sJAUJOUlSAqiArbiSCAJtdJmOFiKA7TvnwLZt1LmPLVrYslzm4vnfzvtn1kNsCoEX/zFMakse
+	oEjJdKowPtxsOilxEIF2blMbMKQPCyA2/OQ0LU2TVBxRl3aP2hJdhoa5i9Hd6Qu7jla3d6+Yed13t
+	qu/Dj7bA0108oN3r9sdodczIXuHOhPWa3ca/Q1TxbvwFYrN6gmGhbP/ciBks0zs25OiOUmPa+GlYL
+	RqILj7jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbhPc-0000000GU1Q-1s3u;
-	Sat, 25 Jan 2025 14:45:28 +0000
+	id 1tbhj2-0000000GVsr-3bCn;
+	Sat, 25 Jan 2025 15:05:32 +0000
 Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbhOG-0000000GTv7-1dHl
+	id 1tbhhd-0000000GVjk-13I6
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Jan 2025 14:44:05 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-21628b3fe7dso53039665ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Jan 2025 06:44:03 -0800 (PST)
+	Sat, 25 Jan 2025 15:04:06 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-21670dce0a7so63081615ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Jan 2025 07:04:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737816243; x=1738421043; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1737817444; x=1738422244; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:subject:cc:to:from:date:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=MgdWUzewQLGutGWm0yU3b4mLrNsMLQvksBxEqgoq+88=;
-        b=kWFcEDsNmRtf5Y5XJ3mWLZNwpb2WL4Ki6IlOQfsjBsrNor8yEWJ77nkFLoanMTsZSI
-         KHE73z+y9ACRcdT36FXQnFoo+BuqliuEaA2AhkeFtweqNHdLBewngQ9zgyk4WZL1w+0o
-         tmL0sCP4U0TP8DC7PpJ+pQPJuupdeZmUcmvJVNswfHzMF2NRNDkvwLeswO5yZZfdHT59
-         +fZrSmWT1sFV9NtIbzGxHVRSytdPa3EPpt6sh4t6dp7N/TEzrsnmVVIfvs8SGyW/mdJW
-         Kf9hZp7cnePam2Sq7iLCXQSuTdtlQM0mpBfAS78RHK9WfriGNjhu2WmwoS5qmMPahPZB
-         n09w==
+        bh=UKw2SOCMf2JGxTXIqSAP0tOzr6+c+Tge86dZCU0DFh8=;
+        b=PKMNbyceMfYU03sBzk/oCSYQY7ffiWPWpaF1XplLD0CmZUO5leO2dXhfElpEvVAUqm
+         F4pK77wZZi6VAvW2sTMvNy6/6BCXkM1RcmKFDWSMeXOVmHK2tAb/u59hoUs+tnM6o3ZL
+         gLo315JS45Fzv0PoRht+f552RHEi+Iwb4HAJVmtV09Gs8D+O8v2mH5d4M6IUsSHFv+fi
+         Qplw461D+mwVFPLVGFew6ya+s38OXxA7yVWQoNvJLJkexmU54yYdAVpcaaVwH2BjIU27
+         wObojDwUP2gaFomkNbNjQgxO4gWKi+U8t4Q+rS5NCE90Rd0v++DbLOHaMJ9CPqWxR7+Y
+         PNhA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737816243; x=1738421043;
+        d=1e100.net; s=20230601; t=1737817444; x=1738422244;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=MgdWUzewQLGutGWm0yU3b4mLrNsMLQvksBxEqgoq+88=;
-        b=pddnL933m7/ELJLlfSnzpbxPIQKvOMiRlopKwaxDssHPpRu1X1kYwrRUdD2LJbt1oV
-         kco1ZrgQ3yawAujCMlK0fK3wQYSFKCQruC1D8haNxBTFJuf9z7jN6RF3rHNTS0J9Zsk/
-         R2jA1/Odsbh38rww2WStm4UA4uW/+aZOOn5BZCAcJojFAaYDON4T2nBz3Mj0CJb9jLVJ
-         QE4mfsgTAbdcPBgr4BeAAEF8q8lH49wo6w+KFcWuJOLZVxOpxrjEWYsLG6oZ+BOexkH+
-         Em3meB9czxyt5wT+DESMZNBWXJpE7CehOhFREUaytAvNF+QJmir8Y0ZB+KPgihllUWI5
-         7Txw==
-X-Forwarded-Encrypted: i=1; AJvYcCXwqVRX8fvTUbd/xwz6T89VdLIyThZxlk/XKc17df60s1/YSsB2vFzBtFiwmH8IhKWTP6UBdbCbZVP4COOwtwUU@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywg8Z/CSXqPY+16W7ND2SdCoDhOP0sDdDKPhl+1YvmHY1Iq1q6D
-	rPxizRHg/gL8PSSveiqlQOvoCnaHwm2/yHRXs2tFMu+6+jyhPICD
-X-Gm-Gg: ASbGnct9QU/CNVqoqIJZ1WFWWckgrJu2f4iSW87XcG6957A/9pvmfUArEuMCwebdb9G
-	DRCuziINVwrLOZ0FMnCZ9u8kJHBhgnFj2NTTuIquBbS+MsV81t+LU/j8sgHdsfY7VZxRwH31Udd
-	cynYuLqD1/Xm/vgJlSleeCUdAf9TcXdhb44Vsf+5ysXN9dnpESJW2BKiOyUzYxrDGoGknyhrMGj
-	RmQYR79fHLS1AvrGJmX5GJOmt2RBRkAgyyYL85K0rmYbj7FTLlEhpK8tnMrGjhAHM3+tzdQk2YR
-	Lw==
-X-Google-Smtp-Source: AGHT+IHA+4rV48inAhpZB8n1PkLhWTEJWQ25mbCFZqNsfRh6vVjT5iQKXj9RhiGTNIQSvXLlnOGvHQ==
-X-Received: by 2002:a17:902:c943:b0:215:5bd8:9f92 with SMTP id d9443c01a7336-21c351d328amr566604515ad.5.1737816242783;
-        Sat, 25 Jan 2025 06:44:02 -0800 (PST)
+        bh=UKw2SOCMf2JGxTXIqSAP0tOzr6+c+Tge86dZCU0DFh8=;
+        b=ehZmHjoUFUgMwLWuZpPkwmlkvxYj2I3q6yNknpFT1r1+28hl37BFQJ0cya+Idjg1Ka
+         5t4/qtEymG0SLxvOzUFliw3S0Jw3410KLWSYSTYJgcmUpiHypPEAZp9WrUD4wiY5/KQY
+         ucG22rbzbQqcJPx0H7I4Rl+f+sFAHqRFLpyFx7Lv+dYu21z/3VkUO2sO3KXgVmBmyIiO
+         vLDp8wZwVeE86cWForQsBUT6iMPukMEABAGbXWQtXW9Mr6RZd2lZeLVlXRPwj2UpxKUE
+         /fyC52yFKVU4NvOlh21y49azYVPs+aWvJlFj9LcuqM1X6PXr27NGgHuYl61fhuyIizTi
+         fSTA==
+X-Forwarded-Encrypted: i=1; AJvYcCVcABSIn8Gv76Rio4j2t+C6NE9j+QyO8f14eQMZ2MlrUhnlIQW6ROYTGY6pFOqnucMpXKeXnGma+YdmgmCEttzw@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6YmynCny3YL0IG2ATG/Vxm/FksN2AtJeZ8qO/dCr2A04M+LMa
+	LQeTa1xpXAsVne+aUGMFVxmtb3+FjPXm6rW17GN4l/Wd3BF7hFTX
+X-Gm-Gg: ASbGncu2kt0Lp3iS7xmLLCxcRnbKqxoWJ1QLK0H+fRcTIjxXpHOCDB3x2p6aDL+xPIF
+	RG115GpYi+XCmG79V7idCXqYNhhedLzb0Y6VupYvs4vsS4pbIvHEkEt7dYudnfcMB+mTJAAo3hz
+	nYzBdBOEe+LDA56ACxTfiBQYTDOvn6LCXV9Cvgz4/fQfedEoKKVX9TkKCZ2T0VXDRISuagB08In
+	4mpnN8NgPvX3eThWDJ965ZWE4gCK1MtbRcgNXavqXL4e2q2hhsroZt0/MGzZviTZWpA9BOwFMh9
+	FA==
+X-Google-Smtp-Source: AGHT+IFVzWzSGBn66Dc2tB9vnmWyHkByC3/61GF44GlshncBb/NN1MnhhqsxwhJuUAHRXdCbEwQ2Dw==
+X-Received: by 2002:a05:6a00:92a0:b0:725:df1a:27c with SMTP id d2e1a72fcca58-72dafa4ce00mr48575267b3a.14.1737817444411;
+        Sat, 25 Jan 2025 07:04:04 -0800 (PST)
 Received: from localhost ([129.146.253.192])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21da3ea332esm33441735ad.87.2025.01.25.06.43.56
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72f8a69fde0sm3933161b3a.18.2025.01.25.07.03.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 25 Jan 2025 06:44:02 -0800 (PST)
-Date: Sat, 25 Jan 2025 22:43:42 +0800
+        Sat, 25 Jan 2025 07:04:04 -0800 (PST)
+Date: Sat, 25 Jan 2025 23:03:47 +0800
 From: Furong Xu <0x1207@gmail.com>
 To: Ido Schimmel <idosch@idosch.org>
 Cc: Andrew Lunn <andrew@lunn.ch>, Brad Griffis <bgriffis@nvidia.com>, Jon
@@ -83,7 +83,7 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Brad Griffis <bgriffis@nvidia.com>, Jon
  "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
 Subject: Re: [PATCH net-next v3 1/4] net: stmmac: Switch to zero-copy in
  non-XDP RX path
-Message-ID: <20250125224342.00006ced@gmail.com>
+Message-ID: <20250125230347.0000187b@gmail.com>
 In-Reply-To: <Z5S69kb7Qz_QZqOh@shredder>
 References: <cover.1736910454.git.0x1207@gmail.com>
 	<bd7aabf4d9b6696885922ed4bef8fc95142d3004.1736910454.git.0x1207@gmail.com>
@@ -93,13 +93,12 @@ References: <cover.1736910454.git.0x1207@gmail.com>
 	<ccbecd2a-7889-4389-977e-10da6a00391c@lunn.ch>
 	<20250124104256.00007d23@gmail.com>
 	<Z5S69kb7Qz_QZqOh@shredder>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250125_064404_444408_2EFE2BEC 
-X-CRM114-Status: GOOD (  35.10  )
+X-CRM114-CacheID: sfid-20250125_070405_301363_EBCA2B9F 
+X-CRM114-Status: GOOD (  28.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,7 +113,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ido
+Hi Thierry
 
 On Sat, 25 Jan 2025 12:20:38 +0200, Ido Schimmel wrote:
 
@@ -149,38 +148,13 @@ On Sat, 25 Jan 2025 12:20:38 +0200, Ido Schimmel wrote:
 > I asked Thierry to test the following patch [1] and initial testing
 > seems OK. He also confirmed that "SPH feature enabled" shows up in the
 > kernel log.
-> BTW, the commit that added split header support (67afd6d1cfdf0) says
-> that it "reduces CPU usage because without the feature all the entire
-> packet is memcpy'ed, while that with the feature only the header is".
-> This is no longer correct after your patch, so is there still value in
-> the split header feature? With two large buffers being allocated from
 
-Thanks for these great insights!
+It is recommended to disable the "SPH feature" by default unless some
+certain cases depend on it. Like Ido said, two large buffers being
+allocated from the same page pool for each packet, this is a huge waste
+of memory, and brings performance drops for most of general cases.
 
-Yes, when "SPH feature enabled", it is not correct after my patch,
-pp_params.offset should be updated to match the offset of split payload.
-
-But I would like to let pp_params.max_len remains to
-dma_conf->dma_buf_sz since the sizes of both header and payload are
-limited to dma_conf->dma_buf_sz by DMA engine, no more than
-dma_conf->dma_buf_sz bytes will be written into a page buffer.
-So my patch would be like [2]:
-
-BTW, the split header feature will be very useful on some certain
-cases, stmmac driver should support this feature always.
-
-[2]
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index edbf8994455d..def0d893efbb 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -2091,7 +2091,7 @@ static int __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
-        pp_params.nid = dev_to_node(priv->device);
-        pp_params.dev = priv->device;
-        pp_params.dma_dir = xdp_prog ? DMA_BIDIRECTIONAL : DMA_FROM_DEVICE;
--       pp_params.offset = stmmac_rx_offset(priv);
-+       pp_params.offset = priv->sph ? 0 : stmmac_rx_offset(priv);
-        pp_params.max_len = dma_conf->dma_buf_sz;
-
-        rx_q->page_pool = page_pool_create(&pp_params);
+Our downstream driver and two mainline drivers disable SPH by default:
+https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git/tree/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c#n357
+https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git/tree/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c#n471
 
