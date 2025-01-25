@@ -4,77 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13546C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jan 2025 02:56:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 441FCC0218B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jan 2025 03:00:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vHG0wIAtoOemWkPtzFx9h/lFGmdkP7r/cg9y4ucBGZw=; b=Hja2yt3t+ZQ+8/hC1/aOgi3D9T
-	Z5y8IrvnKqkeUx+fBtU5s0Pybz3G/y864MnERc6k/Lt/HE8LoLh9aOeSaApN5FJe5vc0Z1CZfUlok
-	0BxzhYs/dFqCVql91Bh5YqaYtvKVoHJ3Dk5g1Sa0Bf/xBgeVwsqSycQgle1/49R7rHESVFWPNdfOH
-	UIiwcCUPrx0ho8kcxYqdgTBC/P1g5JPCuLQn/Q8Ub51Jw1SKax8BMFt/sMwNWv/cm6/CtACo4W51E
-	1ewC3OUoiqbEgqlj1qynuo2SU9XJ0/evqupc/4LIDdg9sfDK8yB/BRU19lg64j+fOO2+5xUwOlbu6
-	UJIzonbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PJ4vEGRebVfmD62DO8JbYjz0HrXPBA+KlX27omCmNMw=; b=z0LUEos/VAC5FM35ALaxg+qp6T
+	KenzcS5C1s3LBX1LvY/ptg4yPXfh6+JEVI5+lJZsPZXmApo/r8FoMNWxtpthPJttrb96QfelZlzbw
+	Y0wVbUC/DQGhbpflxtq5iLEfpP71go8wjcSvoa7/qzvm10rnd3wGZxzJbwdw67jqe/4SmVvuOHswY
+	y5zqFTv3dhc4rKcQ07fi6xhqMuKK7yRkVoSm3NTEv6bctteNWp4Z1sEzcP8qL8sa3RSN9lsV999bB
+	RvLN7cM48SF8QuNzLLrLd+mpNeCNqwacy3JhEjdQmVTPLirBEwQcBlvaY0/u/GuSsJM5d7v1ZsoMW
+	wbBtQP+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbWL0-0000000Fw3c-3cJn;
-	Sat, 25 Jan 2025 02:55:58 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1tbWPU-0000000FwNQ-0Gym;
+	Sat, 25 Jan 2025 03:00:36 +0000
+Received: from mail-m49251.qiye.163.com ([45.254.49.251])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbWHD-0000000FvhS-2pzw;
-	Sat, 25 Jan 2025 02:52:04 +0000
-X-UUID: 5818d936dac711ef82ff63e91e7eb18c-20250124
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=vHG0wIAtoOemWkPtzFx9h/lFGmdkP7r/cg9y4ucBGZw=;
-	b=U7f5PjIjFKjlioN9mNPhq1BC0h8SrwJmxKZ9vZ0CRc2Ug3uPMwzfju3bwkOUsRVq1yUKAmDidR+7yXc7lzmIB1sH0GoBc8xC0u0uRNAzBAxyi5Vm17YkQHKLakaBQpXqtCX7C9+As0Eoje4ON/9l0AEZfjtMSr5BS5RKkjY+D4U=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.46,REQID:a57e2111-35e0-480a-92de-9f1211061deb,IP:0,U
-	RL:0,TC:0,Content:29,EDM:-25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTI
-	ON:release,TS:4
-X-CID-META: VersionHash:60aa074,CLOUDID:3672b07e-427a-4311-9df4-bfaeeacd8532,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:4|50,EDM:1,
-	IP:nil,URL:11|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
-	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-UUID: 5818d936dac711ef82ff63e91e7eb18c-20250124
-Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw01.mediatek.com
-	(envelope-from <ot_chhao.chang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1083577739; Fri, 24 Jan 2025 19:51:58 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.28; Sat, 25 Jan 2025 10:51:55 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.28 via Frontend Transport; Sat, 25 Jan 2025 10:51:54 +0800
-From: Hao Chang <ot_chhao.chang@mediatek.com>
-To: Sean Wang <seann.wang@kernel.org>, Linus Walleij
-	<linus.walleij@linaro.org>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-CC: Wenbin Mei <wenbin.mei@mediatek.com>, Axe Yang <axe.yang@mediatek.com>,
-	Qingliang Li <qingliang.li@mediatek.com>, Hanks Chen
-	<hanks.chen@mediatek.com>, Chunhui Li <chunhui.li@mediatek.com>,
-	<linux-mediatek@lists.infradead.org>, <linux-gpio@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, Hao
- Chang <ot_chhao.chang@mediatek.com>
-Subject: [RESEND v3 2/2] pinctrl: mediatek: adapt to multi-base design
-Date: Sat, 25 Jan 2025 10:51:23 +0800
-Message-ID: <20250125025145.14405-3-ot_chhao.chang@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250125025145.14405-1-ot_chhao.chang@mediatek.com>
-References: <20250125025145.14405-1-ot_chhao.chang@mediatek.com>
+	id 1tbWOB-0000000FwGQ-0Dyz;
+	Sat, 25 Jan 2025 02:59:16 +0000
+Received: from [172.16.12.26] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 9a3da8cf;
+	Sat, 25 Jan 2025 10:59:09 +0800 (GMT+08:00)
+Message-ID: <860384d5-cc7d-485b-be1b-1bbfe27535f8@rock-chips.com>
+Date: Sat, 25 Jan 2025 10:59:08 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 12/14] drm/edp-panel: Add LG Display panel model
+ LP079QX1-SP0V
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+ Douglas Anderson <dianders@chromium.org>
+Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, rfoss@kernel.org, vkoul@kernel.org,
+ sebastian.reichel@collabora.com, cristian.ciocaltea@collabora.com,
+ l.stach@pengutronix.de, andy.yan@rock-chips.com, hjc@rock-chips.com,
+ algea.cao@rock-chips.com, kever.yang@rock-chips.com,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org
+References: <20250123100747.1841357-1-damon.ding@rock-chips.com>
+ <20250123100747.1841357-13-damon.ding@rock-chips.com>
+ <rwn3g7tqgjnc525cjqtivgfgedhooiayn5nujng7bdzazgqhle@wfpuvoyr2tii>
+Content-Language: en-US
+From: Damon Ding <damon.ding@rock-chips.com>
+In-Reply-To: <rwn3g7tqgjnc525cjqtivgfgedhooiayn5nujng7bdzazgqhle@wfpuvoyr2tii>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGRgZQ1ZJTBpDQ0IdTB4dGE9WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+X-HM-Tid: 0a949b6620f703a3kunm9a3da8cf
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Ojo6Fhw5NTIVDhkPAxQ2DSkc
+	VkowCjdVSlVKTEhMTExIQk5LTENPVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFJSU5ONwY+
+DKIM-Signature: a=rsa-sha256;
+	b=NAllTc4IrhdZemINSJnIARwR6+qpPHvdRgMGW5ODEWzhYxQ20JdxOfBlhUUCuQglebhICW5Rj3EWmhHZUkQMqLJGvaVqgoQfSC/y5/dTF7hgEC1IVPDf8jPLXQc9g98Zo1W7BdjBtqnFn+pKHK9J88P4xkEbjuNHaPFAk5w/HnE=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=PJ4vEGRebVfmD62DO8JbYjz0HrXPBA+KlX27omCmNMw=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250124_185203_714625_C4C82D33 
-X-CRM114-Status: GOOD (  14.43  )
+X-CRM114-CacheID: sfid-20250124_185915_629200_55FD2DBA 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,108 +83,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The eint num will obtain the operation address through pins.
-Change the traversal method of irq handle from traversing a set of
-registers to traversing one by one.
+Hi Dmitry,
 
-Change-Id: I3962b78042d32501a73153201cddf52c6b62a695
-Signed-off-by: Hao Chang <ot_chhao.chang@mediatek.com>
-Signed-off-by: Qingliang Li <qingliang.li@mediatek.com>
----
- drivers/pinctrl/mediatek/mtk-eint.c | 38 +++++++++++++++++++----------
- 1 file changed, 25 insertions(+), 13 deletions(-)
+On 2025/1/23 19:31, Dmitry Baryshkov wrote:
+> On Thu, Jan 23, 2025 at 06:07:45PM +0800, Damon Ding wrote:
+>> The raw edid for LP079QX1-SP0V panel model is:
+>>
+>> 00 ff ff ff ff ff ff 00 16 83 00 00 00 00 00 00
+>> 04 17 01 00 a5 10 0c 78 06 ef 05 a3 54 4c 99 26
+>> 0f 50 54 00 00 00 01 01 01 01 01 01 01 01 01 01
+>> 01 01 01 01 01 01 ea 4e 00 4c 60 00 14 80 0c 10
+>> 84 00 78 a0 00 00 00 18 00 00 00 10 00 00 00 00
+>> 00 00 00 00 00 00 00 00 00 00 00 00 00 fe 00 4c
+>> 50 30 37 39 51 58 31 2d 53 50 30 56 00 00 00 fc
+>> 00 43 6f 6c 6f 72 20 4c 43 44 0a 20 20 20 00 3f
+>>
+>> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+>> ---
+>>   drivers/gpu/drm/panel/panel-edp.c | 8 ++++++++
+>>   1 file changed, 8 insertions(+)
+> 
+> Please use get_maintainers.pl when compiling To/Cc lists. Added Douglas
+> to CC manually.
+> 
+> Or, better, split irrelevant patches to separate series.
+> 
 
-diff --git a/drivers/pinctrl/mediatek/mtk-eint.c b/drivers/pinctrl/mediatek/mtk-eint.c
-index 540245c3128d..949a20196f74 100644
---- a/drivers/pinctrl/mediatek/mtk-eint.c
-+++ b/drivers/pinctrl/mediatek/mtk-eint.c
-@@ -513,6 +513,7 @@ EXPORT_SYMBOL_GPL(mtk_eint_find_irq);
- int mtk_eint_do_init(struct mtk_eint *eint)
- {
- 	unsigned int size, i, port;
-+	struct mtk_pinctrl *hw = (struct mtk_pinctrl *)eint->pctl;
- 
- 	/* If clients don't assign a specific regs, let's use generic one */
- 	if (!eint->regs)
-@@ -523,11 +524,11 @@ int mtk_eint_do_init(struct mtk_eint *eint)
- 	if (!eint->base_pin_num)
- 		return -ENOMEM;
- 
--	if (!eint->pins) {
-+	if (eint->nbase == 1) {
- 		size = eint->hw->ap_num * sizeof(struct mtk_eint_pin);
- 		eint->pins = devm_kmalloc(eint->dev, size, GFP_KERNEL);
- 		if (!eint->pins)
--			return -ENOMEM;
-+			goto err_eint;
- 
- 		eint->base_pin_num[0] = eint->hw->ap_num;
- 		for (i = 0; i < eint->hw->ap_num; i++) {
-@@ -536,34 +537,29 @@ int mtk_eint_do_init(struct mtk_eint *eint)
- 			eint->pins[i].debounce = (i < eint->hw->db_cnt) ? 1 : 0;
- 		}
- 	} else {
-+		eint->pins = hw->soc->eint_pin;
- 		for (i = 0; i < eint->hw->ap_num; i++)
- 			eint->base_pin_num[eint->pins[i].instance]++;
- 	}
- 
- 	eint->wake_mask = devm_kmalloc(eint->dev, eint->nbase * sizeof(u32 *), GFP_KERNEL);
--	if (!eint->wake_mask)
--		return -ENOMEM;
--
- 	eint->cur_mask = devm_kmalloc(eint->dev, eint->nbase * sizeof(u32 *), GFP_KERNEL);
--	if (!eint->wake_mask)
--		return -ENOMEM;
-+	if (!eint->wake_mask || !eint->wake_mask)
-+		goto err_eint;
- 
- 	for (i = 0; i < eint->nbase; i++) {
- 		port = (eint->base_pin_num[i] + 31) / 32;
- 		eint->wake_mask[i] = devm_kzalloc(eint->dev, port * sizeof(u32), GFP_KERNEL);
--		if (!eint->wake_mask[i])
--			return -ENOMEM;
--
- 		eint->cur_mask[i] = devm_kzalloc(eint->dev, port * sizeof(u32), GFP_KERNEL);
--		if (!eint->cur_mask[i])
--			return -ENOMEM;
-+		if (!eint->cur_mask[i] || !eint->wake_mask[i])
-+			goto err_eint;
- 	}
- 
- 	eint->domain = irq_domain_add_linear(eint->dev->of_node,
- 					     eint->hw->ap_num,
- 					     &irq_domain_simple_ops, NULL);
- 	if (!eint->domain)
--		return -ENOMEM;
-+		goto err_eint;
- 
- 	if (eint->hw->db_time) {
- 		for (i = 0; i < MTK_EINT_DBNC_MAX; i++)
-@@ -585,6 +581,22 @@ int mtk_eint_do_init(struct mtk_eint *eint)
- 					 eint);
- 
- 	return 0;
-+
-+err_eint:
-+	for (i = 0; i < eint->nbase; i++) {
-+		if (eint->wake_mask[i])
-+			devm_kfree(eint->dev, eint->wake_mask[i]);
-+		if (eint->cur_mask[i])
-+			devm_kfree(eint->dev, eint->cur_mask[i]);
-+	}
-+	if (eint->cur_mask)
-+		devm_kfree(eint->dev, eint->cur_mask);
-+	if (eint->wake_mask)
-+		devm_kfree(eint->dev, eint->wake_mask);
-+	if (eint->nbase == 1)
-+		devm_kfree(eint->dev, eint->pins);
-+	devm_kfree(eint->dev, eint->base_pin_num);
-+	return -ENOMEM;
- }
- EXPORT_SYMBOL_GPL(mtk_eint_do_init);
- 
--- 
-2.46.0
+I will split the panel related patch into a separate series in the next 
+version.
+
+>>
+>> diff --git a/drivers/gpu/drm/panel/panel-edp.c b/drivers/gpu/drm/panel/panel-edp.c
+>> index f8511fe5fb0d..77e3fd3ed160 100644
+>> --- a/drivers/gpu/drm/panel/panel-edp.c
+>> +++ b/drivers/gpu/drm/panel/panel-edp.c
+>> @@ -1808,6 +1808,12 @@ static const struct panel_delay delay_200_150_e50 = {
+>>   	.enable = 50,
+>>   };
+>>   
+>> +static const struct panel_delay delay_50_500_e200 = {
+>> +	.hpd_absent = 50,
+>> +	.unprepare = 500,
+>> +	.enable = 200,
+>> +};
+>> +
+>>   #define EDP_PANEL_ENTRY(vend_chr_0, vend_chr_1, vend_chr_2, product_id, _delay, _name) \
+>>   { \
+>>   	.ident = { \
+>> @@ -1955,6 +1961,8 @@ static const struct edp_panel_entry edp_panels[] = {
+>>   	EDP_PANEL_ENTRY('C', 'S', 'W', 0x1100, &delay_200_500_e80_d50, "MNB601LS1-1"),
+>>   	EDP_PANEL_ENTRY('C', 'S', 'W', 0x1104, &delay_200_500_e50, "MNB601LS1-4"),
+>>   
+>> +	EDP_PANEL_ENTRY('E', 'T', 'C', 0x0000, &delay_50_500_e200, "LP079QX1-SP0V"),
+>> +
+>>   	EDP_PANEL_ENTRY('H', 'K', 'C', 0x2d51, &delay_200_500_e200, "Unknown"),
+>>   	EDP_PANEL_ENTRY('H', 'K', 'C', 0x2d5b, &delay_200_500_e200, "MB116AN01"),
+>>   	EDP_PANEL_ENTRY('H', 'K', 'C', 0x2d5c, &delay_200_500_e200, "MB116AN01-2"),
+>> -- 
+>> 2.34.1
+>>
+> 
+
+Best regards,
+Damon
 
 
