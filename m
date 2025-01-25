@@ -4,160 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22686C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jan 2025 23:49:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D110C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jan 2025 00:16:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kBHsfwPJ1P16yEp8i/M8soKWQdr5ZhpFA3mwlw+qCRk=; b=iAnMn7TfaquEnHaR/eRF5WWVrI
-	YhIfoxmQPAZ8LDt9f+sTfVSefIiVdnC21fbJrM4oClNrWWS/ksDyGS4wvOYzv77GjJOeCRlx8NeQk
-	qCod5U/6KLg+i0PPPsK9MFbjZ3n1U0lY7v2JzzMWgsArrERe3RWQ8YuOHYTpOWRbN5tc+ZDLEhz4c
-	SL7jVHuNk/mMePTXZIwB8WJ4RpxY0MKFTpmRUMOdssQtHNr2+SfHljwPr9Dn1HhdcUZo9ZZCa000T
-	pBIJzEI+nKvIcGc5CpWWkaT/d6oiB9UCj7feFjZyMDeHkvY3NTxXJg9LUpNoMpAau3EHu7Dd82d73
-	mrLBfyFQ==;
+	bh=OeaJimcddAnKNxms+C7pW06h8qKObWCpQPC7+x9C9i4=; b=rZL3g2yOe5qEeJfnTSxi5hcNJN
+	PA55WN6Z+XZWzjeWM8A76cOSxOxjLyMIGCzMpPiA8sR6HOu7R42O8Fw29JsNcvbsAzF/9S7DNL63T
+	Q76MYvJajmT0dstBYysY6mTSitRDY6jPROpjvNTpdriqwwCYQ2hje2VYNCvzbkzgukbgCunn/e2nb
+	8cEI1bO29zn78PYNuG+CroBZ9LxThfyU+SA3Szlx6x0k2lw59xxjHgBpmj4G2bK2nC8XQi+t67Qg8
+	U9iXPgbayd/GW9NDcUKIOx2M4WchHi+qIynvWfEBnfEUyKE78QhHYkCQlYLwx0EVDdEihUvM02xh+
+	V/dSlyDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbTQB-0000000FjJK-0ZI5;
-	Fri, 24 Jan 2025 23:49:07 +0000
-Received: from mail-northeuropeazlp170110001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1tbTqJ-0000000FmVD-3F1C;
+	Sat, 25 Jan 2025 00:16:07 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbTOs-0000000FjDX-3PBF
+	id 1tbToy-0000000FmJ5-2oGU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jan 2025 23:47:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AQ0PfWYqZpjl8JWF4jqPDxqBzlTjjb6yBM9AagSj10Ub9dljbygzKDxeEwezQqRyviAGPS8iffmkiMkmv1pboDWAI/YV2072npS3Vcb7jEGJ6oLxbAqwPKW15J0G7TIZWUToCsSDXlgtK6i8NSXBspMlI8TByUxNt+XnSCCfejojeJvpk1UPh9cAFTQfeNrHB65ePfHN3UVvEq9Sce0q3ikROk7zRxIJ6yJLFitawPxsAKAMOeu3hTNa2Q5tI0IL6+mdUpLnwPUpjjcxoQqZWVqWqb/JzzW7BdxsowCc9fp9H4MgbeAwqGgcD5bMXFQqCZoa+nIkgz2FnXbwMt/jvg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kBHsfwPJ1P16yEp8i/M8soKWQdr5ZhpFA3mwlw+qCRk=;
- b=Y+EzjC3T+TO72mP3yvzi23QVMK+PuJqQ78UvrClp6ncaMOkVIcuciqA6+XDkhgZsTPBm3lsQTvtt9BvPxoEXSuNSgwkvXknSyP+0w7vjrNwtxM4diCKxmLvGQuhqa3Y6sn9kh11GvpAEGNqIqng7kal3359nir14ZeUJhzg2FUVGhg5IouezaL5NsujcV5DNwBNZAX+bf6r8zWESV98d/Z35L+xqpb+T/hYNYp9E0WmGCZWK/rU0OzOGV8y3gdkGmi39C7LgqdefYSTJocGAE3uxUqefx6LNgaqEffVWDK4VQJK5GtTWzOURS8ERUB/uvYU2h8tqDT/77bVMtS6dOQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kBHsfwPJ1P16yEp8i/M8soKWQdr5ZhpFA3mwlw+qCRk=;
- b=D6c+b8qb89R3lUgvE6Z8xiURlY5VHnNXgQB2oh3YR2dU71loOOhqmUxkgEy3ZMUX+cWTQWnNBK6/UAllRWnCv91SLEGAXgyvQHgY5N+eAzNgQMH1Yb58AJYYXiJ+sgZckmr9XO7mx54kxMmDNvZxDMxkDmbb/sbdwzLZ46H+czZu1kulFB0B9WeD8A2r5MvoCJuXkqRYBqveogerO4WrDRy6/xMUzyZigBRvZAeGtkXrsdGIlynyCB+13R73/Tl9P2x45BPcX5qD2W3hW3Tm54dTy6Z5/WrjzYOl/aPHk68KLADK0De9SZ5FNECwQKXH9EHPBxIcQefA2VrKZxQmZQ==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AM9PR04MB8778.eurprd04.prod.outlook.com (2603:10a6:20b:409::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8377.19; Fri, 24 Jan
- 2025 23:47:41 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8377.009; Fri, 24 Jan 2025
- 23:47:41 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Dario Binacchi
-	<dario.binacchi@amarulasolutions.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-CC: "linux-amarula@amarulasolutions.com" <linux-amarula@amarulasolutions.com>,
-	Abel Vesa <abelvesa@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Dan
- Carpenter <dan.carpenter@linaro.org>, Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Michael Turquette
-	<mturquette@baylibre.com>, Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Shawn
- Guo <shawnguo@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-clk@vger.kernel.org"
-	<linux-clk@vger.kernel.org>
-Subject: RE: [PATCH v9 00/23] Support spread spectrum clocking for i.MX8M PLLs
-Thread-Topic: [PATCH v9 00/23] Support spread spectrum clocking for i.MX8M
- PLLs
-Thread-Index: AQHbaaY5gYPllLkC7022/rYXoeuspLMl+VuAgACmMmA=
-Date: Fri, 24 Jan 2025 23:47:41 +0000
-Message-ID: <PAXPR04MB8459537D7D2A49221D0E890D88E32@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20250118124044.157308-1-dario.binacchi@amarulasolutions.com>
- <e2de94ab-82ea-4d36-a9dc-75f6891d8927@kernel.org>
-In-Reply-To: <e2de94ab-82ea-4d36-a9dc-75f6891d8927@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|AM9PR04MB8778:EE_
-x-ms-office365-filtering-correlation-id: 91e3d535-6b3f-413c-ec91-08dd3cd17dcf
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?f/o03a5AD+7omKy5GGdTMWrMo+Uo0Th4QXKof0ZWWiMnN0xHe3gN07gG0e3i?=
- =?us-ascii?Q?ZIQwO3OI9Ut2gnJYaEuJq5B175IIgaF6o27WgENFNwWKYNyvgiGwkHiDjjKO?=
- =?us-ascii?Q?Yv074q1Ih1ntuUjscKMcz0aCJ7oQcC8KntWBNTiW4zKeFsBe/HFzG2X641CD?=
- =?us-ascii?Q?BsUn1prXF+De7abkY/Ja4UcJlMRTkiP6j6MaN5DQABqQUB0m/shkx63AEm8s?=
- =?us-ascii?Q?QJhpCLCBDDRUy1TO3jAyo5guumY+H2EAqewf83ZEiLHgguuDxf+ld+TzZpFf?=
- =?us-ascii?Q?nYaN+51o7XcNo8uCTXIql9kKCZP7k3gQQ1e5QyyPw57tZDAAKtonYb5e0FVB?=
- =?us-ascii?Q?1SG0p1uiGjRbUSGNcLRroRYwo+waJ2UNXMwXMvStyVBFxRpYiL0I9i4nKicV?=
- =?us-ascii?Q?OaeGWcTPyHo1qytUEpen3aj+3OkIXxsJalvvddocK+snl8d3cR6wwITAtPWn?=
- =?us-ascii?Q?BDYM/WcXxS6HbochlHB+t/sBP1gdkNOMNFsNKK8g5BVNLe5YMYuPrXqHVkMT?=
- =?us-ascii?Q?McCeTfIDZsrpzEulcPf8dggqtcd1Zj93gc3QZ97r2kqtRfkfaydbgUdV6aDk?=
- =?us-ascii?Q?auLw1twyekb4G2+sXYm5Ixpd+WTCvLPZySEb15ustrDOUscHONgAl8ezqegL?=
- =?us-ascii?Q?4P9NQrqhDCVqVlTTWsrq7VBDc/SrGZhpP2qn+jvJbh5nMAOcD+Y5Ichv5odS?=
- =?us-ascii?Q?1iQPbDylwkPBcZwB14mcq9EmzX09W6WUD27A8GQHpXeTxMYl8uw0//E4dndm?=
- =?us-ascii?Q?l+92ErzeMKE9LxqIJIzLDryYk2qr0DJxaBaBczKLtDQQ9mFeU8T7hwSBu4is?=
- =?us-ascii?Q?l1oTRmFjNzL41NUZSb2zOMRJAYYDxWSlV2zNPH78MIoAExIoTVw/WyaU8p2j?=
- =?us-ascii?Q?ydz81YcztG/qzBU2rUp02CFKi2tA7AQ2Gzbn4GQnKjVxPe9yMhjqLHd8D78R?=
- =?us-ascii?Q?SUEIgWAbJS9nP23kfbN2DOytzr4j2fteFwqVvOlA+OHcRaWX3NLtHnZxI6+5?=
- =?us-ascii?Q?i2P4gam7e4MehF4ZFe3ERoF8n1GkCfFJPenCjX7PRZf85BIY+iktdO79OSos?=
- =?us-ascii?Q?D57JTg4qyxAK85J1aoa8tDUxBgTU+bIeSBqqSYnCup6pbFPs2MrYnlQN4v4p?=
- =?us-ascii?Q?do0sViSJULN82slXuDOHSSKsUwTta6nkshYhVqoHPgmOHafLlmRXVqVtHdnn?=
- =?us-ascii?Q?KGDOxgMUQDcd/7nQOFIJKuvTm8Kpj8i8oLWlQ4j37kYExNAhoTgfv2j6L8bv?=
- =?us-ascii?Q?ljNnwHESS7qG+8pWhWMoEiJUyRL9aQy9xKTPHYzZq0L+1A4FgSZDR4bm4NqU?=
- =?us-ascii?Q?HMZgJWHu8y7YMI9iHxUpsVOgrvD7GqCnMcQk2cB81JI5QrIBxJ0XI4/ufu97?=
- =?us-ascii?Q?ALtVpudBnM/DdOr0apvS46Q5ymS88jNuY773zXolRhxqcXE9c0TgEX4KlDIs?=
- =?us-ascii?Q?mYOqBtiTGxtT05ds8RSOrgp6oc0i3Zrs?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?qoXQ9cj2vgNQoSZPe8Syg8PCn6G/lvDSYa9YTNtKXC4XadyGeethqd5Xkewp?=
- =?us-ascii?Q?62CZ96YyOQ1CcY59o+9zyEcnCMiPCzzh6Ive0NzccUZoP3A7craxs5sCnBtW?=
- =?us-ascii?Q?6SdhN/x6axlmKm26yeTcE6WeJuZAxduvknr/ektINGMkDrGZ83l/jbypBNav?=
- =?us-ascii?Q?hPCCBWLOZ+48E2GhTJBdALk9MOCHnqNevj5TJHv+tS/y5znZMqHqR3KrU1vm?=
- =?us-ascii?Q?CrTspFOp2kCEBCnTi8EV537CLn54w9+l0f0cP5igc1LHcupKEBn2AxEEH4R5?=
- =?us-ascii?Q?mTstVUx93iyaUwKB6JbupmaBT7m1YmOTTqZKf/Ch63R2zv/wVmRYHwWTJozc?=
- =?us-ascii?Q?hNBPDVJ1lIAvZveZG27BE+E6FJ9LbCaBg8p87/7hIwEybLfYTWAn/gAZ9ChH?=
- =?us-ascii?Q?eZIu854R3CtFhhbsaLT+jNRmWPNWjuPoD9gqhAk3DIp01OZcF9K+4BxP7dFU?=
- =?us-ascii?Q?g0pHZi6mx3SxTUzOSNvGBuyygkS7YINweAd0o2yMljGMbr3iGrXKJSzAFt05?=
- =?us-ascii?Q?gUefoeSz8HreoHUKTkD02c9rbhCH9sYlVivWchOQSTUWXFJAOW+KIwRJlh7B?=
- =?us-ascii?Q?maxwhwR9Xk6UIJxVGNdku5hAigBH3b4+wBtpHQmk9HRC3BcA+b/VO1RGcUxf?=
- =?us-ascii?Q?eZc6b0Ot4NN1Ke7QOq/kWOpxIKXqdgeF97orbGkPMILYRkD+gLDE7nt/GuIJ?=
- =?us-ascii?Q?Yn7K/zRdmsVcszV0WCVHwlLSNNYWPeAn5I6RRUWiVW5zTEUNM3wBdy10jUJM?=
- =?us-ascii?Q?4w8Yi2qXoWpb8rHycaWZiDtXsAz3j5ueWmEPICfSr2uZtldTjlqG683Nx9O8?=
- =?us-ascii?Q?7sII9G8/Vm+WarRLF35wbT2kemlKHSZh1ShvCx9mY/yVmRmwHdmKbYw10JLT?=
- =?us-ascii?Q?8ffnFpW+BNlz+DvLYfxdQVY+rAeBJgx7zcfQicI+04I868rXYRSZE6OWEfry?=
- =?us-ascii?Q?hpKY9kXrtmKDYxglxt8UihP3Y+LBmaqZipV+1E8YcVD1lD3hK2vDERWtpSKL?=
- =?us-ascii?Q?G9UGPLNxZkHMxny2aETIN7ObeCHcbH+9hQu5BJVBy3H0jHPcqKJWzrGvPQnu?=
- =?us-ascii?Q?UGmFmgYw78zya8bQBNHp2U/4o6rXqhUq4ahxv4SRwlDmdqRICY2/kdoxufoh?=
- =?us-ascii?Q?VkwdTghfyaohG134j1MCEJfqpgQlp19o01Yw4vHEcG6aG2UafB/gWTbVu96G?=
- =?us-ascii?Q?hVmn+B6dfcITXsLdUKo++5S5NMlbsNubMTmQHIWN4iyc3zS5FwkbhA/QTgtx?=
- =?us-ascii?Q?jb9D0JBl41CrhmHHuPM1n39OFyssmdOiSnUmrzgVxzHhvdQfg8Y93OGrwiml?=
- =?us-ascii?Q?6blG24M3Km7Z/wragPP6w4GJ5ZCA1xjt2YRo0sE03ibahxodj5WHkKM01L62?=
- =?us-ascii?Q?6PCSsyRFWnU94/VB1pk5nC+iOZwMYpVJEm0EKDzqkUMo2BI6ycRIsXi73M+C?=
- =?us-ascii?Q?/qKeZqfkkT27komtUJBOkz/Y+972VdmFdBA5UdlgoOiIit5+X/e+YIvtqYgY?=
- =?us-ascii?Q?wiPgA8X4c7A7sC+fyvkHu83R2o1x2yTm6HnU02uaf9Jl6LqHf9XRnOI82VMX?=
- =?us-ascii?Q?4WPHpcCVnXGsr8sQxgg=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
-MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 91e3d535-6b3f-413c-ec91-08dd3cd17dcf
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Jan 2025 23:47:41.3053
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: bQ7iGKQUM2mt7bJO0jeEl/QR3ZrfbxGpDuvqmA+qiT/3wnT/VKGst8ff5QI5lW1xt7ZcoPerYWzHW+jpUi18eg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8778
+	Sat, 25 Jan 2025 00:14:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E4DCD5C6243;
+	Sat, 25 Jan 2025 00:14:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 025A5C4CEE3;
+	Sat, 25 Jan 2025 00:14:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737764084;
+	bh=s7rbi1QnAM2by6CnlRFIk/t6MLH260JcqqQbLZUT5zw=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=fzqw5bLzROXtfZwhQfBVB+nPPkb7LTFlNc4V4PRY6+aohxhkn1ZMBoZGfXx466Bw3
+	 yKWZP6DeBwGgDB1b3pa0KHgCnPgL7amxDPwKqWNlKya2RCefHGGteOCRa4wI3+EG9j
+	 PGfQ0eiLVNrOvV3JQZdjso4spy1xO+IEPivU8xBKSQq8FGlAMBUDfqi70/eST1bSQl
+	 8vQRTRl3AqGGZeSIagnM6Wu3dqSK4n+apscYq3Rg4mwr1gMbOUzlcr0rHsUbbwjRBi
+	 YUPvXQ8EelpRqu9JF7Gk9Mk8njS8+JM2tkBafqjjNWFfHje2XkWPRBNZtxgOfTRn0R
+	 NRT7OIskeRWmw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33B73380AA79;
+	Sat, 25 Jan 2025 00:15:10 +0000 (UTC)
+Subject: Re: [GIT PULL] Mailbox changes for v6.14
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <CABb+yY0QX4PLU1wSfz7DsXCzoeOD=VAR-E0vDH2LLtwfp8aJbw@mail.gmail.com>
+References: <CABb+yY0QX4PLU1wSfz7DsXCzoeOD=VAR-E0vDH2LLtwfp8aJbw@mail.gmail.com>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <CABb+yY0QX4PLU1wSfz7DsXCzoeOD=VAR-E0vDH2LLtwfp8aJbw@mail.gmail.com>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/jassibrar/mailbox.git tags/mailbox-v6.14
+X-PR-Tracked-Commit-Id: 4783ce32b0806911287f35cc65b799876d6f9547
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 917846e9f00508ba91e7f1f6fd03db696c971459
+Message-Id: <173776410872.2216626.10891103708279037592.pr-tracker-bot@kernel.org>
+Date: Sat, 25 Jan 2025 00:15:08 +0000
+To: Jassi Brar <jassisinghbrar@gmail.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250124_154746_877469_8F8FA800 
-X-CRM114-Status: GOOD (  19.02  )
+X-CRM114-CacheID: sfid-20250124_161444_746540_0AF18510 
+X-CRM114-Status: UNSURE (   5.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,47 +78,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: Re: [PATCH v9 00/23] Support spread spectrum clocking for
-> i.MX8M PLLs
->=20
-> On 18/01/2025 13:39, Dario Binacchi wrote:
-> > The series adds support for spread spectrum clocking for
-> i.MX8M{M,N,P}
-> > PLLs (audio, video and DRAM). It has been tested for the video PLL on
-> > boards using i.MX8MN and i.MX8MP.
-> >
-> > Changes in v9:
-> > - Add 'Reviewed-by' tag of Peng Fan for imx8mn platform patches
-> > - Fix building warning raised by the kernel test robot for patch
-> >   v8, 11/18 clk: imx: add support for i.MX8MN anatop clock driver
-> > - Add patches for imx8m{m,p} platforms:
-> >   - 23/23 clk: imx8mm: support spread spectrum clock generation
-> >   - 22/23 clk: imx: add support for i.MX8MM anatop clock driver
-> >   - 21/23 clk: imx8mp: support spread spectrum clock generation
-> >   - 20/23 clk: imx8mp: rename ccm_base to base
-> >   - 19/23 clk: imx: add support for i.MX8MP anatop clock driver
-> I responded in particular patch, but let's respond for formality to cover
-> letter as well.
+The pull request you sent on Thu, 23 Jan 2025 21:49:29 -0600:
 
-Sorry to come into the binding part at so late stage. I just
-got a request for i.MX95 SCMI CLK a few days ago which is impossible
-for vendor specific properties.
+> git://git.kernel.org/pub/scm/linux/kernel/git/jassibrar/mailbox.git tags/mailbox-v6.14
 
-But I am not sure "assigned-clock-sscs" is welcomed by maintainers.
-Please also help to check whether this is usable for your patches
-to enable SSC for i.MX8M PLL.
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/917846e9f00508ba91e7f1f6fd03db696c971459
 
->=20
-> The bindings here might get obsolete already with work:
-> https://github.com/devicetree-org/dt-schema/pull/154
+Thank you!
 
-Not intend to waste to your effort.
-I also replied in the PR to express my apologize.=20
-
-Thanks,
-Peng.
-
->
-> Best regards,
-> Krzysztof
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
