@@ -4,84 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9581CC0218C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jan 2025 13:00:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F271EC0218C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jan 2025 13:06:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=el7iGP7OFYeR4PWe14A1/v42PBL2cJsaz3V9X1queIk=; b=U7Iq3VGcbU7fhwSi8IARTE3dzQ
-	mENQi0cvUfnQWPCN3NHKZDvNcCPi6n3tOyMQQEoR1J3wZ/e3jdmQQHKK94EwReb0mPhS/oIcTA/1Z
-	et/1QTG0BSmDQz0JjQiTn45tUIsGwDX2K7bnQOQG7olwBkkPLfGZB8Uvmiwf6l97TeSt29tvYSe3x
-	+dVSLJwLg1lAp5TtLnp4RLDb+NzlAOusT6MtFNrNFRZjQokJ4LDEiADkx8Ejo1Gz5TJy01zBaWkkC
-	Gq2qdIbC7LK4r7pSMvXNi64qM65K8P2ZPBnEcQ9RD8VBAcqChj5AxYs1nN+PTmKOlQ5Gjj/Y+eH/B
-	bTEpAVNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ufdypkJNjHswejxJubFk9kEYQm8Yr9F5qH7/Hz14nEU=; b=kVachMXc9PsB5zWug/iaJQE+Bo
+	0gnfrMwvA+1DaEXL9TX527Y4T0ukAYA49Wxmjzgz8ZCa8NWPJa1B9nXRFKPf82cV23uHjDru1br2u
+	A4JSEVp0D/JhjQqHepHtojdF6N1etV2ytlq8DhMRVWwSVPvXOc0dduOCQ0CllI9sX8kKuy0dDwKwl
+	/tWWvPIbZ+8Rt+Y4o9Y1VQNrC15zr27t9q1uogtMHM2y0T7OvZ5ZD7Um2amqmF0vH2dF9uSYVzbD5
+	tIjYIKX1h27wSdc65SbFIg01wBADk5y66QQvxS/9btYDYVNuPGDqd4Wxcy+CN7cf3mao5n1WdUY4t
+	XWSMuQdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbflc-0000000GPrC-3pL2;
-	Sat, 25 Jan 2025 13:00:04 +0000
-Received: from mail-yb1-xb36.google.com ([2607:f8b0:4864:20::b36])
+	id 1tbfrf-0000000GQA9-32Y4;
+	Sat, 25 Jan 2025 13:06:19 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbfkI-0000000GPl9-43bU
+	id 1tbfqM-0000000GQ6H-1w23
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Jan 2025 12:58:44 +0000
-Received: by mail-yb1-xb36.google.com with SMTP id 3f1490d57ef6-e573136107bso5066430276.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Jan 2025 04:58:42 -0800 (PST)
+	Sat, 25 Jan 2025 13:04:59 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-438a39e659cso19031305e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Jan 2025 05:04:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1737809921; x=1738414721; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=el7iGP7OFYeR4PWe14A1/v42PBL2cJsaz3V9X1queIk=;
-        b=lCudljmMVuO5+tnrL+MpafFkka3tkMVCiZm9/zqObUBijqvcy2CzscLpPZsx2TiDvJ
-         2McT/UZt9tnJZzaW8DM829vRukScbr3pWxCdRpcmUJbtQ0g4VtOmbUyaZdDu0FgF5Dj9
-         DVs18JeCcMv1uJo87zbXZ0i8IUrVpd89vD5F4=
+        d=linaro.org; s=google; t=1737810296; x=1738415096; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ufdypkJNjHswejxJubFk9kEYQm8Yr9F5qH7/Hz14nEU=;
+        b=CMDpuz9TrRlHjp/IqQV/qPcFgNmPUsX+4KD9YJOd/eYsopyOmiU3Xhr+nR5a2KG88h
+         nB//DjvcWu6V5s0NA4aXf1/zaP9VMYTaFVMASSKsaCxFPpTSioaSX9DBZJjtdUs2qjm5
+         cDTFNHyr8rkzRD8ATGbThmecBtDD+f1/rqxGQG3LKH44/BbsU/jOb0YsnVCw5Kvog3KI
+         i1Qtj2c90KYBm3ahGFiB+YJr6/sPkq4WM+VoyC8YznhlvRJ4rhMpMBsvybIEEhg2JnBw
+         jsUDRknWhNaaVhkMUndFzyWvouEe31paBRbQBuH8DUX7F5xmJa6q+QypL37V6cuOI7/d
+         nLig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737809921; x=1738414721;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=el7iGP7OFYeR4PWe14A1/v42PBL2cJsaz3V9X1queIk=;
-        b=tOKkd+HjlbORXg2HhtxqgvpNWA86PI0FFhsZoEKhX+g20nsWkz+EEcJE/ntm9kv1la
-         lrkkXQN9CVa7GHok9cYBwvvG3CLuP9yTwpFS+AMQa/67M3d8hKM42TZ0zjx5uIjOos6T
-         KEXJHTgASdUxmBYJfcnYSX5gZOeMrZlDAyTHMlvwMwQx2kt8Py0NLjepwguZV/zk2nh+
-         ot0LOLe19jgDH+1mkkoqjxubTG1iMruoW6XQbDvNbHrfG1ucVnFyNzG9VPAG8aEDpyDu
-         3YxKaKz9zLgRLdxugXnANAHIU8BHfxr8VVu5ux/eVuSq0EwRcIrd6GXQLRABlpLy9Z1J
-         V02g==
-X-Forwarded-Encrypted: i=1; AJvYcCXNGyqFEHWQ6pK4ICagDaesigCkdaO86wgP64c87xlgn+aUyaNaB5WEP7F+Ci0rGqfBIRJe37uiIquJ6at2GD72@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJGsBwsnckkEVVC+8VAypifbMrb3QrvNYyisWYads6fyDAvJiz
-	xGsHp6rwZ97avKAFnb5lAS0Ok/OI957MkjMaikKEYWM+agzslqd7oqNhTtuFKRN9JKozfIRpFSj
-	9vgP1t0beApGN2037JIKNFTEG7F3NLUk+IkHj3A==
-X-Gm-Gg: ASbGncv0Fovwfw3XtmWZfkQ+3lrodPXFq6az18ajsFX6GJ2vBTff/mG72LyKgNf294Q
-	VFQPipqRkC9lBR1jvAHvI8ZKVREa5VN66zM6DrOElrw/pkWzYKJKYmlfPcYqR
-X-Google-Smtp-Source: AGHT+IEEKpiikrUJ57qyfcCRA/e0fon58biS6P+zSfMgH8jo4xDtyN7iJdHR7Or74nDGVOsMp3enzXojTs8OVWanswA=
-X-Received: by 2002:a25:ae54:0:b0:e57:cc1e:2ab4 with SMTP id
- 3f1490d57ef6-e57cc1e2c6cmr17264809276.28.1737809921258; Sat, 25 Jan 2025
- 04:58:41 -0800 (PST)
+        d=1e100.net; s=20230601; t=1737810296; x=1738415096;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ufdypkJNjHswejxJubFk9kEYQm8Yr9F5qH7/Hz14nEU=;
+        b=EHjI/OVUTSEDLesC/ZRNnT3rd7AiNGd+v7idipJlAjV45hgNhY6o7w3gTD5niA5Fun
+         m15ym7CoS6ytieaq7UaiZ/T+5xO7sdif2VytUQC/+6ETzSIDgCGKbDd0wdOU74DRSjgE
+         RZQF2wLJ/gMXlKllUOBw3y47B2K8CJqVTgaE4h2sWH9bLoh7EkKforxL8H+F+PqVuQMY
+         746KXzt1ihvz3H7Yb1l+AT+QgTrT5jayr7Q5iKD6PjvHv3aLyJN6bwNd+5QJ/EnZJQQb
+         GanCvIPsyZXsEiqZnRz2T8C+E24rIGaZ46hNJ9PYykOrR2vTD7+aHfAjbJr9oMXB2EwU
+         dK0g==
+X-Forwarded-Encrypted: i=1; AJvYcCWGATRLomwoVk388QAY2XIk4HY10/8LaelJQED5Hlx8SdtaEHTJx+QQPu2ihuw4z3G+/kBv0IDrj7FJm/wveLDJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPSzjtWL1PN5hOUbNMA3vMIMPvE8ZV4rpHJwLwo022R7yKsuh3
+	9RwkSSB0zlugaEnff9CfSE/LStKHGLBJDg6Alxn7VXED38XSkoCRZEUdmfdVtbk=
+X-Gm-Gg: ASbGnctA+AEhZBv0OX6PJuZbjNFJuw5XYDZz8dxsqNaozs9MA0WxMrC7KVtQRNrN/TJ
+	Rq5Unu01agry6HDY4R6fkucFIUWGvjTtUgjyGAGnNuRSESLjylVPTbYC/aMicgP7qXcRnku3Yvh
+	wmhsAf0DDkRBOIXdc8K1TOwAosKcg7l7QImoTpGZQnBfgyzBNEWKu5aESnE5g9KgMp1GYh89P7m
+	k0WQXo2DSQDoZJbYcQqaUB72W+4XJJOvf22UlIhIzzhp/B8UmZlsXArGNxJVBP7jX1ZUpAxMlio
+	1hcikiar1g==
+X-Google-Smtp-Source: AGHT+IEaOVgzG6Qtw0HZT4iWc73ce/VOtEgJOp3dSxRw2PlxaNl3qvT2R0XWbkFb0aXpK24XwpEiwA==
+X-Received: by 2002:a05:600c:5486:b0:434:a10f:c3 with SMTP id 5b1f17b1804b1-438913cae48mr287922225e9.9.1737810296292;
+        Sat, 25 Jan 2025 05:04:56 -0800 (PST)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438bd4d3dbcsm61443145e9.40.2025.01.25.05.04.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 25 Jan 2025 05:04:55 -0800 (PST)
+Date: Sat, 25 Jan 2025 16:04:52 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: zuoqian <zuoqian113@gmail.com>
+Cc: sudeep.holla@arm.com, cristian.marussi@arm.com, rafael@kernel.org,
+	viresh.kumar@linaro.org, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org
+Subject: Re: [PATCH v2] cpufreq: scpi: compare kHz instead of Hz
+Message-ID: <967a5b3e-197a-4b90-9fe3-9b10782d677c@stanley.mountain>
+References: <20250123075321.4442-1-zuoqian113@gmail.com>
+ <20250125084950.1680-1-zuoqian113@gmail.com>
 MIME-Version: 1.0
-References: <20250124-clk-ssc-v1-0-2d39f6baf2af@nxp.com>
-In-Reply-To: <20250124-clk-ssc-v1-0-2d39f6baf2af@nxp.com>
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Date: Sat, 25 Jan 2025 13:58:30 +0100
-X-Gm-Features: AWEUYZnNxDwCk6NAMaoEBBJdy6_TRGTFA2dlWGHDjrD3fTX9PYVK1omwdpabvIA
-Message-ID: <CABGWkvpj2bYyqiOp4D9Ss2aWOnoR7BxqDOGpXdRusq=aWu9BEA@mail.gmail.com>
-Subject: Re: [PATCH 0/3] clk: Support spread spectrum and use it in clk-scmi
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Russell King <linux@armlinux.org.uk>, Sudeep Holla <sudeep.holla@arm.com>, 
-	Cristian Marussi <cristian.marussi@arm.com>, linux-clk@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, Peng Fan <peng.fan@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250125084950.1680-1-zuoqian113@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250125_045843_022050_977532A9 
-X-CRM114-Status: GOOD (  19.74  )
+X-CRM114-CacheID: sfid-20250125_050458_510179_AF40FEA8 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,87 +99,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 24, 2025 at 2:19=E2=80=AFPM Peng Fan (OSS) <peng.fan@oss.nxp.co=
-m> wrote:
->
-> - Introduce clk_set_spread_spectrum to set the parameters for enabling
->   spread spectrum of a clock.
-> - Parse 'assigned-clock-sscs' and configure it by default before using th=
-e
->   clock. The pull request for this property is at [1]
->   This property is parsed before parsing clock rate.
->
-> - Enable this feature for clk-scmi on i.MX95.
->   This may not the best, since checking machine compatibles.
->   I am thinking to provide an API scmi_get_vendor_info, then driver
->   could use it for OEM stuff, such as
->   if (scmi_get_vendor_info returns NXP_IMX)
->       ops->set_spread_spectrum =3D scmi_clk_set_spread_spectrum_imx;
->
-
-I wonder if your solution is truly generic or merely a generalization
-of your use case, which seems significantly simpler compared to what
-happens on the i.MX8M platform, as discussed in thread
-https://lore.kernel.org/lkml/PAXPR04MB8459537D7D2A49221D0E890D88E32@PAXPR04=
-MB8459.eurprd04.prod.outlook.com/,
-or on the STM32F platform, where parameters are not written directly
-to registers but are instead used in calculations involving the
-parent_rate and the PLL divider, for example.
-
-I am the author of the patches that introduced spread spectrum
-management for the AM33x and STM32Fx platforms, as well as the
-series, still pending acceptance, for the i.MX8M.
-From my perspective, this functionality varies significantly
-from platform to platform, with key differences that must be
-considered.
-
-Thanks and regards,
-Dario
-
-> [1] https://github.com/devicetree-org/dt-schema/pull/154
->
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+On Sat, Jan 25, 2025 at 08:49:49AM +0000, zuoqian wrote:
+> The CPU rate from clk_get_rate() may not be divisible by 1000
+> (e.g., 133333333). But the rate calculated from frequency(kHz) is
+> always divisible by 1000 (e.g., 133333000).
+> Comparing the rate causes a warning during CPU scaling:
+> "cpufreq: __target_index: Failed to change cpu frequency: -5".
+> When we choose to compare kHz here, the issue does not occur.
+> 
+> Fixes: 343a8d17fa8d ("cpufreq: scpi: remove arm_big_little dependency")
+> Signed-off-by: zuoqian <zuoqian113@gmail.com>
 > ---
-> Peng Fan (3):
->       clk: Introduce clk_set_spread_spectrum
->       clk: conf: Support assigned-clock-sscs
->       clk: scmi: Support spread spectrum
->
->  drivers/clk/clk-conf.c        | 68 +++++++++++++++++++++++++++++++++++++=
-++++++
->  drivers/clk/clk-scmi.c        | 37 +++++++++++++++++++++++
->  drivers/clk/clk.c             | 39 +++++++++++++++++++++++++
->  include/linux/clk-provider.h  | 22 ++++++++++++++
->  include/linux/clk.h           | 22 ++++++++++++++
->  include/linux/scmi_protocol.h |  5 ++++
->  6 files changed, 193 insertions(+)
-> ---
-> base-commit: 5ffa57f6eecefababb8cbe327222ef171943b183
-> change-id: 20250124-clk-ssc-fccd4f60d7e5
->
-> Best regards,
-> --
-> Peng Fan <peng.fan@nxp.com>
->
+> V1 -> V2: rename freq to freq_khz, change rate to unsigned long, and
+> update patch summary.
 
+Thanks!
 
---=20
+Reviewed-by: Dan Carpenter <dan.carpenter@linaro.org>
 
-Dario Binacchi
+regards,
+dan carpenter
 
-Senior Embedded Linux Developer
-
-dario.binacchi@amarulasolutions.com
-
-__________________________________
-
-
-Amarula Solutions SRL
-
-Via Le Canevare 30, 31100 Treviso, Veneto, IT
-
-T. +39 042 243 5310
-info@amarulasolutions.com
-
-www.amarulasolutions.com
 
