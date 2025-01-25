@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 817C2C02182
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jan 2025 07:09:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C48BC02182
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jan 2025 07:11:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vHn5rroylHzuQrtAoY3TXyS5Zv+3P1p2kiq3JFX8d1Q=; b=QfF+yGu9XasaPOMAB3ElBdBDtx
-	woLR+gdZd78xPmE4My9FD4r7Wnev2uClPaQJYagirsFcHzULDs4gBuIvmtex5MEvc1wpyw1fNxaZx
-	2/CzmcRtY8vsJgIlXqSyqAgZiflMquBTokE7sF7Ol9K6R3QS67UteNQ4rs0mMapBDguJXU7OH+Y6X
-	tNFksdd2Qg2H2E5peDzozOn4LKqWCKRKy+tEBVwvUC181Zf2PNqWgskUaiHHKItIZoPpSVx5VJiFr
-	K02NhsR8L3bdWF8clbjf8YK1iZkatK7aQ9xNzefmJoEKZ9CJsJXRLWlaHvDTMCeMrKXEkhFiidlCK
-	F7u8Ptzw==;
+	bh=1IoEO+9R8j8Un9cYoSvY/uysWqLsZR32aOL15xQ72n4=; b=4xDcIhuFXvAWylHgN7DWwgvTg3
+	OG8C861KxNttAp8hSt6yODvFBe/anCKBVMqpKZN4CcX5p2xz9lQvPqprHkPeD03ehML3GhS/Btjv7
+	ceRv3vuI5OxIoGQ1zb/0tl+DSM1kamOGyP3CZBwg68avE+9oRLoPJPLy3goXbITE0tG0BAJNp8pXK
+	+riR/a31q9iAzG/6XFAgKpzh76CbRlrFBQfD+x5AddKJ9NCnySNZgsLwA5zTThGKVce7rfJref6L6
+	zr1eYEKCkjO6Ne5/X2JkOwfqdiAeUmIZGcqWjGGSMbLH7e7VEMm+dlMzCu2cVbgzGntkC/bSZDbOs
+	nlFmiLqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbaIc-0000000GC1t-1V0A;
-	Sat, 25 Jan 2025 07:09:46 +0000
-Received: from fout-b8-smtp.messagingengine.com ([202.12.124.151])
+	id 1tbaJs-0000000GC7n-0NII;
+	Sat, 25 Jan 2025 07:11:04 +0000
+Received: from fhigh-b8-smtp.messagingengine.com ([202.12.124.159])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbaEV-0000000GBgg-35hy
+	id 1tbaEb-0000000GBhe-2wf3
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Jan 2025 07:05:32 +0000
-Received: from phl-compute-06.internal (phl-compute-06.phl.internal [10.202.2.46])
-	by mailfout.stl.internal (Postfix) with ESMTP id D338B11400E6;
-	Sat, 25 Jan 2025 02:05:30 -0500 (EST)
+	Sat, 25 Jan 2025 07:05:39 +0000
+Received: from phl-compute-12.internal (phl-compute-12.phl.internal [10.202.2.52])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 0B4B125400D9;
+	Sat, 25 Jan 2025 02:05:36 -0500 (EST)
 Received: from phl-mailfrontend-02 ([10.202.2.163])
-  by phl-compute-06.internal (MEProxy); Sat, 25 Jan 2025 02:05:31 -0500
+  by phl-compute-12.internal (MEProxy); Sat, 25 Jan 2025 02:05:36 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=testtoast.com;
 	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
 	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm3; t=1737788730; x=
-	1737875130; bh=vHn5rroylHzuQrtAoY3TXyS5Zv+3P1p2kiq3JFX8d1Q=; b=g
-	0izeiBcvSriI/RABTmoXVPr9G7V8F3p0wb1QvxZwYZZaKAgGYfIjxvJnrgoltrqE
-	GGtjHMmZvjx4641+nekNM73TR4wfnr/GyJX7caaI+ebp80lNllWKQo4BR/LUihn3
-	xPCe4shmYGPdvvwHLycz+ymwTJf+qUwc5pCPIde3kY4wrLye3Stb0FwaGw3Sj7iZ
-	iwIKWPFbjpObjoIL3W4z14flMduTslDpcZwZo2YgVRrflx/Ut+AFanKZlnCYy6sQ
-	LcVqJ2Do/Wcv6TncS32kb6D8Pj+1/51rhWh6FF7gmPrwf6x2wkm3EOLw5VQjDxjZ
-	uECqF+B4QTqm/gtnaskhQ==
+	:reply-to:subject:subject:to:to; s=fm3; t=1737788735; x=
+	1737875135; bh=1IoEO+9R8j8Un9cYoSvY/uysWqLsZR32aOL15xQ72n4=; b=H
+	pkQMzUWRU0IbTI5uVW6Du8Ief0tRebl8KNXKyjp036hksrhAWQfgvuyDQShJEsqo
+	LZEaeJNvx9XewjVe1/kqsIZGC+X0tK8ATuCoeTQjC4p3UvwF4418t23exld/A+Mk
+	tiQO+/h9Qq2lZh91LlYV8q3hkiKYHtyAYEN3wFb5V7pN2n/8HHHA55HD+1M7p7Fm
+	TNHJ3m04eNFiJRkMnRv2WFoFMWEZkzDUpOGIxZqbG/lnqOEYAL8lQRcrde2Af6g9
+	O5tkIdO6lbJ56KGrB5IY0RcBa+eoTVzUo8USsxKymhP4BfNG0R5f2LcWVG+FFNdL
+	Q6MhDsiwHITV+I36c3hyQ==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:date:date:feedback-id:feedback-id:from:from
 	:in-reply-to:in-reply-to:message-id:mime-version:references
 	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1737788730; x=1737875130; bh=v
-	Hn5rroylHzuQrtAoY3TXyS5Zv+3P1p2kiq3JFX8d1Q=; b=ErDzVATwQcnagJtxc
-	StmGAA5CJEl55iGGGMM4M9zbSNuAt466EiI0QD6LUAroHxiAEkeHP5GZkBvZlk92
-	8WLMJHdJl3/xxWevKudh8NqCwnMWBy0012NVdN7B+QsfLIb1khI70ADThvHwqNJf
-	3a7pWOMs2DAJCUdSf/2yjimOSwmgFjtu1+M+tLSBN6bWlYYsDL7LRxZn1Kqc3ero
-	TIpVR2WV7vb57Xd/BUeUDnncfXLF1eHFXaXKOIdMC2K4PMjeXbnwriMgMK5aymMk
-	Etf8ds9dA6E1on25rNlkUfJECfbJTfNZZDPuqia97D0bitEgHC4w5e6zOiSf/Kii
-	Cl7ig==
-X-ME-Sender: <xms:Oo2UZyg5mBt8-vLyPqUk6XTbJ7hqACnY5OzaLwhK8lEt-_c0FMgs9Q>
-    <xme:Oo2UZzBiACzCctWh5ATiB-nuWRQzYcIzKcohMQat_8bcEy1plv6VvMUI_iZG6lCL-
-    qmAMLtNpjE4bucOaw>
-X-ME-Received: <xmr:Oo2UZ6FGATAUGmSObVpyNg81hXQmuJFKYiJ7-k-oJJGkNFZuLD8Rfhdbl1J7fF7Tu5KLNT-Y1eXiHNgkviyGOyEKufipJEE4pk_Nc7bt-zuZ>
+	:x-me-sender:x-sasl-enc; s=fm3; t=1737788735; x=1737875135; bh=1
+	IoEO+9R8j8Un9cYoSvY/uysWqLsZR32aOL15xQ72n4=; b=kjwOkX5T+Xdcv5BN6
+	fahiMD6uSdJJdV1G80LTI6uUtbfGeQHGGtopJNXlDgO2bY/HpPYhu7Zsi+2Tt9B0
+	tzUutA5k0ixMV/G4qvHFqAEOM4co+vAcM1j3OF0woZtrJV5E15ZuRabmznklVBLE
+	Sc6za2JkEFTvfzs/nzjHbXCpprMpWjl5CitKvR/N3GswwcslG36gDuWZmWqMrfNV
+	hDndn/2WcqxyFpXa/3mmRLAZ6XOXnOFbg+pCIXVV+yXfi0MAB0DsW1RIueN+dkI9
+	IVSMcqi9zxMk1vQXIsvlBQp1qB1WOR4vGLyTigy3/AUHZvACdsUHyGl8hqTwL2Cr
+	imDTQ==
+X-ME-Sender: <xms:P42UZ7-oNdreVZwqyAlM6DprcfidEtcGIJ0F184dUzKNgYKE1usP-A>
+    <xme:P42UZ3uPfpgH9NsJeX49eGLBaeqUcSA3WBxjksYmxHAB6UNmwRuJBNDo1Y4wrlK86
+    klQb9ajL0PgQrs4rQ>
+X-ME-Received: <xmr:P42UZ5Dxj4lIdWklokx-U2FbvRqKrcFQByyALzdWWqZ7JL_ng5dVVZBrBMge-g_zyQqKulUngu7dN7_2jSGkvPDRdTksFbUU4XBbqWWmXZx6>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrudejgedgieejhecutefuodetggdotefrod
     ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
     uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
@@ -76,14 +76,14 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrudejgedgieejhecutefuodetgg
     htohepshgrmhhuvghlsehshhholhhlrghnugdrohhrghdprhgtphhtthhopehlihhnuhig
     qdhsohhunhgusehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugi
     dqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhg
-X-ME-Proxy: <xmx:Oo2UZ7QkT5XcEM914r8FMsU3EPx_gL8kesYyPPw3YX4cREIxKCNtPA>
-    <xmx:Oo2UZ_wc4NfRNmMmS0fyx7CN4lmJhcHUNqo4OuvQWU9X61b9E_vvbA>
-    <xmx:Oo2UZ55brQWKqrjPXsE-FvV10QhIQSZJf8unlF2O6mEhn1w165GqWQ>
-    <xmx:Oo2UZ8yHZRcID_7BsCfUsU4mdBFXLfT1mfUZ-Ca3lIbjj6_O3O0Uvw>
-    <xmx:Oo2UZ3hg0G39QCbuFMkEoia0nLkmkET7c3q8dQB1iEhkMqFK4rzIP-Hx>
+X-ME-Proxy: <xmx:P42UZ3em9Lrca0xam9CONWr66ZtQ7n6cr_vqQ3B82-ZL16MMC1ISlg>
+    <xmx:P42UZwOPsUtLS7x44vRkd6hKZYfrTyQG6QQrfAQNnWncUdvxmfpkOQ>
+    <xmx:P42UZ5kywbLABuLpUro3I_efx2qgZARlaZcyQQHZtQDF6ozt_sk5_w>
+    <xmx:P42UZ6uSYXWdT3_n_xYEG9NjAMq8LJYi260_bgkoybmKJ97UPkGKig>
+    <xmx:P42UZyv-yd2c1rpmOkGgNU5qrc8YTAqhNPsb40PXXYMpjFE5DpLsUnlX>
 Feedback-ID: idc0145fc:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
- 25 Jan 2025 02:05:26 -0500 (EST)
+ 25 Jan 2025 02:05:31 -0500 (EST)
 From: Ryan Walklin <ryan@testtoast.com>
 To: Liam Girdwood <lgirdwood@gmail.com>,
 	Mark Brown <broonie@kernel.org>,
@@ -98,17 +98,17 @@ Cc: linux-sound@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	Chris Morgan <macromorgan@hotmail.com>,
 	Ryan Walklin <ryan@testtoast.com>
-Subject: [PATCH v2 2/5] ASoC: sun4i-codec: correct dapm widgets and controls for h616
-Date: Sat, 25 Jan 2025 20:00:12 +1300
-Message-ID: <20250125070458.13822-3-ryan@testtoast.com>
+Subject: [PATCH v2 3/5] ASoC: sun4i-codec: support hp-det-gpios property
+Date: Sat, 25 Jan 2025 20:00:13 +1300
+Message-ID: <20250125070458.13822-4-ryan@testtoast.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250125070458.13822-1-ryan@testtoast.com>
 References: <20250125070458.13822-1-ryan@testtoast.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250124_230531_835539_8ED5C564 
-X-CRM114-Status: GOOD (  14.45  )
+X-CRM114-CacheID: sfid-20250124_230537_799187_34F15A77 
+X-CRM114-Status: GOOD (  18.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,52 +125,118 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chris Morgan <macromorgan@hotmail.com>
 
-The previous H616 support patch added a single LINEOUT DAPM pin switch
-to the card controls. As the codec in this SoC only has a single route,
-this seemed reasonable at the time, however is redundant given the
-existing DAPM codec widget definitions controlling the digital and
-analog sides of the codec.
+Add support for GPIO headphone detection with the hp-det-gpios
+property. In order for this to properly disable the path upon
+removal of headphones, the output must be labelled Headphone which
+is a common sink in the driver.
 
-It is also insufficient to describe the scenario where separate
-components (muxes, jack detection etc) are used to modify the audio
-route external to the SoC. For example the Anbernic RG(##)XX series of
-devices uses a headphone jack detection switch, GPIO-controlled speaker
-amplifier and a passive external mux chip to route audio.
-
-The LINEOUT route remains defined as the final common endpoint
-for the codec's output, and is referenced by device trees.
-
-Remove the redundant LINEOUT card control, and add a Speaker pin switch
-control and Headphone DAPM widget to allow control of the above
-hardware.
+Describe a headphone jack and detection GPIO in the driver, check for
+a corresponding device tree node, and enable jack detection in a new
+machine init function if described.
 
 Signed-off-by: Chris Morgan <macromorgan@hotmail.com>
 Signed-off-by: Ryan Walklin <ryan@testtoast.com>
 
 --
 Changelog v1..v2:
-- Separate DAPM changes into separate patch and add/elaborate rationale.
+- Whitespace fixes.
+- Remove vendor prefix from device tree string.
 ---
- sound/soc/sunxi/sun4i-codec.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ sound/soc/sunxi/sun4i-codec.c | 53 +++++++++++++++++++++++++++++++++++
+ 1 file changed, 53 insertions(+)
 
 diff --git a/sound/soc/sunxi/sun4i-codec.c b/sound/soc/sunxi/sun4i-codec.c
-index 886b3fa537d26..f24bbefeb3923 100644
+index f24bbefeb3923..3701f56c72756 100644
 --- a/sound/soc/sunxi/sun4i-codec.c
 +++ b/sound/soc/sunxi/sun4i-codec.c
-@@ -1916,10 +1916,11 @@ static const struct snd_soc_component_driver sun50i_h616_codec_codec = {
+@@ -22,6 +22,7 @@
+ #include <linux/gpio/consumer.h>
+ 
+ #include <sound/core.h>
++#include <sound/jack.h>
+ #include <sound/pcm.h>
+ #include <sound/pcm_params.h>
+ #include <sound/soc.h>
+@@ -331,6 +332,7 @@ struct sun4i_codec {
+ 	struct clk	*clk_module;
+ 	struct reset_control *rst;
+ 	struct gpio_desc *gpio_pa;
++	struct gpio_desc *gpio_hp;
+ 
+ 	/* ADC_FIFOC register is at different offset on different SoCs */
+ 	struct regmap_field *reg_adc_fifoc;
+@@ -1583,6 +1585,49 @@ static struct snd_soc_dai_driver dummy_cpu_dai = {
+ 	.ops = &dummy_dai_ops,
  };
  
- static const struct snd_kcontrol_new sun50i_h616_card_controls[] = {
--	SOC_DAPM_PIN_SWITCH("LINEOUT"),
-+	SOC_DAPM_PIN_SWITCH("Speaker"),
- };
++static struct snd_soc_jack sun4i_headphone_jack;
++
++static struct snd_soc_jack_pin sun4i_headphone_jack_pins[] = {
++	{ .pin = "Headphone", .mask = SND_JACK_HEADPHONE },
++};
++
++static struct snd_soc_jack_gpio sun4i_headphone_jack_gpio = {
++	.name = "hp-det",
++	.report = SND_JACK_HEADPHONE,
++	.debounce_time = 150,
++};
++
++static int sun4i_codec_machine_init(struct snd_soc_pcm_runtime *rtd)
++{
++	struct snd_soc_card *card = rtd->card;
++	struct sun4i_codec *scodec = snd_soc_card_get_drvdata(card);
++	int ret;
++
++	if (scodec->gpio_hp) {
++		ret = snd_soc_card_jack_new_pins(card, "Headphone Jack",
++						 SND_JACK_HEADPHONE,
++						 &sun4i_headphone_jack,
++						 sun4i_headphone_jack_pins,
++						 ARRAY_SIZE(sun4i_headphone_jack_pins));
++		if (ret) {
++			dev_err(rtd->dev,
++				"Headphone jack creation failed: %d\n", ret);
++			return ret;
++		}
++
++		sun4i_headphone_jack_gpio.desc = scodec->gpio_hp;
++		ret = snd_soc_jack_add_gpios(&sun4i_headphone_jack, 1,
++					     &sun4i_headphone_jack_gpio);
++
++		if (ret) {
++			dev_err(rtd->dev, "Headphone GPIO not added: %d\n", ret);
++			return ret;
++		}
++	}
++
++	return 0;
++}
++
+ static struct snd_soc_dai_link *sun4i_codec_create_link(struct device *dev,
+ 							int *num_links)
+ {
+@@ -1608,6 +1653,7 @@ static struct snd_soc_dai_link *sun4i_codec_create_link(struct device *dev,
+ 	link->codecs->name	= dev_name(dev);
+ 	link->platforms->name	= dev_name(dev);
+ 	link->dai_fmt		= SND_SOC_DAIFMT_I2S;
++	link->init		= sun4i_codec_machine_init;
  
- static const struct snd_soc_dapm_widget sun50i_h616_codec_card_dapm_widgets[] = {
-+	SND_SOC_DAPM_HP("Headphone", NULL),
- 	SND_SOC_DAPM_LINE("Line Out", NULL),
- 	SND_SOC_DAPM_SPK("Speaker", sun4i_codec_spk_event),
- };
+ 	*num_links = 1;
+ 
+@@ -2302,6 +2348,13 @@ static int sun4i_codec_probe(struct platform_device *pdev)
+ 		return ret;
+ 	}
+ 
++	scodec->gpio_hp = devm_gpiod_get_optional(&pdev->dev, "hp-det", GPIOD_IN);
++	if (IS_ERR(scodec->gpio_hp)) {
++		ret = PTR_ERR(scodec->gpio_hp);
++		dev_err_probe(&pdev->dev, ret, "Failed to get hp-det gpio\n");
++		return ret;
++	}
++
+ 	/* reg_field setup */
+ 	scodec->reg_adc_fifoc = devm_regmap_field_alloc(&pdev->dev,
+ 							scodec->regmap,
 -- 
 2.48.1
 
