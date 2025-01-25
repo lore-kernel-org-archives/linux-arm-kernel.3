@@ -4,71 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47D6AC0218B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jan 2025 07:06:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4103C02182
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jan 2025 07:07:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mlc/7CuHosmAHaNFGQO7e424NJ2JcxIG5lxHjbxj34w=; b=NKgBHpml3LB1BErf39mxPbBcMr
-	UP3WCVv3HDKf7gD8Wjy97EaLkx3VozLe7Qber6+A23ot8Lif2i1cpEsfclRqY4WsT4e63ntog2ClD
-	VvCSQAKg6O7gOC/u+KuH4iLIsD5aSgtu85wP7w+M/wfXdcMsvLlGT8b9tTeJcOgIuhUcAaMcGlHyw
-	+hk792GmwAWV8nCciKHiMKb7GjWt61pvuNH+FsFn4Dqs/2NE0T+jvI4JDBOxX6ilk5a7qZUe5XuZN
-	mzk7IbqQpDtDi+FWjv2WHVHOKYNbgEqkkHMqJGHE3QmgO5w3stdJGo9gVrabpu5Zmh/AmiTc5355k
-	BaMkIqTg==;
+	bh=C9i7gm4WAxSUWE4yayXltdWJDnwH6ceARKDHxirqIGo=; b=ZWLt0RYEd4XNETf6iLLEg9ige0
+	reFzbEbKa4KEsLrVYBPHSqIGPxmlJgbW8dj/W6bJ6hFbljPf3FhUK1kx30yhKhXVQ3d3Vqnmrxt3L
+	FgBH6WK71I79ausSGKBXwYbYVY7oOw5mPRoGSin9LAON3Rr/pU5p1s6rbtvAHatVo5lgEOgFg4Ios
+	Z8JC6IC6I/BV0S7VDAZvM1m9eZYJERakAti3p+qMf59TDGXtWS0EmiP9hGyNF/RSJe/e6AbfMTg2a
+	RDDywLf/yJUSCHSPvvAcVCBAuoMH026YbjO8ISyW9ZkKaGnhYcOGPIYtXjZtRMNXeFWIPFsZoxYxd
+	3qPIN/ZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbaEp-0000000GBjl-1uhn;
-	Sat, 25 Jan 2025 07:05:51 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1tbaG5-0000000GBrc-0Kv7;
+	Sat, 25 Jan 2025 07:07:09 +0000
+Received: from fout-b8-smtp.messagingengine.com ([202.12.124.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbaDW-0000000GBdk-40Bw
+	id 1tbaEP-0000000GBfQ-29Z0
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Jan 2025 07:04:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1737788671; x=1769324671;
-  h=date:from:to:cc:subject:message-id;
-  bh=UQEhP0Hpd2F08qYS2gVORW0/3sW23TzKewMFvd4nbDQ=;
-  b=BglmDYQa2sbVwJbv1n7RXo8TMjWE1Emzf0kBk/rh3up6UbNaMcZZiEsH
-   p3c6IKq/DOlV1fSwZEmpdPZYfqYYOMDD+j5qQfXKgOUV1EOPXHe0tSHhV
-   GvYBUFTAPQf/mvY2wXvXuDllOYEPlNpXsn/1manEs7nWCuG/h4eAljpHo
-   EDClb/L0PT+byD7T9B8ciJAiViFajZhYECVFNWLVB48V2FMuDld9IQNNG
-   xkQxT8usEfWzmuWWRzfrhWoWzxFPgdAaItxvkKSORDrJDsvMaGkxUJC8o
-   K+DUBatZxh2guvdUsq/O9FfKo+2aEZMfxCxjhR5HdYHLvRcpuFu/nAfMV
-   Q==;
-X-CSE-ConnectionGUID: R3mRFJBYTM+mX4uuehC9/A==
-X-CSE-MsgGUID: rnuIqiPFTa+6sqYc2XUy+Q==
-X-IronPort-AV: E=McAfee;i="6700,10204,11325"; a="63679884"
-X-IronPort-AV: E=Sophos;i="6.13,233,1732608000"; 
-   d="scan'208";a="63679884"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Jan 2025 23:04:27 -0800
-X-CSE-ConnectionGUID: ZrYYIL8CQOW6gHcC0PowIw==
-X-CSE-MsgGUID: EBj0IhCTR2i7OlX6T4YvsQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="145197304"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by orviesa001.jf.intel.com with ESMTP; 24 Jan 2025 23:04:27 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tbaDP-000daN-3B;
-	Sat, 25 Jan 2025 07:04:23 +0000
-Date: Sat, 25 Jan 2025 15:03:52 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:soc/dt] BUILD SUCCESS
- 3c9690f76d66f45f727e00c838faba9a3ef4e295
-Message-ID: <202501251546.zA1h6Jma-lkp@intel.com>
-User-Agent: s-nail v14.9.24
+	Sat, 25 Jan 2025 07:05:27 +0000
+Received: from phl-compute-01.internal (phl-compute-01.phl.internal [10.202.2.41])
+	by mailfout.stl.internal (Postfix) with ESMTP id 3EA3711400C5;
+	Sat, 25 Jan 2025 02:05:21 -0500 (EST)
+Received: from phl-mailfrontend-02 ([10.202.2.163])
+  by phl-compute-01.internal (MEProxy); Sat, 25 Jan 2025 02:05:21 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=testtoast.com;
+	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
+	:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to; s=fm3; t=1737788721; x=1737875121; bh=C9i7gm4WAx
+	SUWE4yayXltdWJDnwH6ceARKDHxirqIGo=; b=sVRBfj0+MaZlDukOD5hReT6NgI
+	lh0uIVp+Lbz3fv2xLDquWXv3gOH8G6X1YRcjDerLSSj/xvV70UYGZ7zvb1wbb7We
+	0skXvBOo63LiwWi5y9b+l8Mry6Z48MqNqSscfgS7sAvpIEpQdDPLMVbyJsgH8EPk
+	WB50zZQUx2u9cpzQ2NnPbX5lawS7nK2kImBL78REq9oAkCMF8n8faKyuTqFsgbrU
+	io6HBh3PtIoeoydWpTjzTs8jtvBPiYgMi1hQ9U5U36kqiuHt5MCV/+Lhxu7boA07
+	juqVSFUaA6y7UCtHfJHiWcFHn/UqqbVofkY3+Qg1CL0tQS7G0x63YN6SMIAg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1737788721; x=1737875121; bh=C9i7gm4WAxSUWE4yayXltdWJDnwH6ceARKD
+	HxirqIGo=; b=v2u+DZnMyOTKZJolmZf9caq1hXRxjaoG3wUIdZI7byacovVY+uE
+	iAD+ecT23FAwKAamCIevSwmjk4ybJF+GmD19Wgt/tdhRCe0SkTelCYhlo/mrtQln
+	BToQ+k9+qpVLSLRUb2HAuaPgMljDvjCk5vCZMh90T3zo1X+58X32V4LcHMg/BoKD
+	krfK8U+sqgV/omvudGNq77nfTsvYsJ0105v8poMcLvi1biKnIr2BEjF4vxsWuqrT
+	6UWuPohQxbhoFz4QZPoYnDqxm4WUg0w7QAusQeNEuBmtNDF2c55MNwY3Tpn8x9Kp
+	8IYmMMud6FYpF9igesKKSkX/yJ/2qWgV1Cg==
+X-ME-Sender: <xms:L42UZ_1hoYkfk0gHnFhAwrDXhTyTJiBvFeIKj5ZGUyu-zABfthbTvA>
+    <xme:L42UZ-Ei8pr06ep39HAzdeV20bTYvUeA2uZPnXgv_tt0FXEMCLQEVtPxeThLFrjSM
+    icBmV9WJnNPsGMqTQ>
+X-ME-Received: <xmr:L42UZ_5XO8GmmJrMoL05_e1LQxVcySituHjwLaFfVoxbSMDjCR0QHPVqnoW9pQ8LNAf8eWzN7pdfyosrP3Gok9a7QXyear-qGTb0pmhvEazO>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrudejgedgieejhecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
+    hnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffoggfgsedtkeertdertddtnecu
+    hfhrohhmpefthigrnhcuhggrlhhklhhinhcuoehrhigrnhesthgvshhtthhorghsthdrtg
+    homheqnecuggftrfgrthhtvghrnhepuddvueduueegtdeuffetveevgeehhedvhfefuddu
+    veekgffgfedtheegtefhhfffnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
+    hmrghilhhfrhhomheprhihrghnsehtvghsthhtohgrshhtrdgtohhmpdhnsggprhgtphht
+    thhopedufedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheplhhgihhrugifohhoug
+    esghhmrghilhdrtghomhdprhgtphhtthhopegsrhhoohhnihgvsehkvghrnhgvlhdrohhr
+    ghdprhgtphhtthhopehpvghrvgigsehpvghrvgigrdgtiidprhgtphhtthhopehtihifrg
+    hisehsuhhsvgdrtghomhdprhgtphhtthhopeifvghnshestghsihgvrdhorhhgpdhrtghp
+    thhtohepjhgvrhhnvghjrdhskhhrrggsvggtsehgmhgrihhlrdgtohhmpdhrtghpthhtoh
+    epshgrmhhuvghlsehshhholhhlrghnugdrohhrghdprhgtphhtthhopehlihhnuhigqdhs
+    ohhunhgusehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrg
+    hrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhg
+X-ME-Proxy: <xmx:L42UZ00XXj7EQp1II1_6eGZHTy_kgqC3j2scXnsKpv5eE26G_PYSHA>
+    <xmx:L42UZyHePpRkFETSkVOaywQJP9BhBuuTW44a11ybmkSqCHkO6pv1oQ>
+    <xmx:L42UZ1_WqH9Cj3igKMahIzLvwe_wKDUyGCY-5vljhWikKbWd42C8Qg>
+    <xmx:L42UZ_kxrn9z3IbY4yazrVWwef04WgQ9jIaLUS6NVXt0wTsoGmQTSw>
+    <xmx:MY2UZ-FftMkN0oGL16b1r48GldvxnBTdXrWFkcizIo2dLxCEOzSigy62>
+Feedback-ID: idc0145fc:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
+ 25 Jan 2025 02:05:15 -0500 (EST)
+From: Ryan Walklin <ryan@testtoast.com>
+To: Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	Chris Morgan <macromorgan@hotmail.com>,
+	Ryan Walklin <ryan@testtoast.com>
+Subject: [PATCH v2 0/5] ASoC: sun4i-codec: add headphone dectection for Anbernic RG35XX devices
+Date: Sat, 25 Jan 2025 20:00:10 +1300
+Message-ID: <20250125070458.13822-1-ryan@testtoast.com>
+X-Mailer: git-send-email 2.48.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250124_230431_014609_4EAE86A6 
-X-CRM114-Status: UNSURE (   5.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250124_230525_785760_0A9ED9E5 
+X-CRM114-Status: GOOD (  11.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,149 +119,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/dt
-branch HEAD: 3c9690f76d66f45f727e00c838faba9a3ef4e295  Merge tag 'aspeed-6.14-devicetree' of https://git.kernel.org/pub/scm/linux/kernel/git/joel/bmc into soc/dt
+Hi All, 
 
-elapsed time: 1109m
+V2 of this patch adding support for headphone detection on the Anbernic RG35XX series. No functional changes on this revision, patches refactored to more clearly represent a single change per individual patch, remove vendor prefixing for the device tree binding, improve documentation of the DAPM widget changes and associated UCM, and small whitespace fixes.
 
-configs tested: 129
-configs skipped: 4
+Original message below:
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+This series adds the required device tree bindings to describe GPIOs for jack detection in the sun4i-codec driver, adds support for jack detection to the codec machine driver, and describes the hardware configuration in the RG35XX DTS. The existing speaker amplifier GPIO pin can then be used in concert with jack detection to enable userspace sound servers (via an ALSA UCM configuration) to disable the speaker route when headphones are connected.
 
-tested configs:
-alpha                             allnoconfig    gcc-14.2.0
-alpha                            allyesconfig    gcc-14.2.0
-arc                              alldefconfig    gcc-13.2.0
-arc                              allmodconfig    gcc-13.2.0
-arc                               allnoconfig    gcc-13.2.0
-arc                              allyesconfig    gcc-13.2.0
-arc                        nsim_700_defconfig    gcc-13.2.0
-arc                 nsimosci_hs_smp_defconfig    gcc-13.2.0
-arc                   randconfig-001-20250124    gcc-13.2.0
-arc                   randconfig-002-20250124    gcc-13.2.0
-arm                              allmodconfig    gcc-14.2.0
-arm                               allnoconfig    clang-17
-arm                              allyesconfig    gcc-14.2.0
-arm                         at91_dt_defconfig    clang-20
-arm                   randconfig-001-20250124    clang-17
-arm                   randconfig-002-20250124    gcc-14.2.0
-arm                   randconfig-003-20250124    gcc-14.2.0
-arm                   randconfig-004-20250124    clang-19
-arm                          sp7021_defconfig    gcc-14.2.0
-arm                    vt8500_v6_v7_defconfig    gcc-14.2.0
-arm64                            allmodconfig    clang-18
-arm64                             allnoconfig    gcc-14.2.0
-arm64                 randconfig-001-20250124    clang-20
-arm64                 randconfig-002-20250124    clang-20
-arm64                 randconfig-003-20250124    clang-19
-arm64                 randconfig-004-20250124    clang-20
-csky                              allnoconfig    gcc-14.2.0
-csky                  randconfig-001-20250124    gcc-14.2.0
-csky                  randconfig-002-20250124    gcc-14.2.0
-hexagon                          allmodconfig    clang-20
-hexagon                           allnoconfig    clang-20
-hexagon               randconfig-001-20250124    clang-20
-hexagon               randconfig-002-20250124    clang-14
-i386                             allmodconfig    gcc-12
-i386                              allnoconfig    gcc-12
-i386                             allyesconfig    gcc-12
-i386        buildonly-randconfig-001-20250124    clang-19
-i386        buildonly-randconfig-002-20250124    clang-19
-i386        buildonly-randconfig-003-20250124    gcc-12
-i386        buildonly-randconfig-004-20250124    gcc-12
-i386        buildonly-randconfig-005-20250124    gcc-12
-i386        buildonly-randconfig-006-20250124    gcc-12
-i386                                defconfig    clang-19
-loongarch                        allmodconfig    gcc-14.2.0
-loongarch                         allnoconfig    gcc-14.2.0
-loongarch             randconfig-001-20250124    gcc-14.2.0
-loongarch             randconfig-002-20250124    gcc-14.2.0
-m68k                             allmodconfig    gcc-14.2.0
-m68k                              allnoconfig    gcc-14.2.0
-m68k                             allyesconfig    gcc-14.2.0
-microblaze                       allmodconfig    gcc-14.2.0
-microblaze                        allnoconfig    gcc-14.2.0
-microblaze                       allyesconfig    gcc-14.2.0
-mips                              allnoconfig    gcc-14.2.0
-mips                  cavium_octeon_defconfig    gcc-14.2.0
-nios2                             allnoconfig    gcc-14.2.0
-nios2                 randconfig-001-20250124    gcc-14.2.0
-nios2                 randconfig-002-20250124    gcc-14.2.0
-openrisc                          allnoconfig    gcc-14.2.0
-openrisc                         allyesconfig    gcc-14.2.0
-openrisc                            defconfig    gcc-14.2.0
-parisc                           allmodconfig    gcc-14.2.0
-parisc                            allnoconfig    gcc-14.2.0
-parisc                           allyesconfig    gcc-14.2.0
-parisc                              defconfig    gcc-14.2.0
-parisc                randconfig-001-20250124    gcc-14.2.0
-parisc                randconfig-002-20250124    gcc-14.2.0
-powerpc                          allmodconfig    gcc-14.2.0
-powerpc                           allnoconfig    gcc-14.2.0
-powerpc                          allyesconfig    clang-16
-powerpc                 mpc8315_rdb_defconfig    clang-20
-powerpc                     ppa8548_defconfig    gcc-14.2.0
-powerpc               randconfig-001-20250124    gcc-14.2.0
-powerpc               randconfig-002-20250124    gcc-14.2.0
-powerpc               randconfig-003-20250124    clang-20
-powerpc                      tqm8xx_defconfig    clang-20
-powerpc                 xes_mpc85xx_defconfig    gcc-14.2.0
-powerpc64             randconfig-001-20250124    gcc-14.2.0
-powerpc64             randconfig-002-20250124    clang-20
-powerpc64             randconfig-003-20250124    clang-19
-riscv                            allmodconfig    clang-20
-riscv                             allnoconfig    gcc-14.2.0
-riscv                            allyesconfig    clang-20
-riscv                               defconfig    clang-19
-riscv                 randconfig-001-20250124    clang-19
-riscv                 randconfig-002-20250124    gcc-14.2.0
-s390                             allmodconfig    clang-19
-s390                              allnoconfig    clang-20
-s390                             allyesconfig    gcc-14.2.0
-s390                          debug_defconfig    gcc-14.2.0
-s390                                defconfig    clang-15
-s390                  randconfig-001-20250124    gcc-14.2.0
-s390                  randconfig-002-20250124    clang-20
-sh                               allmodconfig    gcc-14.2.0
-sh                                allnoconfig    gcc-14.2.0
-sh                               allyesconfig    gcc-14.2.0
-sh                                  defconfig    gcc-14.2.0
-sh                    randconfig-001-20250124    gcc-14.2.0
-sh                    randconfig-002-20250124    gcc-14.2.0
-sh                           se7751_defconfig    gcc-14.2.0
-sh                            titan_defconfig    gcc-14.2.0
-sparc                            allmodconfig    gcc-14.2.0
-sparc                             allnoconfig    gcc-14.2.0
-sparc                 randconfig-001-20250124    gcc-14.2.0
-sparc                 randconfig-002-20250124    gcc-14.2.0
-sparc64                             defconfig    gcc-14.2.0
-sparc64               randconfig-001-20250124    gcc-14.2.0
-sparc64               randconfig-002-20250124    gcc-14.2.0
-um                               allmodconfig    clang-20
-um                                allnoconfig    clang-18
-um                               allyesconfig    gcc-12
-um                                  defconfig    clang-20
-um                             i386_defconfig    gcc-12
-um                    randconfig-001-20250124    gcc-12
-um                    randconfig-002-20250124    clang-20
-um                           x86_64_defconfig    clang-15
-x86_64                            allnoconfig    clang-19
-x86_64                           allyesconfig    clang-19
-x86_64      buildonly-randconfig-001-20250124    gcc-12
-x86_64      buildonly-randconfig-002-20250124    gcc-12
-x86_64      buildonly-randconfig-003-20250124    clang-19
-x86_64      buildonly-randconfig-004-20250124    clang-19
-x86_64      buildonly-randconfig-005-20250124    clang-19
-x86_64      buildonly-randconfig-006-20250124    clang-19
-x86_64                              defconfig    gcc-11
-xtensa                            allnoconfig    gcc-14.2.0
-xtensa                  nommu_kc705_defconfig    gcc-14.2.0
-xtensa                randconfig-001-20250124    gcc-14.2.0
-xtensa                randconfig-002-20250124    gcc-14.2.0
+Thanks to Chris Morgan for his assistance putting this series together.
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Regards,
+
+Ryan
+
+Chris Morgan (4):
+  ASoC: dt-bindings: sun4i-a10-codec: add hp-det-gpios
+  ASoC: sun4i-codec: correct dapm widgets and controls for h616
+  ASoC: sun4i-codec: support hp-det-gpios property
+  arm64: dts: allwinner: h700: Add hp-det-gpios for Anbernic RG35XX
+
+Ryan Walklin (1):
+  ASoC: sun4i-codec: change h616 card name
+
+ .../sound/allwinner,sun4i-a10-codec.yaml      |  6 ++
+ .../sun50i-h700-anbernic-rg35xx-2024.dts      |  5 +-
+ sound/soc/sunxi/sun4i-codec.c                 | 59 ++++++++++++++++++-
+ 3 files changed, 67 insertions(+), 3 deletions(-)
+
+-- 
+2.48.1
+
 
