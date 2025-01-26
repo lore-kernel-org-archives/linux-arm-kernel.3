@@ -4,100 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 645C0C0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jan 2025 00:46:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 848C8C0218C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jan 2025 01:57:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e571IkY7EK87y3Sunky/t3TOpY/BAarwHBxbWfeNYyU=; b=XHCB6z7lfbEKv4Xwtngxc1qxT4
-	c/72CwFr5sAHg6pFsAgYw1IdKi0ea7wiDtEoSKFxEImci6CHUzVGbJVjB9uQnb67ku5TSzS1Oa28J
-	EUQgem6aua7XhFhvWvn+V0lL3yb7VFM0jkk5V1y5UDDAG1zF/kx+QgpwW/fWUsahy0egSFNYsEO7W
-	6yGm8oGFGkX+XOVRGOaaZL08a5Qu55MaKtsOQjnZJechRpZmqR2IGyDUyXO6YRHPjwsAYLIQyH2bd
-	qhuCREBYc7DITMJI6Vr/K9G7Ps2typrJDfrBhjew4yN1O+fmNkpUivDCRwdLEop9XLXo0s0p0Rj94
-	4xHlqnkg==;
+	bh=rlwAWxWxHq9jBioa+OPFge+D1FchZhTsMwVSUxdLRyw=; b=RhuMF+i28DCM9rmQc44iRY98+F
+	w+UWOiYIFtgGO7YI7V4kzcu3Bq6ROC81OY3AfYX6HU5rWqt410M5BKHOheE0pl6qIy6aUr3e64nyX
+	1TECGi4cI3hf8IvcudhR/4XmX+8/v6q2k3Jn5rSVsabH6ePJ2HdwkIHvf87gjh7ARuNqKzuXP7y21
+	DtJXzBMHpfISO5aAZNAtVBsutd5Zcr+ecUKVzVK4NYXxf/NTHGB9lMV9Ht7+p6BDt8IBIzetfy2JD
+	n/sl5cxOxTtST922iygqiX2hi8B59QgV0RH+JpsbN79p0Sn267V0Pm5onEvmWCTER4U92BfTL3X++
+	P4BbHkmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbqnG-0000000H0nm-0Ss7;
-	Sun, 26 Jan 2025 00:46:30 +0000
-Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
+	id 1tbrtL-0000000H3KC-2lbh;
+	Sun, 26 Jan 2025 01:56:51 +0000
+Received: from mail-oa1-x2c.google.com ([2001:4860:4864:20::2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbqly-0000000H0l9-0R6k
+	id 1tbrrQ-0000000H3G4-1qdd
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Jan 2025 00:45:11 +0000
-Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-304d757a9c1so36453081fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Jan 2025 16:45:08 -0800 (PST)
+	Sun, 26 Jan 2025 01:54:54 +0000
+Received: by mail-oa1-x2c.google.com with SMTP id 586e51a60fabf-2aa17010cbcso1467436fac.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Jan 2025 17:54:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1737852306; x=1738457106; darn=lists.infradead.org;
+        d=bytedance.com; s=google; t=1737856487; x=1738461287; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=e571IkY7EK87y3Sunky/t3TOpY/BAarwHBxbWfeNYyU=;
-        b=cCUaoAsIrsqmpSXXRpVacJa15waRfGxf1tDXMiKqfJxgCpBbrJ0NvtQcn+t58gGGGA
-         CCmVrZxaA2rILtrgLZQntbPYQy5VEjY39qo0yUHi5rOyT1XjMK1AajBO8TQ0NJXj8sJI
-         9D30dFSwpDqUdz/f0xfPmTCAtijG3tWM5F6pU=
+        bh=rlwAWxWxHq9jBioa+OPFge+D1FchZhTsMwVSUxdLRyw=;
+        b=ccm17t/uG6343DkcyFm4C/sMPvnhpt967hX+1FDq/il1L+DYvjYUGNpa2yDW+WRhoa
+         4J7wIs8y2LcJJRM5vzA5uVRbe1GbGpNXNGUAyErzkBRzaHC6rZh0czJI3WQyyynxcLU0
+         Hb0ew0SEGaF6kFFL0HLcoiBkWXeTNboI+UYtWm9Y0HWFvo7ZHRiFXYTbYrFhhfpE3JtR
+         hULjA4ztvEnCRNA9qC5PPjV3xVJ7m2DGAFYr1B3aQQcV8DEjWlqQ/SyTUxXgBOPeeyaw
+         KppYEDIX1uMCqO4TSkLIAOR5Xd8G7USgoT5nZ8WFbx2nX+kds6dllk+KCmN1yPtLG9Z/
+         KLTg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737852306; x=1738457106;
+        d=1e100.net; s=20230601; t=1737856487; x=1738461287;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=e571IkY7EK87y3Sunky/t3TOpY/BAarwHBxbWfeNYyU=;
-        b=S1BQezPGQQ8tnj8Y2P7OuiIH5/s/76HkXXg4irSDaZBUS1jZGxR2PMIRL2HDl1ZXDr
-         Um7is0OH8mrKqzVUBVtfxJDaLN387Nl9qkrzOlDNwzOvMtgvwOwrS30yGNFCEm1fqVRs
-         nmpAjp2l1W6fczi0FKiI2kpMMASA7hiubfNmXDVWsX1A22WhPuKfTZiAOqObcdusdWib
-         IqJX/d2mCPaYxlZqUu6MAC6XMDgIORA32hk+l2ZR8SwE/pG74Qi1LHh3H0s7KsR1CxAE
-         fkbt6wt1zWFqtmBG+MSQIe6aDza/S2c7XZJUgNsjmFvceIlXNK2rlV2ze5HTQ3wByYU9
-         waPw==
-X-Forwarded-Encrypted: i=1; AJvYcCXOX9JXkoBNyp4poCCm4N8o2c5fj+KPPwlg2/Td8sd5oidpYilQ4O1k95ibwjW8S/aAZ/GTd9aptSMDXBZDlh4w@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQJffHohh+hhKSmpIQPKkaHYNmZ6G5iZpx0Cj85OZcGkoJY/Yr
-	mJrQOzG9cxpnJBmpDoq8vJeCciINPs0IXOuPhsuTGzxNQV0YLuZZVsmuPqVuetgkWG0SYfzCNwu
-	XmA==
-X-Gm-Gg: ASbGncslgpTTXvmw65VTA95h2LOskKlsiuR9VIalGLVdrJWCWFTbxwHaTM+KtSe8mbR
-	SAe/fRs9tg8MQyko6+wZfooUNBCuZmkOAXhBRHiO0yYrMts2sx+crlke0nAXfQ61C1bcrzPAynx
-	BKM9d/F+QAUyJOBc7mwnb/elGrlqnI9pPB4porHdMt/ArQxm5liZnyrgUQ6TUKMRezi7kE8E6kZ
-	gkVosrvssH6lpCCY41eHt1QdvPvi1acyhaAek/FY9TwVjtkDZ6V+mKVtP9D9DIlGNjnE60nRmQw
-	HLAzK9kDde1P+IYcpJf5IKtJvbGeuJUFNJ2JB/rPp1CZB5Ko
-X-Google-Smtp-Source: AGHT+IFNmHuMTKeR+vaVpZhIr4HotxqyBxSWgjLunlRON3E3/2ZW6/BJNu12EJO5gCedwMkpVSKdaA==
-X-Received: by 2002:a2e:bc27:0:b0:2ff:df01:2b4c with SMTP id 38308e7fff4ca-30761b8bfbamr39648431fa.4.1737852306468;
-        Sat, 25 Jan 2025 16:45:06 -0800 (PST)
-Received: from mail-lj1-f179.google.com (mail-lj1-f179.google.com. [209.85.208.179])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3076bc1978esm8434351fa.71.2025.01.25.16.45.04
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 25 Jan 2025 16:45:04 -0800 (PST)
-Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-30219437e63so45260211fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Jan 2025 16:45:04 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWhndLKoncmxJ54VnnekHWX9nSpvv0xEB6mcpivW4oN1EUsC0Idh22wfGI3+5P44w8WCGZMfSl1qkAUVBn4ayDA@lists.infradead.org
-X-Received: by 2002:a05:651c:205c:b0:300:17a3:7af9 with SMTP id
- 38308e7fff4ca-30761c517bdmr37753901fa.19.1737852303712; Sat, 25 Jan 2025
- 16:45:03 -0800 (PST)
+        bh=rlwAWxWxHq9jBioa+OPFge+D1FchZhTsMwVSUxdLRyw=;
+        b=pCfqZwnhGBh1XFCVBmIR+zWU26/+grtQV7miHQ7WMzimP3z/3A58m6bk+Sr2HCSAuy
+         lsHvySSMN/08Km8B9CaznCEY4Px8YLTbArFqGsTJt8mr3fCJq6wRWf4OWqm0h/c/OXt5
+         7j+bS07fBzH2nF2lPo7fTf5OtVJr2Y08dOI/b6H5ZqkQro+HH06KKIqTUxnYn20VJccR
+         4yC5/FF4SyXI8KgPUWk6uZW4WyFmdM6xyJRUF8+8D8NBYNrZFn392PPeR7qP3rxzGgty
+         gq18VgSOptRhSXrm0wPYB7nfUii5DjCAfsJFKy1ZX9a90wNFatxXE8/OfGGS4YZBtP9f
+         mRiA==
+X-Forwarded-Encrypted: i=1; AJvYcCWeK86FjtRlUlos1kRoIHiIrSkFrPm8G3SngfeK3k9aYvq/TQJn4cfwo5wtXtJPvgR5Fg4I8XMvsTz80DA/MqSo@lists.infradead.org
+X-Gm-Message-State: AOJu0YwlLv83h+Ez4DcvyPd8wz3OLXssngnrmjGaJGFOssq8ymCmj/Fi
+	yGWRwEn/ePVf9WP1MQDs1+U+ahBf5g89MsLwIsd2MrASOhYBaXZirGLiGcAvs+C5KTvuLXz6P5Y
+	cFaGuYw5ye6R6KoXvKym+2I5reYfyU3/Fk8b2rA==
+X-Gm-Gg: ASbGncv8hK3ds511skB8N99vUMTOQtt8jS9C+H0CCbNw06EtkR0J1z79gkpaSJrNoGP
+	UJyudJjCMg7i6JOIH3G9/SEC366GeBcD/OH1P3mtQNSVaSOhcj5pJ10HNPxBYewcq
+X-Google-Smtp-Source: AGHT+IEXOf1ihKfapU13xYBIhLv4gy8wQGEe7hCvBOcSSCO0IvhngnY90gf7S+TP4D+yRKoMLT+l8Ks62C3W/Etv9bk=
+X-Received: by 2002:a05:6871:630e:b0:2a0:1162:425a with SMTP id
+ 586e51a60fabf-2b1c0c55429mr19339653fac.26.1737856487102; Sat, 25 Jan 2025
+ 17:54:47 -0800 (PST)
 MIME-Version: 1.0
-References: <20250123100747.1841357-1-damon.ding@rock-chips.com>
- <20250123100747.1841357-13-damon.ding@rock-chips.com> <rwn3g7tqgjnc525cjqtivgfgedhooiayn5nujng7bdzazgqhle@wfpuvoyr2tii>
- <CAD=FV=WKsA9fcq-LzGcYmgbMuMLUp5SMggpzBzZnvd3sxGf9BQ@mail.gmail.com> <7ef0454b-fddd-44c0-be4a-c81c443f08f6@rock-chips.com>
-In-Reply-To: <7ef0454b-fddd-44c0-be4a-c81c443f08f6@rock-chips.com>
-From: Doug Anderson <dianders@chromium.org>
-Date: Sat, 25 Jan 2025 16:44:51 -0800
-X-Gmail-Original-Message-ID: <CAD=FV=XZOfqcV51Sog3CNBe0mengYyX5cRbftdDY0e73mZNWQA@mail.gmail.com>
-X-Gm-Features: AWEUYZlT8dd77sVC0SZMqkozj-k92yxOjbM1lGN9IVzDz0DDUqySb4xOYDl6kKM
-Message-ID: <CAD=FV=XZOfqcV51Sog3CNBe0mengYyX5cRbftdDY0e73mZNWQA@mail.gmail.com>
-Subject: Re: [PATCH v6 12/14] drm/edp-panel: Add LG Display panel model LP079QX1-SP0V
-To: Damon Ding <damon.ding@rock-chips.com>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, heiko@sntech.de, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, rfoss@kernel.org, vkoul@kernel.org, 
-	sebastian.reichel@collabora.com, cristian.ciocaltea@collabora.com, 
-	l.stach@pengutronix.de, andy.yan@rock-chips.com, hjc@rock-chips.com, 
-	algea.cao@rock-chips.com, kever.yang@rock-chips.com, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org
+References: <20250123074830.90923-1-cuiyunhui@bytedance.com>
+ <344c53cd-d856-4c03-9deb-743b65acd8aa@linux.alibaba.com> <CAEEQ3wmDej9bbPUmkx-ZrD4FG9Z7gTHMeCrVszx64g90O0RyiQ@mail.gmail.com>
+ <31e00081-8695-4ca6-a1ef-af5a007a7565@linux.alibaba.com> <CAEEQ3wm+f_SM7evwL=YrGy8gPLS5YdJm=qhJNT8bbMH7QBOzEA@mail.gmail.com>
+ <20250124122952.GB23438@willie-the-truck>
+In-Reply-To: <20250124122952.GB23438@willie-the-truck>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Sun, 26 Jan 2025 09:54:35 +0800
+X-Gm-Features: AWEUYZnjTNudJLKYBjStW-XVXHtOfqxKQ5nXUCNPH1jPKAdahkJrAo65xHG4-aw
+Message-ID: <CAEEQ3wnTMfWSZRhTax3N60W=m3a=zxnJF6dOfiGnqJzBQs8WEg@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH] perf/dwc_pcie: fix duplicate pci_dev devices
+To: Will Deacon <will@kernel.org>
+Cc: Shuai Xue <xueshuai@linux.alibaba.com>, renyu.zj@linux.alibaba.com, 
+	mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, 
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250125_164510_172359_D74FA50B 
-X-CRM114-Status: GOOD (  13.83  )
+X-CRM114-CacheID: sfid-20250125_175452_816440_09E8AFE6 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,39 +97,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Will,
 
-On Fri, Jan 24, 2025 at 8:18=E2=80=AFPM Damon Ding <damon.ding@rock-chips.c=
-om> wrote:
+On Fri, Jan 24, 2025 at 8:30=E2=80=AFPM Will Deacon <will@kernel.org> wrote=
+:
 >
-> >>>   #define EDP_PANEL_ENTRY(vend_chr_0, vend_chr_1, vend_chr_2, product=
-_id, _delay, _name) \
-> >>>   { \
-> >>>        .ident =3D { \
-> >>> @@ -1955,6 +1961,8 @@ static const struct edp_panel_entry edp_panels[=
-] =3D {
-> >>>        EDP_PANEL_ENTRY('C', 'S', 'W', 0x1100, &delay_200_500_e80_d50,=
- "MNB601LS1-1"),
-> >>>        EDP_PANEL_ENTRY('C', 'S', 'W', 0x1104, &delay_200_500_e50, "MN=
-B601LS1-4"),
-> >>>
-> >>> +     EDP_PANEL_ENTRY('E', 'T', 'C', 0x0000, &delay_50_500_e200, "LP0=
-79QX1-SP0V"),
+> On Fri, Jan 24, 2025 at 05:11:05PM +0800, yunhui cui wrote:
+> > > >>>        vsec =3D dwc_pcie_des_cap(pdev);
+> > > >>>        if (!vsec)
+> > > >>>                return -ENODEV;
+> > > >>>
+> > > >>>        sbdf =3D plat_dev->id;
+> > > >>> -     name =3D devm_kasprintf(&plat_dev->dev, GFP_KERNEL, "dwc_ro=
+otport_%x", sbdf);
+> > > >>> +     name =3D devm_kasprintf(&plat_dev->dev, GFP_KERNEL, "dwc_ro=
+otport_%d_pmu", sbdf);
+> > > >>
+> > > >> A new name will break previous user tools.
+> > > > This name isn't suitable. It can't clearly show which is the PMU
+> > > > device. Userspace tools don't have binding relationships, like perf=
+.
+> > > > Tools must traverse PMU devices before use.
+> > >
+> > > The device is under /sys/bus/event_source/ which indates it is PMU de=
+vice.
+> > > As far as I know, most of PMU devices do not endup with a '_pmu' pref=
+ix.
 > >
-> > I don't love that the ID is 0x0000. That makes me nervous that the
-> > panel vendor isn't setting the ID properly. ...but at least the string
-> > matches in the EDID so hopefully that will be enough to uniquely
-> > identify things.
-> >
-> >
+> > The point is the name "dwc_rootport_" is misleading, suggesting an
+> > extra PCIE RP in the system. Best to change the name to intuitive
+> > "xx_pmu".
 >
-> The ID "0x0000" makes me nervous too, but the EDID obtained from this
-> panel indeed show it, which is quite surprising. May I still set it to
-> "0x0000" as it really is?
+> As pointed out above, changing the name will break userspace. So it's
+> simply not an option, sorry.
 
-Yeah, keep it as 0x0000. Since the panel name is in the EDID then
-commit bf201127c1b8 ("drm/panel-edp: Match edp_panels with panel
-identity") should provide some safety.
+Could you specify what in the userspace is broken and give an example?
 
--Doug
+>
+> Will
+
+Thanks,
+Yunhui
 
