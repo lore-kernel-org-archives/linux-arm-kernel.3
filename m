@@ -4,103 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4CC8C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jan 2025 10:39:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9C9FC02181
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jan 2025 11:37:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ecirtyp08OWG3CnMrgQHnomqjmrMG04Uo5mPDcC4TFM=; b=IJQVFaVBubzw3FcsxyhA9JR0Nj
-	+Ley9A+NawK7fo9z6bA6Zk1/Hg0YeL1k+iyy7mZCDeDtEh9qIpiHPKzeO1NUYa1gUT5H02WDc+BBc
-	kgHzazh1uJBOuUfryJKZVYP80llexBXXaa5uF4CcWdod9gys9ZlSXRbJDz3q7x3Owq+upiH4AKDGW
-	NZCd2wzTDTyFmg7yyObQ/YD/AphbdjUNPejH7eXwZ63kuw1gKlhyoDR7vYXBvYzeHugDsKTKMCPgh
-	SI8Kp+NJgOXE42nj962wYXbp4DEWipZMWIoBfqIuYfu++Zdahy/jeElYVcXAmGBS/ILo/M+CkTQyW
-	85xwGGEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/spJSHqIQvCifSPNA5IORZa7iILcSbhvBOGPaB29zc0=; b=YsZnOK/KRA5+KAS5rCfvBHGNBH
+	g4jGBb7hLhVvdjZA5tAw2Hah2DILLo4c1eAFmG45DOzHg0wbZVSCeqfh+DYgVi4xBkEoNqSsivi5L
+	NQUg2rohSwD2BlAmjA8zlGar9oGg56KEWwtsp5BwVav/UG6coiMu2xvblpXGZ6xyVgkiEGHEO7IX6
+	dagpVkT4bUfD6l3jyihTDlmxyF5n5QPizBvuBjKdEN6u2ZQqal4Z1TR5b4QB5Cn3w0xVcZB8YNQUr
+	v/oOCK7CX0KTzb5kzqnoQbz4Dbow7WYPX0RTAKlD20p9Y5xZIWpHBUemsAnKJgyB1VvkdKiexYfLn
+	pglmBi3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tc02W-0000000HKjZ-3ZgJ;
-	Sun, 26 Jan 2025 10:38:52 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1tc0x0-0000000HMKy-11bX;
+	Sun, 26 Jan 2025 11:37:14 +0000
+Received: from fhigh-b1-smtp.messagingengine.com ([202.12.124.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tc01F-0000000HKfj-06kR
+	id 1tc0vi-0000000HMGF-1FbZ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Jan 2025 10:37:34 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-216281bc30fso82219085ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Jan 2025 02:37:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737887852; x=1738492652; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Ecirtyp08OWG3CnMrgQHnomqjmrMG04Uo5mPDcC4TFM=;
-        b=gT5dlx92ntUiTS23MBwTicT313ITvW70cTyiNVnaqwMDoO54bD+8N/F4gGG+fgXxKh
-         U5MJ6kM/Px1mqVKdxCFXv1vUmLN/BesQN526owjbGtSd0nTFp/oibnMqXOFLFXRihjAt
-         DsYKk/SSmD2Zp3brM9+nqtJIHnOJIl7eAcK46/X+RFoPmC0TTH2jXdZvLLtJFKpZ0lOc
-         ZKI/wQ/DSBSTHhwp/LNPCU3dOGpN13dIfuoF51x2BDWx3xQAyxDafzsYju9vd2nM8Txg
-         5rYXjMDncVbx/ym7LxbeEx8uENuLI31aiNWRdtGDpBUmBAEYBUCjRSE+XUthe/gKFU/y
-         fzdQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737887852; x=1738492652;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Ecirtyp08OWG3CnMrgQHnomqjmrMG04Uo5mPDcC4TFM=;
-        b=prcGWynR/SX2LFcAg+L3xvVkBK4+Ki1p9zCX8PNbg/bE7c9lx471+wkN3WbixBNT8s
-         z5c0x5ei7bF7XDrfMQlji5TOKy355ROhE3qPxIP4iy+Hfyg3PUOdk8fhXrNJBGXcAxsz
-         T9CLSU+7I9mTHI1YsPwmbtTtLBwUsFuzJsZvA15myDJZIBtt29rY8Aujc76xs7Xi9Axa
-         l5acE5dHKPSSPkCAEkxw+/IhYvbVxZjzC6KqL4kzZTtJreE7sleO+l3a9K1uR6qpqVqn
-         qtnd2YiNI/GCp1rCSqOBH3dKOOoSgGlUW3NAjsqL0R4o5JN7XJWMgIuj54Jzhuo5oJbo
-         kW9A==
-X-Forwarded-Encrypted: i=1; AJvYcCWjlb6hPWiwpeFflKIYYrtVH17NYoIIHam+Dsy/9Nj851fnhITLDT7HIATOsB0gsOS+5lScPedLmo+1S/SEAC1q@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQJ/YR1lfAWzgoET7p1AyYzWhlSSyrITScdE/b9EYdmJISdGh1
-	9j/2XKYxetJwT0os32mJ8C4etA/o4aOWJMCzTbTE9OP1S8kH8SWm
-X-Gm-Gg: ASbGncvbXcajKmxZsdciK+w7TAvk9EEbfka0PG2mYDq3f8L/IzJ942YgmJubtW7n2KS
-	lMQiotno3bykDO6aiSyb3DWgExsnuYEa7hdEzKMMwiFK1oNpq1XuLJRUbYeE+z1fQW172ZGWkXR
-	R9iiME7vthoaIoQBYdhaKsbG7YCY9UvB3l/xWYuvyxaXDlYdKGSrUR8FTR81Cb1XVNg5SMXPrub
-	p8keEU/r/F23WfAPD/bv+Iw02PmDG0OyfXGv13wtk3/iIVrP8ccjHIlLZbMqYPeDvXzRwapDDk+
-	OQ==
-X-Google-Smtp-Source: AGHT+IFgaTg1pL07xIfW9KbW3VjCnfQqBoPnEBRDQmsyx+On2i68wqvPnp3VcevKh/0hXbChCB3geg==
-X-Received: by 2002:a17:903:32cf:b0:216:5af7:5a8e with SMTP id d9443c01a7336-21c355ec9c0mr536393545ad.26.1737887851920;
-        Sun, 26 Jan 2025 02:37:31 -0800 (PST)
-Received: from localhost ([129.146.253.192])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21da4141175sm44375105ad.117.2025.01.26.02.37.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 26 Jan 2025 02:37:31 -0800 (PST)
-Date: Sun, 26 Jan 2025 18:37:14 +0800
-From: Furong Xu <0x1207@gmail.com>
-To: Ido Schimmel <idosch@idosch.org>
-Cc: Andrew Lunn <andrew@lunn.ch>, Brad Griffis <bgriffis@nvidia.com>, Jon
- Hunter <jonathanh@nvidia.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Alexander Lobakin <aleksander.lobakin@intel.com>, Joe Damato
- <jdamato@fastly.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
- Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
+	Sun, 26 Jan 2025 11:35:55 +0000
+Received: from phl-compute-12.internal (phl-compute-12.phl.internal [10.202.2.52])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id B9F90254015C;
+	Sun, 26 Jan 2025 06:35:49 -0500 (EST)
+Received: from phl-mailfrontend-01 ([10.202.2.162])
+  by phl-compute-12.internal (MEProxy); Sun, 26 Jan 2025 06:35:50 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1737891349; x=1737977749; bh=/spJSHqIQvCifSPNA5IORZa7iILcSbhvBOG
+	PaB29zc0=; b=Y8tmgiwrz6KcJXnRZjLSOg+mPrFgoJjHoRFJ90cUjs7pBizfn31
+	JSTsv+sqG5ucSP+iXM83meBKt1kDutS/Sut2VTfg19vExS73lsIYnBmudDLDHIDw
+	fWTUNKW3br6oYNEDlSVEdLAk744nvdTUVvxXF8N2BwwlWwKhFYxluqk3y3iytkL/
+	0R5HvA7eIGpCcG7oepVIo9+n+n2VzdWOBDtfeM0o5SLgkWiC2JyV59KoIvbpOtyC
+	qCN8/ZJ3BfTpBNzjJ2gyaN6yGikklG9GQP7uE2WVOXPG8nf9Cn2tqMwEFJL6ZI8L
+	0X6pDgHkXEYIOcPcr7QMsYtRJ6urHVDQtPw==
+X-ME-Sender: <xms:FB6WZ8f-WLkuDXLB2EXrNz9FAGBL96J2UpBbmEIiSX4DBLuV3JV6QQ>
+    <xme:FB6WZ-NgNZlYbTyyhf_7z936gWiqD1VX6Vk-r1zUfsveBTwo309CSlFiawwFXfzSO
+    QTRNb7NixPyJuE>
+X-ME-Received: <xmr:FB6WZ9iKalO6abMZGMMJ8QS6oyltvuPLAuGJ2FhR2zyLiBBCHrpUIlSTLXM6>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrudejgedguddtudehucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
+    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
+    gvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkfhggtggujgesthdtredttddt
+    vdenucfhrhhomhepkfguohcuufgthhhimhhmvghluceoihguohhstghhsehiughoshgthh
+    drohhrgheqnecuggftrfgrthhtvghrnhepvddufeevkeehueegfedtvdevfefgudeifedu
+    ieefgfelkeehgeelgeejjeeggefhnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrg
+    hmpehmrghilhhfrhhomhepihguohhstghhsehiughoshgthhdrohhrghdpnhgspghrtghp
+    thhtohepudekpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopedtgiduvddtjeesgh
+    hmrghilhdrtghomhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphht
+    thhopegsghhrihhffhhishesnhhvihguihgrrdgtohhmpdhrtghpthhtohepjhhonhgrth
+    hhrghnhhesnhhvihguihgrrdgtohhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdr
+    khgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqshhtmhefvdesshhtqdhmug
+    dqmhgrihhlmhgrnhdrshhtohhrmhhrvghplhihrdgtohhmpdhrtghpthhtoheplhhinhhu
+    gidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtg
+    hpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhr
+    tghpthhtoheprghlvghkshgrnhguvghrrdhlohgsrghkihhnsehinhhtvghlrdgtohhm
+X-ME-Proxy: <xmx:FB6WZx-aHtGWYiUFgCgFz4FgkhYngiTxV03FHG6t-oTqAsi6uuJWGg>
+    <xmx:FB6WZ4s9V7tFbW6AZMlzX70tSyZdSKYJTXRti6ivZXnY4hts3FyPqw>
+    <xmx:FB6WZ4GyeuzP7gvhy1ZZhuxFbHvK_bAkdIRbIWdKDUzyVz07W6kc_w>
+    <xmx:FB6WZ3N4J8wUCnlwi038MkgNoyBawDrI15wgkw7ZvHFgpxP2FfQ5rQ>
+    <xmx:FR6WZ4SOy9OOXHnaFL47e6lgU4uX-1dkcioxVmPJM-eiyALH1GhPpZIE>
+Feedback-ID: i494840e7:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
+ 26 Jan 2025 06:35:47 -0500 (EST)
+Date: Sun, 26 Jan 2025 13:35:45 +0200
+From: Ido Schimmel <idosch@idosch.org>
+To: Furong Xu <0x1207@gmail.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Brad Griffis <bgriffis@nvidia.com>,
+	Jon Hunter <jonathanh@nvidia.com>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Alexander Lobakin <aleksander.lobakin@intel.com>,
+	Joe Damato <jdamato@fastly.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com,
+	"linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
 Subject: Re: [PATCH net-next v3 1/4] net: stmmac: Switch to zero-copy in
  non-XDP RX path
-Message-ID: <20250126183714.00005068@gmail.com>
-In-Reply-To: <Z5X1M0Fs-K6FkSAl@shredder>
-References: <cover.1736910454.git.0x1207@gmail.com>
-	<bd7aabf4d9b6696885922ed4bef8fc95142d3004.1736910454.git.0x1207@gmail.com>
-	<d465f277-bac7-439f-be1d-9a47dfe2d951@nvidia.com>
-	<20250124003501.5fff00bc@orangepi5-plus>
-	<e6305e71-5633-48bf-988d-fa2886e16aae@nvidia.com>
-	<ccbecd2a-7889-4389-977e-10da6a00391c@lunn.ch>
-	<20250124104256.00007d23@gmail.com>
-	<Z5S69kb7Qz_QZqOh@shredder>
-	<20250125224342.00006ced@gmail.com>
-	<Z5X1M0Fs-K6FkSAl@shredder>
+Message-ID: <Z5YeEVrI3zx4VOtF@shredder>
+References: <bd7aabf4d9b6696885922ed4bef8fc95142d3004.1736910454.git.0x1207@gmail.com>
+ <d465f277-bac7-439f-be1d-9a47dfe2d951@nvidia.com>
+ <20250124003501.5fff00bc@orangepi5-plus>
+ <e6305e71-5633-48bf-988d-fa2886e16aae@nvidia.com>
+ <ccbecd2a-7889-4389-977e-10da6a00391c@lunn.ch>
+ <20250124104256.00007d23@gmail.com>
+ <Z5S69kb7Qz_QZqOh@shredder>
+ <20250125224342.00006ced@gmail.com>
+ <Z5X1M0Fs-K6FkSAl@shredder>
+ <20250126183714.00005068@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250126183714.00005068@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250126_023733_069931_46F4F25B 
-X-CRM114-Status: GOOD (  14.18  )
+X-CRM114-CacheID: sfid-20250126_033554_720361_51A909EF 
+X-CRM114-Status: UNSURE (   9.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,46 +123,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 26 Jan 2025 10:41:23 +0200, Ido Schimmel wrote:
- 
-> SPH is the only scenario in which the driver uses multiple buffers per
-> packet?
-
-Yes.
-
-Jumbo mode may use multiple buffers per packet too, but they are
-high order pages, just like a single page in a page pool when using
-a standard MTU.
-
-> >         pp_params.max_len = dma_conf->dma_buf_sz;  
+On Sun, Jan 26, 2025 at 06:37:14PM +0800, Furong Xu wrote:
+> The "SPH feature" splits header into buf->page (non-zero offset) and
+> splits payload into buf->sec_page (zero offset).
 > 
-> Are you sure this is correct? Page pool documentation says that "For
-> pages recycled on the XDP xmit and skb paths the page pool will use
-> the max_len member of struct page_pool_params to decide how much of
-> the page needs to be synced (starting at offset)" [1].
+> For buf->page, pp_params.max_len should be the size of L3/L4 header,
+> and with a offset of NET_SKB_PAD.
+> 
+> For buf->sec_page, pp_params.max_len should be dma_conf->dma_buf_sz,
+> and with a offset of 0.
+> 
+> This is always true:
+> sizeof(L3/L4 header) + NET_SKB_PAD < dma_conf->dma_buf_sz + 0
 
-Page pool must sync an area of the buffer because both DMA and CPU may
-touch this area, other areas are CPU exclusive, so no sync for them
-seems better.
-
-> While "no more than dma_conf->dma_buf_sz bytes will be written into a
-> page buffer", for the head buffer they will be written starting at a
-> non-zero offset unlike buffers used for the data, no?
-
-Correct, they have different offsets.
-
-The "SPH feature" splits header into buf->page (non-zero offset) and
-splits payload into buf->sec_page (zero offset).
-
-For buf->page, pp_params.max_len should be the size of L3/L4 header,
-and with a offset of NET_SKB_PAD.
-
-For buf->sec_page, pp_params.max_len should be dma_conf->dma_buf_sz,
-and with a offset of 0.
-
-This is always true:
-sizeof(L3/L4 header) + NET_SKB_PAD < dma_conf->dma_buf_sz + 0
-
-pp_params.max_len = dma_conf->dma_buf_sz;
-make things simpler :)
+Thanks, understood, but are there situations where the device is unable
+to split a packet? For example, a large L2 packet. I am trying to
+understand if there are situations where the device will write more than
+"dma_conf->dma_buf_sz - NET_SKB_PAD" to the head buffer.
 
