@@ -4,104 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7D39C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jan 2025 12:58:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 936F4C02181
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jan 2025 14:27:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9KGHfLuP3yfCvrd6niU02daJ3MN3GQPttYCq64ynsaU=; b=d0MyUAo7U82odO/PBra2Mr+vl9
-	IUha/hwXXSsouFB07Qz3qO0/IpI9Hs9nJqkE3Oo9Pt8RI2on6iW7rZIJ9wm8MmPLMpP0WDFr3c1Vt
-	xIvQzZw9HdqIXWUtmk+28YmF56Xsg1SHQxun4HXN1CjYrptYqxImzy2i6asLz8pvvmiyYKxDkEgqZ
-	0y9tSQ98nZfyUsoYA6WidSEQGUCfddAot6T+8YSILdqrsd8j69fvBB27xOubQu6oWGsLpFb/2pdrP
-	RWGXV9u5U6vS1guSIYBVg9mBpeBsg0wkTmU8Q/74VRXDtLNRzLAyMlOMD+KK9dFyvJG2sKRkzdfQk
-	zlIIBHeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r9jWrJo0ys4LMCpA+l8+62ZIwRdxoDRE9SL/3hnuLgA=; b=JV+aK8LNuDmciKon62PwmEU4Jf
+	o4M742U6tgJoeQDi/uDjgvJc587ayKp6lX5ubRwk2CoYZRCmqyS64Wzcub4r9AKa4gb0k2VFI5Cyj
+	mCg4k3GgFaFoRNchbTXWeuPegBkUjZnJKzz5J2YQoOuTtegarDAP2F9PGMTDIjkHQzw6lPZpz7R2d
+	MmhQZw7ZDvBKtnhh3jL8BgBwp8i4mU2uiBHSHxeWENFJHhRjfwEicCHnE0vGbE4ZdMsEEnIiY2Rnb
+	W40mrVTeL96qDPus1Yk4O/fD1mXDHJa1UP7weDupj3OvW+c+SmUKiEVN0nncqMVY9NEHys2aBf2l2
+	E7BCMHEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tc2DD-0000000HOsq-2PBl;
-	Sun, 26 Jan 2025 12:58:03 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1tc3bb-0000000HSmQ-4809;
+	Sun, 26 Jan 2025 14:27:20 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tc2Bw-0000000HOoG-2ffC
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Jan 2025 12:56:45 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-21636268e43so76907435ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Jan 2025 04:56:44 -0800 (PST)
+	id 1tc3aL-0000000HSYj-0hCc;
+	Sun, 26 Jan 2025 14:26:02 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-2f43d17b0e3so6560107a91.0;
+        Sun, 26 Jan 2025 06:26:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737896204; x=1738501004; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9KGHfLuP3yfCvrd6niU02daJ3MN3GQPttYCq64ynsaU=;
-        b=DJkXbuqZMeap2OVnxyyFB2dCcGSLrhzJDK8r9P3Cx0zsDx6tW5PfgUAlqGn4e1WJQY
-         D/0s/kbFfGkERQkUwEYsGvIB8pbFPymgEQirVaXoOaHhHnUUdQ6MRWK7CL1CY/qTDOSC
-         nLi0qikrQ985utSG8Z9Jjn9+Gke/Dq6BTHspRvyAo4FrT6gbavjYBDh30GuJONbtau8o
-         TzhY6wnN9hPk3nZYDqj8TBotfa5yXijxGhCrRtG3e2n3jSrB6M/2D+WSbHRNZYoaqcd+
-         F+fJuzIVYeNnUPgoXJz0NusN+5ORryiJUZcPewDOnpY4TshV0htMKmuv4Tj1dymU+bcQ
-         WvBg==
+        d=gmail.com; s=20230601; t=1737901559; x=1738506359; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=r9jWrJo0ys4LMCpA+l8+62ZIwRdxoDRE9SL/3hnuLgA=;
+        b=iAcjtkkC/78GxAPv+OYLkccJXgJSzCU17IINdstF31x/3k4KDAizQ1OkEO3WrCbEvZ
+         ZqxYlpH6ovs1ZBlLLxDj6eEuFFNrARrUDloTd5BVVWo4rw1bREEjF68SDVPtGxoPmk04
+         08ZSm1QLN+iSFEJp6JMsRvkrTtoOJQUQnckkkTLYrRmTb6O9XurMKTxfy7os/gX8D8sm
+         GTmK8273VQJQ4Kl44poB1WXa2EFpTTMRoOI6wpnrbhD3In0aDW9JLxwSCk9YYsHzDSk8
+         8+W95mZ9rerheYuDT1Nt7o3cuAsiYU9mtaakFiZyvL349cKgmWSfN49deMUaLPpfycj8
+         FRcA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737896204; x=1738501004;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=9KGHfLuP3yfCvrd6niU02daJ3MN3GQPttYCq64ynsaU=;
-        b=qPeWHiGwMyC41ptcR51avVrs9Q3w5d/mLONvDe5N+2/YRdQtKh4FhQf1y8pukdWGzr
-         SkSQvQgXXsuSE+Y6F1FPrCVMsqk842y+EXEU2SpyHpcISZYTMAtgeSIpWips8vQGabV6
-         0Ky6AbNEef0Og+WyaCAOJvV6i9gFKLDEEnw6xeo2iRBNsbk4noxjgPBUpYBNtW3G/edo
-         WcvBTa2JZv/vl1XLAQ0KTXMkdhWSgmZM7SN+YlE18ltNZ9WVupc2EahlekGH8aKES2HC
-         h/Ml9PCFSpnwoSGcvBPtTcq3awwMr8BB/WVp3M9RSEyMMngo3zzfqQIcO26G4Fjg65rZ
-         cHEw==
-X-Forwarded-Encrypted: i=1; AJvYcCUUgzYIGcN+NvXAVt2Az1rzU5vKnbtq7rtq8/xR4Nl1747AkkpoORjrlGi1PDiyiyu2Ihoa1r7X5bO7HfjNVJuX@lists.infradead.org
-X-Gm-Message-State: AOJu0YzOAVDWQI3B0Q5aldlalrn3fiio0MfKzZkjCVuXtCsjwcl2KT1E
-	4h7IIgYZcKpH1XqBiC3draAEdQ56sl3mxl4HwGxRsFGyupVjyWjw
-X-Gm-Gg: ASbGncseKfYt+othZgq27uR3FAwA0wz+prMxFMdC1OuvOsAJQ6KQmbqGZa7Xg/ARkRr
-	m4WdZv7YZRnkgd/h8Wj1MBnuRPYVXug0SjPZur9HTmco/oMQkxlGK0Ytku5J5B0MVL/C/H2YNLX
-	A3Yv4uhzx3bdPBTEfYdGo5UxJXmZ9E1Vlut2xSpTN00FaanWtjlUuth3DNoyW1ryuXIicn5f2ru
-	ExcpH8n6NRkrEJmE4iwm2qy/3/mWGnYAX++RBjCVgGr+PoxKKCqGeESuugaW3Mkjif2RY5kpfm/
-	Kg==
-X-Google-Smtp-Source: AGHT+IGYKczzJcB4xAPfGWm8estAlez/srV9f9KVlzRCuc8f9pkMAG6+IqGmDY3HU1400WQhVY/Cuw==
-X-Received: by 2002:a05:6a00:330b:b0:724:59e0:5d22 with SMTP id d2e1a72fcca58-72dafba2625mr53847801b3a.20.1737896203562;
-        Sun, 26 Jan 2025 04:56:43 -0800 (PST)
-Received: from localhost ([129.146.253.192])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72f8a77c7casm5263334b3a.139.2025.01.26.04.56.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 26 Jan 2025 04:56:43 -0800 (PST)
-Date: Sun, 26 Jan 2025 20:56:25 +0800
-From: Furong Xu <0x1207@gmail.com>
-To: Ido Schimmel <idosch@idosch.org>
-Cc: Andrew Lunn <andrew@lunn.ch>, Brad Griffis <bgriffis@nvidia.com>, Jon
- Hunter <jonathanh@nvidia.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Alexander Lobakin <aleksander.lobakin@intel.com>, Joe Damato
- <jdamato@fastly.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
- Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-Subject: Re: [PATCH net-next v3 1/4] net: stmmac: Switch to zero-copy in
- non-XDP RX path
-Message-ID: <20250126205625.00006d64@gmail.com>
-In-Reply-To: <Z5YeEVrI3zx4VOtF@shredder>
-References: <bd7aabf4d9b6696885922ed4bef8fc95142d3004.1736910454.git.0x1207@gmail.com>
-	<d465f277-bac7-439f-be1d-9a47dfe2d951@nvidia.com>
-	<20250124003501.5fff00bc@orangepi5-plus>
-	<e6305e71-5633-48bf-988d-fa2886e16aae@nvidia.com>
-	<ccbecd2a-7889-4389-977e-10da6a00391c@lunn.ch>
-	<20250124104256.00007d23@gmail.com>
-	<Z5S69kb7Qz_QZqOh@shredder>
-	<20250125224342.00006ced@gmail.com>
-	<Z5X1M0Fs-K6FkSAl@shredder>
-	<20250126183714.00005068@gmail.com>
-	<Z5YeEVrI3zx4VOtF@shredder>
+        d=1e100.net; s=20230601; t=1737901559; x=1738506359;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=r9jWrJo0ys4LMCpA+l8+62ZIwRdxoDRE9SL/3hnuLgA=;
+        b=OdHw4+ZS9K316TYPs+NjMFjgY8yYvWrlQFdIMZuBAv989Xtjbc2x70+4iP10jgfb0J
+         Unrq51QrrrlPDP9EGTnxn90P/aYYtGQ2oxBbtaQydJ3Wnr7Oj4adoMQJRkqdvxgAU+19
+         /xNwmHq5A6CjzRJUwPFp/Imm8NM0THq+2/+ZBgeOq5/BB7a4QNy6G+8cxLYtVt10jbsp
+         wBDlsruYOGJG5b8MHmpe/JfIkprNQ2qeQCq7qgifFxp5XDbd9EgehgPDd5N79/v67EvC
+         hHkNoVyZyDyzG4xtwFCJfvFRnqBJZRXKkhuTQreEyBqx/0PEqal22Szojx1Q6Z+0hJ+o
+         qu/g==
+X-Forwarded-Encrypted: i=1; AJvYcCV+mglzQXQCtsW3DTpolQdDdlO0OQ0taqEjwxkAS6upcbr0L+YPUvAPb0xxqeGkw2/okeU2TbQNprbukicvmHQ=@lists.infradead.org, AJvYcCVkZg6dbHoqcLSklUG8qYQvsAL4H+0B7V2SGANGSc2CNutByd84QvX0IM98reaaNHrNp+YbtzzvKqFr5/KHGfdP@lists.infradead.org
+X-Gm-Message-State: AOJu0YwgeRUOFlF+/Ti5ZMGNGV+kULDuKEXGD5GMmEvrveiKms70vHQM
+	QXmJgGZQXi4/IGm6+co7vGoo1iWGo1BeNuzOetkyfq+6/0SA3R5oQggYmT40m4N33M1s/duk1b3
+	URl3u14td/YxIwVKnf4tDYmSwLoI=
+X-Gm-Gg: ASbGncvlREQrqwRCr2UuxSZW609ZpaAjAsVfiviZwDtnbi0qMaNXPUmrqjJJSjJsKQj
+	qP0rL11Ob/uX2ZAr53/AKaFHwtXqkXRmSn5HN08fXFPRaaBBz/UKOk/YNKwVTpxY=
+X-Google-Smtp-Source: AGHT+IFCMAGeAvzXbplXZVHFkq1g5vwQ0LnfRTn5h/6gVwZzfoyS5OmGbeTKmVHjY8WesWHIziGC/YKDnNh34NFn2HA=
+X-Received: by 2002:a17:90b:3bc3:b0:2ee:9b2c:3253 with SMTP id
+ 98e67ed59e1d1-2f782d97961mr54700905a91.30.1737901559583; Sun, 26 Jan 2025
+ 06:25:59 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+References: <20250124052611.3705-1-eagle.alexander923@gmail.com>
+ <CABjd4YwA8P9LVuDviO6xydkHpuuOY7XT0pk1oa+FDqOo=uZN4A@mail.gmail.com>
+ <a76f315f023a3f8f5435e0681119b4eb@manjaro.org> <CABjd4Ywh_AkbXHonx-8vL-hNY5LMLJge5e4oqxvUG+qe6OF-Og@mail.gmail.com>
+ <61b494b209d7360d0f36adbf6d5443a4@manjaro.org> <CABjd4Yx0p0B=e00MjCpDDq8Z=0FtM0s9EN86WdvRimt-_+kh2w@mail.gmail.com>
+ <CABjd4Yy14bpjzvFyc8et-=pmds5uwzfxNqcs7L=+XRXBogZEsQ@mail.gmail.com>
+In-Reply-To: <CABjd4Yy14bpjzvFyc8et-=pmds5uwzfxNqcs7L=+XRXBogZEsQ@mail.gmail.com>
+From: Alexander Shiyan <eagle.alexander923@gmail.com>
+Date: Sun, 26 Jan 2025 17:25:47 +0300
+X-Gm-Features: AWEUYZnFxTE3h5oGlTFfsjDcS8qwqMXrYDcf3-wEwsf_JzPpTAfdudBkbVsUmp0
+Message-ID: <CAP1tNvTRER=QzC29Udw4ffOetVECWV+MfZ2o-mbUFvuZ0_i-Kw@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: rockchip: Fix broken tsadc pinctrl binding
+ for rk3588
+To: Alexey Charkov <alchark@gmail.com>
+Cc: Dragan Simic <dsimic@manjaro.org>, Rob Herring <robh@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, 
+	Sebastian Reichel <sebastian.reichel@collabora.com>, stable@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250126_045644_679952_29358CFB 
-X-CRM114-Status: GOOD (  15.50  )
+X-CRM114-CacheID: sfid-20250126_062601_202968_0597BA3D 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,33 +98,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 26 Jan 2025 13:35:45 +0200, Ido Schimmel wrote:
+Hello.
 
-> On Sun, Jan 26, 2025 at 06:37:14PM +0800, Furong Xu wrote:
-> > The "SPH feature" splits header into buf->page (non-zero offset) and
-> > splits payload into buf->sec_page (zero offset).
-> > 
-> > For buf->page, pp_params.max_len should be the size of L3/L4 header,
-> > and with a offset of NET_SKB_PAD.
-> > 
-> > For buf->sec_page, pp_params.max_len should be dma_conf->dma_buf_sz,
-> > and with a offset of 0.
-> > 
-> > This is always true:
-> > sizeof(L3/L4 header) + NET_SKB_PAD < dma_conf->dma_buf_sz + 0  
-> 
-> Thanks, understood, but are there situations where the device is
-> unable to split a packet? For example, a large L2 packet. I am trying
-> to understand if there are situations where the device will write
-> more than "dma_conf->dma_buf_sz - NET_SKB_PAD" to the head buffer.
+> > > I think it's actually better to accept the approach in Alexander's
+> > > patch, because the whole thing applies to other Rockchip SoCs as well,
+> > > not just to the RK3588(S).
+> >
+> > Anyway, I've just tried it after including the changes below, and
+> > while /sys/kernel/debug/pinctrl/pinctrl-handles shows the expected
+> > pinctrls under tsadc, the driver still doesn't seem to be triggering a
+> > PMIC reset. Weird. Any thoughts welcome.
+>
+> I found the culprit. "otpout" (or "default" if we follow Alexander's
+> suggested approach) pinctrl state should refer to the &tsadc_shut_org
+> config instead of &tsadc_shut - then the PMIC reset works.
 
-Nice catch!
-When receiving a large L2/non-IP packet, more than "dma_conf->dma_buf_sz
-- NET_SKB_PAD" will be written.
+Great, I'll use this in v2.
 
-So we should:
-pp_params.max_len = dma_conf->dma_buf_sz + stmmac_rx_offset(priv);
-
-Thanks a lot, Ido
-Have a nice weekend :)
+Thanks!
 
