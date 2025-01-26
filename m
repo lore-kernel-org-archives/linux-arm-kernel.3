@@ -4,103 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D8EEC0218C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jan 2025 02:41:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE82AC02181
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jan 2025 06:11:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zO1ms2VfnDa4Pg68YIbyfHsBiRPVKAqT5H3D+lbdTYM=; b=T8QZCPdI/HRufVLCo+5A6NLtM7
-	k6LfwK3vpn1cITjZyJSLqOgIaCBQuyvtwtUvKIZLs8zjXgiZm52YjEFQGrv55nAq+H2pX3Erhopda
-	ckcb8ZvYyzrzxsRDSWLT6CqigsXKt66vpyknrpDbVYS9PRWep/jGXIMplVbLO2TKb47FNXWc/C206
-	55w1VdKHjE8Nzl/o5WmXkhOpX9OUX7VJTj21ZIZHz8Lxguvxm95dyY7SyuTOEDLCA7fJSey5vbkIj
-	gE2vWAnBtgphLeIrFgU+mxtY38Qcnyrrz/XeXQYLrsF+k2IJ5emAbtBt8RMIhK+Ny0+MJQlmxWGkI
-	gNWu/7Zw==;
+	bh=DrfJ78PLe0e9lwqqdfT9D6sSqigv1UBh5RIKHcYWJUo=; b=gNa5AI3ohmig+1hSknAAb7hUZ0
+	7B9lNJgqdM4834r8Fih87O8zg+g9YR16VCvRAQ8cyzMwAGcD00nDZwvxEEifublqf8jpG3ADJbN6S
+	RBZCZdJRNbddchqPlajlcLKUUZxxK3Lk7/A9VqM6bqbl0dCyXBSSAQ/VZMPE3rWpoN97I4UZR1eL9
+	X/w2X69GPrsSAX/oO1va/+ltaAoFab6+ZhZVW2IMuM6l4ovjluL/FPvVGM/vxm8duh/q7lrkDDFyK
+	0+eQh6ZZt9c9hS8RTIwtMMdvMDBFiFOfHIAX7VF6xTDiKGpZiMM2CabhYKcqQMEMSKfRHmtdLkRz/
+	xfUTM+pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbsab-0000000H4ov-0IeT;
-	Sun, 26 Jan 2025 02:41:33 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1tbvrd-0000000H9MO-0OkX;
+	Sun, 26 Jan 2025 06:11:21 +0000
+Received: from mail.manjaro.org ([116.203.91.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbsZG-0000000H4iY-01Mp
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Jan 2025 02:40:11 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2165cb60719so58362855ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Jan 2025 18:40:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737859209; x=1738464009; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zO1ms2VfnDa4Pg68YIbyfHsBiRPVKAqT5H3D+lbdTYM=;
-        b=EBLKoa7a1sELDpQYQm3UgbPE8tN5MZcne7rxnbNpeXeSBm9nGGEZX6mVu/42cyzBI4
-         EdOLqILjQW7UJmw5czjfOI3y8GwIEg0pO1H3ZpPEbdvF413ehcvKYunRosEhvPlwSPNa
-         2MtY6IG3WVP9oTztU6qBqumxTGZb53UFjn8xJcwnNYEC20Q1+Vc/V7wXG3j4p8CEETaS
-         tjrIHDv5A/WXkuUV1f/rs/YaP4LmkdGP8hlIFrmq8Sey5ovB5ErA87vO9O5mbxcrryHJ
-         cEe8Ipio9/KkjvDiw674+d0RxCqEouPy8xkJ+BjhM0Dv+xITxfDycknThRiSlj/V8zE7
-         7UfA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737859209; x=1738464009;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zO1ms2VfnDa4Pg68YIbyfHsBiRPVKAqT5H3D+lbdTYM=;
-        b=p1dxRDaC22xO5y1r3Rd79op3egyC6rOQFIfCa6GvOeW6uLVm+pQKOSWE+hXEMwGV35
-         b07g2bsmoCK14Lp4Ki3p5EU/taWXiGEZubJeiHnWdxjilP3gTuuxJQqEpLi/QMh/rPkJ
-         VZzalAZ32NbfaO/zI5VrYOBXzdrr5H9pBUGMsrcPALDVUzTFVQCJIqhpvXWALMNoqagE
-         xtyIsGbpVASKEWQCt+Zj+26nSHoADdM6oiwWYaykoEqNTmzJn1gZxOhU3YTNmbHGaM2V
-         oAOtMJOm1AzuSp6foXJYjqEzRF+zX+lem6LqRT2uXN32aJQNSZVIr+NTWVlLpuc8PSbn
-         QT9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCU1fu3xC4MO7AGmW2qNprvU1ioqZw32mBKkwJEdmGiAUcym3vysaDAxZEAiJ3CY8AcylTv2yfNyk6F4xkZRQhzX@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzqgx7FRoiaHDObGAtpXHwRQawhnd6OT8MCwbjdBNFkIfIheQwS
-	WMxdEsDl+l6AY78+zbub8nfCaSXAd9rWQVpMe7qzX8ZoaqeEac1m
-X-Gm-Gg: ASbGnctUFdLIVkbJE1DUFESPqOf7My9tTQaALTOG6LAF+MCS/1q+O8Lz5x/dLsj+OUF
-	XM7OLkLlpcH7Y8EL38COkMMTKt0eF91uCUvW1kxEOArNZaL7nb3xfYmDMP1D0ExJ7wXt7WIv07h
-	f+eA3PgKPmIi0CMfMmNQFzA//sLd6sF4EVQ9XzgDQvz6u6ulCHUzXVbC4yMWpRvuvpo6eRmDpkf
-	puljxwIZ2XbaAdD2HKhlmbe7pFx1J/mksqLSbGUnH4H1kAJb7I8qjRF0qkp3tDQNUH4x1NrmLSz
-	BQ==
-X-Google-Smtp-Source: AGHT+IFsqUm3b34km4WyrcizVaYpgbqweOU0v8OuV1KGFi0lmdJUkL/Z82B1rVH2F3YAwm0jejyo5Q==
-X-Received: by 2002:a05:6a20:a10c:b0:1d9:6c9c:75ea with SMTP id adf61e73a8af0-1eb21470203mr53454209637.5.1737859208701;
-        Sat, 25 Jan 2025 18:40:08 -0800 (PST)
-Received: from localhost ([129.146.253.192])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72f8a761193sm4591717b3a.93.2025.01.25.18.40.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 25 Jan 2025 18:40:08 -0800 (PST)
-Date: Sun, 26 Jan 2025 10:39:52 +0800
-From: Furong Xu <0x1207@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Ido Schimmel <idosch@idosch.org>, Brad Griffis <bgriffis@nvidia.com>,
- Jon Hunter <jonathanh@nvidia.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Alexander Lobakin <aleksander.lobakin@intel.com>, Joe Damato
- <jdamato@fastly.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
- Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-Subject: Re: [PATCH net-next v3 1/4] net: stmmac: Switch to zero-copy in
- non-XDP RX path
-Message-ID: <20250126103952.00005556@gmail.com>
-In-Reply-To: <09442385-573c-4756-8c30-296631bc6272@lunn.ch>
-References: <cover.1736910454.git.0x1207@gmail.com>
-	<bd7aabf4d9b6696885922ed4bef8fc95142d3004.1736910454.git.0x1207@gmail.com>
-	<d465f277-bac7-439f-be1d-9a47dfe2d951@nvidia.com>
-	<20250124003501.5fff00bc@orangepi5-plus>
-	<e6305e71-5633-48bf-988d-fa2886e16aae@nvidia.com>
-	<ccbecd2a-7889-4389-977e-10da6a00391c@lunn.ch>
-	<20250124104256.00007d23@gmail.com>
-	<Z5S69kb7Qz_QZqOh@shredder>
-	<20250125230347.0000187b@gmail.com>
-	<09442385-573c-4756-8c30-296631bc6272@lunn.ch>
+	id 1tbvqK-0000000H9Fm-0qq6;
+	Sun, 26 Jan 2025 06:10:01 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1737871795;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DrfJ78PLe0e9lwqqdfT9D6sSqigv1UBh5RIKHcYWJUo=;
+	b=tFUnnaeHEoJd5qT2dXcBvG5zfVSBBuQY0/Y5kapqlcWbPiuFKZnhBj+PvnOdzX6zh+LW6H
+	KkkXKM2YEtUfPDEz2vyceipOk0casJxkryLczSLNE8kKU7mQVJB1/gh/J5yujLDUKIwQHs
+	Tqu9QKkN1+6I6Q3YEjwZ9acULarTagpytbjS15NMT7QW6nS6oenVcUQmhxbUXnKAqKKXFA
+	cZwLD+dzYA8ZJ6Pn3TiRaW2NPwHsghN2bL8I2vebY3ndh2GqFgVH9stE3kmb6J98Z7OrqH
+	qHvYwFIaW7pzIj5dznkKFHVmqUc4gsynvioOWn4wQ7YNzkeaDCJCTOQEhwNesw==
+Date: Sun, 26 Jan 2025 07:09:54 +0100
+From: Dragan Simic <dsimic@manjaro.org>
+To: Alexey Charkov <alchark@gmail.com>
+Cc: Alexander Shiyan <eagle.alexander923@gmail.com>, Rob Herring
+ <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, devicetree@vger.kernel.org, Sebastian Reichel
+ <sebastian.reichel@collabora.com>, stable@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] arm64: dts: rockchip: Fix broken tsadc pinctrl binding
+ for rk3588
+In-Reply-To: <CABjd4Yx0p0B=e00MjCpDDq8Z=0FtM0s9EN86WdvRimt-_+kh2w@mail.gmail.com>
+References: <20250124052611.3705-1-eagle.alexander923@gmail.com>
+ <CABjd4YwA8P9LVuDviO6xydkHpuuOY7XT0pk1oa+FDqOo=uZN4A@mail.gmail.com>
+ <a76f315f023a3f8f5435e0681119b4eb@manjaro.org>
+ <CABjd4Ywh_AkbXHonx-8vL-hNY5LMLJge5e4oqxvUG+qe6OF-Og@mail.gmail.com>
+ <61b494b209d7360d0f36adbf6d5443a4@manjaro.org>
+ <CABjd4Yx0p0B=e00MjCpDDq8Z=0FtM0s9EN86WdvRimt-_+kh2w@mail.gmail.com>
+Message-ID: <3e5e7761887e7624c2c225b105105864@manjaro.org>
+X-Sender: dsimic@manjaro.org
+Content-Type: text/plain; charset=UTF-8;
+ format=flowed
+Content-Transfer-Encoding: 8bit
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250125_184010_047350_FB6680F0 
-X-CRM114-Status: GOOD (  15.61  )
+X-CRM114-CacheID: sfid-20250125_221000_545958_B9BCFB33 
+X-CRM114-Status: GOOD (  28.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,27 +81,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 25 Jan 2025 20:08:12 +0100, Andrew Lunn <andrew@lunn.ch> wrote:
+Hello Alexey,
 
-> > It is recommended to disable the "SPH feature" by default unless
-> > some certain cases depend on it. Like Ido said, two large buffers
-> > being allocated from the same page pool for each packet, this is a
-> > huge waste of memory, and brings performance drops for most of
-> > general cases.  
+On 2025-01-24 18:23, Alexey Charkov wrote:
+> On Fri, Jan 24, 2025 at 2:37 PM Dragan Simic <dsimic@manjaro.org> 
+> wrote:
+>> On 2025-01-24 11:25, Alexey Charkov wrote:
+>> > On Fri, Jan 24, 2025 at 2:06 PM Dragan Simic <dsimic@manjaro.org>
+>> > wrote:
+>> >> On 2025-01-24 09:33, Alexey Charkov wrote:
+>> >> > On Fri, Jan 24, 2025 at 9:26 AM Alexander Shiyan
+>> >> > <eagle.alexander923@gmail.com> wrote:
+>> >> >>
+>> >> >> There is no pinctrl "gpio" and "otpout" (probably designed as
+>> >> >> "output")
+>> >> >> handling in the tsadc driver.
+>> >> >> Let's use proper binding "default" and "sleep".
+>> >> >
+>> >> > This looks reasonable, however I've tried it on my Radxa Rock 5C and
+>> >> > the driver still doesn't claim GPIO0 RK_PA1 even with this change. As
+>> >> > a result, a simulated thermal runaway condition (I've changed the
+>> >> > tshut temperature to 65000 and tshut mode to 1) doesn't trigger a PMIC
+>> >> > reset, even though a direct `gpioset 0 1=0` does.
+>> >> >
+>> >> > Are any additional changes needed to the driver itself?
+>> >>
+>> >> I've been digging through this patch the whole TSADC/OTP thing in the
+>> >> last couple of hours, and AFAIK some parts of the upstream driver are
+>> >> still missing, in comparison with the downstream driver.
+>> >>
+>> >> I've got some small suggestions for the patch itself, but the issue
+>> >> you observed is obviously of higher priority, and I've singled it out
+>> >> as well while digging through the code.
+>> >>
+>> >> Could you, please, try the patch below quickly, to see is it going to
+>> >> fix the issue you observed?  I've got some "IRL stuff" to take care of
+>> >> today, so I can't test it myself, and it would be great to know is it
+>> >> the right path to the proper fix.
+>> >>
+>> >> diff --git i/drivers/thermal/rockchip_thermal.c
+>> >> w/drivers/thermal/rockchip_thermal.c
+>> >> index f551df48eef9..62f0e14a8d98 100644
+>> >> --- i/drivers/thermal/rockchip_thermal.c
+>> >> +++ w/drivers/thermal/rockchip_thermal.c
+>> >> @@ -1568,6 +1568,11 @@ static int rockchip_thermal_probe(struct
+>> >> platform_device *pdev)
+>> >>          thermal->chip->initialize(thermal->grf, thermal->regs,
+>> >>                                    thermal->tshut_polarity);
+>> >>
+>> >> +       if (thermal->tshut_mode == TSHUT_MODE_GPIO)
+>> >> +               pinctrl_select_default_state(dev);
+>> >> +       else
+>> >> +               pinctrl_select_sleep_state(dev);
+>> >
+>> > I believe no 'else' block is needed here, because if tshut_mode is not
+>> > TSHUT_MODE_GPIO then the TSADC doesn't use this pin at all, so there's
+>> > no reason for the driver to mess with its pinctrl state. I'd rather
+>> > put a mirroring block to put the pin back to its 'sleep' state in the
+>> > removal function for the TSHUT_MODE_GPIO case.
+>> 
+>> You're right, but the "else block" is what the downstream driver does,
 > 
-> I don't know this driver, but it looks like SPH is required for
-> NETIF_F_GRO? Can you add this flag to hw_features, but not
-> wanted_features and leave SPH disabled until ethtool is used to enable
-> GRO?
+> Does it though? It only handles the TSHUT_MODE_GPIO case as far as I
+> can tell (or TSHUT_MODE_OTP in downstream driver lingo) [1]
+> 
+> [1] 
+> https://github.com/radxa/kernel/blob/edb3eeeaa4643ecac6f4185d6d391c574735fca1/drivers/thermal/rockchip_thermal.c#L2564
 
-SPH has its own ethtool command, stmmac driver does not implement yet.
-see:
-https://patchwork.kernel.org/project/netdevbpf/cover/20250114142852.3364986-1-ap420073@gmail.com/
+Ah, you're right.  Somehow I saw something that actually wasn't
+there, so the else block would indeed be redundant.
 
-> Are there other use cases where SPH is needed?
-
-https://patchwork.kernel.org/project/netdevbpf/cover/20240910171458.219195-1-almasrymina@google.com/
-https://patchwork.kernel.org/project/netdevbpf/cover/20250116231704.2402455-1-dw@davidwei.uk/
-
-The stmmac driver does not support both of them, but it will someday :)
+>> so I think it's better to simply stay on the safe side and follow that
+>> logic in the upstream driver.  Is it really needed?  Perhaps not, but
+>> it also shouldn't hurt.
 
