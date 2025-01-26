@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32786C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jan 2025 15:15:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE2AEC02181
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jan 2025 15:17:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vMzpwZhbSapRbq4FaJ7K1T6EbBRMtOAyUyooWgM1vUM=; b=CCsh08Zx/SXG1xbs446wPHzsoR
-	H/uLgR/2cvktgc4wjZ2s6fblat/BMd+evWX5wpk9AqxmfyUPQ1R4HUMrVPmJzNRQx6mVonavx07Ko
-	dxR4udXJFInOJsqUFvRHLPxcPrxVSgw3y2zNa5gtyA2bAPalF8VWCz7hO3+vF1mmb0Yi7qDmYaEt0
-	ewH7Nl7t1OwlySqCVPRFysidi7CFb+OPtEjfeH+i9HbLd+t8NlMK7PoW439XfQFWZhRaS8cB5os/E
-	0M5ZZkj3nvV/meRbeLRL+zaani+k3Y6HPgPHmYTEPeH/xC55xEr+SWWUzGrx4NKAvpYqfmFVsIZ/L
-	LgAwEAgw==;
+	bh=/PjbT0CVv7OegZN4Y2eW6sFVAR3vBTL3OYyaOlcGMAk=; b=yYEUhVnCj1xoWK+GV6kYX+6QM4
+	uW4omZo4pgJKL47YOUbSn4QpTGBK8mghhvCyKx0DziX6N7w5nvSGs+S/Rx6J7YyaXd6Iuvj1UDSP7
+	c1vvPyTr9NSL5JiJ2S/7/mPTg4Caw5tH8n5PqWI4vsQLuLRs6rbh/hDHNzZdGCmR+//la7dZLxjTI
+	kd9RaiZT4bS01tsLd4TDpVZAnQaMBGVo87wk+cZ33H3k/eW81rp6osvfZaD6sJxRtnq8gZPtcRKWB
+	GFvkgX0YDDSVYRUnK25eq49QgO0KOPPFYG9FSejjlQnQLANWEzsLRuG0nbqzpN3Iig85D2apZdBH4
+	NG+GvKSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tc4MF-0000000Haoi-1kYf;
-	Sun, 26 Jan 2025 15:15:31 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tc4NV-0000000006w-0SFD;
+	Sun, 26 Jan 2025 15:16:49 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tc4Fo-0000000HZ7F-3wTq
+	id 1tc4GA-0000000HZFH-32iU
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Jan 2025 15:08:54 +0000
+	Sun, 26 Jan 2025 15:09:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 344ACA40A1D;
-	Sun, 26 Jan 2025 15:07:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92B76C4CEE2;
-	Sun, 26 Jan 2025 15:08:50 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 13EEC5C5F3C;
+	Sun, 26 Jan 2025 15:08:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83920C4CEE2;
+	Sun, 26 Jan 2025 15:09:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737904132;
-	bh=w5ou4aymrycn9YCZ0dGlUhtssM+6saQcaT9B4ULTHdw=;
+	s=k20201202; t=1737904154;
+	bh=4gxp0Us1gN/S3Gs0f8tqzA1wk8Sit8ldVbqMDRDe/5M=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=l8XdL9t+1BuhdslL4Bh90flbBQ17ouejul7QMpZ4ZquFYd9B/EWiTRaZ4sh2yiOTH
-	 jP5K/RtiuLFLAU3DGoMd0gsYQgPQKE3NQxZFjwoaGzTokK5C37THOv76Oz45k0fgR9
-	 lD5n8dpz1ZdzHTX970MqhmXPdbHrGl5g9NtiSSWqtOCez7LNKarXbGfABl2EYslgH/
-	 A3wXjHSTmYNhJte1LtiWEHBnImMUA+g4CZ7DWuUCvq0PdNuPH+cgbYTJ39lEboJYCp
-	 mZPiYeSfe2UU6gcaQ7mpci1lQ1qD59mlmVynbDk42wGxjIQBb3TnQs7VSxx4F9BmYg
-	 DlcaJMEPxX+cA==
+	b=NlFHeFzSJbfWv611mDiY2k1NJ8u2mq42nxMAwknG6go/po2QJbGB2YLfnjf8nntyg
+	 d4+QnczWeaO+05n2gu8FPboT5XJcZp+pLDxayddaTth/6GadmoRWsl6ojTmttkHo/d
+	 8R62nG8WuMkkZq/j2JJW4gT0xiC+0gQSUSCsSYslBcuZ8PCIuwsGV9oGNxRxBxwBBC
+	 +phAr5gOPMNfSuSDP55vZQEWpRE3J0L0uM5pgoTxq8OhevX/dwGd6zIawitcZOV0zS
+	 z+lEiu5ZItMU8l9WdGSZYLSWAIua05nlhIzyPKs+GhOAvEn7OUjVjT4caB41NoS6FG
+	 HUHycjvQRMvow==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -56,20 +56,20 @@ Cc: Robin Murphy <robin.murphy@arm.com>,
 	praan@google.com,
 	linux-arm-kernel@lists.infradead.org,
 	iommu@lists.linux.dev
-Subject: [PATCH AUTOSEL 6.6 4/9] iommu/arm-smmu-v3: Clean up more on probe failure
-Date: Sun, 26 Jan 2025 10:08:32 -0500
-Message-Id: <20250126150839.962669-4-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.1 3/8] iommu/arm-smmu-v3: Clean up more on probe failure
+Date: Sun, 26 Jan 2025 10:08:55 -0500
+Message-Id: <20250126150902.962837-3-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250126150839.962669-1-sashal@kernel.org>
-References: <20250126150839.962669-1-sashal@kernel.org>
+In-Reply-To: <20250126150902.962837-1-sashal@kernel.org>
+References: <20250126150902.962837-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.6.74
+X-stable-base: Linux 6.1.127
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250126_070853_113454_69DF0255 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20250126_070914_852427_5BD42E13 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,10 +105,10 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 12 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 68b81f9c2f4b1..6cecbac0e6bab 100644
+index 45b43f729f895..96b72f3dad0d0 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -3875,7 +3875,7 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
+@@ -3880,7 +3880,7 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
  	/* Initialise in-memory data structures */
  	ret = arm_smmu_init_structures(smmu);
  	if (ret)
@@ -117,7 +117,7 @@ index 68b81f9c2f4b1..6cecbac0e6bab 100644
  
  	/* Record our private device structure */
  	platform_set_drvdata(pdev, smmu);
-@@ -3886,22 +3886,29 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
+@@ -3891,22 +3891,29 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
  	/* Reset the device */
  	ret = arm_smmu_device_reset(smmu, bypass);
  	if (ret)
@@ -150,7 +150,7 @@ index 68b81f9c2f4b1..6cecbac0e6bab 100644
 +	return ret;
  }
  
- static void arm_smmu_device_remove(struct platform_device *pdev)
+ static int arm_smmu_device_remove(struct platform_device *pdev)
 -- 
 2.39.5
 
