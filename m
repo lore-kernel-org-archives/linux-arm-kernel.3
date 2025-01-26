@@ -4,85 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 848C8C0218C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jan 2025 01:57:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D8EEC0218C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jan 2025 02:41:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rlwAWxWxHq9jBioa+OPFge+D1FchZhTsMwVSUxdLRyw=; b=RhuMF+i28DCM9rmQc44iRY98+F
-	w+UWOiYIFtgGO7YI7V4kzcu3Bq6ROC81OY3AfYX6HU5rWqt410M5BKHOheE0pl6qIy6aUr3e64nyX
-	1TECGi4cI3hf8IvcudhR/4XmX+8/v6q2k3Jn5rSVsabH6ePJ2HdwkIHvf87gjh7ARuNqKzuXP7y21
-	DtJXzBMHpfISO5aAZNAtVBsutd5Zcr+ecUKVzVK4NYXxf/NTHGB9lMV9Ht7+p6BDt8IBIzetfy2JD
-	n/sl5cxOxTtST922iygqiX2hi8B59QgV0RH+JpsbN79p0Sn267V0Pm5onEvmWCTER4U92BfTL3X++
-	P4BbHkmQ==;
+	bh=zO1ms2VfnDa4Pg68YIbyfHsBiRPVKAqT5H3D+lbdTYM=; b=T8QZCPdI/HRufVLCo+5A6NLtM7
+	k6LfwK3vpn1cITjZyJSLqOgIaCBQuyvtwtUvKIZLs8zjXgiZm52YjEFQGrv55nAq+H2pX3Erhopda
+	ckcb8ZvYyzrzxsRDSWLT6CqigsXKt66vpyknrpDbVYS9PRWep/jGXIMplVbLO2TKb47FNXWc/C206
+	55w1VdKHjE8Nzl/o5WmXkhOpX9OUX7VJTj21ZIZHz8Lxguvxm95dyY7SyuTOEDLCA7fJSey5vbkIj
+	gE2vWAnBtgphLeIrFgU+mxtY38Qcnyrrz/XeXQYLrsF+k2IJ5emAbtBt8RMIhK+Ny0+MJQlmxWGkI
+	gNWu/7Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbrtL-0000000H3KC-2lbh;
-	Sun, 26 Jan 2025 01:56:51 +0000
-Received: from mail-oa1-x2c.google.com ([2001:4860:4864:20::2c])
+	id 1tbsab-0000000H4ov-0IeT;
+	Sun, 26 Jan 2025 02:41:33 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbrrQ-0000000H3G4-1qdd
+	id 1tbsZG-0000000H4iY-01Mp
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Jan 2025 01:54:54 +0000
-Received: by mail-oa1-x2c.google.com with SMTP id 586e51a60fabf-2aa17010cbcso1467436fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Jan 2025 17:54:47 -0800 (PST)
+	Sun, 26 Jan 2025 02:40:11 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2165cb60719so58362855ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Jan 2025 18:40:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1737856487; x=1738461287; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1737859209; x=1738464009; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=rlwAWxWxHq9jBioa+OPFge+D1FchZhTsMwVSUxdLRyw=;
-        b=ccm17t/uG6343DkcyFm4C/sMPvnhpt967hX+1FDq/il1L+DYvjYUGNpa2yDW+WRhoa
-         4J7wIs8y2LcJJRM5vzA5uVRbe1GbGpNXNGUAyErzkBRzaHC6rZh0czJI3WQyyynxcLU0
-         Hb0ew0SEGaF6kFFL0HLcoiBkWXeTNboI+UYtWm9Y0HWFvo7ZHRiFXYTbYrFhhfpE3JtR
-         hULjA4ztvEnCRNA9qC5PPjV3xVJ7m2DGAFYr1B3aQQcV8DEjWlqQ/SyTUxXgBOPeeyaw
-         KppYEDIX1uMCqO4TSkLIAOR5Xd8G7USgoT5nZ8WFbx2nX+kds6dllk+KCmN1yPtLG9Z/
-         KLTg==
+        bh=zO1ms2VfnDa4Pg68YIbyfHsBiRPVKAqT5H3D+lbdTYM=;
+        b=EBLKoa7a1sELDpQYQm3UgbPE8tN5MZcne7rxnbNpeXeSBm9nGGEZX6mVu/42cyzBI4
+         EdOLqILjQW7UJmw5czjfOI3y8GwIEg0pO1H3ZpPEbdvF413ehcvKYunRosEhvPlwSPNa
+         2MtY6IG3WVP9oTztU6qBqumxTGZb53UFjn8xJcwnNYEC20Q1+Vc/V7wXG3j4p8CEETaS
+         tjrIHDv5A/WXkuUV1f/rs/YaP4LmkdGP8hlIFrmq8Sey5ovB5ErA87vO9O5mbxcrryHJ
+         cEe8Ipio9/KkjvDiw674+d0RxCqEouPy8xkJ+BjhM0Dv+xITxfDycknThRiSlj/V8zE7
+         7UfA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737856487; x=1738461287;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1737859209; x=1738464009;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=rlwAWxWxHq9jBioa+OPFge+D1FchZhTsMwVSUxdLRyw=;
-        b=pCfqZwnhGBh1XFCVBmIR+zWU26/+grtQV7miHQ7WMzimP3z/3A58m6bk+Sr2HCSAuy
-         lsHvySSMN/08Km8B9CaznCEY4Px8YLTbArFqGsTJt8mr3fCJq6wRWf4OWqm0h/c/OXt5
-         7j+bS07fBzH2nF2lPo7fTf5OtVJr2Y08dOI/b6H5ZqkQro+HH06KKIqTUxnYn20VJccR
-         4yC5/FF4SyXI8KgPUWk6uZW4WyFmdM6xyJRUF8+8D8NBYNrZFn392PPeR7qP3rxzGgty
-         gq18VgSOptRhSXrm0wPYB7nfUii5DjCAfsJFKy1ZX9a90wNFatxXE8/OfGGS4YZBtP9f
-         mRiA==
-X-Forwarded-Encrypted: i=1; AJvYcCWeK86FjtRlUlos1kRoIHiIrSkFrPm8G3SngfeK3k9aYvq/TQJn4cfwo5wtXtJPvgR5Fg4I8XMvsTz80DA/MqSo@lists.infradead.org
-X-Gm-Message-State: AOJu0YwlLv83h+Ez4DcvyPd8wz3OLXssngnrmjGaJGFOssq8ymCmj/Fi
-	yGWRwEn/ePVf9WP1MQDs1+U+ahBf5g89MsLwIsd2MrASOhYBaXZirGLiGcAvs+C5KTvuLXz6P5Y
-	cFaGuYw5ye6R6KoXvKym+2I5reYfyU3/Fk8b2rA==
-X-Gm-Gg: ASbGncv8hK3ds511skB8N99vUMTOQtt8jS9C+H0CCbNw06EtkR0J1z79gkpaSJrNoGP
-	UJyudJjCMg7i6JOIH3G9/SEC366GeBcD/OH1P3mtQNSVaSOhcj5pJ10HNPxBYewcq
-X-Google-Smtp-Source: AGHT+IEXOf1ihKfapU13xYBIhLv4gy8wQGEe7hCvBOcSSCO0IvhngnY90gf7S+TP4D+yRKoMLT+l8Ks62C3W/Etv9bk=
-X-Received: by 2002:a05:6871:630e:b0:2a0:1162:425a with SMTP id
- 586e51a60fabf-2b1c0c55429mr19339653fac.26.1737856487102; Sat, 25 Jan 2025
- 17:54:47 -0800 (PST)
+        bh=zO1ms2VfnDa4Pg68YIbyfHsBiRPVKAqT5H3D+lbdTYM=;
+        b=p1dxRDaC22xO5y1r3Rd79op3egyC6rOQFIfCa6GvOeW6uLVm+pQKOSWE+hXEMwGV35
+         b07g2bsmoCK14Lp4Ki3p5EU/taWXiGEZubJeiHnWdxjilP3gTuuxJQqEpLi/QMh/rPkJ
+         VZzalAZ32NbfaO/zI5VrYOBXzdrr5H9pBUGMsrcPALDVUzTFVQCJIqhpvXWALMNoqagE
+         xtyIsGbpVASKEWQCt+Zj+26nSHoADdM6oiwWYaykoEqNTmzJn1gZxOhU3YTNmbHGaM2V
+         oAOtMJOm1AzuSp6foXJYjqEzRF+zX+lem6LqRT2uXN32aJQNSZVIr+NTWVlLpuc8PSbn
+         QT9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCU1fu3xC4MO7AGmW2qNprvU1ioqZw32mBKkwJEdmGiAUcym3vysaDAxZEAiJ3CY8AcylTv2yfNyk6F4xkZRQhzX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzqgx7FRoiaHDObGAtpXHwRQawhnd6OT8MCwbjdBNFkIfIheQwS
+	WMxdEsDl+l6AY78+zbub8nfCaSXAd9rWQVpMe7qzX8ZoaqeEac1m
+X-Gm-Gg: ASbGnctUFdLIVkbJE1DUFESPqOf7My9tTQaALTOG6LAF+MCS/1q+O8Lz5x/dLsj+OUF
+	XM7OLkLlpcH7Y8EL38COkMMTKt0eF91uCUvW1kxEOArNZaL7nb3xfYmDMP1D0ExJ7wXt7WIv07h
+	f+eA3PgKPmIi0CMfMmNQFzA//sLd6sF4EVQ9XzgDQvz6u6ulCHUzXVbC4yMWpRvuvpo6eRmDpkf
+	puljxwIZ2XbaAdD2HKhlmbe7pFx1J/mksqLSbGUnH4H1kAJb7I8qjRF0qkp3tDQNUH4x1NrmLSz
+	BQ==
+X-Google-Smtp-Source: AGHT+IFsqUm3b34km4WyrcizVaYpgbqweOU0v8OuV1KGFi0lmdJUkL/Z82B1rVH2F3YAwm0jejyo5Q==
+X-Received: by 2002:a05:6a20:a10c:b0:1d9:6c9c:75ea with SMTP id adf61e73a8af0-1eb21470203mr53454209637.5.1737859208701;
+        Sat, 25 Jan 2025 18:40:08 -0800 (PST)
+Received: from localhost ([129.146.253.192])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72f8a761193sm4591717b3a.93.2025.01.25.18.40.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 25 Jan 2025 18:40:08 -0800 (PST)
+Date: Sun, 26 Jan 2025 10:39:52 +0800
+From: Furong Xu <0x1207@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Ido Schimmel <idosch@idosch.org>, Brad Griffis <bgriffis@nvidia.com>,
+ Jon Hunter <jonathanh@nvidia.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Alexander Lobakin <aleksander.lobakin@intel.com>, Joe Damato
+ <jdamato@fastly.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
+ Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com,
+ "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
+Subject: Re: [PATCH net-next v3 1/4] net: stmmac: Switch to zero-copy in
+ non-XDP RX path
+Message-ID: <20250126103952.00005556@gmail.com>
+In-Reply-To: <09442385-573c-4756-8c30-296631bc6272@lunn.ch>
+References: <cover.1736910454.git.0x1207@gmail.com>
+	<bd7aabf4d9b6696885922ed4bef8fc95142d3004.1736910454.git.0x1207@gmail.com>
+	<d465f277-bac7-439f-be1d-9a47dfe2d951@nvidia.com>
+	<20250124003501.5fff00bc@orangepi5-plus>
+	<e6305e71-5633-48bf-988d-fa2886e16aae@nvidia.com>
+	<ccbecd2a-7889-4389-977e-10da6a00391c@lunn.ch>
+	<20250124104256.00007d23@gmail.com>
+	<Z5S69kb7Qz_QZqOh@shredder>
+	<20250125230347.0000187b@gmail.com>
+	<09442385-573c-4756-8c30-296631bc6272@lunn.ch>
 MIME-Version: 1.0
-References: <20250123074830.90923-1-cuiyunhui@bytedance.com>
- <344c53cd-d856-4c03-9deb-743b65acd8aa@linux.alibaba.com> <CAEEQ3wmDej9bbPUmkx-ZrD4FG9Z7gTHMeCrVszx64g90O0RyiQ@mail.gmail.com>
- <31e00081-8695-4ca6-a1ef-af5a007a7565@linux.alibaba.com> <CAEEQ3wm+f_SM7evwL=YrGy8gPLS5YdJm=qhJNT8bbMH7QBOzEA@mail.gmail.com>
- <20250124122952.GB23438@willie-the-truck>
-In-Reply-To: <20250124122952.GB23438@willie-the-truck>
-From: yunhui cui <cuiyunhui@bytedance.com>
-Date: Sun, 26 Jan 2025 09:54:35 +0800
-X-Gm-Features: AWEUYZnjTNudJLKYBjStW-XVXHtOfqxKQ5nXUCNPH1jPKAdahkJrAo65xHG4-aw
-Message-ID: <CAEEQ3wnTMfWSZRhTax3N60W=m3a=zxnJF6dOfiGnqJzBQs8WEg@mail.gmail.com>
-Subject: Re: [External] Re: [PATCH] perf/dwc_pcie: fix duplicate pci_dev devices
-To: Will Deacon <will@kernel.org>
-Cc: Shuai Xue <xueshuai@linux.alibaba.com>, renyu.zj@linux.alibaba.com, 
-	mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, 
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250125_175452_816440_09E8AFE6 
-X-CRM114-Status: GOOD (  15.46  )
+X-CRM114-CacheID: sfid-20250125_184010_047350_FB6680F0 
+X-CRM114-Status: GOOD (  15.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,45 +115,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will,
+On Sat, 25 Jan 2025 20:08:12 +0100, Andrew Lunn <andrew@lunn.ch> wrote:
 
-On Fri, Jan 24, 2025 at 8:30=E2=80=AFPM Will Deacon <will@kernel.org> wrote=
-:
->
-> On Fri, Jan 24, 2025 at 05:11:05PM +0800, yunhui cui wrote:
-> > > >>>        vsec =3D dwc_pcie_des_cap(pdev);
-> > > >>>        if (!vsec)
-> > > >>>                return -ENODEV;
-> > > >>>
-> > > >>>        sbdf =3D plat_dev->id;
-> > > >>> -     name =3D devm_kasprintf(&plat_dev->dev, GFP_KERNEL, "dwc_ro=
-otport_%x", sbdf);
-> > > >>> +     name =3D devm_kasprintf(&plat_dev->dev, GFP_KERNEL, "dwc_ro=
-otport_%d_pmu", sbdf);
-> > > >>
-> > > >> A new name will break previous user tools.
-> > > > This name isn't suitable. It can't clearly show which is the PMU
-> > > > device. Userspace tools don't have binding relationships, like perf=
-.
-> > > > Tools must traverse PMU devices before use.
-> > >
-> > > The device is under /sys/bus/event_source/ which indates it is PMU de=
-vice.
-> > > As far as I know, most of PMU devices do not endup with a '_pmu' pref=
-ix.
-> >
-> > The point is the name "dwc_rootport_" is misleading, suggesting an
-> > extra PCIE RP in the system. Best to change the name to intuitive
-> > "xx_pmu".
->
-> As pointed out above, changing the name will break userspace. So it's
-> simply not an option, sorry.
+> > It is recommended to disable the "SPH feature" by default unless
+> > some certain cases depend on it. Like Ido said, two large buffers
+> > being allocated from the same page pool for each packet, this is a
+> > huge waste of memory, and brings performance drops for most of
+> > general cases.  
+> 
+> I don't know this driver, but it looks like SPH is required for
+> NETIF_F_GRO? Can you add this flag to hw_features, but not
+> wanted_features and leave SPH disabled until ethtool is used to enable
+> GRO?
 
-Could you specify what in the userspace is broken and give an example?
+SPH has its own ethtool command, stmmac driver does not implement yet.
+see:
+https://patchwork.kernel.org/project/netdevbpf/cover/20250114142852.3364986-1-ap420073@gmail.com/
 
->
-> Will
+> Are there other use cases where SPH is needed?
 
-Thanks,
-Yunhui
+https://patchwork.kernel.org/project/netdevbpf/cover/20240910171458.219195-1-almasrymina@google.com/
+https://patchwork.kernel.org/project/netdevbpf/cover/20250116231704.2402455-1-dw@davidwei.uk/
+
+The stmmac driver does not support both of them, but it will someday :)
 
