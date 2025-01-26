@@ -4,86 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 936F4C02181
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jan 2025 14:27:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E79CC02181
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jan 2025 14:50:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r9jWrJo0ys4LMCpA+l8+62ZIwRdxoDRE9SL/3hnuLgA=; b=JV+aK8LNuDmciKon62PwmEU4Jf
-	o4M742U6tgJoeQDi/uDjgvJc587ayKp6lX5ubRwk2CoYZRCmqyS64Wzcub4r9AKa4gb0k2VFI5Cyj
-	mCg4k3GgFaFoRNchbTXWeuPegBkUjZnJKzz5J2YQoOuTtegarDAP2F9PGMTDIjkHQzw6lPZpz7R2d
-	MmhQZw7ZDvBKtnhh3jL8BgBwp8i4mU2uiBHSHxeWENFJHhRjfwEicCHnE0vGbE4ZdMsEEnIiY2Rnb
-	W40mrVTeL96qDPus1Yk4O/fD1mXDHJa1UP7weDupj3OvW+c+SmUKiEVN0nncqMVY9NEHys2aBf2l2
-	E7BCMHEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7n+SKqVxR70QLzk56PgiCUMMioiYr2CMiZRGSzbLSks=; b=Sk8h025gI4BzAcpXZdN9/ezHJk
+	q5SLWJdYEvTmaZ75Km/NXUnSlDeKYPUhdU8GMEtQ035sPQN2Pt42yUsa3ar6QAFb9zO/k0zTWk9cB
+	jdXinu2nQvCYKuOOEckVpJmpqG1t42XqLb46OcB8vIhXIMR4T4tuw6RxOF2nbS1FSPTp+StdArQ5v
+	B4m4iRh7Wum9XRxoqfUYUVa0VYVVqhPhS/TdSipQ2jLsBX/mOni5GV7BvrqOXMZ50YzaL6UOcVStd
+	oSDIZKEs65TEZPqdBxHPAoMtXtctwQNZT+S9J3feTyHknoliHChsTjRAfgvc4EAHMAODcjk/E72wm
+	1UF+l7HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tc3bb-0000000HSmQ-4809;
-	Sun, 26 Jan 2025 14:27:20 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1tc3xc-0000000HTm9-1WkW;
+	Sun, 26 Jan 2025 14:50:04 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tc3aL-0000000HSYj-0hCc;
-	Sun, 26 Jan 2025 14:26:02 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-2f43d17b0e3so6560107a91.0;
-        Sun, 26 Jan 2025 06:26:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737901559; x=1738506359; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=r9jWrJo0ys4LMCpA+l8+62ZIwRdxoDRE9SL/3hnuLgA=;
-        b=iAcjtkkC/78GxAPv+OYLkccJXgJSzCU17IINdstF31x/3k4KDAizQ1OkEO3WrCbEvZ
-         ZqxYlpH6ovs1ZBlLLxDj6eEuFFNrARrUDloTd5BVVWo4rw1bREEjF68SDVPtGxoPmk04
-         08ZSm1QLN+iSFEJp6JMsRvkrTtoOJQUQnckkkTLYrRmTb6O9XurMKTxfy7os/gX8D8sm
-         GTmK8273VQJQ4Kl44poB1WXa2EFpTTMRoOI6wpnrbhD3In0aDW9JLxwSCk9YYsHzDSk8
-         8+W95mZ9rerheYuDT1Nt7o3cuAsiYU9mtaakFiZyvL349cKgmWSfN49deMUaLPpfycj8
-         FRcA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737901559; x=1738506359;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=r9jWrJo0ys4LMCpA+l8+62ZIwRdxoDRE9SL/3hnuLgA=;
-        b=OdHw4+ZS9K316TYPs+NjMFjgY8yYvWrlQFdIMZuBAv989Xtjbc2x70+4iP10jgfb0J
-         Unrq51QrrrlPDP9EGTnxn90P/aYYtGQ2oxBbtaQydJ3Wnr7Oj4adoMQJRkqdvxgAU+19
-         /xNwmHq5A6CjzRJUwPFp/Imm8NM0THq+2/+ZBgeOq5/BB7a4QNy6G+8cxLYtVt10jbsp
-         wBDlsruYOGJG5b8MHmpe/JfIkprNQ2qeQCq7qgifFxp5XDbd9EgehgPDd5N79/v67EvC
-         hHkNoVyZyDyzG4xtwFCJfvFRnqBJZRXKkhuTQreEyBqx/0PEqal22Szojx1Q6Z+0hJ+o
-         qu/g==
-X-Forwarded-Encrypted: i=1; AJvYcCV+mglzQXQCtsW3DTpolQdDdlO0OQ0taqEjwxkAS6upcbr0L+YPUvAPb0xxqeGkw2/okeU2TbQNprbukicvmHQ=@lists.infradead.org, AJvYcCVkZg6dbHoqcLSklUG8qYQvsAL4H+0B7V2SGANGSc2CNutByd84QvX0IM98reaaNHrNp+YbtzzvKqFr5/KHGfdP@lists.infradead.org
-X-Gm-Message-State: AOJu0YwgeRUOFlF+/Ti5ZMGNGV+kULDuKEXGD5GMmEvrveiKms70vHQM
-	QXmJgGZQXi4/IGm6+co7vGoo1iWGo1BeNuzOetkyfq+6/0SA3R5oQggYmT40m4N33M1s/duk1b3
-	URl3u14td/YxIwVKnf4tDYmSwLoI=
-X-Gm-Gg: ASbGncvlREQrqwRCr2UuxSZW609ZpaAjAsVfiviZwDtnbi0qMaNXPUmrqjJJSjJsKQj
-	qP0rL11Ob/uX2ZAr53/AKaFHwtXqkXRmSn5HN08fXFPRaaBBz/UKOk/YNKwVTpxY=
-X-Google-Smtp-Source: AGHT+IFCMAGeAvzXbplXZVHFkq1g5vwQ0LnfRTn5h/6gVwZzfoyS5OmGbeTKmVHjY8WesWHIziGC/YKDnNh34NFn2HA=
-X-Received: by 2002:a17:90b:3bc3:b0:2ee:9b2c:3253 with SMTP id
- 98e67ed59e1d1-2f782d97961mr54700905a91.30.1737901559583; Sun, 26 Jan 2025
- 06:25:59 -0800 (PST)
+	id 1tc3wK-0000000HTUo-3L4I
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 26 Jan 2025 14:48:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3BCF2A40156;
+	Sun, 26 Jan 2025 14:46:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E18BC4CED3;
+	Sun, 26 Jan 2025 14:48:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737902922;
+	bh=K2pCBPWAw7TDuoasXtDys6u4pkvag8mnuiMnnXgupIY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=ZI3WUmnzzwrw50AUk967oOUgPV0VrpkWQ1S1oWjsbKyKDjDwQaNj0PO+GuVjTmTU9
+	 DmaaX/yJgAIhVE5WQUcIfnvdP+1VlU4+EqXSSGy8h/BiiW7dVdEODHaXgosG3yI38D
+	 LrreVigPLtSowIr+8bMGg0AvDltGOFk+lkw89xrE8tMoeQDKlwRe397oc+jHHYpQsc
+	 Fmil0Jc2ZMVcgZSm2IND7MZMU92rmasrbAzZvqtYCPKP1ZSuTqS0bp12hhNp+3AKP9
+	 hyXnqW3cm86XN8P3aBX3O5v7ed5m2n6QtVLEMT1JurATmX2wZPXGPA051YITWzp2u+
+	 BFwwRTnqv9pJQ==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Gavin Shan <gshan@redhat.com>,
+	Sasha Levin <sashal@kernel.org>,
+	akpm@linux-foundation.org,
+	peterx@redhat.com,
+	christophe.leroy@csgroup.eu
+Subject: [PATCH AUTOSEL 6.13 1/7] arm64/mm: Ensure adequate HUGE_MAX_HSTATE
+Date: Sun, 26 Jan 2025 09:48:32 -0500
+Message-Id: <20250126144839.925271-1-sashal@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-References: <20250124052611.3705-1-eagle.alexander923@gmail.com>
- <CABjd4YwA8P9LVuDviO6xydkHpuuOY7XT0pk1oa+FDqOo=uZN4A@mail.gmail.com>
- <a76f315f023a3f8f5435e0681119b4eb@manjaro.org> <CABjd4Ywh_AkbXHonx-8vL-hNY5LMLJge5e4oqxvUG+qe6OF-Og@mail.gmail.com>
- <61b494b209d7360d0f36adbf6d5443a4@manjaro.org> <CABjd4Yx0p0B=e00MjCpDDq8Z=0FtM0s9EN86WdvRimt-_+kh2w@mail.gmail.com>
- <CABjd4Yy14bpjzvFyc8et-=pmds5uwzfxNqcs7L=+XRXBogZEsQ@mail.gmail.com>
-In-Reply-To: <CABjd4Yy14bpjzvFyc8et-=pmds5uwzfxNqcs7L=+XRXBogZEsQ@mail.gmail.com>
-From: Alexander Shiyan <eagle.alexander923@gmail.com>
-Date: Sun, 26 Jan 2025 17:25:47 +0300
-X-Gm-Features: AWEUYZnFxTE3h5oGlTFfsjDcS8qwqMXrYDcf3-wEwsf_JzPpTAfdudBkbVsUmp0
-Message-ID: <CAP1tNvTRER=QzC29Udw4ffOetVECWV+MfZ2o-mbUFvuZ0_i-Kw@mail.gmail.com>
-Subject: Re: [PATCH] arm64: dts: rockchip: Fix broken tsadc pinctrl binding
- for rk3588
-To: Alexey Charkov <alchark@gmail.com>
-Cc: Dragan Simic <dsimic@manjaro.org>, Rob Herring <robh@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, 
-	Sebastian Reichel <sebastian.reichel@collabora.com>, stable@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.13
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250126_062601_202968_0597BA3D 
-X-CRM114-Status: GOOD (  12.97  )
+X-CRM114-CacheID: sfid-20250126_064844_898897_827DF40B 
+X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,22 +84,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello.
+From: Anshuman Khandual <anshuman.khandual@arm.com>
 
-> > > I think it's actually better to accept the approach in Alexander's
-> > > patch, because the whole thing applies to other Rockchip SoCs as well,
-> > > not just to the RK3588(S).
-> >
-> > Anyway, I've just tried it after including the changes below, and
-> > while /sys/kernel/debug/pinctrl/pinctrl-handles shows the expected
-> > pinctrls under tsadc, the driver still doesn't seem to be triggering a
-> > PMIC reset. Weird. Any thoughts welcome.
->
-> I found the culprit. "otpout" (or "default" if we follow Alexander's
-> suggested approach) pinctrl state should refer to the &tsadc_shut_org
-> config instead of &tsadc_shut - then the PMIC reset works.
+[ Upstream commit 1e5823c8e86de83a43d59a522b4de29066d3b306 ]
 
-Great, I'll use this in v2.
+This asserts that HUGE_MAX_HSTATE is sufficient enough preventing potential
+hugetlb_max_hstate runtime overflow in hugetlb_add_hstate() thus triggering
+a BUG_ON() there after.
 
-Thanks!
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+Reviewed-by: Gavin Shan <gshan@redhat.com>
+Link: https://lore.kernel.org/r/20241202064407.53807-1-anshuman.khandual@arm.com
+Signed-off-by: Will Deacon <will@kernel.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ arch/arm64/mm/hugetlbpage.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
+index 3215adf48a1b6..98a2a0e64e255 100644
+--- a/arch/arm64/mm/hugetlbpage.c
++++ b/arch/arm64/mm/hugetlbpage.c
+@@ -519,6 +519,18 @@ pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
+ 
+ static int __init hugetlbpage_init(void)
+ {
++	/*
++	 * HugeTLB pages are supported on maximum four page table
++	 * levels (PUD, CONT PMD, PMD, CONT PTE) for a given base
++	 * page size, corresponding to hugetlb_add_hstate() calls
++	 * here.
++	 *
++	 * HUGE_MAX_HSTATE should at least match maximum supported
++	 * HugeTLB page sizes on the platform. Any new addition to
++	 * supported HugeTLB page sizes will also require changing
++	 * HUGE_MAX_HSTATE as well.
++	 */
++	BUILD_BUG_ON(HUGE_MAX_HSTATE < 4);
+ 	if (pud_sect_supported())
+ 		hugetlb_add_hstate(PUD_SHIFT - PAGE_SHIFT);
+ 
+-- 
+2.39.5
+
 
