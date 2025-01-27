@@ -4,108 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46673C02188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 17:25:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A05DC02188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 17:27:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0w8RYq0iqLvqHjcwjXxAvlelxNoLZvuKyiz+CWQNFCY=; b=RVt7cSLwoes7gniOzIfAyDS+HE
-	/NX6A+P69bzWdGg00E2W8wbl35CqOaVXwIkbhVFbSbyNG5N6ZFEMDAXCLC6QZnkDLLYiD5kP1yY08
-	eHA1ZsvRnz+pZKj1SBNPya0n/V5Ae9sGJgzAmMYBUsFgwRIeU1KGLpnaXNk/LM1DCY3K0Gv/i819K
-	zOpM6HMp+aXFEnTi4klKPObVXH/IzI1frNEZSsMWEB/ywNImYh90pUf7m+o9FBFlMTUEQE6VgidpQ
-	lnF7MOz9sxPu36CAAnipjyHd0YUjz7R8k+EMlcA6nWxqPoKY0jA3C+rQVvUI3/zBi5YpzbGXGjzwU
-	so371G0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VDYixsiftOVn0Vs6xsPNGtUQUZqF/4hWw+q3BeKHGVI=; b=mw6RQ8MCDbJubF9qKJ+wpu/Ojn
+	d4QEo4DN56HWW5JehUE5D+xzQ/8lyjlbo1LTMIoRksAkWmYd31haO2a/eo9TUE1ORrNbblEmS9lGl
+	OiGR4iG7fcImQRFsWBvI+TwVQPsBjb68VGUZqDvKBPt+U3xKIzCj59lWnqckfq8zwlT3UldKz2TgP
+	mSY7Zxwsgzl8P9Mm7gFozzoRnJ8u85zktAK2F8icHeAuJovGsjgv/rZc5mE13oMDjH7TN0fRNeI9A
+	Wu+LUzHOqB3cbmtBxUj+Li/c7DzCTTXVeLHfeHnkKJPNk8vY7ykJy9KJTSC7nW65ZhwSKPFoL2hmG
+	YlCznYLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcSrk-00000002sPt-34oD;
-	Mon, 27 Jan 2025 17:25:40 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tcSt3-00000002sWW-1ZQc;
+	Mon, 27 Jan 2025 17:27:01 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcSqO-00000002sIq-2Ita
+	id 1tcSqg-00000002sMX-2GHZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jan 2025 17:24:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BC5C05C58A0;
-	Mon, 27 Jan 2025 17:23:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2B14C4CED2;
-	Mon, 27 Jan 2025 17:24:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737998655;
-	bh=wkhnpEpAsljzBOm/dhhaDMdpFim5ax/EUa4KeXTgRvs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RIETnMy/PA28fn/9Ab3MON8qHnkafAcpgpE1wNr0uF3GyY59g6hKLGNqZuCEpSnHx
-	 gFtCLp4FnyxNLbwrwEWwikYhbLp6EXiEEjyGo5xYXUBr0H4S7GVxVBEf3NJ6fn+WW5
-	 B9r+/b8+mNgBAJWQ7//01bpMhjZYk2cVp5VCOLnQotxww6a3d63weOYPLKYQx5giCg
-	 2ceJ79dBrt0o7OcN3PXYv/LCnjvjFnhrLhJ6qNmPp7UHGBigl+HPgM5HQhKHMpzMBu
-	 QKkKJ3Wendlef+dHaSTUWdJ+GlT1EJ58BEgosjBGh7X6JTKGI3SuSSBLJQeanV1Sxq
-	 hMuMnTXCz1wjg==
-Message-ID: <2dd9bffa-17d5-4635-b2da-15f59cf07590@kernel.org>
-Date: Mon, 27 Jan 2025 18:24:11 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: ti: am64-phyboard-electra: Add DT overlay for
- X27 connector
-To: Daniel Schultz <d.schultz@phytec.de>, nm@ti.com, vigneshr@ti.com,
- kristo@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Cc: w.egorov@phytec.de, upstream@lists.phytec.de
-References: <20250127065756.3086450-1-d.schultz@phytec.de>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+	Mon, 27 Jan 2025 17:24:36 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4YhZww54Htz6M4Xw;
+	Tue, 28 Jan 2025 01:22:24 +0800 (CST)
+Received: from frapeml500007.china.huawei.com (unknown [7.182.85.172])
+	by mail.maildlp.com (Postfix) with ESMTPS id 72BE6140B73;
+	Tue, 28 Jan 2025 01:24:27 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (7.182.85.71) by
+ frapeml500007.china.huawei.com (7.182.85.172) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Mon, 27 Jan 2025 18:24:27 +0100
+Received: from frapeml500008.china.huawei.com ([7.182.85.71]) by
+ frapeml500008.china.huawei.com ([7.182.85.71]) with mapi id 15.01.2507.039;
+ Mon, 27 Jan 2025 18:24:26 +0100
+From: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>
+To: Oliver Upton <oliver.upton@linux.dev>
+CC: "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, "maz@kernel.org"
+	<maz@kernel.org>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"will@kernel.org" <will@kernel.org>, "mark.rutland@arm.com"
+	<mark.rutland@arm.com>, "cohuck@redhat.com" <cohuck@redhat.com>,
+	"eric.auger@redhat.com" <eric.auger@redhat.com>, "sebott@redhat.com"
+	<sebott@redhat.com>, yuzenghui <yuzenghui@huawei.com>, "Wangzhou (B)"
+	<wangzhou1@hisilicon.com>, jiangkunkun <jiangkunkun@huawei.com>, "Jonathan
+ Cameron" <jonathan.cameron@huawei.com>, Anthony Jebson
+	<anthony.jebson@huawei.com>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, Linuxarm <linuxarm@huawei.com>
+Subject: RE: [PATCH v5 3/4] KVM: arm64: Report all the KVM/arm64-specific
+ hypercalls
+Thread-Topic: [PATCH v5 3/4] KVM: arm64: Report all the KVM/arm64-specific
+ hypercalls
+Thread-Index: AQHbbnQf1mRnk6lqN0urqeTQZlYYF7Mqzb0AgAASSJA=
+Date: Mon, 27 Jan 2025 17:24:26 +0000
+Message-ID: <c448a912008d4c69b1e7940838fb061d@huawei.com>
+References: <20250124151732.6072-1-shameerali.kolothum.thodi@huawei.com>
+ <20250124151732.6072-4-shameerali.kolothum.thodi@huawei.com>
+ <Z5e86rCgvbtK84CT@linux.dev>
+In-Reply-To: <Z5e86rCgvbtK84CT@linux.dev>
+Accept-Language: en-GB, en-US
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250127065756.3086450-1-d.schultz@phytec.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.48.153.225]
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250127_092416_679702_B29C7D47 
-X-CRM114-Status: UNSURE (   7.10  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250127_092434_869369_BA7F5FAF 
+X-CRM114-Status: GOOD (  23.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,27 +88,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/01/2025 07:57, Daniel Schultz wrote:
-> +&main_spi1 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&main_spi1_pins_default>;
-> +	ti,pindir-d0-out-d1-in = <1>;
-> +	status = "okay";
-> +
-> +	spidev@0 {
 
 
-Node names should be generic. See also an explanation and list of
-examples (not exhaustive) in DT specification:
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+> -----Original Message-----
+> From: Oliver Upton <oliver.upton@linux.dev>
+> Sent: Monday, January 27, 2025 5:06 PM
+> To: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>
+> Cc: kvmarm@lists.linux.dev; maz@kernel.org; catalin.marinas@arm.com;
+> will@kernel.org; mark.rutland@arm.com; cohuck@redhat.com;
+> eric.auger@redhat.com; sebott@redhat.com; yuzenghui
+> <yuzenghui@huawei.com>; Wangzhou (B) <wangzhou1@hisilicon.com>;
+> jiangkunkun <jiangkunkun@huawei.com>; Jonathan Cameron
+> <jonathan.cameron@huawei.com>; Anthony Jebson
+> <anthony.jebson@huawei.com>; linux-arm-kernel@lists.infradead.org;
+> Linuxarm <linuxarm@huawei.com>
+> Subject: Re: [PATCH v5 3/4] KVM: arm64: Report all the KVM/arm64-specific
+> hypercalls
+>=20
+> Hi Shameer,
+>=20
+> On Fri, Jan 24, 2025 at 03:17:31PM +0000, Shameer Kolothum wrote:
+> > Currently ARM_SMCCC_VENDOR_HYP_KVM_FEATURES_FUNC_ID returns
+> the bitmap
+> > corresponding to KVM_REG_ARM_VENDOR_HYP_BMAP and it only
+> returns
+> > _KVM_FEATURES_FUNC_ID and _KVM_PTP_FUNC_ID. Change that to
+> return all
+> > the KVM/arm64-specific hypercalls exposed by
+> > KVM/arm64 to guest operating systems.
+> >
+> > Signed-off-by: Shameer Kolothum
+> <shameerali.kolothum.thodi@huawei.com>
+> > ---
+> >  arch/arm64/kvm/hypercalls.c | 6 +++++-
+> >  1 file changed, 5 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/arch/arm64/kvm/hypercalls.c b/arch/arm64/kvm/hypercalls.c
+> > index 27ce4cb44904..6132cb542200 100644
+> > --- a/arch/arm64/kvm/hypercalls.c
+> > +++ b/arch/arm64/kvm/hypercalls.c
+> > @@ -359,7 +359,11 @@ int kvm_smccc_call_handler(struct kvm_vcpu
+> *vcpu)
+> >  		val[3] =3D ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_3;
+> >  		break;
+> >  	case ARM_SMCCC_VENDOR_HYP_KVM_FEATURES_FUNC_ID:
+> > -		val[0] =3D smccc_feat->vendor_hyp_bmap;
+> > +		val[0] =3D GENMASK(ARM_SMCCC_KVM_FUNC_MMIO_GUARD,
+> > +				 ARM_SMCCC_KVM_FUNC_FEATURES);
+> > +		/* Function numbers 8-63 are reserved for pKVM for now */
+> > +		val[2] =3D
+> GENMASK((ARM_SMCCC_KVM_FUNC_DISCOVER_IMPL_CPUS - 64),
+> > +
+> (ARM_SMCCC_KVM_FUNC_DISCOVER_IMPL_VER - 64));
+> >  		break;
+>=20
+> This isn't right. The pKVM carveout exists for some KVM-internal
+> bookkeeping to (hopefully) avoid breaking guest ABI between what's in the
+> downstream android kernel and what eventually gets accepted upstream.
+>=20
+> The purpose of this hypercall is for the guest to discover what interface=
+s are
+> actually implemented by the hypervisor, and we definitely do not
+> implement these upstream at the moment.
 
+Ok. I had some confusion on pKVM ones as I could see the kvm_arm_hyp_servic=
+e_available()
+being called with those in arm-pkvm-guest.c. So that explains it.
+.
+I will remove the pKVM ones and just add support to report the ones introdu=
+ced
+in this series.
 
-> +		compatible = "rohm,dh2228fv";
+Thanks,
+Shameer
 
-
-That's not the device you have there. You cannot use other compatibles.
-
-
-Best regards,
-Krzysztof
 
