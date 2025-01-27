@@ -4,89 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0672AC0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 11:45:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72894C02188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 11:50:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8s8Ybj23IzdkG94lM8VwSe+rDTpAyeNYgumsToSdn8o=; b=WLObM2dRVEYR2FP2OTv1H/NbXN
-	saihYuiBYqpqLLfXSp0o6tDsMK+4V6bPL+Bhj0uvXP9f7OTgJqumdBFe5uOWWwHuHDFYZS7/gaIWC
-	dvnlF9650gQlPxNH2l3D58xg4OYjKrAHKBGar1xWWnkAsYp4OW0qHVe5vWv+mDHUzKrEUDwx4WgfT
-	ZUYm0Nqxa2r2kByDryXzRhzD/Ax+LeWsrHfXa8rWzQMvfeYA9J4RcGMVqE33HuGdP2/EOjD2XZC0e
-	DS7RTq5rUgber/l5PM8Hoib2h6E3HuTSn7q26LmWob25VwfuziFkjtSBuYWucPEWq06gjJBtcEPIz
-	K+g0Yc5Q==;
+	bh=j3rCrfBQxRg34UHrvcXEAEaVpRPffRi4D+KAYfBVRcE=; b=JVu9sSWhKoBHPC25SAlxO/WjMh
+	UD+YscN9wM4Woufc8H4jyCU0zfVhzP4wF9Y4IjeK6t0qLeEOXdEhj4J3K809C6VPIet7W1pLidAGe
+	BgDXxEi4AyiYEWiCZrtgUQuvGlvTVdF94wcDc9D6dCmyjScn+rvI3zuU6PfLjbn8lyxkUvKj2CGo7
+	u6Zk3Xp/YiUUJcvAII7JRMLtRF1P0UQz32EGUkY0QqW1m5DfKgeH+SzOkNNpTD5r2Vt+C2vxi/gPW
+	oisQvruM441K2Lc4NUJVH+uf7gRE29IHU7aI07BVRDBv85nNyne54q2HZko4YM4UaHZwQw9+KTSFL
+	k406r9gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcNYE-00000002Evn-0UV5;
-	Mon, 27 Jan 2025 11:45:10 +0000
+	id 1tcNch-00000002FDI-3uDe;
+	Mon, 27 Jan 2025 11:49:47 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcNW4-00000002EYw-3V0b;
-	Mon, 27 Jan 2025 11:42:58 +0000
+	id 1tcNbQ-00000002F8V-3ccm;
+	Mon, 27 Jan 2025 11:48:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1737978175;
-	bh=9G+YS0b0P5Svr4O3FxFoYaA6+V4p7P1jy6ZHHTJzxyQ=;
+	s=mail; t=1737978507;
+	bh=lc+C2L2elEfWKiD8GPckPA2FJyMup+IhWEW4zlgFAig=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=q1mF9B1tMDcxxpj6CFhhTI01tKbwKJW9YDaeOTB78/kcGg7nKWCmLiFZl8VIyg3MK
-	 DI4Hea4qNMPVjinNITHaJ6Y3xOB380/UsLLAsmDKUfXZRXJHjU+o53nNYidiMEVDhd
-	 FSFLWdq919a8YLa53DLjZof65aT9O+WTjWvGKtKq8qFIuKh4ytxZDPK9RUcrd79yCO
-	 Vcd0rv3uxkwvjGOGIuHR3eVaFE4Hlfy+dVP2G/1c/BCFMunQJe/6HFD9jMx8aO3JJZ
-	 rprkYKvhb3cWQNrl24QxM/pZQLYjNhW0iRklJ2CGQsm2CyXjt1QTiaBXlmheCJvzCv
-	 8hh79BpCEhTIA==
+	b=gzg2v/os61vIFPi7VAU4A/Dvy9J/wCYbsI/vpiIrry+fjO6XL+/NABr8UWmP7c3o2
+	 +E+M3bW3V/jygyD7Fi7KDySzISf5Jk4mPh9xcMFYtbHJH/IpmbICdDgCHKJ8ETU9Jb
+	 YKO29XB9mfWFxi8J8xtyGCCfKvXR7aOj0X5ePCXAL9PTY/IpRynjpVXrBuJyTRT0xV
+	 pZR+bmMmXZXlXaBu45qNC5EK1ELPYlfTD0yCyUCrB0h2D/XlhrcREIUzI72A27d8eP
+	 lBl018apjofsBdTuIJdL+PhYSmlkgNQQ9so/RM/+bQI2Av/1D4AFAuHpoH9sdJsnRc
+	 C/rvwcQ8MQZPw==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id AA98B17E0FC7;
-	Mon, 27 Jan 2025 12:42:53 +0100 (CET)
-Message-ID: <cf030cb3-81c1-4ff8-9ad6-c82f743241da@collabora.com>
-Date: Mon, 27 Jan 2025 12:42:52 +0100
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 91FA717E0B18;
+	Mon, 27 Jan 2025 12:48:26 +0100 (CET)
+Message-ID: <bfce3aea-490b-4311-ad4a-ab567d2a0572@collabora.com>
+Date: Mon, 27 Jan 2025 12:48:26 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 20/34] drm/mediatek: mtk_hdmi: Use dev_err_probe() in
- mtk_hdmi_dt_parse_pdata()
-To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
- "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
-Cc: "robh@kernel.org" <robh@kernel.org>,
- "jie.qiu@mediatek.com" <jie.qiu@mediatek.com>,
- "tzimmermann@suse.de" <tzimmermann@suse.de>,
- "simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
- <mripard@kernel.org>, =?UTF-8?B?Sml0YW8gU2hpICjnn7PorrDmtpsp?=
- <jitao.shi@mediatek.com>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "kernel@collabora.com" <kernel@collabora.com>,
- "dmitry.baryshkov@linaro.org" <dmitry.baryshkov@linaro.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- =?UTF-8?B?TGV3aXMgTGlhbyAo5buW5p+P6YieKQ==?= <Lewis.Liao@mediatek.com>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- =?UTF-8?B?VG9tbXlZTCBDaGVuICjpmbPlvaXoia8p?= <TommyYL.Chen@mediatek.com>,
- =?UTF-8?B?SXZlcyBDaGVuamggKOmZs+S/iuW8mCk=?= <Ives.Chenjh@mediatek.com>,
- "airlied@gmail.com" <airlied@gmail.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- =?UTF-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>,
- "junzhi.zhao@mediatek.com" <junzhi.zhao@mediatek.com>
-References: <20250113145232.227674-1-angelogioacchino.delregno@collabora.com>
- <20250113145232.227674-21-angelogioacchino.delregno@collabora.com>
- <cbbdc53ea47f0e7ea02fc7d197664819958ea2cd.camel@mediatek.com>
+Subject: Re: [RESEND v3 2/2] pinctrl: mediatek: adapt to multi-base design
+To: Hao Chang <ot_chhao.chang@mediatek.com>, Sean Wang
+ <seann.wang@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>
+Cc: Wenbin Mei <wenbin.mei@mediatek.com>, Axe Yang <axe.yang@mediatek.com>,
+ Qingliang Li <qingliang.li@mediatek.com>,
+ Hanks Chen <hanks.chen@mediatek.com>, Chunhui Li <chunhui.li@mediatek.com>,
+ linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20250125025145.14405-1-ot_chhao.chang@mediatek.com>
+ <20250125025145.14405-3-ot_chhao.chang@mediatek.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <cbbdc53ea47f0e7ea02fc7d197664819958ea2cd.camel@mediatek.com>
+In-Reply-To: <20250125025145.14405-3-ot_chhao.chang@mediatek.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250127_034257_025314_70ECA95A 
-X-CRM114-Status: GOOD (  30.79  )
+X-CRM114-CacheID: sfid-20250127_034829_060742_C75C4027 
+X-CRM114-Status: GOOD (  19.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,158 +80,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 24/01/25 09:24, CK Hu (胡俊光) ha scritto:
-> Hi, Angelo:
+Il 25/01/25 03:51, Hao Chang ha scritto:
+> The eint num will obtain the operation address through pins.
+> Change the traversal method of irq handle from traversing a set of
+> registers to traversing one by one.
 > 
-> On Mon, 2025-01-13 at 15:52 +0100, AngeloGioacchino Del Regno wrote:
->> External email : Please do not click links or open attachments until you have verified the sender or the content.
->>
->>
->> Change error prints to use dev_err_probe() instead of dev_err()
->> where possible in function mtk_hdmi_dt_parse_pdata(), used only
->> during device probe.
->> While at it, also beautify some prints.
+> Change-Id: I3962b78042d32501a73153201cddf52c6b62a695
+> Signed-off-by: Hao Chang <ot_chhao.chang@mediatek.com>
+> Signed-off-by: Qingliang Li <qingliang.li@mediatek.com>
+> ---
+>   drivers/pinctrl/mediatek/mtk-eint.c | 38 +++++++++++++++++++----------
+>   1 file changed, 25 insertions(+), 13 deletions(-)
 > 
-> I think you have do two things.
-> The first one is "Use dev_err_probe() in mtk_hdmi_dt_parse_pdata()" as the title says.
-> The second one is "beautify some prints".
-> 
-> The title does not mention the second one, so I think the second one is not related to this patch.
+> diff --git a/drivers/pinctrl/mediatek/mtk-eint.c b/drivers/pinctrl/mediatek/mtk-eint.c
+> index 540245c3128d..949a20196f74 100644
+> --- a/drivers/pinctrl/mediatek/mtk-eint.c
+> +++ b/drivers/pinctrl/mediatek/mtk-eint.c
+> @@ -513,6 +513,7 @@ EXPORT_SYMBOL_GPL(mtk_eint_find_irq);
+>   int mtk_eint_do_init(struct mtk_eint *eint)
+>   {
+>   	unsigned int size, i, port;
+> +	struct mtk_pinctrl *hw = (struct mtk_pinctrl *)eint->pctl;
+>   
+>   	/* If clients don't assign a specific regs, let's use generic one */
+>   	if (!eint->regs)
+> @@ -523,11 +524,11 @@ int mtk_eint_do_init(struct mtk_eint *eint)
+>   	if (!eint->base_pin_num)
+>   		return -ENOMEM;
+>   
+> -	if (!eint->pins) {
+> +	if (eint->nbase == 1) {
+>   		size = eint->hw->ap_num * sizeof(struct mtk_eint_pin);
+>   		eint->pins = devm_kmalloc(eint->dev, size, GFP_KERNEL);
+>   		if (!eint->pins)
+> -			return -ENOMEM;
+> +			goto err_eint;
+>   
+>   		eint->base_pin_num[0] = eint->hw->ap_num;
+>   		for (i = 0; i < eint->hw->ap_num; i++) {
+> @@ -536,34 +537,29 @@ int mtk_eint_do_init(struct mtk_eint *eint)
+>   			eint->pins[i].debounce = (i < eint->hw->db_cnt) ? 1 : 0;
+>   		}
+>   	} else {
+> +		eint->pins = hw->soc->eint_pin;
+>   		for (i = 0; i < eint->hw->ap_num; i++)
+>   			eint->base_pin_num[eint->pins[i].instance]++;
+>   	}
+>   
+>   	eint->wake_mask = devm_kmalloc(eint->dev, eint->nbase * sizeof(u32 *), GFP_KERNEL);
+> -	if (!eint->wake_mask)
+> -		return -ENOMEM;
+> -
+>   	eint->cur_mask = devm_kmalloc(eint->dev, eint->nbase * sizeof(u32 *), GFP_KERNEL);
+> -	if (!eint->wake_mask)
+> -		return -ENOMEM;
 
-The beautification is a consequence of changing to dev_err_probe() - and this is
-because dev_err_probe auto-formats the error code into the print, so all of the
-": %d" was removed *because* of the migration to that.
+This error checking was fine. Please keep it correct.
 
-The only string that had changes that are not consequence of that is
-"Failed to find ddc-i2c-bus node in %pOF -> No ddc-i2c-bus in connector"
+if (!eint->wake_mask) {
+	ret = -ENOMEM;
+	goto err_wake_mask_alloc;
+}
 
-Besides, 99.99% of the change here is using dev_err_probe() instead of dev_err(),
-I'm not sure that mentioning that one string out of five changed in the commit
-description is actually worth it.
+and
 
-I've mentioned that in the commit description though, and looks enough to me, so
-I'm not sure why you think that the one string change should go to the title.
-That is also because ddc-i2c-bus can only be defined in one node, so the print
-was actually stating the obvious.
+if (!eint->cur_mask) {
+	ret = -ENOMEM;
+	goto err_cur_mask_alloc;
+}
 
-> You think some refinement is not worth to be a patch.
+> +	if (!eint->wake_mask || !eint->wake_mask)
+> +		goto err_eint;
+>   
+>   	for (i = 0; i < eint->nbase; i++) {
+>   		port = (eint->base_pin_num[i] + 31) / 32;
+>   		eint->wake_mask[i] = devm_kzalloc(eint->dev, port * sizeof(u32), GFP_KERNEL);
+> -		if (!eint->wake_mask[i])
+> -			return -ENOMEM;
+> -
+>   		eint->cur_mask[i] = devm_kzalloc(eint->dev, port * sizeof(u32), GFP_KERNEL);
+> -		if (!eint->cur_mask[i])
+> -			return -ENOMEM;
+> +		if (!eint->cur_mask[i] || !eint->wake_mask[i])
+> +			goto err_eint;
 
-Correct, and that's because it's one single string out of five.
-One commit to change one string simply clutters the log without bringing any
-commit readability benefits at all.
+same here
 
-> If it's not worth, maybe we should keep them as they are.
-> Or you could collect all refinement into one refinement patch, and this would looks worth.
+>   	}
+>   
+>   	eint->domain = irq_domain_add_linear(eint->dev->of_node,
+>   					     eint->hw->ap_num,
+>   					     &irq_domain_simple_ops, NULL);
+>   	if (!eint->domain)
+> -		return -ENOMEM;
+> +		goto err_eint;
+>   
+>   	if (eint->hw->db_time) {
+>   		for (i = 0; i < MTK_EINT_DBNC_MAX; i++)
+> @@ -585,6 +581,22 @@ int mtk_eint_do_init(struct mtk_eint *eint)
+>   					 eint);
+>   
+>   	return 0;
+> +
+> +err_eint:
+> +	for (i = 0; i < eint->nbase; i++) {
+> +		if (eint->wake_mask[i])
+> +			devm_kfree(eint->dev, eint->wake_mask[i]);
+> +		if (eint->cur_mask[i])
+> +			devm_kfree(eint->dev, eint->cur_mask[i]);
+> +	}
+> +	if (eint->cur_mask)
+> +		devm_kfree(eint->dev, eint->cur_mask);
+> +	if (eint->wake_mask)
+> +		devm_kfree(eint->dev, eint->wake_mask);
+> +	if (eint->nbase == 1)
+> +		devm_kfree(eint->dev, eint->pins);
+> +	devm_kfree(eint->dev, eint->base_pin_num);
 
-That's what I've done in one of the previous versions.
+...and you should only kfree what was successfully allocated before.
 
-You rightfully wanted me to split (and yeah I agree it's better), so that's the
-split patches. I really don't think that splitting more is any beneficial, as
-much as I don't think that reverting back to the non-split version is.
-
-That ... unless I've misunderstood what you're saying here? :-)
-
-Cheers,
+Regards,
 Angelo
 
-> 
-> Regards,
-> CK
-> 
->>
->> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> ---
->>   drivers/gpu/drm/mediatek/mtk_hdmi.c | 34 ++++++++++-------------------
->>   1 file changed, 11 insertions(+), 23 deletions(-)
->>
->> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
->> index 65e9629b6b77..48c37294dcbb 100644
->> --- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
->> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
->> @@ -1372,30 +1372,23 @@ static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
->>   {
->>          struct device *dev = &pdev->dev;
->>          struct device_node *np = dev->of_node;
->> -       struct device_node *cec_np, *remote, *i2c_np;
->> +       struct device_node *remote, *i2c_np;
->>          struct platform_device *cec_pdev;
->>          struct regmap *regmap;
->>          int ret;
->>
->>          ret = mtk_hdmi_get_all_clk(hdmi, np);
->> -       if (ret) {
->> -               if (ret != -EPROBE_DEFER)
->> -                       dev_err(dev, "Failed to get clocks: %d\n", ret);
->> -
->> -               return ret;
->> -       }
->> +       if (ret)
->> +               return dev_err_probe(dev, ret, "Failed to get clocks\n");
->>
->>          /* The CEC module handles HDMI hotplug detection */
->>          cec_np = of_get_compatible_child(np->parent, "mediatek,mt8173-cec");
->> -       if (!cec_np) {
->> -               dev_err(dev, "Failed to find CEC node\n");
->> -               return -EINVAL;
->> -       }
->> +       if (!cec_np)
->> +               return dev_err_probe(dev, -EINVAL, "Failed to find CEC node\n");
->>
->>          cec_pdev = of_find_device_by_node(cec_np);
->>          if (!cec_pdev) {
->> -               dev_err(hdmi->dev, "Waiting for CEC device %pOF\n",
->> -                       cec_np);
->> +               dev_err(hdmi->dev, "Waiting for CEC device %pOF\n", cec_np);
->>                  of_node_put(cec_np);
->>                  return -EPROBE_DEFER;
->>          }
->> @@ -1413,9 +1406,8 @@ static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
->>          if (IS_ERR(regmap))
->>                  ret = PTR_ERR(regmap);
->>          if (ret) {
->> -               dev_err(dev,
->> -                       "Failed to get system configuration registers: %d\n",
->> -                       ret);
->> +               dev_err_probe(dev, ret,
->> +                             "Failed to get system configuration registers\n");
->>                  goto put_device;
->>          }
->>          hdmi->sys_regmap = regmap;
->> @@ -1443,20 +1435,16 @@ static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
->>          }
->>
->>          i2c_np = of_parse_phandle(remote, "ddc-i2c-bus", 0);
->> +       of_node_put(remote);
->>          if (!i2c_np) {
->> -               dev_err(dev, "Failed to find ddc-i2c-bus node in %pOF\n",
->> -                       remote);
->> -               of_node_put(remote);
->> -               ret = -EINVAL;
->> +               ret = dev_err_probe(dev, -EINVAL, "No ddc-i2c-bus in connector\n");
->>                  goto put_device;
->>          }
->> -       of_node_put(remote);
->>
->>          hdmi->ddc_adpt = of_find_i2c_adapter_by_node(i2c_np);
->>          of_node_put(i2c_np);
->>          if (!hdmi->ddc_adpt) {
->> -               dev_err(dev, "Failed to get ddc i2c adapter by node\n");
->> -               ret = -EINVAL;
->> +               ret = dev_err_probe(dev, -EINVAL, "Failed to get ddc i2c adapter by node\n");
->>                  goto put_device;
->>          }
->>
->> --
->> 2.47.0
->>
-> 
+> +	return -ENOMEM;
+>   }
+>   EXPORT_SYMBOL_GPL(mtk_eint_do_init);
+>   
 
 
--- 
-AngeloGioacchino Del Regno
-Senior Software Engineer
-
-Collabora Ltd.
-Platinum Building, St John's Innovation Park, Cambridge CB4 0DS, UK
-Registered in England & Wales, no. 5513718
 
