@@ -4,100 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D6BDC0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jan 2025 22:02:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0E58C0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 01:20:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4DdbTStKVkTb7WFrUrJoNlbv7lkdF9Cm9SPJk5oqJFw=; b=spfkvekMDwuOEYTJyt0o0eRhz2
-	C4uUmzW7bzfi1cF76n19K8q45m3KffiCs2oZBH3xvpVF2OD8JElcmgZoRQg07/6+gPJCYcdafIat5
-	Jh6hGmDrhJqPzm7tRGjUYBqYx2oTMmj9C1dnoRzpXTB7vkH5lq6ABgTkvEdmo1Stj82ypNkD5Zowd
-	BXXx2u+SKCN6BLqlTMCeSMcaxvQwTBA8GeGGSOLzcGQqe8u0wrFTXyaYsd1CXDzYWwk/s4LCe2Oi5
-	4xxagVHz8f5l76ZTjJq17nR+yaw3KAZagaUdFTREWXL6bBu4NOcAcS486l9rIaf2kwpSHAQiKEtyv
-	SIIKsozQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=puNCcAQgnHBQGEW2IyF2W/7TwW8FZJyVJNvbseQ4Bks=; b=3qwJPNsfDk+pQ9dZqo1Jpom06e
+	qIx7/isa85EiggNFCzyvS+3mrD5QTjvq12nAkyNC5XdTXrDjUPtLme49sq7nLswGRwiTybsjXo8me
+	urWJKQojqZpZEXj7ZQ75xxc2SKQ4XTyTHNGd5niSfrZ/5QMWxe0GRwrkJ01b3PvcnCJVPfFmIdneL
+	ySCGfrqeT9sPiQw+UcATP66s+JdCqHO7FWa091E0S9E+XyEG6BZgY02/KAyGG4qf+h4rXR9lV9qpN
+	vCE6q+xJlwWXNt6J/5H6trtzNS2gpnm1xWwPkmAr/lDkpB8adGVBQ99Z+7uq59rsDu4ks1YN+Y9KU
+	HLEjTX1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcAhV-00000001ADB-0lzX;
-	Sun, 26 Jan 2025 22:01:53 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcAgD-000000019fp-2Nt4
+	id 1tcDnL-00000001HbV-2xU8;
+	Mon, 27 Jan 2025 01:20:07 +0000
+Received: from mx.socionext.com ([202.248.49.38])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tcDm1-00000001HWO-0lR4
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Jan 2025 22:00:34 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43626213fffso30244005e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Jan 2025 14:00:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737928831; x=1738533631; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=4DdbTStKVkTb7WFrUrJoNlbv7lkdF9Cm9SPJk5oqJFw=;
-        b=M9ggIJkwJoXXGD8zf2iFmGLbL9ZwDm3AM7wqeQu0+hgW7Ig5rizkVngvvF7BMs4s+F
-         sYA1GKM0HyS4HD6uyFs/8N/Ke40TiaqPG9BSQSDn8V5iTc+58Q6PYm1T7KisDI0iyhT8
-         E6Hs9157jNBAX60wsodGngby+btmShPytKavdGzPSIsOyRTTAhYVEgopKVdTvZFAO0qT
-         qf6gY5sRFTtahJuc3ATNz50VgFl+FuItpQUDBnhGvrIifYLGQdXY9dyik4c4t4zMALq+
-         BziPM4PKQwOigxQldjbibGNENUfntT7/9OGBZs8yG2jwF81ld95fMn4ZdlFU+HOge+e4
-         dZtA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737928831; x=1738533631;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=4DdbTStKVkTb7WFrUrJoNlbv7lkdF9Cm9SPJk5oqJFw=;
-        b=CGpUBjxk4qcQhZ4DXwE5SOi35cTMv61LNiZKInBb2k13t4RV/W6o+ueZy2ue5YigcC
-         i5KtcOzH9BNyTMlce9hv8tK1hPjxtUHSXV2u7ZoogV7SclVuHCNc8o0IVtl8rmSoDJeF
-         iSMPRfGUe1t6804BJ4fktmNvZC6gkq/bIJZDrwfMi2dV6NdbdoY2TIU3n+w+2I0Jg4Uf
-         0NYvyY+neQGN+mCFBpEu3gQprzg+vviguwoM/REMWlEvu15D4RQoD3CmXmyec8Oppev1
-         akyl9c15ePTgkike4O8/qRridnmv31YHf4GUK+UEwWBPk3byvwJ+IRSV2LWsI+nJZUE6
-         PKRQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX/kBNESM4itdBIDhOusAv9A3rUZNprOfdjEX7/MkCnUHVCzz1e0v1bPGxk3oLXj/h64wTnGjVBiUFVs7iHC/Td@lists.infradead.org
-X-Gm-Message-State: AOJu0YyIG4Igxlvyqd25URgqw5a93M70QoIy8Ac+T1SARQB21hIbsg0B
-	aG8hENshW3JlLUSssAA9phvD+zL/fPbDF+PQ6/IiwsiBCL0iX44B
-X-Gm-Gg: ASbGncu/BkZzySBAUDdTv2pzGrbVJHG6nuqaNaITWc51DTjG/SkN0fhv8z93foupCKs
-	xbxQoHF2L2WrGDP5Ry6RMmKDNPoIb17ytp+JuQsjmPQ0pQ7iUf74X6U9dKvewwJ6qqTmBMuRcJp
-	sAYswwncOczUexJNtWKFx+Dd4+oCgaeVT3h1jVTmgfCqI295TsCR/zbvPuoEov7pN5q2TKg3YM3
-	TkZ6A9saxKTVr5ZznEURPY+oFi+WpJm1nz1jUeBsKCPlgpS2jRAMHqWFyvjtYNvFPzLCjWvE7SB
-	lv12gq6T5BEoeiafSCqPHgAheex7DF0xkYwiJ7fEaWzfal5m/6e9XSKnAITIIWsn1Gt9AhtZpIW
-	farEu9DjGE1sUs0huKiyjGWH4GqG3kQzFZ9vOInrTdQjz
-X-Google-Smtp-Source: AGHT+IGsZIr2STvVAqncSIrcbBNbIGfPo1HDsn0GMZTH13nRBH3HPa/wKJc6AIwOxi8bTdK3IydwYQ==
-X-Received: by 2002:a05:6000:401f:b0:38a:8b34:76b0 with SMTP id ffacd0b85a97d-38c2b7d12a7mr8375865f8f.27.1737928831040;
-        Sun, 26 Jan 2025 14:00:31 -0800 (PST)
-Received: from p200300c5871e95f7cf8ec2b454ca4b5c.dip0.t-ipconnect.de (p200300c5871e95f7cf8ec2b454ca4b5c.dip0.t-ipconnect.de. [2003:c5:871e:95f7:cf8e:c2b4:54ca:4b5c])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38c2a1baf3esm9290068f8f.75.2025.01.26.14.00.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 26 Jan 2025 14:00:29 -0800 (PST)
-Message-ID: <76ddd6b18a35a19d284496345e41f5a22866f171.camel@gmail.com>
-Subject: Re: [PATCH v4] scsi: ufs: fix use-after free in init error and
- remove paths
-From: Bean Huo <huobean@gmail.com>
-To: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>, Alim Akhtar
- <alim.akhtar@samsung.com>, Avri Altman <avri.altman@wdc.com>, Bart Van
- Assche <bvanassche@acm.org>, "James E.J. Bottomley"
- <James.Bottomley@HansenPartnership.com>, "Martin K. Petersen"
- <martin.petersen@oracle.com>, Peter Griffin <peter.griffin@linaro.org>, 
- Krzysztof Kozlowski <krzk@kernel.org>, Manivannan Sadhasivam
- <manivannan.sadhasivam@linaro.org>,  Mike Snitzer <snitzer@redhat.com>,
- Jens Axboe <axboe@kernel.dk>, Ulf Hansson <ulf.hansson@linaro.org>,  Satya
- Tangirala <satyat@google.com>, Eric Biggers <ebiggers@google.com>
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, Will McVicker
- <willmcvicker@google.com>, kernel-team@android.com,
- linux-scsi@vger.kernel.org,  linux-kernel@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
- linux-arm-msm@vger.kernel.org,  stable@vger.kernel.org
-Date: Sun, 26 Jan 2025 23:00:28 +0100
-In-Reply-To: <20250124-ufshcd-fix-v4-1-c5d0144aae59@linaro.org>
-References: <20250124-ufshcd-fix-v4-1-c5d0144aae59@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.44.4-0ubuntu2 
+	Mon, 27 Jan 2025 01:18:46 +0000
+Received: from unknown (HELO kinkan2-ex.css.socionext.com) ([172.31.9.52])
+  by mx.socionext.com with ESMTP; 27 Jan 2025 10:18:39 +0900
+Received: from mail.mfilter.local (mail-arc02.css.socionext.com [10.213.46.40])
+	by kinkan2-ex.css.socionext.com (Postfix) with ESMTP id B7431200C4F1;
+	Mon, 27 Jan 2025 10:18:39 +0900 (JST)
+Received: from iyokan2.css.socionext.com ([172.31.9.53]) by m-FILTER with ESMTP; Mon, 27 Jan 2025 10:18:39 +0900
+Received: from [10.212.246.222] (unknown [10.212.246.222])
+	by iyokan2.css.socionext.com (Postfix) with ESMTP id 06C8FAB186;
+	Mon, 27 Jan 2025 10:18:39 +0900 (JST)
+Message-ID: <bc3734ba-e68d-4700-8596-2710f6101f8f@socionext.com>
+Date: Mon, 27 Jan 2025 10:18:38 +0900
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v3 1/3] net: stmmac: Limit the number of MTL queues to
+ hardware capability
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Yanteng Si <si.yanteng@linux.dev>, Furong Xu <0x1207@gmail.com>,
+ Joao Pinto <Joao.Pinto@synopsys.com>, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250124101359.2926906-1-hayashi.kunihiko@socionext.com>
+ <20250124101359.2926906-2-hayashi.kunihiko@socionext.com>
+ <Z5N8-2XVAFBn1BCY@shell.armlinux.org.uk>
+Content-Language: en-US
+From: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
+In-Reply-To: <Z5N8-2XVAFBn1BCY@shell.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250126_140033_605924_184D3AEA 
-X-CRM114-Status: UNSURE (   7.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250126_171845_339279_93A9037B 
+X-CRM114-Status: GOOD (  21.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,12 +76,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2025-01-24 at 15:09 +0000, Andr=C3=A9 Draszik wrote:
-> Fixes: cb77cb5abe1f ("blk-crypto: rename blk_keyslot_manager to
-> blk_crypto_profile")
-> Fixes: d76d9d7d1009 ("scsi: ufs: use devm_blk_ksm_init()")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+On 2025/01/24 20:43, Russell King (Oracle) wrote:
+> On Fri, Jan 24, 2025 at 07:13:57PM +0900, Kunihiko Hayashi wrote:
+>> The number of MTL queues to use is specified by the parameter
+>> "snps,{tx,rx}-queues-to-use" from stmmac_platform layer.
+>>
+>> However, the maximum numbers of queues are constrained by upper limits
+>> determined by the capability of each hardware feature. It's appropriate
+>> to limit the values not to exceed the upper limit values and display
+>> a warning message.
+>>
+>> This only works if the hardware capability has the upper limit values.
+>>
+>> Fixes: d976a525c371 ("net: stmmac: multiple queues dt configuration")
+>> Signed-off-by: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
+>> ---
+>>   drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 15 +++++++++++++++
+>>   1 file changed, 15 insertions(+)
+>>
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+>> index 7bf275f127c9..be1e6fa6d557 100644
+>> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+>> @@ -7232,6 +7232,21 @@ static int stmmac_hw_init(struct stmmac_priv
+> *priv)
+>>   	if (priv->dma_cap.tsoen)
+>>   		dev_info(priv->device, "TSO supported\n");
+>>   
+>> +	if (priv->dma_cap.number_rx_queues &&
+>> +	    priv->dma_cap.number_rx_queues < priv->plat->rx_queues_to_use)
+> {
+> 
+> While this looks "nicer", which of these two do you think reads better
+> and is easier to understand:
+> 
+> "If priv->dma_cap.number_rx_queues is set, and
+>   priv->dma_cap.number_rx_queues is less than
+>   priv->plat->rx_queues_to_use then print a message about
+>   priv->plat->rx_queues_to_use exceeding priv->dma_cap.number_rx_queues"
+> 
+> "If priv->dma_cap.number_rx_queues is set, and
+>   priv->plat->rx_queues_to_use is greater than
+>   priv->dma_cap.number_rx_queues, then print a message about
+>   priv->plat->rx_queues_to_use exceeding priv->dma_cap.number_rx_queues"
+> 
+> With the former one has to mentally flip the test around in the if
+> statement to check that it does indeed match the warning that is
+> printed.
 
-Reviewed-by: Bean Huo <beanhuo@micron.com>
+This patch focuses only on the conditional lines, however, certainly
+it's not good to have the meaning of the message and the condition
+reversed.
+
+I'll fix it next.
+
+Thank you,
+
+---
+Best Regards
+Kunihiko Hayashi
 
