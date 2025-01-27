@@ -4,66 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63037C02188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 15:01:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79581C02188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 15:15:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WPpbWt5H9OIDc4sHJ4oPihKQFc3PPE6u9s5cYInSJOw=; b=XbnHALzxuymL4ggIGpS9NRS+R7
-	Upt5mDFpMLYqJRc5OiC4/Ik9tAJV4xSoiF3J4ACqw8iTY7YPqmdIhu8+XTuLfb8nWSpzVUX7LExvR
-	P81gphEyCQZjwgEdNL4zGu5CzfGnFEEkcDUDp14mTe6i2gZOkCS97ZhWb5u+FgJjtwrt3M//Y6qlv
-	o1VoAU/f+kVwccUx32MxR+ifmyWBELyIJu4N0cbYVi/hpODApg0Fn1W/dI7XneOWZfl2VQC39G0T9
-	5vWz+VbyU6lMgrwvIFiNQeEGL1+lHsELTm9v75rZysnkXd4vyFRbSqkP9ylDe4gKLwRZwo2ThZsv+
-	BmFr0JeQ==;
+	bh=sxTW+xwMEAjoJCn+AqoDP2wdj9gNCIQw9qxueOCKko4=; b=JgDwjBRYKHCU22yCJ3PZqmWuQL
+	q5/kNcReP5L53H73UsX37DUtaMCpJWREUksVLXlRjXE15eDhkPUKId+hNCsw2fGKqQkyzQvvB9ZRa
+	8lygwWsfHo438WRqoKod1xRtuVRTYzfwIzBr80pnkH1R5q8ermFcXqIF5H71QQFVWQ0Fu6PoNL8ow
+	KfJXivY2Tq4fW/v3CxTVlhnZymq6R2M7ubMjv7HO4FALeV8r1Nq/41+R137KBNCm67h58kYxV2d8D
+	AS55LUAY7Uv5BJPJk7yDclaJABcmD6LMvdGUKio4G2ALjD0Im4pm1zps4F9GB9KBrfqa2vX7hLSFC
+	+5B8/epg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcQcG-00000002Y5B-32iv;
-	Mon, 27 Jan 2025 15:01:32 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tcQpn-00000002ZTd-3fEe;
+	Mon, 27 Jan 2025 15:15:31 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcQau-00000002Xy9-0g8f
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jan 2025 15:00:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BAC205C574C;
-	Mon, 27 Jan 2025 14:59:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D289C4CEE1;
-	Mon, 27 Jan 2025 15:00:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737990006;
-	bh=kwWDA3rU/cN1R71j7vGPxnBKK1HlIAFQmbB0t+RzmOs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MQxBegs7WBv1X6v9R6uZ4y4VWC7i1wv6T0vRcg/AZI6Z1pVGJp6ykCPdx3rrmDEjX
-	 P4NYIOez+Mek1EWFaAZk/aVox/bR1ZYYyNTerOPKUXJk+yq0HhOy8vw4n1U+bqTfJZ
-	 AHK8io7hDUAlfBxaoHpgHZIYerrjrSwbDz1YF1r7ChOQen17LtQ6eygYXy35pIOro0
-	 l4JcDUV2n0tGoOjpUxjlVGc2cPLyN4fuSUTv59iElin3ids3qO1hd7+pAeePLdpPuq
-	 obNzopT0ST0SRco6R+3TBGhFxT7PUaXhpxfnlrmJeQkEcrfe7f0XSGtmDcnZ24j5ye
-	 vhGXQDcZalJ0w==
-Date: Tue, 28 Jan 2025 00:00:02 +0900
-From: William Breathitt Gray <wbg@kernel.org>
-To: =?iso-8859-1?B?Q3Pza+Fz?= Bence <csokas.bence@prolan.hu>
-Cc: linux-iio@vger.kernel.org,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	linux-arm-kernel@lists.infradead.org, timestamp@lists.linux.dev,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Dipen Patel <dipenp@nvidia.com>, dlechner@baylibre.com
-Subject: Re: [Q] Frequency & duty cycle measurement?
-Message-ID: <Z5efcokgHix-k3lW@ishi>
-References: <f2ec8a55-42ad-498a-b793-072444dcb92e@prolan.hu>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="L5rYZ1lkBZvzecLd"
+	id 1tcQoR-00000002Z7h-3xaV;
+	Mon, 27 Jan 2025 15:14:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=otXS7c5CToQq5FCn1vInV6S1VTFHd18fne14+Ndi7apemmN3BnZkeCfYtSzdWB3PQDuysXsRMHyeyQfi/GJSnOs2k5N2y27JnvT8gNROT2TSu1/phhAiwHPj01kxY+Rt36cABBEmpB1m06TkCpuFTSWnyUtchtZRiz2C2RdWHoKHyg05vL23G3/+elqz1GFM15n2zA9nAcMTgIDLItr2WQ0JiET4xVwbEzQXlhOkKFpzEVb452b5aqOAskqei+6AqrOoWHbWgkM0YTxr8za04ZS39w5y0/rkJI0LL12dNSiAY6cSBuou3Iobf6XGay06nb7mVNlSBMM0vLWqihc3Xg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=sxTW+xwMEAjoJCn+AqoDP2wdj9gNCIQw9qxueOCKko4=;
+ b=ByBbgipp94ZlY8SojmO/hFSRtN06+8dRIaPPUyYfG94ibO8Dx8C2P72o3dPvrqqZtncmhcYu/9z39opNbD02Hdw204+NKsb3RluyG4W/KHVlq+tBBFqvdjX0L17I8+wPuC8LUvJ8mkRQ+mNiHMT1tRvQBmTycpGpGvYoWQ3asWTyokqYUM8VYusgRjI0I3eJQUjAc75YauYbMgq+0jKWc7v9RBWjLn5umn3Eq29hbHJ2Go6maxWMq229utnfnNZNkoc+FJB3NDfUsaMDUUJIgsz8zoqV4IW9OnJiOlyje4/Wh/NZQKoJpFkSdCy53H0MtVREqAof44K572IcOfFBxQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sxTW+xwMEAjoJCn+AqoDP2wdj9gNCIQw9qxueOCKko4=;
+ b=UgVl/dtEKaDwxQdNiTYGnM1KGNI/dypYMoRUigzSuj/ZAElXEr3w2n0HpqlUxmBjurLKoqG5+24cRCy9MpmLDwsnd3+z57PTjqrh3nH9sFYcrw31atP92vRPoTdRNcsnhCR1MtaaEX0wjSKVibPuaS34RKf70EDjdQqh3j7pNvRNpnaei5XX486ZlZ+8aE3GJqpL4q0nHnwOIUDrwT+SZDhW26BoeQyXuwCjkxIVi5eqGiW2/goXyeAma9BnyUOak8bO6NEa1mkBWlDnfUB1uE6bpFamvfWQLqsRapiWPjezzr/fhQKKdL/2dOP1175Cn1jxNh7CJdYfVFQg9/Qaxw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by PA1PR04MB10964.eurprd04.prod.outlook.com (2603:10a6:102:490::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8377.22; Mon, 27 Jan
+ 2025 15:14:00 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8377.021; Mon, 27 Jan 2025
+ 15:13:59 +0000
+Date: Mon, 27 Jan 2025 10:13:48 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Raphael Gallais-Pou <rgallaispou@gmail.com>
+Cc: Damien Le Moal <dlemoal@kernel.org>, Niklas Cassel <cassel@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Hans de Goede <hdegoede@redhat.com>,
+	Patrice Chotard <patrice.chotard@foss.st.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Viresh Kumar <vireshk@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	linux-ide@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH RFC 05/14] ahci: imx: Switch from CONFIG_PM_SLEEP guards
+ to pm_sleep_ptr()
+Message-ID: <Z5eirJJp/cZzzGPd@lizhi-Precision-Tower-5810>
+References: <20250127-pm_ata-v1-0-f8f50c821a2a@gmail.com>
+ <20250127-pm_ata-v1-5-f8f50c821a2a@gmail.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <f2ec8a55-42ad-498a-b793-072444dcb92e@prolan.hu>
+In-Reply-To: <20250127-pm_ata-v1-5-f8f50c821a2a@gmail.com>
+X-ClientProxiedBy: SJ0PR03CA0135.namprd03.prod.outlook.com
+ (2603:10b6:a03:33c::20) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PA1PR04MB10964:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9fa18fbe-5223-4af1-ff96-08dd3ee539cc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|7416014|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?/DqJdBz99OoILT4dXHNjAWbVQxl4bJ0CnpSwBzdaseAvTZs+MMbJ3YTl2Sus?=
+ =?us-ascii?Q?F7zo/gMhZSPzFUv6VEnwwADcuOANKaxqVnT4ZfVnDlD9GG/i/SvaTA8m96RF?=
+ =?us-ascii?Q?IynqrXcKxJpEZZswEWuEJP3E+1wdK7ITiyE9KKFu04WXbv4o8Oq6exZpqxbL?=
+ =?us-ascii?Q?kh5vXvl6WGgZ0wCaVBsCSFhFszHzQzGrW01tEfngOzxKs976L11dGhHXWhE6?=
+ =?us-ascii?Q?4ScqhSAwXmSAqnNncjlByNiIruTrWvS+2YvHmzGUhqik61p9AZhRzk2VOZFu?=
+ =?us-ascii?Q?sA6XOuWvziaCnKlQUaqS1eFzOsBe5agOKwac/QIp2tp7Hdf3ZoIMqeXqZEHz?=
+ =?us-ascii?Q?HJtTSLdzhoGK4klv8TbaeGvHGKJwbiZjI0QxSMqwnQog3QZtbujX+G8yFn7U?=
+ =?us-ascii?Q?4XdoUQkJ4BNE4022UvrECKgvEBX4iSocizCE5h/LGr3j8GxjFai+/2lolXKK?=
+ =?us-ascii?Q?N9ueHFbXcpSjLHSXFlmSfF/nY/IfNTqvwlmLRehrEI6wzELe16lDpKWmm6M0?=
+ =?us-ascii?Q?hPil55MsquoLOfykYWxpMu3WWFgTvvBr+0CD4hARJ4gYc1bekCTMOGe4Jwgc?=
+ =?us-ascii?Q?Bs4QLtBeHBF1w1DcRPZWZGlbqLtEcZaELxDOQP9BOphfys1N807bpbzEB/Qt?=
+ =?us-ascii?Q?8uy6d7ZCcndJkRJP/whiQGMLR21Rn7ucGejOBOn8Oetr5N+9P8viTHMxgtyw?=
+ =?us-ascii?Q?Bui173dO1f1ahSu3tx0JAXyl8FvGeT9FEpIVhoREZuSdd1sCpws2uzBOXN5b?=
+ =?us-ascii?Q?qk7iMyPiTgRsSercUQxP6Bp4xr3bf5FfrfVQwW/ddu/gzKqsKKNlulTWY+HK?=
+ =?us-ascii?Q?yDL4B6I9U7mv0Rz2ap4AWGBtIpOfufZoQBvvD/Vj+HQ5ieSbRD9HSV2mGto4?=
+ =?us-ascii?Q?CNlowDrDosTFbsyLmQ+jg3Lo8WpHd/md6weu5sg1zIxs6azp5QYP+pZJgJo7?=
+ =?us-ascii?Q?TYkNLRoI5fWpZvUe6i+G4y4z+TWVIRX4KGpYBNYkOKdusq4VLzCCoxIc6+g+?=
+ =?us-ascii?Q?0LyiYl9me62Jj7yLO1z/QTV4nEC0GQZ0evzvIHElbgdfVjODDvW43yDGzghf?=
+ =?us-ascii?Q?5k0uCv8KV7ig42cg5kFnO8+lLs6lYZ+WQdpsxssHjTA1cRgSyI+ZnmkBkCAy?=
+ =?us-ascii?Q?EM3zUsvFXYws0pBj8Bl2vdEnSKEKg2/ApiKdc9r/qZmlP1Yty+vV0CRLefAu?=
+ =?us-ascii?Q?WSR1pZxLzZ1ERx+lx9dyxF+qKnPu95+bbQdJ6+LbDok0kUFnkoar7zATceN6?=
+ =?us-ascii?Q?sZfS112INmUj2tLf1py5lFYG1cm+UDdifchjrkjgdDdwUpfHio6lmyWHQMEv?=
+ =?us-ascii?Q?ztzJjP1jhX/5GYkUZcfrtV9t+u6+uQ4Q3H+kBKTbBL0KYA3CLdvJ9ow/Iinm?=
+ =?us-ascii?Q?6x1HwUrA50i1FqWvEJgDKPkdTrtp3HJk7oGovyB5JGfuBEdoXP2QFI17qN8j?=
+ =?us-ascii?Q?hp8IJFNi7wZr/pcRLptFb8bqTFSejFw6?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(7416014)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?xr7Seitt3qfrLNIoiC2VquU994WyfMw3dLF5nzVavNyWjYkRv2/29IzS7/+x?=
+ =?us-ascii?Q?NeJyZcaALmJ5mZKjGFBl71pYCj40hxrpA/enQTDkKL/CJAUmSkdaFpt+SJXz?=
+ =?us-ascii?Q?veS3g4hKZouD6zA4oScQppnq0N/wLlKNrOG/OO6JYvIkaK72Z1wYrY1gROxT?=
+ =?us-ascii?Q?1OaCphvK3XvsDe3h/Ll0O7B+cLEYvwdrkpo2juaEDL3ISL44C1Ia6ndnQWv8?=
+ =?us-ascii?Q?egMgLDYyaCS6NZTMLuC34sk/WFzyYAomflHvH+SrLl9UtZ7+ovsTHZMf3zf2?=
+ =?us-ascii?Q?9a/q5Dn7+1ovy0OEqRY+Hgg0/UzE0FgMyIGtPb8/2ANy8BMfQVml2rLeuMI0?=
+ =?us-ascii?Q?0q3HoNKmhHY5I9VnYtHovq80ETxPu/DXQWkkp7RYypNVpnMpKyxBRGK0W+qe?=
+ =?us-ascii?Q?S/p4KAviBppe8calHXfLP0o/7pJFxcIMGFzwdaTVTZwFrz2ND6t6B48LjnaU?=
+ =?us-ascii?Q?stjgSAJIubnphPLU++9Gjl/4ctUW26drkc1ILsF/3bzewwQlHJDH09WU4cvd?=
+ =?us-ascii?Q?J4t5soAOvjOHlCiK3Xh+uxKJ810MMiU9+RfAz2sdGP6xwxv/V26GsG3jiPzJ?=
+ =?us-ascii?Q?IQ6RMb8MLtSua5WyrnLbzGZPlkW2dSHv0ZZzpiu47eacKXjzj9rAcJ+CJMfU?=
+ =?us-ascii?Q?uPIP2eKZC1q/VP4TwzpU2l8xXzxmg3MVf3PnzRBw4XaGQ0Fs+cVqnA8XzcrK?=
+ =?us-ascii?Q?ckc6z8E6z2Lz3mran4j5CK6ZoCc1uI6olTn/v0de8vrF6zGLLPT7QRmLp1Z1?=
+ =?us-ascii?Q?HkCp4FsuQgM9ndPGjv+wI4JVAoySJaesNKT9WmlX3Q75tH6i8osL7Xn4sBKj?=
+ =?us-ascii?Q?BZaUQfENzG8JjjK2jfL0Fi4eWLIIGEyq+nQBWg2j5zz5ugWzztrbW9vKSdVX?=
+ =?us-ascii?Q?Gz3mPfb0Jzjy95OAr7fXQJDdurc3ty5Y1BUr9Vy5R9EKbcJNmL79Ub/52D8R?=
+ =?us-ascii?Q?+a0b7WpdliBUGj6mMj/rUKJRx3PE4m0pUn64/pLaYP6MoOPNdhs4TZWWtnkd?=
+ =?us-ascii?Q?3jwIVElm+/AjFjdDMIvD1x5n238hDxTnRv3VynUslL3Qpir+d8qVqsLeV1WJ?=
+ =?us-ascii?Q?dXh5WXbVJuFhACeYnS9JlUk8+ONa1vjayvdv4bZwkvm6NBwVLAJmQ41ith2X?=
+ =?us-ascii?Q?Fv+2r8Ey+7MkyNsHp0T/jN+gD0qMx7k0FRvPhNsofH8eQMKmZCjqI5cUY8nv?=
+ =?us-ascii?Q?PnWWlV3cfzKhcb8qSrviBKRzhE0eQH16Vq+86ikMvD720sDaq1aGSxXmVDAM?=
+ =?us-ascii?Q?TgmmgqMwFVh5D8+RnWGumHo4PYDPsSTVUhtILqcU5riWe3szmH1TkLioo+lB?=
+ =?us-ascii?Q?rqQywCT3LGrideJW6/KaV3G5qXyxas1h9uzgVbuRPXvt/lI4JR4NlYdvLfUP?=
+ =?us-ascii?Q?ohI2aazGV7rU91QQM7DOmWoUBFQh+m41qBzUyz4QYBzwSAWjROsGYFVUB5Qp?=
+ =?us-ascii?Q?mrQLjVOL/x9EtjOuH/AOkXz80is4L19KhXySfzhL+sOFDie/f6MF0vhpBr91?=
+ =?us-ascii?Q?mvtWSA09YU144CunFe4XaQrIaQK6nbSgMWoQIHKnK82ko01Td5EWZlROYiB0?=
+ =?us-ascii?Q?AUW/yiroT0Sf08dLqbZEUNGGTgynETf8F0GiuPiG?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9fa18fbe-5223-4af1-ff96-08dd3ee539cc
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jan 2025 15:13:59.7753
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: jvZDDAtQwKe4v9Vmx3bP+kpSlMaeWbS5dXEcEQ+jRSjrBVSpZZtgVsnwbJE+98hQBXNJfntTjX1gJ9taI4nt0g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10964
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250127_070008_298058_54CA270B 
-X-CRM114-Status: GOOD (  35.70  )
+X-CRM114-CacheID: sfid-20250127_071408_003635_C562DF61 
+X-CRM114-Status: GOOD (  20.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,169 +172,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jan 27, 2025 at 01:46:00PM +0100, Raphael Gallais-Pou wrote:
+> Letting the compiler remove these functions when the kernel is built
+> without CONFIG_PM_SLEEP support is simpler and less error prone than the
+> use of #ifdef based kernel configuration guards.
+>
+> Signed-off-by: Raphael Gallais-Pou <rgallaispou@gmail.com>
 
---L5rYZ1lkBZvzecLd
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-On Tue, Jan 21, 2025 at 04:19:27PM +0100, Cs=F3k=E1s Bence wrote:
-> Hi all,
->=20
-> we want to measure the frequency and duty cycle of a signal (relating to
-> power consumption) using a hardware timer in our SoC (Microchip SAMA5D2).
-> The hardware is capable of taking a snapshot of the timer value into anot=
-her
-> dedicated register pair (RA, RB) on the rising/falling edges, and a small
-> `devmem`-based userspace utility was created as a working PoC. Now we want
-> to move to a "proper" kernelspace solution.
->=20
-> However, none of the existing drivers seem to be able to do this; the
-> closest was `drivers/counter/microchip-tcb-capture.c`, but that only seems
-> to count one type of edge (rising/falling), and cannot give us the time
-> between them, which would be needed for duty cycle calculation. The only
-> other driver I could find was `drivers/clocksource/timer-atmel-tcb.c`, wh=
-ich
-> again seems incapable of such measurements. Therefore, a new module will
-> probably be needed; the question then becomes: which API to implement.
->=20
-> As `microchip-tcb-capture.c` uses the Generic Counter Interface, that was
-> obviously a first stop. However, from what I could see, you can only
-> represent (1) the number of times an edge has been encountered, and (2)
-> rotary encodings (quadrature and direction-step decoders); and not the ti=
-me
-> between edges.
->=20
-> IIO_ALTVOLTAGE and IIO_CHAN_INFO_FREQUENCY/_PHASE also seemed promising
-> (although the lack of IIO_CHAN_INFO_DUTY_CYCLE already posed a problem),
-> until I saw that all current drivers are frequency *generators*, and not
-> measurers, the latter seems to be completely unimplemented.
->=20
-> The only other contender I could find was the Hardware Timestamping Engine
-> (HTE), but again, it's not clear whether (1) the API is even capable of
-> relaying duty cycle information to userspace and (2) if it is, how would =
-one
-> go about implementing it.
->=20
-> It is also entirely possible I missed a driver or API that could handle t=
-his
-> better, if so, please don't keep it to yourselves.
->=20
-> So, how could one go about implementing such a driver?
->=20
-> Bence
-
-Hi Bence,
-
-You could use the Counter chrdev interface to get frequency of counter
-events such as rising/falling edges, as well as associating timer values
-and snapshots. Do you get an interrupt on each timer snapshot, or is it
-just a circular array buffer that gets filled until your purge it? The
-implementation might look something like the following.
-
-In the kernel driver, you would push a counter event for each capture; I
-assume your hardware issues an interrupt each time a rising/falling edge
-occurs:
-
-    static irqreturn_t sama5d2_isr(int irq, void *dev_id)
-    {
-            struct counter_device *counter =3D dev_id;
-            counter_push_event(counter, COUNTER_EVENT_CAPTURE, 0);
-            return IRQ_HANDLED;
-    }
-
-In the userspace application, you would setup a Counter "watch" to
-collect each desired timer value on the respective Counter events; I
-assume RA and RB are Count 0 and Count 1 respectively, but if they
-represent something else please let me know:
-
-    static struct counter_watch watches[2] =3D {
-            {
-                    /* Component data: Count 0 count */
-                    .component.type =3D COUNTER_COMPONENT_COUNT,
-                    .component.scope =3D COUNTER_SCOPE_COUNT,
-                    .component.parent =3D 0,
-                    /* Event type: Capture */
-                    .event =3D COUNTER_EVENT_CAPTURE,
-                    /* Device event channel 0 */
-                    .channel =3D 0,
-            },
-            {
-                    /* Component data: Count 1 count */
-                    .component.type =3D COUNTER_COMPONENT_COUNT,
-                    .component.scope =3D COUNTER_SCOPE_COUNT,
-                    .component.parent =3D 1,
-                    /* Event type: Capture */
-                    .event =3D COUNTER_EVENT_CAPTURE,
-                    /* Device event channel 0 */
-                    .channel =3D 0,
-            },
-    };
-    ...
-    int main(void)
-    {
-            int fd;
-            int i;
-	    unsigned long long delta_ts, delta_ra, delta_rb;
-	    double ra_frequency, rb_frequency, rb_ra;
-            struct counter_event first_capture[2], second_capture[2];
-           =20
-            /* Open Counter chrdev */
-            fd =3D open("/dev/counter0", O_RDWR);
-           =20
-            for (i =3D 0; i < 2; i++) {
-	            /* Register all Counter watches */
-                    ioctl(fd, COUNTER_ADD_WATCH_IOCTL, watches + i);
-            }
-	    /* Start collecting Counter events */
-            ioctl(fd, COUNTER_ENABLE_EVENTS_IOCTL);
-           =20
-            for (;;) {
-	        /* Read first Counter event capture */
-            	read(fd, first_capture, sizeof(first_capture));
-	        /* Read second Counter event capture */
-            	read(fd, second_capture, sizeof(second_capture));
-               =20
-		/* Within each capture, timestamp is the same so only
-		 * first element of each capture needs to be compared */
-		delta_ts =3D second_capture[0].timestamp - first_capture[0].timestamp;
-		/* Compute deltas of timer register pair RA and RB.
-		delta_ra =3D second_capture[0].value - first_capture[0].value;
-		delta_rb =3D second_capture[1].value - first_capture[1].value;
-               =20
-		ra_frequency =3D (double)delta_ra / delta_ts;
-		rb_frequency =3D (double)delta_rb / delta_ts;
-		rb_ra =3D (double)delta_rb / delta_ra;
-               =20
-            	printf("RA frequency: %ld\n"
-		       "RB frequency: %ld\n"
-		       "RB per RA: %ld\n"
-            	       ra_frequency, rb_frequency, rb_ra);
-            }
-           =20
-            return 0;
-    }
-
-If RA and RB are provided as a memory buffer on your device, you can
-instead expose them via DEFINE_COUNTER_ARRAY_CAPTURE() such as the
-ti-ecap-capture driver does, then perform your userspace computations
-by utilizing those respective "capture" array attribute values (via
-chrdev like the example above or alternatively via sysfs).
-
-Do you think this design would work for your needs?
-
-William Breathitt Gray
-
---L5rYZ1lkBZvzecLd
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEARYKAB0WIQSNN83d4NIlKPjon7a1SFbKvhIjKwUCZ5efcgAKCRC1SFbKvhIj
-K3d3AQChNnJh7TbDSsRfyR6M/PqsPlzEiiOD9LM1ho9hnfjDnwEA886rI7ZOW9JN
-vfUSJkgvn1NVCBo5qrdZDHO5ORKlAAM=
-=zv8x
------END PGP SIGNATURE-----
-
---L5rYZ1lkBZvzecLd--
+> ---
+>  drivers/ata/ahci_imx.c | 6 ++----
+>  1 file changed, 2 insertions(+), 4 deletions(-)
+>
+> diff --git a/drivers/ata/ahci_imx.c b/drivers/ata/ahci_imx.c
+> index f01f08048f97aa230877e413ba6e416d79779c1b..ec75a16c630a79ce10ea98b16c44c9a3908f869f 100644
+> --- a/drivers/ata/ahci_imx.c
+> +++ b/drivers/ata/ahci_imx.c
+> @@ -993,7 +993,6 @@ static void ahci_imx_host_stop(struct ata_host *host)
+>  	clk_disable_unprepare(imxpriv->sata_clk);
+>  }
+>
+> -#ifdef CONFIG_PM_SLEEP
+>  static int imx_ahci_suspend(struct device *dev)
+>  {
+>  	struct ata_host *host = dev_get_drvdata(dev);
+> @@ -1021,9 +1020,8 @@ static int imx_ahci_resume(struct device *dev)
+>
+>  	return ahci_platform_resume_host(dev);
+>  }
+> -#endif
+>
+> -static SIMPLE_DEV_PM_OPS(ahci_imx_pm_ops, imx_ahci_suspend, imx_ahci_resume);
+> +static DEFINE_SIMPLE_DEV_PM_OPS(ahci_imx_pm_ops, imx_ahci_suspend, imx_ahci_resume);
+>
+>  static struct platform_driver imx_ahci_driver = {
+>  	.probe = imx_ahci_probe,
+> @@ -1031,7 +1029,7 @@ static struct platform_driver imx_ahci_driver = {
+>  	.driver = {
+>  		.name = DRV_NAME,
+>  		.of_match_table = imx_ahci_of_match,
+> -		.pm = &ahci_imx_pm_ops,
+> +		.pm = pm_sleep_ptr(&ahci_imx_pm_ops),
+>  	},
+>  };
+>  module_platform_driver(imx_ahci_driver);
+>
+> --
+> 2.48.0
+>
 
