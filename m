@@ -4,86 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0E10C02188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 15:17:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E6E9C02188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 15:26:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z3fdf68cKnEaIGamBbArQHWaVBKPqUrbMqE+m1JNXYk=; b=nBZTB3sefZdYTNPFiNzKrsjNGD
-	adhE6+ARk2aHrvqzsonK8x184qsNbvTGvF1gZblhr3+9eW4vGZO3L8N8CCDVHHAXEtFmCKSrzw30j
-	QY3mPbsudc9fCB5fGBOo+gR3seQyAR3E0VjMHoCIV1RGDD8e78qDq2WCRXcpFe3VHGWZ2hRwQGNNm
-	GDjUPlM8hdag6GlkPDsz/ScnopTILPpzbIm09VmPrqdepPpX70rXxa2s3dFLAade31xqo2dD1iBN1
-	i49dl0GWbWX2PnCKsPZpAhV/FsSvDLiI6+rcSV+IejfSgpEQXR6UYT27FJPispQYKGnnAl5Bzg8YW
-	wjGhWZ3g==;
+	bh=eBGMix/rympgbB2/zFS1m6yB9D8xjNnB0f9e8XgQtPk=; b=WLZ3oqEsOSKUWMNDdzU7cNWX+g
+	A/8FPvHjTCUySFR5X+y0S/EirajzwLB1GDFpMJpYKW/Dm/c7Ru6a5K21fdt4RpJehUZO/QHNIBdzF
+	kCsKSRI260r8oon5l6GvxuXEPGVRsqFtRQ9sPDg6xsx9E/XQTTxs3Ji5ReNk5pj3rW4cV/t+7dgup
+	9pHGzbuvLI/TULSrOoYusfTgvAedaUP5NaTFjA9A4ueOFsZa6kKi/3z9SHGBqYKqOboCbu/NEFqoc
+	9qxAxXm05MbhJwf/uRTK3J2UBzYCqV62yR8j0r7ogXrNl1yQX/2/6JD0p+KK9guVm1PUeAB0qoDpl
+	mSQYNBMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcQro-00000002ZwG-3lhX;
-	Mon, 27 Jan 2025 15:17:36 +0000
-Received: from mail-yb1-xb32.google.com ([2607:f8b0:4864:20::b32])
+	id 1tcQzf-00000002afD-3DiG;
+	Mon, 27 Jan 2025 15:25:43 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcQqT-00000002Zeb-3TwS
+	id 1tcQyN-00000002aP3-0lQv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jan 2025 15:16:14 +0000
-Received: by mail-yb1-xb32.google.com with SMTP id 3f1490d57ef6-e549a71dd3dso7759164276.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jan 2025 07:16:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737990972; x=1738595772; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Z3fdf68cKnEaIGamBbArQHWaVBKPqUrbMqE+m1JNXYk=;
-        b=LO/r0+63ZMl+ex3ZsFUVzafXuUKJvWU1PtPdTeEJ1mvWlRqMdnh8S8HM7ZrULG9uqF
-         1xYUGaZTdsiF4fk6aWhO4vGby+2krZSiHsw/qZsqTt1rAH58utt5joQaLt7mGjVHJgci
-         sguQeccMDhGQ963XHJ4+M7lRCtprJbNiCmywSVC6m63x3UnqnekqS87VUR3Bw0BCLmeN
-         Bno9OFshc5S1oGpaDhoH2q7XfFiD8iv8Bj9FLGWpgQPi3e/rGYrgBTqbPrTn6/17s+ui
-         40ATiJzq83aXkKbK9JbV2GpYaLMBTuLhrw4Z2JTO5My27tYvJWTWgZtb5eOhmnUdQ6bM
-         5bag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737990972; x=1738595772;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Z3fdf68cKnEaIGamBbArQHWaVBKPqUrbMqE+m1JNXYk=;
-        b=NHKAn+64Pc8bOKu881oCfVnG1tpM69Thk0ApnQ4tYlrRwjADgr9V6Q7plNjvp5T0N2
-         CylziN9kDr4WeTS/QO7LnAVrvQo2LqpylvjqqJKESLBFVF9ur0tKHvgbNYrkw+PJi1J9
-         HzTwGIoxB6PKgLcFC6rjEWKRiIAUCIIiEJl5HBqiEb4Z3bXDAUSFq9ShAifNa7gAzQ9C
-         ABSzCoXK1eOeCu1e34rlOYZ/lfD1kF7cn0XS4bkeVpioM9wZ5RmfiubpyDo518QHn7sA
-         5ZxnoZIEcI1+Yyg6JpyZULw7CSQyXXz+FpifIwsdOwTKTgQpIFGN89N6mLqBFrG0oPfl
-         gopQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWVK+SaXfZsRX27Ubf7I29KyzI4nYb+kS/ToFmqfSkX51uZpmk7Yj0fxK9hNF5WfPdcZdWNOQu6MlcYyMVOtJMJ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0GooIgD8tdOpZ75IUsYLomn1NI/OPk+To/BOegFgJqwugDpDu
-	T1rcRYww+jA3HHV1p/6sKq9BPyck628cD0MeJ52zvyRFTs0wAoK4xR/51W1yTw4yl1dm4rE7M/8
-	5enMF6RI8xa7lQBY/DqaK9k12ASwiI9MjSuXwlg==
-X-Gm-Gg: ASbGnctJUgsIHsGmXvVM0GKhmouMFHNBt1Gi2HdHrQfipIw3FkYPHuRWe1W6jJTV6FW
-	F87HDKnYkSBtWXUg2/TjjU8ELFjfJRNv9Zm0JTNmmaMuLuaBmE4CvHlm9UHkKt44=
-X-Google-Smtp-Source: AGHT+IE7Vja9677she6CObvFAbVBiI5Ys+p+eByoUyFiITh4qV3MJatrF8vKcAYHzhv31KbUMJyT51BBZJ0PLRNDtTM=
-X-Received: by 2002:a05:6902:150c:b0:e57:88a0:3ca with SMTP id
- 3f1490d57ef6-e57b1344ac2mr27218044276.40.1737990972298; Mon, 27 Jan 2025
- 07:16:12 -0800 (PST)
+	Mon, 27 Jan 2025 15:24:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 66ECE5C57F6;
+	Mon, 27 Jan 2025 15:23:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31535C4CED2;
+	Mon, 27 Jan 2025 15:24:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737991460;
+	bh=YoAm4JPhD8dFPYpVnGR9aiVF0AEg16NOp4W2vcliKEk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Jvj4pS/42GidXlLA+MtCgSSGCul+6CS1caorwNM+fHkJhqouzEMNucNugidGv2Vdl
+	 8TZMsdAf67KdW/xXqAWXYoA4AaP8+6I73TN64GZTSdDzo58qkuZ0Vb6rnX4oT4g8+C
+	 o9Qw8nquBEm27Pvm/JKyWKBU8qRdpDZWAjg3fT7cVte9wMYmo2v/eSzAEbrxAOt0Ey
+	 1G3uVtmATWhiW/KUOYvhF0pTWxeXd3I36OY6AllofgLsffSpV/Vm3EB8/a14Ck9/aq
+	 99/EQuefyP3i65YI7/8cIZUG333/sQWBpYcDsoNTpnPghVr2Vea5UIsWsVdVZhwS5g
+	 VmJNya8lsyrVg==
+Date: Mon, 27 Jan 2025 16:24:13 +0100
+From: Niklas Cassel <cassel@kernel.org>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Bjorn Helgaas <helgaas@kernel.org>, Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
+Subject: Re: [PATCH v8 2/7] PCI: dwc: Use devicetree 'ranges' property to get
+ rid of cpu_addr_fixup() callback
+Message-ID: <Z5elHSnnFaDDD8Cc@ryzen>
+References: <Z5JegF7i3Ig2pLYB@lizhi-Precision-Tower-5810>
+ <20250123190422.GA1215672@bhelgaas>
+ <Z5KVPg/DuJHci/77@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-References: <20250120184728.18325-1-ansuelsmth@gmail.com> <20250120184728.18325-2-ansuelsmth@gmail.com>
- <20250121-zippy-umber-fossa-abbfb0@krzk-bin> <679770d8.7b0a0220.b6f23.38b4@mx.google.com>
-In-Reply-To: <679770d8.7b0a0220.b6f23.38b4@mx.google.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Mon, 27 Jan 2025 16:15:36 +0100
-X-Gm-Features: AWEUYZnk9Xh1b_Hveu4tndN_oObnjQYSeVJzcpRRCX5DJCyFhAmHsJWAlWuduBA
-Message-ID: <CAPDyKFoEDbSfQA3xPCUPsJCOdiDVdAjB1Fno=S7yrqJXSqnfXA@mail.gmail.com>
-Subject: Re: [PATCH v2 2/2] mmc: mtk-sd: add support for AN7581 MMC Host
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Chaotian Jing <chaotian.jing@mediatek.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Wenbin Mei <wenbin.mei@mediatek.com>, linux-mmc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	upstream@airoha.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z5KVPg/DuJHci/77@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250127_071613_878550_C3DBF4D3 
-X-CRM114-Status: GOOD (  20.41  )
+X-CRM114-CacheID: sfid-20250127_072423_307702_BE73C694 
+X-CRM114-Status: GOOD (  34.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,40 +87,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 27 Jan 2025 at 12:41, Christian Marangi <ansuelsmth@gmail.com> wrote:
->
-> On Tue, Jan 21, 2025 at 08:59:19AM +0100, Krzysztof Kozlowski wrote:
-> > On Mon, Jan 20, 2025 at 07:47:02PM +0100, Christian Marangi wrote:
-> > > -                   pinctrl_select_state(host->pinctrl, host->pins_uhs);
-> > > +                   /* Skip setting uhs pins if not supported */
-> > > +                   if (host->pins_uhs)
-> > > +                           pinctrl_select_state(host->pinctrl, host->pins_uhs);
-> > >             } else {
-> > >                     dev_pm_clear_wake_irq(host->dev);
-> > >             }
-> > > @@ -2816,9 +2835,12 @@ static int msdc_of_clock_parse(struct platform_device *pdev,
-> > >     if (IS_ERR(host->src_clk))
-> > >             return PTR_ERR(host->src_clk);
+On Thu, Jan 23, 2025 at 02:15:10PM -0500, Frank Li wrote:
+> On Thu, Jan 23, 2025 at 01:04:22PM -0600, Bjorn Helgaas wrote:
+> > On Thu, Jan 23, 2025 at 10:21:36AM -0500, Frank Li wrote:
+> > > On Fri, Jan 17, 2025 at 10:42:37AM -0500, Frank Li wrote:
+> > > > On Thu, Jan 16, 2025 at 05:29:16PM -0600, Bjorn Helgaas wrote:
+> > > > > On Thu, Jan 16, 2025 at 05:14:00PM -0600, Bjorn Helgaas wrote:
+> > > > > > On Tue, Nov 19, 2024 at 02:44:20PM -0500, Frank Li wrote:
+> > > > > > > parent_bus_addr in struct of_range can indicate address information just
+> > > > > > > ahead of PCIe controller. Most system's bus fabric use 1:1 map between
+> > > > > > > input and output address. but some hardware like i.MX8QXP doesn't use 1:1
+> > > > > > > map.
+> > > ...
+> >
+> > > 	I saw you have not picked all of these patches during you rework
+> > > pci git branches.
 > > >
-> > > -   host->h_clk = devm_clk_get(&pdev->dev, "hclk");
-> > > -   if (IS_ERR(host->h_clk))
-> > > -           return PTR_ERR(host->h_clk);
-> > > +   /* AN7581 SoC doesn't have hclk */
-> > > +   if (!device_is_compatible(&pdev->dev, "airoha,an7581-mmc")) {
+> > > 	I know you are busy, do you have chance to pick left patch for 6.14.
 > >
-> > Please avoid coding compatible in multiple places. Not only because
-> > above check is slow comparing to check on integer, but it just scales
-> > poorly and leads to less readable further code. Use driver data with
-> > model name or flags/quirks bitmask.
+> > This series had a mix of things: several patches related to
+> > .cpu_addr_fixup(), plus several unrelated ones for PHY mode and i.MX8Q
+> > support.  I think I picked up all the unrelated ones.
 > >
->
-> I implemented this in a more compatible way so we don't need an
-> additional compatible anymore. Soo this series is not needed anymore.
->
-> Should I flag these as not applicable anywhere in the patchwork systems?
+> > .cpu_addr_fixup() is a generic problem that affects dwc (dra7xx, imx6,
+> > artpec6, intel-gw, visconti), cadence (cadence-plat), and now
+> > apparently microchip.
+> >
+> > I deferred these because I'm hoping we can come up with a more generic
+> > solution that's easier to apply across all these cases.  I don't
+> > really want to merge something that immediately needs to be reworked
+> > for other drivers.
+> >
+> > A few of the things I wonder about:
+> >
+> >   - dw_pcie_get_parent_addr() has no DWC dependencies, so it doesn't
+> >     make sense to me to have it be DWC-specific and copy and pasted
+> >     to other places that need something similar.
+> >
+> >   - It doesn't seem elegant to iterate through for_each_pci_range() in
+> >     devm_of_pci_get_host_bridge_resources(), then again in
+> >     dw_pcie_host_init() for io_bus_addr, then again in
+> >     dw_pcie_iatu_setup() for each window.  Maybe that's the best we
+> >     can do, but maybe there's a way to capture what we need on the
+> >     first time through.
+> >
+> >   - The connection between .cpu_addr_fixup() and use_parent_dt_ranges
+> >     is clear in the patches remove a .cpu_addr_fixup(), but not in the
+> >     DWC patches on the other end.
+> >
+> >   - Ideally, "use_parent_dt_ranges" would be the default and we
+> >     wouldn't have a flag to indicate that, and drivers would have to
+> >     opt out instead of opt in.  They basically already do that by
+> >     implementing .cpu_addr_fixup(), so maybe we can take advantage of
+> >     that fact.
+> 
+> Okay, thanks. let me think how to improve it after 6.14.
 
-No need to, just send new versions.
 
-Kind regards
-Uffe
+Small nit that I saw when looking at this series.
+
+Some patches use "Internal Address (IA)", but other patches use
+"Intermediate Address (IA)". For the re-spin, use one term consistently.
+
+
+Kind regards,
+Niklas
 
