@@ -4,69 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2A92C02188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 21:05:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2A35C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 21:35:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0KUmT5HMoGiak2FyyfKrfZlJKbyNJNTNogw0QxKEjjE=; b=Qmu2bqpQqlVURiDagnmOEQ6o/+
-	IWfRedLRs0b1+0aAQHMOwAyjs1ORvD1CXiHxETQrw/NbTLTynMi7taEXLeQUyPfcsu8Nf/1Kq5lq1
-	0Fs5Bz1BjbWNEaUzczfoQXAF4w5iPmegIapsi2JRiTLwNO5rCagZXFBPIwYdi8Qyh9owwaeq1SRUD
-	K2XbmJXkLzI4nYgF9GkH+oQXG1/i06Gds+HU0YPv7POY30A2P6XYcZwmdVcE9gxiG1oN9/IHdByO2
-	4pENisvaTgLSFuQo8jmUZDOLvJQbVTanC9wgSFSjD2842gOMhE2BftR0Hso8WlaQn65x69Tcpgt3K
-	07yLIalg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Pei6TS7zN6KpP575svXWNqasjmENv16fLc/niEfJAUg=; b=AnLTb1NcGyXCnkY71AesnrWFe9
+	tdUDy05XYF7E0db/huJtbK+cMPKqmrkv+kymlW1J0fQdtA7tUvYUWioqD6sitRkHPiDd8Br/MJJ//
+	zqXWMpOeDxJ4CedTo2VNUPH4MwQe5ELGLOOH3OIaBIM0SZ61Ye8z3QC1WrhAAQ2bDEpZ6mmZY8Hkl
+	xpqGfVrdn5qV3mq5DWP0dy1C3nbQjaKjYQF55JPhutV4EpfSoxGsVdAANrRj7f2UHBLfROMULSAji
+	Ma5QvoGPHgfYwX8OmAVmkgrbS/CM0N+i7Uj/CGeSoLVvsT/YcmGLnn5B5egOaPdM+xz6UHe2Og/yt
+	S+E8rFiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcWI9-00000003GMw-2gPs;
-	Mon, 27 Jan 2025 21:05:09 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tcWlc-00000003Jks-154g;
+	Mon, 27 Jan 2025 21:35:36 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcWGn-00000003GFT-2BxN
+	id 1tcWjS-00000003J68-06yv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jan 2025 21:03:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9D6555C5959;
-	Mon, 27 Jan 2025 21:03:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6DFFC4CED2;
-	Mon, 27 Jan 2025 21:03:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738011824;
-	bh=WVG1MPhd1HOw3Gt5nUM041Hsql8yO2/kRnMQw0w2s+g=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=pkaE2m9IYX3BiHqcBoFLWU4//r7Wjk8TGvMJ92/b51qrSj02gFTXn+H1tmtfaCvON
-	 az4e9drcle1/kXlP4KKGiG5Da4zjh0KxAhxn1HPEMdDv78oVpa4Bb9HqeOj+bpQDBM
-	 C7AiBzDupLGTGePtkfanyUrmCKEJKjvXPoeZkAvkqQ5h/rsoZ1VG/jmvGCioT4znJ1
-	 bKrkqoumWFBJ7OB03jR3gR9o+xIl6yTR4okl/ToDpwfzfsKisKRiLYSPTfqaIiJyT3
-	 QdLw1u0nzKqxNdLF15EMevuQTiIRRTOk55tN6lk9a7w4OXXoosUVEPFGtR7EOZRn58
-	 LJywnw+L9rMaw==
-Date: Mon, 27 Jan 2025 13:03:42 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Huacai Chen <chenhuacai@kernel.org>
-Cc: Andrew Lunn <andrew@lunn.ch>, "Russell King (Oracle)"
- <linux@armlinux.org.uk>, Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu
- <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo
- Abeni <pabeni@redhat.com>, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net 0/3] net: stmmac: Fix usage of maximum queue number
- macros
-Message-ID: <20250127130342.4e5d1f9e@kernel.org>
-In-Reply-To: <CAAhV-H73FNTzhjwkZwO4RAZFF1Ri6EzpJL3jnWW4rPRFZQRZZA@mail.gmail.com>
-References: <20250127092450.2945611-1-hayashi.kunihiko@socionext.com>
-	<Z5dXJ1EIUx8DAh6J@shell.armlinux.org.uk>
-	<CAAhV-H78fbK+jAsootOaZW=eQ3RPna3VQTxHd33vDSueYkyYtA@mail.gmail.com>
-	<f1912a83-0840-4e82-9a60-9a59f1657694@lunn.ch>
-	<CAAhV-H73FNTzhjwkZwO4RAZFF1Ri6EzpJL3jnWW4rPRFZQRZZA@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+	Mon, 27 Jan 2025 21:33:23 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2178115051dso90033505ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jan 2025 13:33:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1738013600; x=1738618400; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=Pei6TS7zN6KpP575svXWNqasjmENv16fLc/niEfJAUg=;
+        b=n38YH6Cnb2RwFSauXsTfIcod2kSnBy1TFuiVyvlDNdjGutnpdZqSUkbfxqHAHMOfom
+         3SwOrZjNwe23mzwywJYEf8EH4+8Km0Hd90q1mjpvra2vVM2QTXLnQGvgeoBl0ju8AtTp
+         Kasyr9FG47AHokbp4vkQEvypNXmTmb+cWhUZ1kJfDUtOKqYtjYZzTixubp0/K3DmckN2
+         IOSgdV2OegaywFe68MBe3uyYdRcMwDzDE8lXHkwr/FbgVkyxdCmpFlKUC/nZNBfOQZ30
+         zvBwWXbx5fQpwxObXdLuuZz79hFf21UZLOTXf04nABeI7SvSDwrodM/n5TvJwKL/ov09
+         9ZDg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738013600; x=1738618400;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Pei6TS7zN6KpP575svXWNqasjmENv16fLc/niEfJAUg=;
+        b=Q6pM4wT5mbj+YjqLo3ADVvBSSqC6/43Fi3Dz1ZHW/a2dHotqfJLCfeADpi/qLcgs1z
+         NwpCd0Q6sDHfZEa5j0Igzuleg2lbFfOx+OqUT9i9XuC6Rsdpex19km2Z3EzhMJFo2uF4
+         u0EBzYMg/7kZA8/4Hcck2pfLHivDh+iU2s/jH6uEygu8BHjxht3SXVZaCCYMpGcjanlo
+         CiYH5ZQ1IhgVbCUBg3Iop4Et+bWb2BB2eCmLLvt3hyOGOELF5xHJe9WwncYMVn5Wpn8U
+         c8IhbrsER3hni4553Ldyn2B4EtnxCziZwQcnh8FA2x0jlN4Ubcq5S4eddK94xAxknqen
+         71eQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUt33Av4H/5y2eoiXgPQFrfuucHJvlahYhXZ5AlipQ+tNuks51bnqlp2aOjmYyo+ZOA6MpSRvJo81/kmie5fwbO@lists.infradead.org
+X-Gm-Message-State: AOJu0YzIACIMMam+LMUPhm47JCPhBq9575aPgT1tSQQ509fTBprP9fN6
+	ERktGNbPNpPDPTC/RLTkOpzbptOg+rHCB+6GgrI8tmqvGSDk8QD76mqcafKnxzcyfSW8ScTRiA=
+	=
+X-Google-Smtp-Source: AGHT+IFd/Wq1OyJXHy44vPMMF9MYBDoQ3usrOzSenxsbZ2jr85PaygJtYqioTPHpK2O5SR75d+WNNDbIww==
+X-Received: from pgbbk3.prod.google.com ([2002:a05:6a02:283:b0:7fd:55d9:1f1a])
+ (user=wnliu job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:394b:b0:1e5:a0d8:5a33
+ with SMTP id adf61e73a8af0-1eb21480ef0mr71993744637.18.1738013600344; Mon, 27
+ Jan 2025 13:33:20 -0800 (PST)
+Date: Mon, 27 Jan 2025 21:33:02 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.48.1.262.g85cc9f2d1e-goog
+Message-ID: <20250127213310.2496133-1-wnliu@google.com>
+Subject: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
+From: Weinan Liu <wnliu@google.com>
+To: Josh Poimboeuf <jpoimboe@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
+	Indu Bhagat <indu.bhagat@oracle.com>, Peter Zijlstra <peterz@infradead.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, roman.gushchin@linux.dev, 
+	Will Deacon <will@kernel.org>, Ian Rogers <irogers@google.com>, linux-toolchains@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, live-patching@vger.kernel.org, 
+	joe.lawrence@redhat.com, linux-arm-kernel@lists.infradead.org, 
+	Weinan Liu <wnliu@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250127_130345_612691_EC44B327 
-X-CRM114-Status: GOOD (  14.13  )
+X-CRM114-CacheID: sfid-20250127_133322_064437_D7687291 
+X-CRM114-Status: GOOD (  13.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,20 +91,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 27 Jan 2025 21:47:29 +0800 Huacai Chen wrote:
-> > There is another aspect to this. We are adding warnings saying that
-> > the device tree blob is broken. That should encourage users to upgrade
-> > their device tree blob. But most won't find any newer version. If this
-> > goes into net-next, the roll out will be a lot slower, developers on
-> > the leading edge will find the DT issue and submit a DT patch. By the
-> > time this is in a distro kernel, maybe most of the DT issues will
-> > already be fixed?  
-> Goto net or goto net-next are both fine to me, I just think this
-> series should be backported to stable branches. There are lots of
-> patches backported even though they are less important than this
-> series (maybe not in the network subsystem).
+This patchset implements a generic kernel sframe-based [1] unwinder.
+The main goal is to support reliable stacktraces on arm64.
 
-Please remove the Fixes tags when reposting.
+On x86 orc unwinder provides reliable stacktraces. But arm64 misses the
+required support from objtool: it cannot generate orc unwind tables for
+arm64.
+
+Currently, there's already a sframe unwinder proposed for userspace: [2].
+Since the sframe unwind table algorithm is similar, these two proposal
+could integrate common functionality in the future.
+
+There are some incomplete features or challenges:
+  - The unwinder doesn't yet work with kernel modules. The `start_addr` of
+    FRE from kernel modules doesn't appear correct, preventing us from
+    unwinding functions from kernel modules.
+  - Currently, only GCC supports sframe.
+
+Ref:
+[1]: https://sourceware.org/binutils/docs/sframe-spec.html
+[2]: https://lore.kernel.org/lkml/cover.1730150953.git.jpoimboe@kernel.org/
+
+Madhavan T. Venkataraman (1):
+  arm64: Define TIF_PATCH_PENDING for livepatch
+
+Weinan Liu (7):
+  unwind: build kernel with sframe info
+  arm64: entry: add unwind info for various kernel entries
+  unwind: add sframe v2 header
+  unwind: Implement generic sframe unwinder library
+  unwind: arm64: Add sframe unwinder on arm64
+  unwind: arm64: add reliable stacktrace support for arm64
+  arm64: Enable livepatch for ARM64
+
+ Makefile                                   |   6 +
+ arch/Kconfig                               |   8 +
+ arch/arm64/Kconfig                         |   3 +
+ arch/arm64/Kconfig.debug                   |  10 +
+ arch/arm64/include/asm/stacktrace/common.h |   6 +
+ arch/arm64/include/asm/thread_info.h       |   4 +-
+ arch/arm64/kernel/entry-common.c           |   4 +
+ arch/arm64/kernel/entry.S                  |  10 +
+ arch/arm64/kernel/setup.c                  |   2 +
+ arch/arm64/kernel/stacktrace.c             | 102 ++++++++++
+ include/asm-generic/vmlinux.lds.h          |  12 ++
+ include/linux/sframe_lookup.h              |  43 +++++
+ kernel/Makefile                            |   1 +
+ kernel/sframe.h                            | 215 +++++++++++++++++++++
+ kernel/sframe_lookup.c                     | 196 +++++++++++++++++++
+ 15 files changed, 621 insertions(+), 1 deletion(-)
+ create mode 100644 include/linux/sframe_lookup.h
+ create mode 100644 kernel/sframe.h
+ create mode 100644 kernel/sframe_lookup.c
+
 -- 
-pw-bot: defer
+2.48.1.262.g85cc9f2d1e-goog
+
 
