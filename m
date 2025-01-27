@@ -4,125 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25B04C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 10:51:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A1E3C02188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 11:13:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=adphgYyuraDm+8q9lCcomTmDXgUPSbCBsDgLoCmq7bo=; b=n0D6FP/Dd3ahPCKfYYFsjHrRHA
-	35l8ysDbK69i8ePNanqqFZCimEzJoTx2sLOshm394QW4pT1V+pJNrsPlxWkaHAu/xBTissE9Z2zx+
-	J8yf4fQjoUMew12iSVh8VADox9hCtNpyzTZ6ciK960GrREUdl4MzKUCkxmR84+resa/axV995qCPm
-	UARdXWKXQl/S88A37csjLtb3yb0HrQ9j1ia1C6KOcrHsYOp+nCOfjSRFYq+cmsvV+8yaPnkIDKoEw
-	1PQC+V5hyLHQcyYqqcwGqyloFSEkt7x5OyzAcB4/4H4PaWsLax+KGJCSVOGIG0MCpA/YlVusBACX3
-	CfYgt49A==;
+	bh=hAV23ibcQMvv75aNFNBuJ4ew2A9O2KMZ5/PYIGEEavM=; b=zyg8VF2jaYbcXdAKDVxZiHJagB
+	mh66aBEMt8hOp2pLIyCg34laJoELjTxYdZ7PB0uRoV9hbC6jJQZSBTuttgrl8Aj3yJXvcTBM0RmIE
+	mxjefPBOEebfirUjA5mXqSvCGXDsa+8B36jxPG6XM8K8He13P38T4vxFvPqeDC8MmXapCtAi88n6z
+	jx12679CT68T30+06AXmEIRwu2ZmSihHmGvY3gwAh3DmdKOMarS72CtxvmraPf0GAhbEtiruZQfIr
+	Cj1F/BOCBrBHxnH6T3+eDMk0Tt4vHM2a04t9Jq7IZM4tacK2HRcwn6RGA/UGjfply/2OHuXQvUxxs
+	GshTcCMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcMhq-00000002ARB-3slt;
-	Mon, 27 Jan 2025 10:51:02 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tcN32-00000002C3Z-1qyr;
+	Mon, 27 Jan 2025 11:12:56 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcMgW-00000002AL0-2QGc
+	id 1tcN1j-00000002BwX-44k0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jan 2025 10:49:41 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50R7gm4i027752
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jan 2025 10:49:39 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	adphgYyuraDm+8q9lCcomTmDXgUPSbCBsDgLoCmq7bo=; b=VGMMxiyMJDS7AYWD
-	AlCnYoJbFAIFUk65rKWCAY+7bByO4bXUeaqOnoZL2bzpFvKg8vmk10CU3mC9oc3T
-	ti2DZr0p2bEtLkwPTeSTdw0WFVew+jrWNZZtRL70+l2UsB5Fmpj58YOCJXsJuCuK
-	bflkB/K8472Ffn8Dowr/9yAQ89BeyczFtGUYmbYZDPCE0YmqFv2m85gVCCyh2YLb
-	m9MNIuKqcO/jRlymGXiaLp8E7OXR8DdfxZMUduhfzouxQEXwfni7FpXTWR2i5AuU
-	nwMwxxAMVl7Nwb7cXR037lq/+ihqKo7ZJGKrHuRqbFSD8H+kLOl/RL6H53jV4B5A
-	2Ui51w==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44e60bgb5r-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jan 2025 10:49:39 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4679d6f9587so6558601cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jan 2025 02:49:39 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737974979; x=1738579779;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=adphgYyuraDm+8q9lCcomTmDXgUPSbCBsDgLoCmq7bo=;
-        b=PH1765aooXZNK5bWTia6WRI0oQOt57O6DUT4GoF7N+B6P2oy46a8IrkWTovfI7lupR
-         DuCMrpahSps9f8NGnaqvF1FjgKbCs/3RPBOOZXlFZIS2H3hEEH8FDbhR2Mv92IMRyzv5
-         039NGOCRMhl41NEpaGKgt3dY1aKOFSo/F59WM4JfxTFoAwKnz/IAl8p3vzdRjuSpwByY
-         jrfRkL+umqFDrvIq9CLKLrpAmUgq+Q67U+rZd78Fb14uU4+wRhW0dtGyzgO/fwjr4Dp2
-         gqmpWzhBc91sI5Z1Vae6fUHoC3RMldNK+i3O4LImEY5vyqOhitCaXcBDmck8IYX3eXpQ
-         dGrw==
-X-Forwarded-Encrypted: i=1; AJvYcCUk5ITYtENs2bfZ+U88Qs8vvUWUfWnNvhSbRpF0+2QqzqM8YubQE6aXhV5iEJ0u4DI10TsQGdz7CnoQqkniRGwy@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+UchYPG6I/q4gYmcekgRowExyV+NEnHW8+rGZAdecPUMs2K6o
-	bXlmgOK4YgE6lZgdrfDbEF5nnV0GReJwRQPQnNHBuBpwSFvZSP/EBirHpgW44XmW/rrIJp6smOf
-	N3Xdr3CN11EWKq69QN1oyq8Qg4qH4dovfyVOiMuGChZCB7m1OQ8Bt1/3SpO9F+/qIVz+U7qVeGg
-	==
-X-Gm-Gg: ASbGnct4hypAZERzFOzTSNQHxWWko8jyJNhvH7BtSmbGAbmHRmZesu1LQ/p7+FpBOL/
-	hNcxq+qIfFjSJ4vNF9sLgURWF7bl+49vFxs4fT7VMMGZQ/C0onc4fkL0kgoTtv4lwpgNieI9QQl
-	hgzEbBLfljtb6U8p6p7jr7QjhMJmSADMmbHFMQajMMxVwJrPr6Aoze+ttqNbAkXs91djvHM2ZWs
-	L51IUT7/nldOMWnqgzZCY2saVcoiRD+uHN8ED6HkBsXb4JBIMl7vNSgmWMrYC5bnBY6jtSB/US9
-	kcrbqYA4KznnqiUE0Gpajuq/OFInDxzmK02EWWc2gA3besWO4Rwj9sL8wkw=
-X-Received: by 2002:a05:622a:610:b0:467:6eee:1138 with SMTP id d75a77b69052e-46e4e726f1dmr121602691cf.6.1737974978601;
-        Mon, 27 Jan 2025 02:49:38 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHdnH4J6HaLZ6tC9UeTjZWaxwVuzqp/4HLK9P8eKFWexw6YCwzdP8ffhfgKmAo0wFiSbNS1AA==
-X-Received: by 2002:a05:622a:610:b0:467:6eee:1138 with SMTP id d75a77b69052e-46e4e726f1dmr121602601cf.6.1737974978120;
-        Mon, 27 Jan 2025 02:49:38 -0800 (PST)
-Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab6760b6f4bsm569985266b.90.2025.01.27.02.49.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 27 Jan 2025 02:49:37 -0800 (PST)
-Message-ID: <71da0edf-9b2a-464e-8979-8e09f7828120@oss.qualcomm.com>
-Date: Mon, 27 Jan 2025 11:49:34 +0100
+	Mon, 27 Jan 2025 11:11:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id AC7DDA41383
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jan 2025 11:09:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 599D3C4CEE1
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jan 2025 11:11:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737976294;
+	bh=QzWIcfoUu4/gTEfIKnxjk/E8ZEHvpvzqvrQc4/Dp2fc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=fr9cVVFH23KGKh5kIPUgIvl5oVy4Vpg5pTgePjZy7ASv+wI0GTqv4Odm9az101znP
+	 FP96+HXcUboXZm4tu46qOotyFNkQHPTrQSFuCq5r6K00b5r9yAd1GcjDCkOp4pKhNO
+	 4z0Oak9WyaTBB98hadgase6seRwOTiugXL/fxDHYsDghM1w5/jwEro7plRcFL+Nxvh
+	 drO4la4CbxNvyVWs21xIo0mKXhbzSI4+MphIPjSvkLgzVSEA94MS5XPQEFF5gxYYYp
+	 C5Lgpw7YYmrPnzuQG594Wo9fvr7jKp5ZJ4bUW/KCkUDRv6okqwk4/6WYh4/f3YKurl
+	 HNBmcNmGzoNNA==
+Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-ab2e308a99bso844810566b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jan 2025 03:11:34 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXPElzDKHQDKsifh76gJCWTP6mNYFkf+ykJRno+AdNUJL4GbRQC0ph4NkQR8B5lIM10RUz9kbt2CV86XeJrhkmS@lists.infradead.org
+X-Gm-Message-State: AOJu0YwSpUYhtCkXsQJThGTVVQD2wVm/S1SjjhvPGswc4nNWlcfjd+ao
+	JTSpCXbJHjM2aqiP7yVmf4xUPpd1rav5Z2Od/qMx5h5IAF+B5GycF2dqEqCiV8+eM/AYyJSpm3x
+	qzQpQmT7nBx+5IhjQvbs4r8RnmcQ=
+X-Google-Smtp-Source: AGHT+IFW34bx+TvwETM2bWIhS/ttR/C5lgyWGoTlj/cjsPy2ouNJ3mTayzMCZgiBRkUQYm0oh6q1eg+j2GgENyL6FiY=
+X-Received: by 2002:a17:907:3e8c:b0:ab2:f6e5:3f1 with SMTP id
+ a640c23a62f3a-ab662968433mr1675237066b.8.1737976292927; Mon, 27 Jan 2025
+ 03:11:32 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/4] net: stmmac: dwmac-qcom-ethqos: Mask PHY mode if
- configured with rgmii-id
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-        Yijie Yang <quic_yijiyang@quicinc.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Richard Cochran <richardcochran@gmail.com>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org
-References: <20250121-dts_qcs615-v3-0-fa4496950d8a@quicinc.com>
- <20250121-dts_qcs615-v3-2-fa4496950d8a@quicinc.com>
- <30450f09-83d4-4ff0-96b2-9f251f0c0896@kernel.org>
- <48ce7924-bbb7-4a0f-9f56-681c8b2a21bd@quicinc.com>
- <2bd19e9e-775d-41b0-99d4-accb9ae8262d@kernel.org>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <2bd19e9e-775d-41b0-99d4-accb9ae8262d@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: y0MbFXcEpzSH1ub8w7crfKmwhxxW4r5P
-X-Proofpoint-ORIG-GUID: y0MbFXcEpzSH1ub8w7crfKmwhxxW4r5P
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-01-27_04,2025-01-27_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
- spamscore=0 mlxlogscore=999 phishscore=0 priorityscore=1501 bulkscore=0
- malwarescore=0 suspectscore=0 adultscore=0 impostorscore=0 mlxscore=0
- clxscore=1015 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2501270085
+References: <20250127092450.2945611-1-hayashi.kunihiko@socionext.com> <Z5dXJ1EIUx8DAh6J@shell.armlinux.org.uk>
+In-Reply-To: <Z5dXJ1EIUx8DAh6J@shell.armlinux.org.uk>
+From: Huacai Chen <chenhuacai@kernel.org>
+Date: Mon, 27 Jan 2025 19:11:26 +0800
+X-Gmail-Original-Message-ID: <CAAhV-H78fbK+jAsootOaZW=eQ3RPna3VQTxHd33vDSueYkyYtA@mail.gmail.com>
+X-Gm-Features: AWEUYZkSqEExKEOJzEl1NVXZboUYivpjZE39q6fB7IQV6e_xCVeNjqqX__GrteM
+Message-ID: <CAAhV-H78fbK+jAsootOaZW=eQ3RPna3VQTxHd33vDSueYkyYtA@mail.gmail.com>
+Subject: Re: [PATCH net 0/3] net: stmmac: Fix usage of maximum queue number macros
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu <joabreu@synopsys.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250127_024940_747144_24C013BD 
-X-CRM114-Status: GOOD (  25.51  )
+X-CRM114-CacheID: sfid-20250127_031136_139680_35C8D884 
+X-CRM114-Status: GOOD (  19.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,86 +87,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22.01.2025 10:48 AM, Krzysztof Kozlowski wrote:
-> On 22/01/2025 09:56, Yijie Yang wrote:
->>
->>
->> On 2025-01-21 20:47, Krzysztof Kozlowski wrote:
->>> On 21/01/2025 08:54, Yijie Yang wrote:
->>>> The Qualcomm board always chooses the MAC to provide the delay instead of
->>>> the PHY, which is completely opposite to the suggestion of the Linux
->>>> kernel.
->>>
->>>
->>> How does the Linux kernel suggest it?
->>>
->>>> The usage of phy-mode in legacy DTS was also incorrect. Change the
->>>> phy_mode passed from the DTS to the driver from PHY_INTERFACE_MODE_RGMII_ID
->>>> to PHY_INTERFACE_MODE_RGMII to ensure correct operation and adherence to
->>>> the definition.
->>>> To address the ABI compatibility issue between the kernel and DTS caused by
->>>> this change, handle the compatible string 'qcom,qcs404-evb-4000' in the
->>>> code, as it is the only legacy board that mistakenly uses the 'rgmii'
->>>> phy-mode.
->>>>
->>>> Signed-off-by: Yijie Yang <quic_yijiyang@quicinc.com>
->>>> ---
->>>>   .../net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    | 18 +++++++++++++-----
->>>>   1 file changed, 13 insertions(+), 5 deletions(-)
->>>>
->>>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
->>>> index 2a5b38723635b5ef9233ca4709e99dd5ddf06b77..e228a62723e221d58d8c4f104109e0dcf682d06d 100644
->>>> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
->>>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
->>>> @@ -401,14 +401,11 @@ static int ethqos_dll_configure(struct qcom_ethqos *ethqos)
->>>>   static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos)
->>>>   {
->>>>   	struct device *dev = &ethqos->pdev->dev;
->>>> -	int phase_shift;
->>>> +	int phase_shift = 0;
->>>>   	int loopback;
->>>>   
->>>>   	/* Determine if the PHY adds a 2 ns TX delay or the MAC handles it */
->>>> -	if (ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_ID ||
->>>> -	    ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_TXID)
->>>> -		phase_shift = 0;
->>>> -	else
->>>> +	if (ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_ID)
->>>>   		phase_shift = RGMII_CONFIG2_TX_CLK_PHASE_SHIFT_EN;
->>>>   
->>>>   	/* Disable loopback mode */
->>>> @@ -810,6 +807,17 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
->>>>   	ret = of_get_phy_mode(np, &ethqos->phy_mode);
->>>>   	if (ret)
->>>>   		return dev_err_probe(dev, ret, "Failed to get phy mode\n");
->>>> +
->>>> +	root = of_find_node_by_path("/");
->>>> +	if (root && of_device_is_compatible(root, "qcom,qcs404-evb-4000"))
->>>
->>>
->>> First, just check if machine is compatible, don't open code it.
->>>
->>> Second, drivers should really, really not rely on the machine. I don't
->>> think how this resolves ABI break for other users at all.
->>
->> As detailed in the commit description, some boards mistakenly use the 
->> 'rgmii' phy-mode, and the MAC driver has also incorrectly parsed and 
-> 
-> That's a kind of an ABI now, assuming it worked fine.
+Hi, Russell,
 
-I'm inclined to think it's better to drop compatibility given we're talking
-about rather obscure boards here.
+On Mon, Jan 27, 2025 at 5:52=E2=80=AFPM Russell King (Oracle)
+<linux@armlinux.org.uk> wrote:
+>
+> On Mon, Jan 27, 2025 at 06:24:47PM +0900, Kunihiko Hayashi wrote:
+> > The maximum number of Rx and Tx queues is defined by MTL_MAX_RX_QUEUES =
+and
+> > MTL_MAX_TX_QUEUES respectively.
+> >
+> > There are some places where Rx and Tx are used in reverse. Currently th=
+ese
+> > two values as the same and there is no impact, but need to fix the usag=
+e
+> > to keep consistency.
+>
+> I disagree that this should be targetting the net tree - I think it
+> should be the net-next tree. Nothing is currently broken, this isn't
+> fixing a regression, there is no urgent need to get it into mainline.
+> It is merely a cleanup because both macros have the same value:
+I'm not very familiar with the difference between net and net-next,
+but I think this series should be backported to stable branches.
 
-$ rg 'mode.*=.*"rgmii"' arch/arm64/boot/dts/qcom -l
+Reviewed-by: Huacai Chen <chenhuacai@kernel.org>
 
-arch/arm64/boot/dts/qcom/sa8155p-adp.dts
-arch/arm64/boot/dts/qcom/qcs404-evb-4000.dts
+Huacai
 
-QCS404 seems to have zero interest from anyone (and has been considered
-for removal upstream..).
-
-The ADP doesn't see much traction either, last time around someone found
-a boot breaking issue months after it was committed.
-
-Konrad
+>
+> include/linux/stmmac.h:#define MTL_MAX_RX_QUEUES        8
+> include/linux/stmmac.h:#define MTL_MAX_TX_QUEUES        8
+>
+> Please re-send for net-next after the merge window and net-next has
+> re-opened.
+>
+> In any case, for the whole series:
+>
+> Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+>
+> Thanks!
+>
+> --
+> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+>
 
