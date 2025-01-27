@@ -4,86 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C6B5C0218C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 08:37:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DAB4C0218C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 08:47:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7CpuCgUhzlMwquwyxIpORAsFWoq98Sx1RYSATdcpZF8=; b=Ez7XE+zCnqdT1HVlYic6jkGQsb
-	qYY/PziVX8C6HBodwgmEJdX2zW7SQ1UAcJ6ViRrJh7UiftNLIU+E2pezQL3BwuQigZpwHIgcI6Q3w
-	qp4HFYiAoFI8QEDxp5Oy5AKD8deoLUC6CVLg5dnjjxuqQH/oqZCxtUWIaYBx72m+ENhmjpcJ/mYhl
-	Hrz+3l6zDRTI75tfM6A4Rndtt4ZSYAioEyOwoIl1SIosyPVdPQ5dPsom7WJth4BNOJaLHOAV/VN5S
-	t71XeCVmjUNUt3ISxaYbo+YYuGm+1OReyCVDRewyDYZmrJEbfMhekuy61sf2anmD9G8j3ZvRwT8kS
-	NfRnIF5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Vu8WbV5HoQEeSN6onJ3P6ua3kZ0O/7C1HK5pPtVdu2o=; b=OjDEZz7cwqpukbLACMjANSOZfu
+	1SXdYL432HeMcI1O3Q+p2knAqWRTtHBJnsKx+XkwgitVgo9cqYeTtUnXY3iLDn6BkcfJxA/xgWHHP
+	oa1Tt0xlrvyQnHgXWYe+NsgZdErucjC6mwCSI26z1BzbFKQsfs9wGJL91E0v/KlGa9XTLndzOf4yW
+	OmU3xj10a1vPEhxwldzJCkxFQ4g2YXEggKSU7oVzrD0jhYL8lSLaDRZmBAVgBr3eEkChbnSx9lcFO
+	lwrEIkm5MIheIE1+KS+DyjR139+WbOKEEoN48pOWm6teybUZdLig3tocUZ/3NH79cBnVceHd6pkiH
+	iUZacAxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcKcP-00000001u54-0zJq;
-	Mon, 27 Jan 2025 08:37:17 +0000
-Received: from mail-yb1-xb36.google.com ([2607:f8b0:4864:20::b36])
+	id 1tcKmS-00000001uuK-2AYT;
+	Mon, 27 Jan 2025 08:47:40 +0000
+Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcKb6-00000001u0s-2aEw
+	id 1tcKl9-00000001uqQ-48e6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jan 2025 08:35:58 +0000
-Received: by mail-yb1-xb36.google.com with SMTP id 3f1490d57ef6-e53a5ff2233so7233194276.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jan 2025 00:35:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1737966955; x=1738571755; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7CpuCgUhzlMwquwyxIpORAsFWoq98Sx1RYSATdcpZF8=;
-        b=jaFsfh4iyGivWYNT/FZ0X1fXXvU+W8c04jl67APOcOmDTbpM8lYLjINGwczAPUWE0z
-         UF2PA6WdJabIKM8/x9Y3vcqf9vUk5Aa3EOpvXdB2mSCI+tCnQPNKIDO+Is80nJPdbRoG
-         H2yRFmOwCcwm6irUn/HgZtdpcBstoMhZB27Ow=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737966955; x=1738571755;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7CpuCgUhzlMwquwyxIpORAsFWoq98Sx1RYSATdcpZF8=;
-        b=LcjNh9GWedWseCTh7vegJPjsLXgFFzIDM5cN6id/isIqfCCx3M1m0aLN2VUG411rRc
-         NTDdRCWvncZzAiSWZTUVOL+sqY0f2icyVVLKYLx+WIX7AHR63vZVAjl6iqkEmDHPU8NI
-         wx1+CLghBMYVBnv1TUdUV8TUD2eZP+1UrgpyEDOtXbjupng3LJYRuf05DiI9v2EJXb7s
-         1cM1vZaTOIPhija5KVqbwcbdkyDGa1NyYIc0OYEKonQtX6uQiWhjzlHXTGamQGjVJLPw
-         nnFpGz5txmgUz0RgKe4lA4YYC03vSmtQfGjuzinGl/OKqO3O9NmtKelXaw/00dYHw6EJ
-         C3Xw==
-X-Forwarded-Encrypted: i=1; AJvYcCWL7d5ELX3S3Jy8GmsVbgghfAnP2zYeSud2u6WFHY88xM+ig3eYHb8uhhmoqaP7M439ATKqBDQ7A5V1OuP3cWkt@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx9M2H0ZEBsvzlNVIH/iYNg8N/ttLB6BxFnxm3c1MHngosjIyeX
-	XXauALuxtMYnphxONLysMwngE98EsK33HFq04PjUVE8jpnMKA4Iq0QTtUjHaqiBb9r7kbBuKziz
-	vyg5IK2xwF0ZGUcrOArPfVxzDjrErgxY2bAm8Gi4J/t+Yq4SOMck=
-X-Gm-Gg: ASbGncth1hNeAsvxOgHIo4KEgwpcq7evRI+45ySTTkJON/F9QkOq5GE2nI+hGGA1t2b
-	o04ci/Eedmepi6SFBzek8T5GBKeOqXa7gzpEJvEAgVHUfis3N+HJ8VHOgA8up
-X-Google-Smtp-Source: AGHT+IGHyhUgcceh+vJXcAZjGUchw/OGjVtuboku6Agl5DSUcHsODqJZuXCoUSbUuE0lX16ABYtMxolar2BSkwIN+2o=
-X-Received: by 2002:a05:690c:b91:b0:6ec:b74d:a013 with SMTP id
- 00721157ae682-6f6eb68959amr300759977b3.19.1737966955422; Mon, 27 Jan 2025
- 00:35:55 -0800 (PST)
-MIME-Version: 1.0
-References: <20250124-clk-ssc-v1-0-2d39f6baf2af@nxp.com> <CABGWkvpj2bYyqiOp4D9Ss2aWOnoR7BxqDOGpXdRusq=aWu9BEA@mail.gmail.com>
- <74663d9d-364e-4db3-b18a-1068e2845215@kernel.org> <CABGWkvo+HXF4hu-TG314HSb2omSmTE57hbHQt5V2zoc2_SkxvQ@mail.gmail.com>
- <5165cc5e-4ba3-45a8-8bc0-6ff6f379c4af@kernel.org>
-In-Reply-To: <5165cc5e-4ba3-45a8-8bc0-6ff6f379c4af@kernel.org>
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Date: Mon, 27 Jan 2025 09:35:44 +0100
-X-Gm-Features: AWEUYZntrNnNxynYCZOhupOW0McEcrPg1c849eddjMilDJLdiEK_7si4ALRf0LQ
-Message-ID: <CABGWkvrUjQPOc+PnpNSp7Ag2HC6DLLAH-fqGdSwUSfo6Z=M+AQ@mail.gmail.com>
-Subject: Re: [PATCH 0/3] clk: Support spread spectrum and use it in clk-scmi
+	Mon, 27 Jan 2025 08:46:21 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 609D4103802C0;
+	Mon, 27 Jan 2025 09:46:13 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1737967576;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Vu8WbV5HoQEeSN6onJ3P6ua3kZ0O/7C1HK5pPtVdu2o=;
+	b=Ncg/m0Uyy+pp5ZYX852OvabB9aN7V44WCtmS/TFaQbhHP/VStPAkEF2IvYMuhbfneAYhTg
+	ZhKVBe2gh/Dwj3gRGczXCf5uxmX5aA4IZBzeuykNPg2xmPDPYL1QM4K4tWE//gjY2BQSfz
+	qeqTl2Fwr5yqzslrdq+3mzZR0NMaXHPdA+NEbP1J2o6/6EPsccwK3Glrj4T6GegdO6QQj9
+	KKulvt/wxLQRGPWoJP3Jo6DdYIS9lATUHlMa7ci57JJDGLzBS2dyUxE5SPZ49h7Ub0Vkzo
+	jlT+WKObUXoZzBjwykvRMHtfSihCXe4hscyDiEqTqBtd9Gi6vJzvXhC0EYyjJw==
+Date: Mon, 27 Jan 2025 09:46:12 +0100
+From: Lukasz Majewski <lukma@denx.de>
 To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Russell King <linux@armlinux.org.uk>, 
-	Sudeep Holla <sudeep.holla@arm.com>, Cristian Marussi <cristian.marussi@arm.com>, 
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, Peng Fan <peng.fan@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
+ Hauer <s.hauer@pengutronix.de>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Jessica Zhang <quic_jesszhan@quicinc.com>, David Airlie
+ <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, Pengutronix Kernel Team
+ <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Stefan
+ Wahren <wahrenst@gmx.net>
+Subject: Re: [RESEND PATCH v11 1/3] dt-bindings: display: Add
+ powertip,{st7272|hx8238a} as DT Schema description
+Message-ID: <20250127094612.27f8fca3@wsk>
+In-Reply-To: <1cde6d04-6fe9-4d09-a11e-26cef6bcf2af@kernel.org>
+References: <20250109154149.1212631-1-lukma@denx.de>
+	<20250120085724.5caf80af@wsk>
+	<20250127091910.4184d9a0@wsk>
+	<1cde6d04-6fe9-4d09-a11e-26cef6bcf2af@kernel.org>
+Organization: denx.de
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
+Content-Type: multipart/signed; boundary="Sig_/AIAMn5jyaeJmAnXYLmXxvJC";
+ protocol="application/pgp-signature"; micalg=pgp-sha512
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250127_003556_679048_C5AF52D9 
-X-CRM114-Status: GOOD (  34.62  )
+X-CRM114-CacheID: sfid-20250127_004620_175647_F7A7CD02 
+X-CRM114-Status: GOOD (  18.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,102 +85,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 27, 2025 at 9:31=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
->
-> On 27/01/2025 08:59, Dario Binacchi wrote:
-> > On Mon, Jan 27, 2025 at 8:42=E2=80=AFAM Krzysztof Kozlowski <krzk@kerne=
-l.org> wrote:
-> >>
-> >> On 25/01/2025 13:58, Dario Binacchi wrote:
-> >>> On Fri, Jan 24, 2025 at 2:19=E2=80=AFPM Peng Fan (OSS) <peng.fan@oss.=
-nxp.com> wrote:
-> >>>>
-> >>>> - Introduce clk_set_spread_spectrum to set the parameters for enabli=
-ng
-> >>>>   spread spectrum of a clock.
-> >>>> - Parse 'assigned-clock-sscs' and configure it by default before usi=
-ng the
-> >>>>   clock. The pull request for this property is at [1]
-> >>>>   This property is parsed before parsing clock rate.
-> >>>>
-> >>>> - Enable this feature for clk-scmi on i.MX95.
-> >>>>   This may not the best, since checking machine compatibles.
-> >>>>   I am thinking to provide an API scmi_get_vendor_info, then driver
-> >>>>   could use it for OEM stuff, such as
-> >>>>   if (scmi_get_vendor_info returns NXP_IMX)
-> >>>>       ops->set_spread_spectrum =3D scmi_clk_set_spread_spectrum_imx;
-> >>>>
+--Sig_/AIAMn5jyaeJmAnXYLmXxvJC
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
+
+Hi Krzysztof,
+
+> On 27/01/2025 09:19, Lukasz Majewski wrote:
+> > Dear Community,
+> >  =20
+> >> Dear Community,
+> >> =20
+> >>> This patch provides the DT Schema description of:
+> >>> - powertip,st7272  320 x 240 LCD display
+> >>> - powertip,hx8238a 320 x 240 LCD display
 > >>>
-> >>> I wonder if your solution is truly generic or merely a generalization
-> >>> of your use case, which seems significantly simpler compared to what
+> >>> Used with the different HW revisions of btt3 devices.
+> >>>    =20
 > >>
-> >> Please come with specific arguments why this is not generic enough, no=
-t
-> >> just FUD. Does it fit your case? If not, what would had to be changed?
-> >> These are the comments needed to actually work on generic solution.
-> >>
-> >>> happens on the i.MX8M platform, as discussed in thread
-> >>> https://lore.kernel.org/lkml/PAXPR04MB8459537D7D2A49221D0E890D88E32@P=
-AXPR04MB8459.eurprd04.prod.outlook.com/,
-> >>> or on the STM32F platform, where parameters are not written directly
-> >>> to registers but are instead used in calculations involving the
-> >>> parent_rate and the PLL divider, for example.
-> >>>
-> >>> I am the author of the patches that introduced spread spectrum
-> >>> management for the AM33x and STM32Fx platforms, as well as the
-> >>> series, still pending acceptance, for the i.MX8M.
-> >>> From my perspective, this functionality varies significantly
-> >>> from platform to platform, with key differences that must be
-> >>> considered.
-> >>
-> >> So what exactly varies? Come with specifics.
-> >
-> > In all the cases I implemented, I enabled spread spectrum within
-> > the set_rate of the clock/PLL in question, as information such as
-> > the parent rate or the divisor used was necessary to perform the
-> > calculations needed to extract the data for setting the SSCG
-> > register bitfields.
-> >
-> > If I'm not mistaken, I think this is not the case implemented by this
-> > series.
->
-> It feels like you speak about driver, so I misunderstood the concerns. I
-> did not check the drivers at all, so here I do not claim patchsets are
-> compatible.
+> >> Gentle ping on this patch... =20
+>=20
+>=20
+> Merge window, not need to ping anyone, unless these are fixes. Are
+> these? Do not look like.
 
-Yes, I commented on the driver.
-For the dt-bindings I added a comment in the github PR
-https://github.com/devicetree-org/dt-schema/pull/154
+Please correct me if I'm wring (or something has changed recently), but
+wasn't there a policy that DTS bindings are allowed to be pulled no
+matter if merge window is open or not?
 
-Thanks and regards,
-Dario
-
->
-> But the binding takes the same values - the main PLL/clock rate.
->
+>=20
+> >> =20
+> >=20
+> > Gentle ping on this patch... =20
+>=20
+> Still merge window, really no need to ping twice.
+>=20
 > Best regards,
 > Krzysztof
 
 
 
---=20
 
-Dario Binacchi
+Best regards,
 
-Senior Embedded Linux Developer
+Lukasz Majewski
 
-dario.binacchi@amarulasolutions.com
+--
 
-__________________________________
+DENX Software Engineering GmbH,      Managing Director: Erika Unter
+HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
 
+--Sig_/AIAMn5jyaeJmAnXYLmXxvJC
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
 
-Amarula Solutions SRL
+-----BEGIN PGP SIGNATURE-----
 
-Via Le Canevare 30, 31100 Treviso, Veneto, IT
+iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmeXR9QACgkQAR8vZIA0
+zr30Wwf/aP+psctksxI1zRk+d4Tmnf6QH81RMXVaLB9Xc/VH2Aqui2i4f2zZURXF
+NT9NVY+NZb5gzMzZNZlfILLqe5e7iMgVGvmHXBu/Fe83WERJhgMp6nKLjNO/QPLu
+aYoMvJcXgB0ILb8U9bryTafgO8pVcc91wyts/w3xmwVqvrjjKAItyzey8g422agC
+5DcfO/Pydc2+R7Z1GDemDyg2zm0OiHk/uR0CpZxLsHYJSFjR+VEbCrtlsbKNUufo
+jAuJftrxfy9k0zWyN773HZVtluS18t8Sg9xS/MlV01+WZ/EYI8GqCJSKUbEFJr3Q
+nZhmHmSe0vaMSTPfmPOTK0NDsj+0iQ==
+=URYN
+-----END PGP SIGNATURE-----
 
-T. +39 042 243 5310
-info@amarulasolutions.com
-
-www.amarulasolutions.com
+--Sig_/AIAMn5jyaeJmAnXYLmXxvJC--
 
