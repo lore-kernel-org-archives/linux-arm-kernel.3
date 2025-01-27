@@ -4,62 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFC43C02188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 13:53:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AC1BC0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 14:54:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WwZ8/HRnFmeLDeBnLMF9ALpoQ2i6k+zaF6tYugZOpgM=; b=XqZgZssH9SXXWPi6JRUcwvvu44
-	FMPM4KC90/FQPHIY7Z9Y75O+WMoGXvy71OSV2G3W13fKNbUv1l3Ymh5y5l+Mtm7FqxaxsmTIc/aRV
-	KRzgVaq1/zMpaxiyx65j73x+9sdGtA3WO4nJ3eXmepKV1NMn0XTpW8TvLxEiqNgRFGaAu2e70fzL+
-	quF/DqFoxGTBysjS0SHEhmj78WUhNxQMZyil2KlyLEMpP8yxYMTfgO3yHsfcoebzJ2/gR33lYzZZ5
-	CQTdDUXl8ySPfWKxr+DaQlY/v70oXRbjIbDmQwty/HTJ3LvrIoyGoHzne6MG8b7JEnYwOG2cBe9ZA
-	BNbacxsg==;
+	bh=CdF28R0lwLtzzeK4zWjgs0IHh1lVP07gYZEhtv8/W2w=; b=LjVuyZwvTvd8/5XzFM4Mx8oY6A
+	H8uJAMuNTi6Ub/J3pWPH4HZA+JECkNeR28SO0wV6dwOqj3SIsaAgFHo9c2B6xQXZXC0XturNWTW/A
+	53f4yuzX79dpKVsR6VSnvLuzqmTxV66mc5nU89FHY7wPUBSrVzHpoUFL632f4DvEmTOowc15jHXN2
+	1YxdUCk8CYbyuaX4LuJhArArzCYVhSp49aUFCkkB7tUMwz1rJo0DyDVjhQRqNHX7tpSQnWdB0MU+i
+	1RWqJ4a2vlqPGNA1qQqgtVbPA5yXaokL910cKgUl8Anunjq7fBWVYFUrQw725NDx0SrQjxsmBvw+f
+	XDJF0ndw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcPXv-00000002QNI-2rXc;
-	Mon, 27 Jan 2025 13:52:59 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1tcQVO-00000002XMq-1J8Z;
+	Mon, 27 Jan 2025 14:54:26 +0000
+Received: from mx.denx.de ([89.58.32.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcPWa-00000002Q3h-1iJZ;
-	Mon, 27 Jan 2025 13:51:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=WwZ8/HRnFmeLDeBnLMF9ALpoQ2i6k+zaF6tYugZOpgM=; b=FgDinq27ZXj0o5Jh/xG1WqpFSl
-	YEDlGFTOfszJKXSclDHZACtlBRejU+4hdb8TIyPUav4w6BDiO4R6gHW28RKopJv6lc3FsUrFnxhb8
-	IsggbqaHwqkyss12753HCV1UBZlRcrQCDdkTu7T31YpYFm/58vkXiuW8xp+HEJbRMmftFHSbtbLtt
-	TzfB40gcvvxW+B7MNeG1m5OcmNvjn2bGSv/D4DVvX435W4/HDQZm0eTNIm5nooz2Yma0oiMiQBQbv
-	qJSNxDJSnf3W2/4DmlqjWBfMJjoxbT5IqOSZLPhasLxs/FrzCfv1m7Db172F/BHhc/7p51biE2OFm
-	RWGm8YVQ==;
-Received: from willy by casper.infradead.org with local (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcPWY-00000009ToN-17YQ;
-	Mon, 27 Jan 2025 13:51:34 +0000
-Date: Mon, 27 Jan 2025 13:51:34 +0000
-From: Matthew Wilcox <willy@infradead.org>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-mm@kvack.org
-Subject: Re: [PATCH v4 2/9] riscv: Restore the pfn in a NAPOT pte when
- manipulated by core mm code
-Message-ID: <Z5ePZt61CM84Hb36@casper.infradead.org>
-References: <20250127093530.19548-1-alexghiti@rivosinc.com>
- <20250127093530.19548-3-alexghiti@rivosinc.com>
+	id 1tcQU3-00000002XI5-0kDx
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Jan 2025 14:53:04 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 80AD6103802C0;
+	Mon, 27 Jan 2025 15:52:55 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1737989580;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CdF28R0lwLtzzeK4zWjgs0IHh1lVP07gYZEhtv8/W2w=;
+	b=acxnt8HHx9qxDj4qWZ9eqLBAB9Cod/FYJYF7OYV7gALS4SJ29uquaXrbvJ3VyDVPeQUSGH
+	NrBFhpWV5vnbCFV7WXQ3cZre5PA5bBUoQZG41kS95rmUW8ae1aWKaLCIRrTm9SVAUN/sCH
+	/UsBye8DcK3JO8ajd6BOgdigawIUp1Ss7go6/kSmdhu2o5B3xw7fGxpYpPDK4+VxdNCRYK
+	cqa3zNw4bqG/rpTvO2HbT03HTB/atu5SZoIsFf4vKpwGelgRYDX/0tXkjvVZktYBEYZ5rK
+	t3sjZ/xW3SiKa9793jMHO87kamhBsHYeRIC+S3jOJg9nmDvEGcJMh82GqcZb+A==
+Date: Mon, 27 Jan 2025 15:52:53 +0100
+From: Lukasz Majewski <lukma@denx.de>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
+ Hauer <s.hauer@pengutronix.de>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Jessica Zhang <quic_jesszhan@quicinc.com>, David Airlie
+ <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, Pengutronix Kernel Team
+ <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Stefan
+ Wahren <wahrenst@gmx.net>
+Subject: Re: [RESEND PATCH v11 1/3] dt-bindings: display: Add
+ powertip,{st7272|hx8238a} as DT Schema description
+Message-ID: <20250127155253.06937c28@wsk>
+In-Reply-To: <ebd9f9e2-3d8c-4deb-9962-5694cadec090@kernel.org>
+References: <20250109154149.1212631-1-lukma@denx.de>
+	<20250120085724.5caf80af@wsk>
+	<20250127091910.4184d9a0@wsk>
+	<1cde6d04-6fe9-4d09-a11e-26cef6bcf2af@kernel.org>
+	<20250127094612.27f8fca3@wsk>
+	<ebd9f9e2-3d8c-4deb-9962-5694cadec090@kernel.org>
+Organization: denx.de
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250127093530.19548-3-alexghiti@rivosinc.com>
+Content-Type: multipart/signed; boundary="Sig_/h/ql_liqhaaB_oe78.1H=Ly";
+ protocol="application/pgp-signature"; micalg=pgp-sha512
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250127_065303_376177_A019865E 
+X-CRM114-Status: GOOD (  23.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,46 +87,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 27, 2025 at 10:35:23AM +0100, Alexandre Ghiti wrote:
-> +#ifdef CONFIG_RISCV_ISA_SVNAPOT
-> +static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
-> +			    pte_t *ptep, pte_t pteval, unsigned int nr)
-> +{
-> +	if (unlikely(pte_valid_napot(pteval))) {
-> +		unsigned int order = ilog2(nr);
-> +
-> +		if (!is_napot_order(order)) {
-> +			/*
-> +			 * Something's weird, we are given a NAPOT pte but the
+--Sig_/h/ql_liqhaaB_oe78.1H=Ly
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-No, nothing is weird.  This can happen under a lot of different
-circumstances.  For example, one might mmap() part of a file and the
-folio containing the data is only partially mapped.  The filesystem /
-page cache might choose to use a folio order that isn't one of your
-magic hardware orders.
+Hi Krzysztof,
 
-> +			 * size of the mapping is not a known NAPOT mapping
-> +			 * size, so clear the NAPOT bit and map this without
-> +			 * NAPOT support: core mm only manipulates pte with the
-> +			 * real pfn so we know the pte is valid without the N
-> +			 * bit.
-> +			 */
-> +			pr_err("Incorrect NAPOT mapping, resetting.\n");
-> +			pteval = pte_clear_napot(pteval);
-> +		} else {
-> +			/*
-> +			 * NAPOT ptes that arrive here only have the N bit set
-> +			 * and their pfn does not contain the mapping size, so
-> +			 * set that here.
-> +			 */
-> +			pteval = pte_mknapot(pteval, order);
+> On 27/01/2025 09:46, Lukasz Majewski wrote:
+> > Hi Krzysztof,
+> >  =20
+> >> On 27/01/2025 09:19, Lukasz Majewski wrote: =20
+> >>> Dear Community,
+> >>>    =20
+> >>>> Dear Community,
+> >>>>   =20
+> >>>>> This patch provides the DT Schema description of:
+> >>>>> - powertip,st7272  320 x 240 LCD display
+> >>>>> - powertip,hx8238a 320 x 240 LCD display
+> >>>>>
+> >>>>> Used with the different HW revisions of btt3 devices.
+> >>>>>      =20
+> >>>>
+> >>>> Gentle ping on this patch...   =20
+> >>
+> >>
+> >> Merge window, not need to ping anyone, unless these are fixes. Are
+> >> these? Do not look like. =20
+> >=20
+> > Please correct me if I'm wring (or something has changed recently),
+> > but wasn't there a policy that DTS bindings are allowed to be
+> > pulled no matter if merge window is open or not? =20
+>=20
+>=20
+> Bindings? No such rule, no difference between bindings and any other
+> thing. No non-fix patches are taken by maintainers during merge
+> window, with some exceptions. There is a difference in DRM, though,
+> because it follows a bit different cycle schedule, but you pinged us
+> all, not only DRM folks.
 
-You're assuming that pteval is aligned to the order that you've
-calculated, and again that's not true.  For example, the user may have
-called mmap() on range 0x21000-0x40000 of a file which is covered by
-a 128kB folio.  You'll be called with a pteval pointing to 0x21000 and
-calculate that you can put a 64kB entry there ... no.
+Thanks for explanation - I've been mistaken...
 
-I'd suggest you do some testing with fstests and xfs as your underlying
-filesystem.  It should catch these kinds of mistakes.
+>=20
+> So was the ping towards DRM? Is their tree now open?
+>=20
+
+You mean https://cgit.freedesktop.org/drm/drm ?
+
+Some work (i.e. code is pull) is done there.
+
+> Best regards,
+> Krzysztof
+
+
+
+
+Best regards,
+
+Lukasz Majewski
+
+--
+
+DENX Software Engineering GmbH,      Managing Director: Erika Unter
+HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+
+--Sig_/h/ql_liqhaaB_oe78.1H=Ly
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmeXncUACgkQAR8vZIA0
+zr1jeggAn52s3WruRvdZ2n6gQj3Z4b2iDp63vBcu9ur9KYn4Zw3VWPuKH09ktc71
+2zr0fZMg/Tp3ssOMjYknbeJok9X2pFMVnZMWnmfm/wEaHGfZOppJlA5vk1Eprq7M
+yGsRTrwA9EMu+WophtwKDIkNJ68/Nr5t646H4EAYhybvBCMeQkEDSJu1K4tEDM0C
+ZTG8aRsdZV/F4h+9O4hfRU4c8hew05PSySw+ZLIjAd0wp7OK6VPOtjqLCaqeJmUz
+MsnnBqqM4WfHMZDkFN58p57A8ZJYzl29UVjiQ1eXsJjLxxskXNOneXJx+mMt0J6Q
+yDP5qf3i0uzYIll0yNnkFXh4n0pz0w==
+=bWIG
+-----END PGP SIGNATURE-----
+
+--Sig_/h/ql_liqhaaB_oe78.1H=Ly--
 
