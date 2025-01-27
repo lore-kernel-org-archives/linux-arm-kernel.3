@@ -4,106 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5365BC02188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 12:42:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE127C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 12:48:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=66BlFs48FVrbjdXsEGOlsg4bI3MunIVf7eU5KlklnAE=; b=KWEHBT3so8wsYx8LHv5NUYD5w8
-	YCTDOTBpNL/U7zHqBFx1GxwtLfvjrFChgFQgml4UWq6NCJn3ehYitEUDunB5Q6cuIofbXZUKZxU7N
-	du5VU5SnQcBYroxgC3n3iSKonjoSNNFSqPdWgWgkdbRt5t96BIFzM3db00BsIAXkugARQWergGtZp
-	dQD4baKsfGMTtI06YSK3z98cA0K2EwEit9W6nc5fFXDE85yKweiBjJisdXNDnPEPDKEIf9MT3I7C4
-	+lgdcIYjRVA52jXRrJ9OJVrvTBCJUnn8XSnEBw7M2siwR5Tw8/GHjUOjQ58gv2qM7ExWf0hE8WCWS
-	8VjCRNJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=z8eYln85d4V0XxkISkF3B47hIlXSQBbJiZ4zG36gYUY=; b=4JL2v0yosHcwWc
+	QQcDA/ibCa0IKrah6IV6lyb5tEjkmgdm9HsUACG9kVvC6Ng3E8wahLXiFK4Gey9ApEDLww+tMASJK
+	O09YwJKrsZayz+dg7GrNjTm4thp0rexRuy/6NG/mFAbHKTSVLk9HBjlmjy/VM6T3JF+B664JXTcXN
+	0eFcjANTmeHp7S9PrTTSnuR5nvuvD/k5rlnE93/sEoIBB2VwepghUM//0Tf4SfbJVWL4ZrxKiqiwT
+	ZI42RMcvgyW4Z0qBjAfnnwvwuel3gO4oGoCb9iCkkspe+ns8MdxEPFJJKNteTlRJmyxSd9TAMrHCo
+	SQ01+KAkF7q6dhF041kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcORD-00000002I3z-3TD1;
-	Mon, 27 Jan 2025 12:41:59 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1tcOX7-00000002IgQ-0pI0;
+	Mon, 27 Jan 2025 12:48:05 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcOPv-00000002Hyo-0wqw
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jan 2025 12:40:40 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-2efded08c79so5932826a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jan 2025 04:40:38 -0800 (PST)
+	id 1tcOVk-00000002IFj-0sOW;
+	Mon, 27 Jan 2025 12:46:41 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43624b2d453so47723805e9.2;
+        Mon, 27 Jan 2025 04:46:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=beagleboard-org.20230601.gappssmtp.com; s=20230601; t=1737981637; x=1738586437; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=66BlFs48FVrbjdXsEGOlsg4bI3MunIVf7eU5KlklnAE=;
-        b=mqM363Twq3TvgXA/qkt4I6GrXtqqUzHXWZuysa/dYBWf/mLtHtfEuBdk4ws+7AwYkV
-         WJqJ4ZDQMUJUc/DBJAOz1f2CsReLKRsQz8VxVSZsghh9apeu7yCEvDXbee+cWwr+T8Id
-         MBVMhQ/SfC3bZPPtVbJCihdhFDFDLGZQwZGByZgq1yBo/920E0e6ZAWvsog+pqa3HQi1
-         pf0vRzF34KE0nO5VdV9Ocqvra+CqjvQS3gN/O+sQTjP/CXPUpNi8r3i7kNxmMCv5nluI
-         /R2Pu50Lh9CZrY0GFS0tmwZyIEnqNiieuxHplgYUIRLBDX0ZzOuiIKGPAG4plpSCcf9V
-         hWew==
+        d=gmail.com; s=20230601; t=1737981998; x=1738586798; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=z8eYln85d4V0XxkISkF3B47hIlXSQBbJiZ4zG36gYUY=;
+        b=NVaCSbi3ANWaSVlQykC8rU+akfBpp+6CDSRLs0MWMijfwZz1cPAi4eSXhOeScu11tg
+         ey0v47fqsZ0YZViHC64T0CHxksFvyKZKR/Wgu5ntvlnXzDpae4YqhyNesIi60TdfeBe1
+         mN+0qSVlJfyBpONqzEVPy38eyo2cWSDlMeqCzgRAY6U1uZug5rro7po0XUj01z6OPhht
+         z/bJCzXYD1LusYAjpJGx1upram53EMU6CM+S2G/AfVK5rjmknpTlBLdrQUyIHyke+4pg
+         eskwqt/eZM3+10M5xYescGVOH1kUg41GoZKWGIZeo9mHQG/x4143WfSmTYafOnch9xYW
+         jcSg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737981637; x=1738586437;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1737981998; x=1738586798;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=66BlFs48FVrbjdXsEGOlsg4bI3MunIVf7eU5KlklnAE=;
-        b=jPbD3pLUd7gNpaK5lbwC7OROjHmSK/WqQs5Bk5eNp61rbnQCrtqFD1bASyExCbrQsc
-         yqpKN1pfIKlKT6OZDLUY7TX9HbKnceIjV6zdPptmv9Xe1M7FEu71LSrYL4ANl7+cEHTO
-         BzjwcLe67K1WAKQ59L6DmqyJu8RDJrotmO01+0wUPuB0ZNkbuhigp5Hz486nOtigZxJG
-         5q3XpMt8mguyBOEHz7UbU8hVFBwzv+Ppdo8KfFZCoZJkEb46xFnPMCBGU5VajMod27vl
-         AEKyBk59bm4TKRR846lX0ttWRThM2Ds5YeE/jpZ+Ub4szgU5l9yPhnkmjt9+2B9AYAFO
-         hJsw==
-X-Gm-Message-State: AOJu0YxbpHXjIdzlU3gUCt26qZGFcfhEh1kTWn+eLxzZZ6To8ucg0WZ3
-	YtpYFHa6b8CcXnfpiorJeF0g9m7KlQZpLxAXt5WHOxIQUJPztS4I6f7gCJCQY9tWNhNgdrSVSzT
-	4kg==
-X-Gm-Gg: ASbGncu1mtYBUuRWJKxOIzQ8lUmorRpOoP+vEdA8kfVsEfPN5CosL3GIhGq1vBQX0tc
-	539PJvNwleo9rq0gFw80LpMOsPwWgSVYhLb6k+wervxZAQdLItSM1Bc0jJnONWZPrLGHtLxBAKY
-	aqNg4DKVhA0wclX0m58ggBrTK9BEaGPSwKB+Wz+e0smLX/eJx/IwIj41a/di5WKsCOk0TouDJSr
-	VA7niW3bzLa+Jx8htYwLgVM/5qEFskM7tkcMhuEuB6pQBeDcguTPcQD76YtGJjyj6dBC6BQrr6J
-	+HXQKj0T3xkH
-X-Google-Smtp-Source: AGHT+IH35HYMHbP7gwr+hk7IggmfFWRoiNIaJxd88A8EOD62aN7eYdWW5S+2d4Rsjs63mXxlmd555A==
-X-Received: by 2002:a17:90b:2e4e:b0:2ee:fd53:2b17 with SMTP id 98e67ed59e1d1-2f782d97276mr57017655a91.29.1737981637154;
-        Mon, 27 Jan 2025 04:40:37 -0800 (PST)
-Received: from [172.16.119.211] ([103.15.228.94])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f7ffa455d6sm7058553a91.10.2025.01.27.04.40.32
+        bh=z8eYln85d4V0XxkISkF3B47hIlXSQBbJiZ4zG36gYUY=;
+        b=NfY9yaAYE5l3s7gChZM8tdnC/9YWAoYFHvvC9yoqd2QTX51NFTP56bE1peBZoB5+q9
+         y9eUM00w2n+FWlKvMRMWC9yYnyc3ZaAgl0xtsgJ7viB5R7vGqE8E5PKCf+w4IytwklQ9
+         GR5dYq6zqmhtki8+vhLFgGwujBYJhfTYdZs1EkmaB6493v8/jc0pOEC0pMBf90TAaewt
+         Zu5/g83Z6Invxn8xEGoGLM0hzzKHvNDlwD0MS8w/WrfPDswO3mE0B8ocjrsgNVDLsgIO
+         1WZn0OcE6jFH3O4Fz/B4JJ3+F2Mslq9dZ1LwnDZEWWUmXuGy5cONH4KTS8DOYuQ1evJm
+         vxmw==
+X-Forwarded-Encrypted: i=1; AJvYcCWOAVgrpdDiMVjMNBG/Sp+TKqLET4d6P7WTMflycMES1Q54WWjw69EmNDzypgGNvgxktBc+Hhf5aeuWDEm1Nh7P@lists.infradead.org, AJvYcCX2pxhsXKqfhkUGpmkPuLMejyCfw77U1t/51W5YRONeqAbhWoClp3tg2AHMvZoHFmZBRSa+u3lZWbM/57Ro4fE=@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywm2e1yS1SA2fUx0knYFWsDJnlFpWWBpG9IwJVrZaQDZMvlMEvj
+	GMlmAWqDA7AedoT+9uWI3RQmrL7RxDkKTzjDBLmthFsqWESYADtz
+X-Gm-Gg: ASbGncuTi49gkxKYAHDl1CqvCAq1nk+3xL4IGn86pTxwmUWcXSnlssyM+6zBY/0Xlnq
+	lSAEKAkFvVDZsMv8qsmhuslzXWiw+T/hnAH8grQ2G10ee6Q3ixMriXTmNaKTiWLUaSVfwnBQYwE
+	NZkDtQom5iD7aed+wQthl4EULfv+Kb+RnsLp0yx4vrC/tdD4v+Hz2AEE8dXvLK4QR8PToPAZa4q
+	coGPqe7qqcKxpElxzL59FQa1cYnzVilI+5yjPlIJw9fgxpNgGYigTWCHYaxe7OlES5lmj1onX0b
+	yKSG
+X-Google-Smtp-Source: AGHT+IFfSd38Ri9jN8sfQ5L5B554TUZX0q25wsFyyX/2uMgyGS67py+XFULHlQy6v7HbU7SVRYe6KQ==
+X-Received: by 2002:a05:600c:3495:b0:431:5c3d:1700 with SMTP id 5b1f17b1804b1-4389143b450mr317083695e9.21.1737981997803;
+        Mon, 27 Jan 2025 04:46:37 -0800 (PST)
+Received: from localhost ([2001:861:3385:e20:6384:4cf:52c5:3194])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438bd4b9990sm135476565e9.29.2025.01.27.04.46.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Jan 2025 04:40:36 -0800 (PST)
-From: Ayush Singh <ayush@beagleboard.org>
-Date: Mon, 27 Jan 2025 18:09:35 +0530
-Subject: [PATCH] arm64: defconfig: Enable gb_beagleplay
+        Mon, 27 Jan 2025 04:46:37 -0800 (PST)
+From: Raphael Gallais-Pou <rgallaispou@gmail.com>
+Subject: [RFC PATCH 00/14] AHCI power management cleanup
+Date: Mon, 27 Jan 2025 13:45:55 +0100
+Message-Id: <20250127-pm_ata-v1-0-f8f50c821a2a@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250127-defconfig-beagleplay-v1-1-22a60085e313@beagleboard.org>
-X-B4-Tracking: v=1; b=H4sIAIZ+l2cC/x2MWwqAIBAArxL7nWCWJF0l+vCx2oJYKEQh3T3pc
- wZmKhTMhAWWrkLGiwodqcHQd2B3nQIyco1BcCH5IGbm0NsjeQrMoA4Rz6ifJicpR2NGpQS09Mz
- o6f636/a+H1hMYQtmAAAA
-X-Change-ID: 20250127-defconfig-beagleplay-de4553bb3882
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, d-gole@ti.com, lorforlinux@beagleboard.org, 
- jkridner@beagleboard.org, robertcnelson@beagleboard.org, 
- Nishanth Menon <nm@ti.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Ayush Singh <ayush@beagleboard.org>
+X-B4-Tracking: v=1; b=H4sIAAOAl2cC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDQ0Nj3YLc+MSSRN2UpGQD8yTjJIOUNGMloOKCotS0zAqwQdGxtbUAIVP
+ XsFgAAAA=
+X-Change-ID: 20250113-pm_ata-dbc07b3b0df3
+To: Damien Le Moal <dlemoal@kernel.org>, Niklas Cassel <cassel@kernel.org>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Hans de Goede <hdegoede@redhat.com>, 
+ Patrice Chotard <patrice.chotard@foss.st.com>, Chen-Yu Tsai <wens@csie.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Viresh Kumar <vireshk@kernel.org>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: linux-ide@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-renesas-soc@vger.kernel.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1098; i=ayush@beagleboard.org;
- h=from:subject:message-id; bh=icRpRzWFZCeIziEPfagk2gQf/GODTrhYcZ6aARwW04U=;
- b=owEBbQKS/ZANAwAIAQXO9ceJ5Vp0AcsmYgBnl37AiWFK/mv2Ocpgn+Hi1q6BzejqEzOizic7Y
- +X3VNYfzEmJAjMEAAEIAB0WIQTfzBMe8k8tZW+lBNYFzvXHieVadAUCZ5d+wAAKCRAFzvXHieVa
- dBgQD/9hIRxB7jGWLcjZDKCSeMuXKyn5HPfgivpFFbCzaIz8VFjFSycGN2X7vqrPwOfb9zXtF8J
- hr8reb81JjvnjeYD1BRxoVxWJeCtDyslu848X2vpGbF7HCzwQNaVNBrpPemxmw/uBOx8Xnu3pJh
- B/M/xc2su+6OLyK29/Of4TgI0xfsR9boZHfS2631DYqYkTIBoPIvZzQ5+UUenzOsNx7w4pqPd6I
- ABzP2OsEwwcyH+ER0KVf0Os0P8A6KTDqJ1jBIF/Ubf/burKho29A4l6J9GEdgdNLe5dKCGYNHDp
- Z3lr/9ac2knVNajFd7mciwXPLoWUJzWC+ZCCGIlPkjsrpyIWR6fQqSlcJv5xYVptlttYTxSiJFU
- YBakIzgj3Y7utqOV9lJ33+t34BzZW7tCfkKn6RlIXhy/j5Udj66kGC9N6+fYavUSnH07TMUj8nG
- q7XZIRYdUPaMdMwANrXQcMVFyVBUIdWCgO+GGhOMgraxhzezYHhtCLZ/eHr+1OxQ1Ia+XKRyCe7
- 5o1cqlbJ8Yk6WHJfo4py6mKQOUSmKT+wPaoWVo1i4TyrUikpSNfUsPDXuRmcRMGWW0VDVH0xtOm
- DhNuvp7Zmb3xsF+hSrNkrPpLrgxm42Dw9QWzrgCEZtDx5l13Dj7GqE1NbMl8bxcBcvHLKzkAKtR
- 5NLp4k9KSXDdBEg==
-X-Developer-Key: i=ayush@beagleboard.org; a=openpgp;
- fpr=DFCC131EF24F2D656FA504D605CEF5C789E55A74
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2376; i=rgallaispou@gmail.com;
+ h=from:subject:message-id; bh=RfFf9mqe7wnUpvIjSrHj6CQMvmZLwVEjIiP2MewLm8g=;
+ b=owEBbQKS/ZANAwAIAechimjUEsK1AcsmYgBnl4AqHXy802/pdPDCEw20R6+hBBw+dOLQVfY0K
+ QKOcufY0oGJAjMEAAEIAB0WIQQgmXv2E+fvbV/9ui/nIYpo1BLCtQUCZ5eAKgAKCRDnIYpo1BLC
+ te79EACIeSoH/vfRi6LCb3ARwUq4Q7HhYCKxv2xDX3f+4IFS6pryCyaXp3kgdqBqgNYaMdQ5ShF
+ VKytt+DR+0DGoHcn+C1yMz3KxmukzDBedfB8k+fdD5hjGgh795mkqmPw6E5AETkN6odr6wAyzIg
+ tWrhzoJpeY6SH+gkPflAR3Tc/PXkxWMQgV5zCrvWb3KmYDX/BrBPHX0A6LwyF7L8v6t4As3cIHH
+ QC+bBsP+G0uA4AFupeTs/LMOX+UkfCKthpVUYsspVDUpXv6ntLa/zQn8F2lhD4b3U9cP5OchTmz
+ g76Etrn5y2YHML03AKRXgtNpQNcpyedeIHMY7I4EcyKhK/dka5UTl/sM1W18Js+vQUbDo+OhEQo
+ uerK1Ke58MwavucFUFK+hmqJtJJXwhjOqUUzAFRoVSWNLuod0jGTTB1rGC6IasIdP3cSsOYxpF3
+ AJqZ0p8Vpad0JWvKza2mYOsdtAMvX4ym8T6iwt70ipD2TONcNxhaNuLJYc5Ae3zvTgE6kjd5Uph
+ hS0V69QysEsSK6BhUOHKlR5Y6G3/nhCSvV9iTjMhfMP+MToZO1ZCZrKN/J3FtuVHDDZHeNHTZ49
+ sMTOG3cHWP5kkCzdI0rnBPZAVzQlmyvrDmr+O298eFnNIKSWDq21+i7ubogmftWYSINmMsEQ2j5
+ VG38IVjlMtsqAIg==
+X-Developer-Key: i=rgallaispou@gmail.com; a=openpgp;
+ fpr=20997BF613E7EF6D5FFDBA2FE7218A68D412C2B5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250127_044039_538516_14DF4329 
-X-CRM114-Status: UNSURE (   8.81  )
+X-CRM114-CacheID: sfid-20250127_044640_253863_D4E2F881 
+X-CRM114-Status: UNSURE (   9.32  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -119,39 +127,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable greybus driver for Ti CC1352P7 over UART.
+Several AHCI drivers expose suspend/resume functions in a way that can
+be simplified.  Using pre-processor operation can lead to errors, while
+relying on automatic kernel configuration is safer.  It also shrinks the
+kernel size when CONFIG_PM_SLEEP is not used[1].
 
-The driver communicates with Ti CC1352P7 co-processor which acts as
-Greybus SVC. Additionally, it also provides firmware upload API support
-for Ti CC1352P7 over UART.
+This has been compile-tested on x86, arm and arm64.
 
-Signed-off-by: Ayush Singh <ayush@beagleboard.org>
+[1] https://lore.kernel.org/lkml/261f9fac-82de-4f39-bf5c-cdfcee917588@gmail.com/
+
+Signed-off-by: Raphael Gallais-Pou <rgallaispou@gmail.com>
 ---
-Enable greybus driver for Ti CC1352P5 over UART used in BeaglePlay [0].
+Raphael Gallais-Pou (14):
+      ahci: brcm: Switch from CONFIG_PM_SLEEP guards to pm_sleep_ptr()
+      ahci: ceva: Switch from CONFIG_PM_SLEEP guards to pm_sleep_ptr()
+      ahci: da850: Switch from CONFIG_PM_SLEEP guards to pm_sleep_ptr()
+      ahci: dm816: Switch from CONFIG_PM_SLEEP guards to pm_sleep_ptr()
+      ahci: imx: Switch from CONFIG_PM_SLEEP guards to pm_sleep_ptr()
+      ahci: mtk: Switch from CONFIG_PM_SLEEP guards to pm_sleep_ptr()
+      ahci: platform: Switch from CONFIG_PM_SLEEP guards to pm_sleep_ptr()
+      ahci: qoriq: Switch from CONFIG_PM_SLEEP guards to pm_sleep_ptr()
+      ahci: seattle: Switch from CONFIG_PM_SLEEP guards to pm_sleep_ptr()
+      ahci: sunxi: Switch from CONFIG_PM_SLEEP guards to pm_sleep_ptr()
+      ahci: pata_arasan_cf: Switch from CONFIG_PM_SLEEP guards to pm_sleep_ptr()
+      ahci: pata_imx: Switch from CONFIG_PM_SLEEP guards to pm_sleep_ptr()
+      ahci: sata_highbank: Switch from CONFIG_PM_SLEEP guards to pm_sleep_ptr()
+      ahci: sata_rcar: Switch from CONFIG_PM_SLEEP guards to pm_sleep_ptr()
 
-[0]: https://www.beagleboard.org/boards/beagleplay
----
- arch/arm64/configs/defconfig | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index cb7da44155999b59aff95966f4cdc9107f2af46a..24353b0aa3e0ae1786ce99706a52cbf25d037d3b 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1760,3 +1760,6 @@ CONFIG_CORESIGHT_STM=m
- CONFIG_CORESIGHT_CPU_DEBUG=m
- CONFIG_CORESIGHT_CTI=m
- CONFIG_MEMTEST=y
-+CONFIG_GREYBUS=m
-+CONFIG_GREYBUS_BEAGLEPLAY=m
-+CONFIG_FW_UPLOAD=y
-
+ drivers/ata/ahci_brcm.c      | 6 +++---
+ drivers/ata/ahci_ceva.c      | 8 ++++----
+ drivers/ata/ahci_da850.c     | 7 ++++---
+ drivers/ata/ahci_dm816.c     | 8 ++++----
+ drivers/ata/ahci_imx.c       | 6 ++----
+ drivers/ata/ahci_mtk.c       | 7 ++++---
+ drivers/ata/ahci_platform.c  | 7 ++++---
+ drivers/ata/ahci_qoriq.c     | 9 ++++-----
+ drivers/ata/ahci_seattle.c   | 7 ++++---
+ drivers/ata/ahci_sunxi.c     | 9 ++++-----
+ drivers/ata/pata_arasan_cf.c | 6 ++----
+ drivers/ata/pata_imx.c       | 6 ++----
+ drivers/ata/sata_highbank.c  | 9 ++++-----
+ drivers/ata/sata_rcar.c      | 6 +-----
+ 14 files changed, 46 insertions(+), 55 deletions(-)
 ---
 base-commit: 5ffa57f6eecefababb8cbe327222ef171943b183
-change-id: 20250127-defconfig-beagleplay-de4553bb3882
+change-id: 20250113-pm_ata-dbc07b3b0df3
 
 Best regards,
 -- 
-Ayush Singh <ayush@beagleboard.org>
+Raphael Gallais-Pou <rgallaispou@gmail.com>
 
 
