@@ -4,95 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B30BC0218C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 09:47:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03EEDC0218C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 09:49:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C5hVtVN5ts8qRfTru3U6IxaXR2nRBQvNb9/UQuUojb8=; b=tJeC2rPoiHcQgO+IYuXlkTNtYG
-	5eo6euyoClp8gyhi3TECCwJGiJlPWVGnFA6WyS9udYnBRyp7AjpQ74sTypO+ooAW2P8sdEYygbyoA
-	Wb579fPpGbESbSJOGyfhBzGCcJpWmL/q74hTsn0lZ15wnBVG8hoCzc4zdZcCtErD+bctBKXO1iJ1H
-	BHKau+glLmKVtB3Zhz2BaKpDaC9CVB+OcuArJJ4iFX5WMWM5PfdZdzh6GeARENHggNjNv4j27f7ui
-	91hqC37jRr4tcJFJ4sW9of7BTEoE9zu7Rk7TiCExnYLzxVakGixFgsBI+INvyEoHXhPUUXyW2+G0/
-	LIEv2YRQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=JKOPXeX6sbg57Oy8s17k2ZQyCZqfoLnDjsHi21Xikr0=; b=wWfKnFwB47S8xq
+	Hviiqm2vMWh4XM2woaL0VFrz6ZKija+S+gizW8Dx9uRlM7mVNWCCy9tzKIEGDOWzP0HlpG5rTERPI
+	+3X2b0KQAa4PioZcIJOZY5lfBGiQ3SXx5aOCrR80uszhUTrvPBg05NsM259ZYZRzooNpdfotclxc2
+	5/NrA7Dp8kI1TWAIcCRE8cPQPhGod2r75KOluqZIQ4WDdFTmX977j+Hl8ot229V/E+WVdCUCD4Hef
+	frfbnwWvJM20/i9drfd2DLWiXG28kaMdvJ3ycWjwXfYIEirBCxVaGer+m3KEW4OFcIhn2CRcFOrfD
+	RgJLb5VCamAjipAsuYKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcLiV-000000024HG-26OP;
-	Mon, 27 Jan 2025 09:47:39 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1tcLjp-000000024Ye-3CDb;
+	Mon, 27 Jan 2025 09:49:01 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcLes-000000023Dr-01ks
+	id 1tcLfY-000000023Mx-2t23
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 27 Jan 2025 09:44:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=JKOPXeX6sbg57Oy8s17k2ZQyCZqfoLnDjsHi21Xikr0=; b=Nq4kRwJKjgwJ6af1+87NeA25P4
+	H9lS8/Ef8mvfhDkLQxzXAxR89LWbpzvpOlyMB2LAsiD+MKTmorhh+UIlgwMrnwKofcqVp9JXEcUGg
+	Bi7uZPg1fjXkDcYUYcLeo+8wlPmr4q+szIJfYqNOsEtLwJuLQQyrH941dqjt946x8CGCK/nsMd0DH
+	NpTVYBeu++LZ4+xtNztJHft0EfbprPvj/2dAVVKz6WDFXFUJl7HgZHv6117356blkMDU+f8LWufRE
+	otzMVqCjbPPaOgkMn7izu/AHNhrLqRt78uY1Y5DhWiHy8k2iflDjCWfaMtzWfQk8GT47aDDEVdJmv
+	aK+1QCtg==;
+Received: from fw2.prolan.hu ([193.68.50.107])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tcLfU-0000000Eg0U-42lY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jan 2025 09:43:55 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-385e0e224cbso2363861f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jan 2025 01:43:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1737971032; x=1738575832; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=C5hVtVN5ts8qRfTru3U6IxaXR2nRBQvNb9/UQuUojb8=;
-        b=fX9bd/0O9A8gsb5s5gsmSyBZf8wUDqUzXo6aDtGwG3CZesAU1UdGHGthq1PWMFkn7r
-         JReEXjAzq4TD4RsctKoHwBZY34QxfMmehdJxKY+JPxVkBNcURWwtsyrMIKOqMkyU3BCh
-         6O7f9B0WJL8CaPedFRDFZatakwp5cJltcplbKDDv6ojOnrOAddu6XcgXqJNgYU2gEEQm
-         6wjuDwmP/vji0du3Rl4cOvIlIZvnBIwNBLfviZsJnILKWyKmdZ2hH3CRxDDzhgqrdCBi
-         7kuJo/x8cHS7TUdP9k2F1sjr0XOamB1f9PcaNtKhKm+smMljXDS1Uv2shxzytFcPUQpH
-         FA5g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737971032; x=1738575832;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=C5hVtVN5ts8qRfTru3U6IxaXR2nRBQvNb9/UQuUojb8=;
-        b=d5HmtQGSmYWeHZQEabWKZ9wzorLya+7DK440iWMi2HIFgNyXQoSufRpnlOw0DEcHNg
-         RPCAkEdB00alcvlkkEnfgVVl2nXIZekuv3INsmA99ecqWpTmhOnRyQQV1R4ZFBhV201S
-         LMUEfZs86lT8sMLiYlK4WP/VlYu1zDQB29cAd7gNILT/WrOA2wxZsxf5zWmtF243CKHW
-         RIAJVC5qSldTxC8QzKzQyC6NUKW7AslliBuq3fIJ+WQaiBYGpts+Y6u50J/0IKmn7D4G
-         H1DJN9r68hPyfxJNMxYZLspDTHccaBm3Ok13fdvVrTxvHilcnTpwI6Mt+0p+dMXtnmJZ
-         lavQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUY6jFgR4+GZQK+d16EbfKRTFIgwcbqwWlWRfDZF0MOfKw/lDiRvfqkOjrcsVtp91YMygBDyFLZrLpdSCtP/H7n@lists.infradead.org
-X-Gm-Message-State: AOJu0YyxRUMBN+oeXO71FJLku0fymAZAmxOQWx/yYeFluEQ39LWovmmx
-	hLqyDEY8vtksv/dTRbTx2cHoAX6pBjriv/mM8AHvHRFYTaPyFc02UxpsPffcwPo=
-X-Gm-Gg: ASbGncuafP+1RQrsitEb1nSmTX7AadnDBpCi0/FkUzCGtK5zjFp8GNgO410i1+hALaY
-	/ULCdKSc5KbY6KkihcqbvsIdLU7tBiuJPff+xSA3Myw4Jz/F6PkRPW6Enpx9/IWv5/FAWWn+zLx
-	gMWq56jkIBxEChittbTiMAF82RQu8jtiJhUQDwoNSgNuvYyKwbPoCGtV9kPa7dhjE/NmzitsiwO
-	yU58FLwyX/Xi7EkI5GbLWPqXgW9O+sqEtM7Q3IXYa8/1AQmLz6ndNJ5TPbiagahQUd4TWIo3MDt
-	e1I7/e+dpnOhZ3NQ5fhpxvCAOUFuVEU=
-X-Google-Smtp-Source: AGHT+IFXkE/IMZA1k4v5FDtRJn2j5Onh6MT51lwkeaLHVsBqz96ACklS2Q489STBeMVgKrxepukPbg==
-X-Received: by 2002:a05:6000:18a8:b0:385:f69a:7e5f with SMTP id ffacd0b85a97d-38bf57a9a86mr46329622f8f.38.1737971032476;
-        Mon, 27 Jan 2025 01:43:52 -0800 (PST)
-Received: from alex-rivos.ba.rivosinc.com ([2001:861:3382:ef90:3e22:3e78:ce5a:32c3])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38c2a17d6a6sm10405111f8f.26.2025.01.27.01.43.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Jan 2025 01:43:52 -0800 (PST)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-mm@kvack.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v4 8/9] mm: Use common huge_ptep_set_wrprotect() function for riscv/arm64
-Date: Mon, 27 Jan 2025 10:35:29 +0100
-Message-Id: <20250127093530.19548-9-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250127093530.19548-1-alexghiti@rivosinc.com>
-References: <20250127093530.19548-1-alexghiti@rivosinc.com>
+	Mon, 27 Jan 2025 09:44:35 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id A90C8A047B;
+	Mon, 27 Jan 2025 10:44:20 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=mail; bh=JKOPXeX6sbg57Oy8s17k
+	2ZQyCZqfoLnDjsHi21Xikr0=; b=McwYYo+QddYExT8iA+HlNAvkIIjjvupac1m1
+	1lzb1hUixnG4FW6CUuIVZMnvPziv0MrS5TRofzvB3EHYNAmqCEPgcLpJVkngdTZH
+	KUXcuLtnKCKkei1turpmiUipTKI2dDUdipF9zuIsfu3l0qrUaifkUja1OvS39vZT
+	QFOMUr2HBx82MKWL8R58aQtXIBa5i3uJ1VR8x1LDYWg1mN2vQYw8/yDgwfi6RjbM
+	2oO6ShRygpBZiXFiV2DpA8eS6Wx5CArBibm1EbcO/pERdnbF2WkqfLk9mir27XxB
+	H2aNA1JHI3hcHevDymkjGKnyuOfjGsNYMQXRM2o+5Dm5kOG1SS/mHaFujsvWqIPK
+	ZZRyeEs6ToFTv4vvXNJX/Ztf+iOl5lp688AhJeFUTueDtUygU3aCWsZdUCo7Sqz9
+	ERVqJmIa6W127jJVxRu+N4+dX3iUoGyfI1qV5yPLfLlZNhqEIBKUdG95yi6Dz+6I
+	wmnC1cWBay+RTl1haZpkRuGJqF8K2+f9KjdJ7ExY4A01f0wV6w6Fv5mJkSWFWC/G
+	o3286I702pjXnvhV+0FCh6OcobsHsWgrJWmKTskZWc9aFmtgNARz61SAn4l63+Y9
+	aOM8Xjb+LYNjbSFta0/AmbIMxbap2vLcXZwBE/qtSaXYgo6qlaemOmsZABosB/Ef
+	R5Dcf6A=
+From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+To: Tudor Ambarus <tudor.ambarus@linaro.org>, Mark Brown <broonie@kernel.org>,
+	=?UTF-8?q?Cs=C3=B3k=C3=A1s=2C=20Bence?= <csokas.bence@prolan.hu>, "Varshini
+ Rajendran" <varshini.rajendran@microchip.com>, <linux-spi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH resubmit] spi: atmel-quadspi: remove references to runtime PM on error path
+Date: Mon, 27 Jan 2025 10:42:58 +0100
+Message-ID: <20250127094258.841684-2-csokas.bence@prolan.hu>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250114172329.1013770-2-csokas.bence@prolan.hu>
+References: <20250114172329.1013770-2-csokas.bence@prolan.hu>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1737971059;VERSION=7984;MC=3820151323;ID=88924;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A29ACD9485267726B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250127_014354_047498_B6BA329A 
-X-CRM114-Status: GOOD (  14.85  )
+X-CRM114-CacheID: sfid-20250127_094433_614902_34041DE7 
+X-CRM114-Status: UNSURE (   9.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,206 +94,51 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Alexander Dahl <ada@thorsis.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Durai Manickam KR <durai.manickamkr@microchip.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After some adjustments, both architectures have the same implementation
-so move it to the generic code.
+From: Claudiu Beznea <claudiu.beznea@microchip.com>
 
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+There is no need to call runtime PM put APIs on error path of
+`atmel_qspi_sama7g5_transfer()` as the caller (`atmel_qspi_exec_op()`)
+of it will take care of this if needed.
+
+Fixes: 5af42209a4d2 ("spi: atmel-quadspi: Add support for sama7g5 QSPI")
+Signed-off-by: Claudiu Beznea <claudiu.beznea@microchip.com>
+Signed-off-by: Durai Manickam KR <durai.manickamkr@microchip.com>
+Reported-by: Alexander Dahl <ada@thorsis.com>
+Closes: https://lore.kernel.org/linux-spi/20250109-carat-festivity-5f088e1add3c@thorsis.com/
+[ csokas.bence: Rebase and clarify msg, fix/add tags ]
+Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
 ---
- arch/arm64/include/asm/hugetlb.h |  3 ---
- arch/arm64/mm/hugetlbpage.c      | 27 ---------------------------
- arch/riscv/include/asm/hugetlb.h |  4 ----
- arch/riscv/include/asm/pgtable.h |  7 ++++---
- arch/riscv/mm/hugetlbpage.c      | 22 ----------------------
- include/linux/hugetlb_contpte.h  |  4 ++++
- mm/hugetlb_contpte.c             | 22 ++++++++++++++++++++++
- 7 files changed, 30 insertions(+), 59 deletions(-)
 
-diff --git a/arch/arm64/include/asm/hugetlb.h b/arch/arm64/include/asm/hugetlb.h
-index 654f5f2f03a3..fd1de0caad3f 100644
---- a/arch/arm64/include/asm/hugetlb.h
-+++ b/arch/arm64/include/asm/hugetlb.h
-@@ -35,9 +35,6 @@ static inline void arch_clear_hugetlb_flags(struct folio *folio)
+Notes:
+    Rebased onto current spi-next:
+    commit ff9e24437b18 ("Merge remote-tracking branch 'spi/for-6.13' into spi-linus")
+
+ drivers/spi/atmel-quadspi.c | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+diff --git a/drivers/spi/atmel-quadspi.c b/drivers/spi/atmel-quadspi.c
+index abdc49d9d940..e2235d71c822 100644
+--- a/drivers/spi/atmel-quadspi.c
++++ b/drivers/spi/atmel-quadspi.c
+@@ -930,11 +930,8 @@ static int atmel_qspi_sama7g5_transfer(struct spi_mem *mem,
  
- pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags);
- #define arch_make_huge_pte arch_make_huge_pte
--#define __HAVE_ARCH_HUGE_PTEP_SET_WRPROTECT
--extern void huge_ptep_set_wrprotect(struct mm_struct *mm,
--				    unsigned long addr, pte_t *ptep);
- #define __HAVE_ARCH_HUGE_PTEP_CLEAR_FLUSH
- extern pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
- 				   unsigned long addr, pte_t *ptep);
-diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
-index 643ba2043f0f..0430cb41f381 100644
---- a/arch/arm64/mm/hugetlbpage.c
-+++ b/arch/arm64/mm/hugetlbpage.c
-@@ -277,33 +277,6 @@ pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags)
- 	return entry;
- }
- 
--void huge_ptep_set_wrprotect(struct mm_struct *mm,
--			     unsigned long addr, pte_t *ptep)
--{
--	unsigned long pfn, dpfn;
--	pgprot_t hugeprot;
--	int ncontig, i;
--	size_t pgsize;
--	pte_t pte;
--
--	if (!pte_cont(__ptep_get(ptep))) {
--		__ptep_set_wrprotect(mm, addr, ptep);
--		return;
+ 	/* Release the chip-select. */
+ 	ret = atmel_qspi_reg_sync(aq);
+-	if (ret) {
+-		pm_runtime_mark_last_busy(&aq->pdev->dev);
+-		pm_runtime_put_autosuspend(&aq->pdev->dev);
++	if (ret)
+ 		return ret;
 -	}
--
--	ncontig = find_num_contig(mm, addr, ptep, &pgsize);
--	dpfn = pgsize >> PAGE_SHIFT;
--
--	pte = get_clear_contig_flush(mm, addr, ptep, pgsize, ncontig);
--	pte = pte_wrprotect(pte);
--
--	hugeprot = pte_pgprot(pte);
--	pfn = pte_pfn(pte);
--
--	for (i = 0; i < ncontig; i++, ptep++, addr += pgsize, pfn += dpfn)
--		__set_ptes(mm, addr, ptep, pfn_pte(pfn, hugeprot), 1);
--}
--
- pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
- 			    unsigned long addr, pte_t *ptep)
- {
-diff --git a/arch/riscv/include/asm/hugetlb.h b/arch/riscv/include/asm/hugetlb.h
-index bf533c2cef84..4c692dd82779 100644
---- a/arch/riscv/include/asm/hugetlb.h
-+++ b/arch/riscv/include/asm/hugetlb.h
-@@ -24,10 +24,6 @@ bool arch_hugetlb_migration_supported(struct hstate *h);
- pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
- 			    unsigned long addr, pte_t *ptep);
+ 	atmel_qspi_write(QSPI_CR_LASTXFER, aq, QSPI_CR);
  
--#define __HAVE_ARCH_HUGE_PTEP_SET_WRPROTECT
--void huge_ptep_set_wrprotect(struct mm_struct *mm,
--			     unsigned long addr, pte_t *ptep);
--
- pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags);
- #define arch_make_huge_pte arch_make_huge_pte
- 
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 290d5fbfe031..5a29153a4013 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -645,9 +645,8 @@ static inline pte_t __ptep_get_and_clear(struct mm_struct *mm,
- 	return pte;
- }
- 
--#define __HAVE_ARCH_PTEP_SET_WRPROTECT
--static inline void ptep_set_wrprotect(struct mm_struct *mm,
--				      unsigned long address, pte_t *ptep)
-+static inline void __ptep_set_wrprotect(struct mm_struct *mm,
-+					unsigned long address, pte_t *ptep)
- {
- 	atomic_long_and(~(unsigned long)_PAGE_WRITE, (atomic_long_t *)ptep);
- }
-@@ -741,6 +740,8 @@ static inline pte_t ptep_get(pte_t *ptep)
- #define pte_clear		__pte_clear
- #define __HAVE_ARCH_PTEP_SET_ACCESS_FLAGS
- #define ptep_set_access_flags	__ptep_set_access_flags
-+#define __HAVE_ARCH_PTEP_SET_WRPROTECT
-+#define ptep_set_wrprotect	__ptep_set_wrprotect
- 
- #define pgprot_nx pgprot_nx
- static inline pgprot_t pgprot_nx(pgprot_t _prot)
-diff --git a/arch/riscv/mm/hugetlbpage.c b/arch/riscv/mm/hugetlbpage.c
-index 0e2ca7327479..8963a4e77742 100644
---- a/arch/riscv/mm/hugetlbpage.c
-+++ b/arch/riscv/mm/hugetlbpage.c
-@@ -173,28 +173,6 @@ pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags)
- 	return entry;
- }
- 
--void huge_ptep_set_wrprotect(struct mm_struct *mm,
--			     unsigned long addr,
--			     pte_t *ptep)
--{
--	pte_t pte = ptep_get(ptep);
--	pte_t orig_pte;
--	int pte_num;
--
--	if (!pte_napot(pte)) {
--		ptep_set_wrprotect(mm, addr, ptep);
--		return;
--	}
--
--	pte_num = arch_contpte_get_num_contig(mm, addr, ptep, 0, NULL);
--
--	orig_pte = get_clear_contig_flush(mm, addr, ptep, pte_num);
--
--	orig_pte = pte_wrprotect(orig_pte);
--
--	set_ptes(mm, addr, ptep, orig_pte, pte_num);
--}
--
- pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
- 			    unsigned long addr,
- 			    pte_t *ptep)
-diff --git a/include/linux/hugetlb_contpte.h b/include/linux/hugetlb_contpte.h
-index fea47035ac38..02bce0ed93d8 100644
---- a/include/linux/hugetlb_contpte.h
-+++ b/include/linux/hugetlb_contpte.h
-@@ -27,4 +27,8 @@ extern int huge_ptep_set_access_flags(struct vm_area_struct *vma,
- 				      unsigned long addr, pte_t *ptep,
- 				      pte_t pte, int dirty);
- 
-+#define __HAVE_ARCH_HUGE_PTEP_SET_WRPROTECT
-+extern void huge_ptep_set_wrprotect(struct mm_struct *mm,
-+				    unsigned long addr, pte_t *ptep);
-+
- #endif /* _LINUX_HUGETLB_CONTPTE_H */
-diff --git a/mm/hugetlb_contpte.c b/mm/hugetlb_contpte.c
-index 49950c1ce615..de505350ef48 100644
---- a/mm/hugetlb_contpte.c
-+++ b/mm/hugetlb_contpte.c
-@@ -14,6 +14,7 @@
-  *   - __ptep_get_and_clear()
-  *   - __pte_clear()
-  *   - __ptep_set_access_flags()
-+ *   - __ptep_set_wrprotect()
-  *   - pte_cont()
-  *   - arch_contpte_get_num_contig()
-  */
-@@ -25,6 +26,7 @@
-  *   - huge_pte_clear()
-  *   - huge_ptep_get_and_clear()
-  *   - huge_ptep_set_access_flags()
-+ *   - huge_ptep_set_wrprotect()
-  */
- 
- pte_t huge_ptep_get(struct mm_struct *mm, unsigned long addr, pte_t *ptep)
-@@ -232,3 +234,23 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
- 
- 	return 1;
- }
-+
-+void huge_ptep_set_wrprotect(struct mm_struct *mm,
-+			     unsigned long addr, pte_t *ptep)
-+{
-+	int ncontig;
-+	size_t pgsize;
-+	pte_t pte;
-+
-+	if (!pte_cont(__ptep_get(ptep))) {
-+		__ptep_set_wrprotect(mm, addr, ptep);
-+		return;
-+	}
-+
-+	ncontig = arch_contpte_get_num_contig(mm, addr, ptep, 0, &pgsize);
-+
-+	pte = get_clear_contig_flush(mm, addr, ptep, pgsize, ncontig);
-+	pte = pte_wrprotect(pte);
-+
-+	set_contptes(mm, addr, ptep, pte, ncontig, pgsize);
-+}
+ 	return atmel_qspi_wait_for_completion(aq, QSPI_SR_CSRA);
 -- 
-2.39.2
+2.48.1
+
 
 
