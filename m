@@ -4,81 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F029C02188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 21:46:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1548DC02188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 22:18:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rDc9oon22Zy8JtV6oJyK3eShWNaKTPBJnRLwhRmq6mE=; b=CYhUjRKe+GBumJvGU4wG6LwY8J
-	AhXphTjs5awQmbczEIofeKlcAEzm64ojViGE6mDvuOcPtIhM5qCFYFMkrWtkykrKgGtdONcLFr7ED
-	QDsJTDepslNYsvJNk+mxFLScS3Km49b58JbLGsoDSmWI8S+qiaa+eqHfqlR41wfZyIvsc6h8JNUAn
-	2uO1vVzqvpOx68NpTll5AH2NGs+8QWHFvllGRX8gsXXBKSFnD7ioaQBzIvN+MShAgR0+peAWCOco6
-	C4l1dovgSYk4Xa8qIdBiZgHz3paTB+DBmV9sj7D8q+t+XzvyXMKyYjhFivCZ6YAURggmzBBpCtb7q
-	9n5mM5kQ==;
+	bh=aAQJp8lyXwkwrv/bFJPOT1fYuvi5iOZkUWN9QAH0yks=; b=Omp50rwGDzh/hdrEVn5NQLZP6I
+	iB0SPxAuWMc8l3BLlnqs6CpdfkzcJQW0SC+gERKOysRQ992YVOPG9lV5nqtHlSuFv15tYPseMhs8D
+	TvfxBWOgiiuPuyOHzvfSFLMzWr1TWS1XPD+R/K756yeAopuatsbL0i3dleqIIZS602DFsYJ29Echg
+	7zewicHk211aMoKQ/hyiTZ4R1b22EjI7GAN7xf7ESTR82zILCW+CD0I3/im948gfV7mncPpZPOE1m
+	mPQIuYamilOpsUgLmyn5eJFoVwJCY9AZwFA8Lsd6HZ6ssg0XW8U7RpK71OsegwM2GTWO0yUTzy71O
+	gF3w4zpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcWw3-00000003L4U-3v5X;
-	Mon, 27 Jan 2025 21:46:23 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1tcXQe-00000003NLv-33sg;
+	Mon, 27 Jan 2025 22:18:00 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcWjp-00000003JIN-24WB
+	id 1tcXPJ-00000003N8m-1JSw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jan 2025 21:33:46 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2ef9204f898so9423218a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jan 2025 13:33:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1738013624; x=1738618424; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=rDc9oon22Zy8JtV6oJyK3eShWNaKTPBJnRLwhRmq6mE=;
-        b=twwlMm8i35i51mw/lK+xl9IGTv8nxH7siLUTeUBCwFmURgy6yZaqHXK776X+O30c/F
-         HCjkzbbngDH4q+dQt1EzNKCsDFRtjhKQbvQBMtUIDpC7C0+BzTGAz9kjoXg8W8Bg9Qgl
-         KaecbMelcTIctn87xRQCXnCwPfjeZf0PhTLyyQxy6raDvKE8UtBxFPIMCe+3JVInNipL
-         6gjbwrdD/exE4XgumOT8VjWqNxSTDslDo2OEnY/izZ4TeomczGmoy+34DOMSH7hQS+Qa
-         ZMckzZYL+pJIe+LJOfdrooJF+eCNLrcbsPHfPAR1NwYsujY+VgdCAng3/dbE/s/LGND+
-         CqBg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738013624; x=1738618424;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rDc9oon22Zy8JtV6oJyK3eShWNaKTPBJnRLwhRmq6mE=;
-        b=t2TDsveiv8R7m6IRS52quoMVXft7RcSdYQi+/T9jjurGxqHUj8jfA/J4njYHH+0ibm
-         DSfX9dFe9BiRZBT4fbGDOFTJTC7sS5uEK06HsgmzEvGF1lxZ9tmWWhBFAMV+gReOY6M0
-         ou820ZEjETDE7Bjlq5YHIBUEnBcVhLcm77mPMMETK2iVwtGuz+fePd/XOl4AXyVzwtAT
-         X6mOiPGsjeBBf+gCnqaCW/0jxBplLBm9yq1dYqkID+uH5odl6eMIfZCjoT7Uyh0YsunK
-         qRcVIy45or9FFokATXQ2rqbBzut3hW110VJjwJfESFTghNpAePU/IYP1IkZ+LQlCkTe/
-         2YVQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUJs4uQqGW2urUEnALwjPwI+qn1X+B4BDjKpN6HllAAzJwo/xGdrRWrnKBKWZ3sFOVHOXA8GD/drQIorwBUTp53@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQq1l42HiiZDEGzK1Cmb5NfUu/xih/MvQx5g4ZNibLc2uNvb4r
-	HGV2jOoSaZ2WZ0kMrhE2I/2lR6V0ZDAisKq63zf5zaffMcc+Agd6NyYTWhH9u9GzR1gbnwXKvA=
-	=
-X-Google-Smtp-Source: AGHT+IEfHevdTTJtb6AigZBRpVD2FnhyEzVTYMnATEtYpNkPmzEcW9Tro1KWiXPv1Vj43sJ3+gY4o9DCZA==
-X-Received: from pjbqo13.prod.google.com ([2002:a17:90b:3dcd:b0:2f4:47fc:7f17])
- (user=wnliu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2808:b0:2ee:5edc:4b2
- with SMTP id 98e67ed59e1d1-2f782cc0114mr60880084a91.20.1738013624271; Mon, 27
- Jan 2025 13:33:44 -0800 (PST)
-Date: Mon, 27 Jan 2025 21:33:10 +0000
-In-Reply-To: <20250127213310.2496133-1-wnliu@google.com>
-Mime-Version: 1.0
-References: <20250127213310.2496133-1-wnliu@google.com>
-X-Mailer: git-send-email 2.48.1.262.g85cc9f2d1e-goog
-Message-ID: <20250127213310.2496133-9-wnliu@google.com>
-Subject: [PATCH 8/8] arm64: Enable livepatch for ARM64
-From: Weinan Liu <wnliu@google.com>
-To: Josh Poimboeuf <jpoimboe@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
-	Indu Bhagat <indu.bhagat@oracle.com>, Peter Zijlstra <peterz@infradead.org>
-Cc: Mark Rutland <mark.rutland@arm.com>, roman.gushchin@linux.dev, 
-	Will Deacon <will@kernel.org>, Ian Rogers <irogers@google.com>, linux-toolchains@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, live-patching@vger.kernel.org, 
-	joe.lawrence@redhat.com, linux-arm-kernel@lists.infradead.org, 
-	Weinan Liu <wnliu@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Mon, 27 Jan 2025 22:16:38 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 50RMGVus1052867
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 27 Jan 2025 16:16:32 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1738016192;
+	bh=aAQJp8lyXwkwrv/bFJPOT1fYuvi5iOZkUWN9QAH0yks=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=fS84AOCSPkDaKrJnnrO+tGEHUzv4Pj/qL1P0TWUA8jmYtcQq2tfEY+Q/XztV7ho1V
+	 J9iVcZ2chYU1xrLv8Co1FPUiJOCvUm9lKiHoOspEHfF4pBVmEJZF9wrO0dB8KXsfkD
+	 kytdJjDCMmVtKn1lnTKIwiHFamc0cE5MrDRugL9o=
+Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 50RMGVjv070988
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 27 Jan 2025 16:16:31 -0600
+Received: from DLEE103.ent.ti.com (157.170.170.33) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 27
+ Jan 2025 16:16:31 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE103.ent.ti.com
+ (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 27 Jan 2025 16:16:31 -0600
+Received: from judy-hp.dhcp.ti.com (judy-hp.dhcp.ti.com [128.247.81.105])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 50RMGVEI098068;
+	Mon, 27 Jan 2025 16:16:31 -0600
+From: Judith Mendez <jm@ti.com>
+To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Devarsh Thakkar
+	<devarsht@ti.com>,
+        Hari Nagalla <hnagalla@ti.com>
+Subject: [PATCH 2/4] arm64: dts: ti: k3-am62a-mcu: Add R5F remote proc node
+Date: Mon, 27 Jan 2025 16:16:29 -0600
+Message-ID: <20250127221631.3974583-3-jm@ti.com>
+X-Mailer: git-send-email 2.48.0
+In-Reply-To: <20250127221631.3974583-1-jm@ti.com>
+References: <20250127221631.3974583-1-jm@ti.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250127_133345_529492_014EFDDE 
-X-CRM114-Status: UNSURE (   9.22  )
+X-CRM114-CacheID: sfid-20250127_141637_440403_CFB43C3F 
+X-CRM114-Status: UNSURE (   9.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,33 +89,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since SFrame is considered as reliable stacktrace, enable livepatch in
-arch/arm64/Kconfig
+From: Hari Nagalla <hnagalla@ti.com>
 
-Signed-off-by: Weinan Liu <wnliu@google.com>
+AM62A SoCs have a single R5F core in the MCU voltage domain. The MCU
+domain also has a 512KB sram memory, the R5F core can use for
+applications needing fast memory access.
+
+Signed-off-by: Hari Nagalla <hnagalla@ti.com>
+[Judith: Fix commit message header]
+Signed-off-by: Judith Mendez <jm@ti.com>
 ---
- arch/arm64/Kconfig | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi | 36 ++++++++++++++++++++++++
+ 1 file changed, 36 insertions(+)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 100570a048c5..c292bc73b65c 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -271,6 +271,8 @@ config ARM64
- 	select HAVE_SOFTIRQ_ON_OWN_STACK
- 	select USER_STACKTRACE_SUPPORT
- 	select VDSO_GETRANDOM
-+	select HAVE_RELIABLE_STACKTRACE if SFRAME_UNWINDER
-+	select HAVE_LIVEPATCH		if HAVE_DYNAMIC_FTRACE_WITH_ARGS && HAVE_RELIABLE_STACKTRACE
- 	help
- 	  ARM 64-bit (AArch64) Linux support.
+diff --git a/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
+index 0469c766b769e..9a20f75e48063 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
+@@ -6,6 +6,18 @@
+  */
  
-@@ -2498,3 +2500,4 @@ source "drivers/acpi/Kconfig"
- 
- source "arch/arm64/kvm/Kconfig"
- 
-+source "kernel/livepatch/Kconfig"
+ &cbass_mcu {
++	mcu_ram: sram@79100000 {
++		compatible = "mmio-sram";
++		reg = <0x00 0x79100000 0x00 0x80000>;
++		ranges = <0x00 0x00 0x79100000 0x80000>;
++		#address-cells = <1>;
++		#size-cells = <1>;
++
++		mcu1-sram@0 {
++			reg = <0x0 0x80000>;
++		};
++	};
++
+ 	mcu_pmx0: pinctrl@4084000 {
+ 		compatible = "pinctrl-single";
+ 		reg = <0x00 0x04084000 0x00 0x88>;
+@@ -175,4 +187,28 @@ mcu_mcan1: can@4e18000 {
+ 		bosch,mram-cfg = <0x0 128 64 64 64 64 32 32>;
+ 		status = "disabled";
+ 	};
++
++	mcu_r5fss0: r5fss@79000000 {
++		compatible = "ti,am62-r5fss";
++		#address-cells = <1>;
++		#size-cells = <1>;
++		ranges = <0x79000000 0x00 0x79000000 0x8000>,
++			 <0x79020000 0x00 0x79020000 0x8000>;
++		power-domains = <&k3_pds 7 TI_SCI_PD_EXCLUSIVE>;
++		mcu_r5fss0_core0: r5f@79000000 {
++			compatible = "ti,am62-r5f";
++			reg = <0x79000000 0x00008000>,
++				<0x79020000 0x00008000>;
++			reg-names = "atcm", "btcm";
++			ti,sci = <&dmsc>;
++			ti,sci-dev-id = <9>;
++			ti,sci-proc-ids = <0x03 0xff>;
++			resets = <&k3_reset 9 1>;
++			firmware-name = "am62a-mcu-r5f0_0-fw";
++			ti,atcm-enable = <0>;
++			ti,btcm-enable = <1>;
++			ti,loczrama = <0>;
++			sram = <&mcu_ram>;
++		};
++	};
+ };
 -- 
-2.48.1.262.g85cc9f2d1e-goog
+2.48.0
 
 
