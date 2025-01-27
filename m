@@ -4,135 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8077FC0218C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 07:00:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23BCFC0218C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 07:27:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=u7r0m+TcrSYbdGTZ+wVKy9Fm5VofU3Hnn49xtgKIvGU=; b=DJ5tmYqLDtDib1vCQar9i8Nd8q
-	J2Adn2rBAIgrI3M04DfQZaOw6omkLHAbA5NaZhGM6AZgRhV4W/O+b3Wj6BwmX+/gREgjdsX/kPkoV
-	D8bi4PWtjNfOLQUaUZaJ1te379199S/LzTNccM8eCDJwgVxyexaE01wXX7gNoHBzixBZHGZ6JeByG
-	6o4Th/Cj3lWF8rK76a4LQMLssnEFuIch5DFLAFPYRRObkOw+bAe5MbT5AGz05eDPq30CDdnq6yxPs
-	YaFMWKiJjFko7Hj0LJTZ+kUhuBGJNYnsH0JizusaLyIkbNQ7Oxj8ddOgAvDy3k1ea1GFoLQYCODVk
-	bzOFWjzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PA75cmb4q9oaSiGTVBpWOcTFkhaeDK+5Y2JGVmDb+KI=; b=lKidWMo9pVMOx+pcVr9mXBg02c
+	9LZjGNWOGAXXftRxuq3qoMOssTGhfstwskrpEGZefJoSzWrum8AXIkXgs+JIrMZWDIF81JzxlWJJi
+	TkR/2zYkbjUHj1W7hsIZZjMrQYA9raZ3WlyLH1t4BdeO06J9UK6jjPQ+gOEzfZBPirMKxZS8zM4HQ
+	4VTuEwKpLK8i9enfJWY3LVdjbjBlYCNAh+ozIvidwSD3i7Dvy1EB5H2ZHeMFhgOxJ7YjXySk9YIJ+
+	4HIBa0WWziNqJRTNFX+vS3tsJO+8phs4NmKUgdcMOGbkibw5GXDfHJAKKE9XpOcZCbF0F7knJD084
+	h1VxeAFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcJ6A-00000001lDQ-0nb3;
-	Mon, 27 Jan 2025 06:59:54 +0000
-Received: from mail-db8eur05on20712.outbound.protection.outlook.com ([2a01:111:f403:2614::712] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1tcJWB-00000001nKP-2rxx;
+	Mon, 27 Jan 2025 07:26:47 +0000
+Received: from fout-a2-smtp.messagingengine.com ([103.168.172.145])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcJ4n-00000001l52-36Ql
+	id 1tcJUo-00000001nC9-15J5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jan 2025 06:58:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yxNjeIIG4emW7X1YdnmI/XJG3/mRQqN7rZUILsfx25D6QqTTiDBXlKwCyA1+eRzo2Yuo2DbRRU6nMdnwNuOBlZOjlImaMv8Mm1v9zohFR0wyLcV/bqHOa5pQkX8w8HsnY9rqebi2z8iFLMhhsDhxWpDpD2MmUUGLBFJfLwcq6a1QoGJWYo5AR8hMOUa2MfLQdqMH3vEkXVsibMWxi0tbxXp7THtVNXEZ3qQD3rQziedlobfa02uqWKp9W9SgcMamvVhNnk2wBr/eLCgGy4CH5csZCkcyzivr7RuH0VY8olSbrITRwyfZDm/XmYllKt/fjWLaxWaTFptI+od1NbSdGA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=u7r0m+TcrSYbdGTZ+wVKy9Fm5VofU3Hnn49xtgKIvGU=;
- b=bwmcofFp92CzQShQQPxZxhM1mPCnUegWSNi0uDgnMTh60IOs8h/PvkDXfPcwAizbym/aPe4FzqXSE9AFkagU1YkGhwCeQVs+r92W/jXvQ/XVLG7X06lJgmD95r5ufx14EdJf0uybfydGauaM3/RNPadzyPz3+Yncvx7UXAM8puawKSQpevNKMm6T+9JXgkiBqxcL71+XuPnaYfFiZL2ao6+qj876Xy22Q2bJhdExpT46QKRSNVbwQTpWp9u3WS3Suj0Ja4il46YHI6bdNrAZrRGkN/i5/4aJau9yXqwIsodqyFJeoy4iLicjPlYCmqgr79f5LG1qsJgGheXVaYKJ7w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 91.26.50.189) smtp.rcpttodomain=ti.com smtp.mailfrom=phytec.de; dmarc=fail
- (p=quarantine sp=quarantine pct=100) action=quarantine header.from=phytec.de;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=u7r0m+TcrSYbdGTZ+wVKy9Fm5VofU3Hnn49xtgKIvGU=;
- b=cCrYVAqAtPsUCQZZJTGXaF+0R4PWcX3J/v22eSfJTwxU6tZyuJTwTYXAP/Xdc9W/8iD9RGyvYAsxdFh/2QCVuzKU1USBVXHYqsFAXYaD6/DLbEUfV9xLDSxoWEfcviWaklLPim2I/UlSu4eBdHE+1iDsJpdIcm73h2/cjV3Qcq7YUyTks/MjwTDYH+91h3CbI0WD9nXKYLTHKEhtXz1ZGdcNDXJfAclcoIUPS3fnWbrhF0v/x13uaDQdd0mB5cpO8udDycovjcqoo4Av29IN0eWPBZ+d4yTIp2YuZTB20M5NDdJ28gzdEsdUCZSP9c6gBVTBMkaJ0qghk2ijDXnsdg==
-Received: from DUZPR01CA0135.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4bc::6) by PAXP195MB1295.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:102:1a8::11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8377.22; Mon, 27 Jan
- 2025 06:58:19 +0000
-Received: from DB1PEPF000509F1.eurprd03.prod.outlook.com
- (2603:10a6:10:4bc:cafe::ae) by DUZPR01CA0135.outlook.office365.com
- (2603:10a6:10:4bc::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8377.23 via Frontend Transport; Mon,
- 27 Jan 2025 06:58:23 +0000
-X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
- smtp.mailfrom=phytec.de; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- phytec.de discourages use of 91.26.50.189 as permitted sender)
-Received: from Diagnostix.phytec.de (91.26.50.189) by
- DB1PEPF000509F1.mail.protection.outlook.com (10.167.242.75) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8377.8 via Frontend Transport; Mon, 27 Jan 2025 06:58:17 +0000
-Received: from Berlix.phytec.de (172.25.0.12) by Diagnostix.phytec.de
- (172.25.0.14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Mon, 27 Jan
- 2025 07:58:17 +0100
-Received: from ls-radium.phytec (172.25.39.17) by Berlix.phytec.de
- (172.25.0.12) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Mon, 27 Jan
- 2025 07:58:14 +0100
-From: Daniel Schultz <d.schultz@phytec.de>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-CC: <w.egorov@phytec.de>, <upstream@lists.phytec.de>, Daniel Schultz
-	<d.schultz@phytec.de>
-Subject: [PATCH] arm64: dts: ti: am64-phyboard-electra: Add DT overlay for X27 connector
-Date: Sun, 26 Jan 2025 22:57:56 -0800
-Message-ID: <20250127065756.3086450-1-d.schultz@phytec.de>
-X-Mailer: git-send-email 2.25.1
+	Mon, 27 Jan 2025 07:25:24 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailfout.phl.internal (Postfix) with ESMTP id 964111380ADC;
+	Mon, 27 Jan 2025 02:25:18 -0500 (EST)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-10.internal (MEProxy); Mon, 27 Jan 2025 02:25:18 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1737962718;
+	 x=1738049118; bh=PA75cmb4q9oaSiGTVBpWOcTFkhaeDK+5Y2JGVmDb+KI=; b=
+	BCTaA27HTV/pZU6PkvC1pFJa1F4qOXTL9gOgJKUZxGJjgiP21HI+rZ2kvxp80eCH
+	mk1tksPPvhXIN7tiJsc4JSV5rRSduGaWMiC3Y1X5YPxKx3bQn1W6xwU0Vzsqmb8d
+	/l2QahcsoDjbAWmxr6qczVcT+EFIcFTm1bonpjTPvs/u7PABxDmVRSeZh96uEzZG
+	BTfSFNDJOrUsjYBVN5EQPQCcJ9gMrIN6iany/KfzwJAVYHLekGy4vxzIuHS0zNwQ
+	yZOJnZQdnOfuuWL6NW+KNTDKeRsNGk/1q7KZEIe0x/lGa1kHXJxDvQ2Al+vSS96j
+	DchWx9zlsjBCJaqu41cKzw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1737962718; x=
+	1738049118; bh=PA75cmb4q9oaSiGTVBpWOcTFkhaeDK+5Y2JGVmDb+KI=; b=t
+	UFrBF/ZwRrIBpuvG0sS1D4JkFWDbNVBLbqtrwEKeEfQAh0/aVmUAdOtc3bjU1GwV
+	x6N/NocdCHQNC98tGlHuDVWqMt7an/r7d5YNme3IPneGnQ7/VZiHOEbAe5xab9yN
+	WV36uXwsezpQhQR86DBo5uFHzZyz26H+G386/ZW5ibY7mnVxChsFzDkXv9HeprjG
+	PDiHvs41OcRV80uUbPsAFXTgRSebxGhfKrCKEmnS+dBbEo/rpa4/diJ9xTlrBati
+	/nOlVQd4es5OVoBbq+wOa5tufRgI8PUEIR0eC9vz+l6BmFQ693aCWO1+XD1m3jQr
+	V/UZ+9mV4LeMMVE5VGIZQ==
+X-ME-Sender: <xms:3TSXZ5ctuOzgKyf-7l6wtFVmypKTk-WI0yQq_N3tR6UvCTHxUaY_Tw>
+    <xme:3TSXZ3Mvi4QxeUokTwEcvx8pMJ9E82mlD5oNf9sTSmd9AUMb09IfnZ1lLx7MCkkNH
+    -5fnKC1R2EnuIeIHOc>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrudejgedguddvheeiucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
+    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
+    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
+    tddtnecuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnug
+    gsrdguvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeet
+    fefggfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrg
+    hmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohep
+    gedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepshhfrhestggrnhgsrdgruhhugh
+    drohhrghdrrghupdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhs
+    thhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvg
+    hlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqnhgvgiht
+    sehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:3TSXZyjeSOubUFL9y7a7SekOqG_Ne-hj75EHBo765xru82K3MjNeUA>
+    <xmx:3TSXZy_zYWcZevFDJuA75DrfYMKFtAqmcRSkBVSL46jL0OIlViNhuA>
+    <xmx:3TSXZ1uJyDJRlwbTnLhZsnfvyOkWirnLh8i8lqQsUdNB_9VipE1RMw>
+    <xmx:3TSXZxHalNXrZZqGByis5s48C7NgQelZBpzo3wynufJjGlnuNB4SKw>
+    <xmx:3jSXZ9IQvvTjJxQsn6yccxBA2zP4d9TDoblCvw-IWwqJiT2SmPQqodCe>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id A82BE2220072; Mon, 27 Jan 2025 02:25:17 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Date: Mon, 27 Jan 2025 08:24:57 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Stephen Rothwell" <sfr@canb.auug.org.au>,
+ ARM <linux-arm-kernel@lists.infradead.org>
+Cc: "Linux Kernel Mailing List" <linux-kernel@vger.kernel.org>,
+ linux-next <linux-next@vger.kernel.org>
+Message-Id: <0cf32861-dd67-4c37-95f3-066b3f77e85c@app.fastmail.com>
+In-Reply-To: <20250127135717.00817b0a@canb.auug.org.au>
+References: <20250127135717.00817b0a@canb.auug.org.au>
+Subject: Re: linux-next: warning after fetching the arm-soc tree
 Content-Type: text/plain
-X-Originating-IP: [172.25.39.17]
-X-ClientProxiedBy: Diagnostix.phytec.de (172.25.0.14) To Berlix.phytec.de
- (172.25.0.12)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB1PEPF000509F1:EE_|PAXP195MB1295:EE_
-X-MS-Office365-Filtering-Correlation-Id: 70cdf0e0-98df-4201-8a2f-08dd3e9ffa6b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|36860700013|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?F4koGdPQJfaI0JgXfdlnEa4Cez78KTPBno+JWagsWGmLm8YRmRZWTXS8FoBZ?=
- =?us-ascii?Q?NSObtcgT2VdkabHjf57CvfAWZG70U6+VX4E8g2k6L2xHiN4LDJf/jvlj/FBS?=
- =?us-ascii?Q?MnMYZO0qzAWLdZmjpszPBjbRiLHl3xeqIKwTzKPRJPrAqN8kDdiZNxGTG4AG?=
- =?us-ascii?Q?Yyamm+qkq11ZTp2s6vWsMR1dPPuUAUV0Umfg4LEwa13OwqiYp9IB0dpJgxYW?=
- =?us-ascii?Q?vGBsHC65gyLHpWc/VHCHlh5WdhDUUwnqK0cJEba2gCJ86XaGy2O0Vvi6Mzgy?=
- =?us-ascii?Q?X3FNvAfQPQH6sjS7iqDgnUPjwWV+TIVG2I5RKB0JQBQyNzsTgWDG7Bwo4q6E?=
- =?us-ascii?Q?9RaYXCEicj7y2LuJFc5tM/03CDjxnISKTLVUQilop5sm/RjmB3uutfcsURBQ?=
- =?us-ascii?Q?AIWSHuGGQ2gEN14TeMib6t/BUXC8zeEVlfn3CHjd0mz5LN53s4tDhxMhxmQH?=
- =?us-ascii?Q?kHVsev5guy40HG8RJlPJgO4t1vRAwmGMa70dT1jVKR4kq4HeLzNVNJFWCcPp?=
- =?us-ascii?Q?b8K70wvI5daFFCxSH0q1AWwHIMLOvLtbR6e08lPGLGi8k+kyv58PV/7x0uIH?=
- =?us-ascii?Q?aKzEJd7gBA+bzV7BbWIcS+lEKb4wFghyU42HutSNKxUCPuyXk9tfgl0TsbOr?=
- =?us-ascii?Q?4fF2+b9naZSWemC4AFgNEkA00px4hdchbiiNhxYTV52HzkAW3iN49QMxkwcb?=
- =?us-ascii?Q?6ERqiBKOVRpnw4zgKk1HyTxb2GiAbb3CdKXcfwJWpyITyWepLTyRonlp3g5h?=
- =?us-ascii?Q?E1ZFucja3dpLpN7iHakzNzRAcHGFu1345w405exEjnm0mDSZIdsyHqUsIzmX?=
- =?us-ascii?Q?co/sSsur9Z+JuyE2HAESr6em15Quzpi+Vj6Zpsh24TxLHapYZXkjEADBcntQ?=
- =?us-ascii?Q?ACee/y7H1ch6IHgnIgMtNkNpz8MOkcgc4rMRHitZY8QcA7IGSkvJOrP/8D55?=
- =?us-ascii?Q?AVAmPjihhj0qfxVAz1oy/MjEcPfWkXTvkOKLjNMmL3figzR1Ti4jNbzgYtVF?=
- =?us-ascii?Q?zIxXhnnoiBLjLJhCv4g+0SwOZwNMTBt8sI3nhIC+MOfqAk9u9Jf/AHzv2A2f?=
- =?us-ascii?Q?IuXWOBR1AiDebvCG1TKpK4sC8UP567Ix5S7I83y3jQlPUWLt8veweiS4Z6S4?=
- =?us-ascii?Q?8RdiXDMQ1YsWxOgxBGmJx2kjj8aWNkPaaYHTym9EN6xiYHLFeGBDLQVXgn3j?=
- =?us-ascii?Q?OuIAJFiXX8SlYkvH4S2iO0XQG9SlsV8WIiihINAxUfwqrkWk8nk1Mgv6i4eP?=
- =?us-ascii?Q?26odav0ho/LykXf7slcHcRliQJYcCrwQK7kucMOM4jprcfnfZMY6JF4ukd/V?=
- =?us-ascii?Q?t60WOAZmYvey7oZ/dhryhT/Xqj8bjJ/Au7H1mNz7uK0awM9VG0mOYd6qdeqs?=
- =?us-ascii?Q?Y464Tw86/CQWowQk1LDL2s+cLf7RB/VLrJI/lR5gbORo0r+uizeSnYrLzS0H?=
- =?us-ascii?Q?c1y6gAuqlc1xw7T5v3/q96gcefbVWibgtKpj5O6kGv6NSbiHpjvEsQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:Diagnostix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(36860700013)(82310400026);DIR:OUT;SFP:1102;
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jan 2025 06:58:17.7771
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 70cdf0e0-98df-4201-8a2f-08dd3e9ffa6b
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Diagnostix.phytec.de]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509F1.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXP195MB1295
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250126_225830_092586_67B314D5 
-X-CRM114-Status: GOOD (  14.47  )
+X-CRM114-CacheID: sfid-20250126_232523_203656_531E2E13 
+X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,119 +112,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a device tree overlay for SPI1 (spidev), UART3 and GPIO1 on
-X27 connector.
+On Mon, Jan 27, 2025, at 03:57, Stephen Rothwell wrote:
+> Hi all,
+>
+> After fetching the arm-soc tree, I get the following warning:
+>
+> Commit
+>
+>   1f8dba7e7b83 ("soc: document merges")
+>
+> added this unexpected file:
+>
+>   arch/arm/arm-soc-for-next-contents.txt.orig
+>
+> Not a big issue.
 
-By default, not all interfaces on the X27 connector are accessible
-due to being disabled or set to alternative pin mux configurations.
-This overlay activates and configures these interfaces to support
-connections with external devices.
+I've cleaned out the branches now, thanks for letting me know.
 
-Signed-off-by: Wadim Egorov <w.egorov@phytec.de>
-Signed-off-by: Daniel Schultz <d.schultz@phytec.de>
----
- arch/arm64/boot/dts/ti/Makefile               |  3 +
- ...phyboard-electra-x27-gpio1-spi1-uart3.dtso | 69 +++++++++++++++++++
- 2 files changed, 72 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-x27-gpio1-spi1-uart3.dtso
-
-diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-index f71360f14f23..a05c9c5612fc 100644
---- a/arch/arm64/boot/dts/ti/Makefile
-+++ b/arch/arm64/boot/dts/ti/Makefile
-@@ -58,6 +58,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am642-evm-nand.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am642-phyboard-electra-rdk.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am642-phyboard-electra-gpio-fan.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am642-phyboard-electra-pcie-usb2.dtbo
-+dtb-$(CONFIG_ARCH_K3) += k3-am642-phyboard-electra-x27-gpio1-spi1-uart3.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am642-sk.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am642-tqma64xxl-mbax4xxl.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am64-tqma64xxl-mbax4xxl-sdcard.dtbo
-@@ -186,6 +187,8 @@ k3-am642-phyboard-electra-gpio-fan-dtbs := \
- 	k3-am642-phyboard-electra-rdk.dtb k3-am642-phyboard-electra-gpio-fan.dtbo
- k3-am642-phyboard-electra-pcie-usb2-dtbs := \
- 	k3-am642-phyboard-electra-rdk.dtb k3-am642-phyboard-electra-pcie-usb2.dtbo
-+k3-am642-phyboard-electra-x27-gpio1-spi1-uart3-dtbs := \
-+	k3-am642-phyboard-electra-rdk.dtb k3-am642-phyboard-electra-x27-gpio1-spi1-uart3.dtbo
- k3-am642-tqma64xxl-mbax4xxl-sdcard-dtbs := \
- 	k3-am642-tqma64xxl-mbax4xxl.dtb k3-am64-tqma64xxl-mbax4xxl-sdcard.dtbo
- k3-am642-tqma64xxl-mbax4xxl-wlan-dtbs := \
-diff --git a/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-x27-gpio1-spi1-uart3.dtso b/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-x27-gpio1-spi1-uart3.dtso
-new file mode 100644
-index 000000000000..b80d8b6a4fc4
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-x27-gpio1-spi1-uart3.dtso
-@@ -0,0 +1,69 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * Copyright (C) 2025 PHYTEC Messtechnik GmbH
-+ * Authors:
-+ *   Wadim Egorov <w.egorov@phytec.de>
-+ *   Daniel Schultz <d.schultz@phytec.de>
-+ *
-+ * GPIO, SPI and UART examples for the X27 expansion connector.
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include "k3-pinctrl.h"
-+
-+&{/} {
-+	aliases {
-+		serial5 = "/bus@f4000/serial@2830000";
-+	};
-+};
-+
-+&main_pmx0 {
-+	main_gpio1_exp_header_gpio_pins_default: main-gpio1-exp-header-gpio-pins-default {
-+		pinctrl-single,pins = <
-+			AM64X_IOPAD(0x0220, PIN_INPUT, 7)	/* (D14) SPI1_CS1.GPIO1_48 */
-+		>;
-+	};
-+
-+	main_spi1_pins_default: main-spi1-pins-default {
-+		pinctrl-single,pins = <
-+			AM64X_IOPAD(0x0224, PIN_INPUT, 0)	/* (C14) SPI1_CLK */
-+			AM64X_IOPAD(0x021C, PIN_OUTPUT, 0)	/* (B14) SPI1_CS0 */
-+			AM64X_IOPAD(0x0228, PIN_OUTPUT, 0)	/* (B15) SPI1_D0 */
-+			AM64X_IOPAD(0x022C, PIN_INPUT, 0)	/* (A15) SPI1_D1 */
-+		>;
-+	};
-+
-+	main_uart3_pins_default: main-uart3-pins-default {
-+		pinctrl-single,pins = <
-+			AM64X_IOPAD(0x0048, PIN_INPUT, 2)       /* (U20) GPMC0_AD3.UART3_RXD */
-+			AM64X_IOPAD(0x004c, PIN_OUTPUT, 2)      /* (U18) GPMC0_AD4.UART3_TXD */
-+		>;
-+	};
-+};
-+
-+&main_gpio1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_gpio1_exp_header_gpio_pins_default>;
-+	status = "okay";
-+};
-+
-+&main_spi1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_spi1_pins_default>;
-+	ti,pindir-d0-out-d1-in = <1>;
-+	status = "okay";
-+
-+	spidev@0 {
-+		compatible = "rohm,dh2228fv";
-+		reg = <0>;
-+		spi-max-frequency = <24000000>;
-+	};
-+};
-+
-+&main_uart3 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_uart3_pins_default>;
-+	status = "okay";
-+};
--- 
-2.25.1
-
+      Arnd
 
