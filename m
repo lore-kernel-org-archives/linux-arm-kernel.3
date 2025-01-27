@@ -4,74 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7DC7C02188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 16:26:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C812DC02188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 16:31:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cgw5atZnPYRYHUYuPOpqkvnycbeqzoNPhN2LOmdLk3c=; b=zAgYC7gdXtVN6+rx9B0WOdX73P
-	6YhT8Em/IPzWpNRENbVrAFVOybA1Luxi3JSEXOekpVsnRYyDrHLTymt4hXXRevvP9b5jbxMLBloSY
-	lH3okzZsAbZJ49DocjgccZd6t/+iKfQVcCE3Lcv1609yRYBfbC8gR0X3gwX13dGl8LQdm9VDJ/q3f
-	y8hl1PzcXDfwmHql0HRpFEStBQ7l8NYn1cmqbvbgB0khaMk5gDNn4d5NcgyiEc7OdndR/OSH3x0cH
-	GVCp47+K2ROnARpBJf6YXvTi4bJ0E11IChngW2BLs1leMwzgiHkay2U3g6Kbktjne8rwyX+mFbSHn
-	Q9j9ThjQ==;
+	bh=WlQ0Imi4TI1g2HJ/WhDlE3//wGfnD+n5Npq7eYW5xxc=; b=EWlSGYr+VCd6bmxAMW+y1L0esZ
+	qe/yk75aCSwefLjXjL6G9T2NFX6bBrXhlV7XPPKaw6slRRFVcHtwFg8e9B4aX1NkVcJaNjCglN+ZM
+	5pGz5Q0brWu7H1VGT1OwmrTFz4X3qy+/W6cZBCAcoaVDA81I/t54rzueJn/WZvnvZP3ry+75TU/5J
+	ld5iuLS3qn2a2d5RINdQhtyhDhjHiI9tSbMBIVwwcGD2aI2fIOCe0rPYUZdRg234zwmXVInSxNksZ
+	g4mH9L5CrhcsEbIetjLRcoxng6saifGXQiyQaiQ9qedDRs+AyjXqb/5Gw6xIvu9tSNIKCBQ2HFZyK
+	OP+v3SQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcRvs-00000002m0C-39hD;
-	Mon, 27 Jan 2025 16:25:52 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tcS1U-00000002mzr-3IL6;
+	Mon, 27 Jan 2025 16:31:40 +0000
+Received: from mail-vk1-f180.google.com ([209.85.221.180])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcRuX-00000002lnX-1ElS
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jan 2025 16:24:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8C64FA4187C
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jan 2025 16:22:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07478C4CEE7
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jan 2025 16:24:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737995068;
-	bh=P1XAvO3VDlbIoA2FFuYha3SIR6cyChDAtMKtoP6rroo=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=ud9wuQDBCD+VNndwuXVUkXuOV/EbvHeRxA0Sd1z9ru/nfg1dGxb1vG29TrHNGJT19
-	 MKr+FyS8/3tkrdLl2tX4GLOxIEdPEPQhOruKO6RLDHaZqPpDgq3SL4Vp41bG/OmF0t
-	 00307Vn8UaQfjz+vX1PSJGUPzh2Yg1/4LLSj3Mugl8KrTpe6ccTaYmFlR48Donu6XD
-	 TSsAtR6Xr1UTesEDOZjYSgDiWzD3SgyT/VOpEEEeEn+H3s0LikY1eRP1XkcgeFV1dR
-	 goym7egsufaC+Ry3GG6K/0IL/Y+C0k15DkN6bO+HVyHHeckw8cGSjMhhp+QIbNvOTy
-	 +lid0z6K1NRMQ==
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-53f22fd6887so5181349e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jan 2025 08:24:27 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXlDvtb1YHWI4Q2jXGpj0S78oKEATvWkgSWyPugVw+EBCuU6q9lxJr6ypOj4s9YOKDwSmJR4CSIxQjWdiFPLcrr@lists.infradead.org
-X-Gm-Message-State: AOJu0YwpnLDNCN3BjaTNHBCOk9wyJ6s67vWXeKcOvh7f3txuKcRmnWpX
-	nhdR8c/ala1sbmG12aK5E2ypD+CglSYzh2ASOpH4kNoxuxbIRrEhGoY3cJltT0R3Qad/VtYDZpv
-	zJcu0XfliG54FCXxSaVjFL6LHTw==
-X-Google-Smtp-Source: AGHT+IHO7xcGOPrToRZlwr3nuIUx/JCC3FFTG/RQH5LwAJUEK267HLoXlDeEikLsLokRDuugPuNKRciTbG4rkyqs+/k=
-X-Received: by 2002:a05:6512:108a:b0:540:1fd6:4e4f with SMTP id
- 2adb3069b0e04-5439c246c5fmr14519142e87.22.1737995066304; Mon, 27 Jan 2025
- 08:24:26 -0800 (PST)
+	id 1tcS0B-00000002miy-0svE;
+	Mon, 27 Jan 2025 16:30:20 +0000
+Received: by mail-vk1-f180.google.com with SMTP id 71dfb90a1353d-518a861612eso3153560e0c.1;
+        Mon, 27 Jan 2025 08:30:18 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737995417; x=1738600217;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=WlQ0Imi4TI1g2HJ/WhDlE3//wGfnD+n5Npq7eYW5xxc=;
+        b=Pa8jtr1Yhiq849fYAFm9hZ87+z0zVCm3H8LXRw5qOox2zKihUaNxMdA7v+lqW0PYoj
+         u9Nw8WeLHL2SFublBAqPftxDTWVYolBSPvi4TKOL58yuz1mSn3fkH16yZ66v7faHKXwH
+         pDMy3PX0g15Wmf1eksnpveBQjXbs7ZSXITlsYUmjC6mgSIGlD+L8rYEZn+y4Txd5uorQ
+         7CXX6tbS9yxZnMgrKddz0HvlBpplkLcviyPPTKz9GQnIwObMP+njxycCwr17gYbGmU3l
+         D5Jtc+Aog8EamUVw2q+uKYLI2TYgGBh98WSzesXPJQjuwbMEypMxESCDHgSGjb/UlDGG
+         PbTw==
+X-Forwarded-Encrypted: i=1; AJvYcCUD40o1XfmYJPiE9ZgSMfdHbyawlWqs6Hobycg7XGyDb7z0llGUJdxJnKV3MzsCDjr3GgolXTH5F1YvLRLV864=@lists.infradead.org, AJvYcCXxG+K0aLpgp84pcnd1KzXtCXh0fr8KJpAXsYLkr/EP0w5DdXQ72BrfwEjdO/za4sxFmiKXTtlW8moDQprS0oIu@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYXjYTt57ZEk4egXgJ+fon3lIPt/6hfnHELs9PBPf+lghbFh24
+	wxg5JPUM/2nUMs2VNDeWonQwkhP6pr6/F0IHLRnulAn/d3wD++MzMr2Hm6uakVA=
+X-Gm-Gg: ASbGncte5kLVaCNwhBlaBjvb4jQYhSxl/UkUBhtaFL3o/jJ2D95UhCG6xBAzrQAj4k4
+	XPC5VMEb+FZ22fSmFUOBFosWAz5LN6UlFoEzacC7ohK1ePqOziIKLbdq5RpaAi6QsG23MEQ8xEl
+	sWjYpzZPmZ56RkK7+FKVYIbT9rPVLOzHiJ+dDQNRPo1D6O/5uioxvFnt72xv0my9bltIlp+eJr9
+	18nd8Mw/76YE4cua6cMtLL7o/ElqG2NnDETc9w9Qc6PJX+j/Lo8BbyIZiExj9+y+Op85Q6hW5YP
+	7oDGhDJSlBwedvW/shCiWsWl0LbP5gfBUSl/oFILhHE=
+X-Google-Smtp-Source: AGHT+IE7TcI+wZeczxQQ7Ikiku10xmwCXdvnLayVtAW+2k/Jbg1rLXTlA4zfq56P4T71Do7cEm135Q==
+X-Received: by 2002:a05:6122:2402:b0:51c:93a2:d809 with SMTP id 71dfb90a1353d-51e3de6de6bmr13973146e0c.5.1737995416960;
+        Mon, 27 Jan 2025 08:30:16 -0800 (PST)
+Received: from mail-ua1-f50.google.com (mail-ua1-f50.google.com. [209.85.222.50])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-51e4ebea379sm1458656e0c.42.2025.01.27.08.30.16
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 27 Jan 2025 08:30:16 -0800 (PST)
+Received: by mail-ua1-f50.google.com with SMTP id a1e0cc1a2514c-860f0e91121so3089183241.0;
+        Mon, 27 Jan 2025 08:30:16 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUuQup78sfUfrXG8zMFxr9mEulwkLPRwH5aG77MPT2wuLuaZ+Hb1kmlGfQJQv9U9Ot0uU+ebTzjlrgydy2zElE=@lists.infradead.org, AJvYcCWg7MgdXvqtn2GwRzJdT4zLw/2Z17BVwIDEZuZNIrGl3MDRVJGINbbRtoPTRKUbJ4GGh+TT0jO4F7nX6aGzCbG0@lists.infradead.org
+X-Received: by 2002:a05:6122:2028:b0:515:20e6:7861 with SMTP id
+ 71dfb90a1353d-51e4fb68a06mr12748400e0c.2.1737995415897; Mon, 27 Jan 2025
+ 08:30:15 -0800 (PST)
 MIME-Version: 1.0
-References: <20250124152008.313-1-alireza.sanaee@huawei.com> <20250124152008.313-2-alireza.sanaee@huawei.com>
-In-Reply-To: <20250124152008.313-2-alireza.sanaee@huawei.com>
-From: Rob Herring <robh@kernel.org>
-Date: Mon, 27 Jan 2025 10:24:13 -0600
-X-Gmail-Original-Message-ID: <CAL_JsqKFjQeaoGn5PRn1=P49mag-Kyik7EwtsOU8fcdvYhPcOA@mail.gmail.com>
-X-Gm-Features: AWEUYZnVRYg0HjS13AR3X4YMrcQBzFYQx47bdwZghD62tZ_Wvr7bmwA4jHcafg4
-Message-ID: <CAL_JsqKFjQeaoGn5PRn1=P49mag-Kyik7EwtsOU8fcdvYhPcOA@mail.gmail.com>
-Subject: Re: [RFC PATCH v1 1/1] base/of/cacheinfo: support l1 entry in dt
-To: Alireza Sanaee <alireza.sanaee@huawei.com>
-Cc: mark.rutland@arm.com, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, jonathan.cameron@huawei.com, 
-	linux-arm-kernel@lists.infradead.org, shameerali.kolothum.thodi@huawei.com, 
-	zhao1.liu@intel.com, yangyicong@hisilicon.com, rrendec@redhat.com, 
-	catalin.marinas@arm.com
+References: <20250127-pm_ata-v1-0-f8f50c821a2a@gmail.com>
+In-Reply-To: <20250127-pm_ata-v1-0-f8f50c821a2a@gmail.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 27 Jan 2025 17:30:04 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdV7GwMNm5tYvWugehstM07W9JkLdKrE9hwPhxcEab8ajA@mail.gmail.com>
+X-Gm-Features: AWEUYZmGy-5V1Zbo64bUIwl2HUW8rq3_GydwTJUAoMljjyEePEDEnt0EQDD7GTM
+Message-ID: <CAMuHMdV7GwMNm5tYvWugehstM07W9JkLdKrE9hwPhxcEab8ajA@mail.gmail.com>
+Subject: Re: [RFC PATCH 00/14] AHCI power management cleanup
+To: Raphael Gallais-Pou <rgallaispou@gmail.com>
+Cc: Damien Le Moal <dlemoal@kernel.org>, Niklas Cassel <cassel@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Hans de Goede <hdegoede@redhat.com>, Patrice Chotard <patrice.chotard@foss.st.com>, 
+	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Viresh Kumar <vireshk@kernel.org>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, linux-ide@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-renesas-soc@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250127_082429_465967_4BC24E6C 
-X-CRM114-Status: GOOD (  25.50  )
+X-CRM114-CacheID: sfid-20250127_083019_255875_EDAB1852 
+X-CRM114-Status: GOOD (  15.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,121 +102,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 24, 2025 at 9:20=E2=80=AFAM Alireza Sanaee
-<alireza.sanaee@huawei.com> wrote:
->
-> This commit simply assumes that CPU node entries may point to a cache
-> node that basically act as a l1-cache and there are some CPU nodes
-> without describing any caches but a next-level-cache property that
-> points to l1-cache.
+Hi Raphael,
 
-This commit message needs some work. Read documentation on writing
-commit messages.
+On Mon, 27 Jan 2025 at 13:46, Raphael Gallais-Pou <rgallaispou@gmail.com> w=
+rote:
+> Several AHCI drivers expose suspend/resume functions in a way that can
+> be simplified.  Using pre-processor operation can lead to errors, while
+> relying on automatic kernel configuration is safer.  It also shrinks the
+> kernel size when CONFIG_PM_SLEEP is not used[1].
 
-Why/when does describing L1 cache in the cpu nodes not work? That is
-the assumption in the bindings. If we're changing that, there may need
-to be a binding/spec change.
+m68k/allyesconfig:
 
->
-> Signed-off-by: Alireza Sanaee <alireza.sanaee@huawei.com>
-> ---
->  drivers/base/cacheinfo.c | 54 +++++++++++++++++++++++++++-------------
->  1 file changed, 37 insertions(+), 17 deletions(-)
->
-> diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
-> index cf0d455209d7..d119228fc392 100644
-> --- a/drivers/base/cacheinfo.c
-> +++ b/drivers/base/cacheinfo.c
-> @@ -83,7 +83,31 @@ bool last_level_cache_is_shared(unsigned int cpu_x, un=
-signed int cpu_y)
->
->  #ifdef CONFIG_OF
->
-> -static bool of_check_cache_nodes(struct device_node *np);
-> +static bool of_check_cache_node(struct device_node *np) {
-> +       if (of_property_present(np, "cache-size")   ||
-> +           of_property_present(np, "i-cache-size") ||
-> +           of_property_present(np, "d-cache-size") ||
-> +           of_property_present(np, "cache-unified"))
-> +               return true;
-> +       return false;
-> +}
-> +
-> +static bool of_check_cache_nodes(struct device_node *np)
-> +{
-> +       if (of_property_present(np, "cache-size")   ||
-> +           of_property_present(np, "i-cache-size") ||
-> +           of_property_present(np, "d-cache-size") ||
-> +           of_property_present(np, "cache-unified"))
+drivers/ata/sata_highbank.c: In function =E2=80=98ahci_highbank_suspend=E2=
+=80=99:
+drivers/ata/sata_highbank.c:590:9: error: implicit declaration of
+function =E2=80=98ata_host_suspend=E2=80=99; did you mean =E2=80=98ata_sas_=
+port_suspend=E2=80=99?
+[-Werror=3Dimplicit-function-declaration]
+drivers/ata/sata_highbank.c: In function =E2=80=98ahci_highbank_resume=E2=
+=80=99:
+drivers/ata/sata_highbank.c:607:9: error: implicit declaration of
+function =E2=80=98ata_host_resume=E2=80=99; did you mean =E2=80=98ahci_port=
+_resume=E2=80=99?
+[-Werror=3Dimplicit-function-declaration]
+drivers/ata/pata_arasan_cf.c: In function =E2=80=98arasan_cf_suspend=E2=80=
+=99:
+drivers/ata/pata_arasan_cf.c:938:9: error: implicit declaration of
+function =E2=80=98ata_host_suspend=E2=80=99; did you mean =E2=80=98ata_sas_=
+port_suspend=E2=80=99?
+[-Werror=3Dimplicit-function-declaration]
+drivers/ata/pata_arasan_cf.c: In function =E2=80=98arasan_cf_resume=E2=80=
+=99:
+drivers/ata/pata_arasan_cf.c:948:9: error: implicit declaration of
+function =E2=80=98ata_host_resume=E2=80=99; did you mean =E2=80=98sata_link=
+_resume=E2=80=99?
+[-Werror=3Dimplicit-function-declaration]
+drivers/ata/sata_rcar.c: In function =E2=80=98sata_rcar_suspend=E2=80=99:
+drivers/ata/sata_rcar.c:936:9: error: implicit declaration of function
+=E2=80=98ata_host_suspend=E2=80=99; did you mean =E2=80=98sata_rcar_suspend=
+=E2=80=99?
+[-Werror=3Dimplicit-function-declaration]
+drivers/ata/sata_rcar.c: In function =E2=80=98sata_rcar_resume=E2=80=99:
+drivers/ata/sata_rcar.c:973:9: error: implicit declaration of function
+=E2=80=98ata_host_resume=E2=80=99; did you mean =E2=80=98sata_rcar_resume=
+=E2=80=99?
+[-Werror=3Dimplicit-function-declaration]
+drivers/ata/pata_imx.c: In function =E2=80=98pata_imx_suspend=E2=80=99:
+drivers/ata/pata_imx.c:209:9: error: implicit declaration of function
+=E2=80=98ata_host_suspend=E2=80=99; did you mean =E2=80=98pata_imx_suspend=
+=E2=80=99?
+[-Werror=3Dimplicit-function-declaration]
+drivers/ata/pata_imx.c: In function =E2=80=98pata_imx_resume=E2=80=99:
+drivers/ata/pata_imx.c:232:9: error: implicit declaration of function
+=E2=80=98ata_host_resume=E2=80=99; did you mean =E2=80=98pata_imx_resume=E2=
+=80=99?
+[-Werror=3Dimplicit-function-declaration]
 
-This is the same code as of_check_cache_node(), use it.
+Gr{oetje,eeting}s,
 
-> +               return true;
-> +
-> +       struct device_node *next __free(device_node) =3D of_find_next_cac=
-he_node(np);
-> +       if (next) {
-> +               return true;
-> +       }
-> +
-> +       return false;
-> +}
-> +
->
->  /* OF properties to query for a given cache type */
->  struct cache_type_info {
-> @@ -218,11 +242,23 @@ static int cache_setup_of_node(unsigned int cpu)
->         while (index < cache_leaves(cpu)) {
->                 this_leaf =3D per_cpu_cacheinfo_idx(cpu, index);
->                 if (this_leaf->level !=3D 1) {
-> +                       /* Always go one level down for level > 1 */
->                         struct device_node *prev __free(device_node) =3D =
-np;
->                         np =3D of_find_next_cache_node(np);
->                         if (!np)
->                                 break;
-> +               } else {
-> +                       /* For level 1, check compatibility */
-> +                       if (!of_device_is_compatible(np, "cache") &&
-> +                           !of_check_cache_node(np)) {
-> +                               struct device_node *prev __free(device_no=
-de) =3D np;
-> +                               np =3D of_find_next_cache_node(np);
-> +                               if (!np)
-> +                                       break;
-> +                               continue; /* Skip to next index without p=
-rocessing */
-> +                       }
->                 }
-> +
->                 cache_of_set_props(this_leaf, np);
->                 this_leaf->fw_token =3D np;
->                 index++;
-> @@ -234,22 +270,6 @@ static int cache_setup_of_node(unsigned int cpu)
->         return 0;
->  }
->
-> -static bool of_check_cache_nodes(struct device_node *np)
-> -{
-> -       if (of_property_present(np, "cache-size")   ||
-> -           of_property_present(np, "i-cache-size") ||
-> -           of_property_present(np, "d-cache-size") ||
-> -           of_property_present(np, "cache-unified"))
-> -               return true;
-> -
-> -       struct device_node *next __free(device_node) =3D of_find_next_cac=
-he_node(np);
-> -       if (next) {
-> -               return true;
-> -       }
-> -
-> -       return false;
-> -}
-> -
->  static int of_count_cache_leaves(struct device_node *np)
->  {
->         unsigned int leaves =3D 0;
-> --
-> 2.34.1
->
+                        Geert
+
+--=20
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
+
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
 
