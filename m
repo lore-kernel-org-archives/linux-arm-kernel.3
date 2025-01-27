@@ -4,53 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EB35C02188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 15:32:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D655C02188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 15:34:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4X739XGYENPyH7eKazNs980sUXKrePD1lY80Wn6mxsc=; b=3gBV8DM334JnpuMLJWVBrFKfvw
-	AucWr87450M4AFhTZA5cHQ26+5nz0Dxyse5w3ab0Qc+JRTUBl2R4qAvGiWVUI21jrdd9OvtxzYPMN
-	UF2S0XxVcNm5MZulodX30pjPKR4rgdm52VEjTXaT9QWGp3nxbmdAkubsSsp+1HLE5oI/QTNuEkaCo
-	DMJA/W7D4t0dFW/TIIvDhbxyibt5ngRN53dYPSXSj3MA2XAVpvlkOJHnU4QNYcGDLkzleBYK4tv3T
-	kLLXzZ6a8o1naJOEUGrloCO7QNAECNP/D5tHVTrEnI7K6AzW3f6+2t45ZmwjAvD79jlN7BiQqDExs
-	DNs3OnWw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Eaw+jdW66520u78eBxhftj2cqoETidDXk6bpHg3NYGc=; b=35xynADP5+Ozy9
+	RpqbHAJYNF/AwM5wKn37eMxBUmz7LUCgbUzFi29WLJS9A+hLcTdw6QpltbVntVW35s9miBWWCM01e
+	jUE3YLhVT+izdXZbA++EI8TKct9nwMm5g5xXKgR6uA/hrYTRdbb3KkESDdpJuyE+GpZT/X+0E07pc
+	dtcDCY8YL4zy27yZTZ4RdJZ/WBi1NaGvaOJ4PmZuirqnKV8TfeLduaXcKny1EQ2FHlRF3r3pHQ4v4
+	+pIrH1F6tQvHnUFWKbStNPezZHBnfhTdu1E+JDbQByCLi/nEtz9Y781nFtnc6D5OoSAG7x8LSPcyT
+	6wWgQb5aoG3oXW1wk+TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcR6H-00000002bfR-3j9J;
-	Mon, 27 Jan 2025 15:32:33 +0000
+	id 1tcR7W-00000002bvi-25Zt;
+	Mon, 27 Jan 2025 15:33:50 +0000
 Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcR50-00000002b4x-1UUm
+	id 1tcR50-00000002b4i-1InH
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 27 Jan 2025 15:31:15 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id C79F044307;
-	Mon, 27 Jan 2025 15:31:09 +0000 (UTC)
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 10BD944281;
+	Mon, 27 Jan 2025 15:31:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1737991870;
+	t=1737991869;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=4X739XGYENPyH7eKazNs980sUXKrePD1lY80Wn6mxsc=;
-	b=CqL+tAKwM0nZ9UtDkFRmku5cGz9WFsQFCYj3weMvu8NDd/9ZOIy+cl8SlpZ7IQ6eWi2n18
-	9Cf3gSACjGgTHbC7ZGQ4SRgMo8UBildXPImPEDM3GwWC7kTHfxNHv/sg9W4Bawu2+/pYaT
-	3LjpdY8oIEAsTmd557If/qwptQ9T+KMMEnNDxPMHLbg7M+H1LGhqTiBxw1Uo5wi3rvRPFa
-	+ZeRZlZr7zxnUMGhdDBB99oymJpmX6JYdaPIRr9Lcf5KtwuUikac8vEoWpivB6wA8xlT5O
-	D6O0o/4q4+S6gUmEbyoWIsXDVD7EZ/JXiryM4INdX1VgPBfGtFuh63fd8HzyLQ==
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Eaw+jdW66520u78eBxhftj2cqoETidDXk6bpHg3NYGc=;
+	b=TuXSEwTT4vYouXdmLy4C5FMojjMqin618yHzBWrQPiaCoUEJeD86qGTaBcAAJ3N6fyBbsB
+	p3lXmEg0BufQdAj/GWZXNFKNcThQrFl02MW9Og9LTSqVAafZ0AZ14um5xnMG8/YKok5+O2
+	pw16nsLlgg21LDidY/UCekNMETFfSPua7LJyr3rQ0ygZDmGH8S2xEVmxZfngQWphOt2fhH
+	Ft7L5azQ0wkz3l5eLbeakzwRp4CG0n4Pu+FTem0niQIBnXAD5xnaOwRseFkXyNXlr5yZ68
+	321L3hPywzS+TDWD4Ip9cgKylLbBcVoMoaNbVLIOe4/2pQzF9BCin1TV8bgAZw==
 From: Antonin Godard <antonin.godard@bootlin.com>
-Date: Mon, 27 Jan 2025 16:31:00 +0100
-Subject: [PATCH v2 1/3] dt-bindings: arm: fsl: Add VAR-SOM-MX6UL SoM and
- Concerto board
+Subject: [PATCH v2 0/3] Add Variscite i.MX6UL SoM and Concerto board
+ support
+Date: Mon, 27 Jan 2025 16:30:59 +0100
+Message-Id: <20250127-varsom6ul-concerto-dts-v2-0-4dac29256989@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250127-varsom6ul-concerto-dts-v2-1-4dac29256989@bootlin.com>
-References: <20250127-varsom6ul-concerto-dts-v2-0-4dac29256989@bootlin.com>
-In-Reply-To: <20250127-varsom6ul-concerto-dts-v2-0-4dac29256989@bootlin.com>
+X-B4-Tracking: v=1; b=H4sIALOml2cC/3WOQQ7CIBBFr9LMWgygNtaV9zBdAJ1akpZRoETTc
+ Hex6tLl+8m8NwsE9BYDnKoFPCYbLLkCclOBGZS7IrNdYZBcHriQnCXlA031PDJDzqCPxLoYmOJ
+ HjVLVUjQayvHNY28fq/jSFh5siOSfayeJ9/pTin/KJBhnqHf7RpmeK1OfNVEcrdsamqDNn4rH+
+ 1y+jt9Uzi+AAv7h0wAAAA==
+X-Change-ID: 20250120-varsom6ul-concerto-dts-a08be2a6219b
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
  Sascha Hauer <s.hauer@pengutronix.de>, 
@@ -61,32 +63,31 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  Antonin Godard <antonin.godard@bootlin.com>
 X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1050;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1754;
  i=antonin.godard@bootlin.com; h=from:subject:message-id;
- bh=kgJQKIwXeuIiFHUIgynm2SK+9xP+PtmmawP4ZBc9Mlc=;
- b=owEBbQKS/ZANAwAIAdGAQUApo6g2AcsmYgBnl6a8eX0fJ1piwCuJPV9T7FOfKSTFfoKmGSZzO
- jmLQp0upy+JAjMEAAEIAB0WIQSGSHJRiN1AG7mg0//RgEFAKaOoNgUCZ5emvAAKCRDRgEFAKaOo
- NsEyEAC8ZsLZA0TPxVU/E9BEYiMbIa6BLVHbc0kicCqMbx/CxVryTHVCRlu1OF5o7Uh+aSKdRKM
- XQ6h3xHKMX1XsUArZEYowe/iiJf0smTH2yuKP+b27HirWi7nAP0TXab5hOgC5S8bO+icDnb/0r8
- CYG/sh82o4hUqnIj2rJlKZ/dgzcl4EO/5AEDWXVpZIEvHeBraywGE4GN36693Di3OlXmyg0L3bm
- W483sl/MXplAkFD7Xv4K2TUy9xqr1pjxBexuziAkdHros1c89uOSBU4HR+BlUexOYfEU44XliNK
- ZUxvmhCLi4JffhIPs3xbLpAAJVjKmULdk6W6P995o4Ry0hbdKcKBcd7iiVb2OKe+UvJZrMkaDhT
- /vFIo8pl0kPWiFgUY/dMI4DmIYp8rw4OX44TRwD+YXM8k4thNppg8ynJuyXN25UCrDigrshkI/2
- 0+h2TPCZpUM5UvIU44iKlCK4VCkKeHLoWDr/TdtgRRlMxLsY/8XWFdzYymu1jLIakmpvr76h+xP
- Mu94X16Ej+tQ/wngMTk8A1Z0TmzBz6uYRIro+/WEkHhy1cyyEQ0aYB/Wb3Bb6tx6PyyUGfbkruw
- IW2O9eO61xigwHFJZ9OUvCUcS6ViV/ZJ77BjO06oFnr3KW4laXCFv4dl4TOuNQYt3xox93keOAx
- KvkG3vCW3SVEzHg==
+ bh=ggL3H3b9vvHvowBBgmP5EefUOlcgFfWrzdQSXsK8ttc=;
+ b=owEBbQKS/ZANAwAIAdGAQUApo6g2AcsmYgBnl6a8INZvPu3ofY4jOsB3ewgQLwYqHjop/IqZN
+ a1CE3lu5SSJAjMEAAEIAB0WIQSGSHJRiN1AG7mg0//RgEFAKaOoNgUCZ5emvAAKCRDRgEFAKaOo
+ NsFAD/9F9301v+VRTuoHHeVmv7P8Z2o/QiWbdWwvUArYcWQrsm5eIzlAL+Szpuy666JZ1qYTsNQ
+ 3As7sUUoojg9cjbnkDC72Zb7xwKoRRBoBmsi8aSYWbP9JBWAmERt3OD3k2SyChEUH8ROc6rosLI
+ MKZ5UxXENrX/W7u7sNUPj1p63We7Wp+8nPJEHJGe/KGl/gg5mElmKDoXW6lam92hCOIjakOBVuK
+ B0wMUf2abTzc8/xKEM6alwHhVcmggv6ySoR/9fRLjxMET20eA45mY7n0uCe0kyGbgg9eBWYTa2P
+ lnwlTlLGtsG60M6ciWklxMFDeDeQRMqURkeXozkXFAIezUBxr2eSX2UUNghl+jd5PozwxslsqJR
+ DzCoY+ZAhcXuWDJ4YnqAyITndC7VBZxGMo7LjdXUNBXDqRdfncCzFGGWbocjCbjT09vidr+iO2z
+ MxosCou6KbzbcCyxYuc/2/M/FBWXTvHTkEcU5sbHHnakTKhacvFmaDBAjeX8HfDWKZctH44RLDL
+ fdqulBlVSct/OWJMg4OnXAXFBtwftUqtnpzPwu838a5H4NYkJI+Uc/W6zw5aDp7ZZj4JL6vzyak
+ akl77dIJYyLN3x1yRWQQjQusUhnqFlLpzHNjM2dHRnrW5gvTvKtjCq8Ea4ZgNCCy7PA3d2N2CxK
+ yV9hZ2LrG1BE3IA==
 X-Developer-Key: i=antonin.godard@bootlin.com; a=openpgp;
  fpr=8648725188DD401BB9A0D3FFD180414029A3A836
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrudejgedgudefheegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomheptehnthhonhhinhcuifhouggrrhguuceorghnthhonhhinhdrghhouggrrhgusegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeehieeguefhfeegheffgfeuieetheeileefheejkeetgfekueehueeluddvlefghfenucfkphepvdgrtddumegtsgdugeemheehieemjegrtddtmeejtgehtgemiegruggvmeejleegkeemgedtheelnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgdugeemheehieemjegrtddtmeejtgehtgemiegruggvmeejleegkeemgedtheelpdhhvghloheplgduvdejrddtrddurddungdpmhgrihhlfhhrohhmpegrnhhtohhnihhnrdhgohgurghrugessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudefpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhgvrhhnvghls
- ehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshdrhhgruhgvrhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepuggvvhhitggvthhrvggvsehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrudejgedgudefheegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhufffkfggtgfgvfevofesthejredtredtjeenucfhrhhomheptehnthhonhhinhcuifhouggrrhguuceorghnthhonhhinhdrghhouggrrhgusegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpedtudeuhfelveehueevudefgedvtdfffeevleefuedtjeeuteelgeelvefftdejteenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecukfhppedvrgdtudemtggsudegmeehheeimeejrgdttdemjegthegtmeeirgguvgemjeelgeekmeegtdehleenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudegmeehheeimeejrgdttdemjegthegtmeeirgguvgemjeelgeekmeegtdehledphhgvlhhopegluddvjedrtddruddrudgnpdhmrghilhhfrhhomheprghnthhonhhinhdrghhouggrrhgusegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedufedprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshhhrgifnhhguhhosehkvghrnhgvlhdro
+ hhrghdprhgtphhtthhopehkvghrnhgvlhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehsrdhhrghuvghrsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopeguvghvihgtvghtrhgvvgesvhhgvghrrdhkvghrnhgvlhdrohhrgh
 X-GND-Sasl: antonin.godard@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250127_073114_539620_193BA047 
-X-CRM114-Status: UNSURE (   7.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250127_073114_502549_14C2B385 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,33 +102,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the Variscite i.MX6UL VAR-SOM-MX6UL and the Variscite
-Concerto carrier board.
+Add support for the i.MX6UL Variscite SoM (VAR-SOM-6UL) and the
+Variscite Concerto Carrier Board.
+
+I tested this with a VAR-SOM-6UL_G2_700C_512R_8N_IT_REV1.3A (one variant
+of this SoM), meaning I couldn't test all of the possible options of the
+SoM - so this device tree includes partial support for it.
+
+These are based on the 5.15 Variscite kernel fork but adapted for
+mainline.
 
 Signed-off-by: Antonin Godard <antonin.godard@bootlin.com>
 ---
- Documentation/devicetree/bindings/arm/fsl.yaml | 6 ++++++
- 1 file changed, 6 insertions(+)
+Changes in v2:
+- Reviews from Krzysztof:
+  - Use imperative mood in commit descriptions.
+  - Remove backlight node as I am unable to test it.
+  - Rename gpled2 node to led-0, and set function, color and label for
+    it.
+  - Remove unnecessary comment "DS1337 RTC module".
+- Rename binding "variscite,mx6concerto" to "variscite,mx6ulconcerto"
+  since this is for the VAR-SOM-6UL mounted on the Concerto.
+- Remove pinctrl_ft5x06_ts_gpio iomuxc node, unused.
+- Link to v1: https://lore.kernel.org/r/20250121-varsom6ul-concerto-dts-v1-0-eb349acf0ac6@bootlin.com
 
-diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-index 6e0dcf4307f1..4da575b31061 100644
---- a/Documentation/devicetree/bindings/arm/fsl.yaml
-+++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-@@ -688,6 +688,12 @@ properties:
-           - const: phytec,imx6ul-pcl063   # PHYTEC phyCORE-i.MX 6UL
-           - const: fsl,imx6ul
- 
-+      - description: i.MX6UL Variscite VAR-SOM-MX6 Boards
-+        items:
-+          - const: variscite,mx6ulconcerto
-+          - const: variscite,var-som-imx6ul
-+          - const: fsl,imx6ul
-+
-       - description: Kontron BL i.MX6UL (N631X S) Board
-         items:
-           - const: kontron,bl-imx6ul       # Kontron BL i.MX6UL Carrier Board
+---
+Antonin Godard (3):
+      dt-bindings: arm: fsl: Add VAR-SOM-MX6UL SoM and Concerto board
+      ARM: dts: imx6ul: Add Variscite VAR-SOM-MX6UL SoM support
+      ARM: dts: imx6ul: Add Variscite Concerto board support
 
+ Documentation/devicetree/bindings/arm/fsl.yaml     |   6 +
+ arch/arm/boot/dts/nxp/imx/Makefile                 |   1 +
+ .../boot/dts/nxp/imx/imx6ul-var-som-concerto.dts   | 320 +++++++++++++++++++++
+ arch/arm/boot/dts/nxp/imx/imx6ul-var-som.dtsi      | 232 +++++++++++++++
+ 4 files changed, 559 insertions(+)
+---
+base-commit: ffd294d346d185b70e28b1a28abe367bbfe53c04
+change-id: 20250120-varsom6ul-concerto-dts-a08be2a6219b
+
+Best regards,
 -- 
-2.47.0.2.g7caf9f4c55.dirty
+Antonin Godard <antonin.godard@bootlin.com>
 
 
