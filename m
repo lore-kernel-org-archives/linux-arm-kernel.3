@@ -4,75 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E6E9C02188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 15:26:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EB35C02188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 15:32:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eBGMix/rympgbB2/zFS1m6yB9D8xjNnB0f9e8XgQtPk=; b=WLZ3oqEsOSKUWMNDdzU7cNWX+g
-	A/8FPvHjTCUySFR5X+y0S/EirajzwLB1GDFpMJpYKW/Dm/c7Ru6a5K21fdt4RpJehUZO/QHNIBdzF
-	kCsKSRI260r8oon5l6GvxuXEPGVRsqFtRQ9sPDg6xsx9E/XQTTxs3Ji5ReNk5pj3rW4cV/t+7dgup
-	9pHGzbuvLI/TULSrOoYusfTgvAedaUP5NaTFjA9A4ueOFsZa6kKi/3z9SHGBqYKqOboCbu/NEFqoc
-	9qxAxXm05MbhJwf/uRTK3J2UBzYCqV62yR8j0r7ogXrNl1yQX/2/6JD0p+KK9guVm1PUeAB0qoDpl
-	mSQYNBMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4X739XGYENPyH7eKazNs980sUXKrePD1lY80Wn6mxsc=; b=3gBV8DM334JnpuMLJWVBrFKfvw
+	AucWr87450M4AFhTZA5cHQ26+5nz0Dxyse5w3ab0Qc+JRTUBl2R4qAvGiWVUI21jrdd9OvtxzYPMN
+	UF2S0XxVcNm5MZulodX30pjPKR4rgdm52VEjTXaT9QWGp3nxbmdAkubsSsp+1HLE5oI/QTNuEkaCo
+	DMJA/W7D4t0dFW/TIIvDhbxyibt5ngRN53dYPSXSj3MA2XAVpvlkOJHnU4QNYcGDLkzleBYK4tv3T
+	kLLXzZ6a8o1naJOEUGrloCO7QNAECNP/D5tHVTrEnI7K6AzW3f6+2t45ZmwjAvD79jlN7BiQqDExs
+	DNs3OnWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcQzf-00000002afD-3DiG;
-	Mon, 27 Jan 2025 15:25:43 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tcR6H-00000002bfR-3j9J;
+	Mon, 27 Jan 2025 15:32:33 +0000
+Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcQyN-00000002aP3-0lQv
+	id 1tcR50-00000002b4x-1UUm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jan 2025 15:24:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 66ECE5C57F6;
-	Mon, 27 Jan 2025 15:23:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31535C4CED2;
-	Mon, 27 Jan 2025 15:24:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737991460;
-	bh=YoAm4JPhD8dFPYpVnGR9aiVF0AEg16NOp4W2vcliKEk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Jvj4pS/42GidXlLA+MtCgSSGCul+6CS1caorwNM+fHkJhqouzEMNucNugidGv2Vdl
-	 8TZMsdAf67KdW/xXqAWXYoA4AaP8+6I73TN64GZTSdDzo58qkuZ0Vb6rnX4oT4g8+C
-	 o9Qw8nquBEm27Pvm/JKyWKBU8qRdpDZWAjg3fT7cVte9wMYmo2v/eSzAEbrxAOt0Ey
-	 1G3uVtmATWhiW/KUOYvhF0pTWxeXd3I36OY6AllofgLsffSpV/Vm3EB8/a14Ck9/aq
-	 99/EQuefyP3i65YI7/8cIZUG333/sQWBpYcDsoNTpnPghVr2Vea5UIsWsVdVZhwS5g
-	 VmJNya8lsyrVg==
-Date: Mon, 27 Jan 2025 16:24:13 +0100
-From: Niklas Cassel <cassel@kernel.org>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Bjorn Helgaas <helgaas@kernel.org>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
-Subject: Re: [PATCH v8 2/7] PCI: dwc: Use devicetree 'ranges' property to get
- rid of cpu_addr_fixup() callback
-Message-ID: <Z5elHSnnFaDDD8Cc@ryzen>
-References: <Z5JegF7i3Ig2pLYB@lizhi-Precision-Tower-5810>
- <20250123190422.GA1215672@bhelgaas>
- <Z5KVPg/DuJHci/77@lizhi-Precision-Tower-5810>
+	Mon, 27 Jan 2025 15:31:15 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id C79F044307;
+	Mon, 27 Jan 2025 15:31:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1737991870;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=4X739XGYENPyH7eKazNs980sUXKrePD1lY80Wn6mxsc=;
+	b=CqL+tAKwM0nZ9UtDkFRmku5cGz9WFsQFCYj3weMvu8NDd/9ZOIy+cl8SlpZ7IQ6eWi2n18
+	9Cf3gSACjGgTHbC7ZGQ4SRgMo8UBildXPImPEDM3GwWC7kTHfxNHv/sg9W4Bawu2+/pYaT
+	3LjpdY8oIEAsTmd557If/qwptQ9T+KMMEnNDxPMHLbg7M+H1LGhqTiBxw1Uo5wi3rvRPFa
+	+ZeRZlZr7zxnUMGhdDBB99oymJpmX6JYdaPIRr9Lcf5KtwuUikac8vEoWpivB6wA8xlT5O
+	D6O0o/4q4+S6gUmEbyoWIsXDVD7EZ/JXiryM4INdX1VgPBfGtFuh63fd8HzyLQ==
+From: Antonin Godard <antonin.godard@bootlin.com>
+Date: Mon, 27 Jan 2025 16:31:00 +0100
+Subject: [PATCH v2 1/3] dt-bindings: arm: fsl: Add VAR-SOM-MX6UL SoM and
+ Concerto board
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z5KVPg/DuJHci/77@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250127-varsom6ul-concerto-dts-v2-1-4dac29256989@bootlin.com>
+References: <20250127-varsom6ul-concerto-dts-v2-0-4dac29256989@bootlin.com>
+In-Reply-To: <20250127-varsom6ul-concerto-dts-v2-0-4dac29256989@bootlin.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Antonin Godard <antonin.godard@bootlin.com>
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1050;
+ i=antonin.godard@bootlin.com; h=from:subject:message-id;
+ bh=kgJQKIwXeuIiFHUIgynm2SK+9xP+PtmmawP4ZBc9Mlc=;
+ b=owEBbQKS/ZANAwAIAdGAQUApo6g2AcsmYgBnl6a8eX0fJ1piwCuJPV9T7FOfKSTFfoKmGSZzO
+ jmLQp0upy+JAjMEAAEIAB0WIQSGSHJRiN1AG7mg0//RgEFAKaOoNgUCZ5emvAAKCRDRgEFAKaOo
+ NsEyEAC8ZsLZA0TPxVU/E9BEYiMbIa6BLVHbc0kicCqMbx/CxVryTHVCRlu1OF5o7Uh+aSKdRKM
+ XQ6h3xHKMX1XsUArZEYowe/iiJf0smTH2yuKP+b27HirWi7nAP0TXab5hOgC5S8bO+icDnb/0r8
+ CYG/sh82o4hUqnIj2rJlKZ/dgzcl4EO/5AEDWXVpZIEvHeBraywGE4GN36693Di3OlXmyg0L3bm
+ W483sl/MXplAkFD7Xv4K2TUy9xqr1pjxBexuziAkdHros1c89uOSBU4HR+BlUexOYfEU44XliNK
+ ZUxvmhCLi4JffhIPs3xbLpAAJVjKmULdk6W6P995o4Ry0hbdKcKBcd7iiVb2OKe+UvJZrMkaDhT
+ /vFIo8pl0kPWiFgUY/dMI4DmIYp8rw4OX44TRwD+YXM8k4thNppg8ynJuyXN25UCrDigrshkI/2
+ 0+h2TPCZpUM5UvIU44iKlCK4VCkKeHLoWDr/TdtgRRlMxLsY/8XWFdzYymu1jLIakmpvr76h+xP
+ Mu94X16Ej+tQ/wngMTk8A1Z0TmzBz6uYRIro+/WEkHhy1cyyEQ0aYB/Wb3Bb6tx6PyyUGfbkruw
+ IW2O9eO61xigwHFJZ9OUvCUcS6ViV/ZJ77BjO06oFnr3KW4laXCFv4dl4TOuNQYt3xox93keOAx
+ KvkG3vCW3SVEzHg==
+X-Developer-Key: i=antonin.godard@bootlin.com; a=openpgp;
+ fpr=8648725188DD401BB9A0D3FFD180414029A3A836
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrudejgedgudefheegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomheptehnthhonhhinhcuifhouggrrhguuceorghnthhonhhinhdrghhouggrrhgusegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeehieeguefhfeegheffgfeuieetheeileefheejkeetgfekueehueeluddvlefghfenucfkphepvdgrtddumegtsgdugeemheehieemjegrtddtmeejtgehtgemiegruggvmeejleegkeemgedtheelnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgdugeemheehieemjegrtddtmeejtgehtgemiegruggvmeejleegkeemgedtheelpdhhvghloheplgduvdejrddtrddurddungdpmhgrihhlfhhrohhmpegrnhhtohhnihhnrdhgohgurghrugessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudefpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhgvrhhnvghls
+ ehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshdrhhgruhgvrhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepuggvvhhitggvthhrvggvsehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-GND-Sasl: antonin.godard@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250127_072423_307702_BE73C694 
-X-CRM114-Status: GOOD (  34.94  )
+X-CRM114-CacheID: sfid-20250127_073114_539620_193BA047 
+X-CRM114-Status: UNSURE (   7.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,69 +101,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 23, 2025 at 02:15:10PM -0500, Frank Li wrote:
-> On Thu, Jan 23, 2025 at 01:04:22PM -0600, Bjorn Helgaas wrote:
-> > On Thu, Jan 23, 2025 at 10:21:36AM -0500, Frank Li wrote:
-> > > On Fri, Jan 17, 2025 at 10:42:37AM -0500, Frank Li wrote:
-> > > > On Thu, Jan 16, 2025 at 05:29:16PM -0600, Bjorn Helgaas wrote:
-> > > > > On Thu, Jan 16, 2025 at 05:14:00PM -0600, Bjorn Helgaas wrote:
-> > > > > > On Tue, Nov 19, 2024 at 02:44:20PM -0500, Frank Li wrote:
-> > > > > > > parent_bus_addr in struct of_range can indicate address information just
-> > > > > > > ahead of PCIe controller. Most system's bus fabric use 1:1 map between
-> > > > > > > input and output address. but some hardware like i.MX8QXP doesn't use 1:1
-> > > > > > > map.
-> > > ...
-> >
-> > > 	I saw you have not picked all of these patches during you rework
-> > > pci git branches.
-> > >
-> > > 	I know you are busy, do you have chance to pick left patch for 6.14.
-> >
-> > This series had a mix of things: several patches related to
-> > .cpu_addr_fixup(), plus several unrelated ones for PHY mode and i.MX8Q
-> > support.  I think I picked up all the unrelated ones.
-> >
-> > .cpu_addr_fixup() is a generic problem that affects dwc (dra7xx, imx6,
-> > artpec6, intel-gw, visconti), cadence (cadence-plat), and now
-> > apparently microchip.
-> >
-> > I deferred these because I'm hoping we can come up with a more generic
-> > solution that's easier to apply across all these cases.  I don't
-> > really want to merge something that immediately needs to be reworked
-> > for other drivers.
-> >
-> > A few of the things I wonder about:
-> >
-> >   - dw_pcie_get_parent_addr() has no DWC dependencies, so it doesn't
-> >     make sense to me to have it be DWC-specific and copy and pasted
-> >     to other places that need something similar.
-> >
-> >   - It doesn't seem elegant to iterate through for_each_pci_range() in
-> >     devm_of_pci_get_host_bridge_resources(), then again in
-> >     dw_pcie_host_init() for io_bus_addr, then again in
-> >     dw_pcie_iatu_setup() for each window.  Maybe that's the best we
-> >     can do, but maybe there's a way to capture what we need on the
-> >     first time through.
-> >
-> >   - The connection between .cpu_addr_fixup() and use_parent_dt_ranges
-> >     is clear in the patches remove a .cpu_addr_fixup(), but not in the
-> >     DWC patches on the other end.
-> >
-> >   - Ideally, "use_parent_dt_ranges" would be the default and we
-> >     wouldn't have a flag to indicate that, and drivers would have to
-> >     opt out instead of opt in.  They basically already do that by
-> >     implementing .cpu_addr_fixup(), so maybe we can take advantage of
-> >     that fact.
-> 
-> Okay, thanks. let me think how to improve it after 6.14.
+Add support for the Variscite i.MX6UL VAR-SOM-MX6UL and the Variscite
+Concerto carrier board.
 
+Signed-off-by: Antonin Godard <antonin.godard@bootlin.com>
+---
+ Documentation/devicetree/bindings/arm/fsl.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-Small nit that I saw when looking at this series.
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index 6e0dcf4307f1..4da575b31061 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -688,6 +688,12 @@ properties:
+           - const: phytec,imx6ul-pcl063   # PHYTEC phyCORE-i.MX 6UL
+           - const: fsl,imx6ul
+ 
++      - description: i.MX6UL Variscite VAR-SOM-MX6 Boards
++        items:
++          - const: variscite,mx6ulconcerto
++          - const: variscite,var-som-imx6ul
++          - const: fsl,imx6ul
++
+       - description: Kontron BL i.MX6UL (N631X S) Board
+         items:
+           - const: kontron,bl-imx6ul       # Kontron BL i.MX6UL Carrier Board
 
-Some patches use "Internal Address (IA)", but other patches use
-"Intermediate Address (IA)". For the re-spin, use one term consistently.
+-- 
+2.47.0.2.g7caf9f4c55.dirty
 
-
-Kind regards,
-Niklas
 
