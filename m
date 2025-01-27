@@ -4,79 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AAB7C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 19:09:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FE33C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 19:13:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gw8SBoKaIQ+jJDh55z2lTeZVshKFDZTgIjVFie1Lh6Y=; b=ZlP7ttVZZh2XlkvfQjbB0xaAsJ
-	LiCVwR3Aiwf4rWbdvhYpH7Zi7lbSazMaLBSCikg4OSSGio+bgR8zscB598bevda36wMLNtPlHwcZM
-	YM2zmU2Xa8nc5rrFi7yKJDyGA58GtJz5XFbKWYbZlvnWobHtPtivPhGlIfcHxAUQmuBtHxWt0jHUo
-	7iI8YnildILefD78rNcmWfMQESemY2GbkJ650CuosbXMNgLU+okweRinstfEgYmc8Gp3tZfLYS2Ca
-	xg+3GS03djuQdd3E49u24RN2j2J7AKnIJ9REVqZvoLg6cIDb2+3XKaizQNaQgGF8KeXvPFstZWumT
-	9Q4y0sRQ==;
+	bh=Rhn2Us0y21L3xIlBptTsoF0RkxLh5R04Qv7lXwDF5hA=; b=4y5xVCyjEDuXSMGEBaeXDK3Cg1
+	c7quJlbaHDuFSq4VokH/ovWlQE3nHiBzT8ZGCpZNlHxHjTU9s2QVWimtHuIr2bHDZkU00zNc2J0cn
+	m+kI8uf+7B0N/XIHhvHzYWdJLBdJahlKuoSv9Tv9BEZcyTcDP1znru2dbxjj2RVAGvg3ysZTcuh9Z
+	092VsCmgag4zRo20xsvu4IiWr2z4uSqufmS8YCwcxgU/0XjJrIKTuxE906TlZhx3LAaS0RKOLlr+w
+	7091EWxK5w19cI4eMQiJWhlbwf7+pQkvQJGNrx2IOrfGtDCvuR3wQnZ7NxPCPyH+1Sz2aj9ZriV8B
+	8XvNhv3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcUTk-000000035hV-0e3w;
-	Mon, 27 Jan 2025 19:09:00 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tcUYC-000000036Ks-2oMv;
+	Mon, 27 Jan 2025 19:13:36 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcUSO-000000035Z7-3Rvb
+	id 1tcUWs-000000036Dx-2bhc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jan 2025 19:07:38 +0000
+	Mon, 27 Jan 2025 19:12:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1DC49A419F8;
-	Mon, 27 Jan 2025 19:05:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9162FC4CED2;
-	Mon, 27 Jan 2025 19:07:35 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id D68FDA417B7;
+	Mon, 27 Jan 2025 19:10:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60676C4CED2;
+	Mon, 27 Jan 2025 19:12:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738004855;
-	bh=nOgE1Xm78sYrNXodpnGbC8FTPluHnfJLmlj0zh7LwTU=;
+	s=k20201202; t=1738005133;
+	bh=L3SiiGUGYpJKCcs/BuywXLrfjhQqmnA6GR2a0coefGU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kfiWs/CrIrIPUXoBn9u859lQhtBX3yvkqmHKjO8DqTUw2A6DT8EKBjR9sMR5sF1KX
-	 mW1MfJ24szzFYquhahIAE3Ay+4oCDnKw4Y8F8W5dclgq7/JGONRhTxTDcGYl29OEyk
-	 IJrolWWpz1n3/7idwKXg51IwpjiYKLGJn0Iw3n2H2LQaUi02vpaeCdsQ7bA+IKKEB7
-	 g9FQntEBAhwfeHo8AhT+6eafPqQ1nPqzqYjUPyrEmmFLDzYwVgA/3cX6Q7ReVlh2tu
-	 o90wgm5w3JDYpj52WASkq1T11KU3UTBReF+12Z/P7qhHYJPrUDFEX1vtv668TD3kfK
-	 iTz0dWpyVDN+g==
-Date: Mon, 27 Jan 2025 13:07:34 -0600
-From: Rob Herring <robh@kernel.org>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: davem@davemloft.net, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
-	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	=?iso-8859-1?Q?Nicol=F2?= Veronese <nicveronese@gmail.com>,
-	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
-	Antoine Tenart <atenart@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: Re: [PATCH net-next RFC v2 6/6] dt-bindings: net: Introduce the
- phy-port description
-Message-ID: <20250127190734.GA635780-robh@kernel.org>
-References: <20250122174252.82730-1-maxime.chevallier@bootlin.com>
- <20250122174252.82730-7-maxime.chevallier@bootlin.com>
+	b=K/1SH4e+uUajB5fV42YkeaGwBFaQIWWo+k7S4BsCvVXheIjbXhcMzWyW8PKYlQ8mY
+	 9dwb4QdAhwM4LPOtoAsOSN7dXv4uelW5JVVKD0cg/X4tBI9mxNDRAIjf2mzqiOa9UX
+	 xU0QAakO1IegktmVFgZkKyPryGNNA1EN+IDVufUgQGLqC5fuupdLbqjvG3MK2FLFkH
+	 5QhKHgLQZBQnN/eKBUd1XPT7lzMVyUa/9oL/MNImb5HI1tg+lAInXp6kFNXWTZz+/U
+	 vg9h2F5i6/SohxBr8UH68LMB8UGwwmE0ixcOe9UxmSuHzt62kyjyUCd1ZWNcDYcAW4
+	 Z2FfCd0JspOUQ==
+Date: Mon, 27 Jan 2025 13:12:12 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Ryan Walklin <ryan@testtoast.com>
+Cc: Mark Brown <broonie@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	Jaroslav Kysela <perex@perex.cz>, linux-sound@vger.kernel.org,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	linux-sunxi@lists.linux.dev, Liam Girdwood <lgirdwood@gmail.com>,
+	devicetree@vger.kernel.org, Samuel Holland <samuel@sholland.org>,
+	Chris Morgan <macromorgan@hotmail.com>,
+	Chen-Yu Tsai <wens@csie.org>, Takashi Iwai <tiwai@suse.com>
+Subject: Re: [PATCH v2 1/5] ASoC: dt-bindings: sun4i-a10-codec: add
+ hp-det-gpios
+Message-ID: <173800513205.698322.900237271228809143.robh@kernel.org>
+References: <20250125070458.13822-1-ryan@testtoast.com>
+ <20250125070458.13822-2-ryan@testtoast.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250122174252.82730-7-maxime.chevallier@bootlin.com>
+In-Reply-To: <20250125070458.13822-2-ryan@testtoast.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250127_110736_992462_81345907 
-X-CRM114-Status: GOOD (  22.36  )
+X-CRM114-CacheID: sfid-20250127_111214_721654_9031E89F 
+X-CRM114-Status: GOOD (  13.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,63 +78,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 22, 2025 at 06:42:51PM +0100, Maxime Chevallier wrote:
-> The ability to describe the physical ports of Ethernet devices is useful
-> to describe multi-port devices, as well as to remove any ambiguity with
-> regard to the nature of the port.
-> 
-> Moreover, describing ports allows for a better description of features
-> that are tied to connectors, such as PoE through the PSE-PD devices.
 
-Seems like we need a connector binding like we've ended up needing in 
-other cases.
-
+On Sat, 25 Jan 2025 20:00:11 +1300, Ryan Walklin wrote:
+> From: Chris Morgan <macromorgan@hotmail.com>
 > 
-> Introduce a binding to allow describing the ports, for now with 2
-> attributes :
+> Devices integrating Allwinner SoCs may use line-out or headphone jacks
+> with jack detection circuits attached to a GPIO. For example, a number
+> of Anbernic devices featuring the H700 SoC use this mechanism to switch
+> between a headphone jack and an internal speaker.
 > 
->  - The number of lanes, which is a quite generic property that allows
->    differentating between multiple similar technologies such as BaseT1
->    and "regular" BaseT (which usually means BaseT4).
+> Add extra routing endpoints to support this.
 > 
->  - The media that can be used on that port, such as BaseT for Twisted
->    Copper, BaseC for coax copper, BaseS/L for Fiber, BaseK for backplane
->    ethernet, etc. This allows defining the nature of the port, and
->    therefore avoids the need for vendor-specific properties such as
->    "micrel,fiber-mode" or "ti,fiber-mode".
+> Signed-off-by: Chris Morgan <macromorgan@hotmail.com>
+> Signed-off-by: Ryan Walklin <ryan@testtoast.com>
 > 
-> The port description lives in its own file, as it is intended in the
-> future to allow describing the ports for phy-less devices.
-> 
-> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> --
+> Changelog v1..v2:
+> - Remove vendor prefix from hp-det-gpios
+> - Amend commit message
 > ---
-> RFC V2: New patch
+>  .../bindings/sound/allwinner,sun4i-a10-codec.yaml           | 6 ++++++
+>  1 file changed, 6 insertions(+)
 > 
->  .../devicetree/bindings/net/ethernet-phy.yaml | 18 +++++++
->  .../bindings/net/ethernet-port.yaml           | 47 +++++++++++++++++++
->  2 files changed, 65 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/ethernet-port.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/net/ethernet-phy.yaml b/Documentation/devicetree/bindings/net/ethernet-phy.yaml
-> index 2c71454ae8e3..950fdacfd27d 100644
-> --- a/Documentation/devicetree/bindings/net/ethernet-phy.yaml
-> +++ b/Documentation/devicetree/bindings/net/ethernet-phy.yaml
-> @@ -261,6 +261,17 @@ properties:
->  
->      additionalProperties: false
->  
-> +  mdi:
-> +    type: object
-> +
-> +    patternProperties:
-> +      '^port-[a-f0-9]+$':
 
-'port' is already a node name for graphs. It's also the deprecated name 
-for 'ethernet-port' in the switch/DSA bindings.
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-> +        $ref: /schemas/net/ethernet-port.yaml#
-
-A confusing name considering we already have 'ethernet-port'.
-
-Rob
 
