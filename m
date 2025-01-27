@@ -4,89 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7132DC02188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 17:19:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46673C02188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 17:25:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NJq4F5R52EihkJnORvxW1Duv4b4PNbOuy1hXm+tIhDA=; b=ublgvMpWEzQGF67Yyo8UlCznih
-	OX8G9GNgUKi5mCEbJFsBV9fO77UrUm7SmmCa2XNZ/InEIxcgkwetdRhRW5SPPJ7f2kNeGyQ3C4wR3
-	vGLZX9fRJPScGD3l+vjZfoEYktpYyxmBNrNwjIUxj9s+lpYOIyMS4qYsRPkPiKiYpg4zYAV34Ldz4
-	kQHp5snYSmYkxs/GI1E+WZLhsvG0JxL1oaoNW9gDsQGohPkY45gkh6sty/4sv0AZJbmboFz2BcSdO
-	Yc7AATm2T+dW4Ar8p4+QYxuK/Fme/8FIVFS7kUEYz6eNuKSnZI/rDmFZ6MeipGx+PMjXuYHHIyrrq
-	40TpVyjQ==;
+	bh=0w8RYq0iqLvqHjcwjXxAvlelxNoLZvuKyiz+CWQNFCY=; b=RVt7cSLwoes7gniOzIfAyDS+HE
+	/NX6A+P69bzWdGg00E2W8wbl35CqOaVXwIkbhVFbSbyNG5N6ZFEMDAXCLC6QZnkDLLYiD5kP1yY08
+	eHA1ZsvRnz+pZKj1SBNPya0n/V5Ae9sGJgzAmMYBUsFgwRIeU1KGLpnaXNk/LM1DCY3K0Gv/i819K
+	zOpM6HMp+aXFEnTi4klKPObVXH/IzI1frNEZSsMWEB/ywNImYh90pUf7m+o9FBFlMTUEQE6VgidpQ
+	lnF7MOz9sxPu36CAAnipjyHd0YUjz7R8k+EMlcA6nWxqPoKY0jA3C+rQVvUI3/zBi5YpzbGXGjzwU
+	so371G0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcSlO-00000002rVf-3fcn;
-	Mon, 27 Jan 2025 17:19:06 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1tcSrk-00000002sPt-34oD;
+	Mon, 27 Jan 2025 17:25:40 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcSk2-00000002rBS-3Jx7
+	id 1tcSqO-00000002sIq-2Ita
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jan 2025 17:17:44 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-21bc1512a63so90987645ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jan 2025 09:17:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737998261; x=1738603061; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NJq4F5R52EihkJnORvxW1Duv4b4PNbOuy1hXm+tIhDA=;
-        b=mT9JDicUemq3pXgn6oTjpjUYE/KhcMFfxMVeg/j7E41cZqPKyOtq4Bl88of1J/rhXI
-         74MKrl4SFTdcjGKkIwdoBqE+1WqEPWZWn4IaqNuVoho7A2nEx4Stzpku/nOhd3fyKSRO
-         KGaGnASSu5zuKvMlgtSqa0uVcLWEzjzrQ687sOckx5gwJL1fJeouhaFdRa4mktPZ5X9j
-         /4qIplnqMHTDWBYCqUCezIPbJedKkahgFAMC4FrbBh/lizum79XtEd1a8x5rye9sxW1t
-         eZReqyPZBEm1uOAHAbShyxaYp3UbGR6sBTQZIMvVoenxl06O+EAJcDiiZNvgtj99ZRTR
-         SvRQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737998261; x=1738603061;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=NJq4F5R52EihkJnORvxW1Duv4b4PNbOuy1hXm+tIhDA=;
-        b=LP7Mm5PEptIcywBTPQhZWuUQ0jMFLxMzlBcqlbiY4PrCMdzqU0Gq82jxQhp+xNR9z0
-         5RkKnldHGqkGeJnyIDNup+k+PQcGpqY2MzyTy6licmnMFMKa61eioDc1EBsLcAZybhT7
-         WmpF/JbOPEr4coca1qpSFrveGr2fonxBhBIY40pgulJfMs5vEYh+0ITOAJ8YKuKb+k6k
-         6JX17Xqamyu9RG7dUr812+08RDuWgV17VGLa6ckjCdNOgGdS/jw/ZABkA7KV6/oV0nbD
-         57Y8G12KDR/hBZVDZHQmL/Jh9U9MINfAqb8h81WvL7bo73Vsxq5WcSxL//dHTOYqBQAZ
-         M9Vw==
-X-Forwarded-Encrypted: i=1; AJvYcCXwsbJ2DTEfmXKNPY4w8ZRxdYLkT2W/fahzE73OFF56CP3m8naq920xwVSdWWi6LZ0s5CFPmAat4Ut6URm6G1eT@lists.infradead.org
-X-Gm-Message-State: AOJu0YzuyAavEcQMoJwdWV2v93Xd9lbKiFXbwcyRy9DOXwB4wOoLnLr8
-	S5Tg8wWLvaDKjAK1IqNPk3oaHM1IyAtdr/wJ/Uedgj33TGOwrifiRKdk6JpKH58VSPCgyLxOD66
-	YdcoluiEofc6nyIfxF/sJtbpHYcA=
-X-Gm-Gg: ASbGnctrjG7EiEaz1pActk+PbJJp2AIsTjuiTWOOedfQKKKOLqoDnTJQTkqqn6+W+cL
-	0oYTC+6Omee/up82P87X6J03ePKbFb5X5KZxA6QgNo7ckwTMuAESrNKJuL34G2kg1CA0lG+Mk1i
-	buxBBmYnBWg9AqMOLn4l8=
-X-Google-Smtp-Source: AGHT+IG48HR0KtIpd4V+2VRj7rni5YpEd9979Gv8ZvYiepf73ADFYTxGHnhAHYPiGLsj85FC0xIsC3/5SZ9H2fCLaJI=
-X-Received: by 2002:a17:903:22d0:b0:215:63a0:b58c with SMTP id
- d9443c01a7336-21c356780cfmr582137805ad.46.1737998259884; Mon, 27 Jan 2025
- 09:17:39 -0800 (PST)
+	Mon, 27 Jan 2025 17:24:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BC5C05C58A0;
+	Mon, 27 Jan 2025 17:23:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2B14C4CED2;
+	Mon, 27 Jan 2025 17:24:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737998655;
+	bh=wkhnpEpAsljzBOm/dhhaDMdpFim5ax/EUa4KeXTgRvs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=RIETnMy/PA28fn/9Ab3MON8qHnkafAcpgpE1wNr0uF3GyY59g6hKLGNqZuCEpSnHx
+	 gFtCLp4FnyxNLbwrwEWwikYhbLp6EXiEEjyGo5xYXUBr0H4S7GVxVBEf3NJ6fn+WW5
+	 B9r+/b8+mNgBAJWQ7//01bpMhjZYk2cVp5VCOLnQotxww6a3d63weOYPLKYQx5giCg
+	 2ceJ79dBrt0o7OcN3PXYv/LCnjvjFnhrLhJ6qNmPp7UHGBigl+HPgM5HQhKHMpzMBu
+	 QKkKJ3Wendlef+dHaSTUWdJ+GlT1EJ58BEgosjBGh7X6JTKGI3SuSSBLJQeanV1Sxq
+	 hMuMnTXCz1wjg==
+Message-ID: <2dd9bffa-17d5-4635-b2da-15f59cf07590@kernel.org>
+Date: Mon, 27 Jan 2025 18:24:11 +0100
 MIME-Version: 1.0
-References: <CAO6a-9_aPLCx2CqecQBGbK78_=+-tT44RepPkrBjpkWSvjj4Tg@mail.gmail.com>
- <CAO6a-98cdSvyd7jgAyGNmsC2nxmRSyr3GppxvZU9yHU1xqwz3g@mail.gmail.com>
- <20241211055052.gbxnyqpui3t3zpw5@lcpd911> <20241211121825.GA2054801@bogus>
- <20241211143428.kaoovhiwar74dy6x@lcpd911> <Z1rbLdWW75KQw5cl@bogus>
-In-Reply-To: <Z1rbLdWW75KQw5cl@bogus>
-From: Vivek yadav <linux.ninja23@gmail.com>
-Date: Mon, 27 Jan 2025 22:47:28 +0530
-X-Gm-Features: AWEUYZmvkfg7G9UyzXYIBb0JSKee0hyMWDe0xrSrlhdRHKhJHC925vN_hf6pY84
-Message-ID: <CAO6a-98XFxbCnOMp5ARwPssjYomyNKWjT=WTk=z2+ZKyOAQ0jQ@mail.gmail.com>
-Subject: Re: Fwd: ARM64: CPUIdle driver is not select any Idle state other
- then WFI
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: Dhruva Gole <d-gole@ti.com>, linux-newbie@vger.kernel.org, linux-pm@vger.kernel.org, 
-	daniel.lezcano@linaro.org, lpieralisi@kernel.org, krzk@kernel.org, 
-	christian.loehle@arm.com, quic_sibis@quicinc.com, cristian.marussi@arm.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	vigneshr@ti.com, khilman@ti.com, sebin.francis@ti.com, khilman@baylibre.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: ti: am64-phyboard-electra: Add DT overlay for
+ X27 connector
+To: Daniel Schultz <d.schultz@phytec.de>, nm@ti.com, vigneshr@ti.com,
+ kristo@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Cc: w.egorov@phytec.de, upstream@lists.phytec.de
+References: <20250127065756.3086450-1-d.schultz@phytec.de>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250127065756.3086450-1-d.schultz@phytec.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250127_091742_842067_0B23CC6D 
-X-CRM114-Status: GOOD (  69.33  )
+X-CRM114-CacheID: sfid-20250127_092416_679702_B29C7D47 
+X-CRM114-Status: UNSURE (   7.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,253 +120,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi @Dhruva Gole,
+On 27/01/2025 07:57, Daniel Schultz wrote:
+> +&main_spi1 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&main_spi1_pins_default>;
+> +	ti,pindir-d0-out-d1-in = <1>;
+> +	status = "okay";
+> +
+> +	spidev@0 {
 
-Q.1. Does your CA-53 properly go into CPUIdle state and come out of
-sleep state ?
-Q.2. Can you provide a snapshot of command
-cat /sys/devices/system/cpu/cpu*/cpuidle/state*/usage  ?
-Q.3. How frequently CPUs are going into custom state1 (other than
-standard WFI state) ?
 
-> Any further luck on this?
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
 
-I am still facing some issues. This issue is not closed yet.
 
->
-> idle-states {
->       entry-method =3D "psci";
->        cpu_ret_l: cpu-retention-l {
->          compatible =3D "arm,idle-state";
->          arm,psci-suspend-param =3D <0x00010001>;
->          local-timer-stop;
->          entry-latency-us =3D <55>;
->           exit-latency-us =3D <140>;
->           min-residency-us =3D <780>;
->     };
-> };
->
-> I am using ``Menu governor`` with the ``psci_idle driver`` in its origina=
-l form.
-> After booting Linux I find out that the CPUIdle core is never going
-> inside the ``cpu-retention`` state.
-> To check time spent by CPU in any state. I am using the below command.
->
-> ``cat /sys/devices/system/cpu/cpu*/cpuidle/state*/time``
+> +		compatible = "rohm,dh2228fv";
 
-As of now I made some changes in the DT node. After making changes in
-latency (which is mentioned below).
 
- idle-states {
-       entry-method =3D "psci";
-        cpu_ret_l: cpu-retention-l {
-          compatible =3D "arm,idle-state";
-          arm,psci-suspend-param =3D <0x00000000>;
-          local-timer-stop;
-          entry-latency-us =3D <300000>; # 300ms
-           exit-latency-us =3D <300000>; # 300ms
-           min-residency-us =3D <1000000>; # 1 sec
-     };
- };
+That's not the device you have there. You cannot use other compatibles.
 
-I can see that  CA-55 went into a sleep state (state1) using command
-``cat /sys/devices/system/cpu/cpu*/cpuidle/state*/time``.
-As you mention earlier in a multicore system (2 or more) at least one
-core keeps working and does not go into sleep state. It should happen
-as per theory and other developers' case.
 
-In my case, after some time, both CPUs (CPU0 and CPU1) go into sleep
-state (state1). Hence the system console hangs.
-
-My expectations are,
-If I type anything on keyboard. UART interrupt should take out CPUs
-from sleep state and execute commands. OR some periodic timer should
-take the CPU out of sleep. Which is not happening as of now.
-As you said  we can safely remove`` local-timer-stop``. It means local
-timers are working for the CPUs and triggering interrupts ?
-
-Any discussion on this topic will definitely help me.
-
-Regards,
-Vivek Yadav
-
-On Thu, Dec 12, 2024 at 6:16=E2=80=AFPM Sudeep Holla <sudeep.holla@arm.com>=
- wrote:
->
-> On Wed, Dec 11, 2024 at 08:04:28PM +0530, Dhruva Gole wrote:
-> > On Dec 11, 2024 at 12:18:25 +0000, Sudeep Holla wrote:
-> > > On Wed, Dec 11, 2024 at 11:20:52AM +0530, Dhruva Gole wrote:
-> > [...]
-> > > > >
-> > > > >
-> > > > > Hi @all,
-> > > > >
-> > > > > I am working on one custom SoC. Where I add one CPUIdle state for
-> > > > > ``arm,cortex-a55`` processor.
-> > > >
-> > > > Any further luck on this?
-> > > >
-> > > > I have also been working on something similar[1] but on an A53 core=
- on
-> > > > TI-K3 AM62x processor.
-> > >
-> > > Does upstream DTS have support for this platform to understand it bet=
-ter ?
-> > > Even reference to any complete DT file for the platform will help.
-> >
-> > Yes, you can ref to the AM625 (CPU layout) DT here:
-> > https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tre=
-e/arch/arm64/boot/dts/ti/k3-am625.dtsi
-> >
-> > The board/starter kit DT is:
-> > https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tre=
-e/arch/arm64/boot/dts/ti/k3-am625-sk.dts
-> >
-> > The patches for idle state are not upstream, and only exist in this
-> > patch of mine here:
-> > https://github.com/DhruvaG2000/v-linux/commit/0fd088d624276a2e72b8dc666=
-0d261ab6d194f4b
-> >
->
-> "arm,psci-suspend-param" indicate that this idle state doesn't loose the
-> cpu context which means timer doesn't stop. So adding "local-timer-stop"
-> sound completely wrong to me.
->
-> > [...]
-> > > > See this chunk in the kernel cpuidle driver:
-> > > >   if (broadcast && tick_broadcast_enter()) {
-> > > >
-> > > > When I dug deeper into tick_broadcast_enter it always returns somet=
-hing
-> > > > non zero and hence in my case it was entering the if block and trie=
-d to
-> > > > find a deepest state. Then the deepest state would always return WF=
-I and
-> > > > not the idle-state I had added.
-> > > >
->
-> It depends. If this is the last CPU and since you have marked the state w=
-ith
-> "local-timer-stop" and the system doesn't have any other timers to use as
-> source of broadcast, it prevents one of the CPU entering that state. So y=
-ou
-> could be matching all the above conditions on your platform and hence you
-> are observing the above.
->
-> > > > What we found out was on our kernel we end up using
-> > > >
-> > > > kernel/time/tick-broadcast-hrtimer.c
-> > > >
-> > > > This always seems to be keeping atleast 1 CPU busy and prevents idl=
-e.
-> > > > If we remove the local-timer-stop it was helping us, but we still n=
-eed
-> > > > to dig into the full impact of what that entails and I am still
-> > > > interested in finding out how so many other users of similar idle-s=
-tate
-> > > > implementation are able to do so without trouble.
-> > > >
-> > >
->
-> As mentioned about adding "local-timer-stop" for a retention state seems
-> pure wrong in my opinion as it contradicts to the fact that context is
-> retained.
->
-> > > Interesting. So if the platform is functional removing local-timer-st=
-op,
-> > > I am bit confused. Either there is something else that is getting it =
-out
-> >
-> > Yes it was interesting to us too, as to how the RCU didn't kick in and
-> > system continued to function as though nothing was wrong.
-> >
->
-> It worked as if it was a state with context lost. So there might be some
-> impact on the latency though it as the kernel assumed context lost and
-> re-entered/resumed through resume entry point rather than where it called
-> cpu_suspend() similar to wfi(). I mean only on the CPUs it was able to
-> enter this state as one of the CPU will never enter this if there are no
-> system timers to act as broadcast timer.
->
-> Does you system not have Arch timers memory mapped interface enabled and
-> interrupt wired to GIC(other than PPIs) ? Look at Juno R2 as example.
->
-> > > from the idle state so, it should be fine and it could be just some
-> >
-> > It's probably UART keypresses or some userspace processes that get
-> > scheduled that bring the CPUs back out of TF-A's cpu_standby.
->
-> I doubt the CPU resume from suspend is based on some userspace event.
->
-> > Is it possible that EL1 interrupts can bring EL3 out of WFI? Is yes the=
-n
-> > it explains the behaviour. The arch timer could also be continuing to
-> > tick and bringing the CPUs out of ATF WFI.
-> >
->
-> Yes but that doesn't explain the behaviour. It could be just the timer
-> event from the broadcast timer.
->
-> > > misconfiguration.
-> > >
-> > > > Arm64 recommends to use arch_timer instead of external timers. Once=
- we
-> > > > enter el3, timer interrupts to el1 is blocked and hence it's equiva=
-lent
-> > > > to local-timer-stop, so it does make sense to keep this property, b=
-ut
-> > > > then how are others able to enter idle-states for all plugged CPUs =
-at
-> > > > the same time?
-> > > >
-> > >
-> > > Some systems have system timer that can take over as broadcast timer =
-when
-> > > CPUs enter deeper idle states where the local timers are stopped.
-> >
-> > In CPUIdle we're not really clock gating anything so the timer does kee=
-p
-> > ticking. So in this particular case it might make sense to remove the
-> > local-timer-stop property from the idle-state.
-> >
->
-> Correct in your case it is retention state and hence local CPU timers
-> keep ticking and you can safely drop that property. However if you add
-> deeper idle states like CPU OFF with the power rail cut off, then you nee=
-d
-> some system timer to act as backup/broadcast timer so that all the CPUs
-> can enter the state concurrently and wake up successfully.
->
-> > However we're looking into taking this further and putting interconnect
-> > and few other PLLs in bypass which could cause arch timer for eg. to
-> > tick slower.
->
-> I assume it will be present as another timer with the rate set appropriat=
-ely.
->
-> > In this case would it still make sense to omit the property?
->
-> No, you should mark it as stopped even if it is running at slower rate
-> as I am not sure if the local CPU timer support can handle rate change.
->
-> > We may even have some usecases planned where we may turn OFF
-> > the CPU once it is in TF-A cpu_standby/ WFI. What would be the right
-> > approach in such scenarios?
-> >
->
-> As mentioned above, this will be separate state and all CPUs can use this
-> if there is another system broadcast timer.
->
-> > Could you provide any examples where the local-timer-stop property is
-> > being used and an alternative timer can be configured once we enter the
-> > idle-state where CPU CTX maybe lost or clocks maybe bypass?
-> > great if you could share some example implementation if you're aware.
->
-> As I mentioned, Juno R2 is an example. It was broken on R0 with some SoC
-> errata(can't recall all the details as I looked at it almost a decade ago=
-)
->
-> --
-> Regards,
-> Sudeep
+Best regards,
+Krzysztof
 
