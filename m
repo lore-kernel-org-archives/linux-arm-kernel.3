@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9D46C02188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 17:28:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A2F5C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 17:39:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ayRwvzgAh4SnVASswlH+xNoCzewLIlYOtXUUrA327pI=; b=b6wDeDJ8lMmAj5bP9N7U4WSGlJ
-	Cwh0zVx+8q5UCQFNv25h6MjhvqKMw6ohyJ/LmKOLdKP41lnk6ZaOlueE3Qjkzuo0MHBAl2CddskEu
-	hl9xJ7VTmoZ2Fwynmk0Uuj9q4KLXPAkZCUEKCD5c5vIdQbhHRHzgbtsD3F7jcpBCC9CiQ7rAnYSmB
-	HAnSWrzgMseLMzfmG7K/4gQ09QtCgaK4z16vpSQWcowhKW0j7zIp0s1pU3oJPLTHa1OhMxTZxgS2R
-	KU2SeiJEi8aDdDb+DpHul0VsKRTi5brDJJFxnIONvH4gj7fWUyPxT1te/7mp3BdVVcHDGaKDzCNWV
-	5EERXHCg==;
+	bh=rQNGWTk0C38Hs1u5kVIgIbQF9al0zYxSfDbukQVEcl0=; b=XMgWkrTJE9HTDtbE0XZUnKredl
+	guJB6F3b/RRwBXoKA09hVXkOUOtSEkDG38Q3t6DLApR44oQ0Ub4D9ivYmC2fGTJ7dPgMWDrU5sTb6
+	5PYL2oUV14EzDMEXai+YkRHwm5RL+gV0v5d0KbbSnRvivRB+EhCI82Eqd+uwRvIH0yRDz4fFMtzLv
+	Pqz19m1S8Df6FH0RZtmFGpkkMgBatn4dbtPCKkaUwMcTZxlWYB5zDmnIGpqiL82UlUhJvhrXDh3h4
+	N74nPV709j1ZQQ5rag+YroCs2xIyJK0OkMluHQFntjPxzdITHVe6tAmnZsI8WOJRhurbpZf0IegLU
+	lcLVB6TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcSuN-00000002sgL-0Wu2;
-	Mon, 27 Jan 2025 17:28:23 +0000
-Received: from out-188.mta1.migadu.com ([2001:41d0:203:375::bc])
+	id 1tcT59-00000002uSB-2CZh;
+	Mon, 27 Jan 2025 17:39:31 +0000
+Received: from out-184.mta0.migadu.com ([2001:41d0:1004:224b::b8])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcSsH-00000002sSj-28op
+	id 1tcT3o-00000002uIW-0dPy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jan 2025 17:26:15 +0000
-Date: Mon, 27 Jan 2025 09:26:04 -0800
+	Mon, 27 Jan 2025 17:38:09 +0000
+Date: Mon, 27 Jan 2025 09:37:54 -0800
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1737998771;
+	t=1737999480;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=ayRwvzgAh4SnVASswlH+xNoCzewLIlYOtXUUrA327pI=;
-	b=MRz5Y2D9/SPAeNFeAr85vntgZyVtpA6aO5tivSaAAdT9B/joUFn4JfYJxrChk42V2OOgom
-	lj3vjgwD8NKTyK5KUTjtcnAMuOC8pUqKdWzfpUSfHd0hjTe3LKO4B+cy+CmOp9w4cUcwC1
-	SRo65tC11tYVboIE1sxi9FKbqRcTt3w=
+	bh=rQNGWTk0C38Hs1u5kVIgIbQF9al0zYxSfDbukQVEcl0=;
+	b=sGqjcCx/rEzKDe5DeIUDRMPSt6ed1g3q6YQE/9pKA/MTD41Dv6zozl5UKdkfHE9lB2hLIu
+	EoIxFOOjBtDQSeEjpyGSLz9UP+LJiTEzu3Hxu+AEjT3Zx0C4nY3y307nuX0K9LUVp8hBtv
+	ZVXeKWO+nslNdL+8xi3W7Menn80S3zU=
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 From: Oliver Upton <oliver.upton@linux.dev>
 To: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
@@ -46,19 +46,19 @@ Cc: kvmarm@lists.linux.dev, maz@kernel.org, catalin.marinas@arm.com,
 	wangzhou1@hisilicon.com, jiangkunkun@huawei.com,
 	jonathan.cameron@huawei.com, anthony.jebson@huawei.com,
 	linux-arm-kernel@lists.infradead.org, linuxarm@huawei.com
-Subject: Re: [PATCH v5 2/4] KVM: arm64: Introduce hypercall support for
- retrieving target implementations
-Message-ID: <Z5fBrFVIs0jOiR9W@linux.dev>
+Subject: Re: [PATCH v5 4/4] arm64: paravirt: Enable errata based on
+ implementation CPUs
+Message-ID: <Z5fEcqVDrPP_7pXp@linux.dev>
 References: <20250124151732.6072-1-shameerali.kolothum.thodi@huawei.com>
- <20250124151732.6072-3-shameerali.kolothum.thodi@huawei.com>
+ <20250124151732.6072-5-shameerali.kolothum.thodi@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250124151732.6072-3-shameerali.kolothum.thodi@huawei.com>
+In-Reply-To: <20250124151732.6072-5-shameerali.kolothum.thodi@huawei.com>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250127_092614_062867_5964C004 
-X-CRM114-Status: GOOD (  17.06  )
+X-CRM114-CacheID: sfid-20250127_093808_461984_09E88DE8 
+X-CRM114-Status: GOOD (  13.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,62 +73,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 24, 2025 at 03:17:30PM +0000, Shameer Kolothum wrote:
-> If the Guest requires migration to multiple targets, these hypercalls
-> will provide a way to retrieve the target CPU implementations from
-> the user space VMM.
-> 
-> Subsequent patch will use this to enable the associated errata.
-> 
-> Suggested-by: Oliver Upton <oliver.upton@linux.dev>
-> Suggested-by: Marc Zyngier <maz@kernel.org>
-> Signed-off-by: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
-> ---
->  Documentation/virt/kvm/arm/hypercalls.rst | 59 +++++++++++++++++++++++
->  include/linux/arm-smccc.h                 | 15 ++++++
->  2 files changed, 74 insertions(+)
-> 
-> diff --git a/Documentation/virt/kvm/arm/hypercalls.rst b/Documentation/virt/kvm/arm/hypercalls.rst
-> index af7bc2c2e0cb..718725cbf6c7 100644
-> --- a/Documentation/virt/kvm/arm/hypercalls.rst
-> +++ b/Documentation/virt/kvm/arm/hypercalls.rst
-> @@ -142,3 +142,62 @@ region is equal to the memory protection granule advertised by
->  |                     |          |    +---------------------------------------------+
->  |                     |          |    | ``INVALID_PARAMETER (-3)``                  |
->  +---------------------+----------+----+---------------------------------------------+
+On Fri, Jan 24, 2025 at 03:17:32PM +0000, Shameer Kolothum wrote:
+> +void  __init pv_target_impl_cpu_init(void)
+
+I get the sense that this implementation should actually be part of the
+KVM guest services driver in drivers/firmware/smccc/kvm_guest.c
+
+> +{
+> +	int i;
+> +	unsigned long max_cpus;
+> +	struct arm_smccc_res res;
+> +	const u32 funcs[] = {
+> +		ARM_SMCCC_KVM_FUNC_DISCOVER_IMPL_VER,
+> +		ARM_SMCCC_KVM_FUNC_DISCOVER_IMPL_CPUS,
+> +	};
 > +
-> +``ARM_SMCCC_VENDOR_HYP_KVM_DISCOVER_IMPL_VER_FUNC_ID``
-> +-------------------------------------------------------
-> +Request the target CPU implementation version information and the number of target
-> +implementations for the Guest VM.
+> +	/* Check we have already set targets */
+> +	if (target_impl_cpu_num)
+> +		return;
 > +
-> ++---------------------+-------------------------------------------------------------+
-> +| Presence:           | Optional;  KVM/ARM64 Guests only                            |
-> ++---------------------+-------------------------------------------------------------+
-> +| Calling convention: | HVC64                                                       |
-> ++---------------------+----------+--------------------------------------------------+
-> +| Function ID:        | (uint32) | 0xC6000040                                       |
-> ++---------------------+----------+--------------------------------------------------+
-> +| Arguments:          | None                                                        |
-> ++---------------------+----------+----+---------------------------------------------+
-> +| Return Values:      | (int64)  | R0 | ``SUCCESS (0)``                             |
-> +|                     |          |    +---------------------------------------------+
-> +|                     |          |    | ``NOT_SUPPORTED (-1)``                      |
-> +|                     +----------+----+---------------------------------------------+
-> +|                     | (uint64) | R1 | Bit[63] Must be zero                        |
-> +|                     |          |    +---------------------------------------------+
+> +	for (i = 0; i < ARRAY_SIZE(funcs); ++i) {
+> +		if (!kvm_arm_hyp_service_available(funcs[i]))
+> +			return;
+> +	}
 
-Why? R0 is sufficient to determine if the hypercall was successful, and
-this is already defined as an unsigned quantity to the guest.
+nit: drop the for loop and just use the literal values.
 
-> +|                     |          |    | Bits [62:32] Major version                  |
-> +|                     |          |    +---------------------------------------------+
-> +|                     |          |    | Bits [31:0] Minor version                   |
-> +|                     +----------+----+---------------------------------------------+
+> +	arm_smccc_1_1_invoke(ARM_SMCCC_VENDOR_HYP_KVM_DISCOVER_IMPL_VER_FUNC_ID,
+> +			     0, &res);
+> +	if (res.a0 != SMCCC_RET_SUCCESS)
+> +		return;
+> +
+> +	if (res.a1 != ARM_SMCCC_KVM_DISCOVER_IMPL_VER_1_0 || !res.a2) {
 
-Do we really need a full u64 of version information? If you collapse
-this down to a u32 it'd align with the versioning scheme for PSCI /
-SMCCC.
+This is brittle. The versioning scheme really should match that of PSCI
+/ SMCCC, where minor revisions within the same major are backwards
+compatible with older clients.
+
+So consider just checking that the major version is 1.
+
+> +		pr_warn("Unsupported target impl version or CPU implementations\n");
+
+This would be more useful if you provide context (i.e. the detected
+version).
 
 -- 
 Thanks,
