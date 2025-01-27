@@ -4,60 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B578EC0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 02:59:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 386FAC0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 03:06:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=oh7jzSmsQDJzqrCC2soRTneSSG0lG6DGIKX1qOh1XpY=; b=0n/sV14wC/IygMfijb8m4uX6Pd
-	Ers1k9i7H8QMawW5zByRvTKkqOmrpPk1SGPZH+5PiHdM88QD5fnBNEgus4SQ95f+qVAkXaoMlLlHO
-	e3r2FBx6oseDKlCt/1eXAZWM4FjJ4JNVZHdj6DEywCH8cUudDUaikO6xKPj6LMNm/ApFOIqnV5mWT
-	AjQRJT+1vyb/8GzJSogNgGJEW8U2AzzMZbmLeXf4q6ScXJ+hD08HJixPKQJYIBSS2g8ge8RKK9p6p
-	FMSsbJYWZvm8hE+fkJ9jkcjL3e4PlqCuqV33LxYP4cNN3OPUIkj5JlD6WFOXs/IHDBcowAMggtOEA
-	dPH7jGsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5hPEoOXD7vh0YSjHsAN+Af8DsMrKotGPIYAaWMuUu+U=; b=295wY/+UREV03GZULYfDDyWmJ4
+	iJLnETQuwWzWkC8lhtwfqmPe215yW8+3e5PmjpVi3H17Dc7oX9veOnxdKa152Y7VwC0Lc6zXvLo9G
+	TxMzSBJytGek5Uw5nxywJ/p1zJYjeOSoTdWgE3xYZcQWmjEIdDbm/U6d33a9cbZUYL+LKyLHk0M2W
+	KjLJ4LvHc4sNAgrBdEh1q5vB9SXh+ZpORHKibSA8cae1af9IoLsyUEf2Pm8nSVf/OltnHFbzmq4Ct
+	iGgBOVj9ms9XchXnIxqcwmnGrginwgnsLe1GPG3qcuioZNfYmq1/g52JTlMOT62d4rQxx6OnL9/TV
+	9NfZcWbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcFKp-00000001Y46-3X2i;
-	Mon, 27 Jan 2025 02:58:47 +0000
-Received: from gandalf.ozlabs.org ([150.107.74.76] helo=mail.ozlabs.org)
+	id 1tcFS7-00000001YiZ-45Oo;
+	Mon, 27 Jan 2025 03:06:19 +0000
+Received: from szxga05-in.huawei.com ([45.249.212.191])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcFJU-00000001Xyv-1zws
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jan 2025 02:57:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canb.auug.org.au;
-	s=201702; t=1737946630;
-	bh=oh7jzSmsQDJzqrCC2soRTneSSG0lG6DGIKX1qOh1XpY=;
-	h=Date:From:To:Cc:Subject:From;
-	b=tHxDwPAk5hTLSd1tmtNgpwvhHTkqp7GbxzQ+xe6L+fLVXblYq/tOPRX7czOr5tfW+
-	 9ptoMKBBmsO1dUCS2K95xTBEjVbTcGEp4QqZndl71cb25QxapYtTcc4AKqy0N6J0Jw
-	 cJ1Xk/IpjfdZFGMs8Anp44WjFpXGNhnNYYSKjB7+HAEpurOZB64bV0qCImqQaQWlTS
-	 RLL+2rLu+RLKtzYoSbpJpxwNE5/Q99yhTLl3dNiPe67/nXvhJElLfmPi0SLPPF3Xtp
-	 h4OuQZQVT1y6FI3WrAt1Z//B/r6h3uIjSRjVSdcdCsBTWkZBN1gNgZzs/5bskhKXuI
-	 elqXpsShm44pA==
-Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	by mail.ozlabs.org (Postfix) with ESMTPSA id 4YhCkZ0FF0z4wc4;
-	Mon, 27 Jan 2025 13:57:09 +1100 (AEDT)
-Date: Mon, 27 Jan 2025 13:57:17 +1100
-From: Stephen Rothwell <sfr@canb.auug.org.au>
-To: Arnd Bergmann <arnd@arndb.de>, ARM
- <linux-arm-kernel@lists.infradead.org>
-Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Linux Next
- Mailing List <linux-next@vger.kernel.org>
-Subject: linux-next: warning after fetching the arm-soc tree
-Message-ID: <20250127135717.00817b0a@canb.auug.org.au>
+	id 1tcFQm-00000001YPQ-41En;
+	Mon, 27 Jan 2025 03:04:58 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.163])
+	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4YhCt359LFz1JJ4v;
+	Mon, 27 Jan 2025 11:03:39 +0800 (CST)
+Received: from dggpemf200006.china.huawei.com (unknown [7.185.36.61])
+	by mail.maildlp.com (Postfix) with ESMTPS id 3AB8E180042;
+	Mon, 27 Jan 2025 11:04:45 +0800 (CST)
+Received: from localhost.localdomain (10.90.30.45) by
+ dggpemf200006.china.huawei.com (7.185.36.61) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 27 Jan 2025 11:04:44 +0800
+From: Yunsheng Lin <linyunsheng@huawei.com>
+To: <davem@davemloft.net>, <kuba@kernel.org>, <pabeni@redhat.com>
+CC: <zhangkun09@huawei.com>, <liuyonglong@huawei.com>,
+	<fanghaiqing@huawei.com>, Yunsheng Lin <linyunsheng@huawei.com>, Alexander
+ Lobakin <aleksander.lobakin@intel.com>, Robin Murphy <robin.murphy@arm.com>,
+	Alexander Duyck <alexander.duyck@gmail.com>, Andrew Morton
+	<akpm@linux-foundation.org>, IOMMU <iommu@lists.linux.dev>, MM
+	<linux-mm@kvack.org>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
+	<daniel@iogearbox.net>, Jesper Dangaard Brouer <hawk@kernel.org>, John
+ Fastabend <john.fastabend@gmail.com>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, <netdev@vger.kernel.org>,
+	<intel-wired-lan@lists.osuosl.org>, <bpf@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+Subject: [RFC v8 0/5] fix two bugs related to page_pool
+Date: Mon, 27 Jan 2025 10:57:29 +0800
+Message-ID: <20250127025734.3406167-1-linyunsheng@huawei.com>
+X-Mailer: git-send-email 2.30.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/MwCwuNwhD+.CQldh/v9wnWZ";
- protocol="application/pgp-signature"; micalg=pgp-sha256
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.90.30.45]
+X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
+ dggpemf200006.china.huawei.com (7.185.36.61)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250126_185724_785247_C5A5AF0B 
-X-CRM114-Status: UNSURE (   8.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250126_190457_349891_3B722349 
+X-CRM114-Status: GOOD (  14.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,43 +78,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/MwCwuNwhD+.CQldh/v9wnWZ
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+This patchset fix a possible time window problem for page_pool and
+the dma API misuse problem as mentioned in [1], and try to avoid the
+overhead of the fixing using some optimization.
 
-Hi all,
+From the below performance data, the overhead is not so obvious
+due to performance variations in arm64 server and less than 1 ns in
+x86 server for time_bench_page_pool01_fast_path() and
+time_bench_page_pool02_ptr_ring, and there is about 10~20ns overhead
+for time_bench_page_pool03_slow(), see more detail in [2].
 
-After fetching the arm-soc tree, I get the following warning:
+arm64 server:
+Before this patchset:
+              fast_path              ptr_ring            slow
+1.         31.171 ns               60.980 ns          164.917 ns
+2.         28.824 ns               60.891 ns          170.241 ns
+3.         14.236 ns               60.583 ns          164.355 ns
 
-Commit
+With patchset:
+6.         26.163 ns               53.781 ns          189.450 ns
+7.         26.189 ns               53.798 ns          189.466 ns
 
-  1f8dba7e7b83 ("soc: document merges")
+X86 server:
+| Test name  |Cycles |   1-5 |    | Nanosec |    1-5 |        |      % |
+| (tasklet_*)|Before | After |diff|  Before |  After |   diff | change |
+|------------+-------+-------+----+---------+--------+--------+--------|
+| fast_path  |    19 |    19 |   0|   5.399 |  5.492 |  0.093 |    1.7 |
+| ptr_ring   |    54 |    57 |   3|  15.090 | 15.849 |  0.759 |    5.0 |
+| slow       |   238 |   284 |  46|  66.134 | 78.909 | 12.775 |   19.3 |
 
-added this unexpected file:
+And about 16 bytes of memory is also needed for each page_pool owned
+page to fix the dma API misuse problem 
 
-  arch/arm/arm-soc-for-next-contents.txt.orig
+1. https://lore.kernel.org/lkml/8067f204-1380-4d37-8ffd-007fc6f26738@kernel.org/T/
+2. https://lore.kernel.org/all/f558df7a-d983-4fc5-8358-faf251994d23@kernel.org/
 
-Not a big issue.
+CC: Alexander Lobakin <aleksander.lobakin@intel.com>
+CC: Robin Murphy <robin.murphy@arm.com>
+CC: Alexander Duyck <alexander.duyck@gmail.com>
+CC: Andrew Morton <akpm@linux-foundation.org>
+CC: IOMMU <iommu@lists.linux.dev>
+CC: MM <linux-mm@kvack.org>
 
---=20
-Cheers,
-Stephen Rothwell
+Change log:
+V8:
+  1. Drop last 3 patch as it causes observable performance degradation
+     for x86 system.
+  2. Remove rcu read lock in page_pool_napi_local().
+  3. Renaming item function more consistently.
 
---Sig_/MwCwuNwhD+.CQldh/v9wnWZ
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
+V7:
+  1. Fix a used-after-free bug reported by KASAN as mentioned by Jakub.
+  2. Fix the 'netmem' variable not setting up correctly bug as mentioned
+     by Simon.
 
------BEGIN PGP SIGNATURE-----
+V6:
+  1. Repost based on latest net-next.
+  2. Rename page_pool_to_pp() to page_pool_get_pp().
 
-iQEzBAEBCAAdFiEENIC96giZ81tWdLgKAVBC80lX0GwFAmeW9g0ACgkQAVBC80lX
-0GwfKQf/ah0aGwaTifNF/3NQgyATxLAzQarWXqvZA/G6vie+/FfYsdlQKaPGAsrS
-d4hkMfzmI8tRgPHAGpEjPXccxZVOQRpHackBTVZBIQEIT3Oz8yoUVUs6oAVak/36
-Jr9Br//9nmndpioaDLbwCiU4rxEXwJRukxW/6I2Aoy+qEML3G3iFKXZpt+YKpMY0
-3ys840gBOGcP3BhbmjlklIw5FknN0Wh2WLQOQX5pcQfWGZua5LAb9Wn2N2ORm6M3
-jXCI1eeLn52zjxAszO7MEhvwM+JK08i7WB0A/rjxNNO1Ci3SrZXmIeBJdWeJiP17
-WBjJ2x38FJHJXkm+Q7VzG2WV3bPTaQ==
-=jQEq
------END PGP SIGNATURE-----
+V5:
+  1. Support unlimit inflight pages.
+  2. Add some optimization to avoid the overhead of fixing bug.
 
---Sig_/MwCwuNwhD+.CQldh/v9wnWZ--
+V4:
+  1. use scanning to do the unmapping
+  2. spilt dma sync skipping into separate patch
+
+V3:
+  1. Target net-next tree instead of net tree.
+  2. Narrow the rcu lock as the discussion in v2.
+  3. Check the ummapping cnt against the inflight cnt.
+
+V2:
+  1. Add a item_full stat.
+  2. Use container_of() for page_pool_to_pp().
+
+Yunsheng Lin (5):
+  page_pool: introduce page_pool_get_pp() API
+  page_pool: fix timing for checking and disabling napi_local
+  page_pool: fix IOMMU crash when driver has already unbound
+  page_pool: support unlimited number of inflight pages
+  page_pool: skip dma sync operation for inflight pages
+
+ drivers/net/ethernet/freescale/fec_main.c     |   8 +-
+ .../ethernet/google/gve/gve_buffer_mgmt_dqo.c |   2 +-
+ drivers/net/ethernet/intel/iavf/iavf_txrx.c   |   6 +-
+ drivers/net/ethernet/intel/idpf/idpf_txrx.c   |  14 +-
+ drivers/net/ethernet/intel/libeth/rx.c        |   2 +-
+ .../net/ethernet/mellanox/mlx5/core/en/xdp.c  |   3 +-
+ drivers/net/netdevsim/netdev.c                |   6 +-
+ drivers/net/wireless/mediatek/mt76/mt76.h     |   2 +-
+ include/linux/mm_types.h                      |   2 +-
+ include/linux/skbuff.h                        |   1 +
+ include/net/libeth/rx.h                       |   3 +-
+ include/net/netmem.h                          |  22 +-
+ include/net/page_pool/helpers.h               |  15 +
+ include/net/page_pool/types.h                 |  46 +-
+ net/core/devmem.c                             |   4 +-
+ net/core/netmem_priv.h                        |   5 +-
+ net/core/page_pool.c                          | 425 ++++++++++++++++--
+ net/core/page_pool_priv.h                     |  10 +-
+ net/core/xdp.c                                |   3 +-
+ 19 files changed, 500 insertions(+), 79 deletions(-)
+
+-- 
+2.33.0
+
 
