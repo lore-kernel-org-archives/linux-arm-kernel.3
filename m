@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CF1EC02188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 13:08:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35533C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 13:10:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gZGVYJ/cTpa0FGMzvMGF5E/FDOf1q03ZLF/tzzLerLU=; b=OX+LScIvccrfRrWN09c5xU5/Pf
-	bgkppDFMdqZNnuDcfj9w/ZYemoYymlr1v0NIw6XwpIEpWLZ7tju9c5S+Cx0ztvDcQTMqbcdaJg1Sp
-	ioD0pXl8nkjFvEuy1FSqz8DfXQWMRa15ycWbLmF1Nz5PDt7jgUqL7IXTHfzsdFGMdWKt6N2eJzUco
-	XYiVml1oZPJ38ASqxbyAVVXv8Jsrdw9vkuvEOYU7w4IZ+tqYLpk+6dIivtpC0NfDlfJfNgFX/u6ZR
-	3LEUQoB40nTJL3z9Cveb5D21wAtpegELEg9t+o81oBg0XqWhGqBCG24phk6faIm77FA+KlCmoOENV
-	WdlP+eFg==;
+	bh=fxX+mEqKJD0CHD6qtOyAAeaxEGqT+AqliDTEYbLd0Ro=; b=NGs92vp55PZ8Uyba3V5aD2B7+y
+	2O0bnc9r+S54Z49gbb25nICjJCdrlMUYyONd+XuzfiuLQnzi/Iy49zkE/I/hevRkqF+JCPcwc8eMU
+	L40/fyZeOmRl+/rEpIjLrfsMoFB+dR4pbhY52+fgZ4+y15upesujaf7yVSjn5Nv9AJP/p5UOnTpkE
+	WbZQtMisICnz2abQlTJbWdySKi0ZsURWvP0qRxokIIyusTpk4y/3PQgmunfUhZh3Rlm5a23dT9LL1
+	9oPJ+8M7gAHoFs6Qvrzxf5ro96vRK8DrNsgaeBt/ajQOcKGmRKhPe9cGSXYDGTsSH7CiFPnOqlXl1
+	LmPc2Lww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcOqw-00000002LF4-2pc0;
-	Mon, 27 Jan 2025 13:08:34 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tcOsG-00000002LP5-2dOq;
+	Mon, 27 Jan 2025 13:09:56 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcOWh-00000002Iaf-2g9D
+	id 1tcOZd-00000002JH9-23X1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jan 2025 12:47:40 +0000
+	Mon, 27 Jan 2025 12:50:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1737982057;
+	s=mimecast20190719; t=1737982240;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=gZGVYJ/cTpa0FGMzvMGF5E/FDOf1q03ZLF/tzzLerLU=;
-	b=iKiX5zS9e/orSb680/cPRFq84F7VE88VgxF1y/9R6iEOcAMC46IUSfWds2cL4OgncikThg
-	DaNG+UO1rjArVpfYxhOnadOkNnxezwYdWVpWzw80KAJUFFwW5B3qluPIB0CQD6VMvSR5k1
-	1O7mfJzFoy2jZpmzgx0dcqGlMx3W/Sk=
-Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
+	bh=fxX+mEqKJD0CHD6qtOyAAeaxEGqT+AqliDTEYbLd0Ro=;
+	b=eQCeAFCyRcWsTqDKjeNdqk/xvL+nioW+nIbImOTG/oJKm34yHZUE+JSAlKtsrU+TopRyx4
+	kP8Ccl1UAd7wdulc1JsopCcc3FJ0pwdnW2kyRyBE0qUxz4oe6d4O/ZunrvDnk9hLrut4nu
+	DNetqWhGrPWCDWCPEOOJPcPtEqSl8J0=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-634-xKD-f8DgNvu6sX4y5ipZ8g-1; Mon,
- 27 Jan 2025 07:47:31 -0500
-X-MC-Unique: xKD-f8DgNvu6sX4y5ipZ8g-1
-X-Mimecast-MFC-AGG-ID: xKD-f8DgNvu6sX4y5ipZ8g
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-197-7x30Q1uBOwWnTcmbkIgsxw-1; Mon,
+ 27 Jan 2025 07:50:36 -0500
+X-MC-Unique: 7x30Q1uBOwWnTcmbkIgsxw-1
+X-Mimecast-MFC-AGG-ID: 7x30Q1uBOwWnTcmbkIgsxw
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 7F0AA19560A1;
-	Mon, 27 Jan 2025 12:47:28 +0000 (UTC)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B3B0919560B0;
+	Mon, 27 Jan 2025 12:50:33 +0000 (UTC)
 Received: from localhost (dhcp-192-212.str.redhat.com [10.33.192.212])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 17F80180034C;
-	Mon, 27 Jan 2025 12:47:25 +0000 (UTC)
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 26AAE195608E;
+	Mon, 27 Jan 2025 12:50:31 +0000 (UTC)
 From: Cornelia Huck <cohuck@redhat.com>
 To: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
  kvmarm@lists.linux.dev, maz@kernel.org, oliver.upton@linux.dev
@@ -60,9 +60,9 @@ Cc: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
  wangzhou1@hisilicon.com, jiangkunkun@huawei.com,
  jonathan.cameron@huawei.com, anthony.jebson@huawei.com,
  linux-arm-kernel@lists.infradead.org, linuxarm@huawei.com
-Subject: Re: [PATCH v5 3/4] KVM: arm64: Report all the KVM/arm64-specific
- hypercalls
-In-Reply-To: <20250124151732.6072-4-shameerali.kolothum.thodi@huawei.com>
+Subject: Re: [PATCH v5 2/4] KVM: arm64: Introduce hypercall support for
+ retrieving target implementations
+In-Reply-To: <20250124151732.6072-3-shameerali.kolothum.thodi@huawei.com>
 Organization: "Red Hat GmbH, Sitz: Werner-von-Siemens-Ring 12, D-85630
  Grasbrunn, Handelsregister: Amtsgericht =?utf-8?Q?M=C3=BCnchen=2C?= HRB
  153243,
@@ -70,19 +70,19 @@ Organization: "Red Hat GmbH, Sitz: Werner-von-Siemens-Ring 12, D-85630
  Michael O'Neill, Amy
  Ross"
 References: <20250124151732.6072-1-shameerali.kolothum.thodi@huawei.com>
- <20250124151732.6072-4-shameerali.kolothum.thodi@huawei.com>
+ <20250124151732.6072-3-shameerali.kolothum.thodi@huawei.com>
 User-Agent: Notmuch/0.38.3 (https://notmuchmail.org)
-Date: Mon, 27 Jan 2025 13:47:23 +0100
-Message-ID: <8734h48lus.fsf@redhat.com>
+Date: Mon, 27 Jan 2025 13:50:29 +0100
+Message-ID: <87zfjc7756.fsf@redhat.com>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 4yfLf6Zh709E7mjM1OvD83t2L6YxVy-Ykz1WqKBmJfI_1737982049
+X-Mimecast-MFC-PROC-ID: rLu5wL-ni_IWUpfR0v6VALnp6N9M3cFqTWY1rTX0QhA_1737982234
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250127_044739_747102_FAA4216D 
-X-CRM114-Status: GOOD (  15.15  )
+X-CRM114-CacheID: sfid-20250127_045041_602984_1B6EF8AD 
+X-CRM114-Status: GOOD (  10.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,36 +99,20 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 On Fri, Jan 24 2025, Shameer Kolothum <shameerali.kolothum.thodi@huawei.com> wrote:
 
-> Currently ARM_SMCCC_VENDOR_HYP_KVM_FEATURES_FUNC_ID returns the
-> bitmap corresponding to KVM_REG_ARM_VENDOR_HYP_BMAP and it only
-> returns _KVM_FEATURES_FUNC_ID and _KVM_PTP_FUNC_ID. Change that
-> to return all the KVM/arm64-specific hypercalls exposed by
-> KVM/arm64 to guest operating systems.
+> If the Guest requires migration to multiple targets, these hypercalls
+> will provide a way to retrieve the target CPU implementations from
+> the user space VMM.
 >
+> Subsequent patch will use this to enable the associated errata.
+>
+> Suggested-by: Oliver Upton <oliver.upton@linux.dev>
+> Suggested-by: Marc Zyngier <maz@kernel.org>
 > Signed-off-by: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
 > ---
->  arch/arm64/kvm/hypercalls.c | 6 +++++-
->  1 file changed, 5 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/arm64/kvm/hypercalls.c b/arch/arm64/kvm/hypercalls.c
-> index 27ce4cb44904..6132cb542200 100644
-> --- a/arch/arm64/kvm/hypercalls.c
-> +++ b/arch/arm64/kvm/hypercalls.c
-> @@ -359,7 +359,11 @@ int kvm_smccc_call_handler(struct kvm_vcpu *vcpu)
->  		val[3] = ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_3;
->  		break;
->  	case ARM_SMCCC_VENDOR_HYP_KVM_FEATURES_FUNC_ID:
-> -		val[0] = smccc_feat->vendor_hyp_bmap;
-> +		val[0] = GENMASK(ARM_SMCCC_KVM_FUNC_MMIO_GUARD,
-> +				 ARM_SMCCC_KVM_FUNC_FEATURES);
+>  Documentation/virt/kvm/arm/hypercalls.rst | 59 +++++++++++++++++++++++
+>  include/linux/arm-smccc.h                 | 15 ++++++
+>  2 files changed, 74 insertions(+)
 
-Don't you need to exclude the reserved ids 5 and 6?
-
-> +		/* Function numbers 8-63 are reserved for pKVM for now */
-> +		val[2] = GENMASK((ARM_SMCCC_KVM_FUNC_DISCOVER_IMPL_CPUS - 64),
-> +				 (ARM_SMCCC_KVM_FUNC_DISCOVER_IMPL_VER - 64));
->  		break;
->  	case ARM_SMCCC_VENDOR_HYP_KVM_PTP_FUNC_ID:
->  		kvm_ptp_get_time(vcpu, val);
+Reviewed-by: Cornelia Huck <cohuck@redhat.com>
 
 
