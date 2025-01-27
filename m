@@ -4,68 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5033C02188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 19:01:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AAB7C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 19:09:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b5SurI4xvF7l2bQqzcjl/tfX1uEvVhhN+dYQTzjx8vg=; b=m6054rcdvrgA7QXjAPPrzD4dQl
-	1Wh9H58nN6xbMQ+gl4n+l41bHKk1AdhMm4O6+H7vgQT0d8RObZa/+sMoFudP6QqfMLS1xDrIPckRK
-	oX73TRA3XLnfWbTdba/47h8a49t/84aVia8vnzWEPj2rvY67CMyBpfwper1pn8A/s74Me8ZIKE2OZ
-	mf7egMpDphj5SZ3U/BJkKVOSIpkbjsM2yV3hA5vROhT+QY6SAf3OBn8LFriRnjGDOy0dJLhyvSQ68
-	lzebTOZZm+/PfFtG6cc9cjH5ER+NhkYVH2W6hxo13ILxw4QqhJZ+DfcJmMiXFBVKwy/7A1gDGd6v5
-	gxb4UiPA==;
+	bh=gw8SBoKaIQ+jJDh55z2lTeZVshKFDZTgIjVFie1Lh6Y=; b=ZlP7ttVZZh2XlkvfQjbB0xaAsJ
+	LiCVwR3Aiwf4rWbdvhYpH7Zi7lbSazMaLBSCikg4OSSGio+bgR8zscB598bevda36wMLNtPlHwcZM
+	YM2zmU2Xa8nc5rrFi7yKJDyGA58GtJz5XFbKWYbZlvnWobHtPtivPhGlIfcHxAUQmuBtHxWt0jHUo
+	7iI8YnildILefD78rNcmWfMQESemY2GbkJ650CuosbXMNgLU+okweRinstfEgYmc8Gp3tZfLYS2Ca
+	xg+3GS03djuQdd3E49u24RN2j2J7AKnIJ9REVqZvoLg6cIDb2+3XKaizQNaQgGF8KeXvPFstZWumT
+	9Q4y0sRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcUM6-000000034xw-3BB7;
-	Mon, 27 Jan 2025 19:01:06 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tcUTk-000000035hV-0e3w;
+	Mon, 27 Jan 2025 19:09:00 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcUKk-000000034k3-0ruC;
-	Mon, 27 Jan 2025 18:59:43 +0000
+	id 1tcUSO-000000035Z7-3Rvb
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Jan 2025 19:07:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4D4CF5C585C;
-	Mon, 27 Jan 2025 18:59:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E06F4C4CEE0;
-	Mon, 27 Jan 2025 18:59:40 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1DC49A419F8;
+	Mon, 27 Jan 2025 19:05:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9162FC4CED2;
+	Mon, 27 Jan 2025 19:07:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738004381;
-	bh=AT2ZxPgXT3E2xTLKhdLn/GaF61LTdzus5efSC1f26Ec=;
+	s=k20201202; t=1738004855;
+	bh=nOgE1Xm78sYrNXodpnGbC8FTPluHnfJLmlj0zh7LwTU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=n2GuMsTJaSw9Mfj2FiENWbgqSZ3wVfIMQVmbhkHkNsb4TkeGqalzHollxY5Po4kFl
-	 zR/58oZx75I0QDtGdU8SnurUP3wh+ZxKX0TSeE3UpXkUQ6/HolK2IkCQzbcOSsaeyk
-	 BL9WaFgF4rYqdorlvRYcMXpXp3xUS80VJnZf0s1gPya+S36lOItgt7kqKok2wkEWRH
-	 prvblDTG1V5kOjWoPBWwun9/gnwm6tp1Ocqw/pSLzBE5b6x9C4aQkIahwLeMzgXXfv
-	 Ft1Z46PiuEm9Hc72XP1kVd4F9ol0tet1H6N53hascvHxfGWRPntgNUWLaXLNfA/PU2
-	 Zge4E+02FFkog==
-Date: Mon, 27 Jan 2025 12:59:39 -0600
+	b=kfiWs/CrIrIPUXoBn9u859lQhtBX3yvkqmHKjO8DqTUw2A6DT8EKBjR9sMR5sF1KX
+	 mW1MfJ24szzFYquhahIAE3Ay+4oCDnKw4Y8F8W5dclgq7/JGONRhTxTDcGYl29OEyk
+	 IJrolWWpz1n3/7idwKXg51IwpjiYKLGJn0Iw3n2H2LQaUi02vpaeCdsQ7bA+IKKEB7
+	 g9FQntEBAhwfeHo8AhT+6eafPqQ1nPqzqYjUPyrEmmFLDzYwVgA/3cX6Q7ReVlh2tu
+	 o90wgm5w3JDYpj52WASkq1T11KU3UTBReF+12Z/P7qhHYJPrUDFEX1vtv668TD3kfK
+	 iTz0dWpyVDN+g==
+Date: Mon, 27 Jan 2025 13:07:34 -0600
 From: Rob Herring <robh@kernel.org>
-To: Xianwei Zhao <xianwei.zhao@amlogic.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: davem@davemloft.net, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Russell King <linux@armlinux.org.uk>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org
-Subject: Re: [PATCH v4 1/5] dt-bindings: pinctrl: Add support for Amlogic SoCs
-Message-ID: <20250127185939.GA612868-robh@kernel.org>
-References: <20250122-amlogic-pinctrl-v4-0-4677b2e18ff1@amlogic.com>
- <20250122-amlogic-pinctrl-v4-1-4677b2e18ff1@amlogic.com>
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
+	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	=?iso-8859-1?Q?Nicol=F2?= Veronese <nicveronese@gmail.com>,
+	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+	Antoine Tenart <atenart@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Subject: Re: [PATCH net-next RFC v2 6/6] dt-bindings: net: Introduce the
+ phy-port description
+Message-ID: <20250127190734.GA635780-robh@kernel.org>
+References: <20250122174252.82730-1-maxime.chevallier@bootlin.com>
+ <20250122174252.82730-7-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250122-amlogic-pinctrl-v4-1-4677b2e18ff1@amlogic.com>
+In-Reply-To: <20250122174252.82730-7-maxime.chevallier@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250127_105942_335682_D0718B1B 
-X-CRM114-Status: GOOD (  19.93  )
+X-CRM114-CacheID: sfid-20250127_110736_992462_81345907 
+X-CRM114-Status: GOOD (  22.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,222 +91,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 22, 2025 at 11:25:59AM +0800, Xianwei Zhao wrote:
-> Add the dt-bindings for Amlogic pin controller, and add a new
-> dt-binding header file which document the GPIO bank names of
-> all Amlogic subsequent SoCs.
+On Wed, Jan 22, 2025 at 06:42:51PM +0100, Maxime Chevallier wrote:
+> The ability to describe the physical ports of Ethernet devices is useful
+> to describe multi-port devices, as well as to remove any ambiguity with
+> regard to the nature of the port.
+> 
+> Moreover, describing ports allows for a better description of features
+> that are tied to connectors, such as PoE through the PSE-PD devices.
 
-Did you mean 'all subsequent Amlogic SoCs'? How can you know that? 
-Future SoCs may be different.
-
-Update the subject to say this is for A4 SoC.
+Seems like we need a connector binding like we've ended up needing in 
+other cases.
 
 > 
-> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+> Introduce a binding to allow describing the ports, for now with 2
+> attributes :
+> 
+>  - The number of lanes, which is a quite generic property that allows
+>    differentating between multiple similar technologies such as BaseT1
+>    and "regular" BaseT (which usually means BaseT4).
+> 
+>  - The media that can be used on that port, such as BaseT for Twisted
+>    Copper, BaseC for coax copper, BaseS/L for Fiber, BaseK for backplane
+>    ethernet, etc. This allows defining the nature of the port, and
+>    therefore avoids the need for vendor-specific properties such as
+>    "micrel,fiber-mode" or "ti,fiber-mode".
+> 
+> The port description lives in its own file, as it is intended in the
+> future to allow describing the ports for phy-less devices.
+> 
+> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 > ---
->  .../bindings/pinctrl/amlogic,pinctrl-a4.yaml       | 127 +++++++++++++++++++++
->  include/dt-bindings/pinctrl/amlogic,pinctrl.h      |  46 ++++++++
->  2 files changed, 173 insertions(+)
+> RFC V2: New patch
 > 
-> diff --git a/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml b/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml
-> new file mode 100644
-> index 000000000000..c4fdcd69bbf5
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml
-> @@ -0,0 +1,127 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pinctrl/amlogic,pinctrl-a4.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Amlogic pinmux controller
-> +
-> +maintainers:
-> +  - Xianwei Zhao <xianwei.zhao@amlogic.com>
-> +
-> +allOf:
-> +  - $ref: pinctrl.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    const: amlogic,pinctrl-a4
-> +
-> +  "#address-cells":
-> +    const: 2
-> +
-> +  "#size-cells":
-> +    const: 2
-
-Do you really need 2^64 address space to define the GPIO nodes?
-
-> +
-> +  ranges: true
-> +
-> +patternProperties:
-> +  "^gpio@[0-9a-f]+$":
+>  .../devicetree/bindings/net/ethernet-phy.yaml | 18 +++++++
+>  .../bindings/net/ethernet-port.yaml           | 47 +++++++++++++++++++
+>  2 files changed, 65 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/net/ethernet-port.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/net/ethernet-phy.yaml b/Documentation/devicetree/bindings/net/ethernet-phy.yaml
+> index 2c71454ae8e3..950fdacfd27d 100644
+> --- a/Documentation/devicetree/bindings/net/ethernet-phy.yaml
+> +++ b/Documentation/devicetree/bindings/net/ethernet-phy.yaml
+> @@ -261,6 +261,17 @@ properties:
+>  
+>      additionalProperties: false
+>  
+> +  mdi:
 > +    type: object
 > +
-> +    properties:
-> +      reg:
-> +        minItems: 1
-> +        items:
-> +          - description: pin config register
-> +          - description: pin mux setting register (some special pin fixed function)
-> +          - description: pin drive strength register (optional)
-> +
-> +      reg-names:
-> +        minItems: 1
-> +        items:
-> +          - const: gpio
-> +          - const: mux
-> +          - const: ds
-> +
-> +      gpio-controller: true
-> +
-> +      "#gpio-cells":
-> +        const: 2
-> +
-> +      gpio-ranges:
-> +        maxItems: 1
-> +
-> +    required:
-> +      - reg
-> +      - reg-names
-> +      - gpio-controller
-> +      - "#gpio-cells"
-> +      - gpio-ranges
-> +
-> +    additionalProperties: false
-
-Move this above 'properties'
-
-> +
-> +  "^func-[0-9a-z-]+$":
-> +    type: object
 > +    patternProperties:
-> +      "^group-[0-9a-z-]+$":
-> +        type: object
-> +        allOf:
-> +          - $ref: /schemas/pinctrl/pincfg-node.yaml
-> +          - $ref: /schemas/pinctrl/pinmux-node.yaml
-> +
-> +        required:
-> +          - pinmux
-> +    additionalProperties: false
+> +      '^port-[a-f0-9]+$':
 
-Move this above 'patternProperties'
+'port' is already a node name for graphs. It's also the deprecated name 
+for 'ethernet-port' in the switch/DSA bindings.
 
-> +
-> +required:
-> +  - compatible
-> +  - "#address-cells"
-> +  - "#size-cells"
-> +  - ranges
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/pinctrl/amlogic,pinctrl.h>
-> +    apb {
-> +      #address-cells = <2>;
-> +      #size-cells = <2>;
-> +      periphs_pinctrl: pinctrl {
-> +        compatible = "amlogic,pinctrl-a4";
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +        ranges;
-> +
-> +        gpio@14 {
-> +          reg = <0 0x14 0 0x10>, <0 0x14 0 0x10>;
+> +        $ref: /schemas/net/ethernet-port.yaml#
 
-Both registers at the same address? I hope that's a typo.
+A confusing name considering we already have 'ethernet-port'.
 
-> +          reg-names = "gpio", "mux";
-> +          gpio-controller;
-> +          #gpio-cells = <2>;
-> +          gpio-ranges = <&periphs_pinctrl 0 8 10>;
-> +        };
-> +
-> +        func-uart-b {
-> +          group-default {
-> +            pinmux = <AML_PINMUX(AMLOGIC_GPIO_B, 1, 4)>;
-> +            bias-pull-up;
-> +            drive-strength-microamp = <4000>;
-> +          };
-> +
-> +          group-pins1 {
-> +            pinmux = <AML_PINMUX(AMLOGIC_GPIO_B, 5, 2)>;
-> +            bias-pull-up;
-> +            drive-strength-microamp = <4000>;
-> +          };
-> +        };
-> +
-> +        func-uart-c {
-> +          group-default {
-> +            pinmux = <AML_PINMUX(AMLOGIC_GPIO_B, 3, 1)>,
-> +                     <AML_PINMUX(AMLOGIC_GPIO_B, 2, 1)>;
-> +            bias-pull-up;
-> +            drive-strength-microamp = <4000>;
-> +          };
-> +        };
-> +      };
-> +    };
-> diff --git a/include/dt-bindings/pinctrl/amlogic,pinctrl.h b/include/dt-bindings/pinctrl/amlogic,pinctrl.h
-> new file mode 100644
-> index 000000000000..7d40aecc7147
-> --- /dev/null
-> +++ b/include/dt-bindings/pinctrl/amlogic,pinctrl.h
-> @@ -0,0 +1,46 @@
-> +/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
-> +/*
-> + * Copyright (c) 2024 Amlogic, Inc. All rights reserved.
-> + * Author: Xianwei Zhao <xianwei.zhao@amlogic.com>
-> + */
-> +
-> +#ifndef _DT_BINDINGS_AMLOGIC_PINCTRL_H
-> +#define _DT_BINDINGS_AMLOGIC_PINCTRL_H
-> +/* Normal PIN bank */
-> +#define AMLOGIC_GPIO_A		0
-> +#define AMLOGIC_GPIO_B		1
-> +#define AMLOGIC_GPIO_C		2
-> +#define AMLOGIC_GPIO_D		3
-> +#define AMLOGIC_GPIO_E		4
-> +#define AMLOGIC_GPIO_F		5
-> +#define AMLOGIC_GPIO_G		6
-> +#define AMLOGIC_GPIO_H		7
-> +#define AMLOGIC_GPIO_I		8
-> +#define AMLOGIC_GPIO_J		9
-> +#define AMLOGIC_GPIO_K		10
-> +#define AMLOGIC_GPIO_L		11
-> +#define AMLOGIC_GPIO_M		12
-> +#define AMLOGIC_GPIO_N		13
-> +#define AMLOGIC_GPIO_O		14
-> +#define AMLOGIC_GPIO_P		15
-> +#define AMLOGIC_GPIO_Q		16
-> +#define AMLOGIC_GPIO_R		17
-> +#define AMLOGIC_GPIO_S		18
-> +#define AMLOGIC_GPIO_T		19
-> +#define AMLOGIC_GPIO_U		20
-> +#define AMLOGIC_GPIO_V		21
-> +#define AMLOGIC_GPIO_W		22
-> +#define AMLOGIC_GPIO_X		23
-> +#define AMLOGIC_GPIO_Y		24
-> +#define AMLOGIC_GPIO_Z		25
-> +
-> +/* Special PIN bank */
-> +#define AMLOGIC_GPIO_DV		26
-> +#define AMLOGIC_GPIO_AO		27
-> +#define AMLOGIC_GPIO_CC		28
-> +#define AMLOGIC_GPIO_TEST_N	29
-> +#define AMLOGIC_GPIO_ANALOG	30
-> +
-> +#define AML_PINMUX(bank, offset, mode)	(((((bank) << 8) + (offset)) << 8) | (mode))
-> +
-> +#endif /* _DT_BINDINGS_AMLOGIC_PINCTRL_H */
-> 
-> -- 
-> 2.37.1
-> 
+Rob
 
