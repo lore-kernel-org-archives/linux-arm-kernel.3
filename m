@@ -4,86 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35071C02188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 10:01:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 273E7C02188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 10:24:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nqS8yiFvPoQH42365EOQ4XQDK7lHJ8Wg2V08GdiylrY=; b=4MmO3vlLMIOargB/5Ksz6UJ9r6
-	eVjHe6OagLARPxO1bfifUVZ8wLRuXR1pVKEr6fa9k7FZm6+f0VWIgJyckGk/ixlKN5mnATNR+5fXT
-	E70V6R+ntDpGzn1aGTrQlVyYuIXxedEM9wYnBC0oQwshJPKuZYPbMGNUOy6PCIoF/aNt79wad68F5
-	mzBAO97amKtX+fzozEWiZLK5lh3moAoLa5xJKu8a5BUd/jaSdhtftqAoNcnH6HZ44VmzvgoPlreGr
-	eBfXtb9Hpjz1egxyM2G+ZtX7lOUzrcG7BlVqF3NEkrltvf+U6TE2eOQApYai3kjhBfW2trmS96uFm
-	eJIuIFCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xcx9rvLFQazm7qAnyf8KcGXDj5AWr7Jk73R2WBXbI5M=; b=YXEhQuQgGmUnbd+rQ83V5XUqVp
+	0/9OSBCtjinPx0gqxBl3XaK6+05hf5YOAfFkydohgScRnjIV7DPbJ6Ur/FqgixJfzZ9MSAnXDtIE/
+	bH/GfOe8KT81biSUtdgFTWNnZfmR+a7RK/4cMZYKnXVb2S7Ga+Wu5azi7kS0DjmnVcBUYMnn/ooKp
+	FXMoq5GFZO2ho8rZOj+uNcp+ALl5cFUtP0dcSG9oiEohH5v3+4spFZ2Ec28LvKA2vj+sr3oB/QLqy
+	xZDd5sSV+y3aDVkY//dFwNE5/PyW9GifeaQT9VJRynOvBDsRlPEzHRnm/5lnzJ/w6beYqmTtLr1WQ
+	wJzO64Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcLvN-000000025lj-1ZcF;
-	Mon, 27 Jan 2025 10:00:57 +0000
-Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
+	id 1tcMHm-000000027S3-3IUZ;
+	Mon, 27 Jan 2025 10:24:06 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcLu0-000000025Tl-2uQQ
+	id 1tcMGR-000000027HY-3pDo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jan 2025 09:59:34 +0000
-Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-30615661f98so43764181fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jan 2025 01:59:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1737971970; x=1738576770; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nqS8yiFvPoQH42365EOQ4XQDK7lHJ8Wg2V08GdiylrY=;
-        b=R29CjJFdNJ/yH6bP5Are1le53wqs4sMBL61m/JfKb5rCiHdCoZZCsq4Qk7QVBj803g
-         eo4HQE8QAtF+P0Ip0KHSy10Ar8Pv1ch0FW5NSjzJB+Xrlhx/xKRMC53G2//7Ev/QmjZv
-         HLjhlQOsm8c3fMzmYd9EA5tkNAORBD6wcfE8F3Vv3302R1SUFgK8i0Jo6DMbdhkxUCzP
-         x7d9e7JuG2E5iM/BfcMBdNGT206ZFypIYSWqIm1FU8XmQMbRBAnu18sMsTOUV2mRC1rW
-         P4NXBHpZjWMtSs79BCASLVowW4r6vsaFD4hU0RNXbS2HmK2Zy7tjivU6Jiq6qnlmrSpW
-         1eag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737971970; x=1738576770;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=nqS8yiFvPoQH42365EOQ4XQDK7lHJ8Wg2V08GdiylrY=;
-        b=Vg5+JbNSvN+ruwDQAZTsbnuZ7kQJ7R/axIlVZ0p2V+XzgxyuUvW08OAlh0fng9eAw/
-         6O8AkgeHvE0juJOUpdAucf7tBFXuQv/wqG3qh/6dr6rGgKWENWo6HwOpwS6HpI/HcCPx
-         UbnnSk15RZljxNgaNRqunk6OlDqqVr/FlJmLlm6+8hxqkgQl5wrtf7YmIiEDQlIXyiwE
-         ya6LUe8oPoOKOxdzfTQJHoaVE8eDjHgJ/Q/vbO5nT+zMjnjEzIbzHznOWe7ok7JUCJIV
-         5udSvMaESZ7+g4MT74PwZ37pthFDPCm8i289YLlPhfNLEo+pQedzj18MpvDvA2Z1cwZh
-         nxig==
-X-Forwarded-Encrypted: i=1; AJvYcCUUCbypq2E/DdyFpmLlPTMMXfcazKOS9Bep3IHdZsokUIPPRif994KW9Cd2+3llisEl22FShRn6uuYg723w038m@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVRjWwkJV0zXxrHCAyZk8sSdzjIgN5/3YqPGPRwWS29WWC8N1r
-	v8kp7WhXXDaRcnOzDDJFR3iE1UnUZX/Xe/8B4TTaOUKbgIAyystNeuuVPtvrVXvZEaThlO0rlZa
-	QkAclPL1LqAmPm/oc5QAIahxio19doS/htGmVtw==
-X-Gm-Gg: ASbGncsUnJI7cp3f+pCS3Yp47ov3WaQS7XGiD+ZxeGw0KyTjBHi+6BQ+LPqseCDKc5Z
-	6z8oUR+aQK4dAEp0GYc/asKYIO810DloJQkXWXlA27iwxRT06tns7m0+Aus34
-X-Google-Smtp-Source: AGHT+IHqpm1ys9+lwbd/QxujcbzJL4i0yKhhKzjeujkw2d5Z1I5Id1mRs2qKI/MXH9CQY+F8hE4OzkVsIK/ZHQmuZJE=
-X-Received: by 2002:a05:6512:1312:b0:542:234b:9a6a with SMTP id
- 2adb3069b0e04-5439c281f9amr15646461e87.33.1737971970154; Mon, 27 Jan 2025
- 01:59:30 -0800 (PST)
+	Mon, 27 Jan 2025 10:22:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1737973363; x=1769509363;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:to:cc;
+  bh=7+Qct7BeymG7lOqPogQ8tjt4CwnzfX9+dQChIt/gR5o=;
+  b=BxLyEPxqs7B+aHNnhPjzQkwkMSNA6cAnYPDJckzp63TS5b+Wd+pVYcPa
+   Nf+CGkXGP4JQZIVjgcxHD789aWHeVsQ8PuTGwi9JLP3hiBLivDbmrN3oJ
+   BADQSdw4nwyVL1YRlcO9wWsHQo2XHUvS7JzCZypk+iU0F2GPodVsKVO+e
+   6yRLmTphUr6sIKkCmlI1vAXOQoii//g3w+4OwNJjF9Ye8T+mlciyeHszH
+   L8MTzdBfHEqL3atK9x29mbmCRn4v5/J8nPNaY/GFrf/Q8cazh5GYOFmEA
+   BfXjq7TDSXTjRvuaIjo4iLYUnV5j9XTbwB3064gw6WXQtAXklJ/0Uo5UT
+   A==;
+X-CSE-ConnectionGUID: 6/71w3G4TJKoIyAFZm+R7w==
+X-CSE-MsgGUID: a9lbd0A9Qua1pNFSFbBmAg==
+X-IronPort-AV: E=Sophos;i="6.13,238,1732604400"; 
+   d="scan'208";a="37388198"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 27 Jan 2025 03:22:40 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Mon, 27 Jan 2025 03:22:09 -0700
+Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
+ Transport; Mon, 27 Jan 2025 03:22:04 -0700
+From: Charan Pedumuru <charan.pedumuru@microchip.com>
+Date: Mon, 27 Jan 2025 15:51:58 +0530
+Subject: [PATCH v3] dt-bindings: dma: convert atmel-dma.txt to YAML
 MIME-Version: 1.0
-References: <20250122-amlogic-pinctrl-v4-0-4677b2e18ff1@amlogic.com> <20250122-amlogic-pinctrl-v4-3-4677b2e18ff1@amlogic.com>
-In-Reply-To: <20250122-amlogic-pinctrl-v4-3-4677b2e18ff1@amlogic.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Mon, 27 Jan 2025 10:59:19 +0100
-X-Gm-Features: AWEUYZlw3ilYGs0ATdzTHL2yQh4eIVQWc6_6OrIXQyU_MtlIHFv72pFxPtpk8xc
-Message-ID: <CACRpkdZRbpd0Kw9V=aYX5P0vJLtErNR+aBzPagSwf=AZh6QERA@mail.gmail.com>
-Subject: Re: [PATCH v4 3/5] pinctrl: Add driver support for Amlogic SoCs
-To: xianwei.zhao@amlogic.com
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Bartosz Golaszewski <brgl@bgdev.pl>, 
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-amlogic@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250127-test-v3-1-1b5f5b3f64fc@microchip.com>
+X-B4-Tracking: v=1; b=H4sIAEVel2cC/03MywrDIBCF4VcJs+4Urxi66nuELsSMdRbGoBIKI
+ e9e6arLD/5zTmhUmRo8phMqHdy4bAP6NkFIfnsT8joMSigrpHLYqXWcBdlg5hCdcTDSvVLkz+9
+ meQ3HWjL2VMn/jzWu2eMhUaKwJkrvHDmtn5lDLSHxfg8lw3V9AUjY1DyVAAAA
+To: Ludovic Desroches <ludovic.desroches@microchip.com>, Vinod Koul
+	<vkoul@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Nicolas Ferre
+	<nicolas.ferre@microchip.com>, Alexandre Belloni
+	<alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Andrei Simion <andrei.simion@microchip.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <dmaengine@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "Durai Manickam
+ KR" <durai.manickamkr@microchip.com>, Charan Pedumuru
+	<charan.pedumuru@microchip.com>
+X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250127_015932_740427_49CAEF3B 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20250127_022244_030704_5754D431 
+X-CRM114-Status: GOOD (  22.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,44 +92,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Xianwei,
+From: Durai Manickam KR <durai.manickamkr@microchip.com>
 
-thanks for your patch!
+Add a description, required properties, appropriate compatibles and
+missing properties like clocks and clock-names which are not defined in
+the text binding for all the SoCs that are supported by microchip.
+Update the text binding name `atmel-dma.txt` to
+`atmel,at91sam9g45-dma.yaml` for the files which reference to
+`atmel-dma.txt`. Drop Tudor name from maintainers.
 
-On Wed, Jan 22, 2025 at 4:26=E2=80=AFAM Xianwei Zhao via B4 Relay
-<devnull+xianwei.zhao.amlogic.com@kernel.org> wrote:
+Signed-off-by: Durai Manickam KR <durai.manickamkr@microchip.com>
+Signed-off-by: Charan Pedumuru <charan.pedumuru@microchip.com>
+---
+Changes in v3:
+- Renamed the text binding name `atmel-dma.txt` to
+  `atmel,at91sam9g45-dma.yaml` for the files which reference to
+  `atmel-dma.txt`.
+- Removed `oneOf` and add a blank line in properties.
+- Dropped Tudor name from maintainers.
+- Link to v2: https://lore.kernel.org/r/20250123-dma-v1-1-054f1a77e733@microchip.com
 
-> From: Xianwei Zhao <xianwei.zhao@amlogic.com>
->
-> Add a new pinctrl driver for Amlogic SoCs. All future Amlogic
-> SoCs pinctrl drives use this, such A4, A5, S6, S7 etc. To support
-> new Amlogic SoCs, only need to add the corresponding dts file.
->
-> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
-> ---
->  drivers/pinctrl/Kconfig           |   18 +
->  drivers/pinctrl/Makefile          |    1 +
->  drivers/pinctrl/pinctrl-amlogic.c | 1053 +++++++++++++++++++++++++++++++=
-++++++
+Changes in v2:
+- Renamed the yaml file to a compatible.
+- Removed `|` and description for common properties.
+- Modified the commit message.
+- Dropped the label for the node in examples.
+- Link to v1: https://lore.kernel.org/all/20240215-dmac-v1-1-8f1c6f031c98@microchip.com
+---
+ .../bindings/dma/atmel,at91sam9g45-dma.yaml        | 66 ++++++++++++++++++++++
+ .../devicetree/bindings/dma/atmel-dma.txt          | 42 --------------
+ .../devicetree/bindings/misc/atmel-ssc.txt         |  2 +-
+ MAINTAINERS                                        |  2 +-
+ 4 files changed, 68 insertions(+), 44 deletions(-)
 
-Please move this file into drivers/pinctrl/meson as I requested
-earlier. We can rename "meson" to "amlogic" later if that placement
-is confusing.
+diff --git a/Documentation/devicetree/bindings/dma/atmel,at91sam9g45-dma.yaml b/Documentation/devicetree/bindings/dma/atmel,at91sam9g45-dma.yaml
+new file mode 100644
+index 000000000000..d6d16869b7db
+--- /dev/null
++++ b/Documentation/devicetree/bindings/dma/atmel,at91sam9g45-dma.yaml
+@@ -0,0 +1,66 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/dma/atmel,at91sam9g45-dma.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Atmel Direct Memory Access Controller (DMA)
++
++maintainers:
++  - Ludovic Desroches <ludovic.desroches@microchip.com>
++
++description:
++  The Atmel Direct Memory Access Controller (DMAC) transfers data from a source
++  peripheral to a destination peripheral over one or more AMBA buses. One channel
++  is required for each source/destination pair. In the most basic configuration,
++  the DMAC has one master interface and one channel. The master interface reads
++  the data from a source and writes it to a destination. Two AMBA transfers are
++  required for each DMAC data transfer. This is also known as a dual-access transfer.
++  The DMAC is programmed via the APB interface.
++
++properties:
++  compatible:
++    enum:
++      - atmel,at91sam9g45-dma
++      - atmel,at91sam9rl-dma
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  "#dma-cells":
++    description:
++      Must be <2>, used to represent the number of integer cells in the dmas
++      property of client devices.
++    const: 2
++
++  clocks:
++    maxItems: 1
++
++  clock-names:
++    const: dma_clk
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - "#dma-cells"
++  - clocks
++  - clock-names
++
++additionalProperties: false
++
++examples:
++  - |
++    dma-controller@ffffec00 {
++        compatible = "atmel,at91sam9g45-dma";
++        reg = <0xffffec00 0x200>;
++        interrupts = <21>;
++        #dma-cells = <2>;
++        clocks = <&pmc 2 20>;
++        clock-names = "dma_clk";
++    };
++
++...
+diff --git a/Documentation/devicetree/bindings/dma/atmel-dma.txt b/Documentation/devicetree/bindings/dma/atmel-dma.txt
+deleted file mode 100644
+index f69bcf5a6343..000000000000
+--- a/Documentation/devicetree/bindings/dma/atmel-dma.txt
++++ /dev/null
+@@ -1,42 +0,0 @@
+-* Atmel Direct Memory Access Controller (DMA)
+-
+-Required properties:
+-- compatible: Should be "atmel,<chip>-dma".
+-- reg: Should contain DMA registers location and length.
+-- interrupts: Should contain DMA interrupt.
+-- #dma-cells: Must be <2>, used to represent the number of integer cells in
+-the dmas property of client devices.
+-
+-Example:
+-
+-dma0: dma@ffffec00 {
+-	compatible = "atmel,at91sam9g45-dma";
+-	reg = <0xffffec00 0x200>;
+-	interrupts = <21>;
+-	#dma-cells = <2>;
+-};
+-
+-DMA clients connected to the Atmel DMA controller must use the format
+-described in the dma.txt file, using a three-cell specifier for each channel:
+-a phandle plus two integer cells.
+-The three cells in order are:
+-
+-1. A phandle pointing to the DMA controller.
+-2. The memory interface (16 most significant bits), the peripheral interface
+-(16 less significant bits).
+-3. Parameters for the at91 DMA configuration register which are device
+-dependent:
+-  - bit 7-0: peripheral identifier for the hardware handshaking interface. The
+-  identifier can be different for tx and rx.
+-  - bit 11-8: FIFO configuration. 0 for half FIFO, 1 for ALAP, 2 for ASAP.
+-
+-Example:
+-
+-i2c0@i2c@f8010000 {
+-	compatible = "atmel,at91sam9x5-i2c";
+-	reg = <0xf8010000 0x100>;
+-	interrupts = <9 4 6>;
+-	dmas = <&dma0 1 7>,
+-	       <&dma0 1 8>;
+-	dma-names = "tx", "rx";
+-};
+diff --git a/Documentation/devicetree/bindings/misc/atmel-ssc.txt b/Documentation/devicetree/bindings/misc/atmel-ssc.txt
+index f9fb412642fe..b159dc2298b6 100644
+--- a/Documentation/devicetree/bindings/misc/atmel-ssc.txt
++++ b/Documentation/devicetree/bindings/misc/atmel-ssc.txt
+@@ -14,7 +14,7 @@ Required properties:
+ Required properties for devices compatible with "atmel,at91sam9g45-ssc":
+ - dmas: DMA specifier, consisting of a phandle to DMA controller node,
+   the memory interface and SSC DMA channel ID (for tx and rx).
+-  See Documentation/devicetree/bindings/dma/atmel-dma.txt for details.
++  See Documentation/devicetree/bindings/dma/atmel,at91sam9g45-dma.yaml for details.
+ - dma-names: Must be "tx", "rx".
+ 
+ Optional properties:
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 962eab2ce359..f1f4e3956f45 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -15348,7 +15348,7 @@ M:	Ludovic Desroches <ludovic.desroches@microchip.com>
+ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+ L:	dmaengine@vger.kernel.org
+ S:	Supported
+-F:	Documentation/devicetree/bindings/dma/atmel-dma.txt
++F:	Documentation/devicetree/bindings/dma/atmel,at91sam9g45-dma.yaml
+ F:	drivers/dma/at_hdmac.c
+ F:	drivers/dma/at_xdmac.c
+ F:	include/dt-bindings/dma/at91.h
 
-> +config PINCTRL_AMLOGIC
+---
+base-commit: 232f121837ad8b1c21cc80f2c8842a4090c5a2a0
+change-id: 20250127-test-80e5c48cf747
 
-There is already PINCTRL_AMLOGIC_C3 and PINCTRL_AMLOGIC_T7
-as will be very apparent when you move this driver.
+Best regards,
+-- 
+Charan Pedumuru <charan.pedumuru@microchip.com>
 
-What is a *proper* name for this family of SoCs?
-
-> +MODULE_LICENSE("Dual BSD/GPL");
-
-On the top of the file you have:
-> +// SPDX-License-Identifier: GPL-2.0-only
-
-So this does not add up. Fix one or the other.
-
-Yours,
-Linus Walleij
 
