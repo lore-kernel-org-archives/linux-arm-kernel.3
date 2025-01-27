@@ -4,94 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1BDFC0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 19:36:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D997CC02188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 20:20:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:In-reply-to:Date:Subject:Cc:To:From:
-	References:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5VUoGCwfVNYXwKgXNKkHD5VpTMGwmKU++/GyIsT0nn8=; b=wNQh+ntWl+GQ+UzeJuuKcWh0a9
-	YN5TDeUvtWYEEJVWgrX/mnb50H+0/Kel6X8Dy8/tKD7cDAxYQPi0e6SxvW3+1/dNKO4BgiAdoFC1p
-	Pmo3HM1yhjxPwnseB5BU5cHL0bWOm0m1w0vnDDCCwpSpP0Ys+2EJJp8O1IYuuNdvjemTnX4czWxw+
-	tnv4+sI2WfamHyMQZi4ljMOXTFXiIWcHqVAAdtECky5L6QNBeumTAYQ1B8j5cG+BdADncNgA3v/MH
-	z/nNFRVMrEFq9ZTToksHblcvowAZzvRELGzM4gssviay2iAvKQ/HXJvDczwCuQBV9ak1/sSatG3eE
-	iMmazg7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=M3DdCOn3oSvE/VK/AAXp38B1jTB4PoHl0ndv8qV09hs=; b=4UgWTz7QuQeg2N0ZBdx11C/JLs
+	U4TCjTLHXrJ1rZ7RP4eYDgqt/VyYwR/8mEnvhISrtxdsGPc/Ba0yysms9J+dSmoYxfMDGpIClrnjO
+	24ynQsYSYPx1o0Hn/YBA5UeORx8L9J1bcU/rgrLvgVvD5+Y+CNbZLR4OHrlnHhlwrHAyCKXfHbsjP
+	MyVcgYRPlviKF3EFLPXfDNZTYqJUb53WXwUiq4PhH3QzYx54riBB+S418xnLmdYhj8agkVhEBUcYK
+	rNz39M+Q0l0v5ABJyqUGrOXGRmYRRE8ysuqZXmdMa+eW6p16Bw9fDqVY9tySiUI7tIuD8ZvQqgr48
+	sF0EojjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcUuP-000000038Dl-3boL;
-	Mon, 27 Jan 2025 19:36:33 +0000
-Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
+	id 1tcVaa-00000003Bpo-1M5J;
+	Mon, 27 Jan 2025 20:20:08 +0000
+Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcUt3-0000000388T-1uwl;
-	Mon, 27 Jan 2025 19:35:10 +0000
-Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-30613802a59so52799971fa.0;
-        Mon, 27 Jan 2025 11:35:08 -0800 (PST)
+	id 1tcVZF-00000003BjJ-49Ye
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Jan 2025 20:18:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HxqJhbJe1jPytYXhD6dvE1VPjOJADfQbFHQbJ0yUhFoDmhIWtWzAwelFH34n4gh02E/cXMrE2e8YQov+zu+hvX4Z/HJmzTLabhvrNMkhizfFcVB7KgySeoeYsOfN7E3zgB18wirSx0aBzuMJ7DYcp+yH16mlNWX0h4+dKLWmtX37zHTH04gV8QuUw/j13/Hl6i1kl+aKmjLZw/6IqEjJZNIzME1XzCR4g3E4b7xxLW5G7jwjPZoq8uneQPNEVbmQiKHL4aNrMkw89o04bFYFp9CPTE7hB4/5HXQRrhcfPrmZwBIThVj8U6ISy+yIaTzpDvX3xj68LCQ3Jd8DjqTwQA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=M3DdCOn3oSvE/VK/AAXp38B1jTB4PoHl0ndv8qV09hs=;
+ b=tkXOsr6QKGz2AsQ252T3dokBjkbiq1lXP9/M8ppgbFWc2Avy3TrhweipGHE5jj9KsIQae/16luSqqjlSKHDTkZfUx3sY+6luGyPn6BgjjUKtdugvv7UH7EA7JKjRy1kfn5jCav2kLWGm24zoUUyQZygU/CyQjmg+9swAWkwc6AlHq/m2dV/vg4zyvQ79HhDIUM62Lnj0K1zzPqqIRXZuettD1X75hVngRa5XUS6nGLcnNMo6iWJ+QkaFBTfBuhWfyRtm7TVEuYWktEK/koBWXozBPMrFMqqKPTDRyZRuodxEkmynn1K3oNNC4fvFZWdcC3HdY4m7qihmm/aQOIElsw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738006507; x=1738611307; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:in-reply-to:date
-         :subject:cc:to:from:user-agent:references:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5VUoGCwfVNYXwKgXNKkHD5VpTMGwmKU++/GyIsT0nn8=;
-        b=A6KcZjd3O1f0GZ4FySxm1imoHM2onTU6HGPXEpne4qN9o0UavKsePH6lazxQRg4AqG
-         xeDx1afJGTBRdp6FMcl9ST7R452h6TxXUX9jYoVCD4R3SGu/e54nHxLhb54d361anYEb
-         v7t3Dip+Eu89sCIK9aWLQ0vY4L4hkudEwU9S5Sw0iixHEE9z+EdUyBQsurJqs9cFh8Ac
-         XzzLod86hnbneddRuMTHdn9uZA/ERX1hkzqTq06cuzYSXo/eie8UyeNUn2/8JeCb2FLl
-         gPxd4D4Z++lj0nwr3+CmytBtJveuzmbNVUmmrCBATgCy+PDU7GW1tmQCpUhwxmIG7PC5
-         fgUA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738006507; x=1738611307;
-        h=content-transfer-encoding:mime-version:message-id:in-reply-to:date
-         :subject:cc:to:from:user-agent:references:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=5VUoGCwfVNYXwKgXNKkHD5VpTMGwmKU++/GyIsT0nn8=;
-        b=Hp5gmWSNw35HT0V8Pj306MplS97KTK8a+SUo1LLlqy8b0/7PyumIscbDsqjztJwPyE
-         HdItKbMGnqUDWnzgtnPFFAPVMw1NFqabt0A7VznhM9OaUWSRQhuzMu40zPXl0qq2HFkT
-         cM65pVqvb0Tc/ea7KXsKWK1J5KV8j+FX23HG9LHEwscdnEMDvx0zYwWff3jnS9wGAaqx
-         Xuz5sGK70TvDwf/QoVUTBVCj9eWUMtnjvLePZJwtC3xkPeAk8seJUezRYOVe4UgwVG1O
-         jRuBuo48R1FtdIDUh/JQdSxLW6XJ3OFdY2Y9kgWF5SXvrGBO+Uh1p13uiJbihJTKpR7w
-         8p4A==
-X-Forwarded-Encrypted: i=1; AJvYcCU26vvj1dcdHOJhiB9BQlQRKNKZ2H2mCQevtdh03SRe7h5XyWz6mxwY+ulIYwQriQFi7ysS5iY8bCDiSGkBYCR0@lists.infradead.org, AJvYcCVYpGOi2szNMyy4NTkOuS3KbCb3cKR80sQ2ZhNYutadpXswU4NrmTFFKDPl1xBbk+MPQrizj6MV8mykO0hiSb0=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0jg0/7uJuO5Fk2SZM2WVQ5czq9ba4/GSiv818fgouSdR5nLry
-	BdUT6rsJTOi8HlZwH4fVwnlkcdssXa9e9RR8feYAWYjVpTUCpUnq
-X-Gm-Gg: ASbGncuJ66iUzXg88FW3UrdXGQnsvRxvisuffMoip4ILFp4b85UUrfzhF4SO1UQirCg
-	KWpb9iZ78wSRBH6p5gLMbtivuio/RHmjSrMi2dAVDDs/7rFCfET5GGJmaIyxowCOtqt5yaTBlmp
-	0u2b/cx0nj3GKlJQXweVzCfDbrnCXwBDF5zqCqUMXkgTLQt2Nmwb05p0Ki/TRhZUt/wgNGCBQM+
-	ycOqZwnD8StNlEtLYFB9JEpnVOuhnJYaMsK1xfAxnWKtewGHClidIWFtJk/Osb4T2nlsttY61W6
-	ebImnuBhwYiJFaV0UMuvsX3PvzfHIZNpUU8edP7RuY9paJ927Xsy9Z17iO89qSwzIvoT
-X-Google-Smtp-Source: AGHT+IGYlUkHvv8II3ZmzjPYZOyuE8bYVugVsv3AwxgDWrxCyoTSMTVmYGtMCYbLyZ+vF5rQMN00+g==
-X-Received: by 2002:a05:6512:1247:b0:542:98e0:7c67 with SMTP id 2adb3069b0e04-5439c27d401mr15203413e87.51.1738006506652;
-        Mon, 27 Jan 2025 11:35:06 -0800 (PST)
-Received: from razdolb (static.248.157.217.95.clients.your-server.de. [95.217.157.248])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-543c8381772sm1375919e87.249.2025.01.27.11.35.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Jan 2025 11:35:05 -0800 (PST)
-References: <20250115-b4-rkisp-noncoherent-v2-0-0853e1a24012@gmail.com>
- <20250115-b4-rkisp-noncoherent-v2-1-0853e1a24012@gmail.com>
- <CAAFQd5DFuw9e85X-UhVfonb5C9F0tG6xyn9RUGitKDQXifcUyA@mail.gmail.com>
-User-agent: mu4e 1.10.9; emacs 29.4.50
-From: Mikhail Rudenko <mike.rudenko@gmail.com>
-To: Tomasz Figa <tfiga@chromium.org>
-Cc: Dafna Hirschfeld <dafna@fastmail.com>, Laurent Pinchart
- <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab
- <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Marek Szyprowski
- <m.szyprowski@samsung.com>, Hans Verkuil <hverkuil@xs4all.nl>, Sergey
- Senozhatsky <senozhatsky@chromium.org>, linux-media@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Mauro Carvalho Chehab
- <mchehab+huawei@kernel.org>, stable@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] media: videobuf2: Fix dmabuf cache sync/flush in
- dma-contig
-Date: Mon, 27 Jan 2025 22:25:51 +0300
-In-reply-to: <CAAFQd5DFuw9e85X-UhVfonb5C9F0tG6xyn9RUGitKDQXifcUyA@mail.gmail.com>
-Message-ID: <87jzag82zd.fsf@gmail.com>
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=M3DdCOn3oSvE/VK/AAXp38B1jTB4PoHl0ndv8qV09hs=;
+ b=X0I61slUHM7yIfJ71fZgiWWI2Lb/mnkmjQ+1uW9eD0LiADfBjCmF0+0XVj7/FI3waiHYIxDnu4to9aCBaOWH3ugC8/u5ViHR9yqj9uYdg9xK8aKMeiYuwUA8e0jGtXvcFzCKequ5UHg0CGN4RTBeMjPRMVsuz8ZCw0Y2QDdGI4o=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from SN7PR01MB7903.prod.exchangelabs.com (2603:10b6:806:34f::17) by
+ BL3PR01MB6897.prod.exchangelabs.com (2603:10b6:208:354::23) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8398.15; Mon, 27 Jan 2025 20:18:40 +0000
+Received: from SN7PR01MB7903.prod.exchangelabs.com
+ ([fe80::cf45:9855:a64e:382f]) by SN7PR01MB7903.prod.exchangelabs.com
+ ([fe80::cf45:9855:a64e:382f%6]) with mapi id 15.20.8398.005; Mon, 27 Jan 2025
+ 20:18:40 +0000
+From: Zaid Alali <zaidal@os.amperecomputing.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org,
+	maz@kernel.org,
+	puranjay@kernel.org,
+	broonie@kernel.org,
+	zaidal@os.amperecomputing.com,
+	mbenes@suse.cz,
+	mark.rutland@arm.com,
+	ruanjinjie@huawei.com,
+	oliver.upton@linux.dev,
+	robh@kernel.org,
+	anshuman.khandual@arm.com,
+	james.morse@arm.com,
+	shiqiliu@hust.edu.cn,
+	eahariha@linux.microsoft.com,
+	scott@os.amperecomputing.com,
+	joey.gouly@arm.com,
+	ardb@kernel.org,
+	yangyicong@hisilicon.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: errata: Add Ampere erratum AC04_CPU_50 workaround alternative
+Date: Mon, 27 Jan 2025 12:18:29 -0800
+Message-Id: <20250127201829.209258-1-zaidal@os.amperecomputing.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MW4PR03CA0297.namprd03.prod.outlook.com
+ (2603:10b6:303:b5::32) To SN7PR01MB7903.prod.exchangelabs.com
+ (2603:10b6:806:34f::17)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN7PR01MB7903:EE_|BL3PR01MB6897:EE_
+X-MS-Office365-Filtering-Correlation-Id: 765c850e-6dc5-475c-c3af-08dd3f0fca03
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|52116014|1800799024|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?CbwWPy4PUE7ag/DPLfrA2BIumuD/WiqYdggoEWJR7oqVoT2V8+/1PAcAfwLr?=
+ =?us-ascii?Q?jX1TU+RlTq5niAADfGoTLogGx8xcOwc+MFICsZl1Rb6e6Jv64hdaAasQC8bZ?=
+ =?us-ascii?Q?eqg2lfchvEtSwPtqrxBRXhvn1UYvV/QlcbrnFUxow9RvVEHPo2gO+XypABSv?=
+ =?us-ascii?Q?nl8k7OlC0ErLMHAWigtjm+y9aJdFDlrGJ7BuJAfKvgnfjV+8Tppq+jBuQs+K?=
+ =?us-ascii?Q?bMQjf0MMNBnP6ftuvYFXcz8vy+VJ5sjB/iSDERr25zZVp9bIYOo43P2vACDi?=
+ =?us-ascii?Q?UfeM255x+J40S6eT6D6HL2AAe6Mui8+eB8VG54kth19QgDusJw9VO7eeEvNT?=
+ =?us-ascii?Q?elZwI1oGYoIEnoWKGgVdIW9YsjCwmEc+X9BVj/+/6ECwOYh+68nMXhNP38KS?=
+ =?us-ascii?Q?vERCIWF2xi/Oy/ocWuymBYHAFzi+QuQ/WZJhgOg2o9pEYQhEKQYWUfQjNqv5?=
+ =?us-ascii?Q?H9YNCg50Q393Qywo6katLPpAlN7+A+AU2VayMmRVNbx4IjXsEy/+oufMhYyQ?=
+ =?us-ascii?Q?sv37GaL+wpYcOjdix08FacEks4IabgjRnMoe8hqETCTFzqBu1ogoqD9t0Jx3?=
+ =?us-ascii?Q?aWldWITfgH+jW4IrTAo1YokgvV2bYJLbZHo7RzCVTuhYKXOJFBhRMLQl7K1K?=
+ =?us-ascii?Q?Y4i+Wgpod9oEED1h05mgXPT54YlX1JfIVMWMr+SZwYXDKPV3onEl79JaAUSn?=
+ =?us-ascii?Q?iO7UtRaZFp7WPiVunqojNXAHuhoHd6VRtES9QUb+ZsD5eYnY2BBZ/69TzBeO?=
+ =?us-ascii?Q?qc4ZZ4Ee+W/tP5Rx+OamO4gjh8MKeZi5PUBQ9Rtlv/Au6vc+k0skeqqK+tLc?=
+ =?us-ascii?Q?lY3DUa2r35lpDyAn58CGUjAPI/zZW/T3of039uFZWt7Y5Mixrz+D+rDLaAno?=
+ =?us-ascii?Q?MmJ6Xkvy+dgTZnBkAkjeCyK9grB5sVe3yRNjjztSzOudnrQCIGIdOEjs/Obm?=
+ =?us-ascii?Q?bhT6NEgShTuBCw/5SNDjILNt+yl2kRKbSBc1h1VZHJuLWJnLi0zNYi6VZB6N?=
+ =?us-ascii?Q?800lOg+KW8z1sJ5/fpcxCHh5iCmQ1w99Sgp8hqFQQA/k6wXrUxtPb8vWKtwn?=
+ =?us-ascii?Q?59n2AahLkzGjlsFfSE75P+Szp8+E3Y1Ya1VoYKySM0Vk2A1wGktyKvjMBZyp?=
+ =?us-ascii?Q?3xggfzskTKiucj5l/p5QG5NyM5wfRSKsMOGupGq6PR29++DDXtK/8hR3nrEb?=
+ =?us-ascii?Q?HceyCjFdNUF7LE8+59NZed+cDP9bDMKAGNLNpFtuRemvKfxjXMpm6Ibwl01o?=
+ =?us-ascii?Q?2ZWP3f0kbDecwH4Puik0SfPrJoJMF+5jTwY5gaXVQlxseA5PZ0yWlgyO+Fqb?=
+ =?us-ascii?Q?BewKm7kmm+Zujytfzt3q3RXTl6dQhUyst6DMlIdbkVqUALAuIalwcPNUIBux?=
+ =?us-ascii?Q?56QjcvgME9DRJrVDAtaeGCjzDn/EhFrMkMvYfOYyIV8vWicp1FwfTAIb+D9J?=
+ =?us-ascii?Q?bYgfAVyynVH8kPwQjpxDhTl86uGl7EHN?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN7PR01MB7903.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(52116014)(1800799024)(38350700014)(921020);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YHILLyC94fsnY9aDK2pIyJx3Lw+1fTAQvbwGyueXnz0d1Jd05Ooype+DAhxa?=
+ =?us-ascii?Q?w1Hgn8rc67q3d4tsSw6XEXsopHI7zNsIoryCaQxPPjH8k0qI5Ur0MMjsx3rE?=
+ =?us-ascii?Q?xwKK/harhDyva47cQRvWvpzzmcUHQBVgtufgpH4raiQUsbybeIFEc+RE7jfP?=
+ =?us-ascii?Q?BlgLQyfXdZRr61YWmk0HiGXDNq7IygcwJ6Xo1cDiA+RJLJ+q8cBcaDsrvNlN?=
+ =?us-ascii?Q?S/Mc209okfMDj4pM7cs4G73X2ITm2yTFZitiOtNFrV1NhJ7BuRKjZuJ5EOgH?=
+ =?us-ascii?Q?ShQWQ/XIArEeP+gbc/JInRVBFcPEwHKTiitgN6h9LssRH8YQO5JLAjmgCpAQ?=
+ =?us-ascii?Q?8uuphV/QoPC+1fVZ3lKKVHUA8ewN2wgexwulSDdn2GS1Nw+TLPWf+W2/FguG?=
+ =?us-ascii?Q?bPHLehdKbew+4lNhmlaPtZKGmGgUMH89LWtXNDQRdsFTv4bTKtM9GKwRf7w5?=
+ =?us-ascii?Q?ndXDeOgXJgiUZBF2902wy60GUNB2QsRvLqLrRlU81dAVwR/uuO9JfuyszzHW?=
+ =?us-ascii?Q?k32ruJp1HnibXTaTfo4bdMSeC5w48ufsQhgVsRJpFTomaOY705lsUbfhX+6S?=
+ =?us-ascii?Q?0nW2gIu4dTrdh3F7xgfD/QyfBabwofAtCDm1aQXTXUUs3/WsWf+JZGtCKhrQ?=
+ =?us-ascii?Q?Axo8DbBs10wnoZZAf9GVVOZ9oXv+OuGB4XmBSJPLWbTlS0FGayZe73RiBzdX?=
+ =?us-ascii?Q?memb1eOtW4Nitz+gh0ZBiAvpO4r0j1QvtLf5oqsjXqQuQBMGl1P+s5Jzh4JC?=
+ =?us-ascii?Q?LuZkoQ5Psgt+jLVNPAJRw5kMF5kFYdER8pOZyJImvF2t2bFIneq+jAUP0V+C?=
+ =?us-ascii?Q?8UUVC1iYcBlFRveC2Vkb0R9Qd0k8mnRGVei8kVXYAjK8HyeR3VPMiMgKGvut?=
+ =?us-ascii?Q?psibggEmeN+kHAGrULbDL6/xIjMgMlJeqKPEqW8hfvgozPihG/dLzTk+8xfJ?=
+ =?us-ascii?Q?7QHS1l8X5+FTyD6G9cpNodVt7LCX6jmeEDgV/RVFjS3UX5xjvgUkD0zEEuMh?=
+ =?us-ascii?Q?uJasvEZ2M08gGOh8baJhxr3IQqspyDP0TrQMFHyr2+Ooo1k36II0/ZAcT7EO?=
+ =?us-ascii?Q?cJg/SyNZyflrMUneKvzH+8u7JQvsKId/pCmipSl4GypmJvq1yHGAQbGUSGAj?=
+ =?us-ascii?Q?Z7MKV6RypVIMk5WE1eoqFZr5kf/4NU3Rk3tLZ/Mg6M5HqsNeUPwrFA6tKImc?=
+ =?us-ascii?Q?eQpiKl4WRvGgqJsT3LzoemjERFRxDX+daF80KwBpsxTt0xJ356hq6xE57YRN?=
+ =?us-ascii?Q?YEJTbsXtmi1KR//dYMdGSvdBNXdUBdEAsyVa7q927AFTztvfXZKb+ACrh98b?=
+ =?us-ascii?Q?9lG2fmr/OrmrhEe3crB1Ma0EX7KXiVRH0OOAQvIee0lRBWwEVVyui2wH7kPX?=
+ =?us-ascii?Q?RQy3D3eEB3tr0QToz6yn4kos9ZosO5+OCKUI0eQMpduip2dY0rA0u55hdBKC?=
+ =?us-ascii?Q?vxd67jqUQHhbngqzod3JRClqGU15Y/Zf3Y+Yor9EyuWUqky5JFOMYOU7fis+?=
+ =?us-ascii?Q?iECwF/ess7xph2D27ve++zT1Klwqf0TxKBxp6BCMb8qRY2zaeLPeGC6QbF00?=
+ =?us-ascii?Q?fg8o1rwDmbaHpS27M13VWJRoIzYVa2ywdwoJK6WN1kOPusNEYlVjVKL26c8h?=
+ =?us-ascii?Q?zEsS+HvEeBgYQf3s6bxcINk=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 765c850e-6dc5-475c-c3af-08dd3f0fca03
+X-MS-Exchange-CrossTenant-AuthSource: SN7PR01MB7903.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jan 2025 20:18:40.5095
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: eqs11l2dawNgcxRxY+Ew4EtaPBdEHSY0IQvMxuy994nHBLKBh6gaG2VZglEY91XyKkZbipqLzu1DlLht+ukLaupE4pdXhN7tmxOF/A4O/LYUBHPsYFXjpHdF1j/2Qzfm
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR01MB6897
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250127_113509_500266_3C14E04E 
-X-CRM114-Status: GOOD (  27.05  )
+X-CRM114-CacheID: sfid-20250127_121846_050876_61A1D1D4 
+X-CRM114-Status: GOOD (  17.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,117 +174,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Tomasz,
+Add an alternative code sequence to work around Ampere erratum
+AC03_CPU_50 on AmpereOne and Ampere1A.
 
-and thanks for your review!
+Due to AC03_CPU_50, when ICC_PMR_EL1 should have a value of 0xf0 a
+direct read of the register will return a value of 0xf8. An incorrect
+value from a direct read can only happen with the value 0xf0.
 
-On 2025-01-27 at 20:18 +09, Tomasz Figa <tfiga@chromium.org> wrote:
+Note: Currently there are no checks against a value of 0xf0, and that
+save restore of 0xf8 -> 0xf0 is fine, so this is all future proofing.
 
-> Hi Mikhail,
->
-> On Thu, Jan 16, 2025 at 2:25=E2=80=AFAM Mikhail Rudenko <mike.rudenko@gma=
-il.com> wrote:
->>
->> When support for V4L2_FLAG_MEMORY_NON_CONSISTENT was removed in
->> commit 129134e5415d ("media: media/v4l2: remove
->> V4L2_FLAG_MEMORY_NON_CONSISTENT flag"),
->> vb2_dc_dmabuf_ops_{begin,end}_cpu_access() functions were made
->> no-ops. Later, when support for V4L2_MEMORY_FLAG_NON_COHERENT was
->> introduced in commit c0acf9cfeee0 ("media: videobuf2: handle
->> V4L2_MEMORY_FLAG_NON_COHERENT flag"), the above functions remained
->> no-ops, making cache maintenance for non-coherent dmabufs allocated by
->> dma-contig impossible.
->>
->> Fix this by reintroducing dma_sync_sg_for_{cpu,device} calls to
->> vb2_dc_dmabuf_ops_{begin,end}_cpu_access() functions for non-coherent
->> buffers.
->>
->> Fixes: c0acf9cfeee0 ("media: videobuf2: handle V4L2_MEMORY_FLAG_NON_COHE=
-RENT flag")
->> Cc: stable@vger.kernel.org
->> Signed-off-by: Mikhail Rudenko <mike.rudenko@gmail.com>
->> ---
->>  drivers/media/common/videobuf2/videobuf2-dma-contig.c | 14 ++++++++++++=
-++
->>  1 file changed, 14 insertions(+)
->>
->
-> Thanks a lot for the patch!
-> Sorry, for the delay. Ended up being sick with some nasty cold that
-> took quite a while to recover.
-> Please take a look at my comments inline.
->
->> diff --git a/drivers/media/common/videobuf2/videobuf2-dma-contig.c b/dri=
-vers/media/common/videobuf2/videobuf2-dma-contig.c
->> index bb0b7fa67b539aa73ad5ccf3c3bc318e26f8a4cb..889d6c11e15ab5cd4b4c317e=
-865f1fef92df4b66 100644
->> --- a/drivers/media/common/videobuf2/videobuf2-dma-contig.c
->> +++ b/drivers/media/common/videobuf2/videobuf2-dma-contig.c
->> @@ -427,6 +427,13 @@ static int
->>  vb2_dc_dmabuf_ops_begin_cpu_access(struct dma_buf *dbuf,
->>                                    enum dma_data_direction direction)
->>  {
->> +       struct vb2_dc_buf *buf =3D dbuf->priv;
->> +       struct sg_table *sgt =3D buf->dma_sgt;
->> +
->> +       if (!buf->non_coherent_mem || buf->vb->skip_cache_sync_on_finish)
->
-> skip_cache_sync_on_finish shouldn't apply to this function, because
-> the buffer was shared with an external DMA-buf importer and we don't
-> know in what state it is at this point.
->
+Signed-off-by: Zaid Alali <zaidal@os.amperecomputing.com>
+---
+ arch/arm64/Kconfig                  | 16 ++++++++++++++++
+ arch/arm64/include/asm/arch_gicv3.h |  2 +-
+ arch/arm64/include/asm/daifflags.h  |  4 ++--
+ arch/arm64/include/asm/irqflags.h   |  6 +++---
+ arch/arm64/include/asm/sysreg.h     |  9 +++++++++
+ arch/arm64/kernel/cpu_errata.c      | 15 +++++++++++++++
+ arch/arm64/kernel/entry.S           |  4 ++++
+ arch/arm64/tools/cpucaps            |  1 +
+ 8 files changed, 51 insertions(+), 6 deletions(-)
 
-Ack, will fix in v3.
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index fcdd0ed3eca8..8d6e263d66c7 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -461,6 +461,22 @@ config AMPERE_ERRATUM_AC03_CPU_38
+ 
+ 	  If unsure, say Y.
+ 
++config AMPERE_ERRATUM_AC03_CPU_50
++	bool "AmpereOne: AC03_CPU_50: Certain checks for ICC_PMR_EL1 that expects the value 0xf0 may read 0xf8 instead"
++	default y
++	help
++	  This option adds an alternative code sequence to work around Ampere
++	  erratum AC03_CPU_50 on AmpereOne and Ampere1A.
++
++	  Due to AC03_CPU_50, when ICC_PMR_EL1 should have a value of 0xf0 a
++	  direct read of the register will return a value of 0xf8. An incorrect
++	  value from a direct read can only happen with the value 0xf0.
++
++	  The workaround for the erratum will do logical AND 0xf0 to the
++	  value read from ICC_PMR_EL1 register before returning the value.
++
++	  If unsure, say Y.
++
+ config ARM64_WORKAROUND_CLEAN_CACHE
+ 	bool
+ 
+diff --git a/arch/arm64/include/asm/arch_gicv3.h b/arch/arm64/include/asm/arch_gicv3.h
+index 9e96f024b2f1..299d7e17abdf 100644
+--- a/arch/arm64/include/asm/arch_gicv3.h
++++ b/arch/arm64/include/asm/arch_gicv3.h
+@@ -127,7 +127,7 @@ static inline void gic_write_bpr1(u32 val)
+ 
+ static inline u32 gic_read_pmr(void)
+ {
+-	return read_sysreg_s(SYS_ICC_PMR_EL1);
++	return read_sysreg_pmr();
+ }
+ 
+ static __always_inline void gic_write_pmr(u32 val)
+diff --git a/arch/arm64/include/asm/daifflags.h b/arch/arm64/include/asm/daifflags.h
+index fbb5c99eb2f9..2abea378ebd8 100644
+--- a/arch/arm64/include/asm/daifflags.h
++++ b/arch/arm64/include/asm/daifflags.h
+@@ -22,7 +22,7 @@
+ static inline void local_daif_mask(void)
+ {
+ 	WARN_ON(system_has_prio_mask_debugging() &&
+-		(read_sysreg_s(SYS_ICC_PMR_EL1) == (GIC_PRIO_IRQOFF |
++		(read_sysreg_pmr() == (GIC_PRIO_IRQOFF |
+ 						    GIC_PRIO_PSR_I_SET)));
+ 
+ 	asm volatile(
+@@ -46,7 +46,7 @@ static inline unsigned long local_daif_save_flags(void)
+ 
+ 	if (system_uses_irq_prio_masking()) {
+ 		/* If IRQs are masked with PMR, reflect it in the flags */
+-		if (read_sysreg_s(SYS_ICC_PMR_EL1) != GIC_PRIO_IRQON)
++		if (read_sysreg_pmr() != GIC_PRIO_IRQON)
+ 			flags |= PSR_I_BIT | PSR_F_BIT;
+ 	}
+ 
+diff --git a/arch/arm64/include/asm/irqflags.h b/arch/arm64/include/asm/irqflags.h
+index d4d7451c2c12..757e7e837992 100644
+--- a/arch/arm64/include/asm/irqflags.h
++++ b/arch/arm64/include/asm/irqflags.h
+@@ -30,7 +30,7 @@ static __always_inline void __daif_local_irq_enable(void)
+ static __always_inline void __pmr_local_irq_enable(void)
+ {
+ 	if (IS_ENABLED(CONFIG_ARM64_DEBUG_PRIORITY_MASKING)) {
+-		u32 pmr = read_sysreg_s(SYS_ICC_PMR_EL1);
++		u32 pmr = read_sysreg_pmr();
+ 		WARN_ON_ONCE(pmr != GIC_PRIO_IRQON && pmr != GIC_PRIO_IRQOFF);
+ 	}
+ 
+@@ -59,7 +59,7 @@ static __always_inline void __daif_local_irq_disable(void)
+ static __always_inline void __pmr_local_irq_disable(void)
+ {
+ 	if (IS_ENABLED(CONFIG_ARM64_DEBUG_PRIORITY_MASKING)) {
+-		u32 pmr = read_sysreg_s(SYS_ICC_PMR_EL1);
++		u32 pmr = read_sysreg_pmr();
+ 		WARN_ON_ONCE(pmr != GIC_PRIO_IRQON && pmr != GIC_PRIO_IRQOFF);
+ 	}
+ 
+@@ -84,7 +84,7 @@ static __always_inline unsigned long __daif_local_save_flags(void)
+ 
+ static __always_inline unsigned long __pmr_local_save_flags(void)
+ {
+-	return read_sysreg_s(SYS_ICC_PMR_EL1);
++	return read_sysreg_pmr();
+ }
+ 
+ /*
+diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+index b8303a83c0bf..190409fff3b3 100644
+--- a/arch/arm64/include/asm/sysreg.h
++++ b/arch/arm64/include/asm/sysreg.h
+@@ -1226,6 +1226,15 @@
+ 	par;								\
+ })
+ 
++#define read_sysreg_pmr() ({						\
++	u64 pmr = read_sysreg_s(SYS_ICC_PMR_EL1);			\
++	asm(ALTERNATIVE("nop", "and %0, %0, #0xf0",			\
++			ARM64_WORKAROUND_AMPERE_AC03_CPU_50)		\
++			: "+r" (pmr)					\
++			);						\
++	pmr;								\
++})
++
+ #define SYS_FIELD_VALUE(reg, field, val)	reg##_##field##_##val
+ 
+ #define SYS_FIELD_GET(reg, field, val)		\
+diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+index a78f247029ae..469f778228c8 100644
+--- a/arch/arm64/kernel/cpu_errata.c
++++ b/arch/arm64/kernel/cpu_errata.c
+@@ -467,6 +467,14 @@ static const struct midr_range erratum_ac03_cpu_38_list[] = {
+ };
+ #endif
+ 
++#ifdef CONFIG_AMPERE_ERRATUM_AC03_CPU_50
++static const struct midr_range erratum_ac03_cpu_50_list[] = {
++	MIDR_ALL_VERSIONS(MIDR_AMPERE1),
++	MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
++	{},
++};
++#endif
++
+ const struct arm64_cpu_capabilities arm64_errata[] = {
+ #ifdef CONFIG_ARM64_WORKAROUND_CLEAN_CACHE
+ 	{
+@@ -785,6 +793,13 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
+ 		.capability = ARM64_WORKAROUND_AMPERE_AC03_CPU_38,
+ 		ERRATA_MIDR_RANGE_LIST(erratum_ac03_cpu_38_list),
+ 	},
++#endif
++#ifdef CONFIG_AMPERE_ERRATUM_AC03_CPU_50
++	{
++		.desc = "AmpereOne erratum AC03_CPU_50",
++		.capability = ARM64_WORKAROUND_AMPERE_AC03_CPU_50,
++		ERRATA_MIDR_RANGE_LIST(erratum_ac03_cpu_50_list),
++	},
+ #endif
+ 	{
+ 	}
+diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
+index 5ae2a34b50bd..aed01144a351 100644
+--- a/arch/arm64/kernel/entry.S
++++ b/arch/arm64/kernel/entry.S
+@@ -318,6 +318,10 @@ alternative_else_nop_endif
+ 
+ 	mrs_s	x20, SYS_ICC_PMR_EL1
+ 	str	w20, [sp, #S_PMR]
++alternative_if ARM64_WORKAROUND_AMPERE_AC03_CPU_50
++	and	x20, x20, #0xf0
++alternative_else_nop_endif
++	str	x20, [sp, #S_PMR_SAVE]
+ 	mov	x20, #GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET
+ 	msr_s	SYS_ICC_PMR_EL1, x20
+ 
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index eb17f59e543c..9e0776bb8c3b 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -93,6 +93,7 @@ WORKAROUND_2457168
+ WORKAROUND_2645198
+ WORKAROUND_2658417
+ WORKAROUND_AMPERE_AC03_CPU_38
++WORKAROUND_AMPERE_AC03_CPU_50
+ WORKAROUND_TRBE_OVERWRITE_FILL_MODE
+ WORKAROUND_TSB_FLUSH_FAILURE
+ WORKAROUND_TRBE_WRITE_OUT_OF_RANGE
+-- 
+2.34.1
 
->> +               return 0;
->> +
->
-> We should also take care of the kernel mapping if it exists, because
-> on some platforms it may not be coherent with the userspace one -
-> using flush_kernel_vmap_range(). Please check how
-> vb2_dc_prepare()/vb2_dc_finish() do it.
->
-
-Thanks for the pointer, will do so in v3.
-
->> +       dma_sync_sg_for_cpu(buf->dev, sgt->sgl, sgt->nents, buf->dma_dir=
-);
->
-> We can use the dma_sync_sgtable_*() variant here so we can just pass
-> the entire sgt to it.
->
-
-Will do so.
-
->>         return 0;
->>  }
->>
->> @@ -434,6 +441,13 @@ static int
->>  vb2_dc_dmabuf_ops_end_cpu_access(struct dma_buf *dbuf,
->>                                  enum dma_data_direction direction)
->>  {
->> +       struct vb2_dc_buf *buf =3D dbuf->priv;
->> +       struct sg_table *sgt =3D buf->dma_sgt;
->> +
->> +       if (!buf->non_coherent_mem || buf->vb->skip_cache_sync_on_prepar=
-e)
->> +               return 0;
->> +
->> +       dma_sync_sg_for_device(buf->dev, sgt->sgl, sgt->nents, buf->dma_=
-dir);
->>         return 0;
->
-> Overall the same comments here as for
-> vb2_dc_dmabuf_ops_begin_cpu_access() +/- flush would change to
-> invalidate.
-
-Ack.
-
-> Best regards,
-> Tomasz
-
-
---
-Best regards,
-Mikhail Rudenko
 
