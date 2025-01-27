@@ -4,73 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03FF9C02188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 18:12:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAF69C02188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 18:14:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pirFz880PHbl7Wsu56VW30PJh1UmmzZuboMbJFV0f10=; b=LOhIqq/hlH2MDgvUhERI8+jkMf
-	4vOYIYVlCb0TCn+qz8wqJA15HsADUJ4wpyB67w89+rw3L6EprGyB31+SFfuByLomMUBxQpfpFgMSx
-	QCmyJ1+a6QeU2CuFNScEyFO4Z3EB54zTqg7ZK99as/DS68gDm1wpiyj1k+0E1qjeHz87stqSsWlxQ
-	KrUtk4CWFZFRHplaH67d0A0QltCvp15GUE2Qxfq/RvDbGX8kgWIPC/ukhZC34QY2QWbu5voeoIbVc
-	hcqzeI/dQnG1UKaEeelOf5GrjupAxa1lLLEfHX0ci89ch0w+H8IShEOLcWpmY673a34OeipijizKd
-	mSQXUn3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FPI7DyiaMsXtZMBlYnw4xZXHcDCDrr1uLn4/9aG94Gk=; b=UxsW7IAb2ht0IMoPzF3D4Luq3v
+	8I0gO4iMOAJq0LmUx8e80250xSrgDTqvqWrb8N78B6fZiJBbTV44KebwFhq3jWrhJ826RhhCGf79w
+	Duc5gWuMxTtWyMvYqy4kR/tnSWV1zF7LyPe7ajPoHOr819AXsiVpMATi3gZWd0bONrOk93NuEK8gz
+	QC6gPQG5uE2C+t2aRemhZtf9JepF7lVqN6XH29NzUgGl9kYszKeJxxhEsZo7DtbiJWIybfYgRW37h
+	9FoN0+7v5+9xfx4ciWbBBgg4CaWsmASgAWKQx1+oII6HXjjMB1vCxFKIfulBwEqrAlHmCW1+iDLU3
+	Fw5t6R/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcTbF-0000000313e-44rK;
-	Mon, 27 Jan 2025 18:12:41 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1tcTcj-000000031Gt-0IsC;
+	Mon, 27 Jan 2025 18:14:13 +0000
+Received: from out-178.mta0.migadu.com ([91.218.175.178])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcTZC-000000030O8-3JsN;
-	Mon, 27 Jan 2025 18:10:36 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1738001431;
+	id 1tcTbB-0000000311u-0ccy
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Jan 2025 18:12:38 +0000
+Message-ID: <6f1126a7-b35a-4dc0-9c6e-29cfb6e7a145@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1738001549;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=pirFz880PHbl7Wsu56VW30PJh1UmmzZuboMbJFV0f10=;
-	b=AfTBVeNH/KTFCBWBIDIdyxrcqzkaCjvXFQD717inHpxdKq7RWRRkd/0Q/TOWz7tXL1L+3c
-	DTfIewtewEJNl57fRNWLpn1RljU+Q17YGytKeSw/2Ww5SvRHkQNgrbUE1NK8JzcWnaLPM+
-	bSYHEC4AEUKKfCQ4flblBbrONfwH0xFHD2wFgoB7jQNegBJr4PdeYsBAgtLyiyZORa7rz/
-	aubZCmQAmyYKXX/Y82j+kQafqoeWzD1KjbWi9FCz0QZ4pQuKz5NQaTe/Vr0iTp9c7pHgRH
-	PtwGtS98oYJSeBf9WFYg8456k0OclH18bGAKXs4TCIeyzbhLDuIp8oa3LH/z+w==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1738001431;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pirFz880PHbl7Wsu56VW30PJh1UmmzZuboMbJFV0f10=;
-	b=9d+a+D1oiQsTecowN1fpws3+HVT50yXPpNcciisFoaJvwhgEVDXVSwc7zfvsbfA2d18HAz
-	4MT/ITjMeLI9jhAg==
-To: Stanimir Varbanov <svarbanov@suse.de>, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rpi-kernel@lists.infradead.org, linux-pci@vger.kernel.org, Broadcom
- internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Florian Fainelli
- <florian.fainelli@broadcom.com>, Jim Quinlan <jim2101024@gmail.com>,
- Nicolas Saenz Julienne <nsaenz@kernel.org>, Bjorn Helgaas
- <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
- kw@linux.com, Philipp Zabel <p.zabel@pengutronix.de>, Andrea della Porta
- <andrea.porta@suse.com>, Phil Elwell <phil@raspberrypi.com>, Jonathan Bell
- <jonathan@raspberrypi.com>, Dave Stevenson
- <dave.stevenson@raspberrypi.com>, Stanimir Varbanov <svarbanov@suse.de>
-Subject: Re: [PATCH v5 -next 03/11] irqchip: Add Broadcom bcm2712 MSI-X
- interrupt controller
-In-Reply-To: <20250120130119.671119-4-svarbanov@suse.de>
-References: <20250120130119.671119-1-svarbanov@suse.de>
- <20250120130119.671119-4-svarbanov@suse.de>
-Date: Mon, 27 Jan 2025 19:10:31 +0100
-Message-ID: <87bjvs86w8.ffs@tglx>
+	bh=FPI7DyiaMsXtZMBlYnw4xZXHcDCDrr1uLn4/9aG94Gk=;
+	b=CiqSOIP2zMnvHhojZE0wozYafwYRLsLp53Zk8ks9+q4BzbF384Ym7hwbVZh6aa1AUSljz6
+	g8JWvw5jsSuZ4sbmaTmXHuYWHUSbs0LS85yjm+tHAkCDq68PB9bMv4LJI8Eeqr+R1xvc2L
+	j4H0pgnP4vuw6DN2VnLzxxNmPLN6kzs=
+Date: Tue, 28 Jan 2025 02:11:36 +0800
 MIME-Version: 1.0
-Content-Type: text/plain
+Subject: Re: [PATCH net v4 2/3] net: stmmac: Limit FIFO size by hardware
+ capability
+To: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>
+Cc: Russell King <linux@armlinux.org.uk>, Furong Xu <0x1207@gmail.com>,
+ Joao Pinto <Joao.Pinto@synopsys.com>, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250127013820.2941044-1-hayashi.kunihiko@socionext.com>
+ <20250127013820.2941044-3-hayashi.kunihiko@socionext.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Yanteng Si <si.yanteng@linux.dev>
+In-Reply-To: <20250127013820.2941044-3-hayashi.kunihiko@socionext.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250127_101034_971711_FB02D7F2 
-X-CRM114-Status: GOOD (  10.95  )
+X-CRM114-CacheID: sfid-20250127_101237_460093_C0459D8F 
+X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,26 +78,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 20 2025 at 15:01, Stanimir Varbanov wrote:
-
-> Add an interrupt controller driver for MSI-X Interrupt Peripheral (MIP)
-> hardware block found in bcm2712. The interrupt controller is used to
-> handle MSI-X interrupts from peripherials behind PCIe endpoints like
-> RP1 south bridge found in RPi5.
->
-> There are two MIPs on bcm2712, the first has 64 consecutive SPIs
-> assigned to 64 output vectors, and the second has 17 SPIs, but only
-> 8 of them are consecutive starting at the 8th output vector.
->
-> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
-
-Reviewed-by: Thomas Gleixner <tglx@linutronix.de>
-
-As this is a new controller and required for the actual PCI muck, I
-think the best way is to take it through the PCI tree, unless someone
-wants me to pick the whole lot up.
+在 1/27/25 09:38, Kunihiko Hayashi 写道:
+> Tx/Rx FIFO size is specified by the parameter "{tx,rx}-fifo-depth" from
+> stmmac_platform layer.
+> 
+> However, these values are constrained by upper limits determined by the
+> capabilities of each hardware feature. There is a risk that the upper
+> bits will be truncated due to the calculation, so it's appropriate to
+> limit them to the upper limit values and display a warning message.
+> 
+> This only works if the hardware capability has the upper limit values.
+> 
+> Fixes: e7877f52fd4a ("stmmac: Read tx-fifo-depth and rx-fifo-depth from the devicetree")
+> Signed-off-by: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
+Reviewed-by: Yanteng Si <si.yanteng@linux.dev>
 
 Thanks,
-
-        tglx
+Yanteng
 
