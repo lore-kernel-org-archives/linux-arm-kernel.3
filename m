@@ -4,75 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AC1BC0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 14:54:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 786D2C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jan 2025 14:57:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CdF28R0lwLtzzeK4zWjgs0IHh1lVP07gYZEhtv8/W2w=; b=LjVuyZwvTvd8/5XzFM4Mx8oY6A
-	H8uJAMuNTi6Ub/J3pWPH4HZA+JECkNeR28SO0wV6dwOqj3SIsaAgFHo9c2B6xQXZXC0XturNWTW/A
-	53f4yuzX79dpKVsR6VSnvLuzqmTxV66mc5nU89FHY7wPUBSrVzHpoUFL632f4DvEmTOowc15jHXN2
-	1YxdUCk8CYbyuaX4LuJhArArzCYVhSp49aUFCkkB7tUMwz1rJo0DyDVjhQRqNHX7tpSQnWdB0MU+i
-	1RWqJ4a2vlqPGNA1qQqgtVbPA5yXaokL910cKgUl8Anunjq7fBWVYFUrQw725NDx0SrQjxsmBvw+f
-	XDJF0ndw==;
+	bh=feVXBXQ+By9WArNNSb/bibglGnzo06lZJuKLaLgAuos=; b=r5nu7PI4cYX9OwqYe9nTqDlTkc
+	yMVQ05mk6jKN1qt+97YtNmsiEQ7fyprd1zKcdKkKssloc7SDgHytzmlOwPstaa/TiGQ6MS3pBSA59
+	YyCnmq8oWk98eyio+GHQG/ybczZG9kkxBYLkZGOBQ6fYKTdZm7tsZE9Bq33cTCfQGijhq5VdbJNHs
+	uCB0TPCzvj+jixHbTScHPSglVmXvcJlumSbGhuGod7Q5FtDKJ8EX2BX3JCYgRmEqc9/2YQ2QEDTpV
+	V8Zsf8ujVvPqfX88c0eDUMqQkJYvnmGo/VTnSAgZm6uQnJdkU7u+HIkkjxAWWGyt1HFsAGYWfbNU0
+	ks9tyzBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcQVO-00000002XMq-1J8Z;
-	Mon, 27 Jan 2025 14:54:26 +0000
-Received: from mx.denx.de ([89.58.32.78])
+	id 1tcQYX-00000002Xk4-0KIA;
+	Mon, 27 Jan 2025 14:57:41 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcQU3-00000002XI5-0kDx
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jan 2025 14:53:04 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 80AD6103802C0;
-	Mon, 27 Jan 2025 15:52:55 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1737989580;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CdF28R0lwLtzzeK4zWjgs0IHh1lVP07gYZEhtv8/W2w=;
-	b=acxnt8HHx9qxDj4qWZ9eqLBAB9Cod/FYJYF7OYV7gALS4SJ29uquaXrbvJ3VyDVPeQUSGH
-	NrBFhpWV5vnbCFV7WXQ3cZre5PA5bBUoQZG41kS95rmUW8ae1aWKaLCIRrTm9SVAUN/sCH
-	/UsBye8DcK3JO8ajd6BOgdigawIUp1Ss7go6/kSmdhu2o5B3xw7fGxpYpPDK4+VxdNCRYK
-	cqa3zNw4bqG/rpTvO2HbT03HTB/atu5SZoIsFf4vKpwGelgRYDX/0tXkjvVZktYBEYZ5rK
-	t3sjZ/xW3SiKa9793jMHO87kamhBsHYeRIC+S3jOJg9nmDvEGcJMh82GqcZb+A==
-Date: Mon, 27 Jan 2025 15:52:53 +0100
-From: Lukasz Majewski <lukma@denx.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
- Hauer <s.hauer@pengutronix.de>, Neil Armstrong <neil.armstrong@linaro.org>,
- Jessica Zhang <quic_jesszhan@quicinc.com>, David Airlie
- <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>, Pengutronix Kernel Team
- <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Stefan
- Wahren <wahrenst@gmx.net>
-Subject: Re: [RESEND PATCH v11 1/3] dt-bindings: display: Add
- powertip,{st7272|hx8238a} as DT Schema description
-Message-ID: <20250127155253.06937c28@wsk>
-In-Reply-To: <ebd9f9e2-3d8c-4deb-9962-5694cadec090@kernel.org>
-References: <20250109154149.1212631-1-lukma@denx.de>
-	<20250120085724.5caf80af@wsk>
-	<20250127091910.4184d9a0@wsk>
-	<1cde6d04-6fe9-4d09-a11e-26cef6bcf2af@kernel.org>
-	<20250127094612.27f8fca3@wsk>
-	<ebd9f9e2-3d8c-4deb-9962-5694cadec090@kernel.org>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	id 1tcQXA-00000002XWd-24X8;
+	Mon, 27 Jan 2025 14:56:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1737989776; x=1769525776;
+  h=from:to:cc:subject:in-reply-to:references:date:
+   message-id:mime-version;
+  bh=jgZ2GO8S3cXCdWyE6ZvOdFoqm0rhCqZC3ICQKad44uQ=;
+  b=AHdTslY5vV6zKb8MKxB27H8Bt4jok9OsA2p9XmnI1YhkdTd2ytSGKdLu
+   rtB+yYf2JI2Cf/HREXZZsFOzrFA4de9arZDuV+lsiG3QTugKIzqcN3Pl5
+   GZx29PDgQdxZQeKO71Tcrgr9VNrZu/jY1l/PmZRPApngOddXBytwterru
+   0SuIUfm2N4K2G2G+y2/qkuc9NsvfhGtE5yyZtZebKBJpCGUanq93BNZ2T
+   4P1JABQdENcPVjxa1auws0b4T6ODyc1ALl+pIlVQjvzxPWtBF4ShtkOIc
+   JyuNCBiI+CFMDtdtoAnzqiwKvstz8dpN5oOHNLEcYXZHtn4oxPggDHSeO
+   g==;
+X-CSE-ConnectionGUID: R3UXd7E2QDqYuaf835g+xQ==
+X-CSE-MsgGUID: VUQ9L50zQNamNSF0EewFrg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11328"; a="49104685"
+X-IronPort-AV: E=Sophos;i="6.13,238,1732608000"; 
+   d="scan'208";a="49104685"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2025 06:56:13 -0800
+X-CSE-ConnectionGUID: Z9Coz29cQ6uqfPwc/L4sHg==
+X-CSE-MsgGUID: XE2pskZGQO2Q6A9y4rThjA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="113598177"
+Received: from bergbenj-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.246.14])
+  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2025 06:56:01 -0800
+From: Jani Nikula <jani.nikula@intel.com>
+To: Joel Granados <joel.granados@kernel.org>, Ard Biesheuvel <ardb@kernel.org>
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>, Thomas =?utf-8?Q?Wei=C3=9F?=
+ =?utf-8?Q?schuh?=
+ <linux@weissschuh.net>, Kees Cook <kees@kernel.org>, Luis Chamberlain
+ <mcgrof@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-crypto@vger.kernel.org, openipmi-developer@lists.sourceforge.net,
+ intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+ intel-xe@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
+ linux-rdma@vger.kernel.org, linux-raid@vger.kernel.org,
+ linux-scsi@vger.kernel.org, linux-serial@vger.kernel.org,
+ xen-devel@lists.xenproject.org, linux-aio@kvack.org,
+ linux-fsdevel@vger.kernel.org, netfs@lists.linux.dev,
+ codalist@coda.cs.cmu.edu, linux-mm@kvack.org, linux-nfs@vger.kernel.org,
+ ocfs2-devel@lists.linux.dev, fsverity@lists.linux.dev,
+ linux-xfs@vger.kernel.org, io-uring@vger.kernel.org, bpf@vger.kernel.org,
+ kexec@lists.infradead.org, linux-trace-kernel@vger.kernel.org,
+ linux-hardening@vger.kernel.org, apparmor@lists.ubuntu.com,
+ linux-security-module@vger.kernel.org, keyrings@vger.kernel.org, Song Liu
+ <song@kernel.org>, "Steven Rostedt (Google)" <rostedt@goodmis.org>,
+ "Martin K. Petersen" <martin.petersen@oracle.com>, "Darrick J. Wong"
+ <djwong@kernel.org>, Corey Minyard <cminyard@mvista.com>
+Subject: Re: Re: Re: [PATCH v2] treewide: const qualify ctl_tables where
+ applicable
+In-Reply-To: <f4lfo2fb7ajogucsvisfd5sg2avykavmkizr6ycsllcrco4mo3@qt2zx4zp57zh>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+References: <20250110-jag-ctl_table_const-v2-1-0000e1663144@kernel.org>
+ <Z4+jwDBrZNRgu85S@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+ <nslqrapp4v3rknjgtfk4cg64ha7rewrrg24aslo2e5jmxfwce5@t4chrpuk632k>
+ <CAMj1kXEZPe8zk7s67SADK9wVH3cfBup-sAZSC6_pJyng9QT7aw@mail.gmail.com>
+ <f4lfo2fb7ajogucsvisfd5sg2avykavmkizr6ycsllcrco4mo3@qt2zx4zp57zh>
+Date: Mon, 27 Jan 2025 16:55:58 +0200
+Message-ID: <87jzag9ugx.fsf@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/h/ql_liqhaaB_oe78.1H=Ly";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250127_065303_376177_A019865E 
-X-CRM114-Status: GOOD (  23.17  )
+X-CRM114-CacheID: sfid-20250127_065616_543853_20781414 
+X-CRM114-Status: GOOD (  29.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,85 +107,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/h/ql_liqhaaB_oe78.1H=Ly
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+On Mon, 27 Jan 2025, Joel Granados <joel.granados@kernel.org> wrote:
+> On Wed, Jan 22, 2025 at 01:41:35PM +0100, Ard Biesheuvel wrote:
+>> On Wed, 22 Jan 2025 at 13:25, Joel Granados <joel.granados@kernel.org> wrote:
+>> >
+>> > On Tue, Jan 21, 2025 at 02:40:16PM +0100, Alexander Gordeev wrote:
+>> > > On Fri, Jan 10, 2025 at 03:16:08PM +0100, Joel Granados wrote:
+>> > >
+>> > > Hi Joel,
+>> > >
+>> > > > Add the const qualifier to all the ctl_tables in the tree except for
+>> > > > watchdog_hardlockup_sysctl, memory_allocation_profiling_sysctls,
+>> > > > loadpin_sysctl_table and the ones calling register_net_sysctl (./net,
+>> > > > drivers/inifiniband dirs). These are special cases as they use a
+>> > > > registration function with a non-const qualified ctl_table argument or
+>> > > > modify the arrays before passing them on to the registration function.
+>> > > >
+>> > > > Constifying ctl_table structs will prevent the modification of
+>> > > > proc_handler function pointers as the arrays would reside in .rodata.
+>> > > > This is made possible after commit 78eb4ea25cd5 ("sysctl: treewide:
+>> > > > constify the ctl_table argument of proc_handlers") constified all the
+>> > > > proc_handlers.
+>> > >
+>> > > I could identify at least these occurences in s390 code as well:
+>> > Hey Alexander
+>> >
+>> > Thx for bringing these to my attention. I had completely missed them as
+>> > the spatch only deals with ctl_tables outside functions.
+>> >
+>> > Short answer:
+>> > These should not be included in the current patch because they are a
+>> > different pattern from how sysctl tables are usually used. So I will not
+>> > include them.
+>> >
+>> > With that said, I think it might be interesting to look closer at them
+>> > as they seem to be complicating the proc_handler (I have to look at them
+>> > closer).
+>> >
+>> > I see that they are defining a ctl_table struct within the functions and
+>> > just using the data (from the incoming ctl_table) to forward things down
+>> > to proc_do{u,}intvec_* functions. This is very odd and I have only seen
+>> > it done in order to change the incoming ctl_table (which is not what is
+>> > being done here).
+>> >
+>> > I will take a closer look after the merge window and circle back with
+>> > more info. Might take me a while as I'm not very familiar with s390
+>> > code; any additional information on why those are being used inside the
+>> > functions would be helpfull.
+>> >
+>> 
+>> Using const data on the stack is not as useful, because the stack is
+>> always mapped writable.
+>> 
+>> Global data structures marked 'const' will be moved into an ELF
+>> section that is typically mapped read-only in its entirely, and so the
+>> data cannot be modified by writing to it directly. No such protection
+>> is possible for the stack, and so the constness there is only enforced
+>> at compile time.
+> I completely agree with you. No reason to use const within those
+> functions. But why define those ctl_tables in function to begin with.
+> Can't you just use the ones that are defined outside the functions?
 
-Hi Krzysztof,
+You could have static const within functions too. You get the rodata
+protection and function local scope, best of both worlds?
 
-> On 27/01/2025 09:46, Lukasz Majewski wrote:
-> > Hi Krzysztof,
-> >  =20
-> >> On 27/01/2025 09:19, Lukasz Majewski wrote: =20
-> >>> Dear Community,
-> >>>    =20
-> >>>> Dear Community,
-> >>>>   =20
-> >>>>> This patch provides the DT Schema description of:
-> >>>>> - powertip,st7272  320 x 240 LCD display
-> >>>>> - powertip,hx8238a 320 x 240 LCD display
-> >>>>>
-> >>>>> Used with the different HW revisions of btt3 devices.
-> >>>>>      =20
-> >>>>
-> >>>> Gentle ping on this patch...   =20
-> >>
-> >>
-> >> Merge window, not need to ping anyone, unless these are fixes. Are
-> >> these? Do not look like. =20
-> >=20
-> > Please correct me if I'm wring (or something has changed recently),
-> > but wasn't there a policy that DTS bindings are allowed to be
-> > pulled no matter if merge window is open or not? =20
->=20
->=20
-> Bindings? No such rule, no difference between bindings and any other
-> thing. No non-fix patches are taken by maintainers during merge
-> window, with some exceptions. There is a difference in DRM, though,
-> because it follows a bit different cycle schedule, but you pinged us
-> all, not only DRM folks.
-
-Thanks for explanation - I've been mistaken...
-
->=20
-> So was the ping towards DRM? Is their tree now open?
->=20
-
-You mean https://cgit.freedesktop.org/drm/drm ?
-
-Some work (i.e. code is pull) is done there.
-
-> Best regards,
-> Krzysztof
+BR,
+Jani.
 
 
-
-
-Best regards,
-
-Lukasz Majewski
-
---
-
-DENX Software Engineering GmbH,      Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
-
---Sig_/h/ql_liqhaaB_oe78.1H=Ly
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmeXncUACgkQAR8vZIA0
-zr1jeggAn52s3WruRvdZ2n6gQj3Z4b2iDp63vBcu9ur9KYn4Zw3VWPuKH09ktc71
-2zr0fZMg/Tp3ssOMjYknbeJok9X2pFMVnZMWnmfm/wEaHGfZOppJlA5vk1Eprq7M
-yGsRTrwA9EMu+WophtwKDIkNJ68/Nr5t646H4EAYhybvBCMeQkEDSJu1K4tEDM0C
-ZTG8aRsdZV/F4h+9O4hfRU4c8hew05PSySw+ZLIjAd0wp7OK6VPOtjqLCaqeJmUz
-MsnnBqqM4WfHMZDkFN58p57A8ZJYzl29UVjiQ1eXsJjLxxskXNOneXJx+mMt0J6Q
-yDP5qf3i0uzYIll0yNnkFXh4n0pz0w==
-=bWIG
------END PGP SIGNATURE-----
-
---Sig_/h/ql_liqhaaB_oe78.1H=Ly--
+-- 
+Jani Nikula, Intel
 
