@@ -4,65 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA4C1C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 12:09:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 222C5C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 12:14:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KIENhgfskwWlqPlQlpailGGkxQCRl0UULls5o77rIMQ=; b=f5EqL+/LeT7BTZFt0McRwhaKVz
-	Q5INK1+5qrg5b+X5yuHv6089He0dbRMogh/9JinYoTL1tfifF2Zse/tN3JJBp/N/FWRTPWqySL17g
-	o5APwdQQE3uzquDbsMcFTEsnzSd9EJKqwwU52dgj5ZlicG+lrE+jQZ9O0vrwtIKuY7hhFBLffbD16
-	g35pJfGuQmf/JMp94RXZ+wTz7HHr85OhGwEz09I2bke7DXoivdg5XY/w+o3MVN83FWeTTKRsKvIHU
-	QCbCXVss2zq0lGcpr7u8ydl1Tdj8BcmKThY7xtrcxvB+zZszUESDk6IOSAvR6gBvoMbsJNbUpFECV
-	mygHyQ8A==;
+	bh=gDFovAWTHGTnD8iGgqtknH2FqfAZvULYiKWpzH/bw60=; b=rLRv8dko2wEgru4UVy0Q7DJB9h
+	qAuk66iZIkh4hN5kplwJOrcY+K3KmN/CEaiM0MeVlqPyROPQxth5WoHFbMBm380cUe4QfXLQ7tPBj
+	MKC+43WXGvZctzkmnkcuTO0AQsWuna/33O+WmySaVV6ZLpWhMDV196GAMv1nya/qCPEmupqd3iNI0
+	WK1vOY6AeWFgbLfUN9KzC/t4OOMJmVkCiBM5xWZU+omslqg3JMe7R9ZMUOCrdiiMqHqrwGLnMI6rJ
+	pcgtk12SXq7at6G9twsUwy1OZMmLvHcR8SgWFTcwvyQGQTuqkOZ2YACS2GSlMSQZ86nbyqra699OX
+	7hb+eCIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tckP4-00000004qJF-2lii;
-	Tue, 28 Jan 2025 12:09:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tckNg-00000004qDl-3YP2
+	id 1tckTl-00000004qvG-2Nd4;
+	Tue, 28 Jan 2025 12:14:05 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tckSQ-00000004qch-3caE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jan 2025 12:07:50 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 84D7D497;
-	Tue, 28 Jan 2025 04:08:12 -0800 (PST)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7AD9A3F694;
-	Tue, 28 Jan 2025 04:07:43 -0800 (PST)
-Date: Tue, 28 Jan 2025 12:07:35 +0000
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
-	Souvik Chakravarty <souvik.chakravarty@arm.com>,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 3/3] clk: scmi: Support spread spectrum
-Message-ID: <Z5jIh6cLEqRKRdCd@pluto>
-References: <20250124-clk-ssc-v1-0-2d39f6baf2af@nxp.com>
- <20250124-clk-ssc-v1-3-2d39f6baf2af@nxp.com>
+	Tue, 28 Jan 2025 12:12:44 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50S9U2M1021599;
+	Tue, 28 Jan 2025 13:12:28 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	gDFovAWTHGTnD8iGgqtknH2FqfAZvULYiKWpzH/bw60=; b=Kix2o7WwNCt4S4N4
+	fHXtbT8V+f34bCILYRrIInkcneXqoHAy79V1O/1TN/H5/iWBdV//nhSITnQQ9gml
+	1LZwhpqRl+rKr3r0zhS2EhqgEFLwv2SlMETReALKTTq0TLSE5c1BYLM3CBKr8X/T
+	Luh3KqsofUjMbMjPR2nG0PQMFKx8JRQerNfw3gxJkgtqAJ8PNuXhGTlsstVmdzHb
+	/9Uc0acn+WySy4o8ksD7GIZSX4lIP83I4FR/b7/5rO37Ubs3I83ODZ4ddLy4TlOV
+	RN5PXb+/4kz4oayHtGZOUmIctA/ncqpDk8dmtuSywG2xweDEFveBGdlPkzqYmpF8
+	qAWc8g==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44embft8j2-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 28 Jan 2025 13:12:27 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 5BF4F40081;
+	Tue, 28 Jan 2025 13:10:58 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id E327A2D7F4C;
+	Tue, 28 Jan 2025 13:08:13 +0100 (CET)
+Received: from localhost (10.129.178.212) by SHFDAG1NODE3.st.com
+ (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 28 Jan
+ 2025 13:08:13 +0100
+From: Christian Bruel <christian.bruel@foss.st.com>
+To: <christian.bruel@foss.st.com>, <bhelgaas@google.com>,
+        <lpieralisi@kernel.org>, <kw@linux.com>,
+        <manivannan.sadhasivam@linaro.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
+        <jingoohan1@gmail.com>, <p.zabel@pengutronix.de>,
+        <johan+linaro@kernel.org>, <quic_schintav@quicinc.com>,
+        <cassel@kernel.org>
+CC: <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <fabrice.gasnier@foss.st.com>
+Subject: [PATCH v4 03/10] PCI: stm32: Add PCIe host support for STM32MP25
+Date: Tue, 28 Jan 2025 13:07:38 +0100
+Message-ID: <20250128120745.334377-4-christian.bruel@foss.st.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250128120745.334377-1-christian.bruel@foss.st.com>
+References: <20250128120745.334377-1-christian.bruel@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250124-clk-ssc-v1-3-2d39f6baf2af@nxp.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.129.178.212]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-28_04,2025-01-27_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_040748_977470_D57D6B16 
-X-CRM114-Status: GOOD (  32.50  )
+X-CRM114-CacheID: sfid-20250128_041243_446587_9C26ACA6 
+X-CRM114-Status: GOOD (  27.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,145 +99,459 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 24, 2025 at 10:25:19PM +0800, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
-> 
-> Support Spread Spectrum for i.MX95 with adding
-> scmi_clk_set_spread_spectrum_imx
-> 
+Add driver for the STM32MP25 SoC PCIe Gen1 2.5 GT/s and Gen2 5GT/s
+controller based on the DesignWare PCIe core.
 
-[CC: Souvik from ATG]
+Supports MSI via GICv2m, Single Virtual Channel, Single Function
 
-Hi Peng,
+Supports wakeup-source from gpio wake_irq with dw_pcie_wake_irq_handler
+for host wakeup.
 
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
->  drivers/clk/clk-scmi.c        | 37 +++++++++++++++++++++++++++++++++++++
->  include/linux/scmi_protocol.h |  5 +++++
->  2 files changed, 42 insertions(+)
-> 
-> diff --git a/drivers/clk/clk-scmi.c b/drivers/clk/clk-scmi.c
-> index 15510c2ff21c0335f5cb30677343bd4ef59c0738..e43902aea6bee3633f8328acddcf54eef907b640 100644
-> --- a/drivers/clk/clk-scmi.c
-> +++ b/drivers/clk/clk-scmi.c
-> @@ -98,6 +98,35 @@ static int scmi_clk_set_parent(struct clk_hw *hw, u8 parent_index)
->  	return scmi_proto_clk_ops->parent_set(clk->ph, clk->id, parent_index);
->  }
->  
-> +static int scmi_clk_set_spread_spectrum_imx(struct clk_hw *hw,
-> +					    struct clk_spread_spectrum *clk_ss)
-> +{
-> +	struct scmi_clk *clk = to_scmi_clk(hw);
-> +	int ret;
-> +	u32 val;
-> +
-> +	/* SCMI OEM Duty Cycle is expressed as a percentage */
-> +	/*
-> +	 * extConfigValue[7:0]   - spread percentage (%)
-> +	 * extConfigValue[23:8]  - Modulation Frequency (KHz)
-> +	 * extConfigValue[24]    - Enable/Disable
-> +	 * extConfigValue[31:25] - Reserved
-> +	 */
-> +	val = FIELD_PREP(IMX_CLOCK_EXT_SS_PERCENTAGE_MASK, clk_ss->spreadpercent);
-> +	val |= FIELD_PREP(IMX_CLOCK_EXT_SS_MOD_FREQ_MASK, clk_ss->modfreq);
-> +	val |= IMX_CLOCK_EXT_SS_ENABLE_MASK;
-> +	ret = scmi_proto_clk_ops->config_oem_set(clk->ph, clk->id,
-> +						 SCMI_CLOCK_CFG_NXP_IMX_SSC,
+Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+---
+ drivers/pci/controller/dwc/Kconfig      |  12 +
+ drivers/pci/controller/dwc/Makefile     |   1 +
+ drivers/pci/controller/dwc/pcie-stm32.c | 372 ++++++++++++++++++++++++
+ drivers/pci/controller/dwc/pcie-stm32.h |  15 +
+ 4 files changed, 400 insertions(+)
+ create mode 100644 drivers/pci/controller/dwc/pcie-stm32.c
+ create mode 100644 drivers/pci/controller/dwc/pcie-stm32.h
 
-If this is determined to be general enough (as per other mail in this
-thread), since it effectively provides a new general clock framework
-callback, I wonder if we should not try to make this straight away one
-of the standard SCMI Clock Extended config types by adding it as a new
-0x3 Extended config type value in the SCMI v3.2 Table 16 (with the above
-extConfigValue synatx too)...
+diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
+index b6d6778b0698..0c18879b604c 100644
+--- a/drivers/pci/controller/dwc/Kconfig
++++ b/drivers/pci/controller/dwc/Kconfig
+@@ -389,6 +389,18 @@ config PCIE_SPEAR13XX
+ 	help
+ 	  Say Y here if you want PCIe support on SPEAr13XX SoCs.
+ 
++config PCIE_STM32
++	tristate "STMicroelectronics STM32MP25 PCIe Controller (host mode)"
++	depends on ARCH_STM32 || COMPILE_TEST
++	depends on PCI_MSI
++	select PCIE_DW_HOST
++	help
++	  Enables support for the DesignWare core based PCIe host controller
++	  found in STM32MP25 SoC.
++
++	  This driver can also be built as a module. If so, the module
++	  will be called pcie-stm32.
++
+ config PCI_DRA7XX
+ 	tristate
+ 
+diff --git a/drivers/pci/controller/dwc/Makefile b/drivers/pci/controller/dwc/Makefile
+index a8308d9ea986..576d99cb3bc5 100644
+--- a/drivers/pci/controller/dwc/Makefile
++++ b/drivers/pci/controller/dwc/Makefile
+@@ -28,6 +28,7 @@ obj-$(CONFIG_PCIE_UNIPHIER) += pcie-uniphier.o
+ obj-$(CONFIG_PCIE_UNIPHIER_EP) += pcie-uniphier-ep.o
+ obj-$(CONFIG_PCIE_VISCONTI_HOST) += pcie-visconti.o
+ obj-$(CONFIG_PCIE_RCAR_GEN4) += pcie-rcar-gen4.o
++obj-$(CONFIG_PCIE_STM32) += pcie-stm32.o
+ 
+ # The following drivers are for devices that use the generic ACPI
+ # pci_root.c driver but don't support standard ECAM config access.
+diff --git a/drivers/pci/controller/dwc/pcie-stm32.c b/drivers/pci/controller/dwc/pcie-stm32.c
+new file mode 100644
+index 000000000000..d5e473bb390f
+--- /dev/null
++++ b/drivers/pci/controller/dwc/pcie-stm32.c
+@@ -0,0 +1,372 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * STMicroelectronics STM32MP25 PCIe root complex driver.
++ *
++ * Copyright (C) 2024 STMicroelectronics
++ * Author: Christian Bruel <christian.bruel@foss.st.com>
++ */
++
++#include <linux/clk.h>
++#include <linux/mfd/syscon.h>
++#include <linux/of_platform.h>
++#include <linux/phy/phy.h>
++#include <linux/pinctrl/devinfo.h>
++#include <linux/pm_runtime.h>
++#include <linux/platform_device.h>
++#include <linux/regmap.h>
++#include <linux/reset.h>
++#include "pcie-designware.h"
++#include "pcie-stm32.h"
++#include "../../pci.h"
++
++struct stm32_pcie {
++	struct dw_pcie pci;
++	struct regmap *regmap;
++	struct reset_control *rst;
++	struct phy *phy;
++	struct clk *clk;
++	struct gpio_desc *perst_gpio;
++	struct gpio_desc *wake_gpio;
++	unsigned int wake_irq;
++};
++
++static void stm32_pcie_deassert_perst(struct stm32_pcie *stm32_pcie)
++{
++	gpiod_set_value(stm32_pcie->perst_gpio, 0);
++
++	if (stm32_pcie->perst_gpio)
++		msleep(PCIE_T_RRS_READY_MS);
++}
++
++static void stm32_pcie_assert_perst(struct stm32_pcie *stm32_pcie)
++{
++	gpiod_set_value(stm32_pcie->perst_gpio, 1);
++}
++
++static int stm32_pcie_start_link(struct dw_pcie *pci)
++{
++	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
++
++	return regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
++				  STM32MP25_PCIECR_LTSSM_EN,
++				  STM32MP25_PCIECR_LTSSM_EN);
++}
++
++static void stm32_pcie_stop_link(struct dw_pcie *pci)
++{
++	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
++
++	regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
++			   STM32MP25_PCIECR_LTSSM_EN, 0);
++}
++
++static int stm32_pcie_suspend(struct device *dev)
++{
++	struct stm32_pcie *stm32_pcie = dev_get_drvdata(dev);
++
++	if (device_may_wakeup(dev))
++		enable_irq_wake(stm32_pcie->wake_irq);
++
++	return 0;
++}
++
++static int stm32_pcie_resume(struct device *dev)
++{
++	struct stm32_pcie *stm32_pcie = dev_get_drvdata(dev);
++
++	if (device_may_wakeup(dev))
++		disable_irq_wake(stm32_pcie->wake_irq);
++
++	return 0;
++}
++
++static int stm32_pcie_suspend_noirq(struct device *dev)
++{
++	struct stm32_pcie *stm32_pcie = dev_get_drvdata(dev);
++
++	stm32_pcie_stop_link(&stm32_pcie->pci);
++
++	stm32_pcie_assert_perst(stm32_pcie);
++
++	clk_disable_unprepare(stm32_pcie->clk);
++
++	if (!device_may_wakeup(dev))
++		phy_exit(stm32_pcie->phy);
++
++	return pinctrl_pm_select_sleep_state(dev);
++}
++
++static int stm32_pcie_resume_noirq(struct device *dev)
++{
++	struct stm32_pcie *stm32_pcie = dev_get_drvdata(dev);
++	struct dw_pcie_rp *pp = &stm32_pcie->pci.pp;
++	int ret;
++
++	/*
++	 * The core clock is gated with CLKREQ# from the COMBOPHY REFCLK,
++	 * thus if no device is present, must force it low with an init pinmux
++	 * to be able to access the DBI registers.
++	 */
++	if (!IS_ERR(dev->pins->init_state))
++		ret = pinctrl_select_state(dev->pins->p, dev->pins->init_state);
++	else
++		ret = pinctrl_pm_select_default_state(dev);
++
++	if (ret) {
++		dev_err(dev, "Failed to activate pinctrl pm state: %d\n", ret);
++		return ret;
++	}
++
++	if (!device_may_wakeup(dev)) {
++		ret = phy_init(stm32_pcie->phy);
++		if (ret) {
++			pinctrl_pm_select_default_state(dev);
++			return ret;
++		}
++	}
++
++	ret = clk_prepare_enable(stm32_pcie->clk);
++	if (ret)
++		goto err_phy_exit;
++
++	stm32_pcie_deassert_perst(stm32_pcie);
++
++	ret = dw_pcie_setup_rc(pp);
++	if (ret)
++		goto err_disable_clk;
++
++	ret = stm32_pcie_start_link(&stm32_pcie->pci);
++	if (ret)
++		goto err_disable_clk;
++
++	/* Ignore errors, the link may come up later */
++	dw_pcie_wait_for_link(&stm32_pcie->pci);
++
++	pinctrl_pm_select_default_state(dev);
++
++	return 0;
++
++err_disable_clk:
++	stm32_pcie_assert_perst(stm32_pcie);
++	clk_disable_unprepare(stm32_pcie->clk);
++
++err_phy_exit:
++	phy_exit(stm32_pcie->phy);
++	pinctrl_pm_select_default_state(dev);
++
++	return ret;
++}
++
++static const struct dev_pm_ops stm32_pcie_pm_ops = {
++	NOIRQ_SYSTEM_SLEEP_PM_OPS(stm32_pcie_suspend_noirq,
++				  stm32_pcie_resume_noirq)
++	SYSTEM_SLEEP_PM_OPS(stm32_pcie_suspend, stm32_pcie_resume)
++};
++
++static const struct dw_pcie_host_ops stm32_pcie_host_ops = {
++};
++
++static const struct dw_pcie_ops dw_pcie_ops = {
++	.start_link = stm32_pcie_start_link,
++	.stop_link = stm32_pcie_stop_link
++};
++
++static int stm32_add_pcie_port(struct stm32_pcie *stm32_pcie,
++			       struct platform_device *pdev)
++{
++	struct device *dev = stm32_pcie->pci.dev;
++	struct dw_pcie_rp *pp = &stm32_pcie->pci.pp;
++	int ret;
++
++	ret = phy_set_mode(stm32_pcie->phy, PHY_MODE_PCIE);
++	if (ret)
++		return ret;
++
++	ret = phy_init(stm32_pcie->phy);
++	if (ret)
++		return ret;
++
++	ret = regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
++				 STM32MP25_PCIECR_TYPE_MASK,
++				 STM32MP25_PCIECR_RC);
++	if (ret)
++		goto err_phy_exit;
++
++	reset_control_assert(stm32_pcie->rst);
++	reset_control_deassert(stm32_pcie->rst);
++
++	ret = clk_prepare_enable(stm32_pcie->clk);
++	if (ret) {
++		dev_err(dev, "Core clock enable failed %d\n", ret);
++		goto err_phy_exit;
++	}
++
++	stm32_pcie_deassert_perst(stm32_pcie);
++
++	pp->ops = &stm32_pcie_host_ops;
++	ret = dw_pcie_host_init(pp);
++	if (ret) {
++		dev_err(dev, "Failed to initialize host: %d\n", ret);
++		goto err_disable_clk;
++	}
++
++	return 0;
++
++err_disable_clk:
++	clk_disable_unprepare(stm32_pcie->clk);
++	stm32_pcie_assert_perst(stm32_pcie);
++
++err_phy_exit:
++	phy_exit(stm32_pcie->phy);
++
++	return ret;
++}
++
++static int stm32_pcie_parse_port(struct stm32_pcie *stm32_pcie)
++{
++	struct device *dev = stm32_pcie->pci.dev;
++	struct device_node *root_port;
++
++	root_port = of_get_next_available_child(dev->of_node, NULL);
++
++	stm32_pcie->phy = devm_of_phy_get(dev, root_port, NULL);
++	if (IS_ERR(stm32_pcie->phy))
++		return dev_err_probe(dev, PTR_ERR(stm32_pcie->phy),
++				     "Failed to get pcie-phy\n");
++
++	stm32_pcie->perst_gpio = devm_fwnode_gpiod_get(dev, of_fwnode_handle(root_port),
++						       "reset", GPIOD_OUT_HIGH, NULL);
++	if (IS_ERR(stm32_pcie->perst_gpio)) {
++		if (PTR_ERR(stm32_pcie->perst_gpio) != -ENOENT)
++			return dev_err_probe(dev, PTR_ERR(stm32_pcie->perst_gpio),
++					     "Failed to get reset GPIO\n");
++		stm32_pcie->perst_gpio = NULL;
++	}
++
++	if (device_property_read_bool(dev, "wakeup-source")) {
++		stm32_pcie->wake_gpio = devm_fwnode_gpiod_get(dev, of_fwnode_handle(root_port),
++							      "wake", GPIOD_IN, NULL);
++
++		if (IS_ERR(stm32_pcie->wake_gpio)) {
++			if (PTR_ERR(stm32_pcie->wake_gpio) != -ENOENT)
++				return dev_err_probe(dev, PTR_ERR(stm32_pcie->wake_gpio),
++						     "Failed to get wake GPIO\n");
++			stm32_pcie->wake_gpio = NULL;
++		}
++	}
++
++	return 0;
++}
++
++static int stm32_pcie_probe(struct platform_device *pdev)
++{
++	struct stm32_pcie *stm32_pcie;
++	struct device *dev = &pdev->dev;
++	int ret;
++
++	stm32_pcie = devm_kzalloc(dev, sizeof(*stm32_pcie), GFP_KERNEL);
++	if (!stm32_pcie)
++		return -ENOMEM;
++
++	stm32_pcie->pci.dev = dev;
++	stm32_pcie->pci.ops = &dw_pcie_ops;
++
++	stm32_pcie->regmap = syscon_regmap_lookup_by_compatible("st,stm32mp25-syscfg");
++	if (IS_ERR(stm32_pcie->regmap))
++		return dev_err_probe(dev, PTR_ERR(stm32_pcie->regmap),
++				     "No syscfg specified\n");
++
++	stm32_pcie->clk = devm_clk_get(dev, NULL);
++	if (IS_ERR(stm32_pcie->clk))
++		return dev_err_probe(dev, PTR_ERR(stm32_pcie->clk),
++				     "Failed to get PCIe clock source\n");
++
++	stm32_pcie->rst = devm_reset_control_get_exclusive(dev, NULL);
++	if (IS_ERR(stm32_pcie->rst))
++		return dev_err_probe(dev, PTR_ERR(stm32_pcie->rst),
++				     "Failed to get PCIe reset\n");
++
++	ret = stm32_pcie_parse_port(stm32_pcie);
++	if (ret)
++		return ret;
++
++	platform_set_drvdata(pdev, stm32_pcie);
++
++	if (stm32_pcie->wake_gpio) {
++		stm32_pcie->wake_irq = gpiod_to_irq(stm32_pcie->wake_gpio);
++
++		ret = devm_request_threaded_irq(&pdev->dev,
++						stm32_pcie->wake_irq, NULL,
++						dw_pcie_wake_irq_handler,
++						IRQF_TRIGGER_FALLING | IRQF_ONESHOT,
++						"wake_irq", stm32_pcie->pci.dev);
++
++		if (ret)
++			return dev_err_probe(dev, ret, "Failed to request WAKE IRQ: %d\n", ret);
++	}
++
++	ret = devm_pm_runtime_enable(dev);
++	if (ret < 0) {
++		dev_err(dev, "Failed to enable runtime PM %d\n", ret);
++		return ret;
++	}
++
++	ret = pm_runtime_resume_and_get(dev);
++	if (ret < 0) {
++		dev_err(dev, "Failed to get runtime PM %d\n", ret);
++		return ret;
++	}
++
++	ret = stm32_add_pcie_port(stm32_pcie, pdev);
++	if (ret)  {
++		pm_runtime_put_sync(&pdev->dev);
++		return ret;
++	}
++
++	if (stm32_pcie->wake_gpio)
++		device_set_wakeup_capable(dev, true);
++
++	return 0;
++}
++
++static void stm32_pcie_remove(struct platform_device *pdev)
++{
++	struct stm32_pcie *stm32_pcie = platform_get_drvdata(pdev);
++	struct dw_pcie_rp *pp = &stm32_pcie->pci.pp;
++
++	if (stm32_pcie->wake_gpio)
++		device_init_wakeup(&pdev->dev, false);
++
++	dw_pcie_host_deinit(pp);
++
++	stm32_pcie_assert_perst(stm32_pcie);
++
++	clk_disable_unprepare(stm32_pcie->clk);
++
++	phy_exit(stm32_pcie->phy);
++
++	pm_runtime_put_sync(&pdev->dev);
++}
++
++static const struct of_device_id stm32_pcie_of_match[] = {
++	{ .compatible = "st,stm32mp25-pcie-rc" },
++	{},
++};
++
++static struct platform_driver stm32_pcie_driver = {
++	.probe = stm32_pcie_probe,
++	.remove = stm32_pcie_remove,
++	.driver = {
++		.name = "stm32-pcie",
++		.of_match_table = stm32_pcie_of_match,
++		.pm = &stm32_pcie_pm_ops,
++		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
++	},
++};
++
++module_platform_driver(stm32_pcie_driver);
++
++MODULE_AUTHOR("Christian Bruel <christian.bruel@foss.st.com>");
++MODULE_DESCRIPTION("STM32MP25 PCIe Controller driver");
++MODULE_LICENSE("GPL");
++MODULE_DEVICE_TABLE(of, stm32_pcie_of_match);
+diff --git a/drivers/pci/controller/dwc/pcie-stm32.h b/drivers/pci/controller/dwc/pcie-stm32.h
+new file mode 100644
+index 000000000000..3efd00937d3d
+--- /dev/null
++++ b/drivers/pci/controller/dwc/pcie-stm32.h
+@@ -0,0 +1,15 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * ST PCIe driver definitions for STM32-MP25 SoC
++ *
++ * Copyright (C) 2024 STMicroelectronics - All Rights Reserved
++ * Author: Christian Bruel <christian.bruel@foss.st.com>
++ */
++
++#define to_stm32_pcie(x)	dev_get_drvdata((x)->dev)
++
++#define STM32MP25_PCIECR_TYPE_MASK	GENMASK(11, 8)
++#define STM32MP25_PCIECR_LTSSM_EN	BIT(2)
++#define STM32MP25_PCIECR_RC		BIT(10)
++
++#define SYSCFG_PCIECR			0x6000
+-- 
+2.34.1
 
-...that would mean having 0x3 reserved already for this in the upcoming
-v3.3....but of course ATG has to agree on this so I copied Souvik.
-
-In this way we could just get rid of the Vendor customization...if NOT I
-would certainly base this Vendor OEM type extension on the SCMI FW-provided
-vendor_info as you mentioned in the cover-letter, instead of compatibles.
-
-Either way, it would also be wise to check if the specific Extended
-config type is supported by the specific FW version (despite the version)
-before registering a callback that could then always fail due to a missing
-feature; currently, in fact, we do NOT take this precaution for for Duty
-cycle callbacks and just assume that if SCMI Clocks extended configs are
-suppported, all the standard ones are supported: this seems NOT right
-BUT the only way to assure that an Extended config type is supported, as
-of now, would be to query the current extended_config with CLOCK_CONFIG_GET
-and see what the FW replies...this would allow us to avoid registering
-unsupported features (like DutyCycle or SSC) with the core Clock framework
-if NOT really supported by the running SCMI server...which in turn would
-mean,potentially, 1 more SCMI message exchange per-clock at initialization
-time, and I know this overhead is not always welcomed :D
-
-> +						 val, false);
-> +	if (ret)
-> +		dev_warn(clk->dev,
-> +			 "Failed to set spread spectrum(%u,%u,%u) for clock ID %d\n",
-> +			 clk_ss->modfreq, clk_ss->spreadpercent, clk_ss->method,
-> +			 clk->id);
-> +
-> +	return ret;
-> +}
-> +
->  static u8 scmi_clk_get_parent(struct clk_hw *hw)
->  {
->  	struct scmi_clk *clk = to_scmi_clk(hw);
-> @@ -266,6 +295,11 @@ static int scmi_clk_ops_init(struct device *dev, struct scmi_clk *sclk,
->   * Return: A pointer to the allocated and configured clk_ops on success,
->   *	   or NULL on allocation failure.
->   */
-> +static const char * const scmi_clk_ssc_allowlist[] = {
-> +	"fsl,imx95",
-> +	NULL
-> +};
-
-Fw vednor info would be better as you said, if we stick to a Vendor
-implementation...
-
-> +
->  static const struct clk_ops *
->  scmi_clk_ops_alloc(struct device *dev, unsigned long feats_key)
->  {
-> @@ -316,6 +350,9 @@ scmi_clk_ops_alloc(struct device *dev, unsigned long feats_key)
->  		ops->set_duty_cycle = scmi_clk_set_duty_cycle;
->  	}
->  
-> +	if (of_machine_compatible_match(scmi_clk_ssc_allowlist))
-> +		ops->set_spread_spectrum = scmi_clk_set_spread_spectrum_imx;
-> +
->  	return ops;
->  }
->  
-> diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-> index 688466a0e816247d24704f7ba109667a14226b67..7012d5efef00eb7b52f17d0f3d8d69f3d0063557 100644
-> --- a/include/linux/scmi_protocol.h
-> +++ b/include/linux/scmi_protocol.h
-> @@ -80,9 +80,14 @@ enum scmi_clock_oem_config {
->  	SCMI_CLOCK_CFG_DUTY_CYCLE = 0x1,
->  	SCMI_CLOCK_CFG_PHASE,
->  	SCMI_CLOCK_CFG_OEM_START = 0x80,
-> +	SCMI_CLOCK_CFG_NXP_IMX_SSC = 0x80,
-
-If using a Vendor OEM type, I feel this should be somehow defined
-per-vendor....you cannot just grab 0x80 Extended config type for NXP
-because you arrived first :P
-
->  	SCMI_CLOCK_CFG_OEM_END = 0xFF,
->  };
->  
-> +#define IMX_CLOCK_EXT_SS_PERCENTAGE_MASK	GENMASK(7, 0)
-> +#define IMX_CLOCK_EXT_SS_MOD_FREQ_MASK		GENMASK(23, 8)
-> +#define IMX_CLOCK_EXT_SS_ENABLE_MASK		BIT(24)
-> +
-
-Same...I feel the best would be to just add a standard 0x3 SSC Extended
-type as said...lets see what Souvik says and if we can assume such 0x3
-AND the above extConfigValue syntax to be reserved for this usage BEFORE
-v3.3 is out...
-
-Thans,
-Cristian
 
