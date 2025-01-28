@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8405DC0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 16:21:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CCD9C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 16:22:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9sa2tSDG6Gu88X+cOpnuJ/5PZpNt3U6aVV0R/MYnOjI=; b=WWiqQhL4Q9CKu/hz3KAYeXJwJW
-	bAQz2BZjHxP/0QUqzde0h+qZRUZz5RnauuCUKNdK39Gc3Q+7djyW+fRavi/laEH4zfiIWJPQ5zCf6
-	aU6UzHl67OZjSYLnKIW2dh0bZJVI5Bw3hGpNnLfw84RgWa0CdQy2vgyVaza/USci/xmP6n9+LMC2m
-	eHTShplQTv1C5rRekwruAD7Wsu4iZi3V9cbrZfrkc8Uj8+EX9X4JekOgsNLu+rTDjyQ3I0gB/hn7A
-	TUYGZqOcPfP4CqiLAMjLUlsOu0H2aITbKcBElxmm7Rcqgvux2p/E8JfuJekyuKpuqaYyCSdwUnm7y
-	YrsTYIrw==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mVJlcce+giFFgC0K0td7aAOyoO86mzET0bZP9rSFcjg=; b=s9ZWM5Sq70hE/ntMY3OqDnJcZ3
+	1KfHqmQi97u+znX3jtEJz07+aDBfx+Jfo7pGRmGVSHh4Ea+x71gI+ERgIP2Et5BNCVJpSKpEn/PC5
+	JJ205Wu1u+wXXklURcnLXa8o550WYTIYWtUxgbipQTVNY1th0Hag0DoeII9uaC4nBNJEDvPzHMydC
+	PJPrpGUpxdRtgwVkZLx89cTZ+7FgGstrfCzUtTx/Bs2FDz0MQN65MPXPkURfsxLf/9l8TSdi/jEcV
+	N2onbtHKXlO2hp4loCLTU7WhoEGAT6pHqTZreW1hrNbrIBgOIqJWcCxzC3fRUClUIxhTrlzJ9hDuD
+	pf40Ba+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcoKh-00000005Iz0-1fRv;
-	Tue, 28 Jan 2025 16:20:59 +0000
+	id 1tcoM0-00000005J6W-0CeM;
+	Tue, 28 Jan 2025 16:22:20 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcnvi-00000005Dq4-48Hs
+	id 1tcnwJ-00000005E7T-29vc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jan 2025 15:55:12 +0000
+	Tue, 28 Jan 2025 15:55:48 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 00D6D1007;
-	Tue, 28 Jan 2025 07:55:35 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5E2EC497;
+	Tue, 28 Jan 2025 07:56:13 -0800 (PST)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C6FF33F694;
-	Tue, 28 Jan 2025 07:55:06 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 30EA63F694;
+	Tue, 28 Jan 2025 07:55:45 -0800 (PST)
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: catalin.marinas@arm.com,
@@ -44,15 +44,17 @@ Cc: catalin.marinas@arm.com,
 	suzuki.poulose@arm.com,
 	will@kernel.org,
 	yuzenghui@huawei.com
-Subject: [PATCH 0/4] arm64: mitigate CVE-2024-7881 in the absence of firmware mitigation
-Date: Tue, 28 Jan 2025 15:54:24 +0000
-Message-Id: <20250128155428.210645-1-mark.rutland@arm.com>
+Subject: [PATCH 1/4] arm64: cpufeature: rename unmap_kernel_at_el0() -> needs_kpti()
+Date: Tue, 28 Jan 2025 15:54:25 +0000
+Message-Id: <20250128155428.210645-2-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20250128155428.210645-1-mark.rutland@arm.com>
+References: <20250128155428.210645-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_075511_073969_BBE59A90 
-X-CRM114-Status: GOOD (  10.70  )
+X-CRM114-CacheID: sfid-20250128_075547_607300_7D65BEC3 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,46 +69,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On some CPUs from Arm Ltd, it is possible for unprivileged code to cause
-a hardware prefetcher to form an address using the contents of a memory
-location which is accessible by privileged accesses in the active
-translation regime, potentially leaking the contents of this memory
-location via a side channel. This has been assigned CVE-2024-7881:
+Most arm64_cpu_capabilities::matches callbacks are named to indicate
+that they test a boolean condition, e.g. runs_at_el2() or
+has_nested_virt_support(). This isn't clear for unmap_kernel_at_el0(),
+which can be read as an action rather than a boolean condition, and it's
+not immediately clear that this is related to KPTI.
 
-  https://developer.arm.com/Arm%20Security%20Center/Arm%20CPU%20Vulnerability%20CVE-2024-7881
+Rename unmap_kernel_at_el0() to needs_kpti() to make this clearer.
 
-Arm's recommended mitigation is that firmware configures an
-IMPLEMENTATION DEFINED control bit (CPUACTLR6_EL1[41]) to disable the
-affected prefetcher, and updates to Trusted Firmware-A are available to
-do this. For systems which have not yet recevied a firmware update, KPTI
-can help to mitigate the issue.
+There should be no functional change as a result of this patch.
 
-These patches enable KPTI for affected parts when the firmware
-mitigation is not present. The presence of the mitigation is identified
-by the presence of the SMCCC_ARCH_WORKAROUND_4 SMCCC call, which was
-deployed with the mitigation. This is documented in the SMCCC 1.6 G BET0
-specification:
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+---
+ arch/arm64/kernel/cpufeature.c | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
 
-  https://developer.arm.com/documentation/den0028/gbet0/?lang=en
-
-I have tested this on a few configurations of virtual platforms. I'd
-appreciate any feedback, especially on the KVM changes.
-
-Mark.
-
-Mark Rutland (4):
-  arm64: cpufeature: rename unmap_kernel_at_el0() -> needs_kpti()
-  arm64: cpufeature: factor out cpu_is_meltdown_safe()
-  arm64: cpufeature: mitigate CVE-2024-7881
-  KVM: arm64: expose SMCCC_ARCH_WORKAROUND_4 to guests
-
- arch/arm64/include/asm/spectre.h  |  2 +
- arch/arm64/include/uapi/asm/kvm.h |  4 ++
- arch/arm64/kernel/cpufeature.c    | 95 ++++++++++++++++++++++++-------
- arch/arm64/kvm/hypercalls.c       | 21 +++++++
- include/linux/arm-smccc.h         |  5 ++
- 5 files changed, 107 insertions(+), 20 deletions(-)
-
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 6ce71f444ed84..8fdcff3722696 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -1758,8 +1758,7 @@ has_useable_cnp(const struct arm64_cpu_capabilities *entry, int scope)
+ static bool __meltdown_safe = true;
+ static int __kpti_forced; /* 0: not forced, >0: forced on, <0: forced off */
+ 
+-static bool unmap_kernel_at_el0(const struct arm64_cpu_capabilities *entry,
+-				int scope)
++static bool needs_kpti(const struct arm64_cpu_capabilities *entry, int scope)
+ {
+ 	/* List of CPUs that are not vulnerable and don't need KPTI */
+ 	static const struct midr_range kpti_safe_list[] = {
+@@ -2545,11 +2544,10 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+ 		.capability = ARM64_UNMAP_KERNEL_AT_EL0,
+ 		.type = ARM64_CPUCAP_BOOT_RESTRICTED_CPU_LOCAL_FEATURE,
+ 		.cpu_enable = cpu_enable_kpti,
+-		.matches = unmap_kernel_at_el0,
++		.matches = needs_kpti,
+ 		/*
+-		 * The ID feature fields below are used to indicate that
+-		 * the CPU doesn't need KPTI. See unmap_kernel_at_el0 for
+-		 * more details.
++		 * The ID feature fields below are used to indicate that the
++		 * CPU doesn't need KPTI. See needs_kpti for more details.
+ 		 */
+ 		ARM64_CPUID_FIELDS(ID_AA64PFR0_EL1, CSV3, IMP)
+ 	},
 -- 
 2.30.2
 
