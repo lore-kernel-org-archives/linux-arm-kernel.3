@@ -4,81 +4,183 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9363C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 22:10:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53938C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 22:11:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=89hZLr5aXjLsq7ose3Afpbjn+HbyOiqrZ9vNJOq3AHM=; b=BGY4SDuVzfzrjP
-	qjhu6NEuZThs4PoWfyKDFj0n1ofFjRMphFe5spXRey12Kgi1Xl5XZL+WxiAHq7oZzkMF/CZkdcZkT
-	7JwZ6eOe2pQMOCvvdsrIPLpjs1wAtgSR6N7ZCJxpIgABW0JKmDR/jCEVpmhc2lYNHtvbMiNCiFWaD
-	CmPCzdiccINTrU7K9jWZfCm7I//SbRR8ay2f598HmsGBIyvcLOFFoqN825+jkBkJFEoKwQqTQuyks
-	D95jh/sNEp6XxNvI+tbhN+ZA+eH/UVEYhOqNjkfEw6wLFFxo+7A1h+8GIvS+jTmDUgU2p2YzLpHs8
-	PP3K19PZJitmhAhVc/sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dCKQlEJpo07jU5EJjFnfLwPZs6tuTxamS8VyFtNvFOo=; b=EcgfzF5smTmWNa5RJ/VEDJivRZ
+	MvavPbsuCuUDrPgoFo3hBkTe7JE4zkR7msXEWt4/hWVPXOkr4pLZ1vh/kxFhO/Hml1RAEhciQ+bEa
+	93gzKdCPXr/x4Nlxo8tC31ACgBPTmR2AsyTCUZ28KvXxSXyuuoQuEqVlWIDLgzlkpGNt09YUNr3GI
+	XxCQVdwJ70Tpd5K6p//0oNmsn5EISzElvmeO2W2bxajIEHu1HWgT7PcAnlz0ssC3snABdHmFdmK50
+	37Rc9XFfxVRhcY6od5ir+lq9wMIlL+8vQ4qXyk8jgyYDeKpt9XEtOAKuDYXdnBOQNaLaeuNzQKS57
+	ciuKgXSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tctmO-00000005ttE-1Lro;
-	Tue, 28 Jan 2025 22:09:56 +0000
-Received: from mail-il1-x149.google.com ([2607:f8b0:4864:20::149])
+	id 1tctng-00000005uBc-3zSi;
+	Tue, 28 Jan 2025 22:11:16 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tctl2-00000005tWD-12A4
+	id 1tctl2-00000005tXI-17OS
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 28 Jan 2025 22:08:33 +0000
-Received: by mail-il1-x149.google.com with SMTP id e9e14a558f8ab-3a814bfb77bso998045ab.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jan 2025 14:08:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1738102108; x=1738706908; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=89hZLr5aXjLsq7ose3Afpbjn+HbyOiqrZ9vNJOq3AHM=;
-        b=wZggTSMjATcOmupYQJKhg5p+U0kI2A/ggZNg/p/k02Yr16IWyLYeA2wK6XyQC197fc
-         bq4GfZTIW9uBUslEhCW7tjQGoIeQw/LCPVahVqsAuXTTpNCtQgS5F0j/1LMv6OnEFcE4
-         bIjhmVF1t+4AET2AX3D5yqrhd/fWWbkHDZhOODQKi+/r4kZI/2Q1Lo8GgvjOUAO/cHd2
-         2mEiGAMzYy3wU3Y5Bqn/HPM07d1GMoIRYwlknj+usPS02aRvc9RKD6g8iLwcLQXIW59l
-         S/r+owYyxuS2jPsOapfHhcgYTrSL1LRW5C4uzpkiPr+S039oImbnnBskoSSoobJptx/W
-         aL9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738102108; x=1738706908;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=89hZLr5aXjLsq7ose3Afpbjn+HbyOiqrZ9vNJOq3AHM=;
-        b=rOWKOAibaddlwNBOl8ubabXNBFWwFMlzeLyLU9ph8AL6x9mXcFcUF5NUDuzmEgrdsp
-         56iIteL9bet0wlRlbP4WWq/kGIHmM25NtW39sGcabi6tm4TrA09zzlpgjZ6hhFhZ4CBs
-         L1ycMyKcR3DK12ve27R2gc5wDPhR0AdXVO1whSMJETCcCBsXm2tRVa8wTt+Fv2fedQeB
-         rDDhjhblYAyzZajzBk6DYTscorupeChL0g41VXwtda6hL/8/cZF0z9Zqs83oatwg9QnA
-         rxIhwq/i/xHS1vthLzFMdPKjJFyRAUtaYSaEhn87FeYyC+uEYlWAmWSFlFfjhrc2jbd8
-         8ZyA==
-X-Forwarded-Encrypted: i=1; AJvYcCWIpmh5jlUIhbyksKuiGd2q5EdE4x/wmdNN20YB1t1s5K1hNReSwLpRG7W41VUri568AjrC95MrkuxoHkUWU151@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyo8DF5FSKm0Jul0Zdvg/bW2WnmbCLfhhpdZFm9PKt+DKaD9yVD
-	jKf1ebK72abpICfYdjV9lwzkHr+vyv5XFEFGRz6bca5HePUzOHP4/uj5DtXAeZ2ngq1L91jenma
-	Oi8zwCad3/RKgO4XInWHgAg==
-X-Google-Smtp-Source: AGHT+IH262EdRMOUfzaaFC5efE8ynNaUUswWXOS0wN+Xzq+rqcX3FXHUmWZPPPAck4fFF452iQ0uNkTrY1IgQzsCXA==
-X-Received: from ilbbn5.prod.google.com ([2002:a05:6e02:3385:b0:3cf:fc72:43e3])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6e02:b43:b0:3ce:7da0:6fe2 with SMTP id e9e14a558f8ab-3cffdc2c9c7mr9678045ab.0.1738102108397;
- Tue, 28 Jan 2025 14:08:28 -0800 (PST)
-Date: Tue, 28 Jan 2025 22:08:27 +0000
-In-Reply-To: <87ikpzthjk.wl-maz@kernel.org> (message from Marc Zyngier on Tue,
- 28 Jan 2025 09:27:11 +0000)
-Mime-Version: 1.0
-Message-ID: <gsntbjvq382s.fsf@coltonlewis-kvm.c.googlers.com>
-Subject: Re: [RFC PATCH 1/4] perf: arm_pmuv3: Introduce module param to
- partition the PMU
-From: Colton Lewis <coltonlewis@google.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvm@vger.kernel.org, linux@armlinux.org.uk, catalin.marinas@arm.com, 
-	will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com, 
-	pbonzini@redhat.com, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-kselftest@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uqG9d19yj/K8m1Y2m/W6VyiNqi/8Cc/IKJqFsfACYgX9/vbB03B67Kt3BXZeey5xVr4II4UKPE+7ZSEquynihmhanB+7kyKjFtgd6Ozjkn6QQY8FALxjELUKPDERLysokwPwVu4mqbG5xKuXdBw3WAXxCYLB80XI+PrEvN/XlIPJKR88lL3bN3RCvxWmnCYSDbNUfSFYZ+uMRaoifeTXAT3vMBjMD2GCBUs1Z4VFpEHuzArAjc1y1te0ONk6RN0ro47lBUOP3J8Vx7eOnhgk6kwvyHFs3uOrSKnO3mDlSmWrWr/EaT6QML6pjernpukk46FusVADn5hhFr1qm6VnPQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dCKQlEJpo07jU5EJjFnfLwPZs6tuTxamS8VyFtNvFOo=;
+ b=LX1ygmzWPtNMJ/f4Q/mgcKGzn9UM/sKTgSR4UCISqNNusYuSXXZ/X6yMQRUxIF45zgho8hu8iLFim876QdUvBSsSeAwEN4FXd5aQmzUfDvn2fdqLVIxaRYLl8HQm7brA/mj+tpETkfamWunZzVx7Ij7diaUWQpmRjL83estUTZdlmmorgyUx36H1eET0WUsTWY0Lnw5KLRrP4Arxh4IZKgznAFgsG84zEoVdLkHwLI+BMnTSLchqPyFlrqZ0inMyLoo537h1NOZoHAm0olcHsYJISIYSmbLwSlDgrS0Zwrt2ICxpOz+VkKnhM5XcZNYbl12fw7fh4dwM5CBTHI/7iw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dCKQlEJpo07jU5EJjFnfLwPZs6tuTxamS8VyFtNvFOo=;
+ b=OCtLSXagppTlK1NixDrohuEs7Il1EesBE3Zu87awi3vsx7MUfwgmbGf0t+nQv8kqQie+spg30JBxVwmqGkCGNSK9bgi/MF7eBH1Snkj0yob49FISvZmZwFQovepyQjEYoWcTll/j+gDr8F856YA/0JpTGtxeE827R03GPmGpy7UoDGIMJCrF3KA69OCZTP2BMebPZR2NKaikmFJwfvgeSn+HwvwD3ZdSQR06h7SCkCOfHix7ENYyKQ5nczlKN351S6FaFga23Flm1qI89PT5DGvdplaKUKJru5u0Rn7w5mCH535U+cQ16UFq28R/VOA8plWw8a1JRXK9mb98AeKhtw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AM9PR04MB8555.eurprd04.prod.outlook.com (2603:10a6:20b:436::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.18; Tue, 28 Jan
+ 2025 22:08:24 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8377.021; Tue, 28 Jan 2025
+ 22:08:24 +0000
+From: Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH v9 0/7] PCI: dwc: opitimaze RC Host/EP pci_fixup_addr()
+Date: Tue, 28 Jan 2025 17:07:33 -0500
+Message-Id: <20250128-pci_fixup_addr-v9-0-3c4bb506f665@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIACVVmWcC/3XQQW7DIBAF0KtErOsKhhnAXfUeVRUZGBoWjS27t
+ VJFvntxFo0d1OUHvc8MVzHxmHkSL4erGHnOU+7PJbRPBxFO3fmDmxxLFiABZQvYDCEfU758D8c
+ uxrHpHBmXWu+9RlHQMHK5vRW+vZd8ytNXP/7c+me1nv5bNatGNmSjwq5VHDC9ni/Dc+g/xVo0w
+ xabCkPBjARIqDgm3GO9wVpWWBfsJLOVmiAFu8f4h5WUrsJYMBATSGnI+rDHtMGKKkwFB45EJjg
+ CK/fYbDDUL5t1Z88+RJcipocPs1vcVtiuO2slYwBM3j6M7e5YqRq7dWz0qSPVanDujpdl+QV7L
+ SwFVQIAAA==
+To: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, 
+ Jingoo Han <jingoohan1@gmail.com>, 
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
+ Bjorn Helgaas <bhelgaas@google.com>, Richard Zhu <hongxing.zhu@nxp.com>, 
+ Lucas Stach <l.stach@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ imx@lists.linux.dev, Niklas Cassel <cassel@kernel.org>, 
+ Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.13-dev-e586c
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1738102098; l=10225;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=a06cLjebRMq7iVPAnU7NaTP56h6NgomTtXaHUCU61ck=;
+ b=WhuK03KvdPNB3OnChJxT90PK3fbE4w06akDL2LQLSJUnAPC+YM3//NtQsGFkvx9KEkQdoVgBy
+ dKuApUHNTTXDEGilPbfO114NnuFfDT4ACRLy872LzqlLrBocc7XO59E
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: SJ0PR03CA0130.namprd03.prod.outlook.com
+ (2603:10b6:a03:33c::15) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM9PR04MB8555:EE_
+X-MS-Office365-Filtering-Correlation-Id: 76cc1474-a4fe-491d-836b-08dd3fe848bf
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|52116014|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?TDBzdnpkRGhmWHl1ZE1iQTFMblMrWHlHZEx0TkQ2ckg4bXVSYW8xazcvZTlm?=
+ =?utf-8?B?THM1Q053VEZ2N1VDUE5rVXBOODQ2bGRTT3RRa3UyeGNaeElzNHFIdy9XTGRN?=
+ =?utf-8?B?YVhHRHJVTWNyRndNK25LcmJJeHFyQ2FuM1JJejJsMHhqUldmWkhQbFhUdjhJ?=
+ =?utf-8?B?L2JTTEhqVytLRE9VN1VBa2JMcjhwczVReithOE0vVnFCRWZMbXA2ODZ1Skgz?=
+ =?utf-8?B?ZlNqbTFodk9tTEE5TXNTaDV1WlVtTmZlQldFWjdjblJZcnVrZlJLeFpDdnl0?=
+ =?utf-8?B?WHV4ak1RMldFcEwxQjJlbVVpQzBmMnpZTUp1N0xqTXJyVmlkQ2IwTHlyblFk?=
+ =?utf-8?B?UjJncDQ1RnF5QUJSeHdUTkZIaitSSWhyS3hrUTVLZ0c1Q0pndzB4d1A5WXJ0?=
+ =?utf-8?B?SDFyNGVkeURHYmxyT0lORzc2SnhBNUtrUjd6NjdYdTJwa2haUGVRTW00UVJS?=
+ =?utf-8?B?Umd3QW1rUVNpTzhCZStuY21nUEluZ2pSa0ZWWmFzWCtWN0EyNHoxUzFhakxh?=
+ =?utf-8?B?U29IUU5USldoRUl6MDcxTGxMMW9ReWhhMlZ5UzNQY2JMYm9hZk8xU1dDVzdl?=
+ =?utf-8?B?enliMWRiWGc2Q0tzeitnenhvTnFBalhiaEIrOE4vSEZHaDVDL2lFQXlxYXBY?=
+ =?utf-8?B?VWpKblE5RkV3N0JCeHdnSC95RmlTUVV0NDFRMnJZUHZYcmVzd2FVKzFTSjhX?=
+ =?utf-8?B?YzJRbWV3SlM0N283Yy9kcDlXdE1XQzEyNjN5L3FZVmJ3WmxHc3JZZmFyRmdu?=
+ =?utf-8?B?ZFlrcnA4WDRlcklFZE9UYVdNYlVxaTlRUytWQWRJQi9id2o0VDJqM3BPZ2Q1?=
+ =?utf-8?B?aGt3VDgrWGgydStKemp4Q25oUTViMDZBeFRQdWN2cmppKys0d0l1cExkT3p6?=
+ =?utf-8?B?TVZlVndoY2dwUklxY1NZY2dDdlJYdUpHVUVUY05DcmEzMXB3TUhYVnM0WE54?=
+ =?utf-8?B?aHJKaDBSczBLWWdnckY1WFlLTDBqZS81dWxYRVZVQ21JZGpxMjU5WG1tVCtG?=
+ =?utf-8?B?YWRacVVkOERRUE1zd0Z4M2RvdjNEUXdhVUtPbzdsdUEzRDBZVm90U1JnckFp?=
+ =?utf-8?B?TC9YYkVvcFlCKzV3UWpHVjF5L2hMdXhCY1FsRk9uU2VjZEo3a1REYzR3NUZC?=
+ =?utf-8?B?a1pJV2QrUENVUWJGZkY3WmhQRWg2YnZVbEQyOXNOZ2FEZjdIMFhzbGhhUkVU?=
+ =?utf-8?B?MzhZMyt3UGM5RE1XNVplb09KRElMUzZtUXBKamROdVcvZ1o4QUk1OGtmWGQ5?=
+ =?utf-8?B?czIxS1Bab1hLN1FucSs2cDZ0NDFrR1dZcFBOZGVkVU5PNHVielE1bU0yaDBI?=
+ =?utf-8?B?dElrbnVXL0t0d01LQ1g4QTBpYnEvNVZSaGNiVVEraVJOZnNxSGtOVVZJOGpw?=
+ =?utf-8?B?dWtudzlVVkNmQkU5WEhCM2JjWHpJam0vdTlHRjB0NVAxRjQwTkxaRVFLRHho?=
+ =?utf-8?B?cEZrSngwdGFrbnF5TUlqaUd5QkFSVzZQWjAxNlZsNEk2MTIvWjJLWjU4Uks5?=
+ =?utf-8?B?TjV4K3dla3FXUk9YSkhUeU1oVkpoT0Vid0hlaCtBUDZYWWVYdHNDdm5NaVVk?=
+ =?utf-8?B?bXZaaDNpY0dRWUJJZEl5cGJTZE1PY3pORVMyMmtLcEJBNHFCQWRpRHM0b01j?=
+ =?utf-8?B?R1lMM0FQa1RWUm9vNkVkZ1J4aktaMlhHN1lNTHFzbzNXODFZSFlkWVhDWmZw?=
+ =?utf-8?B?QitjYlltQ3l6alo0dHh2WnJXYTlFYndEclN0dGFIckJsMzFDWmgzaFBBM2tG?=
+ =?utf-8?B?Ylg1b1F0cGszWkRRTlBwWCtHaHd0V1IwZWIzV2M2dllEUnN2WkVFWWZ0OEoz?=
+ =?utf-8?B?VkdUUm5ERVlta3R3STRneFJXYjZKMldBYU9pSVFTVUYvR09CTWRmYVdNS2I3?=
+ =?utf-8?B?LzIxcTFGZnpzcjR2cU05RFlnMCsydnI4cGp4UGNRRkhzTUE9PQ==?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(52116014)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SDBlSSs3emdyUUpEWmpVcDA1OE1YL3JTUDlva0N4ckc0YjB3Mm43bURsWndh?=
+ =?utf-8?B?RnlyYW9pM1QrbFV6M0JZd01oTzVicGowblN2M0FsVzJ6UE9VeUEraVJiOG9u?=
+ =?utf-8?B?UTgzdmM1bW5XdHdncjBNa0N1RkU2V1U2dnVyMWJ2QlZ3b08ydStrVmxGeUUv?=
+ =?utf-8?B?QVRNNkc3dDU2WHBMbHVVTlNTd1ZpTHVVU2grb3U4bXlhY0dzWHNzQW9uN0V6?=
+ =?utf-8?B?RVlBbWxVdEt5SWNSTzZuLzZ4ZEczc1pzZ24rNWlUT3k5aEJGVHRmUThySDZr?=
+ =?utf-8?B?OUM1ZFJyaU1xV3pWM3YzTE04ZXNHMEdEQXBvdWs5R1Y5N045K2llRHhXQU9u?=
+ =?utf-8?B?RjRaTDdCYjYrNEV4Qm5LUGhjYmpaRzcwU1VFcEpFTzBsckd4OGpFRFlaN2FN?=
+ =?utf-8?B?UDV0Y3ZjUFMrc3pjZU5YYVlFR3ZIKytkU1p0R3FjM3FxR3Q5c1NhN2lWME9l?=
+ =?utf-8?B?aUFtRjAwVmUyRnd1N3FFU2NDUjNpQ01hMDhXMTZKdkJLMFpvdUtNTUQxbURH?=
+ =?utf-8?B?ZlQ1YzV4NWFFYWFNYk9kNFdlTUFDV3ZxdU95L080dnNaOGRXbmhCQS9rOG5a?=
+ =?utf-8?B?WENSWkVvQ0NaQy93NHk1a0hxYjhUemlHaEx1YnR2U09ubDJxYStpZ1Q4WnUw?=
+ =?utf-8?B?RTA0WUpBWFBmdlhaSldZcmlWRHhWUkwwTm04VHZjeElmY3BLNE1qK0Y2dUNy?=
+ =?utf-8?B?cnM2MUsyTFdLcExxa3hoalczZ1FxWk1CTlQzS1IweFNlYUpZREY3SFVZODVY?=
+ =?utf-8?B?OHNpaDN4T1FxYTNTa0VaN05tVmN0T0QvTzkveWllY25RRzM1UUZENUFvcEJU?=
+ =?utf-8?B?ZGptV2h2NHIrY1NYYjVnV1FHYWd3OTJqcGZhT2tOeVNBTFl6azBSandhM1Bl?=
+ =?utf-8?B?ZGgwUVI5MEMxeWt3T21DSEw4Z1BybnlKT21MZHRPTEN6WnJGZEhVWUNHVklZ?=
+ =?utf-8?B?NEdjVmszL3k4L3dSOG4rOXJHeC9JWHBDejBTVXJwYTdKZG5XaElSTmZEdVJJ?=
+ =?utf-8?B?VmhsSVpmTWc1UnA1OVdlOWdnZEpaVHB1d0lTRzZkWDZxcjRYN3BHZWRyUlpL?=
+ =?utf-8?B?WkxwUmlRQlBqTFFSdWJtU3RqNStZVGRtOEJVUkR0NUNzTXM5SjJtaFd3WFIx?=
+ =?utf-8?B?aXBGUEw0NXhPTng2d3d0b015d2YrMXQ3S1JvTzJLTGs0OTVXUFBsemNsMVV6?=
+ =?utf-8?B?TkJEc3VISWdrSk5PVGdtLzBIY3l0TEFZN2VTT1FWWXBVSlpIbU9icjFJZGhB?=
+ =?utf-8?B?SWJwSS90dHBkeFlFc3llM3JNa0xFNDdkRFMrT1VNeFBwSFFCeGM5OFEwYm45?=
+ =?utf-8?B?eEhtMGM5d3ozZGl1M084QldVSWJJOTU1WHNqK3ZjNjI3cmxNcWRvTUNGNXBR?=
+ =?utf-8?B?czdvOVRvTHljR3REMVV4YXA5SVI0amJYaW9qdHdkSWJwRkNWbkY1MGpTYUZ6?=
+ =?utf-8?B?RlAzeS9uVFlDa0JnOE43Q0FUOHMxb0VzOG5QcmdtbTIwMXVLcDR0TXZ6SHRh?=
+ =?utf-8?B?bmFFK1J5d1NNSHMrU28wZ2E5dEt0RlpJNE9OUGUxRDBUR3locGVHSGl4dFNr?=
+ =?utf-8?B?WUdwQXFrLzV2Qy9nc0FNVEF6dVdBWmhSeVdkYUk1L3FNZ2lJSy9Da29Jdkw4?=
+ =?utf-8?B?SFBWQTN1V1MwNi9CcmpaMitERDgyMjFxL0ExdUQ1S1RPTkZmTW1RYnExMTdo?=
+ =?utf-8?B?M3pGZEg1NXlVUjFnSm1naFd3MWYyMXY2TFhaYURDRm53QlRKTHRMR2tSdEZW?=
+ =?utf-8?B?Rys0RkY5TSttbEhKZkRNRGs4QjJoVmljV1ViYkxOSEpwd0x3QzFValNUZDBE?=
+ =?utf-8?B?bk12OE54akVzUnJFVXY3TWxUWjBzK2dvYlNLV1pqeURUK01jZitqMVRINVBH?=
+ =?utf-8?B?UmNPSFBGWU1kV3hUbkNkOGl6bmkrbmpHa01TcGVCNnZxejNMcktVQng5NDlV?=
+ =?utf-8?B?Q2NxMlAwOEw1MG1uV0RnZURteWZ0T1VBNUxsZmRObzNhTCtZZ3hOOWU1Mzlx?=
+ =?utf-8?B?N0hWVnE5SlJRZytJTjRtY1M4ZjQ5eWJrWlFKQmp4MlN1b0pZZGg5cExvNENC?=
+ =?utf-8?B?MVo5WU5jcnVpOEVycit1YlVnSmxBeEdDTnpJWlg2bVVKVmNuMUYrQ2drS1lH?=
+ =?utf-8?Q?rRW2laRzTGXTgN3cTC2HmhTt+?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 76cc1474-a4fe-491d-836b-08dd3fe848bf
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jan 2025 22:08:24.3228
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 9Q9GV9+NHq7K/bxbS452SCkLFnGGvK55qSyCgutHeBVSMqBbdgUFWxSx5xjkaaMftI+rK7ixrkWrCNBLWrvsgw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8555
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_140832_305678_39282A22 
-X-CRM114-Status: GOOD (  30.84  )
+X-CRM114-CacheID: sfid-20250128_140832_459815_8C9A9C24 
+X-CRM114-Status: UNSURE (   6.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,229 +195,225 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey Marc, thanks for looking.
+== RC side:
 
-Marc Zyngier <maz@kernel.org> writes:
+            ┌─────────┐                    ┌────────────┐
+ ┌─────┐    │         │ IA: 0x8ff8_0000    │            │
+ │ CPU ├───►│   ┌────►├─────────────────┐  │ PCI        │
+ └─────┘    │   │     │ IA: 0x8ff0_0000 │  │            │
+  CPU Addr  │   │  ┌─►├─────────────┐   │  │ Controller │
+0x7ff8_0000─┼───┘  │  │             │   │  │            │
+            │      │  │             │   │  │            │   PCI Addr
+0x7ff0_0000─┼──────┘  │             │   └──► IOSpace   ─┼────────────►
+            │         │             │      │            │    0
+0x7000_0000─┼────────►├─────────┐   │      │            │
+            └─────────┘         │   └──────► CfgSpace  ─┼────────────►
+             BUS Fabric         │          │            │    0
+                                │          │            │
+                                └──────────► MemSpace  ─┼────────────►
+                        IA: 0x8000_0000    │            │  0x8000_0000
+                                           └────────────┘
 
-> On Mon, 27 Jan 2025 22:20:27 +0000,
-> Colton Lewis <coltonlewis@google.com> wrote:
+Current dwc implimemnt, pci_fixup_addr() call back is needed when bus
+fabric convert cpu address before send to PCIe controller.
 
->> For PMUv3, the register MDCR_EL2.HPMN partitiones the PMU counters
->> into two ranges where counters 0..HPMN-1 are accessible by EL1 and, if
->> allowed, EL0 while counters HPMN..N are only accessible by EL2.
+    bus@5f000000 {
+            compatible = "simple-bus";
+            #address-cells = <1>;
+            #size-cells = <1>;
+            ranges = <0x80000000 0x0 0x70000000 0x10000000>;
 
->> Introduce a module parameter in the PMUv3 driver to set this
->> register. The name reserved_guest_counters reflects the intent to
->> reserve some counters for the guest so they may eventually be allowed
->> direct access to a subset of PMU functionality for increased
->> performance.
+            pcie@5f010000 {
+                    compatible = "fsl,imx8q-pcie";
+                    reg = <0x5f010000 0x10000>, <0x8ff00000 0x80000>;
+                    reg-names = "dbi", "config";
+                    #address-cells = <3>;
+                    #size-cells = <2>;
+                    device_type = "pci";
+                    bus-range = <0x00 0xff>;
+                    ranges = <0x81000000 0 0x00000000 0x8ff80000 0 0x00010000>,
+                             <0x82000000 0 0x80000000 0x80000000 0 0x0ff00000>;
+            ...
+            };
+    };
 
->> Track HPMN and whether the pmu is partitioned in struct arm_pmu.
+Device tree already can descript all address translate. Some hardware
+driver implement fixup function by mask some bits of cpu address. Last
+pci-imx6.c are little bit better by fetch memory resource's offset to do
+fixup.
 
->> While FEAT_HPMN0 does allow HPMN to be set to 0, this patch
->> specifically disallows that case because it's not useful given the
->> intention to allow guests access to their own counters.
+static u64 imx_pcie_cpu_addr_fixup(struct dw_pcie *pcie, u64 cpu_addr)
+{
+	...
+	entry = resource_list_first_type(&pp->bridge->windows, IORESOURCE_MEM);
+	return cpu_addr - entry->offset;
+}
 
->> Signed-off-by: Colton Lewis <coltonlewis@google.com>
->> ---
->>   arch/arm/include/asm/arm_pmuv3.h   | 10 +++++++
->>   arch/arm64/include/asm/arm_pmuv3.h | 10 +++++++
->>   drivers/perf/arm_pmuv3.c           | 43 ++++++++++++++++++++++++++++--
->>   include/linux/perf/arm_pmu.h       |  2 ++
->>   include/linux/perf/arm_pmuv3.h     |  7 +++++
->>   5 files changed, 70 insertions(+), 2 deletions(-)
+But it is not good by using IORESOURCE_MEM to fix up io/cfg address map
+although address translate is the same as IORESOURCE_MEM.
 
->> diff --git a/arch/arm/include/asm/arm_pmuv3.h  
->> b/arch/arm/include/asm/arm_pmuv3.h
->> index 2ec0e5e83fc9..49ad90486aa5 100644
->> --- a/arch/arm/include/asm/arm_pmuv3.h
->> +++ b/arch/arm/include/asm/arm_pmuv3.h
->> @@ -277,4 +277,14 @@ static inline u64 read_pmceid1(void)
->>   	return val;
->>   }
+This patches to fetch untranslate range information for PCIe controller
+(pcie@5f010000: ranges). So current config ATU without cpu_fixup_addr().
 
->> +static inline u32 read_mdcr(void)
->> +{
->> +	return read_sysreg(mdcr_el2);
->> +}
->> +
->> +static inline void write_mdcr(u32 val)
->> +{
->> +	write_sysreg(val, mdcr_el2);
->> +}
->> +
+== EP side:
 
-> This will obviously break the 32bit build.
+                   Endpoint
+  ┌───────────────────────────────────────────────┐
+  │                             pcie-ep@5f010000  │
+  │                             ┌────────────────┐│
+  │                             │   Endpoint     ││
+  │                             │   PCIe         ││
+  │                             │   Controller   ││
+  │           bus@5f000000      │                ││
+  │           ┌──────────┐      │                ││
+  │           │          │ Outbound Transfer     ││
+  │┌─────┐    │  Bus     ┼─────►│ ATU  ──────────┬┬─────►
+  ││     │    │  Fabric  │Bus   │                ││PCI Addr
+  ││ CPU ├───►│          │Addr  │                ││0xA000_0000
+  ││     │CPU │          │0x8000_0000            ││
+  │└─────┘Addr└──────────┘      │                ││
+  │       0x7000_0000           └────────────────┘│
+  └───────────────────────────────────────────────┘
 
-Dang! I did compile with 32 bit arm but I used defconfig which I now
-realize doesn't define CONFIG_ARM_PMUV3 even though 64 bit arm does.
+bus@5f000000 {
+        compatible = "simple-bus";
+        ranges = <0x80000000 0x0 0x70000000 0x10000000>;
 
->>   #endif
->> diff --git a/arch/arm64/include/asm/arm_pmuv3.h  
->> b/arch/arm64/include/asm/arm_pmuv3.h
->> index 8a777dec8d88..fc37e7e81e07 100644
->> --- a/arch/arm64/include/asm/arm_pmuv3.h
->> +++ b/arch/arm64/include/asm/arm_pmuv3.h
->> @@ -188,4 +188,14 @@ static inline bool is_pmuv3p9(int pmuver)
->>   	return pmuver >= ID_AA64DFR0_EL1_PMUVer_V3P9;
->>   }
+        pcie-ep@5f010000 {
+                reg = <0x5f010000 0x00010000>,
+                      <0x80000000 0x10000000>;
+                reg-names = "dbi", "addr_space";
+                ...                ^^^^
+        };
+        ...
+};
 
->> +static inline u64 read_mdcr(void)
->> +{
->> +	return read_sysreg(mdcr_el2);
->> +}
->> +
->> +static inline void write_mdcr(u64 val)
->> +{
->> +	write_sysreg(val, mdcr_el2);
->> +}
->> +
->>   #endif
->> diff --git a/drivers/perf/arm_pmuv3.c b/drivers/perf/arm_pmuv3.c
->> index b5cc11abc962..55f9ae560715 100644
->> --- a/drivers/perf/arm_pmuv3.c
->> +++ b/drivers/perf/arm_pmuv3.c
->> @@ -325,6 +325,7 @@ GEN_PMU_FORMAT_ATTR(threshold_compare);
->>   GEN_PMU_FORMAT_ATTR(threshold);
+Add `bus_addr_base` to configure the outbound window address for CPU write.
+The BUS fabric generally passes the same address to the PCIe EP controller,
+but some BUS fabrics convert the address before sending it to the PCIe EP
+controller.
 
->>   static int sysctl_perf_user_access __read_mostly;
->> +static u8 reserved_guest_counters __read_mostly;
+Above diagram, CPU write data to outbound windows address 0x7000_0000,
+Bus fabric convert it to 0x8000_0000. ATU should use BUS address
+0x8000_0000 as input address and convert to PCI address 0xA000_0000.
 
->>   static bool armv8pmu_event_is_64bit(struct perf_event *event)
->>   {
->> @@ -500,6 +501,29 @@ static void armv8pmu_pmcr_write(u64 val)
->>   	write_pmcr(val);
->>   }
+Previously, `cpu_addr_fixup()` was used to handle address conversion. Now,
+the device tree provides this information.
 
->> +static u64 armv8pmu_mdcr_read(void)
->> +{
->> +	return read_mdcr();
->> +}
->> +
->> +static void armv8pmu_mdcr_write(u64 val)
->> +{
->> +	write_mdcr(val);
->> +	isb();
->> +}
->> +
->> +static void armv8pmu_partition(u8 hpmn)
->> +{
->> +	u64 mdcr = armv8pmu_mdcr_read();
->> +
->> +	mdcr &= ~MDCR_EL2_HPMN_MASK;
->> +	mdcr |= FIELD_PREP(ARMV8_PMU_MDCR_HPMN, hpmn);
->> +	/* Prevent guest counters counting at EL2 */
->> +	mdcr |= ARMV8_PMU_MDCR_HPMD;
->> +
->> +	armv8pmu_mdcr_write(mdcr);
->> +}
->> +
->>   static int armv8pmu_has_overflowed(u64 pmovsr)
->>   {
->>   	return !!(pmovsr & ARMV8_PMU_OVERFLOWED_MASK);
->> @@ -1069,6 +1093,9 @@ static void armv8pmu_reset(void *info)
+The both pave the road to eliminate ugle cpu_fixup_addr() callback function.
 
->>   	bitmap_to_arr64(&mask, cpu_pmu->cntr_mask, ARMPMU_MAX_HWEVENTS);
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+Changes in v9:
+- There are some change in patches, if need drop review-tags, let me known.
+- DTS part: https://lore.kernel.org/imx/20250128211559.1582598-2-Frank.Li@nxp.com/T/#u
+- Keep "use_parent_dt_ranges" flags because need below combine logic
 
->> +	if (cpu_pmu->partitioned)
->> +		armv8pmu_partition(cpu_pmu->hpmn);
->> +
+cpu_addr_fixup  use_parent_dt_ranges
+NULL		X			No difference.
+!NULL		true			Use device tree parent_address informaion [1]
+!NULL		false			Keep use lagency method	[2]
 
-> Kaboom, see below.
+Generally DTS is in different maintainer tree. It need two steps to cleanup
+cpu_address_fixup() to avoid function block.
+1. Update dts, which reflect the correct bus fabric behavior.
+2. set "use_parent_dt_ranges" to true, then remove "cpu_address_fixup()" callback
+in platform driver.
 
->>   	/* The counter and interrupt enable registers are unknown at reset. */
->>   	armv8pmu_disable_counter(mask);
->>   	armv8pmu_disable_intens(mask);
->> @@ -1205,6 +1232,7 @@ static void __armv8pmu_probe_pmu(void *info)
->>   {
->>   	struct armv8pmu_probe_info *probe = info;
->>   	struct arm_pmu *cpu_pmu = probe->pmu;
->> +	u8 pmcr_n;
->>   	u64 pmceid_raw[2];
->>   	u32 pmceid[2];
->>   	int pmuver;
->> @@ -1215,10 +1243,19 @@ static void __armv8pmu_probe_pmu(void *info)
+Bjorn's comments in https://lore.kernel.org/imx/20250123190900.GA650360@bhelgaas/
 
->>   	cpu_pmu->pmuver = pmuver;
->>   	probe->present = true;
->> +	pmcr_n = FIELD_GET(ARMV8_PMU_PMCR_N, armv8pmu_pmcr_read());
+> After all cpu_address_fixup() removed, we can remove use_parent_dt_ranges
+> in one clean up patches.
+>
+>
+  ...
+>  dw_pcie_rd_other_conf
+>  dw_pcie_wr_other_conf
+>    dw_pcie_prog_outbound_atu() only called if pp->cfg0_io_shared,
+>    after an ECAM map via dw_pcie_other_conf_map_bus() and subsequent
+>    successful access; atu.cpu_addr came from pp->io_base, set by
+>    dw_pcie_host_init() from pci_pio_to_address(), which I'm pretty
+>    sure returns a CPU address.
 
->>   	/* Read the nb of CNTx counters supported from PMNC */
->> -	bitmap_set(cpu_pmu->cntr_mask,
->> -		   0, FIELD_GET(ARMV8_PMU_PMCR_N, armv8pmu_pmcr_read()));
->> +	bitmap_set(cpu_pmu->cntr_mask, 0, pmcr_n);
->> +
->> +	if (reserved_guest_counters > 0 && reserved_guest_counters < pmcr_n) {
->> +		cpu_pmu->hpmn = reserved_guest_counters;
->> +		cpu_pmu->partitioned = true;
+io_base is parent_bus_address
 
-> Isn't this going to completely explode on a kernel running at EL1?
+>    So this still looks wrong to me.  In addition, I think doing the
+>    ATU setup in *_map() and restore in *rd/wr_other_conf() is ugly
+>    and looks unreliable.
 
-Trying to access an EL2 register at EL1 can do that. I'll add the
-appropriate hypercalls.
+....
 
-> Also, how does it work in an asymmetric configuration where some CPUs
-> can satisfy the reservation, and some can't?
+>  dw_pcie_pme_turn_off
+>    atu.cpu_addr came from pp.msg_res, set by
+>    dw_pcie_host_request_msg_tlp_res() to a CPU address at the end of
+>    the first MMIO bridge window.  This one also looks wrong to me.
 
-The CPUs that can't read their own value of PMCR.N below what the
-attempted reservation is and so do not get partitioned. Nothing changes
-for that CPU if it can't meet the reservation.
+Fixed at this version.
 
->> +	} else {
->> +		reserved_guest_counters = 0;
->> +		cpu_pmu->hpmn = pmcr_n;
->> +		cpu_pmu->partitioned = false;
->> +	}
+- Link to v8: https://lore.kernel.org/r/20241119-pci_fixup_addr-v8-0-c4bfa5193288@nxp.com
 
->>   	/* Add the CPU cycles counter */
->>   	set_bit(ARMV8_PMU_CYCLE_IDX, cpu_pmu->cntr_mask);
->> @@ -1516,3 +1553,5 @@ void arch_perf_update_userpage(struct perf_event  
->> *event,
->>   	userpg->cap_user_time_zero = 1;
->>   	userpg->cap_user_time_short = 1;
->>   }
->> +
->> +module_param(reserved_guest_counters, byte, 0);
->> diff --git a/include/linux/perf/arm_pmu.h b/include/linux/perf/arm_pmu.h
->> index 4b5b83677e3f..ad97aabed25a 100644
->> --- a/include/linux/perf/arm_pmu.h
->> +++ b/include/linux/perf/arm_pmu.h
->> @@ -101,6 +101,8 @@ struct arm_pmu {
->>   	void		(*reset)(void *);
->>   	int		(*map_event)(struct perf_event *event);
->>   	DECLARE_BITMAP(cntr_mask, ARMPMU_MAX_HWEVENTS);
->> +	u8		hpmn; /* MDCR_EL2.HPMN: counter partition pivot */
->> +	bool	        partitioned;
->>   	bool		secure_access; /* 32-bit ARM only */
->>   #define ARMV8_PMUV3_MAX_COMMON_EVENTS		0x40
->>   	DECLARE_BITMAP(pmceid_bitmap, ARMV8_PMUV3_MAX_COMMON_EVENTS);
->> diff --git a/include/linux/perf/arm_pmuv3.h  
->> b/include/linux/perf/arm_pmuv3.h
->> index d698efba28a2..d399e8c6f98e 100644
->> --- a/include/linux/perf/arm_pmuv3.h
->> +++ b/include/linux/perf/arm_pmuv3.h
->> @@ -223,6 +223,13 @@
->>   				 ARMV8_PMU_PMCR_X | ARMV8_PMU_PMCR_DP | \
->>   				 ARMV8_PMU_PMCR_LC | ARMV8_PMU_PMCR_LP)
+Changes in v8:
+- Add mani's review tages
+- use rename use_dt_ranges to use_parent_dt_ranges
+- Add dev_warn_once to reminder to fix their dt file and remove
+cpu_fixup_addr() callback.
+- rename dw_pcie_get_untranslate_addr() to dw_pcie_get_parent_addr()
+- Link to v7: https://lore.kernel.org/r/20241029-pci_fixup_addr-v7-0-8310dc24fb7c@nxp.com
 
->> +/*
->> + * Per-CPU MDCR: config reg
->> + */
->> +#define ARMV8_PMU_MDCR_HPMN		GENMASK(4, 0)
->> +#define ARMV8_PMU_MDCR_HPME		BIT(7)
->> +#define ARMV8_PMU_MDCR_HPMD		BIT(17)
->> +
+Changes in v7:
+- fix
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202410291546.kvgEWJv7-lkp@intel.com/
+- Link to v6: https://lore.kernel.org/r/20241028-pci_fixup_addr-v6-0-ebebcd8fd4ff@nxp.com
 
-> I'd rather we find a way to use the existing definitions form the
-> sysreg file rather than add more duplication.
+Changes in v6:
+- merge RC and EP to one thread!
+- Link to v5: https://lore.kernel.org/r/20241015-pci_fixup_addr-v5-0-ced556c85270@nxp.com
 
-Easy enough
+Changes in v5:
+- update address order in diagram patches.
+- remove confused 0x5f00_0000 range
+- update patch1's commit message.
+- Link to v4: https://lore.kernel.org/r/20241008-pci_fixup_addr-v4-0-25e5200657bc@nxp.com
 
-> I also don't see how the kernel knows not to access the low-numbered
-> counters at this point. Maybe in a later patch, I'll keep reading.
+Changes in v4:
+- Improve commit message by add driver source code path.
+- Link to v3: https://lore.kernel.org/r/20240930-pci_fixup_addr-v3-0-80ee70352fc7@nxp.com
 
-> 	M.
+Changes in v3:
+- see each patch
+- Link to v2: https://lore.kernel.org/r/20240926-pci_fixup_addr-v2-0-e4524541edf4@nxp.com
 
-> --
-> Without deviation from the norm, progress is not possible.
+Changes in v2:
+- see each patch
+- Link to v1: https://lore.kernel.org/r/20240924-pci_fixup_addr-v1-0-57d14a91ec4f@nxp.com
+
+---
+Frank Li (7):
+      PCI: dwc: Use resource start as iomap() input in dw_pcie_pme_turn_off()
+      PCI: dwc: Rename cpu_addr to parent_bus_addr for ATU configuration
+      PCI: Add parent_bus_offset to resource_entry
+      PCI: dwc: Use devicetree 'ranges' property to get rid of cpu_addr_fixup() callback
+      PCI: dwc: ep: Add parent_bus_addr for outbound window
+      PCI: dwc: ep: Ensure proper iteration over outbound map windows
+      PCI: imx6: Remove cpu_addr_fixup()
+
+ drivers/pci/bus.c                                 | 11 +++++-
+ drivers/pci/controller/dwc/pci-imx6.c             | 18 +--------
+ drivers/pci/controller/dwc/pcie-designware-ep.c   | 29 +++++++++++---
+ drivers/pci/controller/dwc/pcie-designware-host.c | 46 +++++++++++++++++++----
+ drivers/pci/controller/dwc/pcie-designware.c      | 43 ++++++++++++---------
+ drivers/pci/controller/dwc/pcie-designware.h      | 11 +++++-
+ drivers/pci/of.c                                  | 12 +++++-
+ include/linux/pci.h                               |  2 +
+ include/linux/resource_ext.h                      |  1 +
+ 9 files changed, 121 insertions(+), 52 deletions(-)
+---
+base-commit: 5fcc194143ce5918ea0790a16323a844c5ab9499
+change-id: 20240924-pci_fixup_addr-a8568f9bbb34
+
+Best regards,
+---
+Frank Li <Frank.Li@nxp.com>
+
 
