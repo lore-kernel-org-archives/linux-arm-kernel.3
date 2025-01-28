@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA573C02190
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 15:59:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A765C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 16:00:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RC2pmzmWH4CgIBdJHLFPft8uDI2Dakt08wcW9mTokec=; b=VLEdnEKvke7zu/nN8CGya4021i
-	ruP97WC8AyEfPA0CSdQDcb0erdqThYuwUQ2obkhmTYPXlkHSuidBmudt817uKmre6NfLM+7ZY4s7U
-	hML97M5OCf+dLmxznkFeJA548BLfBLpQ4JN+E051MFWUouLvv2Xp0JwU2lwnXXC3zdWbVyTG956OA
-	oA0l+mJgxeZvYSjtRHWtNs3AQDmlxR3a/7eI/qd9pV71PwdL2NPmuKhM4BdJbCRAUKyDo52FIqzjf
-	Q6KXMCivUyTnWLfufEADwtTL2Z5xqA/KFsT+Hxa4NdzYIrJQ7k4v10u6hNp5N1tsW5yvVmoqiuMZR
-	PmSXATZg==;
+	bh=TekHCCUHCmCERxcU/o0a7msZFaeEFOla/9UtzyX7LR4=; b=DycbGXQn+v9MLEVaDf+phKh4cu
+	ZXSZEcWXDD7gjnzagvDfAvgxkWj8HHsBSq5CT2YFt3qFr5vewpSatDgDmZ1v+PfYYRIJKvv5OT+hl
+	vdXHS3ZppMuMc01H3JDpLYIeHT/z37FVEGdgOa8ruxNjfSSIGi8WPk6RSuIXi1zktGywsKkjDXsFe
+	Hz/i8VkvpSpD5yM2OR6Z3SpVU76WG4N60ZIrwOPSCEbPeMYZN218AMNCfUp2WEzOrZZkCOHQk92VA
+	sAvqLCNmY7CrupAYQpQNTYlGcbOu9jE158SjQKZikrso687dusaW9BR19pdGvYs/bEYNpkOmRwlmn
+	E2u9RBmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcnzh-00000005EdN-1Q12;
-	Tue, 28 Jan 2025 15:59:17 +0000
+	id 1tco12-00000005FFL-079P;
+	Tue, 28 Jan 2025 16:00:40 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcnog-00000005CBR-0Fad
+	id 1tcnom-00000005CCe-0lku
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jan 2025 15:47:55 +0000
+	Tue, 28 Jan 2025 15:48:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=RC2pmzmWH4CgIBdJHLFPft8uDI2Dakt08wcW9mTokec=; b=Xobegc1RU6kQEofhgts4nN2yIP
-	/XloiGBM64YCtWkJc2tMPyGBDaWfJ6c5WBa9mL+9wnpmtmkk9zsbzJv/LBh9z8mHKf8TVTygHjNvc
-	eBUHp8hDdw00deaNjknn6CEaMUkmZZlfMuszQhrtiGpMVfvixga6ETSSCyeZ5gyuBaLeCGMIskQVW
-	saBlOphZqyD1YSsAERYHDxT7UP3Q/tyZxKnF0m52UcN+PDAuFlbg604Et4n/K/RaOgVePqs8RxfAH
-	NBKi7jphRw71PfgKkGIVREqzTOfPg1FEsoIk7SCan/pHVxW5uogiYixng9dfCgkrDifIzxo8XEY8l
-	XgklHl2Q==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:39314 helo=rmk-PC.armlinux.org.uk)
+	bh=TekHCCUHCmCERxcU/o0a7msZFaeEFOla/9UtzyX7LR4=; b=I+fOel8aDuz+i6VE549Bd8OkCh
+	/K3qCJi8eJ75D2jN69DhjrYWXMsGpZnxEG+cXstAL8qIQ5hyGO16RgifA3qbzdjdOCLLidQCFLzla
+	MBZ03Psq5uaoKIxBA70gc5WOrVrVRFCssUx3NwVehjwbouwQgUIvoGOgQsuP46Odt9oWWVbzVNOX6
+	rS2vXySdxMwbC64L/K8/JacUemnMKGxU7p+Mk8YAp1wTZpEiMODMCqYk6XZ04KniIRna3y90u3Mjo
+	ua5YxEhmNc516LeKgEoByIH5eNwjPz6CjaDOA04hxVh2vFXGRGJ2Au0gbSfvvLQhDehWzsEYNe4By
+	MuaK/dqA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:42464 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tcnoc-0007V3-0m;
-	Tue, 28 Jan 2025 15:47:50 +0000
+	id 1tcnoh-0007VL-1C;
+	Tue, 28 Jan 2025 15:47:55 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tcnoI-0037Gu-UM; Tue, 28 Jan 2025 15:47:30 +0000
+	id 1tcnoO-0037H0-1n; Tue, 28 Jan 2025 15:47:36 +0000
 In-Reply-To: <Z5j7yCYSsQ7beznD@shell.armlinux.org.uk>
 References: <Z5j7yCYSsQ7beznD@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -65,18 +65,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Paolo Abeni <pabeni@redhat.com>,
 	 Vladimir Oltean <olteanv@gmail.com>,
 	 Jiawen Wu <jiawenwu@trustnetic.com>
-Subject: [PATCH RFC net-next 09/22] net: stmmac: remove unnecessary LPI
- disable when enabling LPI
+Subject: [PATCH RFC net-next 10/22] net: stmmac: use common LPI_CTRL_STATUS
+ bit definitions
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tcnoI-0037Gu-UM@rmk-PC.armlinux.org.uk>
-Date: Tue, 28 Jan 2025 15:47:30 +0000
+Message-Id: <E1tcnoO-0037H0-1n@rmk-PC.armlinux.org.uk>
+Date: Tue, 28 Jan 2025 15:47:36 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_074754_096634_84C2ADD7 
-X-CRM114-Status: UNSURE (   8.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250128_074800_370935_B86119D7 
+X-CRM114-Status: GOOD (  13.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,46 +90,262 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove the unnecessary LPI disable when enabling LPI - as noted in
-previous commits, there will never be two consecutive calls to
-stmmac_mac_enable_tx_lpi() without an intervening
-stmmac_mac_disable_tx_lpi.
+The bit definitions for the LPI control/status register are
+identical across all MAC versions, with the exception that some
+bits may not be implemented. Provide definitions for bits in this
+register in common.h, convert to use them, and remove the core-
+specific definitions.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 9 ---------
- 1 file changed, 9 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/common.h  | 14 ++++++++++
+ .../net/ethernet/stmicro/stmmac/dwmac1000.h   | 13 +--------
+ drivers/net/ethernet/stmicro/stmmac/dwmac4.h  | 12 +-------
+ .../net/ethernet/stmicro/stmmac/dwmac4_core.c | 28 +++++++++----------
+ .../net/ethernet/stmicro/stmmac/dwxgmac2.h    |  9 +-----
+ .../ethernet/stmicro/stmmac/dwxgmac2_core.c   | 18 ++++++------
+ 6 files changed, 40 insertions(+), 54 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 40b9e387446e..aafd9cee304e 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -390,11 +390,6 @@ static inline u32 stmmac_rx_dirty(struct stmmac_priv *priv, u32 queue)
- 	return dirty;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/common.h b/drivers/net/ethernet/stmicro/stmmac/common.h
+index e25db747a81a..55053528e498 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/common.h
++++ b/drivers/net/ethernet/stmicro/stmmac/common.h
+@@ -530,6 +530,20 @@ struct dma_features {
+ #define STMMAC_DEFAULT_TWT_LS	0x1E
+ #define STMMAC_ET_MAX		0xFFFFF
+ 
++/* Common LPI register bits */
++#define LPI_CTRL_STATUS_LPITCSE	BIT(21)	/* LPI Tx Clock Stop Enable, gmac4, xgmac2 only */
++#define LPI_CTRL_STATUS_LPIATE	BIT(20)	/* LPI Timer Enable, gmac4 only */
++#define LPI_CTRL_STATUS_LPITXA	BIT(19)	/* Enable LPI TX Automate */
++#define LPI_CTRL_STATUS_PLSEN	BIT(18)	/* Enable PHY Link Status */
++#define LPI_CTRL_STATUS_PLS	BIT(17)	/* PHY Link Status */
++#define LPI_CTRL_STATUS_LPIEN	BIT(16)	/* LPI Enable */
++#define LPI_CTRL_STATUS_RLPIST	BIT(9)	/* Receive LPI state, gmac1000 only? */
++#define LPI_CTRL_STATUS_TLPIST	BIT(8)	/* Transmit LPI state, gmac1000 only? */
++#define LPI_CTRL_STATUS_RLPIEX	BIT(3)	/* Receive LPI Exit */
++#define LPI_CTRL_STATUS_RLPIEN	BIT(2)	/* Receive LPI Entry */
++#define LPI_CTRL_STATUS_TLPIEX	BIT(1)	/* Transmit LPI Exit */
++#define LPI_CTRL_STATUS_TLPIEN	BIT(0)	/* Transmit LPI Entry */
++
+ #define STMMAC_CHAIN_MODE	0x1
+ #define STMMAC_RING_MODE	0x2
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h b/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h
+index 600fea8f712f..967a16212faf 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h
+@@ -59,22 +59,11 @@ enum power_event {
+ /* Energy Efficient Ethernet (EEE)
+  *
+  * LPI status, timer and control register offset
++ * For LPI control and status bit definitions, see common.h.
+  */
+ #define LPI_CTRL_STATUS	0x0030
+ #define LPI_TIMER_CTRL	0x0034
+ 
+-/* LPI control and status defines */
+-#define LPI_CTRL_STATUS_LPITXA	0x00080000	/* Enable LPI TX Automate */
+-#define LPI_CTRL_STATUS_PLSEN	0x00040000	/* Enable PHY Link Status */
+-#define LPI_CTRL_STATUS_PLS	0x00020000	/* PHY Link Status */
+-#define LPI_CTRL_STATUS_LPIEN	0x00010000	/* LPI Enable */
+-#define LPI_CTRL_STATUS_RLPIST	0x00000200	/* Receive LPI state */
+-#define LPI_CTRL_STATUS_TLPIST	0x00000100	/* Transmit LPI state */
+-#define LPI_CTRL_STATUS_RLPIEX	0x00000008	/* Receive LPI Exit */
+-#define LPI_CTRL_STATUS_RLPIEN	0x00000004	/* Receive LPI Entry */
+-#define LPI_CTRL_STATUS_TLPIEX	0x00000002	/* Transmit LPI Exit */
+-#define LPI_CTRL_STATUS_TLPIEN	0x00000001	/* Transmit LPI Entry */
+-
+ /* GMAC HW ADDR regs */
+ #define GMAC_ADDR_HIGH(reg)	((reg > 15) ? 0x00000800 + (reg - 16) * 8 : \
+ 				 0x00000040 + (reg * 8))
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4.h b/drivers/net/ethernet/stmicro/stmmac/dwmac4.h
+index 184d41a306af..42fe29a4e300 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac4.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4.h
+@@ -177,23 +177,13 @@ enum power_event {
+ /* Energy Efficient Ethernet (EEE) for GMAC4
+  *
+  * LPI status, timer and control register offset
++ * For LPI control and status bit definitions, see common.h.
+  */
+ #define GMAC4_LPI_CTRL_STATUS	0xd0
+ #define GMAC4_LPI_TIMER_CTRL	0xd4
+ #define GMAC4_LPI_ENTRY_TIMER	0xd8
+ #define GMAC4_MAC_ONEUS_TIC_COUNTER	0xdc
+ 
+-/* LPI control and status defines */
+-#define GMAC4_LPI_CTRL_STATUS_LPITCSE	BIT(21)	/* LPI Tx Clock Stop Enable */
+-#define GMAC4_LPI_CTRL_STATUS_LPIATE	BIT(20) /* LPI Timer Enable */
+-#define GMAC4_LPI_CTRL_STATUS_LPITXA	BIT(19)	/* Enable LPI TX Automate */
+-#define GMAC4_LPI_CTRL_STATUS_PLS	BIT(17) /* PHY Link Status */
+-#define GMAC4_LPI_CTRL_STATUS_LPIEN	BIT(16)	/* LPI Enable */
+-#define GMAC4_LPI_CTRL_STATUS_RLPIEX	BIT(3) /* Receive LPI Exit */
+-#define GMAC4_LPI_CTRL_STATUS_RLPIEN	BIT(2) /* Receive LPI Entry */
+-#define GMAC4_LPI_CTRL_STATUS_TLPIEX	BIT(1) /* Transmit LPI Exit */
+-#define GMAC4_LPI_CTRL_STATUS_TLPIEN	BIT(0) /* Transmit LPI Entry */
+-
+ /* MAC Debug bitmap */
+ #define GMAC_DEBUG_TFCSTS_MASK		GENMASK(18, 17)
+ #define GMAC_DEBUG_TFCSTS_SHIFT		17
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
+index 17bf836eba7f..c324aaf691e0 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
+@@ -387,11 +387,11 @@ static void dwmac4_set_eee_mode(struct mac_device_info *hw,
+ 	 * state.
+ 	 */
+ 	value = readl(ioaddr + GMAC4_LPI_CTRL_STATUS);
+-	value &= ~GMAC4_LPI_CTRL_STATUS_LPIATE;
+-	value |= GMAC4_LPI_CTRL_STATUS_LPIEN | GMAC4_LPI_CTRL_STATUS_LPITXA;
++	value &= ~LPI_CTRL_STATUS_LPIATE;
++	value |= LPI_CTRL_STATUS_LPIEN | LPI_CTRL_STATUS_LPITXA;
+ 
+ 	if (en_tx_lpi_clockgating)
+-		value |= GMAC4_LPI_CTRL_STATUS_LPITCSE;
++		value |= LPI_CTRL_STATUS_LPITCSE;
+ 
+ 	writel(value, ioaddr + GMAC4_LPI_CTRL_STATUS);
+ }
+@@ -402,8 +402,8 @@ static void dwmac4_reset_eee_mode(struct mac_device_info *hw)
+ 	u32 value;
+ 
+ 	value = readl(ioaddr + GMAC4_LPI_CTRL_STATUS);
+-	value &= ~(GMAC4_LPI_CTRL_STATUS_LPIATE | GMAC4_LPI_CTRL_STATUS_LPIEN |
+-		   GMAC4_LPI_CTRL_STATUS_LPITXA);
++	value &= ~(LPI_CTRL_STATUS_LPIATE | LPI_CTRL_STATUS_LPIEN |
++		   LPI_CTRL_STATUS_LPITXA);
+ 	writel(value, ioaddr + GMAC4_LPI_CTRL_STATUS);
  }
  
--static void stmmac_disable_hw_lpi_timer(struct stmmac_priv *priv)
--{
--	stmmac_set_eee_lpi_timer(priv, priv->hw, 0);
--}
--
- static void stmmac_enable_hw_lpi_timer(struct stmmac_priv *priv)
- {
- 	stmmac_set_eee_lpi_timer(priv, priv->hw, priv->tx_lpi_timer);
-@@ -1082,14 +1077,10 @@ static int stmmac_mac_enable_tx_lpi(struct phylink_config *config, u32 timer,
+@@ -415,9 +415,9 @@ static void dwmac4_set_eee_pls(struct mac_device_info *hw, int link)
+ 	value = readl(ioaddr + GMAC4_LPI_CTRL_STATUS);
  
- 	if (priv->plat->has_gmac4 && priv->tx_lpi_timer <= STMMAC_ET_MAX) {
- 		/* Use hardware LPI mode */
--		del_timer_sync(&priv->eee_ctrl_timer);
--		priv->tx_path_in_lpi_mode = false;
--		priv->eee_sw_timer_en = false;
- 		stmmac_enable_hw_lpi_timer(priv);
- 	} else {
- 		/* Use software LPI mode */
- 		priv->eee_sw_timer_en = true;
--		stmmac_disable_hw_lpi_timer(priv);
- 		stmmac_restart_sw_lpi_timer(priv);
+ 	if (link)
+-		value |= GMAC4_LPI_CTRL_STATUS_PLS;
++		value |= LPI_CTRL_STATUS_PLS;
+ 	else
+-		value &= ~GMAC4_LPI_CTRL_STATUS_PLS;
++		value &= ~LPI_CTRL_STATUS_PLS;
+ 
+ 	writel(value, ioaddr + GMAC4_LPI_CTRL_STATUS);
+ }
+@@ -433,12 +433,12 @@ static void dwmac4_set_eee_lpi_entry_timer(struct mac_device_info *hw, u32 et)
+ 
+ 	/* Enable/disable LPI entry timer */
+ 	regval = readl(ioaddr + GMAC4_LPI_CTRL_STATUS);
+-	regval |= GMAC4_LPI_CTRL_STATUS_LPIEN | GMAC4_LPI_CTRL_STATUS_LPITXA;
++	regval |= LPI_CTRL_STATUS_LPIEN | LPI_CTRL_STATUS_LPITXA;
+ 
+ 	if (et)
+-		regval |= GMAC4_LPI_CTRL_STATUS_LPIATE;
++		regval |= LPI_CTRL_STATUS_LPIATE;
+ 	else
+-		regval &= ~GMAC4_LPI_CTRL_STATUS_LPIATE;
++		regval &= ~LPI_CTRL_STATUS_LPIATE;
+ 
+ 	writel(regval, ioaddr + GMAC4_LPI_CTRL_STATUS);
+ }
+@@ -851,17 +851,17 @@ static int dwmac4_irq_status(struct mac_device_info *hw,
+ 		/* Clear LPI interrupt by reading MAC_LPI_Control_Status */
+ 		u32 status = readl(ioaddr + GMAC4_LPI_CTRL_STATUS);
+ 
+-		if (status & GMAC4_LPI_CTRL_STATUS_TLPIEN) {
++		if (status & LPI_CTRL_STATUS_TLPIEN) {
+ 			ret |= CORE_IRQ_TX_PATH_IN_LPI_MODE;
+ 			x->irq_tx_path_in_lpi_mode_n++;
+ 		}
+-		if (status & GMAC4_LPI_CTRL_STATUS_TLPIEX) {
++		if (status & LPI_CTRL_STATUS_TLPIEX) {
+ 			ret |= CORE_IRQ_TX_PATH_EXIT_LPI_MODE;
+ 			x->irq_tx_path_exit_lpi_mode_n++;
+ 		}
+-		if (status & GMAC4_LPI_CTRL_STATUS_RLPIEN)
++		if (status & LPI_CTRL_STATUS_RLPIEN)
+ 			x->irq_rx_path_in_lpi_mode_n++;
+-		if (status & GMAC4_LPI_CTRL_STATUS_RLPIEX)
++		if (status & LPI_CTRL_STATUS_RLPIEX)
+ 			x->irq_rx_path_exit_lpi_mode_n++;
  	}
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+index 20027d3c25a7..a03f5d771566 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+@@ -112,14 +112,7 @@
+ #define XGMAC_MGKPKTEN			BIT(1)
+ #define XGMAC_PWRDWN			BIT(0)
+ #define XGMAC_LPI_CTRL			0x000000d0
+-#define XGMAC_TXCGE			BIT(21)
+-#define XGMAC_LPITXA			BIT(19)
+-#define XGMAC_PLS			BIT(17)
+-#define XGMAC_LPITXEN			BIT(16)
+-#define XGMAC_RLPIEX			BIT(3)
+-#define XGMAC_RLPIEN			BIT(2)
+-#define XGMAC_TLPIEX			BIT(1)
+-#define XGMAC_TLPIEN			BIT(0)
++/* For definitions, see LPI_CTRL_STATUS_xxx in common.h */
+ #define XGMAC_LPI_TIMER_CTRL		0x000000d4
+ #define XGMAC_HW_FEATURE0		0x0000011c
+ #define XGMAC_HWFEAT_EDMA		BIT(31)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+index 9a60a6e8f633..19cfb1dcb332 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+@@ -316,17 +316,17 @@ static int dwxgmac2_host_irq_status(struct mac_device_info *hw,
+ 	if (stat & XGMAC_LPIIS) {
+ 		u32 lpi = readl(ioaddr + XGMAC_LPI_CTRL);
+ 
+-		if (lpi & XGMAC_TLPIEN) {
++		if (lpi & LPI_CTRL_STATUS_TLPIEN) {
+ 			ret |= CORE_IRQ_TX_PATH_IN_LPI_MODE;
+ 			x->irq_tx_path_in_lpi_mode_n++;
+ 		}
+-		if (lpi & XGMAC_TLPIEX) {
++		if (lpi & LPI_CTRL_STATUS_TLPIEX) {
+ 			ret |= CORE_IRQ_TX_PATH_EXIT_LPI_MODE;
+ 			x->irq_tx_path_exit_lpi_mode_n++;
+ 		}
+-		if (lpi & XGMAC_RLPIEN)
++		if (lpi & LPI_CTRL_STATUS_RLPIEN)
+ 			x->irq_rx_path_in_lpi_mode_n++;
+-		if (lpi & XGMAC_RLPIEX)
++		if (lpi & LPI_CTRL_STATUS_RLPIEX)
+ 			x->irq_rx_path_exit_lpi_mode_n++;
+ 	}
+ 
+@@ -433,9 +433,9 @@ static void dwxgmac2_set_eee_mode(struct mac_device_info *hw,
+ 
+ 	value = readl(ioaddr + XGMAC_LPI_CTRL);
+ 
+-	value |= XGMAC_LPITXEN | XGMAC_LPITXA;
++	value |= LPI_CTRL_STATUS_LPIEN | LPI_CTRL_STATUS_LPITXA;
+ 	if (en_tx_lpi_clockgating)
+-		value |= XGMAC_TXCGE;
++		value |= LPI_CTRL_STATUS_LPITCSE;
+ 
+ 	writel(value, ioaddr + XGMAC_LPI_CTRL);
+ }
+@@ -446,7 +446,7 @@ static void dwxgmac2_reset_eee_mode(struct mac_device_info *hw)
+ 	u32 value;
+ 
+ 	value = readl(ioaddr + XGMAC_LPI_CTRL);
+-	value &= ~(XGMAC_LPITXEN | XGMAC_LPITXA | XGMAC_TXCGE);
++	value &= ~(LPI_CTRL_STATUS_LPIEN | LPI_CTRL_STATUS_LPITXA | LPI_CTRL_STATUS_LPITCSE);
+ 	writel(value, ioaddr + XGMAC_LPI_CTRL);
+ }
+ 
+@@ -457,9 +457,9 @@ static void dwxgmac2_set_eee_pls(struct mac_device_info *hw, int link)
+ 
+ 	value = readl(ioaddr + XGMAC_LPI_CTRL);
+ 	if (link)
+-		value |= XGMAC_PLS;
++		value |= LPI_CTRL_STATUS_PLS;
+ 	else
+-		value &= ~XGMAC_PLS;
++		value &= ~LPI_CTRL_STATUS_PLS;
+ 	writel(value, ioaddr + XGMAC_LPI_CTRL);
+ }
  
 -- 
 2.30.2
