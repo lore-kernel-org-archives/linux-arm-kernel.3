@@ -4,76 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21B1FC0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 14:18:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B7F5C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 14:20:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MhiyKOQUZMlQzrQQDm/bzM5HL7BaCBczElCwHaYcmtE=; b=wgst0jSqzoBCJ2OQogyglBAEA2
-	EM3MqddezMldgpjbcXPv5mNsjEDt/NYVGjHdpFYG1Mh5+D5aBg4mpNB2lbQP2mYC4TLW/+ecyL+4t
-	Lx8xTT67A1HoU52Ye+6MJCGoKZTOVgo8gPOSpAJCaexUvq2vNYcB1ZdD6Gk35oiVswoKqwTpjDsQV
-	oMUldG44H7MuLBcjNDI+3+RBLtTlJ1AryIIUW5NbXMP+zn6hW4v24uv0E8LthBzBTM5N2CLXQKfVT
-	dkj8SA4yo+Ddd7oappKlIC2Bo70AxbnL2NPDE2hPiMjZ0E46XXTyaCeIvdDNvIhkHYe0N9ihWLfW3
-	dgF1a3Fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zxnh7YWmhwcThwCcs0T1Pnf5nfUQr5BE+yYuctRfxMY=; b=Y4pYYypMQ2X78+4YU1CIZdm/Rg
+	b4nLVVmzSgwrqCI/eGgcTtacRv8VQU1mBYiyvjrg58wOPfcrKvBfvS85ZZMmn0OVPz8cP9n+Ecu/+
+	oo2Yf6MCKM4Bb6xs28PqCFSz6c8ZLFOX/kmFyOSlib8SffXCrqnM8edicEqnB/pjr1T30uY72ZCim
+	RLrFDMjZkcth+VmU3hE+g6YXV/zrOQwLKN5lTcWDqW4Jm38tygO5Lh2Wr+Qq82g9ylgQHhLlFgYPh
+	KQDihf6CWsrMdw/dJB+ZZN9xjK6LEnDTz5N9NohHNPg45O29L082QR1NrxczyTqBgfhO/xa2BIf7M
+	dKojReyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcmPZ-0000000522h-1g5s;
-	Tue, 28 Jan 2025 14:17:53 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1tcmRS-000000052Ia-14k1;
+	Tue, 28 Jan 2025 14:19:50 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcmO5-000000051lL-3uIh
+	id 1tcmQ7-000000052Bk-2WHm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jan 2025 14:16:23 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4Yj6j83rtsz6M4HX;
-	Tue, 28 Jan 2025 22:14:04 +0800 (CST)
-Received: from frapeml100005.china.huawei.com (unknown [7.182.85.132])
-	by mail.maildlp.com (Postfix) with ESMTPS id 92C641402DB;
-	Tue, 28 Jan 2025 22:16:08 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (7.182.85.71) by
- frapeml100005.china.huawei.com (7.182.85.132) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Tue, 28 Jan 2025 15:16:08 +0100
-Received: from frapeml500008.china.huawei.com ([7.182.85.71]) by
- frapeml500008.china.huawei.com ([7.182.85.71]) with mapi id 15.01.2507.039;
- Tue, 28 Jan 2025 15:16:08 +0100
-From: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>
-To: Oliver Upton <oliver.upton@linux.dev>
-CC: "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, "maz@kernel.org"
-	<maz@kernel.org>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"will@kernel.org" <will@kernel.org>, "mark.rutland@arm.com"
-	<mark.rutland@arm.com>, "cohuck@redhat.com" <cohuck@redhat.com>,
-	"eric.auger@redhat.com" <eric.auger@redhat.com>, "sebott@redhat.com"
-	<sebott@redhat.com>, yuzenghui <yuzenghui@huawei.com>, "Wangzhou (B)"
-	<wangzhou1@hisilicon.com>, jiangkunkun <jiangkunkun@huawei.com>, "Jonathan
- Cameron" <jonathan.cameron@huawei.com>, Anthony Jebson
-	<anthony.jebson@huawei.com>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, Linuxarm <linuxarm@huawei.com>
-Subject: RE: [PATCH v5 2/4] KVM: arm64: Introduce hypercall support for
- retrieving target implementations
-Thread-Topic: [PATCH v5 2/4] KVM: arm64: Introduce hypercall support for
- retrieving target implementations
-Thread-Index: AQHbbnPvQIqQDHYICESJXD2PsLgGhrMq02oAgAFFeFA=
-Date: Tue, 28 Jan 2025 14:16:08 +0000
-Message-ID: <c10e377aa58c408599e06007052cff7a@huawei.com>
-References: <20250124151732.6072-1-shameerali.kolothum.thodi@huawei.com>
- <20250124151732.6072-3-shameerali.kolothum.thodi@huawei.com>
- <Z5fBrFVIs0jOiR9W@linux.dev>
-In-Reply-To: <Z5fBrFVIs0jOiR9W@linux.dev>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.203.177.241]
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 28 Jan 2025 14:18:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D8DBA5C5779;
+	Tue, 28 Jan 2025 14:17:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AB46C4CED3;
+	Tue, 28 Jan 2025 14:18:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738073906;
+	bh=yNy5v7csVeL9YFrlxukzH7BZhthxkurzRf6NSESz4Kg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=AGsUFwDJ2Ws/psN+XFqxhFbBDYdwXLAqUEiMhREKV4AAJlxm+se5UM752yA3ImpFH
+	 57suGbRwSS53rmPhugJsvNQBw0b8bI2qPQC/3laBlaLKzFNc9tEBUB307KIz6dwe3x
+	 e22LqE1JX80JxYsNszfJtbvHc+xfaQHMk6nqbvlFSenNK1Wdfkl0hmOqYHvkafknag
+	 RMs+FfDnTR1wY2EURNC193xa2Gx5Pt+WUOG8R4yNhi2FYlQTalf0gPXGQksDzPhWDh
+	 bXUnCjg0QhVnmFa2fmDPGP8a+6kEqZ3HKElA6dNNWqDBCll5UmWRXnD8GwZ2+Mg8Ta
+	 fS3VIO3KQMa8Q==
+Message-ID: <918d6885-969e-46f1-b414-614905b12831@kernel.org>
+Date: Tue, 28 Jan 2025 15:18:15 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 4/4] arm64: dts: fsd: Add Ethernet support for PERIC
+ Block of FSD SoC
+To: Swathi K S <swathi.ks@samsung.com>, robh@kernel.org, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ conor+dt@kernel.org, richardcochran@gmail.com, mcoquelin.stm32@gmail.com,
+ andrew@lunn.ch, alim.akhtar@samsung.com, linux-fsd@tesla.com
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ alexandre.torgue@foss.st.com, peppe.cavallaro@st.com, joabreu@synopsys.com,
+ rcsekar@samsung.com, ssiddha@tesla.com, jayati.sahu@samsung.com,
+ pankaj.dubey@samsung.com, ravi.patel@samsung.com, gost.dev@samsung.com
+References: <20250128102558.22459-1-swathi.ks@samsung.com>
+ <CGME20250128102743epcas5p1388a66efc96444adc8f1dbe78d7239b9@epcas5p1.samsung.com>
+ <20250128102558.22459-5-swathi.ks@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250128102558.22459-5-swathi.ks@samsung.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_061622_264167_58A0B675 
-X-CRM114-Status: GOOD (  23.10  )
+X-CRM114-CacheID: sfid-20250128_061827_732619_EFCBD45C 
+X-CRM114-Status: GOOD (  10.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,120 +126,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 28/01/2025 11:25, Swathi K S wrote:
+>  
+>  &pinctrl_pmu {
+> diff --git a/arch/arm64/boot/dts/tesla/fsd.dtsi b/arch/arm64/boot/dts/tesla/fsd.dtsi
+> index cc67930ebf78..670f6a852542 100644
+> --- a/arch/arm64/boot/dts/tesla/fsd.dtsi
+> +++ b/arch/arm64/boot/dts/tesla/fsd.dtsi
+> @@ -1027,6 +1027,33 @@
+>  			phy-mode = "rgmii-id";
+>  			status = "disabled";
+>  		};
+> +
+> +		ethernet_1: ethernet@14300000 {
 
+Don't add nodes to the end, because that lead to mess we have there.
+Squeeze it somewhere where impact on resorting would be the smallest.
 
-> -----Original Message-----
-> From: Oliver Upton <oliver.upton@linux.dev>
-> Sent: Monday, January 27, 2025 5:26 PM
-> To: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>
-> Cc: kvmarm@lists.linux.dev; maz@kernel.org; catalin.marinas@arm.com;
-> will@kernel.org; mark.rutland@arm.com; cohuck@redhat.com;
-> eric.auger@redhat.com; sebott@redhat.com; yuzenghui
-> <yuzenghui@huawei.com>; Wangzhou (B) <wangzhou1@hisilicon.com>;
-> jiangkunkun <jiangkunkun@huawei.com>; Jonathan Cameron
-> <jonathan.cameron@huawei.com>; Anthony Jebson
-> <anthony.jebson@huawei.com>; linux-arm-kernel@lists.infradead.org;
-> Linuxarm <linuxarm@huawei.com>
-> Subject: Re: [PATCH v5 2/4] KVM: arm64: Introduce hypercall support for
-> retrieving target implementations
->=20
-> On Fri, Jan 24, 2025 at 03:17:30PM +0000, Shameer Kolothum wrote:
-> > If the Guest requires migration to multiple targets, these hypercalls
-> > will provide a way to retrieve the target CPU implementations from
-> > the user space VMM.
-> >
-> > Subsequent patch will use this to enable the associated errata.
-> >
-> > Suggested-by: Oliver Upton <oliver.upton@linux.dev>
-> > Suggested-by: Marc Zyngier <maz@kernel.org>
-> > Signed-off-by: Shameer Kolothum
-> <shameerali.kolothum.thodi@huawei.com>
-> > ---
-> >  Documentation/virt/kvm/arm/hypercalls.rst | 59
-> +++++++++++++++++++++++
-> >  include/linux/arm-smccc.h                 | 15 ++++++
-> >  2 files changed, 74 insertions(+)
-> >
-> > diff --git a/Documentation/virt/kvm/arm/hypercalls.rst
-> b/Documentation/virt/kvm/arm/hypercalls.rst
-> > index af7bc2c2e0cb..718725cbf6c7 100644
-> > --- a/Documentation/virt/kvm/arm/hypercalls.rst
-> > +++ b/Documentation/virt/kvm/arm/hypercalls.rst
-> > @@ -142,3 +142,62 @@ region is equal to the memory protection granule
-> advertised by
-> >  |                     |          |    +-------------------------------=
---------------+
-> >  |                     |          |    | ``INVALID_PARAMETER (-3)``    =
-              |
-> >  +---------------------+----------+----+-------------------------------=
---------------+
-> > +
-> > +``ARM_SMCCC_VENDOR_HYP_KVM_DISCOVER_IMPL_VER_FUNC_ID``
-> > +-------------------------------------------------------
-> > +Request the target CPU implementation version information and the
-> number of target
-> > +implementations for the Guest VM.
-> > +
-> > ++---------------------+-----------------------------------------------=
---------------+
-> > +| Presence:           | Optional;  KVM/ARM64 Guests only              =
-              |
-> > ++---------------------+-----------------------------------------------=
---------------+
-> > +| Calling convention: | HVC64                                         =
-              |
-> > ++---------------------+----------+------------------------------------=
---------------+
-> > +| Function ID:        | (uint32) | 0xC6000040                         =
-              |
-> > ++---------------------+----------+------------------------------------=
---------------+
-> > +| Arguments:          | None                                          =
-              |
-> > ++---------------------+----------+----+-------------------------------=
---------------+
-> > +| Return Values:      | (int64)  | R0 | ``SUCCESS (0)``               =
-              |
-> > +|                     |          |    +-------------------------------=
---------------+
-> > +|                     |          |    | ``NOT_SUPPORTED (-1)``        =
-              |
-> > +|                     +----------+----+-------------------------------=
---------------+
-> > +|                     | (uint64) | R1 | Bit[63] Must be zero          =
-              |
-> > +|                     |          |    +-------------------------------=
---------------+
->=20
-> Why? R0 is sufficient to determine if the hypercall was successful, and
-> this is already defined as an unsigned quantity to the guest.
-
-Hmm..I was trying to imitate(badly ofcourse) the SMCCC_VERSION where
-bit 31 must be zero but again in that case it is Int32 so it makes sense th=
-ere.
-
->=20
-> > +|                     |          |    | Bits [62:32] Major version    =
-              |
-> > +|                     |          |    +-------------------------------=
---------------+
-> > +|                     |          |    | Bits [31:0] Minor version     =
-              |
-> > +|                     +----------+----+-------------------------------=
---------------+
->=20
-> Do we really need a full u64 of version information? If you collapse
-> this down to a u32 it'd align with the versioning scheme for PSCI /
-> SMCCC.
-=20
-Ok. How about this,
-
-Bits [63:32]  Reserved/] Must be zero
-Bits [31:16]  Major Rev (Should we leave the bit 31 to zero here to match
-                      SMCCC_VERSION?)
-Bits [15:0]    Minor Rev
-
-Thanks,
-Shameer
-
+Best regards,
+Krzysztof
 
