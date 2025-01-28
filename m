@@ -4,73 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CEF6C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 12:39:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4913C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 13:06:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r2Gwjs/MaO1cS16/WGPahup8X/6ckRyCesC9zc2AXCI=; b=V7d5RifKboTwaLxICG+qcJ7aIK
-	ticYPHZ8cEra7You8CsKsRiGIbGQwTs35JGZBUGGdbmjtBqbt73RsOOcgNECMZNmNhtrwXtaFIHmG
-	JDzH/Xqc/qKUK983rHi7p5/8xDZJLoqySq9Ry0UkQjPe4bnNylcTUdtl/Ljj5y7umxP5nEEtirrPf
-	ORvTJXABhGCGThjza7+pG6cjVNAgbtXJfSA+uRqGh0opIrLSl9tU7Ug0xJh+OHZHm8GgcwdEEN4xM
-	muNgHbgvvWmv6oSLwi//jl0s0O/s0SirNHAesCpdeM75Rv55E9kJZ+ltQEkIIQl0/V06Gc8yXnMaD
-	pOEm9Lxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=HveFmXR/A9BMslJD4oOv9yisswDFwrDeEZeHvWMl81Q=; b=a16S4/fkmkzZ6N
+	ET7wnfQKHXHbbjm2p4D2YaW3XHHy2z1HxQpFiYk9qMUbOZwqtvfDEMtB8u6U4ZgKxZK9IUHO6t920
+	qhnU78yIqEXo8ABhJ7ukBg6CofjCb2Y/5digriq+btE+0s9aLWe5SMaRrdfdI//TdjLiGdBwQKNHF
+	6fLg6DsyB4anUbkQ+F9VwBByhwIm5N3vz4Tej3R4npobo7uEfCZahXJgnEchBdfXJd62fFGSk09HB
+	ZirxX1BijWNY6iM+N70G9RHxNsL2memhYl9MlVE6jJ5zKQ5B46o+6YDwy5v9YIWzYarAP/AG353Ir
+	TXQ1pGSDgeQxPrhytTEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tckrg-00000004tV5-3KXY;
-	Tue, 28 Jan 2025 12:38:48 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tclI1-00000004vHc-1FcV;
+	Tue, 28 Jan 2025 13:06:01 +0000
+Received: from smtp-42ab.mail.infomaniak.ch ([2001:1600:7:10::42ab])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tckqM-00000004tPW-0KxS
+	id 1tclGf-00000004v3L-3uJ9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jan 2025 12:37:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6B3945C5D95;
-	Tue, 28 Jan 2025 12:36:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAA42C4CED3;
-	Tue, 28 Jan 2025 12:37:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738067845;
-	bh=qz3e8xDv9vNVbI2kX24dN6HQHDUseqJD3RxrmrJ0cpk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KlyH1pdJiKjGn8uLrDGey0+BR7Y1XDI7/k3IOlVaPDd2IG10n7iynKhrIxW1/9+t0
-	 QXsyA+5wubDIlfT4qOEvm+6bWHeQ/Dj3KzK8uAcqx7Nd9rFI3i1CZpAFiPdxtjFjlx
-	 eFiiDMOHVUGYVSv5ESIkT1Ng18KOneUYiiZKg8gdZRocGojxNST6AkvpiW+oP25sib
-	 hVU/b2cKo15dj/AspvsmoUGd6mvuYtpZ88RXutbZXqf+VcZnIGh+dXYe9omIsExEhY
-	 Zp6h7VPdoclI/eJSJ4QjzGyAQDHpyvyqaXXGGMyhOcIBk1q7XR6+sQvrrTNdA1HkzL
-	 HYBYWWWyjSsAA==
-Date: Tue, 28 Jan 2025 12:37:19 +0000
-From: Mark Brown <broonie@kernel.org>
-To: patrice.chotard@foss.st.com
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-spi@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	christophe.kerello@foss.st.com
-Subject: Re: [PATCH v2 2/9] spi: stm32: Add OSPI driver
-Message-ID: <ec35dbd3-5730-4cc8-8025-d349740d1ba5@sirena.org.uk>
-References: <20250128081731.2284457-1-patrice.chotard@foss.st.com>
- <20250128081731.2284457-3-patrice.chotard@foss.st.com>
+	Tue, 28 Jan 2025 13:04:39 +0000
+Received: from smtp-4-0001.mail.infomaniak.ch (smtp-4-0001.mail.infomaniak.ch [10.7.10.108])
+	by smtp-4-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4Yj58w6jZkzYZd;
+	Tue, 28 Jan 2025 14:04:32 +0100 (CET)
+Received: from unknown by smtp-4-0001.mail.infomaniak.ch (Postfix) with ESMTPA id 4Yj58v4jkjzdbV;
+	Tue, 28 Jan 2025 14:04:31 +0100 (CET)
+From: Quentin Schulz <foss+kernel@0leil.net>
+Subject: [PATCH v3 0/4] arm64: dts: rockchip: minimal support for Pre-ICT
+ tester adapter for RK3588 Jaguar + add overlay tests
+Date: Tue, 28 Jan 2025 14:04:12 +0100
+Message-Id: <20250128-pre-ict-jaguar-v3-0-7be2f09d390a@cherry.de>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="gwleQ6q+I0YDdApo"
-Content-Disposition: inline
-In-Reply-To: <20250128081731.2284457-3-patrice.chotard@foss.st.com>
-X-Cookie: I never did it that way before.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAMzVmGcC/3WMOw7CMBAFr4Jcs2jX+VNxD0Th2OvEFAmyg0UU5
+ e44kSgQopz3NLOIwN5xEOfDIjxHF9w4JMiOB6F7NXQMziQWEmVOEkt4+DTpCe6qeyoPbYNWWea
+ 6NbVIUrqte+3B6y1x78I0+nnvR9rWv6lIQFDZssTW5G2F+qJ79n4+GRZbKsqPXiDRry4BgYrKZ
+ NQg5vZLX9f1DX5vCmHrAAAA
+X-Change-ID: 20241206-pre-ict-jaguar-b90fafee8bd8
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Jagan Teki <jagan@edgeble.ai>, Niklas Cassel <cassel@kernel.org>, 
+ Michael Riesch <michael.riesch@wolfvision.net>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Quentin Schulz <quentin.schulz@cherry.de>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Infomaniak-Routing: alpha
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_043726_203448_A7DB7FF9 
-X-CRM114-Status: GOOD (  16.62  )
+X-CRM114-CacheID: sfid-20250128_050438_098736_151018A5 
+X-CRM114-Status: UNSURE (   9.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,65 +73,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This adds minimal support for the Pre-ICT tester adapter for RK3588
+Jaguar.
+GPIO3A3, GPIO3A4, GPIO3B2 and GPIO3D2 to GPIO3D5 are all routed to power
+rails and can only be used as input and their bias are important to be
+able to properly detect soldering issues.
 
---gwleQ6q+I0YDdApo
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Additionally, this adds build-time overlay application tests for all
+Rockchip overlays to try to avoid future regressions.
 
-On Tue, Jan 28, 2025 at 09:17:24AM +0100, patrice.chotard@foss.st.com wrote:
+Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
+---
+Changes in v3:
+- removed Fixes tag and intent to send to stable as this patch almost
+  doubles the size of the main DTB. Let's not potentially break users of
+  stable releases,
+- added Wolfvision PF5 overlay tests, thanks Michael,
+- added comment on how to add new overlays (via tests), and the side
+  effects,
+- grouped the overlay application test target with the definition of its
+  dependencies (DTB + DTBO(s)),
+- added trailers,
+- Link to v2: https://lore.kernel.org/r/20250116-pre-ict-jaguar-v2-0-157d319004fc@cherry.de
 
-> +static int stm32_ospi_tx_poll(struct stm32_ospi *ospi, u8 *buf, u32 len, bool read)
-> +{
+Changes in v2:
+- add overlay application tests for Edgeble NCM6A WiFi and Rock 5B PCIe
+  Endpoint+SNRS
+- add overlay application test for RK3588 Jaguar + Pre-ICT tester
+  adapter,
+- Link to v1: https://lore.kernel.org/r/20241206-pre-ict-jaguar-v1-1-7f660bd4b70c@cherry.de
 
-> +	if (read)
-> +		tx_fifo = stm32_ospi_read_fifo;
-> +	else
-> +		tx_fifo = stm32_ospi_write_fifo;
+---
+Quentin Schulz (4):
+      arm64: dts: rockchip: add overlay test for Wolfvision PF5
+      arm64: dts: rockchip: add overlay test for Edgeble NCM6A
+      arm64: dts: rockchip: add overlay tests for Rock 5B PCIe overlays
+      arm64: dts: rockchip: minimal support for Pre-ICT tester adapter for RK3588 Jaguar
 
-> +		tx_fifo(buf++, regs_base + OSPI_DR);
+ arch/arm64/boot/dts/rockchip/Makefile              |  36 ++++-
+ .../dts/rockchip/rk3588-jaguar-pre-ict-tester.dtso | 171 +++++++++++++++++++++
+ 2 files changed, 202 insertions(+), 5 deletions(-)
+---
+base-commit: 6d61a53dd6f55405ebcaea6ee38d1ab5a8856c2c
+change-id: 20241206-pre-ict-jaguar-b90fafee8bd8
 
-It feels like the _tx_poll and tx_fifo naming is a landmine waiting to
-surprise people in the future.  The code sharing makes sense but the
-naming is just looking to cause surprises, especially with it just being
-a bool selecting read or write.
+Best regards,
+-- 
+Quentin Schulz <quentin.schulz@cherry.de>
 
-> +static int stm32_ospi_tx(struct stm32_ospi *ospi, const struct spi_mem_op *op)
-> +{
-
-> +       return stm32_ospi_tx_poll(ospi, buf, op->data.nbytes,
-> +                                op->data.dir == SPI_MEM_DATA_IN);
-
-Though the one caller is also using _tx only naming, it's a bit more
-tied in with the op sending though.
-
-> +	ctrl->mode_bits = SPI_RX_DUAL | SPI_RX_QUAD |
-> +			  SPI_TX_DUAL | SPI_TX_QUAD |
-> +			  SPI_TX_OCTAL | SPI_RX_OCTAL;
-> +	ctrl->setup = stm32_ospi_setup;
-> +	ctrl->bus_num = -1;
-> +	ctrl->mem_ops = &stm32_ospi_mem_ops;
-> +	ctrl->use_gpio_descriptors = true;
-> +	ctrl->transfer_one_message = stm32_ospi_transfer_one_message;
-> +	ctrl->num_chipselect = STM32_OSPI_MAX_NORCHIP;
-> +	ctrl->dev.of_node = dev->of_node;
-
-It looks like the controller only does half duplex as well so it should
-set SPI_CONTROLLER_HALF_DUPLEX.
-
---gwleQ6q+I0YDdApo
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmeYz34ACgkQJNaLcl1U
-h9DqGgf9GDpZoVHpFVphDLNJ/mT+2DuKd1ifuBqlhnL1uv3N5P3QycT2pGfzJm1x
-rZYo8crCyUHSEEg8gJTFGRLvS4HMZnLiMPXAoO5haFS9MlQhkB9q4ycTO34H9ji9
-fGJBMxjfNulkaQDTQCSTLQGLVG9btkfagUgPlT+44DJoJosJpgBxa/jRNV1aY5RV
-mLna5fVv+UcrVwHwTcCks6+Zlo0yJLqnUNwO8Su5oJwaMZVgF6FzWHb9rtVmP5dX
-Juozjf/iY5Q4GqgaFveLPKpGtdZ3ExFW/PozDcRWMaV0IgXJ050vnIYHjJztITmG
-ywanYl7T6WSekQkkXSYYKko0xayygw==
-=oZuU
------END PGP SIGNATURE-----
-
---gwleQ6q+I0YDdApo--
 
