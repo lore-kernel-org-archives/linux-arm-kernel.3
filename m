@@ -4,80 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79DC7C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 16:35:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14138C02190
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 16:36:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A/4Y1T0DrTrc9vATA/UpSI2/RhhBRGWk9IOT8fTaadM=; b=Vg8E86xDjx4hXJKFa0cb62FsOS
-	hlVqScTUcV3Gy6OKwisvy07Qid1viOA6v2vsINYtld7lSeGk+tQufgxV/FjV7rrh5DCM6gqqoDt2K
-	vQXtBZjKV/z4N6S35HXwa5g25zmO7PxJdVsXmZw4pync+U4HWB9vvu8Scof1u1Amcewz+Eq0HXEKD
-	vsuzNtDq3zCBal7LLiN3mZoyIAOp+2g4a8gKHGhPGfM22S9/1uVm7iZwhsp5PrP6FXzcjUGJCME9e
-	owUo6AfORAC2y6ZEPHWzdi1G7cZmF1VbISNOFVWG8rKkBZ0ii/a0QF4/noUOOEcqExHynKxnb0lUD
-	B/seOYYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZWNfyHZT3dec0t5+LmNDlzWhnubpwjoc8YY+t8IQYiU=; b=qjuqTtHsK2VF5bvHLYEG4qV7n2
+	efC3nM/tNE5Yp0TODB2Yq9BMqKP8Id0a9vHy6tBwCwHwurOf1ICYRGfz21+HlyuYTRvzDWaQHgz1E
+	KCYbkQEK6IFQY/zBb/V/lHkSWpKFx+4ITAFihefqlTqwf15PfwCPBA2DRXhkwuQ7LOlWvxXQzheSk
+	zg0ggX3cMg8+YHPPunCmkWpnXgGjtbITaLKCOVaE6/X9982eM9dQ6YKYuseugDGzXUswYHf1hLVHI
+	kV3LOfUfocaJOTjYSq0+vSSrlsQMKYZnRx502y77bNZvE/W5GCLhmrW4ZqkVDnP24d5r9u5l5Gy68
+	DX7UN7SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcoYH-00000005LLu-1ZOu;
-	Tue, 28 Jan 2025 16:35:01 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1tcoZb-00000005Lhl-3ARL;
+	Tue, 28 Jan 2025 16:36:23 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcoRG-00000005Jz6-2qeE
+	id 1tcoJ9-00000005Igr-2DXq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jan 2025 16:27:48 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 50SGRhrg1212061
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Tue, 28 Jan 2025 10:27:43 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1738081663;
-	bh=A/4Y1T0DrTrc9vATA/UpSI2/RhhBRGWk9IOT8fTaadM=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=ZXfnP6HauOcAZJ2qmd5SL4beMus1DGVW0uaRO3b7rVKl1pReXvP2AwyxK5XBNq/Uj
-	 kElOR0IY6Q7XWJlxsqT57bIHuMX9ev4DBXadn3VrLo6votcMG0cRSMOaj9nJpZVEJN
-	 PfR6opXLXoiI8EKTFuYPWGL6VodV1eF8JZDGfdIc=
-Received: from DFLE110.ent.ti.com (dfle110.ent.ti.com [10.64.6.31])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 50SGRhme007466;
-	Tue, 28 Jan 2025 10:27:43 -0600
-Received: from DFLE101.ent.ti.com (10.64.6.22) by DFLE110.ent.ti.com
- (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 28
- Jan 2025 10:27:43 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE101.ent.ti.com
- (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 28 Jan 2025 10:27:42 -0600
-Received: from [10.250.32.214] ([10.250.32.214])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 50SGRgYD113486;
-	Tue, 28 Jan 2025 10:27:42 -0600
-Message-ID: <8b152f81-0848-4f34-adcb-fee9b4f2fd7f@ti.com>
-Date: Tue, 28 Jan 2025 10:27:42 -0600
+	Tue, 28 Jan 2025 16:19:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1738081164; x=1769617164;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=ERBHXKcK/ZgBB0KVQYHeIPLn64zY0LS2hMLJrIodcLI=;
+  b=gp5U7lMSDDXrTANU9pA5Nv9ChGzBfVDtN1w8bMeDeh7acHrDbmprahim
+   tf/IpGCzwfRB8n2xuTYZkB9z1hBReO+P7OviXKyBvtBzSUo++4Kt6qH2e
+   Zs3wTsctZUafaElSrHbhnaZC7/SOeFQp3aczSRfGEGWV9V8i9sSRGoOAf
+   EBCOvW9zCz0nymX/qo30284jdI7KPNGDLNXDBDPDgyAUIU6ON0rIh0isF
+   7gv1ARRXgkCyUCUBs79lq3bfBuOY1F+1H+41hsrTF/dEYUp8seLdkxSut
+   /2sViRpEhbttO4eK11s44bkuDOI1QhzLUhnyvrEoCfdJG6eAqu7OQMnaA
+   A==;
+X-CSE-ConnectionGUID: gZUkyJ0GT6+5er0WEIFfZw==
+X-CSE-MsgGUID: MNAfTJv/RVekaf216foQ/A==
+X-IronPort-AV: E=Sophos;i="6.13,241,1732604400"; 
+   d="scan'208";a="37017195"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 28 Jan 2025 09:19:22 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Tue, 28 Jan 2025 09:19:01 -0700
+Received: from ROB-ULT-M76677.microchip.com (10.10.85.11) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2507.35 via Frontend Transport; Tue, 28 Jan 2025 09:18:58 -0700
+From: Andrei Simion <andrei.simion@microchip.com>
+To: <claudiu.beznea@tuxon.dev>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <broonie@kernel.org>, <nicolas.ferre@microchip.com>,
+	<alexandre.belloni@bootlin.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, Andrei Simion <andrei.simion@microchip.com>
+Subject: [PATCH 0/2] Convert atmel-ssc.txt to YAML
+Date: Tue, 28 Jan 2025 18:18:41 +0200
+Message-ID: <20250128161842.44541-1-andrei.simion@microchip.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/4] arm64: dts: ti: k3-am62a-mcu: Add R5F remote proc
- node
-To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Devarsh Thakkar
-	<devarsht@ti.com>,
-        Hari Nagalla <hnagalla@ti.com>
-References: <20250127221631.3974583-1-jm@ti.com>
- <20250127221631.3974583-3-jm@ti.com>
-Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20250127221631.3974583-3-jm@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_082746_820327_24E08F12 
-X-CRM114-Status: GOOD (  16.06  )
+X-CRM114-CacheID: sfid-20250128_081923_740017_0C527616 
+X-CRM114-Status: UNSURE (   8.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,81 +85,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/27/25 4:16 PM, Judith Mendez wrote:
-> From: Hari Nagalla <hnagalla@ti.com>
-> 
-> AM62A SoCs have a single R5F core in the MCU voltage domain. The MCU
-> domain also has a 512KB sram memory, the R5F core can use for
-> applications needing fast memory access.
-> 
-> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
-> [Judith: Fix commit message header]
-> Signed-off-by: Judith Mendez <jm@ti.com>
-> ---
->   arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi | 36 ++++++++++++++++++++++++
->   1 file changed, 36 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
-> index 0469c766b769e..9a20f75e48063 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
-> @@ -6,6 +6,18 @@
->    */
->   
->   &cbass_mcu {
-> +	mcu_ram: sram@79100000 {
-> +		compatible = "mmio-sram";
-> +		reg = <0x00 0x79100000 0x00 0x80000>;
-> +		ranges = <0x00 0x00 0x79100000 0x80000>;
-> +		#address-cells = <1>;
-> +		#size-cells = <1>;
-> +
-> +		mcu1-sram@0 {
-> +			reg = <0x0 0x80000>;
-> +		};
-> +	};
-> +
->   	mcu_pmx0: pinctrl@4084000 {
->   		compatible = "pinctrl-single";
->   		reg = <0x00 0x04084000 0x00 0x88>;
-> @@ -175,4 +187,28 @@ mcu_mcan1: can@4e18000 {
->   		bosch,mram-cfg = <0x0 128 64 64 64 64 32 32>;
->   		status = "disabled";
->   	};
-> +
-> +	mcu_r5fss0: r5fss@79000000 {
-> +		compatible = "ti,am62-r5fss";
-> +		#address-cells = <1>;
-> +		#size-cells = <1>;
-> +		ranges = <0x79000000 0x00 0x79000000 0x8000>,
-> +			 <0x79020000 0x00 0x79020000 0x8000>;
-> +		power-domains = <&k3_pds 7 TI_SCI_PD_EXCLUSIVE>;
+This patch set converts atmel-ssc.txt into atmel,at91-ssc.yaml and
+update the documentation file supported for MICROCHIP SSC DRIVER
 
-Newline here.
+Andrei Simion (2):
+  dt-bindings: misc: atmel,at91-ssc: Convert to YAML format
+  MAINTAINERS: Update the documentation file supported for MICROCHIP SSC
+    DRIVER
 
-Also this should be default "disabled". It can be set to "okay"
-in the board DTS file when the needed mboxes and memory-region
-are set. Speaking of that, where are those patches? This is
-incomplete without them and these nodes will not function.
-Same for the DSP patch.
+ .../bindings/misc/atmel,at91-ssc.yaml         | 111 ++++++++++++++++++
+ .../devicetree/bindings/misc/atmel-ssc.txt    |  50 --------
+ MAINTAINERS                                   |   2 +-
+ 3 files changed, 112 insertions(+), 51 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/misc/atmel,at91-ssc.yaml
+ delete mode 100644 Documentation/devicetree/bindings/misc/atmel-ssc.txt
 
-Andrew
 
-> +		mcu_r5fss0_core0: r5f@79000000 {
-> +			compatible = "ti,am62-r5f";
-> +			reg = <0x79000000 0x00008000>,
-> +				<0x79020000 0x00008000>;
-> +			reg-names = "atcm", "btcm";
-> +			ti,sci = <&dmsc>;
-> +			ti,sci-dev-id = <9>;
-> +			ti,sci-proc-ids = <0x03 0xff>;
-> +			resets = <&k3_reset 9 1>;
-> +			firmware-name = "am62a-mcu-r5f0_0-fw";
-> +			ti,atcm-enable = <0>;
-> +			ti,btcm-enable = <1>;
-> +			ti,loczrama = <0>;
-> +			sram = <&mcu_ram>;
-> +		};
-> +	};
->   };
+base-commit: 9a87ce288fe30f268b3a598422fe76af9bb2c2d2
+-- 
+2.34.1
+
 
