@@ -4,73 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED56EC0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 10:46:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65FFFC0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 10:52:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QH2HlRrsM2GhBqfQeM842UlYrI8bH7FA97PniLkwhl0=; b=4ic6IvZHvCpSUhdbC2l3LAe5ov
-	V9hic57Q3/0dIpI/237dfResntp+++IOakiveuXQ73CCsFFgaCw7iWNFQJGMTFsFpqSVJyMJ3Rrqe
-	blUKdgHLnmHXluUqwUUqzLZTeHrGHWmHb0cOjaW730WJGJmtXRtPjHBFGrovPc/Wial+KkFMJwr3s
-	vaTy5zZfgPixH4iN4aUcU3GC0cLocrhpLKUIKQxr3mR8HtaLz622bsIaxboCwedhxh+zbMGkt4vwk
-	py+so1qDeiIkLRBWmZaqpFtjVb3WDHPCn1lX2AUblLiIO12CMxQbpg6Z8lpOkau6+UJgJWns7aiH/
-	QXs4CdrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ahdge0QUwliWZ+qdKtKtNEd4cOqBBXG11y1XcJiFXpA=; b=uIld+Wt8qH+83PbP1eAzEk5LDZ
+	jBhIM50lCnt3cfz7BrCPbXuBI6O1XJ2Xch/ygU4pItqxPcYasJHKpjoTN1bMKyvaGFdriTrBz+HJG
+	EKMNYG4QhekVbW5hfcOW6+eDTiXtjgLiGhxTtgOL/e208gNuO77QSulDQ992DIhqQWGP3cA4Svd1s
+	esVVVGlsXjBJCQ0Ok8IoyID9odGaBV1AhPKKF3OlOONKy/RzYjwF/KE+8ysN4Slr49RjP6lRJt+Gp
+	n7/NgGRu8wxCVv1Z0ms6XtlRouqP3oyXI6vypv/ht19pZxA7YjU4cTBoISM+IKBV07Lg5TqDZl/Hv
+	Bjnck3fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcj6V-00000004gLM-0UAb;
-	Tue, 28 Jan 2025 10:45:59 +0000
-Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
+	id 1tcjCj-00000004hAp-1ypz;
+	Tue, 28 Jan 2025 10:52:25 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcj5A-00000004gCa-2OHh;
-	Tue, 28 Jan 2025 10:44:37 +0000
+	id 1tcjBO-00000004gww-0cTw
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Jan 2025 10:51:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1037EA40C82;
+	Tue, 28 Jan 2025 10:49:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C89DCC4CED3;
+	Tue, 28 Jan 2025 10:50:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738061460;
+	bh=CbE7VaYsCScvQSvzHBNrm7SCEjIu6kV93dcFx8P3ahY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FdHDlTnwB4+fm1W39i9KCCxvRU+q7Alfr1jUUmDAREgEW87zYjBlIQmawYHyjGKJT
+	 +uqlwxWPptQMD9O69KOvqFGvtPNjXGC7cy3iic0MHhxR8UCGA1+p4T9Qd08RFkM87M
+	 eSYx3uX+gs2vR1HtjjrOjZW9SOXGF+GbHltx2grWkaRbl7Nm6X3ydKYPHAQxk3Exg2
+	 HHzcwjxaPPkm3ae5/0XYlbXV0EPHfvDbHEHdgeevPVqDxyhYdaP98/jUJGnWzhlpjN
+	 71l9Pkbgs/es38EsoWRu2HVjmnIYwQC/f1SFyMp3FTFWPIlHIXa6SQUEnC0lnGoqV+
+	 Ic+eNeUG9cbhA==
+Date: Tue, 28 Jan 2025 11:50:55 +0100
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Zheng Zengkai <zhengzengkai@huawei.com>, stable@vger.kernel.org
+Subject: Re: [PATCH] ACPI: GTDT: Relax sanity checking on Platform Timers
+ array count
+Message-ID: <Z5i2j9gFB2iyN9g4@lpieralisi>
+References: <20250128001749.3132656-1-oliver.upton@linux.dev>
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1738061074;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QH2HlRrsM2GhBqfQeM842UlYrI8bH7FA97PniLkwhl0=;
-	b=WNFLx3YFReVPhS8mPLJ+8dWLkj7tr6Z5rlcSM2MBg2AlKXwjQwOYTyUZ7BuIy9cl88zSRg
-	9L7QNBrhJTIxbdft7iM1P+wPCvkXVvFBA0CDNbX9oKzXFYPKCPZVjzH+e9KVXAMRll4JG8
-	boKosHygywwhKQ7xIsa9MtIZVb8M9nk56NLhzf1qVSLLxENSJqyM6+dM5JV9JrBqhw5ESm
-	eqrdC+qqUJ7QOL5Wq8OY/pcLTF8jFTfl4/B92L6B0g2k10D3DUNLajEFHQpL67DMSYhIKV
-	knmDzwnuzqgJlPsEFmi/PuyL9iVg57bBwNfmLLkPTkT29wL164GeBWvft+kNEA==
-Date: Tue, 28 Jan 2025 11:44:34 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Alexey Charkov <alchark@gmail.com>
-Cc: Alexander Shiyan <eagle.alexander923@gmail.com>, Rob Herring
- <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, devicetree@vger.kernel.org, Sebastian Reichel
- <sebastian.reichel@collabora.com>, stable@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] arm64: dts: rockchip: Fix broken tsadc pinctrl binding
- for rk3588
-In-Reply-To: <CABjd4YwCH93-=Cqck5TiuJoTUkYbRh0495J6w=J8t93oHdt43g@mail.gmail.com>
-References: <20250124052611.3705-1-eagle.alexander923@gmail.com>
- <CABjd4YwA8P9LVuDviO6xydkHpuuOY7XT0pk1oa+FDqOo=uZN4A@mail.gmail.com>
- <a76f315f023a3f8f5435e0681119b4eb@manjaro.org>
- <CABjd4Ywh_AkbXHonx-8vL-hNY5LMLJge5e4oqxvUG+qe6OF-Og@mail.gmail.com>
- <61b494b209d7360d0f36adbf6d5443a4@manjaro.org>
- <CABjd4Yx0p0B=e00MjCpDDq8Z=0FtM0s9EN86WdvRimt-_+kh2w@mail.gmail.com>
- <CABjd4Yy14bpjzvFyc8et-=pmds5uwzfxNqcs7L=+XRXBogZEsQ@mail.gmail.com>
- <CAP1tNvTRER=QzC29Udw4ffOetVECWV+MfZ2o-mbUFvuZ0_i-Kw@mail.gmail.com>
- <b57d8a834f5c07e37e0e7ee74346c700@manjaro.org>
- <CABjd4YwCH93-=Cqck5TiuJoTUkYbRh0495J6w=J8t93oHdt43g@mail.gmail.com>
-Message-ID: <1498db1c6664b39b49cfc71d2e4eb5ef@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=UTF-8;
- format=flowed
-Content-Transfer-Encoding: 8bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250128001749.3132656-1-oliver.upton@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_024436_920035_3CD0DFF0 
-X-CRM114-Status: GOOD (  24.38  )
+X-CRM114-CacheID: sfid-20250128_025102_315509_EB51E0AA 
+X-CRM114-Status: GOOD (  26.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,54 +76,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Alexey,
+On Tue, Jan 28, 2025 at 12:17:49AM +0000, Oliver Upton wrote:
+> Perhaps unsurprisingly there are some platforms where the GTDT isn't
 
-On 2025-01-28 11:30, Alexey Charkov wrote:
-> On Tue, Jan 28, 2025 at 1:24 PM Dragan Simic <dsimic@manjaro.org> 
-> wrote:
->> On 2025-01-26 15:25, Alexander Shiyan wrote:
->> >> > > I think it's actually better to accept the approach in Alexander's
->> >> > > patch, because the whole thing applies to other Rockchip SoCs as well,
->> >> > > not just to the RK3588(S).
->> >> >
->> >> > Anyway, I've just tried it after including the changes below, and
->> >> > while /sys/kernel/debug/pinctrl/pinctrl-handles shows the expected
->> >> > pinctrls under tsadc, the driver still doesn't seem to be triggering a
->> >> > PMIC reset. Weird. Any thoughts welcome.
->> >>
->> >> I found the culprit. "otpout" (or "default" if we follow Alexander's
->> >> suggested approach) pinctrl state should refer to the &tsadc_shut_org
->> >> config instead of &tsadc_shut - then the PMIC reset works.
->> >
->> > Great, I'll use this in v2.
->> 
->> Please, let's wait with the v2 until I go through the whole thing 
->> again
+https://lore.kernel.org/lkml/Zw6b3V5Mk2tIGmy5@lpieralisi
+
+An accident waiting to happen :)
+
+> quite right and the Platforms Timer array overflows the length of the
+> overall table.
 > 
-> I, for one, would welcome a v2 that could be tested and confirmed
-> working with and without driver changes. Especially given that:
->  - the changes are pretty small
->  - hardware docs say nothing about the difference between TSADC_SHUT
-> vs. TSADC_SHUT_ORG, except that one is config #2 and the other is
-> config #1
->  - none of the source trees I looked at seem to enable PMIC based
-> resets on any RK3588-based boards, so these pinctrl configs appear to
-> have never been tested in the wild for RK3588*
+> While the recently-added sanity checking isn't wrong, it makes it
+> impossible to boot the kernel on offending platforms. Try to hobble
+> along and limit the Platform Timer count to the bounds of the table.
 > 
-> So trying and testing seems to be the only way to understand the best
-> way forward. Unless, of course, someone from Rockchip can comment on
-> how the hardware works with TSADC_SHUT vs. TSADC_SHUT_ORG.
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> Cc: Zheng Zengkai <zhengzengkai@huawei.com>
+> Cc: stable@vger.kernel.org
+> Fixes: 263e22d6bd1f ("ACPI: GTDT: Tighten the check for the array of platform timer structures")
+> Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+> ---
+>  drivers/acpi/arm64/gtdt.c | 12 ++++++++----
+>  1 file changed, 8 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/acpi/arm64/gtdt.c b/drivers/acpi/arm64/gtdt.c
+> index 3561553eff8b..70f8290b659d 100644
+> --- a/drivers/acpi/arm64/gtdt.c
+> +++ b/drivers/acpi/arm64/gtdt.c
+> @@ -163,7 +163,7 @@ int __init acpi_gtdt_init(struct acpi_table_header *table,
+>  {
+>  	void *platform_timer;
+>  	struct acpi_table_gtdt *gtdt;
+> -	int cnt = 0;
+> +	u32 cnt = 0;
+>  
+>  	gtdt = container_of(table, struct acpi_table_gtdt, header);
+>  	acpi_gtdt_desc.gtdt = gtdt;
+> @@ -188,13 +188,17 @@ int __init acpi_gtdt_init(struct acpi_table_header *table,
+>  		cnt++;
+>  
+>  	if (cnt != gtdt->platform_timer_count) {
+> +		cnt = min(cnt, gtdt->platform_timer_count);
 
-Perhaps the best approach would be to have the v2 that works without
-the driver changes, so it can be propagated into the stable kernels.
+Thank you for reporting this.
 
-Then, a separate series, which I'll volunteer for, :) would introduce
-the cleanups and any needed driver changes, which wouldn't be propagated
-into the stable kernels.  That way, we'd have the minimal bugfixes in
-stable kernels, and the nice cleanups in the latest kernel version.
+There is something I need to understand.
 
-Of course, detailed testing is mandatory.
+What's wrong cnt (because platform_timer_valid() fails for some
+reason on some entries whereas before the commit we
+are fixing was applied we *were* parsing those entries) or
+gtdt->platform_timer_count ?
 
->> which I expected to have done already, but had some other "IRL stuff"
->> that introduced a delay.
+I *guess* the issue is the following:
+
+gtdt->platform_timer_count reports the number of GT blocks in the
+GTDT not including Arm generic watchdogs, whereas cnt counts both
+structure types (and that's what gtdt->platform_timer_count should
+report too if it was correct).
+
+I am asking just to understand if platform_timer_valid() forced skipping
+some entries that we were parsing before the commit we are fixing
+was applied I doubt it but it is worth checking.
+
+> +		pr_err(FW_BUG "limiting Platform Timer count to %d\n", cnt);
+> +	}`
+> +
+> +	if (!cnt) {
+>  		acpi_gtdt_desc.platform_timer = NULL;
+> -		pr_err(FW_BUG "invalid timer data.\n");
+> -		return -EINVAL;
+> +		return 0;
+>  	}
+>  
+>  	if (platform_timer_count)
+> -		*platform_timer_count = gtdt->platform_timer_count;
+> +		*platform_timer_count = cnt;
+
+I think this should be fine as things stand (but see above).
+
+It is used in:
+
+gtdt_sbsa_gwdt_init() - just to check if there are platform timers entries
+
+arch_timer_mem_acpi_init() - to create a temporary array to init arch mem timer
+			     entries (the array is oversized because it
+			     includes watchdog entries in the count)
+
+In both cases taking the
+
+min(cnt, gtdt->platform_timer_count);
+
+should work AFAICS (hard to grok though, we - as in ACPI maintainers -
+need to clean this up).
+
+Reviewed-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+
+>  
+>  	return 0;
+>  }
+> 
+> base-commit: ffd294d346d185b70e28b1a28abe367bbfe53c04
+> -- 
+> 2.48.1.262.g85cc9f2d1e-goog
+> 
 
