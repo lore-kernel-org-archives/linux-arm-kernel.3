@@ -4,88 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DABACC0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 08:39:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28220C0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 08:45:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jsrIcEAQrbN3xUverpsNQfRVqyfm8gZkxmrvGxO5IuY=; b=2F6Sq2Kb7UL8JAZgA7y3WehPFZ
-	LMqXCGifFwYZPmmaa02JBhtusgxm4BrLmM3F6GFg1ZIafGH1zLGXkz5yWujldfARyG+hulpxt3RqA
-	3+3YqdxWjEOeXhri1oHtCIZdI/zMu6jftJ7XV8yVMLHKMKrjI/2o5cPR+8ufUJbzgnIiZr35z3J/a
-	8AB8jd4Rc7Bslf8VxGk2QK8SupL8Q0yFCF/nUwD4OQoAvBLgZzL3/szgZclv2BNWGZfss7vpovKD5
-	SSSU4BeIS2W6/TScxLW6TwvmCcRQBaVoZ0Vq//heBFrY4sXc8X3xG20SVOIF01FMXxTexPcoiwqRi
-	K5wkom0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RjY6XWu9bYvJieoB9WujKXm/zDnVJNV14+gQrDpL06I=; b=GCayaok/Fkxp9E9xcOu3tz4vud
+	ogTKVhoF62nOQRHkDkCxsiOhxqqQo0AhvqiCikZs95L7/JhoWJ/Rb1MZnf5a1b9i1QtcT6r+sGENn
+	xqtDXmV906w+C/qao04oyM9oSU7yAewyAUs6/ZpSfaYbIqber5h/52h2l3M2BigbZCOjB/BtgAWOR
+	xg8ZiGGf0IZLrRQtTXYHHlSSdROVgbYFdY5D3mknbQXkZ34zpHjEcxSIKDpMC+ei9uXHfj+aQErva
+	sX/BgsAuPQiSDtL+Vai3M+V5alITTNmMdFDe1gyTLw9IhJryWCQRkMOvScEU5/8Y0suEYdUCUPgvG
+	K+6v5Yeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tch7S-00000004PHu-30XW;
-	Tue, 28 Jan 2025 08:38:50 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tch3f-00000004Omr-0Sms
+	id 1tchD8-00000004Pth-3NVQ;
+	Tue, 28 Jan 2025 08:44:42 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tchBm-00000004PfI-2rmI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jan 2025 08:34:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6430AA40261;
-	Tue, 28 Jan 2025 08:33:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E27FDC4CEE1;
-	Tue, 28 Jan 2025 08:34:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738053294;
-	bh=WNneNe6kJKss9QO+jmHx6Hy+8bI9wVL2Ho5u/+oOu+g=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=LFqkEsqHz//qHlrU5FmUzatieAa1oI9pJpGSEAzlsJWSZynnK93P1KXuEL0COqFFp
-	 2tr5zTXme8UrD09T+vkDvdrrZLn7Wj2hJ/jrcypyZv3Ctyy5fJjZcS9I83B3YMMsJ2
-	 8YxzwnJKmg97X8hZBGMjgdFIpDNyE0QGVM91447EVnFSfzgjwCpGHYJ1rlHYMatWrT
-	 vj3qFx6QRdNFg4MRLNla7Bbp1pSuCtsYV/xdd0+MnYrvTQ5FZJ0g8fwYaleZ26voRO
-	 xpvK+4iwwtvU2oPqsO5pgb3ze0Hbozgx8RoBNbZF1gpK7+NzUNdyLHaPe3jJoLFfrM
-	 BKQnaGMPCp3mA==
-Received: from 82-132-233-27.dab.02.net ([82.132.233.27] helo=wait-a-minute.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tch3b-00FzQg-9z;
-	Tue, 28 Jan 2025 08:34:51 +0000
-Date: Tue, 28 Jan 2025 08:34:47 +0000
-Message-ID: <87msfbtjyw.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Zaid Alali <zaidal@os.amperecomputing.com>
-Cc: catalin.marinas@arm.com,
-	will@kernel.org,
-	puranjay@kernel.org,
-	broonie@kernel.org,
-	mbenes@suse.cz,
-	mark.rutland@arm.com,
-	ruanjinjie@huawei.com,
-	oliver.upton@linux.dev,
-	robh@kernel.org,
-	anshuman.khandual@arm.com,
-	james.morse@arm.com,
-	shiqiliu@hust.edu.cn,
-	eahariha@linux.microsoft.com,
-	scott@os.amperecomputing.com,
-	joey.gouly@arm.com,
-	ardb@kernel.org,
-	yangyicong@hisilicon.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: errata: Add Ampere erratum AC04_CPU_50 workaround alternative
-In-Reply-To: <20250127201829.209258-1-zaidal@os.amperecomputing.com>
-References: <20250127201829.209258-1-zaidal@os.amperecomputing.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 82.132.233.27
-X-SA-Exim-Rcpt-To: zaidal@os.amperecomputing.com, catalin.marinas@arm.com, will@kernel.org, puranjay@kernel.org, broonie@kernel.org, mbenes@suse.cz, mark.rutland@arm.com, ruanjinjie@huawei.com, oliver.upton@linux.dev, robh@kernel.org, anshuman.khandual@arm.com, james.morse@arm.com, shiqiliu@hust.edu.cn, eahariha@linux.microsoft.com, scott@os.amperecomputing.com, joey.gouly@arm.com, ardb@kernel.org, yangyicong@hisilicon.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Tue, 28 Jan 2025 08:43:19 +0000
+Received: from [10.156.205.88] (unknown [167.220.238.88])
+	by linux.microsoft.com (Postfix) with ESMTPSA id BA02E210C30E;
+	Tue, 28 Jan 2025 00:43:11 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com BA02E210C30E
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1738053797;
+	bh=RjY6XWu9bYvJieoB9WujKXm/zDnVJNV14+gQrDpL06I=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=RiUqmmwzqe/kgLTv7kFrDs5XWnA/PurwEA0aVFQLQqXATZhGufIWwOLDcxHPtsmJc
+	 YVRCsc5cIxraEG2e/ItJAzUygR3FHQMGDMtzdgVRG46kr00QqmJN5roMAVcRa1fiWk
+	 sfiRy0bfB9S/DN/S6yg4us3CxlkISUkDQT755Tao=
+Message-ID: <4006e0b5-b641-4dfb-8c1f-b8b7d8ab63ca@linux.microsoft.com>
+Date: Tue, 28 Jan 2025 14:13:09 +0530
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 2/5] cpufreq: Introduce an optional cpuinfo_avg_freq
+ sysfs entry
+To: Beata Michalska <beata.michalska@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+ ionela.voinescu@arm.com, sudeep.holla@arm.com, will@kernel.org,
+ catalin.marinas@arm.com, rafael@kernel.org, viresh.kumar@linaro.org
+Cc: sumitg@nvidia.com, yang@os.amperecomputing.com,
+ vanshikonda@os.amperecomputing.com, lihuisong@huawei.com,
+ zhanjie9@hisilicon.com, Jonathan Corbet <corbet@lwn.net>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "H . Peter Anvin" <hpa@zytor.com>, Phil Auld <pauld@redhat.com>,
+ x86@kernel.org, linux-doc@vger.kernel.org
+References: <20250121084435.2839280-1-beata.michalska@arm.com>
+ <20250121084435.2839280-3-beata.michalska@arm.com>
+Content-Language: en-US
+From: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
+In-Reply-To: <20250121084435.2839280-3-beata.michalska@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_003455_285760_C2737BAA 
-X-CRM114-Status: GOOD (  28.85  )
+X-CRM114-CacheID: sfid-20250128_004318_783435_F8A07786 
+X-CRM114-Status: GOOD (  39.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,70 +79,177 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 27 Jan 2025 20:18:29 +0000,
-Zaid Alali <zaidal@os.amperecomputing.com> wrote:
-> 
-> Add an alternative code sequence to work around Ampere erratum
-> AC03_CPU_50 on AmpereOne and Ampere1A.
-> 
-> Due to AC03_CPU_50, when ICC_PMR_EL1 should have a value of 0xf0 a
-> direct read of the register will return a value of 0xf8. An incorrect
-> value from a direct read can only happen with the value 0xf0.
 
-Under which precise conditions? Does it equally apply to virtual
-interrupts or SCR_EL3.FIQ==0, for which there is no non-secure shift
-(which I can only assume is the source of the erratum)? Does it
-equally affect G0 and G1 interrupts?
-
-> 
-> Note: Currently there are no checks against a value of 0xf0, and that
-> save restore of 0xf8 -> 0xf0 is fine, so this is all future proofing.
-> 
-> Signed-off-by: Zaid Alali <zaidal@os.amperecomputing.com>
+On 21-01-2025 14:14, Beata Michalska wrote:
+> Currently the CPUFreq core exposes two sysfs attributes that can be used
+> to query current frequency of a given CPU(s): namely cpuinfo_cur_freq
+> and scaling_cur_freq. Both provide slightly different view on the
+> subject and they do come with their own drawbacks.
+>
+> cpuinfo_cur_freq provides higher precision though at a cost of being
+> rather expensive. Moreover, the information retrieved via this attribute
+> is somewhat short lived as frequency can change at any point of time
+> making it difficult to reason from.
+>
+> scaling_cur_freq, on the other hand, tends to be less accurate but then
+> the actual level of precision (and source of information) varies between
+> architectures making it a bit ambiguous.
+>
+> The new attribute, cpuinfo_avg_freq, is intended to provide more stable,
+> distinct interface, exposing an average frequency of a given CPU(s), as
+> reported by the hardware, over a time frame spanning no more than a few
+> milliseconds. As it requires appropriate hardware support, this
+> interface is optional.
+>
+> Note that under the hood, the new attribute relies on the information
+> provided by arch_freq_get_on_cpu, which, up to this point, has been
+> feeding data for scaling_cur_freq attribute, being the source of
+> ambiguity when it comes to interpretation. This has been amended by
+> restoring the intended behavior for scaling_cur_freq, with a new
+> dedicated config option to maintain status quo for those, who may need
+> it.
+>
+> CC: Jonathan Corbet <corbet@lwn.net>
+> CC: Thomas Gleixner <tglx@linutronix.de>
+> CC: Ingo Molnar <mingo@redhat.com>
+> CC: Borislav Petkov <bp@alien8.de>
+> CC: Dave Hansen <dave.hansen@linux.intel.com>
+> CC: H. Peter Anvin <hpa@zytor.com>
+> CC: Phil Auld <pauld@redhat.com>
+> CC: x86@kernel.org
+> CC: linux-doc@vger.kernel.org
+>
+> Signed-off-by: Beata Michalska <beata.michalska@arm.com>
 > ---
->  arch/arm64/Kconfig                  | 16 ++++++++++++++++
->  arch/arm64/include/asm/arch_gicv3.h |  2 +-
->  arch/arm64/include/asm/daifflags.h  |  4 ++--
->  arch/arm64/include/asm/irqflags.h   |  6 +++---
->  arch/arm64/include/asm/sysreg.h     |  9 +++++++++
->  arch/arm64/kernel/cpu_errata.c      | 15 +++++++++++++++
->  arch/arm64/kernel/entry.S           |  4 ++++
->  arch/arm64/tools/cpucaps            |  1 +
-
-Please add an entry to Documentation/arch/arm64/silicon-errata.txt.
-
->  8 files changed, 51 insertions(+), 6 deletions(-)
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index fcdd0ed3eca8..8d6e263d66c7 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -461,6 +461,22 @@ config AMPERE_ERRATUM_AC03_CPU_38
->  
->  	  If unsure, say Y.
->  
-> +config AMPERE_ERRATUM_AC03_CPU_50
-> +	bool "AmpereOne: AC03_CPU_50: Certain checks for ICC_PMR_EL1 that expects the value 0xf0 may read 0xf8 instead"
+>   Documentation/admin-guide/pm/cpufreq.rst | 16 ++++++++++++-
+>   drivers/cpufreq/Kconfig.x86              | 12 ++++++++++
+>   drivers/cpufreq/cpufreq.c                | 30 +++++++++++++++++++++++-
+>   3 files changed, 56 insertions(+), 2 deletions(-)
+>
+> diff --git a/Documentation/admin-guide/pm/cpufreq.rst b/Documentation/admin-guide/pm/cpufreq.rst
+> index a21369eba034..e9969174026c 100644
+> --- a/Documentation/admin-guide/pm/cpufreq.rst
+> +++ b/Documentation/admin-guide/pm/cpufreq.rst
+> @@ -248,6 +248,19 @@ are the following:
+>   	If that frequency cannot be determined, this attribute should not
+>   	be present.
+>   
+> +``cpuinfo_avg_freq``
+> +        An average frequency (in KHz) of all CPUs belonging to a given policy,
+> +        derived from a hardware provided feedback and reported on a time frame
+> +        spanning at most few milliseconds.
+> +
+> +        This is expected to be based on the frequency the hardware actually runs
+> +        at and, as such, might require specialised hardware support (such as AMU
+> +        extension on ARM). If one cannot be determined, this attribute should
+> +        not be present.
+> +
+> +        Note, that failed attempt to retrieve current frequency for a given
+> +        CPU(s) will result in an appropriate error.
+> +
+>   ``cpuinfo_max_freq``
+>   	Maximum possible operating frequency the CPUs belonging to this policy
+>   	can run at (in kHz).
+> @@ -293,7 +306,8 @@ are the following:
+>   	Some architectures (e.g. ``x86``) may attempt to provide information
+>   	more precisely reflecting the current CPU frequency through this
+>   	attribute, but that still may not be the exact current CPU frequency as
+> -	seen by the hardware at the moment.
+> +	seen by the hardware at the moment. This behavior though, is only
+> +	available via c:macro:``CPUFREQ_ARCH_CUR_FREQ`` option.
+>   
+>   ``scaling_driver``
+>   	The scaling driver currently in use.
+> diff --git a/drivers/cpufreq/Kconfig.x86 b/drivers/cpufreq/Kconfig.x86
+> index 97c2d4f15d76..212e1b9afe21 100644
+> --- a/drivers/cpufreq/Kconfig.x86
+> +++ b/drivers/cpufreq/Kconfig.x86
+> @@ -340,3 +340,15 @@ config X86_SPEEDSTEP_RELAXED_CAP_CHECK
+>   	  option lets the probing code bypass some of those checks if the
+>   	  parameter "relaxed_check=1" is passed to the module.
+>   
+> +config CPUFREQ_ARCH_CUR_FREQ
 > +	default y
+> +	bool "Current frequency derived from HW provided feedback"
 > +	help
-> +	  This option adds an alternative code sequence to work around Ampere
-> +	  erratum AC03_CPU_50 on AmpereOne and Ampere1A.
+> +	  This determines whether the scaling_cur_freq sysfs attribute returns
+> +	  the last requested frequency or a more precise value based on hardware
+> +	  provided feedback (as architected counters).
+> +	  Given that a more precise frequency can now be provided via the
+> +	  cpuinfo_avg_cur_freq attribute, by enabling this option,
+> +	  scaling_cur_freq maintains the provision of a counter based frequency,
+> +	  for compatibility reasons.
 > +
-> +	  Due to AC03_CPU_50, when ICC_PMR_EL1 should have a value of 0xf0 a
-> +	  direct read of the register will return a value of 0xf8. An incorrect
-> +	  value from a direct read can only happen with the value 0xf0.
+> diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
+> index 6f45684483c4..b2a8efa83c98 100644
+> --- a/drivers/cpufreq/cpufreq.c
+> +++ b/drivers/cpufreq/cpufreq.c
+> @@ -733,12 +733,20 @@ __weak int arch_freq_get_on_cpu(int cpu)
+>   	return -EOPNOTSUPP;
+>   }
+>   
+> +static inline bool cpufreq_avg_freq_supported(struct cpufreq_policy *policy)
+> +{
+> +	return arch_freq_get_on_cpu(policy->cpu) != -EOPNOTSUPP;
+> +}
 > +
-> +	  The workaround for the erratum will do logical AND 0xf0 to the
-> +	  value read from ICC_PMR_EL1 register before returning the value.
+>   static ssize_t show_scaling_cur_freq(struct cpufreq_policy *policy, char *buf)
+>   {
+>   	ssize_t ret;
+>   	int freq;
+>   
+> -	freq = arch_freq_get_on_cpu(policy->cpu);
+> +	freq = IS_ENABLED(CONFIG_CPUFREQ_ARCH_CUR_FREQ)
+> +		? arch_freq_get_on_cpu(policy->cpu)
+> +		: 0;
 > +
-> +	  If unsure, say Y.
+>   	if (freq > 0)
+>   		ret = sysfs_emit(buf, "%u\n", freq);
+>   	else if (cpufreq_driver->setpolicy && cpufreq_driver->get)
+> @@ -783,6 +791,19 @@ static ssize_t show_cpuinfo_cur_freq(struct cpufreq_policy *policy,
+>   	return sysfs_emit(buf, "<unknown>\n");
+>   }
+>   
+> +/*
+> + * show_cpuinfo_avg_freq - average CPU frequency as detected by hardware
+> + */
+> +static ssize_t show_cpuinfo_avg_freq(struct cpufreq_policy *policy,
+> +				     char *buf)
+> +{
+> +	int avg_freq = arch_freq_get_on_cpu(policy->cpu);
 > +
+> +	if (avg_freq > 0)
+> +		return sysfs_emit(buf, "%u\n", avg_freq);
+> +	return avg_freq != 0 ? avg_freq : -EINVAL;
+> +}
+> +
+>   /*
+>    * show_scaling_governor - show the current policy for the specified CPU
+>    */
+> @@ -945,6 +966,7 @@ static ssize_t show_bios_limit(struct cpufreq_policy *policy, char *buf)
+>   }
+>   
+>   cpufreq_freq_attr_ro_perm(cpuinfo_cur_freq, 0400);
+> +cpufreq_freq_attr_ro(cpuinfo_avg_freq);
+>   cpufreq_freq_attr_ro(cpuinfo_min_freq);
+>   cpufreq_freq_attr_ro(cpuinfo_max_freq);
+>   cpufreq_freq_attr_ro(cpuinfo_transition_latency);
+> @@ -1072,6 +1094,12 @@ static int cpufreq_add_dev_interface(struct cpufreq_policy *policy)
+>   			return ret;
+>   	}
+>   
+> +	if (cpufreq_avg_freq_supported(policy)) {
+> +		ret = sysfs_create_file(&policy->kobj, &cpuinfo_avg_freq.attr);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+>   	ret = sysfs_create_file(&policy->kobj, &scaling_cur_freq.attr);
+>   	if (ret)
+>   		return ret;
 
-An alternative for this would simply to prevent the enabling of pNMI
-on this platform.
+Looks good to me.
 
-	M.
+Reviewed-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
 
--- 
-Without deviation from the norm, progress is not possible.
 
