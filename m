@@ -4,179 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 062D8C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 22:20:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83FECC0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 22:22:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wJxChZP0aR0iCOpx4zJhPrHwj+xKeWc1Pssf1AAz6bQ=; b=uf+RixQvSbrvLv7hFifFhkpKRF
-	qQZO8f/Gg63UPOYfCKQ+/OdmXHpVGc4Tr5r/0FczD9gwQueqnyEkAIq6s/WPNq9B4G6DiAQOw2a35
-	J2DCeIj2GNXPmlaPm88LyyfVfVlrY8nSN7XfILwqAjbMKvYiul80wZDkRxFnsM95/7kROMgpV96+E
-	0LAPpuDjDvTiy7vIYo+ZX4QaqsekVjCQ9OqR2rPYsVtwP+1BwqaBnFvwqzqb5Zmtf0wa3Z3EYSuNb
-	DuuGXeth25dUTTibURHpyqY58jS4Vh3elEOqNGW+jHNwyHzh9FWghP4pzyawEdlJztRPOqLTIVJB9
-	2M/J+GVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dyJffkBFdN8fIysYz8PGYmBGwUKqJch+7WjonIterd4=; b=d6PZ45cyzfCmJ15UhNkU6U2U5C
+	2lXhnucrCdXSXS/Tyh3xLsiaWBddesmMSWYI/DGcWAkDJJjqYlQO5FE53ZxnUi5jEkpHwSHj5uGMI
+	E+udOxf7RV+qZ4LJ8DZWT3k6ch6V0VWcaOB5A3K4hA9NJ2LKGi43TQXsI3iiq2nAOgBDOD7q+VBey
+	/oBR+heiNSV1R8WrINLghC+OHW3Gsey+Uxh/etqRG8neCO4zWs+N77uMjbbKWJJQRMDUiG9pEdJ93
+	a8pOdBSZvHSxPx+XFwPEzAmSSzLpQE27SBNhHgm05D1n+rEG1EnULIomXJe0IiA6OQrcbSfKUSivm
+	m3x2HN5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tctwo-00000005uyb-3CJ3;
-	Tue, 28 Jan 2025 22:20:42 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1tcty7-00000005v4b-1kSJ;
+	Tue, 28 Jan 2025 22:22:03 +0000
+Received: from mail-il1-x135.google.com ([2607:f8b0:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tctlU-00000005tgd-0Jle
+	id 1tctmU-00000005tv5-3CS4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jan 2025 22:09:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aMpqn7BkZcTE21npsfJVTqSfsmr+iohkzsgxiF7Z2FVCHzvplczElqEiAOYTsO+3Y91TwcDtVsPG1fCqgxQvACc0TL8Ld2IJ/4r/E+2VjrTlxmOhe+ZQt1x49ItNWpqjHENqWbTSu+un250UEraAdy+2QhBIViio6hyYL73mMg52Bn6jzxwkPDWQWLVeJRxkfKGhCZjkT4OpUJssocy6eDptAifJCetFBV4OeBzEisgnTpOBlkeYi6uK7Fh3MScj9Pb/JvgXePY2v9qnFgs6HmuFQzT+Xfj8HbvzE+7i8c2JkAF3a1n8mSTJDskft3aZiwWKaa44vwTChvyguhYG1Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wJxChZP0aR0iCOpx4zJhPrHwj+xKeWc1Pssf1AAz6bQ=;
- b=AQ13e9UEqHhfdm2wHNiWle+wL1YlnnUV4X5xgaVugPMchGnunnOX1zWJ2PigRomgwSPNPD9ygghAqhsuUXAkw7coDsrRbLxDBmIfavCJfDDmG9IIh/JuTqzslFR7FVskuwGf40SAdzgVGgTJ3E5QLJ6m8c83JnnUQ6vg9UZdY6SIe+koN2jk0ItWecMpDtkBXc2lGgKyAY7Mx80udn4giL0pvSRjbAPB+I8mEFLl8BCl+jlkNNRpWm+FypxKj/FYcxc4jspB5jvU/vVxrydwBl0xP/A1FlIaYuww8I2RUvylbfkZnLXR1M943SJNAWvDY5KFgfNliWmrAy4recb1oQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wJxChZP0aR0iCOpx4zJhPrHwj+xKeWc1Pssf1AAz6bQ=;
- b=AxiskoeqDB97aktKh6nD3CJ4FlxjCwoc6VvgzSPnwKIsQbydcWE9z+XJA44tzk1BFUyHiUuzLSKbKnFMKm1Yg+otaG+evIJiMdIEKQuUSnB7T9H6O4ysAOci5ciDtUdg9hqp4NRT82pldMay3HSmCB1T6JtZBdZ6QUHTVQimkuxV/LcU+mrNwgpKVvvcmnJ/QyPsoHM9ugd7qzDkAq6r2CEeZLbwMrAhOp0JL/jTjw6uKdTSvsKRW0rZ/UGB6sxUS6tBjhBJ6AXftQfgN2OTJgrxW+KAga/+Ev5knn0wGTQU2iIJMv8a22D2ZEb3zBvgNbxk1Ou5xK82TOR0c1crGQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AM9PR04MB8555.eurprd04.prod.outlook.com (2603:10a6:20b:436::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.18; Tue, 28 Jan
- 2025 22:08:58 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8377.021; Tue, 28 Jan 2025
- 22:08:58 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Tue, 28 Jan 2025 17:07:40 -0500
-Subject: [PATCH v9 7/7] PCI: imx6: Remove cpu_addr_fixup()
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250128-pci_fixup_addr-v9-7-3c4bb506f665@nxp.com>
-References: <20250128-pci_fixup_addr-v9-0-3c4bb506f665@nxp.com>
-In-Reply-To: <20250128-pci_fixup_addr-v9-0-3c4bb506f665@nxp.com>
-To: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, 
- Jingoo Han <jingoohan1@gmail.com>, 
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
- Bjorn Helgaas <bhelgaas@google.com>, Richard Zhu <hongxing.zhu@nxp.com>, 
- Lucas Stach <l.stach@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- imx@lists.linux.dev, Niklas Cassel <cassel@kernel.org>, 
- Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.13-dev-e586c
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1738102099; l=2187;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=82i+ZNN//yWfCS+EdpjUgo+KbP9Mi5MxOEllPA4oVrY=;
- b=jKJZ1FU69RghE7E2Y6Mg+P7Z+iK7AD42u2G9MBdt+1uL9MlogqwTnSfIaN0OhtJtZ+XLNgYdk
- eU1OWZGSxQ8B69FI0yYwhxT+y4v0+rvQjnMqSY3Xcg3mibWPpph1lcL
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: SJ0PR03CA0130.namprd03.prod.outlook.com
- (2603:10b6:a03:33c::15) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Tue, 28 Jan 2025 22:10:04 +0000
+Received: by mail-il1-x135.google.com with SMTP id e9e14a558f8ab-3cfc154874eso47173835ab.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jan 2025 14:10:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1738102201; x=1738707001; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dyJffkBFdN8fIysYz8PGYmBGwUKqJch+7WjonIterd4=;
+        b=UWfXCDmgEsb9Nq7KvwHUPPdKXj4hTr6nKsryDcfhtMkDYjZDP9skkhNLclpXvmRSMQ
+         5TWukYVSlabVN9ufW+Vfzya1wXug0LKFbnsb7Nql5F6b1XZE/r0DQO8JZZJ0LtJXGTkF
+         Cp5y4S6K4suXRGLmxVWfQAAsSog/CBH7if5DjsbumJfMDmt0X4IgkfduQUu964rtbl9p
+         l7y4iGwz35cUgAABUdFj2q88cmvSy+G/2SCSvJu647/4lKxiVW7KpaTSyoka+Y/NlSJn
+         GV810NSq6YFMb9kf9HcgMiOnXoL3K/I2FFZheSG0N6/LA+WO/Gnh5O0JBj4ujlqO70HT
+         CKVA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738102201; x=1738707001;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=dyJffkBFdN8fIysYz8PGYmBGwUKqJch+7WjonIterd4=;
+        b=oUnX0TvIFSBs+TELZ6iCzhUntPXeuK/SSMB2S2cDNtmDm7bDZ7VmKLrpJYeJwbVqJi
+         w3DZ8ZCBKPTbsyseDeeUQfT/uib1pknEkrCLVGOqxmLtNHzGK20O6zikGEauUbLIvdRe
+         cHe9Dy8oEVDHPVMAMgEy8VkLswgygjt27fGhYWs9We2Sp26T51aQjJFuBtPHmVZj/602
+         Wlekv2Es30rsOe838gupziu8Vmb/7t20q5F0BxKuC0y6hCO/2wR3VM6kztJDpEiGOmGb
+         1QjVMkUi/oA2igVulIbgyvj9XS/wPzYOGdqjnRCoscMJFEAwdbZ+DI9DeLKfbTK3yAMQ
+         +G5w==
+X-Forwarded-Encrypted: i=1; AJvYcCXVh9RLjnnA1LYFM+V2Wb2eAOsNv+FowYHSd+pWl3E2mBVwsV5fou5q+Q4uithAcbjzhybARa3SeZqAKOpCLmRB@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxzw5JSNRMMCQvGoEVsub+jcavKry0R28C1iQ3P2dcO/ucNk9be
+	WS4fS27p2e30mzzWuDlexk8KGQGh9+VQAB9kJC8MA6hAcJY5wDnHTr4olJU5mDNkgFYx7HXbuyl
+	pz95bjHJR8mAOME6ND5Eck7Lw7M0=
+X-Gm-Gg: ASbGncv00DH0NRGRWYoAC16QTiEUVfNs7zceyHgYORHmhTqtGszyqWDiGEgwuDxApxt
+	2VR2oQJbz2wkqk3ycOXOCZlD611tjlvYhSv2/13JIISHY2VFhnJIn+2AXA55XRz7eK5iBdLqukc
+	53i8Pdz9Q4l2Ky9Axya4lsJBQxWg==
+X-Google-Smtp-Source: AGHT+IHgfYpA0VMAacYmWKH7JphTu43Ivw7JChSTcf6n7PHDLpUdxL7L5C0eaN2l2Zyi0/kWh6WQspB+VO1SCyrGhQU=
+X-Received: by 2002:a92:cda9:0:b0:3cf:bb3e:884c with SMTP id
+ e9e14a558f8ab-3cffe44793amr7793705ab.16.1738102201257; Tue, 28 Jan 2025
+ 14:10:01 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM9PR04MB8555:EE_
-X-MS-Office365-Filtering-Correlation-Id: de8aa5f3-d534-488f-0cf2-08dd3fe85cd6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|52116014|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?b1pJcnRQTmpHK2g4U2FzMVRLOVRkUXZFLzBUWTJibTdTUFN3a3pJdmh0a1Bj?=
- =?utf-8?B?WjRlcWtWc3kvZ3lDMGdtMXZyZlRvOVBwc0F4ZTZkdDRqS09ISE5ncHVrZHA3?=
- =?utf-8?B?Uko5SzNYYm5FeGppdElpd0pLeTNVZkFQSVp6TTNMZk11ZmhKOTJMQUY4UkVE?=
- =?utf-8?B?TTkxSk91a1BpMk40SlFEZUg0a0xOczNJKzF3VTJubVlCdzc2OXdiSWl5VVg3?=
- =?utf-8?B?U1NrMHVMMVRKVDVXNG84dm5zZE82bTBTeHQwWnE3eldzV1RoblQ4RTBEclRv?=
- =?utf-8?B?c3FxUzlkQVZ5dTdER0JqZ1Ixd2Z5YXpzRzlwamxzV1M0TkhLYVZFRkdMUG9B?=
- =?utf-8?B?Q1pPY1dyV0FtWGpkdHU0cmpNc0VGZ1VSUmZPcWRnYXF6MFNrRnREck5MODhW?=
- =?utf-8?B?ajJvdTBoMWVuY2piU0pCcmd5NENVUEF0dXRNeisrcTNsanVMRG1TZWFpN0Ry?=
- =?utf-8?B?M1lVSDdEWGdKOWk0Q3o2RXQwUU1iYkxJTlFFUmhmd1lnMnlrckVPT1FYdEhl?=
- =?utf-8?B?R0gxd04xbDNpZjJlUXdzNHlzV2Vrc2RnK3dBamgvMzJXa0ZmT1luazVqSXFi?=
- =?utf-8?B?YW53U2picWJPb08zM1pKUWlHNVJyckV5OExrVUpWalh4L1h2cXBlL3MyR0JW?=
- =?utf-8?B?K0xpblZCNmt3WkFhMEhDUndLL29oL2EyMEVuNGlwU0tnRlU5dHRkVnR6MVla?=
- =?utf-8?B?Qk1GR2dsZUQvVzZjS2pGU29JZEg5STBZWWQ0ZEUrZjdKa2VFMVZIdVh5N1J2?=
- =?utf-8?B?YVhMamxaVjlHTXlUQmc2YVROeVFvQm90cTBmM1FCZHgwZlk5KzErd3FsOFpj?=
- =?utf-8?B?d3FGSWo2dG5jVEV6cE5SZVZjeXZOWk5SRTZ2ZXN3S3JqbGpUZmJjY3RJV3RR?=
- =?utf-8?B?QUxMKy8vNzUwOG1vOW1DUE02cjhMcVFQd0txZERacHFzbEg0UHNJZUNGYjJO?=
- =?utf-8?B?NWp5TVhDSzEybS9TQTJEdFZyaFF0dzJSMmpsUlJBdE1UTnFvS21lNXFnT2Jr?=
- =?utf-8?B?aHpyQ0RZUkRGb2FzdHgzRXhLSjczYU92Tm9lTHRHNzdzSEVMODJyakV1OGZF?=
- =?utf-8?B?V3ZjQ1Y3YVhCWHg3UHJZQlM2TzJ6dW5CT2ZMZkVCckRzUkMyOEtnWmpTMGtQ?=
- =?utf-8?B?aFQ0SnIyU2lRc1ducjNFaHNGM3AwWUtJdTBpay8yM21DUHlQWnQ3N2FVQlE2?=
- =?utf-8?B?bzQzSmcxUFE4bjY0ZXo5ZTdSUnlKK1hxVXlncW5Hc09pS3h1V3daN3JwSTdI?=
- =?utf-8?B?am93Vm15aWJSWUxKdG5jVjIxZkNucFZZazluUVlhSHhvUlluSmpKN01ZWWYy?=
- =?utf-8?B?Y1RlaFNrb3VIaDIzRDVyZHJMb0d6QkVkL3cwNGpNOG5vczd3T0s4bUlUcHFN?=
- =?utf-8?B?RXdkZWJVbWRWQmVRZW9lSzVhOXl4UGl3dEpvRnRtMXY0dHlzNzhSd2JzdGcw?=
- =?utf-8?B?THNPUXdES2VMZDFrbVJ1K0ZlZmE5WHhVTlNlTXhlZk83SU9wLzlMdGE1Yisr?=
- =?utf-8?B?eGRSZ2tzeHZjczArTSt5TW5abmxSeUgvODlyLytJMmN6bHhmbXAxWGhkNnZm?=
- =?utf-8?B?UU9vTFBsZEN4MWlHVUVnWFhPUUVMc3ZxKzJGbzE2RW9RMU9wSlo4Ymo1U2tY?=
- =?utf-8?B?b2RLa2YrVTcvYVRSQmV6aTNTYTBCVnMrc0RlaVM5a1JYV1h3VU0wMzZXeGd4?=
- =?utf-8?B?d3RyMDcxVUYzZnRQWDRTR1NaT3VUakszalY2TjZJSWhXMnRHamJlZXR1ZUtS?=
- =?utf-8?B?MFhDc0M1aGtzWXpQY2lSZ3dkaHBmaHR6T0hURDV2dHA2Uk9GeUJzVm9FM0h2?=
- =?utf-8?B?aEIrSjRJUi80UGdsb0pncEFUTVptZElHRTdoaTZvRStNRUZHOGtKWGJJWnBV?=
- =?utf-8?B?OVpjb3RJYmRvN20wUHdJZVVzcUxTQ1YvUC9FM1MwOEJYMjNqeEJTdmw4bExx?=
- =?utf-8?Q?wqucxZc4DNR3nDubsa1yrY8j6QESEybZ?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(52116014)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UzZYZmp3UHBKRzlMcm5HbUZ5UENtZER0YUNQZ1M4QzhhSldZeUxBSkhYNS8x?=
- =?utf-8?B?d3hFZThwdmVzU1Q4bFhQUEd3b3JCZjZqSDlndnlRd3ZuMzFGaHZwaHlYcktJ?=
- =?utf-8?B?c2JSRXBySXZXMGtlTjlOSnVJYmlXVEl1RDdDNG54RVg2a1grV29zYmpqWEJG?=
- =?utf-8?B?enJ4eDl5enJrYXFualY0NWt2SllUb0VLRUZyR1A4b212NkUyZVhjWE5OMnhZ?=
- =?utf-8?B?ZFBNelJrdDVDdTR3Z0lCaWZUZ3dSTEZ4cHo1ZGxFbEs0cFdXSW00UG90aXdx?=
- =?utf-8?B?MHJnVVdaNko1YzBUT0ppTEhSZTRrVHpMT1BNUlRoOFFCYnYydHJ4cTV0U0NH?=
- =?utf-8?B?UmRMd295RFJ0b1BYaXU5UzdYTXh4TEtqSGhySWtnR0FKRUNZbHI4Z2FycXhH?=
- =?utf-8?B?Qk5ZSHNwZEtWT0hHdzh5czJaNE9OTFdhNDVxYkhQOHlkZlc0Ri9Kb2J5R2dH?=
- =?utf-8?B?THdaVkI0TS9UeGg3aFFyMC9JckFHSVU0ZXJTeERRZmUvRTZINDlISDBXQXBB?=
- =?utf-8?B?TysvaVJPSlk3c2hWQStwN1h4SXZ0YmR6RXBpaVpDQ0tYa0FCT1BIL0FyVm5Q?=
- =?utf-8?B?VDR2SkF4Q0wvdU56TjVva3h2ZkZUL0VlWUNuemNTSW53ZXE3eWdxK1Q0WU9L?=
- =?utf-8?B?SlU4R2Mvd3FFc1VpUFJBTXBHRDI5alBFMFdWUmV4RlhDbDRUd2I0OWpIaWg5?=
- =?utf-8?B?cGo3ZEs1V1BlNnA5SWxjcWNvV3NaRzBialcxZzNCQkpNVXdzNkg5VWUra0dB?=
- =?utf-8?B?UGVTSmllc0d6U3FJR09IRUxudy9VS1F0am9DMnBWNVI2R21lTitzTEtsQ2M0?=
- =?utf-8?B?Mm5oZWtJbDcyeXlMNW5SZ0FqK0ZOS3plV1RUTFZTbWM4a09YUjIzR2F5bEVy?=
- =?utf-8?B?djZFZWZuWHZud3FwYjJRU3hWY2hVUGhENXY3VCtRaURFaDJhWU51RGlmcm0z?=
- =?utf-8?B?UTJSSE04M3IxRWpjdWxGbmRFM3BzckZYY0tPSGhLVVFGQjA4dzRtdlVSbjBV?=
- =?utf-8?B?aDROem9qTnBNYjhlQlVQRVZrQVhJZkp1ajBxbEtBQUc1cHQzTmtOVVpHM2p2?=
- =?utf-8?B?Q3VrZng4VGxsWDVCVnI4b0l2QzZSVGxVY28zVFRZS3pUbXo3WVVLNFE4a2Jl?=
- =?utf-8?B?Vk55SXREbmpSWGY0SkV0U29sUW8zSlIvMTY0cmY0VzZQTzJnZWtMK2NzTDZu?=
- =?utf-8?B?c0tFSVlVOWNyR2lmdDdCZ3JGc21XSXFlR1lyMytFTHZ5ckdZUmltNTNrUEhs?=
- =?utf-8?B?MFdTcEw1dUVlRCtqN1BLOEFYOVV6dXpHR0xhdmQ2Y2NNRVE4OUE0UVE4bGkw?=
- =?utf-8?B?bHBIRitXNitSdzZLcENxQ3c5Tk80M3k5ZFRsTnpXeVd1S1B4cEJIYWovVFk0?=
- =?utf-8?B?eEpEMVl4NGlURjh1aGljaE1QcWFGYUtLVjN2VjNYK3IwR2xnUDRvNXJzMktp?=
- =?utf-8?B?SEUxaW5LR1lORDV4Z2p1SXgyS2hFZVJmUjdsN2JxWXUwYm04bmkwWWloZHNs?=
- =?utf-8?B?VFBwUHNPTjJESVpJeHd1NnVpMUpDWjhWUWtNZ2c2T0N3QUVLVjF5UmdMZG9t?=
- =?utf-8?B?K2E4UGJ1Vkx4Q1NyNlhtdUVuRnNVSE1mbW9kTU1HZ01KUjN4YWZvVUhGbWpE?=
- =?utf-8?B?bzl0K1dIaUVjU28ra2hqUVJCWEpSMzkzZk15OGFLdThTaU5XRUNnLzVpejJm?=
- =?utf-8?B?U1JHSU9VL3hNL001UVV2UFJjREZxZm1zdWJyMkF3dXB6dWF2V0VBUGRRVktp?=
- =?utf-8?B?Zy9VaE5QVXlMekJIWmZVTEdwaWkvcXNpUzkzR29SNm4xR2kxd2MvYkRTWDZy?=
- =?utf-8?B?cVJnRzFqQ1kvYmRRNjNRWGMvYXpEMUMveFBTWUcxN0lNRTJnbTlOOWZOb3FT?=
- =?utf-8?B?b1BVbFRlTEpIelgrT1BLdW9VYXVmdzZsMkgxV1NYSUJCQ015WTR4cmpwbjJK?=
- =?utf-8?B?ZXFDUkJjTTlCci9YOEV5VUxRVkZDbUMvTGFudHpGa3NsRmFVZS9sRmFjZy91?=
- =?utf-8?B?dHhwbmdWSEJYMzFyTmpwdFJZL2tCbGE1WWdqSkxRYjRrVkFNdXZvS3NNeVI1?=
- =?utf-8?B?MXpaaTFkUkl3Zkl6VzlqeURJQlJWZGhQQmNza05yOVFKeHBwOWRENEdEemJw?=
- =?utf-8?Q?aKc7qcBBnbXMCMdtPo11xHEra?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: de8aa5f3-d534-488f-0cf2-08dd3fe85cd6
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jan 2025 22:08:57.9884
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: WNO/bMXQFSN5Uc364JWnaC2psUsS3lraKRk4gHXfqqjJ5xTi0g+GqLOQ5RBBRzOsCAC3QXzF+k1pgusLiGkw0Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8555
+References: <20250122-msm-gpu-fault-fixes-next-v3-0-0afa00158521@gmail.com>
+ <20250122-msm-gpu-fault-fixes-next-v3-1-0afa00158521@gmail.com>
+ <Z5IjsqQ6vTdUXiGt@hu-guptap-hyd.qualcomm.com> <CACu1E7H5X2EfY9AG=xceaoZJkbumwnrsU4QvNbxd_A2wgVVOaQ@mail.gmail.com>
+ <Z5KXwNPrdirVUn8Z@hu-guptap-hyd.qualcomm.com> <CACu1E7GOS+_biN=AuQwYK47ApRPFGygyD+U5X9d_4ReXKrzbfw@mail.gmail.com>
+ <Z5i6GQDd5apN+a10@hu-guptap-hyd.qualcomm.com>
+In-Reply-To: <Z5i6GQDd5apN+a10@hu-guptap-hyd.qualcomm.com>
+From: Rob Clark <robdclark@gmail.com>
+Date: Tue, 28 Jan 2025 14:09:48 -0800
+X-Gm-Features: AWEUYZl2-uHarNn2psbsrw1v352rDEu3UlOhpWnD80DHoE6YTIxA3r72Hj27dzk
+Message-ID: <CAF6AEGstcrAJDBpPm-uQ+zSDVEhDJ4AQhCTDT-z9_8Nq0e35WQ@mail.gmail.com>
+Subject: Re: [PATCH v3 1/3] iommu/arm-smmu: Fix spurious interrupts with stall-on-fault
+To: Prakash Gupta <quic_guptap@quicinc.com>
+Cc: Connor Abbott <cwabbott0@gmail.com>, Will Deacon <will@kernel.org>, 
+	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, Sean Paul <sean@poorly.run>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Abhinav Kumar <quic_abhinavk@quicinc.com>, 
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+	Marijn Suijten <marijn.suijten@somainline.org>, iommu@lists.linux.dev, 
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	freedreno@lists.freedesktop.org, Rob Clark <robdclark@chromium.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_140900_125084_1EF017BA 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20250128_141002_810767_4D6CE130 
+X-CRM114-Status: GOOD (  36.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,73 +103,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove cpu_addr_fixup() because dwc common driver already handle address
-translate.
+On Tue, Jan 28, 2025 at 3:08=E2=80=AFAM Prakash Gupta <quic_guptap@quicinc.=
+com> wrote:
+>
+> On Thu, Jan 23, 2025 at 03:14:16PM -0500, Connor Abbott wrote:
+> > On Thu, Jan 23, 2025 at 2:26=E2=80=AFPM Prakash Gupta <quic_guptap@quic=
+inc.com> wrote:
+> > >
+> > > On Thu, Jan 23, 2025 at 09:00:17AM -0500, Connor Abbott wrote:
+> > > > On Thu, Jan 23, 2025 at 6:10=E2=80=AFAM Prakash Gupta <quic_guptap@=
+quicinc.com> wrote:
+> > > > >
+> > > > > On Wed, Jan 22, 2025 at 03:00:58PM -0500, Connor Abbott wrote:
+> > > > > The context would remain stalled till we write to CBn_RESUME. Whi=
+ch is done
+> > > > > in qcom_adreno_smmu_resume_translation(). For a stalled context f=
+urther
+> > > > > transactions are not processed and we shouldn't see further fault=
+s and
+> > > > > or fault inerrupts. Do you observe faults with stalled context?
+> > > >
+> > > > Yes. I've observed that on MMU-500 writing RESUME before the interr=
+upt
+> > > > has been cleared doesn't clear SS. This happened with v2 in the cas=
+e
+> > > > where there was already a devcoredump and drm/msm called
+> > > > qcom_adreno_smmu_resume_translation() immediately from its fault
+> > > > handler, and we'd get a storm of unhandled interrupts until it was
+> > > > disabled. Given that the architecture spec says we're supposed to
+> > > > clear the interrupt first this may have been an attempt to "help"
+> > > > developers.
+> > > >
+> > >
+> > > Just to clarify, present sequence is:
+> > > 1. context fault with stall enable. FSR.SS set.
+> > > 2. Report fault to client
+> > > 3. resume/terminate stalled transaction
+> > > 4. clear FSR
+> > >
+> > > At what point when you try #2->#3->#4 or #4->#2->#3 sequence, is FSR.=
+SS
+> > > cleared and interrupt storm is observed.
+> >
+> > With #2->#3->#4 FSR.SS is *not* cleared and there is a subsequent
+> > interrupt storm with only FSR.SS asserted. With #4->#2->#3 there is no
+> > interrupt storm. From this we conclude that MMU-500 does not clear
+> > FSR.SS unless #4 happens before #3.
+> >
+> Thanks Connor for clarification. I get your point now. I think it's
+> expected interrupt storm with #2->#3->#4 sequence is expected.  With
+> CONFIG_ARM_SMMU_QCOM_DEBUG enabled, context fault follows the sequence of
+> #1->#2->#4->#3, which is spec recommended.
+>
+> so, common fault handler can be modified to follow the same sequence, but=
+ I
+> have concern regarding clearing FSR before reporting fault to client.
+> qcom_adreno_smmu_get_fault_info() is an example I gave but other client
+> handler may have similar expecation of fault register not changed before
+> client fault handler is called.
 
-Acked-by: Richard Zhu <hongxing.zhu@nxp.com>
-Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
-Change from v8 to v9
-- rebase latest linux-next (close enough to v6.14-rc1)
+Simple solution would be to move the clearing of FSR to after the
+fault is reported.  It doesn't really matter if it is before or after,
+as long as it happens before the irq handler returns, AFAIU.  And
+drm/msm will collect the fault info from the irq handler.
 
-Change from v7 to v8
-- add mani and richard's review/ack tag
-- use varible 'use_parent_dt_ranges'
+BR,
+-R
 
-Change from v2 to v7
-- none
-Change from v1 to v2
-- set using_dtbus_info true
----
- drivers/pci/controller/dwc/pci-imx6.c | 18 +-----------------
- 1 file changed, 1 insertion(+), 17 deletions(-)
-
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index 90ace941090f9..d1eb535df73e1 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -1217,22 +1217,6 @@ static void imx_pcie_host_exit(struct dw_pcie_rp *pp)
- 		regulator_disable(imx_pcie->vpcie);
- }
- 
--static u64 imx_pcie_cpu_addr_fixup(struct dw_pcie *pcie, u64 cpu_addr)
--{
--	struct imx_pcie *imx_pcie = to_imx_pcie(pcie);
--	struct dw_pcie_rp *pp = &pcie->pp;
--	struct resource_entry *entry;
--
--	if (!(imx_pcie->drvdata->flags & IMX_PCIE_FLAG_CPU_ADDR_FIXUP))
--		return cpu_addr;
--
--	entry = resource_list_first_type(&pp->bridge->windows, IORESOURCE_MEM);
--	if (!entry)
--		return cpu_addr;
--
--	return cpu_addr - entry->offset;
--}
--
- /*
-  * In old DWC implementations, PCIE_ATU_INHIBIT_PAYLOAD in iATU Ctrl2
-  * register is reserved, so the generic DWC implementation of sending the
-@@ -1263,7 +1247,6 @@ static const struct dw_pcie_host_ops imx_pcie_host_dw_pme_ops = {
- static const struct dw_pcie_ops dw_pcie_ops = {
- 	.start_link = imx_pcie_start_link,
- 	.stop_link = imx_pcie_stop_link,
--	.cpu_addr_fixup = imx_pcie_cpu_addr_fixup,
- };
- 
- static void imx_pcie_ep_init(struct dw_pcie_ep *ep)
-@@ -1645,6 +1628,7 @@ static int imx_pcie_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
-+	pci->use_parent_dt_ranges = true;
- 	if (imx_pcie->drvdata->mode == DW_PCIE_EP_TYPE) {
- 		ret = imx_add_pcie_ep(imx_pcie, pdev);
- 		if (ret < 0)
-
--- 
-2.34.1
-
+> > > The way CFIE disable is helping
+> > > with current patch indicates write FSR is unstalling context and subs=
+equent
+> > > transactions are faulted.
+> >
+> > No, it does not indicate that. The interrupt storm happens even when
+> > there is exactly one context fault, and when the interrupt storm
+> > happens *only* FSR.SS is asserted. I've verified this with debug
+> > prints. Once more, MMU-500 will assert an interrupt when only FSR.SS
+> > is asserted. This has nothing to do with subsequent transactions.
+> >
+> > > Do you stop getting interrupt storm after write
+> > > RESUME.
+> >
+> > Yes, as long as the write to RESUME happens after all other bits in
+> > FSR are cleared.
+> >
+> > > If you can mention your SCTLR configuration and FSR state in test
+> > > sequence, it would be clearer.
+> >
+> > SCTLR has both HUPCF and CFCFG enabled.
+> >
+> > >
+> > > An aside, If reducing delay between FSR and RESUME write helps then b=
+oth
+> > > can be done as part of qcom_adreno_smmu_resume_translation(). This wi=
+ll
+> > > follow spec recommendation and also make sure fault registers are not
+> > > cleared before reporting fault to client.
+> I think this sequence should address the issue you are observing.
+>
+> > >
+> > > Thanks,
+> > > Prakash
 
