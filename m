@@ -4,79 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88BEAC0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 21:55:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4482DC0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 22:06:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HxJIMLcjaJXk/w1cbB1BarvyzClmerYs4PfSxDI+02k=; b=GKuAUIFnFC5wPlQMUkIbl52Kii
-	BAoNGsMHU3mABA8dUfJpbvGxTUynx2Q0TEPXPofgN65vbhLp1r5DIOUxpJjciz3sNlu/8hs6uQyCr
-	G3UUqk5x0mHDPJch1RHGUzzIgg45EcIhwAN1f46XeMb+JLEraw0wJyymkIizHtn6hlBstGVzPIOSd
-	BhCUa58iJZpZ+ThX2iAYrsHat3NsYaAlg2SwVFaLbq9uUkR8MUsThlaZ7y18VRmxWTQzqmm6EXEKI
-	iVzwMfgJgIMFWNxVUdNSWG63+nHxf1bZ+ckQ90eHJ9qNl+pP6vdyQXIaCwBCqvZXv+ebjx0wkddfE
-	jq6FqCgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Aggod8/in0cKWs0kG+tFQuM++ochnefqccqd7dtFIgs=; b=HK31NTaVWXpM2/7N5an/ItcdwW
+	QvA31Tz5oS7iAJlNypScup4u1z2oXpbAShWtXKygd0DaJhHhjurk+VfPGeSKNySuD3AoNWf9yecy/
+	WXGvdtaHP9bG9suBO5ittn1uaWgBnVduF1yMQcmIY8Uhdrsm2L6Dqr1/NKphKXUN2RdPhKU7rTjDK
+	sz9wB/8zl9TMaqhBhYwcuNWc+KH25hAD9V8CXKS609Rp7cCaFxfcv4uO5+x8Rsfi2W8LFHnR8l1eE
+	3bGok8gMY1hg0h8HQCeV6b51VF7QTnMG0ZouhCNbfE5Z2OXFfzcg1F8/tt5UBbeW/jSs7Y909FPaH
+	L5kRm0Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tctYg-00000005saT-3Bx1;
-	Tue, 28 Jan 2025 21:55:46 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.144.209])
+	id 1tctiW-00000005tH5-0YaN;
+	Tue, 28 Jan 2025 22:05:56 +0000
+Received: from out-184.mta1.migadu.com ([2001:41d0:203:375::b8])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tctW5-00000005sLd-3ZwU;
-	Tue, 28 Jan 2025 21:53:07 +0000
-Received: from mail-lvn-it-01.lvn.broadcom.net (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 7BDBAC00499C;
-	Tue, 28 Jan 2025 13:53:04 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 7BDBAC00499C
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1738101184;
-	bh=ouAUmnB+IQUs2iVlJWxke5993KtKRO9YWSyZ8IgOniU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=KIrgP1RjZ6XFs5cve2I9XF7/mfWN40XOZbYY76GNErcC/wpM6IMJjjhOPF9xJS6qC
-	 0Md4gUFE+qusXPxlKkpxJKDEvPvZY3U7gu8qlZi4jEba+lQwnGvNgZPtCLhC7K/rim
-	 gx9YVuRfTJ2oCc4fr+3NLWB84Rv+ry6hXBh8mcZg=
-Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail-lvn-it-01.lvn.broadcom.net (Postfix) with ESMTPSA id 09BD418041CAC6;
-	Tue, 28 Jan 2025 13:53:04 -0800 (PST)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: bcm-kernel-feedback-list@broadcom.com,
-	Stanimir Varbanov <svarbanov@suse.de>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-pci@vger.kernel.org
-Cc: Florian Fainelli <f.fainelli@gmail.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jim Quinlan <jim2101024@gmail.com>,
-	Nicolas Saenz Julienne <nsaenz@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	kw@linux.com,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	Phil Elwell <phil@raspberrypi.com>,
-	Jonathan Bell <jonathan@raspberrypi.com>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>
-Subject: Re: [PATCH v5 -next 11/11] arm64: dts: broadcom: bcm2712-rpi-5-b: Enable PCIe DT nodes
-Date: Tue, 28 Jan 2025 13:53:03 -0800
-Message-ID: <20250128215303.1902738-1-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250120130119.671119-12-svarbanov@suse.de>
-References: <20250120130119.671119-1-svarbanov@suse.de> <20250120130119.671119-12-svarbanov@suse.de>
+	id 1tcsbZ-00000005orS-3Hr4
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Jan 2025 20:54:43 +0000
+Date: Tue, 28 Jan 2025 12:54:26 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1738097679;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Aggod8/in0cKWs0kG+tFQuM++ochnefqccqd7dtFIgs=;
+	b=BbS7v2kSahLi5d25+Z69i5JoQCAP7OvkfyTzOF7QqSM3a1LJPWaUbGnd5BOgOQYTxYIe4p
+	jdYl7295TiVmYC7jZLhheMifHAOv0ZuiW0nWl+VdqgYmTQwf6c5J0Cq8ckZSP/ZQr+CV4P
+	+ECaLlYzWSVbms3v5jOiZQmrJhBaZ5c=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Zaid Alali <zaidal@os.amperecomputing.com>, catalin.marinas@arm.com,
+	will@kernel.org, puranjay@kernel.org, broonie@kernel.org,
+	mbenes@suse.cz, mark.rutland@arm.com, ruanjinjie@huawei.com,
+	robh@kernel.org, anshuman.khandual@arm.com, james.morse@arm.com,
+	shiqiliu@hust.edu.cn, eahariha@linux.microsoft.com,
+	scott@os.amperecomputing.com, joey.gouly@arm.com, ardb@kernel.org,
+	yangyicong@hisilicon.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: errata: Add Ampere erratum AC04_CPU_50 workaround
+ alternative
+Message-ID: <Z5lD8HwyQF7IQrEv@linux.dev>
+References: <20250127201829.209258-1-zaidal@os.amperecomputing.com>
+ <87msfbtjyw.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <87msfbtjyw.wl-maz@kernel.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_135305_972613_58EDC5BB 
-X-CRM114-Status: UNSURE (   9.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250128_125442_095275_F6F32EAE 
+X-CRM114-Status: GOOD (  15.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,16 +75,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Florian Fainelli <f.fainelli@gmail.com>
-
-On Mon, 20 Jan 2025 15:01:19 +0200, Stanimir Varbanov <svarbanov@suse.de> wrote:
-> Enable pcie1 and pcie2 DT nodes. Pcie1 is used for the extension
-> connector and pcie2 is used for RP1 south-bridge.
+On Tue, Jan 28, 2025 at 08:34:47AM +0000, Marc Zyngier wrote:
+> > +config AMPERE_ERRATUM_AC03_CPU_50
+> > +	bool "AmpereOne: AC03_CPU_50: Certain checks for ICC_PMR_EL1 that expects the value 0xf0 may read 0xf8 instead"
+> > +	default y
+> > +	help
+> > +	  This option adds an alternative code sequence to work around Ampere
+> > +	  erratum AC03_CPU_50 on AmpereOne and Ampere1A.
+> > +
+> > +	  Due to AC03_CPU_50, when ICC_PMR_EL1 should have a value of 0xf0 a
+> > +	  direct read of the register will return a value of 0xf8. An incorrect
+> > +	  value from a direct read can only happen with the value 0xf0.
+> > +
+> > +	  The workaround for the erratum will do logical AND 0xf0 to the
+> > +	  value read from ICC_PMR_EL1 register before returning the value.
+> > +
+> > +	  If unsure, say Y.
+> > +
 > 
-> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
-> ---
+> An alternative for this would simply to prevent the enabling of pNMI
+> on this platform.
 
-Applied to https://github.com/Broadcom/stblinux/commits/devicetree-arm64/next, thanks!
---
-Florian
+There's also AC03_CPU_36, where the CPU goes into the weeds if you take
+an asynchronous exception while fiddling with HCR_EL2. We don't have a
+mitigation for it, and it can be pretty easily reproduced by using pNMIs
+while running VMs.
+
+So I agree, disabling pNMIs might be the easier way out.
+
+[*] https://amperecomputing.com/assets/AmpereOne_Developer_ER_v0_80_20240823_28945022f4.pdf
+
+-- 
+Thanks,
+Oliver
 
