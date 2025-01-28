@@ -4,64 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F8AC0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 11:54:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3650FC0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 11:56:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o9LGknUAjaQX9ZGpV3UINT3HOJ34e3MT8Vv4NfioohU=; b=Ro/Ad+A3PSCqoIY798QD499bsM
-	R0g3Tezul0nkRP7k58tYgUBynm88sowk9t9jHLBKuOhxgSOrvVmdbkNy+T9xSO/urvO/EwTXsbW/G
-	ENgq/PaMguP67JkB3Z9frBBjcBAVXy92SHDnlCsfYSDtpwVoX0zI98aHGYOWSvlYA78DC6MQQCbrp
-	1KFewAYXR1dHm5EGzUvqMND+jPIe+mRfiseeAK6YoAJsmeukKXw9RQTL+BQ0Yy2bA9IqvFC7fnKQE
-	RDrl2NoXnxn265bJEWBTC1V3a/bg6HPVWbZSw8KWayIFvDp3UVWE1evHuqyVDlNsV4SnM4N5hmy9U
-	Z8f5YDmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gmf7mcPtQwX9tpVIZFfSi4yhDQ1AXN5DwMHqelwsOGg=; b=YwyeFWUk23ddhKm44/rUmW5zn2
+	WMIfVK/boB4gzh+w9S4BhEGcjTokhKscHyUSAv8cmDdQdyuy/25f2tUWgp2uioZoQBp8IIxDK8i9I
+	c6T95G0vIs9RcGnSCxTvE7FL9rnr8GP3+pE6g0rAk/u38bsz4/d4ShDn47O/hd67y8EtEvqvfTYKa
+	+c9uMx2pQxUvs7sG+BX9oXQ6sXxuJWb0RexN8mithrczw8ypAhJB6ScIK6Yxb9JuTOzylc3nY9h8w
+	sdKDUqMAJVHGj76tfXv+LSWQigWlp1gmB9YRYChcSYU6r/Un8bo6Kb2uhcCApkKJxI3R88eATLv4D
+	RIPQxGeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tckAq-00000004osg-1WHh;
-	Tue, 28 Jan 2025 11:54:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tck9W-00000004oj0-06gA
+	id 1tckCZ-00000004p4y-0718;
+	Tue, 28 Jan 2025 11:56:19 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tckBC-00000004ow1-34kV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jan 2025 11:53:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4BCF9497;
-	Tue, 28 Jan 2025 03:53:35 -0800 (PST)
-Received: from bogus (unknown [10.57.36.4])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6749E3F694;
-	Tue, 28 Jan 2025 03:53:05 -0800 (PST)
-Date: Tue, 28 Jan 2025 11:52:32 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Dhruva Gole <d-gole@ti.com>
-Cc: Vivek yadav <linux.ninja23@gmail.com>, linux-newbie@vger.kernel.org,
-	Sudeep Holla <sudeep.holla@arm.com>, linux-pm@vger.kernel.org,
-	daniel.lezcano@linaro.org, lpieralisi@kernel.org, krzk@kernel.org,
-	christian.loehle@arm.com, quic_sibis@quicinc.com,
-	cristian.marussi@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, vigneshr@ti.com, khilman@ti.com,
-	sebin.francis@ti.com, khilman@baylibre.com
-Subject: Re: Fwd: ARM64: CPUIdle driver is not select any Idle state other
- then WFI
-Message-ID: <20250128115232.kte35toxn3puoqwk@bogus>
-References: <CAO6a-9_aPLCx2CqecQBGbK78_=+-tT44RepPkrBjpkWSvjj4Tg@mail.gmail.com>
- <CAO6a-98cdSvyd7jgAyGNmsC2nxmRSyr3GppxvZU9yHU1xqwz3g@mail.gmail.com>
- <20241211055052.gbxnyqpui3t3zpw5@lcpd911>
- <20241211121825.GA2054801@bogus>
- <20241211143428.kaoovhiwar74dy6x@lcpd911>
- <Z1rbLdWW75KQw5cl@bogus>
- <CAO6a-98XFxbCnOMp5ARwPssjYomyNKWjT=WTk=z2+ZKyOAQ0jQ@mail.gmail.com>
- <20250128094720.sgk7gyr5oawzxbez@bogus>
- <20250128111407.6hbefatwhuomstzo@lcpd911>
+	Tue, 28 Jan 2025 11:54:56 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-38a34e8410bso2760665f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jan 2025 03:54:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1738065293; x=1738670093; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Gmf7mcPtQwX9tpVIZFfSi4yhDQ1AXN5DwMHqelwsOGg=;
+        b=NdOxB7mXMCWTXBHu1DSyNPcH4ZrwyzKhdX07/P62OmVH5Ov7dh+Y3DRK8+ArGgVpOR
+         xpmdGAEXy1/ETpkT37BImUUg3rR5L4sAFfEwrczuepandHSevzO2mIhyVLTO28m1WiRm
+         KaNiaF+vJn7ABE6iUTcVlSvvzIxbPf9v9qZi0MHSa4pEwIu9mgv/F2OUleyh1qUKZvey
+         qISD4QfFv6U4erQ8iqymYRGIerXkpyCWpeTbs1hPPqNyY6BIumYcb+5GQT5/UMN+IExc
+         1Dxf7fOjjEQxpSTQ7mIsXBhJ6+VuhUg60kaixI4GH7t6TCgOAUPTquOR2t8Jb04L4oIz
+         MBHA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738065293; x=1738670093;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Gmf7mcPtQwX9tpVIZFfSi4yhDQ1AXN5DwMHqelwsOGg=;
+        b=mHZg569NGAbQNquvn1UQxacDbC3psoRKCuS8SjFlQEUob/FTiky8fFTKFSLLgeIYUL
+         kU2KaKaVNJ55R4pWkjTu9HGAb3r/CELSXyfxHVu2f6dA6hV54Upwo+skVVVta9oY8H5V
+         20uf45CAu51Efj5KXxseQxnSdDqfLkcRNKs26q/UWXRyxN5sfTAoeOIPeMcjOI+nsfnE
+         /TBJ183cTrZYnmpE9/z9rejI3zaf1UNimYKuwq49Rh8Dh0dKEdbLWa8HwWyiVgocHfUz
+         wQULS0uar/WNKfJJk2zsEBfKlY4xXEpqPyfGE8gIGaoX/c+uQv4QrNmUDAzHG+DyDD31
+         xRng==
+X-Forwarded-Encrypted: i=1; AJvYcCV97qL2U/B1oWrrwvJOSpd6hJ68ewpQ+J0GZdCP7LN12e9xOkK9GMhgaEygOCxhV6hUzonO59x+qVyby5csmtjM@lists.infradead.org
+X-Gm-Message-State: AOJu0YxdW2KlMw4sWLJYYYivJnyO0hpo8c1lmUMSJHYSmsSZuXHzf9CP
+	Z9eS2zuh56DFscw/SU6CASyG3UwSw3fo2AiQbVZILxWhHykKreFAqDQR0gBhuK7JyVjKYHXWHJS
+	z
+X-Gm-Gg: ASbGnctqyd6l6vIq//Vmah57GRNdY+L2xeclACsz/mPYqlkf+uU2BMq35gsCcwMKK61
+	qH839mmWpQarTruwnlN+V6S59GrD/gV9qderj7a2w3xLrNtReAMOfYIl4nd0c2u33fn5F0fQiJY
+	9HimoNqRFWP1fwsuYHxvSRfCFqFF28O7E+0ZdZDwrrEMUXzcMaTpMJOKfxXxJLxzdS5vLaaLoSP
+	2PUaVgYULUU9UFNw2oxFmhjDqHfU5x5UybNQ6IMBnSjhWybhp1XbG1SnCtIpvvJqJvdsQzCcfzM
+	OhsXqY3yYkX2/qzdoUEohKTSwg==
+X-Google-Smtp-Source: AGHT+IHDFuV7bbeobdH8NJ7zs7YKsojRKqZ82J0IkoSCP3pGxLQVoQ/0mthDOYphu4LwsfSwyMaGvg==
+X-Received: by 2002:a5d:6505:0:b0:38a:88ac:ed10 with SMTP id ffacd0b85a97d-38bf5789edcmr34949134f8f.25.1738065292604;
+        Tue, 28 Jan 2025 03:54:52 -0800 (PST)
+Received: from [192.168.68.163] ([145.224.65.109])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38c2a1bb0besm14135821f8f.79.2025.01.28.03.54.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 28 Jan 2025 03:54:52 -0800 (PST)
+Message-ID: <538ae543-4c43-4df2-8adc-911096fe14dd@linaro.org>
+Date: Tue, 28 Jan 2025 11:54:50 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250128111407.6hbefatwhuomstzo@lcpd911>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 3/6] Coresight: Introduce a new struct coresight_path
+To: Jie Gan <quic_jiegan@quicinc.com>
+Cc: Tingwei Zhang <quic_tingweiz@quicinc.com>,
+ Jinlong Mao <quic_jinlmao@quicinc.com>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
+ <mike.leach@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>
+References: <20250124072537.1801030-1-quic_jiegan@quicinc.com>
+ <20250124072537.1801030-4-quic_jiegan@quicinc.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20250124072537.1801030-4-quic_jiegan@quicinc.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_035310_157208_1704D591 
-X-CRM114-Status: GOOD (  37.80  )
+X-CRM114-CacheID: sfid-20250128_035454_783157_9C539094 
+X-CRM114-Status: GOOD (  28.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,104 +112,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 28, 2025 at 04:44:07PM +0530, Dhruva Gole wrote:
-> Hi Sudeep and Vivek,
->
-> On Jan 28, 2025 at 09:47:20 +0000, Sudeep Holla wrote:
-> > On Mon, Jan 27, 2025 at 10:47:28PM +0530, Vivek yadav wrote:
-> > > Hi @Dhruva Gole,
-> > >
-> > > Q.1. Does your CA-53 properly go into CPUIdle state and come out of
-> > > sleep state ?
-> >
-> > Yes, well tested on other SoCs. Seems like system integration issue.
->
-> Yes, with the local-timer-stop property removed, all A53 cores do enter
-> idle in TF-A at the same time.
->
 
-Cool.
 
-> > > As of now I made some changes in the DT node. After making changes in
-> > > latency (which is mentioned below).
-> > >
-> > >  idle-states {
-> > >        entry-method = "psci";
-> > >         cpu_ret_l: cpu-retention-l {
-> > >           compatible = "arm,idle-state";
-> > >           arm,psci-suspend-param = <0x00000000>;
-> > >           local-timer-stop;
-> > >           entry-latency-us = <300000>; # 300ms
-> > >            exit-latency-us = <300000>; # 300ms
-> > >            min-residency-us = <1000000>; # 1 sec
-> > >      };
-> > >  };
-> > >
-> >
-> > Does these align with expectation of PSCI implementation in the firmware ?
->
-> Just to add here, value of that parameter has some encoded
-> meaning and is given in the PSCI standard:
-> Table 7 power_state parameter bit fields in Original format
-> https://developer.arm.com/documentation/den0022/fb/?lang=en
->
+On 24/01/2025 7:25 am, Jie Gan wrote:
+> Add 'struct coresight_path' to store the data that is needed by
+> coresight_enable_path/coresight_disable_path. The structure
+> will be transmitted to the helper and sink device to enable
+> related funcationalities.
+> 
+> Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
+> ---
+>   drivers/hwtracing/coresight/coresight-core.c  | 87 ++++++++++++++-----
+>   drivers/hwtracing/coresight/coresight-etb10.c |  3 +-
+>   .../hwtracing/coresight/coresight-etm-perf.c  | 52 ++++++-----
+>   .../hwtracing/coresight/coresight-etm-perf.h  |  2 +-
+>   drivers/hwtracing/coresight/coresight-priv.h  | 21 +++--
+>   drivers/hwtracing/coresight/coresight-sysfs.c | 32 +++----
+>   .../hwtracing/coresight/coresight-tmc-etf.c   |  3 +-
+>   .../hwtracing/coresight/coresight-tmc-etr.c   |  6 +-
+>   drivers/hwtracing/coresight/coresight-trbe.c  |  4 +-
+>   drivers/hwtracing/coresight/ultrasoc-smb.c    |  3 +-
+>   10 files changed, 137 insertions(+), 76 deletions(-)
+> 
 
-Excellent! I just wanted to be sure that we are not just playing with these in
-the DT without realising what that means to the PSCI implementation.
+[...]
 
-> >
-> >
-> > > I can see that  CA-55 went into a sleep state (state1) using command
-> > > ``cat /sys/devices/system/cpu/cpu*/cpuidle/state*/time``.
-> > > As you mention earlier in a multicore system (2 or more) at least one
-> > > core keeps working and does not go into sleep state. It should happen
-> > > as per theory and other developers' case.
-> > >
-> > > In my case, after some time, both CPUs (CPU0 and CPU1) go into sleep
-> > > state (state1). Hence the system console hangs.
-> > >
-> > > My expectations are,
-> > > If I type anything on keyboard. UART interrupt should take out CPUs
-> > > from sleep state and execute commands. OR some periodic timer should
-> > > take the CPU out of sleep. Which is not happening as of now.
-> > > As you said  we can safely remove`` local-timer-stop``. It means local
-> > > timers are working for the CPUs and triggering interrupts ?
-> > >
-> >
-> > Please go the thread and understand when and why you need local-timer-stop and
-> > how it is related to the arm,psci-suspend-param value(especially the state
-> > context loss bit)
->
-> Yes this is the important bit, if you know that on your platform the
-> A53s are just not going to power off or stop timers upon entering idle
-> then you must remove the local-timer-stop property from your DT
-> cpu_ret_l.
-> However, if you do have a scenario where the timer would be getting
-> stopped or modified in idle scenario, then linux needs to be able to use
-> another timer that is routed to the GIC and is unaffected while the
-> system is in idle.
->
 
-Looks like we are in sync with our understanding now, that's progress.
+>   	INIT_LIST_HEAD(path);
+> +	cs_path->path = path;
+> +	/*
+> +	 * Since not all source devices have a defined trace_id function,
+> +	 * make sure to check for it before use.
+> +	 *
+> +	 * Assert the mode is CS_MODE_SYSFS, the trace_id will be assigned
+> +	 * again later if the mode is CS_MODE_PERF.
+> +	 */
+> +	if (source_ops(source)->trace_id != NULL) {
+> +		rc = source_ops(source)->trace_id(source, CS_MODE_SYSFS, NULL);
 
-> This is what my understanding is so far, I am yet to do experiments with
-> local-timer-stop + different timer in the case of idle.
->
+I don't think we should do this. Doesn't this consume two trace IDs for 
+each session? And I'm not even sure if it's released properly if it's 
+overwritten.
 
-Yes, that would be interesting.
+It should be possible to consolidate the all the trace ID allocation to 
+a single step when building the path, or another function that gets 
+called just after the path is built. At the moment the ID can be 
+allocated from about 5 different places and it's quite hard to 
+understand, especially with these new changes. I have some of it coded 
+up, let me finish it off and I can share it.
 
-> >
-> > I have not got response to my questions. You can just play with DT and get
-> > things working here if the firmware expectation, hardware functionality
-> > and DT properties don't align.
->
-> I have responded to the thread now, sorry for not getting back earlier!
->
+> +		if(IS_VALID_CS_TRACE_ID(rc))
+> +			cs_path->trace_id = rc;
+> +		else
+> +			cs_path->trace_id = 0;
+> +	}
+> +	else
+> +		cs_path->trace_id = 0;
 
-No worries, just wanted to make sure those queries didn't slip through the
-cracks.
+[...]
 
---
-Regards,
-Sudeep
+> +/**
+> + * struct coresight_path - data needed by enable/disable path
+> + * @handle:		perf aux handle for ETM.
+> + * @path:		path from source to sink.
+> + * @trace_id:		trace_id of the whole path.
+> + */
+> +struct coresight_path {
+> +	struct perf_output_handle	*handle;
+
+This is only needed to avoid adding *handle to the enable function call 
+signature, but having it here implies it needs to be stored. And then we 
+need to manage the lifecycle of it by nulling it on deletion. All of 
+this can be avoided by just adding handle to enable().
+
+Unrelated to this patch, but I'm not sure why we were passing around 
+void* for handle either. It just makes the code hard to read and implies 
+some flexibility that doesn't exist. It's always "struct 
+perf_output_handle", so we can change void* to that in the enable 
+functions. I also have a patch for this that I'll share in a bit.
+
+> +	struct list_head		*path;
+> +	u8				trace_id;
+> +};
+> +
+>   static inline void coresight_insert_barrier_packet(void *buf)
+>   {
+>   	if (buf)
+> @@ -132,16 +144,15 @@ static inline void CS_UNLOCK(void __iomem *addr)
+>   	} while (0);
+>   }
+>   
+> -void coresight_disable_path(struct list_head *path);
+> -int coresight_enable_path(struct list_head *path, enum cs_mode mode,
+> -			  void *sink_data);
+> +void coresight_disable_path(struct coresight_path *cs_path);
+> +int coresight_enable_path(struct coresight_path *cs_path, enum cs_mode mode);
+>   struct coresight_device *coresight_get_sink(struct list_head *path);
+
+This needs to be exported otherwise the build fails because you use it 
+in a module in another commit. I assume you are building as static?
+
+
 
