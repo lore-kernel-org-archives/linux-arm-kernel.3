@@ -4,78 +4,200 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7616FC0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 15:27:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93869C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 15:37:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=azTNIlCbmCGpXULMZlMc8WlqU28SikR0twqNo8pc6mU=; b=eq7xZLd/gdeCtTd3LE3PpSLVdn
-	AoLJ5jnoj2mPKbhUe8mbNmi7lLI5B4BlPPU6vD1pgeE668IgSWxF+1BYlSF72RifGzKvPyeaURDOr
-	eDBR2bte3SCpbFMs61gCHQmNf1M/bSXFNnjQNhhnn0+23KR8027NGRel3UU88wmFj8LGf8A506ld7
-	aKHmFhoJOBG7qRh6P7DQGtxr9Atq3nqx+Fn1Of9c168OZpngxFsIyY5N8QStNNAuxobCFYkge6gZQ
-	5JQtVkgOun/dB337AZ/70zDH8oLgpmhSAf2VwDsYjOE72ooLfeyIYdxaENoP9leQQdJ5c6necOjcK
-	M+jAkcug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QpxSELHAQxGh0kCnCXaAPNJADQh2y/HJuSP81SYBt68=; b=kGw0tvsEatpYjkEk3l2meBraDt
+	rALBHpZ/a6EkgSPS0D6AddjgJo8kTAzY1yAlzVdxKX3sPw9PpNJhzxAQnMQkb5yRUMoh+4Va/3F4R
+	K8tcQuCdnOEvgW7OPsCTSXXYFJLNkbndCkTJjh887tHJda0iObOHzckV/KqmdTooFT01+DHqXqgWu
+	Gbwg9JtgKjWkamxisA6TvZUUmWD2keOYBXqHM4UZzmFXJrnxLA1DqKHv4udgaqMxJziOFjGFX0GEi
+	GXUOSWjy/gIwrDnUn3x7yDFSWi5DH0LkSFM3FjYo0HVcrK8CmY+TOyKeWX6EjV3gUuwssZZifk0KB
+	aYQmN3lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcnUX-000000058W7-1pG8;
-	Tue, 28 Jan 2025 15:27:05 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tcne8-00000005AGX-1RvR;
+	Tue, 28 Jan 2025 15:37:00 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcnTB-000000058MY-3Z5x
+	id 1tcncn-00000005A06-2gr6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jan 2025 15:25:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AB6DD5C5FF2
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jan 2025 15:25:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7AF4EC4CEE6
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jan 2025 15:25:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738077940;
-	bh=nV+FzWKbANZx9HgkidFwG5xrewDqm4kJlQ/F9Fw2IS8=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=CjQUKk8tgxNT5FiUYgBP/EkH7tciprh6KefMogl3Po5J42mA3NXuFZi0diBTojoUc
-	 8dehbYcAIgY1+RCViQd/qQrLPWw6Sr5NiNCPOH2Zt26btzxy5SF2dyEHjCzr/mVi2g
-	 U5YsZURkMYZA5Ajf74Ykhuf5uAc6+UvVXSU1XpiiTLluENpKrp8UJ3zO2Rf1VOAC1B
-	 yf0cVzboM9VEGvZehKjN1UTBQTY6oRiojzAiRao8mFyZSrQqKEw9Ez+EU0+ZquVV8t
-	 /ixlbIXRNpi/g/TyT76quaBuGmBMlqqNg7cVdf/1CEItBggR9PxZdBr7iZ5hanR/QA
-	 q/RK3c0WhfAiQ==
-Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-540201cfedbso5597489e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jan 2025 07:25:40 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUtlPlwxQWLfkFG1mQnMt+mFwq0zs4u5CtyEVFDvFolOQ2ii/P+P49Dg28zSFvbiYmX0aVhB+kuw+pPvMvVhJGV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7duoyFJ+XMkuaBdlw7zWYeW6HEIPhWSun8DEYZ2NE0adbvWgq
-	DfARhkVH9tBa+JrOan8usQOasPQIUx7Mihzb4DmTVgLUPiDacmcNY3G5XaFcQhAq5u2Kh7RhY4f
-	G6tC5PNfeqLXRRZBBLiuNElpuBg==
-X-Google-Smtp-Source: AGHT+IEFby41Dzk8Di02mNOM5Cxy2EFRJLFUx7f25ID/UUfCbjR1gV58RWSxAT/uUFzd04BUgt4V0MNwsnwXgwYKw80=
-X-Received: by 2002:a05:6512:3c92:b0:53e:39ed:85e6 with SMTP id
- 2adb3069b0e04-5439c27fa73mr18344610e87.32.1738077938743; Tue, 28 Jan 2025
- 07:25:38 -0800 (PST)
+	Tue, 28 Jan 2025 15:35:38 +0000
+Received: from pps.filterd (m0246617.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50SCvUTL021230;
+	Tue, 28 Jan 2025 15:35:17 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	corp-2023-11-20; bh=QpxSELHAQxGh0kCnCXaAPNJADQh2y/HJuSP81SYBt68=; b=
+	JYvFYpA0COjlzbuFhzkL8DA50UMFwq8DyQCZ58wMy975klsZS0O4cP3aIj3NsiWU
+	ZAVeNNoonEPXKPv0JslO3Z/sO1f2aTOAYxQ5llCN2OpiamhOER+TBc68xIL4ziQc
+	AOL1dUTVNCAIunN+8kCD25N4mvwXaNLiDRSjPdsBIGRnnPyatLBdkLoxpci/qHFJ
+	xFu5pFmN2xhYy7OoL7fHVBJAgDGFzecYSLO3kVkcMLIXGMFFHimU1tsbnBFIGwSH
+	iyOZfEXofOYB65CSB4VtnFgeMvlnpgR4OlGyUjbRn1E3cXf6Ks275xcTm+Co/7OS
+	bpkmFal8K46pPLpCAuNRqw==
+Received: from iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta01.appoci.oracle.com [130.35.100.223])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 44eypj0ch8-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 28 Jan 2025 15:35:16 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 50SEZTl7023939;
+	Tue, 28 Jan 2025 15:35:15 GMT
+Received: from nam04-dm6-obe.outbound.protection.outlook.com (mail-dm6nam04lp2044.outbound.protection.outlook.com [104.47.73.44])
+	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 44cpd8hbdg-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 28 Jan 2025 15:35:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=O2ueFPdaA70VXFhYh5HYfljrA+8iy5qDbObZjF1G9TysYCBY4to0t8xuraCurGJmnKyJaV0Ftx64cuAglc5p8ED9xLFqQNTtjW8fH2zxIVYEuNAj/c2cV4Xm6DivFIaPwOAbIYJpfCUYAaC4EENj3bqOUZplmpwE9xjsqYBHv/VBDmPU0orU+Gyn8ukkultek2vTZncXYcbsb0O1MDVlHGOPhRqAiYNmdGibzARMG93AHuBVoGILsii/4NcvV3A27jxwo0pkvb+QenL3tjoNFHPPyJE/tiT811HrLf1KKmQkCwf6vza3+aOp0tugM+pUuzAWEsvDnYHocqIERoby6w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QpxSELHAQxGh0kCnCXaAPNJADQh2y/HJuSP81SYBt68=;
+ b=BDVgmqtmPWz4TgPO6z4ZmCoP7V4jWi5K1EJChNUqXQhrcJOOUnRMDd8o6tUwb490zg27WIMauV0XJvl/Wyk9QARyuaA+3bqnU6wAC1tNWCM6av5B0mo3UirPogY8WHhDrFYUqnF4VZW0+4DBc3EEgANOcEQXwvENqDd1nzs9PBqd4FA1jZOLTcDpTyX0upLTYP8EpeNm2eif6WR7ZzT/FAoKPY4Dy979ThbMwTyha6YQEG+94fuC0ttXnjKV9iXt2ba2UDxTYwUNVnftfZ59av+HSpDHXuJKE/zhkWshztUWLm2CmV5e9t+7CaVfqjVHzdWSSW7znGAIBRrJx0ZaLA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QpxSELHAQxGh0kCnCXaAPNJADQh2y/HJuSP81SYBt68=;
+ b=qIkG1ihKdTbEFbwdjVTv+kcNptNKcCe5eKdRc+OzrFwzxBueul21Eskzn2nXqgAXZk7CvQZ/ytYwjh830erbpbjThKPbfp6kZVBMz054WSGEUJeyJvUc1ABz/EumxQlzhky3OD79CgcFgju3F1JawKHrTDzzWeIAgVTpW8nDbx0=
+Received: from SA1PR10MB6365.namprd10.prod.outlook.com (2603:10b6:806:255::12)
+ by LV3PR10MB8131.namprd10.prod.outlook.com (2603:10b6:408:27f::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8377.22; Tue, 28 Jan
+ 2025 15:35:12 +0000
+Received: from SA1PR10MB6365.namprd10.prod.outlook.com
+ ([fe80::81bb:1fc4:37c7:a515]) by SA1PR10MB6365.namprd10.prod.outlook.com
+ ([fe80::81bb:1fc4:37c7:a515%6]) with mapi id 15.20.8377.021; Tue, 28 Jan 2025
+ 15:35:12 +0000
+Message-ID: <29b94227-8861-4011-b83f-2e0c59dd1f73@oracle.com>
+Date: Tue, 28 Jan 2025 07:35:08 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
+To: Weinan Liu <wnliu@google.com>, Josh Poimboeuf <jpoimboe@kernel.org>,
+        Steven Rostedt <rostedt@goodmis.org>,
+        Peter Zijlstra <peterz@infradead.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, roman.gushchin@linux.dev,
+        Will Deacon <will@kernel.org>, Ian Rogers <irogers@google.com>,
+        linux-toolchains@vger.kernel.org, linux-kernel@vger.kernel.org,
+        live-patching@vger.kernel.org, joe.lawrence@redhat.com,
+        linux-arm-kernel@lists.infradead.org
+References: <20250127213310.2496133-1-wnliu@google.com>
+Content-Language: en-US
+From: Indu Bhagat <indu.bhagat@oracle.com>
+In-Reply-To: <20250127213310.2496133-1-wnliu@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MW4PR04CA0134.namprd04.prod.outlook.com
+ (2603:10b6:303:84::19) To SA1PR10MB6365.namprd10.prod.outlook.com
+ (2603:10b6:806:255::12)
 MIME-Version: 1.0
-References: <20250127222031.3078945-1-coltonlewis@google.com> <20250127222031.3078945-2-coltonlewis@google.com>
-In-Reply-To: <20250127222031.3078945-2-coltonlewis@google.com>
-From: Rob Herring <robh@kernel.org>
-Date: Tue, 28 Jan 2025 09:25:25 -0600
-X-Gmail-Original-Message-ID: <CAL_JsqLa9KmYjkVBpxwkQXfQyj53=dgj_9rijca5JGem46qZLg@mail.gmail.com>
-X-Gm-Features: AWEUYZkt7YkAXKfFlHInNwyPOLFZ80Bbbmqn6_x8T3vnHAb5bp8zMcQevYuFBUs
-Message-ID: <CAL_JsqLa9KmYjkVBpxwkQXfQyj53=dgj_9rijca5JGem46qZLg@mail.gmail.com>
-Subject: Re: [RFC PATCH 1/4] perf: arm_pmuv3: Introduce module param to
- partition the PMU
-To: Colton Lewis <coltonlewis@google.com>
-Cc: kvm@vger.kernel.org, Russell King <linux@armlinux.org.uk>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Shuah Khan <shuah@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-kselftest@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA1PR10MB6365:EE_|LV3PR10MB8131:EE_
+X-MS-Office365-Filtering-Correlation-Id: 67791df8-9a96-409c-1384-08dd3fb15ae2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|10070799003|366016|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?aDdTV3JNcDdCZGJmd2VaYzEzdEdyb3A0amFLV0ZFQVQzb3RwcEx4UHJvTnh5?=
+ =?utf-8?B?dXF0SGNqNXFhSmJjRXRVVTU1WEFNNXRoQ1pNNExTWllIN0VUYThCZDFGaVMy?=
+ =?utf-8?B?ZEFLUERYVUdJSG05MnVqWEZTQ1NFb25zYlVSaldRTDM5eGpWZUc5bE13RzZX?=
+ =?utf-8?B?Y3lhb3RhZWMycWxVS3c4aFZ3TkZHbzNlekRORHV3ZXFQOEhlYi9qZnlNSDM1?=
+ =?utf-8?B?eGpPM0xiKytoY1I2K1hFSy9lTldRWGFaaG44YXN5cUZmN1dDNmkwTEdJdlJn?=
+ =?utf-8?B?ZVFkZjVnSE1FdFZqcVErNERmbFRWem5VSWk5WktackhPSVVsVjYyTTV2NjB4?=
+ =?utf-8?B?VVNxNmtsY1JjVkhJSmp3YzdOc2pZUi85aHFZZWRYNVJBNFU3UUNWZ0Evb0ky?=
+ =?utf-8?B?LzYvY0FLdm1NQXpYZkRIYjJlSGdkVFlOSUVkdndTcnVkZVRQUitDOUUrR2Ru?=
+ =?utf-8?B?dDlQcndINjBSRHl1RWF3SnBZcnBMVlpUZk5FUjBDL2lpWUNvbTBQNFUrSGJN?=
+ =?utf-8?B?enl6ZkFTZlJOOWgwaFhHdFkxVnlzM0pUN1h6am53MWdTZE12N2w0cmV6aHls?=
+ =?utf-8?B?eFVFSHhOaVZMS0FhZElNZnhLZUtuZnN2WHlDNDhYVmg1VWl4WHBONk5Jcllq?=
+ =?utf-8?B?K2JlQkpkWkdnUnlyTVFpZ2M0ZHBpVlo3aHk4NDVEcEJWbGU0Wi9ncllYQ1Js?=
+ =?utf-8?B?amNDajV2ZTFrZlhtRTYybzFEdEVmOHR0eDVnNllPUzFmTThOdmZuSG1uRUFa?=
+ =?utf-8?B?QWxvK1RjamZhMUpNMTNqYkNFZDUzTmdsVXN2VDNJelhhaXlDN3IxV0xGYm1F?=
+ =?utf-8?B?R2xLOWFMeldmd1gxWlhIa1I1NGplQjhBZzFudFMyYXFCd0hvZVI4SmRQK1l4?=
+ =?utf-8?B?Q2c4cGxmbVNkS0MraHJzNm00RndSSStRK3Z2Z0ZFdERXK0dPNGd1M1llZkc0?=
+ =?utf-8?B?NGIxM1loeExQamRpQzFHcnpKUEl1TjZQZGxKRnBGR1R0ZUY2T2hLd1FYRlRs?=
+ =?utf-8?B?OHpCQ0N2eEZ5cEt0UXp3Z2pRWmM1TkpjQWpNVGluOE92SHBvRGNZMWZVRlFW?=
+ =?utf-8?B?dDlaUHlJeFVTbVhnY2k1emt4OU1DZU5BVEwvUFgwSENmbk9ZM1NhU3JsOEJh?=
+ =?utf-8?B?TFAzNTZhbkpQSmVQc1o2aThPWEEvckpVTlJnUHFSeGtNa1E0RHFRcVFsRUxU?=
+ =?utf-8?B?V2ZaMWFEQVRJcUZUcXdjMEpqTHZyZUxqQ0l0Y1IvNVR1aUIwMFRSVVpGYTI2?=
+ =?utf-8?B?UDNrYkViMG5USXNyYkJIbWt0Nm9pSUltb2NMbEdsN1hkSVdqSTZjUFF5V0wx?=
+ =?utf-8?B?SHV4dGxOWkxGUUNpUS82aFFwNTI5RS8rM1ZvbCtqbk4rWDFMWVZzblNNQzI1?=
+ =?utf-8?B?aTZmZmhBd2x2bEx0REJ4WW9NVzZvZlVQZVQvdjlXRElRM0JzSEZqQlkxQ3Zq?=
+ =?utf-8?B?cDNqNGU5QkRJWlM4WFpNWldXRk9hUHUzcXRQakRGc0RaQjdiVnM2ekNoWGdY?=
+ =?utf-8?B?b29yUmt3R21FM1NHdFMzZldlU2wwY0tDQUF4Y1FBNXJ2Q20xS0VyMmNJUkpL?=
+ =?utf-8?B?UEp1UnhuZ2JZUWVjRWNzUVRRTVJkM3VEVjd2c1NWbHM4cjkxOUpEdmpGMEpN?=
+ =?utf-8?B?Q0l4V2lXSkhYL1lZZklseHduclFMVGlBTlhFdXVYbVZkZFF3akVDUndKSHRU?=
+ =?utf-8?B?ODN2RS8vaHBqT1hpSGtackp1YWkvdFZoNWFrSGlqRlEzT0RXRUltQ1Qxb1JO?=
+ =?utf-8?B?MTlQNDluS2psMFYrSEUyditnYllqU2pmZFdEUUI2akF5cFJMR1Bta1ZYTFdQ?=
+ =?utf-8?B?MVY2K3BlN05ZVmRNbEdvZz09?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR10MB6365.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(10070799003)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UjFyTUpVNVpUa3NHcWxXL1c4TEhRMDBvRkxDbGFsNFc5UGtPdCtjS0JMR3p6?=
+ =?utf-8?B?T2IwcDdlMWNPTHhCYjVseWlLUm5IbmV6U2pET3NRQjE2Y2haSFl5RnNZZXdD?=
+ =?utf-8?B?ZFR5Y1h1Vk9sYnNkdkVITlVuMHdESldrSW5XbnZDbGV6VkdxUU1ycmppMEhJ?=
+ =?utf-8?B?YXdadjNlTDlibzFkMHg4WEF3SEVHeU5QQWNubDlaU1JnTS82QzBDUE1WNDZ6?=
+ =?utf-8?B?RHE0YmFPeGplZFo2SFVZV2lLREw4cTluT1U1UTdZK1ZhdkdlRGlHbXZHdnZR?=
+ =?utf-8?B?RzZ4K1JtU0pZWm1nTEVTWVZlS2NIbndLWlE1dm5SZE10RWQ1NjgzU2FrWHRH?=
+ =?utf-8?B?bGRDSm1UYTc4bFR2ajk1aGJ4WXJTOWdoWlVOV3dzSHU4bFB4LzlMMnA1bGtG?=
+ =?utf-8?B?NFZGWmcvQkpXNzFKNG9mdDgxY3RRemtWK0xFRlI4aHQxc01rQVNxaTVSa3B4?=
+ =?utf-8?B?QWdyU20xVlB6ZE9CTC9YUHNyY21FMUNLMzFzaU1zeGNmejBUSG9lVDJ5YXIr?=
+ =?utf-8?B?SWZwUE0xb3dqaUxCY2JObS9XdVRDMGttcVN1amR3MDIrbGp2Slk3UDhLR1lx?=
+ =?utf-8?B?WitMTWxJNExkc2NBK0NiRWthbGhYQzhiUitXdTJuK3hJRFVjZGpLNmdtNWhG?=
+ =?utf-8?B?ZGNWTzRqcjZDV2tWUFdPR09RS2NLZ0VSeE02dlFaR0sxVzlaMmZDVFBVZVhL?=
+ =?utf-8?B?ckR1Z0lMMWxhZ0FOS01iUTU5N1dqNTJGZTJRVHVOTWNDMkdjTXIzbUdZZUt2?=
+ =?utf-8?B?TGNzbmpBd2xCQ2pmYkxHR0NISDkvZVNVOEk2Z1RuQ3R1WnY0MGV6R01NWnFN?=
+ =?utf-8?B?T0JhdXByTC92YVplKzh1dmwrOVdsOU5aUXNaeEtabkRLZ1JpUEpoRlBhZjJv?=
+ =?utf-8?B?eWljTkFLb0NCUmE0YlNOSkxOT2hPRlFGQmxJTUh3c1pYcU8rbGxMSWp4ZW9W?=
+ =?utf-8?B?cnZmVFFDTHAyUVd1YmZtWXhLOWxSbzEzVjF3N2tkUHZ3elQyMWZBdmN2bkpI?=
+ =?utf-8?B?NngxVURVbmltWTVRQVA2aUlwODd3SDZqNU40VnFaUWphZFNObFpldlIyZk4y?=
+ =?utf-8?B?Rk5ialVKZDVZNXFtSDcvZjB5T3dMSGRsYW4yL0NEakF5U0ZPVmtCd1FPN0tw?=
+ =?utf-8?B?UXJXNzNnNEc5dDk2dnl3YkVpQS9kOWZBV0o5QzJhZG5GTmc4VjJKZzBsakJS?=
+ =?utf-8?B?UCtIU2ZBMHhVOU5EUVF5RE1OcHZFNUNqOTFnTy9MbGFNb2x1d0dyQVZtY0ta?=
+ =?utf-8?B?QjlOMk9rVnZ3S0daK2lZM2t1b3VsbE1lOFVhWW9YaUY3MTRib1psRy9nOXFh?=
+ =?utf-8?B?V2lMZGlwc3N3OXUxbXVwWElITkF2NlVCRFd5NmM4S1BYOVNUdkRpa3lZWFc3?=
+ =?utf-8?B?YitRak10UWUrbXRLQTNoa3FrYkFPSkIrSGtFaWhuV05BQlJWSDZKK1U2cFlU?=
+ =?utf-8?B?WGxxT0tZeTgrSVZaM0VhSGpWdlN6N3BuZWliQkNtY1B5TURsM3RudzhFMWNZ?=
+ =?utf-8?B?UXgxUVBKd2trazhXT2JBcTcvblBnMXFyUDJNNmRvUG1Wakt5bW5ML01JRnQ0?=
+ =?utf-8?B?Q0N5M0I2M1d1d1Z2WUJrV2JnWTJWSUEwN3huaWJJbXJERUREUzZaVWJDQTQv?=
+ =?utf-8?B?MUlZeTI1bVViN0FsWUp6SldWMS8yZy9qOTlaQkY4U3ZTOXZ4WUNPcmlyaElm?=
+ =?utf-8?B?bzZiVmpYYUNlY0JoSHBwSWZ4dWZCT2ZMaVR2TmIybjFySlZlc1REMEdsZFZh?=
+ =?utf-8?B?L2FlK1lXY09qenRYSGNkMHAzdFQ2MFUvUWl2bzBpS1B6OFN6QlBqdUppWVI4?=
+ =?utf-8?B?RVozQVhWY1BrcW1VTjdQTU9qOVppaVlaNTgyQ0dzMnBnRkpwTnphb0hkNkk0?=
+ =?utf-8?B?TncvOFZPbnBPRnk2NklOWFVXUEQwdWV1K3VId3AyUThiWTNkeW5nVTg2bzJI?=
+ =?utf-8?B?blBjVm4rVzAzcWNZd2x2WUJOa2NCa3JYU09zWjdYZ2k1RjNvdEhOL2dHZTVa?=
+ =?utf-8?B?L21NVnlzMjdlWFg3YXBwWXVna3lvWW1hRUcvSGJXOEMxMU9GUS8vdjVpbU1l?=
+ =?utf-8?B?czlXdnBWdEtYKzlxZVY1T01HK0gvNjRUY2tRMWJ2MkFvNzFnQXdUNlgwcDRH?=
+ =?utf-8?B?TlJ1ZVFNUGFZdE9ZK3dleWlQRkMrbHQwTWFuNFBPZlpzL1poaERQZTJQUllq?=
+ =?utf-8?Q?HWTR0UvnOy9P8UL+XPTasGA=3D?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: BhBvfS6Jv1ONuvGER6FQwXaVTQJ/OTFjUmm56c/YV1jIhbW2kEC88hyUDD/mpJCIhvyVWpgThj2nZIiZWyLxPqCoooJWEfkRf0SWL+SSMo0PYNnh+7akIP5NNQixqN2ZCuXM3IxskKSPTeLpeWTRCQtIIibN4R0zNV2ieV44qhlqokMTJET0lLCmdKq/OLQKOYSsr3jkss3G4tUAdlSz79pwy5xuNh23XaLsXWcIqs30HlrvHqF49Izp30ttIKHSpTU+Tc3smepwGiY+pb5tzbNb/70wpLF8LE4lZY1QEbWxd4t4PASg+e9+ogIpyYvkaT3RcX69Zq3mCWx/BwflG2eKRWR8GjnZkqR7jnseQqiTQ/gqlvRcCGO99xQ8yckKK78zQWKah6D2L4Z96fu6u6zoxZdRBB934EpJXVNmofUqfQJi23zdV5q4l5eC7G+Wlwhh+Qsf3HT4L4NYt7DZs0vcL9HfjKgMJs0SyNnSGhiauH6kbCcSmuWob3cM1PndMpJps2Ynymy0I8J3DXdbbz/PKDS2ryD4wuuejaCOXoyHcclg4VAwA+hTMPTkViFeyYcQW1ZP9nbo6y8KltmbvaSLoB2ZpkGhEM0NPQadsKs=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 67791df8-9a96-409c-1384-08dd3fb15ae2
+X-MS-Exchange-CrossTenant-AuthSource: SA1PR10MB6365.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jan 2025 15:35:12.5007
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3i9NLhA3LSJI4/WrDQUMm750wHjyONtlPeS1DTpBsMvWEQt5AQQ1NyB9Av9j//7FK/A68+QlUkbQbfvTBNtxvQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR10MB8131
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-28_04,2025-01-27_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0 suspectscore=0
+ mlxlogscore=999 bulkscore=0 phishscore=0 mlxscore=0 spamscore=0
+ malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2411120000 definitions=main-2501280115
+X-Proofpoint-ORIG-GUID: J-MeQHzLCv8mzsZYFpDARsEtlUnyN_b2
+X-Proofpoint-GUID: J-MeQHzLCv8mzsZYFpDARsEtlUnyN_b2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_072541_981494_6D5C5DC0 
-X-CRM114-Status: GOOD (  30.43  )
+X-CRM114-CacheID: sfid-20250128_073537_679699_A21BA89F 
+X-CRM114-Status: GOOD (  23.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,175 +212,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 27, 2025 at 4:26=E2=80=AFPM Colton Lewis <coltonlewis@google.co=
-m> wrote:
->
-> For PMUv3, the register MDCR_EL2.HPMN partitiones the PMU counters
-> into two ranges where counters 0..HPMN-1 are accessible by EL1 and, if
-> allowed, EL0 while counters HPMN..N are only accessible by EL2.
->
-> Introduce a module parameter in the PMUv3 driver to set this
-> register. The name reserved_guest_counters reflects the intent to
-> reserve some counters for the guest so they may eventually be allowed
-> direct access to a subset of PMU functionality for increased
-> performance.
->
-> Track HPMN and whether the pmu is partitioned in struct arm_pmu.
->
-> While FEAT_HPMN0 does allow HPMN to be set to 0, this patch
-> specifically disallows that case because it's not useful given the
-> intention to allow guests access to their own counters.
->
-> Signed-off-by: Colton Lewis <coltonlewis@google.com>
-> ---
->  arch/arm/include/asm/arm_pmuv3.h   | 10 +++++++
->  arch/arm64/include/asm/arm_pmuv3.h | 10 +++++++
->  drivers/perf/arm_pmuv3.c           | 43 ++++++++++++++++++++++++++++--
->  include/linux/perf/arm_pmu.h       |  2 ++
->  include/linux/perf/arm_pmuv3.h     |  7 +++++
->  5 files changed, 70 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/arm/include/asm/arm_pmuv3.h b/arch/arm/include/asm/arm_=
-pmuv3.h
-> index 2ec0e5e83fc9..49ad90486aa5 100644
-> --- a/arch/arm/include/asm/arm_pmuv3.h
-> +++ b/arch/arm/include/asm/arm_pmuv3.h
-> @@ -277,4 +277,14 @@ static inline u64 read_pmceid1(void)
->         return val;
->  }
->
-> +static inline u32 read_mdcr(void)
-> +{
-> +       return read_sysreg(mdcr_el2);
-> +}
-> +
-> +static inline void write_mdcr(u32 val)
-> +{
-> +       write_sysreg(val, mdcr_el2);
-> +}
-> +
->  #endif
-> diff --git a/arch/arm64/include/asm/arm_pmuv3.h b/arch/arm64/include/asm/=
-arm_pmuv3.h
-> index 8a777dec8d88..fc37e7e81e07 100644
-> --- a/arch/arm64/include/asm/arm_pmuv3.h
-> +++ b/arch/arm64/include/asm/arm_pmuv3.h
-> @@ -188,4 +188,14 @@ static inline bool is_pmuv3p9(int pmuver)
->         return pmuver >=3D ID_AA64DFR0_EL1_PMUVer_V3P9;
->  }
->
-> +static inline u64 read_mdcr(void)
-> +{
-> +       return read_sysreg(mdcr_el2);
-> +}
-> +
-> +static inline void write_mdcr(u64 val)
-> +{
-> +       write_sysreg(val, mdcr_el2);
-> +}
-> +
->  #endif
-> diff --git a/drivers/perf/arm_pmuv3.c b/drivers/perf/arm_pmuv3.c
-> index b5cc11abc962..55f9ae560715 100644
-> --- a/drivers/perf/arm_pmuv3.c
-> +++ b/drivers/perf/arm_pmuv3.c
-> @@ -325,6 +325,7 @@ GEN_PMU_FORMAT_ATTR(threshold_compare);
->  GEN_PMU_FORMAT_ATTR(threshold);
->
->  static int sysctl_perf_user_access __read_mostly;
-> +static u8 reserved_guest_counters __read_mostly;
->
->  static bool armv8pmu_event_is_64bit(struct perf_event *event)
->  {
-> @@ -500,6 +501,29 @@ static void armv8pmu_pmcr_write(u64 val)
->         write_pmcr(val);
->  }
->
-> +static u64 armv8pmu_mdcr_read(void)
-> +{
-> +       return read_mdcr();
-> +}
-> +
-> +static void armv8pmu_mdcr_write(u64 val)
-> +{
-> +       write_mdcr(val);
-> +       isb();
-> +}
-> +
-> +static void armv8pmu_partition(u8 hpmn)
-> +{
-> +       u64 mdcr =3D armv8pmu_mdcr_read();
-> +
-> +       mdcr &=3D ~MDCR_EL2_HPMN_MASK;
-> +       mdcr |=3D FIELD_PREP(ARMV8_PMU_MDCR_HPMN, hpmn);
-> +       /* Prevent guest counters counting at EL2 */
-> +       mdcr |=3D ARMV8_PMU_MDCR_HPMD;
-> +
-> +       armv8pmu_mdcr_write(mdcr);
-> +}
-> +
->  static int armv8pmu_has_overflowed(u64 pmovsr)
->  {
->         return !!(pmovsr & ARMV8_PMU_OVERFLOWED_MASK);
-> @@ -1069,6 +1093,9 @@ static void armv8pmu_reset(void *info)
->
->         bitmap_to_arr64(&mask, cpu_pmu->cntr_mask, ARMPMU_MAX_HWEVENTS);
->
-> +       if (cpu_pmu->partitioned)
-> +               armv8pmu_partition(cpu_pmu->hpmn);
-> +
->         /* The counter and interrupt enable registers are unknown at rese=
-t. */
->         armv8pmu_disable_counter(mask);
->         armv8pmu_disable_intens(mask);
-> @@ -1205,6 +1232,7 @@ static void __armv8pmu_probe_pmu(void *info)
->  {
->         struct armv8pmu_probe_info *probe =3D info;
->         struct arm_pmu *cpu_pmu =3D probe->pmu;
-> +       u8 pmcr_n;
->         u64 pmceid_raw[2];
->         u32 pmceid[2];
->         int pmuver;
-> @@ -1215,10 +1243,19 @@ static void __armv8pmu_probe_pmu(void *info)
->
->         cpu_pmu->pmuver =3D pmuver;
->         probe->present =3D true;
-> +       pmcr_n =3D FIELD_GET(ARMV8_PMU_PMCR_N, armv8pmu_pmcr_read());
->
->         /* Read the nb of CNTx counters supported from PMNC */
-> -       bitmap_set(cpu_pmu->cntr_mask,
-> -                  0, FIELD_GET(ARMV8_PMU_PMCR_N, armv8pmu_pmcr_read()));
-> +       bitmap_set(cpu_pmu->cntr_mask, 0, pmcr_n);
-> +
-> +       if (reserved_guest_counters > 0 && reserved_guest_counters < pmcr=
-_n) {
-> +               cpu_pmu->hpmn =3D reserved_guest_counters;
-> +               cpu_pmu->partitioned =3D true;
+On 1/27/25 1:33 PM, Weinan Liu wrote:
+> This patchset implements a generic kernel sframe-based [1] unwinder.
+> The main goal is to support reliable stacktraces on arm64.
+> 
+> On x86 orc unwinder provides reliable stacktraces. But arm64 misses the
+> required support from objtool: it cannot generate orc unwind tables for
+> arm64.
+> 
+> Currently, there's already a sframe unwinder proposed for userspace: [2].
+> Since the sframe unwind table algorithm is similar, these two proposal
+> could integrate common functionality in the future.
+> 
+> There are some incomplete features or challenges:
+>    - The unwinder doesn't yet work with kernel modules. The `start_addr` of
+>      FRE from kernel modules doesn't appear correct, preventing us from
+>      unwinding functions from kernel modules.
 
-You're storing the same information 3 times. 'partitioned' is just
-'reserved_guest_counters !=3D 0' or 'cpu_pmu->hpmn !=3D pmcr_n'.
+I did file https://sourceware.org/bugzilla/show_bug.cgi?id=32589 
+earlier.  It is misleading (and inconvenient) to see all 0s in the dump 
+of non-relocated SFrame section.
 
-> +       } else {
-> +               reserved_guest_counters =3D 0;
-> +               cpu_pmu->hpmn =3D pmcr_n;
-> +               cpu_pmu->partitioned =3D false;
-> +       }
->
->         /* Add the CPU cycles counter */
->         set_bit(ARMV8_PMU_CYCLE_IDX, cpu_pmu->cntr_mask);
-> @@ -1516,3 +1553,5 @@ void arch_perf_update_userpage(struct perf_event *e=
-vent,
->         userpg->cap_user_time_zero =3D 1;
->         userpg->cap_user_time_short =3D 1;
->  }
-> +
-> +module_param(reserved_guest_counters, byte, 0);
+I get the sense that while issue 32589 may be causing confusion that the 
+SFrame data is not correct, the problem is elsewhere ?
 
-Module params are generally discouraged. Since this driver can't be a
-module, this is a boot time only option. There's little reason this
-can't be a sysfs setting. There's some complexity in changing this
-when counters are in use (just reject the change) and when we have
-asymmetric PMUs. Alternatively, it could be a sysctl like user access.
+I can share a fix for 32589 so atleast we can verify that the starting 
+point is sane.
 
-Rob
+>    - Currently, only GCC supports sframe.
+> 
+> Ref:
+> [1]: https://sourceware.org/binutils/docs/sframe-spec.html
+> [2]: https://lore.kernel.org/lkml/cover.1730150953.git.jpoimboe@kernel.org/
+> 
+> Madhavan T. Venkataraman (1):
+>    arm64: Define TIF_PATCH_PENDING for livepatch
+> 
+> Weinan Liu (7):
+>    unwind: build kernel with sframe info
+>    arm64: entry: add unwind info for various kernel entries
+>    unwind: add sframe v2 header
+>    unwind: Implement generic sframe unwinder library
+>    unwind: arm64: Add sframe unwinder on arm64
+>    unwind: arm64: add reliable stacktrace support for arm64
+>    arm64: Enable livepatch for ARM64
+> 
+>   Makefile                                   |   6 +
+>   arch/Kconfig                               |   8 +
+>   arch/arm64/Kconfig                         |   3 +
+>   arch/arm64/Kconfig.debug                   |  10 +
+>   arch/arm64/include/asm/stacktrace/common.h |   6 +
+>   arch/arm64/include/asm/thread_info.h       |   4 +-
+>   arch/arm64/kernel/entry-common.c           |   4 +
+>   arch/arm64/kernel/entry.S                  |  10 +
+>   arch/arm64/kernel/setup.c                  |   2 +
+>   arch/arm64/kernel/stacktrace.c             | 102 ++++++++++
+>   include/asm-generic/vmlinux.lds.h          |  12 ++
+>   include/linux/sframe_lookup.h              |  43 +++++
+>   kernel/Makefile                            |   1 +
+>   kernel/sframe.h                            | 215 +++++++++++++++++++++
+>   kernel/sframe_lookup.c                     | 196 +++++++++++++++++++
+>   15 files changed, 621 insertions(+), 1 deletion(-)
+>   create mode 100644 include/linux/sframe_lookup.h
+>   create mode 100644 kernel/sframe.h
+>   create mode 100644 kernel/sframe_lookup.c
+> 
+
 
