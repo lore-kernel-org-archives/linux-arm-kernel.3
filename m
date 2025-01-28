@@ -4,88 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21C14C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 12:26:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C70DDC0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 12:27:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uDpJOAomZghklfUCnDYi43O2k6CX4C8BmcC2QxhH3UY=; b=Sg8EMbDouyBZA/UaeLPZgHgPG8
-	iDQYYICRS+j+1dIOBnBy7892057mtLSh9nTKTcCB+mhcdWArdAqbA/xMMkxZ+YIAEVzXiSY6hpp+j
-	+XXL9Lu+JpW5HBWTNP7hJ1m72T1WFYH3geS3gCHdkEVX8F6lyUjkc6UzhWOVqbPi9CifRtn3hTwSN
-	ESADCk2XNHPwuafz3dKT8czemrtsM4fn7+GRUujorn8V6QNwAgb+CfY3LyDicNceNL3DX1iWV9gHe
-	dFHgposKAlrdaB72XXPT/kgNjnfrP2qjFjI2NRY9j4y1im5KOxoIlIe7oezNZ0chhhonOiDedcbcv
-	zlu1M/UA==;
+	bh=MtAZv4vvOZxIu4PnOIUeG9v/Cl6iqDrXc803pToT29I=; b=nXX/f/CLYjJOflIwmhHIdqUs7k
+	VL+khC8oXOkTa/CIPy4DAPttn56j1cIBPxJRSAXTY96nFoU8Qd4EUQ0jzzbXhXUuRpYJN8kzrk/YA
+	z9hxwPQ1kAuNmztwoBpYBeiF1vWc29SJXQsjh2hnGeifZ5aLjy0C78bGQ/MoJFfGTuLvJyK6qD2Bx
+	61lk+2wA6xiLRkiOmaQtjIi2RMfj/72i4fK6hXVxXGuvW3CPtJtZ4wX/JqsRP26UGTp1VQb6WMY7O
+	feawcuKr9ghapgipqp6Lly0zLun3mcw44birdzOuRFcz42AdYA3LJxr/LaAmwc0oYMuBYnRxDFKK/
+	WkaNgarg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tckfU-00000004sPF-2fNg;
-	Tue, 28 Jan 2025 12:26:12 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93])
+	id 1tckgm-00000004sYa-1CBm;
+	Tue, 28 Jan 2025 12:27:32 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tckSl-00000004qfZ-3UUo
+	id 1tckWm-00000004rXT-3Pnh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jan 2025 12:13:05 +0000
-Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50SC5RF5029927;
-	Tue, 28 Jan 2025 13:12:54 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	uDpJOAomZghklfUCnDYi43O2k6CX4C8BmcC2QxhH3UY=; b=mEm2BxPgi+3tKAs1
-	Egl2YNuObmOrIhDiBXe7RZ+IeI/mHnKBc1OQzSxEjkV+ZJeMjzbMHijckVkje+S0
-	d8uzcWB1w43WPanf+fTdAvB42FLnJ26FotdixHP73+weIa30UuuSAZDNg1zGINQ6
-	E325SlZJKlvxSPNC9D9UV1zp2HXnaoEFPi37cNovD4rKbL4Kp5y5bv2sGm+8Y/DQ
-	XhwbekfdJAkRvuGiszP9FHN1Hfo93uryh/aLxeGoRdPGUt7DTFVosOsfMQk1m2Oy
-	D+M7TdT0Hs0+XeOLAzV1ZuJh8TSPV0Q96l+/uHYGx1rwZc8RcD79lamTWlGRS1Sa
-	HkXxTw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44exxc012c-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 28 Jan 2025 13:12:54 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 27A624006F;
-	Tue, 28 Jan 2025 13:11:26 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 513552DE899;
-	Tue, 28 Jan 2025 13:09:36 +0100 (CET)
-Received: from localhost (10.129.178.212) by SHFDAG1NODE3.st.com
- (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 28 Jan
- 2025 13:09:36 +0100
-From: Christian Bruel <christian.bruel@foss.st.com>
-To: <christian.bruel@foss.st.com>, <bhelgaas@google.com>,
-        <lpieralisi@kernel.org>, <kw@linux.com>,
-        <manivannan.sadhasivam@linaro.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
-        <jingoohan1@gmail.com>, <p.zabel@pengutronix.de>,
-        <johan+linaro@kernel.org>, <quic_schintav@quicinc.com>,
-        <cassel@kernel.org>
-CC: <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <fabrice.gasnier@foss.st.com>
-Subject: [PATCH v4 06/10] MAINTAINERS: add entry for ST STM32MP25 PCIe drivers
-Date: Tue, 28 Jan 2025 13:07:41 +0100
-Message-ID: <20250128120745.334377-7-christian.bruel@foss.st.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250128120745.334377-1-christian.bruel@foss.st.com>
-References: <20250128120745.334377-1-christian.bruel@foss.st.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.129.178.212]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-01-28_04,2025-01-27_01,2024-11-22_01
+	Tue, 28 Jan 2025 12:17:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 31EE1A4054B;
+	Tue, 28 Jan 2025 12:15:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3AB8C4CED3;
+	Tue, 28 Jan 2025 12:17:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738066631;
+	bh=aPed4LKSjoWxpMGVoNy5sasqIn2K/FIq0hJuTdo35Ug=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=jvNDeJYNrvbjkJk8xHGyWH8h+jOimMJyLhoQ0ZzeU7Bld7VjEPGHN80BIh9KvLvYc
+	 Sz4xJ97iDDPSi7kdzjj7NSj81g5cEf18laHx1CUGmJK1JxcZptf+6f17N5+kFYFPLa
+	 bK3Z4DWtmtwV5UGb1sbF5bp86x11yKzjUvL0DI5fgYF2ujqYTHE/J0j4hLbspGJV8D
+	 c9zWWejaHuT8G0fNGblIuCuuuDnoATZohhJKrptGwGLLo6PDJQsTOyCJbsU/0olLHd
+	 +XQUPYrDnbgKWzfJrrQF9i0g+1UqHqdNaktMUvZJ4ieXmCl5bMu9gJWgiv8Qk/VA+x
+	 RTEN98AyF66MQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tckWj-00G399-G3;
+	Tue, 28 Jan 2025 12:17:09 +0000
+Date: Tue, 28 Jan 2025 12:17:09 +0000
+Message-ID: <86frl3uo8q.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>
+Cc: "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"kvm@vger.kernel.org"
+	<kvm@vger.kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose
+	<suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu
+	<yuzenghui@huawei.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Christoffer
+ Dall <christoffer.dall@arm.com>,
+	Ganapatrao Kulkarni
+	<gankulkarni@os.amperecomputing.com>,
+	Chase Conklin <chase.conklin@arm.com>,
+	Eric Auger <eauger@redhat.com>,
+	Dmytro Terletskyi
+	<Dmytro_Terletskyi@epam.com>,
+	Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
+Subject: Re: [PATCH v2 02/12] KVM: arm64: nv: Sync nested timer state with FEAT_NV2
+In-Reply-To: <87a5bb18j7.fsf@epam.com>
+References: <20241217142321.763801-1-maz@kernel.org>
+	<20241217142321.763801-3-maz@kernel.org>
+	<87frl51tse.fsf@epam.com>
+	<86h65kuqia.wl-maz@kernel.org>
+	<87a5bb18j7.fsf@epam.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Volodymyr_Babchuk@epam.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, andersson@kernel.org, christoffer.dall@arm.com, gankulkarni@os.amperecomputing.com, chase.conklin@arm.com, eauger@redhat.com, Dmytro_Terletskyi@epam.com, r09922117@csie.ntu.edu.tw
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_041304_161681_87453106 
-X-CRM114-Status: UNSURE (   8.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250128_041712_981282_9C3A18C7 
+X-CRM114-Status: GOOD (  49.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,32 +106,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add myself as maintainer of STM32MP25 PCIe host and PCIe endpoint drivers
+On Tue, 28 Jan 2025 11:29:18 +0000,
+Volodymyr Babchuk <Volodymyr_Babchuk@epam.com> wrote:
+> 
+> 
+> Hi Marc,
+> 
+> 
+> Marc Zyngier <maz@kernel.org> writes:
+> 
+> > + Wei-Lin Chang, who spotted something similar 3 weeks ago, that I
+> > didn't manage to investigate in time.
+> >
+> > On Sun, 26 Jan 2025 15:25:39 +0000,
+> > Volodymyr Babchuk <Volodymyr_Babchuk@epam.com> wrote:
+> >> 
+> >> 
+> >> Hi Marc,
+> >> 
+> >> Thank you for these patches. We (myself and Dmytro Terletskyi) are
+> >> trying to use this series to launch up Xen on Amazon Graviton 4 platform.
+> >> Graviton 4 is built on Neoverse V2 cores and does **not** support
+> >> FEAT_ECV. Looks like we have found issue in this particular patch on
+> >> this particular setup.
+> >> 
+> >> Marc Zyngier <maz@kernel.org> writes:
+> >> 
+> >> > Emulating the timers with FEAT_NV2 is a bit odd, as the timers
+> >> > can be reconfigured behind our back without the hypervisor even
+> >> > noticing. In the VHE case, that's an actual regression in the
+> >> > architecture...
+> >> >
+> >> > Co-developed-by: Christoffer Dall <christoffer.dall@arm.com>
+> >> > Signed-off-by: Christoffer Dall <christoffer.dall@arm.com>
+> >> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> >> > ---
+> >> >  arch/arm64/kvm/arch_timer.c  | 44 ++++++++++++++++++++++++++++++++++++
+> >> >  arch/arm64/kvm/arm.c         |  3 +++
+> >> >  include/kvm/arm_arch_timer.h |  1 +
+> >> >  3 files changed, 48 insertions(+)
+> >> >
+> >> > diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+> >> > index 1215df5904185..ee5f732fbbece 100644
+> >> > --- a/arch/arm64/kvm/arch_timer.c
+> >> > +++ b/arch/arm64/kvm/arch_timer.c
+> >> > @@ -905,6 +905,50 @@ void kvm_timer_vcpu_put(struct kvm_vcpu *vcpu)
+> >> >  		kvm_timer_blocking(vcpu);
+> >> >  }
+> >> >  
+> >> > +void kvm_timer_sync_nested(struct kvm_vcpu *vcpu)
+> >> > +{
+> >> > +	/*
+> >> > +	 * When NV2 is on, guest hypervisors have their EL1 timer register
+> >> > +	 * accesses redirected to the VNCR page. Any guest action taken on
+> >> > +	 * the timer is postponed until the next exit, leading to a very
+> >> > +	 * poor quality of emulation.
+> >> > +	 */
+> >> > +	if (!is_hyp_ctxt(vcpu))
+> >> > +		return;
+> >> > +
+> >> > +	if (!vcpu_el2_e2h_is_set(vcpu)) {
+> >> > +		/*
+> >> > +		 * A non-VHE guest hypervisor doesn't have any direct access
+> >> > +		 * to its timers: the EL2 registers trap (and the HW is
+> >> > +		 * fully emulated), while the EL0 registers access memory
+> >> > +		 * despite the access being notionally direct. Boo.
+> >> > +		 *
+> >> > +		 * We update the hardware timer registers with the
+> >> > +		 * latest value written by the guest to the VNCR page
+> >> > +		 * and let the hardware take care of the rest.
+> >> > +		 */
+> >> > +		write_sysreg_el0(__vcpu_sys_reg(vcpu, CNTV_CTL_EL0),  SYS_CNTV_CTL);
+> >> > +		write_sysreg_el0(__vcpu_sys_reg(vcpu, CNTV_CVAL_EL0), SYS_CNTV_CVAL);
+> >> > +		write_sysreg_el0(__vcpu_sys_reg(vcpu, CNTP_CTL_EL0),  SYS_CNTP_CTL);
+> >> > +		write_sysreg_el0(__vcpu_sys_reg(vcpu, CNTP_CVAL_EL0), SYS_CNTP_CVAL);
+> >> 
+> >> 
+> >> Here you are overwriting trapped/emulated state of  EL2 vtimer with EL0
+> >> vtimer, which renders all writes to EL2 timer registers useless.
+> >> 
+> >> This is the behavior we observed:
+> >> 
+> >>  1. Xen writes to CNTHP_CVAL_EL2, which is trapped and handled in
+> >>     kvm_arm_timer_write_sysreg().
+> >> 
+> >>  2. timer_set_cval() updates __vcpu_sys_reg(vcpu, CNTHP_CVAL_EL2)
+> >> 
+> >>  3. timer_restore_state() updates real CNTP_CVAL_EL0 with value from
+> >>    __vcpu_sys_reg(vcpu, CNTHP_CVAL_EL2)
+> >> 
+> >>  (so far so good)
+> >> 
+> >>  4. kvm_timer_sync_nested() is called and it updates real CNTP_CVAL_EL0
+> >>  with __vcpu_sys_reg(vcpu, CNTP_CVAL_EL0), overwriting value that we got
+> >>  from Xen.
+> >> 
+> >> The same stands for other hypervisor timer registers of course.
+> >> 
+> >> I am wondering, what is the correct fix for this issue?
+> >> 
+> >> Also, we are observing issues with timers in Dom0, which seems related
+> >> to this, but we didn't pinpoint exact problem yet.
+> >
+> > Thanks for the great debug above, much appreciated.
+> >
+> > As Wei-Lin pointed out in their email[1], there is a copious amount of
+> > nonsense here. This is due to leftovers from the mix of NV+NV2 that
+> > KVM was initially trying to handle before switching to NV2 only.
+> >
+> > The whole VHE vs nVHE makes no sense at all, and both should have the
+> > same behaviour. The only difference is around what gets trapped, and
+> > what doesn't.
+> >
+> > Finally, this crap is masking a subtle bug in timer_emulate(), where
+> > we return too early on updating the IRQ state, hence failing to
+> > publish the interrupt state.
+> >
+> > Could you please give the hack below a go with your setup and report
+> > whether it solves this particular issue?
+> 
+> Thanks! This is exactly what we needed. Your suggested changes fixed
+> both issues: in Xen and in Dom0.
 
-Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
----
- MAINTAINERS | 7 +++++++
- 1 file changed, 7 insertions(+)
+Great, thanks for letting me know.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 33b9cd11a3a4..d8f2de1a3543 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -18108,6 +18108,13 @@ L:	linux-samsung-soc@vger.kernel.org
- S:	Maintained
- F:	drivers/pci/controller/dwc/pci-exynos.c
- 
-+PCI DRIVER FOR STM32MP25
-+M:	Christian Bruel <christian.bruel@foss.st.com>
-+L:	linux-pci@vger.kernel.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/pci/st,stm32-pcie-*.yaml
-+F:	drivers/pci/controller/dwc/*stm32*
-+
- PCI DRIVER FOR SYNOPSYS DESIGNWARE
- M:	Jingoo Han <jingoohan1@gmail.com>
- M:	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+I'll shortly post the fixes on the list, and would appreciate it if
+you could reply with a Tested-by: tag.
+
+Thanks again,
+
+	M.
+
 -- 
-2.34.1
-
+Without deviation from the norm, progress is not possible.
 
