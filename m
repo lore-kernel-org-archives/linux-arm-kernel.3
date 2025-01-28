@@ -4,80 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ECD8C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 11:25:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF638C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 11:29:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hyXa291ZiBFa2abNTHu016AfX8E2h8XxDNeXleklmPc=; b=oBYPvIPtQ+Z6lkr9+6L0HjoBgN
-	lXS/UPgbmjEL1zG8HljoCX9vvu2lBA/xmdxYlRwywOE4cmVTcoD6E5RO5IIWIXPiLL7gUFRa3/tFk
-	H2O59wgmRSg/WCs2Qpdb61gkZDZCmG5QiVFMyNEq2RO8YQVTH9J8rvvW74z+3q+zSmQlvx7CfpaTz
-	PYJp7ff4j7M5BC8Hf+t+Kzw7yFml4vnE4FMKsMKEMBJcJ/9+bL1DSRF8S0LWmrgw1q561AaMIBOg5
-	+f6U3DQb/ZuXXJu8ToezvmJ7PdNUS96yHK9+M7XGjAKF4kh7eBf8ggsBffu7hfPri6nTN7JDgJYA4
-	DAQiwCjw==;
+	bh=krOWEd+g1upwe3edf/FUPzHG6VEvFaBxOzWVAtUCkLs=; b=JXR/VKUsmf7E+br3jY9AAFJ8wj
+	I7uQUSN7ZHR3+5pszGgJbDG+TprsUh34wlWKYHc8ihXvb0EqhrkCtBKdmDvZhTKB0gcWvWxDlS2JZ
+	dOvpyWMcAhZBewfZmLbhTlmuBbqFQMWfRn5TtteR5rCF05fwavFsdTIMTYlA8Vtjvh4su1wmo7kj/
+	/NJKLA8tzGDLVY78yXwshNbFYUqHpp10nefoCOISDusM3qV638EYmJnKPW9fmOu1/8cwcn5fEGmEx
+	DrrCu1Oetn7XRrh+sABWDJwCpEtrNIXPSiv6BOLDog1xFIIJuy8vm+cwbmuQ6xXyVcvyw0GQKbvUh
+	BMMB4ZZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcjiZ-00000004mCh-2h0W;
-	Tue, 28 Jan 2025 11:25:19 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcjg2-00000004lX4-3nRm;
-	Tue, 28 Jan 2025 11:22:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3179E5C5D79;
-	Tue, 28 Jan 2025 11:22:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98109C4CEDF;
-	Tue, 28 Jan 2025 11:22:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738063362;
-	bh=AJfDJn9pFkPItjs+l9CjDlC33TdlTCE01Kr4mfJIOJE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=foTouGKI5Xpt6DiifiySGU1Px4B0JlxynZkL/A+4GJ+F1wUAFkM/N4G83a9sI8N06
-	 lsMHA2F0I+BGkV1h4oylhwmSeJznMzbN+UJy9qwbYRK5QlpfqNfv8Msq/ndA/iDm4I
-	 JYp3P2GR22dNEIcBnZOOATJGYPU+gMIFK9XfLLma3B24+UKToDLZL/ZLBF6bwp16qy
-	 HMKr9svtYad8MrCuOMMF5t2I0WLB8bGS9HGYMu9w94+SD6sanYCztaTmP2cubx4D+F
-	 lhSPEntAtoYhJR/j92VqRwE5MifEf7tNzvj9NQnTwv0sbHofELHMou005/QzH1lonP
-	 yczCENnq4hKEA==
-Date: Tue, 28 Jan 2025 12:22:37 +0100
-From: Joel Granados <joel.granados@kernel.org>
-To: Matthew Wilcox <willy@infradead.org>
-Cc: Jani Nikula <jani.nikula@intel.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>, 
-	Kees Cook <kees@kernel.org>, Luis Chamberlain <mcgrof@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	openipmi-developer@lists.sourceforge.net, intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
-	intel-xe@lists.freedesktop.org, linux-hyperv@vger.kernel.org, linux-rdma@vger.kernel.org, 
-	linux-raid@vger.kernel.org, linux-scsi@vger.kernel.org, linux-serial@vger.kernel.org, 
-	xen-devel@lists.xenproject.org, linux-aio@kvack.org, linux-fsdevel@vger.kernel.org, 
-	netfs@lists.linux.dev, codalist@coda.cs.cmu.edu, linux-mm@kvack.org, 
-	linux-nfs@vger.kernel.org, ocfs2-devel@lists.linux.dev, fsverity@lists.linux.dev, 
-	linux-xfs@vger.kernel.org, io-uring@vger.kernel.org, bpf@vger.kernel.org, 
-	kexec@lists.infradead.org, linux-trace-kernel@vger.kernel.org, 
-	linux-hardening@vger.kernel.org, apparmor@lists.ubuntu.com, linux-security-module@vger.kernel.org, 
-	keyrings@vger.kernel.org, Song Liu <song@kernel.org>, 
-	"Steven Rostedt (Google)" <rostedt@goodmis.org>, "Martin K. Petersen" <martin.petersen@oracle.com>, 
-	"Darrick J. Wong" <djwong@kernel.org>, Corey Minyard <cminyard@mvista.com>
-Subject: Re: Re: Re: Re: [PATCH v2] treewide: const qualify ctl_tables where
- applicable
-Message-ID: <u2fwibsnbfvulxj6adigla6geiafh2vuve4hcyo4vmeytwjl7p@oz6xonrq5225>
-References: <20250110-jag-ctl_table_const-v2-1-0000e1663144@kernel.org>
- <Z4+jwDBrZNRgu85S@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
- <nslqrapp4v3rknjgtfk4cg64ha7rewrrg24aslo2e5jmxfwce5@t4chrpuk632k>
- <CAMj1kXEZPe8zk7s67SADK9wVH3cfBup-sAZSC6_pJyng9QT7aw@mail.gmail.com>
- <f4lfo2fb7ajogucsvisfd5sg2avykavmkizr6ycsllcrco4mo3@qt2zx4zp57zh>
- <87jzag9ugx.fsf@intel.com>
- <Z5epb86xkHQ3BLhp@casper.infradead.org>
+	id 1tcjm8-00000004mlJ-1K6T;
+	Tue, 28 Jan 2025 11:29:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tcjkm-00000004mdH-3nwG
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Jan 2025 11:27:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 540E1497;
+	Tue, 28 Jan 2025 03:28:02 -0800 (PST)
+Received: from bogus (unknown [10.57.36.4])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ACB553F694;
+	Tue, 28 Jan 2025 03:27:33 -0800 (PST)
+Date: Tue, 28 Jan 2025 11:27:01 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Viresh Kumar <viresh.kumar@linaro.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>, linux-pm@vger.kernel.org,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Lifeng Zheng <zhenglifeng1@huawei.com>, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 11/15] cpufreq: scmi: Set .set_boost directly
+Message-ID: <20250128112701.s2kgegovz625nuac@bogus>
+References: <cover.1737707712.git.viresh.kumar@linaro.org>
+ <ec27aef491c1b71ef5f1240480c52d051cdd821d.1737707712.git.viresh.kumar@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z5epb86xkHQ3BLhp@casper.infradead.org>
+In-Reply-To: <ec27aef491c1b71ef5f1240480c52d051cdd821d.1737707712.git.viresh.kumar@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_032243_030062_7DDCE89F 
-X-CRM114-Status: GOOD (  14.94  )
+X-CRM114-CacheID: sfid-20250128_032736_994934_39D5E270 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,30 +67,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 27, 2025 at 03:42:39PM +0000, Matthew Wilcox wrote:
-> On Mon, Jan 27, 2025 at 04:55:58PM +0200, Jani Nikula wrote:
-> > You could have static const within functions too. You get the rodata
-> > protection and function local scope, best of both worlds?
+On Fri, Jan 24, 2025 at 02:28:15PM +0530, Viresh Kumar wrote:
+> The boost feature can be controlled at two levels currently, driver
+> level (applies to all policies) and per-policy.
 > 
-> timer_active is on the stack, so it can't be static const.
+> Currently the driver enables driver level boost support from the
+> per-policy ->init() callback, which isn't really efficient as that gets
+> called for each policy and then there is online/offline path too where
+> this gets done unnecessarily.
 > 
-> Does this really need to be cc'd to such a wide distribution list?
-That is a very good question. I removed 160 people from the original
-e-mail and left the ones that where previously involved with this patch
-and left all the lists for good measure. But it seems I can reduce it
-even more.
+> Instead set the .set_boost field directly and always enable the boost
+> support. If a policy doesn't support boost feature, the core will not
+> enable it for that policy.
+> 
+> Keep the initial state of driver level boost to disabled and let the
+> user enable it if required as ideally the boost frequencies must be used
+> only when really required.
+>
 
-How about this: For these treewide efforts I just leave the people that
-are/were involved in the series and add two lists: linux-kernel and
-linux-hardening.
-
-Unless someone screams, I'll try this out on my next treewide.
-
-Thx for the feedback
-
-Best
+Acked-by: Sudeep Holla <sudeep.holla@arm.com>
 
 -- 
-
-Joel Granados
+Regards,
+Sudeep
 
