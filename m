@@ -4,57 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E2D9C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 13:11:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 994E7C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 13:15:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2oSP95XUNF9YgGuhjbMbdX93etot5nS0L4Q5b8kdKpQ=; b=dyxh4Y2K91BJ/XTxbYXghPKovn
-	ZIJYOTBmRAq0sfiOAg1+gBqWqDIZ4g7iKric/7hTA6EmKefSvYptiaHaY7KUkptLOwy9MDdugReTa
-	h68rg085vy2l6w3uyI0wJ1fWDFAjASNq0uQXWoqyRh/QCXR7mY/p3kZTzhWDNFIwUCRtg+5aZPVbn
-	q4kcvfHhfn4st9cp3PheIwoUlvdex6/5VcWAO0d/qtNKEeHyfmbyFNZ8kzNPoCalWHomRv6nuJAh2
-	noehunARLn5pi+sx1yGXWrIZG/NdtGJqJidFUFgHCUwhWeXIgXeVX/7klJ9fL5BjgroEkUmV1ZuSy
-	IkVdsCSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	List-Owner; bh=rVoxDSn/mnfeIHuzjRNlI7IvBiNM2DlmF8PSTKMt7ss=; b=AFxaJX/sDVxuM2
+	jiLpLN9LwNLbBeaFFA1VVGYOT3u6b1vorB5iyGPmsXbCefRNJits8fgqNwsyG1SwUR2qTeM+8/Doo
+	NghtdYOa7XqQdNehaOdG0Ilz24HdBo1VmcT4ZizIBpfRU9zypTtEFy2M8BP8lq4OYbbIHVjKxQK1X
+	wFYYEAP6Rj9XBWFl+xvwD7lWK8mfhGlC2sm8VQhZfK7TJQnf8rrj18OXg8oVFAy6IiP7Ta6Dnd9tK
+	Fy/WmuTGsxaACROh/bnCKHYDOJfUbMA5XO+UMgGn52EZ0HwZBT/Sa7YEmmKtjf8nOW4J5OCRLlmfT
+	MeGY5DavESEnIDIeJLAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tclNF-00000004wCM-3cte;
-	Tue, 28 Jan 2025 13:11:25 +0000
-Received: from smtp-bc0f.mail.infomaniak.ch ([45.157.188.15])
+	id 1tclR2-00000004wl4-1fIu;
+	Tue, 28 Jan 2025 13:15:20 +0000
+Received: from [203.254.224.24] (helo=mailout1.samsung.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tclGg-00000004v3R-2xzM
+	id 1tclPg-00000004wW6-0BoW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jan 2025 13:04:42 +0000
-Received: from smtp-4-0001.mail.infomaniak.ch (smtp-4-0001.mail.infomaniak.ch [10.7.10.108])
-	by smtp-4-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4Yj58y74jyzRZL;
-	Tue, 28 Jan 2025 14:04:34 +0100 (CET)
-Received: from unknown by smtp-4-0001.mail.infomaniak.ch (Postfix) with ESMTPA id 4Yj58y1nxZzcLQ;
-	Tue, 28 Jan 2025 14:04:34 +0100 (CET)
-From: Quentin Schulz <foss+kernel@0leil.net>
-Date: Tue, 28 Jan 2025 14:04:15 +0100
-Subject: [PATCH v3 3/4] arm64: dts: rockchip: add overlay tests for Rock 5B
- PCIe overlays
-MIME-Version: 1.0
+	Tue, 28 Jan 2025 13:13:58 +0000
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250128131349epoutp01ffe9cecf73528bfec09fdad1fb88d299~e3Xu3fHO02334423344epoutp01I
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jan 2025 13:13:49 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250128131349epoutp01ffe9cecf73528bfec09fdad1fb88d299~e3Xu3fHO02334423344epoutp01I
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1738070029;
+	bh=rVoxDSn/mnfeIHuzjRNlI7IvBiNM2DlmF8PSTKMt7ss=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=hcfWlujYzJPha+yhGO/k3WdAvQ7q4vZpUZtLFoItl4Z0zoimhNMNJLh1aD1jZUkkQ
+	 X/eTULmflMZJ+rmGRnAOKJRTgIrGz5b6mcTNEB1bmGY4YfF/iBcVpeOEkjmcQsrGop
+	 fskfY7LyGat3QlRI9AHUTwjY3F15SGDNpmKBq1Y4=
+Received: from epsnrtp2.localdomain (unknown [182.195.42.163]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTP id
+	20250128131348epcas5p3f646be962cec0bf0cb12bbe975aed698~e3XuAAw7p1168111681epcas5p3f;
+	Tue, 28 Jan 2025 13:13:48 +0000 (GMT)
+Received: from epsmges5p1new.samsung.com (unknown [182.195.38.174]) by
+	epsnrtp2.localdomain (Postfix) with ESMTP id 4Yj5Mb31t2z4x9Pt; Tue, 28 Jan
+	2025 13:13:47 +0000 (GMT)
+Received: from epcas5p1.samsung.com ( [182.195.41.39]) by
+	epsmges5p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	F4.06.20052.B08D8976; Tue, 28 Jan 2025 22:13:47 +0900 (KST)
+Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250128102707epcas5p154db286b06da942e18ffe315e4767707~e1GLMeRUr0919409194epcas5p1B;
+	Tue, 28 Jan 2025 10:27:07 +0000 (GMT)
+Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
+	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250128102706epsmtrp1b0558ff1f199840ffe6e5733277efa27~e1GLLg74X0859008590epsmtrp1i;
+	Tue, 28 Jan 2025 10:27:06 +0000 (GMT)
+X-AuditID: b6c32a49-3d20270000004e54-8f-6798d80b9fad
+Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
+	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
+	7A.DC.33707.AF0B8976; Tue, 28 Jan 2025 19:27:06 +0900 (KST)
+Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
+	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250128102703epsmtip1160dfc5bf2fe8cfa244a9aa043cf0775~e1GHjlYEJ1806518065epsmtip1n;
+	Tue, 28 Jan 2025 10:27:02 +0000 (GMT)
+From: Swathi K S <swathi.ks@samsung.com>
+To: krzk@kernel.org, robh@kernel.org, davem@davemloft.net,
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+	conor+dt@kernel.org, richardcochran@gmail.com, mcoquelin.stm32@gmail.com,
+	andrew@lunn.ch, alim.akhtar@samsung.com, linux-fsd@tesla.com
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+	alexandre.torgue@foss.st.com, peppe.cavallaro@st.com, joabreu@synopsys.com,
+	swathi.ks@samsung.com, rcsekar@samsung.com, ssiddha@tesla.com,
+	jayati.sahu@samsung.com, pankaj.dubey@samsung.com, ravi.patel@samsung.com,
+	gost.dev@samsung.com
+Subject: [PATCH v5 0/4] net: stmmac: dwc-qos: Add FSD EQoS support
+Date: Tue, 28 Jan 2025 15:55:54 +0530
+Message-Id: <20250128102558.22459-1-swathi.ks@samsung.com>
+X-Mailer: git-send-email 2.17.1
+X-Brightmail-Tracker: H4sIAAAAAAAAA0WTe0zbVRTHvb9fX5R0/sZwu2PySM0cI8KoK/VCQOck7DeRBV9oUNI18KMl
+	QFv7AIUgyB4Cy8pQMQ0DBIYGGAgU6ErHozy2ZSivCAhqCbDieEwYg5gNxmrXlvnf55zzPfd7
+	cu69LNztLsODlSRVUQqpKIXLYNP0fYcP+btOasWBW1p39Gjxe4BmyvUMNGzuxVF95xCGSofP
+	0tAP/UN0NH9zjommTO0Y6h+oxtB01QodDQ83MdGIXkNHujsTdDS79BH6zVjKQNrhLgwVTFjo
+	qHy7gY5uVuxF//5yD6Cqtg0msi63ATR7v4OJSkYMdNT/6wKOrB0GJqqaqaCjjeYp5rEXydba
+	KYycL2xjku0lZiZZoVOTurp8BtlSnU22G9YxcrVrnEFqWusA2dPFI+cfduJka/c6IJ/kljHJ
+	dZ1X9K7Y5FAJJUqgFD6UNF6WkCQVh3Ej3xe+JQwSBPL8ecHoNa6PVJRKhXHD34n2j0hKse2F
+	65MmSlHbUtEipZJ75PVQhUytonwkMqUqjEvJE1LkfHmAUpSqVEvFAVJKFcILDHw1yCY8nSxZ
+	vLxKlxvYnxf1DWI5wMQqAC4sSPBhieUnvACwWW7EdQC/3e5nOIIHAFqHntCfBZsTlfSdlnOF
+	Vqaj0A7g6EqTs38DwIf5s+CpikH4wt9rrtlV7kQOBr/5Z9SuwoluHE5p5mlPVXuI43DwltHO
+	NOIg3L78yM4cIgTeqB/AHH7e8GqTyd4MiTMu8KuFetxRCIdFjyeZDt4Dl261OtkDLhaed7IQ
+	XtWM0xwsgebNIoaD34CmsVJbnmWb6DBsNB5xpD1h8cDPdl+c2AUvblmcM3CgoXyHX4LbyxPO
+	I/dD/Y+rTisSll6x2tmNiIOP/1yjXQKeJf87VABQB/ZTcmWqmFIGyXlSKv3ZXcXLUnXA/uL9
+	ThqAeeZ+QC/AWKAXQBbOdefEDWnFbpwE0RcZlEImVKhTKGUvCLLtrAj3eCFeZvsyUpWQxw8O
+	5AsEAn7wUQGPu49zpv2s2I0Qi1RUMkXJKcVOH8Zy8cjBorzZEv7dFVoY2PfHWPMJk67lUlFn
+	+LFT4TUF2/7ji3u7/efCXDMMsYMfpoekatk6o94lD0Zhh2bN+jVfTVxmQZbo6Me91lGeb3Eo
+	bdXb6OW6QH1ZE/N35LlwXkRWmoHTknO94cDgtCy3s7Hs+RsLvuYV3Lf+dl4bwy+2+A7G/zS7
+	40Dl7uzaB7vfvqLraTybm/lJsfH45thJyweNt6snO01+lhjhm+zqgYG/Wr9OvJY1kl+YIeg5
+	32C92K9Z6omonH3X6+XTnsvqvL617MGtLmkFjHklsk5ruZAZl9hMq5tLC43PCY1pSi+rfS76
+	s6hTQQdZ+femv/PxyL2QbtBlJr7HpSklIp4frlCK/gNcVkjpegQAAA==
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFupjkeLIzCtJLcpLzFFi42LZdlhJTvfXhhnpBn9fmVr8fDmN0eLBvG1s
+	FufvHmK2WLP3HJPFnPMtLBbzj5xjtXh67BG7xc0DO5ksjpxawmRxb9E7Vovz5zewW1zY1sdq
+	senxNVaLh6/CLS7vmsNmMeP8PiaLrmtPWC3m/V3LanFsgZjFt9NvGC0Wbf3CbvH/9VZGi4cf
+	9rBbzLqwg9XiyJkXzBb/9+xgt1j0YAGrxZeNN9kdZDy2rLzJ5PG0fyu7x85Zd9k9Fmwq9di0
+	qpPNY/OSeo+dOz4zebzfd5XNo2/LKkaPg/sMPZ7+2MvssWX/Z0aPf01z2T0+b5IL4IvisklJ
+	zcksSy3St0vgyng5+z1rwQ6uiomHzzI1MB7g6GLk5JAQMJFo7f/P3sXIxSEksJ1R4lJ7ByNE
+	QlLiU/NUVghbWGLlv+dQRZ8YJfaua2IDSbAJaEhcX7EdLCEiMIFJYv2n/UwgDrPARWaJ5lMf
+	2UGqhAWcJM4e38UCYrMIqEr8nf0TzOYVsJI4uuYUE8QKeYnVGw4wT2DkWcDIsIpRNLWgODc9
+	N7nAUK84Mbe4NC9dLzk/dxMjOMq0gnYwLlv/V+8QIxMH4yFGCQ5mJRHezptT0oV4UxIrq1KL
+	8uOLSnNSiw8xSnOwKInzKud0pggJpCeWpGanphakFsFkmTg4pRqYhJTWNFiud7oeEcVX2W8a
+	t3fFaefKVq07C9y3Hz2y/N7lEI9XsnIri57WWrpreMt+1BOyTnp8cOfxOwc3enj1Oj8ONU1Z
+	Yvr2b+DOU53NVfPOhLxTeGWfNMvww8PZt/dWmkxgdi64ru2s/v1i9j2e6X+u3Uh4s1DmkZHW
+	2uSzMRtv1ZpdeLn9hKe2kWzCpeRkvdPrv1nqqvc9k2b8WTyVZ4mz+OoZ3qElh7mNgx0Eo/3/
+	GgqpH7nW9HCm4mK1Mz+3HNnqpbulPF3crt101uO9n/il9BvUXu2wtK+Yaf4sMvFmCnNa+P05
+	DtL7luevzl7BFvNr2+kpK3sU0xd/mb3TJaeK6/RZrd/L1rI3CFVsVGIpzkg01GIuKk4EAHNY
+	hBMhAwAA
+X-CMS-MailID: 20250128102707epcas5p154db286b06da942e18ffe315e4767707
+X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250128-pre-ict-jaguar-v3-3-7be2f09d390a@cherry.de>
-References: <20250128-pre-ict-jaguar-v3-0-7be2f09d390a@cherry.de>
-In-Reply-To: <20250128-pre-ict-jaguar-v3-0-7be2f09d390a@cherry.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Jagan Teki <jagan@edgeble.ai>, Niklas Cassel <cassel@kernel.org>, 
- Michael Riesch <michael.riesch@wolfvision.net>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Quentin Schulz <quentin.schulz@cherry.de>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Infomaniak-Routing: alpha
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250128102707epcas5p154db286b06da942e18ffe315e4767707
+References: <CGME20250128102707epcas5p154db286b06da942e18ffe315e4767707@epcas5p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_050438_886798_10CAA6DA 
-X-CRM114-Status: GOOD (  11.74  )
+X-CRM114-CacheID: sfid-20250128_051356_548086_2DD18B49 
+X-CRM114-Status: GOOD (  16.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,53 +142,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Quentin Schulz <quentin.schulz@cherry.de>
+FSD platform has two instances of EQoS IP, one is in FSYS0 block and
+another one is in PERIC block. This patch series add required DT binding,
+DT file modifications and platform driver specific changes for the same.
 
-According to commit 40658534756f ("arm64: dts: rockchip: Add rock5b
-overlays for PCIe endpoint mode"), Rock 5B can operate in PCIe endpoint
-mode. For that to work, the rk3588-rock-5b-pcie-ep.dtbo overlay needs to
-be applied on Rock 5B base Device Tree. If that Rock 5B is connected to
-another Rock 5B, the latter needs to apply the
-rk3588-rock-5b-pcie-srns.dtbo overlay.
+Changes since v4:
+1. Avoided switching between internal and external clocks for every open/
+close.
+2. Addressed the review comments on DT bindings
 
-In order to make sure the overlays are still valid in the future, let's
-add a validation test by applying the overlays on top of the main base
-at build time.
+Here is the link to v4 patches for reference:
+https://patchwork.kernel.org/project/linux-arm-kernel/list/?series=&submitter=211782&state=&q=&archive=true&delegate=
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Reviewed-by: Niklas Cassel <cassel@kernel.org>
-Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
----
- arch/arm64/boot/dts/rockchip/Makefile | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
+Swathi K S (4):
+  dt-bindings: net: Add FSD EQoS device tree bindings
+  net: stmmac: dwc-qos: Add FSD EQoS support
+  arm64: dts: fsd: Add Ethernet support for FSYS0 Block of FSD SoC
+  arm64: dts: fsd: Add Ethernet support for PERIC Block of FSD SoC
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 267966ea69b194887d59e38a4220239a90a91306..ebcd16ce976ebe56a98d9685228980cd1f2f180a 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -150,8 +150,6 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-orangepi-5-plus.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-quartzpro64.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5-itx.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b.dtb
--dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-ep.dtbo
--dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-srns.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-haikou.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-toybrick-x0.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-turing-rk1.dtb
-@@ -186,3 +184,11 @@ rk3568-wolfvision-pf5-vz-2-uhd-dtbs := rk3568-wolfvision-pf5.dtb \
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-edgeble-neu6a-wifi.dtb
- rk3588-edgeble-neu6a-wifi-dtbs := rk3588-edgeble-neu6a-io.dtb \
- 	rk3588-edgeble-neu6a-wifi.dtbo
-+
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-ep.dtb
-+rk3588-rock-5b-pcie-ep-dtbs := rk3588-rock-5b.dtb \
-+	rk3588-rock-5b-pcie-ep.dtbo
-+
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-srns.dtb
-+rk3588-rock-5b-pcie-srns-dtbs := rk3588-rock-5b.dtb \
-+	rk3588-rock-5b-pcie-srns.dtbo
+ .../devicetree/bindings/net/snps,dwmac.yaml   |   5 +-
+ .../bindings/net/tesla,fsd-ethqos.yaml        |  91 ++++++++++++++
+ arch/arm64/boot/dts/tesla/fsd-evb.dts         |  18 +++
+ arch/arm64/boot/dts/tesla/fsd-pinctrl.dtsi    | 112 ++++++++++++++++++
+ arch/arm64/boot/dts/tesla/fsd.dtsi            |  47 ++++++++
+ .../stmicro/stmmac/dwmac-dwc-qos-eth.c        |  74 ++++++++++++
+ 6 files changed, 345 insertions(+), 2 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/tesla,fsd-ethqos.yaml
 
 -- 
-2.48.1
+2.17.1
 
 
