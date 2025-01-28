@@ -4,69 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE3A1C02188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 00:11:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75154C02188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 00:19:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VUbqz6OX5pwk97pm6+yKUxlZ4KD4xMSVar/pFww3EZw=; b=coELiJwi7fDcUAYjyNCX78rhCc
-	C/7b5aDWq+UwtaldTpBhgMihKknPc1ddt4LGkA+VaczN4NCCSZ6gUYPhB6z/S6W1fPw7PJXgoq1Zi
-	Ts1E6jkjBgGJstVF2G1IteRlXyfHkYWDEkI3LR+6ccNa4rJuZgUEdmRw9tOpHK6fTnrqzl4JILbOO
-	FAhNarndQb3mcmZY53JBPrB2Hka4nUknNHn0YFpILSYhu+7Lf7sz5Cj2hjc/v01nm7U91hCt04xdm
-	oxYyNMiJs/r0f0WbyI4o5YWOB+alnEmHhF9Gj+NzllTEpQlTJI66ou3KfAfXP+Q/SCa9BJKhd+BcS
-	4ptTLMyw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aj8XDJDRrLpKv2EqPYDzMbVxZZ1cx8RY7GFt/SLk8Vw=; b=gV8H1sDxFcu/Ro0gc2AlBbNZk1
+	UrofG5cmUcwJGW7HaODpPQ2TqtIneEE1q2DZcm1h9r1esXJIRbGcwbJHuWhGZnNGuAdt4TkTpIv/D
+	meCmoxG+8r3ngRC050eGx4xp9PcldxXkRpHfTeZ5rklNssvSdgNuJJVw17xK3Dcgupi9GYKbCpXGL
+	MFxSvGxCKYJrf0qwM7e0ekIHAFgvwVSs75HoHXKjYVffLTp1dk97gJhHtGjacrHF4ghRWQ1S5qX+g
+	hxPu8kvOiVB5EZXSFBqa7rVEotSjXcZKjrCh+pCeEx6IhwQoGh7+IftSUjIKgiI019vAlxKpJOeEb
+	cWghC0og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcZBm-00000003jGj-1tOl;
-	Tue, 28 Jan 2025 00:10:46 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tcZKG-00000003lPd-2iXF;
+	Tue, 28 Jan 2025 00:19:32 +0000
+Received: from out-185.mta0.migadu.com ([2001:41d0:1004:224b::b9])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcZ7m-00000003h6j-0ZnF
+	id 1tcZIu-00000003l9S-0NYK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jan 2025 00:06:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 48CDD5C5B1B;
-	Tue, 28 Jan 2025 00:05:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2145DC19421;
-	Tue, 28 Jan 2025 00:06:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738022796;
-	bh=EIzss4+nVhmBM716ght5tv9bi2u8EXv+0cXIqsZnexs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=djWGZdEGjm9gYcPBqwD1BId5hx3PKr9WOW/SdWmMGopvT/s9r4KPIaWYZ42P3QmPe
-	 yiWYVC/WOebllm9+pH10GNUWQYEWSBHukz+fhipIlxuy8wfy5wjUHj55pYqSLMJiHR
-	 38it1cy4s4Twd3lnlSiEODudYqo7BoRiU71oWMoRxmI+6tgdo45Khz+JyIDItTTozp
-	 uu4NiDvv7EvlCluUpP5zkNUJgfjjsSrkg7Yz79PggptS2k01fSUiI1J29NqvfguhSc
-	 zF0t8io4PvGctFMmRLaAEBXsNowUEk+0hA2ijqQNBgVn4escrv7N0DQATNRq6m1Mf0
-	 UREfJZjywdwOA==
-Received: from mchehab by mail.kernel.org with local (Exim 4.98)
-	(envelope-from <mchehab+huawei@kernel.org>)
-	id 1tcZ7i-0000000DRMJ-1ZDu;
-	Tue, 28 Jan 2025 01:06:34 +0100
-From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-To: Linux Doc Mailing List <linux-doc@vger.kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
-	"Mauro Carvalho Chehab" <mchehab+huawei@kernel.org>,
+	Tue, 28 Jan 2025 00:18:10 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1738023478;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=aj8XDJDRrLpKv2EqPYDzMbVxZZ1cx8RY7GFt/SLk8Vw=;
+	b=beU6vS3cNEuyQL3B+xtsVcRI0hzOTXuhi3dYC0RRXyNVmkC9RQlcZzg0+BOZhDhdNOha7o
+	9qRNW3+XQ10BUuUsw6zkDZ7qdzIP1Vwg+PpFVuEfA+HBNJ7gtRSQ5Dm/PeCPDc5zN83git
+	obwH0WdNZSvCObCoTpSrzSRYLiQRkLo=
+From: Oliver Upton <oliver.upton@linux.dev>
+To: linux-acpi@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Will Deacon <will@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <mchehab+huawei@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [RFC v2 30/38] docs: arm: asymmetric-32bit: Allow creating cross-references for ABI
-Date: Tue, 28 Jan 2025 01:06:19 +0100
-Message-ID: <88b0601a8d6e6f23fc3ad2a68b552b66df190945.1738020236.git.mchehab+huawei@kernel.org>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <cover.1738020236.git.mchehab+huawei@kernel.org>
-References: <cover.1738020236.git.mchehab+huawei@kernel.org>
+	Oliver Upton <oliver.upton@linux.dev>,
+	Marc Zyngier <maz@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Zheng Zengkai <zhengzengkai@huawei.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] ACPI: GTDT: Relax sanity checking on Platform Timers array count
+Date: Tue, 28 Jan 2025 00:17:49 +0000
+Message-ID: <20250128001749.3132656-1-oliver.upton@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250127_160638_215720_1A0A8574 
-X-CRM114-Status: GOOD (  13.57  )
+X-CRM114-CacheID: sfid-20250127_161808_803561_8FE0C615 
+X-CRM114-Status: GOOD (  13.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,28 +73,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that Documentation/ABI is processed by automarkup, let it
-generate cross-references for the corresponding ABI file.
+Perhaps unsurprisingly there are some platforms where the GTDT isn't
+quite right and the Platforms Timer array overflows the length of the
+overall table.
 
-Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+While the recently-added sanity checking isn't wrong, it makes it
+impossible to boot the kernel on offending platforms. Try to hobble
+along and limit the Platform Timer count to the bounds of the table.
+
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Zheng Zengkai <zhengzengkai@huawei.com>
+Cc: stable@vger.kernel.org
+Fixes: 263e22d6bd1f ("ACPI: GTDT: Tighten the check for the array of platform timer structures")
+Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
 ---
- Documentation/arch/arm64/asymmetric-32bit.rst | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/acpi/arm64/gtdt.c | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
 
-diff --git a/Documentation/arch/arm64/asymmetric-32bit.rst b/Documentation/arch/arm64/asymmetric-32bit.rst
-index 64a0b505da7d..f15061b1e020 100644
---- a/Documentation/arch/arm64/asymmetric-32bit.rst
-+++ b/Documentation/arch/arm64/asymmetric-32bit.rst
-@@ -55,7 +55,7 @@ sysfs
+diff --git a/drivers/acpi/arm64/gtdt.c b/drivers/acpi/arm64/gtdt.c
+index 3561553eff8b..70f8290b659d 100644
+--- a/drivers/acpi/arm64/gtdt.c
++++ b/drivers/acpi/arm64/gtdt.c
+@@ -163,7 +163,7 @@ int __init acpi_gtdt_init(struct acpi_table_header *table,
+ {
+ 	void *platform_timer;
+ 	struct acpi_table_gtdt *gtdt;
+-	int cnt = 0;
++	u32 cnt = 0;
  
- The subset of CPUs capable of running 32-bit tasks is described in
- ``/sys/devices/system/cpu/aarch32_el0`` and is documented further in
--``Documentation/ABI/testing/sysfs-devices-system-cpu``.
-+Documentation/ABI/testing/sysfs-devices-system-cpu.
+ 	gtdt = container_of(table, struct acpi_table_gtdt, header);
+ 	acpi_gtdt_desc.gtdt = gtdt;
+@@ -188,13 +188,17 @@ int __init acpi_gtdt_init(struct acpi_table_header *table,
+ 		cnt++;
  
- **Note:** CPUs are advertised by this file as they are detected and so
- late-onlining of 32-bit-capable CPUs can result in the file contents
+ 	if (cnt != gtdt->platform_timer_count) {
++		cnt = min(cnt, gtdt->platform_timer_count);
++		pr_err(FW_BUG "limiting Platform Timer count to %d\n", cnt);
++	}
++
++	if (!cnt) {
+ 		acpi_gtdt_desc.platform_timer = NULL;
+-		pr_err(FW_BUG "invalid timer data.\n");
+-		return -EINVAL;
++		return 0;
+ 	}
+ 
+ 	if (platform_timer_count)
+-		*platform_timer_count = gtdt->platform_timer_count;
++		*platform_timer_count = cnt;
+ 
+ 	return 0;
+ }
+
+base-commit: ffd294d346d185b70e28b1a28abe367bbfe53c04
 -- 
-2.48.1
+2.48.1.262.g85cc9f2d1e-goog
 
 
