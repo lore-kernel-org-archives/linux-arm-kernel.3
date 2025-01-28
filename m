@@ -4,81 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EA38C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 23:09:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CB3EC0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 23:11:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=zFo6TxttEqFIalCsIspeo8mg648WKT4oP0eEXrQLVXM=; b=JqJHJjuTpgIa7K
-	IQwwyWvb6X6M776qi218wjWzTzYxGxTyo+CQJldUK7B2Gkeo0WHBYH60XgzIf9Gf80CpiUHKX/5cx
-	0FDRQ8fH0EUDgQfRMINUg1WuyABaR5dkZLPEtt+Qn53Sqy/VmSBbNARVq9v/nxNqPN7KyZU62VEa2
-	FthiZcD2CmubfVgsfnPlH51F7NSdqiNOCJ2jqE0hUFOuxVnl4HndRNMNLTi/8gEfQ+Y3/SbKNIk5p
-	94K3D4F87+J9cgb8qS9qXritSzJXIjYXsEcc9YBeEDGTol4BE7oJq0/iqRSiThwOdcr55pK51jAKM
-	MV0PtmmollurTtjEi1Dw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/0W2o0hkDJje6TvICiv/xRrM6lz4rUh/UvN51cJhJUo=; b=L9y8BW5wBZ/nMrB+WRyVqKMvwW
+	/0Hub/L/RuUzEUFWXh6f8VUXOj2TuagNz0JrP0+WZaTBRLEbcPY4++FoTzsHE5VX59lIDhaDRmRZC
+	uUQWEjuoNne71bLtqbQui2Hw4FfgR0dCtvUSHOlYnBcTYz4HHVmAw4T/cfmhBVpSX8vWLjU5gy3tL
+	HbKQpGeTH9IdvUyVbPFldhhDv3pDfu+JNMeb/IUjPJvpvV3nX125/38wqkWitPhpxW0T/PadYCFYO
+	OcNFkkv7WZKGPiZyc1V4ttkTljbj/Qr5ATe6MF3Cbd6LbQpHAfbDolX3ibiLbEZMqurqGd9HEP/UO
+	y7BQlllg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcuiC-0000000615R-0oGz;
-	Tue, 28 Jan 2025 23:09:40 +0000
-Received: from mail-ot1-x34a.google.com ([2607:f8b0:4864:20::34a])
+	id 1tcujZ-000000061ER-3QjP;
+	Tue, 28 Jan 2025 23:11:05 +0000
+Received: from smtp-fw-52005.amazon.com ([52.119.213.156])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcugr-000000060xn-1qSx
+	id 1tcuiF-0000000615W-1ii2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jan 2025 23:08:18 +0000
-Received: by mail-ot1-x34a.google.com with SMTP id 46e09a7af769-71de28807b0so3898719a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jan 2025 15:08:16 -0800 (PST)
+	Tue, 28 Jan 2025 23:09:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1738105696; x=1738710496; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=zFo6TxttEqFIalCsIspeo8mg648WKT4oP0eEXrQLVXM=;
-        b=jUKbaLC02j4RJ8UBMUtCheC+KV1KgFhLbxtTqkgqVjpKTR9BK1kJZHdXpKFYjLeHZA
-         FD/sc3ORdQ35hw/2f+IoM8lVZsnv3zGlWEzYRH99LUDoFJB3wbmx541fwWFNO1MadoAI
-         f0nqPDcqglDh9RxFYUWDUyqcR16WOEB3ISVGkZABwiXacHrnAbXqbMgnkb7SdjUmToOS
-         gOlGyOz+BiVZT/oZGiGVhL8wZc+WQZrwCCdjGGlfqVyLEfJCfCwKhEADyXFqniOnXgh3
-         YdW+7Dl0CtTKU1GFbZEIQWk/CIdA+I5HVlbfj6MD+B2P7S0B5GbMPyTTzD9cp7kYX4MB
-         bwTg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738105696; x=1738710496;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=zFo6TxttEqFIalCsIspeo8mg648WKT4oP0eEXrQLVXM=;
-        b=oB4D4DyxKZJvbph1gT4alOidnDuqREY/isXbWQtk1PANRaH1aY/MIn/RB22bYzrykt
-         YxvjFskac5TUgaIRzSzJF3qPO4df9pk73S5XGsRLlq/EKzqaQDiL6P0QprQJV9BKQ4RI
-         GuGMCCWpgkFasIn17gHvPjm6y5Y95dwad2wKfgO1TA8x9224Q8oP90pLpzaLGiTEJNvk
-         49BgVolVNTxqR2MlC2bKx4J1bxFPAupm1chg7/zoepISjXnwV8pq+ISOrVfymRGoxVoe
-         1jNdMiCSm084j9wBk9+J+od7nTi+dzFljxhfp4B799It+bfGeBTQ0Higirr+Iy0Obwif
-         pAzg==
-X-Forwarded-Encrypted: i=1; AJvYcCWZXC8ezjR1ANxRFX23beDgT7F4A3cZ5y2OAwfAN28QdAuDyeh5bPiphsCxK4jVDpvLDzruGMEOoIj8BDr9+f8v@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywfm8XyRcihz2n9Nt6g/GubgDvRvUmhzc1DV6qb6nww9b54mY1i
-	L/msaDeoY4n9gR+NzBpmWWrYhfmzxvFK6/96xHUse0ZnVKeNmaSHjFb0+8r2bkEdzHeSlGbhbgH
-	CweKmgP41kLhVX9np5Rm8Ow==
-X-Google-Smtp-Source: AGHT+IG5ddnY6/iHSVzZPnfbt3FF1yw2VhaZJBEOVScosdSTNCWOaSf0V1Rutk3fTReV5GNpySjV/C49wUzgPhrdpA==
-X-Received: from oocx8.prod.google.com ([2002:a05:6820:8188:b0:5fa:a33d:6240])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6830:670f:b0:71e:1c5:4f9a with SMTP id 46e09a7af769-726568f8258mr618751a34.25.1738105695853;
- Tue, 28 Jan 2025 15:08:15 -0800 (PST)
-Date: Tue, 28 Jan 2025 23:08:14 +0000
-In-Reply-To: <gsntbjvq382s.fsf@coltonlewis-kvm.c.googlers.com> (message from
- Colton Lewis on Tue, 28 Jan 2025 22:08:27 +0000)
-Mime-Version: 1.0
-Message-ID: <gsnt34h235b5.fsf@coltonlewis-kvm.c.googlers.com>
-Subject: Re: [RFC PATCH 1/4] perf: arm_pmuv3: Introduce module param to
- partition the PMU
-From: Colton Lewis <coltonlewis@google.com>
-To: Colton Lewis <coltonlewis@google.com>
-Cc: maz@kernel.org, kvm@vger.kernel.org, linux@armlinux.org.uk, 
-	catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	mark.rutland@arm.com, pbonzini@redhat.com, shuah@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
+  t=1738105784; x=1769641784;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=/0W2o0hkDJje6TvICiv/xRrM6lz4rUh/UvN51cJhJUo=;
+  b=vmrVWWhxNVSMminwtepKQjbe6wWmrPppA05gOLYu7EbKkLezwntPlFoV
+   1mZpeVHZbjBCIPosyup1Erbdzfvfe9/DoQ+FsPT+lh98Nx/65yX0bE4/F
+   qKo4xz9WTfnU+EWgLKRfPiHStqGxn+G6WttCgqzmpMsyxvJdeMtqmeLvh
+   U=;
+X-IronPort-AV: E=Sophos;i="6.13,242,1732579200"; 
+   d="scan'208";a="714298510"
+Received: from iad12-co-svc-p1-lb1-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.43.8.6])
+  by smtp-border-fw-52005.iad7.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jan 2025 23:09:39 +0000
+Received: from EX19MTAUWC001.ant.amazon.com [10.0.21.151:57712]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.4.10:2525] with esmtp (Farcaster)
+ id c0c7093e-98ea-47a8-98a5-47be9e4a4b48; Tue, 28 Jan 2025 23:09:38 +0000 (UTC)
+X-Farcaster-Flow-ID: c0c7093e-98ea-47a8-98a5-47be9e4a4b48
+Received: from EX19D016UWA004.ant.amazon.com (10.13.139.119) by
+ EX19MTAUWC001.ant.amazon.com (10.250.64.174) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.39;
+ Tue, 28 Jan 2025 23:09:38 +0000
+Received: from 88665a51a6b2.amazon.com (10.106.179.50) by
+ EX19D016UWA004.ant.amazon.com (10.13.139.119) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.39;
+ Tue, 28 Jan 2025 23:09:35 +0000
+From: Cristian Prundeanu <cpru@amazon.com>
+To: Peter Zijlstra <peterz@infradead.org>
+CC: <cpru@amazon.com>, <kprateek.nayak@amd.com>, <abuehaze@amazon.com>,
+	<alisaidi@amazon.com>, <benh@kernel.crashing.org>, <blakgeof@amazon.com>,
+	<csabac@amazon.com>, <doebel@amazon.com>, <gautham.shenoy@amd.com>,
+	<joseph.salisbury@oracle.com>, <dietmar.eggemann@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-tip-commits@vger.kernel.org>, <mingo@redhat.com>, <x86@kernel.org>,
+	<torvalds@linux-foundation.org>, <bp@alien8.de>
+Subject: Re: [PATCH 0/2] [tip: sched/core] sched: Disable PLACE_LAG and RUN_TO_PARITY and move them to sysctl
+Date: Tue, 28 Jan 2025 17:09:26 -0600
+Message-ID: <20250128230926.11715-1-cpru@amazon.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: 20241017052000.99200-1-cpru@amazon.com
+References: 20250119110410.GAZ4zcKkx5sCjD5XvH@fat_crate.local
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.106.179.50]
+X-ClientProxiedBy: EX19D040UWA001.ant.amazon.com (10.13.139.22) To
+ EX19D016UWA004.ant.amazon.com (10.13.139.119)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_150817_482697_16641EEF 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20250128_150943_603657_9607F46B 
+X-CRM114-Status: GOOD (  14.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,40 +91,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Peter,
 
-Colton Lewis <coltonlewis@google.com> writes:
+Thank you for the recent scheduler rework which went into kernel 6.13. 
+Here are the latest test results using mysql+hammerdb, using a standalone 
+reproducer (details and instructions below).
 
-> Hey Marc, thanks for looking.
+Kernel | Runtime      | Throughput | P50 latency
+aarm64 | parameters   | (NOPM)     | (larger is worse)
+-------+--------------+------------+------------------
+6.5    | default      |  baseline  |  baseline
+-------+--------------+------------+------------------
+6.8    | default      |  -6.9%     |  +7.9%
+       | NO_PL NO_RTP |  -1%       |  +1%
+       | SCHED_BATCH  |  -9%       |  +10.7%
+-------+--------------+------------+------------------
+6.12   | default      |  -5.5%     |  +6.2%
+       | NO_PL NO_RTP |  -0.4%     |  +0.1%
+       | SCHED_BATCH  |  -4.1%     |  +4.9%
+-------+--------------+------------+------------------
+6.13   | default      |  -4.8%     |  +5.4%
+       | NO_PL NO_RTP |  -0.3%     |  +0.01%
+       | SCHED_BATCH  |  -4.8%     |  +5.4%
+-------+--------------+------------+------------------
 
-*for the review
+A performance improvement is noticeable in kernel 6.13 over 6.12, both in 
+latency and throughput. At the same time, SCHED_BATCH no longer has the 
+same positive effect it had in 6.12.
 
-> Marc Zyngier <maz@kernel.org> writes:
+Disabling PLACE_LAG and RUN_TO_PARITY is still as effective as before. 
+For this reason, I'd like to ask once again that this patch set be 
+considered for merging and for backporting to kernels 6.6+.
 
->> On Mon, 27 Jan 2025 22:20:27 +0000,
->> Colton Lewis <coltonlewis@google.com> wrote:
+> This patchset disables the scheduler features PLACE_LAG and RUN_TO_PARITY 
+> and moves them to sysctl.
+>
+> Replacing CFS with the EEVDF scheduler in kernel 6.6 introduced 
+> significant performance degradation in multiple database-oriented 
+> workloads. This degradation manifests in all kernel versions using EEVDF, 
+> across multiple Linux distributions, hardware architectures (x86_64, 
+> aarm64, amd64), and CPU generations.
 
->>>    	/* Read the nb of CNTx counters supported from PMNC */
->>> -	bitmap_set(cpu_pmu->cntr_mask,
->>> -		   0, FIELD_GET(ARMV8_PMU_PMCR_N, armv8pmu_pmcr_read()));
->>> +	bitmap_set(cpu_pmu->cntr_mask, 0, pmcr_n);
->>> +
->>> +	if (reserved_guest_counters > 0 && reserved_guest_counters < pmcr_n) {
->>> +		cpu_pmu->hpmn = reserved_guest_counters;
->>> +		cpu_pmu->partitioned = true;
+When weighing the relevance of various testing approaches, please keep in 
+mind that mysql is a real-life workload, while the test which prompted the 
+introduction of PLACE_LAG is much closer to a synthetic benchmark.
 
->> Isn't this going to completely explode on a kernel running at EL1?
 
-> Trying to access an EL2 register at EL1 can do that. I'll add the
-> appropriate hypercalls.
+Instructions for reproducing the above tests:
 
->> Also, how does it work in an asymmetric configuration where some CPUs
->> can satisfy the reservation, and some can't?
+1. Code: The repro scenario that was used for this round of testing can be 
+found here: https://github.com/aws/repro-collection
 
-> The CPUs that can't read their own value of PMCR.N below what the
-> attempted reservation is and so do not get partitioned. Nothing changes
-> for that CPU if it can't meet the reservation.
+2. Setup: I used a 16 vCPU / 32G RAM / 1TB RAID0 SSD instance as SUT, 
+running Ubuntu 22.04 with the latest updates. All kernels were compiled 
+from source, preserving the same config (as much as possible) to minimize 
+noise - in particular, CONFIG_HZ=250 was used everywhere.
 
-My mistake. That does not happen. I originally did these comparisons in
-armv8pmu_reset which runs for every CPU but __armv8pmu_probe_pmu
-doesn't.
+3. Running: To run the repro, set up a SUT machine and a LDG (loadgen) 
+machine on the same network, clone the git repo on both, and run:
+
+(on the SUT) ./repro.sh repro-mysql-EEVDF-regression SUT --ldg=<loadgen_IP> 
+
+(on the LDG) ./repro.sh repro-mysql-EEVDF-regression LDG --sut=<SUT_IP>
+
+The repro will build and test multiple combinations of kernel versions and 
+scheduler settings, and will prompt you when to reboot the SUT and rerun 
+the same command to continue the process.
+
+More instructions can be found both in the repo's README and by running 
+'repro.sh --help'.
 
