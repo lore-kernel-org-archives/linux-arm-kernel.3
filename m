@@ -4,100 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C04E9C02190
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 06:36:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96DD6C0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 06:51:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/NGMQ1cPPzFcGB6lbht2UloHcbpdvl9Eg+C6+XEyyV4=; b=c3MwMPUnSA6PFtaYiwL/DQHrh9
-	xTU2J4yjB9WCuc/lWQly4zGUjCPYgMFp9tUe+bmnxitVmNciGaL/7IgGBCIUwG54NPpLvqJYK8HMF
-	NkUXVvu5aiUQLLqdYSf6U1fwqZ6G99I70/7VqZlStTAuMakmyISByvoTheUJISy++5TU9kHN837KZ
-	UGDYxKCtfJ+SSxiD6l9Fizai35c0lsQ0R7qAa+9UWm19H+6PXhxr5TtdzhCtQIXIgjI4d2H+SfCf9
-	0F0vcNeoXrPJK1A8IR+UNhw8siHcF/N6eXMapeLSEv009rUpMJgApeTQgBKtp1EPWQOFUr8TT67mK
-	VEvIKCVg==;
+	bh=ZfRypJrBXY8TUZ/BgiawVGat4WmGQVQwJaXYpw4b6P4=; b=2K1zTsGkciSi3I2+y0Esbfs8qW
+	hSHE89KLcg7JfQJ6JKzPbF/vB4DjQCz2CDXCvfBazjHgDX9aMNVkEmfuYlaL0CSajrhyNhU4XDkYv
+	pjw/Ahm59KbWbEj9tA7QAb2pcFNsj7s6/iHkD0DNB4wKvgIVHGgwLnVlg6vXjaGTw4EaEqlW9dHPM
+	5wLHJtJRn/KUJHdipZcfnC6p/zaZfS619P9vqNAgr8UYAhL+LfJqJG6I8riCYYqYZ1TwSXTZG/ru6
+	RhsPYCXoNxad9UtmxG4ctgVjJQuTbL+o99rQ8Bre3iGkptOnv0P01wP3e3+NN6f1bTGGoN2atxwjk
+	sxhH33/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcfCP-00000004Dj4-2FXA;
-	Tue, 28 Jan 2025 06:35:49 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1tcfQw-00000004FaH-0T6z;
+	Tue, 28 Jan 2025 06:50:50 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcdi0-000000044pw-3ByK
+	id 1tceRR-00000004BEK-36q6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jan 2025 05:00:22 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-2f4409fc8fdso7986928a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jan 2025 21:00:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738040420; x=1738645220; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/NGMQ1cPPzFcGB6lbht2UloHcbpdvl9Eg+C6+XEyyV4=;
-        b=PM1SpJ20WGBSheAJyJi03XOIA6udLcYPoaRslOzA/wYG2QXlJjOD9D7Ioli61ZRi8Z
-         kn573l1VhpiqNX2D9Lrd4rPuCGOOC+NcFho0mOZMIGOKYItT4aFr2YZLeiuRVWXJRi8B
-         6HIr2cbr+sG/xbnkRuQ1rlIgzPF6VX21rwJC8cpqP1XH5bICMUF9i7QTIAF7aT0QCj2d
-         Rdk8X2s9P5ctYup2YRsirTBtbwlMpIegE9A77wi7tsH85pSb8LTfi7vifP/ibcbHWjp2
-         nRAUjXDMq0tmOslGgkBnBkDN6W2rw5bTIb2AV35n9Cu3Chga/1VOt6UWkBZJsn8jpz7X
-         B5Ow==
+	Tue, 28 Jan 2025 05:47:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1738043235;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ZfRypJrBXY8TUZ/BgiawVGat4WmGQVQwJaXYpw4b6P4=;
+	b=h1pp2J5oV2LbLUQ7u8/l/cLg3V7VyVHldNy1UOoiBvQw4rUWk+QfAnDCoozwnZTmM3neUJ
+	Q1o1F2U0QySw6yOEqbY2o5NbhlC0e771yUUJuQaXSLD2yT95tfFvIa8bJy0XND+N0pyiMY
+	1vseXGZDeyw80Zogrgmc61yJvqHJpdM=
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
+ [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-58-pc3wUzyTMX2Xf072cQ4XKg-1; Tue, 28 Jan 2025 00:47:13 -0500
+X-MC-Unique: pc3wUzyTMX2Xf072cQ4XKg-1
+X-Mimecast-MFC-AGG-ID: pc3wUzyTMX2Xf072cQ4XKg
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2163dc0f689so155303455ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jan 2025 21:47:13 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738040420; x=1738645220;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/NGMQ1cPPzFcGB6lbht2UloHcbpdvl9Eg+C6+XEyyV4=;
-        b=LHIq24XSLGzpd20WvlB572Q5M2yv+ThXGUGfmglXITxiN8yy76mA9RRKNZfELkyDot
-         kVOHsBoQ2+r9yx/SDG428g/Sx9JImophnb1BOw+ylEm0xntoUGtkxNnqohVCcsFymUMB
-         l5bpefZOGYRKyi8ndaRJedOhjhzY9M5mRFhKXo1b9D89y51Vef2tAlm+hXpXKFMx4Ta/
-         eQp+PtwzqN56KTqCP4aF4cfVcFZopXNkKSuTICa16hpgF4A0wLUWXB3RTwv4ZoNoXSja
-         4KUfhaDwRMI3CKXZH4PocEk9Zbq/ymFxaWnwwWIQLB50AXHh5Q0H2rZ3vjLA7X6gLWjd
-         TiRQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWYvakqM3h+Eu4llE/IAk1JUhdmsqRXdviWD0JtKkLNBGoQJGuKtUq0MfG0vnJvHGBH3LKLxPK8CGPiQ937/2zn@lists.infradead.org
-X-Gm-Message-State: AOJu0YyiMI/zF1U3g9O1QkFYeY4LNlryWwVSGWVl70p+9Tkqj8cyTe31
-	l6MRdJux9z91LAENmX04NYOV7sLeA8G+ub0A2/TK80h4SHhAt3WvSxlM4WfHK4s=
-X-Gm-Gg: ASbGncuiLrMSIwHxczk6odRRZVNmbcgTNTseUO1pluSGh0gldx6M5Cs+6SDutbb3PMB
-	c8kVAcwObd5bXfKWB09BcB6vb6DMVDuFD7x6jGKxFCLDe6DWI9IgNy97Z9iGcv/78JNajc0nKjF
-	jquQJKrydnWh6035JzAyn7f0Ws2GLNrQrMMc9nZLVbyZeQpSrdeG+I0bNNAHl3SDhWFvDhF17e3
-	m1u1h8AommHvDtDHglOWNVj+6PZRcmAaz8R/x6rCpZX2IWMDPu9mE1QWT0cbtZ5Nc7x4uL7c3pV
-	agqFTcCsVHBw/5TEbtDFZqFGxaua
-X-Google-Smtp-Source: AGHT+IHlFzD2fu330ZMELwraV6ApNuAJVZ8yRk70aKuZKIqzynWDWx6XkmlUYZuDD9VCxD1qqsAaLQ==
-X-Received: by 2002:a17:90b:6c6:b0:2f2:a974:1e45 with SMTP id 98e67ed59e1d1-2f82c0775e4mr3067861a91.16.1738040420191;
-        Mon, 27 Jan 2025 21:00:20 -0800 (PST)
-Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f7ffa5a7f7sm8212776a91.11.2025.01.27.21.00.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Jan 2025 21:00:19 -0800 (PST)
-From: Atish Patra <atishp@rivosinc.com>
-Date: Mon, 27 Jan 2025 21:00:00 -0800
-Subject: [PATCH v3 19/21] tools/perf: Support event code for arch standard
- events
+        d=1e100.net; s=20230601; t=1738043232; x=1738648032;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZfRypJrBXY8TUZ/BgiawVGat4WmGQVQwJaXYpw4b6P4=;
+        b=oodSeyTk4dheiHyKNIUlQUUNNc5BVc6a4qrKWahzLyXMg1knsdcvn87UkuPuHwiXXx
+         0eLLjMWxr/xBMW/UAqIm3RdEpt5es65dnDfl7F7fQkXOKlvgm0WjDZiY6F3NJlq+K1pJ
+         y2+MkvbDp5uGMymCl+m4lyp4QRPhOLWszrM2+UKgSVBeMvHzxAVPGjvn1w78tXHyl9ke
+         HWQqj58+vFNs7fzouBsQHF+bAkkZIM+oc7AgeU4YANEJRdMuoT6kvPAeqU4CdBECxM/y
+         OZxk/OaX0qXPsF/7ZOZUEas4n/1O3vpSokQKx4yYhgxyjxxaNjGIIQzE4g5PO+iPg23m
+         tTDA==
+X-Forwarded-Encrypted: i=1; AJvYcCWQVDIBWdFOpUExwB3sGiDQ+xdGl0l3m0xowX+zqObiLzbfV+uKGkF4skX+uqz1Jbye45/03w+2nuPVmxGbTiw1@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxag1Sxsh7Ca1GhtA0IhcFwIvZI5iUuCiWNm+bYwa8dyWsA53Gg
+	B9fiVF59pKv2aRAOucSmHuMDFoOu2z/ivqcYTblslloOQNwDax+AJkuyUrHNwueZJnGS4YQhJZx
+	ipcWXZDec+06Hh4KDGFNsO5kDT/Sq6nVSzjqw7q+ahzNhgiND9deq1JnzoA5uNMlu4/2ddbsm
+X-Gm-Gg: ASbGnctPpZSiTQ7i3xfVYTcn+4UTwMt2BtRStRqflsluoR8wHI0G9Qb+OX4y5Mq6y0+
+	3AK3zKB9/xoyppGT21hCW4sgrDMOWx99aTZlnWIrXsHX0JW0MaukxsB2wU0t1GpvXN9Kn/gKwX8
+	rfRb4zWPmf3AT9KrbRmQEKZpEZltExHBRbOmtqRI7PNrvR5rbzgutbIfihIWWyrcnsEq6j9nDDI
+	b1mjpF3pheNNuWliKOecMs0C5ihBMAupdjUoinG7SbgjkQRDLQRLlkONHIVyJedTR9AoaS3qlDx
+	aQlO7Q==
+X-Received: by 2002:a05:6a20:1591:b0:1e6:5323:58c5 with SMTP id adf61e73a8af0-1eb214a06f0mr63365309637.12.1738043232186;
+        Mon, 27 Jan 2025 21:47:12 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGj7WcMyL/2PjgoUCXeF8pDrIwXJ8iDNSOsLtS1l4yE0zK1FCS82DOSLWaxPfSPcfKWvA2L5w==
+X-Received: by 2002:a05:6a20:1591:b0:1e6:5323:58c5 with SMTP id adf61e73a8af0-1eb214a06f0mr63365273637.12.1738043231858;
+        Mon, 27 Jan 2025 21:47:11 -0800 (PST)
+Received: from [192.168.68.55] ([180.233.125.64])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72f8a69eb81sm8276685b3a.26.2025.01.27.21.47.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 27 Jan 2025 21:47:10 -0800 (PST)
+Message-ID: <1032c158-c5a6-4845-affa-f444e0071e5a@redhat.com>
+Date: Tue, 28 Jan 2025 15:47:02 +1000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 06/43] arm64: RME: Check for RME support at KVM init
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+ Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun <alpergun@google.com>
+References: <20241212155610.76522-1-steven.price@arm.com>
+ <20241212155610.76522-7-steven.price@arm.com> <yq5amsgsrzva.fsf@kernel.org>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <yq5amsgsrzva.fsf@kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: PKWdB9gWkCMCu-T_fz1a52zGCnPKuPAcDa8YTFiFE_k_1738043232
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250127-counter_delegation-v3-19-64894d7e16d5@rivosinc.com>
-References: <20250127-counter_delegation-v3-0-64894d7e16d5@rivosinc.com>
-In-Reply-To: <20250127-counter_delegation-v3-0-64894d7e16d5@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Anup Patel <anup@brainfault.org>, 
- Atish Patra <atishp@atishpatra.org>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>, 
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org, 
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- Atish Patra <atishp@rivosinc.com>
-X-Mailer: b4 0.15-dev-13183
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250127_210020_871304_297BFA05 
-X-CRM114-Status: GOOD (  18.02  )
+X-CRM114-CacheID: sfid-20250127_214717_853216_95C228D8 
+X-CRM114-Status: GOOD (  11.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,50 +121,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-RISC-V relies on the event encoding from the json file. That includes
-arch standard events. If event code is present, event is already updated
-with correct encoding. No need to update it again which results in losing
-the event encoding.
+On 12/19/24 3:44 PM, Aneesh Kumar K.V wrote:
+> Steven Price <steven.price@arm.com> writes:
+> 
+>> +static int rmi_check_version(void)
+>> +{
+>> +	struct arm_smccc_res res;
+>> +	int version_major, version_minor;
+>> +	unsigned long host_version = RMI_ABI_VERSION(RMI_ABI_MAJOR_VERSION,
+>> +						     RMI_ABI_MINOR_VERSION);
+>> +
+>> +	arm_smccc_1_1_invoke(SMC_RMI_VERSION, host_version, &res);
+>> +
+>> +	if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
+>> +		return -ENXIO;
+>> +
+>> +	version_major = RMI_ABI_VERSION_GET_MAJOR(res.a1);
+>> +	version_minor = RMI_ABI_VERSION_GET_MINOR(res.a1);
+>> +
+>> +	if (res.a0 != RMI_SUCCESS) {
+>> +		kvm_err("Unsupported RMI ABI (v%d.%d) we want v%d.%d\n",
+>> +			version_major, version_minor,
+>> +			RMI_ABI_MAJOR_VERSION,
+>> +			RMI_ABI_MINOR_VERSION);
+>> +		return -ENXIO;
+>> +	}
+>> +
+>> +	kvm_info("RMI ABI version %d.%d\n", version_major, version_minor);
+>> +
+>> +	return 0;
+>> +}
+>> +
+> 
+> Should we include both high and low version numbers in the kvm_err
+> message on error? ie,
+> 
+> 	high_version_major = RMI_ABI_VERSION_GET_MAJOR(res.a2);
+> 	high_version_minor = RMI_ABI_VERSION_GET_MINOR(res.a2);
+> 
 
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
----
- tools/perf/pmu-events/arch/riscv/arch-standard.json | 10 ++++++++++
- tools/perf/pmu-events/jevents.py                    |  4 +++-
- 2 files changed, 13 insertions(+), 1 deletion(-)
+I think so since a range of supported versions are returned in the failing case.
 
-diff --git a/tools/perf/pmu-events/arch/riscv/arch-standard.json b/tools/perf/pmu-events/arch/riscv/arch-standard.json
-new file mode 100644
-index 000000000000..96e21f088558
---- /dev/null
-+++ b/tools/perf/pmu-events/arch/riscv/arch-standard.json
-@@ -0,0 +1,10 @@
-+[
-+  {
-+    "EventName": "cycles",
-+    "BriefDescription": "cycle executed"
-+  },
-+  {
-+    "EventName": "instructions",
-+    "BriefDescription": "instruction retired"
-+  }
-+]
-diff --git a/tools/perf/pmu-events/jevents.py b/tools/perf/pmu-events/jevents.py
-index 5fd906ac6642..28acd598dd7c 100755
---- a/tools/perf/pmu-events/jevents.py
-+++ b/tools/perf/pmu-events/jevents.py
-@@ -417,7 +417,9 @@ class JsonEvent:
-       self.long_desc += extra_desc
-     if arch_std:
-       if arch_std.lower() in _arch_std_events:
--        event = _arch_std_events[arch_std.lower()].event
-+        # No need to replace as evencode would have updated the event before
-+        if not eventcode:
-+          event = _arch_std_events[arch_std.lower()].event
-         # Copy from the architecture standard event to self for undefined fields.
-         for attr, value in _arch_std_events[arch_std.lower()].__dict__.items():
-           if hasattr(self, attr) and not getattr(self, attr):
+Besides, 'unsigned short' is more suitable for the local variable version_{major, minor}
+since both are 16-bits in width. 'unsigned short' explicitly indicates their
+width.
 
--- 
-2.34.1
+Thanks,
+Gavin
 
 
