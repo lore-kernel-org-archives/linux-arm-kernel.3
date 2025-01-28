@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42EF8C02190
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 16:13:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7472FC0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 16:14:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=palMyM3mPY1asetOxby02+XjoraJnT8MIMUwZ6ft2jE=; b=zQ6LF9s6utDuXNMdXDOhpslcsU
-	unkV59fDRtEZoLOxm073u42+XxvFSloM9Vv9xnQmqV4SGgA3f8SnUuC4PFBBlA8pN8+QFb13tr7TO
-	2a5pVPGuhDXnpoUnekP+UsmQi2XwkO18LLQhpOmAPzuEmy5WHI3p3ZyZG8FAKezynsxG7kXgPjels
-	quHSJYIcemMw46A43u0xz4c2MwWOj2RHGL1ioDSkRucBN0ZT8SKijIwjpjqBBI5nU1qPShSyfOHUf
-	45A7XfASyzaJ0e3QK6WFVCBAtVFpKA3inQUQKMqehcnUO6aO14JntHNUjNoBBWdgpAgAhcDakoNsX
-	VmgHLWYg==;
+	bh=6rfnXHnjbMDiB1789GYEEadHIP4lGhQCiXiqIwLjLMI=; b=mSntJEllm5RLYH91swxqCP5e9m
+	xSr7KTwazr0IwJR1VL2dObucthT0MxABsMjPB9m3w73Fius+/a4dqqvBfDp4DR0eXOA4ZhQJCoT63
+	Wt/5BsN+3wqajw8ZnyGr2kOagE4gLYelQCgkOjRUEzdm41iY1VNA6f8N5Yv2AQtac8WInkGAeKizJ
+	hCAdn7/+kIXu/tt/3ndEQo5ctzYhuDlLeF0emQk8hCbt7HBM71M7PBuFhd/TlJgCZmCUYAMvWDD7Z
+	izoVorwh0hx4coavHjssd3rWN3ue8bbnVGI46kP4JItgDW2YB59Qc/3r3LDvGObieL3I/UHuKtJjB
+	bAkx79cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcoCq-00000005He0-2bLB;
-	Tue, 28 Jan 2025 16:12:52 +0000
+	id 1tcoE9-00000005Hn3-1JxF;
+	Tue, 28 Jan 2025 16:14:13 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcnpW-00000005CSp-1qLU
+	id 1tcnpa-00000005CXg-2e7v
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jan 2025 15:48:47 +0000
+	Tue, 28 Jan 2025 15:48:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=palMyM3mPY1asetOxby02+XjoraJnT8MIMUwZ6ft2jE=; b=G1Sp+FFrkgvasjMfr9sgaWfSSp
-	UftYD+hqZqyy+fWOJndCV6ytedOzRdRVqyezZMgW2V8ugR5pErOD0K5nuQArQAixYIVZuCUVATuNs
-	m2VW6c/OLmtZXMCqazy+Hjol3GK/vugbq3AGJ9d7dMuPjfhI3mr7dnp0p9qex/rvzuljppiKK1iwb
-	FdHhRO+m5KfxbyfPZ3SYmmb0X5rYpN0oB5x66jmPhHIr/PcZuHtT99SPcMmdMwdFyQaytQafhyKkL
-	J0Q9+zTGC3TFyoq9TC/9zijZ5bWTLvk5fQz1hrEg3FXc42AygCUj0l+RGxIiIe1PJDPIIFQ40gA+v
-	Nm3UyJpQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:50678 helo=rmk-PC.armlinux.org.uk)
+	bh=6rfnXHnjbMDiB1789GYEEadHIP4lGhQCiXiqIwLjLMI=; b=yB2Rd7p3hmHAn71SUOZ1OntbEK
+	c6jInQgQtAYCxM3VjPIRwBhe9YRM277yOyYVhXGWPJaocZwYIqeE8u2VLrdq7KVEQd46GcuHjgAKs
+	u++FgDDI0Ef7SqzMKzb7pxNgG5rc15PAD2dTgIgBQDep6IRgL5wOQsUm6+9VDr1k2kMhi6B/OkCyG
+	qIP2V8OOaBiNHtGghWPH+F9G5CS3BTR4zgDPs8FelzISngZKgilozrVHFUzHK8NHdlHYX63qalaFV
+	qzZiKwHwLI4mP/6tmoV7ZZJttEPO4ZBFg32GSYpEAX8QaQO+Kcf2l/ygfcJSm82jyIJdQ/icKa54x
+	JoZ2r7Jw==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:50694 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tcnpR-0007Xw-1f;
-	Tue, 28 Jan 2025 15:48:41 +0000
+	id 1tcnpW-0007YD-1d;
+	Tue, 28 Jan 2025 15:48:46 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tcnp8-0037Hu-4Y; Tue, 28 Jan 2025 15:48:22 +0000
+	id 1tcnpD-0037I0-7t; Tue, 28 Jan 2025 15:48:27 +0000
 In-Reply-To: <Z5j7yCYSsQ7beznD@shell.armlinux.org.uk>
 References: <Z5j7yCYSsQ7beznD@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -65,18 +65,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Paolo Abeni <pabeni@redhat.com>,
 	 Vladimir Oltean <olteanv@gmail.com>,
 	 Jiawen Wu <jiawenwu@trustnetic.com>
-Subject: [PATCH RFC net-next 19/22] net: stmmac: remove calls to
- xpcs_config_eee()
+Subject: [PATCH RFC net-next 20/22] net: xpcs: remove xpcs_config_eee() from
+ global scope
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tcnp8-0037Hu-4Y@rmk-PC.armlinux.org.uk>
-Date: Tue, 28 Jan 2025 15:48:22 +0000
+Message-Id: <E1tcnpD-0037I0-7t@rmk-PC.armlinux.org.uk>
+Date: Tue, 28 Jan 2025 15:48:27 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_074846_508238_126667FF 
-X-CRM114-Status: UNSURE (   8.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250128_074850_669650_D5340673 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,40 +90,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove the explicit calls to xpcs_config_eee() from the stmmac driver,
-preferring instead for phylink to manage the EEE configuration at the
-PCS.
+Make xpcs_config_eee() private to the XPCS driver, called only from
+the phylink pcs_disable_eee() and pcs_enable_eee() methods.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 7 -------
- 1 file changed, 7 deletions(-)
+ drivers/net/pcs/pcs-xpcs.c   | 14 ++++----------
+ include/linux/pcs/pcs-xpcs.h |  2 --
+ 2 files changed, 4 insertions(+), 12 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 5b47b2ad6b49..03d3042c12a3 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -1046,10 +1046,6 @@ static void stmmac_mac_disable_tx_lpi(struct phylink_config *config)
- 	priv->tx_path_in_lpi_mode = false;
- 
- 	stmmac_set_eee_timer(priv, priv->hw, 0, STMMAC_DEFAULT_TWT_LS);
--	if (priv->hw->xpcs)
--		xpcs_config_eee(priv->hw->xpcs, priv->plat->mult_fact_100ns,
--				false);
--
- 	mutex_unlock(&priv->lock);
+diff --git a/drivers/net/pcs/pcs-xpcs.c b/drivers/net/pcs/pcs-xpcs.c
+index 1f312b5589a3..6a28a4eae21c 100644
+--- a/drivers/net/pcs/pcs-xpcs.c
++++ b/drivers/net/pcs/pcs-xpcs.c
+@@ -602,8 +602,8 @@ static void xpcs_get_interfaces(struct dw_xpcs *xpcs, unsigned long *interfaces)
+ 		__set_bit(compat->interface, interfaces);
  }
  
-@@ -1068,9 +1064,6 @@ static int stmmac_mac_enable_tx_lpi(struct phylink_config *config, u32 timer,
+-static int __xpcs_config_eee(struct dw_xpcs *xpcs, int mult_fact_100ns,
+-			     int enable)
++static int xpcs_config_eee(struct dw_xpcs *xpcs, int mult_fact_100ns,
++			   int enable)
+ {
+ 	u16 mask, val;
+ 	int ret;
+@@ -632,12 +632,6 @@ static int __xpcs_config_eee(struct dw_xpcs *xpcs, int mult_fact_100ns,
+ 			   enable ? DW_VR_MII_EEE_TRN_LPI : 0);
+ }
  
- 	stmmac_set_eee_timer(priv, priv->hw, STMMAC_DEFAULT_LIT_LS,
- 			     STMMAC_DEFAULT_TWT_LS);
--	if (priv->hw->xpcs)
--		xpcs_config_eee(priv->hw->xpcs, priv->plat->mult_fact_100ns,
--				true);
+-int xpcs_config_eee(struct dw_xpcs *xpcs, int mult_fact_100ns, int enable)
+-{
+-	return 0;
+-}
+-EXPORT_SYMBOL_GPL(xpcs_config_eee);
+-
+ static void xpcs_pre_config(struct phylink_pcs *pcs, phy_interface_t interface)
+ {
+ 	struct dw_xpcs *xpcs = phylink_pcs_to_xpcs(pcs);
+@@ -1203,14 +1197,14 @@ static void xpcs_disable_eee(struct phylink_pcs *pcs)
+ {
+ 	struct dw_xpcs *xpcs = phylink_pcs_to_xpcs(pcs);
  
- 	/* Try to cnfigure the hardware timer. */
- 	ret = stmmac_set_lpi_mode(priv, priv->hw, STMMAC_LPI_TIMER,
+-	__xpcs_config_eee(xpcs, 0, false);
++	xpcs_config_eee(xpcs, 0, false);
+ }
+ 
+ static void xpcs_enable_eee(struct phylink_pcs *pcs)
+ {
+ 	struct dw_xpcs *xpcs = phylink_pcs_to_xpcs(pcs);
+ 
+-	__xpcs_config_eee(xpcs, xpcs->eee_mult_fact, true);
++	xpcs_config_eee(xpcs, xpcs->eee_mult_fact, true);
+ }
+ 
+ /**
+diff --git a/include/linux/pcs/pcs-xpcs.h b/include/linux/pcs/pcs-xpcs.h
+index 749d40a9a086..e40f554ff717 100644
+--- a/include/linux/pcs/pcs-xpcs.h
++++ b/include/linux/pcs/pcs-xpcs.h
+@@ -50,8 +50,6 @@ struct dw_xpcs;
+ 
+ struct phylink_pcs *xpcs_to_phylink_pcs(struct dw_xpcs *xpcs);
+ int xpcs_get_an_mode(struct dw_xpcs *xpcs, phy_interface_t interface);
+-int xpcs_config_eee(struct dw_xpcs *xpcs, int mult_fact_100ns,
+-		    int enable);
+ void xpcs_config_eee_mult_fact(struct dw_xpcs *xpcs, u8 mult_fact);
+ struct dw_xpcs *xpcs_create_mdiodev(struct mii_bus *bus, int addr);
+ struct dw_xpcs *xpcs_create_fwnode(struct fwnode_handle *fwnode);
 -- 
 2.30.2
 
