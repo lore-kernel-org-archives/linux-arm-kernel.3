@@ -4,59 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36213C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 11:03:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B6ADC0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 11:06:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZCYLt5QPZu/J5sgT5t/Y44A2C6OiQI1XEqoCj5r4Cz8=; b=FIZdbVD+8selGQmg7WHI/5lQNs
-	59+b3r6C/XziFyNseH1dgoPWf0EWnyN/BW2bSj3hsgLQsMECj7LoKAlrh/XeUVf5Q0SGUDvnJ7Dyh
-	nEsC8TqU/p9tatMQLQo81Jkdd+Fze1p3JWO9+t5AiAMOZXh7smvgElSnJmocDYZVbw0wExgOSXx98
-	XysTytB40+Q31sG7H+DI+8reQFgRB36TIyAioingekaE7erlvCAXvX7FRACOLR7s1bCGrjxqeMvZ1
-	rAZN7uBBjdJvLl7wYCCv1vNB8kER7u26CmJbIfUi3u2/FlSnlAcfr9+bKm4XxpAftcJXHLkzeAqU0
-	5AjDi7cA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=80z538fDpsOAJagStMvrMe9E0US1OlsIlPBUBIdnQtk=; b=EiRPNi3VhZDGzk9YqlpBErQ1LN
+	9Uxgr+F7DmdXVhOGJM95On0sREbfBbULw43/IAfHXAEwbublKJt45E3YCZTPCEdcSrzUWWFrF3pmX
+	5xRqN8ftXv/e0uN3XKDsFAN99vM4pTlmzT3MQiHuL31238kzSr7CbeBuGgCpAFJ0ucTFnGsmhZt9b
+	FsdihpEnoJfiP9vVg31/lngSHacHRWe9EL8BvhNOde4NLhRv16Qwpi7UdihNuXYbmO6nf2ynxAPBo
+	WdEjQJSPgds9xgvGaLElbhqU6fBukX2zT7M+Sssy2CZyQrzeRAvD+jYh2a9cJ/hyEpa9OH/f/Ug+q
+	0xWcVn+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcjNK-00000004ien-3LG7;
-	Tue, 28 Jan 2025 11:03:22 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tcjQ6-00000004j3T-2MNr;
+	Tue, 28 Jan 2025 11:06:14 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcjLz-00000004ibO-1GbZ
+	id 1tcjOj-00000004itt-2R8Y
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jan 2025 11:02:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2E5C2A40C8B;
-	Tue, 28 Jan 2025 11:00:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38EE3C4CED3;
-	Tue, 28 Jan 2025 11:01:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738062117;
-	bh=4pVISNlz73OSboBzCap102vBF7tI6SuvQtDCVQIHueI=;
-	h=Date:From:To:Cc:Subject:From;
-	b=PLscV3G2VQ9e9E5uIDGmrRoCfAVeR/ZSgQ5o/meIjYoNbI/YqVr6HK6XgAw87BxBV
-	 kG2rbzAG+8o6zOLguCRc89m94dIBBs4vUhCyFP1W9YjKwDmyVHEXL/HABKHo3wvIfZ
-	 Hn5SmkwqbKQw40NP61WEM0BDi/qI02NeHzgAI9oZXp4z9pZ4XiOPvR3jExSsXiYdx1
-	 9iTvJQHniD+1jfVwJky2BNX/HMStnsVU8ixvd3roHhslYqqUoBktKqxKaAHWMsck03
-	 XFp247BA/g7SMvAPJW53WgrLtON7GkSe8hEmqRGBjV1Z2vp3seO+p3980Sm+K6HcXU
-	 8KQ5tbL5RLkhw==
-Date: Tue, 28 Jan 2025 11:01:52 +0000
-From: Will Deacon <will@kernel.org>
-To: torvalds@linux-foundation.org
-Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kernel-team@android.com,
-	maz@kernel.org, oliver.upton@linux.dev, pbonzini@redhat.com
-Subject: [GIT PULL] KVM/arm64 updates for 6.14
-Message-ID: <20250128110151.GA26808@willie-the-truck>
+	Tue, 28 Jan 2025 11:04:51 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 50SB4bL81989976
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Tue, 28 Jan 2025 05:04:37 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1738062277;
+	bh=80z538fDpsOAJagStMvrMe9E0US1OlsIlPBUBIdnQtk=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=whQX0YI51l7oi9B3oDwAXd6nxEPONzJ0ue0B0h7vjut8vVXSLknHAErd9j7hTKgTf
+	 AKn+KSCLTDJo699691NO6FnkyN34lxycvnKtt3I7T5SgNwPJ2AsbPTZ0qre4iXskMB
+	 az7qBiwqj2S6l9RQXsbvUWDqX3Cda9QOjmNC6j0w=
+Received: from DLEE115.ent.ti.com (dlee115.ent.ti.com [157.170.170.26])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 50SB4bf8091305;
+	Tue, 28 Jan 2025 05:04:37 -0600
+Received: from DLEE104.ent.ti.com (157.170.170.34) by DLEE115.ent.ti.com
+ (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 28
+ Jan 2025 05:04:36 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE104.ent.ti.com
+ (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 28 Jan 2025 05:04:36 -0600
+Received: from localhost (lcpd911.dhcp.ti.com [172.24.227.226])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 50SB4Zrj009716;
+	Tue, 28 Jan 2025 05:04:36 -0600
+Date: Tue, 28 Jan 2025 16:34:35 +0530
+From: Dhruva Gole <d-gole@ti.com>
+To: Sudeep Holla <sudeep.holla@arm.com>
+CC: Vivek yadav <linux.ninja23@gmail.com>, <linux-newbie@vger.kernel.org>,
+        <linux-pm@vger.kernel.org>, <daniel.lezcano@linaro.org>,
+        <lpieralisi@kernel.org>, <krzk@kernel.org>, <christian.loehle@arm.com>,
+        <quic_sibis@quicinc.com>, <cristian.marussi@arm.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <vigneshr@ti.com>, <khilman@ti.com>, <sebin.francis@ti.com>,
+        <khilman@baylibre.com>
+Subject: Re: Fwd: ARM64: CPUIdle driver is not select any Idle state other
+ then WFI
+Message-ID: <20250128110435.iclttnaav6mrjrvn@lcpd911>
+References: <CAO6a-9_aPLCx2CqecQBGbK78_=+-tT44RepPkrBjpkWSvjj4Tg@mail.gmail.com>
+ <CAO6a-98cdSvyd7jgAyGNmsC2nxmRSyr3GppxvZU9yHU1xqwz3g@mail.gmail.com>
+ <20241211055052.gbxnyqpui3t3zpw5@lcpd911>
+ <20241211121825.GA2054801@bogus>
+ <20241211143428.kaoovhiwar74dy6x@lcpd911>
+ <Z1rbLdWW75KQw5cl@bogus>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <Z1rbLdWW75KQw5cl@bogus>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_030159_483441_E5D96700 
-X-CRM114-Status: GOOD (  24.81  )
+X-CRM114-CacheID: sfid-20250128_030449_787305_4DBFAF04 
+X-CRM114-Status: GOOD (  68.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,297 +93,214 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus, [+Paolo, Marc and Oliver]
+Hi Sudeep,
 
-We've had a slight hiccup with the KVM/arm64 tree targetting 6.14 in
-that Paolo mistakenly forgot to include it in his KVM pull request [1].
-I understood Paolo was planning to send a follow-up pull request to you
-yesterday but, as that didn't materialise, I thought I'd better send it
-via arm64 given where we are in the merge window.
+On Dec 12, 2024 at 12:46:37 +0000, Sudeep Holla wrote:
+> On Wed, Dec 11, 2024 at 08:04:28PM +0530, Dhruva Gole wrote:
+> > On Dec 11, 2024 at 12:18:25 +0000, Sudeep Holla wrote:
+> > > On Wed, Dec 11, 2024 at 11:20:52AM +0530, Dhruva Gole wrote:
+> > [...]
+> > > > >
+> > > > >
+> > > > > Hi @all,
+> > > > >
+> > > > > I am working on one custom SoC. Where I add one CPUIdle state for
+> > > > > ``arm,cortex-a55`` processor.
+> > > >
+> > > > Any further luck on this?
+> > > >
+> > > > I have also been working on something similar[1] but on an A53 core on
+> > > > TI-K3 AM62x processor.
+> > > 
+> > > Does upstream DTS have support for this platform to understand it better ?
+> > > Even reference to any complete DT file for the platform will help.
+> > 
+> > Yes, you can ref to the AM625 (CPU layout) DT here:
+> > https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/arch/arm64/boot/dts/ti/k3-am625.dtsi
+> > 
+> > The board/starter kit DT is:
+> > https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/arch/arm64/boot/dts/ti/k3-am625-sk.dts
+> > 
+> > The patches for idle state are not upstream, and only exist in this
+> > patch of mine here:
+> > https://github.com/DhruvaG2000/v-linux/commit/0fd088d624276a2e72b8dc6660d261ab6d194f4b
+> >
+> 
+> "arm,psci-suspend-param" indicate that this idle state doesn't loose the
+> cpu context which means timer doesn't stop. So adding "local-timer-stop"
+> sound completely wrong to me.
+> 
 
-Paolo -- if you'd prefer this to go via your tree, then please feel free
-to send a separate pull request to replace this one! I'm just making
-sure that we don't miss the boat for 6.14 as there's a reasonable amount
-of code here and we're already into the second week of the merge window.
+OK Understood.
+Removing that does indeed help, and works in the case where our local
+timers are not touched. System is indeed entering WFI on all 4 cores at
+the same time, confirmed this via some logic I implemented in TF-A.
 
-Despite the rocky journey, the patches have all been in -next. All I've
-done is sign the top commit of Marc's branch with a new tag using his
-summary. On the dependency front, the branch merges for-next/cpufeature
-from arm64 and kvmarm-fixes-6.13-3, both of which you have already
-merged separately.
+> > [...]
+> > > > See this chunk in the kernel cpuidle driver:
+> > > > 	if (broadcast && tick_broadcast_enter()) {
+> > > >
+> > > > When I dug deeper into tick_broadcast_enter it always returns something
+> > > > non zero and hence in my case it was entering the if block and tried to
+> > > > find a deepest state. Then the deepest state would always return WFI and
+> > > > not the idle-state I had added.
+> > > >
+> 
+> It depends. If this is the last CPU and since you have marked the state with
+> "local-timer-stop" and the system doesn't have any other timers to use as
+> source of broadcast, it prevents one of the CPU entering that state. So you
+> could be matching all the above conditions on your platform and hence you
+> are observing the above.
 
-Marc's original pull request is available at [2] if you'd prefer to take
-that directly (but please note that the diff stat is slightly different
-from what I have here due to me using the "histogram" algorithm and Marc
-using whatever is the default).
+Yes, this is most likely the reason.
 
-Cheers,
+> 
+> > > > What we found out was on our kernel we end up using
+> > > >
+> > > > kernel/time/tick-broadcast-hrtimer.c
+> > > >
+> > > > This always seems to be keeping atleast 1 CPU busy and prevents idle.
+> > > > If we remove the local-timer-stop it was helping us, but we still need
+> > > > to dig into the full impact of what that entails and I am still
+> > > > interested in finding out how so many other users of similar idle-state
+> > > > implementation are able to do so without trouble.
+> > > >
+> > >
+> 
+> As mentioned about adding "local-timer-stop" for a retention state seems
+> pure wrong in my opinion as it contradicts to the fact that context is
+> retained.
+> 
+> > > Interesting. So if the platform is functional removing local-timer-stop,
+> > > I am bit confused. Either there is something else that is getting it out
+> >
+> > Yes it was interesting to us too, as to how the RCU didn't kick in and
+> > system continued to function as though nothing was wrong.
+> >
+> 
+> It worked as if it was a state with context lost. So there might be some
+> impact on the latency though it as the kernel assumed context lost and
+> re-entered/resumed through resume entry point rather than where it called
+> cpu_suspend() similar to wfi(). I mean only on the CPUs it was able to
+> enter this state as one of the CPU will never enter this if there are no
+> system timers to act as broadcast timer.
+> 
+> Does you system not have Arch timers memory mapped interface enabled and
+> interrupt wired to GIC(other than PPIs) ? Look at Juno R2 as example.
 
-Will
+It has arch timers mem mapped and irq wired to GIC (I have talked more
+on this at the last)
+Your analysis seems right, if there is local-timer-stop case, then
+our platform doesn't really provide an alternate timer today.
 
-[1] https://lore.kernel.org/all/87plkbt185.wl-maz@kernel.org/
-[2] https://lore.kernel.org/all/20250117115208.1616503-1-maz@kernel.org/
+> 
+> > > from the idle state so, it should be fine and it could be just some
+> > 
+> > It's probably UART keypresses or some userspace processes that get
+> > scheduled that bring the CPUs back out of TF-A's cpu_standby.
+> 
+> I doubt the CPU resume from suspend is based on some userspace event.
+> 
+> > Is it possible that EL1 interrupts can bring EL3 out of WFI? Is yes then
+> > it explains the behaviour. The arch timer could also be continuing to
+> > tick and bringing the CPUs out of ATF WFI.
+> >
+> 
+> Yes but that doesn't explain the behaviour. It could be just the timer
+> event from the broadcast timer.
+> 
+> > > misconfiguration.
+> > > 
+> > > > Arm64 recommends to use arch_timer instead of external timers. Once we
+> > > > enter el3, timer interrupts to el1 is blocked and hence it's equivalent
+> > > > to local-timer-stop, so it does make sense to keep this property, but
+> > > > then how are others able to enter idle-states for all plugged CPUs at
+> > > > the same time?
+> > > >
+> > > 
+> > > Some systems have system timer that can take over as broadcast timer when
+> > > CPUs enter deeper idle states where the local timers are stopped.
+> > 
+> > In CPUIdle we're not really clock gating anything so the timer does keep
+> > ticking. So in this particular case it might make sense to remove the
+> > local-timer-stop property from the idle-state.
+> >
+> 
+> Correct in your case it is retention state and hence local CPU timers
+> keep ticking and you can safely drop that property. However if you add
+> deeper idle states like CPU OFF with the power rail cut off, then you need
+> some system timer to act as backup/broadcast timer so that all the CPUs
+> can enter the state concurrently and wake up successfully.
+> 
+> > However we're looking into taking this further and putting interconnect
+> > and few other PLLs in bypass which could cause arch timer for eg. to
+> > tick slower.
+> 
+> I assume it will be present as another timer with the rate set appropriately.
+> 
+> > In this case would it still make sense to omit the property? 
+> 
+> No, you should mark it as stopped even if it is running at slower rate
+> as I am not sure if the local CPU timer support can handle rate change.
 
---->8
+OK, makes sense.
 
-The following changes since commit 78d4f34e2115b517bcbfe7ec0d018bbbb6f9b0b8:
+> 
+> > We may even have some usecases planned where we may turn OFF
+> > the CPU once it is in TF-A cpu_standby/ WFI. What would be the right
+> > approach in such scenarios?
+> >
+> 
+> As mentioned above, this will be separate state and all CPUs can use this
+> if there is another system broadcast timer.
+> 
+> > Could you provide any examples where the local-timer-stop property is
+> > being used and an alternative timer can be configured once we enter the
+> > idle-state where CPU CTX maybe lost or clocks maybe bypass?
+> > great if you could share some example implementation if you're aware.
+> 
+> As I mentioned, Juno R2 is an example. It was broken on R0 with some SoC
+> errata(can't recall all the details as I looked at it almost a decade ago)
 
-  Linux 6.13-rc3 (2024-12-15 15:58:23 -0800)
+Sorry for the late response, Thanks for all the pointers!
+I will go through juno R2 once and understand what's going on.
 
-are available in the Git repository at:
+What I see maybe helping it is as you mentioned these timers being
+routed to GIC. [1]
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-upstream
+8<---------------------------------------------------------------------------
+memtimer: timer@2a810000 {
+	compatible = "arm,armv7-timer-mem";
+	reg = <0x0 0x2a810000 0x0 0x10000>;
+	clock-frequency = <50000000>;
+	#address-cells = <1>;
+	#size-cells = <1>;
+	ranges = <0 0x0 0x2a820000 0x20000>;
+	status = "disabled";
+	frame@2a830000 {
+		frame-number = <1>;
+		interrupts = <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>;
+		reg = <0x10000 0x10000>;
+	};
+};
+--------------------------------------------------------------------------->8
 
-for you to fetch changes up to 01009b06a6b52d8439c55b530633a971c13b6cb2:
+I will have to go back and see how I can use some of the timers on my
+SoC that lie outside the A53s to register as clocks incase of
+local-timer-stop scenario.
+We already have few timers [2], I will check which one would be the
+right one to use, and remove it from being used as a pwm timer and
+rather be used for the A53 timer. This[3] is the driver for our platform.
 
-  arm64/sysreg: Get rid of TRFCR_ELx SysregFields (2025-01-17 11:07:55 +0000)
+[1]
+https://github.com/torvalds/linux/blob/master/arch/arm64/boot/dts/arm/juno-base.dtsi#L10
+[2]
+https://github.com/torvalds/linux/blob/master/arch/arm64/boot/dts/ti/k3-am62-main.dtsi#L247
+[3]
+https://github.com/torvalds/linux/blob/master/drivers/clocksource/timer-ti-dm-systimer.c
 
-----------------------------------------------------------------
-KVM/arm64 updates for 6.14
-
-* New features:
-
-  - Support for non-protected guest in protected mode, achieving near
-    feature parity with the non-protected mode
-
-  - Support for the EL2 timers as part of the ongoing NV support
-
-  - Allow control of hardware tracing for nVHE/hVHE
-
-* Improvements, fixes and cleanups:
-
-  - Massive cleanup of the debug infrastructure, making it a bit less
-    awkward and definitely easier to maintain. This should pave the
-    way for further optimisations
-
-  - Complete rewrite of pKVM's fixed-feature infrastructure, aligning
-    it with the rest of KVM and making the code easier to follow
-
-  - Large simplification of pKVM's memory protection infrastructure
-
-  - Better handling of RES0/RES1 fields for memory-backed system
-    registers
-
-  - Add a workaround for Qualcomm's Snapdragon X CPUs, which suffer
-    from a pretty nasty timer bug
-
-  - Small collection of cleanups and low-impact fixes
-
-----------------------------------------------------------------
-Fuad Tabba (16):
-      KVM: arm64: Group setting traps for protected VMs by control register
-      KVM: arm64: Move checking protected vcpu features to a separate function
-      KVM: arm64: Remove KVM_ARM_VCPU_POWER_OFF from protected VMs allowed features in pKVM
-      KVM: arm64: Use KVM extension checks for allowed protected VM capabilities
-      KVM: arm64: Initialize feature id registers for protected VMs
-      KVM: arm64: Fix RAS trapping in pKVM for protected VMs
-      KVM: arm64: Set protected VM traps based on its view of feature registers
-      KVM: arm64: Rework specifying restricted features for protected VMs
-      KVM: arm64: Remove fixed_config.h header
-      KVM: arm64: Remove redundant setting of HCR_EL2 trap bit
-      KVM: arm64: Calculate cptr_el2 traps on activating traps
-      KVM: arm64: Refactor kvm_reset_cptr_el2()
-      KVM: arm64: Fix the value of the CPTR_EL2 RES1 bitmask for nVHE
-      KVM: arm64: Remove PtrAuth guest vcpu flag
-      KVM: arm64: Convert the SVE guest vcpu flag to a vm flag
-      KVM: arm64: Use kvm_vcpu_has_feature() directly for struct kvm
-
-Hardevsinh Palaniya (1):
-      arm64/cpufeature: Refactor conditional logic in init_cpu_ftr_reg()
-
-James Clark (6):
-      tools: arm64: Update sysreg.h header files
-      arm64/sysreg/tools: Move TRFCR definitions to sysreg
-      coresight: trbe: Remove redundant disable call
-      KVM: arm64: coresight: Give TRBE enabled state to KVM
-      KVM: arm64: Support trace filtering for guests
-      coresight: Pass guest TRFCR value to KVM
-
-Kalesh Singh (1):
-      arm64: kvm: Introduce nvhe stack size constants
-
-Marc Zyngier (35):
-      arm64/sysreg: Allow a 'Mapping' descriptor for system registers
-      arm64/sysreg: Get rid of the TCR2_EL1x SysregFields
-      arm64/sysreg: Convert *_EL12 accessors to Mapping
-      arm64/sysreg: Get rid of CPACR_ELx SysregFields
-      KVM: arm64: Manage software step state at load/put
-      KVM: arm64: Introduce __pkvm_vcpu_{load,put}()
-      KVM: arm64: Consolidate allowed and restricted VM feature checks
-      KVM: arm64: nv: Advertise the lack of AArch32 EL0 support
-      KVM: arm64: nv: Add handling of EL2-specific timer registers
-      KVM: arm64: nv: Sync nested timer state with FEAT_NV2
-      KVM: arm64: nv: Publish emulated timer interrupt state in the in-memory state
-      KVM: arm64: nv: Use FEAT_ECV to trap access to EL0 timers
-      KVM: arm64: nv: Accelerate EL0 timer read accesses when FEAT_ECV in use
-      KVM: arm64: nv: Accelerate EL0 counter accesses from hypervisor context
-      KVM: arm64: Handle counter access early in non-HYP context
-      KVM: arm64: nv: Add trap routing for CNTHCTL_EL2.EL1{NVPCT,NVVCT,TVT,TVCT}
-      KVM: arm64: nv: Propagate CNTHCTL_EL2.EL1NV{P,V}CT bits
-      KVM: arm64: nv: Sanitise CNTHCTL_EL2
-      KVM: arm64: Work around x1e's CNTVOFF_EL2 bogosity
-      KVM: arm64: nv: Document EL2 timer API
-      Merge remote-tracking branch 'arm64/for-next/cpufeature' into kvm-arm64/pkvm-fixed-features-6.14
-      Merge branch kvm-arm64/debug-6.14 into kvmarm-master/next
-      Merge branch kvm-arm64/pkvm-np-guest into kvmarm-master/next
-      Merge branch kvm-arm64/pkvm-fixed-features-6.14 into kvmarm-master/next
-      Merge branch 'kvmarm-fixes-6.13-3'
-      KVM: arm64: Fix selftests after sysreg field name update
-      KVM: arm64: nv: Always evaluate HCR_EL2 using sanitising accessors
-      KVM: arm64: nv: Apply RESx settings to sysreg reset values
-      KVM: arm64: nv: Fix doc header layout for timers
-      Merge branch kvm-arm64/nv-timers into kvmarm-master/next
-      Merge branch kvm-arm64/pkvm-memshare-declutter into kvmarm-master/next
-      Merge branch kvm-arm64/coresight-6.14 into kvmarm-master/next
-      Merge branch kvm-arm64/nv-resx-fixes-6.14 into kvmarm-master/next
-      Merge branch kvm-arm64/misc-6.14 into kvmarm-master/next
-      arm64/sysreg: Get rid of TRFCR_ELx SysregFields
-
-Mark Brown (1):
-      KVM: arm64: Fix set_id_regs selftest for ASIDBITS becoming unwritable
-
-Mark Rutland (2):
-      arm64: cpufeature: Add HAFT to cpucap_is_possible()
-      KVM: arm64: Explicitly handle BRBE traps as UNDEFINED
-
-Mostafa Saleh (1):
-      Documentation: Update the behaviour of "kvm-arm.mode"
-
-Oliver Upton (22):
-      KVM: arm64: Add unified helper for reprogramming counters by mask
-      KVM: arm64: Use KVM_REQ_RELOAD_PMU to handle PMCR_EL0.E change
-      KVM: arm64: nv: Reload PMU events upon MDCR_EL2.HPME change
-      KVM: arm64: Only apply PMCR_EL0.P to the guest range of counters
-      KVM: arm64: Drop MDSCR_EL1_DEBUG_MASK
-      KVM: arm64: Get rid of __kvm_get_mdcr_el2() and related warts
-      KVM: arm64: Track presence of SPE/TRBE in kvm_host_data instead of vCPU
-      KVM: arm64: Move host SME/SVE tracking flags to host data
-      KVM: arm64: Write MDCR_EL2 directly from kvm_arm_setup_mdcr_el2()
-      KVM: arm64: Evaluate debug owner at vcpu_load()
-      KVM: arm64: Clean up KVM_SET_GUEST_DEBUG handler
-      KVM: arm64: Select debug state to save/restore based on debug owner
-      KVM: arm64: Remove debug tracepoints
-      KVM: arm64: Remove vestiges of debug_ptr
-      KVM: arm64: Use debug_owner to track if debug regs need save/restore
-      KVM: arm64: Reload vCPU for accesses to OSLAR_EL1
-      KVM: arm64: Compute MDCR_EL2 at vcpu_load()
-      KVM: arm64: Don't hijack guest context MDSCR_EL1
-      KVM: arm64: nv: Honor MDCR_EL2.TDE routing for debug exceptions
-      KVM: arm64: Avoid reading ID_AA64DFR0_EL1 for debug save/restore
-      KVM: arm64: Fold DBGxVR/DBGxCR accessors into common set
-      KVM: arm64: Promote guest ownership for DBGxVR/DBGxCR reads
-
-Quentin Perret (21):
-      KVM: arm64: Always check the state from hyp_ack_unshare()
-      KVM: arm64: Change the layout of enum pkvm_page_state
-      KVM: arm64: Move enum pkvm_page_state to memory.h
-      KVM: arm64: Make hyp_page::order a u8
-      KVM: arm64: Move host page ownership tracking to the hyp vmemmap
-      KVM: arm64: Pass walk flags to kvm_pgtable_stage2_mkyoung
-      KVM: arm64: Pass walk flags to kvm_pgtable_stage2_relax_perms
-      KVM: arm64: Make kvm_pgtable_stage2_init() a static inline function
-      KVM: arm64: Add {get,put}_pkvm_hyp_vm() helpers
-      KVM: arm64: Introduce __pkvm_host_share_guest()
-      KVM: arm64: Introduce __pkvm_host_unshare_guest()
-      KVM: arm64: Introduce __pkvm_host_relax_guest_perms()
-      KVM: arm64: Introduce __pkvm_host_wrprotect_guest()
-      KVM: arm64: Introduce __pkvm_host_test_clear_young_guest()
-      KVM: arm64: Introduce __pkvm_host_mkyoung_guest()
-      KVM: arm64: Introduce __pkvm_tlb_flush_vmid()
-      KVM: arm64: Introduce the EL1 pKVM MMU
-      KVM: arm64: Plumb the pKVM MMU in KVM
-      KVM: arm64: Drop pkvm_mem_transition for FF-A
-      KVM: arm64: Drop pkvm_mem_transition for host/hyp sharing
-      KVM: arm64: Drop pkvm_mem_transition for host/hyp donations
-
-Thorsten Blum (1):
-      KVM: arm64: vgic: Use str_enabled_disabled() in vgic_v3_probe()
-
-Vincent Donnefort (1):
-      KVM: arm64: Fix nVHE stacktrace VA bits mask
-
-Vladimir Murzin (1):
-      KVM: arm64: Fix FEAT_MTE in pKVM
-
- Documentation/admin-guide/kernel-parameters.txt    |  16 +-
- Documentation/virt/kvm/devices/vcpu.rst            |  14 +-
- arch/arm64/include/asm/cpucaps.h                   |   2 +
- arch/arm64/include/asm/cpufeature.h                |   3 +-
- arch/arm64/include/asm/cputype.h                   |   2 +
- arch/arm64/include/asm/el2_setup.h                 |   6 +-
- arch/arm64/include/asm/kvm_arm.h                   |   4 +-
- arch/arm64/include/asm/kvm_asm.h                   |  14 +-
- arch/arm64/include/asm/kvm_emulate.h               | 107 ++-
- arch/arm64/include/asm/kvm_host.h                  | 134 +--
- arch/arm64/include/asm/kvm_mmu.h                   |  18 +
- arch/arm64/include/asm/kvm_nested.h                |  11 +-
- arch/arm64/include/asm/kvm_pgtable.h               |  36 +-
- arch/arm64/include/asm/kvm_pkvm.h                  |  51 ++
- arch/arm64/include/asm/memory.h                    |   5 +-
- arch/arm64/include/asm/stacktrace/nvhe.h           |   2 +-
- arch/arm64/include/asm/sysreg.h                    |  16 +-
- arch/arm64/kernel/cpu_errata.c                     |   8 +
- arch/arm64/kernel/cpufeature.c                     |  17 +-
- arch/arm64/kernel/image-vars.h                     |   3 +
- arch/arm64/kvm/arch_timer.c                        | 179 +++-
- arch/arm64/kvm/arm.c                               |  86 +-
- arch/arm64/kvm/at.c                                |   6 +-
- arch/arm64/kvm/debug.c                             | 476 +++++------
- arch/arm64/kvm/emulate-nested.c                    |  83 +-
- arch/arm64/kvm/fpsimd.c                            |  14 +-
- arch/arm64/kvm/guest.c                             |  31 +-
- arch/arm64/kvm/handle_exit.c                       |   5 +-
- arch/arm64/kvm/hyp/include/hyp/debug-sr.h          |  42 +-
- arch/arm64/kvm/hyp/include/hyp/switch.h            |  43 +-
- arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h         |  43 +-
- arch/arm64/kvm/hyp/include/nvhe/fixed_config.h     | 223 -----
- arch/arm64/kvm/hyp/include/nvhe/gfp.h              |   6 +-
- arch/arm64/kvm/hyp/include/nvhe/mem_protect.h      |  39 +-
- arch/arm64/kvm/hyp/include/nvhe/memory.h           |  50 +-
- arch/arm64/kvm/hyp/include/nvhe/pkvm.h             |  23 +
- arch/arm64/kvm/hyp/nvhe/debug-sr.c                 |  74 +-
- arch/arm64/kvm/hyp/nvhe/host.S                     |   4 +-
- arch/arm64/kvm/hyp/nvhe/hyp-main.c                 | 213 ++++-
- arch/arm64/kvm/hyp/nvhe/mem_protect.c              | 943 ++++++++-------------
- arch/arm64/kvm/hyp/nvhe/mm.c                       |  12 +-
- arch/arm64/kvm/hyp/nvhe/page_alloc.c               |  14 +-
- arch/arm64/kvm/hyp/nvhe/pkvm.c                     | 436 +++++-----
- arch/arm64/kvm/hyp/nvhe/setup.c                    |   8 +-
- arch/arm64/kvm/hyp/nvhe/stacktrace.c               |   4 +-
- arch/arm64/kvm/hyp/nvhe/switch.c                   |  54 +-
- arch/arm64/kvm/hyp/nvhe/sys_regs.c                 | 450 +++++-----
- arch/arm64/kvm/hyp/nvhe/timer-sr.c                 |  16 +-
- arch/arm64/kvm/hyp/pgtable.c                       |  13 +-
- arch/arm64/kvm/hyp/vhe/debug-sr.c                  |   5 -
- arch/arm64/kvm/hyp/vhe/switch.c                    | 123 ++-
- arch/arm64/kvm/hyp/vhe/sysreg-sr.c                 |   4 +-
- arch/arm64/kvm/mmu.c                               | 108 ++-
- arch/arm64/kvm/nested.c                            |  38 +-
- arch/arm64/kvm/pkvm.c                              | 201 +++++
- arch/arm64/kvm/pmu-emul.c                          |  91 +-
- arch/arm64/kvm/reset.c                             |   6 +-
- arch/arm64/kvm/stacktrace.c                        |   9 +-
- arch/arm64/kvm/sys_regs.c                          | 457 +++++-----
- arch/arm64/kvm/trace_handle_exit.h                 |  75 --
- arch/arm64/kvm/vgic/vgic-v3.c                      |  11 +-
- arch/arm64/mm/proc.S                               |   5 +-
- arch/arm64/tools/cpucaps                           |   1 +
- arch/arm64/tools/gen-sysreg.awk                    |   2 +-
- arch/arm64/tools/sysreg                            |  76 +-
- drivers/hwtracing/coresight/coresight-etm4x-core.c |  55 +-
- .../hwtracing/coresight/coresight-etm4x-sysfs.c    |  10 +-
- drivers/hwtracing/coresight/coresight-etm4x.h      |   2 +-
- drivers/hwtracing/coresight/coresight-priv.h       |   3 +
- .../coresight/coresight-self-hosted-trace.h        |   9 -
- drivers/hwtracing/coresight/coresight-trbe.c       |  15 +-
- include/clocksource/arm_arch_timer.h               |   6 +
- include/kvm/arm_arch_timer.h                       |  23 +
- include/kvm/arm_pmu.h                              |   6 +-
- tools/arch/arm64/include/asm/sysreg.h              | 410 ++++++++-
- tools/include/linux/kasan-tags.h                   |  15 +
- .../selftests/kvm/aarch64/aarch32_id_regs.c        |   2 +-
- tools/testing/selftests/kvm/aarch64/set_id_regs.c  |   3 +-
- 78 files changed, 3358 insertions(+), 2472 deletions(-)
- delete mode 100644 arch/arm64/kvm/hyp/include/nvhe/fixed_config.h
- create mode 100644 tools/include/linux/kasan-tags.h
+-- 
+Best regards,
+Dhruva Gole
+Texas Instruments Incorporated
 
