@@ -4,68 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87014C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 22:43:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EA38C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 23:09:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+meNH1juZBBtvrp/xo2cF0Sh2lEGZRx9Dv3JEMGVfwQ=; b=qoSly7PNhhidsv0BwDR31uPjCY
-	ZHA7HmqT0X3CLyNxbwa8TYFUuSZVaa/6drKrW6GZZ6U9Zeq9Eis7Mp6W530wG3svZZKrbAZkIjBJl
-	GPrqukYUxBa+yeQvOot9m1vodxRo5rtrH0E918KwrS83gLOAyHZL1qLtR1wHlDCzYu/vKzHNNVCHH
-	0ZNSD9IvHwoqCV35MGBuPDxG5gwkdwrXUf90tH1AojMGs21w8Njgd7YfCsa6Absi3mhXrg4IG3UHC
-	zyXnAi+5M/smmzXMXSIKs9vVWziom4Qb+jZEjiLtyA1+dPSxE24Cz9pnBOPmRWHffPtBag3D2f17g
-	+pxJvYvg==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=zFo6TxttEqFIalCsIspeo8mg648WKT4oP0eEXrQLVXM=; b=JqJHJjuTpgIa7K
+	IQwwyWvb6X6M776qi218wjWzTzYxGxTyo+CQJldUK7B2Gkeo0WHBYH60XgzIf9Gf80CpiUHKX/5cx
+	0FDRQ8fH0EUDgQfRMINUg1WuyABaR5dkZLPEtt+Qn53Sqy/VmSBbNARVq9v/nxNqPN7KyZU62VEa2
+	FthiZcD2CmubfVgsfnPlH51F7NSdqiNOCJ2jqE0hUFOuxVnl4HndRNMNLTi/8gEfQ+Y3/SbKNIk5p
+	94K3D4F87+J9cgb8qS9qXritSzJXIjYXsEcc9YBeEDGTol4BE7oJq0/iqRSiThwOdcr55pK51jAKM
+	MV0PtmmollurTtjEi1Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcuIn-00000005zM5-3kdx;
-	Tue, 28 Jan 2025 22:43:25 +0000
-Received: from ms.lwn.net ([45.79.88.28])
+	id 1tcuiC-0000000615R-0oGz;
+	Tue, 28 Jan 2025 23:09:40 +0000
+Received: from mail-ot1-x34a.google.com ([2607:f8b0:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcuHT-00000005zBa-1zh5
+	id 1tcugr-000000060xn-1qSx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jan 2025 22:42:04 +0000
-DKIM-Filter: OpenDKIM Filter v2.11.0 ms.lwn.net 06ECA403FA
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lwn.net; s=20201203;
-	t=1738104121; bh=+meNH1juZBBtvrp/xo2cF0Sh2lEGZRx9Dv3JEMGVfwQ=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=NUNSUUGtYAw8IZ7v+u9urKWTHqRqgIaFDi/LwOklT1yZ+dVdXczOD9aTVo9dL8GaQ
-	 OAf5s35W/sLcrCXBP9L1rzztGXQrZf82Io4oQsEPVhxr2Gmfam9dfHpeHYHM4gAzS8
-	 Z5wJvtiQGdryhtYMX/RqM8UUTkxsZ7qqsI/DxEU04UzFD7wrLVaAgpDF9YgOAVZODR
-	 ghFfoDDu31L5plmrTy4y8+t+6MkL5TJscft0G5BNRz45gjvAU7I+oGLILjgoaHhU9M
-	 9iNee1I8iwhHjJ3JhYnCMWXNAtQ6QziZH5AMs5lTvSyDYyN1vQVIIWC4TLGwjRIBKs
-	 EZQClEOOCB0lQ==
-Received: from localhost (unknown [IPv6:2601:280:5e00:625::1fe])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by ms.lwn.net (Postfix) with ESMTPSA id 06ECA403FA;
-	Tue, 28 Jan 2025 22:42:00 +0000 (UTC)
-From: Jonathan Corbet <corbet@lwn.net>
-To: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, Linux Doc Mailing
- List <linux-doc@vger.kernel.org>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>
-Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, Mauro Carvalho Chehab
- <mchehab+huawei@kernel.org>, linux-kernel@vger.kernel.org,
- bpf@vger.kernel.org, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
- linux-f2fs-devel@lists.sourceforge.net, linux-hardening@vger.kernel.org,
- linux-iio@vger.kernel.org, linux-media@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-usb@vger.kernel.org,
- linux-wireless@vger.kernel.org, netdev@vger.kernel.org,
- workflows@vger.kernel.org
-Subject: Re: [RFC v2 00/38] Improve ABI documentation generation
-In-Reply-To: <cover.1738020236.git.mchehab+huawei@kernel.org>
-References: <cover.1738020236.git.mchehab+huawei@kernel.org>
-Date: Tue, 28 Jan 2025 15:42:00 -0700
-Message-ID: <87h65i7e87.fsf@trenco.lwn.net>
-MIME-Version: 1.0
-Content-Type: text/plain
+	Tue, 28 Jan 2025 23:08:18 +0000
+Received: by mail-ot1-x34a.google.com with SMTP id 46e09a7af769-71de28807b0so3898719a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jan 2025 15:08:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1738105696; x=1738710496; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=zFo6TxttEqFIalCsIspeo8mg648WKT4oP0eEXrQLVXM=;
+        b=jUKbaLC02j4RJ8UBMUtCheC+KV1KgFhLbxtTqkgqVjpKTR9BK1kJZHdXpKFYjLeHZA
+         FD/sc3ORdQ35hw/2f+IoM8lVZsnv3zGlWEzYRH99LUDoFJB3wbmx541fwWFNO1MadoAI
+         f0nqPDcqglDh9RxFYUWDUyqcR16WOEB3ISVGkZABwiXacHrnAbXqbMgnkb7SdjUmToOS
+         gOlGyOz+BiVZT/oZGiGVhL8wZc+WQZrwCCdjGGlfqVyLEfJCfCwKhEADyXFqniOnXgh3
+         YdW+7Dl0CtTKU1GFbZEIQWk/CIdA+I5HVlbfj6MD+B2P7S0B5GbMPyTTzD9cp7kYX4MB
+         bwTg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738105696; x=1738710496;
+        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=zFo6TxttEqFIalCsIspeo8mg648WKT4oP0eEXrQLVXM=;
+        b=oB4D4DyxKZJvbph1gT4alOidnDuqREY/isXbWQtk1PANRaH1aY/MIn/RB22bYzrykt
+         YxvjFskac5TUgaIRzSzJF3qPO4df9pk73S5XGsRLlq/EKzqaQDiL6P0QprQJV9BKQ4RI
+         GuGMCCWpgkFasIn17gHvPjm6y5Y95dwad2wKfgO1TA8x9224Q8oP90pLpzaLGiTEJNvk
+         49BgVolVNTxqR2MlC2bKx4J1bxFPAupm1chg7/zoepISjXnwV8pq+ISOrVfymRGoxVoe
+         1jNdMiCSm084j9wBk9+J+od7nTi+dzFljxhfp4B799It+bfGeBTQ0Higirr+Iy0Obwif
+         pAzg==
+X-Forwarded-Encrypted: i=1; AJvYcCWZXC8ezjR1ANxRFX23beDgT7F4A3cZ5y2OAwfAN28QdAuDyeh5bPiphsCxK4jVDpvLDzruGMEOoIj8BDr9+f8v@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywfm8XyRcihz2n9Nt6g/GubgDvRvUmhzc1DV6qb6nww9b54mY1i
+	L/msaDeoY4n9gR+NzBpmWWrYhfmzxvFK6/96xHUse0ZnVKeNmaSHjFb0+8r2bkEdzHeSlGbhbgH
+	CweKmgP41kLhVX9np5Rm8Ow==
+X-Google-Smtp-Source: AGHT+IG5ddnY6/iHSVzZPnfbt3FF1yw2VhaZJBEOVScosdSTNCWOaSf0V1Rutk3fTReV5GNpySjV/C49wUzgPhrdpA==
+X-Received: from oocx8.prod.google.com ([2002:a05:6820:8188:b0:5fa:a33d:6240])
+ (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6830:670f:b0:71e:1c5:4f9a with SMTP id 46e09a7af769-726568f8258mr618751a34.25.1738105695853;
+ Tue, 28 Jan 2025 15:08:15 -0800 (PST)
+Date: Tue, 28 Jan 2025 23:08:14 +0000
+In-Reply-To: <gsntbjvq382s.fsf@coltonlewis-kvm.c.googlers.com> (message from
+ Colton Lewis on Tue, 28 Jan 2025 22:08:27 +0000)
+Mime-Version: 1.0
+Message-ID: <gsnt34h235b5.fsf@coltonlewis-kvm.c.googlers.com>
+Subject: Re: [RFC PATCH 1/4] perf: arm_pmuv3: Introduce module param to
+ partition the PMU
+From: Colton Lewis <coltonlewis@google.com>
+To: Colton Lewis <coltonlewis@google.com>
+Cc: maz@kernel.org, kvm@vger.kernel.org, linux@armlinux.org.uk, 
+	catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	mark.rutland@arm.com, pbonzini@redhat.com, shuah@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_144203_517732_46EF82E6 
-X-CRM114-Status: GOOD (  22.88  )
+X-CRM114-CacheID: sfid-20250128_150817_482697_16641EEF 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,56 +93,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Mauro Carvalho Chehab <mchehab+huawei@kernel.org> writes:
 
-> Hi Jon/Greg,
->
-> That's the second version of my RFC patches meant to modenize the ABI
-> parser that I wrote in Perl.
+Colton Lewis <coltonlewis@google.com> writes:
 
-I have a couple of minor comments on the individual patches, but overall
-I do like this direction.
+> Hey Marc, thanks for looking.
 
-It would be nice, though, if the code were a bit more extensively
-commented.  Parts of it get into the "twistly maze of regexes" mode that
-can be awfully hard to follow.
+*for the review
 
-> On this series we have:
->
-> patches 1 to 11: several bug fixes addressing issues at ABI symbols;
+> Marc Zyngier <maz@kernel.org> writes:
 
-1-3 aren't needed - it seems you already upstreamed #2?
+>> On Mon, 27 Jan 2025 22:20:27 +0000,
+>> Colton Lewis <coltonlewis@google.com> wrote:
 
-For the rest, is there any reason to not apply them right away?  They
-just seem like worthwhile fixes.
+>>>    	/* Read the nb of CNTx counters supported from PMNC */
+>>> -	bitmap_set(cpu_pmu->cntr_mask,
+>>> -		   0, FIELD_GET(ARMV8_PMU_PMCR_N, armv8pmu_pmcr_read()));
+>>> +	bitmap_set(cpu_pmu->cntr_mask, 0, pmcr_n);
+>>> +
+>>> +	if (reserved_guest_counters > 0 && reserved_guest_counters < pmcr_n) {
+>>> +		cpu_pmu->hpmn = reserved_guest_counters;
+>>> +		cpu_pmu->partitioned = true;
 
-> patch 12: a fix for scripts/documentation-file-ref-check
-> patches 13-15: create new script with rest and search logic and 
->   minimally integrate with kernel_abi Sphinx extension(phase 1);
-> patches 16-19: implement phase 2: class integration (phase 2);
-> patch 20: fix a bug at kernel_abi: the way it splits lines is buggy;
-> patches  21-24: rewrite kernel_abi logic to make it simpler and more
->   robust;
-> patches 25-27: add cross-reference support at automarkup;
-> patches 28-36: several ABI cleanups to cope with the improvements;
-> patch 37: implement undefined command;
-> patch 38: get rid of the old Perl script.
->
-> To make it easier to review/apply, I may end breaking the next version
-> on a couple of different patchsets. Still it would be nice to have more
-> people testing it and providing some feedback.
+>> Isn't this going to completely explode on a kernel running at EL1?
 
-I've looked over everything, though with limited depth.  My testing
-hasn't turned up any problems.  I've only tested with current Sphinx,
-have you tried this with the more ancient versions we support?
+> Trying to access an EL2 register at EL1 can do that. I'll add the
+> appropriate hypercalls.
 
-[It's probably time to raise our minimum version again, especially now
-that current Sphinx has better performance.]
+>> Also, how does it work in an asymmetric configuration where some CPUs
+>> can satisfy the reservation, and some can't?
 
-I don't see a whole lot of reasons not to apply this set shortly after
-the merge window; anybody disagree?
+> The CPUs that can't read their own value of PMCR.N below what the
+> attempted reservation is and so do not get partitioned. Nothing changes
+> for that CPU if it can't meet the reservation.
 
-Thanks,
-
-jon
+My mistake. That does not happen. I originally did these comparisons in
+armv8pmu_reset which runs for every CPU but __armv8pmu_probe_pmu
+doesn't.
 
