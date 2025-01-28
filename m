@@ -4,71 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8B82C02190
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 08:28:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D7A5C02190
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 08:29:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AL1vAYoGQeLhOfWFyoIK0I4mkggnvZeRhDcWlxpFyf8=; b=pEiKDD/jAw9iRtoOPM/SlO6DYI
-	rt8yS5c02UzX0Ivm37ynp/bqoLsSN5n1OO/BdI5D97dohwsnXkEFoY+s8of3+eMY2CGLkGAB4+8yc
-	Sm0GQhkeR2Ymy/kVV2an0I5wu4NEh3Mlw32DdX0EEp7ApACGTWypydducBRGZUTMV3tQjIz3hAjyn
-	Cy25g06n4/7Nw2fwivKIhpAgqJjj7F5BlX+DyQdNMYH/G7DcjEPsIQKnCgnrUT0o7uj6lcreidlhY
-	35Zkk20m1p3wXhMUyxbube5ohIQDuKyxj7MFMI9kLU5eXkywe9xPjkEyBrE73pnOxTFBCkVx+70m1
-	zDcnC0Cg==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nxroecgL3dI/8WPwNij68Insn/aM9+LI7YXe9cBnpHI=; b=CGBtG3FXnFffR0pdHzWC4qLk5B
+	ylhnLgPmVwxauNmtAZ8oZMMI65YLerPVNnnYukzw/Fhv27qFEabfzmhVv306nmxaXe0IQ9CBIWlP4
+	BAN8DrpI+L+BR8i3LVv4zS6igD/QLSZ0GF4xLULDO31v+76Enj/1g0t3bgRupmt83ZB1hGK9j8RNT
+	8UaC0MLkOLYTIDsSWuI4HBces8xSwW/cLJT6Sf1o/sOhVsVi8Y5/5IrSVlyKxED+5xKTgiZzPs8ru
+	r/5L651JC3dGUhWne798KVqh7/0wF6JP8UNJEWFEBSCEzZIC1JQ8eL89FeWimZVdZ0VSGl6koYeya
+	aSQxEgKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcgwu-00000004Nwl-49zC;
-	Tue, 28 Jan 2025 08:27:56 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcgr2-00000004Mvc-27BX
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 28 Jan 2025 08:21:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=AL1vAYoGQeLhOfWFyoIK0I4mkggnvZeRhDcWlxpFyf8=; b=ZmLkgOsSqqpsEtmkK2o82RX/NN
-	fgeswGZkDkMTu8Z2FdhEjj/enyWXSaseM1O/mtg2MWSs/oNiLo/DXA0/UomYWE0cQdLQksB/1L+lj
-	b4n9LPfsPqocY7ML882/FUIOHUGKEMbMXMMuX2+k5EmJ2WiIFpw0zMwmu7qDD/dEQVJYdp0qjkNYv
-	VXsqBny/jVA5hWaOK3HrGs0s+l+beJMYN6+udC4T7kehWEN/4k6DjOvF1qmfD466YIStO5iKbz6D/
-	Nc/xMa5a0ZTlqLRl0ak508jbJtZwrmuCKmHLAi7HE7+6bDgpflptzFdSAr7gq4jKtxTjAN/DSaIDq
-	/j3MXX5w==;
+	id 1tcgyE-00000004OCv-2gal;
+	Tue, 28 Jan 2025 08:29:18 +0000
 Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcgqy-0000000EsRH-2Sea
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tcgr0-00000004MuM-0y32
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jan 2025 08:21:51 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50S215X3017105;
+	Tue, 28 Jan 2025 08:21:52 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50S21A1k013949;
 	Tue, 28 Jan 2025 09:21:28 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	AL1vAYoGQeLhOfWFyoIK0I4mkggnvZeRhDcWlxpFyf8=; b=ka8JGmOBOYeq6mYq
-	o1xf4MIdPseZjKy06gjEkE2MN4BwSSMrCsTs5wZa01k8oOeUlBFr5IGEOzS4J7Hm
-	wM9h5TqwlB2qCSLKcBGVlGGk/+aEV8s4rDVo1R5++KXm4i9/lVvU9McUy/GolBaP
-	tUrQnH9KaQznG8y+o1JOnWamSJLC1WaDpZcXupXa2Y43zlNVGvDHd9YiKHYs5E3W
-	wRsZ0CRLwJLFM9BFMO6n9vsgUk2LIjHb5nL5vJ/USM6JgxhsShwsi4RSGC//sOFD
-	JlvX/xIzlB2e93pdjoD2fBTkp+Vw+FHtdpAzDEpWumnKXkXBSTVYR1K0uf0bbZU1
-	TvlQGw==
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=nxroecgL3dI/8WPwNij68I
+	nsn/aM9+LI7YXe9cBnpHI=; b=PcIIKz1MonbRt8+KnMWzWp7tmAWGelDXkOoNe7
+	rW7KhxB1KRcPxiRcEd/B6ptOXhjFHiidhBZ9KfFlejgQe7jxXW93GfgZQOEac3ji
+	ljg9NK4x642RXBVyc3q1ndkuzCV9ZffRKKhry4qretfKjfP1BYUNWjxKbs7ivns1
+	hIZsh/DOkoO1SQOgP+Decu5Nk3p9UXEURvcro0orSCWz/61Csr/WyDYk4xfG+3TU
+	LaXxgeL9UzLOoIFwwvnUAmeTUF60F0RmjVz/6asJjd4y47NHsADkSP3clplYreTR
+	Ju4fawsfDOh5cyBk+zV7LTramCmw64bMm3kczOBI8wVzEjRA==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44ebcbjrur-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44embfs6pp-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Tue, 28 Jan 2025 09:21:28 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 359CA40059;
-	Tue, 28 Jan 2025 09:20:10 +0100 (CET)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 2220E40052;
+	Tue, 28 Jan 2025 09:20:05 +0100 (CET)
 Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 0F6DB29C5EF;
-	Tue, 28 Jan 2025 09:17:46 +0100 (CET)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 623B229BCDB;
+	Tue, 28 Jan 2025 09:17:42 +0100 (CET)
 Received: from localhost (10.48.87.62) by SHFDAG1NODE1.st.com (10.75.129.69)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Tue, 28 Jan
- 2025 09:17:45 +0100
+ 2025 09:17:42 +0100
 From: <patrice.chotard@foss.st.com>
 To: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
         Krzysztof
@@ -88,12 +72,10 @@ CC: <linux-spi@vger.kernel.org>, <devicetree@vger.kernel.org>,
         <linux-stm32@st-md-mailman.stormreply.com>,
         <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
         <christophe.kerello@foss.st.com>, <patrice.chotard@foss.st.com>
-Subject: [PATCH v2 5/9] arm64: dts: st: Add OMM node on stm32mp251
-Date: Tue, 28 Jan 2025 09:17:27 +0100
-Message-ID: <20250128081731.2284457-6-patrice.chotard@foss.st.com>
+Subject: [PATCH v2 0/9] Add STM32MP25 SPI NOR support
+Date: Tue, 28 Jan 2025 09:17:22 +0100
+Message-ID: <20250128081731.2284457-1-patrice.chotard@foss.st.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250128081731.2284457-1-patrice.chotard@foss.st.com>
-References: <20250128081731.2284457-1-patrice.chotard@foss.st.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -104,8 +86,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-01-28_02,2025-01-27_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_082149_535038_C481F617 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20250128_002150_561343_55E1F8A3 
+X-CRM114-Status: GOOD (  14.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,73 +104,56 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Patrice Chotard <patrice.chotard@foss.st.com>
 
-Add Octo Memory Manager (OMM) entry on stm32mp251 and its two
-OSPI instance.
+This series adds SPI NOR support for STM32MP25 SoCs from STMicroelectronics,
+for that it adds support for:
+  - Octo Memory Manager driver.
+  - Octo SPI driver.
+  - yaml schema for Octo Memory Manager and Octo SPI drivers.
+
+The device tree files adds Octo Memory Manager and associated Octo SPI instances
+in stm32mp251.dtsi and adds SPI NOR support in stm32mp257f-ev1 board.
 
 Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
----
- arch/arm64/boot/dts/st/stm32mp251.dtsi | 48 ++++++++++++++++++++++++++
- 1 file changed, 48 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-index f3c6cdfd7008..f364b9e87e96 100644
---- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
-+++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-@@ -768,6 +768,54 @@ rng: rng@42020000 {
- 				status = "disabled";
- 			};
- 
-+			ommanager: ommanager@40500000 {
-+				compatible = "st,stm32mp25-omm";
-+				reg = <0x40500000 0x400>, <0x60000000 0x10000000>;
-+				reg-names = "regs", "memory_map";
-+				ranges = <0 0 0x40430000 0x400>,
-+					 <1 0 0x40440000 0x400>;
-+				clocks = <&rcc CK_BUS_OSPIIOM>;
-+				resets = <&rcc OSPIIOM_R>;
-+				#address-cells = <2>;
-+				#size-cells = <1>;
-+				st,syscfg-amcr = <&syscfg 0x2c00 0x7>;
-+				access-controllers = <&rifsc 111>;
-+				power-domains = <&CLUSTER_PD>;
-+				status = "disabled";
-+
-+				ospi1: spi@40430000 {
-+					compatible = "st,stm32mp25-ospi";
-+					reg = <0 0 0x400>;
-+					interrupts = <GIC_SPI 163 IRQ_TYPE_LEVEL_HIGH>;
-+					dmas = <&hpdma 2 0x62 0x00003121>,
-+					       <&hpdma 2 0x42 0x00003112>;
-+					dma-names = "tx", "rx";
-+					st,syscfg-dlyb = <&syscfg 0x1000>;
-+					clocks = <&scmi_clk CK_SCMI_OSPI1>;
-+					resets = <&scmi_reset RST_SCMI_OSPI1>,
-+						 <&scmi_reset RST_SCMI_OSPI1DLL>;
-+					access-controllers = <&rifsc 74>;
-+					power-domains = <&CLUSTER_PD>;
-+					status = "disabled";
-+				};
-+
-+				ospi2: spi@40440000 {
-+					compatible = "st,stm32mp25-ospi";
-+					reg = <1 0 0x400>;
-+					interrupts = <GIC_SPI 164 IRQ_TYPE_LEVEL_HIGH>;
-+					dmas = <&hpdma 3 0x62 0x00003121>,
-+					       <&hpdma 3 0x42 0x00003112>;
-+					dma-names = "tx", "rx";
-+					st,syscfg-dlyb = <&syscfg 0x1400>;
-+					clocks = <&scmi_clk CK_SCMI_OSPI2>;
-+					resets = <&scmi_reset RST_SCMI_OSPI2>,
-+						 <&scmi_reset RST_SCMI_OSPI2DLL>;
-+					access-controllers = <&rifsc 75>;
-+					power-domains = <&CLUSTER_PD>;
-+					status = "disabled";
-+				};
-+			};
-+
- 			spi8: spi@46020000 {
- 				#address-cells = <1>;
- 				#size-cells = <0>;
+Changes in v2:
+  - Move STM32 Octo Memory Manager controller driver and bindings from
+    misc to memory-controllers.
+  - Update STM32 OSPI controller bindings.
+  - Update STM32 Octo Memory Manager controller bindings.
+  - Update STM32 Octo Memory Manager driver to match bindings update.
+  - Update DT to match bindings update.
+
+Patrice Chotard (9):
+  dt-bindings: spi: Add STM32 OSPI controller
+  spi: stm32: Add OSPI driver
+  dt-bindings: memory-controllers: Add STM32 Octo Memory Manager
+    controller
+  memory: Add STM32 Octo Memory Manager driver
+  arm64: dts: st: Add OMM node on stm32mp251
+  arm64: dts: st: Add ospi port1 pinctrl entries in
+    stm32mp25-pinctrl.dtsi
+  arm64: dts: st: Add SPI NOR flash support on stm32mp257f-ev1 board
+  arm64: defconfig: Enable STM32 Octo Memory Manager driver
+  arm64: defconfig: Enable STM32 OctoSPI driver
+
+ .../memory-controllers/st,stm32-omm.yaml      |  190 +++
+ .../bindings/spi/st,stm32mp25-ospi.yaml       |  102 ++
+ arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi |   51 +
+ arch/arm64/boot/dts/st/stm32mp251.dtsi        |   48 +
+ arch/arm64/boot/dts/st/stm32mp257f-ev1.dts    |   32 +
+ arch/arm64/configs/defconfig                  |    2 +
+ drivers/memory/Kconfig                        |   17 +
+ drivers/memory/Makefile                       |    1 +
+ drivers/memory/stm32_omm.c                    |  509 ++++++++
+ drivers/spi/Kconfig                           |   10 +
+ drivers/spi/Makefile                          |    1 +
+ drivers/spi/spi-stm32-ospi.c                  | 1064 +++++++++++++++++
+ 12 files changed, 2027 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/memory-controllers/st,stm32-omm.yaml
+ create mode 100644 Documentation/devicetree/bindings/spi/st,stm32mp25-ospi.yaml
+ create mode 100644 drivers/memory/stm32_omm.c
+ create mode 100644 drivers/spi/spi-stm32-ospi.c
+
 -- 
 2.25.1
 
