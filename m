@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA423C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 11:50:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F8AC0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 11:54:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KFbJHFwKv8l9HWXiO3AbuWI9QCdAKWflw+meI9cYVOs=; b=IMqpscNSOqb7CNbVyPiG1j8jL2
-	49bSDPAYDu8ht/LoXpCscuHAj1+XhwNEvB2zyPHXKuaNPGnNAAJTisHVhi/jXMCNtZtSAi8zpUWhT
-	XQW7F2mjbSksYK88ADE66+MRSLrtZIryK8mocQi7ll6hq3Ji0mqoscCFyX15LLPZB0YUzwRaqNphD
-	3uMhhYOCSzRRO7/FTylvKcgm1sAoQ8RHDLAWXKZ1PFt1IYgFBgqHACldM7zkTl07iX5Xu2qHWIX+d
-	Gn5oYpAXoAqLyC9l0LBETWFRLaa4oLCbVwuwt7nMgmGAQTIY7+fAEOehV2URtbpt6v7GtYSWcEm8F
-	DHvQ1jEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o9LGknUAjaQX9ZGpV3UINT3HOJ34e3MT8Vv4NfioohU=; b=Ro/Ad+A3PSCqoIY798QD499bsM
+	R0g3Tezul0nkRP7k58tYgUBynm88sowk9t9jHLBKuOhxgSOrvVmdbkNy+T9xSO/urvO/EwTXsbW/G
+	ENgq/PaMguP67JkB3Z9frBBjcBAVXy92SHDnlCsfYSDtpwVoX0zI98aHGYOWSvlYA78DC6MQQCbrp
+	1KFewAYXR1dHm5EGzUvqMND+jPIe+mRfiseeAK6YoAJsmeukKXw9RQTL+BQ0Yy2bA9IqvFC7fnKQE
+	RDrl2NoXnxn265bJEWBTC1V3a/bg6HPVWbZSw8KWayIFvDp3UVWE1evHuqyVDlNsV4SnM4N5hmy9U
+	Z8f5YDmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tck6I-00000004oal-1aZg;
-	Tue, 28 Jan 2025 11:49:50 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tck4x-00000004oSg-3CWC
+	id 1tckAq-00000004osg-1WHh;
+	Tue, 28 Jan 2025 11:54:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tck9W-00000004oj0-06gA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jan 2025 11:48:29 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4Yj3QZ3SqNz6M4HK;
-	Tue, 28 Jan 2025 19:46:14 +0800 (CST)
-Received: from frapeml500003.china.huawei.com (unknown [7.182.85.28])
-	by mail.maildlp.com (Postfix) with ESMTPS id 60B9D140157;
-	Tue, 28 Jan 2025 19:48:18 +0800 (CST)
-Received: from localhost (10.48.150.41) by frapeml500003.china.huawei.com
- (7.182.85.28) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Tue, 28 Jan
- 2025 12:48:17 +0100
-Date: Tue, 28 Jan 2025 11:48:11 +0000
-From: Alireza Sanaee <alireza.sanaee@huawei.com>
-To: Rob Herring <robh@kernel.org>
-CC: <mark.rutland@arm.com>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <jonathan.cameron@huawei.com>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<shameerali.kolothum.thodi@huawei.com>, <zhao1.liu@intel.com>,
-	<yangyicong@hisilicon.com>, <rrendec@redhat.com>, <catalin.marinas@arm.com>
-Subject: Re: [RFC PATCH v1 1/1] base/of/cacheinfo: support l1 entry in dt
-Message-ID: <20250128114811.00007685.alireza.sanaee@huawei.com>
-In-Reply-To: <CAL_JsqKFjQeaoGn5PRn1=P49mag-Kyik7EwtsOU8fcdvYhPcOA@mail.gmail.com>
-References: <20250124152008.313-1-alireza.sanaee@huawei.com>
-	<20250124152008.313-2-alireza.sanaee@huawei.com>
-	<CAL_JsqKFjQeaoGn5PRn1=P49mag-Kyik7EwtsOU8fcdvYhPcOA@mail.gmail.com>
-Organization: Huawei
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Tue, 28 Jan 2025 11:53:11 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4BCF9497;
+	Tue, 28 Jan 2025 03:53:35 -0800 (PST)
+Received: from bogus (unknown [10.57.36.4])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6749E3F694;
+	Tue, 28 Jan 2025 03:53:05 -0800 (PST)
+Date: Tue, 28 Jan 2025 11:52:32 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Dhruva Gole <d-gole@ti.com>
+Cc: Vivek yadav <linux.ninja23@gmail.com>, linux-newbie@vger.kernel.org,
+	Sudeep Holla <sudeep.holla@arm.com>, linux-pm@vger.kernel.org,
+	daniel.lezcano@linaro.org, lpieralisi@kernel.org, krzk@kernel.org,
+	christian.loehle@arm.com, quic_sibis@quicinc.com,
+	cristian.marussi@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, vigneshr@ti.com, khilman@ti.com,
+	sebin.francis@ti.com, khilman@baylibre.com
+Subject: Re: Fwd: ARM64: CPUIdle driver is not select any Idle state other
+ then WFI
+Message-ID: <20250128115232.kte35toxn3puoqwk@bogus>
+References: <CAO6a-9_aPLCx2CqecQBGbK78_=+-tT44RepPkrBjpkWSvjj4Tg@mail.gmail.com>
+ <CAO6a-98cdSvyd7jgAyGNmsC2nxmRSyr3GppxvZU9yHU1xqwz3g@mail.gmail.com>
+ <20241211055052.gbxnyqpui3t3zpw5@lcpd911>
+ <20241211121825.GA2054801@bogus>
+ <20241211143428.kaoovhiwar74dy6x@lcpd911>
+ <Z1rbLdWW75KQw5cl@bogus>
+ <CAO6a-98XFxbCnOMp5ARwPssjYomyNKWjT=WTk=z2+ZKyOAQ0jQ@mail.gmail.com>
+ <20250128094720.sgk7gyr5oawzxbez@bogus>
+ <20250128111407.6hbefatwhuomstzo@lcpd911>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Originating-IP: [10.48.150.41]
-X-ClientProxiedBy: lhrpeml500006.china.huawei.com (7.191.161.198) To
- frapeml500003.china.huawei.com (7.182.85.28)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250128111407.6hbefatwhuomstzo@lcpd911>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_034828_092927_3949EFA3 
-X-CRM114-Status: GOOD (  28.07  )
+X-CRM114-CacheID: sfid-20250128_035310_157208_1704D591 
+X-CRM114-Status: GOOD (  37.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,142 +76,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 27 Jan 2025 10:24:13 -0600
-Rob Herring <robh@kernel.org> wrote:
-
-> On Fri, Jan 24, 2025 at 9:20=E2=80=AFAM Alireza Sanaee
-> <alireza.sanaee@huawei.com> wrote:
+On Tue, Jan 28, 2025 at 04:44:07PM +0530, Dhruva Gole wrote:
+> Hi Sudeep and Vivek,
+>
+> On Jan 28, 2025 at 09:47:20 +0000, Sudeep Holla wrote:
+> > On Mon, Jan 27, 2025 at 10:47:28PM +0530, Vivek yadav wrote:
+> > > Hi @Dhruva Gole,
+> > >
+> > > Q.1. Does your CA-53 properly go into CPUIdle state and come out of
+> > > sleep state ?
 > >
-> > This commit simply assumes that CPU node entries may point to a
-> > cache node that basically act as a l1-cache and there are some CPU
-> > nodes without describing any caches but a next-level-cache property
-> > that points to l1-cache. =20
->=20
-> This commit message needs some work. Read documentation on writing
-> commit messages.
+> > Yes, well tested on other SoCs. Seems like system integration issue.
+>
+> Yes, with the local-timer-stop property removed, all A53 cores do enter
+> idle in TF-A at the same time.
+>
 
-Hi Rob,
+Cool.
 
-Thanks for the feedback.
-
-I am going to update this text to give more background.
-
->=20
-> Why/when does describing L1 cache in the cpu nodes not work? That is
-> the assumption in the bindings. If we're changing that, there may need
-> to be a binding/spec change.
-
-Yes, I will have to send a patch regarding the spec too. Will send a
-patch as well.
-
-My plan is to first send a new revision and then send the updates
-related to the spec, and then hopefully we can converge there.
-
-Thanks,
-Alireza
->=20
+> > > As of now I made some changes in the DT node. After making changes in
+> > > latency (which is mentioned below).
+> > >
+> > >  idle-states {
+> > >        entry-method = "psci";
+> > >         cpu_ret_l: cpu-retention-l {
+> > >           compatible = "arm,idle-state";
+> > >           arm,psci-suspend-param = <0x00000000>;
+> > >           local-timer-stop;
+> > >           entry-latency-us = <300000>; # 300ms
+> > >            exit-latency-us = <300000>; # 300ms
+> > >            min-residency-us = <1000000>; # 1 sec
+> > >      };
+> > >  };
+> > >
 > >
-> > Signed-off-by: Alireza Sanaee <alireza.sanaee@huawei.com>
-> > ---
-> >  drivers/base/cacheinfo.c | 54
-> > +++++++++++++++++++++++++++------------- 1 file changed, 37
-> > insertions(+), 17 deletions(-)
-> >
-> > diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
-> > index cf0d455209d7..d119228fc392 100644
-> > --- a/drivers/base/cacheinfo.c
-> > +++ b/drivers/base/cacheinfo.c
-> > @@ -83,7 +83,31 @@ bool last_level_cache_is_shared(unsigned int
-> > cpu_x, unsigned int cpu_y)
-> >
-> >  #ifdef CONFIG_OF
-> >
-> > -static bool of_check_cache_nodes(struct device_node *np);
-> > +static bool of_check_cache_node(struct device_node *np) {
-> > +       if (of_property_present(np, "cache-size")   ||
-> > +           of_property_present(np, "i-cache-size") ||
-> > +           of_property_present(np, "d-cache-size") ||
-> > +           of_property_present(np, "cache-unified"))
-> > +               return true;
-> > +       return false;
-> > +}
-> > +
-> > +static bool of_check_cache_nodes(struct device_node *np)
-> > +{
-> > +       if (of_property_present(np, "cache-size")   ||
-> > +           of_property_present(np, "i-cache-size") ||
-> > +           of_property_present(np, "d-cache-size") ||
-> > +           of_property_present(np, "cache-unified")) =20
->=20
-> This is the same code as of_check_cache_node(), use it.
->=20
-> > +               return true;
-> > +
-> > +       struct device_node *next __free(device_node) =3D
-> > of_find_next_cache_node(np);
-> > +       if (next) {
-> > +               return true;
-> > +       }
-> > +
-> > +       return false;
-> > +}
-> > +
-> >
-> >  /* OF properties to query for a given cache type */
-> >  struct cache_type_info {
-> > @@ -218,11 +242,23 @@ static int cache_setup_of_node(unsigned int
-> > cpu) while (index < cache_leaves(cpu)) {
-> >                 this_leaf =3D per_cpu_cacheinfo_idx(cpu, index);
-> >                 if (this_leaf->level !=3D 1) {
-> > +                       /* Always go one level down for level > 1 */
-> >                         struct device_node *prev
-> > __free(device_node) =3D np; np =3D of_find_next_cache_node(np);
-> >                         if (!np)
-> >                                 break;
-> > +               } else {
-> > +                       /* For level 1, check compatibility */
-> > +                       if (!of_device_is_compatible(np, "cache") &&
-> > +                           !of_check_cache_node(np)) {
-> > +                               struct device_node *prev
-> > __free(device_node) =3D np;
-> > +                               np =3D of_find_next_cache_node(np);
-> > +                               if (!np)
-> > +                                       break;
-> > +                               continue; /* Skip to next index
-> > without processing */
-> > +                       }
-> >                 }
-> > +
-> >                 cache_of_set_props(this_leaf, np);
-> >                 this_leaf->fw_token =3D np;
-> >                 index++;
-> > @@ -234,22 +270,6 @@ static int cache_setup_of_node(unsigned int
-> > cpu) return 0;
-> >  }
-> >
-> > -static bool of_check_cache_nodes(struct device_node *np)
-> > -{
-> > -       if (of_property_present(np, "cache-size")   ||
-> > -           of_property_present(np, "i-cache-size") ||
-> > -           of_property_present(np, "d-cache-size") ||
-> > -           of_property_present(np, "cache-unified"))
-> > -               return true;
-> > -
-> > -       struct device_node *next __free(device_node) =3D
-> > of_find_next_cache_node(np);
-> > -       if (next) {
-> > -               return true;
-> > -       }
-> > -
-> > -       return false;
-> > -}
-> > -
-> >  static int of_count_cache_leaves(struct device_node *np)
-> >  {
-> >         unsigned int leaves =3D 0;
-> > --
-> > 2.34.1
-> > =20
->=20
+> > Does these align with expectation of PSCI implementation in the firmware ?
+>
+> Just to add here, value of that parameter has some encoded
+> meaning and is given in the PSCI standard:
+> Table 7 power_state parameter bit fields in Original format
+> https://developer.arm.com/documentation/den0022/fb/?lang=en
+>
 
+Excellent! I just wanted to be sure that we are not just playing with these in
+the DT without realising what that means to the PSCI implementation.
+
+> >
+> >
+> > > I can see that  CA-55 went into a sleep state (state1) using command
+> > > ``cat /sys/devices/system/cpu/cpu*/cpuidle/state*/time``.
+> > > As you mention earlier in a multicore system (2 or more) at least one
+> > > core keeps working and does not go into sleep state. It should happen
+> > > as per theory and other developers' case.
+> > >
+> > > In my case, after some time, both CPUs (CPU0 and CPU1) go into sleep
+> > > state (state1). Hence the system console hangs.
+> > >
+> > > My expectations are,
+> > > If I type anything on keyboard. UART interrupt should take out CPUs
+> > > from sleep state and execute commands. OR some periodic timer should
+> > > take the CPU out of sleep. Which is not happening as of now.
+> > > As you said  we can safely remove`` local-timer-stop``. It means local
+> > > timers are working for the CPUs and triggering interrupts ?
+> > >
+> >
+> > Please go the thread and understand when and why you need local-timer-stop and
+> > how it is related to the arm,psci-suspend-param value(especially the state
+> > context loss bit)
+>
+> Yes this is the important bit, if you know that on your platform the
+> A53s are just not going to power off or stop timers upon entering idle
+> then you must remove the local-timer-stop property from your DT
+> cpu_ret_l.
+> However, if you do have a scenario where the timer would be getting
+> stopped or modified in idle scenario, then linux needs to be able to use
+> another timer that is routed to the GIC and is unaffected while the
+> system is in idle.
+>
+
+Looks like we are in sync with our understanding now, that's progress.
+
+> This is what my understanding is so far, I am yet to do experiments with
+> local-timer-stop + different timer in the case of idle.
+>
+
+Yes, that would be interesting.
+
+> >
+> > I have not got response to my questions. You can just play with DT and get
+> > things working here if the firmware expectation, hardware functionality
+> > and DT properties don't align.
+>
+> I have responded to the thread now, sorry for not getting back earlier!
+>
+
+No worries, just wanted to make sure those queries didn't slip through the
+cracks.
+
+--
+Regards,
+Sudeep
 
