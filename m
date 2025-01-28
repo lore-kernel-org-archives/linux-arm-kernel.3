@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89EC5C02191
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 10:33:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED56EC0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 10:46:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lrkKrxGw1OxOIHdn8mG7AZsc59VcetwwU3eBrlBO9Mg=; b=LnvjeKDDDyBhlCWNH5QfE0vT0v
-	vO7sU8jyRQG6v9yA6zOKv6/IOFSQNCz6KkPkhjBnnilSt43zNLvQHacbXOTemxCTAKsacyyA6v/2X
-	kSGZwIDvRQ/lexb4NoHqxzpNhJT2WAKf6O80yTLZqkKiLNjahkSMnw6g0uXvHo7NThkdjyi259z/G
-	CaiSOkrPEoNLrYbzjY5x2b+s/BTQ8ytgN2QNCvbjc1oLIOeyXISYjE0VaSbmXuETeCP7YkgSijpqd
-	n7sg2x9bMSwwFi6OzJxY6YG0ZzrFNcwajmfcnlk1GJbSHJWMq+4KwPmsZNtnHeKdAKrQUriNEIjSJ
-	O4acc91Q==;
+	bh=QH2HlRrsM2GhBqfQeM842UlYrI8bH7FA97PniLkwhl0=; b=4ic6IvZHvCpSUhdbC2l3LAe5ov
+	V9hic57Q3/0dIpI/237dfResntp+++IOakiveuXQ73CCsFFgaCw7iWNFQJGMTFsFpqSVJyMJ3Rrqe
+	blUKdgHLnmHXluUqwUUqzLZTeHrGHWmHb0cOjaW730WJGJmtXRtPjHBFGrovPc/Wial+KkFMJwr3s
+	vaTy5zZfgPixH4iN4aUcU3GC0cLocrhpLKUIKQxr3mR8HtaLz622bsIaxboCwedhxh+zbMGkt4vwk
+	py+so1qDeiIkLRBWmZaqpFtjVb3WDHPCn1lX2AUblLiIO12CMxQbpg6Z8lpOkau6+UJgJWns7aiH/
+	QXs4CdrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcitv-00000004emm-2d8v;
-	Tue, 28 Jan 2025 10:32:59 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tcj6V-00000004gLM-0UAb;
+	Tue, 28 Jan 2025 10:45:59 +0000
+Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcisX-00000004eUH-3j0x
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jan 2025 10:31:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 99352A40A1E;
-	Tue, 28 Jan 2025 10:29:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D1EBC4CEE3;
-	Tue, 28 Jan 2025 10:31:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738060292;
-	bh=H6SMlW4tY/dv7HZV8uwUnEiNFCo2HjcWfwj2mK+HPNg=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=j7XEAQDT/q4YR7UEVN2p/mLn9RtQkVY2foZWR9AwCE3nHgBuOJRF0tbfRs1y25VVy
-	 SDi03wCHYZg87XJTCjIVLvPonP6CaRkNdXpR9So1+DbFDkjvEpJVtA7NI/wSYz1q2Z
-	 lNk246Glj0e+W7JlFZbDXchAOCwvQpNSb9ybuzmjo0mNUf8bsXfZN0UXNmJhgt3Fns
-	 4U8WEGVPEQpSV0oYr7sKxUc1Ptd8pj5V6gu5NwJDjS4DhxW/SG8hIJIUQcuZMyRBzX
-	 zTvgPNc93F+ip+StPb1tZTBxEbgSv0MVQdMn8nHv64xIMmkhWxv2t4h/X2aI2hkAIP
-	 DcIRzduyT3ieQ==
-X-Mailer: emacs 31.0.50 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Peter Collingbourne <pcc@google.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v2 5/7] KVM: arm64: MTE: Use stage-2 NoTagAccess memory
- attribute if supported
-In-Reply-To: <Z4e04P1bQlFBDHo7@arm.com>
-References: <20250110110023.2963795-1-aneesh.kumar@kernel.org>
- <20250110110023.2963795-6-aneesh.kumar@kernel.org>
- <Z4Fk58k8YptDkVgm@arm.com> <yq5amsfxtrlw.fsf@kernel.org>
- <Z4Vk5gTnd8o7VKWL@arm.com>
- <CAMn1gO4huP4D_1mFdC8FsmvHkaQn+hC02ULcfBuS30VDM9=9gA@mail.gmail.com>
- <Z4e04P1bQlFBDHo7@arm.com>
-Date: Tue, 28 Jan 2025 16:01:18 +0530
-Message-ID: <yq5afrl3cjrd.fsf@kernel.org>
+	id 1tcj5A-00000004gCa-2OHh;
+	Tue, 28 Jan 2025 10:44:37 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1738061074;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QH2HlRrsM2GhBqfQeM842UlYrI8bH7FA97PniLkwhl0=;
+	b=WNFLx3YFReVPhS8mPLJ+8dWLkj7tr6Z5rlcSM2MBg2AlKXwjQwOYTyUZ7BuIy9cl88zSRg
+	9L7QNBrhJTIxbdft7iM1P+wPCvkXVvFBA0CDNbX9oKzXFYPKCPZVjzH+e9KVXAMRll4JG8
+	boKosHygywwhKQ7xIsa9MtIZVb8M9nk56NLhzf1qVSLLxENSJqyM6+dM5JV9JrBqhw5ESm
+	eqrdC+qqUJ7QOL5Wq8OY/pcLTF8jFTfl4/B92L6B0g2k10D3DUNLajEFHQpL67DMSYhIKV
+	knmDzwnuzqgJlPsEFmi/PuyL9iVg57bBwNfmLLkPTkT29wL164GeBWvft+kNEA==
+Date: Tue, 28 Jan 2025 11:44:34 +0100
+From: Dragan Simic <dsimic@manjaro.org>
+To: Alexey Charkov <alchark@gmail.com>
+Cc: Alexander Shiyan <eagle.alexander923@gmail.com>, Rob Herring
+ <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, devicetree@vger.kernel.org, Sebastian Reichel
+ <sebastian.reichel@collabora.com>, stable@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] arm64: dts: rockchip: Fix broken tsadc pinctrl binding
+ for rk3588
+In-Reply-To: <CABjd4YwCH93-=Cqck5TiuJoTUkYbRh0495J6w=J8t93oHdt43g@mail.gmail.com>
+References: <20250124052611.3705-1-eagle.alexander923@gmail.com>
+ <CABjd4YwA8P9LVuDviO6xydkHpuuOY7XT0pk1oa+FDqOo=uZN4A@mail.gmail.com>
+ <a76f315f023a3f8f5435e0681119b4eb@manjaro.org>
+ <CABjd4Ywh_AkbXHonx-8vL-hNY5LMLJge5e4oqxvUG+qe6OF-Og@mail.gmail.com>
+ <61b494b209d7360d0f36adbf6d5443a4@manjaro.org>
+ <CABjd4Yx0p0B=e00MjCpDDq8Z=0FtM0s9EN86WdvRimt-_+kh2w@mail.gmail.com>
+ <CABjd4Yy14bpjzvFyc8et-=pmds5uwzfxNqcs7L=+XRXBogZEsQ@mail.gmail.com>
+ <CAP1tNvTRER=QzC29Udw4ffOetVECWV+MfZ2o-mbUFvuZ0_i-Kw@mail.gmail.com>
+ <b57d8a834f5c07e37e0e7ee74346c700@manjaro.org>
+ <CABjd4YwCH93-=Cqck5TiuJoTUkYbRh0495J6w=J8t93oHdt43g@mail.gmail.com>
+Message-ID: <1498db1c6664b39b49cfc71d2e4eb5ef@manjaro.org>
+X-Sender: dsimic@manjaro.org
+Content-Type: text/plain; charset=UTF-8;
+ format=flowed
+Content-Transfer-Encoding: 8bit
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_023134_059385_5E570127 
-X-CRM114-Status: GOOD (  40.15  )
+X-CRM114-CacheID: sfid-20250128_024436_920035_3CD0DFF0 
+X-CRM114-Status: GOOD (  24.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,159 +85,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Catalin Marinas <catalin.marinas@arm.com> writes:
+Hello Alexey,
 
-> On Mon, Jan 13, 2025 at 12:47:54PM -0800, Peter Collingbourne wrote:
->> On Mon, Jan 13, 2025 at 11:09=E2=80=AFAM Catalin Marinas
->> <catalin.marinas@arm.com> wrote:
->> > On Sat, Jan 11, 2025 at 06:49:55PM +0530, Aneesh Kumar K.V wrote:
->> > > Catalin Marinas <catalin.marinas@arm.com> writes:
->> > > > On Fri, Jan 10, 2025 at 04:30:21PM +0530, Aneesh Kumar K.V (Arm) w=
-rote:
->> > > >> Currently, the kernel won't start a guest if the MTE feature is e=
-nabled
->> > >
->> > > ...
->> > >
->> > > >> @@ -2152,7 +2162,8 @@ int kvm_arch_prepare_memory_region(struct k=
-vm *kvm,
->> > > >>            if (!vma)
->> > > >>                    break;
->> > > >>
->> > > >> -          if (kvm_has_mte(kvm) && !kvm_vma_mte_allowed(vma)) {
->> > > >> +          if (kvm_has_mte(kvm) &&
->> > > >> +              !kvm_has_mte_perm(kvm) && !kvm_vma_mte_allowed(vma=
-)) {
->> > > >>                    ret =3D -EINVAL;
->> > > >>                    break;
->> > > >>            }
->> > > >
->> > > > I don't think we should change this, or at least not how it's done=
- above
->> > > > (Suzuki raised a related issue internally relaxing this for VM_PFN=
-MAP).
->> > > >
->> > > > For standard memory slots, we want to reject them upfront rather t=
-han
->> > > > deferring to the fault handler. An example here is file mmap() pas=
-sed as
->> > > > standard RAM to the VM. It's an unnecessary change in behaviour IM=
-HO.
->> > > > I'd only relax this for VM_PFNMAP mappings further down in this
->> > > > function (and move the VM_PFNMAP check above; see Suzuki's internal
->> > > > patch, unless he posted it publicly already).
->> > >
->> > > But we want to handle memslots backed by pagecache pages for virtio-=
-shm
->> > > here (virtiofs dax use case).
+On 2025-01-28 11:30, Alexey Charkov wrote:
+> On Tue, Jan 28, 2025 at 1:24 PM Dragan Simic <dsimic@manjaro.org> 
+> wrote:
+>> On 2025-01-26 15:25, Alexander Shiyan wrote:
+>> >> > > I think it's actually better to accept the approach in Alexander's
+>> >> > > patch, because the whole thing applies to other Rockchip SoCs as well,
+>> >> > > not just to the RK3588(S).
+>> >> >
+>> >> > Anyway, I've just tried it after including the changes below, and
+>> >> > while /sys/kernel/debug/pinctrl/pinctrl-handles shows the expected
+>> >> > pinctrls under tsadc, the driver still doesn't seem to be triggering a
+>> >> > PMIC reset. Weird. Any thoughts welcome.
+>> >>
+>> >> I found the culprit. "otpout" (or "default" if we follow Alexander's
+>> >> suggested approach) pinctrl state should refer to the &tsadc_shut_org
+>> >> config instead of &tsadc_shut - then the PMIC reset works.
 >> >
->> > Ah, I forgot about this use case. So with virtiofs DAX, does a host pa=
-ge
->> > cache page (host VMM mmap()) get mapped directly into the guest as a
->> > separate memory slot? In this case, the host vma would not have
->> > VM_MTE_ALLOWED set.
->> >
->> > > With MTE_PERM, we can essentially skip the
->> > > kvm_vma_mte_allowed(vma) check because we handle all types in the fa=
-ult
->> > > handler.
->> >
->> > This was pretty much the early behaviour when we added KVM support for
->> > MTE, allow !VM_MTE_ALLOWED and trap them later. However, we disallowed
->> > VM_SHARED because of some non-trivial race. Commit d89585fbb308 ("KVM:
->> > arm64: unify the tests for VMAs in memslots when MTE is enabled")
->> > changed this behaviour and the VM_MTE_ALLOWED check happens upfront. A
->> > subsequent commit removed the VM_SHARED check.
->> >
->> > It's a minor ABI change but I'm trying to figure out why we needed this
->> > upfront check rather than simply dropping the VM_SHARED check. Adding
->> > Peter in case he remembers. I can't see any race if we simply skipped
->> > this check altogether, irrespective of FEAT_MTE_PERM.
->>=20
->> I don't see a problem with removing the upfront check. The reason I
->> kept the check was IIRC just that there was already a check there and
->> its logic needed to be adjusted for my VM_SHARED changes.
->
-> Prior to commit d89585fbb308, kvm_arch_prepare_memory_region() only
-> rejected a memory slot if VM_SHARED was set. This commit unified the
-> checking with user_mem_abort(), with slots being rejected if
-> (!VM_MTE_ALLOWED || VM_SHARED). A subsequent commit dropped the
-> VM_SHARED check, so we ended up with memory slots being rejected only if
-> !VM_MTE_ALLOWED (of course, if kvm_has_mte()). This wasn't the case
-> before the VM_SHARED relaxation.
->
-> So if you don't remember any strong reason for this change, I think we
-> should go back to the original behaviour of deferring the VM_MTE_ALLOWED
-> check to user_mem_abort() (and still permitting VM_SHARED).
->
+>> > Great, I'll use this in v2.
+>> 
+>> Please, let's wait with the v2 until I go through the whole thing 
+>> again
+> 
+> I, for one, would welcome a v2 that could be tested and confirmed
+> working with and without driver changes. Especially given that:
+>  - the changes are pretty small
+>  - hardware docs say nothing about the difference between TSADC_SHUT
+> vs. TSADC_SHUT_ORG, except that one is config #2 and the other is
+> config #1
+>  - none of the source trees I looked at seem to enable PMIC based
+> resets on any RK3588-based boards, so these pinctrl configs appear to
+> have never been tested in the wild for RK3588*
+> 
+> So trying and testing seems to be the only way to understand the best
+> way forward. Unless, of course, someone from Rockchip can comment on
+> how the hardware works with TSADC_SHUT vs. TSADC_SHUT_ORG.
 
-Something as below?
+Perhaps the best approach would be to have the v2 that works without
+the driver changes, so it can be propagated into the stable kernels.
 
-From 466237a6f0a165152c157ab4a73f34c400cffe34 Mon Sep 17 00:00:00 2001
-From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Date: Tue, 28 Jan 2025 14:21:52 +0530
-Subject: [PATCH] KVM: arm64: Drop mte_allowed check during memslot creation
+Then, a separate series, which I'll volunteer for, :) would introduce
+the cleanups and any needed driver changes, which wouldn't be propagated
+into the stable kernels.  That way, we'd have the minimal bugfixes in
+stable kernels, and the nice cleanups in the latest kernel version.
 
-Before commit d89585fbb308 ("KVM: arm64: unify the tests for VMAs in
-memslots when MTE is enabled"), kvm_arch_prepare_memory_region() only
-rejected a memory slot if VM_SHARED was set. This commit unified the
-checking with user_mem_abort(), with slots being rejected if either
-VM_MTE_ALLOWED is not set or VM_SHARED set. A subsequent commit
-c911f0d46879 ("KVM: arm64: permit all VM_MTE_ALLOWED mappings with MTE
-enabled") dropped the VM_SHARED check, so we ended up with memory slots
-being rejected if VM_MTE_ALLOWED is not set. This wasn't the case before
-the commit d89585fbb308. The rejection of the memory slot with VM_SHARED
-set was done to avoid a race condition with the test/set of the
-PG_mte_tagged flag. Before Commit d77e59a8fccd ("arm64: mte: Lock a page
-for MTE tag initialization") the kernel avoided allowing MTE with shared
-pages, thereby preventing two tasks sharing a page from setting up the
-PG_mte_tagged flag racily.
+Of course, detailed testing is mandatory.
 
-Commit d77e59a8fccd ("arm64: mte: Lock a page for MTE tag
-initialization") further updated the locking so that the kernel
-allows VM_SHARED mapping with MTE. With this commit, we can enable
-memslot creation with VM_SHARED VMA mapping.
-
-This patch results in a minor tweak to the ABI. We now allow creating
-memslots that don't have the VM_MTE_ALLOWED flag set. If the guest uses
-such a memslot with Allocation Tags, the kernel will generate -EFAULT.
-ie, instead of failing early, we now fail later during KVM_RUN.
-
-This change is needed because, without it, users are not able to use MTE
-with VFIO passthrough, as shown below (kvmtool VMM).
-
-[  617.921030] vfio-pci 0000:01:00.0: resetting
-[  618.024719] vfio-pci 0000:01:00.0: reset done
-  Error: 0000:01:00.0: failed to register region with KVM
-  Warning: [0abc:aced] Error activating emulation for BAR 0
-  Error: 0000:01:00.0: failed to configure regions
-  Warning: Failed init: vfio__init
-
-  Fatal: Initialisation failed
-
-Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
----
- arch/arm64/kvm/mmu.c | 5 -----
- 1 file changed, 5 deletions(-)
-
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 007dda958eab..610becd8574e 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -2146,11 +2146,6 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
- 		if (!vma)
- 			break;
-=20
--		if (kvm_has_mte(kvm) && !kvm_vma_mte_allowed(vma)) {
--			ret =3D -EINVAL;
--			break;
--		}
--
- 		if (vma->vm_flags & VM_PFNMAP) {
- 			/* IO region dirty page logging not allowed */
- 			if (new->flags & KVM_MEM_LOG_DIRTY_PAGES) {
---=20
-2.43.0
-
-
+>> which I expected to have done already, but had some other "IRL stuff"
+>> that introduced a delay.
 
