@@ -4,99 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98836C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 11:57:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA4C1C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 12:09:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pLXaRDqxo+mIH84hjRiHW1wB2c5SwAr+CdumW+V6OgA=; b=aKVDrFnf4dBqhNajMB7i8RD9nY
-	0pctGs/fx8PU0gVAqTtxWDepmSaVIQw9Z7V4Lmy8ZkGkTxhp1HNaWMYDTK9chjLPviNJwpU0fqYz9
-	brRsdszp+zrivO0Td2OXSFyUUNrmnV2V4R4jf6UBcWBgWtriWcWR64N9QCxeKCBGo3gTnJViH4PHz
-	Q8xcs16WlzeJfQq5uKLAO0XEBVVjvUnLop+xAIRrhWe+0TwfmBPgxR8AEieQmAc0K8k1FaOTUvjwP
-	OTYUKyUn7zkv98rfOyzK24RNF1816FIZzMsttpvGShf07RoWbqaM2ZqaFj1isbmQqRAJMLKYw/djI
-	4I29UgAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KIENhgfskwWlqPlQlpailGGkxQCRl0UULls5o77rIMQ=; b=f5EqL+/LeT7BTZFt0McRwhaKVz
+	Q5INK1+5qrg5b+X5yuHv6089He0dbRMogh/9JinYoTL1tfifF2Zse/tN3JJBp/N/FWRTPWqySL17g
+	o5APwdQQE3uzquDbsMcFTEsnzSd9EJKqwwU52dgj5ZlicG+lrE+jQZ9O0vrwtIKuY7hhFBLffbD16
+	g35pJfGuQmf/JMp94RXZ+wTz7HHr85OhGwEz09I2bke7DXoivdg5XY/w+o3MVN83FWeTTKRsKvIHU
+	QCbCXVss2zq0lGcpr7u8ydl1Tdj8BcmKThY7xtrcxvB+zZszUESDk6IOSAvR6gBvoMbsJNbUpFECV
+	mygHyQ8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tckDq-00000004p9t-2uYN;
-	Tue, 28 Jan 2025 11:57:38 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tckCA-00000004p2L-3KTZ
+	id 1tckP4-00000004qJF-2lii;
+	Tue, 28 Jan 2025 12:09:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tckNg-00000004qDl-3YP2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jan 2025 11:55:55 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-437a92d7b96so56641435e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jan 2025 03:55:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738065353; x=1738670153; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=pLXaRDqxo+mIH84hjRiHW1wB2c5SwAr+CdumW+V6OgA=;
-        b=GGNTbEZEr6r7Olfd04/JPtcejFQC9+adQn27rCQGuJy5LPqsT20vN/vKxEtE0sSBdh
-         itA6ChjB9HzmZ5mCEJWJ86wBYfg9GG+6gc3nw8vFauwv1KDmz4qSt47eOcF1kBEhwtGu
-         sG//Lk6t2Epov6ntJAnd3edWpINjRnB5b7RXtMYXFM9esggUFJ3GrBPruy6NB70nBwpV
-         CIg5VgHyG0jLGdzXljcOhfSnr4CdCj4pM/bQyujUwbmJ4bWUTBKKY0RUcBChwNPBd1ye
-         aUEumZyDbDG2x9zJJGi3A7+C7E0ESnhToX4dPCqaP8nz37qfQj+EXsKr9umVqfW0rnIq
-         xmXQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738065353; x=1738670153;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=pLXaRDqxo+mIH84hjRiHW1wB2c5SwAr+CdumW+V6OgA=;
-        b=fA9Xmw59Ztrj468LZr5PDs08VtdULOkhBi+Vq0CSGsBqcLMFU/CHJmL8YOzH7ASjJX
-         007Mk52de/yeRtEzBji6bihDvCUe6UE1838sO7hcr/kokoTsHn82dJoF8IofFgQ2hxCx
-         JiqpGEX59v64HwluYIo4hp+vkPPliSlHNdj/wzPgt1YM5G4EzAkfxeaaoqBPKhQxGUJH
-         QpmKvwoQkGHdaq6F8tq89vlc1HfWG0jAKtbkXaXexjZ4JGlXnTYArQxRO6jJSJmZXdnX
-         WaLkIHH968TTTrJOc/RJX2fZTajSNTIIxiPuLy7B8cnV194OMz7I8lU71jtYDRgXEgCb
-         4I6A==
-X-Forwarded-Encrypted: i=1; AJvYcCWXftfOWQZrI++lPxlUUofCg51/5arVCydsQL8CgNE5yc+Gmb5pbrzGD3/hS21i+pxHKqHr3t6Lacg+ybrSAg2d@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy7ZuSlMpw0gQo5tl/Ml5dohcGinZ77PGpOnhQU1hM/DzrW54zq
-	VyyeUYOi4HAE4D76uQdP80vjryCG+iUsacJiPRVTysLXs5X2fYFjXrLSGLlGXik=
-X-Gm-Gg: ASbGncvTu/7zj34u9bm9NkwoLGZ2vrHWNZfRq0WpZTHfIinG1Ip3f5f2ZxAV4L9J+8N
-	7ohnf7UHjgNrO51yczs8v+FaBGak6UZga5jbPWq/lPhV0vej3NS2Lrar7N6JZNeisGI8fT8Qosu
-	Iaqjx01RbZnAS6VuJWWbEEPnkFbx7eDXWRIaqIVJbeYqIm96uxHtkjKIbh6NbL0beftlK5sUf7s
-	HNS8uX+pwlyWtEXTDvlIaoD864a7iH/Xp1oRl+aD9Ejd2b0Eu9hIIe2aghVNMjOGnmUZpueK/8W
-	BH1Ql+kSL7PNQr0ZZNfck3FEWA==
-X-Google-Smtp-Source: AGHT+IFARZscANUjyT1VVjHj9FJwPk0o4/Th44Oh6jzNuT8s/RE6rZZ0WJ9ZR9mNGMKADe5Y64JxbA==
-X-Received: by 2002:a05:600c:3d05:b0:436:469f:2210 with SMTP id 5b1f17b1804b1-438af40851bmr234818545e9.1.1738065353123;
-        Tue, 28 Jan 2025 03:55:53 -0800 (PST)
-Received: from [192.168.68.163] ([145.224.65.109])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438bd4fa599sm174728255e9.7.2025.01.28.03.55.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 28 Jan 2025 03:55:52 -0800 (PST)
-Message-ID: <44bd0d5e-a232-49c3-ba2f-e63e2f2c99be@linaro.org>
-Date: Tue, 28 Jan 2025 11:55:51 +0000
+	Tue, 28 Jan 2025 12:07:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 84D7D497;
+	Tue, 28 Jan 2025 04:08:12 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7AD9A3F694;
+	Tue, 28 Jan 2025 04:07:43 -0800 (PST)
+Date: Tue, 28 Jan 2025 12:07:35 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
+	Souvik Chakravarty <souvik.chakravarty@arm.com>,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH 3/3] clk: scmi: Support spread spectrum
+Message-ID: <Z5jIh6cLEqRKRdCd@pluto>
+References: <20250124-clk-ssc-v1-0-2d39f6baf2af@nxp.com>
+ <20250124-clk-ssc-v1-3-2d39f6baf2af@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 5/6] Coresight: Add Coresight TMC Control Unit driver
-To: Jie Gan <quic_jiegan@quicinc.com>
-Cc: Tingwei Zhang <quic_tingweiz@quicinc.com>,
- Jinlong Mao <quic_jinlmao@quicinc.com>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>
-References: <20250124072537.1801030-1-quic_jiegan@quicinc.com>
- <20250124072537.1801030-6-quic_jiegan@quicinc.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250124072537.1801030-6-quic_jiegan@quicinc.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250124-clk-ssc-v1-3-2d39f6baf2af@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_035554_845974_79CDA957 
-X-CRM114-Status: GOOD (  22.41  )
+X-CRM114-CacheID: sfid-20250128_040748_977470_D57D6B16 
+X-CRM114-Status: GOOD (  32.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,81 +77,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jan 24, 2025 at 10:25:19PM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
+> 
+> Support Spread Spectrum for i.MX95 with adding
+> scmi_clk_set_spread_spectrum_imx
+> 
 
+[CC: Souvik from ATG]
 
-On 24/01/2025 7:25 am, Jie Gan wrote:
-> The Coresight TMC Control Unit hosts miscellaneous configuration registers
-> which control various features related to TMC ETR sink.
-> 
-> Based on the trace ID, which is programmed in the related CTCU ATID
-> register of a specific ETR, trace data with that trace ID gets into
-> the ETR buffer, while other trace data gets dropped.
-> 
-> Enabling source device sets one bit of the ATID register based on
-> source device's trace ID.
-> Disabling source device resets the bit according to the source
-> device's trace ID.
-> 
-> Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
+Hi Peng,
+
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 > ---
->   drivers/hwtracing/coresight/Kconfig          |  12 +
->   drivers/hwtracing/coresight/Makefile         |   1 +
->   drivers/hwtracing/coresight/coresight-ctcu.c | 276 +++++++++++++++++++
->   drivers/hwtracing/coresight/coresight-ctcu.h |  30 ++
->   include/linux/coresight.h                    |   3 +-
->   5 files changed, 321 insertions(+), 1 deletion(-)
->   create mode 100644 drivers/hwtracing/coresight/coresight-ctcu.c
->   create mode 100644 drivers/hwtracing/coresight/coresight-ctcu.h
- >
-
-[...]
-
-> +/*
-> + * ctcu_set_etr_traceid: Retrieve the ATID offset and trace ID.
-> + *
-> + * Returns 0 indicates success. None-zero result means failure.
-> + */
-> +static int ctcu_set_etr_traceid(struct coresight_device *csdev, struct coresight_path *cs_path,
-> +				bool enable)
+>  drivers/clk/clk-scmi.c        | 37 +++++++++++++++++++++++++++++++++++++
+>  include/linux/scmi_protocol.h |  5 +++++
+>  2 files changed, 42 insertions(+)
+> 
+> diff --git a/drivers/clk/clk-scmi.c b/drivers/clk/clk-scmi.c
+> index 15510c2ff21c0335f5cb30677343bd4ef59c0738..e43902aea6bee3633f8328acddcf54eef907b640 100644
+> --- a/drivers/clk/clk-scmi.c
+> +++ b/drivers/clk/clk-scmi.c
+> @@ -98,6 +98,35 @@ static int scmi_clk_set_parent(struct clk_hw *hw, u8 parent_index)
+>  	return scmi_proto_clk_ops->parent_set(clk->ph, clk->id, parent_index);
+>  }
+>  
+> +static int scmi_clk_set_spread_spectrum_imx(struct clk_hw *hw,
+> +					    struct clk_spread_spectrum *clk_ss)
 > +{
-> +	struct coresight_device *sink = coresight_get_sink(cs_path->path);
-> +	struct ctcu_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-> +	u8 trace_id = cs_path->trace_id;
-> +	int port_num;
+> +	struct scmi_clk *clk = to_scmi_clk(hw);
+> +	int ret;
+> +	u32 val;
 > +
-> +	if ((sink == NULL) || !IS_VALID_CS_TRACE_ID(trace_id) || IS_ERR_OR_NULL(drvdata)) {
-> +		dev_err(&csdev->dev, "Invalid parameters\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	port_num = ctcu_get_active_port(sink, csdev);
-> +	if (port_num < 0)
-> +		return -EINVAL;
-> +
+> +	/* SCMI OEM Duty Cycle is expressed as a percentage */
 > +	/*
-> +	 * Skip the disable session if more than one TPDM device that
-> +	 * connected to the same TPDA device has been enabled.
+> +	 * extConfigValue[7:0]   - spread percentage (%)
+> +	 * extConfigValue[23:8]  - Modulation Frequency (KHz)
+> +	 * extConfigValue[24]    - Enable/Disable
+> +	 * extConfigValue[31:25] - Reserved
 > +	 */
-> +	if (enable)
-> +		atomic_inc(&drvdata->traceid_refcnt[port_num][trace_id]);
-> +	else {
-> +		if (atomic_dec_return(&drvdata->traceid_refcnt[port_num][trace_id]) > 0) {
-> +			dev_dbg(&csdev->dev, "Skip the disable session\n");
-> +			return 0;
-> +		}
-> +	}
+> +	val = FIELD_PREP(IMX_CLOCK_EXT_SS_PERCENTAGE_MASK, clk_ss->spreadpercent);
+> +	val |= FIELD_PREP(IMX_CLOCK_EXT_SS_MOD_FREQ_MASK, clk_ss->modfreq);
+> +	val |= IMX_CLOCK_EXT_SS_ENABLE_MASK;
+> +	ret = scmi_proto_clk_ops->config_oem_set(clk->ph, clk->id,
+> +						 SCMI_CLOCK_CFG_NXP_IMX_SSC,
+
+If this is determined to be general enough (as per other mail in this
+thread), since it effectively provides a new general clock framework
+callback, I wonder if we should not try to make this straight away one
+of the standard SCMI Clock Extended config types by adding it as a new
+0x3 Extended config type value in the SCMI v3.2 Table 16 (with the above
+extConfigValue synatx too)...
+
+...that would mean having 0x3 reserved already for this in the upcoming
+v3.3....but of course ATG has to agree on this so I copied Souvik.
+
+In this way we could just get rid of the Vendor customization...if NOT I
+would certainly base this Vendor OEM type extension on the SCMI FW-provided
+vendor_info as you mentioned in the cover-letter, instead of compatibles.
+
+Either way, it would also be wise to check if the specific Extended
+config type is supported by the specific FW version (despite the version)
+before registering a callback that could then always fail due to a missing
+feature; currently, in fact, we do NOT take this precaution for for Duty
+cycle callbacks and just assume that if SCMI Clocks extended configs are
+suppported, all the standard ones are supported: this seems NOT right
+BUT the only way to assure that an Extended config type is supported, as
+of now, would be to query the current extended_config with CLOCK_CONFIG_GET
+and see what the FW replies...this would allow us to avoid registering
+unsupported features (like DutyCycle or SSC) with the core Clock framework
+if NOT really supported by the running SCMI server...which in turn would
+mean,potentially, 1 more SCMI message exchange per-clock at initialization
+time, and I know this overhead is not always welcomed :D
+
+> +						 val, false);
+> +	if (ret)
+> +		dev_warn(clk->dev,
+> +			 "Failed to set spread spectrum(%u,%u,%u) for clock ID %d\n",
+> +			 clk_ss->modfreq, clk_ss->spreadpercent, clk_ss->method,
+> +			 clk->id);
 > +
-> +	dev_dbg(&csdev->dev, "traceid is %d\n", cs_path->trace_id);
+> +	return ret;
+> +}
 > +
-> +	return __ctcu_set_etr_traceid(csdev, trace_id, port_num, enable);
+>  static u8 scmi_clk_get_parent(struct clk_hw *hw)
+>  {
+>  	struct scmi_clk *clk = to_scmi_clk(hw);
+> @@ -266,6 +295,11 @@ static int scmi_clk_ops_init(struct device *dev, struct scmi_clk *sclk,
+>   * Return: A pointer to the allocated and configured clk_ops on success,
+>   *	   or NULL on allocation failure.
+>   */
+> +static const char * const scmi_clk_ssc_allowlist[] = {
+> +	"fsl,imx95",
+> +	NULL
+> +};
 
-Hi Jie,
+Fw vednor info would be better as you said, if we stick to a Vendor
+implementation...
 
-Using atomic_dec_return() here doesn't prevent __ctcu_set_etr_traceid() 
-from running concurrent enable and disables. Once you pass the 
-atomic_dec_return() a second call to enable it will mess it up.
+> +
+>  static const struct clk_ops *
+>  scmi_clk_ops_alloc(struct device *dev, unsigned long feats_key)
+>  {
+> @@ -316,6 +350,9 @@ scmi_clk_ops_alloc(struct device *dev, unsigned long feats_key)
+>  		ops->set_duty_cycle = scmi_clk_set_duty_cycle;
+>  	}
+>  
+> +	if (of_machine_compatible_match(scmi_clk_ssc_allowlist))
+> +		ops->set_spread_spectrum = scmi_clk_set_spread_spectrum_imx;
+> +
+>  	return ops;
+>  }
+>  
+> diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+> index 688466a0e816247d24704f7ba109667a14226b67..7012d5efef00eb7b52f17d0f3d8d69f3d0063557 100644
+> --- a/include/linux/scmi_protocol.h
+> +++ b/include/linux/scmi_protocol.h
+> @@ -80,9 +80,14 @@ enum scmi_clock_oem_config {
+>  	SCMI_CLOCK_CFG_DUTY_CYCLE = 0x1,
+>  	SCMI_CLOCK_CFG_PHASE,
+>  	SCMI_CLOCK_CFG_OEM_START = 0x80,
+> +	SCMI_CLOCK_CFG_NXP_IMX_SSC = 0x80,
 
-I think you need a spinlock around the whole thing and then the 
-refcounts don't need to be atomics.
+If using a Vendor OEM type, I feel this should be somehow defined
+per-vendor....you cannot just grab 0x80 Extended config type for NXP
+because you arrived first :P
 
+>  	SCMI_CLOCK_CFG_OEM_END = 0xFF,
+>  };
+>  
+> +#define IMX_CLOCK_EXT_SS_PERCENTAGE_MASK	GENMASK(7, 0)
+> +#define IMX_CLOCK_EXT_SS_MOD_FREQ_MASK		GENMASK(23, 8)
+> +#define IMX_CLOCK_EXT_SS_ENABLE_MASK		BIT(24)
+> +
+
+Same...I feel the best would be to just add a standard 0x3 SSC Extended
+type as said...lets see what Souvik says and if we can assume such 0x3
+AND the above extConfigValue syntax to be reserved for this usage BEFORE
+v3.3 is out...
+
+Thans,
+Cristian
 
