@@ -4,97 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04E18C02190
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 08:24:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54846C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 08:25:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3fMuy/pYgza/riIVTVPhUzUfkiZ2bVUecFPV047zGXs=; b=Xh3IDwtVGBoxp86TmyghFr5AYv
-	c+qg9gmHfPVJZ1youQqlWlUrWtiAzC+KhkY4w7gOJ10jD7zb+7eGC2XnHl6oIzSqDkeAJK4fnpQZo
-	hsfkuDlaGLZFVzzYCfablyemcO/hbg16hNExfZqTXtBEXEPSkMefGj7qsJzeqxz9W6vy80/CE42M6
-	+0BMjAB7FAPBpxruft1sXPfihvoa8hEvXXTshmD4grZqfG2afKLTeR3BLKROHL3/iiF5Ot+dy6qvq
-	ZvOA+SHVq30xId79uVfLRUQO7GwVmfcgwCqNn++Uun+YbGY12W1vOmAHfrRjJvCZnZLlXYcwxawhl
-	2BlEPWMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=feDQEg72QVpJ9CVOEroQqgaGzK4obTSQ+cagaGstWic=; b=BH9QRLE3TZ7NXvmxY1ITTF9KaZ
+	vq9gYceSsyry07SaY8iH3HPx7bvnbbr18aZwkGKpOluLSziS2c1FQZZVNucSxmX2nvF3er88Ta+hB
+	CAWWe0DlSZzz+pT5UIiGSQUnpRD1FV4k9mRiqD0iau7W0ihAOVZFBAkA56InOkgZfk3SSFO5yzv+M
+	VIGT3qr/g91/B/DbbtjstZ+I54d741ffp4JX1zWu/w3+zWJ0YpF/B/FJUkumZmihf0PrYv8J8ZJsg
+	xsb+aKLYcAbBzVRkzqEhYW5MNA6dXi2oA45fPlkimK17hNslXusiVzdulLB9jL27ORHo9Jq7cGxcF
+	XHfnRwYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcgsx-00000004NOR-3bhx;
-	Tue, 28 Jan 2025 08:23:51 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1tcguH-00000004NbI-2Z9A;
+	Tue, 28 Jan 2025 08:25:13 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcgql-00000004Mqd-0j9f
+	id 1tcgr0-00000004Mu6-0KZs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jan 2025 08:21:36 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2165cb60719so93976745ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jan 2025 00:21:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738052494; x=1738657294; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=3fMuy/pYgza/riIVTVPhUzUfkiZ2bVUecFPV047zGXs=;
-        b=gMiJgfMEyquSkLx9kSLBER1eHCjO89pB84cfT3kGIPpOxD4j68AneKZuzpq+yujRE4
-         6SiuApsYJ+K2eJg7I6sAiDx3Ls2IDew+IT5bn9zws82Mdv8D95F19ar/hSeitAgs84va
-         GRyMmpqy1FSDTaA2AU87MPyaDSYoljfqCqD+NtG3kRs8k7yav8pJRZqPQcRykJJUqcW7
-         MYPTu2u8XDbgWc71z/O6KTXzWhydMymUlwdjJrCRDygdid0YuH0B3UTt1yDtjuoKmvqY
-         NY5HJMJaa1EzFrKn6gaCu978HkFMWujpq0XQW01SRBu7JPLfuyGmCPLVidxWoZgyIFG/
-         jFnA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738052494; x=1738657294;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3fMuy/pYgza/riIVTVPhUzUfkiZ2bVUecFPV047zGXs=;
-        b=ELanm7Ot4Wy2tU9ytiwxxzwJpqpBJl8TrHRioEJM2xqGjWbzA11UmKbMW0HsfLas0a
-         2Dzi/QI4coFhFthc562l74O1wzBuz2o8cf8h11F8N/hvcJrgf+6wt/0jUYpYjSxfDKva
-         0REsr4IZFwvD3lqGCbmpkMqOMW7Ao/8KePLfKKLI2eqspGiPY7gNKU/9bGL8J99iOtzF
-         bYvvKyRS5mvfKCFG0rj7XOYNmIlAd0omjcnFM+g8AFPMj7LWqWKU7q+4GzAOC/pFZSFk
-         2CsmBrZ4/2R1YMQUhrA8OgImjaAkp9bmAcOVnSox0bwDJaD25gaadoLiq7zdDELmwNmt
-         C22A==
-X-Forwarded-Encrypted: i=1; AJvYcCWWy/G6lT/QjIDze7zDmhtfA1fPHrB3e3Bzyztc9gR7GLEcbzdvd1NuduONOS8CBy1DQPHJ/EGn0MsQGIES3tcZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxOaIF9YIMrgmYwuQ+6N2Ec9MuForxb+s6FkyS6dxvDy5lVtjt0
-	7jpUV/0vuh84VBqzBjLfxTigInl7ubjgIjwY4kSC8Xb9qK+EEHUS
-X-Gm-Gg: ASbGncvAu0Smfm+aNnMeiKfxDArKCXIFPjbGkZIvbCvSQETWh4XlinrO4mSpYnfsjlt
-	SX2SFtK+XJhyd8x69tA3h5NlU5Vmdim4ncglsm+jNNGR/rdW+MJVbFCu1Y2JFNM+Zl6ZnRpdNfO
-	DafX74N2kxGYLwAfkf88dRt3Rv/BiD3QIA3MznsmUlPaMKDwYHDo13wadBIZHiHQomSc5C3tZeM
-	SKGZz09XGoSU5qNQfDuJnrIAaMe8dtipYv6CMDGWHY7CNihtJ1Pmcqpg4Toz/tDzaoakf/4hleI
-	txr2VCGnp9LSW/8=
-X-Google-Smtp-Source: AGHT+IGA23Ky/6K1hLSlTaGOzyYMHc1wGHqIfEJ8xAUCi8at04bQFz8GD3I/8Kj7sYnVrWvjXsXjWg==
-X-Received: by 2002:a17:902:e80a:b0:216:6769:9ed7 with SMTP id d9443c01a7336-21c355c7dc2mr753720045ad.40.1738052494133;
-        Tue, 28 Jan 2025 00:21:34 -0800 (PST)
-Received: from archie.me ([103.124.138.155])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21da3d9e173sm76602675ad.32.2025.01.28.00.21.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Jan 2025 00:21:33 -0800 (PST)
-Received: by archie.me (Postfix, from userid 1000)
-	id 88B8C420A74B; Tue, 28 Jan 2025 15:21:25 +0700 (WIB)
-Date: Tue, 28 Jan 2025 15:21:25 +0700
-From: Bagas Sanjaya <bagasdotme@gmail.com>
-To: Nicolin Chen <nicolinc@nvidia.com>, jgg@nvidia.com,
-	kevin.tian@intel.com, corbet@lwn.net, will@kernel.org
-Cc: joro@8bytes.org, suravee.suthikulpanit@amd.com, robin.murphy@arm.com,
-	dwmw2@infradead.org, baolu.lu@linux.intel.com, shuah@kernel.org,
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
-	eric.auger@redhat.com, jean-philippe@linaro.org, mdf@kernel.org,
-	mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
-	smostafa@google.com, ddutile@redhat.com, yi.l.liu@intel.com,
-	patches@lists.linux.dev
-Subject: Re: [PATCH v6 11/14] Documentation: userspace-api: iommufd: Update
- FAULT and VEVENTQ
-Message-ID: <Z5iThcDwBmBHZBJd@archie.me>
-References: <cover.1737754129.git.nicolinc@nvidia.com>
- <300d03449b9420d756c1589e1c24bb8b4d508293.1737754129.git.nicolinc@nvidia.com>
+	Tue, 28 Jan 2025 08:21:51 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50S21B39013991;
+	Tue, 28 Jan 2025 09:21:28 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	feDQEg72QVpJ9CVOEroQqgaGzK4obTSQ+cagaGstWic=; b=bBOzCgX+59XUOJkr
+	4PiUgzbvENEkx5kTCigQs5XE/i74/RoqikYnqDaa0clSxWgSo8V+AjFYnZfZEK+F
+	oFAyx0J/AU8dz+8SS4XlAw7jTzIc2JEOrSfuZTg8CvnTTmKGs6o9JkaLQ1b06of7
+	rkj/zjeuBMjNouLBRZdj/k9iEd3ELeFyVtU033ZtjHmJRrEE1SFaNb1AAKpR7fpf
+	FeO4lLG0xnFBwS7gLEaAeqIhPNQDW2J4T2l40U60awiFgSb0bHun5fm58A0FtbSu
+	TrRr3lFCI7BRwyH1Rr5J5Z+H1lad0/ILC12GWj1OppGb6LCk2p7rI2PHERsY6Z8a
+	4NWfqQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44embfs6pq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 28 Jan 2025 09:21:28 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 2227240053;
+	Tue, 28 Jan 2025 09:20:05 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 3F10129C5E2;
+	Tue, 28 Jan 2025 09:17:43 +0100 (CET)
+Received: from localhost (10.48.87.62) by SHFDAG1NODE1.st.com (10.75.129.69)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Tue, 28 Jan
+ 2025 09:17:42 +0100
+From: <patrice.chotard@foss.st.com>
+To: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Alexandre
+ Torgue <alexandre.torgue@foss.st.com>,
+        Philipp Zabel
+	<p.zabel@pengutronix.de>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>
+CC: <linux-spi@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <christophe.kerello@foss.st.com>, <patrice.chotard@foss.st.com>
+Subject: [PATCH v2 1/9] dt-bindings: spi: Add STM32 OSPI controller
+Date: Tue, 28 Jan 2025 09:17:23 +0100
+Message-ID: <20250128081731.2284457-2-patrice.chotard@foss.st.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250128081731.2284457-1-patrice.chotard@foss.st.com>
+References: <20250128081731.2284457-1-patrice.chotard@foss.st.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="m1sZIbxqV2u1bbA+"
-Content-Disposition: inline
-In-Reply-To: <300d03449b9420d756c1589e1c24bb8b4d508293.1737754129.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: SAFCAS1NODE1.st.com (10.75.90.11) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-28_02,2025-01-27_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_002135_236964_6005EC35 
-X-CRM114-Status: GOOD (  24.35  )
+X-CRM114-CacheID: sfid-20250128_002150_404761_6A591CA9 
+X-CRM114-Status: GOOD (  16.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,94 +105,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Patrice Chotard <patrice.chotard@foss.st.com>
 
---m1sZIbxqV2u1bbA+
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Add device tree bindings for the STM32 OSPI controller.
 
-On Fri, Jan 24, 2025 at 04:30:40PM -0800, Nicolin Chen wrote:
-> diff --git a/Documentation/userspace-api/iommufd.rst b/Documentation/user=
-space-api/iommufd.rst
-> index 70289d6815d2..b0df15865dec 100644
-> --- a/Documentation/userspace-api/iommufd.rst
-> +++ b/Documentation/userspace-api/iommufd.rst
-> @@ -63,6 +63,13 @@ Following IOMMUFD objects are exposed to userspace:
->    space usually has mappings from guest-level I/O virtual addresses to g=
-uest-
->    level physical addresses.
-> =20
-> +- IOMMUFD_FAULT, representing a software queue for an HWPT reporting IO =
-page
-> +  faults using the IOMMU HW's PRI (Page Request Interface). This queue o=
-bject
-> +  provides user space an FD to poll the page fault events and also to re=
-spond
-> +  to those events. A FAULT object must be created first to get a fault_i=
-d that
-> +  could be then used to allocate a fault-enabled HWPT via the IOMMU_HWPT=
-_ALLOC
-> +  command by setting the IOMMU_HWPT_FAULT_ID_VALID bit in its flags fiel=
-d.
-> +
->  - IOMMUFD_OBJ_VIOMMU, representing a slice of the physical IOMMU instanc=
-e,
->    passed to or shared with a VM. It may be some HW-accelerated virtualiz=
-ation
->    features and some SW resources used by the VM. For examples:
-> @@ -109,6 +116,14 @@ Following IOMMUFD objects are exposed to userspace:
->    vIOMMU, which is a separate ioctl call from attaching the same device =
-to an
->    HWPT_PAGING that the vIOMMU holds.
-> =20
-> +- IOMMUFD_OBJ_VEVENTQ, representing a software queue for a vIOMMU to rep=
-ort its
-> +  events such as translation faults occurred to a nested stage-1 (exclud=
-ing I/O
-> +  page faults that should go through IOMMUFD_OBJ_FAULT) and HW-specific =
-events.
-> +  This queue object provides user space an FD to poll/read the vIOMMU ev=
-ents. A
-> +  vIOMMU object must be created first to get its viommu_id, which could =
-be then
-> +  used to allocate a vEVENTQ. Each vIOMMU can support multiple types of =
-vEVENTS,
-> +  but is confined to one vEVENTQ per vEVENTQ type.
-> +
->  All user-visible objects are destroyed via the IOMMU_DESTROY uAPI.
-> =20
->  The diagrams below show relationships between user-visible objects and k=
-ernel
-> @@ -251,8 +266,10 @@ User visible objects are backed by following datastr=
-uctures:
->  - iommufd_device for IOMMUFD_OBJ_DEVICE.
->  - iommufd_hwpt_paging for IOMMUFD_OBJ_HWPT_PAGING.
->  - iommufd_hwpt_nested for IOMMUFD_OBJ_HWPT_NESTED.
-> +- iommufd_fault for IOMMUFD_OBJ_FAULT.
->  - iommufd_viommu for IOMMUFD_OBJ_VIOMMU.
->  - iommufd_vdevice for IOMMUFD_OBJ_VDEVICE.
-> +- iommufd_veventq for IOMMUFD_OBJ_VEVENTQ.
-> =20
->  Several terminologies when looking at these datastructures:
-> =20
+Main features of the Octo-SPI controller :
+  - support sNOR / sNAND / HyperRAM™ and HyperFlash™ devices.
+  - Three functional modes: indirect, automatic-status polling,
+    memory-mapped.
+  - Up to 4 Gbytes of external memory can be addressed in indirect
+    mode (per physical port and per CS), and up to 256 Mbytes in
+    memory-mapped mode (combined for both physical ports and per CS).
+  - Single-, dual-, quad-, and octal-SPI communication.
+  - Dual-quad communication.
+  - Single data rate (SDR) and double transfer rate (DTR).
+  - Maximum target frequency is 133 MHz for SDR and 133 MHz for DTR.
+  - Data strobe support.
+  - DMA channel for indirect mode.
+  - Double CS mapping that allows two external flash devices to be
+    addressed with a single OCTOSPI controller mapped on a single
+    OCTOSPI port.
 
-Looks good, thanks!
+Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+---
+ .../bindings/spi/st,stm32mp25-ospi.yaml       | 102 ++++++++++++++++++
+ 1 file changed, 102 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/spi/st,stm32mp25-ospi.yaml
 
-Reviewed-by: Bagas Sanjaya <bagasdotme@gmail.com>
+diff --git a/Documentation/devicetree/bindings/spi/st,stm32mp25-ospi.yaml b/Documentation/devicetree/bindings/spi/st,stm32mp25-ospi.yaml
+new file mode 100644
+index 000000000000..f1d539444673
+--- /dev/null
++++ b/Documentation/devicetree/bindings/spi/st,stm32mp25-ospi.yaml
+@@ -0,0 +1,102 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/spi/st,stm32mp25-ospi.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: STMicroelectronics STM32 Octal Serial Peripheral Interface (OSPI)
++
++maintainers:
++  - Patrice Chotard <patrice.chotard@foss.st.com>
++
++allOf:
++  - $ref: spi-controller.yaml#
++
++properties:
++  compatible:
++    const: st,stm32mp25-ospi
++
++  reg:
++    maxItems: 1
++
++  memory-region:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  resets:
++    items:
++      - description: phandle to OSPI block reset
++      - description: phandle to delay block reset
++
++  dmas:
++    maxItems: 2
++
++  dma-names:
++    items:
++      - const: tx
++      - const: rx
++
++  st,syscfg-dlyb:
++    description: phandle to syscon block
++      Use to set the OSPI delay block within syscon to
++      tune the phase of the RX sampling clock (or DQS) in order
++      to sample the data in their valid window and to
++      tune the phase of the TX launch clock in order to meet setup
++      and hold constraints of TX signals versus the memory clock.
++    $ref: /schemas/types.yaml#/definitions/phandle-array
++    items:
++      maxItems: 1
++
++  access-controllers:
++    description: phandle to the rifsc device to check access right
++      and in some cases, an additional phandle to the rcc device for
++      secure clock control
++    minItems: 1
++    maxItems: 2
++
++  power-domains:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - interrupts
++  - st,syscfg-dlyb
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/reset/st,stm32mp25-rcc.h>
++    spi@40430000 {
++      compatible = "st,stm32mp25-ospi";
++      reg = <0x40430000 0x400>;
++      memory-region = <&mm_ospi1>;
++      interrupts = <GIC_SPI 163 IRQ_TYPE_LEVEL_HIGH>;
++      dmas = <&hpdma 2 0x62 0x00003121 0x0>,
++             <&hpdma 2 0x42 0x00003112 0x0>;
++      dma-names = "tx", "rx";
++      clocks = <&scmi_clk CK_SCMI_OSPI1>;
++      resets = <&scmi_reset RST_SCMI_OSPI1>, <&scmi_reset RST_SCMI_OSPI1DLL>;
++      access-controllers = <&rifsc 74>;
++      power-domains = <&CLUSTER_PD>;
++      st,syscfg-dlyb = <&syscfg 0x1000>;
++
++      #address-cells = <1>;
++      #size-cells = <0>;
++
++      flash@0 {
++        compatible = "jedec,spi-nor";
++        reg = <0>;
++        spi-rx-bus-width = <4>;
++        spi-max-frequency = <108000000>;
++      };
++    };
+-- 
+2.25.1
 
---=20
-An old man doll... just what I always wanted! - Clara
-
---m1sZIbxqV2u1bbA+
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSSYQ6Cy7oyFNCHrUH2uYlJVVFOowUCZ5iTgAAKCRD2uYlJVVFO
-ozC2AQDPP1Rr/NEdpC96sqjf+s6u1DgXFgQ1dghVRl94136J4AD/UQWE5HkY2pgd
-+/5yHWzPSekTkat+mn1D4NZcmc/8IQI=
-=M8Cm
------END PGP SIGNATURE-----
-
---m1sZIbxqV2u1bbA+--
 
