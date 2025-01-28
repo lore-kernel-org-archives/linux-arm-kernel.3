@@ -4,81 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C8D6C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 17:50:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A36E4C02190
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 17:55:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MgP42JYcLJct4c+N0hOB2jGbwHn1xmpBOQj3t0j6WnI=; b=GlgXWR7JA8epkAw5IWDeIdz5Ah
-	Mg6SMJlqjnxSBxH8q8ThnOzT6mxFr87gsDYQ6cbv2u6w6wFK7J0zJIUcCg+bMT/tZlmEvZp5e39DN
-	QovViGpqVrPDgZNso60htt8vXgT//ZrIejMJ8RoPYQ3pKHBaaatUVapXe77kmblkaMzfI/O66VJ42
-	Zl4DRNOCnVXpG+3T7n05Q4t7/gLURSdcIfl7TiVoKiiSxlOAyd/MzRcBV6bdEkvVZZXixO/m1T7sy
-	mV4rKwBFm15KGpzEEC9X+wJ72cM6VrRQYbeOTXP5Szxwo10tbrzMGa+gfL+W+pQPvjnWeE3QF4Qrb
-	BLd/flGA==;
+	bh=zfyFgwBamfyrV9psbo2HUabJhCHI/jWreq2yRs6Yivc=; b=eRl2n/UOeXCYcQfhPCXVyansAA
+	rZPmDEcaezbUXG3MYO0Z+JIk9Oa7MWTP72c47I7RLOx5X7a0HsiMFD7dR5DNamm+krHCcslHobGwq
+	rcVLuKUvOOtgOv8cjNjED/rQidOH65wkWSMaYFGGxotPC61yW6EaFns8qGQEq1vT6IOuXqu74Bb3T
+	8eT+8QRK4lAJ2UXAkP3eZRgU3AwkqVk6P0JDfFCKfUzpw3tHQKS70c7gIJ0BXJUtr0gJcDB8m1y+5
+	h1KqbQ0GyXFR/qHOArQ9CsMeyQWk1xQhgjsJc1LCJTMK1s3ZWFatPq6HWBRxBHKONyw0ip/SZMzrA
+	r1QH1a7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcpiw-00000005T4O-3nWS;
-	Tue, 28 Jan 2025 17:50:06 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1tcpo0-00000005Tt3-3rPY;
+	Tue, 28 Jan 2025 17:55:20 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcphb-00000005Sxc-2WpL
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jan 2025 17:48:45 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 50SHmaJc2002364
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Tue, 28 Jan 2025 11:48:36 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1738086516;
-	bh=MgP42JYcLJct4c+N0hOB2jGbwHn1xmpBOQj3t0j6WnI=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=UahvFPmWaVQJuRscn3mSJiDlvwbWoT81ixe6S7zpfwdOulAgNLrqeIMN2PgM/9czy
-	 87cJUIifIgJ0XHrn73HuSL7IaB2iuDfXYqMYO9en+4VGO+xqkmHL3WwiQaHuTwCtXP
-	 8OFFN8dOIR4S9qBRFDNEcQSX1CIVWgSttseAcPfE=
-Received: from DFLE113.ent.ti.com (dfle113.ent.ti.com [10.64.6.34])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 50SHmadG050604;
-	Tue, 28 Jan 2025 11:48:36 -0600
-Received: from DFLE103.ent.ti.com (10.64.6.24) by DFLE113.ent.ti.com
- (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 28
- Jan 2025 11:48:35 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE103.ent.ti.com
- (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 28 Jan 2025 11:48:36 -0600
-Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 50SHmaiA049718;
-	Tue, 28 Jan 2025 11:48:36 -0600
-Message-ID: <390aa52e-e9f2-4ce3-ad1b-eac71f4a211c@ti.com>
-Date: Tue, 28 Jan 2025 11:48:36 -0600
+	id 1tcpme-00000005TPA-2uRh;
+	Tue, 28 Jan 2025 17:53:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1ECE75C614A;
+	Tue, 28 Jan 2025 17:53:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6EE33C4CEE9;
+	Tue, 28 Jan 2025 17:53:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738086836;
+	bh=XkXmMArbNvvj4vFv48WiqVxvsUM1hSZabdWEqOdwA64=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=RMrH4c2WY8Y79VYoYpVN744gyYrnRLrLMtm7mwR7b59YudfNGzWAQS3unyxmU9PfN
+	 FEETyjrV8LI8A04P5Y4cAkUePgHDn5ha9z11aWMAuuqeJA/we2odO7R9C2qvOWqzRk
+	 OJDhVNQWuwyyVXB7qxDI3xhhZeHJfyCF6e8RP6VF/mY8ZyvIiTfhBmyZ02h9ly/xJS
+	 G76kNSKNrxIf09H/TnMlYF9rK7bG893u7lAFWzcWO8HU9SQ1LIokHxNHTpF0xX3C6C
+	 3BX8/01bWbv6qCVNTc7U0xz6hZVtlR8Q5c9o3zeF+mUb8ImAc2W0WUDvnfCClEeCQy
+	 PdbOshK8uoFOw==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Naushir Patuck <naush@raspberrypi.com>,
+	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+	Sasha Levin <sashal@kernel.org>,
+	kernel-list@raspberrypi.com,
+	mchehab@kernel.org,
+	florian.fainelli@broadcom.com,
+	rjui@broadcom.com,
+	sbranden@broadcom.com,
+	linux-media@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.13 05/15] media: bcm2835-unicam: Disable trigger mode operation
+Date: Tue, 28 Jan 2025 12:53:36 -0500
+Message-Id: <20250128175346.1197097-5-sashal@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250128175346.1197097-1-sashal@kernel.org>
+References: <20250128175346.1197097-1-sashal@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/4] arm64: dts: ti: k3-am62a-mcu: Add R5F remote proc
- node
-To: Hari Nagalla <hnagalla@ti.com>, Andrew Davis <afd@ti.com>,
-        Nishanth Menon
-	<nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Devarsh Thakkar
-	<devarsht@ti.com>
-References: <20250127221631.3974583-1-jm@ti.com>
- <20250127221631.3974583-3-jm@ti.com>
- <8b152f81-0848-4f34-adcb-fee9b4f2fd7f@ti.com>
- <76f9e9e8-dd7c-e783-fccc-0b6f913ce753@ti.com>
-Content-Language: en-US
-From: Judith Mendez <jm@ti.com>
-In-Reply-To: <76f9e9e8-dd7c-e783-fccc-0b6f913ce753@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.13
 Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_094843_773027_EEB87D5B 
-X-CRM114-Status: GOOD (  13.33  )
+X-CRM114-CacheID: sfid-20250128_095356_778132_F495B316 
+X-CRM114-Status: GOOD (  10.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,38 +85,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+From: Naushir Patuck <naush@raspberrypi.com>
 
-On 1/28/25 10:52 AM, Hari Nagalla wrote:
-> On 1/28/25 10:27, Andrew Davis wrote:
->>> +    mcu_r5fss0: r5fss@79000000 {
->>> +        compatible = "ti,am62-r5fss";
->>> +        #address-cells = <1>;
->>> +        #size-cells = <1>;
->>> +        ranges = <0x79000000 0x00 0x79000000 0x8000>,
->>> +             <0x79020000 0x00 0x79020000 0x8000>;
->>> +        power-domains = <&k3_pds 7 TI_SCI_PD_EXCLUSIVE>;
->>
->> Newline here.
->>
->> Also this should be default "disabled". It can be set to "okay"
->> in the board DTS file when the needed mboxes and memory-region
->> are set. Speaking of that, where are those patches? This is
->> incomplete without them and these nodes will not function.
->> Same for the DSP patch.
->>
->> Andrew
-> Yes, by default needs to set the node state to "disabled". This is HW 
-> description of the wake-up domain components. Memory carve outs and 
-> mailbox assignments for IPC are a separate patch as it is configurable 
-> and distro dependent.
+[ Upstream commit 697a252bb2ea414cc1c0b4cf4e3d94a879eaf162 ]
 
-Yes I plan to disable the nodes in each domain .dtsi file.
+The imx219/imx708 sensors frequently generate a single corrupt frame
+(image or embedded data) when the sensor first starts. This can either
+be a missing line, or invalid samples within the line. This only occurrs
+using the upstream Unicam kernel driver.
 
-Also yes, my understanding is that the memory carveouts could
-be a separate series if at all. Not sure if those patches can be
-sent upstream since they are distro dependent. Can anyone clarify
-if this is the case?
+Disabling trigger mode elimiates this corruption. Since trigger mode is
+a legacy feature copied from the firmware driver and not expected to be
+needed, remove it. Tested on the Raspberry Pi cameras and shows no ill
+effects.
 
-~ Judith
+Signed-off-by: Naushir Patuck <naush@raspberrypi.com>
+Reviewed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
+Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ drivers/media/platform/broadcom/bcm2835-unicam.c | 8 +-------
+ 1 file changed, 1 insertion(+), 7 deletions(-)
+
+diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/media/platform/broadcom/bcm2835-unicam.c
+index 3aed0e493c81f..4090a8e477402 100644
+--- a/drivers/media/platform/broadcom/bcm2835-unicam.c
++++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
+@@ -816,11 +816,6 @@ static irqreturn_t unicam_isr(int irq, void *dev)
+ 		}
+ 	}
+ 
+-	if (unicam_reg_read(unicam, UNICAM_ICTL) & UNICAM_FCM) {
+-		/* Switch out of trigger mode if selected */
+-		unicam_reg_write_field(unicam, UNICAM_ICTL, 1, UNICAM_TFC);
+-		unicam_reg_write_field(unicam, UNICAM_ICTL, 0, UNICAM_FCM);
+-	}
+ 	return IRQ_HANDLED;
+ }
+ 
+@@ -984,8 +979,7 @@ static void unicam_start_rx(struct unicam_device *unicam,
+ 
+ 	unicam_reg_write_field(unicam, UNICAM_ANA, 0, UNICAM_DDL);
+ 
+-	/* Always start in trigger frame capture mode (UNICAM_FCM set) */
+-	val = UNICAM_FSIE | UNICAM_FEIE | UNICAM_FCM | UNICAM_IBOB;
++	val = UNICAM_FSIE | UNICAM_FEIE | UNICAM_IBOB;
+ 	line_int_freq = max(fmt->height >> 2, 128);
+ 	unicam_set_field(&val, line_int_freq, UNICAM_LCIE_MASK);
+ 	unicam_reg_write(unicam, UNICAM_ICTL, val);
+-- 
+2.39.5
+
 
