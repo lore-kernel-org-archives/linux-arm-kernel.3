@@ -4,76 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71266C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 20:12:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0D2EC0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 20:27:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:
+	References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:Content-Type:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=urirR26CynIZdKaIXIqCtw+Qb6Z0mYe98NOgI61FCqY=; b=VvO9W/TLP+TxNjLJ97VlrnGHuy
-	VhhVidRzUcRt206UENpg3krCwWGQwuSNdRfvtOinQxmGCtQ75RndMUvSrtiAFGRcobqHvOHIhPx9e
-	3g1+AQkSKu5dN8HVYwXVPhReS+DACW/txIoLRb6eKSdO3utwEZuU2v6FX123J46OBwvuXM+5XuzKD
-	yK7tSRN0xoiundAFIQ6ujMJ6Iyfb9JLIMlVhG9wVVni300VLw99hKrADQgAlKgTtPLQcz6bD4Eo2T
-	EVYNyxvIsIAxz3oDX0+V5KlEmnJIiPJZnX5j+jmmyCNvy27g5aO4MWcyLffREDDtly3iCB89v5f79
-	/8UWiqKw==;
+	bh=Lax5BCNfLQENbO+GNfcacmLPcdrsOa86+RGjlYhexco=; b=3pDZaMV4Hxfc+6R7lGgL5Bu3lC
+	AI6iuv1no+fiyWENaVTDM3Qb7rXE/3FKFZiZZaoc0vvwxFzuNpe28CGNh/y3UBb06p07aDz3r4YF1
+	TDAnxO91JKvfmW+k8KtKOpStwOxXsIDPHJagcTLdcX0prs5NbzPTFKuwS6C2dw/ZefPuI+NJI/SO3
+	Z0UhdPkfvkMYWrTH+rAZS0i6G7JbGX3NQbMWTzdv0UZS5ETFXyzCFFSVVfGLVLFRSU7Az5Nljxmi3
+	rjxMNedUn6iJYA6rygkRX4aAp02oxIyYXv6Nuoj7r5mRAi21MbLxvhnRtEY5Vuw8z7FwktoK1hvGu
+	jlzloDoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcrwU-00000005mnY-3Xfn;
-	Tue, 28 Jan 2025 20:12:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tcsAh-00000005nVJ-2ItJ;
+	Tue, 28 Jan 2025 20:26:55 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcrq1-00000005mFA-2g47
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 28 Jan 2025 20:05:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=urirR26CynIZdKaIXIqCtw+Qb6Z0mYe98NOgI61FCqY=; b=LGh0UIyw/cDB4w6Caz//5f9S4c
-	Qr747P+ZZ2mOiHqB3TQ1Tmbffg+yDRlXlsoEyhsr/SBI56R8qXH4VvhMiR2SubWvOxUBZ/J1lK6y6
-	m0hMmzR2z2UdT2kUMJBXVXF1VO8LbGwRKGAkcMxsu86Yck8adHgUzkp8/Af/+IjeitkNCMBhgds1E
-	/aJK/Q6LmgIM2tuPSNUO6p6+R7WuADE3lVrWoxNQPbeWvdtR8v6N2JPPkhhWZJr1s1CNtXA1gYUKb
-	w09jDWr9acuYdGV+Ni87E29wkFVAgGFTwvunJIRHKmxd3QNt3Z3IJ6G6V4XmI4fXa3YieBxvRyDtG
-	Cx48EZug==;
-Received: from mail.netcube.li ([173.249.15.149])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcrpy-0000000F0CM-2a44
+	id 1tcs9M-00000005nPY-0ivR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jan 2025 20:05:32 +0000
-dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
-	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Transfer-Encoding:In-Reply-To:References;
-	bh=urirR26CynIZdKaIXIqCtw+Qb6Z0mYe98NOgI61FCqY=;
-	b=A09SY8cT5PHiIMeHNJWqZYckyEYN6cPp9Z7PY6kpXLfO4NeUek/9lNAkcjUNSnrToAS8iVqkCs6jTKDjC88htoDOZbi2PkDxtsBUTTFwX5eeFAbGDFzEPFpd/n7+Z69Dyosae/5bmPpsKsYJrGnJXFXCRj3BQ20SQA0IiWLT06k=
-Received: from lukas-hpz440workstation.lan.sk100508.local (cm70-231.liwest.at [212.241.70.231])
-	by mail.netcube.li with ESMTPSA
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256)
-	; Tue, 28 Jan 2025 21:05:20 +0100
-From: Lukas Schmid <lukas.schmid@netcube.li>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Maxime Ripard <mripard@kernel.org>
-Cc: Lukas Schmid <lukas.schmid@netcube.li>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v8 4/4] ARM: dts: sunxi: add support for NetCube Systems Kumquat
-Date: Tue, 28 Jan 2025 21:03:53 +0100
-Message-Id: <20250128200355.1948997-5-lukas.schmid@netcube.li>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250128200355.1948997-1-lukas.schmid@netcube.li>
-References: <20250128200355.1948997-1-lukas.schmid@netcube.li>
+	Tue, 28 Jan 2025 20:25:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2016DA412A7;
+	Tue, 28 Jan 2025 20:23:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AD4BC4CED3;
+	Tue, 28 Jan 2025 20:25:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738095930;
+	bh=vsE8IFVrzUvktukSA+TorUfPU/BVdbA/l2O5s9pg3UQ=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=WfeGp7x7LRpK0MQbXzwGZNO+zX9Z2ydtAlj60oBAqLR6E6fHVLnmXpMKevOBWJ9cq
+	 UnPvWNvMo/e+cu/PWf9rYx+UhMQFWknRd43z0stLEqYt9sxT1idroeB9f2wJp25dai
+	 CHOWfedXslPW+L70bOJDBV5r9afQNlDBvFwXuMFAJyKzfOH7YzAUPAP271XJiDC8gb
+	 4RTPupnAsqpxoerFDjlPA1B+WULohj4NS0NB7AdCHt2MJBV97AsP6DgcluJEEQg6qw
+	 b5rO++8Y/bzk9BqbpgJEIF2TF/r8+CV6y65dJKvlw0cmLItjYAN3oXb+QvsVxw471A
+	 KS47V0T+5GAkA==
+Message-ID: <ff801714249c492abc3781da55675a38.sboyd@kernel.org>
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20250124-clk-ssc-v1-1-2d39f6baf2af@nxp.com>
+References: <20250124-clk-ssc-v1-0-2d39f6baf2af@nxp.com> <20250124-clk-ssc-v1-1-2d39f6baf2af@nxp.com>
+Subject: Re: [PATCH 1/3] clk: Introduce clk_set_spread_spectrum
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, Dario Binacchi <dario.binacchi@amarulasolutions.com>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, Peng Fan <peng.fan@nxp.com>
+To: Cristian Marussi <cristian.marussi@arm.com>, Michael Turquette <mturquette@baylibre.com>, Peng Fan (OSS) <peng.fan@oss.nxp.com>, Russell King <linux@armlinux.org.uk>, Sudeep Holla <sudeep.holla@arm.com>
+Date: Tue, 28 Jan 2025 12:25:28 -0800
+User-Agent: alot/0.12.dev1+gaa8c22fdeedb
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_200530_886153_69681425 
-X-CRM114-Status: GOOD (  17.63  )
+X-CRM114-CacheID: sfid-20250128_122532_340482_AD765085 
+X-CRM114-Status: GOOD (  20.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,335 +71,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-NetCube Systems Kumquat is a board based on the Allwinner V3s SoC,
-including:
+Quoting Peng Fan (OSS) (2025-01-24 06:25:17)
+> diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
+> index cf7720b9172ff223d86227aad144e15375ddfd86..a4fe4a60f839244b736e3c275=
+1eeb38dc4577b1f 100644
+> --- a/drivers/clk/clk.c
+> +++ b/drivers/clk/clk.c
+> @@ -2790,6 +2790,45 @@ int clk_set_max_rate(struct clk *clk, unsigned lon=
+g rate)
+>  }
+>  EXPORT_SYMBOL_GPL(clk_set_max_rate);
+> =20
+> +int clk_set_spread_spectrum(struct clk *clk, unsigned int modfreq,
+> +                           unsigned int spreadpercent, unsigned int meth=
+od,
+> +                           bool enable)
+> +{
+> +       struct clk_spread_spectrum clk_ss;
+> +       struct clk_core *core;
+> +       int ret =3D 0;
 
-- 64MB DDR2 included in SoC
-- 10/100 Mbps Ethernet
-- USB-C DRD
-- Audio Codec
-- Isolated CAN-FD
-- ESP32 over SDIO
-- 8MB SPI-NOR Flash for bootloader
-- I2C EEPROM for MAC addresses
-- SDIO Connector for eMMC or SD-Card
-- 8x 12/24V IOs, 4x normally open relays
-- DS3232 RTC with Battery Backup
-- QWIIC connectors for external I2C devices
+The assignment looks unnecessary.
 
-Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
----
- arch/arm/boot/dts/allwinner/Makefile          |   2 +
- .../allwinner/sun8i-v3s-netcube-kumquat.dts   | 278 ++++++++++++++++++
- 2 files changed, 280 insertions(+)
- create mode 100644 arch/arm/boot/dts/allwinner/sun8i-v3s-netcube-kumquat.dts
+> +
+> +       if (!clk || !clk->core)
 
-diff --git a/arch/arm/boot/dts/allwinner/Makefile b/arch/arm/boot/dts/allwinner/Makefile
-index 48666f73e638..d799ad153b37 100644
---- a/arch/arm/boot/dts/allwinner/Makefile
-+++ b/arch/arm/boot/dts/allwinner/Makefile
-@@ -199,6 +199,7 @@ DTC_FLAGS_sun8i-h3-nanopi-r1 := -@
- DTC_FLAGS_sun8i-h3-orangepi-pc := -@
- DTC_FLAGS_sun8i-h3-bananapi-m2-plus-v1.2 := -@
- DTC_FLAGS_sun8i-h3-orangepi-pc-plus := -@
-+DTC_FLAGS_sun8i-v3s-netcube-kumquat := -@
- dtb-$(CONFIG_MACH_SUN8I) += \
- 	sun8i-a23-evb.dtb \
- 	sun8i-a23-gt90h-v4.dtb \
-@@ -261,6 +262,7 @@ dtb-$(CONFIG_MACH_SUN8I) += \
- 	sun8i-v3s-anbernic-rg-nano.dtb \
- 	sun8i-v3s-licheepi-zero.dtb \
- 	sun8i-v3s-licheepi-zero-dock.dtb \
-+	sun8i-v3s-netcube-kumquat.dtb \
- 	sun8i-v40-bananapi-m2-berry.dtb
- dtb-$(CONFIG_MACH_SUN9I) += \
- 	sun9i-a80-optimus.dtb \
-diff --git a/arch/arm/boot/dts/allwinner/sun8i-v3s-netcube-kumquat.dts b/arch/arm/boot/dts/allwinner/sun8i-v3s-netcube-kumquat.dts
-new file mode 100644
-index 000000000000..e4e98ddfbd96
---- /dev/null
-+++ b/arch/arm/boot/dts/allwinner/sun8i-v3s-netcube-kumquat.dts
-@@ -0,0 +1,278 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2025 Lukas Schmid <lukas.schmid@netcube.li>
-+ */
-+
-+/dts-v1/;
-+#include "sun8i-v3s.dtsi"
-+
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/gpio/gpio.h>
-+
-+/{
-+	model = "NetCube Systems Kumquat";
-+	compatible = "netcube,kumquat", "allwinner,sun8i-v3s";
-+
-+	aliases {
-+		serial0 = &uart0;
-+		ethernet0 = &emac;
-+		rtc0 = &ds3232;
-+		rtc1 = &rtc; /* not battery backed */
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	/* 40 MHz Crystal Oscillator on PCB */
-+	clk_can0: clock-can0 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency  = <40000000>;
-+	};
-+
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+		autorepeat;
-+
-+		key-user {
-+			label = "GPIO Key User";
-+			linux,code = <KEY_PROG1>;
-+			gpios = <&pio 1 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* PB2 */
-+		};
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		led-heartbeat {
-+			gpios = <&pio 4 4 GPIO_ACTIVE_HIGH>; /* PE4 */
-+			linux,default-trigger = "heartbeat";
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_HEARTBEAT;
-+		};
-+
-+		led-mmc0-act {
-+			gpios = <&pio 5 6 GPIO_ACTIVE_HIGH>; /* PF6 */
-+			linux,default-trigger = "mmc0";
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_DISK;
-+		};
-+	};
-+
-+	/* EA3036C Switching 3 Channel Regulator - Channel 2 */
-+	reg_vcc3v3: regulator-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc3v3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&reg_vcc5v0>;
-+	};
-+
-+	/* K7805-1000R3 Switching Regulator supplied from main 12/24V terminal block */
-+	reg_vcc5v0: regulator-5v0 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc5v0";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+	};
-+};
-+
-+&codec {
-+	allwinner,audio-routing =
-+		"Headphone", "HP",
-+		"Headphone", "HPCOM",
-+		"MIC1", "Mic",
-+		"Mic", "HBIAS";
-+	status = "okay";
-+};
-+
-+&ehci {
-+	status = "okay";
-+};
-+
-+&emac {
-+	allwinner,leds-active-low;
-+	nvmem-cells = <&eth0_macaddress>;
-+	nvmem-cell-names = "mac-address";
-+	status = "okay";
-+};
-+
-+&i2c0 {
-+	status = "okay";
-+
-+	ds3232: rtc@68 {
-+		compatible = "dallas,ds3232";
-+		reg = <0x68>;
-+	};
-+
-+	eeprom0: eeprom@50 {
-+		compatible = "atmel,24c02";		/* actually it's a 24AA02E48 */
-+		reg = <0x50>;
-+		pagesize = <16>;
-+		read-only;
-+		vcc-supply = <&reg_vcc3v3>;
-+
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+
-+		eth0_macaddress: macaddress@fa {
-+			reg = <0xfa 0x06>;
-+		};
-+	};
-+
-+	tusb320: typec@60 {
-+		compatible = "ti,tusb320";
-+		reg = <0x60>;
-+		interrupt-parent = <&pio>;
-+		interrupts = <1 5 IRQ_TYPE_EDGE_FALLING>;
-+	};
-+};
-+
-+/* Exposed as the Flash/SD Header on the board */
-+&mmc0 {
-+	vmmc-supply = <&reg_vcc3v3>;
-+	bus-width = <4>;
-+	broken-cd;
-+	status = "okay";
-+};
-+
-+/* Connected to the on-board ESP32 */
-+&mmc1 {
-+	vmmc-supply = <&reg_vcc3v3>;
-+	bus-width = <4>;
-+	broken-cd;
-+	status = "okay";
-+};
-+
-+&ohci {
-+	status = "okay";
-+};
-+
-+/* Disable external 32k osc as it is broken on current revision */
-+&osc32k {
-+	status = "disabled";
-+};
-+
-+&pio {
-+	vcc-pb-supply = <&reg_vcc3v3>;
-+	vcc-pc-supply = <&reg_vcc3v3>;
-+	vcc-pe-supply = <&reg_vcc3v3>;
-+	vcc-pf-supply = <&reg_vcc3v3>;
-+	vcc-pg-supply = <&reg_vcc3v3>;
-+
-+	gpio-line-names = "", "", "", "", // PA
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "CAN_nCS", "CAN_nINT", "USER_SW", "PB3", // PB
-+			  "USB_ID", "USBC_nINT", "I2C0_SCL", "I2C0_SDA",
-+			  "UART0_TX", "UART0_RX", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "SPI_MISO", "SPI_SCK", "FLASH_nCS", "SPI_MOSI", // PC
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "", // PD
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "Q12", "Q11", "Q10", "Q9", // PE
-+			  "LED_SYS0", "I1", "Q1", "Q2",
-+			  "I2", "I3", "Q3", "Q4",
-+			  "I4", "I5", "Q5", "Q6",
-+			  "I6", "I7", "Q7", "Q8",
-+			  "I8", "UART1_TXD", "UART1_RXD", "ESP_nRST",
-+			  "ESP_nBOOT", "", "", "",
-+			  "", "", "", "",
-+			  "SD_D1", "SD_D0", "SD_CLK", "SD_CMD", // PF
-+			  "SD_D3", "SD_D2", "LED_SYS1", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "ESP_CLK", "ESP_CMD", "ESP_D0", "ESP_D1", // PG
-+			  "ESP_D2", "ESP_D3", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "";
-+};
-+
-+/* Disable external 32k osc as it is broken on current revision */
-+&rtc {
-+	/delete-property/ clocks;
-+};
-+
-+/* Exposed as a USB-C connector with USB-Serial converter */
-+&uart0 {
-+	pinctrl-0 = <&uart0_pb_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+/* Connected to the Bootloader/Console of the ESP32 */
-+&uart1 {
-+	pinctrl-0 = <&uart1_pe_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+&usb_otg {
-+	extcon = <&tusb320 0>;
-+	dr_mode = "otg";
-+	status = "okay";
-+};
-+
-+&usbphy {
-+	usb0_id_det-gpios = <&pio 1 4 GPIO_ACTIVE_HIGH>; /* PB4 */
-+	status = "okay";
-+};
-+
-+&spi0 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	cs-gpios = <0>, <&pio 1 0 GPIO_ACTIVE_LOW>; /* PB0 */
-+	status = "okay";
-+
-+	flash@0 {
-+		compatible = "jedec,spi-nor";
-+		reg = <0>;
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		label = "firmware";
-+		spi-max-frequency = <40000000>;
-+	};
-+
-+	can@1 {
-+		compatible = "microchip,mcp2518fd";
-+		reg = <1>;
-+		clocks = <&clk_can0>;
-+		interrupt-parent = <&pio>;
-+		interrupts = <1 1 IRQ_TYPE_LEVEL_LOW>;  /* PB1 */
-+		spi-max-frequency = <20000000>;
-+		vdd-supply = <&reg_vcc3v3>;
-+		xceiver-supply = <&reg_vcc3v3>;
-+	};
-+};
--- 
-2.39.5
+How do you not have clk->core?
 
+> +               return 0;
+> +
+> +       clk_ss.modfreq =3D modfreq;
+> +       clk_ss.spreadpercent =3D spreadpercent;
+> +       clk_ss.method =3D method;
+> +       clk_ss.enable =3D enable;
+> +
+> +       clk_prepare_lock();
+> +
+> +       core =3D clk->core;
 
+Why do we need to get the core under the lock?
+
+> +
+> +       if (core->prepare_count) {
+
+Why does prepare count matter?
+
+> +               ret =3D -EBUSY;
+> +               goto fail;
+
+We just left without releasing the lock.
+
+> +       }
+> +
+> +       ret =3D clk_pm_runtime_get(core);
+> +       if (ret)
+> +               goto fail;
+
+We just left without releasing the lock.
+
+> +
+> +       if (core->ops->set_spread_spectrum)
+> +               ret =3D core->ops->set_spread_spectrum(core->hw, &clk_ss);
+> +
+> +       clk_pm_runtime_put(core);
+> +       clk_prepare_unlock();
+> +fail:
+> +       return ret;
+> +}
+> +EXPORT_SYMBOL_GPL(clk_set_spread_spectrum);
+> +
+> diff --git a/include/linux/clk.h b/include/linux/clk.h
+> index b607482ca77e987b9344c38f25ebb5c8d35c1d39..49a7f7eb8b03233e11cd3b927=
+68896c4e45c4e7c 100644
+> --- a/include/linux/clk.h
+> +++ b/include/linux/clk.h
+> @@ -858,6 +858,21 @@ int clk_set_rate(struct clk *clk, unsigned long rate=
+);
+>   */
+>  int clk_set_rate_exclusive(struct clk *clk, unsigned long rate);
+> =20
+> +/**
+> + * clk_set_spread_spectrum - set the spread spectrum for a clock
+> + * @clk: clock source
+> + * @modfreq: modulation freq
+> + * @spreadpercent: modulation percentage
+> + * @method: down spread, up spread, center spread or else
+
+Did we get cut off?
+
+> + * @enable: enable or disable
+
+Isn't 'disable' equal to spread_percent of zero?
+
+> + *
+> + * Configure the spread spectrum parameters for a clock.
+> + *
+> + * Returns success (0) or negative errno.
+> + */
+> +int clk_set_spread_spectrum(struct clk *clk, unsigned int modfreq,
+
+Does this need to be a consumer API at all? Usually SSC is figured out
+when making a board and you have to pass some certification testing
+because some harmonics are interfering. Is the DT property sufficient
+for now and then we can do it when the driver probes in the framework?
+
+> +                           unsigned int spreadpercent, unsigned int meth=
+od,
+
+I'd assume 'method' would be some sort of enum?
+
+> +                           bool enable);
+>  /**
+>   * clk_has_parent - check if a clock is a possible parent for another
+>   * @clk: clock source
 
