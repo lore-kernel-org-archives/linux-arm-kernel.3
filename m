@@ -4,55 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF638C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 11:29:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CAC4C0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 11:31:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=krOWEd+g1upwe3edf/FUPzHG6VEvFaBxOzWVAtUCkLs=; b=JXR/VKUsmf7E+br3jY9AAFJ8wj
-	I7uQUSN7ZHR3+5pszGgJbDG+TprsUh34wlWKYHc8ihXvb0EqhrkCtBKdmDvZhTKB0gcWvWxDlS2JZ
-	dOvpyWMcAhZBewfZmLbhTlmuBbqFQMWfRn5TtteR5rCF05fwavFsdTIMTYlA8Vtjvh4su1wmo7kj/
-	/NJKLA8tzGDLVY78yXwshNbFYUqHpp10nefoCOISDusM3qV638EYmJnKPW9fmOu1/8cwcn5fEGmEx
-	DrrCu1Oetn7XRrh+sABWDJwCpEtrNIXPSiv6BOLDog1xFIIJuy8vm+cwbmuQ6xXyVcvyw0GQKbvUh
-	BMMB4ZZA==;
+	bh=CP0x8mN0i8NMaTdrqmLpRj+1swfy1Xuh3gJV3hfyQ+g=; b=41aoa0aAetToS+MemEo9mbJHVd
+	qUBOSCFQSYGDXhxpaqWATMqxmTYSTf3vfv0OghzQPXOO82VGtIyDnzuO79LM3CjR/oK5I0eNitAkG
+	2VYJX0DqwTH2eKfjCLBk0pTrZaAuQxKj3quYJk5PY/jAqHktvXi01em6Og9dXWG72RBzZAwas7Oc+
+	uwOFBrZX5ZnZa1zhIQ6cm/IyxCAo55Gvu2KUpnXYvW+K5J+IOHqBpFrqN5GU4GSVKqJV/LKajFUeE
+	8BLbVSqjxKYzsdFc3518Yj7VDihAZPZZskVIhLe1Nbeb6hoOfJaV7vfVewqNfZvDQmpTx2+/rfxkP
+	G37DthLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcjm8-00000004mlJ-1K6T;
-	Tue, 28 Jan 2025 11:29:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcjkm-00000004mdH-3nwG
+	id 1tcjnx-00000004n6a-20fz;
+	Tue, 28 Jan 2025 11:30:53 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tcjmc-00000004ms4-0kj0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jan 2025 11:27:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 540E1497;
-	Tue, 28 Jan 2025 03:28:02 -0800 (PST)
-Received: from bogus (unknown [10.57.36.4])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ACB553F694;
-	Tue, 28 Jan 2025 03:27:33 -0800 (PST)
-Date: Tue, 28 Jan 2025 11:27:01 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Viresh Kumar <viresh.kumar@linaro.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>, linux-pm@vger.kernel.org,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Lifeng Zheng <zhenglifeng1@huawei.com>, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 11/15] cpufreq: scmi: Set .set_boost directly
-Message-ID: <20250128112701.s2kgegovz625nuac@bogus>
-References: <cover.1737707712.git.viresh.kumar@linaro.org>
- <ec27aef491c1b71ef5f1240480c52d051cdd821d.1737707712.git.viresh.kumar@linaro.org>
+	Tue, 28 Jan 2025 11:29:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=P+b5uxlaPnY9QJRP99V+tj6w/NcgtRqJg3VejJereMyoTz2tVHGXBipigbMRAE2lt2gRAqtA+WfpdSa/6UZ/jPdU4vIL/V78R3XOlHv4ScZncbICVVGWsJooHYp+44K9tFfJEYbzPiNaZsr+Rw7pBOeYs6JknYZX+OV389Kz5qrfv94T5TsHgOOPFG1DdVsm+odvLvf5oMGEY7gkmC7xnxyju5DGKMw+ob+BdUOBLDqudTggeA5TkewncpNtf73kcP2rSwlEgQHocz4FmpkDiOBbF3TXmqCcMX0F1knwIfSUsqzVpO3FTPgJKp1Kx7WubwSa5DblvnK1t8ftixUi9g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CP0x8mN0i8NMaTdrqmLpRj+1swfy1Xuh3gJV3hfyQ+g=;
+ b=sOHqaN8RuYpzbMwc1M9W+lngZd2KlPzo7M0eVCj2pAMM0WgDtwXLuD+2H50owQEuomrowHUJBBHqf/EfL/Qkb8A23Y4c2ubMxOJ0MdiS4w+iUm5EDJJiMBSKya+n7ijx52HDMaGHJet+4/NMTMAzj71XPz1XXJWZ2h94Pn3CIQ3WQnIYq5tkb2MxNYND7/k2XcaXfsRzUxdz2kkDJkUu4wdBI4rdUxlnovSFQ8897jZ/K0HeAg+d8ucq8E4BUeCB1UR0gjjwdrFBVxPqc/gBFRuKMBl85WDZg8v7ispdLckCVwAdp/R/ocCL3HNnP4qdGgUYdivd6bohA77o1lb/6A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=epam.com; dmarc=pass action=none header.from=epam.com;
+ dkim=pass header.d=epam.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=epam.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CP0x8mN0i8NMaTdrqmLpRj+1swfy1Xuh3gJV3hfyQ+g=;
+ b=kVuQMZInsESu4l5Jtb/H89j8vSGq+VsDrYgK+zzHLl2BufGnlMAEGzRsOA1XzbxWHjTG7nRal+6xf2Ua+eVeJX/rPz4MdrQJspQiv2hDJ30m9S3LuBtFS93QOdmBxebpWJb7SpaoSDzfh5Bv7TjDOpSZ6EUT3krVFZf537CtEd6bxmAhi3kEWs6oKd8jQ0qi1oQ2Cn377LA3PDbGv+p/nQcKh7swYZSCTGpweJtsbyRUu70tkgSRZqoc5prdc0jVMZ57BM7mxZ+4aLBN25qVtYf+2i3prJlsZkHmjN9HNSz2JRVNYBM1QPcMeyIWwZ7LuyRVOi729+BgtUezaBZDrQ==
+Received: from GV1PR03MB10456.eurprd03.prod.outlook.com
+ (2603:10a6:150:16a::21) by AM9PR03MB7773.eurprd03.prod.outlook.com
+ (2603:10a6:20b:3dd::23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8377.22; Tue, 28 Jan
+ 2025 11:29:18 +0000
+Received: from GV1PR03MB10456.eurprd03.prod.outlook.com
+ ([fe80::a41e:5aa8:e298:757e]) by GV1PR03MB10456.eurprd03.prod.outlook.com
+ ([fe80::a41e:5aa8:e298:757e%6]) with mapi id 15.20.8377.021; Tue, 28 Jan 2025
+ 11:29:18 +0000
+From: Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>
+To: Marc Zyngier <maz@kernel.org>
+CC: "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "kvm@vger.kernel.org"
+	<kvm@vger.kernel.org>, Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
+	<suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu
+	<yuzenghui@huawei.com>, Bjorn Andersson <andersson@kernel.org>, Christoffer
+ Dall <christoffer.dall@arm.com>, Ganapatrao Kulkarni
+	<gankulkarni@os.amperecomputing.com>, Chase Conklin <chase.conklin@arm.com>,
+	Eric Auger <eauger@redhat.com>, Dmytro Terletskyi
+	<Dmytro_Terletskyi@epam.com>, Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
+Subject: Re: [PATCH v2 02/12] KVM: arm64: nv: Sync nested timer state with
+ FEAT_NV2
+Thread-Topic: [PATCH v2 02/12] KVM: arm64: nv: Sync nested timer state with
+ FEAT_NV2
+Thread-Index: AQHbcAaOrTBbbSLpA0ukEQZvbJQCdQ==
+Date: Tue, 28 Jan 2025 11:29:18 +0000
+Message-ID: <87a5bb18j7.fsf@epam.com>
+References: <20241217142321.763801-1-maz@kernel.org>
+	<20241217142321.763801-3-maz@kernel.org> <87frl51tse.fsf@epam.com>
+	<86h65kuqia.wl-maz@kernel.org>
+In-Reply-To: <86h65kuqia.wl-maz@kernel.org> (Marc Zyngier's message of "Mon,
+	27 Jan 2025 17:15:57 +0000")
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=epam.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: GV1PR03MB10456:EE_|AM9PR03MB7773:EE_
+x-ms-office365-filtering-correlation-id: 274ec27f-e2ad-4e7a-7a16-08dd3f8f00b7
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|38070700018;
+x-microsoft-antispam-message-info: =?iso-8859-1?Q?mzZogxK9nbwIdmjPRdUcTnk03tPX9Xi4IIljKEybJsJKXDb9a2tnJxX4sI?=
+ =?iso-8859-1?Q?D5MnrSACQxgw6GL3wNAEX+zEp6XtJqz6c9aM328oT4LsfWd2Jz7fBraR5v?=
+ =?iso-8859-1?Q?qlHZebQlDB4nD8FewmpuuBtino8GHxaPS4xWpK0FrWQ3bbm0PpfLPteXtV?=
+ =?iso-8859-1?Q?Y8rLWcmNYIYgcERqEFHcIuZxTm3AQ4N+4YvBpG4ZfrNGL7U6M3VL6mKc9T?=
+ =?iso-8859-1?Q?WOGw/bGg8Yp2r6CnVIGoMYY/MNgeMER+jAL9MbxKJ3aLSj2cqoVvtUIXph?=
+ =?iso-8859-1?Q?mew0+6vk/BHeHtjoUUfCDFvXCMxt/RpLtC/tG7zHq2ehqyKKB1GBB3mBT2?=
+ =?iso-8859-1?Q?GiXz0qJYK1W3JsoccVEJ9P0bvsM2Gq8poyePqo/wjBNrhBWQpcADq0/cW8?=
+ =?iso-8859-1?Q?XUycDZNNuTOdwoypcwDBfnLG/OTAR/y8sf86cnwCynXazpsTkntIlqkth1?=
+ =?iso-8859-1?Q?9EVuXkegMso5yvBdinufqcrMgKuIFt6BJq1vqzgN5lk9QY7YRK//uZaVnO?=
+ =?iso-8859-1?Q?0DpwH9Fjouv9jx84R4t9NA5AxgNCWfiiqv9wI+97UjGbdyfL4t/yXWq7Yr?=
+ =?iso-8859-1?Q?ewD+l+gDNp1xxhkBZCIE5lZSREh/nAXVVX8P/uiNJi0mAkVetmSnuerRZN?=
+ =?iso-8859-1?Q?Mg9SVGUeaNkeSgp+KmL8lL/2ynq0cSwgS6osnW6cxkCFsJGg4yhGcMJ4xS?=
+ =?iso-8859-1?Q?hgHRcgzr+1ViKJNg0sznbzSilzNXaz8Ls4zeddaf0YhTlKlbN9tAwdFr7p?=
+ =?iso-8859-1?Q?n2gDdfKJb0oZPPbKXyRC+a25n408FsQSCZvysKPLCQBwA5PdjkFo6B297A?=
+ =?iso-8859-1?Q?JxyFoFCGTE+jTkgPoQJHsS9M7IF6DLVMXFt6f5BkKgvA+C2nd/jHL7XVoi?=
+ =?iso-8859-1?Q?6Hu82mKU/+MaHiUBMgSHuC49D54ZxRuSbjPOj2eA1JxiWmAZC562eT1A4g?=
+ =?iso-8859-1?Q?gZX5BViJWmK0KYuzbNWIqnde3jj44WclSzPSFx6Zh6Khy99Bbol168LVGT?=
+ =?iso-8859-1?Q?d+ONIVjK6koV+fJwHTwBxqFg3qwqPEM2WvImTj6asmZ0UNXr6HotDukbZU?=
+ =?iso-8859-1?Q?9/YG7woGYDCNT8kyXGLosSBSctWGyEZQ+vrwIOwO0GcNp9YGK88GZSea2r?=
+ =?iso-8859-1?Q?KkkUOExNK5/dRYSNih/WS9YzdteFNjDDF1xnlY4JgoKd1HSoszdwcZdOyD?=
+ =?iso-8859-1?Q?KY3mSkuSRP7FJ8Ebnern0IZH4IzALlt+nvXikO6lsH5vFVdt+Rab/LNyV+?=
+ =?iso-8859-1?Q?8e+Or1k9J77314XCtLvwv/P7MusBIM0dwtmFBfLfpvK9e6OES5rW5HI3Zr?=
+ =?iso-8859-1?Q?sBkIRIVse1ppqkN71VKDntKmrahWsgStzCyP0uiZOOE/hUStFktHckDsGa?=
+ =?iso-8859-1?Q?lqECpFroQjxDA90JkdLvUgrUOcsonakDx6oDqKrl4xhwLG8jFGQxM2+RYV?=
+ =?iso-8859-1?Q?5X+ng/3mleRyYMCRvp0H0bh6kNMBNAxWHVTlGX3D42F3xGPNQZ8zzR2ZqA?=
+ =?iso-8859-1?Q?ZGgcW9a05RqrVDXytmPGB2?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR03MB10456.eurprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?3rGpVmRV0zQnZpzM2oR+jltfD4O4dRBTQQl+tlToyiZiQACFRcHm0+nyS9?=
+ =?iso-8859-1?Q?cQHOfjy5/mhunK2CE29dUoyZO098A0TQrNNVGc5Y7lt2BwSOjqqom6FO0N?=
+ =?iso-8859-1?Q?4biZPtwD0IzW3oS2rI+p0e/AuMWN18iyXeVxPHZ9wVZp4/cd91K7NXu3gS?=
+ =?iso-8859-1?Q?JAK87rnfvEPQ71GzSs34vTlbmjX5tgdty9HQmDnLeJdwDb+211qTvesHwk?=
+ =?iso-8859-1?Q?YxycQdy6XEXaTG4BxE6sl9PNqh2fYjn5p6iOqzPtxB+gksjfmgRYm9SEjd?=
+ =?iso-8859-1?Q?B92Tt/a9cDOGlqE8kHkvoLLd2r+MO1LYGA8fQl0EBSyS6o3MGnznd49mgh?=
+ =?iso-8859-1?Q?XQ9U4MeXtl9Pv/oYwhf0PeVMOf0m4B44aopNtKpfYlvM/GLNEAYFnbUTmv?=
+ =?iso-8859-1?Q?u0aQrUPk+MS+HizfFTYvPLQGJSLIdF12SOdoEIHPmNCD8gJ0RlZVigGwmP?=
+ =?iso-8859-1?Q?x9+EL631F15pMzc6/d2HJiW7/GoDq2Pk8UwtUxRcafp7fO89IJJimaFZJJ?=
+ =?iso-8859-1?Q?4qAxUv2vveI58gtnJk/xanJjlZxK0vmVxFKjPP8GU+1ZbC9zY5GZVFseTS?=
+ =?iso-8859-1?Q?bIL3nl+tyAKkbtycyab2x5JTGakAXsWNDokCtYdvmM4YUVPnI5P5vLkxcH?=
+ =?iso-8859-1?Q?ej6By5QvTMzvHW74qVZNtAeqb1l6hxowkDXARcq7kBbT/yQ1APoX1ZA0dd?=
+ =?iso-8859-1?Q?btQ3ExwyFtivDyvNwNt5A8NWaJb0xtu6+zA7In/Wou2OdP0MeZlzPVhApV?=
+ =?iso-8859-1?Q?k1gafpwj5oOnXBQ9YGZiVyBNuhn2IR5MaIDbWvodPTksGk0KSN4SgUPMj+?=
+ =?iso-8859-1?Q?L+LLXP2u16iQzHdyQR4IZI9bVksr2LfZrcDcXl3UzlyBXZM1/e337jiZxA?=
+ =?iso-8859-1?Q?/iIL3IWTL41QWXZtSI312qVsG+iUsXVDoITycA4A0fopm0q0PqJ5oIx3D0?=
+ =?iso-8859-1?Q?3Wg7Lx3XsCrh/HdQWBgsE50Hk45xq3oMkBog9PX2rU7HKPfVTNdUCAGotg?=
+ =?iso-8859-1?Q?ezMlLvfbmySFiWVmAO71nSqLCxWv63j81zg0j4+PEBOMqB9oFzDQQGVn9v?=
+ =?iso-8859-1?Q?ovqz6ifnT2Bew8uKTv0mpaQUp/FNyN+gncV4xMp0rbWoHm5fJ+Lv3vrJsO?=
+ =?iso-8859-1?Q?TrheHIckB3GvS9oQ+NBd2zLMl8WUrgZ0Jbngbudbixpt1QtPysZPUQVkiP?=
+ =?iso-8859-1?Q?fIHz/opb5P6m+PCI0fUcYwF98PPf9HxJIimOC1UKwPQXWML8c55DSepGaW?=
+ =?iso-8859-1?Q?QPO1zS/Wozy5oxcPl9OBg9XaK0basIeaXw0VkgS1Z3xL8Jft+l4SFdo40l?=
+ =?iso-8859-1?Q?rRRD1W/4W4WDYpJMoqFIHxr023CsEQiWKyBvoKgpk/li8qJakL4LzuNGqj?=
+ =?iso-8859-1?Q?Jf9EAjSCP7OD16O4l5Rfc9EbAcJ8sW5nDx65tGm7B1837RxtvlCqBGlWg3?=
+ =?iso-8859-1?Q?cUQpN0bAcHt7EKZ6+jwOQ8Gr+QLoILedS6QZTKEzmEMQ9la6sACX8DKyP6?=
+ =?iso-8859-1?Q?nuy0T7RcbWiSBma2QYplb6Y9IpjqTM/YTYZDcWd7PTzWtT+ICBbbhd39Nw?=
+ =?iso-8859-1?Q?X3OsPHvMIMbzuljGHJt0puK7d+gkCAWrjEZZ8L8+hgeOnGiJc7OC70eBHY?=
+ =?iso-8859-1?Q?f0UXZc4ZQrBumOrcnqsLiYIlwCHTk0CkuJgaKHlxgBcerZL9nVLoZamA?=
+ =?iso-8859-1?Q?=3D=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ec27aef491c1b71ef5f1240480c52d051cdd821d.1737707712.git.viresh.kumar@linaro.org>
+X-OriginatorOrg: epam.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: GV1PR03MB10456.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 274ec27f-e2ad-4e7a-7a16-08dd3f8f00b7
+X-MS-Exchange-CrossTenant-originalarrivaltime: 28 Jan 2025 11:29:18.0756
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: b41b72d0-4e9f-4c26-8a69-f949f367c91d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: DDRPeYjNf6Y4Hqp6pYMAwSfyLQubh7wGCG9rEd75APPfIYQJbt1rAOF8gSt8lsk5KGod+Q7zYqLbTJduady988wBUrgl8f1ulL5gn97Q4I0=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR03MB7773
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_032736_994934_39D5E270 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20250128_032930_239396_C7A59259 
+X-CRM114-Status: GOOD (  34.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,27 +174,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 24, 2025 at 02:28:15PM +0530, Viresh Kumar wrote:
-> The boost feature can be controlled at two levels currently, driver
-> level (applies to all policies) and per-policy.
-> 
-> Currently the driver enables driver level boost support from the
-> per-policy ->init() callback, which isn't really efficient as that gets
-> called for each policy and then there is online/offline path too where
-> this gets done unnecessarily.
-> 
-> Instead set the .set_boost field directly and always enable the boost
-> support. If a policy doesn't support boost feature, the core will not
-> enable it for that policy.
-> 
-> Keep the initial state of driver level boost to disabled and let the
-> user enable it if required as ideally the boost frequencies must be used
-> only when really required.
+
+Hi Marc,
+
+
+Marc Zyngier <maz@kernel.org> writes:
+
+> + Wei-Lin Chang, who spotted something similar 3 weeks ago, that I
+> didn't manage to investigate in time.
 >
+> On Sun, 26 Jan 2025 15:25:39 +0000,
+> Volodymyr Babchuk <Volodymyr_Babchuk@epam.com> wrote:
+>>=20
+>>=20
+>> Hi Marc,
+>>=20
+>> Thank you for these patches. We (myself and Dmytro Terletskyi) are
+>> trying to use this series to launch up Xen on Amazon Graviton 4 platform=
+.
+>> Graviton 4 is built on Neoverse V2 cores and does **not** support
+>> FEAT_ECV. Looks like we have found issue in this particular patch on
+>> this particular setup.
+>>=20
+>> Marc Zyngier <maz@kernel.org> writes:
+>>=20
+>> > Emulating the timers with FEAT_NV2 is a bit odd, as the timers
+>> > can be reconfigured behind our back without the hypervisor even
+>> > noticing. In the VHE case, that's an actual regression in the
+>> > architecture...
+>> >
+>> > Co-developed-by: Christoffer Dall <christoffer.dall@arm.com>
+>> > Signed-off-by: Christoffer Dall <christoffer.dall@arm.com>
+>> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+>> > ---
+>> >  arch/arm64/kvm/arch_timer.c  | 44 +++++++++++++++++++++++++++++++++++=
++
+>> >  arch/arm64/kvm/arm.c         |  3 +++
+>> >  include/kvm/arm_arch_timer.h |  1 +
+>> >  3 files changed, 48 insertions(+)
+>> >
+>> > diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+>> > index 1215df5904185..ee5f732fbbece 100644
+>> > --- a/arch/arm64/kvm/arch_timer.c
+>> > +++ b/arch/arm64/kvm/arch_timer.c
+>> > @@ -905,6 +905,50 @@ void kvm_timer_vcpu_put(struct kvm_vcpu *vcpu)
+>> >  		kvm_timer_blocking(vcpu);
+>> >  }
+>> > =20
+>> > +void kvm_timer_sync_nested(struct kvm_vcpu *vcpu)
+>> > +{
+>> > +	/*
+>> > +	 * When NV2 is on, guest hypervisors have their EL1 timer register
+>> > +	 * accesses redirected to the VNCR page. Any guest action taken on
+>> > +	 * the timer is postponed until the next exit, leading to a very
+>> > +	 * poor quality of emulation.
+>> > +	 */
+>> > +	if (!is_hyp_ctxt(vcpu))
+>> > +		return;
+>> > +
+>> > +	if (!vcpu_el2_e2h_is_set(vcpu)) {
+>> > +		/*
+>> > +		 * A non-VHE guest hypervisor doesn't have any direct access
+>> > +		 * to its timers: the EL2 registers trap (and the HW is
+>> > +		 * fully emulated), while the EL0 registers access memory
+>> > +		 * despite the access being notionally direct. Boo.
+>> > +		 *
+>> > +		 * We update the hardware timer registers with the
+>> > +		 * latest value written by the guest to the VNCR page
+>> > +		 * and let the hardware take care of the rest.
+>> > +		 */
+>> > +		write_sysreg_el0(__vcpu_sys_reg(vcpu, CNTV_CTL_EL0),  SYS_CNTV_CTL)=
+;
+>> > +		write_sysreg_el0(__vcpu_sys_reg(vcpu, CNTV_CVAL_EL0), SYS_CNTV_CVAL=
+);
+>> > +		write_sysreg_el0(__vcpu_sys_reg(vcpu, CNTP_CTL_EL0),  SYS_CNTP_CTL)=
+;
+>> > +		write_sysreg_el0(__vcpu_sys_reg(vcpu, CNTP_CVAL_EL0), SYS_CNTP_CVAL=
+);
+>>=20
+>>=20
+>> Here you are overwriting trapped/emulated state of  EL2 vtimer with EL0
+>> vtimer, which renders all writes to EL2 timer registers useless.
+>>=20
+>> This is the behavior we observed:
+>>=20
+>>  1. Xen writes to CNTHP_CVAL_EL2, which is trapped and handled in
+>>     kvm_arm_timer_write_sysreg().
+>>=20
+>>  2. timer_set_cval() updates __vcpu_sys_reg(vcpu, CNTHP_CVAL_EL2)
+>>=20
+>>  3. timer_restore_state() updates real CNTP_CVAL_EL0 with value from
+>>    __vcpu_sys_reg(vcpu, CNTHP_CVAL_EL2)
+>>=20
+>>  (so far so good)
+>>=20
+>>  4. kvm_timer_sync_nested() is called and it updates real CNTP_CVAL_EL0
+>>  with __vcpu_sys_reg(vcpu, CNTP_CVAL_EL0), overwriting value that we got
+>>  from Xen.
+>>=20
+>> The same stands for other hypervisor timer registers of course.
+>>=20
+>> I am wondering, what is the correct fix for this issue?
+>>=20
+>> Also, we are observing issues with timers in Dom0, which seems related
+>> to this, but we didn't pinpoint exact problem yet.
+>
+> Thanks for the great debug above, much appreciated.
+>
+> As Wei-Lin pointed out in their email[1], there is a copious amount of
+> nonsense here. This is due to leftovers from the mix of NV+NV2 that
+> KVM was initially trying to handle before switching to NV2 only.
+>
+> The whole VHE vs nVHE makes no sense at all, and both should have the
+> same behaviour. The only difference is around what gets trapped, and
+> what doesn't.
+>
+> Finally, this crap is masking a subtle bug in timer_emulate(), where
+> we return too early on updating the IRQ state, hence failing to
+> publish the interrupt state.
+>
+> Could you please give the hack below a go with your setup and report
+> whether it solves this particular issue?
 
-Acked-by: Sudeep Holla <sudeep.holla@arm.com>
+Thanks! This is exactly what we needed. Your suggested changes fixed
+both issues: in Xen and in Dom0.
 
--- 
-Regards,
-Sudeep
+[...]
+
+--=20
+WBR, Volodymyr=
 
