@@ -4,169 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0EBAC0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 13:52:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45256C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 13:57:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C8HVkUi0UPc3WDD/OQrHyMHWa9mmT1FZwUucYVnBAjM=; b=dWPC9+5twS72o6s1DnUhXPdXL/
-	ii2yde1UlWu/sxUJcWTd6PFTnEkEJOZZFuUl6cK54vFk+BqELBANZ3ftNUy2lVhHkqN8j4i4mgLzB
-	ps+B0sEqEYdDyXjG1Holt7N5kVTNBe5hw8M5ZP6CqXugaSTRWlSTd+dEhld5OhYG/U6Ako1WcQ5WZ
-	k5CUCsD8FIRvMX8fcICNSU7ljXvz1scv54zRzW1llls3sJCnnEcPz+Hn9S1tT91om2Np3I47Hc6q6
-	7tsZGQT+NPoeWSFrInoZP/9+r73rRFYjfSq1Yg17UQmJKyqLKVGCgH3uL2LN0zITY4QCrQ3EqCaS6
-	UMLBAWlA==;
+	bh=B0pNXWwA2mqIbLXyd62EsEBdt2mktzsojj7ikNt1cwM=; b=JUXMKTFl9HM0KXnQPAoD3ouTm6
+	GnkJnkiei2f6M5Fjkzc5MPS+uqTNwlvQvlXSSgFRksOt5I2BXFmb3bpX0tcPRy4qUR3zIS/XCTv4J
+	+KXw40ehHNHxAu6msOD2H/fzLoGkw3cwDQElGQTC1AVM6mDZ3OYTDbYrQrLbv2NewrqA6SHgcKPCh
+	ZkNfDWlCJLLQjYAjv4a947FZIc/Xjk1mNOPo+BedTtfSt7/rtVXtchCju3iSR6vh4ZDGjD757kg4p
+	jyWwIACz+pdWch/U0iiwlVle5PquX5B6tO0Xnign1E5khehXUfUgFOA9Pwjq3HyYS39uTMDvR2fHf
+	u2WiE3FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcm0P-000000050E5-3w5p;
-	Tue, 28 Jan 2025 13:51:53 +0000
-Received: from mail-dbaeur03on20720.outbound.protection.outlook.com ([2a01:111:f403:260d::720] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
+	id 1tcm5z-000000050eD-1HiY;
+	Tue, 28 Jan 2025 13:57:39 +0000
+Received: from mail-westeuropeazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c201::] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tclyV-00000004zz0-3YuJ;
-	Tue, 28 Jan 2025 13:49:57 +0000
+	id 1tcm4e-000000050Yd-22Dl
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Jan 2025 13:56:18 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IUF/302JdVt/nUky7II5i2vmeuyz8DzLAkJ+oM+Nbo3mbFgeKmcTP72QWGqp1DpFDiay1lPcbs9maOAm7Q8DJe5EU2lShXi8vHiil93oi9rtRyoFg0iD/FEYqyfAZ4sRxLTi3oOKWc5p6nNCu2gHVWBOM1ZE/4/UbxbmWieBhQROtTBwFxohC9kVBo2XTStLoSHv4fqBn8ubiBmFRNzIJATCZrLa2LkQTrLVdWxEPo8bNLDmlyMJcSXonGS+ufSCg7+x9ft4ub6cqXwqxaXPBfG91pmWxbo6RxHVPLSRoItPt9VhGDJH+kqcDE2ZVYF4lycby+FSFeTDXy2XjicI+Q==
+ b=eu7GvWfSw/7eV3P4S9ckCmvtyPud2woGS50LZM8LPvmJJbm95ETJijNVaCq2Snlsb3DQl0WCLfw2KIG8OVkJ064dNFRkq3CeXjIoHxzpEedXxb5XV0ubI+PIC6PRLQjsA5nGejZ/9yL3Ogt4aYlJLUi9jrnYWao46/yDRy8mg4bvnrxKYyjHQI6bv07fD5VT4y1ia1O++2aZpZ6hoNFAcr6KsNdW5XxD9EbBsva5aVulnR2ADDSKpbnxJ0cfOyxqlSwpgig2CU+MGUQAPcPRHuKvZ6Ygh88jploZ1jXBZ/vBrd0muBT+6dJ8pL6h38b5P0b/iYHYooT5Iz8O8RsdRw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=C8HVkUi0UPc3WDD/OQrHyMHWa9mmT1FZwUucYVnBAjM=;
- b=lmE8VFo7N8+JQqhQxp2JTqCwiwlgDaISk4deV0Z9ynchVcQu+CO7pU7GC4zXLHvajzbdGg6CNDVBgLclQbMX+RKog5TouI/U7aFVRm7z8iGWfadIZyqAoA/N319EJnEExOY/0XSWtr2SO4ZeeCNLzkapqt9hEOQtoLEL5faUj1Lfe0E2Cn5hnOp8A0umsbZBP8Wkev4uVsct+Vf5qZIxHS0BQPYbNdGrj4UTJNaxyuyZk+DhfDxm29/dNuX23Q6KJMiRNEoThstq11k7fGbpWbpfdhV9MjMDMpbqH7ZKLBpb96S+XoGj1JppUP3v2EZKRvbhPIAQhafLhIJcWHIdaA==
+ bh=B0pNXWwA2mqIbLXyd62EsEBdt2mktzsojj7ikNt1cwM=;
+ b=Do1TWId4CO2J5h8A0IfNZpcsog/Pz01aETSdBZJCSyKN7qWI47yRwZqQ17sdkm4qCkBV5mxz9CrEXK/qz7yiM32rIq1ZgF3wy2JKC39baC0JFRovc4NLj00ESlIdT8HAP7YgO0TPCcYDiB+sJfnkVdqrT8Qafx8x6Wxoux6qoV+KV1p8Lwvexc2TZc2H7Bmp+Z+Oj/lGWqIAE07056cUG4JMb4gwzrSy7sMPXkS/5WpwKDSu6+of9+H8jdEbQAVjXxFlwCxvPA5CsDtAfPKDclVEqmw2GEbqz6j1j5zUl0niwpjBVUvFan2BZNtuyeSj/wIvDcpBh7aWFKnf5U8v3A==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wolfvision.net; dmarc=pass action=none
- header.from=wolfvision.net; dkim=pass header.d=wolfvision.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wolfvision.net;
- s=selector2;
+ smtp.mailfrom=epam.com; dmarc=pass action=none header.from=epam.com;
+ dkim=pass header.d=epam.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=epam.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=C8HVkUi0UPc3WDD/OQrHyMHWa9mmT1FZwUucYVnBAjM=;
- b=UtmZK4eixSYtpQ7sjPmxU6MO9bvlvdjMaIN1OvNl4CXbh2G6vIqvBluMti3Me9AY3QoDOV/sYJBgxsv/K6NkBuVz8WafVYO6AgQkxXy3KS21fwINtajToqjeyhk3ela8JUzFEDgZrIMfcv5KyGI5iac9IhafPaYuEqq4rLillGU=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=wolfvision.net;
-Received: from DU0PR08MB9155.eurprd08.prod.outlook.com (2603:10a6:10:416::5)
- by DB8PR08MB5436.eurprd08.prod.outlook.com (2603:10a6:10:111::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8377.21; Tue, 28 Jan
- 2025 13:49:45 +0000
-Received: from DU0PR08MB9155.eurprd08.prod.outlook.com
- ([fe80::4e72:c5d4:488e:f16d]) by DU0PR08MB9155.eurprd08.prod.outlook.com
- ([fe80::4e72:c5d4:488e:f16d%4]) with mapi id 15.20.8377.021; Tue, 28 Jan 2025
- 13:49:45 +0000
-Message-ID: <8641ce0b-2f7e-462e-a88b-f71295529a91@wolfvision.net>
-Date: Tue, 28 Jan 2025 14:49:50 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/4] arm64: dts: rockchip: add overlay test for
- Wolfvision PF5
-To: Quentin Schulz <foss+kernel@0leil.net>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Jagan Teki <jagan@edgeble.ai>, Niklas Cassel <cassel@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Quentin Schulz <quentin.schulz@cherry.de>
-References: <20250128-pre-ict-jaguar-v3-0-7be2f09d390a@cherry.de>
- <20250128-pre-ict-jaguar-v3-1-7be2f09d390a@cherry.de>
+ bh=B0pNXWwA2mqIbLXyd62EsEBdt2mktzsojj7ikNt1cwM=;
+ b=LlUDvMrRmc1GecMEy49pH5YejizDGGFIwzMHGJNEKtkcQlDjDK6o5HbcV9rREPfDUfoYboSewicaISOzEHN3MbY0jmIM4JA1P9WeevRUbBoxvXvSJBrgzaB2Y/DHwVHtgs+pNg5KmfQnJpTKRPKP8Q650Z3baGLXq/vbwAa3oBLljLOKWafVL32OMnADlYp5ZiZQg7WGqy+ZEZbb+6iwpzj5xcK3HK9S+OtBfIT5Hy4lmaeX56Kx3PM9XJe+2H8zg3BYXCmKzYnFwVL21gBAJfVkfjRaffeu3CE0PrcCyjAHkhXUhHkMvlGkjFNrlT57qtIE3hX19Un7knS9w69u0Q==
+Received: from GV1PR03MB10456.eurprd03.prod.outlook.com
+ (2603:10a6:150:16a::21) by AS2PR03MB9121.eurprd03.prod.outlook.com
+ (2603:10a6:20b:5f8::18) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8377.22; Tue, 28 Jan
+ 2025 13:56:12 +0000
+Received: from GV1PR03MB10456.eurprd03.prod.outlook.com
+ ([fe80::a41e:5aa8:e298:757e]) by GV1PR03MB10456.eurprd03.prod.outlook.com
+ ([fe80::a41e:5aa8:e298:757e%6]) with mapi id 15.20.8377.021; Tue, 28 Jan 2025
+ 13:56:11 +0000
+From: Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>
+To: Marc Zyngier <maz@kernel.org>
+CC: "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "kvm@vger.kernel.org"
+	<kvm@vger.kernel.org>, Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
+	<suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu
+	<yuzenghui@huawei.com>, Bjorn Andersson <andersson@kernel.org>, Christoffer
+ Dall <christoffer.dall@arm.com>, Ganapatrao Kulkarni
+	<gankulkarni@os.amperecomputing.com>, Chase Conklin <chase.conklin@arm.com>,
+	Eric Auger <eauger@redhat.com>, Dmytro Terletskyi
+	<Dmytro_Terletskyi@epam.com>, Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
+Subject: Re: [PATCH v2 02/12] KVM: arm64: nv: Sync nested timer state with
+ FEAT_NV2
+Thread-Topic: [PATCH v2 02/12] KVM: arm64: nv: Sync nested timer state with
+ FEAT_NV2
+Thread-Index: AQHbcAaOrTBbbSLpA0ukEQZvbJQCdQ==
+Date: Tue, 28 Jan 2025 13:56:11 +0000
+Message-ID: <874j1j11qd.fsf@epam.com>
+References: <20241217142321.763801-1-maz@kernel.org>
+	<20241217142321.763801-3-maz@kernel.org> <87frl51tse.fsf@epam.com>
+	<86h65kuqia.wl-maz@kernel.org> <87a5bb18j7.fsf@epam.com>
+	<86frl3uo8q.wl-maz@kernel.org>
+In-Reply-To: <86frl3uo8q.wl-maz@kernel.org> (Marc Zyngier's message of "Tue,
+	28 Jan 2025 12:17:09 +0000")
+Accept-Language: en-US
 Content-Language: en-US
-From: Michael Riesch <michael.riesch@wolfvision.net>
-Organization: WolfVision GmbH
-In-Reply-To: <20250128-pre-ict-jaguar-v3-1-7be2f09d390a@cherry.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: VI1PR09CA0162.eurprd09.prod.outlook.com
- (2603:10a6:800:120::16) To DU0PR08MB9155.eurprd08.prod.outlook.com
- (2603:10a6:10:416::5)
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=epam.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: GV1PR03MB10456:EE_|AS2PR03MB9121:EE_
+x-ms-office365-filtering-correlation-id: 5f209d0d-0dee-4dbf-937b-08dd3fa385d8
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?iso-8859-1?Q?F1ugKqObfJ4XsvX+mPPzISSTzbKHdiddBzvRpdfaVYtyy17TiwDiXFDhE7?=
+ =?iso-8859-1?Q?FJSgCBNfUhirPPcDYb5Kvs1yhismN9rCpKvEcs9vFQnufVXfuT2YIlqFGe?=
+ =?iso-8859-1?Q?agHjAP3iyyGOVkzYyVyYZ2ww2+OCZYK5ezITnVLXV7jfMsoqCfX+I4e/ez?=
+ =?iso-8859-1?Q?Wq3pfxYLBpb9lWBWvP7MZWJ+PDQC4RLc3U8qqvh3pxPlxTxIgk3YdG3VKN?=
+ =?iso-8859-1?Q?F5DY9Lc2U7BURWD3mH6anoOtVbVoPp4B0RS2DTO9I5rWyZWPn4BpIgQ9TF?=
+ =?iso-8859-1?Q?Pgz/8YmfNcjonpmvmFj01jLuv1cpH/4GZh04IpjQqLKIgnAFksm6RYwRbh?=
+ =?iso-8859-1?Q?R+PWyD3UmppvtQtDbersfUaDi7ELUmT6klGuO6H20RgKanC7ClhQ2SidUP?=
+ =?iso-8859-1?Q?4JMJB3E+uB2Kxx9DTKt/cV11InoqUkBvmzA4ISrlq6GxGSZkt5CFYFznVo?=
+ =?iso-8859-1?Q?GjPGuGzLLDOJHhqcGXVVnBA3/D9NkSPI61IL28I92xgLgSBh1UiN2P08WJ?=
+ =?iso-8859-1?Q?wnfFraE6b+vWzVugUsildk8ZNQUdZooL+Z7wAzi2Bnu79cgTMleCT82Vxg?=
+ =?iso-8859-1?Q?qzGQG5hKNAJZb68+e5cfTOnM/nCU5VXeSCYwb4uV/cZdN62471Mk1BE2E3?=
+ =?iso-8859-1?Q?9t5La/wNTDjqb7QWoqruMjVsrXcbFOtYYvJTq13EZuvSGd0FQrx2IjOFYi?=
+ =?iso-8859-1?Q?3bEUljb1N8r4BBQpKMG83SY9e3ILuQ0N2EvtI4XXX4fj0TEyV402TLDBJq?=
+ =?iso-8859-1?Q?jtb46s0ctocKDIQ2Q3pCvr9kh3ByBJ5VzrMPrn5q4/PWyjmkR0ZrwfrtY2?=
+ =?iso-8859-1?Q?WywjOFx+4KbJ84tMaQtmHl2WOdDAi7YBsR/9bdj7mak4Gs2pUuWkNdHMk3?=
+ =?iso-8859-1?Q?z7TEN+3EQInKKqmHCBrgJwX5npnFnzkmCLMwPiUPlRtjvYpPexebnHmh1d?=
+ =?iso-8859-1?Q?1MJJ9xMAME/qP245+Jn8MMJUBakcUAVIcsoYqk7PPzXNCFrVbWw2SD8cBK?=
+ =?iso-8859-1?Q?xsRzcC+kO5umy2o3M37ANoXy0vol/8YcVOQ2LX2kf5Dy6W41DWdZ2+B+JI?=
+ =?iso-8859-1?Q?lNQ8kj1bpDqT/M/5SoiqKD2XGK/GgXJuer/jJiTdnOy50BBrT7tKvbB8BC?=
+ =?iso-8859-1?Q?Wd1fJPfblTAceDhgsqElJ0dzaTSk88Om7xmqRsmcLHa8kHL4Vh1NR4hdc1?=
+ =?iso-8859-1?Q?3s0q2bW8OFPvFwOXjFom4qkK/vXyPI9mq+XFO1fY/9YTuqAxOqPTJ9Mn4Y?=
+ =?iso-8859-1?Q?LV2Jrd7x9btaMldif3/eeD9ggxSZHzBLB8kRiY8WPTj8scrRqzESuzE6RR?=
+ =?iso-8859-1?Q?5Sd9PcpzGrcZnbP0wDQJYoiv6zwp4k/72ts84ejvhUKZXf+3jSj+9dkec0?=
+ =?iso-8859-1?Q?gq0F5KRhw60ipblv/159hY5kalPS3ZAnnVhEx+Fjs6cExvGdwk5HPqQbtL?=
+ =?iso-8859-1?Q?Uhy1N7v5L3OHH4jGvjlopXvHOmejlX8jOWSIuQOHSX4nvSSejR02RpbMQ8?=
+ =?iso-8859-1?Q?NEv3BKGMGW+poJcG0n48TE?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR03MB10456.eurprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?2EhncEvorb/XJulvRHt6P+aQWzHCI66k1AsNhQG97qNH5CQXv2qqP5Cq6U?=
+ =?iso-8859-1?Q?R8FdNQ4hd1DVPG8SO+Vi4OjLpKGL1uZZrBwoZNXS25oqzodey6alDgIRdh?=
+ =?iso-8859-1?Q?MBeb22zOOObyLO86qYxfnNJUau0CsgGBSn3z3sVTZAy+tCyuD7iJEfn5jN?=
+ =?iso-8859-1?Q?RBZ4oaBOowCPjrlhonNo9Ymv1KU/Dcx6YJS1+dWQRX88sGaiS7lagfj+ms?=
+ =?iso-8859-1?Q?a2FQvw6Y7bNrdiLzH0w+1dIsEQzD6FjAxAQwDQcbZ3xMdM+zf8bvVfzl/v?=
+ =?iso-8859-1?Q?M1st6WMmP82c7MhchzPUn1jphPPbAzZw1ypRxydAIZfOr/WlIbz/AsggUm?=
+ =?iso-8859-1?Q?p+MhXU1eODDoeSCZdNtbkyB4weXPML+Y1ck2vfaSheJAsDKuMUtK2a+h+J?=
+ =?iso-8859-1?Q?DpGy0z/PCOPeZ0wfCS5CtNOntDBAajM1uLKily5zXBD3nEvP3MinTAYlvZ?=
+ =?iso-8859-1?Q?5GTPu4liLtuxxNhpHbIc/yh4+ymyp8IZQC2Ydse7axbXAHYlHD2T2+nyvT?=
+ =?iso-8859-1?Q?SE5F8GG/5DVxPP5w8p2nX1tBdxoFCOJPJHW1d/MQWhBqyNMuiyQAJVrP2k?=
+ =?iso-8859-1?Q?SVtqzxmVN+krouogWPhmeFeR6YOEMUIXAZ8Bldwh0DRrrXxPWI8ckjMb/w?=
+ =?iso-8859-1?Q?gCFBUQWh3+rSDXI+RD/an++eYBUAPnhuxpphA24TIHeh66pmZ/RO2ClLhK?=
+ =?iso-8859-1?Q?Ob+1SGv9OcBIlH8DfprEeqTlwyyKREacDP/B506phBHOAMMogZ1uVXhurZ?=
+ =?iso-8859-1?Q?5RD/GxhScMt9y9C+V++Fo7GPEUASZ7XHLC7g3iYF9tx/uN4JHPVbLRKjwg?=
+ =?iso-8859-1?Q?xBabQWfkSHlcMSrB4fxVS0F7DZOvPn2jV0nEoA7Suk5Y0N0hG4uMyW8o+Q?=
+ =?iso-8859-1?Q?ysS2tKuO3FQkRd43mmHZSe5tYitvB4bS0X7A+w05VevBpCZYvfyb/eAfkD?=
+ =?iso-8859-1?Q?fmVYe6G4SJylhGgodb4eHP1A8PVsQrQOcIVyhCIi6EVIphgitUTd+/U/BO?=
+ =?iso-8859-1?Q?aCEAkND6YXGDT8TCsSVbTYNMRHsZ08+9Sx0YMChOYuX47xGW/l1G+bgM2H?=
+ =?iso-8859-1?Q?trVFqipAIsMGUAaERLP2HO5Xw3goEkPrD8143ql6ohfzZzMWkXAx02Talq?=
+ =?iso-8859-1?Q?Ex3DfbnJH8RMdwdsvBhzOjvig0HfBdIRNzOQ76b3ZC1jaKFl+8NAKQHcxp?=
+ =?iso-8859-1?Q?PL4X+N9DZcEG5f+bdN+QyWu7Lbz3e8MBfjEr/UIn1oJ88D8AO83WlFG2Jn?=
+ =?iso-8859-1?Q?CmjOeIyglgvdmM+54HMAUeVyTw/kVjrKpRvmBs2mxUh5AEerdsOP10HjCR?=
+ =?iso-8859-1?Q?m1BNaxKVBY7mCYarNqJ+U+KoB/33WOpTz+NSR9QMfkXYkza9b4LRfCi1ts?=
+ =?iso-8859-1?Q?g7tPC1ZTvQm3uRMn258ufQcFr68YI7pczLEh/pZHRxQ156mXAjOA1lTL09?=
+ =?iso-8859-1?Q?UzG0wNh0Lg/tZC246V8KmV+1O9KwzW9mmz4HMkl1194HvJYywSx7GZdna2?=
+ =?iso-8859-1?Q?o2A/VdS64rNFkIGd0FhelmL+h0o+xlLLtEKbIzZ2zvxoiZw5G81NOTB988?=
+ =?iso-8859-1?Q?NkOpzUrGcntNQ69y6G2S7GwuoXIADqgNGl2pTqk4F6rGVfty2q3FExvx5H?=
+ =?iso-8859-1?Q?Qn/Sp0x0iBai3fxfGDxE0Ii9q618XfV2lguRVMuSWnsaAzfL6qNg8cdQ?=
+ =?iso-8859-1?Q?=3D=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU0PR08MB9155:EE_|DB8PR08MB5436:EE_
-X-MS-Office365-Filtering-Correlation-Id: 61d2cbf8-fff1-4ef8-06ee-08dd3fa29f98
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZVBVZkswMDdzWFkrQzZjUmlzWmIvUDQwbHlMa3dCQVdxeHVacTBFbnNBL3o4?=
- =?utf-8?B?L29GUTZ1WEhyWGNDYnlHT0Vkckk5REdadm1uMFp0NHRBVE1MWmQ3QUttaWNr?=
- =?utf-8?B?SWFBcEJVYXZHQ2FvRmovVzBSbTNCNVpFRlFkNCtncjlQZFF1YWFlNkJySHdD?=
- =?utf-8?B?YkZrd2FZYU52OHRrdnM4Z05Sc2h5TGQ3eDRUSVVDUHcrK3NMZ01weE1TUmw5?=
- =?utf-8?B?cm5RSWw1dzhtLzRFSTJuUVp2OWFSeUF4Q0dFK3FxM1VnZzlEMmkwZnR2T2Jq?=
- =?utf-8?B?UnlFazVUdDVZUThrQml4a1laWXBpODk4WVBUcFVuRjUvME1oSG5TREN3dDRv?=
- =?utf-8?B?Q3pzNEsxV3RMb2dUejkrK3ppcmtqN1lhV0UwNFJKZU5PYzZEbXNZRXptL1pT?=
- =?utf-8?B?SjJSdXFPaXlBMzdwMlZ1aVc5L1JVMnIyL2M4MTMrZnJxNTg5VlE3NGQ0RjBp?=
- =?utf-8?B?cnpJd2crWVl1Z2pXQVJnSU9MRWZaL3NvWlM0T1ppbXhiVTk1Y1NnSVBDQm51?=
- =?utf-8?B?Z2dKd1NpZU5tbzdqMXVvcnR3U0EzMFhGY1lRWnAySkRJWnVHMmlwMnRLNE8w?=
- =?utf-8?B?V25POUVGbzYyR3BRMFdJeDRIT01yaSt3cEQ5a0N5eHM0WEhQTnhLaWpEZ3ZV?=
- =?utf-8?B?bGYzSVVCWStJeE1WVHE0a000NGdVZitBY2UxWU83T0FLS0NjajRPVi8xSDRT?=
- =?utf-8?B?dVJkU2JFREpOMFpDYm5qQ1RtK2VnbFh6UzlXTEVKbjR3N1hyUGpOUVp5ektE?=
- =?utf-8?B?b1F0WWU3OFc0cGI3MmZ4YTBCSVc0T1RreHBMOTBsVmlYUW5VTWtWbmQzQVpI?=
- =?utf-8?B?eGxFM1NBSmF5VWt3eWNQZGRkNFJEblNxMXFsS1R4YmZjR3lUcGFSVUFGRjR1?=
- =?utf-8?B?WVFtV29rSE1BbnNwRnNpZ01TaUUyaWptdUtqK0VuY29SRVpvQWsxQWNpWHRo?=
- =?utf-8?B?UTZyY2cwak9VWHNYZlBtUUt3SHZuZTlRbWllWmZGUDdPWi9xN2UvckRNY0RQ?=
- =?utf-8?B?OFF6YmxWRXRRV3FFNmE0SWxJLzE4UjR6K2JxSDlUbE5uVWg2ZElwRzdOeEs5?=
- =?utf-8?B?aEEycDcrM09WWnFVZVpuVVpSaWw0SlJMUTdpSXdRS1NMWC8rSW4wcnFkWlE2?=
- =?utf-8?B?R0VjRkh6ZnVucUNKME5OUE9hLzAzSlhrWlZqcG1udmR3VVRqNmRmRDkrcExU?=
- =?utf-8?B?L05DNnNYYU5NaTRLZWNYUXIvU1JRYlRuTnl0T1FreFhjV3ZBMW5Yd2NsMWsy?=
- =?utf-8?B?dXh5NkNrQ3F4Z2p0NnlqV0tXLzVrMTBRb0N1OXlkOHlTWkh3UTIwQUdxREVM?=
- =?utf-8?B?SGxtVWdSbnFJaG02M0psOTBjRTlFazJnN0lEZG5TU2RSWGVaVVk0WnR1UExz?=
- =?utf-8?B?U3VyZk9Ma0NuMHlYcXZQNGhxaXIvOXZDY09Rd2lURUZWK2cxN1JVZDlVNWtN?=
- =?utf-8?B?bXEzbUp2U3FVTitNUU9GeFhVYVJiMmpXMEpDaHJkMWtMUGRNaWpLNldXSUxL?=
- =?utf-8?B?UjlOdVhWeEV2VUEwM2VRYVVPRzZmU2NlYzRVdnJVZFBMb09yUjdIamNrNy9Y?=
- =?utf-8?B?Tm5zZTB0ZHZOUzhpOU51c0xLTTd6aFRVL1pkcDdMT2JOMmxKTGUzNmF2dlcv?=
- =?utf-8?B?Z3BqMVNGMGllbmZkSE5mUjRCMUVBSWxCYzFDRk5XTHJRejdkcll4RUZyaGhu?=
- =?utf-8?B?ZnRzNzBKK1FVSE45bHI5a0s1T2UzM0huZXd1b01SZTlQUy9MZHBEVDRsOXFl?=
- =?utf-8?B?UXVxRGFiaHpXSTlGQVROYitYMzk0MVNTRUdCcmh6WjEzaXU0Tk5FZXBFYVJX?=
- =?utf-8?B?QUdFRGEvNkxveU55aThZU0dwVGlWZDd1Znl6MThVdG9mRTcxcG0rayt3WFVt?=
- =?utf-8?Q?XQFtnOoImFpYG?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR08MB9155.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SzY0dURoNWsvQ21vUk40YlQwV202U3Rkd1pRbWxpMDNmeHhOc1Q3QWI1UnR6?=
- =?utf-8?B?K1ZidFVOaW1vWHdjUjJsdFRxemtMUVJySjZsRnZyNndieXYva2hBcmlFUmti?=
- =?utf-8?B?bEltQVppNXdkYUhrS0JrZkdBTnY2QmNkVjN2bFkxMFhab1hHTVM4R3NPanl4?=
- =?utf-8?B?MUZ0WnBQSXBwZk1FSXRwak9MNTIrRVpnQnQxWjhUYVFJTlBrWTRWSVR4QTl4?=
- =?utf-8?B?em8xcnd5Wm1leC81ME5aRUZnd1RKQ1J4czRCYVlhTGZENmQvMWVlMjVmUGg5?=
- =?utf-8?B?bjhrREp6emRiZzZQbnlBR21PTkJaUU1JdlJlYUZ2QU14WGVnUHh6c1YwZ3Bv?=
- =?utf-8?B?N2l6cG1XVzJBckZwczB5eW9IR0ZuK3g1c2VCdmFLRVNFNGxkTXU4eU94UGcv?=
- =?utf-8?B?Zms5NnRxMytNd2VaS1J1WWdTQ0hvcVhlamk1Z0ZlYmZBeGs0Y3hKT2dUT3Fq?=
- =?utf-8?B?di8wSG1ZOUtUdjZxdnVTeEJxSmxXejZTdmFNeVBmRVByMFFqdzhRcnhPOS8r?=
- =?utf-8?B?YkRtZnBNNWZ1NWFxODFWdEpVKzViZlh2MUo4RnFyUUZsYndBWTB5RktWSzVo?=
- =?utf-8?B?ZnlKcUdUZHZJNUpDcTk3ejdCR0hsdEZ2bmk1S081K0dxVVdEeUxsQzRnTmpS?=
- =?utf-8?B?TDRWV1ZMaXp2NGUwOUxNckorbmlJcW5lZTdxME5ZWVZxNy9Sei9oMVh2WkhO?=
- =?utf-8?B?N3h5NzV2Zzhzd1l0SEQyamNIWVFQaFV2cjBZVEo5MlRlVTZycWxPWjQxMVZs?=
- =?utf-8?B?ejdOTlpnRTRzL2J0UDVYdmVVeXNvWlZhOHVtbnhjUXJRSXQvTmxYQ1VGNDFD?=
- =?utf-8?B?c2huOGVDbDd1NGVuSFJ5eDk5MkhWOEpXMkNEUHAzd1l6VFVvaEVnaFdQajZh?=
- =?utf-8?B?RVN2a2JkT0d2SFFTaWdwTXlmREo5bCtremwySFNUbnVzczRlSzVtNHZGZnk4?=
- =?utf-8?B?VWdUOXkyMVdFQXd2TVZZSDlrZHlxUFJxbWJ2bU82cHhQNm5nMFNxMHVvOFgr?=
- =?utf-8?B?TXdrMy9wM3RBaGg3UnVKRkJQZ1lnMExmVkNDT3YvLzFNdEpNK1Jkc1B0Uld2?=
- =?utf-8?B?K3A1QnJaVWY0MHJLeHNRYnBmSGV2NUFMeEtYZEpMekFXdWE4c1R3SEFWMkQv?=
- =?utf-8?B?R3pwNXdqdEptd3E3UjAyNkI2elVvUCt2ei9VeDhaTjZ0SUV3d05wbVNhWkxu?=
- =?utf-8?B?UkxJeEx1UWN2OWh5S1FuQnRtN0dlaVUzQUQyVHdjc2xSbE5QTkJZNGg1R3VZ?=
- =?utf-8?B?NkNVU1l2MHRacXBuNUdlSEF2aTJqQlEvYnRDRHR4WXpEN0Z0R2N1cU93QnJ3?=
- =?utf-8?B?MlpDNUcrRUJuVlFvNkdaQ0JSZEE1RWlkc1YwUWRUSEpKOHI0STNCakcrRkxO?=
- =?utf-8?B?YmJhRXBWTytpUUsxU2xaQ056c2phK0pzeW5ZZXU0akZ5eGJ3WGxUWTZTczlL?=
- =?utf-8?B?dmV3Q3VSVTJjdGNIMGcxUWd6NGhZM21HREIyVTN4ZndMalZuTmM0VDlVNzd6?=
- =?utf-8?B?dndRV05rSXNOaGd0TUZGVTEvT21LZHJLRU9salU1RzVnYkFTNXRyTWVOd0Vk?=
- =?utf-8?B?MTFqdDhqZGRUaXhZNkZTVUlOdU1ZRnpYZTN2SzlpUmhMd2JIMXBpK0pFRmJ3?=
- =?utf-8?B?Mm1aK0lITXlVbGlYdjQ3elJocE9TVitSUGxTSE14QWRJUHViZnAxd0RacDg5?=
- =?utf-8?B?QkJnZnV5YTVOdnBQYWNINHdUQ2l1M1cvZk1aYWJXbnREMnFRVy9GYjRHb1FI?=
- =?utf-8?B?QmtTL3R4U1FPQmZlYTVTSjdaNGd1YmtKTG5GWWFpZ1JvUnVqSTZ3b0RIZ0xq?=
- =?utf-8?B?R2dKTjJ6MXpvb1dDR1FyYUxsSmh0VjdoRE9kKzYzdmI0VU1zYVVGeThPdStF?=
- =?utf-8?B?Q1hNU2hsMUVlM3JOTWJaakplUzJjZTlpMTR6Mm1ObGhRcTNhVDJLUlhya1ZQ?=
- =?utf-8?B?T1E1V01OSXFiRmJWMXNLUCs1d2NSS0Q1QkZrNkJCY2xuMmJ3QU1acnhROHJC?=
- =?utf-8?B?a2M4aXp6QWF1elpidEZScGhNcTRJVFAvNHlhS2pUVE1hbWg0akZzOVhBd3Bi?=
- =?utf-8?B?RVptQWh2bUQ1SGpyVXgxVHUzYlo3b3pJamg0Y3F3MktvSmdrbU9ZbGs2S0U3?=
- =?utf-8?B?SHMvOG4yTUV3SnRFNE1ucFhkWTVCMW5lQk9lOXB0RjNDL2wrZUdEYjI4bjdl?=
- =?utf-8?B?enc9PQ==?=
-X-OriginatorOrg: wolfvision.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: 61d2cbf8-fff1-4ef8-06ee-08dd3fa29f98
-X-MS-Exchange-CrossTenant-AuthSource: DU0PR08MB9155.eurprd08.prod.outlook.com
+X-OriginatorOrg: epam.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jan 2025 13:49:45.3009
+X-MS-Exchange-CrossTenant-AuthSource: GV1PR03MB10456.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5f209d0d-0dee-4dbf-937b-08dd3fa385d8
+X-MS-Exchange-CrossTenant-originalarrivaltime: 28 Jan 2025 13:56:11.3649
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: e94ec9da-9183-471e-83b3-51baa8eb804f
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: zlBBx+IyZDsMnlEq2xXMygTHxpOfGKfOmPoTTkb3JGzswS05AtHNMYTyoPquwzPontkU4f+0aXXXMTCQ3Uej005Kv11mGAQXIkDL9F9PBc4=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR08MB5436
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: b41b72d0-4e9f-4c26-8a69-f949f367c91d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: FMC7E0SqV7BZRk8ngi0UNasns+BMOv7k0BGY9UX4FqSt6jiqa+Vyxm4jGdZ2FE8gRbQRjsjyDQ5yZa6T3VeDoREPFK+osZMNGfqVbWP1rtg=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR03MB9121
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_054955_911010_C4BDF9B4 
-X-CRM114-Status: GOOD (  15.03  )
+X-CRM114-CacheID: sfid-20250128_055616_692690_E1812343 
+X-CRM114-Status: GOOD (  37.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,66 +175,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Quentin,
 
-Thanks for your efforts!
+Marc Zyngier <maz@kernel.org> writes:
 
-On 1/28/25 14:04, Quentin Schulz wrote:
-> From: Quentin Schulz <quentin.schulz@cherry.de>
-> 
-> The Wolfvision PF5 can have a PF5 Visualizer display and IO Expander
+> On Tue, 28 Jan 2025 11:29:18 +0000,
+> Volodymyr Babchuk <Volodymyr_Babchuk@epam.com> wrote:
+>>=20
+>>=20
+>> Hi Marc,
+>>=20
+>>=20
+>> Marc Zyngier <maz@kernel.org> writes:
+>>=20
+>> > + Wei-Lin Chang, who spotted something similar 3 weeks ago, that I
+>> > didn't manage to investigate in time.
+>> >
+>> > On Sun, 26 Jan 2025 15:25:39 +0000,
+>> > Volodymyr Babchuk <Volodymyr_Babchuk@epam.com> wrote:
+>> >>=20
+>> >>=20
+>> >> Hi Marc,
+>> >>=20
+>> >> Thank you for these patches. We (myself and Dmytro Terletskyi) are
+>> >> trying to use this series to launch up Xen on Amazon Graviton 4 platf=
+orm.
+>> >> Graviton 4 is built on Neoverse V2 cores and does **not** support
+>> >> FEAT_ECV. Looks like we have found issue in this particular patch on
+>> >> this particular setup.
+>> >>=20
+>> >> Marc Zyngier <maz@kernel.org> writes:
+>> >>=20
+>> >> > Emulating the timers with FEAT_NV2 is a bit odd, as the timers
+>> >> > can be reconfigured behind our back without the hypervisor even
+>> >> > noticing. In the VHE case, that's an actual regression in the
+>> >> > architecture...
+>> >> >
+>> >> > Co-developed-by: Christoffer Dall <christoffer.dall@arm.com>
+>> >> > Signed-off-by: Christoffer Dall <christoffer.dall@arm.com>
+>> >> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+>> >> > ---
+>> >> >  arch/arm64/kvm/arch_timer.c  | 44 ++++++++++++++++++++++++++++++++=
+++++
+>> >> >  arch/arm64/kvm/arm.c         |  3 +++
+>> >> >  include/kvm/arm_arch_timer.h |  1 +
+>> >> >  3 files changed, 48 insertions(+)
+>> >> >
+>> >> > diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_time=
+r.c
+>> >> > index 1215df5904185..ee5f732fbbece 100644
+>> >> > --- a/arch/arm64/kvm/arch_timer.c
+>> >> > +++ b/arch/arm64/kvm/arch_timer.c
+>> >> > @@ -905,6 +905,50 @@ void kvm_timer_vcpu_put(struct kvm_vcpu *vcpu)
+>> >> >  		kvm_timer_blocking(vcpu);
+>> >> >  }
+>> >> > =20
+>> >> > +void kvm_timer_sync_nested(struct kvm_vcpu *vcpu)
+>> >> > +{
+>> >> > +	/*
+>> >> > +	 * When NV2 is on, guest hypervisors have their EL1 timer registe=
+r
+>> >> > +	 * accesses redirected to the VNCR page. Any guest action taken o=
+n
+>> >> > +	 * the timer is postponed until the next exit, leading to a very
+>> >> > +	 * poor quality of emulation.
+>> >> > +	 */
+>> >> > +	if (!is_hyp_ctxt(vcpu))
+>> >> > +		return;
+>> >> > +
+>> >> > +	if (!vcpu_el2_e2h_is_set(vcpu)) {
+>> >> > +		/*
+>> >> > +		 * A non-VHE guest hypervisor doesn't have any direct access
+>> >> > +		 * to its timers: the EL2 registers trap (and the HW is
+>> >> > +		 * fully emulated), while the EL0 registers access memory
+>> >> > +		 * despite the access being notionally direct. Boo.
+>> >> > +		 *
+>> >> > +		 * We update the hardware timer registers with the
+>> >> > +		 * latest value written by the guest to the VNCR page
+>> >> > +		 * and let the hardware take care of the rest.
+>> >> > +		 */
+>> >> > +		write_sysreg_el0(__vcpu_sys_reg(vcpu, CNTV_CTL_EL0),  SYS_CNTV_C=
+TL);
+>> >> > +		write_sysreg_el0(__vcpu_sys_reg(vcpu, CNTV_CVAL_EL0), SYS_CNTV_C=
+VAL);
+>> >> > +		write_sysreg_el0(__vcpu_sys_reg(vcpu, CNTP_CTL_EL0),  SYS_CNTP_C=
+TL);
+>> >> > +		write_sysreg_el0(__vcpu_sys_reg(vcpu, CNTP_CVAL_EL0), SYS_CNTP_C=
+VAL);
+>> >>=20
+>> >>=20
+>> >> Here you are overwriting trapped/emulated state of  EL2 vtimer with E=
+L0
+>> >> vtimer, which renders all writes to EL2 timer registers useless.
+>> >>=20
+>> >> This is the behavior we observed:
+>> >>=20
+>> >>  1. Xen writes to CNTHP_CVAL_EL2, which is trapped and handled in
+>> >>     kvm_arm_timer_write_sysreg().
+>> >>=20
+>> >>  2. timer_set_cval() updates __vcpu_sys_reg(vcpu, CNTHP_CVAL_EL2)
+>> >>=20
+>> >>  3. timer_restore_state() updates real CNTP_CVAL_EL0 with value from
+>> >>    __vcpu_sys_reg(vcpu, CNTHP_CVAL_EL2)
+>> >>=20
+>> >>  (so far so good)
+>> >>=20
+>> >>  4. kvm_timer_sync_nested() is called and it updates real CNTP_CVAL_E=
+L0
+>> >>  with __vcpu_sys_reg(vcpu, CNTP_CVAL_EL0), overwriting value that we =
+got
+>> >>  from Xen.
+>> >>=20
+>> >> The same stands for other hypervisor timer registers of course.
+>> >>=20
+>> >> I am wondering, what is the correct fix for this issue?
+>> >>=20
+>> >> Also, we are observing issues with timers in Dom0, which seems relate=
+d
+>> >> to this, but we didn't pinpoint exact problem yet.
+>> >
+>> > Thanks for the great debug above, much appreciated.
+>> >
+>> > As Wei-Lin pointed out in their email[1], there is a copious amount of
+>> > nonsense here. This is due to leftovers from the mix of NV+NV2 that
+>> > KVM was initially trying to handle before switching to NV2 only.
+>> >
+>> > The whole VHE vs nVHE makes no sense at all, and both should have the
+>> > same behaviour. The only difference is around what gets trapped, and
+>> > what doesn't.
+>> >
+>> > Finally, this crap is masking a subtle bug in timer_emulate(), where
+>> > we return too early on updating the IRQ state, hence failing to
+>> > publish the interrupt state.
+>> >
+>> > Could you please give the hack below a go with your setup and report
+>> > whether it solves this particular issue?
+>>=20
+>> Thanks! This is exactly what we needed. Your suggested changes fixed
+>> both issues: in Xen and in Dom0.
+>
+> Great, thanks for letting me know.
+>
+> I'll shortly post the fixes on the list, and would appreciate it if
+> you could reply with a Tested-by: tag.
+>
 
-Nitpicks:
+Sure. I am not subscribed to the list. So could you please CC me and
+Dmytro?
 
-s/Wolfvision/WolfVision
-s/IO Expander/PF5 IO Expander (for consistency)
-
-> board connected to it. Therefore, let's generate an overlay test so the
-> application of the two overlays are validated against the base DTB.
-> 
-> Suggested-by: Michael Riesch <michael.riesch@wolfvision.net>
-> Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
-
-Reviewed-by: Michael Riesch <michael.riesch@wolfvision.net>
-
-Thanks and regards,
-Michael
-
-> ---
->  arch/arm64/boot/dts/rockchip/Makefile | 17 +++++++++++++++--
->  1 file changed, 15 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-> index def1222c1907eb16b23cff6d540174a4e897abc9..bba9b2f1c761040545bea561878e9b63f8c29488 100644
-> --- a/arch/arm64/boot/dts/rockchip/Makefile
-> +++ b/arch/arm64/boot/dts/rockchip/Makefile
-> @@ -128,8 +128,6 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-roc-pc.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-rock-3a.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-rock-3b.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-wolfvision-pf5.dtb
-> -dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-wolfvision-pf5-display-vz.dtbo
-> -dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-wolfvision-pf5-io-expander.dtbo
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-armsom-sige5.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-evb1-v10.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3582-radxa-e52c.dtb
-> @@ -170,3 +168,18 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-orangepi-5.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-orangepi-5b.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-rock-5a.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-rock-5c.dtb
-> +
-> +# Overlays
-> +## To build one or more overlays, overlay application tests must be added below.
-> +##
-> +## dtb-$(CONFIG_ARCH_ROCKCHIP) += <name of overlay application test>.dtb
-> +## <name of overlay application test>-dtbs := <base>.dtb <overlay-1>.dtbo [<overlay-2>.dtbo ...]
-> +##
-> +## This will generate each individual DTBO listed as a dependency of
-> +## <name of overlay application test>.dtb **AND** make <base>.dtb keep its
-> +## symbols (like when DTC_FLAGS has -@ passed).
-> +
-> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-wolfvision-pf5-vz-2-uhd.dtb
-> +rk3568-wolfvision-pf5-vz-2-uhd-dtbs := rk3568-wolfvision-pf5.dtb \
-> +	rk3568-wolfvision-pf5-display-vz.dtbo \
-> +	rk3568-wolfvision-pf5-io-expander.dtbo
-> 
+--=20
+WBR, Volodymyr=
 
