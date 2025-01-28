@@ -4,74 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DA33C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 16:39:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A02CC0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 16:40:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d5bTy412Y1vhXJTfNgCTR4ArCx+02iQwz6WfyoOB55s=; b=IviaTqolZjPfVC8xPSieOd4bm2
-	4Z24ijZasYa5j2iIcIaRLZAaCijPpCeZCzWHwCeGYZPyD0xnFsIca3HwxdgUeI/UUjMNkNKNShnKR
-	JzxEdBraF71cTqzimsoETSiAIBG5XIHtLVUWPTMIa1EMsJL3YFxuPVBl6DrFAZzP+t6eY3+9Gwyh8
-	ddzFvGEkxPWDMJDmSreBAQDdOCz6JE7fvxRb4aNBeM3yTbQzUOu9ijCl2N+uzPcn5JUlQv1wE97MG
-	iRyhr6JR65J/dNdxB8dlf/3ndQHGNLA8pFcb5UsQIfDC2hJI7ReKhtvveXw0jwXRf65IdoQfr7pcr
-	adKqX+Bw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=a993OaTmApiSLYlbcO9FRYc1TtEbUHIgXSDEucVTzdo=; b=SGxnbDAivHKMW/KLAH56T8B4A8
+	kbwa5Foiqxq76IQ7Yq1SEF6qQEUK1TDPEsXGOnOPOuByhXy1834UvxXfz/0Rbmo+PZ6917v5pMfxI
+	U0JOa1wuKrBchBxM/GjHTSk8ZdALVkdPIWJb3wZmpcLCWrsjV0UjkjE635TMgBcgYaE7AbcCMfNFS
+	ZeA1gu9cVHg6Hj2xL8tnjAQgPW3ZOEGV8J/2dOFTLjvE2u9koQIO8mv3Opf1pUGM2BSapG9Yh0SLy
+	D1KwiMK+PVukvRpik4W/Za0eTxbQc4CMhozk1Ur89XInxdENX9ZKfwzTUPNcOkFwI+/cU2QeLANas
+	7WtOT/Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcocE-00000005Lxz-0VpP;
-	Tue, 28 Jan 2025 16:39:06 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1tcodW-00000005MAA-3Jle;
+	Tue, 28 Jan 2025 16:40:26 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcoJH-00000005IiB-2uhp
+	id 1tcoLr-00000005J62-1JvJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jan 2025 16:19:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1738081171; x=1769617171;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=xAN7a6oWJ/faFBXINVOwCwvPImMYJ7LDRygZd/fK4Uw=;
-  b=rVc8QZChwKwQIYc1N9uVLzEhm73wyznl9fY3MUM5hzm4IhRhxpBMWh2o
-   enPn7Hd10rMlfRPLtbPxapcoTKdZZQH06719bwJaawwUiMPnjRV0q/BzH
-   +uiBomNYOyl0IUNRef4SRVFDsPklaH3Zl4L8ByyLKIapa1nyUZaBwwN+u
-   jSqdMtgm9F8ZjwRBoYcBTjsIt0C0SLlxAe4Wvj6xWK5SFdbCCNh57tnit
-   76NHbC6pNbNC0zI8nViv888iq9BmGvBnsUFiCr8DtASMm6ZtPp0xY562H
-   UTCUG+C1USpCGhkCWZ3e2Q99Bh3Hb+nVXaLK9Qs9w7FNc+Ypcux38379f
-   g==;
-X-CSE-ConnectionGUID: rTeHIQwwTUqu/R9nCe6mbA==
-X-CSE-MsgGUID: lHmB7LlbQNOu07BKr2GUHQ==
-X-IronPort-AV: E=Sophos;i="6.13,241,1732604400"; 
-   d="scan'208";a="40982601"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 28 Jan 2025 09:19:30 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Tue, 28 Jan 2025 09:19:23 -0700
-Received: from ROB-ULT-M76677.microchip.com (10.10.85.11) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Tue, 28 Jan 2025 09:19:20 -0700
-From: Andrei Simion <andrei.simion@microchip.com>
-To: <claudiu.beznea@tuxon.dev>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <broonie@kernel.org>, <nicolas.ferre@microchip.com>,
-	<alexandre.belloni@bootlin.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Andrei Simion <andrei.simion@microchip.com>
-Subject: [PATCH 2/2] MAINTAINERS: Update the documentation file supported for MICROCHIP SSC DRIVER
-Date: Tue, 28 Jan 2025 18:18:45 +0200
-Message-ID: <20250128161842.44541-3-andrei.simion@microchip.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250128161842.44541-1-andrei.simion@microchip.com>
-References: <20250128161842.44541-1-andrei.simion@microchip.com>
+	Tue, 28 Jan 2025 16:22:12 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 50SGM5Em2031163
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Tue, 28 Jan 2025 10:22:05 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1738081325;
+	bh=a993OaTmApiSLYlbcO9FRYc1TtEbUHIgXSDEucVTzdo=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=uqtrmIdiNt8YICveSIYOuI4iwA71sM7ttGG2uTrkhJTbYn5kxfvrxKj76cPznY8EM
+	 j/Sxck0VqJE5fFNDHIxI5P6E+jQ6sL4hTcBVaH4SN8/TsclA+ry9aukayjHAT7Qabs
+	 DDaqvHvt3gCH8GJGpxOEK7pQGdCEVXxnaaDQrDF4=
+Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 50SGM5oY004743;
+	Tue, 28 Jan 2025 10:22:05 -0600
+Received: from DLEE107.ent.ti.com (157.170.170.37) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 28
+ Jan 2025 10:22:04 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE107.ent.ti.com
+ (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 28 Jan 2025 10:22:04 -0600
+Received: from [10.250.32.214] ([10.250.32.214])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 50SGM4Zv083379;
+	Tue, 28 Jan 2025 10:22:04 -0600
+Message-ID: <950a1e23-a943-41b0-979a-4e7a4a264fdd@ti.com>
+Date: Tue, 28 Jan 2025 10:22:04 -0600
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] arm64: dts: ti: k3-am62-wakeup: Add wakeup r5f node
+To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Devarsh Thakkar
+	<devarsht@ti.com>,
+        Hari Nagalla <hnagalla@ti.com>
+References: <20250127221631.3974583-1-jm@ti.com>
+ <20250127221631.3974583-2-jm@ti.com>
+Content-Language: en-US
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <20250127221631.3974583-2-jm@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_081931_735993_55763262 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20250128_082211_454558_89870560 
+X-CRM114-Status: GOOD (  15.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,28 +91,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace the documentation file supported after the conversion of
-atmel-ssc.txt to YAML schema named atmel,at91-ssc.yaml.
+On 1/27/25 4:16 PM, Judith Mendez wrote:
+> From: Hari Nagalla <hnagalla@ti.com>
+> 
+> AM62 SoC devices have a single core R5F processor in wakeup domain.
+> The R5F processor in wakeup domain is used as a device manager
+> for the SoC.
+> 
+> Co-authored-by: Devarsh Thakkar <devarsht@ti.com>
+> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
+> [Judith: Fix commit message header]
+> Signed-off-by: Judith Mendez <jm@ti.com>
+> ---
+>   arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi | 24 ++++++++++++++++++++++
+>   1 file changed, 24 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
+> index 9b8a1f85aa15c..79708c1c214f8 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
+> @@ -106,6 +106,30 @@ wkup_rti0: watchdog@2b000000 {
+>   		status = "reserved";
+>   	};
+>   
+> +	wkup_r5fss0: r5fss@78000000 {
+> +		compatible = "ti,am62-r5fss";
+> +		#address-cells = <1>;
+> +		#size-cells = <1>;
+> +		ranges = <0x78000000 0x00 0x78000000 0x8000>,
+> +				 <0x78100000 0x00 0x78100000 0x8000>;
+> +		power-domains = <&k3_pds 119 TI_SCI_PD_EXCLUSIVE>;
+> +
+> +		wkup_r5fss0_core0: r5f@78000000 {
+> +			compatible = "ti,am62-r5f";
+> +			reg = <0x78000000 0x00008000>,
+> +			      <0x78100000 0x00008000>;
+> +			reg-names = "atcm", "btcm";
+> +			ti,sci = <&dmsc>;
+> +			ti,sci-dev-id = <121>;
+> +			ti,sci-proc-ids = <0x01 0xff>;
+> +			resets = <&k3_reset 121 1>;
+> +			firmware-name = "ti-sysfw/ti-fs-stub-firmware-am62x-gp-signed.bin";
 
-Signed-off-by: Andrei Simion <andrei.simion@microchip.com>
----
- MAINTAINERS | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+What is this firmware name? This doesn't exist in linux-firmware,
+should use the normal name like "am62-wkup-r5f0_0-fw", then we
+can use symlinks in our userspace to map to whatever firmware we
+want to run.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 02430335012a6..113a2d17fb8bc 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -15633,7 +15633,7 @@ M:	Claudiu Beznea <claudiu.beznea@tuxon.dev>
- M:	Andrei Simion <andrei.simion@microchip.com>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- S:	Supported
--F:	Documentation/devicetree/bindings/misc/atmel-ssc.txt
-+F:	Documentation/devicetree/bindings/misc/atmel,at91-ssc.yaml
- F:	drivers/misc/atmel-ssc.c
- F:	include/linux/atmel-ssc.h
- 
--- 
-2.34.1
+Andrew
 
+> +			ti,atcm-enable = <1>;
+> +			ti,btcm-enable = <1>;
+> +			ti,loczrama = <1>;
+> +		};
+> +	};
+> +
+>   	wkup_vtm0: temperature-sensor@b00000 {
+>   		compatible = "ti,j7200-vtm";
+>   		reg = <0x00 0xb00000 0x00 0x400>,
 
