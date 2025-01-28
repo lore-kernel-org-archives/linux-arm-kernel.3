@@ -4,71 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14541C0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 09:26:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E324C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 09:28:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CD6aGMkGgUesAlsT3HDG5pObkWdXtnRJmAMs5WiLGeg=; b=JCvr6m9DRHGWK4LyhZjzKCCchy
-	uuC6+3zJjyC8jvcab6lScOcAOl7QfBfM9CRM+RWW2V/9iETdXRbLUg5emjeefhg49FZCJiyYVCY2v
-	JZhoZT2u27pSrD6/a8fAixw43G9mWBZDQyvAi/5nGXU/VsNiTHNxXnLL9j6OJLXbLW+lMHFcXcx1m
-	iJAbX1Jr232au3rRQfOkLIAnSA1wKltROtiQhKipv5PotJQDSn6G0Gjkda1CuKmMfPy+FD3prPxfM
-	/fTtTgDOQq3TWjSsEAwd6QVbFUtNxt1EKV4/6q1DyhTF5lANYtF5RLWurCf2UgxEsK5PHIzyxveBd
-	pQf4QPXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jaBhsfmf4wEg4ENC51zWUj1AhJsBVpHS/4a1AB5mIEI=; b=qj19qnT/pZi/jOBTJVUsNx5Vc0
+	lXdhj7/G3jZUbdhXV0KMCQ842Chf2rR3U8baoHWbLkrsTHRG2X8k+bKDFnqKyeG+TM/sktR3yZ5r1
+	RGArHLLwL59LrNbpbyaVwRW94z5p+j5D3vl6tiHJphCvGBVWNnStVF1QLGw4PeB8E/JUwLD4T37ZZ
+	PRBrVQlqslN86YmwCgHUDTRi9My0wCj5138OReIohvpsh+ggMiFB3/K1MDg/4GTdBvc6qKx+uABnh
+	zm8ezv0m57rUc5f5PpHEvmpXAeGocT2UOym58lohHBYmMejM6bhRQdihYSJorTqxCSSxW5kQ5XFZG
+	1aQ/waXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tchr8-00000004X2B-3LIt;
-	Tue, 28 Jan 2025 09:26:02 +0000
-Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
+	id 1tchth-00000004XQx-3i2j;
+	Tue, 28 Jan 2025 09:28:41 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tchpm-00000004WoQ-0Bck;
-	Tue, 28 Jan 2025 09:24:39 +0000
-MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1738056274;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CD6aGMkGgUesAlsT3HDG5pObkWdXtnRJmAMs5WiLGeg=;
-	b=RwBEXPtNpHhxIK0t1mNdkDQc4WmPYgNvEIrU0KFOUGiJhLvU1tUPFOFS4REGW1ckPFLfrQ
-	H8qzihaB1kt/C2NzPQ/gy4Qr+9qvnivYaw8kx0sBiXNVyc25ul18bOiE9rVxx2JQ9Nmlp4
-	aQ6nuSf5CI3yuCt29gsJGFDLnKKCRB6gP8KiR0Jraq/MFqpysbGp1GXosdIUa2tZLWEBGV
-	QDRtFGGuTuVPxOftgmEuUdOUPXG7cxigRIg3sXFAXQc2+ZbghIhOmlJ2xNXusGwapbPj8s
-	ugEVWMbUsodqcY6N/wV/t0Optb2qVQebaMc+aQFHPP7w4zQwdxkMDfYexkJong==
-Date: Tue, 28 Jan 2025 10:24:33 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Alexander Shiyan <eagle.alexander923@gmail.com>
-Cc: Alexey Charkov <alchark@gmail.com>, Rob Herring <robh@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- devicetree@vger.kernel.org, Sebastian Reichel
- <sebastian.reichel@collabora.com>, stable@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] arm64: dts: rockchip: Fix broken tsadc pinctrl binding
- for rk3588
-In-Reply-To: <CAP1tNvTRER=QzC29Udw4ffOetVECWV+MfZ2o-mbUFvuZ0_i-Kw@mail.gmail.com>
-References: <20250124052611.3705-1-eagle.alexander923@gmail.com>
- <CABjd4YwA8P9LVuDviO6xydkHpuuOY7XT0pk1oa+FDqOo=uZN4A@mail.gmail.com>
- <a76f315f023a3f8f5435e0681119b4eb@manjaro.org>
- <CABjd4Ywh_AkbXHonx-8vL-hNY5LMLJge5e4oqxvUG+qe6OF-Og@mail.gmail.com>
- <61b494b209d7360d0f36adbf6d5443a4@manjaro.org>
- <CABjd4Yx0p0B=e00MjCpDDq8Z=0FtM0s9EN86WdvRimt-_+kh2w@mail.gmail.com>
- <CABjd4Yy14bpjzvFyc8et-=pmds5uwzfxNqcs7L=+XRXBogZEsQ@mail.gmail.com>
- <CAP1tNvTRER=QzC29Udw4ffOetVECWV+MfZ2o-mbUFvuZ0_i-Kw@mail.gmail.com>
-Message-ID: <b57d8a834f5c07e37e0e7ee74346c700@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+	id 1tchsM-00000004XAf-0phG
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Jan 2025 09:27:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5C887A40885;
+	Tue, 28 Jan 2025 09:25:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C31B6C4CED3;
+	Tue, 28 Jan 2025 09:27:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738056437;
+	bh=iCbYshpRg08hQdbDkopUn5Vj56lVut9iyZDGmvAZw7I=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=b08JNMw+vaEv82euLbu4+0DU88tcR/JEBIgAf6VlfLo1QQMtGt38AHlFHC42H20XL
+	 cmrht6F3EPXIl4c4mXS4qDAVNPuWz5kasQ6Rxl16FHOGM4JUU6i1s2XNVw3U0F19uM
+	 jfdgLNh5QuRML5bZ/l4f/GNmzaoKBjk4E34m7vUjOcN5b1JgGE7f3RjRlpsWzEOXnq
+	 th6KsNYgcrKfEOwnrJ2rve6znz5UV0rvHA3Cd7e1v6HiPtyYhcZHbZFpfjkbB3xEjM
+	 C8oaGFGlTKf+dYASmXZBsw8l/cUOuNHa0cx6JOEhxs7A3IMORv3zY7YqQU8lr0+xOp
+	 DlCsXitVTBSBw==
+Received: from 82-132-220-9.dab.02.net ([82.132.220.9] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tchsI-00G0MS-DY;
+	Tue, 28 Jan 2025 09:27:14 +0000
+Date: Tue, 28 Jan 2025 09:27:11 +0000
+Message-ID: <87ikpzthjk.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Colton Lewis <coltonlewis@google.com>
+Cc: kvm@vger.kernel.org,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [RFC PATCH 1/4] perf: arm_pmuv3: Introduce module param to partition the PMU
+In-Reply-To: <20250127222031.3078945-2-coltonlewis@google.com>
+References: <20250127222031.3078945-1-coltonlewis@google.com>
+	<20250127222031.3078945-2-coltonlewis@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 82.132.220.9
+X-SA-Exim-Rcpt-To: coltonlewis@google.com, kvm@vger.kernel.org, linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com, pbonzini@redhat.com, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_012438_245090_A91BA408 
-X-CRM114-Status: GOOD (  13.78  )
+X-CRM114-CacheID: sfid-20250128_012718_371346_0F23100D 
+X-CRM114-Status: GOOD (  38.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,26 +97,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Alexander,
-
-On 2025-01-26 15:25, Alexander Shiyan wrote:
->> > > I think it's actually better to accept the approach in Alexander's
->> > > patch, because the whole thing applies to other Rockchip SoCs as well,
->> > > not just to the RK3588(S).
->> >
->> > Anyway, I've just tried it after including the changes below, and
->> > while /sys/kernel/debug/pinctrl/pinctrl-handles shows the expected
->> > pinctrls under tsadc, the driver still doesn't seem to be triggering a
->> > PMIC reset. Weird. Any thoughts welcome.
->> 
->> I found the culprit. "otpout" (or "default" if we follow Alexander's
->> suggested approach) pinctrl state should refer to the &tsadc_shut_org
->> config instead of &tsadc_shut - then the PMIC reset works.
+On Mon, 27 Jan 2025 22:20:27 +0000,
+Colton Lewis <coltonlewis@google.com> wrote:
 > 
-> Great, I'll use this in v2.
+> For PMUv3, the register MDCR_EL2.HPMN partitiones the PMU counters
+> into two ranges where counters 0..HPMN-1 are accessible by EL1 and, if
+> allowed, EL0 while counters HPMN..N are only accessible by EL2.
+> 
+> Introduce a module parameter in the PMUv3 driver to set this
+> register. The name reserved_guest_counters reflects the intent to
+> reserve some counters for the guest so they may eventually be allowed
+> direct access to a subset of PMU functionality for increased
+> performance.
+> 
+> Track HPMN and whether the pmu is partitioned in struct arm_pmu.
+> 
+> While FEAT_HPMN0 does allow HPMN to be set to 0, this patch
+> specifically disallows that case because it's not useful given the
+> intention to allow guests access to their own counters.
+> 
+> Signed-off-by: Colton Lewis <coltonlewis@google.com>
+> ---
+>  arch/arm/include/asm/arm_pmuv3.h   | 10 +++++++
+>  arch/arm64/include/asm/arm_pmuv3.h | 10 +++++++
+>  drivers/perf/arm_pmuv3.c           | 43 ++++++++++++++++++++++++++++--
+>  include/linux/perf/arm_pmu.h       |  2 ++
+>  include/linux/perf/arm_pmuv3.h     |  7 +++++
+>  5 files changed, 70 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm/include/asm/arm_pmuv3.h b/arch/arm/include/asm/arm_pmuv3.h
+> index 2ec0e5e83fc9..49ad90486aa5 100644
+> --- a/arch/arm/include/asm/arm_pmuv3.h
+> +++ b/arch/arm/include/asm/arm_pmuv3.h
+> @@ -277,4 +277,14 @@ static inline u64 read_pmceid1(void)
+>  	return val;
+>  }
+>  
+> +static inline u32 read_mdcr(void)
+> +{
+> +	return read_sysreg(mdcr_el2);
+> +}
+> +
+> +static inline void write_mdcr(u32 val)
+> +{
+> +	write_sysreg(val, mdcr_el2);
+> +}
+> +
 
-Please, let's wait with the v2 until I go through the whole thing again,
-which I expected to have done already, but had some other "IRL stuff" 
-that
-introduced a delay.
+This will obviously break the 32bit build.
+
+>  #endif
+> diff --git a/arch/arm64/include/asm/arm_pmuv3.h b/arch/arm64/include/asm/arm_pmuv3.h
+> index 8a777dec8d88..fc37e7e81e07 100644
+> --- a/arch/arm64/include/asm/arm_pmuv3.h
+> +++ b/arch/arm64/include/asm/arm_pmuv3.h
+> @@ -188,4 +188,14 @@ static inline bool is_pmuv3p9(int pmuver)
+>  	return pmuver >= ID_AA64DFR0_EL1_PMUVer_V3P9;
+>  }
+>  
+> +static inline u64 read_mdcr(void)
+> +{
+> +	return read_sysreg(mdcr_el2);
+> +}
+> +
+> +static inline void write_mdcr(u64 val)
+> +{
+> +	write_sysreg(val, mdcr_el2);
+> +}
+> +
+>  #endif
+> diff --git a/drivers/perf/arm_pmuv3.c b/drivers/perf/arm_pmuv3.c
+> index b5cc11abc962..55f9ae560715 100644
+> --- a/drivers/perf/arm_pmuv3.c
+> +++ b/drivers/perf/arm_pmuv3.c
+> @@ -325,6 +325,7 @@ GEN_PMU_FORMAT_ATTR(threshold_compare);
+>  GEN_PMU_FORMAT_ATTR(threshold);
+>  
+>  static int sysctl_perf_user_access __read_mostly;
+> +static u8 reserved_guest_counters __read_mostly;
+>  
+>  static bool armv8pmu_event_is_64bit(struct perf_event *event)
+>  {
+> @@ -500,6 +501,29 @@ static void armv8pmu_pmcr_write(u64 val)
+>  	write_pmcr(val);
+>  }
+>  
+> +static u64 armv8pmu_mdcr_read(void)
+> +{
+> +	return read_mdcr();
+> +}
+> +
+> +static void armv8pmu_mdcr_write(u64 val)
+> +{
+> +	write_mdcr(val);
+> +	isb();
+> +}
+> +
+> +static void armv8pmu_partition(u8 hpmn)
+> +{
+> +	u64 mdcr = armv8pmu_mdcr_read();
+> +
+> +	mdcr &= ~MDCR_EL2_HPMN_MASK;
+> +	mdcr |= FIELD_PREP(ARMV8_PMU_MDCR_HPMN, hpmn);
+> +	/* Prevent guest counters counting at EL2 */
+> +	mdcr |= ARMV8_PMU_MDCR_HPMD;
+> +
+> +	armv8pmu_mdcr_write(mdcr);
+> +}
+> +
+>  static int armv8pmu_has_overflowed(u64 pmovsr)
+>  {
+>  	return !!(pmovsr & ARMV8_PMU_OVERFLOWED_MASK);
+> @@ -1069,6 +1093,9 @@ static void armv8pmu_reset(void *info)
+>  
+>  	bitmap_to_arr64(&mask, cpu_pmu->cntr_mask, ARMPMU_MAX_HWEVENTS);
+>  
+> +	if (cpu_pmu->partitioned)
+> +		armv8pmu_partition(cpu_pmu->hpmn);
+> +
+
+Kaboom, see below.
+
+>  	/* The counter and interrupt enable registers are unknown at reset. */
+>  	armv8pmu_disable_counter(mask);
+>  	armv8pmu_disable_intens(mask);
+> @@ -1205,6 +1232,7 @@ static void __armv8pmu_probe_pmu(void *info)
+>  {
+>  	struct armv8pmu_probe_info *probe = info;
+>  	struct arm_pmu *cpu_pmu = probe->pmu;
+> +	u8 pmcr_n;
+>  	u64 pmceid_raw[2];
+>  	u32 pmceid[2];
+>  	int pmuver;
+> @@ -1215,10 +1243,19 @@ static void __armv8pmu_probe_pmu(void *info)
+>  
+>  	cpu_pmu->pmuver = pmuver;
+>  	probe->present = true;
+> +	pmcr_n = FIELD_GET(ARMV8_PMU_PMCR_N, armv8pmu_pmcr_read());
+>  
+>  	/* Read the nb of CNTx counters supported from PMNC */
+> -	bitmap_set(cpu_pmu->cntr_mask,
+> -		   0, FIELD_GET(ARMV8_PMU_PMCR_N, armv8pmu_pmcr_read()));
+> +	bitmap_set(cpu_pmu->cntr_mask, 0, pmcr_n);
+> +
+> +	if (reserved_guest_counters > 0 && reserved_guest_counters < pmcr_n) {
+> +		cpu_pmu->hpmn = reserved_guest_counters;
+> +		cpu_pmu->partitioned = true;
+
+Isn't this going to completely explode on a kernel running at EL1?
+
+Also, how does it work in an asymmetric configuration where some CPUs
+can satisfy the reservation, and some can't?
+
+> +	} else {
+> +		reserved_guest_counters = 0;
+> +		cpu_pmu->hpmn = pmcr_n;
+> +		cpu_pmu->partitioned = false;
+> +	}
+>  
+>  	/* Add the CPU cycles counter */
+>  	set_bit(ARMV8_PMU_CYCLE_IDX, cpu_pmu->cntr_mask);
+> @@ -1516,3 +1553,5 @@ void arch_perf_update_userpage(struct perf_event *event,
+>  	userpg->cap_user_time_zero = 1;
+>  	userpg->cap_user_time_short = 1;
+>  }
+> +
+> +module_param(reserved_guest_counters, byte, 0);
+> diff --git a/include/linux/perf/arm_pmu.h b/include/linux/perf/arm_pmu.h
+> index 4b5b83677e3f..ad97aabed25a 100644
+> --- a/include/linux/perf/arm_pmu.h
+> +++ b/include/linux/perf/arm_pmu.h
+> @@ -101,6 +101,8 @@ struct arm_pmu {
+>  	void		(*reset)(void *);
+>  	int		(*map_event)(struct perf_event *event);
+>  	DECLARE_BITMAP(cntr_mask, ARMPMU_MAX_HWEVENTS);
+> +	u8		hpmn; /* MDCR_EL2.HPMN: counter partition pivot */
+> +	bool	        partitioned;
+>  	bool		secure_access; /* 32-bit ARM only */
+>  #define ARMV8_PMUV3_MAX_COMMON_EVENTS		0x40
+>  	DECLARE_BITMAP(pmceid_bitmap, ARMV8_PMUV3_MAX_COMMON_EVENTS);
+> diff --git a/include/linux/perf/arm_pmuv3.h b/include/linux/perf/arm_pmuv3.h
+> index d698efba28a2..d399e8c6f98e 100644
+> --- a/include/linux/perf/arm_pmuv3.h
+> +++ b/include/linux/perf/arm_pmuv3.h
+> @@ -223,6 +223,13 @@
+>  				 ARMV8_PMU_PMCR_X | ARMV8_PMU_PMCR_DP | \
+>  				 ARMV8_PMU_PMCR_LC | ARMV8_PMU_PMCR_LP)
+>  
+> +/*
+> + * Per-CPU MDCR: config reg
+> + */
+> +#define ARMV8_PMU_MDCR_HPMN		GENMASK(4, 0)
+> +#define ARMV8_PMU_MDCR_HPME		BIT(7)
+> +#define ARMV8_PMU_MDCR_HPMD		BIT(17)
+> +
+
+I'd rather we find a way to use the existing definitions form the
+sysreg file rather than add more duplication.
+
+I also don't see how the kernel knows not to access the low-numbered
+counters at this point. Maybe in a later patch, I'll keep reading.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
