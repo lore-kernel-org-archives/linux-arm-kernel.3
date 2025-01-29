@@ -4,93 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C2F5C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 17:26:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39E7FC0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 17:41:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=apyazMEhQSo8qF0MeJDavXOSu4X41kdb0EVpzv+wKjs=; b=J08NXCa3SKCPW+wgv0DvNIIL3h
-	RwkF+36PfwfZFXO9diAtiA73Uj0Cil0vqwmN+kq0I9ture3XibIfIKF2X1uZHNvB2pxasmHfjga3l
-	Z8QYsUwkb8BECQ6RkhnbidmBSw7IHub75O24y7OHycavE6Y396yymhrwK4rF+qGKFwGcAQxc7En+1
-	eCkkWthYLBBGqIDTPvGBHCsvNf8sZAerOs1jaGpR/K4GsofLKWO0Mz9pgAi/XQG/Gf4RvD9IqJy+B
-	jueINKK4W4bVKtG5KIVRu5MZ1ASt1oCbgWkxJispoWQfgWzDAbQwfsZFZHjpNFPR4NByJTuEWxYfz
-	YZBMkHEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GHsUONaaX33Li1j7u4KBv4F37Vgfl/ab3Fw3qeTBPO0=; b=A7SFLYhMVbZ9AwmxeDtdY5ldbZ
+	Tymk/ur/noEBHZr6Lpn012F6YPNIGrDexVqZWUf4+TTTkmxODeShD7SC1pE/AnYMScsXgDZbnX1+K
+	Kjfj5uy4u3c8Gz5vtzd31WbkZOrAEAjcqyBFV3nBHdXE9pvz0pPLe1230uQmN14YwPNvtMX8OCH5y
+	MOHOlpJ2LzPsdVMw1xfVFGh0nQhsbisfAokCP3P6ctg7YfNtotmHhsGxGQNp93qcYFRMpShB0ojvj
+	aQul6nHRwAimn3ndY+jMIfA2BQ87RNhGFVYxjazJSHHUIhygm0g6GuT2/RMeyyuOZAR2Y4umfXwy1
+	WWVfxAWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdBpa-00000007UHb-00uz;
-	Wed, 29 Jan 2025 17:26:26 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1tdC3S-00000007WRK-0KCU;
+	Wed, 29 Jan 2025 17:40:46 +0000
+Received: from mail-dm6nam11on2062c.outbound.protection.outlook.com ([2a01:111:f403:2415::62c] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdBnp-00000007TuD-2fY9
+	id 1tdC20-00000007Vul-0IoI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jan 2025 17:24:38 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-435f8f29f8aso51692095e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jan 2025 09:24:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738171475; x=1738776275; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=apyazMEhQSo8qF0MeJDavXOSu4X41kdb0EVpzv+wKjs=;
-        b=wUJ10eDu+qzC2rYIwi5OCvHvhAZcyS+J7sG8OYSuISILWzS5RfpYaScIZN0pK/H194
-         Orsk7rP4FVSfHjR1KWNTrKLeQwXxJsRp2DWJqr7ibcDPz0BDOlYaDCCJOPf224p74/d4
-         YsJm/nTqGM8Oe4vY4uWG4Gmfbw0UAGrp3hSF+WPByCbZiA0ONJBOnDmMRmeyWBjXNXeR
-         FeodYxGOAzKYZMAwH+jUtLIZ5dCk1zkYwZdBwNH9KXdJ7AhyrGb52RInBP+PJBNXWRoA
-         6OhVm4SaNTWCwb+e6ETaYXqaq6aZJaaJc6xHgfnUdpaxiEOxZkp7VmQKCJB1NLluiZLW
-         U3JA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738171475; x=1738776275;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=apyazMEhQSo8qF0MeJDavXOSu4X41kdb0EVpzv+wKjs=;
-        b=XofUX/A2ZXgXbAOklI4lJXml7t5mTDmV8dyiyGtEcyRKy3yD7pzeUJ/8FnlJV2aQZN
-         FZlNBpIwhccnZfVCt/3i1fKjwHOr0iAkZbd5+K9+x4uuLQ+K9SlS/jRMYMqf7Gd8yO17
-         RFrK6M6lf6z+YLYVtUwnF7r2z67e8l4nrbLVTmXHMvahH2j5k7il9Km5AaSaEs8XUA2l
-         nk7ZYKkyE/qFm/+Trb070kH/hKdYvo561xom0h4JXaMQPBJ44N7qvBe5SdFC+W+noPtZ
-         ZDZZjksBsb/SR22l8xAmgIesmTJ9aWMeo3B8BKVx8x5czGTsO7FZ7IpP5ZOov4SUX3vG
-         XuLw==
-X-Forwarded-Encrypted: i=1; AJvYcCXRCautyGxHfBeC4T1NEgl4L69uPlDnuxVoGpjv7XeNVyF2PnBsNfMPiT6PK2jydj+77Qsh9isahthqd+oBkiMF@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLwM4yUq8XWaenPQnjIKL3HLPDRueDy8/xDR0c0uf+lUtwpfPd
-	jZVlj3TOp/jfKjuKXSOvJ60itPvX4VQTJPEvHsYfKuh6Uk9KOT/OwVEAOg/agZ0=
-X-Gm-Gg: ASbGncuL9k3CRqRIhBEJ6Y8BBELvSVsQWR0X8vNg5YGlgTBMDUlAVPZQdFssqdvcF8B
-	VdV9N+PUfhWMJypYg/gzvTCPiglHQaW8GThaLn8waVWcopLfwiiWmPTa6AJWh3bpGyfxiPPMVS4
-	1cUJMlOZcORuoBb0Et1lYJRLTMy8FJIoQQ0i4oqj/NfRz5PzMwsdX7TU3WVtu57ZcZabnXSGP1L
-	z1/JbCOEjvZTNXSSJwqwKhfVH/tSDXq8hL4Np37zGsMu8Lea7jhNi0SbOZQrVQBER+ZXNQ6MSjy
-	IDH7DZgb4h99eSOG68dQ7wLkR2yTTOxsD3eMSPGPP1EVg3RPAxUcig==
-X-Google-Smtp-Source: AGHT+IFnDe4/dtbPIGLCw/sImkenHK2DDv+ULBhTplI9CVAjt0kVdyPwIrTWfCJBnrEnbirx/h0Z9Q==
-X-Received: by 2002:a05:600c:4e01:b0:435:136:75f6 with SMTP id 5b1f17b1804b1-438dc34b179mr38832105e9.0.1738171475469;
-        Wed, 29 Jan 2025 09:24:35 -0800 (PST)
-Received: from mai.linaro.org (146725694.box.freepro.com. [130.180.211.218])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438dcc518ddsm31002665e9.37.2025.01.29.09.24.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Jan 2025 09:24:34 -0800 (PST)
-Date: Wed, 29 Jan 2025 18:24:32 +0100
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-To: Claudiu <claudiu.beznea@tuxon.dev>
-Cc: rafael@kernel.org, rui.zhang@intel.com, lukasz.luba@arm.com,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	geert+renesas@glider.be, magnus.damm@gmail.com,
-	mturquette@baylibre.com, sboyd@kernel.org, p.zabel@pengutronix.de,
-	ulf.hansson@linaro.org, linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
-	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-Subject: Re: [PATCH 2/6] thermal: of: Export non-devres helper to
- register/unregister thermal zone
-Message-ID: <Z5pkUNNvsWPjRQvy@mai.linaro.org>
-References: <20250103163805.1775705-1-claudiu.beznea.uj@bp.renesas.com>
- <20250103163805.1775705-3-claudiu.beznea.uj@bp.renesas.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+	Wed, 29 Jan 2025 17:39:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=T0nvE8IRy86an/0xcVndmVu8T82ing0uIynWm0pP4GXomIClc8DJ63l448DhffUUEtGz0lG81DiOvupG3GvLpaXrW4nFKmbrw+S0+KsmIc1ZqSkK16y7yH8Cq+a/OU5SdK8FdmOI0uSvrd4F9LorgDghdMRTVnzmzATVuV6pp1NGjCHhc+JalPT7NuhILEK+CE2wW9xeHUTCugN3WnixSdPWENUfk1R9YJbkujPEcWq08h7yOvhjjBdDWWkFvtYdZXcl3FqZneeKH/olbQDaN7iBmJ2OdQWw6ncahOJy4/iV+caxpG2hvr4vVau3Ks2pehbmFWx/gkyaGET0Tk0bWg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GHsUONaaX33Li1j7u4KBv4F37Vgfl/ab3Fw3qeTBPO0=;
+ b=noLOzY4FmLH8C4XuuysGO5Vx5szNJlqHJN9+PRMfnc7mjb+/IMOuVyg0zQiAlRm2Q67E9raUtlYHeeHjgvsZYrjozppT5jVBEwJfCEjKAbHauzopUX8drOFoplPldx4RlfSbVMFRis/on6vGfcOQKj7NhqfhWhGHvxbaTrInSy/LxYgh+16xlYkATDz7CqoUmCLhweyKMHJ2LS5jXSW/Y+n3QNvpb7JwDhRst0mptDx8VBtAtGCG/Iv6w+jQOX3RMBvU1MhT95HgZafPcECN4HgZN4vONCx5SQq2I3knV6e7bLZs7MNTheL9WmeLg5vxoDXbimTPEqcjauUApC9K0g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GHsUONaaX33Li1j7u4KBv4F37Vgfl/ab3Fw3qeTBPO0=;
+ b=dUMJL7E4G3FlxLZ0TaST56ILqiz1PgW+6RH29nNuVUXLOD9iR7W44IwUrcCMau67SShyg/DwXZ3NFpVws4e+HujOznkisX+aS/1DEkZ6qBeVORiWt8a86c6nsvkSHDSW7LMfEUJZIDq21nCJf8wRjB7U3+QP8FtshpHz0tho4uLHsDga/ZlTg/H0lUwSSNRcpnf2gef3tGCzf3m6spxxQQjMa8FoXXTeNyiS7fSt5GVIDuogbqIpxXA/17A0byX7MY8bsfizj9H5znL1zAu+3i4Y8Ih7K2yOT6Agb01X9NTsnrnBrEs+xmFIGs9CrircbM9B57HDzIxXG8L73RhSQQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by PH8PR12MB6697.namprd12.prod.outlook.com (2603:10b6:510:1cc::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8377.22; Wed, 29 Jan
+ 2025 17:39:11 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%5]) with mapi id 15.20.8377.021; Wed, 29 Jan 2025
+ 17:39:11 +0000
+Date: Wed, 29 Jan 2025 13:39:09 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Eric Auger <eric.auger@redhat.com>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
+	robin.murphy@arm.com, kevin.tian@intel.com, tglx@linutronix.de,
+	maz@kernel.org, alex.williamson@redhat.com, joro@8bytes.org,
+	shuah@kernel.org, reinette.chatre@intel.com, yebin10@huawei.com,
+	apatel@ventanamicro.com, shivamurthy.shastri@linutronix.de,
+	bhelgaas@google.com, anna-maria@linutronix.de, yury.norov@gmail.com,
+	nipun.gupta@amd.com, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	patches@lists.linux.dev, jean-philippe@linaro.org, mdf@kernel.org,
+	mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
+	smostafa@google.com, ddutile@redhat.com
+Subject: Re: [PATCH RFCv2 09/13] iommufd: Add IOMMU_OPTION_SW_MSI_START/SIZE
+ ioctls
+Message-ID: <20250129173909.GI5556@nvidia.com>
+References: <cover.1736550979.git.nicolinc@nvidia.com>
+ <d3cb1694e07be0e214dc44dcb2cb74f014606560.1736550979.git.nicolinc@nvidia.com>
+ <0521187e-c511-4ab1-9ffa-be2be8eacd04@redhat.com>
+ <20250129145800.GG5556@nvidia.com>
+ <21ac88b0-fe93-4933-893c-7ffb09267e7b@redhat.com>
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250103163805.1775705-3-claudiu.beznea.uj@bp.renesas.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <21ac88b0-fe93-4933-893c-7ffb09267e7b@redhat.com>
+X-ClientProxiedBy: BN9PR03CA0101.namprd03.prod.outlook.com
+ (2603:10b6:408:fd::16) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|PH8PR12MB6697:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1cc7bb61-b490-4798-5236-08dd408bd6d8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?dGE2UlNqOVRORVdhSXFmcThwenpUYWR2VUZ2VzBSRU43Njg3cE8vdVBoS3F2?=
+ =?utf-8?B?RHdSNGpGOUJINExoYms0ckhpTlNmL0VYVzNqOEwwL3ZHTStPTGNXclc2UzFF?=
+ =?utf-8?B?QzZsWGRPdkRpZm9lMHZZbHhidUJ6ZG9Tc0FTTVl6SEYwY1ZvOVBqVGt5M2x5?=
+ =?utf-8?B?citWVjU4N21ncG12YmVHTGc4QUp6V2pML2lyMlNNWG9td3AwSHF4SzJmMko5?=
+ =?utf-8?B?ZGhGNHFlSTVqNjQ0ams4K0lKWjV5OVNyWHEzNGdNRXNYMUpLcVhKSUtVbnhk?=
+ =?utf-8?B?RmtVRDdLZ015THY5ejh5T1o2WmRNcGdBOVpRL1FmR0FhVzF6N3dpR3JXdmZL?=
+ =?utf-8?B?QTlDS2ZnR05QRjhIS21mYk5qN1E1YlNqSllWdmVwUDdOVDcrM0FYaDMzU0ho?=
+ =?utf-8?B?eDRUQVFPTlRCcHVFbENteHJZQk9TWTNTS1ZJNUx6MUZFTFYrVjl6OWZQbjN6?=
+ =?utf-8?B?MWNoN3lCQUV0N2JxMnhoRGVJZGhYczFMS2pFRE0wTk1vTW1WNitubllESzkr?=
+ =?utf-8?B?cW5JZjEwMUhPKytGbEp5Z0JWeTdqRUtGdjlINFhPS3lTby82YU1ma1RwQU9L?=
+ =?utf-8?B?NXhSSXR2MHdLaEpsZlZLelR4b3RqellUQnlvUjk5bjZPd0xQYlpYR1ZYYnAr?=
+ =?utf-8?B?MmtGdFkxTHB6anoyanJWQXYwRTJZQ0xNMmY3aENqNGVaOGU5ejZ4WUpmWDRV?=
+ =?utf-8?B?NGxTMStaVnlpK1FCbGlCRUlGSEpEbXA4YmMxeGIrbnFFNzcrOG1sVVhrK0dR?=
+ =?utf-8?B?RzlxaTloTStpMXY3RU8ycDcySGRyQXoxUW9sNytoUGVka0x2Vk1GakppYmxD?=
+ =?utf-8?B?dm1ucU5oeUhjZ3BYR2p0N1dCcVZsck9ESm00c21FZHVScU1qYmxjSCtqSXRT?=
+ =?utf-8?B?OENXV1BFL1VBYk1XOU8yUDM4bUlka2F6d2l1QXlkMzUrbTJZcFB2NXc5Nkl6?=
+ =?utf-8?B?cHJoalNsai9jdzV4dWFyOGE0RzdtSjBFYU5jNlcyRGFMOWtNV0V1cFlSNkN5?=
+ =?utf-8?B?WThaUlFDekhCdVV1WGMwa2xQRmt5aHhKY0JlUEh5U0tJeGlqRU9SeENObVEv?=
+ =?utf-8?B?Y3BnNzIxN0taWlpvMEZUamVTcVhIVnkzNE5sQXVnMXRTajB3ZlNNclJjVytR?=
+ =?utf-8?B?NzFoVzZzVDh0cGhGaU9OejlCZFdnTW0xTFV4eS9DVk5XV0VWU3llUlVNdmVF?=
+ =?utf-8?B?ZHlKT2psaTBHbjVTWW9QalJuUGFPaFJ6M1N3aWVtcFhpSkQySVg0RXA4b2Y1?=
+ =?utf-8?B?T2lmMGVNWjhRQkd6Sit5cFFqcW5YNHFYczJQREYrSEJTZHJiUnI0R0RuVGFV?=
+ =?utf-8?B?OURLV3lUaGVVcC9VeGJiOFZjdUg2bWRyWXNjSnRwVmNPem9neXFUNXdOR3hk?=
+ =?utf-8?B?ckRFTEdiTDBPQk9mYnVyRWROWHExVTI3RmV4aU9GYjhJMXZmVEVQUDAydmZM?=
+ =?utf-8?B?NXhpaFNvKzNLcGp0Mmt6Umo4ekQwTXU4TmRNZittQ1JHc21IRWlNR1pzTW1p?=
+ =?utf-8?B?SWpjWkpubUZxTkkyN2lzN3pjdVpMSkZvMTZrRmswemFRbnVjazIreVdpdFdj?=
+ =?utf-8?B?S0NwWDErd01hbHcxaDE3ZkJ4MXRsVEl1WGhxZzYrV2xvQTVCR04yQ0FrckF6?=
+ =?utf-8?B?aWJRL0k5YU5FNlByODhDa3FEaUZGeWVHNTIycUJWOWcrUmFmUWpxY0NkcnZp?=
+ =?utf-8?B?UXF4Wkcvd2c4dWVFczlVN0J1K2ZtVUFuR3g3ZXB5dm9lZVhzQjRhZnltekh4?=
+ =?utf-8?B?b1ZiRXQ4SGNuS0I3QnA4SVVYQ2sxdGUyS1ozR1U1SmhLaVJYZ2pIRVdWeGNH?=
+ =?utf-8?B?SWo3ZmJYZU96WFoyVXl2NUhQLzJUZnp1V0ppM2pQRGlyRS9RNHZURndPQnRn?=
+ =?utf-8?Q?xuA++BkGIGceO?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SzFwMmxaNzlwa3NDeHpmc29aYThLVUdxajVXdGdtanplS0hKd0x0TW55YzI0?=
+ =?utf-8?B?cUFIQnVYcmpWSmVYQ2lYTnJCUkpOV29MZjRBZ0pJZmpRTmU0OHZQSy9STkor?=
+ =?utf-8?B?U0J2ZlJLdFVnQ2ZadlR6NVUrRDlRUzhGMFRGaG9RNFhvaDJlU0YrY29icG50?=
+ =?utf-8?B?TmNmcFI0a21DbUtJQW11Mm1RVmJVZVhzbkI2QXlMbFE2TE5pc2lmeFBWYUJr?=
+ =?utf-8?B?OTZ2TGg5ZlQ4Y3lyOHJDdFdxZmV4WGJsSmRUV3BPWnlmMlo2cFViUGM0ZXJJ?=
+ =?utf-8?B?ZnVGZmpQQUE2THpnenZtSW5ib3pyWU8xNkltWnJQUVVwWE5VV2pVZ01XQ09S?=
+ =?utf-8?B?YUhGNnQwZGJkVy96aDgveEh3WlVJMTR4U1pQVlNmdkovTnJZL3ZpMjlHd1pI?=
+ =?utf-8?B?TXBZN3ptdDl1S3puQjZFemtHcm93ZVVQOXhsdGp1STJRRUxxZFRuOVVKMk5O?=
+ =?utf-8?B?Um4wRHNqRnNYeFkvSkliREhNTU8yZXlQU1NkZVRrY0pCMzNPaExVcVZuQ3dD?=
+ =?utf-8?B?dGRpSExRS0FoWHdwL3BHb1V5V3ZsQWVHeU1vVHAveXdtQ1dUbFFZRm9kRVMy?=
+ =?utf-8?B?TnhTdnBTTG9XWlBHL09Pc202YVREWmdiZkNCVmgxL2N1dy9KdEdzcVp4UnAw?=
+ =?utf-8?B?aDd0TzVQczRnVUx0eGFmS2F5T2tmbkoxZExqNHVRemR4R1hmTDlzSkVIYXho?=
+ =?utf-8?B?eWJOWXRjczNHT0o5Ymlla1Zoa2hGZmM2UVpIRUVFNy9LOFFTM1g3ZmNPS0Ux?=
+ =?utf-8?B?cERza0c2RUYzTnYyTFZyZnVNQjRzWVA0YkhEWVYwdW9aS3JRemlIenpjc05Q?=
+ =?utf-8?B?TlRSaFp1MjRKeEFrdnZuMkswTTZ6NW1vMDVxckVFQ3JHOEw4cHc4eTFvWG52?=
+ =?utf-8?B?RW5YRFI0WDk2c1A4eWwwcjNFanhNS2NKM3RTSzBWTVJ4b3h2dXJCeFp6K1Ji?=
+ =?utf-8?B?U3cyRXN2WmZFc1VyblVmL0JKNHFEMlJQYjFNVEJzNUE1R3NYUitHNTZScmkz?=
+ =?utf-8?B?Mm9TYmVUd3N4YmZScTNvOVV1d25sMXhYOGI5cmQxRit5eTZiQmwzdWRGTlFQ?=
+ =?utf-8?B?SVZ0STVhNjJBdEJ1RGs3c0Y5d3JsbExRQURkaGR1VENFNkpzRWpSY0FBdStB?=
+ =?utf-8?B?TzFHbU1Nd0dBamo5dGxWSVRtWjlwTE41SUMwL2poWHBoNUxpWGN0dnBHbTBT?=
+ =?utf-8?B?a21IZEdGSFpzWUhBT3VtTGRnK043cGpTMTFpeDNYVGQ4Y20rREg2ZldqUnNo?=
+ =?utf-8?B?VGdVbXNjM3I1M1VUNXBzc1AydGE1NCtTZGh5aXMyd0xHcGVKZmF6dmEwS2dI?=
+ =?utf-8?B?TTBLUXdYamJxS1NTWUdRVmdORFRtZGF2MkJWWU5sazhEc0h5S283ZEIxbDRl?=
+ =?utf-8?B?ZU1qTXE5NlU4cVlweWVjaUhPaFhhNCtrQmdxQXJwMEFmZG1tRDFDbUVMclIz?=
+ =?utf-8?B?bSt1cWo4WTd4Y0NuOVVVMUlQSW5COGhmbEg4VGhmeWRDdndaQndrQ3krZm5l?=
+ =?utf-8?B?cXlmWjRzbVB2S1V4ZFBmTHF6Mlo1KzhQRHdjWFNKOFgxNDdsbU5qaWFJTmV2?=
+ =?utf-8?B?Q0piQk5FWTVPMzQxNlVJdm1mOXptZTh6YmNHVzhFb0UvYnQ4ZXBiOUZXWm0r?=
+ =?utf-8?B?Mnp0VHFvVDhTYU9qd2dYcWdCNE5VdWRKM3JFeFV5M1JTOEZiZWlzUnVxQmEr?=
+ =?utf-8?B?WG1ZSmhaVHZIeU80SW9HQmRCL0ZabzVaQjFpNUF6LzYwcU1WU2wzODBBMG9H?=
+ =?utf-8?B?TFBBZGt1cjhJdkYyMkRwc3RERm52aUVzb2RTenVLK3BZekNVZnZoZjM0clhj?=
+ =?utf-8?B?VDRnRDNMQ1lpMG5EOU9QWVNnYm1pUndKOWRkZzRNR2lhN1BWTHRkSGl1RHVG?=
+ =?utf-8?B?V3d6YS8wcGh4bzBBZy9vRjR0VXJUSFZoM2l2ZGhEZ2xpeFRRdUNYOEI0Z0Rw?=
+ =?utf-8?B?NTBKNWFCQ0FCdmpYUGh6LzNiVEdLMUZORUQ3K2E0b2hUdGc2bzlsVnl1VTJy?=
+ =?utf-8?B?cmNtN0VEN0lpd205VFZDbURrWGlFOGszY0pDWmpwaHBmaVA0eE5pb1pKd05L?=
+ =?utf-8?B?eHVVSVdKT1o5Y2F1WHd3ZkwvOVZFTlVuay8yZXFjcEZ0cGFVV3NncXROU3pG?=
+ =?utf-8?Q?2yIE=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1cc7bb61-b490-4798-5236-08dd408bd6d8
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jan 2025 17:39:10.8605
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: n9mcrid+N7jEQ0umZhv1ASd89ZYEU0qF6Ka68ZaBicJpdybpvRec2iE7deEjVhVO
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB6697
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250129_092437_694428_BB21CD9A 
-X-CRM114-Status: GOOD (  22.04  )
+X-CRM114-CacheID: sfid-20250129_093916_128234_60B174D8 
+X-CRM114-Status: GOOD (  21.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,70 +188,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Claudiu,
+On Wed, Jan 29, 2025 at 06:23:33PM +0100, Eric Auger wrote:
+> >> IIUC the MSI window will then be different when using legacy VFIO
+> >> assignment and iommufd backend.
+> > ? They use the same, iommufd can have userspace override it. Then it
+> > will ignore the reserved region.
+> In current arm-smmu-v3.c you have
+>         region = iommu_alloc_resv_region(MSI_IOVA_BASE, MSI_IOVA_LENGTH,
+>                                          prot, IOMMU_RESV_SW_MSI,
+> GFP_KERNEL);
+> 
+> in arm_smmu_get_resv_regions()
+> If you overwrite the default region, don't you need to expose the user
+> defined resv region?
 
-On Fri, Jan 03, 2025 at 06:38:01PM +0200, Claudiu wrote:
-> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-> 
-> On the Renesas RZ/G3S (and other Renesas SoCs, e.g., RZ/G2{L, LC, UL}),
-> clocks are managed through PM domains. These PM domains, registered on
-> behalf of the clock controller driver, are configured with
-> GENPD_FLAG_PM_CLK. In most of the Renesas drivers used by RZ SoCs, the
-> clocks are enabled/disabled using runtime PM APIs.
-> 
-> During probe, devices are attached to the PM domain controlling their
-> clocks. Similarly, during removal, devices are detached from the PM domain.
-> 
-> The detachment call stack is as follows:
-> 
-> device_driver_detach() ->
->   device_release_driver_internal() ->
->     __device_release_driver() ->
->       device_remove() ->
->         platform_remove() ->
-> 	  dev_pm_domain_detach()
-> 
-> In the upcoming Renesas RZ/G3S thermal driver, the
-> struct thermal_zone_device_ops::change_mode API is implemented to
-> start/stop the thermal sensor unit. Register settings are updated within
-> the change_mode API.
-> 
-> In case devres helpers are used for thermal zone register/unregister the
-> struct thermal_zone_device_ops::change_mode API is invoked when the
-> driver is unbound. The identified call stack is as follows:
-> 
-> device_driver_detach() ->
->   device_release_driver_internal() ->
->     device_unbind_cleanup() ->
->       devres_release_all() ->
->         devm_thermal_of_zone_release() ->
-> 	  thermal_zone_device_disable() ->
-> 	    thermal_zone_device_set_mode() ->
-> 	      rzg3s_thermal_change_mode()
-> 
-> The device_unbind_cleanup() function is called after the thermal device is
-> detached from the PM domain (via dev_pm_domain_detach()).
-> 
-> The rzg3s_thermal_change_mode() implementation calls
-> pm_runtime_resume_and_get()/pm_runtime_put_autosuspend() before/after
-> accessing the registers. However, during the unbind scenario, the
-> devm_thermal_of_zone_release() is invoked after dev_pm_domain_detach().
-> Consequently, the clocks are not enabled, as the device is removed from
-> the PM domain at this time, leading to an Asynchronous SError Interrupt.
-> The system cannot be used after this.
+If it was overriden inside iommufd then the user told the kernel what
+range to use to override it. I don't need to go back and report back
+to userspace information that it already gave to the kernel..
 
-I've been through the driver before responding to this change. What is the
-benefit of powering down / up (or clock off / on) the thermal sensor when
-reading the temperature ?
+> > Nothing using iommufd should parse that sysfs file.
+> Right but aren't you still supposed to populate the sysfs files
+> properly. This region must be carved out from the IOVA space, right?
 
-I can understand for disable / enable but I don't get for the classic usage
-where a governor will be reading the temperature regularly.
+The sysfs shouldn't be changed here based on how iommufd decides to
+use the iova space. The sysfs reflects the information reported from
+the driver and sw_msi should be understood as the driver's
+recommendation when you view it from sysfs.
 
-Would the IP need some cycles to capture the temperature accurately after the
-clock is enabled ?
+The actual reserved regions in effect for an iommufd object are
+queried directly in iommufd and do not have a sysfs representation.
 
-> Add thermal_of_zone_register()/thermal_of_zone_unregister(). These will
-> be used in the upcomming RZ/G3S thermal driver.
-> 
-> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> >>> + * @IOMMU_OPTION_SW_MSI_START:
+> >>> + *    Change the base address of the IOMMU mapping region for MSI doorbell(s).
+> >>> + *    It must be set this before attaching a device to an IOAS/HWPT, otherwise
+> >>> + *    this option will be not effective on that IOAS/HWPT. User can choose to
+> >>> + *    let kernel pick a base address, by simply ignoring this option or setting
+> >>> + *    a value 0 to IOMMU_OPTION_SW_MSI_SIZE. Global option, object_id must be 0
+> >> I think we should document it cannot be put at a random place either.
+> > It can be put at any place a map can be placed.
+> to me It cannot overlap with guest RAM IPA so userspace needs to be
+> cautious about that
+
+Yes, userspace needs to manage its own VM memory map to avoid
+overlaps, but from an API perspective it can be placed anywhere that a
+map can be placed.
+
+Jason
 
