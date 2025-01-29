@@ -4,81 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89966C0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 21:28:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB1FBC0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 21:33:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=f5TFKrdlu748ABqlHsuP9NDv0QkMzFjiUtwaLrqTFf0=; b=PZW8BJhhTal1Cs
-	XUWp2TYhGBeSyVUlOrZrZO99fAeyk4L+RHCPXbMPPojgubIUYS1Z/897rPx/Sr9KzhyJGEfYoLsrZ
-	A8WCBSGd3MAFrnCIDEOnb3hHFchFUMcLvHSqsYTDCxia7SggNzdLuwakbbPxR7qkgH8TWPTfuwF2A
-	zcw/jfVAj+41vPFfUdaHbO9nIaw3S5qIOU+VXQ/hhrB8ag61LQGQOt/d+uavkLpu8hTLEFQtc2bqw
-	T+66qRHosRG7CDwauRyiQ6wZNWsYquQfg1qmo9zExkQJeRT5f7GxgPALWd4ou0vaxUHJRQk1YSZ5A
-	7+L5uZCxVuLE1pfMj1nA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Date:Cc:To:From:Subject:Message-ID:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3mxRYzzqPEi81Yfzc+wDSZaiIM1NQOITOroGLR3jJeE=; b=Y4jvtP7pPNVUljRTZcHLnYh9Mw
+	jN7ObUzXmtvsG+osSjyg22xTK9YLUt58w+g/qhYRkt9KL/QHfSUeVzfOz9KizZB3Bnsf/IZdlz1MF
+	lsNVySxVrUXcpur/+oH3t2OZL+w2oNnAbE3T2iRKVyD6eopAPpHZWTCk4e79SWKPGGdlqXWz601mh
+	J0zHuMzCQ8uBqriqsWnOaxhwogtzTjA5v14Pv7v6GghDnSVMRQLZKtnbIH9ojRlaCY+j5KV0z1ZZj
+	NBGw5ASwzZXjuZdvFktA7DWxLjJkDgO4Hz0Tiwm+A/rKBpT3wSIvZ4Sk1SpHuxCWXfaVANyeJ2XX+
+	nvvZncCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdFbo-00000007ofg-3is4;
-	Wed, 29 Jan 2025 21:28:28 +0000
-Received: from mail-il1-x14a.google.com ([2607:f8b0:4864:20::14a])
+	id 1tdFgX-00000007pEO-2qm9;
+	Wed, 29 Jan 2025 21:33:21 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdFaT-00000007oO9-33Gk
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jan 2025 21:27:06 +0000
-Received: by mail-il1-x14a.google.com with SMTP id e9e14a558f8ab-3cfba354f79so3364085ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jan 2025 13:27:04 -0800 (PST)
+	id 1tdFfC-00000007pB0-1v8R;
+	Wed, 29 Jan 2025 21:31:59 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-43635796b48so424295e9.0;
+        Wed, 29 Jan 2025 13:31:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1738186024; x=1738790824; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=f5TFKrdlu748ABqlHsuP9NDv0QkMzFjiUtwaLrqTFf0=;
-        b=HnbWP2iozqEYnDlJUHf9PXRJ4zn9ZqXA6Yby/5NrZe2mkGtI27mMsB7cjfIt4ahcCP
-         TSeFzf5kL2/WU+fM+GHWGQiHeeM+JqPTzUui36N+wlhyDoDVA+QqGDeGUJSAKhsuGQje
-         NOhAn/Xu3sBA9ON3fVoAG/4zt1tzUHhKGtLh/DpzoI2/pPV8mZP7dxpgaESnSFS8vLpz
-         eLHPlqC5BDK7Uzp8zWZqLHfEI/7yg6dG8fn9PS9dR1yBTnq5Ih9O+uhHitNvAdnPZLGN
-         IltYjXRJzNU+bdYDZQk6O/J7GX2GCueoFTpGuoSXJGohKBp/H4viCiOhuzT1mI6u/MJN
-         uQOA==
+        d=googlemail.com; s=20230601; t=1738186316; x=1738791116; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:date:cc:to
+         :reply-to:from:subject:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=3mxRYzzqPEi81Yfzc+wDSZaiIM1NQOITOroGLR3jJeE=;
+        b=EXx424ZIzH5L5UTHtuZfMwNB9Ef282B3PMM84oxnw0uv6h4XK1t4rA4ZQg5wkq0MKS
+         f/k2fznK9hQBswyG07Z7QP7sOvaZz46vbLDHtntZ2fk4IHBXEKbrzYzH7aAYYQhYHDpn
+         Fan3xVStlg6U10zngkDvlbheNcQ0cdK8SvhJZPg92Lzd/b+EQ4N3kc+JvifjsO6JMaC4
+         SWM379TkoVN+Yg67RvFfYqqkPXkGAjPpc4Wrbc0W2v6lBmPTi1ifDk1oArheJPYC0cjI
+         vr8DrDSxDt0LaAC9Et1lRjs479b1XyPttnFrRed8rsX5JDpgIPW8Hm5STJllMloghT06
+         alXg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738186024; x=1738790824;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=f5TFKrdlu748ABqlHsuP9NDv0QkMzFjiUtwaLrqTFf0=;
-        b=K+udosjCogfN7j2xGmPaFF/iJhysGKMC8kkClstxTGSEKy0CsK/4bm1B3pIt4+Pwlw
-         VrCgEdwnwNVkQ3NjWv5c0zLO7CLC7cYVPP+JTFlNPXSWJ19ZOjQ9BIBlRbLn7aQAYjXE
-         EUxfmCFo3QOdUZ4WPDniAc+Be/bcvadZly0cVjRqJ99xeZGwbCsKmrqCh1iDOrE+nQNL
-         qizW9g9dKVCOsR44zc27iReyehAVHix/SO+byM1yg+1ttLubhC31mg4Ap874P1Cysnfg
-         2Jmscw6kMXwThyv4Xx28B11ugvLKdI4/uRoTzTuZnrxBcixA+NrG1JBkRQXyocN7mh0R
-         OMsQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXH007bJ3RaOmfn/UksT9QJ4jSNA6+9yuMhFO8iRjaBnRwqg49xEJkfjyb8neogXtOZXK/m8qF5aKHQJN05K3QY@lists.infradead.org
-X-Gm-Message-State: AOJu0YxE+DAPRWBd74y9zuGYb9Woht6288ciTUYLthD664wyMM9w/so/
-	uDF3ZN8mne996UPXiI+Edu5CrYI1momV1ZHXpTDI+KUYx5627GGTzVmBjRbfy/EADNzhcFs3Dhk
-	rtF+zloLNJNokQIeeSrKNew==
-X-Google-Smtp-Source: AGHT+IEe9UoVLvNSaHlSkXBd6Ho5IN4ChMz7y7gjFQYGYFiTLbvYP7nErowhtJVcYSVDfJu2qMuLzToHlUCNsQ59Ig==
-X-Received: from ilbbb15.prod.google.com ([2002:a05:6e02:f:b0:3ce:69d1:ce53])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6e02:20cd:b0:3a7:66e0:a98a with SMTP id e9e14a558f8ab-3cffe3d1e48mr43753655ab.9.1738186023704;
- Wed, 29 Jan 2025 13:27:03 -0800 (PST)
-Date: Wed, 29 Jan 2025 21:27:03 +0000
-In-Reply-To: <86bjvpvdn5.wl-maz@kernel.org> (message from Marc Zyngier on Wed,
- 29 Jan 2025 15:33:02 +0000)
-Mime-Version: 1.0
-Message-ID: <gsntzfj91fbs.fsf@coltonlewis-kvm.c.googlers.com>
-Subject: Re: [RFC PATCH 1/4] perf: arm_pmuv3: Introduce module param to
- partition the PMU
-From: Colton Lewis <coltonlewis@google.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvm@vger.kernel.org, linux@armlinux.org.uk, catalin.marinas@arm.com, 
-	will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com, 
-	pbonzini@redhat.com, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-kselftest@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+        d=1e100.net; s=20230601; t=1738186316; x=1738791116;
+        h=mime-version:user-agent:content-transfer-encoding:date:cc:to
+         :reply-to:from:subject:message-id:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=3mxRYzzqPEi81Yfzc+wDSZaiIM1NQOITOroGLR3jJeE=;
+        b=QD1oUCFJSUrGKitFxucG+FNgjdZDt0V7Mh1KDzmWzI+wtJdo3NQ5YKeyJLU+19kYr7
+         aKl9X1N95ABxdyuGyEiCecMQYIm5KqQRxd5ecE0cLGdaeHQnRKUQ5QHFAkLucemqzOVT
+         epr7RgdBmSbTmQi/7kr3YLWzVXXQSZxglSlAbGPUw7X6whq7ORllXZp3KdjCcZAACPm8
+         jDUIqrP/ZCj4OQ2BVvWrTSyFknbJ8FZ6VGlO89knYxRBZLS7UFcsaJ/YvOxk0WFz/iPo
+         oQEY3WRAFrtquMjVsHEtaI/44eqCM7LLGk0sNNaEJ3Y/2b7AMMiZy/cvEuC91f7NpgC2
+         8qJw==
+X-Forwarded-Encrypted: i=1; AJvYcCWZgw0ETWWUgSNewkSiaj0B0ctbZ1t1ErNYi1l06ZLfEAhgwaR9ujWBfsZ/jdfrPzbvK6NSnkMq+QsbhCRvflQ=@lists.infradead.org, AJvYcCWkhzZgYFEaKjr0nNKlWi1DXbuZ4WGygrqJWUV4J1bW3vMq9lCu7La5BNJZeDcx9y/OjAy0DIjRcxXdw0bCfW0g@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy4xY5bB09PA5Vw4IEVA+W/3ntqfNuG5IDwpkxSQ4PJPlOWa/hY
+	QHUDi/2WXL+X375bzYvm8/NKzAqoO9LgmWcioLW/qIYNNGDQ5ziR
+X-Gm-Gg: ASbGncv1CVmXG3iMAqXhUhEdICkM1NRh7d3oi4k2otrrsYlpWXgorr+kdpp1HPz60X3
+	4g6BVmz8iwpsjsupmyb3ORXUVRawf8sNW/R/JToY7qOyKkTwJaIt6AMrL3Umd2EDrjFtWVOstli
+	aqOf3hgclqkOlD6b7VKJSh/IlsItNTw29gjMyuak45D7PtRHbben3kzU+obmEfdXU9RIXGemmF+
+	p1m58yJ/j/yKDnwdx9mNfN5jx5JeMeBK8sgecQzdHWqJxx8pasNWK6aZ9+s8NXXCgKyY9xpeOJB
+	rT7joGASWrvOoGcPhZ2vIhCUGEXUTw==
+X-Google-Smtp-Source: AGHT+IGedQx8nJF0pB4rZnHrhu3PXTi+i9kN1ECPmuwLHVbiAK9j1q7WJRyCg7jJveT7M1cRft1Ahw==
+X-Received: by 2002:a05:600c:4445:b0:436:e3ea:64dd with SMTP id 5b1f17b1804b1-438e1709453mr7299525e9.11.1738186316020;
+        Wed, 29 Jan 2025 13:31:56 -0800 (PST)
+Received: from mars.fritz.box ([2a02:8071:7130:82c0:da34:bd1d:ae27:5be6])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438dcc51672sm34892865e9.36.2025.01.29.13.31.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 29 Jan 2025 13:31:53 -0800 (PST)
+Message-ID: <b1266652fb64857246e8babdf268d0df8f0c36d9.camel@googlemail.com>
+Subject: rk3399 fails to boot since v6.12.7
+From: Christoph Fritz <chf.fritz@googlemail.com>
+To: Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Chen-Yu Tsai
+	 <wens@csie.org>, KeverYang <kever.yang@rock-chips.com>
+Cc: Heiko Stuebner <heiko@sntech.de>, linux-rockchip@lists.infradead.org, 
+ stable <stable@vger.kernel.org>, linux-arm-kernel
+ <linux-arm-kernel@lists.infradead.org>
+Date: Wed, 29 Jan 2025 22:31:53 +0100
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250129_132705_767416_4AA9880D 
-X-CRM114-Status: GOOD (  24.00  )
+X-CRM114-CacheID: sfid-20250129_133158_513605_64BE458C 
+X-CRM114-Status: UNSURE (   7.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,63 +96,68 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: chf.fritz@googlemail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Marc Zyngier <maz@kernel.org> writes:
+Hello Marc,
 
-> On Tue, 28 Jan 2025 22:08:27 +0000,
-> Colton Lewis <coltonlewis@google.com> wrote:
+ since 773c05f417fa1 ("irqchip/gic-v3: Work around insecure GIC
+integrations") landed in stable v6.12.7 as 0bf32f482887, here the
+rk3399 fails to boot (~4 out of 10 times) because OP-TEE panics (gets a
+secure interrupt that it cannot handle).
 
->> >> +	bitmap_set(cpu_pmu->cntr_mask, 0, pmcr_n);
->> >> +
->> >> +	if (reserved_guest_counters > 0 && reserved_guest_counters <  
->> pmcr_n) {
->> >> +		cpu_pmu->hpmn = reserved_guest_counters;
->> >> +		cpu_pmu->partitioned = true;
+Setup is:
+ - BL31 proprietary (since mainline TF-A has no DMA)
+ - OP-TEE mainline version: 3.20
+ - Kernel v6.12.7
 
->> > Isn't this going to completely explode on a kernel running at EL1?
+<snip>
+[    0.000000] GICv3: Broken GIC integration, security disabled
+<snip>
+E/TC:4 0 Panic 'Secure interrupt handler not defined' at core/kernel/interr=
+upt.c:139 <itr_core_handler>
+E/TC:4 0 TEE load address @ 0x30000000
+E/TC:4 0 Call stack:
+E/TC:4 0  0x300091f8
+E/TC:4 0  0x30016664
+E/TC:4 0  0x30015710
+E/TC:4 0  0x30005714
+[   26.087363] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[   26.087925] rcu:     (detected by 2, t=3D21002 jiffies, g=3D2233, q=3D24=
+16 ncpus=3D6)
+[   26.088530] rcu: All QSes seen, last rcu_preempt kthread activity 21002 =
+(4294693363-4294672361), jiffies_till_next_fqs=3D3, root ->qsmask 0x0
+[   26.089623] rcu: rcu_preempt kthread timer wakeup didn't happen for 2099=
+9 jiffies! g2233 f0x2 RCU_GP_WAIT_FQS(5) ->state=3D0x200
+[   26.090617] rcu:     Possible timer handling issue on cpu=3D4 timer-soft=
+irq=3D293
+[   26.091218] rcu: rcu_preempt kthread starved for 21002 jiffies! g2233 f0=
+x2 RCU_GP_WAIT_FQS(5) ->state=3D0x200 ->cpu=3D4
+[   26.092131] rcu:     Unless rcu_preempt kthread gets sufficient CPU time=
+, OOM is now expected behavior.
+[   26.092926] rcu: RCU grace-period kthread stack dump:
+[   26.093369] task:rcu_preempt     state:R stack:0     pid:16    tgid:16  =
+  ppid:2      flags:0x00000008
+[   26.094192] Call trace:
+[   26.094409]  __switch_to+0xf0/0x14c
+[   26.094728]  __schedule+0x264/0xa90
+[   26.095040]  schedule+0x34/0x104
+[   26.095329]  schedule_timeout+0x80/0xf4
+[   26.095672]  rcu_gp_fqs_loop+0x14c/0x4a4
+[   26.096027]  rcu_gp_kthread+0x138/0x164
+[   26.096369]  kthread+0x114/0x118
+[   26.096661]  ret_from_fork+0x10/0x20
+[   26.096982] rcu: Stack dump where RCU GP kthread last ran:
+[   26.097463] Sending NMI from CPU 2 to CPUs 4:
+[   46.276364] sched: DL replenish lagged too much
 
->> Trying to access an EL2 register at EL1 can do that. I'll add the
->> appropriate hypercalls.
+Is it too late for the kernel to disable the "security" since OP-TEE
+assumes it is enabled?
 
-> But what about a guest that would get passed the magic parameter? I
-> think you want to prevent that too.
+Any ideas?
 
-That doesn't matter because the ARM manual states that when HPMN is set,
-reads of PMCR.N from EL1 have that value and I've made sure in the
-second patch KVM does that, so a guest believes it has a system where
-reserved_guest_counters/HPMN == PMCR.N so there is no partition.
+Thanks
+  -- Christoph
 
-
->> > Also, how does it work in an asymmetric configuration where some CPUs
->> > can satisfy the reservation, and some can't?
-
->> The CPUs that can't read their own value of PMCR.N below what the
->> attempted reservation is and so do not get partitioned. Nothing changes
->> for that CPU if it can't meet the reservation.
-
-> That's not what I meant. The question really is:
-
-> - do we want the reservation to be the number of counters reserved for
->    the host
-
-> - or do we want it to be for the guest?
-
-> On symmetric systems, it doesn't matter. On broken big-little systems,
-> this changes everything (it has a direct impact on userspace's ability
-> to use the counters).
-
-> I think the design should reflect a decision on the above.
-
-As currently written and reflected in the name reserved_guest_counters
-this series is making a reservation for the guest.
-
-After talking with Oliver it probably makes more sense to make a
-reservation for the host. This is closer to the semantics of the
-underlying CPU feature.
-
-In the limit case it's impossible to leave the host without
-counters. All valid values for HPMN leave the host at least 1, but
-should we make any guarantees beyond that?
 
