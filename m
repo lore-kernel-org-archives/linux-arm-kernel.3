@@ -4,115 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF372C0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 12:17:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D9F3C0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 12:21:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KsoV/LvY+nhEMjljzompPtNYOVC1vuKo/PhocupCgIA=; b=lVdIM6ohmkk8fqyqlFehk1LB5s
-	V6Oegof+K9cpt90yzQMju6s5WihbpuKpEiPjEi3Qx12TWwf1OrfXiweaiBMmcXXmlle+kGiwqJVkk
-	HWm0QKnDBE7vpWVwyTIZgIQyV9b9d/i9R9u4lGPYSYyr/UmlIyBNMjLbrMJYZgX0XiTLBERimeEYK
-	CrBFMJEQ8MgRO+06g7jcTcINs0tbvIkmF3rsFvwCxY8BZKJf8gaJKYz+HjGj9jfdy1ZvGOXLDKbSK
-	8FiqV0iE4zszcTUpjxcbmTsAWFc0y/Apy3fHaBpu0tCvYkwlg9Vu8eIFxbVZHyNnhdl/caUFGxX9U
-	0A8XIhZg==;
+	bh=ZtvWH9HC9OXDQ65y8F2rGn9Z9fITteRdJfb1FXGtdWU=; b=JoL3XmiCnNnuQZZdfpTdHy6Ctr
+	LqRGffq+4KU/knEC/CAz3OJtN1TEKDB1nihk+lpDx8116YJtApEa2EDJmfEW6vm0T53HxZIxiuyrF
+	W3m1PT46GpUCBhf3yB9XesPZDLatYkFpVDM5jXoVFXnQuBNeaS+8gH2zQz325juRW9hOZo0WbSd94
+	bgA60eRaVVYt25O2SJWNhv/I/Tu7VEAV8zzsL4Ds6kqbKJltJrzrBwnisi64O4Mg5r5a3/ryDmTiP
+	I+QqeKrQiBX5JnBsvewTm/nH9AE7NpTtwUy3m7ESgPXzgcZK1zS1XjBbX8Libk+/bJQ08bmJrjSXa
+	bE6SHsGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1td70g-00000006v7t-0e3z;
-	Wed, 29 Jan 2025 12:17:34 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1td73n-00000006vJP-09pU;
+	Wed, 29 Jan 2025 12:20:47 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1td6zM-00000006v2S-1E9e
+	id 1td72S-00000006vGi-21NU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jan 2025 12:16:13 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-438d9c391fcso85195e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jan 2025 04:16:11 -0800 (PST)
+	Wed, 29 Jan 2025 12:19:26 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-437a92d7b96so68922755e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jan 2025 04:19:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1738152970; x=1738757770; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=KsoV/LvY+nhEMjljzompPtNYOVC1vuKo/PhocupCgIA=;
-        b=O+8wk2mo3tXbzi9B6o2W7gWk0+yxLXCaSCp01r9TkkyY88hFjYDNV9sLTJyiibS/O6
-         Oq5sWR2LP+iDjjzdEzQuUCVGNmvYcxO4sD0SFq27+gekoedd9sTcbmj2jMoiuN2pV52M
-         FWj/x7hb4GrMOVuPf8e2tA0U9ACBliu+697+CzG+66klFpmtOSRSb2whKnSCmtXt+UnU
-         P2uAKs+FR7zn5ZKZRVB/F6hV2diveyyip+FYCGwkBwjCBquGG4Z2ZGWKx3+QgQ9ew1UF
-         1OetjPMX5W4gU7TOCbO9pnoicYiP3BGSlj9sXVH3nEWkCNVInWn2JkMSq/Fe8pP7bn1C
-         kNrA==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1738153163; x=1738757963; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZtvWH9HC9OXDQ65y8F2rGn9Z9fITteRdJfb1FXGtdWU=;
+        b=xKzabBlu2yVPYYPymu0Obf2CzTly7mXUFd6gIdqrOMiP1sVjmfoVlXmyQHqx0UpHXc
+         Ewhex+o73Ty5EKa5k0o23n9q0zNH5BS8GNJiW4T7IntQKwN9SqyUHgXtKOAl08vvg3Lc
+         CkD+NQ1npZY1I2QkZXDm5RNx/0TITOKv31ov6+75oBrb8bb5PeELgefoUgfvPpROMRUt
+         rx8HiZj9z8iV6GfvE8s9m9GR7ttfHEbBOrKNNcinEDpyWhyamAkdGWyuejHnfobkJ3tH
+         WiSvx/anBeqxQKElpEyg9SRW91NNOlCKnuvECiB2XqmXdrCxeU4+amP80K9pn2owdsy5
+         4/4w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738152970; x=1738757770;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=KsoV/LvY+nhEMjljzompPtNYOVC1vuKo/PhocupCgIA=;
-        b=FgvujHEllZc66o11ssLBs2gJ+tWd4A8gqRDOOUzQoRE2YQULmzas3mT92UMC7gUU3d
-         I5q76biVRqHiR/pgLW7BUiT1+T54Ou2DK8g8XFCoBHpDZPd9qqqH/EdSWOToBh5FcJl2
-         RpLcpj6JrLwGOEs/cKFCi+w8ZSqS4waTSxwY0ME6vXhfAPRqY4n5po6yvYxvdfstyKF4
-         pAWVueXVxKO8uij0ifm4RKcpoxN5dTvNCCR4/FEzwc2cAazsj6kZiPidhQsSPdpeCuKK
-         fL2qITUoZOrqI8HE/2Re7msBSnE5GGW1q8BwS6c8ITU8LC8hPZavASwDVxmlXdadZsv+
-         A8QA==
-X-Forwarded-Encrypted: i=1; AJvYcCXneSQchj3IxeoSPEXB1GfRB/bHo+dJMuAm0/sHDrxNZYxtKZ0bT4a8SbvtcCyVs32G7NF4zGJc3vmCe6+W0hA/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+6b0cihgX3Zs5+/88j6ejKFPiLjHDeM5REl4zSgZzAiu5y68N
-	s2LiW0bE1dIkrASePkt+GST0PjVp/a2OrrkPD9g2/4sw3WdeabMtBZEMRBSF7w==
-X-Gm-Gg: ASbGncsDfmfa80Gh8OTW7qSirGUtDwiwp4+IZtEeujElfvW3GLaTPhwYQSI6doGz/mk
-	Crukh+8f5vvZJFgxrI2XMMpg6gNB7EnSUTpdDECA3wxY31aMyv7yESu+F/7U7PME9c8wKCdpfmU
-	tdPLLHzLfz0vvTy/EJyvn07+9Q1P5yC6sJBGdzsrajoZlqky/RlVIYCrh8E6i5pQ/rFkMIa+dAh
-	g/pmK+b3ORe6DOZUpPUgldFs6HhTYa9JMy1oy6G2vOUcGc7q4bsim7U3DYsrUud5YlbaS9XR+hY
-	ClOf6HxHq8TFcEMXULV9Jyp2CpIlq6onng7k3Zt4OGE+KdkHsSk=
-X-Google-Smtp-Source: AGHT+IHdxx2hNjGazr2D3TklGqwL4KUAhuNB+hsGlC38PJET1VJkzQdQAU4y4v+hrBc5bwG0U2GAiA==
-X-Received: by 2002:a7b:c3d8:0:b0:42c:9e35:cde6 with SMTP id 5b1f17b1804b1-438dc37d9aemr978295e9.2.1738152970287;
-        Wed, 29 Jan 2025 04:16:10 -0800 (PST)
-Received: from google.com (88.140.78.34.bc.googleusercontent.com. [34.78.140.88])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38c3ec83e20sm10167480f8f.23.2025.01.29.04.16.09
+        d=1e100.net; s=20230601; t=1738153163; x=1738757963;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZtvWH9HC9OXDQ65y8F2rGn9Z9fITteRdJfb1FXGtdWU=;
+        b=s3hk6tJtW/4aeXjuSKRjRoRSSn+2iYltdRH9VFanbwwDW50z3L2c+nnsGKanUgRkTc
+         ciPUorQa/LBZ1teNiQxMVa++3xoFmkttKaxdGHrMnPsXgw2OqpKzgcX9S8Q6W15yfW98
+         pHN/OdbuSoh6D9/T8YL8pkD7U+BYgueGPMJJP7Rv2O12QGpYKzd088GEfhvunks0o42v
+         NUST9a9WD4nL61y/9megvK6WxXv2M3fUM8WPZzhDsD+1b5gUVzSVdX0voCay2QJrCmJG
+         6HjRcKM81OKVqVYqtUsbZJq2TR4r1FowmSfrdqGqTPHEs89B4iL4xV7ZYuJSkc7v2QOg
+         cGeQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWFpfhXdveKx63OI0Sx023klY93R9rSy0lXaTIBl7/pt+62RpmMgxaKWIkQCPURvKYrkV80kSA9kgOGIad7sbBr@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPxS4JcKSV/nqdvfDdtbpOiX+UWUoOsubL8GohXP3F9UYQvdof
+	lGm3FlBIFGrRQgAPVCjASuUZ2amQiZ4Y/anKScSBcRNhqjAGVHGKgE5V7RRObGQ=
+X-Gm-Gg: ASbGncsI/8gIoXiGj3epEIfsQ6t1QdUbI6FWTvyDun/V0Gfum61pXWPtw+XavoFM0Sp
+	RrOtYwcHIFTesTU6L8tuDDxup6paVwoO4UYtJf7r5qI6dyVvg5P0XHXoZWHos540wxPkVZAfp3l
+	MPOwmpQHoNr4vaYDLrGLsAmlFh7fX4s6DjBCrj9TaAZu644kqk0ySUNXmRUFu2E326KHxcmZ6Fa
+	nww+uAEHbhHGMpfVY/zdJ5tk3WUktbwjPu9n3jC8D6pftaxBJcGvob+BpEfFWLokD17CTU0Bh46
+	7h0ZrzdT+fUJZ6GyIKSC
+X-Google-Smtp-Source: AGHT+IGzeAyPLZ8WQK55a3c3lcJIJbPq40PvGcUxEiWYC63E3vM5o2mCyMTe5m/vY93V44472PKnng==
+X-Received: by 2002:a05:600c:1c1e:b0:432:7c08:d0ff with SMTP id 5b1f17b1804b1-438dc40b8e6mr23385775e9.23.1738153162909;
+        Wed, 29 Jan 2025 04:19:22 -0800 (PST)
+Received: from localhost ([2a02:8071:b783:6940:36f3:9aff:fec2:7e46])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38c2a1885besm16640570f8f.49.2025.01.29.04.19.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Jan 2025 04:16:09 -0800 (PST)
-Date: Wed, 29 Jan 2025 12:16:05 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: "Tian, Kevin" <kevin.tian@intel.com>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>,
-	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"maz@kernel.org" <maz@kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	"joey.gouly@arm.com" <joey.gouly@arm.com>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"robdclark@gmail.com" <robdclark@gmail.com>,
-	"joro@8bytes.org" <joro@8bytes.org>,
-	"robin.murphy@arm.com" <robin.murphy@arm.com>,
-	"jean-philippe@linaro.org" <jean-philippe@linaro.org>,
-	"nicolinc@nvidia.com" <nicolinc@nvidia.com>,
-	"vdonnefort@google.com" <vdonnefort@google.com>,
-	"qperret@google.com" <qperret@google.com>,
-	"tabba@google.com" <tabba@google.com>,
-	"danielmentz@google.com" <danielmentz@google.com>,
-	"tzukui@google.com" <tzukui@google.com>
-Subject: Re: [RFC PATCH v2 00/58] KVM: Arm SMMUv3 driver for pKVM
-Message-ID: <Z5ocBVxDnqZVINXQ@google.com>
-References: <20241212180423.1578358-1-smostafa@google.com>
- <20241212194119.GA4679@ziepe.ca>
- <Z1yNWI9lBNIZg6Le@google.com>
- <20250102201614.GA26854@ziepe.ca>
- <Z35rEeSVwfZVA9IF@google.com>
- <BN9PR11MB52767756EE35DA2359C351F08C1A2@BN9PR11MB5276.namprd11.prod.outlook.com>
- <20250116191455.GC674319@ziepe.ca>
- <BN9PR11MB52766732572A17627D16CBAC8C1B2@BN9PR11MB5276.namprd11.prod.outlook.com>
- <Z5DQuNn3GoU1vYPV@google.com>
- <BN9PR11MB52760945FBCF542F77DCF4CA8CE02@BN9PR11MB5276.namprd11.prod.outlook.com>
+        Wed, 29 Jan 2025 04:19:22 -0800 (PST)
+Date: Wed, 29 Jan 2025 13:19:20 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Dinh Nguyen <dinguyen@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [RESEND PATCH] ARM: dts: socfpga: Add basic support for
+ Terrasic's de10-nano
+Message-ID: <kxdipj2oktcyivl7o7mtyyacqm437jm7dpjihi7e7hcrmll6xb@5dywwnt5wpz5>
+References: <20250128172917.4565-2-u.kleine-koenig@baylibre.com>
+ <fa163bab-1461-479d-b149-4e018935ac57@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="74nv2pfs7afedfib"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <BN9PR11MB52760945FBCF542F77DCF4CA8CE02@BN9PR11MB5276.namprd11.prod.outlook.com>
+In-Reply-To: <fa163bab-1461-479d-b149-4e018935ac57@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250129_041612_360467_4E132E80 
-X-CRM114-Status: GOOD (  51.49  )
+X-CRM114-CacheID: sfid-20250129_041924_789111_4F27476D 
+X-CRM114-Status: GOOD (  32.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,128 +100,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 23, 2025 at 08:13:34AM +0000, Tian, Kevin wrote:
-> > From: Mostafa Saleh <smostafa@google.com>
-> > Sent: Wednesday, January 22, 2025 7:04 PM
-> > 
-> > On Fri, Jan 17, 2025 at 06:57:12AM +0000, Tian, Kevin wrote:
-> > > > From: Jason Gunthorpe <jgg@ziepe.ca>
-> > > > Sent: Friday, January 17, 2025 3:15 AM
-> > > >
-> > > > On Thu, Jan 16, 2025 at 06:39:31AM +0000, Tian, Kevin wrote:
-> > > > > > From: Mostafa Saleh <smostafa@google.com>
-> > > > > > Sent: Wednesday, January 8, 2025 8:10 PM
-> > > > > >
-> > > > > > On Thu, Jan 02, 2025 at 04:16:14PM -0400, Jason Gunthorpe wrote:
-> > > > > > > On Fri, Dec 13, 2024 at 07:39:04PM +0000, Mostafa Saleh wrote:
-> > > > > > > > Yeah, SVA is tricky, I guess for that we would have to use nesting,
-> > > > > > > > but tbh, I don’t think it’s a deal breaker for now.
-> > > > > > >
-> > > > > > > Again, it depends what your actual use case for translation is inside
-> > > > > > > the host/guest environments. It would be good to clearly spell this
-> > out..
-> > > > > > > There are few drivers that directly manpulate the iommu_domains
-> > of a
-> > > > > > > device. a few gpus, ath1x wireless, some tegra stuff, "venus". Which
-> > > > > > > of those are you targetting?
-> > > > > > >
-> > > > > >
-> > > > > > Not sure I understand this point about manipulating domains.
-> > > > > > AFAIK, SVA is not that common, including mobile spaces but I can be
-> > > > wrong,
-> > > > > > that’s why it’s not a priority here.
-> > > > >
-> > > > > Nested translation is required beyond SVA. A scenario which requires
-> > > > > a vIOMMU and multiple device domains within the guest would like to
-> > > > > embrace nesting. Especially for ARM vSMMU nesting is a must.
-> > 
-> > We can still do para-virtualization for guests the same way we do for the
-> > host and use a single stage IOMMU.
-> 
-> same way but both require a nested setup.
-> 
-> In concept there are two layers of address translations: GVA->GPA via
-> guest page table, and GPA->HPA via pKVM page table.
-> 
-> The difference between host/guest is just on the GPA mapping. For host
-> it's 1:1 with additional hardening for which portion can be mapped and
-> which cannot. For guest it's non-identical with the mapping established
-> from the host.
-> 
-> A nested translation naturally fits that conceptual layers.
-> 
-> Using a single-stage IOMMU means you need to combine two layers
-> into one layer i.e. GVA->HPA by removing GPA. Then you have to
-> paravirt guest page table so every guest PTE change is intercepted
-> to replace GPA with HPA.
-> 
-> Doing so completely kills the benefit of SVA, which is why Jason said
-> a no-go.
 
-I agree, this can’t work with SVA, in order to make that work we would
-need some new para-virt operation to install the S1 table, and the
-hypervisor has to configure the device in nested translation.
+--74nv2pfs7afedfib
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [RESEND PATCH] ARM: dts: socfpga: Add basic support for
+ Terrasic's de10-nano
+MIME-Version: 1.0
 
-But, for guests that doesn’t need SVA, they can just use single-stage
-para-virt (like virtio-iommu)
+Hello Krzysztof,
 
-> 
-> > 
-> > > >
-> > > > Right, if you need an iommu domain in the guest there are only three
-> > > > mainstream ways to get this in Linux:
-> > > >  1) Use the DMA API and have the iommu group be translating. This is
-> > > >     optional in that the DMA API usually supports identity as an option.
-> > > >  2) A driver directly calls iommu_paging_domain_alloc() and manually
-> > > >     attaches it to some device, and does not use the DMA API. My list
-> > > >     above of ath1x/etc are examples doing this
-> > > >  3) Use VFIO
-> > > >
-> > > > My remark to Mostafa is to be specific, which of the above do you want
-> > > > to do in your mobile guest (and what driver exactly if #2) and why.
-> > > >
-> > > > This will help inform what the performance profile looks like and
-> > > > guide if nesting/para virt is appropriate.
-> > >
-> > 
-> > AFAIK, the most common use cases would be:
-> > - Devices using DMA API because it requires a lot of memory to be
-> >   contiguous in IOVA, which is hard to do with identity
-> > - Devices with security requirements/constraints to be isolated from the
-> >   rest of the system, also using DMA API
-> > - VFIO is something we are looking at the moment and have prototyped with
-> >   pKVM, and it should be supported soon in Android (only for platform
-> >   devices for now)
-> 
-> what really matters is the frequency of map/unmap.
-Yes, though it differs between devices/systems :/ that’s why I reckon we
-would need both on the long term. However, starting with some benchmarks
-for these cases can help to understand the magnitude of both solutions
-and prioritise which one is more suitable to start with for upstream.
+On Wed, Jan 29, 2025 at 10:27:22AM +0100, Krzysztof Kozlowski wrote:
+> On 28/01/2025 18:29, Uwe Kleine-K=F6nig wrote:
+> > This dts is enough to make the board boot to Linux with the rootfs on
+> > a micro SD card.
+> >=20
+> > Signed-off-by: Uwe Kleine-K=F6nig <u.kleine-koenig@baylibre.com>
+> > ---
+> > diff --git a/arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_de10nano.=
+dts b/arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_de10nano.dts
+> > new file mode 100644
+> > index 000000000000..d1f23a57a94d
+> > --- /dev/null
+> > +++ b/arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_de10nano.dts
+> > @@ -0,0 +1,90 @@
+> > +// SPDX-License-Identifier: GPL-2.0+
+> > +/*
+> > + * Copyright (C) 2017, Intel Corporation
+> > + *
+> > + * based on socfpga_cyclone5_de0_nano_soc.dts
+> > + */
+> > +/dts-v1/;
+> > +
+> > +#include "socfpga_cyclone5.dtsi"
+> > +#include <dt-bindings/interrupt-controller/irq.h>
+> > +#include <dt-bindings/gpio/gpio.h>
+> > +
+> > +/ {
+> > +	model =3D "Terasic DE10-Nano";
+> > +	compatible =3D "altr,socfpga-cyclone5", "altr,socfpga";
+>=20
+> Incorrect compatible. It's not cyclone5 board. cyclone5 is the SoC.
 
-Thanks,
-Mostafa
-> 
-> > 
-> > > Yeah that part would be critical to help decide which route to pursue
-> > > first. Even when all options might be required in the end when pKVM
-> > > is scaled to more scenarios, as you mentioned in another mail, a staging
-> > > approach would be much preferrable to evolve.
-> > 
-> > I agree that would probably be the case. I will work on more staging
-> > approach for v3, mostly without the pv part as Jason suggested.
-> > 
-> > >
-> > > The pros/cons between nesting/para virt is clear - more static the
-> > > mapping is, more gain from the para approach due to less paging
-> > > walking and smaller tlb footprint, while vice versa nesting performs
-> > > much better by avoiding frequent para calls on page table mgmt. 😊
-> > 
-> > I am also working to get the numbers for both cases so we know
-> > the order of magnitude of each case, as I guess it won't be as clear
-> > for large systems with many DMA initiators what approach is best.
-> > 
-> > 
-> 
-> That'd be great!
+OK, adding "terasic,de10-nano".
+
+> There is no altr,socfpga
+
+What does that mean?
+`git grep \"altr,socfpga\" linus/master:arch/arm/boot` gives me 15
+matches from other boards with socfpga SoCs. If you give me a bit more
+verbose description for the problem you're pointing out here, I can work
+on that.
+
+> This wasn't ever tested with bindings.
+
+I tried
+
+	dt-validate -m -u Documentation/devicetree/bindings -p ~/work/kbuild/arm/D=
+ocumentation/devicetree/bindings/processed-schema.json ~/work/kbuild/arm/ar=
+ch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_de10nano.dtb
+
+which emitted a bunch of warnings and after processing some of them I
+gave up because they were all triggered by the soc.dtsi file. I started
+another try comparing the output for "my" socfpga_cyclone5_de10nano.dts
+with one for a file that only has the includes and the machine
+compatible. (Which generates 124 lines and 123 lines respectively.)
+
+I'll work on the diff between the two for the next revision. Or would
+you recommend a different approach?
+
+> > +	chosen {
+> > +		stdout-path =3D "serial0:115200n8";
+> > +	};
+> > +
+> > +	memory@0 {
+> > +		/* 1 GiB */
+> > +		device_type =3D "memory";
+> > +		reg =3D <0x0 0x40000000>;
+> > +	};
+> > +
+> > +	soc {
+> > +		fpga_axi: axi_h2f_lw_bridge@ff200000 {
+>=20
+> Follow DTS coding style. You just sent us something from downstream.
+
+Indeed this is from downstream. Looking at the matching dt-validate
+output I guess just "axi@ff200000" would be appropriate?!
+
+> > +			compatible =3D "simple-bus";
+> > +			reg =3D <0xff200000 0x00200000>;
+> > +			#address-cells =3D <1>;
+> > +			#size-cells =3D <1>;
+>=20
+> ranges would be after reg, but they are pointless here, no?
+
+I thought it's "compatible", "reg" at the start, "status" at the end and
+the rest in-between in alphabetic order. What is the right ordering?
+
+> Where is the child?
+
+I intend to add children using dt-overlays. I have a prototype here, but
+that's still to embarrassing to show.
+
+> > +			ranges =3D <0x00000000 0xff200000 0x00200000>;
+> > +		};
+> > +	};
+> > +};
+> > +
+> > [...]
+> > +&i2c0 {
+> > +	clock-frequency =3D <100000>;
+> > +	status =3D "okay";
+> > +
+> > +	accelerometer@53 {
+> > +		compatible =3D "adi,adxl34x";
+>=20
+> There is no such compatible and nothing in changelog refers to missing
+> bindings. Always provide link in the changelog to your bindings which
+> were not yet accepted.
+
+Oops, indeed. Will make this "adi,adxl345" for the next revision.
+
+Best regards and thanks for your feedback,
+Uwe
+
+--74nv2pfs7afedfib
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmeaHMUACgkQj4D7WH0S
+/k4neQgAhA5FLBYQHlx07nMFPjvos5FLp0wia0tuofrfRhOPWcZJZtOaLfsRezcU
+QADPwe2v3s4cBpIq4jluxRi1dSHWuBgDRDcxkPIgb8I67nrqWW4AuiyrhA9ZitMz
+l+DM8xGCLfq+N4vjWMzxdmemllF8GDPqo46+fcbF5mYz+zWpgNGEK1th1pJle/BM
+IEZZduRSP/UoekI8MOOdIx5q5qRVut/NSPl7qfdfKgMpYiee9/EDnS/QcCWySNrt
+v0gZuB/4oCWILu6eqknUjqVhHPJ/a83FseoBRk4ixbLpwo5N7U5s1Fi2XDm2FUS2
+yLLTigcLZUU0s0/z6k/Lz+ziDqfspQ==
+=nlqC
+-----END PGP SIGNATURE-----
+
+--74nv2pfs7afedfib--
 
