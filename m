@@ -4,88 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D9F3C0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 12:21:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29334C0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 12:22:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZtvWH9HC9OXDQ65y8F2rGn9Z9fITteRdJfb1FXGtdWU=; b=JoL3XmiCnNnuQZZdfpTdHy6Ctr
-	LqRGffq+4KU/knEC/CAz3OJtN1TEKDB1nihk+lpDx8116YJtApEa2EDJmfEW6vm0T53HxZIxiuyrF
-	W3m1PT46GpUCBhf3yB9XesPZDLatYkFpVDM5jXoVFXnQuBNeaS+8gH2zQz325juRW9hOZo0WbSd94
-	bgA60eRaVVYt25O2SJWNhv/I/Tu7VEAV8zzsL4Ds6kqbKJltJrzrBwnisi64O4Mg5r5a3/ryDmTiP
-	I+QqeKrQiBX5JnBsvewTm/nH9AE7NpTtwUy3m7ESgPXzgcZK1zS1XjBbX8Libk+/bJQ08bmJrjSXa
-	bE6SHsGw==;
+	bh=AFFd9yC5/f0kHgmyC8Nq87cOj1SlBpm6jLMMJf6nWJo=; b=OnRvSNEbtIs+68Artgrrop4iXW
+	xkK3J+K07uS8IezOWTEjg1WfRNhdq+eCr/ozlR1BvJhnctSecbmxkvaSpUY1X59UeVU2tM6O6Bwa5
+	jzb4CEIUoefpZe82m0BJocCBNyWmb8sJJZpBc63/pCDixFgQv9MxdHHq1dZcyhqNoJrVi1oKjPxEQ
+	xTfGkgZj8SBu317aJyYFplBmQJGjOoY8f81R64OBdMKMb10rcyUokeDIs+6rSjpKjoWq1YHea8/pJ
+	xyVrzewjPdMO2tEo8PiB3kbHACex0Jg/hyEb5MUcJ7pFOWl6e8JYwhFVtp3v+fCpb7rNjsNSGEISi
+	yJKB4tXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1td73n-00000006vJP-09pU;
-	Wed, 29 Jan 2025 12:20:47 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1td75R-00000006vSL-2qMj;
+	Wed, 29 Jan 2025 12:22:29 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1td72S-00000006vGi-21NU
+	id 1td748-00000006vLy-1w0f
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jan 2025 12:19:26 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-437a92d7b96so68922755e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jan 2025 04:19:24 -0800 (PST)
+	Wed, 29 Jan 2025 12:21:09 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-438d9c391fcso85505e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jan 2025 04:21:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1738153163; x=1738757963; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZtvWH9HC9OXDQ65y8F2rGn9Z9fITteRdJfb1FXGtdWU=;
-        b=xKzabBlu2yVPYYPymu0Obf2CzTly7mXUFd6gIdqrOMiP1sVjmfoVlXmyQHqx0UpHXc
-         Ewhex+o73Ty5EKa5k0o23n9q0zNH5BS8GNJiW4T7IntQKwN9SqyUHgXtKOAl08vvg3Lc
-         CkD+NQ1npZY1I2QkZXDm5RNx/0TITOKv31ov6+75oBrb8bb5PeELgefoUgfvPpROMRUt
-         rx8HiZj9z8iV6GfvE8s9m9GR7ttfHEbBOrKNNcinEDpyWhyamAkdGWyuejHnfobkJ3tH
-         WiSvx/anBeqxQKElpEyg9SRW91NNOlCKnuvECiB2XqmXdrCxeU4+amP80K9pn2owdsy5
-         4/4w==
+        d=google.com; s=20230601; t=1738153267; x=1738758067; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=AFFd9yC5/f0kHgmyC8Nq87cOj1SlBpm6jLMMJf6nWJo=;
+        b=X2zTk7THRJpuxeiJkhUjDb0o9s1Hm40b9F6dirmh3pnP3F3zWznkedEzOrv3O/Ukj/
+         h0xoqYr4lp7/YoZVIBM5D6UmeLkFqFdcCnZ6WfIL3m2NoAfg0HtPrSkCtqR4vGebBokq
+         k7+uRwVinS85i1yhgaMCOOGogY1v6in2Kd1tn4xtap3aMVZIXo7Relx8Ca4t9kqcWJ+8
+         FG6nFYacCayVM+Dvmg5LdPx1UOkizc1SOKPK4xWYAQx0HMDZeGakebg1Jkgjg4gfWFNz
+         HE1s/1CBtsUQtGjD3AflSzkeR43u4xO0TUbnvI04etFYUHHxZt2JNU27XnBk/XOqizjV
+         hUpQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738153163; x=1738757963;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZtvWH9HC9OXDQ65y8F2rGn9Z9fITteRdJfb1FXGtdWU=;
-        b=s3hk6tJtW/4aeXjuSKRjRoRSSn+2iYltdRH9VFanbwwDW50z3L2c+nnsGKanUgRkTc
-         ciPUorQa/LBZ1teNiQxMVa++3xoFmkttKaxdGHrMnPsXgw2OqpKzgcX9S8Q6W15yfW98
-         pHN/OdbuSoh6D9/T8YL8pkD7U+BYgueGPMJJP7Rv2O12QGpYKzd088GEfhvunks0o42v
-         NUST9a9WD4nL61y/9megvK6WxXv2M3fUM8WPZzhDsD+1b5gUVzSVdX0voCay2QJrCmJG
-         6HjRcKM81OKVqVYqtUsbZJq2TR4r1FowmSfrdqGqTPHEs89B4iL4xV7ZYuJSkc7v2QOg
-         cGeQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWFpfhXdveKx63OI0Sx023klY93R9rSy0lXaTIBl7/pt+62RpmMgxaKWIkQCPURvKYrkV80kSA9kgOGIad7sbBr@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPxS4JcKSV/nqdvfDdtbpOiX+UWUoOsubL8GohXP3F9UYQvdof
-	lGm3FlBIFGrRQgAPVCjASuUZ2amQiZ4Y/anKScSBcRNhqjAGVHGKgE5V7RRObGQ=
-X-Gm-Gg: ASbGncsI/8gIoXiGj3epEIfsQ6t1QdUbI6FWTvyDun/V0Gfum61pXWPtw+XavoFM0Sp
-	RrOtYwcHIFTesTU6L8tuDDxup6paVwoO4UYtJf7r5qI6dyVvg5P0XHXoZWHos540wxPkVZAfp3l
-	MPOwmpQHoNr4vaYDLrGLsAmlFh7fX4s6DjBCrj9TaAZu644kqk0ySUNXmRUFu2E326KHxcmZ6Fa
-	nww+uAEHbhHGMpfVY/zdJ5tk3WUktbwjPu9n3jC8D6pftaxBJcGvob+BpEfFWLokD17CTU0Bh46
-	7h0ZrzdT+fUJZ6GyIKSC
-X-Google-Smtp-Source: AGHT+IGzeAyPLZ8WQK55a3c3lcJIJbPq40PvGcUxEiWYC63E3vM5o2mCyMTe5m/vY93V44472PKnng==
-X-Received: by 2002:a05:600c:1c1e:b0:432:7c08:d0ff with SMTP id 5b1f17b1804b1-438dc40b8e6mr23385775e9.23.1738153162909;
-        Wed, 29 Jan 2025 04:19:22 -0800 (PST)
-Received: from localhost ([2a02:8071:b783:6940:36f3:9aff:fec2:7e46])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38c2a1885besm16640570f8f.49.2025.01.29.04.19.22
+        d=1e100.net; s=20230601; t=1738153267; x=1738758067;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=AFFd9yC5/f0kHgmyC8Nq87cOj1SlBpm6jLMMJf6nWJo=;
+        b=B9KPDca1RdovBOBaePS9CRPcpqw30D8B9SJjiK0wo4C3+GzguF2HVvvTZ/y37B7rSD
+         O6c2zle6y9I5zbhnM8jf1ZM7oy8Rb5o9Uv3AhHzh9YCRieKXA2I4vCJ6dpb6CbeUS7gh
+         ghzYiPiUTuMDEefTaW1ymBwe0HVe+mkmVQe5ih5broFBPtE9F7DWraFcdlu0KKY6SWaP
+         pn2TuzH3zBEH2BoKkIOXbZiqkiWlFQzkva2hCYCB8sgZQYtTj5MlTZuW4CRtojMLhv8x
+         2cPJtXG3t8MiuQD8PdH8IHQVuSlKtLj6dqmvlRwaDoQY4fQEy0J3TVSohjcjhQVu7r1R
+         N7kA==
+X-Forwarded-Encrypted: i=1; AJvYcCXbr0VFgVnyb8lR0vPXIXSDv5yHEk9dABQ7VskjV8D00SJ582UbOiq5N3k/3Fmte4mYXRBVvqJ3rFISkQ5QfPqG@lists.infradead.org
+X-Gm-Message-State: AOJu0YxiY1gNvUdzQiQiMq/dxUNRC7w9ByWzv+qsqNZtaFLP/dPSqG5U
+	/VnJPlioOpjsbTWTdZFRzwaLjkqXzHa+elCQaZOxTat/Z6kio02IkbJ5aaEfog==
+X-Gm-Gg: ASbGncvza/ws+Wg5enqxgaudT0+AfXneWyjZ1kIuDaGuVlLwjzp/Fje0/uGqSrz2y8x
+	q5O6MLCG7znI32meDYaHB8+ywmqhyP2zfqYk+Jd75SRBY2vJfZOArLzHTjl48ZYWL8U77pc/DcQ
+	no43xIIif2Cqr/sr6+IXjrsGhEdUQCyC3c6rGIkq4azzPqOXHNNKJCzVmY882dY6a3iCBf2blqM
+	cXEPauRfJbbDjeBLnhoZTngZni/cthinHaolyXc3CwxN/9xW2thmIecz7oj4O9MKDOLfwR2P7rD
+	fAirPNQdUH/UT1A7gYn2fLMdHrPKT+dbkhl7pb+cY/neLr8c9bI=
+X-Google-Smtp-Source: AGHT+IGIQmgNk9mmmgAHeZGEIv+1UNTnqmCcNTg78X7B3IzWsxFEcV4Tw9QmlwIksmRNHaG+4MYD7A==
+X-Received: by 2002:a05:600c:1f84:b0:42b:a961:e51 with SMTP id 5b1f17b1804b1-438dc21f186mr995805e9.0.1738153266027;
+        Wed, 29 Jan 2025 04:21:06 -0800 (PST)
+Received: from google.com (88.140.78.34.bc.googleusercontent.com. [34.78.140.88])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38c2a1bb0d4sm17295245f8f.69.2025.01.29.04.21.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Jan 2025 04:19:22 -0800 (PST)
-Date: Wed, 29 Jan 2025 13:19:20 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Dinh Nguyen <dinguyen@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [RESEND PATCH] ARM: dts: socfpga: Add basic support for
- Terrasic's de10-nano
-Message-ID: <kxdipj2oktcyivl7o7mtyyacqm437jm7dpjihi7e7hcrmll6xb@5dywwnt5wpz5>
-References: <20250128172917.4565-2-u.kleine-koenig@baylibre.com>
- <fa163bab-1461-479d-b149-4e018935ac57@kernel.org>
+        Wed, 29 Jan 2025 04:21:05 -0800 (PST)
+Date: Wed, 29 Jan 2025 12:21:01 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: "Tian, Kevin" <kevin.tian@intel.com>
+Cc: Jason Gunthorpe <jgg@ziepe.ca>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	"joey.gouly@arm.com" <joey.gouly@arm.com>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"robdclark@gmail.com" <robdclark@gmail.com>,
+	"joro@8bytes.org" <joro@8bytes.org>,
+	"robin.murphy@arm.com" <robin.murphy@arm.com>,
+	"jean-philippe@linaro.org" <jean-philippe@linaro.org>,
+	"nicolinc@nvidia.com" <nicolinc@nvidia.com>,
+	"vdonnefort@google.com" <vdonnefort@google.com>,
+	"qperret@google.com" <qperret@google.com>,
+	"tabba@google.com" <tabba@google.com>,
+	"danielmentz@google.com" <danielmentz@google.com>,
+	"tzukui@google.com" <tzukui@google.com>
+Subject: Re: [RFC PATCH v2 00/58] KVM: Arm SMMUv3 driver for pKVM
+Message-ID: <Z5odLXPZPAwu4oqe@google.com>
+References: <20241212180423.1578358-1-smostafa@google.com>
+ <20241212194119.GA4679@ziepe.ca>
+ <Z1yNWI9lBNIZg6Le@google.com>
+ <20250102201614.GA26854@ziepe.ca>
+ <Z35rEeSVwfZVA9IF@google.com>
+ <BN9PR11MB52760686ABB3145E44BAD95A8C1A2@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <Z5DWag7ZKCPl1Eje@google.com>
+ <BN9PR11MB5276B783D518DB354BF58A3C8CE02@BN9PR11MB5276.namprd11.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="74nv2pfs7afedfib"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <fa163bab-1461-479d-b149-4e018935ac57@kernel.org>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <BN9PR11MB5276B783D518DB354BF58A3C8CE02@BN9PR11MB5276.namprd11.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250129_041924_789111_4F27476D 
-X-CRM114-Status: GOOD (  32.34  )
+X-CRM114-CacheID: sfid-20250129_042108_505642_077CB0E9 
+X-CRM114-Status: GOOD (  42.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,145 +125,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jan 23, 2025 at 08:25:13AM +0000, Tian, Kevin wrote:
+> > From: Mostafa Saleh <smostafa@google.com>
+> > Sent: Wednesday, January 22, 2025 7:29 PM
+> > 
+> > Hi Kevin,
+> > 
+> > On Thu, Jan 16, 2025 at 08:51:11AM +0000, Tian, Kevin wrote:
+> > > > From: Mostafa Saleh <smostafa@google.com>
+> > > > Sent: Wednesday, January 8, 2025 8:10 PM
+> > > >
+> > > > My plan was basically:
+> > > > 1) Finish and send nested SMMUv3 as RFC, with more insights about
+> > > >    performance and complexity trade-offs of both approaches.
+> > > >
+> > > > 2) Discuss next steps for the upstream solution in an upcoming
+> > conference
+> > > >    (like LPC or earlier if possible) and work on upstreaming it.
+> > > >
+> > > > 3) Work on guest device passthrough and IOMMU support.
+> > > >
+> > > > I am open to gradually upstream this as you mentioned where as a first
+> > > > step pKVM would establish DMA isolation without translation for host,
+> > > > that should be enough to have functional pKVM and run protected
+> > > > workloads.
+> > >
+> > > Does that approach assume starting from a full-fledged SMMU driver
+> > > inside pKVM or do we still expect the host to enumerate/initialize
+> > > the hw (but skip any translation) so the pKVM part can focus only
+> > > on managing translation?
+> > 
+> > I have been thinking about this, and I think most of the initialization
+> > won’t be changed, and we would do any possible initialization in the
+> > kernel avoiding complexity in the hypervisor (parsing
+> > device-tree/acpi...) also that makes code re-use easier if both drivers
+> > do that in the kernel space.
+> 
+> yeah that'd make sense for now. 
+> 
+> > 
+> > >
+> > > I'm curious about the burden of maintaining another IOMMU
+> > > subsystem under the KVM directory. It's not built into the host kernel
+> > > image, but hosted in the same kernel repo. This series tried to
+> > > reduce the duplication via io-pgtable-arm but still considerable
+> > > duplication exists (~2000LOC in pKVM). The would be very confusing
+> > > moving forward and hard to maintain e.g. ensure bugs fixed in
+> > > both sides.
+> > 
+> > KVM IOMMU subsystem is very different from the one kernel, it’s about
+> > paravirtualtion and abstraction, I tried my best to make sure all
+> > possible code can be re-used by splitting arm-smmu-v3-common.c and
+> > io-pgtable-arm-common.c and even re-using iommu_iotlb_gather from the
+> > iommu code.
+> > So my guess, there won't be much of that effort as there is no
+> > duplication in logic.
+> 
+> I'm not sure how different it is. In concept it still manages iommu
+> mappings, just with additional restrictions. Bear me that I haven't
+> looked into the detail of the 2000LOC driver in pKVM smmu driver. 
+> but the size does scare me, especially considering the case when
+> other vendors are supported later.
+> 
+> Let's keep it in mind and re-check after you have v3. It's simpler hence
+> suppose the actual difference between a pKVM iommu driver and
+> a normal kernel IOMMU driver can be judged more easily than now.
 
---74nv2pfs7afedfib
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [RESEND PATCH] ARM: dts: socfpga: Add basic support for
- Terrasic's de10-nano
-MIME-Version: 1.0
+I see, I believe we can reduce the size by re-using more data-structure
+types + more refactoring on the kernel side.
 
-Hello Krzysztof,
+Also, we can make many parts of the code standard outside the driver as
+calling hypercalls, dealing with memory allocation...., so. other IOMMUs
+will only add minimal code.
 
-On Wed, Jan 29, 2025 at 10:27:22AM +0100, Krzysztof Kozlowski wrote:
-> On 28/01/2025 18:29, Uwe Kleine-K=F6nig wrote:
-> > This dts is enough to make the board boot to Linux with the rootfs on
-> > a micro SD card.
-> >=20
-> > Signed-off-by: Uwe Kleine-K=F6nig <u.kleine-koenig@baylibre.com>
-> > ---
-> > diff --git a/arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_de10nano.=
-dts b/arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_de10nano.dts
-> > new file mode 100644
-> > index 000000000000..d1f23a57a94d
-> > --- /dev/null
-> > +++ b/arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_de10nano.dts
-> > @@ -0,0 +1,90 @@
-> > +// SPDX-License-Identifier: GPL-2.0+
-> > +/*
-> > + * Copyright (C) 2017, Intel Corporation
-> > + *
-> > + * based on socfpga_cyclone5_de0_nano_soc.dts
-> > + */
-> > +/dts-v1/;
-> > +
-> > +#include "socfpga_cyclone5.dtsi"
-> > +#include <dt-bindings/interrupt-controller/irq.h>
-> > +#include <dt-bindings/gpio/gpio.h>
-> > +
-> > +/ {
-> > +	model =3D "Terasic DE10-Nano";
-> > +	compatible =3D "altr,socfpga-cyclone5", "altr,socfpga";
->=20
-> Incorrect compatible. It's not cyclone5 board. cyclone5 is the SoC.
+> 
+> The learning here would be beneficial to the design in other pKVM
+> components, e.g. when porting pKVM to x86. Currently KVM x86 is 
+> monothetic. Maintaining pKVM under KVM/x86 would be a much
+> bigger challenge than doing it under KVM/arm. There will also be
+> question about what can be shared and how to better maintain
+> the pKVM specific logic in KVM/x86.
+> 
+> Overall my gut-feeling is that the pKVM specific code must be small
+> enough otherwise maintaining a run-time irrelevant project in the
+> kernel repo would be questionable. 😊
+> 
 
-OK, adding "terasic,de10-nano".
+I am not sure I understand, but I don’t see how pKVM is irrelevant,
+it’s a mode in KVM (just like, nvhe/hvhe where they run in 2 exception
+levels) and can’t be separated from the kernel as that defeats the
+point of KVM, that means that all hypercalls have to be stable ABI,
+same for the shared data, shared structs, types...
 
-> There is no altr,socfpga
-
-What does that mean?
-`git grep \"altr,socfpga\" linus/master:arch/arm/boot` gives me 15
-matches from other boards with socfpga SoCs. If you give me a bit more
-verbose description for the problem you're pointing out here, I can work
-on that.
-
-> This wasn't ever tested with bindings.
-
-I tried
-
-	dt-validate -m -u Documentation/devicetree/bindings -p ~/work/kbuild/arm/D=
-ocumentation/devicetree/bindings/processed-schema.json ~/work/kbuild/arm/ar=
-ch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_de10nano.dtb
-
-which emitted a bunch of warnings and after processing some of them I
-gave up because they were all triggered by the soc.dtsi file. I started
-another try comparing the output for "my" socfpga_cyclone5_de10nano.dts
-with one for a file that only has the includes and the machine
-compatible. (Which generates 124 lines and 123 lines respectively.)
-
-I'll work on the diff between the two for the next revision. Or would
-you recommend a different approach?
-
-> > +	chosen {
-> > +		stdout-path =3D "serial0:115200n8";
-> > +	};
-> > +
-> > +	memory@0 {
-> > +		/* 1 GiB */
-> > +		device_type =3D "memory";
-> > +		reg =3D <0x0 0x40000000>;
-> > +	};
-> > +
-> > +	soc {
-> > +		fpga_axi: axi_h2f_lw_bridge@ff200000 {
->=20
-> Follow DTS coding style. You just sent us something from downstream.
-
-Indeed this is from downstream. Looking at the matching dt-validate
-output I guess just "axi@ff200000" would be appropriate?!
-
-> > +			compatible =3D "simple-bus";
-> > +			reg =3D <0xff200000 0x00200000>;
-> > +			#address-cells =3D <1>;
-> > +			#size-cells =3D <1>;
->=20
-> ranges would be after reg, but they are pointless here, no?
-
-I thought it's "compatible", "reg" at the start, "status" at the end and
-the rest in-between in alphabetic order. What is the right ordering?
-
-> Where is the child?
-
-I intend to add children using dt-overlays. I have a prototype here, but
-that's still to embarrassing to show.
-
-> > +			ranges =3D <0x00000000 0xff200000 0x00200000>;
-> > +		};
-> > +	};
-> > +};
-> > +
-> > [...]
-> > +&i2c0 {
-> > +	clock-frequency =3D <100000>;
-> > +	status =3D "okay";
-> > +
-> > +	accelerometer@53 {
-> > +		compatible =3D "adi,adxl34x";
->=20
-> There is no such compatible and nothing in changelog refers to missing
-> bindings. Always provide link in the changelog to your bindings which
-> were not yet accepted.
-
-Oops, indeed. Will make this "adi,adxl345" for the next revision.
-
-Best regards and thanks for your feedback,
-Uwe
-
---74nv2pfs7afedfib
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmeaHMUACgkQj4D7WH0S
-/k4neQgAhA5FLBYQHlx07nMFPjvos5FLp0wia0tuofrfRhOPWcZJZtOaLfsRezcU
-QADPwe2v3s4cBpIq4jluxRi1dSHWuBgDRDcxkPIgb8I67nrqWW4AuiyrhA9ZitMz
-l+DM8xGCLfq+N4vjWMzxdmemllF8GDPqo46+fcbF5mYz+zWpgNGEK1th1pJle/BM
-IEZZduRSP/UoekI8MOOdIx5q5qRVut/NSPl7qfdfKgMpYiee9/EDnS/QcCWySNrt
-v0gZuB/4oCWILu6eqknUjqVhHPJ/a83FseoBRk4ixbLpwo5N7U5s1Fi2XDm2FUS2
-yLLTigcLZUU0s0/z6k/Lz+ziDqfspQ==
-=nlqC
------END PGP SIGNATURE-----
-
---74nv2pfs7afedfib--
+Thanks,
+Mostafa
 
