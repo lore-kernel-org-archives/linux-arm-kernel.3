@@ -4,60 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 131D2C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 16:52:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61733C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 16:53:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2TSLZIPS/LUzGRMD/7aMOZP6xNZJpcFWeX5yA1vqUiI=; b=fJuRxNLvyAvpxGu8YemGx32grW
-	TlE9apb/9xNmIm6xrZ1/TXaeW5/20rHdPUtPCZKQ0baneEMIMRRLDWkEE7cvay2nBFhSN7BZwVrQI
-	S8ZXh/NvqgHnt2ThewXxhs7jVXmJMUrP8SORPsgMXDuLQ4HMbBJBRF4YxrJxQ/Dr8YkL7j40XTV2P
-	pCcmmxrNCK2jY71STLnXpEGuj8pJj4N2DSXqTPeiB1fCPuzFWDJKK6srXBs+dNoWV3GnZrLEX4Ezc
-	9Zq/CTh6k+YBqqzChI9tcv+UsDsxG6iiduxmXmEZDPnUXvBg+kgis5AxSRkdmUUUmMmll/qzmRBTC
-	0dRLJ5XA==;
+	bh=wPGGfc1qwmOrQZGLlJNOWgBoAZRzR/BbTbOKRT5al8k=; b=2ak1hybXfvqdl/GJcpgvRK9d8Y
+	sSSEIPnB6w7poVdkRf7Vtw0CCl4q1FDHeCX34GfpapLitHdBlq7Bshvf+4wshl7bMpZNF4lZz4Q2E
+	LRz/NyFnSu+57dfGnVNDLKkxPcbH8ZEY1p2PDN8HVSOiZ6ephSFvLPQ8IX9ourg/3EKHUn8nUt9s2
+	QYoVhpinmVuqWFrfi8GNuXrCCtCbPTtZDvEtQrzbuiEJc/MJ64isU05tRGqqjNpQTBtY3+K/IrD/q
+	0a6FdFJjTEQCzu7XguoztiAEcmGt9UbSGQdPUrH4H+bxOIPS1k1/hDv+lnSW9Glj6R5CbK3rAKaEq
+	i/YtSNPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdBIA-00000007QPT-0n6V;
-	Wed, 29 Jan 2025 16:51:54 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1tdBJQ-00000007QfY-3dCh;
+	Wed, 29 Jan 2025 16:53:12 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdBFu-00000007Pzh-2b87
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jan 2025 16:49:36 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4Yjp5N4m01z6K976;
-	Thu, 30 Jan 2025 00:48:56 +0800 (CST)
-Received: from frapeml500003.china.huawei.com (unknown [7.182.85.28])
-	by mail.maildlp.com (Postfix) with ESMTPS id 10F5B1404FC;
-	Thu, 30 Jan 2025 00:49:33 +0800 (CST)
-Received: from a2303103017.china.huawei.com (10.47.69.217) by
- frapeml500003.china.huawei.com (7.182.85.28) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Wed, 29 Jan 2025 17:49:32 +0100
-From: Alireza Sanaee <alireza.sanaee@huawei.com>
-To: <robh@kernel.org>, <mark.rutland@arm.com>, <devicetree@vger.kernel.org>
-CC: <linux-kernel@vger.kernel.org>, <jonathan.cameron@Huawei.com>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<shameerali.kolothum.thodi@huawei.com>, <zhao1.liu@intel.com>,
-	<yangyicong@hisilicon.com>, <rrendec@redhat.com>, <catalin.marinas@arm.com>
-Subject: [RFC PATCH v2 1/1] base/of/cacheinfo: support l1 entry in dt
-Date: Wed, 29 Jan 2025 16:48:55 +0000
-Message-ID: <20250129164855.676-2-alireza.sanaee@huawei.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250129164855.676-1-alireza.sanaee@huawei.com>
-References: <20250129164855.676-1-alireza.sanaee@huawei.com>
+	id 1tdBHJ-00000007QIb-2zyw;
+	Wed, 29 Jan 2025 16:51:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1738169451; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=UgrcL6rMN/4wU8bq3QwCfqoUIJD14WOSBWTAEdNDTNn2oXvmKKlCeC8wFspeGiQad5gFf6LED4uJb/SNP0VFW90337Whkh/4SK4PYFrS57uGRnirxsXGfFsQbCtNCxu3yvP+pDXZibjUgKevgz89uDnByim6O8HrWIsez/BVILQ=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1738169451; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=wPGGfc1qwmOrQZGLlJNOWgBoAZRzR/BbTbOKRT5al8k=; 
+	b=NG7AtYb2a2Q5uo4vpFBu/10e+848SICc0+d/3SduQISEn8qKRlBI1j7E1wi3ijsWsd4RICHqZybgQYOoIqJUPX5XlWeQznaAn6LF+wDPmUNfCDLAFge0Y+/kH6OAjfkVJ090In9m2yAC4XYDDKIU194LOeGIpen1EXTtjyb+sV4=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=detlev.casanova@collabora.com;
+	dmarc=pass header.from=<detlev.casanova@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1738169451;
+	s=zohomail; d=collabora.com; i=detlev.casanova@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=wPGGfc1qwmOrQZGLlJNOWgBoAZRzR/BbTbOKRT5al8k=;
+	b=Z1AkDh9apOD+PwP6D7Nj3dw6dqAoxWhEZZpoE5MTrY+XFHQCP9YIKzk3aDle8Zw3
+	Igc8acgOSzr2oLLACUvyF3DZ48n/hhVyo6eUi6KajltJ7gnrpSFAIkWISzEhoajoj+w
+	hneSRZi4L/It/R0udbKYbQ+V4OfqoE1V5VU13v3A=
+Received: by mx.zohomail.com with SMTPS id 1738169445054994.6577657400422;
+	Wed, 29 Jan 2025 08:50:45 -0800 (PST)
+From: Detlev Casanova <detlev.casanova@collabora.com>
+To: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
+Cc: linux-kernel@vger.kernel.org, Diederik de Haas <didi.debian@cknow.org>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Heiko Stuebner <heiko@sntech.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Dragan Simic <dsimic@manjaro.org>, Alexey Charkov <alchark@gmail.com>,
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+ Andy Yan <andy.yan@rock-chips.com>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-staging@lists.linux.dev
+Subject: Re: [PATCH 1/3] media: rockchip: Introduce the rkvdec2 driver
+Date: Wed, 29 Jan 2025 11:50:43 -0500
+Message-ID: <8541055.T7Z3S40VBb@trenzalore>
+In-Reply-To: <CE4343FE-94AA-4F84-8C43-8366013AED84@gmail.com>
+References: <20240615015734.1612108-1-detlev.casanova@collabora.com>
+ <5969581.LvFx2qVVIh@arisu> <CE4343FE-94AA-4F84-8C43-8366013AED84@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.47.69.217]
-X-ClientProxiedBy: lhrpeml500012.china.huawei.com (7.191.174.4) To
- frapeml500003.china.huawei.com (7.182.85.28)
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250129_084934_944484_281F90E3 
-X-CRM114-Status: GOOD (  16.99  )
+X-CRM114-CacheID: sfid-20250129_085101_801034_39F5E440 
+X-CRM114-Status: GOOD (  20.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,112 +86,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Existing device tree bindings do not properly describe caches shared
-between SMT (Simultaneous Multithreading) threads.
+Hi Piotr,
 
-For example, in a system with two CPU cores, each supporting two SMT
-threads, current bindings treat each thread as an independent logical
-CPU with its own L1 cache. However, in reality, these threads share
-resources within a physical CPU, including caches. There are two ways to
-do this, first using multiple reg entries (PowerPC) which all share the
-same CPU core resources [1], which was turn down based on
-discussions with Mark Rutland [2], because every node in the cpu-map should
-point to a CPU node in the device tree. Second, to go with the proposed
-method.
+On Wednesday, 29 January 2025 09:48:51 EST Piotr Oniszczuk wrote:
+> > Wiadomo=C5=9B=C4=87 napisana przez Detlev Casanova <detlev.casanova@col=
+labora.com> w
+> > dniu 15 cze 2024, o godz. 21:44:
+> >=20
+> >=20
+> >=20
+> >=20
+> > Yes, the vdpu34x decoder on rk356x socs should be supported by this dri=
+ver
+> > but I don't have boards to test that unfortunately.
+>=20
+> Detlev,
+>=20
+> Just FYI:
+>=20
+> I done some tests of rkvdec2 on 6.12.11 on 3588, 3568 and 3566
+>=20
+> For enabling rkvdec2 on 356x i:
+> -add 356x compatible in rkvdec2.c
+> -add dtsi nodes like this:
+> https://github.com/warpme/minimyth2/blob/master/script/kernel/linux-6.12/=
+fi
+> les/1078-arm64-dtsi-rockchip-rk356x-add-rkvdec2-video-decoder-nodes.patch
+>=20
+> With this i can say:
+> -on rk3588 i have some hevc 4k decoding perfectly but some others are
+> failing -on rk3566/3568 only subset of 3588=E2=80=99s samples is decoded =
+well. (but
+> is works then works perfectly fine) -when not failing on 3588 sample fails
+> on 356x - is see errors like:
+>=20
+> [   95.666669] iova: 0x00000000f2e80000 already mapped to 0x0000000037378=
+000
+> cannot remap to phys: 0x000000002f8c0000 prot: 0x3 [   95.745082] iova:
+> 0x00000000f2f46000 already mapped to 0x00000000372b6000 cannot remap to
+> phys: 0x000000003a403000 prot: 0x3 [   95.822012] iova: 0x00000000f2ee6000
+> already mapped to 0x0000000037126000 cannot remap to phys:
+> 0x000000003a803000 prot: 0x3 [   95.896802] iova: 0x00000000f2ec6000
+> already mapped to 0x0000000029fe6000 cannot remap to phys:
+> 0x000000003a403000 prot: 0x3 turning-off iommu makes above errors disappe=
+ar
+> - but sample still fails.
 
-Allow CPU node entries to reference a shared L1 cache node. Some CPU
-nodes may omit explicit cache descriptions and instead use a
-next-level-cache property to point to the corresponding L1 cache node.
+I suppose you tested with my hevc branch, which is not really ready yet (So=
+me=20
+ref frames will work but usually, it won't) Can you confirm which branch/co=
+mmit=20
+you based your tests on ?
 
-Link: https://lore.kernel.org/linux-devicetree/CAL_JsqLGEvGBQ0W_B6+5cME1UEhuKXadBB-6=GoN1tmavw9K_w@mail.gmail.com/ # [1]
-Link: https://lore.kernel.org/linux-arm-kernel/Z4FYHvbVhMHrGQI4@J2N7QTR9R3/ # [2]
+=46or the iommu, do you see those errors like that only on 356x or also on =
+3588=20
+? The hevc branch should have the iommu patches to fix that kind of things.=
+=20
+(but note that hevc support is really new, so it may have bugs with buffer=
+=20
+allocations)
 
-Signed-off-by: Alireza Sanaee <alireza.sanaee@huawei.com>
----
- drivers/base/cacheinfo.c | 50 ++++++++++++++++++++++++++--------------
- 1 file changed, 33 insertions(+), 17 deletions(-)
+> If anybody hints me for way/tool to analyse of playing/failing samples to
+> catch: what encoding specifics makes given sample failing to decode  on
+> rkvdec2 - i'll be more that happy to provide details=E2=80=A6 (doing simp=
+le
+> mediainfo <file> shows no differences for me=E2=80=A6)
 
-diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
-index cf0d455209d7..71d92157591e 100644
---- a/drivers/base/cacheinfo.c
-+++ b/drivers/base/cacheinfo.c
-@@ -83,7 +83,27 @@ bool last_level_cache_is_shared(unsigned int cpu_x, unsigned int cpu_y)
- 
- #ifdef CONFIG_OF
- 
--static bool of_check_cache_nodes(struct device_node *np);
-+static bool of_check_cache_node(struct device_node *np) {
-+	if (of_property_present(np, "cache-size")   ||
-+	    of_property_present(np, "i-cache-size") ||
-+	    of_property_present(np, "d-cache-size") ||
-+	    of_property_present(np, "cache-unified"))
-+		return true;
-+	return false;
-+}
-+
-+static bool of_check_cache_nodes(struct device_node *np)
-+{
-+	if (of_check_cache_node(np))
-+		return true;
-+
-+	struct device_node *next __free(device_node) = of_find_next_cache_node(np);
-+	if (next)
-+		return true;
-+
-+	return false;
-+}
-+
- 
- /* OF properties to query for a given cache type */
- struct cache_type_info {
-@@ -218,11 +238,23 @@ static int cache_setup_of_node(unsigned int cpu)
- 	while (index < cache_leaves(cpu)) {
- 		this_leaf = per_cpu_cacheinfo_idx(cpu, index);
- 		if (this_leaf->level != 1) {
-+			/* Always go one level down for level > 1 */
- 			struct device_node *prev __free(device_node) = np;
- 			np = of_find_next_cache_node(np);
- 			if (!np)
- 				break;
-+		} else {
-+			/* For level 1, check compatibility */
-+			if (!of_device_is_compatible(np, "cache") &&
-+			    !of_check_cache_node(np)) {
-+				struct device_node *prev __free(device_node) = np;
-+				np = of_find_next_cache_node(np);
-+				if (!np)
-+					break;
-+				continue; /* Skip to next index without processing */
-+			}
- 		}
-+
- 		cache_of_set_props(this_leaf, np);
- 		this_leaf->fw_token = np;
- 		index++;
-@@ -234,22 +266,6 @@ static int cache_setup_of_node(unsigned int cpu)
- 	return 0;
- }
- 
--static bool of_check_cache_nodes(struct device_node *np)
--{
--	if (of_property_present(np, "cache-size")   ||
--	    of_property_present(np, "i-cache-size") ||
--	    of_property_present(np, "d-cache-size") ||
--	    of_property_present(np, "cache-unified"))
--		return true;
--
--	struct device_node *next __free(device_node) = of_find_next_cache_node(np);
--	if (next) {
--		return true;
--	}
--
--	return false;
--}
--
- static int of_count_cache_leaves(struct device_node *np)
- {
- 	unsigned int leaves = 0;
--- 
-2.34.1
+=46ew features are supported for HEVC as of now:
+ - No scanlist support (only default 16x16 blocks will work)
+ - Long term reference frames are also not configured yet.
+ - hevc 10 bits is also not supported yet
+
+These are specific to the encoding and mediainfo won't really give you=20
+information on that, except maybe on the 10 bits format.
+
+You can also checkout YUView (https://github.com/IENT/YUView) to get=20
+information on media files structure, but I have had issues with HEVC suppo=
+rt=20
+lately.
+
+Regards,
+
+Detlev.
+
+
 
 
