@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B2D5C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 18:29:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0717C0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 18:42:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U1cahYZfuPtJ/LTBotaLDGZHE/q9VRb4+0faILxXAko=; b=e7d0nmimjvZu6pL80yqXJ+ZE3U
-	fEAqTIBMetoAiH8GzlSTFNqR+3bzHf9nhMqI109dqmqN8yQAIYumavtBfBmyfJQvu0XR/JTD3KmvB
-	c7XCsL4/A0R73bAZjL+F1wTgfiir16mSxlPHrEZ6LcqMwdSq4lTMReMPTTsxRrMrf7OEDEBB33WsN
-	PTIWZFQqYI3eviB9vrbQ+A2Cz/Up4/VjDYbUmrNmgv6PAsZRj9TSBSRf22/jAQYSWLn8usEVRD4vR
-	Wlr6wXIFc9CeWO4T7DKyPESvceiLGRJ6sMbeySrah+++y75gbO8nplT+/anbmQ1hyoKQli7409s03
-	YQqeDpXQ==;
+	bh=q4x80J1Gi64icToNzBggTT067vo2lD8JCTnFBZUVYdg=; b=Akxw+q8tyqsqYo/bfYqNNaB9yB
+	SamHEurFd+1BQzLBw5cL0/HhPlZf2Th+l3WAgZD6K8CWcZR3GBDEK1CQkAuRUvECDT5NNcaShO8Sr
+	gO6ykB1+fI4BB5ixY2i7PhggRMBWdU/r17uLy0UIhif7JXBtpDUjvpefzahunb+bbo37KeViOWYpN
+	SUEOkObXI5a8fq675UcLQ4k2nDMf2DJNQTjuk+CkjS2AOi68Ah+hUyKYNWFrog9Per8ncmnCc0amK
+	457siyUgkBD296XlEtpE5jRDgZ/T7zs+/OmaQyNRk078V8Ir/zlJ8FV4OIyJCkMQZdYi2WQoa1UJG
+	DPQIKd4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdCoS-00000007bbg-0M1O;
-	Wed, 29 Jan 2025 18:29:20 +0000
+	id 1tdD0n-00000007dBI-3TUf;
+	Wed, 29 Jan 2025 18:42:05 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdCn5-00000007bUr-1xn0
+	id 1tdCzU-00000007d5k-0eQa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jan 2025 18:28:00 +0000
+	Wed, 29 Jan 2025 18:40:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D6D15A41697;
-	Wed, 29 Jan 2025 18:26:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7272C4CED1;
-	Wed, 29 Jan 2025 18:27:50 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 818A9A41B4C;
+	Wed, 29 Jan 2025 18:38:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F0EFC4CED1;
+	Wed, 29 Jan 2025 18:40:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738175274;
-	bh=2rGimpOU0b9o+W8A/02tsbtXgU4FVw+wdxLaw6QKohA=;
+	s=k20201202; t=1738176043;
+	bh=KSn6f2pCC2NTeRapeVjoL866O5TE/jyIkxUpdCYNXmE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=bifGCNlrk4ajutF2A1AtbCQkiLT3vs9u/j69tRvfJLcwkfIZ2yE8lBfl357+z7aE0
-	 Tasx7rWnjkJOs6ra6rI9A/uVTjvVImsHZH4i0WGOKOT+DeMZwIv/qDsY8cz9jSzyoA
-	 RMFILJRdxg7tkC5yOX29Ts+TlWHMnQwBmsJGViyY7sPd/wEdgSVWT3T14juhCy7/WV
-	 IF5OOXMYDxRwnDud9AZRuTWz8J1S6BZkK/UVDe8nl6pt9Rm/Sbsh9WLBCmh98wrqv6
-	 L5XA8cQAqQg4dhwtf/WTT7CM2x44Fv239rsgvI8JODnjoadTgGo9yJvkc1z60GiCJg
-	 bb2UfJf4OlF5g==
-Message-ID: <654d6ef8-cbfe-4e6d-a4dd-f7a5cb616c4e@kernel.org>
-Date: Wed, 29 Jan 2025 19:27:48 +0100
+	b=MBvsR78CDkj5WQJJl0nUIZys5s9cEZn+pJj3onV1p7Uj458iQURkb3a8r8HhU5vTL
+	 65oBAw3UrofVEz6GSCoIPWMGHewkhU4zEbamIR1VQGGRiQ/P1ejx0BuTEfxa6mqZVW
+	 SLQvxUgz9mHDBkks5OKVqrmZM6+xF0QZVt+Tqe+1hAAAYGLPZXZ+owV7FFUnhX6WuB
+	 QK2WNN01gedwAKFFqeHNW6URyH9nMlr/wY8owIiYvii9gez5anpHrzeULhryvnMSnU
+	 87LJ1Xkv5/hd6feabGl+z6D1qaLfZcjZrqoj9QEiD83CjwpE7chN75wQ42L9g8+ZuK
+	 UnF6G0GUFiUtg==
+Message-ID: <dc9da71b-64fa-40cd-b4d5-96e06fcbe0e3@kernel.org>
+Date: Wed, 29 Jan 2025 19:40:38 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: defconfig: Enable gb_beagleplay
-To: Ayush Singh <ayush@beagleboard.org>,
+Subject: Re: [PATCH 14/14] defconfig: Enable RZ/T2H Soc and RZ_SCI
+To: Thierry Bultel <thierry.bultel.yh@bp.renesas.com>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- d-gole@ti.com, lorforlinux@beagleboard.org, jkridner@beagleboard.org,
- robertcnelson@beagleboard.org, Nishanth Menon <nm@ti.com>
+ Arnd Bergmann <arnd@arndb.de>
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250129-defconfig-beagleplay-v2-1-5a890943d223@beagleboard.org>
+References: <20250129165122.2980-1-thierry.bultel.yh@bp.renesas.com>
+ <20250129165122.2980-15-thierry.bultel.yh@bp.renesas.com>
 Content-Language: en-US
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -98,13 +98,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250129-defconfig-beagleplay-v2-1-5a890943d223@beagleboard.org>
+In-Reply-To: <20250129165122.2980-15-thierry.bultel.yh@bp.renesas.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250129_102755_637393_CCC09638 
-X-CRM114-Status: UNSURE (   6.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250129_104044_323838_7275C350 
+X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,14 +118,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/01/2025 14:14, Ayush Singh wrote:
-> Enable greybus driver used by TI K3/AM625 BeaglePlay.
+On 29/01/2025 17:37, Thierry Bultel wrote:
+> Signed-off-by: Thierry Bultel <thierry.bultel.yh@bp.renesas.com>
+> ---
+>  arch/arm64/configs/defconfig | 2 ++
+>  1 file changed, 2 insertions(+)
 > 
-> The driver communicates with Ti CC1352P7 co-processor which acts as
-> Greybus SVC. Additionally, it also provides firmware upload API support
-> for Ti CC1352P7 over UART.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+Cc list does not look here correct. Actually for entire set is not
+correct. You should always Cc your soc maintainers.
+
+
+> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+> index c62831e61586..a1cc7a37386d 100644
+> --- a/arch/arm64/configs/defconfig
+> +++ b/arch/arm64/configs/defconfig
+> @@ -486,6 +486,7 @@ CONFIG_SERIAL_TEGRA_TCU=y
+>  CONFIG_SERIAL_IMX=y
+>  CONFIG_SERIAL_IMX_CONSOLE=y
+>  CONFIG_SERIAL_SH_SCI=y
+> +CONFIG_SERIAL_RZ_SCI=y
+>  CONFIG_SERIAL_MSM=y
+>  CONFIG_SERIAL_MSM_CONSOLE=y
+>  CONFIG_SERIAL_QCOM_GENI=y
+> @@ -1457,6 +1458,7 @@ CONFIG_ARCH_R9A07G054=y
+>  CONFIG_ARCH_R9A08G045=y
+>  CONFIG_ARCH_R9A09G011=y
+>  CONFIG_ARCH_R9A09G057=y
+> +CONFIG_ARCH_R9A09G077=y
+
+Folks, you need to stop adding user-selectable SoC-choices. This is
+really odd for arm64, like some old arm32 style. None of the platforms
+do it, including much, much bigger ones like Qualcomm.
+
+The defconfig is supposed to select only top-level ARCH for given vendor
+or family of devices.
+
+$ git grep ARCH_R[89] -- arch/arm64/configs/defconfig | wc -l
+23
+
 
 Best regards,
 Krzysztof
