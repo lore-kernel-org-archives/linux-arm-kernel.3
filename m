@@ -4,93 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC916C0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 03:36:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0BBFC0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 03:59:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FSEMixmPIS7Z8ruVPkos6z93kW0au3BNEj38QU0bOXo=; b=ut5eIOqPKLUDSEeZnsgxfCRH2d
-	jETHB6tWXrs2G5BwCjxir4OcCLfZec9KvTFha1sp2PYjDhhTQhuHiYKOPUFWgWhbh9jo+vXG9lkU2
-	U1+FZwvU629E2A0YKxgioAZpSGu28+N1d1WKUM1Ix5+bgnfJf/pC7I0ZMKrT40OIOINYN9D9ugmOO
-	2Q2dglvhliD4YPsGK0CNg4ArI43Wt90cq7Ocxu0de67JSHFL0C6OIaWKNbOfFoAs+Yq5qp+/PmhvH
-	gSui+257SBdXFUewxAPjfL5CFqWwhOdiP8JjyEfXsHGD4ypDIu6WcUDm0veKbH08Edk8igfsfr/dQ
-	pZS1PvaQ==;
+	bh=zB7bwFdWnORe6bKwIQ/6vJQvYuugxQ4y04Yn/yJKnPc=; b=ViueIJ30KlkNGcDbUnlMTbbodY
+	UdWSZPNGYMsF0KCiCV2CwvDffz3hkaePdjJmdaRSukxI8wi5NqV+WwKperrqywqQjunFt2tDx0Niv
+	4jouTjXdSwcL0nKIl1hlPwATsXJC2O6O6GF8NsQrF5khJXwa1L1bK+NSApykYXQOZt+rLh/dln9zd
+	FYF/W97vk9fYm8ZwCXado5JYFsypnwLwB69pwJapps9v9dN88zCYgMzXgWewlfx1sNoruiHuIymqD
+	UXydZ0eBfMMrihxHtnCHDgnX52fG3Wao81/YR/jAahOaM5qC/kGcKd92kwMWTqIdQwVuYSoShaugn
+	ZOUBgBtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcysC-00000006Goq-2UAI;
-	Wed, 29 Jan 2025 03:36:16 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1tczEE-00000006HgB-0FTB;
+	Wed, 29 Jan 2025 03:59:02 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcyqr-00000006Glm-2vvt
+	id 1tczCs-00000006HbD-3q9I
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jan 2025 03:34:54 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-216406238f9so14418095ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jan 2025 19:34:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738121692; x=1738726492; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=FSEMixmPIS7Z8ruVPkos6z93kW0au3BNEj38QU0bOXo=;
-        b=mc8HUso+xNpwSSz+mQkZAUBpcbI/85xuR/t3OygU0MwTgFbSb+ZsCeN3pAR3R1PTW4
-         qsby/Ja+eprzsABE95MQHD9ZrTVdOoqoEX6YxSlk+qMD3zFfG6i//el3TJzjQwvOx9VB
-         lcR2aHiQkm8K9GAO736s1YMVTBcPBtXtQDDlWjCCJp+4M1XQubyfO05cC5H9r1OokBPL
-         wQwkLysGkOXsogdiTG5kZF/UYGfCbLHB8BKGTxaAV+25Ake0Eb4WiNejXFl4DJItltEJ
-         5QmCm6gvi87IF+ig9NkpqulfLh793xNzU9D0vNPOyUMergGyuprDCgOuHSVMFl10H1L6
-         8cbw==
+	Wed, 29 Jan 2025 03:57:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1738123057;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zB7bwFdWnORe6bKwIQ/6vJQvYuugxQ4y04Yn/yJKnPc=;
+	b=Aa5/CIV0FODsjRGJBc9JB4YnCCuql+xuad9iEMXw9p8VT/iMMR6OOdLgvcdKa8LQT9KDpx
+	AUHprXd1nVcu358D/HgcEGELxXLwQDO/KWRh/YTXsyMimTuA7ci/W2Dgey9pXkUc7u9LzI
+	1D67GSf7YEyaS3yx+bD383YMkbKgZmM=
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com
+ [209.85.214.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-659-z4LZh4JJOgu0qT4BGK1TIg-1; Tue, 28 Jan 2025 22:57:33 -0500
+X-MC-Unique: z4LZh4JJOgu0qT4BGK1TIg-1
+X-Mimecast-MFC-AGG-ID: z4LZh4JJOgu0qT4BGK1TIg
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2164fad3792so111748215ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jan 2025 19:57:33 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738121692; x=1738726492;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=FSEMixmPIS7Z8ruVPkos6z93kW0au3BNEj38QU0bOXo=;
-        b=RLiYPnxJWhZTnv5jbIrgS3+RB1LWuDO45dHzXsOVXOa3dqdJzYJezxoUFEuH3AK2Dj
-         4r5BLx+Hyx5tnRDc/VLoTTFS1daSH4iP/hSFz74+NNuRVo2G/85NR8xFR0x+k5YdfN9k
-         HHSduyteGx+y3iAkDNtg2hXFlfDkZKaQ5rpqeEElNOoecy+VVuU1eawR7OJzVgv7aaM+
-         WdLuuXZlcIJQgECGNvftK/0UThVqC/Z/QMqowqXrbRdFItNiQMEWEj17/tYqTNrV3ihg
-         xozj/LyptY6vf8O7+ihnOjtvBCctZR6MRLDYH6BWGCw1flcyS5cqVZvylOrJO6NCc0Ab
-         Z5Ig==
-X-Forwarded-Encrypted: i=1; AJvYcCWZtnjbaC9bAELxQUKtE/OFDw/afp9924B03qR4JwRgbCwMS/gspM5Loyo4gUKm7zJ+NMps6flxd/VPD48oc+wU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx6utovBd/rSzY72cOzrq/6rlu07G2ECTJgT3Rp7IIpO81dMDw4
-	NkgFBHLDa+Uh+bCAjtrPBYYR+VQEVlzq0ktJXFLjo071kmirgNx1qMxXqGajq0qSILwTZHpfkOO
-	7mv63qMRPhKn0mE4BIPtMG3YTwvc=
-X-Gm-Gg: ASbGnctiMmdo2BUn+zR5Sfsp436GaESOjPp3RXaDzcS6Wicg4kiGTyKR/ijCmHZmifw
-	bBcB3Wzp2KO53OYPJsxKCGu4zq5Qn0LSLSaiYTvH+7pUBPBlO9K+zVm3KLJYH791YorpLKIDu
-X-Google-Smtp-Source: AGHT+IFbFQSYTvKU6Tn/jYbbxgPrehvkrB0XAVXsOwTCtBnwvAVfgVvZVo8IQ1hdLTPS9gNaQI/uOQ9lmAgGhGlB37U=
-X-Received: by 2002:a05:6a21:329c:b0:1e5:d3cc:4632 with SMTP id
- adf61e73a8af0-1ed7a5c5535mr1035370637.1.1738121692412; Tue, 28 Jan 2025
- 19:34:52 -0800 (PST)
+        d=1e100.net; s=20230601; t=1738123052; x=1738727852;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=zB7bwFdWnORe6bKwIQ/6vJQvYuugxQ4y04Yn/yJKnPc=;
+        b=VfuFjq0zJy0+3oiycOxRA/eSPY5xhaaIXvt8pl77bMC4W987gi3SghE+lO/vbu9t52
+         FfdMxzCmHu/60VG0xvqL8DvlELMwMGygMcpb0yZZEb17OtNVCf800yLlJ0w6jDFTl2SO
+         HZ6KHnXmrn0VtvywdHM8R3/K2RwsAsr2xbdRDP2sN4rzOdkp9zVHUoUykkzr20wP5Nli
+         3zoqD2PSvBK3NdfNQUf8zZMvQgFCBGWcnaT1eY/8xpFso4QYCAvUfkf1qBxx42lmqbHR
+         X7TdOP9qK8RpuVLANEBudIvmpmtcHh9aOwMK1rZRp90W77F3mnWJn0E0QHQB5HtY1np2
+         LaPg==
+X-Forwarded-Encrypted: i=1; AJvYcCXX6n+DZ82FUKXjS+47GuiWCaUT64T7xZuia0mo/kZCPP4RxCV/oDfb7yr9K2IhwDMci0sEDJbwC9ojuuqcgP9i@lists.infradead.org
+X-Gm-Message-State: AOJu0YxYFYTwaXUUsi1q9k8Lt9u53br6+LcYTXENuOBJOqgrvYpDtaEF
+	3CihW3h1QgDvt6MNKDDgaUEAC5bFYixzFZo6nTkrNnPzV6b1ECu+U9NVKlfvUrdbTfqrPwixBQe
+	eewaUYhLXEbxFlVYYxQPQpD8bw5He/N0kTiu561tSrtTdVutiZrhf5QAbpLQ53HtQ+bEwCBxV
+X-Gm-Gg: ASbGnctVYoAcP+CztcsE8ZHGO9cS52elcbMJ4lkLvw/eTzGKWBc9Gktq2HlvP+NZDKW
+	81AjKy0A9R8buqhCh2E6GCBIT50SwQqAxQdhZrKEWTyDqFhMJ2xvu0wwTIOM2jshEIkCz6JqW9z
+	VU7HwNOc4RQ+qtv/TS/1ZBqEQVYOtbSqv8dNx+KnjY4OsJbcwSyHhNI/BE3+cGdzvOcgqaX7yN3
+	vqHdFFPMxg3WvzB8tgiNjq2oJQVBADX2Or7gaATGo0cEQrHyemvkfRlmrBLTfG80RfPKZxoBV5l
+	0LZH8A==
+X-Received: by 2002:a17:902:ce8f:b0:215:9d29:9724 with SMTP id d9443c01a7336-21dd7ddfdc9mr26688205ad.38.1738123052538;
+        Tue, 28 Jan 2025 19:57:32 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFdY9KvQ422zqadztWkjkXDL2LuY//Pm08gZwRPHxwWf8KuGeFvCcuuj/IQ8VEC/M+7z5zZXw==
+X-Received: by 2002:a17:902:ce8f:b0:215:9d29:9724 with SMTP id d9443c01a7336-21dd7ddfdc9mr26687925ad.38.1738123052171;
+        Tue, 28 Jan 2025 19:57:32 -0800 (PST)
+Received: from [192.168.68.55] ([180.233.125.64])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21da3d9cac3sm89760675ad.38.2025.01.28.19.57.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 28 Jan 2025 19:57:31 -0800 (PST)
+Message-ID: <7271b3ff-8665-4a98-b3dd-77417f85d5e3@redhat.com>
+Date: Wed, 29 Jan 2025 13:57:23 +1000
 MIME-Version: 1.0
-References: <20250122-msm-gpu-fault-fixes-next-v3-0-0afa00158521@gmail.com>
- <20250122-msm-gpu-fault-fixes-next-v3-1-0afa00158521@gmail.com>
- <Z5IjsqQ6vTdUXiGt@hu-guptap-hyd.qualcomm.com> <CACu1E7H5X2EfY9AG=xceaoZJkbumwnrsU4QvNbxd_A2wgVVOaQ@mail.gmail.com>
- <Z5KXwNPrdirVUn8Z@hu-guptap-hyd.qualcomm.com> <CACu1E7GOS+_biN=AuQwYK47ApRPFGygyD+U5X9d_4ReXKrzbfw@mail.gmail.com>
- <Z5i6GQDd5apN+a10@hu-guptap-hyd.qualcomm.com> <CAF6AEGstcrAJDBpPm-uQ+zSDVEhDJ4AQhCTDT-z9_8Nq0e35WQ@mail.gmail.com>
- <CACu1E7HErZAL=-GVQfKUAUK5bgK-X0qejt5os3f2UhkeZ1ptMQ@mail.gmail.com>
- <CAF6AEGsUjp+fp1_cN7SGYTh5WSQrU2mm92QsqA5rcSY1OtA8VQ@mail.gmail.com>
- <CACu1E7FyHwJ2mp5u3rDganYj80eDq3QJzLRFzxD9E9O7hEDiag@mail.gmail.com> <CAF6AEGugDxYjH63+Up_T_pt+jQ2D0m=x1tSg3fGPteu3XgR2qA@mail.gmail.com>
-In-Reply-To: <CAF6AEGugDxYjH63+Up_T_pt+jQ2D0m=x1tSg3fGPteu3XgR2qA@mail.gmail.com>
-From: Connor Abbott <cwabbott0@gmail.com>
-Date: Tue, 28 Jan 2025 22:34:41 -0500
-X-Gm-Features: AWEUYZnSb6QYpR0Fp9PLawYr9P-QPjVvmIEP1Nm8egoDpm1trM7-ebAtlM8-HK8
-Message-ID: <CACu1E7F0UTTapsLEUuKVFN0MF=kwhbSJqN2MU305Ab3cg+u_Lg@mail.gmail.com>
-Subject: Re: [PATCH v3 1/3] iommu/arm-smmu: Fix spurious interrupts with stall-on-fault
-To: Rob Clark <robdclark@gmail.com>
-Cc: Prakash Gupta <quic_guptap@quicinc.com>, Will Deacon <will@kernel.org>, 
-	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, Sean Paul <sean@poorly.run>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Abhinav Kumar <quic_abhinavk@quicinc.com>, 
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
-	Marijn Suijten <marijn.suijten@somainline.org>, iommu@lists.linux.dev, 
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	freedreno@lists.freedesktop.org, Rob Clark <robdclark@chromium.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 06/43] arm64: RME: Check for RME support at KVM init
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+References: <20241212155610.76522-1-steven.price@arm.com>
+ <20241212155610.76522-7-steven.price@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20241212155610.76522-7-steven.price@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: EbuU7SYXxfD8mMXplgzWU2zt-K6zYNqJG60fVgK3P80_1738123052
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_193453_740501_CE0C46B1 
-X-CRM114-Status: GOOD (  37.79  )
+X-CRM114-CacheID: sfid-20250128_195739_042661_C3318C03 
+X-CRM114-Status: GOOD (  18.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,140 +121,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 28, 2025 at 10:25=E2=80=AFPM Rob Clark <robdclark@gmail.com> wr=
-ote:
->
-> On Tue, Jan 28, 2025 at 6:31=E2=80=AFPM Connor Abbott <cwabbott0@gmail.co=
-m> wrote:
-> >
-> > On Tue, Jan 28, 2025 at 9:21=E2=80=AFPM Rob Clark <robdclark@gmail.com>=
- wrote:
-> > >
-> > > On Tue, Jan 28, 2025 at 2:15=E2=80=AFPM Connor Abbott <cwabbott0@gmai=
-l.com> wrote:
-> > > >
-> > > > On Tue, Jan 28, 2025 at 5:10=E2=80=AFPM Rob Clark <robdclark@gmail.=
-com> wrote:
-> > > > >
-> > > > > On Tue, Jan 28, 2025 at 3:08=E2=80=AFAM Prakash Gupta <quic_gupta=
-p@quicinc.com> wrote:
-> > > > > >
-> > > > > > On Thu, Jan 23, 2025 at 03:14:16PM -0500, Connor Abbott wrote:
-> > > > > > > On Thu, Jan 23, 2025 at 2:26=E2=80=AFPM Prakash Gupta <quic_g=
-uptap@quicinc.com> wrote:
-> > > > > > > >
-> > > > > > > > On Thu, Jan 23, 2025 at 09:00:17AM -0500, Connor Abbott wro=
-te:
-> > > > > > > > > On Thu, Jan 23, 2025 at 6:10=E2=80=AFAM Prakash Gupta <qu=
-ic_guptap@quicinc.com> wrote:
-> > > > > > > > > >
-> > > > > > > > > > On Wed, Jan 22, 2025 at 03:00:58PM -0500, Connor Abbott=
- wrote:
-> > > > > > > > > > The context would remain stalled till we write to CBn_R=
-ESUME. Which is done
-> > > > > > > > > > in qcom_adreno_smmu_resume_translation(). For a stalled=
- context further
-> > > > > > > > > > transactions are not processed and we shouldn't see fur=
-ther faults and
-> > > > > > > > > > or fault inerrupts. Do you observe faults with stalled =
-context?
-> > > > > > > > >
-> > > > > > > > > Yes. I've observed that on MMU-500 writing RESUME before =
-the interrupt
-> > > > > > > > > has been cleared doesn't clear SS. This happened with v2 =
-in the case
-> > > > > > > > > where there was already a devcoredump and drm/msm called
-> > > > > > > > > qcom_adreno_smmu_resume_translation() immediately from it=
-s fault
-> > > > > > > > > handler, and we'd get a storm of unhandled interrupts unt=
-il it was
-> > > > > > > > > disabled. Given that the architecture spec says we're sup=
-posed to
-> > > > > > > > > clear the interrupt first this may have been an attempt t=
-o "help"
-> > > > > > > > > developers.
-> > > > > > > > >
-> > > > > > > >
-> > > > > > > > Just to clarify, present sequence is:
-> > > > > > > > 1. context fault with stall enable. FSR.SS set.
-> > > > > > > > 2. Report fault to client
-> > > > > > > > 3. resume/terminate stalled transaction
-> > > > > > > > 4. clear FSR
-> > > > > > > >
-> > > > > > > > At what point when you try #2->#3->#4 or #4->#2->#3 sequenc=
-e, is FSR.SS
-> > > > > > > > cleared and interrupt storm is observed.
-> > > > > > >
-> > > > > > > With #2->#3->#4 FSR.SS is *not* cleared and there is a subseq=
-uent
-> > > > > > > interrupt storm with only FSR.SS asserted. With #4->#2->#3 th=
-ere is no
-> > > > > > > interrupt storm. From this we conclude that MMU-500 does not =
-clear
-> > > > > > > FSR.SS unless #4 happens before #3.
-> > > > > > >
-> > > > > > Thanks Connor for clarification. I get your point now. I think =
-it's
-> > > > > > expected interrupt storm with #2->#3->#4 sequence is expected. =
- With
-> > > > > > CONFIG_ARM_SMMU_QCOM_DEBUG enabled, context fault follows the s=
-equence of
-> > > > > > #1->#2->#4->#3, which is spec recommended.
-> > > > > >
-> > > > > > so, common fault handler can be modified to follow the same seq=
-uence, but I
-> > > > > > have concern regarding clearing FSR before reporting fault to c=
-lient.
-> > > > > > qcom_adreno_smmu_get_fault_info() is an example I gave but othe=
-r client
-> > > > > > handler may have similar expecation of fault register not chang=
-ed before
-> > > > > > client fault handler is called.
-> > > > >
-> > > > > Simple solution would be to move the clearing of FSR to after the
-> > > > > fault is reported.  It doesn't really matter if it is before or a=
-fter,
-> > > > > as long as it happens before the irq handler returns, AFAIU.  And
-> > > > > drm/msm will collect the fault info from the irq handler.
-> > > >
-> > > > As I said in the earlier mail: "From this we conclude that MMU-500
-> > > > does not clear FSR.SS unless #4 happens before #3." #4 is clearing =
-FSR
-> > > > and #3 is writing RESUME. So no, unfortunately it does actually mat=
-ter
-> > > > and we get a storm of unhandled IRQs if we don't clear FSR first. Y=
-our
-> > > > solution is what v2 did and it didn't work.
-> > >
-> > > So, just clear FSR also in the resume path
-> >
-> > Then we'd run the risk of incorrectly accepting a second fault if it
-> > happens immediately after we resume. Not terrible for our use-case
-> > where we only really need the first fault to be accurate and we
-> > disable stall-on-fault afterwards, but if you ever leave it on then it
-> > would result in another interrupt storm.
-> >
->
-> Howso? We'd still be ensuring that #4 happens before #3?  If needed we
-> can add a param to resume_translation() so drm can tell it to only
-> clear FSR if it calls resume_translation from the interrupt handler,
-> or something like that.  But I don't want to lose capturing the FSR,
-> and I don't think we need to.
->
-> BR,
-> -R
+On 12/13/24 1:55 AM, Steven Price wrote:
+> Query the RMI version number and check if it is a compatible version. A
+> static key is also provided to signal that a supported RMM is available.
+> 
+> Functions are provided to query if a VM or VCPU is a realm (or rec)
+> which currently will always return false.
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> Changes since v5:
+>   * Reword "unsupported" message from "host supports" to "we want" to
+>     clarify that 'we' are the 'host'.
+> Changes since v2:
+>   * Drop return value from kvm_init_rme(), it was always 0.
+>   * Rely on the RMM return value to identify whether the RSI ABI is
+>     compatible.
+> ---
+>   arch/arm64/include/asm/kvm_emulate.h | 18 +++++++++
+>   arch/arm64/include/asm/kvm_host.h    |  4 ++
+>   arch/arm64/include/asm/kvm_rme.h     | 56 ++++++++++++++++++++++++++++
+>   arch/arm64/include/asm/virt.h        |  1 +
+>   arch/arm64/kvm/Makefile              |  3 +-
+>   arch/arm64/kvm/arm.c                 |  6 +++
+>   arch/arm64/kvm/rme.c                 | 50 +++++++++++++++++++++++++
+>   7 files changed, 137 insertions(+), 1 deletion(-)
+>   create mode 100644 arch/arm64/include/asm/kvm_rme.h
+>   create mode 100644 arch/arm64/kvm/rme.c
+> 
 
-Because we could clear FSR in the resume handler (ok), then resume,
-then fault again, then clear FSR again in arm_smmu_context_fault() and
-unintentionally acknowledge the fault without a corresponding resume.
-Again, it's not possible with drm/msm after this series since we
-disable stall-on-fault before resuming but still this means it's very
-fragile.
+[...]
 
-To be clear, FSR should already be frozen until we resume, if the
-SMMUv2 architecture pseudocode is to be believed. So any fault that's
-recorded in the devcoredump will still be accurate with this patch,
-just subsequent faults might not be accurate.
+> +
+> +static inline bool kvm_is_realm(struct kvm *kvm)
+> +{
+> +	if (static_branch_unlikely(&kvm_rme_is_available) && kvm)
+> +		return kvm->arch.is_realm;
+> +	return false;
+> +}
+> +
 
-Connor
+kvm->arch.is_realm won't be true when kvm_rme_is_available is false. It's set
+in kvm_arch_init_vm() of PATCH[10]. So it's safe to be simplified as below if
+the changes to kvm_arch_init_vm() is slightly modified, more details can be
+found from the comments to PATCH[10]
+
+With the changes, we don't have to check kvm_rme_is_available every time.
+
+static inline bool kvm_is_realm(struct kvm *kvm)
+{
+	return (kvm && kvm->arch.is_realm);
+}
+
+Thanks,
+Gavin
+
 
