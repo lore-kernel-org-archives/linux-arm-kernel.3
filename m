@@ -4,70 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 095A1C0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 13:03:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01A4EC0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 13:04:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bPfF7tWGgIi6QwyGI04z66zIqd+2JEVIDkcPLUeXhus=; b=EJ1A6waEgjFiQMlX3bxK6MCzPL
-	7irr4CX+kqDHbI88XklUvVLBB78j5IXvOPFGFs4ljo3Y8GzGUfRWbwuMLUeB9UxvooVay5OxGHeO0
-	MCK6g3mF7AhlOVV+RGht9v2q399AP7xFDcd5cYo58pp1HnzjQL1zp2l1+kQZ6qD1Ki+Ak/n7KilzU
-	G1dfS9bh0oYzMK5yCc4VM+2G8eN1TP3ov/GMkmkdSHNGhOOxng7kMb4VBKHBj1Tl3tYRI270D1cLO
-	9ZLtRLePVK7EX44p6bkaDkG0NUm3xFQG3+LfrThNn1rx4vKZQ7q+MfEtSqRv6eHXc3gE4bGJZf6oP
-	geUepylA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ftSzZxQWxFuySK8miUP6zEBfv5FfrAKGgH7tosFe5+Q=; b=nmbYJiaOONhN+iAA7BLQwnhmCn
+	M9335/WtTh0lav96MAChMCsb6kO11hrdTofwNZapdTL/NDxl8GNqVMAaXQmTrlq0NxAcyYyUeUWj9
+	F0lb2fbRp7MopYifxbb3ZLx3g+4Wppi+TWy+WVfmco9ugDM8DfredRCg0mK6NcVyPaH1rqTsjVRF0
+	2Qh4P0qpDS6QzGBLMuPNTD8pkokFjcI7ig7lZ4DRO5t5AoVmu3N7ggQiKxCGdd8uK2HZaVu5kyOQR
+	LkmVnr729nfFva0aKsjIHOMz1MJ7DBEbWLrQtM1LOOP2ojMWTRQAprV1WjCE+GIN1+41l3T6irhqn
+	QhIKH3Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1td7ij-00000006yDe-1djB;
-	Wed, 29 Jan 2025 13:03:05 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1td7k0-00000006yKD-0NZM;
+	Wed, 29 Jan 2025 13:04:24 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1td7hO-00000006xzn-3lEt
+	id 1td7iO-00000006yCV-2p0T
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jan 2025 13:01:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=bPfF7tWGgIi6QwyGI04z66zIqd+2JEVIDkcPLUeXhus=; b=cju5zJgvOX+7ImKdA5tVG6fcMz
-	VdvaVvwCdT3YzfVtMA5mFgkhZ6L+XHXjMrz8yfSeZdi57m2QYhlCt2F/xZG3wctCrnZJovopUXnpK
-	tVhmZW0PZUBfM9orfkgwdCfeFMOvL0ig7aMTVkxsH+PUHRMafWPsUJ9SXf5bzYMmC420=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1td7hD-00986o-0i; Wed, 29 Jan 2025 14:01:31 +0100
-Date: Wed, 29 Jan 2025 14:01:31 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Swathi K S <swathi.ks@samsung.com>
-Cc: krzk@kernel.org, robh@kernel.org, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	conor+dt@kernel.org, richardcochran@gmail.com,
-	mcoquelin.stm32@gmail.com, alim.akhtar@samsung.com,
-	linux-fsd@tesla.com, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, alexandre.torgue@foss.st.com,
-	peppe.cavallaro@st.com, joabreu@synopsys.com, rcsekar@samsung.com,
-	ssiddha@tesla.com, jayati.sahu@samsung.com,
-	pankaj.dubey@samsung.com, ravi.patel@samsung.com,
-	gost.dev@samsung.com
-Subject: Re: [PATCH v5 2/4] net: stmmac: dwc-qos: Add FSD EQoS support
-Message-ID: <8b0f068c-26f7-455a-a546-65531cd7fe48@lunn.ch>
-References: <20250128102558.22459-1-swathi.ks@samsung.com>
- <CGME20250128102732epcas5p4618e808063ffa992b476f03f7098d991@epcas5p4.samsung.com>
- <20250128102558.22459-3-swathi.ks@samsung.com>
- <63e64aa6-d018-4e45-acc7-f9d88a7db60f@lunn.ch>
- <002c01db722e$5abc8d10$1035a730$@samsung.com>
+	Wed, 29 Jan 2025 13:02:46 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50T4WeQd018791;
+	Wed, 29 Jan 2025 13:02:33 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	ftSzZxQWxFuySK8miUP6zEBfv5FfrAKGgH7tosFe5+Q=; b=ZP5dGRTbHvz+1l1a
+	EIyfBpPA1uW8K9Yz8EKj1eXcqGmyxga6HnYaFPlImzMoJlbufWM+HOl972zOdbSJ
+	fOi052peQIgEhFUealWbyvN6N/WmgQRJO8LOYFsz1kKILaHgAs0z4yQduDaeTJ/7
+	qc4FlJupmGqdZ9wdqbwfIJSiIvkSAWrPGDOo5t1VGeXkWXFNxfwUBRArjSLwWEBz
+	qu8k2iirP75NBl0ivX4Amwu4z2CLVKkjoXAcGdaUYJM7tpLNN9eFBqVjqlLWXSVJ
+	A9DErxJ/dCSo6KIO0DNVWTY9ay+lDeKdPmoNvpIYIbo3SOXWfJTk7VbE/GCBeUAu
+	4cVpUQ==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44fdd8ru64-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 29 Jan 2025 13:02:32 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 50TD2VPj004680
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 29 Jan 2025 13:02:31 GMT
+Received: from [10.133.33.43] (10.80.80.8) by nalasex01c.na.qualcomm.com
+ (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 29 Jan
+ 2025 05:02:25 -0800
+Message-ID: <29bbb602-61fd-44e1-afb5-f158c8d61c97@quicinc.com>
+Date: Wed, 29 Jan 2025 21:02:22 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <002c01db722e$5abc8d10$1035a730$@samsung.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 5/6] Coresight: Add Coresight TMC Control Unit driver
+To: James Clark <james.clark@linaro.org>
+CC: Tingwei Zhang <quic_tingweiz@quicinc.com>,
+        Jinlong Mao
+	<quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        Suzuki K Poulose
+	<suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@linaro.org>,
+        "Alexander
+ Shishkin" <alexander.shishkin@linux.intel.com>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+References: <20250124072537.1801030-1-quic_jiegan@quicinc.com>
+ <20250124072537.1801030-6-quic_jiegan@quicinc.com>
+ <44bd0d5e-a232-49c3-ba2f-e63e2f2c99be@linaro.org>
+ <b3d9e4f0-cca8-45a5-a5b7-239cdeed2751@quicinc.com>
+ <070c70ac-c76b-4d1a-acb6-d29cc85967b9@linaro.org>
+Content-Language: en-US
+From: Jie Gan <quic_jiegan@quicinc.com>
+In-Reply-To: <070c70ac-c76b-4d1a-acb6-d29cc85967b9@linaro.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: RO6md8-g_kwg4T9YiqP0oydXCedLsqFP
+X-Proofpoint-GUID: RO6md8-g_kwg4T9YiqP0oydXCedLsqFP
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-29_01,2025-01-27_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 bulkscore=0
+ clxscore=1015 spamscore=0 phishscore=0 adultscore=0 malwarescore=0
+ lowpriorityscore=0 mlxlogscore=999 priorityscore=1501 impostorscore=0
+ mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501290106
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250129_050142_936991_3FDC2B33 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20250129_050244_846719_53665EAC 
+X-CRM114-Status: GOOD (  32.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,16 +119,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > It looks like you should be able to share all the clk_bulk code with
-> > tegra_eqos_probe(). The stmmac driver suffers from lots of cut/paste code
-> > with no consolidation. You can at least not make the tegra code worse by
-> > doing a little refactoring.
+
+
+On 1/29/2025 6:35 PM, James Clark wrote:
 > 
-> Hi Andrew, 
-> Just to clarify, you were referring to refactoring tegra code to use
-> clk_bulk APIs, right?
+> 
+> On 29/01/2025 12:46 am, Jie Gan wrote:
+>>
+>>
+>> On 1/28/2025 7:55 PM, James Clark wrote:
+>>>
+>>>
+>>> On 24/01/2025 7:25 am, Jie Gan wrote:
+>>>> The Coresight TMC Control Unit hosts miscellaneous configuration 
+>>>> registers
+>>>> which control various features related to TMC ETR sink.
+>>>>
+>>>> Based on the trace ID, which is programmed in the related CTCU ATID
+>>>> register of a specific ETR, trace data with that trace ID gets into
+>>>> the ETR buffer, while other trace data gets dropped.
+>>>>
+>>>> Enabling source device sets one bit of the ATID register based on
+>>>> source device's trace ID.
+>>>> Disabling source device resets the bit according to the source
+>>>> device's trace ID.
+>>>>
+>>>> Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
+>>>> ---
+>>>>   drivers/hwtracing/coresight/Kconfig          |  12 +
+>>>>   drivers/hwtracing/coresight/Makefile         |   1 +
+>>>>   drivers/hwtracing/coresight/coresight-ctcu.c | 276 +++++++++++++++ 
+>>>> ++++
+>>>>   drivers/hwtracing/coresight/coresight-ctcu.h |  30 ++
+>>>>   include/linux/coresight.h                    |   3 +-
+>>>>   5 files changed, 321 insertions(+), 1 deletion(-)
+>>>>   create mode 100644 drivers/hwtracing/coresight/coresight-ctcu.c
+>>>>   create mode 100644 drivers/hwtracing/coresight/coresight-ctcu.h
+>>>  >
+>>>
+>>> [...]
+>>>
+>>>> +/*
+>>>> + * ctcu_set_etr_traceid: Retrieve the ATID offset and trace ID.
+>>>> + *
+>>>> + * Returns 0 indicates success. None-zero result means failure.
+>>>> + */
+>>>> +static int ctcu_set_etr_traceid(struct coresight_device *csdev, 
+>>>> struct coresight_path *cs_path,
+>>>> +                bool enable)
+>>>> +{
+>>>> +    struct coresight_device *sink = coresight_get_sink(cs_path->path);
+>>>> +    struct ctcu_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+>>>> +    u8 trace_id = cs_path->trace_id;
+>>>> +    int port_num;
+>>>> +
+>>>> +    if ((sink == NULL) || !IS_VALID_CS_TRACE_ID(trace_id) || 
+>>>> IS_ERR_OR_NULL(drvdata)) {
+>>>> +        dev_err(&csdev->dev, "Invalid parameters\n");
+>>>> +        return -EINVAL;
+>>>> +    }
+>>>> +
+>>>> +    port_num = ctcu_get_active_port(sink, csdev);
+>>>> +    if (port_num < 0)
+>>>> +        return -EINVAL;
+>>>> +
+>>>> +    /*
+>>>> +     * Skip the disable session if more than one TPDM device that
+>>>> +     * connected to the same TPDA device has been enabled.
+>>>> +     */
+>>>> +    if (enable)
+>>>> +        atomic_inc(&drvdata->traceid_refcnt[port_num][trace_id]);
+>>>> +    else {
+>>>> +        if (atomic_dec_return(&drvdata->traceid_refcnt[port_num] 
+>>>> [trace_id]) > 0) {
+>>>> +            dev_dbg(&csdev->dev, "Skip the disable session\n");
+>>>> +            return 0;
+>>>> +        }
+>>>> +    }
+>>>> +
+>>>> +    dev_dbg(&csdev->dev, "traceid is %d\n", cs_path->trace_id);
+>>>> +
+>>>> +    return __ctcu_set_etr_traceid(csdev, trace_id, port_num, enable);
+>>>
+>>> Hi Jie,
+>>>
+>>> Using atomic_dec_return() here doesn't prevent 
+>>> __ctcu_set_etr_traceid() from running concurrent enable and disables. 
+>>> Once you pass the atomic_dec_return() a second call to enable it will 
+>>> mess it up.
+>>>
+>>> I think you need a spinlock around the whole thing and then the 
+>>> refcounts don't need to be atomics.
+>>>
+>> Hi, James
+>> Thanks for comment. I may not fully tested my codes here. What I was 
+>> thinking is there's no way the refcnt could become a negative number 
+>> under current framework. So I just added spinlock in 
+>> __ctcu_set_etr_traceid() to ensure concurrent sessions correctly 
+>> manipulate the register.
+>>
+>> As the trace_id related to the bit of the ATID register, I think the 
+>> concurrent processes are working fine with spinlock around read/write 
+>> register.
+>>
+>> I may not fully got your point here. Please help me to correct it.
+>>
+>> Thanks,
+>> Jie
+>>
+>>
+> 
+> No it can't become negative, but the refcount can be a different state 
+> to the one that was actually written:
+> 
+> 
+>    CPU0                             CPU1
+>    ----                             ----
+>    ctcu_set_etr_traceid(enable)
+>                                     ctcu_set_etr_traceid(disable)
+>    atomic_inc()
+>    recount == 1
+>                                     atomic_dec()
+>                                     recount == 0
+> 
+>                                     __ctcu_set_etr_traceid(disable)
+>                                     Lock and write disable state to
+>                                     device
+> 
+>    __ctcu_set_etr_traceid(enable)
+>    Lock and write enable state to
+>    device
+> 
+> 
+> As you can see this leaves the device in an enabled state but the 
+> refcount is 0.
+Yes, you are right. I didnt consider this scenario. We definitely need 
+spinlock here.
 
-Yes.
+> 
+> This is also quite large if you use atomic types:
+> 
+>   /* refcnt for each traceid of each sink */
+>   atomic_t traceid_refcnt[ATID_MAX_NUM][CORESIGHT_TRACE_ID_RES_TOP];
+> 
+> Presumably you can't have the refcount for each ID be higher than the 
+> max number of TPDMs connected? If you make the locked area a bit wider 
+> you don't need atomic types and also solve the above problem. So you 
+> could do u8, or DECLARE_BITMAP() and bitmap_read() etc to read 3 bit 
+> values. Or however wide it needs to be.
+The original purpose of using atomic here is trying to narrow the locked 
+area.
 
-	Andrew
+I think u8 is ok here.
+u8 traceid_refcnt[ATID_MAX_NUM][CORESIGHT_TRACE_ID_RES_TOP] will cost 
+224 bytes, I think it's acceptable here.
+
+Thanks,
+Jie
+
+> 
+
 
