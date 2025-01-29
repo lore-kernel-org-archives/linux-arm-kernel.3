@@ -4,94 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19141C0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 11:23:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0354EC0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 11:25:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lIj0S75Nq583PWPyqj5G995an+ZD2/gTQqnPSbczUig=; b=VV1HyEgraShEHTIs/kG+8vCuDG
-	cj9QoaqbXVZ0NObcsqa8cufJgr/RJO4NqOq+RjpW5iTdp6PnbVqTYb5/0OMTElPxBpf+rp261Ers+
-	6Lt0fhtHyik2EDo/mpTrLsGfv0ZerkQwmdU8cnDdip8QVZ6kXU453pfZTMJO+alvPMh+waqSC7O4P
-	zmnB9QJJU3qQO4JcinwmNjs/CvTDvVa6bW3kVZR6s0yNHOI0sc7GLBABJl5Q8zevzEoHoCJk/ukFX
-	9ov9WZjCo0xAocDgy6X1OoyopzQQ50KiQrvJNcED1WmE+aeT331mtmAiVBb95ccyFdvJOikjn/O3j
-	9SfMFOxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oZwkBGQ/8laLY1dd4HI2iZedl7zABoMjouNeF66xqM4=; b=lwrmSEp4F+CMyhhfSPGP6bsYqC
+	PvvowJ7r9mZImfrEdVowS73USuJgHpdrj6ZjoYUpuLu+2fkN0Odj0Sn63K3Txu9lmsGPQ7Ww+yW7X
+	l8Ec1844j008AydTx6SJhB9ngHxNvPEV/JzqzgJIYsD18IzDvsJjbzN71AmuZkCNPDcDRxIoViL7t
+	8pYm0UVKQ1JHNZLOjxIsO+OjleQGYYIMTbKmZ/92vUHaflCXSBh28m/ryfGhoMoQ9+uoq4nOFFWcy
+	50ttbSWJyDP9zs9KqM328f1RloB75ztpkPGx0/GKKLTMZT2Vh8y0Hd38u7NaTpkJj2lN+2e8b4MpE
+	T/gT63Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1td6AK-00000006pQW-1xby;
-	Wed, 29 Jan 2025 11:23:28 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1td6Bb-00000006pYX-0OKQ;
+	Wed, 29 Jan 2025 11:24:47 +0000
+Received: from mail-bn7nam10on2061c.outbound.protection.outlook.com ([2a01:111:f403:2009::61c] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1td62v-00000006oRT-2Ucq
+	id 1td62w-00000006oS6-44uz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jan 2025 11:15:50 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4368a290e0dso105965e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jan 2025 03:15:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1738149347; x=1738754147; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=lIj0S75Nq583PWPyqj5G995an+ZD2/gTQqnPSbczUig=;
-        b=Bb0CUCCgfvWYtwJAQUvxHM+qP/yxHUSEWLXQoDmfAzFz9qGEpT+t2CAydmyooZBpKl
-         BYHPxyb3+BRnb6+U1BM8Rv8NfJwuBMC30jA150bWmw8zKIWK5A2+XNbrdH//dqTPC4kC
-         YL8If5RnFYkqJxdpJOsm96Q2fA07+hAgYYXy2gDvG7BglN8ho+/XDQ36M5pg3JcOaW87
-         MCq3H/EqFdUayMO9nJCrRulUncrCtpP2rK2iySLLOgmhUnr72SY5rjTFqL1q1g0wKC9V
-         HWX38VQWUMqQkXzXE22cgYtKdyLGzcacsraKHq9XfMc1Tr07+vx2EDIBgVJfF9qJMqRH
-         +kzw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738149347; x=1738754147;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=lIj0S75Nq583PWPyqj5G995an+ZD2/gTQqnPSbczUig=;
-        b=F/NdG8LCwZd02k62etKlxvZr0E9vnvAWR3zET8UuUhLv53LOrHS690/ldeMlLbf4c/
-         ZFfQ945sAXMBDoIV5c5t3KVNs+KIGfHDV0LiEB6KqrVy9hMQTDDOPBksVj6/yjFQ23Z0
-         zZ/UzAjc+od0B/Q1yCjl4kYHNcMvyHXD7NW1cV+UtZaMIAgnqbjxJChsXTDJ2uwtd7zV
-         AyrSZrWu/SGl4mYcjFAaLEr5yaVy81oitEHRONq9U9LX0yafAybPQpSg2cWNznEbyYNl
-         xnhN828f1XA7JlTAHbKAiBelLoWZT/JpNSj3DLqUh++HIPHST79QWr/kF642cMLVqNy4
-         phOQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW/wePJ4+WC+XhSpUpkhAnTHHucWYWVFTadvmXgQNH104YJb+X5iFPNq4fjrl2hU0DVGp+4BOmhX4csBkv+Iglq@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVnWAXTUZfzOEK7GjyvmSHcQOukhEJL+wYfvZzdXQxDHeDYQfr
-	le9k+0I0kQnWrDnVgLRqrCVCfQazC/at0anfOx2FNGSC46Y9fEuXY3aS7FD2wg==
-X-Gm-Gg: ASbGncv2RXaUR2y2phtAGMTZB+mbN45rdJbQAkJzZ5qcqahTeR49PY4K4nDb7kWcpGm
-	maQzxF+WiK9dMlGb3U+cYqfO00qIynC6eUcFSHEAXTRoavJwZEHG+fipRFnoINGTiml9K+j3YEi
-	OEuCh095Ea43HJQs2lctfbCg68565KpaRULlgdb21e6wMfVTNYSiaTaGJJJ2eCrUfDjwhjKL9Fm
-	77K1kd790MeLUrMMQZ0uv1Em1y/zN9jWMcGX38p5IJps4svsLM5r8sIPoH0Pc7CoeJIP3So2e94
-	4adbhS1x3r6mibSKO659jYOm2ZDP/EJma9E/nZNyy3W1F2rT7XQ=
-X-Google-Smtp-Source: AGHT+IHxyZfWztzZgfuJiUeDYUFJ1Qtfo43qMHUxbq5Zh05k0OwXtJFs0omeilOH7fX0Bdxckb3jCg==
-X-Received: by 2002:a05:600c:1f84:b0:42b:a961:e51 with SMTP id 5b1f17b1804b1-438dc21f186mr939945e9.0.1738149347033;
-        Wed, 29 Jan 2025 03:15:47 -0800 (PST)
-Received: from google.com (88.140.78.34.bc.googleusercontent.com. [34.78.140.88])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438dcc52096sm19488465e9.39.2025.01.29.03.15.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Jan 2025 03:15:46 -0800 (PST)
-Date: Wed, 29 Jan 2025 11:15:42 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: iommu@lists.linux.dev, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, robdclark@gmail.com, joro@8bytes.org,
-	jean-philippe@linaro.org, jgg@ziepe.ca, nicolinc@nvidia.com,
-	vdonnefort@google.com, qperret@google.com, tabba@google.com,
-	danielmentz@google.com, tzukui@google.com
-Subject: Re: [RFC PATCH v2 27/58] KVM: arm64: smmu-v3: Setup command queue
-Message-ID: <Z5oN3sAk2RY4vyOr@google.com>
-References: <20241212180423.1578358-1-smostafa@google.com>
- <20241212180423.1578358-28-smostafa@google.com>
- <4e9d04e4-729d-483d-8533-06b3e0a2fb04@arm.com>
+	Wed, 29 Jan 2025 11:15:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=K/r+7bSXFwy8h3IqoOZRT7Ls4Sgoaamfo2nYzy2+cmYaZnD9rDjNR32H79NY9s+dFnJJEpqHaUt39vDqc6KWyOezD3sjM8q4G7ZvBbjh+VPM/XzEuhIxarhmOetuRH5wvRiGh5uA18AecJ33ece+r3C48EggSct87N8gh6ArsLqdGElZzWb1BHFnmHDp6S5g/SsX69S1WnkmFEvk58j9DhgArHnOKvZjz/PJpwjb8ADapQIeUsXR3hPI530otMs/N3YV0wvDcTHG/nk59ox//ATgf0gg7UuA/1S4kIsXH3IgrjdrZHN8wh3WalTcwT487dzVTT0GR+aWEZ59MK0mcQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=oZwkBGQ/8laLY1dd4HI2iZedl7zABoMjouNeF66xqM4=;
+ b=N70DAFTVRUgmWBLKRTulBd3pM9A1xALjq7ziEg0ErIpdIt4uVc/V56vq7KT8nR7zkIZ+13R4+ygr7lR/Mim1vR8SGedLMtQ96toKdEq63nNVyfNEI+eS4nvkkz6EXhekaD9vcuSUHCPCjmRyDYJ80+5CUi7pEP+4xKxjJUjwi56VEmXCbFWFGu1jCnW1rR7DTzzeZUblzaET/CWdUmthYA0vxL6CD+tuXSOt1PWcoFcej8jgRny9YANYLdeVUi+DlRVO/5kQC2DxyQgX4G7BD50ibc7USzRilsJq2RO+yEm21jM1i46Xt1FdOMTfsBHlxdNvsxfZzLwXHIVU9FQycg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=oZwkBGQ/8laLY1dd4HI2iZedl7zABoMjouNeF66xqM4=;
+ b=kMGPGqXJ3DAfXgVR5qsIzAtEvrwfXbN664LXxQbirTgnGNzckc+a6UcsMxe9A13olq3x7K9Yd19z8ohWSvP0tctK7fQ/LDFASGyL2fFb6Zl8FZ63Petf5h+x5D6pVN/jV2hYgcbtGzKOnsiejYjFUhC8L2swikwAqHUXGKYMLo0crtJzMv4NvKGAdQSUWMGzT+vQCriOt5iQG2QrhETQiiP8IkVlbNIE/K54xlTPkKKFBKjt4xib01522pNYUF+dnOMyGZpjcCSViFuBSkNf6OpjL91NhTeEmi0BmPQyWXD+hJCEkP3JF2Ari54C+TeUnAU7kZLac6oa049Hcx6syQ==
+Received: from BY3PR05CA0051.namprd05.prod.outlook.com (2603:10b6:a03:39b::26)
+ by CH3PR12MB9281.namprd12.prod.outlook.com (2603:10b6:610:1c8::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8377.23; Wed, 29 Jan
+ 2025 11:15:42 +0000
+Received: from SJ1PEPF00001CE5.namprd03.prod.outlook.com
+ (2603:10b6:a03:39b:cafe::2b) by BY3PR05CA0051.outlook.office365.com
+ (2603:10b6:a03:39b::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8398.17 via Frontend Transport; Wed,
+ 29 Jan 2025 11:15:42 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ SJ1PEPF00001CE5.mail.protection.outlook.com (10.167.242.21) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8398.14 via Frontend Transport; Wed, 29 Jan 2025 11:15:41 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 29 Jan
+ 2025 03:15:30 -0800
+Received: from [10.41.21.79] (10.126.231.35) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Wed, 29 Jan
+ 2025 03:15:26 -0800
+Message-ID: <a14a0273-6e40-44c6-b2f9-22a5bd7617f7@nvidia.com>
+Date: Wed, 29 Jan 2025 16:45:23 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <4e9d04e4-729d-483d-8533-06b3e0a2fb04@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 4/5] arm64: Provide an AMU-based version of
+ arch_freq_get_on_cpu
+To: Beata Michalska <beata.michalska@arm.com>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
+	<ionela.voinescu@arm.com>, <sudeep.holla@arm.com>, <will@kernel.org>,
+	<catalin.marinas@arm.com>, <rafael@kernel.org>, <viresh.kumar@linaro.org>
+CC: <yang@os.amperecomputing.com>, <vanshikonda@os.amperecomputing.com>,
+	<lihuisong@huawei.com>, <zhanjie9@hisilicon.com>, linux-tegra
+	<linux-tegra@vger.kernel.org>
+References: <20250121084435.2839280-1-beata.michalska@arm.com>
+ <20250121084435.2839280-5-beata.michalska@arm.com>
+Content-Language: en-US
+From: Sumit Gupta <sumitg@nvidia.com>
+In-Reply-To: <20250121084435.2839280-5-beata.michalska@arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.126.231.35]
+X-ClientProxiedBy: rnnvmail202.nvidia.com (10.129.68.7) To
+ rnnvmail201.nvidia.com (10.129.68.8)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CE5:EE_|CH3PR12MB9281:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9d142844-4b01-4ce9-7f20-08dd405644ad
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|36860700013|82310400026|921020|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?aXVsbzd6MjJYUURVOElCS2p6SFFxUHQ5Yk1mUmI0cytaTkM1REhENUphVlZl?=
+ =?utf-8?B?WGZVUzNsZFYxaUhKUDhudDJJUEdSWGZmZmV3QTRhMlBsU29HTXFKMEpHbEhw?=
+ =?utf-8?B?M29OalpDcHNhTkg2c1FtR0JuRXo1RVBWRFhmYkpGaXhFWWR5cklEZ3RLK1oy?=
+ =?utf-8?B?OEwwbDBKRFR2SzNFNm1uWTN5NlE4Vll0cTMvQUt4aW11SVI4TTdQTFhpZnZu?=
+ =?utf-8?B?Nitid0kxK1J1TS9GVXB5VVB0R3JZUC80cS9kZGNCUDMxd1FwcXJzVEg4d0FJ?=
+ =?utf-8?B?Z0YrWVoxQ01UY1BqTWl6QWpwZy90aUFMM2wxQWc4Y1gzQ0txT0JlOHFYei9R?=
+ =?utf-8?B?dkdSSHNXUFpyenk0TnNLUHV1eVFrU3BZd3NTQUUwQWpXTmlzK0M0MWRtSlZn?=
+ =?utf-8?B?VjZGZzQwQTI0ODNQNDFLZXFJVTNpcys2empsdm41cndxUHE4Rm9JNWE2WUpv?=
+ =?utf-8?B?WTZibW02ODlVWmFBdnhLSFVHWDdqOHFBVld4b2xWTHgvdFBBVnpLdUxxbVpy?=
+ =?utf-8?B?NjErMy81SERKTHpxOFdnSVlPdTZKT2lYTmRTTkpQM2lUdXVoYTEwVDR0NEpk?=
+ =?utf-8?B?S2ZFbTJpaHQ4eGR3WnA3bjJyTDRwaGlMOUlmb2RmRjlUb1R3MDVjVmxMYnBw?=
+ =?utf-8?B?TkU1VGYzemNOa1RRSG9FTm04VHVTUUZ5dlVNcnE3SWowUXdCT1FsVmxNdnV3?=
+ =?utf-8?B?V2xLL2l6c1l3UTlXcEVManVaV1ZaZkl4UTRuK0xoRFlXTDBRQU51emxQZWJh?=
+ =?utf-8?B?WkRENCtmM0hDb2VUNXV3ZE13VWlYQ1l2djNIeHJhc1p1c2F0U1QvTjJmWjQx?=
+ =?utf-8?B?c1UyaVBzOW9OZE5FQ2FsUG5mQkVEa2VNak5EbGV6cTBLOXgxMm0yRnlxTGhQ?=
+ =?utf-8?B?N2VpVU1jcHhoQXpEVlhCSzRKTjlPdk9QRGllZTBCK2dTVXVZaTdRK0VjMDR6?=
+ =?utf-8?B?UW1VN1dQdkJqT1M3TGRQUXRMQytJOU9HTmh4TTJzWThoY0RndUQvY0pSL1Yr?=
+ =?utf-8?B?U2tEZGhGa0RvTFBmZjlrR0JrdGFtbTU5UEJGZVdJTVZJMlEyMWFkZ1VTZElw?=
+ =?utf-8?B?bFh5TXJKVzNzbEFZUWZzR1FXNmZOUlVvQmY3Z2VxSVJwQi9HYnJTTVlWWHhU?=
+ =?utf-8?B?VHQ3eUtxQ0t3ZUlIbVdSeUtTQnFPVTRYeTMraFBFc1R4YitPY1gwZGtFbWNN?=
+ =?utf-8?B?UFF6NDlVcEt1d1NnbzkxNGdoVzU5cDlQNG5jVzl3aStYeVFtV2FWcWJEMXQz?=
+ =?utf-8?B?bUxjZFdqVmhraDRnVnZPblVjQ1B0N1J3VThudm1OeDU0cWx1dVU4V1BybVR6?=
+ =?utf-8?B?SGo3VjdvUVBjRHQ0Vk52L3JldElpTHJtVDUvR3dCYWo2MTVaNVZEdXRzUy9a?=
+ =?utf-8?B?SE9pUHIwSGl3K0M3NmNGY0cvMmdpYmVhVVFHSjZrRlBvVHZNcWkxMXQ0RnJB?=
+ =?utf-8?B?a3hKNjVvUElSQ2xtNlBCRG1XdUdLU1lnMmdLNXY4YnBKOTlXTkxvUTJWYkVo?=
+ =?utf-8?B?b0FlcW56Y0pISUtqYU83d1Exa3F1eUNIcEZLQTI0RlBNQ0R1V1M3d0FrbG4v?=
+ =?utf-8?B?NDdGTFptNUg2YWtGM3FqaVRsa09wNkFyN2w0OXRiVUtNYUZSbGhkSzE2aFhR?=
+ =?utf-8?B?OWFzYmIxMFlhQUF6Tk9FeFdwUkdWTmMyaEt1R0JYQU5Valhhc25UZ2ZvcU55?=
+ =?utf-8?B?bTNZR3IyR25oUnNWZG9PQXdyMlZTMEExUW5td0s2MTMvQ1J2aGkvNU10YkFZ?=
+ =?utf-8?B?VE40WHVKWXFlNHh4TGpMbmxGZkc1TXEwekx5aFhmT2JqclNKTGlodnpscXd2?=
+ =?utf-8?B?cHVweG9VTWhZNnBGOU5DTHR0OXlRVVZFRGR0RUgzRHJETGpjNHpYdXM3T2FO?=
+ =?utf-8?B?ZnF4clBLWmlXc3QvbUk3Z3R4SzVGbkwzTlB6QnJZRHN1RS8ralBrMTlXMUcz?=
+ =?utf-8?B?N0NDQU5VWU9xVXRTTHhqSXFmbGhnY1R4Y0ozc1RFbWNCZlMvcDNKbVRzREZ6?=
+ =?utf-8?B?MUtuUlFMd0VlZXFkWUxJY1ZOQitOOTFpcmJFdUVWMkZwbkxGcHhpcXVjRXpx?=
+ =?utf-8?Q?N/H2ge?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(36860700013)(82310400026)(921020)(7053199007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jan 2025 11:15:41.9283
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9d142844-4b01-4ce9-7f20-08dd405644ad
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CE5.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9281
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250129_031549_691065_338579CE 
-X-CRM114-Status: GOOD (  28.05  )
+X-CRM114-CacheID: sfid-20250129_031551_095052_F9C4A2B0 
+X-CRM114-Status: GOOD (  28.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,243 +164,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 23, 2025 at 01:01:55PM +0000, Robin Murphy wrote:
-> On 2024-12-12 6:03 pm, Mostafa Saleh wrote:
-> > From: Jean-Philippe Brucker <jean-philippe@linaro.org>
-> > 
-> > Map the command queue allocated by the host into the hypervisor address
-> > space. When the host mappings are finalized, the queue is unmapped from
-> > the host.
-> 
-> Don't forget the fun of reimplementing the errata workarounds to avoid
-> generating certain problematic command sequences - beware it's mostly
-> implicit in the current kernel driver :)
 
-Thanks, I see I missed “ARM_SMMU_OPT_CMDQ_FORCE_SYNC”, I will try to re-use
-as much of the command queue code as possible in v3, although it’s unlikely
-the hypervisor will have the some insertion algorithm as the host, but at
-least for the command population.
 
-Thanks,
-Mostafa
+On 21/01/25 14:14, Beata Michalska wrote:
+> 
+> 
+> With the Frequency Invariance Engine (FIE) being already wired up with
+> sched tick and making use of relevant (core counter and constant
+> counter) AMU counters, getting the average frequency for a given CPU,
+> can be achieved by utilizing the frequency scale factor which reflects
+> an average CPU frequency for the last tick period length.
+> 
+> The solution is partially based on APERF/MPERF implementation of
+> arch_freq_get_on_cpu.
+> 
+> Suggested-by: Ionela Voinescu <ionela.voinescu@arm.com>
+> Signed-off-by: Beata Michalska <beata.michalska@arm.com>
 
+Reviewed-by: Sumit Gupta <sumitg@nvidia.com>
+
+> ---
+>   arch/arm64/kernel/topology.c | 109 +++++++++++++++++++++++++++++++----
+>   1 file changed, 99 insertions(+), 10 deletions(-)
 > 
-> Thanks,
-> Robin.
+> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+> index cb180684d10d..5f5738b174c7 100644
+> --- a/arch/arm64/kernel/topology.c
+> +++ b/arch/arm64/kernel/topology.c
+> @@ -17,6 +17,7 @@
+>   #include <linux/cpufreq.h>
+>   #include <linux/init.h>
+>   #include <linux/percpu.h>
+> +#include <linux/sched/isolation.h>
 > 
-> > Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
-> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
-> > ---
-> >   arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c | 165 ++++++++++++++++++++
-> >   include/kvm/arm_smmu_v3.h                   |   4 +
-> >   2 files changed, 169 insertions(+)
-> > 
-> > diff --git a/arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c b/arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c
-> > index f7e60c188cb0..e15356509424 100644
-> > --- a/arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c
-> > +++ b/arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c
-> > @@ -41,6 +41,15 @@ struct hyp_arm_smmu_v3_device *kvm_hyp_arm_smmu_v3_smmus;
-> >   	__ret;							\
-> >   })
-> > +#define smmu_wait_event(_smmu, _cond)				\
-> > +({								\
-> > +	if ((_smmu)->features & ARM_SMMU_FEAT_SEV) {		\
-> > +		while (!(_cond))				\
-> > +			wfe();					\
-> > +	}							\
-> > +	smmu_wait(_cond);					\
-> > +})
-> > +
-> >   static int smmu_write_cr0(struct hyp_arm_smmu_v3_device *smmu, u32 val)
-> >   {
-> >   	writel_relaxed(val, smmu->base + ARM_SMMU_CR0);
-> > @@ -60,6 +69,123 @@ static void smmu_reclaim_pages(u64 phys, size_t size)
-> >   	WARN_ON(__pkvm_hyp_donate_host(phys >> PAGE_SHIFT, size >> PAGE_SHIFT));
-> >   }
-> > +#define Q_WRAP(smmu, reg)	((reg) & (1 << (smmu)->cmdq_log2size))
-> > +#define Q_IDX(smmu, reg)	((reg) & ((1 << (smmu)->cmdq_log2size) - 1))
-> > +
-> > +static bool smmu_cmdq_full(struct hyp_arm_smmu_v3_device *smmu)
-> > +{
-> > +	u64 cons = readl_relaxed(smmu->base + ARM_SMMU_CMDQ_CONS);
-> > +
-> > +	return Q_IDX(smmu, smmu->cmdq_prod) == Q_IDX(smmu, cons) &&
-> > +	       Q_WRAP(smmu, smmu->cmdq_prod) != Q_WRAP(smmu, cons);
-> > +}
-> > +
-> > +static bool smmu_cmdq_empty(struct hyp_arm_smmu_v3_device *smmu)
-> > +{
-> > +	u64 cons = readl_relaxed(smmu->base + ARM_SMMU_CMDQ_CONS);
-> > +
-> > +	return Q_IDX(smmu, smmu->cmdq_prod) == Q_IDX(smmu, cons) &&
-> > +	       Q_WRAP(smmu, smmu->cmdq_prod) == Q_WRAP(smmu, cons);
-> > +}
-> > +
-> > +static int smmu_add_cmd(struct hyp_arm_smmu_v3_device *smmu,
-> > +			struct arm_smmu_cmdq_ent *ent)
-> > +{
-> > +	int i;
-> > +	int ret;
-> > +	u64 cmd[CMDQ_ENT_DWORDS] = {};
-> > +	int idx = Q_IDX(smmu, smmu->cmdq_prod);
-> > +	u64 *slot = smmu->cmdq_base + idx * CMDQ_ENT_DWORDS;
-> > +
-> > +	if (smmu->iommu.power_is_off)
-> > +		return -EPIPE;
-> > +
-> > +	ret = smmu_wait_event(smmu, !smmu_cmdq_full(smmu));
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	cmd[0] |= FIELD_PREP(CMDQ_0_OP, ent->opcode);
-> > +
-> > +	switch (ent->opcode) {
-> > +	case CMDQ_OP_CFGI_ALL:
-> > +		cmd[1] |= FIELD_PREP(CMDQ_CFGI_1_RANGE, 31);
-> > +		break;
-> > +	case CMDQ_OP_CFGI_CD:
-> > +		cmd[0] |= FIELD_PREP(CMDQ_CFGI_0_SSID, ent->cfgi.ssid);
-> > +		fallthrough;
-> > +	case CMDQ_OP_CFGI_STE:
-> > +		cmd[0] |= FIELD_PREP(CMDQ_CFGI_0_SID, ent->cfgi.sid);
-> > +		cmd[1] |= FIELD_PREP(CMDQ_CFGI_1_LEAF, ent->cfgi.leaf);
-> > +		break;
-> > +	case CMDQ_OP_TLBI_NH_VA:
-> > +		cmd[0] |= FIELD_PREP(CMDQ_TLBI_0_VMID, ent->tlbi.vmid);
-> > +		cmd[0] |= FIELD_PREP(CMDQ_TLBI_0_NUM, ent->tlbi.num);
-> > +		cmd[0] |= FIELD_PREP(CMDQ_TLBI_0_SCALE, ent->tlbi.scale);
-> > +		cmd[0] |= FIELD_PREP(CMDQ_TLBI_0_ASID, ent->tlbi.asid);
-> > +		cmd[1] |= FIELD_PREP(CMDQ_TLBI_1_LEAF, ent->tlbi.leaf);
-> > +		cmd[1] |= FIELD_PREP(CMDQ_TLBI_1_TTL, ent->tlbi.ttl);
-> > +		cmd[1] |= FIELD_PREP(CMDQ_TLBI_1_TG, ent->tlbi.tg);
-> > +		cmd[1] |= ent->tlbi.addr & CMDQ_TLBI_1_VA_MASK;
-> > +		break;
-> > +	case CMDQ_OP_TLBI_NSNH_ALL:
-> > +		break;
-> > +	case CMDQ_OP_TLBI_NH_ASID:
-> > +		cmd[0] |= FIELD_PREP(CMDQ_TLBI_0_ASID, ent->tlbi.asid);
-> > +		fallthrough;
-> > +	case CMDQ_OP_TLBI_S12_VMALL:
-> > +		cmd[0] |= FIELD_PREP(CMDQ_TLBI_0_VMID, ent->tlbi.vmid);
-> > +		break;
-> > +	case CMDQ_OP_TLBI_S2_IPA:
-> > +		cmd[0] |= FIELD_PREP(CMDQ_TLBI_0_NUM, ent->tlbi.num);
-> > +		cmd[0] |= FIELD_PREP(CMDQ_TLBI_0_SCALE, ent->tlbi.scale);
-> > +		cmd[0] |= FIELD_PREP(CMDQ_TLBI_0_VMID, ent->tlbi.vmid);
-> > +		cmd[1] |= FIELD_PREP(CMDQ_TLBI_1_LEAF, ent->tlbi.leaf);
-> > +		cmd[1] |= FIELD_PREP(CMDQ_TLBI_1_TTL, ent->tlbi.ttl);
-> > +		cmd[1] |= FIELD_PREP(CMDQ_TLBI_1_TG, ent->tlbi.tg);
-> > +		cmd[1] |= ent->tlbi.addr & CMDQ_TLBI_1_IPA_MASK;
-> > +		break;
-> > +	case CMDQ_OP_CMD_SYNC:
-> > +		cmd[0] |= FIELD_PREP(CMDQ_SYNC_0_CS, CMDQ_SYNC_0_CS_SEV);
-> > +		break;
-> > +	default:
-> > +		return -EINVAL;
-> > +	}
-> > +
-> > +	for (i = 0; i < CMDQ_ENT_DWORDS; i++)
-> > +		slot[i] = cpu_to_le64(cmd[i]);
-> > +
-> > +	smmu->cmdq_prod++;
-> > +	writel(Q_IDX(smmu, smmu->cmdq_prod) | Q_WRAP(smmu, smmu->cmdq_prod),
-> > +	       smmu->base + ARM_SMMU_CMDQ_PROD);
-> > +	return 0;
-> > +}
-> > +
-> > +static int smmu_sync_cmd(struct hyp_arm_smmu_v3_device *smmu)
-> > +{
-> > +	int ret;
-> > +	struct arm_smmu_cmdq_ent cmd = {
-> > +		.opcode = CMDQ_OP_CMD_SYNC,
-> > +	};
-> > +
-> > +	ret = smmu_add_cmd(smmu, &cmd);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	return smmu_wait_event(smmu, smmu_cmdq_empty(smmu));
-> > +}
-> > +
-> > +__maybe_unused
-> > +static int smmu_send_cmd(struct hyp_arm_smmu_v3_device *smmu,
-> > +			 struct arm_smmu_cmdq_ent *cmd)
-> > +{
-> > +	int ret = smmu_add_cmd(smmu, cmd);
-> > +
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	return smmu_sync_cmd(smmu);
-> > +}
-> > +
-> >   static int smmu_init_registers(struct hyp_arm_smmu_v3_device *smmu)
-> >   {
-> >   	u64 val, old;
-> > @@ -94,6 +220,41 @@ static int smmu_init_registers(struct hyp_arm_smmu_v3_device *smmu)
-> >   	return 0;
-> >   }
-> > +static int smmu_init_cmdq(struct hyp_arm_smmu_v3_device *smmu)
-> > +{
-> > +	u64 cmdq_base;
-> > +	size_t cmdq_nr_entries, cmdq_size;
-> > +	int ret;
-> > +	enum kvm_pgtable_prot prot = PAGE_HYP;
-> > +
-> > +	cmdq_base = readq_relaxed(smmu->base + ARM_SMMU_CMDQ_BASE);
-> > +	if (cmdq_base & ~(Q_BASE_RWA | Q_BASE_ADDR_MASK | Q_BASE_LOG2SIZE))
-> > +		return -EINVAL;
-> > +
-> > +	smmu->cmdq_log2size = cmdq_base & Q_BASE_LOG2SIZE;
-> > +	cmdq_nr_entries = 1 << smmu->cmdq_log2size;
-> > +	cmdq_size = cmdq_nr_entries * CMDQ_ENT_DWORDS * 8;
-> > +
-> > +	cmdq_base &= Q_BASE_ADDR_MASK;
-> > +
-> > +	if (!(smmu->features & ARM_SMMU_FEAT_COHERENCY))
-> > +		prot |= KVM_PGTABLE_PROT_NORMAL_NC;
-> > +
-> > +	ret = ___pkvm_host_donate_hyp_prot(cmdq_base >> PAGE_SHIFT,
-> > +					   PAGE_ALIGN(cmdq_size) >> PAGE_SHIFT,
-> > +					   false, prot);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	smmu->cmdq_base = hyp_phys_to_virt(cmdq_base);
-> > +
-> > +	memset(smmu->cmdq_base, 0, cmdq_size);
-> > +	writel_relaxed(0, smmu->base + ARM_SMMU_CMDQ_PROD);
-> > +	writel_relaxed(0, smmu->base + ARM_SMMU_CMDQ_CONS);
-> > +
-> > +	return 0;
-> > +}
-> > +
-> >   static int smmu_init_device(struct hyp_arm_smmu_v3_device *smmu)
-> >   {
-> >   	int ret;
-> > @@ -113,6 +274,10 @@ static int smmu_init_device(struct hyp_arm_smmu_v3_device *smmu)
-> >   	if (ret)
-> >   		return ret;
-> > +	ret = smmu_init_cmdq(smmu);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> >   	return kvm_iommu_init_device(&smmu->iommu);
-> >   }
-> > diff --git a/include/kvm/arm_smmu_v3.h b/include/kvm/arm_smmu_v3.h
-> > index fb24bcef1624..393a1a04edba 100644
-> > --- a/include/kvm/arm_smmu_v3.h
-> > +++ b/include/kvm/arm_smmu_v3.h
-> > @@ -16,8 +16,12 @@ struct hyp_arm_smmu_v3_device {
-> >   	struct kvm_hyp_iommu	iommu;
-> >   	phys_addr_t		mmio_addr;
-> >   	size_t			mmio_size;
-> > +	unsigned long		features;
-> >   	void __iomem		*base;
-> > +	u32			cmdq_prod;
-> > +	u64			*cmdq_base;
-> > +	size_t			cmdq_log2size;
-> >   };
-> >   extern size_t kvm_nvhe_sym(kvm_hyp_arm_smmu_v3_count);
+>   #include <asm/cpu.h>
+>   #include <asm/cputype.h>
+> @@ -88,18 +89,28 @@ int __init parse_acpi_topology(void)
+>    * initialized.
+>    */
+>   static DEFINE_PER_CPU_READ_MOSTLY(unsigned long, arch_max_freq_scale) =  1UL << (2 * SCHED_CAPACITY_SHIFT);
+> -static DEFINE_PER_CPU(u64, arch_const_cycles_prev);
+> -static DEFINE_PER_CPU(u64, arch_core_cycles_prev);
+>   static cpumask_var_t amu_fie_cpus;
+> 
+> +struct amu_cntr_sample {
+> +       u64             arch_const_cycles_prev;
+> +       u64             arch_core_cycles_prev;
+> +       unsigned long   last_scale_update;
+> +};
+> +
+> +static DEFINE_PER_CPU_SHARED_ALIGNED(struct amu_cntr_sample, cpu_amu_samples);
+> +
+>   void update_freq_counters_refs(void)
+>   {
+> -       this_cpu_write(arch_core_cycles_prev, read_corecnt());
+> -       this_cpu_write(arch_const_cycles_prev, read_constcnt());
+> +       struct amu_cntr_sample *amu_sample = this_cpu_ptr(&cpu_amu_samples);
+> +
+> +       amu_sample->arch_core_cycles_prev = read_corecnt();
+> +       amu_sample->arch_const_cycles_prev = read_constcnt();
+>   }
+> 
+>   static inline bool freq_counters_valid(int cpu)
+>   {
+> +       struct amu_cntr_sample *amu_sample = per_cpu_ptr(&cpu_amu_samples, cpu);
+> +
+>          if ((cpu >= nr_cpu_ids) || !cpumask_test_cpu(cpu, cpu_present_mask))
+>                  return false;
+> 
+> @@ -108,8 +119,8 @@ static inline bool freq_counters_valid(int cpu)
+>                  return false;
+>          }
+> 
+> -       if (unlikely(!per_cpu(arch_const_cycles_prev, cpu) ||
+> -                    !per_cpu(arch_core_cycles_prev, cpu))) {
+> +       if (unlikely(!amu_sample->arch_const_cycles_prev ||
+> +                    !amu_sample->arch_core_cycles_prev)) {
+>                  pr_debug("CPU%d: cycle counters are not enabled.\n", cpu);
+>                  return false;
+>          }
+> @@ -152,17 +163,22 @@ void freq_inv_set_max_ratio(int cpu, u64 max_rate)
+> 
+>   static void amu_scale_freq_tick(void)
+>   {
+> +       struct amu_cntr_sample *amu_sample = this_cpu_ptr(&cpu_amu_samples);
+>          u64 prev_core_cnt, prev_const_cnt;
+>          u64 core_cnt, const_cnt, scale;
+> 
+> -       prev_const_cnt = this_cpu_read(arch_const_cycles_prev);
+> -       prev_core_cnt = this_cpu_read(arch_core_cycles_prev);
+> +       prev_const_cnt = amu_sample->arch_const_cycles_prev;
+> +       prev_core_cnt = amu_sample->arch_core_cycles_prev;
+> 
+>          update_freq_counters_refs();
+> 
+> -       const_cnt = this_cpu_read(arch_const_cycles_prev);
+> -       core_cnt = this_cpu_read(arch_core_cycles_prev);
+> +       const_cnt = amu_sample->arch_const_cycles_prev;
+> +       core_cnt = amu_sample->arch_core_cycles_prev;
+> 
+> +       /*
+> +        * This should not happen unless the AMUs have been reset and the
+> +        * counter values have not been restored - unlikely
+> +        */
+>          if (unlikely(core_cnt <= prev_core_cnt ||
+>                       const_cnt <= prev_const_cnt))
+>                  return;
+> @@ -182,6 +198,8 @@ static void amu_scale_freq_tick(void)
+> 
+>          scale = min_t(unsigned long, scale, SCHED_CAPACITY_SCALE);
+>          this_cpu_write(arch_freq_scale, (unsigned long)scale);
+> +
+> +       amu_sample->last_scale_update = jiffies;
+>   }
+> 
+>   static struct scale_freq_data amu_sfd = {
+> @@ -189,6 +207,77 @@ static struct scale_freq_data amu_sfd = {
+>          .set_freq_scale = amu_scale_freq_tick,
+>   };
+> 
+> +static __always_inline bool amu_fie_cpu_supported(unsigned int cpu)
+> +{
+> +       return cpumask_available(amu_fie_cpus) &&
+> +               cpumask_test_cpu(cpu, amu_fie_cpus);
+> +}
+> +
+> +#define AMU_SAMPLE_EXP_MS      20
+> +
+> +int arch_freq_get_on_cpu(int cpu)
+> +{
+> +       struct amu_cntr_sample *amu_sample;
+> +       unsigned int start_cpu = cpu;
+> +       unsigned long last_update;
+> +       unsigned int freq = 0;
+> +       u64 scale;
+> +
+> +       if (!amu_fie_cpu_supported(cpu) || !arch_scale_freq_ref(cpu))
+> +               return -EOPNOTSUPP;
+> +
+> +retry:
+> +       amu_sample = per_cpu_ptr(&cpu_amu_samples, cpu);
+> +
+> +       last_update = amu_sample->last_scale_update;
+> +
+> +       /*
+> +        * For those CPUs that are in full dynticks mode, or those that have
+> +        * not seen tick for a while, try an alternative source for the counters
+> +        * (and thus freq scale), if available, for given policy: this boils
+> +        * down to identifying an active cpu within the same freq domain, if any.
+> +        */
+> +       if (!housekeeping_cpu(cpu, HK_TYPE_TICK) ||
+> +           time_is_before_jiffies(last_update + msecs_to_jiffies(AMU_SAMPLE_EXP_MS))) {
+> +               struct cpufreq_policy *policy = cpufreq_cpu_get(cpu);
+> +               int ref_cpu = cpu;
+> +
+> +               if (!policy)
+> +                       return -EINVAL;
+> +
+> +               if (!cpumask_intersects(policy->related_cpus,
+> +                                       housekeeping_cpumask(HK_TYPE_TICK))) {
+> +                       cpufreq_cpu_put(policy);
+> +                       return -EOPNOTSUPP;
+> +               }
+> +
+> +
+> +               do {
+> +                       ref_cpu = cpumask_next_wrap(ref_cpu, policy->cpus,
+> +                                                   start_cpu, false);
+> +
+> +               } while (ref_cpu < nr_cpu_ids && idle_cpu(ref_cpu));
+> +
+> +               cpufreq_cpu_put(policy);
+> +
+> +               if (ref_cpu >= nr_cpu_ids)
+> +                       /* No alternative to pull info from */
+> +                       return -EAGAIN;
+> +
+> +               cpu = ref_cpu;
+> +               goto retry;
+> +       }
+> +       /*
+> +        * Reversed computation to the one used to determine
+> +        * the arch_freq_scale value
+> +        * (see amu_scale_freq_tick for details)
+> +        */
+> +       scale = arch_scale_freq_capacity(cpu);
+> +       freq = scale * arch_scale_freq_ref(cpu);
+> +       freq >>= SCHED_CAPACITY_SHIFT;
+> +       return freq;
+> +}
+> +
+>   static void amu_fie_setup(const struct cpumask *cpus)
+>   {
+>          int cpu;
+> --
+> 2.25.1
 > 
 
