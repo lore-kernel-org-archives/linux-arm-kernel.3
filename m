@@ -4,75 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3409C0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 17:56:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4EF6C0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 17:57:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7X0JA6NPBtK7B5WV1GuX974vQAg7xKQrzlRa97f86dM=; b=LGuw58nVx9/2lFQJGIy/MDyvoP
-	0xNDWbJnp0D+iil9thVwoKAIhzuTQhEjHgbc4W8tDjTYWUuwZ9w9BVpualydWKaLccpOjIEhnFvkv
-	uOY/X9LZy8LyTDjdE0IzfOBrAYfbhg2PxxFoBGXTuCE6/0c4B8enUzRrU2igFuA7KqZCXcHgUaTC9
-	RhPmLr/I2X8o0lF7FSgiXO4urGV5KFkPn3qE+wi7bKbi6hxz75DJiBf7h0r6lisY6Z/uYOhysNw0h
-	kzWiPjWXLZmxUGhYbhWvQSBRw7dxsB9oUm2SN76SkPHqBgra/wgMGeuIJSNvH6ih/Fugb4s/P5hEm
-	vQnh7a7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Sr7o+OAXT5NVwH0SZMxyzb/Ge2LPUoYqRVfWItXhicQ=; b=g1DfGYzsHAhgcsObWpGkcmyKEq
+	z5XJmRc/egvelmCDXD/f/y783vRGwvReDf3Oi6W8QOQAuGI4lHihbdFTrK5BP/+YWhkDXBZDeLhgc
+	skIhxl5hNlkse1x/IGZVlIpnLSMgC3sumdSPgozKnFwBeZfxxSVCqd2nyTX97UvR6+ooPzv9/6613
+	V6O3rCNkj5KGR/kFOXYqY6Qo2Kjp99nRvSt55JurFOVPGf7y2cBEhT9FU/HJaxVBz+Lbbd6sQzWrA
+	JJm3BpDXO0UTORQHs/wHtcBnaRaDwY894mlW33GxoDKMu09pW3Dj7lEoyMXqzG20rszAVTdAxP+h4
+	VcZXw3tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdCIU-00000007Yd1-3VXI;
-	Wed, 29 Jan 2025 17:56:18 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tdCJl-00000007Yio-2aIb;
+	Wed, 29 Jan 2025 17:57:37 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdCGK-00000007YPz-3HVx
+	id 1tdCHt-00000007YZF-36Ui
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jan 2025 17:54:10 +0000
+	Wed, 29 Jan 2025 17:55:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 26D76A407BF;
-	Wed, 29 Jan 2025 17:52:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 454BFC4CED1;
-	Wed, 29 Jan 2025 17:54:00 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id E39CCA41AD5;
+	Wed, 29 Jan 2025 17:53:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E6E1C4CED3;
+	Wed, 29 Jan 2025 17:55:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738173243;
-	bh=Zyf2Hutc5cy0T89YVPvTglk6LxkQN6P68b7+zGZ837w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BU+nGcuTtFSX63zvw1OdWg01bkYPv85CIq9lThHNzW8t3mpk5pTpn0NqgjviFTmRG
-	 9uVfhz8se45xyyaEoJqxNWNjKuRHlArPi8QK/gm8W4zzZRChSe5OMBBJs4YmF6Xk01
-	 sPPyyCDIlHHO8uk0UwfddpjuVyJA/DKOtpq6iajj1opHiHc44poT3PnxtTO9Wvohzn
-	 lL6dN2TRIQYh2GV3Uk1SIrsvbOp91L6c7FJTLx3O2QtGJ7nQ+mVSh+Ti7kAb9zQvj2
-	 Q4jA3SJG9OJICbc50j21pWb8Of7cSotac9oTJ3OYI880BfnboqeSHWj3FWLzUXsC/j
-	 HDAusBlf+F/iw==
-Date: Wed, 29 Jan 2025 17:53:57 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Patrice CHOTARD <patrice.chotard@foss.st.com>
-Cc: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-spi@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	christophe.kerello@foss.st.com
-Subject: Re: [PATCH v2 1/9] dt-bindings: spi: Add STM32 OSPI controller
-Message-ID: <20250129-feminize-spotlight-2cee53f8b463@spud>
-References: <20250128081731.2284457-1-patrice.chotard@foss.st.com>
- <20250128081731.2284457-2-patrice.chotard@foss.st.com>
- <20250128-panama-manly-a753d91c297c@spud>
- <e3d01bce-a7d4-4690-8a2f-3bbb1ee5ccb7@foss.st.com>
+	s=k20201202; t=1738173340;
+	bh=f7eHzTfb7CXxy4fxB26nVOMXC2jFiDmHLAVJP5x8kS4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=o4X/Nly3iITF/DvvEEvlFemWTvyruj+erfpMn7oF3ohNJGnbmmYH8dWutkxmnht7R
+	 IAA3K+cJVn+clDv0Guo37m7IQYmoCF5gKyVL1V/zpOn8C4tG4mCxT8Gnypwka6c4CX
+	 GQLbgZ+7ttETVtJ4pibyUQABkYCKG1L75+OwIfs3ttI1olsm/dlr5wJ0X19Zdm8rY+
+	 uTL9HCL9B6KZ3Xgy1Rr5BGOnaTym7h9ECoeoaq5ofvKoukU4IREE92+nzkQgjqLELW
+	 Vx06rOdN4tbJhOEXbOxnKXY0Bio9olqobvaR7UGEFNIwYRXvqG1kX1vYhNxlSi7S0G
+	 qsb5prlFOzOwA==
+Message-ID: <c7a76128-175a-482f-b326-a8d786241cdc@kernel.org>
+Date: Wed, 29 Jan 2025 18:55:34 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="klBchq5Iv61GqXw7"
-Content-Disposition: inline
-In-Reply-To: <e3d01bce-a7d4-4690-8a2f-3bbb1ee5ccb7@foss.st.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] pinctrl: samsung: Add filter selection support for
+ alive bank on gs101
+To: Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ tudor.ambarus@linaro.org, willmcvicker@google.com,
+ semen.protsenko@linaro.org, kernel-team@android.com, jaewon02.kim@samsung.com
+References: <20250120-pinctrl-fltcon-suspend-v1-0-e77900b2a854@linaro.org>
+ <20250120-pinctrl-fltcon-suspend-v1-3-e77900b2a854@linaro.org>
+ <4e2057fc54022ba5791e482a1e631a1a77551389.camel@linaro.org>
+ <CADrjBPr3VVvY4axBhAEO4zVGhLMiDZ8jWHCf=uSfEBMcZSOa=Q@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <CADrjBPr3VVvY4axBhAEO4zVGhLMiDZ8jWHCf=uSfEBMcZSOa=Q@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250129_095404_954395_5F51C310 
-X-CRM114-Status: GOOD (  26.65  )
+X-CRM114-CacheID: sfid-20250129_095541_912854_58DC8E59 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,120 +126,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 21/01/2025 16:39, Peter Griffin wrote:
+>>> +  The FLTCON register (on alive banks) has the following layout
+>>> + *
+>>> + * BitfieldName[PinNum][Bit:Bit]
+>>> + * FLT_EN[3][31] FLT_SEL[3][30] FLT_WIDTH[3][29:24]
+>>> + * FLT_EN[2][23] FLT_SEL[2][22] FLT_WIDTH[2][21:16]
+>>> + * FLT_EN[1][15] FLT_SEL[1][14] FLT_WIDTH[1][13:8]
+>>> + * FLT_EN[0][7]  FLT_SEL[0][6]  FLT_WIDTH[0][5:0]
+>>> + *
+>>> + * FLT_EN    0x0 = Disable, 0x1=Enable
+>>> + * FLT_SEL   0x0 = Delay filter, 0x1 Digital filter
+>>
+>> It's a delay filter filter either way, right? If so, I
+>> think '0x0 = Delay filter' should instead be reworded to
+>> '0x0 = Analog filter'.
+> 
+> I see your point, and kind of agree that Analog is a better name. The
+> rationale for going with "Digital filter" and "Delay filter" was that
+> it matches the FLT_SEL bitfield description in the datasheet. I
+> thought it might confuse people using a different name. The info about
+> it being Analog filter came via a bug from Samsung. But if folks
+> prefer Analog I can use that instead.
+> 
+> @Krzysztof any thoughts on the above naming?
 
---klBchq5Iv61GqXw7
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+No clue / no preference, you guys have datasheet and more insight into
+this. :)
 
-On Wed, Jan 29, 2025 at 06:40:23PM +0100, Patrice CHOTARD wrote:
-> On 1/28/25 19:02, Conor Dooley wrote:
-> > On Tue, Jan 28, 2025 at 09:17:23AM +0100, patrice.chotard@foss.st.com w=
-rote:
-> >> +  memory-region:
-> >> +    maxItems: 1
-> >=20
-> > Whatever about not having descriptions for clocks or reg when there's
-> > only one, I think a memory region should be explained.
->=20
-> ok i will add :
->=20
->     description: |
 
-The | isn't needed here.
-
->       Memory region to be used for memory-map read access.
-
-I don't think that's a good explanation, sorry. Why's a memory-region
-required for read access?
-
-> >> +
-> >> +  clocks:
-> >> +    maxItems: 1
-> >> +
-> >> +  interrupts:
-> >> +    maxItems: 1
-> >> +
-> >> +  resets:
-> >> +    items:
-> >> +      - description: phandle to OSPI block reset
-> >> +      - description: phandle to delay block reset
-> >> +
-> >> +  dmas:
-> >> +    maxItems: 2
-> >> +
-> >> +  dma-names:
-> >> +    items:
-> >> +      - const: tx
-> >> +      - const: rx
-> >> +
-> >> +  st,syscfg-dlyb:
-> >> +    description: phandle to syscon block
-> >> +      Use to set the OSPI delay block within syscon to
-> >> +      tune the phase of the RX sampling clock (or DQS) in order
-> >> +      to sample the data in their valid window and to
-> >> +      tune the phase of the TX launch clock in order to meet setup
-> >> +      and hold constraints of TX signals versus the memory clock.
-> >> +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> >=20
-> > Why do you need a phandle here? I assume looking up by compatible ain't
-> > possible because you have multiple controllers on the SoC? Also, I don't
->=20
-> Yes, we got 2 OCTOSPI controller, each of them have a dedicated delay blo=
-ck
->  syscfg register.
-
-:+1:=20
-
-> > think your copy-paste "phandle to" stuff here is accurate:
-> >       st,syscfg-dlyb =3D <&syscfg 0x1000>;
-> > There's an offset here that you don't mention in your description.
->=20
-> I will add it as following:
->=20
->   st,syscfg-dlyb:
->     description:
->       Use to set the OSPI delay block within syscon to
->       tune the phase of the RX sampling clock (or DQS) in order
->       to sample the data in their valid window and to
->       tune the phase of the TX launch clock in order to meet setup
->       and hold constraints of TX signals versus the memory clock.
->     $ref: /schemas/types.yaml#/definitions/phandle-array
->     items:
->       - description: phandle to syscfg
->       - description: register offset within syscfg
-
-:+1:
-
-> >> +  access-controllers:
-> >> +    description: phandle to the rifsc device to check access right
-> >> +      and in some cases, an additional phandle to the rcc device for
-> >> +      secure clock control
-> >=20
-> > This should be described using items rather than a free-form list.
->=20
->   access-controllers:
->     description: phandle to the rifsc device to check access right
->       and in some cases, an additional phandle to the rcc device for
->       secure clock control
->     items:
->       - description: phandle to bus controller or to clock controller
->       - description: access controller specifier
->      minItems: 1
->      maxItems: 2
-
-These updates look fine to me.
-
---klBchq5Iv61GqXw7
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ5prNQAKCRB4tDGHoIJi
-0tiOAQDd9BF6yvC5/EHySEFWBLCC14sZW3m0j9Y5sHG+IFLYJQD/SiGc3aoOaqRR
-GvI0wjS/7qTgY+FgXginJwblZbIzNAs=
-=C2X+
------END PGP SIGNATURE-----
-
---klBchq5Iv61GqXw7--
+Best regards,
+Krzysztof
 
