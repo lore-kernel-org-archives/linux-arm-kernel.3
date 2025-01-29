@@ -4,71 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2BEAC0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 10:15:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2503C0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 10:31:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+9entXrM8s3O7hnQLnPg81HwIjJedvRpLkUXihiMSMI=; b=zwbtqfffozHCqgCObU05CLrWLj
-	PStNnjmDXeAtpMRhzWqqStId/QQL4tj4LlXdMk5Mjs/KqKRHDAY4m3rEURxxGL1G/gd/3KuoAnwD0
-	ntjuCi1S9fAUojYooGs9AOnhKHW5MQntSazhcJL77sW+C82D+pT0EcJp/5DbpEMjpsa/ytBX88qif
-	khUp7qpp70gszvQJLwSmMnf0q//Y3HdHFrVpwdlcAKxeCf0K5L2cOamvJst9O4Cp60WmrM0L0bW53
-	r+x68r4CuC8d2nV2lNtZKwAdn6vnBjw6Hnrp4QcHxcSE+oISr9B+pA2eu1TWOup9VQA+/jNYRvT9d
-	WL3wEx8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2NvrnbVIW2q2FPyE2RVkZfe/DhJlaYOq9T27TiF1+50=; b=EdEzMeFJUq/FPvKweZ+R7RDQuf
+	PTRbUTOvz/6FKotuFiQgqV4OsirrxNUBLQZ4vxMMDpk+6Jnkyc9pOIBt1bbxwOttsj07GgF6PW5ki
+	3tgWHbmL1IPKfl8UGsxVAwMLgJQjkQyKzGitCz97th8bbiwTDTI6ajMzefiPWnkneKJ+VU7DY+2vI
+	DC63/bLNWdgBSXVPvJMfXqBgN2vr03tGyh7FxAk4C55VBjgnL3Lp2PFGzQ0YvcNwnoT1vbyDraAH3
+	UI9/VIRCMqL11JSlb6y3yrxRx2zVrFh9woYNH9RoN3oeFKrfUzEQjuMYj2Y/Rv/vKNVW85DO0AHGb
+	osY2rSPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1td56H-00000006jOb-3rq5;
-	Wed, 29 Jan 2025 10:15:13 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1td5M8-00000006kOQ-2bjQ;
+	Wed, 29 Jan 2025 10:31:36 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1td54w-00000006jFc-2xdX
+	id 1td5Kn-00000006kFH-1Z9U
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jan 2025 10:13:52 +0000
+	Wed, 29 Jan 2025 10:30:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 78BAAA41723;
-	Wed, 29 Jan 2025 10:12:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D92FC4CEE4;
-	Wed, 29 Jan 2025 10:13:45 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8A9285C5890;
+	Wed, 29 Jan 2025 10:29:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34ACBC4CED3;
+	Wed, 29 Jan 2025 10:30:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738145629;
-	bh=h+J5mA+WmvhsE8mIU9p7eCMpAO/Myt/o9nAE8zizNZ4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OaQKGXuncS+9M95nztFSZNUpOV/3xkX1UIn8ndUKBemW5eEaO9TD1i0DV60imXHOv
-	 /RD5qK8IbnevUYj2u2/clYCmOF20OBp8XC57IjvKh6nCMqMIRlPBEaSSwKcMQV3ld4
-	 +yeEwdtCsJ/zWz3naxUTsCivcDuAFXJ6bcgg5Z2+aiXH/eguM2bl9tiwiQNuFpvPOl
-	 dO4kBbiljuDVaak1TvmjTwsZmALIu4yRpGMaWhFqK1o497PpG+O654aT3oRGduWm4v
-	 UGJyOScDxBfu/lW67/i8zfOOK3NUfqGIbrJVgo7bDGH7kSxgzmXTR7FFZ5GHDu8Fic
-	 oP6HHKeTWuaCQ==
-Date: Wed, 29 Jan 2025 11:13:42 +0100
-From: Niklas Cassel <cassel@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
-Subject: Re: [PATCH v9 0/7] PCI: dwc: opitimaze RC Host/EP pci_fixup_addr()
-Message-ID: <Z5n_VrN8HUmdVPUq@ryzen>
-References: <20250128-pci_fixup_addr-v9-0-3c4bb506f665@nxp.com>
+	s=k20201202; t=1738146611;
+	bh=2NvrnbVIW2q2FPyE2RVkZfe/DhJlaYOq9T27TiF1+50=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=h6hYu1V9YxqNlAw7viIn4ZKe6B991FoUaEwOw1hETHbzngJXOrENKLiePN2YO++MJ
+	 V4p+B0lnFEdpR2OTNwK3+5Ot4zq3HwEbx+JGxSHZQIXDWI8G+kGTfaLCtZ/feCc2GG
+	 OBpQDecPLn+HPbJsFoY56uhxb/SG+nmHMBQBUcp1SGd6y5QPw2jdoeeUyaVSCA76Hs
+	 +mKZ6/o2NYyo5BVMGdSoJ69k56514pPv5gwT8bFdkC1DqAY5fjn6nDoYbr4zOVjoRo
+	 S6qh2bZRZuAg28X08QqQDWDff+sS2PBZvSYnNsPvEaaofDk307UIT4NhScJNFBUqrF
+	 hU2+mAlkzxm+g==
+Message-ID: <36560385-ff90-4f7c-8e5c-2bfb014a4c7f@kernel.org>
+Date: Wed, 29 Jan 2025 11:30:03 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250128-pci_fixup_addr-v9-0-3c4bb506f665@nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 9/9] arm64: defconfig: Enable STM32 OctoSPI driver
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: patrice.chotard@foss.st.com, Mark Brown <broonie@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>
+Cc: linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ christophe.kerello@foss.st.com
+References: <20250128081731.2284457-1-patrice.chotard@foss.st.com>
+ <20250128081731.2284457-10-patrice.chotard@foss.st.com>
+ <df76be38-cf62-417a-85f4-a1a95af0db74@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <df76be38-cf62-417a-85f4-a1a95af0db74@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250129_021350_875495_080D152F 
-X-CRM114-Status: GOOD (  21.39  )
+X-CRM114-CacheID: sfid-20250129_023013_611139_7B1A72FA 
+X-CRM114-Status: UNSURE (   8.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,68 +129,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Frank,
-
-Typo in subject:
-s/opitimaze/optimize/
-
-
-On Tue, Jan 28, 2025 at 05:07:33PM -0500, Frank Li wrote:
-> 
-> Bjorn's comments in https://lore.kernel.org/imx/20250123190900.GA650360@bhelgaas/
-> 
-> > After all cpu_address_fixup() removed, we can remove use_parent_dt_ranges
-> > in one clean up patches.
-> >
-> >
->   ...
-> >  dw_pcie_rd_other_conf
-> >  dw_pcie_wr_other_conf
-> >    dw_pcie_prog_outbound_atu() only called if pp->cfg0_io_shared,
-> >    after an ECAM map via dw_pcie_other_conf_map_bus() and subsequent
-> >    successful access; atu.cpu_addr came from pp->io_base, set by
-> >    dw_pcie_host_init() from pci_pio_to_address(), which I'm pretty
-> >    sure returns a CPU address.
-> 
-> io_base is parent_bus_address
-> 
-> >    So this still looks wrong to me.  In addition, I think doing the
-> >    ATU setup in *_map() and restore in *rd/wr_other_conf() is ugly
-> >    and looks unreliable.
-> 
-> ....
-> 
-> >  dw_pcie_pme_turn_off
-> >    atu.cpu_addr came from pp.msg_res, set by
-> >    dw_pcie_host_request_msg_tlp_res() to a CPU address at the end of
-> >    the first MMIO bridge window.  This one also looks wrong to me.
-> 
-> Fixed at this version.
+On 29/01/2025 10:36, Krzysztof Kozlowski wrote:
+> On 28/01/2025 09:17, patrice.chotard@foss.st.com wrote:
+>> From: Patrice Chotard <patrice.chotard@foss.st.com>
+>>
+>> Enable the STM32 OctoSPI driver.
+>>
+> Please squash this patches. It's not one driver per one defconfig change.
 
 
-I feel like it would have been easier if you replied to Bjorn's comments
-directly in the thread instead of pasting them here (to a cover letter).
+s/this/these two/
 
+So only one defconfig patch.
 
-Please don't shoot the messenger, but I don't see any reply to (what I
-assume is the biggest reason why Bjorn did not merge this series):
-
-""
-.cpu_addr_fixup() is a generic problem that affects dwc (dra7xx, imx6,
-artpec6, intel-gw, visconti), cadence (cadence-plat), and now
-apparently microchip.
-
-I deferred these because I'm hoping we can come up with a more generic
-solution that's easier to apply across all these cases.  I don't
-really want to merge something that immediately needs to be reworked
-for other drivers.
-""
-
-It should probably state in the cover letter how v9 addresses Bjorn's
-concern when it comes to other PCI controller drivers, especially those
-that are not DWC based.
-
-
-Kind regards,
-Niklas
+Best regards,
+Krzysztof
 
