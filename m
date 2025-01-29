@@ -4,99 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E7B6C0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 19:16:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E9EC0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 20:14:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p9cVYaCEgnAXitcL12ziEbi8qnnUEvX6uA7m4++DLeU=; b=qPOMBXc9jeauqnnNJ0gtQzdFTL
-	0LXutIJ1K+2nFnTa0XujU+vq9admgbPz7i7a+uPdZNUtshy/LnyRFu0HXjqfMpOkDgwcgTG0vVXPY
-	8BYDd1QJnYnk+u7hxfaksK851HG1Llr7JqniwUGxhYsyxuhI9cs0dOILoAujKRQp+CgJ+Onlvw0RY
-	uYOMdk4Taq/zC64ZhPchnTr6lvGfJe89qSYbxLWcrXHhJgK/6XtZZtxgY7qWQy3QOTTbnalsBPJWP
-	demxVDiBE6K8FJHh7+TDMLGnZybhpcCakBD+53e3SObq/hqvL9N9D4gBzuRzroElRHBivI24cnSvA
-	V5/Q2+RQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DAaje1ff9XMHxfyt8koM3vxrI/9nY2e7FjT5f08Zctg=; b=fHQDewtvy9m9EiUMe6Asxw9g4w
+	4K8GIqV8epgY/biZbinj/ZyMW3tnD8yPXMxEpDRO01Y2cfF7OU6K1ySWn7/Op+NsAhF+1KDVYaW+A
+	ZiYuVbbUz+dsPc8UzpRZHzbeFHBu/brJtpne/qI1BQ6ADOvyZ15909rfCseviiQrBJhqjCCgw769g
+	mBH/eb4HeyXcbP3L3/ALzDa0BhR3pUoVKB+pTiVmNDYfS8eqH/Pm+GN2ajY89LArjr7EGUFGqhQne
+	dGXe0hnvaganIre8+7nzXxBL7BN4CCs8W8ycblLawTFWNV2lCifRYJk/Unuwse06+zEX7uOOjWyGL
+	qDaSPDMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdDXg-00000007fYj-0GST;
-	Wed, 29 Jan 2025 19:16:04 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1tdESL-00000007kHP-309C;
+	Wed, 29 Jan 2025 20:14:37 +0000
+Received: from mail-dm6nam11on20620.outbound.protection.outlook.com ([2a01:111:f403:2415::620] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdDWM-00000007fR3-0wm7
+	id 1tdEQz-00000007k7k-3HMy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jan 2025 19:14:43 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-540215984f0so7319916e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jan 2025 11:14:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1738178074; x=1738782874; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=p9cVYaCEgnAXitcL12ziEbi8qnnUEvX6uA7m4++DLeU=;
-        b=Vm7JRpr3LN1ZmBpYisOcSmvznMxFkW5Qze1INYkQAhFTIth2Xa7GgdC8fYasFzgdON
-         4Kor7sE7vJX1VtwwsPkUnveDfIBGjgoEu9xN80S+tjT9JuL5plQlDPx0MNGw6fW3d6x8
-         SFf5K3mD4bwclzwBgBJuL0sMsYJMZtvLoPLJ0=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738178074; x=1738782874;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=p9cVYaCEgnAXitcL12ziEbi8qnnUEvX6uA7m4++DLeU=;
-        b=nJnQU5Nv41YC68zEsmVEVS47pxWUejvX+1EtW33+lj8sTejmPLLJcWLJuTX8KfjXU/
-         tO28J7bcafMGioPOxRYdGG5MH+wHnGtC2p+DhsCOZ0soXJUhN7fDb8/sgoNZgceFyVqG
-         H0/Yy8Ou6TuTmqT1p7RxVBc4t3Vl+V5b6UHPVVZ/hII6UiMFlDY8qn/dfJMnUGh2ALWP
-         nuIkEenA8to08OaBaYluynckMLN0gN0CCzaH1+KlpDXMPm4q7CdPj2zmaAlWAXqJ7gsu
-         mNGGrLKEF7ee2JDHkmVUX791P77WRkWjUzYfMsFAYQXNbGj0Ihb6tMgmFD31K5Y+ymCC
-         Tujg==
-X-Forwarded-Encrypted: i=1; AJvYcCUw7DjlUpQaiQuOlLg5duDqxQvKVoK5c3zAIjC+O72QCenkj5QpP1xDYGsT0MDNT0vkS1+Zyt9cHg7nCpQw+J40@lists.infradead.org
-X-Gm-Message-State: AOJu0YyuZ1yYSq780JKarUjLl6Mz6C9GsDHqM0QUACGNav7fM39KsWGJ
-	vCUpJnbwm/gF9falOrrM8jvOBRZ+MfDsJi86nlCw8h8z5y9DUxr9lEVoWoK/sbzodBE/61H0t4t
-	yQg==
-X-Gm-Gg: ASbGncubviPDQUs/9znzIgek7AtHUC9CSintGUJRiVF6eIIi1ZeHSeK82hPcPnukuDy
-	IyWwoZ/KPE6k9mNQaW2mrbhXlcFUD1Y89n1PnrR6Z91eswqDTA2KrlgrLk2a3HNw8BdP4771bOX
-	9bICR8HmXQPJsm2FT8P3+n7LReguVN5/Ytak4zTc87Wa3xV69JkHGxGv10shr0GB9Ojn/NSHBzJ
-	kM76+8vNS+CzaWJamCAKk51AKpTuJha8WpjPWvUYDAjYjJTwD6Ytpd3wOe3VymYGoXnXy1uw0Co
-	/gnbpMW4wG8+/YDS4Oo6tISYeIgzslCPbIKba0W7LA5joX8GdAUudzw=
-X-Google-Smtp-Source: AGHT+IFUZIgyQriw788ru1975PkdaDZbhkEABOPk7jwtTfQVvQaCJfs+amCX+AMpb/MAbTlJ0kKYew==
-X-Received: by 2002:a05:6512:2344:b0:543:baa3:87ab with SMTP id 2adb3069b0e04-543e4c417cbmr1747273e87.47.1738178073392;
-        Wed, 29 Jan 2025 11:14:33 -0800 (PST)
-Received: from mail-lf1-f49.google.com (mail-lf1-f49.google.com. [209.85.167.49])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-543c838155bsm2031262e87.230.2025.01.29.11.14.32
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 29 Jan 2025 11:14:32 -0800 (PST)
-Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5401c52000fso6774664e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jan 2025 11:14:32 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXXUhaPM4RyOh3PelXNIN5Hz5+M/X7BhaxTQHRIFY+MqOv3cO8SZpcet3VAxKHJHdoZlOHYw90WUGqhSBIjYzdU@lists.infradead.org
-X-Received: by 2002:ac2:4c10:0:b0:543:baca:6f22 with SMTP id
- 2adb3069b0e04-543e4c3a1b8mr1212346e87.33.1738178071558; Wed, 29 Jan 2025
- 11:14:31 -0800 (PST)
+	Wed, 29 Jan 2025 20:13:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Ut3sX/NxCBWHRoCmjNHoKF4hy3WG/iNoPkO/4PoJoNIsfQ8JsWFEZeVb6fRONA824uuaaqftJ9L3TXXXXLvnToo6lH0RqAzYfzIzQifKkyN+iG+c+Z5/0ru3yrwZCWwffRXCV8ghPwywiqDRyCKRYIIdG4JV1LuogAfiRLyWsddjhB+xzy+WhEkaOsYtXZIb8z2I7q2LQx6N751q4Bw+9da0Nt4nT3DYIA27igMFtHIcZAkz/EQJpdp92hIF+Cjdh6DjP7RdBYUw6QQSEkdQ1XqVOnfpbK8/xI3LgLCxoX/TEjr5lE0sPW4LyaYQZmeTG483dcm8BecGgA5/MMvYHw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DAaje1ff9XMHxfyt8koM3vxrI/9nY2e7FjT5f08Zctg=;
+ b=fQdGxoQ6YJu2esUQvNnIR2a6dX3nm71SWKKwUuac/CZlNHgCX2NJwb7vLg/5V89wufsTpEDSeYBVihgAs4se+RvuLrQRRF24vdnvbDa1OE+zDWAb6UGfwCsagJ8+1x/2hFit3n8atIShILhEU3Uvysosiz+2HSyGufw6pAhhTvqeGuleQbA4XjkpRINUaO43dYkCS29rnkCbJSecjQ7OuyQ6KEcsrYPgFSzRpU1sAIwHWxt7VlDQWzcrn8/QKo5KHFgkT4jr/H716A71pDMdN+o5QMshaqTVtcCGRIJA+j91Zhizv6D/QvlCR7zzX/qjgUpVRztOrqet83ZKyms2Xw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DAaje1ff9XMHxfyt8koM3vxrI/9nY2e7FjT5f08Zctg=;
+ b=V+cAJWcCwuepZwtOmNCL5STNkXAqDHM3rQmiJcp3mE8+HQMSKhIHkZ0ZNqooy7AJbpdw5O/+5cRGs2RDw+BpW2xLprE6PAhUrQG0inG54HOsFUdB21hIeIc8AdeaBjblaBEJuJhEa5jibwlnVOJeb2H4be860oFOsGzd2diE6IlTHq2a8lKTkgaBLV3BlcmmIjIag2sQ/VE7JapLelOl91LoY1vL5Tj9RbvYrwI8S8F6lZ3IE+Z881QOIjI8gM+1Kh51Mac9Wlo2eO4P81z8Z0JAENi29978ExUz2x35W6q85l2vW6/no6kuxvYLe20+lq+ohU5w9gBsvKFUJsIKZw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by MN0PR12MB5810.namprd12.prod.outlook.com (2603:10b6:208:376::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.18; Wed, 29 Jan
+ 2025 20:13:08 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%5]) with mapi id 15.20.8377.021; Wed, 29 Jan 2025
+ 20:13:08 +0000
+Date: Wed, 29 Jan 2025 16:13:07 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Eric Auger <eric.auger@redhat.com>
+Cc: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"robin.murphy@arm.com" <robin.murphy@arm.com>,
+	"kevin.tian@intel.com" <kevin.tian@intel.com>,
+	"tglx@linutronix.de" <tglx@linutronix.de>,
+	"maz@kernel.org" <maz@kernel.org>,
+	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
+	"joro@8bytes.org" <joro@8bytes.org>,
+	"shuah@kernel.org" <shuah@kernel.org>,
+	"reinette.chatre@intel.com" <reinette.chatre@intel.com>,
+	"yebin (H)" <yebin10@huawei.com>,
+	"apatel@ventanamicro.com" <apatel@ventanamicro.com>,
+	"shivamurthy.shastri@linutronix.de" <shivamurthy.shastri@linutronix.de>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"anna-maria@linutronix.de" <anna-maria@linutronix.de>,
+	"yury.norov@gmail.com" <yury.norov@gmail.com>,
+	"nipun.gupta@amd.com" <nipun.gupta@amd.com>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
+	"patches@lists.linux.dev" <patches@lists.linux.dev>,
+	"jean-philippe@linaro.org" <jean-philippe@linaro.org>,
+	"mdf@kernel.org" <mdf@kernel.org>,
+	"mshavit@google.com" <mshavit@google.com>,
+	"smostafa@google.com" <smostafa@google.com>,
+	"ddutile@redhat.com" <ddutile@redhat.com>
+Subject: Re: [PATCH RFCv2 00/13] iommu: Add MSI mapping support with nested
+ SMMU
+Message-ID: <20250129201307.GJ5556@nvidia.com>
+References: <cover.1736550979.git.nicolinc@nvidia.com>
+ <4946ea266bdc4b1e8796dee1b228bd8f@huawei.com>
+ <20250123132432.GJ5556@nvidia.com>
+ <de6b9dc1-dedd-4a3d-9db7-cb4b8e281697@redhat.com>
+ <20250129150454.GH5556@nvidia.com>
+ <8e4c21b5-3b79-4f0b-b920-59b825c2fb81@redhat.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <8e4c21b5-3b79-4f0b-b920-59b825c2fb81@redhat.com>
+X-ClientProxiedBy: BN9P221CA0018.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:408:10a::35) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-References: <20250107200715.422172-1-dianders@chromium.org>
- <20250107120555.v4.2.I2040fa004dafe196243f67ebcc647cbedbb516e6@changeid> <e6820d63-a8da-4ebb-b078-741ab3fcd262@arm.com>
-In-Reply-To: <e6820d63-a8da-4ebb-b078-741ab3fcd262@arm.com>
-From: Doug Anderson <dianders@chromium.org>
-Date: Wed, 29 Jan 2025 11:14:20 -0800
-X-Gmail-Original-Message-ID: <CAD=FV=WTe-yULo9iVUX-4o8cskPNp8dK-N9pKq6MxqrPX3UMGw@mail.gmail.com>
-X-Gm-Features: AWEUYZn5hR5EGwLlUS7JXsgHfNwD6Le_AQBkJPOKlult6Zu_h1QVTzgrlfd7LL8
-Message-ID: <CAD=FV=WTe-yULo9iVUX-4o8cskPNp8dK-N9pKq6MxqrPX3UMGw@mail.gmail.com>
-Subject: Re: [PATCH v4 2/5] arm64: errata: Assume that unknown CPUs _are_
- vulnerable to Spectre BHB
-To: James Morse <james.morse@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Roxana Bradescu <roxabee@google.com>, 
-	Julius Werner <jwerner@chromium.org>, bjorn.andersson@oss.qualcomm.com, 
-	Trilok Soni <quic_tsoni@quicinc.com>, linux-arm-msm@vger.kernel.org, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, linux-arm-kernel@lists.infradead.org, 
-	Jeffrey Hugo <quic_jhugo@quicinc.com>, Scott Bauer <sbauer@quicinc.com>, stable@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|MN0PR12MB5810:EE_
+X-MS-Office365-Filtering-Correlation-Id: 24efa32d-f35e-449d-4eda-08dd40a158f4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|7416014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?jlkvzVDu5CSWWQrwBHrrmivgQdVxaQvLExhPNLRICRVMy1r7Jflo+w8tvNrQ?=
+ =?us-ascii?Q?pulIZ5KirBxUvk3xyyBdHrwouKo5kVNnOACY+8+WgslskCxpNep06LmL+1SP?=
+ =?us-ascii?Q?0e59exXv2L1Al6QZ+LeG7iETekcyjZHxn4JVfwANzhuxzwolOa+ygRHDcLRg?=
+ =?us-ascii?Q?x3lfNyXE+jUaHy/Pf4WILtPmFZybClmKB9KaRT7zwWNFBLPrTdPlGWwWk6oz?=
+ =?us-ascii?Q?0ew74IKs3y8HHNrvi0qHxmoo+WDaCAwcq6GJ8iepuaN3pj86pV/dVrPibb/7?=
+ =?us-ascii?Q?rIHFA6ZF9hG4B2RPJpUyY+ocvjckOX3T6/ashlW44wXSHaMYQXit3KkdwQgc?=
+ =?us-ascii?Q?/TA1VzjZTA7IgM2mbj0AgcugIR7KuclFpRjHKBez7xs4bPchKmtQUSS2V6YD?=
+ =?us-ascii?Q?LEsgcXJ8A1gsckE6FcAbzPndK0RdJHwddAyRnaATjavYwrTFixTCIXitfJ+9?=
+ =?us-ascii?Q?Mneu76x/COJKTuZT8MXkFd74V7gtmqHaZ08LxwkGM0qFiva/yE9ECw6DBi6+?=
+ =?us-ascii?Q?OYQ8fOD6BaA25ZL9YFU/z+r8Xc6dRY7cT51DLs9d4TyMC0g8e8gJXJRfiYS5?=
+ =?us-ascii?Q?iQK69jUwXpRjsvmla2VDPq1g9Tpi3rq0lqyZyGaSwjsGu617PhUIlemmLK1N?=
+ =?us-ascii?Q?NHzyoLwB9bY1zpl1j4UbIQaPkNiosLRj4F/SawVHuux54DBSrsNbBzu9cSHo?=
+ =?us-ascii?Q?J1oEAM45YHfq0MF/YPvf2gqPgV+SqfNFgIEciIbGvnZnpeILdvE+V8o6BXXF?=
+ =?us-ascii?Q?gd7LUxc/3GA7//ZKZyxsejytIIpP+awB1zcanXUzZMjTXStA1ILQ+MVJJMqQ?=
+ =?us-ascii?Q?qnaPZpwttsU8KiBB26/GLZ62fMkQ38GJJnGGgiLWmV5YrQDcp3z0RWTyvAjj?=
+ =?us-ascii?Q?h0q/sqyi6Sb2oYJDccZPqYlQkUsWeFQjEg8tc6+Z2sbfwHN3Jk2u/VSUsfdO?=
+ =?us-ascii?Q?2XGuDoQ22x22bjJ7YWdCYjTuboAXOzmnnenxjHuVlH/pdORcxMUVED1Nxs00?=
+ =?us-ascii?Q?/ttGbnBsXB3GNDy8JvznL7aPV6zd9+DkW4CaTOzfK4gdo3NcVk7BQgmAnnAF?=
+ =?us-ascii?Q?X/SDTeeMg6RcI8l7+IS4kOP/YbdqOvR2Q2EypYR32Av+emTPSXkwbk20qlLY?=
+ =?us-ascii?Q?MvHMIGS3LVU7YfiggacUEQijA12e1qaa7wb4wwS9oShr2kViS6lrn7EpOB5H?=
+ =?us-ascii?Q?Af0/f68wFMhzJFyUh7JXtmraukcRdb2kQAjkcCxnaQeT/ywH4OF3rR/zy+BB?=
+ =?us-ascii?Q?msYm8hjITjzzKKlyRK9aKNam3gwTf5IFiEIsUjCQq90YOeAvmnRxk+9tilDi?=
+ =?us-ascii?Q?C3Nu7G6vPMbpWKWFEpby4X58UaTpZr00ICCbsjGRVnbOOjbUK/WJ+Sj1G+h3?=
+ =?us-ascii?Q?RHrGxun5Bx1DhSs1bH/MaECvtqY5?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7416014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8hsKHB1CNRTZgTqQkZ/Cs9mfG0xC1OZhAFZEzUcquwrg/BrjYX6aY/UTcO6q?=
+ =?us-ascii?Q?qGID2km380SEpT7Z6cds2+n6cWEq2svXElp7868on85li9KOHlz6hy9vFT0d?=
+ =?us-ascii?Q?oAWphSUHuFFrraNFCrzYnROJeTog4WdjU5SZCCBpEVlwUuaSVnnz3niAzr+E?=
+ =?us-ascii?Q?ofxOQIvgS+gfxamiUu9baVnlhhQIDdLaxdCMBdt1G6dXw/O4roPDcDvNoetN?=
+ =?us-ascii?Q?/2xb/AhjqlDNbXM0/W60UvhAdAKTfeImtjgK9+updoBSSJ1+LgUOIB78hzwt?=
+ =?us-ascii?Q?33zu8ugV8VAL1c64udj5lSlosFNgSUiK5VkR/Ilc+JI7Xzf5UIpF9ALK30FH?=
+ =?us-ascii?Q?zi2vYeQTSCdg9rOCI4GRckfrRvzEWZPIsFonVME9AZNcGylKBztK0SdQ1Kgm?=
+ =?us-ascii?Q?+1WhLPVjxUvwhD0xB+4dM6vfsaaYWDEK18kBBnawElH6QkQhH+uhSumfU6by?=
+ =?us-ascii?Q?uqpyyZzc2a5bEkOolvgSIPBIKyuJMKP+GDX2NGOf4ZUyD/vcUVe26ACMGvHo?=
+ =?us-ascii?Q?rws+Qej/nlf25a89q/MiNJLxH6Hemslqxc2kL6Sm4aZzQzldgnihZCdJ1MVM?=
+ =?us-ascii?Q?Kq+jMpXMzl1e+E/SD2o9I5virJIpEEqkU658xfeBVLdXr1btmeO+Sxhv/QWX?=
+ =?us-ascii?Q?EXNOJfrUHuNjysGrqOsFo0+MOCSWk7X4nC0DCCCJUc3asJSI9+Ho8Dyk3ym8?=
+ =?us-ascii?Q?v/2kiW24WUGRG5YmNZRDiUKbWLZ6ISg+UPRHGT2G7stII7NIJmBlAOVUXQ6N?=
+ =?us-ascii?Q?JP1lFF4NnnNzJpS+BTtpWpy5KAvFHYJXBb6Cw7VpARvAkEL5cGRsaGGL5rFT?=
+ =?us-ascii?Q?tDD/VJMrF0BsFX/7b3k3pBVagDFIrL4TeSFsxbpXhqlEhZiuWCMbb8JiJkOl?=
+ =?us-ascii?Q?7yCgdkvQb8ob33BhsUHYMpo26dQq0jnnS6RepGyNOxujyQh2rLg7MEvM9Uoc?=
+ =?us-ascii?Q?x6rWUk6BNYhHqi/kq83Srb79Xpgy/7aW35z2bRVhjIxMhZUQh1d42rrPNd4C?=
+ =?us-ascii?Q?YpNa/4e3HmX18LqWCg3tjFEXm2svvMw9XzFj8c0ZVSqGLsbzIqTUj4yXc2t0?=
+ =?us-ascii?Q?niNtj3xg9/7eH2fHtJH4s/Riops3RQ9zxMrLpvSUW3Q6BXOYOzZScg8cIyPr?=
+ =?us-ascii?Q?vBhvkfCaEhIAPRfcVlFHkaMf3xE+N9RujXH3D6ozr1MnGmnC6bxrAtg5KK9A?=
+ =?us-ascii?Q?krvkMCL3FOArd24koiBBYDaUkhyA8HWJzR/owIs/KT6cjEDDCgWwBajacK/t?=
+ =?us-ascii?Q?RhvN6YLPGoxdxMP06VZqv3zhwAOnO8HULRmQZ9Fk6sYHRSV5z0AIrIxa7ekr?=
+ =?us-ascii?Q?jpAR4S/NuSHuA6yqaHMsVuJwZUyZnsoM27s3K2pXlo1exW34CkPhpuTe+Dvv?=
+ =?us-ascii?Q?EpQ0w6f9+w1Kr/O+CLDaeS5G/YCXYn9aIGfMPtbI1PJX80WJNzYZCxgHJ/gv?=
+ =?us-ascii?Q?MGWKYy5zc7DHbNjIAy12vRXO0ymT4kjEZyK/zwBDXeDARB2KlpbTpRHfD1j8?=
+ =?us-ascii?Q?uedwMUT91txcEp/iW/2yHxtR+3chcsVawPduepaZwUkgDSHqgk82bbGfNk5z?=
+ =?us-ascii?Q?XcyxuDd3XTrxUO2rQCU=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 24efa32d-f35e-449d-4eda-08dd40a158f4
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jan 2025 20:13:08.4271
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tKjjF26kQwhaAuUS7sFDKxFfKSkyMXYiBSidd5QqYdrViscfa2192z0K8VnbbWfE
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB5810
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250129_111442_305706_09FE83EF 
-X-CRM114-Status: GOOD (  61.47  )
+X-CRM114-CacheID: sfid-20250129_121313_824713_0FA01983 
+X-CRM114-Status: GOOD (  20.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,340 +188,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-
-On Wed, Jan 29, 2025 at 8:43=E2=80=AFAM James Morse <james.morse@arm.com> w=
-rote:
->
-> Hi Doug,
->
-> On 07/01/2025 20:05, Douglas Anderson wrote:
-> > The code for detecting CPUs that are vulnerable to Spectre BHB was
-> > based on a hardcoded list of CPU IDs that were known to be affected.
-> > Unfortunately, the list mostly only contained the IDs of standard ARM
-> > cores. The IDs for many cores that are minor variants of the standard
-> > ARM cores (like many Qualcomm Kyro CPUs) weren't listed. This led the
-> > code to assume that those variants were not affected.
+On Wed, Jan 29, 2025 at 06:46:20PM +0100, Eric Auger wrote:
+> >>> This missing peice is cleaning up the ITS mapping to allow for
+> >>> multiple ITS pages. I've imagined that kvm would someone give iommufd
+> >>> a FD that holds the specific ITS pages instead of the
+> >>> IOMMU_OPTION_SW_MSI_START/SIZE flow.
+> >> That's what I don't get: at the moment you only pass the gIOVA. With
+> >> technique 2, how can you build the nested mapping, ie.
+> >>
+> >>          S1           S2
+> >> gIOVA    ->    gDB    ->    hDB
+> >>
+> >> without passing the full gIOVA/gDB S1 mapping to the host?
+> > The nested S2 mapping is already setup before the VM boots:
 > >
-> > Flip the code on its head and instead assume that a core is vulnerable
-> > if it doesn't have CSV2_3 but is unrecognized as being safe. This
-> > involves creating a "Spectre BHB safe" list.
-> >
-> > As of right now, the only CPU IDs added to the "Spectre BHB safe" list
-> > are ARM Cortex A35, A53, A55, A510, and A520. This list was created by
-> > looking for cores that weren't listed in ARM's list [1] as per review
-> > feedback on v2 of this patch [2]. Additionally Brahma A53 is added as
-> > per mailing list feedback [3].
-> >
-> > NOTE: this patch will not actually _mitigate_ anyone, it will simply
-> > cause them to report themselves as vulnerable. If any cores in the
-> > system are reported as vulnerable but not mitigated then the whole
-> > system will be reported as vulnerable though the system will attempt
-> > to mitigate with the information it has about the known cores.
->
-> > arch/arm64/include/asm/spectre.h |   1 -
-> > arch/arm64/kernel/proton-pack.c  | 203 ++++++++++++++++---------------
-> > 2 files changed, 102 insertions(+), 102 deletions(-)
->
-> This is a pretty hefty diff-stat for adding a list of six CPUs. It looks =
-like there are
-> multiple things going on here: I think you're adding the 'safe' list of C=
-PUs, then
-> removing the list of firmware-mitigated list, then removing some indentat=
-ion to do the
-> mitigation detection differently. Any chance this can be split up?
+> >  - The VMM puts the ITS page (hDB) into the S2 at a fixed address (gDB)
+> Ah OK. Your gDB has nothing to do with the actual S1 guest gDB,
+> right?
 
-I have to get back into the headspace of this patch since it's been a
-few weeks, but let's see.
+I'm not totally sure what you mean by gDB? The above diagram suggests
+it is the ITS page address in the S2? Ie the guest physical address of
+the ITS.
 
-At the end, you suggest that maybe we could simplify this patch by
-just adding the function is_spectre_bhb_safe(), calling it at the
-beginning of is_spectre_bhb_affected(), and then changing
-is_spectre_bhb_affected() to return "true" at the end instead of
-false. Looking back at the patch, I believe this is correct.
+Within the VM, when it goes to call iommu_dma_prepare_msi(), it will
+provide the gDB adress as the phys_addr_t msi_addr.
 
-...that being said, all of the other changes that are part of this
-patch came in response to review feedback on earlier versions of the
-patch and do make sense. Specifically:
+This happens because the GIC driver will have been informed of the ITS
+page at the gDB address, and it will use
+iommu_dma_prepare_msi(). Exactly the same as bare metal.
 
-1. Once the default value is to return false, there's not a reason to
-call supports_clearbhb() and is_spectre_bhb_fw_affected() in
-is_spectre_bhb_affected(), right? Those two functions _only_ job was
-to be able to cause is_spectre_bhb_affected() to sometimes return
-"true" instead of "false", but the function returns true by default
-now so the calls have no purpose.
+> It is computed in iommufd_sw_msi_get_map() from the sw_msi_start pool.
+> Is that correct?
 
-2. After we do #1, it doesn't really make sense to still have the
-snippet of code that looks like this:
+Yes, for a single ITS page it will reliably be put at sw_msi_start.
+Since the VMM can provide sw_msi_start through the OPTION, the VMM can
+place the ITS page where it wants and then program the ACPI to tell
+the VM to call iommu_dma_prepare_msi(). (don't use this flow, it
+doesn't work for multi ITS, for testing only)
 
-  if (spectre_bhb_loop_affected(scope))
-    return true;
+> https://lore.kernel.org/all/20210411111228.14386-9-eric.auger@redhat.com/
+> I was passing both the gIOVA and the "true" gDB Eric
 
-  return true;
+If I understand this right, it still had the hypervisor dynamically
+setting up the S2, here it is pre-set and static?
 
-We could just change that to:
-
-  spectre_bhb_loop_affected(scope)
-  return true;
-
-...but then it seems really strange to call a function that returns a
-value and we're ignoring it. As per review feedback on the previous
-versions, I moved the calculation of "max_bhb_k" out of
-spectre_bhb_loop_affected() and made that just for local scope and it
-turned out much cleaner.
-
-3. Given that we no longer have a reason to call
-is_spectre_bhb_fw_affected() in is_spectre_bhb_affected(), it also
-made sense to get rid of the "scope" variable for that function and
-simplify it and the other caller.
-
-...so I could break some of that stuff up into separate patches, but I
-don't think we'd just want to drop any of the changes.
-
-
-> (I'm not sure about the last chunk - it breaks automatic backporting)
-
-Why would it break things? This entire series should just be
-backported including the change of the default value to "affected". If
-someone is running an old "stable" kernel and they're missing a
-mitigation this would make it more obvious to them. Without
-backporting everything then people running old kernels but lacking a
-needed FW mitigation would show as "unaffected" when really they are
-"vulnerable".
-
-
-> > diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton=
--pack.c
-> > index e149efadff20..17aa836fe46d 100644
-> > --- a/arch/arm64/kernel/proton-pack.c
-> > +++ b/arch/arm64/kernel/proton-pack.c
->
->
-> > +static u8 spectre_bhb_loop_affected(void)
-> >  {
-> >       u8 k =3D 0;
-> > -     static u8 max_bhb_k;
-> > -
-> > -     if (scope =3D=3D SCOPE_LOCAL_CPU) {
-> > -             static const struct midr_range spectre_bhb_k32_list[] =3D=
- {
-> > -                     MIDR_ALL_VERSIONS(MIDR_CORTEX_A78),
-> > -                     MIDR_ALL_VERSIONS(MIDR_CORTEX_A78AE),
-> > -                     MIDR_ALL_VERSIONS(MIDR_CORTEX_A78C),
-> > -                     MIDR_ALL_VERSIONS(MIDR_CORTEX_X1),
-> > -                     MIDR_ALL_VERSIONS(MIDR_CORTEX_A710),
-> > -                     MIDR_ALL_VERSIONS(MIDR_CORTEX_X2),
-> > -                     MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N2),
-> > -                     MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V1),
-> > -                     {},
-> > -             };
-> > -             static const struct midr_range spectre_bhb_k24_list[] =3D=
- {
-> > -                     MIDR_ALL_VERSIONS(MIDR_CORTEX_A76),
-> > -                     MIDR_ALL_VERSIONS(MIDR_CORTEX_A77),
-> > -                     MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N1),
-> > -                     MIDR_ALL_VERSIONS(MIDR_QCOM_KRYO_4XX_GOLD),
-> > -                     {},
-> > -             };
-> > -             static const struct midr_range spectre_bhb_k11_list[] =3D=
- {
-> > -                     MIDR_ALL_VERSIONS(MIDR_AMPERE1),
-> > -                     {},
-> > -             };
-> > -             static const struct midr_range spectre_bhb_k8_list[] =3D =
-{
-> > -                     MIDR_ALL_VERSIONS(MIDR_CORTEX_A72),
-> > -                     MIDR_ALL_VERSIONS(MIDR_CORTEX_A57),
-> > -                     {},
-> > -             };
-> > -
-> > -             if (is_midr_in_range_list(read_cpuid_id(), spectre_bhb_k3=
-2_list))
-> > -                     k =3D 32;
-> > -             else if (is_midr_in_range_list(read_cpuid_id(), spectre_b=
-hb_k24_list))
-> > -                     k =3D 24;
-> > -             else if (is_midr_in_range_list(read_cpuid_id(), spectre_b=
-hb_k11_list))
-> > -                     k =3D 11;
-> > -             else if (is_midr_in_range_list(read_cpuid_id(), spectre_b=
-hb_k8_list))
-> > -                     k =3D  8;
-> > -
-> > -             max_bhb_k =3D max(max_bhb_k, k);
-> > -     } else {
-> > -             k =3D max_bhb_k;
-> > -     }
-> > +
-> > +     static const struct midr_range spectre_bhb_k32_list[] =3D {
-> > +             MIDR_ALL_VERSIONS(MIDR_CORTEX_A78),
-> > +             MIDR_ALL_VERSIONS(MIDR_CORTEX_A78AE),
-> > +             MIDR_ALL_VERSIONS(MIDR_CORTEX_A78C),
-> > +             MIDR_ALL_VERSIONS(MIDR_CORTEX_X1),
-> > +             MIDR_ALL_VERSIONS(MIDR_CORTEX_A710),
-> > +             MIDR_ALL_VERSIONS(MIDR_CORTEX_X2),
-> > +             MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N2),
-> > +             MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V1),
-> > +             {},
-> > +     };
-> > +     static const struct midr_range spectre_bhb_k24_list[] =3D {
-> > +             MIDR_ALL_VERSIONS(MIDR_CORTEX_A76),
-> > +             MIDR_ALL_VERSIONS(MIDR_CORTEX_A77),
-> > +             MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N1),
-> > +             MIDR_ALL_VERSIONS(MIDR_QCOM_KRYO_4XX_GOLD),
-> > +             {},
-> > +     };
-> > +     static const struct midr_range spectre_bhb_k11_list[] =3D {
-> > +             MIDR_ALL_VERSIONS(MIDR_AMPERE1),
-> > +             {},
-> > +     };
-> > +     static const struct midr_range spectre_bhb_k8_list[] =3D {
-> > +             MIDR_ALL_VERSIONS(MIDR_CORTEX_A72),
-> > +             MIDR_ALL_VERSIONS(MIDR_CORTEX_A57),
-> > +             {},
-> > +     };
-> > +
-> > +     if (is_midr_in_range_list(read_cpuid_id(), spectre_bhb_k32_list))
-> > +             k =3D 32;
-> > +     else if (is_midr_in_range_list(read_cpuid_id(), spectre_bhb_k24_l=
-ist))
-> > +             k =3D 24;
-> > +     else if (is_midr_in_range_list(read_cpuid_id(), spectre_bhb_k11_l=
-ist))
-> > +             k =3D 11;
-> > +     else if (is_midr_in_range_list(read_cpuid_id(), spectre_bhb_k8_li=
-st))
-> > +             k =3D  8;
-> >
-> >       return k;
-> >  }
->
-> This previous hunk reduces the indent to remove the static variable from =
-inside the
-> function. Your patch-1 can be picked up automatically by stable branches,=
- but after this
-> change, that will have to be done by hand.
-
-As per above, I think the whole series should simply be backported so
-this shouldn't be an issue.
-
-
-> Arm have recently updated that table of CPUs
-> with extra entries (thanks for picking those up!) - but now that patch ca=
-n't be easily
-> applied to older kernels.
-> I suspect making the reporting assuming-vulnerable may make other CPUs co=
-me out of the
-> wood work too...
->
-> Could we avoid changing this unless we really need to?
-
-Will / Catalin: Do either of you have an opinion here?
-
-
-> As background, the idea is that CPUs that are newer than the kernel will =
-discover the need
-> for mitigation from firmware. That sucks for performance, but it can be i=
-mproved once the
-> kernel is updated to know about the 'local' workaround.
->
->
-> > @@ -955,6 +956,8 @@ static bool supports_ecbhb(int scope)
-> >                                                   ID_AA64MMFR1_EL1_ECBH=
-B_SHIFT);
-> >  }
-> >
-> > +static u8 max_bhb_k;
-> > +
-> >  bool is_spectre_bhb_affected(const struct arm64_cpu_capabilities *entr=
-y,
-> >                            int scope)
-> >  {
-> > @@ -963,16 +966,18 @@ bool is_spectre_bhb_affected(const struct arm64_c=
-pu_capabilities *entry,
-> >       if (supports_csv2p3(scope))
-> >               return false;
-> >
-> > -     if (supports_clearbhb(scope))
-> > -             return true;
-> > -
-> > -     if (spectre_bhb_loop_affected(scope))
-> > -             return true;
-> > +     if (is_spectre_bhb_safe(scope))
-> > +             return false;
-> >
-> > -     if (is_spectre_bhb_fw_affected(scope))
-> > -             return true;
-> > +     /*
-> > +      * At this point the core isn't known to be "safe" so we're going=
- to
-> > +      * assume it's vulnerable. We still need to update `max_bhb_k` th=
-ough,
-> > +      * but only if we aren't mitigating with clearbhb though.
->
-> +       or firmware.
-
-No, I believe my comment is correct as-is. The code in
-spectre_bhb_enable_mitigation() prior to my change prefers a loop
-mitigation over a firmware mitigation. My patch doesn't change that
-behavior. So we'll always update `max_bhb_k` even if there is a FW
-mitigation that might be in place. Updating it by comparing it to a
-value that might be 0 is still an "update" in my mind.
-
-If a FW mitigation _is_ needed for a given core then
-spectre_bhb_loop_affected() should return a "k" of 0. That will fall
-through to the FW mitigation.
-
-...so in the context of this code here, we always will "update"
-`max_bhb_k` regardless of whether there is a firmware mitigation.
-
-
-> > +      */
-> > +     if (scope =3D=3D SCOPE_LOCAL_CPU && !supports_clearbhb(SCOPE_LOCA=
-L_CPU))
-> > +             max_bhb_k =3D max(max_bhb_k, spectre_bhb_loop_affected())=
-;
->
-> CPUs that need a firmware mitigation will get in here too. Its probably h=
-armless as
-> they'll report '0' as their k value... but you went to the trouble to wee=
-d out the CPUs
-> that support the clearbhb instruction ...
-
-In order to understand why the patch does what it does, I got all my
-understanding of how mitigations should be applied by maintaining the
-existing behavior of spectre_bhb_enable_mitigation(). Specifically, if
-a FW mitigation is _needed_ for a given core then it's important that
-spectre_bhb_loop_affected() return 0. This means that whoever wrote
-that code assumes that the loop mitigation trumps the FW mitigation.
-
-I don't think there's any other reason for weeding more CPUs out.
-
-
-> For the change described in the commit message, isn't it enough to replac=
-e the final
-> 'return false' with 'return !is_spectre_bhb_safe(scope)' ?
-
-See my response to your first comment.
-
-
-So I guess in summary I won't plan on sending a v5 at this time and
-I'd hope that v4 can still land (maybe Qualcomm can give an Ack?). If
-necessary I could break this patch into more than one to break the
-diffstat into multiple patches, but I'd prefer to still keep the
-resulting code the same. I like how it turned out and it matches all
-the existing review feedback that Julius provided. If Will or Catalin
-wants to come in or enough other people come in and vote that I should
-make more changes, then I could do it.
-
-I could move the last two patches up to the front and send a v5 if
-needed. That would make the short term job of backporting those
-faster, but any future cores would have the same problem. As per
-above, I'm of the opinion that the whole series should go to stable
-for as far back as people are willing to take them (which is why I
-CCed stable on all the patches)
-
-
--Doug
+Jason
 
