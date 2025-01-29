@@ -4,109 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7B14C02190
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 12:36:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 631C2C0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 12:42:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qSGkWu65yEoaHuxGUcpxziv7ZMF+40MXFV91JBqaG/E=; b=t1Zd1lCqJEfO1ifZYdznKXmgrB
-	8+PariJgMijPpzHjh70SKGibBa1JoZH+usl+mSS0wSwaLoDoFgct/BciwQ1+FIGHZSNMPz3DNq8y5
-	b6/bqezmCSnCbqcPYlBI/keLIxzW/tRj3qIPCBeR4AILR7a2idIcg1H+iMLTCR5ddt3Laopu10iku
-	WFW7kzu/uADEzzvmVcsc3M7GB+z6qX0KTtmsS569HpHJPQdA9xcKds7IYLP3/aAi8S1qxA3pEQbat
-	K/J9Rkn0nNLrG00D5YOGy/yVIxFpUMYHYOL6iVA6wiieLIMMfWvVDW9iMGFywnZS4YntT+mTA2+lu
-	S2Y1a1Hg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=o1IHY9dSHJw552myqEIIBi0r2yle1SPObfgdh6fdw+s=; b=e3P5XuWcUvqiJq
+	7/BePmLw+WVDIHEtK3pSszY6pPppfOUK7/U0yqtRRkHoSEnD1+BOV6tZk5xZjq0YFyFfUFCN2sOR+
+	eSRmiMZhJIyLEb208wlCJ/5KPca/JW3+SHwVMGwz6YN2KG6OkAxM0/1RkdaK2Uvqpg7eRxtW5srOg
+	kny6yjDrSrRtXzwstOHbwjhqVru5R56PV25P5Dz5bE00efZlkBXVbq6l3eegGHjutT/fIZ8Y8+tsD
+	eeQha+zL++4lp0BbxGOyccNN15GbqdZEYyh2KdNKf2fXW1pilUdKD69ZLDS7SntRWqDLZjNbZZi1s
+	6IQ3rcluN0DEJjchdARw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1td7IS-00000006wW2-3Sqk;
-	Wed, 29 Jan 2025 12:35:56 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1td7Oi-00000006wvQ-3ibQ;
+	Wed, 29 Jan 2025 12:42:24 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1td7H9-00000006wTp-1OSb
+	id 1td7NO-00000006wqD-05yM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jan 2025 12:34:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 97C1D5C5896;
-	Wed, 29 Jan 2025 12:33:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D4A4C4CED3;
-	Wed, 29 Jan 2025 12:34:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738154074;
-	bh=/xCPOxS9MHed4/6koZ+OlF34MW+zuUIEreZew4rYwzI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kF0lSQlbNkE71DP4ddlRlCkt+bRPjgErAEy6Idr8ApcO6ssMHfZnofRnQ10PxqJfN
-	 pxesURtVOVWPRE28EMphRzRZgSqB+gu8Le9BvcGeoApg6PnFNU/E0v7sOhGB+ZEn4e
-	 Mx4CCgnBhi60+H0N3Hmn2sRCqV/RmvhdhfFxb6upuQobrH5996YhrxGBGUOWmDS2I6
-	 sCnob4CJZwq4lHgmuO+YGgaTrKcNNXqHafT8jorlIodGqiyZ7PZTW3NMuunKOyrTCZ
-	 K3W0BJewMjwrPyMK6gOqgN2ZbMzwbZWd9CdS1HjYT+o5amYHE/Oz/4tJl0TY3dKFmZ
-	 BgChaTEK+KTrQ==
-Message-ID: <7bef8677-b002-46bc-822a-16fc975d41b1@kernel.org>
-Date: Wed, 29 Jan 2025 13:34:28 +0100
+	Wed, 29 Jan 2025 12:41:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1738154460;
+	h=from:from:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=o1IHY9dSHJw552myqEIIBi0r2yle1SPObfgdh6fdw+s=;
+	b=Otj0gGdD7+bo/6VxA4/56moPK6NIZ6hvZfULWYOo0UogzIRamLJQhbnE9MOBb7HFFVQ0Xk
+	w7qQv192b1wivxaXpJwKIVpJEQTyJ2uU9Gf0u/cRYddhJdowSgYxLsCB+26pqruXh9b2qi
+	Nk+aj5nhi4YDT7RQd7NcsEOjXynCtx4=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-471-HKIJqmQmMju6c3VX7uNTHQ-1; Wed, 29 Jan 2025 07:40:59 -0500
+X-MC-Unique: HKIJqmQmMju6c3VX7uNTHQ-1
+X-Mimecast-MFC-AGG-ID: HKIJqmQmMju6c3VX7uNTHQ
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-385d52591d6so310133f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jan 2025 04:40:59 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738154458; x=1738759258;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:reply-to:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=o1IHY9dSHJw552myqEIIBi0r2yle1SPObfgdh6fdw+s=;
+        b=eEv5weSgfSHyKOscVCkoH2BeeevDey+vObrAo/MqYoKmTY+EMvKabFtvhZFpCKrCqO
+         LLmiVxI45H3KEvRIBdS0VlxODj8JYS96S63REFm9wlB4U6bE/f4uyb80apbwOSOb6aIN
+         h7pohvaSxx2BdQSvC0xAxU+cu1/1Twta6szZSG9SV6dMRlHHnZnwEaZLi72ditGZaJDE
+         vbfxmDjXP8W+23V8YWed51mYxII9wz/0VOpjBMfkqoZt4EQCtPnb6T65P98JCpXoW98X
+         WsMPBoAJULanObCQLFAQt5l2CvtOj9w5oP483aQ3kqvCiY9mw9LFXG8WRCwQrhJAVgrh
+         X7sg==
+X-Forwarded-Encrypted: i=1; AJvYcCXlL8anu1ow0BVQwFWWbf72Ct//6EhP04WT9N6o4Q/jjKJ5QmaXNdomTpmA/OR+swz9O+gTIdoHhKO8DNWDxvBS@lists.infradead.org
+X-Gm-Message-State: AOJu0YxxxUPSyf0nwCIQ0FrYMQrrKTP34mW0eRjbKp7eYmCNgR+F12vF
+	X8T7nTHhPWxmBH5rojVSpEAr76NOHi7W/0C/Etf6guJTbJzijHs2MCS5ebV4WZwjNsZIyVHYRUk
+	vohLh+Ltw3/MbLwjrl1ZusjGzyJt6ReCsmYlHbUmqOlR+Gn/DQoYPjdT1FTVz5kR+aveN/fwt
+X-Gm-Gg: ASbGncuAeql5/XtXuswyQc8WX8lKoLAmCIGZScELJpA6Q1MwAedhlLX/XqGtEjB72so
+	vi0LDNk5sqSThiOAHUoP/pXyUp8HTU+sjia5bLMSfEnJfBh3G6VcMJCPSdXyM20zklizD2bKLuX
+	Vi90Mo1qJn4l1N6UfokbUm7EgK8/tbdOoRT4I7jP0sAu0ce4rPCXuJGPmgPsDaFEMxzNbaM/ryC
+	0smhvwjH+EBDoFA6MbWeJMAWrx1qaMbKfZCmNZybGWf5cfCjZYotT9WVNC0X52vzxd3C6N1qpGp
+	UIXAeEX+1wd0uKxqqaVGYm9qqPCQ2p9w0azdgagPvqouFg7NG4x8
+X-Received: by 2002:a5d:6481:0:b0:386:34af:9bae with SMTP id ffacd0b85a97d-38c49a051c8mr6025096f8f.4.1738154458355;
+        Wed, 29 Jan 2025 04:40:58 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFPImj5mHPLCO6tRj8e3YjFQx2gbmUE76baovajKNeTFowKfkm4iVE7BpqlFB2vM0krIkmApg==
+X-Received: by 2002:a5d:6481:0:b0:386:34af:9bae with SMTP id ffacd0b85a97d-38c49a051c8mr6025054f8f.4.1738154457927;
+        Wed, 29 Jan 2025 04:40:57 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:59e:9d80:527b:9dff:feef:3874? ([2a01:e0a:59e:9d80:527b:9dff:feef:3874])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38c2a1baf3esm17214328f8f.75.2025.01.29.04.40.55
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 29 Jan 2025 04:40:57 -0800 (PST)
+Message-ID: <fd878b3a-ea02-49e0-9b5f-524e7fa1ecdf@redhat.com>
+Date: Wed, 29 Jan 2025 13:40:54 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND PATCH] ARM: dts: socfpga: Add basic support for
- Terrasic's de10-nano
-To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Cc: Dinh Nguyen <dinguyen@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20250128172917.4565-2-u.kleine-koenig@baylibre.com>
- <fa163bab-1461-479d-b149-4e018935ac57@kernel.org>
- <kxdipj2oktcyivl7o7mtyyacqm437jm7dpjihi7e7hcrmll6xb@5dywwnt5wpz5>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH RFCv2 05/13] iommu: Turn fault_data to iommufd private
+ pointer
+To: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
+ robin.murphy@arm.com, jgg@nvidia.com, kevin.tian@intel.com,
+ tglx@linutronix.de, maz@kernel.org, alex.williamson@redhat.com
+Cc: joro@8bytes.org, shuah@kernel.org, reinette.chatre@intel.com,
+ yebin10@huawei.com, apatel@ventanamicro.com,
+ shivamurthy.shastri@linutronix.de, bhelgaas@google.com,
+ anna-maria@linutronix.de, yury.norov@gmail.com, nipun.gupta@amd.com,
+ iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
+ jean-philippe@linaro.org, mdf@kernel.org, mshavit@google.com,
+ shameerali.kolothum.thodi@huawei.com, smostafa@google.com, ddutile@redhat.com
+References: <cover.1736550979.git.nicolinc@nvidia.com>
+ <3b26ce04e8ecb5e47f028fe5cae48e5235e68420.1736550979.git.nicolinc@nvidia.com>
+From: Eric Auger <eric.auger@redhat.com>
+In-Reply-To: <3b26ce04e8ecb5e47f028fe5cae48e5235e68420.1736550979.git.nicolinc@nvidia.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: EWmspNhjplINf3QbOHkGoK4mOj0TW5W48e7rsVyJBOM_1738154458
+X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <kxdipj2oktcyivl7o7mtyyacqm437jm7dpjihi7e7hcrmll6xb@5dywwnt5wpz5>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250129_043435_481246_310E0F42 
-X-CRM114-Status: GOOD (  30.63  )
+X-CRM114-CacheID: sfid-20250129_044102_148945_07E271B9 
+X-CRM114-Status: GOOD (  20.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,122 +119,82 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: eric.auger@redhat.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/01/2025 13:19, Uwe Kleine-König wrote:
-> Hello Krzysztof,
-> 
-> On Wed, Jan 29, 2025 at 10:27:22AM +0100, Krzysztof Kozlowski wrote:
->> On 28/01/2025 18:29, Uwe Kleine-König wrote:
->>> This dts is enough to make the board boot to Linux with the rootfs on
->>> a micro SD card.
->>>
->>> Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
->>> ---
->>> diff --git a/arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_de10nano.dts b/arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_de10nano.dts
->>> new file mode 100644
->>> index 000000000000..d1f23a57a94d
->>> --- /dev/null
->>> +++ b/arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_de10nano.dts
->>> @@ -0,0 +1,90 @@
->>> +// SPDX-License-Identifier: GPL-2.0+
->>> +/*
->>> + * Copyright (C) 2017, Intel Corporation
->>> + *
->>> + * based on socfpga_cyclone5_de0_nano_soc.dts
->>> + */
->>> +/dts-v1/;
->>> +
->>> +#include "socfpga_cyclone5.dtsi"
->>> +#include <dt-bindings/interrupt-controller/irq.h>
->>> +#include <dt-bindings/gpio/gpio.h>
->>> +
->>> +/ {
->>> +	model = "Terasic DE10-Nano";
->>> +	compatible = "altr,socfpga-cyclone5", "altr,socfpga";
->>
->> Incorrect compatible. It's not cyclone5 board. cyclone5 is the SoC.
-> 
-> OK, adding "terasic,de10-nano".
-> 
->> There is no altr,socfpga
-> 
-> What does that mean?
-> `git grep \"altr,socfpga\" linus/master:arch/arm/boot` gives me 15
-> matches from other boards with socfpga SoCs. If you give me a bit more
-> verbose description for the problem you're pointing out here, I can work
-> on that.
-
-My bad, some poor git grep result. There is such compatible, so it is fine.
-
-> 
->> This wasn't ever tested with bindings.
-> 
-> I tried
-> 
-> 	dt-validate -m -u Documentation/devicetree/bindings -p ~/work/kbuild/arm/Documentation/devicetree/bindings/processed-schema.json ~/work/kbuild/arm/arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_de10nano.dtb
-
-That's unusual way of running the check, but of course might work.
-
-> 
-> which emitted a bunch of warnings and after processing some of them I
-> gave up because they were all triggered by the soc.dtsi file. I started
-
-These are fine, but you introduce issues purely here.
-
-> another try comparing the output for "my" socfpga_cyclone5_de10nano.dts
-> with one for a file that only has the includes and the machine
-> compatible. (Which generates 124 lines and 123 lines respectively.)
-> 
-> I'll work on the diff between the two for the next revision. Or would
-> you recommend a different approach?
-> 
->>> +	chosen {
->>> +		stdout-path = "serial0:115200n8";
->>> +	};
->>> +
->>> +	memory@0 {
->>> +		/* 1 GiB */
->>> +		device_type = "memory";
->>> +		reg = <0x0 0x40000000>;
->>> +	};
->>> +
->>> +	soc {
->>> +		fpga_axi: axi_h2f_lw_bridge@ff200000 {
->>
->> Follow DTS coding style. You just sent us something from downstream.
-> 
-> Indeed this is from downstream. Looking at the matching dt-validate
-> output I guess just "axi@ff200000" would be appropriate?!
-
-bus@
-
-> 
->>> +			compatible = "simple-bus";
->>> +			reg = <0xff200000 0x00200000>;
->>> +			#address-cells = <1>;
->>> +			#size-cells = <1>;
->>
->> ranges would be after reg, but they are pointless here, no?
-> 
-> I thought it's "compatible", "reg" at the start, "status" at the end and
-> the rest in-between in alphabetic order. What is the right ordering?
-
-DTS coding style could be clearer here. It exactly says what is the
-first, what is the second and what is the third.
-
-> 
->> Where is the child?
-> 
-> I intend to add children using dt-overlays. I have a prototype here, but
-> that's still to embarrassing to show.
-
-The entire bus is in such case a bit confusing. If you have nothing
-connected here in the base board, does it really exist in FPGA bitstream?
 
 
 
-Best regards,
-Krzysztof
+On 1/11/25 4:32 AM, Nicolin Chen wrote:
+> A "fault_data" was added exclusively for the iommufd_fault_iopf_handler()
+> used by IOPF/PRI use cases, along with the attach_handle. Now, the iommufd
+> version of sw_msi function will resue the attach_handle and fault_data for
+reuse
+> a non-fault case.
+>
+> Rename "fault_data" to "iommufd_hwpt" so as not to confine it to a "fault"
+> case. Move it into a union to be the iommufd private pointer. A following
+> patch will move the iova_cookie to the union for dma-iommu too, after the
+> iommufd_sw_msi implementation is added.
+>
+> Since we have two unions now, add some simple comments for readability.
+>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
+>  include/linux/iommu.h                | 6 ++++--
+>  drivers/iommu/iommufd/fault.c        | 2 +-
+>  drivers/iommu/iommufd/hw_pagetable.c | 2 +-
+>  3 files changed, 6 insertions(+), 4 deletions(-)
+>
+> diff --git a/include/linux/iommu.h b/include/linux/iommu.h
+> index 423fdfa6b3bb..b6526d734f30 100644
+> --- a/include/linux/iommu.h
+> +++ b/include/linux/iommu.h
+> @@ -224,8 +224,10 @@ struct iommu_domain {
+>  		      phys_addr_t msi_addr);
+>  #endif
+>  
+> -	void *fault_data;
+> -	union {
+> +	union { /* Pointer usable by owner of the domain */
+> +		struct iommufd_hw_pagetable *iommufd_hwpt; /* iommufd */
+> +	};
+> +	union { /* Fault handler */
+>  		struct {
+>  			iommu_fault_handler_t handler;
+>  			void *handler_token;
+> diff --git a/drivers/iommu/iommufd/fault.c b/drivers/iommu/iommufd/fault.c
+> index 1fe804e28a86..06aa83a75e94 100644
+> --- a/drivers/iommu/iommufd/fault.c
+> +++ b/drivers/iommu/iommufd/fault.c
+> @@ -431,7 +431,7 @@ int iommufd_fault_iopf_handler(struct iopf_group *group)
+>  	struct iommufd_hw_pagetable *hwpt;
+>  	struct iommufd_fault *fault;
+>  
+> -	hwpt = group->attach_handle->domain->fault_data;
+> +	hwpt = group->attach_handle->domain->iommufd_hwpt;
+>  	fault = hwpt->fault;
+>  
+>  	mutex_lock(&fault->mutex);
+> diff --git a/drivers/iommu/iommufd/hw_pagetable.c b/drivers/iommu/iommufd/hw_pagetable.c
+> index ce03c3804651..f7c0d7b214b6 100644
+> --- a/drivers/iommu/iommufd/hw_pagetable.c
+> +++ b/drivers/iommu/iommufd/hw_pagetable.c
+> @@ -402,10 +402,10 @@ int iommufd_hwpt_alloc(struct iommufd_ucmd *ucmd)
+>  		}
+>  		hwpt->fault = fault;
+>  		hwpt->domain->iopf_handler = iommufd_fault_iopf_handler;
+> -		hwpt->domain->fault_data = hwpt;
+>  		refcount_inc(&fault->obj.users);
+>  		iommufd_put_object(ucmd->ictx, &fault->obj);
+>  	}
+> +	hwpt->domain->iommufd_hwpt = hwpt;
+don't we want to reset this somewhere on release path?
+
+Eric
+>  
+>  	cmd->out_hwpt_id = hwpt->obj.id;
+>  	rc = iommufd_ucmd_respond(ucmd, sizeof(*cmd));
+
 
