@@ -4,94 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47870C0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 16:01:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E4C6C0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 16:21:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yyx2HnrHkqjaWL4grDrBJMJLyZTpqWFcrU3zWDmIiLc=; b=iFJ7srFIjiqVzSpVCHL7re53IX
-	neizsxK2aUPPq0utnWo3D5oiDo5iM6wywvwjV8x+UsHE+kyMOZQhtw747+/vpxlP7F8bGaBU9GKLK
-	RUsb/eFpx/yiiNIOmuMYRDJs1J6DOj5+FkNUDEJ4ZxTsee+0XQVOYsBWWSO5YfPNIcVLOnGIIzcKf
-	rZESzi3e6eed3/GipWWsVXHkDI0YMAeufNCdUzVh9nvqxeOUYDI4kwmO1VeFkYOFFMz+z711lZ0kY
-	D20DWjeEkDJ0Jq2VgFF0iQjMa8qTG/nl1+1N2f/zE8S9yLxcEAi+r7leoOP5VICipboZKToK+9PKt
-	KblCZ7bw==;
+	bh=wgccypM608yn+N2BvL1dQlkUG29OMNY3loixTZzNS0w=; b=bYn1oqKYqIsveot9Z4yTTK0YSB
+	a+65ILPdCoyfxFDnLRxAnqSahKTaJ9H1Fh3LI9nwsAC9m+0wmUsWZ8Bs5VnOTvsr+1gCCi2VyKhvl
+	RAlotRhGAcziKa2u5fUDJ8Gipj3jMuovrqhowuRUGYwISN6sqod7BDQ7uDZv+rTBnsXrqrbJYmIx5
+	57doSWNrFUs9P8x5M6wn+q84gZMmxTrTD9UlYCxi3Y/nax+8kZwnJ1ZJ6WJAh+LyHoM2OchCKQlHZ
+	55eqNzYsGmuk+wAI9sfAVqRGPGzo1pdXgfN3qv9NQcN4f/ZVo6gCePtlyAQ0ThAM/HGuJaZ8CRHCL
+	QXI+KbHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdAUv-00000007Kf3-0502;
-	Wed, 29 Jan 2025 16:01:01 +0000
-Received: from mail-il1-x132.google.com ([2607:f8b0:4864:20::132])
+	id 1tdAo8-00000007NDk-11Wb;
+	Wed, 29 Jan 2025 16:20:52 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdASj-00000007KR0-1wzr
+	id 1tdAmn-00000007MvE-264Q
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jan 2025 15:58:46 +0000
-Received: by mail-il1-x132.google.com with SMTP id e9e14a558f8ab-3ce87d31480so21102145ab.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jan 2025 07:58:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738166324; x=1738771124; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Yyx2HnrHkqjaWL4grDrBJMJLyZTpqWFcrU3zWDmIiLc=;
-        b=i1SnkcS/6mCo6/s+etnK30FCA+qBOtego+3sVxxpsylQJrlySpcMs8Tyxj9N9hQe7w
-         1AOjvn3+HD6ep+ty4qJF30nhQAOpHu7+ULhf9Pn9Hn9ZiUKgegyYtX22v3cUewSuQaGx
-         t6u1WXlhE0BBdP530Wmiub37eGJMq8usRjda8l2AC8Bn8ohBXnN1+PQOvToI8+igh7qw
-         OIY3tjBXoLi6KLuEba/CVyR1oaNlvV1w5DMGfN4bUhHblWjiF31RS8GQKUYcl96F2p6S
-         zblTJV4SKiS4/8w/oOxJ14v4zlq1fVWL3lt6KBZcX/tFu7sRmComD/0FtoGg6SR9D+uf
-         rhGA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738166324; x=1738771124;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Yyx2HnrHkqjaWL4grDrBJMJLyZTpqWFcrU3zWDmIiLc=;
-        b=goIZBai2K0rnxkcKRYBFyOvO2XFo+HcoQrE4uHz4Qcw83F+xRpAY9IS9ZC86nQhnqS
-         T/RhZegqFWsB+jA9+Q6EPLzRPh0382oP+8BbSsvVRK0lI6hLM61X3UsK079Wg15SmhsE
-         1xkbvUvXmaRTZjXM6xaTG0gk02o+0oRcxobOiwNe3X0GK4EJ7ptx5dqga4CRXt+VAARe
-         Ef4MxrDeg9wNVKAPmjaVDFAgK5cXpI6O4KTbhC80IxUIccBI8/+Mvo/feJm90ZuOmZjg
-         lLOzyfYyaEAEZC9GjiyLMsxUes8Vv39vqKLfhXLYDt66PAKaZM+GPy3H4INc0G0Ywm+M
-         xJ0g==
-X-Forwarded-Encrypted: i=1; AJvYcCVPHMsgEbXFtO6yrOOi+mSJKYdeP/wDeR6a2UJJNiBFA9f0UPZh/4Eg6uEwZw18RSOXK4t4coqyT/qaCjMExneF@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywfrh6UFzb4uNUUMMHbwD7E94yves5akrvY/IhFyKHGEnjVqIrA
-	zx4Zj3xhd5kd5PJX3n0szz6CY5C6Y44bg5rmUKcAvPDTHvBfOawrYh2ujunoRa9vIPGOnXCbgTR
-	0TuqDr/RGzGpRDXuG7QC9YTFLmUc=
-X-Gm-Gg: ASbGncu6cj+v4CkDJ0hELuCUXCGpxUZQVvqSfYxtumbB/ynJVQrap7FUNJIyf3WC9W/
-	yh8Vxm2KExfQHT+Vb0GdFWFO+IV/muj66lFH2jKa4QTxWbjPL2yooxbdLxkuNEDcXhZmJL7Cp0h
-	OA6pS1R9cIFEYQ0IkBVRIzaUuAjZg8ZQ==
-X-Google-Smtp-Source: AGHT+IHnCFTfSAmMVBm2YjmSTGYFPFdPTEgRxK+qIu+I/T+Z+PCgdh1bWdqnU7KHBa1TMZ2xZtF0vpMUCLb2CtJzpM0=
-X-Received: by 2002:a92:cda7:0:b0:3ce:8b1b:2f with SMTP id e9e14a558f8ab-3cffe4b2c16mr28938375ab.17.1738166324333;
- Wed, 29 Jan 2025 07:58:44 -0800 (PST)
+	Wed, 29 Jan 2025 16:19:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D7828A41970;
+	Wed, 29 Jan 2025 16:17:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDB92C4CED1;
+	Wed, 29 Jan 2025 16:19:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738167568;
+	bh=VQ1tE7auwykWHFaAWlmFtxRv+H5gTV+mb3VLluuo+bU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=n/4WzsGK81F59SkkUMb+WMCMS5ZHaRbmeLw6ahJDhfCBABA4a6KVBCSwK9uQe2dCx
+	 x0mNRgNXoAzA3H2ahKHYKJqAKXXN8MREVyvIrV0GgJAcoI7h6gX9LHdjLTxtClMSx4
+	 EddIHSjyw6wAz2IS3Q+EeK4Ip3z4ZZbwoD7CtalDQ7OeIU8gJmPRFPLhFO6904UeOL
+	 pbOtP49em5EsHn7LjmGJCQd4vKS5POHzZdHn43fsshTYlLqDnGfVcMwX7Xp0QR2BJT
+	 vmSJuwnOZQMB3s3i2xEUR2Vvxazeak0N6s9PY8c7YRZAkNftTuLHW4TgGq2APSSIua
+	 GqdW/Bxq24vdQ==
+Date: Wed, 29 Jan 2025 17:19:22 +0100
+From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+To: Jonathan Corbet <corbet@lwn.net>
+Cc: Linux Doc Mailing List <linux-doc@vger.kernel.org>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
+ bpf@vger.kernel.org, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
+ linux-f2fs-devel@lists.sourceforge.net, linux-hardening@vger.kernel.org,
+ linux-iio@vger.kernel.org, linux-media@vger.kernel.org,
+ linux-pm@vger.kernel.org, linux-usb@vger.kernel.org,
+ linux-wireless@vger.kernel.org, netdev@vger.kernel.org,
+ workflows@vger.kernel.org
+Subject: Re: [RFC v2 00/38] Improve ABI documentation generation
+Message-ID: <20250129171922.4322c338@foz.lan>
+In-Reply-To: <87a5b96296.fsf@trenco.lwn.net>
+References: <cover.1738020236.git.mchehab+huawei@kernel.org>
+	<87h65i7e87.fsf@trenco.lwn.net>
+	<20250129164157.3c7c072d@foz.lan>
+	<87a5b96296.fsf@trenco.lwn.net>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-References: <20250122-msm-gpu-fault-fixes-next-v3-0-0afa00158521@gmail.com>
- <20250122-msm-gpu-fault-fixes-next-v3-1-0afa00158521@gmail.com>
- <Z5IjsqQ6vTdUXiGt@hu-guptap-hyd.qualcomm.com> <CACu1E7H5X2EfY9AG=xceaoZJkbumwnrsU4QvNbxd_A2wgVVOaQ@mail.gmail.com>
- <Z5KXwNPrdirVUn8Z@hu-guptap-hyd.qualcomm.com> <CACu1E7GOS+_biN=AuQwYK47ApRPFGygyD+U5X9d_4ReXKrzbfw@mail.gmail.com>
- <Z5i6GQDd5apN+a10@hu-guptap-hyd.qualcomm.com> <CAF6AEGstcrAJDBpPm-uQ+zSDVEhDJ4AQhCTDT-z9_8Nq0e35WQ@mail.gmail.com>
- <CACu1E7HErZAL=-GVQfKUAUK5bgK-X0qejt5os3f2UhkeZ1ptMQ@mail.gmail.com>
- <CAF6AEGsUjp+fp1_cN7SGYTh5WSQrU2mm92QsqA5rcSY1OtA8VQ@mail.gmail.com>
- <CACu1E7FyHwJ2mp5u3rDganYj80eDq3QJzLRFzxD9E9O7hEDiag@mail.gmail.com>
- <CAF6AEGugDxYjH63+Up_T_pt+jQ2D0m=x1tSg3fGPteu3XgR2qA@mail.gmail.com> <CACu1E7F0UTTapsLEUuKVFN0MF=kwhbSJqN2MU305Ab3cg+u_Lg@mail.gmail.com>
-In-Reply-To: <CACu1E7F0UTTapsLEUuKVFN0MF=kwhbSJqN2MU305Ab3cg+u_Lg@mail.gmail.com>
-From: Rob Clark <robdclark@gmail.com>
-Date: Wed, 29 Jan 2025 07:58:32 -0800
-X-Gm-Features: AWEUYZkqyL0XupB4dML0yNwAmFsGfqHPxcVGzGZq55r_jJ2AS-o5CA3GcwcpY1k
-Message-ID: <CAF6AEGv0-_Xh6adws+1WFTgX1vRSA4wLoDDZ7+RKgxpKgN-P0w@mail.gmail.com>
-Subject: Re: [PATCH v3 1/3] iommu/arm-smmu: Fix spurious interrupts with stall-on-fault
-To: Connor Abbott <cwabbott0@gmail.com>
-Cc: Prakash Gupta <quic_guptap@quicinc.com>, Will Deacon <will@kernel.org>, 
-	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, Sean Paul <sean@poorly.run>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Abhinav Kumar <quic_abhinavk@quicinc.com>, 
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
-	Marijn Suijten <marijn.suijten@somainline.org>, iommu@lists.linux.dev, 
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	freedreno@lists.freedesktop.org, Rob Clark <robdclark@chromium.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250129_075845_505709_1C5F478A 
-X-CRM114-Status: GOOD (  42.07  )
+X-CRM114-CacheID: sfid-20250129_081929_670573_D861EFFA 
+X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,160 +82,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 28, 2025 at 7:34=E2=80=AFPM Connor Abbott <cwabbott0@gmail.com>=
- wrote:
->
-> On Tue, Jan 28, 2025 at 10:25=E2=80=AFPM Rob Clark <robdclark@gmail.com> =
-wrote:
+Em Wed, 29 Jan 2025 08:58:13 -0700
+Jonathan Corbet <corbet@lwn.net> escreveu:
+
+> Mauro Carvalho Chehab <mchehab+huawei@kernel.org> writes:
+> 
+> > So, I'm proposing to change the minimal requirements to:
+> > 	- Sphinx 3.4.3;
+> > 	- Python 3.9
 > >
-> > On Tue, Jan 28, 2025 at 6:31=E2=80=AFPM Connor Abbott <cwabbott0@gmail.=
-com> wrote:
-> > >
-> > > On Tue, Jan 28, 2025 at 9:21=E2=80=AFPM Rob Clark <robdclark@gmail.co=
-m> wrote:
-> > > >
-> > > > On Tue, Jan 28, 2025 at 2:15=E2=80=AFPM Connor Abbott <cwabbott0@gm=
-ail.com> wrote:
-> > > > >
-> > > > > On Tue, Jan 28, 2025 at 5:10=E2=80=AFPM Rob Clark <robdclark@gmai=
-l.com> wrote:
-> > > > > >
-> > > > > > On Tue, Jan 28, 2025 at 3:08=E2=80=AFAM Prakash Gupta <quic_gup=
-tap@quicinc.com> wrote:
-> > > > > > >
-> > > > > > > On Thu, Jan 23, 2025 at 03:14:16PM -0500, Connor Abbott wrote=
-:
-> > > > > > > > On Thu, Jan 23, 2025 at 2:26=E2=80=AFPM Prakash Gupta <quic=
-_guptap@quicinc.com> wrote:
-> > > > > > > > >
-> > > > > > > > > On Thu, Jan 23, 2025 at 09:00:17AM -0500, Connor Abbott w=
-rote:
-> > > > > > > > > > On Thu, Jan 23, 2025 at 6:10=E2=80=AFAM Prakash Gupta <=
-quic_guptap@quicinc.com> wrote:
-> > > > > > > > > > >
-> > > > > > > > > > > On Wed, Jan 22, 2025 at 03:00:58PM -0500, Connor Abbo=
-tt wrote:
-> > > > > > > > > > > The context would remain stalled till we write to CBn=
-_RESUME. Which is done
-> > > > > > > > > > > in qcom_adreno_smmu_resume_translation(). For a stall=
-ed context further
-> > > > > > > > > > > transactions are not processed and we shouldn't see f=
-urther faults and
-> > > > > > > > > > > or fault inerrupts. Do you observe faults with stalle=
-d context?
-> > > > > > > > > >
-> > > > > > > > > > Yes. I've observed that on MMU-500 writing RESUME befor=
-e the interrupt
-> > > > > > > > > > has been cleared doesn't clear SS. This happened with v=
-2 in the case
-> > > > > > > > > > where there was already a devcoredump and drm/msm calle=
-d
-> > > > > > > > > > qcom_adreno_smmu_resume_translation() immediately from =
-its fault
-> > > > > > > > > > handler, and we'd get a storm of unhandled interrupts u=
-ntil it was
-> > > > > > > > > > disabled. Given that the architecture spec says we're s=
-upposed to
-> > > > > > > > > > clear the interrupt first this may have been an attempt=
- to "help"
-> > > > > > > > > > developers.
-> > > > > > > > > >
-> > > > > > > > >
-> > > > > > > > > Just to clarify, present sequence is:
-> > > > > > > > > 1. context fault with stall enable. FSR.SS set.
-> > > > > > > > > 2. Report fault to client
-> > > > > > > > > 3. resume/terminate stalled transaction
-> > > > > > > > > 4. clear FSR
-> > > > > > > > >
-> > > > > > > > > At what point when you try #2->#3->#4 or #4->#2->#3 seque=
-nce, is FSR.SS
-> > > > > > > > > cleared and interrupt storm is observed.
-> > > > > > > >
-> > > > > > > > With #2->#3->#4 FSR.SS is *not* cleared and there is a subs=
-equent
-> > > > > > > > interrupt storm with only FSR.SS asserted. With #4->#2->#3 =
-there is no
-> > > > > > > > interrupt storm. From this we conclude that MMU-500 does no=
-t clear
-> > > > > > > > FSR.SS unless #4 happens before #3.
-> > > > > > > >
-> > > > > > > Thanks Connor for clarification. I get your point now. I thin=
-k it's
-> > > > > > > expected interrupt storm with #2->#3->#4 sequence is expected=
-.  With
-> > > > > > > CONFIG_ARM_SMMU_QCOM_DEBUG enabled, context fault follows the=
- sequence of
-> > > > > > > #1->#2->#4->#3, which is spec recommended.
-> > > > > > >
-> > > > > > > so, common fault handler can be modified to follow the same s=
-equence, but I
-> > > > > > > have concern regarding clearing FSR before reporting fault to=
- client.
-> > > > > > > qcom_adreno_smmu_get_fault_info() is an example I gave but ot=
-her client
-> > > > > > > handler may have similar expecation of fault register not cha=
-nged before
-> > > > > > > client fault handler is called.
-> > > > > >
-> > > > > > Simple solution would be to move the clearing of FSR to after t=
-he
-> > > > > > fault is reported.  It doesn't really matter if it is before or=
- after,
-> > > > > > as long as it happens before the irq handler returns, AFAIU.  A=
-nd
-> > > > > > drm/msm will collect the fault info from the irq handler.
-> > > > >
-> > > > > As I said in the earlier mail: "From this we conclude that MMU-50=
-0
-> > > > > does not clear FSR.SS unless #4 happens before #3." #4 is clearin=
-g FSR
-> > > > > and #3 is writing RESUME. So no, unfortunately it does actually m=
-atter
-> > > > > and we get a storm of unhandled IRQs if we don't clear FSR first.=
- Your
-> > > > > solution is what v2 did and it didn't work.
-> > > >
-> > > > So, just clear FSR also in the resume path
-> > >
-> > > Then we'd run the risk of incorrectly accepting a second fault if it
-> > > happens immediately after we resume. Not terrible for our use-case
-> > > where we only really need the first fault to be accurate and we
-> > > disable stall-on-fault afterwards, but if you ever leave it on then i=
-t
-> > > would result in another interrupt storm.
-> > >
-> >
-> > Howso? We'd still be ensuring that #4 happens before #3?  If needed we
-> > can add a param to resume_translation() so drm can tell it to only
-> > clear FSR if it calls resume_translation from the interrupt handler,
-> > or something like that.  But I don't want to lose capturing the FSR,
-> > and I don't think we need to.
-> >
-> > BR,
-> > -R
->
-> Because we could clear FSR in the resume handler (ok), then resume,
-> then fault again, then clear FSR again in arm_smmu_context_fault() and
-> unintentionally acknowledge the fault without a corresponding resume.
-> Again, it's not possible with drm/msm after this series since we
-> disable stall-on-fault before resuming but still this means it's very
-> fragile.
+> > By setting Sphinx minimal version to 3.4.3, we can get rid of all
+> > Sphinx backward-compatible code.  
+> 
+> That's certainly a nice thought.
+> 
+> With regard to Python ... are all reasonable distributions at 3.9 at
+> least?  CentOS 9 seems to be there, and Debian beyond it.  So probably
+> that is a reasonable floor to set?
 
-Alternatively we could use the return code from the fault handler
-(maybe, -EFAULT) to indicate that arm-smmu irq handler should
-terminate+resume immediately, rather than calling resume_translation()
-in the case that drm doesn't schedule fault_handler.  We can change
-both sides of the adreno_smmu_priv interface if needed to come up with
-something sensible.
+I didn't check, but those are the current minimal versions above 3.5 for
+what we have at the Kernel tree[1]:
 
-> To be clear, FSR should already be frozen until we resume, if the
-> SMMUv2 architecture pseudocode is to be believed. So any fault that's
-> recorded in the devcoredump will still be accurate with this patch,
-> just subsequent faults might not be accurate.
+            !2, 3.10     tools/net/sunrpc/xdrgen/generators/__init__.py
+            !2, 3.10     tools/net/sunrpc/xdrgen/generators/program.py
+            !2, 3.10     tools/net/sunrpc/xdrgen/subcmds/source.py
+            !2, 3.10     tools/net/sunrpc/xdrgen/xdr_ast.py
+            !2, 3.10     tools/power/cpupower/bindings/python/test_raw_pylibcpupower.py
+            !2, 3.9      tools/testing/selftests/net/rds/test.py
+            !2, 3.9      tools/net/ynl/ethtool.py
+            !2, 3.9      tools/net/ynl/cli.py
+            !2, 3.9      scripts/checktransupdate.py
+            !2, 3.8      tools/testing/selftests/tc-testing/plugin-lib/nsPlugin.py
+            !2, 3.8      tools/testing/selftests/hid/tests/base.py
+            !2, 3.7      tools/testing/selftests/turbostat/smi_aperf_mperf.py
+            !2, 3.7      tools/testing/selftests/turbostat/defcolumns.py
+            !2, 3.7      tools/testing/selftests/turbostat/added_perf_counters.py
+            !2, 3.7      tools/testing/selftests/hid/tests/conftest.py
+            !2, 3.7      tools/testing/kunit/qemu_config.py
+            !2, 3.7      tools/testing/kunit/kunit_tool_test.py
+            !2, 3.7      tools/testing/kunit/kunit.py
+            !2, 3.7      tools/testing/kunit/kunit_parser.py
+            !2, 3.7      tools/testing/kunit/kunit_kernel.py
+            !2, 3.7      tools/testing/kunit/kunit_json.py
+            !2, 3.7      tools/testing/kunit/kunit_config.py
+            !2, 3.7      tools/perf/scripts/python/gecko.py
+            !2, 3.7      scripts/rust_is_available_test.py
+            !2, 3.7      scripts/bpf_doc.py
+            !2, 3.6      tools/writeback/wb_monitor.py
+            !2, 3.6      tools/workqueue/wq_monitor.py
+            !2, 3.6      tools/workqueue/wq_dump.py
+            !2, 3.6      tools/usb/p9_fwd.py
+            !2, 3.6      tools/tracing/rtla/sample/timerlat_load.py
+            !2, 3.6      tools/testing/selftests/net/openvswitch/ovs-dpctl.py
+            !2, 3.6      tools/testing/selftests/net/nl_netdev.py
+            !2, 3.6      tools/testing/selftests/net/lib/py/ynl.py
+            !2, 3.6      tools/testing/selftests/net/lib/py/utils.py
+            !2, 3.6      tools/testing/selftests/net/lib/py/nsim.py
+            !2, 3.6      tools/testing/selftests/net/lib/py/netns.py
+            !2, 3.6      tools/testing/selftests/net/lib/py/ksft.py
+            !2, 3.6      tools/testing/selftests/kselftest/ksft.py
+            !2, 3.6      tools/testing/selftests/hid/tests/test_tablet.py
+            !2, 3.6      tools/testing/selftests/hid/tests/test_sony.py
+            !2, 3.6      tools/testing/selftests/hid/tests/test_multitouch.py
+            !2, 3.6      tools/testing/selftests/hid/tests/test_mouse.py
+            !2, 3.6      tools/testing/selftests/hid/tests/base_gamepad.py
+            !2, 3.6      tools/testing/selftests/hid/tests/base_device.py
+            !2, 3.6      tools/testing/selftests/drivers/net/stats.py
+            !2, 3.6      tools/testing/selftests/drivers/net/shaper.py
+            !2, 3.6      tools/testing/selftests/drivers/net/queues.py
+            !2, 3.6      tools/testing/selftests/drivers/net/ping.py
+            !2, 3.6      tools/testing/selftests/drivers/net/lib/py/remote_ssh.py
+            !2, 3.6      tools/testing/selftests/drivers/net/lib/py/load.py
+            !2, 3.6      tools/testing/selftests/drivers/net/lib/py/__init__.py
+            !2, 3.6      tools/testing/selftests/drivers/net/lib/py/env.py
+            !2, 3.6      tools/testing/selftests/drivers/net/hw/rss_ctx.py
+            !2, 3.6      tools/testing/selftests/drivers/net/hw/pp_alloc_fail.py
+            !2, 3.6      tools/testing/selftests/drivers/net/hw/nic_performance.py
+            !2, 3.6      tools/testing/selftests/drivers/net/hw/nic_link_layer.py
+            !2, 3.6      tools/testing/selftests/drivers/net/hw/lib/py/linkconfig.py
+            !2, 3.6      tools/testing/selftests/drivers/net/hw/lib/py/__init__.py
+            !2, 3.6      tools/testing/selftests/drivers/net/hw/devmem.py
+            !2, 3.6      tools/testing/selftests/drivers/net/hw/devlink_port_split.py
+            !2, 3.6      tools/testing/selftests/drivers/net/hw/csum.py
+            !2, 3.6      tools/testing/selftests/devices/probe/test_discoverable_devices.py
+            !2, 3.6      tools/testing/selftests/bpf/test_bpftool_synctypes.py
+            !2, 3.6      tools/testing/selftests/bpf/generate_udp_fragments.py
+            !2, 3.6      tools/testing/kunit/run_checks.py
+            !2, 3.6      tools/testing/kunit/kunit_printer.py
+            !2, 3.6      tools/sched_ext/scx_show_state.py
+            !2, 3.6      tools/perf/tests/shell/lib/perf_metric_validation.py
+            !2, 3.6      tools/perf/tests/shell/lib/perf_json_output_lint.py
+            !2, 3.6      tools/perf/scripts/python/parallel-perf.py
+            !2, 3.6      tools/perf/scripts/python/flamegraph.py
+            !2, 3.6      tools/perf/scripts/python/arm-cs-trace-disasm.py
+            !2, 3.6      tools/perf/pmu-events/models.py
+            !2, 3.6      tools/perf/pmu-events/metric_test.py
+            !2, 3.6      tools/perf/pmu-events/metric.py
+            !2, 3.6      tools/perf/pmu-events/jevents.py
+            !2, 3.6      tools/net/ynl/ynl-gen-rst.py
+            !2, 3.6      tools/net/ynl/ynl-gen-c.py
+            !2, 3.6      tools/net/ynl/lib/ynl.py
+            !2, 3.6      tools/net/ynl/lib/nlspec.py
+            !2, 3.6      tools/crypto/tcrypt/tcrypt_speed_compare.py
+            !2, 3.6      tools/cgroup/iocost_monitor.py
+            !2, 3.6      tools/cgroup/iocost_coef_gen.py
+            !2, 3.6      scripts/make_fit.py
+            !2, 3.6      scripts/macro_checker.py
+            !2, 3.6      scripts/get_abi.py
+            !2, 3.6      scripts/generate_rust_analyzer.py
+            !2, 3.6      scripts/gdb/linux/timerlist.py
+            !2, 3.6      scripts/gdb/linux/pgtable.py
+            !2, 3.6      scripts/clang-tools/run-clang-tools.py
+            !2, 3.6      Documentation/sphinx/automarkup.py
 
-I guess by default I'd be inclined to "trust but verify" that (and
-also on qcom,smmu-v2).
+[1] Checked with:
+	vermin -v $(git ls-files *.py)
 
-BR,
--R
+    Please notice that vermin is not perfect: my script passed as version 3.6
+    because the f-string check there didn't verify f-string improvements over
+    time. Still, it is a quick way to check that our current minimal version
+    is not aligned with reality.
+ 
+Btw, vermin explains what is requiring more at the scripts. For instance:
+
+	$ vermin -vv scripts/checktransupdate.py
+	...
+	!2, 3.9      /new_devel/v4l/docs/scripts/checktransupdate.py
+	  'argparse' module requires 2.7, 3.2
+	  'argparse.BooleanOptionalAction' member requires !2, 3.9
+	  'datetime' module requires 2.3, 3.0
+	  'datetime.datetime.strptime' member requires 2.5, 3.0
+	  'logging' module requires 2.3, 3.0
+	  'logging.StreamHandler' member requires 2.6, 3.0
+	  'os.path.relpath' member requires 2.6, 3.0
+	  f-strings require !2, 3.6
+
+Thanks,
+Mauro
 
