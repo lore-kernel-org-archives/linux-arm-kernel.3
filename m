@@ -4,110 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22C97C02190
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 13:45:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29619C0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 13:52:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Sf+DtGmrqdTwE2hubtPrHYXjgFDMJbqgNNnIu1aYodU=; b=N2Nu8yMnNpFZka
-	kh7SeeUyapw89HUd9ZAlZMSpI0c5Rjlh04uCvRWxagSxI4H0OnuZ4KyWjROv4H318wevR+bSlqVpf
-	Gb4jbYKMLHtukPkFDjmuT/sQHQJoQBvWigt2djisP6DlxiJAcvsYvNtSphGZlMeXEIFoS/2dlLM7p
-	uZZP0HikC3WXa/eRBpL4srxJ0EZ46XoKtJmjT1j1FvbGxUDaWieFubr90SRyyecY30JGHZhRTMFWw
-	76/nFw2dqLQ4Vm3R0g03PXkdwZBvTbKPCl95m/Z4RfjMKGzAeOkcEl5+t9GjHGjpcx7R3Wa216AY0
-	1uIh04T1tuJtRnNzGAng==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vlPMfwZ+C0CQX8CZbIzbwgggxxliwvbZU+YOWu/UjqQ=; b=0PcCJW/kycrsW8VTRaVxU3l8vI
+	c08a0qDWzWhenBsf+JrP6ICAtxC692aDhGWz71yVJy13Io/B79mA+PXyPZskWaUox+6WFOSKjNKam
+	a+yP2l5IwkO5c0IyVzUy0zExwmUMgYzloJd2OCoEF6Km16yTwJqlRjCDFBGM5qzFZNwwtL0gC2xTh
+	ax/vgFRHeHOhCWo39M9v+bB5LN3dHrpIrIyRo44FIh0kc4WM3rBhq9fYG42V6vSdT5V6xAnZinW2h
+	Wp1O5NJrt2a0CtIaAwZgCuQ2M4I0laVpPdBJrqTvv9AENYddPAz7P3DXn4N+yBC0b2V4BT5DWUM83
+	dpeIchPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1td8Nz-000000072X4-06ki;
-	Wed, 29 Jan 2025 13:45:43 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1td8UL-0000000734K-1bSn;
+	Wed, 29 Jan 2025 13:52:17 +0000
+Received: from mail-qv1-xf30.google.com ([2607:f8b0:4864:20::f30])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1td8Mg-000000072Py-2GTr
+	id 1td8T1-000000072yj-45ZF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jan 2025 13:44:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1738158261;
-	h=from:from:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Sf+DtGmrqdTwE2hubtPrHYXjgFDMJbqgNNnIu1aYodU=;
-	b=F5hhpXnawqB7JDJTKlAkraF4zN1rBoiucBAajLOYYZ6e2eBw8+veMPz8Xq0WHLAz7CidT6
-	AboQJ/MwGLuGELSCiBYlBKzwqqjKxZhyvLa4YVd40ye0dhlsVoK0E2LSnFLFwJWZeWBuVV
-	9thfV9+iW7aTCr+4qsjybbgfLoKM5Zg=
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com
- [209.85.222.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-685-QFvE0RG-MPW2ADYk2WCJEQ-1; Wed, 29 Jan 2025 08:44:20 -0500
-X-MC-Unique: QFvE0RG-MPW2ADYk2WCJEQ-1
-X-Mimecast-MFC-AGG-ID: QFvE0RG-MPW2ADYk2WCJEQ
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-7be6ccb09f9so664016085a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jan 2025 05:44:20 -0800 (PST)
+	Wed, 29 Jan 2025 13:50:57 +0000
+Received: by mail-qv1-xf30.google.com with SMTP id 6a1803df08f44-6d8f75b31bfso65974506d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jan 2025 05:50:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1738158654; x=1738763454; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=vlPMfwZ+C0CQX8CZbIzbwgggxxliwvbZU+YOWu/UjqQ=;
+        b=lD/TQSBuWEOsO/ExIY1DRSr1LMzNK0S4rdRt1Qq4swRwQ1Qbpa9zis9pUwucySdzdF
+         dOy/VnI8h+v4le5rc7A1PS/I/mNVFZKvc0UZBKmYOrQq0yOdJuDLFQ2N66bu5Q9vJj1j
+         iuxl8d597g0HrEz+AaNV796S8i9lLwnHF41kX4NRgYY626cHGF9cVeh2zI102ymKyR0m
+         yiZ/sguGLxEcazKN7kom4poIBGhHaVkcREZEfdQVAu8qONOBBePWuKtVpt5k8el1bVMl
+         9Alfkug6QQB9Y/4YcpGJ3ll06Eyy4l8WQqzq0suPQaw2PnLbWqdhvhb/BJX0P7PY/hup
+         Mg3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738158260; x=1738763060;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:reply-to:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Sf+DtGmrqdTwE2hubtPrHYXjgFDMJbqgNNnIu1aYodU=;
-        b=mv4yB8D4bGClJyWV2hhLfpHMgi1Mz3GIpSUyYSWlmlQyQgkr7hMYl/Gmm0IEEwe7F5
-         apRHI/O3c6fhdDLXA3pus9UwZmmOFnE30KuneS5R7MPYyFkk/xfNFxXSIGD2TxWq9SpE
-         QFArtnJwQuThjRG1pda7+Pg/YFRhWjSqxc6gpX54ew7CwsutmsjDx+f6702rGG2Ajj0S
-         uU9h9KNy9CdRW/y5bpmbOwLSS1fg586x3y/phMrYteUbN+zErigJYOtpFVabTj/ec7Lu
-         ncKfulCGdUTr7nqgr78WCCVX5P7l9nfsXoKVN2mIlQ8i7r2pEy1eI85w/uPyEp97CB1k
-         zatw==
-X-Forwarded-Encrypted: i=1; AJvYcCWhLSnou0kYpEKBm2NuLSiRvEWJ7CC2usTG08a4GILUX4vrCbx4lyLFvaDFfj6szaKU9rcndlbzncor1sTKiGiJ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy36ZUupCOd+UtYQCbvv1QGDfLueFRpqth2bEgYvQaRd3+QpMXc
-	wthXB796obakpk9Xf18bv12FJa79g1nf5NS0E3YItoBNMtLcs/xVrpkAeNKkXCrf+QEOyw4ymSV
-	ltXrNLvENVOOqR0xlQh6+O60Yy+Elf1mBWdfnYFjP++ivqqthTSFy+y81uzCfuc2KevIyovk7
-X-Gm-Gg: ASbGncshCe09HhkOOFxL7fagAVimWsHT9FBJIOug5Q8LVgBzhTtUzrufQPTdBowMSCw
-	G0jlGvDL26HmwbqpLRe7LxNHEcLOw76pGCRLSAF8AbezLoqiLRfqBwBjazp4p5UH5Zakehei7jt
-	VhWfnxxNh6ceeZGe1C2PKt6OAsMrkzbtYwA5nTrG2coXUsbxh4QjCi8PS84exQwQ7h7OMHkMqFF
-	Sg+ik81dqClZZiz2xaU9zNH3HeQHRzAcI4+D4slNmYx1/JmDdY4mTz2Qr83bRuqfA1vE7rY/K0j
-	0ngXfD1Y6vewMom0C0JlqdVCCV0LF0eBDOxP4Bz4L4PWJZGGZ+gA
-X-Received: by 2002:a05:620a:4387:b0:7b6:d910:5b31 with SMTP id af79cd13be357-7bffcd902b1mr487014885a.39.1738158259370;
-        Wed, 29 Jan 2025 05:44:19 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHfdRRfWiU/OFcr3Tb9Wnx23c3Oss13g014CVs37t9ZgKQ1ODWd2wjx8kgWWU1PdQbKyQMMZA==
-X-Received: by 2002:a05:620a:4387:b0:7b6:d910:5b31 with SMTP id af79cd13be357-7bffcd902b1mr487009785a.39.1738158258956;
-        Wed, 29 Jan 2025 05:44:18 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:59e:9d80:527b:9dff:feef:3874? ([2a01:e0a:59e:9d80:527b:9dff:feef:3874])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7be9af03b3dsm619851385a.90.2025.01.29.05.44.13
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 29 Jan 2025 05:44:18 -0800 (PST)
-Message-ID: <0521187e-c511-4ab1-9ffa-be2be8eacd04@redhat.com>
-Date: Wed, 29 Jan 2025 14:44:12 +0100
+        d=1e100.net; s=20230601; t=1738158654; x=1738763454;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=vlPMfwZ+C0CQX8CZbIzbwgggxxliwvbZU+YOWu/UjqQ=;
+        b=eUxmkcobmJCjtw3G7CxIo9YSRPt16qLqxRKRpaRSpHCpyOFilWX16nq+uTnwjwJhOw
+         spB6yVKjwQ52giojZvfWpVnQs2p39bp2k5a/HAqCgjwehQq0m291iKgju3yYCJ+CSMUc
+         rJ8m9mGqDA19EHwT816HClgriEyEgRwl9AOgFWHX4kveFiN+g15zuf0swwtZk4wLDPe+
+         o/swCOheJyLeNmSVD6sQJvcpNWyMi6mMHbGXjWM+UkyQCwBPpDAuzt45+ZKUrdaamDZy
+         WeKR4caFutbAgBuLDGuXcJKaQyewYCE5PcgMuV/rlBv9w1XlNbqV0qiChITIA2RudBAG
+         oeYQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVMXEQc3t9RppDkik3aEjKE5DjijWgsJr7ddqszCu2r+pOELTOSrQgQrg1rTb416J2kMdy54LsJSvAitT0NByj7@lists.infradead.org
+X-Gm-Message-State: AOJu0Yya0XCDK3c2v0z8dW5CYwM/MLyIXtP57cuyga5vunAsQW+bpcS4
+	SZ8MpTf/Ft9v9hvBVNeVeSdcKLX6iABq4GTf/8mMT2Pu5aV29a34W855Dt74a/o=
+X-Gm-Gg: ASbGncukqG+k9vWN1KPrTO8ufUayk/6dMF5SDnhCPWRKpg0OHZxenz62sVxs4MJeOw/
+	EG3oeUV9da5FyDqaSp3QXA8e3OpAOf1+4MwJabuubMkYrc1KygLSVAVM+EkgXjkiWRJaQavLlp/
+	yUCbhb2aShI+f8QwYKbsLYatJw/oz9msXPchtKLpX/wqgOkmQ91HGLAIVzv07mtdXMlpOUAOwYU
+	JAYZOJOyp4DXUYM/UAdeLvE7dD3iMhoD4OTec4nK29BbGRJ9JynQV46cJp975mcWpe9sljTosIb
+	Kh9a9JRH6sdWs4GO/I7vWgNWfhm7ZzFkgr47/+JNnuzuu+0AQpusizw3M4IE4zvi
+X-Google-Smtp-Source: AGHT+IHlGOABfGzgCS+9RYYlIPNHGozwdrTB/aVN3u/ZTODdcBYH+YEI+HYYcAFunhC+uzQZ0l632A==
+X-Received: by 2002:a05:6214:252c:b0:6e0:86ab:4b46 with SMTP id 6a1803df08f44-6e243c63cb9mr63742866d6.31.1738158654377;
+        Wed, 29 Jan 2025 05:50:54 -0800 (PST)
+Received: from ziepe.ca (hlfxns017vw-142-68-128-5.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.68.128.5])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6e2058c236csm55482536d6.104.2025.01.29.05.50.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 29 Jan 2025 05:50:53 -0800 (PST)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1td8Sz-00000009Bm2-1Dp2;
+	Wed, 29 Jan 2025 09:50:53 -0400
+Date: Wed, 29 Jan 2025 09:50:53 -0400
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: "Tian, Kevin" <kevin.tian@intel.com>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	"joey.gouly@arm.com" <joey.gouly@arm.com>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"robdclark@gmail.com" <robdclark@gmail.com>,
+	"joro@8bytes.org" <joro@8bytes.org>,
+	"robin.murphy@arm.com" <robin.murphy@arm.com>,
+	"jean-philippe@linaro.org" <jean-philippe@linaro.org>,
+	"nicolinc@nvidia.com" <nicolinc@nvidia.com>,
+	"vdonnefort@google.com" <vdonnefort@google.com>,
+	"qperret@google.com" <qperret@google.com>,
+	"tabba@google.com" <tabba@google.com>,
+	"danielmentz@google.com" <danielmentz@google.com>,
+	"tzukui@google.com" <tzukui@google.com>
+Subject: Re: [RFC PATCH v2 00/58] KVM: Arm SMMUv3 driver for pKVM
+Message-ID: <20250129135053.GB2120662@ziepe.ca>
+References: <20241212180423.1578358-1-smostafa@google.com>
+ <20241212194119.GA4679@ziepe.ca>
+ <Z1yNWI9lBNIZg6Le@google.com>
+ <20250102201614.GA26854@ziepe.ca>
+ <Z35rEeSVwfZVA9IF@google.com>
+ <BN9PR11MB52760686ABB3145E44BAD95A8C1A2@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <Z5DWag7ZKCPl1Eje@google.com>
+ <BN9PR11MB5276B783D518DB354BF58A3C8CE02@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <Z5odLXPZPAwu4oqe@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFCv2 09/13] iommufd: Add IOMMU_OPTION_SW_MSI_START/SIZE
- ioctls
-To: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
- robin.murphy@arm.com, jgg@nvidia.com, kevin.tian@intel.com,
- tglx@linutronix.de, maz@kernel.org, alex.williamson@redhat.com
-Cc: joro@8bytes.org, shuah@kernel.org, reinette.chatre@intel.com,
- yebin10@huawei.com, apatel@ventanamicro.com,
- shivamurthy.shastri@linutronix.de, bhelgaas@google.com,
- anna-maria@linutronix.de, yury.norov@gmail.com, nipun.gupta@amd.com,
- iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org,
- linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
- jean-philippe@linaro.org, mdf@kernel.org, mshavit@google.com,
- shameerali.kolothum.thodi@huawei.com, smostafa@google.com, ddutile@redhat.com
-References: <cover.1736550979.git.nicolinc@nvidia.com>
- <d3cb1694e07be0e214dc44dcb2cb74f014606560.1736550979.git.nicolinc@nvidia.com>
-From: Eric Auger <eric.auger@redhat.com>
-In-Reply-To: <d3cb1694e07be0e214dc44dcb2cb74f014606560.1736550979.git.nicolinc@nvidia.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: i0eL7DDg_ABsLfyBr5U4kUn2Y55P2r-IvDHTsSyu4kU_1738158260
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <Z5odLXPZPAwu4oqe@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250129_054422_666442_6B8E6EA7 
-X-CRM114-Status: GOOD (  37.85  )
+X-CRM114-CacheID: sfid-20250129_055056_012053_F62DD922 
+X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,220 +127,21 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: eric.auger@redhat.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, Jan 29, 2025 at 12:21:01PM +0000, Mostafa Saleh wrote:
+> levels) and can’t be separated from the kernel as that defeats the
+> point of KVM, that means that all hypercalls have to be stable ABI,
+> same for the shared data, shared structs, types...
 
+Sorry, just trying to understand this sentance, today pkvm has no
+stable ABI right? That is the whole point of building it into the
+kernel?
 
-On 1/11/25 4:32 AM, Nicolin Chen wrote:
-> For systems that require MSI pages to be mapped into the IOMMU translation
-> the IOMMU driver provides an IOMMU_RESV_SW_MSI range, which is the default
-> recommended IOVA window to place these mappings. However, there is nothing
-> special about this address. And to support the RMR trick in VMM for nested
-well at least it shall not overlap VMM's RAM. So it was not random either.
-> translation, the VMM needs to know what sw_msi window the kernel is using.
-> As there is no particular reason to force VMM to adopt the kernel default,
-> provide a simple IOMMU_OPTION_SW_MSI_START/SIZE ioctl that the VMM can use
-> to directly specify the sw_msi window that it wants to use, which replaces
-> and disables the default IOMMU_RESV_SW_MSI from the driver to avoid having
-> to build an API to discover the default IOMMU_RESV_SW_MSI.
-IIUC the MSI window will then be different when using legacy VFIO
-assignment and iommufd backend.
-MSI reserved regions are exposed in
-/sys/kernel/iommu_groups/<n>/reserved_regions
-0x0000000008000000 0x00000000080fffff msi
+Things like the CC world are creating stable ABIs for their pkvm like
+environments because they are not built into the kernel? And thus they
+take the pain of that?
 
-Is that configurability reflected accordingly?
-
-How do you make sure it does not collide with other resv regions? I
-don't see any check here.
-
->
-> Since iommufd now has its own sw_msi function, this is easy to implement.
->
-> To keep things simple, the parameters are global to the entire iommufd FD,
-> and will directly replace the IOMMU_RESV_SW_MSI values. The VMM must set
-> the values before creating any hwpt's to have any effect.
->
-> Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->  drivers/iommu/iommufd/iommufd_private.h |  4 +++
->  include/uapi/linux/iommufd.h            | 18 ++++++++++++-
->  drivers/iommu/iommufd/device.c          |  4 +++
->  drivers/iommu/iommufd/io_pagetable.c    |  4 ++-
->  drivers/iommu/iommufd/ioas.c            | 34 +++++++++++++++++++++++++
->  drivers/iommu/iommufd/main.c            |  6 +++++
->  6 files changed, 68 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/iommu/iommufd/iommufd_private.h b/drivers/iommu/iommufd/iommufd_private.h
-> index 3e83bbb5912c..9f071609f00b 100644
-> --- a/drivers/iommu/iommufd/iommufd_private.h
-> +++ b/drivers/iommu/iommufd/iommufd_private.h
-> @@ -45,6 +45,9 @@ struct iommufd_ctx {
->  	struct mutex sw_msi_lock;
->  	struct list_head sw_msi_list;
->  	unsigned int sw_msi_id;
-> +	/* User-programmed SW_MSI region, to override igroup->sw_msi_start */
-> +	phys_addr_t sw_msi_start;
-> +	size_t sw_msi_size;
->  
->  	u8 account_mode;
->  	/* Compatibility with VFIO no iommu */
-> @@ -281,6 +284,7 @@ int iommufd_ioas_unmap(struct iommufd_ucmd *ucmd);
->  int iommufd_ioas_option(struct iommufd_ucmd *ucmd);
->  int iommufd_option_rlimit_mode(struct iommu_option *cmd,
->  			       struct iommufd_ctx *ictx);
-> +int iommufd_option_sw_msi(struct iommu_option *cmd, struct iommufd_ctx *ictx);
->  
->  int iommufd_vfio_ioas(struct iommufd_ucmd *ucmd);
->  int iommufd_check_iova_range(struct io_pagetable *iopt,
-> diff --git a/include/uapi/linux/iommufd.h b/include/uapi/linux/iommufd.h
-> index 34810f6ae2b5..c864a201e502 100644
-> --- a/include/uapi/linux/iommufd.h
-> +++ b/include/uapi/linux/iommufd.h
-> @@ -294,7 +294,9 @@ struct iommu_ioas_unmap {
->  
->  /**
->   * enum iommufd_option - ioctl(IOMMU_OPTION_RLIMIT_MODE) and
-> - *                       ioctl(IOMMU_OPTION_HUGE_PAGES)
-> + *                       ioctl(IOMMU_OPTION_HUGE_PAGES) and
-> + *                       ioctl(IOMMU_OPTION_SW_MSI_START) and
-> + *                       ioctl(IOMMU_OPTION_SW_MSI_SIZE)
->   * @IOMMU_OPTION_RLIMIT_MODE:
->   *    Change how RLIMIT_MEMLOCK accounting works. The caller must have privilege
->   *    to invoke this. Value 0 (default) is user based accounting, 1 uses process
-> @@ -304,10 +306,24 @@ struct iommu_ioas_unmap {
->   *    iommu mappings. Value 0 disables combining, everything is mapped to
->   *    PAGE_SIZE. This can be useful for benchmarking.  This is a per-IOAS
->   *    option, the object_id must be the IOAS ID.
-> + * @IOMMU_OPTION_SW_MSI_START:
-> + *    Change the base address of the IOMMU mapping region for MSI doorbell(s).
-> + *    It must be set this before attaching a device to an IOAS/HWPT, otherwise
-> + *    this option will be not effective on that IOAS/HWPT. User can choose to
-> + *    let kernel pick a base address, by simply ignoring this option or setting
-> + *    a value 0 to IOMMU_OPTION_SW_MSI_SIZE. Global option, object_id must be 0
-I think we should document it cannot be put at a random place either.
-> + * @IOMMU_OPTION_SW_MSI_SIZE:
-> + *    Change the size of the IOMMU mapping region for MSI doorbell(s). It must
-> + *    be set this before attaching a device to an IOAS/HWPT, otherwise it won't
-> + *    be effective on that IOAS/HWPT. The value is in MB, and the minimum value
-> + *    is 1 MB. A value 0 (default) will invalidate the MSI doorbell base address
-> + *    value set to IOMMU_OPTION_SW_MSI_START. Global option, object_id must be 0
->   */
->  enum iommufd_option {
->  	IOMMU_OPTION_RLIMIT_MODE = 0,
->  	IOMMU_OPTION_HUGE_PAGES = 1,
-> +	IOMMU_OPTION_SW_MSI_START = 2,
-> +	IOMMU_OPTION_SW_MSI_SIZE = 3,
->  };
->  
->  /**
-> diff --git a/drivers/iommu/iommufd/device.c b/drivers/iommu/iommufd/device.c
-> index f75b3c23cd41..093a3bd798db 100644
-> --- a/drivers/iommu/iommufd/device.c
-> +++ b/drivers/iommu/iommufd/device.c
-> @@ -445,10 +445,14 @@ static int
->  iommufd_device_attach_reserved_iova(struct iommufd_device *idev,
->  				    struct iommufd_hwpt_paging *hwpt_paging)
->  {
-> +	struct iommufd_ctx *ictx = idev->ictx;
->  	int rc;
->  
->  	lockdep_assert_held(&idev->igroup->lock);
->  
-> +	/* Override it with a user-programmed SW_MSI region */
-> +	if (ictx->sw_msi_size && ictx->sw_msi_start != PHYS_ADDR_MAX)
-> +		idev->igroup->sw_msi_start = ictx->sw_msi_start;
->  	rc = iopt_table_enforce_dev_resv_regions(&hwpt_paging->ioas->iopt,
->  						 idev->dev,
->  						 &idev->igroup->sw_msi_start);
-> diff --git a/drivers/iommu/iommufd/io_pagetable.c b/drivers/iommu/iommufd/io_pagetable.c
-> index 8a790e597e12..5d7f5ca1eecf 100644
-> --- a/drivers/iommu/iommufd/io_pagetable.c
-> +++ b/drivers/iommu/iommufd/io_pagetable.c
-> @@ -1446,7 +1446,9 @@ int iopt_table_enforce_dev_resv_regions(struct io_pagetable *iopt,
->  		if (sw_msi_start && resv->type == IOMMU_RESV_MSI)
->  			num_hw_msi++;
->  		if (sw_msi_start && resv->type == IOMMU_RESV_SW_MSI) {
-> -			*sw_msi_start = resv->start;
-> +			/* Bypass the driver-defined SW_MSI region, if preset */
-> +			if (*sw_msi_start == PHYS_ADDR_MAX)
-> +				*sw_msi_start = resv->start;
->  			num_sw_msi++;
->  		}
->  
-> diff --git a/drivers/iommu/iommufd/ioas.c b/drivers/iommu/iommufd/ioas.c
-> index 1542c5fd10a8..3f4e25b660f9 100644
-> --- a/drivers/iommu/iommufd/ioas.c
-> +++ b/drivers/iommu/iommufd/ioas.c
-> @@ -620,6 +620,40 @@ int iommufd_option_rlimit_mode(struct iommu_option *cmd,
->  	return -EOPNOTSUPP;
->  }
->  
-> +int iommufd_option_sw_msi(struct iommu_option *cmd, struct iommufd_ctx *ictx)
-> +{
-> +	if (cmd->object_id)
-> +		return -EOPNOTSUPP;
-> +
-> +	if (cmd->op == IOMMU_OPTION_OP_GET) {
-> +		switch (cmd->option_id) {
-> +		case IOMMU_OPTION_SW_MSI_START:
-> +			cmd->val64 = (u64)ictx->sw_msi_start;
-> +			break;
-> +		case IOMMU_OPTION_SW_MSI_SIZE:
-> +			cmd->val64 = (u64)ictx->sw_msi_size;
-> +			break;
-> +		default:
-> +			return -EOPNOTSUPP;
-> +		}
-> +		return 0;
-> +	}
-> +	if (cmd->op == IOMMU_OPTION_OP_SET) {
-> +		switch (cmd->option_id) {
-> +		case IOMMU_OPTION_SW_MSI_START:
-> +			ictx->sw_msi_start = (phys_addr_t)cmd->val64;
-> +			break;
-> +		case IOMMU_OPTION_SW_MSI_SIZE:
-> +			ictx->sw_msi_size = (size_t)cmd->val64;
-> +			break;
-> +		default:
-> +			return -EOPNOTSUPP;
-> +		}
-> +		return 0;
-> +	}
-> +	return -EOPNOTSUPP;
-> +}
-> +
->  static int iommufd_ioas_option_huge_pages(struct iommu_option *cmd,
->  					  struct iommufd_ioas *ioas)
->  {
-> diff --git a/drivers/iommu/iommufd/main.c b/drivers/iommu/iommufd/main.c
-> index 7cc9497b7193..026297265c71 100644
-> --- a/drivers/iommu/iommufd/main.c
-> +++ b/drivers/iommu/iommufd/main.c
-> @@ -229,6 +229,8 @@ static int iommufd_fops_open(struct inode *inode, struct file *filp)
->  	init_waitqueue_head(&ictx->destroy_wait);
->  	mutex_init(&ictx->sw_msi_lock);
->  	INIT_LIST_HEAD(&ictx->sw_msi_list);
-> +	ictx->sw_msi_start = PHYS_ADDR_MAX;
-> +	ictx->sw_msi_size = 0;
->  	filp->private_data = ictx;
->  	return 0;
->  }
-> @@ -287,6 +289,10 @@ static int iommufd_option(struct iommufd_ucmd *ucmd)
->  	case IOMMU_OPTION_RLIMIT_MODE:
->  		rc = iommufd_option_rlimit_mode(cmd, ucmd->ictx);
->  		break;
-> +	case IOMMU_OPTION_SW_MSI_START:
-> +	case IOMMU_OPTION_SW_MSI_SIZE:
-> +		rc = iommufd_option_sw_msi(cmd, ucmd->ictx);
-> +		break;
->  	case IOMMU_OPTION_HUGE_PAGES:
->  		rc = iommufd_ioas_option(ucmd);
->  		break;
-Eric
-
+Jason
 
