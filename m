@@ -4,156 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53E05C0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 11:31:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76F7CC0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 12:12:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d+fuA6zWajZ9RrmhgJDg/yMWDsD69ynTq8wlKHUEbLk=; b=vJ49J8/vuemeo48b/soLM4To3X
-	zCqshY24Np3TC1YCx8dh1jT74MEhn4Rv3qcO2TI7y1ZjCJVYj4ZV16qwfU6V2O3tcKHaykPc9iWLI
-	g+JJJNm2Wcajjp532GeLkz8ycXwvofQ5Bfu2zEnb2uHVbMXhNtrvr5sY9S3SLvRyVVwi7UoRI1pgt
-	dGXT1sbZHKA9HaKRaMMJ0on9yFgukjcDkrg510F1FELU9v7QAM7VdKbt0XtxdaGlPBdAne5rm0hQE
-	LFVr+IzTyZP0M7rrASbljuLu0hZI7xlp6TpZRVHRU/8q3gCbmd0fhapNnEo3jzA4kV8/rUEEIdfa3
-	XL9TJfmw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=FfYT43qInjD7+NE+73mPjG28PGMRFzMEZ6xoue/ST5Q=; b=Ryjbj+kCDVunbS
+	iKh4ITYJMsj4AtsCTOj6OwdBoPxB+WvIwubQeJx4JntefZBvV/q0ir62uTvzzQvKkeGrLJ6nZ7gjA
+	zQeUY7PCmn2BFANUMYcw7ZLlUU58m4SGg+Dj5luO+oXCE8mJd29M7sgEbTEMDFAoR3FHbrAU7Zi1k
+	A2YUnQazwOZWhV2rDTExEkSMJ4kBsOxWK0+q9gHMKJaE7Qc8CPnEvHuN7xEgK6cBq5h7jFswDe0TD
+	8dEQooKvuG753p8HJktt1JTRor/EDNTu56OKjBs4AzbUHmBJH31NI04CgWe9g/fxDEQh8OrAyRThn
+	j4QEknINSMYHzKQDDLpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1td6I9-00000006qeu-0gT0;
-	Wed, 29 Jan 2025 11:31:33 +0000
-Received: from mail-mw2nam12on2061b.outbound.protection.outlook.com ([2a01:111:f403:200a::61b] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1td6vt-00000006uu5-1000;
+	Wed, 29 Jan 2025 12:12:37 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1td6Gp-00000006qNJ-0EZ4
+	id 1td6uZ-00000006uon-0aUb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jan 2025 11:30:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=J7KAOhM2dN9XtMtg6KaunmDgfjEi3eXN4V1ygHwTZRhTub7LaQYTPavuYn01svvabby3BgsT8FSTBM4P07p2W1CAKj8nNEHfemZJzqnsliSrPTW4bwKtPPmSt937heMiyfhXUd33CfkkDGdeMOBcK86219rGBoCw6FUkBMSmieABs/7huRcn4UtA7OEa+uyJsTVEUc0qoRJF9/Z1vdD8qGEaQnx5iJQTbLnvyutazcguPYjKsj53KXC7tY0fgcErBexoHFxgtm0PonhbUPxj9n0YT0AwsBcTPRgC5AHL1tnTLUVithueu8B0IWqsXfLZnv8HT2InMnghxy7JEG2ewg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=d+fuA6zWajZ9RrmhgJDg/yMWDsD69ynTq8wlKHUEbLk=;
- b=ad5dfRO7sLKtdZOc6CfkPFMknMA5vzcZxjDBpMeuO4cdT4DgZyC//HLvMVNmiSbVnGHQ7DT2fp5cZF9ZzOXfSerbGpvgrZINnxzEer6mZ1T4Sx9oB3dL4mbUmANB0FeopzvttWpcTTL9zUcwL2ODu2sblEO1XSjQCB4C++8ju7Sm1FasgAHEZIqFNZ5LkkzhjGi44TEvo0PehTp1RGCYIGp98TFjwEzT+ZUUo/kDHSRxZC6RoGOlMVwfjXh0DvWb25Q6MfTD3W+NwY/8cC1PSkehyyiFkkkE3oiN4GGVuhqJvJN1IKfWEFfgg0sdOYZmuIMwR8cqmhLdCmoOWEjqKA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=d+fuA6zWajZ9RrmhgJDg/yMWDsD69ynTq8wlKHUEbLk=;
- b=QfuO5f/V6xgJ42johXPsVTWPEGlkshmwcCon0T24sZHMeFGKR9mPnC4UB77VJfKw4fPJcQ/HjaQXbZO/8zxKBq8wPGlAx6LGkKciz92K4YNFAx9JfB3QL4iONaMaE3NpWnVDk2uedc31z9QcfUKe+QNn7/O+WZbH4kNEDauHHkgrcvRDIx0RfKfADdNAosVuMgA3Ero9JqPAoo6vp32eenzBmHBsmAdA1m8V61dfRWD8DATw/LSi33tZt0GiX+cLLwNIoXu6tpCGyyUSk0nZhlcZFjZH7IEZwz8zH5VR7cPsKbhQDonMbwd4oktLfofxmAAjAt4laz4e1uFLO65qhA==
-Received: from CH2PR14CA0049.namprd14.prod.outlook.com (2603:10b6:610:56::29)
- by DM6PR12MB4482.namprd12.prod.outlook.com (2603:10b6:5:2a8::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.17; Wed, 29 Jan
- 2025 11:29:56 +0000
-Received: from CH2PEPF0000009B.namprd02.prod.outlook.com
- (2603:10b6:610:56:cafe::85) by CH2PR14CA0049.outlook.office365.com
- (2603:10b6:610:56::29) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8398.18 via Frontend Transport; Wed,
- 29 Jan 2025 11:29:56 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- CH2PEPF0000009B.mail.protection.outlook.com (10.167.244.23) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8398.14 via Frontend Transport; Wed, 29 Jan 2025 11:29:56 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 29 Jan
- 2025 03:29:42 -0800
-Received: from [10.41.21.79] (10.126.231.35) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Wed, 29 Jan
- 2025 03:29:36 -0800
-Message-ID: <75454544-f23e-4de9-bc12-64d134fc5027@nvidia.com>
-Date: Wed, 29 Jan 2025 16:59:33 +0530
+	Wed, 29 Jan 2025 12:11:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1738152673;
+	h=from:from:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FfYT43qInjD7+NE+73mPjG28PGMRFzMEZ6xoue/ST5Q=;
+	b=BJdAHDd7d8BsG9OJUN5bA0aVzgMPEhtaF8Yd1I5JBAajVukD+Oi3aWA65zaxkkvmMTM9JV
+	uDWTZQQMeCRgPL+LH/5rH/U4iksiwDBySSdTIhXvoOnHPO8wwVzcRjNLJTxroVq5LwT2qw
+	tHsBg2uWt/GmBGRW5YLwnKFgFxYjZrk=
+Received: from mail-ed1-f72.google.com (mail-ed1-f72.google.com
+ [209.85.208.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-391-oLsuMclzMnqStjH0IoPOTg-1; Wed, 29 Jan 2025 07:11:10 -0500
+X-MC-Unique: oLsuMclzMnqStjH0IoPOTg-1
+X-Mimecast-MFC-AGG-ID: oLsuMclzMnqStjH0IoPOTg
+Received: by mail-ed1-f72.google.com with SMTP id 4fb4d7f45d1cf-5d3c284eba0so8813044a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jan 2025 04:11:10 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738152669; x=1738757469;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:reply-to:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FfYT43qInjD7+NE+73mPjG28PGMRFzMEZ6xoue/ST5Q=;
+        b=NAck1+aizhkCI8hyR+fbZ6z7zFXgTMw5cMR/9JYNgBYYCGHI3o5Uqn2O6jrZP18mMi
+         RIpgUwBHiLw/5YQTXPMB28fDRKySSdK7m7PS4UgdwHPzbZ4si8ck2EuYEsL0ExxfUqy5
+         wC/0CHEM1Q6VLWaWRzJXswoVgaUqeDQPo8yZ88cEvbfEVOZVbCxqG7ZV4ixm9Zhd2ttO
+         BizG8CaZFMnjWbGH21TD7XqXS8QvogeuT6Zljv463w0buxSJWf0U0WwBogcYIMzVNyZC
+         yObBK6WlRK5gzub+fwX9PiqdtUhtL3zjZOeoNviMPj8bjKLrjzWcUSFz8Ahql8BukC2d
+         IPjQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXS131jNIS01Eqivek4VXbmogWyaaTQgP4ynK+ogRt+HI5ElvRvli5PleQhgTjSpJ2yF0YVxqDrKbDkJ4ALobUz@lists.infradead.org
+X-Gm-Message-State: AOJu0YzvHhzBlvDGxQLOWy8nmNe7UiOOeCroqrdwx8xA7yMwyZKMpWW7
+	cE2R/FJjqAWzETkZrLRAsugUtrR8JV4fFcgzR1ev4gzZ0Rp4X+aDArw19EtWK0yyNkD33fuBmg+
+	9tcjLDg+sCz9TR++54ISMCh+kHluLT4g/chGUcldw+jXq3WBMWAAbAh9/DHjgt0ucUqfYtNRq
+X-Gm-Gg: ASbGncuRogX5i2/UPRvsPhf6daM/LuZYD/Rtv4YqcqgcejdzlUl08284fuolL9VxpYk
+	6q7JFdHrdqhQIn0rHJ1Vmm4Fr58gOt1R+AJE5diVvpWhBrYeh+0Ta23VLyyDJuctD20KIK6uGKH
+	+ciu+q1FvhFe4rFg0cWrtjC+vZPGUACO+g99PY+1NXSxE0woZsy7I+mUnsSgBQMeDPaIRvExp3s
+	tjbzeJ//DFX1H6YFWcletgfavYtQ7sg52MxA6urMK9J5/2RGxCn/IHpvgaf03O8ZhbNMW+AL6UG
+	JdJBa1spsxIdJ2hi0nUojFGjn/aurGJtkX/d+C2TbPbqRyPT97qV
+X-Received: by 2002:a05:6402:42d4:b0:5d9:a54:f8b4 with SMTP id 4fb4d7f45d1cf-5dc5efbf5bamr2757084a12.11.1738152669153;
+        Wed, 29 Jan 2025 04:11:09 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHWwGofFlveJZZ8Y8RCQ261keTvS+w2IGgafzQLJiEPoI+LUqDstLACEsFV9aVwDeaatRYmZg==
+X-Received: by 2002:a05:6402:42d4:b0:5d9:a54:f8b4 with SMTP id 4fb4d7f45d1cf-5dc5efbf5bamr2757022a12.11.1738152668668;
+        Wed, 29 Jan 2025 04:11:08 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:59e:9d80:527b:9dff:feef:3874? ([2a01:e0a:59e:9d80:527b:9dff:feef:3874])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dc1863978asm8680072a12.33.2025.01.29.04.11.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 29 Jan 2025 04:11:06 -0800 (PST)
+Message-ID: <38896dfc-b5d9-4efd-8aff-bbe8cdb47c6e@redhat.com>
+Date: Wed, 29 Jan 2025 13:11:03 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 2/5] cpufreq: Introduce an optional cpuinfo_avg_freq
- sysfs entry
-To: Beata Michalska <beata.michalska@arm.com>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
-	<ionela.voinescu@arm.com>, <sudeep.holla@arm.com>, <will@kernel.org>,
-	<catalin.marinas@arm.com>, <rafael@kernel.org>, <viresh.kumar@linaro.org>
-CC: <yang@os.amperecomputing.com>, <vanshikonda@os.amperecomputing.com>,
-	<lihuisong@huawei.com>, <zhanjie9@hisilicon.com>, Jonathan Corbet
-	<corbet@lwn.net>, Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar
-	<mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
-	<dave.hansen@linux.intel.com>, "H . Peter Anvin" <hpa@zytor.com>, Phil Auld
-	<pauld@redhat.com>, <x86@kernel.org>, <linux-doc@vger.kernel.org>,
-	linux-tegra <linux-tegra@vger.kernel.org>
-References: <20250121084435.2839280-1-beata.michalska@arm.com>
- <20250121084435.2839280-3-beata.michalska@arm.com>
+Subject: Re: [PATCH RFCv2 01/13] genirq/msi: Store the IOMMU IOVA directly in
+ msi_desc instead of iommu_cookie
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
+ robin.murphy@arm.com, kevin.tian@intel.com, tglx@linutronix.de,
+ maz@kernel.org, alex.williamson@redhat.com, joro@8bytes.org,
+ shuah@kernel.org, reinette.chatre@intel.com, yebin10@huawei.com,
+ apatel@ventanamicro.com, shivamurthy.shastri@linutronix.de,
+ bhelgaas@google.com, anna-maria@linutronix.de, yury.norov@gmail.com,
+ nipun.gupta@amd.com, iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
+ jean-philippe@linaro.org, mdf@kernel.org, mshavit@google.com,
+ shameerali.kolothum.thodi@huawei.com, smostafa@google.com, ddutile@redhat.com
+References: <cover.1736550979.git.nicolinc@nvidia.com>
+ <671b2128c193fc9ac9af0f4add96f85a785f513a.1736550979.git.nicolinc@nvidia.com>
+ <1b48e138-3134-442a-9796-e3a33b106221@redhat.com>
+ <20250123184855.GU5556@nvidia.com>
+From: Eric Auger <eric.auger@redhat.com>
+In-Reply-To: <20250123184855.GU5556@nvidia.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: k3avb9PY4t-3-zAI8fBdoHPaLpTfoDOapnDN8AbHE7c_1738152669
+X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-From: Sumit Gupta <sumitg@nvidia.com>
-In-Reply-To: <20250121084435.2839280-3-beata.michalska@arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.126.231.35]
-X-ClientProxiedBy: rnnvmail203.nvidia.com (10.129.68.9) To
- rnnvmail201.nvidia.com (10.129.68.8)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF0000009B:EE_|DM6PR12MB4482:EE_
-X-MS-Office365-Filtering-Correlation-Id: 49d0f82f-6121-4604-23cb-08dd405841fd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|1800799024|376014|7416014|7053199007|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?TUhRd0xkNWxZMTFXaTd5RlY1Z1VvM2FadTFoamN3T3E1WVdIYzk3cVZreWlv?=
- =?utf-8?B?b2daYlFrNnRkVzNKZVpsaG01WnJmWkdGYTNpT2xPNlB3YUl2WTd3eGJHT2tx?=
- =?utf-8?B?RU94QzFGKzVVb09iVk1KZTRkVzU2RmpPSHozWmVJVU0xdnZGVmd0dXVPdm5J?=
- =?utf-8?B?cEd4aVFYbHRCSlEvZTN3K0cwU1M2VkJHZUlKSDQwWk5sWEhwOFdaaWcvTHRi?=
- =?utf-8?B?Y0ZjSGhFSXJBcE9CMTY1YnU1OXdUSjZ3RzIxNkdSTWkzcTFNOFBndi9xaUM5?=
- =?utf-8?B?UUx5QW81aDIwbnBWeWFwYmg5Rmx2dHFPUU9nc1hoWW12L2J3TmNmek1uYk9h?=
- =?utf-8?B?TDJFYkxIbTZ1bTJPUFpDSzBBdFZSTXJUaDU0QnZhakdpZjlmOG1ZU1Z4bXcz?=
- =?utf-8?B?VWliUGZTSEwvbEkxaHVhekRWV1NPbzJubDk2Y2I5bVR6Z2Z0RHI0NktlZHZR?=
- =?utf-8?B?QmE3d1BaSzRZblFtNTJCVGxNVU03T292M0ZUdHljUmp3bDh5ZUh1T1RkT0w0?=
- =?utf-8?B?ZXd3c1Z3ckNDTWR6SFAzOUZCNGQ3amNMYTR6OHZHT1gyeW9IMVp2UFBYOWdh?=
- =?utf-8?B?ZEhNUkQyZFV6WkJJYkdkc1JpUTFVSFRzWFQ0RHo0MFhBZmRFbUZlNGIwNjB2?=
- =?utf-8?B?ZUpnQjlSR3lDaXhsUysxVUZXNi9Dczlod1RybGkyRERwNFBsRVd4aVhhbXpV?=
- =?utf-8?B?L20yT0NiMXpvbVN2SnVSWXV2MHlVY3pQZFF5a1RnOWNWV2hlZDFKRmQ4NGlv?=
- =?utf-8?B?UmR5N0tJNUU3S2ZUZGJUZTlRWWFOb0dLTldpaE1mVHlBUVhUS1h5SUJPY29E?=
- =?utf-8?B?TkhIOVg1TGpQUWxjWm1xYTBjY3FTZnFBV2FSM1IwWEIvamRmbFMyTlhJd1F6?=
- =?utf-8?B?UktobmNDaXFBaXVBcU5MV2NzdXR5eXl5aXhkOGFNQTNHbzFDY2VzWUpMaUxQ?=
- =?utf-8?B?YzVpcnMvYTR6OUk2RHU5QnNIZWQ5azFnajUxcElzbG85V3IrZE1ONzU3cjYw?=
- =?utf-8?B?Z1huejczenY0M3VHVHplMzFHWmE4M2xwUTVNa1djM212QlFMRWFncmc4bEln?=
- =?utf-8?B?UElkaHUxTDhvc2Y1MVV4bURnVTlvTEVsS1dMclRxaElxQUtNOStGYVQ5ZkIv?=
- =?utf-8?B?c29weUUxUSt1OGRxT3Ewc0J3RWNBQzA4SS9NNytReitpdzNGR0UvWGxoNlBT?=
- =?utf-8?B?eEVYNEQxTk12MTF5MGR3bWlKWXhmTmRGR09nWVptZ3NDQVFwNkhkQUU2TktB?=
- =?utf-8?B?ZWtiQW1aU1Ftb0ZiOWpjRnB5MXlYUlplZ2xjdG1qTnc2NGZGK2tLQW9adWli?=
- =?utf-8?B?UmxQV2xacDhUTUFERytzSmt2ZWdodGxjQkU5N1RQR3BXS050ZFFUUlU4ak5N?=
- =?utf-8?B?SWEvbkNES3krZHB0KzUxeFh5OFlLYVVrejk0V29xNzRYNWlqRVp5Ym1FTkht?=
- =?utf-8?B?dFA0TDRCNEdwdDN0NUxoSHdJeW5aRnVnaU56TDV0bVZNaHVKeFplKy9ZUVpS?=
- =?utf-8?B?QVFOajdZa3NFclJxNGluWkNMRmR1RWdnZ1Q4d2t6VDNpczhaREg4d3ZkRlNK?=
- =?utf-8?B?UVF5UDlRMnFGMmw1QmtoczFNbHVsU2M5L2czWDcyRmNCRzJocHdEdHE2UmtL?=
- =?utf-8?B?VXFYL1pqdHJsZS9STy9NN0xJYnBCVEp0REQwOG5PaWxoODQwdzJ5S1RkcVZ0?=
- =?utf-8?B?bkRPNXFXSW1CVkZCUWYvRURxc0NtRm1FWTRIRjhVdVh2TWU4and5Zld6NG9k?=
- =?utf-8?B?elFYMyt0bXk4a1VwZkpGaVFUbTd3UldRc2cyMXVncFoxR3VaRGMzMHNXNGI3?=
- =?utf-8?B?dFBuNEJEM0RwK2NIaUo3eWgrOU5CZXVXbEJoZU83SXF3UzNOa1RXejdTaUc1?=
- =?utf-8?B?ek9WWkZvalNNUXNtbEl4NFRFOWM5VGZKbGFBYXNhTFJzSVR5ZnE0RThYUC9y?=
- =?utf-8?B?eEE2NThxRnBrVmg5VENQVElSaUh4ZzAwVnl3MVhTQ0pnU2RWdU82TGQybjV0?=
- =?utf-8?B?VWxBc3FlSVhKM1VYU2ErbEtCeGVqVE95UHFRRE9IVkxrY1FSRGtOalB1ZnQ5?=
- =?utf-8?Q?eMpzkn?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(1800799024)(376014)(7416014)(7053199007)(921020);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jan 2025 11:29:56.3324
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 49d0f82f-6121-4604-23cb-08dd405841fd
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000009B.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4482
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250129_033011_090039_C2704258 
-X-CRM114-Status: GOOD (  34.22  )
+X-CRM114-CacheID: sfid-20250129_041115_264952_02E87213 
+X-CRM114-Status: GOOD (  22.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,120 +121,71 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: eric.auger@redhat.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
 
-On 21/01/25 14:14, Beata Michalska wrote:
-> 
-> 
-> Currently the CPUFreq core exposes two sysfs attributes that can be used
-> to query current frequency of a given CPU(s): namely cpuinfo_cur_freq
-> and scaling_cur_freq. Both provide slightly different view on the
-> subject and they do come with their own drawbacks.
-> 
-> cpuinfo_cur_freq provides higher precision though at a cost of being
-> rather expensive. Moreover, the information retrieved via this attribute
-> is somewhat short lived as frequency can change at any point of time
-> making it difficult to reason from.
-> 
-> scaling_cur_freq, on the other hand, tends to be less accurate but then
-> the actual level of precision (and source of information) varies between
-> architectures making it a bit ambiguous.
-> 
-> The new attribute, cpuinfo_avg_freq, is intended to provide more stable,
-> distinct interface, exposing an average frequency of a given CPU(s), as
-> reported by the hardware, over a time frame spanning no more than a few
-> milliseconds. As it requires appropriate hardware support, this
-> interface is optional.
-> 
-> Note that under the hood, the new attribute relies on the information
-> provided by arch_freq_get_on_cpu, which, up to this point, has been
-> feeding data for scaling_cur_freq attribute, being the source of
-> ambiguity when it comes to interpretation. This has been amended by
-> restoring the intended behavior for scaling_cur_freq, with a new
-> dedicated config option to maintain status quo for those, who may need
-> it.
-> 
-> CC: Jonathan Corbet <corbet@lwn.net>
-> CC: Thomas Gleixner <tglx@linutronix.de>
-> CC: Ingo Molnar <mingo@redhat.com>
-> CC: Borislav Petkov <bp@alien8.de>
-> CC: Dave Hansen <dave.hansen@linux.intel.com>
-> CC: H. Peter Anvin <hpa@zytor.com>
-> CC: Phil Auld <pauld@redhat.com>
-> CC: x86@kernel.org
-> CC: linux-doc@vger.kernel.org
-> 
-> Signed-off-by: Beata Michalska <beata.michalska@arm.com>
-> ---
->   Documentation/admin-guide/pm/cpufreq.rst | 16 ++++++++++++-
->   drivers/cpufreq/Kconfig.x86              | 12 ++++++++++
->   drivers/cpufreq/cpufreq.c                | 30 +++++++++++++++++++++++-
->   3 files changed, 56 insertions(+), 2 deletions(-)
-> 
-> diff --git a/Documentation/admin-guide/pm/cpufreq.rst b/Documentation/admin-guide/pm/cpufreq.rst
-> index a21369eba034..e9969174026c 100644
-> --- a/Documentation/admin-guide/pm/cpufreq.rst
-> +++ b/Documentation/admin-guide/pm/cpufreq.rst
-> @@ -248,6 +248,19 @@ are the following:
->          If that frequency cannot be determined, this attribute should not
->          be present.
-> 
-> +``cpuinfo_avg_freq``
-> +        An average frequency (in KHz) of all CPUs belonging to a given policy,
-> +        derived from a hardware provided feedback and reported on a time frame
-> +        spanning at most few milliseconds.
-> +
-> +        This is expected to be based on the frequency the hardware actually runs
-> +        at and, as such, might require specialised hardware support (such as AMU
-> +        extension on ARM). If one cannot be determined, this attribute should
-> +        not be present.
-> +
-> +        Note, that failed attempt to retrieve current frequency for a given
-> +        CPU(s) will result in an appropriate error.
-> +
+On 1/23/25 7:48 PM, Jason Gunthorpe wrote:
+> On Thu, Jan 23, 2025 at 06:10:48PM +0100, Eric Auger wrote:
+>
+>>> However iommufd now permits the domain to change while the driver is
+>>> probed and VFIO userspace can create races with IRQ changes calling
+>>> iommu_dma_prepare/compose_msi_msg() and changing/freeing the iommu_domain.
+>> and is it safe in iommu_dma_prepare_msi()?
+> iommu_dma_prepare_msi() takes the group mutex:
+>
+> int iommu_dma_prepare_msi(struct msi_desc *desc, phys_addr_t msi_addr)
+> {
+> 	struct device *dev = msi_desc_to_dev(desc);
+> 	struct iommu_group *group = dev->iommu_group;
+>
+> 	mutex_lock(&group->mutex);
+> 	if (group->domain && group->domain->sw_msi)
+> 		ret = group->domain->sw_msi(group->domain, desc, msi_addr);
+>
+> Which prevents changing domain attachments during execution.
+>
+> For iommufd, if the domain attachment changes immediately after
+> iommu_dma_prepare_msi() unlocks, then the information given to
+> msi_desc_set_iommu_msi_iova() is still valid on the new domain.
+>
+> This is because the iommufd implementation of sw_msi keeps the same
+> IOVA for the same ITS page globally across all domains. Any racing
+> change of domain will attach a new domain with the right ITS IOVA
+> already mapped and populated.
+> It is why this series stops using the domain pointer as a cookie
+> inside the msi_desc, immediately after the group->mutex is unlocked
+> a new domain can be attached and the old domain can be freed, which
+> would UAF the domain pointer in the cookie.
+OK thank you for the clarification
+>
+>>> diff --git a/include/linux/msi.h b/include/linux/msi.h
+>>> index b10093c4d00e..d442b4a69d56 100644
+>>> --- a/include/linux/msi.h
+>>> +++ b/include/linux/msi.h
+>>> @@ -184,7 +184,8 @@ struct msi_desc {
+>>>  	struct msi_msg			msg;
+>>>  	struct irq_affinity_desc	*affinity;
+>>>  #ifdef CONFIG_IRQ_MSI_IOMMU
+>>> -	const void			*iommu_cookie;
+>> you may add kernel doc comments above
+> I wondered if internal stuff was not being documented as the old
+> iommu_cookie didn't have a comment..
+>
+> But sure:
+>
+>  * @iommu_msi_iova: Optional IOVA from the IOMMU to overide the msi_addr.
+>  *                  Only used if iommu_msi_page_shift != 0
+>  * @iommu_msi_page_shift: Indicates how many bits of the original address
+>  *                        should be preserved when using iommu_msi_iova.
+Sounds good
 
-Minor nit:
-Should we also add: Idle CPU's on ARM will return EAGAIN (Resource 
-temporarily unavailable) error?
-
->   ``cpuinfo_max_freq``
->          Maximum possible operating frequency the CPUs belonging to this policy
->          can run at (in kHz).
-> @@ -293,7 +306,8 @@ are the following:
->          Some architectures (e.g. ``x86``) may attempt to provide information
->          more precisely reflecting the current CPU frequency through this
->          attribute, but that still may not be the exact current CPU frequency as
-> -       seen by the hardware at the moment.
-> +       seen by the hardware at the moment. This behavior though, is only
-> +       available via c:macro:``CPUFREQ_ARCH_CUR_FREQ`` option.
-> 
->   ``scaling_driver``
->          The scaling driver currently in use.
-> diff --git a/drivers/cpufreq/Kconfig.x86 b/drivers/cpufreq/Kconfig.x86
-> index 97c2d4f15d76..212e1b9afe21 100644
-> --- a/drivers/cpufreq/Kconfig.x86
-> +++ b/drivers/cpufreq/Kconfig.x86
-> @@ -340,3 +340,15 @@ config X86_SPEEDSTEP_RELAXED_CAP_CHECK
->            option lets the probing code bypass some of those checks if the
->            parameter "relaxed_check=1" is passed to the module.
-> 
-> +config CPUFREQ_ARCH_CUR_FREQ
-> +       default y
-> +       bool "Current frequency derived from HW provided feedback"
-> +       help
-> +         This determines whether the scaling_cur_freq sysfs attribute returns
-> +         the last requested frequency or a more precise value based on hardware
-> +         provided feedback (as architected counters).
-> +         Given that a more precise frequency can now be provided via the
-> +         cpuinfo_avg_cur_freq attribute, by enabling this option,
-
-s/cpuinfo_avg_cur_freq/cpuinfo_cur_freq/?
-
-Overall looks good to me.
-
-Reviewed-by: Sumit Gupta <sumitg@nvidia.com>
+Eric
+>
+> Jason
+>
 
 
