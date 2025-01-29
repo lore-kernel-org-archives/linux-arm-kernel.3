@@ -4,114 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4EF6C0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 17:57:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B76CC0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 18:04:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sr7o+OAXT5NVwH0SZMxyzb/Ge2LPUoYqRVfWItXhicQ=; b=g1DfGYzsHAhgcsObWpGkcmyKEq
-	z5XJmRc/egvelmCDXD/f/y783vRGwvReDf3Oi6W8QOQAuGI4lHihbdFTrK5BP/+YWhkDXBZDeLhgc
-	skIhxl5hNlkse1x/IGZVlIpnLSMgC3sumdSPgozKnFwBeZfxxSVCqd2nyTX97UvR6+ooPzv9/6613
-	V6O3rCNkj5KGR/kFOXYqY6Qo2Kjp99nRvSt55JurFOVPGf7y2cBEhT9FU/HJaxVBz+Lbbd6sQzWrA
-	JJm3BpDXO0UTORQHs/wHtcBnaRaDwY894mlW33GxoDKMu09pW3Dj7lEoyMXqzG20rszAVTdAxP+h4
-	VcZXw3tg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E4qYr+BfI2d97uSVNI+YmBvuCgLID4BAS+wE8al32eY=; b=ltlIYpAJy7fN3vj89qhQHvF226
+	bO+s0MnPMqfRzAwBKP1b1N/+brxqBKkoXlRXJe5kfH/AGwDYkxyQuh+0vokTua6fkJ8p1SALZSEUO
+	mtcmVwVIJdE7JtSNtqvDvTW5qKpT6kwFcqCkqQyCC9lG73yAEozcJ9G+fJxZBW1aiwtYuX202z5lq
+	dXGzXJp5jFIHy5ueEPqYzPcrVwYFEnL9fdk/vwEmDTEQG5WRZaeH525i8duoUR/ansoCeinvn93j4
+	zpUlbb4beKU2SwEEKgNsDL4AJ3mfpm7oRwZ5TI7LnRFczBSddo4HUIoVOGyFURPo0/LP3zVosP5Nq
+	ebsCaK4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdCJl-00000007Yio-2aIb;
-	Wed, 29 Jan 2025 17:57:37 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tdCQW-00000007ZKP-2w1E;
+	Wed, 29 Jan 2025 18:04:36 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdCHt-00000007YZF-36Ui
+	id 1tdCP9-00000007ZDf-0OxV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jan 2025 17:55:47 +0000
+	Wed, 29 Jan 2025 18:03:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E39CCA41AD5;
-	Wed, 29 Jan 2025 17:53:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E6E1C4CED3;
-	Wed, 29 Jan 2025 17:55:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738173340;
-	bh=f7eHzTfb7CXxy4fxB26nVOMXC2jFiDmHLAVJP5x8kS4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=o4X/Nly3iITF/DvvEEvlFemWTvyruj+erfpMn7oF3ohNJGnbmmYH8dWutkxmnht7R
-	 IAA3K+cJVn+clDv0Guo37m7IQYmoCF5gKyVL1V/zpOn8C4tG4mCxT8Gnypwka6c4CX
-	 GQLbgZ+7ttETVtJ4pibyUQABkYCKG1L75+OwIfs3ttI1olsm/dlr5wJ0X19Zdm8rY+
-	 uTL9HCL9B6KZ3Xgy1Rr5BGOnaTym7h9ECoeoaq5ofvKoukU4IREE92+nzkQgjqLELW
-	 Vx06rOdN4tbJhOEXbOxnKXY0Bio9olqobvaR7UGEFNIwYRXvqG1kX1vYhNxlSi7S0G
-	 qsb5prlFOzOwA==
-Message-ID: <c7a76128-175a-482f-b326-a8d786241cdc@kernel.org>
-Date: Wed, 29 Jan 2025 18:55:34 +0100
+	by dfw.source.kernel.org (Postfix) with ESMTP id F0CCF5C5E32;
+	Wed, 29 Jan 2025 18:02:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88272C4CED1;
+	Wed, 29 Jan 2025 18:03:07 +0000 (UTC)
+Date: Wed, 29 Jan 2025 18:03:05 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: Rob Herring <robh@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Eric Auger <eric.auger@redhat.com>, kvmarm@lists.linux.dev,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/7] arm64/boot: Enable EL2 requirements for FEAT_PMUv3p9
+Message-ID: <Z5ptWRqZVI8grz6e@arm.com>
+References: <20241220072240.1003352-1-anshuman.khandual@arm.com>
+ <20250102160402.GB3990035-robh@kernel.org>
+ <Z30adHnQ7ZFaU9UR@arm.com>
+ <CAL_JsqLLnh1o4L1=PpNt5brBwZZCgp7mOygByOYakchrzc29Ow@mail.gmail.com>
+ <86wmf5wo8u.wl-maz@kernel.org>
+ <CAL_JsqKKiEOj=a1k6U-bB0F6-ht7QokDnh3bspHupp-QG=haSg@mail.gmail.com>
+ <Z4kmlhnlpKjS_MII@arm.com>
+ <CAL_JsqK1k7fG=yDZSbTbV63yRP5U9=GpuAiv=NWZJWdppUtRwA@mail.gmail.com>
+ <7f5c68c7-8036-4d18-950f-80e55ac8ea11@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] pinctrl: samsung: Add filter selection support for
- alive bank on gs101
-To: Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Linus Walleij <linus.walleij@linaro.org>,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
- tudor.ambarus@linaro.org, willmcvicker@google.com,
- semen.protsenko@linaro.org, kernel-team@android.com, jaewon02.kim@samsung.com
-References: <20250120-pinctrl-fltcon-suspend-v1-0-e77900b2a854@linaro.org>
- <20250120-pinctrl-fltcon-suspend-v1-3-e77900b2a854@linaro.org>
- <4e2057fc54022ba5791e482a1e631a1a77551389.camel@linaro.org>
- <CADrjBPr3VVvY4axBhAEO4zVGhLMiDZ8jWHCf=uSfEBMcZSOa=Q@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
- QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
- gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
- /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
- iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
- VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
- 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
- xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
- eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
- AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
- MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
- Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
- ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
- vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
- oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
- lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
- t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
- uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
- 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
- 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <CADrjBPr3VVvY4axBhAEO4zVGhLMiDZ8jWHCf=uSfEBMcZSOa=Q@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <7f5c68c7-8036-4d18-950f-80e55ac8ea11@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250129_095541_912854_58DC8E59 
-X-CRM114-Status: GOOD (  12.20  )
+X-CRM114-CacheID: sfid-20250129_100311_184255_D1E6F21D 
+X-CRM114-Status: GOOD (  20.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,35 +76,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/01/2025 16:39, Peter Griffin wrote:
->>> +  The FLTCON register (on alive banks) has the following layout
->>> + *
->>> + * BitfieldName[PinNum][Bit:Bit]
->>> + * FLT_EN[3][31] FLT_SEL[3][30] FLT_WIDTH[3][29:24]
->>> + * FLT_EN[2][23] FLT_SEL[2][22] FLT_WIDTH[2][21:16]
->>> + * FLT_EN[1][15] FLT_SEL[1][14] FLT_WIDTH[1][13:8]
->>> + * FLT_EN[0][7]  FLT_SEL[0][6]  FLT_WIDTH[0][5:0]
->>> + *
->>> + * FLT_EN    0x0 = Disable, 0x1=Enable
->>> + * FLT_SEL   0x0 = Delay filter, 0x1 Digital filter
->>
->> It's a delay filter filter either way, right? If so, I
->> think '0x0 = Delay filter' should instead be reworded to
->> '0x0 = Analog filter'.
+On Tue, Jan 28, 2025 at 02:41:17PM +0530, Anshuman Khandual wrote:
+> On 1/18/25 03:37, Rob Herring wrote:
+> > On Thu, Jan 16, 2025 at 9:32 AM Catalin Marinas <catalin.marinas@arm.com> wrote:
+> >>
+> >> On Wed, Jan 08, 2025 at 07:47:16AM -0600, Rob Herring wrote:
+> >>> On Wed, Jan 8, 2025 at 5:15 AM Marc Zyngier <maz@kernel.org> wrote:
+> >>>> On Tue, 07 Jan 2025 22:13:47 +0000,
+> >>>> Rob Herring <robh@kernel.org> wrote:
+> >>>>> On Tue, Jan 7, 2025 at 6:13 AM Catalin Marinas <catalin.marinas@arm.com> wrote:
+> >>>>>> But does KVM actually expose the feature to EL1 in ID_AA64DFR1_EL1 and
+> >>>>>> than traps it at EL2?
+> >>>>>
+> >>>>> As Marc pointed out KVM only advertises PMUv3.8. Regardless, guest
+> >>>>> accesses to these registers are trapped with or without this series.
+> >>>>
+> >>>> And most probably generates a nice splat in the kernel log, as nobody
+> >>>> updated KVM to handle *correctly* PMICNTR_EL0 traps, let alone deal
+> >>>> with the FGT2 registers.
+> >>>
+> >>> Isn't that this series[1]? Should that have come first, I guess I know
+> >>> that *now*.
+> >> [...]
+> >>> [1] https://lore.kernel.org/all/20241210055311.780688-1-anshuman.khandual@arm.com/
+> >>
+> >> It's not any clearer to me. Does this series depend on the 46-patch one?
+> >> Or, if we had the other, is this no longer needed? Or none of these,
+> >> they are independent.
+> > 
+> > They are independent. I think ideally we'd want everything landing at
+> > the same time, but we're past ideal at this point. Without this
+> > series, if someone uses PMU on v8.9 and firmware enabled FGT2, then
+> > the kernel will crash. Without the above series, KVM will have
+> > warnings in the kernel log, but otherwise function.
 > 
-> I see your point, and kind of agree that Analog is a better name. The
-> rationale for going with "Digital filter" and "Delay filter" was that
-> it matches the FLT_SEL bitfield description in the datasheet. I
-> thought it might confuse people using a different name. The info about
-> it being Analog filter came via a bug from Samsung. But if folks
-> prefer Analog I can use that instead.
-> 
-> @Krzysztof any thoughts on the above naming?
+> Right, they are independent. Just that Rob had observed this PMU v3.8 boot
+> requirement while reviewing the HW breakpoint series earlier. I should just
+> respin this series after the upcoming v6.14-rc1 release is out ?
 
-No clue / no preference, you guys have datasheet and more insight into
-this. :)
+They may apply cleanly but please do rebase and repost at -rc1. Thanks.
 
-
-Best regards,
-Krzysztof
+-- 
+Catalin
 
