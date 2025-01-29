@@ -4,69 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4CA2C0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 14:23:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59311C0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 14:40:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=51TUn5/ks90trMVZXFXIf1x3ahGoUywqkA/5qasa/rE=; b=TWCW9zlPjEaqzPjDiDWfSAiCjE
-	25GotTRU536nI9u2GzI4WQ75G1Z8gCVk/acJmlbMdK4Oy6ItqH+wFRVSpoofgEAq+0eQcI8YksBLz
-	Xy8O19UhrTjmELHoXQTDmCx3hFnPFgjoWA5FvmZo5EoX1Xf26yBfxLp0gDycJj/qphNxiUtpzTcqJ
-	CLIliSWC62LZP5/aTy30rhBnHDOuvtKGxNyRHADpRmqrIMUsVhGZt/TxEjvD5pgsqWNLQcQBRbZcB
-	J46fj/sOQxoJbAdBJCrsgr/zpuVFtNIfNLCZrCGwRaTdZde4qicnkSUV33Uzsc8IZPWPelgqn6SpH
-	lKyuR0qg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FMhWjFf49wULJLw1nCMe3faCWhX6+Y/nhx7oBkWFYJI=; b=1swQ4kYKQRmNn4mPKfbc8TGOms
+	zN0FrQWFdBHL/Ddk5V09HdVnchlu7gzeybhxzjLrPF9IJFLEAY0tD43RmxFL6ZE2Y1+gdij7f+fHB
+	6hUlqilNeX2jqjuhc/ZyZf/McfbRtRgMFC+9/7jy3WvzzL5SC25WRdsNFUGcTPg29B2vugDZBBeAb
+	hqc17/uMLU+Mog0ZwSZYgWvo28WC8M+4gl1IP1Jh8khnUd1ET47vrZklhLed3dXYo2bqGOJIUm5Vf
+	m7fM69CyLslnJiSS3rmhwz5WL+LVcMHtUaWaZwiSNKNTDJ2jLWw1ZFrXvIjm1NKgt83OugTv1XRKu
+	xx36teVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1td8yc-000000077LL-2WM6;
-	Wed, 29 Jan 2025 14:23:34 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1td8xI-0000000774M-1xwH
+	id 1td9EV-000000079NK-38z8;
+	Wed, 29 Jan 2025 14:39:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1td9DB-0000000798w-2FUB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jan 2025 14:22:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 161445C5CD4;
-	Wed, 29 Jan 2025 14:21:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69A63C4CED3;
-	Wed, 29 Jan 2025 14:22:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738160530;
-	bh=/uy2KVK+92bnjkNkIT1iw5CrTdiZ0e2lwuNq07xf8OM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=djFiyaI1DlJWiFHE8181GXXxjAr3wEqHuYYG3QsXELwZvDKxnRVxjUbFdIQbTnmLU
-	 Lt9fufnc/G7WtGz9dtGAS3ZPyc4zzMF7RCfLnP+iBbDKwR+eb444lgkHrtJ/IVzKnP
-	 WXttUr2Yxs6fWKBISWq0/x5ZYEIrKYg1CFR9lX/xH1tZyDicoyC+ae2lT5AysNsQ5+
-	 Zrzl0ec3PcPgnqhqfetOvYwj+teyI/gwI8joVAbOMvx/WjRa3zWtMYKccoxnJSJUEq
-	 elKqiXQFndQZbOtUJb0kgnqPfoQifhZUjqbQYA3D92ZpRy6VKsPv9SGhYwjgHdtLhq
-	 gPYPXMPtSHgOQ==
-Date: Wed, 29 Jan 2025 15:22:03 +0100
-From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-To: Jonathan Corbet <corbet@lwn.net>
-Cc: Linux Doc Mailing List <linux-doc@vger.kernel.org>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
- bpf@vger.kernel.org, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
- linux-f2fs-devel@lists.sourceforge.net, linux-hardening@vger.kernel.org,
- linux-iio@vger.kernel.org, linux-media@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-usb@vger.kernel.org,
- linux-wireless@vger.kernel.org, netdev@vger.kernel.org,
- workflows@vger.kernel.org
-Subject: Re: [RFC v2 00/38] Improve ABI documentation generation
-Message-ID: <20250129152203.0dda53ca@foz.lan>
-In-Reply-To: <20250129024518.69c0be81@foz.lan>
-References: <cover.1738020236.git.mchehab+huawei@kernel.org>
-	<87h65i7e87.fsf@trenco.lwn.net>
-	<20250129024518.69c0be81@foz.lan>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	Wed, 29 Jan 2025 14:38:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B6F2C497;
+	Wed, 29 Jan 2025 06:38:59 -0800 (PST)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C94503F694;
+	Wed, 29 Jan 2025 06:38:31 -0800 (PST)
+Date: Wed, 29 Jan 2025 14:38:29 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
+Cc: Peter Collingbourne <pcc@google.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Steven Price <steven.price@arm.com>, Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>, Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v2 5/7] KVM: arm64: MTE: Use stage-2 NoTagAccess memory
+ attribute if supported
+Message-ID: <Z5o9ZVLHYZRvVPIe@arm.com>
+References: <20250110110023.2963795-1-aneesh.kumar@kernel.org>
+ <20250110110023.2963795-6-aneesh.kumar@kernel.org>
+ <Z4Fk58k8YptDkVgm@arm.com>
+ <yq5amsfxtrlw.fsf@kernel.org>
+ <Z4Vk5gTnd8o7VKWL@arm.com>
+ <CAMn1gO4huP4D_1mFdC8FsmvHkaQn+hC02ULcfBuS30VDM9=9gA@mail.gmail.com>
+ <Z4e04P1bQlFBDHo7@arm.com>
+ <yq5afrl3cjrd.fsf@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <yq5afrl3cjrd.fsf@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250129_062212_613276_F7A8F0B8 
-X-CRM114-Status: GOOD (  18.93  )
+X-CRM114-CacheID: sfid-20250129_063837_658850_697F4DD6 
+X-CRM114-Status: GOOD (  27.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,117 +75,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Em Wed, 29 Jan 2025 02:45:18 +0100
-Mauro Carvalho Chehab <mchehab+huawei@kernel.org> escreveu:
-
-> > I've only tested with current Sphinx,
-> > have you tried this with the more ancient versions we support?  
+On Tue, Jan 28, 2025 at 04:01:18PM +0530, Aneesh Kumar K.V wrote:
+> Catalin Marinas <catalin.marinas@arm.com> writes:
+> > So if you don't remember any strong reason for this change, I think we
+> > should go back to the original behaviour of deferring the VM_MTE_ALLOWED
+> > check to user_mem_abort() (and still permitting VM_SHARED).
 > 
-> Not yet, but I double-checked at Sphinx documentation to be sure that
-> I won't be using any newer methods: I just kept using the same Sphinx
-> API as used by other extensions at the Kernel.
+> Something as below?
+> 
+> From 466237a6f0a165152c157ab4a73f34c400cffe34 Mon Sep 17 00:00:00 2001
+> From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+> Date: Tue, 28 Jan 2025 14:21:52 +0530
+> Subject: [PATCH] KVM: arm64: Drop mte_allowed check during memslot creation
+> 
+> Before commit d89585fbb308 ("KVM: arm64: unify the tests for VMAs in
+> memslots when MTE is enabled"), kvm_arch_prepare_memory_region() only
+> rejected a memory slot if VM_SHARED was set. This commit unified the
+> checking with user_mem_abort(), with slots being rejected if either
+> VM_MTE_ALLOWED is not set or VM_SHARED set. A subsequent commit
+> c911f0d46879 ("KVM: arm64: permit all VM_MTE_ALLOWED mappings with MTE
+> enabled") dropped the VM_SHARED check, so we ended up with memory slots
+> being rejected if VM_MTE_ALLOWED is not set. This wasn't the case before
+> the commit d89585fbb308. The rejection of the memory slot with VM_SHARED
+> set was done to avoid a race condition with the test/set of the
+> PG_mte_tagged flag. Before Commit d77e59a8fccd ("arm64: mte: Lock a page
+> for MTE tag initialization") the kernel avoided allowing MTE with shared
+> pages, thereby preventing two tasks sharing a page from setting up the
+> PG_mte_tagged flag racily.
+> 
+> Commit d77e59a8fccd ("arm64: mte: Lock a page for MTE tag
+> initialization") further updated the locking so that the kernel
+> allows VM_SHARED mapping with MTE. With this commit, we can enable
+> memslot creation with VM_SHARED VMA mapping.
+> 
+> This patch results in a minor tweak to the ABI. We now allow creating
+> memslots that don't have the VM_MTE_ALLOWED flag set. If the guest uses
+> such a memslot with Allocation Tags, the kernel will generate -EFAULT.
+> ie, instead of failing early, we now fail later during KVM_RUN.
+> 
+> This change is needed because, without it, users are not able to use MTE
+> with VFIO passthrough, as shown below (kvmtool VMM).
 
-Just checked it with Python 3.6 and Sphinx 3.4 on Fedora 41 with:
+You might want to clearly state it that the VFIO passthrough is Device
+or NonCacheable (for the time being, parallel series from Ankit on
+allowing cacheable).
 
-	sudo dnf install python3.6.x86_64
-	python3.6 -m venv Sphinx-3.4
-	pip install alabaster Sphinx==3.4.3 pyyaml
+> [  617.921030] vfio-pci 0000:01:00.0: resetting
+> [  618.024719] vfio-pci 0000:01:00.0: reset done
+>   Error: 0000:01:00.0: failed to register region with KVM
+>   Warning: [0abc:aced] Error activating emulation for BAR 0
+>   Error: 0000:01:00.0: failed to configure regions
+>   Warning: Failed init: vfio__init
+> 
+>   Fatal: Initialisation failed
+> 
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> ---
+>  arch/arm64/kvm/mmu.c | 5 -----
+>  1 file changed, 5 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 007dda958eab..610becd8574e 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -2146,11 +2146,6 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+>  		if (!vma)
+>  			break;
+>  
+> -		if (kvm_has_mte(kvm) && !kvm_vma_mte_allowed(vma)) {
+> -			ret = -EINVAL;
+> -			break;
+> -		}
 
-There were some issues related to problems with early f-string
-support, as reported by Akira.
+Works for me. It's up to the KVM maintainers whether they are ok with
+this ABI change.
 
-After applying the enclosed patch, it is now working fine. The only
-drawback is here:
-
-	- print(f"Defined on file{'s'[:len(files) ^ 1]}:\t{", ".join(files)}")
-	+ print("Defined on file(s):\t" + ", ".join(files))
-
-As I removed the file/files auto-plural logic depending on the files
-array length. Not a big deal.
-
-I'll double-check if there's no other diff between old/new version
-and add the enclosed patch in the end.
-
-Thanks,
-Mauro
-
-[PATCH] scripts/get_abi.py: make it backward-compatible with Python 3.6
-
-Despite being introduced on Python 3.6, the original implementation
-was too limited: it doesn't accept anything but the argument.
-
-Even on python 3.10.12, support was still limited, as more complex
-operations cause SyntaxError:
-
-	Exception occurred:
-	  File ".../linux/Documentation/sphinx/kernel_abi.py", line 48, in <module>
-	    from get_abi import AbiParser
-	  File ".../linux/scripts/get_abi.py", line 525
-	    msg += f"{part}\n{"-" * len(part)}\n\n"
-                       ^
-	SyntaxError: f-string: expecting '}'
-
-Replace f-strings by normal string concatenation when it doesn't
-work on Python 3.6.
-
-Reported-by: Akira Yokosawa <akiyks@gmail.com>
-Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-
-diff --git a/scripts/get_abi.py b/scripts/get_abi.py
-index 543bed397c8c..e6e94f721fff 100755
---- a/scripts/get_abi.py
-+++ b/scripts/get_abi.py
-@@ -522,7 +522,7 @@ class AbiParser:
- 
-                 if cur_part and cur_part != part:
-                     part = cur_part
--                    msg += f"{part}\n{"-" * len(part)}\n\n"
-+                    msg += part + "\n"+ "-" * len(part) +"\n\n"
- 
-                 msg += f".. _{key}:\n\n"
- 
-@@ -546,7 +546,7 @@ class AbiParser:
-                     msg += f"Defined on file :ref:`{base} <{ref[1]}>`\n\n"
- 
-             if wtype == "File":
--                msg += f"{names[0]}\n{"-" * len(names[0])}\n\n"
-+                msg += names[0] +"\n" + "-" * len(names[0]) +"\n\n"
- 
-             desc = v.get("description")
-             if not desc and wtype != "File":
-@@ -570,7 +570,8 @@ class AbiParser:
- 
-             users = v.get("users")
-             if users and users.strip(" \t\n"):
--                msg += f"Users:\n\t{users.strip("\n").replace('\n', '\n\t')}\n\n"
-+                users = users.strip("\n").replace('\n', '\n\t')
-+                msg += f"Users:\n\t{users}\n\n"
- 
-             ln = v.get("line_no", 1)
- 
-@@ -596,7 +597,9 @@ class AbiParser:
-                 elif len(lines) == 1:
-                     f.append(f"{fname}:{lines[0]}")
-                 else:
--                    f.append(f"{fname} lines {", ".join(str(x) for x in lines)}")
-+                    m = fname + "lines "
-+                    m += ", ".join(str(x) for x in lines)
-+                    f.append(m)
- 
-             self.log.warning("%s is defined %d times: %s", what, len(f), "; ".join(f))
- 
-@@ -644,10 +647,11 @@ class AbiParser:
-                     if users:
-                         print(f"Users:\t\t\t{users}")
- 
--                    print(f"Defined on file{'s'[:len(files) ^ 1]}:\t{", ".join(files)}")
-+                    print("Defined on file(s):\t" + ", ".join(files))
- 
-                     if desc:
--                        print(f"\n{desc.strip("\n")}\n")
-+                        desc = desc.strip("\n")
-+                        print(f"\n{desc}\n")
- 
-         if not found_keys:
-             print(f"Regular expression /{expr}/ not found.")
+-- 
+Catalin
 
