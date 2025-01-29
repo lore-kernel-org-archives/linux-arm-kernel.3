@@ -4,109 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96F47C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jan 2025 23:53:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7094EC0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 00:21:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+plZfZMBTkpPOut6ehHxsbo4XAtVzSns554KZTqadOQ=; b=Udu77Js4QuSWO+UOV/dj4MF0WI
-	hoxOeaRjyZzg4h1j30cZuNGqDs1IjtImZdoev8rXJ3EeTTVW3kSZQKHXx+/gJLS3+HdBPe+DvpWrU
-	1o/OXjURE7Jw2AEKUjbY5DpveudDg1V/0UEO4oQcl3oTIrUuZ/kmSmOHXjgNHB+F/5uL2XEKQqaq4
-	hKuHcbLOuBDbxSXNg5ePF4xLz8N4SSeaNwPC935WiEcCcjybajPOhq/LHBB/bjD+gVm+v1fTJLDru
-	E+Cfg9YaxhrczXueSN8F5qmZAqlsGgLMP/uDdh0jnwuc0C49OsIqnmucdkknEa/OlEqRYTL8ugMrL
-	pzxHDKxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TV7K2M6UXy/vt2SdaVfosbmTyfpXCQFAfw5jBj/4JbU=; b=sire0BnIRRtIRA1hRDYYFGvNVB
+	r4+bRRGbNHDUiewU77OWmdAzznhlm5xRYuef5rJ+eAyenI9FerwJS28QobKHpCHNvthANypjCvhw4
+	tlHzCMrVYEF3tkDHc9K7lCZA4hLNr6K3ECPamYZqBYyL+uPL+qwbGVRh3bU5ouhRoQZIM3e+V0TFi
+	W9EUh0to018iy8DJXolG6Uwkw/XX83A5ucPlU8zyIlbkrJ3e8QQIf15l9Bc5/S/SrmiFqCJaHOwg8
+	mY3iK6/iokVWE7Nkq9QMCOt33W/sgx6KRsnvl/vhGCA1MaHx3m0VFZzgr09jUIu40trnK28/jf/gL
+	xDUHFvlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcvOJ-000000063fu-3NPT;
-	Tue, 28 Jan 2025 23:53:11 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tcvp9-000000064v9-0wol;
+	Wed, 29 Jan 2025 00:20:55 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcvMy-000000063bg-3fs2
+	id 1tcvno-000000064nx-0m0L
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jan 2025 23:51:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1738108307;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+plZfZMBTkpPOut6ehHxsbo4XAtVzSns554KZTqadOQ=;
-	b=Sdn+xDVM06tdkEgLeIoPlea5mwCD5eFIaxWQkBD4HFy+ZB5N1U8jviH1bOTZLuBuXMm/eR
-	l7f/hjO45afK+9IHeMx+n8dtMNqE+yYwk0u/Q5WweZa5p/64oH10+F60XB6pQuMAN1E9AA
-	H7ISjWLMpQTRv1jGKIFZETn+FvWECKw=
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
- [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-154--LpdkJlkMEOTHIeXIuFWiA-1; Tue, 28 Jan 2025 18:51:45 -0500
-X-MC-Unique: -LpdkJlkMEOTHIeXIuFWiA-1
-X-Mimecast-MFC-AGG-ID: -LpdkJlkMEOTHIeXIuFWiA
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2163dc0f689so180190675ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jan 2025 15:51:45 -0800 (PST)
+	Wed, 29 Jan 2025 00:19:33 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2f78a4ca5deso8504008a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jan 2025 16:19:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1738109971; x=1738714771; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=TV7K2M6UXy/vt2SdaVfosbmTyfpXCQFAfw5jBj/4JbU=;
+        b=MlqhUfdgnKOua6eeVhGoSjFoZiHQo75s42cPu4loWTSbkVx+G0d8rhteX5gIKsR5zS
+         htBgyt/CTfNXhdyTKcDLgHCR88xTQHaNlDi4kTZogV/BZnrFNnJKB4MuzOS9/nkOYsVp
+         tQjE/S/1lApWPdgtDq/TZReTF5qcb8ZMRw2QEB6Vgw7npB+53RnAcx+C9uAz/C7DNDwA
+         0MZnDw0gvLb0t+xx1ipnFA3YMoPTOtVbeAKBGNrLCrYhIQ+vyKyvgs+YMMSy04Q3umTb
+         kAG9vqWQbUlJgwZLV+Fl0VGpVjz5O+jRNZ98rb4WwtLJn5l3Cd9AXfiBY1su70S/5p9e
+         bKqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738108305; x=1738713105;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+plZfZMBTkpPOut6ehHxsbo4XAtVzSns554KZTqadOQ=;
-        b=ROHyM82xrcZYwwOYlDn9XP2uF1XK+FM8iBLzgkcj+0iRc+UvXi3S2h2bBQLp8uQuYA
-         lWDwLHjDt8axMGE/JWjEGZIE9/bRb5WbD3UqQtSVvfi1NT3wLB4zowpvvyPkiiPp+VNt
-         piKTqJZnIIpKCU0SZgteMt8U2mmvsGxecEn2DoHgqCXPAaqiNW2tyd3nK2q0kiUQKM0y
-         pqIa/GHzgTAbF7yLyK8JwWLKJsitLNM21bJW7VayNDsOvIlpvcrcAXLi5Dn2Bp4MQ5i7
-         0tM/PyLBRqzDaQL+XfgHJET6lZdT9yYeeiwTN3tS2md2x3IFGMtnq/dpLVkeIgW6jD/n
-         XoxQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXtcr7xo+urfRnuVdRINP5we7w7thns7tYHjQQ+EKOXDwl2kqzDyckcDtNX8/IpJpuaAfEEz+WdJYxnAgFnogX8@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrM7pK5oGghdJQPoaqbekdr+HDI/fAujM1r4qMRviQfpwm4a/Y
-	jXbs5j1nKlzQkPBGTxp9jJUjdw8PHxQgrAYbFbVXpJRHM7G8Y6VEAE09vQB6OWOzhCgmdxSY3M5
-	pwoCa4pbe4ZlC9KqnYKYLkYkp0KryL1v2pxUdZfiFzI5VSiWiVk2uIO3tdGmppCdJpgYUspOW
-X-Gm-Gg: ASbGncs+qo0MQ+sgtC9SgU/6skuNsq0ww3Uta/LMz9PFCKd9TzBCyc/YLiF/X9O16Na
-	/icFytHxia6e1cCvx6eZQKRVvZEOhGxRlCjnem5dQ5bvQ72wAUkavdLvPvPNuZYcNers/vEkoYD
-	HRWK8d1ERFeRGZ/rAu/49hbDZfTogG9mnyz5BtK3Y0kavLUNVTSebKZSTDBP188WPLeWwxr1LbP
-	QMGamVXKWWGVIK8eMqKNPoM4+RK5MbBzCBmDjdSfV9+Low7BzD27o1Qo2vw6QgN3WlrOIFXb71u
-	o9kSGA==
-X-Received: by 2002:a17:902:cec2:b0:215:a57e:88e7 with SMTP id d9443c01a7336-21dd7c44fbemr14311155ad.3.1738108304630;
-        Tue, 28 Jan 2025 15:51:44 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEisDusPXc7ABGNzSjvOH0bfbYE9rGUJagDAg44yLrrrIJdYRrgsxD0BPQEinR+S01/v+a6Rw==
-X-Received: by 2002:a17:902:cec2:b0:215:a57e:88e7 with SMTP id d9443c01a7336-21dd7c44fbemr14310905ad.3.1738108304240;
-        Tue, 28 Jan 2025 15:51:44 -0800 (PST)
-Received: from [192.168.68.55] ([180.233.125.64])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21da414132asm86536785ad.138.2025.01.28.15.51.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 28 Jan 2025 15:51:43 -0800 (PST)
-Message-ID: <f6668e66-313a-4c56-92ba-08855878ebf9@redhat.com>
-Date: Wed, 29 Jan 2025 09:51:34 +1000
+        d=1e100.net; s=20230601; t=1738109971; x=1738714771;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=TV7K2M6UXy/vt2SdaVfosbmTyfpXCQFAfw5jBj/4JbU=;
+        b=U6oeWufJy5Z4yaZHu87bglRL9GgJMwYlwvisxeVjMb5seE0jhmQtGeNsEtLN8x9cbv
+         TW20LDSfPFohToG4kVN11hQ1jEVOmvR0NpGDtPSBGse73SfCmOHsMEZBniy7K+cFTvkw
+         o54OFeYI2VjO9z1712G2lAyjsJ5C4xrIx9DwYVP6hRPb1YhTts3xbOixaAbVPr++CjDi
+         y2YDwk5Cn8cdGktRJFY0Bd+YLN9A1RDI7g/9CEEiFMDCjUQquy+2Zl3tkVhAnkLTn+OB
+         6Z9SjIu9XlfChZD616yN32Kopvd/t36BcJI/E64rgbgqfFqpUtGLP7mWhebnvXbk9sP0
+         Zhaw==
+X-Forwarded-Encrypted: i=1; AJvYcCXNIUl16mtudhYaMy5mbqo6TrnfIKTi0Z2R1R+Gr54L6GrX26ZigpnA5RpigY+70pRlWEl8c4EHk/sbm84H7d1Z@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxm24NJ/Eywb7/sN5JTvVtO4/TSdB1LCm7oAcL3UovcZ1k27E1J
+	BOvoO64wfX6KT35wjhv0TQ1iuBqt4TviTb1DlxbMY/9r2qElGKqU
+X-Gm-Gg: ASbGncsAm8jdrmKQRSzuBu68LPsvQJIGNQ5NVMyPt2myz6gfdq2mHElSsBxPDJSCnj1
+	CfIFtiSzeaLnPpTGBKrFwINv1E5pd17+PKsU0Vpz1gAqLhdoYA16DJYRI1mRX6U2GCKya8AaA8R
+	IqgEUeT5B37piXKd7DtKNYQFsnaSXp3t5oJJoWFuAJDVlfNRlxNMbNPe83tZKIfipU2Fj7/Z7zw
+	cX4Klan9lzE+XWM8KWAWbdhcg/4tcVg1agDmZPpk5FPzkRVJR0VIps32hIYr22teFdplzRC5SXY
+	4I66vs8r8hPL
+X-Google-Smtp-Source: AGHT+IGKt1S5KeBlhL++I8/Sk0F6dSfkbtLXLddGw22U8KsVqKlk04Nk/VftS8R3tTTxvXKf7WotjA==
+X-Received: by 2002:a17:90b:50cf:b0:2ef:114d:7bf8 with SMTP id 98e67ed59e1d1-2f83ab8bb05mr1462857a91.6.1738109970782;
+        Tue, 28 Jan 2025 16:19:30 -0800 (PST)
+Received: from [192.168.0.235] ([38.34.87.7])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21da424ec12sm87428425ad.236.2025.01.28.16.19.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 28 Jan 2025 16:19:30 -0800 (PST)
+Message-ID: <b7de0135f7dcca0485ce9dc853d6ca812c30244b.camel@gmail.com>
+Subject: Re: [PATCH bpf-next v1 3/8] bpf: Introduce load-acquire and
+ store-release instructions
+From: Eduard Zingerman <eddyz87@gmail.com>
+To: Peilin Ye <yepeilin@google.com>, bpf@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Cc: bpf@ietf.org, Xu Kuohai <xukuohai@huaweicloud.com>, David Vernet	
+ <void@manifault.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann	
+ <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Martin KaFai
+ Lau	 <martin.lau@linux.dev>, Song Liu <song@kernel.org>, Yonghong Song	
+ <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, KP
+ Singh	 <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo	
+ <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, Jonathan Corbet	
+ <corbet@lwn.net>, "Paul E. McKenney" <paulmck@kernel.org>, Puranjay Mohan	
+ <puranjay@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will
+ Deacon	 <will@kernel.org>, Quentin Monnet <qmo@kernel.org>, Mykola Lysenko	
+ <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>, Josh Don
+ <joshdon@google.com>,  Barret Rhoden <brho@google.com>, Neel Natu
+ <neelnatu@google.com>, Benjamin Segall <bsegall@google.com>, 
+	linux-kernel@vger.kernel.org
+Date: Tue, 28 Jan 2025 16:19:25 -0800
+In-Reply-To: <e52e4ab7bea5b29475d70e164c4b07992afd6033.1737763916.git.yepeilin@google.com>
+References: <cover.1737763916.git.yepeilin@google.com>
+	 <e52e4ab7bea5b29475d70e164c4b07992afd6033.1737763916.git.yepeilin@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.54.2 (3.54.2-1.fc41) 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 07/43] arm64: RME: Define the user ABI
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-References: <20241212155610.76522-1-steven.price@arm.com>
- <20241212155610.76522-8-steven.price@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20241212155610.76522-8-steven.price@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 48x5pmwRgeqT5Azak9nJCGpMTQRXN3AjOUbnGcyIm4U_1738108305
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_155148_998464_585524A7 
-X-CRM114-Status: GOOD (  27.60  )
+X-CRM114-CacheID: sfid-20250128_161932_230087_0992F155 
+X-CRM114-Status: GOOD (  20.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,191 +113,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/13/24 1:55 AM, Steven Price wrote:
-> There is one (multiplexed) CAP which can be used to create, populate and
-> then activate the realm.
-> 
-> Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Signed-off-by: Steven Price <steven.price@arm.com>
+On Sat, 2025-01-25 at 02:18 +0000, Peilin Ye wrote:
+> Introduce BPF instructions with load-acquire and store-release
+> semantics, as discussed in [1].  The following new flags are defined:
+>=20
+>   BPF_ATOMIC_LOAD         0x10
+>   BPF_ATOMIC_STORE        0x20
+>   BPF_ATOMIC_TYPE(imm)    ((imm) & 0xf0)
+>=20
+>   BPF_RELAXED        0x0
+>   BPF_ACQUIRE        0x1
+>   BPF_RELEASE        0x2
+>   BPF_ACQ_REL        0x3
+>   BPF_SEQ_CST        0x4
+>=20
+>   BPF_LOAD_ACQ       (BPF_ATOMIC_LOAD | BPF_ACQUIRE)
+>   BPF_STORE_REL      (BPF_ATOMIC_STORE | BPF_RELEASE)
+>=20
+> A "load-acquire" is a BPF_STX | BPF_ATOMIC instruction with the 'imm'
+> field set to BPF_LOAD_ACQ (0x11).
+>=20
+> Similarly, a "store-release" is a BPF_STX | BPF_ATOMIC instruction with
+> the 'imm' field set to BPF_STORE_REL (0x22).
+>=20
+> Unlike existing atomic operations that only support BPF_W (32-bit) and
+> BPF_DW (64-bit) size modifiers, load-acquires and store-releases also
+> support BPF_B (8-bit) and BPF_H (16-bit).  An 8- or 16-bit load-acquire
+> zero-extends the value before writing it to a 32-bit register, just like
+> ARM64 instruction LDARH and friends.
+>=20
+> As an example, consider the following 64-bit load-acquire BPF
+> instruction:
+>=20
+>   db 10 00 00 11 00 00 00  r0 =3D load_acquire((u64 *)(r1 + 0x0))
+>=20
+>   opcode (0xdb): BPF_ATOMIC | BPF_DW | BPF_STX
+>   imm (0x00000011): BPF_LOAD_ACQ
+>=20
+> Similarly, a 16-bit BPF store-release:
+>=20
+>   cb 21 00 00 22 00 00 00  store_release((u16 *)(r1 + 0x0), w2)
+>=20
+>   opcode (0xcb): BPF_ATOMIC | BPF_H | BPF_STX
+>   imm (0x00000022): BPF_STORE_REL
+>=20
+> [1] https://lore.kernel.org/all/20240729183246.4110549-1-yepeilin@google.=
+com/
+>=20
+> Signed-off-by: Peilin Ye <yepeilin@google.com>
 > ---
-> Changes from v5:
->   * Actually expose the new VCPU capability (KVM_ARM_VCPU_REC) by bumping
->     KVM_VCPU_MAX_FEATURES - note this also exposes KVM_ARM_VCPU_HAS_EL2!
-> ---
->   Documentation/virt/kvm/api.rst    |  1 +
->   arch/arm64/include/uapi/asm/kvm.h | 49 +++++++++++++++++++++++++++++++
->   include/uapi/linux/kvm.h          | 12 ++++++++
->   3 files changed, 62 insertions(+)
-> 
-> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-> index 454c2aaa155e..df4679415a4c 100644
-> --- a/Documentation/virt/kvm/api.rst
-> +++ b/Documentation/virt/kvm/api.rst
-> @@ -5088,6 +5088,7 @@ Recognised values for feature:
->   
->     =====      ===========================================
->     arm64      KVM_ARM_VCPU_SVE (requires KVM_CAP_ARM_SVE)
-> +  arm64      KVM_ARM_VCPU_REC (requires KVM_CAP_ARM_RME)
->     =====      ===========================================
->   
->   Finalizes the configuration of the specified vcpu feature.
-> diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
-> index 66736ff04011..8810719523ec 100644
-> --- a/arch/arm64/include/uapi/asm/kvm.h
-> +++ b/arch/arm64/include/uapi/asm/kvm.h
-> @@ -108,6 +108,7 @@ struct kvm_regs {
->   #define KVM_ARM_VCPU_PTRAUTH_ADDRESS	5 /* VCPU uses address authentication */
->   #define KVM_ARM_VCPU_PTRAUTH_GENERIC	6 /* VCPU uses generic authentication */
->   #define KVM_ARM_VCPU_HAS_EL2		7 /* Support nested virtualization */
-> +#define KVM_ARM_VCPU_REC		8 /* VCPU REC state as part of Realm */
->   
->   struct kvm_vcpu_init {
->   	__u32 target;
-> @@ -418,6 +419,54 @@ enum {
->   #define   KVM_DEV_ARM_VGIC_SAVE_PENDING_TABLES	3
->   #define   KVM_DEV_ARM_ITS_CTRL_RESET		4
->   
-> +/* KVM_CAP_ARM_RME on VM fd */
-> +#define KVM_CAP_ARM_RME_CONFIG_REALM		0
-> +#define KVM_CAP_ARM_RME_CREATE_RD		1
-> +#define KVM_CAP_ARM_RME_INIT_IPA_REALM		2
-> +#define KVM_CAP_ARM_RME_POPULATE_REALM		3
-> +#define KVM_CAP_ARM_RME_ACTIVATE_REALM		4
+
+I think bpf_jit_supports_insn() in arch/{x86,s390}/net/bpf_jit_comp.c
+need an update, as both would accept BPF_LOAD_ACQ/BPF_STORE_REL at the
+moment.
+
+Acked-by: Eduard Zingerman <eddyz87@gmail.com>
+
+[...]
+
+> +static int check_atomic_load(struct bpf_verifier_env *env, int insn_idx,
+> +			     struct bpf_insn *insn)
+> +{
+> +	struct bpf_reg_state *regs =3D cur_regs(env);
+> +	int err;
+> +
+> +	err =3D check_reg_arg(env, insn->src_reg, SRC_OP);
+> +	if (err)
+> +		return err;
+> +
+> +	err =3D check_reg_arg(env, insn->dst_reg, DST_OP_NO_MARK);
+> +	if (err)
+> +		return err;
+> +
+> +	if (!atomic_ptr_type_ok(env, insn->src_reg, insn)) {
+> +		verbose(env, "BPF_ATOMIC loads from R%d %s is not allowed\n",
+> +			insn->src_reg,
+> +			reg_type_str(env, reg_state(env, insn->src_reg)->type));
+> +		return -EACCES;
+> +	}
+> +
+> +	if (is_arena_reg(env, insn->src_reg)) {
+> +		err =3D save_aux_ptr_type(env, PTR_TO_ARENA, false);
+> +		if (err)
+> +			return err;
+
+Nit: this and the next function look very similar to processing of
+     generic load and store in do_check(). Maybe extract that code
+     as an auxiliary function and call it in both places?
+     The only major difference is is_arena_reg() check guarding
+     save_aux_ptr_type(), but I think it is ok to do save_aux_ptr_type
+     unconditionally. Fwiw, the code would be a bit simpler,
+     just spent half an hour convincing myself that such conditional handli=
+ng
+     is not an error. Wdyt?
+
+> +	}
+> +
+> +	/* Check whether we can read the memory. */
+> +	err =3D check_mem_access(env, insn_idx, insn->src_reg, insn->off,
+> +			       BPF_SIZE(insn->code), BPF_READ, insn->dst_reg,
+> +			       true, false);
+> +	if (err)
+> +		return err;
+> +
+> +	err =3D reg_bounds_sanity_check(env, &regs[insn->dst_reg], "atomic_load=
+");
+> +	if (err)
+> +		return err;
+> +	return 0;
+> +}
+> +
+> +static int check_atomic_store(struct bpf_verifier_env *env, int insn_idx=
+,
+> +			      struct bpf_insn *insn)
+> +{
+> +	int err;
+> +
+> +	err =3D check_reg_arg(env, insn->src_reg, SRC_OP);
+> +	if (err)
+> +		return err;
+> +
+> +	err =3D check_reg_arg(env, insn->dst_reg, SRC_OP);
+> +	if (err)
+> +		return err;
+> +
+> +	if (is_pointer_value(env, insn->src_reg)) {
+> +		verbose(env, "R%d leaks addr into mem\n", insn->src_reg);
+> +		return -EACCES;
+> +	}
+> +
+> +	if (!atomic_ptr_type_ok(env, insn->dst_reg, insn)) {
+> +		verbose(env, "BPF_ATOMIC stores into R%d %s is not allowed\n",
+> +			insn->dst_reg,
+> +			reg_type_str(env, reg_state(env, insn->dst_reg)->type));
+> +		return -EACCES;
+> +	}
+> +
+> +	if (is_arena_reg(env, insn->dst_reg)) {
+> +		err =3D save_aux_ptr_type(env, PTR_TO_ARENA, false);
+> +		if (err)
+> +			return err;
+> +	}
+> +
+> +	/* Check whether we can write into the memory. */
+> +	err =3D check_mem_access(env, insn_idx, insn->dst_reg, insn->off,
+> +			       BPF_SIZE(insn->code), BPF_WRITE, insn->src_reg,
+> +			       true, false);
+> +	if (err)
+> +		return err;
+> +	return 0;
+> +}
 > +
 
-I guess it would be nice to rename KVM_CAP_ARM_RME_CREATE_RD to KVM_CAP_ARM_RME_CREATE_REALM
-since it's to create a realm. All other macros have suffix "_REALM". Besides, KVM_CAP_ARM_RME_INIT_IPA_REALM
-would be KVM_CAP_ARM_RME_INIT_REALM_IPA, and KVM_CAP_ARM_RME_POPULATE_REALM would be
-KVM_CAP_ARM_RME_POPULATE_REALM_IPA. Something like below.
-
-/* KVM_CAP_ARM_RME on VM fd */
-#define KVM_CAP_ARM_RME_CONFIG_REALM		0
-#define KVM_CAP_ARM_RME_CREATE_RD		1
-#define KVM_CAP_ARM_RME_INIT_REALM_IPA		2
-#define KVM_CAP_ARM_RME_POPULATE_REALM_IPA	3
-#define KVM_CAP_ARM_RME_ACTIVATE_REALM		4
-
-> +#define KVM_CAP_ARM_RME_MEASUREMENT_ALGO_SHA256		0
-> +#define KVM_CAP_ARM_RME_MEASUREMENT_ALGO_SHA512		1
-> +
-> +#define KVM_CAP_ARM_RME_RPV_SIZE 64
-> +
-> +/* List of configuration items accepted for KVM_CAP_ARM_RME_CONFIG_REALM */
-> +#define KVM_CAP_ARM_RME_CFG_RPV			0
-> +#define KVM_CAP_ARM_RME_CFG_HASH_ALGO		1
-> +
-
-The comments for the list of configuration items accepted for KVM_CAP_ARM_RME_CONFIG_REALM,
-it shall be moved before KVM_CAP_ARM_RME_MEASUREMENT_ALGO_SHA256 to cover all the definitions
-applied to KVM_CAP_ARM_RME_CONFIG_REALM.
-
-Besides, the prefix "KVM_CAP_" in those definitions, except the first 5 definitions like
-KVM_CAP_ARM_RME_CONFIG_REALM, are confusing. The macros with "KVM_CAP_" prefix are usually
-indicating capabilities. In this specific case, they're applied to the argument (struct),
-carried by the corresponding sub-command. So I would suggest to eleminate the prefix,
-something like below:
-
-/* List of configurations accepted for KVM_CAP_ARM_RME_CONFIG_REALM */
-#define ARM_RME_CONFIG_RPV		0
-#define ARM_RME_CONFIG_HASH_ALGO	1
-
-#define ARM_RME_CONFIG_MEASUREMENT_ALGO_SHA256	0
-#define ARM_RME_CONFIG_MEASUREMENT_ALGO_SHA512	1
-
-#define ARM_RME_CONFIG_RPV_SIZE	64
-
-struct arm_rme_config {
-         :
-};
-
-
-> +struct kvm_cap_arm_rme_config_item {
-> +	__u32 cfg;
-> +	union {
-> +		/* cfg == KVM_CAP_ARM_RME_CFG_RPV */
-> +		struct {
-> +			__u8	rpv[KVM_CAP_ARM_RME_RPV_SIZE];
-> +		};
-> +
-> +		/* cfg == KVM_CAP_ARM_RME_CFG_HASH_ALGO */
-> +		struct {
-> +			__u32	hash_algo;
-> +		};
-> +
-> +		/* Fix the size of the union */
-> +		__u8	reserved[256];
-> +	};
-> +};
-> +
-> +#define KVM_ARM_RME_POPULATE_FLAGS_MEASURE	BIT(0)
-> +struct kvm_cap_arm_rme_populate_realm_args {
-> +	__u64 populate_ipa_base;
-> +	__u64 populate_ipa_size;
-> +	__u32 flags;
-> +	__u32 reserved[3];
-> +};
-> +
-
-BIT(0) has type of 'unsigned long', inconsistent to '__u32 flags'. So it would
-be something like below.
-
-#define ARM_RME_POPULATE_REALM_IPA_FLAG_MEASURE		(1 << 0)
-struct arm_rme_populate_realm_ipa {
-	__u64 base;
-	__u64 size;
-	__u32 flags;
-	__u32 reserved[3];
-};
-
-> +struct kvm_cap_arm_rme_init_ipa_args {
-> +	__u64 init_ipa_base;
-> +	__u64 init_ipa_size;
-> +	__u32 reserved[4];
-> +};
-> +
-
-Similiarly, it would be something like below:
-
-struct arm_rme_init_realm_ipa {
-	__u64 base;
-	__u64 size;
-	__u64 reserved[2];
-};
-
->   /* Device Control API on vcpu fd */
->   #define KVM_ARM_VCPU_PMU_V3_CTRL	0
->   #define   KVM_ARM_VCPU_PMU_V3_IRQ	0
-> diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-> index 502ea63b5d2e..f448198838cf 100644
-> --- a/include/uapi/linux/kvm.h
-> +++ b/include/uapi/linux/kvm.h
-> @@ -934,6 +934,8 @@ struct kvm_enable_cap {
->   #define KVM_CAP_X86_APIC_BUS_CYCLES_NS 237
->   #define KVM_CAP_X86_GUEST_MODE 238
->   
-> +#define KVM_CAP_ARM_RME 300 /* FIXME: Large number to prevent conflicts */
-> +
->   struct kvm_irq_routing_irqchip {
->   	__u32 irqchip;
->   	__u32 pin;
-> @@ -1581,4 +1583,14 @@ struct kvm_pre_fault_memory {
->   	__u64 padding[5];
->   };
->   
-> +/* Available with KVM_CAP_ARM_RME, only for VMs with KVM_VM_TYPE_ARM_REALM  */
-> +struct kvm_arm_rmm_psci_complete {
-> +	__u64 target_mpidr;
-> +	__u32 psci_status;
-> +	__u32 padding[3];
-> +};
-> +
-> +/* FIXME: Update nr (0xd2) when merging */
-> +#define KVM_ARM_VCPU_RMM_PSCI_COMPLETE	_IOW(KVMIO, 0xd2, struct kvm_arm_rmm_psci_complete)
-> +
->   #endif /* __LINUX_KVM_H */
-
-Thanks,
-Gavin
+[...]
 
 
