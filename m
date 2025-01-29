@@ -4,85 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B96F3C0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 15:34:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7000CC0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 15:43:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iBeadbTH0ArjC2KiRwfsYwE244mCq0Upk1uE96UT9f4=; b=AP0X02fsomQb8hH+eUeh1CIezE
-	WIwhlGLBN9mrPRgCA8xnS5+/pNpkScsPR+LblkP3ruupjrzBEnghCO7SJe6XxEaMU9H6luwpzb4Q0
-	uaEqHaJqBnbXhyhw5rZH3WOz8RkzTSTciWu5Uey8KL7Jtewzx/bLE2Y0NF8ykEtumSTHGjMpATYoH
-	P4xpc5APU/AHkapkTHWVq0bVBqJD9TcPaZcA5F4xL2JedhWkwEQs5bIdFMxTuvdTkYv3RNbDzx2vX
-	PXLHUkXXx/pQ6ws4S1efQsRVpVKJrO1m2l4wS4GVlG5CJQubFaRFJWbchpbDoEEWrtTUJhJMEIVTm
-	Xkl7f+yg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KtwLUm4ss8InPqHFXRIa43dw74xrqf2eZ5aONDws8Ng=; b=ukO8qhCCZCbV4g2NgUX2qu+4ou
+	lstfdN5HatWxrJSTLX/4JyXj28dHhlXCl7zkEXE/TXd1qoRzzPWIZnuXi3iWireeou17ut+NlctZO
+	u7m13aC644dmg+jHoIK6hxS5Dq2gwigmN7biPonpTvzmcArNB+jKh++GDVJIP3wc2vZRlwxpGShbo
+	J0VQsmfDXO2tWkXM0CdjhbT8yxhvPj6SA0jdDhAhNjwq73SsTXO/544IdLosC9SwhjHGY/PK+ykxj
+	CM+bAIYIpdKTCzsxk5xSEV1Gr1wHn8SK50XvOydE1AYzrw/Ys0Ku0U87h5AJI8/Zl6mMxmFK5SICq
+	OWykuZtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdA5G-00000007GZQ-1N2k;
-	Wed, 29 Jan 2025 15:34:30 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tdADv-00000007IHe-3kY1;
+	Wed, 29 Jan 2025 15:43:27 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdA3v-00000007GMT-2v7M
+	id 1tdACb-00000007Hxo-3XWr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jan 2025 15:33:08 +0000
+	Wed, 29 Jan 2025 15:42:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B48CDA41A6C;
-	Wed, 29 Jan 2025 15:31:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26953C4CED1;
-	Wed, 29 Jan 2025 15:33:06 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4183DA41A26;
+	Wed, 29 Jan 2025 15:40:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60928C4CED1;
+	Wed, 29 Jan 2025 15:42:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738164786;
-	bh=3uM7U4qAvpldPCOBxKRU1v43qglokdN9MY8icFjja2I=;
+	s=k20201202; t=1738165324;
+	bh=GplWvWETMezm9d36v4eAfoqt/au1TivnkJ+SWeO2lSg=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=GHsKqjCH8IcLZNdtcACkT40J7XtaHcBb4y+e64Mowj5qq+gGepeJ01FRVDMXKRH2W
-	 WWoYMNliWJSpEXwx08t5Ah4MQJ1tHzRBlNMHOv2Kw8BuNuQg0XjePbAcoOGfhvjJ3T
-	 T8GVvCGXRJKLXjxaavwQlFGIV5XN7xihtxyM44GvEmRocTHU6xAE/YLKxUUGSX42rc
-	 YFXI5FVxvzxapuJpg8pc0FlFmLWNzMnmdH+TMqgUAdUBIugFOMKr1pfJY3PsXs7m5x
-	 NtbtUkVG+WYQ91FW0upw6+eMEWD6TUR8xQtAHczdZA48cBGGExGuhuE5T+T8DoFDWm
-	 4uhZMJmGCQ63A==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tdA3r-00GNF6-Kq;
-	Wed, 29 Jan 2025 15:33:03 +0000
-Date: Wed, 29 Jan 2025 15:33:02 +0000
-Message-ID: <86bjvpvdn5.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Colton Lewis <coltonlewis@google.com>
-Cc: kvm@vger.kernel.org,
-	linux@armlinux.org.uk,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	mark.rutland@arm.com,
-	pbonzini@redhat.com,
-	shuah@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [RFC PATCH 1/4] perf: arm_pmuv3: Introduce module param to partition the PMU
-In-Reply-To: <gsntbjvq382s.fsf@coltonlewis-kvm.c.googlers.com>
-References: <87ikpzthjk.wl-maz@kernel.org>
-	<gsntbjvq382s.fsf@coltonlewis-kvm.c.googlers.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+	b=aU7xY1/zYzJuaW6w9rNm1ubl5Xt+CWFtHsWN2RKDfRYDVbS6hoIF9qvqRPP/jdC+o
+	 n9sc28S2gI6BwQGNNkViJtfEuGMgf8yXViqR0bVptbi1JGdt4uZpDL3rC+zLYdD2R2
+	 LvRr+oYrBTHfe0N1TI7nLfb3oLUOcNMk6jlIoAg5MOCpNzo+MotUd8JaUv3wKoon4l
+	 tuVdgnNv0djOjt6DKfIc7gmEm0g5OKUWFx4Yfktshh9bhs5uK1rRKp5QLYBX+v7URg
+	 lc1VdYMtw06mrr+76GOR28iAJW7U2ehBlI2qXh9oSISs4oV4/EZifWpzvEERxf1Lkt
+	 yXZsdTh95S+vg==
+Date: Wed, 29 Jan 2025 16:41:57 +0100
+From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+To: Jonathan Corbet <corbet@lwn.net>
+Cc: Linux Doc Mailing List <linux-doc@vger.kernel.org>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
+ bpf@vger.kernel.org, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
+ linux-f2fs-devel@lists.sourceforge.net, linux-hardening@vger.kernel.org,
+ linux-iio@vger.kernel.org, linux-media@vger.kernel.org,
+ linux-pm@vger.kernel.org, linux-usb@vger.kernel.org,
+ linux-wireless@vger.kernel.org, netdev@vger.kernel.org,
+ workflows@vger.kernel.org
+Subject: Re: [RFC v2 00/38] Improve ABI documentation generation
+Message-ID: <20250129164157.3c7c072d@foz.lan>
+In-Reply-To: <87h65i7e87.fsf@trenco.lwn.net>
+References: <cover.1738020236.git.mchehab+huawei@kernel.org>
+	<87h65i7e87.fsf@trenco.lwn.net>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: coltonlewis@google.com, kvm@vger.kernel.org, linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com, pbonzini@redhat.com, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250129_073307_865020_9FBE0C12 
-X-CRM114-Status: GOOD (  22.53  )
+X-CRM114-CacheID: sfid-20250129_074205_956280_211B984E 
+X-CRM114-Status: GOOD (  14.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,46 +80,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 28 Jan 2025 22:08:27 +0000,
-Colton Lewis <coltonlewis@google.com> wrote:
-> 
-> >> +	bitmap_set(cpu_pmu->cntr_mask, 0, pmcr_n);
-> >> +
-> >> +	if (reserved_guest_counters > 0 && reserved_guest_counters < pmcr_n) {
-> >> +		cpu_pmu->hpmn = reserved_guest_counters;
-> >> +		cpu_pmu->partitioned = true;
-> 
-> > Isn't this going to completely explode on a kernel running at EL1?
-> 
-> Trying to access an EL2 register at EL1 can do that. I'll add the
-> appropriate hypercalls.
+Em Tue, 28 Jan 2025 15:42:00 -0700
+Jonathan Corbet <corbet@lwn.net> escreveu:
 
-But what about a guest that would get passed the magic parameter? I
-think you want to prevent that too.
+> [It's probably time to raise our minimum version again, especially now
+> that current Sphinx has better performance.]
 
-> 
-> > Also, how does it work in an asymmetric configuration where some CPUs
-> > can satisfy the reservation, and some can't?
-> 
-> The CPUs that can't read their own value of PMCR.N below what the
-> attempted reservation is and so do not get partitioned. Nothing changes
-> for that CPU if it can't meet the reservation.
+Last change was about one year ago, so it sounds fair to also
+change Sphinx minimal version with about one year gap. What we have
+currently is:
 
-That's not what I meant. The question really is:
+	2.4.4: minimal version
+	3.4.3: suggested minimal version.
 
-- do we want the reservation to be the number of counters reserved for
-  the host
+Looking at the relevant release dates, we have:
 
-- or do we want it to be for the guest?
+	Release 2.4.0 (released Feb 09, 2020)
+	Release 2.4.4 (released Mar 05, 2020)
+	Release 3.4.0 (released Dec 20, 2020)
+	Release 3.4.3 (released Jan 08, 2021)
 
-On symmetric systems, it doesn't matter. On broken big-little systems,
-this changes everything (it has a direct impact on userspace's ability
-to use the counters).
+So, the ~one year gap is what it takes to raise the bar from 2.4.4 to
+3.4.3.
 
-I think the design should reflect a decision on the above.
+In terms of Python, we're currently at 3.5:
 
-	M.
+	Python	Release date 
+	3.5	2015-09-13
+	3.6	2016-12-23
+	3.7 	2018-06-27
+	3.8 	2019-10-14
+	3.9 	2020-10-05
+	3.10	2021-10-04
 
--- 
-Without deviation from the norm, progress is not possible.
+	(according with https://en.wikipedia.org/w/index.php?title=History_of_Python) 
+
+Python 3.6 is the first one with f-string support, with is something
+that most Python programmers use those days. So, IMO, that would
+be the absolute minimal version we should pick.
+
+Yet, IMHO, we should aim to be backard-compatible with the tools 
+available up to a certain date (Jan, 2021) - e. g. we'll aim to
+support at least a 4 years old toolset for documentation build.
+
+So, I'm proposing to change the minimal requirements to:
+	- Sphinx 3.4.3;
+	- Python 3.9
+
+By setting Sphinx minimal version to 3.4.3, we can get rid of all
+Sphinx backward-compatible code.
+
+I have already patches with such changes for it on the top of this RFC. 
+Will send it shortly as RFC, aiming to send the final version after -rc1.
+
+Thanks,
+Mauro
 
