@@ -4,109 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14280C0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 13:16:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F81AC0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 13:17:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ehaLD59VOlGQNJVYY9S7cn8vnhal1Jf6t1sz+p8LqBk=; b=zrrs4Ld6ZIDjs6
-	7BMAVBE4TzEZAnFxhJGhlhmCq32unJDOMfZs94OdFDWamWauPgUiwJuecGtB1KMKZMPvU2+EetRR9
-	cp5ajmKUpv2D+2Fpwl0WcuCkYEkYPPhbBPZsr6mbGpjnT8SQ4uCHW69678RyEjPslgmIkrDFmtfYz
-	DtOfnx5BFg/FvR+ukV1u+IdAc2ZYRejNVPmjNBpbpDPU01fLM3w14DRIkhDgLmgBEfgiRl5OH8YMc
-	0++ehp8bxD+HAq/wc4T+wjTfqo1Pr/X+rtrN0z+J8SIuyjG4FCmfi4EgB0/HqysoVAzpgeiEgPbuJ
-	7heZw0eSJ2OCB5Ac1+5Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=T9nE9z0SUMlLOuN8yKKtvs974secF3eQP+VTAp56kyA=; b=vuRX8HFeSqNsxyU79syia5m20x
+	hjwAdR9UMB6JmhIj/sLKZEQW8sU9kMhNUGFxGFkGfKZggavvsGlEofQwdLWra290Qp/xwfqz1AueR
+	q936dlh6plZn1RuangI83FOXM5/tuP7pwZdDGYjVXWh3I1wWTsAg7jlzwOuC/ZcZoImOLcN62Td6v
+	kmDUNGfdTMAjadbCMDSySv+cEPTEI1w0FtqoI1buiRx2q0+dxDX4mdxiKdCADFw3c3hIldpgaMvJ6
+	MQrJML7Jk2frcXnY6rPJZULO8wZYXV5VTlbC74nf/JLGL0yPkN1aH3ojx5Oce3TjY289hbMMdkgqL
+	PVosu9Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1td7vZ-00000006zco-0urE;
-	Wed, 29 Jan 2025 13:16:21 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1td7wq-00000006zsJ-3Wux;
+	Wed, 29 Jan 2025 13:17:40 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1td7uE-00000006zPu-34KA
+	id 1td7uI-00000006zQZ-2GWo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jan 2025 13:15:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1738156497;
-	h=from:from:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ehaLD59VOlGQNJVYY9S7cn8vnhal1Jf6t1sz+p8LqBk=;
-	b=hyCBSyc2dbfVYlLdCBleC8pvK6boNQ8oZ5S3bZY/I5XhSac88FXzNfJM42Et0QJWIftSa+
-	2DjLmAKXrPCEuTmSPR0luW1wGHsMZ34wN9igzGwvsVe1JVlwcLf92RAoN/C9BdKT92tCuj
-	bWjbQ1HDHwIcdct6fp3/DAW4pyHhXS4=
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com
- [209.85.160.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-662-C34adFmJP3aL137r1rlPqQ-1; Wed, 29 Jan 2025 08:14:56 -0500
-X-MC-Unique: C34adFmJP3aL137r1rlPqQ-1
-X-Mimecast-MFC-AGG-ID: C34adFmJP3aL137r1rlPqQ
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-467a0a6c846so140521371cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jan 2025 05:14:56 -0800 (PST)
+	Wed, 29 Jan 2025 13:15:04 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2165448243fso6284935ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jan 2025 05:15:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=beagleboard-org.20230601.gappssmtp.com; s=20230601; t=1738156501; x=1738761301; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=T9nE9z0SUMlLOuN8yKKtvs974secF3eQP+VTAp56kyA=;
+        b=cw2Bin8d148EYpeEqIPPK+7eQR0VnE8P++CPseS5F5BfEDPhBLhd8X03CFB5MS1oUn
+         CTq9+2Zr3HGccjP+FQ80a298c3XFY0hoPZMBjvWCx8YYbYrDXbH9n2bJNv/ZXAbYGzVA
+         bzQCcJyNrqp8D350u/EQL3WEJMb1/SwYA93b/dLMUP/MeXCF0kai1ACtu2dewqS5ytKC
+         NhvImf+HzaqGWQEaOmrn5JKIqO8LHiHubgWxWvM8oJxXFh0zX/9UoB5sCaug3Gcz25Zx
+         KtNnfCjEwIiesyWGyWffzFoYIaZKlK42jwtVUN1oKy+fAlgxYCs3s+B+oCccsrU6aE1n
+         ULeg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738156495; x=1738761295;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:reply-to:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1738156501; x=1738761301;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ehaLD59VOlGQNJVYY9S7cn8vnhal1Jf6t1sz+p8LqBk=;
-        b=fTW/MpUQ5UpTf6llwWBEMsWfiYcjvt8ym0Wix3BUBF8Y2lhL3ZvJpGfTDWFkHmM3iy
-         8SOfaL1iASZUnYRR8vCDeQNaZZZKOAXpfwDF0mtOEBVw3OecYUQHSmsxJVrF7vqbZ48K
-         jBBXy4hXlCdkp4dFqN9k1Fxu+joOcYm9h7+Tl5KJdcETZ8YZZDHuB4pUopBUTLd/PnQl
-         pGOTx3DNJ7JvlDOn3OM11TZ9us+W8F3KFtZqfLuZBqCs8Cv3tJBIiJ5DuMOwvcsPIrxq
-         VJ5xXcP6rcU7ZtUpy/eJlA/fbPBmGW/N2P2Dx95SUg7nXqfTPOiLAF4iSP7gxrXhZuah
-         kziQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWg8UrUGO0wwwm5UkQmxbrg/dk8UM4CdbxiCTD1VvxxyCU/k+Uf5nRJGF4DEt6THpeChJ8beHWFaDmzq2UV5sPw@lists.infradead.org
-X-Gm-Message-State: AOJu0YyddOy9jid/lSP0//PUkchT+FG3hedoxaY6fifIQNftGJvfZW5e
-	QMZkDZnO/J58qpqRkuily7lN3rN4I7RYl+3mDi6T8VByGqrKpVBnnTSnjP4jzuENxciUWbyFJQc
-	yz71nbqfPA3lGxzRGg8XboprSbLB+LEbLe638LJIknQmYBIYygEGgaWJ0shBIZM3R0/zgHrsO
-X-Gm-Gg: ASbGncsONFBJMTiUzjSfSPtsVh6oLTDmNgybR+gtp2Z9vWmFtRccQGlCE737iYyHMwN
-	6eI6Hsp243WZnwXfAOP1ZlnJScOY8FmTjnW1P34rDlNB3QEXjAUhHWZFWE4xFDnoHQBtrZNaATc
-	dbp60t0+OyMgFfSiHPOE6jy+RInGtfxGFO/lP4wlPHAtaGphK4Sa2Mlad0PbtEgL/+6YoETDdmD
-	BZMya79CmbmPEHxMLoeO07e65FxvZAyrxeC7GYbm+3cc7wZ64M82no7XNTVcCAzN6jAY8ndvUEB
-	Q9dhb3RftrNp/4rqj6B5zZUIyY037NGt1hXMaf3L7OLEkgwBL5He
-X-Received: by 2002:a05:622a:1f95:b0:466:8f68:a606 with SMTP id d75a77b69052e-46fd0b8933fmr51420151cf.40.1738156495644;
-        Wed, 29 Jan 2025 05:14:55 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IG0hlzQVzABYE1rVWDmtCfFtRMGLzg436MgJYB4YxGHvMQN+tBbfqahN31khaEjfZ7znX/xmg==
-X-Received: by 2002:a05:622a:1f95:b0:466:8f68:a606 with SMTP id d75a77b69052e-46fd0b8933fmr51419521cf.40.1738156495253;
-        Wed, 29 Jan 2025 05:14:55 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:59e:9d80:527b:9dff:feef:3874? ([2a01:e0a:59e:9d80:527b:9dff:feef:3874])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-46e66b870b1sm61901531cf.75.2025.01.29.05.14.48
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 29 Jan 2025 05:14:54 -0800 (PST)
-Message-ID: <2b7f6c5e-434b-4f36-beb1-94af12362c8d@redhat.com>
-Date: Wed, 29 Jan 2025 14:14:47 +0100
+        bh=T9nE9z0SUMlLOuN8yKKtvs974secF3eQP+VTAp56kyA=;
+        b=ahY9rg+PMB3MF+rEhLXVr9LE8kQ/RoKT+L5xxmry6Fcbm7jOe2AKDBSPG2mOQmCoY+
+         apqk228RJQLyIrVarUsfO6JmEq6lDOwnHg0tuLnH+0MJI7rMrMMUAjSI+cBKnwaEdruG
+         HWBnUPAoxnYla4AcKZOro1eV+is16hyM+WdYHvtJunkZ5v1QhAv7jEJofmsgDDIxnYm7
+         qPHlnGSaqfvjNEZFgJVKKt2psm2a46GHu0D002PonCOgLHmwF+H666Uyud8rSsDZLquv
+         RWv5JNTpSA+ss21WtKs7h3iAMnjD4brGX75XVFAgAu9R1FV58MvrIYT/cSW6QaiA+wSD
+         350A==
+X-Gm-Message-State: AOJu0YxTURuwvk8T1xurbiQuTt2gaR1GQcw+zABwzqhrd3PIxEMa93EZ
+	JE2IoYWeXymZfscrh6PxbzlU6oreWk7Ci1Y8rpwKOIFvGn+7M5YR28xwAkfS1w==
+X-Gm-Gg: ASbGncv67Hyi8549ALf+nkvnOzsMb3sCBUv+JxhnIjsuULef1D35mc0VUM7VkMCSlg9
+	nFGcGq0zahjsRrrNgNki/mePQC+2Hb2PvxInzFUBVVIAH/CWCJ3IQCaTFgImIZkuBADb3Nbq4lM
+	9om9szESN13TOL/t+hUgWv9aOvz2OflG44ENOlOQpHEkKXjCuR1JEPMs0EY26Qk8IIYo5M7sr7k
+	7v+arCk6Z106eT40MrYadduhCGkMcdT9zMVQltn047dN3P0FaPl8plO8vzJdYa0Al8pPmX9kn0m
+	5yRWxNL9gzHHhXn0R3yFRmg=
+X-Google-Smtp-Source: AGHT+IGo+By892WRBgN61KaPN04CqoMjUe+suZHMWzY8xssYhrTGx+ecRnrjc69cTm1qhSbcbseJ8Q==
+X-Received: by 2002:a05:6a20:3955:b0:1e5:dace:693f with SMTP id adf61e73a8af0-1ed7a47465emr5385215637.4.1738156501307;
+        Wed, 29 Jan 2025 05:15:01 -0800 (PST)
+Received: from [172.16.119.211] ([103.15.228.94])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72f8a6d235bsm11167872b3a.80.2025.01.29.05.14.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 29 Jan 2025 05:15:00 -0800 (PST)
+From: Ayush Singh <ayush@beagleboard.org>
+Date: Wed, 29 Jan 2025 18:44:54 +0530
+Subject: [PATCH v2] arm64: defconfig: Enable gb_beagleplay
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFCv2 06/13] iommufd: Make attach_handle generic
-To: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
- robin.murphy@arm.com, jgg@nvidia.com, kevin.tian@intel.com,
- tglx@linutronix.de, maz@kernel.org, alex.williamson@redhat.com
-Cc: joro@8bytes.org, shuah@kernel.org, reinette.chatre@intel.com,
- yebin10@huawei.com, apatel@ventanamicro.com,
- shivamurthy.shastri@linutronix.de, bhelgaas@google.com,
- anna-maria@linutronix.de, yury.norov@gmail.com, nipun.gupta@amd.com,
- iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org,
- linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
- jean-philippe@linaro.org, mdf@kernel.org, mshavit@google.com,
- shameerali.kolothum.thodi@huawei.com, smostafa@google.com, ddutile@redhat.com
-References: <cover.1736550979.git.nicolinc@nvidia.com>
- <c708aedc678c63e2466b43ab9d4f8ac876e49aa1.1736550979.git.nicolinc@nvidia.com>
-From: Eric Auger <eric.auger@redhat.com>
-In-Reply-To: <c708aedc678c63e2466b43ab9d4f8ac876e49aa1.1736550979.git.nicolinc@nvidia.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: G4524OQUgxqwLqRCcPcLrW0bOInmSeZg79_H931XBIg_1738156496
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20250129-defconfig-beagleplay-v2-1-5a890943d223@beagleboard.org>
+X-B4-Tracking: v=1; b=H4sIAM0pmmcC/4WNQQ7CIBBFr9LMWgwMoo0r72G6gDLQSZrSgGlsm
+ t5drAdw+d7P/3+DQpmpwL3ZINPChdNUAU8N9IOdIgn2lQElGqnwJjyFPk2Bo3Bk40jzaNcqL8Z
+ o53TbItTqnCnw+5h9dpUHLq+U1+NlUV/7Z3BRQglEe5WyNaSVfvxCl2z255QjdPu+fwDfwaJJv
+ gAAAA==
+X-Change-ID: 20250127-defconfig-beagleplay-de4553bb3882
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, d-gole@ti.com, lorforlinux@beagleboard.org, 
+ jkridner@beagleboard.org, robertcnelson@beagleboard.org, 
+ Nishanth Menon <nm@ti.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Ayush Singh <ayush@beagleboard.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1425; i=ayush@beagleboard.org;
+ h=from:subject:message-id; bh=orfWTF5RxSecgO69chSBFctG63M1DCzQ/Y7xS353lFA=;
+ b=owEBbQKS/ZANAwAIAQXO9ceJ5Vp0AcsmYgBnminRCGGDjHXNDHWUtAdlugBgl7Xdyk/OXgWCz
+ XrujmY0mEeJAjMEAAEIAB0WIQTfzBMe8k8tZW+lBNYFzvXHieVadAUCZ5op0QAKCRAFzvXHieVa
+ dA4mEADl1SeYgfqJY1ej4nQWj4utoNJeXFImmD7Z4LIiQ36rfHwiIXdmdMdWAhQLJZURytAJSvY
+ TRd9ESh5wLOrRRxiPgarXwIVUn7U5sbERSJGqASR0XQOwUUjRsXfeKIhpvMjW8h9DzS436iU3QZ
+ P/e3oe+Ih98dFr+xkrCErTNUac7KyC+dAZpLvQ5UFdC2anOX07nsGPSAoxsYInuG9/xw7AzsWiD
+ +WbEtFlnwWih8NF54QA3Fel39dR5++zkbr4+hb2CvT0Owy4CKvcY/uJSqjpdUwYhYMp6pAxlYga
+ YlUZWzch+InAqVJIk0U+ReVHFibno263sQw4UFWAIDTBMztCW8OzTqZ8Bc6TbkS87/OjKVcsPGA
+ cIpooNHspvVX0ZbSjBrsw41cGCReyCXmIGKmyBRUV4szIgGwqFiPXT47PGippLxQ+QaJUsszFh+
+ sfLDiBBxrDqQlzFxFhUS15pf8IuLSWMxtCtfY/yxDBsDbxqeWDOXF4tOTzSoykw89iV83ZwWJPl
+ x9z1ycr0F37qvqxHalLjw9uNzq3hTkYw39EJYxYLyGVfVNHnZgyP/knx+K3dx6ODd6endfTDO5q
+ Xw1qATcJuICkYgB17DZDdE15OavjMbMLY1YMBAMM9LEofko6W3MH1mw8EvKnhvdL9bIUlcM0k3m
+ OCDNoYbiMgGnziQ==
+X-Developer-Key: i=ayush@beagleboard.org; a=openpgp;
+ fpr=DFCC131EF24F2D656FA504D605CEF5C789E55A74
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250129_051458_920734_E0C84854 
-X-CRM114-Status: GOOD (  27.92  )
+X-CRM114-CacheID: sfid-20250129_051502_850370_39400492 
+X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,362 +116,50 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: eric.auger@redhat.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Enable greybus driver used by TI K3/AM625 BeaglePlay.
 
+The driver communicates with Ti CC1352P7 co-processor which acts as
+Greybus SVC. Additionally, it also provides firmware upload API support
+for Ti CC1352P7 over UART.
 
-On 1/11/25 4:32 AM, Nicolin Chen wrote:
-> "attach_handle" was added exclusively for the iommufd_fault_iopf_handler()
-> used by IOPF/PRI use cases, along with the "fault_data". Now, the iommufd
-> version of sw_msi function will resue the attach_handle and fault_data for
-reuse
-> a non-fault case.
->
-> Move the attach_handle part out of the fault.c file to make it generic for
-> all cases. Simplify the remaining fault specific routine to attach/detach.
->
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->  drivers/iommu/iommufd/iommufd_private.h |  40 +-------
->  drivers/iommu/iommufd/device.c          | 105 +++++++++++++++++++++
->  drivers/iommu/iommufd/fault.c           | 120 +++---------------------
->  3 files changed, 122 insertions(+), 143 deletions(-)
->
-> diff --git a/drivers/iommu/iommufd/iommufd_private.h b/drivers/iommu/iommufd/iommufd_private.h
-> index b6d706cf2c66..063c0a42f54f 100644
-> --- a/drivers/iommu/iommufd/iommufd_private.h
-> +++ b/drivers/iommu/iommufd/iommufd_private.h
-> @@ -472,42 +472,12 @@ void iommufd_fault_destroy(struct iommufd_object *obj);
->  int iommufd_fault_iopf_handler(struct iopf_group *group);
->  
->  int iommufd_fault_domain_attach_dev(struct iommufd_hw_pagetable *hwpt,
-> -				    struct iommufd_device *idev);
-> +				    struct iommufd_device *idev,
-> +				    bool enable_iopf);
->  void iommufd_fault_domain_detach_dev(struct iommufd_hw_pagetable *hwpt,
-> -				     struct iommufd_device *idev);
-> -int iommufd_fault_domain_replace_dev(struct iommufd_device *idev,
-> -				     struct iommufd_hw_pagetable *hwpt,
-> -				     struct iommufd_hw_pagetable *old);
-> -
-> -static inline int iommufd_hwpt_attach_device(struct iommufd_hw_pagetable *hwpt,
-> -					     struct iommufd_device *idev)
-> -{
-> -	if (hwpt->fault)
-> -		return iommufd_fault_domain_attach_dev(hwpt, idev);
-> -
-> -	return iommu_attach_group(hwpt->domain, idev->igroup->group);
-> -}
-> -
-> -static inline void iommufd_hwpt_detach_device(struct iommufd_hw_pagetable *hwpt,
-> -					      struct iommufd_device *idev)
-> -{
-> -	if (hwpt->fault) {
-> -		iommufd_fault_domain_detach_dev(hwpt, idev);
-> -		return;
-> -	}
-> -
-> -	iommu_detach_group(hwpt->domain, idev->igroup->group);
-> -}
-> -
-> -static inline int iommufd_hwpt_replace_device(struct iommufd_device *idev,
-> -					      struct iommufd_hw_pagetable *hwpt,
-> -					      struct iommufd_hw_pagetable *old)
-> -{
-> -	if (old->fault || hwpt->fault)
-> -		return iommufd_fault_domain_replace_dev(idev, hwpt, old);
-> -
-> -	return iommu_group_replace_domain(idev->igroup->group, hwpt->domain);
-> -}
-> +				     struct iommufd_device *idev,
-> +				     struct iommufd_attach_handle *handle,
-> +				     bool disable_iopf);
->  
->  static inline struct iommufd_viommu *
->  iommufd_get_viommu(struct iommufd_ucmd *ucmd, u32 id)
-> diff --git a/drivers/iommu/iommufd/device.c b/drivers/iommu/iommufd/device.c
-> index dfd0898fb6c1..38b31b652147 100644
-> --- a/drivers/iommu/iommufd/device.c
-> +++ b/drivers/iommu/iommufd/device.c
-> @@ -352,6 +352,111 @@ iommufd_device_attach_reserved_iova(struct iommufd_device *idev,
->  	return 0;
->  }
->  
-> +/* The device attach/detach/replace helpers for attach_handle */
-> +
-> +static int iommufd_hwpt_attach_device(struct iommufd_hw_pagetable *hwpt,
-> +				      struct iommufd_device *idev)
-> +{
-> +	struct iommufd_attach_handle *handle;
-> +	int rc;
-> +
-> +	if (hwpt->fault) {
-> +		rc = iommufd_fault_domain_attach_dev(hwpt, idev, true);
-why don't we simply call iommufd_fault_iopf_enable(idev)
-also it looks there is a redundant check of hwpt_fault here and in
+Signed-off-by: Ayush Singh <ayush@beagleboard.org>
+---
+Enable greybus driver for Ti CC1352P5 over UART used in TI K3/AM625
+BeaglePlay [0].
 
-iommufd_fault_domain_attach_dev
+[0]: https://elixir.bootlin.com/linux/v6.13/source/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts
+---
+Changes in v2:
+- Add hardware name to commit message.
+- Use savedefconfig option to update config.
+- Link to v1: https://lore.kernel.org/r/20250127-defconfig-beagleplay-v1-1-22a60085e313@beagleboard.org
+---
+ arch/arm64/configs/defconfig | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Besides the addition of enable_iopf param is not documented anywhere
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index cb7da44155999b59aff95966f4cdc9107f2af46a..62309fd2482ab35e917aea2e63780c45a4347f43 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -1270,6 +1270,8 @@ CONFIG_VIRTIO_BALLOON=y
+ CONFIG_VIRTIO_MMIO=y
+ CONFIG_XEN_GNTDEV=y
+ CONFIG_XEN_GRANT_DEV_ALLOC=y
++CONFIG_GREYBUS=m
++CONFIG_GREYBUS_BEAGLEPLAY=m
+ CONFIG_STAGING=y
+ CONFIG_STAGING_MEDIA=y
+ CONFIG_VIDEO_MAX96712=m
 
-> +		if (rc)
-> +			return rc;
-> +	}
-> +
-> +	handle = kzalloc(sizeof(*handle), GFP_KERNEL);
-> +	if (!handle) {
-> +		rc = -ENOMEM;
-> +		goto out_fault_detach;
-> +	}
-> +
-> +	handle->idev = idev;
-> +	rc = iommu_attach_group_handle(hwpt->domain, idev->igroup->group,
-> +				       &handle->handle);
-> +	if (rc)
-> +		goto out_free_handle;
-> +
-> +	return 0;
-> +
-> +out_free_handle:
-> +	kfree(handle);
-> +	handle = NULL;
-> +out_fault_detach:
-> +	if (hwpt->fault)
-> +		iommufd_fault_domain_detach_dev(hwpt, idev, handle, true);
-> +	return rc;
-> +}
-> +
-> +static struct iommufd_attach_handle *
-> +iommufd_device_get_attach_handle(struct iommufd_device *idev)
-> +{
-> +	struct iommu_attach_handle *handle;
-> +
-> +	handle =
-> +		iommu_attach_handle_get(idev->igroup->group, IOMMU_NO_PASID, 0);
-> +	if (IS_ERR(handle))
-> +		return NULL;
-> +	return to_iommufd_handle(handle);
-> +}
-> +
-> +static void iommufd_hwpt_detach_device(struct iommufd_hw_pagetable *hwpt,
-> +				       struct iommufd_device *idev)
-> +{
-> +	struct iommufd_attach_handle *handle;
-> +
-> +	handle = iommufd_device_get_attach_handle(idev);
-> +	iommu_detach_group_handle(hwpt->domain, idev->igroup->group);
-> +	if (hwpt->fault)
-> +		iommufd_fault_domain_detach_dev(hwpt, idev, handle, true);
-same here, pretty difficult to understand what this
+---
+base-commit: 5ffa57f6eecefababb8cbe327222ef171943b183
+change-id: 20250127-defconfig-beagleplay-de4553bb3882
 
-iommufd_fault_domain_detach_dev does
-To me calling iommufd_auto_response_faults and iommufd_fault_iopf_disable would be more readable or rename iommufd_fault_domain_detach_dev().
-Also compared to the original code, there is a new check on handle. Why is it necessary.
-
-Globally I feel that patch pretty hard to read. Would be nice to split if possible to ease the review process.
-
-Thanks
-
-Eric
-
-> +	kfree(handle);
-> +}
-> +
-> +static int iommufd_hwpt_replace_device(struct iommufd_device *idev,
-> +				       struct iommufd_hw_pagetable *hwpt,
-> +				       struct iommufd_hw_pagetable *old)
-> +{
-> +	struct iommufd_attach_handle *old_handle =
-> +		iommufd_device_get_attach_handle(idev);
-> +	struct iommufd_attach_handle *handle;
-> +	int rc;
-> +
-> +	if (hwpt->fault) {
-> +		rc = iommufd_fault_domain_attach_dev(hwpt, idev, !old->fault);
-> +		if (rc)
-> +			return rc;
-> +	}
-> +
-> +	handle = kzalloc(sizeof(*handle), GFP_KERNEL);
-> +	if (!handle) {
-> +		rc = -ENOMEM;
-> +		goto out_fault_detach;
-> +	}
-> +
-> +	handle->idev = idev;
-> +	rc = iommu_replace_group_handle(idev->igroup->group, hwpt->domain,
-> +					&handle->handle);
-> +	if (rc)
-> +		goto out_free_handle;
-> +
-> +	if (old->fault)
-> +		iommufd_fault_domain_detach_dev(old, idev, old_handle,
-> +						!hwpt->fault);
-> +	kfree(old_handle);
-> +
-> +	return 0;
-> +
-> +out_free_handle:
-> +	kfree(handle);
-> +	handle = NULL;
-> +out_fault_detach:
-> +	if (hwpt->fault)
-> +		iommufd_fault_domain_detach_dev(hwpt, idev, handle,
-> +						!old->fault);
-> +	return rc;
-> +}
-> +
->  int iommufd_hw_pagetable_attach(struct iommufd_hw_pagetable *hwpt,
->  				struct iommufd_device *idev)
->  {
-> diff --git a/drivers/iommu/iommufd/fault.c b/drivers/iommu/iommufd/fault.c
-> index 06aa83a75e94..1d9bd3024b57 100644
-> --- a/drivers/iommu/iommufd/fault.c
-> +++ b/drivers/iommu/iommufd/fault.c
-> @@ -60,42 +60,17 @@ static void iommufd_fault_iopf_disable(struct iommufd_device *idev)
->  	mutex_unlock(&idev->iopf_lock);
->  }
->  
-> -static int __fault_domain_attach_dev(struct iommufd_hw_pagetable *hwpt,
-> -				     struct iommufd_device *idev)
-> -{
-> -	struct iommufd_attach_handle *handle;
-> -	int ret;
-> -
-> -	handle = kzalloc(sizeof(*handle), GFP_KERNEL);
-> -	if (!handle)
-> -		return -ENOMEM;
-> -
-> -	handle->idev = idev;
-> -	ret = iommu_attach_group_handle(hwpt->domain, idev->igroup->group,
-> -					&handle->handle);
-> -	if (ret)
-> -		kfree(handle);
-> -
-> -	return ret;
-> -}
-> -
->  int iommufd_fault_domain_attach_dev(struct iommufd_hw_pagetable *hwpt,
-> -				    struct iommufd_device *idev)
-> +				    struct iommufd_device *idev,
-> +				    bool enable_iopf)
->  {
-> -	int ret;
-> +	int rc = 0;
->  
->  	if (!hwpt->fault)
->  		return -EINVAL;
-> -
-> -	ret = iommufd_fault_iopf_enable(idev);
-> -	if (ret)
-> -		return ret;
-> -
-> -	ret = __fault_domain_attach_dev(hwpt, idev);
-> -	if (ret)
-> -		iommufd_fault_iopf_disable(idev);
-> -
-> -	return ret;
-> +	if (enable_iopf)
-> +		rc = iommufd_fault_iopf_enable(idev);
-> +	return rc;
->  }
->  
->  static void iommufd_auto_response_faults(struct iommufd_hw_pagetable *hwpt,
-> @@ -127,86 +102,15 @@ static void iommufd_auto_response_faults(struct iommufd_hw_pagetable *hwpt,
->  	mutex_unlock(&fault->mutex);
->  }
->  
-> -static struct iommufd_attach_handle *
-> -iommufd_device_get_attach_handle(struct iommufd_device *idev)
-> -{
-> -	struct iommu_attach_handle *handle;
-> -
-> -	handle = iommu_attach_handle_get(idev->igroup->group, IOMMU_NO_PASID, 0);
-> -	if (IS_ERR(handle))
-> -		return NULL;
-> -
-> -	return to_iommufd_handle(handle);
-> -}
-> -
->  void iommufd_fault_domain_detach_dev(struct iommufd_hw_pagetable *hwpt,
-> -				     struct iommufd_device *idev)
-> +				     struct iommufd_device *idev,
-> +				     struct iommufd_attach_handle *handle,
-> +				     bool disable_iopf)
->  {
-> -	struct iommufd_attach_handle *handle;
-> -
-> -	handle = iommufd_device_get_attach_handle(idev);
-> -	iommu_detach_group_handle(hwpt->domain, idev->igroup->group);
-> -	iommufd_auto_response_faults(hwpt, handle);
-> -	iommufd_fault_iopf_disable(idev);
-> -	kfree(handle);
-> -}
-> -
-> -static int __fault_domain_replace_dev(struct iommufd_device *idev,
-> -				      struct iommufd_hw_pagetable *hwpt,
-> -				      struct iommufd_hw_pagetable *old)
-> -{
-> -	struct iommufd_attach_handle *handle, *curr = NULL;
-> -	int ret;
-> -
-> -	if (old->fault)
-> -		curr = iommufd_device_get_attach_handle(idev);
-> -
-> -	if (hwpt->fault) {
-> -		handle = kzalloc(sizeof(*handle), GFP_KERNEL);
-> -		if (!handle)
-> -			return -ENOMEM;
-> -
-> -		handle->idev = idev;
-> -		ret = iommu_replace_group_handle(idev->igroup->group,
-> -						 hwpt->domain, &handle->handle);
-> -	} else {
-> -		ret = iommu_replace_group_handle(idev->igroup->group,
-> -						 hwpt->domain, NULL);
-> -	}
-> -
-> -	if (!ret && curr) {
-> -		iommufd_auto_response_faults(old, curr);
-> -		kfree(curr);
-> -	}
-> -
-> -	return ret;
-> -}
-> -
-> -int iommufd_fault_domain_replace_dev(struct iommufd_device *idev,
-> -				     struct iommufd_hw_pagetable *hwpt,
-> -				     struct iommufd_hw_pagetable *old)
-> -{
-> -	bool iopf_off = !hwpt->fault && old->fault;
-> -	bool iopf_on = hwpt->fault && !old->fault;
-> -	int ret;
-> -
-> -	if (iopf_on) {
-> -		ret = iommufd_fault_iopf_enable(idev);
-> -		if (ret)
-> -			return ret;
-> -	}
-> -
-> -	ret = __fault_domain_replace_dev(idev, hwpt, old);
-> -	if (ret) {
-> -		if (iopf_on)
-> -			iommufd_fault_iopf_disable(idev);
-> -		return ret;
-> -	}
-> -
-> -	if (iopf_off)
-> +	if (handle)
-> +		iommufd_auto_response_faults(hwpt, handle);
-> +	if (disable_iopf)
->  		iommufd_fault_iopf_disable(idev);
-> -
-> -	return 0;
->  }
->  
->  void iommufd_fault_destroy(struct iommufd_object *obj)
+Best regards,
+-- 
+Ayush Singh <ayush@beagleboard.org>
 
 
