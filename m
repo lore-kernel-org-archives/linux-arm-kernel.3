@@ -4,88 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FF36C0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 05:44:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41049C0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 07:25:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:References:
-	In-Reply-To:Message-ID:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lF+CIRph9PZhptroJNKOInSrSEFt7RGWkV6dkzmXep4=; b=FMsQb5Lwp7BODG
-	kToCy6tgGQbtCqPcKjQMIwfFVyiIlFY3k8iyouF5Qua39pMCl22DGsxAF99Z5Qla347GD2vqfkWSJ
-	NMZtiN6Sm9U9s77rV50ozLBhkVx0K3SbedyuTQXBe9V+G9qk5IgcAkPzJKBX1ckOkBZAYapnJTA2C
-	N0E1URyEzCldG19/bSI4pQ3IjpqCDfV5zwpy3Dd5sRA7lXFoha31eK1sf2TtvnIWq4MxzVvwFTjT5
-	yzoR9gpK3QMdBSLIHecJCkjEzG/qDRNAPD6GHU8P5slfkJi4Bz00hiVVGD7b8W31hjp62djJOeMV0
-	r3tf6zITQ9qJ6uOV4OQw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=to5O8NoTB/c/DDyXIccxxNZqz1dxeSJFdLztzKRAPko=; b=ec7ITphZjzV9glq2jC0LgiGsiE
+	TJ4/XaKTcm/Umr+vSBowW+0SuHVgpxYJdJ5qCGEK5SgO2f8LFUcls4NDxwZfjss+vfsSEZrzulrMY
+	MplDgMFjGDRZD+oEtdWtwOlZ8IOd10HRkgYRukRdZVTqJfrK6P8Mb359yOv99qvk5DmgGIJRyWj7u
+	FUPRaD0FG2S7HemSU8lRrKKwPQuuiTz7i2CUgunxj/YAFvZ3MIfqLNnFFtBqvY9y2V2ekh9+9HcxG
+	RDiFNigSILw4LRTfXYRozDcMZHXbJyzejnc6/c0Z+SaXkrgb08NHD2SPFVECeuK7eXTzG4uu/yS5O
+	0rhSRlaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1td0sY-00000006Mo7-1NuI;
-	Wed, 29 Jan 2025 05:44:46 +0000
-Received: from server.wki.vra.mybluehostin.me ([162.240.238.73])
+	id 1td2Ri-00000006T0g-1acs;
+	Wed, 29 Jan 2025 07:25:10 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1td0rB-00000006MeB-2BVa
+	id 1td2QO-00000006Ss2-1QrR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jan 2025 05:43:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
-	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=lF+CIRph9PZhptroJNKOInSrSEFt7RGWkV6dkzmXep4=; b=GmbAZpSQX64uePyjfW07O1zI5M
-	7Qzfr7XG4LtpoVq+jGix0ruD+/TKAs7WQq3e/Axw/1CjfH5Y+TUXx0i7HFvk9tPdQ2a4D6vrhCVXH
-	+ugD+HxFoOHgIRsdzFWfFIjK18A3kd7qZdPj2vN2mWh8C/q/RoEbQaFltNf7j6TZ7XgqxyD+QZxsb
-	/mTIINNW/OoXdec2pk6mAuP+gxXjF1kcMDI78jwc4Ux5I9ZztuxeMfkCdDBVpmQxCYrMVTt57EH+7
-	QBBZSsrqfvc8jqpaXljgzC5jMHlxniYUzHHn3a0ln+z86vg1wP3CjwUjM7BC8tLfKZn7bxlLx1vY9
-	6MB/9abg==;
-Received: from [122.175.9.182] (port=58282 helo=zimbra.couthit.local)
-	by server.wki.vra.mybluehostin.me with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <basharath@couthit.com>)
-	id 1td0r7-0007xu-0t;
-	Wed, 29 Jan 2025 11:13:17 +0530
-Received: from zimbra.couthit.local (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTPS id 3535D17823F4;
-	Wed, 29 Jan 2025 11:13:10 +0530 (IST)
-Received: from localhost (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTP id 154061782431;
-	Wed, 29 Jan 2025 11:13:10 +0530 (IST)
-Received: from zimbra.couthit.local ([127.0.0.1])
-	by localhost (zimbra.couthit.local [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id m6r8Cg2k0lcC; Wed, 29 Jan 2025 11:13:09 +0530 (IST)
-Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
-	by zimbra.couthit.local (Postfix) with ESMTP id BFFD317823F4;
-	Wed, 29 Jan 2025 11:13:09 +0530 (IST)
-Date: Wed, 29 Jan 2025 11:13:09 +0530 (IST)
-From: Basharath Hussain Khaja <basharath@couthit.com>
-To: Joe Damato <jdamato@fastly.com>
-Message-ID: <1124259986.450336.1738129389588.JavaMail.zimbra@couthit.local>
-In-Reply-To: <Z5QgNu9AOzRre91J@LQ3V64L9R2>
-References: <20250124122353.1457174-1-basharath@couthit.com> <20250124134056.1459060-5-basharath@couthit.com> <Z5QgNu9AOzRre91J@LQ3V64L9R2>
-Subject: Re: [RFC v2 PATCH 04/10] net: ti: prueth: Adds link detection, RX
- and TX support.
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.10.10.103]
-X-Mailer: Zimbra 8.8.15_GA_3968 (ZimbraWebClient - FF113 (Linux)/8.8.15_GA_3968)
-Thread-Topic: prueth: Adds link detection, RX and TX support.
-Thread-Index: Id3fz+1DPwxTNAkjE+YT/LkbLXOzTA==
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.wki.vra.mybluehostin.me
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.wki.vra.mybluehostin.me: authenticated_id: smtp@couthit.com
-X-Authenticated-Sender: server.wki.vra.mybluehostin.me: smtp@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+	Wed, 29 Jan 2025 07:23:49 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2ef35de8901so12180434a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jan 2025 23:23:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1738135427; x=1738740227; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=to5O8NoTB/c/DDyXIccxxNZqz1dxeSJFdLztzKRAPko=;
+        b=DWrvbxuyJuhsBeTTgLpk7MPRBuqgCEd1d3RBy2FY9oJKyIdFrCNw+L1jlwQYcGBnZl
+         5O3ZEntpPgGbh8yr21GlA+3D2sr5mC7BX+9jO4c01Wu83Ep0bTHLP94sZGPsveynE2RU
+         c2319lLy9fiGoNlaVW/8qY9P75qQxzwvKd+6xO4pmtCjVE4aAdmcDFCxA5TPhC60x2cQ
+         vomH94T5g1c9uNqyLBzF8A6PTjG4DOp3lFqnsjCOSXkdWer7V/4W5NMsxJtHZyL91Rti
+         yHHwIsRgQRRyUZorpHmke2apaUD/EDL1Dvhc7WXU53gR+OIiEN4g1trTonKwcQyhSp+w
+         D6OA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738135427; x=1738740227;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=to5O8NoTB/c/DDyXIccxxNZqz1dxeSJFdLztzKRAPko=;
+        b=jAxNV2IFIPlZPy6ZBHjUPV4Q8UhQkOccW4XpRgOfGGUKvVTSeDw5AN5T51uPDXMj8p
+         dSz9Vl7J+ZQVvjWRvlnv3CmdsqC4wR3T7xQGYXBA2mSPVht7HYNkSHW8UiWrwk0m5SEd
+         knzozVjr7X2Ti/sMUAWnS6FNFgBDDUaI4g/0Ro7FzvmzvPJDberYq8aB44UVtRvomqv5
+         wtnVKRiCDO1GVEqpMZb3NXBZ+1nwc2P348Ws79fYmO7LiZqTcXGDtd2szurzA+WlN7++
+         04RcCjPRX9dalB4SjamE0RmbGBch6OrdZ3vLyibi+Mpka1lz7zRw+Z6YFNQ4cRlUwQay
+         7nJA==
+X-Forwarded-Encrypted: i=1; AJvYcCUXqtxRvDR0o2KYJwm1987I6nkbYVWt/tNxGKmKZKkjgn/PTITtMm3AyZupdvi+ANd5hXhLWBFNMEfU7y20XgCv@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx/lniJmXbdooff9WSYwe8X9o47RCP5HTUxSGdX/mSNA/6gwcUZ
+	XSREYJt5mA8bne1ikIfkbVTToyryibqp6mB0DdCJpBZFdlROCo/HJhyy8xIB4ilg3ywbD3entA=
+	=
+X-Google-Smtp-Source: AGHT+IFKzhN6yxa1m0w1DuTS6hG3IIPd1uDcWGcK6u2GkZ3C9EsPnGf+Bhi+qQWDKgF+BnewqutKH+ggrg==
+X-Received: from pfbay42.prod.google.com ([2002:a05:6a00:302a:b0:729:9f1:663e])
+ (user=wnliu job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:2d8e:b0:725:cfa3:bc76
+ with SMTP id d2e1a72fcca58-72fd0bce05cmr3286318b3a.4.1738135426969; Tue, 28
+ Jan 2025 23:23:46 -0800 (PST)
+Date: Wed, 29 Jan 2025 07:23:45 +0000
+In-Reply-To: <29b94227-8861-4011-b83f-2e0c59dd1f73@oracle.com>
+Mime-Version: 1.0
+References: <29b94227-8861-4011-b83f-2e0c59dd1f73@oracle.com>
+X-Mailer: git-send-email 2.48.1.262.g85cc9f2d1e-goog
+Message-ID: <20250129072345.3106495-1-wnliu@google.com>
+Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
+From: Weinan Liu <wnliu@google.com>
+To: indu.bhagat@oracle.com
+Cc: irogers@google.com, joe.lawrence@redhat.com, jpoimboe@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-toolchains@vger.kernel.org, live-patching@vger.kernel.org, 
+	mark.rutland@arm.com, peterz@infradead.org, roman.gushchin@linux.dev, 
+	rostedt@goodmis.org, will@kernel.org, wnliu@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_214321_607105_7FF90287 
-X-CRM114-Status: UNSURE (   9.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250128_232348_376775_B59CAF15 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,41 +89,19 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: nm <nm@ti.com>, vigneshr <vigneshr@ti.com>, tony <tony@atomide.com>, edumazet <edumazet@google.com>, krishna <krishna@couthit.com>, pmohan <pmohan@couthit.com>, diogo ivo <diogo.ivo@siemens.com>, Rob Herring <robh@kernel.org>, javier carrasco cruz <javier.carrasco.cruz@gmail.com>, praneeth <praneeth@ti.com>, m-karicheri2 <m-karicheri2@ti.com>, basharath <basharath@couthit.com>, kuba <kuba@kernel.org>, pabeni <pabeni@redhat.com>, devicetree <devicetree@vger.kernel.org>, conor+dt <conor+dt@kernel.org>, schnelle <schnelle@linux.ibm.com>, mohan <mohan@couthit.com>, richardcochran <richardcochran@gmail.com>, prajith <prajith@ti.com>, rogerq <rogerq@kernel.org>, jacob e keller <jacob.e.keller@intel.com>, ssantosh <ssantosh@kernel.org>, linux-omap <linux-omap@vger.kernel.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, rogerq <rogerq@ti.com>, srk <srk@ti.com>, pratheesh <pratheesh@ti.com>, m-malladi <m-malladi@ti.com>, netdev <netdev@vger.kernel.org>, rdunlap <rdunlap@infradead.org>, linux-kernel <linux-kernel@vger.kernel.org>, danishanwar <danishanwar@ti.com>, afd <afd@ti.com>, andrew+netdev <andrew+netdev@lunn.ch>, parvathi <parvathi@couthit.com>, horms <horms@kernel.org>, krzk+dt <krzk+dt@kernel.org>, davem <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On Fri, Jan 24, 2025 at 07:10:50PM +0530, Basharath Hussain Khaja wrote:
->> From: Roger Quadros <rogerq@ti.com>
->> 
->> Changes corresponding to link configuration such as speed and duplexity.
->> IRQ and handler initializations are performed for packet reception.Firmware
->> receives the packet from the wire and stores it into OCMC queue. Next, it
->> notifies the CPU via interrupt. Upon receiving the interrupt CPU will
->> service the IRQ and packet will be processed by pushing the newly allocated
->> SKB to upper layers.
->> 
->> When the user application want to transmit a packet, it will invoke
->> sys_send() which will inturn invoke the PRUETH driver, then it will write
->> the packet into OCMC queues. PRU firmware will pick up the packet and
->> transmit it on to the wire.
->> 
->> Signed-off-by: Roger Quadros <rogerq@ti.com>
->> Signed-off-by: Andrew F. Davis <afd@ti.com>
->> Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
->> Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
->> ---
->>  drivers/net/ethernet/ti/icssm/icssm_prueth.c | 599 ++++++++++++++++++-
->>  drivers/net/ethernet/ti/icssm/icssm_prueth.h |  46 ++
->>  2 files changed, 640 insertions(+), 5 deletions(-)
-> 
-> Looks like this patch was duplicated and posted twice ?
+Not only does objdump show that func_start_addr all 0s, but the
+func_start_addr in the kernel module's sframe table is also incorrect. I'll
+prepare a repro so we can investigate this.
 
-When I posted the patch first time I received a bounce back error.
-So I was not sure if the patch got posted successfully or not so 
-I have to re-sent. Sorry for the confusion.
+>
+> I can share a fix for 32589 so atleast we can verify that the starting
+> point is sane.
+>
 
-
-Thanks & Best Regards,
-Basharath.
+Great! Thanks.
+This will be helpful for comparing the values from the sframe table with
+the values we obtain at runtime
 
