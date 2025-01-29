@@ -4,67 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C57F8C0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 00:57:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 771DCC0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 00:59:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hJQf0TPyuhEeQZ0a4V+OZ72Iu2iKhB0OFe4o6fsP+TM=; b=xH1A0TgOX0FV221emC18ZyMU0P
-	z3/hCtGlb0O1qAMXoQhX1TfZctJ5qPMDIUGVPJg6/10QigjeY+gIMr4sbzF5ZJV2HkU1g0/G7ySVy
-	TNelSrQxwuQvPTj6QLsaKuidhGP6qOobTjDE0oz2Vpkn2GDdf9lfMdJthhyoXsEUsd2YlCkxmGTXx
-	VQnzD2ySlr4OIW+tLaPZHwUvDQJhjARMr64vrdzCXomqvyTDv8xTnzXyKcIPHyWYGd9M0y0G1jnAQ
-	QzSMeF0ltxGzI0IhluRZcd6Kf4QJNG3UHWStzSGuAAfvedK8AWSw3uyvRB1p6aYcQk6uMnV4NacWD
-	xa7RAWow==;
+	bh=ZQQkxtJswJ6G6AZ+K3wO4Z+prFLWuSaEOoIOI5kw36U=; b=fezB/HRRUr49OJ9yLg/yl7LAAV
+	qnO0wtsY2+XxxfNty8MHIAhVknBZbe3xvDdl8XyZSSJSPw4cwLoCdPm/Tfocmung0SnfkX3KnrpjX
+	6vADMecUxBnqSFlOa9DFwxDjkRgHm26JctrOBqio/wYhG8kMSYiOJOfuZUE0sdprTi253YbJY8Q+E
+	MSWD5RRXn6N6BtSJtUOhQYdPnTOXDxplHvlXG/9KGPFfl3wqVTD+aGIO8dZHeLnZ2EDtmu4E3kbWC
+	tHBO3240VMTOhOr0EkbN9JPEhZOQy3hmblWyoo07ikSSS28F/XJIYz09v6MQcSNhsm4gZQzQgNIDN
+	leR+Yx3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcwOD-000000067T6-1hCp;
-	Wed, 29 Jan 2025 00:57:09 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tcwPz-000000067nG-0v9y;
+	Wed, 29 Jan 2025 00:58:59 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcwMs-000000067G4-2ELP;
-	Wed, 29 Jan 2025 00:55:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6219CA415EA;
-	Wed, 29 Jan 2025 00:53:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF0E2C4CED3;
-	Wed, 29 Jan 2025 00:55:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738112144;
-	bh=7lLgfsbUvvXkuZ/CHyObEqTqK07OIPpnMi3L8CLFkWY=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=a0Tp33LEr5mdpx4Jdes8W04nWqwEaLorvXlTwLQeltYmYb4klZ+1dz2ywlTC1b8vX
-	 3+k4ui1fUmLbcFjL5APZZHqXajEfDw8XK18yEtuoVQbYLE2/KJ3OWDxcoyJSsIsYNE
-	 DtQEthCyYqS56sQa1kB1Swn6qPUBhCaLAgWkwja3f55uChLvycrhuijZWm8POhmtni
-	 ykUeyJuvAvFNmoLZJQP4RIXBzVayDzL59pE6M7xHqHJCz+rWiTvl4EPHbNFmFx8Chm
-	 4j7efWWME8OF3uvIkfJk+9cFoNkYjHICLOSesiRjPTBgLZGNKhAvpDasPjs5mHTnv5
-	 F99y903Tt3oVw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAE01380AA66;
-	Wed, 29 Jan 2025 00:56:11 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1tcwOd-000000067YK-1QAU
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 29 Jan 2025 00:57:36 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50SGIWKT023412;
+	Wed, 29 Jan 2025 00:57:24 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	ZQQkxtJswJ6G6AZ+K3wO4Z+prFLWuSaEOoIOI5kw36U=; b=S/ncro+YUYOUfehw
+	3qe9Aeht3KdfZgEirTupGm5ioCXnmoyAdIrzu/wqx0UjQiy2k/qEMMNnEcMmxKTU
+	eWjTYdGcZY3Gk2WcmpQAUz5KeONX1Js1p/L1c4WoMN5ehPd3+MbmSal1lkGiVxdE
+	gQdZi5mfoPM69A4GnHWrm1i85PicvJZd2n/UfylePBqVk30R5KZ8tZZkhu4Sge+P
+	4xXFrHmVUN+9kaUw9QV+q0hWKfRguuam7dtNQN4lyhlIrlpO6Tdoj+Sl5L20rUqb
+	8RZHvltRPyZ0CeQcV5L/gdJozg60VuOWL5EH1H5qZD1GQ56tJFO5i5ydNx/8vsek
+	3Lj9vg==
+Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44f2mps0hv-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 29 Jan 2025 00:57:23 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 50T0vN0i023408
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 29 Jan 2025 00:57:23 GMT
+Received: from [10.133.33.41] (10.80.80.8) by nalasex01c.na.qualcomm.com
+ (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Tue, 28 Jan
+ 2025 16:57:17 -0800
+Message-ID: <d5332d6d-237f-4b78-9eaf-2619bd97b7bd@quicinc.com>
+Date: Wed, 29 Jan 2025 08:57:12 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 3/6] Coresight: Introduce a new struct coresight_path
+To: James Clark <james.clark@linaro.org>
+CC: Tingwei Zhang <quic_tingweiz@quicinc.com>,
+        Jinlong Mao
+	<quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        Suzuki K Poulose
+	<suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@linaro.org>,
+        "Alexander
+ Shishkin" <alexander.shishkin@linux.intel.com>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+References: <20250124072537.1801030-1-quic_jiegan@quicinc.com>
+ <20250124072537.1801030-4-quic_jiegan@quicinc.com>
+ <538ae543-4c43-4df2-8adc-911096fe14dd@linaro.org>
+Content-Language: en-US
+From: Jie Gan <quic_jiegan@quicinc.com>
+In-Reply-To: <538ae543-4c43-4df2-8adc-911096fe14dd@linaro.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-Subject: Re: [f2fs-dev] [PATCH v4 00/19] Wire up CRC32 library functions to
- arch-optimized code
-From: patchwork-bot+f2fs@kernel.org
-Message-Id: <173811217076.3973351.8137382917166262630.git-patchwork-notify@kernel.org>
-Date: Wed, 29 Jan 2025 00:56:10 +0000
-References: <20241202010844.144356-1-ebiggers@kernel.org>
-In-Reply-To: <20241202010844.144356-1-ebiggers@kernel.org>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-s390@vger.kernel.org, linux-scsi@vger.kernel.org, x86@kernel.org,
- linux-mips@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net,
- linux-crypto@vger.kernel.org, loongarch@lists.linux.dev,
- sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-ext4@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-arm-kernel@lists.infradead.org
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: eovWIWCKTdy6jmzv7fp1hOTXOvYeS8PS
+X-Proofpoint-ORIG-GUID: eovWIWCKTdy6jmzv7fp1hOTXOvYeS8PS
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-28_04,2025-01-27_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
+ malwarescore=0 clxscore=1015 lowpriorityscore=0 bulkscore=0 suspectscore=0
+ mlxscore=0 adultscore=0 mlxlogscore=999 impostorscore=0 spamscore=0
+ phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501290006
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_165546_702317_576D15DE 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20250128_165735_391500_1372567F 
+X-CRM114-Status: GOOD (  36.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,69 +117,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
 
-This series was applied to jaegeuk/f2fs.git (dev)
-by Eric Biggers <ebiggers@google.com>:
 
-On Sun,  1 Dec 2024 17:08:25 -0800 you wrote:
-> This patchset applies to v6.13-rc1 and is also available in git via:
+On 1/28/2025 7:54 PM, James Clark wrote:
 > 
->     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git crc32-lib-v4
 > 
-> CRC32 is a family of common non-cryptographic integrity check algorithms
-> that are fairly fast with a portable C implementation and become far
-> faster still with the CRC32 or carryless multiplication instructions
-> that most CPUs have.  9 architectures already have optimized code for at
-> least some CRC32 variants; however, except for arm64 this optimized code
-> was only accessible through the crypto API, not the library functions.
+> On 24/01/2025 7:25 am, Jie Gan wrote:
+>> Add 'struct coresight_path' to store the data that is needed by
+>> coresight_enable_path/coresight_disable_path. The structure
+>> will be transmitted to the helper and sink device to enable
+>> related funcationalities.
+>>
+>> Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
+>> ---
+>>   drivers/hwtracing/coresight/coresight-core.c  | 87 ++++++++++++++-----
+>>   drivers/hwtracing/coresight/coresight-etb10.c |  3 +-
+>>   .../hwtracing/coresight/coresight-etm-perf.c  | 52 ++++++-----
+>>   .../hwtracing/coresight/coresight-etm-perf.h  |  2 +-
+>>   drivers/hwtracing/coresight/coresight-priv.h  | 21 +++--
+>>   drivers/hwtracing/coresight/coresight-sysfs.c | 32 +++----
+>>   .../hwtracing/coresight/coresight-tmc-etf.c   |  3 +-
+>>   .../hwtracing/coresight/coresight-tmc-etr.c   |  6 +-
+>>   drivers/hwtracing/coresight/coresight-trbe.c  |  4 +-
+>>   drivers/hwtracing/coresight/ultrasoc-smb.c    |  3 +-
+>>   10 files changed, 137 insertions(+), 76 deletions(-)
+>>
 > 
 > [...]
+> 
+> 
+>>       INIT_LIST_HEAD(path);
+>> +    cs_path->path = path;
+>> +    /*
+>> +     * Since not all source devices have a defined trace_id function,
+>> +     * make sure to check for it before use.
+>> +     *
+>> +     * Assert the mode is CS_MODE_SYSFS, the trace_id will be assigned
+>> +     * again later if the mode is CS_MODE_PERF.
+>> +     */
+>> +    if (source_ops(source)->trace_id != NULL) {
+>> +        rc = source_ops(source)->trace_id(source, CS_MODE_SYSFS, NULL);
+> 
+> I don't think we should do this. Doesn't this consume two trace IDs for 
+> each session? And I'm not even sure if it's released properly if it's 
+> overwritten.
+Yes, you are right, we may waste our trace ID here.
+> 
+> It should be possible to consolidate the all the trace ID allocation to 
+> a single step when building the path, or another function that gets 
+> called just after the path is built. At the moment the ID can be 
+> allocated from about 5 different places and it's quite hard to 
+> understand, especially with these new changes. I have some of it coded 
+> up, let me finish it off and I can share it.
+Waiting for your update. I am also looking forward to another solution.
 
-Here is the summary with links:
-  - [f2fs-dev,v4,01/19] lib/crc32: drop leading underscores from __crc32c_le_base
-    https://git.kernel.org/jaegeuk/f2fs/c/0a499a7e9819
-  - [f2fs-dev,v4,02/19] lib/crc32: improve support for arch-specific overrides
-    https://git.kernel.org/jaegeuk/f2fs/c/d36cebe03c3a
-  - [f2fs-dev,v4,03/19] lib/crc32: expose whether the lib is really optimized at runtime
-    https://git.kernel.org/jaegeuk/f2fs/c/b5ae12e0ee09
-  - [f2fs-dev,v4,04/19] crypto: crc32 - don't unnecessarily register arch algorithms
-    https://git.kernel.org/jaegeuk/f2fs/c/780acb2543ea
-  - [f2fs-dev,v4,05/19] arm/crc32: expose CRC32 functions through lib
-    https://git.kernel.org/jaegeuk/f2fs/c/1e1b6dbc3d9c
-  - [f2fs-dev,v4,06/19] loongarch/crc32: expose CRC32 functions through lib
-    https://git.kernel.org/jaegeuk/f2fs/c/72f51a4f4b07
-  - [f2fs-dev,v4,07/19] mips/crc32: expose CRC32 functions through lib
-    https://git.kernel.org/jaegeuk/f2fs/c/289c270eab5e
-  - [f2fs-dev,v4,08/19] powerpc/crc32: expose CRC32 functions through lib
-    https://git.kernel.org/jaegeuk/f2fs/c/372ff60ac4dd
-  - [f2fs-dev,v4,09/19] s390/crc32: expose CRC32 functions through lib
-    https://git.kernel.org/jaegeuk/f2fs/c/008071917dfc
-  - [f2fs-dev,v4,10/19] sparc/crc32: expose CRC32 functions through lib
-    https://git.kernel.org/jaegeuk/f2fs/c/0f60a8ace577
-  - [f2fs-dev,v4,11/19] x86/crc32: update prototype for crc_pcl()
-    https://git.kernel.org/jaegeuk/f2fs/c/64e3586c0b61
-  - [f2fs-dev,v4,12/19] x86/crc32: update prototype for crc32_pclmul_le_16()
-    https://git.kernel.org/jaegeuk/f2fs/c/1e6b72e60a5a
-  - [f2fs-dev,v4,13/19] x86/crc32: expose CRC32 functions through lib
-    https://git.kernel.org/jaegeuk/f2fs/c/55d1ecceb8d6
-  - [f2fs-dev,v4,14/19] bcachefs: Explicitly select CRYPTO from BCACHEFS_FS
-    https://git.kernel.org/jaegeuk/f2fs/c/cc354fa7f016
-  - [f2fs-dev,v4,15/19] lib/crc32: make crc32c() go directly to lib
-    https://git.kernel.org/jaegeuk/f2fs/c/38a9a5121c3b
-  - [f2fs-dev,v4,16/19] ext4: switch to using the crc32c library
-    https://git.kernel.org/jaegeuk/f2fs/c/f2b4fa19647e
-  - [f2fs-dev,v4,17/19] jbd2: switch to using the crc32c library
-    https://git.kernel.org/jaegeuk/f2fs/c/dd348f054b24
-  - [f2fs-dev,v4,18/19] f2fs: switch to using the crc32 library
-    https://git.kernel.org/jaegeuk/f2fs/c/3ca4bec40ee2
-  - [f2fs-dev,v4,19/19] scsi: target: iscsi: switch to using the crc32c library
-    https://git.kernel.org/jaegeuk/f2fs/c/31e4cdde4d8b
+> 
+>> +        if(IS_VALID_CS_TRACE_ID(rc))
+>> +            cs_path->trace_id = rc;
+>> +        else
+>> +            cs_path->trace_id = 0;
+>> +    }
+>> +    else
+>> +        cs_path->trace_id = 0;
+> 
+> [...]
+> 
+>> +/**
+>> + * struct coresight_path - data needed by enable/disable path
+>> + * @handle:        perf aux handle for ETM.
+>> + * @path:        path from source to sink.
+>> + * @trace_id:        trace_id of the whole path.
+>> + */
+>> +struct coresight_path {
+>> +    struct perf_output_handle    *handle;
+> 
+> This is only needed to avoid adding *handle to the enable function call 
+> signature, but having it here implies it needs to be stored. And then we 
+> need to manage the lifecycle of it by nulling it on deletion. All of 
+> this can be avoided by just adding handle to enable().
+> 
+> Unrelated to this patch, but I'm not sure why we were passing around 
+> void* for handle either. It just makes the code hard to read and implies 
+> some flexibility that doesn't exist. It's always "struct 
+> perf_output_handle", so we can change void* to that in the enable 
+> functions. I also have a patch for this that I'll share in a bit.
+> 
+Thanks for support. I am totally agree with you. It's not related to the 
+patch series and it looks like a hack here.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+Waiting for your update.
+
+>> +    struct list_head        *path;
+>> +    u8                trace_id;
+>> +};
+>> +
+>>   static inline void coresight_insert_barrier_packet(void *buf)
+>>   {
+>>       if (buf)
+>> @@ -132,16 +144,15 @@ static inline void CS_UNLOCK(void __iomem *addr)
+>>       } while (0);
+>>   }
+>> -void coresight_disable_path(struct list_head *path);
+>> -int coresight_enable_path(struct list_head *path, enum cs_mode mode,
+>> -              void *sink_data);
+>> +void coresight_disable_path(struct coresight_path *cs_path);
+>> +int coresight_enable_path(struct coresight_path *cs_path, enum 
+>> cs_mode mode);
+>>   struct coresight_device *coresight_get_sink(struct list_head *path);
+> 
+> This needs to be exported otherwise the build fails because you use it 
+> in a module in another commit. I assume you are building as static?
+> 
+> 
+Yes, you are right. I made a mistake here. I did not test it with build 
+as module. Sorry about the mistake.
+
+Thanks,
+Jie
 
 
 
