@@ -4,149 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8140C0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 10:45:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09FD0C0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 10:46:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2tnS1z33E1lmdARbRZJZY1baV7i5IrhBmmqgHqbmlVM=; b=3r0J7X9H3JHcRnNo9Trgtx3cMv
-	Lj2CoQA0/bpwYlsGfpVaRuN68FlJqjJJ+KKV0lIdD9F2dj9jYPkskVVFsHk5+kfSaVkSc5wgtvush
-	VAhudKITg7GOJcxywTB0ATQ9EH00mCkxAEuC/y2CEM9wzDVq4O/oOKKee1oFhV7l9ZTbjjLfROo6W
-	oIDulYgqSXsXVo+xjO5ty3VXKBHG8CTw/8up+YUVM7tqm7dEkeiCxdrbb3TkSFZYo5lvr+k4CjKOp
-	b7i6TJQNkdgohjcazQISoX5Vyt1RmDF8VWtxvmm53AOMMT1m5YTxXWffDALnGztkvDJltrUQQTTmT
-	NfJlzFtw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=yWrkOMQp0EgA1n2/2fll/3eIYbXZEI0l3kIseupr1do=; b=f+liir3mSYCzlD
+	u3CtqtQcmeklRxPr8j90OUtu9zAU/5BS5g9zTxoUsZgx2yPBm+/KKKVu1Rjf3GdtNPCeMqtmkcsOy
+	gQb2FaTonT/stXMKaMrKz9PLkPutqvYdyNTEU8cHXY+W0ZErkeudeh9KI3EHiEprEPlPUWtmVnaaX
+	xQ4ve5aeNuIMqAWcoSQViNsaoXU9X96CZERAzzFyFdietNsr7E+lsm3ERlNa9FAZNP0KsNAYwEVW6
+	JKiMpEikZubUtgDMXJn5BlA+LMMVETmGHKAB5otDG8ONWMbbjstuZjzLDdyoYROMu038Q3UJ5uODL
+	PHZ5FmHCBYhp1MLRrl+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1td5ZA-00000006lW3-3lVe;
-	Wed, 29 Jan 2025 10:45:04 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1td5aZ-00000006lek-0DlX;
+	Wed, 29 Jan 2025 10:46:31 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1td5Xp-00000006lJ9-1wim;
-	Wed, 29 Jan 2025 10:43:42 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id EB6801F365;
-	Wed, 29 Jan 2025 10:43:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1738147416; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
+	id 1td5YS-00000006lOc-136H
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 29 Jan 2025 10:44:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1738147457;
+	h=from:from:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=2tnS1z33E1lmdARbRZJZY1baV7i5IrhBmmqgHqbmlVM=;
-	b=U/lnCV4GBIZG9GbQ1SLwed6PEFOLa2KtiY6O7akzy8ThP6T1VqE5oYuGdqn4uKfnAqC/k1
-	KCLe8/AKMCU6a4ptb2qA4+1jPr9Y2ovmlTZmOlIZgji2XQKurkAnusdTuaa0Bx6Zg062/S
-	6nT6jznqT6s44t3SkfFVyXd3U1tdxxQ=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1738147416;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2tnS1z33E1lmdARbRZJZY1baV7i5IrhBmmqgHqbmlVM=;
-	b=VaZKT8hYvx0LvDaL9DncH7hgceQXTxV/NUnlHukMowsinbc2G6ukDey/6e71smi6XHiIWi
-	I9IwBRm8e3VqvNAA==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=wArQ3UD8;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=MUSweoG3
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1738147414; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2tnS1z33E1lmdARbRZJZY1baV7i5IrhBmmqgHqbmlVM=;
-	b=wArQ3UD8ofb8Duq+Uqy67bpUSGreo6Hiqr8UM04g7f2MxsC9UKifObCDP+OnI0zlBXChlu
-	dYnzMI2mTY7jJMElIN4x44gRClFguzJgUeCXVK8+jHFM081mnCG0Sv4/PA39GANzMBwQ0y
-	nTNXNR115MEBd2mbOvIjX3hlN9E33rU=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1738147414;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2tnS1z33E1lmdARbRZJZY1baV7i5IrhBmmqgHqbmlVM=;
-	b=MUSweoG3CdRus8S/4/g34ZtCsJ7NIYPezhBni7oNh8xix67Dfx0INn6LKOumml603x7ipq
-	Simvrq8afwjaDBBA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id F3CD6137D2;
-	Wed, 29 Jan 2025 10:43:33 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id KhYhOVUGmmfeWQAAD6G6ig
-	(envelope-from <svarbanov@suse.de>); Wed, 29 Jan 2025 10:43:33 +0000
-Message-ID: <320db9bc-3610-4336-a691-a8926cdb7e24@suse.de>
-Date: Wed, 29 Jan 2025 12:43:25 +0200
+	bh=yWrkOMQp0EgA1n2/2fll/3eIYbXZEI0l3kIseupr1do=;
+	b=DT1Mli4vvSphGLWtdulCl2AC1Y2EEPXg1HhiJ3fQ6E0ygcsOwMIGIlJtY5+NWbrR/hv/Yo
+	fSBrhiTvGLmKAwFHBSagp3vN1l1Ugpl4bQj2iwhel7ySuNJv4dNH2RknBITZmgG54GrqWi
+	er+IjrCLRAEOxHUhyEMAkwxCCPy5IP4=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-655-V4dU5a6gNWmGhdAMCuqevA-1; Wed, 29 Jan 2025 05:44:16 -0500
+X-MC-Unique: V4dU5a6gNWmGhdAMCuqevA-1
+X-Mimecast-MFC-AGG-ID: V4dU5a6gNWmGhdAMCuqevA
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-436219070b4so31446835e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jan 2025 02:44:15 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738147455; x=1738752255;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:reply-to:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=yWrkOMQp0EgA1n2/2fll/3eIYbXZEI0l3kIseupr1do=;
+        b=N8GkWWiTkpJQ7sEebiXpXUFa0cyhhsY1wjKT/MCjplpTf5HGZFiuKPXD48c1ayue5X
+         wuGB/7KyXM1A2Mz8/SUzuoWtMWKHf+iLrtNgKw+5LHoS9bs1AKxfe+zmnzClyeO1uwL8
+         ybtNT25z9qH9pp4/ZqazIXyuaUgwgYVkhR7m2Mc2Z6rm45NVeWG26VvXMU+Jlk99km//
+         5WzYbo0kT7EzmVCFF5cr0V4W5HTnD+cwmpgAaoLDyUPEoQibDBGZ/qp7X7vTt4JMS+bp
+         1ujN4AULoGs3xMW0zuYt4cMmbdfBAoMXtAxhstzQI7k7afy1h6ujvxYp1u9z0MjeJOTh
+         PwKw==
+X-Forwarded-Encrypted: i=1; AJvYcCXaHs6GS5aqwBR1SzuCx3G0qYkU4txkkKGX4lFZiZgBKgSIlicbh2NVDZR8x+nJrvAGRXjZmQiJJ+0QJwY1twx5@lists.infradead.org
+X-Gm-Message-State: AOJu0YyOZXyGUNe4o79h1E3MaYJT16Ga6i1e3EwWy6d71NRK/MfZq03n
+	BszCLXM63s4URk8lTurJK11w5hbEsZcf07XlpeRU0UiZv5XB9e0FODTlZCURO6+UN8NbKCsvIqB
+	6MfOVJ2BgPVDNLQeIn7qvB7LOmNJMDDvgNGVqm7nRfgn/31nieDiWHo5v/mDH0/AoR/ZqgPyq
+X-Gm-Gg: ASbGncs1N9ppEGQbzsA+qpX/CnEwDYFyBlkh3xlqV7k2jmDpsIeB07VZdQan4fkEw8p
+	3qDzR7/SVmkjUQyymtFXuAeSCXXQKbLpAI4IC+nprqkbkaLI8NmicMelPamAMa4mXPpF1lAvje9
+	eBhFfDDRBVgOdFTVvA5cKTo2ZhWVbizYJhuEirRS0wMH3XAVnmF/tmG7KcbmW6ty2QLlQ4Ha76J
+	HDmYrN7IgYZSs5w/wDVGpQ89RpBeNXCbGXWnxjqn4BOI90Lxq7wsGuFT/9ZVxyVoeUxdVAXzvBy
+	T5+MCET8tmik8Y30gw+dqoBIk51hAs5YIkp2sw57ZOvzNZTt7AO0
+X-Received: by 2002:a05:600c:3d9b:b0:434:ff08:202b with SMTP id 5b1f17b1804b1-438dc3c360dmr20853615e9.12.1738147454877;
+        Wed, 29 Jan 2025 02:44:14 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHzPWEOLliL6813Vkt1ndANuVcfYh0Tyo6krKSjX7AbgdnEUM8NRt3/67xnxrixA9ILfXf4Jg==
+X-Received: by 2002:a05:600c:3d9b:b0:434:ff08:202b with SMTP id 5b1f17b1804b1-438dc3c360dmr20853365e9.12.1738147454482;
+        Wed, 29 Jan 2025 02:44:14 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:59e:9d80:527b:9dff:feef:3874? ([2a01:e0a:59e:9d80:527b:9dff:feef:3874])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438dcc2f73asm18251195e9.24.2025.01.29.02.44.11
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 29 Jan 2025 02:44:13 -0800 (PST)
+Message-ID: <840e41b8-15c7-4c4f-a503-818fb4729913@redhat.com>
+Date: Wed, 29 Jan 2025 11:44:11 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 -next 03/11] irqchip: Add Broadcom bcm2712 MSI-X
- interrupt controller
-To: Florian Fainelli <florian.fainelli@broadcom.com>,
- Thomas Gleixner <tglx@linutronix.de>, Stanimir Varbanov <svarbanov@suse.de>,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rpi-kernel@lists.infradead.org,
- linux-pci@vger.kernel.org,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Bjorn Helgaas
- <bhelgaas@google.com>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Jim Quinlan <jim2101024@gmail.com>,
- Nicolas Saenz Julienne <nsaenz@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Andrea della Porta <andrea.porta@suse.com>,
- Phil Elwell <phil@raspberrypi.com>, Jonathan Bell
- <jonathan@raspberrypi.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>
-References: <20250120130119.671119-1-svarbanov@suse.de>
- <20250120130119.671119-4-svarbanov@suse.de> <87bjvs86w8.ffs@tglx>
- <b1009877-6749-4bb1-95b9-ae976bef591c@broadcom.com>
+Subject: Re: [PATCH RFCv2 02/13] genirq/msi: Rename
+ iommu_dma_compose_msi_msg() to msi_msg_set_msi_addr()
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
+ robin.murphy@arm.com, kevin.tian@intel.com, tglx@linutronix.de,
+ maz@kernel.org, alex.williamson@redhat.com, joro@8bytes.org,
+ shuah@kernel.org, reinette.chatre@intel.com, yebin10@huawei.com,
+ apatel@ventanamicro.com, shivamurthy.shastri@linutronix.de,
+ bhelgaas@google.com, anna-maria@linutronix.de, yury.norov@gmail.com,
+ nipun.gupta@amd.com, iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
+ jean-philippe@linaro.org, mdf@kernel.org, mshavit@google.com,
+ shameerali.kolothum.thodi@huawei.com, smostafa@google.com, ddutile@redhat.com
+References: <cover.1736550979.git.nicolinc@nvidia.com>
+ <242034456c0bfcd7ecf75cb29d8e5c99db0675d6.1736550979.git.nicolinc@nvidia.com>
+ <fa9b443d-e068-41bc-ad03-9f04818c72e0@redhat.com>
+ <20250123185002.GV5556@nvidia.com>
+From: Eric Auger <eric.auger@redhat.com>
+In-Reply-To: <20250123185002.GV5556@nvidia.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: XD84rGbt7gNMYMXiiB6L-iRzp1alxX-yCONEVm82dcw_1738147455
+X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-From: Stanimir Varbanov <svarbanov@suse.de>
-In-Reply-To: <b1009877-6749-4bb1-95b9-ae976bef591c@broadcom.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Rspamd-Queue-Id: EB6801F365
-X-Rspamd-Action: no action
-X-Spamd-Result: default: False [-3.01 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[22];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	MIME_TRACE(0.00)[0:+];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	FREEMAIL_CC(0.00)[kernel.org,gmail.com,pengutronix.de,suse.com,raspberrypi.com];
-	RCVD_TLS_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	MID_RHS_MATCH_FROM(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TAGGED_RCPT(0.00)[dt];
-	DKIM_TRACE(0.00)[suse.de:+];
-	ASN(0.00)[asn:25478, ipnet:::/0, country:RU];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:dkim,suse.de:mid,suse.de:email,linutronix.de:email]
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250129_024341_660089_57587D98 
-X-CRM114-Status: GOOD (  13.53  )
+X-CRM114-CacheID: sfid-20250129_024420_366195_889F8FB5 
+X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,46 +122,34 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: eric.auger@redhat.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Jason,
 
-On 1/28/25 7:55 PM, Florian Fainelli wrote:
-> On 1/27/25 10:10, Thomas Gleixner wrote:
->> On Mon, Jan 20 2025 at 15:01, Stanimir Varbanov wrote:
->>
->>> Add an interrupt controller driver for MSI-X Interrupt Peripheral (MIP)
->>> hardware block found in bcm2712. The interrupt controller is used to
->>> handle MSI-X interrupts from peripherials behind PCIe endpoints like
->>> RP1 south bridge found in RPi5.
->>>
->>> There are two MIPs on bcm2712, the first has 64 consecutive SPIs
->>> assigned to 64 output vectors, and the second has 17 SPIs, but only
->>> 8 of them are consecutive starting at the 8th output vector.
->>>
->>> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
->>
->> Reviewed-by: Thomas Gleixner <tglx@linutronix.de>
->>
->> As this is a new controller and required for the actual PCI muck, I
->> think the best way is to take it through the PCI tree, unless someone
->> wants me to pick the whole lot up.
-> 
-> Agreed, the PCI maintainers should take patches 1 through 9 inclusive,
 
-Just small correction, patch 09/11 [1] has a new v2 at [2]. And I think
-PCI maintainer have to take v2.
+On 1/23/25 7:50 PM, Jason Gunthorpe wrote:
+> On Thu, Jan 23, 2025 at 06:10:54PM +0100, Eric Auger wrote:
+>
+>>> -/**
+>>> - * iommu_dma_compose_msi_msg() - Apply translation to an MSI message
+>>> - * @desc: MSI descriptor prepared by iommu_dma_prepare_msi()
+>>> - * @msg: MSI message containing target physical address
+>>> - */
+>>> -static inline void iommu_dma_compose_msi_msg(struct msi_desc *desc,
+>>> -					     struct msi_msg *msg)
+>>> +static inline void msi_msg_set_msi_addr(struct msi_desc *desc,
+>>> +					struct msi_msg *msg, u64 msi_addr)
+>> nit: msi_msg_set_addr(ess) may be enough as the populated fields are
+>> address_lo/hi
+> Not sure I follow, you suggest to use msi_msg_set_addr() as the
+> function name? Seems Ok
+Yes my minor point was just about removing the "msi" redundancy
 
-> and I will take patches 10-11 through the Broadcom ARM SoC tree, Bjorn,
-> KW, does that work?
-
-~Stan
-
-[1] [PATCH v5 -next 09/11] PCI: brcmstb: Fix for missing of_node_put
-
-[2]
-https://lore.kernel.org/lkml/20250122222955.1752778-1-svarbanov@suse.de/T/
-
+Eric
+>
+> Jason
+>
 
 
