@@ -4,174 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4370C0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 15:06:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BB96C0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 15:17:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/IqPx2Rx/d1YOeuO44aMecifkEHj+YYlNTb4U/tWOq8=; b=AwhzQO4SGBe8wlTXMvqVg+b/J0
-	8DcQwIy9EPYdALGn7Ytroni/5D7oj8mgpZOsd4M7BFnsAvm2qigcxc2RpvlcU+UqRIc+M2aZ9qbTY
-	d5bYsF8pKwbe+RWw3lrhpw4BaRtDa77AmdD+ab96ciuKfZKtYB+B+JC/IGLDzqhGrr6yCzuJACEZJ
-	mOPA6oE8aA/VQ5KlvXXerZ2cBzyGoArNd8BO691hMcD9o52Z/n8QX274NZ9hqLVroNiqXgmTt//Yj
-	fQgSfG6kaHGqqGmMzqTqPM1O4zaj5lTt/38GEoiLivrBAG9p6cSh4niFMwssKkd1FQssGdPxxL53l
-	3txDZ+xg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sj/w3pZyayJwYB2bBkxj/mDTJQO3tU2/yuq10b/snTk=; b=UuWPf+V51qbpa/a1St2qja7Caq
+	VIeaGHmEs5V+JVZr2Sgvkm9mZ88efQ8XpuqTuMCdjYB30s/xDLZCVxKJWLQbSEqe3nV0wxAPksNjP
+	yChwV/N1MIlMQ3W8uKOtO1RG52ljsKqbGJ0I0EmBV7lyJh9zw4+4yZtR5J+j+4Z0H2mlfLz1qKQoy
+	w90C347U47+SQZF9NSHbdlDWbZ0qJlqlfNXwnyMpjgKHaGQPKawK+mA3IXy4y+kKORkKc8kRg1oGv
+	mhKrslLjreDa+Z+ZotRzV41lmqarrRg09YbcOwQYIbgWhaW3CUmWDEuobASBpJvkcj+yVrbTiFFH0
+	+ooxEqEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1td9e3-00000007D76-1C9d;
-	Wed, 29 Jan 2025 15:06:23 +0000
-Received: from mail-dm6nam11on2060a.outbound.protection.outlook.com ([2a01:111:f403:2415::60a] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1td9cj-00000007Cyz-4805
+	id 1td9oK-00000007Du6-2ZEf;
+	Wed, 29 Jan 2025 15:17:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1td9n1-00000007Dpz-1bTp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jan 2025 15:05:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Vp0Hz+NOHVzv5pu91hyp5hUljcR475eynW0KpUEqgHneg+xAYIzO+PojAUWeKJvU3iTGyJdGwhGPqUCjg53eOxXI1ccpE3ghNJJrg7RdAC8OPA6ckWsrbkgC9roRLffZ7+x76nYBebLjxAC4yP3pcA6wtPbK1S3yJoY8niBbxcSMQ8PMnR95sgP/AcSpmJSHBmWwsXgYlf/4y1wRl6u9Lknck4zI3YgsHuMw/zLrmPUCP58AIiVyUupHUJzgROlF9mePvLgLbABAqwt5l1J2jPTIVBsd29COKzcpUwpZ+i3HjnQxULDbdcUA26+geo30ky+1qCzbZF0Z8UBF29/7ng==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/IqPx2Rx/d1YOeuO44aMecifkEHj+YYlNTb4U/tWOq8=;
- b=psJDA3ld5dMjzavYycNSaTeYG8G+phl9tl44j10JI9w6p8bEzHLHu5lIIDP0szyOcr/PeZz4x1PecJ+vowP3A8USi3bbr+tX8PrvHat/zlFB1dirZnBUVBYpnB34ecnQBjVCO+6QG09IAXY5Sf89xDABKGPYLgI9OP7DbIGr5LtJz3TuoOckIflbOtu1cj+aNX5RCguInSSW76sMZGt2qe0GJCWsiyIUIMZ4dCN1MMwWZVPnk91H/fWErCp5PftCw9FqZ/3uiPOpJ2MycDTue/5JSyapLAfkJIgvLpnpmi3vhJWAwuiu4fBMkncYT1fEcdlXraTI46Jy7stac/tr9Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/IqPx2Rx/d1YOeuO44aMecifkEHj+YYlNTb4U/tWOq8=;
- b=I5UskM+Qu3ZEpu+OfkSw/sQyvRtsKJ60+5uc2AbgZsjdvA8t7nfDYqTX7e91ghpJBLpUlwr2jljopx6dukyMXNqor80BkwAUhOSzk2x3YkzDagAIIqkL/GzrOfN6d89BrS2/fPWvKyWEamY4KDYvE/mtkHWbjThk72jc3QXATYjhYC3br5PGL59yaDGjwjFogiu/Il5tm6BXNAcBUvxwmiK57utJG60/s4nBL+NdQhHlXwWA3YvwqNp0AyDde+Oj4jhB2+fQBDDMl9dgEv69A/mdxkkxuvsT0F98N3yPw7NLvECA8NN6Jd6MhX4V47Yn4TNX4hvAUW+R4Q3JOePYQw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by CY5PR12MB6456.namprd12.prod.outlook.com (2603:10b6:930:34::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.18; Wed, 29 Jan
- 2025 15:04:56 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%5]) with mapi id 15.20.8377.021; Wed, 29 Jan 2025
- 15:04:56 +0000
-Date: Wed, 29 Jan 2025 11:04:54 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Eric Auger <eric.auger@redhat.com>
-Cc: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"robin.murphy@arm.com" <robin.murphy@arm.com>,
-	"kevin.tian@intel.com" <kevin.tian@intel.com>,
-	"tglx@linutronix.de" <tglx@linutronix.de>,
-	"maz@kernel.org" <maz@kernel.org>,
-	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
-	"joro@8bytes.org" <joro@8bytes.org>,
-	"shuah@kernel.org" <shuah@kernel.org>,
-	"reinette.chatre@intel.com" <reinette.chatre@intel.com>,
-	"yebin (H)" <yebin10@huawei.com>,
-	"apatel@ventanamicro.com" <apatel@ventanamicro.com>,
-	"shivamurthy.shastri@linutronix.de" <shivamurthy.shastri@linutronix.de>,
-	"bhelgaas@google.com" <bhelgaas@google.com>,
-	"anna-maria@linutronix.de" <anna-maria@linutronix.de>,
-	"yury.norov@gmail.com" <yury.norov@gmail.com>,
-	"nipun.gupta@amd.com" <nipun.gupta@amd.com>,
-	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
-	"patches@lists.linux.dev" <patches@lists.linux.dev>,
-	"jean-philippe@linaro.org" <jean-philippe@linaro.org>,
-	"mdf@kernel.org" <mdf@kernel.org>,
-	"mshavit@google.com" <mshavit@google.com>,
-	"smostafa@google.com" <smostafa@google.com>,
-	"ddutile@redhat.com" <ddutile@redhat.com>
-Subject: Re: [PATCH RFCv2 00/13] iommu: Add MSI mapping support with nested
- SMMU
-Message-ID: <20250129150454.GH5556@nvidia.com>
-References: <cover.1736550979.git.nicolinc@nvidia.com>
- <4946ea266bdc4b1e8796dee1b228bd8f@huawei.com>
- <20250123132432.GJ5556@nvidia.com>
- <de6b9dc1-dedd-4a3d-9db7-cb4b8e281697@redhat.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <de6b9dc1-dedd-4a3d-9db7-cb4b8e281697@redhat.com>
-X-ClientProxiedBy: BL1P223CA0030.NAMP223.PROD.OUTLOOK.COM
- (2603:10b6:208:2c4::35) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	Wed, 29 Jan 2025 15:15:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4827F497;
+	Wed, 29 Jan 2025 07:15:59 -0800 (PST)
+Received: from eglon.cambridge.arm.com (eglon.cambridge.arm.com [10.1.196.57])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2F46C3F63F;
+	Wed, 29 Jan 2025 07:15:32 -0800 (PST)
+From: James Morse <james.morse@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>
+Subject: [PATCH 4/3] arm64: proton-pack: Disable Spectre-BSE mitigation by default
+Date: Wed, 29 Jan 2025 15:15:19 +0000
+Message-Id: <20250129151519.3666718-1-james.morse@arm.com>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250122174736.1560714-1-james.morse@arm.com>
+References: <20250122174736.1560714-1-james.morse@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CY5PR12MB6456:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1285bcf9-0dfa-40f3-74a7-08dd40764a82
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|7416014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?KRb1pEmSAfZCt7O256KeECPlinVg9a6JRpxPG25RPrt9I9XSHqJxJDfwJGrS?=
- =?us-ascii?Q?B7ZN6JfQST9Kk2nxd83jsIwsA/FweYrF6dLMjhIEf64vryxxUcDxtb4eC0MH?=
- =?us-ascii?Q?1pLJxh0PROKGsbNQwKBkkZiDODj6YQNaZprd/iwbS/UpviXcCjkKHzseQt01?=
- =?us-ascii?Q?AY1k9xUmwKRvbpzEqpVCHStgpeJi+3S1i6Xm50SI4ACNGNozYiHUzkvzl/22?=
- =?us-ascii?Q?Y7PERGiiZ3O+Ad1UdbVl6R1sPPjobkJfAv48c2VBoLlDqshqms80rUls1F32?=
- =?us-ascii?Q?vNFkaFoMCDXKyy4hN3hSQgeeyGkhO+CBNIJIdUsGh0QWi+EibOSbcZNemtel?=
- =?us-ascii?Q?8/hvFHCfoLiaVhKNlEsIB+o4m3Xdleoa/QmRB0Xlbn9wJHdzUU9mb5t5ZkAS?=
- =?us-ascii?Q?G3vNhPrjTW5fggFIpgCtytVcqGgB7KRuAr+KG7GX78ueP/7Edm8RqQstDCbs?=
- =?us-ascii?Q?i15mwSqXoRfUFxIrVXTky9m40M8TUqLkW5Mn17YxqQiRTQUw6wsQhQqJvJGv?=
- =?us-ascii?Q?FjYnSVJgqn0E+UaXL6Fn6OB8PpTveoYmI/mKmx+/N12Cz7n2Sxt48Vd5Ld8l?=
- =?us-ascii?Q?J/5O3ZwJ1RTnN9aX7gYav9RFQxkE1On0mzed7GCHufdH5NklEltDQp99LAAx?=
- =?us-ascii?Q?3aJ7eln05kwNRw89o2a4PJ/Y+yW6TJVi6IzVokukCNUzYbQua1IMHzEYazQU?=
- =?us-ascii?Q?bqh04njV/kzUs6gBpHrjVZODSf6DIGTZigWGPxW2mAJ0Js4lXeO5ihbNkc83?=
- =?us-ascii?Q?tN4k2fz+NX2wUNztKbfUM8QBJCz2AO/MggW6DZFfcLr6o5yrUUIkyRRSvNA9?=
- =?us-ascii?Q?jiXRJr5CaQXju50P4kTZm4pgKlrztsNWx06QCdie+eThIQHp6fOz7KoQt7LL?=
- =?us-ascii?Q?wJhdpMubrNn1ncnXWt7oIooaI6aeDNYj3AZujgp5eCQELBlcqPTeV/Qz72e0?=
- =?us-ascii?Q?VzoJLwOBFAXoZgtLERUfj0OOqJqxtsWBIrclCr30+Hz11aQoNFqrjW8a/zuH?=
- =?us-ascii?Q?0/lJ3y1kFy9ICYiY3+Y57+rQJbV9GzZCxLsFJQmz1yckTu+2MYFcNjPbx58P?=
- =?us-ascii?Q?SnShmbqYkfAdEpXIfOOllNUE3QWm7nBW3YTJXkTQ0hYAZF06JF3PqN4TFAL/?=
- =?us-ascii?Q?d30oZMwwZQp7DSwcnpeaSRwoDIRJCIM4qbowhRa4ygJ7LOeFDqtTlUuOHnvC?=
- =?us-ascii?Q?xDC19u7KIiI5XIeiDD6PDrDpqJkc6XFCvqAKrfjNXFeBrd59Xc3JY/AFzLRt?=
- =?us-ascii?Q?VCRDwOvQ83RAmNqrX+WPR/bzIKn/Dt6+VhVi4ma+yPuOj2jswf7iDMfqdiDa?=
- =?us-ascii?Q?BWbGm2eqvaGTDgpoLkH5jE7pk616/i/8a4apCbCn4xw5L5S0hSdi09NGl6V8?=
- =?us-ascii?Q?NXqjmGXumByJxQdA58zGAyKRN+Bs?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?p7MCclr/O+h5HYaZiqcZT2f6rDb9kJdRi9MxBa7etGLc7j60rqkIa/8nawVi?=
- =?us-ascii?Q?ta071xLV8R39sSvm//lGzsQql9LDzUhhQ+vgSJlylMnOssak9kjvWFMGezy7?=
- =?us-ascii?Q?1bIVjndMypU9In61pOPnFrvrSVONS7UOW/7ok9tsP0h4vcG4jfM0ury2SNhI?=
- =?us-ascii?Q?rldyQtTlSJJtix0Tv+3ccZs3hSnw1/MA4+PK/4ve+mdZqSX7hbvhVZoeecxa?=
- =?us-ascii?Q?vqSu9gqs/4GR8mBsDULVHz+TWLAbOyUmS86Ionad4udZZQXU5BqduT/TGW4R?=
- =?us-ascii?Q?fLCvr1SwUnVGZvxYzaee98ZLbuO/jtengz3Gs4C5Dz3vu1pHJ9YEgqu97eRw?=
- =?us-ascii?Q?lVT0UVKePn89jjIV6bbKlK7zLMDWGzHKLAsGxb/oW37Ba1MQCtPmYRK5rmsi?=
- =?us-ascii?Q?K3RYEEWMkaSietNroRT+IPbqp7Ddb+jybYWhbsEVVY6W5xFGjqkilGNOgUeI?=
- =?us-ascii?Q?CMj4qht3tNeKQqaRR3gIALII352EIEz2ijDsnu9BhUYWL8tvu+6Mtw18Fsa7?=
- =?us-ascii?Q?0zsjiMsOzUmy43sXooOm8gw8r0lLt7+QHAVNYhhvNHftqEAsaH98VqGAWxgX?=
- =?us-ascii?Q?ItDCdunqzNms67s8xa78vKSZN0Tr9rm3xFnkTSMwBGcVIwRCzg+2wmReeRjh?=
- =?us-ascii?Q?XafSh5YRTfk1Qqqq+PIYbqtse51jsbCZNKNyJe/CsMPI+rMqujIkKh91sgb+?=
- =?us-ascii?Q?nNYCk0k4Y/vAcNohCZqQMwy4SbB5cPUzdhZYwpP8EFVrTDjhOZGa+zd3k8Lp?=
- =?us-ascii?Q?WMuCeEl69b7AWTLx/b2ek18KFxA++Un5FzBaiMBGG5lQMFWfbERFwKRGcfPB?=
- =?us-ascii?Q?tggi3kL8mtvmXLuwmed1l0ZrOgwQyLwC1S96dz0dkO5U0c8R6Jas8lp+6vkY?=
- =?us-ascii?Q?8PUTVGe1PCcxYiIPo3/iTP6bfqRY3PSZQaO7P+7XEIjuL6FywKPcOJkiWTY/?=
- =?us-ascii?Q?Kl/BcLL92Unb7/WBE86VTUrY0dZerULcBhWk17V/P+6yPcyiEqPjwsIYUC9U?=
- =?us-ascii?Q?c6m0zbxPNoxQ55YEsv+rrCzjgEKA1IFLYTfxw7WsS3ijSXuWekFsSz0QVWBK?=
- =?us-ascii?Q?ZW9WaHSpk+erpRWue8tI2YkOdHNd8ZglEhrkqJ6yUUZs7sybODpQQy09tfbt?=
- =?us-ascii?Q?25IUGdrj1w3S2Vmjusrtsu4F2wNUVtTrid1rjRmOsV9Zo4OB3Ewoa9/RNyZk?=
- =?us-ascii?Q?vJ1Go2NGu2aDprU+03L18YnV12cTUVK/Cjrkt4+MrMblMPrSPgpdCG3ojyzP?=
- =?us-ascii?Q?00gdX9gG+WvPFLMWAX9XOUZam4l9WR9qBXpRwKS/nS1EtKSH8G+Kb1Xzhvsi?=
- =?us-ascii?Q?P4ZMTevH4T3oBDl5yDvGvbOBJzeBJ5h8IwJwt7LDNwFNCs9SV7z3YW0BUt2R?=
- =?us-ascii?Q?/sdnYMBQpZJ1hH4Cm1kS5t2zXWoNtRe+g1CmsaIkCpVOdg0rwDJJqEXYR7u4?=
- =?us-ascii?Q?sAAhPZ/F+HQL5w6kU8ifvtSVPuX2WiK1tDTSE7f6DRMBZLZudyyumQYQbrHm?=
- =?us-ascii?Q?uU/hUZfH0TLEcrRxF6A93x0Rpux9pkpGkZE86pmvQwGxqAwUxNosEqZPZ0NE?=
- =?us-ascii?Q?667frgPO/zQPNoxKS+EP8tcz8XnzcZu5bUa14DxT?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1285bcf9-0dfa-40f3-74a7-08dd40764a82
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jan 2025 15:04:55.8781
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: lJ0qPbvprkUiVK2MJQTt4PJU3gTrWMOw+08xyKhe8/i1+zCCcvqhcFg+gAZujyct
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6456
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250129_070502_029693_199E9E76 
-X-CRM114-Status: GOOD (  22.21  )
+X-CRM114-CacheID: sfid-20250129_071539_470551_2CB705E5 
+X-CRM114-Status: GOOD (  14.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,49 +65,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 29, 2025 at 03:54:48PM +0100, Eric Auger wrote:
-> >> or you are just mentioning it here because
-> >> it is still possible to make use of that. I think from previous discussions the
-> >> argument was to adopt a more dedicated MSI pass-through model which I
-> >> think is  approach-2 here.  
-> > The basic flow of the pass through model is shown in the last two
-> > patches, it is not fully complete but is testable. It assumes a single
-> > ITS page. The VM would use IOMMU_OPTION_SW_MSI_START/SIZE to put the
-> > ITS page at the correct S2 location and then describe it in the ACPI
-> > as an ITS page not a RMR.
+The Spectre-BSE vulnerability is hard to exploit, requiring abuse of
+the branch history (which is small on these cores), confusing the branch
+predictor, and finding a useful gadget to expose data.
 
-> This is a nice to have feature but not mandated in the first place,
-> is it?
+Depending on the frequency of syscalls, the cost of mitigating this
+is high - and platforms cannot chose between Spectre-v2 mitigation and
+Spectre-BSE mitigation as they use the same firmware call.
 
-Not mandated. It just sort of happens because of the design. IMHO
-nothing should use it because there is no way for userspace to
-discover how many ITS pages there may be.
+Disable the Spectre-BSE mitigation by default, and add a command line
+option to enable it in environments where this vulnerability is
+considered a problem.
 
-> > This missing peice is cleaning up the ITS mapping to allow for
-> > multiple ITS pages. I've imagined that kvm would someone give iommufd
-> > a FD that holds the specific ITS pages instead of the
-> > IOMMU_OPTION_SW_MSI_START/SIZE flow.
+Signed-off-by: James Morse <james.morse@arm.com>
+---
+ Documentation/admin-guide/kernel-parameters.txt |  5 +++++
+ arch/arm64/kernel/proton-pack.c                 | 11 ++++++++++-
+ 2 files changed, 15 insertions(+), 1 deletion(-)
 
-> That's what I don't get: at the moment you only pass the gIOVA. With
-> technique 2, how can you build the nested mapping, ie.
-> 
->          S1           S2
-> gIOVA    ->    gDB    ->    hDB
-> 
-> without passing the full gIOVA/gDB S1 mapping to the host?
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index dc663c0ca670..7c8fd21bfbe4 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -6250,6 +6250,11 @@
+ 				 may still be vulnerable to syscall attacks.
+ 			off    - Disable the mitigation.
+ 
++	spectre_bse	[ARM64,EARLY] Enable mitigations for Spectre-BSE (branch
++			status eviction) on vulnerable CPUs. Mitigations are disabled
++			by default due to the difficulty of exploitation and the cost
++			of mitigation.
++
+ 	spectre_v2=	[X86,EARLY] Control mitigation of Spectre variant 2
+ 			(indirect branch speculation) vulnerability.
+ 			The default operation protects the kernel from
+diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
+index cbe731ff1831..23f7238e6b70 100644
+--- a/arch/arm64/kernel/proton-pack.c
++++ b/arch/arm64/kernel/proton-pack.c
+@@ -1088,6 +1088,15 @@ static int __init parse_spectre_bhb_param(char *str)
+ }
+ early_param("nospectre_bhb", parse_spectre_bhb_param);
+ 
++/* Spectre-BSE mitigations are disabled by default */
++static bool __read_mostly __spectre_bse;
++static int __init parse_spectre_bse_param(char *str)
++{
++	__spectre_bse = true;
++	return 0;
++}
++early_param("spectre_bse", parse_spectre_bse_param);
++
+ static void spectre_bhb_enable_fw_mitigation(enum bhb_mitigation_bits fw_wa)
+ {
+ 	bp_hardening_cb_t cpu_cb;
+@@ -1185,7 +1194,7 @@ void spectre_bhb_enable_mitigation(const struct arm64_cpu_capabilities *entry)
+ 	/* Spectre BSE needs to upgrade the BHB mitigation to use firmware */
+ 	if (bse_upgrade_loop_mitigation) {
+ 		bse_state = spectre_bse_get_cpu_fw_mitigation_state(BHB_FW_WA1);
+-		if (bse_state == SPECTRE_MITIGATED) {
++		if (bse_state == SPECTRE_MITIGATED && __spectre_bse) {
+ 			/*
+ 			 * For affected cores the firmware implementions of WA1
+ 			 * and WA3 are both sufficient for BSE, but what about
+-- 
+2.39.2
 
-The nested S2 mapping is already setup before the VM boots:
-
- - The VMM puts the ITS page (hDB) into the S2 at a fixed address (gDB)
- - The ACPI tells the VM that the GIC has an ITS page at the S2's
-   address (hDB)
- - The VM sets up its S1 with a gIOVA that points to the S2's ITS 
-   page (gDB). The S2 already has gDB -> hDB.
- - The VMM traps the gIOVA write to the MSI-X table. Both the S1 and
-   S2 are populated at this moment.
-
-If you have multiple ITS pages then the ACPI has to tell the guest GIC
-about them, what their gDB address is, and what devices use which ITS.
-
-Jason
 
