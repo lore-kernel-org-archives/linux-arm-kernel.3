@@ -4,152 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2712C0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 11:15:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FA3DC0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 11:17:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v4Ycv0jMEYqaIs7d4/u1YE5aqPU6fHIXAAMoEjHkM6U=; b=opZD3C4jdbKwcKPGRS9pt0ZPM6
-	ZwYBGo4/yi/FEEe2yuCfqhn1D8moTF207zzsVtnzoPe2j3XpZPQPmKeGFHNuft5M9lJc2A4CvqJTH
-	SrRVbDJBbFHb/e0spLyLiWO295PDzIQhWt7N19yPf2DGc/GdjvISrBuA41twc7+XeML8JXqbnNShH
-	JQWlXqWNfE3g9SyUlJsONm1+i8I3oVZmb4ms2Ys7hTWDKL3w834aIgRUXTzk+ULp9Wedyv1cOXiqv
-	wjdXPWL857neW4TTxcDQClRsnBDWKD1hA31BNYU++ZlDen1O8j+90TWW6BuPc36YgkouUjfYO6RPf
-	iiwWEpaA==;
+	bh=ORzWu070Dc1sPFdY/nRcTw3rBuHfHQm6t8J4vR0IHBY=; b=ja0EsZEi5PnUWRZuwT/rahQSAm
+	3q6ca3U8OtDPdEomYg4jgsOfLlZTESPX7UO6NLgoXGgfYsq2HlwHOCpYALUsG4IUTx/lyhjLR0mRR
+	Ij1JoWoeaNP3KoLkYe4YmJQVHaNmIRQydIBm8MWt6rodg4O6xOBZCJbX3xiFhYotn3GC6oldgDKTb
+	rq19CZcL4hGsV7SoOBEAb5CMDEDhYudfIq4+KafFhbhJZ6LNlYN6uzybqCHiVh3VVxGaFyQ7Xbl1k
+	kJlC37nDZbHHX0g7SKV/S8mxR8HYmfrXbEMPqHSa0zhwlcLNUm6xadOPX0ZGuCpJUNGy4Cp1P8LNS
+	UiJag4xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1td62F-00000006oJZ-1RiO;
-	Wed, 29 Jan 2025 11:15:07 +0000
-Received: from mail-co1nam11on2061a.outbound.protection.outlook.com ([2a01:111:f403:2416::61a] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
+	id 1td63x-00000006oev-49Tt;
+	Wed, 29 Jan 2025 11:16:53 +0000
+Received: from [203.254.224.34] (helo=mailout4.samsung.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1td60u-00000006oEy-0YLC
+	id 1td62b-00000006oLW-37dO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jan 2025 11:13:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Qr5pm1bMutxy6ovz9Bm9SPf+7WYMg8/Dn1m494Qibboy0FKApKQ71t4lJ4tDz1CwqFYZQ5DWh+lwNI/rKlh4R35vLp+lL1S4Xpi4KrZi2pXRqI0sxyZpBlw1hEyzUg2Kcgbum1644smtxSWIkvzjNoF3T6bda+LHMBM4Rzz8Fy7/ytQQikajf6IlgbfU0B/vYl+m00UZxPDecFe/akU3Gis6CQuK0vRxOjXztv7MOXVn85L1GwB/6Iom9wNxIY9XcSbb/09vhkDXVEYeb6syT80A9lsuiq8dFo900CaMm9jBk1lqyc4JW0utNNLj0tUJ6shqA+LJRrxzCaLGI37hbA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=v4Ycv0jMEYqaIs7d4/u1YE5aqPU6fHIXAAMoEjHkM6U=;
- b=oiXnPTfgT+IPNPWuUJFweX2xrcvT6NTTnmYHYg2SwTjH+zNSg8l/AN38a0RZta433+0xwRZoHwuof7CCddBBDcIot1hr8HxByazyRVeizFFfuYVS0ueP09m9vfB91YUuH+JPJb5qT3e9XZkUq8QAvTLjQjeFJsruc1O6ir4DWq2hCx6Vjy5pXWyFkokLo7GAMGWuHAQBlU+4Hb8rs8huxUl5kSm9Tf9kEmhVkwRGDUYA/TVCr+uPng2wUJ2v4ZrCDvjNwv2ZHJKkeXqSkBhWkaViPppqcj59rdBLdcijiqaAxedocO75aX6fl/uDjv/HBd9e/wdi4CNAcP6rIlYhVQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=v4Ycv0jMEYqaIs7d4/u1YE5aqPU6fHIXAAMoEjHkM6U=;
- b=a8UEfx6hMmLLMD/xjmxREijNRmftdhuRdIAR6VxSPwzqQWfuF8dleZzmTF45FtRSn/kIsy/TaE7vYh3Z46btaiVDfSHZ/BPqdyDiPTmC8g9l+Fua/iAiHPSsKfVrA1hq0B+0ptyj/ch87rcQanHLq17kZf3f4OWbPMvQynP5bV3bgsYvIuSdApV9vRhueaBVUs7KrWLIIwsrYom47fMYkg8nSwt9/zG58h4SDTFq2N5Qpy7QCpdSX2vYIze6V5Qf4S5v+KKVhfIena/MO/wFmKFhG+nXcBcl5s+BNvESQ2wrdsGFk/Uidx7ArYybgYzfksy+E2+VRYWtE+yJcuDlZA==
-Received: from SJ0PR03CA0369.namprd03.prod.outlook.com (2603:10b6:a03:3a1::14)
- by DS0PR12MB8573.namprd12.prod.outlook.com (2603:10b6:8:162::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.17; Wed, 29 Jan
- 2025 11:13:37 +0000
-Received: from CY4PEPF0000E9D7.namprd05.prod.outlook.com
- (2603:10b6:a03:3a1:cafe::86) by SJ0PR03CA0369.outlook.office365.com
- (2603:10b6:a03:3a1::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8398.18 via Frontend Transport; Wed,
- 29 Jan 2025 11:13:37 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- CY4PEPF0000E9D7.mail.protection.outlook.com (10.167.241.70) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8398.14 via Frontend Transport; Wed, 29 Jan 2025 11:13:37 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 29 Jan
- 2025 03:13:26 -0800
-Received: from [10.41.21.79] (10.126.231.35) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Wed, 29 Jan
- 2025 03:13:21 -0800
-Message-ID: <391cd0ea-3eec-44ae-a297-9e2d69000e95@nvidia.com>
-Date: Wed, 29 Jan 2025 16:43:19 +0530
+	Wed, 29 Jan 2025 11:15:31 +0000
+Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250129111525epoutp04442b5e0b4a63cebb8335365f4f565de5~fJZpWFf4P1281512815epoutp044
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jan 2025 11:15:25 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250129111525epoutp04442b5e0b4a63cebb8335365f4f565de5~fJZpWFf4P1281512815epoutp044
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1738149326;
+	bh=ORzWu070Dc1sPFdY/nRcTw3rBuHfHQm6t8J4vR0IHBY=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=K/2i6NTan7sz1MSbOergGIkMjeNo6V1ENW/Jl6juYj+wlaIxorhsb/TML8Ubnpdr1
+	 nsO7vJJuN/gPOdGSmTmlbIZaE9mzmQZlGW6wKW+nFH6JKsNhzZ9HmBs0+xyCCx9PhF
+	 /7lkVLtJTQv+SW+jFSNGvYP05jSg3zMqWCALjkIo=
+Received: from epsnrtp2.localdomain (unknown [182.195.42.163]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTP id
+	20250129111525epcas5p1172f617c8b0e5284462a77e1f8498f6f~fJZot7nT51243012430epcas5p1V;
+	Wed, 29 Jan 2025 11:15:25 +0000 (GMT)
+Received: from epsmges5p2new.samsung.com (unknown [182.195.38.183]) by
+	epsnrtp2.localdomain (Postfix) with ESMTP id 4YjfhW39f8z4x9Pt; Wed, 29 Jan
+	2025 11:15:23 +0000 (GMT)
+Received: from epcas5p1.samsung.com ( [182.195.41.39]) by
+	epsmges5p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	B5.54.19933.BCD0A976; Wed, 29 Jan 2025 20:15:23 +0900 (KST)
+Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250129091920epcas5p1d52a471c6a58183398e3ffe90aae6b61~fH0SFwYBO2495124951epcas5p1c;
+	Wed, 29 Jan 2025 09:19:20 +0000 (GMT)
+Received: from epsmgmc1p1new.samsung.com (unknown [182.195.42.40]) by
+	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250129091920epsmtrp1d69deda336c075978233791ab417b143~fH0SEq6r-3020130201epsmtrp1Z;
+	Wed, 29 Jan 2025 09:19:20 +0000 (GMT)
+X-AuditID: b6c32a4a-c1fda70000004ddd-7d-679a0dcb9eb2
+Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
+	epsmgmc1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	58.23.23488.892F9976; Wed, 29 Jan 2025 18:19:20 +0900 (KST)
+Received: from FDSFTE596 (unknown [107.122.82.131]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250129091916epsmtip202ff3b613561eae0ae91601235900e0e~fH0Oi4j8G1058510585epsmtip2w;
+	Wed, 29 Jan 2025 09:19:16 +0000 (GMT)
+From: "Swathi K S" <swathi.ks@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>
+Cc: <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
+	<alexandre.torgue@foss.st.com>, <peppe.cavallaro@st.com>,
+	<joabreu@synopsys.com>, <rcsekar@samsung.com>, <ssiddha@tesla.com>,
+	<jayati.sahu@samsung.com>, <pankaj.dubey@samsung.com>,
+	<ravi.patel@samsung.com>, <gost.dev@samsung.com>, <robh@kernel.org>,
+	<davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <conor+dt@kernel.org>, <richardcochran@gmail.com>,
+	<mcoquelin.stm32@gmail.com>, <andrew@lunn.ch>, <alim.akhtar@samsung.com>,
+	<linux-fsd@tesla.com>
+In-Reply-To: <918d6885-969e-46f1-b414-614905b12831@kernel.org>
+Subject: RE: [PATCH v5 4/4] arm64: dts: fsd: Add Ethernet support for PERIC
+ Block of FSD SoC
+Date: Wed, 29 Jan 2025 14:49:14 +0530
+Message-ID: <002e01db722e$e018b7e0$a04a27a0$@samsung.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 5/5] arm64: Update AMU-based freq scale factor on
- entering idle
-To: Beata Michalska <beata.michalska@arm.com>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
-	<ionela.voinescu@arm.com>, <sudeep.holla@arm.com>, <will@kernel.org>,
-	<catalin.marinas@arm.com>, <rafael@kernel.org>, <viresh.kumar@linaro.org>
-CC: <yang@os.amperecomputing.com>, <vanshikonda@os.amperecomputing.com>,
-	<lihuisong@huawei.com>, <zhanjie9@hisilicon.com>, linux-tegra
-	<linux-tegra@vger.kernel.org>
-References: <20250121084435.2839280-1-beata.michalska@arm.com>
- <20250121084435.2839280-6-beata.michalska@arm.com>
-Content-Language: en-US
-From: Sumit Gupta <sumitg@nvidia.com>
-In-Reply-To: <20250121084435.2839280-6-beata.michalska@arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.126.231.35]
-X-ClientProxiedBy: rnnvmail202.nvidia.com (10.129.68.7) To
- rnnvmail201.nvidia.com (10.129.68.8)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000E9D7:EE_|DS0PR12MB8573:EE_
-X-MS-Office365-Filtering-Correlation-Id: ca502889-52d9-4dba-9194-08dd4055fa5e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|376014|82310400026|7416014|7053199007|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?WUpEQ1VXTjVXeVcrdXo4LzM2QnhzRFkzVFUxNzZwa1FrbUswRDZwSzg4Mjdz?=
- =?utf-8?B?T3BFWVhjRXhzTTlyV0daQTdqZGhtZjd6bE9ZeTNpcStGY3JmK2FLOU8wS2N6?=
- =?utf-8?B?UHU1TEhsUllCMXlwSG1rNHd3Z2dZYU9QVzhYMnNJejNwU24xVlVuU1EvUENk?=
- =?utf-8?B?Z3UwY290WHJUMEx2ZjNVN3lFbzFQY3UrN0VlbVkwaDhMVmRadklsM3c1U0lw?=
- =?utf-8?B?VlZkcUlHbENKS0lXWno4VnFndEJZNktLWU9Jano3UUVVTC9tMVpKeFpWYUNF?=
- =?utf-8?B?OCtzMVl0NW5HSE5QWVpFY3lha3F0dlZCYlZpd0V6MHJnMmwvbkFpQlU1MEhj?=
- =?utf-8?B?bk81T3JndmVEWlZzdlhEYWdHbHlNZlhDcy8zQ2xiM2dhSFZzT0hZZlBEZjMv?=
- =?utf-8?B?N0syWWV5SVRaNHNJL0tLWVFybjdjd1d6UVdTY01qTlVCNGpSclRtVFd2NmN6?=
- =?utf-8?B?UWtHODZ4eXZsTjNNelpieXJZdldmd0tzYzZMVTlMejVOZDN4VTF4SElJMUNR?=
- =?utf-8?B?MDhNVFl5amFSNnordjJ0ZE5aZjRUNlNEd3BWdUZpcmhha2FsOEVhMDZqUnRn?=
- =?utf-8?B?Qm15WWdiOVBpV0wyVEpIT3Z4aVMrQzFMd2IzbHBFUXJJY21taTBCM0xVdFRu?=
- =?utf-8?B?eEFUdldMbEo0Y3RNRFVKOWQyTW9ReXBZWnQ5OWJIMVJaY1ZXaXptN2VJcXJs?=
- =?utf-8?B?WTNsand6VHdXNGlsVjUyRnZuL21SUnllTi9FSlR0Ym9DWmxqMkZ4SnZ1U1p2?=
- =?utf-8?B?Q3AyYXB5THFOaWw4QVlQeVpLOE1ZK2sxZDl1eDNQN0pEZ0ZjTUwwb09ONzl4?=
- =?utf-8?B?SFJRc3Q5V2J2b3h4MjFqeVJlNUxLNVpSWjJjOG5CUEtMcGlvaXRRYWxvVG5a?=
- =?utf-8?B?VHhBQ0tNM1BmeVRNVXBCdUg5UXM1U1dFTGtEelNvTnFjbHg2cHRRVGo0dmRn?=
- =?utf-8?B?YXJzZjh5TEVna01hWERQN0FuMFpJdVRFUHl3MjJOUGx0OWZtcWp3TW4zRzVm?=
- =?utf-8?B?aTRRZGRUdEtLblpvak0reDNHa3UvMzhOTlFzYi90R1NGSmwva0Fta2YwcHhZ?=
- =?utf-8?B?THoxRVRXSGZ6V2trR0U1QXlMS1hhZk1rZVR1SDVpdWZ2NVFaaDBhY0NFc2xm?=
- =?utf-8?B?THhvWGdaN2JDYkdMQ2Nvazg5UDFTZ2tNeWlNenFab1NmRGM5c082czNYNDhi?=
- =?utf-8?B?Tk9mMENUZGxVcUcwYUt6K09kdFlqT0R5U3Y1YWhvaUMzdEY5V2NBbmx3Z0py?=
- =?utf-8?B?Sytyejk5ckZXaUJrUDBXbjJ4VDZBNUlRdDdBOWVFdGtrNWRsdzE1dWVpK0k4?=
- =?utf-8?B?ZDFma21ZbnBjZjVQaEdMaldWa0l3RW5HSW1SVGZmNFc1cXN6WTgrVUl2andz?=
- =?utf-8?B?ZVZLYzczdTVYWEJ1Vi9FTWtqbksxUG1RODhNTWZTVEpDSFQxeU82Mkg5RDBp?=
- =?utf-8?B?cDdXRHR0L2dON3dOaFVUa2YvWFJFYXkvelF5cHF1ZzdXVHVZTEhsenE0cWxn?=
- =?utf-8?B?ejhZRWhVK0M1WGZSSHVwVHZiRVpCbk9oS0trd09NS1Q5SE9WdlpTNG00RTc5?=
- =?utf-8?B?YXV5WFhEeStRNTlMUDdMZFU3eE5OWkpzeGZQaEJ6eWlzRXBORFFFZnkyWno4?=
- =?utf-8?B?SFdoZDM1ZTMzMStzb0NSYkpRYnNKdkN0UFE3YlIrRS9xWFN1cGtXU2pxRnVo?=
- =?utf-8?B?NFVtZ2J0UzV0aUp2NkEvNDhPbjVvYjdCMVJVU1lJazRzUTRWcElxQ3pqNlI3?=
- =?utf-8?B?SzZnSzQ4L2tSNGtSaklMUkJhVjZoSFlRWjVtUWUrYzZZNndodUtIZkswWXdz?=
- =?utf-8?B?bGhYcmxQWTgwYkZQSTBiQmtuQlJ5Qkova0g1N0t2N0hYakVNUHBiRlpZLzlY?=
- =?utf-8?B?cmpuekZlYVFOa29PWENiaE1ibVhSd1V2UjY2VWtkWlhzMU1XWm5saklwcGJy?=
- =?utf-8?B?SUIvUUgrSVRRYUFNMnBMTFVqUUFNcGNnc0ZKeDVRVVJxM2gxdWtLeWowM2R3?=
- =?utf-8?B?SW1sZzJWemZFZUdoZDc0SHVuM3hLS00xdUdBNlRocVIvUUhCcm1xU3BvZEp4?=
- =?utf-8?Q?YU9iCd?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(376014)(82310400026)(7416014)(7053199007)(921020);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jan 2025 11:13:37.1346
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ca502889-52d9-4dba-9194-08dd4055fa5e
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000E9D7.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8573
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQDx5RsunPn3lkU9PtjwM0wRa6rGBAGX1K+vAlVxyCECT+N0J7TOqf7w
+Content-Language: en-in
+X-Brightmail-Tracker: H4sIAAAAAAAAA02Tf0xTVxTHd/ve6ytmJU8UuCCY5i2OwQJSaOEyy49tBp+oGZtZTMi0a+hL
+	S4C2aYuKy2KDuJRmA1En0AEyxDrZGJOfBeWHDEFEQeMgmAwCg3YKG3YyyBgwRnm48d/nfO/3
+	nJNzbo4A8/qG9BekaYysXqPIoPlb8KYfg4NC+4VWVfjoPIUWn10CaLy8iY8GR7sw9F3bAA+V
+	Dubi6HL3AIEcPb+Q6ElnCw9136viobHKWQINDv5AoodN+QSqmxwm0MT0EfS4tZSPigfbecgy
+	PEWg8pUaAvVU+KCF/t8Aqmz8k0SrM40ATbhukcj60E6g7vtPMbR6y06iyvEKImEH03D9CY9x
+	FDSSTIt1lGQq6rKYuuo8PlNfdZppsc/xmOftQ3wmv6EaMLfbxYzjrzaMaeiYA8w/OWUkM1e3
+	M9kzJV2mZhVKVi9iNalaZZpGFUsfOCx/Vy6NCheHimNQNC3SKDLZWHrvweTQxLSMtZXQouOK
+	jKw1KVlhMNC742R6bZaRFam1BmMszeqUGTqJLsygyDRkaVRhGtb4ljg8PEK6Zvw4XW0620Ho
+	6j1P9vYvkyZge9UCPASQksDli424BWwReFE3AZx0Xt0IXgBoMdv4XLAAoK3ERViAYD1lrMyH
+	09sAXLo+QHDBUwAr2u6Q7rp8KgRW5rev83YqFNaPXCPdJozqJ2Bn4xm++8GDioOLf5jWTduo
+	Y7C/2IG7Gad2wWvNfeu6kIqBOSNmnOOtsK9kap0x6k1o+3oG44YQwUWHjeCaJULzahHBeXzh
+	ncXPMXdjSDk94AVr7UbCXnhj4jKf421wureB5NgfPiv4bIPl8Nv8IZxjNRz9u3DDHw87fyrF
+	3avAqGBY27qbkwPhl/e+53F9PeEXS1M8ThdCe/lLfg2uzAxvlPSDTVefk+cAbd00mnXTaNZN
+	I1j/71YB8Grgx+oMmSrWINVFaNgT//14qjazDqyfTEiSHUyMu8K6AE8AugAUYPR24dGBYpWX
+	UKnIPsXqtXJ9VgZr6ALStX0XYv7eqdq1m9MY5WJJTLgkKipKEhMZJaZ9hWdaclVelEphZNNZ
+	VsfqX+bxBB7+Jl6gwSNG7YyWjiVO1bxirLo5L5MZIprje0fK9gT3WKXvWM6VHnRIKxpmUi48
+	WHI9Usbb9+V+2r7SHik9771gostPF+Q9ig7a0SKV7N915OdUmfnA3QDfokBMgLxL79flRJiy
+	K3NrryzcFc1GNuhstwPfbu1nOly/gqFPjhf9rnZ+NDzZfGx01tfu/EqYEhRbb7MsOemqdPD6
+	qdhQsH8xKfvBctHefeatj8/78U4qEkLx8jatOQiqV6YPuS7Ja6Zl/JoFuXkx4USAfqcz7wPF
+	nD7Jka90NU2VnH1hDMsy1XTOH8aVcVUfXgkfm6Ii9hyyvZF38f38oRvvCY4G9CkLfWjcoFaI
+	QzC9QfEvMIwRs7sEAAA=
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFupjleLIzCtJLcpLzFFi42LZdlhJXnfGp5npBg8f8Fj8fDmN0eLBvG1s
+	FufvHmK2WLP3HJPFnPMtLBbzj5xjtXh67BG7xc0DO5ksjpxawmRxb9E7Vovz5zewW1zY1sdq
+	senxNVaLh6/CLS7vmsNmMeP8PiaLrmtPWC3m/V3LanFsgZjFt9NvGC0Wbf3CbvH/9VZGi4cf
+	9rBbzLqwg9XiyJkXzBb/9+xgt1j0YAGrg7THlpU3mTye9m9l99g56y67x4JNpR6bVnWyeWxe
+	Uu+xc8dnJo/3+66yefRtWcXocXCfocfTH3uZPbbs/8zo8a9pLrvH501yAXxRXDYpqTmZZalF
+	+nYJXBkNd++zFdznrTi58AJLA+Ml7i5GDg4JAROJe3PFuhi5OIQEdjNKzJ3Vw9bFyAkUl5T4
+	1DyVFcIWllj57zk7RNEzRondO+4ygiTYBLQkFvXtYwexRQR0JTbfWA5mMwu8ZJU4uiYCouEt
+	o8TdPU/BpnIK2En8/NjADrJZWCBGYv6xeJAwi4CqxPLtJ8F6eQUsJZpudLBA2IISJ2c+YYGY
+	qS3R+7CVEcZetvA1M8RxChI/ny5jhbjBTaLj/3RWiBpxiaM/e5gnMArPQjJqFpJRs5CMmoWk
+	ZQEjyypGydSC4tz03GTDAsO81HK94sTc4tK8dL3k/NxNjOAko6Wxg/Hdtyb9Q4xMHIyHGCU4
+	mJVEeGPPzUgX4k1JrKxKLcqPLyrNSS0+xCjNwaIkzrvSMCJdSCA9sSQ1OzW1ILUIJsvEwSnV
+	wMTXn8K3RIwzJU7dMaxy31H/uUJOpyqOHp592dhu7Ryv4BrG/Ckaky7NYo/7+ouz/rra4/v3
+	t7taHIlfq2Af1dr9ysd6zg11KYPs2+V/Hx99OSPIO1cov/aEZ4LG4Y0xeSL5b3f6ts1QPZ3U
+	w7h7d+Cj4/PtH38++rHzyM2/hX9vB650iry5JOTq+Vt9xgq3E5mmOO7e8Xzyo2vJkZ473bgc
+	Gn/otzco7J9oGXTb4prfnG+vQ3YLHjmRKmsvJ+rXqaTHVXt7bvuRLu8q0f8S8R+2WXpkTuuY
+	ku/V0xZ2zGH3z9Bn93i1hSblma2eKrZEXCZLOG3bJMVtn7vvlZ5Zc7c3ekXGzi+1yZcbDr3b
+	3KvEUpyRaKjFXFScCAASitQOoQMAAA==
+X-CMS-MailID: 20250129091920epcas5p1d52a471c6a58183398e3ffe90aae6b61
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250128102743epcas5p1388a66efc96444adc8f1dbe78d7239b9
+References: <20250128102558.22459-1-swathi.ks@samsung.com>
+	<CGME20250128102743epcas5p1388a66efc96444adc8f1dbe78d7239b9@epcas5p1.samsung.com>
+	<20250128102558.22459-5-swathi.ks@samsung.com>
+	<918d6885-969e-46f1-b414-614905b12831@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250129_031344_178634_87275ED7 
-X-CRM114-Status: GOOD (  17.41  )
+X-CRM114-CacheID: sfid-20250129_031530_486751_FFB347DA 
+X-CRM114-Status: GOOD (  17.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,50 +156,52 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 21/01/25 14:14, Beata Michalska wrote:
-> 
-> Now that the frequency scale factor has been activated for retrieving
-> current frequency on a given CPU, trigger its update upon entering
-> idle. This will, to an extent, allow querying last known frequency
-> in a non-invasive way. It will also improve the frequency scale factor
-> accuracy when a CPU entering idle did not receive a tick for a while.
-> As a consequence, for idle cores, the reported frequency will be the
-> last one observed before entering the idle state.
-> 
-> Suggested-by: Vanshidhar Konda <vanshikonda@os.amperecomputing.com>
-> Signed-off-by: Beata Michalska <beata.michalska@arm.com>
+> -----Original Message-----
+> From: Krzysztof Kozlowski <krzk=40kernel.org>
+> Sent: 28 January 2025 19:48
+> To: Swathi K S <swathi.ks=40samsung.com>; robh=40kernel.org;
+> davem=40davemloft.net; edumazet=40google.com; kuba=40kernel.org;
+> pabeni=40redhat.com; conor+dt=40kernel.org; richardcochran=40gmail.com;
+> mcoquelin.stm32=40gmail.com; andrew=40lunn.ch; alim.akhtar=40samsung.com;
+> linux-fsd=40tesla.com
+> Cc: netdev=40vger.kernel.org; devicetree=40vger.kernel.org; linux-
+> kernel=40vger.kernel.org; linux-stm32=40st-md-mailman.stormreply.com;
+> linux-arm-kernel=40lists.infradead.org; linux-samsung-soc=40vger.kernel.o=
+rg;
+> alexandre.torgue=40foss.st.com; peppe.cavallaro=40st.com;
+> joabreu=40synopsys.com; rcsekar=40samsung.com; ssiddha=40tesla.com;
+> jayati.sahu=40samsung.com; pankaj.dubey=40samsung.com;
+> ravi.patel=40samsung.com; gost.dev=40samsung.com
+> Subject: Re: =5BPATCH v5 4/4=5D arm64: dts: fsd: Add Ethernet support for=
+ PERIC
+> Block of FSD SoC
+>=20
+> On 28/01/2025 11:25, Swathi K S wrote:
+> >
+> >  &pinctrl_pmu =7B
+> > diff --git a/arch/arm64/boot/dts/tesla/fsd.dtsi
+> b/arch/arm64/boot/dts/tesla/fsd.dtsi
+> > index cc67930ebf78..670f6a852542 100644
+> > --- a/arch/arm64/boot/dts/tesla/fsd.dtsi
+> > +++ b/arch/arm64/boot/dts/tesla/fsd.dtsi
+> > =40=40 -1027,6 +1027,33 =40=40
+> >  			phy-mode =3D =22rgmii-id=22;
+> >  			status =3D =22disabled=22;
+> >  		=7D;
+> > +
+> > +		ethernet_1: ethernet=4014300000 =7B
+>=20
+> Don't add nodes to the end, because that lead to mess we have there.
+> Squeeze it somewhere where impact on resorting would be the smallest.
 
-Reviewed-by: Sumit Gupta <sumitg@nvidia.com>
+Just to clarify,  inserting the node somewhere in the middle, where it fits=
+ alphabetically, would minimize the impact on resorting.
+Is my understanding correct?
 
-> ---
->   arch/arm64/kernel/topology.c | 13 +++++++++++++
->   1 file changed, 13 insertions(+)
-> 
-> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-> index 5f5738b174c7..6c43aafac77c 100644
-> --- a/arch/arm64/kernel/topology.c
-> +++ b/arch/arm64/kernel/topology.c
-> @@ -213,6 +213,19 @@ static __always_inline bool amu_fie_cpu_supported(unsigned int cpu)
->                  cpumask_test_cpu(cpu, amu_fie_cpus);
->   }
-> 
-> +void arch_cpu_idle_enter(void)
-> +{
-> +       unsigned int cpu = smp_processor_id();
-> +
-> +       if (!amu_fie_cpu_supported(cpu))
-> +               return;
-> +
-> +       /* Kick in AMU update but only if one has not happened already */
-> +       if (housekeeping_cpu(cpu, HK_TYPE_TICK) &&
-> +           time_is_before_jiffies(per_cpu(cpu_amu_samples.last_scale_update, cpu)))
-> +               amu_scale_freq_tick();
-> +}
-> +
->   #define AMU_SAMPLE_EXP_MS      20
-> 
->   int arch_freq_get_on_cpu(int cpu)
-> --
-> 2.25.1
-> 
+-Swathi
+
+>=20
+> Best regards,
+> Krzysztof
+
 
