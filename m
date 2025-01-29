@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7000CC0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 15:43:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49346C02190
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 15:46:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KtwLUm4ss8InPqHFXRIa43dw74xrqf2eZ5aONDws8Ng=; b=ukO8qhCCZCbV4g2NgUX2qu+4ou
-	lstfdN5HatWxrJSTLX/4JyXj28dHhlXCl7zkEXE/TXd1qoRzzPWIZnuXi3iWireeou17ut+NlctZO
-	u7m13aC644dmg+jHoIK6hxS5Dq2gwigmN7biPonpTvzmcArNB+jKh++GDVJIP3wc2vZRlwxpGShbo
-	J0VQsmfDXO2tWkXM0CdjhbT8yxhvPj6SA0jdDhAhNjwq73SsTXO/544IdLosC9SwhjHGY/PK+ykxj
-	CM+bAIYIpdKTCzsxk5xSEV1Gr1wHn8SK50XvOydE1AYzrw/Ys0Ku0U87h5AJI8/Zl6mMxmFK5SICq
-	OWykuZtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O6/OtAc43vefPhLHoVL9uPrhcW3nJ7SVqZWl3XKABGw=; b=iG2s0MaGvHtb13cOGx/yzyg5jx
+	JE580TAc3FVdsfQ0Gh77V0AyYyT13xp4EoCFFwRqYvcV55HCKB8B+bBhVP7z86i7UpM2vjYIB2vOc
+	cV7Mh8FsLntx3GTJuemRzYPbqQZpDrxuibErHGBlAQW3ynxWpneKg3wQhrLffPUmHkKSclDR2+dJB
+	zfjhCCuO9JVF6cZ8RLcpoAMa9Nnur4nfra79WsHOmOJX1uT3HQ73UH+yQ0WjSKLvOCB8HYicBCP+l
+	63BVSEFXfqpmxK7rcX2w1Etad2XJsfl9tVIdHsK2kX1ojKQR5zs5eHvhZytMVf6aOEjqsYXl9sBnA
+	cZhAVUeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdADv-00000007IHe-3kY1;
-	Wed, 29 Jan 2025 15:43:27 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tdAGP-00000007Iyr-1gcp;
+	Wed, 29 Jan 2025 15:46:01 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdACb-00000007Hxo-3XWr
+	id 1tdAF4-00000007ImE-2jQo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jan 2025 15:42:07 +0000
+	Wed, 29 Jan 2025 15:44:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4183DA41A26;
-	Wed, 29 Jan 2025 15:40:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60928C4CED1;
-	Wed, 29 Jan 2025 15:42:01 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 52EB85C5DE2;
+	Wed, 29 Jan 2025 15:43:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 986BEC4CED1;
+	Wed, 29 Jan 2025 15:44:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738165324;
-	bh=GplWvWETMezm9d36v4eAfoqt/au1TivnkJ+SWeO2lSg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=aU7xY1/zYzJuaW6w9rNm1ubl5Xt+CWFtHsWN2RKDfRYDVbS6hoIF9qvqRPP/jdC+o
-	 n9sc28S2gI6BwQGNNkViJtfEuGMgf8yXViqR0bVptbi1JGdt4uZpDL3rC+zLYdD2R2
-	 LvRr+oYrBTHfe0N1TI7nLfb3oLUOcNMk6jlIoAg5MOCpNzo+MotUd8JaUv3wKoon4l
-	 tuVdgnNv0djOjt6DKfIc7gmEm0g5OKUWFx4Yfktshh9bhs5uK1rRKp5QLYBX+v7URg
-	 lc1VdYMtw06mrr+76GOR28iAJW7U2ehBlI2qXh9oSISs4oV4/EZifWpzvEERxf1Lkt
-	 yXZsdTh95S+vg==
-Date: Wed, 29 Jan 2025 16:41:57 +0100
-From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-To: Jonathan Corbet <corbet@lwn.net>
-Cc: Linux Doc Mailing List <linux-doc@vger.kernel.org>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
- bpf@vger.kernel.org, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
- linux-f2fs-devel@lists.sourceforge.net, linux-hardening@vger.kernel.org,
- linux-iio@vger.kernel.org, linux-media@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-usb@vger.kernel.org,
- linux-wireless@vger.kernel.org, netdev@vger.kernel.org,
- workflows@vger.kernel.org
-Subject: Re: [RFC v2 00/38] Improve ABI documentation generation
-Message-ID: <20250129164157.3c7c072d@foz.lan>
-In-Reply-To: <87h65i7e87.fsf@trenco.lwn.net>
-References: <cover.1738020236.git.mchehab+huawei@kernel.org>
-	<87h65i7e87.fsf@trenco.lwn.net>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	s=k20201202; t=1738165477;
+	bh=1VUif8Q56cdMe1cHovQowDVeYxK9USFWvRbdMuxlrJA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mAoSCGWx1Xjlffqp3lezZGmNfTX8wU8bPQbfRsMb+1OL0l+DUeANYFwtaMBZbBeHk
+	 NjMLIomxBAPH19nYTYoeJFQvXUwwV8J8QOmKsXXNfk8KnEQVQ+k7U+2ITUoe5GZdGt
+	 XEvPFSMIzG1uKZeaL2Lga3vpSGcejUwrzcTQQA7OwXe2vzDL+H/HMGgzRgtqyMJRDf
+	 Vgk3gS/jijLBxPGL3XDQkqxfh6jwtjv14sdAUOlkSxjvCfMuRPJqMNOK+ew6HrV694
+	 IpL+wpDMhCqR6Zj/2ofBS+AtAvHN+f8r2TZZuFIbX+mP1Yap3ptZ80y5qwROVC/Abt
+	 ZcAc+4+FGDiOg==
+Date: Wed, 29 Jan 2025 09:44:35 -0600
+From: Rob Herring <robh@kernel.org>
+To: Christian Bruel <christian.bruel@foss.st.com>
+Cc: bhelgaas@google.com, lpieralisi@kernel.org, kw@linux.com,
+	manivannan.sadhasivam@linaro.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, jingoohan1@gmail.com,
+	p.zabel@pengutronix.de, johan+linaro@kernel.org,
+	quic_schintav@quicinc.com, cassel@kernel.org,
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	fabrice.gasnier@foss.st.com
+Subject: Re: [PATCH v4 01/10] dt-bindings: PCI: Add STM32MP25 PCIe Root
+ Complex bindings
+Message-ID: <20250129154435.GA2145727-robh@kernel.org>
+References: <20250128120745.334377-1-christian.bruel@foss.st.com>
+ <20250128120745.334377-2-christian.bruel@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250128120745.334377-2-christian.bruel@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250129_074205_956280_211B984E 
-X-CRM114-Status: GOOD (  14.57  )
+X-CRM114-CacheID: sfid-20250129_074438_787316_4622F625 
+X-CRM114-Status: GOOD (  12.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,59 +81,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Em Tue, 28 Jan 2025 15:42:00 -0700
-Jonathan Corbet <corbet@lwn.net> escreveu:
+On Tue, Jan 28, 2025 at 01:07:36PM +0100, Christian Bruel wrote:
+> Document the bindings for STM32MP25 PCIe Controller configured in
+> root complex mode with one root port.
+> 
+> Supports 4 INTx and MSI interrupts from the ARM GICv2m controller.
+> 
+> STM32 PCIe may be in a power domain which is the case for the STM32MP25
+> based boards.
+> 
+> Supports WAKE# from wake-gpios
+> 
+> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+> ---
+>  .../bindings/pci/st,stm32-pcie-common.yaml    |  33 +++++
+>  .../bindings/pci/st,stm32-pcie-host.yaml      | 116 ++++++++++++++++++
+>  2 files changed, 149 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml
+>  create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
 
-> [It's probably time to raise our minimum version again, especially now
-> that current Sphinx has better performance.]
-
-Last change was about one year ago, so it sounds fair to also
-change Sphinx minimal version with about one year gap. What we have
-currently is:
-
-	2.4.4: minimal version
-	3.4.3: suggested minimal version.
-
-Looking at the relevant release dates, we have:
-
-	Release 2.4.0 (released Feb 09, 2020)
-	Release 2.4.4 (released Mar 05, 2020)
-	Release 3.4.0 (released Dec 20, 2020)
-	Release 3.4.3 (released Jan 08, 2021)
-
-So, the ~one year gap is what it takes to raise the bar from 2.4.4 to
-3.4.3.
-
-In terms of Python, we're currently at 3.5:
-
-	Python	Release date 
-	3.5	2015-09-13
-	3.6	2016-12-23
-	3.7 	2018-06-27
-	3.8 	2019-10-14
-	3.9 	2020-10-05
-	3.10	2021-10-04
-
-	(according with https://en.wikipedia.org/w/index.php?title=History_of_Python) 
-
-Python 3.6 is the first one with f-string support, with is something
-that most Python programmers use those days. So, IMO, that would
-be the absolute minimal version we should pick.
-
-Yet, IMHO, we should aim to be backard-compatible with the tools 
-available up to a certain date (Jan, 2021) - e. g. we'll aim to
-support at least a 4 years old toolset for documentation build.
-
-So, I'm proposing to change the minimal requirements to:
-	- Sphinx 3.4.3;
-	- Python 3.9
-
-By setting Sphinx minimal version to 3.4.3, we can get rid of all
-Sphinx backward-compatible code.
-
-I have already patches with such changes for it on the top of this RFC. 
-Will send it shortly as RFC, aiming to send the final version after -rc1.
-
-Thanks,
-Mauro
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
