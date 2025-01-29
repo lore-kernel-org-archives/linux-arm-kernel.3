@@ -4,82 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0BBFC0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 03:59:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0685C0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 04:09:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zB7bwFdWnORe6bKwIQ/6vJQvYuugxQ4y04Yn/yJKnPc=; b=ViueIJ30KlkNGcDbUnlMTbbodY
-	UdWSZPNGYMsF0KCiCV2CwvDffz3hkaePdjJmdaRSukxI8wi5NqV+WwKperrqywqQjunFt2tDx0Niv
-	4jouTjXdSwcL0nKIl1hlPwATsXJC2O6O6GF8NsQrF5khJXwa1L1bK+NSApykYXQOZt+rLh/dln9zd
-	FYF/W97vk9fYm8ZwCXado5JYFsypnwLwB69pwJapps9v9dN88zCYgMzXgWewlfx1sNoruiHuIymqD
-	UXydZ0eBfMMrihxHtnCHDgnX52fG3Wao81/YR/jAahOaM5qC/kGcKd92kwMWTqIdQwVuYSoShaugn
-	ZOUBgBtQ==;
+	bh=++vP7Pzm+0U/vbuzpGurQDME6fn3ZbIwZpBgDGBaFV0=; b=cfDWR1Dh/Vw0QmBb/BT07mqyLi
+	3z93ZkganQnjb//HbAmXKOVVUBujhHUbVjMAXO5J22B05qBphr8tooU3Q0Q3QqP9HMs67SwkzYGRQ
+	FMx6MQfOtHosFpIDXmFi5zFH2mh5KbeSD6F2VaOfMh+0oq7ebnSIIgMleFa+x2S5agAuU3PLXaToO
+	egvntKkrYV9X+pGGwJAF5mJ0Ge+1rEKdjZMTkDg4OCmSdFFetq5MyF0IOxgPSDD0qU00T9lWZ7eE3
+	9HcmJixAnXNcYHLUqW0NMec0We1p1n3BJ7R8U5rRFvuIiI+lGQ+rXc05JDoaUt/BXX/wRhCCwdcEQ
+	kcvjXeFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tczEE-00000006HgB-0FTB;
-	Wed, 29 Jan 2025 03:59:02 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1tczOK-00000006I4n-1aW9;
+	Wed, 29 Jan 2025 04:09:28 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tczCs-00000006HbD-3q9I
+	id 1tczMz-00000006HzG-1Lbn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jan 2025 03:57:40 +0000
+	Wed, 29 Jan 2025 04:08:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1738123057;
+	s=mimecast20190719; t=1738123684;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=zB7bwFdWnORe6bKwIQ/6vJQvYuugxQ4y04Yn/yJKnPc=;
-	b=Aa5/CIV0FODsjRGJBc9JB4YnCCuql+xuad9iEMXw9p8VT/iMMR6OOdLgvcdKa8LQT9KDpx
-	AUHprXd1nVcu358D/HgcEGELxXLwQDO/KWRh/YTXsyMimTuA7ci/W2Dgey9pXkUc7u9LzI
-	1D67GSf7YEyaS3yx+bD383YMkbKgZmM=
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com
- [209.85.214.199]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=++vP7Pzm+0U/vbuzpGurQDME6fn3ZbIwZpBgDGBaFV0=;
+	b=Rrh/n6XU7ItbvWIgftxewQro92ODBzRepdcht7RC+u6GEQpJxFb0KRqYUM2Mb2qf7FVsIX
+	wZasUVqjeUkWfxP5vKV5Kaq9XolQwfy/23J/qLhsRcXMfGXvT/TlL4tkFRZP1L86wVXlDR
+	OHJUMUp9ImYhjSSdd0B6BZDgPM8uTdA=
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com
+ [209.85.214.200]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-659-z4LZh4JJOgu0qT4BGK1TIg-1; Tue, 28 Jan 2025 22:57:33 -0500
-X-MC-Unique: z4LZh4JJOgu0qT4BGK1TIg-1
-X-Mimecast-MFC-AGG-ID: z4LZh4JJOgu0qT4BGK1TIg
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2164fad3792so111748215ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jan 2025 19:57:33 -0800 (PST)
+ us-mta-400-wXqrzuUINiKj7EUSaWEg0w-1; Tue, 28 Jan 2025 23:08:01 -0500
+X-MC-Unique: wXqrzuUINiKj7EUSaWEg0w-1
+X-Mimecast-MFC-AGG-ID: wXqrzuUINiKj7EUSaWEg0w
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2162259a5dcso200628885ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jan 2025 20:08:01 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738123052; x=1738727852;
+        d=1e100.net; s=20230601; t=1738123680; x=1738728480;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=zB7bwFdWnORe6bKwIQ/6vJQvYuugxQ4y04Yn/yJKnPc=;
-        b=VfuFjq0zJy0+3oiycOxRA/eSPY5xhaaIXvt8pl77bMC4W987gi3SghE+lO/vbu9t52
-         FfdMxzCmHu/60VG0xvqL8DvlELMwMGygMcpb0yZZEb17OtNVCf800yLlJ0w6jDFTl2SO
-         HZ6KHnXmrn0VtvywdHM8R3/K2RwsAsr2xbdRDP2sN4rzOdkp9zVHUoUykkzr20wP5Nli
-         3zoqD2PSvBK3NdfNQUf8zZMvQgFCBGWcnaT1eY/8xpFso4QYCAvUfkf1qBxx42lmqbHR
-         X7TdOP9qK8RpuVLANEBudIvmpmtcHh9aOwMK1rZRp90W77F3mnWJn0E0QHQB5HtY1np2
-         LaPg==
-X-Forwarded-Encrypted: i=1; AJvYcCXX6n+DZ82FUKXjS+47GuiWCaUT64T7xZuia0mo/kZCPP4RxCV/oDfb7yr9K2IhwDMci0sEDJbwC9ojuuqcgP9i@lists.infradead.org
-X-Gm-Message-State: AOJu0YxYFYTwaXUUsi1q9k8Lt9u53br6+LcYTXENuOBJOqgrvYpDtaEF
-	3CihW3h1QgDvt6MNKDDgaUEAC5bFYixzFZo6nTkrNnPzV6b1ECu+U9NVKlfvUrdbTfqrPwixBQe
-	eewaUYhLXEbxFlVYYxQPQpD8bw5He/N0kTiu561tSrtTdVutiZrhf5QAbpLQ53HtQ+bEwCBxV
-X-Gm-Gg: ASbGnctVYoAcP+CztcsE8ZHGO9cS52elcbMJ4lkLvw/eTzGKWBc9Gktq2HlvP+NZDKW
-	81AjKy0A9R8buqhCh2E6GCBIT50SwQqAxQdhZrKEWTyDqFhMJ2xvu0wwTIOM2jshEIkCz6JqW9z
-	VU7HwNOc4RQ+qtv/TS/1ZBqEQVYOtbSqv8dNx+KnjY4OsJbcwSyHhNI/BE3+cGdzvOcgqaX7yN3
-	vqHdFFPMxg3WvzB8tgiNjq2oJQVBADX2Or7gaATGo0cEQrHyemvkfRlmrBLTfG80RfPKZxoBV5l
-	0LZH8A==
-X-Received: by 2002:a17:902:ce8f:b0:215:9d29:9724 with SMTP id d9443c01a7336-21dd7ddfdc9mr26688205ad.38.1738123052538;
-        Tue, 28 Jan 2025 19:57:32 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFdY9KvQ422zqadztWkjkXDL2LuY//Pm08gZwRPHxwWf8KuGeFvCcuuj/IQ8VEC/M+7z5zZXw==
-X-Received: by 2002:a17:902:ce8f:b0:215:9d29:9724 with SMTP id d9443c01a7336-21dd7ddfdc9mr26687925ad.38.1738123052171;
-        Tue, 28 Jan 2025 19:57:32 -0800 (PST)
+        bh=++vP7Pzm+0U/vbuzpGurQDME6fn3ZbIwZpBgDGBaFV0=;
+        b=jSjD/MlI/gcHaB+Y3cegIJ7E/cP2VxxfgoNTrR71cyNcZggyPWfn/AL9YqC4dx//Ga
+         ilPsZgyaaTPMju/TEGS+Kcc+0BMI6S1bDnMBJc1NSOmIUGP8t8ciCU0LXolqxwm2Ss/v
+         pR6z/iRgxGUBn8hzRbwzGKNPU6x5qWgMd4nw11JYhF6qm27t4gTrYY2R3srMWhB88lTA
+         sYvANaNmUE/3fHEojRpUQl7VWIvMy+wchFPZULyxA2kO6DAhjtWnHb5J7GIp3Wi856Cn
+         rJtF9w4V6P0p4JuURPHJl3zJcNWe7CPY7U5QQxCKk2eh3duZdsCRCAEs9eqadrTRJ+6P
+         Q6nA==
+X-Forwarded-Encrypted: i=1; AJvYcCW6hpO/steAKiCkIHPEnarAOgDd5jECX1aDKkRmei1zwhaT4QvOyzqsD6M/CJMdWQDpPxRP+zm7U3bUohrPnCSb@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIuRSAFjW6mccL5Ar62SfAeTbULBT7f8tF4otyQNZtae1ijXp5
+	Z5sJOQ6qKjehKI1QYRSgkJQQJ4CbfCOMJtuLpm/uknVGg1ajZU7gK+WwrSZG+y3FxLSZiF3FSuP
+	Ff5I7SFJ9xeO/kkG6HX/atQQ3bQdxiOa64jKUomVY/ucI0XiQYFoW5rqtT0agyWnBNNc17Rsf
+X-Gm-Gg: ASbGnctL97yeLSPYNxUgaDySBWuZjG81kP/kTZi8HXGyC1/k9FGFkE6u3ujteqG4mRs
+	FS4VA46K+RUu/jKrJxIhicvSww2wvL/O5NdXvRo9QwfevLQdw58ujDc5iOtr7XrXB1Cpv5X256g
+	zXTWclB6188Yu9sJ4ALXGPQpPL4UELy3gDX1cU4LVD+/dzdWjU7L5+FUKhd0CQLuc7fOk/88sRY
+	m/ORBxICkrzqCeMGHLXUPbi33Hp3ycfpxz+GLbhMpKTV9eyG47z90yvBogscCa+hFk9Rsci5DtA
+	FPdLpg==
+X-Received: by 2002:a17:902:ce01:b0:215:3a42:dc17 with SMTP id d9443c01a7336-21dd7c4c298mr26327425ad.7.1738123680329;
+        Tue, 28 Jan 2025 20:08:00 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHQIoq8D2QaYFpzEq5kL3xdCHIiITAzdgGLjBLAtD4+BnGQNR/G88wzSm8jyqJiShrpZVo+NA==
+X-Received: by 2002:a17:902:ce01:b0:215:3a42:dc17 with SMTP id d9443c01a7336-21dd7c4c298mr26327115ad.7.1738123680051;
+        Tue, 28 Jan 2025 20:08:00 -0800 (PST)
 Received: from [192.168.68.55] ([180.233.125.64])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21da3d9cac3sm89760675ad.38.2025.01.28.19.57.25
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21da41415e9sm90098135ad.116.2025.01.28.20.07.52
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 28 Jan 2025 19:57:31 -0800 (PST)
-Message-ID: <7271b3ff-8665-4a98-b3dd-77417f85d5e3@redhat.com>
-Date: Wed, 29 Jan 2025 13:57:23 +1000
+        Tue, 28 Jan 2025 20:07:59 -0800 (PST)
+Message-ID: <a580d287-2fb0-4e9d-adbb-57e4dbf25765@redhat.com>
+Date: Wed, 29 Jan 2025 14:07:51 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 06/43] arm64: RME: Check for RME support at KVM init
+Subject: Re: [PATCH v6 10/43] arm64: kvm: Allow passing machine type in KVM
+ creation
 To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
  kvmarm@lists.linux.dev
 Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
@@ -95,18 +96,18 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
  Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
  <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
 References: <20241212155610.76522-1-steven.price@arm.com>
- <20241212155610.76522-7-steven.price@arm.com>
+ <20241212155610.76522-11-steven.price@arm.com>
 From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20241212155610.76522-7-steven.price@arm.com>
+In-Reply-To: <20241212155610.76522-11-steven.price@arm.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: EbuU7SYXxfD8mMXplgzWU2zt-K6zYNqJG60fVgK3P80_1738123052
+X-Mimecast-MFC-PROC-ID: oR--CeWAfdExkPOsuZ6HKHNml2h-Auxex7Sh37Gbnvg_1738123680
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_195739_042661_C3318C03 
-X-CRM114-Status: GOOD (  18.61  )
+X-CRM114-CacheID: sfid-20250128_200805_442697_E13A929E 
+X-CRM114-Status: GOOD (  19.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,56 +123,58 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 12/13/24 1:55 AM, Steven Price wrote:
-> Query the RMI version number and check if it is a compatible version. A
-> static key is also provided to signal that a supported RMM is available.
+> Previously machine type was used purely for specifying the physical
+> address size of the guest. Reserve the higher bits to specify an ARM
+> specific machine type and declare a new type 'KVM_VM_TYPE_ARM_REALM'
+> used to create a realm guest.
 > 
-> Functions are provided to query if a VM or VCPU is a realm (or rec)
-> which currently will always return false.
-> 
+> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 > Signed-off-by: Steven Price <steven.price@arm.com>
 > ---
-> Changes since v5:
->   * Reword "unsupported" message from "host supports" to "we want" to
->     clarify that 'we' are the 'host'.
-> Changes since v2:
->   * Drop return value from kvm_init_rme(), it was always 0.
->   * Rely on the RMM return value to identify whether the RSI ABI is
->     compatible.
-> ---
->   arch/arm64/include/asm/kvm_emulate.h | 18 +++++++++
->   arch/arm64/include/asm/kvm_host.h    |  4 ++
->   arch/arm64/include/asm/kvm_rme.h     | 56 ++++++++++++++++++++++++++++
->   arch/arm64/include/asm/virt.h        |  1 +
->   arch/arm64/kvm/Makefile              |  3 +-
->   arch/arm64/kvm/arm.c                 |  6 +++
->   arch/arm64/kvm/rme.c                 | 50 +++++++++++++++++++++++++
->   7 files changed, 137 insertions(+), 1 deletion(-)
->   create mode 100644 arch/arm64/include/asm/kvm_rme.h
->   create mode 100644 arch/arm64/kvm/rme.c
+>   arch/arm64/kvm/arm.c     | 17 +++++++++++++++++
+>   arch/arm64/kvm/mmu.c     |  3 ---
+>   include/uapi/linux/kvm.h | 19 +++++++++++++++----
+>   3 files changed, 32 insertions(+), 7 deletions(-)
 > 
-
-[...]
-
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index c505ec61180a..73016e1e0067 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -207,6 +207,23 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
+>   	mutex_unlock(&kvm->lock);
+>   #endif
+>   
+> +	if (type & ~(KVM_VM_TYPE_ARM_MASK | KVM_VM_TYPE_ARM_IPA_SIZE_MASK))
+> +		return -EINVAL;
 > +
-> +static inline bool kvm_is_realm(struct kvm *kvm)
-> +{
-> +	if (static_branch_unlikely(&kvm_rme_is_available) && kvm)
-> +		return kvm->arch.is_realm;
-> +	return false;
-> +}
+> +	switch (type & KVM_VM_TYPE_ARM_MASK) {
+> +	case KVM_VM_TYPE_ARM_NORMAL:
+> +		break;
+> +	case KVM_VM_TYPE_ARM_REALM:
+> +		kvm->arch.is_realm = true;
+> +		if (!kvm_is_realm(kvm)) {
+> +			/* Realm support unavailable */
+> +			return -EINVAL;
+> +		}
+> +		break;
+> +	default:
+> +		return -EINVAL;
+> +	}
 > +
+>   	kvm_init_nested(kvm);
+>   
+>   	ret = kvm_share_hyp(kvm, kvm + 1);
 
-kvm->arch.is_realm won't be true when kvm_rme_is_available is false. It's set
-in kvm_arch_init_vm() of PATCH[10]. So it's safe to be simplified as below if
-the changes to kvm_arch_init_vm() is slightly modified, more details can be
-found from the comments to PATCH[10]
+Corresponding to comments for PATCH[6], the block of the code can be modified
+to avoid using kvm_is_realm() here. In this way, kvm_is_realm() can be simplifed
+as I commented for PATCH[6].
 
-With the changes, we don't have to check kvm_rme_is_available every time.
+	case KVM_VM_TYPE_ARM_REALM:
+		if (static_branch_unlikely(&kvm_rme_is_available))
+			return -EPERM;	/* -EPERM may be more suitable than -EINVAL */
 
-static inline bool kvm_is_realm(struct kvm *kvm)
-{
-	return (kvm && kvm->arch.is_realm);
-}
+		kvm->arch.is_realm = true;
+		break;
 
 Thanks,
 Gavin
