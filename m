@@ -4,112 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D6A4C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 17:25:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C2F5C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 17:26:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cUinW45xP5e5WNhMH3KfMBEndfX+Wq9Gq0wkIWuPQkM=; b=IPLqlvxG50rKNZ
-	d4DGHShQWPIlSWrLOiS+1suXG34Kq41hMmGjbeY27VLsz+kTfUxy0xOetCJUBuh6hlmbm3UCJxeNO
-	JXN4COYV144j7kKM8zLIuZNNpyTYGc9kHFZxlgluo6VKEnzCVoFWD5Uu6Wdm/LZfgZYQwK29Rl0nP
-	aK/AEIzaerrsOLbHXt7Ww7tMJFuLNpn24+SLYzf9lTl4REfmrwgltdrl9MHNrm3TFrBDOgMsRhU34
-	2AwbmXiXNJ0o60Om35nPBUkii/KXt9Ur0s616vA8FpuVF2h6jRwa5mAUu3xaClaZMa9SeVpTXTXxq
-	apyn6opVkfAvx+oQWBXw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=apyazMEhQSo8qF0MeJDavXOSu4X41kdb0EVpzv+wKjs=; b=J08NXCa3SKCPW+wgv0DvNIIL3h
+	RwkF+36PfwfZFXO9diAtiA73Uj0Cil0vqwmN+kq0I9ture3XibIfIKF2X1uZHNvB2pxasmHfjga3l
+	Z8QYsUwkb8BECQ6RkhnbidmBSw7IHub75O24y7OHycavE6Y396yymhrwK4rF+qGKFwGcAQxc7En+1
+	eCkkWthYLBBGqIDTPvGBHCsvNf8sZAerOs1jaGpR/K4GsofLKWO0Mz9pgAi/XQG/Gf4RvD9IqJy+B
+	jueINKK4W4bVKtG5KIVRu5MZ1ASt1oCbgWkxJispoWQfgWzDAbQwfsZFZHjpNFPR4NByJTuEWxYfz
+	YZBMkHEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdBoI-00000007U04-1GqJ;
-	Wed, 29 Jan 2025 17:25:06 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1tdBpa-00000007UHb-00uz;
+	Wed, 29 Jan 2025 17:26:26 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdBmx-00000007TbP-1XCg
+	id 1tdBnp-00000007TuD-2fY9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jan 2025 17:23:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1738171422;
-	h=from:from:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cUinW45xP5e5WNhMH3KfMBEndfX+Wq9Gq0wkIWuPQkM=;
-	b=I3bAWx54rCorILOhbHxkyJWp3CX1p+bjvafSd9mEXnFeVpi4rpI8JfJ79xnEE6YiEg3NnA
-	IF65reYuPPsyD6NPtXSV5DMxfUktk3bTOV/FDsRBei9v5KpClYf6XNoTZFTdrxGAbz2wRH
-	m4nqVlI1DjJKTpzfHP2LlmnaRBIbz70=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-117-YDTEjTRBM2q77zjIVbsPyA-1; Wed, 29 Jan 2025 12:23:39 -0500
-X-MC-Unique: YDTEjTRBM2q77zjIVbsPyA-1
-X-Mimecast-MFC-AGG-ID: YDTEjTRBM2q77zjIVbsPyA
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4361b090d23so36494845e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jan 2025 09:23:39 -0800 (PST)
+	Wed, 29 Jan 2025 17:24:38 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-435f8f29f8aso51692095e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jan 2025 09:24:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1738171475; x=1738776275; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=apyazMEhQSo8qF0MeJDavXOSu4X41kdb0EVpzv+wKjs=;
+        b=wUJ10eDu+qzC2rYIwi5OCvHvhAZcyS+J7sG8OYSuISILWzS5RfpYaScIZN0pK/H194
+         Orsk7rP4FVSfHjR1KWNTrKLeQwXxJsRp2DWJqr7ibcDPz0BDOlYaDCCJOPf224p74/d4
+         YsJm/nTqGM8Oe4vY4uWG4Gmfbw0UAGrp3hSF+WPByCbZiA0ONJBOnDmMRmeyWBjXNXeR
+         FeodYxGOAzKYZMAwH+jUtLIZ5dCk1zkYwZdBwNH9KXdJ7AhyrGb52RInBP+PJBNXWRoA
+         6OhVm4SaNTWCwb+e6ETaYXqaq6aZJaaJc6xHgfnUdpaxiEOxZkp7VmQKCJB1NLluiZLW
+         U3JA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738171418; x=1738776218;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:reply-to:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=cUinW45xP5e5WNhMH3KfMBEndfX+Wq9Gq0wkIWuPQkM=;
-        b=q8vi1OVlvr6wcTGjlGr7DlbHcR5OX8cdolSUWDVv51mnNNptfkb7uSpfQYWOZpraKZ
-         ebdBqJQOMp4Xg1oyRIH22W+BByWQHeSYIt3JMs/MVyC9V2+7MfY3Nn4RzbICinSlMZVG
-         wEHW6iO9H5hGH5vhWIo2M0AzhayH/TbncoeeSqOD10NGfA6a44OTDXD5SNlEp4U33Xyd
-         VovFciLI/yejHWbCmWwN1GQ+XfjTXpe6h1bYquXJjBWMKcg+E84vhgroXdCIkNiVVALq
-         iMwh6QStTniUCdeCV2XJ1A8GuLeBYi344NPa0//PXZS8KwNqsaIR6x0ooUPZijBONpRp
-         sJcQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWEujSZZxT/UIzOALbtFU9XK940KjSy7OjZJQjDANhzFqfSVKXPH6gxom4qIfHzmXoky/qFtzty1OV45qwRfpKI@lists.infradead.org
-X-Gm-Message-State: AOJu0YyfwTPqXoVCNt9LzW8lCVwOB7OJkK0bCtLBH4RM4XHMiojHYiNI
-	+yBUqDXfq26LY1as0cLsZgEpMS6TtBTq9ZmXw72kVEJGhTucs/ErpWn9HzRU2pHkKGxkTqeOGh7
-	o0CThSRt/3PUNkRBTkUSBzmqHHl0zApKn0zrOIgvHRMjJxTMY1Njelpb6D9uJv7QM0XqYh7jf
-X-Gm-Gg: ASbGnct3wL5hmDQErK7OmKJfwktHf64QgbEAHn3PnMnXQiDt/ygo3qblbFTd2YlsGqw
-	xE8HibxG+qOXc2MRkheajZ5Jhwu1D8dfa56hNlZqrku96Rs6zx+6tnt3Eb4DJvjx/zC4tLf/j3B
-	wk5YvAoFFmqQn4KEbVnqJXPom2AAiYvtf/WHAFs3ddBmB7fplDesWWsw4r0JF/NqVor4AMCrdkP
-	yjO/jpY8astX7cK7I3B8ARMndCrjngn77vKJVZHE2Q5oycN6dmK8rTRHciFrbKDsQFy0/3nfpRN
-	U5jgxXYDfyPR/7zMN0KFpAILsKNi3xMHOK1J8oP4GVmjaAcWtTwx
-X-Received: by 2002:a05:600c:468d:b0:434:f270:a513 with SMTP id 5b1f17b1804b1-438dc429eb0mr37292765e9.29.1738171418192;
-        Wed, 29 Jan 2025 09:23:38 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEpj2GyirYUousb08KORRhwwxL2nA/aWckunw7W2c2Pu3YOW2k9PIs9cw16oemlKH4tI9rx+g==
-X-Received: by 2002:a05:600c:468d:b0:434:f270:a513 with SMTP id 5b1f17b1804b1-438dc429eb0mr37292495e9.29.1738171417820;
-        Wed, 29 Jan 2025 09:23:37 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:59e:9d80:527b:9dff:feef:3874? ([2a01:e0a:59e:9d80:527b:9dff:feef:3874])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438dcc24cefsm29536565e9.15.2025.01.29.09.23.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 29 Jan 2025 09:23:36 -0800 (PST)
-Message-ID: <21ac88b0-fe93-4933-893c-7ffb09267e7b@redhat.com>
-Date: Wed, 29 Jan 2025 18:23:33 +0100
+        d=1e100.net; s=20230601; t=1738171475; x=1738776275;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=apyazMEhQSo8qF0MeJDavXOSu4X41kdb0EVpzv+wKjs=;
+        b=XofUX/A2ZXgXbAOklI4lJXml7t5mTDmV8dyiyGtEcyRKy3yD7pzeUJ/8FnlJV2aQZN
+         FZlNBpIwhccnZfVCt/3i1fKjwHOr0iAkZbd5+K9+x4uuLQ+K9SlS/jRMYMqf7Gd8yO17
+         RFrK6M6lf6z+YLYVtUwnF7r2z67e8l4nrbLVTmXHMvahH2j5k7il9Km5AaSaEs8XUA2l
+         nk7ZYKkyE/qFm/+Trb070kH/hKdYvo561xom0h4JXaMQPBJ44N7qvBe5SdFC+W+noPtZ
+         ZDZZjksBsb/SR22l8xAmgIesmTJ9aWMeo3B8BKVx8x5czGTsO7FZ7IpP5ZOov4SUX3vG
+         XuLw==
+X-Forwarded-Encrypted: i=1; AJvYcCXRCautyGxHfBeC4T1NEgl4L69uPlDnuxVoGpjv7XeNVyF2PnBsNfMPiT6PK2jydj+77Qsh9isahthqd+oBkiMF@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLwM4yUq8XWaenPQnjIKL3HLPDRueDy8/xDR0c0uf+lUtwpfPd
+	jZVlj3TOp/jfKjuKXSOvJ60itPvX4VQTJPEvHsYfKuh6Uk9KOT/OwVEAOg/agZ0=
+X-Gm-Gg: ASbGncuL9k3CRqRIhBEJ6Y8BBELvSVsQWR0X8vNg5YGlgTBMDUlAVPZQdFssqdvcF8B
+	VdV9N+PUfhWMJypYg/gzvTCPiglHQaW8GThaLn8waVWcopLfwiiWmPTa6AJWh3bpGyfxiPPMVS4
+	1cUJMlOZcORuoBb0Et1lYJRLTMy8FJIoQQ0i4oqj/NfRz5PzMwsdX7TU3WVtu57ZcZabnXSGP1L
+	z1/JbCOEjvZTNXSSJwqwKhfVH/tSDXq8hL4Np37zGsMu8Lea7jhNi0SbOZQrVQBER+ZXNQ6MSjy
+	IDH7DZgb4h99eSOG68dQ7wLkR2yTTOxsD3eMSPGPP1EVg3RPAxUcig==
+X-Google-Smtp-Source: AGHT+IFnDe4/dtbPIGLCw/sImkenHK2DDv+ULBhTplI9CVAjt0kVdyPwIrTWfCJBnrEnbirx/h0Z9Q==
+X-Received: by 2002:a05:600c:4e01:b0:435:136:75f6 with SMTP id 5b1f17b1804b1-438dc34b179mr38832105e9.0.1738171475469;
+        Wed, 29 Jan 2025 09:24:35 -0800 (PST)
+Received: from mai.linaro.org (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438dcc518ddsm31002665e9.37.2025.01.29.09.24.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 29 Jan 2025 09:24:34 -0800 (PST)
+Date: Wed, 29 Jan 2025 18:24:32 +0100
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+To: Claudiu <claudiu.beznea@tuxon.dev>
+Cc: rafael@kernel.org, rui.zhang@intel.com, lukasz.luba@arm.com,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	geert+renesas@glider.be, magnus.damm@gmail.com,
+	mturquette@baylibre.com, sboyd@kernel.org, p.zabel@pengutronix.de,
+	ulf.hansson@linaro.org, linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+Subject: Re: [PATCH 2/6] thermal: of: Export non-devres helper to
+ register/unregister thermal zone
+Message-ID: <Z5pkUNNvsWPjRQvy@mai.linaro.org>
+References: <20250103163805.1775705-1-claudiu.beznea.uj@bp.renesas.com>
+ <20250103163805.1775705-3-claudiu.beznea.uj@bp.renesas.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFCv2 09/13] iommufd: Add IOMMU_OPTION_SW_MSI_START/SIZE
- ioctls
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
- robin.murphy@arm.com, kevin.tian@intel.com, tglx@linutronix.de,
- maz@kernel.org, alex.williamson@redhat.com, joro@8bytes.org,
- shuah@kernel.org, reinette.chatre@intel.com, yebin10@huawei.com,
- apatel@ventanamicro.com, shivamurthy.shastri@linutronix.de,
- bhelgaas@google.com, anna-maria@linutronix.de, yury.norov@gmail.com,
- nipun.gupta@amd.com, iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org,
- linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
- jean-philippe@linaro.org, mdf@kernel.org, mshavit@google.com,
- shameerali.kolothum.thodi@huawei.com, smostafa@google.com, ddutile@redhat.com
-References: <cover.1736550979.git.nicolinc@nvidia.com>
- <d3cb1694e07be0e214dc44dcb2cb74f014606560.1736550979.git.nicolinc@nvidia.com>
- <0521187e-c511-4ab1-9ffa-be2be8eacd04@redhat.com>
- <20250129145800.GG5556@nvidia.com>
-From: Eric Auger <eric.auger@redhat.com>
-In-Reply-To: <20250129145800.GG5556@nvidia.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: HeIayrCFh9FaHEp3lZI3tlVrsfCeEkdCZ289apj8-VU_1738171418
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250103163805.1775705-3-claudiu.beznea.uj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250129_092343_480850_882464A8 
-X-CRM114-Status: GOOD (  24.45  )
+X-CRM114-CacheID: sfid-20250129_092437_694428_BB21CD9A 
+X-CRM114-Status: GOOD (  22.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,79 +102,73 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: eric.auger@redhat.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Claudiu,
 
+On Fri, Jan 03, 2025 at 06:38:01PM +0200, Claudiu wrote:
+> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> 
+> On the Renesas RZ/G3S (and other Renesas SoCs, e.g., RZ/G2{L, LC, UL}),
+> clocks are managed through PM domains. These PM domains, registered on
+> behalf of the clock controller driver, are configured with
+> GENPD_FLAG_PM_CLK. In most of the Renesas drivers used by RZ SoCs, the
+> clocks are enabled/disabled using runtime PM APIs.
+> 
+> During probe, devices are attached to the PM domain controlling their
+> clocks. Similarly, during removal, devices are detached from the PM domain.
+> 
+> The detachment call stack is as follows:
+> 
+> device_driver_detach() ->
+>   device_release_driver_internal() ->
+>     __device_release_driver() ->
+>       device_remove() ->
+>         platform_remove() ->
+> 	  dev_pm_domain_detach()
+> 
+> In the upcoming Renesas RZ/G3S thermal driver, the
+> struct thermal_zone_device_ops::change_mode API is implemented to
+> start/stop the thermal sensor unit. Register settings are updated within
+> the change_mode API.
+> 
+> In case devres helpers are used for thermal zone register/unregister the
+> struct thermal_zone_device_ops::change_mode API is invoked when the
+> driver is unbound. The identified call stack is as follows:
+> 
+> device_driver_detach() ->
+>   device_release_driver_internal() ->
+>     device_unbind_cleanup() ->
+>       devres_release_all() ->
+>         devm_thermal_of_zone_release() ->
+> 	  thermal_zone_device_disable() ->
+> 	    thermal_zone_device_set_mode() ->
+> 	      rzg3s_thermal_change_mode()
+> 
+> The device_unbind_cleanup() function is called after the thermal device is
+> detached from the PM domain (via dev_pm_domain_detach()).
+> 
+> The rzg3s_thermal_change_mode() implementation calls
+> pm_runtime_resume_and_get()/pm_runtime_put_autosuspend() before/after
+> accessing the registers. However, during the unbind scenario, the
+> devm_thermal_of_zone_release() is invoked after dev_pm_domain_detach().
+> Consequently, the clocks are not enabled, as the device is removed from
+> the PM domain at this time, leading to an Asynchronous SError Interrupt.
+> The system cannot be used after this.
 
+I've been through the driver before responding to this change. What is the
+benefit of powering down / up (or clock off / on) the thermal sensor when
+reading the temperature ?
 
-On 1/29/25 3:58 PM, Jason Gunthorpe wrote:
-> On Wed, Jan 29, 2025 at 02:44:12PM +0100, Eric Auger wrote:
->> Hi,
->>
->>
->> On 1/11/25 4:32 AM, Nicolin Chen wrote:
->>> For systems that require MSI pages to be mapped into the IOMMU translation
->>> the IOMMU driver provides an IOMMU_RESV_SW_MSI range, which is the default
->>> recommended IOVA window to place these mappings. However, there is nothing
->>> special about this address. And to support the RMR trick in VMM for nested
->> well at least it shall not overlap VMM's RAM. So it was not random either.
->>> translation, the VMM needs to know what sw_msi window the kernel is using.
->>> As there is no particular reason to force VMM to adopt the kernel default,
->>> provide a simple IOMMU_OPTION_SW_MSI_START/SIZE ioctl that the VMM can use
->>> to directly specify the sw_msi window that it wants to use, which replaces
->>> and disables the default IOMMU_RESV_SW_MSI from the driver to avoid having
->>> to build an API to discover the default IOMMU_RESV_SW_MSI.
->> IIUC the MSI window will then be different when using legacy VFIO
->> assignment and iommufd backend.
-> ? They use the same, iommufd can have userspace override it. Then it
-> will ignore the reserved region.
-In current arm-smmu-v3.c you have
-        region = iommu_alloc_resv_region(MSI_IOVA_BASE, MSI_IOVA_LENGTH,
-                                         prot, IOMMU_RESV_SW_MSI,
-GFP_KERNEL);
+I can understand for disable / enable but I don't get for the classic usage
+where a governor will be reading the temperature regularly.
 
-in arm_smmu_get_resv_regions()
-If you overwrite the default region, don't you need to expose the user
-defined resv region?
+Would the IP need some cycles to capture the temperature accurately after the
+clock is enabled ?
 
->
->> MSI reserved regions are exposed in
->> /sys/kernel/iommu_groups/<n>/reserved_regions
->> 0x0000000008000000 0x00000000080fffff msi
->  
->> Is that configurability reflected accordingly?
-> ?
->
-> Nothing using iommufd should parse that sysfs file.
-Right but aren't you still supposed to populate the sysfs files
-properly. This region must be carved out from the IOVA space, right?
->  
->> How do you make sure it does not collide with other resv regions? I
->> don't see any check here.
-> Yes this does need to be checked, it does look missing. It still needs
-> to create a reserved region in the ioas when attaching to keep the
-> areas safe and it has to intersect with the incoming reserved
-> regions from the driver.
->
->>> + * @IOMMU_OPTION_SW_MSI_START:
->>> + *    Change the base address of the IOMMU mapping region for MSI doorbell(s).
->>> + *    It must be set this before attaching a device to an IOAS/HWPT, otherwise
->>> + *    this option will be not effective on that IOAS/HWPT. User can choose to
->>> + *    let kernel pick a base address, by simply ignoring this option or setting
->>> + *    a value 0 to IOMMU_OPTION_SW_MSI_SIZE. Global option, object_id must be 0
->> I think we should document it cannot be put at a random place either.
-> It can be put at any place a map can be placed.
-to me It cannot overlap with guest RAM IPA so userspace needs to be
-cautious about that
-
-Eric
->
-> That also needs to be checked when creating a domain, it can't be
-> outside the geometry.
->
-> Jason
->
-
+> Add thermal_of_zone_register()/thermal_of_zone_unregister(). These will
+> be used in the upcomming RZ/G3S thermal driver.
+> 
+> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 
