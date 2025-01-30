@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37EADC0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 17:43:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B96BC0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 17:45:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cQ8ec0dCJ2aem4mPbo2U/jgJd7SY9pBHvy+gzPKsDoY=; b=DZInVRYIItkzdJeO2+QlyyizGQ
-	wMnRpHgGMZu0AWijBIoH3V8FF0pJPzImxYJLHOtHs0anZpxpnIkTsy2+Ui2xB2TZphhqIF7azKFUZ
-	pi0JKTjYIbBoiDXkn/+qqR7YBi4CNsond2/sKfjEP3mGyxMxOfOWTgwOA9MvALQwCocOSXores1ED
-	I/1SGh7d4H8PytNFQWNVKddldmHqQ06vcWcNe97LYhfhq6DWJCUXK2DI7YdQEWbLwFoi8YtY5L8SI
-	nDiYOh9gGyJELV4R317D03VaYNhZgQB0KTT0rfrdTdH068Ol7DaH/MHh6o/7duwC075mZYh/2P/iZ
-	e3rm4xpw==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3N2KbXyT5aPmBA3tpd0Kn9Onh5DrKN17W678yt10avg=; b=uCC8uyjUIn7YEZTUUqrgtFesxr
+	eegCBd7Hd/STvIQhQv15qu26wTncgsA02FcW0ze0kuBsT6ZHhO+XX5RBY/4RJPWoO0RTcm8dGixM0
+	3CER4rHLsMH6hx08My8Su9X5ktLylw60Os/pjl1N+9G+GuuPppCaOelN/7A7/BeWQ9WrIGUtf308J
+	p0e1nDXY1muSAE4OQW/TDcJCt0nMV/0vSd1Z9C1TnBNoNGASRK+8c3QsBwck/KzyTpwTjGnn/fIJ8
+	E0z0NMB/i47fH5zHDjwKq64EP794P3RVs6RlFZMkdPHeICgqNIkc+3rK8a9lNDwajAclkiiAn29SX
+	vQ5XWSEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdYZw-00000009JjB-3AJN;
-	Thu, 30 Jan 2025 17:43:48 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1tdYbD-00000009Jpx-1ui4;
+	Thu, 30 Jan 2025 17:45:07 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdYSd-00000009INj-1gEG
+	id 1tdYSi-00000009IQI-3HdX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jan 2025 17:36:16 +0000
+	Thu, 30 Jan 2025 17:36:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1738258575; x=1769794575;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=saqK4kIsZxI+5DQ85cuDmpYxXTWmAMmJjllcEfKrsSY=;
-  b=rulUiBqVo/8xSi7P9sRBrtFZgb/05U3et8Vg9Er6MhDKKmVGfkM4SGSq
-   NPCB4WcbPd3M4NP+maEYMnM01Xa9x5s4E5WzZ07YhxczuOqXcQ3YzpJGY
-   /Si9CuhqoWLnABnR75DKHu5rXknaQ8M06Ebv8vC7SXaBmbX/ahbjvlImX
-   pqOF0T/03bEUoiKTq5C3rgigN9eb8PgUq8Re49uK2mK5OG+iwF+cACg0r
-   I+5mFXF3WH7gPbDBostZeSoLGFLALO/f9oQDhdDdDU/dO9YnNOWbFrhAv
-   MhNY2bCXOlic33tfAesMfpmZcGSq24za1Q3k+SRnCFWR/VqzOzQ/KcRO8
+  t=1738258580; x=1769794580;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=yxEQ9VGHDfq2nWGMnw03UM1R+QlVtJhdj130QDeiT9s=;
+  b=qayrRl/GCPqsf7Tj5a2JYu3BZxuHZAQJO7BA+bbk2dWXag5aHTFHaUlW
+   n6GGdsLAkAyJmaFBwLcklf4TZwDuk0wypBX/sfWfr5Enp3t5Q5KyT28qF
+   l+ObcmXYIqEX6RwKicxRpS32SRJeTxnv29lZw0tHHPgPxu1OYT8CYXzta
+   Ece0kOVCGyvmsnMZLAiDBU1Bxv83mEFK/oCzLOD0a4sX1hwz+MjlqJsM3
+   pGe6TbuSKv8k+NjG4o1PSt4MnJqas6zzII0WNXo22R0czJUkQVYzrhz0Q
+   spfAcKCUcZffPXQgXLYEzm7/AvKn0MoVf/9MsBEnMWU+agI3UL3KjV3RX
    w==;
-X-CSE-ConnectionGUID: 7iQ0c/B2QHylE8DKLR4q+g==
-X-CSE-MsgGUID: ehYY8ZpbQe2lcmyKveAkSA==
+X-CSE-ConnectionGUID: Qux6TnwtQkq+U6Cg6JCAlA==
+X-CSE-MsgGUID: mge+dKGoQCeO7z84WNBudA==
 X-IronPort-AV: E=Sophos;i="6.13,246,1732604400"; 
-   d="scan'208";a="41090048"
+   d="scan'208";a="204623002"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 30 Jan 2025 10:36:11 -0700
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 30 Jan 2025 10:36:19 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Thu, 30 Jan 2025 10:35:41 -0700
+ 15.1.2507.35; Thu, 30 Jan 2025 10:35:39 -0700
 Received: from ryan-Precision-3630-Tower.microchip.com (10.10.85.11) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Thu, 30 Jan 2025 10:35:41 -0700
+ 15.1.2507.35 via Frontend Transport; Thu, 30 Jan 2025 10:35:39 -0700
 From: <Ryan.Wanner@microchip.com>
 To: <lee@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
 	<conor+dt@kernel.org>, <claudiu.beznea@tuxon.dev>, <sre@kernel.org>,
@@ -62,18 +62,16 @@ To: <lee@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
 CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-pm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-rtc@vger.kernel.org>, Ryan Wanner <Ryan.Wanner@microchip.com>
-Subject: [PATCH 12/16] ARM: at91: PM: Add Backup mode for SAMA7D65
-Date: Thu, 30 Jan 2025 10:33:52 -0700
-Message-ID: <c627ef4928eeec72e63406adef31bd740ad18106.1738257860.git.Ryan.Wanner@microchip.com>
+Subject: [PATCH 00/16] Enable Power Modes Support for SAMA7D65 SoC
+Date: Thu, 30 Jan 2025 10:33:40 -0700
+Message-ID: <cover.1738257860.git.Ryan.Wanner@microchip.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1738257860.git.Ryan.Wanner@microchip.com>
-References: <cover.1738257860.git.Ryan.Wanner@microchip.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_093615_452690_1C33A7D6 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20250130_093620_879982_BBF099C5 
+X-CRM114-Status: GOOD (  12.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,40 +88,57 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ryan Wanner <Ryan.Wanner@microchip.com>
 
-Add config check that enables Backup mode for SAMA7D65 SoC.
+This patch set adds support for low power modes for the SAMA7D65 SoC and
+the required components and changes for low power modes.
 
-Add SHDWC_SR read to clear the status bits once finished exiting low
-power modes. This is only for SAMA7D65 SoCs.
+The series includes changes in the asm code to account for the addtional
+clocks that are in this SoC.
 
-Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
----
- arch/arm/mach-at91/pm.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+The Device tree additions are to enable all the components needed to
+keep the SoC in low power mode.
 
-diff --git a/arch/arm/mach-at91/pm.c b/arch/arm/mach-at91/pm.c
-index a8cd1300a8f33..5e458254e1f1c 100644
---- a/arch/arm/mach-at91/pm.c
-+++ b/arch/arm/mach-at91/pm.c
-@@ -706,6 +706,9 @@ static int at91_pm_enter(suspend_state_t state)
- static void at91_pm_end(void)
- {
- 	at91_pm_config_ws(soc_pm.data.mode, false);
-+
-+	if (IS_ENABLED(CONFIG_SOC_SAMA7D65))
-+		readl(soc_pm.data.shdwc + 0x08);
- }
- 
- 
-@@ -1064,7 +1067,8 @@ static int __init at91_pm_backup_init(void)
- 	int ret = -ENODEV, located = 0;
- 
- 	if (!IS_ENABLED(CONFIG_SOC_SAMA5D2) &&
--	    !IS_ENABLED(CONFIG_SOC_SAMA7G5))
-+	    !IS_ENABLED(CONFIG_SOC_SAMA7G5) &&
-+	    !IS_ENABLED(CONFIG_SOC_SAMA7D65))
- 		return -EPERM;
- 
- 	if (!at91_is_pm_mode_active(AT91_PM_BACKUP))
+There are some DTB check warnings but that is due to the dt-binding not
+in the correct .yaml file format.
+
+
+Li Bin (1):
+  ARM: at91: pm: fix at91_suspend_finish for ZQ calibration
+
+Ryan Wanner (15):
+  dt-bindings: mfd: syscon: add microchip,sama7d65-ddr3phy
+  dt-bindings: mfd: syscon: add microchip,sama7d65-sfrbu
+  dt-bindings: sram: Add microchip,sama7d65-sram
+  dt-bindings: power: reset: atmel,sama5d2-shdwc: Add
+    microchip,sama7d65-shdwc
+  dt-bindings: reset: atmel,at91sam9260-reset: add
+    microchip,sama7d65-rstc
+  dt-bindings: rtc: at91rm9200: Reorganize compatible items
+  dt-bindings: rtc: at91rm9200: add microchip,sama7d65-rtc
+  dt-bindings: at91rm9260-rtt: add microchip,sama7d65-rtt
+  ARM: at91: Add PM support to sama7d65
+  ARM: at91: pm: add DT compatible support for sama7d65
+  ARM: at91: PM: Add Backup mode for SAMA7D65
+  ARM: at91: pm: Enable ULP0 for SAMA7D65
+  power: reset: at91-sama5d2_shdwc: Add sama7d65 PMC
+  ARM: dts: microchip: sama7d65: Add Reset and Shutdown and PM support
+  ARM: dts: microchip: add shutdown controller and rtt timer
+
+ .../devicetree/bindings/mfd/syscon.yaml       |  3 +
+ .../power/reset/atmel,sama5d2-shdwc.yaml      |  5 +
+ .../reset/atmel,at91sam9260-reset.yaml        |  5 +
+ .../bindings/rtc/atmel,at91rm9200-rtc.yaml    |  6 +-
+ .../bindings/rtc/atmel,at91sam9260-rtt.yaml   |  5 +
+ .../devicetree/bindings/sram/sram.yaml        |  1 +
+ .../dts/microchip/at91-sama7d65_curiosity.dts | 14 +++
+ arch/arm/boot/dts/microchip/sama7d65.dtsi     | 77 +++++++++++++++
+ arch/arm/mach-at91/Kconfig                    |  1 +
+ arch/arm/mach-at91/pm.c                       | 53 +++++++---
+ arch/arm/mach-at91/pm.h                       |  1 +
+ arch/arm/mach-at91/pm_data-offsets.c          |  2 +
+ arch/arm/mach-at91/pm_suspend.S               | 97 +++++++++++++++++--
+ drivers/power/reset/at91-sama5d2_shdwc.c      |  1 +
+ 14 files changed, 247 insertions(+), 24 deletions(-)
+
 -- 
 2.43.0
 
