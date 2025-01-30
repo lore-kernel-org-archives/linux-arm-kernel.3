@@ -4,82 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61384C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 09:33:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37549C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 09:46:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dmWcBJcs6Wk755m4D9DSq+3kzSFiV3zXYSE9SNe/ZDI=; b=zu3l53tviz+ab8lJudR1c///Ps
-	pn4mIOfwcAWXWoFQl6RaXrGMnulcy03yvevRYiqSaTl4mRitwQfzvBo2fb0uYgRPWC43+nqauJev7
-	3yIR27uhsE/afk5zQ4gbmQRn3NjVmtDLr1bj9k0nEM6WyXUhWFS/XlUf5kU0wj8XzMdC7T0a8zVwn
-	8lZ4+jcJ0/NG3FX+1OJaceRarynaJ218L7l3VPDq3MqnIX+Qwwfx8AGjFDaFCwBoP/BvdlgiJ0kl1
-	QcKejcrH1rYg+yfrznOTmhAl2fEe5xwF1hzVVAUE4wIAPTEqywfNPI8bEQKLgyrdhHTbXbrDbN+pH
-	Yg1Vr93w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NRGiBYGv+vKqDqDaesyuawX4ZPxUYYpwD/wnO7/ks+Y=; b=X+CdfPJG3hakEeS/2m461tEL2S
+	Yc+nvW28hlEjGuFe+9Fa/t5UHXbjzMh2rPJDZ9TSBH+5VYY5Y4/wn+yj04/BEjV03myBdrDR72qo+
+	2cE6T0o/J4WnUaTp4XpGi6pkaYRNG0+V0N86Kkn407/7jlRNlTq2N2K5s1Ce0BAVxJjY7dsTdJ4sM
+	ZXb+fdb7qV+/15GAICmLMbzVLVmpOKSdC5+LcRxAJtuNW1FwBnubw+SoN/prVd2XXQDFrMMvXQVIo
+	wQ/y0wG8lPPHqreO0ROP3u5z+QmpeLEpqbKgJP6nzGfIC22rxULROXBiQ/0K015bfSu9m1rbptESC
+	hVj6XBkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdQut-00000008WB9-1l1h;
-	Thu, 30 Jan 2025 09:32:55 +0000
-Received: from mail-ua1-x934.google.com ([2607:f8b0:4864:20::934])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdQta-00000008W6B-27wo
+	id 1tdR81-00000008X2f-41EW;
+	Thu, 30 Jan 2025 09:46:29 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tdR6i-00000008WxN-2aMt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jan 2025 09:31:35 +0000
-Received: by mail-ua1-x934.google.com with SMTP id a1e0cc1a2514c-85c5d4f3d58so115404241.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jan 2025 01:31:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738229492; x=1738834292; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=dmWcBJcs6Wk755m4D9DSq+3kzSFiV3zXYSE9SNe/ZDI=;
-        b=N2pm8df7Nr8VihAQv3/hAekBs3hxU5WbefkC+2nn2q1ESo1zIxd6yMIVtbk/y2UplY
-         2vZ9UfM0geL7O+Fq/SmX3pq71lob9wNdey8jYeEghYbLY3vi08uZ73Qj3zaY/0QftoSZ
-         JjgU7Pn8+ExaNusAoGMJ7lUuLHHPrfMKMFPoVlCKBAX6DuGJH2ArOk5jMjm2cJOgaWU+
-         FYi4o/AdW2xA7E3XFQmmGpdOfAa0v08/3VQ3QjZvkOeu+CRD+AWscD+OH5jB0NEMS+oQ
-         cG7n8wH5teHhi7/Utzcdhp/91yEF1gXIj68Hd8cbam65p0Bjj21RCdhM/dCh5IZbpuQ8
-         owuQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738229492; x=1738834292;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=dmWcBJcs6Wk755m4D9DSq+3kzSFiV3zXYSE9SNe/ZDI=;
-        b=CmsCAcgszMmwNLLmX3CVZBtcUGhr8yWVcfvCQO824nxp9Fz3fbIc2yWRTqDNS9n3Wi
-         ni+N+HV9uHa9N0CBo9ldNQDwJ55mUdAVglmAY4qFh0zCOLHWaWkArKzl1SZqJxLD6rL3
-         8SLFOa2DfdagxEEAUe1hhOKn311eBzD+hNvLOfDAORB+ffEAgJOhsoTPRhtHxWawd8PV
-         BX8KDqqRCyp7bwcrMA7iLP6yuZHPhvskRlEXjmB6Y7ODPK132TjCqoreUDTm1EkaAuaH
-         V7VjquGqD7uiNydsClDxn7YHQPkPSt3YpR2/0NUCO4L7WD7sdI11tnz67xION/8HYe71
-         TwGQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV4ZCdUtKQhz+VBh8lr2NVHRMsGkwcyL8V4sPHR/X+SNp7KEYu+DfHnq36z3KGeGrQH76RbNrvX4K1qNOSDtxW1@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYEmURdPfNaSninA9ZjSZpIpFoalCTKyt1AcSCxi/jplgp9/0M
-	8rg3pfnpPEfJPufLXSl9pct1imvCc0j3H2SX8pMIpunyC/vhOlzA0sp5H6JXpMmJmvsahShrqQy
-	1ljFG/qeCpr3G02HKJmJPztCiq4Rgwv7sSzW6ZA==
-X-Gm-Gg: ASbGncsw/r4DSkhRRBppOvPylZbkjmW0Kx36HnPEAT6ijPEVjdpBib3Uuep3hoThSJi
-	ButRsIBbxpN3vxtSbvkac3V7EVFRGYip3b9Q0slnv1K0dhuUeISZv+PDsgaHsHLSbJq3jA2ucJm
-	Q9hU0kA5ecIgAaUP7HL4h3rzGXUyitMQ==
-X-Google-Smtp-Source: AGHT+IHHO4p75yBvoZrH4CWt7Sm3+WjJipBubc0F5yEZyIihuApBbf7n+j83VZzoGbXPEsG7JEuXYNAUETI3Fr3UyNs=
-X-Received: by 2002:a05:6102:161e:b0:4b2:5d16:f75 with SMTP id
- ada2fe7eead31-4b9a4ec7f86mr5303490137.4.1738229492696; Thu, 30 Jan 2025
- 01:31:32 -0800 (PST)
+	Thu, 30 Jan 2025 09:45:09 +0000
+Received: from [10.156.205.88] (unknown [167.220.238.88])
+	by linux.microsoft.com (Postfix) with ESMTPSA id EE9E72109CD7;
+	Thu, 30 Jan 2025 01:45:02 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com EE9E72109CD7
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1738230306;
+	bh=NRGiBYGv+vKqDqDaesyuawX4ZPxUYYpwD/wnO7/ks+Y=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=IsSf5FRFEtFqA4+wMmOLBhT+u99GjlRyAoqK3hukAvyDf6BXvo1bzRR8Hxn03jmpN
+	 Lhz5KNPyeMWkhA3VAUsMLmnM3tbO6yKa8Mu1VW2YaE19FRA0sWqnZE1lAWq+I8921f
+	 m79XGe6iux/lhe6N2Ds11PSJQQp121cf/U9or2uc=
+Message-ID: <d7f69c61-8daf-4996-8c62-108589442604@linux.microsoft.com>
+Date: Thu, 30 Jan 2025 15:15:01 +0530
 MIME-Version: 1.0
-From: Naresh Kamboju <naresh.kamboju@linaro.org>
-Date: Thu, 30 Jan 2025 15:01:21 +0530
-X-Gm-Features: AWEUYZmjjTJhG4gbVvsZPMKcHyLA3_iG79mE5k3okwZmPnMLWYy8tDLAX5wqlig
-Message-ID: <CA+G9fYtNfM399_=_ff81zeRJv=0+z7oFJfPGmJgTp6yrJmU+1w@mail.gmail.com>
-Subject: linux: master: x86_64: gcc-8: error: call to '__compiletime_assert_909'
- declared with attribute error: clamp() low limit dsc_min_bpc * 3 greater than
- high limit dsc_max_bpc * 3
-To: lkft-triage@lists.linaro.org, open list <linux-kernel@vger.kernel.org>, 
-	Linux Regressions <regressions@lists.linux.dev>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>
-Cc: David Laight <david.laight@aculab.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Dan Carpenter <dan.carpenter@linaro.org>, Anders Roxell <anders.roxell@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/8] unwind: build kernel with sframe info
+To: Weinan Liu <wnliu@google.com>, Josh Poimboeuf <jpoimboe@kernel.org>,
+ Steven Rostedt <rostedt@goodmis.org>, Indu Bhagat <indu.bhagat@oracle.com>,
+ Peter Zijlstra <peterz@infradead.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, roman.gushchin@linux.dev,
+ Will Deacon <will@kernel.org>, Ian Rogers <irogers@google.com>,
+ linux-toolchains@vger.kernel.org, linux-kernel@vger.kernel.org,
+ live-patching@vger.kernel.org, joe.lawrence@redhat.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20250127213310.2496133-1-wnliu@google.com>
+ <20250127213310.2496133-2-wnliu@google.com>
+Content-Language: en-US
+From: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
+In-Reply-To: <20250127213310.2496133-2-wnliu@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_013134_548150_5ACDF0BF 
-X-CRM114-Status: UNSURE (   6.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250130_014508_728831_8071EF4C 
+X-CRM114-Status: GOOD (  20.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,94 +75,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The x86_64 and i386 build failed with defconfig with gcc-8 toolchain due to
-following build warnings / errors on the Torvalds Linux master branch.
-But gcc-13 builds pass.
 
-First seen on v6.13-9485-g72deda0abee6 on Jan. 27, 2025
-Good:  v6.13-7644-gc2da8b3f914f on Jan. 27, 2025
-Bad:  v6.13-8265-g9c5968db9e62 on Jan. 27, 2025
+On 28-01-2025 03:03, Weinan Liu wrote:
+> Use the -Wa,--gsframe flags to build the code, so GAS will generate
+> a new .sframe section for the stack trace information.
+> Currently, the sframe format only supports arm64 and x86_64
+> architectures. Add this configuration on arm64 to enable sframe
+> unwinder in the future.
+>
+> Signed-off-by: Weinan Liu <wnliu@google.com>
+> ---
+>   Makefile                          |  6 ++++++
+>   arch/Kconfig                      |  8 ++++++++
+>   arch/arm64/Kconfig.debug          | 10 ++++++++++
+>   include/asm-generic/vmlinux.lds.h | 12 ++++++++++++
+>   4 files changed, 36 insertions(+)
+>
+> diff --git a/Makefile b/Makefile
+> index b9464c88ac72..35200c39b98d 100644
+> --- a/Makefile
+> +++ b/Makefile
+> @@ -1064,6 +1064,12 @@ ifdef CONFIG_CC_IS_GCC
+>   KBUILD_CFLAGS   += -fconserve-stack
+>   endif
+>   
+> +# build with sframe table
+> +ifdef CONFIG_SFRAME_UNWIND_TABLE
+> +KBUILD_CFLAGS	+= -Wa,--gsframe
+> +KBUILD_AFLAGS	+= -Wa,--gsframe
+> +endif
+> +
+>   # change __FILE__ to the relative path to the source directory
+>   ifdef building_out_of_srctree
+>   KBUILD_CPPFLAGS += $(call cc-option,-fmacro-prefix-map=$(srcroot)/=)
+> diff --git a/arch/Kconfig b/arch/Kconfig
+> index 6682b2a53e34..ae70f7dbe326 100644
+> --- a/arch/Kconfig
+> +++ b/arch/Kconfig
+> @@ -1736,4 +1736,12 @@ config ARCH_WANTS_PRE_LINK_VMLINUX
+>   	  An architecture can select this if it provides arch/<arch>/tools/Makefile
+>   	  with .arch.vmlinux.o target to be linked into vmlinux.
+>   
+> +config AS_HAS_SFRAME_SUPPORT
+> +	# Detect availability of the AS option -Wa,--gsframe for generating
+> +	# sframe unwind table.
+> +	def_bool $(cc-option,-Wa$(comma)--gsframe)
+> +
+> +config SFRAME_UNWIND_TABLE
+> +	bool
+> +
+>   endmenu
+> diff --git a/arch/arm64/Kconfig.debug b/arch/arm64/Kconfig.debug
+> index 265c4461031f..ed619fcb18b3 100644
+> --- a/arch/arm64/Kconfig.debug
+> +++ b/arch/arm64/Kconfig.debug
+> @@ -20,4 +20,14 @@ config ARM64_RELOC_TEST
+>   	depends on m
+>   	tristate "Relocation testing module"
+>   
+> +config SFRAME_UNWINDER
+> +	bool "Sframe unwinder"
+> +	depends on AS_HAS_SFRAME_SUPPORT
+> +	depends on 64BIT
+> +	select SFRAME_UNWIND_TABLE
+> +	help
+> +	  This option enables the sframe (Simple Frame) unwinder for unwinding
+> +	  kernel stack traces. It uses unwind table that is direclty generated
+> +	  by toolchain based on DWARF CFI information
+> +
+>   source "drivers/hwtracing/coresight/Kconfig"
+> diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
+> index 54504013c749..6a437bd084c7 100644
+> --- a/include/asm-generic/vmlinux.lds.h
+> +++ b/include/asm-generic/vmlinux.lds.h
+> @@ -469,6 +469,8 @@ defined(CONFIG_AUTOFDO_CLANG) || defined(CONFIG_PROPELLER_CLANG)
+>   		*(.rodata1)						\
+>   	}								\
+>   									\
+> +	SFRAME								\
+> +									\
+>   	/* PCI quirks */						\
+>   	.pci_fixup        : AT(ADDR(.pci_fixup) - LOAD_OFFSET) {	\
+>   		BOUNDED_SECTION_PRE_LABEL(.pci_fixup_early,  _pci_fixups_early,  __start, __end) \
+> @@ -886,6 +888,16 @@ defined(CONFIG_AUTOFDO_CLANG) || defined(CONFIG_PROPELLER_CLANG)
+>   #define TRACEDATA
+>   #endif
+>   
+> +#ifdef CONFIG_SFRAME_UNWIND_TABLE
+> +#define SFRAME							\
+> +	/* sframe */						\
+> +	.sframe        : AT(ADDR(.sframe) - LOAD_OFFSET) {	\
+> +		BOUNDED_SECTION_BY(.sframe, _sframe_header)	\
+> +	}
+> +#else
+> +#define SFRAME
+> +#endif
+> +
+>   #ifdef CONFIG_PRINTK_INDEX
+>   #define PRINTK_INDEX							\
+>   	.printk_index : AT(ADDR(.printk_index) - LOAD_OFFSET) {		\
 
-i386:
-  build:
-    * gcc-8-i386_defconfig
+Looks good to me.
 
-x86_64:
-  build:
-    * gcc-8-x86_64_defconfig
+Reviewed-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>.
 
-Reported-by: Linux Kernel Functional Testing
-
-Build log:
----
-make --silent --keep-going --jobs=8
-O=/home/tuxbuild/.cache/tuxmake/builds/1/build ARCH=x86_64 SRCARCH=x86
-CROSS_COMPILE=x86_64-linux-gnu- 'CC=sccache x86_64-linux-gnu-gcc'
-'HOSTCC=sccache gcc'
-In file included from <command-line>:
-In function 'intel_dp_dsc_compute_pipe_bpp_limits.isra.80',
-    inlined from 'intel_dp_compute_config_limits' at
-drivers/gpu/drm/i915/display/intel_dp.c:2547:3:
-include/linux/compiler_types.h:542:38: error: call to
-'__compiletime_assert_909' declared with attribute error: clamp() low
-limit dsc_min_bpc * 3 greater than high limit dsc_max_bpc * 3
-  _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-                                      ^
-include/linux/compiler_types.h:523:4: note: in definition of macro
-'__compiletime_assert'
-    prefix ## suffix();    \
-    ^~~~~~
-include/linux/compiler_types.h:542:2: note: in expansion of macro
-'_compiletime_assert'
-  _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-  ^~~~~~~~~~~~~~~~~~~
-include/linux/build_bug.h:39:37: note: in expansion of macro
-'compiletime_assert'
- #define BUILD_BUG_ON_MSG(cond, msg) compiletime_assert(!(cond), msg)
-                                     ^~~~~~~~~~~~~~~~~~
-include/linux/minmax.h:188:2: note: in expansion of macro 'BUILD_BUG_ON_MSG'
-  BUILD_BUG_ON_MSG(statically_true(ulo > uhi),    \
-  ^~~~~~~~~~~~~~~~
-include/linux/minmax.h:195:2: note: in expansion of macro '__clamp_once'
-  __clamp_once(type, val, lo, hi, __UNIQUE_ID(v_), __UNIQUE_ID(l_),
-__UNIQUE_ID(h_))
-  ^~~~~~~~~~~~
-include/linux/minmax.h:206:28: note: in expansion of macro '__careful_clamp'
- #define clamp(val, lo, hi) __careful_clamp(__auto_type, val, lo, hi)
-                            ^~~~~~~~~~~~~~~
-drivers/gpu/drm/i915/display/intel_dp.c:2506:25: note: in expansion of
-macro 'clamp'
-  limits->pipe.max_bpp = clamp(limits->pipe.max_bpp, dsc_min_bpc * 3,
-dsc_max_bpc * 3);
-                         ^~~~~
-make[7]: *** [scripts/Makefile.build:194:
-drivers/gpu/drm/i915/display/intel_dp.o] Error 1
-
-
-Links:
----
- build log: https://qa-reports.linaro.org/lkft/linux-mainline-master/build/v6.13-9485-g72deda0abee6/testrun/27066663/suite/build/test/gcc-8-x86_64_defconfig/log
- details: https://qa-reports.linaro.org/lkft/linux-mainline-master/build/v6.13-9485-g72deda0abee6/testrun/27066663/suite/build/test/gcc-8-x86_64_defconfig/details/
- history: https://qa-reports.linaro.org/lkft/linux-mainline-master/build/v6.13-9485-g72deda0abee6/testrun/27066663/suite/build/test/gcc-8-x86_64_defconfig/history/
-
-Steps to reproduce:
-------------
-$ tuxmake --runtime podman --target-arch x86_64 --toolchain gcc-8
---kconfig x86_64_defconfig
-
-metadata:
----
-  git describe: v6.13-9485-g72deda0abee6
-  git repo: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
-  git sha: 72deda0abee6e705ae71a93f69f55e33be5bca5c
-  kernel config:
-https://storage.tuxsuite.com/public/linaro/lkft/builds/2sKEcVft7ytiSSvOSnAuAxlCgRH/config
-  build url: https://storage.tuxsuite.com/public/linaro/lkft/builds/2sKEcVft7ytiSSvOSnAuAxlCgRH/
-  toolchain: gcc8
-  config: gcc-8-defconfig
-  arch: i386 and x86_64
-
---
-Linaro LKFT
-https://lkft.linaro.org
 
