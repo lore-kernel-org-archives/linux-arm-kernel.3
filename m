@@ -4,69 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7841C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 23:42:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F654C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 23:43:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q+vcircnt8u7rSNQKFmfCOYwmnEC48+y3xYGBpBwRHI=; b=q5pkACyNMQdN+3S/Go2nlViJ+5
-	gaEj3xGdT3SdhuWHEIQ9h8QYVFvOVWU60stiv1hrOaaijtRKEjRs60KaYJ+kymPsWzFWgIa3HFhXQ
-	w/MqEUhY/JmUYu8Sf7QWI01LeS8hznXo/tomSzawrHK8NYgZOMPcmUM3rvl6E1iGkTbQVhHDYs2yU
-	+7rWlEB+9t7B6H/XvpUrMLp/y4l0ju+zKCFdcJRU2ZNgtqLF07D2x2nnsI54qYo7Tl8KqborWjH6x
-	aZcpbsPsvJQyGloPjsfGwfrwnakuaMGAh+dEQ+eZCDWRmaeYE/Bc24p3p3DpmHsE5Mc3+yiK38Tzz
-	RXj4kfmQ==;
+	bh=HxLIs3YqM7E3q6wIngx9JrkjvQnejbBYunb+Yu3nFAw=; b=OJFRBLikj+omHYKI1XgeTXP3cd
+	tBohRU4zKOdo8HsZju8M48YZMDcAhCH0/j0Uy4QJFz6qsNfNbSXhM3RbCfFvxUcIwNQ1db9Z1Fq6U
+	7w/Yv/bo4AyS7kZLbUq8kKTgEchbsSqr3e2rKCJyBSwfvKf3Huw2io5yAtTF4zKcH2HsxtytsQeKX
+	Z7jFG7M9iUG/SGfs2YowTj7OKSJUpYVhEMTwNZZI/XIAIK4DfFGkWewJg17u12jR+g2wrvGx1xS0s
+	0Q61DZoLALg+zjlvg/YzM9nkY9LhvqFFc76eY5evalSPaq2MU8XC1wRC0Kb5diT+eCn8qy+MdGhFi
+	HAi4/GRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdeAi-00000009oDA-2eQe;
-	Thu, 30 Jan 2025 23:42:08 +0000
+	id 1tdeBz-00000009oOm-2Io9;
+	Thu, 30 Jan 2025 23:43:27 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tde6q-00000009nid-0Cca;
-	Thu, 30 Jan 2025 23:38:09 +0000
+	id 1tde6r-00000009nj5-0UfU;
+	Thu, 30 Jan 2025 23:38:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 85632A4258D;
-	Thu, 30 Jan 2025 23:36:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0A0BC4CED2;
-	Thu, 30 Jan 2025 23:38:06 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id C2E7AA42530;
+	Thu, 30 Jan 2025 23:36:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16BFFC4CEE1;
+	Thu, 30 Jan 2025 23:38:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738280286;
-	bh=HjJYBTW0IoZ0H/z1rvQ5WqWeGTuLb26yUom1+Nax96I=;
+	s=k20201202; t=1738280288;
+	bh=8yZNBiKUbE5MlUbaWMZLLsW0PfS5yFHCz4qlV3sF6NE=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=AZa+QhU6He2ZKIaqTsDg3KAsdcQ09dTlw80gm1uBOcOb0JS4w82cGz1mPvDmuZawG
-	 dbhO1Mhwu1huDDQVR6lTqSJMIAF1DX4zHKDyq2/fH0dUEysxOtxJEyhT82Elw7N0Rs
-	 qHoSplFspUrolqBVHylHL+K/pHFiSZ9/2gAcuDsRpNvqhjN4TRup1ro2gjMnh0UfC5
-	 gqDcaByhH+5Hhn6QE+RiF3+uf53hCjfqK+cY+FgvJ/zDbZYK+Y9669S1Bz8H4CSIWp
-	 CQGjyLbWJyRkk1satxl1oQEiaPPaKsh4K4LOWw9XjD4tAbeJZ/oYKe8xXDEjTh2qjx
-	 gmuqLy2DdmsUg==
-Date: Thu, 30 Jan 2025 17:38:05 -0600
-Content-Type: text/plain; charset="utf-8"
+	b=i4n146eY/eGPBqUTKrH5iQlVsQKVXhOUoINbo2AN1GSD04bIg06Y0FZ38ZgBmfla3
+	 Fpfobxkvkoc9aDBb5YYIDL2HXZSDE999v4CasK7XT0p17Z5nP3RsK5AqiiyH8Ai33c
+	 LHj21TkIRLBM+NVjWaMcV9QAQQ5bzLkmdzG9gp4iNOE4/yIjag46vmuX2o7Ei7+Q1H
+	 BqTA3qZkGZjKV3gyaZodzhSZR/oX2/59IMvuVgp0niqRJDJWeIYUzBaZHs2Cc8iwTT
+	 Y65z09AOZJ7WNZhFWIvebgxDCKXVH2gZ8S+62lRTmkpSVklZmqX1fiTfhPjA6THk05
+	 R+bHXX8yaJPxQ==
+Date: Thu, 30 Jan 2025 17:38:07 -0600
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: dri-devel@lists.freedesktop.org, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, devicetree@vger.kernel.org, 
- David Airlie <airlied@gmail.com>, kernel@collabora.com, 
- Steven Price <steven.price@arm.com>, linux-kernel@vger.kernel.org, 
- Maxime Ripard <mripard@kernel.org>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- linux-mediatek@lists.infradead.org, Thomas Zimmermann <tzimmermann@suse.de>, 
- Simona Vetter <simona@ffwll.ch>, 
- Boris Brezillon <boris.brezillon@collabora.com>, 
- linux-arm-kernel@lists.infradead.org
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-In-Reply-To: <20250130-mt8370-enable-gpu-v2-0-c154d0815db5@collabora.com>
-References: <20250130-mt8370-enable-gpu-v2-0-c154d0815db5@collabora.com>
-Message-Id: <173828013321.1872542.6559997266281744152.robh@kernel.org>
-Subject: Re: [PATCH v2 0/3] Add Mali GPU support for Mediatek MT8370 SoC
+Cc: linux-rockchip@lists.infradead.org, 
+ Kever Yang <kever.yang@rock-chips.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ Conor Dooley <conor+dt@kernel.org>
+To: Patrick Wildt <patrick@blueri.se>
+In-Reply-To: <Z5toOecuMiBXM6aF@windev.fritz.box>
+References: <Z5toOecuMiBXM6aF@windev.fritz.box>
+Message-Id: <173828013372.1872573.10900756653547163550.robh@kernel.org>
+Subject: Re: [PATCH 1/2] dt-bindings: arm: rockchip: Add MNT Reform 2
+ (RCORE)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_153808_231949_9692FEC3 
-X-CRM114-Status: GOOD (  20.90  )
+X-CRM114-CacheID: sfid-20250130_153809_285003_1E946A23 
+X-CRM114-Status: GOOD (  10.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,61 +75,13 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 30 Jan 2025 13:30:58 +0100, Louis-Alexis Eyraud wrote:
-> This patchset adds the support of the ARM Mali G57 MC2 GPU (Valhall-JM,
-> dual core), integrated in the Mediatek MT8370 SoC, to the panfrost driver
-> and to the mt8370.dtsi include file.
+On Thu, 30 Jan 2025 12:53:29 +0100, Patrick Wildt wrote:
+> Document board compatible bindings.
 > 
-> I've testing this patchset on a Mediatek Genio 510 EVK board,
-> with a kernel based on linux-next (tag: next-20250113) plus [1] patchset.
-> 
-> The panfrost driver probed with the following messages:
-> ```
-> panfrost 13000000.gpu: clock rate = 390000000
-> panfrost 13000000.gpu: mali-g57 id 0x9093 major 0x0 minor 0x0 status 0x0
-> panfrost 13000000.gpu: features: 00000000,000019f7, issues: 00000003,
->   80000400
-> panfrost 13000000.gpu: Features: L2:0x08130206 Shader:0x00000000
->   Tiler:0x00000809 Mem:0x1 MMU:0x00002830 AS:0xff JS:0x7
-> panfrost 13000000.gpu: shader_present=0x5 l2_present=0x1
-> [drm] Initialized panfrost 1.3.0 for 13000000.gpu on minor 0
-> ```
-> 
-> [1] https://lore.kernel.org/linux-mediatek/20250115-dts_mt8370-genio-510-v2-0-fc9b01d08834@collabora.com/
-> 
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> Signed-off-by: Patrick Wildt <patrick@blueri.se>
 > ---
-> Changes in v2:
-> - Rework "drm/panfrost: Add support for Mali on the MT8370 SoC" to avoid
->   data structure duplication, as requested by Krzysztof Kozlowski
-> - Reword commit messages to use imperative mood and make new compatible
->   need more explicit
-> - Link to v1: https://lore.kernel.org/r/20250116-mt8370-enable-gpu-v1-0-0a6b78e925c8@collabora.com
-> 
-> ---
-> Louis-Alexis Eyraud (3):
->       dt-bindings: gpu: mali-bifrost: Add compatible for MT8370 SoC
->       drm/panfrost: Add support for Mali on the MT8370 SoC
->       arm64: dts: mediatek: mt8370: Enable gpu support
-> 
->  Documentation/devicetree/bindings/gpu/arm,mali-bifrost.yaml | 5 ++++-
->  arch/arm64/boot/dts/mediatek/mt8370.dtsi                    | 9 +++++++++
->  drivers/gpu/drm/panfrost/panfrost_drv.c                     | 1 +
->  3 files changed, 14 insertions(+), 1 deletion(-)
-> ---
-> base-commit: 37136bf5c3a6f6b686d74f41837a6406bec6b7bc
-> change-id: 20250115-mt8370-enable-gpu-3b6f595fa63d
-> prerequisite-change-id: 20250113-dts_mt8370-genio-510-3560b8010ba9:v2
-> prerequisite-patch-id: af53ae39240467340ac4c9cdbc8fdd949c5457a2
-> prerequisite-patch-id: ca07485956f81c1a40029b48d2b4bcf00d74fc13
-> prerequisite-patch-id: c34d9870b2c61d87ad8a6facba13d8970682e679
-> prerequisite-patch-id: 48784acdcdd8b886fdec9f21c9cb88abb327e2e1
-> 
-> Best regards,
-> --
-> Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-> 
-> 
+>  Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
+>  1 file changed, 5 insertions(+)
 > 
 
 
@@ -154,18 +99,31 @@ make sure dt-schema is up to date:
   pip3 install dtschema --upgrade
 
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/mediatek/' for 20250130-mt8370-enable-gpu-v2-0-c154d0815db5@collabora.com:
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/rockchip/' for Z5toOecuMiBXM6aF@windev.fritz.box:
 
-arch/arm64/boot/dts/mediatek/mt8370-genio-510-evk.dtb: pinctrl@10005000: 'pcie-default' does not match any of the regexes: '-pins$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/pinctrl/mediatek,mt8188-pinctrl.yaml#
-arch/arm64/boot/dts/mediatek/mt8370-genio-510-evk.dtb: pmic: regulators: 'compatible' is a required property
-	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
-arch/arm64/boot/dts/mediatek/mt8370-genio-510-evk.dtb: pmic: '#sound-dai-cells', 'mt6359codec', 'mt6359rtc' do not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
-arch/arm64/boot/dts/mediatek/mt8370-genio-510-evk.dtb: mailbox@10320000: 'clock-names' is a required property
-	from schema $id: http://devicetree.org/schemas/mailbox/mediatek,gce-mailbox.yaml#
-arch/arm64/boot/dts/mediatek/mt8370-genio-510-evk.dtb: jpeg-decoder@1a040000: iommus: [[123, 685], [123, 686], [123, 690], [123, 691], [123, 692], [123, 693]] is too long
-	from schema $id: http://devicetree.org/schemas/media/mediatek-jpeg-decoder.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:355.39-358.4: Warning (clocks_property): /display-subsystem: Missing property '#clock-cells' in node /phy@fed60000 or bad phandle (referred from clocks[0])
+  also defined at arch/arm64/boot/dts/rockchip/rk3588-mnt-reform2.dts:200.20-203.3
+arch/arm64/boot/dts/rockchip/rk3588-mnt-reform2.dtb: display-subsystem: 'clock-names', 'clocks' do not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/display/rockchip/rockchip-drm.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-mnt-reform2.dtb: rk8602@42: Unevaluated properties are not allowed ('regulator-compatible', 'rockchip,suspend-voltage-selector' were unexpected)
+	from schema $id: http://devicetree.org/schemas/regulator/fcs,fan53555.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-mnt-reform2.dtb: rk8603@43: compatible: 'oneOf' conditional failed, one must be fixed:
+	['rockchip,rk8602', 'rockchip,rk8603'] is too long
+	'rockchip,rk8601' was expected
+	'rockchip,rk8603' was expected
+	'rockchip,rk8600' was expected
+	'rockchip,rk8602' was expected
+	from schema $id: http://devicetree.org/schemas/regulator/fcs,fan53555.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-mnt-reform2.dtb: rk8603@43: Unevaluated properties are not allowed ('compatible', 'regulator-compatible', 'rockchip,suspend-voltage-selector' were unexpected)
+	from schema $id: http://devicetree.org/schemas/regulator/fcs,fan53555.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-mnt-reform2.dtb: hdmi@fde80000: Unevaluated properties are not allowed ('enable-gpios' was unexpected)
+	from schema $id: http://devicetree.org/schemas/display/rockchip/rockchip,rk3588-dw-hdmi-qp.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-mnt-reform2.dtb: pmic@0: regulators:dcdc-reg4: Unevaluated properties are not allowed ('regulator-init-microvolt' was unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/rockchip,rk806.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-mnt-reform2.dtb: pmic@0: Unevaluated properties are not allowed ('pmic-reset-func', 'regulators', 'rk806_dvs1_pwrdn', 'rk806_dvs1_rst', 'rk806_dvs1_slp', 'rk806_dvs2_dvs', 'rk806_dvs2_gpio', 'rk806_dvs2_null', 'rk806_dvs2_pwrdn', 'rk806_dvs2_rst', 'rk806_dvs2_slp', 'rk806_dvs3_dvs', 'rk806_dvs3_gpio', 'rk806_dvs3_null', 'rk806_dvs3_pwrdn', 'rk806_dvs3_rst', 'rk806_dvs3_slp' were unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/rockchip,rk806.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-mnt-reform2.dtb: codec@1a: Unevaluated properties are not allowed ('port' was unexpected)
+	from schema $id: http://devicetree.org/schemas/sound/wlf,wm8960.yaml#
 
 
 
