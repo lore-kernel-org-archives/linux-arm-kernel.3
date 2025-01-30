@@ -4,76 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F56AC0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 13:19:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 034D9C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 13:20:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3XBh4hIJYoTtazxtb7vFMonFQ/HS5W/ASu2QqjS4HZk=; b=Ds6BpsVizQ9JQeTbp992LG6K3i
-	wcMdDBo1t3JAY2X6Q/6/Gy9ghfcsPxb3N/mBusra87XicXhMf+JlS8rZLzXhc509vsgOirgltE9Th
-	zg3AFvPtMysKVNCt+a75Vtw3sC848u45zIY0Ezyl5BBbkTJDeJSRIDyh+uX/OgJQ2tItNk4QfBy4A
-	dhfYWyT91yg6xJWy2S+EJ0IsaSF+fUjSzRinKbhMwrJ01pbM5IYNaSZAmSZt8f86gFxsOFWU2ybwO
-	e6l6AFUM+AUqqUIIcEQMKpaBWxc1PUn1iScwVn6kSvlkHc66lfTLtIxBwKccrYxY4jB6XrF0W5s+3
-	7nmAqQgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nuAXux8LlG70kzoPLga/JauwL57jQBIg2zHB/i8r2hg=; b=hlfaiyh59d/VLVf+2i6S1NSfk2
+	OdcvzP8lUM+pPDxt1D9zAsVqAO5USpT4dj0Iwo1z+Q+aklxE1L6Y60Se+Nij0NDpF8oXU7Kn8AV25
+	J6O+XU16a7J9N+n3qSn1N3QC18jvKDiN5Qg3Qy/qGukArOUUNs7dc9TupLxa98x+rKzLTg2tKbAHt
+	AfGwZz+act3nAds9FXORmugdoG5ycDm1HWKwAiMmi9MfaXgiw3PwypRo8M8yzLwDnVfdL4PGcGDwl
+	e4XQWlhaMpGTPlVUdLXI7k9py68A0625B54gVRnRf+/ANJUyITt902wNmN0daxyPYKiA42TkqlCg6
+	9g8fWYsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdURr-00000008qVH-3UIa;
-	Thu, 30 Jan 2025 13:19:11 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tdUT9-00000008qmD-3gNf;
+	Thu, 30 Jan 2025 13:20:31 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdULf-00000008phe-44vh;
-	Thu, 30 Jan 2025 13:12:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1738242764;
-	bh=pxk9h7dFK39OlqAfR/Md36k2wE+twrpEngJF4ySdnb0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gow9Ff1hkJeg3hH8d13gx3EItuszok/MRtfYOvE44E6b1PAINEmoQS9RHrP/Vgwuc
-	 ozkCnO3u4EuXrSrk+ZTVLdHREO/SG2cWkoTf1Jx6KarmaFjGPpsMoFTsqOAF99gOB5
-	 FnCbyiH47SdbXh/d64BEIVBvMOVsKtgNvURS/LVbUlD/IZRpo93100vxl1vUebi+6y
-	 xPeGfBKNRviJb23NEBfnhqlBOvWDfxEM8ICM9RwhhVgt3QmCxZnFri9bAUJviBTH+M
-	 yxQnKQfcoD+r+kFVQkAfDMNJDmxR+0YFP/stZpJRRiCB7NJp2vtRMyWqQnvwcDyyFd
-	 g3z8FSHEfAW2g==
-Received: from notapiano (unknown [IPv6:2804:14c:1a9:53ee::1001])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id F008717E1067;
-	Thu, 30 Jan 2025 14:12:41 +0100 (CET)
-Date: Thu, 30 Jan 2025 10:12:39 -0300
-From: =?utf-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>
-To: Trevor Wu =?utf-8?B?KOWQs+aWh+iJryk=?= <Trevor.Wu@mediatek.com>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"kernel@collabora.com" <kernel@collabora.com>,
-	"linux-sound@vger.kernel.org" <linux-sound@vger.kernel.org>,
-	"broonie@kernel.org" <broonie@kernel.org>,
-	"tiwai@suse.com" <tiwai@suse.com>,
-	"lgirdwood@gmail.com" <lgirdwood@gmail.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"perex@perex.cz" <perex@perex.cz>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Subject: Re: [PATCH] ASoC: mediatek: mt8188: Enable apll1 clock during reg rw
- to prevent hang
-Message-ID: <0b45b2c9-d65f-4fc7-a1ce-dbb145899d7b@notapiano>
-References: <20241203-mt8188-afe-fix-hang-disabled-apll1-clk-v1-1-07cdd7760834@collabora.com>
- <a10dbdf265194e77a69b6e40afa3df9636b3ab14.camel@mediatek.com>
- <a70a0521-985d-43a4-a1fa-36eb733d5ca9@collabora.com>
- <1d2ee55dde84bcab6f777525042c6789b9f2c1fc.camel@mediatek.com>
- <108d4187-26af-43f6-8b1e-0e48516524a4@notapiano>
- <57cf1810250d922ee01b9eff096c945c5c3a1375.camel@mediatek.com>
+	id 1tdUPF-00000008q5r-3y2d;
+	Thu, 30 Jan 2025 13:16:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3BAE95C5DD1;
+	Thu, 30 Jan 2025 13:15:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A171C4CED2;
+	Thu, 30 Jan 2025 13:16:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738242989;
+	bh=nuAXux8LlG70kzoPLga/JauwL57jQBIg2zHB/i8r2hg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jV31mDTieR0FLBzs7KPDFmUjOJUGk9SHHdVF7cVTiD/9ImaHBXZSE4JJw15NTCz4A
+	 UkxvUU33y15VkMGKmShqYjjZpXHTNV+Sphx//2YMjucJFDN3FbUwfp/a/AxpEtRctD
+	 Q+UrUY4XbWI/UGFPfhoSNQelhJnlgCNtlWd2xHOM6rxRxItdwL1DOaAMxR5LUWY9IB
+	 GeGD9PtCABkFHx+sCIhst1DbOgHRk+SFUBB4gZzF1oL2LT4qdSrGdwne56qoJHUgqt
+	 y+EnOXCfs7FI47VJDnuUlcbv4Ntvsbbges66bh5CFqjAopVSyLBdkyD6EOEJ2dCfly
+	 u/0x/HGUysSpg==
+Message-ID: <8e905adf-118f-4cd7-9233-61397d72409b@kernel.org>
+Date: Thu, 30 Jan 2025 14:16:19 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <57cf1810250d922ee01b9eff096c945c5c3a1375.camel@mediatek.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/3] dt-bindings: gpu: mali-bifrost: Add compatible for
+ MT8370 SoC
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ Steven Price <steven.price@arm.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20250130-mt8370-enable-gpu-v2-0-c154d0815db5@collabora.com>
+ <20250130-mt8370-enable-gpu-v2-1-c154d0815db5@collabora.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250130-mt8370-enable-gpu-v2-1-c154d0815db5@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_051248_196498_065248D3 
-X-CRM114-Status: GOOD (  57.38  )
+X-CRM114-CacheID: sfid-20250130_051630_079894_4672B052 
+X-CRM114-Status: UNSURE (   8.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,205 +128,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 11, 2024 at 01:47:32PM +0000, Trevor Wu (吳文良) wrote:
-> On Mon, 2024-12-09 at 17:07 -0300, Nícolas F. R. A. Prado wrote:
-> > External email : Please do not click links or open attachments until
-> > you have verified the sender or the content.
-> > 
-> > 
-> > On Fri, Dec 06, 2024 at 06:57:00AM +0000, Trevor Wu (吳文良) wrote:
-> > > On Thu, 2024-12-05 at 13:51 +0100, AngeloGioacchino Del Regno
-> > > wrote:
-> > > > 
-> > > > 
-> > > > Il 04/12/24 13:17, Trevor Wu (吳文良) ha scritto:
-> > > > > On Tue, 2024-12-03 at 17:07 -0300, Nícolas F. R. A. Prado
-> > > > > wrote:
-> > > > > 
-> > > > > > 
-> > > > > > Currently, booting the Genio 700 EVK board with the MT8188
-> > > > > > sound
-> > > > > > platform driver configured as a module
-> > > > > > (CONFIG_SND_SOC_MT8188=m)
-> > > > > > results
-> > > > > > in a system hang right when the HW registers for the audio
-> > > > > > controller
-> > > > > > are read:
-> > > > > > 
-> > > > > >    mt8188-audio 10b10000.audio-controller: No cache defaults,
-> > > > > > reading
-> > > > > > back from HW
-> > > > > > 
-> > > > > > The hang doesn't occur with the driver configured as builtin
-> > > > > > as
-> > > > > > then
-> > > > > > the
-> > > > > > unused clocks are still enabled.
-> > > > > > 
-> > > > > > Enable the apll1 clock during register read/write to prevent
-> > > > > > the
-> > > > > > hang.
-> > > > > > 
-> > > > > > Signed-off-by: Nícolas F. R. A. Prado <
-> > > > > > nfraprado@collabora.com>
-> > > > > > ---
-> > > > > >   sound/soc/mediatek/mt8188/mt8188-afe-clk.c | 4 ++++
-> > > > > >   1 file changed, 4 insertions(+)
-> > > > > > 
-> > > > > > diff --git a/sound/soc/mediatek/mt8188/mt8188-afe-clk.c
-> > > > > > b/sound/soc/mediatek/mt8188/mt8188-afe-clk.c
-> > > > > > index
-> > > > > > e69c1bb2cb239596dee50b166c20192d5408be10..fb8cf286df3f02ac076
-> > > > > > 528b
-> > > > > > 898f
-> > > > > > d0d7a708ec1ea 100644
-> > > > > > --- a/sound/soc/mediatek/mt8188/mt8188-afe-clk.c
-> > > > > > +++ b/sound/soc/mediatek/mt8188/mt8188-afe-clk.c
-> > > > > > @@ -587,6 +587,8 @@ int mt8188_afe_enable_reg_rw_clk(struct
-> > > > > > mtk_base_afe *afe)
-> > > > > >          mt8188_afe_enable_clk(afe, afe_priv-
-> > > > > > > clk[MT8188_CLK_AUD_A1SYS_HP]);
-> > > > > > 
-> > > > > >          mt8188_afe_enable_clk(afe, afe_priv-
-> > > > > > > clk[MT8188_CLK_AUD_A1SYS]);
-> > > > > > 
-> > > > > > +       mt8188_afe_enable_clk(afe, afe_priv-
-> > > > > > > clk[MT8188_CLK_APMIXED_APLL1]);
-> > > > > > 
-> > > > > > +
-> > > > > >          return 0;
-> > > > > >   }
-> > > > > 
-> > > > > Hi Nicolas,
-> > > > > 
-> > > > > If I understand correctly, APLL1 should be the parent clock of
-> > > > > AUD_A1SYS_HP and AUD_A1SYS, so it should be enabled
-> > > > > automatically
-> > > > > by
-> > > > > CCF.
-> > > > > 
-> > > > > I'm not sure why you resolved the hang issue after enabling
-> > > > > APLL1.
-> > > > > Could you share more details about the solution?
-> > > > > 
-> > > > 
-> > > > Hmm. Now I see what's happening here...
-> > > > 
-> > > > Nicolas, Trevor,
-> > > > 
-> > > > Possible parents for top_a1sys_hp are:
-> > > >   - clk26m
-> > > >   - apll1_d4
-> > > > 
-> > > > ...what's happening here most probably is that after the clock
-> > > > gets
-> > > > disabled as
-> > > > unused, it gets parented to clk26m by default as that is parent
-> > > > index
-> > > > 0... and
-> > > > something else in AFE needs APLL1 to feed a clock to .. something
-> > > > ..
-> > > > to allow
-> > > > register access.
-> > > > 
-> > > > Trevor, do you know why is this IP unaccessible when A1SYS is
-> > > > parented to clk26m?
-> > > 
-> > > Hi Angelo,
-> > > 
-> > > As far as I know, it should work even though the clock is parented
-> > > to
-> > > clk26m.
-> > > 
-> > > Unfortunately, I have no idea about why APLL1 enabling can resolve
-> > > the
-> > > hang issue. I'm also curious about how Nicolas found the solution
-> > > to
-> > > resolve the problem.
-> > > 
-> > > From the description, it seems that the problem is related to
-> > > register
-> > > r/w hang. If I remembered correctly, when the mtcmos of ADSP_INFRA
-> > > is
-> > > ON, register r/w won't cause the cpu to hang. However, ADSP_INFRA
-> > > has
-> > > been configured as ALWAYS_ON in the driver. I'm not sure if it
-> > > doesn't
-> > > work correctly when the driver is configured as a module. Maybe
-> > > Nicolas
-> > > can also check this.
-> > 
-> > Indeed, as suggested by Angelo, adding
-> > 
-> >   assigned-clocks = <&topckgen CLK_TOP_A1SYS_HP>;
-> >   assigned-clock-parents = <&topckgen CLK_TOP_APLL1_D4>;
-> > 
-> > to the afe node also fixes this issue.
-> > 
-> > In mt8188.dtsi, we currently have
-> > 
-> >   afe: audio-controller@10b10000 {
-> >         ...
-> >         assigned-clocks = <&topckgen CLK_TOP_A1SYS_HP>;
-> >         assigned-clock-parents =  <&clk26m>;
-> > 
-> > So the question is, do other MT8188 platforms need clk26m to be the
-> > parent of
-> > a1sys_hp? Depending on that I can either update the parent on the
-> > common
-> > mt8188.dtsi or on the genio700-evk.dts, which is where I observed the
-> > issue. I
-> > don't have access to other mt8188 platforms. Trevor, do you know?
-> 
-> 
-> If I remember correctly, the reason for assigning 26m as the parent of
-> a1sys_hp is to save power[1], as APLL is not necessary in all cases.
-> 
-> [1] 
-> https://lore.kernel.org/r/20230510035526.18137-5-trevor.wu@mediatek.com
+On 30/01/2025 13:30, Louis-Alexis Eyraud wrote:
+> Adds a compatible for the MediaTek MT8370 SoC, with an
+> integrated ARM Mali G57 MC2 GPU (Valhall-JM, dual core).
+> This new compatible is needed for this SoC support, as the other
+> existing compatibles for the same architecture (MT8188, MT8192) do not
+> match the required power domain number.
 
-Hi,
 
-Following the suggestions, I have enabled the debug logs in 
-mt8188-afe-clk.c, though that didn't reveal anything (the logs are only printed
-in case of errors, so there are none). I also verified that forcing the
-ADSP_INFRA power domain to be powered on during boot (and before these register
-reads occur) doesn't change anything (this domain is marked as ALWAYS_ON, so
-normally assumed to already be on and not touched).
+That's the only different? So device is compatible with older ones.
 
-I've also narrowed the issue further. The hang happens in
-
-mt8188_afe_pcm_dev_probe()
-  devm_regmap_init_mmio()
-    regcache_hw_init()
-
-specifically in the "fill the reg_defaults" loop.
-
-What's more, it doesn't happen for every register, but rather a few specific
-ones.
-
-The following register reads caused the hang:
-0x280
-0x410 (AFE_GAIN1_CON0)
-0x830 (AFE_CONN0_5)
-
-The following ranges were read without a problem:
-0x0   (AUDIO_TOP_CON0)     ... 0x27c
-0x380 (AFE_SPDIF_OUT_CON0) ... 0x40c
-0x550 (SPDIFIN_FREQ_INFO)  ... 0x82c
-
-And again, if I enable the apll1 clock in mt8188_afe_enable_reg_rw_clk(), as
-done in this patch, or parent a1sys_hp to apll1_d4 in the AFE DT node, then
-those registers are read without any hangs.
-
-So it seems that certain registers require the apll1 clock to be enabled
-in order to be read, while others don't. Trevor, is the dependency between those
-specific registers and the apll1 clock documented anywhere?
-
-Unless there's a better solution, I think we should go forward with either
-this patch or the DT clock parenting suggested by Angelo, as the power savings
-come second to the machine actually being bootable.
-
-Thanks,
-Nícolas
+Best regards,
+Krzysztof
 
