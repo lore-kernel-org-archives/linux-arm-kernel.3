@@ -4,99 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00813C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 22:02:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92F3FC0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 22:17:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cBlNXsRHjI4Icc/cJrwUE5dS89XMGKvK0YRLR8DFXAg=; b=XacY2/WkBgy9xdSALnPg9SRl4j
-	ieREwaCeh25tupNszO0wv/eT2r60uMA1fPbrZjipewhidGybs9EoQcIlRvSgV/1iJrS7JUe9SLWMl
-	+qGuTT/xIOfrnAItw8Gmf+eZsyI7OHn9adJ6FFrz/dspt29+yZ4ANl2y5GtJ4jAmk6o9Hk+0kLBnQ
-	7kkV4l1XHFeUcvBiifQDCY5HRanStghUWsPiXOswGK+S/mf9wkQqBTWBucFEnZAEh67D0qEvVOFvL
-	cDEOX2hT8IGj57e5z5mrLvKAPcbYtfyiKBWRj8B79AiY6t4cotk33x7SGHM8dW+oOdwPLWYugp9N5
-	AY9arhcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:
+	Content-Type:Date:Content-Transfer-Encoding:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HPP1IHL/Wned6/wBxQKYoPlPgI9xes/RiyzOVMbDZTM=; b=mOARoE5rrMo3dpEqnaCI3yN5Og
+	1bx0sFzQvTv20LxF1uu3xz76tyM/lNrt8MSH3O5hFezOBg5jn7Mnbf8XyQiOcz9SCQEz5UanJTqoe
+	hXVt56gaHd+jYnTeH7WJL++Ynk60SWxebdN6JF5XfCiSeu/wqDWdFlrGUjKOOYR30EAKfJBo53zZz
+	MLYZS0GZD7t7+ZvQcDvXn75XS/X3YN3zJK0xh//Jn6nA9QMNMukWqlWPdeKQgiSybhNqtVnmgWznb
+	Do0L58sUEtvf2J2P0qAnvu9LbOLnk6bDZ9jmlY6qctQpuEa3uWiYm4FkCjmDFH8xjQ+rVx2NVbEgU
+	UBLnYifQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdccZ-00000009grO-3OQd;
-	Thu, 30 Jan 2025 22:02:47 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1tdcqL-00000009hrr-14JT;
+	Thu, 30 Jan 2025 22:17:01 +0000
+Received: from mail-southindiaazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c409::1] helo=MA0PR01CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdcbG-00000009glC-22RZ
+	id 1tdcp1-00000009hmL-2LmV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jan 2025 22:01:27 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-54287a3ba3cso2288578e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jan 2025 14:01:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738274484; x=1738879284; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cBlNXsRHjI4Icc/cJrwUE5dS89XMGKvK0YRLR8DFXAg=;
-        b=n9nUuAsEFzZGkPmLn9H4i0zBR7YjCfmudQidtnaJAe3PNJP9DhuhRvEqW8XuzFcx28
-         La0eb7pdXxLObuKDahK6MggE6WNMoa0GZPNdlw54UxXAs5Y/dG2p40OdKcsoe2hfP8au
-         n5yKcbqgWNeCkFey+27npuXFo/5Su2vuZvGGqPUPs/FZ/Q/HN/2uvbABKFgVHtaxrgGK
-         PcjCRtU0K1ZnKdODQXxVUUrxIhCqusZGoGSbsURlf06FIoCSnYkFpkgSWFWLD50R89Yk
-         XJlW6WyO7BCIkvjfGXaXvA5YW/DQAkDzHLJNvRxnAwYLus2S0iTej6JgDFq5NKlwEFq7
-         Vw0A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738274484; x=1738879284;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cBlNXsRHjI4Icc/cJrwUE5dS89XMGKvK0YRLR8DFXAg=;
-        b=hc+s5efxap59H5nJ9GrvwnvaQ6pdga4pBZ/E/7EoXlLhfYRvn2nhi+Jvm8BjsK/5Az
-         /3vuJB3lY1ixvz/9qgVJ2GvhMmQToJn5LwdBFZStQcoGCkEUdEy6hvv1puug3xt4cioJ
-         rVMpYtgzp4rW3ZzHMa2tZdOQ+1btcKYlV9cISNvnuf/AdPeOdG2MJyvxOi5TE9pqBa+U
-         YeD2Tp9/6W5tlaDUhsFeESZgKmClzq0r+s7MZDhBG69LXsJ+bk7FFkYD1ptOrxaDOic7
-         Nz9eRmXw7PwnIi8M/Qyeh0r7AsHqZkPlu5Te9QTQJEEYDR6XOfXzi9M5Xj+fXd09Dg1I
-         T5sQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWRfaguDeVWTu5dNon9+dVR1O1MKjoYVqjv4lkSJ6BuURYIWEjpdeCBlViEy6Z4BA641DTJZTppEy11URII9bBc@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxp0rNDxHUVD2uHO+/GiHbju1ErmZTxW7ViKDvlwr0SsKZi9GMP
-	qXArClpIeWJqLFu0d1zqyZl2Ew5TXjhyZpXgRW5YpuLoSas+SfQCkua1owJTZaU=
-X-Gm-Gg: ASbGncubatKIt8F2G7+TmzhUFGQSmf/QememkEf9/hMppszMrdZDSE6/D1XpsZ3kFZA
-	29wJnQq1+nU8xdS+ezMhc3+0P0sKwBNXAA4xT7Tgep6M78aS3bupO6Kb1Lx1LPGvVtbDLwYzAVo
-	AydZoiwxZbGgnVTlRmlUMaUJMfP2xK8qY0wOnV3ysgiZhjr/enc/T/haMQuCV1QkKa5OH/SVJiP
-	N5KqOzW1ppY80bOGdoq6U6HUfH9Luhll5MXoH4SW4i5P86x6GT/JeYnPKfwic2oEWftLVUcGDNH
-	Wib6t4H9B3aVM6A+/00+5LmweW1q5J7ik1u2/kZB/LkaD64Sqlh8S9dBgO9YkxAH2hhE6Aw=
-X-Google-Smtp-Source: AGHT+IH4P4gNbyEayjwfxNHgKoxFSQta9sI/Y3L5cdMV5aw8SzodtwlXrZDsCpO0rA5Hkb9HY+WXJQ==
-X-Received: by 2002:ac2:53a1:0:b0:540:2fbb:22fe with SMTP id 2adb3069b0e04-543ea3fbcaamr1423019e87.26.1738274483663;
-        Thu, 30 Jan 2025 14:01:23 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-543ebe10625sm264424e87.78.2025.01.30.14.01.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Jan 2025 14:01:22 -0800 (PST)
-Date: Fri, 31 Jan 2025 00:01:20 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Detlev Casanova <detlev.casanova@collabora.com>
-Cc: linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Sebastian Reichel <sebastian.reichel@collabora.com>, Alexey Charkov <alchark@gmail.com>, 
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Jianfeng Liu <liujianfeng1994@gmail.com>, 
-	Dragan Simic <dsimic@manjaro.org>, FUKAUMI Naoki <naoki@radxa.com>, 
-	Johan Jonker <jbx6244@gmail.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Sugar Zhang <sugar.zhang@rock-chips.com>, Algea Cao <algea.cao@rock-chips.com>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	dri-devel@lists.freedesktop.org, kernel@collabora.com
-Subject: Re: [PATCH v3 1/2] drm/bridge: synopsys: Add audio support for
- dw-hdmi-qp
-Message-ID: <5j5kgecsmehbcslq6aickhnv4qpzxptzp62p4s3qamegmdnohc@oq6hmgf23jbq>
-References: <20250130165126.2292107-1-detlev.casanova@collabora.com>
- <20250130165126.2292107-2-detlev.casanova@collabora.com>
+	Thu, 30 Jan 2025 22:15:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BYSiwjd0OC7opgmnN7y4z425Te3oEExJ1hAqdmH0+pK3hDK2hlpaaXCpNRHmNjhg7uGI5zToTRLcJXz97q3SR1JC3yS88w0c/GLrwvsIPYRiJGwzUfgtYRhXKhNhlwbx54g85PO2+zlMKIA4Tbyf7HLP5qOyy8+VBuNVg+vJU2LpN9i1A8YWr+V3p3Xty5an6BufeaCefo3dfRJ5RWMLHv9v4wkk1OGwYZQpF1bu5YA2lkWM7qBcGU/YlDmBcY0frxxeewQLYbVnddnLndXkyHlG3XFEacoSGDRL32G+UkAsQ+8c2prht23qaN2zmc58+MQLd+DXo5qNQQokkocktA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HPP1IHL/Wned6/wBxQKYoPlPgI9xes/RiyzOVMbDZTM=;
+ b=xm17dItTI1KX+e8OFQipLP+oesY2PgqbK1PAcjxUVXlElVEtZ54X7Ij24wUY+p21E3OO95lBVRkemHvKFnFSs5Ay7wGdxdPBi5LJxWN6XdjGZim+0u0y6ulVeIv+1OHl7kKvKLlUAOOmWve9gEC1JVL7wAMjpdqGFTc4wJEFBprfeMUe0TKLpuvXX0iNQN+xNGqjFgGGIh7BkYL4IAmdQhiP0vfkeek/oYjGYuVY70waORZjTRxJqS+lbzoxlPoEI7jwnpx0+7WWDbhD7ipg0VKZVze/2/owDDo7FG7UM027MKG2kgnV4i2MuAKbt5mmYuuMV/P+1zq3ROKG982pgQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=expoinsightnetwork.info; dmarc=pass action=none
+ header.from=expoinsightnetwork.info; dkim=pass
+ header.d=expoinsightnetwork.info; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=expoinsightnetwork.info;
+Received: from PN1P287MB3741.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:250::5)
+ by PN3P287MB1577.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:191::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.20; Thu, 30 Jan
+ 2025 22:15:18 +0000
+Received: from PN1P287MB3741.INDP287.PROD.OUTLOOK.COM
+ ([fe80::4fd8:3302:964c:8213]) by PN1P287MB3741.INDP287.PROD.OUTLOOK.COM
+ ([fe80::4fd8:3302:964c:8213%4]) with mapi id 15.20.8398.018; Thu, 30 Jan 2025
+ 22:15:18 +0000
+From: abigail.reyes@expoinsightnetwork.info
+To: linux-arm-kernel@lists.infradead.org
+Subject: Lists - Automechanika Shanghai 2024
+Content-Transfer-Encoding: quoted-printable
+Date: Thu, 30 Jan 2025 22:15:11 +0000
+Content-Type: text/plain
+X-ClientProxiedBy: CH5PR03CA0010.namprd03.prod.outlook.com
+ (2603:10b6:610:1f1::20) To PN1P287MB3741.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:c01:250::5)
+Message-ID: <PN1P287MB374166F5660A86D3E4931BFBFFE92@PN1P287MB3741.INDP287.PROD.OUTLOOK.COM>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250130165126.2292107-2-detlev.casanova@collabora.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PN1P287MB3741:EE_|PN3P287MB1577:EE_
+X-MS-Office365-Filtering-Correlation-Id: da229a48-73b0-4b9f-508c-08dd417b9427
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|1800799024|376014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?xK7gpVMu+yw0T+VwfcHF9kHQwmkZ30rXLXTJCLpKgEE6pu78a0QQM4ow+PM/?=
+ =?us-ascii?Q?foGh1sjmlXpyR0U4pV0ZfYgaMq3Apjp3l5G5ApwQN7Ssqtg0eYYB8l4GzurR?=
+ =?us-ascii?Q?ppJghSQAD07hSj6BS/T355iDSGA46JfuyxfQ7XkQRtZ78oWu5cfyxB8gJkiL?=
+ =?us-ascii?Q?rkhaVaS0IGg+etHWLz/rNULmAU8bRz5cKlGJRvXUZJnGSrK1BlILcu15nWGs?=
+ =?us-ascii?Q?YhPzkZrUbjtTZsUScOzyNmXe+rGZAhE2BKAbYkuVZYjNvGS5beCzfvSNSDA7?=
+ =?us-ascii?Q?YWgyssG4UbtSJUqyErsw9x6yNbECzQdJPubvQKrKJxlzuLsuvYzQnvmgNFKX?=
+ =?us-ascii?Q?hi6Y0KvoYrLyDA2gyBfrVPCysDnzPUTNI6N7GGTR+kkZP8j6NpAxKNZD1GDU?=
+ =?us-ascii?Q?IsR2+NNdFp8yRFnKJ7iq5CZFE5S6se2mHadxR3TQYmNIJZ+M+y4eO6b5DjST?=
+ =?us-ascii?Q?DsoUSPNgqUwdtIIk4lsek6mZ9TvG1HeiUOdwtcKV6OE8WN3pWHXaTi4zNPhr?=
+ =?us-ascii?Q?9lPZQrgiV90f6YZgIoNmiW9jaNPaGYKWbKrNcOcdlzZ1OWN3AJbbCj+E3BmR?=
+ =?us-ascii?Q?lYsFt1hNck1n1A8p0tQijmVbiflN5vf1ZXbgQ2sv4h1vDz71T3euZzgiaRBI?=
+ =?us-ascii?Q?Ao/um5B8oZRBkDIZ4wKyYjWtnkaB9JkI5k4AykJztyeAW56/YEYFJKdWCQHV?=
+ =?us-ascii?Q?rZLP/mrXQFBFB63hoRUeVFZASwVAoqSd5izKvYBkooypyegKgw7ESBFRl9M4?=
+ =?us-ascii?Q?889UPf5S4Jk/vUAdEJJsWTq98DjrBYIE8Vwkz1ZOEQrUg1Aqkxzep21JoRBW?=
+ =?us-ascii?Q?iLoP4Cs2Ed5irA9HcmQYoB2xJiAnwo/NP+1p5eG0OVREDESMxaWIx4S+Zipn?=
+ =?us-ascii?Q?nxD7lODJ6M1TUzyHcuZHLO6u4LCruHYCp+g358xPlwBnGlWokDjyFanrrK/I?=
+ =?us-ascii?Q?N6FC9jUyMze8Q+rdSKiUfm1f4gkmfASwnj7XHkfQBupNKCtBJoBF66snHRmM?=
+ =?us-ascii?Q?KxHsSkPd60sHmvH1C/8x+xqkxDKUWlHv6/d9/h7DVdHAvPpgjjRJO9Ul2uO8?=
+ =?us-ascii?Q?m0WFLbndFks4QrgTg/6B1e64YREEeIavMYP8gJLKnq6+VEvjALFS25EZRcyn?=
+ =?us-ascii?Q?Hbtuh0Whw0gcR1aZtShBJNazAxJC4gcrWQsirfPBYlViLkVlTSksEmS1/OVT?=
+ =?us-ascii?Q?6beFLjF2sUXQvn7IgzFXMf2JCYnnQ+BpPAmncZalmUSLEe9YY3cZhk3hggiv?=
+ =?us-ascii?Q?u3w3t57Hkt2O8NnP0CbPnBIkJcKg02yqs0ze9cAY3/yx9Pn6qgmPS1mAzXsT?=
+ =?us-ascii?Q?eTq8E2oHFFL9Mlx4ATezZXU7SB/8XjVVR20mCeeb4nVqxe7h9Q9yLbm4QhMa?=
+ =?us-ascii?Q?V4EqgqZBUgY7jlBib99MNZLacH5HO34GztgXMD8pgadldqtb23MrunbFDy2Y?=
+ =?us-ascii?Q?s9KS050Y0ZgwlfgVKITSx4vOY3nuRqT2?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PN1P287MB3741.INDP287.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(52116014)(1800799024)(376014)(366016)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?wWNVLWELy12t3mZs09GPXQjlFUrRKkvQjkCViBdZHJGxYRzesSKgCpEWe39c?=
+ =?us-ascii?Q?QeaieIs+KUUbNDO8QkLgKI4Da/glo9YxXX/X+f0gzA/WsZ6o0FQVl5crf/sk?=
+ =?us-ascii?Q?5eZwNCi6a7AP0gx6F4ZFnS4ioLmLOE1HcblZq7ZD0zdbYDYWuXofMkadew2o?=
+ =?us-ascii?Q?7sy2TPVq2/WLaxCHxqLhguUKc1IQydQOkKn7TGub58qq8vKhh/6y3+e9pTba?=
+ =?us-ascii?Q?SLXUOqyzOb1mlIRWba+btoIvcFiMvlfOe6Ycd1JMEQtvkPixARCoUW4aHBfY?=
+ =?us-ascii?Q?74oqeJzJ2P649K0Rh0KqKp2XOlJ9Xe/4jhVwWcMGORlpXPD88e1jbBo7KCq7?=
+ =?us-ascii?Q?IToEA3mYJNeoIsxx87uEQPBeHTiNDjqCgL8tZHWvJJomqAcAIdh4q3Xmohzp?=
+ =?us-ascii?Q?qEiICWx/uVog71B8MiREYPQ+Tzf5yN75kWe8/MFCrC9dRiPLq5MpWkhzkKLA?=
+ =?us-ascii?Q?42PnVJ8rV36jqAmHchBYq7rZgK/PGK9GXz9YIQPosqzEMZqzwJ7ffyIXsDvm?=
+ =?us-ascii?Q?CVLNBo8QmEBn8cGmQ7X0RUxz6IXdMhTumdLS0OOohceOtMR5Da3hw6RQjnlp?=
+ =?us-ascii?Q?800ITpYlulAR+Bt2a4utbKVXWzxOS3rl2V4CGH7dTHriR72lHfpumMC9Y4+q?=
+ =?us-ascii?Q?oKOtAJ9e1MZKDdONc/x4NA1pir0135omiPHPNYYquFyDPyOTEISuaFQKgm0T?=
+ =?us-ascii?Q?9HLzUwOZZkoWr0R4Qb9TyTVqq0S3IzS0zm4oflB/pX3RtFUesq5cFhfFJeIP?=
+ =?us-ascii?Q?OmCKUddNKLbogAt2F7lICZJMBUTrWvyYc3ld6GxuHCULYDFoq65MT4M6heNG?=
+ =?us-ascii?Q?XlwZmcOmMcOLyk09mSvoESw2jurzTGSTooSgdYz2rzCzB3tZxkK2VEt04SAS?=
+ =?us-ascii?Q?EKOCMF40tshCoNv1DUzfRupubtzt5rd/s/El6ObUT/jfKk0MdFfRndonFLu9?=
+ =?us-ascii?Q?cN6ceoM4fp9MCUg0ZtXa2QMryCLtw+0yfWKUXvs5/fJUUQz7lXLX/I0AShQB?=
+ =?us-ascii?Q?0ibFyt2EBLpAFycz4mRyVdBT/IHw6xbOZvQq6GsUxL1B1CBkpiT1IFBDeJmu?=
+ =?us-ascii?Q?0u77spTelRUF5xnO3bpsMtgdKKu+tDafMOsAuPefDYHbsekDgyk9r4hD+yI7?=
+ =?us-ascii?Q?/lUX5hf+UWiZk0KDHKi9pKIFe3wJHAkDgyUestMOK19JM0KIKuYbT6xfNzSg?=
+ =?us-ascii?Q?ufujmH+gQPMSOQbVISOzGW3cGbmdL+Q9pYAIdL2riLLEmvY6NdKgwhND2tGF?=
+ =?us-ascii?Q?FzhR08zdCQrU812s2dbtvQSFUhU9+G8xA8hk0Gnk5rLLeDlI/byxpab8asfB?=
+ =?us-ascii?Q?SBwAGfKN7CWfPwf/6W/J7JMP+UlfAa+CUxm20fdaM+ZuNr2c1eH1NamYpDZe?=
+ =?us-ascii?Q?T/d78/Yk8FuoSKcJ3I93pa4utOAuFv1Tz1tbENhvJApKLJ++cEBmB0OduudQ?=
+ =?us-ascii?Q?b8XbO5cDBc/d5l9T+LWzc49Ja3pfG+mb7jn10/AYMr55d6bFbgVnAfFH4dIi?=
+ =?us-ascii?Q?Zx54e+0S3BpKmsTslpMyltab1wVERcLA7DkEEI09UKAEUXxOr7tWwz0HE3Qt?=
+ =?us-ascii?Q?rP7wX5ScbkS7dM5IuoVvqZnVCkgcK8fGlDAQh8Y1tyZqEZueZobkpL8mP1d+?=
+ =?us-ascii?Q?1q9ULHadriFlcz0meUqiek8=3D?=
+X-OriginatorOrg: expoinsightnetwork.info
+X-MS-Exchange-CrossTenant-Network-Message-Id: da229a48-73b0-4b9f-508c-08dd417b9427
+X-MS-Exchange-CrossTenant-AuthSource: PN1P287MB3741.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jan 2025 22:15:18.2996
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 63547eb8-b74f-489f-8476-ce2a691e9f4f
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: +4OkHscECYjkcLcb0T5UCabKI+4BFJ/VEgEXQHeopchJcPDVsJlxsI8AFBgxIhgXiuk338qPRckWC6LlnNf6IJuAfyidSgjqgn7qevLP1w/nT06L80UAFWnmgziioZqK
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN3P287MB1577
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_140126_515640_451BC684 
-X-CRM114-Status: GOOD (  29.77  )
+X-CRM114-CacheID: sfid-20250130_141539_597411_205EE7A6 
+X-CRM114-Status: UNSURE (   3.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,164 +150,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 30, 2025 at 11:45:17AM -0500, Detlev Casanova wrote:
-> From: Sugar Zhang <sugar.zhang@rock-chips.com>
-> 
-> Register the dw-hdmi-qp bridge driver as an HDMI audio codec.
-> 
-> The register values computation functions (for n) are based on the
-> downstream driver, as well as the register writing functions.
-> 
-> The driver uses the generic HDMI Codec framework in order to implement
-> the HDMI audio support.
-> 
-> Signed-off-by: Sugar Zhang <sugar.zhang@rock-chips.com>
-> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
-> ---
->  drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 497 +++++++++++++++++++
->  1 file changed, 497 insertions(+)
-> 
-> diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-> index b281cabfe992e..7937504c2dcef 100644
-> --- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-> +++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-> @@ -36,6 +36,88 @@
->  
->  #define SCRAMB_POLL_DELAY_MS	3000
->  
-> +/*
-> + * Unless otherwise noted, entries in this table are 100% optimization.
-> + * Values can be obtained from hdmi_compute_n() but that function is
-> + * slow so we pre-compute values we expect to see.
-> + *
-> + * The values for TMDS 25175, 25200, 27000, 54000, 74250 and 148500 kHz are
-> + * the recommended N values specified in the Audio chapter of the HDMI
-> + * specification.
-> + */
-> +static const struct dw_hdmi_audio_tmds_n {
-> +	unsigned long tmds;
-> +	unsigned int n_32k;
-> +	unsigned int n_44k1;
-> +	unsigned int n_48k;
-> +} common_tmds_n_table[] = {
-> +	{ .tmds = 25175000,  .n_32k = 4576,  .n_44k1 = 7007,  .n_48k = 6864, },
-> +	{ .tmds = 25200000,  .n_32k = 4096,  .n_44k1 = 6272,  .n_48k = 6144, },
-> +	{ .tmds = 27000000,  .n_32k = 4096,  .n_44k1 = 6272,  .n_48k = 6144, },
-> +	{ .tmds = 28320000,  .n_32k = 4096,  .n_44k1 = 5586,  .n_48k = 6144, },
-> +	{ .tmds = 30240000,  .n_32k = 4096,  .n_44k1 = 5642,  .n_48k = 6144, },
-> +	{ .tmds = 31500000,  .n_32k = 4096,  .n_44k1 = 5600,  .n_48k = 6144, },
-> +	{ .tmds = 32000000,  .n_32k = 4096,  .n_44k1 = 5733,  .n_48k = 6144, },
-> +	{ .tmds = 33750000,  .n_32k = 4096,  .n_44k1 = 6272,  .n_48k = 6144, },
-> +	{ .tmds = 36000000,  .n_32k = 4096,  .n_44k1 = 5684,  .n_48k = 6144, },
-> +	{ .tmds = 40000000,  .n_32k = 4096,  .n_44k1 = 5733,  .n_48k = 6144, },
-> +	{ .tmds = 49500000,  .n_32k = 4096,  .n_44k1 = 5488,  .n_48k = 6144, },
-> +	{ .tmds = 50000000,  .n_32k = 4096,  .n_44k1 = 5292,  .n_48k = 6144, },
-> +	{ .tmds = 54000000,  .n_32k = 4096,  .n_44k1 = 6272,  .n_48k = 6144, },
-> +	{ .tmds = 65000000,  .n_32k = 4096,  .n_44k1 = 7056,  .n_48k = 6144, },
-> +	{ .tmds = 68250000,  .n_32k = 4096,  .n_44k1 = 5376,  .n_48k = 6144, },
-> +	{ .tmds = 71000000,  .n_32k = 4096,  .n_44k1 = 7056,  .n_48k = 6144, },
-> +	{ .tmds = 72000000,  .n_32k = 4096,  .n_44k1 = 5635,  .n_48k = 6144, },
-> +	{ .tmds = 73250000,  .n_32k = 11648, .n_44k1 = 14112, .n_48k = 6144, },
-> +	{ .tmds = 74250000,  .n_32k = 4096,  .n_44k1 = 6272,  .n_48k = 6144, },
-> +	{ .tmds = 75000000,  .n_32k = 4096,  .n_44k1 = 5880,  .n_48k = 6144, },
-> +	{ .tmds = 78750000,  .n_32k = 4096,  .n_44k1 = 5600,  .n_48k = 6144, },
-> +	{ .tmds = 78800000,  .n_32k = 4096,  .n_44k1 = 5292,  .n_48k = 6144, },
-> +	{ .tmds = 79500000,  .n_32k = 4096,  .n_44k1 = 4704,  .n_48k = 6144, },
-> +	{ .tmds = 83500000,  .n_32k = 4096,  .n_44k1 = 7056,  .n_48k = 6144, },
-> +	{ .tmds = 85500000,  .n_32k = 4096,  .n_44k1 = 5488,  .n_48k = 6144, },
-> +	{ .tmds = 88750000,  .n_32k = 4096,  .n_44k1 = 14112, .n_48k = 6144, },
-> +	{ .tmds = 97750000,  .n_32k = 4096,  .n_44k1 = 14112, .n_48k = 6144, },
-> +	{ .tmds = 101000000, .n_32k = 4096,  .n_44k1 = 7056,  .n_48k = 6144, },
-> +	{ .tmds = 106500000, .n_32k = 4096,  .n_44k1 = 4704,  .n_48k = 6144, },
-> +	{ .tmds = 108000000, .n_32k = 4096,  .n_44k1 = 5684,  .n_48k = 6144, },
-> +	{ .tmds = 115500000, .n_32k = 4096,  .n_44k1 = 5712,  .n_48k = 6144, },
-> +	{ .tmds = 119000000, .n_32k = 4096,  .n_44k1 = 5544,  .n_48k = 6144, },
-> +	{ .tmds = 135000000, .n_32k = 4096,  .n_44k1 = 5488,  .n_48k = 6144, },
-> +	{ .tmds = 146250000, .n_32k = 11648, .n_44k1 = 6272,  .n_48k = 6144, },
-> +	{ .tmds = 148500000, .n_32k = 4096,  .n_44k1 = 6272,  .n_48k = 6144, },
-> +	{ .tmds = 154000000, .n_32k = 4096,  .n_44k1 = 5544,  .n_48k = 6144, },
-> +	{ .tmds = 162000000, .n_32k = 4096,  .n_44k1 = 5684,  .n_48k = 6144, },
-> +
-> +	/* For 297 MHz+ HDMI spec have some other rule for setting N */
-> +	{ .tmds = 297000000, .n_32k = 3073,  .n_44k1 = 4704,  .n_48k = 5120, },
-> +	{ .tmds = 594000000, .n_32k = 3073,  .n_44k1 = 9408,  .n_48k = 10240,},
-> +
-> +	/* End of table */
-> +	{ .tmds = 0,         .n_32k = 0,     .n_44k1 = 0,     .n_48k = 0,    },
-> +};
-> +
-> +/*
-> + * These are the CTS values as recommended in the Audio chapter of the HDMI
-> + * specification.
-> + */
-> +static const struct dw_hdmi_audio_tmds_cts {
-> +	unsigned long tmds;
-> +	unsigned int cts_32k;
-> +	unsigned int cts_44k1;
-> +	unsigned int cts_48k;
-> +} common_tmds_cts_table[] = {
-> +	{ .tmds = 25175000,  .cts_32k = 28125,  .cts_44k1 = 31250,  .cts_48k = 28125,  },
-> +	{ .tmds = 25200000,  .cts_32k = 25200,  .cts_44k1 = 28000,  .cts_48k = 25200,  },
-> +	{ .tmds = 27000000,  .cts_32k = 27000,  .cts_44k1 = 30000,  .cts_48k = 27000,  },
-> +	{ .tmds = 54000000,  .cts_32k = 54000,  .cts_44k1 = 60000,  .cts_48k = 54000,  },
-> +	{ .tmds = 74250000,  .cts_32k = 74250,  .cts_44k1 = 82500,  .cts_48k = 74250,  },
-> +	{ .tmds = 148500000, .cts_32k = 148500, .cts_44k1 = 165000, .cts_48k = 148500, },
-> +
-> +	/* End of table */
-> +	{ .tmds = 0,         .cts_32k = 0,      .cts_44k1 = 0,      .cts_48k = 0,      },
-> +};
-> +
->  struct dw_hdmi_qp_i2c {
->  	struct i2c_adapter	adap;
->  
-> @@ -60,6 +142,8 @@ struct dw_hdmi_qp {
->  	} phy;
->  
->  	struct regmap *regm;
-> +
-> +	unsigned long tmds_char_rate;
->  };
->  
->  static void dw_hdmi_qp_write(struct dw_hdmi_qp *hdmi, unsigned int val,
-> @@ -83,6 +167,354 @@ static void dw_hdmi_qp_mod(struct dw_hdmi_qp *hdmi, unsigned int data,
->  	regmap_update_bits(hdmi->regm, reg, mask, data);
->  }
->  
-> +static struct dw_hdmi_qp *dw_hdmi_qp_from_bridge(struct drm_bridge *bridge)
-> +{
-> +	return container_of(bridge, struct dw_hdmi_qp, bridge);
-> +}
-> +
-> +static void hdmi_set_cts_n(struct dw_hdmi_qp *hdmi, unsigned int cts,
-> +			   unsigned int n)
+Hi,
 
-I'm sorry, I should have pointed out in the previous review cycle. Could
-you please rename those functions so that their name start with
-dw_hdmi_qp_*.
+Hope this message finds you well,
 
-Other than that:
+Is reaching out to visitors/attendees of AUTOMECHANIKA SHANGHAI 2024 benefi=
+cial for you? If so, I can share the pricing and guarantees for the list, a=
+s we have compiled complete information, including their direct email addre=
+sses and other official details. Below are the event details and the number=
+ of contacts on our list.
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+AUTOMECHANIKA SHANGHAI 2024
+02-05 Dec 2024
+45871 Visitors/Attendees
+Information Includes: Company Name, Contact Name, Job Title, Email Address,=
+ Phone Number and Website
 
+Awaiting your response.
 
-> +{
-> +	/* Set N */
-> +	dw_hdmi_qp_mod(hdmi, n, AUDPKT_ACR_N_VALUE, AUDPKT_ACR_CONTROL0);
-> +
-> +	/* Set CTS */
-> +	if (cts)
-> +		dw_hdmi_qp_mod(hdmi, AUDPKT_ACR_CTS_OVR_EN, AUDPKT_ACR_CTS_OVR_EN_MSK,
-> +			  AUDPKT_ACR_CONTROL1);
-> +	else
-> +		dw_hdmi_qp_mod(hdmi, 0, AUDPKT_ACR_CTS_OVR_EN_MSK,
-> +			  AUDPKT_ACR_CONTROL1);
-> +
-> +	dw_hdmi_qp_mod(hdmi, AUDPKT_ACR_CTS_OVR_VAL(cts), AUDPKT_ACR_CTS_OVR_VAL_MSK,
-> +		  AUDPKT_ACR_CONTROL1);
-> +}
-> +
-
--- 
-With best wishes
-Dmitry
+Best regards,
+Abigail Reyes
+Marketing Executive
+Business Events Company
+United States
+If not interested, instead of marking spam, please reply with remove and we=
+ make sure you do not receive an email from our company.
 
