@@ -4,151 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3C6AC0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 16:49:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F74FC0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 16:50:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NXU4immAkphPsumcuvChRPI1VMI7LP5wSIzBwXG4rdc=; b=We1sNZFDzkuH49vKmtygvcjg8U
-	n495q+Xj40mDuAhNdEGrVNyfnBoAc+Twt/4qcSIe/BeYGq3jrVg5fGdXQnfUyUmZe9yNeP+CeVIDA
-	uOdmxo1OnuRw240JA8yyeOa4N0bP6LzB9rogbcy+zw5wHvJkbui7UT+NTPBRazie61pA0DurflhEf
-	iYdeFXWnaU26r7k5iQ1Ag2pG1WFm9NSga4B+F8nB//73DQQCKDea6MLHBbeKDP/MD1F5Okn576z8r
-	W7KrW/FmHqgdh0grCxp6PajIpRyqikOLcGjep5iHeCt7c3nBn81eVVg4mUJMFWhX1jFJdIOjWqLUr
-	DTrrHlmQ==;
+	bh=2ZGOB++0RnrgvfXYOBKwSIM+lg1Zt40tDm0hhwPqgU4=; b=vKrPR7rcP/eyU+J46tzu05s5nk
+	LTerMJ0qlmMmpSw2Pv6FcWYRNp8MOXBYNNF3lIRjKgpHwYBc6jP2WduKq3DbBxYd4SJxtjewb5Fkg
+	Su4anIvewD1d3r+8V8au7kJ5MPO1m7kl9lCX1QdmDrWXZHqIa5CxadlrdS1iDn+IMLK+woJFTqwRZ
+	SWeDlxKC+UD8y+XKpSTeSJoPSpEttdAi7aLN0b30USuSPGXeSpP6WZpmUyRfH0j/89p01ck79ZqDm
+	PlDblGvg/xomGHrzx7EDTOrPvmutTTdQI1A+gxD/4DEGOuT7jz5CXyMFaRKTJmz1vjgbXZFVrXCVN
+	rf3+sAOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdXjE-00000009Ch3-1x9k;
-	Thu, 30 Jan 2025 16:49:20 +0000
-Received: from mail-db8eur05on20611.outbound.protection.outlook.com ([2a01:111:f403:2614::611] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1tdXkW-00000009CpF-0IcL;
+	Thu, 30 Jan 2025 16:50:40 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdXcp-00000009BmF-11Vp
+	id 1tdXfR-00000009CGX-3bs5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jan 2025 16:42:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=p1AVqw9OS5wT7L5VwTWIkstCtgrF9vhwMOfSgtm5Tp9YS8hU88cB9dBYGXcftbGVg4/qlzaZHQWNxJ0foK9Bu3jixfmWyaCU9fyfH0LoJUtD98cCjbWfwXmo5r9hl6OCs79g5MHq7VGPhOIhFNEnw1ZEw3OipinftKO1IZ3B/tuqUdXrb1Q+Af66pU45yZCrcmS8ZVfMq8zspVMiMPfTj1vVEMg9slxZiXK6S0RisVK2GyI0ruP8KA44ZWBKT+v6zkR/Lv0Htf4pykfdDR8xt7Opiq5IkpeyPhRVjKsoInmZpl3MHnwsXleSmskwN/pDE9dCKw0XvbiFOPWySeP+SA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NXU4immAkphPsumcuvChRPI1VMI7LP5wSIzBwXG4rdc=;
- b=npVxL5BP23WtjZmHO+TRsMxiuZCJas9wpzBCLkiJoC1a1reLxEDlb7xZVbwHSuXLae8xLvC18ZSEk9VXfkTsQ241kI0330wEupjW4pzsPmSl3zM296un3zNfip+Ll8pz2zvFqzlKOXhcJ1XxPQNCfYtcWDDW+j6/L+TAbFcQ3uNVezG3kjvjt2pyaMxKJpXmW9ecw/kIPKa8KJ13bunB6IWzModRVPiM8eLwiPf3q2F8Q0ohfE3P4b8hdirLKUxTB1UuRwaakbyilqYym7sdLvtSHrMtiKaRRs6wIKEzyUF8N+uP728NSGVwEV3ImlSLCnT19D5OgoCgIQ58/txLKw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NXU4immAkphPsumcuvChRPI1VMI7LP5wSIzBwXG4rdc=;
- b=ctb1waNFXKOphZ/r0XioF8zYHTEDAuks7RUZKXR3TJuT6PeHPD7luIBzM0LtHDefq4wpkaaiu+FeEqB8tndPusbTAg2R6mxnDzd+hOD4/RjFf06YYfK2x4aZTkemblZgKapvxYLGkzfOL9BLNorNuVU5vep63AxNK+BAaXTKvz3fmPy178oJaXcEsO0OlScJSrEmBxKNAKt1/Sb4MSe3XljlDOCYhtY9MHN0+tjZZC8DFv1Cj5us3Q4wN5DLCSW1xbzkxBimltYLaez3Ju7M4W0UunOFjEtHc9/KU9UVCd9pkPhoxF+yTxemvbFbCN/3pcqtE4OIT7irwE+ajb6aTA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by PA4PR04MB7502.eurprd04.prod.outlook.com (2603:10a6:102:ef::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.18; Thu, 30 Jan
- 2025 16:42:40 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d%7]) with mapi id 15.20.8398.018; Thu, 30 Jan 2025
- 16:42:40 +0000
-Date: Thu, 30 Jan 2025 11:42:32 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/4] nvmem: imx-ocotp: Support accessing controller for
- i.MX8M Nano
-Message-ID: <Z5ur+NF9UlXJSWtL@lizhi-Precision-Tower-5810>
-References: <20250130130101.1040824-1-alexander.stein@ew.tq-group.com>
- <20250130130101.1040824-4-alexander.stein@ew.tq-group.com>
+	Thu, 30 Jan 2025 16:45:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5FEC3A41F72;
+	Thu, 30 Jan 2025 16:43:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9C2FC4CED2;
+	Thu, 30 Jan 2025 16:45:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738255524;
+	bh=jWf2CZnQEG7SXBVcZ508uMx8eAuNJOnmC6clM+twjls=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FKvn5QCOkmjdiW7oAvxSc53AAMbliawqVOmafoZBGgMUkKmyvWZEDSmgHMoULI265
+	 Czvx3xXh7pri/q2XDmdAJggeTXuumXpkNCGzFdh/FFC5i8JjVxHY5tNwAN4a2DbFGI
+	 /3Ge7T5ZCTdFiF9A695f99qEXU7XnGfRx3y8U20Oh+7qy/70naYUhuNrn5kTMsYTuW
+	 U2D/kTuia4LZEq7qynyoPn2X409eLvRg/Wdjq7RrroTj6dsOYZDDSlFNhkqu63aFwt
+	 FxLVcVl0evUzQJr5IWClNnoYuV4TUGdu8bQxghvDkmB+NVxFUW2I7F4V/rQBLuMQXU
+	 +8GcAn12P9cmw==
+Date: Thu, 30 Jan 2025 16:45:15 +0000
+From: Simon Horman <horms@kernel.org>
+To: Basharath Hussain Khaja <basharath@couthit.com>
+Subject: Re: [RFC v2 PATCH 04/10] net: ti: prueth: Adds link detection, RX
+ and TX support.
+Message-ID: <20250130164515.GC13457@kernel.org>
+References: <20250124122353.1457174-1-basharath@couthit.com>
+ <20250124123707.1457639-5-basharath@couthit.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250130130101.1040824-4-alexander.stein@ew.tq-group.com>
-X-ClientProxiedBy: BY5PR20CA0016.namprd20.prod.outlook.com
- (2603:10b6:a03:1f4::29) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|PA4PR04MB7502:EE_
-X-MS-Office365-Filtering-Correlation-Id: ed0a5fd8-31d9-459f-1620-08dd414d1c34
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|366016|7416014|1800799024|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?wcV5V2bv5lKOSUS1ez0pI5s1RYQn2wXZ50K01hh+8oyqSQvPaao449otgjHN?=
- =?us-ascii?Q?/tkUGfX8isetKxkrXCSOXmF9WZiKTgj7FzB8USaz/9Eazz/fMDz/8AuDmX7X?=
- =?us-ascii?Q?IvZUzqcyknY7ftiWRuA8Akq6KCaG15ZOX4+2jbuoxSHZ860PHpSg6X45+Z7E?=
- =?us-ascii?Q?mnC6RFEEhMICWPfnvxpPrMP3pM+iKJ1Xiw91ljwO3bU+RKbPpcIEH2P3ppSd?=
- =?us-ascii?Q?3gwBolt/4qYh0eEygNBLh1JW+NJkPd76k+lUKm4SVet80EdtW0rTE33RNvKA?=
- =?us-ascii?Q?2mDTacH9qR4DmEVdgQmC79L//jCIT5Td/4I+DTjuZYBQhAkVFwS4epVJAZM/?=
- =?us-ascii?Q?gXpR2jAgPcZ8pgRNyM2QGyKFWyMw4AGgs8DMIYtau9XqlUqg+8rfRnKH0Yrr?=
- =?us-ascii?Q?yndxodfCcUrZFQvncGZkztUmRIFwpM/R0BtEEmqtcfGOKa+TPrYaUIbaPMpu?=
- =?us-ascii?Q?sn5CSfI5UWAyucsTW2SmDgpfNMnUuqWxCxkSwfZ3mRN2zexk1BZRDdy0vpdi?=
- =?us-ascii?Q?DY0r0t9i728AI+hEBTWVOlMKn6UKON7vSvoLdBPt2yaCU6xSd3okshEWg3Ia?=
- =?us-ascii?Q?gcLMvVPB0UD2R3IPIsR79CTsXKuP4aQJ+3N9VcLp465s5KSQ4Fssbg1EP2m9?=
- =?us-ascii?Q?s7ro8IwURCaI80b+Eg+2Dp1OBXKJ1fJ+NK9OmxJZt1eRPyhTvYAb2etxJEPz?=
- =?us-ascii?Q?05m50+ey64HT4DaXfax2HJuqEGmpOm92/Kdt4TXpDqD3N9AjAXmO/HitHKZW?=
- =?us-ascii?Q?VyqRiuGzkMEX3ElZFtY9iHTejO1Yn6XgKxDIfdkQhRPnl4f1eNIbIEMw10Er?=
- =?us-ascii?Q?s1DUIQXAJOrlB2ktcqa2rQ8Zox1jPApAeoggMpYL8+mjVAef0IgEn/gZeXhM?=
- =?us-ascii?Q?WJWXNIOfPc8gOKcL2eToNCMAiMB9H3wW4IdpjDw8DvzBdX3iejA7pEqR1wou?=
- =?us-ascii?Q?KIuRexr1UrNK01P4vWgnd48gz24QUXkKXSfuoLciNvctD1bD/aRjyYbX/tgj?=
- =?us-ascii?Q?G1StWBMhAr/ZFJSy0dPnxoRHZUlQ4PriCfNviVbb9fsjmqq4iFoZv+u0OtGm?=
- =?us-ascii?Q?y6cLqtvnGHDJDQUmKB4TNbL0h3e4EF0dPw6vRMMpjFr5VEyDVEk4l3eQC7Vz?=
- =?us-ascii?Q?K5E/9fW4LQxBRo10wcef5r5aHPqwYHe7hONAtFr+KqgUuxCSv93SXLCh0kfN?=
- =?us-ascii?Q?IPV0Dw6jA/pLVlGPN2kYjWYYwS6xQpIk1clj+cl4062Zu+WMUadQrMeaud2Q?=
- =?us-ascii?Q?HfH5fQwqs2CwFglv7AbjcqNDIc0hF93r4eEIMLDBE5US4yvBYiUByaG2rpIU?=
- =?us-ascii?Q?umVde9MKkCLBVGVBY8BdkXI0Wx/yk5yTLiK05BQNpL177eR2JChnopTfuteP?=
- =?us-ascii?Q?AdFtj1VaI6PZoSWAMSQf4omqZcJ0vbk48ZjVB6DpGLTWZ0KDNfcqQQaIqDci?=
- =?us-ascii?Q?E7wkhHadxgVTnNBX910aq0ycXIPL82MM?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(366016)(7416014)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?E8T+GHyS2Q4/DTQXDzAbtNS3lLYPM0X0llzKE2+7qwcD9jo+SVXF2I/8imlj?=
- =?us-ascii?Q?e9GVx+BgpSBIKJg5zTtkEw8soS6ktv5oPwj3xP5Ksx8yhQogBVvWakTxY+EE?=
- =?us-ascii?Q?u8iV0sh0VV9UVlfqFrTZ/TRMox+UIfkrDiL92yhAqGB90z1XaD3lxQ1Er8hj?=
- =?us-ascii?Q?PaoggplnT735cRQqgig2Zx6grRs9Piemu5StBMDrAE7QYnyV5VdBqlwDCa5Y?=
- =?us-ascii?Q?Z0lO60jT2tjLORR5cgAY7xzJA97pkWjBuHVgEOLEtIzCMTIOnpQlzZ72Qa0O?=
- =?us-ascii?Q?zq5HrwZZHek5rzMKXB4nUPjViHJJ5xzCqEaRh4CMW8HUMuuoXVej/uY1QFPP?=
- =?us-ascii?Q?+10omzIetCyfR7xwEKOKCEFkdNkPw9CpKYxBN/PPezrmA51/sjNCuKtjTD9J?=
- =?us-ascii?Q?oKmN5stM09aqP0mLG5FAvh2YiBnw8dLHnHjLlJJTRMbMb6H4Lql/ip3hIr6o?=
- =?us-ascii?Q?CutGGeQNcR5Nxjbt7HsiAndOajFn3+HwuaE4Exg+5EmGOj1RHFqn9X1eqQfW?=
- =?us-ascii?Q?rEyrjjabYBkSDnWO6V1ihQKYD8qGPgxTp3CgY1WE0HwZTuHGg+1FZeCiO4ZO?=
- =?us-ascii?Q?KY4K6jZy/WGhsWx4wonawu5oT9RBSGbwmLLUQTGuuaWc9uT7bCRhnD3qY9yc?=
- =?us-ascii?Q?fVEf6CQIY8r24U1oUnmQo7cAxR6WBlfdEOgiGcWe0p4iXHdCS0gYS5iDVTIN?=
- =?us-ascii?Q?3ub9iLEQ9f+dgmhQhKuaqYOm4kECYn+v1xoMoGPMN9KTZifqjbSrKDG90Ljf?=
- =?us-ascii?Q?JivZfsNNnq9drRuoxcxtjcw0KGF7IihJ7FUyZ896+5+Y9gCNt0++aFQjpO18?=
- =?us-ascii?Q?n1swMm/FWZJ/vD2h4n+yRn3AZOvzI9vvcInLoY0XIJJnXqVYFj8ymkLtykHY?=
- =?us-ascii?Q?+pWn2e0nLJvsKhecgA5uNBO2pr6+91QUAGorMm0JwE/6Q8/45O8LLyo0KKhx?=
- =?us-ascii?Q?4nFbxqGr2IY+9cr+qJ6lTN6ftPkNQY+CpwckNNglZw3B57bDkXl4zVXh/6ua?=
- =?us-ascii?Q?TWz6vI/SB2EdV4rLDVvowjzNhkqMbkwRPFy3pS1VWvUFgIOCd2TmGzeULT8z?=
- =?us-ascii?Q?jp9uRyr36ZyOGW0EG/8rCnT+pWthsdBl4R2KXEKgqAdlu3CcgHxGGu0BR3Zh?=
- =?us-ascii?Q?i5pLTgPtKDpYWpREyXip7Y1J54GcMn/BfLIFU8oO5kUqI/x5njA9m6kv2dcy?=
- =?us-ascii?Q?7Sc7Dq8KA/XyAp1BkWiQqHXIvqhuhbV5MQRPJs08Gz8jeQq6P8AsPcNLIQsE?=
- =?us-ascii?Q?MiQy/ULdEVqkqtIxlkeib9Vvwz42CTvybOyZ7zwjnsO4vttSZzt09A/IuB62?=
- =?us-ascii?Q?eBwiQHvPjg+73A1kzxFBGglZIgGZfpTZYvKMhrCiQYQ3Ty2K1zLW9/Yv/zgB?=
- =?us-ascii?Q?lpG6pt5qxG9wCZqEcErA+F0Y+n7mjRM62lCTkmp7P+3jwgZRKqdp6GzFncol?=
- =?us-ascii?Q?mF5IKLZTuaclnxI9vWZiNA3UQnB5+9yCm9U+gGWK/J0umN3NXY2Ks89GIxKz?=
- =?us-ascii?Q?nuezIM2NlUVHyNDu283MVAcmt1Dqg2KIk3ksDrOYAkPkJoi82BmJZDQZU9FE?=
- =?us-ascii?Q?j5DQtN0CtplG6MX/q8c382aCjSG91SGAn4HdvMt7?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ed0a5fd8-31d9-459f-1620-08dd414d1c34
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jan 2025 16:42:39.9695
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: oK8Wt4HlaWtZdTLqRO3Kb89uDbdp44fAprbeBr1/IdFLIqZjWAk/e/R4agAYA6DqDIIRRaU/reOI4HfiEZzK0Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7502
+In-Reply-To: <20250124123707.1457639-5-basharath@couthit.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_084243_442981_CA3DEC78 
-X-CRM114-Status: GOOD (  34.73  )
+X-CRM114-CacheID: sfid-20250130_084526_025555_FA604186 
+X-CRM114-Status: GOOD (  25.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,204 +68,106 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: nm@ti.com, vigneshr@ti.com, tony@atomide.com, edumazet@google.com, krishna@couthit.com, pmohan@couthit.com, diogo.ivo@siemens.com, robh@kernel.org, javier.carrasco.cruz@gmail.com, praneeth@ti.com, m-karicheri2@ti.com, jacob.e.keller@intel.com, kuba@kernel.org, pabeni@redhat.com, devicetree@vger.kernel.org, conor+dt@kernel.org, schnelle@linux.ibm.com, mohan@couthit.com, richardcochran@gmail.com, prajith@ti.com, rogerq@kernel.org, ssantosh@kernel.org, linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org, rogerq@ti.com, srk@ti.com, pratheesh@ti.com, m-malladi@ti.com, netdev@vger.kernel.org, rdunlap@infradead.org, linux-kernel@vger.kernel.org, danishanwar@ti.com, afd@ti.com, andrew+netdev@lunn.ch, parvathi@couthit.com, krzk+dt@kernel.org, davem@davemloft.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 30, 2025 at 02:01:00PM +0100, Alexander Stein wrote:
-> i.MX8M OCOTP supports a specific peripheral or function being fused
-> which means disabled, so
->  - Introduce disable_fuse for a list of possible fused peripherals.
->  - Iterate all nodes to check accessing permission. If not
->    allowed to be accessed, detach the node
->
-> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+On Fri, Jan 24, 2025 at 06:07:01PM +0530, Basharath Hussain Khaja wrote:
+> From: Roger Quadros <rogerq@ti.com>
+> 
+> Changes corresponding to link configuration such as speed and duplexity.
+> IRQ and handler initializations are performed for packet reception.Firmware
+> receives the packet from the wire and stores it into OCMC queue. Next, it
+> notifies the CPU via interrupt. Upon receiving the interrupt CPU will
+> service the IRQ and packet will be processed by pushing the newly allocated
+> SKB to upper layers.
+> 
+> When the user application want to transmit a packet, it will invoke
+> sys_send() which will inturn invoke the PRUETH driver, then it will write
+> the packet into OCMC queues. PRU firmware will pick up the packet and
+> transmit it on to the wire.
+> 
+> Signed-off-by: Roger Quadros <rogerq@ti.com>
+> Signed-off-by: Andrew F. Davis <afd@ti.com>
+> Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
+> Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
 > ---
->  drivers/nvmem/Kconfig     |   3 ++
->  drivers/nvmem/imx-ocotp.c | 105 +++++++++++++++++++++++++++++++++++++-
->  2 files changed, 107 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/nvmem/Kconfig b/drivers/nvmem/Kconfig
-> index 8671b7c974b93..ba5c928cab520 100644
-> --- a/drivers/nvmem/Kconfig
-> +++ b/drivers/nvmem/Kconfig
-> @@ -84,6 +84,9 @@ config NVMEM_IMX_OCOTP
->  	  This driver can also be built as a module. If so, the module
->  	  will be called nvmem-imx-ocotp.
->
-> +	  If built as modules, any other driver relying on this working
-> +	  as access controller also needs to be a module as well.
-> +
->  config NVMEM_IMX_OCOTP_ELE
->  	tristate "i.MX On-Chip OTP Controller support"
->  	depends on ARCH_MXC || COMPILE_TEST
-> diff --git a/drivers/nvmem/imx-ocotp.c b/drivers/nvmem/imx-ocotp.c
-> index c5086a16450ac..e3ea026a37d0d 100644
-> --- a/drivers/nvmem/imx-ocotp.c
-> +++ b/drivers/nvmem/imx-ocotp.c
-> @@ -23,6 +23,7 @@
->  #include <linux/of.h>
->  #include <linux/platform_device.h>
->  #include <linux/slab.h>
-> +#include <dt-bindings/nvmem/fsl,imx8mn-ocotp.h>
->
->  #define IMX_OCOTP_OFFSET_B0W0		0x400 /* Offset from base address of the
->  					       * OTP Bank0 Word0
-> @@ -91,11 +92,20 @@ struct ocotp_ctrl_reg {
->  	u32 bm_rel_shadows;
+>  drivers/net/ethernet/ti/icssm/icssm_prueth.c | 599 ++++++++++++++++++-
+>  drivers/net/ethernet/ti/icssm/icssm_prueth.h |  46 ++
+>  2 files changed, 640 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+
+...
+
+> +/**
+> + * icssm_emac_ndo_start_xmit - EMAC Transmit function
+> + * @skb: SKB pointer
+> + * @ndev: EMAC network adapter
+> + *
+> + * Called by the system to transmit a packet  - we queue the packet in
+> + * EMAC hardware transmit queue
+> + *
+> + * Return: success(NETDEV_TX_OK) or error code (typically out of desc's)
+> + */
+> +static int icssm_emac_ndo_start_xmit(struct sk_buff *skb,
+> +				     struct net_device *ndev)
+
+I think the return type of this function should be netdev_tx_t
+rather than int to match the signature of ndo_start_xmit
+in struct net_device_ops.
+
+Flagged by W=1 build with clang-19
+(-Wincompatible-function-pointer-types-strict).
+
+...
+
+>  static const struct net_device_ops emac_netdev_ops = {
+>  	.ndo_open = icssm_emac_ndo_open,
+>  	.ndo_stop = icssm_emac_ndo_stop,
+> +	.ndo_start_xmit = icssm_emac_ndo_start_xmit,
 >  };
->
-> +#define OCOTP_MAX_NUM_GATE_WORDS 4
-> +
-> +struct disable_fuse {
-> +	u32 fuse_addr;
-> +	u32 mask;
+>  
+>  /* get emac_port corresponding to eth_node name */
+
+...
+
+> diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.h b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
+
+...
+
+> @@ -76,6 +82,32 @@ struct prueth_queue_info {
+>  	u16 buffer_desc_end;
+>  } __packed;
+>  
+> +/**
+> + * struct prueth_packet_info - Info about a packet in buffer
+> + * @start_offset: start offset of the frame in the buffer for HSR/PRP
+> + * @shadow: this packet is stored in the collision queue
+> + * @port: port packet is on
+> + * @length: length of packet
+> + * @broadcast: this packet is a broadcast packet
+> + * @error: this packet has an error
+> + * @sv_frame: indicate if the frame is a SV frame for HSR/PRP
+> + * @lookup_success: src mac found in FDB
+> + * @flood: packet is to be flooded
+> + * @timstamp: Specifies if timestamp is appended to the packet
+
+nit: @timestamp
+
+> + */
+> +struct prueth_packet_info {
+> +	bool start_offset;
+> +	bool shadow;
+> +	unsigned int port;
+> +	unsigned int length;
+> +	bool broadcast;
+> +	bool error;
+> +	bool sv_frame;
+> +	bool lookup_success;
+> +	bool flood;
+> +	bool timestamp;
 > +};
-> +
->  struct ocotp_params {
->  	unsigned int nregs;
->  	unsigned int bank_address_words;
->  	void (*set_timing)(struct ocotp_priv *priv);
->  	struct ocotp_ctrl_reg ctrl;
-> +	u32 num_disables;
-> +	struct disable_fuse *disables;
->  };
->
->  static int imx_ocotp_wait_for_busy(struct ocotp_priv *priv, u32 flags)
-> @@ -552,11 +562,25 @@ static const struct ocotp_params imx8mm_params = {
->  	.ctrl = IMX_OCOTP_BM_CTRL_DEFAULT,
->  };
->
-> +struct disable_fuse imx8mn_disable_fuse[] = {
-> +		[IMX8MN_OCOTP_M7_DISABLE]	= { .fuse_addr = 20, .mask = BIT(8) },
-> +		[IMX8MN_OCOTP_M7_MPU_DISABLE]	= { .fuse_addr = 20, .mask = BIT(9) },
-> +		[IMX8MN_OCOTP_M7_FPU_DISABLE]	= { .fuse_addr = 20, .mask = BIT(10) },
-> +		[IMX8MN_OCOTP_USB_OTG1_DISABLE]	= { .fuse_addr = 20, .mask = BIT(11) },
-> +		[IMX8MN_OCOTP_GPU3D_DISABLE]	= { .fuse_addr = 20, .mask = BIT(24) },
-> +		[IMX8MN_OCOTP_MIPI_DSI_DISABLE]	= { .fuse_addr = 20, .mask = BIT(28) },
-> +		[IMX8MN_OCOTP_ENET_DISABLE]	= { .fuse_addr = 20, .mask = BIT(29) },
-> +		[IMX8MN_OCOTP_MIPI_CSI_DISABLE]	= { .fuse_addr = 20, .mask = BIT(30) },
-> +		[IMX8MN_OCOTP_ASRC_DISABLE]	= { .fuse_addr = 20, .mask = BIT(31) },
-> +};
 
-Can we direct define IMX8MN_OCOTP_M7_DISABLE as BIT(8), so avoid this
-map data?
-
-> +
->  static const struct ocotp_params imx8mn_params = {
->  	.nregs = 256,
->  	.bank_address_words = 0,
->  	.set_timing = imx_ocotp_set_imx6_timing,
->  	.ctrl = IMX_OCOTP_BM_CTRL_DEFAULT,
-> +	.num_disables = ARRAY_SIZE(imx8mn_disable_fuse),
-> +	.disables = imx8mn_disable_fuse,
->  };
->
->  static const struct ocotp_params imx8mp_params = {
-> @@ -589,6 +613,81 @@ static void imx_ocotp_fixup_dt_cell_info(struct nvmem_device *nvmem,
->  	cell->read_post_process = imx_ocotp_cell_pp;
->  }
->
-> +static int imx_ocotp_check_access(struct ocotp_priv *priv, u32 id)
-> +{
-> +	u32 addr, mask, ret, val;
-> +
-> +	if (id >= priv->params->num_disables) {
-> +		dev_err(priv->dev, "Index %d too large\n", id);
-> +		return -EACCES;
-> +	}
-> +
-> +	addr = priv->params->disables[id].fuse_addr;
-> +	mask = priv->params->disables[id].mask;
-> +
-> +	ret = imx_ocotp_read(priv, addr, &val, sizeof(val));
-> +	if (ret)
-> +		return ret;
-> +
-> +	dev_dbg(priv->dev, "id:%d addr:%#x mask:0x%08x\n", id, addr, mask);
-> +	/* true means disabled */
-> +	if (val & mask)
-> +		return -EACCES;
-> +
-> +	return 0;
-> +}
-> +
-> +static int imx_ocotp_grant_access(struct ocotp_priv *priv, struct device_node *parent)
-> +{
-> +	struct device *dev = priv->dev;
-> +
-> +	for_each_available_child_of_node_scoped(parent, child) {
-> +		struct of_phandle_args args;
-> +		u32 id, idx = 0;
-> +
-> +		while (!of_parse_phandle_with_args(child, "access-controllers",
-> +						   "#access-controller-cells",
-> +						   idx++, &args)) {
-> +			of_node_put(args.np);
-> +			if (args.np != dev->of_node)
-> +				continue;
-> +
-> +			/* Only support one cell */
-> +			if (args.args_count != 1) {
-> +				dev_err(dev, "wrong args count\n");
-> +				continue;
-> +			}
-> +
-> +			id = args.args[0];
-> +
-> +			dev_dbg(dev, "Checking node: %pOF disable ID: %d\n", child, id);
-> +
-> +			if (imx_ocotp_check_access(priv, id)) {
-> +				of_detach_node(child);
-> +				dev_info(dev, "%pOF: disabled by fuse, device driver will not be probed\n",
-> +					 child);
-> +			}
-> +		}
-> +
-> +		imx_ocotp_grant_access(priv, child);
-> +	}
-> +
-> +	return 0;
-> +}
-
-Can we have one method to share above code logic to avoid copy-paste to
-every ocotp driver? Anyway, we can improve that later.
-
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-
-
-> +
-> +static int imx_ocotp_access_control(struct ocotp_priv *priv)
-> +{
-> +	struct device_node *root __free(device_node) = of_find_node_by_path("/");
-> +
-> +	if (!priv->params->disables)
-> +		return 0;
-> +
-> +	if (WARN_ON(!root))
-> +		return -EINVAL;
-> +
-> +	return imx_ocotp_grant_access(priv, root);
-> +}
-> +
->  static int imx_ocotp_probe(struct platform_device *pdev)
->  {
->  	struct device *dev = &pdev->dev;
-> @@ -622,9 +721,13 @@ static int imx_ocotp_probe(struct platform_device *pdev)
->  	imx_ocotp_clr_err_if_set(priv);
->  	clk_disable_unprepare(priv->clk);
->
-> +	platform_set_drvdata(pdev, priv);
-> +
->  	nvmem = devm_nvmem_register(dev, &imx_ocotp_nvmem_config);
-> +	if (IS_ERR(nvmem))
-> +		return PTR_ERR(nvmem);
->
-> -	return PTR_ERR_OR_ZERO(nvmem);
-> +	return imx_ocotp_access_control(priv);
->  }
->
->  static struct platform_driver imx_ocotp_driver = {
-> --
-> 2.34.1
->
+...
 
