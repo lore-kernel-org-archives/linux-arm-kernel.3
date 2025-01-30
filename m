@@ -4,75 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 961BFC0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 16:46:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9379C0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 16:48:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XDJjQ7Bc2ilUvqUgQUppNd7Nae/Vh0BvWi5XDJNapSM=; b=c60NSsggDe39qjO/dqFJnBWKVp
-	76xRuZdg1GKDtvCk26Ucveika3QpdBQeQDr6N1jaq/98h38yg6kUFqPqIiY7b46B5q0xkh2BjgieP
-	m9O84PkLjaO77egP3CKOoPMQACHn3HYvcD0bE0PqYc4nva+hkuV1NV4ATfrpuGZuDOZM55oxbyOGb
-	uYWdFzrXew7AAGEhSAvdhUtuM11VozMeNoc9lFQkezPj+lTHFFKFVjiB3vuxgyqXjF3+fvY+uxq/b
-	9/mkYURjeV0ar0+4scsAMjY4bWXFOwebvAiug1XBJdcCAyT3tqEb1Vd0zumvJYEsktjjFx3FJ0k+4
-	Rn3wP6tg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4hDPD7rSHs+mB7NF96HCuzsMQVFErNABoIyviUWsBA8=; b=pdzSWsccWAAtzm0eLAOAGUga4U
+	w9W5Qep2CP/ETSny6DmINDmVSKoWRiuA1QbaU7Q6hkCBFtJCTtzKnc7Z0YmyJlFFXcxOXDnfAnkQS
+	7iAxsu0jOWUcEUnNFJNcnQNT5WMpPYFwVvJ1TGF4YGg5PcH2JKYF+sq9tEg2rVmzZTwzCkcXA5/MI
+	DxacLqdnkYSf3SbQ08Z3t27mJiy2GTl+5amW4pXhVuM3wSBXb//s3dxPBiDZMxQ2cia+D30SuGl+M
+	4+a8iqzRYmkcAGgNwArOKNMkonqK+yzAMX2GTDqyIEkewcbMyqO6mVfIKzapniY9ah0A9SZWNqPkD
+	tcCP6RJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdXge-00000009CSs-3VIe;
-	Thu, 30 Jan 2025 16:46:40 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdXYo-00000009B4q-1zCE;
-	Thu, 30 Jan 2025 16:38:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 035355C5991;
-	Thu, 30 Jan 2025 16:37:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36384C4CED2;
-	Thu, 30 Jan 2025 16:38:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738255112;
-	bh=rL0sztCP+uUFRfh2eiDMbMSqe47y8cNW75kdLaMZy6U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fw08cHJ2aoBWJ+IETboYHto71wnX+ITXFMGHOEzPklbEm+pnyZNHbkN9q746wggvg
-	 pG5Db377lcrP8PdiA0R9/JFkUfWxhoF+8ABqNjmlyX5PK/P9sgFF4cssO25dnbkb/q
-	 kb2L8+iKo07FrGNfa5/uq3UnnD4WOS/GCZlodeWi372pMYcMxlJS8HdxkNMHNtQzWL
-	 p/3GfGiCxHNcN27Ym7lum86Aw4xonzm4VuJYbFlmC/LoIaAa1YWRrK/H9wE9Lmzdvx
-	 Y6TB5qdiEFP4VS/2R/YG0qhMhHjssBzTLzhc6505HOLCHrijhkYg0MYP6/wPIMoVhU
-	 LA4FYb3l7ejdg==
-Date: Thu, 30 Jan 2025 17:38:29 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Nicolas Dufresne <nicolas@ndufresne.ca>
-Cc: Florent Tomasin <florent.tomasin@arm.com>, 
-	Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Boris Brezillon <boris.brezillon@collabora.com>, Steven Price <steven.price@arm.com>, 
-	Liviu Dudau <liviu.dudau@arm.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Sumit Semwal <sumit.semwal@linaro.org>, 
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
-	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
-	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Yong Wu <yong.wu@mediatek.com>, dmaengine@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, nd@arm.com, 
-	Akash Goel <akash.goel@arm.com>
-Subject: Re: [RFC PATCH 0/5] drm/panthor: Protected mode support for Mali CSF
- GPUs
-Message-ID: <ppznh3xnfuqrozhrc7juyi3enxc4v3meu4wadkwwzecj7oxex7@moln2fiibbxo>
-References: <cover.1738228114.git.florent.tomasin@arm.com>
- <3ykaewmjjwkp3y2f3gf5jvqketicd4p2xqyajqtfnsxci36qlm@twidtyj2kgbw>
- <1a73c3acee34a86010ecd25d76958bca4f16d164.camel@ndufresne.ca>
+	id 1tdXhw-00000009Cae-37ST;
+	Thu, 30 Jan 2025 16:48:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tdXae-00000009BRT-2jVK
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 30 Jan 2025 16:40:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A2439497;
+	Thu, 30 Jan 2025 08:40:51 -0800 (PST)
+Received: from [10.1.32.52] (e122027.cambridge.arm.com [10.1.32.52])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B0B083F63F;
+	Thu, 30 Jan 2025 08:40:21 -0800 (PST)
+Message-ID: <9174bc24-6217-4663-a370-291d4790a212@arm.com>
+Date: Thu, 30 Jan 2025 16:40:20 +0000
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="7thzhib5zt2dlqzi"
-Content-Disposition: inline
-In-Reply-To: <1a73c3acee34a86010ecd25d76958bca4f16d164.camel@ndufresne.ca>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 12/43] arm64: RME: Allocate/free RECs to match vCPUs
+To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+References: <20241212155610.76522-1-steven.price@arm.com>
+ <20241212155610.76522-13-steven.price@arm.com>
+ <9a543b6f-5487-4159-89fb-73d9b6749a01@redhat.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <9a543b6f-5487-4159-89fb-73d9b6749a01@redhat.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_083834_597596_0CEDF643 
-X-CRM114-Status: GOOD (  29.18  )
+X-CRM114-CacheID: sfid-20250130_084028_783163_12B95DDA 
+X-CRM114-Status: GOOD (  28.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,80 +76,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 29/01/2025 04:50, Gavin Shan wrote:
+> On 12/13/24 1:55 AM, Steven Price wrote:
+>> The RMM maintains a data structure known as the Realm Execution Context
+>> (or REC). It is similar to struct kvm_vcpu and tracks the state of the
+>> virtual CPUs. KVM must delegate memory and request the structures are
+>> created when vCPUs are created, and suitably tear down on destruction.
+>>
+>> RECs must also be supplied with addition pages - auxiliary (or AUX)
+>> granules - for storing the larger registers state (e.g. for SVE). The
+>> number of AUX granules for a REC depends on the parameters with which
+>> the Realm was created - the RMM makes this information available via the
+>> RMI_REC_AUX_COUNT call performed after creating the Realm Descriptor
+>> (RD).
+>>
+>> Note that only some of register state for the REC can be set by KVM, the
+>> rest is defined by the RMM (zeroed). The register state then cannot be
+>> changed by KVM after the REC is created (except when the guest
+>> explicitly requests this e.g. by performing a PSCI call). The RMM also
+>> requires that the VMM creates RECs in ascending order of the MPIDR.
+>>
+>> See Realm Management Monitor specification (DEN0137) for more
+>> information:
+>> https://developer.arm.com/documentation/den0137/
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> ---
+>> Changes since v5:
+>>   * Separate the concept of vcpu_is_rec() and
+>>     kvm_arm_vcpu_rec_finalized() by using the KVM_ARM_VCPU_REC feature as
+>>     the indication that the VCPU is a REC.
+>> Changes since v2:
+>>   * Free rec->run earlier in kvm_destroy_realm() and adapt to previous
+>> patches.
+>> ---
+>>   arch/arm64/include/asm/kvm_emulate.h |   7 ++
+>>   arch/arm64/include/asm/kvm_host.h    |   3 +
+>>   arch/arm64/include/asm/kvm_rme.h     |  18 ++++
+>>   arch/arm64/kvm/arm.c                 |   9 ++
+>>   arch/arm64/kvm/reset.c               |  11 ++
+>>   arch/arm64/kvm/rme.c                 | 144 +++++++++++++++++++++++++++
+>>   6 files changed, 192 insertions(+)
+>>
+>> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/
+>> include/asm/kvm_emulate.h
+>> index 27f54a7778aa..ec2b6d9c9c07 100644
+>> --- a/arch/arm64/include/asm/kvm_emulate.h
+>> +++ b/arch/arm64/include/asm/kvm_emulate.h
+>> @@ -722,7 +722,14 @@ static inline bool kvm_realm_is_created(struct
+>> kvm *kvm)
+>>     static inline bool vcpu_is_rec(struct kvm_vcpu *vcpu)
+>>   {
+>> +    if (static_branch_unlikely(&kvm_rme_is_available))
+>> +        return vcpu_has_feature(vcpu, KVM_ARM_VCPU_REC);
+>>       return false;
+>>   }
+>>   
+> 
+> It seems the check on kvm_rme_is_available is unnecessary because
+> KVM_ARM_VCPU_REC
+> is possible to be true only when kvm_rme_is_available is true.
 
---7thzhib5zt2dlqzi
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [RFC PATCH 0/5] drm/panthor: Protected mode support for Mali CSF
- GPUs
-MIME-Version: 1.0
+Similar to a previous patch - the check of the static key is to avoid
+overhead on systems without RME.
 
-Hi Nicolas,
+>> +static inline bool kvm_arm_vcpu_rec_finalized(struct kvm_vcpu *vcpu)
+>> +{
+>> +    return vcpu->arch.rec.mpidr != INVALID_HWID;
+>> +}
+>> +
+>>   #endif /* __ARM64_KVM_EMULATE_H__ */
+> 
+> I would suggest to rename to kvm_arm_rec_finalized() since vCPU and REC are
+> similar objects at the same level. It'd better to avoid duplicate object
+> name reference in the function name.
 
-On Thu, Jan 30, 2025 at 10:59:56AM -0500, Nicolas Dufresne wrote:
-> Le jeudi 30 janvier 2025 =E0 14:46 +0100, Maxime Ripard a =E9crit=A0:
-> > Hi,
-> >=20
-> > I started to review it, but it's probably best to discuss it here.
-> >=20
-> > On Thu, Jan 30, 2025 at 01:08:56PM +0000, Florent Tomasin wrote:
-> > > Hi,
-> > >=20
-> > > This is a patch series covering the support for protected mode execut=
-ion in
-> > > Mali Panthor CSF kernel driver.
-> > >=20
-> > > The Mali CSF GPUs come with the support for protected mode execution =
-at the
-> > > HW level. This feature requires two main changes in the kernel driver:
-> > >=20
-> > > 1) Configure the GPU with a protected buffer. The system must provide=
- a DMA
-> > >    heap from which the driver can allocate a protected buffer.
-> > >    It can be a carved-out memory or dynamically allocated protected m=
-emory region.
-> > >    Some system includes a trusted FW which is in charge of the protec=
-ted memory.
-> > >    Since this problem is integration specific, the Mali Panthor CSF k=
-ernel
-> > >    driver must import the protected memory from a device specific exp=
-orter.
-> >=20
-> > Why do you need a heap for it in the first place? My understanding of
-> > your series is that you have a carved out memory region somewhere, and
-> > you want to allocate from that carved out memory region your buffers.
-> >=20
-> > How is that any different from using a reserved-memory region, adding
-> > the reserved-memory property to the GPU device and doing all your
-> > allocation through the usual dma_alloc_* API?
->=20
-> How do you then multiplex this region so it can be shared between
-> GPU/Camera/Display/Codec drivers and also userspace ?
+Ack
 
-You could point all the devices to the same reserved memory region, and
-they would all allocate from there, including for their userspace-facing
-allocations.
+>> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/
+>> asm/kvm_host.h
+>> index 8482638dce3b..220195c727ef 100644
+>> --- a/arch/arm64/include/asm/kvm_host.h
+>> +++ b/arch/arm64/include/asm/kvm_host.h
+>> @@ -789,6 +789,9 @@ struct kvm_vcpu_arch {
+>>         /* Per-vcpu CCSIDR override or NULL */
+>>       u32 *ccsidr;
+>> +
+>> +    /* Realm meta data */
+>> +    struct realm_rec rec;
+>>   };
+>>     /*
+>> diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/
+>> asm/kvm_rme.h
+>> index 32bdedf1d866..62d4a63d3035 100644
+>> --- a/arch/arm64/include/asm/kvm_rme.h
+>> +++ b/arch/arm64/include/asm/kvm_rme.h
+>> @@ -6,6 +6,7 @@
+>>   #ifndef __ASM_KVM_RME_H
+>>   #define __ASM_KVM_RME_H
+>>   +#include <asm/rmi_smc.h>
+>>   #include <uapi/linux/kvm.h>
+>>     /**
+>> @@ -65,6 +66,21 @@ struct realm {
+>>       unsigned int ia_bits;
+>>   };
+>>   +/**
+>> + * struct realm_rec - Additional per VCPU data for a Realm
+>> + *
+>> + * @mpidr: MPIDR (Multiprocessor Affinity Register) value to identify
+>> this VCPU
+>> + * @rec_page: Kernel VA of the RMM's private page for this REC
+>> + * @aux_pages: Additional pages private to the RMM for this REC
+>> + * @run: Kernel VA of the RmiRecRun structure shared with the RMM
+>> + */
+>> +struct realm_rec {
+>> +    unsigned long mpidr;
+>> +    void *rec_page;
+>> +    struct page *aux_pages[REC_PARAMS_AUX_GRANULES];
+>> +    struct rec_run *run;
+>> +};
+>> +
+>>   void kvm_init_rme(void);
+>>   u32 kvm_realm_ipa_limit(void);
+>>   @@ -72,6 +88,8 @@ int kvm_realm_enable_cap(struct kvm *kvm, struct
+>> kvm_enable_cap *cap);
+>>   int kvm_init_realm_vm(struct kvm *kvm);
+>>   void kvm_destroy_realm(struct kvm *kvm);
+>>   void kvm_realm_destroy_rtts(struct kvm *kvm, u32 ia_bits);
+>> +int kvm_create_rec(struct kvm_vcpu *vcpu);
+>> +void kvm_destroy_rec(struct kvm_vcpu *vcpu);
+>>     #define RMM_RTT_BLOCK_LEVEL    2
+>>   #define RMM_RTT_MAX_LEVEL    3
+>> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+>> index 73016e1e0067..2d97147651be 100644
+>> --- a/arch/arm64/kvm/arm.c
+>> +++ b/arch/arm64/kvm/arm.c
+>> @@ -525,6 +525,8 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
+>>       /* Force users to call KVM_ARM_VCPU_INIT */
+>>       vcpu_clear_flag(vcpu, VCPU_INITIALIZED);
+>>   +    vcpu->arch.rec.mpidr = INVALID_HWID;
+>> +
+>>       vcpu->arch.mmu_page_cache.gfp_zero = __GFP_ZERO;
+>>         /* Set up the timer */
+>> @@ -1467,6 +1469,9 @@ static unsigned long
+>> system_supported_vcpu_features(void)
+>>       if (!cpus_have_final_cap(ARM64_HAS_NESTED_VIRT))
+>>           clear_bit(KVM_ARM_VCPU_HAS_EL2, &features);
+>>   +    if (!static_branch_unlikely(&kvm_rme_is_available))
+>> +        clear_bit(KVM_ARM_VCPU_REC, &features);
+>> +
+>>       return features;
+>>   }
+>>   @@ -1506,6 +1511,10 @@ static int
+>> kvm_vcpu_init_check_features(struct kvm_vcpu *vcpu,
+>>       if (test_bit(KVM_ARM_VCPU_HAS_EL2, &features))
+>>           return -EINVAL;
+>>   +    /* RME is incompatible with AArch32 */
+>> +    if (test_bit(KVM_ARM_VCPU_REC, &features))
+>> +        return -EINVAL;
+>> +
+>>       return 0;
+>>   }
+>>   
+> 
+> One corner case seems missed in kvm_vcpu_init_check_features(). It's
+> allowed to
+> initialize a vCPU with REC feature even kvm_is_realm(kvm) is false.
+> Hopefully,
+> I didn't miss something.
 
-> Also, how the secure memory is allocted / obtained is a process that
-> can vary a lot between SoC, so implementation details assumption
-> should not be coded in the driver.
+Ah, yes good point. I'll pass a kvm pointer to
+kvm_vcpu_init_check_features() and use kvm_is_realm() in there.
 
-But yeah, we agree there, it's also the point I was trying to make :)
+Thanks,
 
-Maxime
+Steve
 
---7thzhib5zt2dlqzi
-Content-Type: application/pgp-signature; name="signature.asc"
+> [...]
+> 
+> Thanks,
+> Gavin
+> 
 
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ5urAAAKCRAnX84Zoj2+
-drkxAYDhYMdCMRvVHsxuLWqll6NhSpmIh8E41iqDapuJU/CzgZsEjwmhO6YYeg3A
-2+EGrI8BgJd5IXr28mAs79h3kSGwjcbdvd2Dt6UIrNjBeLUprzQsspQVlCb01M+1
-D+t8k0aXog==
-=tDkf
------END PGP SIGNATURE-----
-
---7thzhib5zt2dlqzi--
 
