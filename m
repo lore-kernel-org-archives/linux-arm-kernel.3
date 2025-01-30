@@ -4,107 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CE0AC0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 08:48:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE17CC0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 08:58:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+zODCy17l2hWPqIir9V9BhUfDaBaU6iBRysKQzV5hqY=; b=hmVEOlN/XmhyKHkTMo/wmnwmty
-	l1rvN1qgzW7ruWFYMH0gCAFI8y/gViZ8ueyA4jsMqm6MCJog/4HWd6QzeoNvv6Rm1lHJyx/K+8nR3
-	onpF5uBSKpMMdDJdaApcUTo7Wr33aU0zEgrYoYhXbRDXI6fms9x/C0yUTOlzRhi1vnrP3utj79FtI
-	dm94vDANRoNmSqXSEbhHqesFJYX2o0S9ftap9nW188yttfo0kpdk4PlujgsY39jCLzBCFgtUyBttx
-	sAXlg86w0iesxec+TZ38cgTN9GvLVfsVD9NFuXWEjYHr8YiZqKWorf5FusZi6mCfmvFZV6N9M/aLt
-	2ZhOUyiA==;
+	bh=EzcyMoLNvtKxLHNHjczcsoR+W7/fDhlAI5vFIoUcVSo=; b=lhJCIxjURo/1ddkuERB8U5X5iR
+	EvgOjFOEY+W1/rmn+SqWwfhW/i1ruK1cymCxAgkV9ghqQhKLGRdnlZwEChYZMmfFjujMhQ54wKbVC
+	Dcgcw9eEYaAsrEca/qZPTDsmnTQAP3wmgg9tsCsAKi6s4zH9hgGG3aU9QE3MHgQkcAHvhUT7lNDbK
+	5R77J+Tj9aCCf6ekIFqgpmLs6lANOm5DWl/5UgsDwiSyuRkPF9liUHiigAvKJF5yHBKJ7NAsWUszV
+	oywi5gWqfnyf53ewsvEFETwiyw9gh1OV4/GNR+yXJCeIhahkITiA5YyTKJernn1tTxhJotL+lSCxO
+	7vDCYuzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdQDf-00000008Rkr-3b4j;
-	Thu, 30 Jan 2025 08:48:15 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tdQN8-00000008Snn-1z3d;
+	Thu, 30 Jan 2025 08:58:02 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdQCD-00000008Rbl-39Os
+	id 1tdQLp-00000008Sfu-10lZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jan 2025 08:46:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3D4995C5DD1;
-	Thu, 30 Jan 2025 08:46:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 456F3C4CED2;
-	Thu, 30 Jan 2025 08:46:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738226805;
-	bh=NRg/4JVVG1mi/HTsZXn7qNMLf2qvPz1xgm7mr6EGP4g=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RVg6h0pfEuxp/EIBFwms6AIvocEq5pwvqko41EtxpAt1Oyha5G+aRG86GooAiLwva
-	 Gqm2DMWEChpr/ZLeymmjcdlqx3TF+fWVGXd82tGeRWvRkozldzP9n38v7mjp+6SinQ
-	 hOzshnhu0P04ILrZ0a4VEE9/fWH7rB2Nx5IqVxPlSmfUG3oimcNNx3bh+MLgj4MeHK
-	 hwHGiTn08N4tJzTcOFov89e5kQodgk8/IKlqos9TVxd1VwRXDbWuNO7qa46Tv0NogX
-	 +Rb5Ow0enXMlUl9tGGsfBDR8Cm1vsXY3ra83cT/W99FLUeqlB9nH6ukSza3NKNk8re
-	 WFESiL61SAuvw==
-Message-ID: <63b7f4f9-71c3-4847-9693-047d82da957b@kernel.org>
-Date: Thu, 30 Jan 2025 09:46:40 +0100
+	Thu, 30 Jan 2025 08:56:42 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50U6QBVh019628;
+	Thu, 30 Jan 2025 09:56:25 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	EzcyMoLNvtKxLHNHjczcsoR+W7/fDhlAI5vFIoUcVSo=; b=neJk4e8FK6tYF+Ad
+	nZVB/yh2Q9xUNrnMqDr28yaYonhcm2KYV5ISdfmAPhrU5gUgXXC+mkyKX8EvL5p0
+	VjoBCwUOMAZ/ADTEU4HQ8h0kjcoQIc20QMXQC8UHCDWS0ke+BwJPJIWIjJJqjVb0
+	hLLeQHAjwXdSO6aM5VBtdtMzleOR+xEe3E5lFYmTvvd/HaBawDQVoPpogg1jAE9d
+	CHOxGdkj1ez2zHWpaP9ZYadaswP6UOoewFMxiEb6RdPV/HTWXsgq04ZxG2z53a9G
+	NkWLMN1hiGpE5HZO9BGasSqec8BEozdO/YRrSSkvnaptqRyOjiIQ7vXQUsl6OsGZ
+	YZSByQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44f26x6w4a-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 30 Jan 2025 09:56:25 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 9EE874002D;
+	Thu, 30 Jan 2025 09:54:02 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id BEB2C27EEB1;
+	Thu, 30 Jan 2025 09:51:29 +0100 (CET)
+Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Thu, 30 Jan
+ 2025 09:51:28 +0100
+Message-ID: <98f9bdfa-5107-412a-8b9b-41f8135954fc@foss.st.com>
+Date: Thu, 30 Jan 2025 09:51:28 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] ARM: dts: socfpga: Add basic support for Terrasic's
- de10-nano
-To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Dinh Nguyen <dinguyen@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Andrew Lunn <andrew@lunn.ch>
-References: <20250130074553.92023-2-u.kleine-koenig@baylibre.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v2 1/9] dt-bindings: spi: Add STM32 OSPI controller
+To: Conor Dooley <conor@kernel.org>
+CC: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Alexandre
+ Torgue <alexandre.torgue@foss.st.com>,
+        Philipp Zabel
+	<p.zabel@pengutronix.de>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, <linux-spi@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <christophe.kerello@foss.st.com>
+References: <20250128081731.2284457-1-patrice.chotard@foss.st.com>
+ <20250128081731.2284457-2-patrice.chotard@foss.st.com>
+ <20250128-panama-manly-a753d91c297c@spud>
+ <e3d01bce-a7d4-4690-8a2f-3bbb1ee5ccb7@foss.st.com>
+ <20250129-feminize-spotlight-2cee53f8b463@spud>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250130074553.92023-2-u.kleine-koenig@baylibre.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+From: Patrice CHOTARD <patrice.chotard@foss.st.com>
+In-Reply-To: <20250129-feminize-spotlight-2cee53f8b463@spud>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-30_05,2025-01-29_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_004645_876519_654009D1 
-X-CRM114-Status: GOOD (  27.24  )
+X-CRM114-CacheID: sfid-20250130_005641_848764_C6D8C5FA 
+X-CRM114-Status: GOOD (  20.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,91 +111,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/01/2025 08:45, Uwe Kleine-König wrote:
-> This dts is enough to make the board boot to Linux with the rootfs on
-> a micro SD card.
-> 
-> Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
-> ---
-> Hello,
-> 
-> changes since (implicit) v1 available at
-> https://lore.kernel.org/linux-arm-kernel/20250128172917.4565-2-u.kleine-koenig@baylibre.com/:
-> 
->  - Use rgmii-id for ethernet/mdio. (Andrew Lunn)
->  - Add a compatible entry for the machine (only had the SoC before),
->    fix compatible for accelerometer and various other small
->    improvements, most of them pointed out by the dt checker.
->    (Krzysztof Kozlowski)
-> 
-> There are still warnings when the dtb is built, but they all originate
-> from the SoC dtsi.
-> 
-> Something I forgot to say in v1: The accelerometer fails to probe
-> (readout of the device ID yields an error). This also doesn't work for
-> me with the downstream kernel and dtb. I didn't debug that. Is that a
-> reason to drop it?
-> 
-> Best regards
-> Uwe
-> 
->  arch/arm/boot/dts/intel/socfpga/Makefile      |  1 +
->  .../socfpga/socfpga_cyclone5_de10nano.dts     | 95 +++++++++++++++++++
->  2 files changed, 96 insertions(+)
->  create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_de10nano.dts
-> 
-> diff --git a/arch/arm/boot/dts/intel/socfpga/Makefile b/arch/arm/boot/dts/intel/socfpga/Makefile
-> index c467828aeb4b..7f69a0355ea5 100644
-> --- a/arch/arm/boot/dts/intel/socfpga/Makefile
-> +++ b/arch/arm/boot/dts/intel/socfpga/Makefile
-> @@ -10,6 +10,7 @@ dtb-$(CONFIG_ARCH_INTEL_SOCFPGA) += \
->  	socfpga_cyclone5_mcvevk.dtb \
->  	socfpga_cyclone5_socdk.dtb \
->  	socfpga_cyclone5_de0_nano_soc.dtb \
-> +	socfpga_cyclone5_de10nano.dtb \
->  	socfpga_cyclone5_sockit.dtb \
->  	socfpga_cyclone5_socrates.dtb \
->  	socfpga_cyclone5_sodia.dtb \
-> diff --git a/arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_de10nano.dts b/arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_de10nano.dts
-> new file mode 100644
-> index 000000000000..ec25106caacf
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_de10nano.dts
-> @@ -0,0 +1,95 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +/*
-> + * Copyright (C) 2017, Intel Corporation
-> + *
-> + * based on socfpga_cyclone5_de0_nano_soc.dts
-> + */
-> +/dts-v1/;
-> +
-> +#include "socfpga_cyclone5.dtsi"
-> +#include <dt-bindings/interrupt-controller/irq.h>
-> +#include <dt-bindings/gpio/gpio.h>
-> +
-> +/ {
-> +	model = "Terasic DE10-Nano";
-> +	compatible = "terasic,de10-nano", "altr,socfpga-cyclone5", "altr,socfpga";
-
-I already commented on this, you will not get different review.
-
-It does not look like you tested the DTS against bindings. Please run
-`make dtbs_check W=1` (see
-Documentation/devicetree/bindings/writing-schema.rst or
-https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-sources-with-the-devicetree-schema/
-for instructions).
-Maybe you need to update your dtschema and yamllint. Don't rely on
-distro packages for dtschema and be sure you are using the latest
-released dtschema.
 
 
-Please run scripts/checkpatch.pl and fix reported warnings. After that,
-run also `scripts/checkpatch.pl --strict` and (probably) fix more
-warnings. Some warnings can be ignored, especially from --strict run,
-but the code here looks like it needs a fix. Feel free to get in touch
-if the warning is not clear.
+On 1/29/25 18:53, Conor Dooley wrote:
+> On Wed, Jan 29, 2025 at 06:40:23PM +0100, Patrice CHOTARD wrote:
+>> On 1/28/25 19:02, Conor Dooley wrote:
+>>> On Tue, Jan 28, 2025 at 09:17:23AM +0100, patrice.chotard@foss.st.com wrote:
+>>>> +  memory-region:
+>>>> +    maxItems: 1
+>>>
+>>> Whatever about not having descriptions for clocks or reg when there's
+>>> only one, I think a memory region should be explained.
+>>
+>> ok i will add :
+>>
+>>     description: |
+> 
+> The | isn't needed here.
+ok
 
-Best regards,
-Krzysztof
+> 
+>>       Memory region to be used for memory-map read access.
+> 
+> I don't think that's a good explanation, sorry. Why's a memory-region
+> required for read access?
+
+The OCTOSPI interface support 3 functional modes: 
+  _ indirect
+  _ automatic polling status
+  _ memory-mapped
+
+256MB are reserved in the CPU memory map for the 2 OCTOSPI instance.
+This area is used when OCTOSPI1 and/or OCTOSPI2 operate in memory-mapped
+mode. In this mode, read access are performed from the memory device using
+the direct mapping.
+
+Thanks
+Patrice
+
+> 
+>>>> +
+>>>> +  clocks:
+>>>> +    maxItems: 1
+>>>> +
+>>>> +  interrupts:
+>>>> +    maxItems: 1
+>>>> +
+>>>> +  resets:
+>>>> +    items:
+>>>> +      - description: phandle to OSPI block reset
+>>>> +      - description: phandle to delay block reset
+>>>> +
+>>>> +  dmas:
+>>>> +    maxItems: 2
+>>>> +
+>>>> +  dma-names:
+>>>> +    items:
+>>>> +      - const: tx
+>>>> +      - const: rx
+>>>> +
+>>>> +  st,syscfg-dlyb:
+>>>> +    description: phandle to syscon block
+>>>> +      Use to set the OSPI delay block within syscon to
+>>>> +      tune the phase of the RX sampling clock (or DQS) in order
+>>>> +      to sample the data in their valid window and to
+>>>> +      tune the phase of the TX launch clock in order to meet setup
+>>>> +      and hold constraints of TX signals versus the memory clock.
+>>>> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+>>>
+>>> Why do you need a phandle here? I assume looking up by compatible ain't
+>>> possible because you have multiple controllers on the SoC? Also, I don't
+>>
+>> Yes, we got 2 OCTOSPI controller, each of them have a dedicated delay block
+>>  syscfg register.
+> 
+> :+1: 
+> 
+>>> think your copy-paste "phandle to" stuff here is accurate:
+>>>       st,syscfg-dlyb = <&syscfg 0x1000>;
+>>> There's an offset here that you don't mention in your description.
+>>
+>> I will add it as following:
+>>
+>>   st,syscfg-dlyb:
+>>     description:
+>>       Use to set the OSPI delay block within syscon to
+>>       tune the phase of the RX sampling clock (or DQS) in order
+>>       to sample the data in their valid window and to
+>>       tune the phase of the TX launch clock in order to meet setup
+>>       and hold constraints of TX signals versus the memory clock.
+>>     $ref: /schemas/types.yaml#/definitions/phandle-array
+>>     items:
+>>       - description: phandle to syscfg
+>>       - description: register offset within syscfg
+> 
+> :+1:
+> 
+>>>> +  access-controllers:
+>>>> +    description: phandle to the rifsc device to check access right
+>>>> +      and in some cases, an additional phandle to the rcc device for
+>>>> +      secure clock control
+>>>
+>>> This should be described using items rather than a free-form list.
+>>
+>>   access-controllers:
+>>     description: phandle to the rifsc device to check access right
+>>       and in some cases, an additional phandle to the rcc device for
+>>       secure clock control
+>>     items:
+>>       - description: phandle to bus controller or to clock controller
+>>       - description: access controller specifier
+>>      minItems: 1
+>>      maxItems: 2
+> 
+> These updates look fine to me.
 
