@@ -4,59 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15511C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 17:24:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F078DC0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 17:26:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gYsz00y8QAdPl5/2ZJOPuA+CJghZCXNAP0Lb4iHuHdo=; b=QkEwaX2MmCADE5CFwb46E5ZP1s
-	J1w14Dj0M+0hHfMvMfHl6G/8Mv3kpvQPvPajvIZLxmHZN9peXYnoFXaAWs7983gSeVndVyFf5V/vx
-	WBwsf3vUcScc0xnWTKshO/rHuw1eSpv8WnpHrRvM5oq65LpR6rwsdR65jCKeCpk41LgSbrmCTMWIK
-	Oo3puKWUzzhSXTkQPEPvPo66Vj25NvBbzCFwDgNc8fPon63f9NDokRrSubkqqtKZQorMe5iCesDCl
-	bdFQ7BmregAh2R0p0p9jkkQNMZsz1eNgS2hJsAuexNT3S2Zqg5PXDPDLD6XoI8SImIp5UKZsl87DI
-	J+Tker8w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XyeDfNgF8wSUnxJsK4c0ibCBKb5iWxSmVaedgdkZ/qE=; b=BnPPj31gCU/u1WTIq0X99jKHO/
+	cRonxkHxmaMJZgD/EGbjX472LOXKjNT8eq+85/FxWpw3hncHJ8YtHlTAW48cw3pMtqRVkyUUXqUrt
+	ym05oprQQPXX06DdYzqAodfiO9WZsk9XQvnwVvbSvKHdPqG+b+lCEC8Oje4IyfEwlCr+CruMDBRPI
+	h0LFWQisYUnDlxomk4i/QGy4jyCP7XUSUbvlbd5tTuf0XoS2QCtNyTDRbt0zWWk2j6Tp2WjlYko4l
+	mJBUA6dAwqhIFWzJ3XJy+cXczKO6ig8MWLnKcGw8PdEXTtlElErKhPXj6K256jsXWB3rwKeAAb8rc
+	jtt9Q1Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdYHM-00000009GrQ-2BV2;
-	Thu, 30 Jan 2025 17:24:36 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tdYIp-00000009H7S-0ZVV;
+	Thu, 30 Jan 2025 17:26:07 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdYG2-00000009Gl6-2XZI
+	id 1tdYHV-00000009Gsj-1nKi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jan 2025 17:23:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 35CFBA41FBA;
-	Thu, 30 Jan 2025 17:21:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1F4AC4CED2;
-	Thu, 30 Jan 2025 17:23:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738257793;
-	bh=yH4FEbQVXyMxFaB7hk1ruwl/3FyAw8z0JzuE+B/DXpM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=upySuXt69EgxtJcJBjPKJLKq/sT++GHdJLl2ro5gBbZNK4U64HWApRXSLxfb8eFw0
-	 CI/IjFGVut8N3OHewG3MvKiRmcSfSNNZ5ykiHjTTGmeYvMj9VBh5/2BZ1n2iVT7nRk
-	 +EI23txGIo3cN3lTDEqeHccBBtQHqfvwuULpBtGjEi0XC4aivzW02RTO80hTOgADBc
-	 wbX9ocvq5U3cJU64lLn7bWeQyrWuXI050ij/SsZRqm8NAzJfMoTZk8rUqPfzOJTngl
-	 +g8cdyMfWtmFvIENKtDO8EOaaMMMKJtNs7wz+mFGikGXV2YXP/9TUsiVK8Mo47P7TW
-	 GabRao+AJ+L0Q==
-Date: Thu, 30 Jan 2025 17:23:04 +0000
-From: Simon Horman <horms@kernel.org>
-To: Basharath Hussain Khaja <basharath@couthit.com>
-Subject: Re: [RFC v2 PATCH 05/10] net: ti: prueth: Adds ethtool support for
- ICSSM PRUETH Driver
-Message-ID: <20250130172304.GD13457@kernel.org>
-References: <20250124122353.1457174-1-basharath@couthit.com>
- <20250124134056.1459060-6-basharath@couthit.com>
+	Thu, 30 Jan 2025 17:24:46 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-386329da1d9so574439f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jan 2025 09:24:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1738257883; x=1738862683; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=XyeDfNgF8wSUnxJsK4c0ibCBKb5iWxSmVaedgdkZ/qE=;
+        b=ko943lmhr29GBwxmIp4Uuduv8w06zGEYb/hqFBGzFAVAQv2dkPCOxuAcFGhLlz7vbN
+         yPcBV6YQPFgjRav+oYHH8t2QNq0+blJzEir7pYP9Sgd1IBF7zpYmTyIcinUe7W1OZVTU
+         8aqVZ89lHFUJlBr4lctCjXtPDvJDX9Zdq5BZd97QDqAZ4FRNwzqUl0vldM77bm72TTqu
+         q3yXlY//sizJ79lXNfDCPk9JCaliYV8TY71ogeNyENYl/VAHvetb9qflEY/BxI/PwWo0
+         P0FDCZndU40W1drZiRRg/g5G4Fo0UukHFImJG8z/ZiPawfiLpejBsksCtN66GC/DQ1Bt
+         UYnw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738257883; x=1738862683;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=XyeDfNgF8wSUnxJsK4c0ibCBKb5iWxSmVaedgdkZ/qE=;
+        b=OzwTrv/YsZa4oQ9GlQuGmh5nVOba9KD/phsHNjNHTsZlJLwz0lT+1agSYJNPPuUH5I
+         7/gF4aG4uGiEJI0eUFTroTdWD/3+dpv3fqmF1CVpFIVFxT3W9T4Y6ltyGnR+cRxe2fSv
+         qfXzI2aBC4SZvDfw+zZ9QoovkeCJ35sJD//824ycZrmQ7beR8EyG5T5PcKl1PtKGwoTN
+         dcdwvj9xdAiiSa9y5PjbHE4DbEHmAh9iutI4hHBeV6Zysc/SmFJVGK5uRw5ny2L4eQEw
+         VxDsyIxCRwwtwu8rdwYwgekW+f+ngtL89cYMd2/yF/BoY1vA5blvNI84k4JSY3+dXlrx
+         9Q7g==
+X-Forwarded-Encrypted: i=1; AJvYcCWtGgtyt94SbTxFOIM/oxYKHLfh6GRw/I8J/nxrlbb8+lgE7mb7bhPEI/9A4ueu4k9jmYDxRDioT11tlXnuZ7kt@lists.infradead.org
+X-Gm-Message-State: AOJu0YxufSSnSogMkImGP6a4CipJRUn/0NyMhvsVqnzFiCncHoQ9TrjD
+	SJIEANSeMvpsTcRq7QSkCoq+n3E3DyP8/vddeXQjSJsLiYdWwKZuUKCoatikkpU=
+X-Gm-Gg: ASbGncvTVOjmp/dfScDLsLt4sWFtl8KPyKYVsr1TyWOENXhfxLdaDzqNjpjliUwLqQx
+	u3ror7WwaLAwyoQaaJ78cyeo0U5bVxiA7V7AYDIti9By5GarGX+PDn8xFPySIHIk1RGiuKXxC9M
+	T0VailWQ/p/l9KCXJqMEDLYrRc845ZQGI8KULnw3Aj8kXa9K1Y3/7PxFXKy33thcsa17oD5q9Rx
+	ulpJbkmrJBUb4LdgS2uCOq/f1Tp0sGpIUeI+YKauZcvCBOgjrAcp3k3FpFomTvj5gg+fJhFcznU
+	P93vfTFhAl6NkxPRWkQNWBoKNORQmrE33j2JWOkNp18FZajKYXLdZis=
+X-Google-Smtp-Source: AGHT+IFOKhwS7SVTZlAgB/KmUq5YUcsnKXwUcdqRruGMwNm81PK27tTx5RK+9qsQBjRXDr0I6E36aQ==
+X-Received: by 2002:a5d:6d02:0:b0:385:f092:e1a with SMTP id ffacd0b85a97d-38c5194c3b6mr6343222f8f.11.1738257883252;
+        Thu, 30 Jan 2025 09:24:43 -0800 (PST)
+Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38c5c0ebfdasm2599755f8f.17.2025.01.30.09.24.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 30 Jan 2025 09:24:42 -0800 (PST)
+Message-ID: <b496d933-3c57-4b02-ab65-0582a30939af@linaro.org>
+Date: Thu, 30 Jan 2025 18:24:41 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250124134056.1459060-6-basharath@couthit.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/6] thermal: of: Export non-devres helper to
+ register/unregister thermal zone
+To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: rafael@kernel.org, rui.zhang@intel.com, lukasz.luba@arm.com,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ geert+renesas@glider.be, magnus.damm@gmail.com, mturquette@baylibre.com,
+ sboyd@kernel.org, p.zabel@pengutronix.de, ulf.hansson@linaro.org,
+ linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+ Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+References: <20250103163805.1775705-1-claudiu.beznea.uj@bp.renesas.com>
+ <20250103163805.1775705-3-claudiu.beznea.uj@bp.renesas.com>
+ <Z5pkUNNvsWPjRQvy@mai.linaro.org>
+ <65a16c3f-456e-40ec-91b0-afb57269ed46@tuxon.dev>
+ <Z5tPR_tv7vWDkUI7@mai.linaro.org>
+ <6ed7d545-82d7-4bca-95ec-95447586bb58@tuxon.dev>
+Content-Language: en-US
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <6ed7d545-82d7-4bca-95ec-95447586bb58@tuxon.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_092314_769578_C7A5C892 
-X-CRM114-Status: GOOD (  16.44  )
+X-CRM114-CacheID: sfid-20250130_092445_484883_0082779E 
+X-CRM114-Status: GOOD (  17.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,108 +108,48 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: nm@ti.com, vigneshr@ti.com, tony@atomide.com, edumazet@google.com, krishna@couthit.com, pmohan@couthit.com, diogo.ivo@siemens.com, robh@kernel.org, javier.carrasco.cruz@gmail.com, praneeth@ti.com, m-karicheri2@ti.com, jacob.e.keller@intel.com, kuba@kernel.org, pabeni@redhat.com, devicetree@vger.kernel.org, conor+dt@kernel.org, schnelle@linux.ibm.com, mohan@couthit.com, richardcochran@gmail.com, prajith@ti.com, rogerq@kernel.org, ssantosh@kernel.org, linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org, rogerq@ti.com, srk@ti.com, pratheesh@ti.com, m-malladi@ti.com, netdev@vger.kernel.org, rdunlap@infradead.org, linux-kernel@vger.kernel.org, danishanwar@ti.com, afd@ti.com, andrew+netdev@lunn.ch, parvathi@couthit.com, krzk+dt@kernel.org, davem@davemloft.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 24, 2025 at 07:10:51PM +0530, Basharath Hussain Khaja wrote:
-> From: Roger Quadros <rogerq@ti.com>
+On 30/01/2025 11:30, Claudiu Beznea wrote:
 > 
-> Changes for enabling ethtool support for the newly added PRU Ethernet
-> interfaces. Extends the support for statistics collection from PRU internal
-> memory and displays it in the user space. Along with statistics,
-> enable/disable of features, configuring link speed etc.are now supported.
 > 
-> The firmware running on PRU maintains statistics in internal data memory.
-> When requested ethtool collects all the statistics for the specified
-> interface and displays it in the user space.
+> On 30.01.2025 12:07, Daniel Lezcano wrote:
+>> On Thu, Jan 30, 2025 at 11:08:03AM +0200, Claudiu Beznea wrote:
+>>> Hi, Daniel,
+
+[ ... ]
+
+>>>> Would the IP need some cycles to capture the temperature accurately after the
+>>>> clock is enabled ?
+>>>
+>>> There is nothing about this mentioned about this in the HW manual of the
+>>> RZ/G3S SoC. The only points mentioned are as described in the driver code:
+>>> - wait at least 3us after each IIO channel read
+>>> - wait at least 30us after enabling the sensor
+>>> - wait at least 50us after setting OE bit in TSU_SM
+>>>
+>>> For this I chose to have it implemented as proposed.
+>>
+>> IMO, disabling/enabling the clock between two reads through the pm runtime may
+>> not be a good thing, especially if the system enters a thermal situation where
+>> it has to mitigate.
+>>
+>> Without any testing capturing the temperatures and compare between the always-on
+>> and on/off, it is hard to say if it is true or not. Up to you to test that or
+>> not. If you think it is fine, then let's go with it.
 > 
-> Makefile is updated to include ethtool support into PRUETH driver.
-> 
-> Signed-off-by: Roger Quadros <rogerq@ti.com>
-> Signed-off-by: Andrew F. Davis <afd@ti.com>
-> Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
-> Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
+> I tested it with and w/o the runtime PM and on/off support (so, everything
+> ON from the probe) and the reported temperature values were similar.
 
-...
 
-> diff --git a/drivers/net/ethernet/ti/icssm/icssm_ethtool.c b/drivers/net/ethernet/ti/icssm/icssm_ethtool.c
+Did you remove the roundup to 0.5°C ?
 
-...
 
-> +static const struct {
-> +	char string[ETH_GSTRING_LEN];
-> +	u32 offset;
-> +} prueth_ethtool_stats[] = {
-> +	{"txBcast", PRUETH_STAT_OFFSET(tx_bcast)},
-> +	{"txMcast", PRUETH_STAT_OFFSET(tx_mcast)},
-> +	{"txUcast", PRUETH_STAT_OFFSET(tx_ucast)},
-> +	{"txOctets", PRUETH_STAT_OFFSET(tx_octets)},
-> +	{"rxBcast", PRUETH_STAT_OFFSET(rx_bcast)},
-> +	{"rxMcast", PRUETH_STAT_OFFSET(rx_mcast)},
-> +	{"rxUcast", PRUETH_STAT_OFFSET(rx_ucast)},
-> +	{"rxOctets", PRUETH_STAT_OFFSET(rx_octets)},
+-- 
+<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
 
-Hi Roger, Basharath, all,
-
-There seems to be some overlap between the above and struct rtnl_link_stats64.
-
-Please implement those stats which are present in struct rtnl_link_stats64
-using ndo_get_stats64 and omit them from your implementation of
-get_ethtool_stats.
-
-IOW, get_ethtool_stats() is for extended stats, whereas is for standard
-stats ndo_get_stats64().  And standard stats should not be presented to the
-user as extended stats.
-
-Link: https://docs.kernel.org/networking/statistics.html#notes-for-driver-authors
-
-> +	{"tx64byte", PRUETH_STAT_OFFSET(tx64byte)},
-> +	{"tx65_127byte", PRUETH_STAT_OFFSET(tx65_127byte)},
-> +	{"tx128_255byte", PRUETH_STAT_OFFSET(tx128_255byte)},
-> +	{"tx256_511byte", PRUETH_STAT_OFFSET(tx256_511byte)},
-> +	{"tx512_1023byte", PRUETH_STAT_OFFSET(tx512_1023byte)},
-> +	{"tx1024byte", PRUETH_STAT_OFFSET(tx1024byte)},
-> +	{"rx64byte", PRUETH_STAT_OFFSET(rx64byte)},
-> +	{"rx65_127byte", PRUETH_STAT_OFFSET(rx65_127byte)},
-> +	{"rx128_255byte", PRUETH_STAT_OFFSET(rx128_255byte)},
-> +	{"rx256_511byte", PRUETH_STAT_OFFSET(rx256_511byte)},
-> +	{"rx512_1023byte", PRUETH_STAT_OFFSET(rx512_1023byte)},
-> +	{"rx1024byte", PRUETH_STAT_OFFSET(rx1024byte)},
-
-Similarly, the above, along with rxOverSizedFrames and rxUnderSizedFrames
-below seem to be RMON (RFC 2819) statistics. So I think they should
-be handled by implementing get_rmon_stats().
-
-> +
-> +	{"lateColl", PRUETH_STAT_OFFSET(late_coll)},
-> +	{"singleColl", PRUETH_STAT_OFFSET(single_coll)},
-> +	{"multiColl", PRUETH_STAT_OFFSET(multi_coll)},
-> +	{"excessColl", PRUETH_STAT_OFFSET(excess_coll)},
-
-And likewise, the section above and below seem to overlap
-with Basic IEEE 802.3 MAC statistics which I believe
-should be handled by implementing get_eth_mac_stats()
-
-> +
-> +	{"rxMisAlignmentFrames", PRUETH_STAT_OFFSET(rx_misalignment_frames)},
-> +	{"stormPrevCounterBC", PRUETH_STAT_OFFSET(stormprev_counter_bc)},
-> +	{"stormPrevCounterMC", PRUETH_STAT_OFFSET(stormprev_counter_mc)},
-> +	{"stormPrevCounterUC", PRUETH_STAT_OFFSET(stormprev_counter_uc)},
-> +	{"macRxError", PRUETH_STAT_OFFSET(mac_rxerror)},
-> +	{"SFDError", PRUETH_STAT_OFFSET(sfd_error)},
-> +	{"defTx", PRUETH_STAT_OFFSET(def_tx)},
-> +	{"macTxError", PRUETH_STAT_OFFSET(mac_txerror)},
-> +	{"rxOverSizedFrames", PRUETH_STAT_OFFSET(rx_oversized_frames)},
-> +	{"rxUnderSizedFrames", PRUETH_STAT_OFFSET(rx_undersized_frames)},
-> +	{"rxCRCFrames", PRUETH_STAT_OFFSET(rx_crc_frames)},
-> +	{"droppedPackets", PRUETH_STAT_OFFSET(dropped_packets)},
-> +
-> +	{"txHWQOverFlow", PRUETH_STAT_OFFSET(tx_hwq_overflow)},
-> +	{"txHWQUnderFlow", PRUETH_STAT_OFFSET(tx_hwq_underflow)},
-> +	{"vlanDropped", PRUETH_STAT_OFFSET(vlan_dropped)},
-> +	{"multicastDropped", PRUETH_STAT_OFFSET(multicast_dropped)},
-> +};
-
-...
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
