@@ -4,81 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66D1DC0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 23:21:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82512C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 23:23:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WQHn6edfgzFGCG4vfRDpC4aYK7sN8+4+UbMutzj7pZs=; b=JjiFB0tBcax4Lp6W9gCdM/loLt
-	qwtFIp3BdAkfdRLnyVgCYWvYEAYP9rEWA7GkHaY3tIk6ACSH3Ly+bI9+MfVfSncCsHoy34oOrkoyg
-	M2HaMkrG5tJju+ZCpV/7LslNy4+rtCXJXpbBAepRkfKExR/nOeoVVKERDPjc/ATv/PUPTMDmh00Fy
-	m5xMwhDI2ulLcuMDNiYVix4hF01jCwfA76UESSeR9AQUV3n+zYfDZYvADf/J0xNH99v2l7L+G0ond
-	E58wi6d4qWA/4X6K0AqOqwfgBJZhJcG404WKzgkh6tXz6YGMdahWZWezbM4koh0tifhr2ahp4c1F3
-	iimH/KYQ==;
+	bh=AGuysM/Bjj0ONpOPPfU5fE2E0xCxqB9WfBikr1jbeyU=; b=SrwJtHGmt5ywl0craoywh4y9e3
+	/wfmeSsa/xBwSLxnd42M1YqOJaUHRsTJJUiTq9JQveysDESttJH1hUe/TDilisEBTqzPEPG3KwEkx
+	jSANCgzp2StVZP8c9cp+zU7S8NDvuGxWXJi9t+GYoE1lp8bko4iFxDrWmruqFVyTHS9+2Y7ymz7Bd
+	EZ8OuNOtaRfOId+fwFr7Bt0I0scNh4ukhpn0DuwAPKk82awEegj65GqmDI5EkK9rWTwVjHmP4IuyR
+	PDvrTByBwYU7+y3Mw+wwWAMQ3GME3w7MsIHL42sXPHsKzCAaZP1AT6Jho4ixovw9/Kfju/Z64V6g/
+	Uvh/VuEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tddqi-00000009m3d-29YV;
-	Thu, 30 Jan 2025 23:21:28 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tddpP-00000009luk-1LRb;
-	Thu, 30 Jan 2025 23:20:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4BD82A425B0;
-	Thu, 30 Jan 2025 23:18:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62DBEC4CED2;
-	Thu, 30 Jan 2025 23:20:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738279205;
-	bh=KpU19pPWgjFCuwWnk0SmFXgxBVKLllJYcw36Fo9osrg=;
+	id 1tddsC-00000009mCD-26nC;
+	Thu, 30 Jan 2025 23:23:00 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tddqt-00000009m62-007d
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 30 Jan 2025 23:21:40 +0000
+Received: by linux.microsoft.com (Postfix, from userid 1152)
+	id 905C92109CFE; Thu, 30 Jan 2025 15:21:37 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 905C92109CFE
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1738279297;
+	bh=AGuysM/Bjj0ONpOPPfU5fE2E0xCxqB9WfBikr1jbeyU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ERqVUCNtbs+MzLdhNdvgBbEjriNPD+yPZlBdTguGqhpz6nhLt0Q1qEpzAz1NpSC+U
-	 UJRC4z+qMWIPBsk+AkOOIm8AAYpM0t2iMy1oWJ3OisQC2mXpY2wDDNo7yMV5e5te0d
-	 qjeh/puZLvAbfjwaYR+VQcPxIdPfDGSMakwFr6s5tWOGEYAvliMRWa3/burDmWPvc7
-	 aWJsFVAKeOPJP3JgMiUv3mLaItpjObrdvpYggJrl1DzHKdWgxWFIST81ZsBDj5ZBo1
-	 W7KIlck3OGfLXlCXHkzatU6xx1VGcNbZ0Nmx360SlZWcm1LWhyjcrTQcRMDnsD7Y7D
-	 NJYRI+1Iq4ldg==
-Date: Thu, 30 Jan 2025 17:20:04 -0600
-From: Rob Herring <robh@kernel.org>
-To: Florent Tomasin <florent.tomasin@arm.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Boris Brezillon <boris.brezillon@collabora.com>,
-	Steven Price <steven.price@arm.com>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Brian Starkey <Brian.Starkey@arm.com>,
-	John Stultz <jstultz@google.com>,
-	"T . J . Mercier" <tjmercier@google.com>,
-	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Yong Wu <yong.wu@mediatek.com>, dmaengine@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, linux-media@vger.kernel.org,
-	linaro-mm-sig@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, nd@arm.com,
-	Akash Goel <akash.goel@arm.com>
-Subject: Re: [RFC PATCH 1/5] dt-bindings: dma: Add CMA Heap bindings
-Message-ID: <20250130232004.GA1818629-robh@kernel.org>
-References: <cover.1738228114.git.florent.tomasin@arm.com>
- <771534be8dfa2a3bdc3876502752f518224b9298.1738228114.git.florent.tomasin@arm.com>
+	b=MIcR8ice7xefiWpV+MDI9m+ggfFAsrrfOqh41JrzHYFs5HKza7PZg5WWqrG0sp+mI
+	 SHBL24uGENLjYmvamJ2Ilcn5OjnROY0ol9G2DAz8vLWfZxvFGLDruWkoHc8Cc9ZwMA
+	 IuYu804xIKrL6FSigmRolmWBtGCsTRCrCAbBj06I=
+Date: Thu, 30 Jan 2025 15:21:37 -0800
+From: Shyam Saini <shyamsaini@linux.microsoft.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Jacob Pan <jacob.pan@linux.microsoft.com>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	virtualization@lists.linux.dev, will@kernel.org,
+	eric.auger@redhat.com, code@tyhicks.com,
+	eahariha@linux.microsoft.com, vijayb@linux.microsoft.com
+Subject: Re: [PATCH 0/3] make MSI IOVA base address and its length
+ configurable
+Message-ID: <20250130232137.GA14836@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+References: <20250116232307.1436693-1-shyamsaini@linux.microsoft.com>
+ <20250120142643.GM674319@ziepe.ca>
+ <67901659.170a0220.20b206.f1f5SMTPIN_ADDED_BROKEN@mx.google.com>
+ <20250122001924.GT674319@ziepe.ca>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <771534be8dfa2a3bdc3876502752f518224b9298.1738228114.git.florent.tomasin@arm.com>
+In-Reply-To: <20250122001924.GT674319@ziepe.ca>
+User-Agent: Mutt/1.5.21 (2010-09-15)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_152007_425943_D6179392 
-X-CRM114-Status: GOOD (  12.59  )
+X-CRM114-CacheID: sfid-20250130_152139_066664_169AFE72 
+X-CRM114-Status: GOOD (  32.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,21 +74,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 30, 2025 at 01:08:57PM +0000, Florent Tomasin wrote:
-> Introduce a CMA Heap dt-binding allowing custom
-> CMA heap registrations.
+Hi Jason,
+
+Apologies for delayed reponse,
+
+> On Tue, Jan 21, 2025 at 01:49:10PM -0800, Jacob Pan wrote:
 > 
-> * Note to the reviewers:
-> The patch was used for the development of the protected mode
-> feature in Panthor CSF kernel driver and is not initially thought
-> to land in the Linux kernel. It is mostly relevant if someone
-> wants to reproduce the environment of testing. Please, raise
-> interest if you think the patch has value in the Linux kernel.
+> > > On Thu, Jan 16, 2025 at 03:23:04PM -0800, Shyam Saini wrote:
+> > > > Hi,
+> > > > 
+> > > > Currently, the MSI_IOVA_BASE address is hard-coded to 0x80000000,
+> > > > assuming that all platforms have this address available for MSI IOVA
+> > > > reservation. However, this is not always the case, as some platforms
+> > > > reserve this address for other purposes.  
+> > > 
+> > > Can you explain this some more? This address is in the kernel
+> > > controlled IOVA space, there are few ways a platform can impact this.
+> > > 
+> > > How is the platform impacting it? Is the non-functional IOVA always
+> > > reflected in the iommu_get_resv_regions()?
+> > 
+> > I don't know the platform impact but just to clarify, are you asking
+> > whether this non-functional IOVA is also under IORT RMR or other FW
+> > tables? I don't think it is.
+> 
+> No, I'm asking how can you possibly have a HW platform where
+> MSI_IOVA_BASE is unable to be used for DMA?
+> 
+> MSI_IOVA_BASE is 128M, and most ARM platforms put DRAM starting at
+> 0. Most ARM VMMs put DRAM starting at 0 too.
+> 
+> So a platform saying that DMA to 128M doesn't work is pretty broken,
+> to the point it is hard to believe there is a HW issue at work here?
 
-Why would panthor need CMA, it has an MMU.
+Correct, this is limitation with our HW.
+Since we can't fix it in hardware, we would need to fix it in Linux.
 
-In any case, I agree with Maxime that this is redundant.
+> > But this special IOVA is reflected in iommu_get_resv_regions() the same
+> > way as the hardcoded MSI_IOVA_BASE. So each iommu group's
+> > reserved_regions should show.
+> 
+> That's great
+> 
+> > > Why not avoid this conflict in your platform software?
+> > I had the same question but it seems there is not enough difference
+> > (than the standard smmu) to justify a platform code. i.e. platform
+> > specific iommu_get_resv_regions(), is that what you are suggesting?
+> 
+> And here I mean, why not stop marking it reserved in the ACPI/DT
+> inside your firwmare or hypervisor?
 
-Rob
+even if we reserve it in dts we would still need some address reserved for MSI IOVA
+
+> This smells like some SW component using the same address Linux uses
+> for some odd purpose. Just change it and let Linux keep using the
+> address it wants?
+
+Unfortunately, it is an HW issue.
+
+Are you okay with this passing custom MSI_IOVA via DTS approach ?
+
+Thanks,
+Shyam
 
 
