@@ -4,67 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 809E7C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 13:24:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C1CBC0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 13:27:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ILZ0QAARwkxUKegPq2iIqOPpmVges9swsChTaHdNLaA=; b=NvhNGJ6XX04EwZ+DDSZjocV8rh
-	LhFUIPx+/2NVy0EaQXHplUuNGqSFb8ShYz3wfs3prf8LTThGULgUBN1ZYtWVKZ3zu+3FliE36Wxd2
-	NITnzaOeEWz/l93VXChhT63fjbfizByHfWfa3kmI4B3DzhQOOLNdia2k62DNlXzWdTASK/WXVBnGp
-	aSbFiplgpot9p6fQmrmZoMT0mWE/tHIoXk7whsQSleiDiy8Nlgq/4o7I/XggJqrypi8/Mu/zdHwhv
-	aZRAFIqgyFz5WL//jGY/Da147P078swmwgihgkaMwgOpRakezb31UugGcFOuN4Bm+hm3sW2ez77XG
-	QuHk92kQ==;
+	bh=SzvFFMSfP6Mm1H6JGD78EZYrFbiROfqXxHife8p2lZ4=; b=akAVpgiABa74BS5x01OIT3S7B6
+	a02gB1ufUPLTf/FN2eFMnHWIPcGJF6j6B92lVbKHVTuYPhGX/sHWritUd04CTV3o5s9/Yqve7WeGu
+	9/Pz5uuOIvxVDPE+4XIUR7OQjx0jLclLK317zjExt1SVlSWrNeZ3VFyreKyyO/0syz8PAmOjz9VX6
+	jh1AVq1z3+Xh+bGzbdvyPAzFZMo/Z3tyitOOG6ZUeX+NiLzoU3QZtJiCmRpwWwDoQldWH92paahn9
+	63rbo+zCvFbPTOw/PaYpC3836sMQddSZDAd2qNNxxIywukRyPygRGGpxWPa1l4qNOCx9CrDrjLqrk
+	teeald2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdUX0-00000008rTR-1h7Y;
-	Thu, 30 Jan 2025 13:24:30 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tdUZH-00000008rog-22XM;
+	Thu, 30 Jan 2025 13:26:51 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdUUH-00000008r08-2Ypy;
-	Thu, 30 Jan 2025 13:21:42 +0000
+	id 1tdUXx-00000008reH-0Nng;
+	Thu, 30 Jan 2025 13:25:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 17BD9A402BA;
-	Thu, 30 Jan 2025 13:19:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D20FAC4CED2;
-	Thu, 30 Jan 2025 13:21:33 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 72F6E5C5CD0;
+	Thu, 30 Jan 2025 13:24:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28ADAC4CED2;
+	Thu, 30 Jan 2025 13:25:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738243300;
-	bh=/FYFoFx51U6tBMI/OHfLnMY9sPQJJAgn2rePQRkIa+g=;
+	s=k20201202; t=1738243528;
+	bh=SzvFFMSfP6Mm1H6JGD78EZYrFbiROfqXxHife8p2lZ4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ipeIczgTGuQ2tAkN6RTh9IBwpegKN28JEQ/xfVcxBaNGi5FKzgYstmSPXkvoI43iu
-	 kMyp5TWDakgKXKmEdKvV3kzusyshwF17Stqwzb5Pxu7qsLgUBvMLoPQ2rV0E3fQh/8
-	 sUOgM8qC/IJuNJER81hzMrMgXJsjXew5GDqmDLiRB02qbpiJX22UoV7iF33zyizKxc
-	 e19t9uRGkTlt5Xwdt6XE9olfrAowhX1NHc996WQ34AuaEnI/V1lgbGWUdkrWSxbTu9
-	 8/NcQgjhYDzkXTahWtC0SrihNoz8IdlGVDAkyxHB4nsn+/H285NKlcOMH51qqM+JUa
-	 g4z7U/yf5o+Xw==
-Message-ID: <1003b393-770a-4e2b-b5ed-054f1f9072b4@kernel.org>
-Date: Thu, 30 Jan 2025 14:21:31 +0100
+	b=ZArjtJgJOtt2zO8Ds9hhTBZ6Cip7ztSItXYlMI+3Wby3sbIdjSg13JCTjcGVEUrVy
+	 477w5XvibraWxa5LyaOrC/G0C9M5pIH4To5x5yMfj786kHYlLpXJpBJCkpiNodBP2M
+	 c8TgdRfyEwshEvU0J6nr+ANlcEUtaaQuDma+5+I45EUpMED6MQn3ttDJ4rfrmIL8+h
+	 WFAE2eyUxnnOURV6BUVeOwDhVd2U36VsIIzyxHSXTt9FsRzf6eaiqio1MG09jb8Dwj
+	 v5K40ip5cIQZSddX5UNQKXASh6Nfb/dmU4NTX+FgcwgDXNahR/g8E2lL8Guq7KzWHc
+	 /duo7iPWQu1kg==
+Message-ID: <7234f25c-a2aa-4834-931b-aeeb7a49dfa7@kernel.org>
+Date: Thu, 30 Jan 2025 14:25:16 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] drm/panfrost: Add support for Mali on the MT8370 SoC
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+Subject: Re: [RFC PATCH 3/5] dt-bindings: gpu: Add protected heap name to Mali
+ Valhall CSF binding
+To: Florent Tomasin <florent.tomasin@arm.com>, Vinod Koul <vkoul@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
  David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>,
+ Sumit Semwal <sumit.semwal@linaro.org>,
+ Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+ Brian Starkey <Brian.Starkey@arm.com>, John Stultz <jstultz@google.com>,
+ "T . J . Mercier" <tjmercier@google.com>,
+ =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Boris Brezillon <boris.brezillon@collabora.com>,
- Steven Price <steven.price@arm.com>, kernel <kernel@collabora.com>,
- dri-devel <dri-devel@lists.freedesktop.org>,
- devicetree <devicetree@vger.kernel.org>,
- linux-kernel <linux-kernel@vger.kernel.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- linux-mediatek <linux-mediatek@lists.infradead.org>
-References: <20250116-mt8370-enable-gpu-v1-0-0a6b78e925c8@collabora.com>
- <20250116-mt8370-enable-gpu-v1-2-0a6b78e925c8@collabora.com>
- <20250118-meticulous-black-caracal-ec7f0d@krzk-bin>
- <194b7237128.10f9923a41656565.5574753983898665940@collabora.com>
+ Yong Wu <yong.wu@mediatek.com>
+Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ nd@arm.com, Akash Goel <akash.goel@arm.com>
+References: <cover.1738228114.git.florent.tomasin@arm.com>
+ <36b57dcf20860398ba83985e1c5b6f6958d08ba7.1738228114.git.florent.tomasin@arm.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -110,12 +115,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <194b7237128.10f9923a41656565.5574753983898665940@collabora.com>
+In-Reply-To: <36b57dcf20860398ba83985e1c5b6f6958d08ba7.1738228114.git.florent.tomasin@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_052141_784326_ACA2E9C8 
-X-CRM114-Status: UNSURE (   7.75  )
+X-CRM114-CacheID: sfid-20250130_052529_231952_F74D3A82 
+X-CRM114-Status: UNSURE (   8.01  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -131,15 +136,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/01/2025 13:15, Louis-Alexis Eyraud wrote:
-> Hello,
-> 
-> sorry for the delay,
+On 30/01/2025 14:08, Florent Tomasin wrote:
+> Allow mali-valhall-csf driver to retrieve a protected
+> heap at probe time by passing the name of the heap
+> as attribute to the device tree GPU node.
 
-You gave yourself 12 days to respond, which is fine. But to me, you gave
-15 minutes and immediately sent v2.
+Please wrap commit message according to Linux coding style / submission
+process (neither too early nor over the limit):
+https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/submitting-patches.rst#L597
 
-So now your v2 will be still rejected.
+Why this cannot be passed by phandle, just like all reserved regions?
+
+From where do you take these protected heaps? Firmware? This would
+explain why no relation is here (no probe ordering, no device links,
+nothing connecting separate devices).
 
 Best regards,
 Krzysztof
