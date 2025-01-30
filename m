@@ -4,89 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7F1AC0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 13:39:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 129EDC0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 13:41:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IaOqkqi4ZsckMMcVlfVzFatudJFOKDndawaygsJAlnk=; b=HhynwnB1aaYRWhh9c28qcsXcpP
-	YASQ9RHs9Kb+KLR9VICuvgoNsE+93U4L3uTf0yhEHGKbYajJifytPVcZmNrQWLhdSu9XeANPAIyWA
-	mzblhPN/g2tSTHJr6hQwZX4toEB4Khg+jHY/YElbj9MjoE0182H4vILwRd2Wc8kTFvDQUAyAGsSne
-	iD8ceojwZbRmEFYHihIjTOqdHvUfhDg8YdVJqcx1RnD2EsS750mA6uncNSIuwkgtafqshUF9u2bI2
-	UpxZgdO5ADngTkuzhuhQnTpfd/SXqUMsXVVscA8cRGWN7UKgjnRP54MhFOBte1Vvgvpve++ELEwYE
-	aeOw0ugQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iGJPexs6OAJzk5wT9moiqRNLHkCPirPg2xa6MyNjw6c=; b=SbX3/Z/+uleCTPrAFHMs9S14Po
+	nHprUWhgtmX97rn3A1xKPpYGmP0zTbsvr/QIHPn8sEtZxfXJhgPbQlBmLx0XX2IcwiKMHDX6piO2o
+	v1XPM/QaJR3G7J8iGNdO8Sh5l3bScIkEJglh3ZVTikG7ecurXKJZCc4EfE2uCWs+kO7waH6DdVHv8
+	ov5mKy6LTlvVTW2fv9AntgrfQyc+oSTGAK9teH9Lm2eomXM5r3mURzqDGmp5NL7G7PmJkhoLsvmtl
+	qP/Cpx9YdpPcfMo5lEvuHZgtGg9l7oxl49nS51tjYRk+1Q8yPDPOShZgXB6Ti4i2yPYYDWumSK6NL
+	EUD7WSLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdUlU-00000008tCe-1pWu;
-	Thu, 30 Jan 2025 13:39:28 +0000
-Received: from mail-oi1-x234.google.com ([2607:f8b0:4864:20::234])
+	id 1tdUml-00000008tKF-0Lhl;
+	Thu, 30 Jan 2025 13:40:47 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdUkB-00000008t6Z-2A00
+	id 1tdUkL-00000008t7E-2dt9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jan 2025 13:38:08 +0000
-Received: by mail-oi1-x234.google.com with SMTP id 5614622812f47-3ebb2d8dac4so506340b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jan 2025 05:38:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738244286; x=1738849086; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=IaOqkqi4ZsckMMcVlfVzFatudJFOKDndawaygsJAlnk=;
-        b=JFyF/FM+6FU/k3mE0yMbfFChEOFay5TUsBusxl7u00TuzLKSS3Nwp9b9osKRmXzaxY
-         xpgCLa4a6nXl/DmHoTd4tnLMi58ybK4+m31b/LrkE4tAaToacJB0eCOmXLfRWMOfYCB0
-         RMseX9DHwoqqCo9+CZuAMrR4nhzqICYj5Z/kYIBmCTKU4oJi08XU5JeUEDjfT6SqnYT9
-         tGKw1ddRq3dAn0apn/tshW/NsLwR1PvqQHkrJgaFMr5OrtL+babZ4vlesEYUwH9dabzV
-         ATGKIcUFSMzo2nADIBeEOe4Q1P6SphdhWlr+N4qR02wckN0IyHaRcjFChbT/Srh0Ipe0
-         TikA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738244286; x=1738849086;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IaOqkqi4ZsckMMcVlfVzFatudJFOKDndawaygsJAlnk=;
-        b=e6m0RlQGVCXzRQ8MgqurGE3maMmzzMR5GBGEdyw92Idr63Cs6ZABMa47KWvWrDWAdX
-         QNfzUjM3pc7B6KWn7ydzKleBh6Q9kpvdVjCEC2Beenu5j2ItlZtFpqnOG28dPOmJUU6A
-         17Z5REtJkxO3i1A1dCrrrf74THFDi1nARvowFfT43YK35CteWuBqDa/6eIYG1y9ZRlcK
-         HQBbCAf9j8YwIbOut5zHvpVU4PcxRIdpi2FELrDaP2sRq2Wgw3V+rNlHbeUPLLq/COyA
-         5FLh7DqcrgtGiIH8btW1zc4RCE2tasASLSxuI24k8zqQ4dh0FrL5FMon1KMD+aKbDv2C
-         KNGQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXoF0dV+6loyPwV7Q1Zg3M7cDRTPB55MPvEg3yOxn/kbROqNi7ZETp3rEu0xJIoWKYGy9nmmX1BrKXVgqXJwEIm@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0RZmowKC9rAc6ve1HjnPkubUpYdEWDOagrq5RKZ3cNkCXcvZs
-	YEue0e+g26EWEedDi/DqlLg1n/VzdXkZETEG/+ZUS9dK/T2Nk/Nw
-X-Gm-Gg: ASbGnctcsjyQP1X3x6PU8jQPVyJu0rUPXbYMCsO5S5SbiTY0wIIVjpX9kt3U4vCHqQw
-	7V6v80ATOqGEu/LPr1UWum/2YJzXcDHJflzPGae2t35teUeFdw5wxfIBjF00UJ4LpXfbhowXTy6
-	uXv7k4RHIvQ/KTOyjx9YAX9EfXCt0T9LxkubtD3e/RICc2epBOLCEBKZ8a43rNZ6NOUY0wKtCoh
-	v1pZtSpbtJtStGbs8gWLCPpUlAxEf5L5dAtAPUhnoXwB284lKF/aWzaoMd/S0O3efwDDGZ7h+45
-	q9iG
-X-Google-Smtp-Source: AGHT+IGFWTM916CiHup+GvXXTaGukMyyxcRzxGKJc5oj7MHmJp2ub5HMhM/2b9dpAzf0/kTivKI5/A==
-X-Received: by 2002:a05:6808:3a19:b0:3e7:b644:e4ec with SMTP id 5614622812f47-3f323b674acmr4766306b6e.26.1738244285909;
-        Thu, 30 Jan 2025 05:38:05 -0800 (PST)
-Received: from halaneyt14s.local ([2600:1700:1ff0:d0e0::e])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-726618cb8aasm310109a34.64.2025.01.30.05.38.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Jan 2025 05:38:04 -0800 (PST)
-Date: Thu, 30 Jan 2025 07:38:00 -0600
-From: Andrew Halaney <ajhalaney@gmail.com>
-To: Nishanth Menon <nm@ti.com>
-Cc: Daniel Schultz <D.Schultz@phytec.de>, 
-	Andrew Halaney <ahalaney@redhat.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Siddharth Vadapalli <s-vadapalli@ti.com>, 
-	"vigneshr@ti.com" <vigneshr@ti.com>, "srk@ti.com" <srk@ti.com>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] arm64: defconfig: Enable PCI_J721E
-Message-ID: <wqravmnyudex3wcwhkbcbanxsqrmplpq5fmyueyaniya2dkqec@axu7nmb2xbbp>
-References: <20240807-pci-j721e-defconfig-v1-1-b97e5f4564f6@redhat.com>
- <8b700897-1653-49f2-8fba-e5fce13a5447@phytec.de>
- <20250122145822.4ewsmkk6ztbeejzf@slashing>
+	Thu, 30 Jan 2025 13:38:19 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50UDYKC3028040;
+	Thu, 30 Jan 2025 14:38:06 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	iGJPexs6OAJzk5wT9moiqRNLHkCPirPg2xa6MyNjw6c=; b=rv3xtT8+Iq5SVWw2
+	7DU5ry+z0jr6lb7Wu0WumqIzfolye0pfQ6iO9DMMixl4XLnBL4a85L9te+2VRS0Z
+	iR17zrE/0JL7aghbO1lbQJEAgo2YEPZe7UpzYLqMjfV6/0HS229RQzaWhnP3bmZS
+	mxXta2gvFZ3agSFfxRU8puuu6xYXzSc+o+rXsv7Li0oXTn36bWCBUubbHVaMY2Mx
+	cZBzpL4ctXHuyXe76kHl10HuoVTAlnu4m9/V1C8WL9aFnYQDNKVilI1hzU/YiEv0
+	gQps5skM+ytCUSKE0GsVBb1dA+CTYdG6DtIXz6Z3A5hirMYPp13xjU+tY4W6wM0U
+	W3HixA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44gae302cs-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 30 Jan 2025 14:38:06 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 367854004A;
+	Thu, 30 Jan 2025 14:36:45 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 0EA4D396CC5;
+	Thu, 30 Jan 2025 14:32:14 +0100 (CET)
+Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Thu, 30 Jan
+ 2025 14:32:13 +0100
+Message-ID: <02b947e3-dd5c-4ee8-bd65-5775923fe33f@foss.st.com>
+Date: Thu, 30 Jan 2025 14:32:12 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250122145822.4ewsmkk6ztbeejzf@slashing>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/9] dt-bindings: memory-controllers: Add STM32 Octo
+ Memory Manager controller
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Alexandre
+ Torgue <alexandre.torgue@foss.st.com>,
+        Philipp Zabel
+	<p.zabel@pengutronix.de>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, <linux-spi@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <christophe.kerello@foss.st.com>
+References: <20250128081731.2284457-1-patrice.chotard@foss.st.com>
+ <20250128081731.2284457-4-patrice.chotard@foss.st.com>
+ <20250129-hilarious-glittering-mustang-fb5471@krzk-bin>
+ <3660580d-72eb-45ca-8240-55557e334e37@foss.st.com>
+ <951e4d16-2bb2-44b1-99e7-dd28349f20aa@kernel.org>
+Content-Language: en-US
+From: Patrice CHOTARD <patrice.chotard@foss.st.com>
+In-Reply-To: <951e4d16-2bb2-44b1-99e7-dd28349f20aa@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-30_06,2025-01-30_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_053807_554024_0B65E931 
-X-CRM114-Status: GOOD (  20.93  )
+X-CRM114-CacheID: sfid-20250130_053817_983617_176EBCC4 
+X-CRM114-Status: GOOD (  39.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,45 +112,306 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 22, 2025 at 08:58:22AM -0600, Nishanth Menon wrote:
-> On 14:53-20250122, Daniel Schultz wrote:
-> > can someone please apply this patch? It's actually required by all TI 
-> > AM6 devices with PCIe, e.g. AM64x.
-> > 
-> > - Daniel
-> > 
-> > On 07.08.24 22:15, Andrew Halaney wrote:
-> > > Enable PCI_J721E for usage in both host and endpoint modes.
-> > > This is used by boards such as Texas Instrument's SK-AM69 and
-> > > J784S4XEVM.
-> > >
-> > > Signed-off-by: Andrew Halaney <ahalaney@redhat.com>
-> > Tested-By: Daniel Schultz <d.schultz@phytec.de>
-> > > ---
-> > >   arch/arm64/configs/defconfig | 2 ++
-> > >   1 file changed, 2 insertions(+)
-> > >
-> > > diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-> > > index 01dd286ba7ef0..e5222dbedd387 100644
-> > > --- a/arch/arm64/configs/defconfig
-> > > +++ b/arch/arm64/configs/defconfig
-> > > @@ -225,6 +225,8 @@ CONFIG_PCIE_RCAR_HOST=y
-> > >   CONFIG_PCIE_RCAR_EP=y
-> > >   CONFIG_PCIE_ROCKCHIP_HOST=m
-> > >   CONFIG_PCI_XGENE=y
-> > > +CONFIG_PCI_J721E_HOST=y
-> > > +CONFIG_PCI_J721E_EP=y
-> > >   CONFIG_PCI_IMX6_HOST=y
-> > >   CONFIG_PCI_LAYERSCAPE=y
-> > >   CONFIG_PCI_HISI=y
+
+
+On 1/30/25 13:12, Krzysztof Kozlowski wrote:
+> On 30/01/2025 09:57, Patrice CHOTARD wrote:
+>>
+>>
+>> On 1/29/25 08:52, Krzysztof Kozlowski wrote:
+>>> On Tue, Jan 28, 2025 at 09:17:25AM +0100, patrice.chotard@foss.st.com wrote:
+>>>> From: Patrice Chotard <patrice.chotard@foss.st.com>
+>>>>
+>>>> Add bindings for STM32 Octo Memory Manager (OMM) controller.
+>>>>
+>>>> OMM manages:
+>>>>   - the muxing between 2 OSPI busses and 2 output ports.
+>>>>     There are 4 possible muxing configurations:
+>>>>       - direct mode (no multiplexing): OSPI1 output is on port 1 and OSPI2
+>>>>         output is on port 2
+>>>>       - OSPI1 and OSPI2 are multiplexed over the same output port 1
+>>>>       - swapped mode (no multiplexing), OSPI1 output is on port 2,
+>>>>         OSPI2 output is on port 1
+>>>>       - OSPI1 and OSPI2 are multiplexed over the same output port 2
+>>>>   - the split of the memory area shared between the 2 OSPI instances.
+>>>>   - chip select selection override.
+>>>>   - the time between 2 transactions in multiplexed mode.
+>>>>
+>>>> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+>>>> ---
+>>>>  .../memory-controllers/st,stm32-omm.yaml      | 190 ++++++++++++++++++
+>>>>  1 file changed, 190 insertions(+)
+>>>>  create mode 100644 Documentation/devicetree/bindings/memory-controllers/st,stm32-omm.yaml
+>>>>
+>>>> diff --git a/Documentation/devicetree/bindings/memory-controllers/st,stm32-omm.yaml b/Documentation/devicetree/bindings/memory-controllers/st,stm32-omm.yaml
+>>>> new file mode 100644
+>>>> index 000000000000..7e0b150e0005
+>>>> --- /dev/null
+>>>> +++ b/Documentation/devicetree/bindings/memory-controllers/st,stm32-omm.yaml
+>>>
+>>>
+>>> Filename as compatible, so st,stm32mp25-omm.yaml
+>>>
+>>> You already received this comment.
+>>
+>> Sorry, i missed this update
+>>
+>>>
+>>>> @@ -0,0 +1,190 @@
+>>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>>>> +%YAML 1.2
+>>>> +---
+>>>> +$id: http://devicetree.org/schemas/memory-controllers/st,stm32-omm.yaml#
+>>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>>> +
+>>>> +title: STM32 Octo Memory Manager (OMM)
+>>>> +
+>>>> +maintainers:
+>>>> +  - Patrice Chotard <patrice.chotard@foss.st.com>
+>>>> +
+>>>> +description: |
+>>>> +  The STM32 Octo Memory Manager is a low-level interface that enables an
+>>>> +  efficient OCTOSPI pin assignment with a full I/O matrix (before alternate
+>>>> +  function map) and multiplex of single/dual/quad/octal 		SPI interfaces over
+>>>> +  the same bus. It Supports up to:
+>>>> +    - Two single/dual/quad/octal SPI interfaces
+>>>> +    - Two ports for pin assignment
+>>>> +
+>>>> +properties:
+>>>> +  compatible:
+>>>> +    const: st,stm32mp25-omm
+>>>> +
+>>>> +  "#address-cells":
+>>>> +    const: 2
+>>>> +
+>>>> +  "#size-cells":
+>>>> +    const: 1
+>>>> +
+>>>> +  ranges:
+>>>> +    description: |
+>>>> +      Reflects the memory layout with four integer values per OSPI instance.
+>>>> +      Format:
+>>>> +      <chip-select> 0 <registers base address> <size>
+>>>
+>>> Do you always have two children? If so, this should have maxItems.
+>>
+>> No, we can have one child.
 > 
-> please make them as modules. no point in growing the default Image file.
+> For the same SoC? How? You put the spi@ in the soc, so I don't
+> understand how one child is possible.
+
+Yes for the same SoC, in DTSI file, the both OCTOSPI child are declared 
+but are disabled by default.
+
+In the DTS board file, 0,1 or 2 OCTOSPI instance can be enabled depending of the board design.
+
+In our case, on stm32mp257f-ev1 board, one SPI-NOR is soldered on PCB, so only one OCTOSPI 
+instance is needed and enabled.
+
+Internally we got validation boards with several memory devices connected to OCTOSPI1 and 
+OCTOSPI2, in this case, both OCTOSPI instance are needed and enabled.
+
+> 
+>>
+>>>
+>>>> +
+>>>> +  reg:
+>>>> +    items:
+>>>> +      - description: OMM registers
+>>>> +      - description: OMM memory map area
+>>>> +
+>>>> +  reg-names:
+>>>> +    items:
+>>>> +      - const: regs
+>>>> +      - const: memory_map
+>>>> +
+>>>> +  memory-region:
+>>>> +    description: Phandle to node describing memory-map region to used.
+>>>> +    minItems: 1
+>>>> +    maxItems: 2
+>>>
+>>> List the items with description instead with optional minItems. Why is
+>>> this flexible in number of items?
+>>
+>> If only one child (OCTOSPI instance), only one memory-region is needed.
+> 
+> Which is not possible... look at your DTSI.
+
+It's possible. if one OCTOSPI is used (the second one is kept disabled), only
+one memory-region is needed.
+
+> 
+>>
+>> Another update, i will reintroduce "memory-region-names:" which was 
+>> wrongly removed in V2, i have forgotten one particular case.
+>>
+>> We need memory-region-names in case only one OCTOSPI instance is 
+>> used. If it's OCTOCPI2 and the whole memory-map region
+>> is dedicated to OCTOSPI2 (OCTOSPI1 unmapped, OCTOSPI2 (256 Mbytes)
+>>
+>> We need to know to which OCTOSPI instance the memory region is associated
+>> with, in order to check "st,syscfg-amcr" 's value which must be coherent 
+>> with memory region declared.
+>>
+>> so i will add :
+>>
+>>   memory-region-names:
+>>     description: |
+>>       OCTOSPI instance's name to which memory region is associated
+>>     items:
+>>       - const: ospi1
+>>       - const: ospi2
+>>
+> 
+> I don't think this matches what you are saying to us. Let's talk about
+> the hardware which is directly represented by DTS/DTSI. You always have
+> two instances.
+> 
 > 
 
-The PCI_J721E_HOST config only supports builtin, which I think has
-something to do with [0] (but I only re-skimmed that this morning
-briefly). I don't have the hardware any more, so I can't test what goes
-on if you make it a module etc unfortunately.
+We have 2 instances, but both not always enabled.
+In case only one is enabled, only one memory-region-names is needed.
 
-[0] https://lore.kernel.org/all/86o73j3vea.wl-maz@kernel.org/
+We must know to which OCTCOSPI the memory-region makes reference to, in order
+to configure and/or check the memory region split configuration. That' swhy 
+the memory-regions-names must specify if it's the OCTOSPI1 or OCTOSPI2 instance.
+
+>>>
+>>>> +
+>>>> +  clocks:
+>>>> +    maxItems: 1
+>>>> +
+>>>> +  resets:
+>>>> +    maxItems: 1
+>>>> +
+>>>> +  access-controllers:
+>>>> +    maxItems: 1
+>>>> +
+>>>> +  st,syscfg-amcr:
+>>>> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+>>>> +    description: |
+>>>> +      The Address Mapping Control Register (AMCR) is used to split the 256MB
+>>>> +      memory map area shared between the 2 OSPI instance. The Octo Memory
+>>>> +      Manager sets the AMCR depending of the memory-region configuration.
+>>>> +      Format is phandle to syscfg / register offset within syscfg / memory split
+>>>> +      bitmask.
+>>>
+>>> Don't repeat constraints in free form text.
+>>
+>> ok
+>>
+>>>
+>>>> +      The memory split bitmask description is:
+>>>> +        - 000: OCTOSPI1 (256 Mbytes), OCTOSPI2 unmapped
+>>>> +        - 001: OCTOSPI1 (192 Mbytes), OCTOSPI2 (64 Mbytes)
+>>>> +        - 010: OCTOSPI1 (128 Mbytes), OCTOSPI2 (128 Mbytes)
+>>>> +        - 011: OCTOSPI1 (64 Mbytes), OCTOSPI2 (192 Mbytes)
+>>>> +        - 1xx: OCTOSPI1 unmapped, OCTOSPI2 (256 Mbytes)
+>>>> +    items:
+>>>> +      minItems: 3
+>>>> +      maxItems: 3
+>>>
+>>> You do not have there three phandles, but one. Look how other bindings
+>>> encode this.
+>>
+>> yes, i see, will update with 
+>>
+>>     items:
+>>       - description: phandle to syscfg
+>>       - description: register offset within syscfg
+>>       - description: register bitmask for memory split
+>>
+>>>
+>>>> +
+>>>> +  st,omm-req2ack-ns:
+>>>> +    description: |
+>>>> +      In multiplexed mode (MUXEN = 1), this field defines the time in
+>>>> +      nanoseconds between two transactions.
+>>>> +
+>>>> +  st,omm-cssel-ovr:
+>>>> +    $ref: /schemas/types.yaml#/definitions/uint32
+>>>> +    description: |
+>>>> +      Configure the chip select selector override for the 2 OCTOSPIs.
+>>>> +      The 2 bits mask muxing description is:
+>>>
+>>> bit mask of size? 1? Then just enum string, no?
+>>
+>> I didn't get your point ? the size of bitmask is 2 bits as indicated.
+>>     -bit 0: Chip select selector override setting for OCTOSPI1
+>>     -bit 1: Chip select selector override setting for OCTOSPI2
+>>
+>>
+>>>
+>>>> +        -bit 0: Chip select selector override setting for OCTOSPI1
+>>>> +          0x0: the chip select signal from OCTOSPI1 is sent to NCS1
+>>>> +          0x1: the chip select signal from OCTOSPI1 is sent to NCS2
+>>>> +        -bit 1: Chip select selector override setting for OCTOSPI2
+>>>> +          0x0: the chip select signal from OCTOSPI2 is sent to NCS1
+>>>> +          0x1: the chip select signal from OCTOSPI2 is sent to NCS2
+>>>
+>>> I don't understand why this is so complicated. First, can you even send
+>>> chip select OCTOSPI1 to NCS2 and use 0x1 as mux? or 0x3 as mux?
+>>
+>>
+>> By default, if st,omm-cssel-ovr property is not present:
+>>   _ chip select OCTOSPI1 is send to NCS1
+>>   _ chip select OCTOSPI2 is send to NCS2
+>>
+>> It's the default configuration.
+>>
+>> If st,omm-cssel-ovr property is present, you can mux the chip select 
+>> of both OCTOSPI instance on NCS1 or NCS2 as you want.
+>>
+>> Yes you can send chip select OCTOSPI1 to NCS2 by using 0x1 as bitmask mux
+>> (in this case chip select OCTOSPI2 is sent to NCS1).
+>>
+>> If you use 0x3 as bitmask mux, you send  :
+>>    _ chip select OCTOSPI1 is sent to NCS2
+>>    _ chip select OCTOSPI2 is sent to NCS2
+>>
+>>>
+>>> Second, your bitmask value of "0x0" means OCTOSPI1 and OCTOSPI2 are sent
+>>
+>> i think the 0x0/0x1 in the description brings to confusion as it's only the 
+>> bit value not the bitmask.
+>>
+>>> to NCS1 (whateveer NCS is). This sounds wrong, but your binding says is
+>>> perfectly correct. Is that true? Is that correct binding?
+>>
+>>  4 bitmask possible choice :
+>>    0x0 : the chip select signal from OCTOSPI1 is sent to NCS1
+>> 	 the chip select signal from OCTOSPI2 is sent to NCS1
+>>
+>>    0x1 : the chip select signal from OCTOSPI1 is sent to NCS2
+>> 	 the chip select signal from OCTOSPI2 is sent to NCS1
+>>
+>>    0x2 : the chip select signal from OCTOSPI1 is sent to NCS1
+>> 	 the chip select signal from OCTOSPI2 is sent to NCS2
+>>
+>>    0x3 : the chip select signal from OCTOSPI1 is sent to NCS2
+>> 	 the chip select signal from OCTOSPI2 is sent to NCS2
+>>
+>>
+>> I propose to update the st,omm-cssel-ovr description as following
+>>
+>>   st,omm-cssel-ovr:
+>>     $ref: /schemas/types.yaml#/definitions/uint32
+>>     description: |
+>>       Configure the chip select selector override for the 2 OCTOSPIs.
+>>         - 0: OCTOSPI1 chip select send to NCS1 OCTOSPI2 chip select send to NCS1
+>>         - 1: OCTOSPI1 chip select send to NCS2 OCTOSPI2 chip select send to NCS1
+>>         - 2: OCTOSPI1 chip select send to NCS1 OCTOSPI2 chip select send to NCS2
+>>         - 3: OCTOSPI1 chip select send to NCS2 OCTOSPI2 chip select send to NCS2
+>>     minimum: 0
+>>     maximum: 3
+>>
+> 
+> My concerns were because I understood that this is not a real bitmask,
+> IOW you cannot set two of them to NCS2. But you said that setting of
+> 0x3, so both going to NCS2, is perfectly correct setting, so it's fine.
+> 
+> 
+> 
+> Best regards,
+> Krzysztof
 
