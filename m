@@ -4,75 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1406BC02190
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 18:35:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCC4DC02190
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 18:43:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=emEvaD0snb1I+KoYe1hZsB1kdYm9ngN1ujNXHazy8iA=; b=D0fYKL1NcakGZAd9GO0dc9qTGu
-	qB2ep8mAuyyOkbZrjwyWmhGo20qEm8dlG+LnQLzPD3cDUGRP1DQcFiXloJLAhyH2BCxReAH+ecAVi
-	MKEP1VZ93bE+GRwN3FI/06FYqR/H3Cf+44aXlbHpjyW397oqmq1YfbtIxDqKLI73qheUtq7/CzinN
-	+bx6t1NNdvReSAbKf70Fk3AWF3bdb8oSJIQF+HMeK6FPdnb6Xs/B/po4GoDx18RUs0ySEf9bzWagj
-	nMfAgo9deHeYGToQsLP9/FPlYieEYIWGjp7Z51QzkOWhV+utMmq2LaTIpQfUeww1H6WXLdj8fHLju
-	eYsJALGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e/vl4xxYte0D6m/Ht6w2IhK+zWc6P85w3vCNrpDGRmY=; b=cxV2uPfMc0ReZ2fjRjMB1f9eIE
+	ZdKBDltoXi+XslIzovKPAkQwQAq/x9iUMiHmHThyln+Q3bI3z5Sc8eUNKNss/zCnozqLJUxzBqkom
+	TBoFNzJKtU4RM+R3F1aucazK6zjLwqCqIbS2wSlAFhykgNF45p++cxkwLtc0etzFohxk8us5ttMmV
+	PId8a5xWbgvm5R0Dk1rf1W9sQu1HpbWxP7kAL5bfikVpkjgyZk1KHQmd2tJqkicw2KME2oqZAwTed
+	k5yLXCcKF1ItcK4PYrE6qnllCw3fBpWW/o09BUNYgiIwJpiqiIwxxY+5bo5TWAYdZO34/dhbRJsPj
+	4jkbo7Bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdZOB-00000009Ogy-3HHJ;
-	Thu, 30 Jan 2025 18:35:43 +0000
+	id 1tdZVp-00000009PYg-3tnB;
+	Thu, 30 Jan 2025 18:43:37 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdZMr-00000009OVd-3D9k
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jan 2025 18:34:22 +0000
+	id 1tdZUW-00000009PPP-2wzb;
+	Thu, 30 Jan 2025 18:42:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 290BD5C6092
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jan 2025 18:33:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D559FC4CED2
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jan 2025 18:34:20 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8A8EC5C5908;
+	Thu, 30 Jan 2025 18:41:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C3C8C4CED2;
+	Thu, 30 Jan 2025 18:42:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738262060;
-	bh=emEvaD0snb1I+KoYe1hZsB1kdYm9ngN1ujNXHazy8iA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=tZUzzL1jUp1E7FGpQagx8FdojhUGQyuEH6KOAsfR/mG//dLbRGgHQDZn8nN1qFBWd
-	 URoVjGklO8ilwqgoGnyKGox3b5I3d4J4k90f56jkBEwlgko1IRVZn2Wf05s0wa+SiJ
-	 VCJ8p7Z7k+KLMBmeHA5rnow100NREGlxsO7cKw9Fhc1MvGy4GLO8tLtfJc9Ts8sJ3x
-	 YOQZ/7tq3HyS5P/9q2ch0uVmhujpif2mKFBo84Qylvq4QuNUQXx3fZR7peCrv04z7Q
-	 0yTut/NE1tzsh6zIjfK4fA78VjSWXWA7PCz4FHim4VNy4MCSL8sXLw8YS+N0KTlwva
-	 sPtWfywdYqBhQ==
-Received: by mail-il1-f175.google.com with SMTP id e9e14a558f8ab-3cfc1ff581dso3553285ab.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jan 2025 10:34:20 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXd/zsmKtajV1V1Zkurw+0Q2eu51fTtFDzABVBe96h2zGOMCPTMDq2keCpv2E7SUF62mTmskD/8gfWhbiNXasQF@lists.infradead.org
-X-Gm-Message-State: AOJu0YxncGGN0/Z13t1usen/0k6IyCDzx5VidPLSbgV4IQkqpbaKpqWn
-	K+hmfe7JlcE9veSLFPhPNznqRypbmXAY5SrPhlHXtLLI5EabZS5oNwlOEX7nwSI4qzp+GTtG+X2
-	5Li6qypuiqVJSRohPMjVGPorcSiI=
-X-Google-Smtp-Source: AGHT+IHl4N25m7zqeEajPKatIGe0RodI8SLfJYlOUjqTeDPQzguZ3bn4VqrsIlE3PttoRvEJMKnh0jCIKWwufPy29H4=
-X-Received: by 2002:a05:6e02:20e2:b0:3cf:fe1f:f5c5 with SMTP id
- e9e14a558f8ab-3cffe423925mr70175235ab.9.1738262060209; Thu, 30 Jan 2025
- 10:34:20 -0800 (PST)
+	s=k20201202; t=1738262535;
+	bh=7SyZ5zCEJ4aNJvlmHMl8pZTMFw6jNB5EeCSDItXKy7s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MP/S47nA8FE9AkuHWURw/yUclraFw1sFDgbUmalMDZV0/vbCb5U0HkRgrIxFDVQbR
+	 jmTquZPkUs7UbzmAwoMc4DmXmNprefYqz2iiZfqflLMIIWSCHcE2hRIARNd4lneK7m
+	 PawsARXf+YXzjgMryCAxyE6UcQQaUJPyr3VIxDkf6Exjpgxl2P8B8nW/c2fmUc4rE6
+	 /hY1qrBH7jbokFST3GNofAdKQ4JRX3Wbzzv8OCwS0oL2+b7aIeFq7xLEcugnTFGnfk
+	 tdXvdFKA/8jTj+TM0Pv/TsAQlqkSBJOKjpuiHhN/iZAiLO+epc56JaVm1vKuGGMtJ+
+	 yFV9Ay6+9RgQg==
+Date: Thu, 30 Jan 2025 18:42:09 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Olivia Mackall <olivia@selenic.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Aurelien Jarno <aurelien@aurel32.net>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-crypto@vger.kernel.org
+Subject: Re: [PATCH 2/7] dt-bindings: rng: add binding for Rockchip RK3588 RNG
+Message-ID: <20250130-anything-scholar-01f4c9145893@spud>
+References: <20250130-rk3588-trng-submission-v1-0-97ff76568e49@collabora.com>
+ <20250130-rk3588-trng-submission-v1-2-97ff76568e49@collabora.com>
 MIME-Version: 1.0
-References: <20250127213310.2496133-1-wnliu@google.com> <CAPhsuW4UrhaYKj6pbAC9Cq1ZW+igFrA284nnCFsVdKdOfRpi6w@mail.gmail.com>
-In-Reply-To: <CAPhsuW4UrhaYKj6pbAC9Cq1ZW+igFrA284nnCFsVdKdOfRpi6w@mail.gmail.com>
-From: Song Liu <song@kernel.org>
-Date: Thu, 30 Jan 2025 10:34:09 -0800
-X-Gmail-Original-Message-ID: <CAPhsuW7f5--hzr0Y3eb1JNpfNqepJuE92yq3y8dzaL_mQF+U5w@mail.gmail.com>
-X-Gm-Features: AWEUYZmxfzPagOrcjlEC0Ts_lMB8rPrmxz6AOan_ZzpkJ7g-5LcRVOD6FqJcZw4
-Message-ID: <CAPhsuW7f5--hzr0Y3eb1JNpfNqepJuE92yq3y8dzaL_mQF+U5w@mail.gmail.com>
-Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
-To: Weinan Liu <wnliu@google.com>
-Cc: Josh Poimboeuf <jpoimboe@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
-	Indu Bhagat <indu.bhagat@oracle.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Mark Rutland <mark.rutland@arm.com>, roman.gushchin@linux.dev, 
-	Will Deacon <will@kernel.org>, Ian Rogers <irogers@google.com>, linux-toolchains@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, live-patching@vger.kernel.org, 
-	joe.lawrence@redhat.com, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="hYobnhEFDnkdMhyO"
+Content-Disposition: inline
+In-Reply-To: <20250130-rk3588-trng-submission-v1-2-97ff76568e49@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_103421_856969_22EE6E19 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20250130_104216_842706_198EDE94 
+X-CRM114-Status: GOOD (  26.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,18 +82,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 30, 2025 at 9:59=E2=80=AFAM Song Liu <song@kernel.org> wrote:
->
-> I missed this set before sending my RFC set. If this set works well, we
-> won't need the other set. I will give this one a try.
 
-I just realized that llvm doesn't support sframe yet. So we (Meta) still
-need some sframe-less approach before llvm supports sframe.
+--hYobnhEFDnkdMhyO
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-IIRC, Google also uses llvm to compile the kernel. Weinan, would
-you mind share your thoughts on how we can adopt this before
-llvm supports sframe? (compile arm64 kernel with gcc?)
+On Thu, Jan 30, 2025 at 05:31:16PM +0100, Nicolas Frattaroli wrote:
+> The Rockchip RK3588 SoC has two hardware RNGs accessible to the
+> non-secure world: an RNG in the Crypto IP, and a standalone RNG that is
+> new to this SoC.
+>=20
+> Add a binding for this new standalone RNG.
+>=20
+> The RNG is capable of firing an interrupt when entropy is ready, but
+> all known driver implementations choose to poll instead for performance
+> reasons. Hence, make the interrupt optional, as it may disappear in
+> future hardware revisions entirely and certainly isn't needed for the
+> hardware to function.
+>=20
+> The reset is optional as well, as the RNG functions without an explicit
+> reset. Rockchip's downstream driver does not use the reset at all,
+> indicating that their engineers have deemed it unnecessary.
+>=20
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> ---
+>  .../bindings/rng/rockchip,rk3588-rng.yaml          | 61 ++++++++++++++++=
+++++++
+>  MAINTAINERS                                        |  2 +
+>  2 files changed, 63 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/rng/rockchip,rk3588-rng.ya=
+ml b/Documentation/devicetree/bindings/rng/rockchip,rk3588-rng.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..dff843fa4bf9d5704bbcd1063=
+98328588d80b02d
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/rng/rockchip,rk3588-rng.yaml
+> @@ -0,0 +1,61 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/rng/rockchip,rk3588-rng.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Rockchip RK3588 TRNG
+> +
+> +description: True Random Number Generator on Rockchip RK3588 SoC
+> +
+> +maintainers:
+> +  - Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - rockchip,rk3588-rng
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    items:
+> +      - description: TRNG AHB clock
+> +
+> +  # Optional, not used by some driver implementations
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  # Optional, hardware works without explicit reset
 
-Thanks,
-Song
+These sorts of comments are not needed, "required" conveys this
+information.
+
+> +  resets:
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +    #include <dt-bindings/reset/rockchip,rk3588-cru.h>
+> +    bus {
+> +      #address-cells =3D <2>;
+> +      #size-cells =3D <2>;
+> +
+> +      rng@fe378000 {
+> +        compatible =3D "rockchip,rk3588-rng";
+> +        reg =3D <0x0 0xfe378000 0x0 0x200>;
+> +        interrupts =3D <GIC_SPI 400 IRQ_TYPE_LEVEL_HIGH 0>;
+> +        clocks =3D <&scmi_clk SCMI_HCLK_SECURE_NS>;
+> +        resets =3D <&scmi_reset SCMI_SRST_H_TRNG_NS>;
+> +        status =3D "disabled";
+> +      };
+> +    };
+> +
+> +...
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index bc8ce7af3303f747e0ef028e5a7b29b0bbba99f4..7daf9bfeb0cb4e9e594b80901=
+2c7aa243b0558ae 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -20420,8 +20420,10 @@ F:	include/uapi/linux/rkisp1-config.h
+>  ROCKCHIP RK3568 RANDOM NUMBER GENERATOR SUPPORT
+>  M:	Daniel Golle <daniel@makrotopia.org>
+>  M:	Aurelien Jarno <aurelien@aurel32.net>
+
+> +M:	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+^^
+tbh, not really sure this part of the change should be in this patch
+
+>  S:	Maintained
+>  F:	Documentation/devicetree/bindings/rng/rockchip,rk3568-rng.yaml
+> +F:	Documentation/devicetree/bindings/rng/rockchip,rk3588-rng.yaml
+>  F:	drivers/char/hw_random/rockchip-rng.c
+> =20
+>  ROCKCHIP RASTER 2D GRAPHIC ACCELERATION UNIT DRIVER
+>=20
+> --=20
+> 2.48.1
+>=20
+
+--hYobnhEFDnkdMhyO
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ5vIAQAKCRB4tDGHoIJi
+0qgrAQCzakFSQyHjHTH6QESUz0gqsobwUVK1Lds0RZkRNrR/OAD/dXxihZAQuiUY
+9ILx114VGQkUr92cCeWnQD49v7U/hwQ=
+=wfH8
+-----END PGP SIGNATURE-----
+
+--hYobnhEFDnkdMhyO--
 
