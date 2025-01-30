@@ -4,64 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C35D7C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 10:39:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8728C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 10:48:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mHU7Mfj+jdlBvEEUG3Mk560s4FlcL4gxyi/SpShMVNE=; b=EVS4dbw1ZYTM5kdqsQvEM0fnz0
-	MT/VOo/08J+DhRTmlJFEUCg6+7a9GskopOaTBl/wMe1j3pMEQoQ8ZU/SahwMBpl81bU9mp1rFklOv
-	9/QLMbIAyjl6tDDgQWL0O+OEC2Z5Jq47sH6Mv18bLhYrf12ACNNjqpagMRjqCIJX2C4847Ax4Hmg4
-	q1wMcgHLPs6Lb9Y07JrekRo6PIF2bsUGa/DKQ3ceN4dhVMKvyPAq4zQNbOXRiWL5HBGv7YQTztO0S
-	EkpA3E3PbOicF7FFjJALW6sAHNyv0JLVUaqV2ilE0BsZyJdLyEs02t3EW1ZCGkJTQ8P2jOlpKP7ug
-	KvMkIsxg==;
+	bh=dvH7kPRqDnGEpR7MN/c0OEfUDsiKTUq2RFU3G+hwaFA=; b=aVGUxxTKDL+7mvKz+IPAmf5Pl9
+	7E+kCT1xxn7gqexDY/S/EEeAbvD5xyEHp/GMkdxeFLiBCi/t6Ucss+7gTdllbbqzKuaVm+KBk6WLO
+	jx1mObfn9FSUcQs/iUMfSR0ejJUrNHxH33+0r4yY2TjcA2ruaVm1pFSnVgi3ahxFq37Bf3O7r5LO9
+	pv3NccjlO2oqjDMSUoneNoL4zUCZDUE3TpYGk3acq89BJKvErzoq7xU24B8RYFhD56kVTJTpVx/Bj
+	roNLproIkQ26TbbJPuc49sJfaGEwtqrt/2hpcUS6DIgeZzDdXSjLGJn4WLz4GbSrsHpVxOYglzyJP
+	gA7FXJaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdRx0-00000008eLY-0gb7;
-	Thu, 30 Jan 2025 10:39:10 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdRuw-00000008diY-1cKs
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jan 2025 10:37:03 +0000
-Received: from [10.156.205.88] (unknown [167.220.238.88])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 6431B2109CD7;
-	Thu, 30 Jan 2025 02:36:58 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 6431B2109CD7
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1738233421;
-	bh=mHU7Mfj+jdlBvEEUG3Mk560s4FlcL4gxyi/SpShMVNE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=EF7mc93R7ozr4HWtaTUzkbz0uslmOMqrlEanm/rjn3O836YTZTP1Hlo9HoABT4Ka0
-	 WrruTcK51vLoChcNhmJfPPFN5+n4+uuGn2iqDhEIejPmFjl7dKjqLJWunpI9prVWCw
-	 8h7zd/F7OYeBQyF5LWUqi2B9q0W5fPxX2Datin+w=
-Message-ID: <f2cbccc0-1bab-48a3-b837-ce875df21efe@linux.microsoft.com>
-Date: Thu, 30 Jan 2025 16:06:57 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/8] unwind: arm64: add reliable stacktrace support for
- arm64
-To: Weinan Liu <wnliu@google.com>, Josh Poimboeuf <jpoimboe@kernel.org>,
- Steven Rostedt <rostedt@goodmis.org>, Indu Bhagat <indu.bhagat@oracle.com>,
- Peter Zijlstra <peterz@infradead.org>
-Cc: Mark Rutland <mark.rutland@arm.com>, roman.gushchin@linux.dev,
- Will Deacon <will@kernel.org>, Ian Rogers <irogers@google.com>,
- linux-toolchains@vger.kernel.org, linux-kernel@vger.kernel.org,
- live-patching@vger.kernel.org, joe.lawrence@redhat.com,
- linux-arm-kernel@lists.infradead.org
-References: <20250127213310.2496133-1-wnliu@google.com>
- <20250127213310.2496133-7-wnliu@google.com>
-Content-Language: en-US
-From: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
-In-Reply-To: <20250127213310.2496133-7-wnliu@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+	id 1tdS5J-00000008ew3-1ck3;
+	Thu, 30 Jan 2025 10:47:45 +0000
+Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tdS40-00000008epK-1ETa;
+	Thu, 30 Jan 2025 10:46:25 +0000
+Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5da135d3162so936582a12.3;
+        Thu, 30 Jan 2025 02:46:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1738233982; x=1738838782; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dvH7kPRqDnGEpR7MN/c0OEfUDsiKTUq2RFU3G+hwaFA=;
+        b=W2fi5/zv/txQVs56QbEtVO6t39SzVbfZ/aqInuyhkR+ZaHe4pphpn9rKb7wNyJFRLX
+         BEkNNzIC2AfJ7JEeeQpwlIxUgbvLEUDRAV/qxW+UqkqEbGJ5QVWRZW1WmYuZu+DEhpfo
+         8ZHMlo2VmAmttjYh0R8a3qAFHC1JKomOUHuHCpVTUxteqWAUxyHoO8RziuMDyJGkqfO7
+         crUoX9J01irgMI8wKYGAwPlwgtaifLrEl0qncMgzezazcJ7aHL66JbbS0lBP8S3Och1o
+         v3wsX2cYIK/YBprXcfRQrUk7zzr5TU5nDlsgg9et+oRSimT5sbyrZNwQnozQ4B4gJpJG
+         WEOg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738233982; x=1738838782;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=dvH7kPRqDnGEpR7MN/c0OEfUDsiKTUq2RFU3G+hwaFA=;
+        b=nKRxFg3fcOTuv1XDBryAqoqVTE7imr1l3NLZySmIesvu+vHOuuLB/B8utn3D7MrTz1
+         U2CyqQtkxVzsvVTs41tgCkTzrj8c0TaiMlrhXQAF/ZVHry8gXjslUOMbvqWKlRiOnrl5
+         duhxyXFKJODAbvCrPBwOV6k4wKUutJPsej/Po50lXTCwjDe/9NFzXagBwZLZZiO8Bbm9
+         N53asIJajzm2cCWqyw+I+M3Fqa2B2HUJyJ258tAM4bqLKy64SiR7BoGddevvAxGtM8d7
+         d/4VGna5A6I+KSuaLtYbF3gZdXDE0ns2WiXlqv3S7/m407pqjiBDObf3QZU97kCUuq3D
+         XOaA==
+X-Forwarded-Encrypted: i=1; AJvYcCW9/OzA0YH2zkdROqsfXPh7xdPTHqEkWGe2kdjyAyoXm6SuAa9/1EYYGqa6MoQjV+YBBR1FkDbtDsrdEvv1faQ=@lists.infradead.org, AJvYcCW9CaOZSc1ah71fG0n4MuWi6I0T31hX374oSpgvE4qTPzyTr+G/zeDnXDuSFBt5Cs8Sxu1RhiAwO2s6QN2mAdEQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy7VNeMdJG6itEB7e4GATyC0/QNEeihm5uJjn795qK1BEuo2K3f
+	SnXN3cmrcnGKJgGMS1XrboCi9ajGUsL24c5kgrhxMqWIGkardXHe
+X-Gm-Gg: ASbGncvf6giVeKuumNHb/H1Hma3a3fSTdt/Cx8TZ5GJlJ5y1gTGQNOfUSZBg3T+m4/m
+	9ikSCmUgtTk5EEgrsIVYKo2Avq+etlbpyqY3hmn5UOWQVHZPucbYp7jhZa9VhZEUw7IJc5W0WjW
+	ZFokAontHRagBkzGaztwrCJdo0rxaN7tISR1fOdcdl9SMWFdP69k8BkNeDunAl8WR7vKOV6z0xN
+	0iDCAj8RdCvmL8xs8p7h0eDKgSxscGIHrwosjeiG0CrE3wKmkRkjEY7t2DDburEm43bFauFRfnl
+	hHcF0VmJgU30F9rRd5BMFwpzuYbiePVT3JsY2cuZdw8RYFogWnXnKx9PonBfiDZK09Hc000t
+X-Google-Smtp-Source: AGHT+IEqE7nySufMnirHCjAVfxj7jngqk9FZNYT/ymSENzVPV3ZLZzx1oB1e3XlK0q5RDTVUp4kFhg==
+X-Received: by 2002:a05:6402:50ca:b0:5d0:b2c8:8d04 with SMTP id 4fb4d7f45d1cf-5dc5efcab34mr5837467a12.18.1738233982119;
+        Thu, 30 Jan 2025 02:46:22 -0800 (PST)
+Received: from smtpclient.apple (89-66-237-154.dynamic.chello.pl. [89.66.237.154])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dc725aae6esm854530a12.1.2025.01.30.02.46.20
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 30 Jan 2025 02:46:21 -0800 (PST)
+Content-Type: text/plain;
+	charset=utf-8
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.300.87.4.3\))
+Subject: Re: [PATCH 1/3] media: rockchip: Introduce the rkvdec2 driver
+From: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
+In-Reply-To: <8541055.T7Z3S40VBb@trenzalore>
+Date: Thu, 30 Jan 2025 11:46:09 +0100
+Cc: linux-kernel@vger.kernel.org,
+ Diederik de Haas <didi.debian@cknow.org>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Heiko Stuebner <heiko@sntech.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Dragan Simic <dsimic@manjaro.org>,
+ Alexey Charkov <alchark@gmail.com>,
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org,
+ linux-staging@lists.linux.dev
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <278CF0E0-7277-40F3-942C-6FA61AA759A0@gmail.com>
+References: <20240615015734.1612108-1-detlev.casanova@collabora.com>
+ <5969581.LvFx2qVVIh@arisu> <CE4343FE-94AA-4F84-8C43-8366013AED84@gmail.com>
+ <8541055.T7Z3S40VBb@trenzalore>
+To: Detlev Casanova <detlev.casanova@collabora.com>
+X-Mailer: Apple Mail (2.3826.300.87.4.3)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_023702_485108_302AECE6 
-X-CRM114-Status: GOOD (  23.63  )
+X-CRM114-CacheID: sfid-20250130_024624_354257_AA0BA075 
+X-CRM114-Status: GOOD (  18.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,112 +117,89 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On 28-01-2025 03:03, Weinan Liu wrote:
-> To support livepatch, we need to add arch_stack_walk_reliable to
-> support reliable stacktrace according to
-> https://docs.kernel.org/livepatch/reliable-stacktrace.html#requirements
->
-> report stacktrace is not reliable if we are not able to unwind the stack
-> by sframe unwinder and fallback to FP based unwinder
->
-> Signed-off-by: Weinan Liu <wnliu@google.com>
-> ---
->   arch/arm64/include/asm/stacktrace/common.h |  2 +
->   arch/arm64/kernel/stacktrace.c             | 47 +++++++++++++++++++++-
->   2 files changed, 47 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/arm64/include/asm/stacktrace/common.h b/arch/arm64/include/asm/stacktrace/common.h
-> index 19edae8a5b1a..26449cd402db 100644
-> --- a/arch/arm64/include/asm/stacktrace/common.h
-> +++ b/arch/arm64/include/asm/stacktrace/common.h
-> @@ -26,6 +26,7 @@ struct stack_info {
->    * @stacks:      An array of stacks which can be unwound.
->    * @nr_stacks:   The number of stacks in @stacks.
->    * @cfa:         The sp value at the call site of the current function.
-> + * @unreliable:  Stacktrace is unreliable.
->    */
->   struct unwind_state {
->   	unsigned long fp;
-> @@ -36,6 +37,7 @@ struct unwind_state {
->   	int nr_stacks;
->   #ifdef CONFIG_SFRAME_UNWINDER
->   	unsigned long cfa;
-> +	bool unreliable;
->   #endif
->   };
->   
-> diff --git a/arch/arm64/kernel/stacktrace.c b/arch/arm64/kernel/stacktrace.c
-> index c035adb8fe8a..eab16dc05bb5 100644
-> --- a/arch/arm64/kernel/stacktrace.c
-> +++ b/arch/arm64/kernel/stacktrace.c
-> @@ -310,11 +310,16 @@ kunwind_next(struct kunwind_state *state)
->   	case KUNWIND_SOURCE_TASK:
->   	case KUNWIND_SOURCE_REGS_PC:
->   #ifdef CONFIG_SFRAME_UNWINDER
-> -	err = unwind_next_frame_sframe(&state->common);
-> +	if (!state->common.unreliable)
-> +		err = unwind_next_frame_sframe(&state->common);
->   
->   	/* Fallback to FP based unwinder */
-> -	if (err)
-> +	if (err || state->common.unreliable) {
->   		err = kunwind_next_frame_record(state);
-> +		/* Mark its stacktrace result as unreliable if it is unwindable via FP */
-> +		if (!err)
-> +			state->common.unreliable = true;
-> +	}
->   #else
->   	err = kunwind_next_frame_record(state);
->   #endif
-> @@ -446,6 +451,44 @@ noinline noinstr void arch_stack_walk(stack_trace_consume_fn consume_entry,
->   	kunwind_stack_walk(arch_kunwind_consume_entry, &data, task, regs);
->   }
->   
-> +#ifdef CONFIG_SFRAME_UNWINDER
-> +struct kunwind_reliable_consume_entry_data {
-> +	stack_trace_consume_fn consume_entry;
-> +	void *cookie;
-> +	bool unreliable;
-> +};
-> +
-> +static __always_inline bool
-> +arch_kunwind_reliable_consume_entry(const struct kunwind_state *state, void *cookie)
-> +{
-> +	struct kunwind_reliable_consume_entry_data *data = cookie;
-> +
-> +	if (state->common.unreliable) {
-> +		data->unreliable = true;
-> +		return false;
-> +	}
-> +	return data->consume_entry(data->cookie, state->common.pc);
-> +}
-> +
-> +noinline notrace int arch_stack_walk_reliable(
-> +				stack_trace_consume_fn consume_entry,
-> +				void *cookie, struct task_struct *task)
-> +{
-> +	struct kunwind_reliable_consume_entry_data data = {
-> +		.consume_entry = consume_entry,
-> +		.cookie = cookie,
-> +		.unreliable = false,
-> +	};
-> +
-> +	kunwind_stack_walk(arch_kunwind_reliable_consume_entry, &data, task, NULL);
-> +
-> +	if (data.unreliable)
-> +		return -EINVAL;
-> +
-> +	return 0;
-> +}
-> +#endif
-> +
->   struct bpf_unwind_consume_entry_data {
->   	bool (*consume_entry)(void *cookie, u64 ip, u64 sp, u64 fp);
->   	void *cookie;
 
-Why not fold the previous patch and this into one?
+> Wiadomo=C5=9B=C4=87 napisana przez Detlev Casanova =
+<detlev.casanova@collabora.com> w dniu 29 sty 2025, o godz. 17:50:
+>=20
+> Hi Piotr,
+>=20
+> On Wednesday, 29 January 2025 09:48:51 EST Piotr Oniszczuk wrote:
+>=20
+> I suppose you tested with my hevc branch, which is not really ready =
+yet (Some=20
+> ref frames will work but usually, it won't) Can you confirm which =
+branch/commit=20
+> you based your tests on ?
 
-But the code looks good to me.
+Indeed  - i=E2=80=99m using your rkvdec2 hevc code from: =
+https://gitlab.collabora.com/detlev/linux/-/commits/add-rkvdec2-driver-hev=
+c with iommu from =
+https://gitlab.collabora.com/hardware-enablement/rockchip-3588/linux/-/com=
+mit/bc47c445bfd9586115e9bcf5f231c5a5c5f0f828
+and =
+https://gitlab.collabora.com/hardware-enablement/rockchip-3588/linux/-/com=
+mit/9a9fd791513bc0d02c2242c88f23b41bd47de30a
+=20
 
-Reviewed-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>.
+>=20
+> For the iommu, do you see those errors like that only on 356x or also =
+on 3588=20
+> ?
+
+3588 has no any iommu errors.=20
+I see iommu errors only on 356x
+=20
+
+> The hevc branch should have the iommu patches to fix that kind of =
+things.
+
+I=E2=80=99m using:
+=
+https://gitlab.collabora.com/hardware-enablement/rockchip-3588/linux/-/com=
+mit/bc47c445bfd9586115e9bcf5f231c5a5c5f0f828
+=
+https://gitlab.collabora.com/hardware-enablement/rockchip-3588/linux/-/com=
+mit/9a9fd791513bc0d02c2242c88f23b41bd47de30a
+
+I see there is: =
+https://gitlab.collabora.com/detlev/linux/-/commits/add-rkvdec2-driver-iom=
+mu
+Let me update iommu code to above branch and report back here how it =
+goes in 3588 and 356x
+
+
+>=20
+> (but note that hevc support is really new, so it may have bugs with =
+buffer=20
+> allocations)
+
+It is already great work.
+I=E2=80=99m awaiting for hevc in 35xx during last 2+ years :-) =20
+
+>=20
+>> If anybody hints me for way/tool to analyse of playing/failing =
+samples to
+>> catch: what encoding specifics makes given sample failing to decode  =
+on
+>> rkvdec2 - i'll be more that happy to provide details=E2=80=A6 (doing =
+simple
+>> mediainfo <file> shows no differences for me=E2=80=A6)
+>=20
+> Few features are supported for HEVC as of now:
+> - No scanlist support (only default 16x16 blocks will work)
+> - Long term reference frames are also not configured yet.
+> - hevc 10 bits is also not supported yet
+>=20
+> These are specific to the encoding and mediainfo won't really give you=20=
+
+> information on that, except maybe on the 10 bits format.
+>=20
+> You can also checkout YUView (https://github.com/IENT/YUView) to get=20=
+
+> information on media files structure, but I have had issues with HEVC =
+support=20
+> lately.
+
+oh great. will do and report!
+
 
