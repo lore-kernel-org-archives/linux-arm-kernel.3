@@ -4,63 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0897C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 20:49:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97E76C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 20:54:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AxR+YjSVLIjvz2qqmkKbLhZZFVeBOAUSc90bIfkXWtM=; b=qPUBea2tQneEWMSd11lyhNXiZS
-	04T9uZQ9Tda8iZiC5TzeZl1eg0ncbuVa4b4uHx0WZMwsa5umP+v9yNu60Wz6WFZODK2b9F0g2mVdz
-	IJ4trhAkt7URLsc6VLpNDpS68AabNe77VBYBnGlZ8hhsIbI5TkmRzuiZ+CHjfzali6YXHvMnM938S
-	fmKBKAAixgrPqNVRGuAwtx7pQWtghgAqsfpz3kDOfSepXIb6ALuIL2uvOx7c6GStv0qlm2tSkshyt
-	rGEGLH4nSVXmLHb4fHRI2JIsc61z6bobleGbefwhBRfLfj76YI1UT+W/aFISkZLWD9O+JeYSI8xIA
-	xqRvyXVw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ec98s6sSsx0UR0Kfm0pnIvUMmPvbuc2qUG4lSwDUwKQ=; b=rfoYXv6wTVv7LoRTLHnmDOB3mq
+	tDHL9nwEoNJ2GjFCHFhnhyYIIVRr5IKzHt7wen2vt8Jf8iMTEBLZquAgwLA6WulhacmKR49hanBZL
+	efE0PvW8FveuZL+x9NZ/2nGmXOSJKxdRCzIxdXnY+0k+bYGUpNqpAaKkAVXLjWzM821s1g5nKyLgk
+	YrtRblpm4Tz+ldwuYSs6go4cT1ijPMZvt1GaKge0ispTL9ex8bbNZK7oH63rDbbr+uVwWa6FdMYKQ
+	eqhSI8VElJI0iHtcDtdqVnCTWBKGTJ1NDZgcbHjCEBdfEDg+7I2atRpUBL2aaGc4NWCWsTospQWMe
+	blG/cfFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdbT1-00000009au8-3Ylc;
-	Thu, 30 Jan 2025 20:48:51 +0000
-Received: from out-186.mta0.migadu.com ([2001:41d0:1004:224b::ba])
+	id 1tdbYl-00000009bAy-3ZVe;
+	Thu, 30 Jan 2025 20:54:47 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdbRh-00000009aod-3i1h
+	id 1tdbXS-00000009b7I-24Rt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jan 2025 20:47:31 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1738270041;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=AxR+YjSVLIjvz2qqmkKbLhZZFVeBOAUSc90bIfkXWtM=;
-	b=Eq6hiR9Rj6pWjWkJuwOYI5S5vtJoQ3y3bMWA7y26c5hGAo5FSJknV1UoyevWkL8569TiuB
-	redLf9W1vYnoNlzkT7VIMRpYXeN8/sPY+OqyhmTV+8iq3TtYBl4OfOnO3RmSDhBrKYODp9
-	XdXIz/qg0YLcyi6cp0z6FtYxKf35d2s=
-From: Oliver Upton <oliver.upton@linux.dev>
-To: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	stable@vger.kernel.org,
-	Moritz Fischer <moritzf@google.com>,
-	Pedro Martelletto <martelletto@google.com>,
-	Jon Masters <jonmasters@google.com>
-Subject: [PATCH] arm64: Move storage of idreg overrides into mmuoff section
-Date: Thu, 30 Jan 2025 12:46:15 -0800
-Message-Id: <20250130204614.64621-1-oliver.upton@linux.dev>
+	Thu, 30 Jan 2025 20:53:27 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-385ef8b64b3so1176102f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jan 2025 12:53:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1738270405; x=1738875205; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Ec98s6sSsx0UR0Kfm0pnIvUMmPvbuc2qUG4lSwDUwKQ=;
+        b=liFhUgz3WdauxayBJAw9jCcVWFZUgmruB74YcORC5pmKWgeUWwtexjbakMHWswewGi
+         7WmbcRoHfaDt/EQwf60DVbDFKv3f4MI6r+yseAxxUA7jcf5T7/fF8LpN8DK9JGzz2V5h
+         d56tqVGboTRSXVuE/I5q9xDwYVD5mkNpJ1Lzos0YAduYnkp3yZy/i750GfbrFulYrdYR
+         ceSAwIh13cU4tgZ7YxvUMbyGnm9tkOgwO8S7OgX9pk+dsjs30pd8cD04TtOEzz90Inc8
+         ViPFAEWtK6ZJH4Jj3Or7FthwAQ6j5sBztXgdiiVdY+NQeebRjFniAV6Z8X0SLgXcf3Ur
+         tDKQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738270405; x=1738875205;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ec98s6sSsx0UR0Kfm0pnIvUMmPvbuc2qUG4lSwDUwKQ=;
+        b=HQ/saFKGIC0AhRRC6y5TXPe42hwwvKjLu93EumY3xKU86cgF5DZVvrizYbEA++hSHd
+         xneN87cZOF4pbjSva5LPaS3PhcWOyAirg2DcvDiX4nyQ8IoF2p8TKNG9MCvXq/WIgCJg
+         EJTwoqVrJhquL3/dhMdCzqs20RB3tI5BXbWStSVgDtWgdy0EfmW+gfP8IE18izHSdZdT
+         +ctOqWTc8N2oyEV+zrXGMndl6+QRkAI471++svWXjP5C93Em8hklkWinlGubGG0xsYgV
+         VR1YQOB2LzocfZmlT26zy+JGvihlOb6hBdjY/Q1bOTpU15Nd6YLv1xl1WD31mm8qOYT3
+         Plgw==
+X-Forwarded-Encrypted: i=1; AJvYcCXUGjO0Xsaz6yghLKq96oYIfZ5HHrABTlv+iFTGvsXXnitq3/FMEAtBl3fdV0zcmsGSxbBx5K8WZUuG0B/hPoCp@lists.infradead.org
+X-Gm-Message-State: AOJu0YyntbySIdNpf8AEBZlMYcrDSRqPutLvSzPWPimKm/D0oDQ+2xFH
+	Q6FpXLMXyGdZWFi8o7+AD+vRtKGwyq/56fhH9GLrLvOQQW0mfAZ9oaVMhMz4fXU=
+X-Gm-Gg: ASbGncs+Ir7lfJNSSSMgE/9zE6mrVF0wesZFgJeqo3SpAG8SQv9Bq3FM0YwdUpZE8EL
+	81/QLHxlc/sPjwynRQZMCwNu8w7VzCi/EG8r3z70bHQBXfA/2F4oHqyGiROzZnJz+LtWdX8zn+N
+	ROy3onDY8O43ko40vJxBseWaYHxMW3pdBWczcnMiOL0zfagOTHb6KIAc5hjNBFAnozXMQpHK/Db
+	LCpKdLimTlMtie0ESNBk3nRnIul1d31h/biG8Ve2OZTSNQKXm/Ow6GRvy1UklkD5xKSZWpXRJBx
+	xKHPk58uwIG8FP5FTMedUj9p
+X-Google-Smtp-Source: AGHT+IF/6O8ZXA61LdSg0FqUiKKK/7fHOXHRr8I9s7+f0jQYC6+kW2kgrBrfA1n9/pzq79turnK8vQ==
+X-Received: by 2002:adf:e591:0:b0:385:fb56:5596 with SMTP id ffacd0b85a97d-38c51944328mr4917084f8f.19.1738270404698;
+        Thu, 30 Jan 2025 12:53:24 -0800 (PST)
+Received: from [192.168.50.4] ([82.78.167.173])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38c5c1b51e1sm2946779f8f.77.2025.01.30.12.53.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 30 Jan 2025 12:53:24 -0800 (PST)
+Message-ID: <98ddf1b6-1804-4116-b4e2-f54a62c27966@tuxon.dev>
+Date: Thu, 30 Jan 2025 22:53:22 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/6] thermal: of: Export non-devres helper to
+ register/unregister thermal zone
+To: Daniel Lezcano <daniel.lezcano@linaro.org>
+Cc: rafael@kernel.org, rui.zhang@intel.com, lukasz.luba@arm.com,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ geert+renesas@glider.be, magnus.damm@gmail.com, mturquette@baylibre.com,
+ sboyd@kernel.org, p.zabel@pengutronix.de, ulf.hansson@linaro.org,
+ linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+ Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+References: <20250103163805.1775705-1-claudiu.beznea.uj@bp.renesas.com>
+ <20250103163805.1775705-3-claudiu.beznea.uj@bp.renesas.com>
+ <Z5pkUNNvsWPjRQvy@mai.linaro.org>
+ <65a16c3f-456e-40ec-91b0-afb57269ed46@tuxon.dev>
+ <Z5tPR_tv7vWDkUI7@mai.linaro.org>
+ <6ed7d545-82d7-4bca-95ec-95447586bb58@tuxon.dev>
+ <b496d933-3c57-4b02-ab65-0582a30939af@linaro.org>
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Content-Language: en-US
+In-Reply-To: <b496d933-3c57-4b02-ab65-0582a30939af@linaro.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_124730_363345_6E7B2CE2 
-X-CRM114-Status: GOOD (  10.92  )
+X-CRM114-CacheID: sfid-20250130_125326_538849_3DB7B2CC 
+X-CRM114-Status: GOOD (  18.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,68 +112,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There are a few places where the idreg overrides are read w/ the MMU
-off, for example the VHE and hVHE checks in __finalise_el2. And while
-the infrastructure gets this _mostly_ right (i.e. does the appropriate
-cache maintenance), the placement of the data itself is problematic and
-could share a cache line with something else.
+Hi, Daniel,
 
-Depending on how unforgiving an implementation's handling of mismatched
-attributes is, this could lead to data corruption. In one observed case,
-the system_cpucaps shared a line with arm64_sw_feature_override and the
-cpucaps got nuked after entering the hyp stub...
+On 30.01.2025 19:24, Daniel Lezcano wrote:
+> On 30/01/2025 11:30, Claudiu Beznea wrote:
+>>
+>>
+>> On 30.01.2025 12:07, Daniel Lezcano wrote:
+>>> On Thu, Jan 30, 2025 at 11:08:03AM +0200, Claudiu Beznea wrote:
+>>>> Hi, Daniel,
+> 
+> [ ... ]
+> 
+>>>>> Would the IP need some cycles to capture the temperature accurately
+>>>>> after the
+>>>>> clock is enabled ?
+>>>>
+>>>> There is nothing about this mentioned about this in the HW manual of the
+>>>> RZ/G3S SoC. The only points mentioned are as described in the driver code:
+>>>> - wait at least 3us after each IIO channel read
+>>>> - wait at least 30us after enabling the sensor
+>>>> - wait at least 50us after setting OE bit in TSU_SM
+>>>>
+>>>> For this I chose to have it implemented as proposed.
+>>>
+>>> IMO, disabling/enabling the clock between two reads through the pm
+>>> runtime may
+>>> not be a good thing, especially if the system enters a thermal situation
+>>> where
+>>> it has to mitigate.
+>>>
+>>> Without any testing capturing the temperatures and compare between the
+>>> always-on
+>>> and on/off, it is hard to say if it is true or not. Up to you to test
+>>> that or
+>>> not. If you think it is fine, then let's go with it.
+>>
+>> I tested it with and w/o the runtime PM and on/off support (so, everything
+>> ON from the probe) and the reported temperature values were similar.
+> 
+> 
+> Did you remove the roundup to 0.5°C ?
 
-Even though only a few overrides are read without the MMU on, just throw
-the whole lot into the mmuoff section and be done with it.
+I did the testing as suggested and, this time, collected results and
+compared side by side. I read the temperature for 10 minutes, 60 seconds
+after the Linux prompt showed up. There is, indeed, a slight difference b/w
+the 2 cases.
 
-Cc: stable@vger.kernel.org # v5.15+
-Tested-by: Moritz Fischer <moritzf@google.com>
-Tested-by: Pedro Martelletto <martelletto@google.com>
-Reported-by: Jon Masters <jonmasters@google.com>
-Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
----
- arch/arm64/kernel/cpufeature.c | 25 ++++++++++++++-----------
- 1 file changed, 14 insertions(+), 11 deletions(-)
+When the runtime PM doesn't touch the clocks on read the reported
+temperature varies b/w 53-54 degrees while when the runtime PM
+enables/disables the clocks a single read reported 55 degrees, the rest
+reported 54 degrees.
 
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index d41128e37701..92506d9f90db 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -755,17 +755,20 @@ static const struct arm64_ftr_bits ftr_raz[] = {
- #define ARM64_FTR_REG(id, table)		\
- 	__ARM64_FTR_REG_OVERRIDE(#id, id, table, &no_override)
- 
--struct arm64_ftr_override id_aa64mmfr0_override;
--struct arm64_ftr_override id_aa64mmfr1_override;
--struct arm64_ftr_override id_aa64mmfr2_override;
--struct arm64_ftr_override id_aa64pfr0_override;
--struct arm64_ftr_override id_aa64pfr1_override;
--struct arm64_ftr_override id_aa64zfr0_override;
--struct arm64_ftr_override id_aa64smfr0_override;
--struct arm64_ftr_override id_aa64isar1_override;
--struct arm64_ftr_override id_aa64isar2_override;
--
--struct arm64_ftr_override arm64_sw_feature_override;
-+#define DEFINE_FTR_OVERRIDE(name)					\
-+	struct arm64_ftr_override __section(".mmuoff.data.read") name
-+
-+DEFINE_FTR_OVERRIDE(id_aa64mmfr0_override);
-+DEFINE_FTR_OVERRIDE(id_aa64mmfr1_override);
-+DEFINE_FTR_OVERRIDE(id_aa64mmfr2_override);
-+DEFINE_FTR_OVERRIDE(id_aa64pfr0_override);
-+DEFINE_FTR_OVERRIDE(id_aa64pfr1_override);
-+DEFINE_FTR_OVERRIDE(id_aa64zfr0_override);
-+DEFINE_FTR_OVERRIDE(id_aa64smfr0_override);
-+DEFINE_FTR_OVERRIDE(id_aa64isar1_override);
-+DEFINE_FTR_OVERRIDE(id_aa64isar2_override);
-+
-+DEFINE_FTR_OVERRIDE(arm64_sw_feature_override);
- 
- static const struct __ftr_reg_entry {
- 	u32			sys_id;
+I plotted the results side by side here:
+https://i2.paste.pics/f07eaeddc2ccc3c6695fe5056b52f4a2.png?trs=0a0eaab99bb59ebcb10051eb298f437c7cd50c16437a87392aebc16cd9013e18&rand=vWXm2VTrbt
 
-base-commit: 1dd3393696efba1598aa7692939bba99d0cffae3
--- 
-2.39.5
+Please let me know how do you consider it.
+
+Thank you,
+Claudiu
+
+> 
+> 
 
 
