@@ -4,69 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B526C0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 20:35:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0897C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 20:49:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GDjyYngW/V8rZ/9s/V2isOq01Zq2IRay1Y1ld6/4IKA=; b=gysFTIjEuKoG2gYn4pGQ73q8og
-	uTX6+z/I3AbUjCL4Sq420ynyw8LwvAo8Lpd6K03N4loLdCFF3uNE5ADRDm9uPpMmN9M66h5EaZ3w+
-	HSlJpV+a9FTpv8mjmYe39ysLb3HR9fIJoJ+oIxVhrlftOiRVvCi2fXNlPu34tiQG3E13wV+HvYPD6
-	wGrl8oiAE3KPQQXvnhUrjLw62CTSMB5f3hBR2z5ok/5H1Eyx7I/ZNag5vlvRH7lN+r5dDkAcyKA3C
-	DKzvvkrtwIg4fxxlNvPfJje3uaE/tOEkxPJ/wSDBWBEWaetCYlnUKAHj30Ymp95+uWVf7OLURX5PR
-	pJljTCwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AxR+YjSVLIjvz2qqmkKbLhZZFVeBOAUSc90bIfkXWtM=; b=qPUBea2tQneEWMSd11lyhNXiZS
+	04T9uZQ9Tda8iZiC5TzeZl1eg0ncbuVa4b4uHx0WZMwsa5umP+v9yNu60Wz6WFZODK2b9F0g2mVdz
+	IJ4trhAkt7URLsc6VLpNDpS68AabNe77VBYBnGlZ8hhsIbI5TkmRzuiZ+CHjfzali6YXHvMnM938S
+	fmKBKAAixgrPqNVRGuAwtx7pQWtghgAqsfpz3kDOfSepXIb6ALuIL2uvOx7c6GStv0qlm2tSkshyt
+	rGEGLH4nSVXmLHb4fHRI2JIsc61z6bobleGbefwhBRfLfj76YI1UT+W/aFISkZLWD9O+JeYSI8xIA
+	xqRvyXVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdbFv-00000009ZZ6-20SS;
-	Thu, 30 Jan 2025 20:35:19 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tdbT1-00000009au8-3Ylc;
+	Thu, 30 Jan 2025 20:48:51 +0000
+Received: from out-186.mta0.migadu.com ([2001:41d0:1004:224b::ba])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdbEb-00000009ZNU-32S4;
-	Thu, 30 Jan 2025 20:33:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=GDjyYngW/V8rZ/9s/V2isOq01Zq2IRay1Y1ld6/4IKA=; b=wsGxR3WotEAaoIbMjuMGP44tEV
-	h30tAbAt8BGPE+tBCGMkjfFLPpQbldEY68cX2M2Asp9fLBgbgU5FRpJQ0IDxBoGSMsTjqdq6oy5vU
-	gfldPf0af8xcnoO7be0Feo+EMaKxOprioif7Jr0WAbtsfZYFw25CqABkFVU4vwvL8uzz+yCl9OqOr
-	zMbEXrtT3trtJRQgoV/bJHlh2NZsZxyU5mb1VGJpi9MFs2e8tVeFGgzoXKAH47doMdvX1iSPRNVNy
-	QlzQu7E2NRD0ycPV8L/1GWI1wJ1DJYJy//Bh+u1sT9IfuucEfyUo1O6J6MuHEmd0yFmmUFLAjEGHE
-	YAJWXOOQ==;
-Received: from i53875b5c.versanet.de ([83.135.91.92] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tdbEM-0001gn-Po; Thu, 30 Jan 2025 21:33:42 +0100
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Damon Ding <damon.ding@rock-chips.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- rfoss@kernel.org, vkoul@kernel.org, sebastian.reichel@collabora.com,
- cristian.ciocaltea@collabora.com, l.stach@pengutronix.de,
- dmitry.baryshkov@linaro.org, andy.yan@rock-chips.com, hjc@rock-chips.com,
- algea.cao@rock-chips.com, kever.yang@rock-chips.com,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
- Damon Ding <damon.ding@rock-chips.com>
-Subject: Re: [PATCH v6 08/14] drm/rockchip: analogix_dp: Add support to get panel from
- the DP AUX bus
-Date: Thu, 30 Jan 2025 21:33:41 +0100
-Message-ID: <3340006.44csPzL39Z@diego>
-In-Reply-To: <20250123100747.1841357-9-damon.ding@rock-chips.com>
-References: <20250123100747.1841357-1-damon.ding@rock-chips.com>
- <20250123100747.1841357-9-damon.ding@rock-chips.com>
+	id 1tdbRh-00000009aod-3i1h
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 30 Jan 2025 20:47:31 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1738270041;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=AxR+YjSVLIjvz2qqmkKbLhZZFVeBOAUSc90bIfkXWtM=;
+	b=Eq6hiR9Rj6pWjWkJuwOYI5S5vtJoQ3y3bMWA7y26c5hGAo5FSJknV1UoyevWkL8569TiuB
+	redLf9W1vYnoNlzkT7VIMRpYXeN8/sPY+OqyhmTV+8iq3TtYBl4OfOnO3RmSDhBrKYODp9
+	XdXIz/qg0YLcyi6cp0z6FtYxKf35d2s=
+From: Oliver Upton <oliver.upton@linux.dev>
+To: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	stable@vger.kernel.org,
+	Moritz Fischer <moritzf@google.com>,
+	Pedro Martelletto <martelletto@google.com>,
+	Jon Masters <jonmasters@google.com>
+Subject: [PATCH] arm64: Move storage of idreg overrides into mmuoff section
+Date: Thu, 30 Jan 2025 12:46:15 -0800
+Message-Id: <20250130204614.64621-1-oliver.upton@linux.dev>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_123357_754481_956CF4D0 
-X-CRM114-Status: GOOD (  16.62  )
+X-CRM114-CacheID: sfid-20250130_124730_363345_6E7B2CE2 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,45 +75,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Damon,
+There are a few places where the idreg overrides are read w/ the MMU
+off, for example the VHE and hVHE checks in __finalise_el2. And while
+the infrastructure gets this _mostly_ right (i.e. does the appropriate
+cache maintenance), the placement of the data itself is problematic and
+could share a cache line with something else.
 
-Am Donnerstag, 23. Januar 2025, 11:07:41 MEZ schrieb Damon Ding:
-> Move drm_of_find_panel_or_bridge() a little later and combine it with
-> component_add() into a new function rockchip_dp_link_panel(). The function
-> will serve as done_probing() callback of devm_of_dp_aux_populate_bus(),
-> aiding to support for obtaining the eDP panel via the DP AUX bus.
-> 
-> If failed to get the panel from the DP AUX bus, it will then try the other
-> way to get panel information through the platform bus.
-> 
-> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-> 
-> ---
+Depending on how unforgiving an implementation's handling of mismatched
+attributes is, this could lead to data corruption. In one observed case,
+the system_cpucaps shared a line with arm64_sw_feature_override and the
+cpucaps got nuked after entering the hyp stub...
 
-> @@ -450,9 +461,17 @@ static int rockchip_dp_probe(struct platform_device *pdev)
->  	if (IS_ERR(dp->adp))
->  		return PTR_ERR(dp->adp);
->  
-> -	ret = component_add(dev, &rockchip_dp_component_ops);
-> -	if (ret)
-> -		return ret;
-> +	ret = devm_of_dp_aux_populate_bus(analogix_dp_get_aux(dp->adp), rockchip_dp_link_panel);
+Even though only a few overrides are read without the MMU on, just throw
+the whole lot into the mmuoff section and be done with it.
 
-This causes an undefined-reference error, so you probably need something like:
+Cc: stable@vger.kernel.org # v5.15+
+Tested-by: Moritz Fischer <moritzf@google.com>
+Tested-by: Pedro Martelletto <martelletto@google.com>
+Reported-by: Jon Masters <jonmasters@google.com>
+Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+---
+ arch/arm64/kernel/cpufeature.c | 25 ++++++++++++++-----------
+ 1 file changed, 14 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/gpu/drm/rockchip/Kconfig b/drivers/gpu/drm/rockchip/Kconfig
-index f9cbbb40b36f..fa946a809858 100644
---- a/drivers/gpu/drm/rockchip/Kconfig
-+++ b/drivers/gpu/drm/rockchip/Kconfig
-@@ -8,6 +8,7 @@ config DRM_ROCKCHIP
-        select DRM_PANEL
-        select VIDEOMODE_HELPERS
-        select DRM_ANALOGIX_DP if ROCKCHIP_ANALOGIX_DP
-+       select DRM_DISPLAY_DP_AUX_BUS if ROCKCHIP_ANALOGIX_DP
-        select DRM_DW_HDMI if ROCKCHIP_DW_HDMI
-        select DRM_DW_HDMI_QP if ROCKCHIP_DW_HDMI_QP
-        select DRM_DW_MIPI_DSI if ROCKCHIP_DW_MIPI_DSI
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index d41128e37701..92506d9f90db 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -755,17 +755,20 @@ static const struct arm64_ftr_bits ftr_raz[] = {
+ #define ARM64_FTR_REG(id, table)		\
+ 	__ARM64_FTR_REG_OVERRIDE(#id, id, table, &no_override)
+ 
+-struct arm64_ftr_override id_aa64mmfr0_override;
+-struct arm64_ftr_override id_aa64mmfr1_override;
+-struct arm64_ftr_override id_aa64mmfr2_override;
+-struct arm64_ftr_override id_aa64pfr0_override;
+-struct arm64_ftr_override id_aa64pfr1_override;
+-struct arm64_ftr_override id_aa64zfr0_override;
+-struct arm64_ftr_override id_aa64smfr0_override;
+-struct arm64_ftr_override id_aa64isar1_override;
+-struct arm64_ftr_override id_aa64isar2_override;
+-
+-struct arm64_ftr_override arm64_sw_feature_override;
++#define DEFINE_FTR_OVERRIDE(name)					\
++	struct arm64_ftr_override __section(".mmuoff.data.read") name
++
++DEFINE_FTR_OVERRIDE(id_aa64mmfr0_override);
++DEFINE_FTR_OVERRIDE(id_aa64mmfr1_override);
++DEFINE_FTR_OVERRIDE(id_aa64mmfr2_override);
++DEFINE_FTR_OVERRIDE(id_aa64pfr0_override);
++DEFINE_FTR_OVERRIDE(id_aa64pfr1_override);
++DEFINE_FTR_OVERRIDE(id_aa64zfr0_override);
++DEFINE_FTR_OVERRIDE(id_aa64smfr0_override);
++DEFINE_FTR_OVERRIDE(id_aa64isar1_override);
++DEFINE_FTR_OVERRIDE(id_aa64isar2_override);
++
++DEFINE_FTR_OVERRIDE(arm64_sw_feature_override);
+ 
+ static const struct __ftr_reg_entry {
+ 	u32			sys_id;
 
-
+base-commit: 1dd3393696efba1598aa7692939bba99d0cffae3
+-- 
+2.39.5
 
 
