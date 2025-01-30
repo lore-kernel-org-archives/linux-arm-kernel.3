@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A47F8C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 16:40:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AD16C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 16:41:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kVZIBsJ2ukDO0m/xIz1rl1s2choG2uPMysZ4azq+d4A=; b=QgU7bqY7GWDbncEbOvb57BcRhu
-	BmiJI1by0NdDx/Gw/ftyNB0U4zuqffUbSJyjkYpem4YMiIaGNaPCStXmI4BSFx6Xl1ad4NzNvaEg6
-	adLEYTqbT2n9PHukmsxvbcZB9S8fv/SwfO4c66rP3TNAo9PlwtoKf1AG/H8aoCTUCimwyCWwaSQsE
-	gHjQKHACZhGQzwxj4HLjAnPSmMNUzcWUeImH78BjsgZxptaz6KR9DuidtjOw3s3DJRgVb2+RhspqU
-	Jy56kQoNmLa7lptij6n1zWfaG66MzmEEa1yz0zNNaBwAE71dAicKnQaXGAyTxC3K5cAIsxMiVSwI6
-	QjAC4bdw==;
+	bh=MfIMIPmWjQlIq+rN6AT54US673m3Vv7abwiUpRadqEo=; b=GlIMQbtBEpXvF3du4vaz4n2Z1t
+	X5XPzXPUks9NdPab/ZCail9azbZ4diT155C0DJx4FGa1xvgPlAKEfllwQ5DESHaqoBpTxNqRNfUoV
+	UcQS3SEIP6GhpFvXebwoevUqD5xWFi/UBSJAYWt/QQTHSdIuXb9ok4jqpyFP8odh3L7ZODpSEzvtk
+	MVZoyg1ueA31GthRVj2It+qWHnlFMJDh6hUDYG2zWllQmEx0fQEg8ZUp9jAQpBjYXxK0XqDd7LzZO
+	Z/lYZzHrsIf8dcYPQYDeAmBKngeaJVs+NFn4Q3j2CpWe5C9jhWe0sTrF1fCz84ftmSKV9lDWv8jS0
+	1eGCmWhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdXaE-00000009BMG-3qAM;
-	Thu, 30 Jan 2025 16:40:02 +0000
+	id 1tdXbW-00000009BZW-3mM5;
+	Thu, 30 Jan 2025 16:41:22 +0000
 Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdXSr-00000009A1N-0B3c;
+	id 1tdXSr-00000009A1d-2e4U;
 	Thu, 30 Jan 2025 16:32:26 +0000
 ARC-Seal: i=1; a=rsa-sha256; t=1738254731; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=fQWzZcpM8Pfrr8eayTzqraDrIw8mLMDULhMcuQb4ioqeWO81T9ByuMDihsuF8yYEJh0QI0X6oQunPzuJPd83e/ATEDHzTJO2AtGClVpC31kgqUfgr08OgnzIfLiJGOPa/FShxRt/uOUTbSf78b7PQvhvTluINjy3J2Q7O8vU5oc=
+	b=OZfOqK7UyDFGJsQXib/gpgYHBzMWJMeZKAbDvDWFzaANruEAkbBoNAWi3h/WxPsVF2l+P2xNBfS+QpUGwsau7aZOz9Q9ECCTizFh6pEGJRcqXdfizmc8bJFo17RMfzd2qGaSBxDbPOxD8PG2OF/gUVnMnPjWr04b4WlLAii8KIE=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
 	t=1738254731; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=kVZIBsJ2ukDO0m/xIz1rl1s2choG2uPMysZ4azq+d4A=; 
-	b=Rlyuxd1gGd47iVmFX29Du18QW02Cq0Q11hUGBj1WJEkNkf6OhwOPfCvsoHr979Xb7ZTqmCfJDG8bMW86UJtLIq2phZV6xQ8AEAWihWcKxVWO4Qpic3ay6dpQODgD2Vi5KUM9OcaeUgGJ20/rMnI+ipv13ahc6C6DNpYR4I/iYmI=
+	bh=MfIMIPmWjQlIq+rN6AT54US673m3Vv7abwiUpRadqEo=; 
+	b=T9IoevOmePSt7qbl8FMmzE7jJ6bj/6a97GjzMCidcXd3PFYlQkALozhD3VliflPYq9GcfPJZNl23RXXlh/YN8zl7+KCb+9xOjl4PkenukQe/nKxh3+RVLZYAgk4po0LqncfLWha3nq9Y5WRFnQyUQs/ivfKwAPNG+0sTeLBgGF8=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
@@ -40,19 +40,19 @@ ARC-Authentication-Results: i=1; mx.zohomail.com;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1738254731;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=kVZIBsJ2ukDO0m/xIz1rl1s2choG2uPMysZ4azq+d4A=;
-	b=cIdfJqelPO8aBYBLT4nqAdTTHY1tIycgwgYGXQxkY/Xzy8b90w+AWpOX4mCbo7G8
-	lwTUtWqsmUPWKjPKizAboDVKdAspbNSEsXdornjaLOgvq5dou1PwaSWdNSjq6Lpw+Kf
-	hVVpRlOWI/8qoMQwjNWiV9b+a3Ex7qDu9+LuE7Mo=
-Received: by mx.zohomail.com with SMTPS id 1738254713036254.3717036219166;
-	Thu, 30 Jan 2025 08:31:53 -0800 (PST)
+	bh=MfIMIPmWjQlIq+rN6AT54US673m3Vv7abwiUpRadqEo=;
+	b=j80LJ3mOWHOUS5cYN8/9fjU3IH0zboU200gSWF+Q7SG0hPgsFNE1S0kVfmSxnbGW
+	kZvaUhhH2m+tvMM184rySkdotzz3tLGpp3ed3SkkpU8MTAc9ms/OoPhGuITZWsJP7Ew
+	54l//sso/HiogQMkslkvRqFRUP9btbTT4181NZZo=
+Received: by mx.zohomail.com with SMTPS id 173825472681471.09490665162434;
+	Thu, 30 Jan 2025 08:32:06 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Thu, 30 Jan 2025 17:31:17 +0100
-Subject: [PATCH 3/7] hwrng: rockchip: store dev pointer in driver struct
+Date: Thu, 30 Jan 2025 17:31:20 +0100
+Subject: [PATCH 6/7] arm64: dts: rockchip: Add rng node to RK3588
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250130-rk3588-trng-submission-v1-3-97ff76568e49@collabora.com>
+Message-Id: <20250130-rk3588-trng-submission-v1-6-97ff76568e49@collabora.com>
 References: <20250130-rk3588-trng-submission-v1-0-97ff76568e49@collabora.com>
 In-Reply-To: <20250130-rk3588-trng-submission-v1-0-97ff76568e49@collabora.com>
 To: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
@@ -68,8 +68,8 @@ Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_083225_153777_3D9081C2 
-X-CRM114-Status: GOOD (  16.93  )
+X-CRM114-CacheID: sfid-20250130_083225_733891_4F8B4CAA 
+X-CRM114-Status: GOOD (  10.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,69 +84,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The rockchip rng driver does a dance to store the dev pointer in the
-hwrng's unsigned long "priv" member. However, since the struct hwrng
-member of rk_rng is not a pointer, we can use container_of to get the
-struct rk_rng instance from just the struct hwrng*, which means we don't
-have to subvert what little there is in C of a type system and can
-instead store a pointer to the device struct in the rk_rng itself.
+Add the RK3588's standalone hardware random number generator node to its
+device tree, and enable it on the one board I've tested it on and can
+verify it produces good output, the Rock 5B.
 
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/char/hw_random/rockchip-rng.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi   | 9 +++++++++
+ arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts | 4 ++++
+ 2 files changed, 13 insertions(+)
 
-diff --git a/drivers/char/hw_random/rockchip-rng.c b/drivers/char/hw_random/rockchip-rng.c
-index 289b385bbf05e3c828b6e26feb2453db62f6b2a2..b1b510087e5862b3b2ed97cefbf10620bcf9b020 100644
---- a/drivers/char/hw_random/rockchip-rng.c
-+++ b/drivers/char/hw_random/rockchip-rng.c
-@@ -54,6 +54,7 @@ struct rk_rng {
- 	void __iomem *base;
- 	int clk_num;
- 	struct clk_bulk_data *clk_bulks;
-+	struct device *dev;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+index 8cfa30837ce72581d0b513a8274ab0177eb5ae15..1c72922bcbe1afd7c49beac771f8b7c6e5cc6e05 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+@@ -1921,6 +1921,15 @@ sdhci: mmc@fe2e0000 {
+ 		status = "disabled";
+ 	};
+ 
++	rng: rng@fe378000 {
++		compatible = "rockchip,rk3588-rng";
++		reg = <0x0 0xfe378000 0x0 0x200>;
++		interrupts = <GIC_SPI 400 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&scmi_clk SCMI_HCLK_SECURE_NS>;
++		resets = <&scmi_reset SCMI_SRST_H_TRNG_NS>;
++		status = "disabled";
++	};
++
+ 	i2s0_8ch: i2s@fe470000 {
+ 		compatible = "rockchip,rk3588-i2s-tdm";
+ 		reg = <0x0 0xfe470000 0x0 0x1000>;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+index d597112f1d5b8ee0b6a4fa17086c8671a5102583..00a915cf266202e26b274cab962f7bf6bcf76fc1 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+@@ -430,6 +430,10 @@ &pwm1 {
+ 	status = "okay";
  };
  
- /* The mask in the upper 16 bits determines the bits that are updated */
-@@ -70,8 +71,7 @@ static int rk_rng_init(struct hwrng *rng)
- 	/* start clocks */
- 	ret = clk_bulk_prepare_enable(rk_rng->clk_num, rk_rng->clk_bulks);
- 	if (ret < 0) {
--		dev_err((struct device *) rk_rng->rng.priv,
--			"Failed to enable clks %d\n", ret);
-+		dev_err(rk_rng->dev, "Failed to enable clocks: %d\n", ret);
- 		return ret;
- 	}
- 
-@@ -105,7 +105,7 @@ static int rk_rng_read(struct hwrng *rng, void *buf, size_t max, bool wait)
- 	u32 reg;
- 	int ret = 0;
- 
--	ret = pm_runtime_resume_and_get((struct device *) rk_rng->rng.priv);
-+	ret = pm_runtime_resume_and_get(rk_rng->dev);
- 	if (ret < 0)
- 		return ret;
- 
-@@ -122,8 +122,8 @@ static int rk_rng_read(struct hwrng *rng, void *buf, size_t max, bool wait)
- 	/* Read random data stored in the registers */
- 	memcpy_fromio(buf, rk_rng->base + TRNG_RNG_DOUT, to_read);
- out:
--	pm_runtime_mark_last_busy((struct device *) rk_rng->rng.priv);
--	pm_runtime_put_sync_autosuspend((struct device *) rk_rng->rng.priv);
-+	pm_runtime_mark_last_busy(rk_rng->dev);
-+	pm_runtime_put_sync_autosuspend(rk_rng->dev);
- 
- 	return (ret < 0) ? ret : to_read;
- }
-@@ -164,7 +164,7 @@ static int rk_rng_probe(struct platform_device *pdev)
- 		rk_rng->rng.cleanup = rk_rng_cleanup;
- 	}
- 	rk_rng->rng.read = rk_rng_read;
--	rk_rng->rng.priv = (unsigned long) dev;
-+	rk_rng->dev = dev;
- 	rk_rng->rng.quality = 900;
- 
- 	pm_runtime_set_autosuspend_delay(dev, RK_RNG_AUTOSUSPEND_DELAY);
++&rng {
++	status = "okay";
++};
++
+ &saradc {
+ 	vref-supply = <&avcc_1v8_s0>;
+ 	status = "okay";
 
 -- 
 2.48.1
