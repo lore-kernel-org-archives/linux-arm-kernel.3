@@ -4,119 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84B8EC0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 12:28:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E795C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 12:32:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gmQBG2pC3EBg9OhT+c03AIehPigA3vN5jiUtt6EhNmw=; b=R2OTeZaFN+tC9GAQFLqS+pnEMi
-	nrkfYjezePZOgwevG5ysjCAsUfLvweF1rYpaNjrKsY9ClDyIjprvMN+4orhsDcXMBUR/EKRUV6XuO
-	XBUGVGtQWz7r+ZmHY8l8GUYISx9Pfnn9lb8deJEDQezW5FLfB9mXcSgYYP87I6u7656e62HhP8mhC
-	7Zx0Egao4Gate2cCwyd0YCltxPx9McSgq7Gk5LLPmctKINsZt5GJvHlO4KTDxYwFgCHM1p0Li6Vag
-	K47PfKmD/pj19rqdJ+RoYH5egmT9FaIJ+MkqwKYi3ZYLMJRUSb9G7JWBk8O9gCXUYdfNl+WvmiLmf
-	3Qs+wsXA==;
+	bh=ZF0HMCYX68OKhMzSmI5cvEyhV5FmUFM2PrnYXYJETjc=; b=vKIezGvI3XCGhHskaRhRoBkqAV
+	rpNqzrXTh30nxBtWY9+erohDcvTpfY8VyhL+9k+jCXisBZIrqgEVFKb/Xbsn8C1S+HWU32dfNJi0V
+	8HEAZQRrtslshi51nflLPud1/iWLnomR4V4R8uV0UuezjKqhXH5jxn6CkNlPHefxLvKP4yFlvh/6B
+	p2dn9ecJEOpMzY/xc9ImSj1oHZYFl9iJdTXK/RRQWKgsVjKMezz4lfp6egh8PYQ8D3kN3E7IkuiJl
+	PcyzLgUT9c0z1GEsu9rse+JzS6tG4U8CNBzLmuZkiA2SzScprq/MyMeRKbv3gc6hbbo2Js/nCFwwy
+	NYMjQdrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdTeM-00000008lY4-3Gr6;
-	Thu, 30 Jan 2025 12:28:02 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tdTiv-00000008m2l-2oJo;
+	Thu, 30 Jan 2025 12:32:45 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdTd3-00000008lTh-0pPI
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jan 2025 12:26:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8956A5C5E3B;
-	Thu, 30 Jan 2025 12:26:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48274C4CED2;
-	Thu, 30 Jan 2025 12:26:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738240000;
-	bh=HHmjXkaKxsC+1UnEXF18DKMoqxPUcAEuG5lP/kgW/IY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=W/1iZ3U4cvPSzdOJBxJmD4V4Pr3COXPPlnlnjek7O6QtEYVLAeis0abM8WPIMTzVm
-	 Jt8F5Gz1ClOrbMBYdJMxA5ePzRIzZk4S1yqd0K1IAK7hjonr5W2hLNuRL/v5rlNMHk
-	 K6ckFWc5D2yhw0yk8ubb0rONrSRVKk5p8pPIG3Vf7GG8upCqUAPeUUUYen3XIKjfkY
-	 r9/v0WwAtJdcVrf6qpJYskv4+cmlCTk6odrfaAEpARGKQEDrvNuqj9dVk8QkUhpOZx
-	 U8T+L3HHvIuSKUWg46GYYNCYp6BAJehhkgK9davHmFGeV66C24mzCcTA3l88puJ+zO
-	 OOnxrVsoMT9kg==
-Message-ID: <7323e5ae-21b7-43cc-aed2-e23cd528842e@kernel.org>
-Date: Thu, 30 Jan 2025 13:26:31 +0100
+	id 1tdTha-00000008lnF-3Y2g;
+	Thu, 30 Jan 2025 12:31:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1738240281;
+	bh=7SBQfrRI2oth98VXFTxo4EgRQoJmwkt7eFh7tw9GTeQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=p4TRrDDeMdpBKdhXbEUc+/V4mBPsRUYHbMNlD6FHSbP+TGkXRM1YLi12N/hffmhMS
+	 7PBLTaIsDPoFxJWKrE8vnyx7XuZ3kdH/jkRHwxO7EwGgiSBLCRBlE3niw3XfuIay8Y
+	 ibTC65HgB9Fks64c8mYsV2AU+slMLVk1//U0bVZklhUkpDeRP4/vBe8RvsKF+niZA7
+	 8c3DcpGujGukbmzpgYfuAw7ulJk/vwYFJbHcUyYhvdj12LbVtWno8VM7Jtc3rcCkJn
+	 7YH+R4vVyjeRu6ZvUDbKgCHf3zqlDSKU75GJ6/ZyEVfA+/CgZslqLLJ8ap52G99NKH
+	 t4f6TMbJJPAPg==
+Received: from yukiji.home (lfbn-tou-1-1147-231.w90-76.abo.wanadoo.fr [90.76.208.231])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 120C117E10C2;
+	Thu, 30 Jan 2025 13:31:20 +0100 (CET)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Date: Thu, 30 Jan 2025 13:30:59 +0100
+Subject: [PATCH v2 1/3] dt-bindings: gpu: mali-bifrost: Add compatible for
+ MT8370 SoC
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/9] dt-bindings: spi: Add STM32 OSPI controller
-To: Patrice CHOTARD <patrice.chotard@foss.st.com>,
- Conor Dooley <conor@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, linux-spi@vger.kernel.org,
- devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- christophe.kerello@foss.st.com
-References: <20250128081731.2284457-1-patrice.chotard@foss.st.com>
- <20250128081731.2284457-2-patrice.chotard@foss.st.com>
- <20250128-panama-manly-a753d91c297c@spud>
- <e3d01bce-a7d4-4690-8a2f-3bbb1ee5ccb7@foss.st.com>
- <20250129-feminize-spotlight-2cee53f8b463@spud>
- <5892e452-96e7-4945-a2dd-2e713d85d751@foss.st.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <5892e452-96e7-4945-a2dd-2e713d85d751@foss.st.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20250130-mt8370-enable-gpu-v2-1-c154d0815db5@collabora.com>
+References: <20250130-mt8370-enable-gpu-v2-0-c154d0815db5@collabora.com>
+In-Reply-To: <20250130-mt8370-enable-gpu-v2-0-c154d0815db5@collabora.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Boris Brezillon <boris.brezillon@collabora.com>, 
+ Steven Price <steven.price@arm.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1738240278; l=1442;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=7SBQfrRI2oth98VXFTxo4EgRQoJmwkt7eFh7tw9GTeQ=;
+ b=hW27eiliAuhLJ3bX0TZxDlJAjNOQ3m9sjFDp5etbbNB2TQuNIoz+VdYFqr6/zFYNwyD1nmLS9
+ 82XZOVKIPdnDZ28vclIYMp4N+2V2SA0LuF4ZGkHNmbacKv3oPNvmtC0
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_042641_332162_30441E53 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20250130_043123_037691_BEC97B77 
+X-CRM114-Status: GOOD (  10.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,32 +91,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/01/2025 11:28, Patrice CHOTARD wrote:
-> For example:
-> 
->  access-controllers:
->     description: phandle to the rifsc device to check access right
->       and in some cases, an additional phandle to the rcc device for
->       secure clock control.
->     items:
->       - description: phandle to bus controller
->       - description: phandle to clock controller
->     minItems: 1
->     maxItems: 2
-> 
-> 
-> make dt_binding_check DT_SCHEMA_FILES=st,stm32mp25-ospi.yaml
-> 
-> Documentation/devicetree/bindings/spi/st,stm32mp25-ospi.yaml: properties:access-controllers: {'description': 'phandle to the rifsc device to check access right and in some cases, an additional phandle to the rcc device for secure clock control.', 'items': [{'description': 'phandle to bus controller'}, {'description': 'phandle to clock controller'}], 'minItems': 1, 'maxItems': 2} should not be valid under {'required': ['maxItems']}
-> 	hint: "maxItems" is not needed with an "items" list
-> 	from schema $id: http://devicetree.org/meta-schemas/items.yaml#
->   DTC [C] Documentation/devicetree/bindings/spi/st,stm32mp25-ospi.example.dtb
-> 
-> How can i indicate that at least one items is mandatory, the second one is optional and in the same
-> time describing the both items as required without getting the above error ? 
+Adds a compatible for the MediaTek MT8370 SoC, with an
+integrated ARM Mali G57 MC2 GPU (Valhall-JM, dual core).
+This new compatible is needed for this SoC support, as the other
+existing compatibles for the same architecture (MT8188, MT8192) do not
+match the required power domain number.
 
-maxItems is redundant.
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+ Documentation/devicetree/bindings/gpu/arm,mali-bifrost.yaml | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-Best regards,
-Krzysztof
+diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-bifrost.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-bifrost.yaml
+index 735c7f06c24e632ab738d062f15378f754c8adaf..6f6211950bb495fa6bfcdfe8d1e27e5ce7aeeae0 100644
+--- a/Documentation/devicetree/bindings/gpu/arm,mali-bifrost.yaml
++++ b/Documentation/devicetree/bindings/gpu/arm,mali-bifrost.yaml
+@@ -37,6 +37,7 @@ properties:
+           - enum:
+               - mediatek,mt8188-mali
+               - mediatek,mt8192-mali
++              - mediatek,mt8370-mali
+           - const: arm,mali-valhall-jm # Mali Valhall GPU model/revision is fully discoverable
+ 
+   reg:
+@@ -217,7 +218,9 @@ allOf:
+       properties:
+         compatible:
+           contains:
+-            const: mediatek,mt8186-mali
++            enum:
++              - mediatek,mt8186-mali
++              - mediatek,mt8370-mali
+     then:
+       properties:
+         power-domains:
+
+-- 
+2.48.1
+
 
