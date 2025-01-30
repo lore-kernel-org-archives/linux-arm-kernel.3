@@ -4,91 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5397C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 13:08:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9216C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 13:09:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XlXAWMI0jccQM6/g/C8LaMfR+EC5iEa5X2zR+R/BcUg=; b=zazq0keEBCtZvia93UyHkwW4nB
-	qj/zh6xqNe3DMH8XQMwY7XjsvSG5rU9QexwBWA+9gVTF/ppdm++crpqzy432i4h/Oo2QRoth/3BUX
-	Vu/EnSK3xT3MpFehikwD4JNHPG7sriU99aVLS0cQeTsQkKoKNhGWxmyJrTZ529kSdm+50fo+z85ho
-	Mmpsn2/OD3rq3LdRr2DvmLk+l6RCClzLSAPqpXRr0BkX/AW70Voi7g5mnNEzlM1l1IvR4X4B05uJy
-	5587tlseR50aXExerXUWK7e8Pm6mNM+mHV3IkOmp3SIgkvwr9C2tmuy0hslWFuo7UNLN29A3Rgp9P
-	fyBTVyww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d/DoXoEfNojPxH303Po/0vxXYMORroJgAtBPP5ML5Kk=; b=yC5hUgn/ZHAIxRX6v3N/r5llCE
+	pfTyeSeOm5+EBJOh52skf7MLw0Tq+7+XMU/PnL+kNNuc+uIVQTf2RSgo6qbOfj9iQpK0UbyRGM34m
+	qpeK7OuHkhswae+yZjd/ZaCogvxQRuQlnvziFUQ3ErVsi0Q8IYY9BdtFh2PiCLywnu41Fug8Hld92
+	VIpIWpTPz6+v6yBzyaWfNvoZxPYiX/mxdHVIjYEejBsonmfW9wQNn1Dx3LXylbo4O3mVmv+O323AC
+	uBJGWqMh99+U8cnMZNbwGyyV2oDVGrsf0+iB4p9JN8sjbT+lm3qjEGk4SVs+kgBoBmib0et9g7F6P
+	aSNK+vxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdUGy-00000008osL-1R8Y;
-	Thu, 30 Jan 2025 13:07:56 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdUAk-00000008o2H-0igM
+	id 1tdUIF-00000008ozb-07R8;
+	Thu, 30 Jan 2025 13:09:15 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tdUGp-00000008orn-0jmr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jan 2025 13:01:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1738242090; x=1769778090;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=XlXAWMI0jccQM6/g/C8LaMfR+EC5iEa5X2zR+R/BcUg=;
-  b=K95XFuhpyzuY4ePqJHnsArTnKDwM305YyOyqhh6sZkJG7ThXHfL48Fqs
-   YCGd8IcvtGlneoe4nSUMUehg7uiKe/iR+CgUwgmSLjgOSYXGOpDaN1UQL
-   q+jY2bmEwS++BnPwFYi0OxUDtxd4WqfbARNZEDEds+X7sydxIIsHGaZ7/
-   N9b2pxFDIXf3lrfFEOMXNQadV1LazWMo5izjnZXUD3qYCIJUfWvsVfuig
-   oHUNMNqAa8lCIrnjDG87ICqe4nT8LEj8adfVrLLDOsgzi1sGtVN7zjGd2
-   3LftbTxco+iReSkT9OhNI4vc62x9tJ7fH70m1hBPY1I3iQc8emhg5BY3i
-   g==;
-X-CSE-ConnectionGUID: tVv2S7LDQKaRqxAvRIMJ7A==
-X-CSE-MsgGUID: ucsh4h+SRWOeH0M15uviNQ==
-X-IronPort-AV: E=Sophos;i="6.13,245,1732575600"; 
-   d="scan'208";a="41374630"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 30 Jan 2025 14:01:29 +0100
-X-CheckPoint: {679B7829-1B-3C670366-E45AD810}
-X-MAIL-CPID: AD046D59AB2B64B0B01BA9A3A0E2865C_4
-X-Control-Analysis: str=0001.0A682F1E.679B7829.0086,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BF14016A8C6;
-	Thu, 30 Jan 2025 14:01:24 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1738242085;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XlXAWMI0jccQM6/g/C8LaMfR+EC5iEa5X2zR+R/BcUg=;
-	b=Dp8aGpHnOwlDVpj+8nvp6MWlvkBPp+0y3Gh66FW2SuYuXbC4FX+Jar2TCn59V0XhDRA2Dh
-	sbgvY/4L+z2s5c2q9RvwmO9bXqVQfxWvXzotg5AL6Tb+GTmevpPCrVTn7ASOg+U+pQTZ4U
-	F3rt6JjghVsCtnjl1h37mSW+IKcXNkn5/wmXceFeeEdhWWke2oDjUqP2gm9enXUyT+TbAU
-	hgezjjEVJljmYtPsFRAdeXX0wKF/n5T84IGO8/mo390SPZiXv5HB9Dz3M1w9B3W/QYhmhY
-	uixvtci4mKBRqKyB1rM2u1MEYpiAgKPBo+1BktjFLsFjypl4MFIFi8y5Y+hqeg==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 4/4] arm64: dts: imx8mn: Add access-controller references
-Date: Thu, 30 Jan 2025 14:01:01 +0100
-Message-Id: <20250130130101.1040824-5-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250130130101.1040824-1-alexander.stein@ew.tq-group.com>
-References: <20250130130101.1040824-1-alexander.stein@ew.tq-group.com>
+	Thu, 30 Jan 2025 13:07:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DDA58497;
+	Thu, 30 Jan 2025 05:08:09 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A885A3F63F;
+	Thu, 30 Jan 2025 05:07:42 -0800 (PST)
+Date: Thu, 30 Jan 2025 13:07:35 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: sudeep.holla@arm.com, cristian.marussi@arm.com,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>,
+	Dan Carpenter <dan.carpenter@linaro.org>
+Subject: Re: [PATCH V1] firmware: arm_scmi: Optimize the iteration of
+ scmi_requested_devices
+Message-ID: <Z5t5l9MXsAzg5VIp@pluto>
+References: <20250107052004.762817-1-peng.fan@oss.nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250107052004.762817-1-peng.fan@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_050130_508199_3888E6BC 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20250130_050747_257682_69CBC8A2 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,83 +65,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Mark ocotp as a access-controller and add references on peripherals
-which can be disabled (fused).
+On Tue, Jan 07, 2025 at 01:20:04PM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
+> 
+> scmi_requested_devices is organized in IDR based link lists, so only
+> need to search the link lists when there is a match protocol_id.
 
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+Hi,
+
+while the original implementation of this loop was awful (my bad), I think
+this optiomization indeed NOW changes the logic of the checks....
+
+...you can have number of proto_id/name pairs describing requested devices
+and the idea of the logic in this loop was to catch ANY duplicate name across
+ANY of the protocol list as stated in the function Dox:
+
 ---
- arch/arm64/boot/dts/freescale/imx8mn.dtsi | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ * This helper let an SCMI driver request specific devices identified by the     
+ * @id_table to be created for each active SCMI instance.                        
+ *                                                                               
+ * The requested device name MUST NOT be already existent for any protocol;      
+ * at first the freshly requested @id_table is annotated in the IDR table        
+ * @scmi_requested_devices and then the requested device is advertised to any    
+ * registered party via the @scmi_requested_devices_nh notification chain.       
+---
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn.dtsi b/arch/arm64/boot/dts/freescale/imx8mn.dtsi
-index a5f9cfb46e5dd..b023724679b80 100644
---- a/arch/arm64/boot/dts/freescale/imx8mn.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mn.dtsi
-@@ -9,6 +9,7 @@
- #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/input/input.h>
- #include <dt-bindings/interrupt-controller/arm-gic.h>
-+#include <dt-bindings/nvmem/fsl,imx8mn-ocotp.h>
- #include <dt-bindings/thermal/thermal.h>
- 
- #include "imx8mn-pinfunc.h"
-@@ -431,6 +432,7 @@ easrc: easrc@300c0000 {
- 					firmware-name = "imx/easrc/easrc-imx8mn.bin";
- 					fsl,asrc-rate = <8000>;
- 					fsl,asrc-format = <2>;
-+					access-controllers = <&ocotp IMX8MN_OCOTP_ASRC_DISABLE>;
- 					status = "disabled";
- 				};
- 			};
-@@ -571,6 +573,7 @@ ocotp: efuse@30350000 {
- 				clocks = <&clk IMX8MN_CLK_OCOTP_ROOT>;
- 				#address-cells = <1>;
- 				#size-cells = <1>;
-+				#access-controller-cells = <1>;
- 
- 				/*
- 				 * The register address below maps to the MX8M
-@@ -1053,6 +1056,7 @@ fec1: ethernet@30be0000 {
- 				nvmem-cells = <&fec_mac_address>;
- 				nvmem-cell-names = "mac-address";
- 				fsl,stop-mode = <&gpr 0x10 3>;
-+				access-controllers = <&ocotp IMX8MN_OCOTP_ENET_DISABLE>;
- 				status = "disabled";
- 			};
- 
-@@ -1091,6 +1095,7 @@ mipi_dsi: dsi@32e10000 {
- 				clock-names = "bus_clk", "sclk_mipi";
- 				interrupts = <GIC_SPI 18 IRQ_TYPE_LEVEL_HIGH>;
- 				power-domains = <&disp_blk_ctrl IMX8MN_DISPBLK_PD_MIPI_DSI>;
-+				access-controllers = <&ocotp IMX8MN_OCOTP_MIPI_DSI_DISABLE>;
- 				status = "disabled";
- 
- 				ports {
-@@ -1195,6 +1200,7 @@ mipi_csi: mipi-csi@32e30000 {
- 					 <&clk IMX8MN_CLK_DISP_AXI_ROOT>;
- 				clock-names = "pclk", "wrap", "phy", "axi";
- 				power-domains = <&disp_blk_ctrl IMX8MN_DISPBLK_PD_MIPI_CSI>;
-+				access-controllers = <&ocotp IMX8MN_OCOTP_MIPI_CSI_DISABLE>;
- 				status = "disabled";
- 
- 				ports {
-@@ -1225,6 +1231,7 @@ usbotg1: usb@32e40000 {
- 				phys = <&usbphynop1>;
- 				fsl,usbmisc = <&usbmisc1 0>;
- 				power-domains = <&pgc_hsiomix>;
-+				access-controllers = <&ocotp IMX8MN_OCOTP_USB_OTG1_DISABLE>;
- 				status = "disabled";
- 			};
- 
-@@ -1288,6 +1295,7 @@ gpu: gpu@38000000 {
- 					       <400000000>,
- 					       <1200000000>;
- 			power-domains = <&pgc_gpumix>;
-+			access-controllers = <&ocotp IMX8MN_OCOTP_GPU3D_DISABLE>;
- 		};
- 
- 		gic: interrupt-controller@38800000 {
--- 
-2.34.1
+The 'awfulness' of the original loop was that it was trying to do 2
+things at once:
 
+- loop all the lists in the IDR for ALL protocols looking for a
+  duplicate name anywhere, and FAIL if ANY found
+
+  ... WHILE at the same time:
+
+- save the head of the protocol list_head matching the requested
+  id_table->protocol, if any already existing, so as not to have to scan
+
+So, indeed the original loop was meant to be an optimization, even
+though probably unreadable....
+
+... having said that, I cannot really recall WHY I decided to avoid ANY
+kind of duplicate naming given that teh match happen by proto_id/name...
+
+....maybe just for clarity ? not sure...even what the effects could be
+of having such duplicated names across protocols...
+
+Thanks,
+Cristian
 
