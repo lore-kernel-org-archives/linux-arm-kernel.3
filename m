@@ -4,63 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E908C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 09:57:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76675C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 10:00:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8CWQ+Ltpzm0FOglk01f1SBbns7Cqp8rGnr3E8DmO8mI=; b=fIAIMGOnl0/pGjq5QwxHagSv1J
-	UnmvaeVeGZ7QXMV8ogYRCdhbOd2jNqUk7kZCnHPiRrsT48h3P8ZbbSIhCAruwHwCrqDqohv2USRo6
-	5aYqoTOW7pgGkLmEfc1iJrzIL2yt+7k4srqAMt1eygbesLdWiN0jsXAwEZg7QFlpbdbbKNJ5heslW
-	ap7q+yF8/RMf+0FtwoAt1n/GI8b3cmkg2BRcEWFxG/tR0J698fri0nhTiKAtKcYx0/Jpeecu01byZ
-	hICjeEXlG8SOJd3ofzL7jvk9JfiuLk3+xLJDbzq1F7U/y7VTEpiFCfvJEK4AXIUcryHu24Kasjhwf
-	h0SCGnIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Id/+zB4kvrvr9dtepApATETTeH2nkcNnzGAMpZ+8i7Y=; b=ffehq48y5ecRA4MK4M+8QMQ/QF
+	u1GJdVjviSMcaYfpkalatYyJW/Mp/kYbreeiMxiKsmwNMMoWUmm289hayf+3lUWKzaobnxR6bRs/4
+	pHLY4hVIVoTRZ4eWxJWcuVL1GtRzOiHZzw5XKhBMOMBlOuCTgqw9KrhOCUe+5aLuHlARbK/DFzWTo
+	00aRbQeDJq3v0/f0VCeyLfXrSR6q9mzgI/Z+NWTWi88/sF1iRTAPkQHNRLjLCVTcqBKyaztRQXdeK
+	CozfeRk23e8dNYhRy2hdpKHz0Ky7G9vFPA/EMHRwDophLWUBXP7BuZifWwxprVXdqmGfeG8dBnZQ5
+	BKqdEhBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdRIm-00000008YU1-1wIv;
-	Thu, 30 Jan 2025 09:57:36 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdRGf-00000008YJc-18tt
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jan 2025 09:55:26 +0000
-Received: from [10.156.205.88] (unknown [167.220.238.88])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 250B62109CF3;
-	Thu, 30 Jan 2025 01:55:20 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 250B62109CF3
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1738230924;
-	bh=8CWQ+Ltpzm0FOglk01f1SBbns7Cqp8rGnr3E8DmO8mI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WTmKbxGtIfYc2mv3Cak/Vwplr5T5/GHoFm736jp1fVaNrpl8fmdlj0kmdF5iBAqRD
-	 LNVVWiE6Hsd5uZhgE9dVXwVyq3Tzatl49e24vAKqpYDxCHKaZhJGJO6xhOYyI9SWXR
-	 FPmMX70ExaE325FCoXSRlMRurmu2vSZB/gXdSpFQ=
-Message-ID: <b7ca6841-a103-48ea-8353-4e8c089e9176@linux.microsoft.com>
-Date: Thu, 30 Jan 2025 15:25:20 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 8/8] arm64: Enable livepatch for ARM64
-To: Weinan Liu <wnliu@google.com>, Josh Poimboeuf <jpoimboe@kernel.org>,
- Steven Rostedt <rostedt@goodmis.org>, Indu Bhagat <indu.bhagat@oracle.com>,
- Peter Zijlstra <peterz@infradead.org>
-Cc: Mark Rutland <mark.rutland@arm.com>, roman.gushchin@linux.dev,
- Will Deacon <will@kernel.org>, Ian Rogers <irogers@google.com>,
- linux-toolchains@vger.kernel.org, linux-kernel@vger.kernel.org,
- live-patching@vger.kernel.org, joe.lawrence@redhat.com,
- linux-arm-kernel@lists.infradead.org
-References: <20250127213310.2496133-1-wnliu@google.com>
- <20250127213310.2496133-9-wnliu@google.com>
-Content-Language: en-US
-From: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
-In-Reply-To: <20250127213310.2496133-9-wnliu@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+	id 1tdRLT-00000008Ysv-3Ahd;
+	Thu, 30 Jan 2025 10:00:23 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tdRKA-00000008YfB-2XUv;
+	Thu, 30 Jan 2025 09:59:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E0DE25C5FC3;
+	Thu, 30 Jan 2025 09:58:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD127C4CEE4;
+	Thu, 30 Jan 2025 09:59:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738231141;
+	bh=X4O8RHC23bDLL4d0U/H61Gdzfi5M7BgXiXGvH6PLJJA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=kFUEQjKWgcsfHb+wdCn3LBnTSei0cOXdeLxglggqIwSewERj1TpC9Q4jkextL9SzK
+	 P8YdJ7G5ASCTbEOuN/c4DAFyaVwSPEFfKXEyQkBOOSRMsMhwGfYt1F1F+xHYZErdSy
+	 opZBMqw463Ybf1fMOX/I8UGe9236Ye2cf/7VZQyVyECyfMJfmyssH2N0H2Aglrq7Na
+	 WUfxWoi9oV88b+WjVaRsbyqb0QG30tckJT4UhqhmarRTZrZK8RdQegH+UBxZZnPMug
+	 pFn3PH3rDLo5cbyBIb0sxwm3WEFbjYMXQj8D9q+jUhduQwSdECCwGa6k5DXrc0XyFW
+	 lZhjbp7A99rZA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tdRK7-00GZPZ-AP;
+	Thu, 30 Jan 2025 09:58:59 +0000
+Date: Thu, 30 Jan 2025 09:58:58 +0000
+Message-ID: <86a5b8vd0d.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: chf.fritz@googlemail.com
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Chen-Yu Tsai
+	 <wens@csie.org>,
+	KeverYang <kever.yang@rock-chips.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	linux-rockchip@lists.infradead.org,
+	stable <stable@vger.kernel.org>,
+	linux-arm-kernel
+ <linux-arm-kernel@lists.infradead.org>
+Subject: Re: rk3399 fails to boot since v6.12.7
+In-Reply-To: <b1266652fb64857246e8babdf268d0df8f0c36d9.camel@googlemail.com>
+References: <b1266652fb64857246e8babdf268d0df8f0c36d9.camel@googlemail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: chf.fritz@googlemail.com, mark.rutland@arm.com, wens@csie.org, kever.yang@rock-chips.com, heiko@sntech.de, linux-rockchip@lists.infradead.org, stable@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_015525_325126_792CDAD9 
-X-CRM114-Status: GOOD (  11.82  )
+X-CRM114-CacheID: sfid-20250130_015902_729964_1F73F2FE 
+X-CRM114-Status: GOOD (  21.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,36 +89,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Christoph,
 
-On 28-01-2025 03:03, Weinan Liu wrote:
-> Since SFrame is considered as reliable stacktrace, enable livepatch in
-> arch/arm64/Kconfig
->
-> Signed-off-by: Weinan Liu <wnliu@google.com>
-> ---
->   arch/arm64/Kconfig | 3 +++
->   1 file changed, 3 insertions(+)
->
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 100570a048c5..c292bc73b65c 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -271,6 +271,8 @@ config ARM64
->   	select HAVE_SOFTIRQ_ON_OWN_STACK
->   	select USER_STACKTRACE_SUPPORT
->   	select VDSO_GETRANDOM
-> +	select HAVE_RELIABLE_STACKTRACE if SFRAME_UNWINDER
-> +	select HAVE_LIVEPATCH		if HAVE_DYNAMIC_FTRACE_WITH_ARGS && HAVE_RELIABLE_STACKTRACE
->   	help
->   	  ARM 64-bit (AArch64) Linux support.
->   
-> @@ -2498,3 +2500,4 @@ source "drivers/acpi/Kconfig"
->   
->   source "arch/arm64/kvm/Kconfig"
->   
-> +source "kernel/livepatch/Kconfig"
+Thanks for reporting this.
 
-Looks good to me.
-Reviewed-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>.
+On Wed, 29 Jan 2025 21:31:53 +0000,
+Christoph Fritz <chf.fritz@googlemail.com> wrote:
+> 
+> Hello Marc,
+> 
+>  since 773c05f417fa1 ("irqchip/gic-v3: Work around insecure GIC
+> integrations") landed in stable v6.12.7 as 0bf32f482887, here the
+> rk3399 fails to boot (~4 out of 10 times) because OP-TEE panics (gets a
+> secure interrupt that it cannot handle).
 
+I think it may actually get a *non-secure* interrupt.
+
+> 
+> Setup is:
+>  - BL31 proprietary (since mainline TF-A has no DMA)
+>  - OP-TEE mainline version: 3.20
+>  - Kernel v6.12.7
+> 
+> <snip>
+> [    0.000000] GICv3: Broken GIC integration, security disabled
+> <snip>
+> E/TC:4 0 Panic 'Secure interrupt handler not defined' at core/kernel/interrupt.c:139 <itr_core_handler>
+> E/TC:4 0 TEE load address @ 0x30000000
+> E/TC:4 0 Call stack:
+> E/TC:4 0  0x300091f8
+> E/TC:4 0  0x30016664
+> E/TC:4 0  0x30015710
+> E/TC:4 0  0x30005714
+> [   26.087363] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+> [   26.087925] rcu:     (detected by 2, t=21002 jiffies, g=2233, q=2416 ncpus=6)
+> [   26.088530] rcu: All QSes seen, last rcu_preempt kthread activity 21002 (4294693363-4294672361), jiffies_till_next_fqs=3, root ->qsmask 0x0
+> [   26.089623] rcu: rcu_preempt kthread timer wakeup didn't happen for 20999 jiffies! g2233 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x200
+> [   26.090617] rcu:     Possible timer handling issue on cpu=4 timer-softirq=293
+> [   26.091218] rcu: rcu_preempt kthread starved for 21002 jiffies! g2233 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x200 ->cpu=4
+> [   26.092131] rcu:     Unless rcu_preempt kthread gets sufficient CPU time, OOM is now expected behavior.
+> [   26.092926] rcu: RCU grace-period kthread stack dump:
+> [   26.093369] task:rcu_preempt     state:R stack:0     pid:16    tgid:16    ppid:2      flags:0x00000008
+> [   26.094192] Call trace:
+> [   26.094409]  __switch_to+0xf0/0x14c
+> [   26.094728]  __schedule+0x264/0xa90
+> [   26.095040]  schedule+0x34/0x104
+> [   26.095329]  schedule_timeout+0x80/0xf4
+> [   26.095672]  rcu_gp_fqs_loop+0x14c/0x4a4
+> [   26.096027]  rcu_gp_kthread+0x138/0x164
+> [   26.096369]  kthread+0x114/0x118
+> [   26.096661]  ret_from_fork+0x10/0x20
+> [   26.096982] rcu: Stack dump where RCU GP kthread last ran:
+> [   26.097463] Sending NMI from CPU 2 to CPUs 4:
+> [   46.276364] sched: DL replenish lagged too much
+> 
+> Is it too late for the kernel to disable the "security" since OP-TEE
+> assumes it is enabled?
+
+Well, it was never effective security the first place, but clearly
+this effect is not expected (my own machine doesn't have anything
+running on the secure side).
+
+> Any ideas?
+
+I think this calls for a revert of this patch, potentially at the
+expense if NMI support on this machine. Could you show how SCR_EL3.FIQ
+is configured on this machine? Mine shows:
+
+[    0.000000] GICv3: GICD_CTRL.DS=0, SCR_EL3.FIQ=0
+
+and I suspect yours has FIQ=1. If that's the case, we could use that
+as the discriminant.
+
+However, this machine has a much bigger issues. For things to work as
+expected, the GIC driver must preserve all the secure configuration,
+and nothing does that today.
+
+So even before this patch, your secure payload won't get any
+interrupt, as we blindly configure everything to be Group-1NS.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
