@@ -4,100 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97E76C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 20:54:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26614C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 21:43:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ec98s6sSsx0UR0Kfm0pnIvUMmPvbuc2qUG4lSwDUwKQ=; b=rfoYXv6wTVv7LoRTLHnmDOB3mq
-	tDHL9nwEoNJ2GjFCHFhnhyYIIVRr5IKzHt7wen2vt8Jf8iMTEBLZquAgwLA6WulhacmKR49hanBZL
-	efE0PvW8FveuZL+x9NZ/2nGmXOSJKxdRCzIxdXnY+0k+bYGUpNqpAaKkAVXLjWzM821s1g5nKyLgk
-	YrtRblpm4Tz+ldwuYSs6go4cT1ijPMZvt1GaKge0ispTL9ex8bbNZK7oH63rDbbr+uVwWa6FdMYKQ
-	eqhSI8VElJI0iHtcDtdqVnCTWBKGTJ1NDZgcbHjCEBdfEDg+7I2atRpUBL2aaGc4NWCWsTospQWMe
-	blG/cfFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ojmpRg/HOY6aK9s6IqWiNPKBEyVR6Jj69/+3d+ZdCh4=; b=Foy385ExV5bFY2Bb8NT7DEF9O+
+	na/SkuVWO7vCLdhELsEbiM2b1qP5dPhYgfVmZsh/kcEdW1I5l3wAH842mLDO/G698h8KbnZDuVarc
+	DNrsG6gRpZ8PGXHTi4m0bd76ZczBfDqihrJHRkjtHBEan//gCOB26nX4IxoIQ0jSbwwvX/hu9Ukxq
+	b/eneD0OhQGLujaR8p0o8/ynrxEzt42JGjI9HK0hp9Jpv/5aCWciIZfkRXcrm40DoqqzBvQPli/Jz
+	HHBNZybsxj7lHGlBwRmxCOjM1m2gDex37NodhU7xvUSfzUmdVsLfePWHH9aZzGochz+0Ggwfv9BXc
+	+LRN/gyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdbYl-00000009bAy-3ZVe;
-	Thu, 30 Jan 2025 20:54:47 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1tdcJJ-00000009fSR-1AAg;
+	Thu, 30 Jan 2025 21:42:53 +0000
+Received: from out-189.mta0.migadu.com ([2001:41d0:1004:224b::bd])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdbXS-00000009b7I-24Rt
+	id 1tdcHy-00000009fPj-2HKs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jan 2025 20:53:27 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-385ef8b64b3so1176102f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jan 2025 12:53:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1738270405; x=1738875205; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Ec98s6sSsx0UR0Kfm0pnIvUMmPvbuc2qUG4lSwDUwKQ=;
-        b=liFhUgz3WdauxayBJAw9jCcVWFZUgmruB74YcORC5pmKWgeUWwtexjbakMHWswewGi
-         7WmbcRoHfaDt/EQwf60DVbDFKv3f4MI6r+yseAxxUA7jcf5T7/fF8LpN8DK9JGzz2V5h
-         d56tqVGboTRSXVuE/I5q9xDwYVD5mkNpJ1Lzos0YAduYnkp3yZy/i750GfbrFulYrdYR
-         ceSAwIh13cU4tgZ7YxvUMbyGnm9tkOgwO8S7OgX9pk+dsjs30pd8cD04TtOEzz90Inc8
-         ViPFAEWtK6ZJH4Jj3Or7FthwAQ6j5sBztXgdiiVdY+NQeebRjFniAV6Z8X0SLgXcf3Ur
-         tDKQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738270405; x=1738875205;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ec98s6sSsx0UR0Kfm0pnIvUMmPvbuc2qUG4lSwDUwKQ=;
-        b=HQ/saFKGIC0AhRRC6y5TXPe42hwwvKjLu93EumY3xKU86cgF5DZVvrizYbEA++hSHd
-         xneN87cZOF4pbjSva5LPaS3PhcWOyAirg2DcvDiX4nyQ8IoF2p8TKNG9MCvXq/WIgCJg
-         EJTwoqVrJhquL3/dhMdCzqs20RB3tI5BXbWStSVgDtWgdy0EfmW+gfP8IE18izHSdZdT
-         +ctOqWTc8N2oyEV+zrXGMndl6+QRkAI471++svWXjP5C93Em8hklkWinlGubGG0xsYgV
-         VR1YQOB2LzocfZmlT26zy+JGvihlOb6hBdjY/Q1bOTpU15Nd6YLv1xl1WD31mm8qOYT3
-         Plgw==
-X-Forwarded-Encrypted: i=1; AJvYcCXUGjO0Xsaz6yghLKq96oYIfZ5HHrABTlv+iFTGvsXXnitq3/FMEAtBl3fdV0zcmsGSxbBx5K8WZUuG0B/hPoCp@lists.infradead.org
-X-Gm-Message-State: AOJu0YyntbySIdNpf8AEBZlMYcrDSRqPutLvSzPWPimKm/D0oDQ+2xFH
-	Q6FpXLMXyGdZWFi8o7+AD+vRtKGwyq/56fhH9GLrLvOQQW0mfAZ9oaVMhMz4fXU=
-X-Gm-Gg: ASbGncs+Ir7lfJNSSSMgE/9zE6mrVF0wesZFgJeqo3SpAG8SQv9Bq3FM0YwdUpZE8EL
-	81/QLHxlc/sPjwynRQZMCwNu8w7VzCi/EG8r3z70bHQBXfA/2F4oHqyGiROzZnJz+LtWdX8zn+N
-	ROy3onDY8O43ko40vJxBseWaYHxMW3pdBWczcnMiOL0zfagOTHb6KIAc5hjNBFAnozXMQpHK/Db
-	LCpKdLimTlMtie0ESNBk3nRnIul1d31h/biG8Ve2OZTSNQKXm/Ow6GRvy1UklkD5xKSZWpXRJBx
-	xKHPk58uwIG8FP5FTMedUj9p
-X-Google-Smtp-Source: AGHT+IF/6O8ZXA61LdSg0FqUiKKK/7fHOXHRr8I9s7+f0jQYC6+kW2kgrBrfA1n9/pzq79turnK8vQ==
-X-Received: by 2002:adf:e591:0:b0:385:fb56:5596 with SMTP id ffacd0b85a97d-38c51944328mr4917084f8f.19.1738270404698;
-        Thu, 30 Jan 2025 12:53:24 -0800 (PST)
-Received: from [192.168.50.4] ([82.78.167.173])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38c5c1b51e1sm2946779f8f.77.2025.01.30.12.53.22
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 30 Jan 2025 12:53:24 -0800 (PST)
-Message-ID: <98ddf1b6-1804-4116-b4e2-f54a62c27966@tuxon.dev>
-Date: Thu, 30 Jan 2025 22:53:22 +0200
+	Thu, 30 Jan 2025 21:41:32 +0000
+Date: Thu, 30 Jan 2025 13:41:04 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1738273282;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ojmpRg/HOY6aK9s6IqWiNPKBEyVR6Jj69/+3d+ZdCh4=;
+	b=LA2qhgbZmA6VzVvZVSo1cYrCXUmkBVvxEKcPO74NlnJvQxCgsXQGYyGA7SdoUveUNOkTQ5
+	AOtsUnlqpOdDHYn7KpcAkDxoDu15xW+NZV3vb+7JHsrsC1F65p0FoDir5helebx0FjhwFm
+	mS+2QQfSAySHTzLyIM0x7ZPQTeJQ5dg=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Wei-Lin Chang <r09922117@csie.ntu.edu.tw>,
+	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
+	Dmytro Terletskyi <Dmytro_Terletskyi@epam.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH 3/3] KVM: arm64: timer: Consolidate NV configuration of
+ virtual timers
+Message-ID: <Z5vx8NVN8lF6QuJz@linux.dev>
+References: <20250128161721.3279927-1-maz@kernel.org>
+ <20250128161721.3279927-4-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/6] thermal: of: Export non-devres helper to
- register/unregister thermal zone
-To: Daniel Lezcano <daniel.lezcano@linaro.org>
-Cc: rafael@kernel.org, rui.zhang@intel.com, lukasz.luba@arm.com,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- geert+renesas@glider.be, magnus.damm@gmail.com, mturquette@baylibre.com,
- sboyd@kernel.org, p.zabel@pengutronix.de, ulf.hansson@linaro.org,
- linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
- Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-References: <20250103163805.1775705-1-claudiu.beznea.uj@bp.renesas.com>
- <20250103163805.1775705-3-claudiu.beznea.uj@bp.renesas.com>
- <Z5pkUNNvsWPjRQvy@mai.linaro.org>
- <65a16c3f-456e-40ec-91b0-afb57269ed46@tuxon.dev>
- <Z5tPR_tv7vWDkUI7@mai.linaro.org>
- <6ed7d545-82d7-4bca-95ec-95447586bb58@tuxon.dev>
- <b496d933-3c57-4b02-ab65-0582a30939af@linaro.org>
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Content-Language: en-US
-In-Reply-To: <b496d933-3c57-4b02-ab65-0582a30939af@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250128161721.3279927-4-maz@kernel.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_125326_538849_3DB7B2CC 
-X-CRM114-Status: GOOD (  18.31  )
+X-CRM114-CacheID: sfid-20250130_134131_023464_261EE046 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,67 +74,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Daniel,
+> +void kvm_timer_vcpu_nv_init(struct kvm_vcpu *vcpu)
+> +{
+> +	/*
+> +	 * A vcpu running at EL2 is in charge of the offset applied to
+> +	 * the virtual timer, so use the physical VM offset, and point
+> +	 * the vcpu offset to CNTVOFF_EL2.
+> +	 *
+> +	 * The virtual offset behaviour is "interesting", as it always
+> +	 * applies when HCR_EL2.E2H==0, but only when accessed from EL1 when
+> +	 * HCR_EL2.E2H==1. Apply it to the HV timer when E2H==0.
+> +	 */
 
-On 30.01.2025 19:24, Daniel Lezcano wrote:
-> On 30/01/2025 11:30, Claudiu Beznea wrote:
->>
->>
->> On 30.01.2025 12:07, Daniel Lezcano wrote:
->>> On Thu, Jan 30, 2025 at 11:08:03AM +0200, Claudiu Beznea wrote:
->>>> Hi, Daniel,
-> 
-> [ ... ]
-> 
->>>>> Would the IP need some cycles to capture the temperature accurately
->>>>> after the
->>>>> clock is enabled ?
->>>>
->>>> There is nothing about this mentioned about this in the HW manual of the
->>>> RZ/G3S SoC. The only points mentioned are as described in the driver code:
->>>> - wait at least 3us after each IIO channel read
->>>> - wait at least 30us after enabling the sensor
->>>> - wait at least 50us after setting OE bit in TSU_SM
->>>>
->>>> For this I chose to have it implemented as proposed.
->>>
->>> IMO, disabling/enabling the clock between two reads through the pm
->>> runtime may
->>> not be a good thing, especially if the system enters a thermal situation
->>> where
->>> it has to mitigate.
->>>
->>> Without any testing capturing the temperatures and compare between the
->>> always-on
->>> and on/off, it is hard to say if it is true or not. Up to you to test
->>> that or
->>> not. If you think it is fine, then let's go with it.
->>
->> I tested it with and w/o the runtime PM and on/off support (so, everything
->> ON from the probe) and the reported temperature values were similar.
-> 
-> 
-> Did you remove the roundup to 0.5°C ?
+I'm definitely being pedantic, but all the talk of an HV timer when
+E2H==0 isn't sitting well with me. Since a programmable E2H has gone
+out the window there isn't such thing as an HV timer when E2H==0, as
+FEAT_VHE isn't implemented for the VM.
 
-I did the testing as suggested and, this time, collected results and
-compared side by side. I read the temperature for 10 minutes, 60 seconds
-after the Linux prompt showed up. There is, indeed, a slight difference b/w
-the 2 cases.
+And along those lines, accesses to CNTHV_*_EL2 registers should undef
+when FEAT_VHE isn't implemented for the VM but I don't think we have any
+enforcement of that.
 
-When the runtime PM doesn't touch the clocks on read the reported
-temperature varies b/w 53-54 degrees while when the runtime PM
-enables/disables the clocks a single read reported 55 degrees, the rest
-reported 54 degrees.
-
-I plotted the results side by side here:
-https://i2.paste.pics/f07eaeddc2ccc3c6695fe5056b52f4a2.png?trs=0a0eaab99bb59ebcb10051eb298f437c7cd50c16437a87392aebc16cd9013e18&rand=vWXm2VTrbt
-
-Please let me know how do you consider it.
-
-Thank you,
-Claudiu
-
-> 
-> 
-
+-- 
+Thanks,
+Oliver
 
