@@ -4,64 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9379C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 16:48:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3C6AC0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 16:49:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4hDPD7rSHs+mB7NF96HCuzsMQVFErNABoIyviUWsBA8=; b=pdzSWsccWAAtzm0eLAOAGUga4U
-	w9W5Qep2CP/ETSny6DmINDmVSKoWRiuA1QbaU7Q6hkCBFtJCTtzKnc7Z0YmyJlFFXcxOXDnfAnkQS
-	7iAxsu0jOWUcEUnNFJNcnQNT5WMpPYFwVvJ1TGF4YGg5PcH2JKYF+sq9tEg2rVmzZTwzCkcXA5/MI
-	DxacLqdnkYSf3SbQ08Z3t27mJiy2GTl+5amW4pXhVuM3wSBXb//s3dxPBiDZMxQ2cia+D30SuGl+M
-	4+a8iqzRYmkcAGgNwArOKNMkonqK+yzAMX2GTDqyIEkewcbMyqO6mVfIKzapniY9ah0A9SZWNqPkD
-	tcCP6RJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NXU4immAkphPsumcuvChRPI1VMI7LP5wSIzBwXG4rdc=; b=We1sNZFDzkuH49vKmtygvcjg8U
+	n495q+Xj40mDuAhNdEGrVNyfnBoAc+Twt/4qcSIe/BeYGq3jrVg5fGdXQnfUyUmZe9yNeP+CeVIDA
+	uOdmxo1OnuRw240JA8yyeOa4N0bP6LzB9rogbcy+zw5wHvJkbui7UT+NTPBRazie61pA0DurflhEf
+	iYdeFXWnaU26r7k5iQ1Ag2pG1WFm9NSga4B+F8nB//73DQQCKDea6MLHBbeKDP/MD1F5Okn576z8r
+	W7KrW/FmHqgdh0grCxp6PajIpRyqikOLcGjep5iHeCt7c3nBn81eVVg4mUJMFWhX1jFJdIOjWqLUr
+	DTrrHlmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdXhw-00000009Cae-37ST;
-	Thu, 30 Jan 2025 16:48:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdXae-00000009BRT-2jVK
+	id 1tdXjE-00000009Ch3-1x9k;
+	Thu, 30 Jan 2025 16:49:20 +0000
+Received: from mail-db8eur05on20611.outbound.protection.outlook.com ([2a01:111:f403:2614::611] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tdXcp-00000009BmF-11Vp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jan 2025 16:40:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A2439497;
-	Thu, 30 Jan 2025 08:40:51 -0800 (PST)
-Received: from [10.1.32.52] (e122027.cambridge.arm.com [10.1.32.52])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B0B083F63F;
-	Thu, 30 Jan 2025 08:40:21 -0800 (PST)
-Message-ID: <9174bc24-6217-4663-a370-291d4790a212@arm.com>
-Date: Thu, 30 Jan 2025 16:40:20 +0000
+	Thu, 30 Jan 2025 16:42:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=p1AVqw9OS5wT7L5VwTWIkstCtgrF9vhwMOfSgtm5Tp9YS8hU88cB9dBYGXcftbGVg4/qlzaZHQWNxJ0foK9Bu3jixfmWyaCU9fyfH0LoJUtD98cCjbWfwXmo5r9hl6OCs79g5MHq7VGPhOIhFNEnw1ZEw3OipinftKO1IZ3B/tuqUdXrb1Q+Af66pU45yZCrcmS8ZVfMq8zspVMiMPfTj1vVEMg9slxZiXK6S0RisVK2GyI0ruP8KA44ZWBKT+v6zkR/Lv0Htf4pykfdDR8xt7Opiq5IkpeyPhRVjKsoInmZpl3MHnwsXleSmskwN/pDE9dCKw0XvbiFOPWySeP+SA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NXU4immAkphPsumcuvChRPI1VMI7LP5wSIzBwXG4rdc=;
+ b=npVxL5BP23WtjZmHO+TRsMxiuZCJas9wpzBCLkiJoC1a1reLxEDlb7xZVbwHSuXLae8xLvC18ZSEk9VXfkTsQ241kI0330wEupjW4pzsPmSl3zM296un3zNfip+Ll8pz2zvFqzlKOXhcJ1XxPQNCfYtcWDDW+j6/L+TAbFcQ3uNVezG3kjvjt2pyaMxKJpXmW9ecw/kIPKa8KJ13bunB6IWzModRVPiM8eLwiPf3q2F8Q0ohfE3P4b8hdirLKUxTB1UuRwaakbyilqYym7sdLvtSHrMtiKaRRs6wIKEzyUF8N+uP728NSGVwEV3ImlSLCnT19D5OgoCgIQ58/txLKw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NXU4immAkphPsumcuvChRPI1VMI7LP5wSIzBwXG4rdc=;
+ b=ctb1waNFXKOphZ/r0XioF8zYHTEDAuks7RUZKXR3TJuT6PeHPD7luIBzM0LtHDefq4wpkaaiu+FeEqB8tndPusbTAg2R6mxnDzd+hOD4/RjFf06YYfK2x4aZTkemblZgKapvxYLGkzfOL9BLNorNuVU5vep63AxNK+BAaXTKvz3fmPy178oJaXcEsO0OlScJSrEmBxKNAKt1/Sb4MSe3XljlDOCYhtY9MHN0+tjZZC8DFv1Cj5us3Q4wN5DLCSW1xbzkxBimltYLaez3Ju7M4W0UunOFjEtHc9/KU9UVCd9pkPhoxF+yTxemvbFbCN/3pcqtE4OIT7irwE+ajb6aTA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by PA4PR04MB7502.eurprd04.prod.outlook.com (2603:10a6:102:ef::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.18; Thu, 30 Jan
+ 2025 16:42:40 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::e81:b393:ebc5:bc3d%7]) with mapi id 15.20.8398.018; Thu, 30 Jan 2025
+ 16:42:40 +0000
+Date: Thu, 30 Jan 2025 11:42:32 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/4] nvmem: imx-ocotp: Support accessing controller for
+ i.MX8M Nano
+Message-ID: <Z5ur+NF9UlXJSWtL@lizhi-Precision-Tower-5810>
+References: <20250130130101.1040824-1-alexander.stein@ew.tq-group.com>
+ <20250130130101.1040824-4-alexander.stein@ew.tq-group.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250130130101.1040824-4-alexander.stein@ew.tq-group.com>
+X-ClientProxiedBy: BY5PR20CA0016.namprd20.prod.outlook.com
+ (2603:10b6:a03:1f4::29) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 12/43] arm64: RME: Allocate/free RECs to match vCPUs
-To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-References: <20241212155610.76522-1-steven.price@arm.com>
- <20241212155610.76522-13-steven.price@arm.com>
- <9a543b6f-5487-4159-89fb-73d9b6749a01@redhat.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <9a543b6f-5487-4159-89fb-73d9b6749a01@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|PA4PR04MB7502:EE_
+X-MS-Office365-Filtering-Correlation-Id: ed0a5fd8-31d9-459f-1620-08dd414d1c34
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|366016|7416014|1800799024|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?wcV5V2bv5lKOSUS1ez0pI5s1RYQn2wXZ50K01hh+8oyqSQvPaao449otgjHN?=
+ =?us-ascii?Q?/tkUGfX8isetKxkrXCSOXmF9WZiKTgj7FzB8USaz/9Eazz/fMDz/8AuDmX7X?=
+ =?us-ascii?Q?IvZUzqcyknY7ftiWRuA8Akq6KCaG15ZOX4+2jbuoxSHZ860PHpSg6X45+Z7E?=
+ =?us-ascii?Q?mnC6RFEEhMICWPfnvxpPrMP3pM+iKJ1Xiw91ljwO3bU+RKbPpcIEH2P3ppSd?=
+ =?us-ascii?Q?3gwBolt/4qYh0eEygNBLh1JW+NJkPd76k+lUKm4SVet80EdtW0rTE33RNvKA?=
+ =?us-ascii?Q?2mDTacH9qR4DmEVdgQmC79L//jCIT5Td/4I+DTjuZYBQhAkVFwS4epVJAZM/?=
+ =?us-ascii?Q?gXpR2jAgPcZ8pgRNyM2QGyKFWyMw4AGgs8DMIYtau9XqlUqg+8rfRnKH0Yrr?=
+ =?us-ascii?Q?yndxodfCcUrZFQvncGZkztUmRIFwpM/R0BtEEmqtcfGOKa+TPrYaUIbaPMpu?=
+ =?us-ascii?Q?sn5CSfI5UWAyucsTW2SmDgpfNMnUuqWxCxkSwfZ3mRN2zexk1BZRDdy0vpdi?=
+ =?us-ascii?Q?DY0r0t9i728AI+hEBTWVOlMKn6UKON7vSvoLdBPt2yaCU6xSd3okshEWg3Ia?=
+ =?us-ascii?Q?gcLMvVPB0UD2R3IPIsR79CTsXKuP4aQJ+3N9VcLp465s5KSQ4Fssbg1EP2m9?=
+ =?us-ascii?Q?s7ro8IwURCaI80b+Eg+2Dp1OBXKJ1fJ+NK9OmxJZt1eRPyhTvYAb2etxJEPz?=
+ =?us-ascii?Q?05m50+ey64HT4DaXfax2HJuqEGmpOm92/Kdt4TXpDqD3N9AjAXmO/HitHKZW?=
+ =?us-ascii?Q?VyqRiuGzkMEX3ElZFtY9iHTejO1Yn6XgKxDIfdkQhRPnl4f1eNIbIEMw10Er?=
+ =?us-ascii?Q?s1DUIQXAJOrlB2ktcqa2rQ8Zox1jPApAeoggMpYL8+mjVAef0IgEn/gZeXhM?=
+ =?us-ascii?Q?WJWXNIOfPc8gOKcL2eToNCMAiMB9H3wW4IdpjDw8DvzBdX3iejA7pEqR1wou?=
+ =?us-ascii?Q?KIuRexr1UrNK01P4vWgnd48gz24QUXkKXSfuoLciNvctD1bD/aRjyYbX/tgj?=
+ =?us-ascii?Q?G1StWBMhAr/ZFJSy0dPnxoRHZUlQ4PriCfNviVbb9fsjmqq4iFoZv+u0OtGm?=
+ =?us-ascii?Q?y6cLqtvnGHDJDQUmKB4TNbL0h3e4EF0dPw6vRMMpjFr5VEyDVEk4l3eQC7Vz?=
+ =?us-ascii?Q?K5E/9fW4LQxBRo10wcef5r5aHPqwYHe7hONAtFr+KqgUuxCSv93SXLCh0kfN?=
+ =?us-ascii?Q?IPV0Dw6jA/pLVlGPN2kYjWYYwS6xQpIk1clj+cl4062Zu+WMUadQrMeaud2Q?=
+ =?us-ascii?Q?HfH5fQwqs2CwFglv7AbjcqNDIc0hF93r4eEIMLDBE5US4yvBYiUByaG2rpIU?=
+ =?us-ascii?Q?umVde9MKkCLBVGVBY8BdkXI0Wx/yk5yTLiK05BQNpL177eR2JChnopTfuteP?=
+ =?us-ascii?Q?AdFtj1VaI6PZoSWAMSQf4omqZcJ0vbk48ZjVB6DpGLTWZ0KDNfcqQQaIqDci?=
+ =?us-ascii?Q?E7wkhHadxgVTnNBX910aq0ycXIPL82MM?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(366016)(7416014)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?E8T+GHyS2Q4/DTQXDzAbtNS3lLYPM0X0llzKE2+7qwcD9jo+SVXF2I/8imlj?=
+ =?us-ascii?Q?e9GVx+BgpSBIKJg5zTtkEw8soS6ktv5oPwj3xP5Ksx8yhQogBVvWakTxY+EE?=
+ =?us-ascii?Q?u8iV0sh0VV9UVlfqFrTZ/TRMox+UIfkrDiL92yhAqGB90z1XaD3lxQ1Er8hj?=
+ =?us-ascii?Q?PaoggplnT735cRQqgig2Zx6grRs9Piemu5StBMDrAE7QYnyV5VdBqlwDCa5Y?=
+ =?us-ascii?Q?Z0lO60jT2tjLORR5cgAY7xzJA97pkWjBuHVgEOLEtIzCMTIOnpQlzZ72Qa0O?=
+ =?us-ascii?Q?zq5HrwZZHek5rzMKXB4nUPjViHJJ5xzCqEaRh4CMW8HUMuuoXVej/uY1QFPP?=
+ =?us-ascii?Q?+10omzIetCyfR7xwEKOKCEFkdNkPw9CpKYxBN/PPezrmA51/sjNCuKtjTD9J?=
+ =?us-ascii?Q?oKmN5stM09aqP0mLG5FAvh2YiBnw8dLHnHjLlJJTRMbMb6H4Lql/ip3hIr6o?=
+ =?us-ascii?Q?CutGGeQNcR5Nxjbt7HsiAndOajFn3+HwuaE4Exg+5EmGOj1RHFqn9X1eqQfW?=
+ =?us-ascii?Q?rEyrjjabYBkSDnWO6V1ihQKYD8qGPgxTp3CgY1WE0HwZTuHGg+1FZeCiO4ZO?=
+ =?us-ascii?Q?KY4K6jZy/WGhsWx4wonawu5oT9RBSGbwmLLUQTGuuaWc9uT7bCRhnD3qY9yc?=
+ =?us-ascii?Q?fVEf6CQIY8r24U1oUnmQo7cAxR6WBlfdEOgiGcWe0p4iXHdCS0gYS5iDVTIN?=
+ =?us-ascii?Q?3ub9iLEQ9f+dgmhQhKuaqYOm4kECYn+v1xoMoGPMN9KTZifqjbSrKDG90Ljf?=
+ =?us-ascii?Q?JivZfsNNnq9drRuoxcxtjcw0KGF7IihJ7FUyZ896+5+Y9gCNt0++aFQjpO18?=
+ =?us-ascii?Q?n1swMm/FWZJ/vD2h4n+yRn3AZOvzI9vvcInLoY0XIJJnXqVYFj8ymkLtykHY?=
+ =?us-ascii?Q?+pWn2e0nLJvsKhecgA5uNBO2pr6+91QUAGorMm0JwE/6Q8/45O8LLyo0KKhx?=
+ =?us-ascii?Q?4nFbxqGr2IY+9cr+qJ6lTN6ftPkNQY+CpwckNNglZw3B57bDkXl4zVXh/6ua?=
+ =?us-ascii?Q?TWz6vI/SB2EdV4rLDVvowjzNhkqMbkwRPFy3pS1VWvUFgIOCd2TmGzeULT8z?=
+ =?us-ascii?Q?jp9uRyr36ZyOGW0EG/8rCnT+pWthsdBl4R2KXEKgqAdlu3CcgHxGGu0BR3Zh?=
+ =?us-ascii?Q?i5pLTgPtKDpYWpREyXip7Y1J54GcMn/BfLIFU8oO5kUqI/x5njA9m6kv2dcy?=
+ =?us-ascii?Q?7Sc7Dq8KA/XyAp1BkWiQqHXIvqhuhbV5MQRPJs08Gz8jeQq6P8AsPcNLIQsE?=
+ =?us-ascii?Q?MiQy/ULdEVqkqtIxlkeib9Vvwz42CTvybOyZ7zwjnsO4vttSZzt09A/IuB62?=
+ =?us-ascii?Q?eBwiQHvPjg+73A1kzxFBGglZIgGZfpTZYvKMhrCiQYQ3Ty2K1zLW9/Yv/zgB?=
+ =?us-ascii?Q?lpG6pt5qxG9wCZqEcErA+F0Y+n7mjRM62lCTkmp7P+3jwgZRKqdp6GzFncol?=
+ =?us-ascii?Q?mF5IKLZTuaclnxI9vWZiNA3UQnB5+9yCm9U+gGWK/J0umN3NXY2Ks89GIxKz?=
+ =?us-ascii?Q?nuezIM2NlUVHyNDu283MVAcmt1Dqg2KIk3ksDrOYAkPkJoi82BmJZDQZU9FE?=
+ =?us-ascii?Q?j5DQtN0CtplG6MX/q8c382aCjSG91SGAn4HdvMt7?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ed0a5fd8-31d9-459f-1620-08dd414d1c34
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jan 2025 16:42:39.9695
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: oK8Wt4HlaWtZdTLqRO3Kb89uDbdp44fAprbeBr1/IdFLIqZjWAk/e/R4agAYA6DqDIIRRaU/reOI4HfiEZzK0Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7502
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_084028_783163_12B95DDA 
-X-CRM114-Status: GOOD (  28.60  )
+X-CRM114-CacheID: sfid-20250130_084243_442981_CA3DEC78 
+X-CRM114-Status: GOOD (  34.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,186 +163,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/01/2025 04:50, Gavin Shan wrote:
-> On 12/13/24 1:55 AM, Steven Price wrote:
->> The RMM maintains a data structure known as the Realm Execution Context
->> (or REC). It is similar to struct kvm_vcpu and tracks the state of the
->> virtual CPUs. KVM must delegate memory and request the structures are
->> created when vCPUs are created, and suitably tear down on destruction.
->>
->> RECs must also be supplied with addition pages - auxiliary (or AUX)
->> granules - for storing the larger registers state (e.g. for SVE). The
->> number of AUX granules for a REC depends on the parameters with which
->> the Realm was created - the RMM makes this information available via the
->> RMI_REC_AUX_COUNT call performed after creating the Realm Descriptor
->> (RD).
->>
->> Note that only some of register state for the REC can be set by KVM, the
->> rest is defined by the RMM (zeroed). The register state then cannot be
->> changed by KVM after the REC is created (except when the guest
->> explicitly requests this e.g. by performing a PSCI call). The RMM also
->> requires that the VMM creates RECs in ascending order of the MPIDR.
->>
->> See Realm Management Monitor specification (DEN0137) for more
->> information:
->> https://developer.arm.com/documentation/den0137/
->>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> ---
->> Changes since v5:
->>   * Separate the concept of vcpu_is_rec() and
->>     kvm_arm_vcpu_rec_finalized() by using the KVM_ARM_VCPU_REC feature as
->>     the indication that the VCPU is a REC.
->> Changes since v2:
->>   * Free rec->run earlier in kvm_destroy_realm() and adapt to previous
->> patches.
->> ---
->>   arch/arm64/include/asm/kvm_emulate.h |   7 ++
->>   arch/arm64/include/asm/kvm_host.h    |   3 +
->>   arch/arm64/include/asm/kvm_rme.h     |  18 ++++
->>   arch/arm64/kvm/arm.c                 |   9 ++
->>   arch/arm64/kvm/reset.c               |  11 ++
->>   arch/arm64/kvm/rme.c                 | 144 +++++++++++++++++++++++++++
->>   6 files changed, 192 insertions(+)
->>
->> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/
->> include/asm/kvm_emulate.h
->> index 27f54a7778aa..ec2b6d9c9c07 100644
->> --- a/arch/arm64/include/asm/kvm_emulate.h
->> +++ b/arch/arm64/include/asm/kvm_emulate.h
->> @@ -722,7 +722,14 @@ static inline bool kvm_realm_is_created(struct
->> kvm *kvm)
->>     static inline bool vcpu_is_rec(struct kvm_vcpu *vcpu)
->>   {
->> +    if (static_branch_unlikely(&kvm_rme_is_available))
->> +        return vcpu_has_feature(vcpu, KVM_ARM_VCPU_REC);
->>       return false;
->>   }
->>   
-> 
-> It seems the check on kvm_rme_is_available is unnecessary because
-> KVM_ARM_VCPU_REC
-> is possible to be true only when kvm_rme_is_available is true.
+On Thu, Jan 30, 2025 at 02:01:00PM +0100, Alexander Stein wrote:
+> i.MX8M OCOTP supports a specific peripheral or function being fused
+> which means disabled, so
+>  - Introduce disable_fuse for a list of possible fused peripherals.
+>  - Iterate all nodes to check accessing permission. If not
+>    allowed to be accessed, detach the node
+>
+> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> ---
+>  drivers/nvmem/Kconfig     |   3 ++
+>  drivers/nvmem/imx-ocotp.c | 105 +++++++++++++++++++++++++++++++++++++-
+>  2 files changed, 107 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/nvmem/Kconfig b/drivers/nvmem/Kconfig
+> index 8671b7c974b93..ba5c928cab520 100644
+> --- a/drivers/nvmem/Kconfig
+> +++ b/drivers/nvmem/Kconfig
+> @@ -84,6 +84,9 @@ config NVMEM_IMX_OCOTP
+>  	  This driver can also be built as a module. If so, the module
+>  	  will be called nvmem-imx-ocotp.
+>
+> +	  If built as modules, any other driver relying on this working
+> +	  as access controller also needs to be a module as well.
+> +
+>  config NVMEM_IMX_OCOTP_ELE
+>  	tristate "i.MX On-Chip OTP Controller support"
+>  	depends on ARCH_MXC || COMPILE_TEST
+> diff --git a/drivers/nvmem/imx-ocotp.c b/drivers/nvmem/imx-ocotp.c
+> index c5086a16450ac..e3ea026a37d0d 100644
+> --- a/drivers/nvmem/imx-ocotp.c
+> +++ b/drivers/nvmem/imx-ocotp.c
+> @@ -23,6 +23,7 @@
+>  #include <linux/of.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/slab.h>
+> +#include <dt-bindings/nvmem/fsl,imx8mn-ocotp.h>
+>
+>  #define IMX_OCOTP_OFFSET_B0W0		0x400 /* Offset from base address of the
+>  					       * OTP Bank0 Word0
+> @@ -91,11 +92,20 @@ struct ocotp_ctrl_reg {
+>  	u32 bm_rel_shadows;
+>  };
+>
+> +#define OCOTP_MAX_NUM_GATE_WORDS 4
+> +
+> +struct disable_fuse {
+> +	u32 fuse_addr;
+> +	u32 mask;
+> +};
+> +
+>  struct ocotp_params {
+>  	unsigned int nregs;
+>  	unsigned int bank_address_words;
+>  	void (*set_timing)(struct ocotp_priv *priv);
+>  	struct ocotp_ctrl_reg ctrl;
+> +	u32 num_disables;
+> +	struct disable_fuse *disables;
+>  };
+>
+>  static int imx_ocotp_wait_for_busy(struct ocotp_priv *priv, u32 flags)
+> @@ -552,11 +562,25 @@ static const struct ocotp_params imx8mm_params = {
+>  	.ctrl = IMX_OCOTP_BM_CTRL_DEFAULT,
+>  };
+>
+> +struct disable_fuse imx8mn_disable_fuse[] = {
+> +		[IMX8MN_OCOTP_M7_DISABLE]	= { .fuse_addr = 20, .mask = BIT(8) },
+> +		[IMX8MN_OCOTP_M7_MPU_DISABLE]	= { .fuse_addr = 20, .mask = BIT(9) },
+> +		[IMX8MN_OCOTP_M7_FPU_DISABLE]	= { .fuse_addr = 20, .mask = BIT(10) },
+> +		[IMX8MN_OCOTP_USB_OTG1_DISABLE]	= { .fuse_addr = 20, .mask = BIT(11) },
+> +		[IMX8MN_OCOTP_GPU3D_DISABLE]	= { .fuse_addr = 20, .mask = BIT(24) },
+> +		[IMX8MN_OCOTP_MIPI_DSI_DISABLE]	= { .fuse_addr = 20, .mask = BIT(28) },
+> +		[IMX8MN_OCOTP_ENET_DISABLE]	= { .fuse_addr = 20, .mask = BIT(29) },
+> +		[IMX8MN_OCOTP_MIPI_CSI_DISABLE]	= { .fuse_addr = 20, .mask = BIT(30) },
+> +		[IMX8MN_OCOTP_ASRC_DISABLE]	= { .fuse_addr = 20, .mask = BIT(31) },
+> +};
 
-Similar to a previous patch - the check of the static key is to avoid
-overhead on systems without RME.
+Can we direct define IMX8MN_OCOTP_M7_DISABLE as BIT(8), so avoid this
+map data?
 
->> +static inline bool kvm_arm_vcpu_rec_finalized(struct kvm_vcpu *vcpu)
->> +{
->> +    return vcpu->arch.rec.mpidr != INVALID_HWID;
->> +}
->> +
->>   #endif /* __ARM64_KVM_EMULATE_H__ */
-> 
-> I would suggest to rename to kvm_arm_rec_finalized() since vCPU and REC are
-> similar objects at the same level. It'd better to avoid duplicate object
-> name reference in the function name.
+> +
+>  static const struct ocotp_params imx8mn_params = {
+>  	.nregs = 256,
+>  	.bank_address_words = 0,
+>  	.set_timing = imx_ocotp_set_imx6_timing,
+>  	.ctrl = IMX_OCOTP_BM_CTRL_DEFAULT,
+> +	.num_disables = ARRAY_SIZE(imx8mn_disable_fuse),
+> +	.disables = imx8mn_disable_fuse,
+>  };
+>
+>  static const struct ocotp_params imx8mp_params = {
+> @@ -589,6 +613,81 @@ static void imx_ocotp_fixup_dt_cell_info(struct nvmem_device *nvmem,
+>  	cell->read_post_process = imx_ocotp_cell_pp;
+>  }
+>
+> +static int imx_ocotp_check_access(struct ocotp_priv *priv, u32 id)
+> +{
+> +	u32 addr, mask, ret, val;
+> +
+> +	if (id >= priv->params->num_disables) {
+> +		dev_err(priv->dev, "Index %d too large\n", id);
+> +		return -EACCES;
+> +	}
+> +
+> +	addr = priv->params->disables[id].fuse_addr;
+> +	mask = priv->params->disables[id].mask;
+> +
+> +	ret = imx_ocotp_read(priv, addr, &val, sizeof(val));
+> +	if (ret)
+> +		return ret;
+> +
+> +	dev_dbg(priv->dev, "id:%d addr:%#x mask:0x%08x\n", id, addr, mask);
+> +	/* true means disabled */
+> +	if (val & mask)
+> +		return -EACCES;
+> +
+> +	return 0;
+> +}
+> +
+> +static int imx_ocotp_grant_access(struct ocotp_priv *priv, struct device_node *parent)
+> +{
+> +	struct device *dev = priv->dev;
+> +
+> +	for_each_available_child_of_node_scoped(parent, child) {
+> +		struct of_phandle_args args;
+> +		u32 id, idx = 0;
+> +
+> +		while (!of_parse_phandle_with_args(child, "access-controllers",
+> +						   "#access-controller-cells",
+> +						   idx++, &args)) {
+> +			of_node_put(args.np);
+> +			if (args.np != dev->of_node)
+> +				continue;
+> +
+> +			/* Only support one cell */
+> +			if (args.args_count != 1) {
+> +				dev_err(dev, "wrong args count\n");
+> +				continue;
+> +			}
+> +
+> +			id = args.args[0];
+> +
+> +			dev_dbg(dev, "Checking node: %pOF disable ID: %d\n", child, id);
+> +
+> +			if (imx_ocotp_check_access(priv, id)) {
+> +				of_detach_node(child);
+> +				dev_info(dev, "%pOF: disabled by fuse, device driver will not be probed\n",
+> +					 child);
+> +			}
+> +		}
+> +
+> +		imx_ocotp_grant_access(priv, child);
+> +	}
+> +
+> +	return 0;
+> +}
 
-Ack
+Can we have one method to share above code logic to avoid copy-paste to
+every ocotp driver? Anyway, we can improve that later.
 
->> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/
->> asm/kvm_host.h
->> index 8482638dce3b..220195c727ef 100644
->> --- a/arch/arm64/include/asm/kvm_host.h
->> +++ b/arch/arm64/include/asm/kvm_host.h
->> @@ -789,6 +789,9 @@ struct kvm_vcpu_arch {
->>         /* Per-vcpu CCSIDR override or NULL */
->>       u32 *ccsidr;
->> +
->> +    /* Realm meta data */
->> +    struct realm_rec rec;
->>   };
->>     /*
->> diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/
->> asm/kvm_rme.h
->> index 32bdedf1d866..62d4a63d3035 100644
->> --- a/arch/arm64/include/asm/kvm_rme.h
->> +++ b/arch/arm64/include/asm/kvm_rme.h
->> @@ -6,6 +6,7 @@
->>   #ifndef __ASM_KVM_RME_H
->>   #define __ASM_KVM_RME_H
->>   +#include <asm/rmi_smc.h>
->>   #include <uapi/linux/kvm.h>
->>     /**
->> @@ -65,6 +66,21 @@ struct realm {
->>       unsigned int ia_bits;
->>   };
->>   +/**
->> + * struct realm_rec - Additional per VCPU data for a Realm
->> + *
->> + * @mpidr: MPIDR (Multiprocessor Affinity Register) value to identify
->> this VCPU
->> + * @rec_page: Kernel VA of the RMM's private page for this REC
->> + * @aux_pages: Additional pages private to the RMM for this REC
->> + * @run: Kernel VA of the RmiRecRun structure shared with the RMM
->> + */
->> +struct realm_rec {
->> +    unsigned long mpidr;
->> +    void *rec_page;
->> +    struct page *aux_pages[REC_PARAMS_AUX_GRANULES];
->> +    struct rec_run *run;
->> +};
->> +
->>   void kvm_init_rme(void);
->>   u32 kvm_realm_ipa_limit(void);
->>   @@ -72,6 +88,8 @@ int kvm_realm_enable_cap(struct kvm *kvm, struct
->> kvm_enable_cap *cap);
->>   int kvm_init_realm_vm(struct kvm *kvm);
->>   void kvm_destroy_realm(struct kvm *kvm);
->>   void kvm_realm_destroy_rtts(struct kvm *kvm, u32 ia_bits);
->> +int kvm_create_rec(struct kvm_vcpu *vcpu);
->> +void kvm_destroy_rec(struct kvm_vcpu *vcpu);
->>     #define RMM_RTT_BLOCK_LEVEL    2
->>   #define RMM_RTT_MAX_LEVEL    3
->> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
->> index 73016e1e0067..2d97147651be 100644
->> --- a/arch/arm64/kvm/arm.c
->> +++ b/arch/arm64/kvm/arm.c
->> @@ -525,6 +525,8 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
->>       /* Force users to call KVM_ARM_VCPU_INIT */
->>       vcpu_clear_flag(vcpu, VCPU_INITIALIZED);
->>   +    vcpu->arch.rec.mpidr = INVALID_HWID;
->> +
->>       vcpu->arch.mmu_page_cache.gfp_zero = __GFP_ZERO;
->>         /* Set up the timer */
->> @@ -1467,6 +1469,9 @@ static unsigned long
->> system_supported_vcpu_features(void)
->>       if (!cpus_have_final_cap(ARM64_HAS_NESTED_VIRT))
->>           clear_bit(KVM_ARM_VCPU_HAS_EL2, &features);
->>   +    if (!static_branch_unlikely(&kvm_rme_is_available))
->> +        clear_bit(KVM_ARM_VCPU_REC, &features);
->> +
->>       return features;
->>   }
->>   @@ -1506,6 +1511,10 @@ static int
->> kvm_vcpu_init_check_features(struct kvm_vcpu *vcpu,
->>       if (test_bit(KVM_ARM_VCPU_HAS_EL2, &features))
->>           return -EINVAL;
->>   +    /* RME is incompatible with AArch32 */
->> +    if (test_bit(KVM_ARM_VCPU_REC, &features))
->> +        return -EINVAL;
->> +
->>       return 0;
->>   }
->>   
-> 
-> One corner case seems missed in kvm_vcpu_init_check_features(). It's
-> allowed to
-> initialize a vCPU with REC feature even kvm_is_realm(kvm) is false.
-> Hopefully,
-> I didn't miss something.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Ah, yes good point. I'll pass a kvm pointer to
-kvm_vcpu_init_check_features() and use kvm_is_realm() in there.
 
-Thanks,
-
-Steve
-
-> [...]
-> 
-> Thanks,
-> Gavin
-> 
-
+> +
+> +static int imx_ocotp_access_control(struct ocotp_priv *priv)
+> +{
+> +	struct device_node *root __free(device_node) = of_find_node_by_path("/");
+> +
+> +	if (!priv->params->disables)
+> +		return 0;
+> +
+> +	if (WARN_ON(!root))
+> +		return -EINVAL;
+> +
+> +	return imx_ocotp_grant_access(priv, root);
+> +}
+> +
+>  static int imx_ocotp_probe(struct platform_device *pdev)
+>  {
+>  	struct device *dev = &pdev->dev;
+> @@ -622,9 +721,13 @@ static int imx_ocotp_probe(struct platform_device *pdev)
+>  	imx_ocotp_clr_err_if_set(priv);
+>  	clk_disable_unprepare(priv->clk);
+>
+> +	platform_set_drvdata(pdev, priv);
+> +
+>  	nvmem = devm_nvmem_register(dev, &imx_ocotp_nvmem_config);
+> +	if (IS_ERR(nvmem))
+> +		return PTR_ERR(nvmem);
+>
+> -	return PTR_ERR_OR_ZERO(nvmem);
+> +	return imx_ocotp_access_control(priv);
+>  }
+>
+>  static struct platform_driver imx_ocotp_driver = {
+> --
+> 2.34.1
+>
 
