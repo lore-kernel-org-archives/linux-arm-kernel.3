@@ -4,83 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7600C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 12:17:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D98ABC0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 12:21:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vtqvkjW++P13EILfu6kPduF5HHVIDhPG3bCc05q2yIw=; b=GgKiJU8ZNr+8s2HhzUVOsG0LgC
-	IlYWOKLK1NPZ253HFWdTtrzKWlIGhrBfH472pSp8wiIkyDgnjTOK0g2t4fhRlmeqiqSvuitCfNmVP
-	tVlkBkhwVkMO0ARElCk6ffh1Bv6LKmnjEL7rklom4ja/prGONd2IEdVOVbfUocNsswtkgHpaNmoJq
-	0ZuOxqhgiaIBriAC9tMHNiOxThyvhdoaGNFIli9gtrMFnBkBvbSFYGZD3C3rs5ugVB1+mq8yJNhOM
-	O7WIXoEstygjAlhzkhaYkPyGo3tVORp9pPvNdBsYtT1dPrmpfeJy/YJyDn6Wytcq/39cClSgSnDkj
-	epYNVm3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Tgql+Cc9iQ1NZcuVk7LhJ59YDO2KemFY68CoPE+vT9w=; b=0OSEBg//XUT876H2ExUS19NfBZ
+	UJjdPq5VBClNVzU/QnOkNW9FBsIaIOKgY5PHdwYjkHhZnRGYhlDniF/eSsAgMmOSIwh59VQbRaAmo
+	OdGgZRgAgpGrbQCpduUuBVPq6PTdIRaM+N6p7s988HkK6eE1mcCCiMopA4DHI2psrJSBGDRc4TUaF
+	kViZbdiQYsxFTxt4+uVnJPUzDzhf9LJZ8jZPdMUFd15GTfgxUIqu+kiwYdRSg1iGGEc8L9MEHtcYJ
+	D2XT2p9OdlTBwMEfeDpYwXw1cmkaRJRI6btITkX9EVV7EqO1qJvh75lK2nytzE03R6LA31WsoA0Oq
+	jUh2s6Yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdTU3-00000008l47-1m6O;
-	Thu, 30 Jan 2025 12:17:23 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdTSj-00000008kzg-2cyE;
-	Thu, 30 Jan 2025 12:16:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1738239343; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=kUKLD131ujnf9MGxdR4qc0pAWhSJI16fuG3rsd7YkP9WoGJOl3ngEVtMmhHhRaDgMOl+qDKC1FktFleXTsoNQnexiVnZI6rgnMTjpTiR41qM8906YQSNDpOVIaiR0/h7YMSqzyr/srfN9nZSBj/IUYjYEnNrT6SEOX5cK6cfhc0=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1738239343; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=vtqvkjW++P13EILfu6kPduF5HHVIDhPG3bCc05q2yIw=; 
-	b=RN52rTs/CG5wK9wqAIr1XIzrinACSwAq/TPtbhYbeFWdW02NSPaSKMJ22qRzI7AYNGXdVMaVHxrgx9J0OZ4JVwpM+a0RUgmi1hvWVD/uUZDLBds05yon9a/2VmgBiD3zSWquGaP6ZY4SEn9rqgDkwWKYkdXWMt2mNakHmzJ7WxU=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=louisalexis.eyraud@collabora.com;
-	dmarc=pass header.from=<louisalexis.eyraud@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1738239343;
-	s=zohomail; d=collabora.com; i=louisalexis.eyraud@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Message-ID:In-Reply-To:References:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=vtqvkjW++P13EILfu6kPduF5HHVIDhPG3bCc05q2yIw=;
-	b=Xy6QLsBv399RQrHj3yLnO4xSaVy1gQtccoGnHwsh1kT7Z3gRzhZp81Oul7fJFv2F
-	oLiyxt2zC0WDndQG+BnhKMXGik3kSVOB/qb3v0vAF6Ye/Q/ImQkn7g8MWPVPN+jSNcy
-	UGtwIHj4VbItttr+CjWKeQPcD3f6ArGfn5ryfpd8=
-Received: from mail.zoho.com by mx.zohomail.com
-	with SMTP id 1738239340867764.380040312308; Thu, 30 Jan 2025 04:15:40 -0800 (PST)
-Date: Thu, 30 Jan 2025 13:15:40 +0100
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-To: "Krzysztof Kozlowski" <krzk@kernel.org>
-Cc: "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
-	"Maxime Ripard" <mripard@kernel.org>,
-	"Thomas Zimmermann" <tzimmermann@suse.de>,
-	"David Airlie" <airlied@gmail.com>,
-	"Simona Vetter" <simona@ffwll.ch>, "Rob Herring" <robh@kernel.org>,
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
-	"Conor Dooley" <conor+dt@kernel.org>,
-	"Matthias Brugger" <matthias.bgg@gmail.com>,
-	"AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabora.com>,
-	"Boris Brezillon" <boris.brezillon@collabora.com>,
-	"Steven Price" <steven.price@arm.com>,
-	"kernel" <kernel@collabora.com>,
-	"dri-devel" <dri-devel@lists.freedesktop.org>,
-	"devicetree" <devicetree@vger.kernel.org>,
-	"linux-kernel" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel" <linux-arm-kernel@lists.infradead.org>,
-	"linux-mediatek" <linux-mediatek@lists.infradead.org>
-Message-ID: <194b7237128.10f9923a41656565.5574753983898665940@collabora.com>
-In-Reply-To: <20250118-meticulous-black-caracal-ec7f0d@krzk-bin>
-References: <20250116-mt8370-enable-gpu-v1-0-0a6b78e925c8@collabora.com>
- <20250116-mt8370-enable-gpu-v1-2-0a6b78e925c8@collabora.com> <20250118-meticulous-black-caracal-ec7f0d@krzk-bin>
-Subject: Re: [PATCH 2/3] drm/panfrost: Add support for Mali on the MT8370
- SoC
+	id 1tdTXx-00000008lFp-2drr;
+	Thu, 30 Jan 2025 12:21:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tdTWe-00000008lEE-1ETk
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 30 Jan 2025 12:20:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9AE5C497;
+	Thu, 30 Jan 2025 04:20:27 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 312243F63F;
+	Thu, 30 Jan 2025 04:20:01 -0800 (PST)
+Date: Thu, 30 Jan 2025 12:19:55 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Emanuele Rocca <emanuele.rocca@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Subject: Re: [BUG] ARM64 regression: NULL pointer dereference in
+ arm_smccc_version_init+0x90/0x1ac
+Message-ID: <Z5tuaxgDyFJPAvR0@J2N7QTR9R3>
+References: <Z5OpGluX6oX5NLxh@NH27D9T0LF>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-Importance: Medium
-User-Agent: Zoho Mail
-X-Mailer: Zoho Mail
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z5OpGluX6oX5NLxh@NH27D9T0LF>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_041601_734428_67363E92 
-X-CRM114-Status: GOOD (  26.72  )
+X-CRM114-CacheID: sfid-20250130_042004_387158_B170AF2C 
+X-CRM114-Status: GOOD (  21.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,86 +62,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+On Fri, Jan 24, 2025 at 03:52:10PM +0100, Emanuele Rocca wrote:
+> Hi,
 
-sorry for the delay,
+Hi Emanuele,
 
- ---- On Sat, 18 Jan 2025 17:08:10 +0100  Krzysztof Kozlowski  wrote ---=20
- > On Thu, Jan 16, 2025 at 03:25:58PM +0100, Louis-Alexis Eyraud wrote:
- > > This commit adds a compatible for the MediaTek MT8370 SoC, with an
- > > integrated ARM Mali G57 MC2 GPU (Valhall-JM, dual core), and adds
- > > platform data using the same supplies and the same power domain lists
- > > as MT8186 (one regulator, two power domains).
- > >=20
- > > Signed-off-by: Louis-Alexis Eyraud louisalexis.eyraud@collabora.com>
- > > ---
- > >  drivers/gpu/drm/panfrost/panfrost_drv.c | 10 ++++++++++
- > >  1 file changed, 10 insertions(+)
- > >=20
- > > diff --git a/drivers/gpu/drm/panfrost/panfrost_drv.c b/drivers/gpu/drm=
-/panfrost/panfrost_drv.c
- > > index 0f3935556ac761adcd80197d87e8e478df436fd5..1d51b64ed0f0660cc95263=
-a289d5dad204540cfd 100644
- > > --- a/drivers/gpu/drm/panfrost/panfrost_drv.c
- > > +++ b/drivers/gpu/drm/panfrost/panfrost_drv.c
- > > @@ -837,6 +837,15 @@ static const struct panfrost_compatible mediatek_=
-mt8192_data =3D {
- > >  =C2=A0=C2=A0=C2=A0=C2=A0.pm_features =3D BIT(GPU_PM_CLK_DIS) | BIT(GP=
-U_PM_VREG_OFF),
- > >  };
- > > =20
- > > +/* MT8370 uses the same power domains and power supplies as MT8186 */
- > > +static const struct panfrost_compatible mediatek_mt8370_data =3D {
- > > +=C2=A0=C2=A0=C2=A0=C2=A0.num_supplies =3D ARRAY_SIZE(mediatek_mt8183_=
-b_supplies) - 1,
- > > +=C2=A0=C2=A0=C2=A0=C2=A0.supply_names =3D mediatek_mt8183_b_supplies,
- > > +=C2=A0=C2=A0=C2=A0=C2=A0.num_pm_domains =3D ARRAY_SIZE(mediatek_mt818=
-6_pm_domains),
- > > +=C2=A0=C2=A0=C2=A0=C2=A0.pm_domain_names =3D mediatek_mt8186_pm_domai=
-ns,
- > > +=C2=A0=C2=A0=C2=A0=C2=A0.pm_features =3D BIT(GPU_PM_CLK_DIS) | BIT(GP=
-U_PM_VREG_OFF),
- > > +};
- >=20
- > No, people, stop this nonsense. This is exactly the same as previous.
- > Don't duplicate entries just because you want a commit.
- >=20
-I added this new compatible in bindings and panfrost driver because there w=
-ere no other matching compatible=20
-Using another mali-vallhal-jm compatible would make the driver probe fail b=
-ecause of power domains number difference.=20
-Using mt8186-mali compatible would work without modifications but as it is =
-not the same architecture (mali-bifrost), it would be incorrect.
+> longterm kernel 6.1.123 crashes early when booting on the Lenovo Thinkpad X13s
+> with the following error:
+> 
+>  Unable to handle kernel NULL pointer dereference at virtual address 0000000000000264
+> 
+>  pc: arm_smccc_version_init+0x90/0x1ac
+> 
+> According to faddr2line, that is line 31 of smccc.c:
+> 
+>  arm_smccc_version_init+0x90/0x1ac:
+>  arm_smccc_version_init at debian/build/build_arm64_none_arm64/drivers/firmware/smccc/smccc.c:31
+> 
+>  22 void __init arm_smccc_version_init(u32 version, enum arm_smccc_conduit conduit)
+>  23 {
+>  24         struct arm_smccc_res res;
+>  25 
+>  26         smccc_version = version;
+>  27         smccc_conduit = conduit;
+>  28 
+>  29         smccc_trng_available = smccc_probe_trng();
+>  30 
+>  31         if ((smccc_version >= ARM_SMCCC_VERSION_1_2) &&
 
-I've also misguessed on the dt_match array modifications, sorry.
-I'll amend this patch in order to reuse the mt8186 platform data instead.
+For the benefit others, when we looked into this a few days ago it
+appeared that a GPR was being clobbered across an SMCCC call, resulting
+in a later crash (as that GPR should hold the ADRP'd base address of
+'smccc_version'). I didn't have the time to dig more into that (e.g.  to
+figure out whether kernel/compiler/firmware was to blame).
 
- > > +
- > >  static const struct of_device_id dt_match[] =3D {
- > >  =C2=A0=C2=A0=C2=A0=C2=A0/* Set first to probe before the generic comp=
-atibles */
- > >  =C2=A0=C2=A0=C2=A0=C2=A0{ .compatible =3D "amlogic,meson-gxm-mali",
- > > @@ -859,6 +868,7 @@ static const struct of_device_id dt_match[] =3D {
- > >  =C2=A0=C2=A0=C2=A0=C2=A0{ .compatible =3D "mediatek,mt8186-mali", .da=
-ta =3D &mediatek_mt8186_data },
- > >  =C2=A0=C2=A0=C2=A0=C2=A0{ .compatible =3D "mediatek,mt8188-mali", .da=
-ta =3D &mediatek_mt8188_data },
- > >  =C2=A0=C2=A0=C2=A0=C2=A0{ .compatible =3D "mediatek,mt8192-mali", .da=
-ta =3D &mediatek_mt8192_data },
- > > +=C2=A0=C2=A0=C2=A0=C2=A0{ .compatible =3D "mediatek,mt8370-mali", .da=
-ta =3D &mediatek_mt8370_data },
- >=20
- > No, express properly compatibility or say in bindings commit msg why
- > devices are not compatible.
- >=20
-I'll reword in V2 the commit messages to make the compatible need more expl=
-icit.
+Emanuele, could you please dump the result of:
 
- > Best regards,
- > Krzysztof
- >=20
- >=20
+  objdump --disassemble=arm_smccc_version_init vmlinux
 
-Regards,
-Louis-Alexis Eyraud
+... for this kernel? That'd make it possible for others to
+perform/verify the analysis I mentioned above.
+
+If you can share any more details from the crash, that'd be helpful. The
+GPR dump would be *enormously* helpful in this case, and even a photo of
+the crash log might be useful.
+
+> This is with kernel 6.1.123. The last known good kernel I have available right
+> now is 6.1.119. In the 6.1.120 changelog I see the following commit which seems
+> potentially related?
+> 
+>  https://lore.kernel.org/all/20241106160448.2712997-1-mark.rutland@arm.com/
+
+Last I looked, there was no obvious reason why that should have an
+effect on this issue. It's possible that the differing asm constraints
+have an effect on code generation, and happen to mask the issue.
+
+From a quick scan, I note that the asm constraints *don't* include
+clobber x17, and maybe that's getting clobbered by a veneer between the
+BL and __arm_smccc_sve_check().
+
+As above, it would really help to have the disassembly for
+arm_smccc_version_init(), and the GPRs at the time of the crash.
+
+Mark.
+
+> 
+> That's stable commit [1].
+> 
+> The relevant upstream commit [2] is in linux 6.12, and that kernel version does
+> not crash. Comparing [1] vs [2] I see differences, but I can't tell if they can
+> help debug the issue further. 
+> 
+> Thanks,
+>   ema
+> 
+> [1] https://git.kernel.org/linus/bfcaffd4cc2d61ecb0571c5baf127c4089978ad4
+> [2] https://git.kernel.org/linus/8c462d56487e3abdbf8a61cedfe7c795a54f4a78
 
