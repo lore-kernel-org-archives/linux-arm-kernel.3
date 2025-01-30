@@ -4,101 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 092A1C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 22:35:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60B1FC0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 22:41:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q4PhLkA2yH+xwVRJ4eRUYfsP78J3oAK3Sf/7oUAOMWE=; b=h/lAOaGcfvzsalKmCwc4500wbT
-	5LtK4iKKEDc50B3Ay5zvEzr2DJ+OFnboijk1iAN/pi/W4nOwTEU/ZGUvnO5uPoyc0+hG1r7rnftKe
-	Jgfj+nZa4Ir5tUbFxWVhVNBDevP9VmLXPrEO8EQB2g8ZwOH0PdvskRsmWbWEOs3itWOfVM8ugM5ov
-	gHIkJB4sSZnUh6ptuvUkiXZ5zADBhMrKu/ku+3B7wQ2aBt/3C4FwhH2NRiYxaH+ntVjrK5bSRXJVe
-	rYtI9ABozG90k7DrhcU61JX7JS/sfV+xGUVxyzUgGSkpq6N5SfaHWSDDb8D2yU6jpSlFmo8h4l7ZU
-	ce7/eNRw==;
+	bh=w5FdDKxl0YKeB7HteFlvgLhQ09iS0vqq32PZTKFOdu8=; b=rq0Y1+CvP8T3s/b+QSJ13pt6Hx
+	t3XZEnoM9QNhoFTD1svOvTTSCZ30iHwyDZvtCwDHZckq9o18x4wvmvUYCUhhUF64b20akTGvGcPNY
+	3Zlwv8LLcWPFPbs8A+XSBBxI+aptO80Qya3m+XvPTEtpkUL3GoK2kABT2CM9/e/LUnH1PoXNblrLt
+	WF/OSxqLT29Isl3lrrtEqNKG9OwG2hXIBXpRYHyQCW7MA9GzuTCyaG1ijFPZomEctV7QrwM0XJTKw
+	DrtMZXgsDqLJa3E445PRfxz1ZxhxCUW42R4J8LHHmhilqRbIoaSIq5jOS2h3v781nuwgfYPLkYM9C
+	YFcKN0ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdd7s-00000009j4N-1OYS;
-	Thu, 30 Jan 2025 22:35:08 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1tddEK-00000009jVx-1dC5;
+	Thu, 30 Jan 2025 22:41:48 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdd6X-00000009iui-2vC6
+	id 1tddD0-00000009jRc-3ist
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jan 2025 22:33:47 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-436281c8a38so9779015e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jan 2025 14:33:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738276424; x=1738881224; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=q4PhLkA2yH+xwVRJ4eRUYfsP78J3oAK3Sf/7oUAOMWE=;
-        b=K5XjgZ/rrWAwtG5B7IrswQuFIVZIPkd91QB7PoaqistnXw02Il8Dm8m01dEGa46+Zc
-         GI4h/xuTICUxzZYIUZp0KemXGrJdCD4LhZ8WpDU8Zb06280O/p05620ehC7pqof71xwY
-         OTFb4un7mA2Va9M5wvKTCLZi6MMxbnKjWdgGHZAmNNCPI5Cswoe6XE8PEUHmyscZWpTV
-         tf1e6kBN7V+3h/Jyv6LsgpsQPapmn9OgxwQ/XVTj+t1R8K0FJO8cRuKzCEogd2VTqlq8
-         5h+08ZccOP9IlsZYvQh+NOlTytHILJnwbyBjqfhvLMe+etn9WriHKz9TOVjzOtokwFQB
-         yHaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738276424; x=1738881224;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=q4PhLkA2yH+xwVRJ4eRUYfsP78J3oAK3Sf/7oUAOMWE=;
-        b=kjFOLJOPSAUgSMV7UNuPODZE2CcJSbRDPld9rkakrcR7eN3g6cVjPwavJPVHrkket+
-         fqs4RJLRI2QpxRyUIkFQw1QoGC8yfqoEP3xwTr5F173oAgCCqYs/YJ3vHoO/ZgkS9cWF
-         6hSJ5n85XGSqe0NiPeaSZYGIcVc5jtyv0Bp+PjsR5DzgnMTpcFwwYbqyrv5xR87U+76P
-         QB75mOdXYUvi5gTgZVw0NCclX7Hpn6+CrOAN/j/yTicr6tuA2+onRiHEQPSxX9YqrQq4
-         9NdE3NL+WNtwFQhVzKwIBPJS/HztlzW6T6v3C/I8DZI0wX6qvnuxV+3vryz8wbE/NTac
-         feSA==
-X-Forwarded-Encrypted: i=1; AJvYcCVhiVBkWZAikembXnb//FISUdxQYQx/l0rgZ6QBTBGsllhLaeD7XsHsSVmHOTLaiit5dSjfRXBvXBvZrivPn7Jr@lists.infradead.org
-X-Gm-Message-State: AOJu0YxlpO6MkX4n2I8mK5pRfiXa7BepLGzD1kVq9lg55wDfh2CrCTv1
-	PBW9UwkJvt2bYZJEUnTGPlL729k3VS6IkgPuS6jky/wkyLxVCejFKqMFjs/tO7A=
-X-Gm-Gg: ASbGnctILw8cYO4K76vOeA/7yU5s4ZM9k0wFcAV1ia9byHmqLQzpB6qb/S/hjmAcuZK
-	+zqeOJip5UUJxnTWVjrd7KkQp8/YCUYaYNQqJhJ0MXtXYp4AtrCu8B5iJCR5c+j3u2alBVjG24B
-	eB/4OCZDp96ocSPyLBtWzn8PblxHRRRt2Ie4n18AxCivmATDUnHfRBC5qYk2+ar5eeoyWdHWcMQ
-	hjey+h7i632ROFr0865lxunxflNzn1Gj7/Rjj1eccK4cAF7y/RFoKj5/lCtRDMjHmqBN2u/WZLv
-	sOsOxgQRBaiQdbZhHwehdmttLpwzGgIFCvmbrgJLIOy9zpWoFteKTnE=
-X-Google-Smtp-Source: AGHT+IEp+NL8KjaCqdJLkSqTmmab+u4WxdsC5LvvC6odn5b/wppdPeWMvLnufUZb2VnSyWDCxGmQVA==
-X-Received: by 2002:a05:600c:3c98:b0:434:fb65:ebbb with SMTP id 5b1f17b1804b1-438dc3c38dcmr84375125e9.17.1738276423846;
-        Thu, 30 Jan 2025 14:33:43 -0800 (PST)
-Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-438dcc8a59dsm73532705e9.40.2025.01.30.14.33.42
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 30 Jan 2025 14:33:42 -0800 (PST)
-Message-ID: <7d1bf72b-183a-429d-9a0c-10e1936a9abe@linaro.org>
-Date: Thu, 30 Jan 2025 23:33:41 +0100
+	Thu, 30 Jan 2025 22:40:28 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 50UMeLj61558537
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Thu, 30 Jan 2025 16:40:21 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1738276821;
+	bh=w5FdDKxl0YKeB7HteFlvgLhQ09iS0vqq32PZTKFOdu8=;
+	h=Date:Subject:From:To:CC:References:In-Reply-To;
+	b=sW1vz/kJh7HQ0uD6vYYFnFmIrH+zNxGIJV1skoQ9S9cj4y0xJ0h/H0ZL9dvd9UJlZ
+	 EzM0TdRSjMEZlY7v1+g4YUT4WW/hWIB/l+nHVAk5igrm7WR+IAX8yqlIah6qlqt1BI
+	 tL8ieukbsEWRMvyvBOsokxDaDmLqYoA554Qfr0c8=
+Received: from DLEE102.ent.ti.com (dlee102.ent.ti.com [157.170.170.32])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 50UMeLJG117060;
+	Thu, 30 Jan 2025 16:40:21 -0600
+Received: from DLEE104.ent.ti.com (157.170.170.34) by DLEE102.ent.ti.com
+ (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 30
+ Jan 2025 16:40:20 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE104.ent.ti.com
+ (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 30 Jan 2025 16:40:20 -0600
+Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 50UMeKrR055087;
+	Thu, 30 Jan 2025 16:40:20 -0600
+Message-ID: <6ab56868-b2d2-4b8a-ac06-d0d35a5e8998@ti.com>
+Date: Thu, 30 Jan 2025 16:40:20 -0600
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/6] thermal: of: Export non-devres helper to
- register/unregister thermal zone
-To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: rafael@kernel.org, rui.zhang@intel.com, lukasz.luba@arm.com,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- geert+renesas@glider.be, magnus.damm@gmail.com, mturquette@baylibre.com,
- sboyd@kernel.org, p.zabel@pengutronix.de, ulf.hansson@linaro.org,
- linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
- Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-References: <20250103163805.1775705-1-claudiu.beznea.uj@bp.renesas.com>
- <20250103163805.1775705-3-claudiu.beznea.uj@bp.renesas.com>
- <Z5pkUNNvsWPjRQvy@mai.linaro.org>
- <65a16c3f-456e-40ec-91b0-afb57269ed46@tuxon.dev>
- <Z5tPR_tv7vWDkUI7@mai.linaro.org>
- <6ed7d545-82d7-4bca-95ec-95447586bb58@tuxon.dev>
- <b496d933-3c57-4b02-ab65-0582a30939af@linaro.org>
- <98ddf1b6-1804-4116-b4e2-f54a62c27966@tuxon.dev>
+Subject: Re: [PATCH 2/4] arm64: dts: ti: k3-am62a-mcu: Add R5F remote proc
+ node
+From: Judith Mendez <jm@ti.com>
+To: Hari Nagalla <hnagalla@ti.com>, Andrew Davis <afd@ti.com>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        Devarsh Thakkar <devarsht@ti.com>, Nishanth
+ Menon <nm@ti.com>,
+        Vignesh Raghavendra <vigneshr@ti.com>, <devicetree@vger.kernel.org>
+References: <20250127221631.3974583-1-jm@ti.com>
+ <20250127221631.3974583-3-jm@ti.com>
+ <8b152f81-0848-4f34-adcb-fee9b4f2fd7f@ti.com>
+ <76f9e9e8-dd7c-e783-fccc-0b6f913ce753@ti.com>
+ <390aa52e-e9f2-4ce3-ad1b-eac71f4a211c@ti.com>
 Content-Language: en-US
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-In-Reply-To: <98ddf1b6-1804-4116-b4e2-f54a62c27966@tuxon.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+In-Reply-To: <390aa52e-e9f2-4ce3-ad1b-eac71f4a211c@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_143345_742985_FAB7DEF3 
-X-CRM114-Status: GOOD (  31.45  )
+X-CRM114-CacheID: sfid-20250130_144027_016275_B7FB2D94 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,154 +93,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/01/2025 21:53, Claudiu Beznea wrote:
-> Hi, Daniel,
+On 1/28/25 11:48 AM, Judith Mendez wrote:
+> Hi Andrew,
 > 
-> On 30.01.2025 19:24, Daniel Lezcano wrote:
->> On 30/01/2025 11:30, Claudiu Beznea wrote:
+> On 1/28/25 10:52 AM, Hari Nagalla wrote:
+>> On 1/28/25 10:27, Andrew Davis wrote:
+>>>> +    mcu_r5fss0: r5fss@79000000 {
+>>>> +        compatible = "ti,am62-r5fss";
+>>>> +        #address-cells = <1>;
+>>>> +        #size-cells = <1>;
+>>>> +        ranges = <0x79000000 0x00 0x79000000 0x8000>,
+>>>> +             <0x79020000 0x00 0x79020000 0x8000>;
+>>>> +        power-domains = <&k3_pds 7 TI_SCI_PD_EXCLUSIVE>;
 >>>
+>>> Newline here.
 >>>
->>> On 30.01.2025 12:07, Daniel Lezcano wrote:
->>>> On Thu, Jan 30, 2025 at 11:08:03AM +0200, Claudiu Beznea wrote:
->>>>> Hi, Daniel,
->>
->> [ ... ]
->>
->>>>>> Would the IP need some cycles to capture the temperature accurately
->>>>>> after the
->>>>>> clock is enabled ?
->>>>>
->>>>> There is nothing about this mentioned about this in the HW manual of the
->>>>> RZ/G3S SoC. The only points mentioned are as described in the driver code:
->>>>> - wait at least 3us after each IIO channel read
->>>>> - wait at least 30us after enabling the sensor
->>>>> - wait at least 50us after setting OE bit in TSU_SM
->>>>>
->>>>> For this I chose to have it implemented as proposed.
->>>>
->>>> IMO, disabling/enabling the clock between two reads through the pm
->>>> runtime may
->>>> not be a good thing, especially if the system enters a thermal situation
->>>> where
->>>> it has to mitigate.
->>>>
->>>> Without any testing capturing the temperatures and compare between the
->>>> always-on
->>>> and on/off, it is hard to say if it is true or not. Up to you to test
->>>> that or
->>>> not. If you think it is fine, then let's go with it.
+>>> Also this should be default "disabled". It can be set to "okay"
+>>> in the board DTS file when the needed mboxes and memory-region
+>>> are set. Speaking of that, where are those patches? This is
+>>> incomplete without them and these nodes will not function.
+>>> Same for the DSP patch.
 >>>
->>> I tested it with and w/o the runtime PM and on/off support (so, everything
->>> ON from the probe) and the reported temperature values were similar.
->>
->>
->> Did you remove the roundup to 0.5°C ?
+>>> Andrew
+>> Yes, by default needs to set the node state to "disabled". This is HW 
+>> description of the wake-up domain components. Memory carve outs and 
+>> mailbox assignments for IPC are a separate patch as it is configurable 
+>> and distro dependent.
 > 
-> I did the testing as suggested and, this time, collected results and
-> compared side by side. I read the temperature for 10 minutes, 60 seconds
-> after the Linux prompt showed up. There is, indeed, a slight difference b/w
-> the 2 cases.
+> Yes I plan to disable the nodes in each domain .dtsi file.
 > 
-> When the runtime PM doesn't touch the clocks on read the reported
-> temperature varies b/w 53-54 degrees while when the runtime PM
-> enables/disables the clocks a single read reported 55 degrees, the rest
-> reported 54 degrees.
+> Also yes, my understanding is that the memory carveouts could
+> be a separate series if at all. Not sure if those patches can be
+> sent upstream since they are distro dependent. Can anyone clarify
+> if this is the case?
 > 
-> I plotted the results side by side here:
-> https://i2.paste.pics/f07eaeddc2ccc3c6695fe5056b52f4a2.png?trs=0a0eaab99bb59ebcb10051eb298f437c7cd50c16437a87392aebc16cd9013e18&rand=vWXm2VTrbt
+
+As per offline discussion, I will include the memory carveouts in this
+same series.
+~ Judith
+
+> ~ Judith
 > 
-> Please let me know how do you consider it.
 
-Thanks for taking the time to provide a figure
-
-Testing thermal can be painful because it should be done under certain 
-conditions.
-
-I guess there was no particular work load on the system when running the 
-tests.
-
-At the first glance, it seems, without the pm runtime, the measurement 
-is more precise as it catches more thermal changes. But the test does 
-not give information about the thermal behavior under stress. And one 
-second sampling is too long to really figure it out.
-
-In the kernel source tree, there is a tool to read the temperature in an 
-optimized manner, you may want to use it to read the temperature at a 
-higher rate. It is located in tools/thermal/thermometer
-
-Compiling is a bit fuzzy ATM, so until it is fixed, here are the steps:
-
-(you should install libconfig-dev and libnl-3-dev packages).
-
-cd $LINUX_DIR/tools/thermal/lib
-make
-LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$LINUX_DIR/tools/thermal/lib
-
-cd $LINUX_DIR/tools
-make thermometer
-
-
-
-Then change directory:
-
-cd $LINUX_DIR/tools/thermal/thermometer
-
-
-Run the tool:
-
-./thermometer -o out -c t.conf -l DEBUG -- <my_command>
-
-
-The content of the configuration file t.conf is:
-
-thermal-zones = (
-	      {	name = "cpu[0_9].*-thermal";
-		polling = 100; }
-       )
-
-All the captured data will be in the 'out' directory
-
-For 'my_command', I suggest to use a script containing:
-
-sleep 10; dhrystone -t 1 -r 120; sleep 10
-
-If you need the dhrystone binary, let me know.
-
-The thermal zone device tree configuration should be changed to use a 
-65°C passive trip point instead of 100°C (and the kernel setup with the 
-step wise governor as default).
-
-The resulting figure from the temperature should show a flat temperature 
-figure during 10 seconds, then the temperature increasing until reaching 
-the temperature threshold of 65°C, the temperature stabilizing around 
-it, then followed by a temperature decreasing when the test finishes.
-
-If the temperature does not reach the limit, decrease the trip point 
-temperature or increase the dhrystone duration (the -r 120 option)
-
-At this point, you should the test with and without pm runtime but in 
-order to have consistent results, you should wait ~20 minutes between 
-two tests.
-
-The shape of the figures will give the immediate information about how 
-the mitigation vs thermal sensor vs cooling device behave.
-
-Additionally, you can enable the thermal DEBUGFS option and add the 
-collected information statistics from /sys/kernel/debug/thermal/*** in 
-the results.
-
-
-Hope that helps
-
-
-
-
-
-
--- 
-<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
-
-Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
-<http://twitter.com/#!/linaroorg> Twitter |
-<http://www.linaro.org/linaro-blog/> Blog
 
