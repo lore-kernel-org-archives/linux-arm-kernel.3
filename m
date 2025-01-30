@@ -4,66 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD979C02190
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 14:40:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78385C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 14:56:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4shPxN5Zjg8CWO7oqCIY3l3k+e0q+fmoz+kF6bIkmVM=; b=hRQv348rJx/cpNstcjag5e7FXE
-	0njh9se/yqgDgCFVUHWS03dW4la/pxImYRumAOu0oJmA1kUu37XOiJTHGHXVKVpQ9IxP2J4oIskNm
-	5GoXqlxuZS5dgBOsL2dVlff1Zf0Ig41YT0OSg4wb8PlYqMHO2VFSgmvxUnOmSgUuith4S1vbz329x
-	vt6wfuEiZDdyErcUMDG5fGk/HA4CCxWpCRLfWtSxZgI4guWIZhspqRqiykCL2QEtU03gKNSH9dkWG
-	691oNZd0apiS5fvVwdBELo4rwA3Q/fSg4jFZ9zXc+Lrl+Mlk2+hhnB+xr+K/grAWOlOb/sEvsqIJj
-	pxTuyMwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qbp4EtOkuC+0iVMNyfHjqvPw/lKMjNnZSdESNc6UztA=; b=gi4A3QSv94z/apSH/i3E6Cy1x/
+	TUzKvxMCKzG0Nd1cKBBJRla/1jw5BBQUuK+pPRpNetWcYRbEnoKZ94gzKvt6vI9d+GCWv/XQsyu07
+	8Vf1oZWQWM5TfG4BwvVKiNzmQI88tkU9MlkTe+i5tWi298jPZcVO2sEYGiN+Wqlh+obsdqyFmwe56
+	acBo0T4mWWXCZGhXJC0FALakFEAeezy5NFzhOXmOwtpcx/9ZV8jEgaLy7X0dbYuIMRat1LQUPmKM5
+	dFafI9yktd1ejyUU5zg2iChmgj7fix70vY7I10kR5kUeFDXr65ohsVQOYM0Btd1T5k0imtgqQO8o/
+	9TubE1eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdVht-000000090L2-44NP;
-	Thu, 30 Jan 2025 14:39:49 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1tdVxL-000000091f1-3kYj;
+	Thu, 30 Jan 2025 14:55:47 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdVgZ-0000000907m-0vHm
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jan 2025 14:38:28 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 66B9DA0A58;
-	Thu, 30 Jan 2025 15:38:25 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:message-id:mime-version:reply-to:subject:subject:to
-	:to; s=mail; bh=4shPxN5Zjg8CWO7oqCIY3l3k+e0q+fmoz+kF6bIkmVM=; b=
-	U0wkuDXZ+YCja8dGH6AgFVUuhRRiTGpVsVSgrioEsLNMSaRslidLO77DUIz95Fvg
-	LJqArNXFUbe+iqINh8q6JwEVMFrbOKWxKw44i2iTbQs9JUeeYOsrqCco1iG+EOpm
-	0CuZ8fY1Pecu6VbX9mz5AOWSavH3W+T6aISUqYv78/JLihcKJ/bTGdz05ICqv6Fb
-	HCp1EtU3wq3IUQftnD+Nc2A/2Md0pa/FWr5Q/+cSIgPlFs/3bhasMhH6bPK8O88Z
-	Q52FtabKvw4/JcHIQrM9D+vDBRBzHePWb3p4nP3U5JKOh/mV+HFVRZPcGCJwRpMt
-	MfwkhHmjgNyDz3PPj9UX1rr7n49koEDj1oIJ2Gf3d0vdC9gKWG/Ke+gKFCqyW8a6
-	rKxqZfc5udt8/BGNEYdAMDOxyGD3toCnHmDq3HOsAn3kYuEg+EdqFbiAvor0WSPl
-	XhpoaUb34qBhfc6Lgvg8Xc/B+Ayz6y9G2xZwxx7IKJph43piKHeJVIU7W4tsyHD+
-	5GE4BgXNDusoNpGH410FCvwDk+BSqd6q2yXmpOrSTSLdDD97KtRKNBa2HH6fK8NY
-	a325R2RuPYzDpYeuGeBbzOFVnZS3FLLq5vZTDx3HwFDvfF2QQaBReBfkSfSpP63L
-	8jdxXRNOIIcMxyc97HbxaUnhlTCZ/45i8IaN7ES2yxM=
-From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-To: <linux-arm-kernel@lists.infradead.org>, <linux-iio@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-CC: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, "Kamel
- Bouhara" <kamel.bouhara@bootlin.com>, William Breathitt Gray <wbg@kernel.org>
-Subject: [PATCH] counter: microchip-tcb-capture: Add capture extensions for registers RA-RC
-Date: Thu, 30 Jan 2025 15:38:16 +0100
-Message-ID: <20250130143817.41625-1-csokas.bence@prolan.hu>
-X-Mailer: git-send-email 2.48.1
-MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1738247904;VERSION=7984;MC=3846925481;ID=123382;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
-X-ESET-Antispam: OK
-X-EsetResult: clean, is OK
-X-EsetId: 37303A2980D94852667464
+	id 1tdVw2-000000091VG-3uz5;
+	Thu, 30 Jan 2025 14:54:28 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-ab68d900c01so168455866b.0;
+        Thu, 30 Jan 2025 06:54:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1738248865; x=1738853665; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qbp4EtOkuC+0iVMNyfHjqvPw/lKMjNnZSdESNc6UztA=;
+        b=BrThh7VR/CGjTpkj53gliYLlb3K6plnw/OGhC0UY6/x4aI3TXoy6MVygC4lXqJnWdu
+         1+ZGXrr9wdx5abpY/IK1aHH8WJGOi1Rt+f7t8guIT7GfHrpEkgjJDbSGe34OBtVfeiax
+         JUSWfHfX8psyOQaM68gv6c8wMEJcFDJXkFyhAOJ21O7x9x4bV0HdgiPnSunZ+i0XQUiC
+         DwjsCzt9xKJKcZy7mPsWafPfR2dZywZz9osTOHRuFuA7L9Cmt/NGABPUfqfYk2893LID
+         U5sPkQ1a3jjF1d1t4Ch7LA29n+nWsoN4mhtO4tDQhst5dvxLgGc7aqa9qg0HLIeobj67
+         WGtQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738248865; x=1738853665;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=qbp4EtOkuC+0iVMNyfHjqvPw/lKMjNnZSdESNc6UztA=;
+        b=uoo3icRrgYQfDP5Kxvt5Iqg6RXxP5BMiPgdl4YdqXQ/2z9v+oV0bbtyxBm18R7Eb/O
+         mSitfsxVFqSApvZaRRvH4QH1dcAIF1WFV5KACyAJuospJg7ZpGRMO99si8seMAu/AfwO
+         HOjHlobM07MkH+3DO+ec7c3ZbJQHf8OKZdMLhLT/w1WA8TEVmrKDR4853a4m5t4bu1ef
+         di7pWoL+vXE6yvsPBeNdGShPCtkt8pcAohhPNQ/71kpysHsKpZwfQr9lP2S9HKCXT+O6
+         DSIkdemojMPQYhmfxHzYwaxPmY9fmprSLJN2bXES93VrS0MkpDabeAxEVHETdbZVETC5
+         526Q==
+X-Forwarded-Encrypted: i=1; AJvYcCW3NICVqKAhaKyjgivg6fD64axbORXO0rRH9R2LEDl4lx6zSWuqC0iTUuC2hA+mHC9rCHhstcOLhduydqVf5Tfs@lists.infradead.org, AJvYcCXoVbHgabLVgS/jr8JJI2j7dbZ9tHGda4q1Rf3sUh3GTHj9nohXAQvxI8dror2U3u7TtgRJjyeuBb7P0OYoR+w=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzdxUa009oloTb6eElBOmnV2JzVUXONMxS2r0UMOPdO9ZuT/QhN
+	7is+v5NHkYp7ywmFV4vX+BB6/natphiixxmJpCopWJIEhVXF09EQ
+X-Gm-Gg: ASbGncsm7GG+1mWnLznNTq2to7w8e6DSYvJNbG0rjP9dy19v/bV4BZVYRqW31kdg/96
+	6ZU1zEmX3O6I2Ha6XxPjV+NqyQzdfUYatEqi9bRiGFpMS2UlcMcN9lLLnoQlANVM77Tmr5hP2BR
+	LmyuInkXhOaG+RuBG6J4FbS6QJoSTwJAfroIQoNhWkCNM3q8CY4GF61aHI3qVQsMs1MmoZ2P5z7
+	LPrkOZXlJC1CcASI1PTw6GK9y/YqzeOAHdSPJ1Z1ZowAR0FU8JxN+SgB6W2YnkNeZzYm0v0A5Id
+	wyfESkTbBMDZGYV1wWipxeB7WqSnoIgBdlmqpDT/Dp0L90YXoX4c8oUJOMIS/Rd1foGANgOY
+X-Google-Smtp-Source: AGHT+IEscLo+ZglJ4iQ8yhcikhYDyTBbGC16YkQrOwamLjmGj9mpYIbrbWr8u+H0RMfLebwCb6ojRw==
+X-Received: by 2002:a17:907:1c13:b0:ab6:8bb8:af2e with SMTP id a640c23a62f3a-ab6e0cc500cmr358429766b.26.1738248864471;
+        Thu, 30 Jan 2025 06:54:24 -0800 (PST)
+Received: from smtpclient.apple (89-66-237-154.dynamic.chello.pl. [89.66.237.154])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab6e4a2fe78sm129297166b.125.2025.01.30.06.54.21
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 30 Jan 2025 06:54:24 -0800 (PST)
+Content-Type: text/plain;
+	charset=utf-8
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.300.87.4.3\))
+Subject: Re: [PATCH 1/3] media: rockchip: Introduce the rkvdec2 driver
+From: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
+In-Reply-To: <278CF0E0-7277-40F3-942C-6FA61AA759A0@gmail.com>
+Date: Thu, 30 Jan 2025 15:54:10 +0100
+Cc: linux-kernel@vger.kernel.org,
+ Diederik de Haas <didi.debian@cknow.org>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Heiko Stuebner <heiko@sntech.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Dragan Simic <dsimic@manjaro.org>,
+ Alexey Charkov <alchark@gmail.com>,
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org,
+ linux-staging@lists.linux.dev
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <B8B4C7CF-B2C4-48CE-84AD-52DF6002D17B@gmail.com>
+References: <20240615015734.1612108-1-detlev.casanova@collabora.com>
+ <5969581.LvFx2qVVIh@arisu> <CE4343FE-94AA-4F84-8C43-8366013AED84@gmail.com>
+ <8541055.T7Z3S40VBb@trenzalore>
+ <278CF0E0-7277-40F3-942C-6FA61AA759A0@gmail.com>
+To: Detlev Casanova <detlev.casanova@collabora.com>
+X-Mailer: Apple Mail (2.3826.300.87.4.3)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_063827_416316_B6C723DF 
-X-CRM114-Status: GOOD (  10.10  )
+X-CRM114-CacheID: sfid-20250130_065426_973971_DFDDF088 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,93 +117,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-TCB hardware is capable of capturing the timer value to registers RA and
-RB. On top, it is capable of triggering on compare against a third
-register, RC. Add these registers as extensions.
+Update to my last email:=20
 
-Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
----
- drivers/counter/microchip-tcb-capture.c | 58 +++++++++++++++++++++++++
- 1 file changed, 58 insertions(+)
+> Wiadomo=C5=9B=C4=87 napisana przez Piotr Oniszczuk =
+<piotr.oniszczuk@gmail.com> w dniu 30 sty 2025, o godz. 11:46:
+>=20
+>=20
+> I=E2=80=99m using:
+> =
+https://gitlab.collabora.com/hardware-enablement/rockchip-3588/linux/-/com=
+mit/bc47c445bfd9586115e9bcf5f231c5a5c5f0f828
+> =
+https://gitlab.collabora.com/hardware-enablement/rockchip-3588/linux/-/com=
+mit/9a9fd791513bc0d02c2242c88f23b41bd47de30a
+>=20
+> I see there is: =
+https://gitlab.collabora.com/detlev/linux/-/commits/add-rkvdec2-driver-iom=
+mu
+> Let me update iommu code to above branch and report back here how it =
+goes in 3588 and 356x
 
-diff --git a/drivers/counter/microchip-tcb-capture.c b/drivers/counter/microchip-tcb-capture.c
-index 2f096a5b973d..524b9edfaa5f 100644
---- a/drivers/counter/microchip-tcb-capture.c
-+++ b/drivers/counter/microchip-tcb-capture.c
-@@ -247,6 +247,62 @@ static int mchp_tc_count_read(struct counter_device *counter,
- 	return 0;
- }
- 
-+static int mchp_tc_count_cap_read(struct counter_device *counter,
-+				  struct counter_count *count, size_t idx, u64 *val)
-+{
-+	struct mchp_tc_data *const priv = counter_priv(counter);
-+	u32 cnt;
-+
-+	switch (idx) {
-+	case 0:
-+		regmap_read(priv->regmap, ATMEL_TC_REG(priv->channel[0], RA), &cnt);
-+		break;
-+	case 1:
-+		regmap_read(priv->regmap, ATMEL_TC_REG(priv->channel[0], RB), &cnt);
-+		break;
-+	case 2:
-+		regmap_read(priv->regmap, ATMEL_TC_REG(priv->channel[0], RC), &cnt);
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+	*val = cnt;
-+
-+	return 0;
-+}
-+
-+static int mchp_tc_count_cap_write(struct counter_device *counter,
-+				   struct counter_count *count, size_t idx, u64 val)
-+{
-+	struct mchp_tc_data *const priv = counter_priv(counter);
-+
-+	if (val > U32_MAX)
-+		return -ERANGE;
-+
-+	switch (idx) {
-+	case 0:
-+		regmap_write(priv->regmap, ATMEL_TC_REG(priv->channel[0], RA), val);
-+		break;
-+	case 1:
-+		regmap_write(priv->regmap, ATMEL_TC_REG(priv->channel[0], RB), val);
-+		break;
-+	case 2:
-+		regmap_write(priv->regmap, ATMEL_TC_REG(priv->channel[0], RC), val);
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
-+static DEFINE_COUNTER_ARRAY_CAPTURE(mchp_tc_cnt_cap_array, 3);
-+
-+static struct counter_comp mchp_tc_count_ext[] = {
-+	COUNTER_COMP_ARRAY_CAPTURE(mchp_tc_count_cap_read, mchp_tc_count_cap_write,
-+				   mchp_tc_cnt_cap_array),
-+};
-+
- static struct counter_count mchp_tc_counts[] = {
- 	{
- 		.id = 0,
-@@ -255,6 +311,8 @@ static struct counter_count mchp_tc_counts[] = {
- 		.num_functions = ARRAY_SIZE(mchp_tc_count_functions),
- 		.synapses = mchp_tc_count_synapses,
- 		.num_synapses = ARRAY_SIZE(mchp_tc_count_synapses),
-+		.ext = mchp_tc_count_ext,
-+		.num_ext = ARRAY_SIZE(mchp_tc_count_ext),
- 	},
- };
- 
--- 
-2.48.1
+I updated to =
+https://gitlab.collabora.com/detlev/linux/-/commits/add-rkvdec2-driver-iom=
+mu and basically i see no change (the same iommu errors on 356x; 3588 =
+all clean)  =20
 
+>=20
+>=20
+>>=20
+>> You can also checkout YUView (https://github.com/IENT/YUView) to get=20=
 
+>> information on media files structure, but I have had issues with HEVC =
+support=20
+>> lately.
+>=20
+> oh great. will do and report!
+>=20
+
+Huh - here in need to switch to Linux as on maxOS i have issue with =
+ffmpeg ver. mismatch in YUView
+Will report next days=E2=80=A6.
+=20
 
