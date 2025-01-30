@@ -4,78 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6F92C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 12:36:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25BABC0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 12:46:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+uXPTk1V4ah0zAKaqkA0uP5Lr/89TE92wcmmjvJqJcQ=; b=4gVOyIXz0FNTLWRiRdjgluEXOa
-	Hta2xO3YA4IP4e0kcbX1fqqaOsXDSz5a0kuZoCE4fI52/IoozTCf+T+S30vyKLkKqgsmAQ+FTSYU5
-	IS2N9HxtoxcqjftTvuAtDEUhIUYZw2blXuGspRC6GEzki6Hojd/7AzxYQDXNdSf1xIVXYoegnZSgQ
-	EQjEDD/HiZbu0Vcwns5WCxBeOaTB9DI2ihMnBNOsBk7A+uaNW7quldfU0kgr8ZaeWbjAw/f8AVbyr
-	gpyAi345ka4NNDvBmAxjKdvOZy6QUJlBNnn0MXz/CKZUYqteOBQxeGS3BQpdtwAzeYXTEaeGoFDHu
-	I1nK2Giw==;
+	bh=9hREfD9h0pyFa6Qh0S2jAB9bMfbE7Dv/kgHfimMyy6w=; b=naGXh5szIpiYJx9OvkLJfkgjc8
+	yVzKGJVPqepgB6qwqxo1LBVoNL8V1GS/T+0fRhY+eEqgyDrSFSDmeJh/40k7Eghr1CxohNHLePotz
+	8IgZixB8tcT2LRtQbRYyea6fu3Wt7BrGttdAy4zSpbBBhyZ9R6fHSUeDTjeHnUwC4Zj752Sp0ZnH/
+	8MxNchOvgomG0ZRVuF6PgfjraBrLnKJiXjW6gHpeFv+vVB5pwfDvFXoCIAXiKU1wV0OfdGnZeGojw
+	u2SmnYgw/jgDmlhN2D3plXmcxTxXAKh+h6xZnKJhJpEC+UPqFSvAPXRkzYK2N9o3YtE6va2LgAYDB
+	J0NPTNkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdTml-00000008mWG-3YgK;
-	Thu, 30 Jan 2025 12:36:43 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tdTwE-00000008n2u-1y9M;
+	Thu, 30 Jan 2025 12:46:30 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdThc-00000008lny-3r88;
-	Thu, 30 Jan 2025 12:31:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1738240283;
-	bh=CN3+JuK+9gG4rZwQyx1SxziYFUpyVC/10T8zzKMX1ns=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=nn1cAO0js0LnMBRrT8pgYaW1UkDmWQO/iPxwaO4laihzwhyiOtH1GqY/NkO6UhViI
-	 +ch1bH/If5pRmUDjTsm8jrFmE5BA29h7CJ5LHdXAiaDbFappBdZ+GygUOWIwYiMxXo
-	 SXyTSWJy7NtHMLHH94kpkjfJsiv6eBVoD1d3SRmMdm0BV5kY6Bpg4macb/S0/85Xii
-	 v2ToK3SyghHtBuinQWSY5JRKkNQfGMYpxM6Z1rMIW9ZDk7xbqm+A3jVykJ/haq9Whu
-	 8Pqkd0n2MNdDSK2QJmciCw4VDgKXyVXlpfpQQfZgXViCv4qXw3+btLtRp24KcRIHjo
-	 /rK+LVShtJkPQ==
-Received: from yukiji.home (lfbn-tou-1-1147-231.w90-76.abo.wanadoo.fr [90.76.208.231])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 572EE17E10FC;
-	Thu, 30 Jan 2025 13:31:22 +0100 (CET)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Thu, 30 Jan 2025 13:31:01 +0100
-Subject: [PATCH v2 3/3] arm64: dts: mediatek: mt8370: Enable gpu support
+	id 1tdTuu-00000008mtn-1Rei
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 30 Jan 2025 12:45:09 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50UCfHYh030056;
+	Thu, 30 Jan 2025 13:44:56 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	9hREfD9h0pyFa6Qh0S2jAB9bMfbE7Dv/kgHfimMyy6w=; b=Xf4anVNWbLdKR6tL
+	p0daiYsMRYArJabcArI+84aYSLasTmT8sRaVYO0J5KO5tXyNVkdM1qe50TBwCZyv
+	x/f/yVEsRhG/ZGxuSJUkLJIzX4S+88rohm7990nR3uRLt0QBHnaLOuiEdG0BA6h/
+	3I8jWYmch5qKFAH1Hpi2okIh8hucv6T4VQGe5pf6OH7qxpQRkyaDiMO50nSpvRDg
+	A8/IXObLAfeCr8XIcICq2AvqXamZo0q28jfTtZsL9ZvzuNSkJeV1JUkDyZI5jdjZ
+	URQ+g8ZcwN7BHxazwd6gtUoQxOIyQICqxyk+A/0mSlpxlkuTcQg+LopviFb2d/hm
+	c/4+Kw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44fy472c6p-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 30 Jan 2025 13:44:56 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 7DD514002D;
+	Thu, 30 Jan 2025 13:43:36 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 6A4743B1A42;
+	Thu, 30 Jan 2025 13:39:13 +0100 (CET)
+Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Thu, 30 Jan
+ 2025 13:39:12 +0100
+Message-ID: <1098622d-d9a6-428c-9bbe-1f0de5f3d113@foss.st.com>
+Date: Thu, 30 Jan 2025 13:39:11 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/9] dt-bindings: spi: Add STM32 OSPI controller
+To: Krzysztof Kozlowski <krzk@kernel.org>, Conor Dooley <conor@kernel.org>
+CC: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Alexandre
+ Torgue <alexandre.torgue@foss.st.com>,
+        Philipp Zabel
+	<p.zabel@pengutronix.de>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, <linux-spi@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <christophe.kerello@foss.st.com>
+References: <20250128081731.2284457-1-patrice.chotard@foss.st.com>
+ <20250128081731.2284457-2-patrice.chotard@foss.st.com>
+ <20250128-panama-manly-a753d91c297c@spud>
+ <e3d01bce-a7d4-4690-8a2f-3bbb1ee5ccb7@foss.st.com>
+ <20250129-feminize-spotlight-2cee53f8b463@spud>
+ <5892e452-96e7-4945-a2dd-2e713d85d751@foss.st.com>
+ <7323e5ae-21b7-43cc-aed2-e23cd528842e@kernel.org>
+Content-Language: en-US
+From: Patrice CHOTARD <patrice.chotard@foss.st.com>
+In-Reply-To: <7323e5ae-21b7-43cc-aed2-e23cd528842e@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250130-mt8370-enable-gpu-v2-3-c154d0815db5@collabora.com>
-References: <20250130-mt8370-enable-gpu-v2-0-c154d0815db5@collabora.com>
-In-Reply-To: <20250130-mt8370-enable-gpu-v2-0-c154d0815db5@collabora.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Boris Brezillon <boris.brezillon@collabora.com>, 
- Steven Price <steven.price@arm.com>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1738240278; l=1567;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=CN3+JuK+9gG4rZwQyx1SxziYFUpyVC/10T8zzKMX1ns=;
- b=2dk7oHYmka9d8owX6/VMS0BflfeMp/HhNSEXuqnWFaDaO7e21xyKalFO/IFvJavcaUyqNC43P
- k4rzoes5qCZCnV7AvN7yS7OtK02LU9VB3dQisGpJdBpwQuNnvB0/gIx
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-30_06,2025-01-30_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_043125_130524_64CE2248 
-X-CRM114-Status: GOOD (  10.11  )
+X-CRM114-CacheID: sfid-20250130_044508_695498_EB830F1D 
+X-CRM114-Status: GOOD (  12.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,50 +113,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a new gpu node in mt8370.dtsi to enable support for the
-ARM Mali G57 MC2 GPU (Valhall-JM) found on the MT8370 SoC, using the
-Panfrost driver.
 
-On a Mediatek Genio 510 EVK board, the panfrost driver probed with the
-following message:
-```
-panfrost 13000000.gpu: clock rate = 390000000
-panfrost 13000000.gpu: mali-g57 id 0x9093 major 0x0 minor 0x0 status 0x0
-panfrost 13000000.gpu: features: 00000000,000019f7, issues: 00000003,
-   80000400
-panfrost 13000000.gpu: Features: L2:0x08130206 Shader:0x00000000
-   Tiler:0x00000809 Mem:0x1 MMU:0x00002830 AS:0xff JS:0x7
-panfrost 13000000.gpu: shader_present=0x5 l2_present=0x1
-[drm] Initialized panfrost 1.3.0 for 13000000.gpu on minor 0
-```
 
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
----
- arch/arm64/boot/dts/mediatek/mt8370.dtsi | 9 +++++++++
- 1 file changed, 9 insertions(+)
+On 1/30/25 13:26, Krzysztof Kozlowski wrote:
+> On 30/01/2025 11:28, Patrice CHOTARD wrote:
+>> For example:
+>>
+>>  access-controllers:
+>>     description: phandle to the rifsc device to check access right
+>>       and in some cases, an additional phandle to the rcc device for
+>>       secure clock control.
+>>     items:
+>>       - description: phandle to bus controller
+>>       - description: phandle to clock controller
+>>     minItems: 1
+>>     maxItems: 2
+>>
+>>
+>> make dt_binding_check DT_SCHEMA_FILES=st,stm32mp25-ospi.yaml
+>>
+>> Documentation/devicetree/bindings/spi/st,stm32mp25-ospi.yaml: properties:access-controllers: {'description': 'phandle to the rifsc device to check access right and in some cases, an additional phandle to the rcc device for secure clock control.', 'items': [{'description': 'phandle to bus controller'}, {'description': 'phandle to clock controller'}], 'minItems': 1, 'maxItems': 2} should not be valid under {'required': ['maxItems']}
+>> 	hint: "maxItems" is not needed with an "items" list
+>> 	from schema $id: http://devicetree.org/meta-schemas/items.yaml#
+>>   DTC [C] Documentation/devicetree/bindings/spi/st,stm32mp25-ospi.example.dtb
+>>
+>> How can i indicate that at least one items is mandatory, the second one is optional and in the same
+>> time describing the both items as required without getting the above error ? 
+> 
+> maxItems is redundant.
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8370.dtsi b/arch/arm64/boot/dts/mediatek/mt8370.dtsi
-index cf1a3759451ff899ce9e63e5a00f192fb483f6e5..2f27f7e7ab813b97f869297ae360f69854e966e1 100644
---- a/arch/arm64/boot/dts/mediatek/mt8370.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8370.dtsi
-@@ -59,6 +59,15 @@ &cpu_little3_cooling_map0 {
- 				<&cpu3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
- };
- 
-+&gpu {
-+	compatible = "mediatek,mt8370-mali", "arm,mali-valhall-jm";
-+
-+	power-domains = <&spm MT8188_POWER_DOMAIN_MFG2>,
-+			<&spm MT8188_POWER_DOMAIN_MFG3>;
-+
-+	power-domain-names = "core0", "core1";
-+};
-+
- &ppi_cluster0 {
- 	affinity = <&cpu0 &cpu1 &cpu2 &cpu3>;
- };
+ok, it solves the issue
 
--- 
-2.48.1
+Thanks
+Patrice
 
+
+> 
+> Best regards,
+> Krzysztof
 
