@@ -4,63 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D7D7C02190
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 10:36:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02B8BC0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 10:38:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zVxf1UYtEnYrkLL5hJZ5QlBHDjxANnAboqvzYXh5U+g=; b=BV9cEBP4E05Rh143qIZZfDiwXS
-	BDeIcXbZ2gRnw6o7QDNJQCTlj8F7Ziqt1ytPww3cjoIDAEMYmzrsXzUgNFjlhNBc0GZ5jiTwrnv2V
-	xDLj7IYkDiLGK3LEbtQarMQfuvMzBeFMqYH11p0BmqaInYrfW8F8alw3uRbIVhP54w5NYbyb43DVF
-	etYng2RwErjPaqhO2AVvSw0DipbNh+h8aMf8hvqkL1LQ128lsvZmEgLBHVeEnKaxjdrm+/s5N1DnF
-	LKIcwdglc66BycRkeH75sKVgq4v/rkc8tEb4WqlSnebDFwM35XiELxyYKek6XX3dsO+QIBW5Fnyp6
-	6HQvOhZQ==;
+	bh=sx5gkR4IdqbzkIS+yns0BVsIJ+yIRuR2yrsyI1GNxUI=; b=YUnc+R66E/XPMSUN9LeY+GsrGP
+	/DM0W4xkkkxDTppyNNd9Ykv/RRJq1z1TTygLOH1Tyntz0QZyfGbb3sFBFGPJuGwgKQnmO8Bccov2b
+	4j1SD+UpIKO6mhjnpCoX1tms8mH+e7ZN/SD/0+me+dE/mu42LPmB1S5NQZUgnDMzQjO4PTD4Pt/ra
+	VxYxzyqZRzh6JifqF7DSbWujbZU2mXEbRJeOGOc/efkE0LOaENuQmo4tAsREbYrH3s5JiKQL4A40i
+	nlWcNtsbCJAYDuLc6tqjiyeFT5XU0J1SsU/ezmZVSJUaIK9vvPA97Xh65H+ki6j7MWMshGsDLWIms
+	YxHWIWOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdRuQ-00000008dd6-3OHl;
-	Thu, 30 Jan 2025 10:36:30 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdRt2-00000008dNz-30cC
+	id 1tdRvj-00000008dy7-1zxW;
+	Thu, 30 Jan 2025 10:37:51 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tdRtj-00000008dUJ-1NeZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jan 2025 10:35:05 +0000
-Received: from [10.156.205.88] (unknown [167.220.238.88])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 08CCF2109CD7;
-	Thu, 30 Jan 2025 02:34:59 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 08CCF2109CD7
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1738233303;
-	bh=zVxf1UYtEnYrkLL5hJZ5QlBHDjxANnAboqvzYXh5U+g=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=K1dCig9el0oa/CufgrNC59jLSZ4uDmmETUxrotOCcTRTtmSR76F0u8ePBztpNA0Dx
-	 ApYzof/Kaow0caEadeNkSHDC9/1jaqtV1XE0KzQ8OXzbNRz738nPbZZiAOBkfkKMeF
-	 ogJ+/z2GDWMeFSr/hiw+UHD5ZjxCV0VU9Gh3Lp28=
-Message-ID: <e109763f-d4c1-4016-83eb-c8973b291cee@linux.microsoft.com>
-Date: Thu, 30 Jan 2025 16:04:58 +0530
+	Thu, 30 Jan 2025 10:35:48 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50U9u2rq019131;
+	Thu, 30 Jan 2025 11:35:36 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	sx5gkR4IdqbzkIS+yns0BVsIJ+yIRuR2yrsyI1GNxUI=; b=kpOfO+1yAXvW6VCy
+	xVneHeQHTWmVyj/8j+5so/BUnZEOWlj5h396a97h7i5md0VRDu3UhJcP1ejuF5co
+	43bXlW4YcxgFfIUHK6rtVPepb87tc6wyHlh87zZkKeR5ki4kDByVG/a/JA778Epr
+	m3UEQ3eJOyrlpu0T55RHwGkxnxX0aO+Up/WsGWvaMv1l8Slxas4MjO89P+JFGKN4
+	LcyiPAwgPaas/uEPNXYKinQM4jdULde++zMPazcww08Gn2FDpuqPju/Orxsd2DLK
+	IhDOs5WQWh3MVXJmyzSDfOOn3mpyql2ykNEp45cUn+dBMf8Aw3nk4H2wx3AwnDur
+	bvNklA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44g5jxrpxe-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 30 Jan 2025 11:35:36 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 4060F4002D;
+	Thu, 30 Jan 2025 11:34:15 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id A4DF328A872;
+	Thu, 30 Jan 2025 11:28:17 +0100 (CET)
+Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Thu, 30 Jan
+ 2025 11:28:16 +0100
+Message-ID: <5892e452-96e7-4945-a2dd-2e713d85d751@foss.st.com>
+Date: Thu, 30 Jan 2025 11:28:16 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/8] unwind: arm64: Add sframe unwinder on arm64
-To: Weinan Liu <wnliu@google.com>, Josh Poimboeuf <jpoimboe@kernel.org>,
- Steven Rostedt <rostedt@goodmis.org>, Indu Bhagat <indu.bhagat@oracle.com>,
- Peter Zijlstra <peterz@infradead.org>
-Cc: Mark Rutland <mark.rutland@arm.com>, roman.gushchin@linux.dev,
- Will Deacon <will@kernel.org>, Ian Rogers <irogers@google.com>,
- linux-toolchains@vger.kernel.org, linux-kernel@vger.kernel.org,
- live-patching@vger.kernel.org, joe.lawrence@redhat.com,
- linux-arm-kernel@lists.infradead.org
-References: <20250127213310.2496133-1-wnliu@google.com>
- <20250127213310.2496133-6-wnliu@google.com>
+Subject: Re: [PATCH v2 1/9] dt-bindings: spi: Add STM32 OSPI controller
+To: Conor Dooley <conor@kernel.org>
+CC: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Alexandre
+ Torgue <alexandre.torgue@foss.st.com>,
+        Philipp Zabel
+	<p.zabel@pengutronix.de>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, <linux-spi@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <christophe.kerello@foss.st.com>
+References: <20250128081731.2284457-1-patrice.chotard@foss.st.com>
+ <20250128081731.2284457-2-patrice.chotard@foss.st.com>
+ <20250128-panama-manly-a753d91c297c@spud>
+ <e3d01bce-a7d4-4690-8a2f-3bbb1ee5ccb7@foss.st.com>
+ <20250129-feminize-spotlight-2cee53f8b463@spud>
 Content-Language: en-US
-From: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
-In-Reply-To: <20250127213310.2496133-6-wnliu@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Patrice CHOTARD <patrice.chotard@foss.st.com>
+In-Reply-To: <20250129-feminize-spotlight-2cee53f8b463@spud>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-30_06,2025-01-30_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_023504_797432_699449D9 
-X-CRM114-Status: GOOD (  24.07  )
+X-CRM114-CacheID: sfid-20250130_023547_674295_71295A9D 
+X-CRM114-Status: GOOD (  22.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,154 +112,151 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On 28-01-2025 03:03, Weinan Liu wrote:
-> Add unwind_next_frame_sframe() function to unwind by sframe info.
-> Built with GNU Binutils 2.42 to verify that this sframe unwinder can
-> backtrace correctly on arm64.
->
-> Signed-off-by: Weinan Liu <wnliu@google.com>
-> ---
->   arch/arm64/include/asm/stacktrace/common.h |  4 ++
->   arch/arm64/kernel/setup.c                  |  2 +
->   arch/arm64/kernel/stacktrace.c             | 59 ++++++++++++++++++++++
->   3 files changed, 65 insertions(+)
->
-> diff --git a/arch/arm64/include/asm/stacktrace/common.h b/arch/arm64/include/asm/stacktrace/common.h
-> index 821a8fdd31af..19edae8a5b1a 100644
-> --- a/arch/arm64/include/asm/stacktrace/common.h
-> +++ b/arch/arm64/include/asm/stacktrace/common.h
-> @@ -25,6 +25,7 @@ struct stack_info {
->    * @stack:       The stack currently being unwound.
->    * @stacks:      An array of stacks which can be unwound.
->    * @nr_stacks:   The number of stacks in @stacks.
-> + * @cfa:         The sp value at the call site of the current function.
->    */
->   struct unwind_state {
->   	unsigned long fp;
-> @@ -33,6 +34,9 @@ struct unwind_state {
->   	struct stack_info stack;
->   	struct stack_info *stacks;
->   	int nr_stacks;
-> +#ifdef CONFIG_SFRAME_UNWINDER
-> +	unsigned long cfa;
-> +#endif
->   };
->   
->   static inline struct stack_info stackinfo_get_unknown(void)
-> diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
-> index 4f613e8e0745..d3ac92b624f3 100644
-> --- a/arch/arm64/kernel/setup.c
-> +++ b/arch/arm64/kernel/setup.c
-> @@ -32,6 +32,7 @@
->   #include <linux/sched/task.h>
->   #include <linux/scs.h>
->   #include <linux/mm.h>
-> +#include <linux/sframe_lookup.h>
->   
->   #include <asm/acpi.h>
->   #include <asm/fixmap.h>
-> @@ -377,6 +378,7 @@ void __init __no_sanitize_address setup_arch(char **cmdline_p)
->   			"This indicates a broken bootloader or old kernel\n",
->   			boot_args[1], boot_args[2], boot_args[3]);
->   	}
-> +	init_sframe_table();
->   }
->   
->   static inline bool cpu_can_disable(unsigned int cpu)
-> diff --git a/arch/arm64/kernel/stacktrace.c b/arch/arm64/kernel/stacktrace.c
-> index 1d9d51d7627f..c035adb8fe8a 100644
-> --- a/arch/arm64/kernel/stacktrace.c
-> +++ b/arch/arm64/kernel/stacktrace.c
-> @@ -14,6 +14,7 @@
->   #include <linux/sched/debug.h>
->   #include <linux/sched/task_stack.h>
->   #include <linux/stacktrace.h>
-> +#include <linux/sframe_lookup.h>
->   
->   #include <asm/efi.h>
->   #include <asm/irq.h>
-> @@ -242,6 +243,53 @@ kunwind_next_frame_record(struct kunwind_state *state)
->   	return 0;
->   }
->   
-> +#ifdef CONFIG_SFRAME_UNWINDER
-> +/*
-> + * Unwind to the next frame according to sframe.
-> + */
-> +static __always_inline int
-> +unwind_next_frame_sframe(struct unwind_state *state)
-> +{
-> +	unsigned long fp = state->fp, ip = state->pc;
-> +	unsigned long base_reg, cfa;
-> +	unsigned long pc_addr, fp_addr;
-> +	struct sframe_ip_entry entry;
-> +	struct stack_info *info;
-> +	struct frame_record *record = (struct frame_record *)fp;
-> +
-> +	int err;
-> +
-> +	/* frame record alignment 8 bytes */
-> +	if (fp & 0x7)
-> +		return -EINVAL;
-> +
-> +	info = unwind_find_stack(state, fp, sizeof(*record));
-> +	if (!info)
-> +		return -EINVAL;
-> +
-> +	err = sframe_find_pc(ip, &entry);
-> +	if (err)
-> +		return -EINVAL;
-> +
-> +	unwind_consume_stack(state, info, fp, sizeof(*record));
-> +
-> +	base_reg = entry.use_fp ? fp : state->cfa;
-> +
-> +	/* Set up the initial CFA using fp based info if CFA is not set */
-> +	if (!state->cfa)
-> +		cfa = fp - entry.fp_offset;
-> +	else
-> +		cfa = base_reg + entry.cfa_offset;
-> +	fp_addr = cfa + entry.fp_offset;
-> +	pc_addr = cfa + entry.ra_offset;
-> +	state->cfa = cfa;
-> +	state->fp = READ_ONCE(*(unsigned long *)(fp_addr));
-> +	state->pc = READ_ONCE(*(unsigned long *)(pc_addr));
-> +
-> +	return 0;
-> +}
-> +#endif
-> +
->   /*
->    * Unwind from one frame record (A) to the next frame record (B).
->    *
-> @@ -261,7 +309,15 @@ kunwind_next(struct kunwind_state *state)
->   	case KUNWIND_SOURCE_CALLER:
->   	case KUNWIND_SOURCE_TASK:
->   	case KUNWIND_SOURCE_REGS_PC:
-> +#ifdef CONFIG_SFRAME_UNWINDER
-> +	err = unwind_next_frame_sframe(&state->common);
-> +
-> +	/* Fallback to FP based unwinder */
-> +	if (err)
->   		err = kunwind_next_frame_record(state);
-> +#else
-> +	err = kunwind_next_frame_record(state);
-> +#endif
->   		break;
->   	default:
->   		err = -EINVAL;
-> @@ -347,6 +403,9 @@ kunwind_stack_walk(kunwind_consume_fn consume_state,
->   		.common = {
->   			.stacks = stacks,
->   			.nr_stacks = ARRAY_SIZE(stacks),
-> +#ifdef CONFIG_SFRAME_UNWINDER
-> +			.cfa = 0,
-> +#endif
->   		},
->   	};
->   
 
-Looks good to me.
-Reviewed-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>.
+On 1/29/25 18:53, Conor Dooley wrote:
+> On Wed, Jan 29, 2025 at 06:40:23PM +0100, Patrice CHOTARD wrote:
+>> On 1/28/25 19:02, Conor Dooley wrote:
+>>> On Tue, Jan 28, 2025 at 09:17:23AM +0100, patrice.chotard@foss.st.com wrote:
+>>>> +  memory-region:
+>>>> +    maxItems: 1
+>>>
+>>> Whatever about not having descriptions for clocks or reg when there's
+>>> only one, I think a memory region should be explained.
+>>
+>> ok i will add :
+>>
+>>     description: |
+> 
+> The | isn't needed here.
+> 
+>>       Memory region to be used for memory-map read access.
+> 
+> I don't think that's a good explanation, sorry. Why's a memory-region
+> required for read access?
+> 
+>>>> +
+>>>> +  clocks:
+>>>> +    maxItems: 1
+>>>> +
+>>>> +  interrupts:
+>>>> +    maxItems: 1
+>>>> +
+>>>> +  resets:
+>>>> +    items:
+>>>> +      - description: phandle to OSPI block reset
+>>>> +      - description: phandle to delay block reset
+>>>> +
+>>>> +  dmas:
+>>>> +    maxItems: 2
+>>>> +
+>>>> +  dma-names:
+>>>> +    items:
+>>>> +      - const: tx
+>>>> +      - const: rx
+>>>> +
+>>>> +  st,syscfg-dlyb:
+>>>> +    description: phandle to syscon block
+>>>> +      Use to set the OSPI delay block within syscon to
+>>>> +      tune the phase of the RX sampling clock (or DQS) in order
+>>>> +      to sample the data in their valid window and to
+>>>> +      tune the phase of the TX launch clock in order to meet setup
+>>>> +      and hold constraints of TX signals versus the memory clock.
+>>>> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+>>>
+>>> Why do you need a phandle here? I assume looking up by compatible ain't
+>>> possible because you have multiple controllers on the SoC? Also, I don't
+>>
+>> Yes, we got 2 OCTOSPI controller, each of them have a dedicated delay block
+>>  syscfg register.
+> 
+> :+1: 
+> 
+>>> think your copy-paste "phandle to" stuff here is accurate:
+>>>       st,syscfg-dlyb = <&syscfg 0x1000>;
+>>> There's an offset here that you don't mention in your description.
+>>
+>> I will add it as following:
+>>
+>>   st,syscfg-dlyb:
+>>     description:
+>>       Use to set the OSPI delay block within syscon to
+>>       tune the phase of the RX sampling clock (or DQS) in order
+>>       to sample the data in their valid window and to
+>>       tune the phase of the TX launch clock in order to meet setup
+>>       and hold constraints of TX signals versus the memory clock.
+>>     $ref: /schemas/types.yaml#/definitions/phandle-array
+>>     items:
+>>       - description: phandle to syscfg
+>>       - description: register offset within syscfg
+> 
+> :+1:
+> 
+>>>> +  access-controllers:
+>>>> +    description: phandle to the rifsc device to check access right
+>>>> +      and in some cases, an additional phandle to the rcc device for
+>>>> +      secure clock control
+>>>
+>>> This should be described using items rather than a free-form list.
+>>
+>>   access-controllers:
+>>     description: phandle to the rifsc device to check access right
+>>       and in some cases, an additional phandle to the rcc device for
+>>       secure clock control
+>>     items:
+>>       - description: phandle to bus controller or to clock controller
+>>       - description: access controller specifier
+>>      minItems: 1
+>>      maxItems: 2
+> 
+> These updates look fine to me.
 
+I got an issue with access-controllers property.
+
+i can't list the 2 items (the second one is optional) and use minItems and maxItems.
+
+For example:
+
+ access-controllers:
+    description: phandle to the rifsc device to check access right
+      and in some cases, an additional phandle to the rcc device for
+      secure clock control.
+    items:
+      - description: phandle to bus controller
+      - description: phandle to clock controller
+    minItems: 1
+    maxItems: 2
+
+
+make dt_binding_check DT_SCHEMA_FILES=st,stm32mp25-ospi.yaml
+
+Documentation/devicetree/bindings/spi/st,stm32mp25-ospi.yaml: properties:access-controllers: {'description': 'phandle to the rifsc device to check access right and in some cases, an additional phandle to the rcc device for secure clock control.', 'items': [{'description': 'phandle to bus controller'}, {'description': 'phandle to clock controller'}], 'minItems': 1, 'maxItems': 2} should not be valid under {'required': ['maxItems']}
+	hint: "maxItems" is not needed with an "items" list
+	from schema $id: http://devicetree.org/meta-schemas/items.yaml#
+  DTC [C] Documentation/devicetree/bindings/spi/st,stm32mp25-ospi.example.dtb
+
+How can i indicate that at least one items is mandatory, the second one is optional and in the same
+time describing the both items as required without getting the above error ? 
+
+
+On other yaml files, for examples 
+/usb/dwc2.yaml 
+spi/st,stm32-qspi.yaml
+spi/st,stm32-spi.yaml
+sound/st,stm32-i2s.yaml
+st,stm32-spdifrx.yaml
+sound/st,stm32-sai.yam
+serial/st,stm32-uart.yaml
+rng/st,stm32-rng.yaml
+regulator/st,stm32-vrefbuf.yaml
+mfd/st,stm32-timers.yaml
+.....
+
+The only yaml given description is :
+
+access-controllers:
+  minItems: 1
+  maxItems: 2
+
+Thanks
+Patrice
 
