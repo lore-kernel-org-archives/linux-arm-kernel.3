@@ -4,51 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 768BFC0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 13:22:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10343C02190
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 13:23:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QxWt6KGttTbCTRsKaNJjoIy6Mo07K6F2+db+FqZNp/U=; b=WxNgZIV7H77BQ/J8WrA3V8WVD1
-	8gtuWKM69TL58h7aY/OxQAOpRVtDXvJP09Su9xZZKKkP8OBE+03m3gXm92kP8YlwYs2xi2p6S+p4L
-	+mVWJfAPyTET+Hk4cZUWEb8cTHNTluFtWjsNxG9XVl8UuzF9RlxN8Ar58CcV3N+NqSbKBybeFJdJl
-	0is0dPqV9lgPkwdWHfKeKkEEkIotm4PVhSv2Sztdq0On527jmo5gcqmQpSTDwuUaiqz+rVzd4xPDu
-	+kJEHrEq2wjYb58emDaNe2nAQGTImpHQuzOdwJuvvPtrWcSX9qwOZdHzXSI1sW8+E4mtW7844+HY6
-	BBMBmliA==;
+	bh=ejunFsTMBqfkbs45qqjabuqQXtHoQ8w98hhhPwZLvmI=; b=ZcqPVrq5zL/3VjABNry7LIxony
+	MNFVc9KL7uyRUl1TJf3cWhsx2Sqn4fvlE5rXrrcAlCQR2r7UZP2JmJB6/HWhHPkO+UewGc+tiS++5
+	4Jkq3FqXmh2uvpy1U3Ob0T8IBai8fK+/mBSmDr/pUA/O1CzWvmCqgEf0+erYg/UodDEcn9NDhE3Z/
+	GfBGx2Gdmqa1PG69yMLBolzdOqALsYaDnxozeEUH0H1iPDMKjEyohg85Z+EQxjI8rGS+plglTXx2O
+	whj1Q1fwTSNhW7qEzn9eXez5IP1brK9h29W93vDsd4XAebF0JVGDteJaSFiJ3OFWoK0udEXfhpa/8
+	eDH1Do7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdUUR-00000008r2i-3rAn;
-	Thu, 30 Jan 2025 13:21:51 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tdUVi-00000008r9c-3a4W;
+	Thu, 30 Jan 2025 13:23:10 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdUPy-00000008qDB-0sg5;
-	Thu, 30 Jan 2025 13:17:15 +0000
+	id 1tdUT8-00000008qlo-4BIi;
+	Thu, 30 Jan 2025 13:20:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C598BA41EC9;
-	Thu, 30 Jan 2025 13:15:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49A05C4CED2;
-	Thu, 30 Jan 2025 13:17:06 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 953AAA402C7;
+	Thu, 30 Jan 2025 13:18:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52BC3C4CED2;
+	Thu, 30 Jan 2025 13:20:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738243033;
-	bh=d35FUQkRnX6u6XtUEnsoIUHr8KEsQwWHRMzj9kdigCY=;
+	s=k20201202; t=1738243230;
+	bh=YfzfC3vgyP+KoosDU3ZEVST8TlyNzxQAsPYtsFBXE58=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Kf4xH2dw4/15igEUXdM049neQ2AuHqQrsd26zswkiafbOLZC98JGNQ5xo38QvM0KX
-	 VEtpTENB++vb3q7j5AhebbgZrdPuDODdIAiUaTyHdwUcek2cytpqWTouypoOT2XThH
-	 mS97Ij28FiciBT4b8PNM8gTG+GnSytXXbAJchmUmsk5KM4Uis3GlVohnYJ9ajSSk0v
-	 l2qPFOi4CQ17eay03EmOLzUlqDJ2xVKHkAkZ4gRcRm/jXFyjbDJlNsjkjm5F6EJKZE
-	 XgEwtKaCqJ++zxhN5lUvFnNZsZjTqJOe8Co21rCxrom2Ci77BpIVSWh101V6GIS9pP
-	 qBvI/tfLdSE+Q==
-Message-ID: <2d1780d3-ae78-4adf-a20a-8b6b3891b9b0@kernel.org>
-Date: Thu, 30 Jan 2025 14:17:05 +0100
+	b=lj64ridcOqJk+nJKj2rilUjQrksdnIkZwqkAbdYyYDFxKg8uHt/Bb884H6bOGuxCR
+	 YcZeixvzOkfEN5d6rIxjPplfF689GiqFCLLEuv9H2s/36UfwUcV+JJqX7feOVpBuMq
+	 xGRrvf6qDhlEtuVRGtbxOVPeJehX3f55sr9qy+Aubtx3YFeDYyF9YUn2RXh4/9Is4t
+	 daBqrBSpwZmRdxmFfDh2odgqx5Ke3cIttzTqayQQHsNcsC8evkGO6/8jNr5DmqVH4E
+	 s/q+RQU1NW2YA/dtNH9eLqlUwGTgB3LaiZ0zlcm+ouQLxy7ID4cSYdbvP+dSjVX1TU
+	 drm1NjY1bZhBg==
+Message-ID: <f397d8e3-0ec2-4b76-a7b4-5c816a334831@kernel.org>
+Date: Thu, 30 Jan 2025 14:20:21 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] drm/panfrost: Add support for Mali on the MT8370
- SoC
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+Subject: Re: [PATCH 2/3] drm/panfrost: Add support for Mali on the MT8370 SoC
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
  David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -56,12 +55,16 @@ To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
  <matthias.bgg@gmail.com>,
  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
  Boris Brezillon <boris.brezillon@collabora.com>,
- Steven Price <steven.price@arm.com>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20250130-mt8370-enable-gpu-v2-0-c154d0815db5@collabora.com>
- <20250130-mt8370-enable-gpu-v2-2-c154d0815db5@collabora.com>
+ Steven Price <steven.price@arm.com>, kernel <kernel@collabora.com>,
+ dri-devel <dri-devel@lists.freedesktop.org>,
+ devicetree <devicetree@vger.kernel.org>,
+ linux-kernel <linux-kernel@vger.kernel.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ linux-mediatek <linux-mediatek@lists.infradead.org>
+References: <20250116-mt8370-enable-gpu-v1-0-0a6b78e925c8@collabora.com>
+ <20250116-mt8370-enable-gpu-v1-2-0a6b78e925c8@collabora.com>
+ <20250118-meticulous-black-caracal-ec7f0d@krzk-bin>
+ <194b7237128.10f9923a41656565.5574753983898665940@collabora.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,12 +110,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250130-mt8370-enable-gpu-v2-2-c154d0815db5@collabora.com>
+In-Reply-To: <194b7237128.10f9923a41656565.5574753983898665940@collabora.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_051714_376449_47BD2352 
-X-CRM114-Status: GOOD (  14.85  )
+X-CRM114-CacheID: sfid-20250130_052031_168046_132D5275 
+X-CRM114-Status: GOOD (  31.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,29 +130,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/01/2025 13:31, Louis-Alexis Eyraud wrote:
-> Add a compatible for the MediaTek MT8370 SoC, with an
-> integrated ARM Mali G57 MC2 GPU (Valhall-JM, dual core),
-> with the same platform data as MT8186 (one regulator, two power
-> domains).
+On 30/01/2025 13:15, Louis-Alexis Eyraud wrote:
+> Hello,
 > 
-> Reviewed-by: Steven Price <steven.price@arm.com>
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-> ---
->  drivers/gpu/drm/panfrost/panfrost_drv.c | 1 +
->  1 file changed, 1 insertion(+)
+> sorry for the delay,
 > 
-> diff --git a/drivers/gpu/drm/panfrost/panfrost_drv.c b/drivers/gpu/drm/panfrost/panfrost_drv.c
-> index 0f3935556ac761adcd80197d87e8e478df436fd5..7b7e9f6f620659a7fdcb5d907ebc4f01eca876e0 100644
-> --- a/drivers/gpu/drm/panfrost/panfrost_drv.c
-> +++ b/drivers/gpu/drm/panfrost/panfrost_drv.c
-> @@ -859,6 +859,7 @@ static const struct of_device_id dt_match[] = {
->  	{ .compatible = "mediatek,mt8186-mali", .data = &mediatek_mt8186_data },
->  	{ .compatible = "mediatek,mt8188-mali", .data = &mediatek_mt8188_data },
->  	{ .compatible = "mediatek,mt8192-mali", .data = &mediatek_mt8192_data },
-> +	{ .compatible = "mediatek,mt8370-mali", .data = &mediatek_mt8186_data },
+>  ---- On Sat, 18 Jan 2025 17:08:10 +0100  Krzysztof Kozlowski  wrote --- 
+>  > On Thu, Jan 16, 2025 at 03:25:58PM +0100, Louis-Alexis Eyraud wrote:
+>  > > This commit adds a compatible for the MediaTek MT8370 SoC, with an
+>  > > integrated ARM Mali G57 MC2 GPU (Valhall-JM, dual core), and adds
+>  > > platform data using the same supplies and the same power domain lists
+>  > > as MT8186 (one regulator, two power domains).
+>  > > 
+>  > > Signed-off-by: Louis-Alexis Eyraud louisalexis.eyraud@collabora.com>
+>  > > ---
+>  > >  drivers/gpu/drm/panfrost/panfrost_drv.c | 10 ++++++++++
+>  > >  1 file changed, 10 insertions(+)
+>  > > 
+>  > > diff --git a/drivers/gpu/drm/panfrost/panfrost_drv.c b/drivers/gpu/drm/panfrost/panfrost_drv.c
+>  > > index 0f3935556ac761adcd80197d87e8e478df436fd5..1d51b64ed0f0660cc95263a289d5dad204540cfd 100644
+>  > > --- a/drivers/gpu/drm/panfrost/panfrost_drv.c
+>  > > +++ b/drivers/gpu/drm/panfrost/panfrost_drv.c
+>  > > @@ -837,6 +837,15 @@ static const struct panfrost_compatible mediatek_mt8192_data = {
+>  > >      .pm_features = BIT(GPU_PM_CLK_DIS) | BIT(GPU_PM_VREG_OFF),
+>  > >  };
+>  > >  
+>  > > +/* MT8370 uses the same power domains and power supplies as MT8186 */
+>  > > +static const struct panfrost_compatible mediatek_mt8370_data = {
+>  > > +    .num_supplies = ARRAY_SIZE(mediatek_mt8183_b_supplies) - 1,
+>  > > +    .supply_names = mediatek_mt8183_b_supplies,
+>  > > +    .num_pm_domains = ARRAY_SIZE(mediatek_mt8186_pm_domains),
+>  > > +    .pm_domain_names = mediatek_mt8186_pm_domains,
+>  > > +    .pm_features = BIT(GPU_PM_CLK_DIS) | BIT(GPU_PM_VREG_OFF),
+>  > > +};
+>  > 
+>  > No, people, stop this nonsense. This is exactly the same as previous.
+>  > Don't duplicate entries just because you want a commit.
+>  > 
+> I added this new compatible in bindings and panfrost driver because there were no other matching compatible 
+> Using another mali-vallhal-jm compatible would make the driver probe fail because of power domains number difference. 
+> Using mt8186-mali compatible would work without modifications but as it is not the same architecture (mali-bifrost), it would be incorrect.
 
-Nothing improved here. All my previous comments still stand.
+Fix your email app, so it won't add spaces before quote and will wrap
+the text properly.
+
+> 
+> I've also misguessed on the dt_match array modifications, sorry.
+> I'll amend this patch in order to reuse the mt8186 platform data instead.
+> 
+>  > > +
+>  > >  static const struct of_device_id dt_match[] = {
+>  > >      /* Set first to probe before the generic compatibles */
+>  > >      { .compatible = "amlogic,meson-gxm-mali",
+>  > > @@ -859,6 +868,7 @@ static const struct of_device_id dt_match[] = {
+>  > >      { .compatible = "mediatek,mt8186-mali", .data = &mediatek_mt8186_data },
+>  > >      { .compatible = "mediatek,mt8188-mali", .data = &mediatek_mt8188_data },
+>  > >      { .compatible = "mediatek,mt8192-mali", .data = &mediatek_mt8192_data },
+>  > > +    { .compatible = "mediatek,mt8370-mali", .data = &mediatek_mt8370_data },
+>  > 
+>  > No, express properly compatibility or say in bindings commit msg why
+>  > devices are not compatible.
+>  > 
+> I'll reword in V2 the commit messages to make the compatible need more explicit.
+
+Your commit msg should then explain that this is not compatible with
+mt8186 because programming model or architecture is different. Number of
+power domains rarely matters for actual compatibility and as easily
+visible in panfrost driver: does not matter here, either.
 
 Best regards,
 Krzysztof
