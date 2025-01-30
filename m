@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDA84C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 14:16:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD979C02190
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 14:40:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2KjwHI3YMt0/+O01Pl8e45GedVMGb4BxQmnccxG/FEg=; b=YZTNg1KX/D6leQG4/fs9K4CCf6
-	JeeyiL7KHRQtar583ouLBQoNS7yqBiz8e66JbUIV5N7ZqDIprAWrujNcj0q/SaH9Bq1WqEW2+b2WW
-	0yM9cwWnyJBKhoP+T/zKof4YXll/xgy8EEpkPd5V0IdlE2ZPxBcxUYfHHZfl0cL0MjmDVmTSW5+Q8
-	c3jGJCeOduEhpE6M3litFUXx5IYihZF7GQZFLb2YU3zx33BYpFPe0w7yK7MNFjo1ZFl+mTLRUsF6B
-	kFIo3DGV62DtaFMT0mtnpAI30JR6/a3NV+ZjycylY6aEesUqzDw0eyGxwWEZvgYAOU/Xy9sNxgq+Q
-	qlAKfYgg==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4shPxN5Zjg8CWO7oqCIY3l3k+e0q+fmoz+kF6bIkmVM=; b=hRQv348rJx/cpNstcjag5e7FXE
+	0njh9se/yqgDgCFVUHWS03dW4la/pxImYRumAOu0oJmA1kUu37XOiJTHGHXVKVpQ9IxP2J4oIskNm
+	5GoXqlxuZS5dgBOsL2dVlff1Zf0Ig41YT0OSg4wb8PlYqMHO2VFSgmvxUnOmSgUuith4S1vbz329x
+	vt6wfuEiZDdyErcUMDG5fGk/HA4CCxWpCRLfWtSxZgI4guWIZhspqRqiykCL2QEtU03gKNSH9dkWG
+	691oNZd0apiS5fvVwdBELo4rwA3Q/fSg4jFZ9zXc+Lrl+Mlk2+hhnB+xr+K/grAWOlOb/sEvsqIJj
+	pxTuyMwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdVL2-00000008xKb-2Rng;
-	Thu, 30 Jan 2025 14:16:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdVJi-00000008xBs-2fUN
+	id 1tdVht-000000090L2-44NP;
+	Thu, 30 Jan 2025 14:39:49 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tdVgZ-0000000907m-0vHm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jan 2025 14:14:52 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 940B1497;
-	Thu, 30 Jan 2025 06:15:14 -0800 (PST)
-Received: from [10.1.32.52] (e122027.cambridge.arm.com [10.1.32.52])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3BF713F694;
-	Thu, 30 Jan 2025 06:14:45 -0800 (PST)
-Message-ID: <1356de81-2fa1-4ad5-80bd-d02440603288@arm.com>
-Date: Thu, 30 Jan 2025 14:14:43 +0000
+	Thu, 30 Jan 2025 14:38:28 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 66B9DA0A58;
+	Thu, 30 Jan 2025 15:38:25 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=mail; bh=4shPxN5Zjg8CWO7oqCIY3l3k+e0q+fmoz+kF6bIkmVM=; b=
+	U0wkuDXZ+YCja8dGH6AgFVUuhRRiTGpVsVSgrioEsLNMSaRslidLO77DUIz95Fvg
+	LJqArNXFUbe+iqINh8q6JwEVMFrbOKWxKw44i2iTbQs9JUeeYOsrqCco1iG+EOpm
+	0CuZ8fY1Pecu6VbX9mz5AOWSavH3W+T6aISUqYv78/JLihcKJ/bTGdz05ICqv6Fb
+	HCp1EtU3wq3IUQftnD+Nc2A/2Md0pa/FWr5Q/+cSIgPlFs/3bhasMhH6bPK8O88Z
+	Q52FtabKvw4/JcHIQrM9D+vDBRBzHePWb3p4nP3U5JKOh/mV+HFVRZPcGCJwRpMt
+	MfwkhHmjgNyDz3PPj9UX1rr7n49koEDj1oIJ2Gf3d0vdC9gKWG/Ke+gKFCqyW8a6
+	rKxqZfc5udt8/BGNEYdAMDOxyGD3toCnHmDq3HOsAn3kYuEg+EdqFbiAvor0WSPl
+	XhpoaUb34qBhfc6Lgvg8Xc/B+Ayz6y9G2xZwxx7IKJph43piKHeJVIU7W4tsyHD+
+	5GE4BgXNDusoNpGH410FCvwDk+BSqd6q2yXmpOrSTSLdDD97KtRKNBa2HH6fK8NY
+	a325R2RuPYzDpYeuGeBbzOFVnZS3FLLq5vZTDx3HwFDvfF2QQaBReBfkSfSpP63L
+	8jdxXRNOIIcMxyc97HbxaUnhlTCZ/45i8IaN7ES2yxM=
+From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+To: <linux-arm-kernel@lists.infradead.org>, <linux-iio@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+CC: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, "Kamel
+ Bouhara" <kamel.bouhara@bootlin.com>, William Breathitt Gray <wbg@kernel.org>
+Subject: [PATCH] counter: microchip-tcb-capture: Add capture extensions for registers RA-RC
+Date: Thu, 30 Jan 2025 15:38:16 +0100
+Message-ID: <20250130143817.41625-1-csokas.bence@prolan.hu>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 10/43] arm64: kvm: Allow passing machine type in KVM
- creation
-To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-References: <20241212155610.76522-1-steven.price@arm.com>
- <20241212155610.76522-11-steven.price@arm.com>
- <a580d287-2fb0-4e9d-adbb-57e4dbf25765@redhat.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <a580d287-2fb0-4e9d-adbb-57e4dbf25765@redhat.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1738247904;VERSION=7984;MC=3846925481;ID=123382;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2980D94852667464
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_061450_767920_23A5F5BF 
-X-CRM114-Status: GOOD (  18.25  )
+X-CRM114-CacheID: sfid-20250130_063827_416316_B6C723DF 
+X-CRM114-Status: GOOD (  10.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,74 +78,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/01/2025 04:07, Gavin Shan wrote:
-> On 12/13/24 1:55 AM, Steven Price wrote:
->> Previously machine type was used purely for specifying the physical
->> address size of the guest. Reserve the higher bits to specify an ARM
->> specific machine type and declare a new type 'KVM_VM_TYPE_ARM_REALM'
->> used to create a realm guest.
->>
->> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> ---
->>   arch/arm64/kvm/arm.c     | 17 +++++++++++++++++
->>   arch/arm64/kvm/mmu.c     |  3 ---
->>   include/uapi/linux/kvm.h | 19 +++++++++++++++----
->>   3 files changed, 32 insertions(+), 7 deletions(-)
->>
->> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
->> index c505ec61180a..73016e1e0067 100644
->> --- a/arch/arm64/kvm/arm.c
->> +++ b/arch/arm64/kvm/arm.c
->> @@ -207,6 +207,23 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned
->> long type)
->>       mutex_unlock(&kvm->lock);
->>   #endif
->>   +    if (type & ~(KVM_VM_TYPE_ARM_MASK |
->> KVM_VM_TYPE_ARM_IPA_SIZE_MASK))
->> +        return -EINVAL;
->> +
->> +    switch (type & KVM_VM_TYPE_ARM_MASK) {
->> +    case KVM_VM_TYPE_ARM_NORMAL:
->> +        break;
->> +    case KVM_VM_TYPE_ARM_REALM:
->> +        kvm->arch.is_realm = true;
->> +        if (!kvm_is_realm(kvm)) {
->> +            /* Realm support unavailable */
->> +            return -EINVAL;
->> +        }
->> +        break;
->> +    default:
->> +        return -EINVAL;
->> +    }
->> +
->>       kvm_init_nested(kvm);
->>         ret = kvm_share_hyp(kvm, kvm + 1);
-> 
-> Corresponding to comments for PATCH[6], the block of the code can be
-> modified
-> to avoid using kvm_is_realm() here. In this way, kvm_is_realm() can be
-> simplifed
-> as I commented for PATCH[6].
-> 
->     case KVM_VM_TYPE_ARM_REALM:
->         if (static_branch_unlikely(&kvm_rme_is_available))
->             return -EPERM;    /* -EPERM may be more suitable than -
-> EINVAL */
-> 
->         kvm->arch.is_realm = true;
->         break;
+TCB hardware is capable of capturing the timer value to registers RA and
+RB. On top, it is capable of triggering on compare against a third
+register, RC. Add these registers as extensions.
 
-Yes that's more readable. I'd used kvm_is_realm() because I wanted to
-keep the check on kvm_rme_is_available to one place, but coming back to
-the code there's definitely a "Huh?" moment from setting 'is_realm' and
-then testing if it's a realm!
+Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+---
+ drivers/counter/microchip-tcb-capture.c | 58 +++++++++++++++++++++++++
+ 1 file changed, 58 insertions(+)
 
-I also agree -EPERM is probably better to signify that the kernel
-supports realms but the hardware doesn't.
+diff --git a/drivers/counter/microchip-tcb-capture.c b/drivers/counter/microchip-tcb-capture.c
+index 2f096a5b973d..524b9edfaa5f 100644
+--- a/drivers/counter/microchip-tcb-capture.c
++++ b/drivers/counter/microchip-tcb-capture.c
+@@ -247,6 +247,62 @@ static int mchp_tc_count_read(struct counter_device *counter,
+ 	return 0;
+ }
+ 
++static int mchp_tc_count_cap_read(struct counter_device *counter,
++				  struct counter_count *count, size_t idx, u64 *val)
++{
++	struct mchp_tc_data *const priv = counter_priv(counter);
++	u32 cnt;
++
++	switch (idx) {
++	case 0:
++		regmap_read(priv->regmap, ATMEL_TC_REG(priv->channel[0], RA), &cnt);
++		break;
++	case 1:
++		regmap_read(priv->regmap, ATMEL_TC_REG(priv->channel[0], RB), &cnt);
++		break;
++	case 2:
++		regmap_read(priv->regmap, ATMEL_TC_REG(priv->channel[0], RC), &cnt);
++		break;
++	default:
++		return -EINVAL;
++	}
++	*val = cnt;
++
++	return 0;
++}
++
++static int mchp_tc_count_cap_write(struct counter_device *counter,
++				   struct counter_count *count, size_t idx, u64 val)
++{
++	struct mchp_tc_data *const priv = counter_priv(counter);
++
++	if (val > U32_MAX)
++		return -ERANGE;
++
++	switch (idx) {
++	case 0:
++		regmap_write(priv->regmap, ATMEL_TC_REG(priv->channel[0], RA), val);
++		break;
++	case 1:
++		regmap_write(priv->regmap, ATMEL_TC_REG(priv->channel[0], RB), val);
++		break;
++	case 2:
++		regmap_write(priv->regmap, ATMEL_TC_REG(priv->channel[0], RC), val);
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	return 0;
++}
++
++static DEFINE_COUNTER_ARRAY_CAPTURE(mchp_tc_cnt_cap_array, 3);
++
++static struct counter_comp mchp_tc_count_ext[] = {
++	COUNTER_COMP_ARRAY_CAPTURE(mchp_tc_count_cap_read, mchp_tc_count_cap_write,
++				   mchp_tc_cnt_cap_array),
++};
++
+ static struct counter_count mchp_tc_counts[] = {
+ 	{
+ 		.id = 0,
+@@ -255,6 +311,8 @@ static struct counter_count mchp_tc_counts[] = {
+ 		.num_functions = ARRAY_SIZE(mchp_tc_count_functions),
+ 		.synapses = mchp_tc_count_synapses,
+ 		.num_synapses = ARRAY_SIZE(mchp_tc_count_synapses),
++		.ext = mchp_tc_count_ext,
++		.num_ext = ARRAY_SIZE(mchp_tc_count_ext),
+ 	},
+ };
+ 
+-- 
+2.48.1
 
-Thanks,
-
-Steve
 
 
