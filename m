@@ -4,101 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25BABC0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 12:46:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D26DC0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 13:01:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9hREfD9h0pyFa6Qh0S2jAB9bMfbE7Dv/kgHfimMyy6w=; b=naGXh5szIpiYJx9OvkLJfkgjc8
-	yVzKGJVPqepgB6qwqxo1LBVoNL8V1GS/T+0fRhY+eEqgyDrSFSDmeJh/40k7Eghr1CxohNHLePotz
-	8IgZixB8tcT2LRtQbRYyea6fu3Wt7BrGttdAy4zSpbBBhyZ9R6fHSUeDTjeHnUwC4Zj752Sp0ZnH/
-	8MxNchOvgomG0ZRVuF6PgfjraBrLnKJiXjW6gHpeFv+vVB5pwfDvFXoCIAXiKU1wV0OfdGnZeGojw
-	u2SmnYgw/jgDmlhN2D3plXmcxTxXAKh+h6xZnKJhJpEC+UPqFSvAPXRkzYK2N9o3YtE6va2LgAYDB
-	J0NPTNkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5E8vrIUiwgp840jedrOdXiCw8U0oFfDgQrEtzVFZfOc=; b=GWdFgjMxYTYRH4B9xljkPnTqhR
+	K2jIJ5p9TG6WNZITaDhafOWy6M+85ozX5vb5N0ZVal4tmeviQzW7tDhYpID2Dd0duFOPE7rlMxhkz
+	9dAIM41tMRP1tPO4EwdJpwvSx4eEHLORnxG0YE4l5CdHBWq/mvqYO9YO2s6vkh0mQnWAx8hSjOLdA
+	q7ep1QZHiFmt1JXZIgGitB4Cqw20HczAkg377Z865uCoEL1iMnqUkeb/Zd579HxOhO6bAnosPwJAr
+	LvJQFKKVfMcIDZb3kOMmKoChgItXbNlH+8kg9bYWHtFN00TGXDLLO1HCmZ3YdXclHJO2KPIrF9h9t
+	pZ2/R+RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdTwE-00000008n2u-1y9M;
-	Thu, 30 Jan 2025 12:46:30 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1tdU9y-00000008nzH-3fEW;
+	Thu, 30 Jan 2025 13:00:42 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdTuu-00000008mtn-1Rei
+	id 1tdU8g-00000008nsR-3hd9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jan 2025 12:45:09 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50UCfHYh030056;
-	Thu, 30 Jan 2025 13:44:56 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	9hREfD9h0pyFa6Qh0S2jAB9bMfbE7Dv/kgHfimMyy6w=; b=Xf4anVNWbLdKR6tL
-	p0daiYsMRYArJabcArI+84aYSLasTmT8sRaVYO0J5KO5tXyNVkdM1qe50TBwCZyv
-	x/f/yVEsRhG/ZGxuSJUkLJIzX4S+88rohm7990nR3uRLt0QBHnaLOuiEdG0BA6h/
-	3I8jWYmch5qKFAH1Hpi2okIh8hucv6T4VQGe5pf6OH7qxpQRkyaDiMO50nSpvRDg
-	A8/IXObLAfeCr8XIcICq2AvqXamZo0q28jfTtZsL9ZvzuNSkJeV1JUkDyZI5jdjZ
-	URQ+g8ZcwN7BHxazwd6gtUoQxOIyQICqxyk+A/0mSlpxlkuTcQg+LopviFb2d/hm
-	c/4+Kw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44fy472c6p-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 30 Jan 2025 13:44:56 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 7DD514002D;
-	Thu, 30 Jan 2025 13:43:36 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 6A4743B1A42;
-	Thu, 30 Jan 2025 13:39:13 +0100 (CET)
-Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Thu, 30 Jan
- 2025 13:39:12 +0100
-Message-ID: <1098622d-d9a6-428c-9bbe-1f0de5f3d113@foss.st.com>
-Date: Thu, 30 Jan 2025 13:39:11 +0100
+	Thu, 30 Jan 2025 12:59:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=5E8vrIUiwgp840jedrOdXiCw8U0oFfDgQrEtzVFZfOc=; b=MlCi2LRb2mWc5JZ5udEuozKHrC
+	/uQEVXaO0BkYpAZjsY9bePbaq3SNHAO+iW+Uv/CV7mF2+mJO4IYQhH+ufOF0bDtNNYk7kM08pz6aS
+	3tl4DU5gMbw/KV/6wEUeVIo3fNnMfet8Mc1J6DyVR+STmnmUDiTKTvRqi45DtfBRjL0g=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tdU8U-009PNy-VX; Thu, 30 Jan 2025 13:59:10 +0100
+Date: Thu, 30 Jan 2025 13:59:10 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>
+Cc: Dinh Nguyen <dinguyen@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2] ARM: dts: socfpga: Add basic support for Terrasic's
+ de10-nano
+Message-ID: <d375f621-1502-419e-bb99-658ca2fd2b63@lunn.ch>
+References: <20250130074553.92023-2-u.kleine-koenig@baylibre.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/9] dt-bindings: spi: Add STM32 OSPI controller
-To: Krzysztof Kozlowski <krzk@kernel.org>, Conor Dooley <conor@kernel.org>
-CC: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Alexandre
- Torgue <alexandre.torgue@foss.st.com>,
-        Philipp Zabel
-	<p.zabel@pengutronix.de>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, <linux-spi@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <christophe.kerello@foss.st.com>
-References: <20250128081731.2284457-1-patrice.chotard@foss.st.com>
- <20250128081731.2284457-2-patrice.chotard@foss.st.com>
- <20250128-panama-manly-a753d91c297c@spud>
- <e3d01bce-a7d4-4690-8a2f-3bbb1ee5ccb7@foss.st.com>
- <20250129-feminize-spotlight-2cee53f8b463@spud>
- <5892e452-96e7-4945-a2dd-2e713d85d751@foss.st.com>
- <7323e5ae-21b7-43cc-aed2-e23cd528842e@kernel.org>
-Content-Language: en-US
-From: Patrice CHOTARD <patrice.chotard@foss.st.com>
-In-Reply-To: <7323e5ae-21b7-43cc-aed2-e23cd528842e@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.62]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-01-30_06,2025-01-30_01,2024-11-22_01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250130074553.92023-2-u.kleine-koenig@baylibre.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_044508_695498_EB830F1D 
-X-CRM114-Status: GOOD (  12.16  )
+X-CRM114-CacheID: sfid-20250130_045922_921445_EE3E5644 
+X-CRM114-Status: UNSURE (   7.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,42 +71,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> +&gmac1 {
+> +	/* Uses a KSZ9031RNX phy */
+> +	phy-mode = "rgmii-id";
+> +	rxd0-skew-ps = <420>;
+> +	rxd1-skew-ps = <420>;
+> +	rxd2-skew-ps = <420>;
+> +	rxd3-skew-ps = <420>;
+> +	txen-skew-ps = <0>;
+> +	rxdv-skew-ps = <420>;
+> +	status = "okay";
+> +};
 
 
-On 1/30/25 13:26, Krzysztof Kozlowski wrote:
-> On 30/01/2025 11:28, Patrice CHOTARD wrote:
->> For example:
->>
->>  access-controllers:
->>     description: phandle to the rifsc device to check access right
->>       and in some cases, an additional phandle to the rcc device for
->>       secure clock control.
->>     items:
->>       - description: phandle to bus controller
->>       - description: phandle to clock controller
->>     minItems: 1
->>     maxItems: 2
->>
->>
->> make dt_binding_check DT_SCHEMA_FILES=st,stm32mp25-ospi.yaml
->>
->> Documentation/devicetree/bindings/spi/st,stm32mp25-ospi.yaml: properties:access-controllers: {'description': 'phandle to the rifsc device to check access right and in some cases, an additional phandle to the rcc device for secure clock control.', 'items': [{'description': 'phandle to bus controller'}, {'description': 'phandle to clock controller'}], 'minItems': 1, 'maxItems': 2} should not be valid under {'required': ['maxItems']}
->> 	hint: "maxItems" is not needed with an "items" list
->> 	from schema $id: http://devicetree.org/meta-schemas/items.yaml#
->>   DTC [C] Documentation/devicetree/bindings/spi/st,stm32mp25-ospi.example.dtb
->>
->> How can i indicate that at least one items is mandatory, the second one is optional and in the same
->> time describing the both items as required without getting the above error ? 
-> 
-> maxItems is redundant.
+For this part:
 
-ok, it solves the issue
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-Thanks
-Patrice
+Thanks for making the change.
 
-
-> 
-> Best regards,
-> Krzysztof
+    Andrew
 
