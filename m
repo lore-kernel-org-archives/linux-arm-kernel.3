@@ -4,59 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F74FC0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 16:50:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42774C02190
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 16:53:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2ZGOB++0RnrgvfXYOBKwSIM+lg1Zt40tDm0hhwPqgU4=; b=vKrPR7rcP/eyU+J46tzu05s5nk
-	LTerMJ0qlmMmpSw2Pv6FcWYRNp8MOXBYNNF3lIRjKgpHwYBc6jP2WduKq3DbBxYd4SJxtjewb5Fkg
-	Su4anIvewD1d3r+8V8au7kJ5MPO1m7kl9lCX1QdmDrWXZHqIa5CxadlrdS1iDn+IMLK+woJFTqwRZ
-	SWeDlxKC+UD8y+XKpSTeSJoPSpEttdAi7aLN0b30USuSPGXeSpP6WZpmUyRfH0j/89p01ck79ZqDm
-	PlDblGvg/xomGHrzx7EDTOrPvmutTTdQI1A+gxD/4DEGOuT7jz5CXyMFaRKTJmz1vjgbXZFVrXCVN
-	rf3+sAOg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=E/Kn5Y+0GHKyFRTZt8lOUSw7AZf+8Gh0DQBHgqLPOu8=; b=x23eksGN0v7zLMXtc3+fQZloWA
+	Nl/GI0p6vIsxe1nSsoG44GGfcyAD1oH8/6JqmIRYOW782AKCxhCbYUassb9tMnxsQvkcQDx1LRkEE
+	4pAfzFSc+DGgGFk+g68T1wlclPaX4UUbYkcIJvNBIhXqLcL6I3qCPhvrrhlz3eCDJhNpYC3uYv14g
+	pJthQzcjtDVxataL1D/+DMkclvOG7nqjcH2Xes4FOxsktbXlcOQQV8H1bItlSGFXZhfGA1J7YEbiY
+	1XMN2F7w9yClzt79NLFaIi8hHfi3NR45i5q0uGe6bwXBAN9imtHkKnzTJ729F5b9sGWr9edth5VH+
+	rDbRUBHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdXkW-00000009CpF-0IcL;
-	Thu, 30 Jan 2025 16:50:40 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tdXmn-00000009D9n-3Fxz;
+	Thu, 30 Jan 2025 16:53:01 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdXfR-00000009CGX-3bs5
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jan 2025 16:45:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5FEC3A41F72;
-	Thu, 30 Jan 2025 16:43:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9C2FC4CED2;
-	Thu, 30 Jan 2025 16:45:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738255524;
-	bh=jWf2CZnQEG7SXBVcZ508uMx8eAuNJOnmC6clM+twjls=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FKvn5QCOkmjdiW7oAvxSc53AAMbliawqVOmafoZBGgMUkKmyvWZEDSmgHMoULI265
-	 Czvx3xXh7pri/q2XDmdAJggeTXuumXpkNCGzFdh/FFC5i8JjVxHY5tNwAN4a2DbFGI
-	 /3Ge7T5ZCTdFiF9A695f99qEXU7XnGfRx3y8U20Oh+7qy/70naYUhuNrn5kTMsYTuW
-	 U2D/kTuia4LZEq7qynyoPn2X409eLvRg/Wdjq7RrroTj6dsOYZDDSlFNhkqu63aFwt
-	 FxLVcVl0evUzQJr5IWClNnoYuV4TUGdu8bQxghvDkmB+NVxFUW2I7F4V/rQBLuMQXU
-	 +8GcAn12P9cmw==
-Date: Thu, 30 Jan 2025 16:45:15 +0000
-From: Simon Horman <horms@kernel.org>
-To: Basharath Hussain Khaja <basharath@couthit.com>
-Subject: Re: [RFC v2 PATCH 04/10] net: ti: prueth: Adds link detection, RX
- and TX support.
-Message-ID: <20250130164515.GC13457@kernel.org>
-References: <20250124122353.1457174-1-basharath@couthit.com>
- <20250124123707.1457639-5-basharath@couthit.com>
+	id 1tdXlT-00000009Cvh-08bi;
+	Thu, 30 Jan 2025 16:51:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1738255896;
+	bh=mAQBhug8kTFaWXIgKrLg6ur+w+sEAPWP6vFltzVvb2s=;
+	h=From:To:Cc:Subject:Date:From;
+	b=nJFKBStsGoJaKDZBP2ke06ViAtAXjafy7Wr/ZyA9FrRNJS0Fovk6fMpdYTuzzuUHR
+	 /Ft0DMD83Vbh2MjUIyyakt+oMwWHCyDg8dd3G+LDC/E1CcPflSbknDtVKe9N+DHsVm
+	 40AlbgSw6/C3HwWf+83/hu0w4FeJWgh3gTBYFvpfZfiSBGAOTRP1ccKzi5v/A9ELPZ
+	 AyBB+FROG/9aI3x2BU7DMIBX6R8vuS8Cug3nHRPjMQ3+nkYDtmQWuKxsjQ/T2v86oS
+	 MxbiXnUW7pac0DGHLO0AMm4f4KVi/BzamMRgS2sqUKoIu1TZUB7k28tomZzm9VHEbS
+	 JeavKdJ7ZJI9Q==
+Received: from trenzalore.hitronhub.home (unknown [23.233.251.139])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: detlev)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 687E817E0147;
+	Thu, 30 Jan 2025 17:51:32 +0100 (CET)
+From: Detlev Casanova <detlev.casanova@collabora.com>
+To: linux-kernel@vger.kernel.org
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Alexey Charkov <alchark@gmail.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Jianfeng Liu <liujianfeng1994@gmail.com>,
+	Dragan Simic <dsimic@manjaro.org>,
+	FUKAUMI Naoki <naoki@radxa.com>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Johan Jonker <jbx6244@gmail.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	Sugar Zhang <sugar.zhang@rock-chips.com>,
+	Algea Cao <algea.cao@rock-chips.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	dri-devel@lists.freedesktop.org,
+	kernel@collabora.com
+Subject: [PATCH v3 0/2] Add HDMI audio on the Radxa ROCK 5B
+Date: Thu, 30 Jan 2025 11:45:16 -0500
+Message-ID: <20250130165126.2292107-1-detlev.casanova@collabora.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250124123707.1457639-5-basharath@couthit.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_084526_025555_FA604186 
-X-CRM114-Status: GOOD (  25.09  )
+X-CRM114-CacheID: sfid-20250130_085139_254080_C174BA45 
+X-CRM114-Status: GOOD (  15.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,106 +97,55 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: nm@ti.com, vigneshr@ti.com, tony@atomide.com, edumazet@google.com, krishna@couthit.com, pmohan@couthit.com, diogo.ivo@siemens.com, robh@kernel.org, javier.carrasco.cruz@gmail.com, praneeth@ti.com, m-karicheri2@ti.com, jacob.e.keller@intel.com, kuba@kernel.org, pabeni@redhat.com, devicetree@vger.kernel.org, conor+dt@kernel.org, schnelle@linux.ibm.com, mohan@couthit.com, richardcochran@gmail.com, prajith@ti.com, rogerq@kernel.org, ssantosh@kernel.org, linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org, rogerq@ti.com, srk@ti.com, pratheesh@ti.com, m-malladi@ti.com, netdev@vger.kernel.org, rdunlap@infradead.org, linux-kernel@vger.kernel.org, danishanwar@ti.com, afd@ti.com, andrew+netdev@lunn.ch, parvathi@couthit.com, krzk+dt@kernel.org, davem@davemloft.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 24, 2025 at 06:07:01PM +0530, Basharath Hussain Khaja wrote:
-> From: Roger Quadros <rogerq@ti.com>
-> 
-> Changes corresponding to link configuration such as speed and duplexity.
-> IRQ and handler initializations are performed for packet reception.Firmware
-> receives the packet from the wire and stores it into OCMC queue. Next, it
-> notifies the CPU via interrupt. Upon receiving the interrupt CPU will
-> service the IRQ and packet will be processed by pushing the newly allocated
-> SKB to upper layers.
-> 
-> When the user application want to transmit a packet, it will invoke
-> sys_send() which will inturn invoke the PRUETH driver, then it will write
-> the packet into OCMC queues. PRU firmware will pick up the packet and
-> transmit it on to the wire.
-> 
-> Signed-off-by: Roger Quadros <rogerq@ti.com>
-> Signed-off-by: Andrew F. Davis <afd@ti.com>
-> Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
-> Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
-> ---
->  drivers/net/ethernet/ti/icssm/icssm_prueth.c | 599 ++++++++++++++++++-
->  drivers/net/ethernet/ti/icssm/icssm_prueth.h |  46 ++
->  2 files changed, 640 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+To support HDMI audio on the rk3588 based devices, the generic HDMI
+Codec framework is used in the dw-hdmi-qp DRM bridge driver.
 
-...
+The implementation is mainly based on the downstream driver, ported to the
+generic HDMI Codec framework [1] recently merged in the master branch.
+The parameters computation has been kept as is and the data stored in the
+dw_hdmi_qp struct as been cleaned up.
 
-> +/**
-> + * icssm_emac_ndo_start_xmit - EMAC Transmit function
-> + * @skb: SKB pointer
-> + * @ndev: EMAC network adapter
-> + *
-> + * Called by the system to transmit a packet  - we queue the packet in
-> + * EMAC hardware transmit queue
-> + *
-> + * Return: success(NETDEV_TX_OK) or error code (typically out of desc's)
-> + */
-> +static int icssm_emac_ndo_start_xmit(struct sk_buff *skb,
-> +				     struct net_device *ndev)
+The table for the N values has been edited to reflect N recommended values
+as well as CTS recommended values.
 
-I think the return type of this function should be netdev_tx_t
-rather than int to match the signature of ndo_start_xmit
-in struct net_device_ops.
+The downstream kernel also implements a machine driver for HDMI audio but
+it is doing exactly what the simple-audio-card driver does, so use that
+instead in the ROCK 5B device tree.
 
-Flagged by W=1 build with clang-19
-(-Wincompatible-function-pointer-types-strict).
+Based on Linus' master branch.
 
-...
+[1]: https://lore.kernel.org/all/20241224-drm-bridge-hdmi-connector-v10-0-dc89577cd438@linaro.org/
 
->  static const struct net_device_ops emac_netdev_ops = {
->  	.ndo_open = icssm_emac_ndo_open,
->  	.ndo_stop = icssm_emac_ndo_stop,
-> +	.ndo_start_xmit = icssm_emac_ndo_start_xmit,
->  };
->  
->  /* get emac_port corresponding to eth_node name */
+Changes since v2:
+ - Also clear the audio infoframe
+ - Write AUDI_CONTENTS0 to its default value in case it gets overwritten.
+ - Store tmds_char_rate in the dw_hdmi_qp struct in atomic_enable
+ - Clear tmds_char_rate in atomic_disable and only write registers when
+   tmds_char_rate is not 0.
+ - Do not use connector_state duplicates
 
-...
+Changes since v1:
+ - Remove useless audio_mutex (was used downstream for multiple drivers access
+   to audio functions)
+ - Let hdmi_codec build and setup audio infoframes
+ - Only access audio registers when connector is connected
+ - Rebased on master branch
 
-> diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.h b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
+Detlev Casanova (1):
+  arm64: dts: rockchip: Add HDMI0 audio output on rock-5b
 
-...
+Sugar Zhang (1):
+  drm/bridge: synopsys: Add audio support for dw-hdmi-qp
 
-> @@ -76,6 +82,32 @@ struct prueth_queue_info {
->  	u16 buffer_desc_end;
->  } __packed;
->  
-> +/**
-> + * struct prueth_packet_info - Info about a packet in buffer
-> + * @start_offset: start offset of the frame in the buffer for HSR/PRP
-> + * @shadow: this packet is stored in the collision queue
-> + * @port: port packet is on
-> + * @length: length of packet
-> + * @broadcast: this packet is a broadcast packet
-> + * @error: this packet has an error
-> + * @sv_frame: indicate if the frame is a SV frame for HSR/PRP
-> + * @lookup_success: src mac found in FDB
-> + * @flood: packet is to be flooded
-> + * @timstamp: Specifies if timestamp is appended to the packet
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |   1 +
+ .../boot/dts/rockchip/rk3588-rock-5b.dts      |  19 +
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c  | 497 ++++++++++++++++++
+ 3 files changed, 517 insertions(+)
 
-nit: @timestamp
+-- 
+2.48.1
 
-> + */
-> +struct prueth_packet_info {
-> +	bool start_offset;
-> +	bool shadow;
-> +	unsigned int port;
-> +	unsigned int length;
-> +	bool broadcast;
-> +	bool error;
-> +	bool sv_frame;
-> +	bool lookup_success;
-> +	bool flood;
-> +	bool timestamp;
-> +};
-
-...
 
