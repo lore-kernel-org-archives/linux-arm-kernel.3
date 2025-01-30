@@ -4,109 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C006FC0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jan 2025 23:42:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74D25C02193
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 00:04:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1OjX1ogDdvmraNsSvnCV/LLgJIOf11RqUSoMe7H/ceU=; b=J+HmOIMfCa00MjYRlhs7aA55sb
-	oQBkThsYfAw1FZfHXkNiAa7cZvcUMH2BEAGLNvwtX8eNOgiEFVZ2RBVrsu/dCLKCu2w+/0/MUjDgi
-	3GqIN0a2dIdO9L+9t43ptnHuMCOvffCiwWz0S9JqHHkeuGiUju1PESBGz9qu/NEczfU9Tps51exh5
-	+pg7OBMQTMNwGxFGUupTpH/1UtP56nIeQ3++dho1t629VmSfAndcHZV+SlW9IroXhKrQ9710J8EVF
-	TsYTCxl9RK2i4v0EUzLZUp3W86+bwC85C+tKqbqXY9Nxa1HT0IG/2oC5DDU/GmLKKaSncqF8eH0aY
-	ubeQs6Tg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s/sWxNAPnxEZbenKOf7N+j5g5zHNpFBMXZn1jjqHCpE=; b=ygRaGtv7aIkFkY8v0Peq3V7Woo
+	pTN9PhDuIEkEWbzl4ip5UrM2wtsAXtdaXGQVZd0DoVikqSz/OOxi9USKwSuM00EeqWeEw1Zqz8a+F
+	BtBch00jx4HS4XYNEi0pjOuV7Tq+QRULLxMs14az//vWTv5ChZU04oZt3BpARnRZtUSzrq+yDfsXj
+	HNMGSAw128xtV7uRSbLXIu93Omg5biMgpUUjp2h6w4lLLe2bURMX2IaS4adqlLBDQ1jY+2AlgQjk4
+	Aga3qT2/pLXVfV5ke18fXLuPeykDRsYsxrEAOLK6KOisIc8OTpabiu/a2vlcHmjKQVylruAoj9FXt
+	zOuiPpug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdHhf-00000007yMK-1MrA;
-	Wed, 29 Jan 2025 23:42:39 +0000
-Received: from [170.10.133.124] (helo=us-smtp-delivery-124.mimecast.com)
+	id 1tdI2q-00000007zD0-17V8;
+	Thu, 30 Jan 2025 00:04:32 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdHgJ-00000007yFL-2WPJ
+	id 1tdI1V-00000007z8l-0Z1B
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jan 2025 23:41:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1738194074;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1OjX1ogDdvmraNsSvnCV/LLgJIOf11RqUSoMe7H/ceU=;
-	b=W8KP6UOhxUxH4RFHnPF/C0Nb+oZl9gKePRRuoA6wqUt75CJgFNxhOTYL+9qniW7JYsnQeB
-	gc7pJ5WGZWueieUmwBZC6C7zWETXExXjdPFCTvDAEYmmcBYMPRfHH26fYhWB09+EvzVBmS
-	kdMutAXxydLHBRY7ex5KPgPSqusTJE8=
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com
- [209.85.216.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-86-H8kcSsuKNJOOcnh3I1Fs_g-1; Wed, 29 Jan 2025 18:41:13 -0500
-X-MC-Unique: H8kcSsuKNJOOcnh3I1Fs_g-1
-X-Mimecast-MFC-AGG-ID: H8kcSsuKNJOOcnh3I1Fs_g
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-2ee3206466aso2482962a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jan 2025 15:41:12 -0800 (PST)
+	Thu, 30 Jan 2025 00:03:10 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-21625b4f978so52985ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jan 2025 16:03:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1738195388; x=1738800188; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=s/sWxNAPnxEZbenKOf7N+j5g5zHNpFBMXZn1jjqHCpE=;
+        b=XGJB5P43TwCPVC/ZkqqTdaTZB5Y2GKIy5CJGYAz7mRMR/Z2bRVYjvznkQjbUmgW9Dn
+         E/tD74AJpkJtC+/OCFk4ZUA3lBNcFkiT/BE3yEE/NlJRLKnwSoeVVLqo8kRbLyvjKE22
+         s19S0gbj+wKLaVbgrc0ic/Tebp2uHdZkjoUNju/Ewol5GNyVvb6VZTXMljBNjgBoDNwP
+         ToKnwzHkgT2XUMI9rFOZtqBpdGFDbKZLDGgEdjhsxRpfkKQVVcNk76WaYOTpSNUhJd3e
+         t/ZM7Hez8FmECvfpXYLLJiW/OaYbCIMUiHirEWNgE3ReZEdeGaLRbsC/yqN10fNvQjm7
+         Ncaw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738194072; x=1738798872;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=1OjX1ogDdvmraNsSvnCV/LLgJIOf11RqUSoMe7H/ceU=;
-        b=dyFk97nFXktx/EJK1laIMbjv4gse8zYnmNDloQlIiAHu1WbmXni4VCKGH5LOPhHlNn
-         Laem1j5jsOWn9XB9ZOAcK9PG1WdfDVnY0q0bai2/szzl43xk0tFlFTGK/xkHBV58wi6i
-         nTQ7hPOWPmW9F+m15XvW3fijjmxX8K2q8JSZi+B/p6QA2VNifAESmaL3FT4IrWI8HZku
-         TVEk8XbzW40//Mbol+FH1uRTrBASuu6OJCKW/H4kF6GknWGXBfSoxACtEMxQskX6T+SW
-         npcrLkRn/b6mW3Bh/byTOohTSJmXd31zFIb6QpBYEhWt4Fz0eSnhPU1GDMdwfSnCH+8y
-         5K3Q==
-X-Forwarded-Encrypted: i=1; AJvYcCV5rAmI2XokO4wYHqFyEm/1bjQxWG/8FRoy7lkoog+qPR2hJ7F3NKZliFJjHdPC5nGXPXzCbzyGPJyqWai3NYLJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrUODx/RbmXDgZTEiG7baOde9t/A93nW4vU2mVmHAsxD28jKkT
-	E49mGVYM72cGTw+y4kDPkNrkDCg2bgN7Mmg7zTIBwHtFlXynmSyb7jNHHdigECDRHsiz8/ZKXia
-	4IanKBcEvUm/cskrvUk7F3FPAJVOqic6eNtwyH3GkWC/a17+IVx9hhEEms/INHpj0Dadho+EQ
-X-Gm-Gg: ASbGncvN8WqEArIq35AFBtn7Pvc+tRSecWbGkyL69yzUscct9DBaiMfLURJyU41YQC+
-	OsTBcbrUCA0hmKxokb/FRZiF9l16c0tr1KU2YkOA7mH2uKN+i3/vcqIT7x+jiP9YALzmntWDALF
-	1rziCM6MIvSTYc4sZPDSQbNiYOXep4FQLuAFo9bp9BVUMmURarpyExv+kf5QtLyoBMGjLzBbODf
-	wEaM48WRcE2H7EqMaVHoHLfTERvfMOWZgsTZ8NQW3RRTSl1WzjNiXJpFWuy8AjeDRab28CtgsbV
-	vA2B3w==
-X-Received: by 2002:a05:6a20:2daa:b0:1e1:a48f:1212 with SMTP id adf61e73a8af0-1ed872d98f8mr1676790637.4.1738194071717;
-        Wed, 29 Jan 2025 15:41:11 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHEd9JUeOdAx37loQHXRZGEogWIpCGvf9GFta9HZbt8S95SHOEvwOHBvlaUD+M1mUL7BsZtaQ==
-X-Received: by 2002:a05:6a20:2daa:b0:1e1:a48f:1212 with SMTP id adf61e73a8af0-1ed872d98f8mr1676753637.4.1738194071331;
-        Wed, 29 Jan 2025 15:41:11 -0800 (PST)
-Received: from [192.168.68.55] ([180.233.125.64])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72fe6a1a766sm40592b3a.161.2025.01.29.15.41.04
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 29 Jan 2025 15:41:10 -0800 (PST)
-Message-ID: <18faf27b-f430-4e68-9122-28f439d3bbbd@redhat.com>
-Date: Thu, 30 Jan 2025 09:41:02 +1000
+        d=1e100.net; s=20230601; t=1738195388; x=1738800188;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=s/sWxNAPnxEZbenKOf7N+j5g5zHNpFBMXZn1jjqHCpE=;
+        b=mas37ieMgEeQVRatB4v9TphGEdaOyHT9s+HlKOWhVcJ1AGAhn38lv+AI9uVKNFv02/
+         0CKOEamVzGVo0Ry5qHgxQAdvl5iYak8vLGIBScnhM8hqp9w8ffTrbSjMxf58UvW9INWm
+         hzpkKUNNbBb3PItuhbET/nUFuA9DZXmslvdr9JLAh7b+S0DDuyJz0cAwuP3a9zdW6qfO
+         VdGdWz9yzf88dbksTvSy6DDUuKSAp8ClamGkYpnTlgPdSTWQZZ8kysYmgd1JQN/GgkZS
+         +i7CwdIAH5iZTdxebSTVfydLhw6CToyFUVh2mDfT8AouP1Z9yt0jN2omB17Q2CHfdkA+
+         zrig==
+X-Forwarded-Encrypted: i=1; AJvYcCVgRqPkptJt5u+w3jU3TN5UtFIokWx3ZwUFSYzWM3dD+uJ/v9+oK3SOl3yLAMtupGCGc1mEZOt+tmSu+A48sEp+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy2qblFd/SP287my2Wej+Z8dNr7kFDj3+AoEOL1w9VmWDNIcxC6
+	r863bhX8zp9foatqXeETtF6NAGOW61ftdsiM3AHOzWdr9gOk1JQHl55eJnZqqg==
+X-Gm-Gg: ASbGncuXp3kH7bsXy2rO88dK+NhNZjiqDSu77YD34mla7NpsdfchHUJnDqzROcRFHzp
+	vrZq9OOGnfiX4826HBX3SaQVXqSYt5igvpwtM01M4F0uT4GM8JtUCFfH2DP7r0a3Ce18rj04b8b
+	brWASYsJ4aQhQtw9n48R2445eqGSyjvKNVuH00vByQmG88ToM3dXfui1DAARvWiZaaFX9V3Jwm1
+	qvg64gV1w0j13U2V/N9e820JFZua+EVhFXu6xXlhwbFQo5zRqeqN8VrP066E49Ukc33QxTMSzkX
+	Tk+jDjnb1D2ZYavHj9aR6nBllkqg0aONCPV4kRJ5lrKjyiP6Chw=
+X-Google-Smtp-Source: AGHT+IE/F0VzN3ET6T5NQ93cCyrPvlKbgWQX6l9EQyxxToYjZ5gVa1o2Iroc9xQVHfCVOmJeGyKC/g==
+X-Received: by 2002:a17:902:7447:b0:21a:5501:9d3 with SMTP id d9443c01a7336-21de36ce371mr481865ad.21.1738195387986;
+        Wed, 29 Jan 2025 16:03:07 -0800 (PST)
+Received: from google.com (55.131.16.34.bc.googleusercontent.com. [34.16.131.55])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f83bccc8a5sm2405786a91.17.2025.01.29.16.03.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 29 Jan 2025 16:03:07 -0800 (PST)
+Date: Thu, 30 Jan 2025 00:03:03 +0000
+From: Peilin Ye <yepeilin@google.com>
+To: Eduard Zingerman <eddyz87@gmail.com>
+Cc: bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, bpf@ietf.org,
+	Xu Kuohai <xukuohai@huaweicloud.com>,
+	David Vernet <void@manifault.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>,
+	Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Quentin Monnet <qmo@kernel.org>,
+	Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>,
+	Josh Don <joshdon@google.com>, Barret Rhoden <brho@google.com>,
+	Neel Natu <neelnatu@google.com>,
+	Benjamin Segall <bsegall@google.com>, linux-kernel@vger.kernel.org,
+	Ihor Solodrai <ihor.solodrai@linux.dev>
+Subject: Re: [PATCH bpf-next v1 7/8] selftests/bpf: Add selftests for
+ load-acquire and store-release instructions
+Message-ID: <Z5rBtxNnGHjJaZEt@google.com>
+References: <cover.1737763916.git.yepeilin@google.com>
+ <3f2de7c6e5d2def7bdfb091347c1dacea0915974.1737763916.git.yepeilin@google.com>
+ <131a817f7f2749e78e527a251ca7971588cf62f8.camel@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 17/43] arm64: RME: Handle realm enter/exit
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-References: <20241212155610.76522-1-steven.price@arm.com>
- <20241212155610.76522-18-steven.price@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20241212155610.76522-18-steven.price@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: mtGrOL1_Ez8fMofY15OHIO2xXwHMsZYoDoDX12JLO60_1738194072
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <131a817f7f2749e78e527a251ca7971588cf62f8.camel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250129_154115_799883_AAC3750A 
-X-CRM114-Status: GOOD (  41.64  )
+X-CRM114-CacheID: sfid-20250129_160309_171539_EE1784A7 
+X-CRM114-Status: GOOD (  21.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,359 +118,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/13/24 1:55 AM, Steven Price wrote:
-> Entering a realm is done using a SMC call to the RMM. On exit the
-> exit-codes need to be handled slightly differently to the normal KVM
-> path so define our own functions for realm enter/exit and hook them
-> in if the guest is a realm guest.
+On Tue, Jan 28, 2025 at 05:06:03PM -0800, Eduard Zingerman wrote:
+> On Sat, 2025-01-25 at 02:19 +0000, Peilin Ye wrote:
+> > All new tests depend on the pre-defined __BPF_FEATURE_LOAD_ACQ_STORE_REL
+> > feature macro, which implies -mcpu>=v4.
 > 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
-> Changes since v5:
->   * For a RIPAS_CHANGE request from the guest perform the actual RIPAS
->     change on next entry rather than immediately on the exit. This allows
->     the VMM to 'reject' a RIPAS change by refusing to continue
->     scheduling.
-> Changes since v4:
->   * Rename handle_rme_exit() to handle_rec_exit()
->   * Move the loop to copy registers into the REC enter structure from the
->     to rec_exit_handlers callbacks to kvm_rec_enter(). This fixes a bug
->     where the handler exits to user space and user space wants to modify
->     the GPRS.
->   * Some code rearrangement in rec_exit_ripas_change().
-> Changes since v2:
->   * realm_set_ipa_state() now provides an output parameter for the
->     top_iap that was changed. Use this to signal the VMM with the correct
->     range that has been transitioned.
->   * Adapt to previous patch changes.
-> ---
->   arch/arm64/include/asm/kvm_rme.h |   3 +
->   arch/arm64/kvm/Makefile          |   2 +-
->   arch/arm64/kvm/arm.c             |  19 +++-
->   arch/arm64/kvm/rme-exit.c        | 167 +++++++++++++++++++++++++++++++
->   arch/arm64/kvm/rme.c             |  48 +++++++++
->   5 files changed, 233 insertions(+), 6 deletions(-)
->   create mode 100644 arch/arm64/kvm/rme-exit.c
+> This restriction would mean that tests are skipped on BPF CI, as it
+> currently runs using llvm 17 and 18. Instead, I suggest using some
+> macro hiding an inline assembly as below:
 > 
-> diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/asm/kvm_rme.h
-> index 4e7758f0e4b5..0410650cd545 100644
-> --- a/arch/arm64/include/asm/kvm_rme.h
-> +++ b/arch/arm64/include/asm/kvm_rme.h
-> @@ -92,6 +92,9 @@ void kvm_realm_destroy_rtts(struct kvm *kvm, u32 ia_bits);
->   int kvm_create_rec(struct kvm_vcpu *vcpu);
->   void kvm_destroy_rec(struct kvm_vcpu *vcpu);
->   
-> +int kvm_rec_enter(struct kvm_vcpu *vcpu);
-> +int handle_rec_exit(struct kvm_vcpu *vcpu, int rec_run_status);
-> +
->   void kvm_realm_unmap_range(struct kvm *kvm,
->   			   unsigned long ipa,
->   			   u64 size,
-> diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
-> index ce8a10d3161d..0170e902fb63 100644
-> --- a/arch/arm64/kvm/Makefile
-> +++ b/arch/arm64/kvm/Makefile
-> @@ -24,7 +24,7 @@ kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o pvtime.o \
->   	 vgic/vgic-mmio.o vgic/vgic-mmio-v2.o \
->   	 vgic/vgic-mmio-v3.o vgic/vgic-kvm-device.o \
->   	 vgic/vgic-its.o vgic/vgic-debug.o \
-> -	 rme.o
-> +	 rme.o rme-exit.o
->   
->   kvm-$(CONFIG_HW_PERF_EVENTS)  += pmu-emul.o pmu.o
->   kvm-$(CONFIG_ARM64_PTR_AUTH)  += pauth.o
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index ab00fb7a8ece..6e83b2e3a6cf 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -1264,7 +1264,10 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
->   		trace_kvm_entry(*vcpu_pc(vcpu));
->   		guest_timing_enter_irqoff();
->   
-> -		ret = kvm_arm_vcpu_enter_exit(vcpu);
-> +		if (vcpu_is_rec(vcpu))
-> +			ret = kvm_rec_enter(vcpu);
-> +		else
-> +			ret = kvm_arm_vcpu_enter_exit(vcpu);
->   
->   		vcpu->mode = OUTSIDE_GUEST_MODE;
->   		vcpu->stat.exits++;
-> @@ -1318,10 +1321,13 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
->   
->   		local_irq_enable();
->   
-> -		trace_kvm_exit(ret, kvm_vcpu_trap_get_class(vcpu), *vcpu_pc(vcpu));
-> -
->   		/* Exit types that need handling before we can be preempted */
-> -		handle_exit_early(vcpu, ret);
-> +		if (!vcpu_is_rec(vcpu)) {
-> +			trace_kvm_exit(ret, kvm_vcpu_trap_get_class(vcpu),
-> +				       *vcpu_pc(vcpu));
-> +
-> +			handle_exit_early(vcpu, ret);
-> +		}
->   
->   		preempt_enable();
->   
-> @@ -1344,7 +1350,10 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
->   			ret = ARM_EXCEPTION_IL;
->   		}
->   
-> -		ret = handle_exit(vcpu, ret);
-> +		if (vcpu_is_rec(vcpu))
-> +			ret = handle_rec_exit(vcpu, ret);
-> +		else
-> +			ret = handle_exit(vcpu, ret);
->   	}
->   
->   	/* Tell userspace about in-kernel device output levels */
-> diff --git a/arch/arm64/kvm/rme-exit.c b/arch/arm64/kvm/rme-exit.c
-> new file mode 100644
-> index 000000000000..e532aa80e10d
-> --- /dev/null
-> +++ b/arch/arm64/kvm/rme-exit.c
-> @@ -0,0 +1,167 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2023 ARM Ltd.
-> + */
-> +
-> +#include <linux/kvm_host.h>
-> +#include <kvm/arm_hypercalls.h>
-> +#include <kvm/arm_psci.h>
-> +
-> +#include <asm/rmi_smc.h>
-> +#include <asm/kvm_emulate.h>
-> +#include <asm/kvm_rme.h>
-> +#include <asm/kvm_mmu.h>
-> +
-> +typedef int (*exit_handler_fn)(struct kvm_vcpu *vcpu);
-> +
-> +static int rec_exit_reason_notimpl(struct kvm_vcpu *vcpu)
-> +{
-> +	struct realm_rec *rec = &vcpu->arch.rec;
-> +
-> +	pr_err("[vcpu %d] Unhandled exit reason from realm (ESR: %#llx)\n",
-> +	       vcpu->vcpu_id, rec->run->exit.esr);
-> +	return -ENXIO;
-> +}
-> +
+> 	asm volatile (".8byte %[insn];"
+> 	              :
+> 	              : [insn]"i"(*(long *)&(BPF_RAW_INSN(...)))
+> 	              : /* correct clobbers here */);
+> 
+> See the usage of the __imm_insn() macro in the test suite.
 
-vcpu_err() can be used here since 'vcpu->vcpu_id' is only sensible to one
-particular VM. The VMM's PID is also printed by vcpu_err().
+I see, I'll do this in v2.
 
-> +static int rec_exit_sync_dabt(struct kvm_vcpu *vcpu)
-> +{
-> +	return kvm_handle_guest_abort(vcpu);
-> +}
-> +
-> +static int rec_exit_sync_iabt(struct kvm_vcpu *vcpu)
-> +{
-> +	struct realm_rec *rec = &vcpu->arch.rec;
-> +
-> +	pr_err("[vcpu %d] Unhandled instruction abort (ESR: %#llx).\n",
-> +	       vcpu->vcpu_id, rec->run->exit.esr);
-> +	return -ENXIO;
-> +}
-> +
+> Also, "BPF_ATOMIC loads from R%d %s is not allowed\n" and
+>       "BPF_ATOMIC stores into R%d %s is not allowed\n"
+> situations are not tested.
 
-s/pr_err/vcpu_err
+Thanks!
 
-> +static int rec_exit_sys_reg(struct kvm_vcpu *vcpu)
-> +{
-> +	struct realm_rec *rec = &vcpu->arch.rec;
-> +	unsigned long esr = kvm_vcpu_get_esr(vcpu);
-> +	int rt = kvm_vcpu_sys_get_rt(vcpu);
-> +	bool is_write = !(esr & 1);
-> +	int ret;
-> +
-> +	if (is_write)
-> +		vcpu_set_reg(vcpu, rt, rec->run->exit.gprs[0]);
-> +
-> +	ret = kvm_handle_sys_reg(vcpu);
-> +
-> +	if (ret >= 0 && !is_write)
-> +		rec->run->enter.gprs[0] = vcpu_get_reg(vcpu, rt);
-> +
-> +	return ret;
-> +}
-> +
-> +static exit_handler_fn rec_exit_handlers[] = {
-> +	[0 ... ESR_ELx_EC_MAX]	= rec_exit_reason_notimpl,
-> +	[ESR_ELx_EC_SYS64]	= rec_exit_sys_reg,
-> +	[ESR_ELx_EC_DABT_LOW]	= rec_exit_sync_dabt,
-> +	[ESR_ELx_EC_IABT_LOW]	= rec_exit_sync_iabt
-> +};
-> +
-> +static int rec_exit_psci(struct kvm_vcpu *vcpu)
-> +{
-> +	struct realm_rec *rec = &vcpu->arch.rec;
-> +	int i;
-> +
-> +	for (i = 0; i < REC_RUN_GPRS; i++)
-> +		vcpu_set_reg(vcpu, i, rec->run->exit.gprs[i]);
-> +
-> +	return kvm_smccc_call_handler(vcpu);
-> +}
-> +
-> +static int rec_exit_ripas_change(struct kvm_vcpu *vcpu)
-> +{
-> +	struct kvm *kvm = vcpu->kvm;
-> +	struct realm *realm = &kvm->arch.realm;
-> +	struct realm_rec *rec = &vcpu->arch.rec;
-> +	unsigned long base = rec->run->exit.ripas_base;
-> +	unsigned long top = rec->run->exit.ripas_top;
-> +	unsigned long ripas = rec->run->exit.ripas_value;
-> +
-> +	if (!realm_is_addr_protected(realm, base) ||
-> +	    !realm_is_addr_protected(realm, top - 1)) {
-> +		kvm_err("Invalid RIPAS_CHANGE for %#lx - %#lx, ripas: %#lx\n",
-> +			base, top, ripas);
-> +		return -EINVAL;
-> +	}
+> > --- a/tools/testing/selftests/bpf/prog_tests/atomics.c
+> > +++ b/tools/testing/selftests/bpf/prog_tests/atomics.c
+> > @@ -162,6 +162,56 @@ static void test_xchg(struct atomics_lskel *skel)
+> >  	ASSERT_EQ(skel->bss->xchg32_result, 1, "xchg32_result");
+> >  }
+> 
+> Nit: Given the tests in verifier_load_acquire.c and verifier_store_release.c
+>      that use __retval annotation, are these tests really necessary?
+>      (assuming that verifier_store_release.c tests are modified to read
+>       stored location into r0 before exit).
+> 
+> > +static void test_load_acquire(struct atomics_lskel *skel)
 
-s/kvm_err/vcpu_err
+Ah, right.  I'll drop them and modify verifier_store_release.c
+accordingly.
 
-> +
-> +	/* Exit to VMM, the actual RIPAS change is done on next entry */
-> +	kvm_prepare_memory_fault_exit(vcpu, base, top - base, false, false,
-> +				      ripas == RMI_RAM);
-> +
-> +	return 0;
-> +}
-> +
-> +static void update_arch_timer_irq_lines(struct kvm_vcpu *vcpu)
-> +{
-> +	struct realm_rec *rec = &vcpu->arch.rec;
-> +
-> +	__vcpu_sys_reg(vcpu, CNTV_CTL_EL0) = rec->run->exit.cntv_ctl;
-> +	__vcpu_sys_reg(vcpu, CNTV_CVAL_EL0) = rec->run->exit.cntv_cval;
-> +	__vcpu_sys_reg(vcpu, CNTP_CTL_EL0) = rec->run->exit.cntp_ctl;
-> +	__vcpu_sys_reg(vcpu, CNTP_CVAL_EL0) = rec->run->exit.cntp_cval;
-> +
-> +	kvm_realm_timers_update(vcpu);
-> +}
-> +
-> +/*
-> + * Return > 0 to return to guest, < 0 on error, 0 (and set exit_reason) on
-> + * proper exit to userspace.
-> + */
-> +int handle_rec_exit(struct kvm_vcpu *vcpu, int rec_run_ret)
-> +{
-> +	struct realm_rec *rec = &vcpu->arch.rec;
-> +	u8 esr_ec = ESR_ELx_EC(rec->run->exit.esr);
-> +	unsigned long status, index;
-> +
-> +	status = RMI_RETURN_STATUS(rec_run_ret);
-> +	index = RMI_RETURN_INDEX(rec_run_ret);
-> +
-> +	/*
-> +	 * If a PSCI_SYSTEM_OFF request raced with a vcpu executing, we might
-> +	 * see the following status code and index indicating an attempt to run
-> +	 * a REC when the RD state is SYSTEM_OFF.  In this case, we just need to
-> +	 * return to user space which can deal with the system event or will try
-> +	 * to run the KVM VCPU again, at which point we will no longer attempt
-> +	 * to enter the Realm because we will have a sleep request pending on
-> +	 * the VCPU as a result of KVM's PSCI handling.
-> +	 */
-> +	if (status == RMI_ERROR_REALM && index == 1) {
-> +		vcpu->run->exit_reason = KVM_EXIT_UNKNOWN;
-> +		return 0;
-> +	}
-> +
-> +	if (rec_run_ret)
-> +		return -ENXIO;
-> +
-> +	vcpu->arch.fault.esr_el2 = rec->run->exit.esr;
-> +	vcpu->arch.fault.far_el2 = rec->run->exit.far;
-> +	vcpu->arch.fault.hpfar_el2 = rec->run->exit.hpfar;
-> +
-> +	update_arch_timer_irq_lines(vcpu);
-> +
-> +	/* Reset the emulation flags for the next run of the REC */
-> +	rec->run->enter.flags = 0;
-> +
-> +	switch (rec->run->exit.exit_reason) {
-> +	case RMI_EXIT_SYNC:
-> +		return rec_exit_handlers[esr_ec](vcpu);
-> +	case RMI_EXIT_IRQ:
-> +	case RMI_EXIT_FIQ:
-> +		return 1;
-> +	case RMI_EXIT_PSCI:
-> +		return rec_exit_psci(vcpu);
-> +	case RMI_EXIT_RIPAS_CHANGE:
-> +		return rec_exit_ripas_change(vcpu);
-> +	}
-> +
-> +	kvm_pr_unimpl("Unsupported exit reason: %u\n",
-> +		      rec->run->exit.exit_reason);
+> > --- a/tools/testing/selftests/bpf/progs/arena_atomics.c
+> > +++ b/tools/testing/selftests/bpf/progs/arena_atomics.c
+> [...]
+> 
+> > +SEC("raw_tp/sys_enter")
+> > +int load_acquire(const void *ctx)
+> > +{
+> > +	if (pid != (bpf_get_current_pid_tgid() >> 32))
+> > +		return 0;
+> 
+> Nit: This check is not needed, since bpf_prog_test_run_opts() is used
+>      to run the tests.
 
-s/kvm_pr_unimpl/vcpu_pr_unimpl
-
-> +	vcpu->run->exit_reason = KVM_EXIT_INTERNAL_ERROR;
-> +	return 0;
-> +}
-> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
-> index e8ad04405ecd..22f0c74455af 100644
-> --- a/arch/arm64/kvm/rme.c
-> +++ b/arch/arm64/kvm/rme.c
-> @@ -842,6 +842,54 @@ void kvm_destroy_realm(struct kvm *kvm)
->   	kvm_free_stage2_pgd(&kvm->arch.mmu);
->   }
->   
-> +static void kvm_complete_ripas_change(struct kvm_vcpu *vcpu)
-> +{
-> +	struct kvm *kvm = vcpu->kvm;
-> +	struct realm_rec *rec = &vcpu->arch.rec;
-> +	unsigned long base = rec->run->exit.ripas_base;
-> +	unsigned long top = rec->run->exit.ripas_top;
-> +	unsigned long ripas = rec->run->exit.ripas_value;
-> +	unsigned long top_ipa;
-> +	int ret;
-> +
-> +	do {
-> +		kvm_mmu_topup_memory_cache(&vcpu->arch.mmu_page_cache,
-> +					   kvm_mmu_cache_min_pages(vcpu->arch.hw_mmu));
-> +		write_lock(&kvm->mmu_lock);
-> +		ret = realm_set_ipa_state(vcpu, base, top, ripas, &top_ipa);
-> +		write_unlock(&kvm->mmu_lock);
-> +
-> +		if (WARN(ret && ret != -ENOMEM,
-> +			 "Unable to satisfy RIPAS_CHANGE for %#lx - %#lx, ripas: %#lx\n",
-> +			 base, top, ripas))
-> +			break;
-> +
-> +		base = top_ipa;
-> +	} while (top_ipa < top);
-> +}
-> +
-> +int kvm_rec_enter(struct kvm_vcpu *vcpu)
-> +{
-> +	struct realm_rec *rec = &vcpu->arch.rec;
-> +
-> +	switch (rec->run->exit.exit_reason) {
-> +	case RMI_EXIT_HOST_CALL:
-> +	case RMI_EXIT_PSCI:
-> +		for (int i = 0; i < REC_RUN_GPRS; i++)
-> +			rec->run->enter.gprs[i] = vcpu_get_reg(vcpu, i);
-> +		break;
-> +	case RMI_EXIT_RIPAS_CHANGE:
-> +		kvm_complete_ripas_change(vcpu);
-> +		break;
-> +	}
-> +
-> +	if (kvm_realm_state(vcpu->kvm) != REALM_STATE_ACTIVE)
-> +		return -EINVAL;
-> +
-> +	return rmi_rec_enter(virt_to_phys(rec->rec_page),
-> +			     virt_to_phys(rec->run));
-> +}
-> +
->   static void free_rec_aux(struct page **aux_pages,
->   			 unsigned int num_aux)
->   {
+Got it!
 
 Thanks,
-Gavin
+Peilin Ye
 
 
