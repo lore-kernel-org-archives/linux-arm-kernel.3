@@ -4,83 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B7E9C02190
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 10:07:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08A4CC02190
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 10:08:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iZ/DDV44XiE8BW+IR4YoYg+wUgkVU1ZjLVw3hTHYaB8=; b=yXSkeyVoMiMCKdW3SLgIskVFq+
-	LIlPMpC0/H4Q66gHSTcrkyZzP5HovLGcSRQwrU+4xN7AnlB7nmleeDLOMfeucsS6wJyGDlBwh1jpc
-	QO1W908iEJqvn2vdZM53o0isYKIok41B6EBjnuxsXVMC//TQwpTGiFWa7hZB4R9YCpAhu1yymUzm/
-	pwiNupy0ngMX/W3KSsk5ppxJjlnDAPyhiPr5juVBE/X57v0vymtGlzbN5HU77dW3nrj5IsQm9nqEN
-	rhNuKixS8dopnKY8hYl4xdCPpOFnWEoFWja9E+RG3+E+RUHak6XdZRb8C8VjmhYTDoGiTf4kgrp7e
-	i08gvfcw==;
+	bh=/xgSZrYTjR4wYm9y2TJ/8whEMF1KaaIbp8HFp2h/RHw=; b=fjUfOdUrHMZ1jHjTm3YhOv5PsB
+	305QfAup+cFyKW/DQkJsCJrK2/8gFILjSVrnr1YyMc7gGSptvHhYrJLVQ6pL2epe7Fw/UvmGpn+Dz
+	puKEveSqbur6xOi+QXmCTIh8iCq+jk13+iaKxvHy5/4cb01z+p4Il8Tc3RDlw0EAeAKvNWBSgoAEi
+	Uchiqh694+4Ro3aXtCxeYH5l9eckrgVn6IGRhGYZ4nsTUjHJau4clFyDULBwBEUbq1sIeuFB4ZTxD
+	dx2/YdokkvY/suKjRQDWAnPqsC2VsjIrsyCq+PZssyTB/3Kf9lL76NcaEX7cIeOW9u0f+pA6LbOJQ
+	TPYe0t1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdRRv-00000008aKM-21Hn;
-	Thu, 30 Jan 2025 10:07:03 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tdRTM-00000008aUG-0nDf;
+	Thu, 30 Jan 2025 10:08:32 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdRQb-00000008a8L-2LBO
+	id 1tdRRz-00000008aLV-2JMh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jan 2025 10:05:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 930855C5F1C
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jan 2025 10:05:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53160C4CEE3
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jan 2025 10:05:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738231540;
-	bh=C9wDU7pwLV0RekbM8uxPv1jXFKPR+bcAS3GXMtcE3tI=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=anMHB3O1uGd7PYynvgIMeTrWouTqRQvsxUW2grYkkiiAKkxil/6+sPJIj4GoM4B7l
-	 PwYHoG0s2SrWwjer/X5q1U0tbtI+/aldwSYISCLNiqH6Hq/qWx7I3jJOM64b4wME+Z
-	 nxGrrscLuD/JPs8rmrbcVJYXYuKlMsqOnpPk+fOqlmNBuZMquRQxHcsJhHapkLDpy4
-	 17v78NFHEL8YTysyJHPFfmJj4hFHlgjbln2mj5UbGceV4j3JD7Gk2/5SjAmhCjQWdA
-	 54P2fJhYK1YoI4sbI/yrNuQvKgyBGNUac9z3gkrXJO/YsGJN6/chTMWYcgumfZ9MLl
-	 wFLiCTKjVWB0g==
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-53e3778bffdso648634e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jan 2025 02:05:40 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCW1gwzJ51E6OXQkGelvsp0Mhc5tIiQHsIw1K+VzMvoKnJHPMla6V+j4yEtqkFrn/E2zizjUuN6AYpLBdkVDnosj@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3icvdwapnGs5/ex3LYWZJHLyIfl8iu8fJ55geLaydf4v6ErKg
-	lXLE2wlhXZnBsuGYELDRHrB1IgcuV6FkPTSg6gyqjkZpSn2L83ZkJo5ZXH3DN4ZycKXdPism+EZ
-	VzDiG4IuBq2ZGgdqt1koXfOib66o=
-X-Google-Smtp-Source: AGHT+IFwXvIggK2Dtyju5LXqKD3V9iqpgJ4UOwEp/NQNACdHT9mHUHDkawh0Ijd4NxOjoQyUlIxGY8PWpfPYlVngyYE=
-X-Received: by 2002:a05:6512:2344:b0:542:2905:ae52 with SMTP id
- 2adb3069b0e04-543e4c3c083mr2345634e87.45.1738231538642; Thu, 30 Jan 2025
- 02:05:38 -0800 (PST)
+	Thu, 30 Jan 2025 10:07:08 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43625c4a50dso3858255e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jan 2025 02:07:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1738231626; x=1738836426; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=/xgSZrYTjR4wYm9y2TJ/8whEMF1KaaIbp8HFp2h/RHw=;
+        b=vfNlhkDtixnuF7Wgfc2hHVx5L/xUWGzuaqmTXSzKf3cHgyPMgBu/8rRJOSXo0mZKrV
+         cAevaWGV/SMgUJVN5AxorNpaZCymDTeRc8rcPXBCCbW6egtUpdTbQyTZexcn9waIQo4h
+         j6FZICbeRfOZr+IcOIPCZkx8UOMLO3ga8CR9MxtQnuZLE5o4mI1avb1oOSChDr1nsb4m
+         lz1Vc5fg//wmerACfm9GcJ0QHxL3g9+AaezfsilMqqsA54x7L0E3IJ+kVDde+SpJjCoK
+         +WCtmDPXXyRST6kCgrlPeYzGqlKFuBHDixCWJnb0X355go9gJhIfCm5TfoX/AGTlimGQ
+         3REA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738231626; x=1738836426;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=/xgSZrYTjR4wYm9y2TJ/8whEMF1KaaIbp8HFp2h/RHw=;
+        b=Y8Be1Z5sDlUZCbq5X6fdaWUjOycMlTeFOo9wQ5pW+FoZfvHoEVKc6+drnUAW7udnXI
+         XsIe5sfrNEn8jpVsM0iz/zWI//P3Gknp0kXFElxeLI7xu7MGxPU35oc/BwvLkwJsubbX
+         U8MOaQbkQqxh15OE8ojy2YApYJYwpdFGQy/CgkDMBksrwNmKKZh+2a+3OQHnHtzzmhLT
+         EHnkuxaGwfV3DQD2zCg8m7+Dd7xEHZA9JB9NAJZUOF+FRyWA2jUUCLHZyAGMp7rEdC7f
+         gOh3oJkFvQXFMH4U8ioUOL4U77BKYgAPj33ywLAb0E5iozQo1sHpA1HHAHqcNTdZQuHk
+         6y/A==
+X-Forwarded-Encrypted: i=1; AJvYcCUphcJj4TeVpxEM503lIC0f+1pS6AqjplHbWTtfbePWonQLTelbBsEVxvQCPujBkDan9btNaYSKXsQQUe8URX1u@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw8Zrl979slZREy7tGdNaay1Ul27ftCghX83nNIgL4gRRAFe5Rf
+	beeYoXdxW00V5jCYLy3UduPkwuv1Jlb7116UlCNGuadGKM6FViukhEK8Zqxj5mU=
+X-Gm-Gg: ASbGncthDUoYacdGrZAPar5lQUFm4AUKDsZPQgnZ6nSOJeAkTmNzwBPmrnT0U+phRcI
+	afecMtrtt09xAb3C9CfxH1FS8+TAbnt3fGkQEKIVEa265QPxreQ+5pmYYn9/rbaZpXGkeAIRLih
+	5YphnLfxAN+T8hzJ7pEjUYjSLLE/ULrpOEcAdrqrISrw6fT4fVEJh81HoEWRL9YEKiSzX3lYL3z
+	5CcKfscItaZnbO1AsK4XsXoFAEyLEJE9baDiAIE9ShbSWcbcccyeYdicp+jOXI+6jZxZgSxZPTA
+	FaTlSbQgARuMRV1RjkJLgY4Y8YhuGgz3QvPQWrNKkErX+RmjCJT6+g==
+X-Google-Smtp-Source: AGHT+IG1KyMFpNfsa8g5lwEoCzkFattulfz3yPh36W1lbzjbEMttPBKcz1auUhyGCxe1asfnZ5I/UQ==
+X-Received: by 2002:a05:600c:1d1e:b0:436:a3a3:a70c with SMTP id 5b1f17b1804b1-438dc4214c3mr43534915e9.28.1738231625956;
+        Thu, 30 Jan 2025 02:07:05 -0800 (PST)
+Received: from mai.linaro.org (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438e245efbcsm17275025e9.33.2025.01.30.02.07.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 Jan 2025 02:07:05 -0800 (PST)
+Date: Thu, 30 Jan 2025 11:07:03 +0100
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: rafael@kernel.org, rui.zhang@intel.com, lukasz.luba@arm.com,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	geert+renesas@glider.be, magnus.damm@gmail.com,
+	mturquette@baylibre.com, sboyd@kernel.org, p.zabel@pengutronix.de,
+	ulf.hansson@linaro.org, linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+Subject: Re: [PATCH 2/6] thermal: of: Export non-devres helper to
+ register/unregister thermal zone
+Message-ID: <Z5tPR_tv7vWDkUI7@mai.linaro.org>
+References: <20250103163805.1775705-1-claudiu.beznea.uj@bp.renesas.com>
+ <20250103163805.1775705-3-claudiu.beznea.uj@bp.renesas.com>
+ <Z5pkUNNvsWPjRQvy@mai.linaro.org>
+ <65a16c3f-456e-40ec-91b0-afb57269ed46@tuxon.dev>
 MIME-Version: 1.0
-References: <20250109165419.1623683-1-florian.fainelli@broadcom.com>
- <20250109165419.1623683-2-florian.fainelli@broadcom.com> <62786457-d4a1-4861-8bec-7e478626f4db@broadcom.com>
- <2025011247-enable-freezing-ffa2@gregkh> <27bbea11-61fa-4f41-8b39-8508f2d2e385@broadcom.com>
- <2025012002-tactics-murky-aaab@gregkh> <41550c7f-1313-41b4-aa2e-cb4809ad68c2@broadcom.com>
- <2025012938-abreast-explain-f5f7@gregkh> <1fc6d5c8-80ec-4d6b-bc14-c584d89c15b4@broadcom.com>
- <CAMj1kXHheRQYHddgehLbZot6o-xAxkbeHBUq7nS8npyB9A0FvQ@mail.gmail.com> <8994e7c5-812c-4605-9bdf-18a5b402196a@broadcom.com>
-In-Reply-To: <8994e7c5-812c-4605-9bdf-18a5b402196a@broadcom.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 30 Jan 2025 11:05:26 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXHhgyRSzSgRQfWKRseFSifV1X=OqcTkL0_7ZWfi+UjhcA@mail.gmail.com>
-X-Gm-Features: AWEUYZmZyunDbwpw1BQcc0lwJHSSHtpfuzTTNYqADTNclCDIo2dr16ndgmkUVzk
-Message-ID: <CAMj1kXHhgyRSzSgRQfWKRseFSifV1X=OqcTkL0_7ZWfi+UjhcA@mail.gmail.com>
-Subject: Re: [PATCH] arm64: mm: account for hotplug memory when randomizing
- the linear region
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Greg KH <gregkh@linuxfoundation.org>, stable@vger.kernel.org, 
-	Anshuman Khandual <anshuman.khandual@arm.com>, Will Deacon <will@kernel.org>, 
-	Steven Price <steven.price@arm.com>, Robin Murphy <robin.murphy@arm.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Baruch Siach <baruch@tkos.co.il>, 
-	Petr Tesarik <ptesarik@suse.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Joey Gouly <joey.gouly@arm.com>, "Mike Rapoport (IBM)" <rppt@kernel.org>, 
-	Yang Shi <yang@os.amperecomputing.com>, 
-	"moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)" <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <65a16c3f-456e-40ec-91b0-afb57269ed46@tuxon.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_020541_684059_ED09053E 
-X-CRM114-Status: GOOD (  44.77  )
+X-CRM114-CacheID: sfid-20250130_020707_600984_314771CF 
+X-CRM114-Status: GOOD (  39.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,117 +109,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 30 Jan 2025 at 00:31, Florian Fainelli
-<florian.fainelli@broadcom.com> wrote:
->
-> On 1/29/25 14:15, Ard Biesheuvel wrote:
-> > On Wed, 29 Jan 2025 at 18:45, Florian Fainelli
-> > <florian.fainelli@broadcom.com> wrote:
+On Thu, Jan 30, 2025 at 11:08:03AM +0200, Claudiu Beznea wrote:
+> Hi, Daniel,
+> 
+> On 29.01.2025 19:24, Daniel Lezcano wrote:
+> > Hi Claudiu,
+> > 
+> > On Fri, Jan 03, 2025 at 06:38:01PM +0200, Claudiu wrote:
+> >> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 > >>
-> >> On 1/29/25 01:17, Greg KH wrote:
-> >>> On Mon, Jan 20, 2025 at 08:33:12AM -0800, Florian Fainelli wrote:
-> >>>>
-> >>>>
-> >>>> On 1/20/2025 5:59 AM, Greg KH wrote:
-> >>>>> On Mon, Jan 13, 2025 at 07:44:50AM -0800, Florian Fainelli wrote:
-> >>>>>>
-> >>>>>>
-> >>>>>> On 1/12/2025 3:54 AM, Greg KH wrote:
-> >>>>>>> On Thu, Jan 09, 2025 at 09:01:13AM -0800, Florian Fainelli wrote:
-> >>>>>>>> On 1/9/25 08:54, Florian Fainelli wrote:
-> >>>>>>>>> From: Ard Biesheuvel <ardb@kernel.org>
-> >>>>>>>>>
-> >>>>>>>>> commit 97d6786e0669daa5c2f2d07a057f574e849dfd3e upstream
-> >>>>>>>>>
-> >>>>>>>>> As a hardening measure, we currently randomize the placement of
-> >>>>>>>>> physical memory inside the linear region when KASLR is in effect.
-> >>>>>>>>> Since the random offset at which to place the available physical
-> >>>>>>>>> memory inside the linear region is chosen early at boot, it is
-> >>>>>>>>> based on the memblock description of memory, which does not cover
-> >>>>>>>>> hotplug memory. The consequence of this is that the randomization
-> >>>>>>>>> offset may be chosen such that any hotplugged memory located above
-> >>>>>>>>> memblock_end_of_DRAM() that appears later is pushed off the end of
-> >>>>>>>>> the linear region, where it cannot be accessed.
-> >>>>>>>>>
-> >>>>>>>>> So let's limit this randomization of the linear region to ensure
-> >>>>>>>>> that this can no longer happen, by using the CPU's addressable PA
-> >>>>>>>>> range instead. As it is guaranteed that no hotpluggable memory will
-> >>>>>>>>> appear that falls outside of that range, we can safely put this PA
-> >>>>>>>>> range sized window anywhere in the linear region.
-> >>>>>>>>>
-> >>>>>>>>> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> >>>>>>>>> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-> >>>>>>>>> Cc: Will Deacon <will@kernel.org>
-> >>>>>>>>> Cc: Steven Price <steven.price@arm.com>
-> >>>>>>>>> Cc: Robin Murphy <robin.murphy@arm.com>
-> >>>>>>>>> Link: https://lore.kernel.org/r/20201014081857.3288-1-ardb@kernel.org
-> >>>>>>>>> Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-> >>>>>>>>> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
-> >>>>>>>>
-> >>>>>>>> Forgot to update the patch subject, but this one is for 5.10.
-> >>>>>>>
-> >>>>>>> You also forgot to tell us _why_ this is needed :(
-> >>>>>>
-> >>>>>> This is explained in the second part of the first paragraph:
-> >>>>>>
-> >>>>>> The consequence of this is that the randomization offset may be chosen such
-> >>>>>> that any hotplugged memory located above memblock_end_of_DRAM() that appears
-> >>>>>> later is pushed off the end of the linear region, where it cannot be
-> >>>>>> accessed.
-> >>>>>>
-> >>>>>> We use both memory hotplug and KASLR on our systems and that's how we
-> >>>>>> eventually found out about the bug.
-> >>>>>
-> >>>>> And you still have 5.10.y ARM64 systems that need this?  Why not move to
-> >>>>> a newer kernel version already?
-> >>>>
-> >>>> We still have ARM64 systems running 5.4 that need this, and the same bug
-> >>>> applies to 5.10 that we used to support but dropped in favor of 5.15/6.1.
-> >>>> Those are the kernel versions used by Android, and Android TV in particular,
-> >>>> so it's kind of the way it goes for us.
-> >>>>
-> >>>>>
-> >>>>> Anyway, I need an ack from the ARM64 maintainers that this is ok to
-> >>>>> apply here before I can take it.
-> >>>>
-> >>>> Just out of curiosity, the change is pretty innocuous and simple to review,
-> >>>> why the extra scrutiny needed here?
-> >>>
-> >>> Why shouldn't the maintainers review a proposed backport patch for core
-> >>> kernel code that affects everyone who uses that arch?
+> >> On the Renesas RZ/G3S (and other Renesas SoCs, e.g., RZ/G2{L, LC, UL}),
+> >> clocks are managed through PM domains. These PM domains, registered on
+> >> behalf of the clock controller driver, are configured with
+> >> GENPD_FLAG_PM_CLK. In most of the Renesas drivers used by RZ SoCs, the
+> >> clocks are enabled/disabled using runtime PM APIs.
 > >>
-> >> They should, but they are not, we can keep sending messages like those
-> >> in the hope that someone does, but clearly that is not working at the
-> >> moment.
+> >> During probe, devices are attached to the PM domain controlling their
+> >> clocks. Similarly, during removal, devices are detached from the PM domain.
 > >>
-> >> This patch cherry picked cleanly into 5.4 and 5.10 maybe they just trust
-> >> whoever submit stable bugfixes to have done their due diligence, too, I
-> >> don't know how to get that moving now but it fixes a real problem we
-> >> observed.
+> >> The detachment call stack is as follows:
 > >>
-> >
-> > FWIW, I understand why this might be useful when running under a
-> > non-KVM hypervisor that relies on memory hotplug to perform resource
-> > balancing between VMs. But the upshot of this change is that existing
-> > systems that do not rely on memory hotplug at all will suddenly lose
-> > any randomization of the linear map if its CPU happens to be able to
-> > address more than ~40 bits of physical memory. So I'm not convinced
-> > this is a change we should make for these older kernels.
->
-> Are there other patches that we could backport in order not to lose the
-> randomization in the linear range?
+> >> device_driver_detach() ->
+> >>   device_release_driver_internal() ->
+> >>     __device_release_driver() ->
+> >>       device_remove() ->
+> >>         platform_remove() ->
+> >> 	  dev_pm_domain_detach()
+> >>
+> >> In the upcoming Renesas RZ/G3S thermal driver, the
+> >> struct thermal_zone_device_ops::change_mode API is implemented to
+> >> start/stop the thermal sensor unit. Register settings are updated within
+> >> the change_mode API.
+> >>
+> >> In case devres helpers are used for thermal zone register/unregister the
+> >> struct thermal_zone_device_ops::change_mode API is invoked when the
+> >> driver is unbound. The identified call stack is as follows:
+> >>
+> >> device_driver_detach() ->
+> >>   device_release_driver_internal() ->
+> >>     device_unbind_cleanup() ->
+> >>       devres_release_all() ->
+> >>         devm_thermal_of_zone_release() ->
+> >> 	  thermal_zone_device_disable() ->
+> >> 	    thermal_zone_device_set_mode() ->
+> >> 	      rzg3s_thermal_change_mode()
+> >>
+> >> The device_unbind_cleanup() function is called after the thermal device is
+> >> detached from the PM domain (via dev_pm_domain_detach()).
+> >>
+> >> The rzg3s_thermal_change_mode() implementation calls
+> >> pm_runtime_resume_and_get()/pm_runtime_put_autosuspend() before/after
+> >> accessing the registers. However, during the unbind scenario, the
+> >> devm_thermal_of_zone_release() is invoked after dev_pm_domain_detach().
+> >> Consequently, the clocks are not enabled, as the device is removed from
+> >> the PM domain at this time, leading to an Asynchronous SError Interrupt.
+> >> The system cannot be used after this.
+> > 
+> > I've been through the driver before responding to this change. What is the
+> > benefit of powering down / up (or clock off / on) the thermal sensor when
+> > reading the temperature ?
+> > 
+> > I can understand for disable / enable but I don't get for the classic usage
+> > where a governor will be reading the temperature regularly.
+> 
+> I tried to be as power saving as possible both at runtime and after the IP
+> is not used anymore as the HW manual doesn't mentioned anything about
+> accuracy or implications of disabling the IP clock at runtime. We use
+> similar approach (of disabling clocks at runtime) for other IPs in the
+> RZ/G3S SoC as well.
+> 
+> > 
+> > Would the IP need some cycles to capture the temperature accurately after the
+> > clock is enabled ?
+> 
+> There is nothing about this mentioned about this in the HW manual of the
+> RZ/G3S SoC. The only points mentioned are as described in the driver code:
+> - wait at least 3us after each IIO channel read
+> - wait at least 30us after enabling the sensor
+> - wait at least 50us after setting OE bit in TSU_SM
+> 
+> For this I chose to have it implemented as proposed.
 
-No, this never got fixed. Only recently, I proposed some patches that
-allow the PARange field in the CPU id registers to be overridden, and
-this would also bring back the ability to randomize the linear map on
-CPUs with a wide PARange.
+IMO, disabling/enabling the clock between two reads through the pm runtime may
+not be a good thing, especially if the system enters a thermal situation where
+it has to mitigate.
 
-Android also enables memory hotplug, and so I didn't bother with
-preserving the old behavior when memory hotplug is disabled, and so
-linear map randomization has basically been disabled ever since
-(unless you are using an older core with only 40 physical address
-bits).
+Without any testing capturing the temperatures and compare between the always-on
+and on/off, it is hard to say if it is true or not. Up to you to test that or
+not. If you think it is fine, then let's go with it.
+ 
+> If any, the HW manual is available here
+> https://www.renesas.com/en/document/mah/rzg3s-group-users-manual-hardware?r=25458591
+> (an archive is here; the manual is in Deliverables/r01uh1014ej0110-rzg3s.pdf)
+> 
+> Thank you for your review,
+> Claudiu
+> 
+> > 
+> >> Add thermal_of_zone_register()/thermal_of_zone_unregister(). These will
+> >> be used in the upcomming RZ/G3S thermal driver.
+> >>
+> >> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> 
 
-Nobody ever complained about losing this linear map randomization, but
-taking it away at this point from 5.4 and 5.10 goes a bit too far imo.
+-- 
+
+ <http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
+
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
