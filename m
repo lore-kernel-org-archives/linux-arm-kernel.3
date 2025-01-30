@@ -4,106 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74D25C02193
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 00:04:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E056C0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 00:43:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s/sWxNAPnxEZbenKOf7N+j5g5zHNpFBMXZn1jjqHCpE=; b=ygRaGtv7aIkFkY8v0Peq3V7Woo
-	pTN9PhDuIEkEWbzl4ip5UrM2wtsAXtdaXGQVZd0DoVikqSz/OOxi9USKwSuM00EeqWeEw1Zqz8a+F
-	BtBch00jx4HS4XYNEi0pjOuV7Tq+QRULLxMs14az//vWTv5ChZU04oZt3BpARnRZtUSzrq+yDfsXj
-	HNMGSAw128xtV7uRSbLXIu93Omg5biMgpUUjp2h6w4lLLe2bURMX2IaS4adqlLBDQ1jY+2AlgQjk4
-	Aga3qT2/pLXVfV5ke18fXLuPeykDRsYsxrEAOLK6KOisIc8OTpabiu/a2vlcHmjKQVylruAoj9FXt
-	zOuiPpug==;
+	bh=rInosp2NVM5wnXWfAnMbQV1Gw6ky5vVb+6V2AW92kzo=; b=0t6Thke5X5+RVqluGJfjym1ZC2
+	BTnWQZu4s+sA3Ixk6b9OvDLK/LAnO73hzgaU2hpSagYOHnZBmnqeCQ0tTGD7noRPMHuKWGnKKQAiX
+	Ne/cc4giLxjrOOR9Vv/hUi/kprQ7QEcLMVwDVzqDC2cpfm1YL6kWOwY3WmsbYicIM3sO+xNdU2NkD
+	Yvg65IK4BcHy7yB/pbKbiUUrD+dPf6j8AA6bUZkWeKF8306tcwWTxcgZpX92wR0ldKEMIzOUmjndl
+	PD3GiwMD35J9wSMeA7PQ9As3UF06V4bTemy8+vnXWpKwaRq8OCEC0n2LSWZm/yryBoqBiJ277Zb3g
+	cXsRCdUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdI2q-00000007zD0-17V8;
-	Thu, 30 Jan 2025 00:04:32 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1tdIeC-000000080cM-1QLd;
+	Thu, 30 Jan 2025 00:43:08 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdI1V-00000007z8l-0Z1B
+	id 1tdIcq-000000080XA-3OPX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jan 2025 00:03:10 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-21625b4f978so52985ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jan 2025 16:03:08 -0800 (PST)
+	Thu, 30 Jan 2025 00:41:45 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4361815b96cso1132575e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jan 2025 16:41:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1738195388; x=1738800188; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=s/sWxNAPnxEZbenKOf7N+j5g5zHNpFBMXZn1jjqHCpE=;
-        b=XGJB5P43TwCPVC/ZkqqTdaTZB5Y2GKIy5CJGYAz7mRMR/Z2bRVYjvznkQjbUmgW9Dn
-         E/tD74AJpkJtC+/OCFk4ZUA3lBNcFkiT/BE3yEE/NlJRLKnwSoeVVLqo8kRbLyvjKE22
-         s19S0gbj+wKLaVbgrc0ic/Tebp2uHdZkjoUNju/Ewol5GNyVvb6VZTXMljBNjgBoDNwP
-         ToKnwzHkgT2XUMI9rFOZtqBpdGFDbKZLDGgEdjhsxRpfkKQVVcNk76WaYOTpSNUhJd3e
-         t/ZM7Hez8FmECvfpXYLLJiW/OaYbCIMUiHirEWNgE3ReZEdeGaLRbsC/yqN10fNvQjm7
-         Ncaw==
+        d=gmail.com; s=20230601; t=1738197702; x=1738802502; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=rInosp2NVM5wnXWfAnMbQV1Gw6ky5vVb+6V2AW92kzo=;
+        b=A1w0Ws/ryl5RVmxNSRnPcAwsu1LYMasXZzpc/p2hfqiKZyJ8yJJM6FQW6QhXBd7gXx
+         qQyaFp6UtnqKShxDWWKhTAdr4DRr0fNnzegbJ9BwuVQS2dFFJoBp3UG7qYk0+3ez+lB6
+         Qulkj7FwhoTMy9qmxy4QCQNOdGkM4WizueEunOUryG277bw/w8mSxxh64cGqJoc8X3EK
+         jsCXw7M/9otuDcxdDftk2bUHx1GNiTNP2g7AzrapdqnkjN3yp2VafqGGoC4tKFLM6eIs
+         ZHk89fZt/atZNeZTNA7Mg2sX5GV2+llQBaA6CZl63w8hGUrk3Qel+YL7WvpfklLNtl2N
+         6WoQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738195388; x=1738800188;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=s/sWxNAPnxEZbenKOf7N+j5g5zHNpFBMXZn1jjqHCpE=;
-        b=mas37ieMgEeQVRatB4v9TphGEdaOyHT9s+HlKOWhVcJ1AGAhn38lv+AI9uVKNFv02/
-         0CKOEamVzGVo0Ry5qHgxQAdvl5iYak8vLGIBScnhM8hqp9w8ffTrbSjMxf58UvW9INWm
-         hzpkKUNNbBb3PItuhbET/nUFuA9DZXmslvdr9JLAh7b+S0DDuyJz0cAwuP3a9zdW6qfO
-         VdGdWz9yzf88dbksTvSy6DDUuKSAp8ClamGkYpnTlgPdSTWQZZ8kysYmgd1JQN/GgkZS
-         +i7CwdIAH5iZTdxebSTVfydLhw6CToyFUVh2mDfT8AouP1Z9yt0jN2omB17Q2CHfdkA+
-         zrig==
-X-Forwarded-Encrypted: i=1; AJvYcCVgRqPkptJt5u+w3jU3TN5UtFIokWx3ZwUFSYzWM3dD+uJ/v9+oK3SOl3yLAMtupGCGc1mEZOt+tmSu+A48sEp+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy2qblFd/SP287my2Wej+Z8dNr7kFDj3+AoEOL1w9VmWDNIcxC6
-	r863bhX8zp9foatqXeETtF6NAGOW61ftdsiM3AHOzWdr9gOk1JQHl55eJnZqqg==
-X-Gm-Gg: ASbGncuXp3kH7bsXy2rO88dK+NhNZjiqDSu77YD34mla7NpsdfchHUJnDqzROcRFHzp
-	vrZq9OOGnfiX4826HBX3SaQVXqSYt5igvpwtM01M4F0uT4GM8JtUCFfH2DP7r0a3Ce18rj04b8b
-	brWASYsJ4aQhQtw9n48R2445eqGSyjvKNVuH00vByQmG88ToM3dXfui1DAARvWiZaaFX9V3Jwm1
-	qvg64gV1w0j13U2V/N9e820JFZua+EVhFXu6xXlhwbFQo5zRqeqN8VrP066E49Ukc33QxTMSzkX
-	Tk+jDjnb1D2ZYavHj9aR6nBllkqg0aONCPV4kRJ5lrKjyiP6Chw=
-X-Google-Smtp-Source: AGHT+IE/F0VzN3ET6T5NQ93cCyrPvlKbgWQX6l9EQyxxToYjZ5gVa1o2Iroc9xQVHfCVOmJeGyKC/g==
-X-Received: by 2002:a17:902:7447:b0:21a:5501:9d3 with SMTP id d9443c01a7336-21de36ce371mr481865ad.21.1738195387986;
-        Wed, 29 Jan 2025 16:03:07 -0800 (PST)
-Received: from google.com (55.131.16.34.bc.googleusercontent.com. [34.16.131.55])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f83bccc8a5sm2405786a91.17.2025.01.29.16.03.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Jan 2025 16:03:07 -0800 (PST)
-Date: Thu, 30 Jan 2025 00:03:03 +0000
-From: Peilin Ye <yepeilin@google.com>
-To: Eduard Zingerman <eddyz87@gmail.com>
-Cc: bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, bpf@ietf.org,
-	Xu Kuohai <xukuohai@huaweicloud.com>,
-	David Vernet <void@manifault.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>,
-	Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Quentin Monnet <qmo@kernel.org>,
-	Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>,
-	Josh Don <joshdon@google.com>, Barret Rhoden <brho@google.com>,
-	Neel Natu <neelnatu@google.com>,
-	Benjamin Segall <bsegall@google.com>, linux-kernel@vger.kernel.org,
-	Ihor Solodrai <ihor.solodrai@linux.dev>
-Subject: Re: [PATCH bpf-next v1 7/8] selftests/bpf: Add selftests for
- load-acquire and store-release instructions
-Message-ID: <Z5rBtxNnGHjJaZEt@google.com>
-References: <cover.1737763916.git.yepeilin@google.com>
- <3f2de7c6e5d2def7bdfb091347c1dacea0915974.1737763916.git.yepeilin@google.com>
- <131a817f7f2749e78e527a251ca7971588cf62f8.camel@gmail.com>
+        d=1e100.net; s=20230601; t=1738197702; x=1738802502;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=rInosp2NVM5wnXWfAnMbQV1Gw6ky5vVb+6V2AW92kzo=;
+        b=r5BInWTXvS7LufwOhayr71NUYQObDGXRlu+0a7mwXzyWPAjBwCZRhfeA5oRtcVAXEh
+         IGqY3FV/iDWXmxNaQdI3Y6YwEGyYzUofcX9DO4zR157dOkfQJXmToy+5Go+GIxUxiSa9
+         HmNCnj3TWRrgqNKYY12+O1MbkD5FEEeToabxKIxvW+tL/HbKSBlb+41QCmEetkpvEARi
+         iBhuDamj4fPapuBP/ZYjGyGYepf6i6bDv7xUQVz92E+ZuWDjpwrmWfrbwnCr/8gXc20G
+         /v2nnMHRYUhYa2jMjIrqfPAAJzDC9mVXDWa3LGJRQO8zu3oZGSMaQHyMUYM3yvGycr2q
+         RaEw==
+X-Forwarded-Encrypted: i=1; AJvYcCX4qkTIkjgHdZ3Gr74V54oaGVtIe5ba7geHubRf9AZNUMpQv0P4EdZo8FAp5Kwli97QOweSRIwAdgnBWlU7S5xI@lists.infradead.org
+X-Gm-Message-State: AOJu0YxBfiC3wiA9fZkZbTBwACkplU9ZnZaYR9wxNDXl4CM6VaU6r0bP
+	rEkMqOxUb/SNk6NxNF4ySKQqqsxXTsyrOPq8NNexIzR4sWzQR8k7NfojtC8RBxYHYxETneF+aQc
+	nUoMFRhNOiaQcfRokq89QHwa8xS3M3iMu
+X-Gm-Gg: ASbGncvQWDPuDjk71Eh06qKSX20sOSTUBW5SRE1iH856YQlbXgqPezy7nbRLWBEHSvy
+	di4jSZJdlIt418uZiZLzV+4GclXEvQGa61bZKsF6I3zJRo7Nf29XWCPg9o+kRMqi8OCJxLiLvS/
+	3OAq+lrBiTwDtMwlj4+8LG0RbGUEds
+X-Google-Smtp-Source: AGHT+IFakXta0YUrPDaoAW39HXBtsSp792yT66oSE7DR1bgM8bLHLmF/Kpc4oac1rRkIqDnqCE70855yNkg5wHqD9m8=
+X-Received: by 2002:a05:600c:4704:b0:431:54d9:da57 with SMTP id
+ 5b1f17b1804b1-438dc42a445mr48469715e9.30.1738197702373; Wed, 29 Jan 2025
+ 16:41:42 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <131a817f7f2749e78e527a251ca7971588cf62f8.camel@gmail.com>
+References: <cover.1737763916.git.yepeilin@google.com> <e52e4ab7bea5b29475d70e164c4b07992afd6033.1737763916.git.yepeilin@google.com>
+In-Reply-To: <e52e4ab7bea5b29475d70e164c4b07992afd6033.1737763916.git.yepeilin@google.com>
+From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Date: Wed, 29 Jan 2025 16:41:31 -0800
+X-Gm-Features: AWEUYZnR1O34tW7s8Yp2f6hF-U05leRN407sB4GTvv3wxYUwU5sTTWv_OdxPe28
+Message-ID: <CAADnVQ+5Ybu+rMBz5D-0GcZWemTwrzxy7vUfEiWpQ2CKugwwOA@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v1 3/8] bpf: Introduce load-acquire and
+ store-release instructions
+To: Peilin Ye <yepeilin@google.com>
+Cc: bpf <bpf@vger.kernel.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, bpf@ietf.org, 
+	Xu Kuohai <xukuohai@huaweicloud.com>, Eduard Zingerman <eddyz87@gmail.com>, 
+	David Vernet <void@manifault.com>, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
+	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
+	Jiri Olsa <jolsa@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	"Paul E. McKenney" <paulmck@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Quentin Monnet <qmo@kernel.org>, Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>, 
+	Josh Don <joshdon@google.com>, Barret Rhoden <brho@google.com>, Neel Natu <neelnatu@google.com>, 
+	Benjamin Segall <bsegall@google.com>, LKML <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250129_160309_171539_EE1784A7 
-X-CRM114-Status: GOOD (  21.31  )
+X-CRM114-CacheID: sfid-20250129_164144_866107_0FBB7060 
+X-CRM114-Status: UNSURE (   9.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,62 +106,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 28, 2025 at 05:06:03PM -0800, Eduard Zingerman wrote:
-> On Sat, 2025-01-25 at 02:19 +0000, Peilin Ye wrote:
-> > All new tests depend on the pre-defined __BPF_FEATURE_LOAD_ACQ_STORE_REL
-> > feature macro, which implies -mcpu>=v4.
-> 
-> This restriction would mean that tests are skipped on BPF CI, as it
-> currently runs using llvm 17 and 18. Instead, I suggest using some
-> macro hiding an inline assembly as below:
-> 
-> 	asm volatile (".8byte %[insn];"
-> 	              :
-> 	              : [insn]"i"(*(long *)&(BPF_RAW_INSN(...)))
-> 	              : /* correct clobbers here */);
-> 
-> See the usage of the __imm_insn() macro in the test suite.
+> diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
+> index da729cbbaeb9..ab082ab9d535 100644
+> --- a/kernel/bpf/core.c
+> +++ b/kernel/bpf/core.c
+> @@ -1663,14 +1663,17 @@ EXPORT_SYMBOL_GPL(__bpf_call_base);
+>         INSN_3(JMP, JSET, K),                   \
+>         INSN_2(JMP, JA),                        \
+>         INSN_2(JMP32, JA),                      \
+> +       /* Atomic operations. */                \
+> +       INSN_3(STX, ATOMIC, B),                 \
+> +       INSN_3(STX, ATOMIC, H),                 \
+> +       INSN_3(STX, ATOMIC, W),                 \
+> +       INSN_3(STX, ATOMIC, DW),                \
+>         /* Store instructions. */               \
+>         /*   Register based. */                 \
+>         INSN_3(STX, MEM,  B),                   \
+>         INSN_3(STX, MEM,  H),                   \
+>         INSN_3(STX, MEM,  W),                   \
+>         INSN_3(STX, MEM,  DW),                  \
+> -       INSN_3(STX, ATOMIC, W),                 \
+> -       INSN_3(STX, ATOMIC, DW),                \
+>         /*   Immediate based. */                \
+>         INSN_3(ST, MEM, B),                     \
+>         INSN_3(ST, MEM, H),                     \
+> @@ -2169,6 +2172,8 @@ static u64 ___bpf_prog_run(u64 *regs, const struct bpf_insn *insn)
+>
+>         STX_ATOMIC_DW:
+>         STX_ATOMIC_W:
+> +       STX_ATOMIC_H:
+> +       STX_ATOMIC_B:
+>                 switch (IMM) {
+>                 ATOMIC_ALU_OP(BPF_ADD, add)
+>                 ATOMIC_ALU_OP(BPF_AND, and)
 
-I see, I'll do this in v2.
-
-> Also, "BPF_ATOMIC loads from R%d %s is not allowed\n" and
->       "BPF_ATOMIC stores into R%d %s is not allowed\n"
-> situations are not tested.
-
-Thanks!
-
-> > --- a/tools/testing/selftests/bpf/prog_tests/atomics.c
-> > +++ b/tools/testing/selftests/bpf/prog_tests/atomics.c
-> > @@ -162,6 +162,56 @@ static void test_xchg(struct atomics_lskel *skel)
-> >  	ASSERT_EQ(skel->bss->xchg32_result, 1, "xchg32_result");
-> >  }
-> 
-> Nit: Given the tests in verifier_load_acquire.c and verifier_store_release.c
->      that use __retval annotation, are these tests really necessary?
->      (assuming that verifier_store_release.c tests are modified to read
->       stored location into r0 before exit).
-> 
-> > +static void test_load_acquire(struct atomics_lskel *skel)
-
-Ah, right.  I'll drop them and modify verifier_store_release.c
-accordingly.
-
-> > --- a/tools/testing/selftests/bpf/progs/arena_atomics.c
-> > +++ b/tools/testing/selftests/bpf/progs/arena_atomics.c
-> [...]
-> 
-> > +SEC("raw_tp/sys_enter")
-> > +int load_acquire(const void *ctx)
-> > +{
-> > +	if (pid != (bpf_get_current_pid_tgid() >> 32))
-> > +		return 0;
-> 
-> Nit: This check is not needed, since bpf_prog_test_run_opts() is used
->      to run the tests.
-
-Got it!
-
-Thanks,
-Peilin Ye
-
+STX_ATOMI_[BH] looks wrong.
+It will do atomic64_*() ops in wrong size.
+BPF_INSN_MAP() applies to bpf_opcode_in_insntable()
+and the verifier will allow such new insns.
 
