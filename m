@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 034D9C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 13:20:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 768BFC0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 13:22:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nuAXux8LlG70kzoPLga/JauwL57jQBIg2zHB/i8r2hg=; b=hlfaiyh59d/VLVf+2i6S1NSfk2
-	OdcvzP8lUM+pPDxt1D9zAsVqAO5USpT4dj0Iwo1z+Q+aklxE1L6Y60Se+Nij0NDpF8oXU7Kn8AV25
-	J6O+XU16a7J9N+n3qSn1N3QC18jvKDiN5Qg3Qy/qGukArOUUNs7dc9TupLxa98x+rKzLTg2tKbAHt
-	AfGwZz+act3nAds9FXORmugdoG5ycDm1HWKwAiMmi9MfaXgiw3PwypRo8M8yzLwDnVfdL4PGcGDwl
-	e4XQWlhaMpGTPlVUdLXI7k9py68A0625B54gVRnRf+/ANJUyITt902wNmN0daxyPYKiA42TkqlCg6
-	9g8fWYsw==;
+	bh=QxWt6KGttTbCTRsKaNJjoIy6Mo07K6F2+db+FqZNp/U=; b=WxNgZIV7H77BQ/J8WrA3V8WVD1
+	8gtuWKM69TL58h7aY/OxQAOpRVtDXvJP09Su9xZZKKkP8OBE+03m3gXm92kP8YlwYs2xi2p6S+p4L
+	+mVWJfAPyTET+Hk4cZUWEb8cTHNTluFtWjsNxG9XVl8UuzF9RlxN8Ar58CcV3N+NqSbKBybeFJdJl
+	0is0dPqV9lgPkwdWHfKeKkEEkIotm4PVhSv2Sztdq0On527jmo5gcqmQpSTDwuUaiqz+rVzd4xPDu
+	+kJEHrEq2wjYb58emDaNe2nAQGTImpHQuzOdwJuvvPtrWcSX9qwOZdHzXSI1sW8+E4mtW7844+HY6
+	BBMBmliA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdUT9-00000008qmD-3gNf;
-	Thu, 30 Jan 2025 13:20:31 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tdUUR-00000008r2i-3rAn;
+	Thu, 30 Jan 2025 13:21:51 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdUPF-00000008q5r-3y2d;
-	Thu, 30 Jan 2025 13:16:31 +0000
+	id 1tdUPy-00000008qDB-0sg5;
+	Thu, 30 Jan 2025 13:17:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3BAE95C5DD1;
-	Thu, 30 Jan 2025 13:15:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A171C4CED2;
-	Thu, 30 Jan 2025 13:16:21 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id C598BA41EC9;
+	Thu, 30 Jan 2025 13:15:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49A05C4CED2;
+	Thu, 30 Jan 2025 13:17:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738242989;
-	bh=nuAXux8LlG70kzoPLga/JauwL57jQBIg2zHB/i8r2hg=;
+	s=k20201202; t=1738243033;
+	bh=d35FUQkRnX6u6XtUEnsoIUHr8KEsQwWHRMzj9kdigCY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jV31mDTieR0FLBzs7KPDFmUjOJUGk9SHHdVF7cVTiD/9ImaHBXZSE4JJw15NTCz4A
-	 UkxvUU33y15VkMGKmShqYjjZpXHTNV+Sphx//2YMjucJFDN3FbUwfp/a/AxpEtRctD
-	 Q+UrUY4XbWI/UGFPfhoSNQelhJnlgCNtlWd2xHOM6rxRxItdwL1DOaAMxR5LUWY9IB
-	 GeGD9PtCABkFHx+sCIhst1DbOgHRk+SFUBB4gZzF1oL2LT4qdSrGdwne56qoJHUgqt
-	 y+EnOXCfs7FI47VJDnuUlcbv4Ntvsbbges66bh5CFqjAopVSyLBdkyD6EOEJ2dCfly
-	 u/0x/HGUysSpg==
-Message-ID: <8e905adf-118f-4cd7-9233-61397d72409b@kernel.org>
-Date: Thu, 30 Jan 2025 14:16:19 +0100
+	b=Kf4xH2dw4/15igEUXdM049neQ2AuHqQrsd26zswkiafbOLZC98JGNQ5xo38QvM0KX
+	 VEtpTENB++vb3q7j5AhebbgZrdPuDODdIAiUaTyHdwUcek2cytpqWTouypoOT2XThH
+	 mS97Ij28FiciBT4b8PNM8gTG+GnSytXXbAJchmUmsk5KM4Uis3GlVohnYJ9ajSSk0v
+	 l2qPFOi4CQ17eay03EmOLzUlqDJ2xVKHkAkZ4gRcRm/jXFyjbDJlNsjkjm5F6EJKZE
+	 XgEwtKaCqJ++zxhN5lUvFnNZsZjTqJOe8Co21rCxrom2Ci77BpIVSWh101V6GIS9pP
+	 qBvI/tfLdSE+Q==
+Message-ID: <2d1780d3-ae78-4adf-a20a-8b6b3891b9b0@kernel.org>
+Date: Thu, 30 Jan 2025 14:17:05 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] dt-bindings: gpu: mali-bifrost: Add compatible for
- MT8370 SoC
+Subject: Re: [PATCH v2 2/3] drm/panfrost: Add support for Mali on the MT8370
+ SoC
 To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
@@ -61,7 +61,7 @@ Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
 References: <20250130-mt8370-enable-gpu-v2-0-c154d0815db5@collabora.com>
- <20250130-mt8370-enable-gpu-v2-1-c154d0815db5@collabora.com>
+ <20250130-mt8370-enable-gpu-v2-2-c154d0815db5@collabora.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,13 +107,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250130-mt8370-enable-gpu-v2-1-c154d0815db5@collabora.com>
+In-Reply-To: <20250130-mt8370-enable-gpu-v2-2-c154d0815db5@collabora.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_051630_079894_4672B052 
-X-CRM114-Status: UNSURE (   8.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250130_051714_376449_47BD2352 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,15 +127,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/01/2025 13:30, Louis-Alexis Eyraud wrote:
-> Adds a compatible for the MediaTek MT8370 SoC, with an
-> integrated ARM Mali G57 MC2 GPU (Valhall-JM, dual core).
-> This new compatible is needed for this SoC support, as the other
-> existing compatibles for the same architecture (MT8188, MT8192) do not
-> match the required power domain number.
+On 30/01/2025 13:31, Louis-Alexis Eyraud wrote:
+> Add a compatible for the MediaTek MT8370 SoC, with an
+> integrated ARM Mali G57 MC2 GPU (Valhall-JM, dual core),
+> with the same platform data as MT8186 (one regulator, two power
+> domains).
+> 
+> Reviewed-by: Steven Price <steven.price@arm.com>
+> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> ---
+>  drivers/gpu/drm/panfrost/panfrost_drv.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/gpu/drm/panfrost/panfrost_drv.c b/drivers/gpu/drm/panfrost/panfrost_drv.c
+> index 0f3935556ac761adcd80197d87e8e478df436fd5..7b7e9f6f620659a7fdcb5d907ebc4f01eca876e0 100644
+> --- a/drivers/gpu/drm/panfrost/panfrost_drv.c
+> +++ b/drivers/gpu/drm/panfrost/panfrost_drv.c
+> @@ -859,6 +859,7 @@ static const struct of_device_id dt_match[] = {
+>  	{ .compatible = "mediatek,mt8186-mali", .data = &mediatek_mt8186_data },
+>  	{ .compatible = "mediatek,mt8188-mali", .data = &mediatek_mt8188_data },
+>  	{ .compatible = "mediatek,mt8192-mali", .data = &mediatek_mt8192_data },
+> +	{ .compatible = "mediatek,mt8370-mali", .data = &mediatek_mt8186_data },
 
-
-That's the only different? So device is compatible with older ones.
+Nothing improved here. All my previous comments still stand.
 
 Best regards,
 Krzysztof
