@@ -4,150 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D319C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 16:45:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 961BFC0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 16:46:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wn41vEiNf6Yo904vddxx0rT2dhSjU57jj7ycq62R1zE=; b=tzAMY21Ui2VAH4nSrgSX5NkNIP
-	0twnplyBKk/AYcPQLmS1+KmjaMGo6n+JNRodJsdTV3+eBOq8dY02tdqpWJg01lg8mhXjxQzpE/Fjv
-	sAX452K9bAVE2KpH0iYcxeyP9lx2oqnMO89JyKPWo8zfHDXrjoUIWyglyMQdOVPOtOv96m84fv7zS
-	hdUpF8G+MiT4dQnJeABqPFLBxElA1f0Yev+13D2Vxb2d+Lzyj6qxOfpjTPHBlPHjWO6HLUQZSwJhD
-	9Cjiv5Mgw3HRBqUk7yNjM1qD1Hz1oNNAmc9AjPqGukNb//NUWG+gu1QgJJvaKf2V8l8a0PsJawMBp
-	QALYibbw==;
+	bh=XDJjQ7Bc2ilUvqUgQUppNd7Nae/Vh0BvWi5XDJNapSM=; b=c60NSsggDe39qjO/dqFJnBWKVp
+	76xRuZdg1GKDtvCk26Ucveika3QpdBQeQDr6N1jaq/98h38yg6kUFqPqIiY7b46B5q0xkh2BjgieP
+	m9O84PkLjaO77egP3CKOoPMQACHn3HYvcD0bE0PqYc4nva+hkuV1NV4ATfrpuGZuDOZM55oxbyOGb
+	uYWdFzrXew7AAGEhSAvdhUtuM11VozMeNoc9lFQkezPj+lTHFFKFVjiB3vuxgyqXjF3+fvY+uxq/b
+	9/mkYURjeV0ar0+4scsAMjY4bWXFOwebvAiug1XBJdcCAyT3tqEb1Vd0zumvJYEsktjjFx3FJ0k+4
+	Rn3wP6tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdXfN-00000009CEz-2RZd;
-	Thu, 30 Jan 2025 16:45:21 +0000
-Received: from mail-vi1eur05on20603.outbound.protection.outlook.com ([2a01:111:f403:2613::603] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1tdXge-00000009CSs-3VIe;
+	Thu, 30 Jan 2025 16:46:40 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdXTt-00000009AB7-1Hho
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jan 2025 16:33:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZT6yIPvcVR4EsBKtKlHfbG1xIaeT2JcSzUXDnKL2x5bvoTjRnkzFEdrRamoBnFvrbhSbKdkR2//un/edWh6nvzMuJCgLqc2N9VgxbOeCpioEDgcutZyCHq8aqXZweQxez6Wt3zt/95nT/zDH2LnO2m6Mnu9vBslvJRCweyxD8oZl7QFgfUVzpkEW0ycqZmwUu5Gw5j6P/tc6/prXI/5eFUZrd6HGJmVcZ1LGvTl47Pj9eGbyeI2pz10j2IkuJ8cMbpXWpj2PLM7uxbd89Y/ShI3uMxHf1gl5qPZ5a+L+KJrXwu7lEZRRHa+F0Cj8I2iQmRegBHU0+DJJEGYRGl4Ffw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wn41vEiNf6Yo904vddxx0rT2dhSjU57jj7ycq62R1zE=;
- b=cYyZhseOVYfU+CY6Lgxxdek6YjAd9CPD88VrgYZ7Jz2cZ3J+oX7oIk9Rh2AYSpeFNaEUE8qtZcBW/vB3vSOM0wh5dzf1u/O+quOEVEA3VvJITJbzooe0ViUJfiqjDqb+QR8wb5GMWbuF1w+GFBX0+8A3qXDTlmeYzTXp9tTKdFLbekeLYzwzVg1rfQreW1HkqmwPn6lQG3OwZ0OTZwQCkF8pVROo62csEKbtt0b3M/xS6bQMDAA7TEglneh/0upmZbwdpaW+jnQCKlIF/UEnjnrsMdhcRdL/5fboRQOVWxFzs1rG3NnbGHk1c/hgTc+ATEUrZN7YHFGp5ERkF6LrMw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wn41vEiNf6Yo904vddxx0rT2dhSjU57jj7ycq62R1zE=;
- b=H7/WZjh0UZATeD3BGIrWiM3yI0yUFpCPTmD/Jv2hkm/DC/ymPQMw7zDVGDsu5WzEAZj4KY94+KWHKozwL10IRRz3UPhmDCvtLS5W8SOrlfLqox65zlPOnmhhE/1U2uGngOo+CET6IbNLWjCMU4/X01NWSgPTXAsf0eFe9r5XBzWraFhaSy1xQFl0bjG5ekU8U98Lt6Zt8ArTTDtzLMYCcoHFm1rd/5NDfAFRpJANSk9IuG5jLHBLqk8mUrO6eeq2QKls90q+BjnDMf+J4h0hocFIRZfYmx+bZ2yk/Oh1RHJTCY/mmCW5E3zklQQ80zLNbYuS8ij2Ve3rL9t0jG4/nw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by AS1PR04MB9456.eurprd04.prod.outlook.com (2603:10a6:20b:4d7::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.17; Thu, 30 Jan
- 2025 16:33:25 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d%7]) with mapi id 15.20.8398.018; Thu, 30 Jan 2025
- 16:33:25 +0000
-Date: Thu, 30 Jan 2025 11:33:17 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/4] nvmem: imx-ocotp: Sort header alphabetically
-Message-ID: <Z5upzYu4+wjRepvL@lizhi-Precision-Tower-5810>
-References: <20250130130101.1040824-1-alexander.stein@ew.tq-group.com>
- <20250130130101.1040824-3-alexander.stein@ew.tq-group.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250130130101.1040824-3-alexander.stein@ew.tq-group.com>
-X-ClientProxiedBy: SJ0PR05CA0109.namprd05.prod.outlook.com
- (2603:10b6:a03:334::24) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
+	id 1tdXYo-00000009B4q-1zCE;
+	Thu, 30 Jan 2025 16:38:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 035355C5991;
+	Thu, 30 Jan 2025 16:37:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36384C4CED2;
+	Thu, 30 Jan 2025 16:38:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738255112;
+	bh=rL0sztCP+uUFRfh2eiDMbMSqe47y8cNW75kdLaMZy6U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fw08cHJ2aoBWJ+IETboYHto71wnX+ITXFMGHOEzPklbEm+pnyZNHbkN9q746wggvg
+	 pG5Db377lcrP8PdiA0R9/JFkUfWxhoF+8ABqNjmlyX5PK/P9sgFF4cssO25dnbkb/q
+	 kb2L8+iKo07FrGNfa5/uq3UnnD4WOS/GCZlodeWi372pMYcMxlJS8HdxkNMHNtQzWL
+	 p/3GfGiCxHNcN27Ym7lum86Aw4xonzm4VuJYbFlmC/LoIaAa1YWRrK/H9wE9Lmzdvx
+	 Y6TB5qdiEFP4VS/2R/YG0qhMhHjssBzTLzhc6505HOLCHrijhkYg0MYP6/wPIMoVhU
+	 LA4FYb3l7ejdg==
+Date: Thu, 30 Jan 2025 17:38:29 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Nicolas Dufresne <nicolas@ndufresne.ca>
+Cc: Florent Tomasin <florent.tomasin@arm.com>, 
+	Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Boris Brezillon <boris.brezillon@collabora.com>, Steven Price <steven.price@arm.com>, 
+	Liviu Dudau <liviu.dudau@arm.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Sumit Semwal <sumit.semwal@linaro.org>, 
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
+	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
+	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Yong Wu <yong.wu@mediatek.com>, dmaengine@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, nd@arm.com, 
+	Akash Goel <akash.goel@arm.com>
+Subject: Re: [RFC PATCH 0/5] drm/panthor: Protected mode support for Mali CSF
+ GPUs
+Message-ID: <ppznh3xnfuqrozhrc7juyi3enxc4v3meu4wadkwwzecj7oxex7@moln2fiibbxo>
+References: <cover.1738228114.git.florent.tomasin@arm.com>
+ <3ykaewmjjwkp3y2f3gf5jvqketicd4p2xqyajqtfnsxci36qlm@twidtyj2kgbw>
+ <1a73c3acee34a86010ecd25d76958bca4f16d164.camel@ndufresne.ca>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|AS1PR04MB9456:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9e05e82e-71d3-4913-8479-08dd414bd17f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|376014|52116014|1800799024|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?tCu/1WqyD9hS9vRTuj/fTFQF6DRLz5B5CGJ5hz2mfqOe09+HVSitfY0+UQC0?=
- =?us-ascii?Q?Sj68Xnqez/t7LUaZhUnCXn5oSS6gyuyTR77ViJfzQKSZZH/c53mdCCJMADZ9?=
- =?us-ascii?Q?64R9I1eD11zX0b48dxbd1NNTLQxqcO/9Lev30m9UifUNAvzpe+R5L3xSwpP2?=
- =?us-ascii?Q?MhjXke068dVC3geJHkXyrV3QrZYoqWXlngVr99OQAy1CZPh4ufmJI6cAL5mA?=
- =?us-ascii?Q?1A6QQzVK53uzZ+vkpSCZhUriiT1Ra0Ag3GwQHf2kt+E23i/VgVNMdl7j+F9A?=
- =?us-ascii?Q?k/B7aNHpR5D6ycjv5G/eK6d6Gyosa+5LqW/IQdAb5LdNqF4AwZzdocrNyGwe?=
- =?us-ascii?Q?jtgdoHdzkvGNEn73vxYwoRfxbja7YmyA2ILlVn4NtT1A5Z4A3SY7R7OJPQ24?=
- =?us-ascii?Q?UAcuffNhyZWKMim5kj2NDvVA8R+A+I48FMPo8GXFZ0x8YI7DjzOg4vMQbzB7?=
- =?us-ascii?Q?GdSOF+vRt/oORa9/L2C4sutzb59zvEQMR/3ihheoUvhn1uEctBlCIS3ZKhnW?=
- =?us-ascii?Q?1/GmLwKUo9HVq7RKuOi4OLSY6m6jAYb1vf17e9rp0uqh/+Ppn3H8wJ7Iwf6c?=
- =?us-ascii?Q?t2BHs+mbSgG5+iblqXB7WQaVNtJGHzIv6h8OkV0M4xfWMPWURZ5sTR0zc5GJ?=
- =?us-ascii?Q?bX8aQpRjMZTqdSaB5obzxAFTg840aKf7pAjq4iPb8Uwoq/m34lY0bXtO5/+E?=
- =?us-ascii?Q?+QvhIuXgVlP/Qod47C996LhoNbKNfLt8KtnJw/KX5ccahtCRolZD9rlZs5X3?=
- =?us-ascii?Q?b1fxkt0egRqKx5SVAT+jqlmCBYi/VG/CL62HHWusNkI6KDzSgUs5eW+Z/IkV?=
- =?us-ascii?Q?lrEs9jFFHSH2V+nHcvLnugc1YGxhEQCb40Ws354fOgNO9AsGX3iPuw2iiGCV?=
- =?us-ascii?Q?/iyQs4547UYkaioDUFDTpNUDpydnfr/eEqLMsj3q6XgF8+qUvZEWYSsncLT5?=
- =?us-ascii?Q?5WpCRCNiC/q3pvZblofUHcfXNavcQSGnjzZxRXQIHlA8u9op7olnsrzHk00g?=
- =?us-ascii?Q?VGsA1HzJt+nqU4EQDBwfzZ8e0TGaLHrLDfBg2KcEBvxuhdK9FTAyb6dssLwG?=
- =?us-ascii?Q?utxF0KEad/EOsL6whn96j1dvQjRKH64j0Q5ZqYkDpogHpsOMLxkhXwaqlytG?=
- =?us-ascii?Q?WdVMXkUTeSsIUZQ8md6Y2ndCbwOQcKy5KlW3KR3P8eQLesHUsYIIZ2Ry5Bmk?=
- =?us-ascii?Q?n2dwN736uW40Q9aTNAMLIDLnelQhq6LupZ8Qzr3Ie3bsAUxur79Gx2swSMfz?=
- =?us-ascii?Q?oc7OtHHgxv3C6Ap9DUUDlYvDbbSJVvFYgGP/meVARhzSCvc6qyTVIDmYDBr+?=
- =?us-ascii?Q?ZGw1wa8d0jELBeP1rVsqv05f4oDBhI6N5ILwWsacF09d3dmSQMv3D/NgOsrs?=
- =?us-ascii?Q?QxOoDTTXczSofP5QPfg2MNEs8JVpwh9yUrd5sOiAF77MxjKl0Z8KiGWH4uEu?=
- =?us-ascii?Q?tnd0CaQMhlhLUC18kfr5FfOOidd7I63y?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(52116014)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1PdnPulL59xtcjFOF9XgMDa4ytXiZDptWudJ4cTWPtqZ+pxGVBqgdkPN8UTN?=
- =?us-ascii?Q?KHxAnmE3wLZ+CBiPLlupIx4hA76OGm29xX6kwIS+fqBRGOLu4OSmD9v2FE2r?=
- =?us-ascii?Q?01c0tLFR0IJHkyjLuIytjq0+2hbigJUJzoJX54IEStpJW8moGc7PlO8lb0vr?=
- =?us-ascii?Q?xpkAckpQkzQ/I+JWDGI4HsvaqMvERMmh59Zjv8uOa/UQIAZpK1eojbWqTOs8?=
- =?us-ascii?Q?8FTnksm+ewOkZa0nsydAy4lBCnA6vnGWwDXIpMilg0KdVfZmmH739t/rEcVz?=
- =?us-ascii?Q?YCvVhsWE1IX0TATe4o5van2hNwpz5PXwIq2zpjh7N4dRVldKWNb8iVYP/Nze?=
- =?us-ascii?Q?oHY+7j6lJrS9YJYJKcG+iqgr9tU7kcsxDeJMPVpqXnfbx2Ss9b7/iwSwA1+L?=
- =?us-ascii?Q?j/ow/fCE2GJehEMRW75t60xotKFqZNof8wWiAK8IekXRk4mGYby4L7ejMpwN?=
- =?us-ascii?Q?FVChsCNWBj2paD2Quv8LXYPqYcD4KWnCoq0m61Q0IfYq0haa5GcPZe22kcjE?=
- =?us-ascii?Q?Nm6sBfnhkN0KxVawyvCZ4OrVTXSzAwwvZ+vxIlSXPzGtdGnHeQS4LQ78L6AP?=
- =?us-ascii?Q?tBqoq0PurwglyvSuV0auPZH5xwxB81ojjv/YQ4QC8hFBcV9MA+nYbNsh4KCC?=
- =?us-ascii?Q?27yauDMkC2UdKc5DI6nRwTZDtiB0Uo3A4G7uPFwFIICAd+e/nDGPvQc1mMAr?=
- =?us-ascii?Q?gPRvZBkZwM7nmLIvsoekLExtlsnVyJbR8t7M2fFL9k8CeB56geiHEQk/6l8X?=
- =?us-ascii?Q?eZPfc8CCAFCIRhRLI7xbG8TiJVro/lvCX86ZOYAjYDAecdge5kVySgsWW7Qo?=
- =?us-ascii?Q?fT6JVGXoJhGe0c7uKKt/2D8xXEznopHB8q5fGydlwpX9/04MR0/+SO4lh73J?=
- =?us-ascii?Q?YehoVd8QO4GHkkPKz6FiHO0C90hvIMK2qdd7c1RG6cgq96JmoHKgWraSKHBK?=
- =?us-ascii?Q?5/vnMKRyYWv+hxuUbLKEmYxhX7wDqOd4trUb2N7vumAzJ5XU8CedZzgU+ski?=
- =?us-ascii?Q?rJ8lSI5H+iDEYch08/ibnYTcKZCR9DzHAXnMAJL1BhHB2WjAeIFoVzlsIOpS?=
- =?us-ascii?Q?KnI11qC1vZiIdIgyXxPIRggWnY89PGayD0MXjYpkN1kDdQ5K8WowZaWLHQ+Y?=
- =?us-ascii?Q?tOxRHMSTrx8emy/pKbuLLqEwby+V/8q9LwQVamjiTqZ7E5Kj+mm/jC92S/tf?=
- =?us-ascii?Q?a6LgzRQROYw5fj7IAOiZfoIx5jJGTrXt80tLJIGVEC3qgtTTFXRwgzlYushh?=
- =?us-ascii?Q?dHN+Sz78kEV2VcdVYmPQRjDfhiq9aDMGYUhbqCld0QEdQ/WT0h2wYQLD+sK3?=
- =?us-ascii?Q?1Hpy9yubD/ziSwjgObFuiPb9A6Mnim7Jr4VVB0KEIzEwd4pVZvQerUhdJK8N?=
- =?us-ascii?Q?0sw9qGMmZMzSnErL0uR9rLf0Q80BQpJxShc+ayMoG49LFOVJmtRV+x6gjCf+?=
- =?us-ascii?Q?2LlN+4bykTz/ETMPbEwwfwx6gTAchorhSUK9DPMIM+VX5d3qdObWUrXn6caO?=
- =?us-ascii?Q?4WW6OPEEc6my/ps/JEShDJGX6RFdmvVbR5796i37LM6YsdzeyHvyU6MLAbqE?=
- =?us-ascii?Q?HHPfpjGfKp2++u9jzGWGx7oQul4xqyrD1bhBd+Ct?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9e05e82e-71d3-4913-8479-08dd414bd17f
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jan 2025 16:33:25.2635
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: lxtjbxqUmf87rhOnc2Kf0BLme1e6b88Rbie7GcsBs3jPznSy6CbuR27W3sw575D69nTZytcdxxnIPp48U9cygw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9456
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="7thzhib5zt2dlqzi"
+Content-Disposition: inline
+In-Reply-To: <1a73c3acee34a86010ecd25d76958bca4f16d164.camel@ndufresne.ca>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_083329_354253_725A175A 
-X-CRM114-Status: GOOD (  16.14  )
+X-CRM114-CacheID: sfid-20250130_083834_597596_0CEDF643 
+X-CRM114-Status: GOOD (  29.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,38 +87,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 30, 2025 at 02:00:59PM +0100, Alexander Stein wrote:
-> Move linux/delay.h to the right position.
->
-> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> ---
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+--7thzhib5zt2dlqzi
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [RFC PATCH 0/5] drm/panthor: Protected mode support for Mali CSF
+ GPUs
+MIME-Version: 1.0
 
->  drivers/nvmem/imx-ocotp.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/nvmem/imx-ocotp.c b/drivers/nvmem/imx-ocotp.c
-> index 79dd4fda03295..c5086a16450ac 100644
-> --- a/drivers/nvmem/imx-ocotp.c
-> +++ b/drivers/nvmem/imx-ocotp.c
-> @@ -15,6 +15,7 @@
->   */
->
->  #include <linux/clk.h>
-> +#include <linux/delay.h>
->  #include <linux/device.h>
->  #include <linux/io.h>
->  #include <linux/module.h>
-> @@ -22,7 +23,6 @@
->  #include <linux/of.h>
->  #include <linux/platform_device.h>
->  #include <linux/slab.h>
-> -#include <linux/delay.h>
->
->  #define IMX_OCOTP_OFFSET_B0W0		0x400 /* Offset from base address of the
->  					       * OTP Bank0 Word0
-> --
-> 2.34.1
->
+Hi Nicolas,
+
+On Thu, Jan 30, 2025 at 10:59:56AM -0500, Nicolas Dufresne wrote:
+> Le jeudi 30 janvier 2025 =E0 14:46 +0100, Maxime Ripard a =E9crit=A0:
+> > Hi,
+> >=20
+> > I started to review it, but it's probably best to discuss it here.
+> >=20
+> > On Thu, Jan 30, 2025 at 01:08:56PM +0000, Florent Tomasin wrote:
+> > > Hi,
+> > >=20
+> > > This is a patch series covering the support for protected mode execut=
+ion in
+> > > Mali Panthor CSF kernel driver.
+> > >=20
+> > > The Mali CSF GPUs come with the support for protected mode execution =
+at the
+> > > HW level. This feature requires two main changes in the kernel driver:
+> > >=20
+> > > 1) Configure the GPU with a protected buffer. The system must provide=
+ a DMA
+> > >    heap from which the driver can allocate a protected buffer.
+> > >    It can be a carved-out memory or dynamically allocated protected m=
+emory region.
+> > >    Some system includes a trusted FW which is in charge of the protec=
+ted memory.
+> > >    Since this problem is integration specific, the Mali Panthor CSF k=
+ernel
+> > >    driver must import the protected memory from a device specific exp=
+orter.
+> >=20
+> > Why do you need a heap for it in the first place? My understanding of
+> > your series is that you have a carved out memory region somewhere, and
+> > you want to allocate from that carved out memory region your buffers.
+> >=20
+> > How is that any different from using a reserved-memory region, adding
+> > the reserved-memory property to the GPU device and doing all your
+> > allocation through the usual dma_alloc_* API?
+>=20
+> How do you then multiplex this region so it can be shared between
+> GPU/Camera/Display/Codec drivers and also userspace ?
+
+You could point all the devices to the same reserved memory region, and
+they would all allocate from there, including for their userspace-facing
+allocations.
+
+> Also, how the secure memory is allocted / obtained is a process that
+> can vary a lot between SoC, so implementation details assumption
+> should not be coded in the driver.
+
+But yeah, we agree there, it's also the point I was trying to make :)
+
+Maxime
+
+--7thzhib5zt2dlqzi
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ5urAAAKCRAnX84Zoj2+
+drkxAYDhYMdCMRvVHsxuLWqll6NhSpmIh8E41iqDapuJU/CzgZsEjwmhO6YYeg3A
+2+EGrI8BgJd5IXr28mAs79h3kSGwjcbdvd2Dt6UIrNjBeLUprzQsspQVlCb01M+1
+D+t8k0aXog==
+=tDkf
+-----END PGP SIGNATURE-----
+
+--7thzhib5zt2dlqzi--
 
