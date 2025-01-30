@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C51C3C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 13:04:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2A4DC0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 13:05:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xq5ntvdixTiMxw1S/ZM1ceyovGwDVcIx7hfQrpd8SjY=; b=R0qHSDdcWGCc5UIQJ4bQUWpYYx
-	egPYTw82dQmOZfqYM0OlQGEbJUqYE4xApH518hImYXnyzBQ+aFmuwXMtFChaJm97yNvPpzhJju89q
-	clFaGwCSVu6UkM649LXN4Pj/EZX60PCFiYPsMDzjCUVjwBlgEqvBk8Q30vDagzsVxF7jM2+KCztBQ
-	fqz0j/3S4eSXRpVUvN7utXgywtVD2hp43tOCavCM8NHkyyPhIKh7Xq3XaUMtEFjFWHylSSTe/8ZWq
-	jAp5A84CQFi39ldLLDQPPlZwcec/vCWAmw1wZ9scG5w2KD+jJgd8thO9X6kioTUnuT3SWIyPvONHh
-	3sjvvgIw==;
+	bh=1qhRbu605zRQmNnQr5f4yNDwmxxb+PPe4g8I5X68vQg=; b=VJeXlfFRFO02WIjo7y8yyFlXGc
+	po/Vd3jlzeuN4DHv8HrDi7ej5ogoIsJvYO7JYsLRoX7UudKcn0anNG48LX6tmSYPt2FiYph0bqeUT
+	CfmKdD1uJBpq5DxkL8gNSB5k60obVHf0NjSZtxWTEzyVTNHc9L0GDkVKHdL74UiqRuIQ6+TR0Gehj
+	LXhjUfojesPABn4xwrJ5cpN8RMTw4HAJ6G0X3Oj508JUQLmlaNsO2tBZqOU5FbrbGfmf6QJfGs4rE
+	HqTYmHTeSNY/1653b3LXVBQMEAOZi6Go7MPtBtA/ZEIBivdvLWarP3mpbpNJUlmrzbEuvL0Svi/gj
+	1HWIdnPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdUD3-00000008oSZ-10a7;
-	Thu, 30 Jan 2025 13:03:53 +0000
+	id 1tdUER-00000008oct-081V;
+	Thu, 30 Jan 2025 13:05:19 +0000
 Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdUAU-00000008o2H-1lma
+	id 1tdUAZ-00000008o2H-2DWW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jan 2025 13:01:15 +0000
+	Thu, 30 Jan 2025 13:01:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1738242074; x=1769778074;
+  t=1738242079; x=1769778079;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=xq5ntvdixTiMxw1S/ZM1ceyovGwDVcIx7hfQrpd8SjY=;
-  b=Y2LkQmdGaNrplHQX9ALcSaq9RzFjyomXHXXFKvGwPp6HHkdAyWw+XFh0
-   0wMzvCDr01WEu5caLGoJw/qqKhmI6dOP8ee/ngiVXXJkZeuVKbQrIf9CK
-   NhCZZ9Gn6aNwfUGcAoTmJbGK3ykk+9+d0OtMIadAR69qmch0UMSA1xlV9
-   rLAqb3HOWHHnvjZks2ktGfD12BCUGXeHRbso3kkvVI9ktkCBC8+MTwAdE
-   Yxh5YUlR9y3N732X/5lLkYY4BSIDDVMzW+nb744gWewHvLqYcKWK/V/42
-   qW+5VYHEluRgIdHMrtlVcRgNhfI5WtJHd/83gHBMCJhF4KeLMy3+KI2cO
-   g==;
-X-CSE-ConnectionGUID: Xpw1lbTSSA+LmV+tlAdbqA==
-X-CSE-MsgGUID: Jg7Qd6jUTN2CIa1azzepQA==
+  bh=1qhRbu605zRQmNnQr5f4yNDwmxxb+PPe4g8I5X68vQg=;
+  b=NwZqyzSyMM5eX49ivPuxL0TBvqONqLK0euqFjwCn1U/VhurJCAGtAJVQ
+   kYXPxyGodWZfcbL7sLo44MxjQVjJ0NDOehQcZsqrLibWq7k6AhTplIJ5F
+   URXE5Hwl13jmwQYM/+eAYRvqI8tYI17m3ANj6DecrW7moFvi0yCr4oUgS
+   Aj9Hxzd5FgUzos8OEceFRlgoo9adbC323Lh3y+tBS4rXMH0DrA9w33tHb
+   7AIHrk1lpYdQa1GyLekmCIFkeo0U+mmJ3zHjI7jb4j2gYjmxOiUTw0bNE
+   uv9Nb/nOFkjTjMluhs6a8QxYt6L2B5ABpVTTof1zoqlpwrTRDO4308w24
+   Q==;
+X-CSE-ConnectionGUID: JJtIfw3ORCuByqg3pGf1Qg==
+X-CSE-MsgGUID: 4kNxiujQRCCAMM/dMkGYkA==
 X-IronPort-AV: E=Sophos;i="6.13,245,1732575600"; 
-   d="scan'208";a="41374598"
+   d="scan'208";a="41374603"
 Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 30 Jan 2025 14:01:13 +0100
-X-CheckPoint: {679B7819-39-31397509-E321C4C4}
-X-MAIL-CPID: 9BA95ED871756AC7173E720217D157CF_0
-X-Control-Analysis: str=0001.0A682F21.679B781A.0002,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 141261675B4;
-	Thu, 30 Jan 2025 14:01:09 +0100 (CET)
+  by mx1.tq-group.com with ESMTP; 30 Jan 2025 14:01:18 +0100
+X-CheckPoint: {679B781E-55-1CE016C0-E589DA3E}
+X-MAIL-CPID: 98CB8C2355A9D21FC1577AA8A1651977_1
+X-Control-Analysis: str=0001.0A682F1E.679B781F.0017,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 239971675B4;
+	Thu, 30 Jan 2025 14:01:14 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1738242069;
+	s=dkim; t=1738242074;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=xq5ntvdixTiMxw1S/ZM1ceyovGwDVcIx7hfQrpd8SjY=;
-	b=UR1yUV+70I+An2YmuusWORYL4BjlpiS/BTwBrJNm/+PFoMO9bDCS9TKCI2EMrLOBBHNhFo
-	rYWa1E/gvtMOEcDdLpSaRWOYZwM2gpm+fM/q0bR98mVFPmf4bGKRZMBH7hoJhZdLPslodI
-	SOOt31ld5pQa1rTVVysSFN3s99mD75x6zn9TE4eX8Q+UFisk/bE8oX6grAgpo26rttsikU
-	RJ1Ly+346pXDyUqVWjBG2EcX2mrIv2NBBK7XrqM0HCy79RrMMTGKRsj1cIwqMrf+8zCQBc
-	+8IL7ffBGiKcmRznMDIejAMqPvt/8r3VMM/27R3lpvmKlIAXl9CGmMnKBSjMsw==
+	bh=1qhRbu605zRQmNnQr5f4yNDwmxxb+PPe4g8I5X68vQg=;
+	b=P9QJefT0IPrYF3Smx7qjegIOujC1UdIQEbRkT1xuE8bxTOBvLsqHGEeFdzscAwcDJ+gPGb
+	KhIWzDI0KjaHF5c5j839jT73xUxiBsm02iB7yk8iUQ9MZ5WkNsGpPW8z3ES3OlYLCJxkuW
+	HXffa0F/I1ilKFp1Re9HSa9rEi7YpsFIxQuUPcW97pguod14f+wOP212efR6FeMjeBD753
+	TXnXa2unORAgGjIoydKlpc9jGkc7Jr5HImyeJvGzIBtFaT0i8t9E+/HjJ12qYjMkDUKAX8
+	wFITMOScrgV+WjGgf6CdSduR2v1THwCDpXYoVWmol7A+MM0toQlPZuLP4xZkdw==
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -77,9 +77,9 @@ Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/4] dt-bindings: nvmem: imx-ocotp: Add i.MX8M Nano access controller definitions
-Date: Thu, 30 Jan 2025 14:00:58 +0100
-Message-Id: <20250130130101.1040824-2-alexander.stein@ew.tq-group.com>
+Subject: [PATCH 2/4] nvmem: imx-ocotp: Sort header alphabetically
+Date: Thu, 30 Jan 2025 14:00:59 +0100
+Message-Id: <20250130130101.1040824-3-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250130130101.1040824-1-alexander.stein@ew.tq-group.com>
 References: <20250130130101.1040824-1-alexander.stein@ew.tq-group.com>
@@ -87,8 +87,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_050114_763957_396237EF 
-X-CRM114-Status: GOOD (  11.20  )
+X-CRM114-CacheID: sfid-20250130_050119_869327_7659D8A3 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,37 +103,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These are the definition for the bindings of imx-ocotp for disabling
-fuses.
+Move linux/delay.h to the right position.
 
 Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 ---
- include/dt-bindings/nvmem/fsl,imx8mn-ocotp.h | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
- create mode 100644 include/dt-bindings/nvmem/fsl,imx8mn-ocotp.h
+ drivers/nvmem/imx-ocotp.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/include/dt-bindings/nvmem/fsl,imx8mn-ocotp.h b/include/dt-bindings/nvmem/fsl,imx8mn-ocotp.h
-new file mode 100644
-index 0000000000000..6e554edefd488
---- /dev/null
-+++ b/include/dt-bindings/nvmem/fsl,imx8mn-ocotp.h
-@@ -0,0 +1,16 @@
-+/* SPDX-License-Identifier: GPL-2.0 OR MIT */
-+
-+#ifndef _DT_BINDINGS_NVMEM_IMX8MN_OCOTP_H
-+#define _DT_BINDINGS_NVMEM_IMX8MN_OCOTP_H
-+
-+#define IMX8MN_OCOTP_M7_DISABLE		0
-+#define IMX8MN_OCOTP_M7_MPU_DISABLE	1
-+#define IMX8MN_OCOTP_M7_FPU_DISABLE	2
-+#define IMX8MN_OCOTP_USB_OTG1_DISABLE	3
-+#define IMX8MN_OCOTP_GPU3D_DISABLE	4
-+#define IMX8MN_OCOTP_MIPI_DSI_DISABLE	5
-+#define IMX8MN_OCOTP_ENET_DISABLE	6
-+#define IMX8MN_OCOTP_MIPI_CSI_DISABLE	7
-+#define IMX8MN_OCOTP_ASRC_DISABLE	8
-+
-+#endif
+diff --git a/drivers/nvmem/imx-ocotp.c b/drivers/nvmem/imx-ocotp.c
+index 79dd4fda03295..c5086a16450ac 100644
+--- a/drivers/nvmem/imx-ocotp.c
++++ b/drivers/nvmem/imx-ocotp.c
+@@ -15,6 +15,7 @@
+  */
+ 
+ #include <linux/clk.h>
++#include <linux/delay.h>
+ #include <linux/device.h>
+ #include <linux/io.h>
+ #include <linux/module.h>
+@@ -22,7 +23,6 @@
+ #include <linux/of.h>
+ #include <linux/platform_device.h>
+ #include <linux/slab.h>
+-#include <linux/delay.h>
+ 
+ #define IMX_OCOTP_OFFSET_B0W0		0x400 /* Offset from base address of the
+ 					       * OTP Bank0 Word0
 -- 
 2.34.1
 
