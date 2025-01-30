@@ -4,64 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F0ADC0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 23:41:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7841C0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jan 2025 23:42:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LW2HpJYaZjs9w/FFZTJghV+jHcxfHB/ef3dIdWSmXk4=; b=3qzZcV89b8MvDBS5AX/vb4H+X6
-	6Thfl/9NC587LSUIx6xER1woNPIpl5JjvQ0+dImDfRuheWfrrJkk5I7+8RUmYogqg7hqq+3njdoNq
-	n/yzO/dJPAoILcLLxFrCzAcf4i1Zj88xGjdRRX1cpHutykPbkdacdLK8tY8Vxpfk2pAJgZfHBSzdf
-	AMWS6/q150zQPE+FE50gkE/8UbjggG/4qlmNVSS3PQWX6CHfzUI67qJTFaWzXnCX2LL0OjEyTrPXI
-	SE0sPABdk/w4Fto8TaY5DKf+1wGHPO1B/KORf2UTMjTFjvAkAcjCFpHOHzeU9FpPiCIE8rR7Eq9mf
-	/prEPk+g==;
+	bh=q+vcircnt8u7rSNQKFmfCOYwmnEC48+y3xYGBpBwRHI=; b=q5pkACyNMQdN+3S/Go2nlViJ+5
+	gaEj3xGdT3SdhuWHEIQ9h8QYVFvOVWU60stiv1hrOaaijtRKEjRs60KaYJ+kymPsWzFWgIa3HFhXQ
+	w/MqEUhY/JmUYu8Sf7QWI01LeS8hznXo/tomSzawrHK8NYgZOMPcmUM3rvl6E1iGkTbQVhHDYs2yU
+	+7rWlEB+9t7B6H/XvpUrMLp/y4l0ju+zKCFdcJRU2ZNgtqLF07D2x2nnsI54qYo7Tl8KqborWjH6x
+	aZcpbsPsvJQyGloPjsfGwfrwnakuaMGAh+dEQ+eZCDWRmaeYE/Bc24p3p3DpmHsE5Mc3+yiK38Tzz
+	RXj4kfmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tde9Q-00000009o2i-44aO;
-	Thu, 30 Jan 2025 23:40:48 +0000
+	id 1tdeAi-00000009oDA-2eQe;
+	Thu, 30 Jan 2025 23:42:08 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tde6o-00000009niE-3mHr
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jan 2025 23:38:08 +0000
+	id 1tde6q-00000009nid-0Cca;
+	Thu, 30 Jan 2025 23:38:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 41F6CA42585;
-	Thu, 30 Jan 2025 23:36:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F95AC4CED2;
-	Thu, 30 Jan 2025 23:38:05 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 85632A4258D;
+	Thu, 30 Jan 2025 23:36:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0A0BC4CED2;
+	Thu, 30 Jan 2025 23:38:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738280285;
-	bh=cNlalbXYNDV6xKsFrZhu/iStGEI1hyTXWGl4GqKOsWI=;
+	s=k20201202; t=1738280286;
+	bh=HjJYBTW0IoZ0H/z1rvQ5WqWeGTuLb26yUom1+Nax96I=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=WacLaxVE833mJZhmeypQviKRFTg6/aODhz6V64rgVa8z+464/P0ddo13+Qra8ZshZ
-	 39LsqlChbxg2tzlFiLEufCj8HEZq0RIR+gok4DFYH1WseQ2jEX1Zd6MnmMDfXIUAnE
-	 XHIi9n2vGxCF+z8NY7SBk+bppTfGLkM7RVT7JurCGZvnngWoYEpZCzQy4LDQzSGMmM
-	 e4x/g45PVLxBvmJF2KygNq/lLPl3bPprVzg3oVr+jEwoI8c4VlZp0v9J1SRNp9EWUb
-	 Hll9jy0IKHwWEH7PLaaR3CKhc8v/j3z2HebF2p3o0a/9YAy7bnC/gSYwv5YTWTJ/ma
-	 XdLGxuycQhmJg==
-Date: Thu, 30 Jan 2025 17:38:04 -0600
+	b=AZa+QhU6He2ZKIaqTsDg3KAsdcQ09dTlw80gm1uBOcOb0JS4w82cGz1mPvDmuZawG
+	 dbhO1Mhwu1huDDQVR6lTqSJMIAF1DX4zHKDyq2/fH0dUEysxOtxJEyhT82Elw7N0Rs
+	 qHoSplFspUrolqBVHylHL+K/pHFiSZ9/2gAcuDsRpNvqhjN4TRup1ro2gjMnh0UfC5
+	 gqDcaByhH+5Hhn6QE+RiF3+uf53hCjfqK+cY+FgvJ/zDbZYK+Y9669S1Bz8H4CSIWp
+	 CQGjyLbWJyRkk1satxl1oQEiaPPaKsh4K4LOWw9XjD4tAbeJZ/oYKe8xXDEjTh2qjx
+	 gmuqLy2DdmsUg==
+Date: Thu, 30 Jan 2025 17:38:05 -0600
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, 
- Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
- devicetree@vger.kernel.org, Pengutronix Kernel Team <kernel@pengutronix.de>, 
- linux-arm-kernel@lists.infradead.org, Sascha Hauer <s.hauer@pengutronix.de>, 
- Shawn Guo <shawnguo@kernel.org>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-In-Reply-To: <20250130130101.1040824-1-alexander.stein@ew.tq-group.com>
-References: <20250130130101.1040824-1-alexander.stein@ew.tq-group.com>
-Message-Id: <173828013202.1872493.8212881147597194221.robh@kernel.org>
-Subject: Re: [PATCH 0/4] Make i.MX8M Nano OCOTP work as accessing
- controller
+Cc: dri-devel@lists.freedesktop.org, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, devicetree@vger.kernel.org, 
+ David Airlie <airlied@gmail.com>, kernel@collabora.com, 
+ Steven Price <steven.price@arm.com>, linux-kernel@vger.kernel.org, 
+ Maxime Ripard <mripard@kernel.org>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ linux-mediatek@lists.infradead.org, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Simona Vetter <simona@ffwll.ch>, 
+ Boris Brezillon <boris.brezillon@collabora.com>, 
+ linux-arm-kernel@lists.infradead.org
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+In-Reply-To: <20250130-mt8370-enable-gpu-v2-0-c154d0815db5@collabora.com>
+References: <20250130-mt8370-enable-gpu-v2-0-c154d0815db5@collabora.com>
+Message-Id: <173828013321.1872542.6559997266281744152.robh@kernel.org>
+Subject: Re: [PATCH v2 0/3] Add Mali GPU support for Mediatek MT8370 SoC
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_153807_077385_EA4E5997 
-X-CRM114-Status: GOOD (  19.10  )
+X-CRM114-CacheID: sfid-20250130_153808_231949_9692FEC3 
+X-CRM114-Status: GOOD (  20.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,47 +82,59 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 30 Jan 2025 14:00:57 +0100, Alexander Stein wrote:
-> Hi,
+On Thu, 30 Jan 2025 13:30:58 +0100, Louis-Alexis Eyraud wrote:
+> This patchset adds the support of the ARM Mali G57 MC2 GPU (Valhall-JM,
+> dual core), integrated in the Mediatek MT8370 SoC, to the panfrost driver
+> and to the mt8370.dtsi include file.
 > 
-> inspired by [1] this adds the accessing controller feature to i.MX8M Nano.
-> The OCOTP eFuse has bits which can disable particular peripherals, such as
-> GPU, MIPI-DSI oder USB.
+> I've testing this patchset on a Mediatek Genio 510 EVK board,
+> with a kernel based on linux-next (tag: next-20250113) plus [1] patchset.
 > 
-> In OCOTP driver, the nodes under "/" will be iterated, and checked
-> if property "#access-controllers" exsits. If not allow access, detach
-> the node.
+> The panfrost driver probed with the following messages:
+> ```
+> panfrost 13000000.gpu: clock rate = 390000000
+> panfrost 13000000.gpu: mali-g57 id 0x9093 major 0x0 minor 0x0 status 0x0
+> panfrost 13000000.gpu: features: 00000000,000019f7, issues: 00000003,
+>   80000400
+> panfrost 13000000.gpu: Features: L2:0x08130206 Shader:0x00000000
+>   Tiler:0x00000809 Mem:0x1 MMU:0x00002830 AS:0xff JS:0x7
+> panfrost 13000000.gpu: shader_present=0x5 l2_present=0x1
+> [drm] Initialized panfrost 1.3.0 for 13000000.gpu on minor 0
+> ```
 > 
-> I successfully used this on a i.MX8M Nano DualLite which has GPU disabled.
-> Without this patchset the default DT completly freezes the SoC if GPU
-> is accessed.
-> Using this patchset the GPU is disabled without any DT modification from
-> bootloader:
-> > imx_ocotp 30350000.efuse: /soc@0/gpu@38000000: disabled by fuse, device driver will not be probed
+> [1] https://lore.kernel.org/linux-mediatek/20250115-dts_mt8370-genio-510-v2-0-fc9b01d08834@collabora.com/
 > 
-> Adding the other i.MX8M SoCs is straight forward.
+> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> ---
+> Changes in v2:
+> - Rework "drm/panfrost: Add support for Mali on the MT8370 SoC" to avoid
+>   data structure duplication, as requested by Krzysztof Kozlowski
+> - Reword commit messages to use imperative mood and make new compatible
+>   need more explicit
+> - Link to v1: https://lore.kernel.org/r/20250116-mt8370-enable-gpu-v1-0-0a6b78e925c8@collabora.com
+> 
+> ---
+> Louis-Alexis Eyraud (3):
+>       dt-bindings: gpu: mali-bifrost: Add compatible for MT8370 SoC
+>       drm/panfrost: Add support for Mali on the MT8370 SoC
+>       arm64: dts: mediatek: mt8370: Enable gpu support
+> 
+>  Documentation/devicetree/bindings/gpu/arm,mali-bifrost.yaml | 5 ++++-
+>  arch/arm64/boot/dts/mediatek/mt8370.dtsi                    | 9 +++++++++
+>  drivers/gpu/drm/panfrost/panfrost_drv.c                     | 1 +
+>  3 files changed, 14 insertions(+), 1 deletion(-)
+> ---
+> base-commit: 37136bf5c3a6f6b686d74f41837a6406bec6b7bc
+> change-id: 20250115-mt8370-enable-gpu-3b6f595fa63d
+> prerequisite-change-id: 20250113-dts_mt8370-genio-510-3560b8010ba9:v2
+> prerequisite-patch-id: af53ae39240467340ac4c9cdbc8fdd949c5457a2
+> prerequisite-patch-id: ca07485956f81c1a40029b48d2b4bcf00d74fc13
+> prerequisite-patch-id: c34d9870b2c61d87ad8a6facba13d8970682e679
+> prerequisite-patch-id: 48784acdcdd8b886fdec9f21c9cb88abb327e2e1
 > 
 > Best regards,
-> Alexander
-> 
-> [1] https://lore.kernel.org/all/20250121-imx-ocotp-v6-0-76dab40e13db@nxp.com/
-> 
-> Alexander Stein (4):
->   dt-bindings: nvmem: imx-ocotp: Add i.MX8M Nano access controller
->     definitions
->   nvmem: imx-ocotp: Sort header alphabetically
->   nvmem: imx-ocotp: Support accessing controller for i.MX8M Nano
->   arm64: dts: imx8mn: Add access-controller references
-> 
->  arch/arm64/boot/dts/freescale/imx8mn.dtsi    |   8 ++
->  drivers/nvmem/Kconfig                        |   3 +
->  drivers/nvmem/imx-ocotp.c                    | 107 ++++++++++++++++++-
->  include/dt-bindings/nvmem/fsl,imx8mn-ocotp.h |  16 +++
->  4 files changed, 132 insertions(+), 2 deletions(-)
->  create mode 100644 include/dt-bindings/nvmem/fsl,imx8mn-ocotp.h
-> 
 > --
-> 2.34.1
+> Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 > 
 > 
 > 
@@ -137,162 +154,18 @@ make sure dt-schema is up to date:
   pip3 install dtschema --upgrade
 
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for 20250130130101.1040824-1-alexander.stein@ew.tq-group.com:
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/mediatek/' for 20250130-mt8370-enable-gpu-v2-0-c154d0815db5@collabora.com:
 
-arch/arm64/boot/dts/freescale/imx8mn-evk.dtb: easrc@300c0000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/sound/fsl,easrc.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-ddr3l-evk.dtb: easrc@300c0000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/sound/fsl,easrc.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-beacon-kit.dtb: easrc@300c0000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/sound/fsl,easrc.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-rve-gateway.dtb: easrc@300c0000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/sound/fsl,easrc.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2.dtb: easrc@300c0000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/sound/fsl,easrc.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-dimonoff-gateway-evk.dtb: easrc@300c0000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/sound/fsl,easrc.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-var-som-symphony.dtb: easrc@300c0000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/sound/fsl,easrc.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-evk.dtb: efuse@30350000: Unevaluated properties are not allowed ('#access-controller-cells' was unexpected)
-	from schema $id: http://devicetree.org/schemas/nvmem/imx-ocotp.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-ddr3l-evk.dtb: efuse@30350000: Unevaluated properties are not allowed ('#access-controller-cells' was unexpected)
-	from schema $id: http://devicetree.org/schemas/nvmem/imx-ocotp.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-beacon-kit.dtb: efuse@30350000: Unevaluated properties are not allowed ('#access-controller-cells' was unexpected)
-	from schema $id: http://devicetree.org/schemas/nvmem/imx-ocotp.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-rve-gateway.dtb: efuse@30350000: Unevaluated properties are not allowed ('#access-controller-cells' was unexpected)
-	from schema $id: http://devicetree.org/schemas/nvmem/imx-ocotp.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2.dtb: efuse@30350000: Unevaluated properties are not allowed ('#access-controller-cells' was unexpected)
-	from schema $id: http://devicetree.org/schemas/nvmem/imx-ocotp.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-var-som-symphony.dtb: efuse@30350000: Unevaluated properties are not allowed ('#access-controller-cells' was unexpected)
-	from schema $id: http://devicetree.org/schemas/nvmem/imx-ocotp.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-dimonoff-gateway-evk.dtb: efuse@30350000: Unevaluated properties are not allowed ('#access-controller-cells' was unexpected)
-	from schema $id: http://devicetree.org/schemas/nvmem/imx-ocotp.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-ddr4-evk.dtb: easrc@300c0000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/sound/fsl,easrc.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-evk.dtb: ethernet@30be0000: Unevaluated properties are not allowed ('access-controllers' was unexpected)
-	from schema $id: http://devicetree.org/schemas/net/fsl,fec.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-ddr3l-evk.dtb: ethernet@30be0000: Unevaluated properties are not allowed ('access-controllers' was unexpected)
-	from schema $id: http://devicetree.org/schemas/net/fsl,fec.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-ddr4-evk.dtb: efuse@30350000: Unevaluated properties are not allowed ('#access-controller-cells' was unexpected)
-	from schema $id: http://devicetree.org/schemas/nvmem/imx-ocotp.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2.dtb: ethernet@30be0000: Unevaluated properties are not allowed ('access-controllers' was unexpected)
-	from schema $id: http://devicetree.org/schemas/net/fsl,fec.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-evk.dtb: dsi@32e10000: access-controllers: [[20, 5]] is not of type 'object'
-	from schema $id: http://devicetree.org/schemas/display/bridge/samsung,mipi-dsim.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-rve-gateway.dtb: ethernet@30be0000: Unevaluated properties are not allowed ('access-controllers' was unexpected)
-	from schema $id: http://devicetree.org/schemas/net/fsl,fec.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-ddr3l-evk.dtb: dsi@32e10000: access-controllers: [[20, 5]] is not of type 'object'
-	from schema $id: http://devicetree.org/schemas/display/bridge/samsung,mipi-dsim.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2.dtb: dsi@32e10000: access-controllers: [[16, 5]] is not of type 'object'
-	from schema $id: http://devicetree.org/schemas/display/bridge/samsung,mipi-dsim.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-beacon-kit.dtb: ethernet@30be0000: Unevaluated properties are not allowed ('access-controllers' was unexpected)
-	from schema $id: http://devicetree.org/schemas/net/fsl,fec.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-rve-gateway.dtb: dsi@32e10000: access-controllers: [[16, 5]] is not of type 'object'
-	from schema $id: http://devicetree.org/schemas/display/bridge/samsung,mipi-dsim.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-evk.dtb: mipi-csi@32e30000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/media/nxp,imx-mipi-csi2.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-ddr3l-evk.dtb: mipi-csi@32e30000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/media/nxp,imx-mipi-csi2.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-evk.dtb: usb@32e40000: Unevaluated properties are not allowed ('access-controllers' was unexpected)
-	from schema $id: http://devicetree.org/schemas/usb/chipidea,usb2-imx.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-ddr3l-evk.dtb: usb@32e40000: Unevaluated properties are not allowed ('access-controllers' was unexpected)
-	from schema $id: http://devicetree.org/schemas/usb/chipidea,usb2-imx.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2.dtb: mipi-csi@32e30000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/media/nxp,imx-mipi-csi2.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-beacon-kit.dtb: dsi@32e10000: access-controllers: [[19, 5]] is not of type 'object'
-	from schema $id: http://devicetree.org/schemas/display/bridge/samsung,mipi-dsim.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-rve-gateway.dtb: mipi-csi@32e30000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/media/nxp,imx-mipi-csi2.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2.dtb: usb@32e40000: Unevaluated properties are not allowed ('access-controllers' was unexpected)
-	from schema $id: http://devicetree.org/schemas/usb/chipidea,usb2-imx.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-evk.dtb: gpu@38000000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/gpu/vivante,gc.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-rve-gateway.dtb: usb@32e40000: Unevaluated properties are not allowed ('access-controllers' was unexpected)
-	from schema $id: http://devicetree.org/schemas/usb/chipidea,usb2-imx.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-ddr3l-evk.dtb: gpu@38000000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/gpu/vivante,gc.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-var-som-symphony.dtb: ethernet@30be0000: Unevaluated properties are not allowed ('access-controllers' was unexpected)
-	from schema $id: http://devicetree.org/schemas/net/fsl,fec.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-beacon-kit.dtb: mipi-csi@32e30000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/media/nxp,imx-mipi-csi2.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2.dtb: gpu@38000000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/gpu/vivante,gc.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-rve-gateway.dtb: gpu@38000000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/gpu/vivante,gc.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-beacon-kit.dtb: usb@32e40000: Unevaluated properties are not allowed ('access-controllers' was unexpected)
-	from schema $id: http://devicetree.org/schemas/usb/chipidea,usb2-imx.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-dimonoff-gateway-evk.dtb: ethernet@30be0000: Unevaluated properties are not allowed ('access-controllers' was unexpected)
-	from schema $id: http://devicetree.org/schemas/net/fsl,fec.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-var-som-symphony.dtb: dsi@32e10000: access-controllers: [[16, 5]] is not of type 'object'
-	from schema $id: http://devicetree.org/schemas/display/bridge/samsung,mipi-dsim.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-beacon-kit.dtb: gpu@38000000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/gpu/vivante,gc.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-dimonoff-gateway-evk.dtb: dsi@32e10000: access-controllers: [[16, 5]] is not of type 'object'
-	from schema $id: http://devicetree.org/schemas/display/bridge/samsung,mipi-dsim.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-var-som-symphony.dtb: mipi-csi@32e30000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/media/nxp,imx-mipi-csi2.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-var-som-symphony.dtb: usb@32e40000: Unevaluated properties are not allowed ('access-controllers' was unexpected)
-	from schema $id: http://devicetree.org/schemas/usb/chipidea,usb2-imx.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-dimonoff-gateway-evk.dtb: mipi-csi@32e30000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/media/nxp,imx-mipi-csi2.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-dimonoff-gateway-evk.dtb: usb@32e40000: Unevaluated properties are not allowed ('access-controllers' was unexpected)
-	from schema $id: http://devicetree.org/schemas/usb/chipidea,usb2-imx.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-var-som-symphony.dtb: gpu@38000000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/gpu/vivante,gc.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-dimonoff-gateway-evk.dtb: gpu@38000000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/gpu/vivante,gc.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-ddr4-evk.dtb: ethernet@30be0000: Unevaluated properties are not allowed ('access-controllers' was unexpected)
-	from schema $id: http://devicetree.org/schemas/net/fsl,fec.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-ddr4-evk.dtb: dsi@32e10000: access-controllers: [[20, 5]] is not of type 'object'
-	from schema $id: http://devicetree.org/schemas/display/bridge/samsung,mipi-dsim.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-ddr4-evk.dtb: mipi-csi@32e30000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/media/nxp,imx-mipi-csi2.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-ddr4-evk.dtb: usb@32e40000: Unevaluated properties are not allowed ('access-controllers' was unexpected)
-	from schema $id: http://devicetree.org/schemas/usb/chipidea,usb2-imx.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2pro.dtb: easrc@300c0000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/sound/fsl,easrc.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-ddr4-evk.dtb: gpu@38000000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/gpu/vivante,gc.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2pro.dtb: efuse@30350000: Unevaluated properties are not allowed ('#access-controller-cells' was unexpected)
-	from schema $id: http://devicetree.org/schemas/nvmem/imx-ocotp.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2pro.dtb: ethernet@30be0000: Unevaluated properties are not allowed ('access-controllers' was unexpected)
-	from schema $id: http://devicetree.org/schemas/net/fsl,fec.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2pro.dtb: dsi@32e10000: access-controllers: [[17, 5]] is not of type 'object'
-	from schema $id: http://devicetree.org/schemas/display/bridge/samsung,mipi-dsim.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2pro.dtb: mipi-csi@32e30000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/media/nxp,imx-mipi-csi2.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2pro.dtb: usb@32e40000: Unevaluated properties are not allowed ('access-controllers' was unexpected)
-	from schema $id: http://devicetree.org/schemas/usb/chipidea,usb2-imx.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl-mba8mx.dtb: easrc@300c0000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/sound/fsl,easrc.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2pro.dtb: gpu@38000000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/gpu/vivante,gc.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-venice-gw7902.dtb: easrc@300c0000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/sound/fsl,easrc.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl-mba8mx.dtb: efuse@30350000: Unevaluated properties are not allowed ('#access-controller-cells' was unexpected)
-	from schema $id: http://devicetree.org/schemas/nvmem/imx-ocotp.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-venice-gw7902.dtb: efuse@30350000: Unevaluated properties are not allowed ('#access-controller-cells' was unexpected)
-	from schema $id: http://devicetree.org/schemas/nvmem/imx-ocotp.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl-mba8mx.dtb: ethernet@30be0000: Unevaluated properties are not allowed ('access-controllers' was unexpected)
-	from schema $id: http://devicetree.org/schemas/net/fsl,fec.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-venice-gw7902.dtb: ethernet@30be0000: Unevaluated properties are not allowed ('access-controllers' was unexpected)
-	from schema $id: http://devicetree.org/schemas/net/fsl,fec.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl-mba8mx.dtb: dsi@32e10000: access-controllers: [[17, 5]] is not of type 'object'
-	from schema $id: http://devicetree.org/schemas/display/bridge/samsung,mipi-dsim.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-venice-gw7902.dtb: dsi@32e10000: access-controllers: [[17, 5]] is not of type 'object'
-	from schema $id: http://devicetree.org/schemas/display/bridge/samsung,mipi-dsim.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl-mba8mx.dtb: mipi-csi@32e30000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/media/nxp,imx-mipi-csi2.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl-mba8mx.dtb: usb@32e40000: Unevaluated properties are not allowed ('access-controllers' was unexpected)
-	from schema $id: http://devicetree.org/schemas/usb/chipidea,usb2-imx.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-venice-gw7902.dtb: mipi-csi@32e30000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/media/nxp,imx-mipi-csi2.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl-mba8mx.dtb: gpu@38000000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/gpu/vivante,gc.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-venice-gw7902.dtb: usb@32e40000: Unevaluated properties are not allowed ('access-controllers' was unexpected)
-	from schema $id: http://devicetree.org/schemas/usb/chipidea,usb2-imx.yaml#
-arch/arm64/boot/dts/freescale/imx8mn-venice-gw7902.dtb: gpu@38000000: 'access-controllers' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/gpu/vivante,gc.yaml#
+arch/arm64/boot/dts/mediatek/mt8370-genio-510-evk.dtb: pinctrl@10005000: 'pcie-default' does not match any of the regexes: '-pins$', 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/pinctrl/mediatek,mt8188-pinctrl.yaml#
+arch/arm64/boot/dts/mediatek/mt8370-genio-510-evk.dtb: pmic: regulators: 'compatible' is a required property
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
+arch/arm64/boot/dts/mediatek/mt8370-genio-510-evk.dtb: pmic: '#sound-dai-cells', 'mt6359codec', 'mt6359rtc' do not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
+arch/arm64/boot/dts/mediatek/mt8370-genio-510-evk.dtb: mailbox@10320000: 'clock-names' is a required property
+	from schema $id: http://devicetree.org/schemas/mailbox/mediatek,gce-mailbox.yaml#
+arch/arm64/boot/dts/mediatek/mt8370-genio-510-evk.dtb: jpeg-decoder@1a040000: iommus: [[123, 685], [123, 686], [123, 690], [123, 691], [123, 692], [123, 693]] is too long
+	from schema $id: http://devicetree.org/schemas/media/mediatek-jpeg-decoder.yaml#
 
 
 
