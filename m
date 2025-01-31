@@ -4,112 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4710C02193
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 10:18:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A91F4C0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 10:21:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b6uuXIpw+M1axLEgr7vjI+C/GJLz683o/8HqWLFU+6U=; b=vaPllvwNSrC+5zIqTMSD6T4aXi
-	l9gWv4lngffP6jg5l33b0ffmaRgMJ7z7D2dILXCadshRX+stKg5/3K6IQEgurpjcE4b1Y+BV/LIdc
-	yW2bXkKuEaMuHRr0ACNTTwij84re1uhE5RhamarlLhXNtIMq5+N6eM5/8OxSzmapPCYrOL3jx8PpV
-	lBL8lvHSKIqv9o9diCscpkdHlt7rEz/N/f7szYtyuUofXAnXp14rWr29yr/Nmu/QsY7NLKj/jWLWt
-	Y4FMUBhx39VZRlOEJOkxSlwm3AdYPSy913s3ykcn5LBoN2nUH/nGnM2JyMhxyuDp6uRJcH0hBeInn
-	Nut9vxDw==;
+	bh=sMKEFp2iY1ooXPFXuah13Z2j8Gd6Pr/iXVngt99gS+c=; b=kI0BiW6E6t5GpXhCgQEDLFh2+6
+	PIeFt9Jb5RbDEBqhYpaPk0CzDJfPM+fyknvlhxVr+eExanBR7dv48B5ZLqEP3x/mqNXchsGaCjgWX
+	kJjluZG40U23QEEPq2DttdTN3pl5unp5TkkyERDBtGjTzOD4hFF4X57VBIiywl3xwWC/r4qpd3yBt
+	M1Si4SZ7Jnpo4JeD8R+gXLDkTTTBcVT5UdgxTcuH2N4p4FMgp/bgJtSNdZnRuSNh0al74GwT355Tz
+	rFMoPtU9JGwsJc8feMy/uXgYV7RZyZaj4+oXqc5BXxPO8BpLX/WCA6OUli6lC8cWTQP/wUeiMJhf3
+	F3KyVGqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdo6V-0000000ANK2-0j9J;
-	Fri, 31 Jan 2025 10:18:27 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tdo9J-0000000ANhm-0NhP;
+	Fri, 31 Jan 2025 10:21:21 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdo5C-0000000AN6I-1IW9;
-	Fri, 31 Jan 2025 10:17:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A5F79A41DA0;
-	Fri, 31 Jan 2025 10:15:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78128C4CED1;
-	Fri, 31 Jan 2025 10:17:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738318624;
-	bh=kJJvbQKt6Q32DAbri1MCULy5VGGdWlsbktPaKMFFtmM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QzXmk3LUH+cputlgRzi3JRLQYNaPoh6m1HGH0fkRdhR8YJRpNW/N/dT5iu81Dbni0
-	 P0NI+Je3GHtPx9zYIvcaQzokWzADha5ns4xp16UDxhYWMSpJiSsPpEc0PSUjKSNuF0
-	 7yZLzIrJ4C8/Ckoz3gtsNlla/FyxTCABtHjkz+fkI3GnOoHhe4xfi2nstQZiY0yqRM
-	 verTCrRJpwRpRKAhCI6DNa3UKh/6FDksP994mXgBQiP8viK2tOvWTpWy4CsNMjpv7C
-	 6BtDbBHcZP/1jmPFLXFsSWUrQckHdCmPMSg2Lk3CxZut1DIBoWX2pV4E7zTM0bnt5a
-	 e7d5JYK0wBiCA==
-Message-ID: <3a0f3d55-3828-43c9-b2d2-291f767c50e0@kernel.org>
-Date: Fri, 31 Jan 2025 11:16:59 +0100
+	id 1tdo7z-0000000ANaU-2MqG
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 31 Jan 2025 10:20:01 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-436a39e4891so12332265e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jan 2025 02:19:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1738318798; x=1738923598; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=sMKEFp2iY1ooXPFXuah13Z2j8Gd6Pr/iXVngt99gS+c=;
+        b=WvpDqJYMn0wUP5NbqnFP72fwSB9v5bhuHIkOKh9wKieeww2vYjfAF+ixfkrnRoSuRM
+         RPKrO6Oz1RUIbrue8t/zPRJzNKw8PUwKtTB7NuDQnsxq9uEEcniLHdqmJQ5a2ZsXheNe
+         nfwkOw7Tdq4kgtI1r8fGBjdxTsBMt4vd6wUXfW2Fto1ZydD/klHy/o4h2+XdT4gY0/Dw
+         QiYNEbwSlHYYMQYnS8/dL62jVoEyplmIuqwra4gMdMdt88eZxuFRsfDg3O4d5uVqet8a
+         WtocCaBJzm0RORyz3cLUVJqUIX03f9LRt+8RHfejB16yJ34pgWl2vJNnzaL8UdZ79/60
+         aLGA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738318798; x=1738923598;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=sMKEFp2iY1ooXPFXuah13Z2j8Gd6Pr/iXVngt99gS+c=;
+        b=lRcXY8+Q3NE5V5xKamwQWEdfr7qIc0BwcJp+tIY5G0W26VIzLsnc5xeEVabJJhqPdk
+         42e4WrdVD4XmJZJU+75fWohLwWMDBRifk6lJxb363qKogOBUWXALh1sx6HdSydDjB3Qv
+         7mv7JBI1es/KHk/wFtTWimMz5EE6X9DC2C5Rv6NW2BIKna/d9BjaXzqu0gTEDs1Qf8i0
+         /1C8shVAd90FjT5u/piEqZ+9pcP0p5qerxcZLC2WonzYmWaIMT3NPpnMUDx7vWMRG8NS
+         QlDmP0cIMKZLeT1zB0Q/rkC76Lv7ONrrsNyt/9MfkvDx72qQBkgsQpMon0EIf5kioeLo
+         wzXQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVckT+rWiP2g/hLsYbJj9nAYNkJbdkv9xilgRjxKwBnBc/ymABso6FYHsege0V5WtkeaYHPA23H7bFQ2MsGiHG+@lists.infradead.org
+X-Gm-Message-State: AOJu0YwtXQV9/8Et5hibz+OYqewoifIm0yX7NFqkrERAiJ2u4tCWFKqK
+	8k7XCb1nX+UwAOG/mH67TznSwNjgvwG1fR2V/9Eyo74Ho9Oa9sOANzX6SGtLKbU=
+X-Gm-Gg: ASbGncvXxDz9JPZ75rO+OUqBm+YCnBzUqf4YY1xBeAz3QKhljM8WJPa1DLrS5heYURC
+	SClc+GV0q/V1jgQCNJsBDCJd3hRlm1uG1kw1A7/f/Oh3VVndOlFsDYqK03npKnmnz2ms5+6kk+p
+	VRUSyQPtyI/0kEv8IxiwKk78VTjxjlgj9x8HfX0a1WrVCWXTw8S2jhHN35Zzi/ki846YyjbhKi8
+	FbM2RdF3CMfwTVg2CvEQO7k0I2iIk8L2hUszsCA+UQjoUJbJ4LyWbYjrBP7ckT+cuohulCaMAg7
+	EBOSvKWmwlJzXyRBA9mPuDrg22CrdE1yA5sG+ng5M/3kmi7bEBI0e88=
+X-Google-Smtp-Source: AGHT+IFZNXsQuum6x6xRWf12F8+xm9RtbvKoDUhlQmJkPtJJdDXPK7wmN6KvRldwONlJY8dd+oDrNA==
+X-Received: by 2002:a05:6000:1563:b0:385:ee40:2d75 with SMTP id ffacd0b85a97d-38c51960d9amr8876284f8f.20.1738318796298;
+        Fri, 31 Jan 2025 02:19:56 -0800 (PST)
+Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-438dcc2c4ddsm85201155e9.17.2025.01.31.02.19.55
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 31 Jan 2025 02:19:55 -0800 (PST)
+Message-ID: <b69fe059-5aff-4fbd-879e-166d67310563@linaro.org>
+Date: Fri, 31 Jan 2025 11:19:54 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/7] arm64: dts: rockchip: Add rng node to RK3588
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Olivia Mackall <olivia@selenic.com>, Herbert Xu
- <herbert@gondor.apana.org.au>, Daniel Golle <daniel@makrotopia.org>,
- Aurelien Jarno <aurelien@aurel32.net>
-Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-crypto@vger.kernel.org
-References: <20250130-rk3588-trng-submission-v1-0-97ff76568e49@collabora.com>
- <20250130-rk3588-trng-submission-v1-6-97ff76568e49@collabora.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v4 2/2] thermal: imx91: Add support for i.MX91 thermal
+ monitoring unit
+To: Frank Li <Frank.Li@nxp.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Pengfei Li <pengfei.li_1@nxp.com>,
+ Marco Felsch <m.felsch@pengutronix.de>
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+References: <20241216-imx91tmu-v4-0-75caef7481b8@nxp.com>
+ <20241216-imx91tmu-v4-2-75caef7481b8@nxp.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250130-rk3588-trng-submission-v1-6-97ff76568e49@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <20241216-imx91tmu-v4-2-75caef7481b8@nxp.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_021706_488131_653EBABF 
-X-CRM114-Status: GOOD (  15.46  )
+X-CRM114-CacheID: sfid-20250131_021959_623444_BCF65EE3 
+X-CRM114-Status: GOOD (  41.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,54 +109,390 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/01/2025 17:31, Nicolas Frattaroli wrote:
-> Add the RK3588's standalone hardware random number generator node to its
-> device tree, and enable it on the one board I've tested it on and can
-> verify it produces good output, the Rock 5B.
+On 16/12/2024 20:25, Frank Li wrote:
+> From: Pengfei Li <pengfei.li_1@nxp.com>
 > 
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> Introduce support for the i.MX91 thermal monitoring unit, which features a
+> single sensor for the CPU. The register layout differs from other chips,
+> necessitating the creation of a dedicated file for this.
+
+Please a bit more information about the sensor (eg. resolution, I guess 1°C)
+
+> Signed-off-by: Pengfei Li <pengfei.li_1@nxp.com>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> Reviewed-by: Marco Felsch <m.felsch@pengutronix.de>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 > ---
->  arch/arm64/boot/dts/rockchip/rk3588-base.dtsi   | 9 +++++++++
->  arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts | 4 ++++
->  2 files changed, 13 insertions(+)
+> Change from v3 to v4
+> - Add Macro's review tag
+> - Use devm_add_action()
+> - Move pm_runtim_put before thermal_of_zone_register()
 > 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-> index 8cfa30837ce72581d0b513a8274ab0177eb5ae15..1c72922bcbe1afd7c49beac771f8b7c6e5cc6e05 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-> @@ -1921,6 +1921,15 @@ sdhci: mmc@fe2e0000 {
->  		status = "disabled";
->  	};
->  
-> +	rng: rng@fe378000 {
-> +		compatible = "rockchip,rk3588-rng";
-> +		reg = <0x0 0xfe378000 0x0 0x200>;
-> +		interrupts = <GIC_SPI 400 IRQ_TYPE_LEVEL_HIGH 0>;
-> +		clocks = <&scmi_clk SCMI_HCLK_SECURE_NS>;
-> +		resets = <&scmi_reset SCMI_SRST_H_TRNG_NS>;
-> +		status = "disabled";
+> change from v2 to v3
+> - add IMX91_TMU_ prefix for register define
+> - remove unused register define
+> - fix missed pm_runtime_put() at error path in imx91_tmu_get_temp()
+> - use dev variable in probe function
+> - use pm_runtime_set_active() in probe
+> - move START to imx91_tmu_get_temp()
+> - use DEFINE_RUNTIME_DEV_PM_OPS()
+> - keep set reset value because there are not sw "reset" bit in controller,
+> uboot may change and enable tmu.
+> 
+> change from v1 to v2
+> - use low case for hexvalue
+> - combine struct imx91_tmu and tmu_sensor
+> - simplify imx91_tmu_start() and imx91_tmu_enable()
+> - use s16 for imx91_tmu_get_temp(), which may negative value
+> - use reverse christmas tree style
+> - use run time pm
+> - use oneshot to sample temp
+> - register thermal zone after hardware init
+> ---
+>   drivers/thermal/Kconfig         |  10 ++
+>   drivers/thermal/Makefile        |   1 +
+>   drivers/thermal/imx91_thermal.c | 263 ++++++++++++++++++++++++++++++++++++++++
+>   3 files changed, 274 insertions(+)
+> 
+> diff --git a/drivers/thermal/Kconfig b/drivers/thermal/Kconfig
+> index d3f9686e26e71..da403ed86aeb1 100644
+> --- a/drivers/thermal/Kconfig
+> +++ b/drivers/thermal/Kconfig
+> @@ -296,6 +296,16 @@ config IMX8MM_THERMAL
+>   	  cpufreq is used as the cooling device to throttle CPUs when the passive
+>   	  trip is crossed.
+>   
+> +config IMX91_THERMAL
+> +	tristate "Temperature sensor driver for NXP i.MX91 SoC"
+> +	depends on ARCH_MXC || COMPILE_TEST
+> +	depends on OF
 
-Why? What resources are missing?
+s/OF/THERMAL_OF/
 
-> +	};
+> +	help
+> +	  Support for Temperature sensor found on NXP i.MX91 SoC.
+> +	  It supports one critical trip point and one passive trip point. The
+> +	  cpufreq is used as the cooling device to throttle CPUs when the passive
+> +	  trip is crossed.
+
+This help message is inaccurate. It should describe the sensor not the 
+thermal configuration which is coming from the device tree for a 
+specific platform.
+
+>   config K3_THERMAL
+>   	tristate "Texas Instruments K3 thermal support"
+>   	depends on ARCH_K3 || COMPILE_TEST
+> diff --git a/drivers/thermal/Makefile b/drivers/thermal/Makefile
+> index 9abf43a74f2bb..08da241e6a598 100644
+> --- a/drivers/thermal/Makefile
+> +++ b/drivers/thermal/Makefile
+> @@ -50,6 +50,7 @@ obj-$(CONFIG_ARMADA_THERMAL)	+= armada_thermal.o
+>   obj-$(CONFIG_IMX_THERMAL)	+= imx_thermal.o
+>   obj-$(CONFIG_IMX_SC_THERMAL)	+= imx_sc_thermal.o
+>   obj-$(CONFIG_IMX8MM_THERMAL)	+= imx8mm_thermal.o
+> +obj-$(CONFIG_IMX91_THERMAL)	+= imx91_thermal.o
+>   obj-$(CONFIG_MAX77620_THERMAL)	+= max77620_thermal.o
+>   obj-$(CONFIG_QORIQ_THERMAL)	+= qoriq_thermal.o
+>   obj-$(CONFIG_DA9062_THERMAL)	+= da9062-thermal.o
+> diff --git a/drivers/thermal/imx91_thermal.c b/drivers/thermal/imx91_thermal.c
+> new file mode 100644
+> index 0000000000000..ef5e8e181dd0f
+> --- /dev/null
+> +++ b/drivers/thermal/imx91_thermal.c
+> @@ -0,0 +1,263 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright 2024 NXP.
+> + */
 > +
->  	i2s0_8ch: i2s@fe470000 {
->  		compatible = "rockchip,rk3588-i2s-tdm";
->  		reg = <0x0 0xfe470000 0x0 0x1000>;
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-> index d597112f1d5b8ee0b6a4fa17086c8671a5102583..00a915cf266202e26b274cab962f7bf6bcf76fc1 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-> @@ -430,6 +430,10 @@ &pwm1 {
->  	status = "okay";
->  };
->  
-> +&rng {
-> +	status = "okay";
+> +#include <linux/bitfield.h>
+> +#include <linux/clk.h>
+> +#include <linux/err.h>
+> +#include <linux/iopoll.h>
+> +#include <linux/nvmem-consumer.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/of_device.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/pm_runtime.h>
+> +#include <linux/thermal.h>
+> +
+> +#define IMX91_TMU_STAT0				0x10
+> +#define IMX91_TMU_STAT0_DRDY0_IF_MASK		BIT(16)
+> +
+> +#define IMX91_TMU_DATA0				0x20
+> +
+> +#define IMX91_TMU_CTRL1_SET			0x204
+> +#define IMX91_TMU_CTRL1_CLR			0x208
+> +#define IMX91_TMU_CTRL1_EN			BIT(31)
+> +#define IMX91_TMU_CTRL1_START			BIT(30)
+> +#define IMX91_TMU_CTRL1_STOP			BIT(29)
+> +#define IMX91_TMU_CTRL1_RES_MASK		GENMASK(19, 18)
+> +#define IMX91_TMU_CTRL1_MEAS_MODE_MASK		GENMASK(25, 24)
+> +#define   IMX91_TMU_CTRL1_MEAS_MODE_SINGLE	0
+> +#define   IMX91_TMU_CTRL1_MEAS_MODE_CONTINUES	1
+> +#define   IMX91_TMU_CTRL1_MEAS_MODE_PERIODIC	2
+> +
+> +#define IMX91_TMU_REF_DIV			0x280
+> +#define IMX91_TMU_DIV_EN			BIT(31)
+> +#define IMX91_TMU_DIV_MASK			GENMASK(23, 16)
+> +#define IMX91_TMU_DIV_MAX			255
+> +
+> +#define IMX91_TMU_PUD_ST_CTRL			0x2b0
+> +#define IMX91_TMU_PUDL_MASK			GENMASK(23, 16)
+> +
+> +#define IMX91_TMU_TRIM1				0x2e0
+> +#define IMX91_TMU_TRIM2				0x2f0
+> +
+> +#define IMX91_TMU_TEMP_LOW_LIMIT		-40000
+> +#define IMX91_TMU_TEMP_HIGH_LIMIT		125000
+> +
+> +#define IMX91_TMU_DEFAULT_TRIM1_CONFIG		0xb561bc2d
+> +#define IMX91_TMU_DEFAULT_TRIM2_CONFIG		0x65d4
+> +
+> +struct imx91_tmu {
+> +	void __iomem *base;
+> +	struct clk *clk;
+> +	struct device *dev;
+> +	struct thermal_zone_device *tzd;
 
-I don't see how RNG is board related.
+This field is pointless because used only in the probe function.
+
+> +};
+> +
+> +static void imx91_tmu_start(struct imx91_tmu *tmu, bool start)
+> +{
+> +	u32 val = start ? IMX91_TMU_CTRL1_START : IMX91_TMU_CTRL1_STOP;
+> +
+> +	writel_relaxed(val, tmu->base + IMX91_TMU_CTRL1_SET);
+> +}
+> +
+> +static void imx91_tmu_enable(struct imx91_tmu *tmu, bool enable)
+> +{
+> +	u32 reg = enable ? IMX91_TMU_CTRL1_SET : IMX91_TMU_CTRL1_CLR;
+> +
+> +	writel_relaxed(IMX91_TMU_CTRL1_EN, tmu->base + reg);
+> +}
+> +
+> +static int imx91_tmu_get_temp(struct thermal_zone_device *tz, int *temp)
+> +{
+> +	struct imx91_tmu *tmu = thermal_zone_device_priv(tz);
+> +	s16 data;
+> +	int ret;
+> +	u32 val;
+> +
+> +	ret = pm_runtime_resume_and_get(tmu->dev);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	imx91_tmu_start(tmu, true);
+
+Same question as [1]
+
+Do you really want to start and stop the sensor between two reads ?
+
+> +	ret = readl_relaxed_poll_timeout(tmu->base + IMX91_TMU_STAT0, val,
+> +					 val & IMX91_TMU_STAT0_DRDY0_IF_MASK, 1000, 40000);
+> +	if (ret) {
+> +		ret = -EAGAIN;
+> +		goto out;
+> +	}
+> +
+> +	/* DATA0 is 16bit signed number */
+> +	data = readw_relaxed(tmu->base + IMX91_TMU_DATA0);
+> +	*temp = data * 1000 / 64;
+
+cf units.h
+
+	*temp = (data * MILLIDEGREE_PER_DEGREE) / A_LITERAL;
+
+> +	if (*temp < IMX91_TMU_TEMP_LOW_LIMIT || *temp > IMX91_TMU_TEMP_HIGH_LIMIT)
+> +		ret = -EAGAIN;
+> +
+> +out:
+> +	pm_runtime_put(tmu->dev);
+> +
+> +	return ret;
+> +}
+> +
+> +static struct thermal_zone_device_ops tmu_tz_ops = {
+> +	.get_temp = imx91_tmu_get_temp,
+
+Why not add the change_mode ops ?
+
+> +};
+> +
+> +static int imx91_init_from_nvmem_cells(struct imx91_tmu *tmu)
+> +{
+> +	struct device *dev = tmu->dev;
+> +	u32 trim1, trim2;
+> +	int ret;
+> +
+> +	ret = nvmem_cell_read_u32(dev, "trim1", &trim1);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = nvmem_cell_read_u32(dev, "trim2", &trim2);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (trim1 == 0 || trim2 == 0)
+> +		return -EINVAL;
+> +
+> +	writel_relaxed(trim1, tmu->base + IMX91_TMU_TRIM1);
+> +	writel_relaxed(trim2, tmu->base + IMX91_TMU_TRIM2);
+> +
+> +	return 0;
+> +}
+> +
+> +static void imx91_tmu_action_remove(void *data)
+> +{
+> +	struct imx91_tmu *tmu = data;
+> +
+> +	/* disable tmu */
+> +	imx91_tmu_enable(tmu, false);
+> +}
+> +
+> +static int imx91_tmu_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct imx91_tmu *tmu;
+> +	unsigned long rate;
+> +	u32 div;
+> +	int ret;
+> +
+> +	tmu = devm_kzalloc(dev, sizeof(struct imx91_tmu), GFP_KERNEL);
+> +	if (!tmu)
+> +		return -ENOMEM;
+> +
+> +	tmu->dev = dev;
+> +
+> +	tmu->base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(tmu->base))
+> +		return dev_err_probe(dev, PTR_ERR(tmu->base), "failed to get io resource");
+> +
+> +	tmu->clk = devm_clk_get_enabled(dev, NULL);
+> +	if (IS_ERR(tmu->clk))
+> +		return dev_err_probe(dev, PTR_ERR(tmu->clk), "failed to get tmu clock\n");
+> +
+> +	platform_set_drvdata(pdev, tmu);
+> +
+> +	/* disable the monitor during initialization */
+> +	imx91_tmu_enable(tmu, false);
+> +	imx91_tmu_start(tmu, false);
+> +
+> +	ret = imx91_init_from_nvmem_cells(tmu);
+> +	if (ret) {
+> +		writel_relaxed(IMX91_TMU_DEFAULT_TRIM1_CONFIG, tmu->base + IMX91_TMU_TRIM1);
+> +		writel_relaxed(IMX91_TMU_DEFAULT_TRIM2_CONFIG, tmu->base + IMX91_TMU_TRIM2);
+> +	}
+> +
+> +	/* The typical conv clk is 4MHz, the output freq is 'rate / (div + 1)' */
+> +	rate = clk_get_rate(tmu->clk);
+> +	div = (rate / 4000000) - 1;
+
+Use literals please (eg. 4 * HZ_PER_MHZ)
+
+> +	if (div > IMX91_TMU_DIV_MAX)
+> +		return dev_err_probe(dev, -EINVAL, "clock divider exceed hardware limitation");
+> +
+> +	/* Set divider value and enable divider */
+> +	writel_relaxed(IMX91_TMU_DIV_EN | FIELD_PREP(IMX91_TMU_DIV_MASK, div),
+> +		       tmu->base + IMX91_TMU_REF_DIV);
+> +
+> +	/* Set max power up delay: 'Tpud(ms) = 0xFF * 1000 / 4000000' */
+> +	writel_relaxed(FIELD_PREP(IMX91_TMU_PUDL_MASK, 100U), tmu->base + IMX91_TMU_PUD_ST_CTRL);
+> +
+> +	/*
+> +	 * Set resolution mode
+> +	 * 00b - Conversion time = 0.59325 ms
+> +	 * 01b - Conversion time = 1.10525 ms
+> +	 * 10b - Conversion time = 2.12925 ms
+> +	 * 11b - Conversion time = 4.17725 ms
+> +	 */
+> +	writel_relaxed(FIELD_PREP(IMX91_TMU_CTRL1_RES_MASK, 0x3), tmu->base + IMX91_TMU_CTRL1_CLR);
+> +	writel_relaxed(FIELD_PREP(IMX91_TMU_CTRL1_RES_MASK, 0x1), tmu->base + IMX91_TMU_CTRL1_SET);
+> +
+> +	writel_relaxed(IMX91_TMU_CTRL1_MEAS_MODE_MASK, tmu->base + IMX91_TMU_CTRL1_CLR);
+> +	writel_relaxed(FIELD_PREP(IMX91_TMU_CTRL1_MEAS_MODE_MASK, IMX91_TMU_CTRL1_MEAS_MODE_SINGLE),
+> +		       tmu->base + IMX91_TMU_CTRL1_SET);
+> +
+> +	pm_runtime_set_active(dev);
+> +	devm_pm_runtime_enable(dev);
+> +	pm_runtime_put(dev);
+> +
+> +	tmu->tzd = devm_thermal_of_zone_register(dev, 0, tmu, &tmu_tz_ops);
+> +	if (IS_ERR(tmu->tzd))
+> +		return dev_err_probe(dev, PTR_ERR(tmu->tzd),
+> +				     "failed to register thermal zone sensor\n");
+> +
+> +	ret = devm_add_action(dev, imx91_tmu_action_remove, tmu);
+
+Should it be moved before devm_thermal_of_zone_register(), so if the 
+thermal zone creation fails, it will stop the sensor which was 
+previously started ?
+
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failure to add action imx91_tmu_action_remove()\n");
+> +
+> +	return 0;
+> +}
+> +
+> +static int imx91_tmu_runtime_suspend(struct device *dev)
+> +{
+> +	struct imx91_tmu *tmu = dev_get_drvdata(dev);
+> +
+> +	/* disable tmu */
+> +	imx91_tmu_enable(tmu, false);
+> +
+> +	clk_disable_unprepare(tmu->clk);
+> +
+> +	return 0;
+> +}
+> +
+> +static int imx91_tmu_runtime_resume(struct device *dev)
+> +{
+> +	struct imx91_tmu *tmu = dev_get_drvdata(dev);
+> +	int ret;
+> +
+> +	ret = clk_prepare_enable(tmu->clk);
+> +	if (ret)
+> +		return ret;
+> +
+> +	imx91_tmu_enable(tmu, true);
+> +
+> +	return 0;
+> +}
+> +
+> +static DEFINE_RUNTIME_DEV_PM_OPS(imx91_tmu_pm_ops, imx91_tmu_runtime_suspend,
+> +				 imx91_tmu_runtime_resume, NULL);
+> +
+> +static const struct of_device_id imx91_tmu_table[] = {
+> +	{ .compatible = "fsl,imx91-tmu", },
+> +	{ },
+> +};
+> +MODULE_DEVICE_TABLE(of, imx91_tmu_table);
+> +
+> +static struct platform_driver imx91_tmu = {
+> +	.driver = {
+> +		.name	= "imx91_thermal",
+> +		.pm	= pm_ptr(&imx91_tmu_pm_ops),
+> +		.of_match_table = imx91_tmu_table,
+> +	},
+> +	.probe = imx91_tmu_probe,
+> +};
+> +module_platform_driver(imx91_tmu);
+> +
+> +MODULE_AUTHOR("Peng Fan <peng.fan@nxp.com>");
+> +MODULE_DESCRIPTION("i.MX91 Thermal Monitor Unit driver");
+> +MODULE_LICENSE("GPL");
+> 
 
 
-Best regards,
-Krzysztof
+-- 
+<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
+
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
