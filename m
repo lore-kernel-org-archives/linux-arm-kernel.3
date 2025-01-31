@@ -4,136 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B10C4C0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 09:38:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A0AC0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 09:45:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NYL0SXn1tcvikSRW+MpK/FtRjC8MKAGBY5McNWdT5jU=; b=2zV7cZRuX9HaC3tvZ7xER1x/8n
-	4+KbeE+WL2Z8ia7L2LullZeqSEfbW318twLjUGbxn/ot7sy8QZ3TPs3c5vNC6s8U5JcFh8yDRqLZo
-	q7G5xwQHdZXe6BJUAEbEKGU7uYlGSOt0tNhG8FTdjRnVPB0mCV/vQ1qKbF3JIp+nxwxEmmlRFLuyD
-	zWG6XltOMtC0VeQ3yNMGp7tqh8Ms8Mzcija4vpBmBXgtAp/belRyoewfsGkpOLHtfC1BGulihvpKR
-	6mYozWfRj3kOBv2krgwu2XmgeevtDW2iQTvp8gxgjPHF2cCEonfp+DzUWVHBi9gRyqEGJLvnOMdD4
-	QNvb9TTA==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MmJv3L+eZ/sNXSvW474bg5iy0+Z7o6xX/pDPZGEj3Ng=; b=HT41Xnd4wbLQMYOKMuBEwffKkb
+	Wns/9e1lcpIXJzY9iiZU0y68sdqOt8ZQEK4CdUwjIhT/mHCL076Uwi8r4wn4eAUar3qqYtSU3q6au
+	gajs8u/QqJI/wkr/7M8AfRQKsbD9Yc8xO7kRtw81ruAjX9nGQ5kjYJxCTK1k8fVBIlQmsn2g2xWgG
+	tyRFTZhhHwNPHdsm/dNa7FZhos4koVzYU8WQ/9VfPpZ694FlxzktfSwim+V3YdYVPpmJiANJWIIp0
+	NZoWFb2yx9vilzljLbH+TNQARC5MuFGSEDRY/LZ1D6GVUTpCCE5IG5OOE8rSBUgosrVEx8Dln8N0J
+	Jf7RT5/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdnTu-0000000AKIs-4BHm;
-	Fri, 31 Jan 2025 09:38:35 +0000
-Received: from mail-am6eur05on2070f.outbound.protection.outlook.com ([2a01:111:f403:2612::70f] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1tdnak-0000000AKi8-0a0X;
+	Fri, 31 Jan 2025 09:45:38 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdnRK-0000000AK4b-1CCx
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jan 2025 09:35:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GiaRPcYM/Nrb27RrXn/eWHH+Lqnmrjc5TCN+XkTxKhEUDFfjFpTYr0dsscYZQv9kKaljxF564KqXhVifZWr9xA5d4jlYEMqrO+7X3VqhBPwf48k7eWk3IVSh5CN3jNw/Ht17XLSamUpa776HtDnzqtVhM5743FSoF+hp/CCWjM2qfJQF7fconsB2O4Xmc7chOz4nubZcNemapOStvRRynaSa+bhG0BjUdbqUPqgpcSlC8SfvM9K3jZcLDyCOOzqvxFcx9EpJtxvDm+/PuKLsGI0goLZkF/126EZhpAbklvHllL06PTUFJrDHlSOY7C7SdtzHMy9KXZRxqZiLXNLs5A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NYL0SXn1tcvikSRW+MpK/FtRjC8MKAGBY5McNWdT5jU=;
- b=rwqtNttUrI/NVOF1kkukF7O8OzZDb1rLiS+Ici5L7B0HrE3Uw4VJW3B7r+PdSNyP3Dl5DJ/vJQIX4ZWzZ1+FCL8HCft7PelzTCd/knNaCN6qHJxOITyVkGF0SDtGyv82BHLegxCgeg4V5j510W8ay3UG7DVkYBcWQfRFTOdGAySLSedq7SSQ9xeBy0kUi4NjPOOLf19U11/PHs3qK/zBfseHaws6RxzYCvWPZStmhSsrPcNUObHgEiG2EsONwbmpv57itdI1dYm6A1+cnOdwKAdBml0YHzyzQY9ys7ZUX4hjuwsejq1JKUftjyYxFV2RbOTeZ3/Sih0oLVoSJ2PMDg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 91.26.50.189) smtp.rcpttodomain=ti.com smtp.mailfrom=phytec.de; dmarc=fail
- (p=quarantine sp=quarantine pct=100) action=quarantine header.from=phytec.de;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NYL0SXn1tcvikSRW+MpK/FtRjC8MKAGBY5McNWdT5jU=;
- b=plwEMmlJ2quezLla3eVZ1JjofYvtsptNuHmwGYRIioyArdDNcbKfV5Z3d0oKd403iFQ/HNhawQdJn+qiDi1OhaJ7ZcI1/IkAzBx74v2jrtcD5MU+HPCVfZVVxfxUdWGxpnF/Zp8E0Oq5OL6ifcIiIMrC8637F23AypnbdDOni04yxBbMupMBlsHRQ8VtlqZjnkNS8ZnjO3yr4R26/lGF/Y5BYsaukyqq9mzG3fs50dCmYCC+/j0tsc9XH0M7f2Bxc1aAhI+p60fI8U5UscrNSNhxnGfEFuYJtu8vLn8r8aHrGjjkWhJIAHrFP3JycutXABkGAEyweOMF7E5ROxquFQ==
-Received: from DUZPR01CA0010.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:3c3::12) by VI1P195MB2462.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:800:1cd::19) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.17; Fri, 31 Jan
- 2025 09:35:45 +0000
-Received: from DU6PEPF0000B61C.eurprd02.prod.outlook.com
- (2603:10a6:10:3c3:cafe::ff) by DUZPR01CA0010.outlook.office365.com
- (2603:10a6:10:3c3::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8398.21 via Frontend Transport; Fri,
- 31 Jan 2025 09:35:59 +0000
-X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
- smtp.mailfrom=phytec.de; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- phytec.de discourages use of 91.26.50.189 as permitted sender)
-Received: from Diagnostix.phytec.de (91.26.50.189) by
- DU6PEPF0000B61C.mail.protection.outlook.com (10.167.8.135) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8398.14 via Frontend Transport; Fri, 31 Jan 2025 09:35:44 +0000
-Received: from Berlix.phytec.de (172.25.0.12) by Diagnostix.phytec.de
- (172.25.0.14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Fri, 31 Jan
- 2025 10:35:43 +0100
-Received: from augenblix2.phytec.de (172.25.0.11) by Berlix.phytec.de
- (172.25.0.12) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Fri, 31 Jan
- 2025 10:35:43 +0100
-From: Wadim Egorov <w.egorov@phytec.de>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <kees@kernel.org>,
-	<tony.luck@intel.com>, <gpiccoli@igalia.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <upstream@lists.phytec.de>
-Subject: [PATCH 1/2] arm64: dts: ti: k3-am64-phycore-som: Reserve RTOS IPC memory
-Date: Fri, 31 Jan 2025 10:35:30 +0100
-Message-ID: <20250131093531.1054924-1-w.egorov@phytec.de>
-X-Mailer: git-send-email 2.25.1
+	id 1tdnZR-0000000AKd8-1oIZ;
+	Fri, 31 Jan 2025 09:44:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1738316631; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=O+8GsUz06uMmRr7Bdid+cRMrb/6hpguS+VcdRiHKxUb0tgU9pj3BBrKn+4j4+Kz9PyVzR5WjMiqCG4TRt68fqtf+V9Cv/eLnf3jdnzQSLkYMoW3rWnD2jqz4TAU23ThZTNM3xLlCCFSF3z6CAabNZEnfmXkcAF1tDUesprhWu4Q=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1738316631; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=MmJv3L+eZ/sNXSvW474bg5iy0+Z7o6xX/pDPZGEj3Ng=; 
+	b=S5ddfO5ntiwA7c1EPKB0bQozZND9SWf7CG/qlVkrawkhkUcZVKXN3BzOtyrWsm5QYzDKvZgiQh2O16DRoPVK1SA1p0Fwgz9BQU7llGKQP6kTsHwvu7uvbsi1f8nLVc+cPIrwQbaN7A+ktEffkV6/ujuNs4jogH58eHUIEP3atN8=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1738316631;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=MmJv3L+eZ/sNXSvW474bg5iy0+Z7o6xX/pDPZGEj3Ng=;
+	b=cBHUYUO6+5+VBiWBdHybhQgVtrqBelSEtdU26DaI4swbkAZMHBCjCA8kNdmhC4jS
+	6mMARl6eg5rvoXvFaRKixZQV57n6Nf6BOZ8lNhxhflpcHCgCbl547vZXC4VgRcWJhvy
+	6aHjMT86T7YC/hZwA2ZvL/1ZTflRrF8R39v2IlPs=
+Received: by mx.zohomail.com with SMTPS id 1738316626127798.141295591807;
+	Fri, 31 Jan 2025 01:43:46 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Heiko Stuebner <heiko@sntech.de>, Olivia Mackall <olivia@selenic.com>,
+ Herbert Xu <herbert@gondor.apana.org.au>,
+ Daniel Golle <daniel@makrotopia.org>, Aurelien Jarno <aurelien@aurel32.net>,
+ Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-crypto@vger.kernel.org
+Subject: Re: [PATCH 2/7] dt-bindings: rng: add binding for Rockchip RK3588 RNG
+Date: Fri, 31 Jan 2025 10:43:41 +0100
+Message-ID: <4955605.GXAFRqVoOG@workhorse>
+In-Reply-To: <979564a4-c8e9-4427-8019-349d0794d9af@kernel.org>
+References: <20250130-rk3588-trng-submission-v1-0-97ff76568e49@collabora.com>
+ <20250130-rk3588-trng-submission-v1-2-97ff76568e49@collabora.com>
+ <979564a4-c8e9-4427-8019-349d0794d9af@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [172.25.0.11]
-X-ClientProxiedBy: Berlix.phytec.de (172.25.0.12) To Berlix.phytec.de
- (172.25.0.12)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU6PEPF0000B61C:EE_|VI1P195MB2462:EE_
-X-MS-Office365-Filtering-Correlation-Id: a36c9dd7-5c79-4c74-e557-08dd41daa281
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|7416014|82310400026|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?zhYPzcXKVsR1eC6Ddc430vyd9g8rBIqGsxXUH7j3+4iuFBbRlxOBpsLw7Epc?=
- =?us-ascii?Q?JObk+Sm5EA3/aE7oZaHA8VwguX9p/Gi0A4SqWIVddbGKh6wx8HPyYnHcvUHZ?=
- =?us-ascii?Q?wLkIdLK0LIcBpQPLmiAV/yIOcNxr7csYO6bslAs02/wJeUIeGs/QTLWsgLFr?=
- =?us-ascii?Q?0EDqccymEiAn9Fus7Iu3cwJNrwbOGNnpjozRpL6r7MDDlMVa6GQTXsgP0Njz?=
- =?us-ascii?Q?vATlgFqSYfDznfxoP3Zxd53vnI2rP+2NAv+GBXjyqicXyCby07ZQ1XhDggS/?=
- =?us-ascii?Q?iBZSyjs5ytOhTPs2/2pYoE2GjQgTGK7RocT8my5Aqhe7bTrOEU0Rx4CvWNpq?=
- =?us-ascii?Q?x537g16W70o5tEDdQ8IRZSxNhMQ/IWOmkjqDllLmbhC+bk4HWBPGTR1aMepf?=
- =?us-ascii?Q?6XWkncQrgadMMkOrvvpNkolYcMxEk56s4c1/wfYPO6+aDsJKn2kO+b2z7Wlt?=
- =?us-ascii?Q?sVzCS3eiBUYH7617QfT0xDgztiYmRkcRyEfdexgLcAxvoImew7D2uUJn9x5Z?=
- =?us-ascii?Q?ien64G0C2qXZkQotNfCMzShKQg4DQxNFh25GbwbH4f3lQLAreExwtOWL4zCg?=
- =?us-ascii?Q?+AiuFDVnv1j0ct3X1x1uMoaqZWDJJJDiEQC3ZitEvVtD5lN6xdj/rNMpZlJy?=
- =?us-ascii?Q?n3M9BitQUlfs0WlFrO5A1uMgBa+SpLO/xUyO8XPSvSGKFwXdkyGLttrU/M75?=
- =?us-ascii?Q?ZDCnFKrFJK6ydWIAyvY6+ICP+OEGyPLR1DsqWR4EnoF7T39X8kUPbuijSSVx?=
- =?us-ascii?Q?4PZzbQDS0sH9dLcgUnPq0BScYuRDZHrkFx6tfhA6n+pBRDbB4jIC1fSh27EE?=
- =?us-ascii?Q?Xs4iW9d7acJmHHLwXNFg+1qXOGBPXb/cB2rcwvQSXIFyJ1TTq/PgdJcT6HN/?=
- =?us-ascii?Q?s6XKgdL8TVTA9IDH7DdtkDzFSYqvNyD0dq0E8tvc2L3DSTHx+syU1Btk3Zet?=
- =?us-ascii?Q?G+67h81MX3P5pQ1cWXvslXF184YYnAfVj+wwMd1omGWxbB34c2WiUKLfSCEV?=
- =?us-ascii?Q?lcEzxUFYPsRPJkzAK08MeMW1EEU49+Rmb9gM631YKzSI1A+w6y4T7Rc1OIc4?=
- =?us-ascii?Q?1eXrQxwybIAO49TL/dxslBTFFAfkoKYZVstUx5nNbtZfy/Z78fhRgDT7fYec?=
- =?us-ascii?Q?hIXoy656LDCt6XPJvCW+obvvlFXbLysJQYxPqoso3OZlPIN7/mtAlyhfOdct?=
- =?us-ascii?Q?SLoVkPQJNN1RISmSN5XiNhjxCWy5rzJTCbBhxaJ463GWo9DFIkENRIU9pSUL?=
- =?us-ascii?Q?Oz3PKu+zVFteVrtYYDN0l5ZzBj27/V+5g6j6ZhrC/WBqWgPOdYO+HHjUeWFt?=
- =?us-ascii?Q?4SZVv/kFhiXbEjcwCYGax6c8z38rAG33mEXCe5FjpFn+DQzRBaMge5414e+F?=
- =?us-ascii?Q?5TacXi05Tbijhc7uzx6j/89D8i4rSm4jUJ6fPL73Yk34Lu+HnL0mhpRMAN1h?=
- =?us-ascii?Q?MXqaczHxDXc83s5j5/Nlu5jHqAknPhdKPhJsGjOzJavYs8+Si4LT9Bn0t3tM?=
- =?us-ascii?Q?VNZKMxvft0okO/U=3D?=
-X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:Diagnostix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(7416014)(82310400026)(376014);DIR:OUT;SFP:1102;
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Jan 2025 09:35:44.0951
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a36c9dd7-5c79-4c74-e557-08dd41daa281
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Diagnostix.phytec.de]
-X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000B61C.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1P195MB2462
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_013554_323991_A754BD3F 
-X-CRM114-Status: UNSURE (   8.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250131_014417_546859_77B7239B 
+X-CRM114-Status: GOOD (  30.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,32 +84,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reserve a portion of memory for inter-processor communication between
-all remote processors running RTOS or baremetal firmware.
+On Friday 31 January 2025 09:30:51 Central European Standard Time Krzysztof 
+Kozlowski wrote:
+> On 30/01/2025 17:31, Nicolas Frattaroli wrote:
+> > +title: Rockchip RK3588 TRNG
+> > +
+> > +description: True Random Number Generator on Rockchip RK3588 SoC
+> > +
+> > +maintainers:
+> > +  - Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > +
+> > +properties:
+> > +  compatible:
+> > +    enum:
+> > +      - rockchip,rk3588-rng
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  clocks:
+> > +    items:
+> > +      - description: TRNG AHB clock
+> > +
+> > +  # Optional, not used by some driver implementations
+> 
+> What driver implementations? Downstream? They do not matter, because
+> they are full of all sort of crap.
 
-Signed-off-by: Wadim Egorov <w.egorov@phytec.de>
----
- arch/arm64/boot/dts/ti/k3-am64-phycore-som.dtsi | 6 ++++++
- 1 file changed, 6 insertions(+)
+Downstream and this very driver in the series. The patch includes a lengthy 
+explanation of why all known implementations have foregone using the 
+interrupt.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am64-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am64-phycore-som.dtsi
-index 99a6fdfaa7fb..e8d1b88651e7 100644
---- a/arch/arm64/boot/dts/ti/k3-am64-phycore-som.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am64-phycore-som.dtsi
-@@ -99,6 +99,12 @@ mcu_m4fss_memory_region: m4f-memory@a4100000 {
- 			reg = <0x00 0xa4100000 0x00 0xf00000>;
- 			no-map;
- 		};
-+
-+		rtos_ipc_memory_region: ipc-memories@a5000000 {
-+			reg = <0x00 0xa5000000 0x00 0x00800000>;
-+			alignment = <0x1000>;
-+			no-map;
-+		};
- 	};
+> Can this block have interrupt really disconnected? This is the question
+> you should answer.
+
+I do not have the gift of prescience. If you want me to make the interrupt 
+required even though it is pointless just because all hardware that implements 
+this that I'm currently aware of does have the interrupt then I will add it as 
+a required property.
  
- 	leds {
--- 
-2.34.1
+> > +  interrupts:
+> > +    maxItems: 1
+> > +
+> > +  # Optional, hardware works without explicit reset
+> 
+> Just because bootloader did something? With that reasoning nothing is
+> ever required because firmware can abstract it. Either you have there a
+> reset or not. In this particular case your driver is irrelevant.
+
+No, it's not the bootloader that does it, it's the hardware itself. It's 
+power-on reset. Hardware can reset itself without software, I don't know where 
+the assumption of it being done by the bootloader comes from.
+
+> > +  resets:
+> > +    maxItems: 1
+> > +
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +  - clocks
+> > +
+> 
+> BTW, there is a binding for Rockchip TRNG, with a bit different clocks
+> so I have feeling yours is incomplete here.
+
+I know and they're not. As the cover letter states, this is different hardware 
+from the other Rockchip TRNG. This hardware only has one clock. It is a 
+separate binding with different clocks because it is different hardware.
+
+The patch's message also states this:
+
+> [...] and a standalone RNG that is new to this SoC.
+> 
+> Add a binding for this new standalone RNG.
+
+It's a standalone RNG that is new to this SoC. It has different registers, and 
+different clock requirements.
+
+> > +additionalProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
+> > +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> > +    #include <dt-bindings/interrupt-controller/irq.h>
+> > +    #include <dt-bindings/reset/rockchip,rk3588-cru.h>
+> > +    bus {
+> > +      #address-cells = <2>;
+> > +      #size-cells = <2>;
+> > +
+> > +      rng@fe378000 {
+> > +        compatible = "rockchip,rk3588-rng";
+> > +        reg = <0x0 0xfe378000 0x0 0x200>;
+> > +        interrupts = <GIC_SPI 400 IRQ_TYPE_LEVEL_HIGH 0>;
+> > +        clocks = <&scmi_clk SCMI_HCLK_SECURE_NS>;
+> > +        resets = <&scmi_reset SCMI_SRST_H_TRNG_NS>;
+> > +        status = "disabled";
+> 
+> Examples cannot be disabled.
+
+Okay, I will fix this.
+
+> > +      };
+> > +    };
+> > +
+> > +...
+> > diff --git a/MAINTAINERS b/MAINTAINERS
+> > index
+> > bc8ce7af3303f747e0ef028e5a7b29b0bbba99f4..7daf9bfeb0cb4e9e594b809012c7aa2
+> > 43b0558ae 100644 --- a/MAINTAINERS
+> > +++ b/MAINTAINERS
+> > @@ -20420,8 +20420,10 @@ F:	include/uapi/linux/rkisp1-config.h
+> > 
+> >  ROCKCHIP RK3568 RANDOM NUMBER GENERATOR SUPPORT
+> >  M:	Daniel Golle <daniel@makrotopia.org>
+> >  M:	Aurelien Jarno <aurelien@aurel32.net>
+> > 
+> > +M:	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> 
+> Like Conor said, this is not really relevant and should be a separate patch.
+
+Should just the added M be a separate patch or also adding the file to the 
+MAINTAINERS file? Because if the latter is separate then I think checkpatch 
+will yell at me, and if the former is separate then the binding's statement 
+that it is maintained by me is disconnected from what's in the MAINTAINERS 
+file.
+
+> 
+> 
+> 
+> Best regards,
+> Krzysztof
+
+
+
 
 
