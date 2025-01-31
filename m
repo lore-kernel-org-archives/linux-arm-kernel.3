@@ -4,108 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A923C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 10:13:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4710C02193
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 10:18:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ujZdT65JgU6NvF/G9jRMjszw2mjGT5YQT3bs1UnrWcA=; b=YFd1EnUzTPUEMeJkEmu7c4zzSk
-	lT8pU3bsVS+keVyRYAYC5riGMjY0tezpIRKorlsqg/Uazkg0qMq3DLwFXLJV/TXhlHJDzlSo1LICI
-	bfcM6jaa7c/Xwcxko8l0M8/NL7fZ96NIoF+oykEbD4gqv/bNYQDBroBS1s96LJvu8dF4Df5Vnawys
-	hMB4B0Ix545PVRE8tqF82LmYC8HXByszlJaMRjzoWHYEb1B7x/qM/impL14vi4LLS7M+8GzJmhffz
-	Fi9R4zE8LoyW1it0O5I0PkXq7jWo2K4RguxoKKI8oH4ZOOjpR9Q0TWYEJvcy7jjRBNWngNrq1f0pg
-	k7uRNsDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b6uuXIpw+M1axLEgr7vjI+C/GJLz683o/8HqWLFU+6U=; b=vaPllvwNSrC+5zIqTMSD6T4aXi
+	l9gWv4lngffP6jg5l33b0ffmaRgMJ7z7D2dILXCadshRX+stKg5/3K6IQEgurpjcE4b1Y+BV/LIdc
+	yW2bXkKuEaMuHRr0ACNTTwij84re1uhE5RhamarlLhXNtIMq5+N6eM5/8OxSzmapPCYrOL3jx8PpV
+	lBL8lvHSKIqv9o9diCscpkdHlt7rEz/N/f7szYtyuUofXAnXp14rWr29yr/Nmu/QsY7NLKj/jWLWt
+	Y4FMUBhx39VZRlOEJOkxSlwm3AdYPSy913s3ykcn5LBoN2nUH/nGnM2JyMhxyuDp6uRJcH0hBeInn
+	Nut9vxDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdo1M-0000000AMtr-0qhl;
-	Fri, 31 Jan 2025 10:13:08 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1tdo6V-0000000ANK2-0j9J;
+	Fri, 31 Jan 2025 10:18:27 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdo01-0000000AMqB-4969
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jan 2025 10:11:47 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-2ef760a1001so3001285a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jan 2025 02:11:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=beagleboard-org.20230601.gappssmtp.com; s=20230601; t=1738318304; x=1738923104; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ujZdT65JgU6NvF/G9jRMjszw2mjGT5YQT3bs1UnrWcA=;
-        b=ZoG2PRatU3th+CYMdYBTDnCFlS3MOpEMyhMjIUoyUuSE/nIFH6FCUaMQnOu5DoWdEe
-         izh3SL3xyc3TXrD7TWmWnPWh6hZUFX9GYKPU4Xe/4qf+abhA10nOKATga49OKUyrA/tY
-         z4YaQDMtQqZkBUZHHreXx6afRiXZpdW3dmOAAL/Z6Tbx2RmXr3XXCqYAqMFFBGSeM5t7
-         N/SFNufZx86cFHHX2dBwM9dhnwDTCTaHJHmSHJ1BEVkvJt6+U+Npygsy26LePtIykT79
-         AKGQ8PxsQ9nf4mmtpB/is9+e9m8sihFmiTfLDFYHmflToX7sxhE8frYI1c2bk+KoTP1q
-         6+Bw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738318304; x=1738923104;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ujZdT65JgU6NvF/G9jRMjszw2mjGT5YQT3bs1UnrWcA=;
-        b=dPCY9wANC4OEYvYe/Vzic63K0REkEpr91ZALilG5PzT8usQkMypfs3bdAsO+iJBDw1
-         gnn77dqqthZiSMxLuZWXJnkwZVfEtjvZ8BZePKhQrS+VRs3XO35yCJAFicW7aNeNq7Lp
-         VGeaqISD8vXCthYAMHVFK5Eq969XG+XNnDSN3o/x4JASLyH0ril+XFUPptpOcCSATaLx
-         HX7izdjtxg/817blz80/MY2vOKlbdRRsZ3D3AM3iUipqn5kbxLgB1vTrVgFMi6I+hvVj
-         hnz0p+jLqGxPfLuvaCWnuMAN8jgt5IxjT7jZnDlmZAvGmqwQiBDdXu51d+o0vjdpwa+R
-         oG3w==
-X-Gm-Message-State: AOJu0YxnNAQxl24JYyPBwEIi3bNYP80WUdaAKBXmVRYwgi3jH/G2LySn
-	vyvgbzZdm+HQWvjiT1KWigcLW4Bz9/IW2TrJDEyCyDWPzz0K+PU4ixZq737n4w==
-X-Gm-Gg: ASbGnctjMJc117Urf8LCV+TZqjvnVWGpd0yGKCBKprRZguexUqUj+4pBp4zEUN2/ehi
-	RysQ5Wb0B8/Z8mkSR0J8RDGZezolnMJcajainbkADz9oHpwzWM37TjbF9G7TWo/oLleBuA2bR0h
-	oGQQ1BNTVzV4e3a3lNtijuDnH92rfSZ9PU2tnStHmQyCqbyYq38Ej+wg87RDYzlvjaiwrUwZMqf
-	tI6HOyEvPIkxe+TnRq8uZ80f7zDPz+97r3bbBALEzRMimSjzZrQDxTXEg35QfV8WSuYGpUfnTYW
-	8kvyKRgkEgFKriHfBQdHVIQ=
-X-Google-Smtp-Source: AGHT+IEfxj4SBp1Oe2MZX7KsD9D/+jkJVHcr5vCM3jpYYXxEkDvoWJB97EEeppveLHhHQDQ0D03Azw==
-X-Received: by 2002:a17:90b:53c8:b0:2ee:8430:b847 with SMTP id 98e67ed59e1d1-2f83abb34f2mr15086370a91.6.1738318304559;
-        Fri, 31 Jan 2025 02:11:44 -0800 (PST)
-Received: from [172.16.119.211] ([103.15.228.94])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f83bcd0fbasm5551977a91.16.2025.01.31.02.11.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 31 Jan 2025 02:11:43 -0800 (PST)
-From: Ayush Singh <ayush@beagleboard.org>
-Date: Fri, 31 Jan 2025 15:41:33 +0530
-Subject: [PATCH v3] arm64: defconfig: Enable gb_beagleplay
+	id 1tdo5C-0000000AN6I-1IW9;
+	Fri, 31 Jan 2025 10:17:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id A5F79A41DA0;
+	Fri, 31 Jan 2025 10:15:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78128C4CED1;
+	Fri, 31 Jan 2025 10:17:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738318624;
+	bh=kJJvbQKt6Q32DAbri1MCULy5VGGdWlsbktPaKMFFtmM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=QzXmk3LUH+cputlgRzi3JRLQYNaPoh6m1HGH0fkRdhR8YJRpNW/N/dT5iu81Dbni0
+	 P0NI+Je3GHtPx9zYIvcaQzokWzADha5ns4xp16UDxhYWMSpJiSsPpEc0PSUjKSNuF0
+	 7yZLzIrJ4C8/Ckoz3gtsNlla/FyxTCABtHjkz+fkI3GnOoHhe4xfi2nstQZiY0yqRM
+	 verTCrRJpwRpRKAhCI6DNa3UKh/6FDksP994mXgBQiP8viK2tOvWTpWy4CsNMjpv7C
+	 6BtDbBHcZP/1jmPFLXFsSWUrQckHdCmPMSg2Lk3CxZut1DIBoWX2pV4E7zTM0bnt5a
+	 e7d5JYK0wBiCA==
+Message-ID: <3a0f3d55-3828-43c9-b2d2-291f767c50e0@kernel.org>
+Date: Fri, 31 Jan 2025 11:16:59 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 6/7] arm64: dts: rockchip: Add rng node to RK3588
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Olivia Mackall <olivia@selenic.com>, Herbert Xu
+ <herbert@gondor.apana.org.au>, Daniel Golle <daniel@makrotopia.org>,
+ Aurelien Jarno <aurelien@aurel32.net>
+Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-crypto@vger.kernel.org
+References: <20250130-rk3588-trng-submission-v1-0-97ff76568e49@collabora.com>
+ <20250130-rk3588-trng-submission-v1-6-97ff76568e49@collabora.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250130-rk3588-trng-submission-v1-6-97ff76568e49@collabora.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250131-defconfig-beagleplay-v3-1-f556b851ff96@beagleboard.org>
-X-B4-Tracking: v=1; b=H4sIANShnGcC/4XNQQ7CIBAF0Ks0rMXAUJS68h7GBZQpJWlKA4bYN
- L27tG5caFz+P/lvFpIwekzkUi0kYvbJh7EEcahI2+vRIfW2ZAIMJONwpha7Noydd9SgdgNOg55
- LWUspjBFKASnTKWLnnzt7u5fc+/QIcd6/ZL61f8DMKacA+sSYkii4uL6PJuhojyE6srEZPqnmB
- wWFklo1rKmFBfhCrev6AqTYWlIJAQAA
-X-Change-ID: 20250127-defconfig-beagleplay-de4553bb3882
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, d-gole@ti.com, lorforlinux@beagleboard.org, 
- jkridner@beagleboard.org, robertcnelson@beagleboard.org, 
- Nishanth Menon <nm@ti.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
- Ayush Singh <ayush@beagleboard.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1692; i=ayush@beagleboard.org;
- h=from:subject:message-id; bh=TOpTfUj4QcmOfbWajuCLJSzlivd9P5SjC2vU9aSgC5o=;
- b=owEBbQKS/ZANAwAIAQXO9ceJ5Vp0AcsmYgBnnKHbwZVB+mJgzK6b/fOc7tfoWTD5FhXBGeElc
- cH2iLgf9kGJAjMEAAEIAB0WIQTfzBMe8k8tZW+lBNYFzvXHieVadAUCZ5yh2wAKCRAFzvXHieVa
- dF12EACzMtsatvuCRyTm/BqzXFVGMr3+L/pvRJdX+Y/8xpDVYAO85+U0axJohgsCoW6dPvrEjbq
- 1DfTD/x1JQvsyjL+vDY4yA24CmWhoOjMcmAcUAJj+6EftzVEUUp3lZWdcrd2ZRA/fLaq9an6lht
- NhMUQklLihSw1XsDdk//WxoTryyU5nQWtSQzVe6hb2IKhe7ezVlwAUUokjUZGs2W5uyhxnBlWjM
- FH9bolUONCnPr09OkIkCSG4Kv8jsqa2VHfzApU7OCQjqnGgzoNw79LRF/6z+jwVSr55h9os55y1
- c8AJTdtW8GtxmRqJpsL77r28/KdSZ7u9Sx9F1MxEUtzQnQdAOuZgNZQk/y3WPrIj+hVwnb4P5zd
- V/ii1CvKu1HkqHdy/A9VYRKJfrVk5cU4YIJhq9tsBZgwSRpE7Cv9k4aBNgL4Ah6enZO6h3MQDVB
- OQGmNIDqv+ufkeZ8UblY7iKOBWCNCN4Zhw2wx/pdHkpOwhMZoU2/e01yKWY/wccNuMZt0KaAWIZ
- 5qwM1MzMwKj4i5/fz/hUPigYc7kHKRIFZdmg/8DMNcYOe46bKEIJA2/1oAf7d/Inj139T636ksf
- WVPFpNQ8BwVSuNtmdQtV3OLRKy8CCjdyRMpQirLc34uz8YogL5+0BbThc1pon4RLV6NW2baUSUs
- F46w0tC3lcECehg==
-X-Developer-Key: i=ayush@beagleboard.org; a=openpgp;
- fpr=DFCC131EF24F2D656FA504D605CEF5C789E55A74
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_021146_253320_5B476778 
-X-CRM114-Status: UNSURE (   9.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250131_021706_488131_653EBABF 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,54 +124,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable greybus driver used by TI K3 AM625 BeaglePlay.
+On 30/01/2025 17:31, Nicolas Frattaroli wrote:
+> Add the RK3588's standalone hardware random number generator node to its
+> device tree, and enable it on the one board I've tested it on and can
+> verify it produces good output, the Rock 5B.
+> 
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> ---
+>  arch/arm64/boot/dts/rockchip/rk3588-base.dtsi   | 9 +++++++++
+>  arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts | 4 ++++
+>  2 files changed, 13 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+> index 8cfa30837ce72581d0b513a8274ab0177eb5ae15..1c72922bcbe1afd7c49beac771f8b7c6e5cc6e05 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+> @@ -1921,6 +1921,15 @@ sdhci: mmc@fe2e0000 {
+>  		status = "disabled";
+>  	};
+>  
+> +	rng: rng@fe378000 {
+> +		compatible = "rockchip,rk3588-rng";
+> +		reg = <0x0 0xfe378000 0x0 0x200>;
+> +		interrupts = <GIC_SPI 400 IRQ_TYPE_LEVEL_HIGH 0>;
+> +		clocks = <&scmi_clk SCMI_HCLK_SECURE_NS>;
+> +		resets = <&scmi_reset SCMI_SRST_H_TRNG_NS>;
+> +		status = "disabled";
 
-The driver communicates with TI CC1352P7 co-processor which acts as
-Greybus SVC. Additionally, it also provides firmware upload API support
-for TI CC1352P7 over UART.
+Why? What resources are missing?
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Reviewed-by: Dhruva Gole <d-gole@ti.com>
-Signed-off-by: Ayush Singh <ayush@beagleboard.org>
----
-Enable greybus driver for TI CC1352P5 over UART used in TI K3 AM625
-BeaglePlay [0].
+> +	};
+> +
+>  	i2s0_8ch: i2s@fe470000 {
+>  		compatible = "rockchip,rk3588-i2s-tdm";
+>  		reg = <0x0 0xfe470000 0x0 0x1000>;
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+> index d597112f1d5b8ee0b6a4fa17086c8671a5102583..00a915cf266202e26b274cab962f7bf6bcf76fc1 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+> @@ -430,6 +430,10 @@ &pwm1 {
+>  	status = "okay";
+>  };
+>  
+> +&rng {
+> +	status = "okay";
 
-[0]: https://elixir.bootlin.com/linux/v6.13/source/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts
----
-Changes in v3:
-- s/Ti/TI
-- K3/AM625 to K3 AM625
-- Link to v2: https://lore.kernel.org/r/20250129-defconfig-beagleplay-v2-1-5a890943d223@beagleboard.org
+I don't see how RNG is board related.
 
-Changes in v2:
-- Add hardware name to commit message.
-- Use savedefconfig option to update config.
-- Link to v1: https://lore.kernel.org/r/20250127-defconfig-beagleplay-v1-1-22a60085e313@beagleboard.org
----
- arch/arm64/configs/defconfig | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index cb7da44155999b59aff95966f4cdc9107f2af46a..62309fd2482ab35e917aea2e63780c45a4347f43 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1270,6 +1270,8 @@ CONFIG_VIRTIO_BALLOON=y
- CONFIG_VIRTIO_MMIO=y
- CONFIG_XEN_GNTDEV=y
- CONFIG_XEN_GRANT_DEV_ALLOC=y
-+CONFIG_GREYBUS=m
-+CONFIG_GREYBUS_BEAGLEPLAY=m
- CONFIG_STAGING=y
- CONFIG_STAGING_MEDIA=y
- CONFIG_VIDEO_MAX96712=m
-
----
-base-commit: 5ffa57f6eecefababb8cbe327222ef171943b183
-change-id: 20250127-defconfig-beagleplay-de4553bb3882
 
 Best regards,
--- 
-Ayush Singh <ayush@beagleboard.org>
-
+Krzysztof
 
