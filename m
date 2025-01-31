@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7E67C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 11:47:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABE51C0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 11:49:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=loL6LNW/stXncvJ4qkW8r0NmKOeP2g/rYPVeJjW0UHA=; b=E9TwCHMkSKcZKYNUIwqNjJiBOE
-	fYf6D/EeqWr1GjVsbT1i1DSmjg9hLtHHpjj+J4wzDY76s1RHdDo37+bF/OUB1/ZDNdGubf0/f6V03
-	pgXKwVA8PvMceijUkfxbz25JdAMFKn5hCiqAIEEegWqJl4o3LOx0VGwH19r7PIHBBYNvbi7lAgsEs
-	jkC5SCztqtX8WhB2z9m7808+2rVa/d4d3GoTYO0dB1pVRgaWWbh5RG+wxOvg0umOUkeV7BBrTT/q0
-	REu/KN0XL0d4T6KqD65+LLoe/U6JbAH9MhBShtj7uSf5gDRbjfFU3N3BQQNstSgeHTXtk76xSkSJ7
-	YHKzRuNQ==;
+	bh=lXokwiudd4fS/kOnu+pVm+nE1WeZugOSwkmGq2un8+Q=; b=pW7cxotOPc33Q1i8OFE4b3Rq72
+	dZm2WnXOKDj8WvMkrPzMqUMzIv1yTeBswkDWtn05tuS8T7+yEHS1NA0XMw3EM7M9damSvPK7d4PiC
+	wWzEner651eJRoTdq9LbTc6QpZDUY9TL9/QvhpBMWQpUNomdh5Scs0Q6USYhIa5e8eePut8dpVEgl
+	9AkvwP151yQBChCN4jPyEQa3kJPlsSBK/xZoo2ae9YCNi/WI8XeeCXpIGB7ZKddjTB9LovymnTIol
+	H1NIaul2DJZtA6EEOoQgzz09wDpFz/HGn9dcGQuJVBh8983LYpEy5MpZ06MMOBgOw2+n1YrjoRzh4
+	eeV2Ur/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdpUq-0000000AXoN-0vGF;
-	Fri, 31 Jan 2025 11:47:40 +0000
+	id 1tdpW6-0000000AXyQ-3TAk;
+	Fri, 31 Jan 2025 11:48:58 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdp9G-0000000ATpA-3rON
+	id 1tdp9H-0000000ATpp-3wJv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jan 2025 11:25:24 +0000
+	Fri, 31 Jan 2025 11:25:25 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 30C4A1007;
-	Fri, 31 Jan 2025 03:25:48 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 36FCFFEC;
+	Fri, 31 Jan 2025 03:25:49 -0800 (PST)
 Received: from e133711.arm.com (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0C07F3F63F;
-	Fri, 31 Jan 2025 03:25:21 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 124173F63F;
+	Fri, 31 Jan 2025 03:25:22 -0800 (PST)
 From: Sudeep Holla <sudeep.holla@arm.com>
-Date: Fri, 31 Jan 2025 11:24:16 +0000
-Subject: [PATCH v2 16/18] firmware: arm_ffa: Add support for
- {un,}registration of framework notifications
+Date: Fri, 31 Jan 2025 11:24:17 +0000
+Subject: [PATCH v2 17/18] firmware: arm_ffa: Add support for handling
+ framework notifications
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250131-ffa_updates-v2-16-544ba4e35387@arm.com>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250131-ffa_updates-v2-17-544ba4e35387@arm.com>
 References: <20250131-ffa_updates-v2-0-544ba4e35387@arm.com>
 In-Reply-To: <20250131-ffa_updates-v2-0-544ba4e35387@arm.com>
 To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Sudeep Holla <sudeep.holla@arm.com>, Viresh Kumar <viresh.kumar@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8692; i=sudeep.holla@arm.com;
- h=from:subject:message-id; bh=zcyzebsWIlYLRHHpo1SJ3JoTTLC7QBrC9EzF3zvfDuI=;
- b=owEBbQKS/ZANAwAIAQBBurwxfuKYAcsmYgBnnLMRIIxP6ZVgWI/kvUHcecNEhfF/tPnrU55i/
- cKAvDEoq/KJAjMEAAEIAB0WIQS6ceUSBvMeskPdk+EAQbq8MX7imAUCZ5yzEQAKCRAAQbq8MX7i
- mB1DEACP69rVjhWh3jbSTP7eVwviytHQsdurJRG8onMmAyp5ePmdisBOGsMtCCXBOu5mMRLlK7S
- /x1IQ8W2M11Q/LEj+Kt6hp6/wL7+LP1i0zbsw4VFsmfufMPvbodJ4t+Gd2cS+9VbzuhMRJw1rWz
- n/wFyw7/vabWL97ng2U0kIA7tnvsD+hgZDP4WI7vBrvETjqdMlDw8Cw/jXBSkCzhD+K+cSdEfNy
- 5MaoeDcph0kXcGBaGx6f8fq9FntsyeW1jHUdjD+HNjpzyEgK2XTQ/0TVJld+Eph5kK0pSPA/gsU
- CBZVuulTvWHndqUqBkqAvsHTBhC6kd8+ZgLXzTp56J0zTqPT5qvu9yBEJKuMKntm44HBA5wWbP0
- x/OZfXWmX4XyaMvkGUreQQ4qvvCWLfDe4oxtRFznD/g3BwH/f/qsUs9vjigiNDzIR6i5+wI4pMV
- WYJKUqneoU9dVk1JZu+2tEGfum7z2S3FtmrzdDCKWfSYnljklxBZ2tws5QDxXXKvO0ZjCf/LY/6
- PZzYz7mLnVg/jUs/Sght04Tlt+XkMle6jR0B/wADJMWadUvOcDfOfdBR8bct13HISIB58qaG5WG
- AjbhHEcqRI+jC+5B3toTP08ldUMSqaxItuKxh5zCCQoqWCIQKbj4fIDL8LaVQJbdC8IJqVdGsS+
- cugempK5YWQLMcA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3890; i=sudeep.holla@arm.com;
+ h=from:subject:message-id; bh=tKQtXeBcDSeq+ploR2WzRap4P0UUs9Qp+htINEVCR1o=;
+ b=owEBbQKS/ZANAwAIAQBBurwxfuKYAcsmYgBnnLMRaBLHl9ojapsEGCM6b2KTz+ItevgFDZIDQ
+ g1S8E9JRRGJAjMEAAEIAB0WIQS6ceUSBvMeskPdk+EAQbq8MX7imAUCZ5yzEQAKCRAAQbq8MX7i
+ mErdEACJ1il05A/YjFwK7OClKWTbrQKJfoMoYp/6nGQ4xmdevFT9uEaHdcSOnw8OfpvPO7Pq3Fl
+ NX2H4NJUsvf++KeU7RdXwJASw6ZvOrnab/N/u85tTJWYN9nlaOStrtFx9lDxACy/xQ7oGWeNLA0
+ 59N8lMfKkCf8hF3E/KX4iDftiAeCqWgAk3X0JSUktyTkd02+WI0D4RvTcazRvuqEu9O4+GBZ0C6
+ lQ4yFSxe2bgNPyWNqVl/+RlLBaaq+/8ubge8bnRsv50gGCCcksD+PfXarBoQlmJWFt0/JTv1KO7
+ 5rdEbM70DS3QzjOwDIXP9s6ckkphFfl3U0nKWck04htjSLtRCqLCOz8/UxeQh4Xw+EfwzcgZtLI
+ BKE460F5Dp/cxjCpDKg9TZxKqI1Z3wudPW/wLacFGuGnV1eSE5rRWqophcA79u0HpQKawO/Aijc
+ 35X9DKkP8WZPP6zVjw2yJbIMzypmF7RebfQEwCqvwPjVOwZ93ZpMqMiZ1DPeAgLswqdu8oGzjUc
+ oyxPmdZKeHl8/51VskArCJtlULpjus8r+assS8viiFd+H3TV8RhT5tNs/NUXxR3MVq3QmE1Dzid
+ /aiM1EchQm0hI0d28y9Jsj16B0ESOxhaxVdIODlPavUuALVqSqfGvBQm2CWUa32t1FMPl3WiMGr
+ Mg5Yg0oj8cjwPYQ==
 X-Developer-Key: i=sudeep.holla@arm.com; a=openpgp;
  fpr=7360A21742ADF5A11767C1C139CFD4755FE2D5B4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_032523_053581_B583ABB9 
-X-CRM114-Status: GOOD (  17.27  )
+X-CRM114-CacheID: sfid-20250131_032524_058585_6A37F93B 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,258 +79,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Framework notifications are doorbells that are rung by the partition
-managers to signal common events to an endpoint. These doorbells cannot
-be rung by an endpoint directly. A partition manager can signal a
-Framework notification in response to an FF-A ABI invocation by an
-endpoint.
+Currently FF-A specification defines only one framework notification:
+RX buffer full notification. This notification is signaled by the
+partition manager during transmission of a partition message through
+indirect messaging to,
 
-Two additional notify_ops interface is being added for any FF-A device/
-driver to register and unregister for such a framework notifications.
+1. Notify an endpoint that it has a pending message in its Rx buffer.
+2. Inform the message receiver’s scheduler via the schedule receiver
+   interrupt that the receiver must be run.
+
+In response to an FFA_MSG_SEND2 invocation by a sender endpoint, the
+framework performs the following actions after the message is copied
+from the Tx buffer of the sender to the Rx buffer of the receiver:
+
+1. The notification is pended in the framework notification bitmap of
+   the receiver.
+2. The partition manager of the endpoint that contains receiver’s
+   scheduler pends the schedule receiver interrupt for this endpoint.
+
+The receiver receives the notification and copies out the message from
+its Rx buffer.
 
 Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
 ---
- drivers/firmware/arm_ffa/driver.c | 113 +++++++++++++++++++++++++++++++-------
- include/linux/arm_ffa.h           |   5 ++
- 2 files changed, 97 insertions(+), 21 deletions(-)
+ drivers/firmware/arm_ffa/driver.c | 50 +++++++++++++++++++++++++++++++++------
+ 1 file changed, 43 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
-index 86c0667ff8825ca5e70547e9056a28b73b8ab251..f0e853584b51645cd7f590e4cb8d01ca1e7914dc 100644
+index f0e853584b51645cd7f590e4cb8d01ca1e7914dc..ab50836adc75ab4bdab3c2da7e23ec5d11826e8b 100644
 --- a/drivers/firmware/arm_ffa/driver.c
 +++ b/drivers/firmware/arm_ffa/driver.c
-@@ -1117,6 +1117,7 @@ static int ffa_memory_lend(struct ffa_mem_ops_args *args)
- struct notifier_cb_info {
- 	struct hlist_node hnode;
- 	struct ffa_device *dev;
-+	ffa_fwk_notifier_cb fwk_cb;
- 	ffa_notifier_cb cb;
- 	void *cb_data;
- };
-@@ -1180,28 +1181,61 @@ static enum notify_type ffa_notify_type_get(u16 vm_id)
- 		return NON_SECURE_VM;
- }
+@@ -848,6 +848,7 @@ enum notify_type {
  
--/* Should be called while the notify_lock is taken */
-+/* notifier_hnode_get* should be called with notify_lock held */
- static struct notifier_cb_info *
--notifier_hash_node_get(u16 notify_id, enum notify_type type)
-+notifier_hnode_get_by_vmid(u16 notify_id, int vmid)
- {
- 	struct notifier_cb_info *node;
+ #define SPM_FRAMEWORK_BITMAP(x)			NOTIFICATION_BITMAP_LOW(x)
+ #define NS_HYP_FRAMEWORK_BITMAP(x)		NOTIFICATION_BITMAP_HIGH(x)
++#define FRAMEWORK_NOTIFY_RX_BUFFER_FULL		BIT(0)
  
- 	hash_for_each_possible(drv_info->notifier_hash, node, hnode, notify_id)
--		if (type == ffa_notify_type_get(node->dev->vm_id))
-+		if (node->fwk_cb && vmid == node->dev->vm_id)
-+			return node;
-+
-+	return NULL;
-+}
-+
-+static struct notifier_cb_info *
-+notifier_hnode_get_by_vmid_uuid(u16 notify_id, int vmid, const uuid_t *uuid)
-+{
-+	struct notifier_cb_info *node;
-+
-+	if (uuid_is_null(uuid))
-+		return notifier_hnode_get_by_vmid(notify_id, vmid);
-+
-+	hash_for_each_possible(drv_info->notifier_hash, node, hnode, notify_id)
-+		if (node->fwk_cb && vmid == node->dev->vm_id &&
-+		    uuid_equal(&node->dev->uuid, uuid))
-+			return node;
-+
-+	return NULL;
-+}
-+
-+static struct notifier_cb_info *
-+notifier_hnode_get_by_type(u16 notify_id, enum notify_type type)
-+{
-+	struct notifier_cb_info *node;
-+
-+	hash_for_each_possible(drv_info->notifier_hash, node, hnode, notify_id)
-+		if (node->cb && type == ffa_notify_type_get(node->dev->vm_id))
- 			return node;
- 
- 	return NULL;
- }
- 
- static int
--update_notifier_cb(struct ffa_device *dev, int notify_id, ffa_notifier_cb cb,
--		   void *cb_data, bool is_registration)
-+update_notifier_cb(struct ffa_device *dev, int notify_id, void *cb,
-+		   void *cb_data, bool is_registration, bool is_framework)
- {
+ static int ffa_notification_bind_common(u16 dst_id, u64 bitmap,
+ 					u32 flags, bool is_bind)
+@@ -1373,9 +1374,6 @@ static void handle_notif_callbacks(u64 bitmap, enum notify_type type)
+ 	int notify_id;
  	struct notifier_cb_info *cb_info = NULL;
- 	enum notify_type type = ffa_notify_type_get(dev->vm_id);
- 	bool cb_found;
  
--	cb_info = notifier_hash_node_get(notify_id, type);
-+	if (is_framework)
-+		cb_info = notifier_hnode_get_by_vmid_uuid(notify_id, dev->vm_id,
-+							  &dev->uuid);
+-	if (type == SPM_FRAMEWORK || type == NS_HYP_FRAMEWORK)
+-		return;
+-
+ 	for (notify_id = 0; notify_id <= FFA_MAX_NOTIFICATIONS && bitmap;
+ 	     notify_id++, bitmap >>= 1) {
+ 		if (!(bitmap & 1))
+@@ -1390,6 +1388,46 @@ static void handle_notif_callbacks(u64 bitmap, enum notify_type type)
+ 	}
+ }
+ 
++static void handle_fwk_notif_callbacks(u32 bitmap)
++{
++	void *buf;
++	uuid_t uuid;
++	int notify_id = 0, target;
++	struct ffa_indirect_msg_hdr *msg;
++	struct notifier_cb_info *cb_info = NULL;
++
++	/* Only one framework notification defined and supported for now */
++	if (!(bitmap & FRAMEWORK_NOTIFY_RX_BUFFER_FULL))
++		return;
++
++	mutex_lock(&drv_info->rx_lock);
++
++	msg = drv_info->rx_buffer;
++	buf = kmalloc(msg->size, GFP_KERNEL);
++	if (!buf) {
++		mutex_unlock(&drv_info->rx_lock);
++		return;
++	}
++	memcpy(buf, (void *)msg + msg->offset, msg->size);
++	target = SENDER_ID(msg->send_recv_id);
++	if (msg->offset >= sizeof(*msg))
++		uuid_copy(&uuid, &msg->uuid);
 +	else
-+		cb_info = notifier_hnode_get_by_type(notify_id, type);
++		uuid_copy(&uuid, &uuid_null);
 +
- 	cb_found = !!cb_info;
- 
- 	if (!(is_registration ^ cb_found))
-@@ -1213,8 +1247,11 @@ update_notifier_cb(struct ffa_device *dev, int notify_id, ffa_notifier_cb cb,
- 			return -ENOMEM;
- 
- 		cb_info->dev = dev;
--		cb_info->cb = cb;
- 		cb_info->cb_data = cb_data;
-+		if (is_framework)
-+			cb_info->fwk_cb = cb;
-+		else
-+			cb_info->cb = cb;
- 
- 		hash_add(drv_info->notifier_hash, &cb_info->hnode, notify_id);
- 	} else {
-@@ -1224,7 +1261,8 @@ update_notifier_cb(struct ffa_device *dev, int notify_id, ffa_notifier_cb cb,
- 	return 0;
- }
- 
--static int ffa_notify_relinquish(struct ffa_device *dev, int notify_id)
-+static int __ffa_notify_relinquish(struct ffa_device *dev, int notify_id,
-+				   bool is_framework)
++	mutex_unlock(&drv_info->rx_lock);
++
++	ffa_rx_release();
++
++	mutex_lock(&drv_info->notify_lock);
++	cb_info = notifier_hnode_get_by_vmid_uuid(notify_id, target, &uuid);
++	mutex_unlock(&drv_info->notify_lock);
++
++	if (cb_info && cb_info->fwk_cb)
++		cb_info->fwk_cb(notify_id, cb_info->cb_data, buf);
++	kfree(buf);
++}
++
+ static void notif_get_and_handle(void *unused)
  {
  	int rc;
- 
-@@ -1236,22 +1274,35 @@ static int ffa_notify_relinquish(struct ffa_device *dev, int notify_id)
- 
- 	mutex_lock(&drv_info->notify_lock);
- 
--	rc = update_notifier_cb(dev, notify_id, NULL, NULL, false);
-+	rc = update_notifier_cb(dev, notify_id, NULL, NULL, false,
-+				is_framework);
- 	if (rc) {
- 		pr_err("Could not unregister notification callback\n");
- 		mutex_unlock(&drv_info->notify_lock);
- 		return rc;
+@@ -1401,10 +1439,8 @@ static void notif_get_and_handle(void *unused)
+ 		return;
  	}
  
--	rc = ffa_notification_unbind(dev->vm_id, BIT(notify_id));
-+	if (!is_framework)
-+		rc = ffa_notification_unbind(dev->vm_id, BIT(notify_id));
- 
- 	mutex_unlock(&drv_info->notify_lock);
- 
- 	return rc;
+-	handle_notif_callbacks(SPM_FRAMEWORK_BITMAP(bitmaps.arch_map),
+-			       SPM_FRAMEWORK);
+-	handle_notif_callbacks(NS_HYP_FRAMEWORK_BITMAP(bitmaps.arch_map),
+-			       NS_HYP_FRAMEWORK);
++	handle_fwk_notif_callbacks(SPM_FRAMEWORK_BITMAP(bitmaps.arch_map));
++	handle_fwk_notif_callbacks(NS_HYP_FRAMEWORK_BITMAP(bitmaps.arch_map));
+ 	handle_notif_callbacks(bitmaps.vm_map, NON_SECURE_VM);
+ 	handle_notif_callbacks(bitmaps.sp_map, SECURE_PARTITION);
  }
- 
--static int ffa_notify_request(struct ffa_device *dev, bool is_per_vcpu,
--			      ffa_notifier_cb cb, void *cb_data, int notify_id)
-+static int ffa_notify_relinquish(struct ffa_device *dev, int notify_id)
-+{
-+	return __ffa_notify_relinquish(dev, notify_id, false);
-+}
-+
-+static int ffa_fwk_notify_relinquish(struct ffa_device *dev, int notify_id)
-+{
-+	return __ffa_notify_relinquish(dev, notify_id, true);
-+}
-+
-+static int __ffa_notify_request(struct ffa_device *dev, bool is_per_vcpu,
-+				void *cb, void *cb_data,
-+				int notify_id, bool is_framework)
- {
- 	int rc;
- 	u32 flags = 0;
-@@ -1264,26 +1315,44 @@ static int ffa_notify_request(struct ffa_device *dev, bool is_per_vcpu,
- 
- 	mutex_lock(&drv_info->notify_lock);
- 
--	if (is_per_vcpu)
--		flags = PER_VCPU_NOTIFICATION_FLAG;
-+	if (!is_framework) {
-+		if (is_per_vcpu)
-+			flags = PER_VCPU_NOTIFICATION_FLAG;
- 
--	rc = ffa_notification_bind(dev->vm_id, BIT(notify_id), flags);
--	if (rc) {
--		mutex_unlock(&drv_info->notify_lock);
--		return rc;
-+		rc = ffa_notification_bind(dev->vm_id, BIT(notify_id), flags);
-+		if (rc) {
-+			mutex_unlock(&drv_info->notify_lock);
-+			return rc;
-+		}
- 	}
- 
--	rc = update_notifier_cb(dev, notify_id, cb, cb_data, true);
-+	rc = update_notifier_cb(dev, notify_id, cb, cb_data, true,
-+				is_framework);
- 	if (rc) {
- 		pr_err("Failed to register callback for %d - %d\n",
- 		       notify_id, rc);
--		ffa_notification_unbind(dev->vm_id, BIT(notify_id));
-+		if (!is_framework)
-+			ffa_notification_unbind(dev->vm_id, BIT(notify_id));
- 	}
- 	mutex_unlock(&drv_info->notify_lock);
- 
- 	return rc;
- }
- 
-+static int ffa_notify_request(struct ffa_device *dev, bool is_per_vcpu,
-+			      ffa_notifier_cb cb, void *cb_data, int notify_id)
-+{
-+	return __ffa_notify_request(dev, is_per_vcpu, cb, cb_data, notify_id,
-+				    false);
-+}
-+
-+static int
-+ffa_fwk_notify_request(struct ffa_device *dev, ffa_fwk_notifier_cb cb,
-+		       void *cb_data, int notify_id)
-+{
-+	return __ffa_notify_request(dev, false, cb, cb_data, notify_id, true);
-+}
-+
- static int ffa_notify_send(struct ffa_device *dev, int notify_id,
- 			   bool is_per_vcpu, u16 vcpu)
- {
-@@ -1313,7 +1382,7 @@ static void handle_notif_callbacks(u64 bitmap, enum notify_type type)
- 			continue;
- 
- 		mutex_lock(&drv_info->notify_lock);
--		cb_info = notifier_hash_node_get(notify_id, type);
-+		cb_info = notifier_hnode_get_by_type(notify_id, type);
- 		mutex_unlock(&drv_info->notify_lock);
- 
- 		if (cb_info && cb_info->cb)
-@@ -1386,6 +1455,8 @@ static const struct ffa_notifier_ops ffa_drv_notifier_ops = {
- 	.sched_recv_cb_unregister = ffa_sched_recv_cb_unregister,
- 	.notify_request = ffa_notify_request,
- 	.notify_relinquish = ffa_notify_relinquish,
-+	.fwk_notify_request = ffa_fwk_notify_request,
-+	.fwk_notify_relinquish = ffa_fwk_notify_relinquish,
- 	.notify_send = ffa_notify_send,
- };
- 
-diff --git a/include/linux/arm_ffa.h b/include/linux/arm_ffa.h
-index 4fcbdc70cbc985eabb90733329c974384d229053..5bded24dc24fea8cdcbe42bf79c7c025c3fa5f4b 100644
---- a/include/linux/arm_ffa.h
-+++ b/include/linux/arm_ffa.h
-@@ -468,6 +468,7 @@ struct ffa_cpu_ops {
- 
- typedef void (*ffa_sched_recv_cb)(u16 vcpu, bool is_per_vcpu, void *cb_data);
- typedef void (*ffa_notifier_cb)(int notify_id, void *cb_data);
-+typedef void (*ffa_fwk_notifier_cb)(int notify_id, void *cb_data, void *buf);
- 
- struct ffa_notifier_ops {
- 	int (*sched_recv_cb_register)(struct ffa_device *dev,
-@@ -476,6 +477,10 @@ struct ffa_notifier_ops {
- 	int (*notify_request)(struct ffa_device *dev, bool per_vcpu,
- 			      ffa_notifier_cb cb, void *cb_data, int notify_id);
- 	int (*notify_relinquish)(struct ffa_device *dev, int notify_id);
-+	int (*fwk_notify_request)(struct ffa_device *dev,
-+				  ffa_fwk_notifier_cb cb, void *cb_data,
-+				  int notify_id);
-+	int (*fwk_notify_relinquish)(struct ffa_device *dev, int notify_id);
- 	int (*notify_send)(struct ffa_device *dev, int notify_id, bool per_vcpu,
- 			   u16 vcpu);
- };
 
 -- 
 2.34.1
