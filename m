@@ -4,69 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F5F8C0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 11:26:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3E4CC0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 11:28:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:Content-Transfer-Encoding
-	:Content-Type:MIME-Version:Message-Id:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+ogcAVvUN9xOrCU6FJgnNO9Dr5xVktrYLIlISiNWBs8=; b=Gfuwd95PCnVvysvR2Cl+pppqVl
-	g+n8PQUc27bRwpjZaYN5lx3/CZTL+VlL9G3d5FFzTAUc/smnKsggYxM6w4UL+yFW+v9FilTpbp65y
-	R76jC3+J9BgeihGc+Nfjxbbh+eLsWU3fMUEEndjHlwEZNJq+niM/rM7iIC6ordRmceis+IfDEZ90d
-	XaLmldY8CcLKMV/TAuQGgJylQm7RUG6bTuof2Tg/3tz1/omgvGogSImW+OyMBJ4gov3t+MpWB8192
-	9D/CvAGT0VV/BFIOoavnqb6rYPMafotHE5i2Au3/BjLXFiX+k78cWaLfr6P6z1U4ovUHvL7EZVMQ3
-	KEsJy4rg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=abfUfSyO0Ovqz60dSjdmWlKLDKX9WWl1WsL2R6WWMKY=; b=VseietXy1s9sbNcGfHpEkdfGc3
+	1/UN67u/1KZEA5UrdB+tN63HPY7zLAkswKkMgfwIx1bdsSzb0V43pVrgRBZiflVSpaFsXqKlYBq2g
+	xDZHGu6ywbTGNT9QC0tragHO/Um+U3AOvPBQ1NJoc6RSefRqEHK1sYmenuugg/bzkOHZnJi8sIpwf
+	EfnhrDHY9ZHNLt5WKzSZAmduHz61k7QLgmsNNOSfKTLi4Vv+uXTMiJMqfS92/neD5hviQsKxyiSOL
+	h+7uY4xdsm+IUZJFmqeCDhJslpJWGGZckMVmaSiyFKQD1o8LwMLxSkn6SnyczOzHqiFO6FFnLvmwJ
+	JNrkDO9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdpAN-0000000AU9K-1N23;
-	Fri, 31 Jan 2025 11:26:31 +0000
+	id 1tdpBe-0000000AUUq-3qVX;
+	Fri, 31 Jan 2025 11:27:50 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdp92-0000000ATno-3mD8
+	id 1tdp93-0000000ATo5-1P0z
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 31 Jan 2025 11:25:10 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C54EC497;
-	Fri, 31 Jan 2025 03:25:31 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D07481007;
+	Fri, 31 Jan 2025 03:25:33 -0800 (PST)
 Received: from e133711.arm.com (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9ED953F63F;
-	Fri, 31 Jan 2025 03:25:05 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AB21C3F63F;
+	Fri, 31 Jan 2025 03:25:07 -0800 (PST)
 From: Sudeep Holla <sudeep.holla@arm.com>
-Subject: [PATCH v2 00/18] firmware: arm_ffa: Framework notification support
- + other updates and fixes
-Date: Fri, 31 Jan 2025 11:24:00 +0000
-Message-Id: <20250131-ffa_updates-v2-0-544ba4e35387@arm.com>
+Date: Fri, 31 Jan 2025 11:24:02 +0000
+Subject: [PATCH v2 02/18] firmware: arm_ffa: Replace UUID buffer to
+ standard UUID format
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIANSynGcC/23MQQrCMBCF4auUWRvJTKqgK+9RiozNxGbRpiQ1K
- CV3N3bt8n/wvg2SRC8Jrs0GUbJPPsw16NDAMPL8FOVtbSBNLRK1yjm+vxbLqySF+uysse5i7An
- qY4ni/HvXur726NMa4mfHM/7W/05GpZVGMoYfbATlxnE6DmGCvpTyBTf5PiKkAAAA
-X-Change-ID: 20241224-ffa_updates-106fd3df93d5
+Message-Id: <20250131-ffa_updates-v2-2-544ba4e35387@arm.com>
+References: <20250131-ffa_updates-v2-0-544ba4e35387@arm.com>
+In-Reply-To: <20250131-ffa_updates-v2-0-544ba4e35387@arm.com>
 To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Sudeep Holla <sudeep.holla@arm.com>, Viresh Kumar <viresh.kumar@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3498; i=sudeep.holla@arm.com;
- h=from:subject:message-id; bh=Mj7becK2tdHID/rbbpR8Lc171Ee1AVxwW8A41fJTUTM=;
- b=owEBbQKS/ZANAwAIAQBBurwxfuKYAcsmYgBnnLMPNWwAMby9FW8Midi6klPrFYbB1FFl3SDNN
- suxWERuZX+JAjMEAAEIAB0WIQS6ceUSBvMeskPdk+EAQbq8MX7imAUCZ5yzDwAKCRAAQbq8MX7i
- mK2eEACUR9YW+vd1DALtRbLodzYIxkZR0bjp5V1LCy7C+e9fghrGO/PConEM/x+piTFAP+0Brag
- 8glYQxvV23llcvdjlVUMmF9fbVfhuxWu2W45jX5qFL7L82vHDIUAwbKgHOXn3jpbHuhN/L4ORj6
- x5HyTws+9N5wdbTjzRLydY7pZ3LdmHK6J2kxkHF8iKIPwNKF56zcHk1GxyMB+hH99pNc3YZQp6Y
- rP1zcaiM5NpY8ITK35Mucm+uho9KHbSVJM6dvsdRK197uZbUTCgQP3I8g4mrdGIerFbUSsEKrZF
- lez6uWkgxodAkVWidPM71bbLFM7mFrwDRW7m6WeLbHFIH74EVbv3Mw6ymoP4PUtdS/JhMbe4WiF
- NYepmH01e/WuaLlEnJjM9Vus6PQ2T7C5vQhAoihTNarygEBDAiEOFoEn+p5+HOe9bEyN3bCgFgg
- Z80hQvIBgfMDIL1UAWv2Q/b+/5xjhY6jN2XyABBUjg4L8va1RaGpcsShnXowhG6KVbhmNdHHp+n
- cqm1dykAuAmDg4zxxhqqO0HVzHkh+kfgIpmlOclk1WX0RGPvZhfVOMB9RbwChugbATx/G9WcHWC
- gulE0fy3gw3K+gk3r9+KZDQ2o9sjsDZd68hlppLpqiFCUmvyuoTxf/o/7bU9SHV93An7bpIhIjx
- zQQHQ7UggpXYiBg==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1783; i=sudeep.holla@arm.com;
+ h=from:subject:message-id; bh=an0T8BaHmmjnOIWFrg0XcNclda/TDCEpL5ml8sjKwio=;
+ b=owEBbQKS/ZANAwAIAQBBurwxfuKYAcsmYgBnnLMPvsTuXlYTc75Eg3d1Qp62BX2OhJ9rXBo1N
+ ddU03iBR4OJAjMEAAEIAB0WIQS6ceUSBvMeskPdk+EAQbq8MX7imAUCZ5yzDwAKCRAAQbq8MX7i
+ mIpVEACLNNX/8+chGpqM9MPBuCAooVDzcLaWm3lQnrrmEwQ+PbGHAqdrGo+tDKF7W3eklxpVXK7
+ QAZvGsVXzkVbIdYQzRkn8N76ysNopUkNIC9fhVYfDCjNpxi1QazaeusfyskztdqRGURwP4wDnJt
+ zDA6skVjvdoOiBDHRWvkdZ/7lXu/EL4QPDvyusVYiK9LCUOUEpZGaVYI13+IWGbqtstufisPX/F
+ rFQgM9iKwPiAJ1EFxc1xkauvDcHaiwt+f6FvWW+xq4TrXg1+DcYV3OdxxWzQGSnSFIl+5UHSTg4
+ 0z3Tu4jeS8hysbBtN4Baih0/BNBQVrsgf287rYs+VxaUHnQSQUmS7oqtCBwj8lMf2POxbh32g+W
+ 02+z0tsk4nnLIOs2fcYwUm+O0Q1/ANrkwteaX0AHJuS+PbDvnFJJYalYwC/auIO0gBFh1u2sof4
+ LbGiZRBiaVo0Kc2uEMXGd+GuqCykagTct9ZQQlD/E53ihlO0a/5vY2ghCYDjFHoJhUfwltAKLfV
+ g0fUt0OZ6OtOWOt2215nBo9lM5zgXeY1RNwph/jfD7KWUHRfQQTtCLX1JCaJo6dhUsTmJ8FJxze
+ tujiPj20cDuAGsCbQO45fcnRath7xuX5D/wtFSEnyLVvp84IP3o4dqb7cz+PiKS7Ujy6tAzugpP
+ WdXWHUZHAJ2ooxw==
 X-Developer-Key: i=sudeep.holla@arm.com; a=openpgp;
  fpr=7360A21742ADF5A11767C1C139CFD4755FE2D5B4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_032509_038931_3057DE42 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20250131_032509_420584_35BEB709 
+X-CRM114-Status: GOOD (  11.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,79 +79,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This bundle of changes mainly have FF-A framework notification support
-along with other minor updates and fixes.
+Currently ffa_partition_info structure holds the UUID in the format
+compatible with the firmware interface. However, most of the functions
+in the FF-A core driver deals directly with uuid_t type.
 
-It adds support to allow multiple UUIDs per partition to register
-individual SRI callback, to handle Rx buffer full framework notification
-in particular and general framework/interface to extend in the future.
-
-It also adds support for passing UUID in FFA_MSG_SEND2 which improves
-the multiple UUID/services per partition support in the driver and
-an helper to check if a partition can receive REQUEST2 messages or not.
-
-It also improves cleaning up the partitions by adding unregistration of
-the devices as well as handles the presence of host partition in the
-partition info.
-
-It also contain fixes big-endian support in couple of functions:
-__ffa_partition_info_regs_get() and __ffa_partition_info_get().
-Big-endian support is still not complete. Only these changes can be
-verified at the moment without any additional application or testing
-support changes.
-
-Regarding the FF-A versions, it upgrades the driver version to v1.2
-and rejects any higher major version than the driver version as
-incompatible.
-
-It also fixes the mis-alignment with sync_send_receive{,2} function
-prototypes.
-
-It replaces UUID buffer to standard UUID format in the ffa_partition_info
-structure and fixes a typo in some FF-A bus macros.
+Replace UUID buffer to standard UUID format in the ffa_partition_info
+structure.
 
 Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
 ---
-Changes in v2:
-- No changes in the patches sent as v1 itself.
-- Addition of framework notification support and other updates as listed
-  above
-- Link to v1: https://lore.kernel.org/r/20241224-ffa_updates-v1-0-01233aba3e1e@arm.com
+ drivers/firmware/arm_ffa/bus.c | 4 +---
+ include/linux/arm_ffa.h        | 2 +-
+ 2 files changed, 2 insertions(+), 4 deletions(-)
 
----
-Sudeep Holla (17):
-      firmware: arm_ffa: Replace SCMI by FF-A in the macro
-      firmware: arm_ffa: Replace UUID buffer to standard UUID format
-      firmware: arm_ffa: Align sync_send_receive{,2} function prototypes
-      firmware: arm_ffa: Fix big-endian support in __ffa_partition_info_get()
-      firmware: arm_ffa: Fix big-endian support in __ffa_partition_info_regs_get()
-      firmware: arm_ffa: Handle the presence of host partition in the partition info
-      firmware: arm_ffa: Unregister the FF-A devices when cleaning up the partitions
-      firmware: arm_ffa: Helper to check if a partition can receive REQUEST2 messages
-      firmware: arm_ffa: Add support for passing UUID in FFA_MSG_SEND2
-      firmware: arm_ffa: Upgrade FF-A version to v1.2 in the driver
-      firmware: arm_ffa: Reject higher major version as incompatible
-      firmware: arm_ffa: Remove unnecessary declaration of ffa_partitions_cleanup()
-      firmware: arm_ffa: Refactoring to prepare for framework notification support
-      firmware: arm_ffa: Stash ffa_device instead of notify_type in notifier_cb_info
-      firmware: arm_ffa: Add support for {un,}registration of framework notifications
-      firmware: arm_ffa: Add support for handling framework notifications
-      firmware: arm_ffa: Allow multiple UUIDs per partition to register SRI callback
+diff --git a/drivers/firmware/arm_ffa/bus.c b/drivers/firmware/arm_ffa/bus.c
+index 52b1f09209a0e51e321cd23a69aa7e4c4daa8dd1..a90e2faa990219574ff20b8f573dbb7ca76137d9 100644
+--- a/drivers/firmware/arm_ffa/bus.c
++++ b/drivers/firmware/arm_ffa/bus.c
+@@ -192,7 +192,6 @@ ffa_device_register(const struct ffa_partition_info *part_info,
+ 		    const struct ffa_ops *ops)
+ {
+ 	int id, ret;
+-	uuid_t uuid;
+ 	struct device *dev;
+ 	struct ffa_device *ffa_dev;
+ 
+@@ -218,8 +217,7 @@ ffa_device_register(const struct ffa_partition_info *part_info,
+ 	ffa_dev->vm_id = part_info->id;
+ 	ffa_dev->properties = part_info->properties;
+ 	ffa_dev->ops = ops;
+-	import_uuid(&uuid, (u8 *)part_info->uuid);
+-	uuid_copy(&ffa_dev->uuid, &uuid);
++	uuid_copy(&ffa_dev->uuid, &part_info->uuid);
+ 
+ 	ret = device_register(&ffa_dev->dev);
+ 	if (ret) {
+diff --git a/include/linux/arm_ffa.h b/include/linux/arm_ffa.h
+index 74169dd0f65948b05991732358855cdc31b54adb..abd0208f0f74c15ef4ee4c81de81eb7800a0eb1d 100644
+--- a/include/linux/arm_ffa.h
++++ b/include/linux/arm_ffa.h
+@@ -238,7 +238,7 @@ struct ffa_partition_info {
+ /* partition runs in the AArch64 execution state. */
+ #define FFA_PARTITION_AARCH64_EXEC	BIT(8)
+ 	u32 properties;
+-	u32 uuid[4];
++	uuid_t uuid;
+ };
+ 
+ static inline
 
-Viresh Kumar (1):
-      firmware: arm_ffa: Refactor addition of partition information into XArray
-
- drivers/firmware/arm_ffa/bus.c    |  13 +-
- drivers/firmware/arm_ffa/driver.c | 500 ++++++++++++++++++++++++++++----------
- include/linux/arm_ffa.h           |  22 +-
- 3 files changed, 397 insertions(+), 138 deletions(-)
----
-base-commit: 6d61a53dd6f55405ebcaea6ee38d1ab5a8856c2c
-change-id: 20241224-ffa_updates-106fd3df93d5
-
-Best regards,
 -- 
-Regards,
-Sudeep
+2.34.1
 
 
