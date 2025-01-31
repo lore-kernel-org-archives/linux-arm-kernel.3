@@ -4,83 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC03CC02193
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 18:28:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AA38C02193
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 18:31:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QeW7OzaxjVMicPl3OoEn58LA3cfkF615oS67GkKAOiI=; b=1OcCS1FK8Z/cYrxwYnPsiIOSSk
-	NNYqwHcNfEosTja7O2XdgDVyzlhmjQx18MJoecUkXejVRykqj4esVg65Yx+cJwz88obkXHQjqQUNx
-	kAwOgQdQ2a/yejZdL7RyJXBmXav5l6lLL14+mHd8qe/VbQTbqyqCxmtCQGEBAZtGNBBzoqQJ9Kc17
-	QTYKMLV0l7gG91EAB5+pu/otezRXPZYzgn1LbZn+EmYrty/R1AVIjYWjwnI9C6BDFaJVMLci1kY+m
-	b2Xyc+JXC7uqo/Gbj0VVkbSaE4y4ZILxyvrTBu+v6wBCrvryzO4eYPYCl7jUkaVHgxwr3hKqCujeu
-	sbqWsFVg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FPIUwICF6R53Y8gLgoq6cCGzn1O/NbAK9+8HzbaNX2E=; b=4c/gDy/lOq9CxkoJSTc8WIXwUV
+	y9knfX6Pr4wR6g7ZGjXHFGlpiKUPFBvj3WOBfM973JZ7/Z9Pjl3ZjEzz+kp2dSy32WSFVyVn1WdAO
+	XfpJrlONj78pdKysnG1vwnZYy/xupMwvni5Cv1YGsS7aG0t9VnG/v39/0p4XoIuYy15Vo0kHySKAZ
+	+JlDY1M2PyOgOI4Bm8aZvQBeiHtLA4P9x/vXw3dvPVvOuV3iLMFi4ebiRATyWxGQ6Z+rNtbWG0WBk
+	Zw+s+BUbe9j1q9uNC3JytlUsrSGhcYps5FUe0rgmNnKheaRfzvDsb6cceyAP/N3Q8IWjD4+zZHQdp
+	8+5+p84g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdvkZ-0000000BCtY-28dv;
-	Fri, 31 Jan 2025 18:28:19 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1tdvnq-0000000BDPd-1Tth;
+	Fri, 31 Jan 2025 18:31:42 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdviO-0000000BCWk-02no
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jan 2025 18:26:05 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 50VIPxaT1709913
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 31 Jan 2025 12:25:59 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1738347959;
-	bh=QeW7OzaxjVMicPl3OoEn58LA3cfkF615oS67GkKAOiI=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=KdJOymT1PgcvvIC6RprKEToSc33IG9pN6+wckktn3M6wKY617/V181+34vgG3fUWz
-	 wcdPSurnYvFjI3bW5UCsMOTaUpiflcc1rTpM8fVyGgs3EqAUPhU1L2ym3nC6zg0zHU
-	 N63R4V118ZBFstOjWEMiSXTAHOp4ZG9r3J4M9z0Q=
-Received: from DFLE108.ent.ti.com (dfle108.ent.ti.com [10.64.6.29])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 50VIPxiw045233
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 31 Jan 2025 12:25:59 -0600
-Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE108.ent.ti.com
- (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 31
- Jan 2025 12:25:58 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE107.ent.ti.com
- (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 31 Jan 2025 12:25:58 -0600
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 50VIPwBL111109;
-	Fri, 31 Jan 2025 12:25:58 -0600
-Message-ID: <0b7cbf66-0c95-4ced-9cf7-cc5b953eebfe@ti.com>
-Date: Fri, 31 Jan 2025 12:25:58 -0600
+	id 1tdvmV-0000000BD4N-0oLm;
+	Fri, 31 Jan 2025 18:30:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5374F5C6367;
+	Fri, 31 Jan 2025 18:29:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC2D3C4CED3;
+	Fri, 31 Jan 2025 18:30:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738348218;
+	bh=x1/ZVTQMmRVVIFw2D8Gr10vnmzAC84NLSgrZVeSMY4k=;
+	h=From:To:Cc:Subject:Date:From;
+	b=dJEZSktz5FLTnjBKggCmDQ+cF20eNIvEicD8Qri2LrNwp1nBYz62AcoRip0qmZEUv
+	 g4mluErZ0wUSKrq328HmKOzJG4an0GZrkkSo2Kcs8iYlU+qwBUVM9niRd0FaDBp1Bf
+	 LNA8ci6vkIgu+RNXdak7ofjwTdwwe50KfVWw+AqxQgy40Gon9VsLqPhqK1nwvPGRec
+	 /TqOOnzceSs7rPhgY2NhdYLVAxy93nCLISjUcckTgQwal1gjDS9Ch55US3u6Ugsdof
+	 LtMNkvRR0G8xrRVtOi9fBszxeeEFeV+TlamXqIxMZAFCmlx4gRC4hoC0TpwQVBE3ZD
+	 njMF+arfTIrng==
+From: Niklas Cassel <cassel@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Kishon Vijay Abraham I <kishon@kernel.org>
+Cc: Damien Le Moal <dlemoal@kernel.org>,
+	Siddharth Vadapalli <s-vadapalli@ti.com>,
+	Udit Kumar <u-kumar1@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Niklas Cassel <cassel@kernel.org>,
+	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH v4 0/7] PCI: endpoint: Allow EPF drivers to configure the size of Resizable BARs
+Date: Fri, 31 Jan 2025 19:29:49 +0100
+Message-ID: <20250131182949.465530-9-cassel@kernel.org>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/4] arm64: dts: ti: k3-am62a-mcu: Add R5F remote proc
- node
-To: Judith Mendez <jm@ti.com>, Hari Nagalla <hnagalla@ti.com>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        Devarsh Thakkar <devarsht@ti.com>, Nishanth
- Menon <nm@ti.com>,
-        Vignesh Raghavendra <vigneshr@ti.com>, <devicetree@vger.kernel.org>
-References: <20250127221631.3974583-1-jm@ti.com>
- <20250127221631.3974583-3-jm@ti.com>
- <8b152f81-0848-4f34-adcb-fee9b4f2fd7f@ti.com>
- <76f9e9e8-dd7c-e783-fccc-0b6f913ce753@ti.com>
- <390aa52e-e9f2-4ce3-ad1b-eac71f4a211c@ti.com>
- <6ab56868-b2d2-4b8a-ac06-d0d35a5e8998@ti.com>
-Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <6ab56868-b2d2-4b8a-ac06-d0d35a5e8998@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2780; i=cassel@kernel.org; h=from:subject; bh=x1/ZVTQMmRVVIFw2D8Gr10vnmzAC84NLSgrZVeSMY4k=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGNLnis29v4317lKnK6de7N60dwaL4S0GWwuuaFPRWyVZV 51XdRnf6ChlYRDjYpAVU2Tx/eGyv7jbfcpxxTs2MHNYmUCGMHBxCsBEDu1k+Gcn8CNCyEhi58+e lFfb/0TKPDbQf1fpI7OSY/rywBalD84M/6sFGDnLJp+MWd926feOuZyZU6RvNZhvYmHadH/aHYv zT3kB
+X-Developer-Key: i=cassel@kernel.org; a=openpgp; fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
 Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_102604_137144_6D2BBD6F 
-X-CRM114-Status: GOOD (  16.42  )
+X-CRM114-CacheID: sfid-20250131_103019_314290_5CD5B8F2 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,64 +83,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/30/25 4:40 PM, Judith Mendez wrote:
-> On 1/28/25 11:48 AM, Judith Mendez wrote:
->> Hi Andrew,
->>
->> On 1/28/25 10:52 AM, Hari Nagalla wrote:
->>> On 1/28/25 10:27, Andrew Davis wrote:
->>>>> +    mcu_r5fss0: r5fss@79000000 {
->>>>> +        compatible = "ti,am62-r5fss";
->>>>> +        #address-cells = <1>;
->>>>> +        #size-cells = <1>;
->>>>> +        ranges = <0x79000000 0x00 0x79000000 0x8000>,
->>>>> +             <0x79020000 0x00 0x79020000 0x8000>;
->>>>> +        power-domains = <&k3_pds 7 TI_SCI_PD_EXCLUSIVE>;
->>>>
->>>> Newline here.
->>>>
->>>> Also this should be default "disabled". It can be set to "okay"
->>>> in the board DTS file when the needed mboxes and memory-region
->>>> are set. Speaking of that, where are those patches? This is
->>>> incomplete without them and these nodes will not function.
->>>> Same for the DSP patch.
->>>>
->>>> Andrew
->>> Yes, by default needs to set the node state to "disabled". This is HW description of the wake-up domain components. Memory carve outs and mailbox assignments for IPC are a separate patch as it is configurable and distro dependent.
->>
->> Yes I plan to disable the nodes in each domain .dtsi file.
->>
->> Also yes, my understanding is that the memory carveouts could
->> be a separate series if at all. Not sure if those patches can be
->> sent upstream since they are distro dependent. Can anyone clarify
->> if this is the case?
->>
-> 
-> As per offline discussion, I will include the memory carveouts in this
-> same series.
+The PCI endpoint framework currently does not support resizable BARs.
 
-It's usually good to fill in some details of "offline discussion" for
-folks on the list not in that conversation.
+Add a new BAR type BAR_RESIZABLE, so that EPC drivers can support resizable
+BARs properly.
 
-By "distro dependent" we really mean firmware dependent. The carveouts
-are set in DT and then most firmware follows the same and hardcode
-these addresses. For example[0].
+For a resizable BAR, we will only allow a single supported size.
+This is by design, as we do not need/want the complexity of the host side
+resizing our resizable BAR.
 
-This works well as long as all the firmware uses these standard
-addresses. Problem is some legacy firmware did not, and so to use
-those firmware the DT would need modified.
+In the DWC driver specifically, the DWC driver currently handles resizable
+BARs using an ugly hack where a resizable BAR is force set to a fixed size
+BAR with 1 MB size if detected. This is bogus, as a resizable BAR can be
+configured to sizes other than 1 MB.
 
-For AM62 and AM62A I'm not aware of any such firmware. So this
-is a bit of a non-issue and we can safely add the carveouts
-like we already do for all other K3 devices.
+With these changes, an EPF driver will be able to call pci_epc_set_bar()
+to configure a resizable BAR to an arbitrary size, just like for
+BAR_PROGRAMMABLE. Thus, DWC based EPF drivers will no longer be forced to
+a bogus 1 MB forced size for resizable BARs.
 
-Andrew
 
-[0] https://github.com/zephyrproject-rtos/zephyr/blob/main/boards/beagle/beaglebone_ai64/beaglebone_ai64_j721e_main_r5f0_0.dts#L30
+Tested/verified on a Radxa Rock 5b (rk3588) by:
+-Modifying pci-epf-test.c to request BAR sizes that are larger than 1 MB:
+ -static size_t bar_size[] = { 512, 512, 1024, 16384, 131072, 1048576 };
+ +static size_t bar_size[] = { SZ_1M, SZ_1M, SZ_2M, SZ_2M, SZ_4M, SZ_4M };
+ (Make sure to set CONFIG_CMA_ALIGNMENT=10 such that dma_alloc_coherent()
+  calls are aligned even for allocations larger than 1 MB.)
+-Rebooting the host to make sure that the DWC EP driver configures the BARs
+ correctly after receiving a link down event.
+-Modifying EPC features to configure a BAR as 64-bit, to make sure that we
+ handle 64-bit BARs correctly.
+-Modifying the DWC EP driver to set a size larger than 2 GB, to make sure
+ we handle BAR sizes larger than 2 GB (for 64-bit BARs) correctly.
+-Running the consecutive BAR test in pci_endpoint_test.c to make sure that
+ the address translation works correctly.
 
-> ~ Judith
-> 
->> ~ Judith
->>
-> 
+
+Changes since V3:
+-Picked up tags.
+-Addressed comments from Mani.
+
+
+Kind regards,
+Niklas
+
+Niklas Cassel (7):
+  PCI: endpoint: Allow EPF drivers to configure the size of Resizable
+    BARs
+  PCI: endpoint: Add pci_epc_bar_size_to_rebar_cap()
+  PCI: dwc: ep: Move dw_pcie_ep_find_ext_capability()
+  PCI: dwc: endpoint: Allow EPF drivers to configure the size of
+    Resizable BARs
+  PCI: keystone: Describe Resizable BARs as Resizable BARs
+  PCI: keystone: Specify correct alignment requirement
+  PCI: dw-rockchip: Describe Resizable BARs as Resizable BARs
+
+ drivers/pci/controller/dwc/pci-keystone.c     |   6 +-
+ .../pci/controller/dwc/pcie-designware-ep.c   | 218 +++++++++++++++---
+ drivers/pci/controller/dwc/pcie-dw-rockchip.c |  22 +-
+ drivers/pci/endpoint/pci-epc-core.c           |  31 +++
+ drivers/pci/endpoint/pci-epf-core.c           |   4 +
+ include/linux/pci-epc.h                       |   5 +
+ 6 files changed, 239 insertions(+), 47 deletions(-)
+
+-- 
+2.48.1
+
 
