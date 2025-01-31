@@ -4,100 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60871C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 18:59:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0016DC0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 19:05:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dP2c9p+WJ/Ycibc0VmIMo2SY4jx3mg/tQ+vmm0GdlFU=; b=tcj+2Vde4VuERckSUhh4Gzev0V
-	zbUkEdPblh9RErnbv7pHGtaEET9GI2cQkGPnt+HckWXu60LcqwnjDpuus4vvuj51/b/gUPPFihy48
-	/t+04BtVaos3EvB4aBW6Zbn7o2N0DVJkGknxnZtWff97ZvpminZF/a2CofZvY/wzo00ymR0ErYPah
-	sitys+DYy9x0D0tmpbBmUNeul63zsuJ/ARXz6V7AtdRnuPStJF5+oslWv507k6yVOyIvaqf9uYcMQ
-	Y1R97n5TzT4CCWjcRKD27+IMYijWtzpJP8X14ph+s9970QRtZJzKsTmTViu2VdiZaSw0ZkguOAeLG
-	YmKr1WbQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=pglTObOFT5rBCszltvVnpJmzw8D/oeXug/disPOkEu0=; b=ia0hUHfAOuTfew
+	dHoFXDxa20jVhndcXGCCdmvwbTzHHUaZCnA0RaFz743kRicPmavw3MZWLTFBPt8rlNRkVrtIO9Tra
+	ss0twMKeQ5J8DOXcIiCYpckf52JEsMS1jAiLLuT3POHOoYa75LIkyEZk/DChRxYBAUAb4jlVLHz/d
+	4apAF129ZW3m0OPnlWzE/5PXXTumsmYVsYw2cbT3123GuDlHOlz6nHCEmnJWJmD+MBwdqydb1VczQ
+	8CB/wXJkNFsOy8Fxs8sTcALS4c46yBg27YqolNnUvt8D8qZR0u5oEbQSVNlaeD4yvaxSI/mLLpK17
+	m3+iRjMuWUcHWqaihLSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdwF1-0000000BG88-36cL;
-	Fri, 31 Jan 2025 18:59:47 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1tdwK5-0000000BGau-00ue;
+	Fri, 31 Jan 2025 19:05:01 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdwDi-0000000BFzg-2ktQ
+	id 1tdwIl-0000000BGUo-2D8b
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jan 2025 18:58:28 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-aa68b513abcso408571466b.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jan 2025 10:58:26 -0800 (PST)
+	Fri, 31 Jan 2025 19:03:40 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-38a8b35e168so1481731f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jan 2025 11:03:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738349905; x=1738954705; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=dP2c9p+WJ/Ycibc0VmIMo2SY4jx3mg/tQ+vmm0GdlFU=;
-        b=NIacjbvWCz+QJnE83GEUGi5FNI3b92KsRUHG4f/pZp8hpXy+GD6sK7GYvmUhV8wZC7
-         PEkdgIeeIvhzn1dSKWu/KhDrUmQn+CYKxmIbOwv7vZZ5Y+dvwDMam/t6FxzU9Xu95zoX
-         vBZ4957RX788RnPtzYKVQmKg+5d89ixFOTmjPHwY2VMDEvlIU+HPMKKrYBeT8ejaxue/
-         sSn1fjEht9C6g7Zb6BEhOzx2GxaUNfQo5Wv7PhY9m08QTrV3TEWY37J77TkcBcPKUJz2
-         QCVwv4dKuzJ3BKG/lBo3vLwYkXBY7Lpb3U/xlg0kQbzjBoa/KNo1moaXX4gYeV0g+Nj8
-         sHqw==
+        d=gmail.com; s=20230601; t=1738350217; x=1738955017; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pglTObOFT5rBCszltvVnpJmzw8D/oeXug/disPOkEu0=;
+        b=Rt36gvMegwCcJk4ZtIeCJ6iY2e0f2JUJRIo8oX7t2xoFXW7f2hk4W9VmECxbyCZQrA
+         KyemNtxIZ26x60i5WHyPWZyka3OX5+DHyLmpt64KjQUk+hwpkZT3fg5s8NPDgt0qfr9j
+         TRFh5v2mibdtSn6KEh5e6d/YE4g64djNKmJd3PjWkwOrW+LtAk8Mpv/tAXqzEaMB+oaU
+         HV4JQzTyyflyaoENZ6TuSIA4pBRbpWxNrxG1leJ30P3DWqeF4aXOZQPiSDdGMMumU9l/
+         R9W/vlJh4jbGJRpX4IMwVwG52K5+7gP0ckPYIsVPJrmMUDvkgOQIf4adnyKY5M7Bm8gT
+         XTKg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738349905; x=1738954705;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=dP2c9p+WJ/Ycibc0VmIMo2SY4jx3mg/tQ+vmm0GdlFU=;
-        b=sdVmbCyWEKRP8jsv28NQTOsm9LIdiJxwEfr1h6oDkh9Zxx3Qo/RYQLnnxWuAv4O5XE
-         C03+M3IfBM1fW7G529CzuTcgiXbBdGUOE2hM1oCragoTYXYx4vM6DaprRTSP/Kg7yHSd
-         gMpjsbviBc3BhszLPd7nvpfEnqZRLsFiD/GsxsDqZCeBZQMlJJo6XUEaPXCU0TpH8kiQ
-         s8lEQVQNflpWdu+niiUXmgTSjzU2JDYFdJGxwlLG20hLKBpIE7BqiK4mlEgR8QhH9LDE
-         bnzx2qpdWqfude+lwVNWpr5LsnkZVgU9kC4exLFuelu/zd/Dg9BPCZegRbA9H3n65SkI
-         VF5Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWNj7R6/vwoDsofn2MrICy50/sX0fJx7WayypvoDBKJ5YspaiBiLmXhu5/UXC7nwsvhQYDsfXoQXrGrDdltHJ8E@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxo0dT7Zp+Cx0FB5Qk80+d2ezicVi7sfhLY5LSemQgC7owm+WPl
-	+lwCgALvDiMVwmliwGBn2TBYSsiOdwD29lUYHxtJhFvzKBysFIrK
-X-Gm-Gg: ASbGncsdL9HL7qrDTQG/iFr36Q0JBUvxYDnawjQv+qumwYLA+MSil+Xb0vBsn0Ia7oa
-	YqM4fXdYH8hSNLT7P+LmXTh0oq4YyG/VsGhxhLCL+QkVOYcGdGeeiUThKsm52kzzqn7ycQBgI92
-	rv/QXfyTuaB8El8MEpeJrxzIAJZGDpvlRHUd2/smF+pkxKvMgELOfLhbiwTBSHdTgbK6Wk4fUBE
-	MER9gC4aWhRunFLgnDSOOT4P3PdvJH3P53Z9yqH4Gx9o6akMAFH649rRVnxKeZ4/yqRx+gXn1Db
-	H7ZMHwgVdE2c3ZDhTweMEmS4HIk5
-X-Google-Smtp-Source: AGHT+IHOS1aKbTTtUUMddEt5dbh1IUG+QNx5UiNzYR9h5od9izNR3CvolWOWfFrKJty/mwVs56DPyQ==
-X-Received: by 2002:a17:907:2d0f:b0:ab3:8cc:cd8 with SMTP id a640c23a62f3a-ab6cfd07cd9mr1254923766b.29.1738349904899;
-        Fri, 31 Jan 2025 10:58:24 -0800 (PST)
-Received: from ?IPV6:2001:871:22a:8634::1ad1? ([2001:871:22a:8634::1ad1])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab6e47d06casm340070666b.58.2025.01.31.10.58.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 31 Jan 2025 10:58:24 -0800 (PST)
-Message-ID: <5e8a99a5-f39c-46da-b54d-7b69307b1c66@gmail.com>
-Date: Fri, 31 Jan 2025 19:58:23 +0100
+        d=1e100.net; s=20230601; t=1738350217; x=1738955017;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=pglTObOFT5rBCszltvVnpJmzw8D/oeXug/disPOkEu0=;
+        b=hT1/MP+tZE7NmHxubNStfpcCyRaLYWG0rD1q7iOO21N77V2CPgK3sxJVTJL5cHk4H0
+         54UmkPyX83IjjhwgsGcPxvOCAGl0S6aJGxIrfmiYPiTfVMf/kzyu1nORQB1JVAbbRWHR
+         y+fNjjbj8HKfHP2crV0NzoGS/IqkwGOGFf+BLGEtKbcGjWNq3YLgvUEA1cE4ktTZ0vpL
+         rpIC4VLHGM7HNe/gtQAPZ9/PuoFc6IW7kmUWInkF7cnwDDV9GU+chmmpAvJat2U5d9Of
+         /FRR/ICbdAlHxKxakVC4lHOI2TKLsQb7TFH+mzfZr+e+ya68gIyirl0iLj4LKag/jtsA
+         N2cA==
+X-Forwarded-Encrypted: i=1; AJvYcCXllo3n5J5xa0amMxtnLGUnvCSukDuFsZkWix9JZ4RrQrR2l90YhwY4GYJpeRRRS4qCMLecSOhncjavqtC5tg05@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZxAz91A4W3UTGzsFm94QTqETgiVFRwhaMWpkYuQKS8pZQAfEF
+	ps08k00BP6hlADwLWje5hVn2YlyAwuozVmt7WpT8897NKr8BB1Hh
+X-Gm-Gg: ASbGncvSiuxFiM2C7Dj8FK/4ppbprnl52nthXFTc7VQkjsRMRpWDtgo7Vh7HwTrD7Vi
+	W1HMoAENtcl/l11V2xdbPOMHXfY96dXex7Ln88w4DB5gYw3dbmnNJLtRwR6Ha7hjqSQGnxK6Uij
+	EkY5EMCMbB7Sz6XcsXMLRReIJLNB/1IsbpbgnZDeHKi1j3B7yY3DGVxS1JKUWYRBvnHLR2CnCbp
+	YF7ByDiWPrEmh7ujqKviE0fmqwJjLwv7hWvt+AQ5vr8TedIL3q3dZJF7gxNRHzr5fV8Q28uagb2
+	nLK6wTmPC/w+om58FHRetiH/lwNkkNgmtsmOBhhvhaSkJt0plqa7VQ==
+X-Google-Smtp-Source: AGHT+IGOWalHkw0VQDuZrFgGWdO/5t7oYMe9eAr7RV/AmNQsKEb7LjEGNkj8XpJngRC9CG3jrtAtQg==
+X-Received: by 2002:a5d:5f56:0:b0:386:3d27:b4f0 with SMTP id ffacd0b85a97d-38c60f26459mr3846706f8f.14.1738350217335;
+        Fri, 31 Jan 2025 11:03:37 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438e23d444bsm64691365e9.8.2025.01.31.11.03.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 31 Jan 2025 11:03:36 -0800 (PST)
+Date: Fri, 31 Jan 2025 19:03:35 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: Re: [PATCH treewide v2 1/3] bitfield: Add non-constant
+ field_{prep,get}() helpers
+Message-ID: <20250131190335.4c18fb3c@pumpkin>
+In-Reply-To: <1824412519cb8791ab428065116927ee7b77cf35.1738329459.git.geert+renesas@glider.be>
+References: <cover.1738329458.git.geert+renesas@glider.be>
+	<1824412519cb8791ab428065116927ee7b77cf35.1738329459.git.geert+renesas@glider.be>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] arm: rust: Enable Rust support for ARMv7
-To: Andrew Lunn <andrew@lunn.ch>, Miguel Ojeda <ojeda@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Miguel Ojeda <ojeda@kernel.org>,
- Alex Gaynor <alex.gaynor@gmail.com>, Boqun Feng <boqun.feng@gmail.com>,
- Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?=
- <bjorn3_gh@protonmail.com>, Benno Lossin <benno.lossin@proton.me>,
- Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
- Trevor Gross <tmgross@umich.edu>, Jonathan Corbet <corbet@lwn.net>,
- Russell King <linux@armlinux.org.uk>, Rudraksha Gupta <guptarud@gmail.com>,
- Ard Biesheuvel <ardb@kernel.org>, Geert Stappers <stappers@stappers.nl>,
- Jamie Cunliffe <Jamie.Cunliffe@arm.com>,
- Sven Van Asbroeck <thesven73@gmail.com>, rust-for-linux@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20250123-rfl-arm32-v3-1-8f13623d42c5@gmail.com>
- <a83b0149-7055-411b-ba86-d227919c7c32@app.fastmail.com>
- <f8b59f05-55b5-4208-8bdf-b4be8e93bc22@gmail.com>
- <65da77f7-bbd4-4cbe-a06c-75f10a6ec4ce@lunn.ch>
-Content-Language: en-US, de-DE
-From: Christian Schrefl <chrisi.schrefl@gmail.com>
-In-Reply-To: <65da77f7-bbd4-4cbe-a06c-75f10a6ec4ce@lunn.ch>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_105826_703919_DF152831 
-X-CRM114-Status: GOOD (  15.25  )
+X-CRM114-CacheID: sfid-20250131_110339_572521_9CDE7212 
+X-CRM114-Status: GOOD (  18.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,46 +95,64 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Giovanni Cabiddu <giovanni.cabiddu@intel.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Crt Mori <cmo@melexis.com>, linux-aspeed@lists.ozlabs.org, linux-iio@vger.kernel.org, Michael Turquette <mturquette@baylibre.com>, Rasmus Villemoes <linux@rasmusvillemoes.dk>, Jaroslav Kysela <perex@perex.cz>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Shan-Chun Hung <schung@nuvoton.com>, linux-clk@vger.kernel.org, Lars-Peter Clausen <lars@metafoo.de>, Herbert Xu <herbert@gondor.apana.org.au>, Bartosz Golaszewski <brgl@bgdev.pl>, Takashi Iwai <tiwai@suse.com>, qat-linux@intel.com, Joel Stanley <joel@jms.id.au>, Jakub Kicinski <kuba@kernel.org>, Andrew Jeffery <andrew@codeconstruct.com.au>, Linus Walleij <linus.walleij@linaro.org>, Jacky Huang <ychuang3@nuvoton.com>, Yury Norov <yury.norov@gmail.com>, linux-sound@vger.kernel.org, linux-gpio@vger.kernel.org, Alex Elder <elder@ieee.org>, linux-arm-kernel@lists.infradead.org, Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, linux-crypto@vger.kernel.org, Johannes Berg <johannes@sipsolutions.net>, "David S . Miller" <davem@davemloft.net>, Jonathan Cameron <jic23@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31.01.25 5:05 PM, Andrew Lunn wrote:
->> To fix this Rust would have to provide a way to build the core
->> library without float support. I don't know if there is a plan
->> already to allow this.
+On Fri, 31 Jan 2025 14:46:51 +0100
+Geert Uytterhoeven <geert+renesas@glider.be> wrote:
+
+> The existing FIELD_{GET,PREP}() macros are limited to compile-time
+> constants.  However, it is very common to prepare or extract bitfield
+> elements where the bitfield mask is not a compile-time constant.
 > 
-> Floating point is banned within the kernel, except for in very narrow
-> conditions, because the floating point registers are lazy saved on
-> context switch. If the kernel uses the floating point registers, you
-> can break user space in bad ways.
-> 
-> I expect this has been discussed, since it is well known kernel
-> restriction. Maybe go see what happened to that discussion within RfL?
+> To avoid this limitation, the AT91 clock driver and several other
+> drivers already have their own non-const field_{prep,get}() macros.
+> Make them available for general use by consolidating them in
+> <linux/bitfield.h>, and improve them slightly:
+>   1. Avoid evaluating macro parameters more than once,
+>   2. Replace "ffs() - 1" by "__ffs()",
+>   3. Support 64-bit use on 32-bit architectures.
+...
+> diff --git a/include/linux/bitfield.h b/include/linux/bitfield.h
+> index 63928f1732230700..c62324a9fcc81241 100644
+> --- a/include/linux/bitfield.h
+> +++ b/include/linux/bitfield.h
+> @@ -203,4 +203,38 @@ __MAKE_OP(64)
+>  #undef __MAKE_OP
+>  #undef ____MAKE_OP
+>  
+> +/**
+> + * field_prep() - prepare a bitfield element
+> + * @_mask: shifted mask defining the field's length and position
+> + * @_val:  value to put in the field
+> + *
+> + * field_prep() masks and shifts up the value.  The result should be
+> + * combined with other fields of the bitfield using logical OR.
+> + * Unlike FIELD_PREP(), @_mask is not limited to a compile-time constant.
+> + */
+> +#define field_prep(_mask, _val)						\
 
-After checking again, it seems the float intrinsics are actually not
-needed anymore at least for my config. Only `__aeabi_uldivmod` is still
-required for `parse_u64_into` since [0] allows disabling float formatting.
+You don't need an _ prefix on the 'parameters' - it doesn't gain anything.
 
-Link error without the `__aeabi_uldivmod` symbol defined:
+> +	({								\
+> +		typeof(_mask) __mask = (_mask);				\
 
-ld.lld: error: undefined symbol: __aeabi_uldivmod
->>> referenced by num.rs:580 (/home/chrisi/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/fmt/num.rs:580)
->>>               rust/core.o:(core::fmt::num::parse_u64_into::<39>) in archive vmlinux.a
->>> referenced by num.rs:589 (/home/chrisi/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/fmt/num.rs:589)
->>>               rust/core.o:(core::fmt::num::parse_u64_into::<39>) in archive vmlinux.a
->>> referenced by num.rs:589 (/home/chrisi/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/fmt/num.rs:589)
->>>               rust/core.o:(core::fmt::num::parse_u64_into::<39>) in archive vmlinux.a
->>> referenced 34 more times
->>> did you mean: __aeabi_uidivmod
->>> defined in: vmlinux.a(arch/arm/lib/lib1funcs.o)
+Use: __auto_type __mask = (_mask);
 
-Not sure if we should just implement `__aeabi_uldivmod`, keep the 
-panicking intrinsic for it or somehow fix it in upstream Rust?
+> +		unsigned int __shift = sizeof(_mask) <= 4 ?		\
+> +				       __ffs(__mask) : __ffs64(__mask);	\
+> +		(((typeof(_mask))(_val) << __shift) & (__mask));	\
 
-Miguel do you know how this is best handled?
+There are a lot of () in that line, perhaps:
 
-Link: https://github.com/rust-lang/rust/pull/86048 [0]
+		__auto_type(__mask) = (_mask);
+		typeof (__mask) __val = (_val);
+		unsigned int __shift = ...;
 
-Cheers
-Christian
+		(__val << __shift) & __mask;
+
+Note the typeof (__mask) - avoids line-length 'bloat' when the arguments are non-trivial.
+
+	David
 
