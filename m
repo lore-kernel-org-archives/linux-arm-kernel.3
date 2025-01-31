@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 852CAC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 16:34:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB467C0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 16:35:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ixfcIAAexUl2WSfXY24foaU0s0qcPAN9Tsal26az1zc=; b=hcINJc4kenu8xz
-	X7Kb9ndDRb6q1eqXmUWy/qcYMNUHgtRuQt+4xb1pJBx+mXtvwaCx0XemaTnp/PbQmNVcqfU9l9lxp
-	EICeUeVUpygbWho/B4/PRTH3FjL87agFCVKfIdDKfjqQs4NPPY/t2HM/4rfbe+i0YsZvyjbCOKpnk
-	RLaRXv2948wU1hggCzrcP6XVJbkfMfYnPjeMuAi8i+pHdWD8rLC5rCGuwAcqzKY1XfX63em02m4S4
-	B5yTx/F1TdojO0qFwqcEESuLQpTZmZKa/bDMYCY0uACZ83ZR1Xd9MUhTaKEANQUNWPlxX6w3X8d1I
-	ATBKzOfxNXO0R8O8t4ew==;
+	List-Owner; bh=i9cXZBXvS7yT/u5Gd5r3rTLgf02jRz5YmvpnmpgTlkk=; b=lxUuSMCUsj5WTk
+	m63BLxr7HiL60cr7ysYquPGyO/qjZw2fY6UA1FoRDIxXbLW12RSmBDhFFKgHhrabKoDdWjkWe2ecJ
+	1+7eXs90eoTbQgwpgZ2kajik4ZIwJ+2avL1E3YLqhmPgRpyQzWJ5v9YlFx7HT2Zpu/tlktUJY3x14
+	i7Uh6rGUja2K3AJp87ECG8mTGVgt9WJK9HEkqRdzgk9IlPirEf76K7QFuA9Do/rWCQWWzYZgo8bAG
+	PHvvWo2L/gIMZP2u0oE6VQ1zdNb3d7mYbErFPZLgqvt8kZ5TZMQWVGDaojQlSZaGwiRLTTamwMbpY
+	0BsYxkLncNgSjw7tOhaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdtyE-0000000Azdz-1DLc;
-	Fri, 31 Jan 2025 16:34:18 +0000
+	id 1tdtzV-0000000B00u-3rcT;
+	Fri, 31 Jan 2025 16:35:37 +0000
 Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdtqV-0000000AyKn-46ZN
+	id 1tdtqX-0000000AyLM-03wK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jan 2025 16:26:21 +0000
+	Fri, 31 Jan 2025 16:26:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	sang-engineering.com; h=from:to:cc:subject:date:message-id
 	:in-reply-to:references:mime-version:content-transfer-encoding;
-	 s=k1; bh=ixfcIAAexUl2WSfXY24foaU0s0qcPAN9Tsal26az1zc=; b=KyfUpu
-	7WfYr9xPnq93SQd43N+Mvu3MMFxMVZ+huYsYTx2VXe4UeOUzf449nAx2FojFpgtf
-	JMjgq375iljCpYTMhRsbnUTBpMAXAVfn6gbb4QbTmy3IS7yPIiy2VVh4FkEOxlw3
-	c3emE5QJcxnkb+gdrySQMgO9VUJdnmiqM6VQCnOzNYnlGx7X8zj+1x3HzEZaPMFe
-	NcFQTwFlekLzgR7SnC9tCXctjxTvxq98mnpvFOEROzZ5oB6C8wCayV2DcaE0SwR+
-	KTjHqV3Fr21whlfqhCvYv/Osp/BObn1HIjEbZqQhCkP8nCyffBfKtV1ZdIpU1IXV
-	XP73pF2VL0r1WUDw==
-Received: (qmail 1738719 invoked from network); 31 Jan 2025 17:26:18 +0100
-Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 31 Jan 2025 17:26:18 +0100
-X-UD-Smtp-Session: l3s3148p1@S3uSAAMtrB/Uph5e
+	 s=k1; bh=i9cXZBXvS7yT/u5Gd5r3rTLgf02jRz5YmvpnmpgTlkk=; b=ehG2pi
+	1OFruMxtkMQpW7PQaGwzAiPNpN5tL2zVXUzGZctjJnvtXF6d9n6bkxNOmZ1dQkWX
+	lBJlNzx3Tm9ap5NhA7QxreuCCGR5YvHaZECUjG9jo57jzsQ6OdH09WJgFHaMHDtt
+	mzK/RFbCmca6fX56hkn+qsSFnW3ZMASuo47d9GnpJ6IEsv5nMLXpZSb1kAmx0R/h
+	hwUFDLZOPzpoCXXL1+/CmkLH7J1pvXAIOz+97jS4tXSAdrWKsl4vYqW+e6r3MivJ
+	06dzQ2k2xi2whHxyUBQaDOc8sRREMCqHl+6PE18mYhkRLf2X9KCkJfaWeXjIqUxj
+	eshMJLohWcDKPHTQ==
+Received: (qmail 1738766 invoked from network); 31 Jan 2025 17:26:19 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 31 Jan 2025 17:26:19 +0100
+X-UD-Smtp-Session: l3s3148p1@ETOhAAMtrGbUph5e
 From: Wolfram Sang <wsa+renesas@sang-engineering.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 1/2] ARM: dts: at91: calao_usb: fix wrong polarity for LED
-Date: Fri, 31 Jan 2025 17:26:12 +0100
-Message-ID: <20250131162611.33338-5-wsa+renesas@sang-engineering.com>
+Subject: [PATCH 2/2] ARM: dts: at91: calao_usb: remove heartbeat for User LEDs
+Date: Fri, 31 Jan 2025 17:26:13 +0100
+Message-ID: <20250131162611.33338-6-wsa+renesas@sang-engineering.com>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20250131162611.33338-4-wsa+renesas@sang-engineering.com>
 References: <20250131162611.33338-4-wsa+renesas@sang-engineering.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_082620_291325_7E4A3D15 
-X-CRM114-Status: UNSURE (   9.95  )
+X-CRM114-CacheID: sfid-20250131_082621_336159_22DBE47D 
+X-CRM114-Status: UNSURE (   9.83  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -69,27 +69,39 @@ Cc: Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>, Alexandre
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It is active high per testing via sysfs. Also matches the very similar
-usb_a9263 variant.
+Default DTs should be minimal. It is cumbersome carrying a custom patch
+disabling the heartbeat just to use the LED for own cases.
 
 Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
 ---
- arch/arm/boot/dts/microchip/usb_a9260_common.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm/boot/dts/microchip/usb_a9260_common.dtsi | 1 -
+ arch/arm/boot/dts/microchip/usb_a9263.dts         | 1 -
+ 2 files changed, 2 deletions(-)
 
 diff --git a/arch/arm/boot/dts/microchip/usb_a9260_common.dtsi b/arch/arm/boot/dts/microchip/usb_a9260_common.dtsi
-index 8744b5f6f792..5eb844f2df9d 100644
+index 5eb844f2df9d..9672a5626cae 100644
 --- a/arch/arm/boot/dts/microchip/usb_a9260_common.dtsi
 +++ b/arch/arm/boot/dts/microchip/usb_a9260_common.dtsi
-@@ -122,7 +122,7 @@ leds {
- 
+@@ -123,7 +123,6 @@ leds {
  		user_led {
  			label = "user_led";
--			gpios = <&pioB 21 GPIO_ACTIVE_LOW>;
-+			gpios = <&pioB 21 GPIO_ACTIVE_HIGH>;
- 			linux,default-trigger = "heartbeat";
+ 			gpios = <&pioB 21 GPIO_ACTIVE_HIGH>;
+-			linux,default-trigger = "heartbeat";
  		};
  	};
+ 
+diff --git a/arch/arm/boot/dts/microchip/usb_a9263.dts b/arch/arm/boot/dts/microchip/usb_a9263.dts
+index 45745915b2e1..ef529ec5dd6f 100644
+--- a/arch/arm/boot/dts/microchip/usb_a9263.dts
++++ b/arch/arm/boot/dts/microchip/usb_a9263.dts
+@@ -151,7 +151,6 @@ leds {
+ 		user_led {
+ 			label = "user_led";
+ 			gpios = <&pioB 21 GPIO_ACTIVE_HIGH>;
+-			linux,default-trigger = "heartbeat";
+ 		};
+ 	};
+ 
 -- 
 2.45.2
 
