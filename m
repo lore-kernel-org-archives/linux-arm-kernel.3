@@ -4,80 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1C2AC0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 11:04:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F5F8C0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 11:26:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ezAMBD29GkkB4e4t8a/2A1rSsnKm9LPumN4NESuMnWY=; b=UbGPpywfjcEDHE7Wzl7xITgvsM
-	cSvKunRBZSYuFlTyQ195bDW0T/BiUfV4T6vxBWFf235gMHz5JC5W/lgx4VC7SuKzC4pXZPbswmchE
-	WfLbt0xQpSa2Dataf4RMR0mRTBajcibQNLaGpqv75u5vr3h0xHWNt0OJC/D5/YPzYR97lbVhz+XMd
-	n0dUwe1SYpT8MOzHRFi3hRqp/y68DrdKeBup9TkgI1t9dR/Q83Yc44/ejHuFST0rMxTuWmD2+VfU0
-	zGXg+NU5/NeYNEVo0wIGG5BAakM7xj252CNks9lVWTTIMxsvswqLColdBGcBf8LesFur577CG62U0
-	77VVsb+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:Content-Transfer-Encoding
+	:Content-Type:MIME-Version:Message-Id:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+ogcAVvUN9xOrCU6FJgnNO9Dr5xVktrYLIlISiNWBs8=; b=Gfuwd95PCnVvysvR2Cl+pppqVl
+	g+n8PQUc27bRwpjZaYN5lx3/CZTL+VlL9G3d5FFzTAUc/smnKsggYxM6w4UL+yFW+v9FilTpbp65y
+	R76jC3+J9BgeihGc+Nfjxbbh+eLsWU3fMUEEndjHlwEZNJq+niM/rM7iIC6ordRmceis+IfDEZ90d
+	XaLmldY8CcLKMV/TAuQGgJylQm7RUG6bTuof2Tg/3tz1/omgvGogSImW+OyMBJ4gov3t+MpWB8192
+	9D/CvAGT0VV/BFIOoavnqb6rYPMafotHE5i2Au3/BjLXFiX+k78cWaLfr6P6z1U4ovUHvL7EZVMQ3
+	KEsJy4rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdooz-0000000ASTr-11vp;
-	Fri, 31 Jan 2025 11:04:25 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdonQ-0000000ASD6-1zOt;
-	Fri, 31 Jan 2025 11:02:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1738321347; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Hkql+bgGsvPgUJbPyMiWHR3VvDrgD3/F2Fvco6ZqedgPxoNDct9nPoroK/UOC1kg8fiKi2MwL6CgzCAE9/gzg+T1Mk/Ly2GWJSHMUtmWzSIMwqycUrHJHMLwwhLw8iJbxWJN72z1lyC0zLymeHrPlQTegGctm93eEpsF9ka2wBY=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1738321347; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=ezAMBD29GkkB4e4t8a/2A1rSsnKm9LPumN4NESuMnWY=; 
-	b=WSkZ36BG4IYlZYIZSpBtsHGTfoBKrNrVDfaB0tSwC/7NfiFt6NlFho0ZcVElMwuh8Caup6iLzQ6Bd7JCBaCb5ufANpTjllZt+UWXOMFZ64xw9t7MYOmuL0aykqsGXOSd/1DClH6fhba/X4oX+gjFxdkVLeDDFRdnrXWke6jCCFk=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=louisalexis.eyraud@collabora.com;
-	dmarc=pass header.from=<louisalexis.eyraud@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1738321347;
-	s=zohomail; d=collabora.com; i=louisalexis.eyraud@collabora.com;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=ezAMBD29GkkB4e4t8a/2A1rSsnKm9LPumN4NESuMnWY=;
-	b=AsPyoanPmBfmqtoZVvtj7k2FLUm21bkSi7HNPPMp6hR2oKm2q94Lfi7d+mr4lpz/
-	dMn9S51J90ADF/Qj45pmfVL4/k7kCTjMGoR9DwKrOHHKj4EVM7qXoaT0Wnf13hXiPYZ
-	wZ0BSVaw5ZheIl4LueSw73Y7ZVpWXx0WqFE+H7VU=
-Received: by mx.zohomail.com with SMTPS id 1738321342354706.4067778296129;
-	Fri, 31 Jan 2025 03:02:22 -0800 (PST)
-Message-ID: <8b924147e03693d04e1800b19a65ac773b699365.camel@collabora.com>
-Subject: Re: [PATCH 2/3] drm/panfrost: Add support for Mali on the MT8370 SoC
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard	
- <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
-	 <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring	
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley	
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Boris
- Brezillon <boris.brezillon@collabora.com>, Steven Price	
- <steven.price@arm.com>, kernel <kernel@collabora.com>, dri-devel	
- <dri-devel@lists.freedesktop.org>, devicetree <devicetree@vger.kernel.org>,
-  linux-kernel <linux-kernel@vger.kernel.org>, linux-arm-kernel
- <linux-arm-kernel@lists.infradead.org>,  linux-mediatek
- <linux-mediatek@lists.infradead.org>
-Date: Fri, 31 Jan 2025 12:01:51 +0100
-In-Reply-To: <1003b393-770a-4e2b-b5ed-054f1f9072b4@kernel.org>
-References: <20250116-mt8370-enable-gpu-v1-0-0a6b78e925c8@collabora.com>
-	 <20250116-mt8370-enable-gpu-v1-2-0a6b78e925c8@collabora.com>
-	 <20250118-meticulous-black-caracal-ec7f0d@krzk-bin>
-	 <194b7237128.10f9923a41656565.5574753983898665940@collabora.com>
-	 <1003b393-770a-4e2b-b5ed-054f1f9072b4@kernel.org>
-Organization: Collabora Ltd
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.54.3 (3.54.3-1.fc41) 
+	id 1tdpAN-0000000AU9K-1N23;
+	Fri, 31 Jan 2025 11:26:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tdp92-0000000ATno-3mD8
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 31 Jan 2025 11:25:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C54EC497;
+	Fri, 31 Jan 2025 03:25:31 -0800 (PST)
+Received: from e133711.arm.com (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9ED953F63F;
+	Fri, 31 Jan 2025 03:25:05 -0800 (PST)
+From: Sudeep Holla <sudeep.holla@arm.com>
+Subject: [PATCH v2 00/18] firmware: arm_ffa: Framework notification support
+ + other updates and fixes
+Date: Fri, 31 Jan 2025 11:24:00 +0000
+Message-Id: <20250131-ffa_updates-v2-0-544ba4e35387@arm.com>
 MIME-Version: 1.0
-X-ZohoMailClient: External
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANSynGcC/23MQQrCMBCF4auUWRvJTKqgK+9RiozNxGbRpiQ1K
+ CV3N3bt8n/wvg2SRC8Jrs0GUbJPPsw16NDAMPL8FOVtbSBNLRK1yjm+vxbLqySF+uysse5i7An
+ qY4ni/HvXur726NMa4mfHM/7W/05GpZVGMoYfbATlxnE6DmGCvpTyBTf5PiKkAAAA
+X-Change-ID: 20241224-ffa_updates-106fd3df93d5
+To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Sudeep Holla <sudeep.holla@arm.com>, Viresh Kumar <viresh.kumar@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3498; i=sudeep.holla@arm.com;
+ h=from:subject:message-id; bh=Mj7becK2tdHID/rbbpR8Lc171Ee1AVxwW8A41fJTUTM=;
+ b=owEBbQKS/ZANAwAIAQBBurwxfuKYAcsmYgBnnLMPNWwAMby9FW8Midi6klPrFYbB1FFl3SDNN
+ suxWERuZX+JAjMEAAEIAB0WIQS6ceUSBvMeskPdk+EAQbq8MX7imAUCZ5yzDwAKCRAAQbq8MX7i
+ mK2eEACUR9YW+vd1DALtRbLodzYIxkZR0bjp5V1LCy7C+e9fghrGO/PConEM/x+piTFAP+0Brag
+ 8glYQxvV23llcvdjlVUMmF9fbVfhuxWu2W45jX5qFL7L82vHDIUAwbKgHOXn3jpbHuhN/L4ORj6
+ x5HyTws+9N5wdbTjzRLydY7pZ3LdmHK6J2kxkHF8iKIPwNKF56zcHk1GxyMB+hH99pNc3YZQp6Y
+ rP1zcaiM5NpY8ITK35Mucm+uho9KHbSVJM6dvsdRK197uZbUTCgQP3I8g4mrdGIerFbUSsEKrZF
+ lez6uWkgxodAkVWidPM71bbLFM7mFrwDRW7m6WeLbHFIH74EVbv3Mw6ymoP4PUtdS/JhMbe4WiF
+ NYepmH01e/WuaLlEnJjM9Vus6PQ2T7C5vQhAoihTNarygEBDAiEOFoEn+p5+HOe9bEyN3bCgFgg
+ Z80hQvIBgfMDIL1UAWv2Q/b+/5xjhY6jN2XyABBUjg4L8va1RaGpcsShnXowhG6KVbhmNdHHp+n
+ cqm1dykAuAmDg4zxxhqqO0HVzHkh+kfgIpmlOclk1WX0RGPvZhfVOMB9RbwChugbATx/G9WcHWC
+ gulE0fy3gw3K+gk3r9+KZDQ2o9sjsDZd68hlppLpqiFCUmvyuoTxf/o/7bU9SHV93An7bpIhIjx
+ zQQHQ7UggpXYiBg==
+X-Developer-Key: i=sudeep.holla@arm.com; a=openpgp;
+ fpr=7360A21742ADF5A11767C1C139CFD4755FE2D5B4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_030248_564154_3D9DE6EE 
-X-CRM114-Status: GOOD (  11.43  )
+X-CRM114-CacheID: sfid-20250131_032509_038931_3057DE42 
+X-CRM114-Status: GOOD (  11.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,33 +81,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2025-01-30 at 14:21 +0100, Krzysztof Kozlowski wrote:
-> On 30/01/2025 13:15, Louis-Alexis Eyraud wrote:
-> > Hello,
-> >=20
-> > sorry for the delay,
->=20
-> You gave yourself 12 days to respond, which is fine. But to me, you
-> gave
-> 15 minutes and immediately sent v2.
->=20
-> So now your v2 will be still rejected.
->=20
-> Best regards,
-> Krzysztof
+This bundle of changes mainly have FF-A framework notification support
+along with other minor updates and fixes.
 
-Hello Krzysztof,
+It adds support to allow multiple UUIDs per partition to register
+individual SRI callback, to handle Rx buffer full framework notification
+in particular and general framework/interface to extend in the future.
 
-my apologies if you felt offended I sent my v2 patchset too early after
-replying on the mailing list.
-I meant well.
+It also adds support for passing UUID in FFA_MSG_SEND2 which improves
+the multiple UUID/services per partition support in the driver and
+an helper to check if a partition can receive REQUEST2 messages or not.
 
-As I felt your first remarks were appropriate and precise enough to me,
-I've submitted a second version so that the modifications to review
-could be available shortly after my reply.=20
+It also improves cleaning up the partitions by adding unregistration of
+the devices as well as handles the presence of host partition in the
+partition info.
 
-I'll be more cautious next time.
+It also contain fixes big-endian support in couple of functions:
+__ffa_partition_info_regs_get() and __ffa_partition_info_get().
+Big-endian support is still not complete. Only these changes can be
+verified at the moment without any additional application or testing
+support changes.
 
+Regarding the FF-A versions, it upgrades the driver version to v1.2
+and rejects any higher major version than the driver version as
+incompatible.
+
+It also fixes the mis-alignment with sync_send_receive{,2} function
+prototypes.
+
+It replaces UUID buffer to standard UUID format in the ffa_partition_info
+structure and fixes a typo in some FF-A bus macros.
+
+Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+---
+Changes in v2:
+- No changes in the patches sent as v1 itself.
+- Addition of framework notification support and other updates as listed
+  above
+- Link to v1: https://lore.kernel.org/r/20241224-ffa_updates-v1-0-01233aba3e1e@arm.com
+
+---
+Sudeep Holla (17):
+      firmware: arm_ffa: Replace SCMI by FF-A in the macro
+      firmware: arm_ffa: Replace UUID buffer to standard UUID format
+      firmware: arm_ffa: Align sync_send_receive{,2} function prototypes
+      firmware: arm_ffa: Fix big-endian support in __ffa_partition_info_get()
+      firmware: arm_ffa: Fix big-endian support in __ffa_partition_info_regs_get()
+      firmware: arm_ffa: Handle the presence of host partition in the partition info
+      firmware: arm_ffa: Unregister the FF-A devices when cleaning up the partitions
+      firmware: arm_ffa: Helper to check if a partition can receive REQUEST2 messages
+      firmware: arm_ffa: Add support for passing UUID in FFA_MSG_SEND2
+      firmware: arm_ffa: Upgrade FF-A version to v1.2 in the driver
+      firmware: arm_ffa: Reject higher major version as incompatible
+      firmware: arm_ffa: Remove unnecessary declaration of ffa_partitions_cleanup()
+      firmware: arm_ffa: Refactoring to prepare for framework notification support
+      firmware: arm_ffa: Stash ffa_device instead of notify_type in notifier_cb_info
+      firmware: arm_ffa: Add support for {un,}registration of framework notifications
+      firmware: arm_ffa: Add support for handling framework notifications
+      firmware: arm_ffa: Allow multiple UUIDs per partition to register SRI callback
+
+Viresh Kumar (1):
+      firmware: arm_ffa: Refactor addition of partition information into XArray
+
+ drivers/firmware/arm_ffa/bus.c    |  13 +-
+ drivers/firmware/arm_ffa/driver.c | 500 ++++++++++++++++++++++++++++----------
+ include/linux/arm_ffa.h           |  22 +-
+ 3 files changed, 397 insertions(+), 138 deletions(-)
+---
+base-commit: 6d61a53dd6f55405ebcaea6ee38d1ab5a8856c2c
+change-id: 20241224-ffa_updates-106fd3df93d5
+
+Best regards,
+-- 
 Regards,
-Louis-Alexis
+Sudeep
+
 
