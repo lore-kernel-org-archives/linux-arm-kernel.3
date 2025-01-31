@@ -4,56 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04836C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 14:12:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E5C7C0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 14:17:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TEJ45fNosp7BpOTPhXbzgXwToXVydxose2bLKPWbZBI=; b=2xMuFnK2eYJ/iAC/w1ibgvU9ph
-	wnUyr4AUss9nN+zGI1GTWmHFFn6j1ddbsaujkyeDLQWroe13NMfJEURU+m7PkFBvB7nkUBXp8bhMt
-	KZxw1YUmxp+TRghpw6cAkBPCtlRev1gbPAReewuLmbaH7pYmxBON50jAQHnVobWiu+hEJ0aQPrgIU
-	NI2pOgZIteagj75/+SN70YqHwDE3l50okUxMmUXpgkSNcFjsJEfd5OQZxtFIZBnAaveDsPGVi/Wj1
-	JsQhISTfIUNSJD7R7MbuiQ7sXXxtmkkppCE8LBmsO78UXecsQuPB/ZTCpDDuQ2TGsa8dluNxZk8vp
-	OdTQ2nRg==;
+	bh=6KGuy4EAuLHG4r0AND1uGQsHYqV6ULruAexpzmPJXj0=; b=aHeDwMO0vUe8f94f0EnjqIKteg
+	anG6eUuBazUF0jABwgSgYoxOAmduPE0TFhUg7CStx/KBkj1MrjQQc/h6YEwTt+JamvvPl6vTbt1Nd
+	3TGV5VGJu2u51xhJsWHX1HmaS3DSiKYtmQ59JCk3DW9aGbKAkMLF02wcK8Jc25LyaIqQYuZz6v1yB
+	L79TEXCxHqXQn6j2HS1YuldsrZpVdysb7O15k2WsNMMyjfgacqyUsdkNtAofk2i1/6wetFsjkZgde
+	QK3+i0qYHxOKQim9ehMQmnqmNt+nkFub65sJiQYH7WftrePKy/8kZ7WJY2o2BZEeYxcijJ1LNlBTc
+	agelz5dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdrkM-0000000AkYX-1Boe;
-	Fri, 31 Jan 2025 14:11:50 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdrj3-0000000AkPw-1qIK
+	id 1tdrpf-0000000AksW-19Ct;
+	Fri, 31 Jan 2025 14:17:19 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tdroL-0000000Akl3-1ap3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jan 2025 14:10:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BD346497;
-	Fri, 31 Jan 2025 06:10:53 -0800 (PST)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E411E3F63F;
-	Fri, 31 Jan 2025 06:10:26 -0800 (PST)
-Date: Fri, 31 Jan 2025 14:10:24 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, <arm-scmi@vger.kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>
-Subject: Re: [PATCH V1] firmware: arm_scmi: Optimize the iteration of
- scmi_requested_devices
-Message-ID: <Z5zZ0BnEVKL-vZGa@bogus>
-References: <20250107052004.762817-1-peng.fan@oss.nxp.com>
- <Z5t5l9MXsAzg5VIp@pluto>
+	Fri, 31 Jan 2025 14:15:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=6KGuy4EAuLHG4r0AND1uGQsHYqV6ULruAexpzmPJXj0=; b=cs/OOv4teDCakZI2PNJHMNZY5F
+	CSThPpDFV0qXz+D/8t74/eKu7sLH3JHb0lWt9GptCZKYkRblomsN3tBxQ2ezCc7QZ8ITuLvBv2ELB
+	Rl39HYkp2SOoBPdTfUr2haWDYhJDyPZfL0rzyIh88Kt3Jxl4qc24UOTI6XJ+lkFB5moQ=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tdrnz-009iDb-1e; Fri, 31 Jan 2025 15:15:35 +0100
+Date: Fri, 31 Jan 2025 15:15:35 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Steven Price <steven.price@arm.com>
+Cc: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Yanteng Si <si.yanteng@linux.dev>, Furong Xu <0x1207@gmail.com>,
+	Joao Pinto <Joao.Pinto@synopsys.com>, netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v4 3/3] net: stmmac: Specify hardware capability
+ value when FIFO size isn't specified
+Message-ID: <fc08926d-b9af-428f-8811-4bfe08acc5b7@lunn.ch>
+References: <20250127013820.2941044-1-hayashi.kunihiko@socionext.com>
+ <20250127013820.2941044-4-hayashi.kunihiko@socionext.com>
+ <07af1102-0fa7-45ad-bcbc-aef0295ceb63@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z5t5l9MXsAzg5VIp@pluto>
+In-Reply-To: <07af1102-0fa7-45ad-bcbc-aef0295ceb63@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_061029_526289_2D86C338 
-X-CRM114-Status: UNSURE (   8.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250131_061557_421399_2504D59C 
+X-CRM114-Status: GOOD (  23.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,20 +80,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 30, 2025 at 01:07:35PM +0000, Cristian Marussi wrote:
->
-> ... having said that, I cannot really recall WHY I decided to avoid ANY
-> kind of duplicate naming given that teh match happen by proto_id/name...
->
-> ....maybe just for clarity ? not sure...even what the effects could be
-> of having such duplicated names across protocols...
->
+On Fri, Jan 31, 2025 at 09:46:41AM +0000, Steven Price wrote:
+> On 27/01/2025 01:38, Kunihiko Hayashi wrote:
+> > When Tx/Rx FIFO size is not specified in advance, the driver checks if
+> > the value is zero and sets the hardware capability value in functions
+> > where that value is used.
+> > 
+> > Consolidate the check and settings into function stmmac_hw_init() and
+> > remove redundant other statements.
+> > 
+> > If FIFO size is zero and the hardware capability also doesn't have upper
+> > limit values, return with an error message.
+> 
+> This patch breaks my Firefly RK3288 board. It appears that all of the 
+> following are true:
+> 
+>  * priv->plat->rx_fifo_size == 0
+>  * priv->dma_cap.rx_fifo_size == 0
+>  * priv->plat->tx_fifo_size == 0
+>  * priv->dma_cap.tx_fifo_size == 0
+> 
+> Simply removing the "return -ENODEV" lines gets this platform working 
+> again (and AFAICT matches the behaviour before this patch was applied).
+> I'm not sure whether this points to another bug causing these to 
+> all be zero or if this is just an oversight. The below patch gets my 
+> board working:
 
-Looking at scmi_dev_match_id(), it should be fine even if the names are
-duplicated across protocols. We must just not allow duplicates within a
-protocol IMO. I will push a patch to handle it soon.
+Thanks for the quick report of the problem.
 
---
-Regards,
-Sudeep
+Your 'fix' basically just reverts the patch. Let first try to
+understand what is going on, and fix the patch. We can do a revert
+later if we cannot find a better solution.
+
+I'm guessing, but in your setup, i assume the value is never written
+to a register, hence 0 is O.K. e.g. dwmac1000_dma_operation_mode_rx(),
+the fifosz value is used to determine if flow control can be used, but
+is otherwise ignored.
+
+We should determine which versions of stmmac actually need values, and
+limit the test to those versions.
+
+	Andrew
 
