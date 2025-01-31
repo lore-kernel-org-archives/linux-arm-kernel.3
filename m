@@ -4,53 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13AC8C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 16:42:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 021AAC0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 16:43:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IfhrbFnrL3d3Cf7tDim2jlKBHjPB4qclCdoZjmmVcCA=; b=NZJhAAeO4hScQ7noCgqn4Jwji8
-	FodW2c3SedHEvlA0Wp3L8Ae6anGAOM6f0GW3nozbc88zTSZNAz0WbdNWaOeMwnRGIdUwuierQtZtH
-	HKEBetFbczqIvVAqzqhJXrZyfX+FdiQvWYSBgEZy5bebSO4VCmePZNaH11CNgPmx3qc6UtlmVAfE7
-	cQ2sFOogWHSeX1SH+UHNCIvF7bPp5QSqk7JdcFRjaVr/XVFwIMqTeH8mW5EwrCwAZmLtsS1tdbW5Q
-	7d/YRx4fiMg0AiCP1pNflIfl/fFZ0J42VWTuJ2VlbeCg6h8VEKJ4ZSs36+eMRiFmWDwWMULLDPCv/
-	C5bI0bJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jtFQ9J65cFd3o5+YuJiRQk+pzjY2xY2gR0s0VLRS55E=; b=G8+4dRXIi72wTZ03c4H9NR3L4z
+	MKnYuk94wjzMZlnXVSNzGm1Im8wku8NtENLYwFwpgBlZgwGuqk1M3PVQaAiGj0J68H4sqrtXHIrSp
+	PDVLYG11zBJDojbZgiwEkpUEYonaLy6xcB026LqtIgE9SsDP6G26XZM/ZaD7u5EA8w9WP4Ajkx0ns
+	UA8D/sx9gGf7nPZC2pyPc487yfjdUPhsc/NxG4Cr95NqdiVTeKkZqQ0h2eSAO7EewEQLk7cjZI7zh
+	5p6n8z+cyC3nCbf6jWk/Fx90Ctli9fdUW58QOLJFxbe7NUfuHIlv8GDFEl9Cfotj72qKgF1ScCShn
+	4US1ZUAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdu5x-0000000B1O6-1KBV;
-	Fri, 31 Jan 2025 16:42:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdtye-0000000Azml-47j9
+	id 1tdu7E-0000000B1dq-3smJ;
+	Fri, 31 Jan 2025 16:43:36 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tdu0h-0000000B0DS-2yvP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jan 2025 16:34:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 98281497;
-	Fri, 31 Jan 2025 08:35:09 -0800 (PST)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C6FC53F694;
-	Fri, 31 Jan 2025 08:34:42 -0800 (PST)
-Date: Fri, 31 Jan 2025 16:34:39 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Beata Michalska <beata.michalska@arm.com>
-Cc: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<ionela.voinescu@arm.com>, <will@kernel.org>,
-	<catalin.marinas@arm.com>, <sumitg@nvidia.com>,
-	<ptsm@linux.microsoft.com>
-Subject: Re: [PATCH] arm64: amu: Delay allocating cpumask for AMU FIE support
-Message-ID: <Z5z7nws-_7VEe_d-@bogus>
-References: <20250131155842.3839098-1-beata.michalska@arm.com>
+	Fri, 31 Jan 2025 16:36:52 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-385dece873cso1124486f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jan 2025 08:36:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1738341408; x=1738946208; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jtFQ9J65cFd3o5+YuJiRQk+pzjY2xY2gR0s0VLRS55E=;
+        b=eO6qYz1dq+1rAg6W/lnB4QlPRPEPhgmQvXG0UWuJZNlkD3LDnsU+b9KJFFeNREBFuU
+         9yE2W8y/pat0ye344VF4pxE8meCpRGMek7bpX8QuUzZ1SxeVEQntLtxokjOpHRCwVsV+
+         aSvmhRQYcNDH/V4LyKnzkxw0EyDCqPgHb0ZZDuiEwTavVje3bkcTxkKg6/JsSztBrYHf
+         iEaHJwdKW5tUfUesKEVmUDh0Pm2xS82cMg3SrOYZA1BVapxktMQZTAqVPb7VZWdU6MQ5
+         rCSGAT+mrgB5vCwmFrFmihi9LtzFE3hV6KIyTqvU1Q9PLYB5KdtMI8g0sjmQAzHUMMn5
+         oufw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738341408; x=1738946208;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=jtFQ9J65cFd3o5+YuJiRQk+pzjY2xY2gR0s0VLRS55E=;
+        b=u+mBBFqLTMMs5dSBqS4pC4v1OAfmfX3OKHHz/ZL6HgGFo2bDE7NcDcr3SYJxC7xUrL
+         VL7OXCFfUjL2PMKpRDGu5Ia8456ewanxk8XjOqkxrutpBwCWsKXMP3Qlu2Pdm64tJAC6
+         Q0YS2zSTqz+Va+y3/hnt1WK5JBFYRzCe3Hqrg3cy7zVUuOs4/2YAGf8f4LYaEuNytCly
+         SJpg1Dq4lY1Y8gY7E13TJCNSCSP/tuDS+Kvi8JI1+M3a8KTFLQtSaGgncjbKuQk7baFg
+         99BXrRtlS8Vi2MI4GlGgXBVuEHyKJ185G8tvLd8E0Thr2R+/3geXTaPd10xnZfnDoMaS
+         S/pg==
+X-Forwarded-Encrypted: i=1; AJvYcCVm/SY8uvJ94zepb818C9H2NKAEya2PjMsKyFNap0+7Z9fVQ5L7XpxhApkz6srLii3FkkMQWUb6tR2GB6LbSp2B@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz8G+l29sWqozuyZiKup9BuN5/rJxG/cn8Qt3Do115p8n3IouMg
+	jf98Ys4TL9cPwCu2EWnHwBk0/3nBKgjgLht0iv+iTFcjAFFy36Q7cbttrqACHNQ=
+X-Gm-Gg: ASbGncslSPAD+OfZKXNX7l0xidDieO5A3mHNGZU/WAlmsm0hi4eCvyS9e+0UA8RpJnZ
+	7z2sXJ0nrzo3fYOZDb7Q+q2XZ91SpXi4+T4WLCDjxZhamHJct/XiaRlsJ9ODmBHbzuhqIHEjlmJ
+	u1CxyVW2UpSeB/R2LQtumb2ugh/7mtSH7StwCBarWZU3uwzoE/ITt27apncwR5eXkKQXuIMIkwX
+	5BUX0ZoQtoCKQp38G/2QVvsgctzsJg5cbb2src5VSeIBWc4vcS0ERT2cFgvWFjKSqH9FoT7NzHe
+	+2UM1JZHCSYbt7I=
+X-Google-Smtp-Source: AGHT+IF5Phsc9N8X46dajNfJWnr4UVEjpzVbx4Mq2WI4DCkq1bHDvZhiQxOuFhDTImar5RTr5xSPFA==
+X-Received: by 2002:a05:6000:4008:b0:386:459e:655d with SMTP id ffacd0b85a97d-38c51952173mr9891268f8f.20.1738341407991;
+        Fri, 31 Jan 2025 08:36:47 -0800 (PST)
+Received: from pop-os.. ([145.224.90.107])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38c5c1e8f53sm4975118f8f.100.2025.01.31.08.36.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 31 Jan 2025 08:36:39 -0800 (PST)
+From: James Clark <james.clark@linaro.org>
+To: quic_jiegan@quicinc.com
+Cc: quic_tingweiz@quicinc.com,
+	quic_jinlmao@quicinc.com,
+	coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	suzuki.poulose@arm.com,
+	mike.leach@linaro.org,
+	alexander.shishkin@linux.intel.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	andersson@kernel.org,
+	konradybcio@kernel.org,
+	James Clark <james.clark@linaro.org>
+Subject: [PATCH 0/3] coresight: Alloc trace ID after building the path
+Date: Fri, 31 Jan 2025 16:36:12 +0000
+Message-Id: <20250131163617.1730505-1-james.clark@linaro.org>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <d5332d6d-237f-4b78-9eaf-2619bd97b7bd@quicinc.com>
+References: <d5332d6d-237f-4b78-9eaf-2619bd97b7bd@quicinc.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250131155842.3839098-1-beata.michalska@arm.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_083445_060679_22C79612 
-X-CRM114-Status: UNSURE (   9.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250131_083651_755608_4E6EE1B8 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,22 +114,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 31, 2025 at 03:58:42PM +0000, Beata Michalska wrote:
-> For the time being, the amu_fie_cpus cpumask is being exclusively used
-> by the AMU-related internals of FIE support and is guaranteed to be
-> valid on every access currently made. Still the mask is not being
-> invalidated on one of the error handling code paths, which leaves
-> a soft spot with theoretical risk of UAF for CPUMASK_OFFSTACK cases.
-> To make things sound, delay allocating said cpumask
-> (for CPUMASK_OFFSTACK) avoiding otherwise nasty sanitising case failing
-> to register the cpufreq policy notifications.
->
+Proof of concept to support CTCU device. Applies to Jie's patchset in
+the parent email. I think this would be a good simplification, it
+removes some code and makes things a bit clearer, and works for both the
+old and new CTCU requirements. It will require merging into the parent
+patchset somehow as it undoes some of those changes.
 
-I thought I had provided my tag, sorry for that. FWIW,
+James Clark (3):
+  coresight: Don't save handle in path
+  coresight: Export coresight_get_sink()
+  coresight: Alloc trace ID after building the path
 
-Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+ drivers/hwtracing/coresight/coresight-core.c  | 107 +++++++++++++-----
+ drivers/hwtracing/coresight/coresight-dummy.c |   9 +-
+ drivers/hwtracing/coresight/coresight-etb10.c |   8 +-
+ .../hwtracing/coresight/coresight-etm-perf.c  |  20 ++--
+ drivers/hwtracing/coresight/coresight-etm.h   |   1 -
+ .../coresight/coresight-etm3x-core.c          |  84 ++------------
+ .../coresight/coresight-etm3x-sysfs.c         |   3 +-
+ .../coresight/coresight-etm4x-core.c          |  83 ++------------
+ .../coresight/coresight-etm4x-sysfs.c         |   4 +-
+ drivers/hwtracing/coresight/coresight-etm4x.h |   1 -
+ drivers/hwtracing/coresight/coresight-priv.h  |  17 +--
+ drivers/hwtracing/coresight/coresight-stm.c   |   5 +-
+ drivers/hwtracing/coresight/coresight-sysfs.c |   6 +-
+ .../hwtracing/coresight/coresight-tmc-etf.c   |   9 +-
+ .../hwtracing/coresight/coresight-tmc-etr.c   |  13 +--
+ drivers/hwtracing/coresight/coresight-tmc.h   |   2 +-
+ drivers/hwtracing/coresight/coresight-tpda.c  |   3 +-
+ drivers/hwtracing/coresight/coresight-tpdm.c  |   3 +-
+ drivers/hwtracing/coresight/coresight-tpiu.c  |   2 +-
+ drivers/hwtracing/coresight/coresight-trbe.c  |   4 +-
+ drivers/hwtracing/coresight/ultrasoc-smb.c    |   8 +-
+ include/linux/coresight.h                     |  25 +++-
+ 22 files changed, 159 insertions(+), 258 deletions(-)
 
 -- 
-Regards,
-Sudeep
+2.34.1
+
 
