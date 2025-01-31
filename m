@@ -4,183 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 135C7C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 21:54:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5DB2C0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 21:55:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mUUrHKl8sp8ZAl0/FnUc0w5Ky5lXM4d9Tcv/Ccl7OEs=; b=xr81PpcSJz+xprZo2PpNoiuv8Y
-	DTaNJuRVEs+xLDMPdRImtnnxXayw3wT3Ove8JoF1C83UQLdpwkLriBXKpd+eg+bDFBRyFYuK/yT1b
-	eI2ev13hygUUUFqpyMxlDkcnd+rm29FnFmfQk3XbEaztAu7HXmElJLvoeb0kke5DSNZxbOzpX+cKZ
-	ijrp7X0gb7uYDpjGe55dfk7wf0nGOZ4OWyu6PfznfuFeJchJgoARrx4Wug0FF06O/8D7TW3O9TofF
-	jRrgh5JX5V3yr5/GFgg1u2yq3BZ9QsZdhkloHPcDWzePejTALq0BzNcdI22c+H9m+bNKnFM84uU6j
-	ZQA3+6hw==;
+	bh=svnpZ6ttIQAVoQNC7XEDX8HFGwXlExeR9W0DIGggWd0=; b=hiBbxDrFdA6JmQtoejx9km9xju
+	IzpQJKuxCGbGwyG1/G3a37359FxJbI5VJ+OZzgJ1sO9X1p8mhl2i4qx9NxSjVaLLM2w4XyWs7c/5B
+	i5weUtyAQivPliAizzDLaxwdYeC8mzvXrkE67d8NRRpHFwBqWRJ7Cv8IUOs75ZikoR01wTK40EwEh
+	0bQnFv9hXGxW1233HZKmZLHZSYd4mRCsmt71jPhVreeAEB+1KkwIgdxql87LeWNga5N7kK863VzJS
+	caJ82/6pLJgwDokkzB7LVxDjPeQLAoXef6Q6O3h2nd6RYpM01NnFvnjLvc6geRVDoZ5kVibuTyfY/
+	yOgAvbSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdyxf-0000000BVeO-0cEM;
-	Fri, 31 Jan 2025 21:54:03 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1tdyyw-0000000BVld-0gWV;
+	Fri, 31 Jan 2025 21:55:22 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdyfc-0000000BTBc-2ytr;
-	Fri, 31 Jan 2025 21:35:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fI6ojtDTtf0CZ5fGhaiuy8F4PJvgqfW+KumVIWkcP2mF4rPrC01qG941bv/IJeHDdCgXAx9e6MXatIRp39nTdOqxcIle+ETp9iBKMG37LHkRWfC9HLQK1DVPMuK6Cv48kLuQn+k2VSH4t/Q5Snk49agfZc9OrjVYZ0km4um/kVa/z23qybHEBsySIfduRdGHAtp/tNb2lVEBFpBdNvUYi3EQRHk7O8i493OY8zerPJlIoiwc1u73R+lH467EHBzp5Gda+p8dghudLMt2lvu4lBrsJa5QM6q5U/ZGVPdFRZUhyV4LKv7Gj2EhUmwk+81+0tH0xnoAjrzzghHC++vHMw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mUUrHKl8sp8ZAl0/FnUc0w5Ky5lXM4d9Tcv/Ccl7OEs=;
- b=LKa9QHNABe5YVod2Adi5xKiEZZ+XZsugzwVNBBUfxZH3d+e5sC7m6ROc1LtiBfHai1KL9KxHXZTjA7DMWwrM8jTj+v53XM7/7urJIkBig+KcOCI3ZxPxJ4WIS76ve7eAbmDdAw01WN9ASy2ybTDNfD/OGLeCmxAvQDbWM1i+WBb7u9sNvJ9FSa13tjJpOMh8alKu7S5a4RkQPe1n2fnYpC1mRIBtNQyoYKJ0kVqC8gbNgQuMd5JFB0BlpWDkkCy1NPwqhqtSIfyn5WTx0zdRkulr87qTjuHe5pRQgNIB8+tna+IJnizhSOSWdGYY3HZWNpjbZSXS2zx/XFEeX0hWnA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mUUrHKl8sp8ZAl0/FnUc0w5Ky5lXM4d9Tcv/Ccl7OEs=;
- b=XhEhXQzT7yhxnN9s1wdVU764uGsX98Bvme3nGtlHciqe5y5fxKplmCRnuG7jy2a0xoW7n34RcehRvSrOvyTiF2za3SycWPkTF/9dft1Nf80tKeTGFfmHPbeCwdTo5tsEIquyUjD8j+1ZAyxv3ZqT1qBwl9eK3bdq/YmAafKh48RbnxpZ4npIoDzehXxWfPsOgw8Rnod9zYeUk4um1/ww6Guq2pbw4M37a515NvI1UqlA0fXGxx93auNG393Lm0ZnCv4M32LjTcro/Qu0aCAwc7Vcm8FwO4TLY6Td1ojCJONuA2IOfIHWtBK1pJ1Sjq2e4YBa2T99KKnr/odzNGIPeg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by VI2PR04MB10980.eurprd04.prod.outlook.com (2603:10a6:800:274::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8377.22; Fri, 31 Jan
- 2025 21:35:22 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.8398.018; Fri, 31 Jan 2025
- 21:35:22 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Fri, 31 Jan 2025 16:33:59 -0500
-Subject: [PATCH 14/14] arm64: dts: imx8q: add camera ov5640 support for
- imx8qm-mek and imx8qxp-mek
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250131-8qxp_camera-v1-14-319402ab606a@nxp.com>
-References: <20250131-8qxp_camera-v1-0-319402ab606a@nxp.com>
-In-Reply-To: <20250131-8qxp_camera-v1-0-319402ab606a@nxp.com>
-To: Vinod Koul <vkoul@kernel.org>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Rui Miguel Silva <rmfrfs@gmail.com>, Martin Kepplinger <martink@posteo.de>, 
- Purism Kernel Team <kernel@puri.sm>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
- "Guoniu.zhou" <guoniu.zhou@nxp.com>, Robby Cai <robby.cai@nxp.com>, 
- Robert Chiras <robert.chiras@nxp.com>, Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.13-dev-e586c
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1738359234; l=12246;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=SjQCJQbPkFlQy1iPkQF4C3oVRZE7u2ps1eW2b/eoKfU=;
- b=Gm9mlV/4zUY59RFj4AcVudzGXx8aoNkZeR/DGomkLYg619CWXqt2+4tigVaXh5+R12ed7ZV1q
- gW/md7nIO9KDIz+eS+pn6bK6FyQUxbv6wkzT10kXZ43m70VbenaLTP9
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: BY5PR04CA0007.namprd04.prod.outlook.com
- (2603:10b6:a03:1d0::17) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	id 1tdyq8-0000000BUa3-1SES
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 31 Jan 2025 21:46:17 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 50VLkCOr2548688
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 31 Jan 2025 15:46:12 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1738359972;
+	bh=svnpZ6ttIQAVoQNC7XEDX8HFGwXlExeR9W0DIGggWd0=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=Ar5xkEuJgHydDBClDNU/rdpL5fNqVjcz1LnQH+2s/H4hf1C95tv4W8iGmSGtgTNeB
+	 mpi5M+qsuCVJqV737A3uVcW1OiPjXJ/1gu91z5j51lCuyOKSB4/hMfEg/xexunYNds
+	 IwvK6QiIXMuUwalib+Am5VGEOzC3HWOx9ZqdFSOw=
+Received: from DFLE113.ent.ti.com (dfle113.ent.ti.com [10.64.6.34])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 50VLkC7r017511
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 31 Jan 2025 15:46:12 -0600
+Received: from DFLE114.ent.ti.com (10.64.6.35) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 31
+ Jan 2025 15:46:11 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 31 Jan 2025 15:46:11 -0600
+Received: from judy-hp.dhcp.ti.com (judy-hp.dhcp.ti.com [128.247.81.105])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 50VLkBD1082734;
+	Fri, 31 Jan 2025 15:46:11 -0600
+From: Judith Mendez <jm@ti.com>
+To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Andrew Davis
+	<afd@ti.com>,
+        Hari Nagalla <hnagalla@ti.com>, Judith Mendez <jm@ti.com>
+Subject: [PATCH v2 4/9] arm64: dts: ti: k3-am62a-main: Add C7xv device node
+Date: Fri, 31 Jan 2025 15:46:06 -0600
+Message-ID: <20250131214611.3288742-5-jm@ti.com>
+X-Mailer: git-send-email 2.48.0
+In-Reply-To: <20250131214611.3288742-1-jm@ti.com>
+References: <20250131214611.3288742-1-jm@ti.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|VI2PR04MB10980:EE_
-X-MS-Office365-Filtering-Correlation-Id: 11db3385-a868-4c06-2f43-08dd423f2a78
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|366016|1800799024|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?V0hKeE9TMDhsbjY2VkhZaUxVR0xMMmhDalFzWS94ZmRWS3NxY1MvaENNbjA3?=
- =?utf-8?B?Y1g0bkxJUVNNTlBCc0dNdi9xNlhxckROQzNqYzJONzU4eUdHUWQ0N3c0Wm5m?=
- =?utf-8?B?TGxSanFycFd5TnVaODA3TmxXYmRYbUJINjR6dDFrSUhwYWIxRXRBQmdZYkJz?=
- =?utf-8?B?ZWFVcmtuQmN1ZHQyeGZReFlodWNzUGhNd0ZTRkVTTzRQeDFNcDhlK0NsdFl5?=
- =?utf-8?B?ek1FWGFmYmFaKytjUGNKTTRQUWJqenJVTWN6blV0ZmxWN1FqVmx2N3ZBNDU4?=
- =?utf-8?B?NmdGNFhLeTRPalZZZUZIREQ1YldKekxlNkFaSFBjdVd5QStZeHNTUDFSc0RO?=
- =?utf-8?B?NzJMVEhodzkzWUZXaDdwbkhwTjd5L0dQNE9VS0cvdFdWSGR3eDg1bldHcitY?=
- =?utf-8?B?NVJDa0I4eS9raWJ6S0ZQdXF6dGhrZTdMQ01jUUdzcVkzSTFYeGo2TkdXdXhn?=
- =?utf-8?B?ZFZMR1JhY3B2VDRvN2lYUkZkRjlERllLWWxpdjZ0bkVNNElQU0xrMExQVWht?=
- =?utf-8?B?bVc5MFZpZ21aK25vWXpuRDlIZkdsUE96UFpNbXFnWWM0azVtZmhKOXJjNWlu?=
- =?utf-8?B?L1FHYWZtZUZia1BHL3pCVW54cXRLOXBaUU1nZ2JzR25nanNNNGM0UkVWVmNw?=
- =?utf-8?B?OG1GRGMwRkhMOGlXdFBNeHFHMUJPdUpYTUVjRDFWdXpZRkdzMGgvSW9VN3ht?=
- =?utf-8?B?Q2JQSEhZbHVzQ2g1U011ZXJ6SDhXeXBUcnVyZTdYTmRuMk5ROWRYdDIwNDFB?=
- =?utf-8?B?NWlvU01odytHZUN0RlpVcnZzSmhBdlFBUDVVZTJ1dkNmaUx0cmpKeTY5akxr?=
- =?utf-8?B?Q0RaSXRzOXBMT1Q2ZURJSHZtaUxmc0NvSkM3SUdKTmEyMkRacElOY3BTZjZM?=
- =?utf-8?B?MU54Q2hVMUk3Vm1CWHhZS2lWbXRYa0gzK1RaN2VXV25FRlVZWHVqT0NLblpT?=
- =?utf-8?B?bStDeE5ndkhwblRpOUJTQmVrUkZERCtXL3laL2I3Si82UU9pS2VSY3Noc29p?=
- =?utf-8?B?ZXZ6aVAzelpYdDllakt5am5FMndmc1lUSzkxMTZramhOdTVsSEp0UzdlKzVQ?=
- =?utf-8?B?ZW1WNG96UmVBNFBnTXFJYTBYYitLTTUwZ2NXUkdGWGZGYllidGFNQWkzc285?=
- =?utf-8?B?Z3I5QmZTWHVNZVdxVGluNUhKMFhUM1RMRFNmMVpPNDFEUjYvNllhRmRUTmha?=
- =?utf-8?B?VmtCRmJBeTVoT0JaM1lPZmw3M3N0TFlkU2FSa1NQLzN6SkdYSGJBWU5mN0FO?=
- =?utf-8?B?Q3ZzMFBISWZHb3dDdkdrYXlCZkZLaDV6R3hzZ2VhTnVXRVpaL3ZMOUlyWmIr?=
- =?utf-8?B?U1NXUXVlUlJWRmR2UmFOa3gvZEVOeHlTR3VFVWk2YWdJM0NUNi80bUltSnNU?=
- =?utf-8?B?b0d6SitOTXNxQ0RLSnFMQUxKZHlCYnhXUkdhcWwzTHh6NTBQbnJpM0xUTTRR?=
- =?utf-8?B?S1FIVlM3WHpWaWdLUDAwU2wrbDN0TlNKUGIvVzR5QlVoMWR1TkZrK3BNQWdm?=
- =?utf-8?B?ZG1DY3FkTkRhZmN2R2o0Zk9YLzRCUGlSb3R5SllkZnlHbnpPeXljekNnMUYr?=
- =?utf-8?B?SEVwNWRZN28zMUpmSzdCV2d5cEZiZDRKSWVSSnQ1MkJ1d1pyeVNYMUNCZy81?=
- =?utf-8?B?dmhJU2hiTGJpTko1KzdmVzY2azBrNEdxRjQ2bU5tVWFOZVgxVEVBV3A4ZEp2?=
- =?utf-8?B?TzZJTGsvdVkzNjZCZ3k4SGV2L0U0NWtybVhOby9Dbk5FbXo3dC96N1F1VGFD?=
- =?utf-8?B?Sm9kcmN5d3AvR3kzdlBKL3pYVmt5WUhCVlJ5OHZsNVowR3htZG9icWtjQlBn?=
- =?utf-8?B?TUR6OTJSWXhwSnQ5c2tIbmtuNzhRdHdOTmcvZG53dTNtNWhHMUlPQXdzeTMv?=
- =?utf-8?B?YVJnRExFMmZlM01MR29zZk04dkt5bTlkTHpFdUd0cDEzbVV0SmVicHppbWx1?=
- =?utf-8?B?eTQ0OGNTWFNESFg0c3lockNpaGdBSzVEeEJCQTdyZi94N3RwUnhad3l2c0tU?=
- =?utf-8?B?L2wzcHJHUXFRPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(366016)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TGNQM3B3cEREVUhNTTByVUlIbkFVL2Y3ZEdzTE5HK1JXWmpiQ3l0MTFvblc4?=
- =?utf-8?B?S1U3Z0dkNG5TQVdiMFE4Ri9iNVJORVp6NHJDNldZcmJDK2U0ZFhNd2JUcHp2?=
- =?utf-8?B?U0I4WDRWalQ1TVVSTDVCb3ZmQkhiMzFTSndhaC9MUEUxU25QNTFjamo5NDZI?=
- =?utf-8?B?UTJ6QWtrYURjRjdhaHZ6M2V3clVhTDY1THMwMUpxSE0wQXBXQWNWK3lROEhn?=
- =?utf-8?B?eDFaUUJGcUdaNGhvWTFoZ3l0S0tONW5CZHRWc1V6RU5zU0VmUVJRVTM4VHRF?=
- =?utf-8?B?ak1MdWxMbDdta0s0dWRNQitkbHYvTXphdDVDWHJIRnQ1QjRPR3d3WXB6Qzcx?=
- =?utf-8?B?ZWRBRlFwQWxMUmVnL252R3hmL2ZPMUJGWW1HUHRwTGRYMXNHUkQvVE0zSXh3?=
- =?utf-8?B?dGtaeFRmM3dnMG1zSlJ6SzRibEpVT1NxRnNOUnlqWE1ZeGxFZnRnTmd2NXJE?=
- =?utf-8?B?dkY0OWg1OEtEREhDZ3JMbkdzNXNZTmxlVmFXVkJnTGUxRVNwMTVucVMxRm5E?=
- =?utf-8?B?RjVXeTBIRWQ4ZzZOTWx1cENiSnR1RXhpY1UrdFljU3NvdlpJWU94dDh6RUVp?=
- =?utf-8?B?VDFwY01ScFhTNHh3TmV4TFF0NVVKOXR1b2k2SXNhUjg1UUdzUSsrc29laURX?=
- =?utf-8?B?WjRrTnlMQ3hVb3IwOENmMk0weTR4Z3Y0TlA0YkYvSjBUVDFHTHpnSkJPdjBv?=
- =?utf-8?B?bGhWcmtTbkE3bTFjVnV2Y3hzbG9lR1pVbGFndUEvMkQxcnJ5U2ZwMkxDTDhk?=
- =?utf-8?B?Nm9ZSmdWeE14bjNKaHJ3eWRlVGx4d3ZlcFZ2UDdsWlBTMTAyS2hSenR6NHB6?=
- =?utf-8?B?SDIvMzkySWttUVdxOWpkSERrUTk0emcvNEZJUURUdGhkbUJ3R01wSWVnSGNG?=
- =?utf-8?B?REFaM3I5ZVdSQk5QV3JnQ0JFT0VqODRVdTRwSUJVbjNuUDE4NzdjNGFIempX?=
- =?utf-8?B?UC9QL3I2Ny9vM2dNcENnRUlpMERMVHZBNWJBOU9HcEkxUmU1TEdrTU5zemJD?=
- =?utf-8?B?TmkyT3pBdFFMUS9za3NCZGdESzlvVitVZ3JJRGZvM3VJemZEUjdxOUFUU0hu?=
- =?utf-8?B?QmM2TmVmQmZmOUdEZmI2YUtXckZrL3RUd3dmcE9YbDYrL2psdEMwSGx0Zktz?=
- =?utf-8?B?dWJkQ2xCcEMwSmdvenlEelBFZVJoMVV5aDVFR25tQ3k3d0ltTnRhQnl1ZVlB?=
- =?utf-8?B?ZitsVUdUL04xYWN0ZjlUVmxIam1KS2NremFwWThyV0ZHWVVZbk84T0VFMWE2?=
- =?utf-8?B?U3BKMHRUa01LKzI2L3dqeUEvSitCS1p0QTRQRTQ3clIzTmg3MkJZL3VwUkda?=
- =?utf-8?B?aTRtOFZ5T2hPNWxqNGhUNVAzdFhwb3N0d1Y4b0N5NXk4ai9CaTdDYk1PRFJq?=
- =?utf-8?B?SkNVenRtS04wV1lDNDQ5K0VWTGFMdDJMY0hqMUI2U2RvYmhldDNXQnRURlEw?=
- =?utf-8?B?ZnJtM1NvVklMQ1BpYit5YU56dFVPaS9zVk1uaDJzS09ZVlNCKzdUc2ViUEUx?=
- =?utf-8?B?VWltMTh6N0lxY0EwYXdJMnZ1NGlwZ0dEckpQVU1nSEdDTmxrS3NwdlE3ZVF1?=
- =?utf-8?B?WGNpalFwbVpFdnhDN2VGYloyekF2UTZ0T2NQaDBhdEt6SnI4UHVwMytpSGI3?=
- =?utf-8?B?TlU0MTlMcjJ3NlBhd1l5SHgyM2VkSThpR2VpYy9RV3lNN3NMWHh5VmdSYUJP?=
- =?utf-8?B?aDdFcTlaWWJkYWNqSmoxNXJEM0pZNWZhQUx4c1BYcUlabnpWWEFOa0g1NDQ2?=
- =?utf-8?B?bTJtSWt5NGE0RnI5RFV3MlhEcDhPN2NSTGRVYWFJajE2ZUVSTXdyUjJlanJp?=
- =?utf-8?B?dnl0VHEyRlVqWDIrVmlnbUtqSnpZYm5zK2NQdlk5UW9jWTJ6bDFFaTdHZVV1?=
- =?utf-8?B?b2FFR01uVXUvUjY2RmFmdlAxOERoYmhmOStsWVN0OS9OTUFrRjFpZU1Gd3Mv?=
- =?utf-8?B?RnJsbU5IbEhMcjFzQnRkN0w2K0M5Y01US3ZmRW56VHpUNmczUk9NWVAwcnUr?=
- =?utf-8?B?VHZHYSthYTc5UkpEY0hiQXNCbmtnN1RKMGRhUFdYQmNJOG1JaVpPY3JTYXg5?=
- =?utf-8?B?YUp3VGFCQ2h6cWd4elBwanI1OTE4ODdRb3RYRnFYUTFma1piaFpnZkc5dXQy?=
- =?utf-8?Q?pVLs=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 11db3385-a868-4c06-2f43-08dd423f2a78
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Jan 2025 21:35:22.0312
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ax2m2wcSiJz6OWnTXhcR9qy6rgLdXJaC7/zZ8hYcxQFnutYI7axpbUx6KIpBa7DG2WARtvNNEALyIWDBihEmRg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10980
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_133524_929360_838BA9BB 
-X-CRM114-Status: GOOD (  13.13  )
+X-CRM114-CacheID: sfid-20250131_134616_532589_1B7053CF 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -195,484 +88,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add ov5640 overlay file for imx8qm-mek and imx8qxp-mek board. Camera can
-connect different CSI port. So use dts overlay file to handle these
-difference connect options.
+From: Jai Luthra <j-luthra@ti.com>
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
+AM62A SoCs have a C7xv DSP subsystem with Analytics engine capability.
+This subsystem is intended for deep learning purposes. Define the
+device node for C7xv DSP.
+
+Signed-off-by: Jai Luthra <j-luthra@ti.com>
+Signed-off-by: Hari Nagalla <hnagalla@ti.com>
+Signed-off-by: Judith Mendez <jm@ti.com>
 ---
- arch/arm64/boot/dts/freescale/Makefile             | 12 +++
- .../boot/dts/freescale/imx8qm-mek-ov5640-csi0.dtso | 93 ++++++++++++++++++++++
- .../boot/dts/freescale/imx8qm-mek-ov5640-csi1.dtso | 93 ++++++++++++++++++++++
- arch/arm64/boot/dts/freescale/imx8qm-mek.dts       | 51 ++++++++++++
- .../boot/dts/freescale/imx8qxp-mek-ov5640-csi.dtso | 92 +++++++++++++++++++++
- arch/arm64/boot/dts/freescale/imx8qxp-mek.dts      | 36 +++++++++
- 6 files changed, 377 insertions(+)
+Changes since v1:
+- disable each device node in the voltage domain files and
+  enable at the board level file
+- fix firmware names
+---
+ arch/arm64/boot/dts/ti/k3-am62a-main.dtsi | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 839432153cc7a..d1cbc08eb3f4d 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -261,12 +261,24 @@ dtb-$(CONFIG_ARCH_MXC) += imx8qm-apalis-v1.1-eval-v1.2.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8qm-apalis-v1.1-ixora-v1.1.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8qm-apalis-v1.1-ixora-v1.2.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8qm-mek.dtb
-+
-+imx8qm-mek-ov5640-csi0-dtbs := imx8qm-mek.dtb imx8qm-mek-ov5640-csi0.dtbo
-+dtb-${CONFIG_ARCH_MXC} += imx8qm-mek-ov5640-csi0.dtb
-+imx8qm-mek-ov5640-csi1-dtbs := imx8qm-mek.dtb imx8qm-mek-ov5640-csi1.dtbo
-+dtb-${CONFIG_ARCH_MXC} += imx8qm-mek-ov5640-csi1.dtb
-+imx8qm-mek-ov5640-dual-dtbs := imx8qm-mek.dtb imx8qm-mek-ov5640-csi0.dtbo imx8qm-mek-ov5640-csi1.dtbo
-+dtb-${CONFIG_ARCH_MXC} += imx8qm-mek-ov5640-dual.dtb
-+
- dtb-$(CONFIG_ARCH_MXC) += imx8qxp-ai_ml.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8qxp-colibri-aster.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8qxp-colibri-eval-v3.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8qxp-colibri-iris.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8qxp-colibri-iris-v2.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8qxp-mek.dtb
-+
-+imx8qxp-mek-ov5640-csi-dtbs := imx8qxp-mek.dtb imx8qxp-mek-ov5640-csi.dtbo
-+dtb-${CONFIG_ARCH_MXC} += imx8qxp-mek-ov5640-csi.dtb
-+
- dtb-$(CONFIG_ARCH_MXC) += imx8qxp-tqma8xqp-mba8xx.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8ulp-evk.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-9x9-qsb.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx8qm-mek-ov5640-csi0.dtso b/arch/arm64/boot/dts/freescale/imx8qm-mek-ov5640-csi0.dtso
-new file mode 100644
-index 0000000000000..c2bc5b839e3f7
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8qm-mek-ov5640-csi0.dtso
-@@ -0,0 +1,93 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2025 NXP
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/media/video-interfaces.h>
-+
-+&i2c_mipi_csi0 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	clock-frequency = <100000>;
-+	pinctrl-0 = <&pinctrl_i2c_mipi_csi0>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+
-+	ov5640_mipi_0: camera@3c {
-+		compatible = "ovti,ov5640";
-+		reg = <0x3c>;
-+		clocks = <&xtal24m>;
-+		clock-names = "xclk";
-+		pinctrl-0 = <&pinctrl_mipi_csi0>;
-+		pinctrl-names = "default";
-+		powerdown-gpios = <&lsio_gpio1 28 GPIO_ACTIVE_HIGH>;
-+		reset-gpios = <&lsio_gpio1 27 GPIO_ACTIVE_LOW>;
-+		AVDD-supply = <&reg_2v8>;
-+		DVDD-supply = <&reg_1v5>;
-+		DOVDD-supply = <&reg_1v8>;
-+		status = "okay";
-+
-+		port {
-+			ov5640_mipi_0_ep: endpoint {
-+				bus-type = <MEDIA_BUS_TYPE_CSI2_DPHY>;
-+				data-lanes = <1 2>;
-+				remote-endpoint = <&mipi_csi0_in>;
-+			};
-+		};
-+	};
-+};
-+
-+&irqsteer_csi0 {
-+	status = "okay";
-+};
-+
-+&isi {
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@2 {
-+			reg = <2>;
-+
-+			isi_in_2: endpoint {
-+				remote-endpoint = <&mipi_csi0_out>;
-+			};
-+		};
-+	};
-+};
-+
-+&mipi_csi_0 {
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@0 {
-+			reg = <0>;
-+
-+			mipi_csi0_in: endpoint {
-+				data-lanes = <1 2>;
-+				remote-endpoint = <&ov5640_mipi_0_ep>;
-+			};
-+		};
-+
-+		port@1 {
-+			reg = <1>;
-+
-+			mipi_csi0_out: endpoint {
-+				remote-endpoint = <&isi_in_2>;
-+			};
-+		};
-+	};
-+};
-+
-+&mipi_csi_0_phy {
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8qm-mek-ov5640-csi1.dtso b/arch/arm64/boot/dts/freescale/imx8qm-mek-ov5640-csi1.dtso
-new file mode 100644
-index 0000000000000..78cc0575fb005
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8qm-mek-ov5640-csi1.dtso
-@@ -0,0 +1,93 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2025 NXP
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/media/video-interfaces.h>
-+
-+&i2c_mipi_csi1 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	clock-frequency = <100000>;
-+	pinctrl-0 = <&pinctrl_i2c_mipi_csi1>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+
-+	ov5640_mipi_1: camera@3c {
-+		compatible = "ovti,ov5640";
-+		reg = <0x3c>;
-+		clocks = <&xtal24m>;
-+		clock-names = "xclk";
-+		pinctrl-0 = <&pinctrl_mipi_csi1>;
-+		pinctrl-names = "default";
-+		powerdown-gpios = <&lsio_gpio1 31 GPIO_ACTIVE_HIGH>;
-+		reset-gpios = <&lsio_gpio1 30 GPIO_ACTIVE_LOW>;
-+		AVDD-supply = <&reg_2v8>;
-+		DVDD-supply = <&reg_1v5>;
-+		DOVDD-supply = <&reg_1v8>;
-+		status = "okay";
-+
-+		port {
-+			ov5640_mipi_1_ep: endpoint {
-+				bus-type = <MEDIA_BUS_TYPE_CSI2_DPHY>;
-+				data-lanes = <1 2>;
-+				remote-endpoint = <&mipi_csi1_in>;
-+			};
-+		};
-+	};
-+};
-+
-+&irqsteer_csi1 {
-+	status = "okay";
-+};
-+
-+&isi {
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@3 {
-+			reg = <3>;
-+
-+			isi_in_3: endpoint {
-+				remote-endpoint = <&mipi_csi1_out>;
-+			};
-+		};
-+	};
-+};
-+
-+&mipi_csi_1 {
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@0 {
-+			reg = <0>;
-+
-+			mipi_csi1_in: endpoint {
-+				data-lanes = <1 2>;
-+				remote-endpoint = <&ov5640_mipi_1_ep>;
-+			};
-+		};
-+
-+		port@1 {
-+			reg = <1>;
-+
-+			mipi_csi1_out: endpoint {
-+				remote-endpoint = <&isi_in_3>;
-+			};
-+		};
-+	};
-+};
-+
-+&mipi_csi_1_phy {
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8qm-mek.dts b/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
-index 61ef00f4259e1..3a6e25e08c26a 100644
---- a/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
-@@ -155,6 +155,27 @@ usb3_data_ss: endpoint {
- 		};
+diff --git a/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi
+index a1daba7b1fad5..f6ebc4eabaf14 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi
+@@ -1123,6 +1123,18 @@ vpu: video-codec@30210000 {
+ 		power-domains = <&k3_pds 204 TI_SCI_PD_EXCLUSIVE>;
  	};
  
-+	reg_1v5: regulator-1v5 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "1v5";
-+		regulator-min-microvolt = <1500000>;
-+		regulator-max-microvolt = <1500000>;
++	c7x_0: dsp@7e000000 {
++		compatible = "ti,am62a-c7xv-dsp";
++		reg = <0x00 0x7e000000 0x00 0x00100000>;
++		reg-names = "l2sram";
++		ti,sci = <&dmsc>;
++		ti,sci-dev-id = <208>;
++		ti,sci-proc-ids = <0x04 0xff>;
++		resets = <&k3_reset 208 1>;
++		firmware-name = "am62a-c71_0-fw";
++		status = "disabled";
 +	};
 +
-+	reg_1v8: regulator-1v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "1v8";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+	};
-+
-+	reg_2v8: regulator-2v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "2v8";
-+		regulator-min-microvolt = <2800000>;
-+		regulator-max-microvolt = <2800000>;
-+	};
-+
- 	reg_usdhc2_vmmc: usdhc2-vmmc {
- 		compatible = "regulator-fixed";
- 		regulator-name = "SD1_SPWR";
-@@ -727,6 +748,20 @@ IMX8QM_SCU_GPIO0_03_LSIO_GPIO0_IO31			0x0600004c
- 		>;
- 	};
- 
-+	pinctrl_i2c_mipi_csi0: i2c-mipi-csi0grp {
-+		fsl,pins = <
-+			IMX8QM_MIPI_CSI0_I2C0_SCL_MIPI_CSI0_I2C0_SCL		0xc2000020
-+			IMX8QM_MIPI_CSI0_I2C0_SDA_MIPI_CSI0_I2C0_SDA		0xc2000020
-+		>;
-+	};
-+
-+	pinctrl_i2c_mipi_csi1: i2c-mipi-csi1grp {
-+		fsl,pins = <
-+			IMX8QM_MIPI_CSI1_I2C0_SCL_MIPI_CSI1_I2C0_SCL		0xc2000020
-+			IMX8QM_MIPI_CSI1_I2C0_SDA_MIPI_CSI1_I2C0_SDA		0xc2000020
-+		>;
-+	};
-+
- 	pinctrl_i2c0: i2c0grp {
- 		fsl,pins = <
- 			IMX8QM_HDMI_TX0_TS_SCL_DMA_I2C0_SCL			0x06000021
-@@ -905,6 +940,22 @@ IMX8QM_LVDS1_I2C1_SDA_LVDS1_I2C1_SDA	0xc600004c
- 		>;
- 	};
- 
-+	pinctrl_mipi_csi0: mipi-csi0grp {
-+		fsl,pins = <
-+			IMX8QM_MIPI_CSI0_GPIO0_00_LSIO_GPIO1_IO27		0xC0000041
-+			IMX8QM_MIPI_CSI0_GPIO0_01_LSIO_GPIO1_IO28		0xC0000041
-+			IMX8QM_MIPI_CSI0_MCLK_OUT_MIPI_CSI0_ACM_MCLK_OUT	0xC0000041
-+		>;
-+	};
-+
-+	pinctrl_mipi_csi1: mipi-csi1grp {
-+		fsl,pins = <
-+			IMX8QM_MIPI_CSI1_GPIO0_00_LSIO_GPIO1_IO30		0xC0000041
-+			IMX8QM_MIPI_CSI1_GPIO0_01_LSIO_GPIO1_IO31		0xC0000041
-+			IMX8QM_MIPI_CSI1_MCLK_OUT_MIPI_CSI1_ACM_MCLK_OUT	0xC0000041
-+		>;
-+	};
-+
- 	pinctrl_pciea: pcieagrp {
- 		fsl,pins = <
- 			IMX8QM_PCIE_CTRL0_WAKE_B_LSIO_GPIO4_IO28		0x04000021
-diff --git a/arch/arm64/boot/dts/freescale/imx8qxp-mek-ov5640-csi.dtso b/arch/arm64/boot/dts/freescale/imx8qxp-mek-ov5640-csi.dtso
-new file mode 100644
-index 0000000000000..6d86b1f549d93
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8qxp-mek-ov5640-csi.dtso
-@@ -0,0 +1,92 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2024 NXP
-+ */
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/media/video-interfaces.h>
-+
-+&i2c_mipi_csi0 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	clock-frequency = <100000>;
-+	pinctrl-0 = <&pinctrl_i2c_mipi_csi0>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+
-+	ov5640_mipi: camera@3c {
-+		compatible = "ovti,ov5640";
-+		reg = <0x3c>;
-+		clocks = <&xtal24m>;
-+		clock-names = "xclk";
-+		pinctrl-0 = <&pinctrl_mipi_csi0>;
-+		pinctrl-names = "default";
-+		powerdown-gpios = <&lsio_gpio3 7 GPIO_ACTIVE_HIGH>;
-+		reset-gpios = <&lsio_gpio3 8 GPIO_ACTIVE_LOW>;
-+		AVDD-supply = <&reg_2v8>;
-+		DVDD-supply = <&reg_1v5>;
-+		DOVDD-supply = <&reg_1v8>;
-+		status = "okay";
-+
-+		port {
-+			ov5640_mipi_ep: endpoint {
-+				bus-type = <MEDIA_BUS_TYPE_CSI2_DPHY>;
-+				data-lanes = <1 2>;
-+				remote-endpoint = <&mipi_csi0_in>;
-+			};
-+		};
-+	};
-+};
-+
-+&irqsteer_csi0 {
-+	status = "okay";
-+};
-+
-+&isi {
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@2 {
-+			reg = <2>;
-+
-+			isi_in_2: endpoint {
-+				remote-endpoint = <&mipi_csi0_out>;
-+			};
-+		};
-+	};
-+};
-+
-+&mipi_csi_0 {
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@0 {
-+			reg = <0>;
-+
-+			mipi_csi0_in: endpoint {
-+				data-lanes = <1 2>;
-+				remote-endpoint = <&ov5640_mipi_ep>;
-+			};
-+		};
-+
-+		port@1 {
-+			reg = <1>;
-+
-+			mipi_csi0_out: endpoint {
-+				remote-endpoint = <&isi_in_2>;
-+			};
-+		};
-+	};
-+};
-+
-+&mipi_csi_0_phy {
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts b/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-index 89c6516c5ba90..a356c491375cb 100644
---- a/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-@@ -90,6 +90,27 @@ usb3_data_ss: endpoint {
- 		};
- 	};
- 
-+	reg_1v5: regulator-1v5 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "1v5";
-+		regulator-min-microvolt = <1500000>;
-+		regulator-max-microvolt = <1500000>;
-+	};
-+
-+	reg_1v8: regulator-1v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "1v8";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+	};
-+
-+	reg_2v8: regulator-2v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "2v8";
-+		regulator-min-microvolt = <2800000>;
-+		regulator-max-microvolt = <2800000>;
-+	};
-+
- 	reg_pcieb: regulator-pcie {
- 		compatible = "regulator-fixed";
- 		regulator-max-microvolt = <3300000>;
-@@ -749,6 +770,13 @@ IMX8QXP_FLEXCAN1_RX_ADMA_FLEXCAN1_RX			0x21
- 		>;
- 	};
- 
-+	pinctrl_i2c_mipi_csi0: i2c-mipi-csi0grp {
-+		fsl,pins = <
-+			IMX8QXP_MIPI_CSI0_I2C0_SCL_MIPI_CSI0_I2C0_SCL		0xc2000020
-+			IMX8QXP_MIPI_CSI0_I2C0_SDA_MIPI_CSI0_I2C0_SDA		0xc2000020
-+		>;
-+	};
-+
- 	pinctrl_ioexp_rst: ioexprstgrp {
- 		fsl,pins = <
- 			IMX8QXP_SPI2_SDO_LSIO_GPIO1_IO01			0x06000021
-@@ -789,6 +817,14 @@ IMX8QXP_FLEXCAN2_RX_ADMA_UART3_RX       0x06000020
- 		>;
- 	};
- 
-+	pinctrl_mipi_csi0: mipi-csi0grp {
-+		fsl,pins = <
-+			IMX8QXP_MIPI_CSI0_GPIO0_01_LSIO_GPIO3_IO07		0xC0000041
-+			IMX8QXP_MIPI_CSI0_GPIO0_00_LSIO_GPIO3_IO08		0xC0000041
-+			IMX8QXP_MIPI_CSI0_MCLK_OUT_MIPI_CSI0_ACM_MCLK_OUT	0xC0000041
-+		>;
-+	};
-+
- 	pinctrl_pcieb: pcieagrp {
- 		fsl,pins = <
- 			IMX8QXP_PCIE_CTRL0_PERST_B_LSIO_GPIO4_IO00		0x06000021
-
+ 	e5010: jpeg-encoder@fd20000 {
+ 		compatible = "ti,am62a-jpeg-enc", "img,e5010-jpeg-enc";
+ 		reg = <0x00 0xfd20000 0x00 0x100>,
 -- 
-2.34.1
+2.48.0
 
 
