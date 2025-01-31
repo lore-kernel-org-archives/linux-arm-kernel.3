@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DE69C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 16:30:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DB1DC0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 16:31:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A4wGvZD37FipvkN7a2zE8RZjeCNOx/Mg8hMp0PcY6LA=; b=gwzjrAYuyajCnVW2s2sL4ixAQp
-	LvTFS1DtbII41awHC+DFVxLtMhMpK87gswGvgu4z7RlzQsGhsWEIDOf0JWj04AFJaIET0iRO2KO3z
-	+9/34Isn25/QnmFDgfei4vRuHcXtrev6KgUN7WzF8pa9CXqdGqVPD9SogvlqA24ENZTbACEvF8rb2
-	v24Beg5tEkdrAMyrNVFpg5RVDs4LheAEvFoYmUFIA15ayHtKoY8qYyvig1pzB6YRmFCCei+0V01mg
-	nJ8XXbPJOzrGKUNJ195492Wzr+G+CJx2fl6ACxOEze0bjF8RXUgN4+8E7cGx3umoNoDw/15EJ1GFi
-	o1rbTpYQ==;
+	bh=aq4eaUxs6VzHkR8cIYvqvwq0cFMPu8jWCwRKgpRs7BE=; b=Slsw5GCtxAjphIBFlLnT3cikEF
+	jAQsKv6hsWHU6zFDUZ0ct0IbbKwlv3w23sfSr7q95K88spg0/uxeqehpOfQNNYlmPAMqnRfZ3JSRy
+	QnJKnGmBFreSd1cGSgIAgJd57qGFln61EYnhq9CmfC+54H3CG9ve0X0/ToBaKPWNfM9EC0mrCtrU3
+	yuEOsyu3oRBB/d8L1hjoWz9/L0gBLelDXupJoZkVg9jrTsgHW+3mDL6VEf3an0QN7lTcx+TvMYd1D
+	c6UYZKMoK6MGXWpoUIu3GSN5yfRMb/9NZLYIOGgM5A9oH0bNEKc4u6S0cn6hvMnOmjius8CELD8qJ
+	SiXa/F6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdtuN-0000000AyyB-1IBT;
-	Fri, 31 Jan 2025 16:30:19 +0000
+	id 1tdtvf-0000000Az8y-06zF;
+	Fri, 31 Jan 2025 16:31:39 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdtpL-0000000Ay53-1J0x
+	id 1tdtpN-0000000Ay6F-3W5B
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jan 2025 16:25:08 +0000
+	Fri, 31 Jan 2025 16:25:11 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5A9C5168F;
-	Fri, 31 Jan 2025 08:25:32 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C221DFEC;
+	Fri, 31 Jan 2025 08:25:34 -0800 (PST)
 Received: from e125905.cambridge.arm.com (e125905.cambridge.arm.com [10.1.194.73])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D43033F694;
-	Fri, 31 Jan 2025 08:25:04 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 4656F3F694;
+	Fri, 31 Jan 2025 08:25:07 -0800 (PST)
 From: Beata Michalska <beata.michalska@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -49,16 +49,17 @@ Cc: sumitg@nvidia.com,
 	lihuisong@huawei.com,
 	zhanjie9@hisilicon.com,
 	ptsm@linux.microsoft.com
-Subject: [PATCH v10 3/4] arm64: Provide an AMU-based version of arch_freq_get_on_cpu
-Date: Fri, 31 Jan 2025 16:24:38 +0000
-Message-Id: <20250131162439.3843071-4-beata.michalska@arm.com>
+Subject: [PATCH v10 4/4] arm64: Update AMU-based freq scale factor on entering idle
+Date: Fri, 31 Jan 2025 16:24:39 +0000
+Message-Id: <20250131162439.3843071-5-beata.michalska@arm.com>
 In-Reply-To: <20250131162439.3843071-1-beata.michalska@arm.com>
 References: <20250131162439.3843071-1-beata.michalska@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_082507_436005_10841187 
-X-CRM114-Status: GOOD (  17.73  )
+X-CRM114-CacheID: sfid-20250131_082509_915372_ABC58B70 
+X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,196 +74,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With the Frequency Invariance Engine (FIE) being already wired up with
-sched tick and making use of relevant (core counter and constant
-counter) AMU counters, getting the average frequency for a given CPU,
-can be achieved by utilizing the frequency scale factor which reflects
-an average CPU frequency for the last tick period length.
+Now that the frequency scale factor has been activated for retrieving
+current frequency on a given CPU, trigger its update upon entering
+idle. This will, to an extent, allow querying last known frequency
+in a non-invasive way. It will also improve the frequency scale factor
+accuracy when a CPU entering idle did not receive a tick for a while.
+As a consequence, for idle cores, the reported frequency will be the
+last one observed before entering the idle state.
 
-The solution is partially based on APERF/MPERF implementation of
-arch_freq_get_on_cpu.
-
-Suggested-by: Ionela Voinescu <ionela.voinescu@arm.com>
+Suggested-by: Vanshidhar Konda <vanshikonda@os.amperecomputing.com>
 Signed-off-by: Beata Michalska <beata.michalska@arm.com>
 Reviewed-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
 Reviewed-by: Sumit Gupta <sumitg@nvidia.com>
 ---
- arch/arm64/kernel/topology.c | 112 +++++++++++++++++++++++++++++++----
- 1 file changed, 102 insertions(+), 10 deletions(-)
+ arch/arm64/kernel/topology.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
 diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-index cb180684d10d..bd238e5c2133 100644
+index bd238e5c2133..6f0cab8e746b 100644
 --- a/arch/arm64/kernel/topology.c
 +++ b/arch/arm64/kernel/topology.c
-@@ -17,6 +17,7 @@
- #include <linux/cpufreq.h>
- #include <linux/init.h>
- #include <linux/percpu.h>
-+#include <linux/sched/isolation.h>
- 
- #include <asm/cpu.h>
- #include <asm/cputype.h>
-@@ -88,18 +89,28 @@ int __init parse_acpi_topology(void)
-  * initialized.
-  */
- static DEFINE_PER_CPU_READ_MOSTLY(unsigned long, arch_max_freq_scale) =  1UL << (2 * SCHED_CAPACITY_SHIFT);
--static DEFINE_PER_CPU(u64, arch_const_cycles_prev);
--static DEFINE_PER_CPU(u64, arch_core_cycles_prev);
- static cpumask_var_t amu_fie_cpus;
- 
-+struct amu_cntr_sample {
-+	u64		arch_const_cycles_prev;
-+	u64		arch_core_cycles_prev;
-+	unsigned long	last_scale_update;
-+};
-+
-+static DEFINE_PER_CPU_SHARED_ALIGNED(struct amu_cntr_sample, cpu_amu_samples);
-+
- void update_freq_counters_refs(void)
- {
--	this_cpu_write(arch_core_cycles_prev, read_corecnt());
--	this_cpu_write(arch_const_cycles_prev, read_constcnt());
-+	struct amu_cntr_sample *amu_sample = this_cpu_ptr(&cpu_amu_samples);
-+
-+	amu_sample->arch_core_cycles_prev = read_corecnt();
-+	amu_sample->arch_const_cycles_prev = read_constcnt();
+@@ -213,6 +213,19 @@ static __always_inline bool amu_fie_cpu_supported(unsigned int cpu)
+ 		cpumask_test_cpu(cpu, amu_fie_cpus);
  }
  
- static inline bool freq_counters_valid(int cpu)
- {
-+	struct amu_cntr_sample *amu_sample = per_cpu_ptr(&cpu_amu_samples, cpu);
-+
- 	if ((cpu >= nr_cpu_ids) || !cpumask_test_cpu(cpu, cpu_present_mask))
- 		return false;
- 
-@@ -108,8 +119,8 @@ static inline bool freq_counters_valid(int cpu)
- 		return false;
- 	}
- 
--	if (unlikely(!per_cpu(arch_const_cycles_prev, cpu) ||
--		     !per_cpu(arch_core_cycles_prev, cpu))) {
-+	if (unlikely(!amu_sample->arch_const_cycles_prev ||
-+		     !amu_sample->arch_core_cycles_prev)) {
- 		pr_debug("CPU%d: cycle counters are not enabled.\n", cpu);
- 		return false;
- 	}
-@@ -152,17 +163,22 @@ void freq_inv_set_max_ratio(int cpu, u64 max_rate)
- 
- static void amu_scale_freq_tick(void)
- {
-+	struct amu_cntr_sample *amu_sample = this_cpu_ptr(&cpu_amu_samples);
- 	u64 prev_core_cnt, prev_const_cnt;
- 	u64 core_cnt, const_cnt, scale;
- 
--	prev_const_cnt = this_cpu_read(arch_const_cycles_prev);
--	prev_core_cnt = this_cpu_read(arch_core_cycles_prev);
-+	prev_const_cnt = amu_sample->arch_const_cycles_prev;
-+	prev_core_cnt = amu_sample->arch_core_cycles_prev;
- 
- 	update_freq_counters_refs();
- 
--	const_cnt = this_cpu_read(arch_const_cycles_prev);
--	core_cnt = this_cpu_read(arch_core_cycles_prev);
-+	const_cnt = amu_sample->arch_const_cycles_prev;
-+	core_cnt = amu_sample->arch_core_cycles_prev;
- 
-+	/*
-+	 * This should not happen unless the AMUs have been reset and the
-+	 * counter values have not been restored - unlikely
-+	 */
- 	if (unlikely(core_cnt <= prev_core_cnt ||
- 		     const_cnt <= prev_const_cnt))
- 		return;
-@@ -182,6 +198,8 @@ static void amu_scale_freq_tick(void)
- 
- 	scale = min_t(unsigned long, scale, SCHED_CAPACITY_SCALE);
- 	this_cpu_write(arch_freq_scale, (unsigned long)scale);
-+
-+	amu_sample->last_scale_update = jiffies;
- }
- 
- static struct scale_freq_data amu_sfd = {
-@@ -189,6 +207,80 @@ static struct scale_freq_data amu_sfd = {
- 	.set_freq_scale = amu_scale_freq_tick,
- };
- 
-+static __always_inline bool amu_fie_cpu_supported(unsigned int cpu)
++void arch_cpu_idle_enter(void)
 +{
-+	return cpumask_available(amu_fie_cpus) &&
-+		cpumask_test_cpu(cpu, amu_fie_cpus);
++	unsigned int cpu = smp_processor_id();
++
++	if (!amu_fie_cpu_supported(cpu))
++		return;
++
++	/* Kick in AMU update but only if one has not happened already */
++	if (housekeeping_cpu(cpu, HK_TYPE_TICK) &&
++	    time_is_before_jiffies(per_cpu(cpu_amu_samples.last_scale_update, cpu)))
++		amu_scale_freq_tick();
 +}
 +
-+#define AMU_SAMPLE_EXP_MS	20
-+
-+int arch_freq_get_on_cpu(int cpu)
-+{
-+	struct amu_cntr_sample *amu_sample;
-+	unsigned int start_cpu = cpu;
-+	unsigned long last_update;
-+	unsigned int freq = 0;
-+	u64 scale;
-+
-+	if (!amu_fie_cpu_supported(cpu) || !arch_scale_freq_ref(cpu))
-+		return -EOPNOTSUPP;
-+
-+	while (1) {
-+
-+		amu_sample = per_cpu_ptr(&cpu_amu_samples, cpu);
-+
-+		last_update = amu_sample->last_scale_update;
-+
-+		/*
-+		 * For those CPUs that are in full dynticks mode, or those that have
-+		 * not seen tick for a while, try an alternative source for the counters
-+		 * (and thus freq scale), if available, for given policy: this boils
-+		 * down to identifying an active cpu within the same freq domain, if any.
-+		 */
-+		if (!housekeeping_cpu(cpu, HK_TYPE_TICK) ||
-+		    time_is_before_jiffies(last_update + msecs_to_jiffies(AMU_SAMPLE_EXP_MS))) {
-+			struct cpufreq_policy *policy = cpufreq_cpu_get(cpu);
-+			int ref_cpu = cpu;
-+
-+			if (!policy)
-+				return -EINVAL;
-+
-+			if (!cpumask_intersects(policy->related_cpus,
-+						housekeeping_cpumask(HK_TYPE_TICK))) {
-+				cpufreq_cpu_put(policy);
-+				return -EOPNOTSUPP;
-+			}
-+
-+
-+			do {
-+				ref_cpu = cpumask_next_wrap(ref_cpu, policy->cpus,
-+							    start_cpu, false);
-+
-+			} while (ref_cpu < nr_cpu_ids && idle_cpu(ref_cpu));
-+
-+			cpufreq_cpu_put(policy);
-+
-+			if (ref_cpu >= nr_cpu_ids)
-+				/* No alternative to pull info from */
-+				return -EAGAIN;
-+
-+			cpu = ref_cpu;
-+		} else {
-+			break;
-+		}
-+	}
-+	/*
-+	 * Reversed computation to the one used to determine
-+	 * the arch_freq_scale value
-+	 * (see amu_scale_freq_tick for details)
-+	 */
-+	scale = arch_scale_freq_capacity(cpu);
-+	freq = scale * arch_scale_freq_ref(cpu);
-+	freq >>= SCHED_CAPACITY_SHIFT;
-+	return freq;
-+}
-+
- static void amu_fie_setup(const struct cpumask *cpus)
- {
- 	int cpu;
+ #define AMU_SAMPLE_EXP_MS	20
+ 
+ int arch_freq_get_on_cpu(int cpu)
 -- 
 2.25.1
 
