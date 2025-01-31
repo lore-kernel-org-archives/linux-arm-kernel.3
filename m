@@ -4,97 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62AB4C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 00:38:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 089BEC0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 01:30:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yqldt/xcAytwXtteev0RCwhSZB7KS4Y37ipxJQOWiro=; b=O5FzxsMXoZLhCvO0Pxw7/OtDD3
-	INRMaNtwbF/X1xdwrjbQYQWc+7t5LlTAmo6HUbyl3KjOcPPBak2oupJmNcuXX6+IE//x/F8ZNfkem
-	VqDQeT1iCi8aPc9cYhj8h+TsmyxT80/yJP2Svj0c8jvaDGaikQloQAtw+ftpLnXYxsRMtX2vGgpu9
-	BhcqJfuRwnhop67eg0eRSOYndBQFsAgQFTLsUsbatr8UltoLYbyq57WHi4FcB46HsywjS54XTkJ7w
-	y1zhUj8RFIFT3geHUfTq7z6zPNdMgsWoHza9Bq5fIwJy6C2HbcnXKxIZumW9F7QYW/gVtob7CGMeo
-	YgQRNnmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nsBQ15KPAbNgDIj2dwTdXPvw6ebbg9GOZ64wqvoRjZM=; b=DmPR1VXZV1h2/5Jnki4NbjZKbd
+	KaxxoHxzm4x6s8SizY+ZN6MVSOkdvk0D1UBxHRp9MK8keoaHIrvAl/zpoqzqRNUePbsdsBXtcrf5N
+	kvOxZOZh2PQ53o1OUp2bkHISOPAECen2C0hzsE9HOH/Om3OG1BGIAVPpiDH04wh9m+x7JuFZ6LJEe
+	l9Jl+BLSE7iluukj2Lkc2V6RPsBNmV0q+YLFd1U2ZBfmpbFD2o3wI3ByLpBuOmiIxxuvC/mxDXJ4v
+	o7YenLdKYibytGopu9F1y1lxBIML1fLm/25sgLXfD4fy2XR+syyY50h3dGOL/mY9XBxZgbvvD7e+b
+	zeiqsFFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdf2V-00000009qvB-2a4K;
-	Fri, 31 Jan 2025 00:37:43 +0000
-Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
+	id 1tdfr5-00000009tpM-2W7h;
+	Fri, 31 Jan 2025 01:29:59 +0000
+Received: from mail-qv1-xf2b.google.com ([2607:f8b0:4864:20::f2b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdf1A-00000009qrB-3j0J
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jan 2025 00:36:22 +0000
-Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-7b6f75f61f9so222945685a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jan 2025 16:36:20 -0800 (PST)
+	id 1tdfpj-00000009tkp-10tf;
+	Fri, 31 Jan 2025 01:28:36 +0000
+Received: by mail-qv1-xf2b.google.com with SMTP id 6a1803df08f44-6d8a3e99e32so13238506d6.2;
+        Thu, 30 Jan 2025 17:28:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1738283779; x=1738888579; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=yqldt/xcAytwXtteev0RCwhSZB7KS4Y37ipxJQOWiro=;
-        b=QfEoxVm0bAeSLa+ACHgPYzbTdP5FVzZByII9xsXtpoeXvBcGH3g3nDCzlGlJDVPckj
-         ug9NoCMFJhD7a1jaYWmDG0kzJPO1l6ttxUdqg5uq/orJ4cCjBvUBw4rflLT7WpwpSEax
-         mrFSo4BwAwcLVnuBkykWcE2vsy/TBX6LolMNe42+iN5Jdm1RBm8Es7fOR4q2MB+0Z95k
-         CvlJHSd7/Nj0tk1+NJkW5GKQugP94lZZyv/KKLkjxBpmgxdhxn3EJY+EL3iF42WtVRsP
-         2bveVEDBV76mtgKKHNqNw/fk1DfcMRLguamAYH1UaXPHocrGPPwPgIFeezvBiPdHMj4m
-         X0qA==
+        d=gmail.com; s=20230601; t=1738286914; x=1738891714; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=nsBQ15KPAbNgDIj2dwTdXPvw6ebbg9GOZ64wqvoRjZM=;
+        b=UODF0KbmvlHbVJZWGk3Z1rc0dm0P+T7ApXMxXtj0czXpMWCYfNpICigEEqoknm9L0L
+         57W8RPC93iuWxUFls62IdP5LmpCfczAPvKfWCcoCeJc5DL4f8AgWn12J2au9K+WIF10s
+         GxYv1ZGxT7LGyXos6HuJhe5FtsLZNX5LugC/7HHMISBjhUSpwOw+dxb/8aKuk17L4zVr
+         0aLielrINZYvKpum905yrkGEWOmh0TnHVP3yoE5O1NErSfv+vq+vD3flBJ9MC7QV4BVw
+         jrOt+LXuQaIIOyt8yxDEITkuUEd7owUWE9UTUv2HOrMBBTZLG74znjMoNNQvQq8u4lDq
+         We/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738283779; x=1738888579;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yqldt/xcAytwXtteev0RCwhSZB7KS4Y37ipxJQOWiro=;
-        b=jlkqmNSRgOvIoMbPuF0DcYT7CvH87TIapVgPHBcP4WH7lw6GkIieqGILN60G7Jf+mM
-         SoarLxc3wZj9hXDlr2OMWUu/Lzod1Krt78dzQqNoPzLKSWeQ+IL7Kxyrtnq6IK8HeEk8
-         iFireLo+hRqbSDLvFiFOO7eYnyj2y27RdT4ehTJl2578R9mdSA4tpXyTWA2I2vvvPIL0
-         il2P9j1zbjgndJ1PAaAmb35EGIqaZCF4CZwUApPzRp3dAAQMLVUOPtZm/EOHYqtnSsN/
-         90dnRFGNGxVZk+Fqc7zB8K04ppdfe9GvJ3Pnxs/5p5093SEMM2nzhuk5KNMquQq+h7n8
-         +FOg==
-X-Forwarded-Encrypted: i=1; AJvYcCX/o+E8MfnM76k7IjIzVtuhaR6Ay2D4MZayIK73ehfXZ6yyver0DG6mHoePAnrRgjU4BxCFv+zFcxNjJUqqco+I@lists.infradead.org
-X-Gm-Message-State: AOJu0YxGg/+dYhEueGTJcnXtkVdOHYZK256v0KqYKu3S7dBFw2w0TeNN
-	rXrIuAG/P2rngacqsnk36dkye6WVuIqtep2lO7Tw0wLGdzeQLxwUd2Xh5mHvqjs=
-X-Gm-Gg: ASbGncv+OU9IPAZ4qSeGcpM0talAoCZ5NBaW0fLSY8ulqMKjlR7HvIdizOVAEu9G2wJ
-	OfwTiutbnf8Sw4rZOeTrAKqTWj7XDvBc3/vO5ZX6qnZGU+gBQhglCDpbN6e8COc9UZJd9V8bq0k
-	gC6ZtpZHGdPo+hljtxE0mThoF3KrTALe2oBNLioTRtbEpwOFA0vZtKQ5+DXk2ksvMjtLl1rYcV7
-	f5j+5Q2RnzW0SQub5d+nGRZYgKKC71u2mX7te0/cfcaFG0sCivj1IAegOjANG4OgGho+LmlnPPk
-	QZB/2ETGwt4IcjkWpAc3UhWWIEunJjlXoOWsk1ZTewbDsILcIq+zcz3RDjvkYYQC
-X-Google-Smtp-Source: AGHT+IE07V3qiTAW6EZ1X13h/qc9229k1AUAAxkUW5w5v/ZxDuN93Om57N1kexxou5u4vA0fw80BGw==
-X-Received: by 2002:a05:620a:3723:b0:7b6:cb66:ad74 with SMTP id af79cd13be357-7bffccdfa82mr1548427185a.18.1738283779269;
-        Thu, 30 Jan 2025 16:36:19 -0800 (PST)
-Received: from ziepe.ca (hlfxns017vw-142-68-128-5.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.68.128.5])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c00a8bca3bsm130417385a.13.2025.01.30.16.36.18
+        d=1e100.net; s=20230601; t=1738286914; x=1738891714;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nsBQ15KPAbNgDIj2dwTdXPvw6ebbg9GOZ64wqvoRjZM=;
+        b=uuRdpXflr2rjcfZRTiq4fp0cgKjk8C/LWtOCEYGurHz0j6Jj0nsDrAS1Tj8q1E/U9h
+         cgqXE9zC9DB1JB+cdsvY1h7KYK/z27DMSA7pJ1Lep8hGJmhYr2gmZf4tt80DfiZmQ9eQ
+         syoEaAHekUwz+sAJbb0qNTUJIMEoh9QuSG67/d/5zyYlePKAHLjmzfrGqD1f2ECqn3sr
+         oZLs2LtA0MZJ/P2c1LSjMGvaWt8q+4qBg4Qhz1mvNl7zvuzJBn6sIXrClcqNVUgm+3Aj
+         Kj73VTW1B8QJCRscg3rhZkENCkCEK+U443jHauFnSXOjc7RS8Zfm4BYZ9t26iaevjXzy
+         do0g==
+X-Forwarded-Encrypted: i=1; AJvYcCUUUlsB+jBY3fUE3hqQTbeUbIjD5GteasifBwT9Wi7IE8Lm+dfaXwyxRaPehmMo753IVjoAGWFobfQ3LVgqWtg=@lists.infradead.org, AJvYcCUkO8tlCNJNODL7bNeOS9KiQH5d2UnmWoN0PeUeX7vPXiPFvnUZiJ4FfkBQsEfnNlKnZaNsG6+Hb1KeNgJtldAX@lists.infradead.org
+X-Gm-Message-State: AOJu0YyaXOJkCJXm0mSKOBVYRVft2hKW3KuD3IKsnYatJNOO3Zb56l72
+	zFuJ1x9j2aHfSUXFiUnjLLkI4WjHxTG45mbUFbPJN3FFCsa7WtmV
+X-Gm-Gg: ASbGnctN4064uE/4p37XsyC1mUpFP/oZmMp2Sc1YH/s5ae6iWbMcERMxD5da7IGciWt
+	/kHAyj6daa6UzuvIkn3Mee+G6C3TPxyji8F+FKcN6wwKgEVhiptclN6fzHpRAdUX3JjSYUha5aY
+	fEiME5zmxz2rArI1ZCP7auA1EOaNrVEDDsrqbBacC+jm+wo1Kynnmd5TG3up6F+KS3RI6QXxN71
+	126GIdsiRvGxGGYf+sb8ucwmU/zo7e0XK3sQbbU+gpZpxhq6VUtWhgM8Jmw2h4fXhYXtq7Stp4V
+	9OPz05UCw3t6ydISfL0YrgWkgyJ4z8lGyBylAQ==
+X-Google-Smtp-Source: AGHT+IEDTGGykK3VT3IFwkV7jiAPCUT4mQR5DWO7oY08yzO1EcFsGxxZjoFcYEQky+5HouyGEl7YYQ==
+X-Received: by 2002:a05:6214:430a:b0:6d8:aeda:dd93 with SMTP id 6a1803df08f44-6e243c8fe49mr147890246d6.39.1738286913646;
+        Thu, 30 Jan 2025 17:28:33 -0800 (PST)
+Received: from newman.cs.purdue.edu ([128.10.127.250])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6e254818bb7sm12366476d6.47.2025.01.30.17.28.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Jan 2025 16:36:18 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1tdf18-00000009rfr-0aTF;
-	Thu, 30 Jan 2025 20:36:18 -0400
-Date: Thu, 30 Jan 2025 20:36:18 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Shyam Saini <shyamsaini@linux.microsoft.com>
-Cc: Jacob Pan <jacob.pan@linux.microsoft.com>, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	virtualization@lists.linux.dev, will@kernel.org,
-	eric.auger@redhat.com, code@tyhicks.com,
-	eahariha@linux.microsoft.com, vijayb@linux.microsoft.com
-Subject: Re: [PATCH 0/3] make MSI IOVA base address and its length
- configurable
-Message-ID: <20250131003618.GB2296753@ziepe.ca>
-References: <20250116232307.1436693-1-shyamsaini@linux.microsoft.com>
- <20250120142643.GM674319@ziepe.ca>
- <67901659.170a0220.20b206.f1f5SMTPIN_ADDED_BROKEN@mx.google.com>
- <20250122001924.GT674319@ziepe.ca>
- <20250130232137.GA14836@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+        Thu, 30 Jan 2025 17:28:33 -0800 (PST)
+From: Jiasheng Jiang <jiashengjiangcool@gmail.com>
+To: tiffany.lin@mediatek.com,
+	andrew-ct.chen@mediatek.com,
+	yunfei.dong@mediatek.com,
+	mchehab@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	fullwaywang@outlook.com
+Cc: linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Jiasheng Jiang <jiashengjiangcool@gmail.com>
+Subject: [PATCH] media: mediatek: vcodec: Add scp_put() to free the scp
+Date: Fri, 31 Jan 2025 01:28:30 +0000
+Message-Id: <20250131012830.22394-1-jiashengjiangcool@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250130232137.GA14836@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_163621_089642_ED1BC0E3 
-X-CRM114-Status: UNSURE (   9.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250130_172835_276889_5587E80D 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,20 +102,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 30, 2025 at 03:21:37PM -0800, Shyam Saini wrote:
+Add scp_put() to free the scp if devm_kzalloc() fails to avoid memory
+leak.
 
-> Unfortunately, it is an HW issue.
+Fixes: 53dbe0850444 ("media: mtk-vcodec: potential null pointer deference in SCP")
+Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
+---
+ .../platform/mediatek/vcodec/common/mtk_vcodec_fw_scp.c      | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-Well, that's pretty bad to have built HW that can't DMA to low
-addresses at all.. But OK.
+diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_scp.c b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_scp.c
+index ff23b225db70..1b0bc47355c0 100644
+--- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_scp.c
++++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_scp.c
+@@ -79,8 +79,11 @@ struct mtk_vcodec_fw *mtk_vcodec_fw_scp_init(void *priv, enum mtk_vcodec_fw_use
+ 	}
  
-> Are you okay with this passing custom MSI_IOVA via DTS approach ?
+ 	fw = devm_kzalloc(&plat_dev->dev, sizeof(*fw), GFP_KERNEL);
+-	if (!fw)
++	if (!fw) {
++		scp_put(scp);
+ 		return ERR_PTR(-ENOMEM);
++	}
++
+ 	fw->type = SCP;
+ 	fw->ops = &mtk_vcodec_rproc_msg;
+ 	fw->scp = scp;
+-- 
+2.25.1
 
-It isn't up to me, but I've understood the DT maintainers would reject
-this as it isn't is describing HW but just a random Linux software
-knob.
-
-I think you should make selecting the sw_msi dynamic in Linux.
-
-Jason
 
