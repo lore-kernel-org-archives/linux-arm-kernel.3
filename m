@@ -4,72 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A0AC0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 09:45:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32155C0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 09:48:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MmJv3L+eZ/sNXSvW474bg5iy0+Z7o6xX/pDPZGEj3Ng=; b=HT41Xnd4wbLQMYOKMuBEwffKkb
-	Wns/9e1lcpIXJzY9iiZU0y68sdqOt8ZQEK4CdUwjIhT/mHCL076Uwi8r4wn4eAUar3qqYtSU3q6au
-	gajs8u/QqJI/wkr/7M8AfRQKsbD9Yc8xO7kRtw81ruAjX9nGQ5kjYJxCTK1k8fVBIlQmsn2g2xWgG
-	tyRFTZhhHwNPHdsm/dNa7FZhos4koVzYU8WQ/9VfPpZ694FlxzktfSwim+V3YdYVPpmJiANJWIIp0
-	NZoWFb2yx9vilzljLbH+TNQARC5MuFGSEDRY/LZ1D6GVUTpCCE5IG5OOE8rSBUgosrVEx8Dln8N0J
-	Jf7RT5/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4xnpI7vNNrRX64SZKMg5nZojTKO/j4hSZG5OSA5Wfd4=; b=xSiwcclHbW42V09i+Ft50e4Lvl
+	HxuIRZEaoCpsE5U5M3pFEQ47qwAyNSjIyi3vybPxDZoHElYaIdcl1R6DRGFY8wPRs76R/Fq8k856x
+	MGSkeLn1O425mcIYd4rktvLheKKJsNBkJZrakMjOemNCjSAIndRoqyQ/khYG8YOqBCMThHxpHLpI6
+	4t50xnzYXSFbUNmmGugYk7X8d1QvonjoiKowjW162Uj49MTO2xnS7HFtcUUN15yxaxkzhcvRf0ont
+	nvQDN8MbVvxErBzThrIW+J9wPmelDQqOt3UvLpHTVrlye3G2LsELC09XB+aChcYq1PCr+Wc/48PcJ
+	00RFdBxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdnak-0000000AKi8-0a0X;
-	Fri, 31 Jan 2025 09:45:38 +0000
-Received: from sender4-op-o15.zoho.com ([136.143.188.15])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdnZR-0000000AKd8-1oIZ;
-	Fri, 31 Jan 2025 09:44:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1738316631; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=O+8GsUz06uMmRr7Bdid+cRMrb/6hpguS+VcdRiHKxUb0tgU9pj3BBrKn+4j4+Kz9PyVzR5WjMiqCG4TRt68fqtf+V9Cv/eLnf3jdnzQSLkYMoW3rWnD2jqz4TAU23ThZTNM3xLlCCFSF3z6CAabNZEnfmXkcAF1tDUesprhWu4Q=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1738316631; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=MmJv3L+eZ/sNXSvW474bg5iy0+Z7o6xX/pDPZGEj3Ng=; 
-	b=S5ddfO5ntiwA7c1EPKB0bQozZND9SWf7CG/qlVkrawkhkUcZVKXN3BzOtyrWsm5QYzDKvZgiQh2O16DRoPVK1SA1p0Fwgz9BQU7llGKQP6kTsHwvu7uvbsi1f8nLVc+cPIrwQbaN7A+ktEffkV6/ujuNs4jogH58eHUIEP3atN8=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1738316631;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=MmJv3L+eZ/sNXSvW474bg5iy0+Z7o6xX/pDPZGEj3Ng=;
-	b=cBHUYUO6+5+VBiWBdHybhQgVtrqBelSEtdU26DaI4swbkAZMHBCjCA8kNdmhC4jS
-	6mMARl6eg5rvoXvFaRKixZQV57n6Nf6BOZ8lNhxhflpcHCgCbl547vZXC4VgRcWJhvy
-	6aHjMT86T7YC/hZwA2ZvL/1ZTflRrF8R39v2IlPs=
-Received: by mx.zohomail.com with SMTPS id 1738316626127798.141295591807;
-	Fri, 31 Jan 2025 01:43:46 -0800 (PST)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Heiko Stuebner <heiko@sntech.de>, Olivia Mackall <olivia@selenic.com>,
- Herbert Xu <herbert@gondor.apana.org.au>,
- Daniel Golle <daniel@makrotopia.org>, Aurelien Jarno <aurelien@aurel32.net>,
- Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-crypto@vger.kernel.org
-Subject: Re: [PATCH 2/7] dt-bindings: rng: add binding for Rockchip RK3588 RNG
-Date: Fri, 31 Jan 2025 10:43:41 +0100
-Message-ID: <4955605.GXAFRqVoOG@workhorse>
-In-Reply-To: <979564a4-c8e9-4427-8019-349d0794d9af@kernel.org>
-References: <20250130-rk3588-trng-submission-v1-0-97ff76568e49@collabora.com>
- <20250130-rk3588-trng-submission-v1-2-97ff76568e49@collabora.com>
- <979564a4-c8e9-4427-8019-349d0794d9af@kernel.org>
+	id 1tdndD-0000000AKtA-0nM2;
+	Fri, 31 Jan 2025 09:48:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tdnbt-0000000AKoh-2JLi
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 31 Jan 2025 09:46:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4C8B8497;
+	Fri, 31 Jan 2025 01:47:12 -0800 (PST)
+Received: from [10.1.32.52] (e122027.cambridge.arm.com [10.1.32.52])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9C4253F63F;
+	Fri, 31 Jan 2025 01:46:43 -0800 (PST)
+Message-ID: <07af1102-0fa7-45ad-bcbc-aef0295ceb63@arm.com>
+Date: Fri, 31 Jan 2025 09:46:41 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v4 3/3] net: stmmac: Specify hardware capability value
+ when FIFO size isn't specified
+To: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>
+Cc: Russell King <linux@armlinux.org.uk>, Yanteng Si <si.yanteng@linux.dev>,
+ Furong Xu <0x1207@gmail.com>, Joao Pinto <Joao.Pinto@synopsys.com>,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250127013820.2941044-1-hayashi.kunihiko@socionext.com>
+ <20250127013820.2941044-4-hayashi.kunihiko@socionext.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20250127013820.2941044-4-hayashi.kunihiko@socionext.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_014417_546859_77B7239B 
-X-CRM114-Status: GOOD (  30.12  )
+X-CRM114-CacheID: sfid-20250131_014649_689709_E83E39EE 
+X-CRM114-Status: GOOD (  21.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,139 +73,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Friday 31 January 2025 09:30:51 Central European Standard Time Krzysztof 
-Kozlowski wrote:
-> On 30/01/2025 17:31, Nicolas Frattaroli wrote:
-> > +title: Rockchip RK3588 TRNG
-> > +
-> > +description: True Random Number Generator on Rockchip RK3588 SoC
-> > +
-> > +maintainers:
-> > +  - Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> > +
-> > +properties:
-> > +  compatible:
-> > +    enum:
-> > +      - rockchip,rk3588-rng
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +  clocks:
-> > +    items:
-> > +      - description: TRNG AHB clock
-> > +
-> > +  # Optional, not used by some driver implementations
+On 27/01/2025 01:38, Kunihiko Hayashi wrote:
+> When Tx/Rx FIFO size is not specified in advance, the driver checks if
+> the value is zero and sets the hardware capability value in functions
+> where that value is used.
 > 
-> What driver implementations? Downstream? They do not matter, because
-> they are full of all sort of crap.
+> Consolidate the check and settings into function stmmac_hw_init() and
+> remove redundant other statements.
+> 
+> If FIFO size is zero and the hardware capability also doesn't have upper
+> limit values, return with an error message.
 
-Downstream and this very driver in the series. The patch includes a lengthy 
-explanation of why all known implementations have foregone using the 
-interrupt.
+This patch breaks my Firefly RK3288 board. It appears that all of the 
+following are true:
 
-> Can this block have interrupt really disconnected? This is the question
-> you should answer.
+ * priv->plat->rx_fifo_size == 0
+ * priv->dma_cap.rx_fifo_size == 0
+ * priv->plat->tx_fifo_size == 0
+ * priv->dma_cap.tx_fifo_size == 0
 
-I do not have the gift of prescience. If you want me to make the interrupt 
-required even though it is pointless just because all hardware that implements 
-this that I'm currently aware of does have the interrupt then I will add it as 
-a required property.
+Simply removing the "return -ENODEV" lines gets this platform working 
+again (and AFAICT matches the behaviour before this patch was applied).
+I'm not sure whether this points to another bug causing these to 
+all be zero or if this is just an oversight. The below patch gets my 
+board working:
+
+-----8<-----
+From 5097d29181f320875d29da8fc24e6d3ae44db581 Mon Sep 17 00:00:00 2001
+From: Steven Price <steven.price@arm.com>
+Date: Fri, 31 Jan 2025 09:32:17 +0000
+Subject: [PATCH] net: stmmac: Allow zero for [tr]x_fifo_size
+
+Commit 8865d22656b4 ("net: stmmac: Specify hardware capability value
+when FIFO size isn't specified") modified the behaviour to bail out if
+both the FIFO size and the hardware capability were both set to zero.
+However there are platforms out there (e.g. RK3288) where this is the
+case which this breaks.
+
+Remove the error return and use the dma_cap value as is.
+
+Fixes: 8865d22656b4 ("net: stmmac: Specify hardware capability value when FIFO size isn't specified")
+Signed-off-by: Steven Price <steven.price@arm.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 14 ++------------
+ 1 file changed, 2 insertions(+), 12 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index d04543e5697b..41c837c91811 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -7220,12 +7220,7 @@ static int stmmac_hw_init(struct stmmac_priv *priv)
+ 	}
  
-> > +  interrupts:
-> > +    maxItems: 1
-> > +
-> > +  # Optional, hardware works without explicit reset
-> 
-> Just because bootloader did something? With that reasoning nothing is
-> ever required because firmware can abstract it. Either you have there a
-> reset or not. In this particular case your driver is irrelevant.
-
-No, it's not the bootloader that does it, it's the hardware itself. It's 
-power-on reset. Hardware can reset itself without software, I don't know where 
-the assumption of it being done by the bootloader comes from.
-
-> > +  resets:
-> > +    maxItems: 1
-> > +
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +  - clocks
-> > +
-> 
-> BTW, there is a binding for Rockchip TRNG, with a bit different clocks
-> so I have feeling yours is incomplete here.
-
-I know and they're not. As the cover letter states, this is different hardware 
-from the other Rockchip TRNG. This hardware only has one clock. It is a 
-separate binding with different clocks because it is different hardware.
-
-The patch's message also states this:
-
-> [...] and a standalone RNG that is new to this SoC.
-> 
-> Add a binding for this new standalone RNG.
-
-It's a standalone RNG that is new to this SoC. It has different registers, and 
-different clock requirements.
-
-> > +additionalProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
-> > +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> > +    #include <dt-bindings/interrupt-controller/irq.h>
-> > +    #include <dt-bindings/reset/rockchip,rk3588-cru.h>
-> > +    bus {
-> > +      #address-cells = <2>;
-> > +      #size-cells = <2>;
-> > +
-> > +      rng@fe378000 {
-> > +        compatible = "rockchip,rk3588-rng";
-> > +        reg = <0x0 0xfe378000 0x0 0x200>;
-> > +        interrupts = <GIC_SPI 400 IRQ_TYPE_LEVEL_HIGH 0>;
-> > +        clocks = <&scmi_clk SCMI_HCLK_SECURE_NS>;
-> > +        resets = <&scmi_reset SCMI_SRST_H_TRNG_NS>;
-> > +        status = "disabled";
-> 
-> Examples cannot be disabled.
-
-Okay, I will fix this.
-
-> > +      };
-> > +    };
-> > +
-> > +...
-> > diff --git a/MAINTAINERS b/MAINTAINERS
-> > index
-> > bc8ce7af3303f747e0ef028e5a7b29b0bbba99f4..7daf9bfeb0cb4e9e594b809012c7aa2
-> > 43b0558ae 100644 --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -20420,8 +20420,10 @@ F:	include/uapi/linux/rkisp1-config.h
-> > 
-> >  ROCKCHIP RK3568 RANDOM NUMBER GENERATOR SUPPORT
-> >  M:	Daniel Golle <daniel@makrotopia.org>
-> >  M:	Aurelien Jarno <aurelien@aurel32.net>
-> > 
-> > +M:	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> 
-> Like Conor said, this is not really relevant and should be a separate patch.
-
-Should just the added M be a separate patch or also adding the file to the 
-MAINTAINERS file? Because if the latter is separate then I think checkpatch 
-will yell at me, and if the former is separate then the binding's statement 
-that it is maintained by me is disconnected from what's in the MAINTAINERS 
-file.
-
-> 
-> 
-> 
-> Best regards,
-> Krzysztof
-
-
+ 	if (!priv->plat->rx_fifo_size) {
+-		if (priv->dma_cap.rx_fifo_size) {
+-			priv->plat->rx_fifo_size = priv->dma_cap.rx_fifo_size;
+-		} else {
+-			dev_err(priv->device, "Can't specify Rx FIFO size\n");
+-			return -ENODEV;
+-		}
++		priv->plat->rx_fifo_size = priv->dma_cap.rx_fifo_size;
+ 	} else if (priv->dma_cap.rx_fifo_size &&
+ 		   priv->plat->rx_fifo_size > priv->dma_cap.rx_fifo_size) {
+ 		dev_warn(priv->device,
+@@ -7234,12 +7229,7 @@ static int stmmac_hw_init(struct stmmac_priv *priv)
+ 		priv->plat->rx_fifo_size = priv->dma_cap.rx_fifo_size;
+ 	}
+ 	if (!priv->plat->tx_fifo_size) {
+-		if (priv->dma_cap.tx_fifo_size) {
+-			priv->plat->tx_fifo_size = priv->dma_cap.tx_fifo_size;
+-		} else {
+-			dev_err(priv->device, "Can't specify Tx FIFO size\n");
+-			return -ENODEV;
+-		}
++		priv->plat->tx_fifo_size = priv->dma_cap.tx_fifo_size;
+ 	} else if (priv->dma_cap.tx_fifo_size &&
+ 		   priv->plat->tx_fifo_size > priv->dma_cap.tx_fifo_size) {
+ 		dev_warn(priv->device,
+-- 
+2.39.5
 
 
 
