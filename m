@@ -4,50 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1023C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 21:30:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 453D3C0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 21:32:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sw6DZ/+6dkaFHru+iMewhS/DzaESIjCAzyvYdi8IbLU=; b=l4HNhWBxsjMRpt/TjxZ+1tg3VX
-	F8b/NYSVzuuB46NsBSGUBCQsKP+QGHZbDVywkCsOkQVx9qLpOQXSNvU9IbbTVS2jkgV++p7ZkDGlo
-	+/a2+KvxNwEAw535iuzeLp1GM1r8vcdFm0t2Y/QoyUSt9DjRbYfYK5t76XTYlLFiqJ7MNS4GiCGIc
-	+zxTmnCNkFgzJcfW+9pXhUjYfoEdmXW3/n3oZ28Lr8lVIxlFe7RpXto8aAhnPC/NhLQvKJIsIOEhL
-	6CvzzbX6HkRLoaNTxnVB/VEieD4ZnRgov+/cZkSltMyzTBqkt0FPLY/am0r2lB55EgJ+YwXpSubco
-	LLboynPg==;
+	bh=3wgdje4DBdm5iCU3pmo/KJVbnfq4bK/1p0KmeeXszaU=; b=EIjz7kZS+mKLvylgocCC1qbcpD
+	g/LKfR6jGgEkqkJfxK2XnfFalL/fgOOsbbxgB4/HddBpNkT8N9Vq2PNAL/jHR12TSrfdwNjogjLfQ
+	qjDPoPGuIPgI4Cf7Tr8Ne/9W0N+NQbLUf2X300Uh2KHT3DqL/9KNIXjIeoR8Q0XP3GVtninYvcD+y
+	9yLrpTJTUIOkE6pYO1e+sWXiXnWvkviB0QE3zOzwLPbE8EEUHHO5mTO+SI8qGarcWpbVX/P3hT/t8
+	5XpAKu3rIkMH5EVw0GDEcoA3YNt6kCaHAdMrxB1+3++skVCJxfUrnWTYrbmmtLbisWphWXYtNLLqb
+	Iv+8bOfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdyai-0000000BSMb-39eo;
-	Fri, 31 Jan 2025 21:30:20 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tdycA-0000000BSX9-1YlC;
+	Fri, 31 Jan 2025 21:31:50 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdyZP-0000000BSHr-2nx0
+	id 1tdyar-0000000BSO1-0IIR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jan 2025 21:29:00 +0000
+	Fri, 31 Jan 2025 21:30:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 47A9CA42514;
-	Fri, 31 Jan 2025 21:27:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C9D6C4CED1;
-	Fri, 31 Jan 2025 21:28:54 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id CF1EB5C5EA1;
+	Fri, 31 Jan 2025 21:29:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55473C4CED1;
+	Fri, 31 Jan 2025 21:30:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738358938;
-	bh=bAgGSlIq1qMHep+J1+stPqfYcb4rLu9zEiARLEBcPI8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XOgsxYEkOiqrwvTZWrUkRnaOoSOtUwJiA1eirRgKsEoLTpAYuIDUmGJRGRUEATGvk
-	 Z+JJXmhdVfTtTYFgImnTBAwDA7AbrZrkY1szH61KbUVzwGoLyr5wcdcw4Fa+vdFh/8
-	 P/xIbp4M4fYp1C+W/nMBST6vOXQAO1wt+8L6lSW/Dd61f10Z146ORHHPgMUAjvtcrG
-	 HdvxF9guK6WmTXDWuyl+qzDKHtuLlIgIGhAaLTUow+9SOOF0S1l1e8/HF8rFWt62MK
-	 OKgse1CN/SqUfE20SpUu7a9XIddZ+1lkNizl4GiqUjHBGMkDFcdWgPzm821hSRKCPr
-	 bjXYfx2vxJM8w==
-Message-ID: <3101a214-1498-4671-9062-89d2f9d8369b@kernel.org>
-Date: Fri, 31 Jan 2025 22:28:52 +0100
+	s=k20201202; t=1738359027;
+	bh=qDINTlPxQymDLbevwzzL1B3CUmaH8CMGQeY4Heeb/oM=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=uxJdV2W+D9G2ay6CYvGEg2AdWc5XN6Fa0KI5ftAPg+7sWDibXHRKqEl37IF8HB/T4
+	 aBl3ZlrIRhuHIBxAMbK3ZQuIzjjzb+/lIJnoNksUcE5+vInA/nWrxFJp+dCNGRKcxx
+	 QE2b5yk61Aey3628udrNt0nfSu+XZCwDLksckckazoHE+LN8tVSlHWFlOBWMZatstl
+	 LnkxxEwHh5IUfPjeLFavn/bDFFC5SmMxia/ypjhIRbTjn4rxZRV/mRuohBL/51unrU
+	 /AFifDdCmHOMq2tzGHzdtxKfVJ3oVUHeXvz3FoOaEd7UAMOLBVIcjGTmF2Kwopz/uW
+	 hIIBWzoAMU8xg==
+Message-ID: <582275fe-4c0d-46b8-8fb6-3f977b275da0@kernel.org>
+Date: Fri, 31 Jan 2025 22:30:21 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2] ARM: dts: socfpga: Add basic support for Terrasic's
  de10-nano
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
  "Rob Herring (Arm)" <robh@kernel.org>
 Cc: Andrew Lunn <andrew@lunn.ch>, Dinh Nguyen <dinguyen@kernel.org>,
@@ -56,7 +57,7 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Dinh Nguyen <dinguyen@kernel.org>,
 References: <20250130074553.92023-2-u.kleine-koenig@baylibre.com>
  <173828013131.1872475.6879199940703724951.robh@kernel.org>
  <qkruehkvdduotjzhut3w2fpbr364dtd2vztpewoy3h3j55bqxt@e5niklwtpuue>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <3101a214-1498-4671-9062-89d2f9d8369b@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -101,12 +102,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <qkruehkvdduotjzhut3w2fpbr364dtd2vztpewoy3h3j55bqxt@e5niklwtpuue>
+In-Reply-To: <3101a214-1498-4671-9062-89d2f9d8369b@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_132859_835954_65736FAA 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20250131_133029_198515_3C9C1046 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,27 +122,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31/01/2025 17:47, Uwe Kleine-König wrote:
->> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
->> are fixed by another series. Ultimately, it is up to the platform
->> maintainer whether these warnings are acceptable or not. No need to reply
->> unless the platform maintainer has comments.
+On 31/01/2025 22:28, Krzysztof Kozlowski wrote:
+> On 31/01/2025 17:47, Uwe Kleine-König wrote:
+>>> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+>>> are fixed by another series. Ultimately, it is up to the platform
+>>> maintainer whether these warnings are acceptable or not. No need to reply
+>>> unless the platform maintainer has comments.
+>>>
+>>> If you already ran DT checks and didn't see these error(s), then
+>>> make sure dt-schema is up to date:
+>>>
+>>>   pip3 install dtschema --upgrade
+>>>
+>>>
+>>> New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/intel/' for 20250130074553.92023-2-u.kleine-koenig@baylibre.com:
 >>
->> If you already ran DT checks and didn't see these error(s), then
->> make sure dt-schema is up to date:
+>> Maybe I can learn something here: Is there a command that only checks
+>> this single dtb file?
 >>
->>   pip3 install dtschema --upgrade
->>
->>
->> New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/intel/' for 20250130074553.92023-2-u.kleine-koenig@baylibre.com:
 > 
-> Maybe I can learn something here: Is there a command that only checks
-> this single dtb file?
-> 
+> You asked about this and I gave you the link to blog describing this twice.
 
-You asked about this and I gave you the link to blog describing this twice.
-
-See also `make help` for proper arch.
+Actually only once at v2. I thought I mentioned testing on v1, but
+apparently not.
 
 Best regards,
 Krzysztof
