@@ -4,81 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 155DCC02192
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 13:56:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1463AC0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 13:57:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/QZB+c4vz3gK2C8YI8nQ7dnMMdgQ34mpMKt5yfmxvEw=; b=4KC2L3GfoahTjdJDc34tBrTp3x
-	gJqwzPgrPDyuPZHbyc00d8GQWUBK7S+EBbVMTxgP0KOw97Fztbn5OGnunYFJuiv5yhVbTYPjCVOMH
-	Gc62/flchgBM6BkQ+uYzeyX9fDRhFYB7fF9oNeCJMrLP9gPCTQcMoX8DPEsf96osq1xtT89wMJxKv
-	FKjSoL+nQscYmNzDc3RZVB5iKSZfjtrGEh6DajOAl/h4fepGoAtLUHdvcbAhnQeWEajyxNNAbufxP
-	GasZWevXMNgpgZLsMzOpC1yTkDw6U/L7rRBome/cIn6cWQh9l12bcTNVwSHSVWE+zHbS6dfFtPK1n
-	FSfwe8Aw==;
+	bh=hzfjO6fF7HqD6Nc4cCx8HjywONvgc66OpvVTfVSfhic=; b=fL9g8y+vVGf5Z2ZhMyseTQOoqW
+	0cg6yG4McqUuCg7szh6MqQ/+GaRNF/KUo3c39FPOcPs1DS2sPcdPMikRCGVp2RQKxlyo2NnOmXxoJ
+	RXB3nQ4NsXHQUbvhLNDxE6B6f7aM++FEaVBirL6rZLi2ZEAtbR1HKg7+qRRqnUpGmVrL8u+btJXzE
+	nbvTqo4xD4saP4DhJ3TjTwAVE1lFnElHZdjQjMsHpDl7q8lxnqOC/9MX9ToJWHrHFTGn2lVoQNHMR
+	KEXD+rk+p6xl6hKQWQa/T0iNTd2CpFB2KBGn8JXeD5hWZV0kFOMQ7XpXci4HGAdxoABnmiuC3JRJS
+	Eg+ZXtDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdrUu-0000000AjEw-25bm;
-	Fri, 31 Jan 2025 13:55:52 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdrTJ-0000000Aiwa-3kpy
+	id 1tdrWC-0000000AjO9-2Zgf;
+	Fri, 31 Jan 2025 13:57:12 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tdrU7-0000000Aj9s-0RxO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jan 2025 13:54:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1738331653; x=1769867653;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=/QZB+c4vz3gK2C8YI8nQ7dnMMdgQ34mpMKt5yfmxvEw=;
-  b=lc9DJTESnNtURqjsct42KDi4tYhPiequ6tuQKtTEZ9EsZwMTqyX4IYZ6
-   Sp55VEbVF99MauUzgK6zBR7Kby/N62rr4eNr3TlKqkmWtzsshUX8faDFp
-   ABjPRuM2nCA9W3rmKoujapmuFsxtrHrIO4XOpDyCdTl8yoS+lHehrcK5J
-   B94NgRNu0CRDhd+kL10diT7EXPRA18MTyeBIaiVL4kBKW/SDg9oOW1BOE
-   8IbXJoZYbtHI3QXnX1vlY4WzvjiEXuDfylyU4//cWRqqcEyhs31sqNOBT
-   5sNH9+BDBkxr/muIYXNxJiWkdK8/cjCnoxx3uEfBPeNaMxTsdgCY0O6xe
-   A==;
-X-CSE-ConnectionGUID: uVW/17usSSK4EMO6sCV8Qw==
-X-CSE-MsgGUID: /Ot5scxoR66WHux+Z85ozw==
-X-IronPort-AV: E=Sophos;i="6.13,248,1732575600"; 
-   d="scan'208";a="41406968"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 31 Jan 2025 14:54:12 +0100
-X-CheckPoint: {679CD604-4-1CE016C0-E589DA3E}
-X-MAIL-CPID: 9363A84F764F3A6F88C9FCC0A2363E63_1
-X-Control-Analysis: str=0001.0A682F22.679CD604.0039,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2D7E616B67E;
-	Fri, 31 Jan 2025 14:54:07 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1738331647;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/QZB+c4vz3gK2C8YI8nQ7dnMMdgQ34mpMKt5yfmxvEw=;
-	b=ctYS/y5c7PF26SO1xRPJM4kzDAhkuSj+fTmkB7ftrnzZ311QeHVto2eZ1NqW3RYXDmp4M+
-	IMm5/6D+h6mgHHB6ZoedzbwqkTM2xIYH1OKxs+Z0Uhb1upA2tl2MoxqMyvYQNdzgXDFhi1
-	oWPj5N1VBqhoOCCv5ecCr338zQCB1QuIXIyDMFUxZHO+6V5NBDkYUpRJZSROsIRr1XfiT8
-	lMGYwnpcFCWNdFJFYt1zWmNSLFVOj4UEHC3rRdpTeQzT9+ymA4a8qHkiEnBcH4jduhvx+N
-	HwyWctti29LZcVcMOy39V6NDQqTPsuffK/PKq+isgzDtow27asHR85wu8QPBuA==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/4] nvmem: imx-ocotp: Support accessing controller for i.MX8M Nano
-Date: Fri, 31 Jan 2025 14:54:06 +0100
-Message-ID: <4961006.GXAFRqVoOG@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <Z5ur+NF9UlXJSWtL@lizhi-Precision-Tower-5810>
-References: <20250130130101.1040824-1-alexander.stein@ew.tq-group.com> <20250130130101.1040824-4-alexander.stein@ew.tq-group.com> <Z5ur+NF9UlXJSWtL@lizhi-Precision-Tower-5810>
+	Fri, 31 Jan 2025 13:55:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 08441497;
+	Fri, 31 Jan 2025 05:55:26 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CE98F3F63F;
+	Fri, 31 Jan 2025 05:54:59 -0800 (PST)
+Date: Fri, 31 Jan 2025 13:54:57 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: Emanuele Rocca <emanuele.rocca@arm.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [BUG] ARM64 regression: NULL pointer dereference in
+ arm_smccc_version_init+0x90/0x1ac
+Message-ID: <Z5zWMU4M_L5k6kII@J2N7QTR9R3>
+References: <Z5tuaxgDyFJPAvR0@J2N7QTR9R3>
+ <Z5uTCnhfKo5D-_bV@NH27D9T0LF>
+ <20250131124103.GA29766@willie-the-truck>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250131124103.GA29766@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_055414_233544_D9E5CCDA 
-X-CRM114-Status: GOOD (  38.12  )
+X-CRM114-CacheID: sfid-20250131_055503_235720_31291D39 
+X-CRM114-Status: GOOD (  35.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,253 +65,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Fri, Jan 31, 2025 at 12:41:04PM +0000, Will Deacon wrote:
+> On Thu, Jan 30, 2025 at 03:56:10PM +0100, Emanuele Rocca wrote:
+> > On 2025-01-30 12:19, Mark Rutland wrote:
+> > > For the benefit others, when we looked into this a few days ago it
+> > > appeared that a GPR was being clobbered across an SMCCC call, resulting
+> > > in a later crash (as that GPR should hold the ADRP'd base address of
+> > > 'smccc_version'). I didn't have the time to dig more into that (e.g.  to
+> > > figure out whether kernel/compiler/firmware was to blame).
+> > > 
+> > > Emanuele, could you please dump the result of:
+> > > 
+> > >   objdump --disassemble=arm_smccc_version_init vmlinux
+> > > 
+> > > ... for this kernel? That'd make it possible for others to
+> > > perform/verify the analysis I mentioned above.
+> > 
+> > Sure, here it is:
+> > https://people.debian.org/~ema/Z5OpGluX6oX5NLxh@NH27D9T0LF.objdump.txt
+> > 
+> > > If you can share any more details from the crash, that'd be helpful. The
+> > > GPR dump would be *enormously* helpful in this case, and even a photo of
+> > > the crash log might be useful.
+> > 
+> > pc : arm_smccc_version_init+0x90/0x1ac
+> > lr : psci_probe+0x1fc/0x2c0
+> > sp : ffffa3d8eea33ca0
+> > x29: ffffa3d8eea33ce0 x28: 0000000081000200 x27: ffffa3d8edd72a80
+> > x26: ffffa3d8edd728b0 x25: ffffa3d8eec66248 x24: ffffa3d8edc528d8
+> > x23: ffffa3d8eed7f4f8 x22: 0000000000000001 x21: ffffa3d8eea58410
+> > x20: ffffa3d8eed7f000 x19: 0000000000010001 x18: 0000000000000006
+> > x17: 0000000009f69730 x16: 00000008760968d0 x15: 0000000000000000
+> > x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
+> > x11: 00000000ffffefff x10: ffffa3d8eeac09c8 x9 : ffffa3d8eea687d8
+> > x8 : ffffa3d8eea33cb8 x7 : 0000000000000000 x6 : 0000000000000000 
+> > x5 : ffffa3d8eed7f000 x4 : ffffa3d8edeb0000 x3 : 0000000000000000
+> > x2 : 0000000000000000 x1 : 0000000000000001 x0 : 0000000000000000
+> > 
+> > Call trace:
+> >  arm_smccc_version_init+0x90/0x1ac
+> >  psci_0_2_init+0x20/0x2c
+> >  psci_1_0_init+0x1c/0x58
+> >  psci_dt_init+0x6c/0x98
+> >  setup_arch+0x400/0x5ec
+> >  start_kernel+0x90/0x788
+> >  __primary_switched+0xbc/0xc4
+> > Code: d29fffe1 eb01001f 1a9f97e0 f0ffd384 (b94264c2)
+> > 
+> > The above was transcribed by hand. I double-checked, but there may be
+> > mistakes.
+> > 
+> > Photo here: https://people.debian.org/~ema/Z5OpGluX6oX5NLxh@NH27D9T0LF.jpg
+> 
+> Crikey, you transcribed all that junk by _hand_?! Thanks for the effort,
+> but next time please don't waste your time! The screenshot is fine.
+> 
+> Anyway, it looks like x6 gets trashed across the SMC. I think that's fine
+> per the SMCCC spec:
+> 
+>   | Unused result and scratch registers can leak information after an
+>   | SMC or HVC call. An implementation can mitigate this risk by either
+>   | preserving the register state over the call, or returning a constant
+>   | value,such as zero, in each register.
 
-Am Donnerstag, 30. Januar 2025, 17:42:32 CET schrieb Frank Li:
-> On Thu, Jan 30, 2025 at 02:01:00PM +0100, Alexander Stein wrote:
-> > i.MX8M OCOTP supports a specific peripheral or function being fused
-> > which means disabled, so
-> >  - Introduce disable_fuse for a list of possible fused peripherals.
-> >  - Iterate all nodes to check accessing permission. If not
-> >    allowed to be accessed, detach the node
-> >
-> > Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> > ---
-> >  drivers/nvmem/Kconfig     |   3 ++
-> >  drivers/nvmem/imx-ocotp.c | 105 +++++++++++++++++++++++++++++++++++++-
-> >  2 files changed, 107 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/nvmem/Kconfig b/drivers/nvmem/Kconfig
-> > index 8671b7c974b93..ba5c928cab520 100644
-> > --- a/drivers/nvmem/Kconfig
-> > +++ b/drivers/nvmem/Kconfig
-> > @@ -84,6 +84,9 @@ config NVMEM_IMX_OCOTP
-> >  	  This driver can also be built as a module. If so, the module
-> >  	  will be called nvmem-imx-ocotp.
-> >
-> > +	  If built as modules, any other driver relying on this working
-> > +	  as access controller also needs to be a module as well.
-> > +
-> >  config NVMEM_IMX_OCOTP_ELE
-> >  	tristate "i.MX On-Chip OTP Controller support"
-> >  	depends on ARCH_MXC || COMPILE_TEST
-> > diff --git a/drivers/nvmem/imx-ocotp.c b/drivers/nvmem/imx-ocotp.c
-> > index c5086a16450ac..e3ea026a37d0d 100644
-> > --- a/drivers/nvmem/imx-ocotp.c
-> > +++ b/drivers/nvmem/imx-ocotp.c
-> > @@ -23,6 +23,7 @@
-> >  #include <linux/of.h>
-> >  #include <linux/platform_device.h>
-> >  #include <linux/slab.h>
-> > +#include <dt-bindings/nvmem/fsl,imx8mn-ocotp.h>
-> >
-> >  #define IMX_OCOTP_OFFSET_B0W0		0x400 /* Offset from base address of the
-> >  					       * OTP Bank0 Word0
-> > @@ -91,11 +92,20 @@ struct ocotp_ctrl_reg {
-> >  	u32 bm_rel_shadows;
-> >  };
-> >
-> > +#define OCOTP_MAX_NUM_GATE_WORDS 4
-> > +
-> > +struct disable_fuse {
-> > +	u32 fuse_addr;
-> > +	u32 mask;
-> > +};
-> > +
-> >  struct ocotp_params {
-> >  	unsigned int nregs;
-> >  	unsigned int bank_address_words;
-> >  	void (*set_timing)(struct ocotp_priv *priv);
-> >  	struct ocotp_ctrl_reg ctrl;
-> > +	u32 num_disables;
-> > +	struct disable_fuse *disables;
-> >  };
-> >
-> >  static int imx_ocotp_wait_for_busy(struct ocotp_priv *priv, u32 flags)
-> > @@ -552,11 +562,25 @@ static const struct ocotp_params imx8mm_params =
-=3D {
-> >  	.ctrl =3D IMX_OCOTP_BM_CTRL_DEFAULT,
-> >  };
-> >
-> > +struct disable_fuse imx8mn_disable_fuse[] =3D {
-> > +		[IMX8MN_OCOTP_M7_DISABLE]	=3D { .fuse_addr =3D 20, .mask =3D BIT(8) =
-},
-> > +		[IMX8MN_OCOTP_M7_MPU_DISABLE]	=3D { .fuse_addr =3D 20, .mask =3D BIT=
-(9) },
-> > +		[IMX8MN_OCOTP_M7_FPU_DISABLE]	=3D { .fuse_addr =3D 20, .mask =3D BIT=
-(10) },
-> > +		[IMX8MN_OCOTP_USB_OTG1_DISABLE]	=3D { .fuse_addr =3D 20, .mask =3D B=
-IT(11) },
-> > +		[IMX8MN_OCOTP_GPU3D_DISABLE]	=3D { .fuse_addr =3D 20, .mask =3D BIT(=
-24) },
-> > +		[IMX8MN_OCOTP_MIPI_DSI_DISABLE]	=3D { .fuse_addr =3D 20, .mask =3D B=
-IT(28) },
-> > +		[IMX8MN_OCOTP_ENET_DISABLE]	=3D { .fuse_addr =3D 20, .mask =3D BIT(2=
-9) },
-> > +		[IMX8MN_OCOTP_MIPI_CSI_DISABLE]	=3D { .fuse_addr =3D 20, .mask =3D B=
-IT(30) },
-> > +		[IMX8MN_OCOTP_ASRC_DISABLE]	=3D { .fuse_addr =3D 20, .mask =3D BIT(3=
-1) },
-> > +};
->=20
-> Can we direct define IMX8MN_OCOTP_M7_DISABLE as BIT(8), so avoid this
-> map data?
+I think that's misleading/stale and x6 specifically is not supposed to
+be clobbered. Shortly before that there's wording about preserving the
+registers, summary/history below:
 
-This would be possible for imx8mn, but not for imx8mp which uses
-multiples fuses for disables. This is an excerpt from imx8mp WIP
-> struct disable_fuse imx8mp_disable_fuse[] =3D {
-> 	[IMX8MP_OCOTP_CAN_DISABLE]		=3D { .fuse_addr =3D 16, .mask =3D BIT(28) },
-> 	[IMX8MP_OCOTP_CAN_FD_DISABLE]		=3D { .fuse_addr =3D 16, .mask =3D BIT(29=
-) },
-> 	[IMX8MP_OCOTP_VPU_VC8000E_DISABLE]	=3D { .fuse_addr =3D 16, .mask =3D BI=
-T(30) },
-> 	[IMX8MP_OCOTP_IMG_ISP1_DISABLE]		=3D { .fuse_addr =3D 20, .mask =3D BIT(=
-0) },
-> 	[IMX8MP_OCOTP_IMG_ISP2_DISABLE]		=3D { .fuse_addr =3D 20, .mask =3D BIT(=
-1) },
-> 	[IMX8MP_OCOTP_IMG_DEWARP_DISABLE]	=3D { .fuse_addr =3D 20, .mask =3D BIT=
-(2) },
-> };
+* SMCCC v1.0 allowed x0 to x17 to be clobbered over a call; all other
+  GPRs had to be preserved.
 
-Notice the fuse_addr of 16 and 20.
+  That was defined in ARM DEN 0028B, AKA "SMC CALLING CONVENTION":
+  https://developer.arm.com/documentation/den0028/b/?lang=en
 
-> > +
-> >  static const struct ocotp_params imx8mn_params =3D {
-> >  	.nregs =3D 256,
-> >  	.bank_address_words =3D 0,
-> >  	.set_timing =3D imx_ocotp_set_imx6_timing,
-> >  	.ctrl =3D IMX_OCOTP_BM_CTRL_DEFAULT,
-> > +	.num_disables =3D ARRAY_SIZE(imx8mn_disable_fuse),
-> > +	.disables =3D imx8mn_disable_fuse,
-> >  };
-> >
-> >  static const struct ocotp_params imx8mp_params =3D {
-> > @@ -589,6 +613,81 @@ static void imx_ocotp_fixup_dt_cell_info(struct nv=
-mem_device *nvmem,
-> >  	cell->read_post_process =3D imx_ocotp_cell_pp;
-> >  }
-> >
-> > +static int imx_ocotp_check_access(struct ocotp_priv *priv, u32 id)
-> > +{
-> > +	u32 addr, mask, ret, val;
-> > +
-> > +	if (id >=3D priv->params->num_disables) {
-> > +		dev_err(priv->dev, "Index %d too large\n", id);
-> > +		return -EACCES;
-> > +	}
-> > +
-> > +	addr =3D priv->params->disables[id].fuse_addr;
-> > +	mask =3D priv->params->disables[id].mask;
-> > +
-> > +	ret =3D imx_ocotp_read(priv, addr, &val, sizeof(val));
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	dev_dbg(priv->dev, "id:%d addr:%#x mask:0x%08x\n", id, addr, mask);
-> > +	/* true means disabled */
-> > +	if (val & mask)
-> > +		return -EACCES;
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static int imx_ocotp_grant_access(struct ocotp_priv *priv, struct devi=
-ce_node *parent)
-> > +{
-> > +	struct device *dev =3D priv->dev;
-> > +
-> > +	for_each_available_child_of_node_scoped(parent, child) {
-> > +		struct of_phandle_args args;
-> > +		u32 id, idx =3D 0;
-> > +
-> > +		while (!of_parse_phandle_with_args(child, "access-controllers",
-> > +						   "#access-controller-cells",
-> > +						   idx++, &args)) {
-> > +			of_node_put(args.np);
-> > +			if (args.np !=3D dev->of_node)
-> > +				continue;
-> > +
-> > +			/* Only support one cell */
-> > +			if (args.args_count !=3D 1) {
-> > +				dev_err(dev, "wrong args count\n");
-> > +				continue;
-> > +			}
-> > +
-> > +			id =3D args.args[0];
-> > +
-> > +			dev_dbg(dev, "Checking node: %pOF disable ID: %d\n", child, id);
-> > +
-> > +			if (imx_ocotp_check_access(priv, id)) {
-> > +				of_detach_node(child);
-> > +				dev_info(dev, "%pOF: disabled by fuse, device driver will not be p=
-robed\n",
-> > +					 child);
-> > +			}
-> > +		}
-> > +
-> > +		imx_ocotp_grant_access(priv, child);
-> > +	}
-> > +
-> > +	return 0;
-> > +}
->=20
-> Can we have one method to share above code logic to avoid copy-paste to
-> every ocotp driver? Anyway, we can improve that later.
+* SMCCC v1.1 mandated that x4 to x17 were preserved. This was critical
+  for some of the ARCH_WORKAROUND_* calls made from kernel/kvm entry
+  asm.
 
-I need to check with STM32 implementation. The imx-ocotp-ele might use the
-same function as here.
+  That was defined in ARM DEN 0070, AKA "Firmware interfaces for
+  mitigating cache speculation vulnerabilities":
 
-Best regards,
-Alexander
+  https://developer.arm.com/cache-speculation-vulnerability-firmware-specification
 
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
->=20
->=20
-> > +
-> > +static int imx_ocotp_access_control(struct ocotp_priv *priv)
-> > +{
-> > +	struct device_node *root __free(device_node) =3D of_find_node_by_path=
-("/");
-> > +
-> > +	if (!priv->params->disables)
-> > +		return 0;
-> > +
-> > +	if (WARN_ON(!root))
-> > +		return -EINVAL;
-> > +
-> > +	return imx_ocotp_grant_access(priv, root);
-> > +}
-> > +
-> >  static int imx_ocotp_probe(struct platform_device *pdev)
-> >  {
-> >  	struct device *dev =3D &pdev->dev;
-> > @@ -622,9 +721,13 @@ static int imx_ocotp_probe(struct platform_device =
-*pdev)
-> >  	imx_ocotp_clr_err_if_set(priv);
-> >  	clk_disable_unprepare(priv->clk);
-> >
-> > +	platform_set_drvdata(pdev, priv);
-> > +
-> >  	nvmem =3D devm_nvmem_register(dev, &imx_ocotp_nvmem_config);
-> > +	if (IS_ERR(nvmem))
-> > +		return PTR_ERR(nvmem);
-> >
-> > -	return PTR_ERR_OR_ZERO(nvmem);
-> > +	return imx_ocotp_access_control(priv);
-> >  }
-> >
-> >  static struct platform_driver imx_ocotp_driver =3D {
-> > --
-> > 2.34.1
-> >
->=20
+* SMCCC v1.2 relaxed things such that x4 to x17 must be preserved
+  *unless* they contained results of the function.
 
+  That was defined in ARM DEN 0028C, AKA "SMC CALLING CONVENTION":
+  https://developer.arm.com/documentation/den0028/c/?lang=en
 
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
+  .. which folded inthe requirements from ARM DEN 0070, with the
+  relaxation above, but also kept the stale not from ARM DEN 0028B.
 
+In Linux we depend on x4 to x17 not being clobbered *unless* they're
+being used to return a result.
 
+The current wording in the spec is messed up, and suggests that SMC32
+calls could clobber the upper 32 bits of x4 to x17, which is inccorect
+and would break the ARCH_WORKAROUND_* calls mentioend above (given those
+are SMC32). I'll go chase the SMCCC architects about that; it's clearly
+an unintentional error when reformatting the document.
+
+The *intent* is that x4 to x17 are preserved here. AFAICT, nothing in
+arm_smccc_version_init() returns a value in x4 to x17. If any of those
+are clobbered for an SMCCCv1.1 call, it's definitely a firmware bug.
+
+> so the question is whether or not the compiler should be relying on the
+> register being preserved. It looks to me like the arm_smccc_1_1_smc()
+> macro is actually broken in this regard: it constructs the input list
+> based on the number of arguments passed and doesn't take the above into
+> account at all.
+
+As above, I think that arm_smccc_1_1_smc() is correct; it *always*
+clobbers x0 to x3, and cannot be used for SMCCCv1.2+ calls that return
+values in x4 to x17.
+
+That doesn't change the fact that we'll need a workaround, though.
+
+> So I think we should change that so unused arguments are clobbered
+> instead. Mark -- what do you think?
+
+As above, if FW gets this wrong for calls made from entry asm, the
+results could be catastrophic, so it'd be good if we could detect this
+and log a FW BUG the first time we hit it.
+
+We'd have to assume that any of x0 to x17 could be clobbered, and at
+that point I suspect it'd be better to move this out-of-line for almost
+all callers, which we effectively already have in the form of the
+arm_smccc_1_2_{smc,hvc}() trampolines. We could bounce arm_smccc_1_1_*()
+calls through those.
+
+Mark.
 
