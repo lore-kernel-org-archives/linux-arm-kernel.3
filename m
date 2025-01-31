@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D8A6C0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 10:47:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16704C0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 10:58:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4gIkrqbUqrao24XhYkDPkw2tRa90AcxIk6IPMc8Ny9Q=; b=2fg7b/4a/FI6txk395VElZE08D
-	xkN0NM44jI/wmE0xo4mQEjW5rdaHDZsws3I4pBFOB0uaGirE0WsxPRv1XcUy2dQ3kWUO0IV51amFJ
-	hzOwvw2G/O4pcVCtAl/4PB4YqeAXmJDlyjxPkcm0RoxV6+Sgy49gPgMtWWde0bR85pHE6njCrVPzC
-	XUO2qMZrLfCehGfjPFotRm1cMkdOXX7v0+DC/QkX5IXJHXf6FXc+3PcbJYweKmUnDH3GLVsovVLZL
-	pLRSpCMM+qJifMYxxNsOyGmXXSFi7u5QAYkLC/W7Sm54VZUNrwgD7ibKwJUPMxkplVxuF410XUywO
-	V+hVkOcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nHvi+TUFwCMArANw34vqFR+vN/XpIRiOJfvOqlG7VxM=; b=kgET+8Xi1fNYlRkfAU2K0L56LW
+	fU9DZ5s32r8YCZP6fL2mv9aXizPN+3czZai+ejMfQKK6HHXuWUt5uOPhooBx1HSbg6W0RuXlvdX9K
+	msypDzcsbiNWjyxgAeuUacPhgpkcoRz6qzbJ24HBM+mnQUlu8AAE5hGxjw84lhH3TNe3ae0uv6Xat
+	5gVRqLAKTrQAtgPNTW74PJF6UgtqDmqajmg7V+Nf5563GbhO1CTQfQ7+CLImZQtF9zxHGuls2PWqA
+	5BoABQbe7mD0typ1dAmU6GJ6IlqgMbLefTSFtOImgC5BTHCs+h6cX9MNA4QzaDdHm83tgQv7GkQqs
+	EdaDJi/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdoYI-0000000AQUg-3NOp;
-	Fri, 31 Jan 2025 10:47:10 +0000
-Received: from smtp-42ad.mail.infomaniak.ch ([2001:1600:7:10::42ad])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdoRu-0000000APZi-2Hug;
-	Fri, 31 Jan 2025 10:40:36 +0000
-Received: from smtp-4-0000.mail.infomaniak.ch (unknown [IPv6:2001:1600:7:10:40ca:feff:fe05:0])
-	by smtp-4-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4YksqN1fDYzScn;
-	Fri, 31 Jan 2025 11:40:32 +0100 (CET)
-Received: from unknown by smtp-4-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4YksqM3HSxz5Dc;
-	Fri, 31 Jan 2025 11:40:31 +0100 (CET)
-From: Quentin Schulz <foss+kernel@0leil.net>
-Date: Fri, 31 Jan 2025 11:40:18 +0100
-Subject: [PATCH v4 4/4] arm64: dts: rockchip: minimal support for Pre-ICT
- tester adapter for RK3588 Jaguar
+	id 1tdojB-0000000ARzP-1gcx;
+	Fri, 31 Jan 2025 10:58:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tdohq-0000000ARn9-2aWr
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 31 Jan 2025 10:57:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8EEE1497;
+	Fri, 31 Jan 2025 02:57:26 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B79BC3F63F;
+	Fri, 31 Jan 2025 02:56:58 -0800 (PST)
+Date: Fri, 31 Jan 2025 10:56:56 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Mark Brown <broonie@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>, James Morse <james.morse@arm.com>,
+	stable@vger.kernel.org, Moritz Fischer <moritzf@google.com>,
+	Pedro Martelletto <martelletto@google.com>,
+	Jon Masters <jonmasters@google.com>
+Subject: Re: [PATCH] arm64: Move storage of idreg overrides into mmuoff
+ section
+Message-ID: <Z5yseC1kCyTcwlMy@J2N7QTR9R3>
+References: <20250130204614.64621-1-oliver.upton@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250131-pre-ict-jaguar-v4-4-c971e2852e8d@cherry.de>
-References: <20250131-pre-ict-jaguar-v4-0-c971e2852e8d@cherry.de>
-In-Reply-To: <20250131-pre-ict-jaguar-v4-0-c971e2852e8d@cherry.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Jagan Teki <jagan@edgeble.ai>, Niklas Cassel <cassel@kernel.org>, 
- Michael Riesch <michael.riesch@wolfvision.net>
-Cc: Jonas Karlman <jonas@kwiboo.se>, Dragan Simic <dsimic@manjaro.org>, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Quentin Schulz <quentin.schulz@cherry.de>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Infomaniak-Routing: alpha
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250130204614.64621-1-oliver.upton@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_024034_889955_0E3F0BF8 
-X-CRM114-Status: GOOD (  19.72  )
+X-CRM114-CacheID: sfid-20250131_025702_742194_21BC8B45 
+X-CRM114-Status: GOOD (  23.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,222 +69,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Quentin Schulz <quentin.schulz@cherry.de>
+Hi Oliver,
 
-The Pre-ICT tester adapter connects to RK3588 Jaguar SBC through its
-proprietary Mezzanine connector.
+On Thu, Jan 30, 2025 at 12:46:15PM -0800, Oliver Upton wrote:
+> There are a few places where the idreg overrides are read w/ the MMU
+> off, for example the VHE and hVHE checks in __finalise_el2. And while
+> the infrastructure gets this _mostly_ right (i.e. does the appropriate
+> cache maintenance), the placement of the data itself is problematic and
+> could share a cache line with something else.
+> 
+> Depending on how unforgiving an implementation's handling of mismatched
+> attributes is, this could lead to data corruption. In one observed case,
+> the system_cpucaps shared a line with arm64_sw_feature_override and the
+> cpucaps got nuked after entering the hyp stub...
 
-It exposes a PCIe Gen2 1x M.2 connector and two proprietary camera
-connectors. Support for the latter will come once the rest of the camera
-stack is supported.
+This doesn't sound right. Non-cacheable/Device reads should not lead to
+corruption of a cached copy regardless of whether that cached copy is
+clean or dirty.
 
-Additionally, the adapter loops some GPIOs together as well as route
-some GPIOs to power rails.
+The corruption suggests that either we're performing a *write* with
+mismatched attributes (in which case the use of .mmuoff.data.read below
+isn't quite right), or we have a plan invalidate somewhere without a
+clean (and e.g. something else might need to be moved into
+.mmuoff.data.write).
 
-This adapter is used for manufacturing RK3588 Jaguar to be able to test
-the Mezzanine connector is properly soldered.
+Seconding Ard's point, I think we need to understand this scenario
+better.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
----
- arch/arm64/boot/dts/rockchip/Makefile              |   4 +
- .../dts/rockchip/rk3588-jaguar-pre-ict-tester.dtso | 171 +++++++++++++++++++++
- 2 files changed, 175 insertions(+)
+To be clear, I think moving all the overrides into .mmuoff.data.read
+makes sense, but it doesn't explain the problem above, and it seems like
+there must be a latent issue (which this might only mask rather than
+solve).
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index ebcd16ce976ebe56a98d9685228980cd1f2f180a..a09b9c0060f8ecde582ad39f0f3e27047a31ec9c 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -185,6 +185,10 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-edgeble-neu6a-wifi.dtb
- rk3588-edgeble-neu6a-wifi-dtbs := rk3588-edgeble-neu6a-io.dtb \
- 	rk3588-edgeble-neu6a-wifi.dtbo
- 
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-jaguar-pre-ict-tester.dtb
-+rk3588-jaguar-pre-ict-tester-dtbs := rk3588-jaguar.dtb \
-+	rk3588-jaguar-pre-ict-tester.dtbo
-+
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-ep.dtb
- rk3588-rock-5b-pcie-ep-dtbs := rk3588-rock-5b.dtb \
- 	rk3588-rock-5b-pcie-ep.dtbo
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-jaguar-pre-ict-tester.dtso b/arch/arm64/boot/dts/rockchip/rk3588-jaguar-pre-ict-tester.dtso
-new file mode 100644
-index 0000000000000000000000000000000000000000..9d44dfe2f30d793accb994a230c58038f0c3daad
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-jaguar-pre-ict-tester.dtso
-@@ -0,0 +1,171 @@
-+// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
-+/*
-+ * Copyright (c) 2024 Cherry Embedded Solutions GmbH
-+ *
-+ * Device Tree Overlay for the Pre-ICT tester adapter for the Mezzanine
-+ * connector on RK3588 Jaguar.
-+ *
-+ * This adapter has a PCIe Gen2 x1 M.2 M-Key connector and two proprietary
-+ * camera connectors (each their own I2C bus, clock, reset and PWM lines as well
-+ * as 2-lane CSI).
-+ *
-+ * This adapter routes some GPIOs to power rails and loops together some other
-+ * GPIOs.
-+ *
-+ * This adapter is used during manufacturing for validating proper soldering of
-+ * the mezzanine connector.
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/pinctrl/rockchip.h>
-+
-+&{/} {
-+	pre_ict_tester_vcc_1v2: regulator-pre-ict-tester-vcc-1v2 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "pre_ict_tester_vcc_1v2";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <1200000>;
-+		regulator-max-microvolt = <1200000>;
-+		vin-supply = <&vcc_3v3_s3>;
-+	};
-+
-+	pre_ict_tester_vcc_2v8: regulator-pre-ict-tester-vcc-2v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "pre_ict_tester_vcc_2v8";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <2800000>;
-+		regulator-max-microvolt = <2800000>;
-+		vin-supply = <&vcc_3v3_s3>;
-+	};
-+};
-+
-+&combphy0_ps {
-+	status = "okay";
-+};
-+
-+&gpio3 {
-+	pinctrl-0 = <&pre_ict_pwr2gpio>;
-+	pinctrl-names = "default";
-+};
-+
-+&pcie2x1l2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pcie2x1l2_perstn_m0>;
-+	reset-gpios = <&gpio3 RK_PD1 GPIO_ACTIVE_HIGH>; /* PCIE20X1_2_PERSTN_M0 */
-+	vpcie3v3-supply = <&vcc_3v3_s3>;
-+	status = "okay";
-+};
-+
-+&pinctrl {
-+	pcie2x1l2 {
-+		pcie2x1l2_perstn_m0: pcie2x1l2-perstn-m0 {
-+			rockchip,pins = <3 RK_PD1 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	pre-ict-tester {
-+		pre_ict_pwr2gpio: pre-ict-pwr2gpio-pins {
-+			rockchip,pins =
-+			/*
-+			 * GPIO3_A3 requires two power rails to be properly
-+			 * routed to the mezzanine connector to report a proper
-+			 * value: VCC_1V8_S0_1 and VCC_IN_2. It may report an
-+			 * incorrect value if VCC_1V8_S0_1 isn't properly routed,
-+			 * but GPIO3_C6 would catch this HW soldering issue.
-+			 * If VCC_IN_2 is properly routed, GPIO3_A3 should be
-+			 * LOW. The signal shall not read HIGH in the event
-+			 * GPIO3_A3 isn't properly routed due to soldering
-+			 * issue. Therefore, let's enforce a pull-up (which is
-+			 * the SoC default for this pin).
-+			 */
-+				<3 RK_PA3 RK_FUNC_GPIO &pcfg_pull_up>,
-+			/*
-+			 * GPIO3_A4 is directly routed to VCC_1V8_S0_2 power
-+			 * rail. It should be HIGH if all is properly soldered.
-+			 * To guarantee that, a pull-down is enforced (which is
-+			 * the SoC default for this pin) so that LOW is read if
-+			 * the loop doesn't exist on HW (soldering issue on
-+			 * either signals).
-+			 */
-+				<3 RK_PA4 RK_FUNC_GPIO &pcfg_pull_down>,
-+			/*
-+			 * GPIO3_B2 requires two power rails to be properly
-+			 * routed to the mezzanine connector to report a proper
-+			 * value: VCC_1V8_S0_1 and VCC_IN_1. It may report an
-+			 * incorrect value if VCC_1V8_S0_1 isn't properly routed,
-+			 * but GPIO3_C6 would catch this HW soldering issue.
-+			 * If VCC_IN_1 is properly routed, GPIO3_B2 should be
-+			 * LOW. This is an issue if GPIO3_B2 isn't properly
-+			 * routed due to soldering issue, because GPIO3_B2
-+			 * default bias is pull-down therefore being LOW. So
-+			 * the worst case scenario and the pass scenario expect
-+			 * the same value. Make GPIO3_B2 a pull-up so that a
-+			 * soldering issue on GPIO3_B2 reports HIGH but proper
-+			 * soldering reports LOW.
-+			 */
-+				<3 RK_PB2 RK_FUNC_GPIO &pcfg_pull_up>,
-+			/*
-+			 * GPIO3_C6 is directly routed to VCC_1V8_S0_1 power
-+			 * rail. It should be HIGH if all is properly soldered.
-+			 * This is an issue if GPIO3_C6 or VCC_1V8_S0_1 isn't
-+			 * properly routed due to soldering issue, because
-+			 * GPIO3_C6 default bias is pull-up therefore being HIGH
-+			 * in all cases:
-+			 *  - GPIO3_C6 is floating (so HIGH) if GPIO3_C6 is not
-+			 *    routed properly,
-+			 *  - GPIO3_C6 is floating (so HIGH) if VCC_1V8_S0_1 is
-+			 *    not routed properly,
-+			 *  - GPIO3_C6 is HIGH if everything is proper,
-+			 * Make GPIO3_C6 a pull-down so that a soldering issue
-+			 * on GPIO3_C6 or VCC_1V8_S0_1 reports LOW but proper
-+			 * soldering reports HIGH.
-+			 */
-+				<3 RK_PC6 RK_FUNC_GPIO &pcfg_pull_down>,
-+			/*
-+			 * GPIO3_D2 is routed to VCC_5V0_1 power rail through a
-+			 * voltage divider on the adapter.
-+			 * It should be HIGH if all is properly soldered.
-+			 * To guarantee that, a pull-down is enforced (which is
-+			 * the SoC default for this pin) so that LOW is read if
-+			 * the loop doesn't exist on HW (soldering issue on
-+			 * either signals).
-+			 */
-+				<3 RK_PD2 RK_FUNC_GPIO &pcfg_pull_down>,
-+			/*
-+			 * GPIO3_D3 is routed to VCC_5V0_2 power rail through a
-+			 * voltage divider on the adapter.
-+			 * It should be HIGH if all is properly soldered.
-+			 * To guarantee that, a pull-down is enforced (which is
-+			 * the SoC default for this pin) so that LOW is read if
-+			 * the loop doesn't exist on HW (soldering issue on
-+			 * either signals).
-+			 */
-+				<3 RK_PD3 RK_FUNC_GPIO &pcfg_pull_down>,
-+			/*
-+			 * GPIO3_D4 is routed to VCC_3V3_S3_1 power rail through
-+			 * a voltage divider on the adapter.
-+			 * It should be HIGH if all is properly soldered.
-+			 * To guarantee that, a pull-down is enforced (which is
-+			 * the SoC default for this pin) so that LOW is read if
-+			 * the loop doesn't exist on HW (soldering issue on
-+			 * either signals).
-+			 */
-+				<3 RK_PD4 RK_FUNC_GPIO &pcfg_pull_down>,
-+			/*
-+			 * GPIO3_D5 is routed to VCC_3V3_S3_2 power rail through
-+			 * a voltage divider on the adapter.
-+			 * It should be HIGH if all is properly soldered.
-+			 * To guarantee that, a pull-down is enforced (which is
-+			 * the SoC default for this pin) so that LOW is read if
-+			 * the loop doesn't exist on HW (soldering issue on
-+			 * either signals).
-+			 */
-+				<3 RK_PD5 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+	};
-+};
+Mark.
 
--- 
-2.48.1
-
+> Even though only a few overrides are read without the MMU on, just throw
+> the whole lot into the mmuoff section and be done with it.
+> 
+> Cc: stable@vger.kernel.org # v5.15+
+> Tested-by: Moritz Fischer <moritzf@google.com>
+> Tested-by: Pedro Martelletto <martelletto@google.com>
+> Reported-by: Jon Masters <jonmasters@google.com>
+> Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+> ---
+>  arch/arm64/kernel/cpufeature.c | 25 ++++++++++++++-----------
+>  1 file changed, 14 insertions(+), 11 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index d41128e37701..92506d9f90db 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -755,17 +755,20 @@ static const struct arm64_ftr_bits ftr_raz[] = {
+>  #define ARM64_FTR_REG(id, table)		\
+>  	__ARM64_FTR_REG_OVERRIDE(#id, id, table, &no_override)
+>  
+> -struct arm64_ftr_override id_aa64mmfr0_override;
+> -struct arm64_ftr_override id_aa64mmfr1_override;
+> -struct arm64_ftr_override id_aa64mmfr2_override;
+> -struct arm64_ftr_override id_aa64pfr0_override;
+> -struct arm64_ftr_override id_aa64pfr1_override;
+> -struct arm64_ftr_override id_aa64zfr0_override;
+> -struct arm64_ftr_override id_aa64smfr0_override;
+> -struct arm64_ftr_override id_aa64isar1_override;
+> -struct arm64_ftr_override id_aa64isar2_override;
+> -
+> -struct arm64_ftr_override arm64_sw_feature_override;
+> +#define DEFINE_FTR_OVERRIDE(name)					\
+> +	struct arm64_ftr_override __section(".mmuoff.data.read") name
+> +
+> +DEFINE_FTR_OVERRIDE(id_aa64mmfr0_override);
+> +DEFINE_FTR_OVERRIDE(id_aa64mmfr1_override);
+> +DEFINE_FTR_OVERRIDE(id_aa64mmfr2_override);
+> +DEFINE_FTR_OVERRIDE(id_aa64pfr0_override);
+> +DEFINE_FTR_OVERRIDE(id_aa64pfr1_override);
+> +DEFINE_FTR_OVERRIDE(id_aa64zfr0_override);
+> +DEFINE_FTR_OVERRIDE(id_aa64smfr0_override);
+> +DEFINE_FTR_OVERRIDE(id_aa64isar1_override);
+> +DEFINE_FTR_OVERRIDE(id_aa64isar2_override);
+> +
+> +DEFINE_FTR_OVERRIDE(arm64_sw_feature_override);
+>  
+>  static const struct __ftr_reg_entry {
+>  	u32			sys_id;
+> 
+> base-commit: 1dd3393696efba1598aa7692939bba99d0cffae3
+> -- 
+> 2.39.5
+> 
+> 
 
