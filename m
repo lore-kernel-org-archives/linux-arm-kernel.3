@@ -4,66 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C298C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 15:04:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42AE8C02190
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 15:27:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kPvMYgrTTXfl/4a/sMQAc/M5TAnYMP1h9gbwf8tJM9E=; b=23eaYOOwfwRKGQvcb93Cvayeqp
-	/fhFG8z/OUs2Otcvx4qduODT1Q6Bo68LonmSL3XTdBPPSSKd4kHfu3gssJS/vCFKtgceH/1HFeZoI
-	dZb+WkIQcy94U1iEoermIK/aDrETh/5Cvcz599p5ZtlKoozEspUrKfXOkRVa9aAOJYYtpPsVHl+yW
-	z//1+QpRDJvruxF7mRdMeZgmyxMij3ZdQEDXb/NvzrRplH6aLSDWiY8OO0cCWQ023o57kW5Y/k98S
-	nL5iu/DyU/EDhn2KXZMY18B5ZJor8ILSuvn6VT4UNPblD4IAVwrL0lFqRIZnd3a+ZvCfIfz1Yf7r6
-	0TjG27+w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wjwdPm5ghRDu1jCn8y/2kbefPR1QWMjg6tbUZTNleQU=; b=4BTfukHi+sIiLnncVKmQLwC3xN
+	IjYzjKm8HoFB6HLQNd6fGZDCFlyaFvBALZI3l92mbYfn9FhdDhQjUyTDLq1qVdFdHqcJhTiU2ycxd
+	gxh7pRZUv+uRSvOm4N/KIuX/YwAxGL0RJIKu6xw36BnMn0Cy06bqPQ+8oaZF8L7of4ESrXrZ6gIB4
+	M7XktapkX7Rp6Q0nBqpCZQQC/7ZFFOLAvBHvFfF82mq8RA0jYOWnaXxOF5HK0MHIgAD5FFiNQsMEw
+	slw07AV2zGE87+2WMXatTYceTH3hwYPp465Ge3hkwBiI5CXuAmHdvkRqjXz0pQGEALeXDCrdd+aB2
+	NOaFCGSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdsZT-0000000Ao7l-49Xv;
-	Fri, 31 Jan 2025 15:04:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdsY9-0000000AntI-208i
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jan 2025 15:03:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0E983497;
-	Fri, 31 Jan 2025 07:03:42 -0800 (PST)
-Received: from [10.1.32.52] (e122027.cambridge.arm.com [10.1.32.52])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 996973F694;
-	Fri, 31 Jan 2025 07:03:13 -0800 (PST)
-Message-ID: <d6265f8e-51bc-4556-9ecb-bfb73f86260d@arm.com>
-Date: Fri, 31 Jan 2025 15:03:11 +0000
+	id 1tdsvK-0000000AqDo-284O;
+	Fri, 31 Jan 2025 15:27:14 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tdsu1-0000000Apxn-0V81;
+	Fri, 31 Jan 2025 15:25:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1738337150;
+	bh=Ht4nh+ceSywYcLNTQL84iEYXYJ0KQEw+LSoMn7rFgDk=;
+	h=From:To:Cc:Subject:Date:From;
+	b=LZ3GUwoWr3kPW2fA3CTP18cETdwgHVjVbQ3dl65LVWAiiaKPcprqRAcWHvYMgUM9v
+	 D0b7w1Ky4cnhIP9ez8d4aD33p7l+4xRwXcV6GyJCljc0y+yL64QzGmLT9k2uck/wRO
+	 ddAbV2kRvsUWxy3Zpztpl+I24kgqHQvqbWPsAnIWL3cbPFVIN/QNp+O7MGv7C3j1i+
+	 gYw5N/Az0Iki5+r0PTy4ndjLrynji+Qj/eBawF3KNMdG91WB8d+f8TBesIoH+z8B0h
+	 GGGIvNCPOEcvoQNnrFtbqkmmNo/Aun7oCh70U35BntBcfwOBEsrBlS7OaaNA38kYAT
+	 5jeoyUej1biwA==
+Received: from trenzalore.hitronhub.home (unknown [23.233.251.139])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: detlev)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3402917E0E99;
+	Fri, 31 Jan 2025 16:25:46 +0100 (CET)
+From: Detlev Casanova <detlev.casanova@collabora.com>
+To: linux-kernel@vger.kernel.org
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Alexey Charkov <alchark@gmail.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Jianfeng Liu <liujianfeng1994@gmail.com>,
+	Dragan Simic <dsimic@manjaro.org>,
+	FUKAUMI Naoki <naoki@radxa.com>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Johan Jonker <jbx6244@gmail.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	Sugar Zhang <sugar.zhang@rock-chips.com>,
+	Algea Cao <algea.cao@rock-chips.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	dri-devel@lists.freedesktop.org,
+	kernel@collabora.com
+Subject: [PATCH v4 0/2] Add HDMI audio on the Radxa ROCK 5B
+Date: Fri, 31 Jan 2025 10:23:20 -0500
+Message-ID: <20250131152438.2891507-1-detlev.casanova@collabora.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v4 3/3] net: stmmac: Specify hardware capability value
- when FIFO size isn't specified
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jose Abreu <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Russell King <linux@armlinux.org.uk>, Yanteng Si <si.yanteng@linux.dev>,
- Furong Xu <0x1207@gmail.com>, Joao Pinto <Joao.Pinto@synopsys.com>,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250127013820.2941044-1-hayashi.kunihiko@socionext.com>
- <20250127013820.2941044-4-hayashi.kunihiko@socionext.com>
- <07af1102-0fa7-45ad-bcbc-aef0295ceb63@arm.com>
- <fc08926d-b9af-428f-8811-4bfe08acc5b7@lunn.ch>
- <f343c126-fed9-4209-a18d-61a4e604db2f@arm.com>
- <a4e31542-3534-4856-a90f-e47960ed0907@lunn.ch>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <a4e31542-3534-4856-a90f-e47960ed0907@lunn.ch>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_070317_567479_70227446 
-X-CRM114-Status: GOOD (  12.92  )
+X-CRM114-CacheID: sfid-20250131_072553_337595_DF0BAA1F 
+X-CRM114-Status: GOOD (  15.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,32 +100,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31/01/2025 14:47, Andrew Lunn wrote:
->>> I'm guessing, but in your setup, i assume the value is never written
->>> to a register, hence 0 is O.K. e.g. dwmac1000_dma_operation_mode_rx(),
->>> the fifosz value is used to determine if flow control can be used, but
->>> is otherwise ignored.
->>
->> I haven't traced the code, but that fits my assumptions too.
-> 
-> I could probably figure it out using code review, but do you know
-> which set of DMA operations your hardware uses? A quick look at
-> dwmac-rk.c i see:
-> 
->         /* If the stmmac is not already selected as gmac4,
->          * then make sure we fallback to gmac.
->          */
->         if (!plat_dat->has_gmac4)
->                 plat_dat->has_gmac = true;
+To support HDMI audio on the rk3588 based devices, the generic HDMI
+Codec framework is used in the dw-hdmi-qp DRM bridge driver.
 
-has_gmac4 is false on this board, so has_gmac will be set to true here.
+The implementation is mainly based on the downstream driver, ported to the
+generic HDMI Codec framework [1] recently merged in the master branch.
+The parameters computation has been kept as is and the data stored in the
+dw_hdmi_qp struct as been cleaned up.
 
-The DT compatible is rockchip,rk3288-gmac
+The table for the N values has been edited to reflect N recommended values
+as well as CTS recommended values.
 
-Steve
+The downstream kernel also implements a machine driver for HDMI audio but
+it is doing exactly what the simple-audio-card driver does, so use that
+instead in the ROCK 5B device tree.
 
-> Which suggests there are two variants of the RockChip MAC.
-> 
-> 	Andrew
+Based on Linus' master branch.
+
+[1]: https://lore.kernel.org/all/20241224-drm-bridge-hdmi-connector-v10-0-dc89577cd438@linaro.org/
+
+Changes since v3:
+ - Renamed function to start with dw_hdmi_qp
+
+Changes since v2:
+ - Also clear the audio infoframe
+ - Write AUDI_CONTENTS0 to its default value in case it gets overwritten.
+ - Store tmds_char_rate in the dw_hdmi_qp struct in atomic_enable
+ - Clear tmds_char_rate in atomic_disable and only write registers when
+   tmds_char_rate is not 0.
+ - Do not use connector_state duplicates
+
+Changes since v1:
+ - Remove useless audio_mutex (was used downstream for multiple drivers access
+   to audio functions)
+ - Let hdmi_codec build and setup audio infoframes
+ - Only access audio registers when connector is connected
+ - Rebased on master branch
+
+Detlev Casanova (1):
+  arm64: dts: rockchip: Add HDMI0 audio output on rock-5b
+
+Sugar Zhang (1):
+  drm/bridge: synopsys: Add audio support for dw-hdmi-qp
+
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |   1 +
+ .../boot/dts/rockchip/rk3588-rock-5b.dts      |  19 +
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c  | 497 ++++++++++++++++++
+ 3 files changed, 517 insertions(+)
+
+-- 
+2.48.1
 
 
