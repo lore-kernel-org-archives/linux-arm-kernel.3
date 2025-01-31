@@ -4,90 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33A7EC0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 15:30:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C57BC0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 15:31:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i2Y/9UmU45Bup1HNnXdNxQwZBKPKPL9pzS8Xa9e5J6g=; b=eJdPqlju3k47otAyrof6cDpO4j
-	5aMhvRODRtgvtp98agPWc1Hfp8Gt6TGAWZ3ea/3sopXsdkulveiOpnMwz7E6v0FFDaPn93DGJkY7u
-	Fr/9juMhIHeBLDqWTPpQJ1/Mz+bFFx7aTuRwUYLsKGQ8W2rPLyPbXo+KuyP0n94GMjldZQ9BoxpcD
-	lWkjtt6ZmtlcahxFyAkHfT1issYvJahGYIOvXe7cFff5Ol9nBxQuEVtuTaqdgl5JFbU6Ub5i7plO5
-	JZY1Tf9o1TtG7+jomkp//SW2JXhBWVe5aUEZlJ3gjPlxbCFETaQL9X+3DT1JR+UcXubLuKp38eecB
-	m3PpBMRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N1KV8cAYAeUsEmP5FSI2GVwcvfBNoyMVKI/OP/TsMh8=; b=XAeEkZv95kz2H9c7T7tfkPekyJ
+	ejlEQp80Tj1Q4Fr3mj10ySpktoXqxCNZQEsAAVJokFKCd5Rg35pCtJD9MDV9+KXvPAK+nrpsTi5/I
+	/r/RzS4vYd1FEThE3OjpI6HjIgM8m129nuqcb2S5q2oPBkTm5Ns6RIhkUyewqfi93+5LmIg3c0/1Y
+	+rkmHHC63wVwPK4waAuqv7swnwbVGeRa2LfewkW5MKf/08lYCRjzUkCqNwoYBJCWdXWuV3ZUeKTVA
+	PMLYYpgscIIvAr9beZmxMAmbR4Nxeh7PEpsk+24zHa7HwTzJ+vMRN++zI/f+wqdWzgZ54NMjuMOyT
+	CCqXUFig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdsxt-0000000AqjM-3hpY;
-	Fri, 31 Jan 2025 15:29:53 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tdszb-0000000AqwQ-3ivB;
+	Fri, 31 Jan 2025 15:31:39 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdsu8-0000000ApzX-3uRZ;
-	Fri, 31 Jan 2025 15:26:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1738337159;
-	bh=jgBL2SB/ocuHszVnx0iYyXxLZskVjZaci4SLkHx3hxs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=iMJ4FzvJZG5vIGe3vxqjf3l0foEdIcarr7iKJl/CrnkMf4CowcjTRMwDNIGXBIHkb
-	 VdMPzbcKfKSyz9cUxm+5L3/nBiLV4Xn/a5isVKS6tXsGkkQQ5ngAkUR4Gf1iak9y0T
-	 hDZzFNr6eWBM7/W6s5yv1sbo2iaclOtJmHE1xfnnTjLd+SvQgMGYXZZLb7WDSm7RcB
-	 +8jkuMMPJL056AWrfwyhKOaaJYzd8wAGHv350ZfZTiCcaEUOX948fK6PbIkV0v73ND
-	 dlsmJZgC4QQcND/GER6oLIk0sLDD7qAoOar+aYGXHrzMu3UjR3+abK9HhcYTRvshp6
-	 UMH7pNMnEiJRQ==
-Received: from trenzalore.hitronhub.home (unknown [23.233.251.139])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 09E9917E1067;
-	Fri, 31 Jan 2025 16:25:54 +0100 (CET)
-From: Detlev Casanova <detlev.casanova@collabora.com>
-To: linux-kernel@vger.kernel.org
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Alexey Charkov <alchark@gmail.com>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Jianfeng Liu <liujianfeng1994@gmail.com>,
-	Dragan Simic <dsimic@manjaro.org>,
-	FUKAUMI Naoki <naoki@radxa.com>,
-	Detlev Casanova <detlev.casanova@collabora.com>,
-	Johan Jonker <jbx6244@gmail.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Sugar Zhang <sugar.zhang@rock-chips.com>,
-	Algea Cao <algea.cao@rock-chips.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	dri-devel@lists.freedesktop.org,
-	kernel@collabora.com
-Subject: [PATCH v4 2/2] arm64: dts: rockchip: Add HDMI0 audio output on rock-5b
-Date: Fri, 31 Jan 2025 10:23:22 -0500
-Message-ID: <20250131152438.2891507-3-detlev.casanova@collabora.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250131152438.2891507-1-detlev.casanova@collabora.com>
-References: <20250131152438.2891507-1-detlev.casanova@collabora.com>
+	id 1tdsyI-0000000AqoL-0ojm
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 31 Jan 2025 15:30:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=N1KV8cAYAeUsEmP5FSI2GVwcvfBNoyMVKI/OP/TsMh8=; b=TY4DQdnn8BJ2u6ngBxO25+KLaf
+	4ykBv2v07Rolai551D/VQOGqrl0WPBg22TEkQkLdU2Sq+v2SRcl4lw6gy7GmKkHb6m+zZ38Acm0xr
+	MgipqQvRFSlPvkH9ArY3g43N1Tn32o2gIS0mScTeVUg7WTI+8cqUGfJB7Ncq0gN3RReE=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tdsxz-009j7y-Au; Fri, 31 Jan 2025 16:29:59 +0100
+Date: Fri, 31 Jan 2025 16:29:59 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Steven Price <steven.price@arm.com>
+Cc: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Yanteng Si <si.yanteng@linux.dev>, Furong Xu <0x1207@gmail.com>,
+	Joao Pinto <Joao.Pinto@synopsys.com>, netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v4 3/3] net: stmmac: Specify hardware capability
+ value when FIFO size isn't specified
+Message-ID: <2ed9e7c7-e760-409e-a431-823bc3f21cb7@lunn.ch>
+References: <20250127013820.2941044-1-hayashi.kunihiko@socionext.com>
+ <20250127013820.2941044-4-hayashi.kunihiko@socionext.com>
+ <07af1102-0fa7-45ad-bcbc-aef0295ceb63@arm.com>
+ <fc08926d-b9af-428f-8811-4bfe08acc5b7@lunn.ch>
+ <f343c126-fed9-4209-a18d-61a4e604db2f@arm.com>
+ <a4e31542-3534-4856-a90f-e47960ed0907@lunn.ch>
+ <d6265f8e-51bc-4556-9ecb-bfb73f86260d@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <d6265f8e-51bc-4556-9ecb-bfb73f86260d@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_072601_133274_1F28A3E5 
-X-CRM114-Status: GOOD (  12.50  )
+X-CRM114-CacheID: sfid-20250131_073018_235185_8B46589B 
+X-CRM114-Status: GOOD (  20.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,71 +84,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the simple-audio-card driver with the hdmi0 QP node as CODEC and
-the i2s5 device as CPU.
+On Fri, Jan 31, 2025 at 03:03:11PM +0000, Steven Price wrote:
+> On 31/01/2025 14:47, Andrew Lunn wrote:
+> >>> I'm guessing, but in your setup, i assume the value is never written
+> >>> to a register, hence 0 is O.K. e.g. dwmac1000_dma_operation_mode_rx(),
+> >>> the fifosz value is used to determine if flow control can be used, but
+> >>> is otherwise ignored.
+> >>
+> >> I haven't traced the code, but that fits my assumptions too.
+> > 
+> > I could probably figure it out using code review, but do you know
+> > which set of DMA operations your hardware uses? A quick look at
+> > dwmac-rk.c i see:
+> > 
+> >         /* If the stmmac is not already selected as gmac4,
+> >          * then make sure we fallback to gmac.
+> >          */
+> >         if (!plat_dat->has_gmac4)
+> >                 plat_dat->has_gmac = true;
+> 
+> has_gmac4 is false on this board, so has_gmac will be set to true here.
 
-The simple-audio-card,mclk-fs value is set to 128 as it is done in
-the downstream driver.
+Thanks. Looking in hwif.c, that means dwmac1000_dma_ops are used.
 
-The #sound-dai-cells value is set to 0 in the hdmi0 node so that it can be
-used as an audio codec node.
+dwmac1000_dma_operation_mode_rx() just does a check:
 
-Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
----
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |  1 +
- .../boot/dts/rockchip/rk3588-rock-5b.dts      | 19 +++++++++++++++++++
- 2 files changed, 20 insertions(+)
+	if (rxfifosz < 4096) {
+		csr6 &= ~DMA_CONTROL_EFC;
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-index 8cfa30837ce72..790c1c25a3e41 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-@@ -1394,6 +1394,7 @@ hdmi0: hdmi@fde80000 {
- 		reset-names = "ref", "hdp";
- 		rockchip,grf = <&sys_grf>;
- 		rockchip,vo-grf = <&vo1_grf>;
-+		#sound-dai-cells = <0>;
- 		status = "disabled";
- 
- 		ports {
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-index d597112f1d5b8..1909078538367 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-@@ -49,6 +49,21 @@ hdmi0_con_in: endpoint {
- 		};
- 	};
- 
-+	hdmi0-sound {
-+		compatible = "simple-audio-card";
-+		simple-audio-card,format = "i2s";
-+		simple-audio-card,mclk-fs = <128>;
-+		simple-audio-card,name = "hdmi0";
-+
-+		simple-audio-card,codec {
-+			sound-dai = <&hdmi0>;
-+		};
-+
-+		simple-audio-card,cpu {
-+			sound-dai = <&i2s5_8ch>;
-+		};
-+	};
-+
- 	leds {
- 		compatible = "gpio-leds";
- 		pinctrl-names = "default";
-@@ -318,6 +333,10 @@ i2s0_8ch_p0_0: endpoint {
- 	};
- };
- 
-+&i2s5_8ch {
-+	status = "okay";
-+};
-+
- &package_thermal {
- 	polling-delay = <1000>;
- 
--- 
-2.48.1
+but otherwise does not use the value.
 
+dwmac1000_dma_operation_mode_tx() appears to completely ignore fifosz.
+
+So i would say all zero is valid for has_gmac == true, but you might
+gain flow control if a value was passed.
+
+A quick look at dwmac100_dma_operation_mode_tx() suggests fifosz is
+also ignored, and dwmac100_dma_operation_mode_rx() does not exist. So
+all 0 is also valid for gmac == false, gmac4 == false, and xgmac ==
+false.
+
+dwmac4_dma_rx_chan_op_mode() does use the value to determine mtl_rx_op
+which gets written to a register. So gmac4 == true looks to need
+values. dwxgmac2_dma_rx_mode() is the same, so xgmac = true also need
+valid values.
+
+Could you cook up a fix based on this?
+
+	Andrew
 
