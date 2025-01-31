@@ -4,93 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECC85C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 11:54:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F4C2C0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 12:42:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k7vfH4Sgbx8sGmHpacPWSYRXDbwnTm7hjUlAlA09Dfc=; b=T/FPbMFM7iIyJwcUePkd4e8oBX
-	S1rld3lMyw1iN3i82WAuXQ0Si7aPShSnIj24LugM8kY8hFWOws4QaO+8yQ6CfdP4X5Tre0Z5U9MrN
-	guVcQL7O9waISsXIft816DjHRf0SZ0jJNXzwp8Q+Q5mjpFAeTK8zRcvxLG5wZ8QF2lmUD+inQggR0
-	TeGR0i7NAegJj52hLioG0tm2FuJvVknz4hozRxDZMnq33ho6lSxTwXQ1OMhPNXO0EQPdMeXe7YLWY
-	0xa3xemErIhPg2do+IGRuT/j04tGvrnqW2l00GLCdbvJNqtTCI6iyVXpGa0CF0sSSwm8BcVfNkITS
-	HIanixjg==;
+	bh=XsDlwBaMuIS17pJVY5RsL5wyk14DUnumCFdCtmFC7lA=; b=ot5gH+MXYD8rYbrf7BCzhCF4na
+	yLhFRkhOL43wYZnONRqxBnK5Lmr6BKUv+pX3oQUOqlt2q7mqcAnuXMMF+0cFICcPLRzetD48KTKBc
+	oagP8bJs/s9ZLGeH1t/REIA5tXUSCxGED1Nll3eanYl/OIAeRHFROhvc0/NQ5vpU2c4pP45cuJ10I
+	+cISoTGv+Er6ZF1S9vi+voVKMPXmAY+U9bzi70gHHdcc67VBmX5bexsi2OLvzM3XH7pX//XeE38Tl
+	Hh330piXJACeLt1ICpc0tWikMfdVFEdDPlUxzodwHyQiuW10GTcNfEya1Y0hoxkZIGFzhQyZ6hv20
+	e2ft8gQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdpax-0000000AYbM-0FuT;
-	Fri, 31 Jan 2025 11:53:59 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1tdqLw-0000000AcY2-18rC;
+	Fri, 31 Jan 2025 12:42:32 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdpZS-0000000AYU0-3BZp
+	id 1tdqKd-0000000AcWp-1dcr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jan 2025 11:52:27 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-2efd81c7ca4so2453227a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jan 2025 03:52:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738324345; x=1738929145; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=k7vfH4Sgbx8sGmHpacPWSYRXDbwnTm7hjUlAlA09Dfc=;
-        b=ZOaOk4yJS4+4ycIMX9GaCgK8UaLbwZBx4VbnxG0ChIJwxTjT12m7UdjUQ4rV5epJN9
-         hBLCXuqiwFpkIDxI7WcbK6kUpmiN6vxNUOftgRZe3Qni0GEW3FFJ05e+FVtomBnf2v+H
-         rGOvxoI5gjNWNusTapJqoBVSw7Iix5xZvzIHyzMUlPl0861k0SJ+HaDc33DF608tAzWm
-         Su0CEzOpN0K4k4tD6zCAhfrB7QKZKD2OBx++LKZALLUyUFkmI0ckkK6aoRI8/U3qqV5L
-         1qPs1IipuFCzQkvmEerG2alpgg2CG4GtfN4Bg8mllPEMWEvWRaOpI52h0wjJER4XKC6C
-         j+bg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738324345; x=1738929145;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=k7vfH4Sgbx8sGmHpacPWSYRXDbwnTm7hjUlAlA09Dfc=;
-        b=ZpEldvgVPQHb3w+PKdyb2aypZNyd0nD1yWJRebUUV4Tu7rcaUeYrn2lN+StYs9sYG8
-         SNeEy+IStkY0MgzazOzWIDALYdE0CL3GAORVXtBN2swKaETze8EFJr//+adVgynj5JLu
-         wpaetzFl7/LEFTz2OsMKniRSU5g3UeSKOztPeVPeD8sRuC5tepjlE2LTUoXoBQOXlWpS
-         22zN9kGNOIPFvAYQaPSXOpBpCK92Gh+tt2JbvTc9yJRiSCNv3yi7gnsih3AAalwBUFx3
-         iuHoOodA6hYMUv1tsOg/QLN9Yk7ji35HLa8djhxah/+PcORWMFrjVkuOGyFO+eGp14Od
-         lYnA==
-X-Forwarded-Encrypted: i=1; AJvYcCXFPA7ksc+LKEGsw99vwl/5qShX+V4sjLlTwgr6ud/QoSeEtVqkroBX/06MfGIV/bIo1iWpukNHHOmHoPmT38DK@lists.infradead.org
-X-Gm-Message-State: AOJu0YxfnNp2qt3i1BQIEEQi2Jlpjz0gwfEI8IPF5gzmhW2Iezr/e/f/
-	n5MJK98rEOT9OZSAqmhhLSd2wlZbK7ILZQTD/VfuI3dpm6gcsS8oegushacQ+A==
-X-Gm-Gg: ASbGncs7NkMHwrdOukXbuLgqA4hHzpxBRDhgqeUYNK3ldfEX2WAnYMDDWS3A5A5lq+y
-	T90HPiq9fj51NusuWUdVR5drtu+r5wiKSjmdublGkZZ2XNFhNdp2dWyhtBV1efYAXuPdqOTqMAc
-	XYP+GLNHWCTDFpE4Xfag5tqJLUfN3aNXFV+bjvGBBkmm74lRQAAs1KNArtkItBKnGDv3Uazz1KZ
-	Lvu/Znuu578V40qJdGwQcydn9/uIUSDAO9hxaSwBO1B5kVGyqXvIgyZwE25+cfVVIQPZZGs9pvD
-	LqYXfS3H5e6P6xHOemLGkWKeuA==
-X-Google-Smtp-Source: AGHT+IH8kZTc6caDBWl7vN/cLXEXPX/ziS+zmhHeSacd6exwy3GZEb1SvfXm7pZ6ALinPkamOfpQog==
-X-Received: by 2002:a17:90b:520d:b0:2ee:dd9b:e3e8 with SMTP id 98e67ed59e1d1-2f83abd8adfmr15401669a91.8.1738324345440;
-        Fri, 31 Jan 2025 03:52:25 -0800 (PST)
-Received: from thinkpad ([120.60.68.107])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f8489d2c20sm3368655a91.22.2025.01.31.03.52.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 31 Jan 2025 03:52:24 -0800 (PST)
-Date: Fri, 31 Jan 2025 17:22:17 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Stanimir Varbanov <svarbanov@suse.de>
-Cc: linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Jim Quinlan <jim2101024@gmail.com>,
-	Nicolas Saenz Julienne <nsaenz@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, kw@linux.com,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2] PCI: brcmstb: Fix for missing of_node_put
-Message-ID: <20250131115217.qu4ue4cfmdt7gudf@thinkpad>
-References: <20250122222955.1752778-1-svarbanov@suse.de>
+	Fri, 31 Jan 2025 12:41:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 339F3A41E03;
+	Fri, 31 Jan 2025 12:39:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1FE8C4CEE1;
+	Fri, 31 Jan 2025 12:41:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738327268;
+	bh=361MpZRIBEfqHuYP7WFilCBvDowjHwoFCsg4xWfX68A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pm7aI4oVMqAH0wPbXGij15rq1Vzb9kmgs/BjEj2Z3fePSdIBzy566uncTjYV0x2NG
+	 kLpORUXCma5k6OR6kznpOE3ZIPzuL38Pi/Wp/v6QibUYq2+7mh6/NM7frXHtZC3Ldz
+	 lGqtUxB9GjTrjlJm8XZdgW5LU5BTy6IyRDtTnkDKEvNrMohRMePGmPYbsLwU+IZ4Kd
+	 Q4Ekpkyqhm7OTdK1SWGyHgk+KjojTOKAZFV9OVN14oQoRecWRyk/8UmpzX2LA3Lgic
+	 lbHNhLAInIw3AagoLNhrojAHxguNhRbZyqnQaoLJLuD1a+gUTPvuCuY/nj6g4P2Ag8
+	 Jp089AP9Cu+JA==
+Date: Fri, 31 Jan 2025 12:41:04 +0000
+From: Will Deacon <will@kernel.org>
+To: Emanuele Rocca <emanuele.rocca@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [BUG] ARM64 regression: NULL pointer dereference in
+ arm_smccc_version_init+0x90/0x1ac
+Message-ID: <20250131124103.GA29766@willie-the-truck>
+References: <Z5tuaxgDyFJPAvR0@J2N7QTR9R3>
+ <Z5uTCnhfKo5D-_bV@NH27D9T0LF>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250122222955.1752778-1-svarbanov@suse.de>
+In-Reply-To: <Z5uTCnhfKo5D-_bV@NH27D9T0LF>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_035226_789002_C2F86DB6 
-X-CRM114-Status: GOOD (  20.62  )
+X-CRM114-CacheID: sfid-20250131_044111_571161_A96A5E29 
+X-CRM114-Status: GOOD (  21.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,62 +74,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 23, 2025 at 12:29:55AM +0200, Stanimir Varbanov wrote:
-> A call to of_parse_phandle() is incrementing the refcount, of_node_put
-> must be called when done the work on it. Add missing of_node_put() after
-> the check for msi_np == np and MSI initialization.
+On Thu, Jan 30, 2025 at 03:56:10PM +0100, Emanuele Rocca wrote:
+> On 2025-01-30 12:19, Mark Rutland wrote:
+> > For the benefit others, when we looked into this a few days ago it
+> > appeared that a GPR was being clobbered across an SMCCC call, resulting
+> > in a later crash (as that GPR should hold the ADRP'd base address of
+> > 'smccc_version'). I didn't have the time to dig more into that (e.g.  to
+> > figure out whether kernel/compiler/firmware was to blame).
+> > 
+> > Emanuele, could you please dump the result of:
+> > 
+> >   objdump --disassemble=arm_smccc_version_init vmlinux
+> > 
+> > ... for this kernel? That'd make it possible for others to
+> > perform/verify the analysis I mentioned above.
 > 
-> Cc: stable@vger.kernel.org # v5.10+
-> Fixes: 40ca1bf580ef ("PCI: brcmstb: Add MSI support")
-> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
-
-Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-
-- Mani
-
-> ---
-> v1 -> v2:
->  - Use of_node_put instead of cleanups (Florian).
->  - Sent the patch separately from PCIe 2712 series (Florian).
+> Sure, here it is:
+> https://people.debian.org/~ema/Z5OpGluX6oX5NLxh@NH27D9T0LF.objdump.txt
 > 
->  drivers/pci/controller/pcie-brcmstb.c | 13 +++++++++----
->  1 file changed, 9 insertions(+), 4 deletions(-)
+> > If you can share any more details from the crash, that'd be helpful. The
+> > GPR dump would be *enormously* helpful in this case, and even a photo of
+> > the crash log might be useful.
 > 
-> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
-> index 744fe1a4cf9c..d171ee61eab3 100644
-> --- a/drivers/pci/controller/pcie-brcmstb.c
-> +++ b/drivers/pci/controller/pcie-brcmstb.c
-> @@ -1844,7 +1844,7 @@ static struct pci_ops brcm7425_pcie_ops = {
->  
->  static int brcm_pcie_probe(struct platform_device *pdev)
->  {
-> -	struct device_node *np = pdev->dev.of_node, *msi_np;
-> +	struct device_node *np = pdev->dev.of_node;
->  	struct pci_host_bridge *bridge;
->  	const struct pcie_cfg_data *data;
->  	struct brcm_pcie *pcie;
-> @@ -1944,9 +1944,14 @@ static int brcm_pcie_probe(struct platform_device *pdev)
->  		goto fail;
->  	}
->  
-> -	msi_np = of_parse_phandle(pcie->np, "msi-parent", 0);
-> -	if (pci_msi_enabled() && msi_np == pcie->np) {
-> -		ret = brcm_pcie_enable_msi(pcie);
-> +	if (pci_msi_enabled()) {
-> +		struct device_node *msi_np = of_parse_phandle(pcie->np, "msi-parent", 0);
-> +
-> +		if (msi_np == pcie->np)
-> +			ret = brcm_pcie_enable_msi(pcie);
-> +
-> +		of_node_put(msi_np);
-> +
->  		if (ret) {
->  			dev_err(pcie->dev, "probe of internal MSI failed");
->  			goto fail;
-> -- 
-> 2.47.0
+> pc : arm_smccc_version_init+0x90/0x1ac
+> lr : psci_probe+0x1fc/0x2c0
+> sp : ffffa3d8eea33ca0
+> x29: ffffa3d8eea33ce0 x28: 0000000081000200 x27: ffffa3d8edd72a80
+> x26: ffffa3d8edd728b0 x25: ffffa3d8eec66248 x24: ffffa3d8edc528d8
+> x23: ffffa3d8eed7f4f8 x22: 0000000000000001 x21: ffffa3d8eea58410
+> x20: ffffa3d8eed7f000 x19: 0000000000010001 x18: 0000000000000006
+> x17: 0000000009f69730 x16: 00000008760968d0 x15: 0000000000000000
+> x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
+> x11: 00000000ffffefff x10: ffffa3d8eeac09c8 x9 : ffffa3d8eea687d8
+> x8 : ffffa3d8eea33cb8 x7 : 0000000000000000 x6 : 0000000000000000 
+> x5 : ffffa3d8eed7f000 x4 : ffffa3d8edeb0000 x3 : 0000000000000000
+> x2 : 0000000000000000 x1 : 0000000000000001 x0 : 0000000000000000
 > 
+> Call trace:
+>  arm_smccc_version_init+0x90/0x1ac
+>  psci_0_2_init+0x20/0x2c
+>  psci_1_0_init+0x1c/0x58
+>  psci_dt_init+0x6c/0x98
+>  setup_arch+0x400/0x5ec
+>  start_kernel+0x90/0x788
+>  __primary_switched+0xbc/0xc4
+> Code: d29fffe1 eb01001f 1a9f97e0 f0ffd384 (b94264c2)
+> 
+> The above was transcribed by hand. I double-checked, but there may be
+> mistakes.
+> 
+> Photo here: https://people.debian.org/~ema/Z5OpGluX6oX5NLxh@NH27D9T0LF.jpg
 
--- 
-மணிவண்ணன் சதாசிவம்
+Crikey, you transcribed all that junk by _hand_?! Thanks for the effort,
+but next time please don't waste your time! The screenshot is fine.
+
+Anyway, it looks like x6 gets trashed across the SMC. I think that's fine
+per the SMCCC spec:
+
+  | Unused result and scratch registers can leak information after an
+  | SMC or HVC call. An implementation can mitigate this risk by either
+  | preserving the register state over the call, or returning a constant
+  | value,such as zero, in each register.
+
+so the question is whether or not the compiler should be relying on the
+register being preserved. It looks to me like the arm_smccc_1_1_smc()
+macro is actually broken in this regard: it constructs the input list
+based on the number of arguments passed and doesn't take the above into
+account at all.
+
+So I think we should change that so unused arguments are clobbered
+instead. Mark -- what do you think?
+
+Will
 
