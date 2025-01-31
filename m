@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74005C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 08:35:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03F80C0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 08:37:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f7bDku8m22ZPnyWeejqbO/1GyU2yrycT7lNX1GnSYY4=; b=47ZbesWQxLGJhKNUAQVuI9ya1+
-	ujxc+WeJldxPE4XZgaAHazhBpREvYiL4fUsAQ4ngit60fIRj/qSd3i4C+u2yzei8PxPw1Dxs/6p9J
-	ZCRAnY+xXPJKaE9Gs6iQEC7Fcqh6PI67b+kDrlTMCv1j9l+GodnjxbzQ3q+MgqM0pvL1R/0On0iw8
-	RGgQhEe/YiNSlJTNCGMN35hgbAwMpN+R+gyOBwW+G7jjfTybclxl3u3OtNkIYUBV+IwtrywEbDOBx
-	ey8+8t89OQbpzlq7mjCU5bLnMLFhrJmhsE4yYQ8O4ajnIjdnLoTX9+XixGM64TWrbS/qcPjjB+k0h
-	MmYFiNhw==;
+	bh=IFhTXm1EoZX9bUgg8Iab65yTWSkJJN1hYq+JMoUxKpo=; b=VlYC901EnFXmzG1XpDgWSooNYc
+	/B4Ht6pRvJO3DlQ2LF9Px37+7Pkx3xDBB68jrXjGiYtEY5fKqXfxMiFQSJCSR6dSlwi1rwXVuUIhn
+	WcAaVetR9H5bLi7l7yiwa/yKG2zmdXcd891DzBEtYev193vUHhWXX3FUEPs5PEwoU+y6BCUgrZ1ll
+	17CE0jwAamvL5vlfsb7hRh9GKFerxzXLE6ICzRdps6KBPrtiUzk2/Jf41R2ffVxR7ziALZgU0fE9J
+	2sQcS5AM6+VnDsWdYkYkI0Tr4rpgLsD1ra9jqM0hJf8aCWkQHu+AP1dliDLswC80bsRRCCXkxOssR
+	cQKcN15Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdmUv-0000000ADUy-1rjI;
-	Fri, 31 Jan 2025 08:35:33 +0000
+	id 1tdmX1-0000000ADu7-0LqH;
+	Fri, 31 Jan 2025 08:37:43 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdmTa-0000000ADBs-0GxX;
-	Fri, 31 Jan 2025 08:34:11 +0000
+	id 1tdmVf-0000000ADll-2Oie;
+	Fri, 31 Jan 2025 08:36:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 85E8C5C62AE;
-	Fri, 31 Jan 2025 08:33:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 530C6C4CED1;
-	Fri, 31 Jan 2025 08:34:04 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0FBCA5C62BF;
+	Fri, 31 Jan 2025 08:35:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E520C4CED1;
+	Fri, 31 Jan 2025 08:36:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738312449;
-	bh=8zc6yBsAaJwfFYLXrwfQvFexqnj+mY5XmiFIpp8Hebw=;
+	s=k20201202; t=1738312578;
+	bh=rlF5McXaI+BXJp2OdDI6OnVDcy2rgrFknBwxviIYKfM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Z1/8PE5nHVhItfgy2FsiZzSUx6yyyu4UXNRWRDcSjluPCMk9G/nDxzTbE5xeFNUkq
-	 hjVgsE23h34LD77rjkUgLFI4wabgYN9jzTBA/HdVtrqrGuKWh5L0hw9Urxsk1eDyij
-	 +1dT0Fb+35gQ69faNmzvmb0O+REkK/79MzSmZJHoUU92uTpTDn9rGt3UU6/HVEs7rO
-	 qdqhNg9vHeneVNaYHdPjd0VUETOErDwJWfYx8GBW+HFAHehHZbNc7NaD7DF81qhv5p
-	 mDxWTzXpO3XgooYl1hTopR7HAg/HxQpj+4wkC0IlomVaaMF2GA0CdkeFKQz/qOYoST
-	 kPfdbzTU6+JOA==
-Message-ID: <c32d8455-1bf6-44de-acf8-34fe00ae2868@kernel.org>
-Date: Fri, 31 Jan 2025 09:34:02 +0100
+	b=CFY0Etj2mkZV75THqC1OzK1kyiGeDF0Xexi88r0KFdLgKkhScQ+hx0bGlwV8+aRwm
+	 ctI9YxtsHRfxhcczaff6O8RXHDYFd+/JFuBAkGXR9Lc+//4SjInZNcA2I4QrVXZorG
+	 gk2lH3jIeCnU3mzeHlDnpHAIJUpjiam5YznajaJeiJBHomGGaBWFz+LzFmPha3NYi0
+	 rRWPzR7gPwg4K/kTizds99LoNJxZWUvLPTPoGnL+k6lj02+b+Z5tPe90UTJ7zQlUfE
+	 46btYS1eqybF1RvW+MsxGj6UbuyISWh/VrlwoGfuTI1M+nTiFP7gBy6IxttTfdQ79A
+	 LM6BDztULVscA==
+Message-ID: <534ad35d-e738-4c26-810c-a0609e51f5e5@kernel.org>
+Date: Fri, 31 Jan 2025 09:36:10 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/7] hwrng: rockchip: add support for rk3588's standalone
- TRNG
+Subject: Re: [PATCH 7/7] mailmap: add entry for Nicolas Frattaroli
 To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
  Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
@@ -57,9 +56,9 @@ To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
 Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-crypto@vger.kernel.org, Lin Jinhan <troy.lin@rock-chips.com>
+ linux-crypto@vger.kernel.org
 References: <20250130-rk3588-trng-submission-v1-0-97ff76568e49@collabora.com>
- <20250130-rk3588-trng-submission-v1-5-97ff76568e49@collabora.com>
+ <20250130-rk3588-trng-submission-v1-7-97ff76568e49@collabora.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,12 +104,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250130-rk3588-trng-submission-v1-5-97ff76568e49@collabora.com>
+In-Reply-To: <20250130-rk3588-trng-submission-v1-7-97ff76568e49@collabora.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_003410_198246_AF5B0DD4 
-X-CRM114-Status: GOOD (  14.37  )
+X-CRM114-CacheID: sfid-20250131_003619_702685_D3899142 
+X-CRM114-Status: GOOD (  13.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,98 +125,27 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 30/01/2025 17:31, Nicolas Frattaroli wrote:
-> +MODULE_DEVICE_TABLE(of, rk_rng_dt_match);
-> +
->  static int rk_rng_probe(struct platform_device *pdev)
->  {
->  	struct device *dev = &pdev->dev;
-> +	const struct of_device_id *match;
->  	struct reset_control *rst;
->  	struct rk_rng *rk_rng;
->  	int ret;
-> @@ -139,6 +333,8 @@ static int rk_rng_probe(struct platform_device *pdev)
->  	if (!rk_rng)
->  		return -ENOMEM;
->  
-> +	match = of_match_node(rk_rng_dt_match, dev->of_node);
-> +	rk_rng->soc_data = (struct rk_rng_soc_data *)match->data;
+> Add my new Collabora E-Mail address as the main contact.
 
-Don't open code getting match data.
+Not sure if you understand the mailmap. The point is to map invalid or
+unused addresses to an used one. If you leave Collabora, you will need
+to change this line which proves the point that it is not a correct mapping.
 
->  	rk_rng->base = devm_platform_ioremap_resource(pdev, 0);
->  	if (IS_ERR(rk_rng->base))
->  		return PTR_ERR(rk_rng->base);
-> @@ -148,24 +344,30 @@ static int rk_rng_probe(struct platform_device *pdev)
->  		return dev_err_probe(dev, rk_rng->clk_num,
->  				     "Failed to get clks property\n");
->  
-> -	rst = devm_reset_control_array_get_exclusive(dev);
-> -	if (IS_ERR(rst))
-> -		return dev_err_probe(dev, PTR_ERR(rst), "Failed to get reset property\n");
-> +	if (rk_rng->soc_data->reset_optional)
-> +		rst = devm_reset_control_array_get_optional_exclusive(dev);
-> +	else
-> +		rst = devm_reset_control_array_get_exclusive(dev);
-> +
-> +	if (rst) {
-> +		if (IS_ERR(rst))
-> +			return dev_err_probe(dev, PTR_ERR(rst), "Failed to get reset property\n");
->  
-> -	reset_control_assert(rst);
-> -	udelay(2);
-> -	reset_control_deassert(rst);
-> +		reset_control_assert(rst);
-> +		udelay(2);
-> +		reset_control_deassert(rst);
-> +	}
->  
->  	platform_set_drvdata(pdev, rk_rng);
->  
->  	rk_rng->rng.name = dev_driver_string(dev);
->  	if (!IS_ENABLED(CONFIG_PM)) {
-> -		rk_rng->rng.init = rk_rng_init;
-> -		rk_rng->rng.cleanup = rk_rng_cleanup;
-> +		rk_rng->rng.init = rk_rng->soc_data->rk_rng_init;
-> +		rk_rng->rng.cleanup = rk_rng->soc_data->rk_rng_cleanup;
->  	}
-> -	rk_rng->rng.read = rk_rng_read;
-> +	rk_rng->rng.read = rk_rng->soc_data->rk_rng_read;
->  	rk_rng->dev = dev;
-> -	rk_rng->rng.quality = 900;
-> +	rk_rng->rng.quality = rk_rng->soc_data->quality;
->  
->  	pm_runtime_set_autosuspend_delay(dev, RK_RNG_AUTOSUSPEND_DELAY);
->  	pm_runtime_use_autosuspend(dev);
-> @@ -184,7 +386,7 @@ static int __maybe_unused rk_rng_runtime_suspend(struct device *dev)
->  {
->  	struct rk_rng *rk_rng = dev_get_drvdata(dev);
->  
-> -	rk_rng_cleanup(&rk_rng->rng);
-> +	rk_rng->soc_data->rk_rng_cleanup(&rk_rng->rng);
->  
->  	return 0;
->  }
-> @@ -193,7 +395,7 @@ static int __maybe_unused rk_rng_runtime_resume(struct device *dev)
->  {
->  	struct rk_rng *rk_rng = dev_get_drvdata(dev);
->  
-> -	return rk_rng_init(&rk_rng->rng);
-> +	return rk_rng->soc_data->rk_rng_init(&rk_rng->rng);
->  }
->  
->  static const struct dev_pm_ops rk_rng_pm_ops = {
-> @@ -203,13 +405,6 @@ static const struct dev_pm_ops rk_rng_pm_ops = {
->  				pm_runtime_force_resume)
->  };
->  
-> -static const struct of_device_id rk_rng_dt_match[] = {
-> -	{ .compatible = "rockchip,rk3568-rng", },
-> -	{ /* sentinel */ },
-> -};
-
-
-No, don't move it. Not necessary and not expected to be in other place.
-
+> 
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> ---
+>  .mailmap | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/.mailmap b/.mailmap
+> index 17dd8eb2630e6216336047c36037a509beaa0731..07dc4846c451d0f36e27fe67e224791cd48bfef9 100644
+> --- a/.mailmap
+> +++ b/.mailmap
+> @@ -525,6 +525,7 @@ Nicholas Piggin <npiggin@gmail.com> <npiggin@suse.de>
+>  Nicholas Piggin <npiggin@gmail.com> <nickpiggin@yahoo.com.au>
+>  Nicholas Piggin <npiggin@gmail.com> <piggin@cyberone.com.au>
+>  Nicolas Ferre <nicolas.ferre@microchip.com> <nicolas.ferre@atmel.com>
+> +Nicolas Frattaroli <nicolas.frattaroli@collabora.com> <frattaroli.nicolas@gmail.com>
 Best regards,
 Krzysztof
 
