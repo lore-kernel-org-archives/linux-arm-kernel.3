@@ -4,155 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED11AC02190
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 16:09:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C626C0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 16:11:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jj1hDSD/GhnOKcf7uyPTDu/G4yftAn8gotxKVMb5qCs=; b=zfDQDe49tQ3ODueXPR4sEmJVpM
-	KrNtFFaibz+jyrGbB6xGuCJk26w49ggpv1Xw7MHb9N+nyxI7If6izGgvLMuphQheGv+2JC0yEIw4T
-	nMTpqEozgLVg41OC8nRlYTVkyKROk6MqKjYgQt6oT70Cyx0QudLXY8UOJQKKW/gso64OscAtSTccn
-	PlCgTdxLbaR7PHfqPJEgP+hNg5UqCWVYJsi60eQzAXFQvVk07bU6AX8OmaH0Qbpq7BoY5ZYwFq926
-	JpS4gg56yyBlQp0T2MAKKWd2XTJM60Cfg1yJCvTfw4qc3k3Zx1Yg2WeAFtc6S9NP8Xt0eoeBE2Mdj
-	d9O3DSDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IuPlZa6y6J6gXS+P+dgZflnpDfa3pb9jp5g4ifalhAs=; b=JpUPmBFad4WpxWhIwkxaz0M9nz
+	j9j6jkWUfD9DYYNcZVOWBditlKzmt1hbaHsisDDRpjua5tIWfX7vkDopljtRR6KvA6tlPw1ZgloiS
+	jVuMn1A94ZOp6H0kJZMOuTCQt6INZR/ip4vHRRXLhX7T1cYGql29D1Wy0Z67zI9yulYxpMcGB0Ikj
+	B+Emr4Nl47yvyOlLxRrMorYNximQMazCVgbIRin3H9GB7tjmhD8AYzbYaWit7IiIkSdZx6WgEKW9k
+	DO7I6eCdEVzuctSJo2Ey3Ui59Vhem3ijAbWdhEu0KZNHwQ46r/oMtq8QEkh/4wq57VF2wL8zy1JSz
+	Km7qLxgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdtaH-0000000Aviw-1q8q;
-	Fri, 31 Jan 2025 16:09:33 +0000
-Received: from mail-am6eur05on20604.outbound.protection.outlook.com ([2a01:111:f403:2612::604] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1tdtbY-0000000AvvC-1Cnk;
+	Fri, 31 Jan 2025 16:10:52 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdtXW-0000000AvEv-1yrK
+	id 1tdtY7-0000000AvNM-3IeG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jan 2025 16:06:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MLRLPH5V0mympMKBOfzaO1p3qj6MAFLwiXVMtyS9P8Qy1tgaQszgUhfEjbX1MP7fnnhpeQPEBkDbQBHZSPXUCgpbiPuei0XcmSGjhCe+/wYC52qQ0IcKFBngGIZWSWpXz5pIhslodagptaMqf7SKpswrqvTNRFPZnGRfahReC622pGA1emArirG+NhmstpbkKG6ilyjEi1id4yLXefxEwMLTBvsqrYIN+oHu3VNrDb84AgP1AAfth3EL3ddd4oSj6X1O9JPWANW24AmJkmvIjqMnwtFQFtslzG2qu7c7Smv9x7pwH83RnSHc7pB/PYVv1fijQVZOtpuNjHw4qm9e7A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7werP66Cm30Nvm+QtIs8+tIDPRibc1bLo8Ej3gztt8o=;
- b=Zz1zAkkguTBwfNEuA8XrFd2y0SJ/t9KUE7JZJ6nKMG69+4VMKbIE8Fgrq21Q2bBhYEhIhV4TeljsLqmqGV/KSNeRg2tVSZiqq0ib+VUhuyeyGR9vIcXZUUylK6s+Ryt9SuJT2441YK4zREkmGYL4bK62OncBBnv/qw2MCaPaQbbxgazvj4iCgvJemMvFVCajOkKxoYEwMqEWc9zwrj/dMgtpe5AEw6LRkVOLBiCgc3QYQuDZNiuPAXEnIz/ypQU6IPbEKxzcaomtZWF0sv5MPaGUowT0863dt4vuLGVvJFLVOTQjhGOGqs1Ltjf3SL6NpKxArH77A6JYO4p6dQh6hw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7werP66Cm30Nvm+QtIs8+tIDPRibc1bLo8Ej3gztt8o=;
- b=Idm1RD9gGQOtJxmdlWLOeyyaTbJynI7KbhmZNqciXkSPfwyepcAYJViUtVPCjPErh3ClATDj5x2f8Z7nFo4TbbRQVSjDLVj22UNCdSVYr4081H9x5QLNJlmYNrcIZCE4ygTx/ttxLaIrQL50XX0BeDFjdk2w5BvapfZK+6DOXYD60TmsIlXrYujwndZOCfQ3TYY4/s3wHyz+bXCqS5eQWm8pGvMbvOlgDDJViMK1uJcUYHE2ME3TwZEqpXvfNE9dCgVNZRwXIEwDB5rDidLjhqZ30nM3R/V81B2JE9GMPw3cwgxxLoNoqO9WwlV0FiZWz2+9cWunBBPX8Wev7nrbcw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by VE1PR04MB7280.eurprd04.prod.outlook.com (2603:10a6:800:1af::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.20; Fri, 31 Jan
- 2025 16:06:32 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.8398.018; Fri, 31 Jan 2025
- 16:06:32 +0000
-Date: Fri, 31 Jan 2025 11:06:23 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	Fri, 31 Jan 2025 16:07:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=IuPlZa6y6J6gXS+P+dgZflnpDfa3pb9jp5g4ifalhAs=; b=s3gWnpoKWyIy/LAY9j0YXccsrB
+	nJop06eJ56UHTRDBbXnSKI9+n25Dc/THTlUb4KuDvFCAxRJc+GOCIkT3qNj3EGkZDi3vrgFS6taIw
+	Iau7Spx5Sd3qnzRpzRTYl0rptVhktWP66qxNzP3ncc4awdmIM3QoKzilfZmkZ6m6KpWw=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tdtXp-009jaZ-NK; Fri, 31 Jan 2025 17:07:01 +0100
+Date: Fri, 31 Jan 2025 17:07:01 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Steven Price <steven.price@arm.com>
+Cc: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Yanteng Si <si.yanteng@linux.dev>, Furong Xu <0x1207@gmail.com>,
+	Joao Pinto <Joao.Pinto@synopsys.com>, netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/4] nvmem: imx-ocotp: Support accessing controller for
- i.MX8M Nano
-Message-ID: <Z5z0/382k8MkcZpP@lizhi-Precision-Tower-5810>
-References: <20250130130101.1040824-1-alexander.stein@ew.tq-group.com>
- <20250130130101.1040824-4-alexander.stein@ew.tq-group.com>
- <Z5ur+NF9UlXJSWtL@lizhi-Precision-Tower-5810>
- <4961006.GXAFRqVoOG@steina-w>
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <4961006.GXAFRqVoOG@steina-w>
-X-ClientProxiedBy: BYAPR02CA0066.namprd02.prod.outlook.com
- (2603:10b6:a03:54::43) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+Subject: Re: [PATCH net v4 3/3] net: stmmac: Specify hardware capability
+ value when FIFO size isn't specified
+Message-ID: <80cc9950-9f62-4369-be87-c022d55a2b6f@lunn.ch>
+References: <20250127013820.2941044-1-hayashi.kunihiko@socionext.com>
+ <20250127013820.2941044-4-hayashi.kunihiko@socionext.com>
+ <07af1102-0fa7-45ad-bcbc-aef0295ceb63@arm.com>
+ <fc08926d-b9af-428f-8811-4bfe08acc5b7@lunn.ch>
+ <f343c126-fed9-4209-a18d-61a4e604db2f@arm.com>
+ <a4e31542-3534-4856-a90f-e47960ed0907@lunn.ch>
+ <d6265f8e-51bc-4556-9ecb-bfb73f86260d@arm.com>
+ <2ed9e7c7-e760-409e-a431-823bc3f21cb7@lunn.ch>
+ <915713e1-b67f-4eae-82c6-8dceae8f97a7@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|VE1PR04MB7280:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4078d3d4-bff0-495d-0f5f-08dd42113ae9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|376014|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?ITawefC7V1uFffe3IGnF0iILWJ0kTiHOZ3a/B02RnM2n8blBpLFmQ21RJC?=
- =?iso-8859-1?Q?gbCAD+CXIn0hV4r7oZ7bDdRKBZD2h0G9azXI143SL/VwUpjSrunnLFTbUl?=
- =?iso-8859-1?Q?a5nMu+4l0vCGQ7uvu10i+cp6LdFaJaM3KqAtSwdCWxhu1cIoTOSd7BmzHp?=
- =?iso-8859-1?Q?0zZaMOHq8Ex0mnzWz5u7dYKMG4eG0mrB4wgCPU3uhFKqqIOoMIbdz3NTPL?=
- =?iso-8859-1?Q?aqu1y0OEXUHI4UD4A8VrQxjR4XPNi3e696sHNIQlYYxbDrdTF64EP6vVNW?=
- =?iso-8859-1?Q?v5QXPoKz7RKJbXpD3qHaHw98Kq+w8TesT1euCM3GO2qNTfZ8jdsf/LDxme?=
- =?iso-8859-1?Q?Ci1If92QkSb9yZARSmf/YhDq9LgW8+Gj7S8hQ1uoRGwdH8L1QBv2EV7QA/?=
- =?iso-8859-1?Q?aqSDrQRdb9rtrYvBCXbqS6+/Uc3qbXnoKwfDVnWdOmSaEH5g/1xea3Rzjk?=
- =?iso-8859-1?Q?vJlXSVNa7LTU46fbdpeq/TQJTF++8/keIa+Hw0W8XavAgUSc5d/Zs3v75w?=
- =?iso-8859-1?Q?agKAXz8DuaulxWUkmLhkFm4MYZcfVaGYY/ngcwv9ITJ7iMQGdTMAPMiJzV?=
- =?iso-8859-1?Q?qkwtopau0pqRzeT4vKG8DAFlF2MRv0Z5KcbbFxX+on1HFEU2NwwpSiHo9M?=
- =?iso-8859-1?Q?m04IP80x5wuTfxWbBVoUdB80IiB4HWBVC6C5Aihacaqc7voY8eWXOx7D19?=
- =?iso-8859-1?Q?zDrp5vmqXeSzB+frcNwz1Yvwh1bDJ8xgt6m1ya3hSRZiOAJeZ6nwihw+i7?=
- =?iso-8859-1?Q?dmr+SyesTVqjPHKJcwF4Ac1c3XKXP6a6KbMii4HPNg20VPVL3AGJVzyweK?=
- =?iso-8859-1?Q?v3cYyBb/E7xekm9e8nIrBwKxwCnC3CaUswStFdrlXeZKm1h43kR75gFq/C?=
- =?iso-8859-1?Q?mzR6vQ8LnB9Lih5G7KwTGQYbDoxEnNWTrlYJehB5uOeyAQHTRxPW3tbAPn?=
- =?iso-8859-1?Q?wk8Z/HByGTwxeHShlhgWrQ45WvYhCaEDlTZ+XInNMMFJehBNkPunyzDbQC?=
- =?iso-8859-1?Q?/qq/Vq+yQmfE4kWBfBgI+JzmG7ttTdAa+9FpFqUSA2MjLLBhD7H8jC+1Bp?=
- =?iso-8859-1?Q?9U+VRGHA3uZw+0BiHn4i0tfEYEQZTJ4wFIFYAzkIlcpV1nzJAnQ91qF8fa?=
- =?iso-8859-1?Q?xhJ5RmesEWKvu6fNmatJoPYik57d3QZMjeqM3GgSKJYjbEcPM5BDSYqIHQ?=
- =?iso-8859-1?Q?02gbFUThHOvp1THSVoZ8lWVlPp3dbw4jzyRXBJ5mWHRWVhe+CEL7SYdH2+?=
- =?iso-8859-1?Q?0+w5bq86JS8q2qHTohf64+szdGxV680TudwjSwETsQoevxeJcWWX/5E9TH?=
- =?iso-8859-1?Q?unBR5HobDg6O7EzxWwYg/QErDOR3i0kGIdw7RfLRgiqmw306BHTVfU6j2s?=
- =?iso-8859-1?Q?feF/3czLh4IIjGxFUdL10PWWAmG9lk/B3Ksgl8kwY1hbCO9u6m8E9fooDN?=
- =?iso-8859-1?Q?eu5v5oIHuYTwfTfZ?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(376014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?296VZmDImAn4q0x3DejZQ4zAiBH4brriWfoYK16fg/bBnLii7Lqh2eV1a2?=
- =?iso-8859-1?Q?pIRO3zpRBwbCr7qi3+7/GmXYySiLDBs/NGwE0CgPHU9X98H8LKy6FoYdWQ?=
- =?iso-8859-1?Q?x6vwLlc+Nm38FKD0M0OXtBXA3H7alRFcqMP81V16+j2abEajpZraIRgV4R?=
- =?iso-8859-1?Q?X1pliEz22gWnKEKYP+Kus0U9yHAYInsN2a72q1/F5n6hHZfyzWIWEN8i6P?=
- =?iso-8859-1?Q?29F0jGtQdl7V4rSjSya6d6EZZRB/WSVjYv7efMhE+Rimww5pivoXsdc3QA?=
- =?iso-8859-1?Q?JKTTU6iO0jmn4qacUo5MHlOXIKwwGsoIEHeDJtvB2EQIXr371FdPEx6i49?=
- =?iso-8859-1?Q?FZYyRgKEWtgcpwFwfOOIkCINWyUNVG7gnzCf9lyXPQjMh4Ol4k0D58sg3k?=
- =?iso-8859-1?Q?OWJwIN65HP144t6X8lljVdFMPGYNztmFp9rZo3wsysJlBeBQGhORnPvV0W?=
- =?iso-8859-1?Q?EV6Typv/19bzyBh/WYKTXkLR/l2vEm8Cz9FEFZAAL1iwbz/U1jbbSyYzkf?=
- =?iso-8859-1?Q?cJCXU2mFOhh0ugDI3oGr5rWMblTkwUTDo+ZO5QV5sOSSln7JSUaplB/uM+?=
- =?iso-8859-1?Q?/RCuAOe8ShpIWZ0GU98XqRyc9KkbdS8/2I+kif+6wCih23iP6FqoF2DFHf?=
- =?iso-8859-1?Q?xW053UfvJ4/fAK8vl9mqG6ydOnsXJZIKzAbWpSX19N1V8txgpb2L3dN3N1?=
- =?iso-8859-1?Q?J3RfS+x79gtv/DbPEYodJ8pDWJ4doiR6WDjeFzKaH0Z4BCTOU/dL9E94dg?=
- =?iso-8859-1?Q?tAgSuH7NK3OjgChZCBvIBgl48eSfbpaLbqwXGbtHzr/LiD3+aQTCU7CQZy?=
- =?iso-8859-1?Q?31LJ9Gm7htJOhN6VST+bfAzJFDgwIqaw/0n+PgfIvW8ywXvQJhEMej0l1H?=
- =?iso-8859-1?Q?eAx36QsSdjYattn8lu8fj5Ch0jh7S+AGMo+fKyC+Hg/5Mg/J45bf8D1D5r?=
- =?iso-8859-1?Q?CRTR3v1bYKCVtks8wv404bSjz2i8aT+5Vu4lo2sIwOBmX3C2O7XmZNc/To?=
- =?iso-8859-1?Q?MrZtLBxhWi9JMPPetQnwSMwd6vxzBTjByKsIW6Ox+ilECEosat68PN7vlj?=
- =?iso-8859-1?Q?CDwonvKfkGgxzFYyVm2uQoKQBV+Sa0aRgSuToT7vSckRcu2po5qbPe+SM8?=
- =?iso-8859-1?Q?0V7+u8vLvI4tfAhqqm0IfPjY3yktR5n6K4lbnpn9m1dDUB6sKFG2gDq3Ul?=
- =?iso-8859-1?Q?ChsceX0j6u6NdFOszQce/efsgXd+S9uWd14o2E4eimlrOZJePqLvCiGhJZ?=
- =?iso-8859-1?Q?PmlQC7wy50+NIHSWWtOs3RMwFDr3mqSVMaoXBLoD/NbSEwibekXg3cCLSg?=
- =?iso-8859-1?Q?2y9mPLoaQdZM9sP4yYU1VGBdzunVxuyNLG0CeA0vJ48fs4epNWQyTBKjxG?=
- =?iso-8859-1?Q?lg9gPiAcImq6XIUbYIrsBfc+g3VDn5QUMvL/SFWGBgRXiJ9YuR18lJxsgu?=
- =?iso-8859-1?Q?EQKqQQDRE4pa/c8GsjH2pFSwU/J5YYsqrdziWGih8W23DvYmx/2D52C6l/?=
- =?iso-8859-1?Q?lFsdpAffbnI6Ff+fY9XROHiTMyfhB4uLROYs155t/Kv151Z8eRMOogp7Ix?=
- =?iso-8859-1?Q?2hIIO/M/j6K1N3MLKfyCd27kaeitNBlV5DIEKXJ3bIiHdP2pk3a5Lno8wV?=
- =?iso-8859-1?Q?kow5L0oD8NQZI=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4078d3d4-bff0-495d-0f5f-08dd42113ae9
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Jan 2025 16:06:32.7798
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: q8k6tLaKFTxxRIEkS5Euofnp2qWrO5csNmWh/n5FKA1DFAZHgVdsWHT9fjlPzF0BsEb8WbH3a1+g747BQxCjlQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7280
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <915713e1-b67f-4eae-82c6-8dceae8f97a7@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_080642_667512_1A97EE87 
-X-CRM114-Status: GOOD (  36.98  )
+X-CRM114-CacheID: sfid-20250131_080719_824492_304E000C 
+X-CRM114-Status: GOOD (  26.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,245 +86,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 31, 2025 at 02:54:06PM +0100, Alexander Stein wrote:
-> Hi,
->
-> Am Donnerstag, 30. Januar 2025, 17:42:32 CET schrieb Frank Li:
-> > On Thu, Jan 30, 2025 at 02:01:00PM +0100, Alexander Stein wrote:
-> > > i.MX8M OCOTP supports a specific peripheral or function being fused
-> > > which means disabled, so
-> > >  - Introduce disable_fuse for a list of possible fused peripherals.
-> > >  - Iterate all nodes to check accessing permission. If not
-> > >    allowed to be accessed, detach the node
-> > >
-> > > Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> > > ---
-> > >  drivers/nvmem/Kconfig     |   3 ++
-> > >  drivers/nvmem/imx-ocotp.c | 105 +++++++++++++++++++++++++++++++++++++-
-> > >  2 files changed, 107 insertions(+), 1 deletion(-)
-> > >
-> > > diff --git a/drivers/nvmem/Kconfig b/drivers/nvmem/Kconfig
-> > > index 8671b7c974b93..ba5c928cab520 100644
-> > > --- a/drivers/nvmem/Kconfig
-> > > +++ b/drivers/nvmem/Kconfig
-> > > @@ -84,6 +84,9 @@ config NVMEM_IMX_OCOTP
-> > >  	  This driver can also be built as a module. If so, the module
-> > >  	  will be called nvmem-imx-ocotp.
-> > >
-> > > +	  If built as modules, any other driver relying on this working
-> > > +	  as access controller also needs to be a module as well.
-> > > +
-> > >  config NVMEM_IMX_OCOTP_ELE
-> > >  	tristate "i.MX On-Chip OTP Controller support"
-> > >  	depends on ARCH_MXC || COMPILE_TEST
-> > > diff --git a/drivers/nvmem/imx-ocotp.c b/drivers/nvmem/imx-ocotp.c
-> > > index c5086a16450ac..e3ea026a37d0d 100644
-> > > --- a/drivers/nvmem/imx-ocotp.c
-> > > +++ b/drivers/nvmem/imx-ocotp.c
-> > > @@ -23,6 +23,7 @@
-> > >  #include <linux/of.h>
-> > >  #include <linux/platform_device.h>
-> > >  #include <linux/slab.h>
-> > > +#include <dt-bindings/nvmem/fsl,imx8mn-ocotp.h>
-> > >
-> > >  #define IMX_OCOTP_OFFSET_B0W0		0x400 /* Offset from base address of the
-> > >  					       * OTP Bank0 Word0
-> > > @@ -91,11 +92,20 @@ struct ocotp_ctrl_reg {
-> > >  	u32 bm_rel_shadows;
-> > >  };
-> > >
-> > > +#define OCOTP_MAX_NUM_GATE_WORDS 4
-> > > +
-> > > +struct disable_fuse {
-> > > +	u32 fuse_addr;
-> > > +	u32 mask;
-> > > +};
-> > > +
-> > >  struct ocotp_params {
-> > >  	unsigned int nregs;
-> > >  	unsigned int bank_address_words;
-> > >  	void (*set_timing)(struct ocotp_priv *priv);
-> > >  	struct ocotp_ctrl_reg ctrl;
-> > > +	u32 num_disables;
-> > > +	struct disable_fuse *disables;
-> > >  };
-> > >
-> > >  static int imx_ocotp_wait_for_busy(struct ocotp_priv *priv, u32 flags)
-> > > @@ -552,11 +562,25 @@ static const struct ocotp_params imx8mm_params = {
-> > >  	.ctrl = IMX_OCOTP_BM_CTRL_DEFAULT,
-> > >  };
-> > >
-> > > +struct disable_fuse imx8mn_disable_fuse[] = {
-> > > +		[IMX8MN_OCOTP_M7_DISABLE]	= { .fuse_addr = 20, .mask = BIT(8) },
-> > > +		[IMX8MN_OCOTP_M7_MPU_DISABLE]	= { .fuse_addr = 20, .mask = BIT(9) },
-> > > +		[IMX8MN_OCOTP_M7_FPU_DISABLE]	= { .fuse_addr = 20, .mask = BIT(10) },
-> > > +		[IMX8MN_OCOTP_USB_OTG1_DISABLE]	= { .fuse_addr = 20, .mask = BIT(11) },
-> > > +		[IMX8MN_OCOTP_GPU3D_DISABLE]	= { .fuse_addr = 20, .mask = BIT(24) },
-> > > +		[IMX8MN_OCOTP_MIPI_DSI_DISABLE]	= { .fuse_addr = 20, .mask = BIT(28) },
-> > > +		[IMX8MN_OCOTP_ENET_DISABLE]	= { .fuse_addr = 20, .mask = BIT(29) },
-> > > +		[IMX8MN_OCOTP_MIPI_CSI_DISABLE]	= { .fuse_addr = 20, .mask = BIT(30) },
-> > > +		[IMX8MN_OCOTP_ASRC_DISABLE]	= { .fuse_addr = 20, .mask = BIT(31) },
-> > > +};
-> >
-> > Can we direct define IMX8MN_OCOTP_M7_DISABLE as BIT(8), so avoid this
-> > map data?
->
-> This would be possible for imx8mn, but not for imx8mp which uses
-> multiples fuses for disables. This is an excerpt from imx8mp WIP
-> > struct disable_fuse imx8mp_disable_fuse[] = {
-> > 	[IMX8MP_OCOTP_CAN_DISABLE]		= { .fuse_addr = 16, .mask = BIT(28) },
-> > 	[IMX8MP_OCOTP_CAN_FD_DISABLE]		= { .fuse_addr = 16, .mask = BIT(29) },
-> > 	[IMX8MP_OCOTP_VPU_VC8000E_DISABLE]	= { .fuse_addr = 16, .mask = BIT(30) },
-> > 	[IMX8MP_OCOTP_IMG_ISP1_DISABLE]		= { .fuse_addr = 20, .mask = BIT(0) },
-> > 	[IMX8MP_OCOTP_IMG_ISP2_DISABLE]		= { .fuse_addr = 20, .mask = BIT(1) },
-> > 	[IMX8MP_OCOTP_IMG_DEWARP_DISABLE]	= { .fuse_addr = 20, .mask = BIT(2) },
-> > };
->
-> Notice the fuse_addr of 16 and 20.
+On Fri, Jan 31, 2025 at 03:54:16PM +0000, Steven Price wrote:
+> On 31/01/2025 15:29, Andrew Lunn wrote:
+> > On Fri, Jan 31, 2025 at 03:03:11PM +0000, Steven Price wrote:
+> >> On 31/01/2025 14:47, Andrew Lunn wrote:
+> >>>>> I'm guessing, but in your setup, i assume the value is never written
+> >>>>> to a register, hence 0 is O.K. e.g. dwmac1000_dma_operation_mode_rx(),
+> >>>>> the fifosz value is used to determine if flow control can be used, but
+> >>>>> is otherwise ignored.
+> >>>>
+> >>>> I haven't traced the code, but that fits my assumptions too.
+> >>>
+> >>> I could probably figure it out using code review, but do you know
+> >>> which set of DMA operations your hardware uses? A quick look at
+> >>> dwmac-rk.c i see:
+> >>>
+> >>>         /* If the stmmac is not already selected as gmac4,
+> >>>          * then make sure we fallback to gmac.
+> >>>          */
+> >>>         if (!plat_dat->has_gmac4)
+> >>>                 plat_dat->has_gmac = true;
+> >>
+> >> has_gmac4 is false on this board, so has_gmac will be set to true here.
+> > 
+> > Thanks. Looking in hwif.c, that means dwmac1000_dma_ops are used.
+> > 
+> > dwmac1000_dma_operation_mode_rx() just does a check:
+> > 
+> > 	if (rxfifosz < 4096) {
+> > 		csr6 &= ~DMA_CONTROL_EFC;
+> > 
+> > but otherwise does not use the value.
+> > 
+> > dwmac1000_dma_operation_mode_tx() appears to completely ignore fifosz.
+> > 
+> > So i would say all zero is valid for has_gmac == true, but you might
+> > gain flow control if a value was passed.
+> > 
+> > A quick look at dwmac100_dma_operation_mode_tx() suggests fifosz is
+> > also ignored, and dwmac100_dma_operation_mode_rx() does not exist. So
+> > all 0 is also valid for gmac == false, gmac4 == false, and xgmac ==
+> > false.
+> > 
+> > dwmac4_dma_rx_chan_op_mode() does use the value to determine mtl_rx_op
+> > which gets written to a register. So gmac4 == true looks to need
+> > values. dwxgmac2_dma_rx_mode() is the same, so xgmac = true also need
+> > valid values.
+> > 
+> > Could you cook up a fix based on this?
+> 
+> The below works for me, I haven't got the hardware to actually test the 
+> gmac4/xgmac paths:
 
-Yes, I am not sure if it good idea to encode fuse_addr to IMX8MP_OCOTP_CAN_DISABLE
+This looks sensible. Hopefully Kunihiko can test on more platforms.
 
-like
-
-#define IMX8MP_OCOTP_CAN_DISABLE  16 << 16 | BIT(28)
-
-So dt-bindings/nvmem/fsl,imx8mn-ocotp.h can be moved to dts directory.
-
-Frank
-
->
-> > > +
-> > >  static const struct ocotp_params imx8mn_params = {
-> > >  	.nregs = 256,
-> > >  	.bank_address_words = 0,
-> > >  	.set_timing = imx_ocotp_set_imx6_timing,
-> > >  	.ctrl = IMX_OCOTP_BM_CTRL_DEFAULT,
-> > > +	.num_disables = ARRAY_SIZE(imx8mn_disable_fuse),
-> > > +	.disables = imx8mn_disable_fuse,
-> > >  };
-> > >
-> > >  static const struct ocotp_params imx8mp_params = {
-> > > @@ -589,6 +613,81 @@ static void imx_ocotp_fixup_dt_cell_info(struct nvmem_device *nvmem,
-> > >  	cell->read_post_process = imx_ocotp_cell_pp;
-> > >  }
-> > >
-> > > +static int imx_ocotp_check_access(struct ocotp_priv *priv, u32 id)
-> > > +{
-> > > +	u32 addr, mask, ret, val;
-> > > +
-> > > +	if (id >= priv->params->num_disables) {
-> > > +		dev_err(priv->dev, "Index %d too large\n", id);
-> > > +		return -EACCES;
-> > > +	}
-> > > +
-> > > +	addr = priv->params->disables[id].fuse_addr;
-> > > +	mask = priv->params->disables[id].mask;
-> > > +
-> > > +	ret = imx_ocotp_read(priv, addr, &val, sizeof(val));
-> > > +	if (ret)
-> > > +		return ret;
-> > > +
-> > > +	dev_dbg(priv->dev, "id:%d addr:%#x mask:0x%08x\n", id, addr, mask);
-> > > +	/* true means disabled */
-> > > +	if (val & mask)
-> > > +		return -EACCES;
-> > > +
-> > > +	return 0;
-> > > +}
-> > > +
-> > > +static int imx_ocotp_grant_access(struct ocotp_priv *priv, struct device_node *parent)
-> > > +{
-> > > +	struct device *dev = priv->dev;
-> > > +
-> > > +	for_each_available_child_of_node_scoped(parent, child) {
-> > > +		struct of_phandle_args args;
-> > > +		u32 id, idx = 0;
-> > > +
-> > > +		while (!of_parse_phandle_with_args(child, "access-controllers",
-> > > +						   "#access-controller-cells",
-> > > +						   idx++, &args)) {
-> > > +			of_node_put(args.np);
-> > > +			if (args.np != dev->of_node)
-> > > +				continue;
-> > > +
-> > > +			/* Only support one cell */
-> > > +			if (args.args_count != 1) {
-> > > +				dev_err(dev, "wrong args count\n");
-> > > +				continue;
-> > > +			}
-> > > +
-> > > +			id = args.args[0];
-> > > +
-> > > +			dev_dbg(dev, "Checking node: %pOF disable ID: %d\n", child, id);
-> > > +
-> > > +			if (imx_ocotp_check_access(priv, id)) {
-> > > +				of_detach_node(child);
-> > > +				dev_info(dev, "%pOF: disabled by fuse, device driver will not be probed\n",
-> > > +					 child);
-> > > +			}
-> > > +		}
-> > > +
-> > > +		imx_ocotp_grant_access(priv, child);
-> > > +	}
-> > > +
-> > > +	return 0;
-> > > +}
-> >
-> > Can we have one method to share above code logic to avoid copy-paste to
-> > every ocotp driver? Anyway, we can improve that later.
->
-> I need to check with STM32 implementation. The imx-ocotp-ele might use the
-> same function as here.
->
-> Best regards,
-> Alexander
->
-> > Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> >
-> >
-> > > +
-> > > +static int imx_ocotp_access_control(struct ocotp_priv *priv)
-> > > +{
-> > > +	struct device_node *root __free(device_node) = of_find_node_by_path("/");
-> > > +
-> > > +	if (!priv->params->disables)
-> > > +		return 0;
-> > > +
-> > > +	if (WARN_ON(!root))
-> > > +		return -EINVAL;
-> > > +
-> > > +	return imx_ocotp_grant_access(priv, root);
-> > > +}
-> > > +
-> > >  static int imx_ocotp_probe(struct platform_device *pdev)
-> > >  {
-> > >  	struct device *dev = &pdev->dev;
-> > > @@ -622,9 +721,13 @@ static int imx_ocotp_probe(struct platform_device *pdev)
-> > >  	imx_ocotp_clr_err_if_set(priv);
-> > >  	clk_disable_unprepare(priv->clk);
-> > >
-> > > +	platform_set_drvdata(pdev, priv);
-> > > +
-> > >  	nvmem = devm_nvmem_register(dev, &imx_ocotp_nvmem_config);
-> > > +	if (IS_ERR(nvmem))
-> > > +		return PTR_ERR(nvmem);
-> > >
-> > > -	return PTR_ERR_OR_ZERO(nvmem);
-> > > +	return imx_ocotp_access_control(priv);
-> > >  }
-> > >
-> > >  static struct platform_driver imx_ocotp_driver = {
-> > > --
-> > > 2.34.1
-> > >
-> >
->
->
-> --
-> TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
-> Amtsgericht München, HRB 105018
-> Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
-> http://www.tq-group.com/
->
->
+	Andrew
 
