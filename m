@@ -4,126 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDCBDC0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 11:51:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECC85C0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 11:54:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1VF7L0btICqk2wHhE3JT1nnDyIGYllk7XVIyRQ7TbrQ=; b=1Lb9F7u/LH1TctCnf2D6/K0I9X
-	eHQ9NeF4IqL2MN1JF1lrmWiDPyNVxsx9B0zTjGCMg1mLg2+/NMedTkaT+7N1FTNi4Fs+uSQzCwkFH
-	izIxtF7Xr1Zg9E5D3bbQolwZFjB4WAuSDhfqFkN5lwNgteW41VLlYTKO6C4cMkkBqgSVQdo7d8ycn
-	ucdsK0pZBjVqb/NnegX0eEEAUWW0LfB2gzonHc4RI/TotBixpJ3yE5SmqnPHVpngDI5hG5ipgBgC/
-	g2OZdDI6ST4VK9LOecN9Nlg0oJkEY2DMhWQli51Tb4iMy4hsqbl3KkwzlODGFvp6ANLawn0+KX/UO
-	Mt8YdLZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k7vfH4Sgbx8sGmHpacPWSYRXDbwnTm7hjUlAlA09Dfc=; b=T/FPbMFM7iIyJwcUePkd4e8oBX
+	S1rld3lMyw1iN3i82WAuXQ0Si7aPShSnIj24LugM8kY8hFWOws4QaO+8yQ6CfdP4X5Tre0Z5U9MrN
+	guVcQL7O9waISsXIft816DjHRf0SZ0jJNXzwp8Q+Q5mjpFAeTK8zRcvxLG5wZ8QF2lmUD+inQggR0
+	TeGR0i7NAegJj52hLioG0tm2FuJvVknz4hozRxDZMnq33ho6lSxTwXQ1OMhPNXO0EQPdMeXe7YLWY
+	0xa3xemErIhPg2do+IGRuT/j04tGvrnqW2l00GLCdbvJNqtTCI6iyVXpGa0CF0sSSwm8BcVfNkITS
+	HIanixjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdpYf-0000000AYQ4-3R6z;
-	Fri, 31 Jan 2025 11:51:37 +0000
-Received: from mailout3.samsung.com ([203.254.224.33])
+	id 1tdpax-0000000AYbM-0FuT;
+	Fri, 31 Jan 2025 11:53:59 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdpWd-0000000AY26-1LMM
+	id 1tdpZS-0000000AYU0-3BZp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jan 2025 11:49:33 +0000
-Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250131114925epoutp038743993620bb0bd98660702d5dfbbd4b~fxJ5NgccU2799027990epoutp03J
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jan 2025 11:49:25 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250131114925epoutp038743993620bb0bd98660702d5dfbbd4b~fxJ5NgccU2799027990epoutp03J
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1738324165;
-	bh=1VF7L0btICqk2wHhE3JT1nnDyIGYllk7XVIyRQ7TbrQ=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=CdN5y4xd8OdLcwVgrQXuLLHYf1eycnc1Fzo/ci1+yb0yv8fyY71TNgziP3pvVdD0U
-	 MaqxxFvWCACWMhngjm/+79zXw3+7KsUdxP/3TVB1ZeNNEhXkhloS8WnhV27hnpYlja
-	 Jg1jkJuNbWx+wLi1TNu7p/QIDEzGoF0sKnRnYpHQ=
-Received: from epsnrtp4.localdomain (unknown [182.195.42.165]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTP id
-	20250131114925epcas5p39368936432b8bdb8fd724acb20a3b959~fxJ5Bt7me0949509495epcas5p3R;
-	Fri, 31 Jan 2025 11:49:25 +0000 (GMT)
-Received: from epsmges5p2new.samsung.com (unknown [182.195.38.181]) by
-	epsnrtp4.localdomain (Postfix) with ESMTP id 4YkvLq1L38z4x9Pq; Fri, 31 Jan
-	2025 11:49:23 +0000 (GMT)
-Received: from epcas5p3.samsung.com ( [182.195.41.41]) by
-	epsmges5p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	9A.96.19933.2C8BC976; Fri, 31 Jan 2025 20:49:23 +0900 (KST)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250131114922epcas5p25b45c8d4dea3a13b1c8383d50602ecfb~fxJ2VEFvR0659206592epcas5p2r;
-	Fri, 31 Jan 2025 11:49:22 +0000 (GMT)
-Received: from epsmgms1p2new.samsung.com (unknown [182.195.42.42]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250131114922epsmtrp1537a9bb65a89b156dd6c99e18ca08d15~fxJ2UUUYA1535815358epsmtrp1a;
-	Fri, 31 Jan 2025 11:49:22 +0000 (GMT)
-X-AuditID: b6c32a4a-b87c770000004ddd-0b-679cb8c2914d
-Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
-	epsmgms1p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	45.DB.18949.2C8BC976; Fri, 31 Jan 2025 20:49:22 +0900 (KST)
-Received: from INBRO002756 (unknown [107.122.3.168]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250131114920epsmtip24b746f93fd222aa5ed6f3f9749965fcf~fxJ03I1vi0674806748epsmtip27;
-	Fri, 31 Jan 2025 11:49:20 +0000 (GMT)
-From: "Alim Akhtar" <alim.akhtar@samsung.com>
-To: "'Devang Tailor'" <dev.tailor@samsung.com>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>
-Cc: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-samsung-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<faraz.ata@samsung.com>
-In-Reply-To: <20250108055012.1938530-1-dev.tailor@samsung.com>
-Subject: RE: [PATCH v2] arm64: dts: add cpu cache information to
- ExynosAuto-v920
-Date: Fri, 31 Jan 2025 17:19:09 +0530
-Message-ID: <006401db73d6$2af35fb0$80da1f10$@samsung.com>
+	Fri, 31 Jan 2025 11:52:27 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-2efd81c7ca4so2453227a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jan 2025 03:52:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1738324345; x=1738929145; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=k7vfH4Sgbx8sGmHpacPWSYRXDbwnTm7hjUlAlA09Dfc=;
+        b=ZOaOk4yJS4+4ycIMX9GaCgK8UaLbwZBx4VbnxG0ChIJwxTjT12m7UdjUQ4rV5epJN9
+         hBLCXuqiwFpkIDxI7WcbK6kUpmiN6vxNUOftgRZe3Qni0GEW3FFJ05e+FVtomBnf2v+H
+         rGOvxoI5gjNWNusTapJqoBVSw7Iix5xZvzIHyzMUlPl0861k0SJ+HaDc33DF608tAzWm
+         Su0CEzOpN0K4k4tD6zCAhfrB7QKZKD2OBx++LKZALLUyUFkmI0ckkK6aoRI8/U3qqV5L
+         1qPs1IipuFCzQkvmEerG2alpgg2CG4GtfN4Bg8mllPEMWEvWRaOpI52h0wjJER4XKC6C
+         j+bg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738324345; x=1738929145;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=k7vfH4Sgbx8sGmHpacPWSYRXDbwnTm7hjUlAlA09Dfc=;
+        b=ZpEldvgVPQHb3w+PKdyb2aypZNyd0nD1yWJRebUUV4Tu7rcaUeYrn2lN+StYs9sYG8
+         SNeEy+IStkY0MgzazOzWIDALYdE0CL3GAORVXtBN2swKaETze8EFJr//+adVgynj5JLu
+         wpaetzFl7/LEFTz2OsMKniRSU5g3UeSKOztPeVPeD8sRuC5tepjlE2LTUoXoBQOXlWpS
+         22zN9kGNOIPFvAYQaPSXOpBpCK92Gh+tt2JbvTc9yJRiSCNv3yi7gnsih3AAalwBUFx3
+         iuHoOodA6hYMUv1tsOg/QLN9Yk7ji35HLa8djhxah/+PcORWMFrjVkuOGyFO+eGp14Od
+         lYnA==
+X-Forwarded-Encrypted: i=1; AJvYcCXFPA7ksc+LKEGsw99vwl/5qShX+V4sjLlTwgr6ud/QoSeEtVqkroBX/06MfGIV/bIo1iWpukNHHOmHoPmT38DK@lists.infradead.org
+X-Gm-Message-State: AOJu0YxfnNp2qt3i1BQIEEQi2Jlpjz0gwfEI8IPF5gzmhW2Iezr/e/f/
+	n5MJK98rEOT9OZSAqmhhLSd2wlZbK7ILZQTD/VfuI3dpm6gcsS8oegushacQ+A==
+X-Gm-Gg: ASbGncs7NkMHwrdOukXbuLgqA4hHzpxBRDhgqeUYNK3ldfEX2WAnYMDDWS3A5A5lq+y
+	T90HPiq9fj51NusuWUdVR5drtu+r5wiKSjmdublGkZZ2XNFhNdp2dWyhtBV1efYAXuPdqOTqMAc
+	XYP+GLNHWCTDFpE4Xfag5tqJLUfN3aNXFV+bjvGBBkmm74lRQAAs1KNArtkItBKnGDv3Uazz1KZ
+	Lvu/Znuu578V40qJdGwQcydn9/uIUSDAO9hxaSwBO1B5kVGyqXvIgyZwE25+cfVVIQPZZGs9pvD
+	LqYXfS3H5e6P6xHOemLGkWKeuA==
+X-Google-Smtp-Source: AGHT+IH8kZTc6caDBWl7vN/cLXEXPX/ziS+zmhHeSacd6exwy3GZEb1SvfXm7pZ6ALinPkamOfpQog==
+X-Received: by 2002:a17:90b:520d:b0:2ee:dd9b:e3e8 with SMTP id 98e67ed59e1d1-2f83abd8adfmr15401669a91.8.1738324345440;
+        Fri, 31 Jan 2025 03:52:25 -0800 (PST)
+Received: from thinkpad ([120.60.68.107])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f8489d2c20sm3368655a91.22.2025.01.31.03.52.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 31 Jan 2025 03:52:24 -0800 (PST)
+Date: Fri, 31 Jan 2025 17:22:17 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Stanimir Varbanov <svarbanov@suse.de>
+Cc: linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Jim Quinlan <jim2101024@gmail.com>,
+	Nicolas Saenz Julienne <nsaenz@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, kw@linux.com,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2] PCI: brcmstb: Fix for missing of_node_put
+Message-ID: <20250131115217.qu4ue4cfmdt7gudf@thinkpad>
+References: <20250122222955.1752778-1-svarbanov@suse.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQJnCMNmj1amGSmPwLixER7WDeLbQALDHLFMsgMBQSA=
-Content-Language: en-us
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprPJsWRmVeSWpSXmKPExsWy7bCmpu7hHXPSDTqfMVms2XuOyeLejmXs
-	FvOPnGO1uHZjIbvFy1n32Cw2Pb7GanF51xw2ixnn9zFZ/N+zg92B02PTqk42j81L6j36tqxi
-	9Pi8SS6AJSrbJiM1MSW1SCE1Lzk/JTMv3VbJOzjeOd7UzMBQ19DSwlxJIS8xN9VWycUnQNct
-	MwfoFCWFssScUqBQQGJxsZK+nU1RfmlJqkJGfnGJrVJqQUpOgUmBXnFibnFpXrpeXmqJlaGB
-	gZEpUGFCdsa0911MBbsEKvZvv87UwDiXt4uRk0NCwETi6f4zjF2MXBxCArsZJV4svAzlfGKU
-	+NXylQnC+cYocXHGFxaYlut3PkBV7WWUuHd4C5TzklGio289WBWbgK7EjsVtbCC2iECBxMzJ
-	98GKmAVWMUoc7lsH5HBwcArYSWxexANSIywQJLFg6hF2EJtFQFViUus5VhCbV8BS4tXb9ewQ
-	tqDEyZlPwOYzC2hLLFv4mhniIgWJn0+XsULsspJoXnWOCaJGXOLlUZCZXEA1czkkllxZwQrR
-	4CLRf/QF1DvCEq+Ob2GHsKUkXva3QdnVEus3zIOq6WCUaNxeA2HbS+x8dJMF5H5mAU2J9bv0
-	IXbxSfT+fsIEEpYQ4JXoaBOCqFaVaH53FWqKtMTE7m6oCzwk3l+bxTiBUXEWks9mIflsFpIP
-	ZiEsW8DIsopRMrWgODc9tdi0wCgvtRwe4cn5uZsYwSlVy2sH48MHH/QOMTJxMB5ilOBgVhLh
-	jT03I12INyWxsiq1KD++qDQntfgQoykwuCcyS4km5wOTel5JvKGJpYGJmZmZiaWxmaGSOG/z
-	zpZ0IYH0xJLU7NTUgtQimD4mDk6pBiZJh3nz/0awe3ysTxROM+i7LZR65vARx3MzLMqP+fyJ
-	js4OiN+3+q7u1If9cm28WWE3l+c+eWEubn7v1NLDXdvMVnF+42YSfLjOzqQmL/kM17N7t+3f
-	nZq/Omln+QEG45cdfoxHuL9JKKRuWnvjAJtszlZFz8CqbnbOoovFl1gSTzwq/fby79uuA7aR
-	zMeXLE+fZFEQ5J0rO1fgwlJmV7aejj9dYn8WCX74UT6tTDw5wSZT/mjYxcP+CRUuPPEemYGN
-	WQ/O3zhyu26e6B6hb/XWqlv3/fq/N0LoVnLEKpZN/gfF7vI3WIszhzv8d4lVXrsz+eXEAgY5
-	izefvE5cqLNgO8TVknlDlel9ac7+e0osxRmJhlrMRcWJAGcqBG0yBAAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFmplkeLIzCtJLcpLzFFi42LZdlhJXvfQjjnpBi2bOSzW7D3HZHFvxzJ2
-	i/lHzrFaXLuxkN3i5ax7bBabHl9jtbi8aw6bxYzz+5gs/u/Zwe7A6bFpVSebx+Yl9R59W1Yx
-	enzeJBfAEsVlk5Kak1mWWqRvl8CVMe+xUcEf/orJBzewNzDe5+li5OSQEDCRuH7nA2MXIxeH
-	kMBuRol9x2eyQySkJa5vnABlC0us/PecHaLoOaPEpVXPmEESbAK6EjsWt7GB2CICJRI7ljSw
-	ghQxC6xjlPj1/DpYt5BAP6PEpqehXYwcHJwCdhKbF/GAmMICARIH9kiDVLAIqEpMaj3HCmLz
-	ClhKvHq7nh3CFpQ4OfMJC4jNLKAt0fuwlRHGXrbwNTPEbQoSP58uY4U4wUqiedU5JogacYmX
-	R4+wT2AUnoVk1Cwko2YhGTULScsCRpZVjJKpBcW56bnFhgVGeanlesWJucWleel6yfm5mxjB
-	MaWltYNxz6oPeocYmTgYDzFKcDArifDGnpuRLsSbklhZlVqUH19UmpNafIhRmoNFSZz32+ve
-	FCGB9MSS1OzU1ILUIpgsEwenVAPToceLC1+6BnPkTPlv7Vs7914/a8Dt+JvCRuK1TZ/iem7/
-	ffMmbLfxyuZu5TnlL700m5d2btfYruQ73XFH6lFTpbo76Tt3m4ldc+nfJmTTGcZvlLP35sIN
-	7hd6Ax026r5g4/sr1uzjsH2X0M4b8ka3DgSWPZfUX/Fs5+5PJq0TM07OqhdZe5qfmenevjVC
-	2w4ky9570HSzoMTyl+GT/I23Ap9KTJSZ6fLu/f3JGecW/VZlk1tav1yu5/bFsPsyvTJLBcMn
-	/V8pv6SFQZSrL3Zna+CNi1K8UvXnl1qzVyhX+G70OtV89/kRvju8W2f6G+bKruX90cV7pubw
-	RLmXayPmRNSIr35T96RratkkTckaJZbijERDLeai4kQApmXWXBgDAAA=
-X-CMS-MailID: 20250131114922epcas5p25b45c8d4dea3a13b1c8383d50602ecfb
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250108054224epcas5p399f3d734f8d9f82e5ae75d183d1a5344
-References: <CGME20250108054224epcas5p399f3d734f8d9f82e5ae75d183d1a5344@epcas5p3.samsung.com>
-	<20250108055012.1938530-1-dev.tailor@samsung.com>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250122222955.1752778-1-svarbanov@suse.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_034932_006215_E5E6ADB8 
-X-CRM114-Status: GOOD (  16.47  )
+X-CRM114-CacheID: sfid-20250131_035226_789002_C2F86DB6 
+X-CRM114-Status: GOOD (  20.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,71 +105,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Devang
+On Thu, Jan 23, 2025 at 12:29:55AM +0200, Stanimir Varbanov wrote:
+> A call to of_parse_phandle() is incrementing the refcount, of_node_put
+> must be called when done the work on it. Add missing of_node_put() after
+> the check for msi_np == np and MSI initialization.
+> 
+> Cc: stable@vger.kernel.org # v5.10+
+> Fixes: 40ca1bf580ef ("PCI: brcmstb: Add MSI support")
+> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
 
-> -----Original Message-----
-> From: Devang Tailor <dev.tailor=40samsung.com>
-> Sent: Wednesday, January 8, 2025 11:20 AM
-> To: alim.akhtar=40samsung.com; dev.tailor=40samsung.com; robh=40kernel.or=
-g;
-> krzk+dt=40kernel.org; conor+dt=40kernel.org
-> Cc: devicetree=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org;=
- linux-
-> samsung-soc=40vger.kernel.org; linux-kernel=40vger.kernel.org;
-> faraz.ata=40samsung.com
-> Subject: =5BPATCH v2=5D arm64: dts: add cpu cache information to ExynosAu=
-to-
-> v920
->=20
-> Add CPU caches information to its dt nodes so that the same is available =
-to
-> userspace via sysfs. This SoC has 64/64 KB I/D cache and 256KB of L2 cach=
-e for
-> each core, 2 MB of shared L3 cache for each quad cpu cluster and 1 MB of
-> shared L3 cache for the dual cpu cluster.
->=20
-> Signed-off-by: Devang Tailor <dev.tailor=40samsung.com>
->=20
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+
+- Mani
+
 > ---
-> Changes in v2:
-> - Added L3 cache for all the three cpu clusters
-> - Corrected L2 cache numbering as a part of review comments from Krzyszto=
-f
->   and updated as per cpus clusters.
-> - Link to v1: https://patchwork.kernel.org/project/linux-arm-
-> kernel/patch/20241231064350.523713-1-dev.tailor=40samsung.com/
-> ---
->  .../arm64/boot/dts/exynos/exynosautov920.dtsi =7C 127
-> ++++++++++++++++++
->  1 file changed, 127 insertions(+)
->
-=5Bsnip=5D
- > +		l3_cache_cl0: l3-cache0 =7B
-You can add one node for cl0 and cl1, say =22l3_cache_cl0_cl1=22 and
-Remove the specific node for CL1, because both are same.=20
-
-> +			compatible =3D =22cache=22;
-> +			cache-level =3D <3>;
-> +			cache-unified;
-> +			cache-size =3D <0x200000>;/* 2MB L3 cache for cpu
-> cluster-0 */
-> +			cache-line-size =3D <64>;
-> +			cache-sets =3D <2048>;
-> +		=7D;
+> v1 -> v2:
+>  - Use of_node_put instead of cleanups (Florian).
+>  - Sent the patch separately from PCIe 2712 series (Florian).
+> 
+>  drivers/pci/controller/pcie-brcmstb.c | 13 +++++++++----
+>  1 file changed, 9 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
+> index 744fe1a4cf9c..d171ee61eab3 100644
+> --- a/drivers/pci/controller/pcie-brcmstb.c
+> +++ b/drivers/pci/controller/pcie-brcmstb.c
+> @@ -1844,7 +1844,7 @@ static struct pci_ops brcm7425_pcie_ops = {
+>  
+>  static int brcm_pcie_probe(struct platform_device *pdev)
+>  {
+> -	struct device_node *np = pdev->dev.of_node, *msi_np;
+> +	struct device_node *np = pdev->dev.of_node;
+>  	struct pci_host_bridge *bridge;
+>  	const struct pcie_cfg_data *data;
+>  	struct brcm_pcie *pcie;
+> @@ -1944,9 +1944,14 @@ static int brcm_pcie_probe(struct platform_device *pdev)
+>  		goto fail;
+>  	}
+>  
+> -	msi_np = of_parse_phandle(pcie->np, "msi-parent", 0);
+> -	if (pci_msi_enabled() && msi_np == pcie->np) {
+> -		ret = brcm_pcie_enable_msi(pcie);
+> +	if (pci_msi_enabled()) {
+> +		struct device_node *msi_np = of_parse_phandle(pcie->np, "msi-parent", 0);
 > +
-> +		l3_cache_cl1: l3-cache1 =7B
-> +			compatible =3D =22cache=22;
-> +			cache-level =3D <3>;
-> +			cache-unified;
-> +			cache-size =3D <0x200000>;/* 2MB L3 cache for cpu
-> cluster-1 */
-> +			cache-line-size =3D <64>;
-> +			cache-sets =3D <2048>;
-> +		=7D;
+> +		if (msi_np == pcie->np)
+> +			ret = brcm_pcie_enable_msi(pcie);
 > +
-=5Bsnip=5D
-> +		l3_cache_cl2: l3-cache2 =7B
-> 2.34.1
+> +		of_node_put(msi_np);
+> +
+>  		if (ret) {
+>  			dev_err(pcie->dev, "probe of internal MSI failed");
+>  			goto fail;
+> -- 
+> 2.47.0
+> 
 
-
+-- 
+மணிவண்ணன் சதாசிவம்
 
