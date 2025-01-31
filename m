@@ -4,54 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23F8AC0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 08:39:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F37A3C0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 08:47:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jxb0oDMobd7GaIcoqojTSF8ZoNcoVg4kM8ohJkoHKb8=; b=YcpqI7PXt0kjd89hO1qpGOEhh2
-	5koYPuQ3z+hNusy0w1PRqfLmOQTmxBQarofoJ9YkPB3/dkxMmApNdpzenRJGWy7fB/HH9SxcTfPXJ
-	swq9l4rhWDh2zaekDhz5uSHYXAaP6lcsEl4Wz4vtWS76vmdqBSJJMbFGt+V4iEyUYNZOnzZZcCRr6
-	VtlkyW0vyZuGjWMX08YfMIKlOgQjaovrw2hGtmvbsWCjGl8EgvxWt2mbCJERJg/QD1U/YQPX0OPC6
-	Mt6EV/PN/QWvt5H2FiRzOVn5YmXq4gEQoFSyuYdSTC9Jf8Liu9guaC5iAJyQHL0J0C1AGWjlE6uNA
-	uqH+cHgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3K4yAaVY2DqNXAZ/ALofHVAGDMbXjmKrX37kbO8tP84=; b=1nF9a6ncdOZeX1kih5feOlZ63C
+	iu5qxi12O/udx/m8CiB0xH6gC9hwFm1YkU9jNX5kvi6QtsH32yZMs9EqD7WzyxoZ64KHUQWokyHkU
+	32zvg1M5mVMxd3p8TY0a/QLOVfqjBOAefxs5BP27N9DB75WH67d70pF5xInlzpZk20B3e3iEZOmjO
+	ql3zbnFGoGoarg1dpu+TetUCazr1JSLUldHz8v+CcBU0OPIX0Fc2agOT8Dm+D6L5bG765kbtVvP9d
+	hXMkEfDjEZo+YchNlsB8O+XZna7CtutqfBUN2iw70ZEPRCL6jdu8aVa6qKwbdp/P0dP01229rG00Q
+	5g+QaVog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdmYK-0000000AE27-0Ea1;
-	Fri, 31 Jan 2025 08:39:04 +0000
-Received: from mail.novaplan.pl ([51.195.118.1])
+	id 1tdmgd-0000000AEzl-3sQX;
+	Fri, 31 Jan 2025 08:47:39 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdmW4-0000000ADq0-2ybS
+	id 1tdmfJ-0000000AEuS-0M3V
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jan 2025 08:36:46 +0000
-Received: by mail.novaplan.pl (Postfix, from userid 1002)
-	id 439C6A3D3F; Fri, 31 Jan 2025 09:36:23 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=novaplan.pl; s=mail;
-	t=1738312594; bh=jxb0oDMobd7GaIcoqojTSF8ZoNcoVg4kM8ohJkoHKb8=;
-	h=Date:From:To:Subject:From;
-	b=yxgsGgF6Y4RqJ1OBLdvCrDmcJ9dXc3KpmeIZulZR2JpZfcxNpuTTlZtxWJK+UrrL9
-	 nbTO98eiB9+6/OdOzb+G8zb0iTz9kte/FDo5aw8Zv2eV9yFX9fro1ew6Z9272sPZjh
-	 VJPFROaZSlaeIuXxUuAalLHfXQ6PKwihyD8caMTv1JVsYjOSEK/RDnj9Xuv6jlfsOd
-	 YAs5B+j7ysdtsp7J5OL3THn/OOSDLLrGPWVTBkNQDPDfIYeGGpvLYo9ApTt0fPs+HU
-	 +/SRerFggry+4Fj6EL+ePLYVYfrI0BPXifoJK5ouV3DBONRJzV4PHZHPHcqkf5a42M
-	 ZZo9NXaH5PSAw==
-Received: by mail.novaplan.pl for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jan 2025 08:36:06 GMT
-Message-ID: <20250131084500-0.1.jl.15bh6.0.a16l5unh01@novaplan.pl>
-Date: Fri, 31 Jan 2025 08:36:06 GMT
-From: "Adrian Liszka" <adrian.liszka@novaplan.pl>
-To: <linux-arm-kernel@lists.infradead.org>
-Subject: =?UTF-8?Q?Prosz=C4=99_o_kontakt?=
-X-Mailer: mail.novaplan.pl
-MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 31 Jan 2025 08:46:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2D20FA40537;
+	Fri, 31 Jan 2025 08:44:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7424DC4CED1;
+	Fri, 31 Jan 2025 08:46:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738313174;
+	bh=Erb/cbxJJ/om2z1Ke1SymY4HRmWgNzv1Y97lwGY2w/w=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=l0k/m0h7531VXkdVt4CoOD57yCo3Y+rgu7h6CdfD9Zj0AadnD2mtjaB/evKKq64+/
+	 JxFzvAHfteNXwx9RJwr0IwXewN0pjWuaDgog9VdZv+rR+B+PS4Cste6c2ngAyF24/t
+	 iVnZVu+mp7guz+qDlfCs+r93Og9IERIQJr1ic1Mffq2mnhkleuBs18FpetrP9I3T/Q
+	 3XMfMryNThlK4By4nnoAeDqYVd3rvb2AQ96bjQkaSk96ew4rEAQlxGx1FOC/pJhvwU
+	 zm/gqpGPLsQEMu+ZYL3MOQdnj+nP+sCfEX25dHEOq4jCmqMrWKtKkvjFoXnTQJGw6Z
+	 7bN6fwDS+4o0Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tdmfE-00GpS4-2H;
+	Fri, 31 Jan 2025 08:46:12 +0000
+Date: Fri, 31 Jan 2025 08:46:11 +0000
+Message-ID: <868qqrv0a4.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Wei-Lin Chang <r09922117@csie.ntu.edu.tw>,
+	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
+	Dmytro Terletskyi <Dmytro_Terletskyi@epam.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH 3/3] KVM: arm64: timer: Consolidate NV configuration of virtual timers
+In-Reply-To: <Z5vx8NVN8lF6QuJz@linux.dev>
+References: <20250128161721.3279927-1-maz@kernel.org>
+	<20250128161721.3279927-4-maz@kernel.org>
+	<Z5vx8NVN8lF6QuJz@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, r09922117@csie.ntu.edu.tw, Volodymyr_Babchuk@epam.com, Dmytro_Terletskyi@epam.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_003645_434815_762DCB88 
-X-CRM114-Status: UNSURE (   2.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250131_004617_188220_C4EC15AD 
+X-CRM114-Status: GOOD (  17.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,19 +91,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dzie=C5=84 dobry,
+On Thu, 30 Jan 2025 21:41:04 +0000,
+Oliver Upton <oliver.upton@linux.dev> wrote:
+> 
+> > +void kvm_timer_vcpu_nv_init(struct kvm_vcpu *vcpu)
+> > +{
+> > +	/*
+> > +	 * A vcpu running at EL2 is in charge of the offset applied to
+> > +	 * the virtual timer, so use the physical VM offset, and point
+> > +	 * the vcpu offset to CNTVOFF_EL2.
+> > +	 *
+> > +	 * The virtual offset behaviour is "interesting", as it always
+> > +	 * applies when HCR_EL2.E2H==0, but only when accessed from EL1 when
+> > +	 * HCR_EL2.E2H==1. Apply it to the HV timer when E2H==0.
+> > +	 */
+> 
+> I'm definitely being pedantic, but all the talk of an HV timer when
+> E2H==0 isn't sitting well with me. Since a programmable E2H has gone
+> out the window there isn't such thing as an HV timer when E2H==0, as
+> FEAT_VHE isn't implemented for the VM.
 
-Czy jest mo=C5=BCliwo=C5=9B=C4=87 nawi=C4=85zania wsp=C3=B3=C5=82pracy z =
-Pa=C5=84stwem?
+Ah, that's a very good point!
 
-Z ch=C4=99ci=C4=85 porozmawiam z osob=C4=85 zajmuj=C4=85c=C4=85 si=C4=99 =
-dzia=C5=82aniami zwi=C4=85zanymi ze sprzeda=C5=BC=C4=85.
+> And along those lines, accesses to CNTHV_*_EL2 registers should undef
+> when FEAT_VHE isn't implemented for the VM but I don't think we have any
+> enforcement of that.
 
-Pomagamy skutecznie pozyskiwa=C4=87 nowych klient=C3=B3w.
+Indeed. Let me fix this and add the required UNDEF behaviour.
 
-Zapraszam do kontaktu.
+Thanks,
 
+	M.
 
-Z pozdrowieniami
-Adrian Liszka
+-- 
+Without deviation from the norm, progress is not possible.
 
