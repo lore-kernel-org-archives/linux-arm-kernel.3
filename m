@@ -4,61 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DB1DC0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 16:31:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9BAEC02190
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 16:33:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aq4eaUxs6VzHkR8cIYvqvwq0cFMPu8jWCwRKgpRs7BE=; b=Slsw5GCtxAjphIBFlLnT3cikEF
-	jAQsKv6hsWHU6zFDUZ0ct0IbbKwlv3w23sfSr7q95K88spg0/uxeqehpOfQNNYlmPAMqnRfZ3JSRy
-	QnJKnGmBFreSd1cGSgIAgJd57qGFln61EYnhq9CmfC+54H3CG9ve0X0/ToBaKPWNfM9EC0mrCtrU3
-	yuEOsyu3oRBB/d8L1hjoWz9/L0gBLelDXupJoZkVg9jrTsgHW+3mDL6VEf3an0QN7lTcx+TvMYd1D
-	c6UYZKMoK6MGXWpoUIu3GSN5yfRMb/9NZLYIOGgM5A9oH0bNEKc4u6S0cn6hvMnOmjius8CELD8qJ
-	SiXa/F6g==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=L9UJqPgBORaXR/9oFp0g7cwrap4KGfpKmsClXzosUYM=; b=BjFtfjAo6uCg01
+	Ppp/oSMzB0XNrt93brJyMXZldS3BIAxYs7b813ZR4PA4Q3Nz7eVOT+1D9AY1/TiU+kYi7fZ72gzdl
+	8j/JDjq7VgSsy17OncbHS9QoVpPQZDVniFE0IY1vpAO003COkpZRPFjZBp3dUp+pXt9BqQ6ujhQsF
+	1vNqJhImQR85skGv50svfwlhfxNeHdBTDrgs4oVGXKmQU9v/7hoWPGoJBYBQvxe6MRnfWGokUE3fh
+	HUe+N2LHcQNJJCEMKppfdMRQQ03l2hGu2MJqULVtmDLr+r63Rl3+kYZDxOKse/f7fbJPOg0pPgbvw
+	9tlHOnku077U6K1QxR+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdtvf-0000000Az8y-06zF;
-	Fri, 31 Jan 2025 16:31:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdtpN-0000000Ay6F-3W5B
+	id 1tdtww-0000000AzP0-2g5m;
+	Fri, 31 Jan 2025 16:32:58 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tdtqV-0000000AyKY-1DTP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jan 2025 16:25:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C221DFEC;
-	Fri, 31 Jan 2025 08:25:34 -0800 (PST)
-Received: from e125905.cambridge.arm.com (e125905.cambridge.arm.com [10.1.194.73])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 4656F3F694;
-	Fri, 31 Jan 2025 08:25:07 -0800 (PST)
-From: Beata Michalska <beata.michalska@arm.com>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org,
-	ionela.voinescu@arm.com,
-	sudeep.holla@arm.com,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	rafael@kernel.org,
-	viresh.kumar@linaro.org
-Cc: sumitg@nvidia.com,
-	yang@os.amperecomputing.com,
-	vanshikonda@os.amperecomputing.com,
-	lihuisong@huawei.com,
-	zhanjie9@hisilicon.com,
-	ptsm@linux.microsoft.com
-Subject: [PATCH v10 4/4] arm64: Update AMU-based freq scale factor on entering idle
-Date: Fri, 31 Jan 2025 16:24:39 +0000
-Message-Id: <20250131162439.3843071-5-beata.michalska@arm.com>
-In-Reply-To: <20250131162439.3843071-1-beata.michalska@arm.com>
-References: <20250131162439.3843071-1-beata.michalska@arm.com>
+	Fri, 31 Jan 2025 16:26:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=from:to:cc:subject:date:message-id
+	:mime-version:content-transfer-encoding; s=k1; bh=L9UJqPgBORaXR/
+	9oFp0g7cwrap4KGfpKmsClXzosUYM=; b=jcEpFKd37KhDV7jSL3kMH4LMb7EC/c
+	FF6lDeCf4bnhWxHG8Qfc/9dd6memfB8SR84rWSY2chYeHOCPWD2ntZFNIl+MeADE
+	/A++mboo8sI3PzxIl5IMD3zuhssE7Z9DmAGATiOV+c/tnyX+jBaThhfG+q7ydOqK
+	fiXKiFkWctyGeuV6tweSCUq3j0cGH0Di1bDmkKlP2TyFTCSA3xGDVtBbyOedbRtr
+	QJtSqaTW+3zuG3O/6OIWTwVd5MR9RALCiyydMaDOPAZ4w+MYwQvNixG5zWN2C8da
+	Wa2Aqk9PPjr3HrcMoNNIT++epXYbYnF2w3Yaue+PaGbbd/E2iY3r/0XQ==
+Received: (qmail 1738667 invoked from network); 31 Jan 2025 17:26:17 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 31 Jan 2025 17:26:17 +0100
+X-UD-Smtp-Session: l3s3148p1@IQ2EAAMtrC/Uph5e
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: linux-arm-kernel@lists.infradead.org
+Subject: [PATCH 0/2] ARM: dts: at91: calao_usb: improve LED description
+Date: Fri, 31 Jan 2025 17:26:11 +0100
+Message-ID: <20250131162611.33338-4-wsa+renesas@sang-engineering.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_082509_915372_ABC58B70 
-X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-CacheID: sfid-20250131_082619_597655_5841BEF3 
+X-CRM114-Status: UNSURE (   7.57  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -71,50 +62,23 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Wolfram Sang <wsa+renesas@sang-engineering.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that the frequency scale factor has been activated for retrieving
-current frequency on a given CPU, trigger its update upon entering
-idle. This will, to an extent, allow querying last known frequency
-in a non-invasive way. It will also improve the frequency scale factor
-accuracy when a CPU entering idle did not receive a tick for a while.
-As a consequence, for idle cores, the reported frequency will be the
-last one observed before entering the idle state.
+For developing on the road, the Calao USB-boards are still very useful
+to me. Time to give their Linux support a little love. This mini series
+fixes a wrong polarity and removes the default heartbeat. More to come.
 
-Suggested-by: Vanshidhar Konda <vanshikonda@os.amperecomputing.com>
-Signed-off-by: Beata Michalska <beata.michalska@arm.com>
-Reviewed-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
-Reviewed-by: Sumit Gupta <sumitg@nvidia.com>
----
- arch/arm64/kernel/topology.c | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+Wolfram Sang (2):
+  ARM: dts: at91: calao_usb: fix wrong polarity for LED
+  ARM: dts: at91: calao_usb: remove heartbeat for User LEDs
 
-diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-index bd238e5c2133..6f0cab8e746b 100644
---- a/arch/arm64/kernel/topology.c
-+++ b/arch/arm64/kernel/topology.c
-@@ -213,6 +213,19 @@ static __always_inline bool amu_fie_cpu_supported(unsigned int cpu)
- 		cpumask_test_cpu(cpu, amu_fie_cpus);
- }
- 
-+void arch_cpu_idle_enter(void)
-+{
-+	unsigned int cpu = smp_processor_id();
-+
-+	if (!amu_fie_cpu_supported(cpu))
-+		return;
-+
-+	/* Kick in AMU update but only if one has not happened already */
-+	if (housekeeping_cpu(cpu, HK_TYPE_TICK) &&
-+	    time_is_before_jiffies(per_cpu(cpu_amu_samples.last_scale_update, cpu)))
-+		amu_scale_freq_tick();
-+}
-+
- #define AMU_SAMPLE_EXP_MS	20
- 
- int arch_freq_get_on_cpu(int cpu)
+ arch/arm/boot/dts/microchip/usb_a9260_common.dtsi | 3 +--
+ arch/arm/boot/dts/microchip/usb_a9263.dts         | 1 -
+ 2 files changed, 1 insertion(+), 3 deletions(-)
+
 -- 
-2.25.1
+2.45.2
 
 
