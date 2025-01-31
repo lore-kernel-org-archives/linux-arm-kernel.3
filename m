@@ -4,80 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AA4EC02192
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 23:42:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99D8EC0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 23:43:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WoabQOIO7BqEmHMvwAU48qnHgarITzPKF9dEIQzwpHk=; b=KvFftE+I84PIXIeojNL4Lilqtp
-	nCXGoHrWdhBMQUHMdhnqf1lsZy957Iv6dggj/RpufAU8SQtqumGr6w3yF6YSIHbIDutuMoOUuvqoS
-	He+zfjTaODP/rcvRwSf62C0ky5l9ylyWeXAOKXaDyhnn1C3SWJx4fbznbmVcGj3vwT5kg8GOd60Dz
-	4P0rsm26KJQgQjFe6mw0LNjTtRqQLO3jONbsl39eXlr1qAZr4hok2uK6NtfcdTsNDCefPVUpNGekM
-	lB0wO//NREmZBBYFEJFrRc1vi/EjHTIL0RG0tXjgJ2/SUQ/f90xbnBPwZqB953/FbDTdPPtyUTfKi
-	5yE5731g==;
+	bh=kGwPodq6Q+1QRMhQwzdR87h5olYJe5SMz1YpEKeh/EA=; b=KCHF1s8yynDT1hLJEV7v7CXQUJ
+	Bpbndgwuk4gTyT6SU7FuuyutBrl7ogC77ENRZTWw38XZIPCbUtRBSn+nDKiHIU8D/2cfkzEzWc/v7
+	L798dNW8e0jNR/BHnIlzdWEkFeSDO+uc7QhHHhbT0QKQ/0E6TLurk41jKZzLlYm/Recp4m6ym02Sj
+	2Ksxvy0vG9nrYEX1G4DcYzu/J0PK29cyThesSIUItXHANeRM3C7OB17913UrOfoiLxX6heTaQqLCM
+	vXkE4UH/6M0iGeYDCOSV2qsUk6+euYUeAz9ItBx3ctpqYLTZ/22pvjN1tEq8dSJLBn2zSPuoQEQsH
+	e72Dze1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1te0eU-0000000Bdyy-1VWk;
-	Fri, 31 Jan 2025 23:42:22 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1te0fp-0000000Be9o-48WV;
+	Fri, 31 Jan 2025 23:43:45 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1te0dA-0000000Bdt2-3J4L
+	id 1te0eV-0000000Bdys-0mOO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jan 2025 23:41:02 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 50VNeuaM2615028
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 31 Jan 2025 17:40:56 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1738366856;
-	bh=WoabQOIO7BqEmHMvwAU48qnHgarITzPKF9dEIQzwpHk=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=mZPgsRekWBzNXLMw+JsvJpCz5v0TSd1PYzWlRTr/TKLZ0sEhUAMnKzRW3m2ZFJeQ2
-	 RKk4FPIGfWAbathUmvIZxTIPJvtxV4zLyHqlHeY2yA+PFZwB9Ja6mnfSKDzfxIrbQI
-	 XtQn1juIjNYMoilIpP57maVjWZohktF411vM13wM=
-Received: from DFLE100.ent.ti.com (dfle100.ent.ti.com [10.64.6.21])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 50VNeu0D090728
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 31 Jan 2025 17:40:56 -0600
-Received: from DFLE110.ent.ti.com (10.64.6.31) by DFLE100.ent.ti.com
- (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 31
- Jan 2025 17:40:55 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE110.ent.ti.com
- (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 31 Jan 2025 17:40:56 -0600
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 50VNee8d052831;
-	Fri, 31 Jan 2025 17:40:40 -0600
-Message-ID: <1c2c67b7-987e-4b92-b0be-c0b2f25adae6@ti.com>
-Date: Fri, 31 Jan 2025 17:40:40 -0600
+	Fri, 31 Jan 2025 23:42:24 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-ab6fb1851d4so215525266b.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jan 2025 15:42:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1738366941; x=1738971741; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=kGwPodq6Q+1QRMhQwzdR87h5olYJe5SMz1YpEKeh/EA=;
+        b=BWGSyBmY1R4GtETFU9AEo4Hx1zNOVB/WbVWbMfZQzc/NT8h4KWYoqsyxFcfkzJ94rG
+         6U0fk2n/zGBp4X4xAjH8yBaPR6mAXH31x8I3olHZlBGv2NcYdCwrZO+iWgXnnFsmdEuT
+         brCUJLjviptL3dRokI1/1fuOBvB8njoEcAAAAXbFZsnuGOIQ7wKvE8J46LQKnC5RjAzr
+         4Az97JYrlSlnOJBoA6HJM59GFEoab7uX56S3Zq1KjctfQ58AvBzYw8Wn+YCsw0s8LyYV
+         cC2zw4pT0PI/IEEAOvBOqnmpVMUi1+YbhGsCQrn7JBX+7GOvU7j6vm/EuH5ILDyNhWo7
+         IQMg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738366941; x=1738971741;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=kGwPodq6Q+1QRMhQwzdR87h5olYJe5SMz1YpEKeh/EA=;
+        b=FAnahP31pvn+HaS2Fz41kaCONU3Ms99Kq3kqfEVBkAf0Ryr+WJqYCvDHuz4bq//+UM
+         Q94bPJ9M/+BkbXqz/iFw7EoU7QsnxXRrkMisxyiAp1LXsVxd9TlZkedTUc/HBed6hX5q
+         WXfd+Hthl37SoWWp82rNQZ7GDESNFzB8QzXeAUi7aAhU1mWfbRl0bVKykoDPyzswPCHc
+         YYPc4lsuUzOPuXKCAazssasb+pPX+bErT2/Bxzh3JX3DCdAiI8NOFZI6roROsKLPwoWW
+         QU3rdoHOCdpWK/BRlZPxee0nDNm5Lq4uyVzGoEUmHyRXEW7SiBtWTkUBCY8PoBA2BwAw
+         hV1Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWMzjjbayqsZicnaQjkwiwa0bnHpI1sWATRo5709eyAwUEA7YFH9fbtv/WFtdZQJP9G+KtPZaB93LzWH6o7tieg@lists.infradead.org
+X-Gm-Message-State: AOJu0YyTuwHypiMPKS8DBygEvhi/cUpv8bctQrW5f1XlBacfa7mOBcyx
+	NzqtF6h7jfsB5kOLwMGyLwZEZ21jPMPS4c0Bz955GC7uSGRgeDbg
+X-Gm-Gg: ASbGnct6z3Ys8dtCowl9/mNRN+f6Uvibhx/Yx3DeZwcP65URkSFF3k0BP254DH8ZnH+
+	93WXkZBNuCub47OZCiHsSWoXmI5KOOcnXsJKY1CppRaGwXQ94oPHts+H3Ko3vlXWgpUNzAxe4bq
+	RYybpyT8KOD65//75YQLbbzr++9SHXKGACIyYpNVerezTrL1/+OzjO1eBXeobuYDJmkZxKQX5Lm
+	wFvQVri1IDoA383TUtekVIQl09DcSSEbuRrraSyT/l3KbVMKPTmyyciOexGpwclNErlkL37duv6
+	lZENPp15Rc+pWNEcZS5R/zZE66wl
+X-Google-Smtp-Source: AGHT+IER34JxU6wqtw2fn+LJ3Rbu3h28herITddCa9E1l4aKB44zvDpbpqzN330rg7Ayn8xAChRs2A==
+X-Received: by 2002:a17:907:7f0d:b0:aa6:7ff9:d248 with SMTP id a640c23a62f3a-ab6f7443f58mr610676866b.8.1738366940751;
+        Fri, 31 Jan 2025 15:42:20 -0800 (PST)
+Received: from ?IPV6:2001:871:22a:8634::1ad1? ([2001:871:22a:8634::1ad1])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab6e4a2f90asm361883266b.129.2025.01.31.15.42.19
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 31 Jan 2025 15:42:20 -0800 (PST)
+Message-ID: <defddc25-eb8b-420a-b64c-6ce57ebb3f6b@gmail.com>
+Date: Sat, 1 Feb 2025 00:42:19 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/9] arm64: dts: ti: k3-am62-wakeup: Add wakeup r5f
- node
-To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Hari Nagalla
-	<hnagalla@ti.com>
-References: <20250131214611.3288742-1-jm@ti.com>
- <20250131214611.3288742-2-jm@ti.com>
-Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20250131214611.3288742-2-jm@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Subject: Re: [PATCH v3] arm: rust: Enable Rust support for ARMv7
+To: Arnd Bergmann <arnd@arndb.de>, Andrew Lunn <andrew@lunn.ch>,
+ Miguel Ojeda <ojeda@kernel.org>
+Cc: Alex Gaynor <alex.gaynor@gmail.com>, Boqun Feng <boqun.feng@gmail.com>,
+ Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?=
+ <bjorn3_gh@protonmail.com>, Benno Lossin <benno.lossin@proton.me>,
+ Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
+ Trevor Gross <tmgross@umich.edu>, Jonathan Corbet <corbet@lwn.net>,
+ Russell King <linux@armlinux.org.uk>, Rudraksha Gupta <guptarud@gmail.com>,
+ Ard Biesheuvel <ardb@kernel.org>, Geert Stappers <stappers@stappers.nl>,
+ Jamie Cunliffe <Jamie.Cunliffe@arm.com>,
+ Sven Van Asbroeck <thesven73@gmail.com>, rust-for-linux@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20250123-rfl-arm32-v3-1-8f13623d42c5@gmail.com>
+ <a83b0149-7055-411b-ba86-d227919c7c32@app.fastmail.com>
+ <f8b59f05-55b5-4208-8bdf-b4be8e93bc22@gmail.com>
+ <65da77f7-bbd4-4cbe-a06c-75f10a6ec4ce@lunn.ch>
+ <5e8a99a5-f39c-46da-b54d-7b69307b1c66@gmail.com>
+ <e14cfb34-308f-4797-afe7-4e7e2d470fe3@app.fastmail.com>
+Content-Language: en-US, de-DE
+From: Christian Schrefl <chrisi.schrefl@gmail.com>
+In-Reply-To: <e14cfb34-308f-4797-afe7-4e7e2d470fe3@app.fastmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_154100_969306_D6EE28C4 
-X-CRM114-Status: GOOD (  16.15  )
+X-CRM114-CacheID: sfid-20250131_154223_253895_9040FA37 
+X-CRM114-Status: GOOD (  33.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,67 +114,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/31/25 3:46 PM, Judith Mendez wrote:
-> From: Hari Nagalla <hnagalla@ti.com>
+On 31.01.25 8:37 PM, Arnd Bergmann wrote:
+> On Fri, Jan 31, 2025, at 19:58, Christian Schrefl wrote:
+>> On 31.01.25 5:05 PM, Andrew Lunn wrote:
+>>>> To fix this Rust would have to provide a way to build the core
+>>>> library without float support. I don't know if there is a plan
+>>>> already to allow this.
+>>>
+>>> Floating point is banned within the kernel, except for in very narrow
+>>> conditions, because the floating point registers are lazy saved on
+>>> context switch. If the kernel uses the floating point registers, you
+>>> can break user space in bad ways.
+>>>
+>>> I expect this has been discussed, since it is well known kernel
+>>> restriction. Maybe go see what happened to that discussion within RfL?
+>>
+>> After checking again, it seems the float intrinsics are actually not
+>> needed anymore at least for my config.
 > 
+> Ah, nice! If this is true for all architectures using the current
+> rust compiler, it would be great to remove the FP stubs entirely
+> and have link errors instead of panicking, to make it consistent
+> with C.
 
-Subject should capitalize R5F
+After a quick test it seems that (most?) intrinsics are not needed
+anymore on x86, but not sure if that's valid for all supported rust
+versions and config options.
 
-> AM62 SoC devices have a single core R5F processor in wakeup domain.
-> The R5F processor in wakeup domain is used as a device manager
-> for the SoC.
 > 
-> Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
-> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
-> Signed-off-by: Judith Mendez <jm@ti.com>
-> ---
-> Changes since v1:
-> - disable each device node in the voltage domain files and
->    enable at the board level file
-> - fix firmware names
-> ---
->   arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi | 25 ++++++++++++++++++++++
->   1 file changed, 25 insertions(+)
+>> Only `__aeabi_uldivmod` is still
+>> required for `parse_u64_into` since [0] allows disabling float formatting.
+>>
+>> Link error without the `__aeabi_uldivmod` symbol defined:
+>>
+>> ld.lld: error: undefined symbol: __aeabi_uldivmod
+>>>>> referenced by num.rs:580 (/home/chrisi/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/fmt/num.rs:580)
+>>>>>               rust/core.o:(core::fmt::num::parse_u64_into::<39>) in archive vmlinux.a
+>>>>> referenced by num.rs:589 (/home/chrisi/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/fmt/num.rs:589)
+>>>>>               rust/core.o:(core::fmt::num::parse_u64_into::<39>) in archive vmlinux.a
+>>>>> referenced by num.rs:589 (/home/chrisi/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/fmt/num.rs:589)
+>>>>>               rust/core.o:(core::fmt::num::parse_u64_into::<39>) in archive vmlinux.a
+>>>>> referenced 34 more times
+>>>>> did you mean: __aeabi_uidivmod
+>>>>> defined in: vmlinux.a(arch/arm/lib/lib1funcs.o)
+>>
+>> Not sure if we should just implement `__aeabi_uldivmod`, keep the 
+>> panicking intrinsic for it or somehow fix it in upstream Rust?
 > 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
-> index 9b8a1f85aa15c..12b1520974ade 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
-> @@ -106,6 +106,31 @@ wkup_rti0: watchdog@2b000000 {
->   		status = "reserved";
->   	};
->   
-> +	wkup_r5fss0: r5fss@78000000 {
-> +		compatible = "ti,am62-r5fss";
-> +		#address-cells = <1>;
-> +		#size-cells = <1>;
-> +		ranges = <0x78000000 0x00 0x78000000 0x8000>,
-> +				 <0x78100000 0x00 0x78100000 0x8000>;
+> The 64-bit division is particularly easy to introduce by accident
+> on 32-bit architectures, so ending up in a panic here is clearly
+> a problem. From the message above it appears that there is only 
+> a single calling function (parse_u64_into()) in the rust library,
+> so I wonder if it might be sufficient to split that out into
+> another object file that then doesn't need to get linked into
+> the kernel, or for the kernel to override it with an implementation
+> that does not rely on __aeabi_uldivmod() but calls __do_div64()
+> instead.
 
-Odd alignment, looks like you have an extra tab on the above line
+I don't think that we can split it into a different object
+file or do some weird redirect in Rust itself.
 
-Andrew
+> Since parse_u64_into seems to be a parsing function that is
+> expected to be slow, it should be acceptable to call __do_div64()
+> here, while we still prevent calling __aeabi_uldivmod() from
+> kernel source code.
 
-> +		power-domains = <&k3_pds 119 TI_SCI_PD_EXCLUSIVE>;
-> +		status = "disabled";
-> +
-> +		wkup_r5fss0_core0: r5f@78000000 {
-> +			compatible = "ti,am62-r5f";
-> +			reg = <0x78000000 0x00008000>,
-> +			      <0x78100000 0x00008000>;
-> +			reg-names = "atcm", "btcm";
-> +			ti,sci = <&dmsc>;
-> +			ti,sci-dev-id = <121>;
-> +			ti,sci-proc-ids = <0x01 0xff>;
-> +			resets = <&k3_reset 121 1>;
-> +			firmware-name = "am62-wkup-r5f0_0-fw";
-> +			ti,atcm-enable = <1>;
-> +			ti,btcm-enable = <1>;
-> +			ti,loczrama = <1>;
-> +		};
-> +	};
-> +
->   	wkup_vtm0: temperature-sensor@b00000 {
->   		compatible = "ti,j7200-vtm";
->   		reg = <0x00 0xb00000 0x00 0x400>,
+`parse_u64_into` seems to be used by Formatting for u128 
+and i128 so it would be fine to disable these with a flag.
+However `__aeabi_uldivmod` is used by some other parts of
+core as well, like logarithm calculation for 64 and 128
+bit integers, not sure what else uses is. I would guess 
+its fine for these to be slow.
+
+Can someone help me figure out how to get ld.lld to print
+every usage instead of just the first three?
+
+Not sure how easy it would be to disable these but it
+would probably require some effort and would probably
+be pretty hacky, so not sure if Rust would accept these.
+
+> 
+> Note that on earlier ARMv7 (Cortex-A8, A9), even a 32-bit
+> division is implemented through an expensive software loop.
+> Later cores (Cortex-A7, A15, A17) have native 32-bit division
+> instructions but still no 64-bit ones.
+
+I would assume that a software implementation is fine.
+
+Cheers
+Christian
+
+
 
