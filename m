@@ -4,65 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32368C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 09:21:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8917C0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 09:37:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0B7vxdS52txOQYr8MAUjOPGxnkb0yKArb/TqnTim/JE=; b=w+cIHq8iaFdv/hJLsLPJyJA2IF
-	YKKrE33ctgWgkI2Fn4q8zKjbgo0HmRqYMx0drIB75yI1oBGe6bryVHLqMYN1mV0+2Ea4uWF8R0f5G
-	XjLZ66qY7maJb55ENbEeSxx99u2AhP++Q4XmD8JU0FeAIW0WWkn4euPoL+EvIgJ6GHliQ/BPoCNLH
-	cjSyt9PPup1HEP0QuwIJa7W7UHU8iUfa1C+wABofEFGQKd6KzqVTLk5jIBw7ZrFIbdjHSKG7VXHkT
-	OiwgFLk8agiBOuWcyi6hJimbEuc4gAeNf9HWaDAVuznZhq+xJQ/HaenFK59yIxKdIIh92QdhBDtjo
-	bRFLJgJw==;
+	bh=si6mym3g7jhVIB8CmdS2U7Ka2MFi9bM3MvXvEmd4r3Q=; b=iTFFbsTGidce8yU9KhqGNc3Vx3
+	ELxgZD1IeRyAFMibDseeAUO//HzV2t0PHSHg4KMjoc43f4/nRklFWI+B2zAEWblf1GOIYNW2uUttP
+	o+mETeW8h57Rb8nM8M/pgOjOMDZYHnm/34lcF+3fo7alj/ffP4dsPShd41PpWWgmygPsv4U5Eg0pW
+	8ZW1vwAoEsRZiN9ckD7MFH6U5qLXdBndEZIY4O+OrhyIB92siwtzxHoCBsBGGEBq1i9TAZW4LQsF4
+	YRDHvKt3zyIS13VHxHipGDKnNmpARjf5LnraQ0uzvtVdhtfY11S4E9u5cevQM0lSyY0wR6iaPtyMf
+	MwxMvY6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdnDR-0000000AI8Y-0ygE;
-	Fri, 31 Jan 2025 09:21:33 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tdnSd-0000000AKBL-1brB;
+	Fri, 31 Jan 2025 09:37:15 +0000
+Received: from mail-db5eur02on20717.outbound.protection.outlook.com ([2a01:111:f403:2608::717] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdnC5-0000000AI1t-2bRK;
-	Fri, 31 Jan 2025 09:20:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=0B7vxdS52txOQYr8MAUjOPGxnkb0yKArb/TqnTim/JE=; b=fO5N0AY6e9Fe7eGia4ydGVl/AS
-	U5f/5AQpGP2olKzC34QoHN1a2he0xkIe1t39UyugTbsuF0DaAMy4hwn9jxFduUIRVRtEYQXipSgjL
-	lcrYQ0CM0Lzx2V8ORCRr7JriJ4M5AMdoUpMjOpPQoM5w4cmWy/TxbvOArken6/B4lGgYrduzcJM7Q
-	SaXdPbZZjhVhyUnYfmmHnCvW/azD18jKc3IiupUbz/JuKTLqXZ+3T55naGCHmLvoIj2QxpluMUx5c
-	U0TBimeFUZaZSLUxwj6rHskipMgsQRG5sfccRnUvxhennAWMQi6skyE3UQ+eCLWDA8xpmqUwS2nT7
-	UPT5HCaQ==;
-Received: from [212.111.254.164] (helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tdnC4-0006Gx-0H; Fri, 31 Jan 2025 10:20:08 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Olivier Benjamin <olivier.benjamin@bootlin.com>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Olivier Benjamin <olivier.benjamin@bootlin.com>,
- Dragan Simic <dsimic@manjaro.org>, Ondrej Jirman <megi@xff.cz>
-Subject: Re: [PATCH 0/2] Describe the cameras in the PinePhone Pro dts
-Date: Fri, 31 Jan 2025 10:20:06 +0100
-Message-ID: <5127541.31r3eYUQgx@phil>
-In-Reply-To: <20250119-camera-v1-0-320be4f0dc2b@bootlin.com>
-References: <20250119-camera-v1-0-320be4f0dc2b@bootlin.com>
+	id 1tdnRJ-0000000AK4V-038d
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 31 Jan 2025 09:35:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yeNhqnucpsNYCUe9OctGEdEfVNeGDvbjYtwEoBtKR8f7DySGVDwd4PCzpPutm5bZtAtLBwkG2TydI4rjnX7gnutRYkrT4oLCyQos/OnxS0uVGwr9XPgeikKRkvsX/rLsJBoolZYjr8cURco4tV1qjLjGzQSXzm2twN+lVG78S+0YJTaLQiXxRkVAvpfLb5mFAkTUNYnN8m3HlbKAO8jnVIngq51X101X+cr3MgnKQU8BJjR6gqCFLEQixPr9dOamepUgmexT9m6uBF4UQmyPfA171wcPlEbOAQsgP7/a6vfobq2+rGusB+bAj0vKhYaY0qpQXzgX955uSmx/thfGiA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=si6mym3g7jhVIB8CmdS2U7Ka2MFi9bM3MvXvEmd4r3Q=;
+ b=m6GFEjN0JB2OMLL5azg38JRb4avfr6pV7louowwRIX/gQDxhKEMJwfqcSzrvJovus0ETf4sDzB7tHrjiPiaqvfwV+CdLxjvoJRZ0y7stOdH+1XMnjk7V0xyD4RR1advxmEqasC0aSPslkn/3dFkqXfMxY5VPLdSV0PTjn4vnB/mTqSfz7ctYfMsfUyBbt73kRCW/I94aoSY6eZbG9/TcRtCF6ZshPDOBhS9L6vZ+HZLxPU3tbXZV7ySNdZJugXSVFxi8XNGEGhLC/yXMUSS9+tglpxDpR7pZnxqwEsQNuaEayydSaMkpTfV7IQD/oK2paMS3ub5M3xsrsv67y/RAgg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
+ is 91.26.50.189) smtp.rcpttodomain=ti.com smtp.mailfrom=phytec.de; dmarc=fail
+ (p=quarantine sp=quarantine pct=100) action=quarantine header.from=phytec.de;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=si6mym3g7jhVIB8CmdS2U7Ka2MFi9bM3MvXvEmd4r3Q=;
+ b=g0Saj6f6uOo3DEBN9ndWzjGWAhGVv71eprz4DCo/AZ2ItUFE83XrMwzfLmVhCFLVpoCLc6NeM+wlBBizlmuxnwVfXZz9o+HOArMHbVqLJrEWT79W1D0NbSaLuylSIewd1KAWBKTgQYZ0mXFjUWMODxu5i1FI11VI5GA9gW92gVv84HHf3iPo4KcOuy72nmtWW0OUKLknBW/6R0cu08UnVrY/BbU6LiwqBh+A//ZF1xic+DA99nCTic5VxjjjBEWte8w/wo7VvDUIfPXkA3qwVzi6MCMqh+JFwYFMx8ODVIBsSIRKUP4fs1vuwgXP5xMMjZ8COGf1kkZ24hUO8xHymw==
+Received: from DUZPR01CA0004.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:3c3::20) by DU0P195MB1982.EURP195.PROD.OUTLOOK.COM
+ (2603:10a6:10:3e6::6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.18; Fri, 31 Jan
+ 2025 09:35:46 +0000
+Received: from DU6PEPF0000B61C.eurprd02.prod.outlook.com
+ (2603:10a6:10:3c3:cafe::d5) by DUZPR01CA0004.outlook.office365.com
+ (2603:10a6:10:3c3::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8398.20 via Frontend Transport; Fri,
+ 31 Jan 2025 09:35:51 +0000
+X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
+ smtp.mailfrom=phytec.de; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ phytec.de discourages use of 91.26.50.189 as permitted sender)
+Received: from Diagnostix.phytec.de (91.26.50.189) by
+ DU6PEPF0000B61C.mail.protection.outlook.com (10.167.8.135) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.8398.14 via Frontend Transport; Fri, 31 Jan 2025 09:35:45 +0000
+Received: from Berlix.phytec.de (172.25.0.12) by Diagnostix.phytec.de
+ (172.25.0.14) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Fri, 31 Jan
+ 2025 10:35:43 +0100
+Received: from augenblix2.phytec.de (172.25.0.11) by Berlix.phytec.de
+ (172.25.0.12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Fri, 31 Jan
+ 2025 10:35:43 +0100
+From: Wadim Egorov <w.egorov@phytec.de>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <kees@kernel.org>,
+	<tony.luck@intel.com>, <gpiccoli@igalia.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <upstream@lists.phytec.de>
+Subject: [PATCH 2/2] arm64: dts: ti: k3-am62-phycore-som: Reserve RTOS IPC memory
+Date: Fri, 31 Jan 2025 10:35:31 +0100
+Message-ID: <20250131093531.1054924-2-w.egorov@phytec.de>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250131093531.1054924-1-w.egorov@phytec.de>
+References: <20250131093531.1054924-1-w.egorov@phytec.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [172.25.0.11]
+X-ClientProxiedBy: Berlix.phytec.de (172.25.0.12) To Berlix.phytec.de
+ (172.25.0.12)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU6PEPF0000B61C:EE_|DU0P195MB1982:EE_
+X-MS-Office365-Filtering-Correlation-Id: 53a03839-e2df-463c-3df7-08dd41daa35d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?qKF+qceWEij3nWx5+F22LJbo6ZNlSKviKywdMd3EvdV2FAXVZST29xyxSIOH?=
+ =?us-ascii?Q?XQqF3L9RafiwwteNEPT9VmPvMb1G4ZjXLx3AEuIGxiK1p1Fu2ptlW26eOjCD?=
+ =?us-ascii?Q?B2Prnh5QYEYo2Nr1sVOo7mL52plFiGNKUwmtmHf2ibJ5V8GtNRpQY8KcxIM4?=
+ =?us-ascii?Q?VEmMMOPU1joVvXTMMyKxAGUZywbUrXwRlWJ4CUPTT8zQtyTcKKHXvnM2Atqo?=
+ =?us-ascii?Q?IAyPmSPQPP44yppKM0podEqMFWSe2k7CBumQ89TKsdeKzhpbt9GRmWHd0Wu5?=
+ =?us-ascii?Q?hwc5VoDst/0hhUNmDkeO2uBmloykX8Q4h9uzlDDErKApKIrxMybhsfi92DZO?=
+ =?us-ascii?Q?i2ZFguBILiEp4KDPSo3Ur2K5JebVGwOBEQim1FSaLLtHodoz19SrsfxP5qXp?=
+ =?us-ascii?Q?87uczu1kEl2ax8xqqLDhGgVZ9LQto/JmkAkIXS7KzPjjkOnPFFCAvqq040le?=
+ =?us-ascii?Q?ZU5dz+fUAIIQPWlrTe6EmQUFaMKF7HHdkxpLHHl3Ykn4+WEORjkW0Fg8c7z5?=
+ =?us-ascii?Q?+K5EvueAC45WdacMvGUhEWhCC7kFNtzL4Ng421OnwM1yzAAJnwKMyIU1ZJ5U?=
+ =?us-ascii?Q?PhXhUpwyxNOENzQwxe/wl8WnEqli5jpj6xvEh0DajC/nKbAaJmadMkv0q2BC?=
+ =?us-ascii?Q?7fCz8F4q2DAdNqZ5Ddp0sqMMvUm2Kq4pjxKD+4AsEYBy+ibY+Yk4rJhl2nMU?=
+ =?us-ascii?Q?x4jMbtz79HCayGxV40ayGKOKGy6SuuA/lwv2F0l47eRcK2OypT71fe9EN2VJ?=
+ =?us-ascii?Q?YvUPExC46flMduRPuBrUKfCcHct7FpTs87B9hXunIQB6pMoTgp57MqRO8P9o?=
+ =?us-ascii?Q?w0wO3mSC8iYObYhkOOQiD4knYIAoG5DNcWdnnJi4Ztk7j4aiwYsMFh1UIpv6?=
+ =?us-ascii?Q?J1KIDtaG71grhRN60zLG65rlcRIAuX1tWQ5osIFQlKWSIIPJKzpQKphg9n4S?=
+ =?us-ascii?Q?b5DEg1OhpskZwlbUpPvxhxBOv9iSXL4BBBSEe4bs6bdreIm6/5fRc2XSPZiY?=
+ =?us-ascii?Q?3rmiW+2raiQ1IQ0whYuRZoI4/DXMsqahclEWfEBCF1sTdJNaoDRW4K2Wv3jx?=
+ =?us-ascii?Q?iLqqe9nRvLXCAQoeO8SnrdmhOQJCh+jP1XYoGgLaNQ6Th7kIWFFUrZc3CAUK?=
+ =?us-ascii?Q?UwS6B3E9QcxLO/70Jqft1I9rEWacOTsmb+uVM2LqfZxQVfa2941Q0oMoboSz?=
+ =?us-ascii?Q?2AOmcv0vljC08Ha+qyH21vG86b+DZOiWPWntFDSu7dz8uPY+tnjiRFYBo2ie?=
+ =?us-ascii?Q?j/24wuMm91Cd9RB0MkdeXOxDUKM9YVVEbqHpHCjgp94D/GRgxdAHP0I5nx7t?=
+ =?us-ascii?Q?IyHjj1ap9Gd2unHgK10OmYokTYeyvOivJUmWgR3VvW5IlPpR+3pH1hIHOtzv?=
+ =?us-ascii?Q?IjACegKQyrCLXpFQiWU6n/fVpQ7v4CqGby6W7j2y4KHA+Ffu9YnM7u5cdNy0?=
+ =?us-ascii?Q?QYhnzsGpmiU7eLJkCgb0EIHmOr5kgY/eTZEDGsnoINjEWx4MrbqpMQav7Fjp?=
+ =?us-ascii?Q?nsslGdlysB+yF3k=3D?=
+X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:Diagnostix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(376014)(7416014);DIR:OUT;SFP:1102;
+X-OriginatorOrg: phytec.de
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Jan 2025 09:35:45.5326
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 53a03839-e2df-463c-3df7-08dd41daa35d
+X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Diagnostix.phytec.de]
+X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000B61C.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0P195MB1982
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_012009_670288_3B92150C 
-X-CRM114-Status: GOOD (  14.65  )
+X-CRM114-CacheID: sfid-20250131_013553_353792_80820429 
+X-CRM114-Status: GOOD (  11.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,36 +149,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Reserve a portion of memory for inter-processor communication between
+all remote processors running RTOS or baremetal firmware.
+Move ramoops to lower region so the IPC fits to the correct address.
 
-Am Sonntag, 19. Januar 2025, 23:56:58 MEZ schrieb Olivier Benjamin:
-> This series adds support for the Pine64 PinePhone Pro's rear and front
-> cameras in Device Tree.
-> This is based on some of Ondrej Jirman's patches hosted in his tree at
-> https://codeberg.org/megi/linux, but I have also fully reviewed and
-> re-written the code from the RK3399 datasheet, the PinePhone Pro
-> schematic, and the IMX258-0AQH5 software reference manual.
-> 
-> I have tested these changes on my PinePhone Pro and am able to take
-> photos from both cameras using libcamera's cam.
-> 
-> Signed-off-by: Olivier Benjamin <olivier.benjamin@bootlin.com>
-> ---
-> Olivier Benjamin (2):
->       arm64: dts: PinePhone Pro: describe I2c Bus 1 and IMX258 world camera
->       arm64: dts: PinePhone Pro: describe the OV8858 user camera
+Signed-off-by: Wadim Egorov <w.egorov@phytec.de>
+---
+ arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
 
-Patch subject should be
-"arm64: dts: rockchip: describe the OV8858 user camera on PinePhone Pro"
-
-patches need an update to accomodate
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5c96e63301978f4657c9082c55a066763c8db7b1
-
-And please name the new regulator nodes similarly
-(regulator-foo)
-
-Thanks a lot
-Heiko
-
+diff --git a/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
+index 2ef4cbaec789..4bffa8ce0410 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
+@@ -36,15 +36,21 @@ reserved_memory: reserved-memory {
+ 		#size-cells = <2>;
+ 		ranges;
+ 
+-		ramoops@9ca00000 {
++		ramoops@9c700000 {
+ 			compatible = "ramoops";
+-			reg = <0x00 0x9ca00000 0x00 0x00100000>;
++			reg = <0x00 0x9c700000 0x00 0x00100000>;
+ 			record-size = <0x8000>;
+ 			console-size = <0x8000>;
+ 			ftrace-size = <0x00>;
+ 			pmsg-size = <0x8000>;
+ 		};
+ 
++		rtos_ipc_memory_region: ipc-memories@9c800000 {
++			compatible = "shared-dma-pool";
++			reg = <0x00 0x9c800000 0x00 0x00300000>;
++			no-map;
++		};
++
+ 		mcu_m4fss_dma_memory_region: m4f-dma-memory@9cb00000 {
+ 			compatible = "shared-dma-pool";
+ 			reg = <0x00 0x9cb00000 0x00 0x100000>;
+-- 
+2.34.1
 
 
