@@ -4,57 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57CA8C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 09:49:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCFEAC0218D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 09:54:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IgTXMi4Z6/pPHAJvWr1PzOr0CtmvNpPFfsgTnXCpDoE=; b=KDzW/PUNbqw00UFDQ7jqNaG2oj
-	bZ3smdJLypVd/jXonqeS9njYS+lYCC8b+pVFr3AZXrEsrU9UoKf4xhjhckAhipKWkFdNwbzWX/iP8
-	flBXM/CUGSo79YtK2cDDlPBEfVtAMfTgcyG6jrtTNchedJ+MBhk6EVLbgM7taVzM6IeareoJsgwe4
-	BEoeVEzsNXI5BckVxJP1iIGcRfDFvGwINBEbXmkvXUyC5slnbSlpyp0DZawVdAtwiLgmRoGrywZ9x
-	aS0Dvm+e01muX53qwrIIdd+fXyeN8MrhgHEkNKkTDQBb9BsseoxFwcm6wb47SzyaWR8t9pA8rTV28
-	Pg0qXDjQ==;
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Il+wNiCszPi/+DUH857/3hzpLOcpjIH5NQuKn14zCcs=; b=KEBgLutvN3gL4eAOeB9E+PrZCP
+	Iw5fFuOcmknqnGLogqIkChVQ6KeRIIxd709Yb5mLkefagooYUqWgcYgWtlyNyWSaWIIzL7JWg10QD
+	6WHGGGXu2QdgZypR5Mz5oxnFujh7U+jsn/ID/8Lyq6oRB4NnVGhcfEQvnGFW+IJuRTHwsA4JRhrmq
+	6Q7C6rx3G+53gcsqtjT3wD9iuoKQShLpmP0gxGuPV4ZTsy2ohCgG1DjV/0pl5qT9bVTO++HOBRpwJ
+	rxzXo419hPyBi+oNyCgRGKFF4nG3YrB346zqqI5GHO05Da3IsZ+z5BGwVMktmVIrXyEjmDhXeKDIC
+	yTKIkArA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdnei-0000000AL0N-0WuW;
-	Fri, 31 Jan 2025 09:49:44 +0000
-Received: from relmlor2.renesas.com ([210.160.252.172] helo=relmlie6.idc.renesas.com)
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdndO-0000000AKuz-1f3L;
-	Fri, 31 Jan 2025 09:48:24 +0000
-X-CSE-ConnectionGUID: Z+PrpjS4SYKuLNBTu5ZRNg==
-X-CSE-MsgGUID: VxM4iI87TweP3hHFzGXvqg==
-Received: from unknown (HELO relmlir5.idc.renesas.com) ([10.200.68.151])
-  by relmlie6.idc.renesas.com with ESMTP; 31 Jan 2025 18:48:18 +0900
-Received: from localhost.localdomain (unknown [10.226.92.122])
-	by relmlir5.idc.renesas.com (Postfix) with ESMTP id E4CBC40165B8;
-	Fri, 31 Jan 2025 18:48:14 +0900 (JST)
-From: Biju Das <biju.das.jz@bp.renesas.com>
-To: Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Biju Das <biju.das.jz@bp.renesas.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Biju Das <biju.das.au@gmail.com>,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH] of: base: Add of_get_available_child_by_name()
-Date: Fri, 31 Jan 2025 09:48:10 +0000
-Message-ID: <20250131094812.118340-1-biju.das.jz@bp.renesas.com>
-X-Mailer: git-send-email 2.43.0
+	id 1tdniy-0000000ALVt-2cSR;
+	Fri, 31 Jan 2025 09:54:08 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tdnhf-0000000ALJG-0X4w;
+	Fri, 31 Jan 2025 09:52:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id EC7135C62C9;
+	Fri, 31 Jan 2025 09:52:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E5EAC4CED1;
+	Fri, 31 Jan 2025 09:52:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738317165;
+	bh=H+IlFfMfsD9g1qejv8TSC7mY3PZmOkwq9GIvivm50sA=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=CJizKJwYL5Bm0XraUmEKjV6TXmxBB9kp0MsEkpu+QvtqRovckEyFvj1Z7SDdm9TIJ
+	 UmIp4ojsLbE8Uj+Xf3cGcHPlfsYXjnmygk0+EbvAcDpbkZ2HY2LABRcJVVTBlODCqe
+	 kwTSxyMJrib9sZVethhjvUAd1iHdT0ejZFVi8bkPlcni3wJWz4bggSWz5YJ3Ard9sk
+	 jNxg8CuMfs2Ydf/u6+3GEiyn8eZZCMHBa4rJJz6S1A2sbXsjwd7jabsFjzZCZpj+dd
+	 J0gdHbxwfyGqSXlP3CZqDtZzMRU5kQPtcFWxhNLJs6SHvVC9Pu4oMvAyIWo3CF6cu0
+	 USwmF2iLw0WTA==
+From: Vinod Koul <vkoul@kernel.org>
+To: Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Arnd Bergmann <arnd@arndb.de>, 
+ Arnd Bergmann <arnd@kernel.org>
+Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
+ Zhang Yubing <yubing.zhang@rock-chips.com>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20250122065249.1390081-1-arnd@kernel.org>
+References: <20250122065249.1390081-1-arnd@kernel.org>
+Subject: Re: [PATCH] phy: rockchip: fix Kconfig dependency more
+Message-Id: <173831716159.670164.8181803651884997358.b4-ty@kernel.org>
+Date: Fri, 31 Jan 2025 15:22:41 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_014822_548863_ACA57240 
-X-CRM114-Status: GOOD (  11.96  )
+X-CRM114-CacheID: sfid-20250131_015247_211730_72FF3168 
+X-CRM114-Status: UNSURE (   8.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,105 +77,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There are lot of drivers using of_get_child_by_name() followed
-by of_device_is_available() to check the child node availabilty
-by name for a given parent. Provide a helper for these users to
-simplify the code.
 
-Suggested-by: Geert Uytterhoeven <geert+renesas@glider.be>
-Signed-off-by: Biju Das <biju.das.jz@bp.renesas.com>
----
-grep showed the below files will be the user for this new API.
-I will be updating these drivers once this patch is in mainline.
+On Wed, 22 Jan 2025 07:52:44 +0100, Arnd Bergmann wrote:
+> A previous patch ensured that USB Type C connector support is enabled,
+> but it is still possible to build the phy driver without enabling
+> CONFIG_USB (host support) or CONFIG_USB_GADGET (device support), and
+> in that case the common helper functions are unavailable:
+> 
+> aarch64-linux-ld: drivers/phy/rockchip/phy-rockchip-usbdp.o: in function `rk_udphy_probe':
+> phy-rockchip-usbdp.c:(.text+0xe74): undefined reference to `usb_get_maximum_speed'
+> 
+> [...]
 
-drivers/net/dsa/rzn1_a5psw.c
-drivers/net/can/rcar/rcar_canfd.c
+Applied, thanks!
 
-drivers/net/ethernet/mediatek/mtk_star_emac.c
-drivers/net/dsa/mt7530.c
-drivers/net/dsa/sja1105/sja1105_mdio.c
-drivers/net/dsa/qca/qca8k-8xxx.c
-drivers/net/wireless/mediatek/mt76/mac80211.c
-drivers/net/ethernet/ibm/emac/core.c
-drivers/net/ethernet/ti/am65-cpsw-nuss.c
-drivers/net/ethernet/actions/owl-emac.c
-drivers/net/ethernet/mediatek/mtk_eth_soc.c
-drivers/media/platform/samsung/exynos4-is/media-dev.h
-drivers/gpu/drm/tegra/rgb.c
-drivers/gpu/drm/msm/adreno/adreno_gpu.c
-drivers/clk/davinci/pll.c
----
- drivers/of/base.c  | 28 ++++++++++++++++++++++++++++
- include/linux/of.h |  9 +++++++++
- 2 files changed, 37 insertions(+)
+[1/1] phy: rockchip: fix Kconfig dependency more
+      commit: ca996321d32a732ee12e7af8ccd0c84bf885fd6f
 
-diff --git a/drivers/of/base.c b/drivers/of/base.c
-index af6c68bbb427..3f5119fbfdb4 100644
---- a/drivers/of/base.c
-+++ b/drivers/of/base.c
-@@ -824,6 +824,34 @@ struct device_node *of_get_child_by_name(const struct device_node *node,
- }
- EXPORT_SYMBOL(of_get_child_by_name);
- 
-+/**
-+ * of_get_available_child_by_name - Find the child node availabilty by name for a given parent
-+ * @node:	parent node
-+ * @name:	child name to look for.
-+ *
-+ * This function looks for child node for given matching name and check the
-+ * device availability for use.
-+ *
-+ * Return: A node pointer if found, with refcount incremented, use
-+ * of_node_put() on it when done.
-+ * Returns NULL if node is not found.
-+ */
-+struct device_node *of_get_available_child_by_name(const struct device_node *node,
-+						   const char *name)
-+{
-+	struct device_node *child;
-+
-+	for_each_child_of_node(node, child)
-+		if (of_node_name_eq(child, name))
-+			break;
-+
-+	if (child && !of_device_is_available(child))
-+		of_node_put(child);
-+
-+	return child;
-+}
-+EXPORT_SYMBOL(of_get_available_child_by_name);
-+
- struct device_node *__of_find_node_by_path(const struct device_node *parent,
- 						const char *path)
- {
-diff --git a/include/linux/of.h b/include/linux/of.h
-index eaf0e2a2b75c..9d6b8a61607f 100644
---- a/include/linux/of.h
-+++ b/include/linux/of.h
-@@ -301,6 +301,8 @@ extern struct device_node *of_get_compatible_child(const struct device_node *par
- 					const char *compatible);
- extern struct device_node *of_get_child_by_name(const struct device_node *node,
- 					const char *name);
-+extern struct device_node *of_get_available_child_by_name(const struct device_node *node,
-+							  const char *name);
- 
- /* cache lookup */
- extern struct device_node *of_find_next_cache_node(const struct device_node *);
-@@ -578,6 +580,13 @@ static inline struct device_node *of_get_child_by_name(
- 	return NULL;
- }
- 
-+static inline struct device_node *of_get_available_child_by_name(
-+					const struct device_node *node,
-+					const char *name)
-+{
-+	return NULL;
-+}
-+
- static inline int of_device_is_compatible(const struct device_node *device,
- 					  const char *name)
- {
+Best regards,
 -- 
-2.43.0
+~Vinod
+
 
 
