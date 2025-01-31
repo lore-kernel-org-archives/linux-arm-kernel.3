@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A04DEC0218D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 09:09:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 576B6C02193
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 09:11:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qBM19W687ds68sEqtJ4vSFA6vs5r5fWKLK9XgZ4ixE0=; b=sH74/VeSDf6s6J7AYusYAJWsRC
-	it2Xdt5KDrBvwS/ukolNywYAUJmNVL58ds2W9cuEnoAsnf+kJaMfXo31zEYqrcViGpzAYt4SrEH5Q
-	IRJI9Nji8cubMhjn/Ewf3L1uB4eQqyKNtp/8T335LQAEXl4P0EmvW0K+54QewwspWRpZEzvfEIdvv
-	8mP5gWaHIzUQZStuTxm68VD7DmlCmklu4OprQnr95jxAWCCLnnLEIJFXSF+L3KosEeEGlC6icEy6j
-	QgOHtcTNH1qBJqqlsemSU3Ym/GohHuQ+S/8NciOOIewDcQr2noZaNGlzvupRio+cGqS1xt9yhCmyO
-	pcEf3Tpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w66nwBa+GHbxorNXdWjdWunCnuLe88jUElmyfHxjB78=; b=stbOra7xLnfz+PNrPMiBkDan6U
+	nf++6+kaB192LgEocB3a+X+HkBNZD+RhKcbpyx8I8UGuORdUP9ZztncaE93xW/Br9zgnlkH+W+9Yk
+	1b3+X7uZgE8cAKMIeaOlc2luudAP/qaFj3ctVYseqDUlNYybS67UdOOOifeC9BNDnDdlEbTK7bBmy
+	52jZsAc2snpfsJFAYR9xyG5FVJlP1iKAYkKmI2GY4oXc9OSjHK4SgSFfXqW6ub+kfCP/kLosiG5rq
+	KMmtSRNYiHoQ+/RxbXY2oNpP7x9Ok9Jn2VDa6KM2LY9g9mpWbb+QZiLINQudynI0lZqIslfJA9ecE
+	fVy8xR9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdn21-0000000AH1u-1BuB;
-	Fri, 31 Jan 2025 09:09:45 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tdn3t-0000000AHWJ-1MFl;
+	Fri, 31 Jan 2025 09:11:41 +0000
+Received: from mail.manjaro.org ([116.203.91.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdn0e-0000000AGkO-3kVf;
-	Fri, 31 Jan 2025 09:08:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=qBM19W687ds68sEqtJ4vSFA6vs5r5fWKLK9XgZ4ixE0=; b=fpKcdvnbProJpRtOff/uta2zO1
-	Xp+MVSiJ8TO4LfWykrj2Q+X02a+jr4pdNSgjS5XIu5LAtaubaR8GJll/OHqwF/qaAfLe5rf2MNWDp
-	F39cFgmoNVf8euCYGeiVzgjS3fGTT+Rh1JB1msyjEBkCfsIVnksuUerd3ze4Cj1eVG3QXeSijF8f1
-	nHwOl+5U5VLi7pFyh5w/7SpELWmgP41aoTsYFGQYYZldlTt0AUTbikzijwHvzIlLsIMCzJHyVt4AO
-	qML0o24k88Zso+sZNxx9meAvLEnBLp4BXhEnxF9/OeckaEzWTZTIUrpe5j+63VN27C5M1n0cdrJiv
-	/We0Uj+g==;
-Received: from [212.111.254.164] (helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tdn0W-0006Bw-LK; Fri, 31 Jan 2025 10:08:12 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, Arnd Bergmann <arnd@kernel.org>
-Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Zhang Yubing <yubing.zhang@rock-chips.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] phy: rockchip: fix Kconfig dependency more
-Date: Fri, 31 Jan 2025 10:08:10 +0100
-Message-ID: <5999606.DvuYhMxLoT@phil>
-In-Reply-To: <20250122065249.1390081-1-arnd@kernel.org>
-References: <20250122065249.1390081-1-arnd@kernel.org>
+	id 1tdn2X-0000000AHAA-1CmS;
+	Fri, 31 Jan 2025 09:10:18 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1738314613;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=w66nwBa+GHbxorNXdWjdWunCnuLe88jUElmyfHxjB78=;
+	b=ls3/hWsGrRsivnoaVnIbnPU1Uf9z93L4dfcm0vJAunbPNK7qG5fKxjGBSNBFijT7dwRS/a
+	bz5zyUjR9T69n04l9K6VWu6S05JU/Q2pI3Qu8UfwBcGAjPf9+EZ033YZTwxR7VqYWU29cT
+	Hw9iqepXFumcPBXREvGBz5CnlTIGAFcRPM+XPa41FiOqXfvEZ3l2rN+/cSsMSMJ/9hO0AY
+	ZdiwDDeJIg8e93wV1GJTfiymUPl7n81Pkslusc+Ffsxl1VkMOTgBHMnalLrKfmjrHXGEj8
+	mQOJdfKvuyGmffR87bZtmzrJ4TLKUFA6WfQV55kTHgiCE7oQQOHasdnoRoDFUA==
+Date: Fri, 31 Jan 2025 10:10:13 +0100
+From: Dragan Simic <dsimic@manjaro.org>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Tianling Shen <cnsztl@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org, Peter Geis <pgwipeout@gmail.com>
+Subject: Re: [PATCH] arm64: dts: rockchip: change eth phy mode to rgmii-id for
+ orangepi r1 plus lts
+In-Reply-To: <2910311.mvXUDI8C0e@phil>
+References: <20250119091154.1110762-1-cnsztl@gmail.com>
+ <98387508-10de-4c2e-80ad-05d0d86b7006@gmail.com>
+ <59e46b34e1c8f9197565fea917335d3f@manjaro.org> <2910311.mvXUDI8C0e@phil>
+Message-ID: <19d3590613746aef9af98361d8cda4bc@manjaro.org>
+X-Sender: dsimic@manjaro.org
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_010820_934297_E46178A6 
-X-CRM114-Status: GOOD (  22.48  )
+X-CRM114-CacheID: sfid-20250131_011017_636565_5C89468F 
+X-CRM114-Status: GOOD (  22.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,51 +78,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 22. Januar 2025, 07:52:44 MEZ schrieb Arnd Bergmann:
-> From: Arnd Bergmann <arnd@arndb.de>
+Hello Heiko,
+
+On 2025-01-31 10:01, Heiko Stuebner wrote:
+> Am Freitag, 24. Januar 2025, 07:35:50 MEZ schrieb Dragan Simic:
+>> On 2025-01-24 07:28, Tianling Shen wrote:
+>> > On 2025/1/19 23:48, Tianling Shen wrote:
+>> >> On 2025/1/19 19:36, Dragan Simic wrote:
+>> >>> On 2025-01-19 12:15, Tianling Shen wrote:
+>> >>>> On 2025/1/19 17:54, Dragan Simic wrote:
+>> >>>>> Thanks for the patch.  Please, see a comment below.
+>> >>>>>
+>> >>>>> On 2025-01-19 10:11, Tianling Shen wrote:
+>> >>>>>> In general the delay should be added by the PHY instead of the
+>> >>>>>> MAC,
+>> >>>>>> and this improves network stability on some boards which seem to
+>> >>>>>> need different delay.
+>> >>>>>>
+>> >>>>>> Fixes: 387b3bbac5ea ("arm64: dts: rockchip: Add Xunlong OrangePi
+>> >>>>>> R1 Plus LTS")
+>> >>>>>> Cc: stable@vger.kernel.org # 6.6+
+>> >>>>>> Signed-off-by: Tianling Shen <cnsztl@gmail.com>
+>> >>>>>> ---
+>> >>>>>>  arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus-lts.dts | 3
+>> >>>>>> +--
+>> >>>>>>  arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dts     | 1
+>> >>>>>> +
+>> >>>>>>  arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dtsi    | 1
+>> >>>>>> -
+>> >>>>>>  3 files changed, 2 insertions(+), 3 deletions(-)
+>> >>>>>>
+>> >>>>>> diff --git
+>> >>>>>> a/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus-lts.dts
+>> >>>>>> b/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus-lts.dts
+>> >>>>>> index 67c246ad8b8c..ec2ce894da1f 100644
+>> >>>>>> --- a/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus-lts.dts
+>> >>>>>> +++ b/arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus-lts.dts
+>> >>>>>> @@ -17,8 +17,7 @@ / {
+>> >>>>>>
+>> >>>>>>  &gmac2io {
+>> >>>>>>      phy-handle = <&yt8531c>;
+>> >>>>>> -    tx_delay = <0x19>;
+>> >>>>>> -    rx_delay = <0x05>;
+>> >>>>>> +    phy-mode = "rgmii-id";
+>> >>>>>
+>> >>>>> Shouldn't the "tx_delay" and "rx_delay" DT parameters be converted
+>> >>>>> into the "tx-internal-delay-ps" and "rx-internal-delay-ps"
+>> >>>>> parameters,
+>> >>>>> respectively, so the Motorcomm PHY driver can pick them up and
+>> >>>>> actually configure the internal PHY delays?
+>> >>>>
+>> >>>> The documentation[1] says "{t,r}x-internal-delay-ps" default to 1950
+>> >>>> and that value already works fine on my board.
+>> >>>>
+>> >>>> 1. https://www.kernel.org/doc/Documentation/devicetree/bindings/net/
+>> >>>> motorcomm%2Cyt8xxx.yaml
+>> >>>
+>> >>> I see, but those values differ from the values found in the
+>> >>> "tx_delay" and "rx_delay" DT parameters, so I think this patch
+>> >>> should be tested with at least one more Orange Pi R1 Plus LTS
+>> >>> board, to make sure it's all still fine.
+>> >>
+>> >> This patch has been tested on 2 boards, and we will do more tests in
+>> >> next week.
+>> >
+>> > Managed to test on another board and looks so far so good.
+>> > (Working network connection, no packet drop)
+>> 
+>> Sounds good to me, thanks for the additional testing.
 > 
-> A previous patch ensured that USB Type C connector support is enabled,
-> but it is still possible to build the phy driver without enabling
-> CONFIG_USB (host support) or CONFIG_USB_GADGET (device support), and
-> in that case the common helper functions are unavailable:
-> 
-> aarch64-linux-ld: drivers/phy/rockchip/phy-rockchip-usbdp.o: in function `rk_udphy_probe':
-> phy-rockchip-usbdp.c:(.text+0xe74): undefined reference to `usb_get_maximum_speed'
-> 
-> Select CONFIG_USB_COMMON directly here, like we do in some other phy
-> drivers, to make sure this is available even when actual USB support
-> is disabled or in a loadable module that cannot be reached from a
-> built-in phy driver.
-> 
-> Fixes: 9c79b779643e ("phy: rockchip: fix CONFIG_TYPEC dependency")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> I assume that means there are no more open issues, right?
+> At least I got that impression from glancing at the thread :-)
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-
-@Vinod, I guess this should go into 6.14-rc?
-
-Thanks
-Heiko
-
-> ---
->  drivers/phy/rockchip/Kconfig | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/phy/rockchip/Kconfig b/drivers/phy/rockchip/Kconfig
-> index 2f7a05f21dc5..dcb8e1628632 100644
-> --- a/drivers/phy/rockchip/Kconfig
-> +++ b/drivers/phy/rockchip/Kconfig
-> @@ -125,6 +125,7 @@ config PHY_ROCKCHIP_USBDP
->  	depends on ARCH_ROCKCHIP && OF
->  	depends on TYPEC
->  	select GENERIC_PHY
-> +	select USB_COMMON
->  	help
->  	  Enable this to support the Rockchip USB3.0/DP combo PHY with
->  	  Samsung IP block. This is required for USB3 support on RK3588.
-> 
-
-
-
-
+Yes, Tianling performed the additional testing, and the
+introduced changes worked fine on three boards in total.
+To me, that sounds good. :)
 
