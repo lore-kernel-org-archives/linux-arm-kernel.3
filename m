@@ -4,76 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35D11C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 17:37:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CF49C02190
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 17:41:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Xjkl3LwHhuNZADTBKn5p4bEX9MlgLUjUqR1mFpJOXTQ=; b=mIzVGbtpP6lMzjKI0ee9PiW0oj
-	J3nzuxNASWh6sfGcV5sWlWXn3cgNv679boDYNYt3t/b8G5tTsF2vCcW8shZMFovdQ7Py0QfhWNu2b
-	3UKS7i3negxWK/M6OCMSzdCfdI6h+IWecq0WlO9naSxCb6f4RoKh9Ko3E1mNjHiPRhmKhq6APMElr
-	K7zS+rlwl/8iOI256q9EQ6txXFWEUF+GzGwZJEvd0EaXgSWvrob5RXhxRqV5H2HSq22HgvIk2gwhv
-	o/okXoAkjYZRVUeeqldD9y4u08vlpdmkQREL7Hnhj01SjoP3XqI9ohqoN26rLolWPXZrUQWKwxIUB
-	lwZAqesQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rlodqL6yK3BGIsNrH6i3IJDGV8PpdHzqkTl8VYx6/30=; b=NVhl5E8BMbtCAY6Xyd2fYmqImX
+	Z3fG5825JuNLD2sOq/eTgcuALXoJQKmBbux4n91NopBQ13Xf4KmYTkEOt4oUgM8brLZv8DDng2u7p
+	PjeA9vX6LxY9OM1hBz6AIQw4zJvYldc4PrcCbbnOEDC4FeroJzyvAxlznsG2ss8eKOHi0uCmJpwgd
+	rQQ/hyHdStHgSflZ77aWU/x8c8+3vdLrESv/QLw2zhrLfaMoD1pNmnjlS5kJNzkWrZSsAQ8Q6Oc08
+	ODxWV1UrRxUmbkvgyNyalZgWtfzHfCa3Fsh47GOwF/CRw518C/nl2b+5uv90AyUZV5MjManrb7mDr
+	Wp93XAJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tduwl-0000000B7t7-0iui;
-	Fri, 31 Jan 2025 17:36:51 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1tdv1I-0000000B8F1-3qQ6;
+	Fri, 31 Jan 2025 17:41:32 +0000
+Received: from out-188.mta1.migadu.com ([95.215.58.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tduvQ-0000000B7jP-3y6b
+	id 1tduzz-0000000B8AX-13Dw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jan 2025 17:35:30 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 50VHZFQY2570155
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 31 Jan 2025 11:35:15 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1738344916;
-	bh=Xjkl3LwHhuNZADTBKn5p4bEX9MlgLUjUqR1mFpJOXTQ=;
-	h=From:To:CC:Subject:Date;
-	b=wq68nPlM4i31ObmHT4NGapHViMt/hhLqArlIWfDGZVhsl0/uAI4m1nHJqUO53284I
-	 LijKQ6i0tcrCgnoKmp/BvhZGEuq32dY1+c9QSp09p7V94i7S8HOdJ6Nb+tFEQ/74ke
-	 Hkc0l0NSPjFR8FI2Wlz0s/di2NyYXYyjjTRpUqRI=
-Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 50VHZFjp028756
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 31 Jan 2025 11:35:15 -0600
-Received: from DLEE104.ent.ti.com (157.170.170.34) by DLEE109.ent.ti.com
- (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 31
- Jan 2025 11:35:15 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE104.ent.ti.com
- (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 31 Jan 2025 11:35:15 -0600
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 50VHZFtS070396;
-	Fri, 31 Jan 2025 11:35:15 -0600
-From: Nishanth Menon <nm@ti.com>
-To: Conor Dooley <conor+dt@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Rob Herring <robh@kernel.org>, Vignesh Raghavendra
-	<vigneshr@ti.com>
-CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Tero Kristo <kristo@kernel.org>, Nishanth Menon <nm@ti.com>
-Subject: [PATCH] arm64: dts: ti: k3-am625-beagleplay: Reserve 128MiB of global CMA
-Date: Fri, 31 Jan 2025 11:35:08 -0600
-Message-ID: <20250131173508.1338842-1-nm@ti.com>
-X-Mailer: git-send-email 2.47.0
+	Fri, 31 Jan 2025 17:40:12 +0000
+Date: Fri, 31 Jan 2025 09:40:01 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1738345209;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rlodqL6yK3BGIsNrH6i3IJDGV8PpdHzqkTl8VYx6/30=;
+	b=BO1kvr3hGnY3TUfFREG91fgDSDvM5EjAT+3nGDRhMxfmYWVF8eLXgjnqo0MN/XQsExy3hd
+	5Iewav6yDBNcQNqDNCFLYYGwd+KKR9V/tqsNZ4WrHWMQToIg7PNtF1D/U1qJxIsshj8Nam
+	Dykp4/3MeeGNkaxXTruRv4U2HdHP3xs=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
+	joey.gouly@arm.com, kvmarm@lists.linux.dev, maz@kernel.org,
+	suzuki.poulose@arm.com, will@kernel.org, yuzenghui@huawei.com
+Subject: Re: [PATCH 0/4] arm64: mitigate CVE-2024-7881 in the absence of
+ firmware mitigation
+Message-ID: <Z50K8V9u9hyB2Pz-@linux.dev>
+References: <20250128155428.210645-1-mark.rutland@arm.com>
+ <Z5vzxWX4AY-JY4TV@linux.dev>
+ <Z5ytkrfzphlio2Ow@J2N7QTR9R3>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z5ytkrfzphlio2Ow@J2N7QTR9R3>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_093529_074895_45CBD612 
-X-CRM114-Status: UNSURE (   9.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250131_094011_567414_A3151BD0 
+X-CRM114-Status: GOOD (  24.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,39 +71,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the same lines of commit 9e8560556f9c ("arm64: dts: ti:
-k3-am62x-sk-common: Reserve 128MiB of global CMA"), reserve global CMA
-pool for:
+On Fri, Jan 31, 2025 at 11:01:38AM +0000, Mark Rutland wrote:
+> On Thu, Jan 30, 2025 at 01:48:53PM -0800, Oliver Upton wrote:
+> > Hi Mark,
+> > 
+> > On Tue, Jan 28, 2025 at 03:54:24PM +0000, Mark Rutland wrote:
+> > > On some CPUs from Arm Ltd, it is possible for unprivileged code to cause
+> > > a hardware prefetcher to form an address using the contents of a memory
+> > > location which is accessible by privileged accesses in the active
+> > > translation regime, potentially leaking the contents of this memory
+> > > location via a side channel. This has been assigned CVE-2024-7881:
+> > > 
+> > >   https://developer.arm.com/Arm%20Security%20Center/Arm%20CPU%20Vulnerability%20CVE-2024-7881
+> > > 
+> > > Arm's recommended mitigation is that firmware configures an
+> > > IMPLEMENTATION DEFINED control bit (CPUACTLR6_EL1[41]) to disable the
+> > > affected prefetcher, and updates to Trusted Firmware-A are available to
+> > > do this. For systems which have not yet recevied a firmware update, KPTI
+> > > can help to mitigate the issue.
+> > > 
+> > > These patches enable KPTI for affected parts when the firmware
+> > > mitigation is not present. The presence of the mitigation is identified
+> > > by the presence of the SMCCC_ARCH_WORKAROUND_4 SMCCC call, which was
+> > > deployed with the mitigation. This is documented in the SMCCC 1.6 G BET0
+> > > specification:
+> > > 
+> > >   https://developer.arm.com/documentation/den0028/gbet0/?lang=en
+> > > 
+> > > I have tested this on a few configurations of virtual platforms. I'd
+> > > appreciate any feedback, especially on the KVM changes.
+> > 
+> > The KVM changes look reasonable and follow the usual model for this
+> > crud. It would be nice to report the mitigation state to userspace
+> > somehow as I would like to have a KVM selftest for all of the hardware
+> > vulnerabilities.
+> 
+> Lemme go figure that out. Just to check, do you mean exposed through a
+> KVM mechanism, or under /sys/devices/system/cpu/vulnerabilities/ ? I
+> assume the latter.
 
-LCD Display: 16MiB, HDMI (1080p): 16MiB, GPU: 16MiB, CSI2 1 1080p
-sensor: 32MiB with a 32MiB set for other peripherals and a 16MiB
-buffer.
+Yep, the latter. Google has a test out of tree that checks the pseudo-FW
+registers, hypercalls, and guest ID registers against what's in sysfs.
 
-Signed-off-by: Nishanth Menon <nm@ti.com>
----
- arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts b/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts
-index 75c80290b12a..a5469f2712f0 100644
---- a/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts
-@@ -65,6 +65,14 @@ ramoops: ramoops@9ca00000 {
- 			pmsg-size = <0x8000>;
- 		};
- 
-+		/* global cma region */
-+		linux,cma {
-+			compatible = "shared-dma-pool";
-+			reusable;
-+			size = <0x00 0x8000000>;
-+			linux,cma-default;
-+		};
-+
- 		secure_tfa_ddr: tfa@9e780000 {
- 			reg = <0x00 0x9e780000 0x00 0x80000>;
- 			no-map;
 -- 
-2.47.0
-
+Thanks,
+Oliver
 
