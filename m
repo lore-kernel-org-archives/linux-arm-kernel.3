@@ -4,41 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 488A9C02190
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Feb 2025 19:33:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18388C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Feb 2025 19:34:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cAxBGxxajUiVZRBP6T0mE6Os5RyWlNWFqjL6ZgqSOfM=; b=vwkPLxx2izb/5qMuSC4fK6q3+b
-	9hjmAQxpdIJ/4DQLlttxvPidL7i1t/N7/Qm/ZD9Yn3QyqU7WJvXraXI3NJk6fd2Q+yYnrat3u86fU
-	Anl3Y5DS3Oe8W6axoIsgiHPjQ0l5zsrrKhbV1rH3I9WbTolsffkChYm/kOHK+f5vSwHqQYr2KZH2t
-	9D3QQBj+58l0ign9SFzAM22yKgG6gT7PbPB1DH8TOmKjrBaQ5QfzjiKGqQlEhaII6G708Z5f/5z4D
-	SOGT6pHiliJYQbmSyrQGLrsvmyVKLye4KnCm7gD/gv+winoLEsk+HcNEMSeftU0qdAyzB/2NbvdbJ
-	e3CBa6xw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GezYrVzu+YD7bTihqKHBeWrBY4Y7kTGdsfDTKSVrcYw=; b=Yb01ogV5FSg+QQ3fHSEUhHg4qC
+	+USjIf+M1YMgbun28FWJt0DLxHWNAF/S2xfiK1usBCC8VyXrN23X32wJ5tm321J0gxuHHaiOTXAj5
+	yWd3GFCewuWOak+lZ7KzoKCu8r0H4RO1mJ3MjpX1vF/OCzpeATpgXpOUksbIlvqAWy7Mz5DtQsEzX
+	jn+TdrEbgvuHCKw/ggwPHZwkZGZiUbcp8PFieZDP4Jcusgym0VQsBICpoGYG+6to/zktoJSjjjUie
+	cx0yXxfrDuWHkzJ6MTZ4cSNvScnTQVs83sY1i2pprunYzSSMk24I3n+qhYJzIby1DT6dMVPbiiYc1
+	RxgCJWgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teJEr-0000000D3fm-0ejy;
-	Sat, 01 Feb 2025 19:33:09 +0000
-Received: from out-178.mta0.migadu.com ([91.218.175.178])
+	id 1teJG9-0000000D3lm-0Msd;
+	Sat, 01 Feb 2025 19:34:29 +0000
+Received: from out-172.mta0.migadu.com ([2001:41d0:1004:224b::ac])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1teJDV-0000000D3WQ-33rH
+	id 1teJDX-0000000D3WT-2d5T
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Feb 2025 19:31:47 +0000
+	Sat, 01 Feb 2025 19:31:49 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=postmarketos.org;
-	s=key1; t=1738438297;
+	s=key1; t=1738438304;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=cAxBGxxajUiVZRBP6T0mE6Os5RyWlNWFqjL6ZgqSOfM=;
-	b=dtbzPnOzKIZdrHJ92mUPenoHQIDCXCvVtBwv0JF+ackg3KR2kKdbNDcTbq2Uh0he8evs3h
-	kjnyPV3xJT1urgtfrekagsjgxXvxqa1rvAmTKCHQeVNQsFMk6Wu9KFB0vBAPlxF4sjWTfn
-	7S2VxwA6akQfTENzdmCqxIjsKZHuLLPic7DVKDu2KlTfpI4bs8yzrmz8solCTywr4k4iJj
-	TXwwiatUD3O3LtQCdNKSdKjLY4v33hdtz+0jKsofIlpwAI8F9Z683YfFFn/Omi69ltBQAC
-	yBhUJeFlBs21qP4Y0Oy9hoYx6V7yU6vulBjF1VlrLi/HIL2wEz2voNv4tEjXhw==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=GezYrVzu+YD7bTihqKHBeWrBY4Y7kTGdsfDTKSVrcYw=;
+	b=QsQ+wdcQIP4WYeJg2m4RJE1msXtINK9SDawNFkugGg5x7nY5AAH2vOzB/fFV/jX0GkHNP4
+	xeZ09ZiJupGf6XYLiBra6ydyUtRjqj5t9wr9S1pbo2WcIJy3CpolAmQYS6hLQPREImQfaO
+	k5EakChRlKVmilag9erNiBwLtAUOnZTcv+5tfzU2yEsikCerhjlpYA/5L7owizQs11KWyI
+	mn/2GwU6rDV4wQIoF8p5gMtPteu2fmI5PgPEGglI3oVZo9cIBGE/WDP/5mDWoAengOU6pK
+	YoKFZCMNTdbczwdzs0mmZ89ofmSjWMmx/btqFlOQdSPsf2MQZkieWkxlCSn5Bw==
 From: Ferass El Hafidi <funderscore@postmarketos.org>
 To: Neil Armstrong <neil.armstrong@linaro.org>,
 	Kevin Hilman <khilman@baylibre.com>,
@@ -56,16 +57,19 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Artur Weber <aweber.kernel@gmail.com>,
 	Karl Chan <exxxxkc@getgoogleoff.me>,
 	Christian Hewitt <christianshewitt@gmail.com>
-Subject: [PATCH v2 0/2] Add support for Xiaomi Mi TV Stick
-Date: Sat,  1 Feb 2025 19:30:42 +0000
-Message-ID: <20250201193044.28856-1-funderscore@postmarketos.org>
+Subject: [PATCH v2 1/2] dt-bindings: arm: amlogic: add S805Y and Mi TV Stick
+Date: Sat,  1 Feb 2025 19:30:43 +0000
+Message-ID: <20250201193044.28856-2-funderscore@postmarketos.org>
+In-Reply-To: <20250201193044.28856-1-funderscore@postmarketos.org>
+References: <20250201193044.28856-1-funderscore@postmarketos.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250201_113146_362685_592C6706 
-X-CRM114-Status: GOOD (  15.44  )
+X-CRM114-CacheID: sfid-20250201_113147_796050_0249878D 
+X-CRM114-Status: UNSURE (   7.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,62 +84,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series aims to add initial support for the Xiaomi Mi TV
-Stick.
+From: Ferass El Hafidi <funderscore@postmarketos.org>
 
-Xiaomi Mi TV Stick is a small Amlogic-based Android TV stick released in 
-2020, and known as `xiaomi-aquaman` internally (in the downstream kernel,
-u-boot, ...)
-Its specifications are as follows:
- * Amlogic S805Y SoC (believed to be mostly identical to S805X)
- * 8 GB eMMC
- * 1 GB of RAM
- * Android TV 9, upgradable to Android TV 10
+Add support for the Amlogic S805Y SoC and the Xiaomi Mi TV Stick (aka.
+xiaomi-aquaman).  The S805Y is very similar to the S805X, with just a
+few minor differences.
 
-There are multiple variants:
- * 1. Green PCB, manufactured in 2020, known UART pinout (helpfully 
-   labeled on the board)
- * 2. Blue PCB, not much documentation about it, presumably manufactured
-   between 2021 and 2023
- * 3. Green PCB, manufactured in 2023, known UART pinout, some layout
-   changes compared to the 2020 variant
+Signed-off-by: Ferass El Hafidi <funderscore@postmarketos.org>
+---
+ Documentation/devicetree/bindings/arm/amlogic.yaml | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-Among these variants, there are many boards using multiple different
-Wi-Fi chips.  Supporting all of them is out of scope for this patch
-series.
-
-As of the time of writing this has only been tested on the 3rd variant.
-It is believed that software-wise all three work mostly the same (if we 
-don't count Wi-Fi), but testing on the other variants would still be
-appreciated.
-
-The devicetree is based on the Amlogic P241 DTS.
-
-Changes since v1 [1]:
- * remove useless nodes: cvbs-connector, ethmac, internal_phy, ir
- * add `amlogic,s805y` DT binding section
- * add S805Y dtsi: meson-gxl-s805y.dtsi
- * adjust DT `model` to "Xiaomi Mi TV Stick (Aquaman)"
- * explain the changes being done a bit more in the commit message for
-   the DT patch
- * drop `clocks` and `clock-names` from pwm_ef (background: [2])
- * change sound `model` to "XIAOMI-AQUAMAN"
-
-[1]: https://lore.kernel.org/all/20250131200319.19996-1-funderscore@postmarketos.org/
-[2]: https://lore.kernel.org/linux-amlogic/20241227212514.1376682-1-martin.blumenstingl@googlemail.com/
-
-Ferass El Hafidi (2):
-  dt-bindings: arm: amlogic: add S805Y and Mi TV Stick
-  arm64: dts: amlogic: add support for xiaomi-aquaman/Mi TV Stick
-
- .../devicetree/bindings/arm/amlogic.yaml      |   7 +
- arch/arm64/boot/dts/amlogic/Makefile          |   1 +
- .../meson-gxl-s805y-xiaomi-aquaman.dts        | 288 ++++++++++++++++++
- .../boot/dts/amlogic/meson-gxl-s805y.dtsi     |  10 +
- 4 files changed, 306 insertions(+)
- create mode 100644 arch/arm64/boot/dts/amlogic/meson-gxl-s805y-xiaomi-aquaman.dts
- create mode 100644 arch/arm64/boot/dts/amlogic/meson-gxl-s805y.dtsi
-
+diff --git a/Documentation/devicetree/bindings/arm/amlogic.yaml b/Documentation/devicetree/bindings/arm/amlogic.yaml
+index 0647851ae..3403362e0 100644
+--- a/Documentation/devicetree/bindings/arm/amlogic.yaml
++++ b/Documentation/devicetree/bindings/arm/amlogic.yaml
+@@ -73,6 +73,13 @@ properties:
+           - const: amlogic,s805x
+           - const: amlogic,meson-gxl
+ 
++      - description: Boards with the Amlogic Meson GXL S805Y SoC
++        items:
++          - enum:
++              - xiaomi,aquaman
++          - const: amlogic,s805y
++          - const: amlogic,meson-gxl
++
+       - description: Boards with the Amlogic Meson GXL S905W SoC
+         items:
+           - enum:
 -- 
 2.47.1
 
