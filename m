@@ -4,67 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81F13C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Feb 2025 14:41:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7F1FC0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Feb 2025 15:50:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8go4AGqudFIZZyYHBzgN/R6QG4WQF0Rag9QeFgE6DyM=; b=hAf+jdoqveaMK+PTDWvEHUWws7
-	PTWrBkuyTFvxBA+VtpkG9QnbIu8STMloZNO67x4PzuUPzyBBRFS/S3eQw3KNL7zkU9kCOH53RZRNF
-	oovkH2yK+8gTlwwzApFZdsalNbsIYLmjQ5eZ1nnqml23HKIH5U0BDG6T2ojvGh9EL/CxvkEvhYQNR
-	ehYYUolcUkHrvggoW+p4DDkIk5NV/OcnhS2GGeXoDdLrhEcXZB+93oU3GK9i4vOlKTE4imVUO0gLH
-	1PlLl2fiBc9Y6WdiXebZWbUwWsMDkd9VRkQDZ6R/ZgBKxWDf+anKqF0r5iACqJGq+BfyFqT3KiWQb
-	2ZtcbwiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8n2dQUsAQR8BGbcIRrC/eRUMfmfG1kg18Uqsc42/YA4=; b=dV77TrpIQKcHY0JX6jldZPOQct
+	fx9442nsu6cZrkhXGUWJJG2vEfLtOveFbUsb1b0pOxwLq4pNagNsnkH/et+136md7MNa9of0VsRai
+	gxUhJGGgp2jYYaYL7tJXq1tltzdnWw09l/OWwimCH2Ead+0uke9xf1AWzWbN6rsjFrRuIuICf63pk
+	lReYt3IkNUkTZtUaSkq093/H52GZ7y9T/hKQHVvpzZl0AaqvG+XqiaFzZ5RrpN57dV8PlgaGhMHsq
+	3YYTRvoVb9rbrU7uBPtGOnBv8IUNZ0E7pNniONRw0CZXoDaRbcbZxVPxZGBca/nfx+039E6DY4el9
+	z3zB0uEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teEgc-0000000Cl5O-3jkw;
-	Sat, 01 Feb 2025 14:41:30 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1teFkp-0000000Cp6R-3Qom;
+	Sat, 01 Feb 2025 15:49:55 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1teEfI-0000000Ckv5-33ei;
-	Sat, 01 Feb 2025 14:40:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 16095A40548;
-	Sat,  1 Feb 2025 14:38:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDDE2C4CED3;
-	Sat,  1 Feb 2025 14:40:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738420807;
-	bh=UETDdbZTrbH3aziuRcpTKdm0bPASnj4ies4k7W717dM=;
-	h=From:Date:Subject:To:Cc:From;
-	b=CRyEnErp+gTzppgdtRpJOp9Pyqp7y1CBRVJnXwFkiwt/YjwUPREIeCG6PevpTFbox
-	 QR+HrzaSSJsr61BUaGzoW58rxBUUDpCT4ZJcXzzam3uGxWw9HRU5tixVw/X35V/Nw3
-	 UnTbOFS3ZvPkszSYK6g/knfVWpweXHwQAyA6yC8XBu85KNACCrnWyp4IPDV7hlE+Qy
-	 iynevsfj4OShU+FXm/kQBVJiy9tk5nIsdRDjMyAZANH1ld+ZMq8k0VTc/GGOWZTX/z
-	 vdDm6tF3FzGagXbHrm5z7DgjrtPT6BI0SfsC7eN492IRSW+qQsXQLawHxWGbsi01Gd
-	 DUgSrEtgXdhmQ==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Sat, 01 Feb 2025 15:39:48 +0100
-Subject: [PATCH] arm64: dts: Introduce more nodes to EN7581 SoC evaluation
- board
+	id 1teFjV-0000000Cp1e-0JgI
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 01 Feb 2025 15:48:34 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5115xrnp002238
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 1 Feb 2025 15:48:30 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	8n2dQUsAQR8BGbcIRrC/eRUMfmfG1kg18Uqsc42/YA4=; b=Bt428S+3uxH+vEzk
+	tnDluDLTVPQSs6ciBolYDkA7uHbbln9oqYOG57YImHkpp5ZMl0letkUDsP/aA7q1
+	+4zexevqo/jQRGjiTXd/TwV2XHBkO6VQAYP66XLS+JbTc7QJEvjsHI/fqRuLT5ko
+	5SoZO4pbhbCOpqjWnSZ6u7VcxE0jfnGnQbSwntG+h81k4saZ3Gzi1VYMbjw37+uC
+	W9KapccKfQZ+KguK95pnyNCX2DgSq50Fa+z2a5yPt5QK4FvsfuL1S42I8YDKj3cp
+	8ziqcu38WFZf5AZjyljX+qjL5ndVD6BqWaZF1SGTL41eVf6tAQSbl1NdarzHlQf3
+	c3ri6w==
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44hd6a92ra-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Feb 2025 15:48:30 +0000 (GMT)
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-6d881a3e466so7812426d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Feb 2025 07:48:29 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738424909; x=1739029709;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=8n2dQUsAQR8BGbcIRrC/eRUMfmfG1kg18Uqsc42/YA4=;
+        b=lLA4/j8XVxxB2NIqWjuOG3n2Lf+jlBA6juiXLLZa5JplsZTZx6xnEvJj7WD1mRxB/a
+         kXRdLXmeC5g5EQrbahS9Z9h0aj+ucDNf/PaegDmZ2BrOXD/byJCp62+3Qaa2gfDhEPSM
+         nQVjlQ4WCzezQ2MeydOvVfVyOwMZQiX3zRvvpqIbZTbeuyKz5JM/6BsuC2bcyPZGW3tP
+         zzhzK5rqAd/um+PW7KRf/uR+bjj28kNIxOv4Ip0YNrierlvXDT24HecEh4WvngNzXp7O
+         lhmZn5/CE41aCe7VC3w1Gn682I+5xFFR6E9d9380AMnAp/FSN0BTXDd3o84sks+z1O1A
+         ThOg==
+X-Forwarded-Encrypted: i=1; AJvYcCV6SHNcESHpifdVa/xxHT5MfMqiTmaFrAUNiagaN2FTF1cKmAgIwqs51W2ixeIMAMdJ39vZNueZ2grHc3FMTbCe@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxia3LiryryX/LMLUyc0St1OYAMZPiPVZW49zCXIuaycWAaarFs
+	1an/ccp2Dv3uShbyZTTjfzLUhsV1tsJqgJK1T6p4r0PG8beMgPfCf+UG5exIjnlS7VNC8GOAbr5
+	bNnIF0xWfEpzo5VSkN1cBBC0dW69E//M5q6VWMxEyt24h2lNaJAjCi40C2F19yqtmnZVF4GeeMA
+	==
+X-Gm-Gg: ASbGncv/MMs9Sf1hdOEnwgSFYLcQmBdiaAEymOqXJzKN9N7gS+4ri5r+lv5lD5uWMQq
+	DhV82y40cDRrA3UuknIYyb+di+O8lYvIQfCAhvK1HC/qSWhH1pJ5gvxzuSHyPEA4uC+djRo9k5r
+	TKI139JTzvCnoRZYrqnw5ZH+XG4glEA4o5pEn0b052DaNqFtuO8ZM6kNyVVnwN8pqSSPZeF5cTz
+	/zlrWwwsroqUF41SBjfBhPm85Ntaq3k3h7j6aqDPguVRzhG24KcE8MZna7QtKgJUiy2MyvcCdTA
+	/qET8xaVyL/KrgVr35PQK+ThbLq6p6LvIpoJT/9KH+gPh2qmPdSXnviJ9hQ=
+X-Received: by 2002:a05:620a:44ce:b0:7be:5020:6df1 with SMTP id af79cd13be357-7c009b93599mr574152185a.15.1738424909352;
+        Sat, 01 Feb 2025 07:48:29 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHxPpR9kTBzdbY+SmZntvSpbA0AmhKdf4LITbXaMdP95XvejXet1vO1PHrcj+dARpvQVLwZIw==
+X-Received: by 2002:a05:620a:44ce:b0:7be:5020:6df1 with SMTP id af79cd13be357-7c009b93599mr574149185a.15.1738424908921;
+        Sat, 01 Feb 2025 07:48:28 -0800 (PST)
+Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab6e49ff269sm453716666b.118.2025.02.01.07.48.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 01 Feb 2025 07:48:28 -0800 (PST)
+Message-ID: <30a82d74-a199-4ccf-997b-b8a6971cf973@oss.qualcomm.com>
+Date: Sat, 1 Feb 2025 16:48:24 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/4] arm64: dts: qcom: qcs615: add ethernet node
+To: Yijie Yang <quic_yijiyang@quicinc.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller"
+ <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Richard Cochran <richardcochran@gmail.com>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org
+References: <20250121-dts_qcs615-v3-0-fa4496950d8a@quicinc.com>
+ <20250121-dts_qcs615-v3-3-fa4496950d8a@quicinc.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20250121-dts_qcs615-v3-3-fa4496950d8a@quicinc.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250201-en7581-dts-spi-pinctrl-v1-1-aaa4a9dfc4a6@kernel.org>
-X-B4-Tracking: v=1; b=H4sIADMynmcC/x3MTQqAIBBA4avErBtQyf6uEi1KpxoIEyciiO6et
- PwW7z0glJgE+uKBRBcLHyFDlwW4bQorIftsMMpYZZRGCo1tNfpTUCJj5ODOtGOlazW3xrqp85D
- jmGjh+x8P4/t+YVDV12gAAAA=
-X-Change-ID: 20250201-en7581-dts-spi-pinctrl-4160b825ca9d
-To: Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
+X-Proofpoint-ORIG-GUID: 4h9dPYNOX--72s2csVWklF7bVON_KAUL
+X-Proofpoint-GUID: 4h9dPYNOX--72s2csVWklF7bVON_KAUL
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-01_07,2025-01-31_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 malwarescore=0
+ priorityscore=1501 spamscore=0 clxscore=1015 phishscore=0 bulkscore=0
+ mlxlogscore=721 adultscore=0 lowpriorityscore=0 mlxscore=0 impostorscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2501170000
+ definitions=main-2502010137
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250201_064008_902297_41A8257F 
-X-CRM114-Status: UNSURE (   9.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250201_074833_234838_46F7308B 
+X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,149 +133,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the following nodes to EN7581 SoC and EN7581 evaluation board:
-- clock controller
-- rng controller
-- pinctrl
-- i2c controllers
-- spi nand controller
+On 21.01.2025 8:54 AM, Yijie Yang wrote:
+> Add an ethernet controller node for QCS615 SoC to enable ethernet
+> functionality.
+> 
+> Signed-off-by: Yijie Yang <quic_yijiyang@quicinc.com>
+> ---
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- arch/arm64/boot/dts/airoha/en7581-evb.dts |  8 +++
- arch/arm64/boot/dts/airoha/en7581.dtsi    | 90 +++++++++++++++++++++++++++++++
- 2 files changed, 98 insertions(+)
+Reviewed-by: Konrad Dybcio <konrad.dybcio@linaro.org>
 
-diff --git a/arch/arm64/boot/dts/airoha/en7581-evb.dts b/arch/arm64/boot/dts/airoha/en7581-evb.dts
-index cf58e43dd5b21dbf4f64e305a4b4a2daee100858..1126da4b795f5d5df9725ec4d75cd9353b011710 100644
---- a/arch/arm64/boot/dts/airoha/en7581-evb.dts
-+++ b/arch/arm64/boot/dts/airoha/en7581-evb.dts
-@@ -24,3 +24,11 @@ memory@80000000 {
- 		reg = <0x0 0x80000000 0x2 0x00000000>;
- 	};
- };
-+
-+&i2c0 {
-+	status = "okay";
-+};
-+
-+&snfi {
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/airoha/en7581.dtsi b/arch/arm64/boot/dts/airoha/en7581.dtsi
-index 55eb1762fb11364877695960f5a2d3e42caf8611..b1cf650efd78c6c20d19e7f18c204cf5862215c0 100644
---- a/arch/arm64/boot/dts/airoha/en7581.dtsi
-+++ b/arch/arm64/boot/dts/airoha/en7581.dtsi
-@@ -2,6 +2,7 @@
- 
- #include <dt-bindings/interrupt-controller/irq.h>
- #include <dt-bindings/interrupt-controller/arm-gic.h>
-+#include <dt-bindings/clock/en7523-clk.h>
- 
- / {
- 	interrupt-parent = <&gic>;
-@@ -150,5 +151,94 @@ uart1: serial@1fbf0000 {
- 			interrupts = <GIC_SPI 18 IRQ_TYPE_LEVEL_HIGH>;
- 			clock-frequency = <1843200>;
- 		};
-+
-+		scuclk: clock-controller@1fa20000 {
-+			compatible = "airoha,en7581-scu";
-+			reg = <0x0 0x1fb00000 0x0 0x970>;
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+		};
-+
-+		rng@1faa1000 {
-+			compatible = "airoha,en7581-trng";
-+			reg = <0x0 0x1faa1000 0x0 0xc04>;
-+			interrupts = <GIC_SPI 35 IRQ_TYPE_LEVEL_HIGH>;
-+		};
-+
-+		system-controller@1fbf0200 {
-+			compatible = "syscon", "simple-mfd";
-+			reg = <0x0 0x1fbf0200 0x0 0xc0>;
-+
-+			en7581_pinctrl: pinctrl {
-+				compatible = "airoha,en7581-pinctrl";
-+
-+				interrupt-parent = <&gic>;
-+				interrupts = <GIC_SPI 26 IRQ_TYPE_LEVEL_HIGH>;
-+
-+				gpio-controller;
-+				#gpio-cells = <2>;
-+
-+				interrupt-controller;
-+				#interrupt-cells = <2>;
-+			};
-+		};
-+
-+		i2cclock: i2cclock@0 {
-+			#clock-cells = <0>;
-+			compatible = "fixed-clock";
-+
-+			/* 20 MHz */
-+			clock-frequency = <20000000>;
-+		};
-+
-+		i2c0: i2c0@1fbf8000 {
-+			compatible = "mediatek,mt7621-i2c";
-+			reg = <0x0 0x1fbf8000 0x0 0x100>;
-+
-+			clocks = <&i2cclock>;
-+
-+			/* 100 kHz */
-+			clock-frequency = <100000>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			status = "disable";
-+		};
-+
-+		i2c1: i2c1@1fbf8100 {
-+			compatible = "mediatek,mt7621-i2c";
-+			reg = <0x0 0x1fbf8100 0x0 0x100>;
-+
-+			clocks = <&i2cclock>;
-+
-+			/* 100 kHz */
-+			clock-frequency = <100000>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			status = "disable";
-+		};
-+
-+		snfi: spi@1fa10000 {
-+			compatible = "airoha,en7581-snand";
-+			reg = <0x0 0x1fa10000 0x0 0x140>,
-+			      <0x0 0x1fa11000 0x0 0x160>;
-+
-+			clocks = <&scuclk EN7523_CLK_SPI>;
-+			clock-names = "spi";
-+
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			status = "disabled";
-+
-+			spi_nand: nand@0 {
-+				compatible = "spi-nand";
-+				reg = <0>;
-+				spi-max-frequency = <50000000>;
-+				spi-tx-bus-width = <1>;
-+				spi-rx-bus-width = <2>;
-+			};
-+		};
- 	};
- };
-
----
-base-commit: 7605336e9d136c14c94482ce7385de783f2f748e
-change-id: 20250201-en7581-dts-spi-pinctrl-4160b825ca9d
-
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo@kernel.org>
-
+Konrad
 
