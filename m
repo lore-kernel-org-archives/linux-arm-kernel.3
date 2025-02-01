@@ -4,75 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2740C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Feb 2025 12:12:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8BF4C02190
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Feb 2025 12:15:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+F9e2eSKnh2+Y4iyTdF8FFqTluZvhsczOMsVqukdasQ=; b=A2Crvdd2lA99Cu7NklHgHFrrJm
-	/sAdD3jpNtdewXwHIQh2rZbCTs8K4GxUDHc1irqpuORUAMs0/cdKHtTgP5vCSqDyjUBN7K3dJH+uR
-	Q36lA0ugpHVqI3gcmSgcWcZRRYrcOAnYxPLuSO/K2xqOlBPLb1ygjyE91DV6b84aW1RRV2jRRqZaG
-	QX1IgZgNiB6yHBQYXrPRPzvyrCgsZQj3eVwdlo9rIvYMflPr9q+wUTV6GtYNJ7aqTht4o2m6KIGjc
-	qXA9PyVUxNbYs8wSnvSL90WdU43NiGtHdHZgu8YDFJrMh0gBh+5FAS/kr7bzCemBWPZ6uuYks2nU9
-	kIxdLLLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HTEVgElkJYk7nsJ76qRX1q+NvOWVT0ntXJHe5Etnm4E=; b=gncy057hM7rKNuj2chYejYmkQU
+	RsGSVtRqwzvLqhn2IMfZcX6YU3fIpk6cxMFsp8ORm+FWiqQ8EquGGr0EQdgqJzdbclTHRf4UFeU7I
+	dhZMUtxOWpC6WIo8h+fOzLKOSMz7ZPbKop2NvITET94KmMLmPfCJPFotC/F6qiMOnehW0iotO5QNp
+	zhp2bo3e5/nKP6cgM2kzCAD4Zv2+AQI13IlTVI/SCu+oAJ1r85Xt32ixa71IORrfs52XQAEp2OZ92
+	APsuMxe/ygS7aXUalSY6CDRfnQ/7JwCK19fYCHsLSiQdAZgGsJ7/ocXz1/uVHZ8SSAfAFX33182kd
+	ko5NLddg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teCMe-0000000CGUR-3znD;
-	Sat, 01 Feb 2025 12:12:44 +0000
-Received: from xry111.site ([89.208.246.23])
+	id 1teCPc-0000000CGkC-31k4;
+	Sat, 01 Feb 2025 12:15:48 +0000
+Received: from mout.gmx.net ([212.227.15.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1teCKG-0000000CGKN-0pUf
+	id 1teCOI-0000000CGhD-2MqE
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Feb 2025 12:10:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=xry111.site;
-	s=default; t=1738411807;
-	bh=+F9e2eSKnh2+Y4iyTdF8FFqTluZvhsczOMsVqukdasQ=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=dG6wxZfybt+l+pgpPWlWswu882CC1eMmaP+4+fBlF1NrStZt/BsqbxMWlEsSnGyRv
-	 bLgKUHm/ppMsEgSB6P8+zViETFSMUq9PIXup5jVL00zilC4i5s1Xn9wpe4W5EYns57
-	 NXE7NkJwpiElw4Ja3WXgPJN2lP/KxlZQ3hHeaakU=
-Received: from [127.0.0.1] (unknown [IPv6:2001:470:683e::1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (secp384r1) server-digest SHA384)
-	(Client did not present a certificate)
-	(Authenticated sender: xry111@xry111.site)
-	by xry111.site (Postfix) with ESMTPSA id 8EE98665A5;
-	Sat,  1 Feb 2025 07:10:03 -0500 (EST)
-Message-ID: <54f00871f7f4043474a4e83bea6b8935fcf5af88.camel@xry111.site>
-Subject: Re: [PATCH net v4 3/3] net: stmmac: Specify hardware capability
- value when FIFO size isn't specified
-From: Xi Ruoyao <xry111@xry111.site>
-To: Steven Price <steven.price@arm.com>, Andrew Lunn <andrew@lunn.ch>
-Cc: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Alexandre Torgue	
- <alexandre.torgue@foss.st.com>, Jose Abreu <joabreu@synopsys.com>, Andrew
- Lunn	 <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet	 <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni	 <pabeni@redhat.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Russell King	 <linux@armlinux.org.uk>, Yanteng
- Si <si.yanteng@linux.dev>, Furong Xu	 <0x1207@gmail.com>, Joao Pinto
- <Joao.Pinto@synopsys.com>, 	netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, 	linux-kernel@vger.kernel.org
-Date: Sat, 01 Feb 2025 20:10:00 +0800
-In-Reply-To: <915713e1-b67f-4eae-82c6-8dceae8f97a7@arm.com>
-References: <20250127013820.2941044-1-hayashi.kunihiko@socionext.com>
-	 <20250127013820.2941044-4-hayashi.kunihiko@socionext.com>
-	 <07af1102-0fa7-45ad-bcbc-aef0295ceb63@arm.com>
-	 <fc08926d-b9af-428f-8811-4bfe08acc5b7@lunn.ch>
-	 <f343c126-fed9-4209-a18d-61a4e604db2f@arm.com>
-	 <a4e31542-3534-4856-a90f-e47960ed0907@lunn.ch>
-	 <d6265f8e-51bc-4556-9ecb-bfb73f86260d@arm.com>
-	 <2ed9e7c7-e760-409e-a431-823bc3f21cb7@lunn.ch>
-	 <915713e1-b67f-4eae-82c6-8dceae8f97a7@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.54.3 
+	Sat, 01 Feb 2025 12:14:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1738412063; x=1739016863; i=wahrenst@gmx.net;
+	bh=HTEVgElkJYk7nsJ76qRX1q+NvOWVT0ntXJHe5Etnm4E=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:
+	 MIME-Version:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=e+lNvylATOOXoJ2x1Mv3EKtL6tNLNcZPiWISVbWxjwNfYwM1BSwO6nipj2fX8zvM
+	 hWDIDi1893NROL8psXedBCMSKB2/4ESC1jSV92/V8qH7oUdEzzcQrlKUMl8kpcpjl
+	 EjtVp20uVSzbMO+lqzvCyTMOTRfEFAGLKY0WJAHi1ka5VJMxC6xs4tLY42jIC4zsg
+	 L7z4AqVK+qUg0cs8Uf14xnU1Ajd6WZtO7l2bRnf8KoYi1VLn17J55OaRRiWYEUuuE
+	 2iAjU46/OIdblCXVI2jLbN/eYQzWuncqHqYLBJDaPAGoGH2vSSBf1J4lwY4mvQoIQ
+	 ykehW1JWg4WaBHU9gg==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from stefanw-SCHENKER ([37.4.251.153]) by mail.gmx.net (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MZCb5-1u0Yla2oa1-00IRDU; Sat, 01
+ Feb 2025 13:14:23 +0100
+From: Stefan Wahren <wahrenst@gmx.net>
+To: Rob Herring <robh@kernel.org>,
+	Jim Quinlan <jim2101024@gmail.com>,
+	Nicolas Saenz Julienne <nsaenz@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: =?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	bcm-kernel-feedback-list@broadcom.com,
+	linux-pci@vger.kernel.org,
+	Stefan Wahren <wahrenst@gmx.net>
+Subject: [PATCH] PCI: brcmstb: Adjust message if L23 cannot be entered
+Date: Sat,  1 Feb 2025 13:14:20 +0100
+Message-Id: <20250201121420.32316-1-wahrenst@gmx.net>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:u/0mFk/jI+uEMG4AnL1r5NzMclC3cs2OdNv8kDxNKxkovub8F97
+ tWIrjL41Xe6S348E5dEE/c9vSWrutIumle89k5mQ9wTsUjPtzo/D5YK3bDDotF6qPP+7fWN
+ VucMaUGd6vua5lgGwqJy21u414X1wWCv7g2EYinlvlfl4f5k0N7iosuLwv4IbdtDBuZQLQC
+ 5R1B71l83ypchZPoJA86Q==
+UI-OutboundReport: notjunk:1;M01:P0:Es5ibtccUaw=;3FIp3tRBvuHzp4EoTXfndo5cG1u
+ jXqJJvUFMym19MP0I23pk13LJqmIL3kH0wV0fP6BOSZzo6kZHoPvY6WqMH6N056kJB3PpgMnp
+ EZNsJalj+s9qJqqS4QnTkjA94+O92S4MXvdkYnS3+QQCQOCtyLE/t7U7gdjJEhF8LvQfu2a1n
+ vBjXK9+vlsPVMTNFuEgzDwXkr1zG17XX/cfaS/g1tzzIUXbWEGlzNob55OxD36agQIs0qncnD
+ y8OddGeKVWMzmo58yneyRC3Xf3UkCuwLMXEB6GnjsAW61uwdJmPWXvUP9V+xhXRHE5RXqXJqG
+ YzVK3i+DoCtPQznag7oC95rEX3SzhF0Y34BjTMIT71vRpaZCmt9/9+HtllJpNix4MqkX96yzU
+ of1cjkw1MBqktfd8NcDEouDT7nWXK+6UtUSV0zkbR3A/dcfnifsXjRVLL4UvR+vzafqFpyl0v
+ v7B8SP2FBrIAY2l69VT97CfxnneZYW8RCaJHYC9gQBVHRu8aku2bcdwi/t+l6c7fz54Q5pWtd
+ r1Fl6zRvgQAOKzdyfGywPMCFY5qQeQgIAWZx0wE94GcRKI3aVQS1cENl0usXccB0istoagP0R
+ /Ykm4dNE4omG867VtAV6QMkdLligqMyI5CRRkCb8oLt6aFezWz2BLcCASRPLZDZhwpM5bR7ML
+ UzlnINsvMW+3XOKbqg6QsSj2qv6oOknkzJZcrejSDHCgO+716AT5XgCmDfVZl6ArJe7QB7BtO
+ 3SNA1SOUw979gE4vZf1NVlcKaZd6l6drqDXOQgFHIh2jhPnPp0ca5dIAIvY6SDFnKk+fov7+z
+ FfWZJ088gJiZWs1UgY/xyj5+41tkKBHIOxmvq+oaN+2AozCCUQ6+1ap33LZay5DReZU5sqhe2
+ 3J5z10SFdqwRDceh04Iqir2mxza8lPUkUn5JpNnJsC/U0jdtED8soXIl5t84kuHImYcRbzpUT
+ r3DfpNAtwkI3Skqju8KExC8oKbtUgvqR48fgX1YSBznydkr6GjOp+IvF984jUqEnWtjzfmO2H
+ TjJPgIPpDVFWW0Y8djLODZrvHH2RND86dQQvf6u3l/gHZCJ3CK2hc8DB5/ClqrpicbkPgu06R
+ pINXhpN21Enb/J5fDWpWUJZ4h4F4azpqIkTwkl3j8sfV9PHrpad05LUxy6CHHl/VvEcB9oRql
+ DDWux8j3Tyv1lSlgzRX502v+PQiO7roYM01sGrWzx4WSb21ZTwQXcrJr1KWxW4u37sm16N9aw
+ 3w+8V+AGttnArEvKAwidqq6HXXBMK8qr/FBVOjY1iMDWufmbQyolB3W4Okhbi3evqbYVNbyG3
+ oipC0/h+Xh8ECCYJFlog4PJTnJ7JAD0J5vLd8MaBgb9WKk=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250201_041016_250663_028B140D 
-X-CRM114-Status: GOOD (  37.49  )
+X-CRM114-CacheID: sfid-20250201_041426_896525_8B5ED1A5 
+X-CRM114-Status: UNSURE (   9.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,122 +105,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2025-01-31 at 15:54 +0000, Steven Price wrote:
-> On 31/01/2025 15:29, Andrew Lunn wrote:
-> > On Fri, Jan 31, 2025 at 03:03:11PM +0000, Steven Price wrote:
-> > > On 31/01/2025 14:47, Andrew Lunn wrote:
-> > > > > > I'm guessing, but in your setup, i assume the value is never wr=
-itten
-> > > > > > to a register, hence 0 is O.K. e.g. dwmac1000_dma_operation_mod=
-e_rx(),
-> > > > > > the fifosz value is used to determine if flow control can be us=
-ed, but
-> > > > > > is otherwise ignored.
-> > > > >=20
-> > > > > I haven't traced the code, but that fits my assumptions too.
-> > > >=20
-> > > > I could probably figure it out using code review, but do you know
-> > > > which set of DMA operations your hardware uses? A quick look at
-> > > > dwmac-rk.c i see:
-> > > >=20
-> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 /* If the stmmac is not =
-already selected as gmac4,
-> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 * then make sure w=
-e fallback to gmac.
-> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 */
-> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (!plat_dat->has_gmac4=
-)
-> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0 plat_dat->has_gmac =3D true;
-> > >=20
-> > > has_gmac4 is false on this board, so has_gmac will be set to true her=
-e.
-> >=20
-> > Thanks. Looking in hwif.c, that means dwmac1000_dma_ops are used.
-> >=20
-> > dwmac1000_dma_operation_mode_rx() just does a check:
-> >=20
-> > 	if (rxfifosz < 4096) {
-> > 		csr6 &=3D ~DMA_CONTROL_EFC;
-> >=20
-> > but otherwise does not use the value.
-> >=20
-> > dwmac1000_dma_operation_mode_tx() appears to completely ignore fifosz.
-> >=20
-> > So i would say all zero is valid for has_gmac =3D=3D true, but you migh=
-t
-> > gain flow control if a value was passed.
-> >=20
-> > A quick look at dwmac100_dma_operation_mode_tx() suggests fifosz is
-> > also ignored, and dwmac100_dma_operation_mode_rx() does not exist. So
-> > all 0 is also valid for gmac =3D=3D false, gmac4 =3D=3D false, and xgma=
-c =3D=3D
-> > false.
-> >=20
-> > dwmac4_dma_rx_chan_op_mode() does use the value to determine mtl_rx_op
-> > which gets written to a register. So gmac4 =3D=3D true looks to need
-> > values. dwxgmac2_dma_rx_mode() is the same, so xgmac =3D true also need
-> > valid values.
-> >=20
-> > Could you cook up a fix based on this?
->=20
-> The below works for me, I haven't got the hardware to actually test the=
-=20
-> gmac4/xgmac paths:
->=20
-> ----8<----
-> > From 1ff2f1d5c35d95b38cdec02a283b039befdff0a4 Mon Sep 17 00:00:00 2001
-> From: Steven Price <steven.price@arm.com>
-> Date: Fri, 31 Jan 2025 15:45:50 +0000
-> Subject: [PATCH] net: stmmac: Allow zero for [tr]x_fifo_size
->=20
-> Commit 8865d22656b4 ("net: stmmac: Specify hardware capability value
-> when FIFO size isn't specified") modified the behaviour to bail out if
-> both the FIFO size and the hardware capability were both set to zero.
-> However devices where has_gmac4 and has_xgmac are both false don't use
-> the fifo size and that commit breaks platforms for which these values
-> were zero.
->=20
-> Only warn and error out when (has_gmac4 || has_xgmac) where the values
-> are used and zero would cause problems, otherwise continue with the zero
-> values.
->=20
-> Fixes: 8865d22656b4 ("net: stmmac: Specify hardware capability value when=
- FIFO size isn't specified")
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
-> =C2=A0drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 4 ++--
-> =C2=A01 file changed, 2 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/=
-net/ethernet/stmicro/stmmac/stmmac_main.c
-> index d04543e5697b..821404beb629 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -7222,7 +7222,7 @@ static int stmmac_hw_init(struct stmmac_priv *priv)
-> =C2=A0	if (!priv->plat->rx_fifo_size) {
-> =C2=A0		if (priv->dma_cap.rx_fifo_size) {
-> =C2=A0			priv->plat->rx_fifo_size =3D priv->dma_cap.rx_fifo_size;
-> -		} else {
-> +		} else if (priv->plat->has_gmac4 || priv->plat->has_xgmac) {
-> =C2=A0			dev_err(priv->device, "Can't specify Rx FIFO size\n");
-> =C2=A0			return -ENODEV;
-> =C2=A0		}
-> @@ -7236,7 +7236,7 @@ static int stmmac_hw_init(struct stmmac_priv *priv)
-> =C2=A0	if (!priv->plat->tx_fifo_size) {
-> =C2=A0		if (priv->dma_cap.tx_fifo_size) {
-> =C2=A0			priv->plat->tx_fifo_size =3D priv->dma_cap.tx_fifo_size;
-> -		} else {
-> +		} else if (priv->plat->has_gmac4 || priv->plat->has_xgmac) {
-> =C2=A0			dev_err(priv->device, "Can't specify Tx FIFO size\n");
-> =C2=A0			return -ENODEV;
-> =C2=A0		}
+The entering of L23 lower-power state is optional, because the
+connected endpoint might doesn't support it. So pcie-brcmstb shouldn't
+print an error if it fails.
 
-Works for me on TH1520 (arch/riscv/boot/dts/thead/th1520.dtsi).
+Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+=2D--
+ drivers/pci/controller/pcie-brcmstb.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-Tested-by: Xi Ruoyao <xry111@xry111.site>
+diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controlle=
+r/pcie-brcmstb.c
+index e733a27dc8df..9e7c5349c6c2 100644
+=2D-- a/drivers/pci/controller/pcie-brcmstb.c
++++ b/drivers/pci/controller/pcie-brcmstb.c
+@@ -1399,7 +1399,10 @@ static void brcm_pcie_remove_bus(struct pci_bus *bu=
+s)
+ 	pcie->sr =3D NULL;
+ }
 
---=20
-Xi Ruoyao <xry111@xry111.site>
-School of Aerospace Science and Technology, Xidian University
+-/* L23 is a low-power PCIe link state */
++/*
++ * Try to enter L23 ( low-power PCIe link state )
++ * This might fail if connected endpoint doesn't support it.
++ */
+ static void brcm_pcie_enter_l23(struct brcm_pcie *pcie)
+ {
+ 	void __iomem *base =3D pcie->base;
+@@ -1422,7 +1425,7 @@ static void brcm_pcie_enter_l23(struct brcm_pcie *pc=
+ie)
+ 	}
+
+ 	if (!l23)
+-		dev_err(pcie->dev, "failed to enter low-power link state\n");
++		dev_dbg(pcie->dev, "Unable to enter low-power link state\n");
+ }
+
+ static int brcm_phy_cntl(struct brcm_pcie *pcie, const int start)
+=2D-
+2.34.1
+
 
