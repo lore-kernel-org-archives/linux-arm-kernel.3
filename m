@@ -4,80 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99D8EC0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jan 2025 23:43:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A2E7C0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Feb 2025 00:05:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kGwPodq6Q+1QRMhQwzdR87h5olYJe5SMz1YpEKeh/EA=; b=KCHF1s8yynDT1hLJEV7v7CXQUJ
-	Bpbndgwuk4gTyT6SU7FuuyutBrl7ogC77ENRZTWw38XZIPCbUtRBSn+nDKiHIU8D/2cfkzEzWc/v7
-	L798dNW8e0jNR/BHnIlzdWEkFeSDO+uc7QhHHhbT0QKQ/0E6TLurk41jKZzLlYm/Recp4m6ym02Sj
-	2Ksxvy0vG9nrYEX1G4DcYzu/J0PK29cyThesSIUItXHANeRM3C7OB17913UrOfoiLxX6heTaQqLCM
-	vXkE4UH/6M0iGeYDCOSV2qsUk6+euYUeAz9ItBx3ctpqYLTZ/22pvjN1tEq8dSJLBn2zSPuoQEQsH
-	e72Dze1Q==;
+	bh=dIW5mxw1d5fGh/+9frfvuDB0rZsAyYbrsw3Hm15dSnk=; b=osUGquSuWa//DQCtS6P0C6tJlo
+	pflmsd1My7xWXa+zpYLA0rHGmYj1u0++Sy50GTRJjgsl8cSsLqwNQdOgekwfexhh/ZRXUYz/eGf/N
+	VUkO4LgVtRrpl0xT9fO1RmmveaCx/q19qfF3BzaKZGrvwsA7wBjfk3P/diTGH2A509J38ZFXaO+Oo
+	ltFmJjtzA31mvQegJZjq8ffgpAndIZAZYLHJWNR9mQFZ5rJSiq3fe57CDw5PmAXDgFgzLBo15TuQZ
+	/Vkm6Qw1yJEf3MWMHTzsQZ8/FORp5kq9ZwqrQ+wj8u4VnCF2cw6awz8JMpbqv03ljzURalo1bEskX
+	Y5UNH12w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1te0fp-0000000Be9o-48WV;
-	Fri, 31 Jan 2025 23:43:45 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1te10L-0000000Bfl0-1A09;
+	Sat, 01 Feb 2025 00:04:57 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1te0eV-0000000Bdys-0mOO
+	id 1te0z2-0000000Bfc2-0h3R
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jan 2025 23:42:24 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-ab6fb1851d4so215525266b.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jan 2025 15:42:22 -0800 (PST)
+	Sat, 01 Feb 2025 00:03:37 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3862d6d5765so1422180f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jan 2025 16:03:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738366941; x=1738971741; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=kGwPodq6Q+1QRMhQwzdR87h5olYJe5SMz1YpEKeh/EA=;
-        b=BWGSyBmY1R4GtETFU9AEo4Hx1zNOVB/WbVWbMfZQzc/NT8h4KWYoqsyxFcfkzJ94rG
-         6U0fk2n/zGBp4X4xAjH8yBaPR6mAXH31x8I3olHZlBGv2NcYdCwrZO+iWgXnnFsmdEuT
-         brCUJLjviptL3dRokI1/1fuOBvB8njoEcAAAAXbFZsnuGOIQ7wKvE8J46LQKnC5RjAzr
-         4Az97JYrlSlnOJBoA6HJM59GFEoab7uX56S3Zq1KjctfQ58AvBzYw8Wn+YCsw0s8LyYV
-         cC2zw4pT0PI/IEEAOvBOqnmpVMUi1+YbhGsCQrn7JBX+7GOvU7j6vm/EuH5ILDyNhWo7
-         IQMg==
+        d=gmail.com; s=20230601; t=1738368214; x=1738973014; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=dIW5mxw1d5fGh/+9frfvuDB0rZsAyYbrsw3Hm15dSnk=;
+        b=YkuC2CmfKxoT9hZ1yhuYCzC0DZZdMZwwYYLtR1CacxHZvmkZx9gAHiyMnF72Lw3ay9
+         VOKckla9wPHQVYooHz/CNhaAdIktCo45rKOEHoF98iblhMtmVt/oVOv+DRGlpBRgVvHT
+         soVJQHkRwlgSZbpLN4+1pDoNX8Auhb5aumtzqrlgJ34sTce5e5sFNwQ/5EhWcBQuF4Sl
+         b+tbub62vtUGpA1NcJ5OPINwsutYEb/aiBsZ6srUPD+iKuwieqNBPe39H+8dh+RZ/jUA
+         vhH1sVkRGJIj6sQcJXA5FRY17BkFiLMdIoB61Wq08Rqb4pHPa7Y2sSPVHm0bzkUnGelA
+         EPbA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738366941; x=1738971741;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
+        d=1e100.net; s=20230601; t=1738368214; x=1738973014;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=kGwPodq6Q+1QRMhQwzdR87h5olYJe5SMz1YpEKeh/EA=;
-        b=FAnahP31pvn+HaS2Fz41kaCONU3Ms99Kq3kqfEVBkAf0Ryr+WJqYCvDHuz4bq//+UM
-         Q94bPJ9M/+BkbXqz/iFw7EoU7QsnxXRrkMisxyiAp1LXsVxd9TlZkedTUc/HBed6hX5q
-         WXfd+Hthl37SoWWp82rNQZ7GDESNFzB8QzXeAUi7aAhU1mWfbRl0bVKykoDPyzswPCHc
-         YYPc4lsuUzOPuXKCAazssasb+pPX+bErT2/Bxzh3JX3DCdAiI8NOFZI6roROsKLPwoWW
-         QU3rdoHOCdpWK/BRlZPxee0nDNm5Lq4uyVzGoEUmHyRXEW7SiBtWTkUBCY8PoBA2BwAw
-         hV1Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWMzjjbayqsZicnaQjkwiwa0bnHpI1sWATRo5709eyAwUEA7YFH9fbtv/WFtdZQJP9G+KtPZaB93LzWH6o7tieg@lists.infradead.org
-X-Gm-Message-State: AOJu0YyTuwHypiMPKS8DBygEvhi/cUpv8bctQrW5f1XlBacfa7mOBcyx
-	NzqtF6h7jfsB5kOLwMGyLwZEZ21jPMPS4c0Bz955GC7uSGRgeDbg
-X-Gm-Gg: ASbGnct6z3Ys8dtCowl9/mNRN+f6Uvibhx/Yx3DeZwcP65URkSFF3k0BP254DH8ZnH+
-	93WXkZBNuCub47OZCiHsSWoXmI5KOOcnXsJKY1CppRaGwXQ94oPHts+H3Ko3vlXWgpUNzAxe4bq
-	RYybpyT8KOD65//75YQLbbzr++9SHXKGACIyYpNVerezTrL1/+OzjO1eBXeobuYDJmkZxKQX5Lm
-	wFvQVri1IDoA383TUtekVIQl09DcSSEbuRrraSyT/l3KbVMKPTmyyciOexGpwclNErlkL37duv6
-	lZENPp15Rc+pWNEcZS5R/zZE66wl
-X-Google-Smtp-Source: AGHT+IER34JxU6wqtw2fn+LJ3Rbu3h28herITddCa9E1l4aKB44zvDpbpqzN330rg7Ayn8xAChRs2A==
-X-Received: by 2002:a17:907:7f0d:b0:aa6:7ff9:d248 with SMTP id a640c23a62f3a-ab6f7443f58mr610676866b.8.1738366940751;
-        Fri, 31 Jan 2025 15:42:20 -0800 (PST)
+        bh=dIW5mxw1d5fGh/+9frfvuDB0rZsAyYbrsw3Hm15dSnk=;
+        b=Giv9LxbJBYfQuON0OPv6sTqIqLdeCGDp/bge4lwKRYi3jFyG70vw1N5OFtPzHxxk34
+         Opc1b4VATHjL9mn0J/fPJ1pMG11Auk7iJX4F7YAJer/IyT7/WK+/o/2uuhu9DsYpuAwm
+         FUY5CG58fZJrI9EpjykQSR6NEdzejNGs64pLpWTk6T5+0WeDZKqoe1WLct7Uqe7ipr3T
+         EptX3BbE54nXrhnx/QaKjOMcNZbiuwWeBJpee1JwOZWv7pWLpzplcb7y4McFfzNi7ixo
+         6BOTeB0zroHPjNcodIi0WQOgHU6ySeKWggMRkB56arVDIuj1s7OY1EcSE0cUaDj1sK6Q
+         jfVg==
+X-Forwarded-Encrypted: i=1; AJvYcCV+wxdQ98D7hKnN6ErSBQdbMtJSEbw48u/IQD29rrYsmTlYBqjg31onnWX5Gs3KnwKgVEciqLk98JkdBmLOxOAN@lists.infradead.org
+X-Gm-Message-State: AOJu0YzditQ3anzrlhxdVUBgwY0nJy7jHPtcRS01Q0UO1OX4jUGA+BEP
+	yyv5tvON69wEujyPoe4PUg60iRlvzbYFq8VfeezEkVgIypBh1TOH
+X-Gm-Gg: ASbGncuVLVYsKbKVopDv39zANqpexJm6a1XTjnhPZwq3tBIOtkre0sIvl/c9YkuA6S4
+	5fHXy7oq2wLknyZzoCP8eSNRuWLZxLeFkv5PAdQYG73fd17eQW746WCN83QbFt0rR66t1UPCp7Z
+	TVz4YGM2CIn0/OiZ3aJwssSP9ozfX2wcZbhXgmnP2/x2GVIXH3QOyb6Ukt8JNhT/AQlMmPoOkvT
+	o82x4fFx5a16TDYaxJVCsMbUatu+cHU6F4D1IR2OoiP9CdBnObtDHLeieDHcVL0HGAFiGi9XUSn
+	HdKAoSLpTCwappd+qPiQMtKmYVkM
+X-Google-Smtp-Source: AGHT+IEAmQ/3lwR59zHcY7DNEmyqeOVzzb9TWIVcnVUkllN5W5Fsd05H2UVJoIRw4vEWdM/qGbZ3jA==
+X-Received: by 2002:a5d:5384:0:b0:38a:8ed1:c5c7 with SMTP id ffacd0b85a97d-38c520bdb45mr8608136f8f.46.1738368214370;
+        Fri, 31 Jan 2025 16:03:34 -0800 (PST)
 Received: from ?IPV6:2001:871:22a:8634::1ad1? ([2001:871:22a:8634::1ad1])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab6e4a2f90asm361883266b.129.2025.01.31.15.42.19
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38c5c125f77sm5942943f8f.56.2025.01.31.16.03.33
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 31 Jan 2025 15:42:20 -0800 (PST)
-Message-ID: <defddc25-eb8b-420a-b64c-6ce57ebb3f6b@gmail.com>
-Date: Sat, 1 Feb 2025 00:42:19 +0100
+        Fri, 31 Jan 2025 16:03:33 -0800 (PST)
+Message-ID: <621a5bd9-ec51-46eb-8d8e-c463085f92e2@gmail.com>
+Date: Sat, 1 Feb 2025 01:03:32 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v3] arm: rust: Enable Rust support for ARMv7
-To: Arnd Bergmann <arnd@arndb.de>, Andrew Lunn <andrew@lunn.ch>,
- Miguel Ojeda <ojeda@kernel.org>
-Cc: Alex Gaynor <alex.gaynor@gmail.com>, Boqun Feng <boqun.feng@gmail.com>,
- Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?=
- <bjorn3_gh@protonmail.com>, Benno Lossin <benno.lossin@proton.me>,
+From: Christian Schrefl <chrisi.schrefl@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>, Miguel Ojeda <ojeda@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Alex Gaynor <alex.gaynor@gmail.com>,
+ Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+ =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
+ Benno Lossin <benno.lossin@proton.me>,
  Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
  Trevor Gross <tmgross@umich.edu>, Jonathan Corbet <corbet@lwn.net>,
  Russell King <linux@armlinux.org.uk>, Rudraksha Gupta <guptarud@gmail.com>,
@@ -91,15 +92,13 @@ References: <20250123-rfl-arm32-v3-1-8f13623d42c5@gmail.com>
  <f8b59f05-55b5-4208-8bdf-b4be8e93bc22@gmail.com>
  <65da77f7-bbd4-4cbe-a06c-75f10a6ec4ce@lunn.ch>
  <5e8a99a5-f39c-46da-b54d-7b69307b1c66@gmail.com>
- <e14cfb34-308f-4797-afe7-4e7e2d470fe3@app.fastmail.com>
 Content-Language: en-US, de-DE
-From: Christian Schrefl <chrisi.schrefl@gmail.com>
-In-Reply-To: <e14cfb34-308f-4797-afe7-4e7e2d470fe3@app.fastmail.com>
+In-Reply-To: <5e8a99a5-f39c-46da-b54d-7b69307b1c66@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_154223_253895_9040FA37 
-X-CRM114-Status: GOOD (  33.85  )
+X-CRM114-CacheID: sfid-20250131_160336_212218_6981DB13 
+X-CRM114-Status: GOOD (  16.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,95 +113,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31.01.25 8:37 PM, Arnd Bergmann wrote:
-> On Fri, Jan 31, 2025, at 19:58, Christian Schrefl wrote:
->> On 31.01.25 5:05 PM, Andrew Lunn wrote:
->>>> To fix this Rust would have to provide a way to build the core
->>>> library without float support. I don't know if there is a plan
->>>> already to allow this.
->>>
->>> Floating point is banned within the kernel, except for in very narrow
->>> conditions, because the floating point registers are lazy saved on
->>> context switch. If the kernel uses the floating point registers, you
->>> can break user space in bad ways.
->>>
->>> I expect this has been discussed, since it is well known kernel
->>> restriction. Maybe go see what happened to that discussion within RfL?
+On 31.01.25 7:58 PM, Christian Schrefl wrote:
+> On 31.01.25 5:05 PM, Andrew Lunn wrote:
+>>> To fix this Rust would have to provide a way to build the core
+>>> library without float support. I don't know if there is a plan
+>>> already to allow this.
 >>
->> After checking again, it seems the float intrinsics are actually not
->> needed anymore at least for my config.
+>> Floating point is banned within the kernel, except for in very narrow
+>> conditions, because the floating point registers are lazy saved on
+>> context switch. If the kernel uses the floating point registers, you
+>> can break user space in bad ways.
+>>
+>> I expect this has been discussed, since it is well known kernel
+>> restriction. Maybe go see what happened to that discussion within RfL?
 > 
-> Ah, nice! If this is true for all architectures using the current
-> rust compiler, it would be great to remove the FP stubs entirely
-> and have link errors instead of panicking, to make it consistent
-> with C.
+> After checking again, it seems the float intrinsics are actually not
+> needed anymore at least for my config. Only `__aeabi_uldivmod` is still
+> required for `parse_u64_into` since [0] allows disabling float formatting.
 
-After a quick test it seems that (most?) intrinsics are not needed
-anymore on x86, but not sure if that's valid for all supported rust
-versions and config options.
+Seems like Rust 1.78 still needs at least __aeabi_fcmpeq __aeabi_fcmpun
+__aeabi_dcmpun and __aeabi_uldivmod.
 
 > 
->> Only `__aeabi_uldivmod` is still
->> required for `parse_u64_into` since [0] allows disabling float formatting.
->>
->> Link error without the `__aeabi_uldivmod` symbol defined:
->>
->> ld.lld: error: undefined symbol: __aeabi_uldivmod
->>>>> referenced by num.rs:580 (/home/chrisi/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/fmt/num.rs:580)
->>>>>               rust/core.o:(core::fmt::num::parse_u64_into::<39>) in archive vmlinux.a
->>>>> referenced by num.rs:589 (/home/chrisi/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/fmt/num.rs:589)
->>>>>               rust/core.o:(core::fmt::num::parse_u64_into::<39>) in archive vmlinux.a
->>>>> referenced by num.rs:589 (/home/chrisi/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/fmt/num.rs:589)
->>>>>               rust/core.o:(core::fmt::num::parse_u64_into::<39>) in archive vmlinux.a
->>>>> referenced 34 more times
->>>>> did you mean: __aeabi_uidivmod
->>>>> defined in: vmlinux.a(arch/arm/lib/lib1funcs.o)
->>
->> Not sure if we should just implement `__aeabi_uldivmod`, keep the 
->> panicking intrinsic for it or somehow fix it in upstream Rust?
+> Link error without the `__aeabi_uldivmod` symbol defined:
 > 
-> The 64-bit division is particularly easy to introduce by accident
-> on 32-bit architectures, so ending up in a panic here is clearly
-> a problem. From the message above it appears that there is only 
-> a single calling function (parse_u64_into()) in the rust library,
-> so I wonder if it might be sufficient to split that out into
-> another object file that then doesn't need to get linked into
-> the kernel, or for the kernel to override it with an implementation
-> that does not rely on __aeabi_uldivmod() but calls __do_div64()
-> instead.
-
-I don't think that we can split it into a different object
-file or do some weird redirect in Rust itself.
-
-> Since parse_u64_into seems to be a parsing function that is
-> expected to be slow, it should be acceptable to call __do_div64()
-> here, while we still prevent calling __aeabi_uldivmod() from
-> kernel source code.
-
-`parse_u64_into` seems to be used by Formatting for u128 
-and i128 so it would be fine to disable these with a flag.
-However `__aeabi_uldivmod` is used by some other parts of
-core as well, like logarithm calculation for 64 and 128
-bit integers, not sure what else uses is. I would guess 
-its fine for these to be slow.
-
-Can someone help me figure out how to get ld.lld to print
-every usage instead of just the first three?
-
-Not sure how easy it would be to disable these but it
-would probably require some effort and would probably
-be pretty hacky, so not sure if Rust would accept these.
-
+> ld.lld: error: undefined symbol: __aeabi_uldivmod
+>>>> referenced by num.rs:580 (/home/chrisi/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/fmt/num.rs:580)
+>>>>               rust/core.o:(core::fmt::num::parse_u64_into::<39>) in archive vmlinux.a
+>>>> referenced by num.rs:589 (/home/chrisi/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/fmt/num.rs:589)
+>>>>               rust/core.o:(core::fmt::num::parse_u64_into::<39>) in archive vmlinux.a
+>>>> referenced by num.rs:589 (/home/chrisi/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/fmt/num.rs:589)
+>>>>               rust/core.o:(core::fmt::num::parse_u64_into::<39>) in archive vmlinux.a
+>>>> referenced 34 more times
+>>>> did you mean: __aeabi_uidivmod
+>>>> defined in: vmlinux.a(arch/arm/lib/lib1funcs.o)
 > 
-> Note that on earlier ARMv7 (Cortex-A8, A9), even a 32-bit
-> division is implemented through an expensive software loop.
-> Later cores (Cortex-A7, A15, A17) have native 32-bit division
-> instructions but still no 64-bit ones.
-
-I would assume that a software implementation is fine.
-
-Cheers
-Christian
-
+> Not sure if we should just implement `__aeabi_uldivmod`, keep the 
+> panicking intrinsic for it or somehow fix it in upstream Rust?
+> 
+> Miguel do you know how this is best handled?
+> 
+> Link: https://github.com/rust-lang/rust/pull/86048 [0]
+> 
+> Cheers
+> Christian
 
 
