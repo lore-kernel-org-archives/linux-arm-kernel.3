@@ -4,57 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 179C1C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Feb 2025 09:33:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AE71C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Feb 2025 09:53:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/y1tCaIJIRMuWtY5X8ScN+Ehwj3HaJvQiyS5r+vb39k=; b=x7+KAe6RnyB3/M2nTW0OCrfP+C
-	7z4dTqdPV3mbOBcLQDa9qCxwQSeG3guoI/gmsMMjT81/MXtGs6xIJMhvwBYoklbk+X5Q1vTVhieUd
-	p1uQ4XkuDCQSJeLgJXAvJAYDYNBrma/OL6i1c5Q3K/ynyy1xfRoIziVFGMndTIp+jpvr9tqEmALYD
-	R63c4NXitxWHbV4W3onK5MAt6jcXhlMV0qihO2uJW0lbIY8fpoEy61QEdpKVmGl1W+ijccSNX/jAY
-	ca0MGy/2FCAFNJe6lFZGynpVseTOs9nhL85kJVRz2Ujuk4Qp71hW6yTSuhm8OM0k5hjx2zd7886a0
-	FRULTfBg==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L+AAdkcmZc4lSXsMOcapYBhFqOepj7d/gBINmIU6crc=; b=ob5c27Ic1gN2C2wdz48mCURkDS
+	Xv6lvJTrV7oUIXEZzc/P2t/AdTzEtUl2iKRR/+DN9fla0VcT1zemgrOfYGXAFzXyFYkwYLs4wlFkP
+	Wp/0VTCNwv7lnChY4ra/3l9b51bvYHhU7bWV/pr/02DlnxbQ6oo40/AESPTGScBjmLvlH+VTS4oBb
+	1ju8wGeJjz1VIVU9aanbspvN1YhQuN9GTjQ2spZKDSvzVGvj+J2D4KAqOtE56zYyItU4EUf1mI+Cj
+	qmdw6+b1/zVhbGXXpMeWOxIOZn15u8m2a9cU9HuYB9yVfcN/dtP2l5xO9dRik6TbUvYM0/0RPPJX1
+	MzHvCD5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1te9sF-0000000C5nj-3NaW;
-	Sat, 01 Feb 2025 09:33:11 +0000
-Received: from relmlor1.renesas.com ([210.160.252.171] helo=relmlie5.idc.renesas.com)
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1te9qu-0000000C5lK-0xhu;
-	Sat, 01 Feb 2025 09:31:49 +0000
-X-CSE-ConnectionGUID: AkWdZp+FTmOL0FXebDBvzw==
-X-CSE-MsgGUID: l7gPDljdTleUh2byncMmtA==
-Received: from unknown (HELO relmlir6.idc.renesas.com) ([10.200.68.152])
-  by relmlie5.idc.renesas.com with ESMTP; 01 Feb 2025 18:31:43 +0900
-Received: from localhost.localdomain (unknown [10.226.92.62])
-	by relmlir6.idc.renesas.com (Postfix) with ESMTP id 8AC2941D4003;
-	Sat,  1 Feb 2025 18:31:28 +0900 (JST)
-From: Biju Das <biju.das.jz@bp.renesas.com>
-To: Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Biju Das <biju.das.jz@bp.renesas.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Biju Das <biju.das.au@gmail.com>,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH v2] of: base: Add of_get_available_child_by_name()
-Date: Sat,  1 Feb 2025 09:31:24 +0000
-Message-ID: <20250201093126.7322-1-biju.das.jz@bp.renesas.com>
-X-Mailer: git-send-email 2.43.0
+	id 1teABS-0000000C6n5-0McM;
+	Sat, 01 Feb 2025 09:53:02 +0000
+Received: from mail-oo1-xc34.google.com ([2607:f8b0:4864:20::c34])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1teAA7-0000000C6hT-35Nu
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 01 Feb 2025 09:51:41 +0000
+Received: by mail-oo1-xc34.google.com with SMTP id 006d021491bc7-5f2dee7d218so1262719eaf.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Feb 2025 01:51:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1738403494; x=1739008294; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=L+AAdkcmZc4lSXsMOcapYBhFqOepj7d/gBINmIU6crc=;
+        b=BwQgHCx6v6PQwrP1/972Wz1d4Y9pslxtb+U6kEScr9/+HXZH6FMi6XJVFaZ0Z9guOg
+         99mdASgmAPBNxDMFqLnLXH5cNvZRbZWeogO9V1WVWe7SRdgpobP9meQWXxlNH0ugx87J
+         17ms5JmwLmuyYP2BHywXEMuSferSjqUWaB1iGNROYuL9cMFX9Z5TUq2UTa7BtvtrPEA4
+         D9efwzM1QIQg1kuPc2OP3mxzVFRYA8sMLUujAkHwvCWYLD6/dJQEBKHV+fDU62J5lpVo
+         t5tF/G1C2IjsRD+NHM/Obbm4/2irCE9LcVZagVpQ1J/GlHWG1vIHp91oEQ5zQMfZWTFP
+         U2iw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738403494; x=1739008294;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=L+AAdkcmZc4lSXsMOcapYBhFqOepj7d/gBINmIU6crc=;
+        b=Xud0p6kd8H7stRnwGC9KlZ3av+M6WGTDZsdm9QzWppi+viYIFKo6URK/ZFthgnbAhe
+         0MBUdWevO0jUDL1PSIidzfwWonwxt04xv0aWiWRxE6ipoYm3kfBfx6XhsYwhN1CaSOnF
+         /8LRkPmfwBkmzYDtoXiUEvPdJzsd3pqom0JeZCI6hmCOgtNKAit70HShKnrtSaitDeU0
+         iv4X0baFUpl096hvvc+ictXoADt4gF+cjnIz9c3pKjqc3yHh4fm7oCK7UOJMqKXbjVcl
+         iRD1rAwuKW2mFXPvRVKQ9pR+tozvpo4v68xkKcIMjKHtl55gZ0C5uMQycB7oNevF8n6G
+         pouw==
+X-Forwarded-Encrypted: i=1; AJvYcCU1iQ9yeX+6axE1LWzrXmY9cmeWOhQvp7u01jiLIbgcP+67zwWHaPOUIoM081hH8jHrDoQ0ChrZTuAadY5yxlIn@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywsr8ewbkv2BI5oxtS1vxVwCnp01OYF+XfU3/MG+tlO2BM3W3yu
+	9Xsdox1cdX4PTFmpIqnjs5F9hM7sZK5QxDAwE8K7t6uGwitbTQgEbPt05UdwlTMApAuVCZstrso
+	IMGpc4A4g5xxvdVaP+1xpotJcAVtEEP9ZnYwWZA==
+X-Gm-Gg: ASbGncu7peaFLzyfxklITmSKvX7ALRmUZeFEJbUYMh9mTlaWLN2qfgTECFECodSPtL6
+	qb4F3iDAYB7KLe7wyq7RQIXUPqSpaGYonMA35hDDb2+gMw4rMEDJSUKDf5mIHi2z+879s5GRxy6
+	M=
+X-Google-Smtp-Source: AGHT+IEIIfBdNVn8LDpeA6rFY2D9do+Hyc1wDJ+qpODyAMtmiFvSiXtuvbFiuEmS1fHjZJ/7xlgvm9YLi2f51OwMYUg=
+X-Received: by 2002:a05:6871:8802:b0:29e:563c:2dbf with SMTP id
+ 586e51a60fabf-2b32f286144mr9462267fac.26.1738403494288; Sat, 01 Feb 2025
+ 01:51:34 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250123074830.90923-1-cuiyunhui@bytedance.com>
+ <344c53cd-d856-4c03-9deb-743b65acd8aa@linux.alibaba.com> <CAEEQ3wmDej9bbPUmkx-ZrD4FG9Z7gTHMeCrVszx64g90O0RyiQ@mail.gmail.com>
+ <31e00081-8695-4ca6-a1ef-af5a007a7565@linux.alibaba.com> <CAEEQ3wm+f_SM7evwL=YrGy8gPLS5YdJm=qhJNT8bbMH7QBOzEA@mail.gmail.com>
+ <20250124122952.GB23438@willie-the-truck> <CAEEQ3wnTMfWSZRhTax3N60W=m3a=zxnJF6dOfiGnqJzBQs8WEg@mail.gmail.com>
+ <20250127165156.GE25757@willie-the-truck>
+In-Reply-To: <20250127165156.GE25757@willie-the-truck>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Sat, 1 Feb 2025 17:51:21 +0800
+X-Gm-Features: AWEUYZmAdXUmi37d66_VLF0H-K_x7oGaiWsf00mIojMN1X-oiLjeCpkGsMu0T7E
+Message-ID: <CAEEQ3wkj=6WPNFpet=A9JppiO52agw6HZArwhfWsWS9JOY6Dng@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH] perf/dwc_pcie: fix duplicate pci_dev devices
+To: Will Deacon <will@kernel.org>
+Cc: Shuai Xue <xueshuai@linux.alibaba.com>, renyu.zj@linux.alibaba.com, 
+	mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, 
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250201_013148_372688_73145F51 
-X-CRM114-Status: GOOD (  11.70  )
+X-CRM114-CacheID: sfid-20250201_015139_782674_BE0AAD6C 
+X-CRM114-Status: GOOD (  23.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,109 +99,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There are lot of drivers using of_get_child_by_name() followed by
-of_device_is_available() to find the available child node by name for a
-given parent. Provide a helper for these users to simplify the code.
+Hi Will,
 
-Suggested-by: Geert Uytterhoeven <geert+renesas@glider.be>
-Signed-off-by: Biju Das <biju.das.jz@bp.renesas.com>
----
-v1->v2:
- * Updated commit description.
- * Updated kerneldoc comment block
- * Avoided code duplication by using of_get_child_by_name().
+On Tue, Jan 28, 2025 at 12:52=E2=80=AFAM Will Deacon <will@kernel.org> wrot=
+e:
+>
+> On Sun, Jan 26, 2025 at 09:54:35AM +0800, yunhui cui wrote:
+> > Hi Will,
+> >
+> > On Fri, Jan 24, 2025 at 8:30=E2=80=AFPM Will Deacon <will@kernel.org> w=
+rote:
+> > >
+> > > On Fri, Jan 24, 2025 at 05:11:05PM +0800, yunhui cui wrote:
+> > > > > >>>        vsec =3D dwc_pcie_des_cap(pdev);
+> > > > > >>>        if (!vsec)
+> > > > > >>>                return -ENODEV;
+> > > > > >>>
+> > > > > >>>        sbdf =3D plat_dev->id;
+> > > > > >>> -     name =3D devm_kasprintf(&plat_dev->dev, GFP_KERNEL, "dw=
+c_rootport_%x", sbdf);
+> > > > > >>> +     name =3D devm_kasprintf(&plat_dev->dev, GFP_KERNEL, "dw=
+c_rootport_%d_pmu", sbdf);
+> > > > > >>
+> > > > > >> A new name will break previous user tools.
+> > > > > > This name isn't suitable. It can't clearly show which is the PM=
+U
+> > > > > > device. Userspace tools don't have binding relationships, like =
+perf.
+> > > > > > Tools must traverse PMU devices before use.
+> > > > >
+> > > > > The device is under /sys/bus/event_source/ which indates it is PM=
+U device.
+> > > > > As far as I know, most of PMU devices do not endup with a '_pmu' =
+prefix.
+> > > >
+> > > > The point is the name "dwc_rootport_" is misleading, suggesting an
+> > > > extra PCIE RP in the system. Best to change the name to intuitive
+> > > > "xx_pmu".
+> > >
+> > > As pointed out above, changing the name will break userspace. So it's
+> > > simply not an option, sorry.
+> >
+> > Could you specify what in the userspace is broken and give an example?
+>
+> Can't I just take the documented example from dwc_pcie_pmu.rst:
+>
+> $# perf stat -a -e dwc_rootport_13018/Rx_PCIe_TLP_Data_Payload/
+>
+> If I have a script that uses that command on a machine today, then
+> applying your kernel patch will break the script, no?
 
-Note:
-grep showed the below files will be the users for this new API.
-I will be updating these drivers once this patch is in mainline.
+Well, this is just a usage guide for the PCIe PMU and has no binding
+with perf. In user space, the existing PCIe PMUs in the system should
+be traversed first, and then perf stat/record ... can be executed.
 
-drivers/net/dsa/rzn1_a5psw.c
-drivers/net/can/rcar/rcar_canfd.c
+It's okay not to change the name, but it's better to change
+dwc_rootport_%x to dwc_rootport_%d to correspond with
+platform_device_register_data(NULL, "dwc_pcie_pmu", ...). It'll be
+more intuitive. What do you think?
 
-drivers/net/ethernet/mediatek/mtk_star_emac.c
-drivers/net/dsa/mt7530.c
-drivers/net/dsa/sja1105/sja1105_mdio.c
-drivers/net/dsa/qca/qca8k-8xxx.c
-drivers/net/wireless/mediatek/mt76/mac80211.c
-drivers/net/ethernet/ibm/emac/core.c
-drivers/net/ethernet/ti/am65-cpsw-nuss.c
-drivers/net/ethernet/actions/owl-emac.c
-drivers/net/ethernet/mediatek/mtk_eth_soc.c
-drivers/media/platform/samsung/exynos4-is/media-dev.h
-drivers/gpu/drm/tegra/rgb.c
-drivers/gpu/drm/msm/adreno/adreno_gpu.c
-drivers/clk/davinci/pll.c
----
- drivers/of/base.c  | 27 +++++++++++++++++++++++++++
- include/linux/of.h |  9 +++++++++
- 2 files changed, 36 insertions(+)
+>
+> Will
 
-diff --git a/drivers/of/base.c b/drivers/of/base.c
-index af6c68bbb427..e37b088f1fad 100644
---- a/drivers/of/base.c
-+++ b/drivers/of/base.c
-@@ -824,6 +824,33 @@ struct device_node *of_get_child_by_name(const struct device_node *node,
- }
- EXPORT_SYMBOL(of_get_child_by_name);
- 
-+/**
-+ * of_get_available_child_by_name - Find the available child node by name for a given parent
-+ * @node:	parent node
-+ * @name:	child name to look for.
-+ *
-+ * This function looks for child node for given matching name and checks the
-+ * device's availability for use.
-+ *
-+ * Return: A node pointer if found, with refcount incremented, use
-+ * of_node_put() on it when done.
-+ * Returns NULL if node is not found.
-+ */
-+struct device_node *of_get_available_child_by_name(const struct device_node *node,
-+						   const char *name)
-+{
-+	struct device_node *child;
-+
-+	child = of_get_child_by_name(node, name);
-+	if (child && !of_device_is_available(child)) {
-+		of_node_put(child);
-+		return NULL;
-+	}
-+
-+	return child;
-+}
-+EXPORT_SYMBOL(of_get_available_child_by_name);
-+
- struct device_node *__of_find_node_by_path(const struct device_node *parent,
- 						const char *path)
- {
-diff --git a/include/linux/of.h b/include/linux/of.h
-index eaf0e2a2b75c..9d6b8a61607f 100644
---- a/include/linux/of.h
-+++ b/include/linux/of.h
-@@ -301,6 +301,8 @@ extern struct device_node *of_get_compatible_child(const struct device_node *par
- 					const char *compatible);
- extern struct device_node *of_get_child_by_name(const struct device_node *node,
- 					const char *name);
-+extern struct device_node *of_get_available_child_by_name(const struct device_node *node,
-+							  const char *name);
- 
- /* cache lookup */
- extern struct device_node *of_find_next_cache_node(const struct device_node *);
-@@ -578,6 +580,13 @@ static inline struct device_node *of_get_child_by_name(
- 	return NULL;
- }
- 
-+static inline struct device_node *of_get_available_child_by_name(
-+					const struct device_node *node,
-+					const char *name)
-+{
-+	return NULL;
-+}
-+
- static inline int of_device_is_compatible(const struct device_node *device,
- 					  const char *name)
- {
--- 
-2.43.0
-
+Thanks,
+Yunhui
 
