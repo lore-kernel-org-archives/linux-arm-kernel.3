@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FF3EC02192
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Feb 2025 07:22:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F2C9C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Feb 2025 07:23:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
 	:References:Mime-Version:Message-Id:In-Reply-To:Date:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TthwbOZkHzMV/U+Knk4syVDpsUcxETJ0FM1uTXU17u4=; b=UsWLbm3vvEOtUVgo+bfZHYUAR1
-	/E1/BSNd65eWpNGuBr798HPNQ+9CpEJNKjT0RmEecnM0Rde1++3lutVx/DOy82npjeKsBzxgHPHQC
-	auOsKCw0NtW2Or6Y14woh2/FnRyZ4PCWJ9Wwx0CtJPTwkoroQRwQ7dF0xTCxfqDv65iKv3t2QRe1T
-	CSewdQrJ7+7T1MySYWnRYnD4PyM8T8FWzKwzXHwTPWYle4qjh3NDfq+4b1odv6mBv3/2fuOFNxWFC
-	5DhotW0alA21sFNW6AfxQttXVX/0PnmmUzRjdFa7CtVD2ZcYMvmRUAwlhMoFtGiSCjrv8l+2u6GQn
-	goPiMRHg==;
+	bh=6oWJvm0R16L7fRLZvEz9h+mLtC3Mv5Bopy8dJVFTFJA=; b=aMtdAgI/F2XAsaxv4D667ImWMo
+	gTwF1FH3GwMOKT3Nvdf0cojYi7M/oJO+Ea+ubkbzGoJJ/IgK5PmpLSFRMbhlHpIaOtg5ZAcmPtO7V
+	TvbCDAjM1srXDcu3EwvlEsYGF1ysgw72vZNxeB2EC2t4A8ezzNXdGfOgoDNisdfouCLtAXTtFBe8I
+	z07DkPdO1VHDw9nbatW+D+FKAX8jr/3CHXhp/r8KnUpmHa1L5qVUMnp0EYS9cFfFflG5OzbNMV1IA
+	/C6w7tOwgqYX7S8OrZFsX3tmxi2rGno3DzQecikl4H2jwdnWMqLTxJOmofpjoViyjMCs4kBxGt08i
+	sn1giELg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1te7pB-0000000Bz09-3cRL;
-	Sat, 01 Feb 2025 07:21:53 +0000
+	id 1te7qT-0000000BzFa-3Eux;
+	Sat, 01 Feb 2025 07:23:13 +0000
 Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1te7ip-0000000Bxtp-1rlo
+	id 1te7ir-0000000Bxv8-33bm
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Feb 2025 07:15:20 +0000
-Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6f2793679ebso21297897b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jan 2025 23:15:18 -0800 (PST)
+	Sat, 01 Feb 2025 07:15:23 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6f46924f63eso26771657b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jan 2025 23:15:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1738394118; x=1738998918; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1738394120; x=1738998920; darn=lists.infradead.org;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=TthwbOZkHzMV/U+Knk4syVDpsUcxETJ0FM1uTXU17u4=;
-        b=4rTibGX4vzR57giTsfVKC5T1CSMYEsD29/O3NXDX8YzW+PrqorMHddpjglWRYcobm8
-         rbzMB89gdcBx5fLRLEAk181/UhrbgGcpvY/3y4522qYYfnDmqmwX8wGPc6NHSFka56U1
-         SQadD8cF1CUN6Rwj0/udg2+YxskeC+gN3QgArOKIzZHY7NrmS/boIH/j/4RFBb/UCR3g
-         wLNe7Oj8+VCtgVQb5rqdE/HokuV9IQt/l2e5TOwqdAkoS39PsleanBWNvciNgZ1ar6u/
-         o40XvJpeF3xP/V5RH0kSBD1ra+/ZRuznTRUGrg4fGD03N8BokHpXnbIYvEXZLc/WQwtz
-         i0cQ==
+        bh=6oWJvm0R16L7fRLZvEz9h+mLtC3Mv5Bopy8dJVFTFJA=;
+        b=a53OdosIOwRDdigD/L78EC4c6R1FLLhT560PKeMKn7t140UIbaJMUizamVy/Vg8Skn
+         xfLqYQFuwUdTha7DVLTNiSZ36rz7uL1JZ7/35onrjUAkHlci9y6RIWQeCqzsI/rO3I8O
+         Fu/1PjibCaoD6vEpH8ZOEDkSxTFbMBrrr6tZBY8PmrN4YobkJfVxg5c65m71N/P/4Zq0
+         8DXtP908PnhwlU6xZ4FtQ5ea7nTDea1YOW3ojPCq/+0wKV6ReCqkfigZc7kLlk2XpgwY
+         Phhvfk6rheGoPbntmCnfei0SAK2F6QqxURNIdGxKx7HOcB6c4fzDp1FweGFScQG7zA3Y
+         5Y1w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738394118; x=1738998918;
+        d=1e100.net; s=20230601; t=1738394120; x=1738998920;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=TthwbOZkHzMV/U+Knk4syVDpsUcxETJ0FM1uTXU17u4=;
-        b=KUIVG9duR3t3VDiVewFyblyXjNLJC+r1svt0m3LBYa6imxXBobkO/L3Mrgp4aDmyB+
-         jcTvz5Cj7GtHg04llygONVczV4Xeth3FzspD0epmC3eC/CJA2Y3RPi0igLTgEz4fKmsZ
-         YazweDoFXJOVXKMG+ghk0SWCyw8je8tuEad6iItO9vU1Nwle4Nj3ZVeOhZzXwtqYyCNT
-         LMp0moDs1/stSdvPgO6a1yDiZ48pfAM+Aacu0JTDZxECkvBDOXz3BILD2EQAHMYOjgUg
-         9pcxg7bUe0gH8IQfbYqcZx2PJU3ioSh5sdX8eXBxpFEfL/T2t1zlYEt0DZLytmRssBAd
-         QPdw==
-X-Forwarded-Encrypted: i=1; AJvYcCUGob5y+XS6DkNQ6HeJopekWnrIy6Vp9oA5K9iF31fveMOA/tQaDzFdVjadWZKjuKJLYaxtqIQ0yE+GQ4zObB2G@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNlH1chGsmgGTeJXHVEdzksXCcfUGRtLyvNvBeO5W3p8yFT9Ts
-	gtIvRqZS03UnzWs+pOiXCdaK+HXss5o3icOuVMi7JfAVMfZQk3IURg5XbYFIRYaZzfMirG3qAJ2
-	AE5hnzA==
-X-Google-Smtp-Source: AGHT+IFwWB0up1bPee2Rs6SlTWcnqrNwDU+LXavttncftVjLkVPBDKnZQmt3JTB4rN5T/puob/0R8cJH1fw7
+        bh=6oWJvm0R16L7fRLZvEz9h+mLtC3Mv5Bopy8dJVFTFJA=;
+        b=cFG5/YID0RZfpVhGktIwjDjxeNybsdlUVET9ntn9f2Nq92VAqA84CmwHlhm/Lxus+N
+         +tIg2dwEZR+3vouSWufoqArhoXzUUaI84QSrrr1KgjOI/CCH3IYUneRDoREb0L/tGXTn
+         a3pcb0P5jKvKYsM5GKkugVspM/EaVpVzTThWO0hCHSacpf2/Fe18apxi4AHw4689bOwl
+         C/h+ZuR5DJZTWrcxz3Lxgah0xa7hBSSM0w1S7R/UjBxE+DncZxMOO/idyRHYJIxk7FUy
+         /86JGZnLjyiaoy/zAWPTPk1CJYKpzal4t1Ayr6RoCnz+Y93TZlCzl5amhFb9V0Cw74iZ
+         um1w==
+X-Forwarded-Encrypted: i=1; AJvYcCUDMae3KU3ueqR/rbMfUMVf8hNqvx+cdIkrOVsZy5MnuwjJhxehczt53zsEZg+aj2Trb59DN1kLLhB3D+pKvm0J@lists.infradead.org
+X-Gm-Message-State: AOJu0YxnG0VYNFSEeK2AWMzn4u5B/yqq/xe6siQ0m9l6o9B49B3sojzo
+	8h0Jyp+3CbgukTq3GbP11youw6zin0rMIkPuzC2PvyT+JdCtYUBjZoIMfrp+j1BdpTqU9LCqzOB
+	/c9tKHQ==
+X-Google-Smtp-Source: AGHT+IFbIHGqcM7SDT3LYA9zs0KWwsJnfZdSQF4R/Y9g49E1uFDNpkk2nfE4pN/zarsmMdRIy5bqZYmYeKKV
 X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:de26:87db:e4d0:62b6])
- (user=irogers job=sendgmr) by 2002:a25:e0c1:0:b0:e58:a8b5:9af8 with SMTP id
- 3f1490d57ef6-e58a8b59c53mr30715276.5.1738394117891; Fri, 31 Jan 2025 23:15:17
- -0800 (PST)
-Date: Fri, 31 Jan 2025 23:14:52 -0800
+ (user=irogers job=sendgmr) by 2002:a05:690c:3403:b0:6ee:9a08:7686 with SMTP
+ id 00721157ae682-6f8c19ec149mr408487b3.4.1738394120141; Fri, 31 Jan 2025
+ 23:15:20 -0800 (PST)
+Date: Fri, 31 Jan 2025 23:14:53 -0800
 In-Reply-To: <20250201071455.718247-1-irogers@google.com>
-Message-Id: <20250201071455.718247-5-irogers@google.com>
+Message-Id: <20250201071455.718247-6-irogers@google.com>
 Mime-Version: 1.0
 References: <20250201071455.718247-1-irogers@google.com>
 X-Mailer: git-send-email 2.48.1.362.g079036d154-goog
-Subject: [PATCH v1 4/7] perf thread: Add support for reading the e_machine
- type for a thread
+Subject: [PATCH v1 5/7] perf trace beauty: Add syscalltbl.sh generating all
+ system call tables
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -86,8 +86,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_231519_486776_E2039331 
-X-CRM114-Status: GOOD (  25.69  )
+X-CRM114-CacheID: sfid-20250131_231521_774388_C496840E 
+X-CRM114-Status: GOOD (  20.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,233 +102,331 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the executable from /proc/pid/exe and read the e_machine from the
-ELF header. On failure use EM_HOST. Change builtin-trace syscall
-functions to pass e_machine from the thread rather than EM_HOST, so
-that in later patches when syscalltbl can use the e_machine the system
-calls are specific to the architecture.
+Rather than generating individual syscall header files generate a
+single trace/beauty/generated/syscalltbl.c. In a syscalltbls array
+have references to each architectures tables along with the
+corresponding e_machine. When the 32-bit or 64-bit table is ambiguous,
+match the perf binary's type. For ARM32 don't use the arm64 32-bit
+table which is smaller. EM_NONE is present for is no machine matches.
+
+Conditionally compile the tables, only having the appropriate 32 and
+64-bit table. If ALL_SYSCALLTBL is defined all tables can be
+compiled.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/builtin-trace.c | 41 ++++++++++++++++---------------
- tools/perf/util/thread.c   | 50 ++++++++++++++++++++++++++++++++++++++
- tools/perf/util/thread.h   | 14 ++++++++++-
- 3 files changed, 85 insertions(+), 20 deletions(-)
+ tools/perf/Makefile.perf              |   9 +
+ tools/perf/trace/beauty/syscalltbl.sh | 274 ++++++++++++++++++++++++++
+ 2 files changed, 283 insertions(+)
+ create mode 100755 tools/perf/trace/beauty/syscalltbl.sh
 
-diff --git a/tools/perf/builtin-trace.c b/tools/perf/builtin-trace.c
-index 7e3aa2f6c5e2..d60db6a23852 100644
---- a/tools/perf/builtin-trace.c
-+++ b/tools/perf/builtin-trace.c
-@@ -2674,16 +2674,17 @@ static int trace__sys_enter(struct trace *trace, struct evsel *evsel,
- 	int printed = 0;
- 	struct thread *thread;
- 	int id = perf_evsel__sc_tp_uint(evsel, id, sample), err = -1;
--	int augmented_args_size = 0;
-+	int augmented_args_size = 0, e_machine;
- 	void *augmented_args = NULL;
- 	/* TODO: get e_machine from thread. */
--	struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
-+	struct syscall *sc;
- 	struct thread_trace *ttrace;
+diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
+index 55d6ce9ea52f..793e702f9aaf 100644
+--- a/tools/perf/Makefile.perf
++++ b/tools/perf/Makefile.perf
+@@ -559,6 +559,14 @@ beauty_ioctl_outdir := $(beauty_outdir)/ioctl
+ # Create output directory if not already present
+ $(shell [ -d '$(beauty_ioctl_outdir)' ] || mkdir -p '$(beauty_ioctl_outdir)')
  
--	if (sc == NULL)
--		return -1;
--
- 	thread = machine__findnew_thread(trace->host, sample->pid, sample->tid);
-+	e_machine = thread__e_machine(thread, trace->host);
-+	sc = trace__syscall_info(trace, evsel, e_machine, id);
-+	if (sc == NULL)
-+		goto out_put;
- 	ttrace = thread__trace(thread, trace->output);
- 	if (ttrace == NULL)
- 		goto out_put;
-@@ -2752,16 +2753,18 @@ static int trace__fprintf_sys_enter(struct trace *trace, struct evsel *evsel,
- 	struct thread *thread;
- 	int id = perf_evsel__sc_tp_uint(evsel, id, sample), err = -1;
- 	/* TODO: get e_machine from thread. */
--	struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
-+	struct syscall *sc;
- 	char msg[1024];
- 	void *args, *augmented_args = NULL;
--	int augmented_args_size;
-+	int augmented_args_size, e_machine;
- 	size_t printed = 0;
++syscall_array := $(beauty_outdir)/syscalltbl.c
++syscall_tbl := $(srctree)/tools/perf/trace/beauty/syscalltbl.sh
++syscall_tbl_data := $(srctree)/tools/scripts/syscall.tbl \
++	$(wildcard $(srctree)/tools/perf/arch/*/entry/syscalls/syscall*.tbl)
++
++$(syscall_array): $(syscall_tbl) $(syscall_tbl_data)
++	$(Q)$(SHELL) '$(syscall_tbl)' $(srctree)/tools $@
++
+ fs_at_flags_array := $(beauty_outdir)/fs_at_flags_array.c
+ fs_at_flags_tbl := $(srctree)/tools/perf/trace/beauty/fs_at_flags.sh
  
--	if (sc == NULL)
--		return -1;
+@@ -878,6 +886,7 @@ build-dir   = $(or $(__build-dir),.)
  
- 	thread = machine__findnew_thread(trace->host, sample->pid, sample->tid);
-+	e_machine = thread__e_machine(thread, trace->host);
-+	sc = trace__syscall_info(trace, evsel, e_machine, id);
-+	if (sc == NULL)
-+		return -1;
- 	ttrace = thread__trace(thread, trace->output);
- 	/*
- 	 * We need to get ttrace just to make sure it is there when syscall__scnprintf_args()
-@@ -2826,15 +2829,15 @@ static int trace__sys_exit(struct trace *trace, struct evsel *evsel,
- 	bool duration_calculated = false;
- 	struct thread *thread;
- 	int id = perf_evsel__sc_tp_uint(evsel, id, sample), err = -1, callchain_ret = 0, printed = 0;
--	int alignment = trace->args_alignment;
--	/* TODO: get e_machine from thread. */
--	struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
-+	int alignment = trace->args_alignment, e_machine;
-+	struct syscall *sc;
- 	struct thread_trace *ttrace;
- 
--	if (sc == NULL)
--		return -1;
--
- 	thread = machine__findnew_thread(trace->host, sample->pid, sample->tid);
-+	e_machine = thread__e_machine(thread, trace->host);
-+	sc = trace__syscall_info(trace, evsel, e_machine, id);
-+	if (sc == NULL)
-+		goto out_put;
- 	ttrace = thread__trace(thread, trace->output);
- 	if (ttrace == NULL)
- 		goto out_put;
-@@ -3181,8 +3184,8 @@ static int trace__event_handler(struct trace *trace, struct evsel *evsel,
- 
- 	if (evsel == trace->syscalls.events.bpf_output) {
- 		int id = perf_evsel__sc_tp_uint(evsel, id, sample);
--		/* TODO: get e_machine from thread. */
--		struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
-+		int e_machine = thread ? thread__e_machine(thread, trace->host) : EM_HOST;
-+		struct syscall *sc = trace__syscall_info(trace, evsel, e_machine, id);
- 
- 		if (sc) {
- 			fprintf(trace->output, "%s(", sc->name);
-@@ -4760,6 +4763,7 @@ static size_t trace__fprintf_thread(FILE *fp, struct thread *thread, struct trac
- {
- 	size_t printed = 0;
- 	struct thread_trace *ttrace = thread__priv(thread);
-+	int e_machine = thread__e_machine(thread, trace->host);
- 	double ratio;
- 
- 	if (ttrace == NULL)
-@@ -4779,8 +4783,7 @@ static size_t trace__fprintf_thread(FILE *fp, struct thread *thread, struct trac
- 	else if (fputc('\n', fp) != EOF)
- 		++printed;
- 
--	/* TODO: get e_machine from thread. */
--	printed += thread__dump_stats(ttrace, trace, EM_HOST, fp);
-+	printed += thread__dump_stats(ttrace, trace, e_machine, fp);
- 
- 	return printed;
- }
-diff --git a/tools/perf/util/thread.c b/tools/perf/util/thread.c
-index 0ffdd52d86d7..a07446a280ed 100644
---- a/tools/perf/util/thread.c
-+++ b/tools/perf/util/thread.c
-@@ -1,5 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
+ prepare: $(OUTPUT)PERF-VERSION-FILE $(OUTPUT)common-cmds.h archheaders \
+ 	arm64-sysreg-defs \
++	$(syscall_array) \
+ 	$(fs_at_flags_array) \
+ 	$(clone_flags_array) \
+ 	$(drm_ioctl_array) \
+diff --git a/tools/perf/trace/beauty/syscalltbl.sh b/tools/perf/trace/beauty/syscalltbl.sh
+new file mode 100755
+index 000000000000..635924dc5f59
+--- /dev/null
++++ b/tools/perf/trace/beauty/syscalltbl.sh
+@@ -0,0 +1,274 @@
++#!/bin/sh
++# SPDX-License-Identifier: GPL-2.0
++#
++# Generate all syscall tables.
++#
++# Each line of the syscall table should have the following format:
++#
++# NR ABI NAME [NATIVE] [COMPAT]
++#
++# NR       syscall number
++# ABI      ABI name
++# NAME     syscall name
++# NATIVE   native entry point (optional)
++# COMPAT   compat entry point (optional)
++
++set -e
++
++usage() {
++       cat >&2 <<EOF
++usage: $0 <TOOLS DIRECTORY> <OUTFILE>
++
++  <TOOLS DIRECTORY>    path to kernel tools directory
++  <OUTFILE>            output header file
++EOF
++       exit 1
++}
++
++if [ $# -ne 2 ]; then
++       usage
++fi
++tools_dir=$1
++outfile=$2
++
++build_tables() {
++	infile="$1"
++	outfile="$2"
++	abis=$(echo "($3)" | tr ',' '|')
++	e_machine="$4"
++
++	if [ ! -f "$infile" ]
++	then
++		echo "Missing file $infile"
++		exit 1
++	fi
++	sorted_table=$(mktemp /tmp/syscalltbl.XXXXXX)
++	grep -E "^[0-9]+[[:space:]]+$abis" "$infile" | sort -n > "$sorted_table"
++
++	echo "static const char *const syscall_num_to_name_${e_machine}[] = {" >> "$outfile"
++	# the params are: nr abi name entry compat
++	# use _ for intentionally unused variables according to SC2034
++	while read -r nr _ name _ _; do
++		echo "	[$nr] = \"$name\"," >> "$outfile"
++	done < "$sorted_table"
++	echo "};" >> "$outfile"
++
++	echo "static const uint16_t syscall_sorted_names_${e_machine}[] = {" >> "$outfile"
++
++	# When sorting by name, add a suffix of 0s upto 20 characters so that
++	# system calls that differ with a numerical suffix don't sort before
++	# those without. This default behavior of sort differs from that of
++	# strcmp used at runtime. Use sed to strip the trailing 0s suffix
++	# afterwards.
++	grep -E "^[0-9]+[[:space:]]+$abis" "$infile" | awk '{printf $3; for (i = length($3); i < 20; i++) { printf "0"; }; print " " $1}'| sort | sed 's/\([a-zA-Z1-9]\+\)0\+ \([0-9]\+\)/\1 \2/' > "$sorted_table"
++	while read -r name nr; do
++		echo "	$nr,	/* $name */" >> "$outfile"
++	done < "$sorted_table"
++	echo "};" >> "$outfile"
++
++	rm -f "$sorted_table"
++}
++
++rm -f "$outfile"
++cat >> "$outfile" <<EOF
 +#include <elf.h>
- #include <errno.h>
-+#include <fcntl.h>
- #include <stdlib.h>
- #include <stdio.h>
- #include <string.h>
-@@ -16,6 +18,7 @@
- #include "symbol.h"
- #include "unwind.h"
- #include "callchain.h"
-+#include "dwarf-regs.h"
- 
- #include <api/fs/fs.h>
- 
-@@ -51,6 +54,7 @@ struct thread *thread__new(pid_t pid, pid_t tid)
- 		thread__set_ppid(thread, -1);
- 		thread__set_cpu(thread, -1);
- 		thread__set_guest_cpu(thread, -1);
-+		thread__set_e_machine(thread, EM_NONE);
- 		thread__set_lbr_stitch_enable(thread, false);
- 		INIT_LIST_HEAD(thread__namespaces_list(thread));
- 		INIT_LIST_HEAD(thread__comm_list(thread));
-@@ -423,6 +427,52 @@ void thread__find_cpumode_addr_location(struct thread *thread, u64 addr,
- 	}
- }
- 
-+static uint16_t read_proc_e_machine_for_pid(pid_t pid)
-+{
-+	char path[6 /* "/proc/" */ + 11 /* max length of pid */ + 5 /* "/exe\0" */];
-+	int fd;
-+	uint16_t e_machine = EM_NONE;
++#include <stdint.h>
++#include <asm/bitsperlong.h>
++#include <linux/kernel.h>
 +
-+	snprintf(path, sizeof(path), "/proc/%d/exe", pid);
-+	fd = open(path, O_RDONLY);
-+	if (fd >= 0) {
-+		_Static_assert(offsetof(Elf32_Ehdr, e_machine) == 18, "Unexpected offset");
-+		_Static_assert(offsetof(Elf64_Ehdr, e_machine) == 18, "Unexpected offset");
-+		if (pread(fd, &e_machine, sizeof(e_machine), 18) != sizeof(e_machine))
-+			e_machine = EM_NONE;
-+		close(fd);
-+	}
-+	return e_machine;
++struct syscalltbl {
++       const char *const *num_to_name;
++       const uint16_t *sorted_names;
++       uint16_t e_machine;
++       uint16_t num_to_name_len;
++       uint16_t sorted_names_len;
++};
++
++#if defined(ALL_SYSCALLTBL) || defined(__alpha__)
++EOF
++build_tables "$tools_dir/perf/arch/alpha/entry/syscalls/syscall.tbl" "$outfile" common,64 EM_ALPHA
++cat >> "$outfile" <<EOF
++#endif // defined(ALL_SYSCALLTBL) || defined(__alpha__)
++
++#if defined(ALL_SYSCALLTBL) || defined(__arm__) || defined(__aarch64__)
++EOF
++build_tables "$tools_dir/perf/arch/arm/entry/syscalls/syscall.tbl" "$outfile" common,32,oabi EM_ARM
++build_tables "$tools_dir/perf/arch/arm64/entry/syscalls/syscall_64.tbl" "$outfile" common,64,renameat,rlimit,memfd_secret EM_AARCH64
++cat >> "$outfile" <<EOF
++#endif // defined(ALL_SYSCALLTBL) || defined(__arm__) || defined(__aarch64__)
++
++#if defined(ALL_SYSCALLTBL) || defined(__csky__)
++EOF
++build_tables "$tools_dir/scripts/syscall.tbl" "$outfile" common,32,csky,time32,stat64,rlimit EM_CSKY
++cat >> "$outfile" <<EOF
++#endif // defined(ALL_SYSCALLTBL) || defined(__csky__)
++
++#if defined(ALL_SYSCALLTBL) || defined(__mips__)
++EOF
++build_tables "$tools_dir/perf/arch/mips/entry/syscalls/syscall_n64.tbl" "$outfile" common,64,n64 EM_MIPS
++cat >> "$outfile" <<EOF
++#endif // defined(ALL_SYSCALLTBL) || defined(__mips__)
++
++#if defined(ALL_SYSCALLTBL) || defined(__hppa__)
++#if __BITS_PER_LONG != 64
++EOF
++build_tables "$tools_dir/perf/arch/parisc/entry/syscalls/syscall.tbl" "$outfile" common,32 EM_PARISC
++echo "#else" >> "$outfile"
++build_tables "$tools_dir/perf/arch/parisc/entry/syscalls/syscall.tbl" "$outfile" common,64 EM_PARISC
++cat >> "$outfile" <<EOF
++#endif //__BITS_PER_LONG != 64
++#endif // defined(ALL_SYSCALLTBL) || defined(__hppa__)
++
++#if defined(ALL_SYSCALLTBL) || defined(__powerpc__) || defined(__powerpc64__)
++EOF
++build_tables "$tools_dir/perf/arch/powerpc/entry/syscalls/syscall.tbl" "$outfile" common,32,nospu EM_PPC
++build_tables "$tools_dir/perf/arch/powerpc/entry/syscalls/syscall.tbl" "$outfile" common,64,nospu EM_PPC64
++cat >> "$outfile" <<EOF
++#endif // defined(ALL_SYSCALLTBL) || defined(__powerpc__) || defined(__powerpc64__)
++
++#if defined(ALL_SYSCALLTBL) || defined(__riscv)
++#if __BITS_PER_LONG != 64
++EOF
++build_tables "$tools_dir/scripts/syscall.tbl" "$outfile" common,32,riscv,memfd_secret EM_RISCV
++echo "#else" >> "$outfile"
++build_tables "$tools_dir/scripts/syscall.tbl" "$outfile" common,64,riscv,rlimit,memfd_secret EM_RISCV
++cat >> "$outfile" <<EOF
++#endif //__BITS_PER_LONG != 64
++#endif // defined(ALL_SYSCALLTBL) || defined(__riscv)
++#if defined(ALL_SYSCALLTBL) || defined(__s390x__)
++EOF
++build_tables "$tools_dir/perf/arch/s390/entry/syscalls/syscall.tbl" "$outfile" common,64,renameat,rlimit,memfd_secret EM_S390
++cat >> "$outfile" <<EOF
++#endif // defined(ALL_SYSCALLTBL) || defined(__s390x__)
++
++#if defined(ALL_SYSCALLTBL) || defined(__sh__)
++EOF
++build_tables "$tools_dir/perf/arch/sh/entry/syscalls/syscall.tbl" "$outfile" common,32 EM_SH
++cat >> "$outfile" <<EOF
++#endif // defined(ALL_SYSCALLTBL) || defined(__sh__)
++
++#if defined(ALL_SYSCALLTBL) || defined(__sparc64__) || defined(__sparc__)
++#if __BITS_PER_LONG != 64
++EOF
++build_tables "$tools_dir/perf/arch/sparc/entry/syscalls/syscall.tbl" "$outfile" common,32 EM_SPARC
++echo "#else" >> "$outfile"
++build_tables "$tools_dir/perf/arch/sparc/entry/syscalls/syscall.tbl" "$outfile" common,64 EM_SPARC
++cat >> "$outfile" <<EOF
++#endif //__BITS_PER_LONG != 64
++#endif // defined(ALL_SYSCALLTBL) || defined(__sparc64__) || defined(__sparc__)
++
++#if defined(ALL_SYSCALLTBL) || defined(__i386__) || defined(__x86_64__)
++EOF
++build_tables "$tools_dir/perf/arch/x86/entry/syscalls/syscall_32.tbl" "$outfile" common,32,i386 EM_386
++build_tables "$tools_dir/perf/arch/x86/entry/syscalls/syscall_64.tbl" "$outfile" common,64 EM_X86_64
++cat >> "$outfile" <<EOF
++#endif // defined(ALL_SYSCALLTBL) || defined(__i386__) || defined(__x86_64__)
++
++#if defined(ALL_SYSCALLTBL) || defined(__xtensa__)
++EOF
++build_tables "$tools_dir/perf/arch/xtensa/entry/syscalls/syscall.tbl" "$outfile" common,32 EM_XTENSA
++cat >> "$outfile" <<EOF
++#endif // defined(ALL_SYSCALLTBL) || defined(__xtensa__)
++
++#if __BITS_PER_LONG != 64
++EOF
++build_tables "$tools_dir/scripts/syscall.tbl" "$outfile" common,32 EM_NONE
++echo "#else" >> "$outfile"
++build_tables "$tools_dir/scripts/syscall.tbl" "$outfile" common,64 EM_NONE
++echo "#endif //__BITS_PER_LONG != 64" >> "$outfile"
++
++build_outer_table() {
++       e_machine=$1
++       outfile="$2"
++       cat >> "$outfile" <<EOF
++       {
++	      .num_to_name = syscall_num_to_name_$e_machine,
++	      .sorted_names = syscall_sorted_names_$e_machine,
++	      .e_machine = $e_machine,
++	      .num_to_name_len = ARRAY_SIZE(syscall_num_to_name_$e_machine),
++	      .sorted_names_len = ARRAY_SIZE(syscall_sorted_names_$e_machine),
++       },
++EOF
 +}
 +
-+uint16_t thread__e_machine(struct thread *thread, struct machine *machine)
-+{
-+	pid_t tid, pid;
-+	uint16_t e_machine = RC_CHK_ACCESS(thread)->e_machine;
++cat >> "$outfile" <<EOF
++static const struct syscalltbl syscalltbls[] = {
++#if defined(ALL_SYSCALLTBL) || defined(__alpha__)
++EOF
++build_outer_table EM_ALPHA "$outfile"
++cat >> "$outfile" <<EOF
++#endif // defined(ALL_SYSCALLTBL) || defined(__alpha__)
 +
-+	if (e_machine != EM_NONE)
-+		return e_machine;
++#if defined(ALL_SYSCALLTBL) || defined(__arm__) || defined(__aarch64__)
++EOF
++build_outer_table EM_ARM "$outfile"
++build_outer_table EM_AARCH64 "$outfile"
++cat >> "$outfile" <<EOF
++#endif // defined(ALL_SYSCALLTBL) || defined(__arm__) || defined(__aarch64__)
 +
-+	tid = thread__tid(thread);
-+	pid = thread__pid(thread);
-+	if (pid != tid) {
-+		struct thread *parent = machine__findnew_thread(machine, pid, pid);
++#if defined(ALL_SYSCALLTBL) || defined(__csky__)
++EOF
++build_outer_table EM_CSKY "$outfile"
++cat >> "$outfile" <<EOF
++#endif // defined(ALL_SYSCALLTBL) || defined(__csky__)
 +
-+		if (parent) {
-+			e_machine = thread__e_machine(parent, machine);
-+			thread__set_e_machine(thread, e_machine);
-+			return e_machine;
-+		}
-+		/* Something went wrong, fallback. */
-+	}
-+	e_machine = read_proc_e_machine_for_pid(pid);
-+	if (e_machine != EM_NONE)
-+		thread__set_e_machine(thread, e_machine);
-+	else
-+		e_machine = EM_HOST;
-+	return e_machine;
-+}
++#if defined(ALL_SYSCALLTBL) || defined(__mips__)
++EOF
++build_outer_table EM_MIPS "$outfile"
++cat >> "$outfile" <<EOF
++#endif // defined(ALL_SYSCALLTBL) || defined(__mips__)
 +
- struct thread *thread__main_thread(struct machine *machine, struct thread *thread)
- {
- 	if (thread__pid(thread) == thread__tid(thread))
-diff --git a/tools/perf/util/thread.h b/tools/perf/util/thread.h
-index 6cbf6eb2812e..cd574a896418 100644
---- a/tools/perf/util/thread.h
-+++ b/tools/perf/util/thread.h
-@@ -60,7 +60,11 @@ DECLARE_RC_STRUCT(thread) {
- 	struct srccode_state	srccode_state;
- 	bool			filter;
- 	int			filter_entry_depth;
--
-+	/**
-+	 * @e_machine: The ELF EM_* associated with the thread. EM_NONE if not
-+	 * computed.
-+	 */
-+	uint16_t		e_machine;
- 	/* LBR call stack stitch */
- 	bool			lbr_stitch_enable;
- 	struct lbr_stitch	*lbr_stitch;
-@@ -302,6 +306,14 @@ static inline void thread__set_filter_entry_depth(struct thread *thread, int dep
- 	RC_CHK_ACCESS(thread)->filter_entry_depth = depth;
- }
- 
-+uint16_t thread__e_machine(struct thread *thread, struct machine *machine);
++#if defined(ALL_SYSCALLTBL) || defined(__hppa__)
++EOF
++build_outer_table EM_PARISC "$outfile"
++cat >> "$outfile" <<EOF
++#endif // defined(ALL_SYSCALLTBL) || defined(__hppa__)
 +
-+static inline void thread__set_e_machine(struct thread *thread, uint16_t e_machine)
-+{
-+	RC_CHK_ACCESS(thread)->e_machine = e_machine;
-+}
++#if defined(ALL_SYSCALLTBL) || defined(__powerpc__) || defined(__powerpc64__)
++EOF
++build_outer_table EM_PPC "$outfile"
++build_outer_table EM_PPC64 "$outfile"
++cat >> "$outfile" <<EOF
++#endif // defined(ALL_SYSCALLTBL) || defined(__powerpc__) || defined(__powerpc64__)
 +
++#if defined(ALL_SYSCALLTBL) || defined(__riscv)
++EOF
++build_outer_table EM_RISCV "$outfile"
++cat >> "$outfile" <<EOF
++#endif // defined(ALL_SYSCALLTBL) || defined(__riscv)
 +
- static inline bool thread__lbr_stitch_enable(const struct thread *thread)
- {
- 	return RC_CHK_ACCESS(thread)->lbr_stitch_enable;
++#if defined(ALL_SYSCALLTBL) || defined(__s390x__)
++EOF
++build_outer_table EM_S390 "$outfile"
++cat >> "$outfile" <<EOF
++#endif // defined(ALL_SYSCALLTBL) || defined(__s390x__)
++
++#if defined(ALL_SYSCALLTBL) || defined(__sh__)
++EOF
++build_outer_table EM_SH "$outfile"
++cat >> "$outfile" <<EOF
++#endif // defined(ALL_SYSCALLTBL) || defined(__sh__)
++
++#if defined(ALL_SYSCALLTBL) || defined(__sparc64__) || defined(__sparc__)
++EOF
++build_outer_table EM_SPARC "$outfile"
++cat >> "$outfile" <<EOF
++#endif // defined(ALL_SYSCALLTBL) || defined(__sparc64__) || defined(__sparc__)
++
++#if defined(ALL_SYSCALLTBL) || defined(__i386__) || defined(__x86_64__)
++EOF
++build_outer_table EM_386 "$outfile"
++build_outer_table EM_X86_64 "$outfile"
++cat >> "$outfile" <<EOF
++#endif // defined(ALL_SYSCALLTBL) || defined(__i386__) || defined(__x86_64__)
++
++#if defined(ALL_SYSCALLTBL) || defined(__xtensa__)
++EOF
++build_outer_table EM_XTENSA "$outfile"
++cat >> "$outfile" <<EOF
++#endif // defined(ALL_SYSCALLTBL) || defined(__xtensa__)
++EOF
++build_outer_table EM_NONE "$outfile"
++cat >> "$outfile" <<EOF
++};
++EOF
 -- 
 2.48.1.362.g079036d154-goog
 
