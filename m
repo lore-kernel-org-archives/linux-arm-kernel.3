@@ -4,91 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4FB0C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Feb 2025 11:21:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A48FCC0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Feb 2025 11:29:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WL/TkWmYI9gtqcLq6PPlC4DiEjBnRh+Q5zQrz+U6qaY=; b=eiKvFS3OHXDab+oYViDAwDbFvO
-	PmJCjOulfAX7zjTeHh5ogWysUB2LkrDx0ydgJgzBd8qI4nmJ7UrS24QQfEBPPH2QqzYXsYP+xjZPf
-	MmvHXbT1DDPUvtL+zeYvkOullYuVmtFlcWkDBP+uM6igcIaTXNrir3oH7Zjev925RCvw3/K8SdDq4
-	pG5FYrPat3pPFq7iXTCHOBkDx1BWTQy72pzHqYho0m6EYT678ffTgnzGvISDwKW+ZoGAFd+BGj+77
-	0GxD3Aj2oZmd6u/vsf372m0RRyXUppNTFleKc60dYsGLIx2tLBfQ/JdF6FBmbzRC+/ar9FCwEN9wb
-	V/Be/cXA==;
+	bh=bYnYzdN0LrCXG6ExV5L0/rVoVwbxiqa7GQkmlFTH544=; b=U+duRgujU/cILuE3t7u1qfbYYp
+	fe1CVWoUFNc/m4TuWAguzXshQ037LwUvfzJS5lmZuQNgsujM6uT+MUhY/WadyFlfgSkLjTkt+7pT8
+	1Z4MkT8x7jFCEG/LxIhtXd9zmF4qR9iDgXg0LZeE0AegoPz8PTJGtqQOfYB6pDMltcfkTlLAFERfn
+	ptWfpqKu/a9ehpk6v3oerGNYv5H66luqnZtrBo66N/LoLwQr5VjsvaEZSGulH2VzEKqY0IxakyJ//
+	RHfioyXYlNFd4h/4X/VeCE1oCZ3+Fs/gUYbILmoflrjj2xe1tydPTfB+698HCPmSOQY7zbcc7ZSjS
+	Iajl5xHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teBYb-0000000CDWj-0wqL;
-	Sat, 01 Feb 2025 11:21:01 +0000
-Received: from mout.gmx.net ([212.227.17.22])
+	id 1teBgT-0000000CE35-2jbI;
+	Sat, 01 Feb 2025 11:29:09 +0000
+Received: from mout.gmx.net ([212.227.15.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1teBXG-0000000CDSW-3H02
+	id 1teBf9-0000000CDvp-0mEv
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Feb 2025 11:19:40 +0000
+	Sat, 01 Feb 2025 11:27:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1738408774; x=1739013574; i=wahrenst@gmx.net;
-	bh=WL/TkWmYI9gtqcLq6PPlC4DiEjBnRh+Q5zQrz+U6qaY=;
+	s=s31663417; t=1738409253; x=1739014053; i=wahrenst@gmx.net;
+	bh=bYnYzdN0LrCXG6ExV5L0/rVoVwbxiqa7GQkmlFTH544=;
 	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:
 	 MIME-Version:Content-Transfer-Encoding:cc:
 	 content-transfer-encoding:content-type:date:from:message-id:
 	 mime-version:reply-to:subject:to;
-	b=L5I5qo/WAVuOdT8v436r/j2OI7L0yupboyc0iRdms9X2t8bs/OpEEThVp4MV8ICH
-	 dg3q0lk+8GW/C51H4qHit9VXVCIlqeXsu8hNGTYEHem6Hx5ZnQRCW3QioL43J0smr
-	 b+vmUrCNTimefHzkG2QIxJ73R8YCc2JLKJxgw10Cm0l39fPDnMC3DF4EmjYKT+y2j
-	 fqjBaiwxk8smIklvy7SiZmf3i5tH7FF6J3eOLen3BBH+6lfzVfj/wdWErQsCoQ2bB
-	 YJVHR8c3t+O5GkdHlCn2V7Gn2woX5ORPJf2JKSGsD53Ufqt702kRhMYbVa9okq7XI
-	 YoRB30+NKfaD4Wqgjg==
+	b=G3TSBP8WTtQhoJGG5ROQtbFoE3LoegLhXNR1tZMAauHQgpHmBbyfRtfDF0VLUT8Y
+	 tCy9h3hvl4NfmCX+L32gexhfD982wkRCmLDC3NXWj0D3UR5OvLTMEn9XmGjww7CLN
+	 8Joapv4eqtdJarIa2aKAv5Dp7FJxa0pRzK1of+xLCcy9XrDYVXp1MU47K1tIC3cak
+	 tE/4IvHRFET9tNUyNZWEHjdlW/uof1LEmjwVFOCmMdY5sKOIR80gPjKAWZdYjvDAv
+	 KWHLxlH2sC13p+XmnO2vZU0IyP/KJA8ZW3ItJVKMyciV8YYHmBcVqP94jSl1iPcVt
+	 wZcemISWtmaGFMQNrw==
 X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from stefanw-SCHENKER ([37.4.251.153]) by mail.gmx.net (mrgmx105
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MJE27-1ttNnx0huF-00La56; Sat, 01
- Feb 2025 12:19:34 +0100
+Received: from stefanw-SCHENKER ([37.4.251.153]) by mail.gmx.net (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MbAh0-1t2w6H2uNc-00p9it; Sat, 01
+ Feb 2025 12:27:33 +0100
 From: Stefan Wahren <wahrenst@gmx.net>
-To: Ulf Hansson <ulf.hansson@linaro.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>
 Cc: Peter Robinson <pbrobinson@gmail.com>,
 	"Ivan T . Ivanov" <iivanov@suse.de>,
 	linux-arm-kernel@lists.infradead.org,
 	bcm-kernel-feedback-list@broadcom.com,
-	linux-pm@vger.kernel.org,
+	kernel-list@raspberrypi.com,
+	devicetree@vger.kernel.org,
 	Stefan Wahren <wahrenst@gmx.net>
-Subject: [PATCH] pmdomain: bcm2835-power: set flag GENPD_FLAG_ACTIVE_WAKEUP
-Date: Sat,  1 Feb 2025 12:19:26 +0100
-Message-Id: <20250201111926.31278-1-wahrenst@gmx.net>
+Subject: [PATCH] ARM: dts: bcm2711: Fix xHCI power-domain
+Date: Sat,  1 Feb 2025 12:27:29 +0100
+Message-Id: <20250201112729.31509-1-wahrenst@gmx.net>
 X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:eHSujGayAUVb5qsQ4zzAxxtzVidue2urGLApdidbuvcCD7Zolav
- VE0f6w/ohqfSkyFLFPrkGJ0oAQm/7TMiPJgguYBBEIrCYMWO0HJFljc5yS3pIhwaWAK1cHn
- oPtxhUiQUHFC1ofN6/5wpm86ZbtW4AfaaXKF5sggSo+hbM9mecwsCNR76BIuM9jprJZKJ7+
- n/0wE/wbp4tLtOGkvNfHA==
-UI-OutboundReport: notjunk:1;M01:P0:PyBjBBj9g3c=;0KkeeFHr9XmW6JZlFronhZf2nxA
- Dpw6Qm5Cu1++XqJ/vVtJcyXcon5fPTosEwdwbEu2qKRbp2dimMbGtQjinvqQH0bBZl6SaywVV
- vSQkN5u3JT7zTzup9Q0gATpoDwpHP8Y1WawTwaTozgrk2cHuCLglIv2Ru4XfEFF/LHWZFmBRz
- 6LEvocpZNz6TgbpFu9YD4cPJui1LRwnM69VBaTf18jN5NpNKq6JkGtC71X5I7X08J1Mh0QZD6
- g9kDsxJxc9HzTRlWeOV2JQsD0c4CGfhKyufHVWFMVNZ9gL+ylzTApYytJck7ITLwlY4phFmw6
- qcJ9nuXy6lMjWuzCee0/FBu219GR3kQ37XtfExIX4YObiaMRUQoeUr6G9TyumaoDLNoPm9wg7
- ynwgblJ97Txft33qaFiSS68aYcAnzifBjP3ei2+QO64iQUwcQjPrFVF1cHpl9yyS+E8Rujaim
- 5GmKdUbExQ5h/DeaO3eHejEnWKRStmIHag9zTgs9fJhOTEP4YBsysx5yQH3L+rBFJpjtqR8P9
- aWYY5AhB/IJk04zy2OiV4OkrkH5eNh4ul8edqPe6JkscEiutMO09PFUYj8Q88Drx86nyq+aw+
- ajespB//APZYfNDOZrPYztHv3vPzX6ix0Nnxpt9ktxrY3cmup6Yr/HT1JDPJm9uxwoQKH1xgC
- FvVX+TU0YJnTpD7f6K7LkdFkeTgMM0oyv/wc1TrI1/tuYG8M7OxOfWKtzEikujWlta7DHC3Ac
- 0dEmim1U6t9rO+zCvOSosw/GGNl/7ABPMaqntMku+ymdE7j96Qs5AuyEBkG3LF2V/T+FQRuWH
- i5Lmy4up4bNbThD/6Z8bVeD0JPI2+nkfHKsSxjs0N/uxdH4oJO4S1SC3aKI7831TOLXTqavgv
- A9W/Osm1bigLWOPtLZ1aafEZdjBnPLTO4Fzusqys6gLaMksPVcodcifyI1QUSxgaTlV8Egr1O
- 3SJgk981w9Um11gXlhW/3/fx195aWEq86dXN4QouIvbWQkAhonDPpE3a1GO6SsE5Jysxw3KHO
- w/8Fu06buEKhAe+0Z1GmEwBN+xdOAhh6Z8KiDfsRtpeCayn2XpbyHhwDIQOl+eu7Q0ttKL/i0
- va/lKKLEyxSs/0A8X/Gpu+xMvktw8zT36F+AyYhpu4oO7XRnauW7hwoZkIBE1/lL8YRg1QdEt
- rXCbEFPtKcLelCbrUPCe/WS4sw3CWbmQp0UGSu/URqk8GWD8XWOVUWEsYZTwzBlx9dzqYPrmO
- Yp4eEMb+y5RbKImUIfzJMC6Qixoj/kkzSqxKaZmnf1UtmWJM9DsQt2H+b0TY7jtzyz1OKa1ah
- CMt+02QHa8XRcqltkU5zGxxlkiOfVqcA0LXmyUECUe2Ujw=
+X-Provags-ID: V03:K1:7Luia7K8HRu8CPOl1DZ08abjM5+xgYl6+BOu88agzhpkP0jXD1X
+ 9pOsI/PcMy39byVfxit6gBAfewIyG8DZzXFCPECtN/c8fIGpO60NKXLpZbkryFGFCIcwQd1
+ BldWA9krEwsRZCrdnSVCtPs0I9S5cFKQ1Clpukh+rWwGIJhvarB72GXtY1OWUjLV3XkSpYM
+ ayYgMgCWc8EeYwhSbo6VA==
+UI-OutboundReport: notjunk:1;M01:P0:qjyS1YNOivs=;+t/VVUx408bqwOLwq2hirzJWUbM
+ v81cja39T5S77mtVXJfp8frg337c1TPNdE3lHZIPqcT/ja3qIzke5KjLmxk42ww7xsy1LELdh
+ rnV5PT+Uo5WFZPC7EaOuCD16yD2/IZclfEIKgdVI/3YSpbGxbwCSnD+pX/uXY68RmKuh66QK9
+ J7TvcfizuS0Wm5ajaKRH00P/5k7QOHfDd92Fu6OLqQZ57zh/d5WzDY695caAnR7dUYJk6YFGN
+ dmucf9gATPxliCxppPFbbuVYaFzjmNNDAyRRGVCApVx6+C8KbHGqMVzgAcBOiA9V3re1468HE
+ 7NRzIvn9zZbYH0PsE5NOEfZfMYhEnve62b5DMdtAWrQDb71o2XfxUm0PlNWnsehcIsjCJu1E7
+ vblydDW3gYuGqn7H2PVipLaPuTFGS2rYtT/WA7gT5KT7eR/V73nI4JI+o0LEB6RG1kBcAZUin
+ NyDRfcRMVextnFuJ6/0qERlL5b/1XoCalET1nykT5cEapqVSF3RIYTJgBzC1CEDWdS6MttW/v
+ 0I6z+gE2+i6BOaFg9UE94RRa4PJoR9d/h4ysgpn3bYN/0nvc6KgVLycsGn2/eOKpsWZrts/YT
+ 3Rz7XIzAP/ysv0RpSdgqaxrssqQEkaaOpId+j1MaARIqmi+ceuHJ8QrP4W8X4sWVYTrf01Njd
+ XnpSU4DOh2JzvpXirrqFG+evmsUZO3bDfUELHvQOBz9a5/Nl9pHj64WGhMmu1SsntEEe7YFzD
+ yne7qQRdlwWd4pLNgmhxHbTKFvBKsGOkAOP7MMvkIPXOTCky6l6pPZnaKByoNGhYxxAMI0xXk
+ d7Y+hhFxKfFrFFwMjLXWco1XDLHYA08b9EzlsizrSAPAmSxSOHxFEwF4JhB0U3wg0BjmKWhee
+ zET/J108O9DSCVYapUnn0qzdRdXqtjZWNhRF16TtQj24zM2VijGJr3IlbVzqnuqgRPtaVhCaW
+ yjTFyAF9U1uj98skdqMOohXhkyYCwHS3t5NjE8aeLPm5n/ekEluJRuK/Vo5tHOnBLDS77k3V1
+ gfVdlAYMzNufItTxOs7rWk25e5cVQApCq8qZ5dK+PE/8NciDH973FxKFp/5HGxYnw9prFGuvr
+ mTy33DriGLG7VHdAOILvHONEPp3B0tkPrymRsFCFZhwdf97XaxDQsNnmFwaDvfCXF6mXb6922
+ us6AAYcahWROp/PpChW+450OrIJUDSwGVHkRuvo6QXS/h0Y6rgJKTSDQTezJebAC+cdvsmBhz
+ alBU5Zf8ytZaOmaX8+c+8B9ZIiZ1XGHPmOG3yMJ3aRDXfNoNV2NmVFo2KxXnLKq8lVAHOtTnj
+ tPL958u6yuCj+cSwjvIX+Py6KQDZGEAy8ymmPx8T4hgTgRNSQbuRGBDxxnGDXHADQnLUyam53
+ zEWVzjsLR6eoc8oA==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250201_031939_212920_5BECE8C9 
-X-CRM114-Status: UNSURE (   9.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250201_032747_523777_1E2F4161 
+X-CRM114-Status: GOOD (  11.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,28 +104,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Set flag GENPD_FLAG_ACTIVE_WAKEUP to bcm2835_power genpd, then when a
-device is set as wakeup source using device_set_wakeup_enable, the power
-domain could be kept on to make sure the device could wakeup the system.
+During s2idle tests on the Raspberry CM4 the VPU firmware always crashes
+on xHCI power-domain resume:
 
+root@raspberrypi:/sys/power# echo freeze > state
+[   70.724347] xhci_suspend finished
+[   70.727730] xhci_plat_suspend finished
+[   70.755624] bcm2835-power bcm2835-power: Power grafx off
+[   70.761127]  USB: Set power to 0
+
+[   74.653040]  USB: Failed to set power to 1 (-110)
+
+This seems to be caused because of the mixed usage of
+raspberrypi-power and bcm2835-power at the same time. So avoid
+the usage of the VPU firmware power-domain driver, which
+prevents the VPU crash.
+
+Fixes: 522c35e08b53 ("ARM: dts: bcm2711: Add BCM2711 xHCI support")
+Link: https://github.com/raspberrypi/linux/issues/6537
 Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
 =2D--
- drivers/pmdomain/bcm/bcm2835-power.c | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm/boot/dts/broadcom/bcm2711-rpi.dtsi | 5 -----
+ arch/arm/boot/dts/broadcom/bcm2711.dtsi     | 1 +
+ 2 files changed, 1 insertion(+), 5 deletions(-)
 
-diff --git a/drivers/pmdomain/bcm/bcm2835-power.c b/drivers/pmdomain/bcm/b=
-cm2835-power.c
-index d2f0233cb620..d3cd816979ac 100644
-=2D-- a/drivers/pmdomain/bcm/bcm2835-power.c
-+++ b/drivers/pmdomain/bcm/bcm2835-power.c
-@@ -520,6 +520,7 @@ bcm2835_init_power_domain(struct bcm2835_power *power,
- 	}
+diff --git a/arch/arm/boot/dts/broadcom/bcm2711-rpi.dtsi b/arch/arm/boot/d=
+ts/broadcom/bcm2711-rpi.dtsi
+index 6bf4241fe3b7..c78ed064d166 100644
+=2D-- a/arch/arm/boot/dts/broadcom/bcm2711-rpi.dtsi
++++ b/arch/arm/boot/dts/broadcom/bcm2711-rpi.dtsi
+@@ -1,7 +1,6 @@
+ // SPDX-License-Identifier: GPL-2.0
+ #include "bcm2835-rpi.dtsi"
 
- 	dom->base.name =3D name;
-+	dom->base.flags =3D GENPD_FLAG_ACTIVE_WAKEUP;
- 	dom->base.power_on =3D bcm2835_power_pd_power_on;
- 	dom->base.power_off =3D bcm2835_power_pd_power_off;
+-#include <dt-bindings/power/raspberrypi-power.h>
+ #include <dt-bindings/reset/raspberrypi,firmware-reset.h>
 
+ / {
+@@ -101,7 +100,3 @@ &v3d {
+ &vchiq {
+ 	interrupts =3D <GIC_SPI 34 IRQ_TYPE_LEVEL_HIGH>;
+ };
+-
+-&xhci {
+-	power-domains =3D <&power RPI_POWER_DOMAIN_USB>;
+-};
+diff --git a/arch/arm/boot/dts/broadcom/bcm2711.dtsi b/arch/arm/boot/dts/b=
+roadcom/bcm2711.dtsi
+index e4e42af21ef3..5eaec6c6a1df 100644
+=2D-- a/arch/arm/boot/dts/broadcom/bcm2711.dtsi
++++ b/arch/arm/boot/dts/broadcom/bcm2711.dtsi
+@@ -610,6 +610,7 @@ xhci: usb@7e9c0000 {
+ 			#address-cells =3D <1>;
+ 			#size-cells =3D <0>;
+ 			interrupts =3D <GIC_SPI 176 IRQ_TYPE_LEVEL_HIGH>;
++			power-domains =3D <&pm BCM2835_POWER_DOMAIN_USB>;
+ 			/* DWC2 and this IP block share the same USB PHY,
+ 			 * enabling both at the same time results in lockups.
+ 			 * So keep this node disabled and let the bootloader
 =2D-
 2.34.1
 
