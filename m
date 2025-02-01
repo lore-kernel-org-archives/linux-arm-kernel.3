@@ -4,87 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17E2CC0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Feb 2025 11:03:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4FB0C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Feb 2025 11:21:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IgviFgiTRKBQorySpqmLCZcfPI+S5PYXE7dN7JoWph0=; b=EB6OY1TgeBByQNBiazDkUK/XNM
-	PF0B3OIcnx4AOuhDZLPa96stu/ju9A9T8UfySBqCp2j/hQfIuFhX+CiyouT8t1M4NsjBJArbrRSUG
-	zcUWkEJfnj7GyHS4Hy+jblJKCR4ZRTC0HTQxcUPsXfsjMKA1fdHJGhYe1vI61guEeosOfLpYlIY3K
-	pbqp9eoTEIwE8f7qTrAj3YQsUw8cVFwTjDoOGwxbEqei6c9w2q0GfEGsfvUMVZ3ShzRQf4RdGLDR4
-	UhpJXmkb236BkcjHJmtZC3n9i3nI+jzpyU0fzEv5YpIy2QU41SnC+znjpBlaVgwfJLqbhYyFQWIbO
-	QjS1UuBQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WL/TkWmYI9gtqcLq6PPlC4DiEjBnRh+Q5zQrz+U6qaY=; b=eiKvFS3OHXDab+oYViDAwDbFvO
+	PmJCjOulfAX7zjTeHh5ogWysUB2LkrDx0ydgJgzBd8qI4nmJ7UrS24QQfEBPPH2QqzYXsYP+xjZPf
+	MmvHXbT1DDPUvtL+zeYvkOullYuVmtFlcWkDBP+uM6igcIaTXNrir3oH7Zjev925RCvw3/K8SdDq4
+	pG5FYrPat3pPFq7iXTCHOBkDx1BWTQy72pzHqYho0m6EYT678ffTgnzGvISDwKW+ZoGAFd+BGj+77
+	0GxD3Aj2oZmd6u/vsf372m0RRyXUppNTFleKc60dYsGLIx2tLBfQ/JdF6FBmbzRC+/ar9FCwEN9wb
+	V/Be/cXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teBHb-0000000CCGV-3Ib6;
-	Sat, 01 Feb 2025 11:03:27 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1teBYb-0000000CDWj-0wqL;
+	Sat, 01 Feb 2025 11:21:01 +0000
+Received: from mout.gmx.net ([212.227.17.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1teBG3-0000000CBQQ-3rN9;
-	Sat, 01 Feb 2025 11:01:53 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-216426b0865so50158705ad.0;
-        Sat, 01 Feb 2025 03:01:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20230601; t=1738407710; x=1739012510; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IgviFgiTRKBQorySpqmLCZcfPI+S5PYXE7dN7JoWph0=;
-        b=F57ciNY0DBbW8hW1BfSBkEXBpci1oLA6xhPkl0rhTIkym83cHPfnr46lpvZ5jkwJYG
-         +XuiqSFgqFHhBIIb2GnKOf+GQ6jgQrW47bFUfdNUjqqeW26CDLXb4JoLuZ4WKsvvsPPd
-         3n9abOqfgD+tiHEKn6CoP+q9eONOIe1U+Si7DKfpMkd7m6YtIEcmw2Uq7KRhqdDtC0yo
-         PJ1/I3qo2xtrXB0H+85JgUiVIy7/si+H4jD/YF8xE5P2cR789FWz9zLWaXV6D5ix3juY
-         Ivq6bnavsvTZzj9aXEYtrj5tsfZ0rAB8ynastCAhGLp/EleMuPs/LwFdJj7HdMBRy1gx
-         dRtQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738407710; x=1739012510;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=IgviFgiTRKBQorySpqmLCZcfPI+S5PYXE7dN7JoWph0=;
-        b=usOamlVn89aD/r+fXG1r9HSHDQDddgJ0o0lN3zZ9BL2Jifyy7sGunKEfDopTOFJgqa
-         bGqddSx5RlcrmOm7ZQeKDnZBijLIItYe7mkXMRmXN9hSBUtSqicQx/ikcmWi0SidEk4w
-         AIk6aA5p7/7MPCdBMgF13iI2n9w/WWWuFKDelkLYoAi1ablDBrPX3owJiuDRRVTMNpcM
-         JFh+L/qXmQ3bHdEDK+sPjniixBUKhgXlDTf/K6HoHrOeHcVSiea8YtCrsTggYB3S0IWX
-         RBv/mZYWNADfelKKL3Tzr/A75x+6RkHulGb71jvT8vlBfy0uPm63kIJXOkGVGDu4fQb4
-         vxeQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVg5Ypc7gtmbEtOCVJ4hcWXU4Msi9MRkBelyovJWIxFwbyKJL79vAWvlG0mGIGg6C24D7hypwYXvbGNAYtz@lists.infradead.org, AJvYcCWLgtBdegPn5kkoGCqzbDFs+nGzmuRKNF8Nyq1pSQsVAvXqzf8HwIqWqAaUhNZxC5+tcokmKeVWqoazxTZ1nqtugQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxbNm14FPKtsEl9f8eFbuZlct5gEhDPd+vmPtrW+HmiTTYgfW2K
-	TIrozVN2YqnCcJg05Bf8dHGsqapPaHbqVBa7TL3CO1W+Y3KEVU/LfHzDngpwJKi5CRfIcaR4VNe
-	8dQHLGeRwyXNhADTtsVwvkDyljMc=
-X-Gm-Gg: ASbGncvKk2lCjfWQpYzkvy1FWOuXGJK4gHOxPoesD0FEDobSXtE87yDamV7b0nczd3d
-	lwuyFPcXcu1SCu7z13vtC/U/wFMDIJKQvOjfT3hm4uuTSRsjmzlYFPnbBHwwcLe0kY7gCRwM+ln
-	7hyX1tMdL5stM=
-X-Google-Smtp-Source: AGHT+IGrcFP3fi7nZj16nCl5OL6FPEPmSqptYgvrx04MREEDcnn7VynJHZBiOuPcwfy53f71XzvVP/oyU5M11jIaiKw=
-X-Received: by 2002:a17:902:e84b:b0:215:b087:5d62 with SMTP id
- d9443c01a7336-21dd7deec73mr235159955ad.36.1738407710240; Sat, 01 Feb 2025
- 03:01:50 -0800 (PST)
+	id 1teBXG-0000000CDSW-3H02
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 01 Feb 2025 11:19:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1738408774; x=1739013574; i=wahrenst@gmx.net;
+	bh=WL/TkWmYI9gtqcLq6PPlC4DiEjBnRh+Q5zQrz+U6qaY=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:
+	 MIME-Version:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=L5I5qo/WAVuOdT8v436r/j2OI7L0yupboyc0iRdms9X2t8bs/OpEEThVp4MV8ICH
+	 dg3q0lk+8GW/C51H4qHit9VXVCIlqeXsu8hNGTYEHem6Hx5ZnQRCW3QioL43J0smr
+	 b+vmUrCNTimefHzkG2QIxJ73R8YCc2JLKJxgw10Cm0l39fPDnMC3DF4EmjYKT+y2j
+	 fqjBaiwxk8smIklvy7SiZmf3i5tH7FF6J3eOLen3BBH+6lfzVfj/wdWErQsCoQ2bB
+	 YJVHR8c3t+O5GkdHlCn2V7Gn2woX5ORPJf2JKSGsD53Ufqt702kRhMYbVa9okq7XI
+	 YoRB30+NKfaD4Wqgjg==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from stefanw-SCHENKER ([37.4.251.153]) by mail.gmx.net (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MJE27-1ttNnx0huF-00La56; Sat, 01
+ Feb 2025 12:19:34 +0100
+From: Stefan Wahren <wahrenst@gmx.net>
+To: Ulf Hansson <ulf.hansson@linaro.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>
+Cc: Peter Robinson <pbrobinson@gmail.com>,
+	"Ivan T . Ivanov" <iivanov@suse.de>,
+	linux-arm-kernel@lists.infradead.org,
+	bcm-kernel-feedback-list@broadcom.com,
+	linux-pm@vger.kernel.org,
+	Stefan Wahren <wahrenst@gmx.net>
+Subject: [PATCH] pmdomain: bcm2835-power: set flag GENPD_FLAG_ACTIVE_WAKEUP
+Date: Sat,  1 Feb 2025 12:19:26 +0100
+Message-Id: <20250201111926.31278-1-wahrenst@gmx.net>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20250131200319.19996-1-funderscore@postmarketos.org> <20250131200319.19996-3-funderscore@postmarketos.org>
-In-Reply-To: <20250131200319.19996-3-funderscore@postmarketos.org>
-From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Sat, 1 Feb 2025 12:01:39 +0100
-X-Gm-Features: AWEUYZkXEqHyhsd8L6lSp8TYewHZzKYzaHWOXDWjpy_w3xCcDMFYNnIQJ6qrfB4
-Message-ID: <CAFBinCA+=aqE_=eMFtwpHYVX+8CrtecvHexpHNe_7nh_dDhKYw@mail.gmail.com>
-Subject: Re: [PATCH 2/2] arm64: dts: amlogic: add support for
- xiaomi-aquaman/Mi TV Stick
-To: Ferass El Hafidi <funderscore@postmarketos.org>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	~postmarketos/upstreaming@lists.sr.ht, Artur Weber <aweber.kernel@gmail.com>, 
-	Karl Chan <exxxxkc@getgoogleoff.me>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:eHSujGayAUVb5qsQ4zzAxxtzVidue2urGLApdidbuvcCD7Zolav
+ VE0f6w/ohqfSkyFLFPrkGJ0oAQm/7TMiPJgguYBBEIrCYMWO0HJFljc5yS3pIhwaWAK1cHn
+ oPtxhUiQUHFC1ofN6/5wpm86ZbtW4AfaaXKF5sggSo+hbM9mecwsCNR76BIuM9jprJZKJ7+
+ n/0wE/wbp4tLtOGkvNfHA==
+UI-OutboundReport: notjunk:1;M01:P0:PyBjBBj9g3c=;0KkeeFHr9XmW6JZlFronhZf2nxA
+ Dpw6Qm5Cu1++XqJ/vVtJcyXcon5fPTosEwdwbEu2qKRbp2dimMbGtQjinvqQH0bBZl6SaywVV
+ vSQkN5u3JT7zTzup9Q0gATpoDwpHP8Y1WawTwaTozgrk2cHuCLglIv2Ru4XfEFF/LHWZFmBRz
+ 6LEvocpZNz6TgbpFu9YD4cPJui1LRwnM69VBaTf18jN5NpNKq6JkGtC71X5I7X08J1Mh0QZD6
+ g9kDsxJxc9HzTRlWeOV2JQsD0c4CGfhKyufHVWFMVNZ9gL+ylzTApYytJck7ITLwlY4phFmw6
+ qcJ9nuXy6lMjWuzCee0/FBu219GR3kQ37XtfExIX4YObiaMRUQoeUr6G9TyumaoDLNoPm9wg7
+ ynwgblJ97Txft33qaFiSS68aYcAnzifBjP3ei2+QO64iQUwcQjPrFVF1cHpl9yyS+E8Rujaim
+ 5GmKdUbExQ5h/DeaO3eHejEnWKRStmIHag9zTgs9fJhOTEP4YBsysx5yQH3L+rBFJpjtqR8P9
+ aWYY5AhB/IJk04zy2OiV4OkrkH5eNh4ul8edqPe6JkscEiutMO09PFUYj8Q88Drx86nyq+aw+
+ ajespB//APZYfNDOZrPYztHv3vPzX6ix0Nnxpt9ktxrY3cmup6Yr/HT1JDPJm9uxwoQKH1xgC
+ FvVX+TU0YJnTpD7f6K7LkdFkeTgMM0oyv/wc1TrI1/tuYG8M7OxOfWKtzEikujWlta7DHC3Ac
+ 0dEmim1U6t9rO+zCvOSosw/GGNl/7ABPMaqntMku+ymdE7j96Qs5AuyEBkG3LF2V/T+FQRuWH
+ i5Lmy4up4bNbThD/6Z8bVeD0JPI2+nkfHKsSxjs0N/uxdH4oJO4S1SC3aKI7831TOLXTqavgv
+ A9W/Osm1bigLWOPtLZ1aafEZdjBnPLTO4Fzusqys6gLaMksPVcodcifyI1QUSxgaTlV8Egr1O
+ 3SJgk981w9Um11gXlhW/3/fx195aWEq86dXN4QouIvbWQkAhonDPpE3a1GO6SsE5Jysxw3KHO
+ w/8Fu06buEKhAe+0Z1GmEwBN+xdOAhh6Z8KiDfsRtpeCayn2XpbyHhwDIQOl+eu7Q0ttKL/i0
+ va/lKKLEyxSs/0A8X/Gpu+xMvktw8zT36F+AyYhpu4oO7XRnauW7hwoZkIBE1/lL8YRg1QdEt
+ rXCbEFPtKcLelCbrUPCe/WS4sw3CWbmQp0UGSu/URqk8GWD8XWOVUWEsYZTwzBlx9dzqYPrmO
+ Yp4eEMb+y5RbKImUIfzJMC6Qixoj/kkzSqxKaZmnf1UtmWJM9DsQt2H+b0TY7jtzyz1OKa1ah
+ CMt+02QHa8XRcqltkU5zGxxlkiOfVqcA0LXmyUECUe2Ujw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250201_030151_979176_863DEDD3 
-X-CRM114-Status: GOOD (  15.44  )
+X-CRM114-CacheID: sfid-20250201_031939_212920_5BECE8C9 
+X-CRM114-Status: UNSURE (   9.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,86 +103,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Set flag GENPD_FLAG_ACTIVE_WAKEUP to bcm2835_power genpd, then when a
+device is set as wakeup source using device_set_wakeup_enable, the power
+domain could be kept on to make sure the device could wakeup the system.
 
-thanks for the patch - I have a few small comments below.
+Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+=2D--
+ drivers/pmdomain/bcm/bcm2835-power.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-On Fri, Jan 31, 2025 at 9:05=E2=80=AFPM Ferass El Hafidi
-<funderscore@postmarketos.org> wrote:
-[...]
-> +       cvbs-connector {
-> +               /* No CVBS connector */
-> +               status =3D "disabled";
-> +       };
-You're inheriting  "meson-gxl-s805x.dtsi" but I can't see that this -
-or its parents - define a cvbs-connector node anywhere.
-Can we just omit it completely
+diff --git a/drivers/pmdomain/bcm/bcm2835-power.c b/drivers/pmdomain/bcm/b=
+cm2835-power.c
+index d2f0233cb620..d3cd816979ac 100644
+=2D-- a/drivers/pmdomain/bcm/bcm2835-power.c
++++ b/drivers/pmdomain/bcm/bcm2835-power.c
+@@ -520,6 +520,7 @@ bcm2835_init_power_domain(struct bcm2835_power *power,
+ 	}
 
-[...]
-> +       vcc_5v: regulator-vcc-5v {
-> +               compatible =3D "regulator-fixed";
-> +               regulator-name =3D "VCC_5V";
-> +               regulator-min-microvolt =3D <5000000>;
-> +               regulator-max-microvolt =3D <5000000>;
-> +       };
-> +
-> +
-nit-pick: since you're planning to send a v2 anyways, keep it at one
-blank line here
+ 	dom->base.name =3D name;
++	dom->base.flags =3D GENPD_FLAG_ACTIVE_WAKEUP;
+ 	dom->base.power_on =3D bcm2835_power_pd_power_on;
+ 	dom->base.power_off =3D bcm2835_power_pd_power_off;
 
-[...]
-> +&ethmac {
-> +       /* No Ethernet connector */
-> +       status =3D "disabled";
-> +};
-Similar to the cvbs-connector: status =3D "disabled" should be the default =
-here
+=2D-
+2.34.1
 
-> +&internal_phy {
-> +       pinctrl-0 =3D <&eth_link_led_pins>, <&eth_act_led_pins>;
-> +       pinctrl-names =3D "default";
-> +};
-why are there Ethernet LED pins if there's no Ethernet connector?
-
-> +&ir {
-> +       /* No IR */
-> +       status =3D "disabled";
-> +};
-This is also disabled by default
-
-[...]
-> +&pwm_ef {
-> +       status =3D "okay";
-> +       pinctrl-0 =3D <&pwm_e_pins>;
-> +       pinctrl-names =3D "default";
-> +       clocks =3D <&clkc CLKID_FCLK_DIV4>;
-> +       clock-names =3D "clkin0";
-> +};
-Please drop clocks and clock-names to make this work with linux-next.
-Background: [0] is queued for the next release and it means that the
-PWM controller driver will now pick the "best" clock on it's own and
-overriding here will likely result in your board not booting.
-
-[...]
-> +&usb {
-> +       status =3D "okay";
-> +       dr_mode =3D "host";
-> +};
-> +
-> +&usb2_phy0 {
-> +       phy-supply =3D <&vcc_5v>;
-> +};
-I'm guilty of this myself and I think you can be better here:
-Use vbus-supply =3D <&vcc_5v>; in the &usb node to correctly describe
-where the USB VBUS signal is coming from.
-(I believe that the PHY is not internally powered by 5V as the SoC
-doesn't take any 5V inputs)
-
-
-Best regards,
-Martin
-
-
-[0] https://lore.kernel.org/linux-amlogic/20241227212514.1376682-1-martin.b=
-lumenstingl@googlemail.com/
 
