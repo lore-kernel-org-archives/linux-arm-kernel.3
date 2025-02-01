@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7155FC0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Feb 2025 19:23:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 488A9C02190
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Feb 2025 19:33:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kMPOvCeFAGL1Bzwhnzo7bfHBjVlXhYB3RaP4/eVOF4M=; b=b/HT/eroCOq8nNxRFBAVBAZah1
-	qswOQNKp0E06R5he7c1rARWL7NXuLcBgXma9ckIEYHAMlKLtV/Q7vi1/TcHYCr3ANKpD9oam0e9vv
-	LauKJEInT0Fv2LyO+FAjbS/I4RcSwHzO2XuvBYESopJOKrrPXCzB16hnbku4pv6B4lXgY22hq2ClD
-	2rFgL0EsF2OeVUogD6GXkjmjXRmMQeLQegikqorpyLB7JO5Bk55WLJr79KMUpbvSApmSB6J/rgNjC
-	VGRwSlsuHT8vT77QxIxTK/qmqFqoFTkub7pdcqHaJEfK4NnTNhcNpFqxLZxolOL4hvw0yxE+sand6
-	YzHO2SIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cAxBGxxajUiVZRBP6T0mE6Os5RyWlNWFqjL6ZgqSOfM=; b=vwkPLxx2izb/5qMuSC4fK6q3+b
+	9hjmAQxpdIJ/4DQLlttxvPidL7i1t/N7/Qm/ZD9Yn3QyqU7WJvXraXI3NJk6fd2Q+yYnrat3u86fU
+	Anl3Y5DS3Oe8W6axoIsgiHPjQ0l5zsrrKhbV1rH3I9WbTolsffkChYm/kOHK+f5vSwHqQYr2KZH2t
+	9D3QQBj+58l0ign9SFzAM22yKgG6gT7PbPB1DH8TOmKjrBaQ5QfzjiKGqQlEhaII6G708Z5f/5z4D
+	SOGT6pHiliJYQbmSyrQGLrsvmyVKLye4KnCm7gD/gv+winoLEsk+HcNEMSeftU0qdAyzB/2NbvdbJ
+	e3CBa6xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teJ5n-0000000D3Fu-3oXW;
-	Sat, 01 Feb 2025 19:23:47 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1teJEr-0000000D3fm-0ejy;
+	Sat, 01 Feb 2025 19:33:09 +0000
+Received: from out-178.mta0.migadu.com ([91.218.175.178])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1teJ4T-0000000D39s-1CNn
+	id 1teJDV-0000000D3WQ-33rH
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Feb 2025 19:22:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=kMPOvCeFAGL1Bzwhnzo7bfHBjVlXhYB3RaP4/eVOF4M=; b=qM7VuuqUUsNGS3N5O4A2GXpxCv
-	ve24WUI2D4ycBprLxsKCSju4KGq+f6lzghmCeBb4inmaasZI6Jze/50/AExlDQAXVX/GZy9vECx+R
-	9CLOQo2h2ZmxB99Uv7WBDlmoKK1wzcmfes8ZzGdAWxRNUsPYXwIzxD4KAzBCPMgy93+E=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1teJ42-00A2uZ-LG; Sat, 01 Feb 2025 20:21:58 +0100
-Date: Sat, 1 Feb 2025 20:21:58 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Yanteng Si <si.yanteng@linux.dev>, Furong Xu <0x1207@gmail.com>,
-	Joao Pinto <Joao.Pinto@synopsys.com>, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v4 3/3] net: stmmac: Specify hardware capability
- value when FIFO size isn't specified
-Message-ID: <35ac46e5-1a5c-4416-a6c8-1fd42ea47d37@lunn.ch>
-References: <20250127013820.2941044-1-hayashi.kunihiko@socionext.com>
- <20250127013820.2941044-4-hayashi.kunihiko@socionext.com>
- <4e98f967-f636-46fb-9eca-d383b9495b86@roeck-us.net>
+	Sat, 01 Feb 2025 19:31:47 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=postmarketos.org;
+	s=key1; t=1738438297;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=cAxBGxxajUiVZRBP6T0mE6Os5RyWlNWFqjL6ZgqSOfM=;
+	b=dtbzPnOzKIZdrHJ92mUPenoHQIDCXCvVtBwv0JF+ackg3KR2kKdbNDcTbq2Uh0he8evs3h
+	kjnyPV3xJT1urgtfrekagsjgxXvxqa1rvAmTKCHQeVNQsFMk6Wu9KFB0vBAPlxF4sjWTfn
+	7S2VxwA6akQfTENzdmCqxIjsKZHuLLPic7DVKDu2KlTfpI4bs8yzrmz8solCTywr4k4iJj
+	TXwwiatUD3O3LtQCdNKSdKjLY4v33hdtz+0jKsofIlpwAI8F9Z683YfFFn/Omi69ltBQAC
+	yBhUJeFlBs21qP4Y0Oy9hoYx6V7yU6vulBjF1VlrLi/HIL2wEz2voNv4tEjXhw==
+From: Ferass El Hafidi <funderscore@postmarketos.org>
+To: Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-amlogic@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	funderscore@postmarketos.org,
+	~postmarketos/upstreaming@lists.sr.ht,
+	Artur Weber <aweber.kernel@gmail.com>,
+	Karl Chan <exxxxkc@getgoogleoff.me>,
+	Christian Hewitt <christianshewitt@gmail.com>
+Subject: [PATCH v2 0/2] Add support for Xiaomi Mi TV Stick
+Date: Sat,  1 Feb 2025 19:30:42 +0000
+Message-ID: <20250201193044.28856-1-funderscore@postmarketos.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <4e98f967-f636-46fb-9eca-d383b9495b86@roeck-us.net>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250201_112225_326230_6B496E9A 
-X-CRM114-Status: GOOD (  17.19  )
+X-CRM114-CacheID: sfid-20250201_113146_362685_592C6706 
+X-CRM114-Status: GOOD (  15.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,31 +80,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 01, 2025 at 11:14:41AM -0800, Guenter Roeck wrote:
-> Hi,
-> 
-> On Mon, Jan 27, 2025 at 10:38:20AM +0900, Kunihiko Hayashi wrote:
-> > When Tx/Rx FIFO size is not specified in advance, the driver checks if
-> > the value is zero and sets the hardware capability value in functions
-> > where that value is used.
-> > 
-> > Consolidate the check and settings into function stmmac_hw_init() and
-> > remove redundant other statements.
-> > 
-> > If FIFO size is zero and the hardware capability also doesn't have upper
-> > limit values, return with an error message.
-> > 
-> > Signed-off-by: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
-> 
-> This patch breaks qemu's stmmac emulation, for example for
-> npcm750-evb. The error message is:
-> 	stmmaceth f0804000.eth: Can't specify Rx FIFO size
+This patch series aims to add initial support for the Xiaomi Mi TV
+Stick.
 
-Hi Guenter
+Xiaomi Mi TV Stick is a small Amlogic-based Android TV stick released in 
+2020, and known as `xiaomi-aquaman` internally (in the downstream kernel,
+u-boot, ...)
+Its specifications are as follows:
+ * Amlogic S805Y SoC (believed to be mostly identical to S805X)
+ * 8 GB eMMC
+ * 1 GB of RAM
+ * Android TV 9, upgradable to Android TV 10
 
-Please could you try the patch here:
+There are multiple variants:
+ * 1. Green PCB, manufactured in 2020, known UART pinout (helpfully 
+   labeled on the board)
+ * 2. Blue PCB, not much documentation about it, presumably manufactured
+   between 2021 and 2023
+ * 3. Green PCB, manufactured in 2023, known UART pinout, some layout
+   changes compared to the 2020 variant
 
-https://lore.kernel.org/lkml/915713e1-b67f-4eae-82c6-8dceae8f97a7@arm.com/
+Among these variants, there are many boards using multiple different
+Wi-Fi chips.  Supporting all of them is out of scope for this patch
+series.
 
-	Andrew
+As of the time of writing this has only been tested on the 3rd variant.
+It is believed that software-wise all three work mostly the same (if we 
+don't count Wi-Fi), but testing on the other variants would still be
+appreciated.
+
+The devicetree is based on the Amlogic P241 DTS.
+
+Changes since v1 [1]:
+ * remove useless nodes: cvbs-connector, ethmac, internal_phy, ir
+ * add `amlogic,s805y` DT binding section
+ * add S805Y dtsi: meson-gxl-s805y.dtsi
+ * adjust DT `model` to "Xiaomi Mi TV Stick (Aquaman)"
+ * explain the changes being done a bit more in the commit message for
+   the DT patch
+ * drop `clocks` and `clock-names` from pwm_ef (background: [2])
+ * change sound `model` to "XIAOMI-AQUAMAN"
+
+[1]: https://lore.kernel.org/all/20250131200319.19996-1-funderscore@postmarketos.org/
+[2]: https://lore.kernel.org/linux-amlogic/20241227212514.1376682-1-martin.blumenstingl@googlemail.com/
+
+Ferass El Hafidi (2):
+  dt-bindings: arm: amlogic: add S805Y and Mi TV Stick
+  arm64: dts: amlogic: add support for xiaomi-aquaman/Mi TV Stick
+
+ .../devicetree/bindings/arm/amlogic.yaml      |   7 +
+ arch/arm64/boot/dts/amlogic/Makefile          |   1 +
+ .../meson-gxl-s805y-xiaomi-aquaman.dts        | 288 ++++++++++++++++++
+ .../boot/dts/amlogic/meson-gxl-s805y.dtsi     |  10 +
+ 4 files changed, 306 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/amlogic/meson-gxl-s805y-xiaomi-aquaman.dts
+ create mode 100644 arch/arm64/boot/dts/amlogic/meson-gxl-s805y.dtsi
+
+-- 
+2.47.1
+
 
