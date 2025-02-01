@@ -4,92 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A48FCC0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Feb 2025 11:29:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0D3EC0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Feb 2025 11:52:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bYnYzdN0LrCXG6ExV5L0/rVoVwbxiqa7GQkmlFTH544=; b=U+duRgujU/cILuE3t7u1qfbYYp
-	fe1CVWoUFNc/m4TuWAguzXshQ037LwUvfzJS5lmZuQNgsujM6uT+MUhY/WadyFlfgSkLjTkt+7pT8
-	1Z4MkT8x7jFCEG/LxIhtXd9zmF4qR9iDgXg0LZeE0AegoPz8PTJGtqQOfYB6pDMltcfkTlLAFERfn
-	ptWfpqKu/a9ehpk6v3oerGNYv5H66luqnZtrBo66N/LoLwQr5VjsvaEZSGulH2VzEKqY0IxakyJ//
-	RHfioyXYlNFd4h/4X/VeCE1oCZ3+Fs/gUYbILmoflrjj2xe1tydPTfB+698HCPmSOQY7zbcc7ZSjS
-	Iajl5xHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w2ITBtEEmiKmCLSkbITdbXNFbI14slpq57PFgMvxP0g=; b=FHFRgyyOZ/NRpvLzWrKig/Bcxo
+	cqEe6oZGxPxn0SQksoE+KYPHD+heG/cXeid1aWHDYOjW8Vevm1OXq0Wm9A4YKiDrzQt2K+hA9KjsE
+	rPFQMYVxgz6grEd7lOhbmQ+0a/nfDCpoUCdPzBCKojEohZAcu4pK2CAc8atvRTbYaf2JCf17APUbA
+	rDfDFidgaOyNFPGcf90Px8veQZ0yQuFCmkS2gUD73kC5PRP2WL5NQtebYnO5qbIJwbQypAfNUbQzw
+	Lysgb3Nb+oSIJXaG36S+unO0JDcrTlkWifyd6+kP5tIGUEHOMBdRnNYMOm4RWfXDW6kwJZL8Z9Mzr
+	fx55tpUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teBgT-0000000CE35-2jbI;
-	Sat, 01 Feb 2025 11:29:09 +0000
-Received: from mout.gmx.net ([212.227.15.19])
+	id 1teC31-0000000CFJC-1Vwj;
+	Sat, 01 Feb 2025 11:52:27 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1teBf9-0000000CDvp-0mEv
+	id 1teC1i-0000000CFG8-24PE
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Feb 2025 11:27:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1738409253; x=1739014053; i=wahrenst@gmx.net;
-	bh=bYnYzdN0LrCXG6ExV5L0/rVoVwbxiqa7GQkmlFTH544=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:
-	 MIME-Version:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=G3TSBP8WTtQhoJGG5ROQtbFoE3LoegLhXNR1tZMAauHQgpHmBbyfRtfDF0VLUT8Y
-	 tCy9h3hvl4NfmCX+L32gexhfD982wkRCmLDC3NXWj0D3UR5OvLTMEn9XmGjww7CLN
-	 8Joapv4eqtdJarIa2aKAv5Dp7FJxa0pRzK1of+xLCcy9XrDYVXp1MU47K1tIC3cak
-	 tE/4IvHRFET9tNUyNZWEHjdlW/uof1LEmjwVFOCmMdY5sKOIR80gPjKAWZdYjvDAv
-	 KWHLxlH2sC13p+XmnO2vZU0IyP/KJA8ZW3ItJVKMyciV8YYHmBcVqP94jSl1iPcVt
-	 wZcemISWtmaGFMQNrw==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from stefanw-SCHENKER ([37.4.251.153]) by mail.gmx.net (mrgmx005
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MbAh0-1t2w6H2uNc-00p9it; Sat, 01
- Feb 2025 12:27:33 +0100
-From: Stefan Wahren <wahrenst@gmx.net>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Peter Robinson <pbrobinson@gmail.com>,
-	"Ivan T . Ivanov" <iivanov@suse.de>,
-	linux-arm-kernel@lists.infradead.org,
-	bcm-kernel-feedback-list@broadcom.com,
-	kernel-list@raspberrypi.com,
-	devicetree@vger.kernel.org,
-	Stefan Wahren <wahrenst@gmx.net>
-Subject: [PATCH] ARM: dts: bcm2711: Fix xHCI power-domain
-Date: Sat,  1 Feb 2025 12:27:29 +0100
-Message-Id: <20250201112729.31509-1-wahrenst@gmx.net>
-X-Mailer: git-send-email 2.34.1
+	Sat, 01 Feb 2025 11:51:07 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <pza@pengutronix.de>)
+	id 1teC1D-0004FA-LI; Sat, 01 Feb 2025 12:50:35 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <pza@pengutronix.de>)
+	id 1teC1B-002xKx-1k;
+	Sat, 01 Feb 2025 12:50:33 +0100
+Received: from pza by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <pza@pengutronix.de>)
+	id 1teC1B-008EGS-1M;
+	Sat, 01 Feb 2025 12:50:33 +0100
+Date: Sat, 1 Feb 2025 12:50:33 +0100
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2] PCI: mediatek-gen3: Remove leftover mac_reset assert
+ for Airoha EN7581 SoC.
+Message-ID: <Z54KiWqgSiLZ_nZj@pengutronix.de>
+References: <20250201-pcie-en7581-remove-mac_reset-v2-1-a06786cdc683@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:7Luia7K8HRu8CPOl1DZ08abjM5+xgYl6+BOu88agzhpkP0jXD1X
- 9pOsI/PcMy39byVfxit6gBAfewIyG8DZzXFCPECtN/c8fIGpO60NKXLpZbkryFGFCIcwQd1
- BldWA9krEwsRZCrdnSVCtPs0I9S5cFKQ1Clpukh+rWwGIJhvarB72GXtY1OWUjLV3XkSpYM
- ayYgMgCWc8EeYwhSbo6VA==
-UI-OutboundReport: notjunk:1;M01:P0:qjyS1YNOivs=;+t/VVUx408bqwOLwq2hirzJWUbM
- v81cja39T5S77mtVXJfp8frg337c1TPNdE3lHZIPqcT/ja3qIzke5KjLmxk42ww7xsy1LELdh
- rnV5PT+Uo5WFZPC7EaOuCD16yD2/IZclfEIKgdVI/3YSpbGxbwCSnD+pX/uXY68RmKuh66QK9
- J7TvcfizuS0Wm5ajaKRH00P/5k7QOHfDd92Fu6OLqQZ57zh/d5WzDY695caAnR7dUYJk6YFGN
- dmucf9gATPxliCxppPFbbuVYaFzjmNNDAyRRGVCApVx6+C8KbHGqMVzgAcBOiA9V3re1468HE
- 7NRzIvn9zZbYH0PsE5NOEfZfMYhEnve62b5DMdtAWrQDb71o2XfxUm0PlNWnsehcIsjCJu1E7
- vblydDW3gYuGqn7H2PVipLaPuTFGS2rYtT/WA7gT5KT7eR/V73nI4JI+o0LEB6RG1kBcAZUin
- NyDRfcRMVextnFuJ6/0qERlL5b/1XoCalET1nykT5cEapqVSF3RIYTJgBzC1CEDWdS6MttW/v
- 0I6z+gE2+i6BOaFg9UE94RRa4PJoR9d/h4ysgpn3bYN/0nvc6KgVLycsGn2/eOKpsWZrts/YT
- 3Rz7XIzAP/ysv0RpSdgqaxrssqQEkaaOpId+j1MaARIqmi+ceuHJ8QrP4W8X4sWVYTrf01Njd
- XnpSU4DOh2JzvpXirrqFG+evmsUZO3bDfUELHvQOBz9a5/Nl9pHj64WGhMmu1SsntEEe7YFzD
- yne7qQRdlwWd4pLNgmhxHbTKFvBKsGOkAOP7MMvkIPXOTCky6l6pPZnaKByoNGhYxxAMI0xXk
- d7Y+hhFxKfFrFFwMjLXWco1XDLHYA08b9EzlsizrSAPAmSxSOHxFEwF4JhB0U3wg0BjmKWhee
- zET/J108O9DSCVYapUnn0qzdRdXqtjZWNhRF16TtQj24zM2VijGJr3IlbVzqnuqgRPtaVhCaW
- yjTFyAF9U1uj98skdqMOohXhkyYCwHS3t5NjE8aeLPm5n/ekEluJRuK/Vo5tHOnBLDS77k3V1
- gfVdlAYMzNufItTxOs7rWk25e5cVQApCq8qZ5dK+PE/8NciDH973FxKFp/5HGxYnw9prFGuvr
- mTy33DriGLG7VHdAOILvHONEPp3B0tkPrymRsFCFZhwdf97XaxDQsNnmFwaDvfCXF6mXb6922
- us6AAYcahWROp/PpChW+450OrIJUDSwGVHkRuvo6QXS/h0Y6rgJKTSDQTezJebAC+cdvsmBhz
- alBU5Zf8ytZaOmaX8+c+8B9ZIiZ1XGHPmOG3yMJ3aRDXfNoNV2NmVFo2KxXnLKq8lVAHOtTnj
- tPL958u6yuCj+cSwjvIX+Py6KQDZGEAy8ymmPx8T4hgTgRNSQbuRGBDxxnGDXHADQnLUyam53
- zEWVzjsLR6eoc8oA==
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250201-pcie-en7581-remove-mac_reset-v2-1-a06786cdc683@kernel.org>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: pza@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250201_032747_523777_1E2F4161 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20250201_035106_526591_59DF214B 
+X-CRM114-Status: UNSURE (   9.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,65 +89,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During s2idle tests on the Raspberry CM4 the VPU firmware always crashes
-on xHCI power-domain resume:
+On Sat, Feb 01, 2025 at 12:00:18PM +0100, Lorenzo Bianconi wrote:
+> Remove a leftover assert for mac_reset line in mtk_pcie_en7581_power_up().
+> This is not harmful since EN7581 does not requires mac_reset and
+> mac_reset is not defined in EN7581 device tree.
+> 
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
-root@raspberrypi:/sys/power# echo freeze > state
-[   70.724347] xhci_suspend finished
-[   70.727730] xhci_plat_suspend finished
-[   70.755624] bcm2835-power bcm2835-power: Power grafx off
-[   70.761127]  USB: Set power to 0
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
 
-[   74.653040]  USB: Failed to set power to 1 (-110)
-
-This seems to be caused because of the mixed usage of
-raspberrypi-power and bcm2835-power at the same time. So avoid
-the usage of the VPU firmware power-domain driver, which
-prevents the VPU crash.
-
-Fixes: 522c35e08b53 ("ARM: dts: bcm2711: Add BCM2711 xHCI support")
-Link: https://github.com/raspberrypi/linux/issues/6537
-Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
-=2D--
- arch/arm/boot/dts/broadcom/bcm2711-rpi.dtsi | 5 -----
- arch/arm/boot/dts/broadcom/bcm2711.dtsi     | 1 +
- 2 files changed, 1 insertion(+), 5 deletions(-)
-
-diff --git a/arch/arm/boot/dts/broadcom/bcm2711-rpi.dtsi b/arch/arm/boot/d=
-ts/broadcom/bcm2711-rpi.dtsi
-index 6bf4241fe3b7..c78ed064d166 100644
-=2D-- a/arch/arm/boot/dts/broadcom/bcm2711-rpi.dtsi
-+++ b/arch/arm/boot/dts/broadcom/bcm2711-rpi.dtsi
-@@ -1,7 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0
- #include "bcm2835-rpi.dtsi"
-
--#include <dt-bindings/power/raspberrypi-power.h>
- #include <dt-bindings/reset/raspberrypi,firmware-reset.h>
-
- / {
-@@ -101,7 +100,3 @@ &v3d {
- &vchiq {
- 	interrupts =3D <GIC_SPI 34 IRQ_TYPE_LEVEL_HIGH>;
- };
--
--&xhci {
--	power-domains =3D <&power RPI_POWER_DOMAIN_USB>;
--};
-diff --git a/arch/arm/boot/dts/broadcom/bcm2711.dtsi b/arch/arm/boot/dts/b=
-roadcom/bcm2711.dtsi
-index e4e42af21ef3..5eaec6c6a1df 100644
-=2D-- a/arch/arm/boot/dts/broadcom/bcm2711.dtsi
-+++ b/arch/arm/boot/dts/broadcom/bcm2711.dtsi
-@@ -610,6 +610,7 @@ xhci: usb@7e9c0000 {
- 			#address-cells =3D <1>;
- 			#size-cells =3D <0>;
- 			interrupts =3D <GIC_SPI 176 IRQ_TYPE_LEVEL_HIGH>;
-+			power-domains =3D <&pm BCM2835_POWER_DOMAIN_USB>;
- 			/* DWC2 and this IP block share the same USB PHY,
- 			 * enabling both at the same time results in lockups.
- 			 * So keep this node disabled and let the bootloader
-=2D-
-2.34.1
-
+regards
+Philipp
 
