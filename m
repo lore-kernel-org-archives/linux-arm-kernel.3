@@ -4,179 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23DF6C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Feb 2025 00:54:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F5ACC0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Feb 2025 01:24:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dnRdHsxaAcViRTPEQfvHw+sWedtBw21f/M59VsQkyJY=; b=d+KTOwLJuqKP3tDpQ1jNnAg3GE
-	PJuzPr3QdebS/1Rz/lJtT2mVg8vwDLSXA9kdJ13D9S0tDGv7Wvg/3HykHJUncuyx3NXax89/MRWZg
-	Qb3Za6fOXSB/ApIVOjJMvEz0qV7SoLoGMLr0zUwfveHH3DSTMUI/EXA3m6aWceagGNwGW7kjWKUUb
-	BYOy9NycFcQHhfZhjnZsJjlXhuVKXdKclfXGA+fer3xno3DOq8VYYesJQJe1b+I0Prhcb7Qpc8dNj
-	+6JzsVnoI0PRl+nlhsN8wAGXbZxju0YIBUaZoHqD9mEN+rsVdyH4SVdWh7/R8+KPd+gTMp/V1fjj+
-	1HVn8ebg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YAAI3E0WlUEH8QGHAO5vUmuOkyQG4sKUrRj2kW9NJz0=; b=qEokFUemvXs/flF6K4VbnzKtfQ
+	mi7eb6vL5aSXBEmkOtde3S89Oonjg+8GDdJ6FETYzNiFnVGB8e1UpW9a99Zug5GBwr9OK7kygJACO
+	NFjlTLCDBBKwED9aPpQfCfY08ty0gan5qJmNlRBLuaJpE1PjxwOAeFSs/iYp1Z1jMsBjHjXgL+LSn
+	Vqzx1UlozLJaBe+R8rsAfX3JscXLVvB99OVVcSlVVeR1S/Nug4r3hMOBORpljrR7VGc7UiZeg/IHN
+	aDb0q1Wng+/nby8i7tPEksdYN2ZjR70w5BChcEuo6VQvVL/Vv+CA368Ue84wiBFe0tZc2uj9yzDxb
+	JDzDHqJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teOFh-0000000DG1D-0V8S;
-	Sun, 02 Feb 2025 00:54:21 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1teOj0-0000000DGvI-3IQr;
+	Sun, 02 Feb 2025 01:24:38 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1teOBn-0000000DFcp-0Jl3
+	id 1teOhe-0000000DGq0-0Hq9
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Feb 2025 00:50:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DRk7Dvsa9NIkquHJMMZGnmPvhnrzPRBZRGR2TG/E1i4EFjxFzc6a3UDJRjlP8DhmciLSaXMtE/RD9LECrolo6KcDPs1N6MmE7ZF2ZYOv5nsfVZqxQ29Dbu9YS4wvHzdjvfJp64g3Xx7P3a0b1JpqzFG+8DMdnPES4EhWOFKaBMP4Ks7GPefjKtHGfWg49c1yKBOFG3agFLT94Ge5f2Wb5g+LwYYX+86QvdGoENFGg2xvJ4AaddKFEz3V7/3WObIJuCG+yJ36b2zMFb21Ev2TX2hYXO/UFX3ypxtaq3n7bWP/IZwmR/ep9wLOkqYFsOM/SFuFPZPyO6W278cm4lLXPQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dnRdHsxaAcViRTPEQfvHw+sWedtBw21f/M59VsQkyJY=;
- b=PrDnGQo/ohDW9XqnbFNGkZEf4v3rzhGROMwoMyYO3rgLUZojPMKIZ/4lIwvIdmoQqaGZnv7z3BToLN9A0HLfasWea8ZMGq4zZO4DOnGyr5V6akKdLu71bK1A2cOllQk556Jv39wqsZM6GdFvaFPtn73WDx4dpxPSvnqqfPwKnWR9t1VRo3k839fYyZSQWTjcEOazJptwpXEcne9UYiOp4ectvaNmLwzmZTH6KSPVj/usZYevjrdxu0NKFm34sDPJY8sVminPjbtVr21j9BusAJcOLMntzMS0PZFlltK65QoD94S9KoE3v+VlAxdl6a7IQ/6hY6C+bIhX5gJVr0NztQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dnRdHsxaAcViRTPEQfvHw+sWedtBw21f/M59VsQkyJY=;
- b=GQgLXqcHjPC2XooX5YsJZ8W0eBbwEPh4Jy+RwgeFJyRJw650JRxvsQF8a8MnJJfJ5F04BFOChM2361r6aVmScY6yvpLwYitSNAWoNnCNPUx7HpfTcB8aXcvv7fZlHT6LTnFmXGoaCS1ZHNDzep1OvnYUBCCk8hk+vHExITYp/3JFSA9lP+QP5q0QyeiEnJE3nnfOt28u6C9GDcrP6ltr5VoOUhu/DtuXe1SjPoKex018Qh/xI24h+5dc9FapVYinBCZcUp2K2N4V45ZS1Fwf3AK3pVcc1dP4TTg/xjzma5D3cp/LNEvXPLn5Pcmz4gHrapkRrukpjaWevAJ3PuFI6A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by VI1PR04MB9932.eurprd04.prod.outlook.com (2603:10a6:800:1d8::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.23; Sun, 2 Feb
- 2025 00:50:09 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%6]) with mapi id 15.20.8398.021; Sun, 2 Feb 2025
- 00:50:09 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Date: Sun, 02 Feb 2025 08:49:13 +0800
-Subject: [PATCH v7 2/2] nvmem: imx-ocotp-ele: Support accessing controller
- for i.MX9
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250202-imx-ocotp-v7-2-5622ba16451d@nxp.com>
-References: <20250202-imx-ocotp-v7-0-5622ba16451d@nxp.com>
-In-Reply-To: <20250202-imx-ocotp-v7-0-5622ba16451d@nxp.com>
-To: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1738457363; l=9131;
- i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
- bh=Anv2VHTrQ5YUO8Yumr43PlFx9MaHLgFhhdjS8Z8e8PQ=;
- b=bSH6+RucaywdNuNKB8F+CLm2LzVD4XQsZWbKpGryj3uYnPJBywod+P55qzB73EYpoPtSo76wK
- ZzWK8RjEwOEBIzuJS6R5+kX8eDKGtjbhEPgqOBOkeK18Xx8wReyM4lu
-X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
- pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
-X-ClientProxiedBy: SI1PR02CA0035.apcprd02.prod.outlook.com
- (2603:1096:4:1f6::8) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Sun, 02 Feb 2025 01:23:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1738459391;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=YAAI3E0WlUEH8QGHAO5vUmuOkyQG4sKUrRj2kW9NJz0=;
+	b=FSj11SR+lGjmnG5VYaPgLqvBnlIhHUQoLJeP2PrwdHxT6z4FBWRLiM7efIQjuEX9AnkByh
+	ygFYv9JnE7Pm/Ve9InkqZPJT/TrgatlYVMkN8Qk6p8Aum00q2iZ1mZFTQ/6vGfqfrluQYC
+	Cyvs4pZUQS8lvVrE6xJL3dfyCZk097U=
+Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com
+ [209.85.216.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-508-fHyHhoFeNwyushzhnPOWWQ-1; Sat, 01 Feb 2025 20:23:09 -0500
+X-MC-Unique: fHyHhoFeNwyushzhnPOWWQ-1
+X-Mimecast-MFC-AGG-ID: fHyHhoFeNwyushzhnPOWWQ
+Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-2ef91d5c863so6399617a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Feb 2025 17:23:09 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738459389; x=1739064189;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=YAAI3E0WlUEH8QGHAO5vUmuOkyQG4sKUrRj2kW9NJz0=;
+        b=dWASOcyvmOLdgMEfE5e1JKUIRfTgnE6BOq/W/0OxNTkVpengK5Wowyx/5QurN3Y88O
+         hm8+zzAq/qXEwc0ylnHdMEm6+Jcp4Z8Ilp/AHo0PE47Teu8UlrAdgkYvsnVYQj9bIJeb
+         6O4+YrSM7fcHYFnEd/GcF/T14UYL4MUJ4ObMcNHbowT9v6/Px+xCdCRiKbsPouoYrDSK
+         00R0dQLiFQdT0bwv7jqmrQYcRGHU9F5B+fu+H1QmMK/nxDMfQkawvkytHjXGdUyOG+5q
+         Z4mYUs46J/an4WCa0ICiYmL3oJe3lB0Y/3JZYHmPZXA/Wz7YrGa/R+vX7Qsho9rS3XdW
+         eDPA==
+X-Forwarded-Encrypted: i=1; AJvYcCWiDfQ8LFcU2gZQ7tIO5eXdtys2Q6rny/CfC6dXyjvYJ6IojFd/uCFZ8prTuXxLdPjyGElee4VgrrQL6jGNcL9Q@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyz/ossk6SXifbEY5EkwfDoHWKl88wzIbOS9oRWMWP7WnICOtlj
+	oFbM347E++3ms7aGx5nS7k4o7020Nd2ebhEtlgP/FeY914+mG7PGwUryq9Q9+nulSJDpnqE67xF
+	i2YcyjvrHgIL/ZofvczishNsPj60fZLerdkxrw6yeobw55cVB03KYBpARMqJdeFUsHP9GoCcq
+X-Gm-Gg: ASbGnctONpdnLv9LATqw1kmkzUPuFQ3aaFjwU5AcrcF2nhsxOWkmCwM6U1w3jJFdtnt
+	X5I5AvmMBoFQwAdcwveRGLsJ7Fjz+smRFXv8VPVOu862UAhAFDskwPLysBQQzSxNt3DbUlepVHx
+	6t2GicYEhfO5oogy0j0PzRgxoEidHWOd6SH6JDNtcLCmGPqie9ggKWHC3aNFXctxmMY5bHYvFR4
+	yuesVcXwylsCBr8QSTR35O8kdg0DuhmsMbUZlyPmlt4NOVdVrnz/DVoRx2qIe3PUE2ysSu9TWUS
+	nPWPKA==
+X-Received: by 2002:a05:6a00:a84:b0:725:e405:6df7 with SMTP id d2e1a72fcca58-72fd0bf50d0mr22072042b3a.10.1738459388639;
+        Sat, 01 Feb 2025 17:23:08 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IF+rGTDJTNwVR5Fk0Ockt+Y4TXvcEQynR1IiX2sbu3+KwKdR5uE+ZGwPGUav29lR64slwel7g==
+X-Received: by 2002:a05:6a00:a84:b0:725:e405:6df7 with SMTP id d2e1a72fcca58-72fd0bf50d0mr22072011b3a.10.1738459388254;
+        Sat, 01 Feb 2025 17:23:08 -0800 (PST)
+Received: from [192.168.68.55] ([180.233.125.64])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72fe631be3csm5660892b3a.7.2025.02.01.17.23.00
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 01 Feb 2025 17:23:07 -0800 (PST)
+Message-ID: <09f42dc3-9c43-49ef-b4eb-8aeab387f0fd@redhat.com>
+Date: Sun, 2 Feb 2025 11:22:58 +1000
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|VI1PR04MB9932:EE_
-X-MS-Office365-Filtering-Correlation-Id: a1a2bca7-9732-4cdb-e943-08dd43238b22
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|376014|1800799024|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?S3JJZjJwV1B1RzNPVkl3TkJrU2NwOWJJN0NzMlNVZUlhYTFxNy9xa0s4MTVY?=
- =?utf-8?B?S09HbU8vSlZ4VXlBVHg2MUdzOUNBYmFsTUJLNzFDWFRXWGtXY0lpY3ZoeExM?=
- =?utf-8?B?TnpoWUpJQ1gwcGVxQWxYdnU0MmdVOXd5MUNDZWt1a0VwUXU3RGdqc1RTelA0?=
- =?utf-8?B?Qkxyc1NjZFRZZVJmS1FhWUt0L21JYkJLNmtsN2NrbGlIdS8xdVdmdDltSm1V?=
- =?utf-8?B?Rk1Dd05vdWZSbHZVbE1lYzRUd1NaQS85bVJlanJZRUFiQllQOUUyL05sQUVl?=
- =?utf-8?B?T3cvZWFZc25Lb2tlWlJDRWRDLzNTTk9VZHE5MEthUUVvelh0Tlp1UjNZdmta?=
- =?utf-8?B?UFA3ZXlRU3Q0MVViU0dueWpQeUV6SThRQ2hyMGZDank0U1dZKzUvUEhKNnJX?=
- =?utf-8?B?QVpNQjBBVWpwL09IYStJR0d0eStUa0w1MWhRU011VEtpNW80ZWZIdDN3ZldK?=
- =?utf-8?B?SjZNS3JjYmFYZEFPTFgwZzIxWU9hTU9Bb0pnTVRnaUovY2hEVk4zeUZhdGJJ?=
- =?utf-8?B?WFJMZmY1OWJjdnVxL1JhY3J3NkZuZUlHQWlSV29tRk9jcTB1SkNybGQ0VXhy?=
- =?utf-8?B?dG1YckM0dDVOZGxRcG5QOVdScm1KNCtvb3JuUFhUWTJLcTdUZ2x4eitET2JE?=
- =?utf-8?B?djdKbEIvVDRMTFZjK0U0b2RPUVhPNGpETUtsKzEyb3dLSVM3TXVBWUdhZUgr?=
- =?utf-8?B?ZGhJNks0WENhVllNblI3dzhtTk4xZUFTKzY4b3hla0FsQTdMd3RySjYzQjRz?=
- =?utf-8?B?Wlp1Z0tHQmxOYlYrOGxRMWxQL3ZuU21RSVl5UG1NUjVXY284NWRmc2xnQlVj?=
- =?utf-8?B?NFZhczdqTU0zVW4yYUNhMlEwV2lvanVCYnpjd2hOckE5dkhxQ24zNlYzSkYz?=
- =?utf-8?B?cWZJSDJ2Qjlvd1FESzhRRldNMmFQeU9OYkI2clFaNTJDWUZsaDFsMzR0Q1Rz?=
- =?utf-8?B?dTdTbklHNVJsUm9BZXA2Q3hBZ3U1ZUxSeHl2ZkxuVXNLUGR6cmlQNHY1aW50?=
- =?utf-8?B?R3VRN0dKbE1vdlpxdEg3Y0c5RWF5NlhQRHRUcTFUcWFSdXIzblpwUFFsZmtI?=
- =?utf-8?B?djIySytTNDgwc2ZOTVNYalZpNGdMSXIraUd2Y2NaeWN5ZlVBZFJKbVdnK2N1?=
- =?utf-8?B?K3RhQVlObE1NWVhsZ0l5anVwYjc1K0FTam40dkMvQmJXcFduSVlYZURrSUVU?=
- =?utf-8?B?NEc2Zll3MklGZDNlWnRYRUhCY2hXN0NmTElFY215UnpJdXpKN2UwOXdmVGR2?=
- =?utf-8?B?aFMwZWx1ZlB1elpUMmltbEJIdW9GNUtFT0wyTTdKWW5FcWxRVUdVVFlaYlFl?=
- =?utf-8?B?SnVHeE1mblV3ekhkWW9QcHRnSEM4dWxFOHovamFJcGZxeUdQb3dZcHNOdXpw?=
- =?utf-8?B?UlY1T2tHOGlYRHpXdzBaUFU2MWtuVXZ3UGZ5dWRtTXE0NXlhdHVlRzdBc1FQ?=
- =?utf-8?B?L2NiUitsZnhISTY0bXRzQ1ZQY2VHSGNjcEY3SE4rMWtrL3N6WnltaWpMbGVW?=
- =?utf-8?B?Mko5SExRVkU4TE04dkVhS3VNY2g0Z0NHUXErd1lJWHVlSXN3MFdUSDVjR1Jk?=
- =?utf-8?B?UHN1azA5R0MrU1NpY0xWNTFRV1p0dG5Sdi9RMjM5dWdzNityZlp5TWNNWE9y?=
- =?utf-8?B?SFUzTW9VTmp6SzV0TUh3d0h2QlhjNDVuNksrUlY4dUJUOXVvK0tVZk1UaFVw?=
- =?utf-8?B?dEtzc213VHRjeDgxb1hxUlNKRWhLcWJXMDZVWi9DRmZYU3o1ZFVBM3FkRTBW?=
- =?utf-8?B?LzIyS2ppUS84NWNPVGQyZFpaYmpuYXEzcC9tbTBUWUoyMEYycCtSczdWcGt0?=
- =?utf-8?B?YjJ0VTlHRmxkWWhXWW5lb3NpcVhmTHJWV1dRbE9XTGdkcmxiRGE4OWo5cC9Q?=
- =?utf-8?B?WU9wcGE4d2R6RExkbkVSYmpJUWltUjJsNDUyVFpXNTliQkJYdTZHM2N5bk1C?=
- =?utf-8?Q?g7Y/HDQG2KvGnBTubWbThL1rUhNLYNZM?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(1800799024)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZTZZSkxDVHFoa1J4SjB4OFZIUXJxSVRNeVgvZ0dzUC9US3ZRMWZCc1pFdEc4?=
- =?utf-8?B?ZGZxR3p3OW4wMllpaWFzS1JMZ3BMMENHRVNDbzNIY3dPTTdaZTI0R1RTSGhG?=
- =?utf-8?B?UExGbUxvUFYrdzZacU1PUG9kZHBRZnpIWDNPMHR4NzRCQUxxSkxwWmVhelhM?=
- =?utf-8?B?TmlhU0RmTTRUTERLaFArNFpLVklwWWY2K0RCanlQeWZJUUlnZEFsM1JIT2J4?=
- =?utf-8?B?dXl6NitpcSs5VXpXajQ0c2gvcmZDbzJaek9PSVJld3JaaTFiRGtwYlN1T3kz?=
- =?utf-8?B?QmxURjNjN2xPMi8wZFExenJQN01qTVN1OENTL3BxZ2ttTlY1NCtBdXFrbjlG?=
- =?utf-8?B?aW9XSE1xS2xhd1RBdG5BcWo5WlVad3Yva3o4K3JnT2hEV1NwenlWV3ErbU51?=
- =?utf-8?B?K0JTZS8vMWF2NkN3T2tFTDI3YzBsay8yNW5qNjkxUjZSUU9nd1FRb000MHgy?=
- =?utf-8?B?STJpeU1LTnJWVy8zUHAxVFV3SzZIakc0NXR1eWVLMXo2N0ovWHdJSEIzd1lF?=
- =?utf-8?B?SUNCL1pOSDVnOTcxSGdtRzJ2WjJtYzh2RW9tMmk0S1oxRHgwQmx3UEdvSnVF?=
- =?utf-8?B?YjZRNG1kUi9JdWt5U0pJYlF4RkoxMVVDb2Y3bm5tWG9xcm5hbDFGZzJFZXNX?=
- =?utf-8?B?MkM4US9JMXY2NzVlL0w3c3lLNzcyZ3hvTUhIMFRwMHM5U2lxTjJ3RTZWaW95?=
- =?utf-8?B?bjR6WHd2aWdmOThoc0lDeUFCbjNjdkNjNEZYWUU2SVYyL2dNMG5qaVdjZkdw?=
- =?utf-8?B?OTV0b2ZFcXpQdm9ubE1JVW9FM3FIc2t0MXNpTDBkNWtUdkZoYityUkxFdHI1?=
- =?utf-8?B?VkZZRU9Za3BiQjZ3ai8wM2hrWFZoakdPWFlzYzB5MWllUndUUVhHUFl4QXdo?=
- =?utf-8?B?dDVERjlKNFVKWHozb1Z3WHV2WUdiNmlFZGp4RE51RmFCSDhVbjVFSWtuNWVt?=
- =?utf-8?B?M1BCeHVHRlhYcElaM0E3UUI5VXp2SWFoVmFnWmVaTlJ4NEk3QzRZSFNGNDFw?=
- =?utf-8?B?UXc5L04vV0NKOEpadHhndWo5OHNWTEZtcTdvS3RrdTVEWk5QaktzcG91TXFX?=
- =?utf-8?B?Sm1EQnFjcHM2b29oeUNrWlJJaTR6QXpiTkN5bjV6R3IyamtFVVV4VE50dVB6?=
- =?utf-8?B?MXh2dXErQUhhUGFISlZ2SGVhaVFOcExIbUxTektFVmZHRC9ORHlvSWtwODlT?=
- =?utf-8?B?YU81eHJNNUd1cUFGKzNDUkk5WmE3Rko3M1pzd0tINW44eGM2R3NZangxbGQ5?=
- =?utf-8?B?Y1Y5UTVzVXlDU3RaT3JKblg1UWRMbWp0ejRiTitwTW9UbU5xUGZ3L2dtVFp1?=
- =?utf-8?B?SU1jOUpqSi9OY3Q4YlBWTlVxTzAwSHZEZGRFMzN2c3AyOE1kUHJRb1AvM3E0?=
- =?utf-8?B?aUlkL1BySXFWOHlhM3FHQ212OGRKVUJWY05sU3J5aDFLR3p4WFpieTVjdGR2?=
- =?utf-8?B?YnNUOUJ0NWdQelNpeTUzWlZyMDZuTHdYNGpIbXpiTno0VHIxMVROU3ZWRjhG?=
- =?utf-8?B?a3dqc0NDN25KWG0rNkJKaFgrb202ZXZEQkNqMVNtOWt1SWc1RmhkbHlUUEtS?=
- =?utf-8?B?UGxtNjlOc2VZd294WEcvTFVZdm5XblI0UTRwVWhGRnkxY3hSZHpxeFl2R3RM?=
- =?utf-8?B?Mk82ejF1UHlOcHEzV1h6eG0xczBFODZpNlViVzBuWDZrUmFJdUtib0xhcHBq?=
- =?utf-8?B?SWtXa3ZWbHBqeEpuN0R6WkZES2JTWm5UVW50a0hPSzIrNkNkQlVOUis4QXZo?=
- =?utf-8?B?N2ZmQ0JndHF3Y25VMzh2V2w4M1VJaCtVaGhTaGtidys1UkNNUUcwQWdZbjRP?=
- =?utf-8?B?WDhvWDJQTUtzTGRIUlJnVlFKUDEvMzd3c0VKOHZDVEdkRi9DbFVwVS96MVg5?=
- =?utf-8?B?NlE1LzdNakdYL2l3NEowaXFac3lROVBpL0lwRkVZakRWYXZpTnJ3NTVDaE9Z?=
- =?utf-8?B?d2liU1hZQ3NOMzZZQVVGT1dna1A3SXFMZUFDTER6OXZjd0p4d1NnQVExRk1s?=
- =?utf-8?B?bjMrdFpQTy80L0w2anIvb3ZjelluMWdraTVTNzIrZHRtcVRDR0YwWW1DZjJZ?=
- =?utf-8?B?Y3llTWQ2b2RVWWhjcjZJMXBFQzdRQ1VENnZKcGVQbmJHaklLMklKYlhCam0r?=
- =?utf-8?Q?RdeZAXBUAAPZTN1DljJV7Fbou?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a1a2bca7-9732-4cdb-e943-08dd43238b22
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Feb 2025 00:50:09.4658
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2/A4gYdEPXYeSbgeuVkPIIaOTRZYwTKRJfbu44tZb8xvtSpclDM0xncoh0elUOc1NYvL9bXKB9jSMT+nj/X+PA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9932
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 22/43] KVM: arm64: Validate register access for a Realm
+ VM
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+References: <20241212155610.76522-1-steven.price@arm.com>
+ <20241212155610.76522-23-steven.price@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20241212155610.76522-23-steven.price@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: qDaFfi9qU0_eua8D_4dU2b6ZAHq3oEoIfovcSlqfcTQ_1738459389
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250201_165019_124320_56692191 
-X-CRM114-Status: GOOD (  19.12  )
+X-CRM114-CacheID: sfid-20250201_172314_259254_66ECA352 
+X-CRM114-Status: GOOD (  25.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,263 +122,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peng Fan <peng.fan@nxp.com>
+On 12/13/24 1:55 AM, Steven Price wrote:
+> The RMM only allows setting the GPRS (x0-x30) and PC for a realm
+> guest. Check this in kvm_arm_set_reg() so that the VMM can receive a
+> suitable error return if other registers are accessed.
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> Changes since v5:
+>   * Upper GPRS can be set as part of a HOST_CALL return, so fix up the
+>     test to allow them.
+> ---
+>   arch/arm64/kvm/guest.c | 43 ++++++++++++++++++++++++++++++++++++++++++
+>   1 file changed, 43 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
+> index 12dad841f2a5..1ee2fe072f1a 100644
+> --- a/arch/arm64/kvm/guest.c
+> +++ b/arch/arm64/kvm/guest.c
+> @@ -73,6 +73,24 @@ static u64 core_reg_offset_from_id(u64 id)
+>   	return id & ~(KVM_REG_ARCH_MASK | KVM_REG_SIZE_MASK | KVM_REG_ARM_CORE);
+>   }
+>   
+> +static bool kvm_realm_validate_core_reg(u64 off)
+> +{
+> +	/*
+> +	 * Note that GPRs can only sometimes be controlled by the VMM.
+> +	 * For PSCI only X0-X6 are used, higher registers are ignored (restored
+> +	 * from the REC).
+> +	 * For HOST_CALL all of X0-X30 are copied to the RsiHostCall structure.
+> +	 * For emulated MMIO X0 is always used.
+> +	 */
+> +	switch (off) {
+> +	case KVM_REG_ARM_CORE_REG(regs.regs[0]) ...
+> +	     KVM_REG_ARM_CORE_REG(regs.regs[30]):
+> +	case KVM_REG_ARM_CORE_REG(regs.pc):
+> +		return true;
+> +	}
+> +	return false;
+> +}
+> +
+>   static int core_reg_size_from_offset(const struct kvm_vcpu *vcpu, u64 off)
+>   {
+>   	int size;
+> @@ -115,6 +133,9 @@ static int core_reg_size_from_offset(const struct kvm_vcpu *vcpu, u64 off)
+>   	if (vcpu_has_sve(vcpu) && core_reg_offset_is_vreg(off))
+>   		return -EINVAL;
+>   
+> +	if (kvm_is_realm(vcpu->kvm) && !kvm_realm_validate_core_reg(off))
+> +		return -EPERM;
+> +
+>   	return size;
+>   }
+>   
+> @@ -783,12 +804,34 @@ int kvm_arm_get_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
+>   	return kvm_arm_sys_reg_get_reg(vcpu, reg);
+>   }
+>   
+> +/*
+> + * The RMI ABI only enables setting some GPRs and PC. The selection of GPRs
+> + * that are available depends on the Realm state and the reason for the last
+> + * exit.  All other registers are reset to architectural or otherwise defined
+> + * reset values by the RMM, except for a few configuration fields that
+> + * correspond to Realm parameters.
+> + */
+> +static bool validate_realm_set_reg(struct kvm_vcpu *vcpu,
+> +				   const struct kvm_one_reg *reg)
+> +{
+> +	if ((reg->id & KVM_REG_ARM_COPROC_MASK) == KVM_REG_ARM_CORE) {
+> +		u64 off = core_reg_offset_from_id(reg->id);
+> +
+> +		return kvm_realm_validate_core_reg(off);
+> +	}
+> +
+> +	return false;
+> +}
+> +
+>   int kvm_arm_set_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
+>   {
+>   	/* We currently use nothing arch-specific in upper 32 bits */
+>   	if ((reg->id & ~KVM_REG_SIZE_MASK) >> 32 != KVM_REG_ARM64 >> 32)
+>   		return -EINVAL;
+>   
+> +	if (kvm_is_realm(vcpu->kvm) && !validate_realm_set_reg(vcpu, reg))
+> +		return -EINVAL;
+> +
+>   	switch (reg->id & KVM_REG_ARM_COPROC_MASK) {
+>   	case KVM_REG_ARM_CORE:	return set_core_reg(vcpu, reg);
+>   	case KVM_REG_ARM_FW:
 
-i.MX9 OCOTP supports a specific peripheral or function being fused
-which means disabled, so
- - Introduce ocotp_access_gates to be container of efuse gate info
- - Iterate all nodes to check accessing permission. If not
-   allowed to be accessed, detach the node
+It looks the core registers in kvm_arm_set_reg() has been validated for twice.
 
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- drivers/nvmem/Kconfig         |   3 +
- drivers/nvmem/imx-ocotp-ele.c | 173 +++++++++++++++++++++++++++++++++++++++++-
- 2 files changed, 175 insertions(+), 1 deletion(-)
+   ioctl(KVM_SET_ONE_REG)
+     kvm_arm_set_reg
+       validate_realm_set_reg
+         kvm_realm_validate_core_reg        // 1
+       set_core_reg
+         core_reg_offset_from_id
+         core_reg_addr
+           core_reg_offset_from_id
+           core_reg_size_from_offset
+             kvm_realm_validate_core_reg    // 2
+         copy_from_user
 
-diff --git a/drivers/nvmem/Kconfig b/drivers/nvmem/Kconfig
-index 8671b7c974b933e147154bb40b5d41b5730518d2..77cc496fd5e0e1afd753534b56fe1f5ef3e3ec55 100644
---- a/drivers/nvmem/Kconfig
-+++ b/drivers/nvmem/Kconfig
-@@ -93,6 +93,9 @@ config NVMEM_IMX_OCOTP_ELE
- 	  This is a driver for the On-Chip OTP Controller (OCOTP)
- 	  available on i.MX SoCs which has ELE.
- 
-+	  If built as modules, any other driver relying on this working
-+	  as access controller also needs to be a module as well.
-+
- config NVMEM_IMX_OCOTP_SCU
- 	tristate "i.MX8 SCU On-Chip OTP Controller support"
- 	depends on IMX_SCU
-diff --git a/drivers/nvmem/imx-ocotp-ele.c b/drivers/nvmem/imx-ocotp-ele.c
-index ca6dd71d8a2e29888c6e556aaea116c1a967cb5f..5f31a3a7530ce942f5abcd51869fcf78cc8409dd 100644
---- a/drivers/nvmem/imx-ocotp-ele.c
-+++ b/drivers/nvmem/imx-ocotp-ele.c
-@@ -5,6 +5,8 @@
-  * Copyright 2023 NXP
-  */
- 
-+#include <dt-bindings/nvmem/fsl,imx93-ocotp.h>
-+#include <dt-bindings/nvmem/fsl,imx95-ocotp.h>
- #include <linux/device.h>
- #include <linux/io.h>
- #include <linux/module.h>
-@@ -27,6 +29,7 @@ struct ocotp_map_entry {
- };
- 
- struct ocotp_devtype_data {
-+	const struct ocotp_access_gates *access_gates;
- 	u32 reg_off;
- 	char *name;
- 	u32 size;
-@@ -36,6 +39,20 @@ struct ocotp_devtype_data {
- 	struct ocotp_map_entry entry[];
- };
- 
-+#define OCOTP_MAX_NUM_GATE_WORDS 4
-+
-+struct access_gate {
-+	u32 word;
-+	u32 mask;
-+};
-+
-+struct ocotp_access_gates {
-+	u32 num_words;
-+	u32 words[OCOTP_MAX_NUM_GATE_WORDS];
-+	u32 num_gates;
-+	struct access_gate *gates;
-+};
-+
- struct imx_ocotp_priv {
- 	struct device *dev;
- 	void __iomem *base;
-@@ -131,6 +148,83 @@ static void imx_ocotp_fixup_dt_cell_info(struct nvmem_device *nvmem,
- 	cell->read_post_process = imx_ocotp_cell_pp;
- }
- 
-+static int imx_ele_ocotp_check_access(struct imx_ocotp_priv *priv, u32 id)
-+{
-+	const struct ocotp_access_gates *access_gates = priv->data->access_gates;
-+	void __iomem *reg = priv->base + priv->data->reg_off;
-+	u32 word, mask, val;
-+
-+	if (id >= access_gates->num_gates) {
-+		dev_err(priv->config.dev, "Index %d too large\n", id);
-+		return -EACCES;
-+	}
-+
-+	word = access_gates->gates[id].word;
-+	mask = access_gates->gates[id].mask;
-+
-+	reg = priv->base + priv->data->reg_off + (word << 2);
-+	val = readl(reg);
-+
-+	dev_dbg(priv->config.dev, "id:%d word:%d mask:0x%08x\n", id, word, mask);
-+	/* true means not allow access */
-+	if (val & mask)
-+		return -EACCES;
-+
-+	return 0;
-+}
-+
-+static int imx_ele_ocotp_grant_access(struct imx_ocotp_priv *priv, struct device_node *parent)
-+{
-+	struct device *dev = priv->config.dev;
-+
-+	for_each_available_child_of_node_scoped(parent, child) {
-+		struct of_phandle_args args;
-+		u32 id, idx = 0;
-+
-+		while (!of_parse_phandle_with_args(child, "access-controllers",
-+						   "#access-controller-cells",
-+						   idx++, &args)) {
-+			of_node_put(args.np);
-+			if (args.np != dev->of_node)
-+				continue;
-+
-+			/* Only support one cell */
-+			if (args.args_count != 1) {
-+				dev_err(dev, "wrong args count\n");
-+				continue;
-+			}
-+
-+			id = args.args[0];
-+
-+			dev_dbg(dev, "Checking node: %pOF gate: %d\n", child, id);
-+
-+			if (imx_ele_ocotp_check_access(priv, id)) {
-+				of_detach_node(child);
-+				dev_info(dev, "%pOF: Not granted, device driver will not be probed\n",
-+					 child);
-+			}
-+		}
-+
-+		imx_ele_ocotp_grant_access(priv, child);
-+	}
-+
-+	return 0;
-+}
-+
-+static int imx_ele_ocotp_access_control(struct imx_ocotp_priv *priv)
-+{
-+	struct device_node *root __free(device_node) = of_find_node_by_path("/");
-+
-+	if (!priv->data->access_gates)
-+		return 0;
-+
-+	/* This should never happen */
-+	if (WARN_ON(!root))
-+		return -EINVAL;
-+
-+	return imx_ele_ocotp_grant_access(priv, root);
-+}
-+
- static int imx_ele_ocotp_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
-@@ -161,14 +255,45 @@ static int imx_ele_ocotp_probe(struct platform_device *pdev)
- 	priv->config.fixup_dt_cell_info = imx_ocotp_fixup_dt_cell_info;
- 	mutex_init(&priv->lock);
- 
-+	platform_set_drvdata(pdev, priv);
-+
- 	nvmem = devm_nvmem_register(dev, &priv->config);
- 	if (IS_ERR(nvmem))
- 		return PTR_ERR(nvmem);
- 
--	return 0;
-+
-+	return imx_ele_ocotp_access_control(priv);
- }
- 
-+struct access_gate imx93_access_gate[] = {
-+		[IMX93_OCOTP_NPU_GATE]		= { .word = 19, .mask = BIT(13) },
-+		[IMX93_OCOTP_A550_GATE]		= { .word = 19, .mask = BIT(14) },
-+		[IMX93_OCOTP_A551_GATE]		= { .word = 19, .mask = BIT(15) },
-+		[IMX93_OCOTP_M33_GATE]		= { .word = 19, .mask = BIT(24) },
-+		[IMX93_OCOTP_CAN1_FD_GATE]	= { .word = 19, .mask = BIT(28) },
-+		[IMX93_OCOTP_CAN2_FD_GATE]	= { .word = 19, .mask = BIT(29) },
-+		[IMX93_OCOTP_CAN1_GATE]		= { .word = 19, .mask = BIT(30) },
-+		[IMX93_OCOTP_CAN2_GATE]		= { .word = 19, .mask = BIT(31) },
-+		[IMX93_OCOTP_USB1_GATE]		= { .word = 20, .mask = BIT(3) },
-+		[IMX93_OCOTP_USB2_GATE]		= { .word = 20, .mask = BIT(4) },
-+		[IMX93_OCOTP_ENET1_GATE]	= { .word = 20, .mask = BIT(5) },
-+		[IMX93_OCOTP_ENET2_GATE]	= { .word = 20, .mask = BIT(6) },
-+		[IMX93_OCOTP_PXP_GATE]		= { .word = 20, .mask = BIT(10) },
-+		[IMX93_OCOTP_MIPI_CSI1_GATE]	= { .word = 20, .mask = BIT(17) },
-+		[IMX93_OCOTP_MIPI_DSI1_GATE]	= { .word = 20, .mask = BIT(19) },
-+		[IMX93_OCOTP_LVDS1_GATE]	= { .word = 20, .mask = BIT(24) },
-+		[IMX93_OCOTP_ADC1_GATE]		= { .word = 21, .mask = BIT(7) },
-+};
-+
-+static const struct ocotp_access_gates imx93_access_gates_info = {
-+	.num_words = 3,
-+	.words = {19, 20, 21},
-+	.num_gates = ARRAY_SIZE(imx93_access_gate),
-+	.gates = imx93_access_gate,
-+};
-+
- static const struct ocotp_devtype_data imx93_ocotp_data = {
-+	.access_gates = &imx93_access_gates_info,
- 	.reg_off = 0x8000,
- 	.reg_read = imx_ocotp_reg_read,
- 	.size = 2048,
-@@ -183,7 +308,53 @@ static const struct ocotp_devtype_data imx93_ocotp_data = {
- 	},
- };
- 
-+struct access_gate imx95_access_gate[] = {
-+		[IMX95_OCOTP_CANFD1_GATE]	= { .word = 17, .mask = BIT(20) },
-+		[IMX95_OCOTP_CANFD2_GATE]	= { .word = 17, .mask = BIT(21) },
-+		[IMX95_OCOTP_CANFD3_GATE]	= { .word = 17, .mask = BIT(22) },
-+		[IMX95_OCOTP_CANFD4_GATE]	= { .word = 17, .mask = BIT(23) },
-+		[IMX95_OCOTP_CANFD5_GATE]	= { .word = 17, .mask = BIT(24) },
-+		[IMX95_OCOTP_CAN1_GATE]		= { .word = 17, .mask = BIT(25) },
-+		[IMX95_OCOTP_CAN2_GATE]		= { .word = 17, .mask = BIT(26) },
-+		[IMX95_OCOTP_CAN3_GATE]		= { .word = 17, .mask = BIT(27) },
-+		[IMX95_OCOTP_CAN4_GATE]		= { .word = 17, .mask = BIT(28) },
-+		[IMX95_OCOTP_CAN5_GATE]		= { .word = 17, .mask = BIT(29) },
-+		[IMX95_OCOTP_NPU_GATE]		= { .word = 18, .mask = BIT(0) },
-+		[IMX95_OCOTP_A550_GATE]		= { .word = 18, .mask = BIT(1) },
-+		[IMX95_OCOTP_A551_GATE]		= { .word = 18, .mask = BIT(2) },
-+		[IMX95_OCOTP_A552_GATE]		= { .word = 18, .mask = BIT(3) },
-+		[IMX95_OCOTP_A553_GATE]		= { .word = 18, .mask = BIT(4) },
-+		[IMX95_OCOTP_A554_GATE]		= { .word = 18, .mask = BIT(5) },
-+		[IMX95_OCOTP_A555_GATE]		= { .word = 18, .mask = BIT(6) },
-+		[IMX95_OCOTP_M7_GATE]		= { .word = 18, .mask = BIT(9) },
-+		[IMX95_OCOTP_DCSS_GATE]		= { .word = 18, .mask = BIT(22) },
-+		[IMX95_OCOTP_LVDS1_GATE]	= { .word = 18, .mask = BIT(27) },
-+		[IMX95_OCOTP_ISP_GATE]		= { .word = 18, .mask = BIT(29) },
-+		[IMX95_OCOTP_USB1_GATE]		= { .word = 19, .mask = BIT(2) },
-+		[IMX95_OCOTP_USB2_GATE]		= { .word = 19, .mask = BIT(3) },
-+		[IMX95_OCOTP_NETC_GATE]		= { .word = 19, .mask = BIT(4) },
-+		[IMX95_OCOTP_PCIE1_GATE]	= { .word = 19, .mask = BIT(6) },
-+		[IMX95_OCOTP_PCIE2_GATE]	= { .word = 19, .mask = BIT(7) },
-+		[IMX95_OCOTP_ADC1_GATE]		= { .word = 19, .mask = BIT(8) },
-+		[IMX95_OCOTP_EARC_RX_GATE]	= { .word = 19, .mask = BIT(11) },
-+		[IMX95_OCOTP_GPU3D_GATE]	= { .word = 19, .mask = BIT(16) },
-+		[IMX95_OCOTP_VPU_GATE]		= { .word = 19, .mask = BIT(17) },
-+		[IMX95_OCOTP_JPEG_ENC_GATE]	= { .word = 19, .mask = BIT(18) },
-+		[IMX95_OCOTP_JPEG_DEC_GATE]	= { .word = 19, .mask = BIT(19) },
-+		[IMX95_OCOTP_MIPI_CSI1_GATE]	= { .word = 19, .mask = BIT(21) },
-+		[IMX95_OCOTP_MIPI_CSI2_GATE]	= { .word = 19, .mask = BIT(22) },
-+		[IMX95_OCOTP_MIPI_DSI1_GATE]	= { .word = 19, .mask = BIT(23) },
-+};
-+
-+static const struct ocotp_access_gates imx95_access_gates_info = {
-+	.num_words = 3,
-+	.words = {17, 18, 19},
-+	.num_gates = ARRAY_SIZE(imx95_access_gate),
-+	.gates = imx95_access_gate,
-+};
-+
- static const struct ocotp_devtype_data imx95_ocotp_data = {
-+	.access_gates = &imx95_access_gates_info,
- 	.reg_off = 0x8000,
- 	.reg_read = imx_ocotp_reg_read,
- 	.size = 2048,
+Besides, there are other types of registers that can be accessed by KVM_{GET, SET}_ONE_REG:
+firmware and bitmap registers, SVE registers, timer registers, system registers. Need we
+to hide any of them from the user space? As I can understand, the SVE registers are owned
+by RMM at least and won't be exposed to user space.
 
--- 
-2.37.1
+Thanks,
+Gavin
+
 
 
