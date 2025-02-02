@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DE73C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Feb 2025 19:39:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F22CC0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Feb 2025 20:36:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+2aGAxjbAdwFKujLg/eNYHEFxNEe6obl2fXXxzMZFSU=; b=Dn5IITxY5Dnke75JBA5Ps0rRLq
-	vPfcrenxlQ1t4wJMEq5lys8v6rxH2ySDs5gSz83mEf0QRj58fPRXWqTEQj/JRqw5o9LySZTvem/y5
-	dHfAunzgUC58r6SYhOtcgyTCleWib5FEJjmN5qPIzr4Ybh5SLl680en/B7MEM93owLaLPoxLN+rVa
-	Rt+PwpNDGX16GlQ3zfIfAR8I0Ot0kdEhsX40DK6uMarZjhvCWoxM5SmXzfEx4HIXLcSd5H5mffyzz
-	J4knW+pPiMq9lnMpJHg0XSdT0q3RIC440tsD+qSE9cgm1ANAMFdpW3cDKdvGo9faZjoPXJawn0hdo
-	KYzWClwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5rKcZJY29bNaWdT+17+7U8GuqPLJU4SRzpugbbuKOc4=; b=zXiXxuoRjjUMqvlzVXMikzGDGz
+	NnHDMQr0KJIy4f1dOInZiN6rECi+7l81zIs5hXgQSHjhTULJukcpuVt0+oxwhX6RStsCWz3Z/C9/q
+	l+G3Mj1UTcjqw/c+zGFeKb4od6hMI620I7Mrfykn5qQp5bwvVORYsWdc8rBNsee/sr4m6Kmt69Zr2
+	oVKkcL0O4XUDCqi1ExCnmLpJFG/09JdTCoizcsr9Nb6dS56/1ZPv5KiZoMfNMJV2EpgQlMVuc9y0d
+	1XsXb+NK3ZKi/vaUvF6Bs1/CbLFtMWa4HxLRdxzY7W19ugxTD5poOFO07cxFu28lgkx3Gl2eppzQ/
+	B5p7y2lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tefnw-0000000E7BR-2il3;
-	Sun, 02 Feb 2025 19:38:52 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1teghp-0000000E9iE-3cB0;
+	Sun, 02 Feb 2025 20:36:37 +0000
+Received: from forward101d.mail.yandex.net ([178.154.239.212])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tefk7-0000000E6n7-1gNu;
-	Sun, 02 Feb 2025 19:34:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5F590A40C2C;
-	Sun,  2 Feb 2025 19:33:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD378C4CED1;
-	Sun,  2 Feb 2025 19:34:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738524894;
-	bh=K2iI3AiKvjoEFvWs1oYEwnuQSWAbsXtBtq6KCTpCm8s=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=FbN+JRDrD7nKr2dLBNZOe1qC5aTOv060C1/q8JE2jiFqpQZfLWCDIQ+vBM7WVNPF0
-	 CbNRTCsKPrraZwXbK+C6dIr8cRj8OoVb9fRzlKOqMkm9LWL0FWD7KpDaXQv6PnTzar
-	 VYyYAbh0aY7JvMwLHcXdW/SeuLmpwdKUqCHbcN0YrtVzJZpxOZy/I0wErBhtYsTRJm
-	 X2FTJAE44lFt05ch1YlEgJpGSE0vyBL87XergSHCM8bjAxtRsL1BGqHaFAZmZmqAXl
-	 Myfn6cCiNzhPR32po55YKJNj9dVSeM5yczAgBdD94pJWhv+PV5PgwM7GMTBpvSf7Wt
-	 /3kw0y5UnTBoA==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Sun, 02 Feb 2025 20:34:24 +0100
-Subject: [PATCH v2 2/2] PCI: mediatek-gen3: Configure PBUS_CSR registers
- for EN7581 SoC
+	id 1teggT-0000000E9cL-0fsV;
+	Sun, 02 Feb 2025 20:35:16 +0000
+Received: from mail-nwsmtp-smtp-production-main-90.myt.yp-c.yandex.net (mail-nwsmtp-smtp-production-main-90.myt.yp-c.yandex.net [IPv6:2a02:6b8:c12:288:0:640:d35:0])
+	by forward101d.mail.yandex.net (Yandex) with ESMTPS id 477E460906;
+	Sun,  2 Feb 2025 23:35:05 +0300 (MSK)
+Received: by mail-nwsmtp-smtp-production-main-90.myt.yp-c.yandex.net (smtp/Yandex) with ESMTPSA id wYpXeKDOhGk0-IOqKZa5Q;
+	Sun, 02 Feb 2025 23:35:03 +0300
+X-Yandex-Fwd: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ya.ru; s=mail;
+	t=1738528503; bh=5rKcZJY29bNaWdT+17+7U8GuqPLJU4SRzpugbbuKOc4=;
+	h=Message-ID:Subject:References:To:From:In-Reply-To:Cc:Date;
+	b=CSQea95ybmKLeA1PZavBV28WAG6bh595O+y5TydwxmO5vuEEwbc9asjkzAomJiRR9
+	 Zwp4bZRK8g7J7CNrmC9uy17dbNQnmUu15CA2Hl8k++brc0cx4j5cENITKBEMggFXXa
+	 RKEKqWypjMgsS+z6U6GvoH1j477XHSs85BN6NbaU=
+Authentication-Results: mail-nwsmtp-smtp-production-main-90.myt.yp-c.yandex.net; dkim=pass header.i=@ya.ru
+Date: Sun, 2 Feb 2025 23:34:58 +0300
+From: Pavel Golikov <paullo612@ya.ru>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: andy.yan@rock-chips.com, maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org, tzimmermann@suse.de, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org, rfoss@kernel.org,
+	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+	jernej.skrabec@gmail.com, dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	quentin.schulz@cherry.de, Heiko Stuebner <heiko.stuebner@cherry.de>,
+	Daniel Semkowicz <dse@thaumatec.com>,
+	Dmitry Yashin <dmt.yashin@gmail.com>,
+	Pavel Golikov <paullo612@ya.ru>
+Subject: Re: [PATCH v4 1/3] drm/bridge/synopsys: Add MIPI DSI2 host
+ controller bridge
+Message-ID: <20250202203458.GA52719@pgolikov-home-desktop>
+References: <20241209231021.2180582-1-heiko@sntech.de>
+ <20241209231021.2180582-2-heiko@sntech.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250202-en7581-pcie-pbus-csr-v2-2-65dcb201c9a9@kernel.org>
-References: <20250202-en7581-pcie-pbus-csr-v2-0-65dcb201c9a9@kernel.org>
-In-Reply-To: <20250202-en7581-pcie-pbus-csr-v2-0-65dcb201c9a9@kernel.org>
-To: Ryder Lee <ryder.lee@mediatek.com>, 
- Jianjun Wang <jianjun.wang@mediatek.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
- Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241209231021.2180582-2-heiko@sntech.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250202_113455_570336_77782389 
-X-CRM114-Status: GOOD (  14.27  )
+X-CRM114-CacheID: sfid-20250202_123513_740037_CFAAF18D 
+X-CRM114-Status: GOOD (  31.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,85 +80,298 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Configure PBus base address and address mask to allow the hw
-to detect if a given address is on PCIE0, PCIE1 or PCIE2.
+Hi,
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/pci/controller/pcie-mediatek-gen3.c | 30 ++++++++++++++++++++++++++++-
- 1 file changed, 29 insertions(+), 1 deletion(-)
+On Tue, Dec 10, 2024 at 12:10:19AM +0100, Heiko Stuebner wrote:
+> From: Heiko Stuebner <heiko.stuebner@cherry.de>
+> 
+> Add a Synopsys Designware MIPI DSI host DRM bridge driver for their
+> DSI2 host controller, based on the Rockchip version from the driver
+> rockchip/dw-mipi-dsi2.c in their vendor-kernel with phy & bridge APIs.
+> 
+> While the driver is heavily modelled after the previous IP, the register
+> set of this DSI2 controller is completely different and there are also
+> additional properties like the variable-width phy interface.
+> 
+> Tested-by: Daniel Semkowicz <dse@thaumatec.com>
+> Tested-by: Dmitry Yashin <dmt.yashin@gmail.com>
+> Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+[..]
+> +static void dw_mipi_dsi2_set_data_stream_mode(struct dw_mipi_dsi2 *dsi2)
+> +{
+> +	u32 mode;
+> +	int ret;
+> +
+> +	regmap_write(dsi2->regmap, DSI2_MODE_CTRL, DATA_STREAM_MODE);
+> +	ret = regmap_read_poll_timeout(dsi2->regmap, DSI2_MODE_STATUS,
+> +				       mode, mode & DATA_STREAM_MODE,
+> +				       1000, MODE_STATUS_TIMEOUT_US);
+> +	if (ret < 0)
+> +		dev_err(dsi2->dev, "failed to enter data stream mode\n");
+> +}
+> +
+> +static void dw_mipi_dsi2_set_cmd_mode(struct dw_mipi_dsi2 *dsi2)
+> +{
+> +	u32 mode;
+> +	int ret;
+> +
+> +	regmap_write(dsi2->regmap, DSI2_MODE_CTRL, COMMAND_MODE);
+> +	ret = regmap_read_poll_timeout(dsi2->regmap, DSI2_MODE_STATUS,
+> +				       mode, mode & COMMAND_MODE,
+> +				       1000, MODE_STATUS_TIMEOUT_US);
+> +	if (ret < 0)
+> +		dev_err(dsi2->dev, "failed to enter data stream mode\n");
 
-diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
-index aa24ac9aaecc749b53cfc4faf6399913d20cdbf2..9c2a592cae959de8fbe9ca5c5c2253f8eadf2c76 100644
---- a/drivers/pci/controller/pcie-mediatek-gen3.c
-+++ b/drivers/pci/controller/pcie-mediatek-gen3.c
-@@ -15,6 +15,7 @@
- #include <linux/irqchip/chained_irq.h>
- #include <linux/irqdomain.h>
- #include <linux/kernel.h>
-+#include <linux/mfd/syscon.h>
- #include <linux/module.h>
- #include <linux/msi.h>
- #include <linux/of_device.h>
-@@ -24,6 +25,7 @@
- #include <linux/platform_device.h>
- #include <linux/pm_domain.h>
- #include <linux/pm_runtime.h>
-+#include <linux/regmap.h>
- #include <linux/reset.h>
- 
- #include "../pci.h"
-@@ -127,6 +129,13 @@
- 
- #define PCIE_MTK_RESET_TIME_US		10
- 
-+#define PCIE_EN7581_PBUS_ADDR(_n)	(0x00 + ((_n) << 3))
-+#define PCIE_EN7581_PBUS_ADDR_MASK(_n)	(0x04 + ((_n) << 3))
-+#define PCIE_EN7581_PBUS_BASE_ADDR(_n)	\
-+	((_n) == 2 ? 0x28000000 :	\
-+	 (_n) == 1 ? 0x24000000 : 0x20000000)
-+#define PCIE_EN7581_PBUS_BASE_ADDR_MASK	GENMASK(31, 26)
-+
- /* Time in ms needed to complete PCIe reset on EN7581 SoC */
- #define PCIE_EN7581_RESET_TIME_MS	100
- 
-@@ -931,7 +940,8 @@ static int mtk_pcie_parse_port(struct mtk_gen3_pcie *pcie)
- static int mtk_pcie_en7581_power_up(struct mtk_gen3_pcie *pcie)
- {
- 	struct device *dev = pcie->dev;
--	int err;
-+	struct regmap *map;
-+	int err, slot;
- 	u32 val;
- 
- 	/*
-@@ -945,6 +955,24 @@ static int mtk_pcie_en7581_power_up(struct mtk_gen3_pcie *pcie)
- 	/* Wait for the time needed to complete the reset lines assert. */
- 	msleep(PCIE_EN7581_RESET_TIME_MS);
- 
-+	map = syscon_regmap_lookup_by_phandle(dev->of_node,
-+					      "mediatek,pbus-csr");
-+	if (IS_ERR(map))
-+		return PTR_ERR(map);
-+
-+	/*
-+	 * Configure PBus base address and address mask to allow the
-+	 * hw to detect if a given address is on PCIE0, PCIE1 or PCIE2.
-+	 */
-+	slot = of_get_pci_domain_nr(dev->of_node);
-+	if (slot < 0)
-+		return slot;
-+
-+	regmap_write(map, PCIE_EN7581_PBUS_ADDR(slot),
-+		     PCIE_EN7581_PBUS_BASE_ADDR(slot));
-+	regmap_write(map, PCIE_EN7581_PBUS_ADDR_MASK(slot),
-+		     PCIE_EN7581_PBUS_BASE_ADDR_MASK);
-+
- 	/*
- 	 * Unlike the other MediaTek Gen3 controllers, the Airoha EN7581
- 	 * requires PHY initialization and power-on before PHY reset deassert.
+We've failed to enter command mode, not stream mode. Wrong error message caused
+by copy and paste?
 
--- 
-2.48.1
+> +}
+> +
+> +static void dw_mipi_dsi2_host_softrst(struct dw_mipi_dsi2 *dsi2)
+> +{
 
+Looks like it is necessary to also do apb reset here, like vendor kernel does.
+Without apb reset, panel sometimes does not properly come up after DPMS switch.
+
+Tested with
+
+modetest -M rockchip -w 83:DPMS:3
+
+I'm not sure whether it is Debian specific, but setting connector's DPMS property
+to OFF causes immediate panel reset. Something is restoring its value to ON
+immediately.
+
+> +	regmap_write(dsi2->regmap, DSI2_SOFT_RESET, 0x0);
+> +	usleep_range(50, 100);
+> +	regmap_write(dsi2->regmap, DSI2_SOFT_RESET,
+> +		   SYS_RSTN | PHY_RSTN | IPI_RSTN);
+> +}
+
+...
+
+> +static void dw_mipi_dsi2_phy_ratio_cfg(struct dw_mipi_dsi2 *dsi2)
+> +{
+> +	struct drm_display_mode *mode = &dsi2->mode;
+> +	u64 sys_clk = clk_get_rate(dsi2->sys_clk);
+> +	u64 pixel_clk, ipi_clk, phy_hsclk;
+> +	u64 tmp;
+> +
+> +	/*
+> +	 * in DPHY mode, the phy_hstx_clk is exactly 1/16 the Lane high-speed
+> +	 * data rate; In CPHY mode, the phy_hstx_clk is exactly 1/7 the trio
+> +	 * high speed symbol rate.
+> +	 */
+> +	phy_hsclk = DIV_ROUND_CLOSEST_ULL(dsi2->lane_mbps * USEC_PER_SEC, 16);
+> +
+> +	/* IPI_RATIO_MAN_CFG = PHY_HSTX_CLK / IPI_CLK */
+> +	pixel_clk = mode->crtc_clock * MSEC_PER_SEC;
+> +	ipi_clk = pixel_clk / 4;
+> +
+> +	tmp = DIV_ROUND_CLOSEST_ULL(phy_hsclk << 16, ipi_clk);
+> +	regmap_write(dsi2->regmap, DSI2_PHY_IPI_RATIO_MAN_CFG,
+> +		   PHY_IPI_RATIO(tmp));
+> +
+> +	/*
+> +	 * SYS_RATIO_MAN_CFG = MIPI_DCPHY_HSCLK_Freq / MIPI_DCPHY_HSCLK_Freq
+> +	 */
+
+According to TRM
+
+SYS_RATIO_MAN_CFG = MIPI_DCPHY_HSCLK_Freq / SYS_CLK_Freq
+
+So, this comment is simply wrong. Looks like a typo. Also, earlier comment does
+not mention _Freq part in frequency names. Maybe it would be better to make it
+consistent?
+
+> +	tmp = DIV_ROUND_CLOSEST_ULL(phy_hsclk << 16, sys_clk);
+> +	regmap_write(dsi2->regmap, DSI2_PHY_SYS_RATIO_MAN_CFG,
+> +		   PHY_SYS_RATIO(tmp));
+> +}
+> +
+> +static void dw_mipi_dsi2_lp2hs_or_hs2lp_cfg(struct dw_mipi_dsi2 *dsi2)
+> +{
+> +	const struct dw_mipi_dsi2_phy_ops *phy_ops = dsi2->plat_data->phy_ops;
+> +	struct dw_mipi_dsi2_phy_timing timing;
+> +	int ret;
+> +
+> +	ret = phy_ops->get_timing(dsi2->plat_data->priv_data,
+> +				  dsi2->lane_mbps, &timing);
+> +	if (ret)
+> +		dev_err(dsi2->dev, "Retrieving phy timings failed\n");
+> +
+> +	regmap_write(dsi2->regmap, DSI2_PHY_LP2HS_MAN_CFG, PHY_LP2HS_TIME(timing.data_lp2hs));
+> +	regmap_write(dsi2->regmap, DSI2_PHY_HS2LP_MAN_CFG, PHY_HS2LP_TIME(timing.data_hs2lp));
+
+I also had to set DSI2_PHY_MAX_RD_T_MAN_CFG to 10000 as it is done in
+dw-mipi-dsi (v1) driver to make my panel work properly in LPM mode.
+
+> +}
+
+...
+
+> +static const struct regmap_config dw_mipi_dsi2_regmap_config = {
+> +	.name = "dsi2-host",
+> +	.reg_bits = 32,
+> +	.val_bits = 32,
+> +	.reg_stride = 4,
+> +	.fast_io = true,
+
+Maybe it would be good to also set max_register here to make proper regmap
+available through debugfs? Or max_register_is_0 otherwise? Without this, only
+first register is available for dumping.
+
+Not quite relevant here, as this bridge is not currently used alone, but
+relevant for Rockchip specific glue driver.
+
+> +};
+
+...
+
+
+I've managed to successfully enable my DSI panel [0]. It has Lincoln Technology
+Solutions ZV070WUV-L50 board [1], which, in turn, is based on Focal Tech FT7250
+display controller.
+
+This panel works flawlessly with rk3568 (but at most at ~55 Hz refresh rate,
+because rk3568 does not support modes higher than 1920x1080@60, so, I had to
+lower refresh rate to make it work). But has some troubles with rk3588. It
+works fine with vendor kernel with LPM disabled and "auto-calculation-mode"
+device tree property set. As far as I can understand, auto calculation mode is
+not going to be supported by mainline, and disabling LPM is not an option to
+me.
+
+So, to make it work with this series I had to increase PHY_SYS_RATIO twice.
+
+Maybe Andy could shade the light on what automatic mode calculation algorithm
+does? Why in automatic mode PHY_SYS_RATIO value is twice larger than value
+computed by formula in DSI controller application note?
+
+Panel configuration:
+
+static const struct drm_display_mode default_mode_lincoln = {
+	.hdisplay    = 1200,
+	.hsync_start = 1200 + 20,
+	.hsync_end   = 1200 + 20 + 8,
+	.htotal      = 1200 + 20 + 8 + 22,
+	.vdisplay    = 1920,
+	.vsync_start = 1920 + 178,
+	.vsync_end   = 1920 + 178 + 8,
+	.vtotal      = 1920 + 178 + 8 + 32,
+	.clock       = 148500,
+	.width_mm    = 94,
+	.height_mm   = 151,
+};
+
+dsi->lanes = 4;
+dsi->format = MIPI_DSI_FMT_RGB888;
+dsi->mode_flags = MIPI_DSI_MODE_LPM | MIPI_DSI_MODE_VIDEO |
+	MIPI_DSI_MODE_NO_EOT_PACKET | MIPI_DSI_MODE_VIDEO_BURST;
+
+Regmap diff between manual mode and automatic mode:
+
+diff --git a/root/regs_manual b/root/regs_auto
+index 117cb5b..5dce301 100644
+--- a/root/regs_manual
++++ b/root/regs_auto
+@@ -7,9 +7,9 @@
+ 018: 00000000
+ 01c: 00000003
+ 020: 00000303
+-024: 00000001
++024: 00000000
+ 028: 00000000
+-02c: 0161082c
++02c: 04b70728
+ 030: 00000000
+ 034: 00000000
+ 038: 00000000
+@@ -65,20 +65,20 @@
+ 100: 00000130
+ 104: 00000900
+ 108: 001f0000
+-10c: 000cb0b5
+-110: 00000000
+-114: 000ae64f
+-118: 00000000
++10c: 00000000
++110: 0013be38
++114: 00000000
++118: 00114671
+ 11c: 00000000
+-120: 00000000
++120: 000003d3
+ 124: 00000000
+-128: 00000000
++128: 00952167
+ 12c: 00000000
+-130: 00000000
+-134: 0001aaab
+-138: 00000000
+-13c: 00002d21
+-140: 00000000
++130: 00658920
++134: 00000000
++138: 0001aaad
++13c: 00000000
++140: 00005a41
+ 144: 00000000
+ 148: 00000000
+ 14c: 00000000
+@@ -129,7 +129,7 @@
+ 200: 00000002
+ 204: 00000000
+ 208: ffff0000
+-20c: 00100072
++20c: 00000072
+ 210: 00000000
+ 214: 00000000
+ 218: 00000000
+@@ -191,20 +191,20 @@
+ 2f8: 00000000
+ 2fc: 00000000
+ 300: 00000050
+-304: 00035555
+-308: 00000000
+-30c: 00092aab
+-310: 00000000
+-314: 01f40000
+-318: 00000000
+-31c: 0208d555
+-320: 00000000
+-324: 00000008
+-328: 00000000
+-32c: 00000020
+-330: 00000000
+-334: 00000780
+-338: 00000000
+-33c: 000000b2
+-340: 00000000
++304: 00000000
++308: 0003555a
++30c: 00000000
++310: 00092ab7
++314: 00000000
++318: 01f402bc
++31c: 00000000
++320: 0208d82e
++324: 00000000
++328: 00000008
++32c: 00000000
++330: 00000020
++334: 00000000
++338: 00000780
++33c: 00000000
++340: 000000b2
+ 344: 000004b0
+
+The only irrelevant difference here is LPM mode enable bit.
+
+Calculated hsclk is 61875000, sys clk is 351000000, MIPI lane speed is
+990 mbps. VOP pixel clock is 37125000 if it is relevant in any way.
+
+Thanks, Pavel
+
+[0] https://www.hello-lighting.com/product/7-0-ips-1200x1920/
+[1] http://www.microtech-lcd.cn/upfile/202109/2021092649634025.jpg
 
