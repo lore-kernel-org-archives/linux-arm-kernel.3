@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0BEFC0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Feb 2025 19:07:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6DD8C02190
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Feb 2025 19:10:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MEkjSjNcAPYSFKuVoeTfDyl7AJ3HGi9zwtVoJEYleJ8=; b=mD+HlEO1rF7Er2OHxdgqFmkGGr
-	F8eMQQUZHDNE4UsnwNtCtSetu1+ge+tjE9F7BfzDQFhIDB1i/BsTE/5VW+yjUr5ymZMttkzFzHoHg
-	4G2G6Hp/xd0xbqPqPZynTF7NOhVs013NXJIeHxLAnM9KT1biw+BPH9eZGtDNl3vNS2Z0sa7yYMiAz
-	uHjhuTV/h//jPR7fLnPIesPJ3TIO8nvEtpKXNfNa9SdkjB4m/ZC0OYTE1rpujiab53/XZ5Rn996CF
-	3RGDiioMpqMepu0HBcVHUEB/WRwwLhxtk7QHRe89DFk9GuasitEE/xC+pRZaCRu2dtbNxB7YT4NKH
-	Y4C5MQxw==;
+	bh=MEkjSjNcAPYSFKuVoeTfDyl7AJ3HGi9zwtVoJEYleJ8=; b=ivsXQo4Iq3gT0fTtiKcYb4/TFJ
+	v3et09BBDgL94NwAFyTCQj4aTWUtjCeqHeBkjkdkXsP3Opb/X/XfyNErNH9nSTi70eFeKKaYjEQIY
+	AKsHE55fPgRj+IIzKmLwdbyqVr6fAfx4EPPrR/foRiN73htvhm0m60PW/GMWZALZ5fqYjSW7rkKbr
+	7aZD9nCr+ukBhNiT19tx4GPPA+lOMwKpirlTZ8qFxlXOXEoU76dUjnaaNCq4UDWlNKXCOFPJYgB8M
+	7kMXlmVsnoYyL2cCLIVOwc3pXuIYkFXqwPOZ8/wOdMrPVmUz8dqeIAgRhydh7w0dsbLY5ZheKpoOW
+	9egP3zYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tefJL-0000000E55U-0uRX;
-	Sun, 02 Feb 2025 19:07:15 +0000
+	id 1tefMS-0000000E5gP-2Jja;
+	Sun, 02 Feb 2025 19:10:28 +0000
 Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tefHU-0000000E4uA-0oH3;
-	Sun, 02 Feb 2025 19:05:21 +0000
+	id 1tefL7-0000000E5N6-1IID;
+	Sun, 02 Feb 2025 19:09:06 +0000
 Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id CE99325AB1;
-	Sun,  2 Feb 2025 20:05:18 +0100 (CET)
+	by disroot.org (Postfix) with ESMTP id BFE8025B4D;
+	Sun,  2 Feb 2025 20:09:03 +0100 (CET)
 X-Virus-Scanned: SPAM Filter at disroot.org
 Received: from layka.disroot.org ([127.0.0.1])
  by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id 0_FarVtUe3uv; Sun,  2 Feb 2025 20:05:17 +0100 (CET)
+ id R78ycfH2rEdc; Sun,  2 Feb 2025 20:08:59 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1738523117; bh=uZPnvPpJWT6jieto24uQtfNE/WGiMaBy8XW8tZAAa5E=;
+	t=1738523339; bh=uZPnvPpJWT6jieto24uQtfNE/WGiMaBy8XW8tZAAa5E=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=GGC2wyvm5IetYNvJDj27pTw8z0xuRktP8pnIiNfKAraCLNvyiNFjy0cB6OwrIGMQa
-	 4ah1n0wCT2/rfz4XFgqLid5dnMlt7prpkW73xEUQRzWLHF0PyUjMmDZeHlO8u2hrSd
-	 OcdXzEt73p7UCNxDE9ZP2JeBRAz1VxqiDkb38l4evdS9BpEVDW6ZnAU3vN8KOgz7Ph
-	 8v0hFMuw0geSb3VU/5Njoh5ib8i4QAmGYzLIo1XvVOAWptz5zMYiLf+pSTSzvf5JbC
-	 3njsZbeXUFXFnk/efUe58NZwVvmWqU+WmZ+Iw9fLBgYEN6E+YPssErFwyh65EuDxLb
-	 bk7Th8uxYfIxQ==
+	b=TCmPGtHf33Hh1MO6RvRQV8fdoJeuB8jU38nVb9WuD2Od65unGQAANvP4e82tHr76E
+	 /tMKfwUmWTmQXXwDAwq43Imx5NL8wU1ygm2wMTxjhawWvbIRTnhaxOALlxkPxRQy5Y
+	 uRDqvnN1EH0TyITorxQHkuPKpu+SrdlwFkIXPT8b6VKjLE0CIIGQ6peis1JdlR4qL0
+	 cY2Hmj78ebblz861lJjz0+zppXpDxJ3oWE7j20YEBaszP2PG9OTg48vbjgsMfEu8lb
+	 U4lubAXwPjHpvk48mCLpNgUtqE3scV/I6Lnek8cwFhvm5HU2/1MQ+GMd9ccUnwLARz
+	 6/VphTJwyoiow==
 From: Kaustabh Chakraborty <kauschluss@disroot.org>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk@kernel.org>,
@@ -89,15 +89,15 @@ Cc: Sergey Lisov <sleirsgoevy@gmail.com>,
 	linux-mmc@vger.kernel.org,
 	linux-hardening@vger.kernel.org,
 	Kaustabh Chakraborty <kauschluss@disroot.org>
-Subject: [PATCH 03/34] dt-bindings: clock: add clock definitions for exynos7870 CMU
-Date: Mon,  3 Feb 2025 00:34:54 +0530
-Message-ID: <20250202190454.14632-1-kauschluss@disroot.org>
+Subject: [PATCH 02/33] dt-bindings: clock: add clock definitions for exynos7870 CMU
+Date: Mon,  3 Feb 2025 00:37:58 +0530
+Message-ID: <20250202190758.14986-1-kauschluss@disroot.org>
 In-Reply-To: <20250203-exynos7870-v1-0-2b6df476a3f0@disroot.org>
 References: <20250203-exynos7870-v1-0-2b6df476a3f0@disroot.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250202_110520_511397_113A8244 
+X-CRM114-CacheID: sfid-20250202_110905_619849_898B1695 
 X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
