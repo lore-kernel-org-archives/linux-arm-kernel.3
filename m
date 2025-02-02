@@ -4,68 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F22CC0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Feb 2025 20:36:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A5C5C0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Feb 2025 23:17:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5rKcZJY29bNaWdT+17+7U8GuqPLJU4SRzpugbbuKOc4=; b=zXiXxuoRjjUMqvlzVXMikzGDGz
-	NnHDMQr0KJIy4f1dOInZiN6rECi+7l81zIs5hXgQSHjhTULJukcpuVt0+oxwhX6RStsCWz3Z/C9/q
-	l+G3Mj1UTcjqw/c+zGFeKb4od6hMI620I7Mrfykn5qQp5bwvVORYsWdc8rBNsee/sr4m6Kmt69Zr2
-	oVKkcL0O4XUDCqi1ExCnmLpJFG/09JdTCoizcsr9Nb6dS56/1ZPv5KiZoMfNMJV2EpgQlMVuc9y0d
-	1XsXb+NK3ZKi/vaUvF6Bs1/CbLFtMWa4HxLRdxzY7W19ugxTD5poOFO07cxFu28lgkx3Gl2eppzQ/
-	B5p7y2lw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e1dos8mPCCNcJjz8w4voHe85/j4TJkmhqF45HVaBd4U=; b=kxT288pjpWj/WFDpPprEqaHsds
+	Ng/RSX6bAX4CZJZXQRF3FJrRUdKe19YT2C0sTjC17SxFYPZCLI/0VVvjWktk61XqbX2V1UJEQjhp9
+	FIf8OlBWgQFp7iPtMBW1CZNfqUpwlLvnmZqZn4ftOfQEkvHTpSOAf0Sa8T842xtoq/QNjjyucMVtb
+	9FHNUSDMQtLuUJGOV7YwB39YtZK4Jl02OFQ53SvUmQ6GfXCe2eBABaQ/k4N0/VP+Ckccg5OA53VuX
+	J7qWa5CZMiDPtKhqpky6XizHanSLCXSTGyKw8pzK9j75dvwq+V0RlAnzMJ+5yWOy0iA6eteYsYZxP
+	u5wNGDnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teghp-0000000E9iE-3cB0;
-	Sun, 02 Feb 2025 20:36:37 +0000
-Received: from forward101d.mail.yandex.net ([178.154.239.212])
+	id 1tejCr-0000000EHla-0ZgK;
+	Sun, 02 Feb 2025 23:16:49 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1teggT-0000000E9cL-0fsV;
-	Sun, 02 Feb 2025 20:35:16 +0000
-Received: from mail-nwsmtp-smtp-production-main-90.myt.yp-c.yandex.net (mail-nwsmtp-smtp-production-main-90.myt.yp-c.yandex.net [IPv6:2a02:6b8:c12:288:0:640:d35:0])
-	by forward101d.mail.yandex.net (Yandex) with ESMTPS id 477E460906;
-	Sun,  2 Feb 2025 23:35:05 +0300 (MSK)
-Received: by mail-nwsmtp-smtp-production-main-90.myt.yp-c.yandex.net (smtp/Yandex) with ESMTPSA id wYpXeKDOhGk0-IOqKZa5Q;
-	Sun, 02 Feb 2025 23:35:03 +0300
-X-Yandex-Fwd: 1
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ya.ru; s=mail;
-	t=1738528503; bh=5rKcZJY29bNaWdT+17+7U8GuqPLJU4SRzpugbbuKOc4=;
-	h=Message-ID:Subject:References:To:From:In-Reply-To:Cc:Date;
-	b=CSQea95ybmKLeA1PZavBV28WAG6bh595O+y5TydwxmO5vuEEwbc9asjkzAomJiRR9
-	 Zwp4bZRK8g7J7CNrmC9uy17dbNQnmUu15CA2Hl8k++brc0cx4j5cENITKBEMggFXXa
-	 RKEKqWypjMgsS+z6U6GvoH1j477XHSs85BN6NbaU=
-Authentication-Results: mail-nwsmtp-smtp-production-main-90.myt.yp-c.yandex.net; dkim=pass header.i=@ya.ru
-Date: Sun, 2 Feb 2025 23:34:58 +0300
-From: Pavel Golikov <paullo612@ya.ru>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: andy.yan@rock-chips.com, maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org, tzimmermann@suse.de, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org, rfoss@kernel.org,
-	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
-	jernej.skrabec@gmail.com, dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	quentin.schulz@cherry.de, Heiko Stuebner <heiko.stuebner@cherry.de>,
-	Daniel Semkowicz <dse@thaumatec.com>,
-	Dmitry Yashin <dmt.yashin@gmail.com>,
-	Pavel Golikov <paullo612@ya.ru>
-Subject: Re: [PATCH v4 1/3] drm/bridge/synopsys: Add MIPI DSI2 host
- controller bridge
-Message-ID: <20250202203458.GA52719@pgolikov-home-desktop>
-References: <20241209231021.2180582-1-heiko@sntech.de>
- <20241209231021.2180582-2-heiko@sntech.de>
+	id 1tejBV-0000000EHf7-43SR
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 02 Feb 2025 23:15:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1738538124;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=e1dos8mPCCNcJjz8w4voHe85/j4TJkmhqF45HVaBd4U=;
+	b=KeaaxaV9Q03bbJjlcMGJl0ejq5dguI85UEZqQ3VVBeXMYdQJ5DC6uWPzI8NgBV/F8Vm+xz
+	HTSskg36EMYv5B9poIaejL9+YuOb86DmFIh/wV8u2WOh2pSgCXF5IhrIA3PKPxKMG9prpJ
+	AFHOFTbf1kdYeYrI/GaZAZ5wxjS2FSY=
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com
+ [209.85.214.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-544-DjvPEEoWOOqUO2jV16HtTw-1; Sun, 02 Feb 2025 18:15:23 -0500
+X-MC-Unique: DjvPEEoWOOqUO2jV16HtTw-1
+X-Mimecast-MFC-AGG-ID: DjvPEEoWOOqUO2jV16HtTw
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-216311faa51so67361425ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Feb 2025 15:15:23 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738538122; x=1739142922;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=e1dos8mPCCNcJjz8w4voHe85/j4TJkmhqF45HVaBd4U=;
+        b=amg7NoOhOoZSGuOMn0MjYSRfE+MfLXoVZl5w1uw+aMibEOrH0jDFjT2M5FoGj8sDOs
+         EnfygOhqwfYDHCpWCyz8OkgRcFGeHd+EwbjC3K5hsZ7zeTqAyUGSRT/6cn9Cwnaa+WqH
+         x5ne/BMBqCbB8i35nxtSYd16tEAvlrFM64ta5SGGp+r8e18TxnNiSFJzS3Br9wwlWLK/
+         tz6nqCZ2zlQpE23yrv8oKekW7pUpDDb9+SOUYLLFqdy3658rWjhhL3n52bstNQes7qKd
+         lLzt/tB3EYgpxQ0qO69fPcJgzFGJP3Ot1FnhaInwJMBUjAzlv8X/8idyAwWEpCyzU+mI
+         mobg==
+X-Forwarded-Encrypted: i=1; AJvYcCUMLxLqy3e6EZAEIPPu2RKsPofwbPfThhlilT0QtSKQIIBJqPln88dnzXhKl4vtIn0Uhf4K7/QijbcWDUvFcg3f@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw35LhjYuP9XPI7Nmlech13/51nIeSTgdzZPV7ejwG+AWz4Bq5B
+	OpRdnjhrfjYkxwsK7x2FYRpwDA3dDv8YTvvIU3u6OxHUmdzZ3vgBhPmd9rC8Npd6xlJebwe2jB3
+	EqiKt20ueUjQYT89fEbA6WMD/amC9k3pS4ay8eWdYAA3JVHRt1rbA8GD5njD5smbFqoiH4Cjr
+X-Gm-Gg: ASbGncsvleZUFgqXiSdxNuC4J8F4Pb2QndxcaomQKx0cyQUl4zVpbOBNGPzO08k1qM/
+	o26xPRqXp30ecpgtV/8+/LWRL89rw0OmfN2Z+9sFhmePJOvflrxsP5lyiWsu6Eol5BvI61WUQhb
+	++lJee75rD1/L+CCPAuauSGgeWL34iF2xBhKcLzp4yMTtegvryuPp06t6Xs4uEbnjBG9b8xka/D
+	cjJol3GKnL9ESpDeFicwRDTyfBJ41qpEOMjD/aAkfjoiX7tEYzfwFcONmFSZ3Ip8DlHxzU8YesD
+	9rkyow==
+X-Received: by 2002:a17:903:120a:b0:216:3f6e:fabd with SMTP id d9443c01a7336-21edd7eafccmr173599045ad.7.1738538122331;
+        Sun, 02 Feb 2025 15:15:22 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IE2mf76DirOg9TZyfOkrJfXsutpQ6g81h2feZA7/LYyJlI04cSOqf6NavNatW10Gphrl5eu/w==
+X-Received: by 2002:a17:903:120a:b0:216:3f6e:fabd with SMTP id d9443c01a7336-21edd7eafccmr173598665ad.7.1738538121968;
+        Sun, 02 Feb 2025 15:15:21 -0800 (PST)
+Received: from [192.168.68.55] ([180.233.125.64])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21de32ea5fesm62974185ad.132.2025.02.02.15.15.14
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 02 Feb 2025 15:15:21 -0800 (PST)
+Message-ID: <34990c4f-b65e-4af2-8348-87ea078afc16@redhat.com>
+Date: Mon, 3 Feb 2025 09:15:12 +1000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241209231021.2180582-2-heiko@sntech.de>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 34/43] arm64: RME: Propagate number of breakpoints and
+ watchpoints to userspace
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+References: <20241212155610.76522-1-steven.price@arm.com>
+ <20241212155610.76522-35-steven.price@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20241212155610.76522-35-steven.price@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 8zSj2iWLx0ksF_7Udc7rbOJeNcxnv4celinnTfH52Vc_1738538122
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250202_123513_740037_CFAAF18D 
-X-CRM114-Status: GOOD (  31.89  )
+X-CRM114-CacheID: sfid-20250202_151526_095132_BF5BF3ED 
+X-CRM114-Status: GOOD (  20.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,298 +123,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Tue, Dec 10, 2024 at 12:10:19AM +0100, Heiko Stuebner wrote:
-> From: Heiko Stuebner <heiko.stuebner@cherry.de>
+On 12/13/24 1:55 AM, Steven Price wrote:
+> From: Jean-Philippe Brucker <jean-philippe@linaro.org>
 > 
-> Add a Synopsys Designware MIPI DSI host DRM bridge driver for their
-> DSI2 host controller, based on the Rockchip version from the driver
-> rockchip/dw-mipi-dsi2.c in their vendor-kernel with phy & bridge APIs.
+> The RMM describes the maximum number of BPs/WPs available to the guest
+> in the Feature Register 0. Propagate those numbers into ID_AA64DFR0_EL1,
+> which is visible to userspace. A VMM needs this information in order to
+> set up realm parameters.
 > 
-> While the driver is heavily modelled after the previous IP, the register
-> set of this DSI2 controller is completely different and there are also
-> additional properties like the variable-width phy interface.
+> Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+>   arch/arm64/include/asm/kvm_rme.h |  2 ++
+>   arch/arm64/kvm/rme.c             | 22 ++++++++++++++++++++++
+>   arch/arm64/kvm/sys_regs.c        |  2 +-
+>   3 files changed, 25 insertions(+), 1 deletion(-)
 > 
-> Tested-by: Daniel Semkowicz <dse@thaumatec.com>
-> Tested-by: Dmitry Yashin <dmt.yashin@gmail.com>
-> Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
-> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
-[..]
-> +static void dw_mipi_dsi2_set_data_stream_mode(struct dw_mipi_dsi2 *dsi2)
-> +{
-> +	u32 mode;
-> +	int ret;
+> diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/asm/kvm_rme.h
+> index 0d89ab1645c1..f8e37907e2d5 100644
+> --- a/arch/arm64/include/asm/kvm_rme.h
+> +++ b/arch/arm64/include/asm/kvm_rme.h
+> @@ -85,6 +85,8 @@ void kvm_init_rme(void);
+>   u32 kvm_realm_ipa_limit(void);
+>   u32 kvm_realm_vgic_nr_lr(void);
+>   
+> +u64 kvm_realm_reset_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val);
 > +
-> +	regmap_write(dsi2->regmap, DSI2_MODE_CTRL, DATA_STREAM_MODE);
-> +	ret = regmap_read_poll_timeout(dsi2->regmap, DSI2_MODE_STATUS,
-> +				       mode, mode & DATA_STREAM_MODE,
-> +				       1000, MODE_STATUS_TIMEOUT_US);
-> +	if (ret < 0)
-> +		dev_err(dsi2->dev, "failed to enter data stream mode\n");
+>   bool kvm_rme_supports_sve(void);
+>   
+>   int kvm_realm_enable_cap(struct kvm *kvm, struct kvm_enable_cap *cap);
+> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
+> index e562e77c1f94..d21042d5ec9a 100644
+> --- a/arch/arm64/kvm/rme.c
+> +++ b/arch/arm64/kvm/rme.c
+> @@ -63,6 +63,28 @@ u32 kvm_realm_vgic_nr_lr(void)
+>   	return u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_GICV3_NUM_LRS);
+>   }
+>   
+> +u64 kvm_realm_reset_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
+> +{
+> +	u32 bps = u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_NUM_BPS);
+> +	u32 wps = u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_NUM_WPS);
+> +	u32 ctx_cmps;
+> +
+> +	if (!kvm_is_realm(vcpu->kvm))
+> +		return val;
+> +
+> +	/* Ensure CTX_CMPs is still valid */
+> +	ctx_cmps = FIELD_GET(ID_AA64DFR0_EL1_CTX_CMPs, val);
+> +	ctx_cmps = min(bps, ctx_cmps);
+> +
+> +	val &= ~(ID_AA64DFR0_EL1_BRPs_MASK | ID_AA64DFR0_EL1_WRPs_MASK |
+> +		 ID_AA64DFR0_EL1_CTX_CMPs);
+> +	val |= FIELD_PREP(ID_AA64DFR0_EL1_BRPs_MASK, bps) |
+> +	       FIELD_PREP(ID_AA64DFR0_EL1_WRPs_MASK, wps) |
+> +	       FIELD_PREP(ID_AA64DFR0_EL1_CTX_CMPs, ctx_cmps);
+> +
+> +	return val;
 > +}
 > +
-> +static void dw_mipi_dsi2_set_cmd_mode(struct dw_mipi_dsi2 *dsi2)
-> +{
-> +	u32 mode;
-> +	int ret;
-> +
-> +	regmap_write(dsi2->regmap, DSI2_MODE_CTRL, COMMAND_MODE);
-> +	ret = regmap_read_poll_timeout(dsi2->regmap, DSI2_MODE_STATUS,
-> +				       mode, mode & COMMAND_MODE,
-> +				       1000, MODE_STATUS_TIMEOUT_US);
-> +	if (ret < 0)
-> +		dev_err(dsi2->dev, "failed to enter data stream mode\n");
 
-We've failed to enter command mode, not stream mode. Wrong error message caused
-by copy and paste?
+The the filed ID_AA64DFR0_EL1_WRPs_MASK of the system register ID_AA64DFR0_EL1 is
+writtable, as declared in sys_reg.c. We need to consolidate the field when the
+system register is written.
 
-> +}
-> +
-> +static void dw_mipi_dsi2_host_softrst(struct dw_mipi_dsi2 *dsi2)
-> +{
+         ID_FILTERED(ID_AA64DFR0_EL1, id_aa64dfr0_el1,
+                     ID_AA64DFR0_EL1_DoubleLock_MASK |
+                     ID_AA64DFR0_EL1_WRPs_MASK |
+                     ID_AA64DFR0_EL1_PMUVer_MASK |
+                     ID_AA64DFR0_EL1_DebugVer_MASK),
 
-Looks like it is necessary to also do apb reset here, like vendor kernel does.
-Without apb reset, panel sometimes does not properly come up after DPMS switch.
+>   static int get_start_level(struct realm *realm)
+>   {
+>   	return 4 - stage2_pgtable_levels(realm->ia_bits);
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index a4713609e230..55cde43b36b9 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -1806,7 +1806,7 @@ static u64 sanitise_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
+>   	/* Hide SPE from guests */
+>   	val &= ~ID_AA64DFR0_EL1_PMSVer_MASK;
+>   
+> -	return val;
+> +	return kvm_realm_reset_id_aa64dfr0_el1(vcpu, val);
+>   }
+>   
+>   static int set_id_aa64dfr0_el1(struct kvm_vcpu *vcpu,
 
-Tested with
+Thanks,
+Gavin
 
-modetest -M rockchip -w 83:DPMS:3
-
-I'm not sure whether it is Debian specific, but setting connector's DPMS property
-to OFF causes immediate panel reset. Something is restoring its value to ON
-immediately.
-
-> +	regmap_write(dsi2->regmap, DSI2_SOFT_RESET, 0x0);
-> +	usleep_range(50, 100);
-> +	regmap_write(dsi2->regmap, DSI2_SOFT_RESET,
-> +		   SYS_RSTN | PHY_RSTN | IPI_RSTN);
-> +}
-
-...
-
-> +static void dw_mipi_dsi2_phy_ratio_cfg(struct dw_mipi_dsi2 *dsi2)
-> +{
-> +	struct drm_display_mode *mode = &dsi2->mode;
-> +	u64 sys_clk = clk_get_rate(dsi2->sys_clk);
-> +	u64 pixel_clk, ipi_clk, phy_hsclk;
-> +	u64 tmp;
-> +
-> +	/*
-> +	 * in DPHY mode, the phy_hstx_clk is exactly 1/16 the Lane high-speed
-> +	 * data rate; In CPHY mode, the phy_hstx_clk is exactly 1/7 the trio
-> +	 * high speed symbol rate.
-> +	 */
-> +	phy_hsclk = DIV_ROUND_CLOSEST_ULL(dsi2->lane_mbps * USEC_PER_SEC, 16);
-> +
-> +	/* IPI_RATIO_MAN_CFG = PHY_HSTX_CLK / IPI_CLK */
-> +	pixel_clk = mode->crtc_clock * MSEC_PER_SEC;
-> +	ipi_clk = pixel_clk / 4;
-> +
-> +	tmp = DIV_ROUND_CLOSEST_ULL(phy_hsclk << 16, ipi_clk);
-> +	regmap_write(dsi2->regmap, DSI2_PHY_IPI_RATIO_MAN_CFG,
-> +		   PHY_IPI_RATIO(tmp));
-> +
-> +	/*
-> +	 * SYS_RATIO_MAN_CFG = MIPI_DCPHY_HSCLK_Freq / MIPI_DCPHY_HSCLK_Freq
-> +	 */
-
-According to TRM
-
-SYS_RATIO_MAN_CFG = MIPI_DCPHY_HSCLK_Freq / SYS_CLK_Freq
-
-So, this comment is simply wrong. Looks like a typo. Also, earlier comment does
-not mention _Freq part in frequency names. Maybe it would be better to make it
-consistent?
-
-> +	tmp = DIV_ROUND_CLOSEST_ULL(phy_hsclk << 16, sys_clk);
-> +	regmap_write(dsi2->regmap, DSI2_PHY_SYS_RATIO_MAN_CFG,
-> +		   PHY_SYS_RATIO(tmp));
-> +}
-> +
-> +static void dw_mipi_dsi2_lp2hs_or_hs2lp_cfg(struct dw_mipi_dsi2 *dsi2)
-> +{
-> +	const struct dw_mipi_dsi2_phy_ops *phy_ops = dsi2->plat_data->phy_ops;
-> +	struct dw_mipi_dsi2_phy_timing timing;
-> +	int ret;
-> +
-> +	ret = phy_ops->get_timing(dsi2->plat_data->priv_data,
-> +				  dsi2->lane_mbps, &timing);
-> +	if (ret)
-> +		dev_err(dsi2->dev, "Retrieving phy timings failed\n");
-> +
-> +	regmap_write(dsi2->regmap, DSI2_PHY_LP2HS_MAN_CFG, PHY_LP2HS_TIME(timing.data_lp2hs));
-> +	regmap_write(dsi2->regmap, DSI2_PHY_HS2LP_MAN_CFG, PHY_HS2LP_TIME(timing.data_hs2lp));
-
-I also had to set DSI2_PHY_MAX_RD_T_MAN_CFG to 10000 as it is done in
-dw-mipi-dsi (v1) driver to make my panel work properly in LPM mode.
-
-> +}
-
-...
-
-> +static const struct regmap_config dw_mipi_dsi2_regmap_config = {
-> +	.name = "dsi2-host",
-> +	.reg_bits = 32,
-> +	.val_bits = 32,
-> +	.reg_stride = 4,
-> +	.fast_io = true,
-
-Maybe it would be good to also set max_register here to make proper regmap
-available through debugfs? Or max_register_is_0 otherwise? Without this, only
-first register is available for dumping.
-
-Not quite relevant here, as this bridge is not currently used alone, but
-relevant for Rockchip specific glue driver.
-
-> +};
-
-...
-
-
-I've managed to successfully enable my DSI panel [0]. It has Lincoln Technology
-Solutions ZV070WUV-L50 board [1], which, in turn, is based on Focal Tech FT7250
-display controller.
-
-This panel works flawlessly with rk3568 (but at most at ~55 Hz refresh rate,
-because rk3568 does not support modes higher than 1920x1080@60, so, I had to
-lower refresh rate to make it work). But has some troubles with rk3588. It
-works fine with vendor kernel with LPM disabled and "auto-calculation-mode"
-device tree property set. As far as I can understand, auto calculation mode is
-not going to be supported by mainline, and disabling LPM is not an option to
-me.
-
-So, to make it work with this series I had to increase PHY_SYS_RATIO twice.
-
-Maybe Andy could shade the light on what automatic mode calculation algorithm
-does? Why in automatic mode PHY_SYS_RATIO value is twice larger than value
-computed by formula in DSI controller application note?
-
-Panel configuration:
-
-static const struct drm_display_mode default_mode_lincoln = {
-	.hdisplay    = 1200,
-	.hsync_start = 1200 + 20,
-	.hsync_end   = 1200 + 20 + 8,
-	.htotal      = 1200 + 20 + 8 + 22,
-	.vdisplay    = 1920,
-	.vsync_start = 1920 + 178,
-	.vsync_end   = 1920 + 178 + 8,
-	.vtotal      = 1920 + 178 + 8 + 32,
-	.clock       = 148500,
-	.width_mm    = 94,
-	.height_mm   = 151,
-};
-
-dsi->lanes = 4;
-dsi->format = MIPI_DSI_FMT_RGB888;
-dsi->mode_flags = MIPI_DSI_MODE_LPM | MIPI_DSI_MODE_VIDEO |
-	MIPI_DSI_MODE_NO_EOT_PACKET | MIPI_DSI_MODE_VIDEO_BURST;
-
-Regmap diff between manual mode and automatic mode:
-
-diff --git a/root/regs_manual b/root/regs_auto
-index 117cb5b..5dce301 100644
---- a/root/regs_manual
-+++ b/root/regs_auto
-@@ -7,9 +7,9 @@
- 018: 00000000
- 01c: 00000003
- 020: 00000303
--024: 00000001
-+024: 00000000
- 028: 00000000
--02c: 0161082c
-+02c: 04b70728
- 030: 00000000
- 034: 00000000
- 038: 00000000
-@@ -65,20 +65,20 @@
- 100: 00000130
- 104: 00000900
- 108: 001f0000
--10c: 000cb0b5
--110: 00000000
--114: 000ae64f
--118: 00000000
-+10c: 00000000
-+110: 0013be38
-+114: 00000000
-+118: 00114671
- 11c: 00000000
--120: 00000000
-+120: 000003d3
- 124: 00000000
--128: 00000000
-+128: 00952167
- 12c: 00000000
--130: 00000000
--134: 0001aaab
--138: 00000000
--13c: 00002d21
--140: 00000000
-+130: 00658920
-+134: 00000000
-+138: 0001aaad
-+13c: 00000000
-+140: 00005a41
- 144: 00000000
- 148: 00000000
- 14c: 00000000
-@@ -129,7 +129,7 @@
- 200: 00000002
- 204: 00000000
- 208: ffff0000
--20c: 00100072
-+20c: 00000072
- 210: 00000000
- 214: 00000000
- 218: 00000000
-@@ -191,20 +191,20 @@
- 2f8: 00000000
- 2fc: 00000000
- 300: 00000050
--304: 00035555
--308: 00000000
--30c: 00092aab
--310: 00000000
--314: 01f40000
--318: 00000000
--31c: 0208d555
--320: 00000000
--324: 00000008
--328: 00000000
--32c: 00000020
--330: 00000000
--334: 00000780
--338: 00000000
--33c: 000000b2
--340: 00000000
-+304: 00000000
-+308: 0003555a
-+30c: 00000000
-+310: 00092ab7
-+314: 00000000
-+318: 01f402bc
-+31c: 00000000
-+320: 0208d82e
-+324: 00000000
-+328: 00000008
-+32c: 00000000
-+330: 00000020
-+334: 00000000
-+338: 00000780
-+33c: 00000000
-+340: 000000b2
- 344: 000004b0
-
-The only irrelevant difference here is LPM mode enable bit.
-
-Calculated hsclk is 61875000, sys clk is 351000000, MIPI lane speed is
-990 mbps. VOP pixel clock is 37125000 if it is relevant in any way.
-
-Thanks, Pavel
-
-[0] https://www.hello-lighting.com/product/7-0-ips-1200x1920/
-[1] http://www.microtech-lcd.cn/upfile/202109/2021092649634025.jpg
 
