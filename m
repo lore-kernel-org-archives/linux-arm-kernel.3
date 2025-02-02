@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24F10C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Feb 2025 19:37:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DE73C0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Feb 2025 19:39:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lASZNEX57b9DgcktMWKa+5fFNo9gffofmzPdzipGsoU=; b=A93UoKoxqu5ymtDfoMyQJjCtge
-	F3B15jsYgBu0zAN3ieZ7NC2ewm7R0EyAtB6/gNK4wFx9kk93pbv0oEphNjmr916emEYRt3BZF+W4T
-	8yUTvHTpkOYwx99Id6ARdWtJiXePpqickdLSWLKNaBfXom4HaN6vWKQqqCT+p7o8N3HVfD7aRtmwz
-	L/+5z63fLHYanc/02o20V36BQKJJupXGnrsnNX3TkI5kccQi5FjS4/CgaRNVy+8YYm1LEwGYf4Ari
-	8kKoJ9bE+v8sX/5OJ3oSyoX44JcVmh02HAWHOoa0uYhzokRd6nYI4PWUFXzp0UEf2jSYnvyVd5cOa
-	QKfdo2Rg==;
+	bh=+2aGAxjbAdwFKujLg/eNYHEFxNEe6obl2fXXxzMZFSU=; b=Dn5IITxY5Dnke75JBA5Ps0rRLq
+	vPfcrenxlQ1t4wJMEq5lys8v6rxH2ySDs5gSz83mEf0QRj58fPRXWqTEQj/JRqw5o9LySZTvem/y5
+	dHfAunzgUC58r6SYhOtcgyTCleWib5FEJjmN5qPIzr4Ybh5SLl680en/B7MEM93owLaLPoxLN+rVa
+	Rt+PwpNDGX16GlQ3zfIfAR8I0Ot0kdEhsX40DK6uMarZjhvCWoxM5SmXzfEx4HIXLcSd5H5mffyzz
+	J4knW+pPiMq9lnMpJHg0XSdT0q3RIC440tsD+qSE9cgm1ANAMFdpW3cDKdvGo9faZjoPXJawn0hdo
+	KYzWClwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tefmf-0000000E74b-1KrC;
-	Sun, 02 Feb 2025 19:37:33 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tefnw-0000000E7BR-2il3;
+	Sun, 02 Feb 2025 19:38:52 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tefk4-0000000E6mU-2upE;
-	Sun, 02 Feb 2025 19:34:53 +0000
+	id 1tefk7-0000000E6n7-1gNu;
+	Sun, 02 Feb 2025 19:34:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7C157A40C48;
-	Sun,  2 Feb 2025 19:33:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22BD8C4CED1;
-	Sun,  2 Feb 2025 19:34:50 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5F590A40C2C;
+	Sun,  2 Feb 2025 19:33:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD378C4CED1;
+	Sun,  2 Feb 2025 19:34:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738524891;
-	bh=MvBbBz0UZOoSGohxLQSCxzUNlNMms+bHXssaD7TA7kM=;
+	s=k20201202; t=1738524894;
+	bh=K2iI3AiKvjoEFvWs1oYEwnuQSWAbsXtBtq6KCTpCm8s=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=WoQEosl+kDVcBNcdo7cvQYIgXbTT5tTmnDqMV9AMJ6djArwFsEsHCXEKfVJQMHZ6L
-	 yrE4ceg/FnZd1XyLpM7030LJI/7+cEe2ZJuGPznhVaivGi2CD8723aVX+NfWTfkptq
-	 8fzGuCWhx7oSbxKo7Tl6THLJa31crMZjKZNMKEtNsITK2WJ/7IGBK7C999UL91DUOE
-	 BBzDyAhSe6eg2yinOLYbTG96Ut4jUChFEoRKjFzcC8KH/W5kXPssGwdZ1JHhbk1ZHZ
-	 3tTfmbJSw22qW2dfyM6J+Z9pxX91Xza9OQTSFtIxv10Hz9ShQctfXXroKVdc/Qv6bq
-	 FcgDBdNPSSaNA==
+	b=FbN+JRDrD7nKr2dLBNZOe1qC5aTOv060C1/q8JE2jiFqpQZfLWCDIQ+vBM7WVNPF0
+	 CbNRTCsKPrraZwXbK+C6dIr8cRj8OoVb9fRzlKOqMkm9LWL0FWD7KpDaXQv6PnTzar
+	 VYyYAbh0aY7JvMwLHcXdW/SeuLmpwdKUqCHbcN0YrtVzJZpxOZy/I0wErBhtYsTRJm
+	 X2FTJAE44lFt05ch1YlEgJpGSE0vyBL87XergSHCM8bjAxtRsL1BGqHaFAZmZmqAXl
+	 Myfn6cCiNzhPR32po55YKJNj9dVSeM5yczAgBdD94pJWhv+PV5PgwM7GMTBpvSf7Wt
+	 /3kw0y5UnTBoA==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Sun, 02 Feb 2025 20:34:23 +0100
-Subject: [PATCH v2 1/2] dt-bindings: PCI: mediatek-gen3: Add
- mediatek,pbus-csr phandle property
+Date: Sun, 02 Feb 2025 20:34:24 +0100
+Subject: [PATCH v2 2/2] PCI: mediatek-gen3: Configure PBUS_CSR registers
+ for EN7581 SoC
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250202-en7581-pcie-pbus-csr-v2-1-65dcb201c9a9@kernel.org>
+Message-Id: <20250202-en7581-pcie-pbus-csr-v2-2-65dcb201c9a9@kernel.org>
 References: <20250202-en7581-pcie-pbus-csr-v2-0-65dcb201c9a9@kernel.org>
 In-Reply-To: <20250202-en7581-pcie-pbus-csr-v2-0-65dcb201c9a9@kernel.org>
 To: Ryder Lee <ryder.lee@mediatek.com>, 
@@ -66,9 +66,8 @@ Cc: linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
  Lorenzo Bianconi <lorenzo@kernel.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250202_113452_820326_8AA9DF53 
-X-CRM114-Status: UNSURE (   8.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250202_113455_570336_77782389 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,60 +82,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce the mediatek,pbus-csr property for the pbus-csr syscon node
-available on EN7581 SoC. The airoha pbus-csr block provides a configuration
-interface for the PBUS controller used to detect if a given address is on
-PCIE0, PCIE1 or PCIE2.
+Configure PBus base address and address mask to allow the hw
+to detect if a given address is on PCIE0, PCIE1 or PCIE2.
 
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- .../devicetree/bindings/pci/mediatek-pcie-gen3.yaml          | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ drivers/pci/controller/pcie-mediatek-gen3.c | 30 ++++++++++++++++++++++++++++-
+ 1 file changed, 29 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml b/Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml
-index f05aab2b1addcac91d4685d7d94f421814822b92..02f2cd9bcf007c1f16b18b1330a88ce43807a9be 100644
---- a/Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml
-+++ b/Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml
-@@ -109,6 +109,12 @@ properties:
-   power-domains:
-     maxItems: 1
+diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
+index aa24ac9aaecc749b53cfc4faf6399913d20cdbf2..9c2a592cae959de8fbe9ca5c5c2253f8eadf2c76 100644
+--- a/drivers/pci/controller/pcie-mediatek-gen3.c
++++ b/drivers/pci/controller/pcie-mediatek-gen3.c
+@@ -15,6 +15,7 @@
+ #include <linux/irqchip/chained_irq.h>
+ #include <linux/irqdomain.h>
+ #include <linux/kernel.h>
++#include <linux/mfd/syscon.h>
+ #include <linux/module.h>
+ #include <linux/msi.h>
+ #include <linux/of_device.h>
+@@ -24,6 +25,7 @@
+ #include <linux/platform_device.h>
+ #include <linux/pm_domain.h>
+ #include <linux/pm_runtime.h>
++#include <linux/regmap.h>
+ #include <linux/reset.h>
  
-+  mediatek,pbus-csr:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      Phandle to the syscon node used to detect if a given address is on
-+      the PCIe ports.
+ #include "../pci.h"
+@@ -127,6 +129,13 @@
+ 
+ #define PCIE_MTK_RESET_TIME_US		10
+ 
++#define PCIE_EN7581_PBUS_ADDR(_n)	(0x00 + ((_n) << 3))
++#define PCIE_EN7581_PBUS_ADDR_MASK(_n)	(0x04 + ((_n) << 3))
++#define PCIE_EN7581_PBUS_BASE_ADDR(_n)	\
++	((_n) == 2 ? 0x28000000 :	\
++	 (_n) == 1 ? 0x24000000 : 0x20000000)
++#define PCIE_EN7581_PBUS_BASE_ADDR_MASK	GENMASK(31, 26)
 +
-   '#interrupt-cells':
-     const: 1
+ /* Time in ms needed to complete PCIe reset on EN7581 SoC */
+ #define PCIE_EN7581_RESET_TIME_MS	100
  
-@@ -168,6 +174,8 @@ allOf:
-           minItems: 1
-           maxItems: 2
+@@ -931,7 +940,8 @@ static int mtk_pcie_parse_port(struct mtk_gen3_pcie *pcie)
+ static int mtk_pcie_en7581_power_up(struct mtk_gen3_pcie *pcie)
+ {
+ 	struct device *dev = pcie->dev;
+-	int err;
++	struct regmap *map;
++	int err, slot;
+ 	u32 val;
  
-+        mediatek,pbus-csr: false
+ 	/*
+@@ -945,6 +955,24 @@ static int mtk_pcie_en7581_power_up(struct mtk_gen3_pcie *pcie)
+ 	/* Wait for the time needed to complete the reset lines assert. */
+ 	msleep(PCIE_EN7581_RESET_TIME_MS);
+ 
++	map = syscon_regmap_lookup_by_phandle(dev->of_node,
++					      "mediatek,pbus-csr");
++	if (IS_ERR(map))
++		return PTR_ERR(map);
 +
-   - if:
-       properties:
-         compatible:
-@@ -197,6 +205,8 @@ allOf:
-           minItems: 1
-           maxItems: 2
- 
-+        mediatek,pbus-csr: false
++	/*
++	 * Configure PBus base address and address mask to allow the
++	 * hw to detect if a given address is on PCIE0, PCIE1 or PCIE2.
++	 */
++	slot = of_get_pci_domain_nr(dev->of_node);
++	if (slot < 0)
++		return slot;
 +
-   - if:
-       properties:
-         compatible:
-@@ -224,6 +234,8 @@ allOf:
-           minItems: 1
-           maxItems: 2
- 
-+        mediatek,pbus-csr: false
++	regmap_write(map, PCIE_EN7581_PBUS_ADDR(slot),
++		     PCIE_EN7581_PBUS_BASE_ADDR(slot));
++	regmap_write(map, PCIE_EN7581_PBUS_ADDR_MASK(slot),
++		     PCIE_EN7581_PBUS_BASE_ADDR_MASK);
 +
-   - if:
-       properties:
-         compatible:
+ 	/*
+ 	 * Unlike the other MediaTek Gen3 controllers, the Airoha EN7581
+ 	 * requires PHY initialization and power-on before PHY reset deassert.
 
 -- 
 2.48.1
