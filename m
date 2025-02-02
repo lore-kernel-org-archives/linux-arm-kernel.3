@@ -4,69 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C5C4C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Feb 2025 13:57:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D246FC0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Feb 2025 14:00:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc
-	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dTCjK7GphBpYgmSVOu1ScWLH6UjNwU097e2TCso5clI=; b=ve5qcU6U+GZoHPHZdNnU04y7VR
-	/TEu3KJ4mhFz7S845ALrvrfKJaAjij6NJ6PyifpsmSd54wE5lX9gZYPcUcbpisLGv3GWoLrJpzKWz
-	Z5NUnakn9LfO5homUZLo+ishloO+WwtWd/ufjSb7WNtbxSxMIjsyzZcQDOuO6E0MnW+TLRDCqYLWO
-	5lxoAlo+lI4t/tm5OzC+IRNw0b3DZUbcqevYZHNo/AlZATnHSaDugqtg9yQtujNBQD9aEOVicCxCw
-	wiMYkR83fCSlXHgQ8nwogWbMWNAuVfEYSWoW0Qq2FLJbstEEYMBYH6dbsXdlEi1Qa/enCox9Jj1VY
-	mif/I33w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yUH3W0i9TUw3UIqprvF2Ju8lMKQU6MlpSQFAKIXtD0g=; b=OqLRdOjm6kK3deUmaf1/g0X6gs
+	2Iz+sEbnlFDyeUdb/mxpk3mLHeH0ecVUHvdIK81JKSrdLrg5sWeOjFlYxv2IBW3vvbPFvLNJeJa/3
+	jfxh/hrYhtW5Xp/lwoLPHaMKTvTeeTv5z1OMKlvrch70ny3I7rSaJ8y8oj5VizDEMUqrqI0m4yivC
+	wDcV0lvNWCMvu5zHF6q8TMu5ck6aJeGU/Sl9VSwnc+oKD9Uk+utsDlMRCu1k/fq5OzyQvUeVD9nmN
+	TnTE4L7IvynJiSPVA9St2QCT8KesWRKSSDcIf4SEJJtX4znkUaGwoAeGYTnAvmzZJdRoST47+86Hm
+	taBMQkGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teaTr-0000000DpoX-24Ot;
-	Sun, 02 Feb 2025 13:57:47 +0000
-Received: from out-176.mta0.migadu.com ([91.218.175.176])
+	id 1teaWE-0000000Dq0U-0rrW;
+	Sun, 02 Feb 2025 14:00:14 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1teaSX-0000000DpeS-2QP1
+	id 1teaUu-0000000Dpuz-4C0u
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Feb 2025 13:56:26 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=postmarketos.org;
-	s=key1; t=1738504568;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=dTCjK7GphBpYgmSVOu1ScWLH6UjNwU097e2TCso5clI=;
-	b=I+VvQvFBpA2cUT9zyvjYyK8BieeLsCdC5A9qZSH08JTKHKQWomZq/C7Qhys+xvEkJlt9ny
-	43qaRft0e9kotHlF9dHeT1Oyrpu+rMtAyT7NA5X8aVArVoMff8Q1/0fNzRkF4goV3+uI3f
-	TQq9zuWbyAi/sgd6gWo0Oe7T08aA3YKUt61aVBEsnAhgiPYU4VNNTFSEqAzsWwPgizTi5u
-	K7h0r3R4CDzE/I1b4PdMd1DOMT6wvHzFOAFqZrlmkbIhsRVz+SqsyFqqtQQlxufBTx6tpw
-	D32Fkj8jrXNaM0NSjm0cGwZdBRTI9D7JV1uFHDG/xt4YPUEH2wqk2+vdpEq0NQ==
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Sun, 02 Feb 2025 13:55:21 +0000
-Message-Id: <D7I0F3OMXALB.1ZT1G03JTKSEZ@postmarketos.org>
-Subject: Re: [PATCH v2 1/2] dt-bindings: arm: amlogic: add S805Y and Mi TV
- Stick
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Ferass El Hafidi" <funderscore@postmarketos.org>
-Cc: "Neil Armstrong" <neil.armstrong@linaro.org>, "Kevin Hilman"
- <khilman@baylibre.com>, "Jerome Brunet" <jbrunet@baylibre.com>, "Martin
- Blumenstingl" <martin.blumenstingl@googlemail.com>, "Rob Herring"
- <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, <linux-amlogic@lists.infradead.org>,
- <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <~postmarketos/upstreaming@lists.sr.ht>,
- "Artur Weber" <aweber.kernel@gmail.com>, "Karl Chan"
- <exxxxkc@getgoogleoff.me>, "Christian Hewitt" <christianshewitt@gmail.com>
-To: "Krzysztof Kozlowski" <krzk@kernel.org>
-References: <20250201193044.28856-1-funderscore@postmarketos.org>
- <20250201193044.28856-2-funderscore@postmarketos.org>
- <20250202-wisteria-rook-of-intensity-6fecfa@krzk-bin>
-In-Reply-To: <20250202-wisteria-rook-of-intensity-6fecfa@krzk-bin>
-X-Migadu-Flow: FLOW_OUT
+	Sun, 02 Feb 2025 13:58:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id DE2C0A40BC3;
+	Sun,  2 Feb 2025 13:57:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62A03C4CEE0;
+	Sun,  2 Feb 2025 13:58:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738504731;
+	bh=HsGsVQio4UuScW1+1uU6H+TanyCHNIVvBIuyo4NfgRE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OTa14oOTIMLKU2Mx3rpLSUqQHthlbrXHynHGn8QG4XXjnEqTr80+oDxkA0zIeIkkx
+	 19mGNqVoKBfAWFbaI/Zx1vko3qLLBBtxTAdJnLuNPD/7nifBu17rqV8bTw+dAINUFo
+	 VNesmVx5k3kUDamR1RS3cuYlmL0rhcFGwRVxHs1qylk/4a4GYcegQJwYQ8BJ+3uX/q
+	 xk/OkL6g7kZ9JcHD7zFCsQR6dG1My7lyny15sLnt2Oa3ib1FHKB8CDzKZX94HALzAg
+	 Ykx9i2e7+6vmoJhXlAQnEu+ZXUsejcQwn092redIHgoeZQxE3bMP/+eoAGDpQnYElN
+	 A1DfX/yyjsZNg==
+Date: Sun, 2 Feb 2025 14:58:48 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Subject: Re: [PATCH] dt-bindings: ARM: at91: add Calao USB boards
+Message-ID: <20250202-horned-singing-cormorant-afdc77@krzk-bin>
+References: <20250131162713.33524-2-wsa+renesas@sang-engineering.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250131162713.33524-2-wsa+renesas@sang-engineering.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250202_055625_765160_18511DF2 
-X-CRM114-Status: UNSURE (   9.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250202_055853_120577_11E5C863 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,25 +66,52 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Rob Herring <robh@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Fri, Jan 31, 2025 at 05:27:13PM +0100, Wolfram Sang wrote:
+> They have not been added so far. dtbs_check complains loudly.
+> 
+> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+> ---
+>  Documentation/devicetree/bindings/arm/atmel-at91.yaml | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/arm/atmel-at91.yaml b/Documentation/devicetree/bindings/arm/atmel-at91.yaml
+> index 0ec29366e6c2..42469a054a60 100644
+> --- a/Documentation/devicetree/bindings/arm/atmel-at91.yaml
+> +++ b/Documentation/devicetree/bindings/arm/atmel-at91.yaml
+> @@ -23,6 +23,9 @@ properties:
+>            - const: atmel,at91rm9200
+>        - items:
+>            - enum:
+> +              - calao,usb-a9260
+> +              - calao,usb-a9263
+> +              - calao,usb-a9g20
 
-On Sun Feb 2, 2025 at 1:54 PM UTC, Krzysztof Kozlowski wrote:
-> On Sat, Feb 01, 2025 at 07:30:43PM +0000, Ferass El Hafidi wrote:
-> > From: Ferass El=C2=A0Hafidi <funderscore@postmarketos.org>
-> >=20
-> > Add support for the Amlogic S805Y SoC and the Xiaomi Mi TV Stick (aka.
-> > xiaomi-aquaman).  The S805Y is very similar to the S805X, with just a
-> > few minor differences.
-> >=20
-> > Signed-off-by: Ferass El=C2=A0Hafidi <funderscore@postmarketos.org>
->
-> Please run checkpatch. You have from/SoB mismatch.
+I don't undertstand why calao,usb-a9g20 or existing olimex,sam9-l9260
+can be fitted with any SoC.  If that's expected, mention in commit msg.
+If not, then this needs to be fixed, not grew.
 
-I don't see any mismatch.  Maybe it complains because of a spurious
-non-breaking space?
 
-Regards.
+>                - olimex,sam9-l9260
+>            - enum:
+>                - atmel,at91sam9260
+> @@ -35,6 +38,11 @@ properties:
+>                - atmel,at91sam9xe
+>                - atmel,at91sam9x60
+>            - const: atmel,at91sam9
+
+Line break.
+
+> +      - items:
+> +          - const: calao,usb-a9g20-lpw
+> +          - const: calao,usb-a9g20
+> +          - const: atmel,at91sam9g20
+> +          - const: atmel,at91sam9
+
+Best regards,
+Krzysztof
+
 
