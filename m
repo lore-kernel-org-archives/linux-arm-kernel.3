@@ -4,102 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72D29C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Feb 2025 16:58:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C61AC0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Feb 2025 17:55:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Uwqe3wO2h1KhchbSQpJtyc0xUluXC5oEhfomc15Iqy0=; b=qFLgIJ/rD+Z5jy3wQ92HVREgNA
-	t19kl/xS3Wm1Xbx0J4PznEYfZ4j4rjWrzE7UFl+pmA6l+mnNJ5RUV0tYKJoXdIW7H3widsab6n9J9
-	Cegxo4lCBE0bsLoSk72ffvVi8aHr145XXpg0zfTX5iNKkUL2il4ca9wGNkAXK+03sO03hRSe8uuMz
-	2Yu1pjw1vU9g8GmTbgT9+sASkOzvLYkDnFjTcPVypUTy4cQF4GqGUM30cIuwniOqPlGYFvPgxc/7k
-	Qk6rSg3kz2IFs25ZgJb3/fQNST25/0EQwUvyNsPnd5xIcHQeJsTvwP1mR9OsAsmANiLhZHkdYvc3A
-	KI/PvB+w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bu/o5ZKE+DmrVvfqpvDfKwO+d8/POCqsIdA64ajmPWE=; b=NmN9HT6Vw4J67WW0LhG7ULb6ga
+	3CG/EfuB+TbumXijH3Azrt5oBzHOvL1+qkpIXz//HnKIYjtOsUFGCCpl7t0zCVhXfXGfnngxyZtqk
+	hEjD9SHDsnBpuMARq3BgcDsaBJYJyrbEq7iTdH3flKDGN5iwFj9vg2On3unHmeax7qWY5WIC0uivo
+	hGwE8lef5NrpK9wVMDdBTCacM/eHUKfX4z9TuCGgvCPWKKNx7c1y/CquI5uEVfD5bCpwPllwAkhdm
+	P9O83zWbDWejaufRJ/SpRSPUv3TKP0wJllpHbWOZAvZvrQNggC9vT3NNFPPUxw8hgUBKtKDRE9d0X
+	8nz22VHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tedIp-0000000DyfO-2P6g;
-	Sun, 02 Feb 2025 16:58:35 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1teeBi-0000000E0wR-3dxP;
+	Sun, 02 Feb 2025 17:55:18 +0000
+Received: from mail-yw1-x1134.google.com ([2607:f8b0:4864:20::1134])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tedHW-0000000Dyah-04sf
+	id 1teeAP-0000000E0ot-14J6
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Feb 2025 16:57:15 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-385dece873cso1639796f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Feb 2025 08:57:13 -0800 (PST)
+	Sun, 02 Feb 2025 17:53:58 +0000
+Received: by mail-yw1-x1134.google.com with SMTP id 00721157ae682-6f0054cb797so19134277b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Feb 2025 09:53:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738515432; x=1739120232; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Uwqe3wO2h1KhchbSQpJtyc0xUluXC5oEhfomc15Iqy0=;
-        b=BeEc+zS7Dckh1FuibrNH+5dMrGBrToxI79KJxX9crHkarnOhBnE4bjoh8vBdlGI1DI
-         ECXnaPI7BTN1PMm6b5xUTzUsvZTC9jAK29SStUTQkGRdV96VnVQjP+iRodrrvmLHPaEJ
-         eP85z0Qmx9rLcIFOFd0lu92aJ/kJ885uqaQ7x1a/Bn9xZKNGIbIyhoZmuSA/jthRLG/W
-         xubty+uLamjisMxRqgdxFx2unkof1/B7y/t1Qu74oZ/KeYsox0B1yHZ9m9TpnxjdpDmY
-         TA3cSa0IWOxB3CZCI4xjgHkanQae0zQZAf9p7izeoz8gC41qvX7Rp0/5AeSE2Ws+jtQ0
-         MlEA==
+        d=gmail.com; s=20230601; t=1738518835; x=1739123635; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=bu/o5ZKE+DmrVvfqpvDfKwO+d8/POCqsIdA64ajmPWE=;
+        b=LejU1h4C7S0XtOT9WGdbZF8rjRjGc1QPmC3GgHDxBButHYagQwvUN9ky2fEMrpWyam
+         tq9sUZkAxT/wJpbI5nKdJg7ryfBkeYIRytd4I8xflfKKX0fkbCr/cLUh1FYvc96ysFAx
+         VB2XZ8so6q+gnhzRmQX0jmGEXBS8hER2FS0MaG1v8/W27X6vR0WdeSNurb6SstDyvktX
+         fp5NYu3vBq0YEqyjS/zsViwRKUzXt/u2erACziIJxoeZq0jgSWfdCcR/O44YiDmmzVAl
+         Xr9QmmqWyjmBI1WjBf7wxhhsdF5XMNLnXL/rADQ2N7dYE/QV+Bprx3ulz9F91ErEdgyJ
+         5egw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738515432; x=1739120232;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Uwqe3wO2h1KhchbSQpJtyc0xUluXC5oEhfomc15Iqy0=;
-        b=EQSKvQ+YkTmjDtWa3FJc63Wu4PzBaCGG0Ww1g+p7o8v4JqGPBmMnDrT6zz7HtC1RMn
-         /pBZvfkBmalh2ksmWClyjytnH66E+velJYdW6wD3d2q6F0Tkpwr1O5TY4Z2e9JZVZ+Kj
-         jXyyC47wViZjSkLRz5GEdtA/kmolMY86j3uUnB6FZSNsGsESJX2BbfIj3yQfTkd/aVBb
-         ogR1OhIyEyII/FiF9q7G5Wx1jz3jbeggRnw4lG3jai9fvYaVKKaGFYZ4MMuQLdcW2Qx2
-         R7MT6UQhABJmrCEo/44MqllBeqYYsEBxDGhvIwVy93a249gFRgqw2ErKSB8h1bYrPj5K
-         OjLg==
-X-Forwarded-Encrypted: i=1; AJvYcCXz/XzII/hs+EVeHC5YsTgZNl9zC86fn2UqkZhoICujG6Xbfmp20gDOo3upgCkn2rtiEBihj+osFL7Nx5do3OWZ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5Z+CZDz0qY95FA48qvxigA0oYRvBfZ28s4weQ+RkMTAdKsI/S
-	ZP6+PgOwelTow6/4ZCfzdZvFjuNkTr//yXaaOkg5W9JpLdwTfNSp
-X-Gm-Gg: ASbGncuhZygFGG03wFjN14yqWf53cKAg1bdfgqR3nlafutZsSmuWpWAYM2wLHKm3Uq3
-	huFjil/Rqauof374MgMwW3CqDEwJTeMSQ38XcQl0RBKYxWeF36skWdtkoguskudjzYu5CmBRjAL
-	7Tz6mzxPnqFCwplb3xfn0HYbmlDwdvwY3G5Vd344OCGhV2XId5tzsrullYk7Y+p17c1c6d0t2eF
-	nJGxXCTvcWxj6IU2V7Pegg5bVWWQ/ZpSFWTwq6BfLiLUPIZ9P/GxO1eT2c+NjOwXsw1nVLQ/qfW
-	PIGKBq2J5OdwUlqj/q7jmnHb5B6Q
-X-Google-Smtp-Source: AGHT+IHGI4vuDKmxm2ggxLHqDVzd9rJXWTNLOaDrF/1kFKr5pLWjbelTJUrlum0Weyhom1nxQpYfcA==
-X-Received: by 2002:a05:6000:1ace:b0:385:ec89:2f07 with SMTP id ffacd0b85a97d-38c51970003mr13999601f8f.32.1738515431517;
-        Sun, 02 Feb 2025 08:57:11 -0800 (PST)
-Received: from ?IPV6:2001:871:22a:99c5::1ad1? ([2001:871:22a:99c5::1ad1])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38c5c11b71asm10539536f8f.39.2025.02.02.08.57.10
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 02 Feb 2025 08:57:11 -0800 (PST)
-Message-ID: <72feff7d-a305-4ca3-9c28-9040c791d3c5@gmail.com>
-Date: Sun, 2 Feb 2025 17:57:09 +0100
+        d=1e100.net; s=20230601; t=1738518835; x=1739123635;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bu/o5ZKE+DmrVvfqpvDfKwO+d8/POCqsIdA64ajmPWE=;
+        b=u778AYg+LdrCHaDTVgGzZOZyexO3fXKgjeAjOPSBMaV+1RceJUgQIeMB4+rKHJnAqS
+         GpU2Mns52blXFjNrnR4Q0qKXmGr7QrOwF9A2UHZX30s1cP1Lb1cKQqZjZAuzw98GXlvD
+         ELR86rLIZDCcw0nzSuzvtoIh4VAJCYRBLxta6C4WXSY8v0n9jGSktzannt5DRPzGE1BJ
+         PCuPLYhgQobcxa3PG6XfGYtrRPHoBZ38/svQB1Zp4mGeW1lufRUXmCLomQOMEmpfM419
+         7UMkRSQT0XvP7VX+uUUwMRqpFPl8Pl+7UiA2VVlXI33kfzrz1qadekObPUZ0Gt4QuGPX
+         2onw==
+X-Forwarded-Encrypted: i=1; AJvYcCUK5VYgDELwSF3/AIj5U4U8oY5vXBF+VQQ+4a9HrvslusvUtijAg3adFPfRNT1/IUCGzaWoos2F6bdva98qeJhb@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9mkSv3lQFTzHyc+mRo0ztIS+6Q2yCUu9XlwYQsDVVJ6EP1mOH
+	F3C52NC/c/V48lgZGMuT0NHChG3jAA5MHVkyU1htGCOnoyAauY0r
+X-Gm-Gg: ASbGnctY6xTTRTPi459VSX3EM56wr5g8brrsknDhWdYkgyCxa7ddzbWXq8svOjWpNvB
+	qPv/6VX0yYOYIlNrrSLsaPJJQm4+wfkHoCuK+1pht7LumAyPRspcbOc+Q45Fo1DB1cGt8BQPSga
+	9N4JMGUgRvLD1s3z2hGoc8/mbYBLU8H0MZzTQh4hj2Pn5YI2zPZDvqTySvxgfDIwaLU9HFKX9gz
+	MyP7k9rgbc/sLrmEGMh4RWdRiTSvIW+V2CKosWhANiq9TJLQLfCuMUiqP9YjHMiQjeGWtbmgYAw
+	70thy8VoAwSH5zGMdDVYR1T1DXWqEXyNWNxJie1ksCVpX8/amsc=
+X-Google-Smtp-Source: AGHT+IHHQI3478HvRiKWIVLIdATv32EFyyXdDb7s9xEv/S/0xqBbGzFcSVKK2nIkOtoAuYeOo+6nPg==
+X-Received: by 2002:a05:690c:6e09:b0:6f5:4304:fdc with SMTP id 00721157ae682-6f7a832a301mr158970467b3.6.1738518835574;
+        Sun, 02 Feb 2025 09:53:55 -0800 (PST)
+Received: from localhost (c-73-224-175-84.hsd1.fl.comcast.net. [73.224.175.84])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-6f8c465b884sm17908247b3.59.2025.02.02.09.53.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 02 Feb 2025 09:53:55 -0800 (PST)
+Date: Sun, 2 Feb 2025 12:53:53 -0500
+From: Yury Norov <yury.norov@gmail.com>
+To: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
+Subject: Re: [PATCH treewide v2 1/3] bitfield: Add non-constant
+ field_{prep,get}() helpers
+Message-ID: <Z5-xMUqrDuaE8Eo_@thinkpad>
+References: <cover.1738329458.git.geert+renesas@glider.be>
+ <1824412519cb8791ab428065116927ee7b77cf35.1738329459.git.geert+renesas@glider.be>
+ <e20a177a-30cd-4088-89e1-b479aba1356c@wanadoo.fr>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] arm: rust: Enable Rust support for ARMv7
-To: Arnd Bergmann <arnd@arndb.de>, Andrew Lunn <andrew@lunn.ch>,
- Miguel Ojeda <ojeda@kernel.org>
-Cc: Alex Gaynor <alex.gaynor@gmail.com>, Boqun Feng <boqun.feng@gmail.com>,
- Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?=
- <bjorn3_gh@protonmail.com>, Benno Lossin <benno.lossin@proton.me>,
- Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
- Trevor Gross <tmgross@umich.edu>, Jonathan Corbet <corbet@lwn.net>,
- Russell King <linux@armlinux.org.uk>, Rudraksha Gupta <guptarud@gmail.com>,
- Ard Biesheuvel <ardb@kernel.org>, Geert Stappers <stappers@stappers.nl>,
- Jamie Cunliffe <Jamie.Cunliffe@arm.com>,
- Sven Van Asbroeck <thesven73@gmail.com>, rust-for-linux@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20250123-rfl-arm32-v3-1-8f13623d42c5@gmail.com>
- <a83b0149-7055-411b-ba86-d227919c7c32@app.fastmail.com>
- <f8b59f05-55b5-4208-8bdf-b4be8e93bc22@gmail.com>
- <65da77f7-bbd4-4cbe-a06c-75f10a6ec4ce@lunn.ch>
- <5e8a99a5-f39c-46da-b54d-7b69307b1c66@gmail.com>
- <e14cfb34-308f-4797-afe7-4e7e2d470fe3@app.fastmail.com>
-Content-Language: en-US, de-DE
-From: Christian Schrefl <chrisi.schrefl@gmail.com>
-In-Reply-To: <e14cfb34-308f-4797-afe7-4e7e2d470fe3@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <e20a177a-30cd-4088-89e1-b479aba1356c@wanadoo.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250202_085714_063376_C59AF688 
-X-CRM114-Status: GOOD (  28.91  )
+X-CRM114-CacheID: sfid-20250202_095357_296119_EBEDA438 
+X-CRM114-Status: GOOD (  22.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,99 +94,62 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Giovanni Cabiddu <giovanni.cabiddu@intel.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Crt Mori <cmo@melexis.com>, linux-aspeed@lists.ozlabs.org, linux-iio@vger.kernel.org, Michael Turquette <mturquette@baylibre.com>, Rasmus Villemoes <linux@rasmusvillemoes.dk>, linux-kernel@vger.kernel.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Shan-Chun Hung <schung@nuvoton.com>, linux-clk@vger.kernel.org, Lars-Peter Clausen <lars@metafoo.de>, Geert Uytterhoeven <geert+renesas@glider.be>, Bartosz Golaszewski <brgl@bgdev.pl>, Takashi Iwai <tiwai@suse.com>, qat-linux@intel.com, Joel Stanley <joel@jms.id.au>, Jakub Kicinski <kuba@kernel.org>, Andrew Jeffery <andrew@codeconstruct.com.au>, Linus Walleij <linus.walleij@linaro.org>, Jacky Huang <ychuang3@nuvoton.com>, linux-sound@vger.kernel.org, linux-gpio@vger.kernel.org, Alex Elder <elder@ieee.org>, Jaroslav Kysela <perex@perex.cz>, linux-arm-kernel@lists.infradead.org, Herbert Xu <herbert@gondor.apana.org.au>, Stephen Boyd <sboyd@kernel.org>, linux-renesas-soc@vger.kernel.org, linux-crypto@vger.kernel.org, Johannes Berg <johannes@sipsolutions.net>, "David S . Miller" <davem@davemloft.net>, Jonathan Cameron <jic23@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31.01.25 8:37 PM, Arnd Bergmann wrote:
-> On Fri, Jan 31, 2025, at 19:58, Christian Schrefl wrote:
->> On 31.01.25 5:05 PM, Andrew Lunn wrote:
->>>> To fix this Rust would have to provide a way to build the core
->>>> library without float support. I don't know if there is a plan
->>>> already to allow this.
->>>
->>> Floating point is banned within the kernel, except for in very narrow
->>> conditions, because the floating point registers are lazy saved on
->>> context switch. If the kernel uses the floating point registers, you
->>> can break user space in bad ways.
->>>
->>> I expect this has been discussed, since it is well known kernel
->>> restriction. Maybe go see what happened to that discussion within RfL?
->>
->> After checking again, it seems the float intrinsics are actually not
->> needed anymore at least for my config.
+On Sun, Feb 02, 2025 at 05:26:04PM +0900, Vincent Mailhol wrote:
+> On 31/01/2025 at 22:46, Geert Uytterhoeven wrote:
+> > The existing FIELD_{GET,PREP}() macros are limited to compile-time
+> > constants.  However, it is very common to prepare or extract bitfield
+> > elements where the bitfield mask is not a compile-time constant.
 > 
-> Ah, nice! If this is true for all architectures using the current
-> rust compiler, it would be great to remove the FP stubs entirely
-> and have link errors instead of panicking, to make it consistent
-> with C.
+> Why is it that the existing FIELD_{GET,PREP}() macros must be limited to
+> compile time constants?
+
+I guess, for historical reasons?
+
+> Instead of creating another variant for
+> non-constant bitfields, wouldn't it be better to make the existing macro
+> accept both?
+
+Yes, it would definitely be better IMO.
+
+> As far as I can see, only __BUILD_BUG_ON_NOT_POWER_OF_2()  and
+> __BF_FIELD_CHECK() need to be adjusted. I am thinking of this:
 > 
->> Only `__aeabi_uldivmod` is still
->> required for `parse_u64_into` since [0] allows disabling float formatting.
->>
->> Link error without the `__aeabi_uldivmod` symbol defined:
->>
->> ld.lld: error: undefined symbol: __aeabi_uldivmod
->>>>> referenced by num.rs:580 (/home/chrisi/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/fmt/num.rs:580)
->>>>>               rust/core.o:(core::fmt::num::parse_u64_into::<39>) in archive vmlinux.a
->>>>> referenced by num.rs:589 (/home/chrisi/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/fmt/num.rs:589)
->>>>>               rust/core.o:(core::fmt::num::parse_u64_into::<39>) in archive vmlinux.a
->>>>> referenced by num.rs:589 (/home/chrisi/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/fmt/num.rs:589)
->>>>>               rust/core.o:(core::fmt::num::parse_u64_into::<39>) in archive vmlinux.a
->>>>> referenced 34 more times
->>>>> did you mean: __aeabi_uidivmod
->>>>> defined in: vmlinux.a(arch/arm/lib/lib1funcs.o)
->>
->> Not sure if we should just implement `__aeabi_uldivmod`, keep the 
->> panicking intrinsic for it or somehow fix it in upstream Rust?
+> diff --git a/include/linux/bitfield.h b/include/linux/bitfield.h
+> index 63928f173223..c6bedab862d1 100644
+> --- a/include/linux/bitfield.h
+> +++ b/include/linux/bitfield.h
+> @@ -8,6 +8,7 @@
+>  #define _LINUX_BITFIELD_H
 > 
-> The 64-bit division is particularly easy to introduce by accident
-> on 32-bit architectures, so ending up in a panic here is clearly
-> a problem. From the message above it appears that there is only 
-> a single calling function (parse_u64_into()) in the rust library,
-> so I wonder if it might be sufficient to split that out into
-> another object file that then doesn't need to get linked into
-> the kernel, or for the kernel to override it with an implementation
-> that does not rely on __aeabi_uldivmod() but calls __do_div64()
-> instead.
+>  #include <linux/build_bug.h>
+> +#include <linux/compiler.h>
+>  #include <asm/byteorder.h>
 > 
-> Since parse_u64_into seems to be a parsing function that is
-> expected to be slow, it should be acceptable to call __do_div64()
-> here, while we still prevent calling __aeabi_uldivmod() from
-> kernel source code.
+>  /*
+> @@ -62,15 +63,13 @@
 > 
-> Note that on earlier ARMv7 (Cortex-A8, A9), even a 32-bit
-> division is implemented through an expensive software loop.
-> Later cores (Cortex-A7, A15, A17) have native 32-bit division
-> instructions but still no 64-bit ones.
+>  #define __BF_FIELD_CHECK(_mask, _reg, _val, _pfx)                      \
+>         ({                                                              \
+> -               BUILD_BUG_ON_MSG(!__builtin_constant_p(_mask),          \
+> -                                _pfx "mask is not constant");          \
+> -               BUILD_BUG_ON_MSG((_mask) == 0, _pfx "mask is zero");    \
+> -               BUILD_BUG_ON_MSG(__builtin_constant_p(_val) ?           \
+> -                                ~((_mask) >> __bf_shf(_mask)) &        \
+> -                                       (0 + (_val)) : 0,               \
+> +               BUILD_BUG_ON_MSG(statically_true((_mask) == 0),         \
+> +                                _pfx "mask is zero");                  \
+> +               BUILD_BUG_ON_MSG(statically_true(~((_mask) >>
 
-It seems be possible to implement `__aeabi_uldivmod` like this [0]:
+This should be a const_true(), because statically_true() may be OK
+with something like:
+        ((runtime_var << 1) & 1 == 0)
 
-#[naked]
-#[cfg(target_arch = "arm")]
-#[export_name = "__rust__aeabi_uldivmod"]
-pub unsafe extern "C" fn __aeabi_uldivmod() {
-    unsafe {
-        core::arch::naked_asm!(
-            "push {{r4, lr}}",
-            "sub sp, sp, #16",
-            "add r4, sp, #8",
-            "str r4, [sp]",
-            "bl __udivmoddi4",
-            "ldr r2, [sp, #8]",
-            "ldr r3, [sp, #12]",
-            "add sp, sp, #16",
-            "pop {{r4, pc}}",
-        );
-    }
-}
+I think it's your own patch that adds const_true(): 4f3d1be4c2f8a :)
 
-However that requires the `naked_functions` unstable feature.
-Or it should be possible to just implement in a asm file.
-
-I think it would be very difficult to entirely build core 
-without needing `__aeabi_uldivmod`. 
-
-Link: https://github.com/rust-lang/compiler-builtins/blob/6f96bccc5d4aa3ba4c4cebdf23a3ccc3bc7fe77c/src/arm.rs#L64-L77 [0]
-
-Christian
+Thanks,
+Yury
 
