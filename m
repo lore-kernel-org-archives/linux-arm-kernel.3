@@ -4,83 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23C4CC02190
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Feb 2025 04:05:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0557DC02190
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Feb 2025 06:02:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ce0FET0IfkIOlTle7eps0vS3nFf1UCmQKqVcb2oIVfE=; b=fHaosWmUWYzrp+kJ996yubm2at
-	b7HnH63+jz6rxAJOemYzpdUeQhMm1iUSohb/pcQyM7EScVAkJ8+pBc2m/z2D+LP7o0GXJ7s0LD70T
-	zIRwCbPE7xmkZW1WdRA4dOi3ClKr6R2aUOCJ3NVCOcW6cmqCYXh4HuS3vWQzcv2NuRCf+YiKkGKPG
-	4/X3wau1yYMncJYnnb7e7hQlAnkQpgYj1jiB1tL3tMM3wAShL+qZAutWobB1/pveQMQnA28HxhHI4
-	7cJ+K6OXtr5hkeh3jQLbj+pefpXyBK3ok//yTQS3LtKm83H4+R3F6mHTH7MX2+bm8hEZyDf9XvGHg
-	4KQ8suNQ==;
+	bh=YjlJ37q+gVBxHg8p/iKgIH4lKOr26qVR6N2QdXuX3CE=; b=zoegN4n5u8xFCnGPnLqnSeWCVN
+	d+jnAzd70uEGa3W4ttMROpttRfJ/sLsbT09D4RnZx0fN22zy6W6yNRRitKHgm2I+NlqQfjLhIxf1S
+	Rvm4UaStbf2H3UjXtkYRuDFsz/y7Bs1O1XD48t2RE7hyVnCoxVHHt8VzLsTWoJR2rYnEb+uhDVah/
+	rLo0sB8756OVVl+ctSx96h1hDBmhwODfMPu/DIx+u5UK721K/8E5vVAA/M/Istuxljr7cG78NbW0S
+	Xo1HtT1KYdSFM6drPz2B9nA12vmVWx2M09l+iBu3v5YczGhtJC2F+R/lEjvw1oli25c5qzb2trl91
+	UENZEdeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teRE1-0000000DLiX-3GmA;
-	Sun, 02 Feb 2025 04:04:49 +0000
-Received: from mail-vs1-xe33.google.com ([2607:f8b0:4864:20::e33])
+	id 1teT3V-0000000DPnk-3fI6;
+	Sun, 02 Feb 2025 06:02:05 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1teRCh-0000000DLd0-20Rf
+	id 1teT2A-0000000DPiJ-1t8V
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Feb 2025 04:03:28 +0000
-Received: by mail-vs1-xe33.google.com with SMTP id ada2fe7eead31-4afe99e5229so921063137.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Feb 2025 20:03:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738469006; x=1739073806; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Ce0FET0IfkIOlTle7eps0vS3nFf1UCmQKqVcb2oIVfE=;
-        b=WQRXHaDjF6Ag+tZvn+S/Ey5xETrTZLfM/d2NOQgur1LdL4NeX4hlW6viYXH5FTVHAa
-         Favyjc8smEvF6uNkV3maw5CzbNNmQDbUeU/it1Qm7xyQtM3gsEGUZGeH6G1vVN9uiTLr
-         EMIur21hvJC/t2DmTIGStBXS22n4rQfKNH++oXz+ktrw2Tey8kn0g2IdTgSpO1Bscm1Q
-         HXNKnXFZhyvBnCvz/yjF3D+adVTuADeOLXMwkrOwfrkYtKLlMBF5qLY/S+z9vSTMyiGR
-         KO2mjKuMqj2SuqqgBXIikLLlbHoiXKAPN/vkJuoDO789Jl+Ee0JWSDCq710eYN/IS0f8
-         nOpQ==
+	Sun, 02 Feb 2025 06:00:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1738476040;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=YjlJ37q+gVBxHg8p/iKgIH4lKOr26qVR6N2QdXuX3CE=;
+	b=gdyZsOl0TibpCENSXUvm/n4Fs+YsnYzTCEGBC/9MErTw/UjxcJohhvdBTLU+FreWlFjXqm
+	bRDtdG1YwZjOfoAx/cRW9Y1QhjK1H7xIPNZ6yP0zkASO7wY413cyMNlYDIFrJFbR6tp4VD
+	ysnA/OJYXxYYjYka6wLbC2LtN0GAT/U=
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com
+ [209.85.214.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-275-7vYYjv3mOXqP7la4NMllmA-1; Sun, 02 Feb 2025 01:00:36 -0500
+X-MC-Unique: 7vYYjv3mOXqP7la4NMllmA-1
+X-Mimecast-MFC-AGG-ID: 7vYYjv3mOXqP7la4NMllmA
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2162259a5dcso109154735ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Feb 2025 22:00:36 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738469006; x=1739073806;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Ce0FET0IfkIOlTle7eps0vS3nFf1UCmQKqVcb2oIVfE=;
-        b=mHS5oT6udTuJA1g8+NmMsJ6FGABy2GQD1dh9D969DSrOrB7QkMAWO8ncnPxeKVA2bh
-         0mPZLOCzGiP5Qcm9jRB3bRFRZf8MxevMKFQ4w3EkJr70fwlDfjFL4Q+Tn0SJ7Mnml3hm
-         v1EbuuehNkot8fm3VZdts8nv9+cUFo+YDzcPXpee8l05srafr10IMtMI7Qlx62mdbzhh
-         A9RJYogm6uX0KNuYn8XaK1/1azOApanWXXshL5FWx+RYYIuMdF7QZRoJ4fdYHllowTss
-         2XDdl+zp+VZmNHV7Zl9jBBzf0xoRPmOXGwfckyaiBv1K10JdNojgBAPGuxplN+RYawAf
-         8ZFw==
-X-Forwarded-Encrypted: i=1; AJvYcCXxH6+1cQejoiJUJNYrnjBX8fi03ijYXcygBufL5A0YuNqSccgbsT4r6b2FPU6zoOT0Y/+F8b4yfH+iviweafJN@lists.infradead.org
-X-Gm-Message-State: AOJu0YywA5DhNi/CjA5pOkVpjgFH49oS3EUotv5MAlGr139Dyp7skUQx
-	cxj+ojgshwLBMpppDU9evwT8j8QvPWALBFjq0dYvaeTkfaVrDCGMDrBxtR3aHsyjX6/D46grcqv
-	yF8IUrOD3bpgM/9fXSLHqKNH4rwk=
-X-Gm-Gg: ASbGncvBlr6HKNxItaSWWe1oESOXYvsQz3V47TwUc77h4+c5t2fiNcFPRj5h7tT3h+E
-	lUkFU5X+w+fui/vx5hD+nvJKknO0kNfEuSEuDOo63+bgWI/KIuyCKKTb6cDlxtpZktPBAK50=
-X-Google-Smtp-Source: AGHT+IEl2hwFbFW7YBYOu+GLWt5eM+n+AOb40sBzZ1Uqgh3CYrzMGQfoNdzZenlrAl/ISiDC0/BrrxYhxOBYcrRDv1o=
-X-Received: by 2002:a05:6102:3ed0:b0:4b4:6988:b12b with SMTP id
- ada2fe7eead31-4b9a523c972mr13337687137.23.1738469005670; Sat, 01 Feb 2025
- 20:03:25 -0800 (PST)
+        d=1e100.net; s=20230601; t=1738476035; x=1739080835;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=YjlJ37q+gVBxHg8p/iKgIH4lKOr26qVR6N2QdXuX3CE=;
+        b=OfsMSzCdIJwrRgJIDXDlYN2to/a7WKkeAyZDCf523VcAqsrG1D5cN1K3tIJgbWroPX
+         Wob6eGpiI0qGac3YpTnsfCHgU5IW5vszPFYNrVffmw0t6bDkP8WNjQelIqcP2+EDy9/R
+         1DbzyGC97zgwp/0w/VBU+j8UkGVKIVrnuq/Dw8Ru5JteAWgsoZVCOvwOyRsM1X2niov+
+         VHA+bKKOeXmBztZeqfcyAyhnPqZHwvgeMmNvOqLbPEXSUCl4LGzcQzptlElw9FPDqWco
+         CjqOFaV+WgNTfDsr0irjd6gN4pzC8Jw7rUxbxXCzrXmarIjSBDI5i2nIp6mVZe6BAoW6
+         Rwgw==
+X-Forwarded-Encrypted: i=1; AJvYcCWfdFt5mv9bDfcOkuvU7VrwZKlRhz7FOqMKDKrIZZuI8szKYcjhq3YOizt5LspZlLdYKyeP3ldjxAIWRmFviMY/@lists.infradead.org
+X-Gm-Message-State: AOJu0YxwRnXbM5QXOy8HZLiLqrF+z7QLuhhvpZylnOSZzv21VH52hWRu
+	BObfppGNjaUBHdk3DFps9+WUSW/NBwz+CE61R0poZYDh2lAaObR5uASiP9ho9pg0kQyhvMaeXZZ
+	zoi+0wyZFEZlBrZxmwwzua2Y8cxiH8vuLgaDaQ6DK9pA0bdcsUMt4fCBcLOgVf+w9M/vZXKLD
+X-Gm-Gg: ASbGnctqJp+wYoDqqp2lOO1Ay5lt+KzaOewVBrQI/tooXX5FLHuAlA60x3jRpK62LtU
+	0L36Ql1FTxt6THyxnLOCzo13lP5k+Yoz6iZwiA/+4GFKNJaFDQdvc4y8XBI38ucNEsSaLzqV5+r
+	Q1D7R0RG4TM0xJT6j7o7QpfnIXQb0F53cjFTiaWbdrKDebGiZUwtqWhUmHa5OZInea1KEdImBHf
+	UjySlZWWUCTxJxsde/q3SWnPNNXDS3KarIqRZ8HGegihgVZm7fySJVl2T+dd1G9NgOgTsT4b7Z5
+	sslg0A==
+X-Received: by 2002:a17:903:2286:b0:216:2bd7:1c36 with SMTP id d9443c01a7336-21dd7c4c5fdmr262741525ad.1.1738476035650;
+        Sat, 01 Feb 2025 22:00:35 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IE8sh+1yR6eIL3z2ruF+In49PMNICNRbXw6lt1qSpPO4OvbSNdtKO0P+Pt1zVlA9G23+OiuCw==
+X-Received: by 2002:a17:903:2286:b0:216:2bd7:1c36 with SMTP id d9443c01a7336-21dd7c4c5fdmr262741275ad.1.1738476035348;
+        Sat, 01 Feb 2025 22:00:35 -0800 (PST)
+Received: from [192.168.68.55] ([180.233.125.64])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f8489adf7csm6566390a91.13.2025.02.01.22.00.28
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 01 Feb 2025 22:00:34 -0800 (PST)
+Message-ID: <4cd1b360-6902-4800-93a2-905cfd8ca7f8@redhat.com>
+Date: Sun, 2 Feb 2025 16:00:25 +1000
 MIME-Version: 1.0
-References: <20250131165549.GA684322@bhelgaas>
-In-Reply-To: <20250131165549.GA684322@bhelgaas>
-From: Inki Dae <daeinki@gmail.com>
-Date: Sun, 2 Feb 2025 13:02:47 +0900
-X-Gm-Features: AWEUYZmqMRW6IjLJ2-1W_gEn2kSwXk8I9ORt1L9SvKNpwZDk2Y6UeiwO2M7pvFE
-Message-ID: <CAAQKjZNqFt=SYxCzpQ5JwOADRUwsWsq5KzLRoPG++27SXGubnQ@mail.gmail.com>
-Subject: Re: wait_event_timeout() usage in decon_wait_for_vblank()
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Seung-Woo Kim <sw0312.kim@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 28/43] arm64: rme: Allow checking SVE on VM instance
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+References: <20241212155610.76522-1-steven.price@arm.com>
+ <20241212155610.76522-29-steven.price@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20241212155610.76522-29-steven.price@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: k989gFNilg6iREPMQ5HQGGSxPek4-H5ObBuuW7anuy4_1738476036
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250201_200327_536170_C66EA276 
-X-CRM114-Status: GOOD (  15.83  )
+X-CRM114-CacheID: sfid-20250201_220042_608644_37356707 
+X-CRM114-Status: GOOD (  20.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,41 +120,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 12/13/24 1:55 AM, Steven Price wrote:
+> From: Suzuki K Poulose <suzuki.poulose@arm.com>
+> 
+> Given we have different types of VMs supported, check the
+> support for SVE for the given instance of the VM to accurately
+> report the status.
+> 
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+>   arch/arm64/include/asm/kvm_rme.h | 2 ++
+>   arch/arm64/kvm/arm.c             | 5 ++++-
+>   arch/arm64/kvm/rme.c             | 5 +++++
+>   3 files changed, 11 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/asm/kvm_rme.h
+> index 90a4537ad38d..0d89ab1645c1 100644
+> --- a/arch/arm64/include/asm/kvm_rme.h
+> +++ b/arch/arm64/include/asm/kvm_rme.h
+> @@ -85,6 +85,8 @@ void kvm_init_rme(void);
+>   u32 kvm_realm_ipa_limit(void);
+>   u32 kvm_realm_vgic_nr_lr(void);
+>   
+> +bool kvm_rme_supports_sve(void);
+> +
+>   int kvm_realm_enable_cap(struct kvm *kvm, struct kvm_enable_cap *cap);
+>   int kvm_init_realm_vm(struct kvm *kvm);
+>   void kvm_destroy_realm(struct kvm *kvm);
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 134acb4ee26f..6f7f96ab781d 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -456,7 +456,10 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+>   		r = get_kvm_ipa_limit();
+>   		break;
+>   	case KVM_CAP_ARM_SVE:
+> -		r = system_supports_sve();
+> +		if (kvm_is_realm(kvm))
+> +			r = kvm_rme_supports_sve();
+> +		else
+> +			r = system_supports_sve();
+>   		break;
 
-2025=EB=85=84 2=EC=9B=94 1=EC=9D=BC (=ED=86=A0) =EC=98=A4=EC=A0=84 1:56, Bj=
-orn Helgaas <helgaas@kernel.org>=EB=8B=98=EC=9D=B4 =EC=9E=91=EC=84=B1:
->
-> I don't know this code at all, so this is likely just noise, but the
-> wait_event_timeout() usage in decon_wait_for_vblank() looks funny to
-> me.
->
-> decon_wait_for_vblank() waits on wait_vsync_queue for wait_vsync_event
-> to be cleared.
->
-> But decon_irq_handler() only clears wait_vsync_event and wakes up
-> wait_vsync_queue when !ctx->i80_if.
->
-> I don't see any i80_if connection in decon_wait_for_vblank().  Does
-> the wait always time out if i80_if is set?  Is there some reason we
-> don't use decon_wait_for_vblank() at all if i80_if is set?
->
+kvm_vm_ioctl_check_extension() can be called by ioctl(KVM_CHECK_EXTENSION) on the
+file descriptor of '/dev/kvm'. kvm is NULL and kvm_is_realm() returns false in
+this case.
 
-For the decon series, the implementation for the i80 interface has not
-yet been completed. If you would like to see how the i80 interface is
-handled in Exynos, please refer to the code for the legacy display
-controller module, exynos_drm_fimd.c, available at the following link:
-https://git.kernel.org/pub/scm/linux/kernel/git/daeinki/drm-exynos.git/tree=
-/drivers/gpu/drm/exynos/exynos_drm_fimd.c?h=3Dexynos-drm-fixes#n1053
+kvm_dev_ioctl
+   kvm_vm_ioctl_check_extension_generic  // kvm is NULL
+     kvm_vm_ioctl_check_extension
 
-Furthermore, please note that within the decon driver, prior to
-creating the CRTC, it is necessary to implement the TE handler for the
-i80 interface in the te_handler of exynos_drm_crtc_ops and register it
-as a callback.
+>   	case KVM_CAP_ARM_PTRAUTH_ADDRESS:
+>   	case KVM_CAP_ARM_PTRAUTH_GENERIC:
+> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
+> index 5831d379760a..27a479feb907 100644
+> --- a/arch/arm64/kvm/rme.c
+> +++ b/arch/arm64/kvm/rme.c
+> @@ -20,6 +20,11 @@ static bool rme_supports(unsigned long feature)
+>   	return !!u64_get_bits(rmm_feat_reg0, feature);
+>   }
+>   
+> +bool kvm_rme_supports_sve(void)
+> +{
+> +	return rme_supports(RMI_FEATURE_REGISTER_0_SVE_EN);
+> +}
+> +
+
+If rme_supports() becomes a public helper, it can be directly used. In turn,
+kvm_rme_supports_sve() can be dropped. RMI_FEATURE_REGISTER_0_SVE_EN is obvious
+to indicate the corresponding feature.
+
+>   static int rmi_check_version(void)
+>   {
+>   	struct arm_smccc_res res;
 
 Thanks,
-Inki Dae
+Gavin
 
-> Bjorn
->
 
