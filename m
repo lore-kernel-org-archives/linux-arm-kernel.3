@@ -4,116 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1565C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Feb 2025 14:40:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C05D3C0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Feb 2025 15:07:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AxRp7BQebuDa/QWpSFtdNHVeVIKZrT5TOCcodd5UPCY=; b=wMynnu33RyZS27k4Un8Bb5dt4j
-	+CxhiKkV97FDX1QZ/aJZazvey/bT0ISSJ6UlQaP1F83oTjRPWt5+doVY+/wEBoDDH25hbqazgEIta
-	cXYiHLTO8Lt8bkgtlYI6XIor1klmjcPpdoEKZ2kP88sG4T6dtPhtOHHs6J5FA1SgMAaEQKmQh6uuQ
-	eA3cGt8allZfpoNaWlVWgwNT6UwE2qodXhAUMJOU+dWfIOvCyAcMn13adqC/B8A5kjEC6z4VVLBPz
-	X8MjEWEKa3voJMYLRkYCL9JtHpwegNTy0vQ0n93t2QDRX42Gj3s7CVIuscoye44ajqWyCLTNl5TY8
-	aw6X4X9g==;
+	bh=lsPzncwIigCJWeSgsuG0FXasnz96a9gzn6HqogWWQug=; b=tDRG4KBSdWrFwZ0iX8+Y4ZYaUt
+	5tpyQL7HGHmmDO9AuxC4JLr+VZVpH0vj6+u3l+uORoWF2AT5DEWE495oYri56NjnU/RWigZLovpLq
+	ZhNLHTjFwpVWc62wUcB1qBEZkTe7PlzsslobUp1Y6GhfR9T/ccCmKL0jGFog7DbfvF6fZ84uh13W8
+	3jIJejfyRfyOmTIlW/bd839egu6dmJZJi/gErNG+2cR1B/hiYRnRRl+iKngqR8cEjxkyB5MPal9qW
+	NPUbDMgbVZc84RHEbmJO+38r+2Wo6PGFX+z4MaOyeKtPkzKeKptBAYN4NCUHUariNlB0hf35v3gQK
+	7FYSvAbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teb95-0000000Dslr-2TAN;
-	Sun, 02 Feb 2025 14:40:23 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tebYr-0000000Du3n-3UvZ;
+	Sun, 02 Feb 2025 15:07:01 +0000
+Received: from mail-io1-xd29.google.com ([2607:f8b0:4864:20::d29])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1teb7l-0000000DsgN-2EAq;
-	Sun, 02 Feb 2025 14:39:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 43CCCA40A39;
-	Sun,  2 Feb 2025 14:37:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35DE7C4CED1;
-	Sun,  2 Feb 2025 14:38:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738507140;
-	bh=m/GIr/IEsKSsHVUeW2Q4w6SndLyLLCq83vbReUxX20A=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=B6dXORxfBfHsqfIT3VEQU/qlnHnioIPpdv17SXLFwCQ6yb3nWhX8W+eouYC4Acuhb
-	 LB3egQ5cXltR8/iWSG4m/CBw3rDakdvtBinACwm047s2EKT8NCDks77x1rmLZ+OALX
-	 Snc58QuBFDkGY+TSd/ofK2JdX/2Eumx26qHayhsA2aK5ULpkCu8w8Ow+X/9l7ryUxR
-	 51G5hyr4ivvOWvWRhFHCYLFu49rL1fr/x9E3ZyiN40YHoiq+K6xfH/jK0Zgfaf8gQv
-	 hNBQbx5D8m8lVvDT5oakmEEVddfKC5rphVOTOL3/+kM/o9bkGezZbCFxRMRih3Dw0e
-	 kZ53t8sfid53A==
-Message-ID: <128a0301-ca1d-4fe1-8fe9-5dd3aa605e4e@kernel.org>
-Date: Sun, 2 Feb 2025 15:38:53 +0100
+	id 1tebXY-0000000Dtwh-1ZIb
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 02 Feb 2025 15:05:41 +0000
+Received: by mail-io1-xd29.google.com with SMTP id ca18e2360f4ac-844ce6d0716so263310339f.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Feb 2025 07:05:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=kernel-dk.20230601.gappssmtp.com; s=20230601; t=1738508738; x=1739113538; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=lsPzncwIigCJWeSgsuG0FXasnz96a9gzn6HqogWWQug=;
+        b=TUT+bqNPbjEeMJMF4EC6MWhk1WbJ1cwC47VRA/hiuUjI3J0VI+1la9z2lPyqmg9rR6
+         8TRdAitCwwU0QrAyTngAQuZQSlgWoDzHbTw80tW8RL/eAFncW4DXpFeZ6r68QdHXK7Vp
+         No7PDB/ck36H5ZY6BioygKeQERrjHIwMPop4SuZOuoLrETuxPzAhCcbOtoN6557+2PK5
+         T72VullAFOjpExznxqtNzJ9AfArM075f3DcYJYpJxxztkGtPh1ZEkbvCS5RI6YN7FYAY
+         cI9xGUykrvw9xlLJD9UqLsdt3VK1heIB/2lBWEw2Yqjab02+kKxbOhVnVvxgFI5T3cmm
+         TXbw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738508738; x=1739113538;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=lsPzncwIigCJWeSgsuG0FXasnz96a9gzn6HqogWWQug=;
+        b=mu2/pGEmsIq5/JvR+4CohPeG205vsRH4NgmqZE5tY2quDjVfRsWPTX4bbsYLMWrqQO
+         4w8MW8qhBtor9AyjXkaModilgbpahxgHV9PD+EIh0//ONGgDNO0oJrqpkpaNpQzNj85z
+         3L9hhd9oCXUaxOcPS7CXXvEFgtcCHNqoeNvNlpmfATb4f7KXFIT6aXfdYAZAJpmtyyPi
+         bcwo8TyREeqgKi0BeHlPzAXElMIPZdS9xlMKNMZp2isDRTSZYEG0PjDM41HGdz7ELA1+
+         QZrIyvLN/PG3WYdphXBgBijUIURwHLLijgRKuIa8tDwHyOr/NEQzBmKwgVunsqhRnC9T
+         J3zA==
+X-Forwarded-Encrypted: i=1; AJvYcCUHONqTN/D2G1Ty/DQzOGhill9TcfV61HGlSqvDjFpuUvt8m1CdHKRSLOn3kUyvU/11TcH+n+crRl3s3CvdUu/l@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx5JjhNN0ty5v7kzaPY9b/kPCylfToafzvU9qTEpyMZXfOUKqDR
+	799xQUYbdU1//rjNunhji8Ryn92/ORA9FS0sKzWr9MiNEMOZT8oG+65L96JuDV8=
+X-Gm-Gg: ASbGncuE6VMmtF9hByQObmDjkAofd6WovE31M1z4LHQ70HKYku9iEt9FlG6cSE5Z8kG
+	T0V6yLBIQNu5ip8mVK1wgvZsWB5t2wshIJNsjKrDt7uS0rXhq/AGNrrQVLJBNuv3x4HBUs0pxgr
+	aKI4FNAGCF2Vqy30ojaAfZTaybr5F4lL2U4Och6/wWvlH9XAmyYE/p7GIpXzju4+E5pc1fR3TnO
+	wzmb1tkyYSG2yx32JzsR24nS6bX5tMxrCtNYyMgaytKrXHhW24+ct9ufJZDMJYl5r5VWb+BU7uP
+	pVArZHjiznal
+X-Google-Smtp-Source: AGHT+IGtE/JLqI8S9p7eRdsRPG6dC9TP58pGT88bNKePz2C1yiBYPfCn5bRWwQVviJy5GovjAgOURg==
+X-Received: by 2002:a05:6602:380b:b0:847:22a7:240e with SMTP id ca18e2360f4ac-85439fa6279mr1766967239f.13.1738508738494;
+        Sun, 02 Feb 2025 07:05:38 -0800 (PST)
+Received: from [192.168.1.150] ([198.8.77.157])
+        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-854a15f8394sm204030039f.11.2025.02.02.07.05.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 02 Feb 2025 07:05:37 -0800 (PST)
+Message-ID: <8f039c53-a35a-460c-a0ff-43f592caddf5@kernel.dk>
+Date: Sun, 2 Feb 2025 08:05:36 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: arm: airoha: Add the pbus-csr node for
- EN7581 SoC
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>,
- Jianjun Wang <jianjun.wang@mediatek.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Bjorn Helgaas <bhelgaas@google.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- devicetree@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-References: <20250115-en7581-pcie-pbus-csr-v1-0-40d8fcb9360f@kernel.org>
- <20250115-en7581-pcie-pbus-csr-v1-1-40d8fcb9360f@kernel.org>
- <20250118-sturgeon-of-incredible-endeavor-73a815@krzk-bin>
- <Z54QtFIpX6a1eBm0@lore-desk>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH] soc: apple: rtkit: Pass the crashlog to the crashed()
+ callback
+To: Asahi Lina <lina@asahilina.net>, Hector Martin <marcan@marcan.st>,
+ Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+ Keith Busch <kbusch@kernel.org>, Christoph Hellwig <hch@lst.de>,
+ Sagi Grimberg <sagi@grimberg.me>, Janne Grunau <j@jannau.net>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250202-rtkit-crashdump-v1-1-9d38615b4e12@asahilina.net>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <Z54QtFIpX6a1eBm0@lore-desk>
+From: Jens Axboe <axboe@kernel.dk>
+In-Reply-To: <20250202-rtkit-crashdump-v1-1-9d38615b4e12@asahilina.net>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250202_063901_722115_972EFEE3 
-X-CRM114-Status: UNSURE (   8.54  )
+X-CRM114-CacheID: sfid-20250202_070540_404104_2920FCDD 
+X-CRM114-Status: UNSURE (   8.11  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -129,27 +104,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/02/2025 13:16, Lorenzo Bianconi wrote:
->>> +maintainers:
->>> +  - Lorenzo Bianconi <lorenzo@kernel.org>
->>> +
->>> +description:
->>> +  The airoha pbus-csr block provides a configuration interface for the PBUS
->>> +  controller used to detect if a given address is on PCIE0, PCIE1 or PCIE2.
->>> +
->>> +properties:
->>> +  compatible:
->>> +    items:
->>> +      - enum:
->>> +          - airoha,en7581-pbus-csr
->>
->> Does not fit standard syscon bindings?
-> 
-> I think standard syscon is fine. In this case we could drop this patch. Agree?
+On 2/2/25 6:48 AM, Asahi Lina wrote:
+> Client drivers might want a copy of the crashlog to stash into a
+> devcoredump blob. Since device memory management can be very variable,
+> the actual devcoredump implementation is left to client drivers. Pass
+> the raw crashlog buffer to the client callback so it can use it if
+> desired.
 
-Yes.
+Reviewed-by: Jens Axboe <axboe@kernel.dk>
 
+-- 
+Jens Axboe
 
-Best regards,
-Krzysztof
 
