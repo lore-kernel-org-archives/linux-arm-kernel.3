@@ -4,109 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD750C0218A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Feb 2025 02:17:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23C4CC02190
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Feb 2025 04:05:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oaPgjrYHflaoqP5DxCw0DAPnLuPRTINmmGCdI1hjL0g=; b=48x07mn6h/I03Oep02kkKDNYh9
-	ARygeD3/CGd+eIZAs/KQRyV+yA2Fh62haoUkCCqFSk/noN8HfnNFMc3byS57XyFwHjOpRQwu9jpcp
-	dVtqw04cskwJsUvoAn2WFf6bhubW1YYMl38SeswyZe3v/cjdPNVQN7KW/YZvUuEx6otTQ27IwwdKD
-	EP7uefo/TG6S1JF94e80ADHZEXEpYc6Fp+0mUDZ6huE4pjPodRPVsnFj5ZcTyywgi/hARF6ye+92K
-	170XscebDZrT5CYq7xIeD3UTPHdm3lX28ktNDi18Ve9Mi82tckaEgjOA9L/PatarcHP7VeLD9U4mR
-	Uu6Ra9ng==;
+	bh=Ce0FET0IfkIOlTle7eps0vS3nFf1UCmQKqVcb2oIVfE=; b=fHaosWmUWYzrp+kJ996yubm2at
+	b7HnH63+jz6rxAJOemYzpdUeQhMm1iUSohb/pcQyM7EScVAkJ8+pBc2m/z2D+LP7o0GXJ7s0LD70T
+	zIRwCbPE7xmkZW1WdRA4dOi3ClKr6R2aUOCJ3NVCOcW6cmqCYXh4HuS3vWQzcv2NuRCf+YiKkGKPG
+	4/X3wau1yYMncJYnnb7e7hQlAnkQpgYj1jiB1tL3tMM3wAShL+qZAutWobB1/pveQMQnA28HxhHI4
+	7cJ+K6OXtr5hkeh3jQLbj+pefpXyBK3ok//yTQS3LtKm83H4+R3F6mHTH7MX2+bm8hEZyDf9XvGHg
+	4KQ8suNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tePY8-0000000DIYA-1gcJ;
-	Sun, 02 Feb 2025 02:17:28 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1teRE1-0000000DLiX-3GmA;
+	Sun, 02 Feb 2025 04:04:49 +0000
+Received: from mail-vs1-xe33.google.com ([2607:f8b0:4864:20::e33])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tePWl-0000000DISO-0cq1
+	id 1teRCh-0000000DLd0-20Rf
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Feb 2025 02:16:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1738462561;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=oaPgjrYHflaoqP5DxCw0DAPnLuPRTINmmGCdI1hjL0g=;
-	b=gVEvRfV17ojupf5R1QFOTIrTnwclolxQO+Ez12tEk8kmFU7+fVlqz4BzDXTPEOqDedYYb1
-	iRmkmqF1Q20WYwegCTZLr2GJ+Y4txeH4+Ji3FSWjJ0N5CfRJb+IU23gwz1dAJmq35TDAmv
-	lGWNKL5Al84GnWUpAtcBTclNwmKvCkw=
-Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com
- [209.85.216.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-383-6W3jXJbTP2WkhYen0f7wxw-1; Sat, 01 Feb 2025 21:16:00 -0500
-X-MC-Unique: 6W3jXJbTP2WkhYen0f7wxw-1
-X-Mimecast-MFC-AGG-ID: 6W3jXJbTP2WkhYen0f7wxw
-Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-2ef6ef86607so8142746a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Feb 2025 18:16:00 -0800 (PST)
+	Sun, 02 Feb 2025 04:03:28 +0000
+Received: by mail-vs1-xe33.google.com with SMTP id ada2fe7eead31-4afe99e5229so921063137.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Feb 2025 20:03:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1738469006; x=1739073806; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ce0FET0IfkIOlTle7eps0vS3nFf1UCmQKqVcb2oIVfE=;
+        b=WQRXHaDjF6Ag+tZvn+S/Ey5xETrTZLfM/d2NOQgur1LdL4NeX4hlW6viYXH5FTVHAa
+         Favyjc8smEvF6uNkV3maw5CzbNNmQDbUeU/it1Qm7xyQtM3gsEGUZGeH6G1vVN9uiTLr
+         EMIur21hvJC/t2DmTIGStBXS22n4rQfKNH++oXz+ktrw2Tey8kn0g2IdTgSpO1Bscm1Q
+         HXNKnXFZhyvBnCvz/yjF3D+adVTuADeOLXMwkrOwfrkYtKLlMBF5qLY/S+z9vSTMyiGR
+         KO2mjKuMqj2SuqqgBXIikLLlbHoiXKAPN/vkJuoDO789Jl+Ee0JWSDCq710eYN/IS0f8
+         nOpQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738462560; x=1739067360;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=oaPgjrYHflaoqP5DxCw0DAPnLuPRTINmmGCdI1hjL0g=;
-        b=q8lfB8MdhNhPuFVMIm8Ony4hGDROGEK3cQcNYIJCg34JqHakwd62jAAbyIRRNZKmMK
-         1wu9MkChaQkRrpo5yvOaYTNjsad+8LeJtsNWm8Ydscn9IEMEIPenpO+iSQp93jk7iXas
-         IxCAY2muKiXwP00Lfe0Dkfr52nxpRXSVjzwylhJybD5GrC+7uvwc3Y3S3vM0Q6xHE6XH
-         fkkXqeKvPPct7W+PEz+r5YLNiaLvgBq8JFU/YnbSIdO8JpSCI8+J10DxUa5BqzRMS6VJ
-         B/otxCxxnoYtKMqOm8BEKipX4de9Sys+hnrzY6GaxmxYnJPHt4IL2HXNavm8lRu4oHH7
-         iGCw==
-X-Forwarded-Encrypted: i=1; AJvYcCUz72ld50errreUKaQK3SAnOflcoEo9XjWRg1xK+MFFhc4P1meuB7Z/l5GRwt9tMZn1Hub8oH10ZhH/FQvgb2La@lists.infradead.org
-X-Gm-Message-State: AOJu0YxGi2vPs6mNe83+0sn/bZRGNPv3xjE7Hzd4psvcn5nRvs1FD5tn
-	ZN+uOA/HdQ821VAF9JDJ8QJ47udGghyOMsJ/svlxoitC2qeGgZsFjqUFLypY886DfcL9Z9GFOsG
-	4ZqWu4SDmQ9UgQm3/KJ9HhjH5aBQTmRE2Zgc2WLwGiiR0Ej5FhL0eqHIazOJRPByIavSOvQcj
-X-Gm-Gg: ASbGncu46DrzqxrbrPkOrPROCZnvwo/UcSPtNZUt3qtaRK76IKufGJmDvBw5rBqup7D
-	c32tyTjkKTCodsemrE6aFowH/Ia9bClrOIXY0TzegwMHWgLL4SeRXfpKrwiKOBFwmsfPWTFU9DW
-	qt8880LekBfTU44wtcohmrKStwZKsvqr0O1Xd/C+9IThSf6uLaPc3riaeNnkZ8yjMKRYwI06r2V
-	/0eUcSEQgMeaWJEhHOUJg4t6hUK7UpHm4LArfGI6qzB9iB7MWsEDLMRj562dBcg8Uawr2UvXiKM
-	WwG77Q==
-X-Received: by 2002:aa7:8c43:0:b0:72f:f86d:c543 with SMTP id d2e1a72fcca58-72ff86dc5cfmr9769162b3a.9.1738462559695;
-        Sat, 01 Feb 2025 18:15:59 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGwN4JpbwAKVJUbVg+/34hGwQp5HKYXpKcr/Eo2PO+gIzPd+r9+tV930pBIODwVO11f1VYIuw==
-X-Received: by 2002:aa7:8c43:0:b0:72f:f86d:c543 with SMTP id d2e1a72fcca58-72ff86dc5cfmr9769126b3a.9.1738462559318;
-        Sat, 01 Feb 2025 18:15:59 -0800 (PST)
-Received: from [192.168.68.55] ([180.233.125.64])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72fe69ba47esm5834225b3a.96.2025.02.01.18.15.52
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 01 Feb 2025 18:15:58 -0800 (PST)
-Message-ID: <ae13e762-bd0d-4525-8919-f6b1bcfc8fee@redhat.com>
-Date: Sun, 2 Feb 2025 12:15:51 +1000
+        d=1e100.net; s=20230601; t=1738469006; x=1739073806;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Ce0FET0IfkIOlTle7eps0vS3nFf1UCmQKqVcb2oIVfE=;
+        b=mHS5oT6udTuJA1g8+NmMsJ6FGABy2GQD1dh9D969DSrOrB7QkMAWO8ncnPxeKVA2bh
+         0mPZLOCzGiP5Qcm9jRB3bRFRZf8MxevMKFQ4w3EkJr70fwlDfjFL4Q+Tn0SJ7Mnml3hm
+         v1EbuuehNkot8fm3VZdts8nv9+cUFo+YDzcPXpee8l05srafr10IMtMI7Qlx62mdbzhh
+         A9RJYogm6uX0KNuYn8XaK1/1azOApanWXXshL5FWx+RYYIuMdF7QZRoJ4fdYHllowTss
+         2XDdl+zp+VZmNHV7Zl9jBBzf0xoRPmOXGwfckyaiBv1K10JdNojgBAPGuxplN+RYawAf
+         8ZFw==
+X-Forwarded-Encrypted: i=1; AJvYcCXxH6+1cQejoiJUJNYrnjBX8fi03ijYXcygBufL5A0YuNqSccgbsT4r6b2FPU6zoOT0Y/+F8b4yfH+iviweafJN@lists.infradead.org
+X-Gm-Message-State: AOJu0YywA5DhNi/CjA5pOkVpjgFH49oS3EUotv5MAlGr139Dyp7skUQx
+	cxj+ojgshwLBMpppDU9evwT8j8QvPWALBFjq0dYvaeTkfaVrDCGMDrBxtR3aHsyjX6/D46grcqv
+	yF8IUrOD3bpgM/9fXSLHqKNH4rwk=
+X-Gm-Gg: ASbGncvBlr6HKNxItaSWWe1oESOXYvsQz3V47TwUc77h4+c5t2fiNcFPRj5h7tT3h+E
+	lUkFU5X+w+fui/vx5hD+nvJKknO0kNfEuSEuDOo63+bgWI/KIuyCKKTb6cDlxtpZktPBAK50=
+X-Google-Smtp-Source: AGHT+IEl2hwFbFW7YBYOu+GLWt5eM+n+AOb40sBzZ1Uqgh3CYrzMGQfoNdzZenlrAl/ISiDC0/BrrxYhxOBYcrRDv1o=
+X-Received: by 2002:a05:6102:3ed0:b0:4b4:6988:b12b with SMTP id
+ ada2fe7eead31-4b9a523c972mr13337687137.23.1738469005670; Sat, 01 Feb 2025
+ 20:03:25 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 25/43] arm64: Don't expose stolen time for realm guests
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-References: <20241212155610.76522-1-steven.price@arm.com>
- <20241212155610.76522-26-steven.price@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20241212155610.76522-26-steven.price@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 8MfXJQT2wyMSibzqXrzQpl_2Qt5ic8ARaZfwlViJau4_1738462560
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20250131165549.GA684322@bhelgaas>
+In-Reply-To: <20250131165549.GA684322@bhelgaas>
+From: Inki Dae <daeinki@gmail.com>
+Date: Sun, 2 Feb 2025 13:02:47 +0900
+X-Gm-Features: AWEUYZmqMRW6IjLJ2-1W_gEn2kSwXk8I9ORt1L9SvKNpwZDk2Y6UeiwO2M7pvFE
+Message-ID: <CAAQKjZNqFt=SYxCzpQ5JwOADRUwsWsq5KzLRoPG++27SXGubnQ@mail.gmail.com>
+Subject: Re: wait_event_timeout() usage in decon_wait_for_vblank()
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Seung-Woo Kim <sw0312.kim@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250201_181603_364234_7998F232 
-X-CRM114-Status: GOOD (  16.61  )
+X-CRM114-CacheID: sfid-20250201_200327_536170_C66EA276 
+X-CRM114-Status: GOOD (  15.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,40 +95,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/13/24 1:55 AM, Steven Price wrote:
-> It doesn't make much sense as a realm guest wouldn't want to trust the
-> host. It will also need some extra work to ensure that KVM will only
-> attempt to write into a shared memory region. So for now just disable
-> it.
-> 
-> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
->   arch/arm64/kvm/arm.c | 5 ++++-
->   1 file changed, 4 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index eff1a4ec892b..134acb4ee26f 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -432,7 +432,10 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
->   		r = system_supports_mte();
->   		break;
->   	case KVM_CAP_STEAL_TIME:
-> -		r = kvm_arm_pvtime_supported();
-> +		if (kvm_is_realm(kvm))
-> +			r = 0;
-> +		else
-> +			r = kvm_arm_pvtime_supported();
->   		break;
+Hi,
 
-kvm_vm_ioctl_check_extension() can be called on the file descriptor of "/dev/kvm".
-'kvm' is NULL and kvm_is_realm() returns false, which is the missed corner case.
+2025=EB=85=84 2=EC=9B=94 1=EC=9D=BC (=ED=86=A0) =EC=98=A4=EC=A0=84 1:56, Bj=
+orn Helgaas <helgaas@kernel.org>=EB=8B=98=EC=9D=B4 =EC=9E=91=EC=84=B1:
+>
+> I don't know this code at all, so this is likely just noise, but the
+> wait_event_timeout() usage in decon_wait_for_vblank() looks funny to
+> me.
+>
+> decon_wait_for_vblank() waits on wait_vsync_queue for wait_vsync_event
+> to be cleared.
+>
+> But decon_irq_handler() only clears wait_vsync_event and wakes up
+> wait_vsync_queue when !ctx->i80_if.
+>
+> I don't see any i80_if connection in decon_wait_for_vblank().  Does
+> the wait always time out if i80_if is set?  Is there some reason we
+> don't use decon_wait_for_vblank() at all if i80_if is set?
+>
 
->   	case KVM_CAP_ARM_EL1_32BIT:
->   		r = cpus_have_final_cap(ARM64_HAS_32BIT_EL1);
+For the decon series, the implementation for the i80 interface has not
+yet been completed. If you would like to see how the i80 interface is
+handled in Exynos, please refer to the code for the legacy display
+controller module, exynos_drm_fimd.c, available at the following link:
+https://git.kernel.org/pub/scm/linux/kernel/git/daeinki/drm-exynos.git/tree=
+/drivers/gpu/drm/exynos/exynos_drm_fimd.c?h=3Dexynos-drm-fixes#n1053
+
+Furthermore, please note that within the decon driver, prior to
+creating the CRTC, it is necessary to implement the TE handler for the
+i80 interface in the te_handler of exynos_drm_crtc_ops and register it
+as a callback.
 
 Thanks,
-Gavin
+Inki Dae
 
+> Bjorn
+>
 
