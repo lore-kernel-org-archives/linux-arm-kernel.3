@@ -4,57 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D246FC0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Feb 2025 14:00:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E580BC0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Feb 2025 14:01:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
 	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yUH3W0i9TUw3UIqprvF2Ju8lMKQU6MlpSQFAKIXtD0g=; b=OqLRdOjm6kK3deUmaf1/g0X6gs
-	2Iz+sEbnlFDyeUdb/mxpk3mLHeH0ecVUHvdIK81JKSrdLrg5sWeOjFlYxv2IBW3vvbPFvLNJeJa/3
-	jfxh/hrYhtW5Xp/lwoLPHaMKTvTeeTv5z1OMKlvrch70ny3I7rSaJ8y8oj5VizDEMUqrqI0m4yivC
-	wDcV0lvNWCMvu5zHF6q8TMu5ck6aJeGU/Sl9VSwnc+oKD9Uk+utsDlMRCu1k/fq5OzyQvUeVD9nmN
-	TnTE4L7IvynJiSPVA9St2QCT8KesWRKSSDcIf4SEJJtX4znkUaGwoAeGYTnAvmzZJdRoST47+86Hm
-	taBMQkGg==;
+	bh=4FLDSEYAG/gfMFfhnDYUv88ck+vE5i8SXA7uTUmKNGc=; b=ONItS+/LG6TYzyhE67jZd9xJ8x
+	C7iXW6klH8L9/GQ4yEkRVMFTv9e9i+45VDqxrO1VrenaPIKEH/El/kaxOsjkyPNx87ujHCKlHlDJ2
+	bvxrk5lv4OKtRcGYFlTNCI1Ew6qYaiSppJfvExlxzl/auU+cMzpm9MEYBdNS907M3pXlm8fom3G7e
+	QSLduoWcflTlBWwNwGDGmgbxJb4zMZeQ3N4JPXPJuwdMvBrT2cCuVEV0gS7WAxyHiYzhrEEKHc8nV
+	ieHJZpuWQE5J5kqGz2uRCJ/yXTvsJ5HNgdIvjZOrbYBvHCpZRTFAcfHX+ZbbRo4B2Zq0Mph4aVvj6
+	ZjfBA7kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teaWE-0000000Dq0U-0rrW;
-	Sun, 02 Feb 2025 14:00:14 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1teaXj-0000000Dq6q-49mS;
+	Sun, 02 Feb 2025 14:01:48 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1teaUu-0000000Dpuz-4C0u
+	id 1teaWR-0000000Dq2B-11oQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Feb 2025 13:58:54 +0000
+	Sun, 02 Feb 2025 14:00:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id DE2C0A40BC3;
-	Sun,  2 Feb 2025 13:57:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62A03C4CEE0;
-	Sun,  2 Feb 2025 13:58:51 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B421E5C6077;
+	Sun,  2 Feb 2025 13:59:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FCB6C4CEE0;
+	Sun,  2 Feb 2025 14:00:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738504731;
-	bh=HsGsVQio4UuScW1+1uU6H+TanyCHNIVvBIuyo4NfgRE=;
+	s=k20201202; t=1738504826;
+	bh=DzXPrddsd4/HbbCoDn4tV8Jh6qWf2J/+UIS1+YGvWRw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OTa14oOTIMLKU2Mx3rpLSUqQHthlbrXHynHGn8QG4XXjnEqTr80+oDxkA0zIeIkkx
-	 19mGNqVoKBfAWFbaI/Zx1vko3qLLBBtxTAdJnLuNPD/7nifBu17rqV8bTw+dAINUFo
-	 VNesmVx5k3kUDamR1RS3cuYlmL0rhcFGwRVxHs1qylk/4a4GYcegQJwYQ8BJ+3uX/q
-	 xk/OkL6g7kZ9JcHD7zFCsQR6dG1My7lyny15sLnt2Oa3ib1FHKB8CDzKZX94HALzAg
-	 Ykx9i2e7+6vmoJhXlAQnEu+ZXUsejcQwn092redIHgoeZQxE3bMP/+eoAGDpQnYElN
-	 A1DfX/yyjsZNg==
-Date: Sun, 2 Feb 2025 14:58:48 +0100
+	b=ux7XG2JY1yFhXPOjhSFRAGl71XuD+jOnSkt48yjYzqkvJcpFu5jYLWMs3mphJCzY8
+	 Dc1RBihb5PwpJa9Q5zMitb2KB4D1JRdM60QaD8c9SM6lDEEGMxbg7p7jPIzBp5/EBB
+	 EmnLX+yZB1bOP/PvcuOwD82ej+g8BEsFDbxjTXHYiLBZLXrlcR4q3AFScAxNX7YpWM
+	 IgND4zHpyMCLRdwv/xyWhyVnJD4+ciC0SnoFTZAGTs5cgMI6HF+oXKLjW3+QRhoNQs
+	 D6aUT4b+bQVggR56YoOkzKzErzF595ldroM+hUWJecTwQMopZjgDBoN8gSN+GSfWQo
+	 5x9ADaH81cobw==
+Date: Sun, 2 Feb 2025 15:00:23 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Subject: Re: [PATCH] dt-bindings: ARM: at91: add Calao USB boards
-Message-ID: <20250202-horned-singing-cormorant-afdc77@krzk-bin>
-References: <20250131162713.33524-2-wsa+renesas@sang-engineering.com>
+Subject: Re: [PATCH] dt-bindings: clocks: atmel,at91rm9200-pmc: add missing
+ compatibles
+Message-ID: <20250202-fragrant-radical-fulmar-77ccae@krzk-bin>
+References: <20250131162845.33637-2-wsa+renesas@sang-engineering.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250131162713.33524-2-wsa+renesas@sang-engineering.com>
+In-Reply-To: <20250131162845.33637-2-wsa+renesas@sang-engineering.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250202_055853_120577_11E5C863 
-X-CRM114-Status: GOOD (  14.41  )
+X-CRM114-CacheID: sfid-20250202_060027_332912_98C0D5A8 
+X-CRM114-Status: GOOD (  12.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,50 +67,32 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, devicetree@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 31, 2025 at 05:27:13PM +0100, Wolfram Sang wrote:
-> They have not been added so far. dtbs_check complains loudly.
+On Fri, Jan 31, 2025 at 05:28:45PM +0100, Wolfram Sang wrote:
+> The driver support more SoCs. Add the missing ones.
 > 
 > Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
 > ---
->  Documentation/devicetree/bindings/arm/atmel-at91.yaml | 8 ++++++++
->  1 file changed, 8 insertions(+)
+>  .../devicetree/bindings/clock/atmel,at91rm9200-pmc.yaml         | 2 ++
+>  1 file changed, 2 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/arm/atmel-at91.yaml b/Documentation/devicetree/bindings/arm/atmel-at91.yaml
-> index 0ec29366e6c2..42469a054a60 100644
-> --- a/Documentation/devicetree/bindings/arm/atmel-at91.yaml
-> +++ b/Documentation/devicetree/bindings/arm/atmel-at91.yaml
-> @@ -23,6 +23,9 @@ properties:
->            - const: atmel,at91rm9200
->        - items:
+> diff --git a/Documentation/devicetree/bindings/clock/atmel,at91rm9200-pmc.yaml b/Documentation/devicetree/bindings/clock/atmel,at91rm9200-pmc.yaml
+> index 885d47dd5724..8b65390d2d54 100644
+> --- a/Documentation/devicetree/bindings/clock/atmel,at91rm9200-pmc.yaml
+> +++ b/Documentation/devicetree/bindings/clock/atmel,at91rm9200-pmc.yaml
+> @@ -34,6 +34,8 @@ properties:
 >            - enum:
-> +              - calao,usb-a9260
-> +              - calao,usb-a9263
-> +              - calao,usb-a9g20
+>                - atmel,at91rm9200-pmc
+>                - atmel,at91sam9260-pmc
+> +              - atmel,at91sam9261-pmc
+> +              - atmel,at91sam9263-pmc
+>                - atmel,at91sam9g45-pmc
+>                - atmel,at91sam9n12-pmc
 
-I don't undertstand why calao,usb-a9g20 or existing olimex,sam9-l9260
-can be fitted with any SoC.  If that's expected, mention in commit msg.
-If not, then this needs to be fixed, not grew.
-
-
->                - olimex,sam9-l9260
->            - enum:
->                - atmel,at91sam9260
-> @@ -35,6 +38,11 @@ properties:
->                - atmel,at91sam9xe
->                - atmel,at91sam9x60
->            - const: atmel,at91sam9
-
-Line break.
-
-> +      - items:
-> +          - const: calao,usb-a9g20-lpw
-> +          - const: calao,usb-a9g20
-> +          - const: atmel,at91sam9g20
-> +          - const: atmel,at91sam9
+Please update also respective if:then: part with constraint for clocks.
 
 Best regards,
 Krzysztof
