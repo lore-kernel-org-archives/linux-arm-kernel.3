@@ -4,149 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBF28C02193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 18:10:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED9F2C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 18:26:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MsKgvauvsT9AEyvvS+/g77KTQCjZjUTHTc4HokMjeYA=; b=jTRwk3H5HsF1hJAZbEdk2XAHrM
-	LF4M9zDWIas8P42kPGNX5T6pRIDGv4cj2DSQotfribL3kScudxi+ohV5f9eeaHNJLgmXfrt9gSTZT
-	md5kYIO5ftjkMFq5UOX/FrZI/3qAK7FmXcm7pOwIQx0uUWPUNZIBQXDi4qeCQ3jucgZhSWa5ZRtFm
-	6l96gov4KQ0uM1+kQzc7E6ayjui48QztlutQaBJp2fDnshWRnE0xw+33XtlSYZkyTawEI+dPcj+Pw
-	3tPEf4qheFKi0hyBakC9bXwsuUugxogy1Bg/DDLNfw8CDYa7NgnpXzUsUOWPYUCfcmSmrHkbvimjN
-	NYVE517g==;
+	bh=RB5zo1GGCQ36hyCaggmcVYREHv1ZA2y6ofUzfaQj+A0=; b=OZpYZwO4zDaSRUPO5kfFkQ+DFh
+	qe0PdXYsAcgm9kvr2VBYIK6PbjLoUGvsCcG57Ww5Jry2URuOjAAyaLoCvxlganpAsoyCP9opaLeGr
+	hvTMjYi7EpfxpZFu3UV9MODsSBM89v1LFTtvUDzGNuNPgV2azAf6Z1yE8dwSLl+sg7ubhLPKEiBjK
+	L5/Z11Qo0kZi4CzJenJAMbZ2dw5+GGzuxoD8/GLyvo+v/g0MOSDUVW9HlWIIVuBir48fDTGYSbzky
+	6i45dBeTBmkdZ8rNcd80TzJFpJUI6/mrrlfPpHCgwsmuvlaGGjFLp4Aia07VsVqsRGiEOn0fpF6Yw
+	aP9COVbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf0tk-0000000GDXv-2tkR;
-	Mon, 03 Feb 2025 18:10:16 +0000
-Received: from mail-bn7nam10on20600.outbound.protection.outlook.com ([2a01:111:f403:2009::600] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	id 1tf194-0000000GFQM-31dx;
+	Mon, 03 Feb 2025 18:26:06 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf0sQ-0000000GDJh-1wCP
+	id 1tf17j-0000000GF2z-3O8x
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 18:08:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BcPR0jSQ4sbO/WCcf+4cvo7yWuH49Z8cRIo7sMI8oezk0UnoeErrdAfwigP8GgEnTdy/t7MNrC0uJsK5S86OVt2W5QspYjziTJaCWQEukV/ISWELQHVlAwSXO8LETjJPsRPXnl+ADDqw/WmYOu+XrwboTr/iemt00LdoYcB+IOvKz1UZiwaH80h3Nx4wQnRPU5gKEQU/skvTk9Dj6t7JR20rl4mdF4Rkwl+5j3J4BXP/2rsh8ltMXJHW0YiYVCu5ZFxAPUqDxbTGV2CYPGzXA+4ieTFPp834kTm1LjwwGv9VI5006bgjs9LeOiN6BumyNs+NE+C1W80wpe0RsA68/Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MsKgvauvsT9AEyvvS+/g77KTQCjZjUTHTc4HokMjeYA=;
- b=AVUKOG6Pusbj55Nav7dCOew2GKiSc8fLb5a4TihRNDLBcd0xaKdzYb9QmbO4vmZUESMlmNoDF7oDS3DZBSefDQTD9tGpQm5J+QXKSxa8awv9KQ3tpsCtN6nDqK7ynU+lMoE+SHBrLoOkMJ97XVpQBhdwmSJVnVDTRgyU/lK0AQOwf9MDXtmtxyI/wx65jwdfkBdLh+hLZVFFVNNwQJnFiznUeRP18eQUzO1TUboSDuJ+3x/qFFGMUFOnGBSaU0oQtUA9yyiD8alIH5esKhamweDs+KQ4IfB2TdvbwT2SshoVQn2+izRqQBn3nWCdqyt13X7AXJ7SAJMfKjHb2UI/aQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=redhat.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MsKgvauvsT9AEyvvS+/g77KTQCjZjUTHTc4HokMjeYA=;
- b=Z6hzo3cKBMLFheseQy8VCwxPNwrmEcPk9IbTEvDUNP0k1iGHBJqb7shJKXiOe8D9dcbWvBQcD2kmbDL4DA8f4mrrN25QFzGG+vDGZRojlnDSwmTyvLfaoqPCUME8EeSVjJYGtD+/ReGTTfDg86FMyIGLnofaU/Eh9cNt6RjiYBseyvwp6Q/hm/U/xEW31K0/PfbTW4x/jIz/A4bjHSorvtoGdtO1TWg2Mj9igQXMsNF1fjZ3zsOy2DEfdl0rACTWVgAY2z0S0JXnNZSohCDnyWECJqDkrPzIPJDRuUso5hwnPKlQYUbQf1nOE13/Poo3pN+XwMK3ouwlT+hoWGKbxA==
-Received: from CH0PR03CA0226.namprd03.prod.outlook.com (2603:10b6:610:e7::21)
- by PH7PR12MB7331.namprd12.prod.outlook.com (2603:10b6:510:20e::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.25; Mon, 3 Feb
- 2025 18:08:47 +0000
-Received: from CH2PEPF0000009C.namprd02.prod.outlook.com
- (2603:10b6:610:e7:cafe::e7) by CH0PR03CA0226.outlook.office365.com
- (2603:10b6:610:e7::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8398.23 via Frontend Transport; Mon,
- 3 Feb 2025 18:08:47 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- CH2PEPF0000009C.mail.protection.outlook.com (10.167.244.24) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8398.14 via Frontend Transport; Mon, 3 Feb 2025 18:08:47 +0000
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 3 Feb 2025
- 10:08:30 -0800
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail203.nvidia.com
- (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Mon, 3 Feb
- 2025 10:08:30 -0800
-Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com (10.129.68.9)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Mon, 3 Feb 2025 10:08:28 -0800
-Date: Mon, 3 Feb 2025 10:08:27 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Eric Auger <eric.auger@redhat.com>
-CC: <will@kernel.org>, <robin.murphy@arm.com>, <jgg@nvidia.com>,
-	<kevin.tian@intel.com>, <tglx@linutronix.de>, <maz@kernel.org>,
-	<alex.williamson@redhat.com>, <joro@8bytes.org>, <shuah@kernel.org>,
-	<reinette.chatre@intel.com>, <yebin10@huawei.com>, <apatel@ventanamicro.com>,
-	<shivamurthy.shastri@linutronix.de>, <bhelgaas@google.com>,
-	<anna-maria@linutronix.de>, <yury.norov@gmail.com>, <nipun.gupta@amd.com>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <kvm@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>,
-	<jean-philippe@linaro.org>, <mdf@kernel.org>, <mshavit@google.com>,
-	<shameerali.kolothum.thodi@huawei.com>, <smostafa@google.com>,
-	<ddutile@redhat.com>
-Subject: Re: [PATCH RFCv2 06/13] iommufd: Make attach_handle generic
-Message-ID: <Z6EGG1lAwsqoNfpF@Asurada-Nvidia>
-References: <cover.1736550979.git.nicolinc@nvidia.com>
- <c708aedc678c63e2466b43ab9d4f8ac876e49aa1.1736550979.git.nicolinc@nvidia.com>
- <2b7f6c5e-434b-4f36-beb1-94af12362c8d@redhat.com>
+	Mon, 03 Feb 2025 18:24:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 689F05C4D25;
+	Mon,  3 Feb 2025 18:24:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C34AEC4CED2;
+	Mon,  3 Feb 2025 18:24:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738607083;
+	bh=kS52tnDcHZpqiP8fWjUc+LfmksWcnjQyHD//S3efKYU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ch5W8Dy+SLF9ojLRe9+SL81IEAdmVnDaBKiTKqGuHzdnTMptbW9i2Ac12YbILGmnl
+	 BwPBdidWBGhx3jsx1Kk99OBDtbQItBZKGEOn+HngTSGzc5RMD5VQ76rEhub6HtXLsP
+	 ygMLY24pZHnGPEWs989pXGDqny8th52xbxTBtCjdyoHCCOhLcRhsGa9kMzNL47IX2n
+	 34uHR/JekrS5Ev7xwyfm0VJDQgH8g9BxQeHICKBwbVBI6Mx/SsGSevfvWEcvt67LZZ
+	 U65p9ndoLXf/+sIIjA8BjRvoeihJrTjFFVNhEz/ELsvysh3locl7M756BBnaWwMJgw
+	 lC6oQJ+gHUnhQ==
+Date: Mon, 3 Feb 2025 12:24:41 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Charan Pedumuru <charan.pedumuru@microchip.com>
+Subject: Re: [PATCH v4] dt-bindings: dma: convert atmel-dma.txt to YAML
+Message-ID: <173860707629.3348340.8749249185300226333.robh@kernel.org>
+References: <20250203-test-v4-1-a9ec3eded1c7@microchip.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <2b7f6c5e-434b-4f36-beb1-94af12362c8d@redhat.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF0000009C:EE_|PH7PR12MB7331:EE_
-X-MS-Office365-Filtering-Correlation-Id: e70647e4-b0cd-4574-1508-08dd447dce02
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|1800799024|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?H30iHMEntTdDHR2iLXp8QSmG/B6r4IzdsgrLYk880pJC5hUuZO/fuIMDtddn?=
- =?us-ascii?Q?mmcl0LHF74Qxn4Mfr39EDnQX1bMFcztiSk0yC3F9F7qMWXdwOB6dRN1NL6uI?=
- =?us-ascii?Q?E+w2zeHgTW8bLldtJD59tRGLt4D9uCO07kYRnIYPWEFd0ZJpCbKlatoSOiE9?=
- =?us-ascii?Q?zNraaQGrziHh2PGW/8otbz/YHy/cPMhOyZSGm42lhxeFpl8s6mf/NyAnMiOT?=
- =?us-ascii?Q?vJsk/IQr9ByhbjpyPNQAMGhtjQsZG75iP4WEUQQeXhUVTSrhLQjbMgV8PQGc?=
- =?us-ascii?Q?jK48W0JSvsNoKLaT94xSnwl+zEqY9j4sk2D9NwMKdZBPs1+1SkO+11kK7ZDM?=
- =?us-ascii?Q?EScxipQJI2ig7oiwHCAQqDjjDuykqTBYsB+xVEYOkvKcDIxmEvKYcwKLjy9w?=
- =?us-ascii?Q?WpFq7dU2Q7FUzFm++VM4TEDQ7pXK3FydSjIdg7ZAS93gMT3vqCv6HTSY1EzI?=
- =?us-ascii?Q?NxZIFGOLeYpvmOkCgVpIBIVKXFtY3+kBJNEVTvYva8yHVcCdZRRK0Zlm6qlb?=
- =?us-ascii?Q?4GQkAYJ7rmpu1/lWq9NofaJFm+hiIFxNnljYxuIt3XCPYcjzIcT7AXK+44nO?=
- =?us-ascii?Q?X3at30PepZadU6Ra5j+1RiYUnhUGP1Io9BCfJc3CUWzaA/OdvJlIFBRNGYoT?=
- =?us-ascii?Q?zxYBVbmfZb9EycrJtI51SRfkg889TtIqzzmUiPfPfPTKWoM020twNvxwphBH?=
- =?us-ascii?Q?afLqR21RUvRcmgdQ6li2qEdxAcZOlelCQKSI1xg31x5J85jaC3fpieKbyofB?=
- =?us-ascii?Q?KUjFij8jxGmorUPY2RAXsjKkbs5ZtmX1i3otiDlQHr+6tTcvN8QUk2KCZAIM?=
- =?us-ascii?Q?/wzWd5ZZt4tW1QkB1cVkC+XLRwdrknNEB1tXDFJtSb71lHwWZ/sK3I5BeS1D?=
- =?us-ascii?Q?XyF/akf7pz48F2hf0/6Kx86iFWgpnGSes45vTL9wE0qvjq7GKZKI1AQlm0rN?=
- =?us-ascii?Q?2BnX6skOzcUVtyNBXTv58E1WinL61HbxCFo+wOc+FmjDcIqTZYHLT0KwzBfc?=
- =?us-ascii?Q?sfXbnPcfXqLNDdVh95msM45USJWbvRdaAdY1NttOheMD2hh8FH1Vh7icTtq5?=
- =?us-ascii?Q?XdEe0kGMWEb3NhC4AvYNWSWiuT2LXL38px5NLyVEVCYssBeqbmAGbv9515QA?=
- =?us-ascii?Q?+jmeVm1eo+YoAqWRlxtJgc7XnGlLRgF3FsYSx96uSQsI4+FSfGRj7Hz8+JGc?=
- =?us-ascii?Q?SQRlzS67Ud/WHh0i5xbTXCjBHrGL8JOdgZMIMxgxvCJSYL3kavWotL2LGTvi?=
- =?us-ascii?Q?G3IcoEwwKMbVY1Y2djEizLbhruj3gvX/RINEKq+d5Go63Qh0u5LNmq5nF4hu?=
- =?us-ascii?Q?t8CiFvODwuHTlcFmFbvyNmaTaiI6gzV7iOaiJK5SZbeKK8mL0na9BAVSo/Jl?=
- =?us-ascii?Q?iJg9eyrgxa10l8EQCqHn+aslnWgH22A5ncROpf0rrHkbKraTWpTf03Dg5Fot?=
- =?us-ascii?Q?KrPmmqsbfZQhiloPivbhyCqg73D0DEpJ01UreSmx03WiCXKx4AMCKzXuFjQe?=
- =?us-ascii?Q?Po1dsEPH3WU9aFs=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Feb 2025 18:08:47.2759
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e70647e4-b0cd-4574-1508-08dd447dce02
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000009C.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7331
+In-Reply-To: <20250203-test-v4-1-a9ec3eded1c7@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_100854_503736_B1EBEB4B 
-X-CRM114-Status: GOOD (  23.15  )
+X-CRM114-CacheID: sfid-20250203_102443_890511_16470E89 
+X-CRM114-Status: GOOD (  14.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,66 +66,50 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, linux-kernel@vger.kernel.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Andrei Simion <andrei.simion@microchip.com>, Vinod Koul <vkoul@kernel.org>, Ludovic Desroches <ludovic.desroches@microchip.com>, Durai Manickam KR <durai.manickamkr@microchip.com>, dmaengine@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 29, 2025 at 02:14:47PM +0100, Eric Auger wrote:
-> > @@ -352,6 +352,111 @@ iommufd_device_attach_reserved_iova(struct iommufd_device *idev,
-> >  	return 0;
-> >  }
-> >  
-> > +/* The device attach/detach/replace helpers for attach_handle */
-> > +
-> > +static int iommufd_hwpt_attach_device(struct iommufd_hw_pagetable *hwpt,
-> > +				      struct iommufd_device *idev)
-> > +{
-> > +	struct iommufd_attach_handle *handle;
-> > +	int rc;
-> > +
-> > +	if (hwpt->fault) {
-> > +		rc = iommufd_fault_domain_attach_dev(hwpt, idev, true);
-> why don't we simply call iommufd_fault_iopf_enable(idev)
-> also it looks there is a redundant check of hwpt_fault here and in
+
+On Mon, 03 Feb 2025 11:48:09 +0530, Charan Pedumuru wrote:
+> From: Durai Manickam KR <durai.manickamkr@microchip.com>
 > 
-> iommufd_fault_domain_attach_dev
+> Add a description, required properties, appropriate compatibles and
+> missing properties like clocks and clock-names which are not defined in
+> the text binding for all the SoCs that are supported by microchip.
+> Update the text binding name `atmel-dma.txt` to
+> `atmel,at91sam9g45-dma.yaml` for the files which reference to
+> `atmel-dma.txt`. Drop Tudor name from maintainers.
 > 
-> Besides the addition of enable_iopf param is not documented anywhere
-
-OK. I will try unwrapping that.
-
-> > +static void iommufd_hwpt_detach_device(struct iommufd_hw_pagetable *hwpt,
-> > +				       struct iommufd_device *idev)
-> > +{
-> > +	struct iommufd_attach_handle *handle;
-> > +
-> > +	handle = iommufd_device_get_attach_handle(idev);
-> > +	iommu_detach_group_handle(hwpt->domain, idev->igroup->group);
-> > +	if (hwpt->fault)
-> > +		iommufd_fault_domain_detach_dev(hwpt, idev, handle, true);
-> same here, pretty difficult to understand what this
+> Signed-off-by: Durai Manickam KR <durai.manickamkr@microchip.com>
+> Signed-off-by: Charan Pedumuru <charan.pedumuru@microchip.com>
+> ---
+> Changes in v4:
+> - Modified the description for #dma-cells property.
+> - Link to v3: https://lore.kernel.org/r/20250127-test-v3-1-1b5f5b3f64fc@microchip.com
 > 
-> iommufd_fault_domain_detach_dev does
-> To me calling iommufd_auto_response_faults and iommufd_fault_iopf_disable would be more readable or rename iommufd_fault_domain_detach_dev().
-> Also compared to the original code,
+> Changes in v3:
+> - Renamed the text binding name `atmel-dma.txt` to
+>   `atmel,at91sam9g45-dma.yaml` for the files which reference to
+>   `atmel-dma.txt`.
+> - Removed `oneOf` and add a blank line in properties.
+> - Dropped Tudor name from maintainers.
+> - Link to v2: https://lore.kernel.org/r/20250123-dma-v1-1-054f1a77e733@microchip.com
+> 
+> Changes in v2:
+> - Renamed the yaml file to a compatible.
+> - Removed `|` and description for common properties.
+> - Modified the commit message.
+> - Dropped the label for the node in examples.
+> - Link to v1: https://lore.kernel.org/all/20240215-dmac-v1-1-8f1c6f031c98@microchip.com
+> ---
+>  .../bindings/dma/atmel,at91sam9g45-dma.yaml        | 68 ++++++++++++++++++++++
+>  .../devicetree/bindings/dma/atmel-dma.txt          | 42 -------------
+>  .../devicetree/bindings/misc/atmel-ssc.txt         |  2 +-
+>  MAINTAINERS                                        |  2 +-
+>  4 files changed, 70 insertions(+), 44 deletions(-)
+> 
 
-This is basically a cleanup call for the fault specific items as
-the patch's commit message describes. And you read it correct..
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-I will see what I can do with the naming.
-
-> there is a new check on handle. Why is it necessary.
-
-It was to avoid the error path that has a handle=NULL entering the
-auto response function. We can change that a bit to drop the check
-to make it slightly clearer, though it would waste some extra CPU
-cycles on scanning the two fault lists against an empty handle.
-
-> Globally I feel that patch pretty hard to read. Would be nice to split if possible to ease the review process.
-
-This patch is needed by both this series and Yi's PASID series too,
-so I was planning to send it individually. I will see what I can do
-to make it easy to read.
-
-Thanks
-Nicolin
 
