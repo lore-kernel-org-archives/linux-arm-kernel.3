@@ -4,95 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC46BC02193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 18:30:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74E30C02193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 18:31:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QwX9yigjczno1Znsa9bRz1z0dQyr4IiRfFLwwoCxyg0=; b=xytXR9TJSw/mHBf9rY50X7kQrA
-	lrL4LfWFi8LtSehS5cdJ2WGA1kwPeDGf69TScw7hRNH9910ikJdtbzpmlo+Fj61bHGSLu94WCdrX8
-	FGSXW6egntRdRPzKr8dp4XGg7hakZUBTX9ye9QPhR4VLw/YgQQoNEp+cRZ4zx1s0Qut9xXUp+jGj2
-	qo1qGSfI2hDvkQd+fZFuPdBRAUtpl4Dv6eiaXrA4++tMcJcSyYMv/Maep5Jw5EWEvNCzs3DxuY6Oe
-	LYuPogKf2Fc6X5/EM8gonSEyyT61gAUlZMxC/QZsXcAXMwUX4N70/Dn1GaEVq8m+VC+42w9Sdc2gP
-	wfo7oOEQ==;
+	bh=Mt3zpV9vsQVI5L3LLy1W/Dl6E45IKqZAYzeMSWLCo7s=; b=N7aLZdRoiexnAJXWQwC46Ea7gZ
+	OSS/Dlk2UKRhXSPzCA9LdtpjEelM3Utke2X4TrjHZ7vC8RjwbSga7bg8GMZlA1fLOYnKSSGnxpCUO
+	v+Z5lMeqzB32Xk0sXyKGGgX5wMDOwCkzWsMlhazOHYLoqDV+SgqsgN3hV0cWrGxso9ogmrkg+G0w9
+	tp4j6JLYTMuM2XZMS30smRaZb0L+F6rnRVVmOaF/GGeBUz1B5SbMWlYbYAkdni1LCSdxh7MoFTKcI
+	RFY8c/Dk2mPKYGRESKTvz8ucx3ay6e0UBa7p4s3fiS29lxAhE+xoxlF2e90mLz2+Cm+10HvsrJj1r
+	kGehWXaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf1D8-0000000GGHi-0aSV;
-	Mon, 03 Feb 2025 18:30:18 +0000
-Received: from mail-il1-x12b.google.com ([2607:f8b0:4864:20::12b])
+	id 1tf1ES-0000000GGjw-29NO;
+	Mon, 03 Feb 2025 18:31:40 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf1Bm-0000000GFyq-2oKQ
+	id 1tf1Bu-0000000GG2G-0BA5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 18:28:55 +0000
-Received: by mail-il1-x12b.google.com with SMTP id e9e14a558f8ab-3a814c54742so2285ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 10:28:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1738607333; x=1739212133; darn=lists.infradead.org;
-        h=content-transfer-encoding:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QwX9yigjczno1Znsa9bRz1z0dQyr4IiRfFLwwoCxyg0=;
-        b=oqfBxx9Beae5y9MZzP3WaYRczespCoin5DkP0ZJrZjt9gdZ06FC1McNp5Fn/bT7Dy0
-         BOPuf6LD35ScU4ItkvaWnos02w4YurkxkwcSu05XjZHt5myW1djVcvzGN9Td8ns/Fb0N
-         v3syR1mRCnwyjOWbifSj2x3gFOiTZU3Dsr2Avyd5vRHh73VUegBBbWQE0g3FH52c2bq/
-         tWe0+dPgS1gNR4d0BqSekD5+v76NPAPFZ4RDt8mte+gu1WVpWaGlmHlfPlVpkUwQ+h3m
-         KxBFLqXYrRZfZUrsa8CSVdER02GnK87yZ/klpv7Ys3VeuPAehYFOhbYzu3DOxxmKm3gW
-         VCvQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738607333; x=1739212133;
-        h=content-transfer-encoding:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=QwX9yigjczno1Znsa9bRz1z0dQyr4IiRfFLwwoCxyg0=;
-        b=NJauBljLzp48iy9doqhPnOR6DaqrELY0DztVhv4IgsW7uNeM5ZJ0hyD5U/GJpUyIeG
-         Yd+r1WTcr7jnetwveIzTuIFKa16dvVRHb+3Dct4Px8jhF98qQA3G3vIRTd5JJCv4zba6
-         AZDJWo8Wqrlwa844KgEAe4FptfPdMAcsRPH0yGvzYQPOT2l9Kx/qd5nH3V7FxTWIGs9W
-         XTi82zq65yextH0MamYEjBju6MxUj2PC5wmi5OMyVI/bkdhXwhBa4LtlKBxvuPPEbzdw
-         i9Kfi7ISwlleho/O2Acb2FVrEsRAPu2z687TTfbjTi8PWfES84IFP6pVvJITj7Yz8/3b
-         Je8g==
-X-Forwarded-Encrypted: i=1; AJvYcCUPu3F23+xEZt+zWaE9WgCD4lt/5tUR6P2AFwcpKPM7KYNttaj29EpRbk5GjZYTdUZXf5LoAIL2AKOp8w8EousC@lists.infradead.org
-X-Gm-Message-State: AOJu0YzzZLi5YPSFHDONVNtvw51jrox2tKORRftNwnxIujLtihMzaInl
-	iu9oN1vqG1mzyni9PgP0BBF6/NAwahyXp3sHFCBSU4EtoUP2WiftnuSjLeZJ2AOqmC1f4joVkWx
-	r+039PnrFtEtJOgU0u2XUCaGUyu14WUwN/RNY
-X-Gm-Gg: ASbGncsJ6eTyuRPtkeCKWky57ESLoLVWY54WI7a0+BTBHt2UvhgtW34IOoxjvfVEZyf
-	4zuo00a1gn/l06YESk1RqWhhBPRwZhO/0BcOeRzrglNfvvh+QMf1SKxy7Ld9vu2QXD5b+/NFhRm
-	bcDxyPA5w7TUU7QFALUdmxfyc=
-X-Google-Smtp-Source: AGHT+IH+A9TihiG72yU0Vq5EiYylzTrE/IWJEUJYg00EcqiTZKQbwizmjhExw2bHiq41772gYqefQvOo1dSun9QKKsQ=
-X-Received: by 2002:a05:6e02:152b:b0:3a7:e3b3:2e3 with SMTP id
- e9e14a558f8ab-3d03eef69e2mr568275ab.17.1738607331812; Mon, 03 Feb 2025
- 10:28:51 -0800 (PST)
+	Mon, 03 Feb 2025 18:29:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 15DD3A41ADE;
+	Mon,  3 Feb 2025 18:27:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B75A3C4CED2;
+	Mon,  3 Feb 2025 18:29:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738607341;
+	bh=++UD51iTwuniLJR46IJQEfzBH5GAbL7MvDjMZ8Q/Uh0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=HCXPy2w9w/LJ6eB2V1f/hzdsZLu3XYKPsv2marIvhqX89nkOtmYGeV/LV+ulmnfJM
+	 +gVQtBwQcxD1g6UIc5CLUEPsi35KRNeRpHc4CPMK63ta3wxLuxOPeHCHQoShWfGNpn
+	 1iwBrxDg8boyjB9wBqtfszd/ZRqPrx/VFkT/opZmoU1FA0DMRWHoRQroh8r2rcr9JZ
+	 yD+A9+CJI2MyHW07Zo8suIvtXyRzqjVYfPB/ZWp4se8ofiKfN//KPRms0bvipdm4Ns
+	 13Km+zoGBoDPo+OlrsZUvodxrlairLflxDbGjMk1LawUB+8dF6/xyw9Da1+w0LlwCj
+	 FZ7lWqPhk9XuQ==
+Date: Mon, 3 Feb 2025 12:28:59 -0600
+From: Rob Herring <robh@kernel.org>
+To: Michal Simek <michal.simek@amd.com>
+Cc: linux-kernel@vger.kernel.org, monstr@monstr.eu, michal.simek@xilinx.com,
+	git@xilinx.com, Conor Dooley <conor+dt@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Sean Anderson <sean.anderson@seco.com>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"moderated list:ARM/ZYNQ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH 1/3] dt-bindings: xilinx: Remove uartlite from xilinx.txt
+Message-ID: <20250203182859.GA3352680-robh@kernel.org>
+References: <cover.1738600116.git.michal.simek@amd.com>
+ <aa0b7f9a851c6b8d11f37050f84e0ec69cfa72a2.1738600116.git.michal.simek@amd.com>
 MIME-Version: 1.0
-References: <20250201071455.718247-1-irogers@google.com> <CAP-5=fVJPAEhvyV_dPHSHKJVeskCf_paFSP6V4EWmEyqACeA-w@mail.gmail.com>
-In-Reply-To: <CAP-5=fVJPAEhvyV_dPHSHKJVeskCf_paFSP6V4EWmEyqACeA-w@mail.gmail.com>
-From: Ian Rogers <irogers@google.com>
-Date: Mon, 3 Feb 2025 10:28:40 -0800
-X-Gm-Features: AWEUYZk2d0_RD-bETg-4iKC_pajIBGhSvw_oeuucHt_WAGp1zkLzZrIkQ1Y7lrI
-Message-ID: <CAP-5=fX2BtFzhGLCSqO1QszqfX=HT8RrTdG_5Ttp5Gw4seSstA@mail.gmail.com>
-Subject: Re: [PATCH v1 0/7] perf: Support multiple system call tables in the build
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
-	Kan Liang <kan.liang@linux.intel.com>, John Garry <john.g.garry@oracle.com>, 
-	Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>, 
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, Guo Ren <guoren@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Charlie Jenkins <charlie@rivosinc.com>, 
-	Bibo Mao <maobibo@loongson.cn>, Arnd Bergmann <arnd@arndb.de>, Huacai Chen <chenhuacai@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
-	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aa0b7f9a851c6b8d11f37050f84e0ec69cfa72a2.1738600116.git.michal.simek@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_102854_707947_E6ECA492 
-X-CRM114-Status: GOOD (  27.81  )
+X-CRM114-CacheID: sfid-20250203_102902_160991_52418179 
+X-CRM114-Status: UNSURE (   8.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,68 +78,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 1, 2025 at 12:51=E2=80=AFAM Ian Rogers <irogers@google.com> wro=
-te:
->
-> On Fri, Jan 31, 2025 at 11:15=E2=80=AFPM Ian Rogers <irogers@google.com> =
-wrote:
-> >
-> > This work builds on the clean up of system call tables and removal of
-> > libaudit by Charlie Jenkins <charlie@rivosinc.com>.
-> >
-> > The system call table in perf trace is used to map system call numbers
-> > to names and vice versa. Prior to these changes, a single table
-> > matching the perf binary's build was present. The table would be
-> > incorrect if tracing say a 32-bit binary from a 64-bit version of
-> > perf, the names and numbers wouldn't match.
-> >
-> > Change the build so that a single system call file is built and the
-> > potentially multiple tables are identifiable from the ELF machine type
-> > of the process being examined. To determine the ELF machine type, the
-> > executable's header is read from /proc/pid/exe with fallbacks to using
-> > the perf's binary type when unknown.
-> >
-> > Remove some runtime types used by the system call tables and make
-> > equivalents generated at build time.
-> >
-> > Ian Rogers (7):
-> >   perf syscalltble: Remove syscall_table.h
-> >   perf trace: Reorganize syscalls
-> >   perf syscalltbl: Remove struct syscalltbl
-> >   perf thread: Add support for reading the e_machine type for a thread
-> >   perf trace beauty: Add syscalltbl.sh generating all system call table=
-s
-> >   perf syscalltbl: Use lookup table containing multiple architectures
-> >   perf build: Remove Makefile.syscalls
->
-> If you are looking for the improvement this series achieves, patch 6
-> has sample before and after output:
-> https://lore.kernel.org/lkml/20250201071455.718247-7-irogers@google.com/
+On Mon, Feb 03, 2025 at 05:28:38PM +0100, Michal Simek wrote:
+> current-speed description has been added to uartlite description by commit
+> 3de536a8c365 ("dt-bindings: serial: uartlite: Add properties for
+> synthesis-time parameters") that's why no reason to have in xilinx.txt too.
+> 
+> Signed-off-by: Michal Simek <michal.simek@amd.com>
+> 
+> Fixes: 3de536a8c365 ("dt-bindings: serial: uartlite: Add properties for synthesis-time parameters")
 
-I think there is a follow up to these patches to clean up the notion
-of "arch" and its "name" member:
-https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/tr=
-ee/tools/perf/util/disasm.h?h=3Dperf-tools-next#n20
-The name on x86-64 has the value "x86" and isn't known to be i386 or
-x86-64, causing ambiguity to work around:
-https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/tr=
-ee/tools/perf/util/disasm.c?h=3Dperf-tools-next#n1898
-It feels likely that rather than recording (in env) a string based on
-uname and bashing it around:
-https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/tr=
-ee/tools/perf/util/env.c?h=3Dperf-tools-next#n440
-It would be better to record the e_machine values for the set of
-threads in the record, or just a set of potential e_machine values. We
-can get rid of name in arch, use e_machine from some dso helper, and
-then deal with this as appropriate without needing to carry around
-is_64bit to deal with ambiguity.
+Should not have a blank line in between and Fixes goes first. Will fixup 
+when applying.
 
-A change like this would need its own feature flag, and helpers
-between the old name and e_machine so all notions of the old style
-name could be removed, etc. It may be convenient to duplicate arch
-tables for i386/x86-64 rather than have disasm's arch deal with a set
-of e_machines.
+Rob
 
-Thanks,
-Ian
 
