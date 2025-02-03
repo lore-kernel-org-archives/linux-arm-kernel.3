@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9456CC02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 16:48:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69009C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 16:49:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Pkc6t1WnYS+t6lBmtnTcScgre/BqbdAm28uFQUA8mfE=; b=3Jmj9slAY4vl2zLZ/2qKR4CO7u
-	9JMaM0SysUUEIsNdkXwgLZkmXC2QC+F6FF8NF41WxQmqC+lzLOlZcg5O9PfbgwgvmUmZ0OFEnTDTS
-	qaw2STDau6Wu78DuEFa52hxgxGlp62eEjH6SoTT0RZKoSntlUuqmcSQGse2aiAR7OA2oavFFDxRFH
-	p9CbJxUEczUe1dqnUtAyGqRJfyGzaClxRneWAxTPKow2y6FuNY7Krs7z4gWD87F/Y5FJJ2MjXmNFx
-	aj1UBeh75cNWK9f2kJjd1pNOK28issmOBri4Ovf2oNxSuCHMpCbcAU6o9urcdY9ECpgQsBWQw3FlI
-	cAaK1gPw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CXimI5SLiQiBHkqFLm5+Ukj2WZLR7LsHxzJcUyfhXrU=; b=kVHqtOclR5Urwdwxn0BIsbW8FK
+	o/zjxENNHaY3RMKuMAKVHf+lxKu465HanjIe4sKf2dXQ7koVL5MhTSrtrZQKl+b0hkzwFceDWbmBo
+	kSCrrlYq9ch+cF4EaW1kV/Gloy7oWw1YVF0ZbEo7rn4T66keqccIi1KoEhvrNjFuylYHvgrKPaINP
+	1eXY+lA8YtS/Wg6xl97z3NFC/HAO4dL16M1xpntL0pn/F579SHlQp85lF98vHkKyUqhctZcZIg+MJ
+	WDvvMoti5FyDkqZH+nw7K0Utdnm0RVwgmuQ6DL/FtXkaYhpegYLAVCP2bQXupHZ/ATAOETAaxNw90
+	4gIcgzmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tezcN-0000000G2sq-3HNX;
-	Mon, 03 Feb 2025 16:48:15 +0000
-Received: from mail-ej1-x643.google.com ([2a00:1450:4864:20::643])
+	id 1tezdf-0000000G33E-1moi;
+	Mon, 03 Feb 2025 16:49:35 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tezb2-0000000G2lq-0SE1
+	id 1tezb3-0000000G2mA-2C4F
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 03 Feb 2025 16:46:54 +0000
-Received: by mail-ej1-x643.google.com with SMTP id a640c23a62f3a-aafc9d75f8bso927347466b.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 08:46:51 -0800 (PST)
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-ab7483b9bf7so455966b.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 08:46:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1738601211; x=1739206011; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Pkc6t1WnYS+t6lBmtnTcScgre/BqbdAm28uFQUA8mfE=;
-        b=z8XUf3P4Y6+1PqTgGwYAq6lfHtwu2bii66uCdIjRMdPK+hT01PPYaUpUVpr+fi9BB2
-         TBh2yE1EGZxtcgLGLtqoEtKQL+fQvr+UyEcMhV0tqL5LnSHDJDpLAUZ551NnllgyIPTF
-         B/m+r6rGe+qlnV+uLxumzmkU039FZoMGXVsqriXNZLSWFhEDDpDGZlZRA+WSfmK3dPsg
-         Lywcf8e7aOAJfgNjZmaSb5NCjaJ0ktoFLE1onCa1T3MRctywQUUJb4xCppijY3v7LIzr
-         qzC7Xa68Nlt7C8DrfrrVfepKr31kmztMt1YIpvHb4QvuDk3F9vecyPoxNmYHyVPIRjBM
-         J5nw==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1738601212; x=1739206012; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CXimI5SLiQiBHkqFLm5+Ukj2WZLR7LsHxzJcUyfhXrU=;
+        b=SxufMnP/rzj2/5MgHtTOzfYQSDGQeFKYxxCya58Rrjen2kQQhAdAuaGTpJ/QvcwObS
+         6RJUUqGyw3C/N+S7yypyrAsoKRMYZ6ZxudiGtQcxHWUZ8NI2mc5DmWeVj/V11YXgScCa
+         qh1KIJobDB1e4LbcR55YGuIjnHdTf3Ref/Dm6d4akwJOUVdQ5TuO8ysHsNwTP1p8tHtq
+         0OOzd5hF+xS4XSlLc2SjVQ9PR5hnzs+yKfwBvoeQVzWmmzo1AFj9yqiNu5m+0iM0jYNZ
+         b7Gk8z/ioFW29Jnkuvdh505jNFjpB8fPm5vndY6FHlHx38dZ8pEr5Izc3cfiBIzHL/FW
+         2w5Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738601211; x=1739206011;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Pkc6t1WnYS+t6lBmtnTcScgre/BqbdAm28uFQUA8mfE=;
-        b=jSCI0CsJ/4GSkrw/jGGmhTZK0lW7LqEej5x2BzSMQB8fQLqF4OzUiOV7FLUkcy/JJ2
-         LZKYR9oFJLZYaH3t8UxateKtxaBsGroYYRO8i4BHWug3x24pLjtCNULQwQN+zgntG+Pz
-         jFj+dd508gMu3WieisjGw2g5mQa+BT6GrIHoKQIwWUUKnQDAGhVoJBIS7uZ66heT5EaW
-         MIX7oB6IUILROnXPWzo39CYSoqGkwSQjtcRd2qGGl8c2+V1MBC8Nkus3GKeqhPxyQmFK
-         sphKIqGPR9NyK7/NpnlKrqdT18TffZxzJbOyJdJS2d++pNLhk0DWlqLO5N2e5TWdYkI9
-         gZdA==
-X-Forwarded-Encrypted: i=1; AJvYcCVTHM+LoTQzEhjY6ljiM6pKqk1cbaJVBsrOXekKue0pzYMl2w4YvAXdqgpELJS0uFz+KwhfERb3IiakoYHhFwVw@lists.infradead.org
-X-Gm-Message-State: AOJu0YxIeqYo5UA7M5c1nSDxp2+i7MZQhArPkav3UMLqeH1/XJNrY0WU
-	+Evi8s2gJoHiCBhBmIo/6wHsaNDgnWtI7Zou227Wx/Jxyt1owpHZFTeZK9ca5Bw=
-X-Gm-Gg: ASbGncsju8uL8SiOKvqXBlOIsEyOfV9ySPfRrlJzcxhuSWmLA7qvLlU47lo88v7//wH
-	Em/Krd1MqxteJiaWmsDntZHvowFYD2RCqqid2M532myWfU/z/PBiK8MnH7lpJD8TMf5O7KNPGTG
-	lUILKDRXbCOhMPGl4JUb3wzLp9rB9Y4kQk/L2TKaPMjvnxvgn2o6vCWK9Il+xk5ZB4ELapRumjW
-	1Syf0Gsfr5warm4maDCWg9dN0Zrqn3L1ndSWr5YI7YUbXsUN0XMYUMcwJFw0klILr7n0OHbtU0W
-	mZWRkemiUEarpJZ2cl28oWjvhTjfwB04NUfp74qqcxMBEpNzkqFzaPeXBw==
-X-Google-Smtp-Source: AGHT+IHO770jfk92Mttnp7BBnckYBWePcZNUS/gRCytxdy10Cea5/p44mZtHqa1Ad7gj0COvv0kFkQ==
-X-Received: by 2002:a17:907:7213:b0:ab2:d721:ed8e with SMTP id a640c23a62f3a-ab6cfda4266mr2160723566b.39.1738601210571;
-        Mon, 03 Feb 2025 08:46:50 -0800 (PST)
+        d=1e100.net; s=20230601; t=1738601212; x=1739206012;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=CXimI5SLiQiBHkqFLm5+Ukj2WZLR7LsHxzJcUyfhXrU=;
+        b=EgsaCEQBvmHLUs7wtoW2PUndeME/8ywU61PVQmT37edIkxfPbMcwqacJXOmozQ1ZGT
+         aOnGN70alYVKI4kKqSBtOU81MlTqy85iEzN1049BoafsprF+338fw9xBfimszYLEUyb4
+         6hpdBaxIT93ZhzJezv3ODIEiTTG9CedH5rUmo1O5l//7AaMWG9GRxyg38ZiAb7TDqDYk
+         WfRDM7IImAFCf00PaUftKExiOgg/IQMZ6OGlAJyMrGU3NV82qfvLQmNFkSFZsq39oIZQ
+         59A9T8RvaNOV9UNX6DYVSGVfDxeXAWRQtTVLoQ31dz8JIE49wqrJSocoI0JJE/t5Otjm
+         9TAw==
+X-Forwarded-Encrypted: i=1; AJvYcCWybyfuIUOp7HxKf+YqbElAPdmTp3qvkZ2bPTkLrCjO68XQh2Mr4O25u+yvjFbOQHcuqK3NgIinHKQtE3xQZjvg@lists.infradead.org
+X-Gm-Message-State: AOJu0YzSrrrLq0kg87eHwVdZz0gADAAVVR2rJIj/r3dSmSQN1q4eJAp0
+	mQ4CU7KdwrCRmupNGb3Rc0IhNjFvZpLh3SrY6Uo0XLoyoIhdgMvrr3Yx/jX3gLA=
+X-Gm-Gg: ASbGncsbFBi9NHMa2nAsB4QLMe173kmal3eLQ28SsiHRAOSGw89qLdqbCi2KTY8cCA/
+	8/BfGwUphsB70l4HW1przVY3c6iwxTNw0QgteY7orFj9H3v8oF8NTKcVnXh5UqI8KiPrn6ynR2A
+	0vixI4M//uFQ8doFZdUcRT6XALfdMcJhDHTiMlaTnOKmlMxwSbqJVNKjGwB2XI31re02zYSlG3g
+	ZaqZa+LKq/8BmVOicBMaO4oi6FH6MRp4K9NW52jub1itXpnZfBaiYEZpQwdOeV11t11I4MPmBLy
+	aY+c/rsynDNd/VIuDIZRDudLwoxfybwHISTVRNyjDoXQYyk/pG5nIsX9Og==
+X-Google-Smtp-Source: AGHT+IHXs4AvC8if41Og48yMOr1zBX+SD4uou5rx2L22DfDb7S64uAk44ZOshnu8uxmk57Ks/HsakA==
+X-Received: by 2002:a17:907:7211:b0:ab6:36fd:1c8f with SMTP id a640c23a62f3a-ab6cfdbdd99mr2830433466b.39.1738601211988;
+        Mon, 03 Feb 2025 08:46:51 -0800 (PST)
 Received: from localhost (p200300f65f018b0400000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f01:8b04::1b9])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab70e4e3b5esm444814766b.138.2025.02.03.08.46.49
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab6e47a7be3sm778193666b.20.2025.02.03.08.46.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Feb 2025 08:46:50 -0800 (PST)
+        Mon, 03 Feb 2025 08:46:51 -0800 (PST)
 From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
 To: Dinh Nguyen <dinguyen@kernel.org>
 Cc: Rob Herring <robh@kernel.org>,
@@ -74,18 +75,20 @@ Cc: Rob Herring <robh@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 0/2] ARM: dts: socfpga: Add basic support for Terrasic's de10-nano
-Date: Mon,  3 Feb 2025 17:46:35 +0100
-Message-ID: <cover.1738600838.git.u.kleine-koenig@baylibre.com>
+Subject: [PATCH v3 1/2] dt-bindings: altera: Add compatible for Terasic's DE10-nano
+Date: Mon,  3 Feb 2025 17:46:36 +0100
+Message-ID: <8714f54eb78a2bacf508debb7844abfea78767ee.1738600838.git.u.kleine-koenig@baylibre.com>
 X-Mailer: git-send-email 2.47.1
+In-Reply-To: <cover.1738600838.git.u.kleine-koenig@baylibre.com>
+References: <cover.1738600838.git.u.kleine-koenig@baylibre.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=878; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=R7QAl/z0BDS+8/SB5d/6NZpgDzEVvDhMqImUpY+IXrQ=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBnoPLsQ7RqMIdo3YVVpnHyfdmGb3rZZRdpHAGsW 5RO7a4/8HWJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZ6Dy7AAKCRCPgPtYfRL+ TpMeCACt8WwSHNiT1pQV2y+yXXY3e7hgYdOKZkKL+JzgAgwGyWbsIva+C5nKdhqPlkHnfO0WHlM vaZ74HxbrBM98F3ygxFt0h0A/jJQa1og0kRXrGIYDqzpNIBE3Lbj72CSuCUKCuGyl3Ddy4iddfG nwa2K7526nktZjJ9u1HjEAiJMWl6DEJMiambnUuLCUxlc1W7QMyo//jzsN0uTmbjbUXzBiimHWi gSPt8T4oO/HbbvEH42/cyfIz7jLR03vr1K3ZSRj9JqTJF+KGRjAbbVa94VIZ1VbRQDo8H9QZyD7 DQiYJXdLcakuUv5/HCGGqSmS8+KgRN/mzC6AuRNi/Ahgaxho
+X-Developer-Signature: v=1; a=openpgp-sha256; l=868; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=AzdbwsLGIxqw7TQE28+Rpu8RSV6L75Z0joF7UtUReVg=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBnoPLvDKT0DgpoDQfq1jscOPJ1mvTJ+mIVfCZPB YKKB/SkLP6JATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZ6Dy7wAKCRCPgPtYfRL+ TicSCAClaFMs/fLDDEylCkIBwk1KoS3U9eDIWGGGfVGmTc2gRVY2gso7FI/tmwjoujp4TMjMxak l/EXRrlegKL7M7vyLGHpNBt1z3ecqobNbrILjqAWyBEMSvlW1UaW2dkjL6pBfs84B923wOWe5XK IDuGVrEjNgJG8g9eD2Bkn4hJHO/KZVUdTQgfAHpFWsj84P++0bRnYSFuHw1rfZO/xUvZMBRNdHQ VT+xsWByp3L/toM+4Fd8uTXPfP0JapVuvSYXT1ot50uadKvpvTB1nuW1Q3TZU180CIhaA4Q+19I bHN+rxiTeHhsWhfjFbSppSPQNsbjPZObp1lujBgN1lCzE6Au
 X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_084652_418500_BCDC7AA5 
-X-CRM114-Status: GOOD (  13.17  )
+X-CRM114-CacheID: sfid-20250203_084653_568130_1768AEB6 
+X-CRM114-Status: GOOD (  10.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,28 +103,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+The Terasic DE10-nano development board features a Cyclone5 FPGA, USB,
+HDMI output and an Arduino compatible header.
 
-The only change since v2
-(https://lore.kernel.org/linux-arm-kernel/20250130074553.92023-2-u.kleine-koenig@baylibre.com):
-is that I added patch 1/2 that is supposed to fix the warning that I
-failed to notice with the testing I did. Thanks to Krzysztof and Rob for
-their patience with me. I hope I got it right now.
+Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+---
+ Documentation/devicetree/bindings/arm/altera.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-Best regards
-Uwe
-
-Uwe Kleine-König (2):
-  dt-bindings: altera: Add compatible for Terasic's DE10-nano
-  ARM: dts: socfpga: Add basic support for Terrasic's de10-nano
-
- .../devicetree/bindings/arm/altera.yaml       |  1 +
- arch/arm/boot/dts/intel/socfpga/Makefile      |  1 +
- .../socfpga/socfpga_cyclone5_de10nano.dts     | 95 +++++++++++++++++++
- 3 files changed, 97 insertions(+)
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_de10nano.dts
-
-base-commit: 00f3246adeeacbda0bd0b303604e46eb59c32e6e
+diff --git a/Documentation/devicetree/bindings/arm/altera.yaml b/Documentation/devicetree/bindings/arm/altera.yaml
+index 8c7575455422..30c44a0e6407 100644
+--- a/Documentation/devicetree/bindings/arm/altera.yaml
++++ b/Documentation/devicetree/bindings/arm/altera.yaml
+@@ -47,6 +47,7 @@ properties:
+               - novtech,chameleon96
+               - samtec,vining
+               - terasic,de0-atlas
++              - terasic,de10-nano
+               - terasic,socfpga-cyclone5-sockit
+           - const: altr,socfpga-cyclone5
+           - const: altr,socfpga
 -- 
 2.47.1
 
