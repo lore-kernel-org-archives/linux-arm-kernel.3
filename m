@@ -4,95 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14026C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 16:57:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 726DCC02197
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 17:00:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+J7eNNBUeiMaQBqhywmdHOLp8ZXQuDa6JlgRioEAbqY=; b=ET8CZtL34aeOvnf53Q0bSg8+A4
-	8+tLUde4epmdR2/DyQ4ChfEh4Y7E6zdUVjjoJws9jKQzervmwDtQHHmY/2/SbSwRV5eQ0qZVZwRnA
-	VyoCPCGauU8808faphST4cTg1YFSYj412YYkvtVBg9nw8YlRFYSKpk6+zSbGtmcGXEnCNBmAVu+yQ
-	WSsJWGcbUxnjE3KQ+Xhd7osCKTPNdG0FjhHwKMFONA1TESYIFLvO09IG64KjXI0UUAQlE+3Z+dRdk
-	kHXjIyJ0Iz1WMh5dkizGstI+ADkGe+PIH26O8Di+IecWMWXRMROPeIe3YPu5QEXd5P0Y1fg/pr2n0
-	n/LGFGZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G2c+t0d34EWJhfottWnVOU8Wk9+gLKHW/nKMogTgNwg=; b=XHa35Q0fxXZJqDlF4JWUrC3MCp
+	aSL23pf0xeHaokqtSLyO+2GUhkBR1Zvg7NnXprQJ40VTuCS6sSbPyBqgrAFjnNlfMGRWY0nYUe1hy
+	9ZHL7/TTPLk9wkFUrcxT0C6jBsDbR5BhjkY2JfXPsVDLmP513SNxSIifrH/nLEjBeP/NU1OPBaBDi
+	vUlP+kgS+mkZ4PtgL8AhCSEcZos90q9oq/G5uu3DrJTSy/G0+BJROpmiUkkMaLB5TKk/AlC5P58Uy
+	qph4UkjRcopo1bfODqxHI+HabKJD1TQe0k0WgPh2PkxpbK70+ypDkFdgJOATfr3WcpqgtT0/WpCDo
+	f03mzkRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tezkk-0000000G422-2AjF;
-	Mon, 03 Feb 2025 16:56:54 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1teznk-0000000G4IB-1eqv;
+	Mon, 03 Feb 2025 17:00:00 +0000
+Received: from mail-db8eur05on20621.outbound.protection.outlook.com ([2a01:111:f403:2614::621] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tezhP-0000000G3gs-0QK8
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 16:53:28 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-3863494591bso2367306f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 08:53:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738601605; x=1739206405; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=+J7eNNBUeiMaQBqhywmdHOLp8ZXQuDa6JlgRioEAbqY=;
-        b=LdtkmPcaFhrVeNsJz5ByiqsVOOUtmbmX3k/kv8ivScRvu6v/lQUErLZi0Tr53BunOY
-         4tAnTScy3fnJHQmfsLhGSh4SXcxalzod6nDnufxH5dS6LsoYbqIqtV7V9SzDa1tz4MZp
-         EyYm2KgJDqCFkgt+YrOgUkqZjD2mYk5uW/FmL09YCnHebmG8pNpA4Y8wGscNKZFawJSJ
-         Nk5gR5yZgvdgL/5tY1nASjYBDqL1WGjnx7o3lo+WVaucdWEPFLo/OMgbr7OUCXgVnjY9
-         4SUuxl3OtKY6lZm4UxnWrdEAerG/a1ZBUMupzR0Kqk+RoszG8czeZQoBFcz5Mf8LtQF+
-         zHPg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738601605; x=1739206405;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+J7eNNBUeiMaQBqhywmdHOLp8ZXQuDa6JlgRioEAbqY=;
-        b=BMacSQrDMNj54BRcgPXldb6JS2G3SlU88zHJUTw82WHQHkdrMvi56MqSkfY1Bchlzf
-         MO0RCDxbwKhZwsaRm7MW0TaUiekMNbZEznSLRnjxfEUkvRIC3214SKmhkrAC1eAkYR2J
-         j8FkBs3FdML9FMswVGOqCs44tRYnhsbyfRb/dpXvyaqdQsvZFpQ1aGEOU9NRQhC+enUz
-         2zzY8Y/J489fWOUVPk8uwnavIgvAEqHEr5qlQ1W3hCaNlqs5ALJSRFNz90QTdFDh53x1
-         2xknXjCn/cXsUbs3X5qfqQEb9xhpakobHU7fS1iY52dUOIV7yUFneuEjp/UCxKGiwnIT
-         TKjg==
-X-Gm-Message-State: AOJu0YxT+sxVVmlezDL1/fI3rrb39fLgdB/+GsKDNqmJZqd8pi3YBDHZ
-	VIyRlHAd3xhTGwaIB991/NQNrlGe9mpW7SXWXWRSBokeHDXH7v0ZZDXdcfdUUjU=
-X-Gm-Gg: ASbGncu1SJS4voGytIHAbAcgCCOj3kUVbmVIlPV6jzwAYFa0B5XuU9JEkF2d0l7d6UO
-	daCV7ScOmT0q7UEFppPqS9DhMM22oZY5q4wfslZCo5eG0IkXLNxb1KL96oghHFIS1hvmyVg2D3I
-	lt2F4Q24Ci3aCjfOk7T1EV9xtwjh1CvgGo6vHYoUD0QrozKSmntdpv7+YFn58tUKxRci4R2KpHT
-	4ZK26btHE9fLSTJgz5DQYkF/+GWk63Cw17jU+KuT5dzzmVncZaNBeoZsGOLIoRXiZlVTBzqtxfm
-	dAdAQ1hvagSrxmZVwnuR9cU8pQ==
-X-Google-Smtp-Source: AGHT+IHxJH9l5LqfIsDIyvjJyxCpQmT/vQcNn/uwccEqM3EMsFvjUN+56zGNPlrlw+4whp1yttbLsQ==
-X-Received: by 2002:a05:6000:401e:b0:38a:a083:9200 with SMTP id ffacd0b85a97d-38c520a3d4cmr21536417f8f.44.1738601605149;
-        Mon, 03 Feb 2025 08:53:25 -0800 (PST)
-Received: from [192.168.68.163] ([145.224.90.107])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438dcc13202sm201309215e9.5.2025.02.03.08.53.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 03 Feb 2025 08:53:24 -0800 (PST)
-Message-ID: <0415d354-0c44-4fff-b92b-b0f5c9c72b11@linaro.org>
-Date: Mon, 3 Feb 2025 16:53:23 +0000
-MIME-Version: 1.0
+	id 1tezmP-0000000G49p-2et2;
+	Mon, 03 Feb 2025 16:58:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MAwiCCWRe6z9VRfWV/Edr7y5mNvAXh880j02hXNWWT4LDQVu4qMWh7sHDb62f/adPVBiKTB8N2gaoZgiDWs/hRuxIJthUg9olirLw2mWjP5ZkQGGWcZMnruFTVxi6i6vCMW1il7Y3Lryn9DaW3AhZ/ySKlSxJZ+SRaZIccJkLmbmvc/lJWEHVpTitGYNjr2G4i35XMaT7iLWHdpkKscJvIiMfuMTbCOLds0GT0dQGYeZZpYgFJcRtrmR4R78aK2qDpOWMgEBqIXDdkhYS20niCUDCmwMBYuGe5kBZwrXiQS4vbjQDl6EVElCMRIUaQ96Mjy02uv1iX0bw8pj9CEVqg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=G2c+t0d34EWJhfottWnVOU8Wk9+gLKHW/nKMogTgNwg=;
+ b=AIZ5Ut7HzZGKREUf8nUC2/CIQPqpjI/xW6T5Y9uzITgYSFPVmYzr0j1sluuyIExZBlN+5gEM1JRrt6UoYJOR9MeutmtcFwLTwH2/dd5XvuJ0sZiuNtXgfVTggzCCVDAADPwPsAn2Aw1DQSNFcHKnuoOBuYW5Rs1eAmXFChEm4+bIn0sA5P0V6yttHCmcGyHW435U1ewCZO/YrsyV8MEZdkI8IVs3lYwMqOO6MPmKU/RMkTiEbJtEXo3TNNqJXW9DPLQbhlOFdXW5eYmUPr6+sCi1jjD7lkl7Q5M/pa6I9m3JUHHJBgnuNM3gWA1y9YxTxFBSTmSjUs/H+wRkF/aRuA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
+ dkim=pass header.d=cherry.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=G2c+t0d34EWJhfottWnVOU8Wk9+gLKHW/nKMogTgNwg=;
+ b=N0bYm7ahEt0HGbLU3bjYfhnJcODxVB2NtwXYyWZgniJ07xAnYroDXVOq4yd3C4sH6EeVmS/9np1ZIgSmBVz+1svVbg7WAJntYFYxq4l6U8cnY+VGvVjtU6+7ZPQ6RNP3uebF2spgPo+Deg9nKCOZ6KGAYshFsHywYNXs8WQ/skQ=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cherry.de;
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
+ by AS8PR04MB8932.eurprd04.prod.outlook.com (2603:10a6:20b:42f::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.25; Mon, 3 Feb
+ 2025 16:58:33 +0000
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::35f6:bc7d:633:369a%3]) with mapi id 15.20.8398.021; Mon, 3 Feb 2025
+ 16:58:33 +0000
+Message-ID: <d464b1ab-e017-4893-bd46-c3cbd515a1e5@cherry.de>
+Date: Mon, 3 Feb 2025 17:58:31 +0100
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v19 11/11] perf: arm_pmuv3: Add support for the Branch
- Record Buffer Extension (BRBE)
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- kvmarm@lists.linux.dev, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Jonathan Corbet <corbet@lwn.net>,
- Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Zenghui Yu <yuzenghui@huawei.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>
-References: <20250202-arm-brbe-v19-v19-0-1c1300802385@kernel.org>
- <20250202-arm-brbe-v19-v19-11-1c1300802385@kernel.org>
+Subject: Re: [PATCH v2 3/3] arm64: dts: rockchip: add overlay for tiger-haikou
+ video-demo adapter
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ dse@thaumatec.com, Heiko Stuebner <heiko.stuebner@cherry.de>
+References: <20241127143719.660658-1-heiko@sntech.de>
+ <20241127143719.660658-4-heiko@sntech.de>
 Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250202-arm-brbe-v19-v19-11-1c1300802385@kernel.org>
+From: Quentin Schulz <quentin.schulz@cherry.de>
+In-Reply-To: <20241127143719.660658-4-heiko@sntech.de>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR2P281CA0041.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:92::12) To AS8PR04MB8897.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42c::20)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|AS8PR04MB8932:EE_
+X-MS-Office365-Filtering-Correlation-Id: 12b9ca69-ccbe-42c3-2aa7-08dd4473fdad
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|13003099007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?NUViQnlkYzN4M2NqVWRBTWVjMnFWZzlhN0t3SkkxcEdXTGRVV2NuQ1IxMnpv?=
+ =?utf-8?B?aVZTQmE5WDVTKzdtQng2VWZtUlVFYVpocjBlR08rYTVPcjk1OVFlOEhMdnda?=
+ =?utf-8?B?YVRQT2pMWFFZbXF4RGFDZVFlU2tEL0grckRnNmROaFdTbmo0azFNSUJuNVU2?=
+ =?utf-8?B?UlVpNE9iU0V2bHMwMVJPVXJHTUl4WHd6SHpOT1JaNmR0NEthbkV3OGNPVEty?=
+ =?utf-8?B?d2RXZkoyQ2pqSndqUHpEaHBlaUJJMnNkQWhKa2xleDNWVGlpTkdsWXN4UzE4?=
+ =?utf-8?B?cnoyYUF0VnBGUTVOVE94MlpCdFA0TDVXUkFnNDRQRyt2c01lZmplVEthNldS?=
+ =?utf-8?B?Z1dDeXI2RFBlbDZGb2t5dENRUXc1NThlQ2ZCa3k2QW5KZDJFRUlxTjQyVUFE?=
+ =?utf-8?B?ekp1QVFUZnpvRlhJbGpSRStRMWJPRndEak9xa0oyd2x3M1djZy9laFVRdE96?=
+ =?utf-8?B?OHFBSFlldEMvdmd4aGxSMUU3ZGdrQ2wrREZUZUlMZm0yY0Z4YnhpZVZzalFl?=
+ =?utf-8?B?RHltWmpBeGtvUzBib2FPQ3N3aEROYkk4MHNyQ3ZYcjhESEhkWnp4RzBMZWNr?=
+ =?utf-8?B?MWljZjBFOWJSR0ZJRnZIVVVoMkprcXA5bW9mWk0yZHg4WDBBN2FGamRyTFFQ?=
+ =?utf-8?B?dS92YVluWGlxR0dWWFo5eFJjU3FnNm5IRWxINjVPMVBNaHVUN09lT1RKS1dh?=
+ =?utf-8?B?UitXZE56Y2FPWEhCK3hmcWZ6cjc0OXU5SHFFYi9YMFZBd29pQjNHcWZTelRC?=
+ =?utf-8?B?ZHY2MHViaStiNmFOaFNmQXMycFlHOURnWHZoZllOdEpsQlBCNjR2YWR6K055?=
+ =?utf-8?B?bGlMRjZmVEZRYTJ0UGZ4djVvZnJFbldGSFJ4ckVZYTArN1BudVFjQXgvNjY1?=
+ =?utf-8?B?R2U3anRpSXgwU1NXc21RVmRaTmRibzZSbHJHeTdBUUxrSk9PeE1ENzE2OXRs?=
+ =?utf-8?B?MnJjcTFVdXpoajM3UFNrTDJaaCtkcW9ZK2x3eDFYb0lJVDFzUEpSUlBiRUxp?=
+ =?utf-8?B?bWNxdWJrcFRUY2xRQ0NJM3pBUG8yV3BVanlTbVZaaElwaHFvbmhWYytsdDRw?=
+ =?utf-8?B?WUszRUkrVUxBaW5TWGhQNFpITG1xOHlWM1VWSHlsK1dSQVJEL1hRL2piSC9N?=
+ =?utf-8?B?UVZ4T0IzZmtHdUk2RU5CSERTN2NVeWJWM2w0Y2dXbGlYejhtQ1ZpRVhuNWc1?=
+ =?utf-8?B?bVdFQmJ2K3AzQW00dVF0Qy83UVpCdFNQbmx6RzhrT1hncXhoNDZUeUlkODFr?=
+ =?utf-8?B?L08vTnFSUnVTak53cVJNTnljQllTWmZTb0VqSzQxb1F3emlQd3JwcXM4dHk4?=
+ =?utf-8?B?QzRqY1FFSlNRVXA5Z3N3OG5tSC9lbWczeXNwMFkyWldubE40cmFSSjczcll2?=
+ =?utf-8?B?cXBRQ2hxNTB4L3U5WndDTllFcmt2WVZqdVJHVEg3L1VqbTB0UnBHZDhjNGc1?=
+ =?utf-8?B?eGJGbk9TOUt2V2hzTnk2QWJzc2FYblZsN05KVXBZQmZuMmUyQk5vNEc3TENX?=
+ =?utf-8?B?TnVwSmtzem54S3htQVoyVXd6NHlTSHUxTjBveVZUVEhaSVpHa2o3SnNPczFx?=
+ =?utf-8?B?RnN2b3I3bnl4KzZRWUpxQ255MGJKRFQvTC91elVESEd3ZXhyL2hHd0ZLTTdk?=
+ =?utf-8?B?TWlNNnlTMCtMemRISHlJQ29mVmJWV2cwNDBsSTFSYnp6NkZ3Ykk5b1VPUUVi?=
+ =?utf-8?B?ZEc3NCtyU2dZNm1OTXFvQm1NME1zT2hkaGZxc3BxT1RTL2l2aU9wT2N6ME0y?=
+ =?utf-8?B?WXVnS0tJRk9yb0FBSlBEWnhWUEwvRXhBRGs1TlV3cW5NOUxiNng5Lzlvdy9u?=
+ =?utf-8?B?ekdDcmhhYkFIR3YzT29tUT09?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MUVrYVhQQjdWMXk2OFBxTi9OTlhGZGR0S0FlZWRiNWFzN0ZaSDNRdGlRRkZP?=
+ =?utf-8?B?U3k4bi9waVRlK1NoOEdHNENaZ0Jwa0V2T1ZiTWpENVNwbDR2UkRaSW9XMnlJ?=
+ =?utf-8?B?ZENzeDZGTDVyTVVOZXZhWHpPTy91RmQ3bjlGMU5Tazd4dG5OK1JxYzNTR1U1?=
+ =?utf-8?B?aituNUYrVFJEYXdFdUZQZkh3MDdDY1UzMGlTR3RlNEkrVG9lcUNIZHVmQXBl?=
+ =?utf-8?B?V0NRUEhwRU9EY3crNElvaFhPZW05TjZaR1VCbHl3ZTFwblBxUXBUVEkyd2tO?=
+ =?utf-8?B?NlhHYlBCT2RGRTVaSW1xWUk5c2VMcDFGWTVtN0NkSG92WUY5VzdQenVXd3dD?=
+ =?utf-8?B?c1NxUVRMdUR6MTkyTnRGbEd0dk4wYW5wdkhrbjM4S0dNaTRXSStKVWRmVi9Z?=
+ =?utf-8?B?UWpMb2crdktWVmVBZHpGUWRlK2l2TkNncnAxRDhSSk1PcmVMWTBpc2pvRE0r?=
+ =?utf-8?B?bWVSVVdva29waEIyTEw1NzZhRXBNK2xhZVlSTXQ1bWEvYTdVUXk0TXk5VjJ2?=
+ =?utf-8?B?M2YxODFjL2I5WkliTGZtZW9pTk90UzhHa3lDQXlEQUhUdjZwNGxGYmVhT1No?=
+ =?utf-8?B?RUFHYzZhVVVOcHNTQy9ENFFmTkhBNjFUcCtaNC9jNUdFRHhndUVSazBYWXkv?=
+ =?utf-8?B?Y3h6d1MxTWFrSCtCc3g2c1hpK3NHTGpIR0d3TXhsaVlqdTU3c1c4bXR2ZWh0?=
+ =?utf-8?B?T0N1aEp4ejJvRW5QL0Z3WG5JRW9uMUQwdSt0KzlhemlIeS9FU1dwaEdLcjFs?=
+ =?utf-8?B?M2hUN3BCdWlYZWliTTE1TlpkVjgwZFJRZ3dNZTJ4eFVTVlBIWVpDTExuRFZn?=
+ =?utf-8?B?VnJLWkF4QTA5UmVsZjUzM2tFb0NEZFdjMUFuWEFwNkNRU0ZIdm1WQVZhUHhH?=
+ =?utf-8?B?SENuODFHRkFVMlg2VHNTMFd1L21oNlFxbnE0OHVERS9qN3FnSkZpTDFPa1ZV?=
+ =?utf-8?B?clBMSEZjV0dTSVBSUVc1blBzU1dlOGdjbmZHdDdSaG1HWmFUcWZPcFFnMlU3?=
+ =?utf-8?B?bzY1K1dsN1VLVjhmMW9pRXNROC9PRjE5WWZBZVM5akpOUHczVDVTeGoxMUJ4?=
+ =?utf-8?B?dThMZFFncFNIaW9Oc1VuWW9YS0hoS3VjOXFQanZPOTJIT1l4ZWp1TDdacEw0?=
+ =?utf-8?B?ZXVSdEswQ0ZIT1c5YWQybDhuZjYramJjRW1aSldhOFNHbzJyQVZFaklNZ3pk?=
+ =?utf-8?B?M3g1TGpYWDdDV2VNQnRIa3NjRVJvQjZQc0w3REhYNE5Nd1R4akRiZk00RXRt?=
+ =?utf-8?B?OENYU0pzcGJ5YW5FM1cvRUl5cVRvdkZKcE1LQkNQdnliUWZteTRSMERscUgz?=
+ =?utf-8?B?ek5EcmJkYStZSytjSVEycHpRNksvZjREVmhqN3Q2NE9EaWs3dlVwcjY5NXgy?=
+ =?utf-8?B?U0grdGZxZlJtbFZ4RXlKa0NBZUJqMi9ZanBraEpjZWtJQUtDOGl2aVlGMUpk?=
+ =?utf-8?B?TjNHc2RQYThic0N0bFdxU2JEcUp2RlgyTit6ZjNqZjhRRVFNTXBwcEk5R3ky?=
+ =?utf-8?B?RkNtWHh1RWNnd1F5dzhhMVVGcnp5bVVoeWhUOW5aQTQ5OGtDNU5wdmMvMVZr?=
+ =?utf-8?B?Y21Zazg0bHIzMG83dzlieS9HeGwvTmcvMVNVZ0ZoOEtRZmFwalFrVG9zU09k?=
+ =?utf-8?B?bFFxUmdqY0Q1ai9tS3N4Vi9BVUhjRGI4OTRRbHBLMjE1QnB3UGQ1VUFsd29t?=
+ =?utf-8?B?UFlac0d3UVAvVEQrS1RKeVlJMjBYSUdDVUZEZGcycE1tY1N6N1dsb3AwSDhZ?=
+ =?utf-8?B?Yzl2WlAvSkt0bUJuY0l0RGwyT1A2cDR5ZFkxcUUvME9TbWxXNXh5NGxmTHBs?=
+ =?utf-8?B?dmI0a2s1ZTM0ZFE0RWREVGc0VVVvblJZVGRzM1VQcHpocjFoRk5IQ2hCNnZU?=
+ =?utf-8?B?NGtnOG1LMFozWjdRM09jL2loZ3dBSzhMVE4rWWsyM0tZMXR3UUJXODAxK1gz?=
+ =?utf-8?B?TkQxZ3BIVE9lbkE5ZUMzeVBLLytoSXd0WFR1d09yNHNES2FkUENmRHZtcjl4?=
+ =?utf-8?B?cGJScVpOZlRVTlNueGgwVDBsN1hnS1BLejU0ZXpZeTFwRFdDTXZFMVIwanEr?=
+ =?utf-8?B?VEt2VEhrWUZlalNrbGUvWHJaTlA1RjZhS1ZWV0pzWVZmV1UxTUlXSDVlUWVm?=
+ =?utf-8?B?aXBtbVAzZ2F0WW43Nk9DTXZxVFNjZVRSZ0YybHgyRE5vdWdCZTNVMGl4akx3?=
+ =?utf-8?B?eFE9PQ==?=
+X-OriginatorOrg: cherry.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: 12b9ca69-ccbe-42c3-2aa7-08dd4473fdad
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Feb 2025 16:58:33.0222
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: wPDftfCCLZwv2OjXgurpK1PmBTrMM9dEekIge8b9wQW6lqbJL4gwkYD1qDhb1vCDsVi5L/y8DbRMcxw1Q5cbqI1x4ijDcf5mGRNPqeXLK4o=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8932
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_085327_154112_917EDD12 
-X-CRM114-Status: GOOD (  58.73  )
+X-CRM114-CacheID: sfid-20250203_085837_833397_FB6C638F 
+X-CRM114-Status: GOOD (  24.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,240 +176,188 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Heiko,
 
+On 11/27/24 3:37 PM, Heiko Stuebner wrote:
+> From: Heiko Stuebner <heiko.stuebner@cherry.de>
+> 
+> This adds support for the video-demo-adapter DEVKIT ADDON CAM-TS-A01
+> (https://embedded.cherry.de/product/development-kit/) for the Haikou
+> devkit with Tiger RK3588 SoM.
+> 
+> The Video Demo adapter is an adapter connected to the fake PCIe slot
+> labeled "Video Connector" on the Haikou devkit.
+> 
+> It's main feature is a Leadtek DSI-display with touchscreen and a camera
+> (that is not supported yet). To drive these components a number of
+> additional regulators are grouped on the adapter as well as a PCA9670
+> gpio-expander to provide the needed additional gpio-lines.
+> 
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
 
-On 03/02/2025 12:43 am, Rob Herring (Arm) wrote:
-> From: Anshuman Khandual <anshuman.khandual@arm.com>
-> 
-> The ARMv9.2 architecture introduces the optional Branch Record Buffer
-> Extension (BRBE), which records information about branches as they are
-> executed into set of branch record registers. BRBE is similar to x86's
-> Last Branch Record (LBR) and PowerPC's Branch History Rolling Buffer
-> (BHRB).
-> 
-> BRBE supports filtering by exception level and can filter just the
-> source or target address if excluded to avoid leaking privileged
-> addresses. The h/w filter would be sufficient except when there are
-> multiple events with disjoint filtering requirements. In this case, BRBE
-> is configured with a union of all the events' desired branches, and then
-> the recorded branches are filtered based on each event's filter. For
-> example, with one event capturing kernel events and another event
-> capturing user events, BRBE will be configured to capture both kernel
-> and user branches. When handling event overflow, the branch records have
-> to be filtered by software to only include kernel or user branch
-> addresses for that event. In contrast, x86 simply configures LBR using
-> the last installed event which seems broken.
-> 
-> The event and branch exception level filtering are separately
-> controlled. On x86, it is possible to request filtering which is
-> disjoint (e.g. kernel only event with user only branches). It is also
-> possible on x86 to configure branch filter such that no branches are
-> ever recorded (e.g. -j save_type). For BRBE, events with mismatched
-> exception level filtering or a configuration that will result in no
-> samples are rejected. This can be relaxed in the future if such a need
-> arises.
-> 
-> The handling of KVM guests is similar to the above. On x86, branch
-> recording is always disabled when a guest is running. However,
-> requesting branch recording in guests is allowed. The guest events are
-> recorded, but the resulting branches are all from the host. For BRBE,
-> branch recording is similarly disabled when guest is running. In
-> addition, events with branch recording and "exclude_host" set are
-> rejected. Requiring "exclude_guest" to be set did not work. The default
-> for the perf tool does set "exclude_guest" if no exception level
-> options are specified. However, specifying kernel or user defaults to
-> including both host and guest. In this case, only host branches are
-> recorded.
-> 
-> BRBE can support some additional exception, FIQ, and debug branch
-> types, but they are not supported currently. There's no control in the
-> perf ABI to enable/disable these branch types, so they could only be
-> enabled for the 'any' filter which might be undesired or unexpected.
-> The other architectures don't have any support similar events (at least
-> with perf). These can be added in the future if there is demand by
-> adding additional specific filter types.
-> 
-> BRBE records are invalidated whenever events are reconfigured, a new
-> task is scheduled in, or after recording is paused (and the records
-> have been recorded for the event). The architecture allows branch
-> records to be invalidated by the PE under implementation defined
-> conditions. It is expected that these conditions are rare.
-> 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> Co-developed-by: Mark Rutland <mark.rutland@arm.com>
-> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-> Co-developed-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+Tested-by: Quentin Schulz <quentin.schulz@cherry.de>
+
+See comments below.
+
 > ---
-> v19:
-> - Drop saving of branch records when task scheduled out. (Mark)
-> - Got rid of added armpmu ops. All BRBE support contained within pmuv3
->    code.
-> - Dropped armpmu.num_branch_records as reg_brbidr has same info.
-> - Make sched_task() callback actually get called. Enabling requires a
->    call to perf_sched_cb_inc().
-> - Fix freeze on overflow for VHE
-> - The cycle counter doesn't freeze BRBE on overflow, so avoid assigning
->    it when BRBE is enabled.
-> - Drop all the Arm specific exception branches. Not a clear need for
->    them.
-> - Simplify enable/disable to avoid RMW and document ISBs needed
-> - Fix handling of branch 'cycles' reading. CC field is
->    mantissa/exponent, not an integer.
-> - Save BRBFCR and BRBCR settings in event->hw.branch_reg.config and
->    event->hw.extra_reg.config to avoid recalculating the register value
->    each time the event is installed.
-> - Rework s/w filtering to better match h/w filtering
-> - Reject events with disjoint event filter and branch filter
-> - Reject events if exclude_host is set
+>   arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+>   .../rk3588-tiger-haikou-video-demo.dtso       | 144 ++++++++++++++++++
+>   2 files changed, 145 insertions(+)
+>   create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou-video-demo.dtso
 > 
-> v18: https://lore.kernel.org/all/20240613061731.3109448-6-anshuman.khandual@arm.com/
-> ---
->   drivers/perf/Kconfig         |  11 +
->   drivers/perf/Makefile        |   1 +
->   drivers/perf/arm_brbe.c      | 794 +++++++++++++++++++++++++++++++++++++++++++
->   drivers/perf/arm_brbe.h      |  47 +++
->   drivers/perf/arm_pmu.c       |  15 +-
->   drivers/perf/arm_pmuv3.c     |  87 ++++-
->   include/linux/perf/arm_pmu.h |   8 +
->   7 files changed, 958 insertions(+), 5 deletions(-)
-> 
-[...]
-> +bool brbe_branch_attr_valid(struct perf_event *event)
-> +{
-> +	u64 branch_type = event->attr.branch_sample_type;
+> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
+> index 3f888451a13e..a2404fcdc6fd 100644
+> --- a/arch/arm64/boot/dts/rockchip/Makefile
+> +++ b/arch/arm64/boot/dts/rockchip/Makefile
+> @@ -144,6 +144,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b.dtb
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-ep.dtbo
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-srns.dtbo
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-haikou.dtb
+> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-haikou-video-demo.dtbo
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-toybrick-x0.dtb
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-turing-rk1.dtb
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-coolpi-4b.dtb
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou-video-demo.dtso b/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou-video-demo.dtso
+> new file mode 100644
+> index 000000000000..a7fe18b81170
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou-video-demo.dtso
+> @@ -0,0 +1,144 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright (C) 2024 Cherry Embedded Solutions GmbH
+> + *
+> + * DEVKIT ADDON CAM-TS-A01
+> + * https://embedded.cherry.de/product/development-kit/
+> + *
+> + * DT-overlay for the camera / DSI demo appliance for Haikou boards.
+> + * In the flavour for use with a Tiger system-on-module.
+> + */
 > +
-> +	/*
-> +	 * Ensure both perf branch filter allowed and exclude
-> +	 * masks are always in sync with the generic perf ABI.
-> +	 */
-> +	BUILD_BUG_ON(BRBE_PERF_BRANCH_FILTERS != (PERF_SAMPLE_BRANCH_MAX - 1));
+> +/dts-v1/;
+> +/plugin/;
 > +
-> +	if (branch_type & BRBE_EXCLUDE_BRANCH_FILTERS) {
-> +		pr_debug_once("requested branch filter not supported 0x%llx\n", branch_type);
-> +		return false;
-> +	}
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/interrupt-controller/irq.h>
+> +#include <dt-bindings/leds/common.h>
+> +#include <dt-bindings/pinctrl/rockchip.h>
+> +#include <dt-bindings/soc/rockchip,vop2.h>
 > +
-> +	/* Ensure at least 1 branch type is enabled */
-> +	if (!(branch_type & BRBE_ALLOWED_BRANCH_TYPES)) {
-> +		pr_debug_once("no branch type enabled 0x%llx\n", branch_type);
-> +		return false;
-> +	}
+> +&{/} {
+> +	backlight: backlight {
+> +		compatible = "pwm-backlight";
+> +		power-supply = <&dc_12v>;
+> +		pwms = <&pwm0 0 25000 0>;
+> +	};
 > +
-> +	/*
-> +	 * No branches are recorded in guests nor nVHE hypervisors, so
-> +	 * excluding the host or both kernel and user is invalid.
-> +	 *
-> +	 * Ideally we'd just require exclude_guest and exclude_hv, but setting
-> +	 * event filters with perf for kernel or user don't set exclude_guest.
-> +	 * So effectively, exclude_guest and exclude_hv are ignored.
-> +	 */
-> +	if (event->attr.exclude_host || (event->attr.exclude_user && event->attr.exclude_kernel))
-> +		return false;
-
-Is there a reason to do the pr_debugs for the two cases above, but not 
-for the remaining ones? Seems like it should be all or nothing.
-
+> +	vcc1v8_video: regulator-vcc1v8-video {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vcc1v8-video";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-min-microvolt = <1800000>;
+> +		regulator-max-microvolt = <1800000>;
+> +		vin-supply = <&vcc3v3_baseboard>;
+> +	};
 > +
-> +	/*
-> +	 * Require that the event filter and branch filter permissions match.
-> +	 *
-> +	 * The event and branch permissions can only mismatch if the user set
-> +	 * at least one of the privilege branch filters in PERF_SAMPLE_BRANCH_PLM_ALL.
-> +	 * Otherwise, the core will set the branch sample permissions in
-> +	 * perf_copy_attr().
-> +	 */
-> +	if ((event->attr.exclude_user != !(branch_type & PERF_SAMPLE_BRANCH_USER)) ||
-> +	    (event->attr.exclude_kernel != !(branch_type & PERF_SAMPLE_BRANCH_KERNEL)) ||
-
-I don't think this one is right. By default perf_copy_attr() copies the 
-exclude_ settings into the branch settings so this works, but if the 
-user sets any _less_ permissive branch setting this fails. For example:
-
-  # perf record -j any,u -- true
-  Error:
-  cycles:PH: PMU Hardware or event type doesn't support branch stack
-  sampling.
-
-Here we want the default sampling permissions (exclude_kernel == 0, 
-exclude_user == 0), but only user branch records, which doesn't match. 
-It should be allowed because it doesn't include anything that we're not 
-allowed to see.
-
-This also makes the Perf branch test skip because it uses 
-any,save_type,u to see if BRBE exists.
-
-
-> +	    (!is_kernel_in_hyp_mode() &&
-> +	     (event->attr.exclude_hv != !(branch_type & PERF_SAMPLE_BRANCH_HV))))
-> +		return false;
+> +	vcc2v8_video: regulator-vcc2v8-video {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vcc2v8-video";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-min-microvolt = <2800000>;
+> +		regulator-max-microvolt = <2800000>;
+> +		vin-supply = <&vcc3v3_baseboard>;
+> +	};
 > +
-> +	event->hw.branch_reg.config = branch_type_to_brbfcr(event->attr.branch_sample_type);
-> +	event->hw.extra_reg.config = branch_type_to_brbcr(event->attr.branch_sample_type);
+
+We have three additional regulators for the cameras, I think it'd make 
+sense to define those as well even if there's no camera stack on RK3588 
+for now?
+
+> +	video-adapter-leds {
+> +		compatible = "gpio-leds";
 > +
-> +	return true;
-> +}
-> +
-[...]
-> +static const int brbe_type_to_perf_type_map[BRBINFx_EL1_TYPE_DEBUG_EXIT + 1][2] = {
-> +	[BRBINFx_EL1_TYPE_DIRECT_UNCOND] = { PERF_BR_UNCOND, 0 },
-
-Does the second field go into 'new_type'? They all seem to be zero so 
-I'm not sure why new_type isn't ignored instead of having it mapped.
-
-> +	[BRBINFx_EL1_TYPE_INDIRECT] = { PERF_BR_IND, 0 },
-> +	[BRBINFx_EL1_TYPE_DIRECT_LINK] = { PERF_BR_CALL, 0 },
-> +	[BRBINFx_EL1_TYPE_INDIRECT_LINK] = { PERF_BR_IND_CALL, 0 },
-> +	[BRBINFx_EL1_TYPE_RET] = { PERF_BR_RET, 0 },
-> +	[BRBINFx_EL1_TYPE_DIRECT_COND] = { PERF_BR_COND, 0 },
-> +	[BRBINFx_EL1_TYPE_CALL] = { PERF_BR_CALL, 0 },
-> +	[BRBINFx_EL1_TYPE_ERET] = { PERF_BR_ERET, 0 },
-> +	[BRBINFx_EL1_TYPE_IRQ] = { PERF_BR_IRQ, 0 },
-
-How do ones that don't map to anything appear in Perf? For example 
-BRBINFx_EL1_TYPE_TRAP is missing, and the test that was attached to the 
-previous versions fails because it doesn't see the trap that jumps to 
-the kernel, but it does still see the ERET back to userspace:
-
-   [unknown]/trap_bench+0x20/-/-/-/0/ERET/-
-
-In older versions we'd also have BRBINFx_EL1_TYPE_TRAP mapping to 
-PERF_BR_SYSCALL so you could see it go into the kernel before the return:
-
-   trap_bench+0x1C/[unknown]/-/-/-/0/SYSCALL/-
-   [unknown]/trap_bench+0x20/-/-/-/0/ERET/-
-
+> +		video-adapter-led {
+> +			color = <LED_COLOR_ID_BLUE>;
+> +			gpios = <&pca9670 7 GPIO_ACTIVE_HIGH>;
+> +			label = "video-adapter-led";
+> +			linux,default-trigger = "none";
+> +		};
+> +	};
 > +};
 > +
-> +static void brbe_set_perf_entry_type(struct perf_branch_entry *entry, u64 brbinf)
-> +{
-> +	int brbe_type = brbinf_get_type(brbinf);
+> +&dsi0 {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +	status = "okay";
 > +
-> +	if (brbe_type <= BRBINFx_EL1_TYPE_DEBUG_EXIT) {
-> +		const int *br_type = brbe_type_to_perf_type_map[brbe_type];
+> +	panel@0 {
+> +		compatible = "leadtek,ltk050h3148w";
+> +		reg = <0>;
+> +		backlight = <&backlight>;
+> +		iovcc-supply = <&vcc1v8_video>;
+> +		reset-gpios = <&pca9670 0 GPIO_ACTIVE_LOW>;
+> +		vci-supply = <&vcc2v8_video>;
 > +
-> +		entry->type = br_type[0];
-> +		entry->new_type = br_type[1];
-> +	}
-> +}
+> +		port {
+> +			mipi_panel_in: endpoint {
+> +				remote-endpoint = <&dsi0_out_panel>;
+> +			};
+> +		};
+> +	};
+> +};
 > +
-
-[...]
-
-> +	if (branch_sample & PERF_SAMPLE_BRANCH_ANY_RETURN) {
-> +		set_bit(PERF_BR_RET, event_type_mask);
+> +&dsi0_in {
+> +	dsi0_in_vp3: endpoint {
+> +		remote-endpoint = <&vp3_out_dsi0>;
+> +	};
+> +};
 > +
-> +		if (!event->attr.exclude_kernel)
-> +			set_bit(PERF_BR_ERET, event_type_mask);
+> +&dsi0_out {
+> +	dsi0_out_panel: endpoint {
+> +		remote-endpoint = <&mipi_panel_in>;
+> +	};
+> +};
+> +
+> +&i2c6 {
+> +	/* OV5675, GT911, DW9714 are limited to 400KHz */
+> +	clock-frequency = <400000>;
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +
+> +	touchscreen@14 {
+> +		compatible = "goodix,gt911";
+> +		reg = <0x14>;
+> +		interrupt-parent = <&gpio3>;
+> +		interrupts = <RK_PC3 IRQ_TYPE_LEVEL_LOW>;
+> +		irq-gpios = <&gpio3 RK_PC3 GPIO_ACTIVE_HIGH>;
+> +		pinctrl-0 = <&touch_int>;
+> +		pinctrl-names = "default";
+> +		reset-gpios = <&pca9670 1 GPIO_ACTIVE_HIGH>;
+> +		AVDD28-supply = <&vcc2v8_video>;
+> +		VDDIO-supply = <&vcc3v3_baseboard>;
+> +	};
+> +
+> +	pca9670: gpio@27 {
+> +		compatible = "nxp,pca9670";
+> +		reg = <0x27>;
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
 
-You could argue that ERET should be included even if exclude_kernel is 
-set, otherwise you miss the point that you returned to in userspace and 
-leave a gap in the program flow. See the trap and eret example above.
+Our downstream has a pinctrl for that too.
 
-It looks like we still have the zeroing of the kernel address in this 
-version if we only have userspace priviledge, so it should be fine to 
-show the ERET and the target address.
+C.f. 
+https://git.theobroma-systems.com/tiger-linux.git/tree/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou-video-demo.dts#n185 
+and 
+https://git.theobroma-systems.com/tiger-linux.git/tree/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou-video-demo.dts#n259. 
+I think this would be enough to guarantee the PCA9670 is not held in 
+reset due to leftover debug sessions in the bootloader.
 
+Can you please also rebase on top of 
+https://lore.kernel.org/linux-rockchip/20250131-pre-ict-jaguar-v4-0-c971e2852e8d@cherry.de/T/#m7481695caf708c13edc662293d01fa372123532f 
+where we add overlay application tests at build time?
 
+Cheers,
+Quentin
 
