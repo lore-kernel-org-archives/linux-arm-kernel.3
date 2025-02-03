@@ -4,65 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6DC7C02193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 09:45:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55BC1C02193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 09:58:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oQMEJhzCoP6SsvcMRpV7hOEsBH8JgG7jjiRN9zw1N9o=; b=YV2Ede0ey1GrPakwUfjs6Ah1HP
-	UAqSvlo2/NHefPXz9a4sorIWldarifxuH9IJNpd3jH3aR/pA135bhLwmgN/KURiBdQWTlJzRUSbbm
-	PlPRYofh6Q3rxZ8VPkekgnh6iGKTUhpwfMcYFzD6i9vF+XrWagKUJJSqhDcZMyxAeuO9jN7IWaPk0
-	gKDzGPQn+su87tndyksAB/1BhEOMCQDlUnPFgbqoy3SJBroFbtXyEn5xLJLu/0nzQ3mm1kxdP/D3o
-	7+fwbBeCbOcP5tLUljcSGUPaI3BVr/BWgoQk+IDKz25liypvoDvrXofWHAovUKk5qeh9muDebkoZT
-	AxBPZS9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2Dv5Ac6SPOdtGgS0tmgxnxoVXUMjLjqcjHEmAbg0F2U=; b=P4YwY9eufon5IPCTwfIGuGueE8
+	DDtnJOOSLGiXxTv4Ux4C85/8JtXcW9BuGNVdiIp+PsMmeFPmbAIsh7gm6+d0ba/878d6vCryioRFk
+	TuK2JQAG6CpbhFb/Efv4VG+Kks0D5iv4/e4eTWeTBPFh6NQbRAYYhe3bdaTygxHRd/0A2sfHW4/Hl
+	yunRTnXoAGIUtRHV81wxt9ulYhYaA8RLB11z2fW73w4X8GPAtwqTejhocarSG1CO3OWrL8ihnaIeP
+	Fvqt/dPtT1juFVBr64vsgwmszWFXuollVwmLdTWjzyn68WRXqY72k8CZWuOvS9hZ5D1bTiBIPVS84
+	PNw2xiUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tet0u-0000000F2Ay-3Hcw;
-	Mon, 03 Feb 2025 09:45:08 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teszY-0000000F1l7-2vIr
+	id 1tetDk-0000000F3cn-0v11;
+	Mon, 03 Feb 2025 09:58:24 +0000
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tetCP-0000000F3PG-3HCm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 09:43:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6FDF11063;
-	Mon,  3 Feb 2025 01:44:08 -0800 (PST)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 96BF23F5A1;
-	Mon,  3 Feb 2025 01:43:41 -0800 (PST)
-Date: Mon, 3 Feb 2025 09:43:39 +0000
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Stephen Boyd <sboyd@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Sudeep Holla <sudeep.holla@arm.com>, linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 1/3] clk: Introduce clk_set_spread_spectrum
-Message-ID: <Z6CPy89TVxV1jaDn@pluto>
-References: <20250124-clk-ssc-v1-0-2d39f6baf2af@nxp.com>
- <20250124-clk-ssc-v1-1-2d39f6baf2af@nxp.com>
- <ff801714249c492abc3781da55675a38.sboyd@kernel.org>
- <20250202104256.GA13402@localhost.localdomain>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250202104256.GA13402@localhost.localdomain>
+	Mon, 03 Feb 2025 09:57:02 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6f6f2db824bso36736857b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 01:57:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1738576620; x=1739181420; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=2Dv5Ac6SPOdtGgS0tmgxnxoVXUMjLjqcjHEmAbg0F2U=;
+        b=ynSvw9nfVU2KAX7xO10QG8e5onQLbgFjlEwsMTM6aQambDdyJJKzYYiuP3OLQ08nF5
+         2JTQrizhX3nSSNgGqf8x8Z8/ARZhWHNL3QG5uEPVX9LVtSHunK1kbJmyCVRMDsX0itN2
+         mocQQFa+AyNugdyf4M6zwmKr82CCNMTc54n9sKgCJn53mH0IQC+GdGpIW6CXAAoMk4ur
+         LcbUks7UuiYNa9j3uc9dIz1f2vLph3IGOzzuO2Fjdk2B6w/DFtggmBunar3JatyUceU6
+         5g29dZEMns+4z+1LlbcXqW4lBNNo/xMT+XTwWRLlzeg9XKOp06ieTYuwnqef0VXHghJT
+         pTIA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738576620; x=1739181420;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=2Dv5Ac6SPOdtGgS0tmgxnxoVXUMjLjqcjHEmAbg0F2U=;
+        b=lTqC7aHkQZct2BNwMiu30xvaBFLmyu8TPp2nicCjRa9lwvEbaqC1PxFVwzSmRgQk1d
+         GA8cC/YaHWzVq+J1IqYDYYj/3/G34c1D6+rDElMiR2RKBaLl9ty+79mKUKAL1URlmDSz
+         6H70NZRIRHClMu8Wl9ugv0mTuXRokTnExNzD59V8Rg0b7HI4vowMv6iHqr9Q3Nfg8jVi
+         BL2FMgsNIrsUCuwfmFXr6/wQdTIFPk1LFYq9YvCAwbXpY206JpAq728yj9TLDnq0O/Xq
+         192KKaU0AvX9VS2t/2b6RvRgh05SSmicFkpbnCm5+4qIRpYon3kN3Nhht3cGs0W+W10a
+         FIeA==
+X-Forwarded-Encrypted: i=1; AJvYcCXXDMnXiKXKPm7dDjvQUQV1cK+ji8FyTOaWBM+QcpZRiP2Jo3qxX5i9kmq0cEZLeI/31uhfeMHuGYdc+07Yr6kO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyfehhp+illbp2X5tpISDUweY4Y+AvP9RCjzMKAwiGMT6lTdVC0
+	N8TBCCXqkrdL2J2HQdJUZaKUU383f1+bqtKSHCI5j5YFgFHMX+U3qjR/gSUYya554Pi4Wg==
+X-Google-Smtp-Source: AGHT+IECB4t9+nxA9LWLIFfRwRwZsyYuUUH4xiSxgCR5XbY+fu38QoXLmO5+/gf/KeL9xbqGeB9WRgfz
+X-Received: from ywbhl13.prod.google.com ([2002:a05:690c:620d:b0:6f5:278e:e957])
+ (user=keyz job=prod-delivery.src-stubby-dispatcher) by 2002:a05:690c:74ca:b0:6ef:81c0:5b56
+ with SMTP id 00721157ae682-6f7a8355a9amr168753257b3.14.1738576619752; Mon, 03
+ Feb 2025 01:56:59 -0800 (PST)
+Date: Mon,  3 Feb 2025 17:56:53 +0800
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.48.1.362.g079036d154-goog
+Message-ID: <20250203095653.4085118-1-keyz@google.com>
+Subject: [PATCH v5] cpuidle: psci: Add trace for PSCI domain idle
+From: Keita Morisaki <keyz@google.com>
+To: linux-kernel@vger.kernel.org, lpieralisi@kernel.org, sudeep.holla@arm.com, 
+	rafael@kernel.org, daniel.lezcano@linaro.org, linux-pm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Cc: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
+	linux-trace-kernel@vger.kernel.org, aarontian@google.com, 
+	yimingtseng@google.com, Keita Morisaki <keyz@google.com>, Dhruva Gole <d-gole@ti.com>, 
+	Kevin Hilman <khilman@baylibre.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_014344_829210_A75B704B 
-X-CRM114-Status: GOOD (  32.95  )
+X-CRM114-CacheID: sfid-20250203_015701_819643_D794ED5F 
+X-CRM114-Status: GOOD (  12.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,144 +90,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Feb 02, 2025 at 06:42:56PM +0800, Peng Fan wrote:
-> On Tue, Jan 28, 2025 at 12:25:28PM -0800, Stephen Boyd wrote:
-> >Quoting Peng Fan (OSS) (2025-01-24 06:25:17)
-> >> diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
-> >> index cf7720b9172ff223d86227aad144e15375ddfd86..a4fe4a60f839244b736e3c2751eeb38dc4577b1f 100644
-> >> --- a/drivers/clk/clk.c
-> >> +++ b/drivers/clk/clk.c
-> >> @@ -2790,6 +2790,45 @@ int clk_set_max_rate(struct clk *clk, unsigned long rate)
-> >>  }
-> >>  EXPORT_SYMBOL_GPL(clk_set_max_rate);
-> >>  
-> >> +int clk_set_spread_spectrum(struct clk *clk, unsigned int modfreq,
-> >> +                           unsigned int spreadpercent, unsigned int method,
-> >> +                           bool enable)
-> >> +{
-> >> +       struct clk_spread_spectrum clk_ss;
-> >> +       struct clk_core *core;
-> >> +       int ret = 0;
-> >
-> >The assignment looks unnecessary.
-> 
-> To avoid uninitialized variable warning.
-> 
-> >
-> >> +
-> >> +       if (!clk || !clk->core)
-> >
-> >How do you not have clk->core?
-> >
-> >> +               return 0;
-> >> +
-> >> +       clk_ss.modfreq = modfreq;
-> >> +       clk_ss.spreadpercent = spreadpercent;
-> >> +       clk_ss.method = method;
-> >> +       clk_ss.enable = enable;
-> >> +
-> >> +       clk_prepare_lock();
-> >> +
-> >> +       core = clk->core;
-> >
-> >Why do we need to get the core under the lock?
-> 
-> Drop in v2.
-> 
-> >
-> >> +
-> >> +       if (core->prepare_count) {
-> >
-> >Why does prepare count matter?
-> 
-> I was thinking to configure Spread Spectrum(SS) before
-> prepare/enable a clock. But it should be fine to not
-> check prepare count.
-> 
-> >
-> >> +               ret = -EBUSY;
-> >> +               goto fail;
-> >
-> >We just left without releasing the lock.
-> 
-> True. Dan also reported this. Fix in V2.
-> 
-> >
-> >> +       }
-> >> +
-> >> +       ret = clk_pm_runtime_get(core);
-> >> +       if (ret)
-> >> +               goto fail;
-> >
-> >We just left without releasing the lock.
-> >
-> >> +
-> >> +       if (core->ops->set_spread_spectrum)
-> >> +               ret = core->ops->set_spread_spectrum(core->hw, &clk_ss);
-> >> +
-> >> +       clk_pm_runtime_put(core);
-> >> +       clk_prepare_unlock();
-> >> +fail:
-> >> +       return ret;
-> >> +}
-> >> +EXPORT_SYMBOL_GPL(clk_set_spread_spectrum);
-> >> +
-> >> diff --git a/include/linux/clk.h b/include/linux/clk.h
-> >> index b607482ca77e987b9344c38f25ebb5c8d35c1d39..49a7f7eb8b03233e11cd3b92768896c4e45c4e7c 100644
-> >> --- a/include/linux/clk.h
-> >> +++ b/include/linux/clk.h
-> >> @@ -858,6 +858,21 @@ int clk_set_rate(struct clk *clk, unsigned long rate);
-> >>   */
-> >>  int clk_set_rate_exclusive(struct clk *clk, unsigned long rate);
-> >>  
-> >> +/**
-> >> + * clk_set_spread_spectrum - set the spread spectrum for a clock
-> >> + * @clk: clock source
-> >> + * @modfreq: modulation freq
-> >> + * @spreadpercent: modulation percentage
-> >> + * @method: down spread, up spread, center spread or else
-> >
-> >Did we get cut off?
-> 
-> Sorry I not get this point.
-> 
-> >
-> >> + * @enable: enable or disable
-> >
-> >Isn't 'disable' equal to spread_percent of zero?
-> 
-> yeah. Drop the last parameter.
-> 
-> >
-> >> + *
-> >> + * Configure the spread spectrum parameters for a clock.
-> >> + *
-> >> + * Returns success (0) or negative errno.
-> >> + */
-> >> +int clk_set_spread_spectrum(struct clk *clk, unsigned int modfreq,
-> >
-> >Does this need to be a consumer API at all? Usually SSC is figured out
-> >when making a board and you have to pass some certification testing
-> >because some harmonics are interfering. Is the DT property sufficient
-> >for now and then we can do it when the driver probes in the framework?
-> 
-> I suppose 'DT property' you are refering the stm32 and i.MX8M SSC patchsets.
-> I am proposing a generic interface for drivers to enable SSC.
-> Otherwise we need to introduce vendor properties for each vendor.
-> And looking at clk-scmi.c, we need a generic way to enable SSC, I think SCMI
-> maintainers not agree to add vendor properties for it.
-> 
+The trace event cpu_idle provides insufficient information for debugging
+PSCI requests due to lacking access to determined PSCI domain idle
+states. The cpu_idle usually only shows -1, 0, or 1 regardless how many
+idle states the power domain has.
 
-To clarify, from the SCMI point of view, I expressed the idea that it
-would make sense to have a common SSC interface on the SCMI backend too
-instead of a custom NXP since you are adding a common CLK framework feature,
-BUT only if it turns out, from this discussion, that a common general way of
-configuring SSC can be found...and I dont know that, so I am waiting to see
-what this discussion with CLK framework and iMX maintainers goes before
-excluding the SCMI CLK vendor OEM types scenario...it would be ideal and
-easier NOT to use SCMI vendor extensions BUT ONLY if this NXP SSC/config generic
-solution is deemed to be really generic and usable by any other vendor.
+Add new trace events namely psci_domain_idle_enter and
+psci_domain_idle_exit to trace enter and exit events with a determined
+idle state.
 
-Thanks,
-Cristian
+These new trace events will help developers debug CPUidle issues on ARM
+systems using PSCI by providing more detailed information about the
+requested idle states.
+
+Signed-off-by: Keita Morisaki <keyz@google.com>
+Reviewed-by: Steven Rostedt (Google) <rostedt@goodmis.org>
+Reviewed-by: Dhruva Gole <d-gole@ti.com>
+Tested-by: Kevin Hilman <khilman@baylibre.com>
+---
+v1->v2: Split the ftrace event into two (psci_domain_idle_(enter|exit))
+        and rephrase the commit message accordingly. Rebased onto the latest.
+v2->v3: Add "Reviewed-by: Steven Rostedt"
+v3->v4: Add the Tested-by label
+v4->v5: Add "Reviewed-by: Dhruva Gole"
+
+Hopefully this patch gets attention from maintainers of
+drivers/cpuidle/cpuidle-psci.c too.
+
+ drivers/cpuidle/cpuidle-psci.c |  3 +++
+ include/trace/events/power.h   | 37 ++++++++++++++++++++++++++++++++++
+ 2 files changed, 40 insertions(+)
+
+diff --git a/drivers/cpuidle/cpuidle-psci.c b/drivers/cpuidle/cpuidle-psci.c
+index 2562dc001fc1..dd8d776d6e39 100644
+--- a/drivers/cpuidle/cpuidle-psci.c
++++ b/drivers/cpuidle/cpuidle-psci.c
+@@ -25,6 +25,7 @@
+ #include <linux/syscore_ops.h>
+
+ #include <asm/cpuidle.h>
++#include <trace/events/power.h>
+
+ #include "cpuidle-psci.h"
+ #include "dt_idle_states.h"
+@@ -74,7 +75,9 @@ static __cpuidle int __psci_enter_domain_idle_state(struct cpuidle_device *dev,
+ 	if (!state)
+ 		state = states[idx];
+
++	trace_psci_domain_idle_enter(dev->cpu, state, s2idle);
+ 	ret = psci_cpu_suspend_enter(state) ? -1 : idx;
++	trace_psci_domain_idle_exit(dev->cpu, state, s2idle);
+
+ 	if (s2idle)
+ 		dev_pm_genpd_resume(pd_dev);
+diff --git a/include/trace/events/power.h b/include/trace/events/power.h
+index d2349b6b531a..9253e83b9bb4 100644
+--- a/include/trace/events/power.h
++++ b/include/trace/events/power.h
+@@ -62,6 +62,43 @@ TRACE_EVENT(cpu_idle_miss,
+ 		(unsigned long)__entry->state, (__entry->below)?"below":"above")
+ );
+
++DECLARE_EVENT_CLASS(psci_domain_idle,
++
++	TP_PROTO(unsigned int cpu_id, unsigned int state, bool s2idle),
++
++	TP_ARGS(cpu_id, state, s2idle),
++
++	TP_STRUCT__entry(
++		__field(u32,		cpu_id)
++		__field(u32,		state)
++		__field(bool,		s2idle)
++	),
++
++	TP_fast_assign(
++		__entry->cpu_id = cpu_id;
++		__entry->state = state;
++		__entry->s2idle = s2idle;
++	),
++
++	TP_printk("cpu_id=%lu state=0x%lx is_s2idle=%s",
++		  (unsigned long)__entry->cpu_id, (unsigned long)__entry->state,
++		  (__entry->s2idle)?"yes":"no")
++);
++
++DEFINE_EVENT(psci_domain_idle, psci_domain_idle_enter,
++
++	TP_PROTO(unsigned int cpu_id, unsigned int state, bool s2idle),
++
++	TP_ARGS(cpu_id, state, s2idle)
++);
++
++DEFINE_EVENT(psci_domain_idle, psci_domain_idle_exit,
++
++	TP_PROTO(unsigned int cpu_id, unsigned int state, bool s2idle),
++
++	TP_ARGS(cpu_id, state, s2idle)
++);
++
+ TRACE_EVENT(powernv_throttle,
+
+ 	TP_PROTO(int chip_id, const char *reason, int pmax),
+
+base-commit: ffd294d346d185b70e28b1a28abe367bbfe53c04
+--
+2.48.1.362.g079036d154-goog
 
