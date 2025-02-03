@@ -4,56 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17F07C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 21:31:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D612EC02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 21:32:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=2eatfBTlCFvmFVXioDEM0J09IeRH7d/6g7gbr6pysjI=; b=Wg9K4eRMZC6GOx
-	BXCWZSYvqPHJ8x7YDfMVeS/a2xoOVd+LNV4JBkNGjK/IRE2j+rXV9H4VlNy1gVqul2ORhk7JoR/46
-	cyT4OdbOhtSo8TJacsUB4HmLcZrYvjex5MQlPEuq97VrQt8TjUFiLkRlDo9+fwv/iqHY2qbYy0YZ3
-	fgDNVFFWDrnBfqVWu7rzJhS9kU2jQJHStey6qcNvqoDPvkQx6BV0eRUa8ZjK0kghAKdUl9s8NMk58
-	ZUKV+wpJotsQ2uMFQwCDZnPZHF06gb0OJ7298P0b0n4pBVjisvjubH6iZdvlTXyRryQfE/Hqt6Y1F
-	D/iBixwPKk3/EaKMbXsA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sc7kPVACZJmkadeTt4fOjS6k2zHFGu0MilDaurykdoQ=; b=wVbsK+a6Wxknyg8GOTI8HAclOI
+	jsR9aPdjDWL16YgAjkKQa3xbYM+XTNWxTjpCkMNGymTjycWJpwVacq4nCZ6H5CCw7axoZbgvUggA3
+	Fv8w2SwOSk5vzfFslGp06T0Wx4GD62LRB+Vi2mXbv+GNzrjf2lscZmWfUgV+wzOYCNpoUX82/dwwD
+	v+yUmAkCFDGlXJt2Q8hoLMl2FuRniMz/LUlMOXWcF4H+efduvu/uu+SY+uDeZMr5PmBS8ELytYDiC
+	0mnunJJOY9eWY2dqOWLxVQfi4OYByYyiS7iV41GDGyVZ4ru/Cnc+x7UAvihkAxabYMZHFTikSn3qz
+	aBSe7MDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf41w-0000000GfSy-37Li;
-	Mon, 03 Feb 2025 21:30:56 +0000
+	id 1tf43F-0000000Gfie-1VVM;
+	Mon, 03 Feb 2025 21:32:17 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf40c-0000000GfBN-1u0G
+	id 1tf40d-0000000GfBe-3xvn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 21:29:35 +0000
+	Mon, 03 Feb 2025 21:29:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CE5E65C6957;
-	Mon,  3 Feb 2025 21:28:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24882C4CED2;
-	Mon,  3 Feb 2025 21:29:33 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 857045C6962;
+	Mon,  3 Feb 2025 21:28:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3E5BC4CEE3;
+	Mon,  3 Feb 2025 21:29:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738618173;
-	bh=k45PuhlI1pyZAkhQxB499IE+3LUgYrC/yYKeKsxVgHw=;
-	h=From:Subject:Date:To:Cc:From;
-	b=Yc+Yb6e79pQq+/g/JjRXN1MbhgANzFxtPQwz50l4cSHFcKGAfWu7o7WUl6YdivPvL
-	 Av9v8YrdHfXcmKpeaXIKRDxXchNkQcHwEqTs4j9g5eGzicxCxHMLJqZen94KgVtUQU
-	 RyyAoDy9OE3jT8dgb9W/yvAt8mdH2qMZSSSBqrZiRlv58FVG04yGFmwwMx7YG5YAO7
-	 fma8sGXqN5CAPPk2AmDK1RYXcp4bEQzIjQ7VCeianii1ujsaP3OqYMgXAVZlrzRAz3
-	 wQZTkeKx3NJTaMOn1UZ61/l2DR4+Hx9x/zMi/K7ar2v6qPNfcIerlmh2Q6zDyVPwGE
-	 /oShsVseZJdFA==
+	s=k20201202; t=1738618175;
+	bh=BebvpPREciDqkWSJZ64d5uD1fgdX0OpQuYFwZj5JRgM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=eEm1LcU+ACo0yxGrYyt9C4HmP7/4/Qh0O04OBFHKGwkjI+smn3Lb30EyoZOu9yKzj
+	 X1pqMpJh/jkO8zqibLiS5IUnsHB1LklGpH2CWQ8o39gqGkdTrkhNzZaLeWKY3OE1m3
+	 691eCwS69+ZYI5WJsU/YmKpSzWT+432adlTzm3dcEyq6xxBEM17h9qBMbQmBd+nZYe
+	 N3wDwZt7iZW89jIBGlvwHfnEIpmo4O8bFSCG0UlEUpTNwpVAZP4uOxSIIhOG9iPtDv
+	 yP2/XI2mq46aBhDacgiJW4O7tirUECBA2Y/6YIHgPSLbSD5ZJ0JMAoZqzj/P4FNRta
+	 ZqSUpng4m16FQ==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Subject: [PATCH 0/4] dt-bindings: Ensure all smsc,lan9115 properties are
- evaluated
-Date: Mon, 03 Feb 2025 15:29:12 -0600
-Message-Id: <20250203-dt-lan9115-fix-v1-0-eb35389a7365@kernel.org>
+Date: Mon, 03 Feb 2025 15:29:13 -0600
+Subject: [PATCH 1/4] dt-bindings: memory-controllers: Move qcom,ebi2 from
+ bindings/bus/
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIACg1oWcC/x2MWwqAIBAArxL73YKPDOwq0YfkWgthoRGBePekz
- xmYKZApMWWYugKJHs58xgay72DdXdwI2TcGJZQRSmj0Nx4uWikNBn6RSAcdRhsG5aFFV6Km/+G
- 81PoBiq6kE2AAAAA=
-X-Change-ID: 20250203-dt-lan9115-fix-ee3f3f69f42d
+Message-Id: <20250203-dt-lan9115-fix-v1-1-eb35389a7365@kernel.org>
+References: <20250203-dt-lan9115-fix-v1-0-eb35389a7365@kernel.org>
+In-Reply-To: <20250203-dt-lan9115-fix-v1-0-eb35389a7365@kernel.org>
 To: Bjorn Andersson <andersson@kernel.org>, 
  Konrad Dybcio <konradybcio@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -68,8 +66,8 @@ Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
  linux-samsung-soc@vger.kernel.org, netdev@vger.kernel.org
 X-Mailer: b4 0.15-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_132934_540069_D4D9B3B4 
-X-CRM114-Status: UNSURE (   8.18  )
+X-CRM114-CacheID: sfid-20250203_132936_032216_625C6DA0 
+X-CRM114-Status: UNSURE (   9.74  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,35 +83,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds qcom,ebi2 and samsung,exynos4210-srom memory 
-controllers' child node properties to mc-peripheral-props.yaml in order 
-to fix the 'additionalProperties: true' in the smsc,lan9115.yaml 
-schema. These 2 memory controllers are used with the lan9115 in several 
-.dts's.
+The preferred location for external parallel/memory buses is in
+memory-controllers. 'bus' is generally for internal chip buses.
 
-I'll take this series thru the DT tree.
-
-Signed-off-by: "Rob Herring (Arm)" <robh@kernel.org>
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
-Rob Herring (Arm) (4):
-      dt-bindings: memory-controllers: Move qcom,ebi2 from bindings/bus/
-      dt-bindings: memory-controllers: qcom,ebi2: Split out child node properties
-      dt-bindings: memory-controllers: samsung,exynos4210-srom: Split out child node properties
-      dt-bindings: net: smsc,lan9115: Ensure all properties are defined
+ .../devicetree/bindings/{bus => memory-controllers}/qcom,ebi2.yaml      | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
- .../bindings/memory-controllers/exynos-srom.yaml   | 35 ---------
- .../memory-controllers/mc-peripheral-props.yaml    |  2 +
- .../qcom,ebi2-peripheral-props.yaml                | 91 ++++++++++++++++++++++
- .../{bus => memory-controllers}/qcom,ebi2.yaml     | 86 +-------------------
- .../samsung,exynos4210-srom-peripheral-props.yaml  | 35 +++++++++
- .../devicetree/bindings/net/smsc,lan9115.yaml      |  6 +-
- 6 files changed, 131 insertions(+), 124 deletions(-)
----
-base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
-change-id: 20250203-dt-lan9115-fix-ee3f3f69f42d
+diff --git a/Documentation/devicetree/bindings/bus/qcom,ebi2.yaml b/Documentation/devicetree/bindings/memory-controllers/qcom,ebi2.yaml
+similarity index 99%
+rename from Documentation/devicetree/bindings/bus/qcom,ebi2.yaml
+rename to Documentation/devicetree/bindings/memory-controllers/qcom,ebi2.yaml
+index 1b1fb3538e6e..c782bfd7af92 100644
+--- a/Documentation/devicetree/bindings/bus/qcom,ebi2.yaml
++++ b/Documentation/devicetree/bindings/memory-controllers/qcom,ebi2.yaml
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+ %YAML 1.2
+ ---
+-$id: http://devicetree.org/schemas/bus/qcom,ebi2.yaml#
++$id: http://devicetree.org/schemas/memory-controllers/qcom,ebi2.yaml#
+ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ 
+ title: Qualcomm External Bus Interface 2 (EBI2)
 
-Best regards,
 -- 
-Rob Herring (Arm) <robh@kernel.org>
+2.47.2
 
 
