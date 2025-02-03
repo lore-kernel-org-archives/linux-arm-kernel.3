@@ -4,131 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A4DFC02196
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 16:45:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2F91C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 16:45:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oxo7EEfcw0Pt1miinnT6cq3B2NNPzlz1Sa2Mok5SOy0=; b=E5/aFb+M16ghjnPpM1pyU6WFLj
-	PxSr4gIFjxgvvd0D7A2rmrAp9ALztwYHJzRg0KIqwyS0RDGuh4FG1gRJfNRbNtNL/T5lFWG3lpjyN
-	eD9M8rhfDe+8yRCmrXJuNHrL2h7qigFS4xH1+eIy4oQHw9xkZHwOIXkX4Htb1shCdihHIIvqSRrcV
-	GTpNxQ2fckj2RMjCEGQ6rdmoHSyvvO7oAAOaEP2eYpvc1bkhRvLKTFezdaa49iW04CB6fjjsdF1Jt
-	J7rGdjFUwhVIlA5urdKVAUqro5GvtW78bwtg0pmJW7WklebPV81AMPDs6c5fnF8WK5LMV+bcOlIWP
-	5pzMK6fw==;
+	bh=FgA946wy0V8u3nthaM+WRWBiCEG8bEUqAucO6JVYmZU=; b=Btpya+WknjnuQ90VnQDs97X5J5
+	plu2ZJHIZzPhlRibmrzSZ62IG2sXvE1Ytyg2mCUY/lu3xDu+x3AVyVU6hryBl9u9jaKRGZn9iEELr
+	DQgl+HyL0jio28NiquAISinMwh7buQekeFLsB/ezRlBYfYP+FLmxcjIxmDtGfpnjdDNDrq7Uja4bl
+	mNabGwK/h3tSFGhbqPMWOYO16sjLKU9brKHlBdOHuRTiUpZdw4B8+5ya9WDwWs5MYRAqw8Ec+3crT
+	vwC8ZyqCorlokVyTONqc5B5arLqXn+DcDvJ7cdujF29IPYuY2pTWXi6Ujz5r3WwH+rYONuK7i7L4m
+	YDWBM3sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tezZK-0000000G2QJ-2pXp;
-	Mon, 03 Feb 2025 16:45:06 +0000
-Received: from mail-dm6nam12on20630.outbound.protection.outlook.com ([2a01:111:f403:2417::630] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1teza2-0000000G2Yh-128w;
+	Mon, 03 Feb 2025 16:45:50 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tezTx-0000000G1Xt-19O8
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 16:39:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UjGJrhKszhFzGYioHDhYBojx1CO2CvOUuWgOMHuRzBmavfrFlFObgngyAmMY1+xlfGzrgGfIuKUISuCjgeslBwtZkGhyOgJshWN6rA+vtVnsdi+OiMWKCtWA60h4Hw1KFzrQY9WPnnfFLvff/2QZxuhIDGa0+zdFtgX+PWV0pjj+M6LQeoWqFVZVm0Xnjp/C/CwwEVAFsDsuCQ26zQ57xv9r5mZ31cxrnFvEsGR3iJTkp9Uy2B4KIm8s1iTaz1dSghKEy9akO01lcwgbvKWxirokaHt4RYaNaJpByDsxaNafwU9Vyv3KWmBDk1EbyUFoltxcglMlCo9cymKNWETUPA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Oxo7EEfcw0Pt1miinnT6cq3B2NNPzlz1Sa2Mok5SOy0=;
- b=H5FiySKuSGbKt/WL/oZw0eVQed0XpC2nrdJ14JJnuJqDjKwz29eTf2/xpg1fFJQDbQXkIiVLYHLCy0tUgV/ZryEWo0NC+6V/ODjNHlfyLxVYxSCSNI3Brt/GnNd/a7LWcsVX/lmKs8goAiNwcuw/AqPbgkpN1awMjKysdeUoOXAri1z6pgWFPii8IoQZh46k6SrWzK+OpdlHS4UHHsFXXjnFrtmnfjEkECS+smD9g0Zj6OHNydenNV6nuJs0I9vKkpzPwqcyBsbLZrkfvD+WDoB1UzcKORuJbpRlRhVVgoSzW9QSnrym3+hyDtl4ne4SjEmBtCMxYudLpwkM2V8jvw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Oxo7EEfcw0Pt1miinnT6cq3B2NNPzlz1Sa2Mok5SOy0=;
- b=CcM+krmBp03UPKd1zafcvvPJ8i4bi4HMCLw7H14GhaILssvEiUsQeYM9S45zDcMnfDSJT5yrUoN2yxWk29NdsZM/Ig35iPgdodI3rXH5tSG8zYdZw4xbJI3wOSYH67pKgBTC0KRVdBOUX6DKpTgzp2sRMZDQNwbXpHBgsFUI+jA=
-Received: from SJ0PR13CA0178.namprd13.prod.outlook.com (2603:10b6:a03:2c7::33)
- by MW4PR12MB7334.namprd12.prod.outlook.com (2603:10b6:303:219::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.24; Mon, 3 Feb
- 2025 16:39:26 +0000
-Received: from SN1PEPF00036F41.namprd05.prod.outlook.com
- (2603:10b6:a03:2c7:cafe::3c) by SJ0PR13CA0178.outlook.office365.com
- (2603:10b6:a03:2c7::33) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8398.24 via Frontend Transport; Mon,
- 3 Feb 2025 16:39:25 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
-Received: from SATLEXMB04.amd.com (165.204.84.17) by
- SN1PEPF00036F41.mail.protection.outlook.com (10.167.248.25) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8398.14 via Frontend Transport; Mon, 3 Feb 2025 16:39:25 +0000
-Received: from localhost (10.180.168.240) by SATLEXMB04.amd.com
- (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 3 Feb
- 2025 10:39:23 -0600
-From: Michal Simek <michal.simek@amd.com>
-To: <linux-kernel@vger.kernel.org>, <monstr@monstr.eu>,
-	<michal.simek@xilinx.com>, <git@xilinx.com>
-Subject: [PATCH 2/2] dt-bindings: xilinx: Deprecate header with firmware constants
-Date: Mon, 3 Feb 2025 17:39:11 +0100
-Message-ID: <2a6f0229522327939e6893565e540b75f854a37b.1738600745.git.michal.simek@amd.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1738600745.git.michal.simek@amd.com>
-References: <cover.1738600745.git.michal.simek@amd.com>
-MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7990; i=michal.simek@amd.com; h=from:subject:message-id; bh=+jSQf/Gr4acmyLhhyPaP/EXiwN+V2xT0LlYFWxHtJdg=; b=owGbwMvMwCR4yjP1tKYXjyLjabUkhvQFH/Uly/cozLT9NHXTtG1/olc/PZ9V9//Hv5glty+4q Knascs864hlYRBkYpAVU2SRtrlyZm/ljCnCFw/LwcxhZQIZwsDFKQATuV/DsGDCusSzjI3JTXEl EqJSuSXFkvKNPAzzzH/aVt9wrLdf/6J8u45mwpq7vZ7hAA==
-X-Developer-Key: i=michal.simek@amd.com; a=openpgp; fpr=67350C9BF5CCEE9B5364356A377C7F21FE3D1F91
+	id 1teyVX-0000000FtRr-2jp3;
+	Mon, 03 Feb 2025 15:37:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6529FA414E7;
+	Mon,  3 Feb 2025 15:35:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A999C4CED2;
+	Mon,  3 Feb 2025 15:37:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738597026;
+	bh=io2jOiAYZgNPcYe++cli+V+FY1fGXApzfdK6XF5tjp0=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=eGzyDH2Y86s92rWyDtvP8hZxFLJ+cZGw9ftTxnO7NxJEKpZpf2435DcsVMEFOm2dU
+	 3z8jQmwU/UvrL49IRy1PA6c6tzqebmnzQYdN+Zgabmp3e4jTCMTBsX8DRmiFQyaWvE
+	 6eOUSmeVg6ZtFvwKirZCqlrTrB+W5s61cWOaIIS4exjoRsZyd8pUOI4I9rpqOLxAfU
+	 yIxuXT1CPpw/QWJXf7AU7QfMaD7wYdpIz0PZJgbkBehTaDgRpawm7DTOdOYApkr7zc
+	 peSUsXcJ90EArpqRWF2ZpD/MQ8HzLggZqB9sODgBvvTq6o9ZIhNykq+khzzO5yZyVf
+	 wbeZN0S5/2kcg==
+Date: Mon, 03 Feb 2025 09:37:05 -0600
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.180.168.240]
-X-ClientProxiedBy: SATLEXMB03.amd.com (10.181.40.144) To SATLEXMB04.amd.com
- (10.181.40.145)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF00036F41:EE_|MW4PR12MB7334:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3be94396-7605-45b6-08ec-08dd44715230
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|30052699003|82310400026|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?LJeZFRk2OOQH/3mRw/ckgthqDs+08DXHUorvEYlAwwHF93rutjEWXqTy7Ijc?=
- =?us-ascii?Q?AXddcQbiKfthM+BGebr+TZ8NrfRJ0tJp0jK4EhU26xGyxz2X5bsuhjBi8vOX?=
- =?us-ascii?Q?22iqhW9O3DCuoRRgv7ZTmbuiF7BZkxIfRxLGp2NMBw8BrO7XwqOWbn3TF1yy?=
- =?us-ascii?Q?0IpRRiAMK7zHAVP7/lQhHW7Wi7ZF+uz2Y0mYVrB6lOgCdcks+jqyl616MN9y?=
- =?us-ascii?Q?I1tz4pyKlgcC74NMGoQvWvSHsvxeYoJs+bbq3FkS/3zdH3qqlL145pYaKmkK?=
- =?us-ascii?Q?9nFdRH4IhsNKbGIOUgLtVtUWOKmALkprrVhpJk0baBNtOsYJIxbGVnp5lM/P?=
- =?us-ascii?Q?Z5SyMxuIUMXtm6Cx9tot/1uyjhVDYhdtFMVpo+4A5lbzsilhUQAUC/F/dqZV?=
- =?us-ascii?Q?xa8a5mSA2rszfXPhPMwK+EGghjeNwpAQAR6Tz1ZmUaTDBRC2oVThvxoJHTOq?=
- =?us-ascii?Q?KR+StkYTXGA0ipwJe1YOgZk8yPpqRBkB+TMArtrXXK0M5R46HT2MMP59rNcP?=
- =?us-ascii?Q?/Y7LN9Nc79vogKzidPZb5FqBnoZfMB5w+M6z3TwF72i8xWBgboI66uDsyrAV?=
- =?us-ascii?Q?nTcIAfTKHc4ts0irG+kpysaQGaaipPHleZelM3d64bMio4FToqMHsSW5qPFr?=
- =?us-ascii?Q?51W8PS0dnzKbE24eXzZV+Ws2dkMn3th4wjvIp0OFYMKW5FrKIvQVvUghypdw?=
- =?us-ascii?Q?HzmLd5uK6X5DwHoznly+3R60S0HR0ZPvLbViPwFTB5Moqf3UvY5iHTze040W?=
- =?us-ascii?Q?IctjcKTrpnBf3x+K3HfEm09CRKcfJg6Wz9ovwcVaisNQMpLYbkOvI6vyVI9i?=
- =?us-ascii?Q?W4G96v++JmXb1EnyVraBYVYwRMHSCjSlTi3O/YhDjXXsP0EvQYd4/QiXGxic?=
- =?us-ascii?Q?3WEoCWBL9J1iu0Og0qKCLPsq+JKuz98Pzlo9vAXMgmwdUgJH+ceXbJNLhGIV?=
- =?us-ascii?Q?kRJcwWyQSggkRg607VOVpKlQHqovCrEWFk94iU/X2vwP/D0mKmCH3+DKZxeW?=
- =?us-ascii?Q?H+STjSV5LhtPYBAl542cUPhl2rTwMfLwvT/Vd6RDJsEvQnEsp7V4IARVPawx?=
- =?us-ascii?Q?8x6cprIllX+rsJW0SnE/5IXVDFN1pZHukiYVizEm5O6dj6bT0nOvJLha1lDX?=
- =?us-ascii?Q?D5shoXUsMwqp/jvKwXop905emIaM7N1960OTm4M9v7AqTG/+na1pt4W8XUVx?=
- =?us-ascii?Q?RzOyOcSvfw7F5skjQ5Jm9lpQ2jyribCZXIGZNBiTPYXSDX+yTY68tP91Q8Wt?=
- =?us-ascii?Q?wBqpNmAiMCGrb3ShGSSDv1sXbephPAMM1+baHLNGfOq/xZA6IImt3e9HLrlq?=
- =?us-ascii?Q?mK75xNjpO+A89ccqAQ8FSzFTs8O2SzIzGyzLf0Pr2vpcpAaXv+CujzBlYFWA?=
- =?us-ascii?Q?j53u7j/IBuzW5Huf+Xx5ER7zHZPVhFr2PDzcceA6UcgDpdKTUe8pFlCYmqP0?=
- =?us-ascii?Q?cQwaSvrGyP5uClYU0v5pytAPkJ/bOOGyZtswAxEyu/YmLH2EoxlgAg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(30052699003)(82310400026)(376014)(7416014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Feb 2025 16:39:25.6570
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3be94396-7605-45b6-08ec-08dd44715230
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF00036F41.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7334
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Conor Dooley <conor+dt@kernel.org>, linux-mediatek@lists.infradead.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+In-Reply-To: <20250201-en7581-dts-spi-pinctrl-v1-1-aaa4a9dfc4a6@kernel.org>
+References: <20250201-en7581-dts-spi-pinctrl-v1-1-aaa4a9dfc4a6@kernel.org>
+Message-Id: <173859694682.2601632.260969145001463720.robh@kernel.org>
+Subject: Re: [PATCH] arm64: dts: Introduce more nodes to EN7581 SoC
+ evaluation board
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_083933_365420_342D9B1C 
-X-CRM114-Status: GOOD (  14.55  )
+X-CRM114-CacheID: sfid-20250203_073707_822308_D65519A8 
+X-CRM114-Status: GOOD (  11.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,194 +71,61 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: "open list:XILINX AMS
- DRIVER" <linux-iio@vger.kernel.org>, Michael Turquette <mturquette@baylibre.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Niklas Cassel <cassel@kernel.org>, Eric Dumazet <edumazet@google.com>, "open list:COMMON CLK
- FRAMEWORK" <linux-clk@vger.kernel.org>, Shyam Pandey <radhey.shyam.pandey@amd.com>, Michael Tretter <m.tretter@pengutronix.de>, Rob Herring <robh@kernel.org>, Lars-Peter
- Clausen <lars@metafoo.de>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE
- BINDINGS" <devicetree@vger.kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Anand Ashok Dumbre <anand.ashok.dumbre@xilinx.com>, Mark Brown <broonie@kernel.org>, "moderated list:ARM/ZYNQ
- ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, Harini Katakam <harini.katakam@amd.com>, "open list:LIBATA SUBSYSTEM \(Serial
- and Parallel ATA drivers\)" <linux-ide@vger.kernel.org>, Stephen Boyd <sboyd@kernel.org>, Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>, "open list:USB SUBSYSTEM" <linux-usb@vger.kernel.org>, "open list:SPI SUBSYSTEM" <linux-spi@vger.kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, Vinod Koul <vkoul@kernel.org>, Damien Le Moal <dlemoal@kernel.org>, "open list:NETWORKING DRIVERS" <netdev@vger.kernel.org>, "open list:DMA GENERIC OFFLOAD ENGINE
- SUBSYSTEM" <dmaengine@vger.kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "David S.
- Miller" <davem@davemloft.net>, Jonathan Cameron <jic23@kernel.org>, Mubin Sayyed <mubin.sayyed@amd.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Firmware contants do not fit the purpose of bindings because they are not
-independent IDs for abstractions. They are more or less just contants which
-better to wire via header with DT which is using it.
-That's why add deprecated message to dt binding header and also update
-existing dt bindings not to use macros from the header  and replace them by
-it's value. Actually value is not relevant because it is only example.
 
-The similar changes have been done by commit 9d9292576810 ("dt-bindings:
-pinctrl: samsung: deprecate header with register constants").
+On Sat, 01 Feb 2025 15:39:48 +0100, Lorenzo Bianconi wrote:
+> Add the following nodes to EN7581 SoC and EN7581 evaluation board:
+> - clock controller
+> - rng controller
+> - pinctrl
+> - i2c controllers
+> - spi nand controller
+> 
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> ---
+>  arch/arm64/boot/dts/airoha/en7581-evb.dts |  8 +++
+>  arch/arm64/boot/dts/airoha/en7581.dtsi    | 90 +++++++++++++++++++++++++++++++
+>  2 files changed, 98 insertions(+)
+> 
 
-Signed-off-by: Michal Simek <michal.simek@amd.com>
----
 
- Documentation/devicetree/bindings/ata/ceva,ahci-1v84.yaml  | 4 +---
- .../bindings/dma/xilinx/xlnx,zynqmp-dma-1.0.yaml           | 3 +--
- .../devicetree/bindings/iio/adc/xlnx,zynqmp-ams.yaml       | 3 +--
- Documentation/devicetree/bindings/net/cdns,macb.yaml       | 7 +++----
- Documentation/devicetree/bindings/spi/spi-zynqmp-qspi.yaml | 3 +--
- Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml     | 3 +--
- include/dt-bindings/clock/xlnx-zynqmp-clk.h                | 7 +++++++
- 7 files changed, 15 insertions(+), 15 deletions(-)
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
-diff --git a/Documentation/devicetree/bindings/ata/ceva,ahci-1v84.yaml b/Documentation/devicetree/bindings/ata/ceva,ahci-1v84.yaml
-index 9952e0ef7767..6ad78429dc74 100644
---- a/Documentation/devicetree/bindings/ata/ceva,ahci-1v84.yaml
-+++ b/Documentation/devicetree/bindings/ata/ceva,ahci-1v84.yaml
-@@ -163,11 +163,9 @@ additionalProperties: false
- 
- examples:
-   - |
--    #include <dt-bindings/clock/xlnx-zynqmp-clk.h>
-     #include <dt-bindings/interrupt-controller/irq.h>
-     #include <dt-bindings/power/xlnx-zynqmp-power.h>
-     #include <dt-bindings/reset/xlnx-zynqmp-resets.h>
--    #include <dt-bindings/clock/xlnx-zynqmp-clk.h>
-     #include <dt-bindings/phy/phy.h>
- 
-     sata: ahci@fd0c0000 {
-@@ -175,7 +173,7 @@ examples:
-         reg = <0xfd0c0000 0x200>;
-         interrupt-parent = <&gic>;
-         interrupts = <0 133 IRQ_TYPE_LEVEL_HIGH>;
--        clocks = <&zynqmp_clk SATA_REF>;
-+        clocks = <&zynqmp_clk 22>;
-         ceva,p0-cominit-params = /bits/ 8 <0x0F 0x25 0x18 0x29>;
-         ceva,p0-comwake-params = /bits/ 8 <0x04 0x0B 0x08 0x0F>;
-         ceva,p0-burst-params = /bits/ 8 <0x0A 0x08 0x4A 0x06>;
-diff --git a/Documentation/devicetree/bindings/dma/xilinx/xlnx,zynqmp-dma-1.0.yaml b/Documentation/devicetree/bindings/dma/xilinx/xlnx,zynqmp-dma-1.0.yaml
-index ac3198953b8e..b5399c65a731 100644
---- a/Documentation/devicetree/bindings/dma/xilinx/xlnx,zynqmp-dma-1.0.yaml
-+++ b/Documentation/devicetree/bindings/dma/xilinx/xlnx,zynqmp-dma-1.0.yaml
-@@ -75,7 +75,6 @@ additionalProperties: false
- 
- examples:
-   - |
--    #include <dt-bindings/clock/xlnx-zynqmp-clk.h>
- 
-     fpd_dma_chan1: dma-controller@fd500000 {
-       compatible = "xlnx,zynqmp-dma-1.0";
-@@ -84,7 +83,7 @@ examples:
-       interrupts = <0 117 0x4>;
-       #dma-cells = <1>;
-       clock-names = "clk_main", "clk_apb";
--      clocks = <&zynqmp_clk GDMA_REF>, <&zynqmp_clk LPD_LSBUS>;
-+      clocks = <&zynqmp_clk 19>, <&zynqmp_clk 31>;
-       xlnx,bus-width = <128>;
-       dma-coherent;
-     };
-diff --git a/Documentation/devicetree/bindings/iio/adc/xlnx,zynqmp-ams.yaml b/Documentation/devicetree/bindings/iio/adc/xlnx,zynqmp-ams.yaml
-index 8cbad7e792b6..a403392fb263 100644
---- a/Documentation/devicetree/bindings/iio/adc/xlnx,zynqmp-ams.yaml
-+++ b/Documentation/devicetree/bindings/iio/adc/xlnx,zynqmp-ams.yaml
-@@ -193,7 +193,6 @@ additionalProperties: false
- 
- examples:
-   - |
--    #include <dt-bindings/clock/xlnx-zynqmp-clk.h>
- 
-     bus {
-         #address-cells = <2>;
-@@ -204,7 +203,7 @@ examples:
-             interrupt-parent = <&gic>;
-             interrupts = <0 56 4>;
-             reg = <0x0 0xffa50000 0x0 0x800>;
--            clocks = <&zynqmp_clk AMS_REF>;
-+            clocks = <&zynqmp_clk 70>;
-             #address-cells = <1>;
-             #size-cells = <1>;
-             #io-channel-cells = <1>;
-diff --git a/Documentation/devicetree/bindings/net/cdns,macb.yaml b/Documentation/devicetree/bindings/net/cdns,macb.yaml
-index 3c30dd23cd4e..8d69846b2e09 100644
---- a/Documentation/devicetree/bindings/net/cdns,macb.yaml
-+++ b/Documentation/devicetree/bindings/net/cdns,macb.yaml
-@@ -197,7 +197,6 @@ examples:
-     };
- 
-   - |
--    #include <dt-bindings/clock/xlnx-zynqmp-clk.h>
-     #include <dt-bindings/power/xlnx-zynqmp-power.h>
-     #include <dt-bindings/reset/xlnx-zynqmp-resets.h>
-     #include <dt-bindings/phy/phy.h>
-@@ -210,9 +209,9 @@ examples:
-                     interrupt-parent = <&gic>;
-                     interrupts = <0 59 4>, <0 59 4>;
-                     reg = <0x0 0xff0c0000 0x0 0x1000>;
--                    clocks = <&zynqmp_clk LPD_LSBUS>, <&zynqmp_clk GEM1_REF>,
--                             <&zynqmp_clk GEM1_TX>, <&zynqmp_clk GEM1_RX>,
--                             <&zynqmp_clk GEM_TSU>;
-+                    clocks = <&zynqmp_clk 31>, <&zynqmp_clk 105>,
-+                             <&zynqmp_clk 51>, <&zynqmp_clk 50>,
-+                             <&zynqmp_clk 44>;
-                     clock-names = "pclk", "hclk", "tx_clk", "rx_clk", "tsu_clk";
-                     #address-cells = <1>;
-                     #size-cells = <0>;
-diff --git a/Documentation/devicetree/bindings/spi/spi-zynqmp-qspi.yaml b/Documentation/devicetree/bindings/spi/spi-zynqmp-qspi.yaml
-index 04d4d3b4916d..02cf1314367b 100644
---- a/Documentation/devicetree/bindings/spi/spi-zynqmp-qspi.yaml
-+++ b/Documentation/devicetree/bindings/spi/spi-zynqmp-qspi.yaml
-@@ -65,14 +65,13 @@ allOf:
- 
- examples:
-   - |
--    #include <dt-bindings/clock/xlnx-zynqmp-clk.h>
-     soc {
-       #address-cells = <2>;
-       #size-cells = <2>;
- 
-       qspi: spi@ff0f0000 {
-         compatible = "xlnx,zynqmp-qspi-1.0";
--        clocks = <&zynqmp_clk QSPI_REF>, <&zynqmp_clk LPD_LSBUS>;
-+        clocks = <&zynqmp_clk 53>, <&zynqmp_clk 82>;
-         clock-names = "ref_clk", "pclk";
-         interrupts = <0 15 4>;
-         interrupt-parent = <&gic>;
-diff --git a/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml b/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
-index 00f87a558c7d..b5843f4d17d8 100644
---- a/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
-+++ b/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
-@@ -101,7 +101,6 @@ examples:
-     #include <dt-bindings/dma/xlnx-zynqmp-dpdma.h>
-     #include <dt-bindings/power/xlnx-zynqmp-power.h>
-     #include <dt-bindings/reset/xlnx-zynqmp-resets.h>
--    #include <dt-bindings/clock/xlnx-zynqmp-clk.h>
-     #include <dt-bindings/reset/xlnx-zynqmp-resets.h>
-     #include <dt-bindings/phy/phy.h>
-     axi {
-@@ -113,7 +112,7 @@ examples:
-             #size-cells = <0x2>;
-             compatible = "xlnx,zynqmp-dwc3";
-             reg = <0x0 0xff9d0000 0x0 0x100>;
--            clocks = <&zynqmp_clk USB0_BUS_REF>, <&zynqmp_clk USB3_DUAL_REF>;
-+            clocks = <&zynqmp_clk 32>, <&zynqmp_clk 34>;
-             clock-names = "bus_clk", "ref_clk";
-             power-domains = <&zynqmp_firmware PD_USB_0>;
-             resets = <&zynqmp_reset ZYNQMP_RESET_USB1_CORERESET>,
-diff --git a/include/dt-bindings/clock/xlnx-zynqmp-clk.h b/include/dt-bindings/clock/xlnx-zynqmp-clk.h
-index cdc4c0b9a374..f0f7ddd3dcbd 100644
---- a/include/dt-bindings/clock/xlnx-zynqmp-clk.h
-+++ b/include/dt-bindings/clock/xlnx-zynqmp-clk.h
-@@ -9,6 +9,13 @@
- #ifndef _DT_BINDINGS_CLK_ZYNQMP_H
- #define _DT_BINDINGS_CLK_ZYNQMP_H
- 
-+/*
-+ * These bindings are deprecated, because they do not match the actual
-+ * concept of bindings but rather contain pure firmware values.
-+ * Instead include the header in the DTS source directory.
-+ */
-+#warning "These bindings are deprecated. Instead use the header in the DTS source directory."
-+
- #define IOPLL			0
- #define RPLL			1
- #define APLL			2
--- 
-2.43.0
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/airoha/' for 20250201-en7581-dts-spi-pinctrl-v1-1-aaa4a9dfc4a6@kernel.org:
+
+arch/arm64/boot/dts/airoha/en7581-evb.dtb: soc: i2cclock@0: 'anyOf' conditional failed, one must be fixed:
+	'reg' is a required property
+	'ranges' is a required property
+	from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
+arch/arm64/boot/dts/airoha/en7581-evb.dtb: system-controller@1fbf0200: compatible: ['syscon', 'simple-mfd'] is too short
+	from schema $id: http://devicetree.org/schemas/mfd/syscon-common.yaml#
+arch/arm64/boot/dts/airoha/en7581-evb.dtb: i2cclock@0: clock-frequency: 20000000 is greater than the maximum of 5000000
+	from schema $id: http://devicetree.org/schemas/i2c/i2c-controller.yaml#
+arch/arm64/boot/dts/airoha/en7581-evb.dtb: i2c0@1fbf8000: 'resets' is a required property
+	from schema $id: http://devicetree.org/schemas/i2c/mediatek,mt7621-i2c.yaml#
+arch/arm64/boot/dts/airoha/en7581-evb.dtb: i2c1@1fbf8100: 'resets' is a required property
+	from schema $id: http://devicetree.org/schemas/i2c/mediatek,mt7621-i2c.yaml#
+arch/arm64/boot/dts/airoha/en7581-evb.dtb: i2c1@1fbf8100: status: 'oneOf' conditional failed, one must be fixed:
+	['disable'] is not of type 'object'
+	'disable' is not one of ['okay', 'disabled', 'reserved', 'fail', 'fail-needs-probe']
+	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
+
+
+
+
 
 
