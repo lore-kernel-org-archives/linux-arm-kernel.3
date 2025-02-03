@@ -4,112 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABCD8C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 11:38:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E324C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 11:41:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0iAWPa4heqsKIQZeK0P0pBFMXy2JRBxrKI/lWvvLNHg=; b=ehhP+dPe1tOk6eTovqlOiACBmx
-	JSIL/XdVfCmAQ8RUcrhsCKc1lHJal/pyMILbuTjEHFgoiOPkSELgQ6aDHLlg1OYRkZYgu78YH9GgB
-	7kXjbv2qqzCBUF8eMPj594fVH69hivSXOKSeidoLTxxjN6lm8TpcErSCROtSeeIK91F1t7PLtZeqF
-	1BzrTN0x5y5WbCuusPZaf7M3XCqa7AnQa7u+ROctC5Pi2CPoMOPQnWGGRNSwgL3M2FW1WaJDfADfU
-	/b/kjQwbyRq1f+fliGStL8vr5sOJSCe6+FscdmX5nS2Dpzs5ov70s9HIYY8TMLjTJb3YdDq4MeKiV
-	qkx5du9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8BXrdJDAlUgRqrgaymmaSYWRF0wWfscG1nGJMjIFxBE=; b=pphc7A7OphK1oPkYJziHkJM2ae
+	n0pnU50onR2i9mLdlt1AkWhusTXoi67gKpzoku3IP/+hzGmDpv6cR/KSvjypMhQWcebFVQpuBPk2Y
+	GfwFg6VYcypAUaX6ttvF7lp+83gsGXMH+cLAHv4CXvdzR8Qt+wPjOLehEAhP3N7fuU4Cl/Ktg9FOs
+	+/RXq2PcalPxWsCDCNu7U0EeYwpWCNP1T1Yjk1WozucwOgZV70rpKAqlwVmyLSJHxj5vJfrXMdO8B
+	0280zpCpfuJlesF2jjnzbSFzTWZmYelUw8pxmCOqGzwradGJWc8avjFGlo/hEY4YPBZaU/0Y7tq2c
+	WJXd+jlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teumY-0000000FFlI-3Fts;
-	Mon, 03 Feb 2025 11:38:26 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1teupF-0000000FG5I-2Ded;
+	Mon, 03 Feb 2025 11:41:13 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1teulF-0000000FFdw-2at9
+	id 1teunv-0000000FFuO-08Yg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 11:37:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 40F4D5C6080;
-	Mon,  3 Feb 2025 11:36:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26160C4CED2;
-	Mon,  3 Feb 2025 11:36:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738582624;
-	bh=T+/ksBsqsgzrU/GxsuaQSiGHetzXlkOCwN6tGYQwnmI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=G8suxZlNI/ZOkEXFttH/TdfKIvi6IPBFI8Goz11V3/tdMyIGqLh/6fFCcG1QjEIdc
-	 mwuWQ6gPucLEFEV5zHO7YRfUx4kCUu03tiWNWkIyd2L81CvhHUwBi2+tSJ9vcZ2xCj
-	 ubp7FOZLvGaIy7A6uRCj4swA9q4Uj1YOqWO6cdRJtK1h4g1Y/eQUjuAGS9eet3OFe3
-	 uTaMPoFdR1E7CrZA389jher3KN08SgCUS5X/TOKrQirhUKb4iFJzw/JmRQBogIxnID
-	 bef+bY2NfmoFx1Gas/SstyZWBovGQo5pJD4fwqmPkx9eY7yuhbSRlLOkCddGsTDF1A
-	 A/cWH/YTW0WKg==
-Message-ID: <4a9d0dd1-fa8a-4437-b829-0de0f20f476a@kernel.org>
-Date: Mon, 3 Feb 2025 12:36:57 +0100
+	Mon, 03 Feb 2025 11:39:53 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5dca4521b95so2296000a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 03:39:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1738582789; x=1739187589; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=8BXrdJDAlUgRqrgaymmaSYWRF0wWfscG1nGJMjIFxBE=;
+        b=d/ZIPYqfploYjN1pBPNMEl3GMspCYNiflPt24doURUbtrmvpcQDcJwHLGFpJi8YCQ8
+         kqpXysIiQVT8g+t7UiGvT4t5B75G/hA+Pyrx+/pVpMjgpNXpXfqBYOl3y9K/nsYmubFa
+         vOvAxZmHafEk2TE+2lbmmg7jSEz2LxjQIAN8tOA0XKTdrPgD/XtlehvZq6Ge+TD8tQc7
+         4Knp6v/ND2n5kSb5WDd72drlQZiInPa5Tw91pfIwy2ZzS/NItmIF02RJMthQJPwa1IqW
+         B5xigk4qCFfgZHj+UjrWYwqEpI2Up0chlkH/V0sradLUKyaCVYm4racLp/viY/olcYXG
+         ph0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738582789; x=1739187589;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8BXrdJDAlUgRqrgaymmaSYWRF0wWfscG1nGJMjIFxBE=;
+        b=DHsDsvicWYu3bBllN82was15sx+u8KGVwVWrbqXSUJTrJ5eLLIctzNRUoWwMQMjczT
+         rKXKGMHrDVAgvEyFDt2SvxYzJjCA1PDZHx5ElO6bUtpxICxwR2lMPwl7ZBEkbzGUQD2s
+         smS1Nbq4tNkjPtvrWUZR1MuINdOzKWbY/1iBB+9cFpVBwnOfcMLhNssE0LvVTZWYc3WA
+         vEe0YzkJO9/c7ZUzQ2wHDRtvGDm2CQnvNT69DJf8wYUK9loY12EwPxrJuBH5YNy2+e3L
+         4ihXDONYLM/YePX8gXOB+educp5hMD5974n249Nk8bPpUJdvavbRKKAHwB2SRUcl0lKU
+         gmuA==
+X-Forwarded-Encrypted: i=1; AJvYcCXkYCRe9Iw7BZuOtFYy69IHG6gJWRjdYGzKcdMsWRWN23URqxPrZe2Spb9yfgsat5+T+RhtGcmEJRkqE0+MA4b5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyo9Nsgh9TsBADYpYnb7BkpaAlvJ0ZT0CwbeGLCIwlZ0qKeVed+
+	LvTDDwQ/CV2suisUOWuv65fi+lhGvDcf4s/VWd6t/AQGL8sVUkUiGifFXo3MSNY=
+X-Gm-Gg: ASbGncuPn+XS4oKvbewDZu0St1ifrDSFBJx9b/HEfyzNDBdzKKFrXlrwqHLOz/eKnDN
+	URU+BNwWW9gFNX8L9vRgwCSuItLyb94jCZhW0S6t8rc9vEWhFMFjZhGL9ddS6froXEI7hRKcOlQ
+	NAe6i3AayoQFJliwyMGyA4/zVLrq1UBK1/cUe1NDztPL1Y7bFQ+gZsZVjMLmRyZzkUkNHz6ynAz
+	tvN/XfaWjhb1uUIYKBixjHOVayOrmmVg/7OjkNE/xNyTz8rWvVkNFMP2Wep3BPpCSCgeVe5eWn7
+	I+TGj3c12sjNV8HCHG101gAsdsQvAkqf2hRpMWtpl+to0Xh/VZJ0dierzQ==
+X-Google-Smtp-Source: AGHT+IGZzhEabUTBviGKkUWT4f2kPeGhVUMDYNNfH6ue3t02mzfYOitus18sFXW7L4kB9Hc5CNqASQ==
+X-Received: by 2002:a17:907:9622:b0:ab3:3184:6890 with SMTP id a640c23a62f3a-ab6cfceb881mr2384239366b.33.1738582788923;
+        Mon, 03 Feb 2025 03:39:48 -0800 (PST)
+Received: from localhost (p200300f65f018b0400000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f01:8b04::1b9])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab6e4a3145bsm743494366b.135.2025.02.03.03.39.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Feb 2025 03:39:48 -0800 (PST)
+Date: Mon, 3 Feb 2025 12:39:47 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: "Rob Herring (Arm)" <robh@kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
+	Dinh Nguyen <dinguyen@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2] ARM: dts: socfpga: Add basic support for Terrasic's
+ de10-nano
+Message-ID: <6r4gx4r3yjefo2zhjfoq4ebozcjbkozaof3imouub52f4o2ebj@i7ajlqhs7zae>
+References: <20250130074553.92023-2-u.kleine-koenig@baylibre.com>
+ <173828013131.1872475.6879199940703724951.robh@kernel.org>
+ <qkruehkvdduotjzhut3w2fpbr364dtd2vztpewoy3h3j55bqxt@e5niklwtpuue>
+ <3101a214-1498-4671-9062-89d2f9d8369b@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/2] Add support for GPU SMMU on QCS8300
-To: Pratyush Brahma <quic_pbrahma@quicinc.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
- Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org
-References: <20250203-b4-branch-gfx-smmu-v4-0-eaa7aa762f48@quicinc.com>
- <20250203-lean-delightful-ermine-f5b902@krzk-bin>
- <273df630-007d-4aaf-9432-2884a7e94d5e@quicinc.com>
-Content-Language: en-US
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <273df630-007d-4aaf-9432-2884a7e94d5e@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="uvp6oc667tbjxgbl"
+Content-Disposition: inline
+In-Reply-To: <3101a214-1498-4671-9062-89d2f9d8369b@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_033705_745031_58244D9A 
-X-CRM114-Status: GOOD (  13.48  )
+X-CRM114-CacheID: sfid-20250203_033951_341351_ACBE9AFF 
+X-CRM114-Status: GOOD (  26.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,30 +103,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/02/2025 09:37, Pratyush Brahma wrote:
->> How are you sending these?
->>
->> b4 diff 20250203-b4-branch-gfx-smmu-v4-0-eaa7aa762f48@quicinc.com
->> Grabbing thread from lore.kernel.org/all/20250203-b4-branch-gfx-smmu-v4-0-eaa7aa762f48@quicinc.com/t.mbox.gz
->> Checking for older revisions
->> Grabbing search results from lore.kernel.org
->>    Added from v3: 2 patches
->> ---
->> Analyzing 7 messages in the thread
->> Preparing fake-am for v3: dt-bindings: arm-smmu: Document QCS8300 GPU SMMU
->> ERROR: v3 series incomplete; unable to create a fake-am range
->> ---
->> Could not create fake-am range for lower series v3
-> I have sent this version of the patch series using b4 for the first 
-> time, as suggested earlier [1]. The issue might be due to the previous 
-> version being sent
-> incorrectly using git send-mail. Consequently, I had to manually apply 
-> the previous patches after creating the b4 branch,
-> since "b4 prep -F" was throwing an error when trying to apply the last 
-> patch.
-> 
-OK, that explains.
 
-Best regards,
-Krzysztof
+--uvp6oc667tbjxgbl
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2] ARM: dts: socfpga: Add basic support for Terrasic's
+ de10-nano
+MIME-Version: 1.0
+
+Hey Krzysztof,
+
+On Fri, Jan 31, 2025 at 10:28:52PM +0100, Krzysztof Kozlowski wrote:
+> On 31/01/2025 17:47, Uwe Kleine-K=F6nig wrote:
+> >> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnin=
+gs
+> >> are fixed by another series. Ultimately, it is up to the platform
+> >> maintainer whether these warnings are acceptable or not. No need to re=
+ply
+> >> unless the platform maintainer has comments.
+> >>
+> >> If you already ran DT checks and didn't see these error(s), then
+> >> make sure dt-schema is up to date:
+> >>
+> >>   pip3 install dtschema --upgrade
+> >>
+> >>
+> >> New warnings running 'make CHECK_DTBS=3Dy for arch/arm/boot/dts/intel/=
+' for 20250130074553.92023-2-u.kleine-koenig@baylibre.com:
+> >=20
+> > Maybe I can learn something here: Is there a command that only checks
+> > this single dtb file?
+> >=20
+>=20
+> You asked about this and I gave you the link to blog describing this twic=
+e.
+
+Ah, I thought I knew that blog entry and have to admit I didn't recheck.
+It seems I remembered wrongly. Sorry for that.
+
+While pointing to the docs only is legit in a review, I think you could
+reduce the effort for patch submitters (and so maybe also the number of
+patch submit iterations) if you mentioned the command to run that lists
+the problems. Of course not completely reading the fine documentation is
+no excuse.
+
+A bit related to that: I think
+
+diff --git a/Makefile b/Makefile
+index 4117cc79748b..e6bde20152f4 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1759,7 +1759,7 @@ help:
+ 	@echo  '		Multiple levels can be combined with W=3D12 or W=3D123'
+ 	@$(if $(dtstree), \
+ 		echo '  make CHECK_DTBS=3D1 [targets] Check all generated dtb files agai=
+nst schema'; \
+-		echo '         This can be applied both to "dtbs" and to individual "foo=
+=2Edtb" targets' ; \
++		echo '         This can be applied both to "dtbs" and to individual "$$v=
+endor/$$machine.dtb" targets' ; \
+ 		)
+ 	@echo  ''
+ 	@echo  'Execute "make" or "make all" to build all targets marked with [*]=
+ '
+
+would be an improvement now that vendor subdirs are usual. I didn't know
+that worked and I was annoyed more than once about that because I expected
+the right command to do that was
+
+	make [...] arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_de10nano.dtb
+
+which doesn't work but is (only subjectively for me?) more intuitive
+than
+
+	make [...] intel/socfpga/socfpga_cyclone5_de10nano.dtb
+
+given that the full path is also what you need for compiling individual
+C files and having to specify the full path of the file to build is the
+norm for the make build system.
+
+Best regards
+Uwe
+
+--uvp6oc667tbjxgbl
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmegqwAACgkQj4D7WH0S
+/k4FFAgAkfDqn54EWZPlQVy1U9gd2RWgd5pU1tzUZW6nxyxJ5isULdlDmXBYlQLb
+2Pcc0LHmnLPKBfVAh7xGjBzXrrltYMi9sGjWVgLpvAC0cnn+5rs+6xudd7REtiFM
+tj7xTEpwgrzYQGLOXPzOwfqMIA94/CWtfMq0JZtrvdCQgzu81Z6J2meZFBqx6o7Q
+alNNiTkMuWFqX1yKmfi+RUtHZIcGF5gXoiJ5Qfsp7skZaIgvxcy3D4KUncNNHRRf
+2VQ1sln64wxkR89f0AJgO80u3Wpa69fiRQU+7qNFtltNELvPtoFuwVNiIQUQlnVL
+1qbt5OSvouZHawwRUGHaZSlj/qS5SA==
+=MY9T
+-----END PGP SIGNATURE-----
+
+--uvp6oc667tbjxgbl--
 
