@@ -4,73 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82A06C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 21:21:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E57A9C02193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 21:23:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v6cIEdq9QGQcpuD9xihjuR4T5RH5rtxH8wFHasUrlGw=; b=Ywg2AZ7SjQUa9u8dbC6uWWO9Im
-	UaicgpLR+iUD1M0rd4z7aYqQtgIZFedy0pdiKChCv4VRCmBTrfN/7gQ0L2WvbmpuSyRILdi+OtW3j
-	s5yWhEgOOMDXRLKldcHzpcRGmdY+3ZRdzQndFRgs2UndWRCDGloIMuc1AQvXiOg9BfJIPVol6kfI8
-	fpIwVpiaZK8ge2uaSe+cvQqmkeodkAxhAB7IzF+mvOY78SlS1AvnZJFGBTPN3sJlqqLl51HmX2F/c
-	9VpRXzCu5NDd5Sqi7MkM1tmn/dhcpaVAL+wOl4/aoWHXzknP/DKKvLb5FxqoelW+IOByJIM8QT/qK
-	dhFtZMFw==;
+	bh=0CpkOvatLv4wKhG0xtf/lUUhTY7jRaSGKWWG+/sybmU=; b=J9gLEYHQhi5iSKM5S882R/q5ws
+	d2dWPOjkHYZECmi0JBS7MQKI1Em8heyLEEdp7arTK8fQwGEwKhfAqhCBLhCqZ2gGwoJv9ehQTkmhX
+	R3gZ7dcqER5ryaJw5X+bjbb7H0/mKbrIdHS0KZuxEguNbPEQ15JAs7Q4kELv6K0BJz21NXA3wUE/j
+	B8i+YWT3RKrfJAl+pBn0rO73NleNHUWPrE3JIDFOZGooXuwCuPGuK/wsz7xmObEbHbYKSL3We0jHm
+	iQ8wqPUg9ecAmctILmCYUykZfj8ptrHjFwAtFkJlMNUCAnO7gMlOxQK3nkhV0kYM95q82NQBH5YjF
+	CQFihDBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf3sA-0000000Ge8w-3DXt;
-	Mon, 03 Feb 2025 21:20:50 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1tf3ul-0000000GeMl-0NZ5;
+	Mon, 03 Feb 2025 21:23:31 +0000
+Received: from mail-il1-x131.google.com ([2607:f8b0:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf3Lc-0000000Ga59-48gL
+	id 1tf3TM-0000000GavR-0IIi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 20:47:14 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id CB2CF25BDD;
-	Mon,  3 Feb 2025 21:47:11 +0100 (CET)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id wTeZsApo5ShM; Mon,  3 Feb 2025 21:47:10 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1738615630; bh=JI08SmEGnpcjhaBf5iExmjfadVi8xXbB69GwUqE1NjA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=VTse0sjLt1M08QQtNYrIwm49TEr/ilPlbLa3fxOnqNOYwlBTsGAnk5NDPHmy87RkL
-	 6GufDa0caUxG7c6o+DISXUDFkvz8r6Sr0rk3K6m/Vd0J9SzjVwpfGCyDLz89Q7VNMA
-	 vRwGdVJWM0glZFffT9TzpVqIA07nlP2QLpIFs/xd+4HLGGL6gZ4d2gQFV9PNLYCp2z
-	 Q5XlKK25Kf3VYFnVIbZUE5yy0ZqDy3wBD2jAj5SxOFNkLAYCUXXYCIfx6wq//BKUxf
-	 epJRto+0XOnTp7bW9PxnHmnPBRAIBOepTGJlXJaBmxEwrCnlb5JF8mdangZn08ey/N
-	 dkM6oCOpz4cog==
-From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Date: Tue, 04 Feb 2025 02:16:12 +0530
-Subject: [PATCH v2 4/5] arm64: dts: exynos: add initial support for Samsung
- Galaxy A2 Core
+	Mon, 03 Feb 2025 20:55:13 +0000
+Received: by mail-il1-x131.google.com with SMTP id e9e14a558f8ab-3ce82195aa0so35275ab.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 12:55:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1738616111; x=1739220911; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0CpkOvatLv4wKhG0xtf/lUUhTY7jRaSGKWWG+/sybmU=;
+        b=BQ/5SEuk+Lk5G2KRi9EInPF5JCZviq8QqA8txCmE8oqQBBPDSIGPIvAbyQSiuq6lrE
+         RRoc7TsuSKEdSVvWnn8ZVB3H07f1Cy3pywMA1/GI9YTbUsuYcauDGDPy+EO80kqSeNeB
+         Fqe0GPPfHYq03vrDral5EW4rUX59J6ySoo3kMePYJ0w1QhEldW3027u5meOEtU+XftYG
+         Bx32AHOUQSaUosW56D8uYeVyMVP6dfwrfi0phkrXx7Uk0efNpX3778+bfa4tjBLBeEyY
+         ai1Gt6xcQ4anHQgjlN8S6jupfll512kyOcNemi7hOi0F6GwXlxPG66W1Oa/0xjKhnA2B
+         tPRQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738616111; x=1739220911;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=0CpkOvatLv4wKhG0xtf/lUUhTY7jRaSGKWWG+/sybmU=;
+        b=ns64AzvSBTKcVgDJ934dATJdPBiGvHu91zMlC+lEVvligiN1F3ATSK0lzGnDPIomjm
+         AIRvSJ2qRPyYXTD0urumiWEsGmS+ZzYEWPxJjdOlgoagN1+VA2hSXzoqqSJ3edh2+oF0
+         KYS9Ay85SxGj91nxtFblsLNqmyFHO2ltFqg7P79deUWUhAJ3SiqyJbHjRhO/O6GcZihi
+         aC9FOM2U6xtvvRZsHZA0OBDcjBMxhUMk7AHVoyH9T8+7Omd3wWhSqVltWywCBXnPsvUM
+         H7IW1H4iWwrcpVMf7enUIRA6qhZU+rS7cFn02rMYuU+wPLCnMktFhdWqZPNo7XJ05ioO
+         BChQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWc7bZeWn9PJJ43msfFRnkbrOQZnjkSlZKWEQVSx//yEG+3TCYM4izLi1Yo+aTYiv/SXYSQ+xMzFUl7pBxbYPJZ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1w9vipERyHiq1Sc3Ue8AoHWJNpeHMJfFVkC3TcZJs9JTKR/aI
+	XJyyXfPZC7cCcnajdkHr0Ql9aGznPNPIPXlgt709X1w7o2oi4TACrdtELzov4PHtVO1WB3LbDBj
+	q0mylULnLAkl7ekwUdspbKMKAoKQchspb6gs3
+X-Gm-Gg: ASbGncsdJpuG7NfkjtckoBKHczZdaHvDs+x9X32zkB9Qc1hlPsP6setLKETSXsxB9Rz
+	RZEc2kCtPSs/rCK23aIRTJSefA+wspkZGjSd1FgAI90y4wEIBcC5gmTi+fIBUxG9QicCt5EQ8Ph
+	XSn8Bdit1TpDGIPQ0KxW33umg=
+X-Google-Smtp-Source: AGHT+IFovB/1hVfLQEVpXp2hcX+JruDAGn+2X9tQzrpodvNkO71mW2lpNbYirYKNTnTRjw3Jno81IOERpP52GSqP9hw=
+X-Received: by 2002:a05:6e02:1b03:b0:3d0:a9b:bf4b with SMTP id
+ e9e14a558f8ab-3d03fbc124emr730575ab.12.1738616111091; Mon, 03 Feb 2025
+ 12:55:11 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250204-exynos7870-v2-4-56313165ef0c@disroot.org>
-References: <20250204-exynos7870-v2-0-56313165ef0c@disroot.org>
-In-Reply-To: <20250204-exynos7870-v2-0-56313165ef0c@disroot.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Conor Dooley <conor@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
- "Guilherme G. Piccoli" <gpiccoli@igalia.com>
-Cc: Sergey Lisov <sleirsgoevy@gmail.com>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
- Kaustabh Chakraborty <kauschluss@disroot.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1738615584; l=16466;
- i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
- bh=JI08SmEGnpcjhaBf5iExmjfadVi8xXbB69GwUqE1NjA=;
- b=x87dK0iYGJCqJ3jyd+az1AxQmdC9U98TH6R8S1b0KPIm9arHR3dlOMk0L2IKGE4F1QvOFYxaI
- LK6VQ4HdVW3BLKUp8cqkaRpQJJYkWIgtIr7dxXjd8/JIqoPVUj+2RlL
-X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
- pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
+References: <20250201071455.718247-1-irogers@google.com> <Z6EStkn-YZ8zaO7u@ghost>
+ <CAP-5=fXRz_8CKNz4Fr-=0yhKbf_QE2ND+PPykSAO5p8wcUz7xA@mail.gmail.com>
+ <Z6EVwaOVYaKtaK1j@ghost> <CAP-5=fX1hCNWWmGJPKYxj93S=zM1-eRucqzb4WW5fB_sZBCRLg@mail.gmail.com>
+ <Z6Eh1QLuqTbUKLCc@ghost>
+In-Reply-To: <Z6Eh1QLuqTbUKLCc@ghost>
+From: Ian Rogers <irogers@google.com>
+Date: Mon, 3 Feb 2025 12:54:59 -0800
+X-Gm-Features: AWEUYZlmOKvF2fD96Nbnrom7gMtVtXNQBtvLmxWr7es0TmhML1shSJVYzZg-gUA
+Message-ID: <CAP-5=fXZr8L4Z=Lb28QDZF8cbv2eJJEHSb0H9zcqSOB9cn5-9g@mail.gmail.com>
+Subject: Re: [PATCH v1 0/7] perf: Support multiple system call tables in the build
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, Kan Liang <kan.liang@linux.intel.com>, 
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
+	James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
+	Leo Yan <leo.yan@linux.dev>, Guo Ren <guoren@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Bibo Mao <maobibo@loongson.cn>, 
+	Arnd Bergmann <arnd@arndb.de>, Huacai Chen <chenhuacai@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
+	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
+	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_124713_303145_C6E490ED 
-X-CRM114-Status: GOOD (  13.12  )
+X-CRM114-CacheID: sfid-20250203_125512_113670_8207C784 
+X-CRM114-Status: GOOD (  56.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,654 +111,298 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add initial devicetree support for Samsung Galaxy A2 Core
-(codename: a2corelte), an Exynos7870 device.
+On Mon, Feb 3, 2025 at 12:06=E2=80=AFPM Charlie Jenkins <charlie@rivosinc.c=
+om> wrote:
+>
+> On Mon, Feb 03, 2025 at 11:39:01AM -0800, Ian Rogers wrote:
+> > On Mon, Feb 3, 2025 at 11:15=E2=80=AFAM Charlie Jenkins <charlie@rivosi=
+nc.com> wrote:
+> > >
+> > > On Mon, Feb 03, 2025 at 11:10:49AM -0800, Ian Rogers wrote:
+> > > > On Mon, Feb 3, 2025 at 11:02=E2=80=AFAM Charlie Jenkins <charlie@ri=
+vosinc.com> wrote:
+> > > > >
+> > > > > On Fri, Jan 31, 2025 at 11:14:48PM -0800, Ian Rogers wrote:
+> > > > > > This work builds on the clean up of system call tables and remo=
+val of
+> > > > > > libaudit by Charlie Jenkins <charlie@rivosinc.com>.
+> > > > > >
+> > > > > > The system call table in perf trace is used to map system call =
+numbers
+> > > > > > to names and vice versa. Prior to these changes, a single table
+> > > > > > matching the perf binary's build was present. The table would b=
+e
+> > > > > > incorrect if tracing say a 32-bit binary from a 64-bit version =
+of
+> > > > > > perf, the names and numbers wouldn't match.
+> > > > > >
+> > > > > > Change the build so that a single system call file is built and=
+ the
+> > > > > > potentially multiple tables are identifiable from the ELF machi=
+ne type
+> > > > > > of the process being examined. To determine the ELF machine typ=
+e, the
+> > > > > > executable's header is read from /proc/pid/exe with fallbacks t=
+o using
+> > > > > > the perf's binary type when unknown.
+> > > > > >
+> > > > > > Remove some runtime types used by the system call tables and ma=
+ke
+> > > > > > equivalents generated at build time.
+> > > > >
+> > > > > Our approaches are very different but I sent out a patch to do th=
+is a
+> > > > > couple of weeks ago [1].
+> > > > >
+> > > > > Did you look at that and decide you didn't like the approach?
+> > > >
+> > > > Missing link?
+> > >
+> > > Whoops here is the link:
+> > >
+> > > https://lore.kernel.org/all/20250114-perf_syscall_arch_runtime-v1-1-5=
+b304e408e11@rivosinc.com/
+> >
+> > I agree it is similar and progress, I think I prefer my changes :-)
+> >
+> > Anything in the arch directories is only going to be built given a
+> > Makefile SRCARCH:
+> > https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.gi=
+t/tree/tools/perf/arch/Build?h=3Dperf-tools-next#n2
+> > which means if we want the system call tables for say ARM on x86-64 we
+> > need to reinvent the build - this isn't a problem today but perhaps
+> > something to consider if we wanted a cross-architecture perf trace
+> > record. I'd like to do away entirely with the arch directory for this
+> > kind of reason. For example, if we run perf on a user space emulator
+> > (say a testing set up) and it sees AMD data fabric PMUs, logic for
+> > those PMUs currently lives in the arch directory for x86 and likely
+> > wasn't even built into the perf tool. We should be able to identify
+> > PMUs and act accordingly based on their names. In the case of the
+> > overloaded "cpu" PMU we can identify it with the CPUID. The less code
+> > in arch and the fewer architecture ifdefs, the better things should
+> > work cross-architecture, in testing scenarios, etc. We also win by
+> > getting code coverage without, for example, having to build and test
+> > on csky or super H.
+> >
+> > Your changes are using the string for the architecture name. I think
+> > that string is something we should get rid of:
+> > https://lore.kernel.org/lkml/CAP-5=3DfX2BtFzhGLCSqO1QszqfX=3DHT8RrTdG_5=
+Ttp5Gw4seSstA@mail.gmail.com/
+> > but there's no reason we couldn't clean that up on top of your change.
+>
+> Yes that part is not ideal.
+>
+> >
+> > The build with lots of separate Build/Makefiles is something of a pain
+> > to port/maintain in a bazel version of the build I maintain at Google
+> > (happy to open source if anyone cares). In these changes you just run
+> > a big script and get a big header file out the end, which largely
+> > matches the other perf trace beauty things we build.
+>
+> Fair enough! I wanted to mimic how the kernel was building the syscall
+> tables as closely as possible, it's convenient to have cohesion.
 
-Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
----
- arch/arm64/boot/dts/exynos/Makefile                |   1 +
- .../arm64/boot/dts/exynos/exynos7870-a2corelte.dts | 619 +++++++++++++++++++++
- 2 files changed, 620 insertions(+)
+I think it makes sense in the kernel, as the built binary doesn't have
+cross-platform concerns. This is probably also the reason why the perf
+tool has an arch directory. Let me know what you think is the right
+direction for the perf tool syscall table code.
 
-diff --git a/arch/arm64/boot/dts/exynos/Makefile b/arch/arm64/boot/dts/exynos/Makefile
-index a8d78d2add05ecf688ffa3a32aa5b8d1a48faf81..e0da4c4972c7344cf957e00ef701d6405a16bdcb 100644
---- a/arch/arm64/boot/dts/exynos/Makefile
-+++ b/arch/arm64/boot/dts/exynos/Makefile
-@@ -5,6 +5,7 @@ dtb-$(CONFIG_ARCH_EXYNOS) += \
- 	exynos5433-tm2.dtb		\
- 	exynos5433-tm2e.dtb		\
- 	exynos7-espresso.dtb		\
-+	exynos7870-a2corelte.dtb	\
- 	exynos7870-on7xelte.dtb		\
- 	exynos7885-jackpotlte.dtb	\
- 	exynos850-e850-96.dtb		\
-diff --git a/arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dts b/arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dts
-new file mode 100644
-index 0000000000000000000000000000000000000000..e54a8954c63e4205f7c2ba30b3908f2e518276dc
---- /dev/null
-+++ b/arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dts
-@@ -0,0 +1,619 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Samsung Galaxy A2 Core (a2corelte) device tree source
-+ *
-+ * Copyright (c) 2018 Samsung Electronics Co., Ltd.
-+ */
-+
-+/dts-v1/;
-+#include "exynos7870.dtsi"
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+
-+/ {
-+	model = "Samsung Galaxy A2 Core";
-+	compatible = "samsung,a2corelte", "samsung,exynos7870";
-+	chassis-type = "handset";
-+
-+	aliases {
-+		mmc0 = &mmc0;
-+		mmc1 = &mmc1;
-+		mmc2 = &mmc2;
-+		serial0 = &serial0;
-+		serial1 = &serial1;
-+		serial2 = &serial2;
-+	};
-+
-+	chosen {
-+		#address-cells = <2>;
-+		#size-cells = <1>;
-+		ranges;
-+
-+		stdout-path = &serial2;
-+
-+		framebuffer@67000000 {
-+			compatible = "simple-framebuffer";
-+			reg = <0x0 0x67000000 (540 * 960 * 4)>;
-+			width = <540>;
-+			height = <960>;
-+			stride = <(540 * 4)>;
-+			format = "a8r8g8b8";
-+		};
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <1>;
-+		ranges;
-+
-+		ramoops@46800000 {
-+			compatible = "ramoops";
-+			reg = <0x0 0x46800000 0x8000>;
-+			console-size = <0x4000>;
-+			pmsg-size = <0x4000>;
-+		};
-+
-+		framebuffer@67000000 {
-+			reg = <0x0 0x67000000 (540 * 960 * 4)>;
-+			no-map;
-+		};
-+	};
-+
-+	memory@40000000 {
-+		device_type = "memory";
-+		reg = <0x0 0x40000000 0x3f200000>;
-+	};
-+
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+		label = "GPIO Keys";
-+
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&key_power &key_volup &key_voldown>;
-+
-+		key-power {
-+			label = "Power Key";
-+			gpios = <&gpa0 0 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_POWER>;
-+		};
-+
-+		key-volup {
-+			label = "Volume Up Key";
-+			gpios = <&gpa2 0 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_VOLUMEUP>;
-+		};
-+
-+		key-voldown {
-+			label = "Volume Down Key";
-+			gpios = <&gpa2 1 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_VOLUMEDOWN>;
-+		};
-+	};
-+
-+	vibrator {
-+		compatible = "regulator-haptic";
-+		haptic-supply = <&vdd_ldo32>;
-+		min-microvolt = <3300000>;
-+		max-microvolt = <3300000>;
-+	};
-+
-+	pwrseq_mmc1: pwrseq-mmc1 {
-+		compatible = "mmc-pwrseq-simple";
-+		reset-gpios = <&gpd3 6 GPIO_ACTIVE_LOW>;
-+	};
-+
-+	/* mmc2: vmmc */
-+	vdd_fixed_mmc2: regulator-fixed-mmc2 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vdd_fixed_mmc2";
-+		regulator-max-microvolt = <2800000>;
-+		regulator-min-microvolt = <2800000>;
-+		gpio = <&gpc0 0 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
-+	vdd_fixed_proxled: regulator-fixed-proxled {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vdd_fixed_proxled";
-+		regulator-boot-on;
-+		regulator-always-on;
-+		gpio = <&gpd4 3 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+};
-+
-+&gpu {
-+	status = "okay";
-+};
-+
-+&pinctrl0 {
-+	key_power: key-power-pins {
-+		samsung,pins = "gpa0-0";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
-+	};
-+
-+	key_volup: key-volup-pins {
-+		samsung,pins = "gpa2-0";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
-+	};
-+
-+	key_voldown: key-voldown-pins {
-+		samsung,pins = "gpa2-1";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
-+	};
-+
-+	dwmmc2_irq: dwmmc2-irq-pins {
-+		samsung,pins = "gpa0-1";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
-+	};
-+
-+	pmic_irq: pmic-irq-pins {
-+		samsung,pins = "gpa0-2";
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_UP>;
-+		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR4>;
-+	};
-+
-+	fuel_irq: fuel-irq-pins {
-+		samsung,pins = "gpa0-3";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
-+	};
-+
-+	touch_irq: touch-irq-pins {
-+		samsung,pins = "gpa0-6";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
-+	};
-+
-+	accel_irq: accel-irq-pins {
-+		samsung,pins = "gpa2-3";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
-+	};
-+
-+	proxm_irq: proxm-irq-pins {
-+		samsung,pins = "gpa0-5";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
-+	};
-+
-+	wlan_hostwake: wlan-hostwake-pins {
-+		samsung,pins = "gpa2-2";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_OUTPUT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_UP>;
-+	};
-+};
-+
-+&pinctrl6 {
-+	bt_enable: bt-enable-pins {
-+		samsung,pins = "gpd4-0";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_OUTPUT>;
-+		samsung,pin-con-pdn = <EXYNOS_PIN_PDN_PREV>;
-+		samsung,pin-pud-pdn = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_DOWN>;
-+	};
-+
-+	wlan_enable: wlan-enable-pins {
-+		samsung,pins = "gpd3-6";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_OUTPUT>;
-+		samsung,pin-con-pdn = <EXYNOS_PIN_PDN_PREV>;
-+		samsung,pin-pud-pdn = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR4>;
-+		samsung,pin-val = <0>;
-+	};
-+};
-+
-+&i2c1 {
-+	status = "okay";
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	samsung,i2c-sda-delay = <100>;
-+	samsung,i2c-max-bus-freq = <400000>;
-+
-+	accelerometer@1d {
-+		compatible = "st,lis2ds12";
-+		reg = <0x1d>;
-+		interrupt-parent = <&gpa2>;
-+		interrupts = <3 IRQ_TYPE_EDGE_RISING>;
-+
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&accel_irq>;
-+
-+		st,drdy-int-pin = <1>;
-+	};
-+
-+	proximity@48 {
-+		compatible = "sensortek,stk3013", "sensortek,stk3310";
-+		reg = <0x48>;
-+		interrupt-parent = <&gpa0>;
-+		interrupts = <5 IRQ_TYPE_EDGE_BOTH>;
-+
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&proxm_irq>;
-+
-+		proximity-near-level = <25>;
-+	};
-+};
-+
-+&i2c2 {
-+	status = "okay";
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	samsung,i2c-sda-delay = <100>;
-+	samsung,i2c-max-bus-freq = <400000>;
-+
-+	touchscreen@4b {
-+		compatible = "syna,rmi4-i2c";
-+		reg = <0x4b>;
-+		interrupt-parent = <&gpa0>;
-+		interrupts = <6 IRQ_TYPE_LEVEL_LOW>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&touch_irq>;
-+
-+		vdd-supply = <&vdd_ldo35>;
-+
-+		syna,reset-delay-ms = <200>;
-+		syna,startup-delay-ms = <200>;
-+
-+		rmi4-f01@1 {
-+			reg = <0x01>;
-+			syna,nosleep-mode = <1>;
-+		};
-+
-+		rmi4-f12@12 {
-+			reg = <0x12>;
-+			syna,sensor-type = <1>;
-+			syna,rezero-wait-ms = <200>;
-+			syna,clip-x-high = <539>;
-+			syna,clip-y-high = <959>;
-+			touchscreen-x-mm = <62>;
-+			touchscreen-y-mm = <110>;
-+		};
-+	};
-+};
-+
-+&hsi2c0 {
-+	status = "okay";
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	pmic@66 {
-+		compatible = "samsung,s2mpu05-pmic";
-+		reg = <0x66>;
-+		interrupt-parent = <&gpa0>;
-+		interrupts = <2 IRQ_TYPE_LEVEL_LOW>;
-+
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pmic_irq>;
-+
-+		regulators {
-+			vdd_buck1: BUCK1 {
-+				regulator-name = "BUCK1";
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <1300000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_buck2: BUCK2 {
-+				regulator-name = "BUCK2";
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <1300000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_buck3: BUCK3 {
-+				regulator-name = "BUCK3";
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <1300000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_buck4: BUCK4 {
-+				regulator-name = "BUCK4";
-+				regulator-min-microvolt = <1200000>;
-+				regulator-max-microvolt = <1500000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_buck5: BUCK5 {
-+				regulator-name = "BUCK5";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <2100000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo1: LDO1 {
-+				regulator-name = "vdd_ldo1";
-+				regulator-min-microvolt = <650000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			/* mmc2: vqmmc */
-+			vdd_ldo2: LDO2 {
-+				regulator-name = "vdd_ldo2";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <2800000>;
-+				regulator-ramp-delay = <12000>;
-+			};
-+
-+			vdd_ldo3: LDO3 {
-+				regulator-name = "vdd_ldo3";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <2375000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo4: LDO4 {
-+				regulator-name = "vdd_ldo4";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo5: LDO5 {
-+				regulator-name = "vdd_ldo5";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo6: LDO6 {
-+				regulator-name = "vdd_ldo6";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo7: LDO7 {
-+				regulator-name = "vdd_ldo7";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <2375000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo8: LDO8 {
-+				regulator-name = "vdd_ldo8";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <3375000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo9: LDO9 {
-+				regulator-name = "vdd_ldo9";
-+				regulator-min-microvolt = <650000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo10: LDO10 {
-+				regulator-name = "vdd_ldo10";
-+				regulator-min-microvolt = <650000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo25: LDO25 {
-+				regulator-name = "vdd_ldo25";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <2375000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			/* mmc0: vmmc */
-+			vdd_ldo26: LDO26 {
-+				regulator-name = "vdd_ldo26";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <3375000>;
-+				regulator-ramp-delay = <12000>;
-+			};
-+
-+			/* mmc0: vqmmc */
-+			vdd_ldo27: LDO27 {
-+				regulator-name = "vdd_ldo27";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <2375000>;
-+				regulator-ramp-delay = <12000>;
-+			};
-+
-+			vdd_ldo29: LDO29 {
-+				regulator-name = "vdd_ldo29";
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo30: LDO30 {
-+				regulator-name = "vdd_ldo30";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo31: LDO31 {
-+				regulator-name = "vdd_ldo31";
-+				regulator-min-microvolt = <2800000>;
-+				regulator-max-microvolt = <2800000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			/* vibrator: haptic */
-+			vdd_ldo32: LDO32 {
-+				regulator-name = "vdd_ldo32";
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-ramp-delay = <12000>;
-+			};
-+
-+			vdd_ldo33: LDO33 {
-+				regulator-name = "vdd_ldo33";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo34: LDO34 {
-+				regulator-name = "vdd_ldo34";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			/* touchscreen: vdd */
-+			vdd_ldo35: LDO35 {
-+				regulator-name = "vdd_ldo35";
-+				regulator-min-microvolt = <2800000>;
-+				regulator-max-microvolt = <2800000>;
-+				regulator-ramp-delay = <12000>;
-+			};
-+		};
-+	};
-+};
-+
-+&serial0 {
-+	status = "okay";
-+
-+	bluetooth {
-+		compatible = "brcm,bcm43430a1-bt";
-+
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&bt_btwake &bt_hostwake &bt_enable>;
-+
-+		device-wakeup-gpios = <&gpa1 2 GPIO_ACTIVE_HIGH>;
-+		host-wakeup-gpios = <&gpa1 6 GPIO_ACTIVE_HIGH>;
-+		shutdown-gpios = <&gpd4 0 GPIO_ACTIVE_HIGH>;
-+
-+		max-speed = <3000000>;
-+	};
-+};
-+
-+&serial2 {
-+	status = "okay";
-+};
-+
-+&mmc0 {
-+	status = "okay";
-+
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&sd0_clk &sd0_cmd &sd0_rdqs &sd0_bus1 &sd0_bus4 &sd0_bus8>;
-+
-+	vmmc-supply = <&vdd_ldo26>;
-+	vqmmc-supply = <&vdd_ldo27>;
-+
-+	fifo-depth = <64>;
-+	samsung,dw-mshc-ciu-div = <3>;
-+	samsung,dw-mshc-sdr-timing = <0 4>;
-+	samsung,dw-mshc-ddr-timing = <2 4>;
-+	non-removable;
-+};
-+
-+&mmc1 {
-+	status = "okay";
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&sd1_clk &sd1_cmd &sd1_bus1 &sd1_bus4>;
-+
-+	mmc-pwrseq = <&pwrseq_mmc1>;
-+
-+	bus-width = <4>;
-+	fifo-depth = <64>;
-+	samsung,dw-mshc-ciu-div = <3>;
-+	samsung,dw-mshc-sdr-timing = <0 3>;
-+	samsung,dw-mshc-ddr-timing = <1 2>;
-+	non-removable;
-+	cap-sd-highspeed;
-+	cap-sdio-irq;
-+
-+	wifi@1 {
-+		compatible = "brcm,bcm43430a1-fmac", "brcm,bcm4329-fmac";
-+		reg = <0x1>;
-+		interrupt-names = "host-wake";
-+		interrupt-parent = <&gpa2>;
-+		interrupts = <2 IRQ_TYPE_LEVEL_LOW>;
-+
-+		reset-gpios = <&gpd3 6 GPIO_ACTIVE_LOW>;
-+	};
-+};
-+
-+&mmc2 {
-+	status = "okay";
-+
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&sd2_clk &sd2_cmd &sd2_bus1 &sd2_bus4 &dwmmc2_irq>;
-+
-+	vmmc-supply = <&vdd_fixed_mmc2>;
-+	vqmmc-supply = <&vdd_ldo2>;
-+
-+	bus-width = <4>;
-+	fifo-depth = <64>;
-+	samsung,dw-mshc-ciu-div = <3>;
-+	samsung,dw-mshc-sdr-timing = <0 3>;
-+	samsung,dw-mshc-ddr-timing = <1 2>;
-+	non-removable;
-+	sd-uhs-sdr50;
-+	sd-uhs-sdr104;
-+	disable-wp;
-+};
-+
-+&usbdrd {
-+	status = "okay";
-+};
+> What is the usecase for the bazel version?
 
--- 
-2.48.1
+I'm sure there's more info in:
+https://bazel.build/
+but the main thing is having hermetic and reproducible builds. The
+main problem with open sourcing would be dealing with external
+repositories, test set up, etc. Tbh, hermetic builds are a challenge
+as things like lex and yacc will vary the C code they generate based
+on the platform they run on. Bazel has plans to change the world so
+maybe this could be more of a thing in the future.
 
+Fwiw, I did push changes into the perf tree so that man page building
+was reproducible:
+https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/co=
+mmit/tools/perf/Documentation?h=3Dperf-tools-next&id=3Dd586ac10ce56b2381b8e=
+1d8ed74660c1b2b8ab0d
+The man pages used to reflect the date/time they were built, but now
+reflect the date the of the commit of the file being built:
+https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/tr=
+ee/tools/perf/Documentation/Makefile?h=3Dperf-tools-next#n255
+
+Thanks,
+Ian
+
+> - Charlie
+>
+> >
+> > Thanks,
+> > Ian
+> >
+> > > >
+> > > > The patches generating a syscall(_32|_64)?.h landed. These changes
+> > > > take your changes and make it so that we just run the script once
+> > > > building a header file for all architectures. On x86 we then have t=
+he
+> > > > tables be guarded by ifdefs on i386 and x86-64. Then rather than th=
+e
+> > > > table just matching the host architecture the ELF machine is used f=
+or
+> > > > the executable running.
+> > > >
+> > > > Thanks,
+> > > > Ian
+> > > >
+> > > > > - Charlie
+> > > > >
+> > > > > >
+> > > > > > Ian Rogers (7):
+> > > > > >   perf syscalltble: Remove syscall_table.h
+> > > > > >   perf trace: Reorganize syscalls
+> > > > > >   perf syscalltbl: Remove struct syscalltbl
+> > > > > >   perf thread: Add support for reading the e_machine type for a=
+ thread
+> > > > > >   perf trace beauty: Add syscalltbl.sh generating all system ca=
+ll tables
+> > > > > >   perf syscalltbl: Use lookup table containing multiple archite=
+ctures
+> > > > > >   perf build: Remove Makefile.syscalls
+> > > > > >
+> > > > > >  tools/perf/Makefile.perf                      |  10 +-
+> > > > > >  tools/perf/arch/alpha/entry/syscalls/Kbuild   |   2 -
+> > > > > >  .../alpha/entry/syscalls/Makefile.syscalls    |   5 -
+> > > > > >  tools/perf/arch/alpha/include/syscall_table.h |   2 -
+> > > > > >  tools/perf/arch/arc/entry/syscalls/Kbuild     |   2 -
+> > > > > >  .../arch/arc/entry/syscalls/Makefile.syscalls |   3 -
+> > > > > >  tools/perf/arch/arc/include/syscall_table.h   |   2 -
+> > > > > >  tools/perf/arch/arm/entry/syscalls/Kbuild     |   4 -
+> > > > > >  .../arch/arm/entry/syscalls/Makefile.syscalls |   2 -
+> > > > > >  tools/perf/arch/arm/include/syscall_table.h   |   2 -
+> > > > > >  tools/perf/arch/arm64/entry/syscalls/Kbuild   |   3 -
+> > > > > >  .../arm64/entry/syscalls/Makefile.syscalls    |   6 -
+> > > > > >  tools/perf/arch/arm64/include/syscall_table.h |   8 -
+> > > > > >  tools/perf/arch/csky/entry/syscalls/Kbuild    |   2 -
+> > > > > >  .../csky/entry/syscalls/Makefile.syscalls     |   3 -
+> > > > > >  tools/perf/arch/csky/include/syscall_table.h  |   2 -
+> > > > > >  .../perf/arch/loongarch/entry/syscalls/Kbuild |   2 -
+> > > > > >  .../entry/syscalls/Makefile.syscalls          |   3 -
+> > > > > >  .../arch/loongarch/include/syscall_table.h    |   2 -
+> > > > > >  tools/perf/arch/mips/entry/syscalls/Kbuild    |   2 -
+> > > > > >  .../mips/entry/syscalls/Makefile.syscalls     |   5 -
+> > > > > >  tools/perf/arch/mips/include/syscall_table.h  |   2 -
+> > > > > >  tools/perf/arch/parisc/entry/syscalls/Kbuild  |   3 -
+> > > > > >  .../parisc/entry/syscalls/Makefile.syscalls   |   6 -
+> > > > > >  .../perf/arch/parisc/include/syscall_table.h  |   8 -
+> > > > > >  tools/perf/arch/powerpc/entry/syscalls/Kbuild |   3 -
+> > > > > >  .../powerpc/entry/syscalls/Makefile.syscalls  |   6 -
+> > > > > >  .../perf/arch/powerpc/include/syscall_table.h |   8 -
+> > > > > >  tools/perf/arch/riscv/entry/syscalls/Kbuild   |   2 -
+> > > > > >  .../riscv/entry/syscalls/Makefile.syscalls    |   4 -
+> > > > > >  tools/perf/arch/riscv/include/syscall_table.h |   8 -
+> > > > > >  tools/perf/arch/s390/entry/syscalls/Kbuild    |   2 -
+> > > > > >  .../s390/entry/syscalls/Makefile.syscalls     |   5 -
+> > > > > >  tools/perf/arch/s390/include/syscall_table.h  |   2 -
+> > > > > >  tools/perf/arch/sh/entry/syscalls/Kbuild      |   2 -
+> > > > > >  .../arch/sh/entry/syscalls/Makefile.syscalls  |   4 -
+> > > > > >  tools/perf/arch/sh/include/syscall_table.h    |   2 -
+> > > > > >  tools/perf/arch/sparc/entry/syscalls/Kbuild   |   3 -
+> > > > > >  .../sparc/entry/syscalls/Makefile.syscalls    |   5 -
+> > > > > >  tools/perf/arch/sparc/include/syscall_table.h |   8 -
+> > > > > >  tools/perf/arch/x86/entry/syscalls/Kbuild     |   3 -
+> > > > > >  .../arch/x86/entry/syscalls/Makefile.syscalls |   6 -
+> > > > > >  tools/perf/arch/x86/include/syscall_table.h   |   8 -
+> > > > > >  tools/perf/arch/xtensa/entry/syscalls/Kbuild  |   2 -
+> > > > > >  .../xtensa/entry/syscalls/Makefile.syscalls   |   4 -
+> > > > > >  .../perf/arch/xtensa/include/syscall_table.h  |   2 -
+> > > > > >  tools/perf/builtin-trace.c                    | 275 ++++++++++=
++-------
+> > > > > >  tools/perf/scripts/Makefile.syscalls          |  61 ----
+> > > > > >  tools/perf/scripts/syscalltbl.sh              |  86 ------
+> > > > > >  tools/perf/trace/beauty/syscalltbl.sh         | 274 ++++++++++=
++++++++
+> > > > > >  tools/perf/util/syscalltbl.c                  | 142 ++++-----
+> > > > > >  tools/perf/util/syscalltbl.h                  |  22 +-
+> > > > > >  tools/perf/util/thread.c                      |  50 ++++
+> > > > > >  tools/perf/util/thread.h                      |  14 +-
+> > > > > >  54 files changed, 598 insertions(+), 506 deletions(-)
+> > > > > >  delete mode 100644 tools/perf/arch/alpha/entry/syscalls/Kbuild
+> > > > > >  delete mode 100644 tools/perf/arch/alpha/entry/syscalls/Makefi=
+le.syscalls
+> > > > > >  delete mode 100644 tools/perf/arch/alpha/include/syscall_table=
+.h
+> > > > > >  delete mode 100644 tools/perf/arch/arc/entry/syscalls/Kbuild
+> > > > > >  delete mode 100644 tools/perf/arch/arc/entry/syscalls/Makefile=
+.syscalls
+> > > > > >  delete mode 100644 tools/perf/arch/arc/include/syscall_table.h
+> > > > > >  delete mode 100644 tools/perf/arch/arm/entry/syscalls/Kbuild
+> > > > > >  delete mode 100644 tools/perf/arch/arm/entry/syscalls/Makefile=
+.syscalls
+> > > > > >  delete mode 100644 tools/perf/arch/arm/include/syscall_table.h
+> > > > > >  delete mode 100644 tools/perf/arch/arm64/entry/syscalls/Kbuild
+> > > > > >  delete mode 100644 tools/perf/arch/arm64/entry/syscalls/Makefi=
+le.syscalls
+> > > > > >  delete mode 100644 tools/perf/arch/arm64/include/syscall_table=
+.h
+> > > > > >  delete mode 100644 tools/perf/arch/csky/entry/syscalls/Kbuild
+> > > > > >  delete mode 100644 tools/perf/arch/csky/entry/syscalls/Makefil=
+e.syscalls
+> > > > > >  delete mode 100644 tools/perf/arch/csky/include/syscall_table.=
+h
+> > > > > >  delete mode 100644 tools/perf/arch/loongarch/entry/syscalls/Kb=
+uild
+> > > > > >  delete mode 100644 tools/perf/arch/loongarch/entry/syscalls/Ma=
+kefile.syscalls
+> > > > > >  delete mode 100644 tools/perf/arch/loongarch/include/syscall_t=
+able.h
+> > > > > >  delete mode 100644 tools/perf/arch/mips/entry/syscalls/Kbuild
+> > > > > >  delete mode 100644 tools/perf/arch/mips/entry/syscalls/Makefil=
+e.syscalls
+> > > > > >  delete mode 100644 tools/perf/arch/mips/include/syscall_table.=
+h
+> > > > > >  delete mode 100644 tools/perf/arch/parisc/entry/syscalls/Kbuil=
+d
+> > > > > >  delete mode 100644 tools/perf/arch/parisc/entry/syscalls/Makef=
+ile.syscalls
+> > > > > >  delete mode 100644 tools/perf/arch/parisc/include/syscall_tabl=
+e.h
+> > > > > >  delete mode 100644 tools/perf/arch/powerpc/entry/syscalls/Kbui=
+ld
+> > > > > >  delete mode 100644 tools/perf/arch/powerpc/entry/syscalls/Make=
+file.syscalls
+> > > > > >  delete mode 100644 tools/perf/arch/powerpc/include/syscall_tab=
+le.h
+> > > > > >  delete mode 100644 tools/perf/arch/riscv/entry/syscalls/Kbuild
+> > > > > >  delete mode 100644 tools/perf/arch/riscv/entry/syscalls/Makefi=
+le.syscalls
+> > > > > >  delete mode 100644 tools/perf/arch/riscv/include/syscall_table=
+.h
+> > > > > >  delete mode 100644 tools/perf/arch/s390/entry/syscalls/Kbuild
+> > > > > >  delete mode 100644 tools/perf/arch/s390/entry/syscalls/Makefil=
+e.syscalls
+> > > > > >  delete mode 100644 tools/perf/arch/s390/include/syscall_table.=
+h
+> > > > > >  delete mode 100644 tools/perf/arch/sh/entry/syscalls/Kbuild
+> > > > > >  delete mode 100644 tools/perf/arch/sh/entry/syscalls/Makefile.=
+syscalls
+> > > > > >  delete mode 100644 tools/perf/arch/sh/include/syscall_table.h
+> > > > > >  delete mode 100644 tools/perf/arch/sparc/entry/syscalls/Kbuild
+> > > > > >  delete mode 100644 tools/perf/arch/sparc/entry/syscalls/Makefi=
+le.syscalls
+> > > > > >  delete mode 100644 tools/perf/arch/sparc/include/syscall_table=
+.h
+> > > > > >  delete mode 100644 tools/perf/arch/x86/entry/syscalls/Kbuild
+> > > > > >  delete mode 100644 tools/perf/arch/x86/entry/syscalls/Makefile=
+.syscalls
+> > > > > >  delete mode 100644 tools/perf/arch/x86/include/syscall_table.h
+> > > > > >  delete mode 100644 tools/perf/arch/xtensa/entry/syscalls/Kbuil=
+d
+> > > > > >  delete mode 100644 tools/perf/arch/xtensa/entry/syscalls/Makef=
+ile.syscalls
+> > > > > >  delete mode 100644 tools/perf/arch/xtensa/include/syscall_tabl=
+e.h
+> > > > > >  delete mode 100644 tools/perf/scripts/Makefile.syscalls
+> > > > > >  delete mode 100755 tools/perf/scripts/syscalltbl.sh
+> > > > > >  create mode 100755 tools/perf/trace/beauty/syscalltbl.sh
+> > > > > >
+> > > > > > --
+> > > > > > 2.48.1.362.g079036d154-goog
+> > > > > >
 
