@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2627EC02190
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 05:52:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A41D0C02190
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 05:53:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/wAMNkaLpLRnVz08FGxjiocHC74acXvxCjV+I7fHh70=; b=ioGyhu/Ey510YlWAupeRkPYjoL
-	Uf0t+uOS6rG+OeFoR2qpnNp1YbPEuXhXTcz1cxlSosDO1bLbs+bnhoGuZrMvNWi/+kAQ8Y9hakywZ
-	KO880pi2Hz1770nzVUAbbnfcArxMQsKvjH+fVqfXlP7eL98H74hj4vLcOPEYYH2V861+NJInVRObM
-	YeW1nEAobjvD90kCksDsgEkncycP9iAA/DcmYTPoGiX19wFAIwHQIyu+HDzr7RRapqW1zZDJijtLi
-	Y4bpM69NOvntITSFnmjR9wYfh1zRHfBoYaLyBOMGpCfJFZqFD7l5McEGQwCrWm5clXH0Ow9x0N8JY
-	yJzPVcQw==;
+	bh=2whaaGVhUj+F4Auw9MS7hLlXlsER90dX+R1BuB0lwhc=; b=rzIZ/J22v6MBmhPNv4Y76zvLAb
+	82waGh0Og6+CWruaSZuiIxO5CDJl+OsNNiUJ2CcN+JsokKMv5WQJz2ZJyOF+ci1O/3t4rJO0TcBrW
+	BK/ZSMJs0pZ/YSfdhR3i/ttWJXS4FbSu3aNXf5/Z9WFGB2XQcDVnTdYEhnmC3sGbM9zpvkHagt15/
+	O0PYbtRB8EXRB22MNmoQQF8qgZ/tUVLnbpP5GRxLWZD3GcfQoMajK5NXBD/JuEkzR9P7uwMkA12Kb
+	KkyQGyKum0TTlVQY3JbL4/Knhla6uCXhPVpfT3z0ZYRCZpS7evcR5ksku0yPJ+MMeglhsJyaXqQfQ
+	veIB4cbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tepNG-0000000Ec4a-0jrr;
-	Mon, 03 Feb 2025 05:51:58 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tepOW-0000000Ec9j-3JxX;
+	Mon, 03 Feb 2025 05:53:16 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tepJ0-0000000Ebeo-17iX
+	id 1tepJ5-0000000Ebfy-13ha
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 05:47:35 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 512N0Zf2007832;
-	Mon, 3 Feb 2025 05:47:27 GMT
+	Mon, 03 Feb 2025 05:47:40 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5135O29x000397;
+	Mon, 3 Feb 2025 05:47:31 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	/wAMNkaLpLRnVz08FGxjiocHC74acXvxCjV+I7fHh70=; b=WInzdb9j22/Ut2CT
-	oi+SoZ5P9ZAz21zugDCXKFFWBGQ1IJbz17r21fGmyvSaFcRdm42u7GX4Q7cjHBf8
-	CcEjOSFKGwT1YnuyZfULsQDwBX6ijWYUqIsXaF5ByJK/iShNRO2+B7ksql3of6U8
-	TVc35z4+E+VB5M4K9tg9/CycVQuJIWPdDwqpCgaL7Ehxo7qe3ovtueypQSsT4eWh
-	VaxRSSgtYoaauBXCEQQAOinL9R02COddCJkNzSGrH/WtLSkNU2WCdo1htp8cAclI
-	SIakWpfNwKlXyXBTWSEWi7X+MmBfqdm9snwDJ3jkxPutmHJZEMkzmNGYOg0fo+hc
-	N7Sv8Q==
-Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44jd428rm7-1
+	2whaaGVhUj+F4Auw9MS7hLlXlsER90dX+R1BuB0lwhc=; b=F76VZh+okmnWTqLl
+	pVFaVZ5p5+WONCk8fEmcH9BsP7/lzFsqx6IEXIPPbooTFb+/DIIYbwv05v+va/ce
+	lCqZRt9qSf5OX4W01gEvsacf2vpOqAE9WnSdPNIiujiXTRL40CPcSWUH3AdLED4O
+	IuzdYZsY72ESRGaxHSbx6+FPKK1nIBjfWxs6y6PM9gRK4cHiK8EVXIbJBq6OfF9m
+	4Z1d7i+fEKqcwSTaEPAt77/UH8qBzfYGbPe5brbPTlxzKqKKMVNQh0tAhiID2e9q
+	+20L2ATR814sKZNrFTGjO8vRTxBgzUjRpszVrc8ZBecd2zed3Wfmv5XXdvYW4iWa
+	LkoAsA==
+Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44jqm401ct-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 03 Feb 2025 05:47:27 +0000 (GMT)
+	Mon, 03 Feb 2025 05:47:31 +0000 (GMT)
 Received: from nasanex01c.na.qualcomm.com (nasanex01c.na.qualcomm.com [10.45.79.139])
-	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5135lQB0017286
+	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5135lUQi029452
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 3 Feb 2025 05:47:26 GMT
+	Mon, 3 Feb 2025 05:47:30 GMT
 Received: from hu-pbrahma-hyd.qualcomm.com (10.80.80.8) by
  nasanex01c.na.qualcomm.com (10.45.79.139) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Sun, 2 Feb 2025 21:47:22 -0800
+ 15.2.1544.9; Sun, 2 Feb 2025 21:47:26 -0800
 From: Pratyush Brahma <quic_pbrahma@quicinc.com>
-Date: Mon, 3 Feb 2025 11:17:01 +0530
-Subject: [PATCH v4 1/2] dt-bindings: arm-smmu: Document QCS8300 GPU SMMU
+Date: Mon, 3 Feb 2025 11:17:02 +0530
+Subject: [PATCH v4 2/2] arm64: dts: qcom: qcs8300: Add device node for
+ gfx_smmu
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250203-b4-branch-gfx-smmu-v4-1-eaa7aa762f48@quicinc.com>
+Message-ID: <20250203-b4-branch-gfx-smmu-v4-2-eaa7aa762f48@quicinc.com>
 References: <20250203-b4-branch-gfx-smmu-v4-0-eaa7aa762f48@quicinc.com>
 In-Reply-To: <20250203-b4-branch-gfx-smmu-v4-0-eaa7aa762f48@quicinc.com>
 To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
@@ -75,11 +76,11 @@ CC: <linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
         <linux-arm-msm@vger.kernel.org>,
         Pratyush Brahma <quic_pbrahma@quicinc.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1738561638; l=1546;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1738561638; l=2222;
  i=quic_pbrahma@quicinc.com; s=20250113; h=from:subject:message-id;
- bh=PwPs+GNNpY7tL5KTtexek1KcnldeKWBfrDorxewc4fc=;
- b=Sa8sIZPt5gMMG62yAvrif98Kl/Q4co4oMU0gVEq6/3AYVdIAXKwppyVHtbh9kmiS5rlTgBODQ
- +/HO8e9DTv4DkeBFy4RazSYRJP0caMk4pQmQ9BDYynJ0+6g0/SQWg22
+ bh=HbAlbhwSvvJHBgGbqw93kzaA4mbvxl5dNPJkJe4kzws=;
+ b=L2ZP8Qcj0GLF1fNDGqdYrfJMhhLzDc/EFypZV17Fr4bijxNg9gtcSp5dYqMLkssj5nN2eP66W
+ 14Bb9LgEbIIDjPWusgfxl7nsPMoBloHSY0sfYD4Dl/Dy97WIzVP9aVZ
 X-Developer-Key: i=quic_pbrahma@quicinc.com; a=ed25519;
  pk=YvfZKC4rRO1Fot+wlXZqsoQWnAtLqrpMyEzslw3Ji+M=
 X-Originating-IP: [10.80.80.8]
@@ -87,19 +88,19 @@ X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
  nasanex01c.na.qualcomm.com (10.45.79.139)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: IE-Mrq591AMxYJ4L2A39E_vgiEvqqZKS
-X-Proofpoint-ORIG-GUID: IE-Mrq591AMxYJ4L2A39E_vgiEvqqZKS
+X-Proofpoint-GUID: RiU8YuM9omQ4jCuVuIog40VP0BJLZgoD
+X-Proofpoint-ORIG-GUID: RiU8YuM9omQ4jCuVuIog40VP0BJLZgoD
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-02-03_02,2025-01-31_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0
- priorityscore=1501 suspectscore=0 mlxlogscore=847 malwarescore=0
- spamscore=0 bulkscore=0 mlxscore=0 lowpriorityscore=0 impostorscore=0
- adultscore=0 clxscore=1015 classifier=spam adjust=0 reason=mlx scancount=1
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 bulkscore=0
+ spamscore=0 malwarescore=0 priorityscore=1501 suspectscore=0 adultscore=0
+ clxscore=1015 impostorscore=0 mlxscore=0 lowpriorityscore=0
+ mlxlogscore=742 classifier=spam adjust=0 reason=mlx scancount=1
  engine=8.19.0-2501170000 definitions=main-2502030047
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250202_214734_428435_4ADC8514 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20250202_214739_298262_46D52B6C 
+X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,43 +115,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the compatible for Qualcomm QCS8300 GPU SMMU. Add the compatible
-in the list of clocks required by the GPU SMMU and remove it from the
-list of disallowed clocks.
+Add the device node for gfx smmu that is required for gpu
+specific address translations.
 
 Signed-off-by: Pratyush Brahma <quic_pbrahma@quicinc.com>
 ---
- Documentation/devicetree/bindings/iommu/arm,smmu.yaml | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/qcom/qcs8300.dtsi | 39 +++++++++++++++++++++++++++++++++++
+ 1 file changed, 39 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
-index 032fdc27127bffd689ffc23630c9978c4460b336..7b9d5507d6ccd6b845a57eeae59fe80ba75cc652 100644
---- a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
-+++ b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
-@@ -90,6 +90,7 @@ properties:
-           - enum:
-               - qcom,qcm2290-smmu-500
-               - qcom,qcs615-smmu-500
-+              - qcom,qcs8300-smmu-500
-               - qcom,sa8255p-smmu-500
-               - qcom,sa8775p-smmu-500
-               - qcom,sar2130p-smmu-500
-@@ -397,6 +398,7 @@ allOf:
-         compatible:
-           contains:
-             enum:
-+              - qcom,qcs8300-smmu-500
-               - qcom,sa8775p-smmu-500
-               - qcom,sc7280-smmu-500
-               - qcom,sc8280xp-smmu-500
-@@ -581,7 +583,6 @@ allOf:
-               - cavium,smmu-v2
-               - marvell,ap806-smmu-500
-               - nvidia,smmu-500
--              - qcom,qcs8300-smmu-500
-               - qcom,qdu1000-smmu-500
-               - qcom,sa8255p-smmu-500
-               - qcom,sc7180-smmu-500
+diff --git a/arch/arm64/boot/dts/qcom/qcs8300.dtsi b/arch/arm64/boot/dts/qcom/qcs8300.dtsi
+index 4a057f7c0d9fae0ebd1b3cf3468746b382bc886b..7a8211bec139375b5aab939f123d88fca7aceff2 100644
+--- a/arch/arm64/boot/dts/qcom/qcs8300.dtsi
++++ b/arch/arm64/boot/dts/qcom/qcs8300.dtsi
+@@ -2674,6 +2674,45 @@ gpucc: clock-controller@3d90000 {
+ 			#power-domain-cells = <1>;
+ 		};
+ 
++		adreno_smmu: iommu@3da0000 {
++			compatible = "qcom,qcs8300-smmu-500", "qcom,adreno-smmu",
++				     "qcom,smmu-500", "arm,mmu-500";
++			reg = <0x0 0x3da0000 0x0 0x20000>;
++			#iommu-cells = <2>;
++			#global-interrupts = <2>;
++
++			interrupts = <GIC_SPI 672 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 673 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 678 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 679 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 680 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 681 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 682 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 683 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 684 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 685 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 686 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 687 IRQ_TYPE_LEVEL_HIGH>;
++
++			clocks = <&gpucc GPU_CC_CX_GMU_CLK>,
++				 <&gpucc GPU_CC_HUB_CX_INT_CLK>,
++				 <&gpucc GPU_CC_HLOS1_VOTE_GPU_SMMU_CLK>,
++				 <&gcc GCC_GPU_MEMNOC_GFX_CLK>,
++				 <&gcc GCC_GPU_SNOC_DVM_GFX_CLK>,
++				 <&gpucc GPU_CC_AHB_CLK>,
++				 <&gpucc GPU_CC_HUB_AON_CLK>;
++
++			 clock-names = "gcc_gpu_memnoc_gfx_clk",
++				       "gcc_gpu_snoc_dvm_gfx_clk",
++				       "gpu_cc_ahb_clk",
++				       "gpu_cc_hlos1_vote_gpu_smmu_clk",
++				       "gpu_cc_cx_gmu_clk",
++				       "gpu_cc_hub_cx_int_clk",
++				       "gpu_cc_hub_aon_clk";
++			power-domains = <&gpucc GPU_CC_CX_GDSC>;
++			dma-coherent;
++		};
++
+ 		pmu@9091000 {
+ 			compatible = "qcom,qcs8300-llcc-bwmon", "qcom,sc7280-llcc-bwmon";
+ 			reg = <0x0 0x9091000 0x0 0x1000>;
 
 -- 
 2.34.1
