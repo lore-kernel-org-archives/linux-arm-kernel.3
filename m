@@ -4,64 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FAC7C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 11:19:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE032C02196
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 11:24:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kT7BBllsl3tm2FgX/Ks0wpZq0nys13Rah0geq2cLym0=; b=lSQiJFZROFVVRDkLEcSWYEkw3Y
-	er9fQYBfLlCtszolmLVs1092HNBQ2jl5mH4o3BCRM/nwYjwjSey3TGdP/waViekg5Oj6HZx5LMYWF
-	/rIJ3VCS4Q2sN7EwcXDfJfJvfO8IuwDfZ1zxdoPLgPQ5IdmalSGRwtsYVXjItYuVNIG1fkDcoHvrj
-	rvhHAgxJfrtwRFs/fCIIgvf0UzJ/EemUT409VGDfEBFjAC01GBRyTJMIwVl7t6Z43nTS4iSjTyfzX
-	ywYPmqxBmlvEn29JQFZ2f2N4VJYoGnma3iWvyaP5HSpaIXBzyn+rOdZwO9VwXTwLS/ghPpOVFt4UL
-	cbHLE1uw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z5z8ft182EGxmEBZMG9FpMqxA6p7D9exlg19FFW3EQM=; b=N970HuuquXdmmSZt9winldGVs6
+	tg8Jh5r+XQt+7P3OwDVUPULxN/tjopC6VErUTlCxTQCWvV5iyW0y+0CHXiirarJAeSvD9HPy790bo
+	yc7ia7iap5/+h00UINfSyDhkidesnZqchJ0VjG289m/6DeJeAAQGDL+gFoZYG62+wRx+wJybAGSd4
+	rLx5ZidEDmk3S3/elgXpZszzAbMMqtgvNJhBFciFEVq+ULWEdgqNHBoU4xGZXL3mygGbVKP41DceN
+	NI1OFUGOENryHJvGfVbKRrDfHvkOGj819daUEmpuj+c9UtyPgCNfD/Dn2uzbAz6HVeI2wIJ0zyPXH
+	R3JzregA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teuUL-0000000FDog-3nBE;
-	Mon, 03 Feb 2025 11:19:37 +0000
+	id 1teuYp-0000000FE6y-3cVv;
+	Mon, 03 Feb 2025 11:24:15 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teuSy-0000000FDb6-2ZjK
+	id 1teuXU-0000000FE14-3o60
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 11:18:14 +0000
+	Mon, 03 Feb 2025 11:22:54 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4EA5811FB;
-	Mon,  3 Feb 2025 03:18:34 -0800 (PST)
-Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 457093F58B;
-	Mon,  3 Feb 2025 03:18:07 -0800 (PST)
-Message-ID: <d499c3e7-cc0f-467a-8401-bc53b70259f7@arm.com>
-Date: Mon, 3 Feb 2025 11:18:06 +0000
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0823F11FB;
+	Mon,  3 Feb 2025 03:23:16 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 321D83F58B;
+	Mon,  3 Feb 2025 03:22:49 -0800 (PST)
+Date: Mon, 3 Feb 2025 11:22:39 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Sudeep Holla <sudeep.holla@arm.com>, linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH 1/3] clk: Introduce clk_set_spread_spectrum
+Message-ID: <Z6Cm_4XTRHdDluhh@pluto>
+References: <20250124-clk-ssc-v1-0-2d39f6baf2af@nxp.com>
+ <20250124-clk-ssc-v1-1-2d39f6baf2af@nxp.com>
+ <ff801714249c492abc3781da55675a38.sboyd@kernel.org>
+ <20250202104256.GA13402@localhost.localdomain>
+ <Z6CPy89TVxV1jaDn@pluto>
+ <20250203114722.GA20298@localhost.localdomain>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 12/43] arm64: RME: Allocate/free RECs to match vCPUs
-To: Steven Price <steven.price@arm.com>, Gavin Shan <gshan@redhat.com>,
- kvm@vger.kernel.org, kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-References: <20241212155610.76522-1-steven.price@arm.com>
- <20241212155610.76522-13-steven.price@arm.com>
- <9a543b6f-5487-4159-89fb-73d9b6749a01@redhat.com>
- <9174bc24-6217-4663-a370-291d4790a212@arm.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <9174bc24-6217-4663-a370-291d4790a212@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250203114722.GA20298@localhost.localdomain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_031812_775598_E0C7C305 
-X-CRM114-Status: GOOD (  23.65  )
+X-CRM114-CacheID: sfid-20250203_032253_037761_41243D11 
+X-CRM114-Status: GOOD (  37.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,183 +79,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/01/2025 16:40, Steven Price wrote:
-> On 29/01/2025 04:50, Gavin Shan wrote:
->> On 12/13/24 1:55 AM, Steven Price wrote:
->>> The RMM maintains a data structure known as the Realm Execution Context
->>> (or REC). It is similar to struct kvm_vcpu and tracks the state of the
->>> virtual CPUs. KVM must delegate memory and request the structures are
->>> created when vCPUs are created, and suitably tear down on destruction.
->>>
->>> RECs must also be supplied with addition pages - auxiliary (or AUX)
->>> granules - for storing the larger registers state (e.g. for SVE). The
->>> number of AUX granules for a REC depends on the parameters with which
->>> the Realm was created - the RMM makes this information available via the
->>> RMI_REC_AUX_COUNT call performed after creating the Realm Descriptor
->>> (RD).
->>>
->>> Note that only some of register state for the REC can be set by KVM, the
->>> rest is defined by the RMM (zeroed). The register state then cannot be
->>> changed by KVM after the REC is created (except when the guest
->>> explicitly requests this e.g. by performing a PSCI call). The RMM also
->>> requires that the VMM creates RECs in ascending order of the MPIDR.
->>>
->>> See Realm Management Monitor specification (DEN0137) for more
->>> information:
->>> https://developer.arm.com/documentation/den0137/
->>>
->>> Signed-off-by: Steven Price <steven.price@arm.com>
->>> ---
->>> Changes since v5:
->>>    * Separate the concept of vcpu_is_rec() and
->>>      kvm_arm_vcpu_rec_finalized() by using the KVM_ARM_VCPU_REC feature as
->>>      the indication that the VCPU is a REC.
->>> Changes since v2:
->>>    * Free rec->run earlier in kvm_destroy_realm() and adapt to previous
->>> patches.
->>> ---
->>>    arch/arm64/include/asm/kvm_emulate.h |   7 ++
->>>    arch/arm64/include/asm/kvm_host.h    |   3 +
->>>    arch/arm64/include/asm/kvm_rme.h     |  18 ++++
->>>    arch/arm64/kvm/arm.c                 |   9 ++
->>>    arch/arm64/kvm/reset.c               |  11 ++
->>>    arch/arm64/kvm/rme.c                 | 144 +++++++++++++++++++++++++++
->>>    6 files changed, 192 insertions(+)
->>>
->>> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/
->>> include/asm/kvm_emulate.h
->>> index 27f54a7778aa..ec2b6d9c9c07 100644
->>> --- a/arch/arm64/include/asm/kvm_emulate.h
->>> +++ b/arch/arm64/include/asm/kvm_emulate.h
->>> @@ -722,7 +722,14 @@ static inline bool kvm_realm_is_created(struct
->>> kvm *kvm)
->>>      static inline bool vcpu_is_rec(struct kvm_vcpu *vcpu)
->>>    {
->>> +    if (static_branch_unlikely(&kvm_rme_is_available))
->>> +        return vcpu_has_feature(vcpu, KVM_ARM_VCPU_REC);
->>>        return false;
->>>    }
->>>    
->>
->> It seems the check on kvm_rme_is_available is unnecessary because
->> KVM_ARM_VCPU_REC
->> is possible to be true only when kvm_rme_is_available is true.
-> 
-> Similar to a previous patch - the check of the static key is to avoid
-> overhead on systems without RME.
-> 
->>> +static inline bool kvm_arm_vcpu_rec_finalized(struct kvm_vcpu *vcpu)
->>> +{
->>> +    return vcpu->arch.rec.mpidr != INVALID_HWID;
->>> +}
->>> +
->>>    #endif /* __ARM64_KVM_EMULATE_H__ */
->>
->> I would suggest to rename to kvm_arm_rec_finalized() since vCPU and REC are
->> similar objects at the same level. It'd better to avoid duplicate object
->> name reference in the function name.
-> 
-> Ack
-> 
->>> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/
->>> asm/kvm_host.h
->>> index 8482638dce3b..220195c727ef 100644
->>> --- a/arch/arm64/include/asm/kvm_host.h
->>> +++ b/arch/arm64/include/asm/kvm_host.h
->>> @@ -789,6 +789,9 @@ struct kvm_vcpu_arch {
->>>          /* Per-vcpu CCSIDR override or NULL */
->>>        u32 *ccsidr;
->>> +
->>> +    /* Realm meta data */
->>> +    struct realm_rec rec;
->>>    };
->>>      /*
->>> diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/
->>> asm/kvm_rme.h
->>> index 32bdedf1d866..62d4a63d3035 100644
->>> --- a/arch/arm64/include/asm/kvm_rme.h
->>> +++ b/arch/arm64/include/asm/kvm_rme.h
->>> @@ -6,6 +6,7 @@
->>>    #ifndef __ASM_KVM_RME_H
->>>    #define __ASM_KVM_RME_H
->>>    +#include <asm/rmi_smc.h>
->>>    #include <uapi/linux/kvm.h>
->>>      /**
->>> @@ -65,6 +66,21 @@ struct realm {
->>>        unsigned int ia_bits;
->>>    };
->>>    +/**
->>> + * struct realm_rec - Additional per VCPU data for a Realm
->>> + *
->>> + * @mpidr: MPIDR (Multiprocessor Affinity Register) value to identify
->>> this VCPU
->>> + * @rec_page: Kernel VA of the RMM's private page for this REC
->>> + * @aux_pages: Additional pages private to the RMM for this REC
->>> + * @run: Kernel VA of the RmiRecRun structure shared with the RMM
->>> + */
->>> +struct realm_rec {
->>> +    unsigned long mpidr;
->>> +    void *rec_page;
->>> +    struct page *aux_pages[REC_PARAMS_AUX_GRANULES];
->>> +    struct rec_run *run;
->>> +};
->>> +
->>>    void kvm_init_rme(void);
->>>    u32 kvm_realm_ipa_limit(void);
->>>    @@ -72,6 +88,8 @@ int kvm_realm_enable_cap(struct kvm *kvm, struct
->>> kvm_enable_cap *cap);
->>>    int kvm_init_realm_vm(struct kvm *kvm);
->>>    void kvm_destroy_realm(struct kvm *kvm);
->>>    void kvm_realm_destroy_rtts(struct kvm *kvm, u32 ia_bits);
->>> +int kvm_create_rec(struct kvm_vcpu *vcpu);
->>> +void kvm_destroy_rec(struct kvm_vcpu *vcpu);
->>>      #define RMM_RTT_BLOCK_LEVEL    2
->>>    #define RMM_RTT_MAX_LEVEL    3
->>> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
->>> index 73016e1e0067..2d97147651be 100644
->>> --- a/arch/arm64/kvm/arm.c
->>> +++ b/arch/arm64/kvm/arm.c
->>> @@ -525,6 +525,8 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
->>>        /* Force users to call KVM_ARM_VCPU_INIT */
->>>        vcpu_clear_flag(vcpu, VCPU_INITIALIZED);
->>>    +    vcpu->arch.rec.mpidr = INVALID_HWID;
->>> +
->>>        vcpu->arch.mmu_page_cache.gfp_zero = __GFP_ZERO;
->>>          /* Set up the timer */
->>> @@ -1467,6 +1469,9 @@ static unsigned long
->>> system_supported_vcpu_features(void)
->>>        if (!cpus_have_final_cap(ARM64_HAS_NESTED_VIRT))
->>>            clear_bit(KVM_ARM_VCPU_HAS_EL2, &features);
->>>    +    if (!static_branch_unlikely(&kvm_rme_is_available))
->>> +        clear_bit(KVM_ARM_VCPU_REC, &features);
->>> +
->>>        return features;
->>>    }
->>>    @@ -1506,6 +1511,10 @@ static int
->>> kvm_vcpu_init_check_features(struct kvm_vcpu *vcpu,
->>>        if (test_bit(KVM_ARM_VCPU_HAS_EL2, &features))
->>>            return -EINVAL;
->>>    +    /* RME is incompatible with AArch32 */
->>> +    if (test_bit(KVM_ARM_VCPU_REC, &features))
->>> +        return -EINVAL;
->>> +
->>>        return 0;
->>>    }
->>>    
->>
->> One corner case seems missed in kvm_vcpu_init_check_features(). It's
->> allowed to
->> initialize a vCPU with REC feature even kvm_is_realm(kvm) is false.
->> Hopefully,
->> I didn't miss something.
-> 
-> Ah, yes good point. I'll pass a kvm pointer to
-> kvm_vcpu_init_check_features() and use kvm_is_realm() in there.
+On Mon, Feb 03, 2025 at 07:47:22PM +0800, Peng Fan wrote:
+> On Mon, Feb 03, 2025 at 09:43:39AM +0000, Cristian Marussi wrote:
+> >On Sun, Feb 02, 2025 at 06:42:56PM +0800, Peng Fan wrote:
+> >> On Tue, Jan 28, 2025 at 12:25:28PM -0800, Stephen Boyd wrote:
+> >> >Quoting Peng Fan (OSS) (2025-01-24 06:25:17)
+> >> >> diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
+> >> >> index cf7720b9172ff223d86227aad144e15375ddfd86..a4fe4a60f839244b736e3c2751eeb38dc4577b1f 100644
+> >> >> --- a/drivers/clk/clk.c
+> >> >> +++ b/drivers/clk/clk.c
 
-nit: kvm is available from the VCPU via vcpu->kvm
+Hi Peng,
 
-Cheers
-Suzuki
+> >> >> @@ -2790,6 +2790,45 @@ int clk_set_max_rate(struct clk *clk, unsigned long rate)
+> >> >>  }
+> >> >>  EXPORT_SYMBOL_GPL(clk_set_max_rate);
+
+[snip]
+
+> >> >
+> >> >> + *
+> >> >> + * Configure the spread spectrum parameters for a clock.
+> >> >> + *
+> >> >> + * Returns success (0) or negative errno.
+> >> >> + */
+> >> >> +int clk_set_spread_spectrum(struct clk *clk, unsigned int modfreq,
+> >> >
+> >> >Does this need to be a consumer API at all? Usually SSC is figured out
+> >> >when making a board and you have to pass some certification testing
+> >> >because some harmonics are interfering. Is the DT property sufficient
+> >> >for now and then we can do it when the driver probes in the framework?
+> >> 
+> >> I suppose 'DT property' you are refering the stm32 and i.MX8M SSC patchsets.
+> >> I am proposing a generic interface for drivers to enable SSC.
+> >> Otherwise we need to introduce vendor properties for each vendor.
+> >> And looking at clk-scmi.c, we need a generic way to enable SSC, I think SCMI
+> >> maintainers not agree to add vendor properties for it.
+> >> 
+> >
+> >To clarify, from the SCMI point of view, I expressed the idea that it
+> >would make sense to have a common SSC interface on the SCMI backend too
+> >instead of a custom NXP since you are adding a common CLK framework feature,
+> >BUT only if it turns out, from this discussion, that a common general way of
+> >configuring SSC can be found...and I dont know that, so I am waiting to see
+> >what this discussion with CLK framework and iMX maintainers goes before
+> >excluding the SCMI CLK vendor OEM types scenario...it would be ideal and
+> >easier NOT to use SCMI vendor extensions BUT ONLY if this NXP SSC/config generic
+> >solution is deemed to be really generic and usable by any other vendor.
+> 
+> You may misunderstand. Using DT properties for clk-scmi.c to configure SSC
+> of a single clock means to add properties under clk scmi node, such
+> as:
+> "arm,modfreq = <x>, <y>, <z>;
+>  arm,moddepth = <a>, <b>, <c>;
+>  arm,modmethod = <j>, <l>, <m>;"
+> 
+> And during probe in clk-scmi.c, the properties needs to be parsed and when
+> clk is configured, the ssc settings need to be passed to scmi platform.
+> 
+> But per the i.MX8M SSC patchset that DT maintainers raised, 
+> the properties(fsl,modfreq and etc) needs to in consumer side,
+> not provider side.
+> 
+> So it is not feasible to add properties here.
+> 
+
+Thanks for the clarification.
+
+> "assigned-clock-sscs" could be put under consumer node and clocks
+> could be configured with SSC when needed. This is a generic property.
+> 
+
+Yes I understood this, the property that describes SSC that you are
+adding is generic BUT are also the related params needed to describe
+effectively the SSC
+
+IOW, if we add, as desirable, a generic new SSC type in extended configs
+instead of using a vendor oem, will these info down below passed to the SCMI:
+
++       /*
++        * extConfigValue[7:0]   - spread percentage (%)
++        * extConfigValue[23:8]  - Modulation Frequency (KHz)
++        * extConfigValue[24]    - Enable/Disable
++        * extConfigValue[31:25] - Reserved
++        */
 
 
+... be enough to describe the required SSC config to any generic SCMI server
+from any vendor using any HW ?
+
+... or is it plausible and maybe frequent/usual that other vendors could
+need additional specific params to be fed to the server, so that we
+will end up using the new standard SSC only for NXP ?
+
+IOW the property is generic, agreed, but are the described params above
+generic enough too ? ... that was my concern from an UN-educated point
+of view...of course, I am talking about the most common scenarios, if
+some other vendor ends up needing some arcane/magic specific param that
+cannot fit the above, they will be relegated to the OEM custom spaces
+even if this common SSC is available.
+
+> Back to NXP SCMI vendor extension, if SCMI spec could include SSC, NXP
+> SCMI could move to align with spec and not use vendor extension.
+> 
+
+Agreed, conditional to the above doubts.
+
+Apologies if I have asked dumb/obvious questions, but I am not familiar
+with the subject matter enough...
+
+Thanks,
+Cristian
 
