@@ -4,97 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F5DDC02193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 08:39:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FF67C02193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 08:49:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XVGYg007DqlZ14Celc1KRgbSlHax+yNO1OqjdJZgd5k=; b=kcxzWAHWZTFCM2k/bJ6nlMsmfe
-	stA8yfiIgF4eyP8Tc5caSr7hywrFpY5RurGQ1HxPLVrmCtGBXcIEPvhRdIYHjPIWNdKn9O57yNUR9
-	YFiOvLfijmyp59G1fBZAXPmxase8Gwkpfvq1tVhmYviJPdjVzQykJ5JC7bsEgTISn/qSJj+qmAhzf
-	NHmi1FCUHHD24JTkiPiQvPUPUbSzc2pdYou+LQ7ENM16zpltVSSTUWn4dciZlTCNIakiDrwgSSXrO
-	4FfjpSAtUKLgEbrepi8bXHrbyHtQBlLUtSHjx3HIs9oYFr2LtkK/oyo2qVX7sUh3mqdHXAPd0eFxM
-	xResggaQ==;
+	bh=1t4fVIPYsEEeogVJuniCAPTsKqkM+6hlbCt+zO1gbIc=; b=rKiPbR1byJsNk9zcr1jZ/E8dG5
+	ps28WxFICVFxo9ybc2z+lWTMnWyM1BGGdBe2pH72jWlNEVkiErOPzMbvacYziowwk7yjy1OZWoSiW
+	mGNUS4OnV2jS1sr767uLiJQnRzV6kIGgzoKSVOouZ36C25sRcKoGF5u+GiikVyuvhFRK+2P/JjGbD
+	GFT76dPTtXStgO4SVDAdRAqJSq4ySHh+pySZyEuSaKBqrrmJIv7q3+wNJRYnuwt6Pupc8ZASXRtcA
+	aB8BzmwzQ6P4AbdqIAsYSwgJ7bUKLnSkH6Ku5HKpWNB6MI2ZHV8YanO+m5XdDNGbh4YIlODvPU2Z3
+	Wk1xUTVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1terzQ-0000000EsGP-2pRV;
-	Mon, 03 Feb 2025 08:39:32 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tery5-0000000Es1e-0vh7
+	id 1tes8O-0000000EtWA-2wqY;
+	Mon, 03 Feb 2025 08:48:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tes74-0000000EtPc-3Ggw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 08:38:10 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5135lEr1007514;
-	Mon, 3 Feb 2025 08:38:01 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	XVGYg007DqlZ14Celc1KRgbSlHax+yNO1OqjdJZgd5k=; b=PV4PSb9ywGcurZ2N
-	BQBhAJnxJtXP/oJ1EBRGtk0FtNpLNTKo70pmYFul3I0+AU5Szf30TnFfqIdJXqX0
-	hxsiwpJksDdw6sqBxwwd/VGrfSaX29gWFiSxHHn30GjYuYPSdUTOCUIm5dt/97hM
-	xxbNC4APIDCokYgC5+CkA2lQovNlm+XjnlGmcdqu0mzVQ7bpPoQ3tk9uIdubCxrY
-	tY5LbjoM1NmeHrIR59ApO4uTCoBnplgOesGoKcgyNL4PuldS0BUkolPCOQR+e3Nh
-	SbynayGywdqj3BaBs4ID1mm2pJNjt4TtiTFsnW8lKm7EoTQ31J21d8agVF9C8KgP
-	iyTeRA==
-Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44jqxw0bva-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 03 Feb 2025 08:38:01 +0000 (GMT)
-Received: from nasanex01c.na.qualcomm.com (nasanex01c.na.qualcomm.com [10.45.79.139])
-	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5138bxcX030486
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 3 Feb 2025 08:37:59 GMT
-Received: from [10.219.57.57] (10.80.80.8) by nasanex01c.na.qualcomm.com
- (10.45.79.139) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 3 Feb 2025
- 00:37:55 -0800
-Message-ID: <273df630-007d-4aaf-9432-2884a7e94d5e@quicinc.com>
-Date: Mon, 3 Feb 2025 14:07:52 +0530
+	Mon, 03 Feb 2025 08:47:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5D9BD1476;
+	Mon,  3 Feb 2025 00:47:50 -0800 (PST)
+Received: from [10.162.16.79] (unknown [10.162.16.79])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6A4DC3F63F;
+	Mon,  3 Feb 2025 00:47:21 -0800 (PST)
+Message-ID: <a8b8733e-2a6a-4a79-a30c-5b2c5af73ea7@arm.com>
+Date: Mon, 3 Feb 2025 14:17:18 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/2] Add support for GPU SMMU on QCS8300
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Joerg
- Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson
-	<andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-msm@vger.kernel.org>
-References: <20250203-b4-branch-gfx-smmu-v4-0-eaa7aa762f48@quicinc.com>
- <20250203-lean-delightful-ermine-f5b902@krzk-bin>
+Subject: Re: [PATCH v19 09/11] arm64: Handle BRBE booting requirements
+To: "Rob Herring (Arm)" <robh@kernel.org>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Jonathan Corbet <corbet@lwn.net>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Zenghui Yu <yuzenghui@huawei.com>, James Clark <james.clark@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ kvmarm@lists.linux.dev
+References: <20250202-arm-brbe-v19-v19-0-1c1300802385@kernel.org>
+ <20250202-arm-brbe-v19-v19-9-1c1300802385@kernel.org>
 Content-Language: en-US
-From: Pratyush Brahma <quic_pbrahma@quicinc.com>
-In-Reply-To: <20250203-lean-delightful-ermine-f5b902@krzk-bin>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20250202-arm-brbe-v19-v19-9-1c1300802385@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01c.na.qualcomm.com (10.45.79.139)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: A3Y4AVxh3AHw6zDw3dRdd7GiAx6Rmuqp
-X-Proofpoint-GUID: A3Y4AVxh3AHw6zDw3dRdd7GiAx6Rmuqp
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-03_03,2025-01-31_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 malwarescore=0
- phishscore=0 bulkscore=0 priorityscore=1501 mlxscore=0 suspectscore=0
- adultscore=0 impostorscore=0 clxscore=1015 lowpriorityscore=0
- mlxlogscore=999 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2501170000 definitions=main-2502030068
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_003809_376675_FF5E9BE8 
-X-CRM114-Status: GOOD (  22.45  )
+X-CRM114-CacheID: sfid-20250203_004726_912276_9B738B92 
+X-CRM114-Status: GOOD (  29.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,51 +71,207 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 2/3/25 06:13, Rob Herring (Arm) wrote:
+> From: Anshuman Khandual <anshuman.khandual@arm.com>
+> 
+> To use the Branch Record Buffer Extension (BRBE), some configuration is
+> necessary at EL3 and EL2. This patch documents the requirements and adds
+> the initial EL2 setup code, which largely consists of configuring the
+> fine-grained traps and initializing a couple of BRBE control registers.
+> 
+> Before this patch, __init_el2_fgt() would initialize HDFGRTR_EL2 and
+> HDFGWTR_EL2 with the same value, relying on the read/write trap controls
+> for a register occupying the same bit position in either register. The
+> 'nBRBIDR' trap control only exists in bit 59 of HDFGRTR_EL2, while bit
+> 59 of HDFGRTR_EL2 is RES0, and so this assumption no longer holds.
+> 
+> To handle HDFGRTR_EL2 and HDFGWTR_EL2 having (slightly) different bit
+> layouts, __init_el2_fgt() is changed to accumulate the HDFGRTR_EL2 and
+> HDFGWTR_EL2 control bits separately. While making this change the
+> open-coded value (1 << 62) is replaced with
+> HDFG{R,W}TR_EL2_nPMSNEVFR_EL1_MASK.
+> 
+> The BRBCR_EL1 and BRBCR_EL2 registers are unusual and require special
+> initialisation: even though they are subject to E2H renaming, both have
+> an effect regardless of HCR_EL2.TGE, even when running at EL2, and
+> consequently both need to be initialised. This is handled in
+> __init_el2_brbe() with a comment to explain the situation.
+> 
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Oliver Upton <oliver.upton@linux.dev>
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> [Mark: rewrite commit message, fix typo in comment]
 
-On 2/3/2025 1:03 PM, Krzysztof Kozlowski wrote:
-> On Mon, Feb 03, 2025 at 11:17:00AM +0530, Pratyush Brahma wrote:
->> Enable GPU SMMU function on QCS8300 platform. GPU SMMU is required
->> for address translation in GPU device.
->>
->> Signed-off-by: Pratyush Brahma <quic_pbrahma@quicinc.com>
->> --
->> Changes since v3:
->> - Modified the order of clock voting and properties as suggested by Konrad
->> - Removed dependency on clocks in commit text as change is merged in
->>    linux-next before current base commit
->>
->> Link to v3:
->> https://lore.kernel.org/all/20241227105818.28516-1-quic_pbrahma@quicinc.com/
->>
-> How are you sending these?
->
-> b4 diff 20250203-b4-branch-gfx-smmu-v4-0-eaa7aa762f48@quicinc.com
-> Grabbing thread from lore.kernel.org/all/20250203-b4-branch-gfx-smmu-v4-0-eaa7aa762f48@quicinc.com/t.mbox.gz
-> Checking for older revisions
-> Grabbing search results from lore.kernel.org
->    Added from v3: 2 patches
+This commit message after rewrite is better, thanks !
+
+> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 > ---
-> Analyzing 7 messages in the thread
-> Preparing fake-am for v3: dt-bindings: arm-smmu: Document QCS8300 GPU SMMU
-> ERROR: v3 series incomplete; unable to create a fake-am range
-> ---
-> Could not create fake-am range for lower series v3
-I have sent this version of the patch series using b4 for the first 
-time, as suggested earlier [1]. The issue might be due to the previous 
-version being sent
-incorrectly using git send-mail. Consequently, I had to manually apply 
-the previous patches after creating the b4 branch,
-since "b4 prep -F" was throwing an error when trying to apply the last 
-patch.
+>  Documentation/arch/arm64/booting.rst | 21 +++++++++
+>  arch/arm64/include/asm/el2_setup.h   | 86 ++++++++++++++++++++++++++++++++++--
+>  2 files changed, 104 insertions(+), 3 deletions(-)
+> 
+> diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/arch/arm64/booting.rst
+> index cad6fdc96b98..0a421757cacf 100644
+> --- a/Documentation/arch/arm64/booting.rst
+> +++ b/Documentation/arch/arm64/booting.rst
+> @@ -352,6 +352,27 @@ Before jumping into the kernel, the following conditions must be met:
+>  
+>      - HWFGWTR_EL2.nSMPRI_EL1 (bit 54) must be initialised to 0b01.
+>  
+> +  For CPUs with feature Branch Record Buffer Extension (FEAT_BRBE):
+> +
+> +  - If EL3 is present:
+> +
+> +    - MDCR_EL3.SBRBE (bits 33:32) must be initialised to 0b11.
+> +
+> +  - If the kernel is entered at EL1 and EL2 is present:
+> +
+> +    - BRBCR_EL2.CC (bit 3) must be initialised to 0b1.
+> +    - BRBCR_EL2.MPRED (bit 4) must be initialised to 0b1.
+> +
+> +    - HDFGRTR_EL2.nBRBDATA (bit 61) must be initialised to 0b1.
+> +    - HDFGRTR_EL2.nBRBCTL  (bit 60) must be initialised to 0b1.
+> +    - HDFGRTR_EL2.nBRBIDR  (bit 59) must be initialised to 0b1.
+> +
+> +    - HDFGWTR_EL2.nBRBDATA (bit 61) must be initialised to 0b1.
+> +    - HDFGWTR_EL2.nBRBCTL  (bit 60) must be initialised to 0b1.
+> +
+> +    - HFGITR_EL2.nBRBIALL (bit 56) must be initialised to 0b1.
+> +    - HFGITR_EL2.nBRBINJ  (bit 55) must be initialised to 0b1.
+> +
+>    For CPUs with the Scalable Matrix Extension FA64 feature (FEAT_SME_FA64):
+>  
+>    - If EL3 is present:
+> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+> index 25e162651750..bf21ce513aff 100644
+> --- a/arch/arm64/include/asm/el2_setup.h
+> +++ b/arch/arm64/include/asm/el2_setup.h
+> @@ -163,6 +163,39 @@
+>  .Lskip_set_cptr_\@:
+>  .endm
+>  
+> +/*
+> + * Configure BRBE to permit recording cycle counts and branch mispredicts.
+> + *
+> + * At any EL, to record cycle counts BRBE requires that both BRBCR_EL2.CC=1 and
+> + * BRBCR_EL1.CC=1.
+> + *
+> + * At any EL, to record branch mispredicts BRBE requires that both
+> + * BRBCR_EL2.MPRED=1 and BRBCR_EL1.MPRED=1.
+> + *
+> + * When HCR_EL2.E2H=1, the BRBCR_EL1 encoding is redirected to BRBCR_EL2, but
+> + * the {CC,MPRED} bits in the real BRBCR_EL1 register still apply.
+> + *
+> + * Set {CC,MPRED} in both BRBCR_EL2 and BRBCR_EL1 so that at runtime we only
+> + * need to enable/disable these in BRBCR_EL1 regardless of whether the kernel
+> + * ends up executing in EL1 or EL2.
+> + */
+> +.macro __init_el2_brbe
+> +	mrs	x1, id_aa64dfr0_el1
+> +	ubfx	x1, x1, #ID_AA64DFR0_EL1_BRBE_SHIFT, #4
+> +	cbz	x1, .Lskip_brbe_\@
+> +
+> +	mov_q	x0, BRBCR_ELx_CC | BRBCR_ELx_MPRED
+> +	msr_s	SYS_BRBCR_EL2, x0
+> +
+> +	__check_hvhe .Lset_brbe_nvhe_\@, x1
+> +	msr_s	SYS_BRBCR_EL12, x0	// VHE
+> +	b	.Lskip_brbe_\@
+> +
+> +.Lset_brbe_nvhe_\@:
+> +	msr_s	SYS_BRBCR_EL1, x0	// NVHE
+> +.Lskip_brbe_\@:
+> +.endm
+> +
+>  /* Disable any fine grained traps */
+>  .macro __init_el2_fgt
+>  	mrs	x1, id_aa64mmfr0_el1
+> @@ -170,16 +203,48 @@
+>  	cbz	x1, .Lskip_fgt_\@
+>  
+>  	mov	x0, xzr
+> +	mov	x2, xzr
+>  	mrs	x1, id_aa64dfr0_el1
+>  	ubfx	x1, x1, #ID_AA64DFR0_EL1_PMSVer_SHIFT, #4
+>  	cmp	x1, #3
+>  	b.lt	.Lskip_spe_fgt_\@
+> +
+>  	/* Disable PMSNEVFR_EL1 read and write traps */
+> -	orr	x0, x0, #(1 << 62)
+> +	orr	x0, x0, #HDFGRTR_EL2_nPMSNEVFR_EL1_MASK
+> +	orr	x2, x2, #HDFGWTR_EL2_nPMSNEVFR_EL1_MASK
+>  
+>  .Lskip_spe_fgt_\@:
+> +#ifdef CONFIG_ARM64_BRBE
+> +	mrs	x1, id_aa64dfr0_el1
+> +	ubfx	x1, x1, #ID_AA64DFR0_EL1_BRBE_SHIFT, #4
+> +	cbz	x1, .Lskip_brbe_reg_fgt_\@
+> +
+> +	/*
+> +	 * Disable read traps for the following registers
+> +	 *
+> +	 * [BRBSRC|BRBTGT|RBINF]_EL1
+> +	 * [BRBSRCINJ|BRBTGTINJ|BRBINFINJ|BRBTS]_EL1
+> +	 */
+> +	orr	x0, x0, #HDFGRTR_EL2_nBRBDATA_MASK
+> +
+> +	/*
+> +	 * Disable write traps for the following registers
+> +	 *
+> +	 * [BRBSRCINJ|BRBTGTINJ|BRBINFINJ|BRBTS]_EL1
+> +	 */
+> +	orr	x2, x2, #HDFGWTR_EL2_nBRBDATA_MASK
+> +
+> +	/* Disable read and write traps for [BRBCR|BRBFCR]_EL1 */
+> +	orr	x0, x0, #HDFGRTR_EL2_nBRBCTL_MASK
+> +	orr	x2, x2, #HDFGWTR_EL2_nBRBCTL_MASK
+> +
+> +	/* Disable read traps for BRBIDR_EL1 */
+> +	orr	x0, x0, #HDFGRTR_EL2_nBRBIDR_MASK
+> +
+> +.Lskip_brbe_reg_fgt_\@:
+> +#endif /* CONFIG_ARM64_BRBE */
+>  	msr_s	SYS_HDFGRTR_EL2, x0
+> -	msr_s	SYS_HDFGWTR_EL2, x0
+> +	msr_s	SYS_HDFGWTR_EL2, x2
+>  
+>  	mov	x0, xzr
+>  	mrs	x1, id_aa64pfr1_el1
+> @@ -220,7 +285,21 @@
+>  .Lset_fgt_\@:
+>  	msr_s	SYS_HFGRTR_EL2, x0
+>  	msr_s	SYS_HFGWTR_EL2, x0
+> -	msr_s	SYS_HFGITR_EL2, xzr
+> +	mov	x0, xzr
+> +#ifdef CONFIG_ARM64_BRBE
+> +	mrs	x1, id_aa64dfr0_el1
+> +	ubfx	x1, x1, #ID_AA64DFR0_EL1_BRBE_SHIFT, #4
+> +	cbz	x1, .Lskip_brbe_insn_fgt_\@
+> +
+> +	/* Disable traps for BRBIALL instruction */
+> +	orr	x0, x0, #HFGITR_EL2_nBRBIALL_MASK
+> +
+> +	/* Disable traps for BRBINJ instruction */
+> +	orr	x0, x0, #HFGITR_EL2_nBRBINJ_MASK
+> +
+> +.Lskip_brbe_insn_fgt_\@:
+> +#endif /* CONFIG_ARM64_BRBE */
+> +	msr_s	SYS_HFGITR_EL2, x0
+>  
+>  	mrs	x1, id_aa64pfr0_el1		// AMU traps UNDEF without AMU
+>  	ubfx	x1, x1, #ID_AA64PFR0_EL1_AMU_SHIFT, #4
+> @@ -275,6 +354,7 @@
+>  	__init_el2_hcrx
+>  	__init_el2_timers
+>  	__init_el2_debug
+> +	__init_el2_brbe
+>  	__init_el2_lor
+>  	__init_el2_stage2
+>  	__init_el2_gicv3
+> 
 
-[1] 
-https://lore.kernel.org/all/64ak7h5pwqinmcymas5i4xexa6bntvti7zkwfhzx7qrsmgaow3@zmn7jffcrp5f/
->
-> Best regards,
-> Krzysztof
->
--- 
-Thanks and Regards
-Pratyush Brahma
+LGTM.
 
+Both commit message and in code comments formatting have been changed from V18.
 
