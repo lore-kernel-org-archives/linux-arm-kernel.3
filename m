@@ -4,111 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EA0EC02196
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 15:02:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CE7FC02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 15:10:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aOsz5fhVYdT+Uxd+itO/e14cw46Nl0yJKED9VSxg4+8=; b=rW+2C7tp8+Jf6bUL2SbUkuLT53
-	ubB1PVypAOh4VK3JcTa8THslkkfwivHYneqYXVqGHBesVaDPGCXIGECvw0tfotnzlJ6VaeD0EKhGN
-	XGfovTVCvv3hxxgzGJ6M7F0JpKQtQ8j2Bqj/dKafPTbByVRiDpC0MQJu3eDFYsFvXGDnx9cUYtH7Z
-	j9R9Y1v5T+AYj/Y6+0DgfF3++900TPZBkMNNfkVUkn791n3ICHpYsCpJ0P+9hnBxQu2kk/vfu4IRr
-	THK7nkg6/sGoedXhJFNH2P0l6gCAuCEVcQaRXOQVV+/E0HgQBWQfVhgoL/Pe8gFsFtxy2L3sldY/+
-	7qARMX+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HqEE3YRbTbE7T+1H+FMsBDpAKDlGN4RiEhakRYvsKYs=; b=RXAf3ITFSwvzWng/2nxxn5Yqbn
+	i5b2VS1IgJBGpTfJRk5tFLF1s7TALMkfu1diA3u1AvAYL5KYzr8WKGfEmPLbJhXEwDzO8xDeDlgT9
+	8PlpwbqM+QmyfJLQM3K43sB0AUeMuojLtqgZ+mOMckedf2+Gs5gd1kcBn7cN8jZ9gf+fxAAG0JL3t
+	ZgID5BwMfV2n8kwqV1bwdcUAXJzsLyRz5b9LJF4Aor7SjAKimdi5cHfSsf1VIz4AUyjnHIMkXQPb/
+	TEXQcc/xxz5w338+QV1IxwMIddh/2edZM80VW7olc/HlWsmRSLHFZrj6q14b3ZnSV5iQtGz08vwac
+	S5Ba3e/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1texxa-0000000FnTt-1QgU;
-	Mon, 03 Feb 2025 15:02:02 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tey5J-0000000Foje-0Mty;
+	Mon, 03 Feb 2025 15:10:01 +0000
+Received: from [198.47.23.235] (helo=lelvem-ot02.ext.ti.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1texwF-0000000FnIj-4BqO
+	id 1tey3x-0000000FoYN-4Azt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 15:00:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E4D965C6095;
-	Mon,  3 Feb 2025 14:59:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BAF8C4CED2;
-	Mon,  3 Feb 2025 15:00:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738594838;
-	bh=xzuPgb2jz73QEVm5wfWZq6xnJuxWE3quWJyQx+ZHWXA=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=c66PQ4SOQ394VndiGDqv8Hv9Czkfq2BlwNIg23gFy5L4nCeJBQU6zc03zXVg3MxLm
-	 zsCTCy790Z05bikhcTarbN1FM0D2B42gsteJmtD2rPR3yvU7DKTawjN+4VwqUMuEqS
-	 2vxJE62XxW7bGSMAJOEcg0Jvzm/mNbFgAMJLyEeoeri7t0CDRDhIBZeFWLkKBi02gU
-	 DEskS/9074Pv35cFAtZrNzjJt3sGZ853cy9bVAbOXa4+/dMrWcRRZYr4PVx3JEStuL
-	 G60gECUBYct2UDUI2z68vJItFsAmTUGv27xMuAFPq3Yo4fzY/CxuuTGTxFUB1KFVZK
-	 9F2CuiEVGMbfQ==
-Message-ID: <6def1c5d-d1a0-4a6f-9db2-453692d5423d@kernel.org>
-Date: Mon, 3 Feb 2025 16:00:29 +0100
+	Mon, 03 Feb 2025 15:08:39 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 513F87PG2214454
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 3 Feb 2025 09:08:07 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1738595288;
+	bh=HqEE3YRbTbE7T+1H+FMsBDpAKDlGN4RiEhakRYvsKYs=;
+	h=From:To:CC:Subject:Date;
+	b=fdwggEnYMuGDpLyX25DdN2X2/f4rp1PO6ToRqREfCBCR0PJsNDNp7d8iFSftz2yMN
+	 3qCWIrqFfz1V3F+mmHl7r0LjkIP4LZdZh8a5fPuO7cVU5r2dVx/zevLPQvXMvHQZ7N
+	 59b3VaOsTM+c0/bDRNLBANgWjLQaIr06fPGqafXU=
+Received: from DFLE110.ent.ti.com (dfle110.ent.ti.com [10.64.6.31])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 513F87DH050204
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 3 Feb 2025 09:08:07 -0600
+Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE110.ent.ti.com
+ (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 3
+ Feb 2025 09:08:07 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 3 Feb 2025 09:08:07 -0600
+Received: from uda0490681.. ([10.24.69.142])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 513F81hC112820;
+	Mon, 3 Feb 2025 09:08:02 -0600
+From: Vaishnav Achath <vaishnav.a@ti.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <quic_bjorande@quicinc.com>,
+        <geert+renesas@glider.be>, <krzysztof.kozlowski@linaro.org>,
+        <dmitry.baryshkov@linaro.org>, <arnd@arndb.de>,
+        <nfraprado@collabora.com>, <ebiggers@google.com>, <ardb@kernel.org>,
+        <nm@ti.com>, <vigneshr@ti.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <nfrayer@baylibre.com>, <glaroque@baylibre.com>, <tglx@linutronix.de>,
+        <u-kumar1@ti.com>, <vaishnav.a@ti.com>
+Subject: [PATCH v2] arm64: defconfig: Enable TISCI Interrupt Router and Aggregator
+Date: Mon, 3 Feb 2025 20:38:01 +0530
+Message-ID: <20250203150801.2399555-1-vaishnav.a@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 1/9] bindings: ipmi: Add binding for IPMB device intf
-To: Ninad Palsule <ninad@linux.ibm.com>, brgl@bgdev.pl,
- linus.walleij@linaro.org, minyard@acm.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, openipmi-developer@lists.sourceforge.net,
- netdev@vger.kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au,
- devicetree@vger.kernel.org, eajames@linux.ibm.com,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org
-References: <20250203144422.269948-1-ninad@linux.ibm.com>
- <20250203144422.269948-2-ninad@linux.ibm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250203144422.269948-2-ninad@linux.ibm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_070040_123939_C59CB2AF 
-X-CRM114-Status: UNSURE (   7.55  )
+X-CRM114-CacheID: sfid-20250203_070838_162914_6D66C0F7 
+X-CRM114-Status: UNSURE (   8.55  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -124,15 +88,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/02/2025 15:44, Ninad Palsule wrote:
-> Add device tree binding document for the IPMB device interface.
-> This device is already in use in both driver and .dts files.
-> 
-> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
-You still need to fix the subject. Why patch #1 has bindings but patch
-#2 dt-bindings? Why can't this be consistent?
+Enable TISCI Interrupt Router and Interrupt Aggregator drivers.
+These IPs are found in all TI K3 SoCs like J721E, AM62X and is required
+for core functionality like DMA, GPIO Interrupts which is necessary
+during boot, thus make them built-in.
 
-Best regards,
-Krzysztof
+bloat-o-meter summary on vmlinux:
+	add/remove: 460/1 grow/shrink: 4/0 up/down: 162483/-8 (162475)
+	...
+	Total: Before=31615984, After=31778459, chg +0.51%
+
+Fixes: 2d95ffaecbc2 ("irqchip/ti-sci-intr: Add module build support")
+Fixes: b8b26ae398c4 ("irqchip/ti-sci-inta : Add module build support")
+
+Signed-off-by: Vaishnav Achath <vaishnav.a@ti.com>
+---
+
+V1 : https://lore.kernel.org/all/20250119182121.3956546-1-vaishnav.a@ti.com/
+
+V1->V2:
+	* Add Fixes tag.
+	* Add bloat-o-meter summary to commit message.
+
+Previously both of these configs were selected for ARCH_K3 in respective
+Kconfigs, but commit b8b26ae398c4 ("irqchip/ti-sci-inta : Add module build support")
+and commit 2d95ffaecbc2 ("irqchip/ti-sci-intr: Add module build support")
+in dropped this recently without adding those back in arm64
+defconfig, this causes boot failure in all TI K3 platforms.
+
+Passing bootlog with configs enabled:
+https://gist.github.com/vaishnavachath/03d8d3ce0f22219643c2f4d1dd243fd1
+
+ arch/arm64/configs/defconfig | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index cb7da4415599..1f25423de383 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -1551,6 +1551,8 @@ CONFIG_PWM_VISCONTI=m
+ CONFIG_SL28CPLD_INTC=y
+ CONFIG_QCOM_PDC=y
+ CONFIG_QCOM_MPM=y
++CONFIG_TI_SCI_INTR_IRQCHIP=y
++CONFIG_TI_SCI_INTA_IRQCHIP=y
+ CONFIG_RESET_GPIO=m
+ CONFIG_RESET_IMX7=y
+ CONFIG_RESET_QCOM_AOSS=y
+-- 
+2.34.1
+
 
