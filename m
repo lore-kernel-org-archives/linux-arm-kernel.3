@@ -4,81 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92986C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 23:08:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A867C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 23:20:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=am/bBarvIeEoB5opdd4q8vGhdTQUm42S7bkaACiTuoA=; b=etkorlr3hwHqnIu+o7GgUrlXey
-	zK4p78S+lsiYB3ymhPHUKmg8/P+d6MAtKP5l59ZUERck9/X+8eJS/AZTbqtxmiUcAIHL2iWQDEhXG
-	21jlMeeIpJ0hWBvry7a7Ooatk13NhpZ+sNBEDOZqlveSBh8Lf4EzAtRJwBDquaLgF8xFHgTxuNVfm
-	rd6TixU3/47/B5XcYuj0BXGGFYENDSTwI6KpNM0R016fYJXsri9a2m1GN/+msgWoQ36MdH4wOklPY
-	nL87+50dYidZ+rmnlw0BYnZKdvooXbk13PPUY9ACSr4yFvlI7c6Kfy7VBH8QELQlFRauVrZlHPf75
-	BLmEmysQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ifjGUGvJkZYFo5L1bDL9tJSz13ntSb3dYeATt2mrijo=; b=bWalDk5SxN8AoP3M54HJZcg//d
+	VFBTLdurmveETXEfnwmGOlJkYi0fpRzRvTS5RIrfONMnKibLHFVNyt/GoZYZFDo600ebjz0mTTUcE
+	qFSdx+0rdLQ03Q693BsEwpZjg5WK08NEWePer966Jw/g5C/iN6TM4jSsWUmy+nNjOmXNveAnFxbN0
+	lLdpMmXd+ErAB/XRcoVisYGOI7A/3hsPAlnhTc3iU1t4dollZL9lXCdfPrIw/f6eWN/aww8tl8dQS
+	/Q2VOXh0jJ6CRZBfQouf/+wWozAeiV3WH7q+Bdthq7oSNa3zqM/lCa0PbomdOZaeiaW82FQzbrg+/
+	RM3RELJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf5YH-0000000Gr7S-23DO;
-	Mon, 03 Feb 2025 23:08:25 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1tf5k5-0000000Gs1y-0Xg1;
+	Mon, 03 Feb 2025 23:20:37 +0000
+Received: from out-175.mta1.migadu.com ([95.215.58.175])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf5Ww-0000000Gr3b-3bC5
+	id 1tf5il-0000000Grxu-17pz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 23:07:04 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 513N6pUY2225606
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 3 Feb 2025 17:06:52 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1738624012;
-	bh=am/bBarvIeEoB5opdd4q8vGhdTQUm42S7bkaACiTuoA=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=J4+LWMbzbzlmvqlxzlBATR6IMUM3oiu4dKA8Mxiy9wtwCL0AXpkyG2KxG7XWgZseV
-	 M+ehRmqIqc3zlgiAjebSSjJCskoz7N3lsEv60hk7mMtFBzWv9aBefTiwuhO08hU4LW
-	 qVOLbAoO91IajFLNVKu6JhWegVj0jyVhj1p8UWhA=
-Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 513N6pha106199
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 3 Feb 2025 17:06:51 -0600
-Received: from DFLE103.ent.ti.com (10.64.6.24) by DFLE115.ent.ti.com
- (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 3
- Feb 2025 17:06:51 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE103.ent.ti.com
- (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 3 Feb 2025 17:06:51 -0600
-Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 513N6pSl025658;
-	Mon, 3 Feb 2025 17:06:51 -0600
-Message-ID: <469ee404-fe33-471e-8652-e9206f7f433b@ti.com>
-Date: Mon, 3 Feb 2025 17:06:51 -0600
+	Mon, 03 Feb 2025 23:19:16 +0000
+Date: Mon, 3 Feb 2025 15:19:03 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1738624752;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ifjGUGvJkZYFo5L1bDL9tJSz13ntSb3dYeATt2mrijo=;
+	b=nkDIi8QemCzBZF8njMmkcisysylZn7FnuZHeo3M2nQqj6RzgOPaW92LEWdN0FyTrlkb86o
+	cyEcFMhlDLKhOnrgzBt1i+mbCGCj0GM+j/T3Y0Sv/KmOfL06xkHRLgXwPyujRdjtQQBSX4
+	+aE36IGv4bVky5Dp65wUTsi4/WdF1jI=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Mark Brown <broonie@kernel.org>, uJap072421@linux.dev
+Cc: Quentin Perret <qperret@google.com>, Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Fuad Tabba <tabba@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 09/18] KVM: arm64: Introduce __pkvm_vcpu_{load,put}()
+Message-ID: <Z6FO04PZtY8fsJhq@linux.dev>
+References: <20241218194059.3670226-1-qperret@google.com>
+ <20241218194059.3670226-10-qperret@google.com>
+ <5ca7588c-7bf2-4352-8661-e4a56a9cd9aa@sirena.org.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 5/9] arm64: dts: ti: k3-am62a7-sk: Enable ipc with
- remote processors
-To: Andrew Davis <afd@ti.com>, Nishanth Menon <nm@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Hari Nagalla
-	<hnagalla@ti.com>
-References: <20250131214611.3288742-1-jm@ti.com>
- <20250131214611.3288742-6-jm@ti.com>
- <0ab5c5ec-cde3-41f1-8adf-2419b31497c1@ti.com>
-Content-Language: en-US
-From: Judith Mendez <jm@ti.com>
-In-Reply-To: <0ab5c5ec-cde3-41f1-8adf-2419b31497c1@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <5ca7588c-7bf2-4352-8661-e4a56a9cd9aa@sirena.org.uk>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_150703_034130_F92F54E4 
-X-CRM114-Status: GOOD (  18.13  )
+X-CRM114-CacheID: sfid-20250203_151915_447476_DBF3A8F6 
+X-CRM114-Status: GOOD (  11.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,148 +77,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
-
-On 2/3/25 4:53 PM, Andrew Davis wrote:
-> On 1/31/25 3:46 PM, Judith Mendez wrote:
->> From: Devarsh Thakkar <devarsht@ti.com>
->>
->> For each remote proc, reserve memory for IPC and bind the mailbox
->> assignments. Two memory regions are reserved for each remote processor.
->> The first region of 1MB of memory is used for Vring shared buffers
->> and the second region is used as external memory to the remote processor
->> for the resource table and for tracebuffer allocations.
->>
->> Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
->> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
->> Signed-off-by: Judith Mendez <jm@ti.com>
->> ---
->> Changes since v1:
->> - add patches 5-9 to enable ipc and complete device nodes
->> ---
->>   arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 78 +++++++++++++++++++++++++
->>   1 file changed, 78 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts 
->> b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
->> index a6f0d87a50d8a..6f4b037537fec 100644
->> --- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
->> +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
->> @@ -61,11 +61,41 @@ secure_ddr: optee@9e800000 {
->>               no-map;
->>           };
->> +        wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
->> +            compatible = "shared-dma-pool";
->> +            reg = <0x00 0x9c800000 0x00 0x100000>;
->> +            no-map;
->> +        };
->> +
->>           wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
->>               compatible = "shared-dma-pool";
->>               reg = <0x00 0x9c900000 0x00 0x01e00000>;
->>               no-map;
->>           };
->> +
->> +        mcu_r5fss0_core0_dma_memory_region: r5f-dma-memory@9b800000 {
->> +            compatible = "shared-dma-pool";
->> +            reg = <0x00 0x9b800000 0x00 0x100000>;
->> +            no-map;
->> +        };
->> +
->> +        mcu_r5fss0_core0_memory_region: r5f-dma-memory@9b900000 {
->> +            compatible = "shared-dma-pool";
->> +            reg = <0x00 0x9b900000 0x00 0x0f00000>;
+On Mon, Feb 03, 2025 at 07:50:44PM +0000, Mark Brown wrote:
+> On Wed, Dec 18, 2024 at 07:40:50PM +0000, Quentin Perret wrote:
+> > From: Marc Zyngier <maz@kernel.org>
+> > 
+> > Rather than look-up the hyp vCPU on every run hypercall at EL2,
+> > introduce a per-CPU 'loaded_hyp_vcpu' tracking variable which is updated
+> > by a pair of load/put hypercalls called directly from
+> > kvm_arch_vcpu_{load,put}() when pKVM is enabled.
 > 
-> There is a leading 0 here and in a couple other places.
+> Current mainline crashes when running the arch_timer_edge_cases selftest
+> in pKVM mode on a LibreTech Le Potato board, with a bisection pointing
+> at this change.  The system dies like this:
 > 
-> s/0x0f00000/0xf00000
+> # selftests: kvm: arch_timer_edge_cases
+> [  130.599140] kvm [4518]: nVHE hyp panic at: [<ffff800081102b58>] __kvm_nvhe___vgic_v3_restore_vmcr_aprs+0x8/0x84!
+> [  130.603685] kvm [4518]: Cannot dump pKVM nVHE stacktrace: !CONFIG_PROTECTED_NVHE_STACKTRACE
+> [  130.611962] kvm [4518]: Hyp Offset: 0xfffeca95ed000000
+> [  130.617053] Kernel panic - not syncing: HYP panic:
 
-Ok, will check all other memory carveouts and fix.
+Thanks, fix posted here [*], although as a consequence this machine will
+stop running KVM in protected mode (which was never meant to work in the
+first place).
 
-> 
->> +            no-map;
->> +        };
->> +
->> +        c7x_0_dma_memory_region: c7x-dma-memory@99800000 {
->> +            compatible = "shared-dma-pool";
->> +            reg = <0x00 0x99800000 0x00 0x100000>;
->> +            no-map;
->> +        };
->> +
->> +        c7x_0_memory_region: c7x-memory@99900000 {
->> +            compatible = "shared-dma-pool";
->> +            reg = <0x00 0x99900000 0x00 0x01f00000>;
-> 
-> 0x01f00000 ? What is this size, all other firmware in all other
-> K3 use 0xf00000 (16MB), that should be enough for any sane firmware.
-> If some firmware needs more it is probably doing something hacky
-> like leaving space for buffer passing internally. That space should
-> be provided from a shared dma-buf pool or similar mechanism.
+[*]: https://lore.kernel.org/kvmarm/20250203231543.233511-1-oliver.upton@linux.dev/
 
-That is fine, will change to 16MB. (:
-
-~ Judith
-
-> 
-> Make this 0xf00000 and fix the firmware.
-> 
-> Andrew
-> 
->> +            no-map;
->> +        };
->>       };
->>       opp-table {
->> @@ -737,3 +767,51 @@ dpi1_out: endpoint {
->>           };
->>       };
->>   };
->> +
->> +&mailbox0_cluster0 {
->> +    mbox_r5_0: mbox-r5-0 {
->> +        ti,mbox-rx = <0 0 0>;
->> +        ti,mbox-tx = <1 0 0>;
->> +    };
->> +};
->> +
->> +&mailbox0_cluster1 {
->> +    mbox_c7x_0: mbox-c7x-0 {
->> +        ti,mbox-rx = <0 0 0>;
->> +        ti,mbox-tx = <1 0 0>;
->> +    };
->> +};
->> +
->> +&mailbox0_cluster2 {
->> +    mbox_mcu_r5_0: mbox-mcu-r5-0 {
->> +        ti,mbox-rx = <0 0 0>;
->> +        ti,mbox-tx = <1 0 0>;
->> +    };
->> +};
->> +
->> +&wkup_r5fss0 {
->> +    status = "okay";
->> +};
->> +
->> +&wkup_r5fss0_core0 {
->> +    mboxes = <&mailbox0_cluster0>, <&mbox_r5_0>;
->> +    memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
->> +        <&wkup_r5fss0_core0_memory_region>;
->> +};
->> +
->> +&mcu_r5fss0 {
->> +    status = "okay";
->> +};
->> +
->> +&mcu_r5fss0_core0 {
->> +    mboxes = <&mailbox0_cluster2>, <&mbox_mcu_r5_0>;
->> +    memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
->> +            <&mcu_r5fss0_core0_memory_region>;
->> +};
->> +
->> +&c7x_0 {
->> +    mboxes = <&mailbox0_cluster1>, <&mbox_c7x_0>;
->> +    memory-region = <&c7x_0_dma_memory_region>,
->> +            <&c7x_0_memory_region>;
->> +    status = "okay";
->> +};
-
+-- 
+Thanks,
+Oliver
 
