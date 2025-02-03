@@ -4,60 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 749E2C02193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 06:56:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC294C02195
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 06:59:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7OOta64viRWdp2sLVHYMlYidubtYCHU9LCmJU7avvRM=; b=azPVWMgin5gIj4ZaHQwwaQzfIa
-	dR5UqbSPQFkdcTL+M2iRvOQtc3yxwBclv5gxKLHj/J8+WG5jdazyeam1uZRr6bi6qWPE0HsJ82+YV
-	2YQn+FCOV95dXNOXUtulXaCrXijP0P1K+4kMWH5p+DOtpwWpgPGIsM8Xf9MmUN+qy8CLxrZmYJOH9
-	XWEalUNygHEPir8tnys6UMuyENmpYY+nzlpuNRNbZxHa+GUwvElnJwVUFaQ2chtFH+SZgSZPnDbBu
-	O4ezw+jEAoCKtP0BlE0VkDLbpi4zxySHX6VA0oVXAvRQsnTq469tO4QonaAti/1EziSssdBwkFQrU
-	O6ra+QyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KBpu38zoJhnbBuVt7xq5HkK4w7WkM2eVS3E6Ag+EQIY=; b=IZREeP/DOtKMH5KVmIqoBQpKln
+	ZO6f03TjTfdNR0Wzf2EB0T8VhRyunPUWCkBGCyAJR++f3EyndLrWsA/CKLTtFwdX/sBeZ81vjoQoY
+	4ngR+/bZn5oilkPf5FLP3evHH5lI7JgZeBIZ9/UMCcgsu4OaxNxUwVejyJ0vkyHCLpK4b+qwLnPMk
+	sCSoa6W90qgsF5fVrfBuBcsNixpNv/lBM+9aAxoMW50ZST4ZvgTRpvn/2XjV9duSa+HI6IgiwZ/GC
+	r9cV4EubyiNrj9CJs2AtmRqYWknC1Gd1tFZ6OgkQeeYFHVZnvKG6n98rhWGN+SN5NaC5PB44BYwqb
+	88esI8UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teqNR-0000000Efqx-08Ek;
-	Mon, 03 Feb 2025 06:56:13 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teqM6-0000000EflD-33yR
+	id 1teqQ0-0000000Efzw-3QcC;
+	Mon, 03 Feb 2025 06:58:52 +0000
+Received: from gw2.atmark-techno.com ([35.74.137.57])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1teqOg-0000000Efw9-0meJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 06:54:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 280231476;
-	Sun,  2 Feb 2025 22:55:14 -0800 (PST)
-Received: from [10.162.16.79] (unknown [10.162.16.79])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 54C8F3F5A1;
-	Sun,  2 Feb 2025 22:54:45 -0800 (PST)
-Message-ID: <9a4e16af-b5b9-406f-8f9f-4d395a14a61c@arm.com>
-Date: Mon, 3 Feb 2025 12:24:42 +0530
+	Mon, 03 Feb 2025 06:57:31 +0000
+Authentication-Results: gw2.atmark-techno.com;
+	dkim=pass (2048-bit key; unprotected) header.d=atmark-techno.com header.i=@atmark-techno.com header.a=rsa-sha256 header.s=google header.b=fksuOLyU;
+	dkim-atps=neutral
+Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
+	by gw2.atmark-techno.com (Postfix) with ESMTPS id 980A94CA
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Feb 2025 15:57:28 +0900 (JST)
+Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-2efa0eb9dacso7838080a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Feb 2025 22:57:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=atmark-techno.com; s=google; t=1738565847; x=1739170647; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=KBpu38zoJhnbBuVt7xq5HkK4w7WkM2eVS3E6Ag+EQIY=;
+        b=fksuOLyU8JQ+afejSL2vN+MMVDZ+gBy0CR0qvnKqJVhO1CCi31Y9Zdve/eD7nnFmrg
+         GnfV76AA43+Z1YNwKgR/vJTxaI+GhHJu829i+Itd8KaOAmxso5ceov3P7rbbNJTCr9a9
+         RIcznXwQ2cdXDu6N6fV0ydlCxRSqH0Hp19R5xurX5dM4O87HTcEig82vMyv4VLCTAe2L
+         KMKZCwERf3cZE3tygj39BKmjRSP/22FgKFM+rg36BfYPXFVXbJtcJGvAlQcrleL9SiT9
+         DYActHTqlbpKCk1nWOgbOaIlwtjhJkyVxsMVfkXXR0mFscAJSIGrugzPsBwHJFRUY49t
+         9aFw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738565847; x=1739170647;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=KBpu38zoJhnbBuVt7xq5HkK4w7WkM2eVS3E6Ag+EQIY=;
+        b=gcZ6MWHIjJ+E98TaY8WgZZgwrxZMTpREgY7r44jner3u5cD4WFwYAzzcptmq+EyaDj
+         RBkxLIbP3XtYIcU27hkfsZMr+zjaH8GZqH/20LG+bLTz0WoG3hXN341r/JJBUs4/DQRr
+         siL5W/wCXFh/OTIpzET9hpduk8ptSfSN2SJ0lo3/UUoVXij74uWiRn5oI0qEJJ/1Cme4
+         kBwOS7nnQ8Ta9ADJnyRX661ub+aukF5kvtxI0Jq/pkwv0TunnZXGPSwf9Hdt1EK+sY6T
+         geG3X5lbBo+aSs7PvTHHtr+SQrvmVS7jor75+BRPO1g0n0rvUQ0sMIJtiT9LlCvKZnM7
+         kctg==
+X-Forwarded-Encrypted: i=1; AJvYcCXnpD20qaUMTvmSroJgsQ2Fnyx8JOeb/n0Oj44QCZWzE6EqmBJB7l8hvuwrkDozEKQQAfttPrdwfAP6Hmi+fQhv@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2TVRu17VDuycp0+Jfytwo7ejVyB6RGhmpelGINIU9l+TbF+yp
+	BlbgoUWy/bkeEDFqWrgyA5uhnPkkJ75fWUTWuL/CoqKocyFokHUzz1bAZWX8Vhsmqhrj6qa12hV
+	pHuLcaSOQuL6aZfLI7g5BnBWZDnKde4Rwlo/FbjwNg+4JTH1Nc3uUnd9RDD6pff3BrAoDkO7tyg
+	==
+X-Gm-Gg: ASbGncs+gBBwVf3aP17HtFmR5LanI7SVIxqVxgVuDlafWiXR1/CwGXZMDInFUAsIb5i
+	kATF1eBG7SOlp5bDNelxFwR3Koq90qof0ylkAmB/xTRRbAG8UXMhBxxmZvqud2eAIAAHadW0SFv
+	GdShWaOkb+IPLzB1CtLs+sz0dXmeT2JTVrCyzBZwF8JWXnkNKjlIlQbcgJowefFXEKn2L4D9P2g
+	sFuGZm4qYGoImfGcVF6yny8Sf8dMsoV+7ReCBlzKIYEviIS9Q8qW0sbuYrZ2MtuKX0JxinGyNyz
+	wrGqfCJjDTL2xzbk1RMI8AeO0Q8sc/jM/xYOXQF0yR01zbTm2LKkRNBPXE/xBAFm
+X-Received: by 2002:a17:90b:2c84:b0:2ee:b2e6:4275 with SMTP id 98e67ed59e1d1-2f83ac65958mr26047455a91.26.1738565847621;
+        Sun, 02 Feb 2025 22:57:27 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGeQG0nwmZr51/0vcXCzKKQK+KfHdJ43jCCy1lp4o7bkMpfm/h39HEEtpxsyBUKAvfYNo9pgA==
+X-Received: by 2002:a17:90b:2c84:b0:2ee:b2e6:4275 with SMTP id 98e67ed59e1d1-2f83ac65958mr26047432a91.26.1738565847216;
+        Sun, 02 Feb 2025 22:57:27 -0800 (PST)
+Received: from localhost (162.198.187.35.bc.googleusercontent.com. [35.187.198.162])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21de31efbcbsm68878385ad.30.2025.02.02.22.57.26
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 02 Feb 2025 22:57:26 -0800 (PST)
+Date: Mon, 3 Feb 2025 15:57:15 +0900
+From: Dominique Martinet <dominique.martinet@atmark-techno.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: linux-usb@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] usb: phy: mxs: silence EPROBE_DEFER error on boot
+Message-ID: <Z6BoyybpbaLet6jf@atmark-techno.com>
+References: <20250203-defer_usb2-v2-1-69b3a941371a@atmark-techno.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v19 05/11] perf: arm_v7_pmu: Don't disable counter in
- (armv7|krait_|scorpion_)pmu_enable_event()
-To: "Rob Herring (Arm)" <robh@kernel.org>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Jonathan Corbet <corbet@lwn.net>,
- Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Zenghui Yu <yuzenghui@huawei.com>, James Clark <james.clark@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- kvmarm@lists.linux.dev
-References: <20250202-arm-brbe-v19-v19-0-1c1300802385@kernel.org>
- <20250202-arm-brbe-v19-v19-5-1c1300802385@kernel.org>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250202-arm-brbe-v19-v19-5-1c1300802385@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250203-defer_usb2-v2-1-69b3a941371a@atmark-techno.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250202_225450_819312_8B63D7F0 
-X-CRM114-Status: GOOD (  15.44  )
+X-CRM114-CacheID: sfid-20250202_225730_343391_1ECE68F8 
+X-CRM114-Status: GOOD (  24.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,53 +110,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2/3/25 06:12, Rob Herring (Arm) wrote:
-> Currently (armv7|krait_|scorpion_)pmu_enable_event() start by disabling
-> the event counter it has been asked to enable. This should not be
-> necessary as the counter (and the PMU as a whole) should not be active
-> when *_enable_event() is called.
+Dominique Martinet wrote on Mon, Feb 03, 2025 at 03:32:05PM +0900:
+> Use dev_err_probe to silence EPROBE_DEFER error on boot on i.MX8ULP:
+> [    0.127301] mxs_phy 29910000.usb-phy: can't get the clock, err=-517
 > 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: Dominique Martinet <dominique.martinet@atmark-techno.com>
 > ---
->  drivers/perf/arm_v7_pmu.c | 6 ------
->  1 file changed, 6 deletions(-)
+> Changes in v2:
+> - removed redundant error message and now useless braces, thank you for
+>   the quick feedback!
+> - adjusted message alignment (that was also bugging me...)
+> - Link to v1: https://lore.kernel.org/r/20250203-defer_usb2-v1-1-2366f26462e0@atmark-techno.com
+> ---
+>  drivers/usb/phy/phy-mxs-usb.c | 8 +++-----
+>  1 file changed, 3 insertions(+), 5 deletions(-)
 > 
-> diff --git a/drivers/perf/arm_v7_pmu.c b/drivers/perf/arm_v7_pmu.c
-> index 7fa88e3b64e0..17831e1920bd 100644
-> --- a/drivers/perf/arm_v7_pmu.c
-> +++ b/drivers/perf/arm_v7_pmu.c
-> @@ -857,8 +857,6 @@ static void armv7pmu_enable_event(struct perf_event *event)
->  		return;
->  	}
+> diff --git a/drivers/usb/phy/phy-mxs-usb.c b/drivers/usb/phy/phy-mxs-usb.c
+> index 7490f1798b461c39c29bb74e1e57e0a4adce2bd7..39b75199d11c6f9ec21174c20d0465cb79c133fb 100644
+> --- a/drivers/usb/phy/phy-mxs-usb.c
+> +++ b/drivers/usb/phy/phy-mxs-usb.c
+> @@ -769,11 +769,9 @@ static int mxs_phy_probe(struct platform_device *pdev)
+>  		return PTR_ERR(base);
 >  
-> -	armv7_pmnc_disable_counter(idx);
-> -
->  	/*
->  	 * Set event (if destined for PMNx counters)
->  	 * We only need to set the event for the cycle counter if we
-> @@ -1450,8 +1448,6 @@ static void krait_pmu_enable_event(struct perf_event *event)
->  	struct hw_perf_event *hwc = &event->hw;
->  	int idx = hwc->idx;
->  
-> -	armv7_pmnc_disable_counter(idx);
-> -
->  	/*
->  	 * Set event (if destined for PMNx counters)
->  	 * We set the event for the cycle counter because we
-> @@ -1762,8 +1758,6 @@ static void scorpion_pmu_enable_event(struct perf_event *event)
->  	struct hw_perf_event *hwc = &event->hw;
->  	int idx = hwc->idx;
->  
-> -	armv7_pmnc_disable_counter(idx);
-> -
->  	/*
->  	 * Set event (if destined for PMNx counters)
->  	 * We don't set the event for the cycle counter because we
-> 
+>  	clk = devm_clk_get(&pdev->dev, NULL);
+> -	if (IS_ERR(clk)) {
+> -		dev_err(&pdev->dev,
+> -			"can't get the clock, err=%ld", PTR_ERR(clk));
+> -		return PTR_ERR(clk);
+> -	}
+> +	if (IS_ERR(clk))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(clk),
+> +				     "can't get the clock");
 
-LGTM
+Looking at the usb251xb patch also made me notice this is missing a
+trailing newline, but I'm surprised because it "worked fine" (I don't
+see garbage at the end of the line in my dmesg with the old 517 error)
 
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+There's no other missing \n in this file though so I guess I'll just
+send a v3 in doubt, but I'm now curious if it really is needed and
+couldn't find anything about that.
+
+Anyway, sorry for the spam, and thanks for the quick review earlier!
+-- 
+Dominique
 
