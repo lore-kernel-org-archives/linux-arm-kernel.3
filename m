@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10A12C02193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 19:59:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AE19C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 20:34:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=feQLUNPstNElf5lr4hbdbzWndsnR5LpLLVjY7NxvOA4=; b=nSLgP96pkQgaGMRv5G2fAzhA8w
-	IETT7R1I6Byd/O30MCAq2Iz5Wop+bKmzWTqmjk8tXchRiDJK14PBqjLLea7OVFo3XhYOJiNGQNMfI
-	fKg/VChxLV02GsjwD7qs0vUyohtiaUjFcgMqhytVxMWGabhJed5KsDTTAPvXiKlAIgPUzPxIhqw+v
-	RYGeBmjb1ht8tizUZNnf+pZRXH/WZEAKhLQFJoKK+f6ehLtPZi2L1E47E1g7ySSoewyzdc0FcSJY4
-	+h77ipvXph5ueYP/wRHbiB2jjUou/neJnC/kyroXZCZzc/7/CdnUMTPlA9BRP+lJeJn/YYz2tBBXD
-	Ou14WA0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=711z7H/Mfv5T8ZZL5MDq4LXidXe9YLYpVhYpSRj2AKc=; b=Fo61QmiPlFFhDA
+	ipTxPOrXOXnHCTsMBwl34tm9Ic5LFGEKlEzHm12krCGpGj8SA0pViGwGx2Oo6iifN6n0PRgUT99sE
+	jJeq2+QCBU4XH4T+CusI7k8tpOtQkh9Kv3OTc1Nb+jKwX2SIVuUKC41YPLjHwSKyZnMirbS+ViU0F
+	xwu6sGifjBzUuiC3RhKrOHw2Gl7hKl3RMzBfMTSUWCMga/mM3hnT7ssf2Q/se5uQHIEWCAcIh2xkZ
+	f6y//zpEHflxzL526WvtCY5uwMxDmdJjN2RZWZA82klwV27+1glr//RtU7qTI62AjwFn0s5Rq2UMM
+	MbsHA6QKKayI2bCojLqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf2bE-0000000GVDu-0TGH;
-	Mon, 03 Feb 2025 19:59:16 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tf38t-0000000GXVc-0Ujl;
+	Mon, 03 Feb 2025 20:34:03 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf2Zr-0000000GV93-3HCG
+	id 1tf37Z-0000000GXHw-2D4E
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 19:57:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B0400A41C52;
-	Mon,  3 Feb 2025 19:56:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A37BDC4CED2;
-	Mon,  3 Feb 2025 19:57:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738612670;
-	bh=durZiyUzKeQV8I7CDYBd9bdRLrh73k2nsD8U1EuoMNI=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=GwzGCyl+NjMgN6QiwVEbFS1WawVGL2e3kcTGvNzQUqJ9W93Jk/xBCjut6IL6lN30t
-	 HPAiZoCt9knGKLw4BWT+5jplUrJ08LSqhhNEmlFN+bBgRsmvencGfc53E8lb9L2oZF
-	 IrHMnff+KS1Ktq1Mw9A0JJb9TvavUnidAHJHV+A3rcRQiGlOhcmyTdM/3/4G18/tYe
-	 LZv4hPRa1RIu/hS8qqM+xX8wDtHO6NPv75H8KhKoUxOQzxRd0g9XUX1VZhKOx3cUkh
-	 VFUSFeZ2vPwFIc56CMBTXcYsy5cyKcwnhfVrE18N3OQnEtQr4cbuZ5anw4eEW+VAPp
-	 nBE5nGZeSZF2w==
-From: Mark Brown <broonie@kernel.org>
-To: linux-arm-kernel@lists.infradead.org, Marek Vasut <marex@denx.de>, 
- Conor Dooley <conor@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
- devicetree@vger.kernel.org, Frieder Schrempf <frieder.schrempf@kontron.de>, 
- imx@lists.linux.dev, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Liam Girdwood <lgirdwood@gmail.com>, linux-kernel@vger.kernel.org, 
- Rob Herring <robh@kernel.org>, Robin Gong <yibin.gong@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
- Frieder Schrempf <frieder@fris.de>
-Cc: Bo Liu <liubo03@inspur.com>, Conor Dooley <conor.dooley@microchip.com>, 
- Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>, 
- Joy Zou <joy.zou@nxp.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>
-In-Reply-To: <20241218152842.97483-1-frieder@fris.de>
-References: <20241218152842.97483-1-frieder@fris.de>
-Subject: Re: (subset) [PATCH v3 0/9] Use correct LDO5 control registers for
- PCA9450
-Message-Id: <173861266637.674751.16665389874730608623.b4-ty@kernel.org>
-Date: Mon, 03 Feb 2025 19:57:46 +0000
+	Mon, 03 Feb 2025 20:32:43 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 62A4825BB1;
+	Mon,  3 Feb 2025 21:32:35 +0100 (CET)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id uvAOHOSqMBCO; Mon,  3 Feb 2025 21:32:34 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1738614754; bh=NeQcw5rrhoA9bA5UTKSw3syXrmeuhQwUW7S3N0b3KQU=;
+	h=From:Subject:Date:To:Cc;
+	b=c2vTYrymOaujh4T/+OU36Wex/6DpyinJUMXrQdJrlb3eBEZXznX/U9L7WyEtTmfCK
+	 lXXi1JNw1DXwcZyNGdZlC0BUSjymliMR5zBQnYclB60oyL5ulFwmyy13+txrHwYgzq
+	 LRC3VGSaSUA5U5bZDT/R1T8h5xEFOn3lZlhFhGaK5fcRlwZPPUCtL1Gn1i3xA/59xN
+	 zVL9DlhvD9mDrkLHrZn31kyTLTEt72Ze4xaknkyrMpO5vaLwf9rJiSKZuED2dtS4HR
+	 bMGNk1o9ml6amOkO2n3GgEGUJCPR4UPkG1nvG44AUEoIm2Z+zrLTiMyXdInV2VTRVt
+	 AnHZDiJkNta+A==
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+Subject: [PATCH 0/2] Add chip ID for Exynos7870 SoC
+Date: Tue, 04 Feb 2025 02:02:18 +0530
+Message-Id: <20250204-exynos7870-chipid-v1-0-0bf2db08e621@disroot.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-1b0d6
+X-B4-Tracking: v=1; b=H4sIANInoWcC/x3MQQqAIBBA0avIrBPMLKurRAvRqWajohCFePek5
+ Vv8XyBjIsywsgIJb8oUfEPfMbCX8Sdycs0ghRyFFAPH5/Uh61kLbi+K5LidDqnMYuZeOWhdTHj
+ Q8z+3vdYP3D/ueWMAAAA=
+X-Change-ID: 20250203-exynos7870-chipid-c6f24a9a814d
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Conor Dooley <conor@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Sergey Lisov <sleirsgoevy@gmail.com>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Kaustabh Chakraborty <kauschluss@disroot.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1738614748; l=669;
+ i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
+ bh=NeQcw5rrhoA9bA5UTKSw3syXrmeuhQwUW7S3N0b3KQU=;
+ b=4fi2GlMBwPdxvLlv0ut4beRiUG8bQwm7b+MzOCl95ltxb58PjnrGf4Obu0Voao6rKyLMtzzPS
+ myowzHHGdGtDd7V22l+Uek37yEL8AgeK9vMgDwGTDxH/1eVMpQdJyEl
+X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
+ pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_115751_890230_7FB07B24 
-X-CRM114-Status: GOOD (  15.06  )
+X-CRM114-CacheID: sfid-20250203_123241_711002_4D8349B7 
+X-CRM114-Status: UNSURE (   7.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,51 +84,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 18 Dec 2024 16:27:23 +0100, Frieder Schrempf wrote:
-> This is a follow-up of [1].
-> 
-> The main objective of this is to fix the PCA9450 driver to
-> use the correct control register for the LDO5 regulator.
-> 
-> Currently the control register to use for LDO5 is hardcoded to
-> LDO5CTRL_H. This is wrong for two reasons:
-> 
-> [...]
+This patch series is a part of Exynos7870 upstreaming.
 
-Applied to
+Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+---
+Kaustabh Chakraborty (2):
+      dt-bindings: hwinfo: samsung,exynos-chipid: add exynos7870-chipid compatible
+      soc: samsung: exynos-chipid: add support for exynos7870
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-next
+ Documentation/devicetree/bindings/hwinfo/samsung,exynos-chipid.yaml | 1 +
+ drivers/soc/samsung/exynos-chipid.c                                 | 1 +
+ 2 files changed, 2 insertions(+)
+---
+base-commit: df4b2bbff898227db0c14264ac7edd634e79f755
+change-id: 20250203-exynos7870-chipid-c6f24a9a814d
 
-Thanks!
-
-[1/9] dt-bindings: regulator: pca9450: Add properties for handling LDO5
-      commit: f9cbf56b0a1966d977df87d15a5bdbff2c342062
-[2/9] arm64: dts: imx8mp-skov-reva: Use hardware signal for SD card VSELECT
-      commit: b5ec74c2aec76fbdff9bc16951455602e11902bf
-[3/9] Revert "regulator: pca9450: Add SD_VSEL GPIO for LDO5"
-      commit: c73be62caabbec6629689c705aea65e5ce364d5d
-[4/9] regulator: pca9450: Fix control register for LDO5
-      commit: 3ce6f4f943ddd9edc03e450a2a0d89cb025b165b
-[5/9] regulator: pca9450: Fix enable register for LDO5
-      commit: f5aab0438ef17f01c5ecd25e61ae6a03f82a4586
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+Best regards,
+-- 
+Kaustabh Chakraborty <kauschluss@disroot.org>
 
 
