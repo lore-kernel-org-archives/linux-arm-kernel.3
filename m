@@ -4,57 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED9F2C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 18:26:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA08CC02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 18:28:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
 	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RB5zo1GGCQ36hyCaggmcVYREHv1ZA2y6ofUzfaQj+A0=; b=OZpYZwO4zDaSRUPO5kfFkQ+DFh
-	qe0PdXYsAcgm9kvr2VBYIK6PbjLoUGvsCcG57Ww5Jry2URuOjAAyaLoCvxlganpAsoyCP9opaLeGr
-	hvTMjYi7EpfxpZFu3UV9MODsSBM89v1LFTtvUDzGNuNPgV2azAf6Z1yE8dwSLl+sg7ubhLPKEiBjK
-	L5/Z11Qo0kZi4CzJenJAMbZ2dw5+GGzuxoD8/GLyvo+v/g0MOSDUVW9HlWIIVuBir48fDTGYSbzky
-	6i45dBeTBmkdZ8rNcd80TzJFpJUI6/mrrlfPpHCgwsmuvlaGGjFLp4Aia07VsVqsRGiEOn0fpF6Yw
-	aP9COVbA==;
+	bh=KEHI6fKlstrD1dJJta8lfcv3fS6nvl35ceffKmGLfis=; b=BEWx4CCXNCUeUIX3D3F8pSfbAr
+	JttLXgYgXyNyzU/dh+mWejfOHWwc7Ph371d9l9ZLv3Zlnvkm7RisD7UyxpJkWxDmkUJUJtbNNRf0t
+	zWkjwcgv7dsm4Xi2BWT2EvgUkWn8ZDwpq079bQuW1BjGHqnqUIK5ffNZ01Y9dMEXoqLEU8nDNMT2S
+	QX2VVeuQkhwYKcQhky1j5Vf3hhXnVDIrDe4UM18dvd/lGIuA73nt4dhAMPhDiickeCLkxkyxYN98+
+	6M1IhDtSwJvzGB0GuGWdsJGi6+ePzyC79MvWPhgKPoI3B/h884vL+eiG8w3uXQdo42QNrcuKsLfoA
+	hDcUoy2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf194-0000000GFQM-31dx;
-	Mon, 03 Feb 2025 18:26:06 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tf1BR-0000000GFtV-1xfL;
+	Mon, 03 Feb 2025 18:28:33 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf17j-0000000GF2z-3O8x
+	id 1tf1A6-0000000GFaU-4A3a
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 18:24:45 +0000
+	Mon, 03 Feb 2025 18:27:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 689F05C4D25;
-	Mon,  3 Feb 2025 18:24:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C34AEC4CED2;
-	Mon,  3 Feb 2025 18:24:42 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id D820BA41ACA;
+	Mon,  3 Feb 2025 18:25:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 876D7C4CED2;
+	Mon,  3 Feb 2025 18:27:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738607083;
-	bh=kS52tnDcHZpqiP8fWjUc+LfmksWcnjQyHD//S3efKYU=;
+	s=k20201202; t=1738607229;
+	bh=U9fT7WD89sfXHwxYnXo6/SN52jUszCmb683sKFOLaTo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ch5W8Dy+SLF9ojLRe9+SL81IEAdmVnDaBKiTKqGuHzdnTMptbW9i2Ac12YbILGmnl
-	 BwPBdidWBGhx3jsx1Kk99OBDtbQItBZKGEOn+HngTSGzc5RMD5VQ76rEhub6HtXLsP
-	 ygMLY24pZHnGPEWs989pXGDqny8th52xbxTBtCjdyoHCCOhLcRhsGa9kMzNL47IX2n
-	 34uHR/JekrS5Ev7xwyfm0VJDQgH8g9BxQeHICKBwbVBI6Mx/SsGSevfvWEcvt67LZZ
-	 U65p9ndoLXf/+sIIjA8BjRvoeihJrTjFFVNhEz/ELsvysh3locl7M756BBnaWwMJgw
-	 lC6oQJ+gHUnhQ==
-Date: Mon, 3 Feb 2025 12:24:41 -0600
+	b=NgoesGlMCmPx1BC54ufGwzTD2FALfRfXi6oCuNPuoPlom7+NSd/e08vGzJ80tR8Wy
+	 3MIluTD0xy9E55SGaGohE/d/tdrmb33QUvg3aZjGXHMW41Og2ZR7Venbe8IP2ckzgP
+	 nf2o1aO9jUCMQhKknv9rnO0jSD7wEVW4FRqULNxONC0k1N/kedTNpqksVvMKcvuSBB
+	 1sFxHHRj3W3xZHbK9DtzJv1sqDfyPXqj+W+v9q1QdJ6UZM0uc0Z0IeK992jV/jFnb5
+	 hPuUoXrrR3bIyG+Ztkrrhi+xRYGnStuTl6mEHm2M1OuW4uvxFxMRb7MM6xmoizWVNa
+	 /lLaGFAXgMvGQ==
+Date: Mon, 3 Feb 2025 12:27:08 -0600
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Charan Pedumuru <charan.pedumuru@microchip.com>
-Subject: Re: [PATCH v4] dt-bindings: dma: convert atmel-dma.txt to YAML
-Message-ID: <173860707629.3348340.8749249185300226333.robh@kernel.org>
-References: <20250203-test-v4-1-a9ec3eded1c7@microchip.com>
+To: Andrei Simion <andrei.simion@microchip.com>
+Subject: Re: [PATCH v2] ASoC: dt-bindings: atmel,at91-ssc: Convert to YAML
+ format
+Message-ID: <173860722807.3351261.2109614863314200591.robh@kernel.org>
+References: <20250203091111.21667-1-andrei.simion@microchip.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250203-test-v4-1-a9ec3eded1c7@microchip.com>
+In-Reply-To: <20250203091111.21667-1-andrei.simion@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_102443_890511_16470E89 
-X-CRM114-Status: GOOD (  14.72  )
+X-CRM114-CacheID: sfid-20250203_102711_092853_995FA3F9 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,48 +67,36 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, linux-kernel@vger.kernel.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Andrei Simion <andrei.simion@microchip.com>, Vinod Koul <vkoul@kernel.org>, Ludovic Desroches <ludovic.desroches@microchip.com>, Durai Manickam KR <durai.manickamkr@microchip.com>, dmaengine@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
+Cc: conor+dt@kernel.org, devicetree@vger.kernel.org, alexandre.belloni@bootlin.com, linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, lgirdwood@gmail.com, broonie@kernel.org, claudiu.beznea@tuxon.dev, krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 03 Feb 2025 11:48:09 +0530, Charan Pedumuru wrote:
-> From: Durai Manickam KR <durai.manickamkr@microchip.com>
+On Mon, 03 Feb 2025 11:11:12 +0200, Andrei Simion wrote:
+> Convert devicetree binding atmel-ssc.txt to YAML format.
+> Update the documentation supported file for MICROCHIP SSC DRIVER.
 > 
-> Add a description, required properties, appropriate compatibles and
-> missing properties like clocks and clock-names which are not defined in
-> the text binding for all the SoCs that are supported by microchip.
-> Update the text binding name `atmel-dma.txt` to
-> `atmel,at91sam9g45-dma.yaml` for the files which reference to
-> `atmel-dma.txt`. Drop Tudor name from maintainers.
-> 
-> Signed-off-by: Durai Manickam KR <durai.manickamkr@microchip.com>
-> Signed-off-by: Charan Pedumuru <charan.pedumuru@microchip.com>
+> Signed-off-by: Andrei Simion <andrei.simion@microchip.com>
 > ---
-> Changes in v4:
-> - Modified the description for #dma-cells property.
-> - Link to v3: https://lore.kernel.org/r/20250127-test-v3-1-1b5f5b3f64fc@microchip.com
-> 
-> Changes in v3:
-> - Renamed the text binding name `atmel-dma.txt` to
->   `atmel,at91sam9g45-dma.yaml` for the files which reference to
->   `atmel-dma.txt`.
-> - Removed `oneOf` and add a blank line in properties.
-> - Dropped Tudor name from maintainers.
-> - Link to v2: https://lore.kernel.org/r/20250123-dma-v1-1-054f1a77e733@microchip.com
-> 
-> Changes in v2:
-> - Renamed the yaml file to a compatible.
-> - Removed `|` and description for common properties.
-> - Modified the commit message.
-> - Dropped the label for the node in examples.
-> - Link to v1: https://lore.kernel.org/all/20240215-dmac-v1-1-8f1c6f031c98@microchip.com
+> v1 -> v2:
+> - squash MAINTAINERS patch
+> - place this yaml in sound directory
+> - reword the commit title
+> - reword the commit message
+> - add #sound-dai-cells const 0
+> - add required
+> - include ref dai-common.yaml#
+> - fix the logic for the required properties for DMA transfer
+> - update examples by adding #sound-dai-cells = <0>
+> - drop unnecessary description
+> - drop compatible for sam9x7-ssc because is not the intent of the patch
 > ---
->  .../bindings/dma/atmel,at91sam9g45-dma.yaml        | 68 ++++++++++++++++++++++
->  .../devicetree/bindings/dma/atmel-dma.txt          | 42 -------------
->  .../devicetree/bindings/misc/atmel-ssc.txt         |  2 +-
->  MAINTAINERS                                        |  2 +-
->  4 files changed, 70 insertions(+), 44 deletions(-)
+>  .../devicetree/bindings/misc/atmel-ssc.txt    |  50 ---------
+>  .../bindings/sound/atmel,at91-ssc.yaml        | 104 ++++++++++++++++++
+>  MAINTAINERS                                   |   2 +-
+>  3 files changed, 105 insertions(+), 51 deletions(-)
+>  delete mode 100644 Documentation/devicetree/bindings/misc/atmel-ssc.txt
+>  create mode 100644 Documentation/devicetree/bindings/sound/atmel,at91-ssc.yaml
 > 
 
 Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
