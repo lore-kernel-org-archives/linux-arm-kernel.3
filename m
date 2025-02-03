@@ -4,76 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CE7FC02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 15:10:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A66D1C02195
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 15:14:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HqEE3YRbTbE7T+1H+FMsBDpAKDlGN4RiEhakRYvsKYs=; b=RXAf3ITFSwvzWng/2nxxn5Yqbn
-	i5b2VS1IgJBGpTfJRk5tFLF1s7TALMkfu1diA3u1AvAYL5KYzr8WKGfEmPLbJhXEwDzO8xDeDlgT9
-	8PlpwbqM+QmyfJLQM3K43sB0AUeMuojLtqgZ+mOMckedf2+Gs5gd1kcBn7cN8jZ9gf+fxAAG0JL3t
-	ZgID5BwMfV2n8kwqV1bwdcUAXJzsLyRz5b9LJF4Aor7SjAKimdi5cHfSsf1VIz4AUyjnHIMkXQPb/
-	TEXQcc/xxz5w338+QV1IxwMIddh/2edZM80VW7olc/HlWsmRSLHFZrj6q14b3ZnSV5iQtGz08vwac
-	S5Ba3e/Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=KsW8X9WKTUVjkLOMVLun4STQMn5HssaiU+p3WX0jzQw=; b=dlJ/Tf48swiLUf
+	Xvpjbq6DtmRbt5GdUVjK0RuMrY2pxt+T7eHb37daYps21gwiWVCrzOvOo+7h9Rp/dfWsIDxbLicRP
+	F1TcpFgq2lmX/M2aoe4ICdnYs5GYH+2bzk+iHarX/vU7UjHDlJau26cIdT+e+KHRAv+ds02q95el8
+	7Pv0CLxtIXo5W4CmkrWKq3dHvVHwon9H8z4kWpzSscrPpa7edjwjdltRy3faQ/+k3JtY0V7o0J3fE
+	BBznnIV0wXaobkyby4FuFT7maYAs6I0OE3IdixfbMAUBvMKbBibG94FSipxwAz5rHseYCZzNJcakW
+	8GI9b40IhoC7YUJ2KgjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tey5J-0000000Foje-0Mty;
-	Mon, 03 Feb 2025 15:10:01 +0000
-Received: from [198.47.23.235] (helo=lelvem-ot02.ext.ti.com)
+	id 1tey9p-0000000Fplg-2ygF;
+	Mon, 03 Feb 2025 15:14:41 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tey3x-0000000FoYN-4Azt
+	id 1tey8U-0000000FpUH-0Ay1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 15:08:39 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 513F87PG2214454
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 3 Feb 2025 09:08:07 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1738595288;
-	bh=HqEE3YRbTbE7T+1H+FMsBDpAKDlGN4RiEhakRYvsKYs=;
-	h=From:To:CC:Subject:Date;
-	b=fdwggEnYMuGDpLyX25DdN2X2/f4rp1PO6ToRqREfCBCR0PJsNDNp7d8iFSftz2yMN
-	 3qCWIrqFfz1V3F+mmHl7r0LjkIP4LZdZh8a5fPuO7cVU5r2dVx/zevLPQvXMvHQZ7N
-	 59b3VaOsTM+c0/bDRNLBANgWjLQaIr06fPGqafXU=
-Received: from DFLE110.ent.ti.com (dfle110.ent.ti.com [10.64.6.31])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 513F87DH050204
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 3 Feb 2025 09:08:07 -0600
-Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE110.ent.ti.com
- (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 3
- Feb 2025 09:08:07 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE113.ent.ti.com
- (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 3 Feb 2025 09:08:07 -0600
-Received: from uda0490681.. ([10.24.69.142])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 513F81hC112820;
-	Mon, 3 Feb 2025 09:08:02 -0600
-From: Vaishnav Achath <vaishnav.a@ti.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <quic_bjorande@quicinc.com>,
-        <geert+renesas@glider.be>, <krzysztof.kozlowski@linaro.org>,
-        <dmitry.baryshkov@linaro.org>, <arnd@arndb.de>,
-        <nfraprado@collabora.com>, <ebiggers@google.com>, <ardb@kernel.org>,
-        <nm@ti.com>, <vigneshr@ti.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <nfrayer@baylibre.com>, <glaroque@baylibre.com>, <tglx@linutronix.de>,
-        <u-kumar1@ti.com>, <vaishnav.a@ti.com>
-Subject: [PATCH v2] arm64: defconfig: Enable TISCI Interrupt Router and Aggregator
-Date: Mon, 3 Feb 2025 20:38:01 +0530
-Message-ID: <20250203150801.2399555-1-vaishnav.a@ti.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 03 Feb 2025 15:13:20 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id E560EA0E4F;
+	Mon,  3 Feb 2025 16:13:13 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=mail; bh=KsW8X9WKTUVjkLOMVLun4STQMn5HssaiU+p3WX0jzQw=; b=
+	ZkOGUhdEZdk7nZcdBpWIynCii/QLezGnYiubpZmIP1nbEsFPV/VrJIVF5IaJTpqo
+	gEgut8MklY1FQc38+jyXZMvY8iSMwvUu8b3dmlTU2nwZm9MQZ9SawibxDHCgXCFu
+	hz9epWJh5YtWkNHRY3uaUToFhOuyZ6dSRUWuBId4uqIfXqATAU3lxbV2xTEnzFk9
+	Q/8T3i4DVAFSfUrNQkheHUOu0Sf2Y7jvh+IpzuQb74CCMYCjHemWFctTXarz+f75
+	2t3Nmx1hAHSRNua1pk71sr7Fy7dM6YxjkgwbWGt7WSeBLo02Cjyzc8lqhhlGN9CD
+	Y+c+qbXBEQCs5h71oaXWm0qk0jd4KZqRVX/zqm20d8fOhwi9y21mR4G86V9sifxH
+	Yw/8tVr4gXcdrlXSn4KQN/Jd3s+P5BoAljXMkUuutV+Vdn5kGPk+cJPLvRwRrEAB
+	GXZ0kTJqgCfbAbzF7/I2DZfpYuu6+cP4ZHXDQCDtqoYFref5apShFiMGy2XvPUyx
+	bjWxjJ3r0FnMfzqHGTsdGvjK9Ql+e12nGZrBPNn3FjTKWzkzeSs6bLOKi44jwT7A
+	244J1GsxeZ//J+g+WT4qgGfuokPC+/hyJ08GdthvOUzBe+lpP/cPbDJ5AJaTfA5Z
+	3kqVPMLb0rYebPocaKcZaKetv4LYylaj2Q0PqdsThBE=
+From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+To: Mark Brown <broonie@kernel.org>, Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Varshini Rajendran <varshini.rajendran@microchip.com>,
+	=?UTF-8?q?Cs=C3=B3k=C3=A1s=2C=20Bence?= <csokas.bence@prolan.hu>,
+	<linux-spi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH for-6.14] spi: atmel-quadspi: Fix warning in doc-comment
+Date: Mon, 3 Feb 2025 16:12:49 +0100
+Message-ID: <20250203151249.79876-2-csokas.bence@prolan.hu>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1738595593;VERSION=7984;MC=1580607873;ID=182239;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2980D94852667064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_070838_162914_6D66C0F7 
-X-CRM114-Status: UNSURE (   8.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250203_071318_541717_49DA3014 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,57 +76,38 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Claudiu Beznea <claudiu.beznea@tuxon.dev>, Alexandre Belloni <alexandre.belloni@bootlin.com>, kernel test robot <lkp@intel.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable TISCI Interrupt Router and Interrupt Aggregator drivers.
-These IPs are found in all TI K3 SoCs like J721E, AM62X and is required
-for core functionality like DMA, GPIO Interrupts which is necessary
-during boot, thus make them built-in.
+The doc-comment for `struct atmel_qspi_pcal` had a typo in one of the
+struct members' name, causing a warning with the `W=1` option.
 
-bloat-o-meter summary on vmlinux:
-	add/remove: 460/1 grow/shrink: 4/0 up/down: 162483/-8 (162475)
-	...
-	Total: Before=31615984, After=31778459, chg +0.51%
-
-Fixes: 2d95ffaecbc2 ("irqchip/ti-sci-intr: Add module build support")
-Fixes: b8b26ae398c4 ("irqchip/ti-sci-inta : Add module build support")
-
-Signed-off-by: Vaishnav Achath <vaishnav.a@ti.com>
+Fixes: 5af42209a4d2 ("spi: atmel-quadspi: Add support for sama7g5 QSPI")
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202501311707.Ltj0qXse-lkp@intel.com/
+Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
 ---
+ drivers/spi/atmel-quadspi.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-V1 : https://lore.kernel.org/all/20250119182121.3956546-1-vaishnav.a@ti.com/
-
-V1->V2:
-	* Add Fixes tag.
-	* Add bloat-o-meter summary to commit message.
-
-Previously both of these configs were selected for ARCH_K3 in respective
-Kconfigs, but commit b8b26ae398c4 ("irqchip/ti-sci-inta : Add module build support")
-and commit 2d95ffaecbc2 ("irqchip/ti-sci-intr: Add module build support")
-in dropped this recently without adding those back in arm64
-defconfig, this causes boot failure in all TI K3 platforms.
-
-Passing bootlog with configs enabled:
-https://gist.github.com/vaishnavachath/03d8d3ce0f22219643c2f4d1dd243fd1
-
- arch/arm64/configs/defconfig | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index cb7da4415599..1f25423de383 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1551,6 +1551,8 @@ CONFIG_PWM_VISCONTI=m
- CONFIG_SL28CPLD_INTC=y
- CONFIG_QCOM_PDC=y
- CONFIG_QCOM_MPM=y
-+CONFIG_TI_SCI_INTR_IRQCHIP=y
-+CONFIG_TI_SCI_INTA_IRQCHIP=y
- CONFIG_RESET_GPIO=m
- CONFIG_RESET_IMX7=y
- CONFIG_RESET_QCOM_AOSS=y
+diff --git a/drivers/spi/atmel-quadspi.c b/drivers/spi/atmel-quadspi.c
+index abdc49d9d940..d8c9be64d006 100644
+--- a/drivers/spi/atmel-quadspi.c
++++ b/drivers/spi/atmel-quadspi.c
+@@ -235,8 +235,8 @@
+ /**
+  * struct atmel_qspi_pcal - Pad Calibration Clock Division
+  * @pclk_rate: peripheral clock rate.
+- * @pclkdiv: calibration clock division. The clock applied to the calibration
+- *           cell is divided by pclkdiv + 1.
++ * @pclk_div: calibration clock division. The clock applied to the calibration
++ *           cell is divided by pclk_div + 1.
+  */
+ struct atmel_qspi_pcal {
+ 	u32 pclk_rate;
 -- 
-2.34.1
+2.48.1
+
 
 
