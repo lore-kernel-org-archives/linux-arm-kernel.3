@@ -4,81 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 702D4C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 21:41:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47AB2C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 21:46:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=XEqP/YEsjQP6HXPcAZ+OLL0SnqZRyU2wi8fLU4Seg48=; b=ti+2f/dxWJcgH3
-	7ufFyyJltT7bZaVcRp9w3BJUmyB3YivNZTXjeG/scw/Tti0qi0X/9XZGvcMx8P05YC7lw+YTCSjvt
-	jtLrwv2YoT/ZczKhGYjENZIiu+mypcz0DoDHiMWwM/Y/frG+jJGzbu8kqa7aVyLS9kep50T8yd25w
-	u301r2jSq3d1AIw2cFLLQ/OmCkEHnAjxGLJDp87cZvg3GLP9uCnMPXRcWvrtdsACjGN7Kz0ogWO+Y
-	eGjO7ojwJ0xEqZY6r/ofhwlwDXo+rOOXshrLyoi9WY6BlfNcE9+DVQ5ZcrvMvcD9azoiaPR3RDDmx
-	ClR3XDYdvza0ohxpMb1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Wj+Hd6qHAd02Eraile0qsk3YHfE0Titpbw0RVullaG8=; b=YVlgFPBKaWEaQAhasToIJtifMW
+	4o9WMsU9QML5SsHKyASyM6OsoUtTs/gaqaWKxqOSeNHXDmZJxe9/cSx7qrQLXFgchJCQha6OB7D15
+	L2LJBTIVRxr2HM5UNCtJXL5XZNqUJZ9Y1yJoh5V1TFY6oBOHO/RJxQ6/E1vNKCpmmZmedoFSAAIGw
+	cRnWXPO6d5cJSD+X1DGcEdxrFRyt5bPPXnOY0MIlO6RTNla/gozkaw3b0Sg+m40yv1w6aDqH4bmYv
+	ZwJfHgTyvOGya5ADd68u2W2WtLAcyfhfKrdU3/Gsx8BdeywIc9jvDLNNulLb0Qn4s9Q1eD+PbS9nJ
+	wIBOeFAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf4CK-0000000GhLC-2TS8;
-	Mon, 03 Feb 2025 21:41:40 +0000
-Received: from mail-il1-x149.google.com ([2607:f8b0:4864:20::149])
+	id 1tf4GR-0000000GiJV-2CzY;
+	Mon, 03 Feb 2025 21:45:56 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf48F-0000000GgQe-0ndl
+	id 1tf38x-0000000GXWb-1q5i
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 21:37:28 +0000
-Received: by mail-il1-x149.google.com with SMTP id e9e14a558f8ab-3a7e0d5899bso90460925ab.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 13:37:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1738618645; x=1739223445; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=XEqP/YEsjQP6HXPcAZ+OLL0SnqZRyU2wi8fLU4Seg48=;
-        b=jTgJAYgrU3ZXB2E7Ta/vBB6v5FPmyh1+4EELAg0M0e+38cHI5ttZfoK/LYwCImOnRo
-         IeNRgSFsESgUvDhrwQbBRFeAkMJIxLIifgnLfZwh5Jwa4PNyYTVo6Kdf5Y7twld9umri
-         B07t3LYK+X1ciZdTjjfZNF0H4aERducnYyOY/MKie+w7yALZJ9CDuGxHi1HD494O0P/z
-         ABa1655yO9V6saRz+2Vd7AaTJimrkn7RdUOepcn6DdvTJZUkqBRUZXbqFG1DOBGmCTUR
-         VgzFYsr1dtEY9Ws5dun7ZJ0qNFOygjatTKOveDub851OcwOxx64LB5SPuvZS6/9jyiEn
-         rEvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738618645; x=1739223445;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=XEqP/YEsjQP6HXPcAZ+OLL0SnqZRyU2wi8fLU4Seg48=;
-        b=bGqUugyNK2ayrZ6BqV7d7/VLECYaFBWkmKD/AAjXexAP5ggfUH2BND3tZBzPATLzh9
-         bDCmXD+Q5dRKUzKcTBwYCV4evofW5WnDp5IDNKFXQ95HGcD/gZbPdI66MoFXvLD6Mvas
-         irqLZ9Quf73eJ2KpAGDuPN62y3RbN0cvEaEgbMM158O+qnpNOz+oP3lV1cjbAqJoWF5t
-         KbXDlr5DXw0VDl/g4diFbgmoUgX1LcYp7ewkFj2HSI/Edrnv9YlOPjZ2vW1Z7dNO8KDY
-         wf4qlRbegbC39NaaW3ScbfjIX6HDzu2e5gvX5PS7SZfPPl3fL9BcakE5Lns3y1S/xEIE
-         zu4g==
-X-Forwarded-Encrypted: i=1; AJvYcCXtr+1W7sC5RtRWUJaLqhwxCqzBR6TPA5PiNdxsoYCdvHLJv3YXUC4r9XJiZL8egzsmiIJwW/hns8oiLqgONGqp@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPaLv1lcL5npx3vONtEcsEDXQfoLUUYwWZdK0/Ika9VeVUZ7sx
-	u5B0TTa0E/8jxQCi24Tv8A/D61gndVCZyVKzNEcgILfyjfaLw5Lk+TzCP1IdWplcmGVNCMPwvEP
-	KYJNWM7d863H98DOcpn1t+w==
-X-Google-Smtp-Source: AGHT+IFzEQXFVr/GsJOoiYsXrEqAdOToUP7ubJ3+EUez4554ouloGovsV2x1HVo9oXN98kh3qBpaq5S0IrbbEWoKkA==
-X-Received: from ilbby19.prod.google.com ([2002:a05:6e02:2613:b0:3cf:c127:d037])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a92:cd83:0:b0:3cf:b571:c08c with SMTP id e9e14a558f8ab-3cffe3d1bc2mr218960215ab.3.1738618645230;
- Mon, 03 Feb 2025 13:37:25 -0800 (PST)
-Date: Mon, 03 Feb 2025 21:37:24 +0000
-In-Reply-To: <gsntzfj91fbs.fsf@coltonlewis-kvm.c.googlers.com> (message from
- Colton Lewis on Wed, 29 Jan 2025 21:27:03 +0000)
-Mime-Version: 1.0
-Message-ID: <gsntwme61zhn.fsf@coltonlewis-kvm.c.googlers.com>
-Subject: Re: [RFC PATCH 1/4] perf: arm_pmuv3: Introduce module param to
- partition the PMU
-From: Colton Lewis <coltonlewis@google.com>
-To: Colton Lewis <coltonlewis@google.com>
-Cc: maz@kernel.org, kvm@vger.kernel.org, linux@armlinux.org.uk, 
-	catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	mark.rutland@arm.com, pbonzini@redhat.com, shuah@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+	Mon, 03 Feb 2025 20:34:08 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 8A9DD25C13;
+	Mon,  3 Feb 2025 21:34:04 +0100 (CET)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id hMYPy9vqYCm0; Mon,  3 Feb 2025 21:34:04 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1738614833; bh=1I9Wdu1ijHTqdP+YNCWicSgLuWPmphWfGZGAkOEBPuQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=kp4wPSX/JOfTPnSJIfDtZhkouaVLxgLESLPKibsGkUjB1ksCS4EIzAEvILwCbZ7Ou
+	 tNOIG+72y4wckgfB8k41Uk2NVqNGZ3FVBGBJ7W4iNhGScTOyIoLeXgDCMHcW+Wwhrv
+	 /KBeD2s6V/3qOsL72VKJA/bGnLFV+EmqFGvhTWGOyIkT9IKRp4Uwyxl8P3U4cxjKZR
+	 SpdtMb8fDeD6K9ANEJiaU+aqK4aLGPuKSYn7d8UWvhqXxXn90hWMVPtyFwmBuuo+NZ
+	 ebwdbpahM191kvPV4Lg25nWOWQ7nE+pB+MMi21giTBdtOYfHRD4CsV8be7qdaz9JIG
+	 TI3OSZmTOtAxQ==
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+Date: Tue, 04 Feb 2025 02:03:32 +0530
+Subject: [PATCH 1/2] dt-bindings: i2c: samsung,s3c2410: add exynos7870-i2c
+ compatible
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250204-exynos7870-i2c-v1-1-63d67871ab7e@disroot.org>
+References: <20250204-exynos7870-i2c-v1-0-63d67871ab7e@disroot.org>
+In-Reply-To: <20250204-exynos7870-i2c-v1-0-63d67871ab7e@disroot.org>
+To: Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Sergey Lisov <sleirsgoevy@gmail.com>, linux-i2c@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ Kaustabh Chakraborty <kauschluss@disroot.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1738614819; l=989;
+ i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
+ bh=1I9Wdu1ijHTqdP+YNCWicSgLuWPmphWfGZGAkOEBPuQ=;
+ b=X96D5MsTJBeUFySAa/G1bSu5VuELN8KjWD+sQ8UIgvan4jxn51Qo6bBOTpTsnAklvvrWboGgi
+ BbPtOLJTpy/CC7fMCmEaHFtX12s38j5bvEUDIsrRb5kyVVk7VJ4SNs1
+X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
+ pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_133727_248277_F05A2B42 
-X-CRM114-Status: GOOD (  10.55  )
+X-CRM114-CacheID: sfid-20250203_123407_617677_0EF288ED 
+X-CRM114-Status: UNSURE (   7.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,34 +85,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Colton Lewis <coltonlewis@google.com> writes:
+Exynos7870's (non-HS) I2C controllers are entirely compatible with
+samsung,s3c2440-i2c. Document Exynos7870's compatible string
+appropriately.
 
-> Marc Zyngier <maz@kernel.org> writes:
+Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+---
+ Documentation/devicetree/bindings/i2c/samsung,s3c2410-i2c.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
->> On Tue, 28 Jan 2025 22:08:27 +0000,
->> Colton Lewis <coltonlewis@google.com> wrote:
+diff --git a/Documentation/devicetree/bindings/i2c/samsung,s3c2410-i2c.yaml b/Documentation/devicetree/bindings/i2c/samsung,s3c2410-i2c.yaml
+index bbc56848562721d206fe4d72c7c103487d11f7bd..6ba7d793504c8cc3322c65ef4aae5ee720e8baba 100644
+--- a/Documentation/devicetree/bindings/i2c/samsung,s3c2410-i2c.yaml
++++ b/Documentation/devicetree/bindings/i2c/samsung,s3c2410-i2c.yaml
+@@ -22,6 +22,7 @@ properties:
+           - samsung,exynos5-sata-phy-i2c
+       - items:
+           - enum:
++              - samsung,exynos7870-i2c
+               - samsung,exynos7885-i2c
+               - samsung,exynos850-i2c
+           - const: samsung,s3c2440-i2c
 
->>> >> +	bitmap_set(cpu_pmu->cntr_mask, 0, pmcr_n);
->>> >> +
->>> >> +	if (reserved_guest_counters > 0 && reserved_guest_counters <
->>> pmcr_n) {
->>> >> +		cpu_pmu->hpmn = reserved_guest_counters;
->>> >> +		cpu_pmu->partitioned = true;
+-- 
+2.48.1
 
->>> > Isn't this going to completely explode on a kernel running at EL1?
-
->>> Trying to access an EL2 register at EL1 can do that. I'll add the
->>> appropriate hypercalls.
-
-Ooohh. Making this work at EL1 is much more complicated than adding the
-hypercall to write MDCR because once HPMN takes effect, the upper range
-of counters that the host will use is only writable at EL2. That means
-using any register related to any counter in the upper range would also
-require a hypercall. The only way around that would be to avoid using
-this feature in the host entirely and only enable it when we load a
-guest.
-
-I know we don't like feature discrepencies between VHE and nVHE mode,
-but Oliver thinks it might be justified here to have PMU partitioning be
-VHE-only.
 
