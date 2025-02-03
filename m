@@ -4,90 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55EE0C02196
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 10:57:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FCF3C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 10:58:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zoyyTWy8+Zu7JkfSAKSCzAU5xw+8zxp6lIz7/LeWBsU=; b=Jngtw8WXnMgQWyVPVaFX5m++cu
-	F26RaWAtU9/6VhWCUMm1+15VQ8+5w0TgCHycaNTNy/zYbASjEf90qG4nbFltvQMOIMD9pvA1lUhEZ
-	WaH7T3V6J2ILf+k4Dh/q+33bM8MgF/1uLGA0m4zl75l9DsmBXLPaj7tXzkvedv3FbY1VTaSOV3AB5
-	DZf5u6HonkCC3sbGPbfJUf6Rt0366BHpWattA4381YsW5VIO/B9lJ2InQ3BLk8c+nlKJ22v4IJZcA
-	A43oBjEb4Kygyc6JUu+XAIcY5mGDRnKERtnSDQ2GFjChGyKBFh7ffnOR9N8zdvMd0qzXRc2X1/kCQ
-	lNSWYM+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j7v8B5fuLOyvPnE4F8xYonpHQmsOiXgCq2SRnIU+w8s=; b=yDAKouSrg6MnlmQ+yjmgvu8jSZ
+	0YArAMihNpYyBttpBiNx99GYIqAIReXDmIYvgZZPjOAE4iEU3vfF09/pgflmbsITd5rYxc61rYu8a
+	kPuS1qWgeE4v97GVbVoUas3PSRNIdWJsMsXxKVMmrjhwJ3+UlwpaHd7OzkUXqiTDqtXm7iroaeQ5d
+	zz4EG2Fk0j1/ErSYPUFrzcj6e3jZ4PA/e/nebbSYgAHm0mo7uov4c/AkfrKpXiq5xemJmAP2eAe5u
+	ddnzD2I7K3jjcDetRgWJJGzbdq9M1ZyLyMKQ36Xqi6BJ+IMRJml+1wBacoKM5w47P+4BZDCTyJjQK
+	oqgHIBzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teu8m-0000000FAlZ-3uao;
-	Mon, 03 Feb 2025 10:57:20 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1teuA6-0000000FB4l-0O8P;
+	Mon, 03 Feb 2025 10:58:42 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tethP-0000000F7WE-3TTe
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 03 Feb 2025 10:29:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=zoyyTWy8+Zu7JkfSAKSCzAU5xw+8zxp6lIz7/LeWBsU=; b=NqhUCjVzzNH9IYAYME2YURfEs+
-	10+BBOC2Lv61RFNIHywHyCixVHcLyCnxaTqT7VpIBS/hFYt3UjUwJ44ocnvbavu2mjK0in8J39chd
-	tdGegS9+NhqwlZShrDnu0GG4ZHpADkKpfvc4CbH18ZquEWiU/t1roilPZY6V3Llr9iQ/PJYZCpacJ
-	UBK30uH3HfuNTFKfmFlkOfzKulSIK1J5wF7K0rXmbNQ8UYMqj6bJu4vnaUBJRvDEwuPsjSItaruvt
-	0d0KeFMJ0NUJqyPG/qlSQOVBffYdXhNvvECrWEFfIxIIGPX3gFdck+2gDwgEB6MVNnUZ9j3sUMeE0
-	Z7V6sCgg==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tethM-0000000G3y1-2q4F
+	id 1tetqW-0000000F8hc-3BRH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 10:29:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5909D1BCA;
-	Mon,  3 Feb 2025 02:29:24 -0800 (PST)
-Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2AE363F7BD;
-	Mon,  3 Feb 2025 02:28:56 -0800 (PST)
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-To: linux-hardening@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Mark Brown <broonie@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Howells <dhowells@redhat.com>,
-	"Eric W. Biederman" <ebiederm@xmission.com>,
-	Jann Horn <jannh@google.com>,
-	Jeff Xu <jeffxu@chromium.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Kees Cook <kees@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Pierre Langlois <pierre.langlois@arm.com>,
-	Quentin Perret <qperret@google.com>,
-	"Mike Rapoport (IBM)" <rppt@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Will Deacon <will@kernel.org>,
-	Matthew Wilcox <willy@infradead.org>,
-	Qi Zheng <zhengqi.arch@bytedance.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mm@kvack.org,
-	x86@kernel.org
-Subject: [RFC PATCH 8/8] mm: Add basic tests for kpkeys_hardened_cred
-Date: Mon,  3 Feb 2025 10:28:09 +0000
-Message-ID: <20250203102809.1223255-9-kevin.brodsky@arm.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250203102809.1223255-1-kevin.brodsky@arm.com>
-References: <20250203102809.1223255-1-kevin.brodsky@arm.com>
+	Mon, 03 Feb 2025 10:38:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=j7v8B5fuLOyvPnE4F8xYonpHQmsOiXgCq2SRnIU+w8s=; b=nCpBsD3EHXJbS6gCHh0n8jBA+V
+	bVSEjDPTWHFg73BKqz+RvYvf+t2x9qjPE6p6EKUZFYgCQRGAFBViMN4eN8btr5AcYZbB9hcdEqgtT
+	T0vmFCauZEeXs2NPccXqd7q0JGLDj3PScZlXKOUSJFhS+WZn8XgaKh+fb/sXuRDKi+tC1sDRNTlZ8
+	hiauULcVJ9BtyaIlBfdrW9kYBY1v2goRLxjIVksrxiOEWdqAmUfF/IbF3H+fF4JXCN1Kn3T9vUQnq
+	lDqHKadfnhJ1oqX1QwCFm7s11WAofC8USnw00wQZWnHCmt6ifAkCo5oe3RlhWxHehqWKN/ugV+Kts
+	pNIYkEvg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:33290)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tetqI-0008Fh-2Y;
+	Mon, 03 Feb 2025 10:38:14 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tetqC-0000IW-15;
+	Mon, 03 Feb 2025 10:38:08 +0000
+Date: Mon, 3 Feb 2025 10:38:08 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Steven Price <steven.price@arm.com>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Jose Abreu <joabreu@synopsys.com>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	Furong Xu <0x1207@gmail.com>, Petr Tesarik <petr@tesarici.cz>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Yanteng Si <si.yanteng@linux.dev>, Xi Ruoyao <xry111@xry111.site>
+Subject: Re: [PATCH] net: stmmac: Allow zero for [tr]x_fifo_size
+Message-ID: <Z6CckJtOo-vMrGWy@shell.armlinux.org.uk>
+References: <20250203093419.25804-1-steven.price@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250203093419.25804-1-steven.price@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_102901_044221_CB0E2635 
-X-CRM114-Status: GOOD (  18.44  )
+X-CRM114-CacheID: sfid-20250203_023828_799223_B129B83C 
+X-CRM114-Status: GOOD (  21.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,98 +89,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add basic tests for the kpkeys_hardened_pgtables feature: try to
-perform a direct write to current->{cred,real_cred} and ensure it
-fails.
+On Mon, Feb 03, 2025 at 09:34:18AM +0000, Steven Price wrote:
+> Commit 8865d22656b4 ("net: stmmac: Specify hardware capability value
+> when FIFO size isn't specified") modified the behaviour to bail out if
+> both the FIFO size and the hardware capability were both set to zero.
+> However devices where has_gmac4 and has_xgmac are both false don't use
+> the fifo size and that commit breaks platforms for which these values
+> were zero.
+> 
+> Only warn and error out when (has_gmac4 || has_xgmac) where the values
+> are used and zero would cause problems, otherwise continue with the zero
+> values.
+> 
+> Fixes: 8865d22656b4 ("net: stmmac: Specify hardware capability value when FIFO size isn't specified")
+> Tested-by: Xi Ruoyao <xry111@xry111.site>
+> Signed-off-by: Steven Price <steven.price@arm.com>
 
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
----
- mm/Makefile                    |  1 +
- mm/kpkeys_hardened_cred_test.c | 42 ++++++++++++++++++++++++++++++++++
- security/Kconfig.hardening     | 11 +++++++++
- 3 files changed, 54 insertions(+)
- create mode 100644 mm/kpkeys_hardened_cred_test.c
+I'm still of the opinion that the original patch set was wrong, and
+I was thinking at the time that it should _not_ have been submitted
+for the "net" tree (it wasn't fixing a bug afaics, and was a risky
+change.)
 
-diff --git a/mm/Makefile b/mm/Makefile
-index f7263b7f45b8..2024226902d4 100644
---- a/mm/Makefile
-+++ b/mm/Makefile
-@@ -149,3 +149,4 @@ obj-$(CONFIG_TMPFS_QUOTA) += shmem_quota.o
- obj-$(CONFIG_PT_RECLAIM) += pt_reclaim.o
- obj-$(CONFIG_KPKEYS_HARDENED_PGTABLES) += kpkeys_hardened_pgtables.o
- obj-$(CONFIG_KPKEYS_HARDENED_PGTABLES_TEST) += kpkeys_hardened_pgtables_test.o
-+obj-$(CONFIG_KPKEYS_HARDENED_CRED_TEST) += kpkeys_hardened_cred_test.o
-diff --git a/mm/kpkeys_hardened_cred_test.c b/mm/kpkeys_hardened_cred_test.c
-new file mode 100644
-index 000000000000..46048098f99d
---- /dev/null
-+++ b/mm/kpkeys_hardened_cred_test.c
-@@ -0,0 +1,42 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+#include <kunit/test.h>
-+#include <linux/sched.h>
-+
-+static void write_cred(struct kunit *test)
-+{
-+	long zero = 0;
-+	int ret;
-+
-+	ret = copy_to_kernel_nofault((unsigned long *)current->cred, &zero, sizeof(zero));
-+	KUNIT_EXPECT_EQ_MSG(test, ret, -EFAULT,
-+			    "Write to current->cred wasn't prevented");
-+
-+	ret = copy_to_kernel_nofault((unsigned long *)current->real_cred, &zero, sizeof(zero));
-+	KUNIT_EXPECT_EQ_MSG(test, ret, -EFAULT,
-+			    "Write to current->real_cred wasn't prevented");
-+}
-+
-+static int kpkeys_hardened_cred_suite_init(struct kunit_suite *suite)
-+{
-+	if (!arch_kpkeys_enabled()) {
-+		pr_err("Cannot run kpkeys_hardened_cred tests: kpkeys are not supported\n");
-+		return 1;
-+	}
-+
-+	return 0;
-+}
-+
-+static struct kunit_case kpkeys_hardened_cred_test_cases[] = {
-+	KUNIT_CASE(write_cred),
-+	{}
-+};
-+
-+static struct kunit_suite kpkeys_hardened_cred_test_suite = {
-+	.name = "Hardened credentials using kpkeys",
-+	.test_cases = kpkeys_hardened_cred_test_cases,
-+	.suite_init = kpkeys_hardened_cred_suite_init,
-+};
-+kunit_test_suite(kpkeys_hardened_cred_test_suite);
-+
-+MODULE_DESCRIPTION("Tests for the kpkeys_hardened_cred feature");
-+MODULE_LICENSE("GPL");
-diff --git a/security/Kconfig.hardening b/security/Kconfig.hardening
-index 1af3a9dae645..9b0563a03ab4 100644
---- a/security/Kconfig.hardening
-+++ b/security/Kconfig.hardening
-@@ -338,6 +338,17 @@ config KPKEYS_HARDENED_CRED
- 	  This option has no effect if the system does not support
- 	  kernel pkeys.
- 
-+config KPKEYS_HARDENED_CRED_TEST
-+	tristate "KUnit tests for kpkeys_hardened_cred" if !KUNIT_ALL_TESTS
-+	depends on KPKEYS_HARDENED_CRED
-+	depends on KUNIT
-+	default KUNIT_ALL_TESTS
-+	help
-+	  Enable this option to check that the kpkeys_hardened_cred feature
-+	  functions as intended, i.e. prevents arbitrary writes to live credentials.
-+
-+	  If unsure, say N.
-+
- endmenu
- 
- config CC_HAS_RANDSTRUCT
+Yes, we had multiple places where we have code like:
+
+        int rxfifosz = priv->plat->rx_fifo_size;
+        int txfifosz = priv->plat->tx_fifo_size;
+
+        if (rxfifosz == 0)
+                rxfifosz = priv->dma_cap.rx_fifo_size;
+        if (txfifosz == 0)
+                txfifosz = priv->dma_cap.tx_fifo_size;
+
+        /* Split up the shared Tx/Rx FIFO memory on DW QoS Eth and DW XGMAC */
+        if (priv->plat->has_gmac4 || priv->plat->has_xgmac) {
+                rxfifosz /= rx_channels_count;
+                txfifosz /= tx_channels_count;
+        }
+
+and this is passed to stmmac_dma_rx_mode() and stmmac_dma_tx_mode().
+
+We also have it in the stmmac_change_mtu() path for the transmit side,
+which ensures that the MTU value is not larger than the transmit FIFO
+size (which is going to fail as it's always done before or after the
+original patch set, and whether or not your patch is applied.)
+
+Now, as for the stmmac_dma_[tr]x_mode(), these are method functions
+calling into the DMA code. dwmac4, dwmac1000, dwxgmac2, dwmac100 and
+sun8i implement methods for this.
+
+Of these, dwmac4, dwxgmac2 makes use of the value passed into
+stmmac_dma_[tr]x_mode() - both of which initialise dma.[tr]x_fifo_size.
+dwmac1000, dwmac100 and sun8i do not make use of it.
+
+So, going back to the original patch series, I still question the value
+of the changes there - and with your patch, it makes their value even
+less because the justification seemed to be to ensure that
+priv->plat->[tr]x_fifo_size contained a sensible value. With your patch
+we're going back to a situation where we allow these to effectively be
+"unset" or zero.
+
+I'll ask the question straight out - with your patch applied, what is
+the value of the original four patch series that caused the breakage?
+
 -- 
-2.47.0
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
