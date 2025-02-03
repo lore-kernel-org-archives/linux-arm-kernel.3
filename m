@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2FAAC02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 18:54:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51EABC02193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 18:56:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KIafL33okyEmcVqNJE6QQCzbjIY3PK1DaOakrU1GSY0=; b=1H0okm/b0xzdl64YV4Ho1pkL0l
-	+NxVMl+ZDvJYLi9LO2f5ywqpuMQiKkrzkzMu9c1OG+oKYCHDefQTJ5bV/PBFHQNrMt/ha8els+oDv
-	LZEcy8jYH6lDRCNim0f1YUeOQuW8dwRYy8Dlhd7IpTVPrWflTj38t4U+B5gTdiGXhjICIr0NBPOWO
-	+9TAXOBN1/H/Hni6O58yLUr7Naqk5l82sI3bkK6GWYscfQ+TlSclEbDf78FxuN9OOgFCdFoyem0OP
-	Bi+ESzG/LuH40dvj486aplJ3JWhDXX43+gQsjWv+rCBCEWMQwVDGoa5kpFTYnwCEL1aSFrixzrQ+x
-	A9FPuhpA==;
+	bh=p04z4NA8ANBpeee2BaIv4nfZi9bpNGy7L59DW/TFIH4=; b=io/nQo2d3ovrp75jG13Re6bWkK
+	/olqftDusHufHkyZ6MU7UfVAJZChUZXEifaAkaYMh66xlX9UmbIv+WEscpX9JyAH7fPsxit870bJO
+	XYxs0cIFj/UQ3LEWZLQTVucK0ZTP/xip2b/JiQrGMz7D6u5R/ot11Pzi1zq7ZIRfEoG7ubjY2Jho6
+	e1bo4e+JslJ8OtxesdMdTAg2K8ZIFRmrAfEhrM64K6iGc2yffOuL3DTKdO818h532fJr+nqUQBGD2
+	/5alEfOuqUCvTEjZ/B2kD6oNVxrn1M/6OzSHTrEnW7XpeEHo2fI7EShuCVkHCiQATYNcQgJ7ofVng
+	TGvWd5yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf1ae-0000000GLSA-3LgN;
-	Mon, 03 Feb 2025 18:54:36 +0000
-Received: from out-189.mta0.migadu.com ([2001:41d0:1004:224b::bd])
+	id 1tf1bx-0000000GLge-1tdq;
+	Mon, 03 Feb 2025 18:55:57 +0000
+Received: from out-185.mta0.migadu.com ([91.218.175.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf1Fc-0000000GH7m-2tnl
+	id 1tf1Fe-0000000GH87-414O
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 18:32:53 +0000
+	Mon, 03 Feb 2025 18:32:56 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1738607570;
+	t=1738607573;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=KIafL33okyEmcVqNJE6QQCzbjIY3PK1DaOakrU1GSY0=;
-	b=lP01iyqm6GNcp0HdNtiFC1Ii0FCWCppkajIGNLxRboyOjkM2ANz3FgLewjCMiMHlGFL9wl
-	0OX/FAlJpnLXNNHx2tDEtY/5CsI5NFvnF34zvS39CZ+q22UIix7AACIYYBhRLORqxUz1+4
-	bMhhbIXB8UmUGzIMhQWDoZSZU02fwrU=
+	bh=p04z4NA8ANBpeee2BaIv4nfZi9bpNGy7L59DW/TFIH4=;
+	b=lohwccsLQVXqPCGCaUJpvLH2LWJNXS1hJWN3EUOWLZD8Xy0Z6P+pE/iWpnEG+x8xcjdRKm
+	xQQ/GyjkONdhF0Iw8r/ftkacNb+HvFhns4AB+E7YE4eOx60SWOA+AzvFd+qutjeJyW/beh
+	AvimWjSrwANWSEjXLRSTctQ83k1AAys=
 From: Oliver Upton <oliver.upton@linux.dev>
 To: kvmarm@lists.linux.dev
 Cc: Marc Zyngier <maz@kernel.org>,
@@ -54,17 +54,17 @@ Cc: Marc Zyngier <maz@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	Oliver Upton <oliver.upton@linux.dev>,
 	Janne Grunau <j@jannau.net>
-Subject: [PATCH v2 13/14] KVM: arm64: Provide 1 event counter on IMPDEF hardware
-Date: Mon,  3 Feb 2025 10:31:10 -0800
-Message-Id: <20250203183111.191519-14-oliver.upton@linux.dev>
+Subject: [PATCH v2 14/14] arm64: Enable IMP DEF PMUv3 traps on Apple M*
+Date: Mon,  3 Feb 2025 10:31:11 -0800
+Message-Id: <20250203183111.191519-15-oliver.upton@linux.dev>
 In-Reply-To: <20250203183111.191519-1-oliver.upton@linux.dev>
 References: <20250203183111.191519-1-oliver.upton@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_103252_866287_46AD4372 
-X-CRM114-Status: GOOD (  10.44  )
+X-CRM114-CacheID: sfid-20250203_103255_141029_050549D4 
+X-CRM114-Status: GOOD (  10.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,38 +79,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PMUv3 requires that all programmable event counters are capable of
-counting any event. The Apple M* PMU is quite a bit different, and
-events have affinities for particular PMCs.
-
-Expose 1 event counter on IMPDEF hardware, allowing the guest to do
-something useful with its PMU while also upholding the requirements of
-the architecture.
+Apple M1 and M2 CPUs support IMPDEF traps of the PMUv3 sysregs, allowing
+a hypervisor to virtualize an architectural PMU for a VM. Flip the
+appropriate bit in HACR_EL2 on supporting hardware.
 
 Tested-by: Janne Grunau <j@jannau.net>
 Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
 ---
- arch/arm64/kvm/pmu-emul.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+ arch/arm64/kernel/cpu_errata.c | 44 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 44 insertions(+)
 
-diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-index 97f29153193f..e7b732bcaaa2 100644
---- a/arch/arm64/kvm/pmu-emul.c
-+++ b/arch/arm64/kvm/pmu-emul.c
-@@ -1027,6 +1027,13 @@ u8 kvm_arm_pmu_get_max_counters(struct kvm *kvm)
- {
- 	struct arm_pmu *arm_pmu = kvm->arch.arm_pmu;
+diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+index 7ce555862895..a1e16b156fab 100644
+--- a/arch/arm64/kernel/cpu_errata.c
++++ b/arch/arm64/kernel/cpu_errata.c
+@@ -194,6 +194,43 @@ has_neoverse_n1_erratum_1542419(const struct arm64_cpu_capabilities *entry,
+ 	return is_midr_in_range(midr, &range) && has_dic;
+ }
  
-+	/*
-+	 * PMUv3 requires that all event counters are capable of counting any
-+	 * event, though the same may not be true of non-PMUv3 hardware.
-+	 */
-+	if (cpus_have_final_cap(ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS))
-+		return 1;
++static const struct midr_range impdef_pmuv3_cpus[] = {
++	MIDR_ALL_VERSIONS(MIDR_APPLE_M1_ICESTORM),
++	MIDR_ALL_VERSIONS(MIDR_APPLE_M1_FIRESTORM),
++	MIDR_ALL_VERSIONS(MIDR_APPLE_M1_ICESTORM_PRO),
++	MIDR_ALL_VERSIONS(MIDR_APPLE_M1_FIRESTORM_PRO),
++	MIDR_ALL_VERSIONS(MIDR_APPLE_M1_ICESTORM_MAX),
++	MIDR_ALL_VERSIONS(MIDR_APPLE_M1_FIRESTORM_MAX),
++	MIDR_ALL_VERSIONS(MIDR_APPLE_M2_BLIZZARD),
++	MIDR_ALL_VERSIONS(MIDR_APPLE_M2_AVALANCHE),
++	MIDR_ALL_VERSIONS(MIDR_APPLE_M2_BLIZZARD_PRO),
++	MIDR_ALL_VERSIONS(MIDR_APPLE_M2_AVALANCHE_PRO),
++	MIDR_ALL_VERSIONS(MIDR_APPLE_M2_BLIZZARD_MAX),
++	MIDR_ALL_VERSIONS(MIDR_APPLE_M2_AVALANCHE_MAX),
++	{},
++};
 +
- 	/*
- 	 * The arm_pmu->cntr_mask considers the fixed counter(s) as well.
- 	 * Ignore those and return only the general-purpose counters.
++static bool has_impdef_pmuv3(const struct arm64_cpu_capabilities *entry, int scope)
++{
++	u64 dfr0 = read_sanitised_ftr_reg(SYS_ID_AA64DFR0_EL1);
++	unsigned int pmuver;
++
++	if (!is_kernel_in_hyp_mode())
++		return false;
++
++	pmuver = cpuid_feature_extract_unsigned_field(dfr0,
++						      ID_AA64DFR0_EL1_PMUVer_SHIFT);
++	if (pmuver != ID_AA64DFR0_EL1_PMUVer_IMP_DEF)
++		return false;
++
++	return is_midr_in_range_list(read_cpuid_id(), impdef_pmuv3_cpus);
++}
++
++static void cpu_enable_impdef_pmuv3_traps(const struct arm64_cpu_capabilities *__unused)
++{
++	sysreg_clear_set_s(SYS_HACR_EL2, 0, BIT(56));
++}
++
+ #ifdef CONFIG_ARM64_WORKAROUND_REPEAT_TLBI
+ static const struct arm64_cpu_capabilities arm64_repeat_tlbi_list[] = {
+ #ifdef CONFIG_QCOM_FALKOR_ERRATUM_1009
+@@ -794,6 +831,13 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
+ 					{}
+ 				})),
+ 	},
++	{
++		.desc = "Apple IMPDEF PMUv3 Traps",
++		.capability = ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS,
++		.type = ARM64_CPUCAP_LOCAL_CPU_ERRATUM,
++		.matches = has_impdef_pmuv3,
++		.cpu_enable = cpu_enable_impdef_pmuv3_traps,
++	},
+ 	{
+ 	}
+ };
 -- 
 2.39.5
 
