@@ -4,104 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 147BDC02193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 08:16:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA683C02196
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 08:18:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=utfW+gN4zhPc1Z6/nhdbp3JUTTVFHupyeHOWi/BRNeI=; b=GqnngnMAVJfK1jaWPVbNu3mW1Y
-	vYthcUsCgDYrWw01oR2oF8eKJitpeM661qZ+9t8j1WgbkyZ3VzHrW4+8HHyGD9BvvO5IKDydMJx/2
-	KM5JrQo8quH3bJue0anx4KCgs9PrtZPS5inEKGVZl3FcPVfPHG8bdkHGUWDModOD6LXGfVT2E0zA7
-	2LXAVmVAmlh774Xn1Xe0oVZ6i7+m0P3M+NsdQggv6HPSssW5LHuKl2mqMPWC3QoR3GxklFrAbPSex
-	I2c9hOLU062qVpKR4AG6AzUaKYH9lTEATErI0ErIORgksPTb3I+Nk7pyzYaS2vuBA5y2V+PbLkann
-	gw16FE7Q==;
+	bh=2IIA2EevMgnUnT2y0Tcftlgxz2rZdSe6sO6t8T4gDhc=; b=fN5NBxrLUSfAZ6Cn0U10NN/1TW
+	q8wvgKnijdNrdA0QwpCMFS/rAskiY2UpHeZufa672TbHta66Klm+kesVrGaVmWVBtDJyg4wPIIuhm
+	HcdhY8PXyN4HQJ1SDNQlbrLQeA4MCiYAZrt7VhH1QmQOkif6hvw8q4a7F4MvgOtlUxJHhRr5Hcnt1
+	jmVXR8jFYzY8PMApME9O/WGdyzjkT6gjEdJgaHDrsZhwj3ko2HxR9SJNomI1PmFVKpVcdX+wZldIi
+	8ELEc6HsVOBfVLTu68dZ83PCUI5+5QclR2VNknmOSyxQQNrBbsAf+LOaaGvCJM7h5Bw+qCwo4vXnB
+	dBrKXKow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1terd7-0000000Enfo-3go5;
-	Mon, 03 Feb 2025 08:16:29 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tereQ-0000000Eo0o-2UlX;
+	Mon, 03 Feb 2025 08:17:50 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1terZT-0000000Emnc-3BRC;
-	Mon, 03 Feb 2025 08:12:45 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51367KdO009748;
-	Mon, 3 Feb 2025 08:11:33 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=utfW+gN4zhP
-	c1Z6/nhdbp3JUTTVFHupyeHOWi/BRNeI=; b=UR8Lhl9KCKZ4lqteGvXs9bCEzMT
-	IfDdW0/ud56xGGF+0rsqcG4CuNUoVqG6HI243A7HN8gh4hvgd6EF4Bmsh/j9Lrlw
-	HqRzJur4KCTWBzThdIshjMHYz4LJNFEujBK8aSCDQ6dZOrklJVtQO4IkNwLB5UjA
-	o/ffTMv3lqLphc4wYjf2/LlKIvwUXbk46mV0bLkM7S9ax1obAsLveZqLik6fB6mh
-	kiS/CvWMjQWvtY/K4VB4VrCfgA4cUgP6QRtJSefRlxlhxUrT3E4shNlW5MvhkebO
-	lUvjHgBdmUN/V2mKUNQJmNtPC1tjRntYRq4rrAvwTTlgoyc3rK8UKhYarVw==
-Received: from aptaippmta02.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com [103.229.16.4])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44jr8888e4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 03 Feb 2025 08:11:33 +0000 (GMT)
-Received: from pps.filterd (APTAIPPMTA02.qualcomm.com [127.0.0.1])
-	by APTAIPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTP id 5138BV9V026176;
-	Mon, 3 Feb 2025 08:11:31 GMT
-Received: from pps.reinject (localhost [127.0.0.1])
-	by APTAIPPMTA02.qualcomm.com (PPS) with ESMTPS id 44hcpkshk6-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 03 Feb 2025 08:11:31 +0000
-Received: from APTAIPPMTA02.qualcomm.com (APTAIPPMTA02.qualcomm.com [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 5138BUcw026171;
-	Mon, 3 Feb 2025 08:11:30 GMT
-Received: from cbsp-sh-gv.ap.qualcomm.com (CBSP-SH-gv.ap.qualcomm.com [10.231.249.68])
-	by APTAIPPMTA02.qualcomm.com (PPS) with ESMTPS id 5138BUlo026168
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 03 Feb 2025 08:11:30 +0000
-Received: by cbsp-sh-gv.ap.qualcomm.com (Postfix, from userid 393357)
-	id 2E22E40BFE; Mon,  3 Feb 2025 16:11:29 +0800 (CST)
-From: Ziqi Chen <quic_ziqichen@quicinc.com>
-To: quic_cang@quicinc.com, bvanassche@acm.org, mani@kernel.org,
-        beanhuo@micron.com, avri.altman@wdc.com, junwoo80.lee@samsung.com,
-        martin.petersen@oracle.com, quic_ziqichen@quicinc.com,
-        quic_nguyenb@quicinc.com, quic_nitirawa@quicinc.com,
-        quic_rampraka@quicinc.com
-Cc: linux-arm-msm@vger.kernel.org, linux-scsi@vger.kernel.org,
-        Alim Akhtar <alim.akhtar@samsung.com>,
-        "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-        Peter Wang <peter.wang@mediatek.com>,
-        Stanley Jhu <chu.stanley@gmail.com>,
-        Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        Andrew Halaney <ahalaney@redhat.com>,
-        Eric Biggers <ebiggers@google.com>, Minwoo Im <minwoo.im@samsung.com>,
-        linux-kernel@vger.kernel.org (open list),
-        linux-mediatek@lists.infradead.org (moderated list:UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER...),
-        linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support:Keyword:mediatek)
-Subject: [PATCH v3 1/8] scsi: ufs: core: Pass target_freq to clk_scale_notify() vop
-Date: Mon,  3 Feb 2025 16:11:02 +0800
-Message-Id: <20250203081109.1614395-2-quic_ziqichen@quicinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250203081109.1614395-1-quic_ziqichen@quicinc.com>
-References: <20250203081109.1614395-1-quic_ziqichen@quicinc.com>
+	id 1terZq-0000000Emsf-49P0
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 03 Feb 2025 08:13:08 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-385e27c75f4so3414405f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 00:13:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1738570385; x=1739175185; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2IIA2EevMgnUnT2y0Tcftlgxz2rZdSe6sO6t8T4gDhc=;
+        b=ttfnnUgQvhUIt4LxjgolUhlhalz4Jdm1V2VPWKtx9vWwbujHQiv84D3lbZiOhsJfGH
+         YLtB6FEKFulS3LWQcuIO6QJm0NhvWUjVpL5DDrkfEj5cBRTXfYrjnAVJs/So7mvO5KNt
+         G003yr9sFiqgU1MhWsq6OaZHpgLY4Rtt064OXUUpdfKmOYKjV48wEhRQJn26J0uyn03Q
+         Yhlhv1gjgs1qUna746Q3PWvRUOlk7BReENf7+eFfrMG4ygGMNzLiKEIfODZAGnoX25av
+         vmmaMwl2jO8y2369pb98qeps5nypI8Z85ZhkAbNF60Wp1J8Ui8gFPGBEt7Otj80vajCz
+         sHOA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738570385; x=1739175185;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2IIA2EevMgnUnT2y0Tcftlgxz2rZdSe6sO6t8T4gDhc=;
+        b=MRurxmB+0lPOF32viZwiGUtrYYLREh/7UU/kOwet2GXqd585C4a2aqEW5/6+BmCxzv
+         vRplxERncgjB3G/HlZ2dZJ9dUG5jaZ9Qg67UqHoFAId0uaZEXqM8GsLa+XMj9i76mGKY
+         mPPwRcPB+7NsI+wYiQC7T7H8pZm+CDDOkcvBA9YA+pT3qSDuZbUbdbOUB5MLs36B/GJo
+         aEDm9qnRenF7etYmI2myApIQeuK/yzTf2fIG1ncDPVDlFs1zycNmZ2gAYJmm7kkxGg01
+         2IxX1ZSFqlJNenOHd81kIwKdYP+y2o+ZlCF7eSoug5IdvCXMeXZg+U1aYSJyql0DB731
+         bsBA==
+X-Forwarded-Encrypted: i=1; AJvYcCVQjazIZfgr8ild9xKaPk/cloEr6S5RHQqOTF2yb2aSR8+HDsLvHNWNHaSUYWKilP1Up8kHjG7cPXKYNQ9A5/lO@lists.infradead.org
+X-Gm-Message-State: AOJu0YyiaeLL5sxtkCMHlzRLzfcVVbrcpohWgb2QGJ2LWp5BeYaXXHsI
+	0Z1YnW/7rneDHUkuDxstKimweDssM7H6GfnHgRru7rQW4bVE71u0b2Vh2gSeihA=
+X-Gm-Gg: ASbGnctYCkvi2hTyu11x5Pzz28Fl+VCPZmlPxcll1weBRVG698QyBCQ5W9k+ncTfLnh
+	StmCzR9QPdK+mU51NgPojt6XP2QZQdzPwLdn5LpyBkXGgbkxgphJM5ekz3zpir1bWiEoxGbgBii
+	hmhFJHZtCU5lD9kaERLfS32+Can9aCVmTWPotk3ZRdly0foeLjC5uc1WU4mrifE6zXe9eJ4r0GH
+	2MotQrAUwe54PMx/2K2W/2HQdCepv/Ojwa5Y5zpLpFowYe1Im0QQB8C8ISI5FdcVheHMSM/fdoS
+	GbtCFxwSnlCBvA==
+X-Google-Smtp-Source: AGHT+IF3lNNZmS2B9T8gXfcE5kd5EuOjnSuh3iWUdY1d50Algj3kP3sHpQaRcW0lvgZf4+fEDGkUsw==
+X-Received: by 2002:a05:6000:18a9:b0:385:df6d:6fc7 with SMTP id ffacd0b85a97d-38c51b5efb4mr18533137f8f.25.1738570385202;
+        Mon, 03 Feb 2025 00:13:05 -0800 (PST)
+Received: from brgl-uxlite.home ([2a01:cb1d:dc:7e00:62d7:938e:c76:df44])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38c5c1b574fsm12019825f8f.70.2025.02.03.00.13.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Feb 2025 00:13:03 -0800 (PST)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+To: Doug Berger <opendmb@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Andy Shevchenko <andy@kernel.org>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Kuppuswamy Sathyanarayanan <sathyanarayanan.kuppuswamy@linux.intel.com>,
+	Nandor Han <nandor.han@ge.com>,
+	linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-pwm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	patches@opensource.cirrus.com,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH v2] gpio: Use str_enable_disable-like helpers
+Date: Mon,  3 Feb 2025 09:13:02 +0100
+Message-ID: <173857038027.20723.17081473974273068659.b4-ty@linaro.org>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250114191438.857656-1-krzysztof.kozlowski@linaro.org>
+References: <20250114191438.857656-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-QCInternal: smtphost
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: v3uXrpDDeY3UVKG0D9PR0_Q8yfQrITc6
-X-Proofpoint-GUID: v3uXrpDDeY3UVKG0D9PR0_Q8yfQrITc6
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-03_03,2025-01-31_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0
- impostorscore=0 phishscore=0 mlxscore=0 priorityscore=1501 adultscore=0
- bulkscore=0 mlxlogscore=999 lowpriorityscore=0 spamscore=0 clxscore=1015
- malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2501170000 definitions=main-2502030065
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_001243_804971_A2266C99 
-X-CRM114-Status: GOOD (  16.39  )
+X-CRM114-CacheID: sfid-20250203_001307_032778_B18E3E2A 
+X-CRM114-Status: UNSURE (   9.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,121 +115,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Can Guo <quic_cang@quicinc.com>
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-Instead of only two frequencies, if OPP V2 is used, the UFS devfreq clock
-scaling may scale the clock among multiple frequencies, so just passing
-up/down to vop clk_scale_notify() is not enough to cover the intermediate
-clock freqs between the min and max freqs. Hence pass the target_freq ,
-which will be used in successive commits, to clk_scale_notify() to allow
-the vop to perform corresponding configurations with regard to the clock
-freqs.
 
-Signed-off-by: Can Guo <quic_cang@quicinc.com>
-Co-developed-by: Ziqi Chen <quic_ziqichen@quicinc.com>
-Signed-off-by: Ziqi Chen <quic_ziqichen@quicinc.com>
----
+On Tue, 14 Jan 2025 20:14:38 +0100, Krzysztof Kozlowski wrote:
+> Replace ternary (condition ? "enable" : "disable") syntax with helpers
+> from string_choices.h because:
+> 1. Simple function call with one argument is easier to read.  Ternary
+>    operator has three arguments and with wrapping might lead to quite
+>    long code.
+> 2. Is slightly shorter thus also easier to read.
+> 3. It brings uniformity in the text - same string.
+> 4. Allows deduping by the linker, which results in a smaller binary
+>    file.
+> 
+> [...]
 
-v1 -> v2:
-Modify commit message to make it more clear.
+Applied, thanks!
 
-v2 -> v3:
-1. Change 'vops' to 'vop' in commit message.
-2. keep the indentation consistent for clk_scale_notify() definition.
----
- drivers/ufs/core/ufshcd-priv.h  | 7 ++++---
- drivers/ufs/core/ufshcd.c       | 4 ++--
- drivers/ufs/host/ufs-mediatek.c | 1 +
- drivers/ufs/host/ufs-qcom.c     | 5 +++--
- include/ufs/ufshcd.h            | 4 ++--
- 5 files changed, 12 insertions(+), 9 deletions(-)
+[1/1] gpio: Use str_enable_disable-like helpers
+      commit: de454ac4fc5a117a4264e8bdf60fca58021574b1
 
-diff --git a/drivers/ufs/core/ufshcd-priv.h b/drivers/ufs/core/ufshcd-priv.h
-index 9ffd94ddf8c7..0549b65f71ed 100644
---- a/drivers/ufs/core/ufshcd-priv.h
-+++ b/drivers/ufs/core/ufshcd-priv.h
-@@ -117,11 +117,12 @@ static inline u32 ufshcd_vops_get_ufs_hci_version(struct ufs_hba *hba)
- 	return ufshcd_readl(hba, REG_UFS_VERSION);
- }
- 
--static inline int ufshcd_vops_clk_scale_notify(struct ufs_hba *hba,
--			bool up, enum ufs_notify_change_status status)
-+static inline int ufshcd_vops_clk_scale_notify(struct ufs_hba *hba, bool up,
-+					       unsigned long target_freq,
-+					       enum ufs_notify_change_status status)
- {
- 	if (hba->vops && hba->vops->clk_scale_notify)
--		return hba->vops->clk_scale_notify(hba, up, status);
-+		return hba->vops->clk_scale_notify(hba, up, target_freq, status);
- 	return 0;
- }
- 
-diff --git a/drivers/ufs/core/ufshcd.c b/drivers/ufs/core/ufshcd.c
-index acc3607bbd9c..8d295cc827cc 100644
---- a/drivers/ufs/core/ufshcd.c
-+++ b/drivers/ufs/core/ufshcd.c
-@@ -1157,7 +1157,7 @@ static int ufshcd_scale_clks(struct ufs_hba *hba, unsigned long freq,
- 	int ret = 0;
- 	ktime_t start = ktime_get();
- 
--	ret = ufshcd_vops_clk_scale_notify(hba, scale_up, PRE_CHANGE);
-+	ret = ufshcd_vops_clk_scale_notify(hba, scale_up, freq, PRE_CHANGE);
- 	if (ret)
- 		goto out;
- 
-@@ -1168,7 +1168,7 @@ static int ufshcd_scale_clks(struct ufs_hba *hba, unsigned long freq,
- 	if (ret)
- 		goto out;
- 
--	ret = ufshcd_vops_clk_scale_notify(hba, scale_up, POST_CHANGE);
-+	ret = ufshcd_vops_clk_scale_notify(hba, scale_up, freq, POST_CHANGE);
- 	if (ret) {
- 		if (hba->use_pm_opp)
- 			ufshcd_opp_set_rate(hba,
-diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
-index 135cd78109e2..977dd0caaef6 100644
---- a/drivers/ufs/host/ufs-mediatek.c
-+++ b/drivers/ufs/host/ufs-mediatek.c
-@@ -1643,6 +1643,7 @@ static void ufs_mtk_clk_scale(struct ufs_hba *hba, bool scale_up)
- }
- 
- static int ufs_mtk_clk_scale_notify(struct ufs_hba *hba, bool scale_up,
-+				    unsigned long target_freq,
- 				    enum ufs_notify_change_status status)
- {
- 	if (!ufshcd_is_clkscaling_supported(hba))
-diff --git a/drivers/ufs/host/ufs-qcom.c b/drivers/ufs/host/ufs-qcom.c
-index 68040b2ab5f8..b6eef975dc46 100644
---- a/drivers/ufs/host/ufs-qcom.c
-+++ b/drivers/ufs/host/ufs-qcom.c
-@@ -1333,8 +1333,9 @@ static int ufs_qcom_clk_scale_down_post_change(struct ufs_hba *hba)
- 	return ufs_qcom_set_core_clk_ctrl(hba, false);
- }
- 
--static int ufs_qcom_clk_scale_notify(struct ufs_hba *hba,
--		bool scale_up, enum ufs_notify_change_status status)
-+static int ufs_qcom_clk_scale_notify(struct ufs_hba *hba, bool scale_up,
-+				     unsigned long target_freq,
-+				     enum ufs_notify_change_status status)
- {
- 	struct ufs_qcom_host *host = ufshcd_get_variant(hba);
- 	int err;
-diff --git a/include/ufs/ufshcd.h b/include/ufs/ufshcd.h
-index d7aca9e61684..f51d425696e7 100644
---- a/include/ufs/ufshcd.h
-+++ b/include/ufs/ufshcd.h
-@@ -344,8 +344,8 @@ struct ufs_hba_variant_ops {
- 	void    (*exit)(struct ufs_hba *);
- 	u32	(*get_ufs_hci_version)(struct ufs_hba *);
- 	int	(*set_dma_mask)(struct ufs_hba *);
--	int	(*clk_scale_notify)(struct ufs_hba *, bool,
--				    enum ufs_notify_change_status);
-+	int (*clk_scale_notify)(struct ufs_hba *, bool, unsigned long,
-+							enum ufs_notify_change_status);
- 	int	(*setup_clocks)(struct ufs_hba *, bool,
- 				enum ufs_notify_change_status);
- 	int	(*hce_enable_notify)(struct ufs_hba *,
+Best regards,
 -- 
-2.34.1
-
+Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
