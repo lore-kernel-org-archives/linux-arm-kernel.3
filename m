@@ -4,66 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70F20C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 02:46:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6A4EC0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 02:58:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dS0iURUwu+VVntf2Y0FB9ZLUi5xI4e+tjxQNyqYj4/I=; b=MWFC9v5+GATHhFknAYLtyAtS2+
-	Y7tb7IlHyoWorD68QZRNbVT991WZwE15CmRjAq9tPMrMiy1ixJvEBPSas0IC5QtplOjNS9XtYLyMh
-	tzraA2K8EkKPHIePQq1OPH4Qc/ei7pYDS21FWhi4HHBgrMV+BL8BMeDqI8IR2yrZ+2if2rUPGPYLX
-	P9rWU4FxLGEWTevxZajVrzArQZVi2aQDLCccU5NHJURRkDhACMERR3XgFt36sRT1PHebTmGu7RjHC
-	UtUaT2AHWTm5yJMrnUaC3Zduc+erwkkQedAfkjw4NG2K2nQxRMUBk0H45RuZcovD/C18YGi7sEg6p
-	b9vqyIGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/M3u/UfzPn7K2j1tUy85ouRPJtHFLSPO1KCwoEDBz08=; b=s1s73CEF2PEQy+Zie50S4VKEty
+	WqyZMFyLH0Aasfh/sTR5/crSymwZzMCRXAoYnSkkEhKAqfo8Yi8uwcHNoiXTQnBN9620qvxjfMM7c
+	s4OxW+K4D5KijvkqIsOAfm6SgMKQXzFCYkDdH6HycZYdTg75gpRpXhGNskQJVfc4/fWgUQMG4S4vD
+	HnXWggIoOEbPE4DPt2z9sfrUit9Ia9b8dwZeWDkTGOqQfvhqtfnFAUe2OagUQYR/BWlpX7VLExoA8
+	aXnEXznTKcmJsf5mCVIaH30ld5WvLXd37AjVt++lAqTfBGz4vI+q70nfhOIgkzVzOvtANEiEXEMsU
+	qrnK3RDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1temTq-0000000ESEp-2Qis;
-	Mon, 03 Feb 2025 02:46:34 +0000
-Received: from mx.socionext.com ([202.248.49.38])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1temSV-0000000ERwc-2rpr
+	id 1temfQ-0000000ET52-1PIW;
+	Mon, 03 Feb 2025 02:58:32 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1teme1-0000000ESw9-1Ytj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 02:45:13 +0000
-Received: from unknown (HELO iyokan2-ex.css.socionext.com) ([172.31.9.54])
-  by mx.socionext.com with ESMTP; 03 Feb 2025 11:45:06 +0900
-Received: from mail.mfilter.local (mail-arc01.css.socionext.com [10.213.46.36])
-	by iyokan2-ex.css.socionext.com (Postfix) with ESMTP id 86B522006FCC;
-	Mon,  3 Feb 2025 11:45:06 +0900 (JST)
-Received: from iyokan2.css.socionext.com ([172.31.9.53]) by m-FILTER with ESMTP; Mon, 3 Feb 2025 11:45:06 +0900
-Received: from [10.212.246.222] (unknown [10.212.246.222])
-	by iyokan2.css.socionext.com (Postfix) with ESMTP id EC03D388;
-	Mon,  3 Feb 2025 11:45:05 +0900 (JST)
-Message-ID: <905127b5-96c8-4866-8f69-d9d8a7091c99@socionext.com>
-Date: Mon, 3 Feb 2025 11:45:05 +0900
+	Mon, 03 Feb 2025 02:57:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1738551418;
+	bh=/M3u/UfzPn7K2j1tUy85ouRPJtHFLSPO1KCwoEDBz08=;
+	h=From:Date:Subject:To:Cc;
+	b=keaaDwqBcwuRr2sI322cGvM6QhW3T8VZUIxniSpkWNFtHxvEYmOnJqsDXFQTvVwij
+	 TV62XwwNM8Lny3y/GlktCxB2By33Y+iKiDyxrqh09BD3xef6UI5VFwY26s3weL4xaJ
+	 qrMrMhFX3YY9SHuv9T+JdhQrw/eV/nirx005KyFZBSSF+gTXotW0xcKu4itLfs2vuU
+	 8HXubwBXbJvZyBaO+s/GWRpfUvE8RdHjK87epWug2CxO+pQZABSg3tvZxx46F0G6J9
+	 64ZkKgFyBgnnAmohCv4wDPnkyP8flCNPAeAng42WH6+STBsZ+Fcgxm3nCgrbnQb5Dg
+	 ctkVcjJ6ugq3w==
+Received: from [127.0.1.1] (58-7-156-140.dyn.iinet.net.au [58.7.156.140])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id C2762703FB;
+	Mon,  3 Feb 2025 10:56:55 +0800 (AWST)
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+Date: Mon, 03 Feb 2025 13:26:31 +1030
+Subject: [PATCH] MAINTAINERS: Mark Andrew as M: for ASPEED MACHINE SUPPORT
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v4 3/3] net: stmmac: Specify hardware capability value
- when FIFO size isn't specified
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>,
- Guenter Roeck <linux@roeck-us.net>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jose Abreu <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Yanteng Si <si.yanteng@linux.dev>, Furong Xu <0x1207@gmail.com>,
- Joao Pinto <Joao.Pinto@synopsys.com>, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250127013820.2941044-1-hayashi.kunihiko@socionext.com>
- <20250127013820.2941044-4-hayashi.kunihiko@socionext.com>
- <4e98f967-f636-46fb-9eca-d383b9495b86@roeck-us.net>
- <Z56FmH968FUGkC5J@shell.armlinux.org.uk>
-Content-Language: en-US
-From: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
-In-Reply-To: <Z56FmH968FUGkC5J@shell.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20250203-aspeed-maintainer-v1-1-60bc3a5f0a7c@codeconstruct.com.au>
+X-B4-Tracking: v=1; b=H4sIAF4woGcC/x2MOwqAMBAFryJbG4jrp/AqYpG4T93CKImIIN7dY
+ DHFFDMPJURFor54KOLSpHvIUpUFTasLC4xKdmLLrWVbG5cOQMzmNJwZRCMi3oNZXNNR7o6IWe/
+ /OYzv+wGLOVJiYwAAAA==
+X-Change-ID: 20250203-aspeed-maintainer-dddbbe22da46
+To: joel@jms.id.au, linux-aspeed@lists.ozlabs.org, arnd@arndb.de, 
+ soc@lists.linux.dev
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250202_184511_839843_7CFF2D25 
-X-CRM114-Status: GOOD (  41.96  )
+X-CRM114-CacheID: sfid-20250202_185705_749036_C611AE2C 
+X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,123 +74,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+From discussion in [1] and in-person with Joel, flip my entry from R:
+to M:.
 
-On 2025/02/02 5:35, Russell King (Oracle) wrote:
-> On Sat, Feb 01, 2025 at 11:14:41AM -0800, Guenter Roeck wrote:
->> Hi,
->>
->> On Mon, Jan 27, 2025 at 10:38:20AM +0900, Kunihiko Hayashi wrote:
->>> When Tx/Rx FIFO size is not specified in advance, the driver checks if
->>> the value is zero and sets the hardware capability value in functions
->>> where that value is used.
->>>
->>> Consolidate the check and settings into function stmmac_hw_init() and
->>> remove redundant other statements.
->>>
->>> If FIFO size is zero and the hardware capability also doesn't have
-> upper
->>> limit values, return with an error message.
->>>
->>> Signed-off-by: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
->>
->> This patch breaks qemu's stmmac emulation, for example for
->> npcm750-evb. The error message is:
->> 	stmmaceth f0804000.eth: Can't specify Rx FIFO size
+Link: https://lore.kernel.org/all/CACPK8Xe8yZLXzEQPp=1D2f0TsKA7hBZG=pHHW6U51FMpp_BiRQ@mail.gmail.com/ [1]
+Cc: Joel Stanley <joel@jms.id.au>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: soc@lists.linux.dev
+Cc: linux-aspeed@lists.ozlabs.org
+Cc: linux-arm-kernel@lists.infradead.org
+Signed-off-by: Andrew Jeffery <andrew@codeconstruct.com.au>
+---
+ MAINTAINERS | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Sorry for inconvenience.
-
-> Interesting. I looked at QEMU to see whether anything in the Debian
-> stable version of QEMU might possibly have STMMAC emulation, but
-> drew a blank... Even trying to find where in QEMU it emulates the
-> STMMAC. I do see that it does include this, so maybe I can use that
-> to test some of my stmmac changes. Thanks!
-> 
->> The setup function called for the emulated hardware is
-> dwmac1000_setup().
->> That function does not set the DMA rx or tx fifo size.
->>
->> At the same time, the rx and tx fifo size is not provided in the
->> devicetree file (nuvoton-npcm750.dtsi), so the failure is obvious.
->>
->> I understand that the real hardware may be based on a more recent
->> version of the DWMAC IP which provides the DMA tx/rx fifo size, but
->> I do wonder: Are the benefits of this patch so substantial that it
->> warrants breaking the qemu emulation of this network interface > 
-> Please see my message sent a while back on an earlier revision of this
-> patch series. I reviewed the stmmac driver for the fifo sizes and
-> documented what I found.
-> 
-> https://lore.kernel.org/r/Z4_ZilVFKacuAUE8@shell.armlinux.org.uk
-> 
-> To save clicking on the link, I'll reproduce the relevant part below.
-> It appears that dwmac1000 has no way to specify the FIFO size, and
-> thus would have priv->dma_cap.rx_fifo_size and
-> priv->dma_cap.tx_fifo_size set to zero.
-> 
-> Given the responses, I'm now of the opinion that the patch series is
-> wrong, and probably should be reverted - I never really understood
-> the motivation why the series was necessary. It seemed to me to be a
-> "wouldn't it be nice if" series rather than something that is
-> functionally necessary.
-> 
-> 
-> Here's the extract from my previous email:
-> 
-> Now looking at the defintions:
-> 
-> drivers/net/ethernet/stmicro/stmmac/dwmac4.h:#define GMAC_HW_RXFIFOSIZE
-> GENMASK(4, 0)
-> drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h:#define
-> XGMAC_HWFEAT_RXFIFOSIZE GENMASK(4, 0)
-> 
-> So there's a 5-bit bitfield that describes the receive FIFO size for
-> these two MACs. Then we have:
-> 
-> drivers/net/ethernet/stmicro/stmmac/common.h:#define
-> DMA_HW_FEAT_RXFIFOSIZE    0x00080000       /* Rx FIFO > 2048 Bytes */
-> 
-> which is used here:
-> 
-> drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c:
-> dma_cap->rxfifo_over_2048 = (hw_cap & DMA_HW_FEAT_RXFIFOSIZE) >> 19;
-> 
-> which is only used to print a Y/N value in a debugfs file, otherwise
-> having no bearing on driver behaviour.
-> 
-> So, I suspect MACs other than xgmac2 or dwmac4 do not have the ability
-> to describe the hardware FIFO sizes in hardware, thus why there's the
-> override and no checking of what the platform provided - and doing so
-> would break the driver. This is my interpretation from the code alone.
-> 
-
-The {tx,rx}_queus_to_use are referenced in stmmac_ethtool.c, stmmac_tc.c,
-and stmmac_selftests.c as the number of queues, so I've thought that
-these variables should not be non-zero.
-
-However, currently the variables are allowed to be zero, so I understand
-this patch 3/3 breaks on the chips that hasn't hardware capabilities.
-
-In hwif.c, stmmac_hw[] defines four patterns of hardwares:
-
-"dwmac100"  .gmac=false, .gmac4=false, .xgmac=false, .get_hw_feature = NULL
-"dwmac1000" .gmac=true,  .gmac4=false, .xgmac=false, .get_hw_feature = dwmac1000_get_hw_feature()
-"dwmac4"    .gmac=false, .gmac4=true,  .xgmac=false, .get_hw_feature = dwmac4_get_hw_feature()
-"dwxgmac2"  .gmac=false, .gmac4=false, .xgmac=true , .get_hw_feature = dwxgmac2_get_hw_feature()
-
-As Russell said, the dwmac100 can't get the number of queues from the hardware
-capability. And some environments (at least QEMU device that Guenter said)
-seems the capability values are zero in spite of dwmac1000.
-
-Since I can't test all of the device patterns, so I appreciate checking each
-hardware and finding the issue.
-
-The patch 3/3 includes some cleanup and code reduction, though, I think
-it would be better to revert it once.
-
-Thank you,
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 896a307fa06545e2861abe46ea7029f9b4d3628e..305e5530560e53c10f0b610fa7b4456ca78fdfc2 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2285,7 +2285,7 @@ F:	drivers/irqchip/irq-aspeed-i2c-ic.c
+ 
+ ARM/ASPEED MACHINE SUPPORT
+ M:	Joel Stanley <joel@jms.id.au>
+-R:	Andrew Jeffery <andrew@codeconstruct.com.au>
++M:	Andrew Jeffery <andrew@codeconstruct.com.au>
+ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+ L:	linux-aspeed@lists.ozlabs.org (moderated for non-subscribers)
+ S:	Supported
 
 ---
-Best Regards
-Kunihiko Hayashi
+base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+change-id: 20250203-aspeed-maintainer-dddbbe22da46
+
+Best regards,
+-- 
+Andrew Jeffery <andrew@codeconstruct.com.au>
+
 
