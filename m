@@ -4,64 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBF64C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 11:45:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76252C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 11:45:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qla/9MDM/TRAygC7Ma89eBLbnuT8w/4lKYJyVeXQZ1U=; b=1GGKlfM8rZOLQBj0rGeYTx4tb9
-	M5mlnqYNeLdwAItAQTW+Gxlq3ERhg0PxluAecNp1B8n1UhDMD//1DoZ02dEvqiPtMpvBb3uGTheqk
-	FJ8zOafb81GIMbyWPmq1beypbbQxZD7caOXdo6hLXDj/Hk6lI1x96lBCUzrX4v7CEWqLPxFIUE7ZR
-	mkbBsRmDr9ztewP/Qss/8FEDmBvQXPGh6MD8khZtvehJ/D2FUdJyusalbsEoJoiwniwXgeKzcHUpu
-	rfV5oS9dXLCpSgpy2HF5xIqxF1HfJ7CXC1+CeXteMJaPUxI9XnjUOXJSX2AMJ4LOjBZyfoivJ7qzR
-	exDqTxdw==;
+	bh=w3d8h0fhxSI8KBCb1MJSQD5BFSFLbtAEyQ369Pj935A=; b=lltgc3GuuBVWuQIX+osy2JcalM
+	YWdCZKh9+zN/6CSs8BaVVz/R0bdxQUH+0hBieybR3UAP5U+5iPRaopN270VYa8ZTNhybG3SqOYoRh
+	JNfT/v/Oy/8y6MEUx5RKKXc5HZapp4retbAwMcmK21LN+LeLOm/Nnr0DaCC3fUHLpu2IGdOPg/hCD
+	QjJ8ZjCFS1fQaDot515ov8CpmOUeTl12SwcNzEeEn2tmI80cNiT9J74d38ZqRDuwikMsutKhy6p9a
+	viNQMnZmlACvUxYcXzkXkDW432Ql4FIZdEvK+h4dJ+GwDYV0G5gDBwU4V+vWQu9qG50QF8dcClGl0
+	R0px4fKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teut8-0000000FGfF-29SQ;
-	Mon, 03 Feb 2025 11:45:14 +0000
+	id 1teutg-0000000FGoN-0LgT;
+	Mon, 03 Feb 2025 11:45:48 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tetZ6-0000000F697-30sj
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 03 Feb 2025 10:20:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=w3d8h0fhxSI8KBCb1MJSQD5BFSFLbtAEyQ369Pj935A=; b=FM4BXHir6WCW2avJ0beXJcrhdm
+	G+QW9khCJV9A9rin03zwJzM1kr9bNw8L+Q4WxlD/KBbvG50e4MnXDtkO0WQj3/Y5rREJVB8v7Tbbo
+	ztWJAsprljBDJa5gbFUbVQKGRRirPWFjdrBaWmWM1IQGfmhROXkDwzqIuf/NiSWc51j5yQMNE2Za7
+	WHz0wt5TYxtHupCnAwW/dp+mqzmssd7rdfh1gD2Otelp8CVdSRuLbrMVwX2Uy57Pq2lUKvizHDBPw
+	RDNTVG47HNmnewk14IoUI5iyxQ4O1odd5w9zGr61f3oTJMAiWnS0Sd8VyDNSijXit7MZjUeMMubtl
+	kwBuHQhg==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teuoZ-0000000FFzT-1w6S
+	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tetZ2-0000000G3Xb-3FID
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 11:40:32 +0000
+	Mon, 03 Feb 2025 10:20:27 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F1CA511FB;
-	Mon,  3 Feb 2025 03:40:54 -0800 (PST)
-Received: from [10.1.34.25] (e122027.cambridge.arm.com [10.1.34.25])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A8C9C3F58B;
-	Mon,  3 Feb 2025 03:40:27 -0800 (PST)
-Message-ID: <303db538-97ae-4582-a476-f90749c04cff@arm.com>
-Date: Mon, 3 Feb 2025 11:40:25 +0000
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8059E1476;
+	Mon,  3 Feb 2025 02:20:48 -0800 (PST)
+Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8DE443F63F;
+	Mon,  3 Feb 2025 02:20:20 -0800 (PST)
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+To: linux-hardening@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Mark Brown <broonie@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Jann Horn <jannh@google.com>,
+	Jeff Xu <jeffxu@chromium.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Kees Cook <kees@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Pierre Langlois <pierre.langlois@arm.com>,
+	Quentin Perret <qperret@google.com>,
+	"Mike Rapoport (IBM)" <rppt@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Will Deacon <will@kernel.org>,
+	Matthew Wilcox <willy@infradead.org>,
+	Qi Zheng <zhengqi.arch@bytedance.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org,
+	x86@kernel.org
+Subject: [RFC PATCH v3 11/15] mm: Map page tables with privileged pkey
+Date: Mon,  3 Feb 2025 10:18:35 +0000
+Message-ID: <20250203101839.1223008-12-kevin.brodsky@arm.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20250203101839.1223008-1-kevin.brodsky@arm.com>
+References: <20250203101839.1223008-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] net: stmmac: Allow zero for [tr]x_fifo_size
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
- "David S. Miller" <davem@davemloft.net>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Jose Abreu <joabreu@synopsys.com>,
- Paolo Abeni <pabeni@redhat.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- netdev@vger.kernel.org, Furong Xu <0x1207@gmail.com>,
- Petr Tesarik <petr@tesarici.cz>, Serge Semin <fancer.lancer@gmail.com>,
- Yanteng Si <si.yanteng@linux.dev>, Xi Ruoyao <xry111@xry111.site>
-References: <20250203093419.25804-1-steven.price@arm.com>
- <Z6CckJtOo-vMrGWy@shell.armlinux.org.uk>
- <811ea27c-c1c3-454a-b3d9-fa4cd6d57e44@arm.com>
- <Z6Clkh44QgdNJu_O@shell.armlinux.org.uk>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <Z6Clkh44QgdNJu_O@shell.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_034031_593008_51A81399 
-X-CRM114-Status: GOOD (  27.97  )
+X-CRM114-CacheID: sfid-20250203_102024_997651_3EB1C90E 
+X-CRM114-Status: GOOD (  10.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,129 +100,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/02/2025 11:16, Russell King (Oracle) wrote:
-> On Mon, Feb 03, 2025 at 11:01:28AM +0000, Steven Price wrote:
->> [Moved Kunihiko to the To: line]
->>
->> On 03/02/2025 10:38, Russell King (Oracle) wrote:
->>> On Mon, Feb 03, 2025 at 09:34:18AM +0000, Steven Price wrote:
->>>> Commit 8865d22656b4 ("net: stmmac: Specify hardware capability value
->>>> when FIFO size isn't specified") modified the behaviour to bail out if
->>>> both the FIFO size and the hardware capability were both set to zero.
->>>> However devices where has_gmac4 and has_xgmac are both false don't use
->>>> the fifo size and that commit breaks platforms for which these values
->>>> were zero.
->>>>
->>>> Only warn and error out when (has_gmac4 || has_xgmac) where the values
->>>> are used and zero would cause problems, otherwise continue with the zero
->>>> values.
->>>>
->>>> Fixes: 8865d22656b4 ("net: stmmac: Specify hardware capability value when FIFO size isn't specified")
->>>> Tested-by: Xi Ruoyao <xry111@xry111.site>
->>>> Signed-off-by: Steven Price <steven.price@arm.com>
->>>
->>> I'm still of the opinion that the original patch set was wrong, and
->>> I was thinking at the time that it should _not_ have been submitted
->>> for the "net" tree (it wasn't fixing a bug afaics, and was a risky
->>> change.)
->>>
->>> Yes, we had multiple places where we have code like:
->>>
->>>         int rxfifosz = priv->plat->rx_fifo_size;
->>>         int txfifosz = priv->plat->tx_fifo_size;
->>>
->>>         if (rxfifosz == 0)
->>>                 rxfifosz = priv->dma_cap.rx_fifo_size;
->>>         if (txfifosz == 0)
->>>                 txfifosz = priv->dma_cap.tx_fifo_size;
->>>
->>>         /* Split up the shared Tx/Rx FIFO memory on DW QoS Eth and DW XGMAC */
->>>         if (priv->plat->has_gmac4 || priv->plat->has_xgmac) {
->>>                 rxfifosz /= rx_channels_count;
->>>                 txfifosz /= tx_channels_count;
->>>         }
->>>
->>> and this is passed to stmmac_dma_rx_mode() and stmmac_dma_tx_mode().
->>>
->>> We also have it in the stmmac_change_mtu() path for the transmit side,
->>> which ensures that the MTU value is not larger than the transmit FIFO
->>> size (which is going to fail as it's always done before or after the
->>> original patch set, and whether or not your patch is applied.)
->>>
->>> Now, as for the stmmac_dma_[tr]x_mode(), these are method functions
->>> calling into the DMA code. dwmac4, dwmac1000, dwxgmac2, dwmac100 and
->>> sun8i implement methods for this.
->>>
->>> Of these, dwmac4, dwxgmac2 makes use of the value passed into
->>> stmmac_dma_[tr]x_mode() - both of which initialise dma.[tr]x_fifo_size.
->>> dwmac1000, dwmac100 and sun8i do not make use of it.
->>>
->>> So, going back to the original patch series, I still question the value
->>> of the changes there - and with your patch, it makes their value even
->>> less because the justification seemed to be to ensure that
->>> priv->plat->[tr]x_fifo_size contained a sensible value. With your patch
->>> we're going back to a situation where we allow these to effectively be
->>> "unset" or zero.
->>>
->>> I'll ask the question straight out - with your patch applied, what is
->>> the value of the original four patch series that caused the breakage?
->>>
->>
->> I've no opinion whether the original series "had value" - I'm just 
->> trying to fix the breakage that entailed. My first attempt at a patch 
->> was indeed a (partial) revert, but Andrew was keen to find a better 
->> solution[1].
-> 
-> There are two ways to fix the breakage - either revert the original
-> patches (which if they have little value now would be the sensible
-> approach IMHO) or try to fix them up, which may entail several patches
-> if further breakage is found.
-> 
-> Does the flow control test behave the same before and after the patch
-> series? Please can you test that?
+If CONFIG_KPKEYS_HARDENED_PGTABLES is enabled, map allocated page
+table pages using a privileged pkey (KPKEYS_PKEY_PGTABLES), so that
+page tables can only be written under guard(kpkeys_hardened_pgtables).
 
-Yes I see the same results from "ethtool -t eth0" on v6.13 and after
-applying this patch on v6.14-rc1. Although neither exactly look healthy:
+This patch is a no-op if CONFIG_KPKEYS_HARDENED_PGTABLES is disabled
+(default).
 
-The test result is FAIL
-The test extra info:
- 1. MAC Loopback               	 0
- 2. PHY Loopback               	 -110
- 3. MMC Counters               	 0
- 4. EEE                        	 -95
- 5. Hash Filter MC             	 0
- 6. Perfect Filter UC          	 -110
- 7. MC Filter                  	 -110
- 8. UC Filter                  	 0
- 9. Flow Control               	 -110
-10. RSS                        	 -95
-11. VLAN Filtering             	 -95
-12. VLAN Filtering (perf)      	 -95
-13. Double VLAN Filter         	 -95
-14. Double VLAN Filter (perf)  	 -95
-15. Flexible RX Parser         	 -95
-16. SA Insertion (desc)        	 -95
-17. SA Replacement (desc)      	 -95
-18. SA Insertion (reg)         	 -95
-19. SA Replacement (reg)       	 -95
-20. VLAN TX Insertion          	 -95
-21. SVLAN TX Insertion         	 -95
-22. L3 DA Filtering            	 -95
-23. L3 SA Filtering            	 -95
-24. L4 DA TCP Filtering        	 -95
-25. L4 SA TCP Filtering        	 -95
-26. L4 DA UDP Filtering        	 -95
-27. L4 SA UDP Filtering        	 -95
-28. ARP Offload                	 -95
-29. Jumbo Frame                	 1
-30. Multichannel Jumbo         	 -95
-31. Split Header               	 -95
-32. TBS (ETF Scheduler)        	 -95
+Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+---
+ include/linux/mm.h | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-But I'll admit I've no idea what I'm doing here, so perhaps I don't have
-a correct setup for running these tests?
-
-Thanks,
-Steve
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index 721e779647f3..aa01f51fdc6f 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -32,6 +32,7 @@
+ #include <linux/memremap.h>
+ #include <linux/slab.h>
+ #include <linux/cacheinfo.h>
++#include <linux/kpkeys.h>
+ 
+ struct mempolicy;
+ struct anon_vma;
+@@ -2998,6 +2999,8 @@ static inline bool __pagetable_ctor(struct ptdesc *ptdesc)
+ 
+ 	__folio_set_pgtable(folio);
+ 	lruvec_stat_add_folio(folio, NR_PAGETABLE);
++	if (kpkeys_protect_pgtable_memory(folio))
++		return false;
+ 	return true;
+ }
+ 
+@@ -3008,6 +3011,7 @@ static inline void pagetable_dtor(struct ptdesc *ptdesc)
+ 	ptlock_free(ptdesc);
+ 	__folio_clear_pgtable(folio);
+ 	lruvec_stat_sub_folio(folio, NR_PAGETABLE);
++	kpkeys_unprotect_pgtable_memory(folio);
+ }
+ 
+ static inline void pagetable_dtor_free(struct ptdesc *ptdesc)
+-- 
+2.47.0
 
 
