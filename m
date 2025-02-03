@@ -4,81 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0F8FC02193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 06:22:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E73C0C02193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 06:24:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1X09fLOb1NR+H4JbGR9ulJtxXrhu63pqj7K2Ed7yf/w=; b=A4Qmr5/2w2p0NzkmMa/ghRpHTU
-	VhIHwwriFuybcsXMJGIXxsrGE2Qni4dTuDycd4vo0KFJfcrB0fzVta0F5zhWDciBpdKutvKC5KeEK
-	PXcbj8LlwxLJdqW8xqo5NYJEXnEla0d/XuvBb2Dk6zS0CFcy+lI5cDWrzhv6PXnn3TzRCbIN2bUXj
-	Ba+BAkAEg3dZ8sPD8BX2Bv9yiufBS1Ep7Ztb03uBHUn0QVQv3qRV0oDwFDdIiffAve28hOIYGvZ+T
-	gV5vgqjazsOS3OH5yrZ/OgkyyB8HXPV4hkiIvnIHxPRqXdsRc6aiVPrco66Xzq+AVnppUWaq93oeN
-	0IVISwzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iXYlcduRaEuZBAJSJkccbjFtw9LjN05LrT6o3bd+HDw=; b=WTxCT4wPe82TWWsi/kBajlif0H
+	i5ZmtNfUoDOYodbxw0/NXJaBiSWzKO6CyCEkJHStfkQ0B7nwU5gdZi5R/LTPHy+ZjST881+5m8h5f
+	DuG3Vy5Gb73Ul0YK/OgemTCjxyfW6dZeKJY8KvkCAFdbUkxMKJOpSvId8vqjukWZJ1AZX5ct8J8JM
+	rt6ueo3188oQK0VVocGSuYFahZHQ49uSdWiwm+/1UvlmvUYO9ZJBoPkoAdNhMnclcNsbc099jLsBH
+	iSyYRrzCsfYrdkRpFVrTRlW1dN0K7Qnonczct4aRowWIHxiLEZUHkGnDxQL/W+/Xq+fETTLbFx2LY
+	IKX3Au2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tepqw-0000000EdZE-0kZD;
-	Mon, 03 Feb 2025 06:22:38 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1tepsD-0000000Edn3-3UUL;
+	Mon, 03 Feb 2025 06:23:57 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tepoY-0000000EdIk-2tdN
+	id 1tepqB-0000000EdV0-1mm5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 06:20:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1738563611; x=1770099611;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:to:cc;
-  bh=huPreexBSUGD+4tZwz+FrnsTGlTYrbETUuXB8TElD30=;
-  b=Mmrxhba+uq4yJI2aI9cD51dzsjQz1FPnon30n4NXjdDG+KTJv5eqv+SC
-   jysEXZVOdHdZ3MTuhX1A2YEQsM6ynj2qbKJELCnbP5ZvDISzN9vhs5MyU
-   xGpsxPWcRAM90WMP3gd5vgjKTPUqmgPGKmXiVUGU2oyoqFy8FUTdkXmRS
-   gL+fz0hPv/Fz2AQ+0q2e4pbNezkhtcy5MB+xp/AjBgSUbmub/ecpScCpe
-   aw3KaJtyDDJpXCeP4y1edEGpDDn5ilpSFZw0EBfW0Wiz1fb+pxq/d/X9B
-   XTWa1am0kToIuMGfrYAgGlMVj8xT7ofPVpAzcoWVvKMVZ91qbP9oS8G/K
-   Q==;
-X-CSE-ConnectionGUID: KYWEIIOuTcullLvzTva6Jw==
-X-CSE-MsgGUID: ygDK2KZnTECqJan3jb1yLw==
-X-IronPort-AV: E=Sophos;i="6.13,255,1732604400"; 
-   d="scan'208";a="37194062"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 02 Feb 2025 23:20:09 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Sun, 2 Feb 2025 23:20:06 -0700
-Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
- Transport; Sun, 2 Feb 2025 23:20:01 -0700
-From: Charan Pedumuru <charan.pedumuru@microchip.com>
-Date: Mon, 3 Feb 2025 11:48:09 +0530
-Subject: [PATCH v4] dt-bindings: dma: convert atmel-dma.txt to YAML
+	Mon, 03 Feb 2025 06:21:52 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5136Lied2964707
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 3 Feb 2025 00:21:44 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1738563704;
+	bh=iXYlcduRaEuZBAJSJkccbjFtw9LjN05LrT6o3bd+HDw=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=U/ZMQcy76SDdRgPJBjUDqOjH8hMX63KDfttvW8yCorGwHczDInvX94jcMEZSK6aBP
+	 ZDa/Dr6arhhazNm8hR+V4zfzkRhetxWb/xYF2t12kCXylbCALRooreCGNBDOqeN5LR
+	 qOCi2tp6+/uX3x0C7KWHyQ+trBcRdvdedIYGZeDc=
+Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5136Likd104541
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 3 Feb 2025 00:21:44 -0600
+Received: from flwvowa01.ent.ti.com (10.64.41.90) by DFLE115.ent.ti.com
+ (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 3
+ Feb 2025 00:21:44 -0600
+Received: from DFLE113.ent.ti.com (10.64.6.34) by flwvowa01.ent.ti.com
+ (10.64.41.90) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id 15.1.2507.34; Mon, 3 Feb
+ 2025 00:21:43 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 3 Feb 2025 00:21:43 -0600
+Received: from localhost (lcpd911.dhcp.ti.com [172.24.227.226])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5136LhIs004552;
+	Mon, 3 Feb 2025 00:21:43 -0600
+Date: Mon, 3 Feb 2025 11:51:42 +0530
+From: Dhruva Gole <d-gole@ti.com>
+To: Sudeep Holla <sudeep.holla@arm.com>
+CC: <arm-scmi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        Cristian Marussi <cristian.marussi@arm.com>,
+        Xinqi Zhang
+	<quic_xinqzhan@quicinc.com>, Peng Fan <peng.fan@nxp.com>,
+        Guomin Chen
+	<guomin_chen@sina.com>
+Subject: Re: [PATCH 1/3] firmware: arm_scmi: Relax duplicate name constraint
+ across protocol ids
+Message-ID: <20250203062142.okaan6libbn35cbk@lcpd911>
+References: <20250131141822.514342-1-sudeep.holla@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250203-test-v4-1-a9ec3eded1c7@microchip.com>
-X-B4-Tracking: v=1; b=H4sIAKBfoGcC/13OwQ7CIAyA4VcxnK2BAbJ48j3MDowV4cBYgBDNs
- neX7WR2/JP2a1eSMXnM5HFZScLqs49zC3G9EOP0/EbwU2vS0U5S1ikomAv0FKURvbFKKNJGl4T
- Wfw7mNbS2KQYoLqH+X+YwBQ2VAQMqhWVaKVScP4M3KRrnl5uJYeeczyWm7/FU5Tt6ul95M9gor
- Ry5vQtrTsawbdsPXjxSWNsAAAA=
-To: Ludovic Desroches <ludovic.desroches@microchip.com>, Vinod Koul
-	<vkoul@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Nicolas Ferre
-	<nicolas.ferre@microchip.com>, Alexandre Belloni
-	<alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Andrei Simion <andrei.simion@microchip.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <dmaengine@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "Durai Manickam
- KR" <durai.manickamkr@microchip.com>, Charan Pedumuru
-	<charan.pedumuru@microchip.com>
-X-Mailer: b4 0.14.1
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250131141822.514342-1-sudeep.holla@arm.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250202_222010_856479_7FDF4B89 
-X-CRM114-Status: GOOD (  22.99  )
+X-CRM114-CacheID: sfid-20250202_222151_782047_5C94A9A0 
+X-CRM114-Status: GOOD (  25.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,198 +92,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Durai Manickam KR <durai.manickamkr@microchip.com>
+Hi Sudeep,
 
-Add a description, required properties, appropriate compatibles and
-missing properties like clocks and clock-names which are not defined in
-the text binding for all the SoCs that are supported by microchip.
-Update the text binding name `atmel-dma.txt` to
-`atmel,at91sam9g45-dma.yaml` for the files which reference to
-`atmel-dma.txt`. Drop Tudor name from maintainers.
+On Jan 31, 2025 at 14:18:20 +0000, Sudeep Holla wrote:
+> Currently in scmi_protocol_device_request(), no duplicate scmi device
+> name is allowed across any protocol. However scmi_dev_match_id() first
 
-Signed-off-by: Durai Manickam KR <durai.manickamkr@microchip.com>
-Signed-off-by: Charan Pedumuru <charan.pedumuru@microchip.com>
----
-Changes in v4:
-- Modified the description for #dma-cells property.
-- Link to v3: https://lore.kernel.org/r/20250127-test-v3-1-1b5f5b3f64fc@microchip.com
+Yeah this was indeed a bit too stringent.
 
-Changes in v3:
-- Renamed the text binding name `atmel-dma.txt` to
-  `atmel,at91sam9g45-dma.yaml` for the files which reference to
-  `atmel-dma.txt`.
-- Removed `oneOf` and add a blank line in properties.
-- Dropped Tudor name from maintainers.
-- Link to v2: https://lore.kernel.org/r/20250123-dma-v1-1-054f1a77e733@microchip.com
+> matches the protocol id and then the name. So, there is no strict
+> requirement to keep this scmi device name unique across all the protocols.
 
-Changes in v2:
-- Renamed the yaml file to a compatible.
-- Removed `|` and description for common properties.
-- Modified the commit message.
-- Dropped the label for the node in examples.
-- Link to v1: https://lore.kernel.org/all/20240215-dmac-v1-1-8f1c6f031c98@microchip.com
----
- .../bindings/dma/atmel,at91sam9g45-dma.yaml        | 68 ++++++++++++++++++++++
- .../devicetree/bindings/dma/atmel-dma.txt          | 42 -------------
- .../devicetree/bindings/misc/atmel-ssc.txt         |  2 +-
- MAINTAINERS                                        |  2 +-
- 4 files changed, 70 insertions(+), 44 deletions(-)
+Right.
 
-diff --git a/Documentation/devicetree/bindings/dma/atmel,at91sam9g45-dma.yaml b/Documentation/devicetree/bindings/dma/atmel,at91sam9g45-dma.yaml
-new file mode 100644
-index 000000000000..a58dc407311b
---- /dev/null
-+++ b/Documentation/devicetree/bindings/dma/atmel,at91sam9g45-dma.yaml
-@@ -0,0 +1,68 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/dma/atmel,at91sam9g45-dma.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Atmel Direct Memory Access Controller (DMA)
-+
-+maintainers:
-+  - Ludovic Desroches <ludovic.desroches@microchip.com>
-+
-+description:
-+  The Atmel Direct Memory Access Controller (DMAC) transfers data from a source
-+  peripheral to a destination peripheral over one or more AMBA buses. One channel
-+  is required for each source/destination pair. In the most basic configuration,
-+  the DMAC has one master interface and one channel. The master interface reads
-+  the data from a source and writes it to a destination. Two AMBA transfers are
-+  required for each DMAC data transfer. This is also known as a dual-access transfer.
-+  The DMAC is programmed via the APB interface.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - atmel,at91sam9g45-dma
-+      - atmel,at91sam9rl-dma
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  "#dma-cells":
-+    description:
-+      Must be <2>, used to represent the number of integer cells in the dma
-+      property of client devices. The two cells in order are
-+      1. The first cell represents the channel number.
-+      2. The second cell is 0 for RX and 1 for TX transfers.
-+    const: 2
-+
-+  clocks:
-+    maxItems: 1
-+
-+  clock-names:
-+    const: dma_clk
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - "#dma-cells"
-+  - clocks
-+  - clock-names
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    dma-controller@ffffec00 {
-+        compatible = "atmel,at91sam9g45-dma";
-+        reg = <0xffffec00 0x200>;
-+        interrupts = <21>;
-+        #dma-cells = <2>;
-+        clocks = <&pmc 2 20>;
-+        clock-names = "dma_clk";
-+    };
-+
-+...
-diff --git a/Documentation/devicetree/bindings/dma/atmel-dma.txt b/Documentation/devicetree/bindings/dma/atmel-dma.txt
-deleted file mode 100644
-index f69bcf5a6343..000000000000
---- a/Documentation/devicetree/bindings/dma/atmel-dma.txt
-+++ /dev/null
-@@ -1,42 +0,0 @@
--* Atmel Direct Memory Access Controller (DMA)
--
--Required properties:
--- compatible: Should be "atmel,<chip>-dma".
--- reg: Should contain DMA registers location and length.
--- interrupts: Should contain DMA interrupt.
--- #dma-cells: Must be <2>, used to represent the number of integer cells in
--the dmas property of client devices.
--
--Example:
--
--dma0: dma@ffffec00 {
--	compatible = "atmel,at91sam9g45-dma";
--	reg = <0xffffec00 0x200>;
--	interrupts = <21>;
--	#dma-cells = <2>;
--};
--
--DMA clients connected to the Atmel DMA controller must use the format
--described in the dma.txt file, using a three-cell specifier for each channel:
--a phandle plus two integer cells.
--The three cells in order are:
--
--1. A phandle pointing to the DMA controller.
--2. The memory interface (16 most significant bits), the peripheral interface
--(16 less significant bits).
--3. Parameters for the at91 DMA configuration register which are device
--dependent:
--  - bit 7-0: peripheral identifier for the hardware handshaking interface. The
--  identifier can be different for tx and rx.
--  - bit 11-8: FIFO configuration. 0 for half FIFO, 1 for ALAP, 2 for ASAP.
--
--Example:
--
--i2c0@i2c@f8010000 {
--	compatible = "atmel,at91sam9x5-i2c";
--	reg = <0xf8010000 0x100>;
--	interrupts = <9 4 6>;
--	dmas = <&dma0 1 7>,
--	       <&dma0 1 8>;
--	dma-names = "tx", "rx";
--};
-diff --git a/Documentation/devicetree/bindings/misc/atmel-ssc.txt b/Documentation/devicetree/bindings/misc/atmel-ssc.txt
-index f9fb412642fe..b159dc2298b6 100644
---- a/Documentation/devicetree/bindings/misc/atmel-ssc.txt
-+++ b/Documentation/devicetree/bindings/misc/atmel-ssc.txt
-@@ -14,7 +14,7 @@ Required properties:
- Required properties for devices compatible with "atmel,at91sam9g45-ssc":
- - dmas: DMA specifier, consisting of a phandle to DMA controller node,
-   the memory interface and SSC DMA channel ID (for tx and rx).
--  See Documentation/devicetree/bindings/dma/atmel-dma.txt for details.
-+  See Documentation/devicetree/bindings/dma/atmel,at91sam9g45-dma.yaml for details.
- - dma-names: Must be "tx", "rx".
- 
- Optional properties:
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 962eab2ce359..f1f4e3956f45 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -15348,7 +15348,7 @@ M:	Ludovic Desroches <ludovic.desroches@microchip.com>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- L:	dmaengine@vger.kernel.org
- S:	Supported
--F:	Documentation/devicetree/bindings/dma/atmel-dma.txt
-+F:	Documentation/devicetree/bindings/dma/atmel,at91sam9g45-dma.yaml
- F:	drivers/dma/at_hdmac.c
- F:	drivers/dma/at_xdmac.c
- F:	include/dt-bindings/dma/at91.h
+> 
+> Relax the constraint on the duplicate name across the protocols and
+> inhibit only within the same protocol id.
 
----
-base-commit: 232f121837ad8b1c21cc80f2c8842a4090c5a2a0
-change-id: 20250127-test-80e5c48cf747
+Makes sense to me, it will indeed make things simpler.
+Reviewed-by: Dhruva Gole <d-gole@ti.com>
 
-Best regards,
+> 
+> Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+> ---
+>  drivers/firmware/arm_scmi/bus.c | 19 ++++++-------------
+>  1 file changed, 6 insertions(+), 13 deletions(-)
+> 
+> diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
+> index a3386bf36de5..8acf33ccfd21 100644
+> --- a/drivers/firmware/arm_scmi/bus.c
+> +++ b/drivers/firmware/arm_scmi/bus.c
+> @@ -42,7 +42,7 @@ static atomic_t scmi_syspower_registered = ATOMIC_INIT(0);
+>   * This helper let an SCMI driver request specific devices identified by the
+>   * @id_table to be created for each active SCMI instance.
+>   *
+> - * The requested device name MUST NOT be already existent for any protocol;
+> + * The requested device name MUST NOT be already existent for this protocol;
+>   * at first the freshly requested @id_table is annotated in the IDR table
+>   * @scmi_requested_devices and then the requested device is advertised to any
+>   * registered party via the @scmi_requested_devices_nh notification chain.
+> @@ -52,7 +52,6 @@ static atomic_t scmi_syspower_registered = ATOMIC_INIT(0);
+>  static int scmi_protocol_device_request(const struct scmi_device_id *id_table)
+>  {
+>  	int ret = 0;
+> -	unsigned int id = 0;
+>  	struct list_head *head, *phead = NULL;
+>  	struct scmi_requested_dev *rdev;
+>  
+> @@ -67,19 +66,13 @@ static int scmi_protocol_device_request(const struct scmi_device_id *id_table)
+>  	}
+>  
+>  	/*
+> -	 * Search for the matching protocol rdev list and then search
+> -	 * of any existent equally named device...fails if any duplicate found.
+> +	 * Find the matching protocol rdev list and then search of any
+> +	 * existent equally named device...fails if any duplicate found.
+>  	 */
+>  	mutex_lock(&scmi_requested_devices_mtx);
+> -	idr_for_each_entry(&scmi_requested_devices, head, id) {
+> -		if (!phead) {
+> -			/* A list found registered in the IDR is never empty */
+> -			rdev = list_first_entry(head, struct scmi_requested_dev,
+> -						node);
+> -			if (rdev->id_table->protocol_id ==
+> -			    id_table->protocol_id)
+> -				phead = head;
+> -		}
+> +	phead = idr_find(&scmi_requested_devices, id_table->protocol_id);
+> +	if (phead) {
+> +		head = phead;
+>  		list_for_each_entry(rdev, head, node) {
+>  			if (!strcmp(rdev->id_table->name, id_table->name)) {
+>  				pr_err("Ignoring duplicate request [%d] %s\n",
+> -- 
+> 2.34.1
+> 
+> 
+
 -- 
-Charan Pedumuru <charan.pedumuru@microchip.com>
-
+Best regards,
+Dhruva Gole
+Texas Instruments Incorporated
 
