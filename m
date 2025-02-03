@@ -4,122 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17348C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 13:56:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82285C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 14:01:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QSv/7PkAKpQ8nAIRs6GPpYKojD4RMpnIBxaHmaeb+lg=; b=iaNR2AfEHe6c9/u8mha/ianQxO
-	LqYZg3DLwxSJinCRwAxK/YOopgkHVoq0tKBR3A9x0HbPdhcit1v3cACvlW5r/AFsYRNm3FpQFL4j1
-	6OF8hMhGMRs9f4b1uQBm8+0WtvX2Y2UwIXAII02WiaLOaMoeNWul1WMH+iKuCX4P3dh/FyAbJWmoT
-	ReZI3WVakJF04TqwehhBO6olsmOuKCWIK63d+cfkbtIDFFy44e3Jwi81qbwnVWO25RggMFEUu+7e+
-	uzCYFg4uiXfSYvLrgsEe4jdO2cpqHTbK3c4mbOpRnvnsLWWUtqCDezcduVGHyKqAWizjfJlZZ0mI+
-	qMwenXcA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:
+	Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2e3vrd26snuR7BBCNgEi1ltS7NqcxsA/B6t8vBEFYDs=; b=pH2hr+FcUsEzna8F2ZD7oWm+pg
+	NA5z5LiYIOIq/t5seSRYRW22UpvzTZ9IHoI16Vp5rLnYjl8RjaTHLAE+IjBNL3oLzeVbF458erVwe
+	umefhL1uFFfVfK+Mi8lv2DfgJaxzT0MwW2+p9Sy8fy/jNFlaqdA9zuJeM1Nx8kMqbt7woFS/AKcli
+	c0DLqyVKfL6B7vCfFCIuWkWLjcW3c9Y4HVIty4sDRn3WThkHu95MOnE8WQ1cV/SniHab94Ba5YDM1
+	8EzsvFz0+XWlAFsRAyJYkoctwXpaUaSygvhd3g+sXcYGBXmENfge6qwEdsmi5wO7JPjZYm7t9S8zx
+	hlkbkVsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tewvx-0000000FaFN-3SL4;
-	Mon, 03 Feb 2025 13:56:17 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tex0q-0000000Fb6l-2rHk;
+	Mon, 03 Feb 2025 14:01:20 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tewtR-0000000FZge-0nr3
+	id 1tewzX-0000000Fau1-0Frj
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 03 Feb 2025 13:59:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
+	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=2e3vrd26snuR7BBCNgEi1ltS7NqcxsA/B6t8vBEFYDs=; b=P+JfbxUcyLgPiP9a87iLVbKXG1
+	ydqfN/XAOcoV9gXDpL5KZe6dfyWfuLfaNffg7mF9attmXxuB2vjbO5wkQc37g0BEaKfvByx0EUqrX
+	zCezG3gNTDeavYuo+sZGUwV+j0q051jmw6kHf5AekN4eFJVTDsIXGyFtZOrvE6rPf2BLsuTMfzb+V
+	4PFW81oYl/vG/4wb50NEWPHJSSVjQsDtZcuK/RJG/e/YScL8qaXJ0TkD4PBsSU7G8xCArvHRwwLc/
+	LgMnPJ5SeoeczNvMWDyyQdw2k7AxfBIkRMYtSBqwvp/GUx18YsBnVxtVdh0fs3vUNiolWUj8kyyvx
+	ZhqQCbEQ==;
+Received: from mail-vs1-f50.google.com ([209.85.217.50])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tewzT-0000000G5zh-1doL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 13:53:42 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51366w4j009260
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 3 Feb 2025 13:53:41 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	QSv/7PkAKpQ8nAIRs6GPpYKojD4RMpnIBxaHmaeb+lg=; b=d7Apou27U4Va++ZH
-	vrttHaIEfvF9zN9RDwikHgCCxar3VbEhvM02YOb4XiaELo1kKmWETCWkT/6TnC9V
-	B6Xfyf2tvYCqlDhEh2sMM4q8rCKE0+qKCNqFwzLfl2M2HGAUGTUl6NIrPlFS72ex
-	DHoakw0/abIMeE8n8eX6y/a3w0zt3NnooFA1gLSW+lpbGyG0r081MH8hY6JmWQfz
-	v2L18DKJsYvqzlSI0mp3qMTNyLDzbS2fmxFqRk+ngW4aEdgjhCFXFqdXnSUc1NG6
-	fQ8Q8FaSj0mD0Sh2eSDt7r7AB30W6256n620f0PtKsDE3trp0n8qDKSptbizyzMD
-	M8VBxQ==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44jr8896cp-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 13:53:40 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-467922cf961so4149491cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 05:53:40 -0800 (PST)
+	Mon, 03 Feb 2025 13:59:57 +0000
+Received: by mail-vs1-f50.google.com with SMTP id ada2fe7eead31-4afdd15db60so1158282137.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 05:59:54 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738590819; x=1739195619;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=QSv/7PkAKpQ8nAIRs6GPpYKojD4RMpnIBxaHmaeb+lg=;
-        b=D0DkVrd2aWm50kDFiLtqtSRYH45hOfiZfAoGx9ilpBS9RdWsBW9w+X4fEjO5kUoSV6
-         c3JD/uiGgRnTRHilfgcZ0kilfsgOg+sraPa9p16BMnE6Ji814vD3b3MHQoJFTzcvzHWG
-         Hq1t2uVv3jI1uLd7r+aMiQT9ZmovJ+4mrvA6rNTxtvLieiHT2XmqdbVWsSKzVVY5N9/h
-         ZdPZVXKdaKohsLlD8ZBWRFf20TNa59KDUKrXKYg6L3L3PLT52yCglvipoKVfn1yBYfwU
-         ct93R+PgoyjneTZVhzD7YaR7Cj9iHer5LpKba/6ZRWSfGlcVij5yTryAhZYSCSiQG84+
-         FA0A==
-X-Forwarded-Encrypted: i=1; AJvYcCUtKdW45NHVCNBAzrWi3BoR53NM0T9E0Ny9JEt2x8UY9kdO06RbGRQFZY5zP/nRGgzwlOJ24erB8+yo2W91kKKR@lists.infradead.org
-X-Gm-Message-State: AOJu0YxiFyasOTvX6q4ma8VXlXpwJFIyYkrvgEWwTRnWkTv5i0mlNFxP
-	vzQWj9vWJrLb+bBtzPnMMQwfXVe94Z65hieYuOcpRXhb3O6Y+K9XVEXJO69VxP5SDNRbs5GpLt5
-	BgEhdVDJPa4F8qDz7ZMrRIPcjF3x2MfduZqE8/SdL7PF/H4/l2tWEday0TzncRIsXweFw3/xE0Q
-	==
-X-Gm-Gg: ASbGncvmwYFSZ3W4CxssJrxQyWbGMMPSZ4cHEJvJlBnBOqb6l3hGMQNAQ0dAcNuvAkp
-	6dcv8US8xymVNk/OS3PNa0APV0E70hXH8mLFRYtMJdgHpgPxkTtpgL4Z0fA3Z/R5u4e65xLKav5
-	z6pNEZoL6nqajkdMBFeZr1tPktQAs7eLECtMMjKw4nGsdcvps98rAejoFVIvnYxQ+khfGRiuYuX
-	hegTjDh5BoyXQIu5s7xYWXGAVRN1Fqac+82cVmUolxPkQbn4Fyb0FP7THVP9vCa8gerd4+6tpCj
-	r/O3d/XzfOcarsrYRqFy4E8t5eUNm1GrukWM41Q2JOlfQfCtfzDLvQ1b1mc=
-X-Received: by 2002:a05:620a:40cc:b0:7ac:b32a:3997 with SMTP id af79cd13be357-7c009b38647mr822905885a.7.1738590819270;
-        Mon, 03 Feb 2025 05:53:39 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEgceImfzV8y+oE8r85Xh7QN5KXyc4CPa69uZAzMjW/nziNSKht9JytBTvf5hqpOMhFNtVZTA==
-X-Received: by 2002:a05:620a:40cc:b0:7ac:b32a:3997 with SMTP id af79cd13be357-7c009b38647mr822902885a.7.1738590818864;
-        Mon, 03 Feb 2025 05:53:38 -0800 (PST)
-Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dc724c94b1sm7708809a12.66.2025.02.03.05.53.36
+        d=1e100.net; s=20230601; t=1738591190; x=1739195990;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=2e3vrd26snuR7BBCNgEi1ltS7NqcxsA/B6t8vBEFYDs=;
+        b=QG4pfrkq8eZAwL307iqqCnHD+x3c/z35HZVL/L1ojJ7d1YYhqpBmRTKewXF7gPR/pd
+         xcX1VudO/QFVyPT3ryXO88/hc1A7ELzGTXB++aUTkMnw3SqXP9vp0xGtBbPg8kHsR7Q9
+         lVUQ9gLKZz8t1LKG4iapTAwsemkXTwt7AUx/qZTRLdb5najTgymqeBydxRh6Y5b6SNm3
+         AJM+PkUGxs7iuYDzmK208TABK6logsqzKLutUcqyqp0lvJoWx9tOuxXNoJhLKfDX6vLl
+         ZE+SJsI1D+gyehouZSZkqyu0HfZcrpty3fhWuczmtL/4wyzHQvMpUoJe6kAN91NSixNM
+         aAHA==
+X-Forwarded-Encrypted: i=1; AJvYcCUHvqw0JH7hbeIlo+pLQG/P71Cdtq4V77d0vwMlB16Gy5xR3HianTYHQfX2UMDP8HlRi53L5ImtJjjtD/GTBJom@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6VCK8AyrvXgyNzItaWrxIcCuwqQ6nFCVwPxan37Fm5P3SolmQ
+	4WFzC7w8ATelSCO8DeYMYheQX5H4f1q/DsIt+GU5MokboeGSz5vBOP+2VNwQ
+X-Gm-Gg: ASbGncuSh/cYpzzqnodgiZj6xKPm0a6pjwh2xX9ki4GFEt5H9CVGxddOP+oWWtcEz7E
+	EmK0Pjt2jDni81EDrU/Ca+2KEzaEEnciScJ0MW9/D5dYorT/YLoqRRkrqQIWXuPKExsz7fqz5pZ
+	5bbCdFJh2kASzlc6Ki0zGRNuOU0MT1QrNuXB7lsDeIzKlW7g9YK9LB2n2ljVTqFSH+7NcHQ73nz
+	gY2RNQhFHOK27yXpDncgHT8PiCIP5Sg/G5mXfLVKNou+YyMQYRMCNyVIQWIIB3ZxDN00wcMHark
+	eXGb03l20Ayu/xZ3mFhHbyByHwQeXz1xgbTSmGzIKPOZ1VX/6knQEON2lA==
+X-Google-Smtp-Source: AGHT+IG2KpC2Unn1YvGYY/j9UxD9DBneGnFXO9nKBqXk4MqoniX03Cn1FA0d/ZM7sYhtT+UTIMDHdw==
+X-Received: by 2002:a05:6102:3e0c:b0:4b1:8b53:2987 with SMTP id ada2fe7eead31-4b9a4eb44b9mr16237810137.1.1738591190159;
+        Mon, 03 Feb 2025 05:59:50 -0800 (PST)
+Received: from mail-vk1-f181.google.com (mail-vk1-f181.google.com. [209.85.221.181])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-4b9baa18a9bsm1635429137.4.2025.02.03.05.59.48
+        for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 03 Feb 2025 05:53:38 -0800 (PST)
-Message-ID: <2128f6c1-9750-405c-9595-125995ea76da@oss.qualcomm.com>
-Date: Mon, 3 Feb 2025 14:53:35 +0100
+        Mon, 03 Feb 2025 05:59:49 -0800 (PST)
+Received: by mail-vk1-f181.google.com with SMTP id 71dfb90a1353d-5187cd9b8e5so1399181e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 05:59:48 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVV24lW8aGV1WYNjQ00muVN/6ft9yjmqWEnJpFtUm9uzqJIVZBC0G5jRICYOW4gy6iit6zGKsQTVhNMQT1DSg3n@lists.infradead.org
+X-Received: by 2002:a05:6122:1990:b0:51c:aa1a:2b5b with SMTP id
+ 71dfb90a1353d-51e9e3fdc44mr15881808e0c.4.1738591188554; Mon, 03 Feb 2025
+ 05:59:48 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/4] arm64: dts: qcom: qcs615: add ethernet node
-To: Yijie Yang <quic_yijiyang@quicinc.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller"
- <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Richard Cochran <richardcochran@gmail.com>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org
-References: <20250121-dts_qcs615-v3-0-fa4496950d8a@quicinc.com>
- <20250121-dts_qcs615-v3-3-fa4496950d8a@quicinc.com>
- <30a82d74-a199-4ccf-997b-b8a6971cf973@oss.qualcomm.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <30a82d74-a199-4ccf-997b-b8a6971cf973@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: Ocar9kWj4GBV9Jw5RuvKvI9aYADh9s5j
-X-Proofpoint-GUID: Ocar9kWj4GBV9Jw5RuvKvI9aYADh9s5j
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-03_06,2025-01-31_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0
- impostorscore=0 phishscore=0 mlxscore=0 priorityscore=1501 adultscore=0
- bulkscore=0 mlxlogscore=758 lowpriorityscore=0 spamscore=0 clxscore=1015
- malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2501170000 definitions=main-2502030102
+References: <cover.1738329458.git.geert+renesas@glider.be> <1824412519cb8791ab428065116927ee7b77cf35.1738329459.git.geert+renesas@glider.be>
+ <e20a177a-30cd-4088-89e1-b479aba1356c@wanadoo.fr> <Z5-xMUqrDuaE8Eo_@thinkpad>
+ <74cab7d1ec31e7531cdda0f1eb47acdebd5c8d3f.camel@sipsolutions.net> <45920591-e1d6-4337-a906-35bb5319836c@wanadoo.fr>
+In-Reply-To: <45920591-e1d6-4337-a906-35bb5319836c@wanadoo.fr>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 3 Feb 2025 14:59:36 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdXZKNtAmiMP8uuSngZMsDLGcYwrLS0xNWzN4UfLaccdyA@mail.gmail.com>
+X-Gm-Features: AWEUYZkxzrXQCnvoDXR55r9qIi7LTjZDYDZYK_OEJibEwCDu5alOHeJTYjGkvIg
+Message-ID: <CAMuHMdXZKNtAmiMP8uuSngZMsDLGcYwrLS0xNWzN4UfLaccdyA@mail.gmail.com>
+Subject: Re: [PATCH treewide v2 1/3] bitfield: Add non-constant
+ field_{prep,get}() helpers
+To: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_055341_242963_8C62A3FC 
-X-CRM114-Status: GOOD (  11.86  )
+X-CRM114-CacheID: sfid-20250203_135956_038245_C19A9B69 
+X-CRM114-Status: GOOD (  28.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,22 +106,52 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Giovanni Cabiddu <giovanni.cabiddu@intel.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Crt Mori <cmo@melexis.com>, linux-aspeed@lists.ozlabs.org, linux-iio@vger.kernel.org, Michael Turquette <mturquette@baylibre.com>, Rasmus Villemoes <linux@rasmusvillemoes.dk>, linux-kernel@vger.kernel.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Shan-Chun Hung <schung@nuvoton.com>, linux-clk@vger.kernel.org, Lars-Peter Clausen <lars@metafoo.de>, Herbert Xu <herbert@gondor.apana.org.au>, Bartosz Golaszewski <brgl@bgdev.pl>, Takashi Iwai <tiwai@suse.com>, qat-linux@intel.com, Joel Stanley <joel@jms.id.au>, Jakub Kicinski <kuba@kernel.org>, Andrew Jeffery <andrew@codeconstruct.com.au>, Linus Walleij <linus.walleij@linaro.org>, Jacky Huang <ychuang3@nuvoton.com>, Yury Norov <yury.norov@gmail.com>, linux-sound@vger.kernel.org, linux-gpio@vger.kernel.org, Alex Elder <elder@ieee.org>, Jaroslav Kysela <perex@perex.cz>, linux-arm-kernel@lists.infradead.org, Stephen Boyd <sboyd@kernel.org>, linux-renesas-soc@vger.kernel.org, linux-crypto@vger.kernel.org, Johannes Berg <johannes@sipsolutions.net>, "David S . Miller" <davem@davemloft.net>, Jonathan Cameron <jic23@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1.02.2025 4:48 PM, Konrad Dybcio wrote:
-> On 21.01.2025 8:54 AM, Yijie Yang wrote:
->> Add an ethernet controller node for QCS615 SoC to enable ethernet
->> functionality.
->>
->> Signed-off-by: Yijie Yang <quic_yijiyang@quicinc.com>
->> ---
-> 
-> Reviewed-by: Konrad Dybcio <konrad.dybcio@linaro.org>
+Hi Vincent,
 
-Wrong copypasta, please use this one instead:
+On Mon, 3 Feb 2025 at 14:37, Vincent Mailhol <mailhol.vincent@wanadoo.fr> wrote:
+> On 03/02/2025 at 16:44, Johannes Berg wrote:
+> > On Sun, 2025-02-02 at 12:53 -0500, Yury Norov wrote:
+> >>> Instead of creating another variant for
+> >>> non-constant bitfields, wouldn't it be better to make the existing macro
+> >>> accept both?
+> >>
+> >> Yes, it would definitely be better IMO.
+> >
+> > On the flip side, there have been discussions in the past (though I
+> > think not all, if any, on the list(s)) about the argument order. Since
+> > the value is typically not a constant, requiring the mask to be a
+> > constant has ensured that the argument order isn't as easily mixed up as
+> > otherwise.
+>
+> If this is a concern, then it can be checked with:
+>
+>   BUILD_BUG_ON_MSG(!__builtin_constant_p(_mask) &&
+>                    __builtin_constant_p(_val),
+>                    _pfx "mask is not constant");
+>
+> It means that we forbid FIELD_PREP(non_const_mask, const_val) but allow
+> any other combination.
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Even that case looks valid to me. Actually there is already such a user
+in drivers/iio/temperature/mlx90614.c:
 
-Konrad
+    ret |= field_prep(chip_info->fir_config_mask, MLX90614_CONST_FIR);
+
+So if you want enhanced safety, having both the safer/const upper-case
+variants and the less-safe/non-const lower-case variants makes sense.
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
