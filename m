@@ -4,35 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76B31C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 10:56:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55EE0C02196
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 10:57:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VjrjF09VQnxDeNYh4e1Ha75V6UufRCaFP71EexFz7fY=; b=KqtbKC4JcNQY+dH0QQ0cFOEyQq
-	ibI+cn4HhXYRzN/Wb9XqcXpaoBH4cpcwITaTt0D8EG/RIusnGAKRdp0O1Akx1+ZpUQsPdN7Fxw4qU
-	keRPABoAgwzFaUr57voG5lT3mndHdbaDSNVoMDrDlZYu6S0XRwLtpdxZ3/3vQe3wHMZRj4HcslvZE
-	D3ZQbme/5di/DtJ27xVA132pGCilJ8AN6xhf65qPrTZvA2fafFiyqld/T0UHqvhhhWlpUu8twxkug
-	BHUqFUkfDau1CCjzFPaHifIF01eMCFk+SPtcm4U+t+s/8hnNTKieHx8FQ+XYjFMR6OivPkzrU/9of
-	548orzVA==;
+	bh=zoyyTWy8+Zu7JkfSAKSCzAU5xw+8zxp6lIz7/LeWBsU=; b=Jngtw8WXnMgQWyVPVaFX5m++cu
+	F26RaWAtU9/6VhWCUMm1+15VQ8+5w0TgCHycaNTNy/zYbASjEf90qG4nbFltvQMOIMD9pvA1lUhEZ
+	WaH7T3V6J2ILf+k4Dh/q+33bM8MgF/1uLGA0m4zl75l9DsmBXLPaj7tXzkvedv3FbY1VTaSOV3AB5
+	DZf5u6HonkCC3sbGPbfJUf6Rt0366BHpWattA4381YsW5VIO/B9lJ2InQ3BLk8c+nlKJ22v4IJZcA
+	A43oBjEb4Kygyc6JUu+XAIcY5mGDRnKERtnSDQ2GFjChGyKBFh7ffnOR9N8zdvMd0qzXRc2X1/kCQ
+	lNSWYM+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teu7V-0000000FAbk-1JSJ;
-	Mon, 03 Feb 2025 10:56:01 +0000
+	id 1teu8m-0000000FAlZ-3uao;
+	Mon, 03 Feb 2025 10:57:20 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tethP-0000000F7WE-3TTe
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 03 Feb 2025 10:29:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=zoyyTWy8+Zu7JkfSAKSCzAU5xw+8zxp6lIz7/LeWBsU=; b=NqhUCjVzzNH9IYAYME2YURfEs+
+	10+BBOC2Lv61RFNIHywHyCixVHcLyCnxaTqT7VpIBS/hFYt3UjUwJ44ocnvbavu2mjK0in8J39chd
+	tdGegS9+NhqwlZShrDnu0GG4ZHpADkKpfvc4CbH18ZquEWiU/t1roilPZY6V3Llr9iQ/PJYZCpacJ
+	UBK30uH3HfuNTFKfmFlkOfzKulSIK1J5wF7K0rXmbNQ8UYMqj6bJu4vnaUBJRvDEwuPsjSItaruvt
+	0d0KeFMJ0NUJqyPG/qlSQOVBffYdXhNvvECrWEFfIxIIGPX3gFdck+2gDwgEB6MVNnUZ9j3sUMeE0
+	Z7V6sCgg==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tethI-0000000F7Ts-11KZ
+	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tethM-0000000G3y1-2q4F
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 10:28:58 +0000
+	Mon, 03 Feb 2025 10:29:02 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 480031BC0;
-	Mon,  3 Feb 2025 02:29:20 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5909D1BCA;
+	Mon,  3 Feb 2025 02:29:24 -0800 (PST)
 Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 196943F63F;
-	Mon,  3 Feb 2025 02:28:51 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2AE363F7BD;
+	Mon,  3 Feb 2025 02:28:56 -0800 (PST)
 From: Kevin Brodsky <kevin.brodsky@arm.com>
 To: linux-hardening@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -62,17 +77,17 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mm@kvack.org,
 	x86@kernel.org
-Subject: [RFC PATCH 7/8] fs: Protect creds installed by override_creds()
-Date: Mon,  3 Feb 2025 10:28:08 +0000
-Message-ID: <20250203102809.1223255-8-kevin.brodsky@arm.com>
+Subject: [RFC PATCH 8/8] mm: Add basic tests for kpkeys_hardened_cred
+Date: Mon,  3 Feb 2025 10:28:09 +0000
+Message-ID: <20250203102809.1223255-9-kevin.brodsky@arm.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20250203102809.1223255-1-kevin.brodsky@arm.com>
 References: <20250203102809.1223255-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_022856_368952_519639DC 
-X-CRM114-Status: GOOD (  18.59  )
+X-CRM114-CacheID: sfid-20250203_102901_044221_CB0E2635 
+X-CRM114-Status: GOOD (  18.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,154 +102,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The kpkeys_hardened_cred feature, when enabled, automatically
-protects credentials installed by commit_creds(). However, because
-override_creds() does not consume its argument, it is up to its
-callers to protect the credentials before calling override_creds().
-This is done by calling protect_creds(), moving the credentials to a
-protected memory location.
-
-In some cases, the credentials returned by prepare_creds() are
-passed to override_creds() as-is. In such situation where write
-access to the credentials is not needed, prepare_protected_creds()
-is used to avoid the copy incurred by a separate call to
-protect_creds().
-
-This patch covers the main users of override_creds(), but it is not
-comprehensive.
-
-This patch is a no-op if kpkeys_hardened_cred isn't enabled.
+Add basic tests for the kpkeys_hardened_pgtables feature: try to
+perform a direct write to current->{cred,real_cred} and ensure it
+fails.
 
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- fs/aio.c              | 2 +-
- fs/fuse/passthrough.c | 2 +-
- fs/nfs/nfs4idmap.c    | 2 +-
- fs/nfsd/auth.c        | 2 +-
- fs/nfsd/nfs4recover.c | 2 +-
- fs/nfsd/nfsfh.c       | 2 +-
- fs/open.c             | 2 +-
- fs/overlayfs/dir.c    | 2 +-
- fs/overlayfs/super.c  | 2 +-
- 9 files changed, 9 insertions(+), 9 deletions(-)
+ mm/Makefile                    |  1 +
+ mm/kpkeys_hardened_cred_test.c | 42 ++++++++++++++++++++++++++++++++++
+ security/Kconfig.hardening     | 11 +++++++++
+ 3 files changed, 54 insertions(+)
+ create mode 100644 mm/kpkeys_hardened_cred_test.c
 
-diff --git a/fs/aio.c b/fs/aio.c
-index 7b976b564cfc..ab9f4c8d778a 100644
---- a/fs/aio.c
-+++ b/fs/aio.c
-@@ -1657,7 +1657,7 @@ static int aio_fsync(struct fsync_iocb *req, const struct iocb *iocb,
- 	if (unlikely(!req->file->f_op->fsync))
- 		return -EINVAL;
+diff --git a/mm/Makefile b/mm/Makefile
+index f7263b7f45b8..2024226902d4 100644
+--- a/mm/Makefile
++++ b/mm/Makefile
+@@ -149,3 +149,4 @@ obj-$(CONFIG_TMPFS_QUOTA) += shmem_quota.o
+ obj-$(CONFIG_PT_RECLAIM) += pt_reclaim.o
+ obj-$(CONFIG_KPKEYS_HARDENED_PGTABLES) += kpkeys_hardened_pgtables.o
+ obj-$(CONFIG_KPKEYS_HARDENED_PGTABLES_TEST) += kpkeys_hardened_pgtables_test.o
++obj-$(CONFIG_KPKEYS_HARDENED_CRED_TEST) += kpkeys_hardened_cred_test.o
+diff --git a/mm/kpkeys_hardened_cred_test.c b/mm/kpkeys_hardened_cred_test.c
+new file mode 100644
+index 000000000000..46048098f99d
+--- /dev/null
++++ b/mm/kpkeys_hardened_cred_test.c
+@@ -0,0 +1,42 @@
++// SPDX-License-Identifier: GPL-2.0-only
++#include <kunit/test.h>
++#include <linux/sched.h>
++
++static void write_cred(struct kunit *test)
++{
++	long zero = 0;
++	int ret;
++
++	ret = copy_to_kernel_nofault((unsigned long *)current->cred, &zero, sizeof(zero));
++	KUNIT_EXPECT_EQ_MSG(test, ret, -EFAULT,
++			    "Write to current->cred wasn't prevented");
++
++	ret = copy_to_kernel_nofault((unsigned long *)current->real_cred, &zero, sizeof(zero));
++	KUNIT_EXPECT_EQ_MSG(test, ret, -EFAULT,
++			    "Write to current->real_cred wasn't prevented");
++}
++
++static int kpkeys_hardened_cred_suite_init(struct kunit_suite *suite)
++{
++	if (!arch_kpkeys_enabled()) {
++		pr_err("Cannot run kpkeys_hardened_cred tests: kpkeys are not supported\n");
++		return 1;
++	}
++
++	return 0;
++}
++
++static struct kunit_case kpkeys_hardened_cred_test_cases[] = {
++	KUNIT_CASE(write_cred),
++	{}
++};
++
++static struct kunit_suite kpkeys_hardened_cred_test_suite = {
++	.name = "Hardened credentials using kpkeys",
++	.test_cases = kpkeys_hardened_cred_test_cases,
++	.suite_init = kpkeys_hardened_cred_suite_init,
++};
++kunit_test_suite(kpkeys_hardened_cred_test_suite);
++
++MODULE_DESCRIPTION("Tests for the kpkeys_hardened_cred feature");
++MODULE_LICENSE("GPL");
+diff --git a/security/Kconfig.hardening b/security/Kconfig.hardening
+index 1af3a9dae645..9b0563a03ab4 100644
+--- a/security/Kconfig.hardening
++++ b/security/Kconfig.hardening
+@@ -338,6 +338,17 @@ config KPKEYS_HARDENED_CRED
+ 	  This option has no effect if the system does not support
+ 	  kernel pkeys.
  
--	req->creds = prepare_creds();
-+	req->creds = prepare_protected_creds();
- 	if (!req->creds)
- 		return -ENOMEM;
++config KPKEYS_HARDENED_CRED_TEST
++	tristate "KUnit tests for kpkeys_hardened_cred" if !KUNIT_ALL_TESTS
++	depends on KPKEYS_HARDENED_CRED
++	depends on KUNIT
++	default KUNIT_ALL_TESTS
++	help
++	  Enable this option to check that the kpkeys_hardened_cred feature
++	  functions as intended, i.e. prevents arbitrary writes to live credentials.
++
++	  If unsure, say N.
++
+ endmenu
  
-diff --git a/fs/fuse/passthrough.c b/fs/fuse/passthrough.c
-index 607ef735ad4a..4451651b1e51 100644
---- a/fs/fuse/passthrough.c
-+++ b/fs/fuse/passthrough.c
-@@ -248,7 +248,7 @@ int fuse_backing_open(struct fuse_conn *fc, struct fuse_backing_map *map)
- 		goto out_fput;
- 
- 	fb->file = file;
--	fb->cred = prepare_creds();
-+	fb->cred = prepare_protected_creds();
- 	refcount_set(&fb->count, 1);
- 
- 	res = fuse_backing_id_alloc(fc, fb);
-diff --git a/fs/nfs/nfs4idmap.c b/fs/nfs/nfs4idmap.c
-index 25a7c771cfd8..6ff25dd5c2fb 100644
---- a/fs/nfs/nfs4idmap.c
-+++ b/fs/nfs/nfs4idmap.c
-@@ -228,7 +228,7 @@ int nfs_idmap_init(void)
- 	set_bit(KEY_FLAG_ROOT_CAN_CLEAR, &keyring->flags);
- 	cred->thread_keyring = keyring;
- 	cred->jit_keyring = KEY_REQKEY_DEFL_THREAD_KEYRING;
--	id_resolver_cache = cred;
-+	id_resolver_cache = protect_creds(cred);
- 	return 0;
- 
- failed_reg_legacy:
-diff --git a/fs/nfsd/auth.c b/fs/nfsd/auth.c
-index 4dc327e02456..09b377a97147 100644
---- a/fs/nfsd/auth.c
-+++ b/fs/nfsd/auth.c
-@@ -79,7 +79,7 @@ int nfsd_setuser(struct svc_cred *cred, struct svc_export *exp)
- 	else
- 		new->cap_effective = cap_raise_nfsd_set(new->cap_effective,
- 							new->cap_permitted);
--	put_cred(override_creds(new));
-+	put_cred(override_creds(protect_creds(new)));
- 	return 0;
- 
- oom:
-diff --git a/fs/nfsd/nfs4recover.c b/fs/nfsd/nfs4recover.c
-index 28f4d5311c40..095664648103 100644
---- a/fs/nfsd/nfs4recover.c
-+++ b/fs/nfsd/nfs4recover.c
-@@ -81,7 +81,7 @@ nfs4_save_creds(const struct cred **original_creds)
- 
- 	new->fsuid = GLOBAL_ROOT_UID;
- 	new->fsgid = GLOBAL_ROOT_GID;
--	*original_creds = override_creds(new);
-+	*original_creds = override_creds(protect_creds(new));
- 	return 0;
- }
- 
-diff --git a/fs/nfsd/nfsfh.c b/fs/nfsd/nfsfh.c
-index 32019751a41e..d64d23e9357e 100644
---- a/fs/nfsd/nfsfh.c
-+++ b/fs/nfsd/nfsfh.c
-@@ -221,7 +221,7 @@ static __be32 nfsd_set_fh_dentry(struct svc_rqst *rqstp, struct net *net,
- 		new->cap_effective =
- 			cap_raise_nfsd_set(new->cap_effective,
- 					   new->cap_permitted);
--		put_cred(override_creds(new));
-+		put_cred(override_creds(protect_creds(new)));
- 	} else {
- 		error = nfsd_setuser_and_check_port(rqstp, cred, exp);
- 		if (error)
-diff --git a/fs/open.c b/fs/open.c
-index 932e5a6de63b..3b5331b7c0f0 100644
---- a/fs/open.c
-+++ b/fs/open.c
-@@ -457,7 +457,7 @@ static const struct cred *access_override_creds(void)
- 	 * freeing.
- 	 */
- 	override_cred->non_rcu = 1;
--	return override_creds(override_cred);
-+	return override_creds(protect_creds(override_cred));
- }
- 
- static long do_faccessat(int dfd, const char __user *filename, int mode, int flags)
-diff --git a/fs/overlayfs/dir.c b/fs/overlayfs/dir.c
-index c9993ff66fc2..943ec4300ddb 100644
---- a/fs/overlayfs/dir.c
-+++ b/fs/overlayfs/dir.c
-@@ -580,7 +580,7 @@ static const struct cred *ovl_setup_cred_for_create(struct dentry *dentry,
- 	 * We must be called with creator creds already, otherwise we risk
- 	 * leaking creds.
- 	 */
--	old_cred = override_creds(override_cred);
-+	old_cred = override_creds(protect_creds(override_cred));
- 	WARN_ON_ONCE(old_cred != ovl_creds(dentry->d_sb));
- 
- 	return override_cred;
-diff --git a/fs/overlayfs/super.c b/fs/overlayfs/super.c
-index 86ae6f6da36b..3489a62c5d8a 100644
---- a/fs/overlayfs/super.c
-+++ b/fs/overlayfs/super.c
-@@ -1318,7 +1318,7 @@ int ovl_fill_super(struct super_block *sb, struct fs_context *fc)
- 	sb->s_d_op = &ovl_dentry_operations;
- 
- 	err = -ENOMEM;
--	ofs->creator_cred = cred = prepare_creds();
-+	ofs->creator_cred = cred = prepare_protected_creds();
- 	if (!cred)
- 		goto out_err;
- 
+ config CC_HAS_RANDSTRUCT
 -- 
 2.47.0
 
