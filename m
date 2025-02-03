@@ -4,147 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8484BC02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 11:28:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 518C3C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 11:30:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+cFXS6bLp3bdW8pWWRXjzU0D+975NvIlouYj3xU4beE=; b=2qVMIE/y3o/8AgGt/D+1Jnmicl
-	uSLmuuHq4rEBt38PcwFgSOY6pHW9WpaWXFVcgOl6zy9KncETOpUcBHjJjTftBJflmLufTpkkfDfSf
-	JqMcC48jd2ZyEyJKS9bAxjDMRRDfADHZvI6ULDOv/ct3aemS1lQWEL2PHDUvtGAKPsgd98yhLMqxM
-	JRLT6QJFnBu3eB7J76CV8jJk7REqWJYf/xauhRHCnc+X65pEsS1b7jMyxKTpY1U/6Y4kwb5z1Cc2n
-	MXt0tQsVYEgQe4nRUezIlMkrw3EjZrsatsn+NRvRFbwfhHJG04YyANP7+qL7DOFW/3JN9fqkVZsPm
-	8/W2y0Kw==;
+	bh=03gUTOPYMxUMcZhmVIjGAOR45IAzZBtmIXb7cPKWi+Y=; b=phee0UM3IDSnApCnhhSppS8EfW
+	4bPVPrwqDHJlfXv692EPwpmxe5ojPibkwxhoIxlQE8tT3YV/oi/Fz5jTDldoCr1MeQx3eASyjA3vN
+	KsylAOkT5IZZWuDoEa3MLx10Sb6YSmNptLylZGCy9FgxNaYyxPfJpao0mWQev/G4AtrOfxeU0t4CI
+	KQpO/Hmx+/lCdnAEHxRw6AqRHDCOUOVZSp7RKSUaLYbz3vXawsdxndDXXXD/vtDb5AZDHKmUgz3eX
+	k67pQb/84lWIVDHVAexOxnVXuxles50l5+7j9747KxhcOB7D6o52ltjymC2/5TqfYwY3TU2jA0Y2G
+	4mAljK2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teudC-0000000FEdj-0xV5;
-	Mon, 03 Feb 2025 11:28:46 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1teueY-0000000FExl-3sxz;
+	Mon, 03 Feb 2025 11:30:10 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1teubr-0000000FEUY-2IOq;
-	Mon, 03 Feb 2025 11:27:25 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 5D6111F392;
-	Mon,  3 Feb 2025 11:27:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1738582036; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+cFXS6bLp3bdW8pWWRXjzU0D+975NvIlouYj3xU4beE=;
-	b=zgBDEV8ViUQP1HMNucyQnJcEpMz80RT11aQwq3O7TSc1wfvUSgKJKKNROduJBXY62ZZPp6
-	c9Ni8vkmf5RE7COrZXBA8h9dRGGDLrDz0XcrLdbmSXYgq6WKLUpqRRtRdtOicEMCSkFPHj
-	wQPKU3BtuY2NAiQrKQ2qJ5dVb02o3WU=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1738582036;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+cFXS6bLp3bdW8pWWRXjzU0D+975NvIlouYj3xU4beE=;
-	b=I/v8nlv8rWRQaE8U//4dN7e4n0vX/OhaohvtUF+uWz4GKNAV9/ekrllLy+qzWnl8lI8o5+
-	Mfat+fsRyff0TpAQ==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b="FO/uYKmC";
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=p859Qwti
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1738582032; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+cFXS6bLp3bdW8pWWRXjzU0D+975NvIlouYj3xU4beE=;
-	b=FO/uYKmC9s14VlRRhtyaC8PVVH/fsUkX+ILo2sWmSKDOrpRD0DnfJmM5eet8946IVjtrgo
-	jalJHToH9zddBqbFB1oETa7qrC+oXf9rRy+K592WvwqzXzC8ZYvJlxWR7Hp68iD35obr8J
-	3/iOi/R4DtWIztkqxhiNsi0h8jRi1qE=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1738582032;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+cFXS6bLp3bdW8pWWRXjzU0D+975NvIlouYj3xU4beE=;
-	b=p859QwtibXcAkzxGIt9330tkOdjfkkppdxFnNP89AlEe8wIkghTze5ua+JlwxfZvdMWG/M
-	vo5PfW9/UIqdL3BA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 5AA9813A78;
-	Mon,  3 Feb 2025 11:27:11 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id F3mqEw+ooGfhBwAAD6G6ig
-	(envelope-from <svarbanov@suse.de>); Mon, 03 Feb 2025 11:27:11 +0000
-Message-ID: <426b6e9f-fad1-4456-b425-178877c4ab58@suse.de>
-Date: Mon, 3 Feb 2025 13:27:10 +0200
+	id 1teudD-0000000FEdn-2PZI
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 03 Feb 2025 11:28:48 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-43626213fffso32611925e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 03:28:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1738582126; x=1739186926; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=03gUTOPYMxUMcZhmVIjGAOR45IAzZBtmIXb7cPKWi+Y=;
+        b=jwGMefqZvIKCDOdEtY7qe3GVxzRaec+R8gyWv2uGS8gFbmrek7WSDxE3f4s7l3BWS0
+         /PRFCI8s2RHC9kYktfwCHVJx/aJaX8Qotqo+5gz2hNaHYan9mY1qVvlrfLHSiTcCDzeZ
+         tRIDdXMU/neczC9M5xCuag2LstKjzmPGk2dWlATJvT2603WZSZPvc8NSZqoqiC5WAksh
+         6oN089r5xPsMta4BKs6gBUrJ54mEmkcuqPDplVogpb3Ufi2EI/RRPtkfLGHmpapAebI1
+         qiJYm3zv36HhUouIX3QthdH/9U+oPM0YuAewqY3L+yT0cejCYWIN9VfuPglfbaokzP0m
+         ED7A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738582126; x=1739186926;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=03gUTOPYMxUMcZhmVIjGAOR45IAzZBtmIXb7cPKWi+Y=;
+        b=knIhMo/TF9365KxdVrkptGc6By5rXwXhF1c5/H2arIwXirIVITEeFfgyFdvvF5km9/
+         CmTT/6pktBqsp9D92f6IXPyn7FIemveYzRK7taiA5ZlS10m0HagKo6I5+qRRl06N5khK
+         Bklah3b4dMpsat718taQPc8ha8GurYM7l8H3LroHS+uavpgXPFrfpb9nbCmbnd5iOnkS
+         Rqilj9H7hJo+74YX9fMKBM8MDrS8pAJGsckmvvyCkFmIbMS5ZX8bSuQ6vC8lHmk+/CrC
+         IVICwnQokmp4WLZTMLQDeojoCAJxTXVK6kQIAaueLIvYOuk54KtvrLe3I+B3S/GH+Del
+         OYrg==
+X-Gm-Message-State: AOJu0Yz1JiewxUCA+LDfXxltZZSZnMGSn0SS7xGPqlwyMK/Ive8zGJ4L
+	Z9EAfJ8XCzidme0QWiY8tq09KV5e0wk8GWzEBMt1MFpofi7c1D6hO132YMVY2eI=
+X-Gm-Gg: ASbGncvUq7DnAbrBZe3Vdpwl1UODJ3MwucgUc1EVrJy7VJeZoU45yQOag8/+/WVcE0r
+	L/GPoUZk7TPqokIV7FRQFQ5MBG6kCv0D/JKNwJyGO47q4UVvaqvfMxHCJW49ddswhVYutQSMJoT
+	JPDtFIL378QKnD6fE3rHemyIdT/349gN4Ux7iP2wa634kD2Uq6ic7UVmL3a0SKyYEtxsJW4dYP1
+	+cdKD4TfrDfHAVsae3cUkFODMGBuO2sFeCGJXumIpyxtUHnZOgt4W72v4zyj+mQgzLRhFdSeiWV
+	fdN1Wdp0kcwxepiioOz7iMezeQ==
+X-Google-Smtp-Source: AGHT+IGzdk+Sqe63Mv9Bm/BPmdRTVGijSJCqG2+aE5exrBjEFpqR+uegx/hrDwI77yjfzrbFRZf6LQ==
+X-Received: by 2002:a05:600c:1e08:b0:438:e521:1a4d with SMTP id 5b1f17b1804b1-438e52122eamr113014465e9.5.1738582126037;
+        Mon, 03 Feb 2025 03:28:46 -0800 (PST)
+Received: from [192.168.68.163] ([145.224.90.107])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438dcc81911sm185351695e9.38.2025.02.03.03.28.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 03 Feb 2025 03:28:45 -0800 (PST)
+Message-ID: <4aaaa1de-ec5d-433b-96c2-3b28a8cffe7e@linaro.org>
+Date: Mon, 3 Feb 2025 11:28:44 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 -next 07/11] PCI: brcmstb: Adjust PHY PLL setup to use
- a 54MHz input refclk
-To: Jim Quinlan <jim2101024@gmail.com>, Stanimir Varbanov <svarbanov@suse.de>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rpi-kernel@lists.infradead.org,
- linux-pci@vger.kernel.org,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Thomas Gleixner
- <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
- Nicolas Saenz Julienne <nsaenz@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, kw@linux.com,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Andrea della Porta <andrea.porta@suse.com>,
- Phil Elwell <phil@raspberrypi.com>, Jonathan Bell
- <jonathan@raspberrypi.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>
-References: <20250120130119.671119-1-svarbanov@suse.de>
- <20250120130119.671119-8-svarbanov@suse.de>
- <CANCKTBt2J0c54jLO9C0coEExLUGtjCioj2SQTAuQkKctgLH79g@mail.gmail.com>
+Subject: Re: [PATCH v19 10/11] KVM: arm64: nvhe: Disable branch generation in
+ nVHE guests
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ kvmarm@lists.linux.dev, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Jonathan Corbet <corbet@lwn.net>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Zenghui Yu <yuzenghui@huawei.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>
+References: <20250202-arm-brbe-v19-v19-0-1c1300802385@kernel.org>
+ <20250202-arm-brbe-v19-v19-10-1c1300802385@kernel.org>
 Content-Language: en-US
-From: Stanimir Varbanov <svarbanov@suse.de>
-In-Reply-To: <CANCKTBt2J0c54jLO9C0coEExLUGtjCioj2SQTAuQkKctgLH79g@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 5D6111F392
-X-Spamd-Result: default: False [-3.01 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	MIME_TRACE(0.00)[0:+];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FREEMAIL_TO(0.00)[gmail.com,suse.de];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[22];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	ARC_NA(0.00)[];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	RCVD_TLS_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	TAGGED_RCPT(0.00)[dt];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	DKIM_TRACE(0.00)[suse.de:+];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:dkim,suse.de:mid,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns]
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20250202-arm-brbe-v19-v19-10-1c1300802385@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_032723_733098_76BD7B5D 
-X-CRM114-Status: GOOD (  21.01  )
+X-CRM114-CacheID: sfid-20250203_032847_629447_6816C043 
+X-CRM114-Status: GOOD (  20.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,129 +107,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jim,
 
-On 1/31/25 6:08 PM, Jim Quinlan wrote:
-> On Mon, Jan 20, 2025 at 8:01 AM Stanimir Varbanov <svarbanov@suse.de> wrote:
->>
->> The default input reference clock for the PHY PLL is 100Mhz, except for
->> some devices where it is 54Mhz like bcm2712C1 and bcm2712D0.
->>
->> To implement this adjustments introduce a new .post_setup op in
->> pcie_cfg_data and call it at the end of brcm_pcie_setup function.
->>
->> The bcm2712 .post_setup callback implements the required MDIO writes that
->> switch the PLL refclk and also change PHY PM clock period.
->>
->> Without this RPi5 PCIex1 is unable to enumerate endpoint devices on
->> the expansion connector.
->>
->> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
->> Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
->> ---
->> v4 -> v5:
->>  - Updated a comment (Jim).
->>
->>  drivers/pci/controller/pcie-brcmstb.c | 44 +++++++++++++++++++++++++++
->>  1 file changed, 44 insertions(+)
->>
->> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
->> index 50607df34a66..03396a9d97be 100644
->> --- a/drivers/pci/controller/pcie-brcmstb.c
->> +++ b/drivers/pci/controller/pcie-brcmstb.c
->> @@ -55,6 +55,10 @@
->>  #define PCIE_RC_DL_MDIO_WR_DATA                                0x1104
->>  #define PCIE_RC_DL_MDIO_RD_DATA                                0x1108
->>
->> +#define PCIE_RC_PL_PHY_CTL_15                          0x184c
->> +#define  PCIE_RC_PL_PHY_CTL_15_DIS_PLL_PD_MASK         0x400000
->> +#define  PCIE_RC_PL_PHY_CTL_15_PM_CLK_PERIOD_MASK      0xff
->> +
->>  #define PCIE_MISC_MISC_CTRL                            0x4008
->>  #define  PCIE_MISC_MISC_CTRL_PCIE_RCB_64B_MODE_MASK    0x80
->>  #define  PCIE_MISC_MISC_CTRL_PCIE_RCB_MPS_MODE_MASK    0x400
->> @@ -251,6 +255,7 @@ struct pcie_cfg_data {
->>         u8 num_inbound_wins;
->>         int (*perst_set)(struct brcm_pcie *pcie, u32 val);
->>         int (*bridge_sw_init_set)(struct brcm_pcie *pcie, u32 val);
->> +       int (*post_setup)(struct brcm_pcie *pcie);
->>  };
->>
->>  struct subdev_regulators {
->> @@ -826,6 +831,38 @@ static int brcm_pcie_perst_set_generic(struct brcm_pcie *pcie, u32 val)
->>         return 0;
->>  }
->>
->> +static int brcm_pcie_post_setup_bcm2712(struct brcm_pcie *pcie)
->> +{
->> +       const u16 data[] = { 0x50b9, 0xbda1, 0x0094, 0x97b4, 0x5030, 0x5030, 0x0007 };
->> +       const u8 regs[] = { 0x16, 0x17, 0x18, 0x19, 0x1b, 0x1c, 0x1e };
->> +       int ret, i;
->> +       u32 tmp;
->> +
->> +       /* Allow a 54MHz (xosc) refclk source */
->> +       ret = brcm_pcie_mdio_write(pcie->base, MDIO_PORT0, SET_ADDR_OFFSET, 0x1600);
->> +       if (ret < 0)
->> +               return ret;
->> +
->> +       for (i = 0; i < ARRAY_SIZE(regs); i++) {
->> +               ret = brcm_pcie_mdio_write(pcie->base, MDIO_PORT0, regs[i], data[i]);
->> +               if (ret < 0)
->> +                       return ret;
->> +       }
->> +
->> +       usleep_range(100, 200);
->> +
->> +       /*
->> +        * Set L1SS sub-state timers to avoid lengthy state transitions,
->> +        * PM clock period is 18.52ns (1/54MHz, round down).
->> +        */
->> +       tmp = readl(pcie->base + PCIE_RC_PL_PHY_CTL_15);
->> +       tmp &= ~PCIE_RC_PL_PHY_CTL_15_PM_CLK_PERIOD_MASK;
->> +       tmp |= 0x12;
->> +       writel(tmp, pcie->base + PCIE_RC_PL_PHY_CTL_15);
->> +
->> +       return 0;
->> +}
->> +
->>  static void add_inbound_win(struct inbound_win *b, u8 *count, u64 size,
->>                             u64 cpu_addr, u64 pci_offset)
->>  {
->> @@ -1189,6 +1226,12 @@ static int brcm_pcie_setup(struct brcm_pcie *pcie)
->>                 PCIE_RC_CFG_VENDOR_VENDOR_SPECIFIC_REG1_ENDIAN_MODE_BAR2_MASK);
->>         writel(tmp, base + PCIE_RC_CFG_VENDOR_VENDOR_SPECIFIC_REG1);
->>
->> +       if (pcie->cfg->post_setup) {
->> +               ret = pcie->cfg->post_setup(pcie);
->> +               if (ret < 0)
->> +                       return ret;
->> +       }
->> +
->>         return 0;
->>  }
->>
->> @@ -1715,6 +1758,7 @@ static const struct pcie_cfg_data bcm2712_cfg = {
->>         .soc_base       = BCM7712,
->>         .perst_set      = brcm_pcie_perst_set_7278,
->>         .bridge_sw_init_set = brcm_pcie_bridge_sw_init_set_generic,
->> +       .post_setup     = brcm_pcie_post_setup_bcm2712,
->>         .quirks         = CFG_QUIRK_AVOID_BRIDGE_SHUTDOWN,
->>         .num_inbound_wins = 10,
->>  };
->> --
->> 2.47.0
->>
-> Hi Stan,
-> Any reason you didn't make this a quirk like the other commit?
 
-Not a special reason. I think that the code is more readable with
-separate ops function which is executed after the generic .setup
-function. The other SoC/variants could also benefit of such op.
+On 03/02/2025 12:43 am, Rob Herring (Arm) wrote:
+> From: Anshuman Khandual <anshuman.khandual@arm.com>
+> 
+> While BRBE can record branches within guests, the host recording
+> branches in guests is not supported by perf. Therefore, BRBE needs to be
+> disabled on guest entry and restored on exit.
 
-> Reviewed-by: Jim Quinlan <james.quinlan@broadcom.com>
+I don't think this is strictly true. You only need a Perf session in the 
+guest to records sideband events. That allows you to make sense of the 
+userspace addresses, but by then you might as well record BRBE in the 
+guest in the first place. See [1] for an example.
 
-Thanks!
+With kernel addresses it might be even easier as all you need is 
+--guestvmlinux, --guestkallsyms etc and no sideband events.
 
-~Stan
+[1]: 
+https://lore.kernel.org/all/20220711093218.10967-25-adrian.hunter@intel.com/
+
+> 
+> For nVHE, this requires explicit handling for guests. Before
+> entering a guest, save the BRBE state and disable the it. When
+> returning to the host, restore the state.
+> 
+> For VHE, it is not necessary. We initialize
+> BRBCR_EL1.{E1BRE,E0BRE}=={0,0} at boot time, and HCR_EL2.TGE==1 while
+> running in the host. We configure BRBCR_EL2.{E2BRE,E0HBRE} to enable
+> branch recording in the host. When entering the guest, we set
+> HCR_EL2.TGE==0 which means BRBCR_EL1 is used instead of BRBCR_EL2.
+> Consequently for VHE, BRBE recording is disabled at EL1 and EL0 when
+> running a guest.
+> 
+> Should recording in guests (by the host) ever be desired, the perf ABI
+> will need to be extended to distinguish guest addresses (struct
+> perf_branch_entry.priv) for starters. 
+
+There's already this which would be enough (if every entry in the branch 
+buffer matches it):
+
+   sample->cpumode == PERF_RECORD_MISC_GUEST_KERNEL
+   sample->cpumode == PERF_RECORD_MISC_GUEST_USER
+
+But I don't think we need all the extra complexity. Just let the guest 
+use all of BRBE and then there isn't really a use case that's not 
+supported. I assume a lot of these workflows were added for trace 
+because it's not supported in guests, but I don't think that applies to 
+BRBE so we can skip them and go straight to full BRBE in guest support. 
+As a later change obviously, these comments are more about the commit 
+message.
+
+James
 
 
