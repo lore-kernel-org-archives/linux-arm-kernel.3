@@ -4,89 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48D89C02196
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 12:00:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A5CAC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 12:00:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u4w6z+wwJMdG8nN9Qcvb+agCCZc4JaIRFTNtg95ls2M=; b=HKoVhLcGA51Dl8D0deRkvsFMaS
-	EFAhPhr867UNCvUNYo8AZ43th7wb2d5V6FKIshTqu99e1PUREdskihXT+2AEB7FXwIXqzameESrcr
-	BHcNNnxUC8wp+aFMo45+mScUlGLFTlls91c40vzJTDXqrlgX6jiQ4Puh5jF/QAXULY0EW2imHyYcA
-	FegRUyfWO3nuq/oQvIpEEV/Chkz0wJMDSN3NZKDUbyE6r/ddUKoGiCT09V7xf1aIcYvTKPLtI3GDu
-	xM/ysmUcfEl3yawmXzBx1ZuloWA55YKO5X7zsXrNDZKgDGiX1eUZPDDuOm7/LP7Qtz1tkQHnEmv4H
-	Pn6daqAA==;
+	bh=oHzh0GIvxYZInKVNXjFtmOiyhq3s9+3Bn3ETwjH4vJU=; b=hkE5EwFtmzDP0ez47TpEwrKAfO
+	/OZ5ljTk8nzfsxdq7jyhqbcOWVQxCAjfL2JhAYhu+03k5HSyJsogPl0LukLEGdmkF8yENKrhUWncH
+	q+9Jcfq2wCaTZVk59LHVKABQCSK43kGtazjWEKtXrgXOKs1nDLAijKrDI3f3hH1nXWntoYo1fPckO
+	VDkUS/XVwMSRqlDM4Br7k0XsUxcB8NMCu1NT3/azmtQ33kIMAWnOSSbgBbCnQb2jOJqNEI27m3gp2
+	uqmXjsg1cMC0u2+cEFM7EKO5ITUpnufw6r+gBzys/+DWIspGtkErmVRaHVorweVakSAupVg98Pyhn
+	ChJtn7sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tev87-0000000FJAg-1B1n;
-	Mon, 03 Feb 2025 12:00:43 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1tev8C-0000000FJBt-3Ufx;
+	Mon, 03 Feb 2025 12:00:48 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tev6m-0000000FIvQ-0GGh
+	id 1teth1-0000000F7Qh-0Chv
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 03 Feb 2025 10:28:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=oHzh0GIvxYZInKVNXjFtmOiyhq3s9+3Bn3ETwjH4vJU=; b=WIbzXna9IrYRkOjIiL7Tx2eSF3
+	HbPBFlugTLTDo1+k1JJxPDOqp0H5P88fB3pwgJyIH0uHYUeXwxUxfaw2raNNCcmBmlY8mjMHrauD/
+	PCwpHn59BizXeVH6p96lUc7irGmh/aBF1CHSLsl5Zm++5RJGDzJbWy/LhkeMDiqkEcoaBEpCK9q2F
+	9iBRvgw5kiZDBmNq8wk+kgZMfB1N/8+NVWl1QgCVxzkDHgAedDjEf6rZOqpHHBMUTWWSnuhdt/Aun
+	OGPwDe6u7+yvGv2nNEv7BxEwVDcokso4vV8sFbqSaEtMke5Ui6cGstT77uFuj/Jw94/0o6yD1CMTR
+	ZMmTm7vg==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tetgy-0000000G3r0-06Ep
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 11:59:21 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-436284cdbe0so6571495e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 03:59:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738583958; x=1739188758; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=u4w6z+wwJMdG8nN9Qcvb+agCCZc4JaIRFTNtg95ls2M=;
-        b=KoVGSJXRZbgk9LKRBdKNuGO8sNbcwY8GlLWosHaJZt5TwWW3B/73RiMcH9KuwRdW4Y
-         GGAIuv4L/Ra4D2udNBrErwRTKP6CMznOfkKnDUiw0gzZdh9rjQpmtSZoyIHlCP4JIjsL
-         dVapLkBCW46JW7FDtpUg2LGwWL2rAUdwDMdz6ih0vS2s0ZgXeCSaDZVNPFnJ0hvEilcU
-         cy+rlJKl0K6zyz1Md0Ez2rw+07Yc9DXfPTtyaQd+fikVNbwpH04gd5qYFeuMG0D9M7vd
-         cLEJc2bEiVVg6b5UZxh63+hCLwnYmQ+oNZ9hFqZeLf8eAQk7lYf7ULH+EWBNc5MLvI2d
-         QGHw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738583958; x=1739188758;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=u4w6z+wwJMdG8nN9Qcvb+agCCZc4JaIRFTNtg95ls2M=;
-        b=SHKLOS1Y8mE1eYw0C0VHNgjFVKMw6LDfbPwe6KS1knsAZelEJj6RyBpOPlRlM4GN6e
-         9thqfD27zoGUbIwrrW6gXO5pTmu21v0mK7Fv5+R543axKxz6qlFG0/0XRStxp684OI4q
-         ToyXUICQ5JXB78MThzFW7sQ5ZpGGxi653c1W0uACUEbOysao+o3fMifjvj7Mk7Fz8bKz
-         6Elb312PbNZO1uQUOYlDFQhFthEzHZwxRVe5+dAy/tx1vlx+aJcjewKn3jEbLohZsI7V
-         zRf2U7VtClvR4vG1zs/UWmbjmVVHB58mQQ85gp3XhlyNRAF2d/u1ZvCtM+pZggM11dWS
-         OAQQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVbYPMYhjD+8VnC9EEFkzNzriJW+K9fqHawwk6+UF26TJ/SEag27NVUsz/tPOFh0UX6iWmyVGbECUvVHk4FIptH@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywcob/z8GJt6OA/8sksgpqhYtUqAViWga6n2Chd0p/oIQ54+mqq
-	dxhkpm3EuvEMJJZiX/I9UUAG3tLXFqeWUEjWhYvo9ZRFSCgky5GNiEuc9GwdsHibxC25ey1gy/z
-	k
-X-Gm-Gg: ASbGncsiH2ufHUVoiwJnS+rjnmEQph1PyReUAvuGtK71v2VhTyQFyZsa3PzjDhdep06
-	wfFP6Q/2o4/wOjpp3LnJZxMlLgAfUXfHvTp8i/yP1BV2jo4e+bt87qFTSTSWliQqOG/PuH0VvFk
-	ALuJXt/A+wttdtaqGQP5tLrLTr8vympVeYJGBmFJFTkcQ+4n1pyzlGbGZxtDT2wA6/30x6flZv7
-	5g0JtaHwCGjZbxlCd6hDBPJvrMU/ybpiFI2I0Ln+MqyDmMKzQkVCsguKa8SNIXu1H9buHdYwt0U
-	fbBobe93lXNEmzU6e7zPUaboI8hONKE=
-X-Google-Smtp-Source: AGHT+IGL0xSElRrwcfKwrUUF6e3pFFAp10ZvxPXdfiqbtaqax1cgDagk0qGOXhxfUjZX4jjdbpXMsg==
-X-Received: by 2002:a05:600c:4685:b0:438:ad4d:cefa with SMTP id 5b1f17b1804b1-438dc3faf7emr70962115e9.4.1738583958145;
-        Mon, 03 Feb 2025 03:59:18 -0800 (PST)
-Received: from [127.0.1.1] ([178.197.218.144])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38c5c12247esm12921274f8f.53.2025.02.03.03.59.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Feb 2025 03:59:17 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20250111185402.183793-1-krzysztof.kozlowski@linaro.org>
-References: <20250111185402.183793-1-krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH] soc: samsung: Use syscon_regmap_lookup_by_phandle_args
-Message-Id: <173858395687.133675.813378795094586109.b4-ty@linaro.org>
-Date: Mon, 03 Feb 2025 12:59:16 +0100
+	Mon, 03 Feb 2025 10:28:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BBF761682;
+	Mon,  3 Feb 2025 02:28:59 -0800 (PST)
+Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8CF223F63F;
+	Mon,  3 Feb 2025 02:28:31 -0800 (PST)
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+To: linux-hardening@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Mark Brown <broonie@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Howells <dhowells@redhat.com>,
+	"Eric W. Biederman" <ebiederm@xmission.com>,
+	Jann Horn <jannh@google.com>,
+	Jeff Xu <jeffxu@chromium.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Kees Cook <kees@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Pierre Langlois <pierre.langlois@arm.com>,
+	Quentin Perret <qperret@google.com>,
+	"Mike Rapoport (IBM)" <rppt@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Will Deacon <will@kernel.org>,
+	Matthew Wilcox <willy@infradead.org>,
+	Qi Zheng <zhengqi.arch@bytedance.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org,
+	x86@kernel.org
+Subject: [RFC PATCH 2/8] mm: kpkeys: Introduce unrestricted level
+Date: Mon,  3 Feb 2025 10:28:03 +0000
+Message-ID: <20250203102809.1223255-3-kevin.brodsky@arm.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20250203102809.1223255-1-kevin.brodsky@arm.com>
+References: <20250203102809.1223255-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_035920_109952_DB5517D3 
-X-CRM114-Status: UNSURE (   7.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250203_102836_379308_D29E68C8 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,22 +102,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Highly privileged components, such as allocators, may require write
+access to arbitrary data. To that end, introduce a kpkeys level that
+grants write access to all kpkeys.
 
-On Sat, 11 Jan 2025 19:54:02 +0100, Krzysztof Kozlowski wrote:
-> Use syscon_regmap_lookup_by_phandle_args() which is a wrapper over
-> syscon_regmap_lookup_by_phandle() combined with getting the syscon
-> argument.  Except simpler code this annotates within one line that given
-> phandle has arguments, so grepping for code would be easier.
-> 
-> 
+Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+---
+ arch/arm64/include/asm/kpkeys.h | 4 +++-
+ include/linux/kpkeys.h          | 3 ++-
+ 2 files changed, 5 insertions(+), 2 deletions(-)
 
-Applied, thanks!
-
-[1/1] soc: samsung: Use syscon_regmap_lookup_by_phandle_args
-      https://git.kernel.org/krzk/linux/c/00c1fda73df8081f40840f860c8d75e2c9070d48
-
-Best regards,
+diff --git a/arch/arm64/include/asm/kpkeys.h b/arch/arm64/include/asm/kpkeys.h
+index 3f16584d495a..ab2305ca24b7 100644
+--- a/arch/arm64/include/asm/kpkeys.h
++++ b/arch/arm64/include/asm/kpkeys.h
+@@ -19,7 +19,9 @@ static inline u64 por_set_kpkeys_level(u64 por, int level)
+ {
+ 	por = por_set_pkey_perms(por, KPKEYS_PKEY_DEFAULT, POE_RXW);
+ 	por = por_set_pkey_perms(por, KPKEYS_PKEY_PGTABLES,
+-				 level == KPKEYS_LVL_PGTABLES ? POE_RW : POE_R);
++				 level == KPKEYS_LVL_PGTABLES ||
++				 level == KPKEYS_LVL_UNRESTRICTED
++				 ? POE_RW : POE_R);
+ 
+ 	return por;
+ }
+diff --git a/include/linux/kpkeys.h b/include/linux/kpkeys.h
+index 645eaf00096c..9d9feec83ccf 100644
+--- a/include/linux/kpkeys.h
++++ b/include/linux/kpkeys.h
+@@ -10,9 +10,10 @@ struct folio;
+ 
+ #define KPKEYS_LVL_DEFAULT	0
+ #define KPKEYS_LVL_PGTABLES	1
++#define KPKEYS_LVL_UNRESTRICTED	2
+ 
+ #define KPKEYS_LVL_MIN		KPKEYS_LVL_DEFAULT
+-#define KPKEYS_LVL_MAX		KPKEYS_LVL_PGTABLES
++#define KPKEYS_LVL_MAX		KPKEYS_LVL_UNRESTRICTED
+ 
+ #define __KPKEYS_GUARD(name, set_level, restore_pkey_reg, set_arg, ...)	\
+ 	__DEFINE_CLASS_IS_CONDITIONAL(name, false);			\
 -- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+2.47.0
 
 
