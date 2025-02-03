@@ -4,68 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CE8DC02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 19:16:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 912ADC02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 19:18:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QJJ8vIfh+fi3LO004gyalYlgrFsy4LuWFQlycJlYTzM=; b=U/7eczgcR6xV162JUX9rGoBlE1
-	7jzEgYHHi4L3KEK9lnR7sQ2wbbXVqgzwc/ALFqQSd/8NN3x86OnI0mLlpD8G/fpAGarMV19FlHn94
-	GeKqEtfTJsR2WsvFhEiZ1mfdmlA1f6Fz2SiI8nBd9zjySJAJ1p+PiYHU4vSEC+he+K4vUxuorp61o
-	eBjj2iAWO3g5cBQ8CY/COmOHlg25gokH8Joj4Fra9ZT9WHBoeFpx4hjZ7wAw0j8BxdF5bWISAKt9W
-	rjTzpwIq4mruStz5z+tI3aErWdZ17e09uxjQh9gWNc+cPXvEBjzWeiAXZg2a96TWzfl8si3sUAlYj
-	ludQz+Ew==;
+	bh=kk4XgcgchzBP3PM3D21LfhnI319TpQSscHgY6PWtOhk=; b=36Z6mHUKrzUq/sWW4+jmj5ta/Z
+	NySG9T8p7cFQO4/sbcJUunLb7fuwDdG0JnB1TZU9052w2JJA0rDOO6V2B5VidedHvQxO1Im79eMSa
+	sg0z0OknRM+kOBq2RB/cPcueAru3qEavD15FDdC8ijX2AYAnOekYPo9DIOT86hj2A8yLX9NyxPL1P
+	ez6Gc42mRkdBqA4GDGcs5KNAvKGwM6pvAPAh+UYRVgB2iog6AUmIEntFVydl6zK8Q/yI1oMJssR4C
+	UP6UmQu1R9tbxyWMypocTxAgEzYiabFkPTB21l5xeLjSId3neGA9Hdl9Mxjgc96Uzub1KPEWm4ASq
+	Xa0uog4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf1vv-0000000GQYN-3DbT;
-	Mon, 03 Feb 2025 19:16:35 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tf1xE-0000000GQvH-4BVN;
+	Mon, 03 Feb 2025 19:17:57 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf1uZ-0000000GQ4n-2THk;
-	Mon, 03 Feb 2025 19:15:12 +0000
+	id 1tf1ub-0000000GQ52-19Tu;
+	Mon, 03 Feb 2025 19:15:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EF2545C688E;
-	Mon,  3 Feb 2025 19:14:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DDCBC4CED2;
-	Mon,  3 Feb 2025 19:15:10 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2C971A41C00;
+	Mon,  3 Feb 2025 19:13:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3405DC4CEE8;
+	Mon,  3 Feb 2025 19:15:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738610110;
-	bh=wYJsv6Ip8xBUuijIyu9SEbYTkFPxUHuia0rzAhiQbTY=;
+	s=k20201202; t=1738610112;
+	bh=8HQ4a1E4SDVOQ5YBvLQgJdIjKRquxOBX3OP+awOzn44=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=nT1V9ZuBZz/M7OG34ICcaQlVBd2ecDEkC8PqR69ZQNryLFl35xKAJWIO2ArC9euaW
-	 CY+XTGfAH3mIw3Pk/hf6u7etNb2IFyJ8i7qpxOINcV+FN2fY74nfhI647+ytKEYqN5
-	 rv9NzVl6hy/uRylwN0CS2fkMA3tbL70TKOoOl6wtC4YdLzknbvrRCdYOdulzNjlZad
-	 nxxJiEnwddUIqmbBcL29UiO39cii9KH4h7+Kql6MdicCoSaF696fpYS1WJyxiuwmMu
-	 zwCVPZUvVBraATcDi5rbm/swneDjGZLA/yEfclo4+HrqQbFsmIItF0ncmZGSz6/0U1
-	 P8eNfk+BBSbxw==
+	b=qEtWCcTqxtSD1UgKWJSa3crMG4kGSavYOQGcCcI4V2cyH4DOILJiyITwiSJtgrhHJ
+	 leMpKr+OZgSpraWb0RiKFAKjm2zqvuhyymj1LfT8j1LOjp2fCtL0lg6qoyRWBlojQI
+	 ZiaJmTEaG54Lo9sr/U8i6GeSmTgxwh0kIBhsKt5unGdN62jNr4PwFCDw08fmRqfzFL
+	 BX4XCHouDDkARe7MVneI8SuivabGbQ0ef19DQGBgsurLFrWhryNqMG+dh8YZhkYfEY
+	 oasu2bD4iIR5M3wZq53wObBELHA9T5YPUy+0+nOm85VEduVf6KsFBTNEF9j2Fb88zz
+	 VG58pi8j5CwdQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB0C5380AA67;
-	Mon,  3 Feb 2025 19:15:38 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 71824380AA67;
+	Mon,  3 Feb 2025 19:15:40 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v6 0/2] Improve interrupt handling during machine kexec
+Subject: Re: [PATCH v2 0/6] Account page tables at all levels
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <173861013755.3409359.8865555054206741851.git-patchwork-notify@kernel.org>
-Date: Mon, 03 Feb 2025 19:15:37 +0000
-References: <20241204142003.32859-1-farbere@amazon.com>
-In-Reply-To: <20241204142003.32859-1-farbere@amazon.com>
-To: Eliav Farber <farbere@amazon.com>
-Cc: linux-riscv@lists.infradead.org, linux@armlinux.org.uk,
- catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au,
- npiggin@gmail.com, christophe.leroy@csgroup.eu, naveen@kernel.org,
- maddy@linux.ibm.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, tglx@linutronix.de, akpm@linux-foundation.org,
- bhe@redhat.com, hbathini@linux.ibm.com, sourabhjain@linux.ibm.com,
- adityag@linux.ibm.com, songshuaishuai@tinylab.org, takakura@valinux.co.jp,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, jonnyc@amazon.com
+Message-Id: <173861013901.3409359.14741114405031556153.git-patchwork-notify@kernel.org>
+Date: Mon, 03 Feb 2025 19:15:39 +0000
+References: <20250103184415.2744423-1-kevin.brodsky@arm.com>
+In-Reply-To: <20250103184415.2744423-1-kevin.brodsky@arm.com>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-riscv@lists.infradead.org, linux-mm@kvack.org,
+ akpm@linux-foundation.org, catalin.marinas@arm.com,
+ dave.hansen@linux.intel.com, linus.walleij@linaro.org, luto@kernel.org,
+ peterz@infradead.org, rppt@kernel.org, ryan.roberts@arm.com,
+ tglx@linutronix.de, will@kernel.org, willy@infradead.org,
+ zhengqi.arch@bytedance.com, linux-alpha@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linux-s390@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org, linux-um@lists.infradead.org,
+ loongarch@lists.linux.dev, x86@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_111511_672819_20E7C1F0 
-X-CRM114-Status: UNSURE (   8.19  )
+X-CRM114-CacheID: sfid-20250203_111513_383381_71EB4C36 
+X-CRM114-Status: UNSURE (   8.89  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,27 +88,34 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Hello:
 
 This series was applied to riscv/linux.git (fixes)
-by Thomas Gleixner <tglx@linutronix.de>:
+by Andrew Morton <akpm@linux-foundation.org>:
 
-On Wed, 4 Dec 2024 14:20:01 +0000 you wrote:
-> This patch series focuses on improving the machine_kexec_mask_interrupts()
-> function by consolidating its implementation and optimizing its behavior to
-> avoid redundant interrupt masking.
+On Fri,  3 Jan 2025 18:44:09 +0000 you wrote:
+> v1: https://lore.kernel.org/linux-mm/20241219164425.2277022-1-kevin.brodsky@arm.com/
 > 
-> Patch Summary:
-> [PATCH v6 1/2] Move machine_kexec_mask_interrupts() to kernel/irq/kexec.c,
->                removing duplicate architecture-specific implementations.
-> [PATCH v6 2/2] Refine machine_kexec_mask_interrupts() to avoid re-masking
->                already-masked interrupts, resolving specific warnings
->                triggered in GPIO IRQ flows.
+> This series should be considered in conjunction with Qi's series [1].
+> Together, they ensure that page table ctor/dtor are called at all levels
+> (PTE to PGD) and all architectures, where page tables are regular pages.
+> Besides the improvement in accounting and general cleanup, this also
+> create a single place where construction/destruction hooks can be called
+> for all page tables, namely the now-generic pagetable_dtor() introduced
+> by Qi, and __pagetable_ctor() introduced in this series.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v6,1/2] kexec: Consolidate machine_kexec_mask_interrupts() implementation
-    https://git.kernel.org/riscv/c/bad6722e478f
-  - [v6,2/2] kexec: Prevent redundant IRQ masking by checking state before shutdown
-    https://git.kernel.org/riscv/c/b4706d814921
+  - [v2,1/6] mm: Move common part of pagetable_*_ctor to helper
+    https://git.kernel.org/riscv/c/11e2400b21a3
+  - [v2,2/6] parisc: mm: Ensure pagetable_pmd_[cd]tor are called
+    https://git.kernel.org/riscv/c/3565522e15eb
+  - [v2,3/6] m68k: mm: Add calls to pagetable_pmd_[cd]tor
+    https://git.kernel.org/riscv/c/1879688e5c42
+  - [v2,4/6] ARM: mm: Rename PGD helpers
+    https://git.kernel.org/riscv/c/94771023712a
+  - [v2,5/6] asm-generic: pgalloc: Provide generic __pgd_{alloc,free}
+    https://git.kernel.org/riscv/c/a9b3c355c2e6
+  - [v2,6/6] mm: Introduce ctor/dtor at PGD level
+    https://git.kernel.org/riscv/c/d95936a2267c
 
 You are awesome, thank you!
 -- 
