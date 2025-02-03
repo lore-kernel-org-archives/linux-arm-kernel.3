@@ -4,73 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19AF1C02193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 19:01:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D54DC02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 19:03:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TjSMXIe/t7D3aWSnW15L0P45rvBEvtBRwJ1jLxKsXF8=; b=gZP+VYQXRoqkp9pHTNYR50X0uI
-	+eCU2F2qkHvDlVmrmhfK7GA6800jqP+pnctXvq8j0Hrzw9+k/BazadsFONgkP+GTQ6x/WR6eokvzc
-	c3BtgDWmGHSRkj6FxoVFVFPN7qFNZ6yPRNZnf1aOv9g6PGq7A7t1r3a/VnqXr08ceS2VBnLzmEi4m
-	xDy+HZBGB2TOkfdjMz84ihDG5ZKyd5kT3W2D3vjX4Ggu7svi2WukWJcnkqDqla7ar3GyIVOH+N9pn
-	0/alRLHEqrw+z0WSyFDnnu/SPM1zt4lyecMYWe+G9n5yGEMyOXrl5jb4aUtq+AH3ykT4qV9dUAXx+
-	ecsoBFbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=m8IEI4G7xd+V7ksOohXdzZthJzMKPeEae45dEIZjAYs=; b=ohJ14MnEjynWwx5+g0AdOwz6P1
+	RJ66BHCcbnFnYG+0OERtHCEMJMocA563mnXP4HWCI7W94mAe67xeb73MkNig4kKr74Ht/0k9PeRFc
+	czZ93UFoiPfvJWHQhrXrTX/3yRDaQySJTbfJuE9youCnkI6RgowRk6pfpvBdC13oYfElh/2zBdC+W
+	SZWRBwlwd4NaUPHPIaLVspsyJp2eHeAsDTIxSpphz9Jl7mzDOauEUgSRWkvIZ9gLomzqyxD7KiYJ0
+	vyLFBkHyAZuD+KTMXuq0/EsuyfR9qyUbJBKUH+d8NqB43rRjW4c4SFI09M2RWz7DswTkYzKQ1PGyG
+	EoQcf8nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf1hW-0000000GNxZ-3sue;
-	Mon, 03 Feb 2025 19:01:42 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tf1iq-0000000GOI1-0X4d;
+	Mon, 03 Feb 2025 19:03:04 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf1Vw-0000000GKTY-0OMW;
-	Mon, 03 Feb 2025 18:49:45 +0000
+	id 1tf1Yv-0000000GL22-333Z;
+	Mon, 03 Feb 2025 18:52:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A66155C684D;
-	Mon,  3 Feb 2025 18:49:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C132C4CEE5;
-	Mon,  3 Feb 2025 18:49:43 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id ABDFDA41BB3;
+	Mon,  3 Feb 2025 18:51:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7286AC4CED2;
+	Mon,  3 Feb 2025 18:52:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738608583;
-	bh=e6mfjCAhjspD99GgKLJ+Kp3DDrQVj0wKKan7rFRR2f0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=pSvxJvFF9UrjbVoIUYRuKL8lqdMqjS9oiOYB4XkfY+N/aKtbtlPuD3WnV6xRx4yfF
-	 SGjNNta3TeOU6GasV3698gpylNBR3o+AvQRHdvl9gNUrzXnRxxzEKz9Io+Wa0Ytg9y
-	 s0FjFS+x1I/yk3ZxLNgIyjb5ef9IN9gxgErdsVNdZc/ZzpaJARwOa1ZHt3uMaSEA1+
-	 2JPLKv3q9llRr5B4w+x3yQa+/jd48QiMC9XqEc4C1Mbxiw9r2JOsy65WEtY7p7zNOi
-	 /ECsK0HWi5hUNeRSDrD/q6u181GIBrqatCMVoDHGxU+wn8DMaXuDE9OWxO7uLUw5UQ
-	 9tHTGyWcu92Rg==
-Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-5d414b8af7bso9580524a12.0;
-        Mon, 03 Feb 2025 10:49:43 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVQ9JcPgMAPXZyfnhGm/IVHLMEUCN8oZgWBwjEnIItdvql8i/t3OOfH/8vasRyxuw3LHBeSwKc+eWmOA5ykQec=@lists.infradead.org, AJvYcCVX9msrUa2TWZcnba2XNoTyc9tCRKT9jwuPSKIhxFqYQkqyO5sm6Cfl5OJ8fmCvUtn1mO5aw73fvQfJ@lists.infradead.org, AJvYcCWB4cyjM5iGDwa+Tu3TTpUQDfslPRtm2Wp+Xii+ZrkBb6YFANsqYKpiCI501mMNqBlrQxnaC5nR0RE9AznFMQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzmExncuFQbbOto/5kR4fHhHFGPT8qP2aX0zqNbsxeJC9aF2PPl
-	e2n18Vz03nz2kDnHXKRKjGog90vEkhi2nZx0A2WTwo/pcfqedp3q4lmZpnV/1gVCS1jfoLVFd0t
-	iWs5i7iqIsqfwYMyqIZhQ6hLwuQ==
-X-Google-Smtp-Source: AGHT+IHRZ8R8fpMxBKgCgw8bavXdzA9H5kA8wOOZn2wZu4+SQJ2Dew1ZJUxSmYvEqAH1df8byjuznOAH4vRk3K9otZo=
-X-Received: by 2002:a05:6402:274f:b0:5dc:58ad:b8d5 with SMTP id
- 4fb4d7f45d1cf-5dc5efc112cmr25980752a12.9.1738608581813; Mon, 03 Feb 2025
- 10:49:41 -0800 (PST)
+	s=k20201202; t=1738608768;
+	bh=cp8ezIVsa4VCsFDICxF3SyrDQWm0vPmWgmthTsoKoqY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=sLhSkgfrtiXM1d6scqupsldIN28bx0T9WxyPXfHVo8A0P9qumifaHA8ihb8wOmVW/
+	 1B9v11/JtaUgT+dJGbOGTr/1gn+6qbtl9NnxCBwzjSoWBh0Uh3xhgO6GUgHFHd9x6z
+	 9eAGB33aOGE2z2GmO4QOBh/YZhLxRQKa4R9q5fHpT1S/M5BZhwxFZjbrgnnUB5D1H+
+	 tyV/Dj5wFHfMY4zuEYR71SaN1vCa3bNp/LPdDqcd1fMxaJXjY1lNInCsO6jjwM1Ia9
+	 OgaFs8I2iicsAKZ2HsG8xcDp4G7eZBDYuMYUGEtIj06JlRFSWOpYhECw3427VyhAVP
+	 QWWr9nrS2c2qA==
+Date: Mon, 3 Feb 2025 12:52:46 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: "manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>
+Cc: Jianjun Wang =?utf-8?B?KOeOi+W7uuWGmyk=?= <Jianjun.Wang@mediatek.com>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"robh@kernel.org" <robh@kernel.org>, "kw@linux.com" <kw@linux.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Ryder Lee <Ryder.Lee@mediatek.com>
+Subject: Re: [PATCH] PCI: mediatek: Remove the usage of virt_to_phys
+Message-ID: <20250203185246.GA794570@bhelgaas>
 MIME-Version: 1.0
-References: <20241231163121.241543-1-robh@kernel.org>
-In-Reply-To: <20241231163121.241543-1-robh@kernel.org>
-From: Rob Herring <robh@kernel.org>
-Date: Mon, 3 Feb 2025 12:49:30 -0600
-X-Gmail-Original-Message-ID: <CAL_JsqL7jUGqfFcpv6-WahhF69xQb9ODTU_xxm-Q3ySJusyi3w@mail.gmail.com>
-X-Gm-Features: AWEUYZmiVScQsdeQTyyJLHGWj9QAFvMynSzif201Zu1U_YbABWsPT1LJOWLY8wM
-Message-ID: <CAL_JsqL7jUGqfFcpv6-WahhF69xQb9ODTU_xxm-Q3ySJusyi3w@mail.gmail.com>
-Subject: Re: [PATCH] phy: Use (of|device)_property_present() for non-boolean properties
-To: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
-	Kishon Vijay Abraham I <kishon@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Heiko Stuebner <heiko@sntech.de>
-Cc: linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250203175049.idxegqqsfwf4dmvq@thinkpad>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_104944_215889_57BC3E85 
-X-CRM114-Status: GOOD (  16.73  )
+X-CRM114-CacheID: sfid-20250203_105249_893869_67C612EE 
+X-CRM114-Status: GOOD (  37.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,79 +79,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 31, 2024 at 10:32=E2=80=AFAM Rob Herring (Arm) <robh@kernel.org=
-> wrote:
->
-> The use of (of|device)_property_read_bool() for non-boolean properties
-> is deprecated in favor of (of|device)_property_present() when testing
-> for property presence.
->
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
->  drivers/phy/mediatek/phy-mtk-tphy.c           | 4 ++--
->  drivers/phy/rockchip/phy-rockchip-inno-usb2.c | 4 ++--
->  2 files changed, 4 insertions(+), 4 deletions(-)
+On Mon, Feb 03, 2025 at 11:20:49PM +0530, manivannan.sadhasivam@linaro.org wrote:
+> On Sat, Feb 01, 2025 at 11:07:40AM -0600, Bjorn Helgaas wrote:
+> > On Sat, Feb 01, 2025 at 09:54:16PM +0530, manivannan.sadhasivam@linaro.org wrote:
+> > > On Mon, Jan 27, 2025 at 06:41:50PM -0600, Bjorn Helgaas wrote:
+> > > > On Thu, Jan 23, 2025 at 08:11:19AM +0000, Jianjun Wang (王建军) wrote:
+> > > > > On Wed, 2025-01-15 at 23:01 +0530, Manivannan Sadhasivam wrote:
+> > > > > > On Tue, Jan 07, 2025 at 01:20:58PM +0800, Jianjun Wang wrote:
+> > > > > > > Remove the usage of virt_to_phys, as it will cause sparse warnings
+> > > > > > > when
+> > > > > > > building on some platforms.
+> > 
+> > > > > > >       snprintf(name, sizeof(name), "port%d", slot);
+> > > > > > > -     port->base = devm_platform_ioremap_resource_byname(pdev,
+> > > > > > > name);
+> > > > > > > +     regs = platform_get_resource_byname(pdev, IORESOURCE_MEM,
+> > > > > > > name);
+> > > > > > > +     if (!regs)
+> > > > > > > +             return -EINVAL;
+> > > > > > > +
+> > > > > > > +     port->base = devm_ioremap_resource(dev, regs);
+> > > > > > >       if (IS_ERR(port->base)) {
+> > > > > > >               dev_err(dev, "failed to map port%d base\n", slot);
+> > > > > > >               return PTR_ERR(port->base);
+> > > > > > >       }
+> > > > > > > 
+> > > > > > > +     port->msg_addr = regs->start + PCIE_MSI_VECTOR;
+> > > > 
+> > > > I think this still assumes that a CPU physical address
+> > > > (regs->start) is the same as the PCI bus address used for MSI, so
+> > > > this doesn't seem like the right solution to me.
 
-Ping. These now cause warnings in v6.14-rc1.
+Apart from the question of what type should be used, what do you think
+about this part?  I don't think we should assume that the address on
+PCI is identical to the CPU physical address.  IOMMUs and (I assume)
+iATUs can make them different, can't they?  If so, this looks like an
+implicit assumption that PCI bus==CPU physical, and I think we should
+make that a little more explicit somehow.
 
->
-> diff --git a/drivers/phy/mediatek/phy-mtk-tphy.c b/drivers/phy/mediatek/p=
-hy-mtk-tphy.c
-> index 3f7095ec5978..d36f68dd622e 100644
-> --- a/drivers/phy/mediatek/phy-mtk-tphy.c
-> +++ b/drivers/phy/mediatek/phy-mtk-tphy.c
-> @@ -1215,7 +1215,7 @@ static int phy_type_syscon_get(struct mtk_phy_insta=
-nce *instance,
->         int ret;
->
->         /* type switch function is optional */
-> -       if (!of_property_read_bool(dn, "mediatek,syscon-type"))
-> +       if (!of_property_present(dn, "mediatek,syscon-type"))
->                 return 0;
->
->         ret =3D of_parse_phandle_with_fixed_args(dn, "mediatek,syscon-typ=
-e",
-> @@ -1278,7 +1278,7 @@ static int phy_efuse_get(struct mtk_tphy *tphy, str=
-uct mtk_phy_instance *instanc
->         }
->
->         /* software efuse is optional */
-> -       instance->efuse_sw_en =3D device_property_read_bool(dev, "nvmem-c=
-ells");
-> +       instance->efuse_sw_en =3D device_property_present(dev, "nvmem-cel=
-ls");
->         if (!instance->efuse_sw_en)
->                 return 0;
->
-> diff --git a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c b/drivers/phy/=
-rockchip/phy-rockchip-inno-usb2.c
-> index 96f3d868a526..b5e6a864deeb 100644
-> --- a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-> +++ b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-> @@ -440,7 +440,7 @@ static int rockchip_usb2phy_extcon_register(struct ro=
-ckchip_usb2phy *rphy)
->         struct extcon_dev *edev;
->         int ret;
->
-> -       if (of_property_read_bool(node, "extcon")) {
-> +       if (of_property_present(node, "extcon")) {
->                 edev =3D extcon_get_edev_by_phandle(rphy->dev, 0);
->                 if (IS_ERR(edev))
->                         return dev_err_probe(rphy->dev, PTR_ERR(edev),
-> @@ -1323,7 +1323,7 @@ static int rockchip_usb2phy_otg_port_init(struct ro=
-ckchip_usb2phy *rphy,
->                         goto out;
->                 }
->
-> -               if (!of_property_read_bool(rphy->dev->of_node, "extcon"))=
- {
-> +               if (!of_property_present(rphy->dev->of_node, "extcon")) {
->                         /* do initial sync of usb state */
->                         id =3D property_enabled(rphy->grf, &rport->port_c=
-fg->utmi_id);
->                         extcon_set_state_sync(rphy->edev, EXTCON_USB_HOST=
-, !id);
-> --
-> 2.45.2
->
+> > > > Apparently they happen to be the same on this platform because (I
+> > > > assume) MSIs actually do work, but it's not a good pattern for
+> > > > drivers to copy.  I think what we really need is a dma_addr_t, and
+> > > > I think there are one or two PCI controller drivers that do that.
+> > > 
+> > > I don't see why we would need 'dma_addr_t' here. The MSI address is
+> > > a static physical address on this platform and that is not a DMA
+> > > address. Other drivers can *only* copy this pattern if they also
+> > > have the physical address allocated for MSI.
+> > 
+> > Isn't an MSI on PCI just a DMA write to a certain address?
+> 
+> That's from the endpoint prespective when it triggers MSI.
+> 
+> > My assumption is that if you put an analyzer on that link, an MSI
+> > from a device would be structurally indistinguishable from a DMA
+> > write from the device.  The MSI uses a different address, but
+> > doesn't it use the same size and kind of address, at least from
+> > the PCIe protocol perspective?
+> 
+> Yeah, but in this case the address allocated to MSI belongs to a
+> hardcoded region in the host memory (not allocated by the DMA APIs
+> which will have the region attributed as DMA capable). So it doesn't
+> belong to the DMA domain, and we cannot use 'dma_addr_t'.
+
+Doesn't .irq_compose_msi_msg() build the Message Address/Data pair
+that is programmed into a device's MSI Capability or MSI-X Table?
+The device will eventually use that to initiate a DMA write to that
+address.
+
+In that sense, I would argue that the Message Address does belong to
+the DMA domain.  I don't think the size of the address (32 vs 64 bits)
+is determined by the CPU physical address size (phys_addr_t); it's
+determined by the size of DMA addresses.
+
+Bjorn
 
