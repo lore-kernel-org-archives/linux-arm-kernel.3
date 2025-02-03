@@ -4,87 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ADF1C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 12:06:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51F23C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 12:07:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=trAJpNigM/p/7CDqNVkhgXtOYUHb2njJXY7wSKnvEw8=; b=MthaElyp0qgDTtj6KBm2sL9LrJ
-	qcmhem3QKQdGor41Eb97Ir8j6JeV6xvF0tlttaXsXLAm6/kQj+pRzhj9Vfj1jfHyeNtsaZKlh5P3i
-	WJq35W2OWNpUv9kNEuSz04FvKgFMmNRo0sUPqv6myiLsHoUUCUgxQfLzBRJc6YwI49sMvZ8PZEvkS
-	2MRlDo+lhTnNXWyQsy6oR1X8aWRgzn8g2/UPTyHVj4f2LDGYpaFdF1irjdV1vJJmCU3rybqUjSaEj
-	yv/1LHPKqdJxogpMqQlbD4KpgW4nd5casYhj7xSw5c/m1DGK6H1sYdjnKSipGdc6MpvX2pSyZ2JCI
-	m0luUq9A==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=v27Uu7ms64VNAEkPo/pGBt9MmiVmiFZ+LIBdVSi8mQE=; b=2nJ7iqdAB6ZxLsqJaY4l7iUNAT
+	CKp42IBPlSbDmias7kKODTxOJ/TCDfYmVP7HzKzZGexfRblIMh+yr52PW+36996XmL8Pc0Vr+1xI1
+	mHGVjAB92q8wn0w6nUNQzV/WMIpBmghxT2pxNy3+yzkrWFmWPpB6hdS43aOPMhQt2LMknKhbrEiOO
+	RWUdAFmAxVJyDDlPv+sAwX2m3Hx5r7DmaVocE3ZMCA2JjCVfC7swO6nxeZmk8Q3iSOiXJT4dflfQz
+	HkCk6G+LBMsBs/R95W3DdEk1YWCnfUQ/1RaEXvr05XVHZvEaJcbkNbxz1RX5yWqrVNaLIBRbUyH29
+	BXiLBy3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tevDZ-0000000FK5u-0F7w;
-	Mon, 03 Feb 2025 12:06:21 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1tevEq-0000000FKHj-2orN;
+	Mon, 03 Feb 2025 12:07:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tevCE-0000000FK0z-0mRQ
+	id 1tevCh-0000000FK47-39ys
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 03 Feb 2025 12:05:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=v27Uu7ms64VNAEkPo/pGBt9MmiVmiFZ+LIBdVSi8mQE=; b=Mab3ANb5p8ciCU01fgUFonhSfd
+	TEMRhIkNLqNOek9Br6i8OL1nVgxAy5lWccFK2HREr9RIrlYi8N0ITdAVBJw6lexbcVoo1xiSxS8Kv
+	SVsLOFB9tYAqrv0aR3vgUl70MPyUOP108NHS32SGrBpsDeg1h5SkR0wqMCgVGaJ8Ptcyr71SiwsPF
+	VZEHoeqtNRcwuMZHdo9BmOnhzSpip0hobQJQlYHBOH/aZ/6+z/TbQjLRl59aUmGD3IHAkzZCI7ASi
+	bG1DTvrCPBm/fkDqYQwDwAq+EX+4ZS6RBYVDapYtMIemtE7s74wflEUa6t5XfqcL/Ao5LNMRzbPfw
+	q+4LyXow==;
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tevCe-0000000G5F4-3AVL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 12:04:59 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 513B5mKr027354;
-	Mon, 3 Feb 2025 13:04:50 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	trAJpNigM/p/7CDqNVkhgXtOYUHb2njJXY7wSKnvEw8=; b=U2qqKZKUQh20Q7XV
-	GYoP+i+o1iiEc6U8QGvRD0STaaCcMx36GXROeLAs0fvw2sKwlYbykZx13Vfm87dm
-	/2JXHHrt7oExDJ6/Xw9kIBRvDllq+Z1Dbk9ncbX4KrM1ZhKYtNUT35I/LB7oUJXc
-	pX54KOw5/dRfPyBlVtAeCvBzlXF0y82r/z5PTHdoXmIc66x0qUI/xOqaSej1V7Pq
-	FzyzPtVXwCICnw8lvLRFFt1MxbiFxcQZq0XUJslTT0RfRL6RIcH6NwHr2qZx0xpf
-	ITVP1K7m2rw9j0AoadaZORfS9L82W2DozDHtVlw39RnjMTXP7hEb+QFfxAjdCyj0
-	Rc+oEw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44jn0fhx1m-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 03 Feb 2025 13:04:50 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 378B440048;
-	Mon,  3 Feb 2025 13:03:22 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id BE7BE263541;
-	Mon,  3 Feb 2025 13:02:08 +0100 (CET)
-Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 3 Feb
- 2025 13:02:08 +0100
-Message-ID: <0fade761-2485-465b-9fb1-d0e4dabdb189@foss.st.com>
-Date: Mon, 3 Feb 2025 13:02:07 +0100
+	Mon, 03 Feb 2025 12:05:26 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-2ef6c56032eso5409035a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 04:05:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1738584321; x=1739189121; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=v27Uu7ms64VNAEkPo/pGBt9MmiVmiFZ+LIBdVSi8mQE=;
+        b=jt633N05jbXkZfMiJASND3bfdZsNIb7TLKPGjkIk+afij0CG5JoIxCe1ac0lwlaGpP
+         VcXLEYtpK16If+/yZF1WMAfOxvOxQHNhbNBp/tge3KW6GXY6YL0VWFjK6OOzl4RLAZ4b
+         1kxIxMnNZBXWahAQsml9Dk5kHoEZsUQeMJ1kGWZkE9aTUNzpjxyLi8+gsNiHMIUeXXar
+         8PiJzB8qAmYEI0MRIByCPxNqtemV7xxnJ/OvGaX6520kD0zxJBiy7UH+WGjrlTnzhIsP
+         rhNnRT+luPotMn/amE3ZSgifEWAqO2fAUmHuIRTB9lHTOByi7blwxuD/FUOCeIUJydQJ
+         GqyQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738584321; x=1739189121;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=v27Uu7ms64VNAEkPo/pGBt9MmiVmiFZ+LIBdVSi8mQE=;
+        b=gxSVI4B8Xje1OV9KDiAyqfTuJU02XVI819gwRu8BNeUpgkR6dFGv5zKAmXEgn7hqxV
+         icFHZaZMGTJqlQ+i4oyzZuris9BDkqKz2dZG+WobjXexsWtMDKvPP1DBLjgPbNSLOKIF
+         tMLdWy/BSk3ICDRlTTL7YdujJOstf1Tmom2VJg1EuuQJ6S2OXUzRVJgL8ZDlJIykvsFu
+         OyocwcOUV5uLSI9AKQa+PJJz4AjOJUAT2+RN/cYAR/dJ9gq2O+ehPBj6bT+SQmcxqq/p
+         SX4ymS7CzpLzWpqkwtvfjgFOBcWqJiwFzhSYipoHS/F6/e3n1xulCyN0lnFETKkEF7Wc
+         2cmw==
+X-Forwarded-Encrypted: i=1; AJvYcCUJYE7Zucy2OxFbh8hMkKPUdbhfdG1/3SjvIZPN1s23hk9LuuB3RpDYovB9SbHIg5oiUy3pcLXBZw5Vl6Zh83LX@lists.infradead.org
+X-Gm-Message-State: AOJu0YxejcSn9CViZ7BTjnsGxQxsJDvbRP/488vYsqCr93OtFv8gdP8v
+	lwbzRzsC/bxcAUV1rRxrFhogkNVRgLOmqvoXLZZZ4LH2cIkqTKBsZB9JxA==
+X-Gm-Gg: ASbGncvmTZ4SkK54WZf2qbLmdHefF7K8eGG+cN/eSSJLQ0R3csbl9lUA6gTO5HpIpMS
+	FMQSD30YCX0XYqLgxhEzZ46ZHkk1hn5ZSYo0knMmhROOaqLmaPbZU+IxvW9I+mH4WAWgk9bS3HG
+	0+jye8bkggUq6qA4E1ndVOE0ZheSLPjOFeL8TrUi319DgpkTg6RRn5GyiCBMcJRt59mj2di48lL
+	Gu1ImRj2YN9KhC47LE0Si2F/ZWrkyR7wmvpLkR8a/qm2WHw2bfYZNb9cjY44KfhYmI8bi21oBTp
+	iAsqBeAaM6+vd0cquWzln6WszEGgCA==
+X-Google-Smtp-Source: AGHT+IHyIauWTC9z0duzSMqu8c57XtVz1O4+agEiGC9Y2shf1npJnycIEzwaZl9lF70bSILlvQbDiQ==
+X-Received: by 2002:a17:90b:2b86:b0:2ee:b875:6d30 with SMTP id 98e67ed59e1d1-2f83abb34femr33675709a91.9.1738584321382;
+        Mon, 03 Feb 2025 04:05:21 -0800 (PST)
+Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:b1fd:33d7:73ae:fe66])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f83bfbfe8dsm11060468a91.48.2025.02.03.04.05.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Feb 2025 04:05:20 -0800 (PST)
+From: Fabio Estevam <festevam@gmail.com>
+To: shawnguo@kernel.org
+Cc: krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	robh@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	lukma@denx.de,
+	Fabio Estevam <festevam@denx.de>
+Subject: [PATCH RESEND] ARM: dts: vf610-bk4: Use the more specific "lwn,bk4-spi"
+Date: Mon,  3 Feb 2025 09:05:11 -0300
+Message-Id: <20250203120511.996058-1-festevam@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH stm32-next v3 0/2] ARM: dts: stm32: lxa-fairytux2: add
- gen{1,2} boards
-To: Marc Kleine-Budde <mkl@pengutronix.de>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>
-CC: <kernel@pengutronix.de>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        =?UTF-8?Q?Leonard_G=C3=B6hrs?= <l.goehrs@pengutronix.de>,
-        Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>
-References: <20250121-lxa-fairytux-v3-0-8d42d7d232fb@pengutronix.de>
-Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <20250121-lxa-fairytux-v3-0-8d42d7d232fb@pengutronix.de>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-03_05,2025-01-31_02,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_040458_525789_6122945B 
-X-CRM114-Status: GOOD (  14.64  )
+X-CRM114-CacheID: sfid-20250203_120524_894249_A8911017 
+X-CRM114-Status: GOOD (  13.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,54 +114,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc
+From: Fabio Estevam <festevam@denx.de>
 
-On 1/21/25 12:14, Marc Kleine-Budde wrote:
-> Hello,
-> 
-> this series adds support for the Linux Automation GmbH FairyTux2
-> boards generation 1 and 2.
-> 
-> The FairyTux2 is a small Linux device based on an Octavo Systems
-> OSD32MP153c SiP, that occupies just two slots on a DIN rail.
-> 
-> regards,
-> Marc
-> 
-> Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
-> ---
-> Changes in v3:
-> - 2/2: fix use generic node names for external GPIO and USB Type-C controller (thanks Krzysztof)
-> - 2/2: LEDs: replace label by color and function property (thanks Krzysztof)
-> - 2/2: gen2: sort nodes of i2c1 by address (thanks Krzysztof)
-> - Link to v2: https://patch.msgid.link/20250120-lxa-fairytux-v2-0-95f4a0eaa44d@pengutronix.de
-> 
-> Changes in v2:
-> - 1/2: Added Krzysztof's Acked-by
-> - 2/2: fix alignment for gpio-line-names (thanks Krzysztof)
-> - 2/2: only use color:function for LED labels (thanks Krzysztof)
-> - 2/2: use generic node names for external GPIO and USB Type-C controller
-> - Link to v1: https://patch.msgid.link/20241210-lxa-fairytux-v1-0-9aea01cdb83e@pengutronix.de
-> 
-> ---
-> Leonard Göhrs (2):
->        dt-bindings: arm: stm32: add compatible strings for Linux Automation GmbH LXA FairyTux 2
->        ARM: dts: stm32: lxa-fairytux2: add Linux Automation GmbH FairyTux 2
-> 
->   .../devicetree/bindings/arm/stm32/stm32.yaml       |   2 +
->   arch/arm/boot/dts/st/Makefile                      |   2 +
->   .../boot/dts/st/stm32mp153c-lxa-fairytux2-gen1.dts | 103 ++++++
->   .../boot/dts/st/stm32mp153c-lxa-fairytux2-gen2.dts | 147 ++++++++
->   .../arm/boot/dts/st/stm32mp153c-lxa-fairytux2.dtsi | 397 +++++++++++++++++++++
->   5 files changed, 651 insertions(+)
-> ---
-> base-commit: b7ebfb84a09de6b44492974339654d8ffc5ad9e1
-> change-id: 20241210-lxa-fairytux-e730979d3d3f
-> 
-> Best regards,
+Currently, the compatible string used for the spidev device is "lwn,bk4",
+which is the same as the board compatible string documented at fsl.yaml.
 
-Series applied on stm32-next.
+This causes several dt-schema warnings:
 
-Thanks
-Alex
+make dtbs_check DT_SCHEMA_FILES=fsl.yaml
+...
+
+['lwn,bk4'] is too short
+'lwn,bk4' is not one of ['tq,imx8dxp-tqma8xdp-mba8xx']
+'lwn,bk4' is not one of ['tq,imx8qxp-tqma8xqp-mba8xx']
+'lwn,bk4' is not one of ['armadeus,imx1-apf9328', 'fsl,imx1ads']
+
+Use a more specific "lwn,bk4-spi" compatible string to fix the problem.
+
+Signed-off-by: Fabio Estevam <festevam@denx.de>
+---
+...
+Changes since v1:
+- Only resend this patch. The lwn,bk4-spi compatible has already
+been accepted.
+
+ arch/arm/boot/dts/nxp/vf/vf610-bk4.dts | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm/boot/dts/nxp/vf/vf610-bk4.dts b/arch/arm/boot/dts/nxp/vf/vf610-bk4.dts
+index 722182f5fd17..2492fb99956c 100644
+--- a/arch/arm/boot/dts/nxp/vf/vf610-bk4.dts
++++ b/arch/arm/boot/dts/nxp/vf/vf610-bk4.dts
+@@ -119,7 +119,7 @@ &dspi0 {
+ 	status = "okay";
+ 
+ 	spidev0@0 {
+-		compatible = "lwn,bk4";
++		compatible = "lwn,bk4-spi";
+ 		spi-max-frequency = <30000000>;
+ 		reg = <0>;
+ 		fsl,spi-cs-sck-delay = <200>;
+@@ -136,7 +136,7 @@ &dspi3 {
+ 	#address-cells = <0>;
+ 
+ 	slave {
+-		compatible = "lwn,bk4";
++		compatible = "lwn,bk4-spi";
+ 		spi-max-frequency = <30000000>;
+ 	};
+ };
+-- 
+2.34.1
+
 
