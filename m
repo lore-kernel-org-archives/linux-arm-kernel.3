@@ -4,69 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DAB8C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 12:37:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BCA3C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 12:41:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YKnI1H6bH4Cdf0+aRcBE2xV6xY9vSuXcbUzXoEYfRuc=; b=Girh6KYo39/lkWdpsZtU3ZrWJA
-	BSGIWg66VLYwBxlNulf66SrtHfNKTdo8QlL4kZWf8CPMmfEG6kz+W4IB0rmN+KGaQqJNDkGToWwAD
-	YbjR3SFXdWbq2Ej5DwpdLxiZ6Wl/8ychBnfEhbVxqcbhEzlROYm2AAjqsPy/Euk+emmAk9t0egiZA
-	YAhYh5o7AixsHUK1kLH2e+y83hBN0b7PulRToBoMJbA2ZPJhUZ+gI3Sw1+YnPyc++JWIZKs8sTRP/
-	y4C0l3hj8vlS40uoZkS1anM7EKf1TFuXdTfBk1EcytMSbaA2iaLQHm9K1G3GckKAOO+VOZy3ziEqW
-	Vf2GeeMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m6HzdZZy1ndKDpsBEhu29taA0HH7AF0JZfj/XCsQR0Y=; b=gxABqmoS6jk/TvEhxWgMKkMiPz
+	K0cPPWA9WZm/hOjk7tp1kYHoDuBtQlA0d8iA/yi79MZ2ZIAhrjqct5/BG5GVnCgqFqvHnnEuXgJ4v
+	UU+zFHPIkgqn/3pHJya51yVCLfbhA7LBh8rgoqao90C0ZhEUvQnFNzLIx+MMFYPnOQm+PEh/bdgDT
+	maC/ZPweUeiy4AZ3Xf4H31X+YkhZoAG4FUKpnC3LdiOOoImsFKQfRxbFUlQSDk7vbGBC+9oKB8MWu
+	C0q6Q4ASOmOe4ab77ZedkwC6nVk4URWLsL7S7BpaixT0lyUjrg8BtkOmhmRSWK02X+M5eifsPSF4P
+	Ra2IZBcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tevi1-0000000FOQo-00A7;
-	Mon, 03 Feb 2025 12:37:49 +0000
-Received: from mail.thorsis.com ([2003:a:e28:26e4::10])
+	id 1tevlo-0000000FOth-1nu6;
+	Mon, 03 Feb 2025 12:41:44 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tevXm-0000000FMxf-14U3
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 12:27:15 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7F6CF14830BD;
-	Mon,  3 Feb 2025 13:27:03 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
-	t=1738585624;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=YKnI1H6bH4Cdf0+aRcBE2xV6xY9vSuXcbUzXoEYfRuc=;
-	b=dcFHh2thNZzdlG/h8AL7zj5T96WsL+ZwTrkv5rpW0fA/Kbb4iKWfX1iy4NXnl+IExfYHop
-	OM2xWT4w4gmASbcQBsWPh5kUdKj34Oe3rPrXk3ylNGsjiWjeVDagfe3x8y4tQpyr3i1Qs3
-	z61tW7ik4TKnPj7QLFWnn/A9T6xJ+vX/LY4j8RGwXTXs5R60oK9Oyt05jvFYV4MQ7Cgq0B
-	+T1VU0dr5xPXc/7tRVI7CYFm5tcrP7pi7DGNXeSlJdY4e6kLkddZv/ucgIso/5dGdkCWff
-	aXLMZjF3FNIwnkApjt/Q9ykr97zmzLKwRjPYP7JXmdTtTrWuE2j2K3k7BAySwQ==
-Date: Mon, 3 Feb 2025 13:27:02 +0100
-From: Alexander Dahl <ada@thorsis.com>
-To: Bence =?iso-8859-1?B?Q3Pza+Fz?= <csokas.bence@prolan.hu>
-Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Mark Brown <broonie@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>, linux-spi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org
-Subject: Re: [PATCH v2 1/4] dma: Add devm_dma_request_chan()
-Message-ID: <20250203-chalice-ninth-8235590e29d2@thorsis.com>
-Mail-Followup-To: Bence =?iso-8859-1?B?Q3Pza+Fz?= <csokas.bence@prolan.hu>,
-	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Mark Brown <broonie@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>, linux-spi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org
-References: <20250124085221.766303-4-csokas.bence@prolan.hu>
- <20250124085221.766303-8-csokas.bence@prolan.hu>
+	id 1tevkT-0000000FOl0-1atD;
+	Mon, 03 Feb 2025 12:40:23 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id E576025CAA;
+	Mon,  3 Feb 2025 13:40:17 +0100 (CET)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id kOJee6X8J05I; Mon,  3 Feb 2025 13:40:17 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1738586417; bh=AkDFsgM8ht/4xOTKn+YGxCP4v6cjlpjp8uRWn5voH7o=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=NiCsXrG7LpnG5w/NFwLl1Xf4k91ChodYcxZdyx5YPPOd49ovtD7MWdYY8MSqveHJL
+	 AjJK0tAADkF89VLXYecmauRE5Gbv5iijR/wWAk4bwUHJvvvhXCYprAkat0d0TGYHIf
+	 ykOg1aVULxEsuMRLAo+lnp61mnypYcYTcGh8agQvcbDbQ93GggzGqmU2WdUo/fnERe
+	 cf0a6u52bgH+nL3XJ9zgtBTU2ZwrsvKehCSZyQANT07sLZRkG2mrLpJPC599dAG4RR
+	 gPgmAg3QdVtp9K9GV7ZrzkCmvJgfX0tErHPHs9P/aQnPsTEdcVAPpr+zHZOgyA1afb
+	 2mgxyQClmL60Q==
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250124085221.766303-8-csokas.bence@prolan.hu>
-User-Agent: Mutt/2.2.12 (2023-09-09)
-X-Last-TLS-Session-Version: TLSv1.3
+Date: Mon, 03 Feb 2025 12:40:16 +0000
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor@kernel.org>, Alim
+ Akhtar <alim.akhtar@samsung.com>, Sylwester Nawrocki
+ <s.nawrocki@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, Michael
+ Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Tomasz
+ Figa <tomasz.figa@gmail.com>, Linus Walleij <linus.walleij@linaro.org>, Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby
+ <jirislaby@kernel.org>, Lee Jones <lee@kernel.org>, Liam Girdwood
+ <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Vinod Koul
+ <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Marek
+ Szyprowski <m.szyprowski@samsung.com>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, Andi Shyti <andi.shyti@kernel.org>,
+ Ulf Hansson <ulf.hansson@linaro.org>, Jaehoon Chung
+ <jh80.chung@samsung.com>, Vivek Gautam <gautam.vivek@samsung.com>, Thinh
+ Nguyen <Thinh.Nguyen@synopsys.com>, Kees Cook <kees@kernel.org>, Tony Luck
+ <tony.luck@intel.com>, "Guilherme G . Piccoli" <gpiccoli@igalia.com>, Sergey
+ Lisov <sleirsgoevy@gmail.com>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-usb@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-i2c@vger.kernel.org,
+ linux-mmc@vger.kernel.org, linux-hardening@vger.kernel.org, Kaustabh
+ Chakraborty <kauschluss@disroot.org>
+Subject: Re: [PATCH 02/33] dt-bindings: clock: add clock definitions for
+ exynos7870 CMU
+In-Reply-To: <20250203-enigmatic-remarkable-beagle-709955@krzk-bin>
+References: <20250203-exynos7870-v1-0-2b6df476a3f0@disroot.org>
+ <20250202190758.14986-1-kauschluss@disroot.org>
+ <20250203-enigmatic-remarkable-beagle-709955@krzk-bin>
+Message-ID: <c1249f2f6ac8a2f5a1dcb3bbbba647f9@disroot.org>
+X-Sender: kauschluss@disroot.org
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_042714_455934_3A37B847 
-X-CRM114-Status: GOOD (  21.42  )
+X-CRM114-CacheID: sfid-20250203_044021_851206_BEBBCED5 
+X-CRM114-Status: GOOD (  13.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,94 +98,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+On 2025-02-03 07:54, Krzysztof Kozlowski wrote:
+> On Mon, Feb 03, 2025 at 12:37:58AM +0530, Kaustabh Chakraborty wrote:
+>> From: Sergey Lisov <sleirsgoevy@gmail.com>
+>> 
+>> Add unique identifiers for exynos7870 clocks for every bank. It adds all
+>> clocks of CMU_MIF, CMU_DISPAUD, CMU_G3D, CMU_ISP, CMU_MFCMSCL, and
+>> CMU_PERI.
+>> 
+>> Signed-off-by: Sergey Lisov <sleirsgoevy@gmail.com>
+>> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+>> ---
+>>  include/dt-bindings/clock/exynos7870.h | 324 +++++++++++++++++++++++++
+>>  1 file changed, 324 insertions(+)
+> 
+> Look at git log - that's never a separate commit.
 
-Am Fri, Jan 24, 2025 at 09:52:20AM +0100 schrieb Bence Csókás:
-> Expand the arsenal of devm functions for DMA
-> devices, this time for requesting channels.
-> 
-> Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
-> ---
->  drivers/dma/dmaengine.c   | 30 ++++++++++++++++++++++++++++++
->  include/linux/dmaengine.h |  7 +++++++
->  2 files changed, 37 insertions(+)
-> 
-> diff --git a/drivers/dma/dmaengine.c b/drivers/dma/dmaengine.c
-> index c1357d7f3dc6..02c29d26ac85 100644
-> --- a/drivers/dma/dmaengine.c
-> +++ b/drivers/dma/dmaengine.c
-> @@ -926,6 +926,36 @@ void dma_release_channel(struct dma_chan *chan)
->  }
->  EXPORT_SYMBOL_GPL(dma_release_channel);
->  
-> +static void dmaenginem_release_channel(void *chan)
-> +{
-> +	dma_release_channel(chan);
-> +}
-> +
-> +/**
-> + * devm_dma_request_chan - try to allocate an exclusive slave channel
-> + * @dev:	pointer to client device structure
-> + * @name:	slave channel name
-> + *
-> + * Returns pointer to appropriate DMA channel on success or an error pointer.
-> + *
-> + * The operation is managed and will be undone on driver detach.
-> + */
-> +
-> +struct dma_chan *devm_dma_request_chan(struct device *dev, const char *name)
-> +{
-> +	struct dma_chan *chan = dma_request_chan(dev, name);
-> +	int ret = 0;
-> +
-> +	if (!IS_ERR(chan))
-> +		ret = devm_add_action_or_reset(dev, dmaenginem_release_channel, chan);
+Hmm, I see past examples which are mixed.
 
-Why not using dma_release_channel() directly here?  What's the point
-of introducing dmaenginem_release_channel() further above?
+2ae5c2c3f8d586b709cf67efe94488be397d7544
+Exynos850 CMU (c. 2021). CMU definitions are in a separate commit.
 
-Greets
-Alex
+591020a516720e9eba1c4b1748cb73b6748e445f
+Exynos7885 CMU (c. 2021). CMU definitions are in a separate commit.
 
-> +
-> +	if (ret)
-> +		return ERR_PTR(ret);
-> +
-> +	return chan;
-> +}
-> +EXPORT_SYMBOL_GPL(devm_dma_request_chan);
-> +
->  /**
->   * dmaengine_get - register interest in dma_channels
->   */
-> diff --git a/include/linux/dmaengine.h b/include/linux/dmaengine.h
-> index 346251bf1026..ffb54b52ef0c 100644
-> --- a/include/linux/dmaengine.h
-> +++ b/include/linux/dmaengine.h
-> @@ -1528,6 +1528,7 @@ struct dma_chan *__dma_request_channel(const dma_cap_mask_t *mask,
->  
->  struct dma_chan *dma_request_chan(struct device *dev, const char *name);
->  struct dma_chan *dma_request_chan_by_mask(const dma_cap_mask_t *mask);
-> +struct dma_chan *devm_dma_request_chan(struct device *dev, const char *name);
->  
->  void dma_release_channel(struct dma_chan *chan);
->  int dma_get_slave_caps(struct dma_chan *chan, struct dma_slave_caps *caps);
-> @@ -1564,6 +1565,12 @@ static inline struct dma_chan *dma_request_chan_by_mask(
->  {
->  	return ERR_PTR(-ENODEV);
->  }
-> +
-> +static inline struct dma_chan *devm_dma_request_chan(struct device *dev, const char *name)
-> +{
-> +	return ERR_PTR(-ENODEV);
-> +}
-> +
->  static inline void dma_release_channel(struct dma_chan *chan)
->  {
->  }
-> -- 
-> 2.48.1
+while
+
+96bd6224f07b8bf73e0359f15a3d7678118494e6
+Exynos5433 CMU (c. 2015). CMU definitions and driver are in a single commit.
+
+Let me know if I should still continue with the approach you mentioned.
+
 > 
-> 
-> 
+> Best regards,
+> Krzysztof
 
