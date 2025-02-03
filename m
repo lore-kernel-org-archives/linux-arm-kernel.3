@@ -4,52 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 037C1C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 00:52:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15C29C0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 00:54:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fMUWndPg8KLSrJkc2QD+zMzpINY+ihCaeX6QA+EG4HA=; b=nXrue14pvN/6eWHqqJjEAjjbx9
-	if2SQft7hDpHbN2eMi3NRUgyTXqtJ6QrQh6Ducd7Qj5ZOtjW+eIHtFSpQk7Oh/WWXm7VKGnPhQAjb
-	HAFsH0v6e1N5McN8U6/7ojirkvIHD77BUwAZDXRhOBZqybmOwaophohNNSNpb4wJ7/xaNb2xNZGhw
-	SLHuEUHnFG+fQIzdEBBg+wo9bTrDHRhGQ9RKvXCb/DE6f+mKnoDVBHOPfp88HosjNGQ5p6jNVcIBF
-	GSwnSoPFCz9BEd2WMdFk6IR3p8FLnkW3MDVXRTLgRBxsd1talJCrByABQpKDCCOdZUW/1flJrUz5j
-	6nR4+bLg==;
+	bh=lhkcUWuEBU3IBQUOoF1bj+n1SFWehybaCkKSRSr7/JE=; b=P1Kzps9ezUXh3sRToJWtYvglMH
+	jHI7fPpEduEq0oG91uQfGrEg1uEFtV9ANO8//r0HCGGZUXd9HOtnM8dhAZLa/5UX3UobcOIgpmpbC
+	PeCjscSdMWCNo57z6GTrpHA+GhDx/P28HRC+9rIw05CBXOcXp+0V43Mi1TKbiV3MmboqLrHvKW79F
+	O+xPP0z2WfJPLYVaMadMAaqfP/3aGg7+7GqYr4MGZa/mnJsvL6MMmD2eJ2XmIXL8jnIfCtfpDJz0v
+	lR1NPamiL5Oij1Vr0qYfdjmIao5783HDf0H5JSOahWyqEg8REa1dRI8gTL2fxciuNBt+kHruLMeR7
+	HAHQeeZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tekhe-0000000EMW5-1kxK;
-	Mon, 03 Feb 2025 00:52:42 +0000
+	id 1tekiw-0000000EMcZ-07rN;
+	Mon, 03 Feb 2025 00:54:02 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tekYh-0000000ELLx-0UdT
+	id 1tekYi-0000000ELLx-1H3F
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 00:43:28 +0000
+	Mon, 03 Feb 2025 00:43:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B68015C6181;
-	Mon,  3 Feb 2025 00:42:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38A7EC4CED2;
-	Mon,  3 Feb 2025 00:43:26 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3A2F65C621F;
+	Mon,  3 Feb 2025 00:42:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B930FC4CED1;
+	Mon,  3 Feb 2025 00:43:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738543406;
-	bh=za8iN40FQDk2pmfaRnhlPlw8DceIe2LhWYenqsGL+wo=;
+	s=k20201202; t=1738543407;
+	bh=YMoiz1IwW30xuvS/3gbiYu27fbDSzCf+Hk+27MpZh5k=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=H3hGoIBBMzDCLW7E18zVmykhF6bZl5dP7Lo1l11EQM6X8XzW3d+RGXBgvEM0X++OE
-	 NRG4/9SWnLw9YTfC0lUdqxFuB+6RycR9I6dH0XKkf05YlIESfquaW0CnkEjF5HVLXm
-	 BSMilz5mRmrzr8JSPmulK868+aysAY2jx6V/r7kTE9zzrlOBKMe0UNfDfnRDfBLzWY
-	 xRMLj7fM2o/CNrDIvzUDoldks3Oo1GD0tX+qAd5z+G4acvN1FrXrhLL8+8j1Hj0kj2
-	 fc/AS886T7T8luDUYmI3AlaJbTVm5tYS7CfKXPRhFDy54B2pwcIyyY8F0mCUkUGQje
-	 fb+r3+uE9CKtg==
+	b=dqILbKnX9RcTtbghAlRcQhrJ00+LHmmLHnq0/inKrExKlyxXPoBKKT+HV/rTQu4he
+	 z5mlKFr/eCAlN7di3QorUcd3Ob9Hgsu9rmG2bQmMvmkdY1+91muZz2lo9bNxiQOZUI
+	 gJj+zuVyCqJZJUYTdzGWUufs1eXPNkakE0kyX6gmfpwPOHbAjmH+sSxFklkbsFPO+f
+	 /Z6BmQr76S2OCFaANBwT6yoRpaCI8N3Dzeac172BMPuVwjTDi00oDDW8OeZL/y7wD0
+	 UD3y2MS7CxHcc/d1pvX60pMfkkWc3lX3zUeEMIGBtfj9lOq+xEuGJlg9SOglpugQiJ
+	 rnl7ridn+FQyw==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Date: Sun, 02 Feb 2025 18:43:00 -0600
-Subject: [PATCH v19 06/11] perf: apple_m1: Don't disable counter in
- m1_pmu_enable_event()
+Date: Sun, 02 Feb 2025 18:43:01 -0600
+Subject: [PATCH v19 07/11] perf: arm_pmu: Move PMUv3-specific data
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250202-arm-brbe-v19-v19-6-1c1300802385@kernel.org>
+Message-Id: <20250202-arm-brbe-v19-v19-7-1c1300802385@kernel.org>
 References: <20250202-arm-brbe-v19-v19-0-1c1300802385@kernel.org>
 In-Reply-To: <20250202-arm-brbe-v19-v19-0-1c1300802385@kernel.org>
 To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
@@ -63,9 +62,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
  kvmarm@lists.linux.dev
 X-Mailer: b4 0.15-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250202_164327_204367_3CBB9A27 
-X-CRM114-Status: UNSURE (   9.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250202_164328_431894_5BE912DB 
+X-CRM114-Status: GOOD (  13.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,32 +78,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently m1_pmu_enable_event() starts by disabling the event counter
-it has been asked to enable. This should not be necessary as the
-counter (and the PMU as a whole) should not be active when
-m1_pmu_enable_event() is called.
+From: Mark Rutland <mark.rutland@arm.com>
 
-Cc: Marc Zyngier <maz@kernel.org>
+A few fields in struct arm_pmu are only used with PMUv3, and soon we
+will need to add more for BRBE. Group the fields together so that we
+have a logical place to add more data in future.
+
+At the same time, remove the comment for reg_pmmir as it doesn't convey
+anything useful.
+
+There should be no functional change as a result of this patch.
+
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- drivers/perf/apple_m1_cpu_pmu.c | 4 ----
- 1 file changed, 4 deletions(-)
+ include/linux/perf/arm_pmu.h | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/perf/apple_m1_cpu_pmu.c b/drivers/perf/apple_m1_cpu_pmu.c
-index 06fd317529fc..39349ecec3c1 100644
---- a/drivers/perf/apple_m1_cpu_pmu.c
-+++ b/drivers/perf/apple_m1_cpu_pmu.c
-@@ -396,10 +396,6 @@ static void m1_pmu_enable_event(struct perf_event *event)
- 	user = event->hw.config_base & M1_PMU_CFG_COUNT_USER;
- 	kernel = event->hw.config_base & M1_PMU_CFG_COUNT_KERNEL;
+diff --git a/include/linux/perf/arm_pmu.h b/include/linux/perf/arm_pmu.h
+index 4b5b83677e3f..c70d528594f2 100644
+--- a/include/linux/perf/arm_pmu.h
++++ b/include/linux/perf/arm_pmu.h
+@@ -84,7 +84,6 @@ struct arm_pmu {
+ 	struct pmu	pmu;
+ 	cpumask_t	supported_cpus;
+ 	char		*name;
+-	int		pmuver;
+ 	irqreturn_t	(*handle_irq)(struct arm_pmu *pmu);
+ 	void		(*enable)(struct perf_event *event);
+ 	void		(*disable)(struct perf_event *event);
+@@ -102,18 +101,20 @@ struct arm_pmu {
+ 	int		(*map_event)(struct perf_event *event);
+ 	DECLARE_BITMAP(cntr_mask, ARMPMU_MAX_HWEVENTS);
+ 	bool		secure_access; /* 32-bit ARM only */
+-#define ARMV8_PMUV3_MAX_COMMON_EVENTS		0x40
+-	DECLARE_BITMAP(pmceid_bitmap, ARMV8_PMUV3_MAX_COMMON_EVENTS);
+-#define ARMV8_PMUV3_EXT_COMMON_EVENT_BASE	0x4000
+-	DECLARE_BITMAP(pmceid_ext_bitmap, ARMV8_PMUV3_MAX_COMMON_EVENTS);
+ 	struct platform_device	*plat_device;
+ 	struct pmu_hw_events	__percpu *hw_events;
+ 	struct hlist_node	node;
+ 	struct notifier_block	cpu_pm_nb;
+ 	/* the attr_groups array must be NULL-terminated */
+ 	const struct attribute_group *attr_groups[ARMPMU_NR_ATTR_GROUPS + 1];
+-	/* store the PMMIR_EL1 to expose slots */
++
++	/* PMUv3 only */
++	int		pmuver;
+ 	u64		reg_pmmir;
++#define ARMV8_PMUV3_MAX_COMMON_EVENTS		0x40
++	DECLARE_BITMAP(pmceid_bitmap, ARMV8_PMUV3_MAX_COMMON_EVENTS);
++#define ARMV8_PMUV3_EXT_COMMON_EVENT_BASE	0x4000
++	DECLARE_BITMAP(pmceid_ext_bitmap, ARMV8_PMUV3_MAX_COMMON_EVENTS);
  
--	m1_pmu_disable_counter_interrupt(event->hw.idx);
--	m1_pmu_disable_counter(event->hw.idx);
--	isb();
--
- 	m1_pmu_configure_counter(event->hw.idx, evt, user, kernel);
- 	m1_pmu_enable_counter(event->hw.idx);
- 	m1_pmu_enable_counter_interrupt(event->hw.idx);
+ 	/* Only to be used by ACPI probing code */
+ 	unsigned long acpi_cpuid;
 
 -- 
 2.47.2
