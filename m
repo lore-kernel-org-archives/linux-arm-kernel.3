@@ -4,80 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E73C0C02193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 06:24:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAD79C02193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 06:25:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iXYlcduRaEuZBAJSJkccbjFtw9LjN05LrT6o3bd+HDw=; b=WTxCT4wPe82TWWsi/kBajlif0H
-	i5ZmtNfUoDOYodbxw0/NXJaBiSWzKO6CyCEkJHStfkQ0B7nwU5gdZi5R/LTPHy+ZjST881+5m8h5f
-	DuG3Vy5Gb73Ul0YK/OgemTCjxyfW6dZeKJY8KvkCAFdbUkxMKJOpSvId8vqjukWZJ1AZX5ct8J8JM
-	rt6ueo3188oQK0VVocGSuYFahZHQ49uSdWiwm+/1UvlmvUYO9ZJBoPkoAdNhMnclcNsbc099jLsBH
-	iSyYRrzCsfYrdkRpFVrTRlW1dN0K7Qnonczct4aRowWIHxiLEZUHkGnDxQL/W+/Xq+fETTLbFx2LY
-	IKX3Au2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sOdCzSN2/f05dA92HAVY6g+EQoOjt0cmreIvV2RaoMA=; b=pAkem0tBz99p/rjPC0l4+NwGqx
+	+ICSrV+4uAfFOz9BaNKJ4h0Hrht3LWCHzmVdEv4GqUKaaK/AJKk3thMrnYEmxYu0j/irHXNhf1HTy
+	nOHTDNPBC9C0dpJR+zs24aczVhgEVBqO8aoYLRWvYkl+ue30uRZ+zqEyEaceEU+e51+6EpSneMEBM
+	yWXjjaCUzaki1NZzTrDlMMg7nFpKTYPpFtYTFrsN/20CpCRTatZZ5/rpfJyg+a3DhkBKwRi2hVM0j
+	hIYHcrNHdhPY4jj7KBZSvfnnARguklJCifOWHRsQ8Z/S8Heft10LdkNrHKefsR5KaAiOfMW0kofzp
+	CVmPyFrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tepsD-0000000Edn3-3UUL;
-	Mon, 03 Feb 2025 06:23:57 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1teptW-0000000Ee53-1wtW;
+	Mon, 03 Feb 2025 06:25:18 +0000
+Received: from smtp-22.smtpout.orange.fr ([80.12.242.22] helo=smtp.smtpout.orange.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tepqB-0000000EdV0-1mm5
+	id 1tepro-0000000EdiQ-3HmN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 06:21:52 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5136Lied2964707
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 3 Feb 2025 00:21:44 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1738563704;
-	bh=iXYlcduRaEuZBAJSJkccbjFtw9LjN05LrT6o3bd+HDw=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=U/ZMQcy76SDdRgPJBjUDqOjH8hMX63KDfttvW8yCorGwHczDInvX94jcMEZSK6aBP
-	 ZDa/Dr6arhhazNm8hR+V4zfzkRhetxWb/xYF2t12kCXylbCALRooreCGNBDOqeN5LR
-	 qOCi2tp6+/uX3x0C7KWHyQ+trBcRdvdedIYGZeDc=
-Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5136Likd104541
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 3 Feb 2025 00:21:44 -0600
-Received: from flwvowa01.ent.ti.com (10.64.41.90) by DFLE115.ent.ti.com
- (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 3
- Feb 2025 00:21:44 -0600
-Received: from DFLE113.ent.ti.com (10.64.6.34) by flwvowa01.ent.ti.com
- (10.64.41.90) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id 15.1.2507.34; Mon, 3 Feb
- 2025 00:21:43 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE113.ent.ti.com
- (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 3 Feb 2025 00:21:43 -0600
-Received: from localhost (lcpd911.dhcp.ti.com [172.24.227.226])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5136LhIs004552;
-	Mon, 3 Feb 2025 00:21:43 -0600
-Date: Mon, 3 Feb 2025 11:51:42 +0530
-From: Dhruva Gole <d-gole@ti.com>
-To: Sudeep Holla <sudeep.holla@arm.com>
-CC: <arm-scmi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        Cristian Marussi <cristian.marussi@arm.com>,
-        Xinqi Zhang
-	<quic_xinqzhan@quicinc.com>, Peng Fan <peng.fan@nxp.com>,
-        Guomin Chen
-	<guomin_chen@sina.com>
-Subject: Re: [PATCH 1/3] firmware: arm_scmi: Relax duplicate name constraint
- across protocol ids
-Message-ID: <20250203062142.okaan6libbn35cbk@lcpd911>
-References: <20250131141822.514342-1-sudeep.holla@arm.com>
+	Mon, 03 Feb 2025 06:23:33 +0000
+Received: from [192.168.1.37] ([90.11.132.44])
+	by smtp.orange.fr with ESMTPA
+	id eprhtUetmeIWleprlt7iQ8; Mon, 03 Feb 2025 07:23:30 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
+	s=t20230301; t=1738563810;
+	bh=sOdCzSN2/f05dA92HAVY6g+EQoOjt0cmreIvV2RaoMA=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=dNmYDMfnf8tZJagS0X3VZxyCxLgFqi7JvsDqSUFFRQGfW7sQHbwA+PnjRuDb8SZ7W
+	 w6mkCF/i0ofE17RJBh2pnOiHVzL2C2Jsei+LFTiQuff575QWFrzxAgOno0N5oLGHAq
+	 bvL5KckhWEOLVKqLUfYoBHE2IJL6Wce9APdHHzkxNTqcQbBB0+xjj5NhKHBjWeBsbj
+	 rVCumjLL7bn44gH1L4JM6PXvvk3zdpaC+0OZ2gJRuNHrhH7nBsPgONyZ1M4+EVc5hW
+	 BYe3H+RUcWj0tFzeoMM/fnFxvkgLUuLSfuTGWmAMLt766gu6YrudfIUs6l6W6WhwXv
+	 i9E45wqKmlzZA==
+X-ME-Helo: [192.168.1.37]
+X-ME-Auth: bWFyaW9uLmphaWxsZXRAd2FuYWRvby5mcg==
+X-ME-Date: Mon, 03 Feb 2025 07:23:30 +0100
+X-ME-IP: 90.11.132.44
+Message-ID: <150812a1-31f7-43b1-8d85-fd097fc26c43@wanadoo.fr>
+Date: Mon, 3 Feb 2025 07:23:25 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250131141822.514342-1-sudeep.holla@arm.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] usb: phy: mxs: silence EPROBE_DEFER error on boot
+To: Dominique Martinet <dominique.martinet@atmark-techno.com>
+Cc: festevam@gmail.com, gregkh@linuxfoundation.org, imx@lists.linux.dev,
+ kernel@pengutronix.de, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
+ s.hauer@pengutronix.de, shawnguo@kernel.org
+References: <20250203-defer_usb2-v1-1-2366f26462e0@atmark-techno.com>
+Content-Language: en-US, fr-FR
+From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+In-Reply-To: <20250203-defer_usb2-v1-1-2366f26462e0@atmark-techno.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250202_222151_782047_5C94A9A0 
-X-CRM114-Status: GOOD (  25.27  )
+X-CRM114-CacheID: sfid-20250202_222332_955292_8724CB22 
+X-CRM114-Status: GOOD (  13.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,85 +77,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sudeep,
-
-On Jan 31, 2025 at 14:18:20 +0000, Sudeep Holla wrote:
-> Currently in scmi_protocol_device_request(), no duplicate scmi device
-> name is allowed across any protocol. However scmi_dev_match_id() first
-
-Yeah this was indeed a bit too stringent.
-
-> matches the protocol id and then the name. So, there is no strict
-> requirement to keep this scmi device name unique across all the protocols.
-
-Right.
-
+Le 03/02/2025 à 07:09, Dominique Martinet a écrit :
+> Use dev_err_probe to silence EPROBE_DEFER error on boot on i.MX8ULP:
+> [    0.127301] mxs_phy 29910000.usb-phy: can't get the clock, err=-517
 > 
-> Relax the constraint on the duplicate name across the protocols and
-> inhibit only within the same protocol id.
-
-Makes sense to me, it will indeed make things simpler.
-Reviewed-by: Dhruva Gole <d-gole@ti.com>
-
-> 
-> Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+> Signed-off-by: Dominique Martinet <dominique.martinet-9u97MdVgWv6RbxiC3EKwHAC/G2K4zDHf@public.gmane.org>
 > ---
->  drivers/firmware/arm_scmi/bus.c | 19 ++++++-------------
->  1 file changed, 6 insertions(+), 13 deletions(-)
+>   drivers/usb/phy/phy-mxs-usb.c | 3 +--
+>   1 file changed, 1 insertion(+), 2 deletions(-)
 > 
-> diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
-> index a3386bf36de5..8acf33ccfd21 100644
-> --- a/drivers/firmware/arm_scmi/bus.c
-> +++ b/drivers/firmware/arm_scmi/bus.c
-> @@ -42,7 +42,7 @@ static atomic_t scmi_syspower_registered = ATOMIC_INIT(0);
->   * This helper let an SCMI driver request specific devices identified by the
->   * @id_table to be created for each active SCMI instance.
->   *
-> - * The requested device name MUST NOT be already existent for any protocol;
-> + * The requested device name MUST NOT be already existent for this protocol;
->   * at first the freshly requested @id_table is annotated in the IDR table
->   * @scmi_requested_devices and then the requested device is advertised to any
->   * registered party via the @scmi_requested_devices_nh notification chain.
-> @@ -52,7 +52,6 @@ static atomic_t scmi_syspower_registered = ATOMIC_INIT(0);
->  static int scmi_protocol_device_request(const struct scmi_device_id *id_table)
->  {
->  	int ret = 0;
-> -	unsigned int id = 0;
->  	struct list_head *head, *phead = NULL;
->  	struct scmi_requested_dev *rdev;
->  
-> @@ -67,19 +66,13 @@ static int scmi_protocol_device_request(const struct scmi_device_id *id_table)
->  	}
->  
->  	/*
-> -	 * Search for the matching protocol rdev list and then search
-> -	 * of any existent equally named device...fails if any duplicate found.
-> +	 * Find the matching protocol rdev list and then search of any
-> +	 * existent equally named device...fails if any duplicate found.
->  	 */
->  	mutex_lock(&scmi_requested_devices_mtx);
-> -	idr_for_each_entry(&scmi_requested_devices, head, id) {
-> -		if (!phead) {
-> -			/* A list found registered in the IDR is never empty */
-> -			rdev = list_first_entry(head, struct scmi_requested_dev,
-> -						node);
-> -			if (rdev->id_table->protocol_id ==
-> -			    id_table->protocol_id)
-> -				phead = head;
-> -		}
-> +	phead = idr_find(&scmi_requested_devices, id_table->protocol_id);
-> +	if (phead) {
-> +		head = phead;
->  		list_for_each_entry(rdev, head, node) {
->  			if (!strcmp(rdev->id_table->name, id_table->name)) {
->  				pr_err("Ignoring duplicate request [%d] %s\n",
-> -- 
-> 2.34.1
-> 
-> 
+> diff --git a/drivers/usb/phy/phy-mxs-usb.c b/drivers/usb/phy/phy-mxs-usb.c
+> index 7490f1798b461c39c29bb74e1e57e0a4adce2bd7..dd2b4a5633934e257e792bbd61d6748304b5e679 100644
+> --- a/drivers/usb/phy/phy-mxs-usb.c
+> +++ b/drivers/usb/phy/phy-mxs-usb.c
+> @@ -770,9 +770,8 @@ static int mxs_phy_probe(struct platform_device *pdev)
+>   
+>   	clk = devm_clk_get(&pdev->dev, NULL);
+>   	if (IS_ERR(clk)) {
+> -		dev_err(&pdev->dev,
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(clk),
+>   			"can't get the clock, err=%ld", PTR_ERR(clk));
+> -		return PTR_ERR(clk);
+>   	}
 
--- 
-Best regards,
-Dhruva Gole
-Texas Instruments Incorporated
+extra { } can also be removed now that there is only 1 line left.
+
+CJ
+
+>   
+>   	mxs_phy = devm_kzalloc(&pdev->dev, sizeof(*mxs_phy), GFP_KERNEL);
+> 
+> ---
+> base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+> change-id: 20250203-defer_usb2-ee26f66a01ad
+> 
+> Best regards,
+
 
