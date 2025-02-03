@@ -4,65 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBE72C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 15:41:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 388E5C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 15:42:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=neMi7rrM4u2QYObg85ewQokvp8sxvRfILY6POSHdBQA=; b=gw9qxW4DDnQtyI3se7dFxPJtc9
-	IW5raNsj2Hu55sLwqAQlj99IJ5FFjMhnrmu0JrjVPKm08pI0tsO3JZftyNEHz3pGQqbLtScEZTtGr
-	5qmgfvBAStMAnCgudUP+8gNwuoxz0EjCq5rj5d2EHoa4W+EpXkGdZOYNFQWhx0OSlxcRZTZ1uhTEV
-	iP4ZDblEqrF+ruqFz9wn0+1wIgIjy/svK6I357YjoEsdaKvZdfPfMe64niYuc/T1arL4VRsbM4qsy
-	CcuW8YL2migyEJEzvOo/UeBK0cy5YIsCxeSdm/Db9MuAxK7z8tkC7uv2dFfYP3/cqhNdY7AiquYGW
-	a27uoUsQ==;
+	bh=zWY27lDsAtP1r/eqjdYWBVgraKpugSKogNUv+POAL+0=; b=h2ZZGfikXgMXfaPCkGbFNLf21H
+	1FOIa0Q+dd3eCVCr/u7kIcwOSXpb+f+RRnRkPcJVhJ88R9CQVp38BA2tNTKwCL7rjd+HPyyktZaiY
+	ttmbXRb6aVTPo8re10loV+oFjRzfqv9YIvfAknTri4BG91OAN2ywvcOVwvCG8PqkwIIOpjKFL5Kk2
+	LApWrVXr0UExLNSfO8IBH/AKQVITBrzXR0c30tATdWPQxN6ZhwSQ8WpurJPLmK/06GDD6rnMCWUVh
+	2Ipc7iCCYZSuyMbokhyjDFWAfDsTgsblvsUqDm8TcT1sw/DrU0K7fNFss1MvSNbLCAkRWEVbrCdkx
+	tdvcXscQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teyZS-0000000Fu0w-3leo;
-	Mon, 03 Feb 2025 15:41:10 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1teyal-0000000FuB2-2GmZ;
+	Mon, 03 Feb 2025 15:42:31 +0000
+Received: from mail-am6eur05on2060b.outbound.protection.outlook.com ([2a01:111:f403:2612::60b] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1teyVb-0000000FtSn-3aZk
+	id 1teyXa-0000000FtjE-0w7a
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 15:37:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0F0E15C6594;
-	Mon,  3 Feb 2025 15:36:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91200C4CED2;
-	Mon,  3 Feb 2025 15:37:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738597030;
-	bh=zxuCVc3egPezHDqToqET5g5++zkJ6jbKo4UuMIaT+WQ=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=IN275eiCLwwUJezABuTmgS/US0CW0NZ1G/NPDhDwL0OEXm9WFnsDHjXtv3CUH1K/m
-	 gnLsaN11HXs/h+hRoYeIBYDx5d1K2Muckr4/8MK7KYcKT8DNAvdxQ0lS673B9Q31af
-	 9mYoDVPwUB5n6Jpys8Ad5YoevQXO6zg+F95xCEN8lQKLfB+3/HtWXwTTybFP84jZQy
-	 SxDr1iRDQwF3ls3f/aDfoyvmQLMTSGnJZMxk6Iad3TjfBMmfinoCNHRLiGRL4aWrJ9
-	 CvpyxtkZg1F87bHwO+tHTkBibNedX7Mktf1+Qd/xhp+Gh3l/7/Ff1hsTZfdheqhila
-	 lxdB+s965rIEg==
-Date: Mon, 03 Feb 2025 09:37:09 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Mon, 03 Feb 2025 15:39:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jShCI7riv61eUicSJBjMgEonGqPrhkmcJNuxCHFRaRGSMRdmmOrbWoUvKZ0tsiUqDPFhPITq9SkVe2J+SYFOHIcfDV5/NqBSw2QJwotuckApz1wC97cHd0++9uxc9FxkOFc9fNstJrwZ13j2lG/qbpYhc7JmO0jKaB8nytWOChdDai2HxHpAn38kT6fj/HNLtdWONDsukHbtBdWFKoAIRm0iLnlSr2KB4wh58M1R2fPiJqAwT9wpWfRVtBBhC56RzyzMK9d3LLT13Cle8DGYmzcqdkUW/vihEpRRfrlO+esxRdVaFAhksRayNkNcMbz3b6aBQMJnm1GX/0/0E1vrDA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zWY27lDsAtP1r/eqjdYWBVgraKpugSKogNUv+POAL+0=;
+ b=MqSTT4v6LUYSUhOSgAm/DC5i4n6esvNPM6A7iIqrot9mD498vWwwWHYceKY2pg1GP2+CZPA96mTAutyCprucosaEOvmqbe7s1vxwBszU9lQgK0tYsgIFoyw6hsyvJLyCnJkJL5vhSEluCNK7vJmdY8MLnckETUm+5j5yqeUXzV/QDv37zQtBWW5d69kOreFbTJLOes2afqwG5NA1w9GmmgFBQFJPiwSlE6iuRnW6QNs0v7SQc6+rDbOeVnMzx9YxGeV1FpnI5LOn2+1N90IpbvxXpkyUMJGUjo6x4B0h1UdPDEsHYOhnK1IJ7t/SrjhfR52GfVSLr2wCqm5qcYnt+w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zWY27lDsAtP1r/eqjdYWBVgraKpugSKogNUv+POAL+0=;
+ b=bZCI+ubZlZzLqcq8JzJ7iiQcYiTZ0bbgYq7V29ff6otLWWlx71smhrm2paYCYqGlElOT1N+8RssLXd8/aaYMKJEr/zDt5JJQpxs2DHp9X25FjtXx7twmUkEdjVh/5a1+8s/ydjwX8wSo7K7VXHlF+b6iCTX8Z3NELKTAzJLPc8NPcljWYN/p8HmrVyFndzRdAReO0Bb0rzxBDY+9e3PT6P/GdZ6isULPiXC49KVPvDpo3Gag3FzM/HUbx5hn+QlmcH9+WDBfMwV6wn8psGOA/lWXFX71rsD5bdJeqBIKbkBYOwFtQFxBke0DWIWbu2pxX/TkIQ33FUvdg1CeGmOGkw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by PA4PR04MB8030.eurprd04.prod.outlook.com (2603:10a6:102:cc::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.24; Mon, 3 Feb
+ 2025 15:39:06 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.8398.021; Mon, 3 Feb 2025
+ 15:39:06 +0000
+Date: Mon, 3 Feb 2025 10:38:55 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Larisa Grigore <larisa.grigore@oss.nxp.com>
+Cc: Chester Lin <chester62515@gmail.com>,
+	Matthias Brugger <mbrugger@suse.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	s32@nxp.com, clizzi@redhat.com, aruizrui@redhat.com,
+	eballetb@redhat.com
+Subject: Re: [PATCH v2 1/2] arm64: dts: s32g: add the eDMA nodes
+Message-ID: <Z6DjD+5aYRL/I50H@lizhi-Precision-Tower-5810>
+References: <20250203080919.1814455-1-larisa.grigore@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250203080919.1814455-1-larisa.grigore@oss.nxp.com>
+X-ClientProxiedBy: BYAPR05CA0012.namprd05.prod.outlook.com
+ (2603:10b6:a03:c0::25) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linus.walleij@linaro.org, netdev@vger.kernel.org, 
- openipmi-developer@lists.sourceforge.net, minyard@acm.org, brgl@bgdev.pl, 
- linux-kernel@vger.kernel.org, andrew@codeconstruct.com.au, 
- edumazet@google.com, davem@davemloft.net, andrew+netdev@lunn.ch, 
- joel@jms.id.au, conor+dt@kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, eajames@linux.ibm.com, 
- krzk+dt@kernel.org, kuba@kernel.org, pabeni@redhat.com, 
- linux-aspeed@lists.ozlabs.org
-To: Ninad Palsule <ninad@linux.ibm.com>
-In-Reply-To: <20250203144422.269948-1-ninad@linux.ibm.com>
-References: <20250203144422.269948-1-ninad@linux.ibm.com>
-Message-Id: <173859694889.2601726.10618336219726193824.robh@kernel.org>
-Subject: Re: [PATCH v7 0/9] DTS updates for system1 BMC
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PA4PR04MB8030:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6e20d557-7d29-48ef-2d1f-08dd4468e4f2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|7416014|376014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?pcByATVD988+8NLPvEEcct1Y4y/FmKfzSsKrO2Swgh5XDXlaqEqcUOzrTK1s?=
+ =?us-ascii?Q?dBKVAdE281tzGlZfYrueCL12aqVUqTQNdP13/umYwE1OVce2PIyMb2tkyedA?=
+ =?us-ascii?Q?k9UhNQxpHFw232oC+EfjazluTpgM0oGUnnfS81rhJBfdHufVX04PuQV+TkUK?=
+ =?us-ascii?Q?TQuYB0zsmgGD6ZXbZ65HtvttpLZ3QCofZt934L2jmAow2KRbCmI8WJ/WDn7+?=
+ =?us-ascii?Q?YDkbZR/Cj6xg7T0n7IE/8fwul82reC3qKTXpPnaCLaDeUs7a2ZSK2+dhUiSm?=
+ =?us-ascii?Q?FUiJJTfOuITSujYoaq3CN8QBKVpE75ZA2a2vx23rYGRQR1215ARRc+ZfBazh?=
+ =?us-ascii?Q?FCAD79qsNXJ+rJdlpW+mX7SKCPu1kVUqhemG6GbUHjtzLDxT+xQx+1aJeDGo?=
+ =?us-ascii?Q?crBBPHs2Ja4MxsvArGlBhU6whPX4t4Eoi3nC8GeRnt4Jsi9quflgnpFcxSZo?=
+ =?us-ascii?Q?gJFmhD7n/Wsg0FTtd3qJ8kWxU9RG8JJHKvLv1Tyh5V+tUUcGKPyV7wlq1YAo?=
+ =?us-ascii?Q?8K27o0QQ0bgNmsXoy7vyQfkSbPe0QBUaHGptq7vPUFpotd0v7UCYJ+zYOCN/?=
+ =?us-ascii?Q?08t8anTLyioncdZMgSnXd9GGVvCSohhSpxwDxALohVj7fP7Mywq6ykWmmK8n?=
+ =?us-ascii?Q?I5CwRl+e0J4OucR4sMXbDZEFXobqUpEaObVyp/HD1/2RxYWc85aSVQe82aIC?=
+ =?us-ascii?Q?68XxRNydABQr+ahIRo2xGrwGKM6yr748OgSTF8yEUc/zaEsIaZdW2KpJRx5r?=
+ =?us-ascii?Q?kpbUxWR/Z8LyXe/OPtX9zJOP+X2J7N0gaAhU83LJiPey6CIRJIEADlwuM4Lc?=
+ =?us-ascii?Q?7YrZrgtGmc13TZfwQ6eN8FsiRN9E6zuslenv9RjRyiIsw3/DB2Y68zP1Pyu6?=
+ =?us-ascii?Q?akLEirDiBRzlAefZa4CWzpDO5wVNO3hshjbx4HkhS50Kayz5LDu9SJWKb1E9?=
+ =?us-ascii?Q?g8Ty+7B0zg2O4TM+vmNMu7OZ4x2AC3K6x6jmAXAw1XSi9ihx0C0JvbZT18Q6?=
+ =?us-ascii?Q?4og88IxWLQxJA9YrFMtXXda1GJC/UMNkKuixs30+OGZ+Rr5J3BPN0FKWRJ1B?=
+ =?us-ascii?Q?tCX7wPS42PqVoGb1DDCCxnjCWWVm0vVQRuB84P71FIcFY9YppLPDDAeNiFwj?=
+ =?us-ascii?Q?xrPMzFWhc9fT1myDEFg9M8Wmufl803EFiqnIffAL8W/DWxjSuvnj46eBvjev?=
+ =?us-ascii?Q?T1dlK7WldBujCekL54SQ2ZwnnQknnYmsJvdOBpwYXWBomf+D6/RbbYYsdmLj?=
+ =?us-ascii?Q?WlF7G9cDTLamNOtgS5lY9rzIyuuaO1DQc+ysQ69CPlBCb9HGE6U+lbJ9Y0Dv?=
+ =?us-ascii?Q?p2ThtxsvCwybbu+9TLptmgSz5xJfAWvoSZEzDQYzMuMicOGzrv+wrjN8pDeN?=
+ =?us-ascii?Q?pbT1PYNg5+QWNVTFecnEpRv03zSqUcmsTOXIGz+l+tzFvsiFU3PTVkeqL9hd?=
+ =?us-ascii?Q?eeHI1ly5ZeayhGiZyw/VWj0Nt/4dcHpN?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(7416014)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?nv8irXzBzcZECc6kNumj5X7tg/A1bf8cz8AqD+tHfTda0vCmwrZQ6r0sIk3g?=
+ =?us-ascii?Q?+SUzcO3sMwJ+6/MFqP+0cmEplYXAbi5Qiisiw8UsIO/cE1UqCuGfK4PyHPdp?=
+ =?us-ascii?Q?SoD54rYPviO/nvhFkgqaDPGABJMV/DloM2IUeBpEWlk4NbhmvoY/sk2ai9/d?=
+ =?us-ascii?Q?THIIkLSeGSo4Hhkwswt10lwRtZ7HraYJpT/w/p7pCBZGRvDPmyz9ukgolr1p?=
+ =?us-ascii?Q?++Hqrodw8RPDKl9d5y1HVNFDJHnT4domSp9S7YN/XLE7lfBBU7pS6OMbqCEa?=
+ =?us-ascii?Q?/Jp6GLcpVOPL2vqKjtlhkgiyTFcNjsUGnJXuyH7MnBkpXGyPgF7viDWW1IzO?=
+ =?us-ascii?Q?YtEvl06WtN+vI9Og3AlP+6E4cimivAJvsqIJh4iFzNbhuWgZCslbJB2qWwJ/?=
+ =?us-ascii?Q?NkVs1nRI0GpPlSISWPosIGLeqyu0eYXG01AyErTCCVH9uQ3ObCMhcVGGPmeD?=
+ =?us-ascii?Q?3feU24BXXQ98QRw2pCRtHl3GlIByVQf4u8CGx1LUVUxcZ0IEY4xxWpfotYiy?=
+ =?us-ascii?Q?kmRG24B9tmJRUulGNN8MCfQnEjdMIhqXaXBYLXQZBQlFwE0TpEOagy6tJP6t?=
+ =?us-ascii?Q?0orFccXod8/waKbHjdmjLSIxDu2ydUadzzHoGmpTkH4p/xz0NUfN1xczcbWt?=
+ =?us-ascii?Q?nFU20h1I5c8WACmb1U0v/AcbDjN15VoFqYW9FB50OoRynY9FCAYo2Tg0tnRf?=
+ =?us-ascii?Q?RRY8ZkkQkXTyvV0cSha02uit9X8LQKlPVCU8fpIUe8mppRBIJ3J0Nfv1+LZz?=
+ =?us-ascii?Q?G7xAwczZUVC/4xdifFdtrxOuEkBvf8EP8ZhOxM52aIc7B8Rd3VQjuxE9mS+C?=
+ =?us-ascii?Q?RqJll5uJKKrcduvxwNPzxxxrFS7JmUxBm3z88HNgqgoLSN0J39U/4eEemdP3?=
+ =?us-ascii?Q?tU81lSHiB0eFr+cPPJ4JZfwqEBGh7fAMZ/8rCOu9WbrTpI5R0v88Gt6yNoEh?=
+ =?us-ascii?Q?YIpfOUobVOf3jmyCNrMWt6LVXRf6DKLtw0SgHlp47xBeyYXxRJntiAnntB3M?=
+ =?us-ascii?Q?nmu4CTFBDeCO3ObiRJ2jfnloTK0JfKrY4w8WMr6A0c5d6Jbpd4LU8YiSlzZh?=
+ =?us-ascii?Q?oOEpiyPv7lO3NnyBXjyQfz59QIpdd7rE0RTentOrI9Pchgv3/6EegVXiBiYN?=
+ =?us-ascii?Q?2uLyKNmrASjko0mSIu2Sr35w13BL/+be6bvh5Xyo0hjQexTbobisNIeeZsve?=
+ =?us-ascii?Q?0E5lABYeyNP0Q0RUjCsq92acZ5j5VEpGV4o4s2kc3e06lH2I1PP2yDQHfFUR?=
+ =?us-ascii?Q?COnOeFURsQ3NPZVwTpaytYEHGeiitAWGDfQ3xQbC5lqaWq2LvBO8nElSoz4l?=
+ =?us-ascii?Q?NFyYRXIKLR8lF/xvoE6LQfwaM/C9m298U+OsQz36eNbR3yBCmCCTyXCa7TdF?=
+ =?us-ascii?Q?UvRGS9YDA9UlIT2ZoIQkjeftxcJG5Kh2F6W5wJa4SRSmnkDTRXZt0w4DZEIO?=
+ =?us-ascii?Q?uSrknBDt0QM5XnH7YIVSEBmU/Y7HPZM59UgeroucAGI1NlRYMOTJirDDr+Qs?=
+ =?us-ascii?Q?lEzK848tpTj7f3ARUa7prl6OMgIMWKO1UqENzWfgQQyihZVFhcpo5iewMsub?=
+ =?us-ascii?Q?Woiu57Vg0y/+ovfqruTZj9vnRfRY+qgYqCSUpsQV?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6e20d557-7d29-48ef-2d1f-08dd4468e4f2
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Feb 2025 15:39:06.6440
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /CWUI/1PVe0fOHdDSA2ZAlvyQWlpesvFJIJJeWcUgZEroQDS/tCsjy5eRL9mVy7J9Xg+QETYmmfHOlL6Mf3fcw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB8030
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_073711_986275_7200B9EA 
-X-CRM114-Status: GOOD (  17.25  )
+X-CRM114-CacheID: sfid-20250203_073914_281793_8F479504 
+X-CRM114-Status: GOOD (  15.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,130 +166,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Feb 03, 2025 at 10:09:19AM +0200, Larisa Grigore wrote:
+> Add the two eDMA nodes in the device tree in order to enable the probing
+> of the S32G2/S32G3 eDMA driver.
+>
+> Signed-off-by: Larisa Grigore <larisa.grigore@oss.nxp.com>
+> ---
+>
+> v2: Moved #dma-cells before dma-channels and clock-names after clocks.
 
-On Mon, 03 Feb 2025 08:44:10 -0600, Ninad Palsule wrote:
-> Hello,
-> 
-> Please review the patch set version 7.
-> 
-> V7:
-> ---
->   - Updated pattern in the ast2400-gpio.yaml
->   - Dropped "dt-bindings: net: faraday,ftgmac100" patch sending it
->     separately.
-> 
-> V6:
-> ---
->   - Fixed dt_binding_check errors for ipmb-dev.yaml
->   - Changed the hog parsing pattern in ast2400-gpio
-> 
-> V5:
-> ---
->   - Improved IPBM device documentation.
->   - Added the hog parsing in ast2400-gpio
-> 
-> V4:
-> ---
->   - Removed "Add RGMII support" patch as it needs some work from the
->     driver side.
->   - Improved IPBM device documentation.
->   - There is a new warning in CHECK_DTBS which are false positive so
->     ignored them.
->     arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dtb: gpio@1e780000: 'hog-0', 'hog-1', 'hog-2', 'hog-3' do not match any of the regexes: 'pinctrl-[0-9]+'
-> 
-> V3:
-> ---
->   - Fixed dt_binding_check warnings in ipmb-dev.yaml
->   - Updated title and description in ipmb-dev.yaml file.
->   - Updated i2c-protocol description in ipmb-dev.yaml file.
-> 
-> V2:
-> ---
->   Fixed CHECK_DTBS errors by
->     - Using generic node names
->     - Documenting phy-mode rgmii-rxid in ftgmac100.yaml
->     - Adding binding documentation for IPMB device interface
-> 
-> NINAD PALSULE (6):
->   ARM: dts: aspeed: system1: Add IPMB device
->   ARM: dts: aspeed: system1: Add GPIO line name
->   ARM: dts: aspeed: system1: Reduce sgpio speed
->   ARM: dts: aspeed: system1: Update LED gpio name
->   ARM: dts: aspeed: system1: Remove VRs max8952
->   ARM: dts: aspeed: system1: Mark GPIO line high/low
-> 
-> Ninad Palsule (3):
->   bindings: ipmi: Add binding for IPMB device intf
->   dt-bindings: gpio: ast2400-gpio: Add hogs parsing
->   ARM: dts: aspeed: system1: Disable gpio pull down
-> 
->  .../bindings/gpio/aspeed,ast2400-gpio.yaml    |   6 +
->  .../devicetree/bindings/ipmi/ipmb-dev.yaml    |  56 +++++++
->  .../dts/aspeed/aspeed-bmc-ibm-system1.dts     | 139 +++++++++++-------
->  3 files changed, 147 insertions(+), 54 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/ipmi/ipmb-dev.yaml
-> 
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
+>
+>  arch/arm64/boot/dts/freescale/s32g2.dtsi | 34 ++++++++++++++++++++++++
+>  arch/arm64/boot/dts/freescale/s32g3.dtsi | 34 ++++++++++++++++++++++++
+>  2 files changed, 68 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/s32g2.dtsi b/arch/arm64/boot/dts/freescale/s32g2.dtsi
+> index 7be430b78c83..64eac1dde05b 100644
+> --- a/arch/arm64/boot/dts/freescale/s32g2.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/s32g2.dtsi
+> @@ -317,6 +317,23 @@ usdhc0-200mhz-grp4 {
+>  			};
+>  		};
+>
+> +		edma0: dma-controller@40144000 {
+> +			compatible = "nxp,s32g2-edma";
+> +			reg = <0x40144000 0x24000>,
+> +			      <0x4012c000 0x3000>,
+> +			      <0x40130000 0x3000>;
+> +			#dma-cells = <2>;
+> +			dma-channels = <32>;
+> +			interrupts = <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 9 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 10 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-names = "tx-0-15",
+> +					  "tx-16-31",
+> +					  "err";
+> +			clocks = <&clks 63>, <&clks 64>;
+> +			clock-names = "dmamux0", "dmamux1";
+> +		};
+> +
+>  		uart0: serial@401c8000 {
+>  			compatible = "nxp,s32g2-linflexuart",
+>  				     "fsl,s32v234-linflexuart";
+> @@ -333,6 +350,23 @@ uart1: serial@401cc000 {
+>  			status = "disabled";
+>  		};
+>
+> +		edma1: dma-controller@40244000 {
+> +			compatible = "nxp,s32g2-edma";
+> +			reg = <0x40244000 0x24000>,
+> +			      <0x4022c000 0x3000>,
+> +			      <0x40230000 0x3000>;
+> +			#dma-cells = <2>;
+> +			dma-channels = <32>;
+> +			interrupts = <GIC_SPI 11 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 12 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 13 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-names = "tx-0-15",
+> +					  "tx-16-31",
+> +					  "err";
+> +			clocks = <&clks 63>, <&clks 64>;
+> +			clock-names = "dmamux0", "dmamux1";
+> +		};
+> +
+>  		uart2: serial@402bc000 {
+>  			compatible = "nxp,s32g2-linflexuart",
+>  				     "fsl,s32v234-linflexuart";
+> diff --git a/arch/arm64/boot/dts/freescale/s32g3.dtsi b/arch/arm64/boot/dts/freescale/s32g3.dtsi
+> index 6c572ffe37ca..4f6201d6c08a 100644
+> --- a/arch/arm64/boot/dts/freescale/s32g3.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/s32g3.dtsi
+> @@ -374,6 +374,23 @@ usdhc0-200mhz-grp4 {
+>  			};
+>  		};
+>
+> +		edma0: dma-controller@40144000 {
+> +			compatible = "nxp,s32g3-edma", "nxp,s32g2-edma";
+> +			reg = <0x40144000 0x24000>,
+> +			      <0x4012c000 0x3000>,
+> +			      <0x40130000 0x3000>;
+> +			#dma-cells = <2>;
+> +			dma-channels = <32>;
+> +			interrupts = <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 9 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 10 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-names = "tx-0-15",
+> +					  "tx-16-31",
+> +					  "err";
+> +			clocks = <&clks 63>, <&clks 64>;
+> +			clock-names = "dmamux0", "dmamux1";
+> +		};
+> +
+>  		uart0: serial@401c8000 {
+>  			compatible = "nxp,s32g3-linflexuart",
+>  				     "fsl,s32v234-linflexuart";
+> @@ -390,6 +407,23 @@ uart1: serial@401cc000 {
+>  			status = "disabled";
+>  		};
+>
+> +		edma1: dma-controller@40244000 {
+> +			compatible = "nxp,s32g3-edma", "nxp,s32g2-edma";
+> +			reg = <0x40244000 0x24000>,
+> +			      <0x4022c000 0x3000>,
+> +			      <0x40230000 0x3000>;
+> +			#dma-cells = <2>;
+> +			dma-channels = <32>;
+> +			interrupts = <GIC_SPI 11 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 12 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 13 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-names = "tx-0-15",
+> +					  "tx-16-31",
+> +					  "err";
+> +			clocks = <&clks 63>, <&clks 64>;
+> +			clock-names = "dmamux0", "dmamux1";
+> +		};
+> +
+>  		uart2: serial@402bc000 {
+>  			compatible = "nxp,s32g3-linflexuart",
+>  				     "fsl,s32v234-linflexuart";
 > --
-> 2.43.0
-> 
-> 
-> 
-
-
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/aspeed/' for 20250203144422.269948-1-ninad@linux.ibm.com:
-
-arch/arm/boot/dts/aspeed/aspeed-bmc-opp-palmetto.dtb: gpio@1e780000: 'pin_func_mode0', 'pin_func_mode1', 'pin_func_mode2', 'pin_gpio_a0', 'pin_gpio_a1', 'pin_gpio_b1', 'pin_gpio_b2', 'pin_gpio_b7', 'pin_gpio_d1', 'pin_gpio_f1', 'pin_gpio_f4', 'pin_gpio_f5', 'pin_gpio_f7', 'pin_gpio_g3', 'pin_gpio_g4', 'pin_gpio_g5', 'pin_gpio_h0', 'pin_gpio_h1', 'pin_gpio_h2', 'pin_gpio_h7' do not match any of the regexes: '-hog(-[0-9]+)?$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-opp-romulus.dtb: gpio@1e780000: 'nic_func_mode0', 'nic_func_mode1', 'seq_cont' do not match any of the regexes: '-hog(-[0-9]+)?$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-delta-ahe50dc.dtb: gpio@1e780000: 'doom-guardrail' does not match any of the regexes: '-hog(-[0-9]+)?$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-opp-lanyang.dtb: gpio@1e780000: 'pin_gpio_aa6', 'pin_gpio_aa7', 'pin_gpio_ab0', 'pin_gpio_b0', 'pin_gpio_b5', 'pin_gpio_h5', 'pin_gpio_z2' do not match any of the regexes: '-hog(-[0-9]+)?$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-bytedance-g220a.dtb: gpio@1e780000: 'pin_gpio_b6', 'pin_gpio_i3' do not match any of the regexes: '-hog(-[0-9]+)?$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-everest.dtb: gpio@1e780000: 'usb_power' does not match any of the regexes: '-hog(-[0-9]+)?$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-bytedance-g220a.dtb: /ahb/apb/bus@1e78a000/interrupt-controller@0: failed to match any schema with compatible: ['aspeed,ast2500-i2c-ic']
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-e3c246d4i.dtb: gpio@1e780000: 'bmc-ready' does not match any of the regexes: '-hog(-[0-9]+)?$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-ampere-mtjade.dtb: gpio@1e780000: 'bmc-ready' does not match any of the regexes: '-hog(-[0-9]+)?$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier.dtb: gpio@1e780000: 'i2c3_mux_oe_n', 'usb_power' do not match any of the regexes: '-hog(-[0-9]+)?$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier-1s4u.dtb: gpio@1e780000: 'i2c3_mux_oe_n', 'usb_power' do not match any of the regexes: '-hog(-[0-9]+)?$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier-4u.dtb: gpio@1e780000: 'i2c3_mux_oe_n', 'usb_power' do not match any of the regexes: '-hog(-[0-9]+)?$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-bonnell.dtb: gpio@1e780000: 'usb_power' does not match any of the regexes: '-hog(-[0-9]+)?$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-opp-nicole.dtb: gpio@1e780000: 'func_mode0', 'func_mode1', 'func_mode2', 'ncsi_cfg', 'seq_cont' do not match any of the regexes: '-hog(-[0-9]+)?$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-lenovo-hr855xg2.dtb: gpio@1e780000: 'pin_gpio_a1', 'pin_gpio_a3', 'pin_gpio_aa0', 'pin_gpio_aa4', 'pin_gpio_ab3', 'pin_gpio_ac6', 'pin_gpio_b5', 'pin_gpio_b7', 'pin_gpio_e0', 'pin_gpio_e2', 'pin_gpio_e5', 'pin_gpio_e6', 'pin_gpio_f0', 'pin_gpio_f1', 'pin_gpio_f2', 'pin_gpio_f3', 'pin_gpio_f4', 'pin_gpio_f6', 'pin_gpio_g7', 'pin_gpio_h6', 'pin_gpio_i3', 'pin_gpio_j1', 'pin_gpio_j2', 'pin_gpio_j3', 'pin_gpio_l0', 'pin_gpio_l1', 'pin_gpio_l4', 'pin_gpio_l5', 'pin_gpio_r6', 'pin_gpio_r7', 'pin_gpio_s1', 'pin_gpio_s2', 'pin_gpio_s6', 'pin_gpio_z3' do not match any of the regexes: '-hog(-[0-9]+)?$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-lenovo-hr630.dtb: gpio@1e780000: 'pin_gpio_aa0', 'pin_gpio_aa5', 'pin_gpio_b5', 'pin_gpio_f0', 'pin_gpio_f3', 'pin_gpio_f4', 'pin_gpio_f5', 'pin_gpio_g4', 'pin_gpio_g7', 'pin_gpio_h2', 'pin_gpio_h3', 'pin_gpio_i3', 'pin_gpio_j2', 'pin_gpio_j3', 'pin_gpio_s2', 'pin_gpio_s4', 'pin_gpio_s6', 'pin_gpio_y0', 'pin_gpio_y1', 'pin_gpio_z0', 'pin_gpio_z2', 'pin_gpio_z3', 'pin_gpio_z7' do not match any of the regexes: '-hog(-[0-9]+)?$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-opp-zaius.dtb: gpio@1e780000: 'line_bmc_i2c2_sw_rst_n', 'line_bmc_i2c5_sw_rst_n', 'line_iso_u146_en', 'ncsi_mux_en_n' do not match any of the regexes: '-hog(-[0-9]+)?$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-arm-stardragon4800-rep2.dtb: gpio@1e780000: 'pin_gpio_c7', 'pin_gpio_d1' do not match any of the regexes: '-hog(-[0-9]+)?$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-
-
-
-
-
+> 2.47.0
+>
 
