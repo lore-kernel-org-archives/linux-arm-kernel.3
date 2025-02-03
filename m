@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7DF3C02195
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 15:59:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9608C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 16:01:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TmvWhycgBtCg2GU4fJSykeO08BVVcSJjqpSUgbDGaLU=; b=f+EKlfjaJZufIzOgHUJR5+ZhWT
-	El1kzhBqtng1WoNwot05T/vCGSEh62JOX4o0PidQru/rcZK2KnkYt4srvhb8nGRwAu7zS7TZC30LO
-	cDaUbl8xzvTbw5+MgYEWU8iPq6NzGuRDbZamWEltOML8C3MG5462snzsiZGgz/KJYj/Mh77V0WU5+
-	nyGvoyHMtw2+lPpVX8ENF9ucUW8XB2Ei/O5cXzMzbhN0l/ZqBJHnb9YJXHl4wagR+0JUu6JbwNgQ4
-	rzffTfHXQXuWVaaSNg8F07SkzGle/evaG3s4Wr4mS3U+VWp3gcLymdP/r55PgdscZOxp7lac76gpY
-	bbK9lr0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=5v0FL+WcvutgX4NMNDv3ATrpdrLjutSE8QPgIyFSyEg=; b=i64T81hUljRwD/H1Bjwnnqdv6H
+	Xj7PmyWTRH0KKqA2/Sm8/rX+ieQeOj3zOY674U8Guc/RYxm1y5O1MQsWTx5geCTjXYscAskckTijL
+	EM/ExWx5w4lY46QY0PyyK4Sgzwv/0DuuSlJUqt1AzZdtEpM398dufajwFNIvH9qKLM7Ugnq3IjSxd
+	s0vpU7cev8GvqPXrs0RnYzI1cVy+IDbhe0qYeNScaw7No5oSPzZnhMUyv1AsmOWICygE3UdQhCj5u
+	ukEpeqKiXu9UUxzCao52rGXR7cLM631uX9ji4nXc1OucbTPYv7WMlgGRk/FLmFXXtxr+X56BuCbyc
+	A8Iea5RA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teyqp-0000000FvxQ-0sef;
-	Mon, 03 Feb 2025 15:59:07 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1teysc-0000000FwJB-3z6R;
+	Mon, 03 Feb 2025 16:00:58 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1teypU-0000000Fvqc-0GG1
+	id 1teyrI-0000000Fw1Q-0ytb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 15:57:45 +0000
+	Mon, 03 Feb 2025 15:59:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0FBDEA415DB;
-	Mon,  3 Feb 2025 15:55:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FB52C4CED2;
-	Mon,  3 Feb 2025 15:57:41 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6E56A5C651B;
+	Mon,  3 Feb 2025 15:58:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C28D4C4CEE2;
+	Mon,  3 Feb 2025 15:59:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738598263;
-	bh=5fDGmhub7kgFaJWNzLMa64HxzMW4rz3YnPY6BA2o8bQ=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=J4nNDT13iycal9wwQ8iR0xlMm3uIg4mgGyb93cOd/oz3CjidGfKUiHyJBrAFMYVXA
-	 7zihPZisRRVdWoi+dSgWbi/NlIN4fKvp0mE+XFn1qIzAr1AmbO1BAZK0hj5sD19TE3
-	 T8CaDMiunBCrqeEMgG+sI05lO2KNWZjT1CntiiINZB8tR2LrODMgSUv59PGsqZdHp3
-	 duRbkLRHwl0BQ5GMpVEAwmFK4ci2kTlSYo3ZvY1EXIRCTR02/TZl0i39ICX4w3E4gy
-	 AXquFzG6Oh0Gl/ekMHYNJKawXYBYQd2OfOO/qRRLC7Q4iFL3BGYvNxLso1YK1f0EXU
-	 TblOtIlmA398g==
-From: Mark Brown <broonie@kernel.org>
-To: Michal Simek <michal.simek@amd.com>, linux-spi@vger.kernel.org, 
- Sean Anderson <sean.anderson@linux.dev>
-Cc: Miquel Raynal <miquel.raynal@bootlin.com>, 
- Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20250116224130.2684544-1-sean.anderson@linux.dev>
-References: <20250116224130.2684544-1-sean.anderson@linux.dev>
-Subject: Re: [PATCH 0/5] spi: zynqmp-gqspi: Clean up the driver a bit
-Message-Id: <173859826117.375082.6233589403904038828.b4-ty@kernel.org>
-Date: Mon, 03 Feb 2025 15:57:41 +0000
+	s=k20201202; t=1738598375;
+	bh=pB/avWjDA66o8qKuT2L9+9mKgLG7V6fnqRlYSS+zEjA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=tjfWlBNE0ro2NFADlOh5t7iM+e5SYlVBcjAvJI1pvU3sAOYkBkuaLtsgzyY890KLD
+	 W+/AHwBP880dWVzZhETmMYAuqqaaMUUabAL0zq7aSNZEKqR3l+8MyZV5SIjEv6C/Jc
+	 fPx71AYeqD/Rw1A2U2eqWXkpBBbfLFCnpkvZOLH1BdJFC3wxGqLaN4lvbS+UQ4oml+
+	 GxxemtxZ1Hf/WLwm/yrg1ESx5brqCoM+ma7EJk0/DxPP1tWMIkof3gujXlLpI26i11
+	 12YJ/ZSPwL/2eQYq24WhG+khBlM9XYYqv5aLSjnOh8dFaRck8tGo66yZQNO9aHia2H
+	 Ihmkm0uGc+d3w==
+Date: Mon, 3 Feb 2025 09:59:33 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Inki Dae <daeinki@gmail.com>
+Cc: Seung-Woo Kim <sw0312.kim@samsung.com>,
+	Kyungmin Park <kyungmin.park@samsung.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: wait_event_timeout() usage in decon_wait_for_vblank()
+Message-ID: <20250203155933.GA786168@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-1b0d6
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAAQKjZNqFt=SYxCzpQ5JwOADRUwsWsq5KzLRoPG++27SXGubnQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_075744_175576_8079F21E 
-X-CRM114-Status: GOOD (  11.57  )
+X-CRM114-CacheID: sfid-20250203_075936_319735_BC75F5B5 
+X-CRM114-Status: GOOD (  22.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,54 +76,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 16 Jan 2025 17:41:25 -0500, Sean Anderson wrote:
-> Here are a few mostly independent cleanups I came up with while writing
-> some other patches. Feel free to apply them in piecemeal if you like.
+On Sun, Feb 02, 2025 at 01:02:47PM +0900, Inki Dae wrote:
+> 2025년 2월 1일 (토) 오전 1:56, Bjorn Helgaas <helgaas@kernel.org>님이 작성:
+> >
+> > I don't know this code at all, so this is likely just noise, but the
+> > wait_event_timeout() usage in decon_wait_for_vblank() looks funny to
+> > me.
+> >
+> > decon_wait_for_vblank() waits on wait_vsync_queue for wait_vsync_event
+> > to be cleared.
+> >
+> > But decon_irq_handler() only clears wait_vsync_event and wakes up
+> > wait_vsync_queue when !ctx->i80_if.
+> >
+> > I don't see any i80_if connection in decon_wait_for_vblank().  Does
+> > the wait always time out if i80_if is set?  Is there some reason we
+> > don't use decon_wait_for_vblank() at all if i80_if is set?
 > 
+> For the decon series, the implementation for the i80 interface has not
+> yet been completed. If you would like to see how the i80 interface is
+> handled in Exynos, please refer to the code for the legacy display
+> controller module, exynos_drm_fimd.c, available at the following link:
+> https://git.kernel.org/pub/scm/linux/kernel/git/daeinki/drm-exynos.git/tree/drivers/gpu/drm/exynos/exynos_drm_fimd.c?h=exynos-drm-fixes#n1053
 > 
-> Sean Anderson (5):
->   spi: zynqmp-gqspi: Reformat long line
->   spi: zynqmp-gqspi: Add some more debug prints
->   spi: zynqmp-gqspi: Add helpers for enabling/disabling DMA
->   spi: zynqmp-gqspi: Clean up fillgenfifo
->   spi: zynqmp-gqspi: Always acknowledge interrupts
-> 
-> [...]
+> Furthermore, please note that within the decon driver, prior to
+> creating the CRTC, it is necessary to implement the TE handler for the
+> i80 interface in the te_handler of exynos_drm_crtc_ops and register it
+> as a callback.
 
-Applied to
+I'll take your word for it that this all works as intended.  For many
+wait_event_timeout() callers, the connection between kicking off some
+operation, waiting for completion, and doing the wakeup is a little
+bit obscure and hard to analyze without deep knowledge of the driver.
+This was just one instance of those.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
-
-Thanks!
-
-[1/5] spi: zynqmp-gqspi: Reformat long line
-      commit: d61009bd578ee7381a3cce5c506190ecb8f9d6e8
-[2/5] spi: zynqmp-gqspi: Add some more debug prints
-      commit: ba54629287f58b22c1d37f80f1875373e4b51ea6
-[3/5] spi: zynqmp-gqspi: Add helpers for enabling/disabling DMA
-      commit: d2ead60d853189f8e5ec6b301fac1e60e0b4b47d
-[4/5] spi: zynqmp-gqspi: Clean up fillgenfifo
-      commit: 9b32c86e40da792544c53076f5ec43f115e56687
-[5/5] spi: zynqmp-gqspi: Always acknowledge interrupts
-      commit: 89785306453ce6d949e783f6936821a0b7649ee2
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+Bjorn
 
