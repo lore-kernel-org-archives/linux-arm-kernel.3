@@ -4,104 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE7DDC02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 11:05:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 743EEC02193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 11:06:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TpTYY6NVHOTQPLmGd20ggvva9b+UkoAqQ2BAc0zy2SM=; b=06adWx7gj4I8fDBT9ADeGbJamC
-	RyQ9t9831dSQ06zR4pEmrdyvI7BVibmyidhRUfAxVdhDJ6n12q8Rg2ga+5sajWPdCUvKZYXybDXhQ
-	/Dyf8UQlKBxUFIjCp/2w0VHKDteczrseqNcPMdFfLkfmLWr1+03jo3xmFrtKozms6Di2XJu5BHAjN
-	aZ4ae3BdjoYTFQj8NEOL1TAJglXyHCjiGmPbhnyaxxA8ooSjXVXFvEi2qtUvticm8t7J19KhNN6BQ
-	mYRdvn7zWIL3nEIP1lqUw7GP6wt+E3XShh9FW1lnKmEdeh87KGZZKV4I29Ftkd2aTTIj5nHvPPlmq
-	dsX2QUkQ==;
+	bh=T5wzLBJUEmaueHPGAWBI0Wr2N1tn0LQYWkY5tyBdPNM=; b=JwkKc1puimLyNRguDcZirILNZS
+	y9PTu/Z5r+Dw+JdUq05dmdR6+TpJwiKcexq6fB/cjQGPCJnIr4PT/VsOMnwoKF6rG6b4EuJqK7pPn
+	GiZI5UoZCCvemaRD0RKNsfn8k8sbbPkg97e+PpxfEPcXdx9iY4IAsDwcB1nZt4xy43+1kT59Xcyer
+	kB+G/4PQVfctjknOTVg7nV1aAzoreybYuLb9/IMielzg36wBgt2siqp0xtY/f9FRCwA2n4KEEcBqz
+	665ogp4+K+IDYccuY8xJTn6+k02R71AHDTp0wb2CKv7Vuj4OM9pZdA31wDrV8zEO03d5ikvlOAr6r
+	MaQmY/3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teuGa-0000000FCGe-1leR;
-	Mon, 03 Feb 2025 11:05:24 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1teuHt-0000000FCRF-0HgU;
+	Mon, 03 Feb 2025 11:06:45 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1teu3W-0000000FA5e-2k4u
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 03 Feb 2025 10:51:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=TpTYY6NVHOTQPLmGd20ggvva9b+UkoAqQ2BAc0zy2SM=; b=KTUrHVMXjRI3rvj73iA9x5Mk7k
-	lNmc0uVsVeMP6+UfBfS7wXlJrLFAD39XYbO1e6dmVqaAgDiC9bEACZJnJY+VO7Z9uwjKWixYRZE4I
-	SbJpE2W4NB2PHy3CWvzzza2SZdsknye0mrK98IE5iyyHk/dVM5+72o4+9um09h54199a8gxmOHJNy
-	FhSdElJkB9+tnNehLBsg4lrnFx+IieqEtDgulKOcxAIB0Olp266UOsvDJrw+TnhRUSusoCqIo3lfT
-	5dIMcuXQpuAVPUsN1y68ucv8Z6GyaMtV7e9elROYVROOANVEn3o+XAWrEj8ufmveJa/PYqukUtZPH
-	zxrrY+sQ==;
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1teu3T-0000000G4P2-31aA
+	id 1teu97-0000000FArX-3Inj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 10:51:53 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2166022c5caso62978965ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 02:51:50 -0800 (PST)
+	Mon, 03 Feb 2025 10:57:42 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2164b1f05caso68010385ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 02:57:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738579909; x=1739184709; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=TpTYY6NVHOTQPLmGd20ggvva9b+UkoAqQ2BAc0zy2SM=;
-        b=HfzfG1yIHzEsSFzRKm9QmfWHtyMfmTxyHQMkRmd67ptXk9SgPaTDsLoc0BAv51mswg
-         uwi74gb5vw6ofZrXfGl6esJC3V/A5BzCGHF/miXrrv++8ZIkP06A7j8VvEAuuLVBJ0ky
-         0LoyR96cc1H4sWNgYI2iMZm/fwmVVNDqJwAqjstVxLauRxpkgIPrACbOleQW4bcztC4P
-         DeCGerzkkwTWDSaXxEJatnh1kQZeoF5sZPa7uzbGQ8+xl5VjW88tbKGWP3Sn9iElusEq
-         8XxdoyYDgQe2mb8S7+/CUEFY4xHRFuMN6V3zchdfKONLXrrn+LfEOdBsZIjfC688u5EY
-         CZCg==
+        d=linaro.org; s=google; t=1738580260; x=1739185060; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=T5wzLBJUEmaueHPGAWBI0Wr2N1tn0LQYWkY5tyBdPNM=;
+        b=EcgKdbBF0H4QF2jIi8KX2KQpVEAL1VtQfj6GXQnppZPKL4uDq7cMjnWYCLKPC3uLle
+         +z8LkLQKCGYQb5TUq8Nf9/BBeOGcmXdXRqCIFfCVvzO87H7Zx6SR72BiLE3ump/VsspP
+         GFhjRrxy+VHH/4/n1hfanf3DMZ978NGK+TUK5NUhpyVvN3VUQQU27L8t1SgG2ZeUYZ7y
+         rqXQPvAMwNJScrSxywvyQvw1/uicfwQtrGDN/OIfBlzNqeiSzW1cs6gVsVZlkjXlCVxb
+         FLWVMqA02OjGaXu+HXLfZocphsgFPDDToLsTdFVUv3jQAtLR1MWCuu5CnaWtFJcmYq4a
+         sBhg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738579909; x=1739184709;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TpTYY6NVHOTQPLmGd20ggvva9b+UkoAqQ2BAc0zy2SM=;
-        b=n6h9L/q3FZhZ8oHaIQFxzhK7+ve7WFop1MhlxkVwEPUWYwePIFyW5kG9UpGgtyNX02
-         02u3WPT7Mn/EclNQ3anAnKqPnGYNwWBLET8HEus7040g1TaOCO3Iv3iFJjiOvsyCnYx8
-         sQN8hCXvJ53H/aPx2avm4KprDT+xhF411fb/TMwsow8jqE1Vx/sRwYBAfcO64aoYatkt
-         qJk0tJtYR/I7+KUA3jE6h5qduQS+2Ic9AsYefynBrhbkBFs4xtu/XU9Y4toRjOlr/phC
-         +VqkoYVl4TVJSwyYg/+YLJaFL7R6IIr59YdE7jSWrqkCCk4nosvIZEDKXY7ArQhSxExR
-         1pRg==
-X-Forwarded-Encrypted: i=1; AJvYcCX8Ad/tOi2SH61yAqP8A6ass/AI3fG/ZHf6momLM1uqeJwM80YN1wGt/RYbHGdt+XecRRcD4+C319OdtjtjF+EG@lists.infradead.org
-X-Gm-Message-State: AOJu0YwXS3C8FMDQUXylzHADWnE4IQSPlhtk9yUvAsPz4oK6yGZGperz
-	kn8a9+STU0siDlw84iwQDSJp5t7ygof8GJxMVaF7mExeHYIXIQGWumdEWWWW18hyu3KORp37Xys
-	m
-X-Gm-Gg: ASbGnctjuMzHaqlHahG6Rfmbqr3vqBaqzPubhr0ry13I81h66gIH6wVYPXVTJB21lSo
-	GNfa5XGem1TdAOdj9atWDGYom9rm3Q93L2XMYQHSHWcloZtIUcpm8m+FyPpjoc7Gx5DPsOK/Ly5
-	vimoxWBSlbMmHDI4fMqWTmPT7rVA+ao0maiaHVj8J+qJV4tdCkq4GJxaoOlTIlr2qeVFA6NLgZ0
-	X6FfiL3dlMTmKUeBlY2Adr9A+oMZm6VQpCZkj4EiGDjjX8/1MuSjVllKcI2X5r29h6th56+CTbz
-	sjdJErhSf4aty6OQrA==
-X-Google-Smtp-Source: AGHT+IGxMLDlIMSaw3Z8cWeu4NnMK2JLensF+qmNnQk7oU5j+h5mOuW/KaB0EYuSyfJh18W/YDA4sw==
-X-Received: by 2002:a05:6a20:9188:b0:1e8:b17a:a556 with SMTP id adf61e73a8af0-1ed7a5f9136mr35623177637.15.1738579908746;
-        Mon, 03 Feb 2025 02:51:48 -0800 (PST)
+        d=1e100.net; s=20230601; t=1738580260; x=1739185060;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=T5wzLBJUEmaueHPGAWBI0Wr2N1tn0LQYWkY5tyBdPNM=;
+        b=TzhMlYLGWspl1Jk6drc0Iq7d3bhQHVc1owj5vyGXYnZXlIv1W96rvay1DaZxMAP7bz
+         KjgteWkX8/03x5bnkuaYNgAxgy5k6D8YC61Av3S4NGwXoy9JJeSvoQGJfAHyy1A59BxE
+         kntMeAV8guIy2TN6SPHCaUE0X4egxyktA5OF4VlqO9utn+v9E4ty66Iyh9wq0yN6kuE9
+         mij4dn5yN6KxJa7PWRZSAqXA2Jf1V75T4SMs7fbIJ9lJ/aKAFt2RUSEcZ2nMunsPrf4I
+         OQMv5wA+kl5ML6wm0zvnE3b+MMYQeKAqccprQjUMSB/ALt4spIKNKJlBuobjTfxQrgiQ
+         hv+A==
+X-Forwarded-Encrypted: i=1; AJvYcCUoI4wb1FNXOgEN17cgM0MsZJcvx0CcJbPLmN3nge+PJHcaxoMw7uLrq/mEjUrmoDs+8lXfOnYB7ZET6imHdVy/@lists.infradead.org
+X-Gm-Message-State: AOJu0YztNjTinaF+63abzIMzDHwy+dYs0da2Zaso1XyYPKeUyFY3xIh+
+	WCgzbtLyz02FYU81x4yFocvF6NDCzUIx/EpMsGOHflgPqKXbaIdvKzNPWoj5bQE=
+X-Gm-Gg: ASbGnctr5c8LBtSbmthpJv/AFP5Ql52Vw8veu+hM5jAgqGXbGoAaAXHM99Oo7PTy3GK
+	EwP7Ag4LoPEP9su/t/pEUtBtO8THk8yFEvojiMckAjxX8fSuisF9xUiQy78TK5O7nWIYA/OK6ol
+	WqVEqD7Ho03Hjgtr2TSdkFYOhLXMO/87g8mdEHRH1damvACEWsk3Agu2yZ7jcb3DvDd1eJVI9Nc
+	KZ49Kuj1W31UYsW2fV4PiAFmsBpjHD5TLZvJP1njTsvng82vKN+B+Sda431B4rEvBsMCT17a2Xk
+	9xQaT4PnDm1FC4H8CA==
+X-Google-Smtp-Source: AGHT+IGmjWIWKYEvHYasG0wmYEL/dNtj1S2N14U+kYyH1kl5FnrXzEkQXJKqSrqibFN1LCe+FoWnVg==
+X-Received: by 2002:a05:6a00:2908:b0:726:64a5:5f67 with SMTP id d2e1a72fcca58-72fd0c03db4mr30024540b3a.12.1738580260474;
+        Mon, 03 Feb 2025 02:57:40 -0800 (PST)
 Received: from localhost ([122.172.84.139])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72fe6a1a766sm8026943b3a.161.2025.02.03.02.51.47
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72fe69ba3c1sm8370690b3a.108.2025.02.03.02.57.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Feb 2025 02:51:48 -0800 (PST)
-Date: Mon, 3 Feb 2025 16:21:46 +0530
+        Mon, 03 Feb 2025 02:57:39 -0800 (PST)
+Date: Mon, 3 Feb 2025 16:27:37 +0530
 From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: zuoqian <zuoqian113@gmail.com>, sudeep.holla@arm.com,
-	cristian.marussi@arm.com, rafael@kernel.org,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
-Subject: Re: [PATCH v2] cpufreq: scpi: compare kHz instead of Hz
-Message-ID: <20250203105146.6yuzypgb65bu4xrq@vireshk-i7>
-References: <20250123075321.4442-1-zuoqian113@gmail.com>
- <20250125084950.1680-1-zuoqian113@gmail.com>
- <967a5b3e-197a-4b90-9fe3-9b10782d677c@stanley.mountain>
+To: Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>
+Cc: bschnei@gmail.com, "Rafael J . Wysocki" <rafael@kernel.org>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Benjamin Schneider <ben@bens.haus>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Gregory CLEMENT <gregory.clement@bootlin.com>
+Subject: Re: [PATCH] cpufreq: enable 1200Mhz clock speed for armada-37xx
+Message-ID: <20250203105737.ilu6kldt4onzcygs@vireshk-i7>
+References: <20241125211452.14987-1-ben@bens.haus>
+ <20241212070712.txkxgmiugzji3doz@vireshk-i7>
+ <fjdblv62k3nhqgy7decdldtieo4zyv6phxofx72dreyq7jbm4f@qmkp3e2wyplb>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <967a5b3e-197a-4b90-9fe3-9b10782d677c@stanley.mountain>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <fjdblv62k3nhqgy7decdldtieo4zyv6phxofx72dreyq7jbm4f@qmkp3e2wyplb>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_105151_896066_6F0ED93A 
-X-CRM114-Status: GOOD (  14.66  )
+X-CRM114-CacheID: sfid-20250203_025741_825450_238E956C 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,26 +104,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-01-25, 16:04, Dan Carpenter wrote:
-> On Sat, Jan 25, 2025 at 08:49:49AM +0000, zuoqian wrote:
-> > The CPU rate from clk_get_rate() may not be divisible by 1000
-> > (e.g., 133333333). But the rate calculated from frequency(kHz) is
-> > always divisible by 1000 (e.g., 133333000).
-> > Comparing the rate causes a warning during CPU scaling:
-> > "cpufreq: __target_index: Failed to change cpu frequency: -5".
-> > When we choose to compare kHz here, the issue does not occur.
-> > 
-> > Fixes: 343a8d17fa8d ("cpufreq: scpi: remove arm_big_little dependency")
-> > Signed-off-by: zuoqian <zuoqian113@gmail.com>
-> > ---
-> > V1 -> V2: rename freq to freq_khz, change rate to unsigned long, and
-> > update patch summary.
+On 15-12-24, 22:23, Marek Behún wrote:
+> On Thu, Dec 12, 2024 at 12:37:12PM +0530, Viresh Kumar wrote:
+> > Marek,
 > 
-> Thanks!
+> ...
 > 
-> Reviewed-by: Dan Carpenter <dan.carpenter@linaro.org>
+> > Any inputs on this before I apply it ?
+> 
+> Viresh, let me try to test it this week on Turris Mox.
 
-Applied. Thanks.
+Hi Marek,
+
+I am inclined to apply this unless you have an objection ..
+Please let me know.
 
 -- 
 viresh
