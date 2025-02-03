@@ -4,81 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FB5BC02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 11:32:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C99A7C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 11:34:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=49g7WSyYR8+Wt6OcEq9kBBhsJOIcfmFAb/kxBSWoTsw=; b=WQbfQUva0FM8F11Xq+qIbSAoZE
-	Qrb8Ty9vAypw2Ia108BeNlFyn5wGOcdQnCQEXVgGa9zODBAZSq5fp0fGrBUY+OcO+ivYTVXv5hngm
-	o7v7Q1ed+/jnkIBOhO+S36MM8FtPGvIU9/8/Ew4NpHynWO6O1AnI7jHWe2cZe3mPCKhxZAT34ENtK
-	7/FAO0OxlaQCP/6bif218+QsN61vHemzZfL6KuwdkN9HLJ+RRuzSclrfK7S+rue4ABPVlwHCflWJ2
-	lRHnExDCirnbplzQeYoqvMU+HBznW/17OIhuTne3M/6PyaW3syswk3hVMibwjGXBJJRKJcnlZhYul
-	Uhmq9QRw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CKxRbZzy4RjSwNw64WMdnlwu3kBLOK/hGuYVSSpIG/Q=; b=zMZuWtUkaSNrMITTss05pei8TU
+	zgN4RjnA8DC3N/tO8iVbiTgASdospWaZFI/ZGjGLQDCyqqVIG6YKIqiKsBZ1hzsWinr4I15lTHIwm
+	ukL1Y/fGZZE2XTplJfntB9+dYVqR/6ypaBw7+oe00+ZB9xvyqAhop8hCvHw9nXgBUvJrI1v+3/YTy
+	6rlZC+cCxH5wlmVxLPrWl6wDuXzjaMqfedmw5QioAVPTimOOFWPbQo7jz02yb3wxXd7qSWgQCQpit
+	R9J2VQZbh9+hu0sAFH9NO2z6lPhf5YXJDjnYc9e2NoO2Nwq7DSKp+8SU4pZhFpC5jhXYykMfBhFva
+	H6A6HAOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teuh8-0000000FFJ1-0vR9;
-	Mon, 03 Feb 2025 11:32:50 +0000
-Received: from mail-gw01.astralinux.ru ([37.230.196.243])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1teuei-0000000FEyq-0ewC
+	id 1teuia-0000000FFRt-3Xay;
+	Mon, 03 Feb 2025 11:34:20 +0000
+Received: from mx.socionext.com ([202.248.49.38])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1teuhF-0000000FFK0-2rOW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 11:30:22 +0000
-Received: from gca-sc-a-srv-ksmg01.astralinux.ru (localhost [127.0.0.1])
-	by mail-gw01.astralinux.ru (Postfix) with ESMTP id 630DD24D3A;
-	Mon,  3 Feb 2025 14:30:12 +0300 (MSK)
-Received: from new-mail.astralinux.ru (gca-yc-ruca-srv-mail04.astralinux.ru [10.177.185.109])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail-gw01.astralinux.ru (Postfix) with ESMTPS;
-	Mon,  3 Feb 2025 14:30:05 +0300 (MSK)
-Received: from localhost.localdomain (unknown [10.198.57.103])
-	by new-mail.astralinux.ru (Postfix) with ESMTPA id 4Ymkn30cV8zkWyl;
-	Mon,  3 Feb 2025 14:29:58 +0300 (MSK)
-From: Anastasia Belova <abelova@astralinux.ru>
-To: =?UTF-8?q?Emilio=20L=C3=B3pez?= <emilio@elopez.com.ar>,
-	David Laight <david.laight.linux@gmail.com>
-Cc: Anastasia Belova <abelova@astralinux.ru>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Maxime Ripard <mripard@kernel.org>,
-	Hans de Goede <hdegoede@redhat.com>,
-	linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	lvc-project@linuxtesting.org
-Subject: [PATCH] clk: sunxi: clean up rate counting
-Date: Mon,  3 Feb 2025 14:29:28 +0300
-Message-ID: <20250203112930.650813-1-abelova@astralinux.ru>
-X-Mailer: git-send-email 2.43.0
+	Mon, 03 Feb 2025 11:32:59 +0000
+Received: from unknown (HELO kinkan2-ex.css.socionext.com) ([172.31.9.52])
+  by mx.socionext.com with ESMTP; 03 Feb 2025 20:32:54 +0900
+Received: from mail.mfilter.local (mail-arc01.css.socionext.com [10.213.46.36])
+	by kinkan2-ex.css.socionext.com (Postfix) with ESMTP id 0C72420AE2A2;
+	Mon,  3 Feb 2025 20:32:54 +0900 (JST)
+Received: from iyokan2.css.socionext.com ([172.31.9.53]) by m-FILTER with ESMTP; Mon, 3 Feb 2025 20:32:54 +0900
+Received: from [10.212.246.222] (unknown [10.212.246.222])
+	by iyokan2.css.socionext.com (Postfix) with ESMTP id 715A7A6B42;
+	Mon,  3 Feb 2025 20:32:53 +0900 (JST)
+Message-ID: <e1654cc9-a696-454c-a9c7-80a8e1a148ff@socionext.com>
+Date: Mon, 3 Feb 2025 20:32:53 +0900
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-KSMG-AntiPhishing: NotDetected
-X-KSMG-AntiSpam-Auth: dkim=none
-X-KSMG-AntiSpam-Envelope-From: abelova@astralinux.ru
-X-KSMG-AntiSpam-Info: LuaCore: 50 0.3.50 df4aeb250ed63fd3baa80a493fa6caee5dd9e10f, {Tracking_from_domain_doesnt_match_to}, astralinux.ru:7.1.1;new-mail.astralinux.ru:7.1.1;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;127.0.0.199:7.1.2, FromAlignment: s
-X-KSMG-AntiSpam-Interceptor-Info: scan successful
-X-KSMG-AntiSpam-Lua-Profiles: 190748 [Feb 03 2025]
-X-KSMG-AntiSpam-Method: none
-X-KSMG-AntiSpam-Rate: 0
-X-KSMG-AntiSpam-Status: not_detected
-X-KSMG-AntiSpam-Version: 6.1.1.7
-X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.1.0.7854, bases: 2025/02/03 07:33:00 #27201296
-X-KSMG-AntiVirus-Status: NotDetected, skipped
-X-KSMG-LinksScanning: NotDetected
-X-KSMG-Message-Action: skipped
-X-KSMG-Rule-ID: 1
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v4 3/3] net: stmmac: Specify hardware capability value
+ when FIFO size isn't specified
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Guenter Roeck <linux@roeck-us.net>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Yanteng Si <si.yanteng@linux.dev>, Furong Xu <0x1207@gmail.com>,
+ Joao Pinto <Joao.Pinto@synopsys.com>, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250127013820.2941044-1-hayashi.kunihiko@socionext.com>
+ <20250127013820.2941044-4-hayashi.kunihiko@socionext.com>
+ <4e98f967-f636-46fb-9eca-d383b9495b86@roeck-us.net>
+ <Z56FmH968FUGkC5J@shell.armlinux.org.uk>
+ <905127b5-96c8-4866-8f69-d9d8a7091c99@socionext.com>
+ <Z6CLDJJ21MMml3cD@shell.armlinux.org.uk>
+Content-Language: en-US
+From: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
+In-Reply-To: <Z6CLDJJ21MMml3cD@shell.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_033020_357632_23023F01 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20250203_033257_960296_95756292 
+X-CRM114-Status: GOOD (  40.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,52 +80,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If n = 255, the result of multiplication of n and 24000000
-may not fit int type. Swap division and shift with multiplication.
+Hi,
 
-Found by Linux Verification Center (linuxtesting.org) with SVACE.
+On 2025/02/03 18:23, Russell King (Oracle) wrote:
+> On Mon, Feb 03, 2025 at 11:45:05AM +0900, Kunihiko Hayashi wrote:
+>> Hi all,
+>>
+>> On 2025/02/02 5:35, Russell King (Oracle) wrote:
+>>> On Sat, Feb 01, 2025 at 11:14:41AM -0800, Guenter Roeck wrote:
+>>>> Hi,
+>>>>
+>>>> On Mon, Jan 27, 2025 at 10:38:20AM +0900, Kunihiko Hayashi wrote:
+>>>>> When Tx/Rx FIFO size is not specified in advance, the driver
+> checks if
+>>>>> the value is zero and sets the hardware capability value in
+> functions
+>>>>> where that value is used.
+>>>>>
+>>>>> Consolidate the check and settings into function stmmac_hw_init()
+> and
+>>>>> remove redundant other statements.
+>>>>>
+>>>>> If FIFO size is zero and the hardware capability also doesn't have
+>>> upper
+>>>>> limit values, return with an error message.
+>>>>>
+>>>>> Signed-off-by: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
+>>>>
+>>>> This patch breaks qemu's stmmac emulation, for example for
+>>>> npcm750-evb. The error message is:
+>>>> 	stmmaceth f0804000.eth: Can't specify Rx FIFO size
+>>
+>> Sorry for inconvenience.
+>>
+>>> Interesting. I looked at QEMU to see whether anything in the Debian
+>>> stable version of QEMU might possibly have STMMAC emulation, but
+>>> drew a blank... Even trying to find where in QEMU it emulates the
+>>> STMMAC. I do see that it does include this, so maybe I can use that
+>>> to test some of my stmmac changes. Thanks!
+>>>
+>>>> The setup function called for the emulated hardware is
+>>> dwmac1000_setup().
+>>>> That function does not set the DMA rx or tx fifo size.
+>>>>
+>>>> At the same time, the rx and tx fifo size is not provided in the
+>>>> devicetree file (nuvoton-npcm750.dtsi), so the failure is obvious.
+>>>>
+>>>> I understand that the real hardware may be based on a more recent
+>>>> version of the DWMAC IP which provides the DMA tx/rx fifo size, but
+>>>> I do wonder: Are the benefits of this patch so substantial that it
+>>>> warrants breaking the qemu emulation of this network interface >
+>>> Please see my message sent a while back on an earlier revision of this
+>>> patch series. I reviewed the stmmac driver for the fifo sizes and
+>>> documented what I found.
+>>>
+>>> https://lore.kernel.org/r/Z4_ZilVFKacuAUE8@shell.armlinux.org.uk
+>>>
+>>> To save clicking on the link, I'll reproduce the relevant part below.
+>>> It appears that dwmac1000 has no way to specify the FIFO size, and
+>>> thus would have priv->dma_cap.rx_fifo_size and
+>>> priv->dma_cap.tx_fifo_size set to zero.
+>>>
+>>> Given the responses, I'm now of the opinion that the patch series is
+>>> wrong, and probably should be reverted - I never really understood
+>>> the motivation why the series was necessary. It seemed to me to be a
+>>> "wouldn't it be nice if" series rather than something that is
+>>> functionally necessary.
+>>>
+>>>
+>>> Here's the extract from my previous email:
+>>>
+>>> Now looking at the defintions:
+>>>
+>>> drivers/net/ethernet/stmicro/stmmac/dwmac4.h:#define
+> GMAC_HW_RXFIFOSIZE
+>>> GENMASK(4, 0)
+>>> drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h:#define
+>>> XGMAC_HWFEAT_RXFIFOSIZE GENMASK(4, 0)
+>>>
+>>> So there's a 5-bit bitfield that describes the receive FIFO size for
+>>> these two MACs. Then we have:
+>>>
+>>> drivers/net/ethernet/stmicro/stmmac/common.h:#define
+>>> DMA_HW_FEAT_RXFIFOSIZE    0x00080000       /* Rx FIFO > 2048 Bytes */
+>>>
+>>> which is used here:
+>>>
+>>> drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c:
+>>> dma_cap->rxfifo_over_2048 = (hw_cap & DMA_HW_FEAT_RXFIFOSIZE) >> 19;
+>>>
+>>> which is only used to print a Y/N value in a debugfs file, otherwise
+>>> having no bearing on driver behaviour.
+>>>
+>>> So, I suspect MACs other than xgmac2 or dwmac4 do not have the ability
+>>> to describe the hardware FIFO sizes in hardware, thus why there's the
+>>> override and no checking of what the platform provided - and doing so
+>>> would break the driver. This is my interpretation from the code alone.
+>>>
+>>
+>> The {tx,rx}_queus_to_use are referenced in stmmac_ethtool.c,
+> stmmac_tc.c,
+>> and stmmac_selftests.c as the number of queues, so I've thought that
+>> these variables should not be non-zero.
+> 
+> Huh? We're talking about {tx,rx}_fifo_size, not _queues_to_use.
 
-Fixes: 6424e0aeebc4 ("clk: sunxi: rewrite sun9i_a80_get_pll4_factors()")
-Signed-off-by: Anastasia Belova <abelova@astralinux.ru>
+Sorry, this topic is just about {tx,rx}_fifo_size.
+Above comments are not needed here.
+
+These value are only referenced in stmmac_main.c and stmmac_selftest.c.
+As far as I can see, there is no usage that requires the values to be non-zero.
+
+>> However, currently the variables are allowed to be zero, so I understand
+>> this patch 3/3 breaks on the chips that hasn't hardware capabilities.
+>>
+>> In hwif.c, stmmac_hw[] defines four patterns of hardwares:
+>>
+>> "dwmac100"  .gmac=false, .gmac4=false, .xgmac=false, .get_hw_feature =
+> NULL
+>> "dwmac1000" .gmac=true,  .gmac4=false, .xgmac=false, .get_hw_feature =
+> dwmac1000_get_hw_feature()
+>> "dwmac4"    .gmac=false, .gmac4=true,  .xgmac=false, .get_hw_feature =
+> dwmac4_get_hw_feature()
+>> "dwxgmac2"  .gmac=false, .gmac4=false, .xgmac=true , .get_hw_feature =
+> dwxgmac2_get_hw_feature()
+>>
+>> As Russell said, the dwmac100 can't get the number of queues from the
+> hardware
+>> capability. And some environments (at least QEMU device that Guenter
+> said)
+>> seems the capability values are zero in spite of dwmac1000.
+> 
+> Huh? I mentioned dwmac1000, not dwmac100.
+
+My above comment is missing the point.
+dwmac1000 doesn't have the field of the fifo size in the hardware capability
+even if dwmac1000 has get_hw_feature function as you said.
+Steven's diff is reasonable to check the feature.
+
+> 
+>> Since I can't test all of the device patterns, so I appreciate checking
+> each
+>> hardware and finding the issue.
+>>
+>> The patch 3/3 includes some cleanup and code reduction, though, I think
+>> it would be better to revert it once.
+> 
+> I'm not sure you're discussing the same issue as the rest of us.
+> You seem to be talking about a different pair of structure members
+> (queues_to_use) whereas your patches and the problem at hand is with
+> the changes made to {tx,rx}_fifo_size.
+
+Sorry for confusion. The patch 3/3 treats FIFO size as per the subject.
+
+Thank you,
+
 ---
- drivers/clk/sunxi/clk-sun9i-core.c | 14 +++++++++-----
- 1 file changed, 9 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/clk/sunxi/clk-sun9i-core.c b/drivers/clk/sunxi/clk-sun9i-core.c
-index d93c7a53c6c0..639c83ed63b8 100644
---- a/drivers/clk/sunxi/clk-sun9i-core.c
-+++ b/drivers/clk/sunxi/clk-sun9i-core.c
-@@ -25,12 +25,12 @@
- 
- static void sun9i_a80_get_pll4_factors(struct factors_request *req)
- {
--	int n;
--	int m = 1;
--	int p = 1;
-+	unsigned int n;
-+	unsigned int m = 1;
-+	unsigned int p = 1;
- 
- 	/* Normalize value to a 6 MHz multiple (24 MHz / 4) */
--	n = DIV_ROUND_UP(req->rate, 6000000);
-+	n = DIV_ROUND_UP(req->rate, 6000000ul);
- 
- 	/* If n is too large switch to steps of 12 MHz */
- 	if (n > 255) {
-@@ -50,7 +50,11 @@ static void sun9i_a80_get_pll4_factors(struct factors_request *req)
- 	else if (n < 12)
- 		n = 12;
- 
--	req->rate = ((24000000 * n) >> p) / (m + 1);
-+	/* Division and shift should be done before multiplication to
-+	 * avoid overflow. The result will be correct because '>> p' and
-+	 * '/ (m + 1)' are both just conditional 'divide by 2'
-+	 */
-+	req->rate = ((24000000ul >> p) / (m + 1)) * n;
- 	req->n = n;
- 	req->m = m;
- 	req->p = p;
--- 
-2.43.0
-
+Best Regards
+Kunihiko Hayashi
 
