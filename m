@@ -4,65 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A867C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 23:20:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43CE6C02193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 23:31:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ifjGUGvJkZYFo5L1bDL9tJSz13ntSb3dYeATt2mrijo=; b=bWalDk5SxN8AoP3M54HJZcg//d
-	VFBTLdurmveETXEfnwmGOlJkYi0fpRzRvTS5RIrfONMnKibLHFVNyt/GoZYZFDo600ebjz0mTTUcE
-	qFSdx+0rdLQ03Q693BsEwpZjg5WK08NEWePer966Jw/g5C/iN6TM4jSsWUmy+nNjOmXNveAnFxbN0
-	lLdpMmXd+ErAB/XRcoVisYGOI7A/3hsPAlnhTc3iU1t4dollZL9lXCdfPrIw/f6eWN/aww8tl8dQS
-	/Q2VOXh0jJ6CRZBfQouf/+wWozAeiV3WH7q+Bdthq7oSNa3zqM/lCa0PbomdOZaeiaW82FQzbrg+/
-	RM3RELJQ==;
+	bh=tNdkfr9jKnTfqvNYBW8GU8fGP/gFpXlEo762k1ah/AA=; b=eiCq9FzRP8/WNtjaSYmYhi61ZV
+	5qZVNicaEcwZx7ZsCHxwoiUhc3DD8clQjUWogTEzSm19aG8+QO32sV8cHFqO0n1e8yN3o0Cdz6HJ2
+	PYKl6i4G1dGCZZgwRpaseOQXIOF28PpOFyVovvIAFC4ZP2XALSeOAh4I+aCLjUeZ/5tTyF5QwdS7q
+	yfZmTpXI6Z+eMh1HWAGfwOxu4DeDG1TyWGpE6T9X+imuPtZIJLsF/S2679/1LRDnomgWTRuVVmHDv
+	UD0s5Hj0fYs/7PRUWByNwYYZYirr0Jz5qRM7exL2pr/vvfTuYlkV2eulXrOM32evUUGvtj/xje8XE
+	d60U9odA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf5k5-0000000Gs1y-0Xg1;
-	Mon, 03 Feb 2025 23:20:37 +0000
-Received: from out-175.mta1.migadu.com ([95.215.58.175])
+	id 1tf5u0-0000000Gt5S-2U7e;
+	Mon, 03 Feb 2025 23:30:52 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf5il-0000000Grxu-17pz
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 23:19:16 +0000
-Date: Mon, 3 Feb 2025 15:19:03 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1738624752;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ifjGUGvJkZYFo5L1bDL9tJSz13ntSb3dYeATt2mrijo=;
-	b=nkDIi8QemCzBZF8njMmkcisysylZn7FnuZHeo3M2nQqj6RzgOPaW92LEWdN0FyTrlkb86o
-	cyEcFMhlDLKhOnrgzBt1i+mbCGCj0GM+j/T3Y0Sv/KmOfL06xkHRLgXwPyujRdjtQQBSX4
-	+aE36IGv4bVky5Dp65wUTsi4/WdF1jI=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Mark Brown <broonie@kernel.org>, uJap072421@linux.dev
-Cc: Quentin Perret <qperret@google.com>, Marc Zyngier <maz@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Fuad Tabba <tabba@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Sebastian Ene <sebastianene@google.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 09/18] KVM: arm64: Introduce __pkvm_vcpu_{load,put}()
-Message-ID: <Z6FO04PZtY8fsJhq@linux.dev>
-References: <20241218194059.3670226-1-qperret@google.com>
- <20241218194059.3670226-10-qperret@google.com>
- <5ca7588c-7bf2-4352-8661-e4a56a9cd9aa@sirena.org.uk>
+	id 1tf4kX-0000000Gljl-2NXN;
+	Mon, 03 Feb 2025 22:17:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id DA52A5C68FC;
+	Mon,  3 Feb 2025 22:16:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AE5EC4CED2;
+	Mon,  3 Feb 2025 22:17:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738621020;
+	bh=7svs+wKmG+cmpxhyFwkJOaZkFZ0sH/NMkYxSYvVASpA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=O5SGTJYVHZPmJijhTIVkKFqBL/LQ+LXHOLoLZN6HyTVDQpvwslxaAt8rk/NQIKXRQ
+	 rXzTeiz3f0E+oQJXbWPzUhUxigwKvrzwRbhwa5L4y2PqvHnN4SWwP4uS+KybParPIv
+	 rAI2Olu+qiKqkx1t4yawMj7b1Yyg6P7MGel+divo5gTXDgUEtOMMFVuMs3pQ3e9UW0
+	 br+V0YLQNoHYbM5YNVWH9g/i4lha4WmtmCmAkWsMqePah/WWMXriUEqxXBjZjzwvi4
+	 b1SxTU9P/sm53pRcDsUEY0tycrSbHKil2dqhkeHUk8UkJAdN7tTlLB2CtO3azrAPPU
+	 sJAMHHfY2MAZg==
+Date: Mon, 3 Feb 2025 16:16:59 -0600
+From: Rob Herring <robh@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rui Miguel Silva <rmfrfs@gmail.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org, "Guoniu.zhou" <guoniu.zhou@nxp.com>,
+	Robby Cai <robby.cai@nxp.com>,
+	Robert Chiras <robert.chiras@nxp.com>,
+	Mirela Rabulea <mirela.rabulea@nxp.com>,
+	Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+Subject: Re: [PATCH 05/14] media: dt-bindings: nxp,imx8-isi: Add i.MX8Q ISI
+ compatible strings
+Message-ID: <20250203221659.GA130749-robh@kernel.org>
+References: <20250131-8qxp_camera-v1-0-319402ab606a@nxp.com>
+ <20250131-8qxp_camera-v1-5-319402ab606a@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <5ca7588c-7bf2-4352-8661-e4a56a9cd9aa@sirena.org.uk>
-X-Migadu-Flow: FLOW_OUT
+In-Reply-To: <20250131-8qxp_camera-v1-5-319402ab606a@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_151915_447476_DBF3A8F6 
-X-CRM114-Status: GOOD (  11.98  )
+X-CRM114-CacheID: sfid-20250203_141701_695754_82D5BF6F 
+X-CRM114-Status: GOOD (  21.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,32 +90,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 03, 2025 at 07:50:44PM +0000, Mark Brown wrote:
-> On Wed, Dec 18, 2024 at 07:40:50PM +0000, Quentin Perret wrote:
-> > From: Marc Zyngier <maz@kernel.org>
-> > 
-> > Rather than look-up the hyp vCPU on every run hypercall at EL2,
-> > introduce a per-CPU 'loaded_hyp_vcpu' tracking variable which is updated
-> > by a pair of load/put hypercalls called directly from
-> > kvm_arch_vcpu_{load,put}() when pKVM is enabled.
+On Fri, Jan 31, 2025 at 04:33:50PM -0500, Frank Li wrote:
+> From: Robert Chiras <robert.chiras@nxp.com>
 > 
-> Current mainline crashes when running the arch_timer_edge_cases selftest
-> in pKVM mode on a LibreTech Le Potato board, with a bisection pointing
-> at this change.  The system dies like this:
+> Add compatible strings for i.MX8QM and i.MX8QXP platforms.
 > 
-> # selftests: kvm: arch_timer_edge_cases
-> [  130.599140] kvm [4518]: nVHE hyp panic at: [<ffff800081102b58>] __kvm_nvhe___vgic_v3_restore_vmcr_aprs+0x8/0x84!
-> [  130.603685] kvm [4518]: Cannot dump pKVM nVHE stacktrace: !CONFIG_PROTECTED_NVHE_STACKTRACE
-> [  130.611962] kvm [4518]: Hyp Offset: 0xfffeca95ed000000
-> [  130.617053] Kernel panic - not syncing: HYP panic:
+> Increase the number of max interrupts and clock to 8. i.MX8QM have 8
+> channels and i.MX8QXP have 5 channels. Each channel requires one clock
+> source and interrupt.
+> 
+> Remove fsl,blk-ctrl from required list because i.MX8Q needn't it.
+> 
+> i.MX8QM use port@2 and port@3. i.MX8QXP use port@2 and port@6.
+> 
+> Keep the same restriction for the other platform.
+> 
+> Signed-off-by: Robert Chiras <robert.chiras@nxp.com>
+> Reviewed-by: Robby Cai <robby.cai@nxp.com>
+> Reviewed-by: Mirela Rabulea <mirela.rabulea@nxp.com>
+> Reviewed-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  .../devicetree/bindings/media/nxp,imx8-isi.yaml    | 87 +++++++++++++++++++---
+>  1 file changed, 75 insertions(+), 12 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/media/nxp,imx8-isi.yaml b/Documentation/devicetree/bindings/media/nxp,imx8-isi.yaml
+> index f43b91984f015..b713c8ba79e39 100644
+> --- a/Documentation/devicetree/bindings/media/nxp,imx8-isi.yaml
+> +++ b/Documentation/devicetree/bindings/media/nxp,imx8-isi.yaml
+> @@ -21,6 +21,8 @@ properties:
+>      enum:
+>        - fsl,imx8mn-isi
+>        - fsl,imx8mp-isi
+> +      - fsl,imx8qm-isi
+> +      - fsl,imx8qxp-isi
+>        - fsl,imx8ulp-isi
+>        - fsl,imx93-isi
+>  
+> @@ -28,17 +30,12 @@ properties:
+>      maxItems: 1
+>  
+>    clocks:
+> -    items:
+> -      - description: The AXI clock
+> -      - description: The APB clock
+> -      # TODO: Check if the per-channel ipg_proc_clk clocks need to be specified
+> -      # as well, in case some SoCs have the ability to control them separately.
+> -      # This may be the case of the i.MX8[DQ]X(P)
+> +    minItems: 1
+> +    maxItems: 8
 
-Thanks, fix posted here [*], although as a consequence this machine will
-stop running KVM in protected mode (which was never meant to work in the
-first place).
+Isn't the minimum still 2?
 
-[*]: https://lore.kernel.org/kvmarm/20250203231543.233511-1-oliver.upton@linux.dev/
+>  
+>    clock-names:
+> -    items:
+> -      - const: axi
+> -      - const: apb
+> +    minItems: 1
+> +    maxItems: 8
+>  
+>    fsl,blk-ctrl:
+>      $ref: /schemas/types.yaml#/definitions/phandle
+> @@ -49,10 +46,11 @@ properties:
+>    interrupts:
+>      description: Processing pipeline interrupts, one per pipeline
+>      minItems: 1
+> -    maxItems: 2
+> +    maxItems: 8
+>  
+>    power-domains:
+> -    maxItems: 1
+> +    minItems: 1
+> +    maxItems: 8
+>  
+>    ports:
+>      $ref: /schemas/graph.yaml#/properties/ports
+> @@ -66,7 +64,6 @@ required:
+>    - interrupts
+>    - clocks
+>    - clock-names
+> -  - fsl,blk-ctrl
+>    - ports
+>  
+>  allOf:
+> @@ -79,9 +76,17 @@ allOf:
+>                - fsl,imx8ulp-isi
+>                - fsl,imx93-isi
+>      then:
+> +      required:
+> +        - fsl,blk-ctrl
+>        properties:
+>          interrupts:
+>            maxItems: 1
+> +        clocks:
+> +          maxItems: 2
+> +        clock-names:
+> +          items:
+> +            - const: axi
+> +            - const: apb
+>          ports:
+>            properties:
+>              port@0:
+> @@ -96,9 +101,17 @@ allOf:
+>            contains:
+>              const: fsl,imx8mp-isi
+>      then:
+> +      required:
+> +        - fsl,blk-ctrl
+>        properties:
+>          interrupts:
+>            maxItems: 2
+> +        clocks:
+> +          maxItems: 2
+> +        clock-names:
+> +          items:
+> +            - const: axi
+> +            - const: apb
+>          ports:
+>            properties:
+>              port@0:
+> @@ -109,6 +122,56 @@ allOf:
+>              - port@0
+>              - port@1
+>  
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: fsl,imx8qm-isi
+> +    then:
+> +      properties:
+> +        clocks:
+> +          minItems: 8
+> +        clock-names:
+> +          items:
+> +            pattern: "^per[0-7]"
+> +        interrupts:
+> +          minItems: 8
+> +        ports:
+> +          properties:
+> +            port@2:
+> +              description: MIPI CSI-2 RX 0
+> +            port@3:
+> +              description: MIPI CSI-2 RX 1
+> +          required:
+> +            - port@2
+> +            - port@3
 
--- 
-Thanks,
-Oliver
+This schema is completely missing proper schemas for port nodes. It 
+needs to reference the port schema for each port. That should be at the 
+top-level.
+
+I think this addition is borderline whether it should be its own schema 
+doc. The if/then schemas are larger than the main part. The ports are 
+not even the same.
+
+Rob
 
