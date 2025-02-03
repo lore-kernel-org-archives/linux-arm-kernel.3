@@ -4,103 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7948FC02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 16:35:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87965C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 16:37:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4w6UmI8zApfFjzpF1ITEcZX/xk8zGVgfYD57VZOtxmU=; b=qeESSroHUxkD2Wl5w0jqzNryIa
-	fw0Xe5B+Fg//BHKicdaci1pXWFyze7+WbPj9NFzxcMOLleHrwYs3fCHtysT4IfRyUDgkIqzO2cLE8
-	yEyw0xer0eTruU0M+yntCcw6FkYOuDwvpkcZTI1Ny42+8cwtKtwRGm++7jl9X3BHQyPOTEv5IV7h9
-	PfnNVIOGUiott+VN+ReK5pnd7ZIMiq9FzllSCTljRUyjrowRgKZ+VFgJieGP56KLRCaZAkyQa1qP1
-	w8vj1E718neueERC9GgiEZmQGbIslpfu/n/i3b1/iR9umCI3iIjLlkyDHBOpcEitMiqz1KUaotRia
-	KFRRnxdw==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QtYOwxhJTx1c2Lg+XxDXfdFoZZ1VSsrERd5VI5gDt44=; b=x43eGTT2eYfBOM7XgMOCh5BgqL
+	JMRf4PtSvH8ZfMNrZCKtC14vK/w2Xtd0zMHFIXg64VSkMolNXV50xlbjCgeuTnMBBb7YBbo7ksW4y
+	P3pIEOkIXtmmNl5ZayS4rgjuTndjttnsdZpBWybYPIHMdzk1N2JFYsmx7tsxV9PKHBCblE8veDs7F
+	Ri9uoGOP5WrMMT8d8fkYpesCR3RQkT5ZAGx5csPa+IjNvF3d6X5WqyNu2QFyGvFFwfgEUyTd39rd1
+	SbCdyF/YvXCPVjKvrxX8vyl1C02dHvY9lKxBj20hNOXl0HDIeqZ8Xvx/PG8P4KKLoB4f9zR8jCe+f
+	LqqO8vYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tezQE-0000000G0ua-00XD;
-	Mon, 03 Feb 2025 16:35:42 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1tezRW-0000000G17G-44vg;
+	Mon, 03 Feb 2025 16:37:02 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tezLJ-0000000FzlM-384A
+	id 1tezMN-0000000G01O-231H
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 16:30:39 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-38789e5b6a7so2412370f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 08:30:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1738600235; x=1739205035; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=4w6UmI8zApfFjzpF1ITEcZX/xk8zGVgfYD57VZOtxmU=;
-        b=JGQ99OVEA5CAV7DAuS+gTzUx8f9Fy2OLjRI+AJnoXL8u4/xXpH4wVFi4DfYqv29s4P
-         XN/UPU09GGjS3p3LzI4S0k1Hy92c4URnwrd2FmRRKhLZmL5YN/AUQXuL4YHwbsczlVAf
-         nFQhnblq9QNYgoda0n4Ke7xuxTGOmej08oV+HJjtMjVjgIjRsTuXU8otdgfUKKO1TkzZ
-         j94/xQKiOMqBA3HK7ZShi5ojRu2iYC86MZZewXTuJt6IzHdccjiv7PBY9ZMCcCubIdr/
-         6crejjCMipvqTPqN2HkEHX0vQGLcwklaeeSEv284hmnVrZniqnEfaHb9uuxWe+6SHZ6r
-         nPog==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738600235; x=1739205035;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=4w6UmI8zApfFjzpF1ITEcZX/xk8zGVgfYD57VZOtxmU=;
-        b=DtArLtTtmmsty7IuEol6RI0y97UuFrc7w4UyYVR2O3JlhpXk3Y1ruGWxEjmck3sM8d
-         zqj2onCr/jY/DwYzJqJ1WvqiERvgVLPldMUIQ9xBqgcCFVy8qpE4v2VLeCy6+Ttqr/bB
-         YTT704sZIY8FeVJUZf1tedJRZI3wbEsnBOW/cOImxJD4YYkCgqtMqXLm8GqofLqjPSA4
-         z2KKdr0MtEQYwrHqiTteoX2r+fWA529TfZ2HNDXcc4r0X6JP8IJbEZQ/AA3aU+v3mlrC
-         dbQCMBFkHKdwzUqLkNmLGVjYbpOobADwf5pt5JZCZWocIwGsVIAP42ZQNqCQqzsmff1w
-         0MFg==
-X-Forwarded-Encrypted: i=1; AJvYcCW9s0EAViibI8Z8w9BZQYLFAmCSh0pd/ud4/gD0DFZTqVukofAn3Ds3TrSCKm5kVZlCZyfi2F+g7QZ7t5WvkQre@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVQxnmIT7SFmZS540C/OuOhWAxoxQ5HcBIoYosy65M8moOffXs
-	Tf0gAAFB/E460swGP62VzB2x8tFRRVI7jHhdMkaTwM668uyEVmJ8gKfMOVkSrGU=
-X-Gm-Gg: ASbGncuU+igKjWXzhTxjb3/pMcdrxjB5Njb/pyvWPBVcaU9tyg3c6CRPBeUSD38JnhZ
-	ZD74CubsQiG9CLM5w2HYyH0UfG6OAG4xc1vj3F0YVRcpvKjXSb6aYR+LBitb3v1TzfgYtYAzk3B
-	sb0BhqValIAq7qGA6CMvjUB/6UCb2+0i1gnjwcCNpwHvfk3QNfScSBULvWK1QeiPdNiZR3QDiTK
-	hlLwe7Y/dObZzLgYRYighfktAMhKtRH5yx13ilqBxDaInY5lKUkMKNaCa6fOA34VHt9b9d5ssA5
-	liuvnt+rXWMumxuskS65a2Sr
-X-Google-Smtp-Source: AGHT+IHDKGWZDdu9KvAZ5cKLRS+DMqDNkg23q/oCJosK4PIMEE8v9HnxxhxTqL283NqvyKO/CgE6nA==
-X-Received: by 2002:a5d:6d86:0:b0:38a:518d:97b with SMTP id ffacd0b85a97d-38c519311d8mr17660310f8f.11.1738600233881;
-        Mon, 03 Feb 2025 08:30:33 -0800 (PST)
-Received: from [192.168.50.4] ([82.78.167.173])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38c5c1b579dsm13247381f8f.78.2025.02.03.08.30.32
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 03 Feb 2025 08:30:33 -0800 (PST)
-Message-ID: <11da7631-8eae-4ffa-a131-2a8b33e0743d@tuxon.dev>
-Date: Mon, 3 Feb 2025 18:30:31 +0200
+	Mon, 03 Feb 2025 16:31:45 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 5ECEBA0E6F;
+	Mon,  3 Feb 2025 17:31:39 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=mail; bh=QtYOwxhJTx1c2Lg+XxDXfdFoZZ1VSsrERd5VI5gDt44=; b=
+	jSafp3RFz7Ra9BwVl/pKUEynT3E7/l4NiLaliLgryZiWmxsLgzIFGUNzUdQ2CiYa
+	JLiwItIZfq6Yrnn0MKarPVvo4m4qQZhUX+nzsTdF1WFTWRQQWyu/V3NkNiVv2B8l
+	UWkPRdscvaBMee2YMXxA6eLluDcrOVcuHHOjXlIP8bGK/FSDlWGaGwviakevvOiC
+	eKudxH0iUhOowd/Bd2XAhYFn4Jy+cjnkWATO7nQ/nIPnjA02/2zIYO8AAWyMMpNE
+	6A9To7onpiUHF1FA5kwZTT9aavToSqGrO7ykKvy4ze8Hot1QuMpu435CdvRUdV/t
+	4TjHQHroNNmArdsdRK5PlfnxpWFDTWOTnN1eP3FzsoKHZJyTJLXoB6muuss1rlcb
+	AYhyFxGyKLmnHtpSd0nDiEhTl7KwIUkfJyF5146k68s+jGzo/09lk6R78LwecpkR
+	HDbc+uHvk+wdJr2AZhbDEPEdogclvBYepRxdBdybTxpU+ij8IyVK/BjBi3Aw1I8p
+	23yWESF/1rCNeSGE/HTzXO7TzoMJ0rWBoUKFdim9Jmc+FSaei5SYZO55SfuPObnd
+	m86lAK85FzqM3Y+bkpO1MMkxBQ+C1bDbT5K80RB821Sc5nzfHxe49z/bIqSFFb5w
+	Q5wq8uUy2TclIfZAFQJ/1h9dSp+iLjDzNv8YIDSfLQI=
+From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+To: <linux-arm-kernel@lists.infradead.org>, <linux-iio@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+CC: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, "Kamel
+ Bouhara" <kamel.bouhara@bootlin.com>, William Breathitt Gray <wbg@kernel.org>
+Subject: [PATCH v2 1/2] counter: microchip-tcb-capture: Add IRQ handling
+Date: Mon, 3 Feb 2025 17:29:52 +0100
+Message-ID: <20250203162955.102559-1-csokas.bence@prolan.hu>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/6] thermal: of: Export non-devres helper to
- register/unregister thermal zone
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-To: Daniel Lezcano <daniel.lezcano@linaro.org>
-Cc: rafael@kernel.org, rui.zhang@intel.com, lukasz.luba@arm.com,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- geert+renesas@glider.be, magnus.damm@gmail.com, mturquette@baylibre.com,
- sboyd@kernel.org, p.zabel@pengutronix.de, ulf.hansson@linaro.org,
- linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
- Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-References: <20250103163805.1775705-1-claudiu.beznea.uj@bp.renesas.com>
- <20250103163805.1775705-3-claudiu.beznea.uj@bp.renesas.com>
- <Z5pkUNNvsWPjRQvy@mai.linaro.org>
- <65a16c3f-456e-40ec-91b0-afb57269ed46@tuxon.dev>
- <Z5tPR_tv7vWDkUI7@mai.linaro.org>
- <6ed7d545-82d7-4bca-95ec-95447586bb58@tuxon.dev>
- <b496d933-3c57-4b02-ab65-0582a30939af@linaro.org>
- <98ddf1b6-1804-4116-b4e2-f54a62c27966@tuxon.dev>
- <7d1bf72b-183a-429d-9a0c-10e1936a9abe@linaro.org>
- <e7374f91-a65d-4882-8a9b-de478582e09e@tuxon.dev>
-Content-Language: en-US
-In-Reply-To: <e7374f91-a65d-4882-8a9b-de478582e09e@tuxon.dev>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1738600298;VERSION=7984;MC=2545913080;ID=183984;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2980D94852667064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_083037_946649_F108F9B9 
-X-CRM114-Status: GOOD (  47.82  )
+X-CRM114-CacheID: sfid-20250203_083143_994721_60B47246 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,301 +78,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Daniel,
+Add interrupt servicing to allow userspace to wait for a trigger event.
 
-On 31.01.2025 01:16, Claudiu Beznea wrote:
-> Hi, Daniel,
-> 
-> On 31.01.2025 00:33, Daniel Lezcano wrote:
->> On 30/01/2025 21:53, Claudiu Beznea wrote:
->>> Hi, Daniel,
->>>
->>> On 30.01.2025 19:24, Daniel Lezcano wrote:
->>>> On 30/01/2025 11:30, Claudiu Beznea wrote:
->>>>>
->>>>>
->>>>> On 30.01.2025 12:07, Daniel Lezcano wrote:
->>>>>> On Thu, Jan 30, 2025 at 11:08:03AM +0200, Claudiu Beznea wrote:
->>>>>>> Hi, Daniel,
->>>>
->>>> [ ... ]
->>>>
->>>>>>>> Would the IP need some cycles to capture the temperature accurately
->>>>>>>> after the
->>>>>>>> clock is enabled ?
->>>>>>>
->>>>>>> There is nothing about this mentioned about this in the HW manual of the
->>>>>>> RZ/G3S SoC. The only points mentioned are as described in the driver
->>>>>>> code:
->>>>>>> - wait at least 3us after each IIO channel read
->>>>>>> - wait at least 30us after enabling the sensor
->>>>>>> - wait at least 50us after setting OE bit in TSU_SM
->>>>>>>
->>>>>>> For this I chose to have it implemented as proposed.
->>>>>>
->>>>>> IMO, disabling/enabling the clock between two reads through the pm
->>>>>> runtime may
->>>>>> not be a good thing, especially if the system enters a thermal situation
->>>>>> where
->>>>>> it has to mitigate.
->>>>>>
->>>>>> Without any testing capturing the temperatures and compare between the
->>>>>> always-on
->>>>>> and on/off, it is hard to say if it is true or not. Up to you to test
->>>>>> that or
->>>>>> not. If you think it is fine, then let's go with it.
->>>>>
->>>>> I tested it with and w/o the runtime PM and on/off support (so, everything
->>>>> ON from the probe) and the reported temperature values were similar.
->>>>
->>>>
->>>> Did you remove the roundup to 0.5°C ?
->>>
->>> I did the testing as suggested and, this time, collected results and
->>> compared side by side. I read the temperature for 10 minutes, 60 seconds
->>> after the Linux prompt showed up. There is, indeed, a slight difference b/w
->>> the 2 cases.
->>>
->>> When the runtime PM doesn't touch the clocks on read the reported
->>> temperature varies b/w 53-54 degrees while when the runtime PM
->>> enables/disables the clocks a single read reported 55 degrees, the rest
->>> reported 54 degrees.
->>>
->>> I plotted the results side by side here:
->>> https://i2.paste.pics/f07eaeddc2ccc3c6695fe5056b52f4a2.png?
->>> trs=0a0eaab99bb59ebcb10051eb298f437c7cd50c16437a87392aebc16cd9013e18&rand=vWXm2VTrbt
->>>
->>> Please let me know how do you consider it.
->>
-> 
-> After sending this to you I figured it out that precision is lost somewhere
-> so I re-tested it with the following diff (multiplied parts of the equation
-> with 1000):
-> 
-> diff --git a/drivers/thermal/renesas/rzg3s_thermal.c
-> b/drivers/thermal/renesas/rzg3s_thermal.c
-> index 6719f9ca05eb..84e18ff69d7c 100644
-> --- a/drivers/thermal/renesas/rzg3s_thermal.c
-> +++ b/drivers/thermal/renesas/rzg3s_thermal.c
-> @@ -83,7 +83,7 @@ static int rzg3s_thermal_get_temp(struct
-> thermal_zone_device *tz, int *temp)
->         }
-> 
->         ret = 0;
-> -       ts_code_ave = DIV_ROUND_CLOSEST(ts_code_ave, TSU_READ_STEPS);
-> +       ts_code_ave = DIV_ROUND_CLOSEST(MCELSIUS(ts_code_ave), TSU_READ_STEPS);
-> 
->         /*
->          * According to the HW manual (section 40.4.4 Procedure for
-> Measuring the Temperature)
-> @@ -91,11 +91,8 @@ static int rzg3s_thermal_get_temp(struct
-> thermal_zone_device *tz, int *temp)
->          *
->          * Tj = (ts_code_ave - priv->calib0) * 165 / (priv->calib0 -
-> priv->calib1) - 40
->          */
-> -       *temp = DIV_ROUND_CLOSEST((ts_code_ave - priv->calib1) * 165,
-> -                                 (priv->calib0 - priv->calib1)) - 40;
-> -
-> -       /* Report it in mili degrees Celsius and round it up to 0.5 degrees
-> Celsius. */
-> -       *temp = roundup(MCELSIUS(*temp), 500);
-> +       *temp = DIV_ROUND_CLOSEST((u64)(ts_code_ave -
-> MCELSIUS(priv->calib1)) * MCELSIUS(165),
-> +                                 MCELSIUS(priv->calib0 - priv->calib1)) -
-> MCELSIUS(40);
-> 
->  rpm_put:
->         pm_runtime_mark_last_busy(dev);
-> 
-> With this, the results seems similar b/w runtime PM and no runtime PM cases.
-> 
-> The tests were executed after the board was off for few hours. The
-> first test was with runtime PM suspend/resume on each read. Then the board
-> was rebooted and re-run the test w/o runtime PM suspend/resume on reads.
-> 
-> Figure with results is here:
-> https://i2.paste.pics/5f353a4f04b07b4bead3086624aba23f.png?trs=0a0eaab99bb59ebcb10051eb298f437c7cd50c16437a87392aebc16cd9013e18&rand=5n34QNjWID
-> 
-> 
->> Thanks for taking the time to provide a figure
->>
->> Testing thermal can be painful because it should be done under certain
->> conditions.
->>
->> I guess there was no particular work load on the system when running the
->> tests.
-> 
-> No load, indeed.
-> 
->>
->> At the first glance, it seems, without the pm runtime, the measurement is
->> more precise as it catches more thermal changes. But the test does not give
->> information about the thermal behavior under stress. And one second
->> sampling is too long to really figure it out.
->>
->> In the kernel source tree, there is a tool to read the temperature in an
->> optimized manner, you may want to use it to read the temperature at a
->> higher rate. It is located in tools/thermal/thermometer
->>
->> Compiling is a bit fuzzy ATM, so until it is fixed, here are the steps:
->>
->> (you should install libconfig-dev and libnl-3-dev packages).
->>
->> cd $LINUX_DIR/tools/thermal/lib
->> make
->> LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$LINUX_DIR/tools/thermal/lib
->>
->> cd $LINUX_DIR/tools
->> make thermometer
->>
->>
->>
->> Then change directory:
->>
->> cd $LINUX_DIR/tools/thermal/thermometer
->>
->>
->> Run the tool:
->>
->> ./thermometer -o out -c t.conf -l DEBUG -- <my_command>
->>
->>
->> The content of the configuration file t.conf is:
->>
->> thermal-zones = (
->>           {    name = "cpu[0_9].*-thermal";
->>         polling = 100; }
->>       )
->>
->> All the captured data will be in the 'out' directory
->>
->> For 'my_command', I suggest to use a script containing:
->>
->> sleep 10; dhrystone -t 1 -r 120; sleep 10
->>
->> If you need the dhrystone binary, let me know.
->>
->> The thermal zone device tree configuration should be changed to use a 65°C
->> passive trip point instead of 100°C (and the kernel setup with the step
->> wise governor as default).
->>>> The resulting figure from the temperature should show a flat temperature
->> figure during 10 seconds, then the temperature increasing until reaching
->> the temperature threshold of 65°C, the temperature stabilizing around it,
->> then followed by a temperature decreasing when the test finishes.
->>
->> If the temperature does not reach the limit, decrease the trip point
->> temperature or increase the dhrystone duration (the -r 120 option)
->>
->> At this point, you should the test with and without pm runtime but in order
->> to have consistent results, you should wait ~20 minutes between two tests.
->>
->> The shape of the figures will give the immediate information about how the
->> mitigation vs thermal sensor vs cooling device behave.
->>
->> Additionally, you can enable the thermal DEBUGFS option and add the
->> collected information statistics from /sys/kernel/debug/thermal/*** in the
->> results.
->>
->>
->> Hope that helps
-> 
-> Thank you for all these details. I'll have a look on it but starting with
-> Monday as I won't have access to setup in the following days.
+Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+---
 
-I re-run the tests with the thermometer application that you indicated.
+Notes:
+    New in v2
 
-This is the conf I used:
+ drivers/counter/microchip-tcb-capture.c | 60 +++++++++++++++++++++++++
+ 1 file changed, 60 insertions(+)
 
-thermal-zones = (
-          {    name = "cpu-thermal";
-        polling = 100; }
-      )
+diff --git a/drivers/counter/microchip-tcb-capture.c b/drivers/counter/microchip-tcb-capture.c
+index 2f096a5b973d..316755c7659a 100644
+--- a/drivers/counter/microchip-tcb-capture.c
++++ b/drivers/counter/microchip-tcb-capture.c
+@@ -6,10 +6,12 @@
+  */
+ #include <linux/clk.h>
+ #include <linux/counter.h>
++#include <linux/interrupt.h>
+ #include <linux/mfd/syscon.h>
+ #include <linux/module.h>
+ #include <linux/mutex.h>
+ #include <linux/of.h>
++#include <linux/of_irq.h>
+ #include <linux/platform_device.h>
+ #include <linux/regmap.h>
+ #include <soc/at91/atmel_tcb.h>
+@@ -18,6 +20,8 @@
+ 				 ATMEL_TC_ETRGEDG_RISING | ATMEL_TC_LDBDIS | \
+ 				 ATMEL_TC_LDBSTOP)
+ 
++#define ATMEL_TC_DEF_IRQS	(ATMEL_TC_ETRGS | ATMEL_TC_COVFS)
++
+ #define ATMEL_TC_QDEN			BIT(8)
+ #define ATMEL_TC_POSEN			BIT(9)
+ 
+@@ -27,6 +31,7 @@ struct mchp_tc_data {
+ 	int qdec_mode;
+ 	int num_channels;
+ 	int channel[2];
++	int irq;
+ };
+ 
+ static const enum counter_function mchp_tc_count_functions[] = {
+@@ -294,6 +299,54 @@ static const struct of_device_id atmel_tc_of_match[] = {
+ 	{ /* sentinel */ }
+ };
+ 
++static irqreturn_t mchp_tc_isr(int irq, void *dev_id)
++{
++	struct counter_device *const counter = dev_id;
++	struct mchp_tc_data *const priv = counter_priv(counter);
++	u32 sr, mask;
++
++	regmap_read(priv->regmap, ATMEL_TC_REG(priv->channel[0], SR), &sr);
++	regmap_read(priv->regmap, ATMEL_TC_REG(priv->channel[0], IMR), &mask);
++
++	sr &= mask;
++	if (!(sr & ATMEL_TC_ALL_IRQ))
++		return IRQ_NONE;
++
++	if (sr & ATMEL_TC_ETRGS)
++		counter_push_event(counter, COUNTER_EVENT_CHANGE_OF_STATE, 0);
++	if (sr & ATMEL_TC_COVFS)
++		counter_push_event(counter, COUNTER_EVENT_OVERFLOW, 0);
++
++	return IRQ_HANDLED;
++}
++
++static void mchp_tc_irq_remove(void *ptr)
++{
++	struct mchp_tc_data *priv = ptr;
++
++	regmap_write(priv->regmap, ATMEL_TC_REG(priv->channel[0], IDR), ATMEL_TC_DEF_IRQS);
++}
++
++static int mchp_tc_irq_enable(struct counter_device *const counter)
++{
++	struct mchp_tc_data *const priv = counter_priv(counter);
++	int ret = devm_request_irq(counter->parent, priv->irq, mchp_tc_isr, 0,
++				   dev_name(counter->parent), counter);
++
++	if (ret < 0)
++		return ret;
++
++	ret = regmap_write(priv->regmap, ATMEL_TC_REG(priv->channel[0], IER), ATMEL_TC_DEF_IRQS);
++	if (ret < 0)
++		return ret;
++
++	ret = devm_add_action_or_reset(counter->parent, mchp_tc_irq_remove, priv);
++	if (ret < 0)
++		return ret;
++
++	return 0;
++}
++
+ static void mchp_tc_clk_remove(void *ptr)
+ {
+ 	clk_disable_unprepare((struct clk *)ptr);
+@@ -378,6 +431,13 @@ static int mchp_tc_probe(struct platform_device *pdev)
+ 	counter->num_signals = ARRAY_SIZE(mchp_tc_count_signals);
+ 	counter->signals = mchp_tc_count_signals;
+ 
++	priv->irq = of_irq_get(np->parent, 0);
++	if (priv->irq > 0) {
++		ret = mchp_tc_irq_enable(counter);
++		if (ret < 0)
++			return dev_err_probe(&pdev->dev, ret, "Failed to set up IRQ");
++	}
++
+ 	ret = devm_counter_add(&pdev->dev, counter);
+ 	if (ret < 0)
+ 		return dev_err_probe(&pdev->dev, ret, "Failed to add counter\n");
+-- 
+2.48.1
 
-The used device tree is as follows:
-
-	thermal-zones {
-		cpu_thermal: cpu-thermal {
-			polling-delay-passive = <250>;
-			polling-delay = <1000>;
-			thermal-sensors = <&tsu>;
-			sustainable-power = <423>;
-
-			cooling-maps {
-				map0 {
-					trip = <&target>;
-					cooling-device = <&cpu0 0 2>;
-					contribution = <1024>;
-				};
-			};
-
-			trips {
-				sensor_crit: sensor-crit {
-					temperature = <125000>;
-					hysteresis = <1000>;
-					type = "critical";
-				};
-
-				target: trip-point {
-					temperature = <56000>;
-					hysteresis = <1000>;
-					type = "passive";
-				};
-			};
-		};
-	};
-
-I executed with:
-
-time ./thermometer -o out -l DEBUG -c t.conf -- ./test.sh
-
-where test.sh is:
-
-sleep 10; time echo 100000000 | dhry; sleep 10
-
-My dhry has no -t or -r option so I passed the number of runs checking that
-the test executes for 120 seconds.
-
-I executed first the thermometer application with runtime PM suspend/resume
-on temperature read, then wait for ~25 minutes then executed the tests w/o
-runtime PM suspend/resume on temperature read.
-
-The output of the thermometer application is as follows:
-
-- runtime PM suspend/resume when reading: https://p.fr33tux.org/5bbb4d
-- no runtime PM suspend/resumes when reading: https://p.fr33tux.org/c9a7cf
-- full console log while testing: https://p.fr33tux.org/ace3a6
-
-I also plotted the results for visual comparison as follows:
-
-1/ RPM + no-RPM (continuous time base):
-https://i2.paste.pics/c3956d15a7a889a9e1ee5b60529b42f6.png?rand=axUi4IsA1C
-
-2/ RPM + no-RPM (first samples, for side by side comparison):
-https://i2.paste.pics/e2a30af590e28a091415e3afb74eb0ac.png?rand=XQhoxUe1EM
-
-3/ RPM only:
-https://i2.paste.pics/977d4de070b8e2a19694ae2b4ba3c5fc.png?rand=IfZOkonRd9
-
-4/ no-RPM only:
-https://i2.paste.pics/5d6e3d0a124e5e4b3b8b397d7b5b057c.png?rand=UaigrMRNvy
-
-Please let me know how your input.
-
-Thank you,
-Claudiu
-
-
-> 
-> Thank you,
-> Claudiu
-> 
->>
->>
->>
->>
->>
->>
-> 
 
 
