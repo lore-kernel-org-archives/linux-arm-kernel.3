@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4DE4C02195
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 15:34:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB689C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 15:40:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:
-	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PAvOtJHsIMS59RfRzFfMyl8id23TWAECc7EwAHrUKlY=; b=fJcTU6mJspNeSvlRLPofX05M+s
-	rBHBIDDyXhZMebAUWeW0WUazmwKZaawcKN2xmXPeCvyTzBj54ARmrEMXmjLNSYBgjTxxqtjFdKLd+
-	ZsVyD2U2wzjbY+fvgLxIzfK/IeQoGaJzNKEf3++sh9cpwSbgVjIkox9Aqf1UAYaqK87s0d1IlHlI9
-	lGrMzLO7+HgAU2yDlFlaRJYz9VWHtiaGwcQ1CQRBJKTKiq9F9WX9qKCPNmUmVL6bOZuZMyiE0kema
-	Rq3eCGQ9OntpjJpYJtmgPMYixl5I+Qo66ghtHRPxyjzPOCD47Wbk4q0vQ6Sv04fupfX0DnBp8IOdN
-	dC5Ay24Q==;
+	bh=5Hh74WA275nhjvf6vpcBlmtIv4z7B5mF/cfHtzS9MlE=; b=Nyhz5wILRVnvJboAi69JPuJJTe
+	p5+l2/9J01rED2tknNwVw5w8EbRtHwFPMDspk0Axz36ZlMsXX7Kc+V9IwiRRC77H9g1R3u59J8OQw
+	H+Eq2kgir9M3C/1FVflitrKhEwRPn8Xc6joMYFuvan3gx9ta+U5mCa1oHunooU227NR+GoUvyz1dZ
+	OhlhRjMl9gwsnJAZ/FKtsi6dlTThjaYMzzSFSiV/tlqQjmlQ0PdO/ntyBfKwvr8R/UgXrjT7CifK+
+	fYeQxmmIrAI0S8z8JlVvXLdv5JqGjANCbM4SenpEz96+LvZlwoXUnbejRBNY49xgckGY6fxWikiX2
+	YTttAYWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teySs-0000000Ft2O-1CnO;
-	Mon, 03 Feb 2025 15:34:22 +0000
-Received: from s3.sipsolutions.net ([2a01:4f8:242:246e::2] helo=sipsolutions.net)
+	id 1teyYA-0000000Ftr5-17VI;
+	Mon, 03 Feb 2025 15:39:50 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1teyQO-0000000FsWJ-0y03
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 15:31:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=sipsolutions.net; s=mail; h=MIME-Version:Content-Transfer-Encoding:
-	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-To:
-	Resent-Cc:Resent-Message-ID; bh=PAvOtJHsIMS59RfRzFfMyl8id23TWAECc7EwAHrUKlY=;
-	t=1738596707; x=1739806307; b=fIaz1gfHvcYHuO2i9in32PIUFvHhlraZrhUM8XCIsmIxw46
-	76QsyeWXAZBDJ6QMabi73sU7qiR2xTULaEaumQyUvpRCtfkN/ABW05j37btIxdKBWDrDof8BXOYCr
-	BVEVkBuhK0mM51NUG+Bg1GwhpgnR20KN5tyyPTU3cZReVzLAbrhgye6T5/Y5TuMiy7Jzcfz3Rx24k
-	4UPoNu5c6JvkZY8LeGJ+QowP90XB6cd9+1HkPJsD4FEFM3uMZZRdqC1jGVhfkR6r20SevPqJEKFBR
-	h6Lw/TVDIhEgo/chvWHNTB+GGREYbbs8u6MVL1pCEma8YUOHCjB/eIzYzPERp7Rg==;
-Received: by sipsolutions.net with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.98)
-	(envelope-from <johannes@sipsolutions.net>)
-	id 1teyQE-00000001gus-0LFB;
-	Mon, 03 Feb 2025 16:31:38 +0100
-Message-ID: <2904baea9188a4707d4b5a9a6bfa517a54323f8a.camel@sipsolutions.net>
-Subject: Re: [PATCH treewide v2 1/3] bitfield: Add non-constant
- field_{prep,get}() helpers
-From: Johannes Berg <johannes@sipsolutions.net>
-To: Vincent Mailhol <mailhol.vincent@wanadoo.fr>, Yury Norov
-	 <yury.norov@gmail.com>
-Date: Mon, 03 Feb 2025 16:31:36 +0100
-In-Reply-To: <45920591-e1d6-4337-a906-35bb5319836c@wanadoo.fr>
-References: <cover.1738329458.git.geert+renesas@glider.be>
-	 <1824412519cb8791ab428065116927ee7b77cf35.1738329459.git.geert+renesas@glider.be>
-	 <e20a177a-30cd-4088-89e1-b479aba1356c@wanadoo.fr>
-	 <Z5-xMUqrDuaE8Eo_@thinkpad>
-	 <74cab7d1ec31e7531cdda0f1eb47acdebd5c8d3f.camel@sipsolutions.net>
-	 <45920591-e1d6-4337-a906-35bb5319836c@wanadoo.fr>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.54.3 (3.54.3-1.fc41) 
+	id 1teyVa-0000000FtSX-1aYW;
+	Mon, 03 Feb 2025 15:37:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5D957A414F4;
+	Mon,  3 Feb 2025 15:35:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25DD6C4CEEA;
+	Mon,  3 Feb 2025 15:37:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738597029;
+	bh=sfylPJubRQa0RsghaJs13B2uvS7uCwVTb+ajboSxtWM=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=YCK/gJmVBhifud6DyjAyqCdAxRrF7cHgL4t8K3otG7aGJNb8BezDkPAWV52oWm96i
+	 NP8kEmTjdvlHphyAE9zaUzZxdaUbb8mfZTwrhkexfx1qF30I5RqPZKJVPYwSIxLo/G
+	 MO5HSCjKAINSSNM3R1jICWiHJeR9Imgy6rb3JVdcUc1wIjgrpI0DiZeIIXEqe0D9Wu
+	 PQQ4GvxWrz1oFigbTwmeLKJPB6qYUKyIMdUJHtpyzcJJruHcYvyymBnjb0EP00jC/6
+	 3VyaWDBUPXzeCILbG5vlhI9FDggngsZWP9QSbQARAZ/J92MHKBZCNUakrRuGTeVRrW
+	 LodTL9/akGChg==
+Date: Mon, 03 Feb 2025 09:37:08 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-X-malware-bazaar: not-scanned
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Christian Hewitt <christianshewitt@gmail.com>, 
+ Kevin Hilman <khilman@baylibre.com>, Artur Weber <aweber.kernel@gmail.com>, 
+ Karl Chan <exxxxkc@getgoogleoff.me>, devicetree@vger.kernel.org, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ ~postmarketos/upstreaming@lists.sr.ht, linux-amlogic@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>
+To: Ferass El Hafidi <funderscore@postmarketos.org>
+In-Reply-To: <20250203091453.15751-1-funderscore@postmarketos.org>
+References: <20250203091453.15751-1-funderscore@postmarketos.org>
+Message-Id: <173859694815.2601688.2854626525832601939.robh@kernel.org>
+Subject: Re: [PATCH v3 0/2] Add support for Xiaomi Mi TV Stick
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_073148_266337_3B81A07E 
-X-CRM114-Status: GOOD (  22.74  )
+X-CRM114-CacheID: sfid-20250203_073710_555079_AEECDAAC 
+X-CRM114-Status: GOOD (  23.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,61 +74,99 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Giovanni Cabiddu <giovanni.cabiddu@intel.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Crt Mori <cmo@melexis.com>, linux-aspeed@lists.ozlabs.org, linux-iio@vger.kernel.org, Michael Turquette <mturquette@baylibre.com>, Rasmus Villemoes <linux@rasmusvillemoes.dk>, linux-kernel@vger.kernel.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Shan-Chun Hung <schung@nuvoton.com>, linux-clk@vger.kernel.org, Lars-Peter Clausen <lars@metafoo.de>, Geert Uytterhoeven <geert+renesas@glider.be>, Bartosz Golaszewski <brgl@bgdev.pl>, Takashi Iwai <tiwai@suse.com>, qat-linux@intel.com, Joel Stanley <joel@jms.id.au>, Jakub Kicinski <kuba@kernel.org>, Andrew Jeffery <andrew@codeconstruct.com.au>, Linus Walleij <linus.walleij@linaro.org>, Jacky Huang <ychuang3@nuvoton.com>, linux-sound@vger.kernel.org, linux-gpio@vger.kernel.org, Alex Elder <elder@ieee.org>, Jaroslav Kysela <perex@perex.cz>, linux-arm-kernel@lists.infradead.org, Herbert Xu <herbert@gondor.apana.org.au>, Stephen Boyd <sboyd@kernel.org>, linux-renesas-soc@vger.kernel.org, linux-crypto@vger.kernel.org, "David S . Miller" <davem@davemloft.net>, Jonathan Cameron <jic23@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2025-02-03 at 22:36 +0900, Vincent Mailhol wrote:
-> > On the flip side, there have been discussions in the past (though I
-> > think not all, if any, on the list(s)) about the argument order. Since
-> > the value is typically not a constant, requiring the mask to be a
-> > constant has ensured that the argument order isn't as easily mixed up a=
-s
-> > otherwise.
->=20
-> If this is a concern, then it can be checked with:
->=20
->   BUILD_BUG_ON_MSG(!__builtin_constant_p(_mask) &&
->                    __builtin_constant_p(_val),
->                    _pfx "mask is not constant");
->=20
-> It means that we forbid FIELD_PREP(non_const_mask, const_val) but allow
-> any other combination.
 
-There almost certainly will be users who want both to be non-constant
-though, and anyway I don't understand how that helps - if you want to
-write the value 0x7 to the (variable) mask 0xF then this won't catch
-anything?
+On Mon, 03 Feb 2025 09:14:51 +0000, Ferass El Hafidi wrote:
+> This patch series aims to add initial support for the Xiaomi Mi TV
+> Stick.
+> 
+> Xiaomi Mi TV Stick is a small Amlogic-based Android TV stick released in
+> 2020, and known as `xiaomi-aquaman` internally (in the downstream kernel,
+> u-boot, ...)
+> Its specifications are as follows:
+>  * Amlogic S805Y SoC (believed to be mostly identical to S805X)
+>  * 8 GB eMMC
+>  * 1 GB of RAM
+>  * Android TV 9, upgradable to Android TV 10
+> 
+> There are multiple variants:
+>  * 1. Green PCB, manufactured in 2020, known UART pinout (helpfully
+>    labeled on the board)
+>  * 2. Blue PCB, not much documentation about it, presumably manufactured
+>    between 2021 and 2023
+>  * 3. Green PCB, manufactured in 2023, known UART pinout, some layout
+>    changes compared to the 2020 variant
+> 
+> Among these variants, there are many boards using multiple different
+> Wi-Fi chips.  Supporting all of them is out of scope for this patch
+> series.
+> 
+> As of the time of writing this has only been tested on the 3rd variant.
+> It is believed that software-wise all three work mostly the same (if we
+> don't count Wi-Fi), but testing on the other variants would still be
+> appreciated.
+> 
+> The devicetree is based on the Amlogic P241 DTS.
+> 
+> Changes since v2 [1]:
+>  * fix SoB/From mismatch
+> 
+> Changes since v1 [2]:
+>  * remove useless nodes: cvbs-connector, ethmac, internal_phy, ir
+>  * add `amlogic,s805y` DT binding section
+>  * add S805Y dtsi: meson-gxl-s805y.dtsi
+>  * adjust DT `model` to "Xiaomi Mi TV Stick (Aquaman)"
+>  * explain the changes being done a bit more in the commit message for
+>    the DT patch
+>  * drop `clocks` and `clock-names` from pwm_ef (background: [3])
+>  * change sound `model` to "XIAOMI-AQUAMAN"
+> 
+> [1]: https://lore.kernel.org/all/20250201193044.28856-1-funderscore@postmarketos.org/
+> [2]: https://lore.kernel.org/all/20250131200319.19996-1-funderscore@postmarketos.org/
+> [3]: https://lore.kernel.org/linux-amlogic/20241227212514.1376682-1-martin.blumenstingl@googlemail.com/
+> 
+> Ferass El Hafidi (2):
+>   dt-bindings: arm: amlogic: add S805Y and Mi TV Stick
+>   arm64: dts: amlogic: add support for xiaomi-aquaman/Mi TV Stick
+> 
+>  .../devicetree/bindings/arm/amlogic.yaml      |   7 +
+>  arch/arm64/boot/dts/amlogic/Makefile          |   1 +
+>  .../meson-gxl-s805y-xiaomi-aquaman.dts        | 288 ++++++++++++++++++
+>  .../boot/dts/amlogic/meson-gxl-s805y.dtsi     |  10 +
+>  4 files changed, 306 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/amlogic/meson-gxl-s805y-xiaomi-aquaman.dts
+>  create mode 100644 arch/arm64/boot/dts/amlogic/meson-gxl-s805y.dtsi
+> 
+> --
+> 2.47.1
+> 
+> 
+> 
 
-> > However, the suggested change to BUILD_BUG_ON_NOT_POWER_OF_2 almost
-> > certainly shouldn't be done for the same reason - not compiling for non=
--
-> > constant values is [IMHO] part of the API contract for that macro. This
-> > can be important for the same reasons.
->=20
-> Your point is fair enough. But I do not see this as a killer argument.
-> We can instead just add below helper:
->=20
->   BUILD_BUG_ON_STATICALLY_NOT_POWER_OF_2()
->=20
-> But, for the same reason why I would rather not have both the
-> FIELD_{PREP,GET}() and the field_{prep,get}(), I would also rather not
-> have a BUILD_BUG_ON_NOT_POWER_OF_2() and a
-> BUILD_BUG_ON_STATICALLY_NOT_POWER_OF_2().
->=20
-> If your concern is the wording of the contract, the description can just
-> be updated.
 
-No, I just think in both cases it's really bad form to silently update
-the contract removing negative assertions that other people may have
-been relying on. Not because these trigger today, of course, but because
-they may not have added additional checks, or similar.
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
-So arguably then you should have BUILD_BUG_ON_CONST_NOT_POWER_OF_2() or
-so instead, so that all existing users are unaffected by the updates,
-and similarly that's an argument for leaving FIELD_* versions intact. Or
-I guess one could change all existing users to new ones accordingly, say
-FIELD_*_CONST_MASK(), but that's pretty annoying too.
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
 
-johannes
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/amlogic/' for 20250203091453.15751-1-funderscore@postmarketos.org:
+
+arch/arm64/boot/dts/amlogic/meson-gxl-s805y-xiaomi-aquaman.dtb: phy@78000: 'vbus-supply' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/phy/amlogic,meson-gxl-usb2-phy.yaml#
+
+
+
+
+
 
