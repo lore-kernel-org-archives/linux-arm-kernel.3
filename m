@@ -4,96 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CBC9C02193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 08:14:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37A98C02195
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 08:15:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uOeb8efLQiEOJZxiEbHRsSqxowE6l9kgH/W2YzzMtQE=; b=uMtmgc9GrlSUBbA4eB3RH2F5TV
-	pZTvbRPuVmPrqWST5DDibXhZQF0oRPv8evFXhS89Zy3cLteOm8HGUZh54U5QPHWWnbMk/fgfWZq4m
-	8t2Hmy4BzaQdHFqkOAP+Zbb8qUOq2ExBxrxT3d3fq/MLgGXL6tAa6vMA7W7JD64+C+HcnpFwlHMof
-	c2iovqWip4qHjgGf0YO+v/3W99rxMQ/XCSK04Shl8eTsXwveuZBXqv4nmZ5oAU04oIAf9p74kd+FQ
-	nME+nj3PMuqndQCGkBKG+b4s4lDpvv4so8xaBfO+e9THD7ZETMULJyGohPMOuaW5CTt29m/bvl1Rf
-	m1uJKb/g==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Un+cEQl1penET6kXVhDwk0syJ582vZdE0QyY38dr2j4=; b=BmvGyf+lrkd5y6RHBvYwW4w1Eu
+	aUT7Sw3ji09kmofsfpTTy9ch3QBjXBmQ3Wxmi0u4sMQ6h6kMb6MoWKfBAgdK7Sc8Eu6ab3J/DdkNa
+	J9bcX01SuPDNZIDTS+kP12QEmzS3L0STXQWpM4WXJHfGGdTbq44aJUAeqieM56Ner852S0hvS02vp
+	XReqgDqkhshl5IeuCmRG2r0LAAb65Z0DmLp36PWNzQ9ehMxj8//3Vp9IMb9tpNgDuxT0twEordGLL
+	Z7B/86sfVs6sRzRZ97P9PbOCDs7REKhUM5eCJf72e/mR+qrGkB3U1uydSBnWiMl/pcW2mkNnhz2Xn
+	V+yMYPDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teraX-0000000En0a-1Ibi;
-	Mon, 03 Feb 2025 08:13:49 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1terbo-0000000EnEs-3qfw;
+	Mon, 03 Feb 2025 08:15:08 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1terYT-0000000EmZd-2Cby;
-	Mon, 03 Feb 2025 08:11:43 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 512KqXs6022506;
-	Mon, 3 Feb 2025 08:11:24 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=uOeb8efLQiEOJZxiEbHRsS
-	qxowE6l9kgH/W2YzzMtQE=; b=C1/ZZc3v5CjA1wgv7weTJ5RZgZgySsE3wk5LLD
-	55Fs8rFAIWbV+tDm4l5JoD2Bmb4J+iOtbP59vXjr2m0xUx0np8sa0bQNIZUZTddl
-	nKPRXgnxzWuy++9fLUXH8VtFh4hKAxdPGQ3NIvUA53QQwD+bjtAyvwEAoGeFDssi
-	4grgDIDoyoVkVZ00URQjvfpPUhcXvHsm60BNN1qpJX+Fl41hKfSZ3bp82Bkx4joq
-	gBa/QwJUXAlw//EKlcB1VHh0pFIo4VLpoq5yvYVjgB+p0UetEy7pPLECKXyiFYkF
-	XRaJqUr+RHrybHmxVLCuRj7lTeDrm2ch3cmFAHTEhwPExbaw==
-Received: from aptaippmta01.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com [103.229.16.4])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44jd429238-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 03 Feb 2025 08:11:23 +0000 (GMT)
-Received: from pps.filterd (APTAIPPMTA01.qualcomm.com [127.0.0.1])
-	by APTAIPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTP id 5138BJxr013123;
-	Mon, 3 Feb 2025 08:11:19 GMT
-Received: from pps.reinject (localhost [127.0.0.1])
-	by APTAIPPMTA01.qualcomm.com (PPS) with ESMTPS id 44hcpkhs9n-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 03 Feb 2025 08:11:19 +0000
-Received: from APTAIPPMTA01.qualcomm.com (APTAIPPMTA01.qualcomm.com [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 5138BJoB013118;
-	Mon, 3 Feb 2025 08:11:19 GMT
-Received: from cbsp-sh-gv.ap.qualcomm.com (CBSP-SH-gv.ap.qualcomm.com [10.231.249.68])
-	by APTAIPPMTA01.qualcomm.com (PPS) with ESMTPS id 5138BJC7013114
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 03 Feb 2025 08:11:19 +0000
-Received: by cbsp-sh-gv.ap.qualcomm.com (Postfix, from userid 393357)
-	id 0FD1A40BFE; Mon,  3 Feb 2025 16:11:18 +0800 (CST)
-From: Ziqi Chen <quic_ziqichen@quicinc.com>
-To: quic_cang@quicinc.com, bvanassche@acm.org, mani@kernel.org,
-        beanhuo@micron.com, avri.altman@wdc.com, junwoo80.lee@samsung.com,
-        martin.petersen@oracle.com, quic_ziqichen@quicinc.com,
-        quic_nguyenb@quicinc.com, quic_nitirawa@quicinc.com,
-        quic_rampraka@quicinc.com
-Cc: linux-arm-msm@vger.kernel.org, linux-scsi@vger.kernel.org,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        linux-kernel@vger.kernel.org (open list:ARM/Mediatek SoC support:Keyword:mediatek),
-        linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support:Keyword:mediatek),
-        linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support:Keyword:mediatek)
-Subject: [PATCH v3 0/8] Support Multi-frequency scale for UFS
-Date: Mon,  3 Feb 2025 16:11:01 +0800
-Message-Id: <20250203081109.1614395-1-quic_ziqichen@quicinc.com>
-X-Mailer: git-send-email 2.34.1
+	id 1terYb-0000000Emcu-0t0K
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 03 Feb 2025 08:11:50 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-436ce2ab251so27475815e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 00:11:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1738570307; x=1739175107; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Un+cEQl1penET6kXVhDwk0syJ582vZdE0QyY38dr2j4=;
+        b=XJ9HGt8MZZ0fL1YtATWoyH0RY7Hr5vSbDVR9ib2hw9UoeKTqexVJxwd2PpQTUkkSj1
+         V+cBYbLJ+AP53vNrR0yhV0p4Gau6gqiKPcO4P1IesJLhipF8NGndXHkWQOw1Vb/IjEaO
+         P1ePiN3rI+ta7K883T0ApGhIwe4LBNs4ZDNNaG7EqN8RDFeR3VZclcnBaKN42eGUFqHM
+         bjOUPXkBddW5+lf8BN+T4N40PrgtMylSlGN/FSBqcy6fqgFUcbnfvJSxXqtTujqnP0TQ
+         Mu8LIowzNiiw91qyhOizmJsClHCW5zWUvgYkvySYB+C1eTKo1YR3zZcWJ2Bwjf6+6B8X
+         u9Mg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738570307; x=1739175107;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Un+cEQl1penET6kXVhDwk0syJ582vZdE0QyY38dr2j4=;
+        b=Lj9EN6T7K1PfAeV67Qq+tXb6r/AOLMz7vT/uMw+2NWNd5fKN7lKHAfSmpnJcSfWD1w
+         Is9D/Ipj0l1dQm0iWdkKgmQ/1P23DvHfKul3huZIQnFsbuQEzdsDc9fkHNIqJfD0F9/b
+         Kt70Gv7LrPEqOPi0bQMDcpKq57qB/kws7vMeaRgxRBJYx9NUNpaRDsulozfu8vcRbUyX
+         b+81e7mH/qPCWWGUBix3jWWcpMQxN2IbreSsr4KKNFZhSnVdSTjVtW9prqRkj7d7bUbs
+         FxNiGQQd7Aeq/+0ZG20REMt9lhGpczQwXTliEJu7oSHdi22XhZUBzn+qV++YM08XjkKF
+         d4+w==
+X-Forwarded-Encrypted: i=1; AJvYcCVmvN2y5M2N8uOwBJC/rVI1nHf+FbyxOsZGCmrpXEnRrQSaoWTElRC1bursOCdngJCvBaZWUXCqTGnmMW7d7lkS@lists.infradead.org
+X-Gm-Message-State: AOJu0YwLqngIuWn8UARuglfa9kV/Mdea+nFC5kdO9CQEcLui2xvMXWrt
+	b9LY5TVePxKDLocUcPEuOmweIlrkw2oliWuGT6xkx36GeKlTGryHAHOyKs5hkL4=
+X-Gm-Gg: ASbGncuEpIm5RCtep9CLy8DOekNiIymrFIydIyNhumv2V4sc7th6h5fPRneuOPN3hrV
+	Rt1D+XFjJ+Zfi0C8AUxrNklF4yahDpRQMqt/yW4XRj1VHepHMk7f8erc6rIpGVM60WSFUULypuA
+	TuswUDaGSvHUZ3msbqW/UyC7/BsO/uZqWBXp6xiS3tE837tVsep8n+rLat0bPVu8fbu1n5WB+6A
+	fYsj3yyvFAlf3Z4WHlg7uBBde53g9NN1JyuQlOeYq93sRjqy2GVC2LwLG/mSkfbjvipddUg+P5C
+	Y/LBXnHoRcaOew==
+X-Google-Smtp-Source: AGHT+IFsYJyukqNwI/R5K0rzDdSZ+QGIaGzEDlXZz/nQ/Yp+9OtLlQtZNmGQAJmE2taDeIWJxu5lOw==
+X-Received: by 2002:a05:600c:3d05:b0:434:a802:e99a with SMTP id 5b1f17b1804b1-438dc3ab389mr164710125e9.4.1738570306784;
+        Mon, 03 Feb 2025 00:11:46 -0800 (PST)
+Received: from brgl-uxlite.home ([2a01:cb1d:dc:7e00:62d7:938e:c76:df44])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438e244eb0dsm147095175e9.27.2025.02.03.00.11.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Feb 2025 00:11:46 -0800 (PST)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+To: David Lechner <david@lechnology.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH] ARM: dts: ti: davinci: Align GPIO hog name with bindings
+Date: Mon,  3 Feb 2025 09:11:45 +0100
+Message-ID: <173857030323.20448.16564760541059882154.b4-ty@linaro.org>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250116090030.87452-1-krzysztof.kozlowski@linaro.org>
+References: <20250116090030.87452-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=y
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-QCInternal: smtphost
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: ugiwuoD0R0Q0RPMlmh3RWsC-Co_GUm0y
-X-Proofpoint-ORIG-GUID: ugiwuoD0R0Q0RPMlmh3RWsC-Co_GUm0y
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-03_03,2025-01-31_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0
- priorityscore=1501 suspectscore=0 mlxlogscore=999 malwarescore=0
- spamscore=0 bulkscore=0 mlxscore=0 lowpriorityscore=0 impostorscore=0
- adultscore=0 clxscore=1015 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2501170000 definitions=main-2502030065
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_001141_681357_B5B225DF 
-X-CRM114-Status: GOOD (  11.36  )
+X-CRM114-CacheID: sfid-20250203_001149_509838_B75BFCC2 
+X-CRM114-Status: UNSURE (   8.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,58 +106,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With OPP V2 enabled, devfreq can scale clocks amongst multiple frequency
-plans. However, the gear speed is only toggled between min and max during
-clock scaling. Enable multi-level gear scaling by mapping clock frequencies
-to gear speeds, so that when devfreq scales clock frequencies we can put
-the UFS link at the appropraite gear speeds accordingly.
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-This series has been tested on below platforms -
-sm8550 mtp + UFS3.1
-SM8650 MTP + UFS3.1
-SM8750 MTP + UFS4.0
 
-v1 -> v2:
-1. Withdraw old patch 8/8 "ARM: dts: msm: Use Operation Points V2 for UFS on SM8650"
-2. Add new patch 8/8 "ABI: sysfs-driver-ufs: Add missing UFS sysfs addributes"
-3. Modify commit message for  "scsi: ufs: core: Pass target_freq to clk_scale_notify() vops" and "scsi: ufs: qcom: Pass target_freq to clk scale pre and post change"
-4. In "scsi: ufs: qcom: Pass target_freq to clk scale pre and post change", use common Macro HZ_PER_MHZ in function ufs_qcom_set_core_clk_ctrl()
-5. In "scsi: ufs: qcom: Implement the freq_to_gear_speed() vops", print out freq and gear info as debugging message
-6. In "scsi: ufs: core: Enable multi-level gear scaling", rename the lable "do_pmc" to "config_pwr_mode"
-7. In "scsi: ufs: core: Toggle Write Booster during clock", initialize the local variables "wb_en" as "false"
+On Thu, 16 Jan 2025 10:00:30 +0100, Krzysztof Kozlowski wrote:
+> Bindings expect GPIO hog names to end with 'hog' suffix, so correct it
+> to fix dtbs_check warnings like:
+> 
+>   da850-lego-ev3.dtb: batt_volt_en: $nodename:0: 'batt_volt_en' does not match '^.+-hog(-[0-9]+)?$'
+> 
+> 
 
-v2 -> v3:
-1. Change 'vops' to 'vop' in all commit message
-2. keep the indentation consistent for clk_scale_notify() definition.
-3. In "scsi: ufs: core: Add a vop to map clock frequency to gear speed", "scsi: ufs: qcom: Implement the freq_to_gear_speed() vop"
-   and "scsi: ufs: core: Enable multi-level gear scaling", remove the parameter 'gear' and use it as return result in function freq_to_gear_speed()
-4. In "scsi: ufs: qcom: Implement the freq_to_gear_speed(), removed the variable 'ret' in function ufs_qcom_freq_to_gear_speed()
-5. In "scsi: ufs: core: Enable multi-level gear scaling", use assignment instead memcpy() in function ufshcd_scale_gear()
-6. Improve the grammar of attributes' descriptions in “ABI: sysfs-driver-ufs: Add missing UFS sysfs attributes”
-7. Typo fixed for some commit messages.
+Applied, thanks!
 
-Can Guo (6):
-  scsi: ufs: core: Pass target_freq to clk_scale_notify() vop
-  scsi: ufs: qcom: Pass target_freq to clk scale pre and post change
-  scsi: ufs: core: Add a vop to map clock frequency to gear speed
-  scsi: ufs: qcom: Implement the freq_to_gear_speed() vop
-  scsi: ufs: core: Enable multi-level gear scaling
-  scsi: ufs: core: Toggle Write Booster during clock scaling base on
-    gear speed
+[1/1] ARM: dts: ti: davinci: Align GPIO hog name with bindings
+      commit: 58abc69e479cf5b36c4fc4287a11c9d92d2ce4b8
 
-Ziqi Chen (2):
-  scsi: ufs: core: Check if scaling up is required when disable clkscale
-  ABI: sysfs-driver-ufs: Add missing UFS sysfs attributes
-
- Documentation/ABI/testing/sysfs-driver-ufs | 33 ++++++++++
- drivers/ufs/core/ufshcd-priv.h             | 15 ++++-
- drivers/ufs/core/ufshcd.c                  | 76 +++++++++++++++++-----
- drivers/ufs/host/ufs-mediatek.c            |  1 +
- drivers/ufs/host/ufs-qcom.c                | 62 ++++++++++++++----
- include/ufs/ufshcd.h                       |  9 ++-
- 6 files changed, 160 insertions(+), 36 deletions(-)
-
+Best regards,
 -- 
-2.34.1
-
+Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
