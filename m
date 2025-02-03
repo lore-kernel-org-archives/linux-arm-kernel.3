@@ -4,87 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 593B9C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 14:50:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67C18C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 14:51:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QMbi0p6QzsDqbBe7Zuf2uC7AQIslfGBnquGb7Q0ssVQ=; b=1bbpj0PuiRfjKjW34Q1U4ZWQ7v
-	tloSft9uaJtq43+Ll3Waf7I9ymWQRq8u/EM1FthDK11QuxgjXwXznZzL+kKKJL4rMGndE/2vYXNb1
-	5Eq8ZjTtUA2ppIdNr+2QKTW6HBJx6WgzxlCL8q7lmc/0CtFzbOISddlU9MsdiT3NWgtnvxYkKUH+t
-	zw3V9NdPwcOtM21WIlk5ZNOGZhb2XrL7qPGuPnebZHRa18Q0SxB/iJxsoFv5kHSZHmh7w5Uff86br
-	sc9YOtvOzRFwZMJbH4J9EmKXFZcwVcSuNfC14/8Yp6tZzN5iCFvsnwqU03HGMLZsWwOjmaxhR0fz/
-	p5FRD0RQ==;
+	bh=MnSNxIgYPsgpg0tKKR24BYQMKAZxqPPimhE/YL6OUow=; b=CjrIFD6uEfbId7wgGmL0z8ycYS
+	UIQoW9Ag45WqqfWTXn6eG76ClWFNfj+B3VMZzNDglX2hYcjcjuNfTlcXvUW/RuqZxNFp2GPNotcnl
+	40AOIVAzqJslBvoE4OP/w+UDEVYJnCR/Y6cQfAJUWsiz+CQzRcQowzhRVkUT2YMu/ra0mmJPj635m
+	cZD/0HVmiQCQX87/ElQ0oIZAI0HzWVH9uU4HUlxSvmvU9I4NwiKvyOOj+47c5L8IXDefzhEXGC4Xl
+	pZ9zMd3hB8esKIPN6hBgFt17g1VfSHub4zzggI9TTJb1U3zDiP5HndO55dvEYTuH43qYUrp3+0H7E
+	1A4eKVSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1texmC-0000000FkmP-1GQe;
-	Mon, 03 Feb 2025 14:50:16 +0000
+	id 1texnU-0000000Fl6N-42Ek;
+	Mon, 03 Feb 2025 14:51:36 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1texh2-0000000FjeS-00Ly
+	id 1texh2-0000000FjfH-1U0B
 	for linux-arm-kernel@bombadil.infradead.org;
 	Mon, 03 Feb 2025 14:44:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=QMbi0p6QzsDqbBe7Zuf2uC7AQIslfGBnquGb7Q0ssVQ=; b=cdOGEnhW6zF2QukMUT5BGNGyR+
-	08AxyA1Yz4wkAxDMArRXv/Gnhrumwnz6bQiJgb7UVXFJIB6ENhX7S3U0g0jrwqWVhHIKdvI0cIb9z
-	jLxCuu327iRUHYDyYrjRFShVG+GOVVRZlCcpVic1pN434CjunxCxJ5HOgffvPjiaAsbbnfUCYDuNP
-	iugMgduyJGvwJjDIlG20SKIxswpxwcdhadwSu+9KW6825Geqy9+GaE/mGxcAyq4hk8vCZIXYaXeh5
-	c3NY9TwiZArYnFOK03bV1bcNV/oztgMNPDVeNpTPRQ8JnqsTxacRu3PmOAxfRX7dW6zExqULOY6++
-	1D+I9o9w==;
+	bh=MnSNxIgYPsgpg0tKKR24BYQMKAZxqPPimhE/YL6OUow=; b=DRPK4tGDZecU36PRuWwTLzWJDF
+	K8JjN6HMLy78FSlpSmQVhJl/XOQj5It7/5zMnQryDYL/kU4g124E75yEYgaInIVYzK7th49DhMoet
+	OypXWw8zEFNQizv4Hk0hnrDyy/LOUmUkFRUE57Yr5pvLJ3xRX5NFKSl6Z+g9TbFrfx56FEWPmx2vH
+	XetUvGnPQ8ew7Z3wWvzZ6Z0phYCRyGdzLjiNAP1LBRsEVwD41ddqSjDTsl5kluexUYMaXDjNRRGNj
+	E0fAi87pCcwVFajQh3dqw6C5RzXmN0oz4ofM6To6UFkIXJpBmdfG543NUFKexTUgpFop6A7luXUwx
+	Mw1OKFIw==;
 Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1texgy-0000000G6Fs-1djq
+	id 1texgy-0000000G6Fp-1Yfo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 14:44:54 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 513Cn9Ht028850;
-	Mon, 3 Feb 2025 14:44:34 GMT
+	Mon, 03 Feb 2025 14:44:55 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5135OYlV014151;
+	Mon, 3 Feb 2025 14:44:30 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=QMbi0p6QzsDqbBe7Z
-	uf2uC7AQIslfGBnquGb7Q0ssVQ=; b=Ij8cHDMlVvGKdzZg/f2CNYe9335dQgUbD
-	2AyYXJBaNGN/qDpwDWlSNk+LYjAF7moex8hm1PP6pHw1iHbBHuQbAF1JyFB9FOhG
-	n7T4U3mJzVYFbcptCwdOMxaAb4wReQoJz38aMCaB933Tid5CYwofGS7+jQIpg41d
-	oVRHh0mN4TxVdhVVH0XZRwm3Xfe2eTwbelvjYWarFNr2SediL4vLTTyQh8/tajEK
-	EJo6Yxmk34P/s9tMb9WVqY7LkNMCXqHsTY38jC8z2o7OGD0Ae/4bR8y7vm5sUMAm
-	sbNdo6gVJs5AW/HoCCHAEb5nHW9OM702fPYwe4ZpTxFM4u5n+TouQ==
+	:mime-version:references:subject:to; s=pp1; bh=MnSNxIgYPsgpg0tKK
+	R24BYQMKAZxqPPimhE/YL6OUow=; b=MLeAX5TdmMNpf6EqZGj1nvV74N2f6Bqzi
+	eninJqjRj7LR3Z3qdvBnNiEosWIAlPC6jJoZNgpJmYFSw30sPKUeb2c3C8b4x8VX
+	23emq315j73Vd4DkuNxVDHdVOuN5Gd8NqCYEIfXdnymRk87kNGEYFDejEc2sHfPM
+	xTttmnK/hZ6RbPAecIAPWsWliKxud7A/GoIZRG8Wnyv/yhIdSACXUiFHFs//FtKu
+	WpmXVlIJQKq45jre1czek593Q359TJ5J3DG06Ks1NCvWKgTSpUOFztgOKm5O0W6i
+	7Cg/0Qe600KguxPdS6wMlYAuekBbv9oBGjs/IueTqAN/PQ1x3uTTg==
 Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44jayyd20b-1
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44jqm7aj7c-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 03 Feb 2025 14:44:34 +0000 (GMT)
-Received: from m0356517.ppops.net (m0356517.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 513Eevex025869;
-	Mon, 3 Feb 2025 14:44:33 GMT
+	Mon, 03 Feb 2025 14:44:30 +0000 (GMT)
+Received: from m0353729.ppops.net (m0353729.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 513EZxcm020665;
+	Mon, 3 Feb 2025 14:44:29 GMT
 Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44jayyd208-1
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44jqm7aj79-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 03 Feb 2025 14:44:33 +0000 (GMT)
+	Mon, 03 Feb 2025 14:44:29 +0000 (GMT)
 Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 513Echff016315;
-	Mon, 3 Feb 2025 14:44:32 GMT
-Received: from smtprelay03.dal12v.mail.ibm.com ([172.16.1.5])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 44hwxs709m-1
+	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 513Echfc016315;
+	Mon, 3 Feb 2025 14:44:28 GMT
+Received: from smtprelay05.wdc07v.mail.ibm.com ([172.16.1.72])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 44hwxs7097-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 03 Feb 2025 14:44:32 +0000
+	Mon, 03 Feb 2025 14:44:28 +0000
 Received: from smtpav05.wdc07v.mail.ibm.com (smtpav05.wdc07v.mail.ibm.com [10.39.53.232])
-	by smtprelay03.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 513EiVqK24314604
+	by smtprelay05.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 513EiR1Z32309802
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 3 Feb 2025 14:44:31 GMT
+	Mon, 3 Feb 2025 14:44:27 GMT
 Received: from smtpav05.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 915AD58059;
-	Mon,  3 Feb 2025 14:44:31 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 3263458043;
+	Mon,  3 Feb 2025 14:44:27 +0000 (GMT)
 Received: from smtpav05.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 9189558053;
-	Mon,  3 Feb 2025 14:44:30 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 3B0F15805D;
+	Mon,  3 Feb 2025 14:44:26 +0000 (GMT)
 Received: from gfwa153.aus.stglabs.ibm.com (unknown [9.3.84.127])
 	by smtpav05.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Mon,  3 Feb 2025 14:44:30 +0000 (GMT)
+	Mon,  3 Feb 2025 14:44:26 +0000 (GMT)
 From: Ninad Palsule <ninad@linux.ibm.com>
 To: brgl@bgdev.pl, linus.walleij@linaro.org, minyard@acm.org, robh@kernel.org,
         krzk+dt@kernel.org, conor+dt@kernel.org, andrew+netdev@lunn.ch,
@@ -95,28 +95,28 @@ To: brgl@bgdev.pl, linus.walleij@linaro.org, minyard@acm.org, robh@kernel.org,
         linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
         linux-kernel@vger.kernel.org
 Cc: Ninad Palsule <ninad@linux.ibm.com>
-Subject: [PATCH v7 5/9] ARM: dts: aspeed: system1: Reduce sgpio speed
-Date: Mon,  3 Feb 2025 08:44:15 -0600
-Message-ID: <20250203144422.269948-6-ninad@linux.ibm.com>
+Subject: [PATCH v7 1/9] bindings: ipmi: Add binding for IPMB device intf
+Date: Mon,  3 Feb 2025 08:44:11 -0600
+Message-ID: <20250203144422.269948-2-ninad@linux.ibm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250203144422.269948-1-ninad@linux.ibm.com>
 References: <20250203144422.269948-1-ninad@linux.ibm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: g0jUcbiAnKLkpnywPyS-x7Lk9t418cQl
-X-Proofpoint-ORIG-GUID: KC7nZD8i79-H2m7o0qi-m981TkoK3efa
+X-Proofpoint-GUID: 6JVZS2zuW-JB1O4d1lC0kkUwKg2dNIDO
+X-Proofpoint-ORIG-GUID: HnclquqNtgwvhoRqkBQeEIk0lcwIssUz
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-02-03_06,2025-01-31_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0
- lowpriorityscore=0 mlxlogscore=497 adultscore=0 priorityscore=1501
- phishscore=0 impostorscore=0 malwarescore=0 mlxscore=0 bulkscore=0
- suspectscore=0 clxscore=1015 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.19.0-2501170000 definitions=main-2502030106
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 clxscore=1015
+ lowpriorityscore=0 mlxlogscore=999 bulkscore=0 mlxscore=0 suspectscore=0
+ priorityscore=1501 phishscore=0 impostorscore=0 spamscore=0 adultscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2501170000
+ definitions=main-2502030106
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_144452_913762_53F6EFCC 
-X-CRM114-Status: GOOD (  14.27  )
+X-CRM114-CacheID: sfid-20250203_144452_935626_643A949B 
+X-CRM114-Status: GOOD (  19.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,26 +131,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reduce sgpio speed to improve stability with the current PCB layout.
+Add device tree binding document for the IPMB device interface.
+This device is already in use in both driver and .dts files.
 
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
 ---
- arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ .../devicetree/bindings/ipmi/ipmb-dev.yaml    | 56 +++++++++++++++++++
+ 1 file changed, 56 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/ipmi/ipmb-dev.yaml
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-index 973169679c8d..ca55a4fb6dff 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-@@ -401,7 +401,7 @@ &emmc {
- &sgpiom0 {
- 	status = "okay";
- 	ngpios = <128>;
--	bus-frequency = <1000000>;
-+	bus-frequency = <500000>;
- };
- 
- &ibt {
+diff --git a/Documentation/devicetree/bindings/ipmi/ipmb-dev.yaml b/Documentation/devicetree/bindings/ipmi/ipmb-dev.yaml
+new file mode 100644
+index 000000000000..8b0d71901195
+--- /dev/null
++++ b/Documentation/devicetree/bindings/ipmi/ipmb-dev.yaml
+@@ -0,0 +1,56 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/ipmi/ipmb-dev.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: The Intelligent Platform Management Bus(IPMB) Device
++
++description: |
++  The IPMB is an I2C bus which provides interconnection between a Baseboard
++  Management Controller(BMC) and chassis electronics. The BMC sends IPMI
++  requests to intelligent controllers like Satellite Management Controller(MC)
++  devices via IPMB and the device sends responses back to the BMC.
++  This device uses an I2C slave device to send and receive IPMB messages,
++  either on a BMC or other MC. A miscellaneous device provices a user space
++  program to communicate with the kernel and the backend device. Some IPMB
++  devices only support the I2C protocol and not the SMB protocol.
++
++  IPMB communications protocol Specification V1.0
++  https://www.intel.com/content/dam/www/public/us/en/documents/product-briefs/ipmp-spec-v1.0.pdf
++
++maintainers:
++  - Ninad Palsule <ninad@linux.ibm.com>
++
++properties:
++  compatible:
++    enum:
++      - ipmb-dev
++
++  reg:
++    maxItems: 1
++
++  i2c-protocol:
++    description:
++      Use I2C block transfer instead of SMBUS block transfer.
++    type: boolean
++
++required:
++  - compatible
++  - reg
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/i2c/i2c.h>
++    i2c {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        ipmb-dev@10 {
++            compatible = "ipmb-dev";
++            reg = <(0x10 | I2C_OWN_SLAVE_ADDRESS)>;
++            i2c-protocol;
++        };
++    };
 -- 
 2.43.0
 
