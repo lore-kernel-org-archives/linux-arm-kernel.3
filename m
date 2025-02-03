@@ -4,79 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ABB7C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 11:18:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FAC7C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 11:19:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7LuywntJh/PQcJEXxacusK5UZs3P6Qb5WkOs/kb1NpI=; b=ECq9YikRDSxyMxdd70BpSkubjZ
-	olgGaZ2dzyvHTa1iNcvCcPoDdUKlZ/uzIkZL4kNuCRar8qUqjD0HcP/x+Qce25ZH+HL8ifcMVqNQ8
-	Ny64SVGjmL2nih3eagrrI6uQehjjQLKljTdT+GUsSASceNpqOOXEiHfC0lY8gTtWjaKNyBNddN7cN
-	NeQTJ+nw9kwIAF3XRn+A/CkOpQ7cg7Vm5vnQt1YsMpm6/lcDzdh2yFPkcKnulEOLYHN7M7+RMLXE3
-	xUrcRhDmfgowDPERRojHRtVih5RHDECzInzubrmy01gypuHnG5EcaCDZxKfKfgM143/oim7vS8HJm
-	PsoOC7ag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kT7BBllsl3tm2FgX/Ks0wpZq0nys13Rah0geq2cLym0=; b=lSQiJFZROFVVRDkLEcSWYEkw3Y
+	er9fQYBfLlCtszolmLVs1092HNBQ2jl5mH4o3BCRM/nwYjwjSey3TGdP/waViekg5Oj6HZx5LMYWF
+	/rIJ3VCS4Q2sN7EwcXDfJfJvfO8IuwDfZ1zxdoPLgPQ5IdmalSGRwtsYVXjItYuVNIG1fkDcoHvrj
+	rvhHAgxJfrtwRFs/fCIIgvf0UzJ/EemUT409VGDfEBFjAC01GBRyTJMIwVl7t6Z43nTS4iSjTyfzX
+	ywYPmqxBmlvEn29JQFZ2f2N4VJYoGnma3iWvyaP5HSpaIXBzyn+rOdZwO9VwXTwLS/ghPpOVFt4UL
+	cbHLE1uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teuT1-0000000FDcG-0Dij;
-	Mon, 03 Feb 2025 11:18:15 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1teuRe-0000000FDNM-26Qj
+	id 1teuUL-0000000FDog-3nBE;
+	Mon, 03 Feb 2025 11:19:37 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1teuSy-0000000FDb6-2ZjK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 11:16:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=7LuywntJh/PQcJEXxacusK5UZs3P6Qb5WkOs/kb1NpI=; b=AfI813dtjuXWBnrTAo6rfz8u6O
-	yl4jZrZRwGditu3POnJqKCkjwx4WCcQ1WP4n3MbtwqePmBWODYOxJDPR0GfFAR4D4JIHg4a6RnEJY
-	Sje/15EqxwilmuOAmSkleR2OZ7IP99zlO5rzpyqfHJt3aiCMHlC3TkhwmJTxp+5QfOeNqW0KcH/yj
-	7NrSMjBI2AiglJp0lJvVikNHI7+SyRlzncyzIM5fNJy0Pg4vS1F+sRI82HZoT+TgaxUOjAJUzjmKk
-	i5Do782/duyChkCxM+TnzOQmLKkXKRZJo1j16ndXQyYcL3OiCac+9KVrDicgtdc3CTZFMpAILs2Yd
-	uNTn/zeQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:60612)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1teuRS-0008NT-19;
-	Mon, 03 Feb 2025 11:16:38 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1teuRO-0000Ke-0V;
-	Mon, 03 Feb 2025 11:16:34 +0000
-Date: Mon, 3 Feb 2025 11:16:34 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Steven Price <steven.price@arm.com>
-Cc: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Jose Abreu <joabreu@synopsys.com>, Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
-	Furong Xu <0x1207@gmail.com>, Petr Tesarik <petr@tesarici.cz>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Yanteng Si <si.yanteng@linux.dev>, Xi Ruoyao <xry111@xry111.site>
-Subject: Re: [PATCH] net: stmmac: Allow zero for [tr]x_fifo_size
-Message-ID: <Z6Clkh44QgdNJu_O@shell.armlinux.org.uk>
-References: <20250203093419.25804-1-steven.price@arm.com>
- <Z6CckJtOo-vMrGWy@shell.armlinux.org.uk>
- <811ea27c-c1c3-454a-b3d9-fa4cd6d57e44@arm.com>
+	Mon, 03 Feb 2025 11:18:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4EA5811FB;
+	Mon,  3 Feb 2025 03:18:34 -0800 (PST)
+Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 457093F58B;
+	Mon,  3 Feb 2025 03:18:07 -0800 (PST)
+Message-ID: <d499c3e7-cc0f-467a-8401-bc53b70259f7@arm.com>
+Date: Mon, 3 Feb 2025 11:18:06 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <811ea27c-c1c3-454a-b3d9-fa4cd6d57e44@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 12/43] arm64: RME: Allocate/free RECs to match vCPUs
+To: Steven Price <steven.price@arm.com>, Gavin Shan <gshan@redhat.com>,
+ kvm@vger.kernel.org, kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+References: <20241212155610.76522-1-steven.price@arm.com>
+ <20241212155610.76522-13-steven.price@arm.com>
+ <9a543b6f-5487-4159-89fb-73d9b6749a01@redhat.com>
+ <9174bc24-6217-4663-a370-291d4790a212@arm.com>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <9174bc24-6217-4663-a370-291d4790a212@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_031650_538190_4DC63DEA 
-X-CRM114-Status: GOOD (  41.43  )
+X-CRM114-CacheID: sfid-20250203_031812_775598_E0C7C305 
+X-CRM114-Status: GOOD (  23.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,92 +76,183 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 03, 2025 at 11:01:28AM +0000, Steven Price wrote:
-> [Moved Kunihiko to the To: line]
+On 30/01/2025 16:40, Steven Price wrote:
+> On 29/01/2025 04:50, Gavin Shan wrote:
+>> On 12/13/24 1:55 AM, Steven Price wrote:
+>>> The RMM maintains a data structure known as the Realm Execution Context
+>>> (or REC). It is similar to struct kvm_vcpu and tracks the state of the
+>>> virtual CPUs. KVM must delegate memory and request the structures are
+>>> created when vCPUs are created, and suitably tear down on destruction.
+>>>
+>>> RECs must also be supplied with addition pages - auxiliary (or AUX)
+>>> granules - for storing the larger registers state (e.g. for SVE). The
+>>> number of AUX granules for a REC depends on the parameters with which
+>>> the Realm was created - the RMM makes this information available via the
+>>> RMI_REC_AUX_COUNT call performed after creating the Realm Descriptor
+>>> (RD).
+>>>
+>>> Note that only some of register state for the REC can be set by KVM, the
+>>> rest is defined by the RMM (zeroed). The register state then cannot be
+>>> changed by KVM after the REC is created (except when the guest
+>>> explicitly requests this e.g. by performing a PSCI call). The RMM also
+>>> requires that the VMM creates RECs in ascending order of the MPIDR.
+>>>
+>>> See Realm Management Monitor specification (DEN0137) for more
+>>> information:
+>>> https://developer.arm.com/documentation/den0137/
+>>>
+>>> Signed-off-by: Steven Price <steven.price@arm.com>
+>>> ---
+>>> Changes since v5:
+>>>    * Separate the concept of vcpu_is_rec() and
+>>>      kvm_arm_vcpu_rec_finalized() by using the KVM_ARM_VCPU_REC feature as
+>>>      the indication that the VCPU is a REC.
+>>> Changes since v2:
+>>>    * Free rec->run earlier in kvm_destroy_realm() and adapt to previous
+>>> patches.
+>>> ---
+>>>    arch/arm64/include/asm/kvm_emulate.h |   7 ++
+>>>    arch/arm64/include/asm/kvm_host.h    |   3 +
+>>>    arch/arm64/include/asm/kvm_rme.h     |  18 ++++
+>>>    arch/arm64/kvm/arm.c                 |   9 ++
+>>>    arch/arm64/kvm/reset.c               |  11 ++
+>>>    arch/arm64/kvm/rme.c                 | 144 +++++++++++++++++++++++++++
+>>>    6 files changed, 192 insertions(+)
+>>>
+>>> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/
+>>> include/asm/kvm_emulate.h
+>>> index 27f54a7778aa..ec2b6d9c9c07 100644
+>>> --- a/arch/arm64/include/asm/kvm_emulate.h
+>>> +++ b/arch/arm64/include/asm/kvm_emulate.h
+>>> @@ -722,7 +722,14 @@ static inline bool kvm_realm_is_created(struct
+>>> kvm *kvm)
+>>>      static inline bool vcpu_is_rec(struct kvm_vcpu *vcpu)
+>>>    {
+>>> +    if (static_branch_unlikely(&kvm_rme_is_available))
+>>> +        return vcpu_has_feature(vcpu, KVM_ARM_VCPU_REC);
+>>>        return false;
+>>>    }
+>>>    
+>>
+>> It seems the check on kvm_rme_is_available is unnecessary because
+>> KVM_ARM_VCPU_REC
+>> is possible to be true only when kvm_rme_is_available is true.
 > 
-> On 03/02/2025 10:38, Russell King (Oracle) wrote:
-> > On Mon, Feb 03, 2025 at 09:34:18AM +0000, Steven Price wrote:
-> >> Commit 8865d22656b4 ("net: stmmac: Specify hardware capability value
-> >> when FIFO size isn't specified") modified the behaviour to bail out if
-> >> both the FIFO size and the hardware capability were both set to zero.
-> >> However devices where has_gmac4 and has_xgmac are both false don't use
-> >> the fifo size and that commit breaks platforms for which these values
-> >> were zero.
-> >>
-> >> Only warn and error out when (has_gmac4 || has_xgmac) where the values
-> >> are used and zero would cause problems, otherwise continue with the zero
-> >> values.
-> >>
-> >> Fixes: 8865d22656b4 ("net: stmmac: Specify hardware capability value when FIFO size isn't specified")
-> >> Tested-by: Xi Ruoyao <xry111@xry111.site>
-> >> Signed-off-by: Steven Price <steven.price@arm.com>
-> > 
-> > I'm still of the opinion that the original patch set was wrong, and
-> > I was thinking at the time that it should _not_ have been submitted
-> > for the "net" tree (it wasn't fixing a bug afaics, and was a risky
-> > change.)
-> > 
-> > Yes, we had multiple places where we have code like:
-> > 
-> >         int rxfifosz = priv->plat->rx_fifo_size;
-> >         int txfifosz = priv->plat->tx_fifo_size;
-> > 
-> >         if (rxfifosz == 0)
-> >                 rxfifosz = priv->dma_cap.rx_fifo_size;
-> >         if (txfifosz == 0)
-> >                 txfifosz = priv->dma_cap.tx_fifo_size;
-> > 
-> >         /* Split up the shared Tx/Rx FIFO memory on DW QoS Eth and DW XGMAC */
-> >         if (priv->plat->has_gmac4 || priv->plat->has_xgmac) {
-> >                 rxfifosz /= rx_channels_count;
-> >                 txfifosz /= tx_channels_count;
-> >         }
-> > 
-> > and this is passed to stmmac_dma_rx_mode() and stmmac_dma_tx_mode().
-> > 
-> > We also have it in the stmmac_change_mtu() path for the transmit side,
-> > which ensures that the MTU value is not larger than the transmit FIFO
-> > size (which is going to fail as it's always done before or after the
-> > original patch set, and whether or not your patch is applied.)
-> > 
-> > Now, as for the stmmac_dma_[tr]x_mode(), these are method functions
-> > calling into the DMA code. dwmac4, dwmac1000, dwxgmac2, dwmac100 and
-> > sun8i implement methods for this.
-> > 
-> > Of these, dwmac4, dwxgmac2 makes use of the value passed into
-> > stmmac_dma_[tr]x_mode() - both of which initialise dma.[tr]x_fifo_size.
-> > dwmac1000, dwmac100 and sun8i do not make use of it.
-> > 
-> > So, going back to the original patch series, I still question the value
-> > of the changes there - and with your patch, it makes their value even
-> > less because the justification seemed to be to ensure that
-> > priv->plat->[tr]x_fifo_size contained a sensible value. With your patch
-> > we're going back to a situation where we allow these to effectively be
-> > "unset" or zero.
-> > 
-> > I'll ask the question straight out - with your patch applied, what is
-> > the value of the original four patch series that caused the breakage?
-> > 
+> Similar to a previous patch - the check of the static key is to avoid
+> overhead on systems without RME.
 > 
-> I've no opinion whether the original series "had value" - I'm just 
-> trying to fix the breakage that entailed. My first attempt at a patch 
-> was indeed a (partial) revert, but Andrew was keen to find a better 
-> solution[1].
+>>> +static inline bool kvm_arm_vcpu_rec_finalized(struct kvm_vcpu *vcpu)
+>>> +{
+>>> +    return vcpu->arch.rec.mpidr != INVALID_HWID;
+>>> +}
+>>> +
+>>>    #endif /* __ARM64_KVM_EMULATE_H__ */
+>>
+>> I would suggest to rename to kvm_arm_rec_finalized() since vCPU and REC are
+>> similar objects at the same level. It'd better to avoid duplicate object
+>> name reference in the function name.
+> 
+> Ack
+> 
+>>> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/
+>>> asm/kvm_host.h
+>>> index 8482638dce3b..220195c727ef 100644
+>>> --- a/arch/arm64/include/asm/kvm_host.h
+>>> +++ b/arch/arm64/include/asm/kvm_host.h
+>>> @@ -789,6 +789,9 @@ struct kvm_vcpu_arch {
+>>>          /* Per-vcpu CCSIDR override or NULL */
+>>>        u32 *ccsidr;
+>>> +
+>>> +    /* Realm meta data */
+>>> +    struct realm_rec rec;
+>>>    };
+>>>      /*
+>>> diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/
+>>> asm/kvm_rme.h
+>>> index 32bdedf1d866..62d4a63d3035 100644
+>>> --- a/arch/arm64/include/asm/kvm_rme.h
+>>> +++ b/arch/arm64/include/asm/kvm_rme.h
+>>> @@ -6,6 +6,7 @@
+>>>    #ifndef __ASM_KVM_RME_H
+>>>    #define __ASM_KVM_RME_H
+>>>    +#include <asm/rmi_smc.h>
+>>>    #include <uapi/linux/kvm.h>
+>>>      /**
+>>> @@ -65,6 +66,21 @@ struct realm {
+>>>        unsigned int ia_bits;
+>>>    };
+>>>    +/**
+>>> + * struct realm_rec - Additional per VCPU data for a Realm
+>>> + *
+>>> + * @mpidr: MPIDR (Multiprocessor Affinity Register) value to identify
+>>> this VCPU
+>>> + * @rec_page: Kernel VA of the RMM's private page for this REC
+>>> + * @aux_pages: Additional pages private to the RMM for this REC
+>>> + * @run: Kernel VA of the RmiRecRun structure shared with the RMM
+>>> + */
+>>> +struct realm_rec {
+>>> +    unsigned long mpidr;
+>>> +    void *rec_page;
+>>> +    struct page *aux_pages[REC_PARAMS_AUX_GRANULES];
+>>> +    struct rec_run *run;
+>>> +};
+>>> +
+>>>    void kvm_init_rme(void);
+>>>    u32 kvm_realm_ipa_limit(void);
+>>>    @@ -72,6 +88,8 @@ int kvm_realm_enable_cap(struct kvm *kvm, struct
+>>> kvm_enable_cap *cap);
+>>>    int kvm_init_realm_vm(struct kvm *kvm);
+>>>    void kvm_destroy_realm(struct kvm *kvm);
+>>>    void kvm_realm_destroy_rtts(struct kvm *kvm, u32 ia_bits);
+>>> +int kvm_create_rec(struct kvm_vcpu *vcpu);
+>>> +void kvm_destroy_rec(struct kvm_vcpu *vcpu);
+>>>      #define RMM_RTT_BLOCK_LEVEL    2
+>>>    #define RMM_RTT_MAX_LEVEL    3
+>>> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+>>> index 73016e1e0067..2d97147651be 100644
+>>> --- a/arch/arm64/kvm/arm.c
+>>> +++ b/arch/arm64/kvm/arm.c
+>>> @@ -525,6 +525,8 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
+>>>        /* Force users to call KVM_ARM_VCPU_INIT */
+>>>        vcpu_clear_flag(vcpu, VCPU_INITIALIZED);
+>>>    +    vcpu->arch.rec.mpidr = INVALID_HWID;
+>>> +
+>>>        vcpu->arch.mmu_page_cache.gfp_zero = __GFP_ZERO;
+>>>          /* Set up the timer */
+>>> @@ -1467,6 +1469,9 @@ static unsigned long
+>>> system_supported_vcpu_features(void)
+>>>        if (!cpus_have_final_cap(ARM64_HAS_NESTED_VIRT))
+>>>            clear_bit(KVM_ARM_VCPU_HAS_EL2, &features);
+>>>    +    if (!static_branch_unlikely(&kvm_rme_is_available))
+>>> +        clear_bit(KVM_ARM_VCPU_REC, &features);
+>>> +
+>>>        return features;
+>>>    }
+>>>    @@ -1506,6 +1511,10 @@ static int
+>>> kvm_vcpu_init_check_features(struct kvm_vcpu *vcpu,
+>>>        if (test_bit(KVM_ARM_VCPU_HAS_EL2, &features))
+>>>            return -EINVAL;
+>>>    +    /* RME is incompatible with AArch32 */
+>>> +    if (test_bit(KVM_ARM_VCPU_REC, &features))
+>>> +        return -EINVAL;
+>>> +
+>>>        return 0;
+>>>    }
+>>>    
+>>
+>> One corner case seems missed in kvm_vcpu_init_check_features(). It's
+>> allowed to
+>> initialize a vCPU with REC feature even kvm_is_realm(kvm) is false.
+>> Hopefully,
+>> I didn't miss something.
+> 
+> Ah, yes good point. I'll pass a kvm pointer to
+> kvm_vcpu_init_check_features() and use kvm_is_realm() in there.
 
-There are two ways to fix the breakage - either revert the original
-patches (which if they have little value now would be the sensible
-approach IMHO) or try to fix them up, which may entail several patches
-if further breakage is found.
+nit: kvm is available from the VCPU via vcpu->kvm
 
-Does the flow control test behave the same before and after the patch
-series? Please can you test that?
+Cheers
+Suzuki
 
-See
-drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c::stmmac_test_flowctrl()
 
-Thanks.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
