@@ -4,68 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C99A7C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 11:34:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABCD8C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 11:38:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CKxRbZzy4RjSwNw64WMdnlwu3kBLOK/hGuYVSSpIG/Q=; b=zMZuWtUkaSNrMITTss05pei8TU
-	zgN4RjnA8DC3N/tO8iVbiTgASdospWaZFI/ZGjGLQDCyqqVIG6YKIqiKsBZ1hzsWinr4I15lTHIwm
-	ukL1Y/fGZZE2XTplJfntB9+dYVqR/6ypaBw7+oe00+ZB9xvyqAhop8hCvHw9nXgBUvJrI1v+3/YTy
-	6rlZC+cCxH5wlmVxLPrWl6wDuXzjaMqfedmw5QioAVPTimOOFWPbQo7jz02yb3wxXd7qSWgQCQpit
-	R9J2VQZbh9+hu0sAFH9NO2z6lPhf5YXJDjnYc9e2NoO2Nwq7DSKp+8SU4pZhFpC5jhXYykMfBhFva
-	H6A6HAOQ==;
+	bh=0iAWPa4heqsKIQZeK0P0pBFMXy2JRBxrKI/lWvvLNHg=; b=ehhP+dPe1tOk6eTovqlOiACBmx
+	JSIL/XdVfCmAQ8RUcrhsCKc1lHJal/pyMILbuTjEHFgoiOPkSELgQ6aDHLlg1OYRkZYgu78YH9GgB
+	7kXjbv2qqzCBUF8eMPj594fVH69hivSXOKSeidoLTxxjN6lm8TpcErSCROtSeeIK91F1t7PLtZeqF
+	1BzrTN0x5y5WbCuusPZaf7M3XCqa7AnQa7u+ROctC5Pi2CPoMOPQnWGGRNSwgL3M2FW1WaJDfADfU
+	/b/kjQwbyRq1f+fliGStL8vr5sOJSCe6+FscdmX5nS2Dpzs5ov70s9HIYY8TMLjTJb3YdDq4MeKiV
+	qkx5du9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teuia-0000000FFRt-3Xay;
-	Mon, 03 Feb 2025 11:34:20 +0000
-Received: from mx.socionext.com ([202.248.49.38])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teuhF-0000000FFK0-2rOW
+	id 1teumY-0000000FFlI-3Fts;
+	Mon, 03 Feb 2025 11:38:26 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1teulF-0000000FFdw-2at9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 11:32:59 +0000
-Received: from unknown (HELO kinkan2-ex.css.socionext.com) ([172.31.9.52])
-  by mx.socionext.com with ESMTP; 03 Feb 2025 20:32:54 +0900
-Received: from mail.mfilter.local (mail-arc01.css.socionext.com [10.213.46.36])
-	by kinkan2-ex.css.socionext.com (Postfix) with ESMTP id 0C72420AE2A2;
-	Mon,  3 Feb 2025 20:32:54 +0900 (JST)
-Received: from iyokan2.css.socionext.com ([172.31.9.53]) by m-FILTER with ESMTP; Mon, 3 Feb 2025 20:32:54 +0900
-Received: from [10.212.246.222] (unknown [10.212.246.222])
-	by iyokan2.css.socionext.com (Postfix) with ESMTP id 715A7A6B42;
-	Mon,  3 Feb 2025 20:32:53 +0900 (JST)
-Message-ID: <e1654cc9-a696-454c-a9c7-80a8e1a148ff@socionext.com>
-Date: Mon, 3 Feb 2025 20:32:53 +0900
+	Mon, 03 Feb 2025 11:37:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 40F4D5C6080;
+	Mon,  3 Feb 2025 11:36:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26160C4CED2;
+	Mon,  3 Feb 2025 11:36:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738582624;
+	bh=T+/ksBsqsgzrU/GxsuaQSiGHetzXlkOCwN6tGYQwnmI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=G8suxZlNI/ZOkEXFttH/TdfKIvi6IPBFI8Goz11V3/tdMyIGqLh/6fFCcG1QjEIdc
+	 mwuWQ6gPucLEFEV5zHO7YRfUx4kCUu03tiWNWkIyd2L81CvhHUwBi2+tSJ9vcZ2xCj
+	 ubp7FOZLvGaIy7A6uRCj4swA9q4Uj1YOqWO6cdRJtK1h4g1Y/eQUjuAGS9eet3OFe3
+	 uTaMPoFdR1E7CrZA389jher3KN08SgCUS5X/TOKrQirhUKb4iFJzw/JmRQBogIxnID
+	 bef+bY2NfmoFx1Gas/SstyZWBovGQo5pJD4fwqmPkx9eY7yuhbSRlLOkCddGsTDF1A
+	 A/cWH/YTW0WKg==
+Message-ID: <4a9d0dd1-fa8a-4437-b829-0de0f20f476a@kernel.org>
+Date: Mon, 3 Feb 2025 12:36:57 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v4 3/3] net: stmmac: Specify hardware capability value
- when FIFO size isn't specified
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Guenter Roeck <linux@roeck-us.net>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jose Abreu <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Yanteng Si <si.yanteng@linux.dev>, Furong Xu <0x1207@gmail.com>,
- Joao Pinto <Joao.Pinto@synopsys.com>, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250127013820.2941044-1-hayashi.kunihiko@socionext.com>
- <20250127013820.2941044-4-hayashi.kunihiko@socionext.com>
- <4e98f967-f636-46fb-9eca-d383b9495b86@roeck-us.net>
- <Z56FmH968FUGkC5J@shell.armlinux.org.uk>
- <905127b5-96c8-4866-8f69-d9d8a7091c99@socionext.com>
- <Z6CLDJJ21MMml3cD@shell.armlinux.org.uk>
+Subject: Re: [PATCH v4 0/2] Add support for GPU SMMU on QCS8300
+To: Pratyush Brahma <quic_pbrahma@quicinc.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+ Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org
+References: <20250203-b4-branch-gfx-smmu-v4-0-eaa7aa762f48@quicinc.com>
+ <20250203-lean-delightful-ermine-f5b902@krzk-bin>
+ <273df630-007d-4aaf-9432-2884a7e94d5e@quicinc.com>
 Content-Language: en-US
-From: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
-In-Reply-To: <Z6CLDJJ21MMml3cD@shell.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <273df630-007d-4aaf-9432-2884a7e94d5e@quicinc.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_033257_960296_95756292 
-X-CRM114-Status: GOOD (  40.15  )
+X-CRM114-CacheID: sfid-20250203_033705_745031_58244D9A 
+X-CRM114-Status: GOOD (  13.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,162 +124,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 2025/02/03 18:23, Russell King (Oracle) wrote:
-> On Mon, Feb 03, 2025 at 11:45:05AM +0900, Kunihiko Hayashi wrote:
->> Hi all,
+On 03/02/2025 09:37, Pratyush Brahma wrote:
+>> How are you sending these?
 >>
->> On 2025/02/02 5:35, Russell King (Oracle) wrote:
->>> On Sat, Feb 01, 2025 at 11:14:41AM -0800, Guenter Roeck wrote:
->>>> Hi,
->>>>
->>>> On Mon, Jan 27, 2025 at 10:38:20AM +0900, Kunihiko Hayashi wrote:
->>>>> When Tx/Rx FIFO size is not specified in advance, the driver
-> checks if
->>>>> the value is zero and sets the hardware capability value in
-> functions
->>>>> where that value is used.
->>>>>
->>>>> Consolidate the check and settings into function stmmac_hw_init()
-> and
->>>>> remove redundant other statements.
->>>>>
->>>>> If FIFO size is zero and the hardware capability also doesn't have
->>> upper
->>>>> limit values, return with an error message.
->>>>>
->>>>> Signed-off-by: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
->>>>
->>>> This patch breaks qemu's stmmac emulation, for example for
->>>> npcm750-evb. The error message is:
->>>> 	stmmaceth f0804000.eth: Can't specify Rx FIFO size
->>
->> Sorry for inconvenience.
->>
->>> Interesting. I looked at QEMU to see whether anything in the Debian
->>> stable version of QEMU might possibly have STMMAC emulation, but
->>> drew a blank... Even trying to find where in QEMU it emulates the
->>> STMMAC. I do see that it does include this, so maybe I can use that
->>> to test some of my stmmac changes. Thanks!
->>>
->>>> The setup function called for the emulated hardware is
->>> dwmac1000_setup().
->>>> That function does not set the DMA rx or tx fifo size.
->>>>
->>>> At the same time, the rx and tx fifo size is not provided in the
->>>> devicetree file (nuvoton-npcm750.dtsi), so the failure is obvious.
->>>>
->>>> I understand that the real hardware may be based on a more recent
->>>> version of the DWMAC IP which provides the DMA tx/rx fifo size, but
->>>> I do wonder: Are the benefits of this patch so substantial that it
->>>> warrants breaking the qemu emulation of this network interface >
->>> Please see my message sent a while back on an earlier revision of this
->>> patch series. I reviewed the stmmac driver for the fifo sizes and
->>> documented what I found.
->>>
->>> https://lore.kernel.org/r/Z4_ZilVFKacuAUE8@shell.armlinux.org.uk
->>>
->>> To save clicking on the link, I'll reproduce the relevant part below.
->>> It appears that dwmac1000 has no way to specify the FIFO size, and
->>> thus would have priv->dma_cap.rx_fifo_size and
->>> priv->dma_cap.tx_fifo_size set to zero.
->>>
->>> Given the responses, I'm now of the opinion that the patch series is
->>> wrong, and probably should be reverted - I never really understood
->>> the motivation why the series was necessary. It seemed to me to be a
->>> "wouldn't it be nice if" series rather than something that is
->>> functionally necessary.
->>>
->>>
->>> Here's the extract from my previous email:
->>>
->>> Now looking at the defintions:
->>>
->>> drivers/net/ethernet/stmicro/stmmac/dwmac4.h:#define
-> GMAC_HW_RXFIFOSIZE
->>> GENMASK(4, 0)
->>> drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h:#define
->>> XGMAC_HWFEAT_RXFIFOSIZE GENMASK(4, 0)
->>>
->>> So there's a 5-bit bitfield that describes the receive FIFO size for
->>> these two MACs. Then we have:
->>>
->>> drivers/net/ethernet/stmicro/stmmac/common.h:#define
->>> DMA_HW_FEAT_RXFIFOSIZE    0x00080000       /* Rx FIFO > 2048 Bytes */
->>>
->>> which is used here:
->>>
->>> drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c:
->>> dma_cap->rxfifo_over_2048 = (hw_cap & DMA_HW_FEAT_RXFIFOSIZE) >> 19;
->>>
->>> which is only used to print a Y/N value in a debugfs file, otherwise
->>> having no bearing on driver behaviour.
->>>
->>> So, I suspect MACs other than xgmac2 or dwmac4 do not have the ability
->>> to describe the hardware FIFO sizes in hardware, thus why there's the
->>> override and no checking of what the platform provided - and doing so
->>> would break the driver. This is my interpretation from the code alone.
->>>
->>
->> The {tx,rx}_queus_to_use are referenced in stmmac_ethtool.c,
-> stmmac_tc.c,
->> and stmmac_selftests.c as the number of queues, so I've thought that
->> these variables should not be non-zero.
+>> b4 diff 20250203-b4-branch-gfx-smmu-v4-0-eaa7aa762f48@quicinc.com
+>> Grabbing thread from lore.kernel.org/all/20250203-b4-branch-gfx-smmu-v4-0-eaa7aa762f48@quicinc.com/t.mbox.gz
+>> Checking for older revisions
+>> Grabbing search results from lore.kernel.org
+>>    Added from v3: 2 patches
+>> ---
+>> Analyzing 7 messages in the thread
+>> Preparing fake-am for v3: dt-bindings: arm-smmu: Document QCS8300 GPU SMMU
+>> ERROR: v3 series incomplete; unable to create a fake-am range
+>> ---
+>> Could not create fake-am range for lower series v3
+> I have sent this version of the patch series using b4 for the first 
+> time, as suggested earlier [1]. The issue might be due to the previous 
+> version being sent
+> incorrectly using git send-mail. Consequently, I had to manually apply 
+> the previous patches after creating the b4 branch,
+> since "b4 prep -F" was throwing an error when trying to apply the last 
+> patch.
 > 
-> Huh? We're talking about {tx,rx}_fifo_size, not _queues_to_use.
+OK, that explains.
 
-Sorry, this topic is just about {tx,rx}_fifo_size.
-Above comments are not needed here.
-
-These value are only referenced in stmmac_main.c and stmmac_selftest.c.
-As far as I can see, there is no usage that requires the values to be non-zero.
-
->> However, currently the variables are allowed to be zero, so I understand
->> this patch 3/3 breaks on the chips that hasn't hardware capabilities.
->>
->> In hwif.c, stmmac_hw[] defines four patterns of hardwares:
->>
->> "dwmac100"  .gmac=false, .gmac4=false, .xgmac=false, .get_hw_feature =
-> NULL
->> "dwmac1000" .gmac=true,  .gmac4=false, .xgmac=false, .get_hw_feature =
-> dwmac1000_get_hw_feature()
->> "dwmac4"    .gmac=false, .gmac4=true,  .xgmac=false, .get_hw_feature =
-> dwmac4_get_hw_feature()
->> "dwxgmac2"  .gmac=false, .gmac4=false, .xgmac=true , .get_hw_feature =
-> dwxgmac2_get_hw_feature()
->>
->> As Russell said, the dwmac100 can't get the number of queues from the
-> hardware
->> capability. And some environments (at least QEMU device that Guenter
-> said)
->> seems the capability values are zero in spite of dwmac1000.
-> 
-> Huh? I mentioned dwmac1000, not dwmac100.
-
-My above comment is missing the point.
-dwmac1000 doesn't have the field of the fifo size in the hardware capability
-even if dwmac1000 has get_hw_feature function as you said.
-Steven's diff is reasonable to check the feature.
-
-> 
->> Since I can't test all of the device patterns, so I appreciate checking
-> each
->> hardware and finding the issue.
->>
->> The patch 3/3 includes some cleanup and code reduction, though, I think
->> it would be better to revert it once.
-> 
-> I'm not sure you're discussing the same issue as the rest of us.
-> You seem to be talking about a different pair of structure members
-> (queues_to_use) whereas your patches and the problem at hand is with
-> the changes made to {tx,rx}_fifo_size.
-
-Sorry for confusion. The patch 3/3 treats FIFO size as per the subject.
-
-Thank you,
-
----
-Best Regards
-Kunihiko Hayashi
+Best regards,
+Krzysztof
 
