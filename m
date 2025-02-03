@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 490C1C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 10:29:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DE1CC02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 10:30:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oHokXrrIxgFozOdPdKGv7pm7boYyoVv2BPENAFW6e/0=; b=fUDwr4CdOYLQJqCX3v+N7p/Ep9
-	eBvqi6g6nFcjakkHd/AFpWb6LFiY6wW3gvz8/4L54UXam2SvVw/wx2+wiCutFQD5zU2eY4KHW1I+b
-	/ErWzKARb3lRy0AzNkvNV+f0a6Gm8ZXmWDG30HM4MAwXC9zzO2HIEgwleiPZfUyhuxHGRv1hP+Fxk
-	hYDIiW+xWcWiCw2cJkOAAH0vPOIdKdNST9A2OOeJcP93Jp8GtMTpmjHEEST3aB8BX4lF+D8NPcMN3
-	vKPeOXjp7vTyUCqWtvabAqx5DBP3aWibvooIVadh6+zt9vY7df555RCxl2jc3Ot4+tYPV7o/R1Jw3
-	YHgNtZwA==;
+	bh=1RJ6r3cxM9fgt2mbPkhm9caNHqt7aSNUg8ljSrwtyWY=; b=IZeossuUP1PjC7aKltpfBp8mMO
+	9bIZNgihIJ+aBkPEMLfG5tnd/BYtTOiSKsFXzrpWFTtBNiTneUVTlH2Zsv5pSXEZ6LCahUDv3fpWu
+	Qkv+ROtrIJwsAFgAiNuy/hxEXsxkIIlhNWSBCKkerkqwKiFBz3OJyQ1/JnPHxw3Sz90HlnVznTv4T
+	WK81UmJz3TeKq36krQLJkN/BWNmaYJBhD4gEUNRpimsvXQ0zqJNqgGEFQZnNcBq+e6gSMau8elJlj
+	mJ5qsNUMA0dlKtr/8oeYZMv37EwiT91PPy+N6xE3BkGs/Fd1PAyD/JLhR/rHFAt3Qo0NvJuzgYRo/
+	Ahjnwnqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tethV-0000000F7Xd-2wgR;
-	Mon, 03 Feb 2025 10:29:09 +0000
+	id 1tetio-0000000F7pQ-1HU4;
+	Mon, 03 Feb 2025 10:30:30 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tetYm-0000000F63G-3LwA
+	id 1tetYr-0000000F64K-1tyi
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 03 Feb 2025 10:20:08 +0000
+	Mon, 03 Feb 2025 10:20:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=oHokXrrIxgFozOdPdKGv7pm7boYyoVv2BPENAFW6e/0=; b=K+aqWuylhFVSBfPA0lGTQK4ov/
-	rpCC5dWcWVXFxSOLoUWdVuN/3hl7Bv68vAI5gOPKP1gxgInlmisdkdZb5epQZLmbSm4CU7sttjdId
-	O6Xas1uWyGo0wwluCJv6d9Ci8ahIJHLpDDKAQ85zpZVZ44jQ+zwpzQhzyQC7GA60aN1XQCdIMjB31
-	a+pUG72hcgLk/NAd1JdYiXdsjvMADK/MmE9nA1SW89Z5KGz7eQADlcz+8mVmUeDCMifFhieFPv9Or
-	hFJPy20RsdLOJT4eyv9lxHiO+hSlofNj+AzDichQPi9VKmHmLO31avlVrsl4/37vuzf5rJNAiOcOk
-	nAV9CIJQ==;
+	bh=1RJ6r3cxM9fgt2mbPkhm9caNHqt7aSNUg8ljSrwtyWY=; b=kfWz6MzlBSfKOu36Dnog4XtQhd
+	1kJUWw7763nivRmrGnuqfiDNJQmhcoHohbv7hWC6KI0NsS7GhcvGP2Er6r8drnXwS0mbY8bbTm1XF
+	PuMj3eSxN6lnHwJViDmKiAwyNjwBPMghQKTOAEqUjmHYQLA6aq29i/1kMRwzWhQke+8tFG7oSUuys
+	DLCekwo9cuY4YGHRkWzgZOG5r/m+6lOEwiLbqViotBAyFkU9DGIsFMmxUW/n3qZ3zwdYM8TSxQsLN
+	vI+hpBFnNIhlmkyvobNkquhlrgqNxpQCxD+WYQM8zt3VK34v9PFPw3+OQbsJnIgjUOoktuCxlyGN/
+	wjpIe56Q==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tetYj-0000000G3Tb-30C1
+	id 1tetYn-0000000G3Ty-2LcE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 10:20:07 +0000
+	Mon, 03 Feb 2025 10:20:12 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 66BB711FB;
-	Mon,  3 Feb 2025 02:20:29 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3B2CE1682;
+	Mon,  3 Feb 2025 02:20:33 -0800 (PST)
 Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 74BCD3F63F;
-	Mon,  3 Feb 2025 02:20:01 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 48ED23F63F;
+	Mon,  3 Feb 2025 02:20:05 -0800 (PST)
 From: Kevin Brodsky <kevin.brodsky@arm.com>
 To: linux-hardening@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -75,17 +75,17 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mm@kvack.org,
 	x86@kernel.org
-Subject: [RFC PATCH v3 06/15] arm64: set_memory: Implement set_memory_pkey()
-Date: Mon,  3 Feb 2025 10:18:30 +0000
-Message-ID: <20250203101839.1223008-7-kevin.brodsky@arm.com>
+Subject: [RFC PATCH v3 07/15] arm64: Enable kpkeys
+Date: Mon,  3 Feb 2025 10:18:31 +0000
+Message-ID: <20250203101839.1223008-8-kevin.brodsky@arm.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20250203101839.1223008-1-kevin.brodsky@arm.com>
 References: <20250203101839.1223008-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_102005_989266_955403C8 
-X-CRM114-Status: GOOD (  12.67  )
+X-CRM114-CacheID: sfid-20250203_102009_949709_348670E7 
+X-CRM114-Status: GOOD (  13.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,70 +100,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement set_memory_pkey() using POE if supported.
+This is the final step to enable kpkeys on arm64. We enable
+POE at EL1 by setting TCR2_EL1.POE, and initialise POR_EL1 so that
+it enables access to the default pkey/POIndex (default kpkeys
+level). An ISB is added so that POE restrictions are enforced
+immediately.
+
+Having done this, we can now select ARCH_HAS_KPKEYS if ARM64_POE is
+enabled.
 
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- arch/arm64/include/asm/set_memory.h |  4 ++++
- arch/arm64/mm/pageattr.c            | 25 +++++++++++++++++++++++++
- 2 files changed, 29 insertions(+)
+ arch/arm64/Kconfig             | 1 +
+ arch/arm64/kernel/cpufeature.c | 5 ++++-
+ 2 files changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/set_memory.h b/arch/arm64/include/asm/set_memory.h
-index 90f61b17275e..b6cd6de34abf 100644
---- a/arch/arm64/include/asm/set_memory.h
-+++ b/arch/arm64/include/asm/set_memory.h
-@@ -19,4 +19,8 @@ bool kernel_page_present(struct page *page);
- int set_memory_encrypted(unsigned long addr, int numpages);
- int set_memory_decrypted(unsigned long addr, int numpages);
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index fcdd0ed3eca8..34f15348ada8 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -2186,6 +2186,7 @@ config ARM64_POE
+ 	def_bool y
+ 	select ARCH_USES_HIGH_VMA_FLAGS
+ 	select ARCH_HAS_PKEYS
++	select ARCH_HAS_KPKEYS
+ 	help
+ 	  The Permission Overlay Extension is used to implement Memory
+ 	  Protection Keys. Memory Protection Keys provides a mechanism for
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 4eb7c6698ae4..28b8c93c60c7 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -76,6 +76,7 @@
+ #include <linux/kasan.h>
+ #include <linux/percpu.h>
+ #include <linux/sched/isolation.h>
++#include <linux/kpkeys.h>
  
-+#ifdef CONFIG_ARCH_HAS_KPKEYS
-+int set_memory_pkey(unsigned long addr, int numpages, int pkey);
-+#endif
-+
- #endif /* _ASM_ARM64_SET_MEMORY_H */
-diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-index 39fd1f7ff02a..9721a74adbe2 100644
---- a/arch/arm64/mm/pageattr.c
-+++ b/arch/arm64/mm/pageattr.c
-@@ -8,6 +8,7 @@
- #include <linux/mem_encrypt.h>
- #include <linux/sched.h>
- #include <linux/vmalloc.h>
-+#include <linux/pkeys.h>
- 
- #include <asm/cacheflush.h>
- #include <asm/pgtable-prot.h>
-@@ -292,6 +293,30 @@ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
- 	return set_memory_valid(addr, nr, valid);
+ #include <asm/cpu.h>
+ #include <asm/cpufeature.h>
+@@ -2385,8 +2386,10 @@ static void cpu_enable_mops(const struct arm64_cpu_capabilities *__unused)
+ #ifdef CONFIG_ARM64_POE
+ static void cpu_enable_poe(const struct arm64_cpu_capabilities *__unused)
+ {
+-	sysreg_clear_set(REG_TCR2_EL1, 0, TCR2_EL1_E0POE);
++	write_sysreg_s(por_set_kpkeys_level(0, KPKEYS_LVL_DEFAULT), SYS_POR_EL1);
++	sysreg_clear_set(REG_TCR2_EL1, 0, TCR2_EL1_E0POE | TCR2_EL1_POE);
+ 	sysreg_clear_set(CPACR_EL1, 0, CPACR_EL1_E0POE);
++	isb();
  }
+ #endif
  
-+#ifdef CONFIG_ARCH_HAS_KPKEYS
-+int set_memory_pkey(unsigned long addr, int numpages, int pkey)
-+{
-+	unsigned long set_prot = 0;
-+
-+	if (!system_supports_poe())
-+		return 0;
-+
-+	if (!__is_lm_address(addr))
-+		return -EINVAL;
-+
-+	if (pkey >= arch_max_pkey())
-+		return -EINVAL;
-+
-+	set_prot |= pkey & BIT(0) ? PTE_PO_IDX_0 : 0;
-+	set_prot |= pkey & BIT(1) ? PTE_PO_IDX_1 : 0;
-+	set_prot |= pkey & BIT(2) ? PTE_PO_IDX_2 : 0;
-+
-+	return __change_memory_common(addr, PAGE_SIZE * numpages,
-+				      __pgprot(set_prot),
-+				      __pgprot(PTE_PO_IDX_MASK));
-+}
-+#endif
-+
- #ifdef CONFIG_DEBUG_PAGEALLOC
- /*
-  * This is - apart from the return value - doing the same
 -- 
 2.47.0
 
