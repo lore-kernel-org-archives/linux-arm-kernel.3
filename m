@@ -4,94 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37A98C02195
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 08:15:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 147BDC02193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 08:16:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Un+cEQl1penET6kXVhDwk0syJ582vZdE0QyY38dr2j4=; b=BmvGyf+lrkd5y6RHBvYwW4w1Eu
-	aUT7Sw3ji09kmofsfpTTy9ch3QBjXBmQ3Wxmi0u4sMQ6h6kMb6MoWKfBAgdK7Sc8Eu6ab3J/DdkNa
-	J9bcX01SuPDNZIDTS+kP12QEmzS3L0STXQWpM4WXJHfGGdTbq44aJUAeqieM56Ner852S0hvS02vp
-	XReqgDqkhshl5IeuCmRG2r0LAAb65Z0DmLp36PWNzQ9ehMxj8//3Vp9IMb9tpNgDuxT0twEordGLL
-	Z7B/86sfVs6sRzRZ97P9PbOCDs7REKhUM5eCJf72e/mR+qrGkB3U1uydSBnWiMl/pcW2mkNnhz2Xn
-	V+yMYPDw==;
+	bh=utfW+gN4zhPc1Z6/nhdbp3JUTTVFHupyeHOWi/BRNeI=; b=GqnngnMAVJfK1jaWPVbNu3mW1Y
+	vYthcUsCgDYrWw01oR2oF8eKJitpeM661qZ+9t8j1WgbkyZ3VzHrW4+8HHyGD9BvvO5IKDydMJx/2
+	KM5JrQo8quH3bJue0anx4KCgs9PrtZPS5inEKGVZl3FcPVfPHG8bdkHGUWDModOD6LXGfVT2E0zA7
+	2LXAVmVAmlh774Xn1Xe0oVZ6i7+m0P3M+NsdQggv6HPSssW5LHuKl2mqMPWC3QoR3GxklFrAbPSex
+	I2c9hOLU062qVpKR4AG6AzUaKYH9lTEATErI0ErIORgksPTb3I+Nk7pyzYaS2vuBA5y2V+PbLkann
+	gw16FE7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1terbo-0000000EnEs-3qfw;
-	Mon, 03 Feb 2025 08:15:08 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1terd7-0000000Enfo-3go5;
+	Mon, 03 Feb 2025 08:16:29 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1terYb-0000000Emcu-0t0K
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 08:11:50 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-436ce2ab251so27475815e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 00:11:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1738570307; x=1739175107; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Un+cEQl1penET6kXVhDwk0syJ582vZdE0QyY38dr2j4=;
-        b=XJ9HGt8MZZ0fL1YtATWoyH0RY7Hr5vSbDVR9ib2hw9UoeKTqexVJxwd2PpQTUkkSj1
-         V+cBYbLJ+AP53vNrR0yhV0p4Gau6gqiKPcO4P1IesJLhipF8NGndXHkWQOw1Vb/IjEaO
-         P1ePiN3rI+ta7K883T0ApGhIwe4LBNs4ZDNNaG7EqN8RDFeR3VZclcnBaKN42eGUFqHM
-         bjOUPXkBddW5+lf8BN+T4N40PrgtMylSlGN/FSBqcy6fqgFUcbnfvJSxXqtTujqnP0TQ
-         Mu8LIowzNiiw91qyhOizmJsClHCW5zWUvgYkvySYB+C1eTKo1YR3zZcWJ2Bwjf6+6B8X
-         u9Mg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738570307; x=1739175107;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Un+cEQl1penET6kXVhDwk0syJ582vZdE0QyY38dr2j4=;
-        b=Lj9EN6T7K1PfAeV67Qq+tXb6r/AOLMz7vT/uMw+2NWNd5fKN7lKHAfSmpnJcSfWD1w
-         Is9D/Ipj0l1dQm0iWdkKgmQ/1P23DvHfKul3huZIQnFsbuQEzdsDc9fkHNIqJfD0F9/b
-         Kt70Gv7LrPEqOPi0bQMDcpKq57qB/kws7vMeaRgxRBJYx9NUNpaRDsulozfu8vcRbUyX
-         b+81e7mH/qPCWWGUBix3jWWcpMQxN2IbreSsr4KKNFZhSnVdSTjVtW9prqRkj7d7bUbs
-         FxNiGQQd7Aeq/+0ZG20REMt9lhGpczQwXTliEJu7oSHdi22XhZUBzn+qV++YM08XjkKF
-         d4+w==
-X-Forwarded-Encrypted: i=1; AJvYcCVmvN2y5M2N8uOwBJC/rVI1nHf+FbyxOsZGCmrpXEnRrQSaoWTElRC1bursOCdngJCvBaZWUXCqTGnmMW7d7lkS@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLqngIuWn8UARuglfa9kV/Mdea+nFC5kdO9CQEcLui2xvMXWrt
-	b9LY5TVePxKDLocUcPEuOmweIlrkw2oliWuGT6xkx36GeKlTGryHAHOyKs5hkL4=
-X-Gm-Gg: ASbGncuEpIm5RCtep9CLy8DOekNiIymrFIydIyNhumv2V4sc7th6h5fPRneuOPN3hrV
-	Rt1D+XFjJ+Zfi0C8AUxrNklF4yahDpRQMqt/yW4XRj1VHepHMk7f8erc6rIpGVM60WSFUULypuA
-	TuswUDaGSvHUZ3msbqW/UyC7/BsO/uZqWBXp6xiS3tE837tVsep8n+rLat0bPVu8fbu1n5WB+6A
-	fYsj3yyvFAlf3Z4WHlg7uBBde53g9NN1JyuQlOeYq93sRjqy2GVC2LwLG/mSkfbjvipddUg+P5C
-	Y/LBXnHoRcaOew==
-X-Google-Smtp-Source: AGHT+IFsYJyukqNwI/R5K0rzDdSZ+QGIaGzEDlXZz/nQ/Yp+9OtLlQtZNmGQAJmE2taDeIWJxu5lOw==
-X-Received: by 2002:a05:600c:3d05:b0:434:a802:e99a with SMTP id 5b1f17b1804b1-438dc3ab389mr164710125e9.4.1738570306784;
-        Mon, 03 Feb 2025 00:11:46 -0800 (PST)
-Received: from brgl-uxlite.home ([2a01:cb1d:dc:7e00:62d7:938e:c76:df44])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438e244eb0dsm147095175e9.27.2025.02.03.00.11.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Feb 2025 00:11:46 -0800 (PST)
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-To: David Lechner <david@lechnology.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH] ARM: dts: ti: davinci: Align GPIO hog name with bindings
-Date: Mon,  3 Feb 2025 09:11:45 +0100
-Message-ID: <173857030323.20448.16564760541059882154.b4-ty@linaro.org>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20250116090030.87452-1-krzysztof.kozlowski@linaro.org>
-References: <20250116090030.87452-1-krzysztof.kozlowski@linaro.org>
+	id 1terZT-0000000Emnc-3BRC;
+	Mon, 03 Feb 2025 08:12:45 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51367KdO009748;
+	Mon, 3 Feb 2025 08:11:33 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=utfW+gN4zhP
+	c1Z6/nhdbp3JUTTVFHupyeHOWi/BRNeI=; b=UR8Lhl9KCKZ4lqteGvXs9bCEzMT
+	IfDdW0/ud56xGGF+0rsqcG4CuNUoVqG6HI243A7HN8gh4hvgd6EF4Bmsh/j9Lrlw
+	HqRzJur4KCTWBzThdIshjMHYz4LJNFEujBK8aSCDQ6dZOrklJVtQO4IkNwLB5UjA
+	o/ffTMv3lqLphc4wYjf2/LlKIvwUXbk46mV0bLkM7S9ax1obAsLveZqLik6fB6mh
+	kiS/CvWMjQWvtY/K4VB4VrCfgA4cUgP6QRtJSefRlxlhxUrT3E4shNlW5MvhkebO
+	lUvjHgBdmUN/V2mKUNQJmNtPC1tjRntYRq4rrAvwTTlgoyc3rK8UKhYarVw==
+Received: from aptaippmta02.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com [103.229.16.4])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44jr8888e4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 03 Feb 2025 08:11:33 +0000 (GMT)
+Received: from pps.filterd (APTAIPPMTA02.qualcomm.com [127.0.0.1])
+	by APTAIPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTP id 5138BV9V026176;
+	Mon, 3 Feb 2025 08:11:31 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+	by APTAIPPMTA02.qualcomm.com (PPS) with ESMTPS id 44hcpkshk6-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 03 Feb 2025 08:11:31 +0000
+Received: from APTAIPPMTA02.qualcomm.com (APTAIPPMTA02.qualcomm.com [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 5138BUcw026171;
+	Mon, 3 Feb 2025 08:11:30 GMT
+Received: from cbsp-sh-gv.ap.qualcomm.com (CBSP-SH-gv.ap.qualcomm.com [10.231.249.68])
+	by APTAIPPMTA02.qualcomm.com (PPS) with ESMTPS id 5138BUlo026168
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 03 Feb 2025 08:11:30 +0000
+Received: by cbsp-sh-gv.ap.qualcomm.com (Postfix, from userid 393357)
+	id 2E22E40BFE; Mon,  3 Feb 2025 16:11:29 +0800 (CST)
+From: Ziqi Chen <quic_ziqichen@quicinc.com>
+To: quic_cang@quicinc.com, bvanassche@acm.org, mani@kernel.org,
+        beanhuo@micron.com, avri.altman@wdc.com, junwoo80.lee@samsung.com,
+        martin.petersen@oracle.com, quic_ziqichen@quicinc.com,
+        quic_nguyenb@quicinc.com, quic_nitirawa@quicinc.com,
+        quic_rampraka@quicinc.com
+Cc: linux-arm-msm@vger.kernel.org, linux-scsi@vger.kernel.org,
+        Alim Akhtar <alim.akhtar@samsung.com>,
+        "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+        Peter Wang <peter.wang@mediatek.com>,
+        Stanley Jhu <chu.stanley@gmail.com>,
+        Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        Andrew Halaney <ahalaney@redhat.com>,
+        Eric Biggers <ebiggers@google.com>, Minwoo Im <minwoo.im@samsung.com>,
+        linux-kernel@vger.kernel.org (open list),
+        linux-mediatek@lists.infradead.org (moderated list:UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER...),
+        linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support:Keyword:mediatek)
+Subject: [PATCH v3 1/8] scsi: ufs: core: Pass target_freq to clk_scale_notify() vop
+Date: Mon,  3 Feb 2025 16:11:02 +0800
+Message-Id: <20250203081109.1614395-2-quic_ziqichen@quicinc.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250203081109.1614395-1-quic_ziqichen@quicinc.com>
+References: <20250203081109.1614395-1-quic_ziqichen@quicinc.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-QCInternal: smtphost
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: v3uXrpDDeY3UVKG0D9PR0_Q8yfQrITc6
+X-Proofpoint-GUID: v3uXrpDDeY3UVKG0D9PR0_Q8yfQrITc6
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-03_03,2025-01-31_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0
+ impostorscore=0 phishscore=0 mlxscore=0 priorityscore=1501 adultscore=0
+ bulkscore=0 mlxlogscore=999 lowpriorityscore=0 spamscore=0 clxscore=1015
+ malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2501170000 definitions=main-2502030065
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_001149_509838_B75BFCC2 
-X-CRM114-Status: UNSURE (   8.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250203_001243_804971_A2266C99 
+X-CRM114-Status: GOOD (  16.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,23 +116,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+From: Can Guo <quic_cang@quicinc.com>
 
+Instead of only two frequencies, if OPP V2 is used, the UFS devfreq clock
+scaling may scale the clock among multiple frequencies, so just passing
+up/down to vop clk_scale_notify() is not enough to cover the intermediate
+clock freqs between the min and max freqs. Hence pass the target_freq ,
+which will be used in successive commits, to clk_scale_notify() to allow
+the vop to perform corresponding configurations with regard to the clock
+freqs.
 
-On Thu, 16 Jan 2025 10:00:30 +0100, Krzysztof Kozlowski wrote:
-> Bindings expect GPIO hog names to end with 'hog' suffix, so correct it
-> to fix dtbs_check warnings like:
-> 
->   da850-lego-ev3.dtb: batt_volt_en: $nodename:0: 'batt_volt_en' does not match '^.+-hog(-[0-9]+)?$'
-> 
-> 
+Signed-off-by: Can Guo <quic_cang@quicinc.com>
+Co-developed-by: Ziqi Chen <quic_ziqichen@quicinc.com>
+Signed-off-by: Ziqi Chen <quic_ziqichen@quicinc.com>
+---
 
-Applied, thanks!
+v1 -> v2:
+Modify commit message to make it more clear.
 
-[1/1] ARM: dts: ti: davinci: Align GPIO hog name with bindings
-      commit: 58abc69e479cf5b36c4fc4287a11c9d92d2ce4b8
+v2 -> v3:
+1. Change 'vops' to 'vop' in commit message.
+2. keep the indentation consistent for clk_scale_notify() definition.
+---
+ drivers/ufs/core/ufshcd-priv.h  | 7 ++++---
+ drivers/ufs/core/ufshcd.c       | 4 ++--
+ drivers/ufs/host/ufs-mediatek.c | 1 +
+ drivers/ufs/host/ufs-qcom.c     | 5 +++--
+ include/ufs/ufshcd.h            | 4 ++--
+ 5 files changed, 12 insertions(+), 9 deletions(-)
 
-Best regards,
+diff --git a/drivers/ufs/core/ufshcd-priv.h b/drivers/ufs/core/ufshcd-priv.h
+index 9ffd94ddf8c7..0549b65f71ed 100644
+--- a/drivers/ufs/core/ufshcd-priv.h
++++ b/drivers/ufs/core/ufshcd-priv.h
+@@ -117,11 +117,12 @@ static inline u32 ufshcd_vops_get_ufs_hci_version(struct ufs_hba *hba)
+ 	return ufshcd_readl(hba, REG_UFS_VERSION);
+ }
+ 
+-static inline int ufshcd_vops_clk_scale_notify(struct ufs_hba *hba,
+-			bool up, enum ufs_notify_change_status status)
++static inline int ufshcd_vops_clk_scale_notify(struct ufs_hba *hba, bool up,
++					       unsigned long target_freq,
++					       enum ufs_notify_change_status status)
+ {
+ 	if (hba->vops && hba->vops->clk_scale_notify)
+-		return hba->vops->clk_scale_notify(hba, up, status);
++		return hba->vops->clk_scale_notify(hba, up, target_freq, status);
+ 	return 0;
+ }
+ 
+diff --git a/drivers/ufs/core/ufshcd.c b/drivers/ufs/core/ufshcd.c
+index acc3607bbd9c..8d295cc827cc 100644
+--- a/drivers/ufs/core/ufshcd.c
++++ b/drivers/ufs/core/ufshcd.c
+@@ -1157,7 +1157,7 @@ static int ufshcd_scale_clks(struct ufs_hba *hba, unsigned long freq,
+ 	int ret = 0;
+ 	ktime_t start = ktime_get();
+ 
+-	ret = ufshcd_vops_clk_scale_notify(hba, scale_up, PRE_CHANGE);
++	ret = ufshcd_vops_clk_scale_notify(hba, scale_up, freq, PRE_CHANGE);
+ 	if (ret)
+ 		goto out;
+ 
+@@ -1168,7 +1168,7 @@ static int ufshcd_scale_clks(struct ufs_hba *hba, unsigned long freq,
+ 	if (ret)
+ 		goto out;
+ 
+-	ret = ufshcd_vops_clk_scale_notify(hba, scale_up, POST_CHANGE);
++	ret = ufshcd_vops_clk_scale_notify(hba, scale_up, freq, POST_CHANGE);
+ 	if (ret) {
+ 		if (hba->use_pm_opp)
+ 			ufshcd_opp_set_rate(hba,
+diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
+index 135cd78109e2..977dd0caaef6 100644
+--- a/drivers/ufs/host/ufs-mediatek.c
++++ b/drivers/ufs/host/ufs-mediatek.c
+@@ -1643,6 +1643,7 @@ static void ufs_mtk_clk_scale(struct ufs_hba *hba, bool scale_up)
+ }
+ 
+ static int ufs_mtk_clk_scale_notify(struct ufs_hba *hba, bool scale_up,
++				    unsigned long target_freq,
+ 				    enum ufs_notify_change_status status)
+ {
+ 	if (!ufshcd_is_clkscaling_supported(hba))
+diff --git a/drivers/ufs/host/ufs-qcom.c b/drivers/ufs/host/ufs-qcom.c
+index 68040b2ab5f8..b6eef975dc46 100644
+--- a/drivers/ufs/host/ufs-qcom.c
++++ b/drivers/ufs/host/ufs-qcom.c
+@@ -1333,8 +1333,9 @@ static int ufs_qcom_clk_scale_down_post_change(struct ufs_hba *hba)
+ 	return ufs_qcom_set_core_clk_ctrl(hba, false);
+ }
+ 
+-static int ufs_qcom_clk_scale_notify(struct ufs_hba *hba,
+-		bool scale_up, enum ufs_notify_change_status status)
++static int ufs_qcom_clk_scale_notify(struct ufs_hba *hba, bool scale_up,
++				     unsigned long target_freq,
++				     enum ufs_notify_change_status status)
+ {
+ 	struct ufs_qcom_host *host = ufshcd_get_variant(hba);
+ 	int err;
+diff --git a/include/ufs/ufshcd.h b/include/ufs/ufshcd.h
+index d7aca9e61684..f51d425696e7 100644
+--- a/include/ufs/ufshcd.h
++++ b/include/ufs/ufshcd.h
+@@ -344,8 +344,8 @@ struct ufs_hba_variant_ops {
+ 	void    (*exit)(struct ufs_hba *);
+ 	u32	(*get_ufs_hci_version)(struct ufs_hba *);
+ 	int	(*set_dma_mask)(struct ufs_hba *);
+-	int	(*clk_scale_notify)(struct ufs_hba *, bool,
+-				    enum ufs_notify_change_status);
++	int (*clk_scale_notify)(struct ufs_hba *, bool, unsigned long,
++							enum ufs_notify_change_status);
+ 	int	(*setup_clocks)(struct ufs_hba *, bool,
+ 				enum ufs_notify_change_status);
+ 	int	(*hce_enable_notify)(struct ufs_hba *,
 -- 
-Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+2.34.1
+
 
