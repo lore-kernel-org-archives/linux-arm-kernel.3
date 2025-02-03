@@ -4,58 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA08CC02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 18:28:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC46BC02193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 18:30:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KEHI6fKlstrD1dJJta8lfcv3fS6nvl35ceffKmGLfis=; b=BEWx4CCXNCUeUIX3D3F8pSfbAr
-	JttLXgYgXyNyzU/dh+mWejfOHWwc7Ph371d9l9ZLv3Zlnvkm7RisD7UyxpJkWxDmkUJUJtbNNRf0t
-	zWkjwcgv7dsm4Xi2BWT2EvgUkWn8ZDwpq079bQuW1BjGHqnqUIK5ffNZ01Y9dMEXoqLEU8nDNMT2S
-	QX2VVeuQkhwYKcQhky1j5Vf3hhXnVDIrDe4UM18dvd/lGIuA73nt4dhAMPhDiickeCLkxkyxYN98+
-	6M1IhDtSwJvzGB0GuGWdsJGi6+ePzyC79MvWPhgKPoI3B/h884vL+eiG8w3uXQdo42QNrcuKsLfoA
-	hDcUoy2w==;
+	bh=QwX9yigjczno1Znsa9bRz1z0dQyr4IiRfFLwwoCxyg0=; b=xytXR9TJSw/mHBf9rY50X7kQrA
+	lrL4LfWFi8LtSehS5cdJ2WGA1kwPeDGf69TScw7hRNH9910ikJdtbzpmlo+Fj61bHGSLu94WCdrX8
+	FGSXW6egntRdRPzKr8dp4XGg7hakZUBTX9ye9QPhR4VLw/YgQQoNEp+cRZ4zx1s0Qut9xXUp+jGj2
+	qo1qGSfI2hDvkQd+fZFuPdBRAUtpl4Dv6eiaXrA4++tMcJcSyYMv/Maep5Jw5EWEvNCzs3DxuY6Oe
+	LYuPogKf2Fc6X5/EM8gonSEyyT61gAUlZMxC/QZsXcAXMwUX4N70/Dn1GaEVq8m+VC+42w9Sdc2gP
+	wfo7oOEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf1BR-0000000GFtV-1xfL;
-	Mon, 03 Feb 2025 18:28:33 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tf1D8-0000000GGHi-0aSV;
+	Mon, 03 Feb 2025 18:30:18 +0000
+Received: from mail-il1-x12b.google.com ([2607:f8b0:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf1A6-0000000GFaU-4A3a
+	id 1tf1Bm-0000000GFyq-2oKQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 18:27:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D820BA41ACA;
-	Mon,  3 Feb 2025 18:25:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 876D7C4CED2;
-	Mon,  3 Feb 2025 18:27:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738607229;
-	bh=U9fT7WD89sfXHwxYnXo6/SN52jUszCmb683sKFOLaTo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NgoesGlMCmPx1BC54ufGwzTD2FALfRfXi6oCuNPuoPlom7+NSd/e08vGzJ80tR8Wy
-	 3MIluTD0xy9E55SGaGohE/d/tdrmb33QUvg3aZjGXHMW41Og2ZR7Venbe8IP2ckzgP
-	 nf2o1aO9jUCMQhKknv9rnO0jSD7wEVW4FRqULNxONC0k1N/kedTNpqksVvMKcvuSBB
-	 1sFxHHRj3W3xZHbK9DtzJv1sqDfyPXqj+W+v9q1QdJ6UZM0uc0Z0IeK992jV/jFnb5
-	 hPuUoXrrR3bIyG+Ztkrrhi+xRYGnStuTl6mEHm2M1OuW4uvxFxMRb7MM6xmoizWVNa
-	 /lLaGFAXgMvGQ==
-Date: Mon, 3 Feb 2025 12:27:08 -0600
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Andrei Simion <andrei.simion@microchip.com>
-Subject: Re: [PATCH v2] ASoC: dt-bindings: atmel,at91-ssc: Convert to YAML
- format
-Message-ID: <173860722807.3351261.2109614863314200591.robh@kernel.org>
-References: <20250203091111.21667-1-andrei.simion@microchip.com>
+	Mon, 03 Feb 2025 18:28:55 +0000
+Received: by mail-il1-x12b.google.com with SMTP id e9e14a558f8ab-3a814c54742so2285ab.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 10:28:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1738607333; x=1739212133; darn=lists.infradead.org;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QwX9yigjczno1Znsa9bRz1z0dQyr4IiRfFLwwoCxyg0=;
+        b=oqfBxx9Beae5y9MZzP3WaYRczespCoin5DkP0ZJrZjt9gdZ06FC1McNp5Fn/bT7Dy0
+         BOPuf6LD35ScU4ItkvaWnos02w4YurkxkwcSu05XjZHt5myW1djVcvzGN9Td8ns/Fb0N
+         v3syR1mRCnwyjOWbifSj2x3gFOiTZU3Dsr2Avyd5vRHh73VUegBBbWQE0g3FH52c2bq/
+         tWe0+dPgS1gNR4d0BqSekD5+v76NPAPFZ4RDt8mte+gu1WVpWaGlmHlfPlVpkUwQ+h3m
+         KxBFLqXYrRZfZUrsa8CSVdER02GnK87yZ/klpv7Ys3VeuPAehYFOhbYzu3DOxxmKm3gW
+         VCvQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738607333; x=1739212133;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=QwX9yigjczno1Znsa9bRz1z0dQyr4IiRfFLwwoCxyg0=;
+        b=NJauBljLzp48iy9doqhPnOR6DaqrELY0DztVhv4IgsW7uNeM5ZJ0hyD5U/GJpUyIeG
+         Yd+r1WTcr7jnetwveIzTuIFKa16dvVRHb+3Dct4Px8jhF98qQA3G3vIRTd5JJCv4zba6
+         AZDJWo8Wqrlwa844KgEAe4FptfPdMAcsRPH0yGvzYQPOT2l9Kx/qd5nH3V7FxTWIGs9W
+         XTi82zq65yextH0MamYEjBju6MxUj2PC5wmi5OMyVI/bkdhXwhBa4LtlKBxvuPPEbzdw
+         i9Kfi7ISwlleho/O2Acb2FVrEsRAPu2z687TTfbjTi8PWfES84IFP6pVvJITj7Yz8/3b
+         Je8g==
+X-Forwarded-Encrypted: i=1; AJvYcCUPu3F23+xEZt+zWaE9WgCD4lt/5tUR6P2AFwcpKPM7KYNttaj29EpRbk5GjZYTdUZXf5LoAIL2AKOp8w8EousC@lists.infradead.org
+X-Gm-Message-State: AOJu0YzzZLi5YPSFHDONVNtvw51jrox2tKORRftNwnxIujLtihMzaInl
+	iu9oN1vqG1mzyni9PgP0BBF6/NAwahyXp3sHFCBSU4EtoUP2WiftnuSjLeZJ2AOqmC1f4joVkWx
+	r+039PnrFtEtJOgU0u2XUCaGUyu14WUwN/RNY
+X-Gm-Gg: ASbGncsJ6eTyuRPtkeCKWky57ESLoLVWY54WI7a0+BTBHt2UvhgtW34IOoxjvfVEZyf
+	4zuo00a1gn/l06YESk1RqWhhBPRwZhO/0BcOeRzrglNfvvh+QMf1SKxy7Ld9vu2QXD5b+/NFhRm
+	bcDxyPA5w7TUU7QFALUdmxfyc=
+X-Google-Smtp-Source: AGHT+IH+A9TihiG72yU0Vq5EiYylzTrE/IWJEUJYg00EcqiTZKQbwizmjhExw2bHiq41772gYqefQvOo1dSun9QKKsQ=
+X-Received: by 2002:a05:6e02:152b:b0:3a7:e3b3:2e3 with SMTP id
+ e9e14a558f8ab-3d03eef69e2mr568275ab.17.1738607331812; Mon, 03 Feb 2025
+ 10:28:51 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250203091111.21667-1-andrei.simion@microchip.com>
+References: <20250201071455.718247-1-irogers@google.com> <CAP-5=fVJPAEhvyV_dPHSHKJVeskCf_paFSP6V4EWmEyqACeA-w@mail.gmail.com>
+In-Reply-To: <CAP-5=fVJPAEhvyV_dPHSHKJVeskCf_paFSP6V4EWmEyqACeA-w@mail.gmail.com>
+From: Ian Rogers <irogers@google.com>
+Date: Mon, 3 Feb 2025 10:28:40 -0800
+X-Gm-Features: AWEUYZk2d0_RD-bETg-4iKC_pajIBGhSvw_oeuucHt_WAGp1zkLzZrIkQ1Y7lrI
+Message-ID: <CAP-5=fX2BtFzhGLCSqO1QszqfX=HT8RrTdG_5Ttp5Gw4seSstA@mail.gmail.com>
+Subject: Re: [PATCH v1 0/7] perf: Support multiple system call tables in the build
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
+	Kan Liang <kan.liang@linux.intel.com>, John Garry <john.g.garry@oracle.com>, 
+	Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>, 
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, Guo Ren <guoren@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Charlie Jenkins <charlie@rivosinc.com>, 
+	Bibo Mao <maobibo@loongson.cn>, Arnd Bergmann <arnd@arndb.de>, Huacai Chen <chenhuacai@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
+	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
+	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_102711_092853_995FA3F9 
-X-CRM114-Status: GOOD (  12.80  )
+X-CRM114-CacheID: sfid-20250203_102854_707947_E6ECA492 
+X-CRM114-Status: GOOD (  27.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,38 +104,71 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: conor+dt@kernel.org, devicetree@vger.kernel.org, alexandre.belloni@bootlin.com, linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, lgirdwood@gmail.com, broonie@kernel.org, claudiu.beznea@tuxon.dev, krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sat, Feb 1, 2025 at 12:51=E2=80=AFAM Ian Rogers <irogers@google.com> wro=
+te:
+>
+> On Fri, Jan 31, 2025 at 11:15=E2=80=AFPM Ian Rogers <irogers@google.com> =
+wrote:
+> >
+> > This work builds on the clean up of system call tables and removal of
+> > libaudit by Charlie Jenkins <charlie@rivosinc.com>.
+> >
+> > The system call table in perf trace is used to map system call numbers
+> > to names and vice versa. Prior to these changes, a single table
+> > matching the perf binary's build was present. The table would be
+> > incorrect if tracing say a 32-bit binary from a 64-bit version of
+> > perf, the names and numbers wouldn't match.
+> >
+> > Change the build so that a single system call file is built and the
+> > potentially multiple tables are identifiable from the ELF machine type
+> > of the process being examined. To determine the ELF machine type, the
+> > executable's header is read from /proc/pid/exe with fallbacks to using
+> > the perf's binary type when unknown.
+> >
+> > Remove some runtime types used by the system call tables and make
+> > equivalents generated at build time.
+> >
+> > Ian Rogers (7):
+> >   perf syscalltble: Remove syscall_table.h
+> >   perf trace: Reorganize syscalls
+> >   perf syscalltbl: Remove struct syscalltbl
+> >   perf thread: Add support for reading the e_machine type for a thread
+> >   perf trace beauty: Add syscalltbl.sh generating all system call table=
+s
+> >   perf syscalltbl: Use lookup table containing multiple architectures
+> >   perf build: Remove Makefile.syscalls
+>
+> If you are looking for the improvement this series achieves, patch 6
+> has sample before and after output:
+> https://lore.kernel.org/lkml/20250201071455.718247-7-irogers@google.com/
 
-On Mon, 03 Feb 2025 11:11:12 +0200, Andrei Simion wrote:
-> Convert devicetree binding atmel-ssc.txt to YAML format.
-> Update the documentation supported file for MICROCHIP SSC DRIVER.
-> 
-> Signed-off-by: Andrei Simion <andrei.simion@microchip.com>
-> ---
-> v1 -> v2:
-> - squash MAINTAINERS patch
-> - place this yaml in sound directory
-> - reword the commit title
-> - reword the commit message
-> - add #sound-dai-cells const 0
-> - add required
-> - include ref dai-common.yaml#
-> - fix the logic for the required properties for DMA transfer
-> - update examples by adding #sound-dai-cells = <0>
-> - drop unnecessary description
-> - drop compatible for sam9x7-ssc because is not the intent of the patch
-> ---
->  .../devicetree/bindings/misc/atmel-ssc.txt    |  50 ---------
->  .../bindings/sound/atmel,at91-ssc.yaml        | 104 ++++++++++++++++++
->  MAINTAINERS                                   |   2 +-
->  3 files changed, 105 insertions(+), 51 deletions(-)
->  delete mode 100644 Documentation/devicetree/bindings/misc/atmel-ssc.txt
->  create mode 100644 Documentation/devicetree/bindings/sound/atmel,at91-ssc.yaml
-> 
+I think there is a follow up to these patches to clean up the notion
+of "arch" and its "name" member:
+https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/tr=
+ee/tools/perf/util/disasm.h?h=3Dperf-tools-next#n20
+The name on x86-64 has the value "x86" and isn't known to be i386 or
+x86-64, causing ambiguity to work around:
+https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/tr=
+ee/tools/perf/util/disasm.c?h=3Dperf-tools-next#n1898
+It feels likely that rather than recording (in env) a string based on
+uname and bashing it around:
+https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/tr=
+ee/tools/perf/util/env.c?h=3Dperf-tools-next#n440
+It would be better to record the e_machine values for the set of
+threads in the record, or just a set of potential e_machine values. We
+can get rid of name in arch, use e_machine from some dso helper, and
+then deal with this as appropriate without needing to carry around
+is_64bit to deal with ambiguity.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+A change like this would need its own feature flag, and helpers
+between the old name and e_machine so all notions of the old style
+name could be removed, etc. It may be convenient to duplicate arch
+tables for i386/x86-64 rather than have disasm's arch deal with a set
+of e_machines.
 
+Thanks,
+Ian
 
