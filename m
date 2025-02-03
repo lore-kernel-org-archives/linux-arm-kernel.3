@@ -4,98 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF724C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 19:04:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5F8FC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 19:05:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J+RIS1anmyO42kqLe5kMSgXbeXH0p5fPwJzPiSotpnQ=; b=ne3ur3y1bAkGCUu0zK90xiJ9KE
-	ZUFO3KEB7Qc31Mho0Wf5N59KJ7Uj5gPJP3pC67LxEE2IAcjlFTNoKrKO7V+9SkvAh9GF8cSyDf12v
-	y+UdXPuf6+hyWExjthQm0NaKjZsTxkLYDSli0TbkJkyjxGoDL2gPkkl9WurX3om9xx6RkuTZL9C7c
-	rrASITISa7CivPehfkAIu8C1LfGidj+PqDvMW53KbM2VoHJsdekuwtqyv8GcKXiX/MvL4jC6hek5k
-	5MNcnVY1PpEx9pBQua1XV+WJhKbhjuijXIVI/+PxLSDS07M3QWmH8GyoCIn+kReUQV7PCa+aJkuYu
-	YL6uQ0RQ==;
+	bh=6+cVOS5FJmIAsNqPulg8a9PrdBe6p9kJKl40HshGULo=; b=vRC6uRLYOD9t2JHjYnTvfcnIuV
+	8KNY7Kt+Cc2pi4zKb0Tn6k813I+uwWTd3G+57MmLXJ7JVp1Yk2mDMOI5VbFcA7cm4qDyW/p5XjVSz
+	ZM1wCDw2CCeHdIqgWFzGRkkgFvtF8itlmVm8VL3vs69lAZy8nFCfif8sLLufoBR8e9Pwx9MDWV8GV
+	s7ZNpxbl0UaKzxXBLmEPfAQHYLg673Yx4UZ4vntL8Y0kPGoQo+lKWE7iFWFThDENlc/thkhJYmoAZ
+	srAqdR/wzo3N9T3n4io4bLyfSh50sPcAtX+T+2z0ckwAdz6oI/qs/gnqLT8It1Z0cZsU6rtgkDr68
+	yH8RM0NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf1kB-0000000GOrC-2oZh;
-	Mon, 03 Feb 2025 19:04:27 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1tf1lT-0000000GP51-2F2T;
+	Mon, 03 Feb 2025 19:05:47 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf1cs-0000000GLnW-0edn
+	id 1tf1i8-0000000GO9l-27fx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 18:56:55 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2ee51f8c47dso6246647a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 10:56:53 -0800 (PST)
+	Mon, 03 Feb 2025 19:02:22 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-21628b3fe7dso86909085ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 11:02:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738609013; x=1739213813; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738609340; x=1739214140; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=J+RIS1anmyO42kqLe5kMSgXbeXH0p5fPwJzPiSotpnQ=;
-        b=nwrDOBceNNpXBY6pw4Fea/6H83R09mik9qCX7UruM9IiDuWaxukQMgc4KJSjYGcJXc
-         +3Z15h9jWM6tNbZLoOOJ84oDybxG5EfgMUAutPVVrJ8k4RARlEFqPz3z7dQ7d8eTgo8r
-         sGjIBng9PvyVSgejpS+u3x1440pKdNBpcHyOMlzd0yUruseg4NcKuNsZx1vuGiQNIFOW
-         muXrANnkmINpF75BMRf0f1EaV1XsnYMnudyu6mPDbltFVGBsADDVH2wcLjRrJvkCptgP
-         +cbnPMp8RjacJHiWwDrc/HboLZ2zbngW5p/BGOnjV/LC1Lc1CYkZxuG02/OXRSI8xhse
-         AMjA==
+        bh=6+cVOS5FJmIAsNqPulg8a9PrdBe6p9kJKl40HshGULo=;
+        b=TIfPIE2YfeYfV8JnLEhKRBsL8ZEEUzBkGJi0EP1nLzg4LIv++esPrYVWmPrpJj3A/z
+         /63JfNeXsiEIpSX6S8NV0yNiek0BmdSlGjzH63rRXwP/se5xcnz8k5yEh8CyOKViuIKN
+         ClbJsrU1Kqvlyw3g9xHvdMCVHQfLmHAkrPEtq9CSfrq2FxmM4DQnE+h7b+54yj27qH0V
+         VKNkL2jrB8+cfy87B8DgcrDt0rqZOTOFQ1DFh2+3U29pph8LCbJikALu5mE3Tte7dYX0
+         WiBOR6XtvNtFOyW2FsTktPTKbCs8kJU0E67vR5xqA7M1QFDtMXSoIfSNEwXICidEGr3u
+         9y+g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738609013; x=1739213813;
+        d=1e100.net; s=20230601; t=1738609340; x=1739214140;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=J+RIS1anmyO42kqLe5kMSgXbeXH0p5fPwJzPiSotpnQ=;
-        b=KJ5tWrb0h49j5G1rdzazfepkqLFkgGIemxpDC3eia416iwg+Xv+GQ9xOgCzNqIknBw
-         mwVA0C4TECsYCJitO2DbYPRNatGLlFhMOC9qqaXT1HI5q77WjJbHCvmOyJjAvIduM481
-         /OR/BKzd2Sn497Mcbjqk3ZOU5GPkHV4jQKg7H8rylyyUcNAONDK6oUHHOg4Awxg0Q74v
-         NNvIj4WVArad4/WBTXa2ko+5aSmUvE1w/nq1k2rDWZ9TVmROtqQOSkVmCLAglvlfAC1n
-         CZUUJiH6sGnToVtNUWIl4hsGU3CS9JXfRF5Jh7UJx5H5pkODdLmA5LjX75WsIe/WyvmL
-         AxyA==
-X-Forwarded-Encrypted: i=1; AJvYcCVtc+pIcvz/T1vwhllEEz9nfI/HRd9kPYdGsJI2ewsCFbhtQ73K8W8a9gTYgIoX46S4As7u7znCuU0il1F70l22@lists.infradead.org
-X-Gm-Message-State: AOJu0YxRgR4H4SxL0V8udVg9sKL2aewSKRtguUJ7AEAYswX4K5A/K4G+
-	NVrJkBbjtQUVXeKrt7DKVbA0LuhwP/Uzzg1KRBY8oDFxZuPg+onTxkLomzJhQVQ=
-X-Gm-Gg: ASbGncv0tisL6EdD8YYraZ7x0bO40dWc7isvJ6fpDrsv/ddSbGozsOrruBGXxEPPLgR
-	qgytIuamp2xuoV6LdZJsBBP2aPp1JU2DzTkrI2g2Hn8qodmgfvWG+eljqZuOgbDoCrVmPM5sG2T
-	MHdius4AIjTll3XfsziHlFag28YFXNvH2QbDh6fKYyeoJmg+lI4fh9Yp1+UdA/9jL4Kj9GVxdj8
-	LlBvqS+x5o7eqo5aNjuHCzaNiapr74xPdDXHjbzP+g/ig1CZm/r6h1KETEYJuSjSMBt7NciYg6y
-	hqqp+cZIDQM=
-X-Google-Smtp-Source: AGHT+IGBmJ3n/5uuBCltpU7FGXXIJ95WtPO9k4G8JoNSK3omRq612AYeWOBWSdlpT4yrQ1aVkRoDkQ==
-X-Received: by 2002:a17:90b:2dca:b0:2ee:b666:d14a with SMTP id 98e67ed59e1d1-2f83ac00cf5mr37307194a91.17.1738609012878;
-        Mon, 03 Feb 2025 10:56:52 -0800 (PST)
+        bh=6+cVOS5FJmIAsNqPulg8a9PrdBe6p9kJKl40HshGULo=;
+        b=qz0Ten8h8+FgCKyAjgkOxZ7z74wh2lI5cJIemuL44ioHJrd/h3G/cWRNJq8ZmVMoQR
+         ZbNTXYALLIpCG0MzURWwJ67vZhBxScJjWRuamWy8E+9kG696vhGKZm8n/5OeD/u1LiW3
+         hzLcnRSp3axKstQIMQQrXVgT+4RMxn2WVtZYCMCOim6NoRO3dCxVPlMro6u3L+aaGCEM
+         UJ4eSd/SEXpatV9dh1veFFcdg8WnaH+WhKeU+YkEAExmEa/iTfqvejTnYPDp+lDsRnPx
+         /Ao7rQoJlm4Jhx9B+1TrHIAR6yDsYhlXF+ob9b1HhcydQIu6RAqQb6aIhJYVOeSWt1LA
+         LzPQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX0OK439o/tkxaP7BXZtQn/wTOmThhzqduW6F8EmbgV0ctn8WJP8OIW6bz7mMnytHl4dsLzvf0yWmGH/SerIgLu@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzw+LM910W8j9gq6v70dUWclaz19KBYV1HClA6wUzRxR5NSwTUH
+	RFpy4jLyWl9s+n61MAH5Eahukz8MOsjc+5W29APfmpYVV7WPcwMbd1O47l2PkJ4=
+X-Gm-Gg: ASbGncuoxgP5C04TjIxWPczAK1KQPl21rMlJ7PTUXI1P3swei3hAbbFaufu6eqYtIuo
+	6ND9VEq/VVX/708vWp1gg5IXi+lNH0fhE7yYp7H0QI2Cjouy/oJNwwzs/jy0WD/5c/o3LjUBm5g
+	2eNTdAEDTAaYfsQ3CrczYtD3iFQPa3xaL1z5mjPFF0JgoyjcPl9jsHvZNGoPjEXqfkGtoF1m7yV
+	RhiJ2e0cZ29sY286Qw2GCDaQcmYaWDABjYptX+WfZyzE0EDFL379L1vWmDFSMFOJYF2tE8kBmOS
+	3M493XSydoU=
+X-Google-Smtp-Source: AGHT+IGcN0Vo5CKWdsr1pwOo6noYRq4z5e3fkA1+iadto7tAVdbWOLyGP+oftVvWDTpnF5AAlr0ojg==
+X-Received: by 2002:a17:902:db02:b0:216:69ca:7714 with SMTP id d9443c01a7336-21dd7c46297mr353702245ad.11.1738609339800;
+        Mon, 03 Feb 2025 11:02:19 -0800 (PST)
 Received: from ghost ([2601:647:6700:64d0:4f63:f9d5:2cbd:2947])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f848a99a91sm9433086a91.36.2025.02.03.10.56.50
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21de31fcd3esm79813435ad.104.2025.02.03.11.02.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Feb 2025 10:56:52 -0800 (PST)
-Date: Mon, 3 Feb 2025 10:56:48 -0800
+        Mon, 03 Feb 2025 11:02:19 -0800 (PST)
+Date: Mon, 3 Feb 2025 11:02:14 -0800
 From: Charlie Jenkins <charlie@rivosinc.com>
-To: Jiri Olsa <olsajiri@gmail.com>
+To: Ian Rogers <irogers@google.com>
 Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	Arnaldo Carvalho de Melo <acme@kernel.org>,
 	Namhyung Kim <namhyung@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Ian Rogers <irogers@google.com>,
+	Jiri Olsa <jolsa@kernel.org>,
 	Adrian Hunter <adrian.hunter@intel.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	Arnaldo Carvalho de Melo <acme@redhat.com>,
-	Daniel Xu <dxu@dxuuu.xyz>
-Subject: Re: [PATCH FOR-NEXT] perf tools: Expose quiet/verbose variables in
- Makefile.perf
-Message-ID: <Z6ERcG6ZAqL1cFAo@ghost>
-References: <20250114-perf_make_test-v1-1-decc1c517b11@rivosinc.com>
- <Z6CMg7uNReyGTq4y@krava>
+	Kan Liang <kan.liang@linux.intel.com>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	Guo Ren <guoren@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Bibo Mao <maobibo@loongson.cn>,
+	Arnd Bergmann <arnd@arndb.de>, Huacai Chen <chenhuacai@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v1 0/7] perf: Support multiple system call tables in the
+ build
+Message-ID: <Z6EStkn-YZ8zaO7u@ghost>
+References: <20250201071455.718247-1-irogers@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z6CMg7uNReyGTq4y@krava>
+In-Reply-To: <20250201071455.718247-1-irogers@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_105654_404954_57789072 
-X-CRM114-Status: GOOD (  32.96  )
+X-CRM114-CacheID: sfid-20250203_110220_585383_DCA4A7FC 
+X-CRM114-Status: GOOD (  22.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,165 +118,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 03, 2025 at 10:29:39AM +0100, Jiri Olsa wrote:
-> On Tue, Jan 14, 2025 at 11:35:44AM -0800, Charlie Jenkins wrote:
-> > The variables to make builds silent/verbose live inside
-> > tools/build/Makefile.build. Move those variables to the top-level
-> > Makefile.perf to be generally available.
-> > 
-> > Committer testing:
-> > 
-> > See the SYSCALL lines, now they are consistent with the other
-> > operations in other lines:
-> >   SYSTBL  /tmp/build/perf-tools-next/arch/x86/include/generated/asm/syscalls_32.h
-> >   SYSTBL  /tmp/build/perf-tools-next/arch/x86/include/generated/asm/syscalls_64.h
-> >   GEN     /tmp/build/perf-tools-next/common-cmds.h
-> >   GEN     /tmp/build/perf-tools-next/arch/arm64/include/generated/asm/sysreg-defs.h
-> >   PERF_VERSION = 6.13.rc2.g3d94bb6ed1d0
-> >   GEN     perf-archive
-> >   MKDIR   /tmp/build/perf-tools-next/jvmti/
-> >   MKDIR   /tmp/build/perf-tools-next/jvmti/
-> >   MKDIR   /tmp/build/perf-tools-next/jvmti/
-> >   MKDIR   /tmp/build/perf-tools-next/jvmti/
-> >   GEN     perf-iostat
-> >   CC      /tmp/build/perf-tools-next/jvmti/libjvmti.o
-> > 
-> > Reported-by: Arnaldo Carvalho de Melo <acme@redhat.com>
-> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> > Tested-by: Arnaldo Carvalho de Melo <acme@redhat.com>
-> > ---
-> >  tools/build/Makefile.build                | 20 -----------------
-> >  tools/perf/Makefile.perf                  | 37 ++++++++++++++++++++++++++++++-
-> >  tools/perf/tests/shell/coresight/Makefile |  2 +-
-> >  3 files changed, 37 insertions(+), 22 deletions(-)
-> > 
-> > diff --git a/tools/build/Makefile.build b/tools/build/Makefile.build
-> > index 5fb3fb3d97e0fd114e245805809e4fc926b4343e..e710ed67a1b49d9fda11db02821bbd8d36066b44 100644
-> > --- a/tools/build/Makefile.build
-> > +++ b/tools/build/Makefile.build
-> > @@ -12,26 +12,6 @@
-> >  PHONY := __build
-> >  __build:
-> >  
-> > -ifeq ($(V),1)
-> > -  quiet =
-> > -  Q =
-> > -else
-> > -  quiet=quiet_
-> > -  Q=@
-> > -endif
-> > -
-> > -# If the user is running make -s (silent mode), suppress echoing of commands
-> > -# make-4.0 (and later) keep single letter options in the 1st word of MAKEFLAGS.
-> > -ifeq ($(filter 3.%,$(MAKE_VERSION)),)
-> > -short-opts := $(firstword -$(MAKEFLAGS))
-> > -else
-> > -short-opts := $(filter-out --%,$(MAKEFLAGS))
-> > -endif
-> > -
-> > -ifneq ($(findstring s,$(short-opts)),)
-> > -  quiet=silent_
-> > -endif
-> > -
-> >  build-dir := $(srctree)/tools/build
+On Fri, Jan 31, 2025 at 11:14:48PM -0800, Ian Rogers wrote:
+> This work builds on the clean up of system call tables and removal of
+> libaudit by Charlie Jenkins <charlie@rivosinc.com>.
 > 
-> hi,
-> if we move this out of here, we need to fix other tools that rely on that,
-> bpftool and resolve_btfids do not build quietly now
+> The system call table in perf trace is used to map system call numbers
+> to names and vice versa. Prior to these changes, a single table
+> matching the perf binary's build was present. The table would be
+> incorrect if tracing say a 32-bit binary from a 64-bit version of
+> perf, the names and numbers wouldn't match.
 > 
-> but not sure what was the reason of moving it out, the code in Makefile.perf
-> seems same as the one above
+> Change the build so that a single system call file is built and the
+> potentially multiple tables are identifiable from the ELF machine type
+> of the process being examined. To determine the ELF machine type, the
+> executable's header is read from /proc/pid/exe with fallbacks to using
+> the perf's binary type when unknown.
+> 
+> Remove some runtime types used by the system call tables and make
+> equivalents generated at build time.
 
-perf/Makefile.syscalls wanted to support quiet building. Makefile.perf
-imports both Makefile.syscalls and Makefile.build, so I moved this quiet
-infrastructure into Makefile.perf so that both of these files could use
-it.
+Our approaches are very different but I sent out a patch to do this a
+couple of weeks ago [1].
 
-I was trying to move the quiet infrastructure higher up in the callchain
-so that the code did not need to be duplicated. Perhaps it is better to
-move this into a separate file that exports "quiet" and "Q" and then can
-be imported from bpf/Makefile, perf/Makefile.perf, and any other tool
-that wants to have quiet builds?
+Did you look at that and decide you didn't like the approach?
 
 - Charlie
 
 > 
-> thanks,
-> jirka
+> Ian Rogers (7):
+>   perf syscalltble: Remove syscall_table.h
+>   perf trace: Reorganize syscalls
+>   perf syscalltbl: Remove struct syscalltbl
+>   perf thread: Add support for reading the e_machine type for a thread
+>   perf trace beauty: Add syscalltbl.sh generating all system call tables
+>   perf syscalltbl: Use lookup table containing multiple architectures
+>   perf build: Remove Makefile.syscalls
 > 
+>  tools/perf/Makefile.perf                      |  10 +-
+>  tools/perf/arch/alpha/entry/syscalls/Kbuild   |   2 -
+>  .../alpha/entry/syscalls/Makefile.syscalls    |   5 -
+>  tools/perf/arch/alpha/include/syscall_table.h |   2 -
+>  tools/perf/arch/arc/entry/syscalls/Kbuild     |   2 -
+>  .../arch/arc/entry/syscalls/Makefile.syscalls |   3 -
+>  tools/perf/arch/arc/include/syscall_table.h   |   2 -
+>  tools/perf/arch/arm/entry/syscalls/Kbuild     |   4 -
+>  .../arch/arm/entry/syscalls/Makefile.syscalls |   2 -
+>  tools/perf/arch/arm/include/syscall_table.h   |   2 -
+>  tools/perf/arch/arm64/entry/syscalls/Kbuild   |   3 -
+>  .../arm64/entry/syscalls/Makefile.syscalls    |   6 -
+>  tools/perf/arch/arm64/include/syscall_table.h |   8 -
+>  tools/perf/arch/csky/entry/syscalls/Kbuild    |   2 -
+>  .../csky/entry/syscalls/Makefile.syscalls     |   3 -
+>  tools/perf/arch/csky/include/syscall_table.h  |   2 -
+>  .../perf/arch/loongarch/entry/syscalls/Kbuild |   2 -
+>  .../entry/syscalls/Makefile.syscalls          |   3 -
+>  .../arch/loongarch/include/syscall_table.h    |   2 -
+>  tools/perf/arch/mips/entry/syscalls/Kbuild    |   2 -
+>  .../mips/entry/syscalls/Makefile.syscalls     |   5 -
+>  tools/perf/arch/mips/include/syscall_table.h  |   2 -
+>  tools/perf/arch/parisc/entry/syscalls/Kbuild  |   3 -
+>  .../parisc/entry/syscalls/Makefile.syscalls   |   6 -
+>  .../perf/arch/parisc/include/syscall_table.h  |   8 -
+>  tools/perf/arch/powerpc/entry/syscalls/Kbuild |   3 -
+>  .../powerpc/entry/syscalls/Makefile.syscalls  |   6 -
+>  .../perf/arch/powerpc/include/syscall_table.h |   8 -
+>  tools/perf/arch/riscv/entry/syscalls/Kbuild   |   2 -
+>  .../riscv/entry/syscalls/Makefile.syscalls    |   4 -
+>  tools/perf/arch/riscv/include/syscall_table.h |   8 -
+>  tools/perf/arch/s390/entry/syscalls/Kbuild    |   2 -
+>  .../s390/entry/syscalls/Makefile.syscalls     |   5 -
+>  tools/perf/arch/s390/include/syscall_table.h  |   2 -
+>  tools/perf/arch/sh/entry/syscalls/Kbuild      |   2 -
+>  .../arch/sh/entry/syscalls/Makefile.syscalls  |   4 -
+>  tools/perf/arch/sh/include/syscall_table.h    |   2 -
+>  tools/perf/arch/sparc/entry/syscalls/Kbuild   |   3 -
+>  .../sparc/entry/syscalls/Makefile.syscalls    |   5 -
+>  tools/perf/arch/sparc/include/syscall_table.h |   8 -
+>  tools/perf/arch/x86/entry/syscalls/Kbuild     |   3 -
+>  .../arch/x86/entry/syscalls/Makefile.syscalls |   6 -
+>  tools/perf/arch/x86/include/syscall_table.h   |   8 -
+>  tools/perf/arch/xtensa/entry/syscalls/Kbuild  |   2 -
+>  .../xtensa/entry/syscalls/Makefile.syscalls   |   4 -
+>  .../perf/arch/xtensa/include/syscall_table.h  |   2 -
+>  tools/perf/builtin-trace.c                    | 275 +++++++++++-------
+>  tools/perf/scripts/Makefile.syscalls          |  61 ----
+>  tools/perf/scripts/syscalltbl.sh              |  86 ------
+>  tools/perf/trace/beauty/syscalltbl.sh         | 274 +++++++++++++++++
+>  tools/perf/util/syscalltbl.c                  | 142 ++++-----
+>  tools/perf/util/syscalltbl.h                  |  22 +-
+>  tools/perf/util/thread.c                      |  50 ++++
+>  tools/perf/util/thread.h                      |  14 +-
+>  54 files changed, 598 insertions(+), 506 deletions(-)
+>  delete mode 100644 tools/perf/arch/alpha/entry/syscalls/Kbuild
+>  delete mode 100644 tools/perf/arch/alpha/entry/syscalls/Makefile.syscalls
+>  delete mode 100644 tools/perf/arch/alpha/include/syscall_table.h
+>  delete mode 100644 tools/perf/arch/arc/entry/syscalls/Kbuild
+>  delete mode 100644 tools/perf/arch/arc/entry/syscalls/Makefile.syscalls
+>  delete mode 100644 tools/perf/arch/arc/include/syscall_table.h
+>  delete mode 100644 tools/perf/arch/arm/entry/syscalls/Kbuild
+>  delete mode 100644 tools/perf/arch/arm/entry/syscalls/Makefile.syscalls
+>  delete mode 100644 tools/perf/arch/arm/include/syscall_table.h
+>  delete mode 100644 tools/perf/arch/arm64/entry/syscalls/Kbuild
+>  delete mode 100644 tools/perf/arch/arm64/entry/syscalls/Makefile.syscalls
+>  delete mode 100644 tools/perf/arch/arm64/include/syscall_table.h
+>  delete mode 100644 tools/perf/arch/csky/entry/syscalls/Kbuild
+>  delete mode 100644 tools/perf/arch/csky/entry/syscalls/Makefile.syscalls
+>  delete mode 100644 tools/perf/arch/csky/include/syscall_table.h
+>  delete mode 100644 tools/perf/arch/loongarch/entry/syscalls/Kbuild
+>  delete mode 100644 tools/perf/arch/loongarch/entry/syscalls/Makefile.syscalls
+>  delete mode 100644 tools/perf/arch/loongarch/include/syscall_table.h
+>  delete mode 100644 tools/perf/arch/mips/entry/syscalls/Kbuild
+>  delete mode 100644 tools/perf/arch/mips/entry/syscalls/Makefile.syscalls
+>  delete mode 100644 tools/perf/arch/mips/include/syscall_table.h
+>  delete mode 100644 tools/perf/arch/parisc/entry/syscalls/Kbuild
+>  delete mode 100644 tools/perf/arch/parisc/entry/syscalls/Makefile.syscalls
+>  delete mode 100644 tools/perf/arch/parisc/include/syscall_table.h
+>  delete mode 100644 tools/perf/arch/powerpc/entry/syscalls/Kbuild
+>  delete mode 100644 tools/perf/arch/powerpc/entry/syscalls/Makefile.syscalls
+>  delete mode 100644 tools/perf/arch/powerpc/include/syscall_table.h
+>  delete mode 100644 tools/perf/arch/riscv/entry/syscalls/Kbuild
+>  delete mode 100644 tools/perf/arch/riscv/entry/syscalls/Makefile.syscalls
+>  delete mode 100644 tools/perf/arch/riscv/include/syscall_table.h
+>  delete mode 100644 tools/perf/arch/s390/entry/syscalls/Kbuild
+>  delete mode 100644 tools/perf/arch/s390/entry/syscalls/Makefile.syscalls
+>  delete mode 100644 tools/perf/arch/s390/include/syscall_table.h
+>  delete mode 100644 tools/perf/arch/sh/entry/syscalls/Kbuild
+>  delete mode 100644 tools/perf/arch/sh/entry/syscalls/Makefile.syscalls
+>  delete mode 100644 tools/perf/arch/sh/include/syscall_table.h
+>  delete mode 100644 tools/perf/arch/sparc/entry/syscalls/Kbuild
+>  delete mode 100644 tools/perf/arch/sparc/entry/syscalls/Makefile.syscalls
+>  delete mode 100644 tools/perf/arch/sparc/include/syscall_table.h
+>  delete mode 100644 tools/perf/arch/x86/entry/syscalls/Kbuild
+>  delete mode 100644 tools/perf/arch/x86/entry/syscalls/Makefile.syscalls
+>  delete mode 100644 tools/perf/arch/x86/include/syscall_table.h
+>  delete mode 100644 tools/perf/arch/xtensa/entry/syscalls/Kbuild
+>  delete mode 100644 tools/perf/arch/xtensa/entry/syscalls/Makefile.syscalls
+>  delete mode 100644 tools/perf/arch/xtensa/include/syscall_table.h
+>  delete mode 100644 tools/perf/scripts/Makefile.syscalls
+>  delete mode 100755 tools/perf/scripts/syscalltbl.sh
+>  create mode 100755 tools/perf/trace/beauty/syscalltbl.sh
 > 
-> >  
-> >  # Define $(fixdep) for dep-cmd function
-> > diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
-> > index a449d0015536442273a9268b37be34e4757f577a..55d6ce9ea52fb2a57b8632cc6d0ddc501e29cbfc 100644
-> > --- a/tools/perf/Makefile.perf
-> > +++ b/tools/perf/Makefile.perf
-> > @@ -161,12 +161,47 @@ export VPATH
-> >  SOURCE := $(shell ln -sf $(srctree)/tools/perf $(OUTPUT)/source)
-> >  endif
-> >  
-> > +# Beautify output
-> > +# ---------------------------------------------------------------------------
-> > +#
-> > +# Most of build commands in Kbuild start with "cmd_". You can optionally define
-> > +# "quiet_cmd_*". If defined, the short log is printed. Otherwise, no log from
-> > +# that command is printed by default.
-> > +#
-> > +# e.g.)
-> > +#    quiet_cmd_depmod = DEPMOD  $(MODLIB)
-> > +#          cmd_depmod = $(srctree)/scripts/depmod.sh $(DEPMOD) $(KERNELRELEASE)
-> > +#
-> > +# A simple variant is to prefix commands with $(Q) - that's useful
-> > +# for commands that shall be hidden in non-verbose mode.
-> > +#
-> > +#    $(Q)$(MAKE) $(build)=scripts/basic
-> > +#
-> > +# To put more focus on warnings, be less verbose as default
-> > +# Use 'make V=1' to see the full commands
-> > +
-> >  ifeq ($(V),1)
-> > +  quiet =
-> >    Q =
-> >  else
-> > -  Q = @
-> > +  quiet=quiet_
-> > +  Q=@
-> >  endif
-> >  
-> > +# If the user is running make -s (silent mode), suppress echoing of commands
-> > +# make-4.0 (and later) keep single letter options in the 1st word of MAKEFLAGS.
-> > +ifeq ($(filter 3.%,$(MAKE_VERSION)),)
-> > +short-opts := $(firstword -$(MAKEFLAGS))
-> > +else
-> > +short-opts := $(filter-out --%,$(MAKEFLAGS))
-> > +endif
-> > +
-> > +ifneq ($(findstring s,$(short-opts)),)
-> > +  quiet=silent_
-> > +endif
-> > +
-> > +export quiet Q
-> > +
-> >  # Do not use make's built-in rules
-> >  # (this improves performance and avoids hard-to-debug behaviour);
-> >  MAKEFLAGS += -r
-> > diff --git a/tools/perf/tests/shell/coresight/Makefile b/tools/perf/tests/shell/coresight/Makefile
-> > index b070e779703e9fbd70f88c826172b2150ee3d302..fa08fd9a5991dd889583edc1afe8304e72278f64 100644
-> > --- a/tools/perf/tests/shell/coresight/Makefile
-> > +++ b/tools/perf/tests/shell/coresight/Makefile
-> > @@ -24,6 +24,6 @@ CLEANDIRS = $(SUBDIRS:%=clean-%)
-> >  
-> >  clean: $(CLEANDIRS)
-> >  $(CLEANDIRS):
-> > -	$(call QUIET_CLEAN, test-$(@:clean-%=%)) $(Q)$(MAKE) -C $(@:clean-%=%) clean >/dev/null
-> > +	$(call QUIET_CLEAN, test-$(@:clean-%=%)) $(MAKE) -C $(@:clean-%=%) clean >/dev/null
-> >  
-> >  .PHONY: all clean $(SUBDIRS) $(CLEANDIRS) $(INSTALLDIRS)
-> > 
-> > ---
-> > base-commit: e9cbc854d8b148e3491291fb615e94261970fb54
-> > change-id: 20250114-perf_make_test-1141d4ad8877
-> > -- 
-> > - Charlie
-> > 
+> -- 
+> 2.48.1.362.g079036d154-goog
+> 
 
