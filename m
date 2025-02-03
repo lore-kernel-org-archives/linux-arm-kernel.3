@@ -4,79 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CA96C02193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 22:14:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42F12C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 22:21:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OfI9dlLcSjW6HM4VB+FL+prEF7OaRxVLjKZpK9XkkAs=; b=gLV0zGIqoPhY0/VlrGkhapIetU
-	BbSZUeZXmVHcX6I47QxwQs3YrdY8+iEIQoTirD4kI0B9+/KMKo6IFhlUTiP/g7MfFAlkmWTh17t/g
-	/iRaSstocnNQbLrP3HzyeZheAeW9Edso54XsmziAjbqY70G9QGATLBfk2Ckk2qkfVMDnxRd28jZ1X
-	EKyiRPENNObERQvVRpUT6w2+IdUaHxEVr5qlrsaArsYxN1/4xzWge6ZXvZa2IKF6ZaRvD8APSqTsm
-	h2kkD5dSprbyA3SBLd8HUyhS9IjY+NYp0br0t8Fna9+pSpoH3mU5yFbNB+vmbDUHcAc6nLkUKQkLE
-	4gZKKWOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TjOj+on6yu4dwVa8oTf97GqaTS3wmXioISpSFVx+uKs=; b=XbZ5/DYrj94oVMIMNhUzzim3CL
+	4vnU35H9gOABGS+hIx7wf9DL3FYEEUN7LN2jyctazBWiTGJr6ck58V4V2WQqOiAizIY/SRZeq5/Bh
+	kd0x9frL1AKRrU3SWSy+uZ3pxkyCkBYaPQSg06PAvHwg4bqJh8gCevbLxhtHBjC0EpLKVHuzDLAHO
+	dNuFKwlf3xek4HNzaaaqQkfP/jOA8+hcrwEBhEKoZ5F6rvtnjTOdi7ggBH0Jfw638kYGeZRw6EXmb
+	PtDzDtVrEIAfO35v9ljzPAPcGJrqFqUmLKRojiILVM2GmrmuiOS2k6u/bSmVOQSGRMHRaO6PHyFOX
+	Nggo1GWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf4hf-0000000Glct-03sn;
-	Mon, 03 Feb 2025 22:14:03 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1tf4oU-0000000Gm6m-0hZi;
+	Mon, 03 Feb 2025 22:21:06 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf4gJ-0000000GlYx-36lb
+	id 1tf4n9-0000000Glvb-1fRU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 22:12:41 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 513MCZbG2218398
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Mon, 3 Feb 2025 16:12:35 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1738620755;
-	bh=OfI9dlLcSjW6HM4VB+FL+prEF7OaRxVLjKZpK9XkkAs=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=Ue2x718piSpMFvKdib39neMBkky7Ugk6w3cDbVaR0ZJLKXQgpHuMspFfW84AgKqOY
-	 U4751Rk+D96+MjZugGZX6WeQCqUcADXDBPUQn1A7xLBh/n/Bv3ZCoTOwL+2pJDaP/3
-	 ufZiSKPCXrIE6h61DHA0vyePvmo79mAmxuBszfMA=
-Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 513MCZm1065356;
-	Mon, 3 Feb 2025 16:12:35 -0600
-Received: from DLEE114.ent.ti.com (157.170.170.25) by DLEE103.ent.ti.com
- (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 3
- Feb 2025 16:12:35 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 3 Feb 2025 16:12:35 -0600
-Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 513MCZB6086602;
-	Mon, 3 Feb 2025 16:12:35 -0600
-Message-ID: <6fe74c50-1430-4556-90b5-f635fb48e6fb@ti.com>
-Date: Mon, 3 Feb 2025 16:12:35 -0600
+	Mon, 03 Feb 2025 22:19:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id CB0265C6928;
+	Mon,  3 Feb 2025 22:19:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9842C4CED2;
+	Mon,  3 Feb 2025 22:19:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738621182;
+	bh=giaijWcNkRzjj6qgspJb+qrKbWsq04W28Ju8Hev8uDs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Bs6Fq4IyNDGPhgzRuTbnBSX44+k0YEZu6VeXRMVJPaxrMs81Zfb/B8yQ8A7Kuj5g1
+	 k/iqXfLwM5fxD8kf2jKTHVJfyu5nBvzNfDv6+PfGHBrnIIm6Bc/Fk2d9+DdjO717Zw
+	 Fx60J8qBSb8TN5rYrA/WqTodX/fL6vGzW+hZkCcXZs0hHv3eIxQGbQawtClrjbw63Q
+	 +Hfi4pPbn1vBOcQdhriTTL1/FNFWVjnzv0ngE+8hz677fY9h3TlfvN/49pcBhQHGne
+	 DkyKFuAf6hDJv0kNJUOCfDRW/5YbyBex2wkEsEc4W+OqBaxLEoKWh0VHLN2MZ+QgN9
+	 26TEOEdY43DvQ==
+Date: Mon, 3 Feb 2025 14:19:40 -0800
+From: Namhyung Kim <namhyung@kernel.org>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Jiri Olsa <olsajiri@gmail.com>, Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	Arnaldo Carvalho de Melo <acme@redhat.com>,
+	Daniel Xu <dxu@dxuuu.xyz>
+Subject: Re: [PATCH FOR-NEXT] perf tools: Expose quiet/verbose variables in
+ Makefile.perf
+Message-ID: <Z6FA_IEt3QN3aX3l@google.com>
+References: <20250114-perf_make_test-v1-1-decc1c517b11@rivosinc.com>
+ <Z6CMg7uNReyGTq4y@krava>
+ <Z6ERcG6ZAqL1cFAo@ghost>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/9] arm64: dts: ti: k3-am62-wakeup: Add wakeup r5f
- node
-To: Andrew Davis <afd@ti.com>, <devicetree@vger.kernel.org>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        Hari Nagalla <hnagalla@ti.com>, Nishanth
- Menon <nm@ti.com>,
-        Vignesh Raghavendra <vigneshr@ti.com>
-References: <20250131214611.3288742-1-jm@ti.com>
- <20250131214611.3288742-2-jm@ti.com>
- <1c2c67b7-987e-4b92-b0be-c0b2f25adae6@ti.com>
-Content-Language: en-US
-From: Judith Mendez <jm@ti.com>
-In-Reply-To: <1c2c67b7-987e-4b92-b0be-c0b2f25adae6@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <Z6ERcG6ZAqL1cFAo@ghost>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_141239_866855_316B46FF 
-X-CRM114-Status: GOOD (  13.12  )
+X-CRM114-CacheID: sfid-20250203_141943_521087_3C7432F1 
+X-CRM114-Status: GOOD (  29.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,79 +86,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+Hello,
 
-On 1/31/25 5:40 PM, Andrew Davis wrote:
-> On 1/31/25 3:46 PM, Judith Mendez wrote:
->> From: Hari Nagalla <hnagalla@ti.com>
->>
+On Mon, Feb 03, 2025 at 10:56:48AM -0800, Charlie Jenkins wrote:
+> On Mon, Feb 03, 2025 at 10:29:39AM +0100, Jiri Olsa wrote:
+> > On Tue, Jan 14, 2025 at 11:35:44AM -0800, Charlie Jenkins wrote:
+> > > The variables to make builds silent/verbose live inside
+> > > tools/build/Makefile.build. Move those variables to the top-level
+> > > Makefile.perf to be generally available.
+> > > 
+> > > Committer testing:
+> > > 
+> > > See the SYSCALL lines, now they are consistent with the other
+> > > operations in other lines:
+> > >   SYSTBL  /tmp/build/perf-tools-next/arch/x86/include/generated/asm/syscalls_32.h
+> > >   SYSTBL  /tmp/build/perf-tools-next/arch/x86/include/generated/asm/syscalls_64.h
+> > >   GEN     /tmp/build/perf-tools-next/common-cmds.h
+> > >   GEN     /tmp/build/perf-tools-next/arch/arm64/include/generated/asm/sysreg-defs.h
+> > >   PERF_VERSION = 6.13.rc2.g3d94bb6ed1d0
+> > >   GEN     perf-archive
+> > >   MKDIR   /tmp/build/perf-tools-next/jvmti/
+> > >   MKDIR   /tmp/build/perf-tools-next/jvmti/
+> > >   MKDIR   /tmp/build/perf-tools-next/jvmti/
+> > >   MKDIR   /tmp/build/perf-tools-next/jvmti/
+> > >   GEN     perf-iostat
+> > >   CC      /tmp/build/perf-tools-next/jvmti/libjvmti.o
+> > > 
+> > > Reported-by: Arnaldo Carvalho de Melo <acme@redhat.com>
+> > > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> > > Tested-by: Arnaldo Carvalho de Melo <acme@redhat.com>
+> > > ---
+> > >  tools/build/Makefile.build                | 20 -----------------
+> > >  tools/perf/Makefile.perf                  | 37 ++++++++++++++++++++++++++++++-
+> > >  tools/perf/tests/shell/coresight/Makefile |  2 +-
+> > >  3 files changed, 37 insertions(+), 22 deletions(-)
+> > > 
+> > > diff --git a/tools/build/Makefile.build b/tools/build/Makefile.build
+> > > index 5fb3fb3d97e0fd114e245805809e4fc926b4343e..e710ed67a1b49d9fda11db02821bbd8d36066b44 100644
+> > > --- a/tools/build/Makefile.build
+> > > +++ b/tools/build/Makefile.build
+> > > @@ -12,26 +12,6 @@
+> > >  PHONY := __build
+> > >  __build:
+> > >  
+> > > -ifeq ($(V),1)
+> > > -  quiet =
+> > > -  Q =
+> > > -else
+> > > -  quiet=quiet_
+> > > -  Q=@
+> > > -endif
+> > > -
+> > > -# If the user is running make -s (silent mode), suppress echoing of commands
+> > > -# make-4.0 (and later) keep single letter options in the 1st word of MAKEFLAGS.
+> > > -ifeq ($(filter 3.%,$(MAKE_VERSION)),)
+> > > -short-opts := $(firstword -$(MAKEFLAGS))
+> > > -else
+> > > -short-opts := $(filter-out --%,$(MAKEFLAGS))
+> > > -endif
+> > > -
+> > > -ifneq ($(findstring s,$(short-opts)),)
+> > > -  quiet=silent_
+> > > -endif
+> > > -
+> > >  build-dir := $(srctree)/tools/build
+> > 
+> > hi,
+> > if we move this out of here, we need to fix other tools that rely on that,
+> > bpftool and resolve_btfids do not build quietly now
+
+Sorry about the trouble.  I should've checked other builds.
+
+> > 
+> > but not sure what was the reason of moving it out, the code in Makefile.perf
+> > seems same as the one above
 > 
-> Subject should capitalize R5F
-
-Will fix in v3, thanks
-
+> perf/Makefile.syscalls wanted to support quiet building. Makefile.perf
+> imports both Makefile.syscalls and Makefile.build, so I moved this quiet
+> infrastructure into Makefile.perf so that both of these files could use
+> it.
 > 
->> AM62 SoC devices have a single core R5F processor in wakeup domain.
->> The R5F processor in wakeup domain is used as a device manager
->> for the SoC.
->>
->> Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
->> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
->> Signed-off-by: Judith Mendez <jm@ti.com>
->> ---
->> Changes since v1:
->> - disable each device node in the voltage domain files and
->>    enable at the board level file
->> - fix firmware names
->> ---
->>   arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi | 25 ++++++++++++++++++++++
->>   1 file changed, 25 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi 
->> b/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
->> index 9b8a1f85aa15c..12b1520974ade 100644
->> --- a/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
->> +++ b/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
->> @@ -106,6 +106,31 @@ wkup_rti0: watchdog@2b000000 {
->>           status = "reserved";
->>       };
->> +    wkup_r5fss0: r5fss@78000000 {
->> +        compatible = "ti,am62-r5fss";
->> +        #address-cells = <1>;
->> +        #size-cells = <1>;
->> +        ranges = <0x78000000 0x00 0x78000000 0x8000>,
->> +                 <0x78100000 0x00 0x78100000 0x8000>;
-> 
-> Odd alignment, looks like you have an extra tab on the above line
+> I was trying to move the quiet infrastructure higher up in the callchain
+> so that the code did not need to be duplicated. Perhaps it is better to
+> move this into a separate file that exports "quiet" and "Q" and then can
+> be imported from bpf/Makefile, perf/Makefile.perf, and any other tool
+> that wants to have quiet builds?
 
-Hmm missed this, thanks will fix.
+Makes sense.  Can you please send a patch for that?
 
-~ Judith
-
-> 
-> Andrew
-> 
->> +        power-domains = <&k3_pds 119 TI_SCI_PD_EXCLUSIVE>;
->> +        status = "disabled";
->> +
->> +        wkup_r5fss0_core0: r5f@78000000 {
->> +            compatible = "ti,am62-r5f";
->> +            reg = <0x78000000 0x00008000>,
->> +                  <0x78100000 0x00008000>;
->> +            reg-names = "atcm", "btcm";
->> +            ti,sci = <&dmsc>;
->> +            ti,sci-dev-id = <121>;
->> +            ti,sci-proc-ids = <0x01 0xff>;
->> +            resets = <&k3_reset 121 1>;
->> +            firmware-name = "am62-wkup-r5f0_0-fw";
->> +            ti,atcm-enable = <1>;
->> +            ti,btcm-enable = <1>;
->> +            ti,loczrama = <1>;
->> +        };
->> +    };
->> +
->>       wkup_vtm0: temperature-sensor@b00000 {
->>           compatible = "ti,j7200-vtm";
->>           reg = <0x00 0xb00000 0x00 0x400>,
+Thanks,
+Namhyung
 
 
