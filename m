@@ -4,95 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 518C3C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 11:30:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF2B7C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 11:31:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=03gUTOPYMxUMcZhmVIjGAOR45IAzZBtmIXb7cPKWi+Y=; b=phee0UM3IDSnApCnhhSppS8EfW
-	4bPVPrwqDHJlfXv692EPwpmxe5ojPibkwxhoIxlQE8tT3YV/oi/Fz5jTDldoCr1MeQx3eASyjA3vN
-	KsylAOkT5IZZWuDoEa3MLx10Sb6YSmNptLylZGCy9FgxNaYyxPfJpao0mWQev/G4AtrOfxeU0t4CI
-	KQpO/Hmx+/lCdnAEHxRw6AqRHDCOUOVZSp7RKSUaLYbz3vXawsdxndDXXXD/vtDb5AZDHKmUgz3eX
-	k67pQb/84lWIVDHVAexOxnVXuxles50l5+7j9747KxhcOB7D6o52ltjymC2/5TqfYwY3TU2jA0Y2G
-	4mAljK2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P7ywY9Ly9nqrrmjFHGQ2lU7pYUZOYLE6hIbzl0gx1L8=; b=QPmjMwKgXXXm2qF40dkXVMg6jz
+	UULkzgu7ONKfulgHor5MZgV0OC1vZ/luOz18VPneLRcU5hdEYvzzjXlDtKq2UWBEqO6zB8C78OXuE
+	2M8SmAQQjPeLxYtmr4pQz6z10z/t6CPPmzYpEEqvUFrxMfXQVdUSvx90r/wgoTgVnFdVbTLnJnrPC
+	8PuZuuTXBD2xlOGxe0X2V6ysqZNY5dqQBNBdSh6GX8kc5VxGYkMlFFkf99L45kHaesdi1W+fYvNgD
+	Qnmh1xNbLAWWE+yg+nL00NogWDJ4DXoZbFgRRfu9RnCn6d1YnR2lZoKBtG3TIsWVU1f9qCRU0y1Oi
+	AuSYy2BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teueY-0000000FExl-3sxz;
-	Mon, 03 Feb 2025 11:30:10 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1teufq-0000000FFCZ-2OzJ;
+	Mon, 03 Feb 2025 11:31:30 +0000
+Received: from mail-mw2nam12on2060b.outbound.protection.outlook.com ([2a01:111:f403:200a::60b] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1teudD-0000000FEdn-2PZI
+	id 1teudd-0000000FEkn-3ZTh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 11:28:48 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-43626213fffso32611925e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 03:28:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738582126; x=1739186926; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=03gUTOPYMxUMcZhmVIjGAOR45IAzZBtmIXb7cPKWi+Y=;
-        b=jwGMefqZvIKCDOdEtY7qe3GVxzRaec+R8gyWv2uGS8gFbmrek7WSDxE3f4s7l3BWS0
-         /PRFCI8s2RHC9kYktfwCHVJx/aJaX8Qotqo+5gz2hNaHYan9mY1qVvlrfLHSiTcCDzeZ
-         tRIDdXMU/neczC9M5xCuag2LstKjzmPGk2dWlATJvT2603WZSZPvc8NSZqoqiC5WAksh
-         6oN089r5xPsMta4BKs6gBUrJ54mEmkcuqPDplVogpb3Ufi2EI/RRPtkfLGHmpapAebI1
-         qiJYm3zv36HhUouIX3QthdH/9U+oPM0YuAewqY3L+yT0cejCYWIN9VfuPglfbaokzP0m
-         ED7A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738582126; x=1739186926;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=03gUTOPYMxUMcZhmVIjGAOR45IAzZBtmIXb7cPKWi+Y=;
-        b=knIhMo/TF9365KxdVrkptGc6By5rXwXhF1c5/H2arIwXirIVITEeFfgyFdvvF5km9/
-         CmTT/6pktBqsp9D92f6IXPyn7FIemveYzRK7taiA5ZlS10m0HagKo6I5+qRRl06N5khK
-         Bklah3b4dMpsat718taQPc8ha8GurYM7l8H3LroHS+uavpgXPFrfpb9nbCmbnd5iOnkS
-         Rqilj9H7hJo+74YX9fMKBM8MDrS8pAJGsckmvvyCkFmIbMS5ZX8bSuQ6vC8lHmk+/CrC
-         IVICwnQokmp4WLZTMLQDeojoCAJxTXVK6kQIAaueLIvYOuk54KtvrLe3I+B3S/GH+Del
-         OYrg==
-X-Gm-Message-State: AOJu0Yz1JiewxUCA+LDfXxltZZSZnMGSn0SS7xGPqlwyMK/Ive8zGJ4L
-	Z9EAfJ8XCzidme0QWiY8tq09KV5e0wk8GWzEBMt1MFpofi7c1D6hO132YMVY2eI=
-X-Gm-Gg: ASbGncvUq7DnAbrBZe3Vdpwl1UODJ3MwucgUc1EVrJy7VJeZoU45yQOag8/+/WVcE0r
-	L/GPoUZk7TPqokIV7FRQFQ5MBG6kCv0D/JKNwJyGO47q4UVvaqvfMxHCJW49ddswhVYutQSMJoT
-	JPDtFIL378QKnD6fE3rHemyIdT/349gN4Ux7iP2wa634kD2Uq6ic7UVmL3a0SKyYEtxsJW4dYP1
-	+cdKD4TfrDfHAVsae3cUkFODMGBuO2sFeCGJXumIpyxtUHnZOgt4W72v4zyj+mQgzLRhFdSeiWV
-	fdN1Wdp0kcwxepiioOz7iMezeQ==
-X-Google-Smtp-Source: AGHT+IGzdk+Sqe63Mv9Bm/BPmdRTVGijSJCqG2+aE5exrBjEFpqR+uegx/hrDwI77yjfzrbFRZf6LQ==
-X-Received: by 2002:a05:600c:1e08:b0:438:e521:1a4d with SMTP id 5b1f17b1804b1-438e52122eamr113014465e9.5.1738582126037;
-        Mon, 03 Feb 2025 03:28:46 -0800 (PST)
-Received: from [192.168.68.163] ([145.224.90.107])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438dcc81911sm185351695e9.38.2025.02.03.03.28.44
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 03 Feb 2025 03:28:45 -0800 (PST)
-Message-ID: <4aaaa1de-ec5d-433b-96c2-3b28a8cffe7e@linaro.org>
-Date: Mon, 3 Feb 2025 11:28:44 +0000
+	Mon, 03 Feb 2025 11:29:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZTt+lmpi7pgmjk7qtG9brrKuXXjN3xe5t5c2eUR0y4sELbCJnWedsCDA3VbQB8oc6qXtxb44VOk0q7EvWZbSI5UF+FvS363cB1Xhi7oh8uhiN4/thMrtVOoB5vzV4KFzZd2rcXbiTMV1/g9koSlJDT3wcQhXwNZv/vuzh/5j7yobbvlWZI2zdPHMgb5+5PuxBWLQ0UK5k8o5oyy+yr0ZIZ3uqmt382eha36XqM4e9hWnSQEbUmdWrSXd1AHR6F7/hw6ynaoBhcrEeR/rmL0izpMgQhwTNwAXUYmM9zEr2hSszJbc4WvdFZjCh8WTMvm+AcBM3pwOFQGR/TiJG064FQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=P7ywY9Ly9nqrrmjFHGQ2lU7pYUZOYLE6hIbzl0gx1L8=;
+ b=punzTbsOIrOkeC5PJSou2MOE63qbrkB1Ms9J+yXIKQY2k0I9u9pux/dV81rk9CFHsCPO1p8W92O6c9kUiCs0O37+WA85vJiZic/iqpnf4GraVdzeG3JqhtY8euHLxa7TwgyVKp63c4hSh3m5ixFXmLsvleiii643HoUEU53V+3XDRWNC7P8AjWFLIFaCFmTmCUShx1MulfN9gAkXVOXj3O/rSTlSsMdfQxpntKcAT3Ud9hbgpYKXvFFeRx21raM/XMRVOYEk9g7gYOJldQab8pkzX5gkmujETMZh/gAP986OjCQnKQPmymSve3Tp2i2E5r01P4FpW5DygZ2SLY/ZPQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=P7ywY9Ly9nqrrmjFHGQ2lU7pYUZOYLE6hIbzl0gx1L8=;
+ b=F98VoQFl60+CILH4tkqO0+f1oYzeftgq9hsHcojqfPcqmCgCm9kgmk+n30jU8wLf/opUzqUdFicVkKLYkfdG7yqwStBK/gdB5pV9YnQJn+A9Tz2rmNCZfZ+TTNCd7UQoZ5kkLxWiiPcZaFFekZxKtomFdb0HYrzW4TgR6aQBYu1+9sxLDZYYke2UVoOKzeWl/3Bv52b6uH7RCoYuFjxcr90RlBgVFW+4WBJadmt14tCiVkQ/EWXs+Jo/Y+kSwVIwmXdfy5oPyl23F9xbkpRXoExE9+5wbIbkebAqkHagrojY2kG9XaifYQKOhQLZzpTYQs8hTRJgwbRZyO0PCQpJlQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS0PR12MB7726.namprd12.prod.outlook.com (2603:10b6:8:130::6) by
+ MN0PR12MB6102.namprd12.prod.outlook.com (2603:10b6:208:3ca::8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8398.25; Mon, 3 Feb 2025 11:29:06 +0000
+Received: from DS0PR12MB7726.namprd12.prod.outlook.com
+ ([fe80::953f:2f80:90c5:67fe]) by DS0PR12MB7726.namprd12.prod.outlook.com
+ ([fe80::953f:2f80:90c5:67fe%7]) with mapi id 15.20.8398.025; Mon, 3 Feb 2025
+ 11:29:06 +0000
+Date: Mon, 3 Feb 2025 22:29:00 +1100
+From: Alistair Popple <apopple@nvidia.com>
+To: Dan Williams <dan.j.williams@intel.com>
+Cc: akpm@linux-foundation.org, linux-mm@kvack.org, 
+	alison.schofield@intel.com, lina@asahilina.net, zhang.lyra@gmail.com, 
+	gerald.schaefer@linux.ibm.com, vishal.l.verma@intel.com, dave.jiang@intel.com, 
+	logang@deltatee.com, bhelgaas@google.com, jack@suse.cz, jgg@ziepe.ca, 
+	catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au, npiggin@gmail.com, 
+	dave.hansen@linux.intel.com, ira.weiny@intel.com, willy@infradead.org, djwong@kernel.org, 
+	tytso@mit.edu, linmiaohe@huawei.com, david@redhat.com, peterx@redhat.com, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, nvdimm@lists.linux.dev, 
+	linux-cxl@vger.kernel.org, linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org, 
+	linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de, david@fromorbit.com, 
+	chenhuacai@kernel.org, kernel@xen0n.name, loongarch@lists.linux.dev
+Subject: Re: [PATCH v6 22/26] device/dax: Properly refcount device dax pages
+ when mapping
+Message-ID: <7tmxffcwudefbm7bva4y54bnyp2le2fvtqkmm2ofdhyjvgjqly@4tkut3oxgjvh>
+References: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
+ <7d5416ad49341207e5f3c48d5b9c4b7af5fd9ac6.1736488799.git-series.apopple@nvidia.com>
+ <67860059b200b_20fa294b5@dwillia2-xfh.jf.intel.com.notmuch>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <67860059b200b_20fa294b5@dwillia2-xfh.jf.intel.com.notmuch>
+X-ClientProxiedBy: SY0PR01CA0010.ausprd01.prod.outlook.com
+ (2603:10c6:10:1bb::14) To DS0PR12MB7726.namprd12.prod.outlook.com
+ (2603:10b6:8:130::6)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v19 10/11] KVM: arm64: nvhe: Disable branch generation in
- nVHE guests
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- kvmarm@lists.linux.dev, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Jonathan Corbet <corbet@lwn.net>,
- Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Zenghui Yu <yuzenghui@huawei.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>
-References: <20250202-arm-brbe-v19-v19-0-1c1300802385@kernel.org>
- <20250202-arm-brbe-v19-v19-10-1c1300802385@kernel.org>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250202-arm-brbe-v19-v19-10-1c1300802385@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB7726:EE_|MN0PR12MB6102:EE_
+X-MS-Office365-Filtering-Correlation-Id: db614fbc-9548-4540-b6a5-08dd4445f7b9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?gylG9C5g5TWrIygzRsoCq2uCoxPmTM8js5wAcnXYOSfJHcZdUV6htOKquNxk?=
+ =?us-ascii?Q?z6dlWM/62xQqgL3zbR8JHUJ9p4MHKryYcxFg81s4UklMTjqMPm+eVz3pPNHg?=
+ =?us-ascii?Q?LnME6v1fwcNN8CRtX3cXrMMCdEWZy/NkiOmXc0KGqqZXVpye5c1buLG99bjC?=
+ =?us-ascii?Q?V3D5ZxtaoiQolYFKO9IpP4eek+FEO4JO/TP31/40WnVP2c4UiokSJOnX92HN?=
+ =?us-ascii?Q?Zff9MJ1/eF316oE1hC0RYAVM+DSmJjmn5Ahd+qLsg9BafwWiBV73yccGIKm8?=
+ =?us-ascii?Q?VL2cQP/sqWTQKwZ7TXO3QSyUFbTcKIyde1DjdizN4xLdwFZ6LoJFs5YhsWad?=
+ =?us-ascii?Q?TmQwf9lXsAp+m4iEfITWlZ/c1U7QuiDFwsdntpxQ0z29ItdOUtr4l67+8RC5?=
+ =?us-ascii?Q?GAuCOjktQkVWRZTavl/zsotsoIaI1wv4+6p+kFnTKp9QBNzEFIatQGYwDZm3?=
+ =?us-ascii?Q?mbGz+iXyhhKA/l2+9L7zPmqiksbHFTu5fxdTLxJaqTXB5PxHVfaWoDOFM4fH?=
+ =?us-ascii?Q?4vdVqJFylxRyJOlTMT/zNcE7NBxkvST9KSg3WOPeqixKMfOFtZXEAeJIOGjB?=
+ =?us-ascii?Q?OjlrxjCrmTxDDr/tysVJqihkc+f3Keu6v1GCXv+iLpFMZqUu16AmWQIRIvGS?=
+ =?us-ascii?Q?9GpURrugyTMtUFxdWTEgIF0ULzn3XQGYrNJIDOSc48CvbuEFdgWfXXEkGnoz?=
+ =?us-ascii?Q?jvM6qSinRTtn0Be8eqcIs6K8F+gRy+VM5ifeSfhRjnbMvHy9kmWDACI/k9yv?=
+ =?us-ascii?Q?L02sNbWAs8hVLxuCNBaSjRx77Jm4h5/QQ49zh8gO36TO+4BHuQcr9NmSf37t?=
+ =?us-ascii?Q?te25cpOvbHg7XFs/02BvDM+9BcmjLelGvIXsIu9oyLoF3TchyRV9rTOgjq6w?=
+ =?us-ascii?Q?8Vqs3Sb6yaexLO15+yDyEgnFTDYc/gW/EMHGyOIAihrd1S2N6lnfj+ql/Qa0?=
+ =?us-ascii?Q?jsbXnopBg44i0P19bPC+aIroIE+d5K8Kvn3QxIIBxndSwnqF1y7JBeCFFLT7?=
+ =?us-ascii?Q?4RGvuiiMI9gjzCQyfiyyCARXXHd1IEZLzOsyQnzsSaIWEtYIjPoxm/XMnXYK?=
+ =?us-ascii?Q?fte9N8ysZddWyh/8F6H6UzvGI4EzSzRs2wQ76XZT/GIHCTN6j2yrcu4n27Yx?=
+ =?us-ascii?Q?gY0akw2p6EtGKdHaeuem4NHv5E392S34czS8P4Ts8H3Y1dzHscckCqRA/26m?=
+ =?us-ascii?Q?wCB5N8e59tHIZXi60SGN1QQCKjPC/hfNV7wGPL6+nXi+rnAvqqO9DVQsMc5R?=
+ =?us-ascii?Q?GeAKKQv4oQ7XptIet4kfMSTEpJ9zNJDjGFjWezseK79Qqbn2jdZd2kXwA9sB?=
+ =?us-ascii?Q?kF085nhcS23+wfDYwAurMjqKg0yrUdN/XWWjxfTs1ocEIx60d9w8fHEquAPE?=
+ =?us-ascii?Q?tMywPfV+X6W5YwLf6oacHHc4ia6r?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7726.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ceSRbDglHWg3TpQMMTMkr6RffGSCiw5TkB5m/nXdC7wv67f0tj3w0fV08XiD?=
+ =?us-ascii?Q?uggrMCX7QDb2k5NfgbPWljp3unkG4VGMYtZpm73vW2za3y71kU9ajAApptzR?=
+ =?us-ascii?Q?kbbmHnCvudT0KKmLGLye9/W6DBtl5YeV3McLMCngGduGsLs6L1uaIig8W6do?=
+ =?us-ascii?Q?4S5earTYpfBvLuvV5RFvvSFlhssrww84i0mjorIAz7mixk4ciSeBLLQWBue+?=
+ =?us-ascii?Q?NnbciFWWMbYIKJaGOb29V9BLLXgWqbBO2hddDTC7OIn9aHY3ew4pwJA82DP3?=
+ =?us-ascii?Q?N4CVyI1jmamQrxy2ULTTbhagyIaaO+shX3I2bQZublQWJA4hdQXRYjMf5ZMK?=
+ =?us-ascii?Q?QEG1DbhRo/q6VrV3Ft0efj2ILv5+gdbzDguDDWzTqUooLbK8Ll6IbDqubABO?=
+ =?us-ascii?Q?14DJU0dnto9HVjYrZUcwoF5DqglVT9YHF38jiFHB0GopaPdcdLWaHXJx+Tmu?=
+ =?us-ascii?Q?+zc6BAK08JPPl4nbSCSeSguJYMw8i4FIS2fzcfl6kGO3H45osdyfvFtn6tDe?=
+ =?us-ascii?Q?dtUTmpPQNj4faSpYiTT4Yw61T2k4y3T8gVig1atNZ6aq6cjWIbahw0xHfds9?=
+ =?us-ascii?Q?HIgfbGUtK1A5Kv1GfOuk6fkMXnezJDlFCBJcl0zARKrdgKsKu5YqlBsBLjhl?=
+ =?us-ascii?Q?JSsGTM8Jx7tnbxkwpC6c9KX0RXmdW0Uf+/vd4p/QDbNcKszVRJHgcEl4iUUS?=
+ =?us-ascii?Q?dLaiTspnZe0hZ/NW30W/aZacewf0C+zycGXgWhTW4UU4xfkJQtkhkj0QU2yY?=
+ =?us-ascii?Q?qlFeNLDZiABiUK2X+Y/FmXse2oPROPUHNBIaB/3eIIuMXCSTd7FzZAv3p+V3?=
+ =?us-ascii?Q?9q6nlZ4AZ9OCDRwvBJf5RPOmj9syYXKh6lLXXaiuMgar3J05IL5N+WK6GTFJ?=
+ =?us-ascii?Q?DbwDLCz+ALuv3uVTzKhbuwXiYfSQoFcAJcXiPqD4TV0Ki6uzoPmfJqWMj/wE?=
+ =?us-ascii?Q?4EKQVBKpCh9+ro63dudREIvzt8gfxizos57xYgRP0HM+C4RlsUmdOF8pwfZ6?=
+ =?us-ascii?Q?wDXBl9lJfMPYsjwHgkNsTydTicfjOO9yY4MAFZvMcD9W4sR3+rz3z63+Qjn8?=
+ =?us-ascii?Q?bI979pCHtmd9AjtOk2YequRVjEXIWMZy79QyNCaY2vO06mpJR7Z+aHYSuWQQ?=
+ =?us-ascii?Q?i7cwC7I1MsqJW5AZ24iXTEXzfCGm++V2b33AkgMV52dzhB9mhitzuxuoxOKO?=
+ =?us-ascii?Q?lQNVFld9AdwAEDm81YcDVyk+9jITOArYFSrftg90WpEcymulT3uBO2V/90YZ?=
+ =?us-ascii?Q?bd+t5pjOQ0aHyvuKjOZ6WJvHntusKu4+nTs7UG5rsievBUKFy/Jk1hKLFiFZ?=
+ =?us-ascii?Q?BckqDc8snmq87ldIF1X/CziVI2VMuXaH15rNnRJoENVNsZT73ps0M4cPt4vu?=
+ =?us-ascii?Q?77aoCav9+xcVg+DKqe+/h5C8c9YKz6uG551MJ6bHbzbglNbgArKhiFjNufEP?=
+ =?us-ascii?Q?OZoPphRpmKyzcIw4NZrok04MmO4CB61m9QngqOwEG9XKYZg1EtKPTC7NYw6+?=
+ =?us-ascii?Q?a2qDtbai3O0sb13Fj5uGcS4wWT421s13xOYZYVExxDODiwzCXjTEpBYKI6WV?=
+ =?us-ascii?Q?DOqr7zlrRqnZwpWeDVR774iz6iEuXXPc8+KwzBXF?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: db614fbc-9548-4540-b6a5-08dd4445f7b9
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB7726.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Feb 2025 11:29:05.9459
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: JnslPjLGsBTV4PnmflD0CxMFkDRBN3Tq7RLYP/7yGjW6JToT5tbD9TMwihJqjzJvaNiZUsHfre4oA/45ehZx0A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6102
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_032847_629447_6816C043 
-X-CRM114-Status: GOOD (  20.97  )
+X-CRM114-CacheID: sfid-20250203_032913_896113_C1E07212 
+X-CRM114-Status: GOOD (  24.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,57 +167,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 03/02/2025 12:43 am, Rob Herring (Arm) wrote:
-> From: Anshuman Khandual <anshuman.khandual@arm.com>
+On Mon, Jan 13, 2025 at 10:12:41PM -0800, Dan Williams wrote:
+> Alistair Popple wrote:
+> > Device DAX pages are currently not reference counted when mapped,
+> > instead relying on the devmap PTE bit to ensure mapping code will not
+> > get/put references. This requires special handling in various page
+> > table walkers, particularly GUP, to manage references on the
+> > underlying pgmap to ensure the pages remain valid.
+> > 
+> > However there is no reason these pages can't be refcounted properly at
+> > map time. Doning so eliminates the need for the devmap PTE bit,
+> > freeing up a precious PTE bit. It also simplifies GUP as it no longer
+> > needs to manage the special pgmap references and can instead just
+> > treat the pages normally as defined by vm_normal_page().
+> > 
+> > Signed-off-by: Alistair Popple <apopple@nvidia.com>
+> > ---
+> >  drivers/dax/device.c | 15 +++++++++------
+> >  mm/memremap.c        | 13 ++++++-------
+> >  2 files changed, 15 insertions(+), 13 deletions(-)
+> > 
+> > diff --git a/drivers/dax/device.c b/drivers/dax/device.c
+> > index 6d74e62..fd22dbf 100644
+> > --- a/drivers/dax/device.c
+> > +++ b/drivers/dax/device.c
+> > @@ -126,11 +126,12 @@ static vm_fault_t __dev_dax_pte_fault(struct dev_dax *dev_dax,
+> >  		return VM_FAULT_SIGBUS;
+> >  	}
+> >  
+> > -	pfn = phys_to_pfn_t(phys, PFN_DEV|PFN_MAP);
+> > +	pfn = phys_to_pfn_t(phys, 0);
+> >  
+> >  	dax_set_mapping(vmf, pfn, fault_size);
+> >  
+> > -	return vmf_insert_mixed(vmf->vma, vmf->address, pfn);
+> > +	return vmf_insert_page_mkwrite(vmf, pfn_t_to_page(pfn),
+> > +					vmf->flags & FAULT_FLAG_WRITE);
+> >  }
+> >  
+> >  static vm_fault_t __dev_dax_pmd_fault(struct dev_dax *dev_dax,
+> > @@ -169,11 +170,12 @@ static vm_fault_t __dev_dax_pmd_fault(struct dev_dax *dev_dax,
+> >  		return VM_FAULT_SIGBUS;
+> >  	}
+> >  
+> > -	pfn = phys_to_pfn_t(phys, PFN_DEV|PFN_MAP);
+> > +	pfn = phys_to_pfn_t(phys, 0);
+> >  
+> >  	dax_set_mapping(vmf, pfn, fault_size);
+> >  
+> > -	return vmf_insert_pfn_pmd(vmf, pfn, vmf->flags & FAULT_FLAG_WRITE);
+> > +	return vmf_insert_folio_pmd(vmf, page_folio(pfn_t_to_page(pfn)),
+> > +				vmf->flags & FAULT_FLAG_WRITE);
 > 
-> While BRBE can record branches within guests, the host recording
-> branches in guests is not supported by perf. Therefore, BRBE needs to be
-> disabled on guest entry and restored on exit.
+> This looks suspect without initializing the compound page metadata.
 
-I don't think this is strictly true. You only need a Perf session in the 
-guest to records sideband events. That allows you to make sense of the 
-userspace addresses, but by then you might as well record BRBE in the 
-guest in the first place. See [1] for an example.
+I initially wondered about this too, however I think the compound page metadata
+should be initialised by memmap_init_zone_device(). That said I kind of get lost
+in all the namespace/CXL/PMEM/DAX drivers in the stack so maybe I've overlooked
+something.
+ 
+> This might be getting compound pages by default with
+> CONFIG_ARCH_WANT_OPTIMIZE_DAX_VMEMMAP. The device-dax unit tests are ok
+> so far, but that is not super comforting until I can think about this a
+> bit more... but not tonight.
 
-With kernel addresses it might be even easier as all you need is 
---guestvmlinux, --guestkallsyms etc and no sideband events.
+From my reading of the code I don't _think_
+CONFIG_ARCH_WANT_OPTIMIZE_DAX_VMEMMAP would change whether or not we got
+compound pages by default, just that if we did some of the (tail?) pages may
+refer to the same physical struct page.
 
-[1]: 
-https://lore.kernel.org/all/20220711093218.10967-25-adrian.hunter@intel.com/
+> Might as well fix up device-dax refcounts in this series too, but I
+> won't ask you to do that, will send you something to include.
 
-> 
-> For nVHE, this requires explicit handling for guests. Before
-> entering a guest, save the BRBE state and disable the it. When
-> returning to the host, restore the state.
-> 
-> For VHE, it is not necessary. We initialize
-> BRBCR_EL1.{E1BRE,E0BRE}=={0,0} at boot time, and HCR_EL2.TGE==1 while
-> running in the host. We configure BRBCR_EL2.{E2BRE,E0HBRE} to enable
-> branch recording in the host. When entering the guest, we set
-> HCR_EL2.TGE==0 which means BRBCR_EL1 is used instead of BRBCR_EL2.
-> Consequently for VHE, BRBE recording is disabled at EL1 and EL0 when
-> running a guest.
-> 
-> Should recording in guests (by the host) ever be desired, the perf ABI
-> will need to be extended to distinguish guest addresses (struct
-> perf_branch_entry.priv) for starters. 
-
-There's already this which would be enough (if every entry in the branch 
-buffer matches it):
-
-   sample->cpumode == PERF_RECORD_MISC_GUEST_KERNEL
-   sample->cpumode == PERF_RECORD_MISC_GUEST_USER
-
-But I don't think we need all the extra complexity. Just let the guest 
-use all of BRBE and then there isn't really a use case that's not 
-supported. I assume a lot of these workflows were added for trace 
-because it's not supported in guests, but I don't think that applies to 
-BRBE so we can skip them and go straight to full BRBE in guest support. 
-As a later change obviously, these comments are more about the commit 
-message.
-
-James
-
+Eh. That should be relatively straight forward. But then I thought that about FS
+DAX too :-)
 
