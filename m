@@ -4,96 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83F08C02196
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 17:53:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C213C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 18:00:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mzj9WiLIhOB5vMReFD5p6XHQD8Hfc0IzZaAIE1EbWG4=; b=vlw0t+jETH/Zi8LaLkp2MPjYCm
-	9PoemPGwrIKVVXxMSBUIrGguhbMDkOZ/mf2Cag/EUcpoIFzMyqRM4om2/npN/tGathnRGHF+LFVVy
-	LoYxc3GaedCeZ4DYkOtVqilDoepcr6PcJ807qy7uViumBS7ndrsrkNf4hLz3g+Ma9n2VHNtXuGwNH
-	UXmKwhnxU1DUXcp+6HxjhZxFwW3DGpDUJHo9NSVx/PIUSHTI705IN8IVPue9OgYZmrCBifOxLY4Wr
-	u6yLIJH4afQlfYDpxuaxTDP8KjCmcanhDmiw8X1VkjoENBQyvnIv0nR6OrgwXaQEojyNaz9D1zF3X
-	o81ttVIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UbJ+6tvokMnbwn1Our+ACjCT1EImZLPCMQtVrgZN6tw=; b=qtLpiRYDQCsc2a81PVu6okVnrG
+	G0q8XquRVH+QUGTGPmMVV/0hDdM9ld5KgCXKMrmfl/lsOn6VUIUEOpLc+g7LgqmCjkGWPjK07jsi4
+	9rHPpg7w+MgWIStYWV4X3RZGASALW7WFItpShWDO0QcfgRDta1NtEsA4k9Hzd5IBEnrj6vBS3rTPR
+	Q/q/kQKduQKum8bFe/cc8QxgYt5O1Y13b94iWGeiJPGVFF0iuCqeozVAa/IC7Ah+X9YbtPzGIl+Zq
+	344PBn4oXtppir2GiSvEfkWbjo5CCt4iySqKzWdiHRZaceSM+YkvDpJocn4UgQQcP+vw/iKj+kZde
+	uqMhbHhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf0d6-0000000GBPv-3Wb3;
-	Mon, 03 Feb 2025 17:53:04 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1tf0kO-0000000GCEk-0rd8;
+	Mon, 03 Feb 2025 18:00:36 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf0b3-0000000GB65-3cCK
+	id 1tf0j3-0000000GBwF-11Do
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 17:50:59 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2161eb95317so81111465ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 09:50:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738605057; x=1739209857; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=mzj9WiLIhOB5vMReFD5p6XHQD8Hfc0IzZaAIE1EbWG4=;
-        b=J3+UWB66WDtpbMCxmckl98RJKeA4Gi/FVEuhYzsme+dBXHjFtM40LFA3mh+0frlpg8
-         mU5G1tADjmGy+kTjIufPCh82bgw0xLGvYrv909+KRpMrlYvaPBgjfbOoYovJAbVksge4
-         zgdeLNwmDNzBg5ltX7i9RV11niDWKzpuwMC//8Qq4kKvBPNvwnF1j6IgGu+i5GAmERGD
-         8L0BmvvSIxKDIcMbI9CW5SIJXu9UYT4VMdd5zygCVYTN1sNaDzzFci86djAZvaqIBF28
-         JScLY80w62nW3kzMgHSLrluMFyjwVAs6IgBD5ZErU8ZYYGS7UZakfGiShSAx364Rpl0T
-         c2Kw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738605057; x=1739209857;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=mzj9WiLIhOB5vMReFD5p6XHQD8Hfc0IzZaAIE1EbWG4=;
-        b=V5ULKYmDmb2SCnlrzgS+sKxpHa6xoOF+6PeCDL1NxjcaVLfFljVGehB33V7V9nOR6Y
-         IvBqqL6XERTdR4de4BceWC6mZGVCRAu4Bw6L8cvswZDXsNLYFq9T2RE3uMh7Laa4N2xp
-         3v4A30ZoXUF6d6SbcN2rOtIGzLeCnz6pIi8oz/r+xbS0JuXFwKXvfsJBdU2fRjiQFHha
-         qKyxW2dKDw4tmIsrtinThcJvS+r/AGR5DD5wesmE4nEY6e762lnDfx/jfOkjxFeKwOEC
-         f0u4T6Nj35daw+jknngX83MB4dYnZIloWad/tAwg9mXbTy1ZJCUEBoaSbMmgcT7x1Ax4
-         EX7A==
-X-Forwarded-Encrypted: i=1; AJvYcCWsuZL/sA5yQzqXie7AvVw91mSoZT/NaOOajDJFgLwBESfM1pSkjBL8LBz+ByH8uywohMu8gnlSa2IZ384YZEqh@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLIc7LS5BrtexRvV4k2C0zcMw0gL3z5Yc/ixXzgLzEH/zA7Lnl
-	ef2e9kNZDAoRDX+AZLvaAj3CSblUmnwNNYqntW05wRl/9WiEo4bY83LFugZr8w==
-X-Gm-Gg: ASbGncvVbjeQrHiiMByGfQBXQJSER1yPB5fLXFaJvSz7kbzy6I6aRpEKv4ot37dk//w
-	B/tgkWxhU77Kc6b+l7T1WldWMI93DA/CXBMneJIW9DOegCtcUArM08QcrSfqIHEehh7Tfvf2bkD
-	8vCT+deYFlRr/qGApqziu+P2cn1FUkCApS6oATaaYsW/UWJn+DdLI7KVcXnmgXfBMJkny6jkCZe
-	Scjd9g5mOqcmL0CTC9f8/XdhXYdWB1GS8mwspx9dNEI0tNXJfNnCrpV6ZLkPHaSceNHijadFA+4
-	wwGUwbbDDrlNtVXRD/oLKz063Q==
-X-Google-Smtp-Source: AGHT+IELooHF0qMvKyeOA5tLJ+3Ezf8GfLZEZvxarJoUbgD+ShYJqVXPzWfrjpSpkcyIBau0pRT4fw==
-X-Received: by 2002:a17:903:2a85:b0:216:7ee9:2235 with SMTP id d9443c01a7336-21dd7dff6aemr371780435ad.43.1738605057004;
-        Mon, 03 Feb 2025 09:50:57 -0800 (PST)
-Received: from thinkpad ([120.60.129.34])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21de31f03edsm79348895ad.45.2025.02.03.09.50.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Feb 2025 09:50:56 -0800 (PST)
-Date: Mon, 3 Feb 2025 23:20:49 +0530
-From: "manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Jianjun Wang =?utf-8?B?KOeOi+W7uuWGmyk=?= <Jianjun.Wang@mediatek.com>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"robh@kernel.org" <robh@kernel.org>, "kw@linux.com" <kw@linux.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"bhelgaas@google.com" <bhelgaas@google.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Ryder Lee <Ryder.Lee@mediatek.com>
-Subject: Re: [PATCH] PCI: mediatek: Remove the usage of virt_to_phys
-Message-ID: <20250203175049.idxegqqsfwf4dmvq@thinkpad>
-References: <20250201162416.azp4slqqeabo2xyl@thinkpad>
- <20250201170740.GA731664@bhelgaas>
+	Mon, 03 Feb 2025 17:59:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A86EB5C67C5
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Feb 2025 17:58:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F5A9C4CED2
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Feb 2025 17:59:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738605552;
+	bh=NYO3rGYKGq/65zSa8Yhb1oMdNzXKxEcXM0kEMGBQF7s=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=ScFHSdcenZR6DywHshTaqb1ulLuClK6Kmsjg0kKsq/TNx2w0xVWjidA8AB3bRviGL
+	 pjdDBwffIko+KU4zWAProCrXL+qIhJydME6h7zkiKAcBgaRC/At+8FHlf4GqsPR2bT
+	 dun2aiGEvBEgj7av7JV/N+8pG2ACRCTpuQepJ2D3B7M6TIysDZgHdIH00xRItkH5Uv
+	 Y0bc/Yr98ep+XHlbE5PToO3i56nJxr4+Ope5hz//Sbr9NZ2tRb5U6hZLJ8fqiO5CEQ
+	 FSGgb4pJ6upJjiy4F0lWBU1PLwXq9UQxaXzHLijY1/nIlmycU9J4PdH2mGhRWwHkVY
+	 Ya5lMIU7tYMsQ==
+Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-ab69bba49e2so710217566b.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 09:59:12 -0800 (PST)
+X-Gm-Message-State: AOJu0YwSAZoDYQ86QviKj705T7uPcw88pp7YTHJaONCvSbcPmkevvhXR
+	IZOwDDErYvb++e6JVgFqYtuC/FBt+CtCkkAvvk/udFp4SFuAtNGu/af5ll2f2nmKLePHRpt8dqQ
+	6EjOd51z3+rzv5jowAlq5B7h1Cw==
+X-Google-Smtp-Source: AGHT+IEdsLtUTCFhHBHehWhnH6ZSoMj0S/ddfazkY+M9dxn8pQMohG371Wdb2XPTrDBitsdh5IeDSi12HsBdL64hegA=
+X-Received: by 2002:a05:6402:4401:b0:5dc:5a51:cbfa with SMTP id
+ 4fb4d7f45d1cf-5dc5efa8a90mr65097835a12.6.1738605549059; Mon, 03 Feb 2025
+ 09:59:09 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250201170740.GA731664@bhelgaas>
+References: <20250202-arm-brbe-v19-v19-0-1c1300802385@kernel.org>
+ <20250202-arm-brbe-v19-v19-11-1c1300802385@kernel.org> <0415d354-0c44-4fff-b92b-b0f5c9c72b11@linaro.org>
+In-Reply-To: <0415d354-0c44-4fff-b92b-b0f5c9c72b11@linaro.org>
+From: Rob Herring <robh@kernel.org>
+Date: Mon, 3 Feb 2025 11:58:57 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqKTNDQn9omG3g=6Rb4Nwt6hG9Gw7-VXL_fjQeEQmmtJQg@mail.gmail.com>
+X-Gm-Features: AWEUYZmpJbb38ZsiZGdd1EV6YAMwGMfSI1aHcHN4BsePETXUlz6CpgVooGpAEog
+Message-ID: <CAL_JsqKTNDQn9omG3g=6Rb4Nwt6hG9Gw7-VXL_fjQeEQmmtJQg@mail.gmail.com>
+Subject: Re: [PATCH v19 11/11] perf: arm_pmuv3: Add support for the Branch
+ Record Buffer Extension (BRBE)
+To: James Clark <james.clark@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+	kvmarm@lists.linux.dev, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Anshuman Khandual <anshuman.khandual@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_095057_905527_C64F71F3 
-X-CRM114-Status: GOOD (  32.62  )
+X-CRM114-CacheID: sfid-20250203_095913_369828_C6ACBEEC 
+X-CRM114-Status: GOOD (  75.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,65 +89,302 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 01, 2025 at 11:07:40AM -0600, Bjorn Helgaas wrote:
-> On Sat, Feb 01, 2025 at 09:54:16PM +0530, manivannan.sadhasivam@linaro.org wrote:
-> > On Mon, Jan 27, 2025 at 06:41:50PM -0600, Bjorn Helgaas wrote:
-> > > On Thu, Jan 23, 2025 at 08:11:19AM +0000, Jianjun Wang (王建军) wrote:
-> > > > On Wed, 2025-01-15 at 23:01 +0530, Manivannan Sadhasivam wrote:
-> > > > > On Tue, Jan 07, 2025 at 01:20:58PM +0800, Jianjun Wang wrote:
-> > > > > > Remove the usage of virt_to_phys, as it will cause sparse warnings
-> > > > > > when
-> > > > > > building on some platforms.
-> 
-> > > > > >       snprintf(name, sizeof(name), "port%d", slot);
-> > > > > > -     port->base = devm_platform_ioremap_resource_byname(pdev,
-> > > > > > name);
-> > > > > > +     regs = platform_get_resource_byname(pdev, IORESOURCE_MEM,
-> > > > > > name);
-> > > > > > +     if (!regs)
-> > > > > > +             return -EINVAL;
-> > > > > > +
-> > > > > > +     port->base = devm_ioremap_resource(dev, regs);
-> > > > > >       if (IS_ERR(port->base)) {
-> > > > > >               dev_err(dev, "failed to map port%d base\n", slot);
-> > > > > >               return PTR_ERR(port->base);
-> > > > > >       }
-> > > > > > 
-> > > > > > +     port->msg_addr = regs->start + PCIE_MSI_VECTOR;
-> > > 
-> > > I think this still assumes that a CPU physical address
-> > > (regs->start) is the same as the PCI bus address used for MSI, so
-> > > this doesn't seem like the right solution to me.
-> > > 
-> > > Apparently they happen to be the same on this platform because (I
-> > > assume) MSIs actually do work, but it's not a good pattern for
-> > > drivers to copy.  I think what we really need is a dma_addr_t, and
-> > > I think there are one or two PCI controller drivers that do that.
-> > 
-> > I don't see why we would need 'dma_addr_t' here. The MSI address is
-> > a static physical address on this platform and that is not a DMA
-> > address. Other drivers can *only* copy this pattern if they also
-> > have the physical address allocated for MSI.
-> 
-> Isn't an MSI on PCI just a DMA write to a certain address?
+On Mon, Feb 3, 2025 at 10:53=E2=80=AFAM James Clark <james.clark@linaro.org=
+> wrote:
+>
+>
+>
+> On 03/02/2025 12:43 am, Rob Herring (Arm) wrote:
+> > From: Anshuman Khandual <anshuman.khandual@arm.com>
+> >
+> > The ARMv9.2 architecture introduces the optional Branch Record Buffer
+> > Extension (BRBE), which records information about branches as they are
+> > executed into set of branch record registers. BRBE is similar to x86's
+> > Last Branch Record (LBR) and PowerPC's Branch History Rolling Buffer
+> > (BHRB).
+> >
+> > BRBE supports filtering by exception level and can filter just the
+> > source or target address if excluded to avoid leaking privileged
+> > addresses. The h/w filter would be sufficient except when there are
+> > multiple events with disjoint filtering requirements. In this case, BRB=
+E
+> > is configured with a union of all the events' desired branches, and the=
+n
+> > the recorded branches are filtered based on each event's filter. For
+> > example, with one event capturing kernel events and another event
+> > capturing user events, BRBE will be configured to capture both kernel
+> > and user branches. When handling event overflow, the branch records hav=
+e
+> > to be filtered by software to only include kernel or user branch
+> > addresses for that event. In contrast, x86 simply configures LBR using
+> > the last installed event which seems broken.
+> >
+> > The event and branch exception level filtering are separately
+> > controlled. On x86, it is possible to request filtering which is
+> > disjoint (e.g. kernel only event with user only branches). It is also
+> > possible on x86 to configure branch filter such that no branches are
+> > ever recorded (e.g. -j save_type). For BRBE, events with mismatched
+> > exception level filtering or a configuration that will result in no
+> > samples are rejected. This can be relaxed in the future if such a need
+> > arises.
+> >
+> > The handling of KVM guests is similar to the above. On x86, branch
+> > recording is always disabled when a guest is running. However,
+> > requesting branch recording in guests is allowed. The guest events are
+> > recorded, but the resulting branches are all from the host. For BRBE,
+> > branch recording is similarly disabled when guest is running. In
+> > addition, events with branch recording and "exclude_host" set are
+> > rejected. Requiring "exclude_guest" to be set did not work. The default
+> > for the perf tool does set "exclude_guest" if no exception level
+> > options are specified. However, specifying kernel or user defaults to
+> > including both host and guest. In this case, only host branches are
+> > recorded.
+> >
+> > BRBE can support some additional exception, FIQ, and debug branch
+> > types, but they are not supported currently. There's no control in the
+> > perf ABI to enable/disable these branch types, so they could only be
+> > enabled for the 'any' filter which might be undesired or unexpected.
+> > The other architectures don't have any support similar events (at least
+> > with perf). These can be added in the future if there is demand by
+> > adding additional specific filter types.
+> >
+> > BRBE records are invalidated whenever events are reconfigured, a new
+> > task is scheduled in, or after recording is paused (and the records
+> > have been recorded for the event). The architecture allows branch
+> > records to be invalidated by the PE under implementation defined
+> > conditions. It is expected that these conditions are rare.
+> >
+> > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> > Co-developed-by: Mark Rutland <mark.rutland@arm.com>
+> > Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> > Co-developed-by: Rob Herring (Arm) <robh@kernel.org>
+> > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> > ---
+> > v19:
+> > - Drop saving of branch records when task scheduled out. (Mark)
+> > - Got rid of added armpmu ops. All BRBE support contained within pmuv3
+> >    code.
+> > - Dropped armpmu.num_branch_records as reg_brbidr has same info.
+> > - Make sched_task() callback actually get called. Enabling requires a
+> >    call to perf_sched_cb_inc().
+> > - Fix freeze on overflow for VHE
+> > - The cycle counter doesn't freeze BRBE on overflow, so avoid assigning
+> >    it when BRBE is enabled.
+> > - Drop all the Arm specific exception branches. Not a clear need for
+> >    them.
+> > - Simplify enable/disable to avoid RMW and document ISBs needed
+> > - Fix handling of branch 'cycles' reading. CC field is
+> >    mantissa/exponent, not an integer.
+> > - Save BRBFCR and BRBCR settings in event->hw.branch_reg.config and
+> >    event->hw.extra_reg.config to avoid recalculating the register value
+> >    each time the event is installed.
+> > - Rework s/w filtering to better match h/w filtering
+> > - Reject events with disjoint event filter and branch filter
+> > - Reject events if exclude_host is set
+> >
+> > v18: https://lore.kernel.org/all/20240613061731.3109448-6-anshuman.khan=
+dual@arm.com/
+> > ---
+> >   drivers/perf/Kconfig         |  11 +
+> >   drivers/perf/Makefile        |   1 +
+> >   drivers/perf/arm_brbe.c      | 794 ++++++++++++++++++++++++++++++++++=
++++++++++
+> >   drivers/perf/arm_brbe.h      |  47 +++
+> >   drivers/perf/arm_pmu.c       |  15 +-
+> >   drivers/perf/arm_pmuv3.c     |  87 ++++-
+> >   include/linux/perf/arm_pmu.h |   8 +
+> >   7 files changed, 958 insertions(+), 5 deletions(-)
+> >
+> [...]
+> > +bool brbe_branch_attr_valid(struct perf_event *event)
+> > +{
+> > +     u64 branch_type =3D event->attr.branch_sample_type;
+> > +
+> > +     /*
+> > +      * Ensure both perf branch filter allowed and exclude
+> > +      * masks are always in sync with the generic perf ABI.
+> > +      */
+> > +     BUILD_BUG_ON(BRBE_PERF_BRANCH_FILTERS !=3D (PERF_SAMPLE_BRANCH_MA=
+X - 1));
+> > +
+> > +     if (branch_type & BRBE_EXCLUDE_BRANCH_FILTERS) {
+> > +             pr_debug_once("requested branch filter not supported 0x%l=
+lx\n", branch_type);
+> > +             return false;
+> > +     }
+> > +
+> > +     /* Ensure at least 1 branch type is enabled */
+> > +     if (!(branch_type & BRBE_ALLOWED_BRANCH_TYPES)) {
+> > +             pr_debug_once("no branch type enabled 0x%llx\n", branch_t=
+ype);
+> > +             return false;
+> > +     }
+> > +
+> > +     /*
+> > +      * No branches are recorded in guests nor nVHE hypervisors, so
+> > +      * excluding the host or both kernel and user is invalid.
+> > +      *
+> > +      * Ideally we'd just require exclude_guest and exclude_hv, but se=
+tting
+> > +      * event filters with perf for kernel or user don't set exclude_g=
+uest.
+> > +      * So effectively, exclude_guest and exclude_hv are ignored.
+> > +      */
+> > +     if (event->attr.exclude_host || (event->attr.exclude_user && even=
+t->attr.exclude_kernel))
+> > +             return false;
+>
+> Is there a reason to do the pr_debugs for the two cases above, but not
+> for the remaining ones? Seems like it should be all or nothing.
 
-That's from the endpoint prespective when it triggers MSI.
+Shrug. Anshuman wrote the pr_debugs. I wrote this part. Honestly, I
+don't know why you'd want them only once if they are gated off by
+debug. I guess since other cases of rejecting events outside this
+function have pr_debug() we should do the same here.
 
-> My
-> assumption is that if you put an analyzer on that link, an MSI from a
-> device would be structurally indistinguishable from a DMA write from
-> the device.  The MSI uses a different address, but doesn't it use the
-> same size and kind of address, at least from the PCIe protocol
-> perspective?
-> 
+> > +
+> > +     /*
+> > +      * Require that the event filter and branch filter permissions ma=
+tch.
+> > +      *
+> > +      * The event and branch permissions can only mismatch if the user=
+ set
+> > +      * at least one of the privilege branch filters in PERF_SAMPLE_BR=
+ANCH_PLM_ALL.
+> > +      * Otherwise, the core will set the branch sample permissions in
+> > +      * perf_copy_attr().
+> > +      */
+> > +     if ((event->attr.exclude_user !=3D !(branch_type & PERF_SAMPLE_BR=
+ANCH_USER)) ||
+> > +         (event->attr.exclude_kernel !=3D !(branch_type & PERF_SAMPLE_=
+BRANCH_KERNEL)) ||
+>
+> I don't think this one is right. By default perf_copy_attr() copies the
+> exclude_ settings into the branch settings so this works, but if the
+> user sets any _less_ permissive branch setting this fails. For example:
+>
+>   # perf record -j any,u -- true
+>   Error:
+>   cycles:PH: PMU Hardware or event type doesn't support branch stack
+>   sampling.
+>
+> Here we want the default sampling permissions (exclude_kernel =3D=3D 0,
+> exclude_user =3D=3D 0), but only user branch records, which doesn't match=
+.
+> It should be allowed because it doesn't include anything that we're not
+> allowed to see.
 
-Yeah, but in this case the address allocated to MSI belongs to a hardcoded
-region in the host memory (not allocated by the DMA APIs which will have the
-region attributed as DMA capable). So it doesn't belong to the DMA domain, and
-we cannot use 'dma_addr_t'.
+I know it is allowed(on x86), but why would we want that? If you do
+something even more restricted:
 
-- Mani
+perf record -e cycles:k -j any,u -- true
 
--- 
-மணிவண்ணன் சதாசிவம்
+That's allowed on x86 and gives you samples with user addresses. But
+all the events happened in the kernel. How does that make any sense?
+
+I suppose in your example, we could avoid attaching branch stack on
+samples from the kernel. However, given how my example works, I'm
+pretty sure that's not what x86 does.
+
+There's also combinations that are allowed, but record no samples.
+Though I think that was with guest events. I've gone with reject
+non-sense combinations as much as possible. We can easily remove those
+restrictions later if needed. Changing the behavior later (for the
+same configuration) wouldn't be good.
+
+
+> This also makes the Perf branch test skip because it uses
+> any,save_type,u to see if BRBE exists.
+
+Yes, I plan to update that if we keep this behavior.
+
+> > +         (!is_kernel_in_hyp_mode() &&
+> > +          (event->attr.exclude_hv !=3D !(branch_type & PERF_SAMPLE_BRA=
+NCH_HV))))
+> > +             return false;
+> > +
+> > +     event->hw.branch_reg.config =3D branch_type_to_brbfcr(event->attr=
+.branch_sample_type);
+> > +     event->hw.extra_reg.config =3D branch_type_to_brbcr(event->attr.b=
+ranch_sample_type);
+> > +
+> > +     return true;
+> > +}
+> > +
+> [...]
+> > +static const int brbe_type_to_perf_type_map[BRBINFx_EL1_TYPE_DEBUG_EXI=
+T + 1][2] =3D {
+> > +     [BRBINFx_EL1_TYPE_DIRECT_UNCOND] =3D { PERF_BR_UNCOND, 0 },
+>
+> Does the second field go into 'new_type'? They all seem to be zero so
+> I'm not sure why new_type isn't ignored instead of having it mapped.
+
+Well, left over from when all the Arm specific types were supported.
+So yeah, that can be simplified.
+
+> > +     [BRBINFx_EL1_TYPE_INDIRECT] =3D { PERF_BR_IND, 0 },
+> > +     [BRBINFx_EL1_TYPE_DIRECT_LINK] =3D { PERF_BR_CALL, 0 },
+> > +     [BRBINFx_EL1_TYPE_INDIRECT_LINK] =3D { PERF_BR_IND_CALL, 0 },
+> > +     [BRBINFx_EL1_TYPE_RET] =3D { PERF_BR_RET, 0 },
+> > +     [BRBINFx_EL1_TYPE_DIRECT_COND] =3D { PERF_BR_COND, 0 },
+> > +     [BRBINFx_EL1_TYPE_CALL] =3D { PERF_BR_CALL, 0 },
+> > +     [BRBINFx_EL1_TYPE_ERET] =3D { PERF_BR_ERET, 0 },
+> > +     [BRBINFx_EL1_TYPE_IRQ] =3D { PERF_BR_IRQ, 0 },
+>
+> How do ones that don't map to anything appear in Perf? For example
+> BRBINFx_EL1_TYPE_TRAP is missing, and the test that was attached to the
+> previous versions fails because it doesn't see the trap that jumps to
+> the kernel, but it does still see the ERET back to userspace:
+>
+>    [unknown]/trap_bench+0x20/-/-/-/0/ERET/-
+>
+> In older versions we'd also have BRBINFx_EL1_TYPE_TRAP mapping to
+> PERF_BR_SYSCALL so you could see it go into the kernel before the return:
+>
+>    trap_bench+0x1C/[unknown]/-/-/-/0/SYSCALL/-
+>    [unknown]/trap_bench+0x20/-/-/-/0/ERET/-
+
+My read of that was we should see a CALL in this case. Whether SVC
+generates a TRAP or CALL depends on HFGITR_EL2.SVC_EL0 (table D18-2).
+I assumed "SVC due to HFGITR_EL2.SVC_EL0" means when SVC_EL0 is set
+(and set has additional conditions). We have SVC_EL0 cleared, so that
+should be a CALL. Maybe the FVP has this wrong?
+
+> > +};
+> > +
+> > +static void brbe_set_perf_entry_type(struct perf_branch_entry *entry, =
+u64 brbinf)
+> > +{
+> > +     int brbe_type =3D brbinf_get_type(brbinf);
+> > +
+> > +     if (brbe_type <=3D BRBINFx_EL1_TYPE_DEBUG_EXIT) {
+> > +             const int *br_type =3D brbe_type_to_perf_type_map[brbe_ty=
+pe];
+> > +
+> > +             entry->type =3D br_type[0];
+> > +             entry->new_type =3D br_type[1];
+> > +     }
+> > +}
+> > +
+>
+> [...]
+>
+> > +     if (branch_sample & PERF_SAMPLE_BRANCH_ANY_RETURN) {
+> > +             set_bit(PERF_BR_RET, event_type_mask);
+> > +
+> > +             if (!event->attr.exclude_kernel)
+> > +                     set_bit(PERF_BR_ERET, event_type_mask);
+>
+> You could argue that ERET should be included even if exclude_kernel is
+> set, otherwise you miss the point that you returned to in userspace and
+> leave a gap in the program flow. See the trap and eret example above.
+>
+> It looks like we still have the zeroing of the kernel address in this
+> version if we only have userspace priviledge, so it should be fine to
+> show the ERET and the target address.
+
+Yes, agreed.
+
+Rob
 
