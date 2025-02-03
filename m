@@ -4,75 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CE4EC02193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 21:00:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C674C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 21:01:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=wXdjg6p4V9uiME4tLo80vK2ihiwuVvknkQ/VAJ8U0ew=; b=gapOmXn3qlk/m8
-	UJSQe4Z4alwVT8B87ek/QLz5xQwtSKCX3NWaQHNhZ1Hc9HYjsut7mM/Fn2uRD6IgV7mQfVgKytKzx
-	3Iou7SuZ0IgMBBLK33xDnAZwMTCtpFh80CyO8MKWH0cuCSM80UEZLKyUBzZwBu0FcPWeUKa34jI5T
-	+qXVWHWJiJJwt+RSX9N/D45GMguLlkbV2Lca99oHrRbTr3Zp82cfsEoux/3+f9ARD2RnHwYjCLvHe
-	hMegtpH+mFrmzf6ozw4qm2c+wPr8O92vNU6Sv9J60v7/gmNUjrB3E5a9C816Pz/C668LlVhWsWZD7
-	wk3fCuaRENLRl+AeFv8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=poQ92LcpcXEaspRp/grbZSU2QATF1dA3ftvSiGMJuvY=; b=prdMRuz7TL9kSQpZCZvWnZIUvd
+	Nw4WHNFsuVbkh+nt+CmIvtxRJ479jkQCKq/NoWo3rPci1pDC3xTqQspRSzpBVMVfKdD5XzqeXJdze
+	CyY4zi54x9PV9gMV+eBhKSnxgwhWIQP1vShPZJulZQZpPZMpyW+OE9HCpu9cxgusodOtao4Gz85S+
+	+ucRbe71SXov5yDgdjsb4ERCgIKBzSMPORwCitXrIMQdFUcmr9mPglgAaXB+4JyGv9YqGP0ChnvOb
+	DEam9sJ23O+03Wiqd4hYJgKPJHPA8phDeCysDh4ZyEeARRcl7EyiReNqBHFJw5FXUaCDjZlhyifOG
+	zV9wzgCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf3Yg-0000000GbUS-1ijJ;
-	Mon, 03 Feb 2025 21:00:42 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1tf3Yp-0000000GbW8-41G6;
+	Mon, 03 Feb 2025 21:00:51 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf3Dm-0000000GYY7-0dou
+	id 1tf2TB-0000000GUYW-2uHK
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 03 Feb 2025 19:50:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=poQ92LcpcXEaspRp/grbZSU2QATF1dA3ftvSiGMJuvY=; b=Zd+GxzwxBdB2ErWztaSgJWsJlY
+	/ro8WzG52md20YSmJdfNEj8j5KxAsSCYrAreP3FI/FT7RDbCWTcArukogOYDeddNl8O4oUDW0QTZ1
+	iAFAHPbWC/CdNxkOHS454Ng06rv+bovONBGV4A8B8y1ooFTF4DP3Qq7DmT6eQhaczx32kYewn1lPC
+	DLBW6Fo6NATtlue8H+CG6I4MkYmfQ7RhNpridrkkCiQCch1tsJb/dErHepRlkh2UOUOmwjuTBa01e
+	5do4V4drHelyeBGrvKY7FdefoIgUBAX0/4WSsReYw7dbixvikK+qGHagxN7wk6xhLQzY4x1oW2RC5
+	t/QHWa7g==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tf2T7-0000000G9iM-3v38
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 20:39:07 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id D9D5625A84;
-	Mon,  3 Feb 2025 21:39:03 +0100 (CET)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id nnfpxlxpcAtI; Mon,  3 Feb 2025 21:39:02 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1738615142; bh=xwtOKTUBcQC4jWTBtIrOtPINitVO/oGKezfgJlBjumg=;
-	h=From:Subject:Date:To:Cc;
-	b=WwX+eU7LzjIdxW8NZm1GvF/p6BdvTzUTYlFmdaqWIPOaqSWdt8TAOU0wi35fi30Z4
-	 CjNEnCbcuTPcm2Vb/PGdtZ2uaNAhIdOwgyyUbeZnNhPuEQQtl2OjEYcbWwQjqPuoL6
-	 n5Zjts93nSWE4C7OiUztnWW5NyrMGTY6YpmZK4P5bCy4yJunnI9qXIU+rALUiS3TvX
-	 z9eQ+GbaWKnG2+XZieoCHfPeKMvpqcE7oZxiRArBr4fnNfvT/LDay5fjLU+0oDOE/8
-	 Lq1o414YESIq0gqjO0n4LgC5S1qkinCV6G3ZNMxFBj4wGAJXap+u3WLL/CmJXUlHcV
-	 SmSg9zIN7nsLg==
-From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Subject: [PATCH 0/2] Introduce UART support for Exynos7870 SoC
-Date: Tue, 04 Feb 2025 02:08:44 +0530
-Message-Id: <20250204-exynos7870-uart-v1-0-06be6aa96284@disroot.org>
+	Mon, 03 Feb 2025 19:50:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 99610A41CD8;
+	Mon,  3 Feb 2025 19:49:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0FB8C4CED2;
+	Mon,  3 Feb 2025 19:50:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738612250;
+	bh=XGTTmaTbuMSIUnCt/V5Tc/8kvFz5nJOKfbKLcWa9s3Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bAXZqrDiQryC0tZT1Jvjwk0Hug2a/rdR9Nw+kTstb0+BCXLrUOuSQbo1lVNQ2vmSi
+	 K1tImNuPQdfBlAMkQL6jOnwINQ3bYRrRJT3pqTwxAwuS8kfwiNUXlcwlhNgNOLgj11
+	 +MWeuhHdpwvVW+kzNtlI3ZE1qn26hGWUmJzyiNyyUVcp63QMwW3b+S0jmYc/5g4Ay2
+	 tte+dvrLu3DOqnqk0g8fgdWQZpfjbS2KE7wNbHASFpK8NmqSwoCxbcwqIrK4IdMg+D
+	 n8yL1s/oeiWuWMr66w06GKok5qw1gS8x8m4DJgyReEPoMOMWeR2ydjXhSHWq0NwYTs
+	 D1QGf0cmG5mpg==
+Date: Mon, 3 Feb 2025 19:50:44 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Quentin Perret <qperret@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Fuad Tabba <tabba@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 09/18] KVM: arm64: Introduce __pkvm_vcpu_{load,put}()
+Message-ID: <5ca7588c-7bf2-4352-8661-e4a56a9cd9aa@sirena.org.uk>
+References: <20241218194059.3670226-1-qperret@google.com>
+ <20241218194059.3670226-10-qperret@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAFQpoWcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1MDIwNj3dSKyrz8YnMLcwPd0sSiEl0zozQzk+TURCMTC0sloK6CotS0zAq
- widGxtbUAR5S8w2EAAAA=
-X-Change-ID: 20250203-exynos7870-uart-62f64cea2489
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk@kernel.org>, Conor Dooley <conor@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Sergey Lisov <sleirsgoevy@gmail.com>, linux-kernel@vger.kernel.org, 
- linux-serial@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- Kaustabh Chakraborty <kauschluss@disroot.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1738615135; l=722;
- i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
- bh=xwtOKTUBcQC4jWTBtIrOtPINitVO/oGKezfgJlBjumg=;
- b=vzu/LdC3pxEnkiUAtVWL36omc+KNCQgDuSraq8ILeDY5lO4KG3w/LvzL5zDzq7tSal5tH20+u
- 899Cg6H81zfAZUzdRBg0VS0hzJD7Svh5e19SYGRaaGKjHmF5ZWB9L16
-X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
- pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ANfi4BZEZ3mG3n3g"
+Content-Disposition: inline
+In-Reply-To: <20241218194059.3670226-10-qperret@google.com>
+X-Cookie: Happiness is a positive cash flow.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_123906_326544_B4116841 
-X-CRM114-Status: UNSURE (   7.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250203_195054_195458_A79CED41 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,26 +97,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for Exynos7870 UART. FIFO size is expected to be present in
-DT.
 
-This patch series is a part of Exynos7870 upstreaming.
+--ANfi4BZEZ3mG3n3g
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
----
-Kaustabh Chakraborty (2):
-      dt-bindings: serial: samsung: add exynos7870-uart compatible
-      tty: serial: samsung: add support for exynos7870
+On Wed, Dec 18, 2024 at 07:40:50PM +0000, Quentin Perret wrote:
+> From: Marc Zyngier <maz@kernel.org>
+>=20
+> Rather than look-up the hyp vCPU on every run hypercall at EL2,
+> introduce a per-CPU 'loaded_hyp_vcpu' tracking variable which is updated
+> by a pair of load/put hypercalls called directly from
+> kvm_arch_vcpu_{load,put}() when pKVM is enabled.
 
- Documentation/devicetree/bindings/serial/samsung_uart.yaml |  2 ++
- drivers/tty/serial/samsung_tty.c                           | 13 +++++++++++++
- 2 files changed, 15 insertions(+)
----
-base-commit: df4b2bbff898227db0c14264ac7edd634e79f755
-change-id: 20250203-exynos7870-uart-62f64cea2489
+Current mainline crashes when running the arch_timer_edge_cases selftest
+in pKVM mode on a LibreTech Le Potato board, with a bisection pointing
+at this change.  The system dies like this:
 
-Best regards,
--- 
-Kaustabh Chakraborty <kauschluss@disroot.org>
+# selftests: kvm: arch_timer_edge_cases
+[  130.599140] kvm [4518]: nVHE hyp panic at: [<ffff800081102b58>] __kvm_nv=
+he___vgic_v3_restore_vmcr_aprs+0x8/0x84!
+[  130.603685] kvm [4518]: Cannot dump pKVM nVHE stacktrace: !CONFIG_PROTEC=
+TED_NVHE_STACKTRACE
+[  130.611962] kvm [4518]: Hyp Offset: 0xfffeca95ed000000
+[  130.617053] Kernel panic - not syncing: HYP panic:
 
+Full log:
+
+   https://lava.sirena.org.uk/scheduler/job/1092083
+
+Bisection log:
+
+git bisect start
+# status: waiting for both good and bad commits
+# bad: [2014c95afecee3e76ca4a56956a936e23283f05b] Linux 6.14-rc1
+git bisect bad 2014c95afecee3e76ca4a56956a936e23283f05b
+# status: waiting for good commit(s), bad commit known
+# good: [ffd294d346d185b70e28b1a28abe367bbfe53c04] Linux 6.13
+git bisect good ffd294d346d185b70e28b1a28abe367bbfe53c04
+# good: [6250ebe666e425e173df5e11e8a612d57921f48d] i2c: Fix core-managed pe=
+r-client debugfs handling
+git bisect good 6250ebe666e425e173df5e11e8a612d57921f48d
+# good: [647d69605c70368d54fc012fce8a43e8e5955b04] Merge tag 'pci-v6.14-cha=
+nges' of git://git.kernel.org/pub/scm/linux/kernel/git/pci/pci
+git bisect good 647d69605c70368d54fc012fce8a43e8e5955b04
+# good: [13845bdc869f136f92ad3d40ea09b867bb4ce467] Merge tag 'char-misc-6.1=
+4-rc1' of git://git.kernel.org/pub/scm/linux/kernel/git/gregkh/char-misc
+git bisect good 13845bdc869f136f92ad3d40ea09b867bb4ce467
+# bad: [9f10e7fb6a06bce4f81de5fd0f2f0390f99e89e4] Merge tag 'phy-for-6.14' =
+of git://git.kernel.org/pub/scm/linux/kernel/git/phy/linux-phy
+git bisect bad 9f10e7fb6a06bce4f81de5fd0f2f0390f99e89e4
+# bad: [58f504efcda54a9079a38203acc088c3354aaa60] Merge tag 'tty-6.14-rc1' =
+of git://git.kernel.org/pub/scm/linux/kernel/git/gregkh/tty
+git bisect bad 58f504efcda54a9079a38203acc088c3354aaa60
+# good: [a37eea94f775132866ecdd466fd88027d7125515] Merge tag 'sparc-for-6.1=
+4-tag1' of git://git.kernel.org/pub/scm/linux/kernel/git/alarsson/linux-spa=
+rc
+git bisect good a37eea94f775132866ecdd466fd88027d7125515
+# bad: [5e68d2eeac70978a06406c5b156815ceb00437f9] Merge branch kvm-arm64/pk=
+vm-memshare-declutter into kvmarm-master/next
+git bisect bad 5e68d2eeac70978a06406c5b156815ceb00437f9
+# bad: [d0670128d42fa170bf8ba878cd23504c5c5cccc7] Merge branch kvm-arm64/pk=
+vm-np-guest into kvmarm-master/next
+git bisect bad d0670128d42fa170bf8ba878cd23504c5c5cccc7
+# good: [c4a6ed85455979ef3fbadc2f1bdf18734b0ecea6] KVM: arm64: Promote gues=
+t ownership for DBGxVR/DBGxCR reads
+git bisect good c4a6ed85455979ef3fbadc2f1bdf18734b0ecea6
+# bad: [d0bd3e6570aee42766e7bd884734ae078667ea1e] KVM: arm64: Introduce __p=
+kvm_host_share_guest()
+git bisect bad d0bd3e6570aee42766e7bd884734ae078667ea1e
+# good: [5398ddc5c90bd418b90d859e9267aa39399021af] KVM: arm64: Pass walk fl=
+ags to kvm_pgtable_stage2_mkyoung
+git bisect good 5398ddc5c90bd418b90d859e9267aa39399021af
+# good: [c77e5181fed54b25d489eb7d2ccb5c1c72a1063c] KVM: arm64: Make kvm_pgt=
+able_stage2_init() a static inline function
+git bisect good c77e5181fed54b25d489eb7d2ccb5c1c72a1063c
+# bad: [f7d03fcbf1f482069e9afac55b17de3bd323b8f6] KVM: arm64: Introduce __p=
+kvm_vcpu_{load,put}()
+git bisect bad f7d03fcbf1f482069e9afac55b17de3bd323b8f6
+# good: [99996d575ee69d4327bad98a0148729b73dde23a] KVM: arm64: Add {get,put=
+}_pkvm_hyp_vm() helpers
+git bisect good 99996d575ee69d4327bad98a0148729b73dde23a
+# first bad commit: [f7d03fcbf1f482069e9afac55b17de3bd323b8f6] KVM: arm64: =
+Introduce __pkvm_vcpu_{load,put}()
+
+--ANfi4BZEZ3mG3n3g
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmehHhMACgkQJNaLcl1U
+h9DQ7Af+P8sebWSERdjUjYV29cH9b32wtbxJMRD1Dyu0ctLbCzNOmkbja6PAw6gg
+WWur9Ds0FBcbMpWutMe3tQIF6r9ZZYobChRBsdqLRjz+hIwngMxicmhhM2vvXc7t
+D4Z8ayasEqR7OjLfEHc+lnVsgYtaswDKQq0ABGSWJhEsBSnP45Z1qqslLxiqItUq
+L2+OjIgJ0R95hsceAWbBaTmOVfzFhVHkABPqDIVLE/lWTWN+I24DABPW8KdnpGE3
+L1D6Cdw2jz2Sbi1/wzs12TorVXKRUmfTPtQtcInQNSdW1RIXeFgtlEY8f2c9fexp
+1aJFPcx2HxUBLJGMrnO6kx1IwN0xdQ==
+=8hjS
+-----END PGP SIGNATURE-----
+
+--ANfi4BZEZ3mG3n3g--
 
