@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22FC7C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 16:06:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85CF1C02195
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 16:07:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QZtVhXJ0wD8UUxltvrKkVQj70lYXFTyv0k+N3MrwZQQ=; b=1R+QjuBPmpKlINawP2tkDyqmZc
-	RW5A/l97IJnMO21m8eLpY79znzaor/25rm30mRCKQhirwf6B+v3T/BVS+ElcjDGBP4TJ+W/iG8lDK
-	Vp9nXEioafjcLRCY/90DrZ9+2v9lUFlcYTJxkzLr3HQYfkmpuO3smfKP3vu3uOThpPE8sMs+SPTxl
-	1hSnbKrzFWq9tVnl2WC4I9orJY9xYvEWqnhTv2G5jJ0uekx/OBnNiPTDnbAtvur5Vf/IxL3I/T4Ox
-	OJgcGYkMnp7vpYsPcMT6XlhQwAmHZdTQc/OPLa78JQwzmRXHRMwfrr+Co4LeCUAFrZUkhIfmGUtgZ
-	7EnaEF6g==;
+	bh=y8VE5pPg6NFIt3BixNe7NvQstkKKOMhM6spdVAJaLuQ=; b=GC5X/teOyjkrXXfCN3EnHUxa8P
+	1mE7NtAmQEto6HG+eB59hIngzFieGBOn8w/Spyv4y5y4D45Py/YtrsWY536cUF1ZJSEH//yyKB/dM
+	AMZkoZ71Cdt2tYQsr0FlWbnGUIzNodixg/AWFVHFMzmhkkd9Z+ZbLigXsxtTsx/cnHZpTM53om4n8
+	c7hWF9aPNn2G1F2FoovIRZu8SUJ/fPZTdDgw/T+qEyjGITZfNXUzTdb7XrOGnQIKkdi7Cxp/9CiUA
+	aLO1yFNWuv+jMrSwiGcpQAf4CTE7Lq8DnejVOpxTu1avZu+bw4q/tVVyrZPgERv4TOq3GLmH97muK
+	hpzshHew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teyxo-0000000Fx6b-2JpD;
-	Mon, 03 Feb 2025 16:06:20 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1teyz7-0000000FxLE-28mh;
+	Mon, 03 Feb 2025 16:07:41 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1teywU-0000000Fwwo-05na;
-	Mon, 03 Feb 2025 16:04:59 +0000
+	id 1teyxl-0000000Fx5r-02js;
+	Mon, 03 Feb 2025 16:06:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id F09E8A415F6;
-	Mon,  3 Feb 2025 16:03:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98204C4CED2;
-	Mon,  3 Feb 2025 16:04:53 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 687255C6628;
+	Mon,  3 Feb 2025 16:05:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 161C6C4CED2;
+	Mon,  3 Feb 2025 16:06:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738598696;
-	bh=7FjBxVu/LhoU+doPPigSf0Xw4zscztcg6rt4zZBNwu0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jM3uMismr/ChWUVeoV2YhcqcnMllDmO9AgrW7KznMUSsoefw7tpz15V06zASAnX6B
-	 vSH7OVO1xdv6bSYASl+9+lz4CZ/MdVBJadMg+bTh2P4L0efSLSWXvvGvs1kTCPMsXQ
-	 k+lc422FaIia4jVosaaCD7zMqMJPt3Zje09fjIu4zTy7aZcrh8aagOdF96KNfxVmtc
-	 qqX9D1YlgXX3gKZG05C9BQW/YTBRv/Fpq6FolIni9ZzUuupbo3HqqHgW7Sk8nCT2np
-	 BbyMSk5ttZacAWRScW+2Ec0CW8ppE/X5YlH+h8te9iE0KDnoT/KPL1cML3eNaEf6+e
-	 ZJlL0BDMeeseg==
-Message-ID: <4656ae57-c6a1-48ac-a60f-72d7b988c307@kernel.org>
-Date: Mon, 3 Feb 2025 17:04:51 +0100
+	s=k20201202; t=1738598775;
+	bh=mSbDzPlk5Z+rNAsJadL1MHdAe4MLtI17BJ5GbRPHpHM=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=HMraxU5gWTtOelwhavBDPXS6Qbgwywwshr4EekNnc5sP4hLIllE2Ox5WqSg4VMyh+
+	 ffeUTi3sngmfyj4EVRIwOvr5/NPKE5jx/6PGZMvdIAkYAzR31MgDjaElsFpQhin9ly
+	 44CQYYsrxdOp4/6xhrBLwc48FE1l0uLRR9RoeGyqnkTIU5OsHJaRx2/W/+P8h7EWru
+	 t5XS92ZyBloTnv3m7DHDdsDCSbGDWxPpGCksVUOWeVbfomSB/M7mq4ZhCtPFjSea3L
+	 lszu+zKygmiPUEARD6XwqMptVSM6l84/6j8KBpXM/lKjcYjN3rkQ3ZE0tmGEo15+RJ
+	 gh9kXu2uMDQiQ==
+Message-ID: <231c1f01-dea1-4c39-bbe1-cb629f7c109d@kernel.org>
+Date: Mon, 3 Feb 2025 17:06:11 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH] arm64: dts: Introduce more nodes to EN7581 SoC evaluation
  board
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Lorenzo Bianconi <lorenzo@kernel.org>,
  Matthias Brugger <matthias.bgg@gmail.com>,
  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
@@ -55,7 +56,7 @@ To: Lorenzo Bianconi <lorenzo@kernel.org>,
 Cc: linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
  devicetree@vger.kernel.org
 References: <20250201-en7581-dts-spi-pinctrl-v1-1-aaa4a9dfc4a6@kernel.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <4656ae57-c6a1-48ac-a60f-72d7b988c307@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -100,12 +101,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250201-en7581-dts-spi-pinctrl-v1-1-aaa4a9dfc4a6@kernel.org>
+In-Reply-To: <4656ae57-c6a1-48ac-a60f-72d7b988c307@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_080458_198586_A1BE3FE6 
-X-CRM114-Status: GOOD (  16.29  )
+X-CRM114-CacheID: sfid-20250203_080617_148919_02E5F420 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,137 +121,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/02/2025 15:39, Lorenzo Bianconi wrote:
-> Add the following nodes to EN7581 SoC and EN7581 evaluation board:
-> - clock controller
-> - rng controller
-> - pinctrl
-> - i2c controllers
-> - spi nand controller
+On 03/02/2025 17:04, Krzysztof Kozlowski wrote:
+>> +
+>> +		rng@1faa1000 {
+>> +			compatible = "airoha,en7581-trng";
+>> +			reg = <0x0 0x1faa1000 0x0 0xc04>;
+>> +			interrupts = <GIC_SPI 35 IRQ_TYPE_LEVEL_HIGH>;
+>> +		};
+>> +
+>> +		system-controller@1fbf0200 {
+>> +			compatible = "syscon", "simple-mfd";
 > 
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> ---
-
-Please use subject prefixes matching the subsystem. You can get them for
-example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
-your patch is touching. For bindings, the preferred subjects are
-explained here:
-https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
-
-Missing prefix for vendor.
-
->  arch/arm64/boot/dts/airoha/en7581-evb.dts |  8 +++
->  arch/arm64/boot/dts/airoha/en7581.dtsi    | 90 +++++++++++++++++++++++++++++++
->  2 files changed, 98 insertions(+)
+> These are never allowed alone. I am pretty sure I added proper checks
+> which should point it out, so I think you did not really test your DTS.
 > 
-> diff --git a/arch/arm64/boot/dts/airoha/en7581-evb.dts b/arch/arm64/boot/dts/airoha/en7581-evb.dts
-> index cf58e43dd5b21dbf4f64e305a4b4a2daee100858..1126da4b795f5d5df9725ec4d75cd9353b011710 100644
-> --- a/arch/arm64/boot/dts/airoha/en7581-evb.dts
-> +++ b/arch/arm64/boot/dts/airoha/en7581-evb.dts
-> @@ -24,3 +24,11 @@ memory@80000000 {
->  		reg = <0x0 0x80000000 0x2 0x00000000>;
->  	};
->  };
-> +
-> +&i2c0 {
-> +	status = "okay";
-> +};
-> +
-> +&snfi {
-> +	status = "okay";
-> +};
-> diff --git a/arch/arm64/boot/dts/airoha/en7581.dtsi b/arch/arm64/boot/dts/airoha/en7581.dtsi
-> index 55eb1762fb11364877695960f5a2d3e42caf8611..b1cf650efd78c6c20d19e7f18c204cf5862215c0 100644
-> --- a/arch/arm64/boot/dts/airoha/en7581.dtsi
-> +++ b/arch/arm64/boot/dts/airoha/en7581.dtsi
-> @@ -2,6 +2,7 @@
->  
->  #include <dt-bindings/interrupt-controller/irq.h>
->  #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +#include <dt-bindings/clock/en7523-clk.h>
->  
->  / {
->  	interrupt-parent = <&gic>;
-> @@ -150,5 +151,94 @@ uart1: serial@1fbf0000 {
->  			interrupts = <GIC_SPI 18 IRQ_TYPE_LEVEL_HIGH>;
->  			clock-frequency = <1843200>;
->  		};
-> +
-> +		scuclk: clock-controller@1fa20000 {
-> +			compatible = "airoha,en7581-scu";
-> +			reg = <0x0 0x1fb00000 0x0 0x970>;
-> +			#clock-cells = <1>;
-> +			#reset-cells = <1>;
-> +		};
-> +
-> +		rng@1faa1000 {
-> +			compatible = "airoha,en7581-trng";
-> +			reg = <0x0 0x1faa1000 0x0 0xc04>;
-> +			interrupts = <GIC_SPI 35 IRQ_TYPE_LEVEL_HIGH>;
-> +		};
-> +
-> +		system-controller@1fbf0200 {
-> +			compatible = "syscon", "simple-mfd";
+> It does not look like you tested the DTS against bindings. Please run
+> `make dtbs_check W=1` (see
+> Documentation/devicetree/bindings/writing-schema.rst or
+> https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-sources-with-the-devicetree-schema/
+> for instructions).
+> Maybe you need to update your dtschema and yamllint. Don't rely on
+> distro packages for dtschema and be sure you are using the latest
+> released dtschema.
+> 
 
-These are never allowed alone. I am pretty sure I added proper checks
-which should point it out, so I think you did not really test your DTS.
+Now I see Rob's report:
+arch/arm64/boot/dts/airoha/en7581-evb.dtb: system-controller@1fbf0200:
+compatible: ['syscon', 'simple-mfd'] is too short
+which confirms untested code. Schema is there for a reason. :(
 
-It does not look like you tested the DTS against bindings. Please run
-`make dtbs_check W=1` (see
-Documentation/devicetree/bindings/writing-schema.rst or
-https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-sources-with-the-devicetree-schema/
-for instructions).
-Maybe you need to update your dtschema and yamllint. Don't rely on
-distro packages for dtschema and be sure you are using the latest
-released dtschema.
-
-
-> +			reg = <0x0 0x1fbf0200 0x0 0xc0>;
-> +
-> +			en7581_pinctrl: pinctrl {
-> +				compatible = "airoha,en7581-pinctrl";
-> +
-> +				interrupt-parent = <&gic>;
-> +				interrupts = <GIC_SPI 26 IRQ_TYPE_LEVEL_HIGH>;
-> +
-> +				gpio-controller;
-> +				#gpio-cells = <2>;
-> +
-> +				interrupt-controller;
-> +				#interrupt-cells = <2>;
-> +			};
-> +		};
-> +
-> +		i2cclock: i2cclock@0 {
-> +			#clock-cells = <0>;
-> +			compatible = "fixed-clock";
-> +
-> +			/* 20 MHz */
-> +			clock-frequency = <20000000>;
-> +		};
-> +
-> +		i2c0: i2c0@1fbf8000 {
-
-Node names should be generic. See also an explanation and list of
-examples (not exhaustive) in DT specification:
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
-
-i2c@
-
-> +			compatible = "mediatek,mt7621-i2c";
-> +			reg = <0x0 0x1fbf8000 0x0 0x100>;
-> +
-> +			clocks = <&i2cclock>;
-> +
-> +			/* 100 kHz */
-> +			clock-frequency = <100000>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			status = "disable";
-> +		};
-> +
-> +		i2c1: i2c1@1fbf8100 {
 Best regards,
 Krzysztof
 
