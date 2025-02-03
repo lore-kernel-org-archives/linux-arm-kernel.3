@@ -4,90 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 247E0C02193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 11:45:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87CB8C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 11:46:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vkmJBE2xe1rD7fvTP6vWNu0WpILKMHVEtvlvMXZaL4Q=; b=bELm1/8Z+dgV063QwAFATFaFPm
-	wJCl5wK//TFPQMZFJdWgdk3WyWMP2QTjZKPktGFXR2BG5949z0No9/RE8eLV631FANOOAP28Of/0f
-	1NmnP34PHICveUHYIljibhwe7fYUYGrU0Vfmy9mcjgQXgFr/l9lw7pjfKm2AJIDMNq15TszsNUXMW
-	a5VspOHFiqJIm8Pf4RScJBiHNCmyUxFahcoN9xHUvscL4gC10DETWjOYWUnxjf/q+o4RbufTB7xvM
-	kFDRB0FhmGxk9wshJpZe04iFz9ly+PppNJHXs0wv5jXYR01FrXhGDjJqRXD13MZja21C/EOpQM6QX
-	/ZDhdGjA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RA0XtAJL96WJLxRbWatCDndiWUNj7K4Qgw/hFBCvBuI=; b=jsdpiQ6KxChJ/O1p49P8EoQNEN
+	sA2mQgQh7B/3nkScXNsuSDAvfkV8mTRhOSZZUTig2sFiCnKJlpf2MJ3ZFgZkkUVZ+obw874jc4sqn
+	TESVJEVGj4RT3XXiJf5I1T1thWAs7+FHZl0UQDcX/4nG4TLwezwIP8aJxYRQq9YTObz8x06xKm7O7
+	NhWNF7FmLMGG2D9iirqwjfGUN9A8Vw77BPJsZ0RHMBdGAvYg4kgNuNq7bYc4juolMMMRi3d302n0E
+	SfqljJV2jn/xdkR2PyT/nnrcMvvuIxfz7y+GXAE136qEUVMdki6r7SS9tJ0ZvpHp1lZQFpksuftCS
+	ADpKYLEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teutg-0000000FGoz-2lKO;
-	Mon, 03 Feb 2025 11:45:48 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1teuuR-0000000FGy5-1vco;
+	Mon, 03 Feb 2025 11:46:35 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tetgx-0000000F7PJ-06Oh
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 03 Feb 2025 10:28:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=vkmJBE2xe1rD7fvTP6vWNu0WpILKMHVEtvlvMXZaL4Q=; b=alxfeKXxJ7aSdmRuqBDuL2s3gs
-	Kust79Ay2ovL48tin0cjA6JRnWwuvUUL6v+aM0+o9vH8KPjJVxjWwTOjnkbpVXs79zcx/kPqkUVCw
-	AKEYR0laNn1iHQr8bVNYyMVcfVuzLkHZEQOSB7ar3GK6YBoVxN0B3+cNN8ZhzEmsV0NKqS6yrMXxz
-	Nl9wcxGIHhSw9ZAyCIdpstNfRizSncvm1Y3Jb/DS99psMUwmks3iLPm54aYTKOUeoc3cB/J+DUbAg
-	LW5jDXyVTaitBGf+Zad0Dej3xUsvo3sxiGlZaNZU8Ux55yF8LbrO+Tm7QmhumR2PBGWR8DM1EUkga
-	AL/7qAKw==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tetgt-0000000G3pM-3zQh
+	id 1teut4-0000000FGee-46re
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 10:28:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AA49E1476;
-	Mon,  3 Feb 2025 02:28:55 -0800 (PST)
-Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7B5A13F63F;
-	Mon,  3 Feb 2025 02:28:27 -0800 (PST)
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-To: linux-hardening@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Mark Brown <broonie@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Howells <dhowells@redhat.com>,
-	"Eric W. Biederman" <ebiederm@xmission.com>,
-	Jann Horn <jannh@google.com>,
-	Jeff Xu <jeffxu@chromium.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Kees Cook <kees@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Pierre Langlois <pierre.langlois@arm.com>,
-	Quentin Perret <qperret@google.com>,
-	"Mike Rapoport (IBM)" <rppt@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Will Deacon <will@kernel.org>,
-	Matthew Wilcox <willy@infradead.org>,
-	Qi Zheng <zhengqi.arch@bytedance.com>,
+	Mon, 03 Feb 2025 11:45:12 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-2ef760a1001so7043300a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 03:45:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1738583110; x=1739187910; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=RA0XtAJL96WJLxRbWatCDndiWUNj7K4Qgw/hFBCvBuI=;
+        b=fEjP+RKTf549C/D/W4zodnojootK1a0R4XHYGpSlfurAxTjUtZn+C6V39J7UqnCcoD
+         6BqiCpHxEvhSrsBIKL6mMMU9EtDti9laRxkuG8JKyx+UOlmFKPBmyAl/MqubuSrKkTgd
+         2kCxxynXukn5A0Mw5cErlMrM17vDeDV7nc1jU/+HKuD8NP9pgHGNQlaEcL+dVpUzJXNu
+         A+X6BYOSjtADWBmmS1km5aVCdGEx6BHRHjwZKP2k53rg8yqEZ4zDmi1HMWbGGhU21cSy
+         O+auVkZXtct0TzJAGLMi6ApOPNSZspFpWd+SwMs824MGQ+TxtkxN+xDgnQVvkdDpXS0f
+         eY2Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738583110; x=1739187910;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=RA0XtAJL96WJLxRbWatCDndiWUNj7K4Qgw/hFBCvBuI=;
+        b=gi1l897X/+blupcleObmV8fuf8x8sIzeqZSZ4cFsnKvnfmw3eQZBJsg2meKCdXAF1s
+         Og5ooKApHrKnjgut7XzEJFRYhNCpr0uK5Jb34M92iLsPV8qXILcOdfcyh8yfzVoja5SK
+         xX4cROPs8gSh+3pdu1KpOCnL5TLHDTx3qglicOnslU65PjGbG9Gy3YlL6F6FI3D3ewHD
+         cWgo6vFrjyIUeo62d0h42jS5hlQULOv3ucDwdQguXvG87ApVqHb8Osfoxo/pN/nMSoMU
+         tet5wFcLBgVUuLS2bVGEnPjkROZIjTQDbO4qwrYL8sfbeTikLV2h3P6TRZzKdSGjk+G1
+         8IsA==
+X-Forwarded-Encrypted: i=1; AJvYcCVvasEQ6Vp+5nLJ8Hf8ondpcaEwJhypmLVqSXHSkQ7TFg15CiqYiIibYOyVsoQumyTGMsoECUX68gGZF9YfYjK4@lists.infradead.org
+X-Gm-Message-State: AOJu0YwD1I1m6MgIgkmSTk4AM26EnQtl7WHojiAxzFfUhSoD9mHeq02R
+	58762cuhinjn5IKbACyeC5dWkpmSFX4TVZuca1rOc1ZIVZfydmCg
+X-Gm-Gg: ASbGncsNDTzbVy8vbnR32/lwvKPFTbw/V/IT6dPw9qqgBeOG/j4QIryq00/cgYZ5mHy
+	5O3u4Pb1giQh5aHXXndZn42ttM0+T2B0ucxpWPORzIGhSvdW5Jn5FiZJ1+I4l4aFFsorq+sXm4G
+	AtNESV16ZAbg13rFX0hmK1TcedEFTxJu1XP0VS0lMzd6+5VUzqCQsr95/uEQEj6kSkHfltsBNXJ
+	cIh0vvSKBl7jIzHVPvffvOmw2VbUvT5dfzOFWFjPgPsY7rOD8Inb8rF66j0QrcKlKcD14Lvi3Zu
+	DCQMLSfSdCYEJnUy
+X-Google-Smtp-Source: AGHT+IHHjGHPnhtBshFZlL0STf36xDX/jcGjHEfsZF68knOtHxu3Ihb1HeH8FtH6IcuizJVxYRGNvg==
+X-Received: by 2002:a17:90b:2711:b0:2f7:d5f8:f393 with SMTP id 98e67ed59e1d1-2f83aca3021mr31267475a91.35.1738583110013;
+        Mon, 03 Feb 2025 03:45:10 -0800 (PST)
+Received: from nick-mbp.. ([59.188.211.160])
+        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-2f848976d1fsm9712490a91.3.2025.02.03.03.45.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Feb 2025 03:45:09 -0800 (PST)
+From: Nick Chan <towinchenmi@gmail.com>
+To: Hector Martin <marcan@marcan.st>,
+	Sven Peter <sven@svenpeter.dev>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	asahi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mm@kvack.org,
-	x86@kernel.org
-Subject: [RFC PATCH 1/8] arm64: kpkeys: Avoid unnecessary writes to POR_EL1
-Date: Mon,  3 Feb 2025 10:28:02 +0000
-Message-ID: <20250203102809.1223255-2-kevin.brodsky@arm.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250203102809.1223255-1-kevin.brodsky@arm.com>
-References: <20250203102809.1223255-1-kevin.brodsky@arm.com>
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Nick Chan <towinchenmi@gmail.com>,
+	Aun-Ali Zaidi <admin@kodeit.net>
+Subject: [PATCH v3 RESEND 0/2] Device Tree for Apple T2 (T8012) SoC devices
+Date: Mon,  3 Feb 2025 19:42:51 +0800
+Message-ID: <20250203114417.16453-1-towinchenmi@gmail.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_102832_390265_748D37F4 
-X-CRM114-Status: GOOD (  12.70  )
+X-CRM114-CacheID: sfid-20250203_034511_019731_A29E0E6A 
+X-CRM114-Status: UNSURE (   9.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,38 +104,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Nested uses of kpkeys guards are about to be introduced, which means
-that kpkeys_set_level() may not actually need to change the value of
-POR_EL1. Since updating POR_EL1 requires an expensive ISB, let's
-skip the write if the value is unchanged, by returning
-KPKEYS_PKEY_REG_INVAL. This will cause the matching
-kpkeys_restore_pkey_reg() call to bail out without calling
-arch_kpkeys_restore_pkey_reg().
+This series adds device trees for the Apple T2 Security Chip found on
+some Intel Macs released after 2017. This SoC is based on Apple A10
+(T8010) SoC and, for many hardware blocks, can share the A10 compatibles.
 
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+Changes since v2:
+- Drop PMGR nodes, moved to PMGR nodes for A7-A11, T2 SoC series.
+
+Link to v2: https://lore.kernel.org/asahi/20241203051147.110980-1-towinchenmi@gmail.com/T
+
+Changes since v1:
+- Use imperative mood in commit messages
+
+Link to v1: https://lore.kernel.org/asahi/20241201161942.36027-1-towinchenmi@gmail.com/T
+
+[1]: https://lore.kernel.org/asahi/20241203050640.109378-1-towinchenmi@gmail.com/T
+
+Nick Chan
+
+Cc: Aun-Ali Zaidi <admin@kodeit.net>
+
 ---
- arch/arm64/include/asm/kpkeys.h | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+Nick Chan (2):
+  dt-bindings: arm: apple: Add T2 devices
+  arm64: dts: apple: Add T2 devices
 
-diff --git a/arch/arm64/include/asm/kpkeys.h b/arch/arm64/include/asm/kpkeys.h
-index 4854e1f3babd..3f16584d495a 100644
---- a/arch/arm64/include/asm/kpkeys.h
-+++ b/arch/arm64/include/asm/kpkeys.h
-@@ -27,8 +27,12 @@ static inline u64 por_set_kpkeys_level(u64 por, int level)
- static inline int arch_kpkeys_set_level(int level)
- {
- 	u64 prev_por = read_sysreg_s(SYS_POR_EL1);
-+	u64 new_por = por_set_kpkeys_level(prev_por, level);
- 
--	write_sysreg_s(por_set_kpkeys_level(prev_por, level), SYS_POR_EL1);
-+	if (new_por == prev_por)
-+		return KPKEYS_PKEY_REG_INVAL;
-+
-+	write_sysreg_s(new_por, SYS_POR_EL1);
- 	isb();
- 
- 	return prev_por;
+ .../devicetree/bindings/arm/apple.yaml        |  41 ++++
+ arch/arm64/boot/dts/apple/Makefile            |  16 ++
+ arch/arm64/boot/dts/apple/t8012-j132.dts      |  14 ++
+ arch/arm64/boot/dts/apple/t8012-j137.dts      |  14 ++
+ arch/arm64/boot/dts/apple/t8012-j140a.dts     |  14 ++
+ arch/arm64/boot/dts/apple/t8012-j140k.dts     |  14 ++
+ arch/arm64/boot/dts/apple/t8012-j152f.dts     |  15 ++
+ arch/arm64/boot/dts/apple/t8012-j160.dts      |  14 ++
+ arch/arm64/boot/dts/apple/t8012-j174.dts      |  14 ++
+ arch/arm64/boot/dts/apple/t8012-j185.dts      |  14 ++
+ arch/arm64/boot/dts/apple/t8012-j185f.dts     |  14 ++
+ arch/arm64/boot/dts/apple/t8012-j213.dts      |  15 ++
+ arch/arm64/boot/dts/apple/t8012-j214k.dts     |  15 ++
+ arch/arm64/boot/dts/apple/t8012-j215.dts      |  15 ++
+ arch/arm64/boot/dts/apple/t8012-j223.dts      |  15 ++
+ arch/arm64/boot/dts/apple/t8012-j230k.dts     |  14 ++
+ arch/arm64/boot/dts/apple/t8012-j680.dts      |  15 ++
+ arch/arm64/boot/dts/apple/t8012-j780.dts      |  15 ++
+ arch/arm64/boot/dts/apple/t8012-jxxx.dtsi     |  44 +++++
+ arch/arm64/boot/dts/apple/t8012-touchbar.dtsi |  19 ++
+ arch/arm64/boot/dts/apple/t8012.dtsi          | 176 ++++++++++++++++++
+ 21 files changed, 527 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j132.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j137.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j140a.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j140k.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j152f.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j160.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j174.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j185.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j185f.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j213.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j214k.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j215.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j223.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j230k.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j680.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j780.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-jxxx.dtsi
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-touchbar.dtsi
+ create mode 100644 arch/arm64/boot/dts/apple/t8012.dtsi
+
+
+base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
 -- 
-2.47.0
+2.48.1
 
 
