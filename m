@@ -4,73 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0464C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 11:09:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A453C02193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 11:15:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PT40fs+/wOVv1q+A4Y1ik4iXxFsXJNhtarxPevnq6Xo=; b=09K2H9zwvVz6kirQZPyjIiAohN
-	JkN9Mt/aKmfC1GP63fXGk3fhksHtTcI3pGkeM/1Ktpq7yMUua5Pce/d6UpaTCeE1L1yT+hIJuXW7z
-	IjMM1DEQqhJ1yjgLLpHmPDs1Em7eVzMD0m0LQyZ/QerusEk0LalUEipHE84E8fOf5EIgT/A04IjuW
-	Hm+2QbiqiTUhVvjSWCiNRK3L2mVgSyCnIaARqbutnkOywNLygF0fxNBcnk1vxk4Pv4ucLoZahW3cr
-	elA2JSyk02XH6RbIMxMuuoUO8++0FWrs9DGxGo92I39VwmsBrE6wZG4pqzHT984KREw46vnZRDdh8
-	F8gRCu+w==;
+	bh=kowjNUPkP18lH8FfnjhF2qNwuje3S4u8H7avaM0p5vE=; b=PL1y6yNqkUB1jI4YSEm6YWRaLe
+	GY5NeGVK3CG3mZQeTZbNx5ofCcwE3VT7IaDIElof5e4hbWljw5XbgyegOsunkUsShSmS43kTlt0qp
+	RzTnyV6apVajOF0AKe05/p2MhOhoMDHp6xDzv4HzsAxCwa7+N1d5BZtXOw7ay6iBQdGFq2vqL6roG
+	epdKK/xGcHEPUeAq57c8q5EgeYaYG2lK34fVU0u7GXWvQk4WUbNjoIRxuUTqRQi1a+8pAjafDBEaM
+	ljLmiy4LXpaK+Mrmpt+rWrcYxkdWPu26+N26BOY5nyhCsoL/R61RCBvi/nNdNTzH+QeO1xEjdsjSy
+	vImpspBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teuKT-0000000FChl-2yEN;
-	Mon, 03 Feb 2025 11:09:25 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1teuGo-0000000FCIA-3ohO
+	id 1teuQe-0000000FDG4-1P5B;
+	Mon, 03 Feb 2025 11:15:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tetHW-0000000F4ls-30gE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 11:05:41 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4YmkCr3G7nz6K90T;
-	Mon,  3 Feb 2025 19:04:40 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 025CB14011B;
-	Mon,  3 Feb 2025 19:05:30 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Mon, 3 Feb
- 2025 12:05:29 +0100
-Date: Mon, 3 Feb 2025 11:05:27 +0000
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: "Yoshihiro Furudera (Fujitsu)" <fj5100bi@fujitsu.com>
-CC: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, Catalin Marinas <catalin.marinas@arm.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, Bjorn Andersson
-	<quic_bjorande@quicinc.com>, Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Dmitry Baryshkov
-	<dmitry.baryshkov@linaro.org>, Konrad Dybcio <konradybcio@kernel.org>, "Neil
- Armstrong" <neil.armstrong@linaro.org>, Arnd Bergmann <arnd@arndb.de>, "
- =?ISO-8859-1?Q?N=EDcolas?= \"\"F. R. A. Prado\"\"" <nfraprado@collabora.com>,
-	Thomas Gleixner <tglx@linutronix.de>, "Peter Zijlstra"
-	<peterz@infradead.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v4 1/2] perf: Fujitsu: Add the Uncore MAC PMU driver
-Message-ID: <20250203110527.00006747@huawei.com>
-In-Reply-To: <OS3PR01MB6903DC3738709A4536A62613D4F52@OS3PR01MB6903.jpnprd01.prod.outlook.com>
-References: <20250116045911.3382537-1-fj5100bi@fujitsu.com>
-	<20250116045911.3382537-2-fj5100bi@fujitsu.com>
-	<20250130170422.00004c6f@huawei.com>
-	<OS3PR01MB6903DC3738709A4536A62613D4F52@OS3PR01MB6903.jpnprd01.prod.outlook.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Mon, 03 Feb 2025 10:02:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3488F11FB;
+	Mon,  3 Feb 2025 02:02:42 -0800 (PST)
+Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BCB933F63F;
+	Mon,  3 Feb 2025 02:02:16 -0800 (PST)
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: cristian.marussi@arm.com
+Cc: arm-scmi@vger.kernel.org,
+	guomin_chen@sina.com,
+	linux-arm-kernel@lists.infradead.org,
+	peng.fan@nxp.com,
+	quic_xinqzhan@quicinc.com,
+	sudeep.holla@arm.com
+Subject: [RFC PATCH 1/2] firmware: arm_scmi: Generate aliases for SCMI modules
+Date: Mon,  3 Feb 2025 10:01:53 +0000
+Message-ID: <20250203100154.140877-1-cristian.marussi@arm.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <Z6CNWOp8B_ghIrJt@pluto>
+References: <Z6CNWOp8B_ghIrJt@pluto>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml500002.china.huawei.com (7.191.160.78) To
- frapeml500008.china.huawei.com (7.182.85.71)
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_030539_100239_51318EAF 
-X-CRM114-Status: UNSURE (   8.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250203_020218_876130_4A514A4D 
+X-CRM114-Status: GOOD (  12.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,23 +66,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 3 Feb 2025 07:18:38 +0000
-"Yoshihiro Furudera (Fujitsu)" <fj5100bi@fujitsu.com> wrote:
+Generate aliases for SCMI modules to allow automatic module probing.
 
-> > 
-> > mod_devicetable.h
-> > for the acpi device table.  
-> 
-> After checking, I found that
-> linux/mod_devicetable.h is included in linux/acpi.h.
+Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+---
+ include/linux/mod_devicetable.h   | 6 ++++++
+ include/linux/scmi_protocol.h     | 6 +-----
+ scripts/mod/devicetable-offsets.c | 3 +++
+ scripts/mod/file2alias.c          | 9 +++++++++
+ 4 files changed, 19 insertions(+), 5 deletions(-)
 
-True but with a few really tightly couple exceptions, normal
-kernel policy is follow include what you use principles.
-
-
-Thanks,
-
-Jonathan
-
+diff --git a/include/linux/mod_devicetable.h b/include/linux/mod_devicetable.h
+index 4338b1b4ac44..90c1f7bd4d1e 100644
+--- a/include/linux/mod_devicetable.h
++++ b/include/linux/mod_devicetable.h
+@@ -972,4 +972,10 @@ struct coreboot_device_id {
+ 	kernel_ulong_t driver_data;
+ };
+ 
++/* SCMI Devices */
++struct scmi_device_id {
++	__u8 protocol_id;
++	const char *name;
++};
++
+ #endif /* LINUX_MOD_DEVICETABLE_H */
+diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+index 5437275d3ac7..3d5c4b5a7dd8 100644
+--- a/include/linux/scmi_protocol.h
++++ b/include/linux/scmi_protocol.h
+@@ -12,6 +12,7 @@
+ #include <linux/device.h>
+ #include <linux/hashtable.h>
+ #include <linux/log2.h>
++#include <linux/mod_devicetable.h>
+ #include <linux/notifier.h>
+ #include <linux/types.h>
+ #include <linux/xarray.h>
+@@ -1196,11 +1197,6 @@ struct scmi_device {
+ 
+ #define to_scmi_dev(d) container_of_const(d, struct scmi_device, dev)
+ 
+-struct scmi_device_id {
+-	u8 protocol_id;
+-	const char *name;
+-};
+-
+ struct scmi_driver {
+ 	const char *name;
+ 	int (*probe)(struct scmi_device *sdev);
+diff --git a/scripts/mod/devicetable-offsets.c b/scripts/mod/devicetable-offsets.c
+index 9c7b404defbd..58d614109fae 100644
+--- a/scripts/mod/devicetable-offsets.c
++++ b/scripts/mod/devicetable-offsets.c
+@@ -281,5 +281,8 @@ int main(void)
+ 	DEVID(coreboot_device_id);
+ 	DEVID_FIELD(coreboot_device_id, tag);
+ 
++	DEVID(scmi_device_id);
++	DEVID_FIELD(scmi_device_id, protocol_id);
++
+ 	return 0;
+ }
+diff --git a/scripts/mod/file2alias.c b/scripts/mod/file2alias.c
+index 19ec72a69e90..f86f194a1711 100644
+--- a/scripts/mod/file2alias.c
++++ b/scripts/mod/file2alias.c
+@@ -510,6 +510,14 @@ static void do_css_entry(struct module *mod, void *symval)
+ 	module_alias_printf(mod, false, "css:t%01X", type);
+ }
+ 
++/* looks like: "scmi:prN" */
++static void do_scmi_entry(struct module *mod, void *symval)
++{
++	DEF_FIELD(symval, scmi_device_id, protocol_id);
++
++	module_alias_printf(mod, true, "scmi:pr%02X", protocol_id);
++}
++
+ /* Looks like: "serio:tyNprNidNexN" */
+ static void do_serio_entry(struct module *mod, void *symval)
+ {
+@@ -1471,6 +1479,7 @@ static const struct devtable devtable[] = {
+ 	{"usb", SIZE_usb_device_id, do_usb_entry_multi},
+ 	{"pnp", SIZE_pnp_device_id, do_pnp_device_entry},
+ 	{"pnp_card", SIZE_pnp_card_device_id, do_pnp_card_entry},
++	{"scmi", SIZE_scmi_device_id, do_scmi_entry},
+ };
+ 
+ /* Create MODULE_ALIAS() statements.
+-- 
+2.47.0
 
 
