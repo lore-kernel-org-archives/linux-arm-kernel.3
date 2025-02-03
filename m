@@ -4,86 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5371C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 17:32:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26AF7C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 17:38:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=U+3jIvZnmKA6FZPn3NDJLwBHo+QpViaEYNsBITnjd8w=; b=ThUFH1R1KjJKsGCMay6ce+t9cI
-	IN1AdAXyEEqVpEMPkYJmBwCq8/aBL910CYOi4S/q+7mRDDS7QfnEWViEaXuKqtw4pAtZYMGtlwsiB
-	71ahWBvYkLomzktH9kyVrm8MOKHMwM1Supgm32DsaiBQrrAHY32fdoANQqsBEdpO44oIKxm+0K8Ql
-	1QTQYzb2p01k2dFdxPB1iu3vnpyDkbf+oplI4kiFFVYFtSiN0J91MDPy3F/xfNkdYqy0OfXw1ahHO
-	4M4qS0rMr3LPSCCzDpU1CbrmjnOvSt2dmtUb2cXo2rNg01O2JPBXTQbuADSoz1I4Omd5W73XNm0UD
-	IEi0Ws2w==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gD53bS15abtheDAb9cgPoAMMxV7uKyM7MWRnXns+kIY=; b=JfdG0+fijqEfKcjAPPpcu49YSD
+	02iDzDtVETochLufmSMVDzgJ4bawGfRVI7cToT7bYOy+7ONFIRY8eIlZSwmGd6eQFpEa2g9LaeqFT
+	nHHUwhvJ20L0LRRhF2vQa9wkAWIaacHdhNlcuGAYCIK6Y3KZ6Xl5AanfA5s1vg2jqJgt5O2IMZDCL
+	rPX5TI1CP6tKkSOAA8RRlcoIxRrjpxAbaVyZF4ONkbf01uz6O4fe+FCRcOrQPBX5K4IUQhCp385dG
+	C5stvifKHjT4NmbcoTYvNzm5ggNaFgKDDLe1zv4r3z7eu6YJJ22pg2qjXea8IjLqO+nQ7O82+eoog
+	BnLa8Z7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf0Ic-0000000G9AS-0RiT;
-	Mon, 03 Feb 2025 17:31:54 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1tf0Of-0000000G9V1-0cNC;
+	Mon, 03 Feb 2025 17:38:09 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf0HH-0000000G8yB-0GeZ
+	id 1tf0NK-0000000G9TM-44JD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 17:30:32 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-21619108a6bso78594605ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 09:30:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738603829; x=1739208629; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=U+3jIvZnmKA6FZPn3NDJLwBHo+QpViaEYNsBITnjd8w=;
-        b=QbJkeJuqz1qBLc3nNSw3/7KDiAs4Xp27o1JTcft3T3ZWrYA/F2+XHWDAhgvqbyi1Vo
-         nKLbLAzHzjYwXpcv8hYsA/tAtP6GzSFaX8LqaYx7NXqAReUIpL8aKw7MfJs23FyV1Rts
-         SDJd1pApJinjQb2G/Y8uBRXlv/mcmE/XLiyDQrBcrnnp9NvWuObXWF0l1eHMWBj2rk9k
-         sAaSTfa1A7+29ZnrMg/nhBOZEtJhUT/OhJSaQ1CHHQEAweFEupdzldRfu+DWf3HYcdI7
-         78itbU0Sdwj3aODsTJEfnVJaiLdvwl5cHSBPg3DnwJGCqMCfRyWe8lbJpxqHyhgyY17s
-         kr6g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738603829; x=1739208629;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=U+3jIvZnmKA6FZPn3NDJLwBHo+QpViaEYNsBITnjd8w=;
-        b=t1iJ0i5/8UHIzswMKE6/n9DYSXj1i2ogCMMGVeR8yLNrzlcMbbbdYCHLRT4hROnshx
-         znJLwqKpFRa87HAdv355bYag5mXwidEsFht/xXZCehI3cUvQNZjPyvmSlVEDfDMahDLn
-         u4YEkzsioKnUXYEXLNyJQbJesbSLbo8mMiLSnKtUX5QvYS601NTVq0QnN5yvdZFbiOh9
-         C91Ln7Su3T6tvU/pm7qO7RnqIykGXL5cqadvOj1CQbbOaAJgBRtrsaZT7VKky/9SsNQK
-         8JXzi1dF8rUxgEBBFSTDTk8N80b2csngeM95k8SwyaaycrWmYFd9oqESp4vYuSPY9FE3
-         NbJg==
-X-Forwarded-Encrypted: i=1; AJvYcCXDNrOyhIP/X0CxIUHdtM34Ayu8ylQ7A+ViNG5T8o4vF/OxhlPleS6U3qAEMi/2qi03/fTIAJ2MyIXZisivQN8o@lists.infradead.org
-X-Gm-Message-State: AOJu0YwiUyBdiUJpS3qVMPe6rjNbnHJM7lMXtF8AS/U2GfFjevQ4oi9b
-	geR8u8M4EtvczUPevI94qy43l96hEHPqXl12zLJaUuga7yC7dp++deSCpw==
-X-Gm-Gg: ASbGnct1WWMA3hOBWatzyoj2u2vutYvKzeSCDmIzKq7iSEi3MDqeGCzMUDUr3fPLoay
-	euNuS1bNYpMPmjhL4K4m+j0X5d8niXZde4d1AzK6m7fSO5WpYAnLWlnhR9OYHjWN1w99O0YpR+Q
-	30sBcyJZPGOZBvrvlzUfYDYTTCZjRIfHa7fMFoW6N+58e4t6L2Bq8fJXT04F+h2v1TCCk9rym2t
-	HJtXPQkrsfkciCyZlHkU9K8xG7z4wamx3zKrApOtAZTa1AVEfql1j5779Q6O4vk0JbJQIyDZ0zq
-	BjJm248oB7ywOwvl27LIb9jnwGKs
-X-Google-Smtp-Source: AGHT+IE8nNjdmDUBWWzeT2S1Qot1ZFFEd8cLym1Jv/D9+lSJXgZUh9NGk6KW9hQBaAEr8zUWODiSLg==
-X-Received: by 2002:a17:902:eb54:b0:215:a2f2:cfbf with SMTP id d9443c01a7336-21dd7c66954mr227001515ad.18.1738603829496;
-        Mon, 03 Feb 2025 09:30:29 -0800 (PST)
-Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:dbf:9aeb:2ad1:3bf9])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21de3300880sm79896195ad.168.2025.02.03.09.30.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Feb 2025 09:30:28 -0800 (PST)
-From: Fabio Estevam <festevam@gmail.com>
-To: shawnguo@kernel.org
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Fabio Estevam <festevam@denx.de>
-Subject: [PATCH] ARM: dts: imx28-sps1: Fix GPIO LEDs description
-Date: Mon,  3 Feb 2025 14:30:20 -0300
-Message-Id: <20250203173020.39830-1-festevam@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 03 Feb 2025 17:36:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 694845C6787;
+	Mon,  3 Feb 2025 17:36:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45F65C4CED2;
+	Mon,  3 Feb 2025 17:36:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738604206;
+	bh=QASbM/CpD2LMAyGAq9qJB9y7bnfBxh/dPhTjVZvyUaY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BWH6zYfR5tjxro2Xvs3xa4n8CarLELYUdEJJiT5UODYNyVkIXEaQ+tbmJ7hKFGd/S
+	 QG+5rv36vZynxM0+x2cY3CQWWO4k7DGIpRIJZBL2Cizn8pIdOarakxqIOjzhwG6Urr
+	 0NArcI61IFzMtc9BLZbsWk8V7TTc6xNg8sqTIx2cXQL8PXSbSPMYVJhYrlkdjarPWw
+	 /l5IFVmleyp1dh+Xn+JFK/HmiOiDWmSlcfdUwsDF09RykwBXAvXkTXV3ZY2l0d1nlc
+	 JCFOXos/NwVsI6xqadTwpencLUI7BXeMP9dT/xq4nMc1TrI24aO8W3x61q7iulAK0t
+	 2/4lmxMzKleyw==
+Message-ID: <a961f69e-970c-4ee3-bc94-40704c6ea643@kernel.org>
+Date: Mon, 3 Feb 2025 18:36:42 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/2] dt-bindings: altera: Add compatible for Terasic's
+ DE10-nano
+To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+ Dinh Nguyen <dinguyen@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <cover.1738600838.git.u.kleine-koenig@baylibre.com>
+ <8714f54eb78a2bacf508debb7844abfea78767ee.1738600838.git.u.kleine-koenig@baylibre.com>
+Content-Language: en-US
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <8714f54eb78a2bacf508debb7844abfea78767ee.1738600838.git.u.kleine-koenig@baylibre.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_093031_103991_9FE5F29E 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20250203_093647_095532_DEEF803A 
+X-CRM114-Status: UNSURE (   8.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,66 +121,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fabio Estevam <festevam@denx.de>
+On 03/02/2025 17:46, Uwe Kleine-König wrote:
+> The Terasic DE10-nano development board features a Cyclone5 FPGA, USB,
+> HDMI output and an Arduino compatible header.
+> 
+> Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+> ---
+>  Documentation/devicetree/bindings/arm/altera.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 
-According to leds-gpio.yaml, the LED nodes should not contain
-unit addresses. Remove them.
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Also, 'default-trigger' is not a valid property. Change it to
-'linux,default-trigger'.
-
-These changes fix the following dt-schema warnings: 
-
-led@1: Unevaluated properties are not allowed ('reg' was unexpected)
-led@2: Unevaluated properties are not allowed ('reg' was unexpected)
-led@3: Unevaluated properties are not allowed ('default-trigger', 'reg' were unexpected)
-leds: '#address-cells', '#size-cells' do not match any of the regexes: '(^led-[0-9a-f]$|led)', 'pinctrl-[0-9]+'
-
-Signed-off-by: Fabio Estevam <festevam@denx.de>
----
- arch/arm/boot/dts/nxp/mxs/imx28-sps1.dts | 13 ++++---------
- 1 file changed, 4 insertions(+), 9 deletions(-)
-
-diff --git a/arch/arm/boot/dts/nxp/mxs/imx28-sps1.dts b/arch/arm/boot/dts/nxp/mxs/imx28-sps1.dts
-index 0f01dded4e3d..ca62e7933116 100644
---- a/arch/arm/boot/dts/nxp/mxs/imx28-sps1.dts
-+++ b/arch/arm/boot/dts/nxp/mxs/imx28-sps1.dts
-@@ -24,30 +24,25 @@ reg_usb0_vbus: regulator-0 {
- 	};
- 
- 	leds {
--		#address-cells = <1>;
--		#size-cells = <0>;
- 		compatible = "gpio-leds";
- 		status = "okay";
- 
--		led@1 {
-+		led-1 {
- 			label = "sps1-1:yellow:user";
- 			gpios = <&gpio0 6 0>;
- 			linux,default-trigger = "heartbeat";
--			reg = <0>;
- 		};
- 
--		led@2 {
-+		led-2 {
- 			label = "sps1-2:red:user";
- 			gpios = <&gpio0 3 0>;
- 			linux,default-trigger = "heartbeat";
--			reg = <1>;
- 		};
- 
--		led@3 {
-+		led-3 {
- 			label = "sps1-3:red:user";
- 			gpios = <&gpio0 0 0>;
--			default-trigger = "heartbeat";
--			reg = <2>;
-+			linux,default-trigger = "heartbeat";
- 		};
- 
- 	};
--- 
-2.34.1
-
+Best regards,
+Krzysztof
 
