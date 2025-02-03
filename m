@@ -4,97 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82285C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 14:01:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB70FC02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 14:03:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:
-	Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2e3vrd26snuR7BBCNgEi1ltS7NqcxsA/B6t8vBEFYDs=; b=pH2hr+FcUsEzna8F2ZD7oWm+pg
-	NA5z5LiYIOIq/t5seSRYRW22UpvzTZ9IHoI16Vp5rLnYjl8RjaTHLAE+IjBNL3oLzeVbF458erVwe
-	umefhL1uFFfVfK+Mi8lv2DfgJaxzT0MwW2+p9Sy8fy/jNFlaqdA9zuJeM1Nx8kMqbt7woFS/AKcli
-	c0DLqyVKfL6B7vCfFCIuWkWLjcW3c9Y4HVIty4sDRn3WThkHu95MOnE8WQ1cV/SniHab94Ba5YDM1
-	8EzsvFz0+XWlAFsRAyJYkoctwXpaUaSygvhd3g+sXcYGBXmENfge6qwEdsmi5wO7JPjZYm7t9S8zx
-	hlkbkVsA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jkxOuq9EH0RNTTJLWfsv//J7EslQKsuud+Vg/sOsEvI=; b=uRgk3UrpiawJa76bV5SmdE48yZ
+	o+Y6B8/9YDFA0EBVnNy0l2dDK99CqFtCmW77LOWMPOjqSsrsBjBBUIWwS7YfpUrlrEuvsCGNG3Lw3
+	iIsva8Tz6ruJzGAmthwzpMbm4mIj2ZE4iHQTNR3cCD9n0/hxfTyPBwBwjsfUfOjYdbwrtVJ6FRodY
+	rniWIUizelRjt/x7LJHDTpytMYwLqDURqiTv/375yjTHig6Bd/uaQ35WNlDwHGdXyH1IS6uCvwqz7
+	96HeFbmY9GGbFVZGwt9C5PKgkK+EdXFoivTmMdLNc+QFbQN78Ts7YaMVaDbHB7HiZJV0+LYY7Cm3x
+	Pev9IMBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tex0q-0000000Fb6l-2rHk;
-	Mon, 03 Feb 2025 14:01:20 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tex2T-0000000FbR1-1bCd;
+	Mon, 03 Feb 2025 14:03:01 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tewzX-0000000Fau1-0Frj
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 03 Feb 2025 13:59:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=2e3vrd26snuR7BBCNgEi1ltS7NqcxsA/B6t8vBEFYDs=; b=P+JfbxUcyLgPiP9a87iLVbKXG1
-	ydqfN/XAOcoV9gXDpL5KZe6dfyWfuLfaNffg7mF9attmXxuB2vjbO5wkQc37g0BEaKfvByx0EUqrX
-	zCezG3gNTDeavYuo+sZGUwV+j0q051jmw6kHf5AekN4eFJVTDsIXGyFtZOrvE6rPf2BLsuTMfzb+V
-	4PFW81oYl/vG/4wb50NEWPHJSSVjQsDtZcuK/RJG/e/YScL8qaXJ0TkD4PBsSU7G8xCArvHRwwLc/
-	LgMnPJ5SeoeczNvMWDyyQdw2k7AxfBIkRMYtSBqwvp/GUx18YsBnVxtVdh0fs3vUNiolWUj8kyyvx
-	ZhqQCbEQ==;
-Received: from mail-vs1-f50.google.com ([209.85.217.50])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tewzT-0000000G5zh-1doL
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 13:59:57 +0000
-Received: by mail-vs1-f50.google.com with SMTP id ada2fe7eead31-4afdd15db60so1158282137.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 05:59:54 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738591190; x=1739195990;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=2e3vrd26snuR7BBCNgEi1ltS7NqcxsA/B6t8vBEFYDs=;
-        b=QG4pfrkq8eZAwL307iqqCnHD+x3c/z35HZVL/L1ojJ7d1YYhqpBmRTKewXF7gPR/pd
-         xcX1VudO/QFVyPT3ryXO88/hc1A7ELzGTXB++aUTkMnw3SqXP9vp0xGtBbPg8kHsR7Q9
-         lVUQ9gLKZz8t1LKG4iapTAwsemkXTwt7AUx/qZTRLdb5najTgymqeBydxRh6Y5b6SNm3
-         AJM+PkUGxs7iuYDzmK208TABK6logsqzKLutUcqyqp0lvJoWx9tOuxXNoJhLKfDX6vLl
-         ZE+SJsI1D+gyehouZSZkqyu0HfZcrpty3fhWuczmtL/4wyzHQvMpUoJe6kAN91NSixNM
-         aAHA==
-X-Forwarded-Encrypted: i=1; AJvYcCUHvqw0JH7hbeIlo+pLQG/P71Cdtq4V77d0vwMlB16Gy5xR3HianTYHQfX2UMDP8HlRi53L5ImtJjjtD/GTBJom@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx6VCK8AyrvXgyNzItaWrxIcCuwqQ6nFCVwPxan37Fm5P3SolmQ
-	4WFzC7w8ATelSCO8DeYMYheQX5H4f1q/DsIt+GU5MokboeGSz5vBOP+2VNwQ
-X-Gm-Gg: ASbGncuSh/cYpzzqnodgiZj6xKPm0a6pjwh2xX9ki4GFEt5H9CVGxddOP+oWWtcEz7E
-	EmK0Pjt2jDni81EDrU/Ca+2KEzaEEnciScJ0MW9/D5dYorT/YLoqRRkrqQIWXuPKExsz7fqz5pZ
-	5bbCdFJh2kASzlc6Ki0zGRNuOU0MT1QrNuXB7lsDeIzKlW7g9YK9LB2n2ljVTqFSH+7NcHQ73nz
-	gY2RNQhFHOK27yXpDncgHT8PiCIP5Sg/G5mXfLVKNou+YyMQYRMCNyVIQWIIB3ZxDN00wcMHark
-	eXGb03l20Ayu/xZ3mFhHbyByHwQeXz1xgbTSmGzIKPOZ1VX/6knQEON2lA==
-X-Google-Smtp-Source: AGHT+IG2KpC2Unn1YvGYY/j9UxD9DBneGnFXO9nKBqXk4MqoniX03Cn1FA0d/ZM7sYhtT+UTIMDHdw==
-X-Received: by 2002:a05:6102:3e0c:b0:4b1:8b53:2987 with SMTP id ada2fe7eead31-4b9a4eb44b9mr16237810137.1.1738591190159;
-        Mon, 03 Feb 2025 05:59:50 -0800 (PST)
-Received: from mail-vk1-f181.google.com (mail-vk1-f181.google.com. [209.85.221.181])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-4b9baa18a9bsm1635429137.4.2025.02.03.05.59.48
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 03 Feb 2025 05:59:49 -0800 (PST)
-Received: by mail-vk1-f181.google.com with SMTP id 71dfb90a1353d-5187cd9b8e5so1399181e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 05:59:48 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVV24lW8aGV1WYNjQ00muVN/6ft9yjmqWEnJpFtUm9uzqJIVZBC0G5jRICYOW4gy6iit6zGKsQTVhNMQT1DSg3n@lists.infradead.org
-X-Received: by 2002:a05:6122:1990:b0:51c:aa1a:2b5b with SMTP id
- 71dfb90a1353d-51e9e3fdc44mr15881808e0c.4.1738591188554; Mon, 03 Feb 2025
- 05:59:48 -0800 (PST)
+	id 1tex18-0000000FbBy-2Ry4;
+	Mon, 03 Feb 2025 14:01:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 72F9F5C65F8;
+	Mon,  3 Feb 2025 14:00:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 664D6C4CED2;
+	Mon,  3 Feb 2025 14:01:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738591297;
+	bh=FUGVfpQsBsQZDnW8/29ndy6ufToxH4fLIZhk0OSH+vk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=dxJQFzlt4BVNOgSQuojXmA9wuzm4juDMiaj0xfMOAE5qPk5Vzb1dY6VgLM/hLrYRI
+	 Zd9+pCEzYYVOR46Td4Mo1YEY21wDNc78e4E/NQu4MLG+yWelOi7uSJDHAR94Gq2Io2
+	 S/5g5li5Jhvv/wwVRI4ApfEeYqSP9+TuKxkXCOjaMGuMZGFoJXBSs7yJ/o4dYajCqM
+	 7sMqSFURdJ7oxQpQ7ZoOdRq4XLWiWKj1QXmNEhRzyyuYLgf26P1NSFzawTAN1FRBJ4
+	 ckEJtWX4+/sU6ftXPOVdiNouwo41UZKZrbT/T99jACiBEflDshR6f2c2lZ7XLI/b7z
+	 DPRk7DkWm7p3g==
+Message-ID: <9c8a9dee-92ba-47e4-b16b-ab47727d8057@kernel.org>
+Date: Mon, 3 Feb 2025 15:01:22 +0100
 MIME-Version: 1.0
-References: <cover.1738329458.git.geert+renesas@glider.be> <1824412519cb8791ab428065116927ee7b77cf35.1738329459.git.geert+renesas@glider.be>
- <e20a177a-30cd-4088-89e1-b479aba1356c@wanadoo.fr> <Z5-xMUqrDuaE8Eo_@thinkpad>
- <74cab7d1ec31e7531cdda0f1eb47acdebd5c8d3f.camel@sipsolutions.net> <45920591-e1d6-4337-a906-35bb5319836c@wanadoo.fr>
-In-Reply-To: <45920591-e1d6-4337-a906-35bb5319836c@wanadoo.fr>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 3 Feb 2025 14:59:36 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdXZKNtAmiMP8uuSngZMsDLGcYwrLS0xNWzN4UfLaccdyA@mail.gmail.com>
-X-Gm-Features: AWEUYZkxzrXQCnvoDXR55r9qIi7LTjZDYDZYK_OEJibEwCDu5alOHeJTYjGkvIg
-Message-ID: <CAMuHMdXZKNtAmiMP8uuSngZMsDLGcYwrLS0xNWzN4UfLaccdyA@mail.gmail.com>
-Subject: Re: [PATCH treewide v2 1/3] bitfield: Add non-constant
- field_{prep,get}() helpers
-To: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 02/33] dt-bindings: clock: add clock definitions for
+ exynos7870 CMU
+To: Kaustabh Chakraborty <kauschluss@disroot.org>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Tomasz Figa <tomasz.figa@gmail.com>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>, Lee Jones <lee@kernel.org>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+ Marek Szyprowski <m.szyprowski@samsung.com>, David Airlie
+ <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Andi Shyti <andi.shyti@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
+ Jaehoon Chung <jh80.chung@samsung.com>,
+ Vivek Gautam <gautam.vivek@samsung.com>,
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Kees Cook <kees@kernel.org>,
+ Tony Luck <tony.luck@intel.com>, "Guilherme G . Piccoli"
+ <gpiccoli@igalia.com>, Sergey Lisov <sleirsgoevy@gmail.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
+ linux-serial@vger.kernel.org, linux-phy@lists.infradead.org,
+ linux-usb@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linux-i2c@vger.kernel.org, linux-mmc@vger.kernel.org,
+ linux-hardening@vger.kernel.org
+References: <20250203-exynos7870-v1-0-2b6df476a3f0@disroot.org>
+ <20250202190758.14986-1-kauschluss@disroot.org>
+ <20250203-enigmatic-remarkable-beagle-709955@krzk-bin>
+ <c1249f2f6ac8a2f5a1dcb3bbbba647f9@disroot.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <c1249f2f6ac8a2f5a1dcb3bbbba647f9@disroot.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_135956_038245_C19A9B69 
-X-CRM114-Status: GOOD (  28.77  )
+X-CRM114-CacheID: sfid-20250203_060138_719428_3D4D02F5 
+X-CRM114-Status: GOOD (  10.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,52 +142,39 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Giovanni Cabiddu <giovanni.cabiddu@intel.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Crt Mori <cmo@melexis.com>, linux-aspeed@lists.ozlabs.org, linux-iio@vger.kernel.org, Michael Turquette <mturquette@baylibre.com>, Rasmus Villemoes <linux@rasmusvillemoes.dk>, linux-kernel@vger.kernel.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Shan-Chun Hung <schung@nuvoton.com>, linux-clk@vger.kernel.org, Lars-Peter Clausen <lars@metafoo.de>, Herbert Xu <herbert@gondor.apana.org.au>, Bartosz Golaszewski <brgl@bgdev.pl>, Takashi Iwai <tiwai@suse.com>, qat-linux@intel.com, Joel Stanley <joel@jms.id.au>, Jakub Kicinski <kuba@kernel.org>, Andrew Jeffery <andrew@codeconstruct.com.au>, Linus Walleij <linus.walleij@linaro.org>, Jacky Huang <ychuang3@nuvoton.com>, Yury Norov <yury.norov@gmail.com>, linux-sound@vger.kernel.org, linux-gpio@vger.kernel.org, Alex Elder <elder@ieee.org>, Jaroslav Kysela <perex@perex.cz>, linux-arm-kernel@lists.infradead.org, Stephen Boyd <sboyd@kernel.org>, linux-renesas-soc@vger.kernel.org, linux-crypto@vger.kernel.org, Johannes Berg <johannes@sipsolutions.net>, "David S . Miller" <davem@davemloft.net>, Jonathan Cameron <jic23@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vincent,
+On 03/02/2025 13:40, Kaustabh Chakraborty wrote:
+> On 2025-02-03 07:54, Krzysztof Kozlowski wrote:
+>> On Mon, Feb 03, 2025 at 12:37:58AM +0530, Kaustabh Chakraborty wrote:
+>>> From: Sergey Lisov <sleirsgoevy@gmail.com>
+>>>
+>>> Add unique identifiers for exynos7870 clocks for every bank. It adds all
+>>> clocks of CMU_MIF, CMU_DISPAUD, CMU_G3D, CMU_ISP, CMU_MFCMSCL, and
+>>> CMU_PERI.
+>>>
+>>> Signed-off-by: Sergey Lisov <sleirsgoevy@gmail.com>
+>>> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+>>> ---
+>>>  include/dt-bindings/clock/exynos7870.h | 324 +++++++++++++++++++++++++
+>>>  1 file changed, 324 insertions(+)
+>>
+>> Look at git log - that's never a separate commit.
+> 
+> Hmm, I see past examples which are mixed.
+> 
+> 2ae5c2c3f8d586b709cf67efe94488be397d7544
+> Exynos850 CMU (c. 2021). CMU definitions are in a separate commit.
+> 
+> 591020a516720e9eba1c4b1748cb73b6748e445f
+> Exynos7885 CMU (c. 2021). CMU definitions are in a separate commit.
+> 
+Huh, indeed, my mistake.
 
-On Mon, 3 Feb 2025 at 14:37, Vincent Mailhol <mailhol.vincent@wanadoo.fr> wrote:
-> On 03/02/2025 at 16:44, Johannes Berg wrote:
-> > On Sun, 2025-02-02 at 12:53 -0500, Yury Norov wrote:
-> >>> Instead of creating another variant for
-> >>> non-constant bitfields, wouldn't it be better to make the existing macro
-> >>> accept both?
-> >>
-> >> Yes, it would definitely be better IMO.
-> >
-> > On the flip side, there have been discussions in the past (though I
-> > think not all, if any, on the list(s)) about the argument order. Since
-> > the value is typically not a constant, requiring the mask to be a
-> > constant has ensured that the argument order isn't as easily mixed up as
-> > otherwise.
->
-> If this is a concern, then it can be checked with:
->
->   BUILD_BUG_ON_MSG(!__builtin_constant_p(_mask) &&
->                    __builtin_constant_p(_val),
->                    _pfx "mask is not constant");
->
-> It means that we forbid FIELD_PREP(non_const_mask, const_val) but allow
-> any other combination.
+Let's avoid that pattern, so binding headers are always part of bindings
+commit.
 
-Even that case looks valid to me. Actually there is already such a user
-in drivers/iio/temperature/mlx90614.c:
-
-    ret |= field_prep(chip_info->fir_config_mask, MLX90614_CONST_FIR);
-
-So if you want enhanced safety, having both the safer/const upper-case
-variants and the less-safe/non-const lower-case variants makes sense.
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Best regards,
+Krzysztof
 
