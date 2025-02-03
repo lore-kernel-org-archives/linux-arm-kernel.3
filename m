@@ -4,70 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23BA3C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 20:36:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76862C02193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 20:38:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uJmXijEdPvVQhPl2H+0CH9VW3oJvZ/5z3zfZg4wy3ds=; b=MMULJJJDvI/p5w/6PMiy9yf0I9
-	Glew2iJ+k+yzpv+TlU63WmiS9WWFjsK7P/1NKi/JaGwarDsZ03QPUDx6bx+oTeUmS5mbEUzEhhFa6
-	komv5gsQ+HzlPtpUMpJTbaCDTuCI7K9GsXJp99bSwUZJK1Wm0/DvCXoF3/SQ75pOvbVFirIW0+pqv
-	KMGXwhUq40uR32p4yh5GGCo2iiEodEkFqOJ2jUaDPjVnoYivSC+e8e8b1Jelh1x8oB7AvkCV/A3Gi
-	Q8nUX/MCcNtMND+8rRtVHT7CKG3F8eb8loUceaYcTHgVqlO6oyiAAFyRKxSsnr0nmA+QG350UmgYc
-	hSvhQbUw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=LWJhT5hz7QDG7vo/z0X898ab83vgTOFspO3dSYB6j2w=; b=r+fI0nV6zG42Le
+	EeuWEIdXz2bby67WIHJomT94ibgfvX2dwZivQAo6kyh49HCiPD299mb7VOVXiNERhT9Zcph0pToJE
+	OxzMsggNnDYrp7dNuIutd5/kdTs/IMZbjAlFQ9UL40i7vQ1hp6QFNGpmYUHyRF+teIpFTIdQSvVYt
+	UEKDBS4f61nFMVVUTBor85TNKVNtvGB96I3/NfLTZTFnG5ncnfvvK9RR6q7G959q3gBvZ0W2ZIFCO
+	aKfn1ZebdwxhxapP3cZZ2T2x6195vUwdc4VXpOvoin+97YPdXcy3HVzdehVHSpJUxQuolmJg4PR5O
+	ylCihqX7OBI7XB4Mx2gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf3BU-0000000GY3n-1WGK;
-	Mon, 03 Feb 2025 20:36:44 +0000
+	id 1tf3Cm-0000000GYK6-014I;
+	Mon, 03 Feb 2025 20:38:04 +0000
 Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf37o-0000000GXJg-1Fxf
+	id 1tf38p-0000000GXUj-1tv7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 20:32:57 +0000
+	Mon, 03 Feb 2025 20:34:00 +0000
 Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id D3423259FE;
-	Mon,  3 Feb 2025 21:32:53 +0100 (CET)
+	by disroot.org (Postfix) with ESMTP id 07BB225C4E;
+	Mon,  3 Feb 2025 21:33:56 +0100 (CET)
 X-Virus-Scanned: SPAM Filter at disroot.org
 Received: from layka.disroot.org ([127.0.0.1])
  by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id s1vY3mYxwqqr; Mon,  3 Feb 2025 21:32:53 +0100 (CET)
+ id xW169ZtFBn4j; Mon,  3 Feb 2025 21:33:55 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1738614766; bh=NudPmupCZnC9mmHSDb+mQPgPttYtv9oaHlFss2VQSE0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=QWDeDRdsAfPyknkRd21EprJX+ifussKj0bTCt9dUrx7AZjLjHmoh6WD33Ma7Is3ry
-	 dDleT6oqZYZT7tEp8xrK5aEPy16YssFZg2ijGrNNCgoJvUcDMS+ceWJW0irI4lRuen
-	 nWJbZ0ez9IeelPn3vt0MAPScp6mfPlnXVXV8xWzDTvOopV5hhUIIqSyqMDDyyAW+cn
-	 lBZeVWM0GIR1WcjLfC45MGwpOPASZJEaJx1GShAh3UJ8oTxfWtdGinoJb6eAtR1FPZ
-	 zEud4jvUmtH0VFVYKJdLehYxyFH/H2RYF8C6zxo/dmvh+nNdFNafTXMZvUyeyecN07
-	 jFy5A9V14NFMw==
+	t=1738614826; bh=FWJKGmTO1BhT1MiHL5e0kCiPS+hW5MQaZ8zl6hlJV+0=;
+	h=From:Subject:Date:To:Cc;
+	b=eVtMLqzGGzcnF7sS2heeAvCLDWDK/27lYIUlgyY//oHpZr/7yqE65MZmfxmkqMFTI
+	 Gp0KNGO2cv1OLR2kap4pmH2JJPHpokPj+DhaOyrTdR+p0ZMXcE9yKw6wfzfi0MwsUB
+	 2FOUuvOth/mui72Tdy/qVlg5/7qs1hSp/dRwxopp8L/jls+SOgNi0zlYcdUtQDMHFX
+	 Ix4CbhV3365oq8e2hvHvNzHBRGl8AQ4bhsDcfOvTt0sG0n+aqui+n2xuD9LEGBsR6Q
+	 ZqPz4qSjnylrCI4IJ84wSA913RkrAECpvPKQI0ZgLDHOZ8ck9Uo2i7VXjbhv4+QGPk
+	 TYrILAIi8k7Vw==
 From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Date: Tue, 04 Feb 2025 02:02:20 +0530
-Subject: [PATCH 2/2] soc: samsung: exynos-chipid: add support for
- exynos7870
+Subject: [PATCH 0/2] Introduce support for Exynos7870 I2C and HSI2C
+Date: Tue, 04 Feb 2025 02:03:31 +0530
+Message-Id: <20250204-exynos7870-i2c-v1-0-63d67871ab7e@disroot.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250204-exynos7870-chipid-v1-2-0bf2db08e621@disroot.org>
-References: <20250204-exynos7870-chipid-v1-0-0bf2db08e621@disroot.org>
-In-Reply-To: <20250204-exynos7870-chipid-v1-0-0bf2db08e621@disroot.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Conor Dooley <conor@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Sergey Lisov <sleirsgoevy@gmail.com>, devicetree@vger.kernel.org, 
+X-B4-Tracking: v=1; b=H4sIABsooWcC/x3MTQqAIBBA4avIrBMmM/u5SrSonGo2GgphSHdPW
+ n6L9zJECkwRRpEh0M2RvSuoKwHbubiDJNtiUKhaVNhISo/zses7lKw22WhLA2pDZjVQoivQzuk
+ fTvP7fo2EaV1gAAAA
+X-Change-ID: 20250203-exynos7870-i2c-34de9046e6b6
+To: Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Sergey Lisov <sleirsgoevy@gmail.com>, linux-i2c@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Kaustabh Chakraborty <kauschluss@disroot.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1738614748; l=803;
+ Kaustabh Chakraborty <kauschluss@disroot.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1738614819; l=721;
  i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
- bh=NudPmupCZnC9mmHSDb+mQPgPttYtv9oaHlFss2VQSE0=;
- b=GPlzXth4lETRLGNpEqUWPwr5IT8WZqANFiLVMpjAkqvHEVayusoAxcyx3iNO3AKa/0vu3OWas
- Z3NAjcWoJuLB8GH4mTNazCWZljHWKlkjdQyNSBD1DA3bPiJV9v5GiJj
+ bh=FWJKGmTO1BhT1MiHL5e0kCiPS+hW5MQaZ8zl6hlJV+0=;
+ b=YlZV3Esi4H2FeSHI01RMYDD+85RlpmvRYjnV4eWfYMgPMHfGfwJqV0ywsVEiQP7/sK2GfNVXW
+ W4cBPPPQxzZDBKobE9JAg+8BNrOpNZSe3uGYytO8yTtwct7fckpYPE6
 X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
  pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_123256_471481_731AF354 
-X-CRM114-Status: UNSURE (   9.42  )
+X-CRM114-CacheID: sfid-20250203_123359_622474_0B8542A8 
+X-CRM114-Status: UNSURE (   7.71  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,27 +86,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the product ID of Exynos7870 (S5E7870) to the existing list.
+Document devicetree bindings for I2C and HSI2C drivers for Exynos7870.
+
+This patch series is a part of Exynos7870 upstreaming.
 
 Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
 ---
- drivers/soc/samsung/exynos-chipid.c | 1 +
- 1 file changed, 1 insertion(+)
+Kaustabh Chakraborty (2):
+      dt-bindings: i2c: samsung,s3c2410: add exynos7870-i2c compatible
+      dt-bindings: i2c: exynos5: add exynos7870-hsi2c compatible
 
-diff --git a/drivers/soc/samsung/exynos-chipid.c b/drivers/soc/samsung/exynos-chipid.c
-index e37dde1fb588ec61d4e6b7cfe156161a62e035af..db0529fe13ae8e2ff96f055562c0a70e1ef74cb7 100644
---- a/drivers/soc/samsung/exynos-chipid.c
-+++ b/drivers/soc/samsung/exynos-chipid.c
-@@ -55,6 +55,7 @@ static const struct exynos_soc_id {
- 	{ "EXYNOS5440", 0xE5440000 },
- 	{ "EXYNOS5800", 0xE5422000 },
- 	{ "EXYNOS7420", 0xE7420000 },
-+	{ "EXYNOS7870", 0xE7870000 },
- 	/* Compatible with: samsung,exynos850-chipid */
- 	{ "EXYNOS7885", 0xE7885000 },
- 	{ "EXYNOS850", 0xE3830000 },
+ Documentation/devicetree/bindings/i2c/i2c-exynos5.yaml         | 1 +
+ Documentation/devicetree/bindings/i2c/samsung,s3c2410-i2c.yaml | 1 +
+ 2 files changed, 2 insertions(+)
+---
+base-commit: df4b2bbff898227db0c14264ac7edd634e79f755
+change-id: 20250203-exynos7870-i2c-34de9046e6b6
 
+Best regards,
 -- 
-2.48.1
+Kaustabh Chakraborty <kauschluss@disroot.org>
 
 
