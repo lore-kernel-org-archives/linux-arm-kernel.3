@@ -4,54 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A453C02193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 11:15:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ABB7C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 11:18:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kowjNUPkP18lH8FfnjhF2qNwuje3S4u8H7avaM0p5vE=; b=PL1y6yNqkUB1jI4YSEm6YWRaLe
-	GY5NeGVK3CG3mZQeTZbNx5ofCcwE3VT7IaDIElof5e4hbWljw5XbgyegOsunkUsShSmS43kTlt0qp
-	RzTnyV6apVajOF0AKe05/p2MhOhoMDHp6xDzv4HzsAxCwa7+N1d5BZtXOw7ay6iBQdGFq2vqL6roG
-	epdKK/xGcHEPUeAq57c8q5EgeYaYG2lK34fVU0u7GXWvQk4WUbNjoIRxuUTqRQi1a+8pAjafDBEaM
-	ljLmiy4LXpaK+Mrmpt+rWrcYxkdWPu26+N26BOY5nyhCsoL/R61RCBvi/nNdNTzH+QeO1xEjdsjSy
-	vImpspBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7LuywntJh/PQcJEXxacusK5UZs3P6Qb5WkOs/kb1NpI=; b=ECq9YikRDSxyMxdd70BpSkubjZ
+	olgGaZ2dzyvHTa1iNcvCcPoDdUKlZ/uzIkZL4kNuCRar8qUqjD0HcP/x+Qce25ZH+HL8ifcMVqNQ8
+	Ny64SVGjmL2nih3eagrrI6uQehjjQLKljTdT+GUsSASceNpqOOXEiHfC0lY8gTtWjaKNyBNddN7cN
+	NeQTJ+nw9kwIAF3XRn+A/CkOpQ7cg7Vm5vnQt1YsMpm6/lcDzdh2yFPkcKnulEOLYHN7M7+RMLXE3
+	xUrcRhDmfgowDPERRojHRtVih5RHDECzInzubrmy01gypuHnG5EcaCDZxKfKfgM143/oim7vS8HJm
+	PsoOC7ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teuQe-0000000FDG4-1P5B;
-	Mon, 03 Feb 2025 11:15:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tetHW-0000000F4ls-30gE
+	id 1teuT1-0000000FDcG-0Dij;
+	Mon, 03 Feb 2025 11:18:15 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1teuRe-0000000FDNM-26Qj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 10:02:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3488F11FB;
-	Mon,  3 Feb 2025 02:02:42 -0800 (PST)
-Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BCB933F63F;
-	Mon,  3 Feb 2025 02:02:16 -0800 (PST)
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: cristian.marussi@arm.com
-Cc: arm-scmi@vger.kernel.org,
-	guomin_chen@sina.com,
-	linux-arm-kernel@lists.infradead.org,
-	peng.fan@nxp.com,
-	quic_xinqzhan@quicinc.com,
-	sudeep.holla@arm.com
-Subject: [RFC PATCH 1/2] firmware: arm_scmi: Generate aliases for SCMI modules
-Date: Mon,  3 Feb 2025 10:01:53 +0000
-Message-ID: <20250203100154.140877-1-cristian.marussi@arm.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <Z6CNWOp8B_ghIrJt@pluto>
-References: <Z6CNWOp8B_ghIrJt@pluto>
+	Mon, 03 Feb 2025 11:16:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=7LuywntJh/PQcJEXxacusK5UZs3P6Qb5WkOs/kb1NpI=; b=AfI813dtjuXWBnrTAo6rfz8u6O
+	yl4jZrZRwGditu3POnJqKCkjwx4WCcQ1WP4n3MbtwqePmBWODYOxJDPR0GfFAR4D4JIHg4a6RnEJY
+	Sje/15EqxwilmuOAmSkleR2OZ7IP99zlO5rzpyqfHJt3aiCMHlC3TkhwmJTxp+5QfOeNqW0KcH/yj
+	7NrSMjBI2AiglJp0lJvVikNHI7+SyRlzncyzIM5fNJy0Pg4vS1F+sRI82HZoT+TgaxUOjAJUzjmKk
+	i5Do782/duyChkCxM+TnzOQmLKkXKRZJo1j16ndXQyYcL3OiCac+9KVrDicgtdc3CTZFMpAILs2Yd
+	uNTn/zeQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:60612)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1teuRS-0008NT-19;
+	Mon, 03 Feb 2025 11:16:38 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1teuRO-0000Ke-0V;
+	Mon, 03 Feb 2025 11:16:34 +0000
+Date: Mon, 3 Feb 2025 11:16:34 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Steven Price <steven.price@arm.com>
+Cc: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Jose Abreu <joabreu@synopsys.com>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	Furong Xu <0x1207@gmail.com>, Petr Tesarik <petr@tesarici.cz>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Yanteng Si <si.yanteng@linux.dev>, Xi Ruoyao <xry111@xry111.site>
+Subject: Re: [PATCH] net: stmmac: Allow zero for [tr]x_fifo_size
+Message-ID: <Z6Clkh44QgdNJu_O@shell.armlinux.org.uk>
+References: <20250203093419.25804-1-steven.price@arm.com>
+ <Z6CckJtOo-vMrGWy@shell.armlinux.org.uk>
+ <811ea27c-c1c3-454a-b3d9-fa4cd6d57e44@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <811ea27c-c1c3-454a-b3d9-fa4cd6d57e44@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_020218_876130_4A514A4D 
-X-CRM114-Status: GOOD (  12.04  )
+X-CRM114-CacheID: sfid-20250203_031650_538190_4DC63DEA 
+X-CRM114-Status: GOOD (  41.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,96 +91,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Generate aliases for SCMI modules to allow automatic module probing.
+On Mon, Feb 03, 2025 at 11:01:28AM +0000, Steven Price wrote:
+> [Moved Kunihiko to the To: line]
+> 
+> On 03/02/2025 10:38, Russell King (Oracle) wrote:
+> > On Mon, Feb 03, 2025 at 09:34:18AM +0000, Steven Price wrote:
+> >> Commit 8865d22656b4 ("net: stmmac: Specify hardware capability value
+> >> when FIFO size isn't specified") modified the behaviour to bail out if
+> >> both the FIFO size and the hardware capability were both set to zero.
+> >> However devices where has_gmac4 and has_xgmac are both false don't use
+> >> the fifo size and that commit breaks platforms for which these values
+> >> were zero.
+> >>
+> >> Only warn and error out when (has_gmac4 || has_xgmac) where the values
+> >> are used and zero would cause problems, otherwise continue with the zero
+> >> values.
+> >>
+> >> Fixes: 8865d22656b4 ("net: stmmac: Specify hardware capability value when FIFO size isn't specified")
+> >> Tested-by: Xi Ruoyao <xry111@xry111.site>
+> >> Signed-off-by: Steven Price <steven.price@arm.com>
+> > 
+> > I'm still of the opinion that the original patch set was wrong, and
+> > I was thinking at the time that it should _not_ have been submitted
+> > for the "net" tree (it wasn't fixing a bug afaics, and was a risky
+> > change.)
+> > 
+> > Yes, we had multiple places where we have code like:
+> > 
+> >         int rxfifosz = priv->plat->rx_fifo_size;
+> >         int txfifosz = priv->plat->tx_fifo_size;
+> > 
+> >         if (rxfifosz == 0)
+> >                 rxfifosz = priv->dma_cap.rx_fifo_size;
+> >         if (txfifosz == 0)
+> >                 txfifosz = priv->dma_cap.tx_fifo_size;
+> > 
+> >         /* Split up the shared Tx/Rx FIFO memory on DW QoS Eth and DW XGMAC */
+> >         if (priv->plat->has_gmac4 || priv->plat->has_xgmac) {
+> >                 rxfifosz /= rx_channels_count;
+> >                 txfifosz /= tx_channels_count;
+> >         }
+> > 
+> > and this is passed to stmmac_dma_rx_mode() and stmmac_dma_tx_mode().
+> > 
+> > We also have it in the stmmac_change_mtu() path for the transmit side,
+> > which ensures that the MTU value is not larger than the transmit FIFO
+> > size (which is going to fail as it's always done before or after the
+> > original patch set, and whether or not your patch is applied.)
+> > 
+> > Now, as for the stmmac_dma_[tr]x_mode(), these are method functions
+> > calling into the DMA code. dwmac4, dwmac1000, dwxgmac2, dwmac100 and
+> > sun8i implement methods for this.
+> > 
+> > Of these, dwmac4, dwxgmac2 makes use of the value passed into
+> > stmmac_dma_[tr]x_mode() - both of which initialise dma.[tr]x_fifo_size.
+> > dwmac1000, dwmac100 and sun8i do not make use of it.
+> > 
+> > So, going back to the original patch series, I still question the value
+> > of the changes there - and with your patch, it makes their value even
+> > less because the justification seemed to be to ensure that
+> > priv->plat->[tr]x_fifo_size contained a sensible value. With your patch
+> > we're going back to a situation where we allow these to effectively be
+> > "unset" or zero.
+> > 
+> > I'll ask the question straight out - with your patch applied, what is
+> > the value of the original four patch series that caused the breakage?
+> > 
+> 
+> I've no opinion whether the original series "had value" - I'm just 
+> trying to fix the breakage that entailed. My first attempt at a patch 
+> was indeed a (partial) revert, but Andrew was keen to find a better 
+> solution[1].
 
-Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
----
- include/linux/mod_devicetable.h   | 6 ++++++
- include/linux/scmi_protocol.h     | 6 +-----
- scripts/mod/devicetable-offsets.c | 3 +++
- scripts/mod/file2alias.c          | 9 +++++++++
- 4 files changed, 19 insertions(+), 5 deletions(-)
+There are two ways to fix the breakage - either revert the original
+patches (which if they have little value now would be the sensible
+approach IMHO) or try to fix them up, which may entail several patches
+if further breakage is found.
 
-diff --git a/include/linux/mod_devicetable.h b/include/linux/mod_devicetable.h
-index 4338b1b4ac44..90c1f7bd4d1e 100644
---- a/include/linux/mod_devicetable.h
-+++ b/include/linux/mod_devicetable.h
-@@ -972,4 +972,10 @@ struct coreboot_device_id {
- 	kernel_ulong_t driver_data;
- };
- 
-+/* SCMI Devices */
-+struct scmi_device_id {
-+	__u8 protocol_id;
-+	const char *name;
-+};
-+
- #endif /* LINUX_MOD_DEVICETABLE_H */
-diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index 5437275d3ac7..3d5c4b5a7dd8 100644
---- a/include/linux/scmi_protocol.h
-+++ b/include/linux/scmi_protocol.h
-@@ -12,6 +12,7 @@
- #include <linux/device.h>
- #include <linux/hashtable.h>
- #include <linux/log2.h>
-+#include <linux/mod_devicetable.h>
- #include <linux/notifier.h>
- #include <linux/types.h>
- #include <linux/xarray.h>
-@@ -1196,11 +1197,6 @@ struct scmi_device {
- 
- #define to_scmi_dev(d) container_of_const(d, struct scmi_device, dev)
- 
--struct scmi_device_id {
--	u8 protocol_id;
--	const char *name;
--};
--
- struct scmi_driver {
- 	const char *name;
- 	int (*probe)(struct scmi_device *sdev);
-diff --git a/scripts/mod/devicetable-offsets.c b/scripts/mod/devicetable-offsets.c
-index 9c7b404defbd..58d614109fae 100644
---- a/scripts/mod/devicetable-offsets.c
-+++ b/scripts/mod/devicetable-offsets.c
-@@ -281,5 +281,8 @@ int main(void)
- 	DEVID(coreboot_device_id);
- 	DEVID_FIELD(coreboot_device_id, tag);
- 
-+	DEVID(scmi_device_id);
-+	DEVID_FIELD(scmi_device_id, protocol_id);
-+
- 	return 0;
- }
-diff --git a/scripts/mod/file2alias.c b/scripts/mod/file2alias.c
-index 19ec72a69e90..f86f194a1711 100644
---- a/scripts/mod/file2alias.c
-+++ b/scripts/mod/file2alias.c
-@@ -510,6 +510,14 @@ static void do_css_entry(struct module *mod, void *symval)
- 	module_alias_printf(mod, false, "css:t%01X", type);
- }
- 
-+/* looks like: "scmi:prN" */
-+static void do_scmi_entry(struct module *mod, void *symval)
-+{
-+	DEF_FIELD(symval, scmi_device_id, protocol_id);
-+
-+	module_alias_printf(mod, true, "scmi:pr%02X", protocol_id);
-+}
-+
- /* Looks like: "serio:tyNprNidNexN" */
- static void do_serio_entry(struct module *mod, void *symval)
- {
-@@ -1471,6 +1479,7 @@ static const struct devtable devtable[] = {
- 	{"usb", SIZE_usb_device_id, do_usb_entry_multi},
- 	{"pnp", SIZE_pnp_device_id, do_pnp_device_entry},
- 	{"pnp_card", SIZE_pnp_card_device_id, do_pnp_card_entry},
-+	{"scmi", SIZE_scmi_device_id, do_scmi_entry},
- };
- 
- /* Create MODULE_ALIAS() statements.
+Does the flow control test behave the same before and after the patch
+series? Please can you test that?
+
+See
+drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c::stmmac_test_flowctrl()
+
+Thanks.
+
 -- 
-2.47.0
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
