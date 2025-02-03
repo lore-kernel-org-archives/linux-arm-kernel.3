@@ -4,78 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55BC1C02193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 09:58:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B60D1C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 10:05:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2Dv5Ac6SPOdtGgS0tmgxnxoVXUMjLjqcjHEmAbg0F2U=; b=P4YwY9eufon5IPCTwfIGuGueE8
-	DDtnJOOSLGiXxTv4Ux4C85/8JtXcW9BuGNVdiIp+PsMmeFPmbAIsh7gm6+d0ba/878d6vCryioRFk
-	TuK2JQAG6CpbhFb/Efv4VG+Kks0D5iv4/e4eTWeTBPFh6NQbRAYYhe3bdaTygxHRd/0A2sfHW4/Hl
-	yunRTnXoAGIUtRHV81wxt9ulYhYaA8RLB11z2fW73w4X8GPAtwqTejhocarSG1CO3OWrL8ihnaIeP
-	Fvqt/dPtT1juFVBr64vsgwmszWFXuollVwmLdTWjzyn68WRXqY72k8CZWuOvS9hZ5D1bTiBIPVS84
-	PNw2xiUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v8oziO6AG9t175QvFqSPrNTuoczh6aeN6VVEcD4++qA=; b=hIkiFUen9yhoX7IYRAwaRnUVp0
+	lcu9jtWfigJPS5Yhucahz16mBZJ1qQmSOFNRxQTYS1tJELIW82y4k4FoJxzlrIFJtOHLT38W0SwNu
+	gm0llmJWIB1WmsZvmxvAPKA1W2wEsl+E0lkdWh7b5ghKMvBWJDEmbotF2FbtmZ5v5OLhn6dCh4D3W
+	d0s1dpOFM8abPynSFPQfOj0ohecOodXGppYS5N4FrfZmaLebtXIOC6H0dkzqHXgav5sNy98pBy1Ar
+	sXks4W349hjCh+vw+UW5ufTaNCH9f6h7mczfbaQHA9xuf9xsHknUbw9B8CldSZepIGtn9fjDi0jP0
+	YJNP4fGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tetDk-0000000F3cn-0v11;
-	Mon, 03 Feb 2025 09:58:24 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1tetK7-0000000F4wa-1sC8;
+	Mon, 03 Feb 2025 10:04:59 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tetCP-0000000F3PG-3HCm
+	id 1tetHd-0000000F4mX-0mAd
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 03 Feb 2025 10:02:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=v8oziO6AG9t175QvFqSPrNTuoczh6aeN6VVEcD4++qA=; b=oL62s2ncC43akGHIh2ZUN8WeY2
+	J5y8/hGt2loF1DR/CFClejbTlRppiXs7V6q9mcjdZDcAEWPH5AThCQDJWloscaCAc8m15uaQ0ifHP
+	k/bxb2ycbgb/s+rWaDHuBXHxMLDzJ7Z7jIEn/GQ7Jlh5PARSKy2l14WGykqw+8NLCN46F69vwIcOz
+	4GJ8DOae+V9WWK4SYVSVRzIyHyk17a5/Tl9g5MiEmjbdtxTg4ONoMSuTEkBYvWXdn/IB2xqo/qyDb
+	56RWHm13xZMvY3xcsQw1t2C40SXY/sEonEz/QTql1zUM2sXRg7Gk9g6GkipvRfHdaeDaYzcAX7uOh
+	ZWaISMIg==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tetHZ-0000000G392-3he5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 09:57:02 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6f6f2db824bso36736857b3.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 01:57:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1738576620; x=1739181420; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=2Dv5Ac6SPOdtGgS0tmgxnxoVXUMjLjqcjHEmAbg0F2U=;
-        b=ynSvw9nfVU2KAX7xO10QG8e5onQLbgFjlEwsMTM6aQambDdyJJKzYYiuP3OLQ08nF5
-         2JTQrizhX3nSSNgGqf8x8Z8/ARZhWHNL3QG5uEPVX9LVtSHunK1kbJmyCVRMDsX0itN2
-         mocQQFa+AyNugdyf4M6zwmKr82CCNMTc54n9sKgCJn53mH0IQC+GdGpIW6CXAAoMk4ur
-         LcbUks7UuiYNa9j3uc9dIz1f2vLph3IGOzzuO2Fjdk2B6w/DFtggmBunar3JatyUceU6
-         5g29dZEMns+4z+1LlbcXqW4lBNNo/xMT+XTwWRLlzeg9XKOp06ieTYuwnqef0VXHghJT
-         pTIA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738576620; x=1739181420;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=2Dv5Ac6SPOdtGgS0tmgxnxoVXUMjLjqcjHEmAbg0F2U=;
-        b=lTqC7aHkQZct2BNwMiu30xvaBFLmyu8TPp2nicCjRa9lwvEbaqC1PxFVwzSmRgQk1d
-         GA8cC/YaHWzVq+J1IqYDYYj/3/G34c1D6+rDElMiR2RKBaLl9ty+79mKUKAL1URlmDSz
-         6H70NZRIRHClMu8Wl9ugv0mTuXRokTnExNzD59V8Rg0b7HI4vowMv6iHqr9Q3Nfg8jVi
-         BL2FMgsNIrsUCuwfmFXr6/wQdTIFPk1LFYq9YvCAwbXpY206JpAq728yj9TLDnq0O/Xq
-         192KKaU0AvX9VS2t/2b6RvRgh05SSmicFkpbnCm5+4qIRpYon3kN3Nhht3cGs0W+W10a
-         FIeA==
-X-Forwarded-Encrypted: i=1; AJvYcCXXDMnXiKXKPm7dDjvQUQV1cK+ji8FyTOaWBM+QcpZRiP2Jo3qxX5i9kmq0cEZLeI/31uhfeMHuGYdc+07Yr6kO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyfehhp+illbp2X5tpISDUweY4Y+AvP9RCjzMKAwiGMT6lTdVC0
-	N8TBCCXqkrdL2J2HQdJUZaKUU383f1+bqtKSHCI5j5YFgFHMX+U3qjR/gSUYya554Pi4Wg==
-X-Google-Smtp-Source: AGHT+IECB4t9+nxA9LWLIFfRwRwZsyYuUUH4xiSxgCR5XbY+fu38QoXLmO5+/gf/KeL9xbqGeB9WRgfz
-X-Received: from ywbhl13.prod.google.com ([2002:a05:690c:620d:b0:6f5:278e:e957])
- (user=keyz job=prod-delivery.src-stubby-dispatcher) by 2002:a05:690c:74ca:b0:6ef:81c0:5b56
- with SMTP id 00721157ae682-6f7a8355a9amr168753257b3.14.1738576619752; Mon, 03
- Feb 2025 01:56:59 -0800 (PST)
-Date: Mon,  3 Feb 2025 17:56:53 +0800
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.48.1.362.g079036d154-goog
-Message-ID: <20250203095653.4085118-1-keyz@google.com>
-Subject: [PATCH v5] cpuidle: psci: Add trace for PSCI domain idle
-From: Keita Morisaki <keyz@google.com>
-To: linux-kernel@vger.kernel.org, lpieralisi@kernel.org, sudeep.holla@arm.com, 
-	rafael@kernel.org, daniel.lezcano@linaro.org, linux-pm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Cc: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
-	linux-trace-kernel@vger.kernel.org, aarontian@google.com, 
-	yimingtseng@google.com, Keita Morisaki <keyz@google.com>, Dhruva Gole <d-gole@ti.com>, 
-	Kevin Hilman <khilman@baylibre.com>
-Content-Type: text/plain; charset="UTF-8"
+	Mon, 03 Feb 2025 10:02:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 79CBD1476;
+	Mon,  3 Feb 2025 02:02:43 -0800 (PST)
+Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0D6AF3F63F;
+	Mon,  3 Feb 2025 02:02:17 -0800 (PST)
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: cristian.marussi@arm.com
+Cc: arm-scmi@vger.kernel.org,
+	guomin_chen@sina.com,
+	linux-arm-kernel@lists.infradead.org,
+	peng.fan@nxp.com,
+	quic_xinqzhan@quicinc.com,
+	sudeep.holla@arm.com
+Subject: [RFC PATCH 2/2] firmware: arm_scmi: Add bus support for autoloading
+Date: Mon,  3 Feb 2025 10:01:54 +0000
+Message-ID: <20250203100154.140877-2-cristian.marussi@arm.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20250203100154.140877-1-cristian.marussi@arm.com>
+References: <Z6CNWOp8B_ghIrJt@pluto>
+ <20250203100154.140877-1-cristian.marussi@arm.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_015701_819643_D794ED5F 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20250203_100222_314905_600872F0 
+X-CRM114-Status: GOOD (  15.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,109 +82,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The trace event cpu_idle provides insufficient information for debugging
-PSCI requests due to lacking access to determined PSCI domain idle
-states. The cpu_idle usually only shows -1, 0, or 1 regardless how many
-idle states the power domain has.
+Emit proper MODALIAS uevents when SCMI devices are created and make sure
+all the standard protocol devices are requested when the bus is
+initialized.
 
-Add new trace events namely psci_domain_idle_enter and
-psci_domain_idle_exit to trace enter and exit events with a determined
-idle state.
-
-These new trace events will help developers debug CPUidle issues on ARM
-systems using PSCI by providing more detailed information about the
-requested idle states.
-
-Signed-off-by: Keita Morisaki <keyz@google.com>
-Reviewed-by: Steven Rostedt (Google) <rostedt@goodmis.org>
-Reviewed-by: Dhruva Gole <d-gole@ti.com>
-Tested-by: Kevin Hilman <khilman@baylibre.com>
+Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
-v1->v2: Split the ftrace event into two (psci_domain_idle_(enter|exit))
-        and rephrase the commit message accordingly. Rebased onto the latest.
-v2->v3: Add "Reviewed-by: Steven Rostedt"
-v3->v4: Add the Tested-by label
-v4->v5: Add "Reviewed-by: Dhruva Gole"
+ drivers/firmware/arm_scmi/bus.c | 52 +++++++++++++++++++++++++++++----
+ 1 file changed, 47 insertions(+), 5 deletions(-)
 
-Hopefully this patch gets attention from maintainers of
-drivers/cpuidle/cpuidle-psci.c too.
+diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
+index def41fe3b161..dfa4fde2a81c 100644
+--- a/drivers/firmware/arm_scmi/bus.c
++++ b/drivers/firmware/arm_scmi/bus.c
+@@ -92,12 +92,17 @@ static int scmi_protocol_device_request(const struct scmi_device_id *id_table)
+ 				phead = head;
+ 		}
+ 		list_for_each_entry(rdev, head, node) {
++			/*
++			 * HACK
++			 * We ignore requested duplicates since they could have
++			 * been pre-requested...
++			 */
+ 			if (!strcmp(rdev->id_table->name, id_table->name)) {
+-				pr_err("Ignoring duplicate request [%d] %s\n",
+-				       rdev->id_table->protocol_id,
+-				       rdev->id_table->name);
+-				ret = -EINVAL;
+-				goto out;
++				pr_debug("Device already requested [%d] %s\n",
++				        rdev->id_table->protocol_id,
++				        rdev->id_table->name);
++				mutex_unlock(&scmi_requested_devices_mtx);
++				return 0;
+ 			}
+ 		}
+ 	}
+@@ -274,6 +279,16 @@ static struct scmi_device *scmi_child_dev_find(struct device *parent,
+ 	return to_scmi_dev(dev);
+ }
+ 
++static int scmi_dev_uevent(const struct device *dev,
++			   struct kobj_uevent_env *env)
++{
++	const struct scmi_device *sdev = to_scmi_dev(dev);
++
++	add_uevent_var(env, "MODALIAS=scmi:pr%02X", sdev->protocol_id);
++
++	return 0;
++}
++
+ static int scmi_dev_probe(struct device *dev)
+ {
+ 	struct scmi_driver *scmi_drv = to_scmi_driver(dev->driver);
+@@ -297,6 +312,7 @@ static void scmi_dev_remove(struct device *dev)
+ const struct bus_type scmi_bus_type = {
+ 	.name =	"scmi_protocol",
+ 	.match = scmi_dev_match,
++	.uevent	= scmi_dev_uevent,
+ 	.probe = scmi_dev_probe,
+ 	.remove = scmi_dev_remove,
+ };
+@@ -516,6 +532,23 @@ static void scmi_devices_unregister(void)
+ 	bus_for_each_dev(&scmi_bus_type, NULL, NULL, __scmi_devices_unregister);
+ }
+ 
++/* Standard protocols table */
++static const struct scmi_device_id scmi_std_id_table[] = {
++	{ SCMI_PROTOCOL_POWER, "genpd" },
++	{ SCMI_PROTOCOL_SYSTEM, "syspower" },
++	{ SCMI_PROTOCOL_PERF, "perf" },
++	{ SCMI_PROTOCOL_PERF, "cpufreq" },
++	{ SCMI_PROTOCOL_CLOCK, "clocks" },
++	{ SCMI_PROTOCOL_SENSOR, "hwmon" },
++	{ SCMI_PROTOCOL_SENSOR, "iiodev" },
++	{ SCMI_PROTOCOL_RESET, "reset" },
++	{ SCMI_PROTOCOL_VOLTAGE,  "regulator" },
++	{ SCMI_PROTOCOL_POWERCAP, "powercap" },
++	{ SCMI_PROTOCOL_PINCTRL, "pinctrl" },
++	{ SCMI_PROTOCOL_PINCTRL, "pinctrl-imx" },
++	{ },
++};
++
+ static int __init scmi_bus_init(void)
+ {
+ 	int retval;
+@@ -526,6 +559,15 @@ static int __init scmi_bus_init(void)
+ 
+ 	pr_info("SCMI protocol bus registered\n");
+ 
++	/* HACK pre-request ALL standard protocol devices */
++	retval = scmi_protocol_table_register(scmi_std_id_table);
++	if (retval) {
++		bus_unregister(&scmi_bus_type);
++		return retval;
++	}
++
++	pr_info("SCMI standard protocols devices requested\n");
++
+ 	return retval;
+ }
+ subsys_initcall(scmi_bus_init);
+-- 
+2.47.0
 
- drivers/cpuidle/cpuidle-psci.c |  3 +++
- include/trace/events/power.h   | 37 ++++++++++++++++++++++++++++++++++
- 2 files changed, 40 insertions(+)
-
-diff --git a/drivers/cpuidle/cpuidle-psci.c b/drivers/cpuidle/cpuidle-psci.c
-index 2562dc001fc1..dd8d776d6e39 100644
---- a/drivers/cpuidle/cpuidle-psci.c
-+++ b/drivers/cpuidle/cpuidle-psci.c
-@@ -25,6 +25,7 @@
- #include <linux/syscore_ops.h>
-
- #include <asm/cpuidle.h>
-+#include <trace/events/power.h>
-
- #include "cpuidle-psci.h"
- #include "dt_idle_states.h"
-@@ -74,7 +75,9 @@ static __cpuidle int __psci_enter_domain_idle_state(struct cpuidle_device *dev,
- 	if (!state)
- 		state = states[idx];
-
-+	trace_psci_domain_idle_enter(dev->cpu, state, s2idle);
- 	ret = psci_cpu_suspend_enter(state) ? -1 : idx;
-+	trace_psci_domain_idle_exit(dev->cpu, state, s2idle);
-
- 	if (s2idle)
- 		dev_pm_genpd_resume(pd_dev);
-diff --git a/include/trace/events/power.h b/include/trace/events/power.h
-index d2349b6b531a..9253e83b9bb4 100644
---- a/include/trace/events/power.h
-+++ b/include/trace/events/power.h
-@@ -62,6 +62,43 @@ TRACE_EVENT(cpu_idle_miss,
- 		(unsigned long)__entry->state, (__entry->below)?"below":"above")
- );
-
-+DECLARE_EVENT_CLASS(psci_domain_idle,
-+
-+	TP_PROTO(unsigned int cpu_id, unsigned int state, bool s2idle),
-+
-+	TP_ARGS(cpu_id, state, s2idle),
-+
-+	TP_STRUCT__entry(
-+		__field(u32,		cpu_id)
-+		__field(u32,		state)
-+		__field(bool,		s2idle)
-+	),
-+
-+	TP_fast_assign(
-+		__entry->cpu_id = cpu_id;
-+		__entry->state = state;
-+		__entry->s2idle = s2idle;
-+	),
-+
-+	TP_printk("cpu_id=%lu state=0x%lx is_s2idle=%s",
-+		  (unsigned long)__entry->cpu_id, (unsigned long)__entry->state,
-+		  (__entry->s2idle)?"yes":"no")
-+);
-+
-+DEFINE_EVENT(psci_domain_idle, psci_domain_idle_enter,
-+
-+	TP_PROTO(unsigned int cpu_id, unsigned int state, bool s2idle),
-+
-+	TP_ARGS(cpu_id, state, s2idle)
-+);
-+
-+DEFINE_EVENT(psci_domain_idle, psci_domain_idle_exit,
-+
-+	TP_PROTO(unsigned int cpu_id, unsigned int state, bool s2idle),
-+
-+	TP_ARGS(cpu_id, state, s2idle)
-+);
-+
- TRACE_EVENT(powernv_throttle,
-
- 	TP_PROTO(int chip_id, const char *reason, int pmax),
-
-base-commit: ffd294d346d185b70e28b1a28abe367bbfe53c04
---
-2.48.1.362.g079036d154-goog
 
