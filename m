@@ -4,74 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22109C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 16:54:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8331AC02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 16:55:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HQrd7KhxR5QNidsw3HjCzgZby4/ydefULjPxoyJrlVs=; b=Cvtul3fVaY9wRhXNM76zK8NdPL
-	keCK4zByhRMwaZgChwwgugXoATMmiuR8DeO/CLi8yfDF8uh1xRpS28MDpkCCCXs7ORR6XlN+N6u3U
-	zzKYK7HvK8Ml8YWxQZWauwek48hpHEPLV/VME7m8Ye4TDAeHByOzwfyv5wQK9rJXKEptoji8ka7mH
-	rUHZG14XP/45qTJSNnX1eOztYE5W4HYgy97GqEFM0DSiL1HhDq9lN25WIQ9SeC4w3knzD89dRZ2se
-	ml7BT7vHqSsw+MJMxIGVGK+LBg/pEbdQE98OtgJ1Btw0H20Rybw5T6odmvHnYJ6CVbSbSc6lGraGh
-	E2nUAYXA==;
+	bh=7jRJ/gF3sCoxCnzF2YY3FbV3XG7wQY3kcj6calKhwXY=; b=3rOLsgGaPfGVi9IOK3OIPBLjQn
+	Kbn2/78HEmf9dY8K3vg5e9+OZR0ueb3s1132emGIyMrCQ6TlCW2zkEAooKigmOV9V9oYVT1/3FM4v
+	/JhzFy903RUrVoyZ1DNwOaNmssBekiSKx3yIb3hsL+mewy8sTVnWyVlgdqSGUbFIcPLXyTHIEY+iK
+	8hkHWOhr+iSc3Wmd+sfgKlX41esZVLIT9VDOeOhkC1HkDJ6+/Djwqhcmo65mR0J0SjTv/S48C1eDq
+	crct4EFk8PEWpjGBlvvCKyUvy8p2MArO342o9+Cp5Tb/d+uMRqh2S2sHp8Ja6F0TENg3GVwAsDTVR
+	iPfDeLmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teziA-0000000G3pb-2gKU;
-	Mon, 03 Feb 2025 16:54:14 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tezgn-0000000G3Wv-3fBx;
-	Mon, 03 Feb 2025 16:52:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 626625C66C9;
-	Mon,  3 Feb 2025 16:52:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED7D3C4AF09;
-	Mon,  3 Feb 2025 16:52:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738601569;
-	bh=KYAHdnV48fxBXFY3qpA0uvflhDKLsBpZZvc4LapIXn0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=lg7Cc+SZYJGzgL61IJ6B/3fk5Z1JzGmovob0mUQDbB55wJCxxRDKVt1VwAJzKAvTh
-	 fJQp6DYCxEWbt1JVf/1WeTireprdFMbPeT0G3HrsytLEUp36iUwa7DkOCDo787wydZ
-	 IqMEmyQOfrFiYFAM2CU2fGMf0rOxu6PyMrelVQ0jiFdCUqujAlDUrwAsDTBowfMJb8
-	 0m6MfHHIO3/C4lUCORsnJSI3+TCoEjA2AOqVoxp7leyWSByvsL1mBxGXOz1jhjacKg
-	 f4N1WRqVmlT43TB8ldper+wGc/lGB4DcCrG2Z/7MapaDvN7J3XuMfsy47rR9cF7rp2
-	 qc5CZf3Oyom7Q==
-Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-5d3f28a4fccso6897552a12.2;
-        Mon, 03 Feb 2025 08:52:48 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVYeo4J9iXk4z+DeCRUtP4uKbZzkSkStCnHwws0BsJ/1YMX+BDvz+pju8OMPZEAxotmwlPoiEcZpfOz5oTx9A8=@lists.infradead.org, AJvYcCWkw4uoeu7+uOz9UNqPs66nU+M6yzLZ3zB1Fz+yt73YbhtTg4NiR/VN0WXzBPw8BMY3ENkY1C03HzsgBzqPUuyC@lists.infradead.org
-X-Gm-Message-State: AOJu0YwECPtPQe2fOIAV2YkaXeFaU8tkZIVVg0oi1TI5Dlhtn6MANETS
-	eYh0Suawqtuu53lGiPAxmMTw1Dief66X6BImDDE+QHN2rEIJMouQ6icqF3WgyGVygOysAR1tp5Y
-	Dr+4E17hiq3PNH1hTx0oSGvA5ZA==
-X-Google-Smtp-Source: AGHT+IEV2/Sd6DHIrU3ZrbIJ2gYXXde46QL1lRAjvii+LibXZWGhqkpzoCzlCNNSLJ03B11qDzWWSKexPZQSYJB0dD8=
-X-Received: by 2002:a05:6402:4026:b0:5dc:7fbe:7303 with SMTP id
- 4fb4d7f45d1cf-5dc7fcdb6afmr18086193a12.5.1738601567417; Mon, 03 Feb 2025
- 08:52:47 -0800 (PST)
+	id 1tezjR-0000000G3wT-3iML;
+	Mon, 03 Feb 2025 16:55:33 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tezgv-0000000G3Yc-1qwj
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 03 Feb 2025 16:52:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D789211FB;
+	Mon,  3 Feb 2025 08:53:20 -0800 (PST)
+Received: from [10.1.34.25] (e122027.cambridge.arm.com [10.1.34.25])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EE04E3F58B;
+	Mon,  3 Feb 2025 08:52:51 -0800 (PST)
+Message-ID: <4196d432-ccde-4d1f-b07e-8603bf5dcdaf@arm.com>
+Date: Mon, 3 Feb 2025 16:52:50 +0000
 MIME-Version: 1.0
-References: <20250201093126.7322-1-biju.das.jz@bp.renesas.com>
-In-Reply-To: <20250201093126.7322-1-biju.das.jz@bp.renesas.com>
-From: Rob Herring <robh@kernel.org>
-Date: Mon, 3 Feb 2025 10:52:35 -0600
-X-Gmail-Original-Message-ID: <CAL_Jsq+dn5wyEKbvAT8M2V=nM-vV_eHiRtwO_0h6EiJ=8OkHSw@mail.gmail.com>
-X-Gm-Features: AWEUYZk6vEuoN17Xf_joz3957pyiXnco-9SecodVg5pP8U1SPnSpTkxx0rjtOhE
-Message-ID: <CAL_Jsq+dn5wyEKbvAT8M2V=nM-vV_eHiRtwO_0h6EiJ=8OkHSw@mail.gmail.com>
-Subject: Re: [PATCH v2] of: base: Add of_get_available_child_by_name()
-To: Biju Das <biju.das.jz@bp.renesas.com>
-Cc: Saravana Kannan <saravanak@google.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>, Biju Das <biju.das.au@gmail.com>, 
-	linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 19/43] arm64: RME: Allow populating initial contents
+To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+References: <20241212155610.76522-1-steven.price@arm.com>
+ <20241212155610.76522-20-steven.price@arm.com>
+ <68e545c8-57a3-4567-9e96-b46066cf6cee@redhat.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <68e545c8-57a3-4567-9e96-b46066cf6cee@redhat.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_085249_993301_DD1DD16C 
-X-CRM114-Status: GOOD (  12.34  )
+X-CRM114-CacheID: sfid-20250203_085257_578980_3F28AE96 
+X-CRM114-Status: GOOD (  37.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,46 +76,383 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 1, 2025 at 3:31=E2=80=AFAM Biju Das <biju.das.jz@bp.renesas.com=
-> wrote:
->
-> There are lot of drivers using of_get_child_by_name() followed by
-> of_device_is_available() to find the available child node by name for a
-> given parent. Provide a helper for these users to simplify the code.
->
-> Suggested-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> Signed-off-by: Biju Das <biju.das.jz@bp.renesas.com>
+On 30/01/2025 04:38, Gavin Shan wrote:
+> On 12/13/24 1:55 AM, Steven Price wrote:
+>> The VMM needs to populate the realm with some data before starting (e.g.
+>> a kernel and initrd). This is measured by the RMM and used as part of
+>> the attestation later on.
+>>
+>> For now only 4k mappings are supported, future work may add support for
+>> larger mappings.
+>>
+>> Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> ---
+>> Changes since v5:
+>>   * Refactor to use PFNs rather than tracking struct page in
+>>     realm_create_protected_data_page().
+>>   * Pull changes from a later patch (in the v5 series) for accessing
+>>     pages from a guest memfd.
+>>   * Do the populate in chunks to avoid holding locks for too long and
+>>     triggering RCU stall warnings.
+>> ---
+>>   arch/arm64/kvm/rme.c | 243 +++++++++++++++++++++++++++++++++++++++++++
+>>   1 file changed, 243 insertions(+)
+>>
+>> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
+>> index 22f0c74455af..d4561e368cd5 100644
+>> --- a/arch/arm64/kvm/rme.c
+>> +++ b/arch/arm64/kvm/rme.c
+>> @@ -4,6 +4,7 @@
+>>    */
+>>     #include <linux/kvm_host.h>
+>> +#include <linux/hugetlb.h>
+>>   
+> 
+> This wouldn't be needed since the huge pages, especially hugetlb part,
+> isn't
+> supported yet.
 
-Reviewed-by: Rob Herring <robh@kernel.org>
+Indeed, thanks for spotting.
 
-> ---
-> v1->v2:
->  * Updated commit description.
->  * Updated kerneldoc comment block
->  * Avoided code duplication by using of_get_child_by_name().
->
-> Note:
-> grep showed the below files will be the users for this new API.
-> I will be updating these drivers once this patch is in mainline.
+>>   #include <asm/kvm_emulate.h>
+>>   #include <asm/kvm_mmu.h>
+>> @@ -545,6 +546,236 @@ void kvm_realm_unmap_range(struct kvm *kvm,
+>> unsigned long start, u64 size,
+>>           realm_unmap_private_range(kvm, start, end);
+>>   }
+>>   +static int realm_create_protected_data_page(struct realm *realm,
+>> +                        unsigned long ipa,
+>> +                        kvm_pfn_t dst_pfn,
+>> +                        kvm_pfn_t src_pfn,
+>> +                        unsigned long flags)
+>> +{
+>> +    phys_addr_t dst_phys, src_phys;
+>> +    int ret;
+>> +
+>> +    dst_phys = __pfn_to_phys(dst_pfn);
+>> +    src_phys = __pfn_to_phys(src_pfn);
+>> +
+>> +    if (rmi_granule_delegate(dst_phys))
+>> +        return -ENXIO;
+>> +
+>> +    ret = rmi_data_create(virt_to_phys(realm->rd), dst_phys, ipa,
+>> src_phys,
+>> +                  flags);
+>> +
+>> +    if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
+>> +        /* Create missing RTTs and retry */
+>> +        int level = RMI_RETURN_INDEX(ret);
+>> +
+>> +        ret = realm_create_rtt_levels(realm, ipa, level,
+>> +                          RMM_RTT_MAX_LEVEL, NULL);
+>> +        if (ret)
+>> +            goto err;
+>> +
+>> +        ret = rmi_data_create(virt_to_phys(realm->rd), dst_phys, ipa,
+>> +                      src_phys, flags);
+>> +    }
+>> +
+>> +    if (!ret)
+>> +        return 0;
+>> +
+>> +err:
+>> +    if (WARN_ON(rmi_granule_undelegate(dst_phys))) {
+>> +        /* Page can't be returned to NS world so is lost */
+>> +        get_page(pfn_to_page(dst_pfn));
+>> +    }
+>> +    return -ENXIO;
+>> +}
+>> +
+>> +static int fold_rtt(struct realm *realm, unsigned long addr, int level)
+>> +{
+>> +    phys_addr_t rtt_addr;
+>> +    int ret;
+>> +
+>> +    ret = realm_rtt_fold(realm, addr, level + 1, &rtt_addr);
+>> +    if (ret)
+>> +        return ret;
+>> +
+>> +    free_delegated_granule(rtt_addr);
+>> +
+>> +    return 0;
+>> +}
+>> +
+>> +static int populate_par_region(struct kvm *kvm,
+>> +                   phys_addr_t ipa_base,
+>> +                   phys_addr_t ipa_end,
+>> +                   u32 flags)
+>> +{
+> 
+> At the first glance, I was wandering what's meant by 'par' in the
+> function name.
+> It turns to be a 2MB region and I guess it represents 'part'. I think
+> this may
+> be renamed to populate_sub_region() or populate_region() directly.
 
-No need to wait. Please convert all the net ones and send this patch with t=
-hem.
+Actually 'par' is outdated and refers to "protected address range" which
+is a concept which existed in an older version of CCA realms. It's
+definitely in need of a rename! ;) I'll just drop the 'par' and call it
+populate_region().
 
->
-> drivers/net/dsa/rzn1_a5psw.c
-> drivers/net/can/rcar/rcar_canfd.c
->
-> drivers/net/ethernet/mediatek/mtk_star_emac.c
-> drivers/net/dsa/mt7530.c
-> drivers/net/dsa/sja1105/sja1105_mdio.c
-> drivers/net/dsa/qca/qca8k-8xxx.c
-> drivers/net/wireless/mediatek/mt76/mac80211.c
-> drivers/net/ethernet/ibm/emac/core.c
-> drivers/net/ethernet/ti/am65-cpsw-nuss.c
-> drivers/net/ethernet/actions/owl-emac.c
-> drivers/net/ethernet/mediatek/mtk_eth_soc.c
-> drivers/media/platform/samsung/exynos4-is/media-dev.h
-> drivers/gpu/drm/tegra/rgb.c
-> drivers/gpu/drm/msm/adreno/adreno_gpu.c
-> drivers/clk/davinci/pll.c
+>> +    struct realm *realm = &kvm->arch.realm;
+>> +    struct kvm_memory_slot *memslot;
+>> +    gfn_t base_gfn, end_gfn;
+>> +    int idx;
+>> +    phys_addr_t ipa;
+>> +    int ret = 0;
+>> +    unsigned long data_flags = 0;
+>> +
+>> +    base_gfn = gpa_to_gfn(ipa_base);
+>> +    end_gfn = gpa_to_gfn(ipa_end);
+>> +
+>> +    if (flags & KVM_ARM_RME_POPULATE_FLAGS_MEASURE)
+>> +        data_flags = RMI_MEASURE_CONTENT;
+>> +
+> 
+> The 'data_flags' can be sorted out by its caller kvm_populate_realm(),
+> and passed
+> to populate_par_region(). In that way, we needn't to figure out
+> 'data_flags' in
+> every call to populate_par_region().
+
+Ack
+
+>> +    idx = srcu_read_lock(&kvm->srcu);
+>> +    memslot = gfn_to_memslot(kvm, base_gfn);
+>> +    if (!memslot) {
+>> +        ret = -EFAULT;
+>> +        goto out;
+>> +    }
+>> +
+>> +    /* We require the region to be contained within a single memslot */
+>> +    if (memslot->base_gfn + memslot->npages < end_gfn) {
+>> +        ret = -EINVAL;
+>> +        goto out;
+>> +    }
+>> +
+>> +    if (!kvm_slot_can_be_private(memslot)) {
+>> +        ret = -EINVAL;
+>> +        goto out;
+>> +    }
+>> +
+>> +    write_lock(&kvm->mmu_lock);
+>> +
+>> +    ipa = ipa_base;
+>> +    while (ipa < ipa_end) {
+>> +        struct vm_area_struct *vma;
+>> +        unsigned long map_size;
+>> +        unsigned int vma_shift;
+>> +        unsigned long offset;
+>> +        unsigned long hva;
+>> +        struct page *page;
+>> +        bool writeable;
+>> +        kvm_pfn_t pfn;
+>> +        int level, i;
+>> +
+>> +        hva = gfn_to_hva_memslot(memslot, gpa_to_gfn(ipa));
+>> +        vma = vma_lookup(current->mm, hva);
+>> +        if (!vma) {
+>> +            ret = -EFAULT;
+>> +            break;
+>> +        }
+>> +
+>> +        /* FIXME: Currently we only support 4k sized mappings */
+>> +        vma_shift = PAGE_SHIFT;
+>> +
+>> +        map_size = 1 << vma_shift;
+>> +
+>> +        ipa = ALIGN_DOWN(ipa, map_size);
+>> +
+> 
+> The blank lines in above 5 lines can be dropped :)
+
+:) Agreed
+
+>> +        switch (map_size) {
+>> +        case RMM_L2_BLOCK_SIZE:
+>> +            level = 2;
+>> +            break;
+>> +        case PAGE_SIZE:
+>> +            level = 3;
+>> +            break;
+>> +        default:
+>> +            WARN_ONCE(1, "Unsupported vma_shift %d", vma_shift);
+>> +            ret = -EFAULT;
+>> +            break;
+>> +        }
+>> +
+>> +        pfn = __kvm_faultin_pfn(memslot, gpa_to_gfn(ipa), FOLL_WRITE,
+>> +                    &writeable, &page);
+>> +
+>> +        if (is_error_pfn(pfn)) {
+>> +            ret = -EFAULT;
+>> +            break;
+>> +        }
+>> +
+>> +        if (level < RMM_RTT_MAX_LEVEL) {
+>> +            /*
+>> +             * A temporary RTT is needed during the map, precreate
+>> +             * it, however if there is an error (e.g. missing
+>> +             * parent tables) this will be handled in the
+>> +             * realm_create_protected_data_page() call.
+>> +             */
+>> +            realm_create_rtt_levels(realm, ipa, level,
+>> +                        RMM_RTT_MAX_LEVEL, NULL);
+>> +        }
+>> +
+> 
+> This block of code to create the temporary RTT can be removed. With it
+> removed,
+> we're going to rely on realm_create_protected_data_page() to create the
+> needed
+> RTT in its failing path. If the temporary RTT has been existing, the
+> function
+> call to realm_create_rtt_levels() doesn't nothing except multiple RMI
+> calls are
+> issued. RMI calls aren't cheap and it causes performance lost if you agree.
+
+Actually this is to avoid extra RMI calls - albeit this is irrelevant
+with the current FIXME above because everything is 4k.
+
+For a block mapping it's still required to create RTTs to the full
+depth, the individual 4k pages are then mapped, and finally the RTTs are
+"folded" to remove the bottom table.
+
+So in the usual case where RTTs exist to level 2 (because there are
+other mappings nearby) then attempting to create the final level avoids
+the first call to rmi_data_create() (in
+realm_create_protected_data_page()) failing.
+
+We don't expect tables to be created to RMM_RTT_MAX_LEVEL - because that
+implies that there is something already mapped there (although this can
+also happen in the situation where there was previously something mapped
+but it has been unmapped without the RTTs being destroyed).
+
+The comment is there because rather than adding another path for the
+situation where parent tables don't exist, this is handled by the
+rmi_data_create() failing in realm_create_protected_data_page() - the
+error code lets us know which levels are needed. This is (of course)
+inefficient, but it will be rare.
+
+But given that I haven't got huge pages supported yet it's hard to make
+any real judgements about the trade-offs and which is going to be most
+performant.
+
+>> +        for (offset = 0, i = 0; offset < map_size && !ret;
+>> +             offset += PAGE_SIZE, i++) {
+>> +            phys_addr_t page_ipa = ipa + offset;
+>> +            kvm_pfn_t priv_pfn;
+>> +            struct page *gmem_page;
+>> +            int order;
+>> +
+>> +            ret = kvm_gmem_get_pfn(kvm, memslot,
+>> +                           page_ipa >> PAGE_SHIFT,
+>> +                           &priv_pfn, &gmem_page, &order);
+>> +            if (ret)
+>> +                break;
+>> +
+>> +            ret = realm_create_protected_data_page(realm, page_ipa,
+>> +                                   priv_pfn,
+>> +                                   pfn + i,
+>> +                                   data_flags);
+>> +        }
+>> +
+>> +        kvm_release_faultin_page(kvm, page, false, false);
+>> +
+>> +        if (ret)
+>> +            break;
+>> +
+>> +        if (level == 2)
+>> +            fold_rtt(realm, ipa, level);
+>> +
+>> +        ipa += map_size;
+>> +    }
+>> +
+>> +    write_unlock(&kvm->mmu_lock);
+>> +
+>> +out:
+>> +    srcu_read_unlock(&kvm->srcu, idx);
+>> +    return ret;
+>> +}
+>> +
+>> +static int kvm_populate_realm(struct kvm *kvm,
+>> +                  struct kvm_cap_arm_rme_populate_realm_args *args)
+>> +{
+>> +    phys_addr_t ipa_base, ipa_end;
+>> +
+>> +    if (kvm_realm_state(kvm) != REALM_STATE_NEW)
+>> +        return -EINVAL;
+>> +
+>> +    if (!IS_ALIGNED(args->populate_ipa_base, PAGE_SIZE) ||
+>> +        !IS_ALIGNED(args->populate_ipa_size, PAGE_SIZE))
+>> +        return -EINVAL;
+>> +
+>> +    if (args->flags & ~RMI_MEASURE_CONTENT)
+>> +        return -EINVAL;
+>> +
+>> +    ipa_base = args->populate_ipa_base;
+>> +    ipa_end = ipa_base + args->populate_ipa_size;
+>> +
+>> +    if (ipa_end < ipa_base)
+>> +        return -EINVAL;
+>> +
+>> +    /*
+>> +     * Perform the populate in parts to ensure locks are not held for
+>> too
+>> +     * long
+>> +     */
+>> +    while (ipa_base < ipa_end) {
+>> +        phys_addr_t end = min(ipa_end, ipa_base + SZ_2M);
+>> +
+>> +        int ret = populate_par_region(kvm, ipa_base, end,
+>> +                          args->flags);
+>> +
+>> +        if (ret)
+>> +            return ret;
+>> +
+> 
+> cond_resched() seems nice to have here so that those pending tasks can
+> be run immediately.
+
+Ack
+
+Thanks,
+Steve
+
+>> +        ipa_base = end;
+>> +    }
+>> +
+>> +    return 0;
+>> +}
+>> +
+>>   int realm_set_ipa_state(struct kvm_vcpu *vcpu,
+>>               unsigned long start,
+>>               unsigned long end,
+>> @@ -794,6 +1025,18 @@ int kvm_realm_enable_cap(struct kvm *kvm, struct
+>> kvm_enable_cap *cap)
+>>           r = kvm_init_ipa_range_realm(kvm, &args);
+>>           break;
+>>       }
+>> +    case KVM_CAP_ARM_RME_POPULATE_REALM: {
+>> +        struct kvm_cap_arm_rme_populate_realm_args args;
+>> +        void __user *argp = u64_to_user_ptr(cap->args[1]);
+>> +
+>> +        if (copy_from_user(&args, argp, sizeof(args))) {
+>> +            r = -EFAULT;
+>> +            break;
+>> +        }
+>> +
+>> +        r = kvm_populate_realm(kvm, &args);
+>> +        break;
+>> +    }
+>>       default:
+>>           r = -EINVAL;
+>>           break;
+> 
+> Thanks,
+> Gavin
+> 
+
 
