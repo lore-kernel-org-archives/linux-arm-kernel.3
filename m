@@ -4,101 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8662BC02192
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 11:58:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A20F2C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 11:59:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Uc4uCqsleGcCsKVC2kCtafnEyIcpxj+3QblkARK4r2c=; b=HKKj+MxXZq3LAvd8Met+Phk6Fi
-	eq3ZNo87FhqPaS4Ow2wfFUkgkCdeOKpm8DarwBRh7TVlFs1waoBBYWdsV68cA1mPwdIDCjFlar455
-	ow83g08A1RRBOV3WeRTpiOvRyq22Vu1XqFi9hWsHexfneONxO55FsyHhqjPrGC7Fm/ouyTpproeeP
-	WEgx2+AJIGpbQ9Vd99j8oHUbauDArnfTt8hv0iKLy50rKOqGObI7NXhCE0MDdrq1eeNYV88+6dryW
-	3cxv0ZPpraPhi6C1fjdjRCwuPMVrUX7IV6E5VtChCuVr1eFFXl+XEHQOlfBIlyzi1R4+HRGlV8qrX
-	QQ7HzbXQ==;
+	bh=ysnX75Tn/EjCtvlKfH+8JyVTdQnIBC9jdgJfrr5Y8hM=; b=NuXh3pMAmbsX6WsJExhJ3VFzkz
+	uvDlUufT0wIhUPEIlcp+9nH3irFnLfJp6H5i7cZqAxS2SY7hvw24Sw2Y6y5cEbzNRdjy5vUG3zTkq
+	jlklxMKvxPkZx1PeBLaMNzObEVUdV/2wKnP5BpfHYWRuLL2IhmJ0Km0ThKjGo8iVoZuEmEPVehiI7
+	xnqBZXqJ4pXaSuIq74NMO+RrDoHzFb6TeGVH+mSh2vv55jccqA0F9Te/UN+BBfW1SdB9VAp0idSCj
+	7zBfrGpuW/5VFgpCTIIoMHrO+BxJ0RlhCLYp/T7GZThTfDs/MJzM41022aWNq4cSIcxYW+mOvmsVi
+	/ZZFePZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tev5K-0000000FId1-3Xqy;
-	Mon, 03 Feb 2025 11:57:50 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tev0I-0000000FHlG-1LoU
+	id 1tev6d-0000000FIts-2Ly4;
+	Mon, 03 Feb 2025 11:59:11 +0000
+Received: from mx.socionext.com ([202.248.49.38])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tev3R-0000000FIEy-1usM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 11:52:39 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2161eb94cceso49914825ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 03:52:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738583557; x=1739188357; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Uc4uCqsleGcCsKVC2kCtafnEyIcpxj+3QblkARK4r2c=;
-        b=QvQOeu9ORRwUI4derwKZFTO+1bawyoH//2U7PlzKP0zcvI7kJsKVYpM7Rdwyz8ec1h
-         YnRtChXSwZRvj+gUhFG8o7uVtsbkULKQWWHHswiSikfch8/BY3jEyr9OHJE8gu492Izj
-         mkBTwC1wzHpkTv6cilrMwGY4aarOE/NCo7ulzhr39z5Fp95NM0l19mVZC4qQPgjRvGqr
-         /We57DduKyq1zqWL/4ECsLLsVNLRfvRX9vb+CHRepzh5UUt3KL3egW9o9ETmJZvTS8Sc
-         zVwfwODqkODavNer/sbHH3+0EifrU1e09mMhQicySx2FRJe8QWVRCBjZo0XMKIp52ipP
-         wt0Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738583557; x=1739188357;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Uc4uCqsleGcCsKVC2kCtafnEyIcpxj+3QblkARK4r2c=;
-        b=L+aBM69Y4YdUD0d9VOXb6/lC2NdzSA/aa0QDnEn7paXyW1zottQbypJ8DEHqGjpAIR
-         IqeeS+cUWQ4UoAX0TVserOFvy6nwTVRhVIA/PqMVNqdgt6JwvWCHzzA57yZMM07yz4Iy
-         d3eTGoeJ8x+k9G0Le3ov8e4zA4LHwMI4BvqfcadbT3q2v6LX3uaY0KRxZtJzPDTseucV
-         x1wqCO5coIQAcV8ZNzMfzTSGeYQkb26df2fusVE8iSvFtlVOD7wscFn3ooRTKOUXxTtF
-         AJVu0VcxmCi+fm0uPbBPH2DzxoynV2nNFNDfHItsGurDdYQaWPP0S/IxSjuRfgeRHBU3
-         VXsg==
-X-Forwarded-Encrypted: i=1; AJvYcCWp3DAfids4J79OyoxKpjE6vjrluW9IWssVW5LbpwSI/eb8Am5l8SaEoIebrRw5iViZvO89lLmW/HwkUCMYURFI@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJ+UnqkATBmvFlLjp1ylNyahAQ8e5jPGm1wD9ho3nd9W90rJhX
-	iX/0CZEAWHLXXg++q4kyW6TS9gJlygg7jMH0+oGabNlqpIdDmGjX
-X-Gm-Gg: ASbGnctmhjZRhWqeOWxyi8YXgeMi31UGs/G9PJHJ79Jv9LmE9ZX4aTkVb4/uB8+x6+w
-	r58UMK8zH1UOJUK8P56AUQ/euwbVKWKSlQMeh1vKBYTHPe7bDVnDJ6smF74QKHVfBiDOMCM287N
-	neIZCzPixtlT0Pm/9s++hRzYb3vFwQgXaKz9oRFZuohnIu2KLgbhLxDEz8RNiFh0i3OrdQSmgja
-	L4OP2+y3Y7bcmBGTYoJDjWzJVoHbrMgFr9tLqexZ4ZRfeS3ytz5Tnj4Be1/6EwU+PkRM/emG9/G
-	T02h2RfLVdCBqxxl
-X-Google-Smtp-Source: AGHT+IG9OzjbgkvCS8tq7nwliRQ7D0GE7eIK1YFb7OgjbU/H0UhSsEr4jVXSBegVQdOpNlym0wtPBw==
-X-Received: by 2002:a05:6a00:4642:b0:725:f1b1:cbc5 with SMTP id d2e1a72fcca58-72fd0bc26c1mr38178820b3a.3.1738583557299;
-        Mon, 03 Feb 2025 03:52:37 -0800 (PST)
-Received: from nick-mbp.. ([59.188.211.160])
-        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-72fe631c039sm8262408b3a.25.2025.02.03.03.52.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Feb 2025 03:52:36 -0800 (PST)
-From: Nick Chan <towinchenmi@gmail.com>
-To: Hector Martin <marcan@marcan.st>,
-	Sven Peter <sven@svenpeter.dev>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Lee Jones <lee@kernel.org>,
-	Daniel Thompson <danielt@kernel.org>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Pavel Machek <pavel@ucw.cz>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Helge Deller <deller@gmx.de>,
-	Nick Chan <towinchenmi@gmail.com>,
-	asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	dri-devel@lists.freedesktop.org,
-	linux-leds@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-fbdev@vger.kernel.org
-Subject: [PATCH v5 RESEND 3/3] MAINTAINERS: Add entries for Apple DWI backlight controller
-Date: Mon,  3 Feb 2025 19:50:34 +0800
-Message-ID: <20250203115156.28174-4-towinchenmi@gmail.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250203115156.28174-1-towinchenmi@gmail.com>
-References: <20250203115156.28174-1-towinchenmi@gmail.com>
+	Mon, 03 Feb 2025 11:55:54 +0000
+Received: from unknown (HELO kinkan2-ex.css.socionext.com) ([172.31.9.52])
+  by mx.socionext.com with ESMTP; 03 Feb 2025 20:55:52 +0900
+Received: from mail.mfilter.local (mail-arc01.css.socionext.com [10.213.46.36])
+	by kinkan2-ex.css.socionext.com (Postfix) with ESMTP id 475BF208E5DC;
+	Mon,  3 Feb 2025 20:55:52 +0900 (JST)
+Received: from iyokan2.css.socionext.com ([172.31.9.53]) by m-FILTER with ESMTP; Mon, 3 Feb 2025 20:55:52 +0900
+Received: from [10.212.246.222] (unknown [10.212.246.222])
+	by iyokan2.css.socionext.com (Postfix) with ESMTP id 672281A9;
+	Mon,  3 Feb 2025 20:55:51 +0900 (JST)
+Message-ID: <2b22ecba-93b8-479c-ab16-42cf24cf2c06@socionext.com>
+Date: Mon, 3 Feb 2025 20:55:51 +0900
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v4 3/3] net: stmmac: Specify hardware capability value
+ when FIFO size isn't specified
+From: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Guenter Roeck <linux@roeck-us.net>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Yanteng Si <si.yanteng@linux.dev>, Furong Xu <0x1207@gmail.com>,
+ Joao Pinto <Joao.Pinto@synopsys.com>, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250127013820.2941044-1-hayashi.kunihiko@socionext.com>
+ <20250127013820.2941044-4-hayashi.kunihiko@socionext.com>
+ <4e98f967-f636-46fb-9eca-d383b9495b86@roeck-us.net>
+ <Z56FmH968FUGkC5J@shell.armlinux.org.uk>
+ <905127b5-96c8-4866-8f69-d9d8a7091c99@socionext.com>
+ <Z6CLDJJ21MMml3cD@shell.armlinux.org.uk>
+ <e1654cc9-a696-454c-a9c7-80a8e1a148ff@socionext.com>
+Content-Language: en-US
+In-Reply-To: <e1654cc9-a696-454c-a9c7-80a8e1a148ff@socionext.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_035238_357395_0BD657D2 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20250203_035553_614517_FC8A0C5A 
+X-CRM114-Status: GOOD (  32.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,35 +81,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add MAINTAINERS entries for the driver.
+On 2025/02/03 20:32, Kunihiko Hayashi wrote:
+> Hi,
+> 
+> On 2025/02/03 18:23, Russell King (Oracle) wrote:
+>> On Mon, Feb 03, 2025 at 11:45:05AM +0900, Kunihiko Hayashi wrote:
+>>> Hi all,
+>>>
+>>> On 2025/02/02 5:35, Russell King (Oracle) wrote:
+>>>> On Sat, Feb 01, 2025 at 11:14:41AM -0800, Guenter Roeck wrote:
+>>>>> Hi,
+>>>>>
+>>>>> On Mon, Jan 27, 2025 at 10:38:20AM +0900, Kunihiko Hayashi wrote:
+>>>>>> When Tx/Rx FIFO size is not specified in advance, the driver
+>> checks if
+>>>>>> the value is zero and sets the hardware capability value in
+>> functions
+>>>>>> where that value is used.
+>>>>>>
+>>>>>> Consolidate the check and settings into function stmmac_hw_init()
+>> and
+>>>>>> remove redundant other statements.
+>>>>>>
+>>>>>> If FIFO size is zero and the hardware capability also doesn't have
+>>>> upper
+>>>>>> limit values, return with an error message.
+>>>>>>
+>>>>>> Signed-off-by: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
+>>>>>
+>>>>> This patch breaks qemu's stmmac emulation, for example for
+>>>>> npcm750-evb. The error message is:
+>>>>> 	stmmaceth f0804000.eth: Can't specify Rx FIFO size
+>>>
+>>> Sorry for inconvenience.
+>>>
+>>>> Interesting. I looked at QEMU to see whether anything in the Debian
+>>>> stable version of QEMU might possibly have STMMAC emulation, but
+>>>> drew a blank... Even trying to find where in QEMU it emulates the
+>>>> STMMAC. I do see that it does include this, so maybe I can use that
+>>>> to test some of my stmmac changes. Thanks!
+>>>>
+>>>>> The setup function called for the emulated hardware is
+>>>> dwmac1000_setup().
+>>>>> That function does not set the DMA rx or tx fifo size.
+>>>>>
+>>>>> At the same time, the rx and tx fifo size is not provided in the
+>>>>> devicetree file (nuvoton-npcm750.dtsi), so the failure is obvious.
+>>>>>
+>>>>> I understand that the real hardware may be based on a more recent
+>>>>> version of the DWMAC IP which provides the DMA tx/rx fifo size, but
+>>>>> I do wonder: Are the benefits of this patch so substantial that it
+>>>>> warrants breaking the qemu emulation of this network interface >
+>>>> Please see my message sent a while back on an earlier revision of this
+>>>> patch series. I reviewed the stmmac driver for the fifo sizes and
+>>>> documented what I found.
+>>>>
+>>>> https://lore.kernel.org/r/Z4_ZilVFKacuAUE8@shell.armlinux.org.uk
+>>>>
+>>>> To save clicking on the link, I'll reproduce the relevant part below.
+>>>> It appears that dwmac1000 has no way to specify the FIFO size, and
+>>>> thus would have priv->dma_cap.rx_fifo_size and
+>>>> priv->dma_cap.tx_fifo_size set to zero.
+>>>>
+>>>> Given the responses, I'm now of the opinion that the patch series is
+>>>> wrong, and probably should be reverted - I never really understood
+>>>> the motivation why the series was necessary. It seemed to me to be a
+>>>> "wouldn't it be nice if" series rather than something that is
+>>>> functionally necessary.
+>>>>
+>>>>
+>>>> Here's the extract from my previous email:
+>>>>
+>>>> Now looking at the defintions:
+>>>>
+>>>> drivers/net/ethernet/stmicro/stmmac/dwmac4.h:#define
+>> GMAC_HW_RXFIFOSIZE
+>>>> GENMASK(4, 0)
+>>>> drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h:#define
+>>>> XGMAC_HWFEAT_RXFIFOSIZE GENMASK(4, 0)
+>>>>
+>>>> So there's a 5-bit bitfield that describes the receive FIFO size for
+>>>> these two MACs. Then we have:
+>>>>
+>>>> drivers/net/ethernet/stmicro/stmmac/common.h:#define
+>>>> DMA_HW_FEAT_RXFIFOSIZE    0x00080000       /* Rx FIFO > 2048 Bytes */
+>>>>
+>>>> which is used here:
+>>>>
+>>>> drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c:
+>>>> dma_cap->rxfifo_over_2048 = (hw_cap & DMA_HW_FEAT_RXFIFOSIZE) >> 19;
+>>>>
+>>>> which is only used to print a Y/N value in a debugfs file, otherwise
+>>>> having no bearing on driver behaviour.
+>>>>
+>>>> So, I suspect MACs other than xgmac2 or dwmac4 do not have the ability
+>>>> to describe the hardware FIFO sizes in hardware, thus why there's the
+>>>> override and no checking of what the platform provided - and doing so
+>>>> would break the driver. This is my interpretation from the code alone.
+>>>>
+>>>
+>>> The {tx,rx}_queus_to_use are referenced in stmmac_ethtool.c,
+>> stmmac_tc.c,
+>>> and stmmac_selftests.c as the number of queues, so I've thought that
+>>> these variables should not be non-zero.
+>>
+>> Huh? We're talking about {tx,rx}_fifo_size, not _queues_to_use.
+> 
+> Sorry, this topic is just about {tx,rx}_fifo_size.
+> Above comments are not needed here.
+> 
+> These value are only referenced in stmmac_main.c and stmmac_selftest.c.
+> As far as I can see, there is no usage that requires the values to be
+> non-zero.
 
-Reviewed-by: Daniel Thompson (RISCstar) <danielt@kernel.org>
-Signed-off-by: Nick Chan <towinchenmi@gmail.com>
+Comment to myself:
+This is incorrect as it depends on how the values are used.
+
+Thank you,
+
 ---
- MAINTAINERS | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 896a307fa065..a576324807f5 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2228,6 +2228,7 @@ F:	Documentation/devicetree/bindings/i2c/apple,i2c.yaml
- F:	Documentation/devicetree/bindings/interrupt-controller/apple,*
- F:	Documentation/devicetree/bindings/iommu/apple,dart.yaml
- F:	Documentation/devicetree/bindings/iommu/apple,sart.yaml
-+F:	Documentation/devicetree/bindings/leds/backlight/apple,dwi-bl.yaml
- F:	Documentation/devicetree/bindings/mailbox/apple,mailbox.yaml
- F:	Documentation/devicetree/bindings/net/bluetooth/brcm,bcm4377-bluetooth.yaml
- F:	Documentation/devicetree/bindings/nvme/apple,nvme-ans.yaml
-@@ -2253,6 +2254,7 @@ F:	drivers/nvmem/apple-efuses.c
- F:	drivers/pinctrl/pinctrl-apple-gpio.c
- F:	drivers/pwm/pwm-apple.c
- F:	drivers/soc/apple/*
-+F:	drivers/video/backlight/apple_dwi_bl.c
- F:	drivers/watchdog/apple_wdt.c
- F:	include/dt-bindings/interrupt-controller/apple-aic.h
- F:	include/dt-bindings/pinctrl/apple.h
--- 
-2.48.1
-
+Best Regards
+Kunihiko Hayashi
 
