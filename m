@@ -4,92 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B9D4C02193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 22:22:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EAF7C02193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 22:55:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4owTwwRTiUJNe/UwXGTFceMfkYxJWBm3DVKrkEKXJHw=; b=hOexOFr7Wes+eRmEqEFnSS4M3N
-	fYuaCqseBfPzRYWjTelRqEXZIV2NVuk2hoJlvE+B5jrZsFslyQ2fxnRM0tjkID41JbDnQg24RKGE9
-	y2MvtP1sW3l/EQgoLqrlI3jkBnJVYRQOO9faNFqnmsC/L3jfCOsO4EEOk3m1V/o7j9Bm08m8jLfGk
-	X1epqKzW2dlQzWJbLqQhsFTkbu/lOxkb88nMQabfgdZnIkQJFsQURUANOxQTsGOT7J2Nf2btKlKI4
-	xKf0bbU/b5swA9IHmvHiaZN6aVntZvpNURVi+JdNt62ritFIErJxsZ2FgfbSrka2Lj5SKLD6imQl2
-	nYy5RuPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7HSxTPHvZylEc2Qtms+g0hXLaiufClLhSA9EWwBglHg=; b=eeknUkvUlMp53iOyPX32Ddk7TZ
+	oxwnaY1tmKEnUZHqjGWkD6c9p5IbMzIZKL0FR/NmzctRnyR4JU/8lt1ETh3zrJgPH1wfdGUWte0W5
+	r+lU2OYnjCMc5Zpr7rAKZULEeIfm31vGT8bb0/foSeB06jmTb9sJKvF9zbXqRPZ/d1mFo76T/Ts6S
+	0FBxNsxDh1pGIVUkupiO7jIri0fhRo/rSjWGzlmr1mvjSr3nNk0xhz1aRMD0xD9pigZxk48LbhmQs
+	P+Xu34oPqJO12Gz3HNhtUSuIev0XfqHJdSD/sRVjN73nRDBhq5nli2/pnua/W8UHMh3mxEJBKE92j
+	XmhI15Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf4pl-0000000GmDq-3Iae;
-	Mon, 03 Feb 2025 22:22:25 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tf5LG-0000000GplM-0WJT;
+	Mon, 03 Feb 2025 22:54:58 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf4np-0000000Gm0o-01yc;
-	Mon, 03 Feb 2025 22:20:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=4owTwwRTiUJNe/UwXGTFceMfkYxJWBm3DVKrkEKXJHw=; b=Gz47kXrfxXNzMiT/jCkm/CZdGa
-	kXzKEYJ1GE9OASJwHNyCjmtSl2a2QaCYfU5Px8nEBHQlJBUwjdZfKpvWGLla3LaFFCyOZ+Sx+/Vl9
-	+K0HeCZqq7nSMYQ4iypUSA7wolx899o9HiWwHCxsF6tMfC3nbxkKYZd7FFd1JJYFNktXyNdio5SLI
-	9hS9hAKOGt7ExshOEbhN+zIjgGAY3lIIhaW0bwNsnUTNEbX3waxNrTrN2FIQB9BUHzXyk4oTRV7hi
-	XTteVKx87Yn9BOxvCeCFBEPc8btcj1oqJ6PE/VK47UNsDZU5rBvoUsJJIBn9fPuj6n4MZKOF12kos
-	b9SrBtZw==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf4nl-0000000GCXg-3MCa;
-	Mon, 03 Feb 2025 22:20:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 53CE65C111B;
-	Mon,  3 Feb 2025 22:19:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 976C1C4CED2;
-	Mon,  3 Feb 2025 22:20:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738621219;
-	bh=YHnhH8TGTVwn5M7n1rEBKbWfWUvHH1qfDMRyCsjzgVE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QnWSwFKLxV/bQd8Pu43Oh88t0R1YK305mRti99NklxLCDM0Lm6X4CobKomvMce48o
-	 CJATxa7dNjXBRUU1KZFnCV8ixqVdgVzC87ccgl7Sq1Bi0+Q/H1rHXLx2RjeP4Wj4qu
-	 OWalL9BWbFK1TyGzAK1hwJI6yXhG7v/m/Hworcp/EhC+IH+Hvt9a3ELy9rzH7cn9D1
-	 vSJbfqK9y80/BMpPk/HjMOsbrg2dc5Ep+DtlZ33gqlvI06JOy3id8tMXJgKbzZhVsz
-	 t8i3JCc/m7Me1D4zc4VSNpUOLsMiYzgwesxFK482/eyNHr4d5FORsSPtW+OJ2ety47
-	 nTXAg33bTK6FA==
-Date: Mon, 3 Feb 2025 16:20:18 -0600
-From: Rob Herring <robh@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org, "Guoniu.zhou" <guoniu.zhou@nxp.com>,
-	Robby Cai <robby.cai@nxp.com>,
-	Robert Chiras <robert.chiras@nxp.com>,
-	Mirela Rabulea <mirela.rabulea@nxp.com>,
-	Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-Subject: Re: [PATCH 08/14] media: dt-bindings: nxp,imx8mq-mipi-csi2: Add
- i.MX8QM compatible strings
-Message-ID: <20250203222018.GA226659-robh@kernel.org>
-References: <20250131-8qxp_camera-v1-0-319402ab606a@nxp.com>
- <20250131-8qxp_camera-v1-8-319402ab606a@nxp.com>
+	id 1tf5Jw-0000000Gpf6-0B6Z
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 03 Feb 2025 22:53:37 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 513MrUKY2282347
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Mon, 3 Feb 2025 16:53:30 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1738623210;
+	bh=7HSxTPHvZylEc2Qtms+g0hXLaiufClLhSA9EWwBglHg=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=OuPIgu/fvCEMpUVJA6aeEAR5GhEf9hJJ1MWjjq3gZBmScbtM7Dguq/+ICw69c974P
+	 igxqVqNJOZjzuguiJAWixcg9RgtIE61tfY9jvMd0sYrYOCe2rWUImnGkqCAx+EEwkK
+	 iLcj5iHWXwd7UYQ1mLCcKaFIHtr+shwoF3nkYMFY=
+Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 513MrUlt091988;
+	Mon, 3 Feb 2025 16:53:30 -0600
+Received: from DLEE106.ent.ti.com (157.170.170.36) by DLEE105.ent.ti.com
+ (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 3
+ Feb 2025 16:53:30 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE106.ent.ti.com
+ (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 3 Feb 2025 16:53:29 -0600
+Received: from [10.249.42.149] ([10.249.42.149])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 513MrTUD008582;
+	Mon, 3 Feb 2025 16:53:29 -0600
+Message-ID: <0ab5c5ec-cde3-41f1-8adf-2419b31497c1@ti.com>
+Date: Mon, 3 Feb 2025 16:53:29 -0600
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250131-8qxp_camera-v1-8-319402ab606a@nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 5/9] arm64: dts: ti: k3-am62a7-sk: Enable ipc with
+ remote processors
+To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Hari Nagalla
+	<hnagalla@ti.com>
+References: <20250131214611.3288742-1-jm@ti.com>
+ <20250131214611.3288742-6-jm@ti.com>
+Content-Language: en-US
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <20250131214611.3288742-6-jm@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_222022_225767_C9E73B59 
-X-CRM114-Status: GOOD (  14.71  )
+X-CRM114-CacheID: sfid-20250203_145336_182051_5313B6CF 
+X-CRM114-Status: GOOD (  16.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,97 +91,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 31, 2025 at 04:33:53PM -0500, Frank Li wrote:
-> From: Robert Chiras <robert.chiras@nxp.com>
+On 1/31/25 3:46 PM, Judith Mendez wrote:
+> From: Devarsh Thakkar <devarsht@ti.com>
 > 
-> Add compatible strings for i.MX8QM platform. Remove fsl,mipi-phy-gpr from
-> required properties and add 'phys', since i.MX8QM use standard phy
-> interface.
+> For each remote proc, reserve memory for IPC and bind the mailbox
+> assignments. Two memory regions are reserved for each remote processor.
+> The first region of 1MB of memory is used for Vring shared buffers
+> and the second region is used as external memory to the remote processor
+> for the resource table and for tracebuffer allocations.
 > 
-> Keep the same restriction for other compatible strings.
-> 
-> Signed-off-by: Robert Chiras <robert.chiras@nxp.com>
-> Reviewed-by: Robby Cai <robby.cai@nxp.com>
-> Reviewed-by: Mirela Rabulea <mirela.rabulea@nxp.com>
-> Reviewed-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
+> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
+> Signed-off-by: Judith Mendez <jm@ti.com>
 > ---
->  .../bindings/media/nxp,imx8mq-mipi-csi2.yaml       | 30 ++++++++++++++++++++--
->  1 file changed, 28 insertions(+), 2 deletions(-)
+> Changes since v1:
+> - add patches 5-9 to enable ipc and complete device nodes
+> ---
+>   arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 78 +++++++++++++++++++++++++
+>   1 file changed, 78 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
-> index 2a14e3b0e0040..91c4d8fbb1f8c 100644
-> --- a/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
-> +++ b/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
-> @@ -18,6 +18,8 @@ properties:
->    compatible:
->      enum:
->        - fsl,imx8mq-mipi-csi2
-> +      - fsl,imx8qm-mipi-csi2
-> +      - fsl,imx8ulp-mipi-csi2
->  
->    reg:
->      maxItems: 1
-> @@ -39,13 +41,18 @@ properties:
->        - const: ui
->  
->    power-domains:
-> -    maxItems: 1
-> +    minItems: 1
-> +    maxItems: 2
->  
->    resets:
->      items:
->        - description: CORE_RESET reset register bit definition
->        - description: PHY_REF_RESET reset register bit definition
->        - description: ESC_RESET reset register bit definition
-> +    minItems: 1
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+> index a6f0d87a50d8a..6f4b037537fec 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+> @@ -61,11 +61,41 @@ secure_ddr: optee@9e800000 {
+>   			no-map;
+>   		};
+>   
+> +		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
+> +			compatible = "shared-dma-pool";
+> +			reg = <0x00 0x9c800000 0x00 0x100000>;
+> +			no-map;
+> +		};
 > +
-> +  phys:
-> +    maxItems: 1
->  
->    fsl,mipi-phy-gpr:
->      description: |
-> @@ -113,9 +120,28 @@ required:
->    - clock-names
->    - power-domains
->    - resets
-> -  - fsl,mipi-phy-gpr
->    - ports
->  
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - fsl,imx8qm-mipi-csi2
-> +              - fsl,imx8ulp-mipi-csi2
-> +    then:
-> +      required:
-> +        - phys
-> +    else:
-> +      properties:
-> +        reg:
-> +          maxItems: 1
-
-The max is already 1.
-
-> +        resets:
-> +          minItems: 3
-
-1, 2, or 3 resets is valid for imx8qm and imx8ulp?
-
-2 power-domains are also now valid?
-
-> +      required:
-> +        - fsl,mipi-phy-gpr
+>   		wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
+>   			compatible = "shared-dma-pool";
+>   			reg = <0x00 0x9c900000 0x00 0x01e00000>;
+>   			no-map;
+>   		};
 > +
->  additionalProperties: false
->  
->  examples:
-> 
-> -- 
-> 2.34.1
-> 
+> +		mcu_r5fss0_core0_dma_memory_region: r5f-dma-memory@9b800000 {
+> +			compatible = "shared-dma-pool";
+> +			reg = <0x00 0x9b800000 0x00 0x100000>;
+> +			no-map;
+> +		};
+> +
+> +		mcu_r5fss0_core0_memory_region: r5f-dma-memory@9b900000 {
+> +			compatible = "shared-dma-pool";
+> +			reg = <0x00 0x9b900000 0x00 0x0f00000>;
+
+There is a leading 0 here and in a couple other places.
+
+s/0x0f00000/0xf00000
+
+> +			no-map;
+> +		};
+> +
+> +		c7x_0_dma_memory_region: c7x-dma-memory@99800000 {
+> +			compatible = "shared-dma-pool";
+> +			reg = <0x00 0x99800000 0x00 0x100000>;
+> +			no-map;
+> +		};
+> +
+> +		c7x_0_memory_region: c7x-memory@99900000 {
+> +			compatible = "shared-dma-pool";
+> +			reg = <0x00 0x99900000 0x00 0x01f00000>;
+
+0x01f00000 ? What is this size, all other firmware in all other
+K3 use 0xf00000 (16MB), that should be enough for any sane firmware.
+If some firmware needs more it is probably doing something hacky
+like leaving space for buffer passing internally. That space should
+be provided from a shared dma-buf pool or similar mechanism.
+
+Make this 0xf00000 and fix the firmware.
+
+Andrew
+
+> +			no-map;
+> +		};
+>   	};
+>   
+>   	opp-table {
+> @@ -737,3 +767,51 @@ dpi1_out: endpoint {
+>   		};
+>   	};
+>   };
+> +
+> +&mailbox0_cluster0 {
+> +	mbox_r5_0: mbox-r5-0 {
+> +		ti,mbox-rx = <0 0 0>;
+> +		ti,mbox-tx = <1 0 0>;
+> +	};
+> +};
+> +
+> +&mailbox0_cluster1 {
+> +	mbox_c7x_0: mbox-c7x-0 {
+> +		ti,mbox-rx = <0 0 0>;
+> +		ti,mbox-tx = <1 0 0>;
+> +	};
+> +};
+> +
+> +&mailbox0_cluster2 {
+> +	mbox_mcu_r5_0: mbox-mcu-r5-0 {
+> +		ti,mbox-rx = <0 0 0>;
+> +		ti,mbox-tx = <1 0 0>;
+> +	};
+> +};
+> +
+> +&wkup_r5fss0 {
+> +	status = "okay";
+> +};
+> +
+> +&wkup_r5fss0_core0 {
+> +	mboxes = <&mailbox0_cluster0>, <&mbox_r5_0>;
+> +	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
+> +		<&wkup_r5fss0_core0_memory_region>;
+> +};
+> +
+> +&mcu_r5fss0 {
+> +	status = "okay";
+> +};
+> +
+> +&mcu_r5fss0_core0 {
+> +	mboxes = <&mailbox0_cluster2>, <&mbox_mcu_r5_0>;
+> +	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
+> +			<&mcu_r5fss0_core0_memory_region>;
+> +};
+> +
+> +&c7x_0 {
+> +	mboxes = <&mailbox0_cluster1>, <&mbox_c7x_0>;
+> +	memory-region = <&c7x_0_dma_memory_region>,
+> +			<&c7x_0_memory_region>;
+> +	status = "okay";
+> +};
 
