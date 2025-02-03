@@ -4,100 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5284CC02193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 09:41:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7D6AC02193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 09:43:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ent5BMlYQPM9j3M+5ahy76qYgLanS7SSLSe5SbsU8f0=; b=wtwE5Fyn0AXEplV4a5Xg7sNCht
-	L79W0JysZQNKHxHE/PomvKQij4sL/wrOgYnHES9aIMvhpT26H5CQZys91LDNM6qyspl6ocy4E96mt
-	SNeVvrCVQRRtc5PF2SLURywtCE6OPFgXmCLGRVAthSkVLjKwCx8/BhNI2ODPNFWrycwqxEv5OpgAn
-	xVtvO1xXHtYEZCGEzzsMrBATd16ffNFW/tAQPNFThSL/jsXqRs14YZSDjnRDJFQNWk4O7JZdI/Frb
-	f/rFQ6KJ11nBsIEvQsxOAhe9u2+aNN3h0qdLnDjjLZ/C9UxZ1JO25+nWeeCgJQlzYg7kBJwM9cN+o
-	Ftj3o/bg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7peDE4226gPyH9UcLU1dQdA0OBGIDudGsx9OB9dUlfk=; b=XX0ehc/nTS/YvNLrRdD8A6h8i0
+	gdz9UY8zHnMQStHMuiD1UwfxJ51z4FCLm1APK88cjNsOfdl20UvEDijq7rVf86T7KbiNeB8FzMkbb
+	GUz0cpMzSzDcZkDcf0bbvZkkn2CzTCU8h9DwG6AEe5S4YGQDOWbCxIR+vnKdrhsphSNj4O+1jC3bg
+	l8KCgPf8O5rd9/OuSQNk7cV58j0u9dX5T33EE0bCArLZ4olhaHeggLoFx+Aly+TTZvVF7s0i7OlUz
+	HEn9PwfpLbZMYvTUB6bfVSI+psTuB0XdVNGXkE30XZslAyHMWi7w8UVgjpsIn3kmOkuo684A1v0eT
+	WhoV3MfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tesxa-0000000F1S7-267G;
-	Mon, 03 Feb 2025 09:41:42 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1tesys-0000000F1a7-1xXK;
+	Mon, 03 Feb 2025 09:43:02 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tesr6-0000000F0ZO-2toI
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 09:35:01 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-436345cc17bso30408835e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 01:35:00 -0800 (PST)
+	id 1tesu1-0000000F10i-35EG;
+	Mon, 03 Feb 2025 09:38:03 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-385e06af753so2017184f8f.2;
+        Mon, 03 Feb 2025 01:38:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1738575299; x=1739180099; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ent5BMlYQPM9j3M+5ahy76qYgLanS7SSLSe5SbsU8f0=;
-        b=gBQWKPZkmr3y7HBZQn0GSVl/stC2aWxtfYQ6jHfMRkZJL3I9Dh8x5zy9XmTKzIwdmu
-         v1ZsEEfkEDL/5Gr5tDr5G02Xy0ExHjTtjuQlw8rDWGc621jJf52BDP6VwHSHiVEgbECw
-         mWuTECdC2YNx10CsC09rW/4BLCZKJ1ITsgsanzTvOPAUu8G+V0dFN3sDemJqnPhXYUDR
-         AEPQniPKyhC4xgAk9XL4KSHsG0eNWfCEraQkK/d1d6A4UBJe1r9BIdN0W1lHukDyOl13
-         xCyY0DBWK5s1tp9G8Hlo1lZVhX1GRQxS+HGAatxFx4rvZvzfaRTxMkf5Mg2odtyTHxeu
-         Dsrg==
+        d=gmail.com; s=20230601; t=1738575480; x=1739180280; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=7peDE4226gPyH9UcLU1dQdA0OBGIDudGsx9OB9dUlfk=;
+        b=JYHungmCwUHRcdUT5DbEfqncjSic/JOiJa/cLNfAcL84u6rzoMjm90qyQHzssZ8rwC
+         +uaoRL3CNoCEp54MEvL+j0oNT606mt5j5PLmzO4ujHdisz8tkFurEnQJJoPHJQcabXoH
+         JZUrlyTIML57/u184yjb8zm+Tc1WMo8HtubEYTmkO61ixhXs+FauQB21OibU0zMz3dSG
+         ZRUaTuctyJ0Kv26kSOFBaVRxnjpDzm1ZVndczDWV8y4kBuCouyvSwvJuzQ3ZI6gYiTSz
+         E4QED3yjGXv+VH3PeS2WilYzNlR2rdq9xU47SU9bgVhPjZDLOWHLPdxJ4cnrjLQjA8gU
+         jDKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738575299; x=1739180099;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ent5BMlYQPM9j3M+5ahy76qYgLanS7SSLSe5SbsU8f0=;
-        b=skGRrMcDkpx+n4wCKGc+uu4dhDgh0IavsxCopBstzAeExQuv0Cy3/XZyXBeodNmw6N
-         oSgqfpbKS1G8i2FqqkR6Xp2w1qjN1A4sU2B2xptrvFTG/73N4Ok586ZVoFhiHHUIXCtD
-         zgZglMYcZHHklcTkepiufNYmVOfcR+Vnw66upK1UIf9jjuOkR4ab1pEQuuzcOF0n4BWa
-         FuCTbCPuKlVgvblOamX3AwFBZOI21ejhkQ77ocrZX4ZHXuiGgDiV3UT4sZAlJwP1vkZ6
-         1BmN1S9kXnbxgIgBdxIU6tRs2gTFrNyxsyl9imoqKcA8PP96vgKx0XZztvcpxST5UnGF
-         9Azw==
-X-Forwarded-Encrypted: i=1; AJvYcCVJK7j4h1x/2epc3kb6X0gllhiDAyIRRhAe2EqJfVVV5tmPKf64IcT5Ht5jfImiGx/2zmFlYuNdkcJPVV7QjEA4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyt4+GGKpF6a9m+IwkEvPSqRIqU9oXzYgAdE2u+RFvRC2d15oQN
-	x2RQG39MMjMfQ144sHyUMgK0ehayCRiIH9DauinmMHjknZcc8FWlFGnVtNKgXww=
-X-Gm-Gg: ASbGncs6eI5QiysNIWiqrLMpcGMnCKZmZg/+ly7djBhNzAtEixZtRzHH69GkO2KMGsB
-	W1SUWnt8g73oRWT+NNfA/PSuWwerOZzh1G8lwxar+PRN6LnQg0TYUfd8UC7cirKWdfvGVnDtNUj
-	NlNvUX4YbGX2ROm5qQhrmNuZkQClV/U1XpnZQYO9KB1pMiC0uvxhGRzD4w31W1d3RJjj+Z4DNdL
-	43hMu1AJKsloAgRZDUX/PG6evhNEblnbfqcf7Gsdt1bhKjPkF8U5J9r/u6hvLk5sY6E7rmEJaCL
-	/r3sSoEz7l6V
-X-Google-Smtp-Source: AGHT+IH/i47rSy0zBDmlrlLi+ULkPx5emtysPonhzE5Zko+R3RefPIXy6uiptilCB0KPK0c9Zu3S0A==
-X-Received: by 2002:a05:600c:4e01:b0:435:136:75f6 with SMTP id 5b1f17b1804b1-438dc34b179mr206291845e9.0.1738575299204;
-        Mon, 03 Feb 2025 01:34:59 -0800 (PST)
-Received: from localhost ([2001:4090:a245:80cb:f705:a3ac:14fe:4e1b])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-38c5c0ec80esm12373391f8f.10.2025.02.03.01.34.58
+        d=1e100.net; s=20230601; t=1738575480; x=1739180280;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=7peDE4226gPyH9UcLU1dQdA0OBGIDudGsx9OB9dUlfk=;
+        b=HlCmKNQel0keglrDIDKK4QzgMnRZtHbV9OD/duTuz3lv7jZFwTWt3HyD6wk7m4P5hq
+         pzG1WOmb2HeLFzWGNylMaFdihPlBB+aj3T3yYqr5VgpWSx6bB/foVr8Ha528aJvm4uga
+         w/G31+Nl3qLRcOdhUoHpHZwZQhohu2R1IoJyllPOFPZGBsoD95cp3MOvPNm4aSjwHH22
+         565xNPj12EQpU1zKXuM5KPmS4RugbgRSSdZVkY0OTNg50XuNJFmWW9lPKgbPLW+qasSk
+         MixIRmyPpYnUflGWBZ9HMdeQLFNms1EG77/N4pb5bj+LyLlg78lfNtV0OOulvpJ8jhZe
+         N0sQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUdaG2zh63pfr6pZMyl3c/OK64EIv2hnWp9tb8J4SoMkvjf0riB5sPJIIwacxf3xXHk/seyVxysjRSIIyCs4wpn@lists.infradead.org, AJvYcCXqEnWhGgNSgwZ/3UR3ILxB0Ih5H68L9i2UO6xWJ2hMPa4bcYNaTI3TuZ38YLChpLPGE1B42xLHMZrnw1b1/H8=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzaUspWE1ancaO7QQiRXqeEJ5Apnql2CRe8E0jBqE13GNS0ngSe
+	uoeWp1eLNvjgTYsmEIXudAc8ExDIuuXbkLv/GrPE3wL5l4SlRlwI
+X-Gm-Gg: ASbGncupjr+0xQA353mbdI9uOMHZw1ZliLPRNXv8v+bUVn0Lr9TQzwxAlIVC/Wy0lJw
+	SwI+tSZ5iIF1aPgmFDlXzXGPdW6hETaSsG+F629Yh7ypeUF8CyDkCj3ycX3N2AbRWWTpsc6TMUd
+	l4HwflZSWhTRCc2rDBU/YMkH+WBuFzJDJbzdKassiLcCYb8GgHq/orovHaGh+zxtVmMUlZIZyp6
+	lMgy80Gk5J5l7q51qXqp0t349HTcEDndbCkzhDnLPIFkHDFS6SMsvr0ahwmIjf8nWCG/aN4RFrj
+	/LpGFyZShQhmCS7cJg==
+X-Google-Smtp-Source: AGHT+IHdEwQPMp/IYjrBUKP9SI3ANoh6a27II8NCdtsAqFDvpkqpssdT12J2jM47RJ7YS6f0++FlHA==
+X-Received: by 2002:a05:6000:188d:b0:38a:88bc:a8e3 with SMTP id ffacd0b85a97d-38c519699demr17237624f8f.33.1738575479649;
+        Mon, 03 Feb 2025 01:37:59 -0800 (PST)
+Received: from [10.176.235.56] ([137.201.254.41])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38c5c121951sm12114646f8f.45.2025.02.03.01.37.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Feb 2025 01:34:58 -0800 (PST)
-From: Markus Schneider-Pargmann <msp@baylibre.com>
-Date: Mon, 03 Feb 2025 10:34:12 +0100
-Subject: [PATCH 3/3] arm64: dts: ti: k3-am62p5-sk: Add serial alias
+        Mon, 03 Feb 2025 01:37:59 -0800 (PST)
+Message-ID: <ceeee4f93b22ab53c4243eec85449a95b0305c70.camel@gmail.com>
+Subject: Re: [PATCH v3 1/8] scsi: ufs: core: Pass target_freq to
+ clk_scale_notify() vop
+From: Bean Huo <huobean@gmail.com>
+To: Ziqi Chen <quic_ziqichen@quicinc.com>, quic_cang@quicinc.com, 
+ bvanassche@acm.org, mani@kernel.org, beanhuo@micron.com,
+ avri.altman@wdc.com,  junwoo80.lee@samsung.com, martin.petersen@oracle.com,
+ quic_nguyenb@quicinc.com,  quic_nitirawa@quicinc.com,
+ quic_rampraka@quicinc.com
+Cc: linux-arm-msm@vger.kernel.org, linux-scsi@vger.kernel.org, Alim Akhtar
+ <alim.akhtar@samsung.com>, "James E.J. Bottomley"
+ <James.Bottomley@HansenPartnership.com>, Peter Wang
+ <peter.wang@mediatek.com>,  Stanley Jhu <chu.stanley@gmail.com>, Manivannan
+ Sadhasivam <manivannan.sadhasivam@linaro.org>,  Matthias Brugger
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>,  Andrew Halaney
+ <ahalaney@redhat.com>, Eric Biggers <ebiggers@google.com>, Minwoo Im
+ <minwoo.im@samsung.com>,  open list <linux-kernel@vger.kernel.org>,
+ "moderated list:UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER..."
+ <linux-mediatek@lists.infradead.org>, "moderated list:ARM/Mediatek SoC
+ support:Keyword:mediatek" <linux-arm-kernel@lists.infradead.org>
+Date: Mon, 03 Feb 2025 10:37:56 +0100
+In-Reply-To: <20250203081109.1614395-2-quic_ziqichen@quicinc.com>
+References: <20250203081109.1614395-1-quic_ziqichen@quicinc.com>
+	 <20250203081109.1614395-2-quic_ziqichen@quicinc.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.44.4-0ubuntu2 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250203-topic-am62-serial-aliases-v6-14-v1-3-f26d4124a9f1@baylibre.com>
-References: <20250203-topic-am62-serial-aliases-v6-14-v1-0-f26d4124a9f1@baylibre.com>
-In-Reply-To: <20250203-topic-am62-serial-aliases-v6-14-v1-0-f26d4124a9f1@baylibre.com>
-To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>, 
- Dhruva Gole <d-gole@ti.com>, Sebin Francis <sebin.francis@ti.com>, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Markus Schneider-Pargmann <msp@baylibre.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=694; i=msp@baylibre.com;
- h=from:subject:message-id; bh=DM6U8sXm8knG/sEVdw0Vde11Blu3uduqsrLQMjwQyb0=;
- b=owGbwMvMwCGm0rPl0RXRdfaMp9WSGNIX9O4qPPS3tUzkLIdzwvus/D33e1QaDmqmq9V95ZITP
- +tzYMrJjlIWBjEOBlkxRZa7Hxa+q5O7viBi3SNHmDmsTCBDGLg4BWAib5kY/odVai7VVvn89sVJ
- o5tT54bYh+/IkKkxnXcsn/1xmsfquNkMf2W/GUjobZr+IFvog8LJs0xcW5WWxrVzMms8VH3sIbb
- tGTMA
-X-Developer-Key: i=msp@baylibre.com; a=openpgp;
- fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_013500_738989_30A527F8 
-X-CRM114-Status: UNSURE (   9.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250203_013801_773945_8B7B921F 
+X-CRM114-Status: GOOD (  10.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,30 +113,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Vibhore Vardhan <vibhore@ti.com>
+On Mon, 2025-02-03 at 16:11 +0800, Ziqi Chen wrote:
+> From: Can Guo <quic_cang@quicinc.com>
+>=20
+> Instead of only two frequencies, if OPP V2 is used, the UFS devfreq
+> clock
+> scaling may scale the clock among multiple frequencies, so just
+> passing
+> up/down to vop clk_scale_notify() is not enough to cover the
+> intermediate
+> clock freqs between the min and max freqs. Hence pass the target_freq
+> ,
+> which will be used in successive commits, to clk_scale_notify() to
+> allow
+> the vop to perform corresponding configurations with regard to the
+> clock
+> freqs.
+>=20
+> Signed-off-by: Can Guo <quic_cang@quicinc.com>
+> Co-developed-by: Ziqi Chen <quic_ziqichen@quicinc.com>
+> Signed-off-by: Ziqi Chen <quic_ziqichen@quicinc.com>
 
-Add alias for mcu_uart0.
+I have reviewed patches [1/8], [2/8], [3/8], [4/8] in the v2, since you
+just changed coding types, and typos , but no logic change in v3. Add
+my review tag agaion:
 
-Signed-off-by: Vibhore Vardhan <vibhore@ti.com>
-Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
----
- arch/arm64/boot/dts/ti/k3-am62p5-sk.dts | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-index ad71d2f27f538d68644491bc6c1831acdd9263cb..81504ebc6a585f0c88cc4f448eeeb04e215ee27f 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-@@ -19,6 +19,7 @@ / {
- 
- 	aliases {
- 		serial0 = &wkup_uart0;
-+		serial1 = &mcu_uart0;
- 		serial2 = &main_uart0;
- 		serial3 = &main_uart1;
- 		mmc0 = &sdhci0;
-
--- 
-2.47.2
-
+Reviewed-by: Bean Huo <beanhuo@micron.com>=20
 
