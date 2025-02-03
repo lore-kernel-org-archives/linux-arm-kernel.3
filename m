@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75E5CC02196
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 17:23:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C68F6C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 17:25:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=03koI51MbYiTEuUtu8hj4DjkXfTxAWVQKeHYUQC2BJA=; b=TjzD/n/xmd9iEoOghteb8S9B2V
-	g6wUpy3EIoJoPq/sgdLnC2TB/l8Fz2tzVp2KNqyc/UVFsAMPSMRc3RDlVhiUl8V45wqsg/YyXdT1D
-	CcgGX2vIY07jBWbVcdBV+zSIkzoL+QhRCf9hlFqixk1sWzmQ+J5++qJXzu3+mhigaNGkCtj6vBkMI
-	0nv3eN8PHbbzkP/zKLzOhNZpBmvQvvQ/w+QykblCZVRBeyTvS1c6Fa8Ro/hLJGsDfxTqgjBIi9a/l
-	bi/iLOmyVAWACO9D8z+HTip/dVFgaoH/LF+OBlTouKX8YeV3zktlTAe7eqMfLqIVZQsCr71mmbrJg
-	4mTlt0GQ==;
+	bh=iKnai0SPww3d36GhbzqSs0MOIRSxCDhZLzDIOrMuN14=; b=L/bjFGk929b9IMze6e81RI8e5Q
+	KVzEaAgbNPOcF7p9Q/yXEoZC5hpgKyUOjBG8QGaTLfYBGVmQdnUfYhycbEaHFlztF4czyoAUOOA/J
+	uvuMJNsB4vPRiZl/UCVzUkIBRGxf7awrS9SaCBTym24IvTpdTlH5FYnkKQ8lTIeoWI7mB3wUY1/rv
+	pEssuKe44tH6U5pQhNChwvdEvtRJTLns+kLTKFzJG6Ip9MR3YwOnFF/WqI1lf8wcFYr8Hl2D4HFcv
+	3hko/Tt3m3uC+AhFcJxhroIuAdSIVpA2+n4CugIovK84WYnVzJz1WKbVxN9MdxobnE7vtG/L2S32F
+	O5QGpLtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf0Ah-0000000G8Fd-2u32;
-	Mon, 03 Feb 2025 17:23:43 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tf0C0-0000000G8Ps-2qil;
+	Mon, 03 Feb 2025 17:25:04 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf06p-0000000G78s-3TmH;
-	Mon, 03 Feb 2025 17:19:45 +0000
+	id 1tf06u-0000000G7BD-3Gv7;
+	Mon, 03 Feb 2025 17:19:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1738603182;
-	bh=kn29Py54zpRoabMCucIUHSOhte9uQsNlW4wiRORjRn4=;
+	s=mail; t=1738603186;
+	bh=sX9Hi4YxY4bBH/BFRBxWiGviGy+3yNXN+SWo1wqDHKY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=G9g3Am1r6GBb7xQMGl0b9jW1M9O2eGbFtt9zsE4bmNjYXieQ/trdjg4T87SJIEQDz
-	 pFeM6x4OgOHUB6eJiVlsWlMKwaYMluxyKWsjTMGniCr3qweo3ZUO0rFvgDgbwYUvGN
-	 upzRZYcgBRqyVgZMf82Fk4m0QbhZpTvsIrEWikGCg7RBhP+P9oH9KoD1t4f+9lpcSt
-	 YIrW4MPODeLIRsLyeP3bXxTfJLSEM5yajjK4MlJOFoVcSSJFEnxUb5SLRM4SOQZYxf
-	 P+0rUE8NLZqLHvmkG6S7Lrz0Mjb23US2zDRzYVxlWy3Q7bh8LJei92Yi8lmhMJPS0r
-	 2v7XTsdvY5lTA==
+	b=l3c4ZSy1N3Z9UfC1XawNz6Ce8IOjFnrMOQiZPHC+WLF40+OdCV2hO5w2/eOMeL+1f
+	 //dDp1QxxTQLDm+vWRT9HFLwvySzHlcfeFeftbLEn1zAHaFsUcEX0oHBAOlwzqq0qu
+	 +uLxuzJAlbeB8rH60ZtWc+Q67mk1w+9gW2OMZh4118FeRFZNfy/XSRWwHsbT4CNyV8
+	 Xn04B1xINICllt9LUFr9AcQ7QmYg4V8wbN0bMXz+O7V6F42WYd1z58OsgugMoJs7bX
+	 BFwW6DSdwaRPuR+vdWF7VE0vU3RjQkD5GHzlnCjH08kYHcjcw9Vo67HG525OIs3bUF
+	 Vew/AUe5ZVTFA==
 Received: from earth.mtl.collabora.ca (mtl.collabora.ca [66.171.169.34])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6D89D17E0E9D;
-	Mon,  3 Feb 2025 18:19:38 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id CC2EB17E1511;
+	Mon,  3 Feb 2025 18:19:42 +0100 (CET)
 From: Detlev Casanova <detlev.casanova@collabora.com>
 To: linux-kernel@vger.kernel.org
 Cc: Rob Herring <robh@kernel.org>,
@@ -81,17 +81,18 @@ Cc: Rob Herring <robh@kernel.org>,
 	dri-devel@lists.freedesktop.org,
 	kernel@collabora.com,
 	Quentin Schulz <quentin.schulz@cherry.de>
-Subject: [PATCH v5 2/3] arm64: dts: rockchip: Add HDMI0 audio output for rk3588 SoC
-Date: Mon,  3 Feb 2025 12:16:32 -0500
-Message-ID: <20250203171925.126309-3-detlev.casanova@collabora.com>
+Subject: [PATCH v5 3/3] arm64: dts: rockchip: Enable HDMI0 audio output for Rock 5B
+Date: Mon,  3 Feb 2025 12:16:33 -0500
+Message-ID: <20250203171925.126309-4-detlev.casanova@collabora.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250203171925.126309-1-detlev.casanova@collabora.com>
 References: <20250203171925.126309-1-detlev.casanova@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_091944_008836_A338D766 
-X-CRM114-Status: GOOD (  11.85  )
+X-CRM114-CacheID: sfid-20250203_091948_960925_BD70AA65 
+X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,55 +107,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the simple-audio-card driver with the hdmi0 QP node as CODEC and
-the i2s5 device as CPU.
-
-The simple-audio-card,mclk-fs value is set to 128 as it is done in
-the downstream driver.
-
-The #sound-dai-cells value is set to 0 in the hdmi0 node so that it can be
-used as an audio codec node.
+HDMI audio is available on the Rock 5B HDMI TX port.
+Enable it.
 
 Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-index 8cfa30837ce72..767bdfc06b7ec 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-@@ -1369,6 +1369,22 @@ i2s9_8ch: i2s@fddfc000 {
- 		status = "disabled";
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+index d597112f1d5b8..88ff5d9db2817 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+@@ -204,6 +204,10 @@ &gpu {
+ 	status = "okay";
+ };
+ 
++&hdmi0_sound {
++	status = "okay";
++};
++
+ &hdmi0 {
+ 	status = "okay";
+ };
+@@ -318,6 +322,10 @@ i2s0_8ch_p0_0: endpoint {
  	};
+ };
  
-+	hdmi0_sound: hdmi0-sound {
-+		compatible = "simple-audio-card";
-+		simple-audio-card,format = "i2s";
-+		simple-audio-card,mclk-fs = <128>;
-+		simple-audio-card,name = "hdmi0";
-+		status = "disabled";
++&i2s5_8ch {
++	status = "okay";
++};
 +
-+		simple-audio-card,codec {
-+			sound-dai = <&hdmi0>;
-+		};
-+
-+		simple-audio-card,cpu {
-+			sound-dai = <&i2s5_8ch>;
-+		};
-+	};
-+
- 	hdmi0: hdmi@fde80000 {
- 		compatible = "rockchip,rk3588-dw-hdmi-qp";
- 		reg = <0x0 0xfde80000 0x0 0x20000>;
-@@ -1394,6 +1410,7 @@ hdmi0: hdmi@fde80000 {
- 		reset-names = "ref", "hdp";
- 		rockchip,grf = <&sys_grf>;
- 		rockchip,vo-grf = <&vo1_grf>;
-+		#sound-dai-cells = <0>;
- 		status = "disabled";
+ &package_thermal {
+ 	polling-delay = <1000>;
  
- 		ports {
 -- 
 2.48.1
 
