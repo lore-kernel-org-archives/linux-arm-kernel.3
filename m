@@ -4,101 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7D6AC02193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 09:43:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6DC7C02193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 09:45:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7peDE4226gPyH9UcLU1dQdA0OBGIDudGsx9OB9dUlfk=; b=XX0ehc/nTS/YvNLrRdD8A6h8i0
-	gdz9UY8zHnMQStHMuiD1UwfxJ51z4FCLm1APK88cjNsOfdl20UvEDijq7rVf86T7KbiNeB8FzMkbb
-	GUz0cpMzSzDcZkDcf0bbvZkkn2CzTCU8h9DwG6AEe5S4YGQDOWbCxIR+vnKdrhsphSNj4O+1jC3bg
-	l8KCgPf8O5rd9/OuSQNk7cV58j0u9dX5T33EE0bCArLZ4olhaHeggLoFx+Aly+TTZvVF7s0i7OlUz
-	HEn9PwfpLbZMYvTUB6bfVSI+psTuB0XdVNGXkE30XZslAyHMWi7w8UVgjpsIn3kmOkuo684A1v0eT
-	WhoV3MfQ==;
+	bh=oQMEJhzCoP6SsvcMRpV7hOEsBH8JgG7jjiRN9zw1N9o=; b=YV2Ede0ey1GrPakwUfjs6Ah1HP
+	UAqSvlo2/NHefPXz9a4sorIWldarifxuH9IJNpd3jH3aR/pA135bhLwmgN/KURiBdQWTlJzRUSbbm
+	PlPRYofh6Q3rxZ8VPkekgnh6iGKTUhpwfMcYFzD6i9vF+XrWagKUJJSqhDcZMyxAeuO9jN7IWaPk0
+	gKDzGPQn+su87tndyksAB/1BhEOMCQDlUnPFgbqoy3SJBroFbtXyEn5xLJLu/0nzQ3mm1kxdP/D3o
+	7+fwbBeCbOcP5tLUljcSGUPaI3BVr/BWgoQk+IDKz25liypvoDvrXofWHAovUKk5qeh9muDebkoZT
+	AxBPZS9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tesys-0000000F1a7-1xXK;
-	Mon, 03 Feb 2025 09:43:02 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tesu1-0000000F10i-35EG;
-	Mon, 03 Feb 2025 09:38:03 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-385e06af753so2017184f8f.2;
-        Mon, 03 Feb 2025 01:38:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738575480; x=1739180280; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=7peDE4226gPyH9UcLU1dQdA0OBGIDudGsx9OB9dUlfk=;
-        b=JYHungmCwUHRcdUT5DbEfqncjSic/JOiJa/cLNfAcL84u6rzoMjm90qyQHzssZ8rwC
-         +uaoRL3CNoCEp54MEvL+j0oNT606mt5j5PLmzO4ujHdisz8tkFurEnQJJoPHJQcabXoH
-         JZUrlyTIML57/u184yjb8zm+Tc1WMo8HtubEYTmkO61ixhXs+FauQB21OibU0zMz3dSG
-         ZRUaTuctyJ0Kv26kSOFBaVRxnjpDzm1ZVndczDWV8y4kBuCouyvSwvJuzQ3ZI6gYiTSz
-         E4QED3yjGXv+VH3PeS2WilYzNlR2rdq9xU47SU9bgVhPjZDLOWHLPdxJ4cnrjLQjA8gU
-         jDKw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738575480; x=1739180280;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=7peDE4226gPyH9UcLU1dQdA0OBGIDudGsx9OB9dUlfk=;
-        b=HlCmKNQel0keglrDIDKK4QzgMnRZtHbV9OD/duTuz3lv7jZFwTWt3HyD6wk7m4P5hq
-         pzG1WOmb2HeLFzWGNylMaFdihPlBB+aj3T3yYqr5VgpWSx6bB/foVr8Ha528aJvm4uga
-         w/G31+Nl3qLRcOdhUoHpHZwZQhohu2R1IoJyllPOFPZGBsoD95cp3MOvPNm4aSjwHH22
-         565xNPj12EQpU1zKXuM5KPmS4RugbgRSSdZVkY0OTNg50XuNJFmWW9lPKgbPLW+qasSk
-         MixIRmyPpYnUflGWBZ9HMdeQLFNms1EG77/N4pb5bj+LyLlg78lfNtV0OOulvpJ8jhZe
-         N0sQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUdaG2zh63pfr6pZMyl3c/OK64EIv2hnWp9tb8J4SoMkvjf0riB5sPJIIwacxf3xXHk/seyVxysjRSIIyCs4wpn@lists.infradead.org, AJvYcCXqEnWhGgNSgwZ/3UR3ILxB0Ih5H68L9i2UO6xWJ2hMPa4bcYNaTI3TuZ38YLChpLPGE1B42xLHMZrnw1b1/H8=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzaUspWE1ancaO7QQiRXqeEJ5Apnql2CRe8E0jBqE13GNS0ngSe
-	uoeWp1eLNvjgTYsmEIXudAc8ExDIuuXbkLv/GrPE3wL5l4SlRlwI
-X-Gm-Gg: ASbGncupjr+0xQA353mbdI9uOMHZw1ZliLPRNXv8v+bUVn0Lr9TQzwxAlIVC/Wy0lJw
-	SwI+tSZ5iIF1aPgmFDlXzXGPdW6hETaSsG+F629Yh7ypeUF8CyDkCj3ycX3N2AbRWWTpsc6TMUd
-	l4HwflZSWhTRCc2rDBU/YMkH+WBuFzJDJbzdKassiLcCYb8GgHq/orovHaGh+zxtVmMUlZIZyp6
-	lMgy80Gk5J5l7q51qXqp0t349HTcEDndbCkzhDnLPIFkHDFS6SMsvr0ahwmIjf8nWCG/aN4RFrj
-	/LpGFyZShQhmCS7cJg==
-X-Google-Smtp-Source: AGHT+IHdEwQPMp/IYjrBUKP9SI3ANoh6a27II8NCdtsAqFDvpkqpssdT12J2jM47RJ7YS6f0++FlHA==
-X-Received: by 2002:a05:6000:188d:b0:38a:88bc:a8e3 with SMTP id ffacd0b85a97d-38c519699demr17237624f8f.33.1738575479649;
-        Mon, 03 Feb 2025 01:37:59 -0800 (PST)
-Received: from [10.176.235.56] ([137.201.254.41])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38c5c121951sm12114646f8f.45.2025.02.03.01.37.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Feb 2025 01:37:59 -0800 (PST)
-Message-ID: <ceeee4f93b22ab53c4243eec85449a95b0305c70.camel@gmail.com>
-Subject: Re: [PATCH v3 1/8] scsi: ufs: core: Pass target_freq to
- clk_scale_notify() vop
-From: Bean Huo <huobean@gmail.com>
-To: Ziqi Chen <quic_ziqichen@quicinc.com>, quic_cang@quicinc.com, 
- bvanassche@acm.org, mani@kernel.org, beanhuo@micron.com,
- avri.altman@wdc.com,  junwoo80.lee@samsung.com, martin.petersen@oracle.com,
- quic_nguyenb@quicinc.com,  quic_nitirawa@quicinc.com,
- quic_rampraka@quicinc.com
-Cc: linux-arm-msm@vger.kernel.org, linux-scsi@vger.kernel.org, Alim Akhtar
- <alim.akhtar@samsung.com>, "James E.J. Bottomley"
- <James.Bottomley@HansenPartnership.com>, Peter Wang
- <peter.wang@mediatek.com>,  Stanley Jhu <chu.stanley@gmail.com>, Manivannan
- Sadhasivam <manivannan.sadhasivam@linaro.org>,  Matthias Brugger
- <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>,  Andrew Halaney
- <ahalaney@redhat.com>, Eric Biggers <ebiggers@google.com>, Minwoo Im
- <minwoo.im@samsung.com>,  open list <linux-kernel@vger.kernel.org>,
- "moderated list:UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER..."
- <linux-mediatek@lists.infradead.org>, "moderated list:ARM/Mediatek SoC
- support:Keyword:mediatek" <linux-arm-kernel@lists.infradead.org>
-Date: Mon, 03 Feb 2025 10:37:56 +0100
-In-Reply-To: <20250203081109.1614395-2-quic_ziqichen@quicinc.com>
-References: <20250203081109.1614395-1-quic_ziqichen@quicinc.com>
-	 <20250203081109.1614395-2-quic_ziqichen@quicinc.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.44.4-0ubuntu2 
+	id 1tet0u-0000000F2Ay-3Hcw;
+	Mon, 03 Feb 2025 09:45:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1teszY-0000000F1l7-2vIr
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 03 Feb 2025 09:43:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6FDF11063;
+	Mon,  3 Feb 2025 01:44:08 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 96BF23F5A1;
+	Mon,  3 Feb 2025 01:43:41 -0800 (PST)
+Date: Mon, 3 Feb 2025 09:43:39 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: Stephen Boyd <sboyd@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Sudeep Holla <sudeep.holla@arm.com>, linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH 1/3] clk: Introduce clk_set_spread_spectrum
+Message-ID: <Z6CPy89TVxV1jaDn@pluto>
+References: <20250124-clk-ssc-v1-0-2d39f6baf2af@nxp.com>
+ <20250124-clk-ssc-v1-1-2d39f6baf2af@nxp.com>
+ <ff801714249c492abc3781da55675a38.sboyd@kernel.org>
+ <20250202104256.GA13402@localhost.localdomain>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250202104256.GA13402@localhost.localdomain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_013801_773945_8B7B921F 
-X-CRM114-Status: GOOD (  10.85  )
+X-CRM114-CacheID: sfid-20250203_014344_829210_A75B704B 
+X-CRM114-Status: GOOD (  32.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,30 +77,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2025-02-03 at 16:11 +0800, Ziqi Chen wrote:
-> From: Can Guo <quic_cang@quicinc.com>
->=20
-> Instead of only two frequencies, if OPP V2 is used, the UFS devfreq
-> clock
-> scaling may scale the clock among multiple frequencies, so just
-> passing
-> up/down to vop clk_scale_notify() is not enough to cover the
-> intermediate
-> clock freqs between the min and max freqs. Hence pass the target_freq
-> ,
-> which will be used in successive commits, to clk_scale_notify() to
-> allow
-> the vop to perform corresponding configurations with regard to the
-> clock
-> freqs.
->=20
-> Signed-off-by: Can Guo <quic_cang@quicinc.com>
-> Co-developed-by: Ziqi Chen <quic_ziqichen@quicinc.com>
-> Signed-off-by: Ziqi Chen <quic_ziqichen@quicinc.com>
+On Sun, Feb 02, 2025 at 06:42:56PM +0800, Peng Fan wrote:
+> On Tue, Jan 28, 2025 at 12:25:28PM -0800, Stephen Boyd wrote:
+> >Quoting Peng Fan (OSS) (2025-01-24 06:25:17)
+> >> diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
+> >> index cf7720b9172ff223d86227aad144e15375ddfd86..a4fe4a60f839244b736e3c2751eeb38dc4577b1f 100644
+> >> --- a/drivers/clk/clk.c
+> >> +++ b/drivers/clk/clk.c
+> >> @@ -2790,6 +2790,45 @@ int clk_set_max_rate(struct clk *clk, unsigned long rate)
+> >>  }
+> >>  EXPORT_SYMBOL_GPL(clk_set_max_rate);
+> >>  
+> >> +int clk_set_spread_spectrum(struct clk *clk, unsigned int modfreq,
+> >> +                           unsigned int spreadpercent, unsigned int method,
+> >> +                           bool enable)
+> >> +{
+> >> +       struct clk_spread_spectrum clk_ss;
+> >> +       struct clk_core *core;
+> >> +       int ret = 0;
+> >
+> >The assignment looks unnecessary.
+> 
+> To avoid uninitialized variable warning.
+> 
+> >
+> >> +
+> >> +       if (!clk || !clk->core)
+> >
+> >How do you not have clk->core?
+> >
+> >> +               return 0;
+> >> +
+> >> +       clk_ss.modfreq = modfreq;
+> >> +       clk_ss.spreadpercent = spreadpercent;
+> >> +       clk_ss.method = method;
+> >> +       clk_ss.enable = enable;
+> >> +
+> >> +       clk_prepare_lock();
+> >> +
+> >> +       core = clk->core;
+> >
+> >Why do we need to get the core under the lock?
+> 
+> Drop in v2.
+> 
+> >
+> >> +
+> >> +       if (core->prepare_count) {
+> >
+> >Why does prepare count matter?
+> 
+> I was thinking to configure Spread Spectrum(SS) before
+> prepare/enable a clock. But it should be fine to not
+> check prepare count.
+> 
+> >
+> >> +               ret = -EBUSY;
+> >> +               goto fail;
+> >
+> >We just left without releasing the lock.
+> 
+> True. Dan also reported this. Fix in V2.
+> 
+> >
+> >> +       }
+> >> +
+> >> +       ret = clk_pm_runtime_get(core);
+> >> +       if (ret)
+> >> +               goto fail;
+> >
+> >We just left without releasing the lock.
+> >
+> >> +
+> >> +       if (core->ops->set_spread_spectrum)
+> >> +               ret = core->ops->set_spread_spectrum(core->hw, &clk_ss);
+> >> +
+> >> +       clk_pm_runtime_put(core);
+> >> +       clk_prepare_unlock();
+> >> +fail:
+> >> +       return ret;
+> >> +}
+> >> +EXPORT_SYMBOL_GPL(clk_set_spread_spectrum);
+> >> +
+> >> diff --git a/include/linux/clk.h b/include/linux/clk.h
+> >> index b607482ca77e987b9344c38f25ebb5c8d35c1d39..49a7f7eb8b03233e11cd3b92768896c4e45c4e7c 100644
+> >> --- a/include/linux/clk.h
+> >> +++ b/include/linux/clk.h
+> >> @@ -858,6 +858,21 @@ int clk_set_rate(struct clk *clk, unsigned long rate);
+> >>   */
+> >>  int clk_set_rate_exclusive(struct clk *clk, unsigned long rate);
+> >>  
+> >> +/**
+> >> + * clk_set_spread_spectrum - set the spread spectrum for a clock
+> >> + * @clk: clock source
+> >> + * @modfreq: modulation freq
+> >> + * @spreadpercent: modulation percentage
+> >> + * @method: down spread, up spread, center spread or else
+> >
+> >Did we get cut off?
+> 
+> Sorry I not get this point.
+> 
+> >
+> >> + * @enable: enable or disable
+> >
+> >Isn't 'disable' equal to spread_percent of zero?
+> 
+> yeah. Drop the last parameter.
+> 
+> >
+> >> + *
+> >> + * Configure the spread spectrum parameters for a clock.
+> >> + *
+> >> + * Returns success (0) or negative errno.
+> >> + */
+> >> +int clk_set_spread_spectrum(struct clk *clk, unsigned int modfreq,
+> >
+> >Does this need to be a consumer API at all? Usually SSC is figured out
+> >when making a board and you have to pass some certification testing
+> >because some harmonics are interfering. Is the DT property sufficient
+> >for now and then we can do it when the driver probes in the framework?
+> 
+> I suppose 'DT property' you are refering the stm32 and i.MX8M SSC patchsets.
+> I am proposing a generic interface for drivers to enable SSC.
+> Otherwise we need to introduce vendor properties for each vendor.
+> And looking at clk-scmi.c, we need a generic way to enable SSC, I think SCMI
+> maintainers not agree to add vendor properties for it.
+> 
 
-I have reviewed patches [1/8], [2/8], [3/8], [4/8] in the v2, since you
-just changed coding types, and typos , but no logic change in v3. Add
-my review tag agaion:
+To clarify, from the SCMI point of view, I expressed the idea that it
+would make sense to have a common SSC interface on the SCMI backend too
+instead of a custom NXP since you are adding a common CLK framework feature,
+BUT only if it turns out, from this discussion, that a common general way of
+configuring SSC can be found...and I dont know that, so I am waiting to see
+what this discussion with CLK framework and iMX maintainers goes before
+excluding the SCMI CLK vendor OEM types scenario...it would be ideal and
+easier NOT to use SCMI vendor extensions BUT ONLY if this NXP SSC/config generic
+solution is deemed to be really generic and usable by any other vendor.
 
-Reviewed-by: Bean Huo <beanhuo@micron.com>=20
+Thanks,
+Cristian
 
