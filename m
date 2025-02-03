@@ -4,124 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42F00C02193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 18:58:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF032C02193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 19:00:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SVQO+IqVJBjIpGvloQABHH8Rsr9K0FypYEqAHJLTov4=; b=O4saICSz9KJv5iiEy0fC8dKh/m
-	bd2+c8mpvrSyxCxybQM7kzBx+8Zb/aTHDFM69hD086S5gehpd91X4Y5SLatI4hhiczTKTLvHQ+sGT
-	zDA8SgqKZxDtC4/DLJGDg0Fj+V4HvPJMrog8aCkdwTHjQqi1ObfZn5GWs2qyofOueKOYq75Jhr5hJ
-	jLDwzHVsfP1wfwlgWTvKYpfHBD9EDe4E6MupK+GtbKPPHEd7KzjjzOOIJq7iFpYsEK2/OmxUYVkYV
-	8O68FVNaORxymzNqsCT0FfW0R/4NMfmc8E6OWj+Wl3dmxR+4NvdWTCvVCNBdWF3EvHz/NZKDCAr7T
-	lkEm6H/A==;
+	bh=SsZHrLNRAru9wyA76hL7eTkNNc8V3WAtjtpBsrrxZXk=; b=RbYwoLxz6ZMdmViZ0VpYb4EKT6
+	G3ZQCzeW9u4w9mbF7gXTmWeuC7bT0S2MY/ff4wKl1sdRIKN9+b/Xeu+xFBZptPsA7FJ886fzpNQzN
+	d7kvGfMhdKyAiL7l0ZxUneXv31dZuLAoeRSps+cx7ry3J9ktRiCeZcyY73W38pZPFaLSSe9Xalpik
+	Gg+mLA5Ord3hP9EV3dSS3/JCSsF3VcV9uJClKHf3PY8R8NCf+6j7D44BHhaq4WzqPFRW6SSKwc5d3
+	XHBkOv1qaGAT5JfJoc6dBG3cFFENwZfBUod5/cZ57LNaq+nmDnfhX5kOSflyLhT994ovXpVeOfMqQ
+	pzN4EaeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf1ej-0000000GM1t-1H15;
-	Mon, 03 Feb 2025 18:58:49 +0000
-Received: from mail-oo1-xc31.google.com ([2607:f8b0:4864:20::c31])
+	id 1tf1g3-0000000GMU5-13eT;
+	Mon, 03 Feb 2025 19:00:11 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf1Kt-0000000GI5R-1qCm
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 18:38:20 +0000
-Received: by mail-oo1-xc31.google.com with SMTP id 006d021491bc7-5fa3714d4bbso2139659eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 10:38:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1738607897; x=1739212697; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=SVQO+IqVJBjIpGvloQABHH8Rsr9K0FypYEqAHJLTov4=;
-        b=FF7z9ynZchjjeG+abjxxE78qso27jebS+BsYFfayiFDdqQxY8pnvadiI6zz1tTgWvJ
-         Bd+aR1GQkbLGMp8xUVGioYAaL1hLyNRwIUkgNWyZvYPhps6nxMByWmjrPzi1aGV0R84P
-         sU4YxCRtQxjMO+kWHuCQUf39IDG+wDADmi0as=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738607897; x=1739212697;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=SVQO+IqVJBjIpGvloQABHH8Rsr9K0FypYEqAHJLTov4=;
-        b=fWXu5FXEL7v3gP6G+1yhz6gRZVh7TA6KlSDyznhJSYpYCXs4CQQ808ZIN3pZZ2K6P0
-         r70T6xObssIXQPBK2oCuk4rdFFX2AFWIhtxdKtQQ8IDv4KysXj1+UFk1MeZK2v4FnCNI
-         xTK43YodV7fqXYxrfMli/E/Si5QYQjuql9X1pxGPjsRu5GcBWH+xPxZUaWZFfkEYEiD+
-         QJ3nA0I6jvX3STT6MlefINPwi+g4DXurUYdnXMhux+JNk4VPdTBUC90lrYYPdmK4hESC
-         PFwsEKX/TwAwGozf2xtGWFSylrwiIAuJJzvc6KtIVCmOFwap3cWmw+MlGh8cRJWfgAHt
-         KZHQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVqwibqifNqF8AoXDADBGFYNHgsalM3N/TBkycwCEcuZGXLW4zXpwcU8WHoGomzVJs7GNyDxKnu0J6BzTk17dIn@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxk/MlryYaMkLM25LffUkK98ng47Ig6PPyHwDurF40GYwVgpmq3
-	XUQQskPT3c7VZd1v0dtwiZusUoddF1R2XjNMrzTsFvBKw2NpCh3YHKBzFToEIw==
-X-Gm-Gg: ASbGncudbq9AdjHEl1XBAB6X2b3IzbnQPgYNUFBL1OCtwn574jRCFM1HC6XZbAUAPXh
-	q+QDyegunDEixqw4AzoODdnslwG5tF1FNb92QxXLXzhbYt9UAf0cNSNM33xF0dROOiAOvwDJBp7
-	SypNYrTdWnyieva4zaMm3LKpC72eTQ88GxPF2gjuZPTZDvyYyVPNsO6ytCFLp9larAci+gaLmCB
-	gH8RsViKAubcinBmlTbJW/bhZB5x8uXm/OYFr+QGjDFIl5BooA2GOvcwpfDBRPLd/OdQarl3+vk
-	Hb2VSJ0qn2xKaFUpkvxuMGC5tMG1zQyVphD2dgv2nQmrG5MY0xUkE3s=
-X-Google-Smtp-Source: AGHT+IHq0UgRpgomIh9PzY77Gg9Jllh5zVnpCNlPjS94WHuq2Eom48xqYLcjpklGGEZPFXErKSueNA==
-X-Received: by 2002:a05:6820:2d43:b0:5f8:89bd:b99b with SMTP id 006d021491bc7-5fc0045ccccmr13214655eaf.8.1738607897456;
-        Mon, 03 Feb 2025 10:38:17 -0800 (PST)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-5fc1059ae47sm2782744eaf.28.2025.02.03.10.38.15
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 03 Feb 2025 10:38:16 -0800 (PST)
-Message-ID: <682b3f4e-7a32-4baf-a4ac-04ddf9c01a3c@broadcom.com>
-Date: Mon, 3 Feb 2025 10:38:13 -0800
+	id 1tf1OY-0000000GIgN-1WKS;
+	Mon, 03 Feb 2025 18:42:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D127C5C6801;
+	Mon,  3 Feb 2025 18:41:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6448EC4CEE6;
+	Mon,  3 Feb 2025 18:42:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738608125;
+	bh=Toyklm+XvaNto6avaLF3il6Lo9SG4Al2VivOzAWEhBA=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=CYjQPLwOuN4+buDEz8f0HDCp/ChYTLnHpGnFDX/gx1Eqa/xzO/ZaGilESvXSPBNvA
+	 JXEOVDc/1vkCqufa9GPI/QjkOBrBdzCk7RvMwEc9SBcWBuVKe8bRscWfGK8TT0BKOM
+	 ZDRKmC5bh8goUX6fizwaJMdhvacl4x/lzkl1GmC3jnRGbcRv2QxhITZnwMnMKCCUe9
+	 Elap3n7RawYneilGzA3xnHciL1RrSQU1svdb6E0WMzIdgnAzSnkGmdToS7Ci5MCVwZ
+	 YKK7aqjk5e/yijBuH6D2j4pE97htt+g8xenG3otLZ975UfPMiQY23ZL5pZjtSRQ2Hj
+	 VZod7/n3yjHmQ==
+Received: by mail-ej1-f46.google.com with SMTP id a640c23a62f3a-ab7157cf352so427187266b.0;
+        Mon, 03 Feb 2025 10:42:05 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUNkNga/CgddGeU7oq5L1liuk9Ec7pVZ6ynpJLGFJQctQReDteJph3HoKMUAIZRLwZ3BfV1skwjxCdaR56eOAws@lists.infradead.org, AJvYcCUUSkj9lmPlUgeNjgi3AQyPirhI/Ag/bX6OGdophpApe06BH4tcbf7764uk7nQmCdXw5S5FHI+38aNvDNX7uF0=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyiz8258zaITlhQQY+lnLo3ctDowq0tNsiOjMAgJc20Eup40lhf
+	OCrzpSvuAg9uazB5iL9DBFzrTTUg+ZMu2lxKz23uabvwR37ycBrvbBkir2eJrlIGbBXVIC5V63e
+	wN3ttPz3orQriizXUe7FsQ+ZQAA==
+X-Google-Smtp-Source: AGHT+IE9kiXQvZ7ftsSHwBcr32yIQHGbZmyGPLoubj6dWwKrmaLAps8M+hQ064TtgpXxV9LCGeAqE2wAHEG3g5AEDTE=
+X-Received: by 2002:a17:907:97cc:b0:ab3:992d:d98d with SMTP id
+ a640c23a62f3a-ab7480e1706mr46330666b.0.1738608123925; Mon, 03 Feb 2025
+ 10:42:03 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] PCI: brcmstb: Fix for missing of_node_put
-To: Stanimir Varbanov <svarbanov@suse.de>,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: Jim Quinlan <jim2101024@gmail.com>,
- Nicolas Saenz Julienne <nsaenz@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, kw@linux.com,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
- stable@vger.kernel.org
-References: <20250122222955.1752778-1-svarbanov@suse.de>
-Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20250122222955.1752778-1-svarbanov@suse.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20250201-en7581-dts-spi-pinctrl-v1-1-aaa4a9dfc4a6@kernel.org>
+In-Reply-To: <20250201-en7581-dts-spi-pinctrl-v1-1-aaa4a9dfc4a6@kernel.org>
+From: Rob Herring <robh@kernel.org>
+Date: Mon, 3 Feb 2025 12:41:52 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqKTEpq_-cfMosSWntTbMM6d_y-BWMrXHmUaQ3=9u90fyw@mail.gmail.com>
+X-Gm-Features: AWEUYZkGUgkQ4QDx_tXgQwyLVeliiYMhm3XTEfnUL1V8_26vM189Y0lS7Edpjfs
+Message-ID: <CAL_JsqKTEpq_-cfMosSWntTbMM6d_y-BWMrXHmUaQ3=9u90fyw@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: Introduce more nodes to EN7581 SoC evaluation board
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	devicetree@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_103819_484917_C84C9AD3 
-X-CRM114-Status: UNSURE (   6.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250203_104206_488479_C3957514 
+X-CRM114-Status: GOOD (  13.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,16 +85,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/22/25 14:29, Stanimir Varbanov wrote:
-> A call to of_parse_phandle() is incrementing the refcount, of_node_put
-> must be called when done the work on it. Add missing of_node_put() after
-> the check for msi_np == np and MSI initialization.
-> 
-> Cc: stable@vger.kernel.org # v5.10+
-> Fixes: 40ca1bf580ef ("PCI: brcmstb: Add MSI support")
-> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
+On Sat, Feb 1, 2025 at 8:40=E2=80=AFAM Lorenzo Bianconi <lorenzo@kernel.org=
+> wrote:
+>
+> Add the following nodes to EN7581 SoC and EN7581 evaluation board:
+> - clock controller
+> - rng controller
+> - pinctrl
+> - i2c controllers
+> - spi nand controller
+>
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> ---
+>  arch/arm64/boot/dts/airoha/en7581-evb.dts |  8 +++
+>  arch/arm64/boot/dts/airoha/en7581.dtsi    | 90 +++++++++++++++++++++++++=
+++++++
+>  2 files changed, 98 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/airoha/en7581-evb.dts b/arch/arm64/boot/=
+dts/airoha/en7581-evb.dts
+> index cf58e43dd5b21dbf4f64e305a4b4a2daee100858..1126da4b795f5d5df9725ec4d=
+75cd9353b011710 100644
+> --- a/arch/arm64/boot/dts/airoha/en7581-evb.dts
+> +++ b/arch/arm64/boot/dts/airoha/en7581-evb.dts
+> @@ -24,3 +24,11 @@ memory@80000000 {
+>                 reg =3D <0x0 0x80000000 0x2 0x00000000>;
+>         };
+>  };
+> +
+> +&i2c0 {
+> +       status =3D "okay";
+> +};
+> +
+> +&snfi {
+> +       status =3D "okay";
+> +};
+> diff --git a/arch/arm64/boot/dts/airoha/en7581.dtsi b/arch/arm64/boot/dts=
+/airoha/en7581.dtsi
+> index 55eb1762fb11364877695960f5a2d3e42caf8611..b1cf650efd78c6c20d19e7f18=
+c204cf5862215c0 100644
+> --- a/arch/arm64/boot/dts/airoha/en7581.dtsi
+> +++ b/arch/arm64/boot/dts/airoha/en7581.dtsi
+> @@ -2,6 +2,7 @@
+>
+>  #include <dt-bindings/interrupt-controller/irq.h>
+>  #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +#include <dt-bindings/clock/en7523-clk.h>
+>
+>  / {
+>         interrupt-parent =3D <&gic>;
+> @@ -150,5 +151,94 @@ uart1: serial@1fbf0000 {
+>                         interrupts =3D <GIC_SPI 18 IRQ_TYPE_LEVEL_HIGH>;
+>                         clock-frequency =3D <1843200>;
+>                 };
+> +
+> +               scuclk: clock-controller@1fa20000 {
+> +                       compatible =3D "airoha,en7581-scu";
+> +                       reg =3D <0x0 0x1fb00000 0x0 0x970>;
+> +                       #clock-cells =3D <1>;
+> +                       #reset-cells =3D <1>;
+> +               };
+> +
+> +               rng@1faa1000 {
+> +                       compatible =3D "airoha,en7581-trng";
+> +                       reg =3D <0x0 0x1faa1000 0x0 0xc04>;
+> +                       interrupts =3D <GIC_SPI 35 IRQ_TYPE_LEVEL_HIGH>;
+> +               };
+> +
+> +               system-controller@1fbf0200 {
+> +                       compatible =3D "syscon", "simple-mfd";
+> +                       reg =3D <0x0 0x1fbf0200 0x0 0xc0>;
+> +
+> +                       en7581_pinctrl: pinctrl {
+> +                               compatible =3D "airoha,en7581-pinctrl";
+> +
+> +                               interrupt-parent =3D <&gic>;
+> +                               interrupts =3D <GIC_SPI 26 IRQ_TYPE_LEVEL=
+_HIGH>;
+> +
+> +                               gpio-controller;
+> +                               #gpio-cells =3D <2>;
+> +
+> +                               interrupt-controller;
+> +                               #interrupt-cells =3D <2>;
+> +                       };
+> +               };
+> +
+> +               i2cclock: i2cclock@0 {
 
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
--- 
-Florian
+clock-20000000 for node name.
+
+A unit-address without 'reg' is not valid. Test this with W=3D1.
+
+
+Rob
 
